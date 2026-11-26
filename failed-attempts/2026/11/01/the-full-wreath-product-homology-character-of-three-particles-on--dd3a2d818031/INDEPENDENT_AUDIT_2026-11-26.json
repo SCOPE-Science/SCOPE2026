@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:22:36.329720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–34",
+        "reduced_check.txt and cubical_check.txt archived output (uploaded scripts not executed)",
+        "/workspace/review_checks/k33_cubical.js (replay with Node.js; ranks and traces computed in JavaScript during review)"
+      ],
+      "rationale": "Subdivide each edge once: essential vertices are separated by at least two edges and the shortest cycles have eight edges, sufficient for the three-particle cubical model. The inclusion is natural for the 72 whole-graph automorphisms. A new cubical enumeration of unordered cells with disjoint closures gives (455,1404,1386,432), all boundary squares zero, and ranks (454,946,432) modulo 97. Over Q the first rank is at most 454 by augmentation, the last at most 432 by dimension. Particle-sum sends the four loops moving one particle around fundamental rectangles, with two particles fixed on the complementary edges, to a basis of graph H1. This forces the middle rank to be at most 1404−454−4=946. Hence the modular lower bounds are all exact over Q. The particle-sum map identifies H1 with the tensor of the two augmentation subspaces of the permutation representations on the parts, with minus flip from reversal of graph edges. Signed fixed-cube traces were independently verified for all 72 elements, with the product of edge orientation signs and the permutation sign of the edge factors. They give 1−χ1+χ2 for the stated formulas. On the part-preserving subgroup the extra H2 terms are the two exchanged inducing characters; they vanish off that subgroup. Rational semisimplicity and character equality give the stated modules; averaging yields no positive-degree invariant classes. The quotient conclusion follows from rational averaging on an invariant triangulation: the fat diagonal is a subcomplex in a simultaneous subdivision of the ordered graph product, and its complement has an equivariant simplicial model after barycentric subdivision, also allowing particle permutations.",
+      "residual_risks": [
+        "The reduced Świątkowski computation was not replayed separately; the cubical check gives a separate proof of the relevant ranks and character. No integral H2 torsion conclusion is drawn."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ko–Park gives the abelian-group H1 (here Z^4 plus Z/2), not the full equivariant character. The comparison theorem supplies a natural chain method. Ramos–He Yun treat two particles on complete bipartite graphs and three on complete graphs in the inspected relevant theorems."
+        ],
+        "reasoning": "The primary papers explain method and some nonequivariant H1 information, but the exact catalogue entry, not those family theorems, supplies the decisive covering statement.",
+        "searches": [
+          "Public literature lookup on three-particle K3,3 homology and wreath-product symmetry",
+          "Ko–Park arXiv:1101.2648 Thm. 3.16",
+          "An–Drummond-Cole–Knudsen arXiv:1708.02351 Thm. 4.5",
+          "Ramos–He Yun arXiv:2606.13813 Thms. 3.16 and 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e0b7a2adf55b and 75292b8f388a",
+        "arXiv:1101.2648, 1708.02351, 2606.13813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact record supplies both positive-degree modules and no higher homology. No trivial representation occurs in either: V has no invariant line under S3, and Frobenius reciprocity applies to the induced term."
+        ],
+        "reasoning": "Even if phrased as a quotient result, the claimed rational vanishing is a direct consequence of the earlier graded representation by finite-group averaging. The rank formula alone would not give it.",
+        "searches": [
+          "e0b7a2adf55b RESULT.md finding and proof (H1 identification and H2 decomposition)",
+          "Ko–Park Thm. 3.16 contrasted with the displayed character"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record's V_- is the rational standard-by-standard tensor product with minus tensor flip under interchange; its induced summand and restrictions to the two cosets match the frozen formulas."
+        ],
+        "reasoning": "The old and frozen claims describe the same graded modules under the same graph-automorphism action; different extension symbols do not distinguish them.",
+        "searches": [
+          "Resultary: three particles K3,3 graph configuration space homology representation",
+          "Resultary exact module search including the wreath-product and sign-twisted flip descriptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-10-18 e0b7a2adf55b, finding offset 0 and proof offset 4585: exact complete positive-degree characters and rational Betti numbers. Entry 75292b8f388a concerns K3,4 rather than K3,3."
+        ],
+        "reasoning": "An earlier matching full character, not merely a repeated Betti row, is present.",
+        "searches": [
+          "Resultary exact object/character and neighboring three-particle bipartite graph results"
+        ]
+      },
+      "rationale": "The earlier distinct Resultary entry e0b7a2adf55b states the same H2 character and identifies H1 with the same minus-flip extension, for the identical unordered space, field and full group. The vanishing in other degrees and the absence of positive-degree invariants follow from that complete graded description. This is demonstrated coverage, not a claim about priority beyond the inspected record or provenance of either result.",
+      "residual_risks": [
+        "Search coverage is finite; the exact earlier statement is sufficient without inferring broader publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Same H2 tensor-extension plus induced term and formula; proof identifies H1 with graph H1 under minus flip.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-full-72-symmetry-second-homology-character-of-three-particle--e0b7a2adf55b/RESULT.md",
+          "material_read": "Finding offset 0; proof around 4585",
+          "method": "Local mirrored full text",
+          "title": "The full 72-symmetry second-homology character of three particles on K3,3",
+          "trigger": "Exact graph, configuration and full action"
+        },
+        {
+          "assessment": "Neighboring object, not used for an exact overlap or a full-document judgment",
+          "evidence": "K3,4 is not K3,3 and the groups differ.",
+          "identifier_or_url": "Resultary 75292b8f388a",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary search",
+          "title": "The full S3 times S4 module on three-particle K3,4 configurations",
+          "trigger": "Neighboring bipartite three-particle calculation"
+        },
+        {
+          "assessment": "Covers underlying H1, not claimed H2 character",
+          "evidence": "Abelian-group formula gives rank four and one Z/2 here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1101.2648",
+          "material_read": "Theorem 3.16, p. 31, offset around 110500",
+          "method": "OA PDF passage",
+          "title": "Characteristics of graph braid groups",
+          "trigger": "General H1 theorem applies to K3,3"
+        },
+        {
+          "assessment": "Method rather than an evaluated character",
+          "evidence": "Natural comparison of graph configuration chains with the Świątkowski complex.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02351",
+          "material_read": "Theorem 4.5 and graph-embedding functoriality, p. 4, offsets around 8600 and 10484",
+          "method": "OA PDF passages",
+          "title": "Subdivisional Spaces and Graph Braid Groups",
+          "trigger": "Natural equivariant chain model"
+        },
+        {
+          "assessment": "Inspected theorems have different particle numbers or graph families",
+          "evidence": "Two particles on K_n,n and three particles on complete graphs, not the claimed three particles on K3,3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.13813",
+          "material_read": "Theorem 3.16 p. 21 and Theorem 4.4 p. 29, offsets around 64100 and 89500",
+          "method": "OA PDF passages",
+          "title": "Computing stable homology representations of graph configuration spaces",
+          "trigger": "Potential stronger character formulas for complete and bipartite graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–37",
+        "Resultary e0b7a2adf55b finding and proof"
+      ],
+      "rationale": "A full symmetry character on a minimal complete bipartite nonplanar graph is a natural invariant, but this entry adds no distinct character, invariant, new case, or nontrivial consequence to the earlier exact description. Additional consistency checks and an immediate rational quotient consequence do not provide a separate scientifically valuable finding here.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

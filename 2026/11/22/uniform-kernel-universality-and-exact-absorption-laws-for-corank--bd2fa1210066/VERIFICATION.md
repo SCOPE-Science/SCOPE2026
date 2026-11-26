@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 and its standard library. The script enumerates actual finite-field matrices, multiplying each matrix explicitly rather than treating the theorem as the computation. In \(\mathbb F_2\) (dimensions two and three) and \(\mathbb F_3\) (dimension two), it checks all corank-one idempotents. In \(\mathbb F_2\) (dimension three), it separately tests all regular nilpotents. At each rank, it tests the predicted drop frequency. Through six factors, it enumerates the full matrix-state convolution and compares its rank marginal to the predicted pure-death chain using exact rational arithmetic. A second test compares survival probabilities through thirteen steps to the partial-fraction identity. `check_output.txt` contains the actual results and was recorded after replaying the included code.
+## correctness
 
-The computations do not establish a theorem for arbitrary prime-power fields or arbitrary dimension, and they do not certify novelty. Those statements rest on the independent algebraic and probabilistic proof in `RESULT.md`. The limiting random variable is proved by the uniform \(L^1\) tail estimate, not by numerical extrapolation. Independent mathematical audit is not performed.
+PASS
+
+For W=im(P), rank(MP)=dim W−dim(W∩ker M). Conditional on the entire past the kernel is a uniform line, so the chance that it belongs to W is (q^r−1)/(q^n−1); the argument works in all characteristics and with nonidentical factor laws. Successive conditional geometric waiting laws have no dependence on entrance history, giving independent holding times, the PGF and the moments. The survival PGF is (1−E[z^T])/(1−z). At each nonzero pole multiplying by 1−λ_j z gives the claimed coefficient; the constant at z=∞ is ∏_{r<n}p_r/(p_r−1), the j=n coefficient. Thus the zero-base convention is correct even at k=0 and the first step is deterministic. The leading finite coefficient telescopes. On scaling by q^n−1, fixed levels converge jointly to independent exponentials, and the expected omitted tail is bounded by ∑_{r>R}1/(q^r−1); the summable squared rates inverses justify the variance limit. For a=q−1 and W the independent limiting remainder, e^{at}P(E_1+W>t)=E[e^{a min(W,t)}]; its monotone limit is the telescoping product q/(q−1). Conjugation invariance of both example classes gives uniform kernel lines, not equality of full products. The frozen check.py and log were inspected, not run; exact small-prime-field checks are corroboration, not the argument for extension fields or the limit.
+
+## originality
+
+PASS
+
+The supported distinct claim is the entire inhomogeneous uniform-kernel rank-path law with its explicit finite and limiting absorption tails. Neither general geometric/phase-type machinery nor the inspected prior ensembles supply all of that model-specific content. Uniform idempotents alone and fixed-small-rank restrictions are not separate originality claims.
+
+## value
+
+PASS
+
+Kernel universality lets a researcher substitute nilpotent, idempotent or mixed independent factors without changing rank trajectories, although full matrix laws differ. The exact absorption tail, including the finite leading coefficient and the fixed-field large-dimension exponential-sum law, provides usable quantitative information beyond a two-factor census or an expectation. The value is this structural invariance and quantitative stopping law, not the general partial-fraction method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

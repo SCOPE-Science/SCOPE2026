@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. At half-integer flux the published exact symmetric-chain dispersion relation reduces, away from the known flat points, to \(|\sin(\pi k)|\le2k\ell/(k^2\ell^2+1)\). For large integer \(n\), monotonicity on each side of \(n\) gives unique band edges. Their boundary equations yield \(\delta_n^\pm=2/(\pi\ell n)+O(n^{-3})\). Harmonic summation gives the logarithmic momentum measure, and the exact map \(E=k^2\) gives energy width \(8/(\pi\ell)+O(n^{-2})\) and cumulative measure \(8(\pi\ell)^{-1}\sqrt E+O(1)\). The accompanying checker reproduces the exact boundary equations numerically but is not used as proof.
+## correctness
 
-## Originality
-PASS. The closest paper, arXiv:2201.01502v1, states that the symmetric-chain momentum-band probability is zero at half-integer flux and that surviving bands can occur near integer momenta; it does not state a band-width asymptotic or a cumulative zero-density law. Full-text searches of that paper for width, measure, logarithmic behavior, and the half-integer discussion found no covering statement. The broader Band--Berkolaiko theorem concerns limiting momentum-band density and does not determine the sublinear cumulative measure when that density is zero. Targeted searches under magnetic-ring-chain, half-flux, band-width, logarithmic cumulative measure, and energy-measure formulations found no equivalent result.
+PASS
 
-## Value
-PASS. Half-integer flux is a distinguished regime in the source because the asymptotic momentum-band probability collapses to zero while flat bands appear. The result quantifies what survives beyond that leading zero: individual momentum bands shrink like \(1/n\), their total length still diverges logarithmically, and the energy variable converts the same bands into asymptotically constant-width intervals. This separates three natural notions—relative momentum density, cumulative momentum length, and cumulative energy measure—at the source's critical magnetic point.
+Equation (33) at half-integer flux, after removing the isolated half-integer momenta, gives |sin(πk)|≤r_ℓ(k)=2kℓ/(k²ℓ²+1). For fixed ℓ the right side is O(1/n) throughout the cell about n, so the band must be within O(1/n) of n. On both sides of n the edge function sin(πδ)−r_ℓ(n±δ) has positive derivative near zero and changes sign, yielding exactly one interval. Substitution gives r_ℓ(n±δ)=2/(ℓn)+O(n^{-3}), and the cubic arcsine remainder gives the claimed two edges. Width errors in momentum are O(n^{-3}), hence summable, leaving 4 log K/(πℓ)+O(1). In energy the width is 2n(δ⁺+δ⁻)+(δ⁺)²−(δ⁻)²=8/(πℓ)+O(n^{-2}); there are √E+O(1) full bands and a bounded partial band. The omitted flat points have measure zero in either coordinate.
 
-## Closest literature and limitations
-The primary magnetic-ring-chain article supplies the exact dispersion relation and the zero-density statement but stops at locating possible surviving bands near integers. Band--Berkolaiko supplies the general momentum-density framework. No claim is made outside the symmetric half-flux tight chain, and the measure is not a Bloch-multiplicity-weighted density of states.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited same-model source establishes integer localization and zero limiting momentum density at half flux, but its inspected statements do not quantify the surviving bands or the total occupied length on the zero-density scale. No same or stronger measure law for the target geometry was identified. No novelty is assigned to the dispersion equation, localization or vanishing density.
+
+## value
+
+PASS
+
+The half-flux point is selected by the known vanishing momentum density, not by an arbitrary parameter slice. The sharpened result proves that the remaining occupied momentum length is unbounded, fixes its logarithmic rate, and distinguishes shrinking momentum widths from asymptotically nonzero energy widths. Those statements resolve a natural ambiguity left by a zero-density limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:20.750273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The relevant compact pair is (Sym^3 G, image of the fat diagonal), not an ordinary configuration space. Finite graph products and the collision strata admit compatible finite polyhedral structures, so relative homology computes the Borel–Moore homology of the open complement. Symmetric powers of a homotopy and of its inverse preserve the repeated-coordinate subspaces at each time; thus spanning-tree contraction compares compact pairs and does not require a homotopy equivalence off the diagonal. In the rose, collision-free relative cells have dimensions 3 (no central vertex) or 2 (a particle at the vertex). Products of ordered closed simplices are characteristic domains, with collision faces sent to infinity. A noncollision endpoint of petal i has incidence −(−1)^p at the first coordinate and +(−1)^(p+m_i−1) at the last, where p is the number of earlier coordinates and m_i the occupancy. At total occupancy three, the only noncanceling columns have occupancy 2+1 and target a single mixed row with coefficient ±2. Every mixed row is hit and no unmixed row is hit. Thus the integral image is exactly twice the mixed-row lattice, giving H_2=Z^b⊕(Z/2)^(binomial(b,2), with exponent notation interpreted as the number of direct summands), and the free kernel has rank binomial(b+2,3)−binomial(b,2)=b(b^2+5)/6. At b=0 the rose pair has empty complement and its relative homology vanishes. The frozen standard-library support was inspected, not executed; the endpoint argument checks all b, and the independent finite-subset-space argument also recovers the integral groups.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tuffley computes integral homology of exp_k and the top-degree inclusion into exp_(k+1) for every k on a rose.",
+          "Bibby–Chan–Gadish–Yun provide the ordered integral signed endpoint model; Khan treats two unordered particles, not three."
+        ],
+        "reasoning": "Exp_k is homotopy-functorial on the entire filtered pair, so Tuffley's all-k rose theorem applies to connected graphs of the same cycle rank. The ordered boundary also descends by free relabeling orbits to the frozen endpoint calculation, but the Tuffley implication alone is decisive.",
+        "searches": [
+          "Tuffley arXiv:math/0210315 Theorem 1",
+          "arXiv:2109.03302 Proposition 2.1 and Lemma 2.6",
+          "arXiv:2608.18143 Theorem 3.4 and §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0210315, arXiv:2109.03302, arXiv:2608.18143, arXiv:math/0611436 and DOI:10.5802/ahl.213 at the indicated passages",
+        "Resultary 7d068c6381b8, 94f23a73ed7c, a87143b6d586 and f9ec2f026119 as bounded scope comparisons",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For E_k=exp_k(R_b), H_2(E_2)→H_2(E_3) is twice an isomorphism of free groups of rank binomial(b,2). H_1(E_2)=Z^b, H_1(E_3)=0 and H_3(E_2)=0.",
+          "H_3(E_3) has rank b−binomial(b+1,2)+binomial(b+2,3)=b(b^2+5)/6, and both spaces are connected."
+        ],
+        "reasoning": "The doubling map is injective, so H_3(E_3,E_2)=H_3(E_3); its cokernel is (Z/2) with binomial(b,2) factors, extended in H_2(E_3,E_2) by the free H_1(E_2), hence split. Exactness gives zero elsewhere. This covers the complete statement, including the claimed new torsion, directly.",
+        "searches": [
+          "Tuffley arXiv:math/0210315 Theorem 1, pp. 876–877 and rank equation (1.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Forgetting multiplicities maps Sym^3(G) onto exp_3(G); the collision locus maps into exp_2(G) and the map is one-to-one on the collision-free stratum.",
+          "Collapsing those closed lower strata on each side yields a continuous bijection of compact Hausdorff quotients and hence a homeomorphism."
+        ],
+        "reasoning": "For finite graphs the quotient by exp_2 is the same compactification used in the frozen result. Thus H_*^BM is H_*(exp_3,exp_2;Z), even when the actual collision-free spaces are not homotopy-invariant under graph contraction.",
+        "searches": [
+          "arXiv:math/0210315 Theorem 1 and §1.1, under finite subset spaces of graphs",
+          "arXiv:math/0611436 Theorem 1.8, symmetric-product formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theta, Pappus and Tietze hits concern ordinary homology, while a87143b6d586 treats a based third finite-subset space, not unordered three-moving-point Borel–Moore homology.",
+          "Tuffley's formula gives exactly the required free ranks for k=1,2,3 and the doubling statement gives exactly the torsion multiplicities; no exact Borel–Moore table match was needed."
+        ],
+        "reasoning": "The near database hits do not establish this computation, and numerical Betti tables would not certify torsion. The applicable older theorem contains exact integral information for the filtered pair.",
+        "searches": [
+          "Resultary nearby three-particle graph configuration records: 7d068c6381b8, 94f23a73ed7c, a87143b6d586, f9ec2f026119",
+          "arXiv:math/0210315 equation (1.2) and the Theorem 1 inclusion formula"
+        ]
+      },
+      "rationale": "The full integral result, including all order-two summands, is a direct corollary of Tuffley (2003), Theorem 1, via the finite-subset filtration. That theorem explicitly determines the relevant inclusion as twice an integral isomorphism; the overlap is not merely a rational rank computation. Neither absence of the exact Borel–Moore wording there nor an invitation to generalize the separate two-particle calculation changes this implication.",
+      "residual_risks": [
+        "The bounded literature check does not establish who first printed the formula under Borel–Moore terminology; the exact mathematical implication from Tuffley's published theorem is sufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier broader integral result; gives the frozen result by excision/quotient and a pair long exact sequence",
+          "evidence": [
+            "Theorem 1 explicitly states the inclusion exp_k→exp_(k+1) is twice the composite of the two isomorphisms on H_k, and gives the free ranks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0210315",
+          "material_read": "§1.1 p. 874 and Theorem 1 with (1.2) pp. 876–877; direct OA offsets 9300–12562 for the latter passage",
+          "method": "Targeted primary OA inspection, including direct theorem passage",
+          "title": "Finite subset spaces of graphs and punctured surfaces",
+          "trigger": "Equivalent compact filtered pair and possible exact integral inclusion maps"
+        },
+        {
+          "assessment": "Provides the integral chain model; its unordered orbit calculation has the same endpoint coefficients",
+          "evidence": [
+            "Integral oriented endpoint-deletion terms and equivariant rose cells."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.03302",
+          "material_read": "Proposition 2.1 and Lemma 2.6, especially formula (8)",
+          "method": "Targeted primary OA inspection",
+          "title": "Homology representations of compactified configurations on graphs applied to M_(2,n)",
+          "trigger": "Integral ordered compactified chain model"
+        },
+        {
+          "assessment": "Two-particle case only in the inspected theorem; not the decisive overlap",
+          "evidence": [
+            "§4 names extension to more particles as a direction, whereas Tuffley works with an equivalent filtered pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.18143",
+          "material_read": "Theorem 3.4 and §4",
+          "method": "Targeted primary OA inspection",
+          "title": "Borel–Moore Homology of 2-Particle Unordered Configuration Spaces of Graphs via Discrete Morse Theory",
+          "trigger": "Prior cited unordered Borel–Moore calculation"
+        },
+        {
+          "assessment": "Rational ordered framework does not determine the integral torsion",
+          "evidence": [
+            "Claims are made for ordered configurations and rational compactly supported cohomology."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/ahl.213",
+          "material_read": "§§1.2, 1.12",
+          "method": "Targeted primary OA inspection",
+          "title": "Configuration spaces on a wedge of spheres and Hochschild–Pirashvili homology",
+          "trigger": "Potential broader homology comparison on wedges"
+        },
+        {
+          "assessment": "Related based object, not the relative pair in the frozen claim",
+          "evidence": [
+            "The indexed result fixes a basepoint in Sub_3, so it does not give the Borel–Moore groups of three moving particles as a statement."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-parity-controls-the-symmetric-group-homology-of-based-third-fini--a87143b6d586",
+          "material_read": "Indexed statement",
+          "method": "Configured local Resultary search",
+          "title": "Parity controls the symmetric-group homology of based third finite-subset spaces",
+          "trigger": "Local finite-subset-space hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The torsion pattern is a natural complete invariant, but here it is already forced by the published doubling inclusion in the equivalent finite-subset filtration. Recomputing its degree-two Smith form does not add a separately justified invariant or useful surviving claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

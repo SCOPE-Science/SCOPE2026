@@ -1,12 +1,21 @@
-# Review of the positive geodesic-mixture Fourier theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim quantifies over every integer \(N\ge1\), every finite positively weighted family of complete primitive torus geodesics, and every signal in the full square Fourier band. The proof reduces off-diagonal Parseval constraints to one perpendicular direction per nonzero Fourier difference, then uses identity Toeplitz moments to force the directional loop counts. The equality case and unique global optimizer follow from strict lattice-length arithmetic. The reproducing program tests 51 complete Gram systems and finite exact length inequalities; the analytic proof supplies the all-parameter quantifiers. Risks: numerical examples cannot replace the proof, and the result is only for complete geodesic components.
+## correctness
 
-## Originality — PASS with historical-priority qualification
-The closest previous single-slope result treats parallel geodesics with equal weights and does **not** establish no-cancellation between distinct slopes. Original primary works on Euclidean mobile sampling (Rashkovskii–Ulanovskii–Zlotnikov, 2020) and spherical t-design curves (Ehler–Gröchenig, 2023) were inspected in relevant full HTML sections. Later torus design curve work (Kunis, 2026; Ehler, 2026) was inspected at abstract level only; no accessible statement directly covers the full positive-mixture theorem. Literature-index searches on Fourier geodesic mixtures, aliases and optimization did not return an equivalent claim. Residual priority risk: unread later full texts or unindexed classical design equivalences.
+PASS
 
-## Mathematical value — PASS
-The result settles exact energy-preserving multi-trajectory acquisition over the natural finite-geodesic measurement class, including arbitrary positive relative weights and all primitive slopes. It gives a universal additive per-direction arclength lower bound, attained simultaneously for both coordinate slopes but strictly exceeded when at least three slope classes are used, and proves that no directional hybrid outperforms the simple coordinate design. This is a structural and design-relevant obstruction, not merely another small computed example. It does not optimize arbitrary rectifiable paths or sensor relocation.
+With unit mass, complex polarization reduces energy exactness to vanishing of the nonzero Fourier moments in the full integer difference box [-2N,2N]^2. Integration over a complete primitive loop kills every character except multiples of its primitive perpendicular vector, so each off-diagonal Gram entry can come from only one unoriented direction. For a direction of mass W>0 and m=max(|p|,|q|), this gives the vanishing moments of orders 1 through T=floor(2N/m). The normalized moment Gram matrix of powers 0 through T is the identity; its rank gives L>=T+1 even with repeated offsets. In equality its square weighted Vandermonde matrix is unitary, giving equal internal weights and a translated root polygon by column orthogonality (for T=0 there is simply one arbitrary offset). The physical length is at least 2π(T+1)m>=2π(2N+1), and equality forces Euclidean length of the primitive vector to equal m, hence a coordinate direction, then exactly 2N+1 circles. Summing gives the asserted equality configurations for J=1 and J=2, with arbitrary positive total weights per coordinate family in the latter, and strictness for J>=3. The numerical checker was inspected but not run; its bounded corroboration is not used to prove the result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest overlap is the same-day parallel equal-weight Parseval frontier, including the one-direction optimum, which the frozen claim expressly does not claim as new. No inspected source covers the directional decomposition with arbitrary positive weights and its sharp global equality theorem for mixtures. This judgment concerns that distinct content, not historical priority for the one-direction problem.
+
+## value
+
+PASS
+
+A sharp cost within the class of complete straight periodic acquisition loops matters because combining slopes and choosing independent weights could otherwise enlarge the design space. The separate moment criterion rules out that tradeoff, gives an exact component count for each prescribed slope, and characterizes both attainment and strictness of the global length bound. This goes beyond the known parallel equal-weight optimum without asserting a bound for general connected sampling paths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

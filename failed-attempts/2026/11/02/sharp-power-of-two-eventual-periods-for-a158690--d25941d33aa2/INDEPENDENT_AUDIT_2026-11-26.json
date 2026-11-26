@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:37:18.863179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82; VERIFICATION.md lines 19–23; verify.py inspected, not executed",
+        "Replay: python3 /workspace/reproduction/2.py"
+      ],
+      "rationale": "The substitution y=e^t−1 and Stirling expansion are formally coefficientwise finite and give integral coefficients. Modulo 2^r, terms of factorial index at least 2r vanish, and for n≥r all even bases of the fixed finite inclusion–exclusion sum vanish. The modulo-32 cycle 31,17,31,1 repeats on n≥5 via the eighth powers of the odd bases; independently multiplying the truncated exponential series in integer derivative coordinates reproduced this cycle and passed 459 half-shift tests. For odd j, writing j²=1+8u gives ν₂(binomial(2^{s−1},k)·8^k)≥s−1−ν₂(k)+3k≥s+4 for k≥2 when the binomial is nonzero. This proves j^{2^s}−1≡2^{s−1}(j²−1) modulo 2^{s+4}, including s=1. Applied to the fixed odd bases, this lifts the base defect for every n≥r and r=s+4. Parity is preserved by the half-shift, so applying it twice gives a period; its half fails on all sufficiently large even n. The least eventual period divides any period by Euclidean differences. Reduction of the base cycle gives the parity alternation modulo 4, 8 and 16 and the constant tail modulo 2.",
+      "residual_risks": [
+        "The separate finite computation does not establish the general lifting; the proof does. No least preperiod is asserted or audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kallat proves the general Carmichael upper bound, not least dyadic periods. The preperiod record acknowledges the stronger least-period result for exponents ≥5. Resultary 9ee3583d96cb gives the full least-period formula at all binary exponents."
+        ],
+        "reasoning": "The upper-bound theorem alone is insufficient: the exact-period and explicit defect results in the catalogue, not Kallat's more general scope, establish coverage.",
+        "searches": [
+          "Kallat arXiv:2609.07238, Theorem 1.1, Proposition 2.1 and §3",
+          "Resultary 15f006d1757a and 9ee3583d96cb"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fd9c55091a8e, 9ee3583d96cb and 15f006d1757a",
+        "Kallat arXiv:2609.07238; OEIS A158690; Hwang–Jin arXiv:1911.06690"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The latter gives 2^{r−3} for r≥4, and 1,2,2 for r=1,2,3; the former gives exactly the asserted shift, residues and onset after reindexing."
+        ],
+        "reasoning": "No new mathematical deduction is needed beyond setting k=r−3. A new presentation or a bounded independent check of the same statements does not restore originality.",
+        "searches": [
+          "Resultary fd9c55091a8e Finding offset 100; 9ee3583d96cb Finding and proof offsets 100 and 2100–4186"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary fd9c55091a8e states the defect at shift 2^{k−1} for n≥k+3, with values 2^{k+2} at even n and 0 at odd n modulo 2^{k+3}, k≥2."
+        ],
+        "reasoning": "With k=r−3 this is exactly both parity branches and the same onset for every r≥5. The sequence is the same A158690, not merely a similar power-sum sequence.",
+        "searches": [
+          "Local Resultary semantic comparison: A158690 / Bala sequence, exact dyadic periods and half-shift defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records Bala's modulo-16 period-two example, not the full all-exponent statement. Resultary 9ee3583d96cb states the same complete least-period law; fd9c55091a8e states the full dyadic defect."
+        ],
+        "reasoning": "An isolated sequence example would not prove the classification, but the exact database findings explicitly supply both parts.",
+        "searches": [
+          "OEIS A158690 entry and linked papers; local Resultary for the precise modular invariant"
+        ]
+      },
+      "rationale": "Distinct prior Resultary records already cover the complete least-period law and both branches of the half-period defect, including the same onset n≥r. This is affirmative coverage, not an inference from an unsuccessful search.",
+      "residual_risks": [
+        "Not all OEIS-linked materials were inspected; no earliest attribution is inferred. The exact coverage above suffices regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact defect and large-exponent period coverage",
+          "evidence": "Shift 2^{k−1}, mod 2^{k+3}, n≥k+3; even residue 2^{k+2}, odd residue 0.",
+          "identifier_or_url": "Resultary fd9c55091a8e",
+          "material_read": "RESULT.md Finding, offset 100",
+          "method": "Local catalogue mirror",
+          "title": "Exact dyadic eventual periods for sequence A158690",
+          "trigger": "Identical sequence and all-exponent half-period defect"
+        },
+        {
+          "assessment": "Exact least periods and even-branch defect",
+          "evidence": "P₁=1, P₂=P₃=2, then 2^{r−3} for r≥4.",
+          "identifier_or_url": "Resultary 9ee3583d96cb",
+          "material_read": "RESULT.md offsets 100 and 2100–4186",
+          "method": "Local catalogue mirror",
+          "title": "Sharp binary eventual periods for A158690",
+          "trigger": "Exact all-exponent least-period law"
+        },
+        {
+          "assessment": "Related; acknowledges prior least periods",
+          "evidence": "Addresses preperiods and treats the e≥5 least-period law as already obtained.",
+          "identifier_or_url": "Resultary 15f006d1757a",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp 2-adic preperiods for the Bala sequence",
+          "trigger": "Possible earlier onset result"
+        },
+        {
+          "assessment": "General upper bound and proof input, not the exact dichotomy",
+          "evidence": "Uses the Stirling/power-sum reduction; Carmichael bound gives 2^{r−2} for r≥3.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.07238",
+          "material_read": "Theorem 1.1 p. 2, Proposition 2.1 p. 3, Theorem 2.6 and §3 p. 6; OA offsets 5600 and 14000",
+          "method": "Lawful OA PDF text",
+          "title": "A Proof of Bala's Congruence Conjectures for A158690",
+          "trigger": "Primary literature on the exact sequence and congruences"
+        },
+        {
+          "assessment": "Modulo-16 instance, not all-exponent coverage",
+          "evidence": "Reports an apparent preperiod 4 and period 2 modulo 16; links Kallat and Hwang–Jin.",
+          "identifier_or_url": "https://oeis.org/A158690",
+          "material_read": "2021-12-18 Bala comment, OA offset 1530",
+          "method": "Public entry",
+          "title": "OEIS A158690",
+          "trigger": "Sequence identification and known exact modular examples"
+        },
+        {
+          "assessment": "Related sequence analysis; inspected sections not modular-period results",
+          "evidence": "Identifies A158690 and analyzes asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.06690",
+          "material_read": "p. 4 and §3 p. 12, OA offsets 15824 and 46200",
+          "method": "Lawful OA PDF text",
+          "title": "Hwang–Jin, arXiv:1911.06690",
+          "trigger": "Primary work linked for A158690"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings; Resultary fd9c55091a8e and 9ee3583d96cb"
+      ],
+      "rationale": "The sharp period and parity defect are natural arithmetic invariants, but both are already recorded with the same quantifiers. No additional unknown invariant, stronger onset, or independently useful structural result is asserted; the proof and checks recompute the covered theorem.",
+      "residual_risks": [
+        "The verdict concerns the frozen contribution, not the value of the underlying theorem or its prior proofs."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

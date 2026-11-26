@@ -1,19 +1,21 @@
-# Review of the constrained swap-and-replace sphere spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The count of legal replacements and swaps is disjoint and exact: each occurrence of `101` supplies exactly the one overcounted neighboring zero and the two forbidden swap positions, yielding a net loss of one from length. The gap-decomposition binomial sum handles all values of the one count and the number of short internal gaps, with the all-zero exception explicit. Its sum gives the rational enumerator, and endpoint witnesses cover the full degree support. The stated mean and variance follow by a simple analytic dominant-root perturbation. Direct word enumeration through length 20 and independent transfer enumerations through length 100 agree with all formulas. Risks: these conclusions do not apply to cyclic words, unconstrained target outputs, or multiple edits.
+PASS
 
-## Originality
+For n>=2 let b count adjacent unequal pairs. The b incidences on zeros cover b−t distinct zeros, since exactly the centers of 101 are counted twice. Thus n−(b−t) replacements are allowed. Among the b potential swaps precisely two per such center are forbidden, without repeat swap positions even for overlapping occurrences. All allowed operations give distinct outputs by their changed-position sets. This gives degree n−t (also directly for n=1) and ball size one more. With k ones, choose c of the k−1 interior zero gaps to have length one, give all others two zeros, and allocate the residual n−3k+2+c across k+1−c variable gaps. Stars and bars yields the stated multiplicities and a geometric series in the number of gaps gives H(z,u). Spacing of starts and the words (10)^c followed by 1 and trailing zeros give exact support; at maximum c one must have k=c+1 for n>=3, with at most one extra zero in an exterior gap, giving the stated extremizers. Setting u=0 counts maximum-degree words. The small Fibonacci root stays simple and separated from other poles near u=1 for complex u; the nonzero amplitude and strict radius gap permit differentiating the simple-pole coefficient asymptotic via analyticity. Differentiating D(r(t),exp(t))=0 twice gives the two displayed cumulant slopes for d=n−t.
 
-PASS, with historical-priority qualification. The 2023 foundational tilde-Fibonacci-cube paper proves a total edge count; the open 2025 overview proves other graph invariants but does not give a full degree spectrum. The classical 2011 Fibonacci-cube degree distribution applies to replacement-only edges; at length three it differs from the tilde distribution. Other constrained-word edit distributions treat different restrictions or edit operations and do not imply the present result. Searches for direct aliases and exact database/tabular presentations found no matching theorem. An unindexed or differently named predecessor could remain, and negative searches alone do not prove absolute historical novelty.
+## originality
 
-## Value
+PASS
 
-PASS. Under a locally constrained substitution/transposition channel, the exact source-dependent size of each radius-one error neighborhood is a natural invariant for assessing nonuniform error exposure and sphere-packing analyses. The local cancellation identity, exact histogram, unbroken range, sharp fragile/robust configurations and linear-order variance characterize the entire language for every length, not just isolated numerical instances. No code-size improvement is claimed.
+The graph and its edge total are prior; by the handshaking identity the leading mean 2/sqrt(5) is already implied and is not independent novelty. The supported distinct contribution is the local 101 identity for the combined degree, the exact degree spectrum refined by number of ones, sharp endpoints, and the variance coefficient, which are not supplied by the inspected edge totals or replacement-only degree polynomials.
 
-## Closest literature and limits
+## value
 
-Anselmo et al. (arXiv:2303.09898, 2023), section on tilde-Fibonacci cubes: vertices, recursive construction and summed edges; Anselmo et al. (OASIcs Grossi 5, 2025), section 6: edge counts and metric data; Klavžar–Mollard–Petkovšek (2011): ordinary Fibonacci-cube degree sequences; Gabrys et al. (2022): different synchronization-error coding regimes. Their results motivate but do not imply the conditional per-input spectrum given here. The primary residual risk is an unlocated equivalent study of constrained swap-and-replace ball sizes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard constrained edit graph, the histogram measures how one-error exposure varies by source and weight. The local characterization gives extremal neighborhoods and the variance gives a fluctuation scale neither determined by the prior mean nor by graph diameter. The distribution is for all lengths and usable for constrained-channel analysis without claiming a new packing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:30:24.166638Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–85; VERIFICATION.md and check_fock_third.py inspected, not executed"
+      ],
+      "rationale": "The coordinate t=pi|z|^2 converts area to length and radiality diagonalizes the localization operator with weights f_j=e^(-t)t^j/j!. The j>=3 peaks decrease, with maximum 9/(2e^3)<c, so above that times s the ordered third eigenvalue is the minimum of L_0,L_1,L_2. The dual h=cf_0+(1-c)f_2 attains c only at 0 and tau; this follows from the signs of h' around the two roots 2-tau and tau. To justify strictness for the supremum (not just individual masks), set g=c-h. Its tail limit is positive and its zero set has measure zero, so for each fixed s choose eta>0 with |{g<eta}|<s/2. Every mask then has integral_E g>=eta s/2, and combining this with the high-mode cutoff gives M_3(s)<cs. In the two-band construction the central piece loses p^2 s^2/2 in L_0, L_2 has no central term at that order, and the annulus has no first-moment term about tau. The adjustment p_s=p+p^2 s/[2(1-A+B)] balances both to cs-cp^2s^2/2+O(s^3), while L_1/s tends to 2c/tau>c. Conversely the dual deficit of near maximizers gives two-point concentration and the L_2 mass fixes the central fraction p. Since g(t)/t tends to c at zero, bathtub rearrangement forces at least cp^2s^2/2+o(s^2) loss. For F near zero of measure m, moving the missing length d=|F triangle [0,m]|/2 to the right of m costs at least d^2 in first moment. Saturation of the coefficient, followed by taking the small neighborhood smaller and using o(s) mass in the intervening fixed annulus, yields the scaled central-disk assertion. Independent high-precision values tau=1.59362426004004009, c=0.24460180302352822, p=0.05197452634475800 give the stated coefficient.",
+      "residual_risks": [
+        "The printed strict-envelope argument omits the short uniform margin supplied above; the bound nevertheless holds as stated. Finite numerical probes cannot prove the uniform-in-mode bounds or asymptotics. No nonradial or finite-area optimizer uniqueness claim is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper's sharp single-eigenvalue optimization is for the second radial eigenvalue; it also treats partial sums and gives a qualitative third-eigenvalue counterexample to the single-annulus candidate.",
+          "Abreu maximizes finite Ky Fan sums for arbitrary masks. The radial Toeplitz approximation result concerns spectra of Toeplitz symbols rather than this fixed-area indicator extremum."
+        ],
+        "reasoning": "Partial sums can bound individual eigenvalues but cannot be differenced after optimization to identify the optimum of the third eigenvalue. The cited broader results do not supply a matching second-order estimate or near-optimal mask shape for this objective.",
+        "searches": [
+          "arXiv:2503.07069v2 Theorems 1.3 and 1.5 and Remark 4.1",
+          "Abreu arXiv:2607.28376 Theorem 1",
+          "Esmeral García–Maximenko arXiv:2503.23276, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE corpus; records c54df82037bb and 48a004f6469a",
+        "arXiv:2503.07069v2, arXiv:2607.28376, arXiv:2503.23276",
+        "Frozen RESULT.md lines 90–99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof integrates the same linear dual bound and expands a fixed p two-band trial only to first order. It proves weak convergence of normalized radial area, not symmetric-difference control on the s scale.",
+          "In the frozen proof the boundary zero is linear, imposing a first-moment loss proportional to the square of the central area; the p_s balancing is needed to match that loss in both spectral constraints."
+        ],
+        "reasoning": "Strict linear domination can be obtained from the prior peak bound with uniformization and a mode cutoff and is not the originality basis. The coefficient and central filling require the second-order moment lower bound, its sharp stability and a matching mass adjustment; they are not direct consequences of the prior O(s^2) or weak-limit statements.",
+        "searches": [
+          "Resultary c54df82037bb proof §§1, 3–6, offsets 2488 and 3900",
+          "arXiv:2503.07069v2 Remark 4.1, PDF p. 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior record's m=2 dual uses exactly the same c, tau and p after converting area conventions; it treats the smaller capture of two named states, including nonradial masks after angular averaging.",
+          "Remark 4.1 already uses a disk-and-annulus competitor for the third eigenvalue."
+        ],
+        "reasoning": "The high-mode bound and a two-band L_1 margin connect the two-state objective to ordered lambda_3 near the sharp level. Even granting this reduction, the earlier two-state first-order expansion with O(s^2) error leaves the sharp deficit and stability at that order undetermined.",
+        "searches": [
+          "Resultary two-band vacuum and excited Gaussian Fock modes; record c54df82037bb",
+          "arXiv:2503.07069v2 Remark 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact headline match is the assigned source. The distinct same-day minimax record optimizes a single annulus over a consecutive span of modes and reduces the least capture to min(lambda_0,lambda_N). The older two-band record has an exact adjacent-mode formula for m=1, but only an O(s^2) remainder for m=2."
+        ],
+        "reasoning": "Neither an exact m=1 formula nor the same-day single-annulus endpoint law covers unrestricted radial masks and the third ordered eigenvalue at second order. No order of publication was inferred from the shared date.",
+        "searches": [
+          "Resultary third radial Fock localization eigenvalue, two-band and finite-band annulus minimax; records 1fa89c65f708, c54df82037bb, 48a004f6469a"
+        ]
+      },
+      "rationale": "The dual peak certificate, leading slope, two-radius split, disk-plus-ring geometry and weak concentration are prior. The supported distinct contribution is the sharp second-order deficit for the ordered third radial eigenvalue, with a balancing adjustment and central filling at the rescaled area level. This is not merely the m=2 substitution of the prior first-order two-mode theorem.",
+      "residual_risks": [
+        "Bounded search cannot preclude an equivalent second-order theorem in other formulations of the two-state minimax problem; no separate general POVM third-eigenvalue theorem was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the two-mode linear certificate and first-order structure; not the coefficient of the remainder for m=2",
+          "evidence": [
+            "The maximum-ratio proof gives equality at 0 and t_m, first-order Taylor estimates give alpha_m s+O_m(s^2), and rigidity is weak convergence to the two atoms. The exact adjacent-mode argument is limited to m=1."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-two-band-concentration-law-for-vacuum-and-excited-gaussian-foc--c54df82037bb",
+          "material_read": "RESULT.md Finding, and proof §§1 and 3–6 at offsets 2488 and 3900",
+          "method": "Primary local Resultary mirror passage reads",
+          "title": "A two-band concentration law for vacuum and excited Gaussian Fock modes",
+          "trigger": "Same two-radius split and exact leading constant"
+        },
+        {
+          "assessment": "Covers the second eigenvalue and qualitative disk-plus-annulus improvement for the third, not its small-area deficit coefficient",
+          "evidence": [
+            "The second eigenvalue has an annulus maximizer; Remark 4.1 rules out the degree-two superlevel annulus for the third; the partial-sum theorem has a different objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.07069v2",
+          "material_read": "Theorems 1.3 and 1.5, pp. 4–5, and Remark 4.1, p. 16 offset 54609",
+          "method": "Primary PDF passage reads",
+          "title": "The isoperimetric inequality for partial sums of Toeplitz eigenvalues in the Fock space",
+          "trigger": "Sharp radial eigenvalue optimization and explicit third-eigenvalue comparison"
+        },
+        {
+          "assessment": "Aggregate extremum, not the optimized third eigenvalue",
+          "evidence": [
+            "Disks maximize finite Ky Fan sums without radiality, which does not identify the separate extrema of the individual eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.28376",
+          "material_read": "Theorem 1, p. 4 offset 10000",
+          "method": "Primary PDF passage read",
+          "title": "The isoperimetric inequality for the Ky Fan norm",
+          "trigger": "Stronger mask class and possible ordered-spectrum upper bound"
+        },
+        {
+          "assessment": "Different optimization domain and spectral functional",
+          "evidence": [
+            "One annulus, consecutive designated modes, and an endpoint minimum; no optimization over arbitrary radial masks of the full third ordered eigenvalue."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-finite-band-fock-annulus-minimax-law-with-an-n-e-placeme--48a004f6469a",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Primary local Resultary mirror passage read",
+          "title": "A sharp finite-band Fock annulus minimax law with an n/e placement",
+          "trigger": "Distinct indexed same-day Fock minimax result"
+        },
+        {
+          "assessment": "Stated theorem is approximation of spectral sequences; no whole-document exclusion inferred",
+          "evidence": [
+            "Approximation of convergent sequences by radial Toeplitz–Fock eigenvalue sequences is not the stated fixed-area indicator optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.23276",
+          "material_read": "p. 1 abstract",
+          "method": "Primary PDF abstract read",
+          "title": "Radial Toeplitz–Fock spectral approximation result",
+          "trigger": "Related radial spectral source returned by focused literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–26 and 52–85",
+        "Nicola–Riccardi–Tilli Remark 4.1",
+        "Resultary two-band concentration law proof §§3 and 5"
+      ],
+      "rationale": "The prior third-eigenvalue example demonstrates only that an annulus loses. This gives a sharp accuracy benchmark for the optimized ordered eigenvalue and explains why weak two-radius concentration is insufficient for comparably accurate masks: a nonzero fraction must nearly fill the central disk on its natural area scale. The positive correction comes from a boundary first-moment constraint and has matching explicit masks; it is not merely extra numerical precision in a known constant.",
+      "residual_risks": [
+        "Only the small-area radial problem is resolved to second order; exact finite-area shape and nonradial optimization are open here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

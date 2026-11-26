@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:10:21.471596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<P<N, AUC counts correctly ordered positive-negative pairs divided by P(N-P), and classical AP averages the prefix precisions at positive ranks. These are exactly the two quantities in the frozen proof; neither tied scores nor interpolated PR area is used. A fresh exhaustive calculation using direct pair counts and prefix precisions compared 1, 6, 27 and 110 unordered same-prevalence ranking pairs at N=2,3,4,5. It found no disagreements through 3, just 0110 versus 1001 at 4 (AUC 1/2 for both; AP 7/12 and 3/4), and exactly the two strict reversals at 5: 01100 versus 10001 (AUC 2/3 and 1/2; AP 7/12 and 7/10) and 01110 versus 10011 (AUC 1/2 and 1/3; AP 23/36 and 7/10). The one-class cases do not have ordinary ROC-AUC and are excluded. Reproduce with python3 /workspace/branches/independent_checks.py 2; the uploaded script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li's abstract compares consistency across prevalence contexts; Saito–Rehmsmeier's candidate ranking discussion concerns interpretation under imbalance."
+        ],
+        "reasoning": "Neither identified statement supplies a stronger fixed-prevalence all-small-rankings result; neither the minimum nor the two-pair classification follows from differences between metrics under changing prevalence.",
+        "searches": [
+          "Li, arXiv:2408.10193",
+          "Saito–Rehmsmeier, DOI 10.1371/journal.pone.0118432"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic index and cited record passages",
+        "Davis–Goadrich (2006)",
+        "Saito–Rehmsmeier (2015)",
+        "Li, arXiv:2408.10193"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published area optimization observation is qualitative and the catalogue examples constrain different metrics or null distributions."
+        ],
+        "reasoning": "Standard rank formulas allow computation of the bounded comparison but do not supply this exhaustive consequence without the actual ranking analysis. Existing qualitative disagreements do not prove minimality or exhaustiveness.",
+        "searches": [
+          "Davis–Goadrich pp. 1–2; Saito–Rehmsmeier p. 18; Resultary RESULT.md findings for 3615e3a41a8a, f1cf2de04c2d, e1fbac7c9a99"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Davis and Goadrich, pp. 1–2 of the PDF: ROC/PR curve correspondence and non-equivalence of area optimization."
+        ],
+        "reasoning": "A curve correspondence at fixed class totals does not identify classical AP with all conventions for PR area or give the strict/weak thresholds. Positive-rank vectors and binary words are interchangeable here; neither form of the exact cutoff was located.",
+        "searches": [
+          "Primary-literature search for the smallest fixed-prevalence binary-ranking length for strict classical-AP/empirical-AUC reversal and all five-item pairs",
+          "Davis and Goadrich, DOI 10.1145/1143844.1143874"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 record 3615e3a41a8a concerns conditional online AP@k testing. The 2026/10/12 records f1cf2de04c2d and e1fbac7c9a99 compare F1 against balanced accuracy or MCC on hard-classification confusion matrices."
+        ],
+        "reasoning": "These check the closest topical or structurally analogous indexed claims, not an exact rank-pair table for the two metrics here. The returned exact-title hits did not include the bound record; no inference is made about catalogue completeness.",
+        "searches": [
+          "Resultary exact-title search and topical comparison for ROC-AUC, average precision, fixed prevalence, and sharp ranking reversal"
+        ]
+      },
+      "rationale": "The supported distinct claim is the fixed-prevalence, no-ties boundary and its first-layer classification for empirical AUROC and classical discrete AP, not the known general phenomenon that ROC and PR criteria can disagree.",
+      "residual_risks": [
+        "A ranking pair or equivalent finite classification could occur in teaching material, evaluation software tests or sources missed by the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known qualitative ROC versus PR area disagreement; no located cutoff for discrete AP",
+          "evidence": "The ROC/PR curve relation coexists with the failure of optimizing one area to optimize the other.",
+          "identifier_or_url": "https://doi.org/10.1145/1143844.1143874",
+          "material_read": "PDF pp. 1–2, offsets 769 and 9092",
+          "method": "Targeted OA PDF passages",
+          "title": "The Relationship Between Precision-Recall and ROC Curves",
+          "trigger": "Closest general comparison of ROC and PR optimization"
+        },
+        {
+          "assessment": "Distinction under imbalance, not the sharp boundary",
+          "evidence": "The candidate-ranking discussion compares PRC scores and does not establish an exhaustive small-list result.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0118432",
+          "material_read": "PDF pp. 1 and 18, offsets 0 and 82067",
+          "method": "Targeted OA PDF passages",
+          "title": "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets",
+          "trigger": "Direct ROC/PR comparison"
+        },
+        {
+          "assessment": "Different prevalence scope in the inspected statement",
+          "evidence": "Consistency is studied across prevalence scenarios rather than fixed-(N,P) finite reversals.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.10193",
+          "material_read": "Abstract, PDF p. 1, offset 788",
+          "method": "Targeted OA PDF passage",
+          "title": "Area under the ROC Curve has the Most Consistent Evaluation for Binary Classification",
+          "trigger": "Search hit on metric ranking consistency"
+        },
+        {
+          "assessment": "Does not cover the comparison",
+          "evidence": "Conditioning removes the prevalence parameter of a Bernoulli random-ranking null for an online AP@k statistic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-conditioning-out-prevalence-gives-an-exact-random-order-test-for--3615e3a41a8a",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local record mirror",
+          "title": "Conditioning out prevalence gives an exact random-order test",
+          "trigger": "Closest topical catalogue hit"
+        },
+        {
+          "assessment": "Different metrics and objects regardless of date",
+          "evidence": "The sharp count is for F1 and balanced accuracy computed from confusion matrices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-seven-cases-are-the-sharp-fixed-prevalence-f1-balanced-accuracy--f1cf2de04c2d",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local record mirror",
+          "title": "Seven cases are the sharp fixed-prevalence F1–balanced accuracy boundary",
+          "trigger": "Structurally similar indexed finite metric comparison"
+        },
+        {
+          "assessment": "Different metrics and objects regardless of date",
+          "evidence": "The finite boundary compares F1 against the Matthews coefficient on confusion matrices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-seven-cases-are-the-sharp-f1-matthews-ranking-boundary--e1fbac7c9a99",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local record mirror",
+          "title": "Seven cases are the sharp F1–Matthews ranking boundary",
+          "trigger": "Structurally similar indexed finite metric comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a minimal controlled test case for two standard ranking measures: a test of whether the measures actually prefer opposite rankings must use at least five cases, whereas a test of tie behavior needs only four. Exhausting the first strict layer separates the effect of redistributing positive ranks from prevalence changes and makes both witnesses useful as exact metric sanity checks. The contribution is small but the boundary is natural, not an arbitrary instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

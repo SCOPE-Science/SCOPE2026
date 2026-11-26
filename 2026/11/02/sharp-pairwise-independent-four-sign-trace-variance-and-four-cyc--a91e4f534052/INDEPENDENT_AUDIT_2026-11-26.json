@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:46.412752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pairwise products give the trace mean. In the centered square, diagonal edge-pair terms contribute four times the sum of squared edge weights, intersecting distinct edges reduce to pairwise sign moments of zero, and disjoint edges give the three cross terms with coefficient eight times the common fourth moment. Both fourth-moment endpoints are realized by fair uniform parity laws. At a forced endpoint the first and second moments vanish and each triple moment equals the parity times the complementary singleton moment, so Walsh inversion uniquely determines the entire law. At S=0 all laws are optimal; completing squares proves the zero-variance criterion. For the nonnegative weighted cycle S=ac+bd; the odd parity formula follows, including weight-zero cases. For spectral functions of the unweighted cycle, cyclic symmetry pairs the opposite entries and gives exactness for an exact matrix-function action; independent block choices retain isotropy. The eigenvalues of I+A/4 lie in [1/2,3/2] and the iid variance is 1. Below four coordinates there are no disjoint edge pairs. The finite rational checks in verify.py complement the proof; the supplied script was inspected, not executed, and does not enumerate all feasible laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The iid formula supplies the baseline; graph-color probing uses separate supported vectors, and fixed-basis methods treat a different worst-case objective.",
+          "The hypercube record optimizes a two-query parity partition; the tensor record gives exact variance and invisibility for fixed tensor-sign probes."
+        ],
+        "reasoning": "The latter tensor formula includes the product-plus-one law in 2-by-2 factors and the other parity after a fixed coordinate sign flip, so it covers both fixed-law evaluations through this reduction. It does not bound all fair pairwise-independent laws or identify the unique minimizer among them.",
+        "searches": [
+          "Frommer–Rinelli–Schweitzer arXiv:2308.07722, Theorem 2.7 and Sections 2–3",
+          "Fitzsimons et al. arXiv:1608.00117, Section III",
+          "Resultary 58c24538e024 and 5d3610a27f37"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2308.07722",
+        "arXiv:1412.7859",
+        "arXiv:1608.00117",
+        "arXiv:2301.07825 Section 1.1",
+        "Resultary 86af5851f399, 58c24538e024 and 5d3610a27f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 2-by-2 tensor of independent sign factors is exactly uniform on the even-product coset; applying the fixed sign change to the matrix realizes the odd-coset variance formula.",
+          "The iid formula is the fourth-moment-zero case."
+        ],
+        "reasoning": "Those evaluations do not prove that no competing law gives a smaller value or that fairness forces uniqueness. That requires controlling the fourth moment over the feasible law class and the remaining moments at the endpoints. The spectral exactness is a corollary of fixed-parity cancellation, not a new general theorem about matrix functions.",
+        "searches": [
+          "arXiv:2308.07722, iid Rademacher and color-supported variance",
+          "arXiv:1412.7859, limited independence",
+          "Resultary 5d3610a27f37, Finding and two-factor reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pass–Spektor studies moments of linear Rademacher sums under limited independence.",
+          "Resultary 86af5851f399 gives a four-dimensional optimization for a difference of two trace estimates, each with an iid-sign marginal."
+        ],
+        "reasoning": "Pairwise independent coordinates in one probe are not two independent-coordinate marginals with a freely chosen coupling. A Khintchine bound on linear forms likewise does not classify the law minimizing this quadratic estimator's variance.",
+        "searches": [
+          "Resultary: exact four-coordinate trace variance minimum, forced parity-law uniqueness, weighted four-cycle variance and spectral C4 exactness",
+          "Pass–Spektor arXiv:1412.7859; Fitzsimons et al. arXiv:1608.00117"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact four-dimensional or parity-related hits were 86af5851f399, 5d3610a27f37 and 58c24538e024; their actual statements restrict to different estimator designs or objectives."
+        ],
+        "reasoning": "The target is a real-matrix optimization law, not a numerical table indexed by n. The indexed exact formulas were checked at their overlapping dimensions and do not tabulate or state this all-law optimizer.",
+        "searches": [
+          "Resultary: exact minimum, parity equality and weighted/spectral four-cycle formulas"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact matrix-dependent optimum and complete equality-law classification over the entire fair pairwise-independent four-sign class, together with its weight-uniform cycle defect law. Fourth-moment methods, independent-sign variance and fixed structured probes are not new. The strongest inspected exact formulas cover specific probe designs or different couplings, rather than all feasible laws and their uniqueness in this problem.",
+      "residual_risks": [
+        "A sign-design or fixed-basis reference may contain an equivalent specialized classification that was not located. The comparisons are statement-level and do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IID baseline and different supported-probe design",
+          "evidence": "IID variance is twice the squared off-diagonal Frobenius norm for one sample; stochastic probing uses color classes with partial-trace estimates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07722",
+          "material_read": "Theorem 2.7 p. 5; Sections 2.1 and 3.1–3.2 pp. 3, 6–7",
+          "method": "OA PDF passages",
+          "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+          "trigger": "Exact trace variance and structured probing"
+        },
+        {
+          "assessment": "Known dependence effects on moments, different objective",
+          "evidence": "The relevant estimates are on L^p norms of linear combinations of the signs, not on the variance optimum for a quadratic form.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.7859",
+          "material_read": "Abstract and constructions/proof pp. 3–5",
+          "method": "OA PDF passages",
+          "title": "On Khintchine type inequalities for pairwise independent Rademacher random variables",
+          "trigger": "Same limited-independence sign model"
+        },
+        {
+          "assessment": "Fixed-basis and worst-case comparisons do not classify feasible four-sign laws",
+          "evidence": "The analysis compares mutually unbiased bases, fixed-basis, iid-sign and Gaussian ensembles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.00117",
+          "material_read": "Section III pp. 2–3",
+          "method": "OA PDF passages",
+          "title": "Improved stochastic trace estimation using mutually unbiased bases",
+          "trigger": "Structured one-query trace estimator"
+        },
+        {
+          "assessment": "Related but distinct optimization",
+          "evidence": "The sharp four-dimensional example has two iid-sign marginals and compares unrestricted coupling to deterministic signed permutations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-signed-permutation-universality-and-a-sharp-four-dimensional-obs--86af5851f399/RESULT.md",
+          "material_read": "Finding, offset 192",
+          "method": "Configured local mirror",
+          "title": "Signed-permutation universality and a sharp four-dimensional obstruction",
+          "trigger": "Four-dimensional trace variance coupling"
+        },
+        {
+          "assessment": "Different query budget and class",
+          "evidence": "A parity partition of the vertices is unique for a color-supported two-query heat-kernel estimator; it is not a distribution on one full-length sign vector.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-unique-optimal-two-color-stochastic-probing-on-boolean-hypercube--58c24538e024/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "Unique optimal two-color stochastic probing on the Boolean hypercube",
+          "trigger": "Parity optimum on a graph including the four-cycle"
+        },
+        {
+          "assessment": "Genuine partial coverage of the endpoint variances",
+          "evidence": "The grouped-entry formula with 2-by-2 factors yields 4||u+v||^2, and conjugating by a one-coordinate flip yields the other endpoint, but this is a fixed-design evaluation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-variance-and-invisible-directions-of-tensor-sign-trace-pro--5d3610a27f37/RESULT.md",
+          "material_read": "Finding, assumptions, two-factor coefficient formula at offset 0",
+          "method": "Configured local mirror",
+          "title": "Exact variance and invisible directions of tensor-sign trace probes",
+          "trigger": "One-probe exact variance and zero-variance classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies when dependence is useful without changing any pairwise sign statistics, in the smallest dimension where it can make a difference. It distinguishes a matrix-dependent optimal law from a single law that works for all nonnegative four-cycle weights, and gives the exact degradation from imbalance of opposite weights. The full equality-law result is useful as a benchmark for small correlated-probe designs; neither the standard fourth-moment identity nor fixed-design evaluations alone answer that design question. It is not a general trace-oracle optimality claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

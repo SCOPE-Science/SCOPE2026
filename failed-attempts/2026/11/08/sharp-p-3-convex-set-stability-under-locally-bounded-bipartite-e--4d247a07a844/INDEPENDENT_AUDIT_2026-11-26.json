@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:56:44.912117Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–57; independent check of both capacity bounds and the four-vertex construction",
+        "Frozen VERIFICATION.md and artifacts/verify.py, inspected without execution"
+      ],
+      "rationale": "A proper closed set leaves at least one vertex outside on each shore: a full shore would force all vertices of the other shore. With a,b selected on the two shores, each outside vertex on the second shore misses at least a-1 into the first selected shore, and the first selected shore has total missing-edge capacity da. This gives (n-b)(a-1)<=da and the symmetric inequality. The outside vertices also imply a,b<=d+1. If a>=2 and b<=1, then n<=1+2d. If 2<=a<=b<=d+1, then m<=a+db/(b-1)<=a+da/(a-1)<=2d+2, the last difference factoring as (a-2)(a-1-d)/(a-1). Neither case is possible. Choosing at most one vertex of each shore is sufficient, giving the polynomial and hull claims. At 2d+2 vertices per shore the given four-vertex construction respects the budget, and every outside vertex has exactly one neighbor in the set. The sharpness claim is for the common two-shore cutoff, not a separate optimal threshold for every unbalanced pair.",
+      "residual_risks": [
+        "The supplied finite enumeration was not executed and does not establish the all-size theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado et al. study exact counting and split-graph hardness; those inspected passages do not give this cutoff.",
+          "The distinct geodesic record has the same locally bounded bipartite deletions and exactly the same common minimum shore size 2d+3. Its actual exclusion proof works for the broader family of P3-convex subsets, not just the geodesically convex ones."
+        ],
+        "reasoning": "Coverage follows from the conditions used in the prior proof, not from the formal statement about geodesic convexity (which by itself would not suffice).",
+        "searches": [
+          "Dourado et al., arXiv:2603.04706, abstract and Theorem 12",
+          "Centeno et al., DOI 10.1137/110859014",
+          "Cappelle et al., DOI 10.1016/j.dam.2022.07.013",
+          "Resultary 369daf4b0d28, Steps (2) and (6)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–57 and 63–77",
+        "Resultary same-finding entry 4d247a07a844 and distinct entry 369daf4b0d28",
+        "Dourado et al., arXiv:2603.04706"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step (2) counts the same constraints (q-b)(a-1)<=at and (p-a)(b-1)<=bt, using only length-two paths to force vertices or contradict convexity.",
+          "Step (6) uses the same two selected vertices per shore and disjoint defect blocks of size t; its geodesically convex K2,2 is P3-convex as well.",
+          "Once same-shore pairs are excluded from proper sets, all cross-shore pairs are automatically P3-convex, and their mn choices give the coefficient of z^2."
+        ],
+        "reasoning": "The cutoff, full closure for same-shore pairs, and sharp witness transfer without any new argument beyond using the identical local constraint. Counting the admitted cross-shore pairs is mechanical.",
+        "searches": [
+          "Resultary 369daf4b0d28, exact RESULT.md proof of (2) and (6), local mirror offset 2400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A P3-convex set is a stable set for threshold two (each outside vertex has at most one inside neighbor).",
+          "A length-two path has same-shore endpoints and is a geodesic in a bipartite graph. The geodesic record uses precisely these paths in its Step (2); it uses length-three geodesics only to exclude cross-shore nonedges in its own classification."
+        ],
+        "reasoning": "The two convexities are not globally equivalent here, but their local constraints used to derive the common cutoff are identical.",
+        "searches": [
+          "Resultary: dense bipartite P3-convexity and same-shore two-neighbor bootstrap closure",
+          "Dourado et al., arXiv:2603.04706, Definition 1",
+          "Resultary 369daf4b0d28, Steps (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact P3 entry a7 appears as the same finding under record suffix 4d247a07a844.",
+          "Distinct record suffix 369daf4b0d28 contains the same exclusion threshold and boundary witness, though not the same cardinality polynomial."
+        ],
+        "reasoning": "Not a tabulated number. The self-match is not independent; the distinct record supplies the exact structural input needed to count.",
+        "searches": [
+          "Resultary semantic lookup for sharp defect threshold and complete convex-set classification for almost-complete bipartite graphs"
+        ]
+      },
+      "rationale": "A distinct Resultary record by title, sharp bipartite defect threshold for geodesic convexity rigidity, contains the same key exclusion under exactly the same parameter bound. Its proof Step (2) uses only length-two geodesics with same-shore endpoints, hence is already a proof for P3-closed sets; Step (6) gives the identical sharpness witness. The different treatment of cross-shore nonedges accounts for the different classification polynomial but is an immediate consequence of the definition. This is demonstrated coverage in the inspected material, not a priority inference from dates.",
+      "residual_risks": [
+        "The two DOI comparisons are incomplete; neither affects the demonstrated coverage in the inspected distinct record.",
+        "No publication priority determination is made from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage of the sharp exclusion via a proof using only the P3 condition; different cross-shore-pair convention",
+          "evidence": [
+            "Step (2) only invokes length-two geodesics. Step (3) separately excludes opposite-shore nonedges using length-three geodesics. Step (6) gives the shared four-vertex construction."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-bipartite-defect-threshold-for-geodesic-convexity-rigidity--369daf4b0d28/RESULT.md",
+          "material_read": "Finding and Steps (1)–(3), (6), especially proof passages at mirror offsets 2400–7739",
+          "method": "Resultary lookup and local-mirror text",
+          "title": "Sharp bipartite defect threshold for geodesic convexity rigidity",
+          "trigger": "Same cutoff, parameter and apparent boundary witness"
+        },
+        {
+          "assessment": "Same definition; different inspected counting results",
+          "evidence": [
+            "Definition 1 is the standard P3 condition; Theorem 12 concerns #P-completeness on split graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.04706",
+          "material_read": "OA PDF abstract, Definition 1 (p. 4), Theorem 12 (p. 11)",
+          "method": "Targeted OA PDF text",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same invariant and exact counting context"
+        },
+        {
+          "assessment": "No whole-paper conclusion",
+          "evidence": [
+            "The full texts were not available on the inspected routes."
+          ],
+          "identifier_or_url": "10.1137/110859014; 10.1016/j.dam.2022.07.013",
+          "material_read": "First text inaccessible; second landing/abstract only",
+          "method": "Lawful DOI retrieval",
+          "title": "Geodetic Number versus Hull Number in P3-Convexity; P3-convexity on graphs with diameter two: Computing hull and interval numbers",
+          "trigger": "Related hull and interval results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–18, 55–57",
+        "Resultary 369daf4b0d28, Steps (2), (3) and (6)"
+      ],
+      "rationale": "A sharp local-deletion threshold for universal two-neighbor closure is a meaningful structural fact. But that fact and its sharp witness are covered, and the remaining difference from the geodesic formulation consists only of counting all cross-shore pairs instead of the adjacent ones. This follows directly from the path-length convention and does not leave an independently valuable new result in the frozen claim.",
+      "residual_risks": [
+        "No claim is made about a separately optimized threshold for unbalanced shores, which the frozen theorem does not address."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

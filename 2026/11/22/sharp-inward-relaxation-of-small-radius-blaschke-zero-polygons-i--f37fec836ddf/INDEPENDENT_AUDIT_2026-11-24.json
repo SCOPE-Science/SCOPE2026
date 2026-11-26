@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:27:15.190170Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the boundary Poisson kernels and applying Parseval gives half the variance as E=Σ r^{2m}|p_m|² for normalized roots. Fix one maximal root at 1. Compactness gives attainment, and the regular-polygon energy d²r^{2d}/(1−r^{2d}) forces p_m→0 for m<d at every global minimizer; Newton's identities and the root at 1 then force z^d−1. The first d−1 power sums q are local analytic coordinates there. On a fixed small convex coordinate ball, the Hessian of the tail is O_d(r^{2d}) by geometric growth bounds on differentiated power sums, whereas the positive quadratic terms have Hessian ≥2r^{2d−2}I. The unconstrained minimum is interior by the boundary energy bound and unique by strict convexity. With P=z^d−1+Σ b_j(z^j−1), the first variations are δp_m=−m b_{d−m} for m<d and δp_d=dΣ b_j, by summing the simple-root perturbations. Thus ∂p_d/∂q_m=−d/m. Writing t=r², the stationary equations after dividing by t^m have analytic form q_m+Σ_{ℓ≥d} t^{ℓ−m}p_ℓ·overline(∂p_ℓ/∂q_m)=0 and identity Jacobian at (q,t)=(0,0). They give q_m=O(t^{d−m}) and q_{d−1}=d²t/(d−1)+O(t²). The resulting b_1=−d²t/(d−1)²+O(t²) gives the stated root jet, with strictly negative radial derivative for every root except 1. This makes the unconstrained optimizer feasible and proves global uniqueness, up to rotation, and conjugation symmetry. At order r^{2d+2}, the contributions to half-variance from p_{d−1} and p_d are respectively +d⁴/(d−1)² and −2d⁴/(d−1)²; the other terms are O_d(r^{2d+4}). This verifies the coefficient and suboptimality of the regular polygon. Scope is fixed d≥3 and sufficiently small r only. CHECK.py was inspected, not executed; its rational jet checks and trial-polynomial energies are supplementary, not evidence of global uniqueness by themselves.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovalev–Yang pp. 1–3 treats attainable pairs (min |B'|, max |B'|) and extremal products.",
+          "e13a5e5d181f treats all radii at degree two; 7656437a2785 treats small-parameter minimization with fixed complex centroid."
+        ],
+        "reasoning": "The all-radius result in one excluded degree does not dominate d≥3 even near zero. The fixed-centroid constraint is not ordered by or equivalent to the fixed maximum, and pointwise extrema do not determine the squared mean.",
+        "searches": [
+          "arXiv:2007.09760v1 Theorems 1.2 and 1.4",
+          "doi:10.1007/978-1-4614-5341-3_9",
+          "Resultary 7656437a2785; e13a5e5d181f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md and CHECK.py",
+        "arXiv:2007.09760v1",
+        "doi:10.1007/978-1-4614-5341-3_9 (metadata and indirect evidence)",
+        "Resultary e13a5e5d181f, 7656437a2785, f101e09ba9b4 and a712e5339c70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same Poisson identity applies across the compared problems, but angular stability fixes all moduli and the centroid theorem fixes p_1 in physical coordinates.",
+          "The sharp correction here comes from q_{d−1} rather than a fixed centroid, and all normalized roots other than 1 have strictly negative radial change."
+        ],
+        "reasoning": "A local angular minimum of a constrained subfamily cannot be used to prove the global inward minimum in the larger class; that optimizer is not in the subfamily. A Poisson or pointwise theorem supplies an identity, not global localization, strict convexity in Newton coordinates, or feasibility of the stationary perturbation.",
+        "searches": [
+          "arXiv:2007.09760v1 Lemma 4.3",
+          "Resultary f101e09ba9b4; a712e5339c70; 7656437a2785",
+          "Frozen RESULT.md §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovalev–Yang §4 Lemma 4.3 Eq. (4.4) gives the additive Poisson representation. Frozen RESULT.md lines 33–44 converts it by Parseval into the sum of squared power sums.",
+          "Equivalently half-variance is the sum over j,k of a_j·conj(a_k)/(1−a_j·conj(a_k)); this follows by an absolutely convergent geometric series."
+        ],
+        "reasoning": "The exact energy representation is not the novelty. Equal-circle energy or polarization concerns fixed moduli, where the certified inward minimizer is excluded. Pointwise extrema and interior-circle Hardy means do not, on the inspected evidence, give an equivalent minimization of this energy.",
+        "searches": [
+          "Resultary: Blaschke boundary-speed variance with a fixed outermost zero and radial relaxation",
+          "arXiv:2007.09760v1",
+          "doi:10.1007/978-1-4614-5341-3_9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored results give a same-objective extremal degree-two theorem, a fixed-centroid variance theorem, and local angular results for equiradial polygons.",
+          "e13a5e5d181f gives {r,−s(r)} with s(r)=r−4r³+32r⁵+O(r⁷); it establishes genuine degree-two overlap but no higher-degree entry."
+        ],
+        "reasoning": "The nearest entries were compared by both the degree and what is fixed about the roots; none supplies the d≥3 constrained minimum. Same-day dates do not give priority; the degree-two result is not counted as a distinct novelty of the frozen theorem.",
+        "searches": [
+          "Resultary: small-radius Blaschke boundary-speed variance, outermost-zero constraint, and polygon perturbations",
+          "e13a5e5d181f",
+          "7656437a2785",
+          "f101e09ba9b4",
+          "a712e5339c70"
+        ]
+      },
+      "rationale": "The distinct contribution is unrestricted radial relaxation under a fixed outermost-zero radius for every fixed d≥3, with global uniqueness and sharp first shape and energy corrections. The Poisson representation and degree-two phenomenon are credited. Checked statements do not imply the higher-degree theorem; historical priority remains qualified.",
+      "residual_risks": [
+        "The Hardy-means chapter's zero-location statements could not be inspected directly.",
+        "An older equivalent Poisson-energy minimization might be indexed under another formulation. The same-day degree-two record does not resolve the provenance of the earlier degree-two calculation mentioned without an exact citation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedent for Poisson representation, different pointwise objective",
+          "evidence": [
+            "Theorems use M(B)=sup |B'| and m(B)=inf |B'|; Eq. (4.4) gives |B'| as the sum of Poisson kernels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.09760v1",
+          "material_read": "pp. 1–3 Theorems 1.2 and 1.4; p. 10 §4 Lemma 4.3 Eq. (4.4)",
+          "method": "Primary open paper passage inspection",
+          "title": "Extreme values of the derivative of Blaschke products and hypergeometric polynomials",
+          "trigger": "Same boundary derivative and candidate extremal framework"
+        },
+        {
+          "assessment": "Zero-location statements not independently retrieved; no full-text exclusion",
+          "evidence": [
+            "Kovalev–Yang cites the chapter for integral Hardy norms; frozen RESULT.md distinguishes an interior-circle Hardy mean from boundary-speed variance."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4614-5341-3_9",
+          "material_read": "Chapter metadata pp. 175–186, Kovalev–Yang citation, and frozen RESULT.md lines 113–119",
+          "method": "Primary and publisher PDF retrieval attempted; bounded secondary comparison",
+          "title": "Hardy Means of a Finite Blaschke Product and Its Derivative",
+          "trigger": "Integral derivative means and zero-location comparison"
+        },
+        {
+          "assessment": "Substantive neighboring results; disjoint degree or different constraint",
+          "evidence": [
+            "The degree-two record has the same outermost-zero constraint; the fixed-centroid record changes the constraint; the equiradial records vary angles only."
+          ],
+          "identifier_or_url": "e13a5e5d181f; 7656437a2785; f101e09ba9b4; a712e5339c70",
+          "material_read": "Matching Resultary RESULT.md statements",
+          "method": "Semantic lookup and local mirror inspection",
+          "title": "Published degree-two, fixed-centroid and equiradial boundary-speed variance results",
+          "trigger": "Same variance or same outermost-zero constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing the largest zero modulus gives a natural aperture for the boundary-covering map. The variance measures nonuniformity of its angular speed. It is not routine to decide whether equal-radius symmetry persists when radial freedom is allowed; here the global minimizer breaks that constraint in every covered degree, with one active radius, an explicit jet for all zeros and a strict sharp energy gain. The result is useful within the fixed-degree small-radius regime without assuming an effective radius threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

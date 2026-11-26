@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact three-pulse storage recurrence reduces to the four-branch envelope by splitting according to saturation at the second pulse. The envelope's component convexity proves global convexity in retention coordinates. Its switching points and sole smooth interior stationary point exhaust positive-spill minima; a separate pair of storage inequalities gives the full zero-spill optimal interval. The both-overflow regime and the unbounded equal-gap penalty follow by direct substitution. The supplied standalone rational checker corroborates the recurrence, envelope, convexity, boundaries, candidate minimizers, and examples; finite tests are not substituted for proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-McGrath et al. (2007, public discussion 2006) and Bartlett et al. (2015) derive threshold runoff properties of stochastic rainfall/storage systems, not the fixed-endpoint three-event deterministic optimization. Miralles et al. (2010) use canopy interception modeling, and Xu et al. (2020) optimize active release rather than timing among three fixed natural inflows. The closest compared public exact mathematical results concern the permutation of three **equally spaced periodic pulses**, or the integer cyclic gap between **two equal periodic pulses**. Neither states or implies the present finite-horizon convex-envelope optimization with an initially empty store. Abstract finite-buffer scheduling/rearrangement theory is a residual possible source of stronger coverage; priority is not independently certified.
+PASS
 
-## Value — PASS
-Short rainfall separations matter in saturation-excess models, and fixing both total rain and the overall time horizon isolates the question of allocating dry time. The four-branch envelope supplies a global classification rather than a local numerical schedule, the exact zero-overflow interval explains robustness where timing does not matter, and the interior square-root law identifies a non-obvious regime where balanced marginal drying beats either extreme. The unbounded penalty example rules out a constant-factor guarantee for evenly spaced times. No application to real storm control is asserted.
+For the repaired claim, let w=ux+b. The recurrence clips the second post-event storage to min(C,w); D−B=(w−C)(1−E/x) has the sign that selects the correct branch on both sides of w=C, including x=E. All four branches are convex in x, and in t the nonconstant parts consist of positive multiples of exp(−kt) and/or exp(kt), so they are also convex in t. At a positive minimum only the nonsmooth breakpoints, the domain endpoints, or D's stationary point can minimize; a positive plateau is impossible because each nonconstant branch meets any given horizontal level in finitely many points. At zero additional spill the two inequalities give exactly the stated interval, whose left endpoint is an admissible candidate. Both later pulses strictly spill at the proposed stationary point exactly under (5), and the dominating D branch then proves global optimality. The unbounded-ratio example reduces to E/(4x) throughout the feasible interval. Simultaneous rainfall at either endpoint is handled by the same clipping recurrence with unit retention over the zero gap.
 
-## Sources and residual limits
-Full text of McGrath et al. (2007) was inspected, including its rainfall model, storage-threshold formulas, statistical conclusions, and appendix. Relevant mathematical results on periodic stores were read as complete primary result texts. Online sections and mathematical formulas of Bartlett et al. (2015), Miralles et al. (2010), and Xu et al. (2020) were compared; possible broader finite-buffer scheduling theorems remain a historical-priority risk. The model is scalar, passive, empty initially, and uses fixed positive depths and exponential loss.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the specific empty-start, fixed-order timing classification and equal-gap counterexample, not the storage recurrence, max-of-convex-functions principle, or the clock-time convexity observation as a separate contribution. Neither changing storm order at fixed gaps nor periodically optimizing a cyclic gap yields the theorem under its finite-horizon constraints. No inspected source states or entails the full classification.
+
+## value
+
+PASS
+
+The classification yields the entire no-additional-loss scheduling region and an exact timing choice even when overflow is unavoidable. In the smooth regime it identifies which side of the midpoint matters, and the positive-optimum family rules out a uniform multiplicative guarantee for equal gaps. This is a quantitative benchmark for a natural finite-store timing problem, not just a direct clipping calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

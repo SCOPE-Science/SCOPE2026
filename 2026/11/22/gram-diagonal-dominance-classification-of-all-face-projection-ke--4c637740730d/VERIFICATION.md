@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The full argument is the coordinate formula and strict-diagonal-dominance maximum principle in `RESULT.md`. The finite checker is corroboration, not an exhaustive argument over arbitrary real Gram matrices.
+## correctness
 
-Run `python verify.py` in a Python environment with SymPy. The checker uses exact rational arithmetic for 60 positive-definite rational Gram matrices from invertible integer generators, 420 sample points, 31,500 individual face projections, two exact three-dimensional Gram-volume-ratio examples, and two empty-kernel instances. It raises an exception upon failure and prints `PASS` upon success.
+PASS
 
-The first-public dates of both cited motivating sources were checked against their arXiv version-one submission histories on 10 November 2026. The motivating theorem gives the all-face kernel definition but does not imply a tiling theorem above dimension three.
+For b=Uᵀ(x−p₀), the normal equation on an edge in direction i gives foot coordinate (bᵢ−Σgᵢⱼεⱼ)/gᵢᵢ. Maximizing the left endpoint and minimizing the right endpoint independently over the fixed binary coordinates gives precisely (Lᵢ,Hᵢ). Center the coordinates at 1/2: set y=b−G1/2. The edge conditions are |yᵢ|<δᵢ/2. On a face with free indices I, let zᵢ=yᵢ−Σ_{j∉I}gᵢⱼ(εⱼ−1/2); then |zᵢ|<(gᵢᵢ−Σ_{j∈I,j≠i}|gᵢⱼ|)/2. The affine Jacobi map tᵢ↦(zᵢ−Σ_{j∈I,j≠i}gᵢⱼtⱼ)/gᵢᵢ maps the closed centered half-cube strictly into its interior and is a sup-norm contraction by strict dominance. Its unique fixed point is the centered projection foot. I=[d] gives interiority; vertices are automatic. Nonpositive δᵢ makes the strict edge interval empty, including equality. The image box is centered at p₀+U1/2 with volume ratio ∏δᵢ/det G. The equiangular determinant (1−c)²(1+2c) gives both stated rational examples and the c=1/2 failure.
 
-There has been no independent mathematical or priority audit.
+## originality
+
+PASS
+
+The all-face kernel is prior, and the edge-strip characterization in the plane is already given by Pavlík. The distinct result here is the arbitrary-dimensional edge sufficiency for skew parallelotopes, with the Gram box, exact row-dominance threshold and determinant probability. In the checked prior results none provides those higher-dimensional conclusions or an evaluated formula that subsumes them.
+
+## value
+
+PASS
+
+The result classifies admissible centers for a natural all-dimensional family, including arbitrary mixed signs and unequal generator lengths. It replaces a growing set of face checks by 2d sharp scalar inequalities and gives the exact uniform probability as the center set collapses at the shear threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

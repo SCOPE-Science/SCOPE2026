@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:30.940294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The matched adjacency is (d+1)-regular. For the fan, the top eigenvalue exceeds d by connected nonnegative-matrix strict comparison with the two disjoint copies. The second Perron block is x_v times the constant vector divided by lambda-d, so the v-coordinate of the first block gives the scalar equation. Its left side increases and its right side strictly decreases from infinity to zero (the constant mode gives a pole with positive residue at d). The cross-block star has radius sqrt(n); the disjoint internal part has norm d, giving sqrt(n)<=lambda<=sqrt(n)+d. For lambda comparable to sqrt(n), the diagonal Neumann series has coefficients 1,0,d,t_v and error at most d^4/[lambda^5(1-d/lambda)]. Put s=sqrt(n) and write the truncation as s+a+b/s+c/s^2. In the equation multiplied by lambda the left-hand coefficients at s,1,1/s are 2a-d, 2b+a^2-da and 2c+(2a-d)b, and the right-hand coefficients are 0,d,t_v-2ad. Thus a=d/2, b=d/2+d^2/8 and c=(t_v-d^2)/2. The original equation has residual O_d(s^-3) and derivative >=1 for all lambda>d, proving uniform distance to its unique root. The two Cartesian cycle products in the proof have equal order and degree and t_v=0 versus 2 once the other factor has length at least four; their correction differs as stated. The inverse-radius consequences are only adjacency spectral thresholds, not exact stochastic persistence claims. A bounded check using the explicit Cartesian-cycle Fourier eigenvalues to evaluate the diagonal resolvent reproduced the scaled eigenvalue difference moving toward 1 (0.5711, 0.7431, 0.8575, 0.9247 at n=120,480,1920,7680); replay /workspace/branches/spectral_design_replays.js, graphCheck. VERIFY.py was inspected but not executed. It checks two fan computations, using matching regularity analytically rather than constructing the matching matrix as the frozen verification prose suggests. This is a nonmaterial description issue, not an assumption of the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 5 explicitly gives the same corresponding-vertex matching benchmark. Lemma 13 treats strong coupling at fixed matrices, with leading term alpha lambda_1(B) and first correction q^T A q, equal to d/2 for the fan's top star mode.",
+          "Other cited coupling results concern general local/global spectral inequalities or two networks with distinct transmission parameters."
+        ],
+        "reasoning": "The broader perturbation result identifies the leading mechanism but does not provide a bounded-degree, growing-n expansion through order n^-1 or a triangle correction. The uniform estimate needs control of the next diagonal moments after eliminating the constant block.",
+        "searches": [
+          "Wang et al. arXiv:1303.0781 Lemmas 5 and 13",
+          "graph spectral radius coalescence cone regular graph hub adjacency resolvent asymptotic square root number vertices triangles degree spectral radius least graph join rooted vertex"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.03492",
+        "arXiv:1303.0781",
+        "arXiv:1212.4194",
+        "arXiv:2607.14048",
+        "Resultary 68f80705ac29",
+        "Resultary 14e8ec486cac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schwenk gives the full polynomial as a routine specialization; row-sum regularity and the star norm already show the leading scale contrast. The available perturbation result stops before the graph-dependent correction. Local threshold comparisons give 1/d but not a comparison with the same induced communities and total cross-edge count."
+        ],
+        "reasoning": "Prior identities are sufficient for the two benchmark formulas but impose no identified expansion through a uniformly controlled first motif term. The degree-only terms and all subsequent motif dependence cannot be inferred just from a leading eigenvalue comparison.",
+        "searches": [
+          "arXiv:2209.03492 §2, Schwenk identity",
+          "arXiv:1303.0781 p. 4 Lemma 5 and p. 7 Lemma 13",
+          "arXiv:2607.14048 Definition and local threshold inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fan graph is the coalescence of rooted H at v with the cone over the other H, rooted at its apex. For x>d the cone polynomial is p_H(x)(x-n/(x-d)), and deleting the apex leaves p_H. The Schwenk formula then yields p_F(x)=p_H(x)^2[1-n p_{H-v}(x)/((x-d)p_H(x))]; the minor ratio is the diagonal resolvent.",
+          "Equivalently the rank-one determinant condition is R_v(x) times the other-community coronal n/(x-d) equal to 1. It is not the ordinary join, which has n^2 cross edges."
+        ],
+        "reasoning": "Exact independent coverage of the scalar equation is credited. A rooted characteristic-polynomial identity alone does not match the uniform multiscale expansion and triangle-sensitive comparison.",
+        "searches": [
+          "Schwenk coalescence characteristic polynomial coalescing rooted graphs formula",
+          "arXiv:2209.03492 §2 eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue hit was the assigned record itself. Resultary 68f80705ac29 uses endpoint resolvent scores for one added edge to a fixed graph. 14e8ec486cac compares positions for a single weighted edge in fixed heterogeneous community graphs."
+        ],
+        "reasoning": "These are exact related symbolic formulas, but neither contains the growing family with n cross edges and a fixed arbitrary regular base, so neither tabulates nor implies the sought local-motif coefficient.",
+        "searches": [
+          "Resultary: spectral radius matching versus fan on two regular communities, local triangle correction",
+          "Resultary: bridge coupling diagonal resolvent and sharp crossover"
+        ]
+      },
+      "rationale": "The submitted contribution is the fixed-degree, uniform high-order expansion under the common edge budget, especially the first local-triangle correction. The matching formula is explicitly known, the exact scalar identity follows from classical rooted coalescence, and the leading sqrt(n) growth is elementary. These are baselines, not distinct contributions. The strongest available broader results do not supply the uniform higher-order coefficient or the equal-order, equal-degree witness distinguishing it. This conclusion is bounded by the checked literature and catalogue.",
+      "residual_risks": [
+        "The possible scope of the inaccessible spectral-radius criterion and coalescence papers was not verified.",
+        "Equivalent expansions may appear in the rooted coalescence or large-degree adjacency perturbation literature; the exact scalar equation is already classical and not a novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general coverage of scalar characteristic equation, not the stated uniform expansion",
+          "evidence": "The quoted Schwenk identity combines graph and root-deleted polynomials. The rooted cone specialization gives exactly the v-diagonal resolvent equation above d.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03492",
+          "material_read": "Abstract and §2 p. 2, equation (1) and Theorem 2.1, PDF offsets 5250–7967",
+          "method": "Lawful OA PDF, literal Schwenk locator followed by passage read and specialization",
+          "title": "Complements of coalescing sets",
+          "trigger": "General rooted attachment might settle the exact scalar equation"
+        },
+        {
+          "assessment": "Exact matching formula; related leading perturbation, not the growing-family triangle coefficient",
+          "evidence": "Corresponding matching of identical layers gives lambda_1(A_H)+alpha; the strong-coupling expansion at fixed matrices gives the first internal Rayleigh correction.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.0781",
+          "material_read": "Lemma 5, p. 4 offset about 17600; Lemma 13, p. 7 offset about 31850",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Effect of the Interconnected Network Structure on the Epidemic Threshold",
+          "trigger": "Same matched topology and leading strong-coupling perturbation"
+        },
+        {
+          "assessment": "Related Schur-complement method; different parameters and conclusion",
+          "evidence": "The threshold formula uses an effective adjacency plus a coupling correction with (I-tau_22 A_22)^(-1). It does not give the fixed-degree growing-order equal-budget graph expansion.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.4194",
+          "material_read": "Theorem 1 p. 5, OA text offset about 38100",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Effect of Coupling on the Epidemic Threshold in Interconnected Complex Networks: A Spectral Analysis",
+          "trigger": "Prior two-block resolvent formulation"
+        },
+        {
+          "assessment": "Covers interpretation and inequality only",
+          "evidence": "Community thresholds are local inverse radii at least as large as the whole-network inverse radius.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.14048",
+          "material_read": "Definition and local/global inequality, p. 5, OA text near 11400",
+          "method": "Lawful OA primary PDF passage",
+          "title": "An Epidemic Threshold Set for Networks",
+          "trigger": "Prior community-local threshold formulation"
+        },
+        {
+          "assessment": "Different one-edge comparison",
+          "evidence": "An added single edge in a fixed graph is ranked by endpoint scores, not by a matched-versus-fan order expansion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-clique-star-crossover-law-for-outbreak-critical-bridge-p--68f80705ac29/RESULT.md",
+          "material_read": "Finding and diagonal-resolvent endpoint proof",
+          "method": "Configured local Resultary mirror",
+          "title": "A sharp clique–star crossover law for outbreak-critical bridge placement",
+          "trigger": "Closest catalogue resolvent comparison for bridge geometry"
+        },
+        {
+          "assessment": "Coverage undetermined, not negative evidence",
+          "evidence": "No original theorem passage read from this source; it does not support the novelty inference.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2023.2228458",
+          "material_read": "Indexed title only; full text unavailable by lawful routes tried",
+          "method": "OA direct and VPN, both HTTP 403; same-DOI recovery showed no repository copy",
+          "title": "A unified criterion for distinguishing graphs by their spectral radius",
+          "trigger": "Search hit on graph spectral-radius comparisons possibly covering rooted attachment"
+        },
+        {
+          "assessment": "Coverage undetermined, not negative evidence",
+          "evidence": "The title identifies complete-graph coalescence; exact statements were not read, and no reliance is placed on it.",
+          "identifier_or_url": "https://doi.org/10.1155/2016/5906801",
+          "material_read": "Indexed title only; full text unavailable by lawful routes tried",
+          "method": "OA direct and VPN, both HTTP 403; same-DOI recovery showed no repository copy",
+          "title": "On the Adjacency, Laplacian, and Signless Laplacian Spectrum of Coalescence of Complete Graphs",
+          "trigger": "Spectra for a related coalescence class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The elementary scale contrast on its own would be weak: the star norm already yields it. The substantive quantity is the first local-structure term with an error uniform over fixed-degree regular inputs and attachment vertices. The same-order product examples show that this term measures a real separation even after the leading degree and size contributions cancel. That gives an exact structural explanation of how the abstract spectral comparison can depend on motifs, without implying a stochastic persistence result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

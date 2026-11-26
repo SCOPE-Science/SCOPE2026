@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:51:31.441288Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional arclength is uniform in the affine edge parameter. For the two-plus-one configuration a slice through the centroid forces w>=1/2 and requires two independent uniforms to straddle w/(3w-1); integration gives 1/9+4 log(2)/27. For one per side, failure of any specified oriented-edge test has probability 1/2-integral_0^(1/2) (1-u)/(2-3u) du. The three failures are disjoint up to null sets: each requires opposite halves of the parameters at its two consecutive edges, and sharing an edge would require both halves for the same parameter. Cyclic symmetry therefore gives 2 log(2)/3. The multinomial occupancy probabilities yield the cubic, including zero weights. Strict pair balancing increases xy with x+y fixed and hence increases e2 and e3 with positive coefficients. The strict p_i<1/2 bound gives sum p_i^2<1/2, and only the permutations of (1/2,1/2,0) have limiting equality; the equilateral upper equality follows from the sharp e2 and e3 bounds. Same-edge triples cannot contain the centroid. Checked RESULT.md lines 25–88 and the packaged symbolic/Monte Carlo logic; the supplied script was not executed. The analytic check does not depend on sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ionaşcu Theorem 1.1, pp. 3–4, treats area-uniform interior sampling; prior October 18 Resultary record gives arbitrary point for one sample per side."
+        ],
+        "reasoning": "Neither of these broader-in-one-direction statements has the arbitrary i.i.d. edge weights. Prékopa covers equiprobable sides via radial projection, not a generic boundary represented by Euclidean arclength. The November 2 result directly covers the mixed edge law.",
+        "searches": [
+          "arXiv:1612.08619",
+          "Prékopa, On the Number of Vertices of Random Convex Polyhedra, Section 5",
+          "Resultary: fixed-point barycentric inclusion depth, side-stratified random triangles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and verify.py",
+        "Resultary records 942eff1f5ecc, a85f22648b16 and 7079f4ade0b5",
+        "arXiv:1612.08619",
+        "Prékopa (1972), Section 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "November 2 states the complete sharp range and the equiprobable and arbitrary-q laws. Independent partial coverage: Prékopa gives the equiprobable constant, and the October 18 record gives c111 at the centroid."
+        ],
+        "reasoning": "The closest prior directly states the full result. Even the two cited partial values fix the remaining mixture coefficient through P_equal=(2/3)c21+(2/9)c111 and the affine invariance of each occupancy type.",
+        "searches": [
+          "2026/11/2/SCOPE-sharp-centroid-containment-law-for-arclength-sampled-triangle-bo--942eff1f5ecc",
+          "Prékopa (1972), Eq. (5.24)",
+          "2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 2 RESULT.md, Finding and proof (offsets 0–3989 and 3500–7236): identical q_i edge-selection model with uniform fractional sampling and identical e2/e3 formula."
+        ],
+        "reasoning": "Identifying each side weight with length/perimeter produces the same event and law with no change of parameters other than notation.",
+        "searches": [
+          "Resultary: triangle centroid inclusion, arclength sampling and arbitrary independent edge weights",
+          "2026/11/2/SCOPE-sharp-centroid-containment-law-for-arclength-sampled-triangle-bo--942eff1f5ecc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 25 RESULT.md, Finding (offsets 0–3966): arclength cubic, capture range, strict shape ordering; November 2 proof Eqs. (4)–(5): both conditional constants match."
+        ],
+        "reasoning": "Exact formula matches hold over the continuum of triangles, not just at tabulated values or in the equilateral example.",
+        "searches": [
+          "Resultary: exact arclength centroid capture, two-on-one-side constant and sharp triangle shape comparison",
+          "2026/10/25/SCOPE-exact-arclength-boundary-centroid-capture-and-strict-triangle-sh--a85f22648b16"
+        ]
+      },
+      "rationale": "The earlier November 2 Resultary finding explicitly gives the arbitrary-edge cubic, the arclength specialization, the same strict Schur-concavity and the same sharp endpoints. The October 25 finding already gives the arclength law, range and shape ordering. This is verified mathematical coverage, not a judgment based on paper access or a title match.",
+      "residual_risks": [
+        "External historical first priority for the two-on-one-side constant was not resolved. The cited Starvind link and full Halász–Kleitman paper were not available through the attempted routes; neither access issue affects the explicit Resultary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage",
+          "evidence": [
+            "Offsets 0–3989 and 3500–7236: arbitrary-edge law, arclength range and majorization, Eqs. (4)–(5)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-centroid-containment-law-for-arclength-sampled-triangle-bo--942eff1f5ecc/RESULT.md",
+          "material_read": "Finding and conditional-integration/mixture proof",
+          "method": "Bounded local-mirror passages after Resultary lookup",
+          "title": "Sharp centroid containment law for arclength sampled triangle boundaries",
+          "trigger": "Closest exact earlier match"
+        },
+        {
+          "assessment": "Exact arclength coverage",
+          "evidence": [
+            "Offsets 0–3966: same cubic, exact sharp endpoints and shape ordering."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-arclength-boundary-centroid-capture-and-strict-triangle-sh--a85f22648b16",
+          "material_read": "Finding and conditional constant",
+          "method": "Local-mirror passage",
+          "title": "Exact arclength boundary centroid capture and strict triangle shape comparison",
+          "trigger": "Earlier arclength analogue"
+        },
+        {
+          "assessment": "Different area-uniform hypotheses",
+          "evidence": [
+            "Theorem 1.1, extraction offset 7654; offset 4598 describes Prékopa's result."
+          ],
+          "identifier_or_url": "arXiv:1612.08619",
+          "material_read": "Introduction and Theorem 1.1, pp. 2–4",
+          "method": "OA PDF passages",
+          "title": "Random triangles in planar regions containing a fixed point",
+          "trigger": "General absorption identity"
+        },
+        {
+          "assessment": "Equiprobable-edge model corresponds to radial projection of area sampling",
+          "evidence": [
+            "PDF pp. 20–21; the constant is 2/27+20 log(2)/81."
+          ],
+          "identifier_or_url": "https://rutcor.rutgers.edu/Prekopa/pdf/number.pdf",
+          "material_read": "Section 5, Lemma 2 and Eq. (5.24)",
+          "method": "OA PDF passages",
+          "title": "On the Number of Vertices of Random Convex Polyhedra",
+          "trigger": "Classical centroid constant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural Euclidean-versus-affine sampling distinction and sharp shape law are mathematically useful, but the frozen record supplies no new exact invariant, extension or genuinely different consequence beyond the already available same-model theorem. Recomputing both occupancy integrals does not create a surviving contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

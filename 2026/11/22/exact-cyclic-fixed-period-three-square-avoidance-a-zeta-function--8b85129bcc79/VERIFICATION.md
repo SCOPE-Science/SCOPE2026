@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the cyclic period-three zeta factorization
+# Independent mathematical audit
 
-Run `python3 checks/exact_transfer.py` and `python3 checks/parity_projection.py` from this package root. Both programs use the Python standard library only and were run successfully on these exact embedded sources.
+## correctness
 
-The first generates the independent 32-state de Bruijn automaton from the eight forbidden six-bit patterns, checks 56 allowed directed transitions, computes its entire 32-by-32 characteristic polynomial with an exact-integer Faddeev–LeVerrier algorithm, and verifies the claimed degree-24 determinant polynomial and eight zero eigenvalues. This is an all-length exact matrix identity, not a sampled recurrence.
+PASS
 
-The second constructs the signed two-bit-state transfer matrices from scratch, recomputes the parity decomposition for 72 lengths, and brute-force verifies every binary marked word through length 17. The resulting first 18 counts are \(0,2,0,14,20,56,70,134,216,442,814,1592,2756,5070,9080,17158,31552,58664\).
+The difference y_i=x_i XOR x_(i+3) removes exactly the forbidden abcabc, including at n<6. Its image is precisely orbit-wise even parity, of codimension gcd(n,3); the orthogonality and inverse multiplicity cancel. The signed closed pair walk is uniquely indexed by each marked y even at short periods. If 3 divides n, three one-negative and three two-negative sign patterns reduce by cyclic trace to QP^2 and Q^2P; the factor 3 cancels n=3m in the zeta logarithm. Independently built 32-state overlap adjacency and evaluated det(I-zA) by exact Bareiss elimination at 33 distinct integers, proving the degree-at-most-32 denominator identity; recovered all 18 listed coefficients, and independently checked direct bitmask counts for n=1..14 (replay /workspace/branches/replay-cyclic.py). A fixed word of a rotation lifts from circumference gcd(n,rotation); this gives Burnside and least-period decomposition with the stated totient and Möbius weights. The other P roots are a complex pair of modulus rho^(-1/2), the signed and cyclotomic factors have unit reciprocal roots, the quadratic-in-z^3 factor gives reciprocals of modulus at most (1+sqrt(2))^(1/3), and the last factor gives cubes of reciprocals satisfying x^3+x^2+x-1=0, hence reciprocals of modulus at most 2^(1/3). These bounds are strictly below the simple dominant rho; proper powers contribute only O(poly(n) 2^(n/2)).
 
-These checks support the stated finite linear-algebra identities and their independent finite cross-checks. Neither script provides an independent human mathematical audit; the formal all-length proof is the cyclic difference kernel/image argument together with the determinant identity.
+## originality
+
+PASS
+
+Within inspected evidence the explicit degree-24 factorization, marked counts for just half-length three, and the resulting orbit/growth census are distinct. General zeta rationality, the linear derivative correspondence, and the stronger avoidance restriction discussed in the related same-day catalogue entry are not credits for this exact factorization.
+
+## value
+
+PASS
+
+The length-six binary exclusion is a natural fixed-length duplication constraint on periodic points. The compact factorization makes the cyclic closure contribution visible and identifies the exact asymptotic and primitive orbit census, not just a generic finite-state representation or a short list. This can be used to compare simultaneous and single-length restrictions and count periodic orbits at arbitrary periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

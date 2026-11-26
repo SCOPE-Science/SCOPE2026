@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:00.680149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Assumptions and Proof",
+        "VERIFICATION.md",
+        "CHECK.py (inspected, not executed)",
+        "Replay: python3 /workspace/branches/rotation_replay.py; output /workspace/branches/rotation_replay.txt"
+      ],
+      "rationale": "Expanding the qth iterate gives the vanishing of the sign polynomial at a primitive qth root. Since q is prime, the minimal polynomial is 1+X+...+X^(q−1), of the same degree as the sign polynomial; hence the signs are constant, including for points whose orbits touch the axis. The affine-rotation formula and zero mean of the roots give the obstruction for p<q/2. Otherwise the rotated half-plane normals are equally spaced, and the h-offset constraints give exactly the closed upper and open lower regular q-gons. Their centers lie strictly inside, and any noncenter has least period q since the branch rotation has order q. The map is a bijection because z↦z−H(z) translates each half-plane onto itself before the rotation. The perimeter–inradius formula gives the total area, whose strict increase over q/2<p<q gives the claimed maximum and its asymptotic. Independent tests use exact finite sign-word checks and numerical intersections of adjacent supporting lines, areas and interior orbits.",
+      "residual_risks": [
+        "Replay only covers q=5,7,11; polygon and orbit checks use floating point and do not certify switching-line membership. Boundary and universal statements follow from the proof. The supplied sign-check compares equivalent coefficient predicates and is not a separate proof of the minimal-polynomial implication."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems A/B give periodicity and geometry on regular components, not a description of every point with a prescribed q-return.",
+          "Lemma 11 requires center period coprime to the denominator and defines two orbit heights requiring visits to both sides. Its proof uses both orbit extrema.",
+          "The pointwise-periodic classifications treat π/3, π/2 and 2π/3."
+        ],
+        "reasoning": "The broader component geometry and the special-angle classifications do not cover the two one-sided centers and exclude every mixed itinerary at the specified prime-denominator return time.",
+        "searches": [
+          "Cima et al., arXiv:2306.17543",
+          "Goetz–Quas, author PDF, Lemma 11",
+          "Cima et al., arXiv:2010.12901, angle cases"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.17543 author postprint",
+        "Goetz–Quas Lemma 11",
+        "arXiv:2010.12901",
+        "Resultary 2c2c7a7af3f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the regular-component theorems nor the mixed-center island lemma supplies the prime-cyclotomic exclusion of mixed sign words of length q. The exact least period for each noncentral point and inclusion of upper boundary points follow from the assigned exhaustive itinerary argument."
+        ],
+        "reasoning": "Even granting existence and geometry of a constant-branch island, the total fixed-set area only follows after proving no other q-return itineraries and tracking the switching convention.",
+        "searches": [
+          "Author postprint arXiv:2306.17543, pp. 3, 12–13",
+          "Goetz–Quas author PDF, pp. 13–15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the assigned result Fix(F^q) includes period one as well as least period q. The known example identifies a fixed center in a pentagon at q=5, p=4.",
+          "The catalogue law concerns a two-cell alternating family whose noncentral periods at odd q are 2q."
+        ],
+        "reasoning": "Changing the description from cells to itineraries or from least period to period-dividing-q does not identify the alternating family with the return-fixed set; the local pentagon is a special case, not the exhaustive classification.",
+        "searches": [
+          "Cima et al., arXiv:2306.17543 postprint, Theorems A/B and 8π/5 example",
+          "Resultary alternating half-plane rotation area law, 2c2c7a7af3f0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest mirror finding classifies the maximal alternating family, not all islands or the return-fixed set at length q. The published fixed-pentagon example concerns one angle."
+        ],
+        "reasoning": "No matching exact universal classification or area table was identified; the analytic area law, rather than a list of finite values, is the claimed object.",
+        "searches": [
+          "Bounded local Resultary lookups for prime-denominator period-q fixed regions and area laws; exact matching file inspected for 2c2c7a7af3f0"
+        ]
+      },
+      "rationale": "The distinct contribution is the exhaustive prime-denominator return-fixed set, including the empty orientation and exact boundary convention, and its global area and maximizing numerator. Periodic tiles and the single fixed-pentagon example are prior overlap, and the later catalogue area law concerns alternating rather than constant itineraries.",
+      "residual_risks": [
+        "The web lookup was uninformative and local searches and paper passages are bounded; no absolute priority conclusion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but no exhaustive prime-q return locus in these passages",
+          "evidence": "Regular-component periodicity and side bounds; period-one pentagon center and additional tiles at other periods for q=5.",
+          "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2024/307719/CimGasManMan2023a-Postprint.pdf",
+          "material_read": "Theorems A/B (PDF p. 3, offset 5495); 8π/5 example (pp. 12–13, offset 30767)",
+          "method": "OA author postprint, bounded statement inspection",
+          "title": "On some rational piecewise linear rotations",
+          "trigger": "Same rational family, periodic tiles and known pentagon"
+        },
+        {
+          "assessment": "Related polygon result for two-sided orbits",
+          "evidence": "The proof chooses orbit points at both heights a and −b; a one-sided fixed center does not furnish both. A least-period-q point at denominator q also fails the coprimality condition.",
+          "identifier_or_url": "https://web.uvic.ca/~aquas/papers/paper28.pdf",
+          "material_read": "Setup; Lemma 11 and proof opening (PDF pp. 13–14, offset 54975)",
+          "method": "OA author PDF, bounded text and hypothesis comparison",
+          "title": "Global properties of a family of piecewise isometries",
+          "trigger": "Two-half-plane family and island geometry"
+        },
+        {
+          "assessment": "Different angles",
+          "evidence": "The cases use triangles, squares and hexagons, not arbitrary prime q≥5.",
+          "identifier_or_url": "arXiv:2010.12901",
+          "material_read": "Angle and tile cases, PDF p. 3, offset 7190",
+          "method": "OA paper, bounded scope check",
+          "title": "Pointwise periodic maps with quantized first integrals",
+          "trigger": "Strong special-angle classifications"
+        },
+        {
+          "assessment": "Different itinerary family and return time",
+          "evidence": "Only alternating itineraries are classified; for odd q, the noncentral period is 2q.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-alternating-island-area-law-for-symmetric-half-plane-r--2c2c7a7af3f0",
+          "material_read": "Mirrored RESULT.md offsets 0 and 8600",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "The exact alternating-island area law for symmetric half-plane rotations",
+          "trigger": "Strongest local Resultary area-law hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding",
+        "Cima et al., Theorems A/B"
+      ],
+      "rationale": "This is a natural full return-time classification for an established discontinuous dynamical system. The result determines the global area without sampling or ignoring the discontinuity, and quantifies how reversal and numerator choice affect resonance.",
+      "residual_risks": [
+        "It does not describe the full periodic or critical set or claim a composite-denominator classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every admissible even signal corresponds to four unit complex numbers summing to zero. The antipodal-pair lemma is proved directly from uniqueness of a unit-circle chord with prescribed nonzero midpoint; the degenerate midpoint case is handled. Every possible pairing is examined via an exact autocorrelation table. Discrete Parseval with the explicitly unnormalized Fourier transform yields the universal identity \(\sum_{k=1}^{8}|\widehat f(k)|^4=792+432\tau^2\) in each family, including all boundary phases. Equality and all minimizers follow from \(\tau=0\). The embedded checker independently confirms the symbolic table and tests representative phase values, but is not used as a finite-search substitute for proof.
+## correctness
 
-**Originality — PASS relative to inspected literature and indexed records.** Fallon–Iverson (2026) Table 1 records no numerical even example at cyclic nine and Problem 7.2(b) asks for even existence; Section 3 proposes fourth-moment energy minimization but does not state this sharp nine-cycle value or classify its extremizers. Benoist's nine-cycle examples concern odd conference signals. The closest order-restricted circulant-matrix paper studies Hermitian complex and real symmetric cases. Diţă's circulant-core constructions address conference matrices in lower orders. Relevant Fourier-support and phase-fourth-moment indexed findings use fundamentally different parameter domains and do not imply the present balanced, even, punctured-unimodular extremum. Residual risk: some older specialized conference-matrix or periodic-sequence literature might contain an equivalent order-nine cyclic nonexistence or energy identity.
+PASS
 
-**Value — PASS.** This settles the first odd-composite nine-cycle instance of an explicitly posed even-conference existence problem and identifies the exact sharp gap \(144\) for the published fourth-moment optimization. The complete optimizer set furnishes concrete closest-to-flat sequences and separates a cyclic obstruction from the existing noncyclic nine-element constructions. It is a natural complete finite problem, not a synthetic restriction or numerical-only result.
+A sum of four unit phases can vanish only in antipodal pairs: when the midpoint of a pair is nonzero it determines the unordered pair uniquely and the other pair has the negative midpoint; when it is zero each pair is antipodal. Normalize f(1)=1 and pair it with one of f(2), f(3), f(4). In each case write f=A+zB with A,B real even vectors supported on the two pairs, z unimodular. Their DFTs are real, so the power spectrum is the DFT of P+2 Re(z)R with P=A*A+B*B and R=A*B (cyclic convolution). Independently formed those integer convolutions for each partner. Parseval gives the same polynomial 9 sum_s (P_s+2 Re(z)R_s)^2 = 792+432(Re z)^2 in all three cases, and the DC term is zero. Minimum 792 occurs exactly at z=±i, equivalent to the claimed permutations up to a common phase. Plancherel gives total power 72 in the eight nonzero frequencies, with flat-spectrum energy 648. For the unit-border matrix, row orthogonality against the border is C1=0, and the lower square block of MM* is J+CC*: hence the circulant core must have squared DFT eigenvalues 9 off DC, and symmetry of the circulant core is precisely evenness. The obstruction therefore applies to the prescribed class only. Exact replay: python3 /workspace/review_evidence/algebra.py (conference block).
 
-**Scientific limitations.** No general result at other group orders, no robustness theorem, no claim about noncyclic groups or unrestricted symmetric conference matrices. Independent verification of the full mathematical result remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The even cyclic conference-signal question, the energy framework and the bordered-matrix equivalence precede this result. The closest retrieved primary paper explicitly distinguishes its observed table from an exhaustive classification. Its zero observed even entries at order nine do not give a proof, still less the exact minimizing energy and all equality cases. The exact catalog match is the identical assigned record.
+
+## value
+
+PASS
+
+Order nine is not an arbitrary truncation: it is an explicit cyclic case of the literature's open even-signal question with a published nonexhaustive zero count. The exact gap proves robust separation in this energy under the specified constraints, identifies all nearest candidates in the fourth-moment sense, and rules out the normalized symmetric circulant construction in that case. This is more than recomputing a numerical count or ruling out a guessed candidate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

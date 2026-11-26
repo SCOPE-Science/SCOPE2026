@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:52:27.431187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(8) and convergence/ordinary-forgetting arguments",
+        "VERIFICATION.md, verify.py and verification_output.txt, inspected without executing"
+      ],
+      "rationale": "Normalize M=(1-lambda)R/rho². In the orthogonal [V,W] basis, the full calibrated update G has blocks (I_q, C-BᵀA^{-1}B) and no off-diagonal term. Hence G and its average with M are SPD, including q=d (empty Schur block). Subtracting tr-logdet divergences with the block determinant factorization gives exactly tr A-logdet A-q+tr(BᵀA^{-1}B), zero iff MV=V. Convexity for the average and spectral compactness of the divergence sublevel set make the decrements summable, force A-I and B to vanish uniformly in the varying ranks, and give both (M-I)V→0 and vanishing matrix increments. The fixed-length frame bound now controls the full error: replace each M in a window by its first iterate at o(1) cost and sum the squared errors on the subspaces; the sum is at least beta times the squared Frobenius error. This proves the stated limits including inverse convergence. The derivative at I is lambda E+(1-lambda)W E W for W=I-VVᵀ. For the two lines in Sym(2), the Frobenius overlap of the rank-one unit projectors is cos²(theta). Their relaxed product is lambda² on the perpendicular line and has trace T and determinant lambda² on their span, giving the two roots and a simple stable dominant root r_+. For a sufficiently small initial error epsilon in its dominant direction, use an eigenbasis norm for the epoch map to bound the iterates by O(epsilon q^m) with r_+<q<sqrt(r_+). The dominant left projection after division by r_+^m has sum of nonlinear corrections O(epsilon²) since q²/r_+<1. It therefore has nonzero asymptotic coefficient; the other components divided by r_+^m tend to zero, proving attainment in the nonlinear SPD recursion. Differentiating the larger root in T at T=1+lambda² gives 1/(1-lambda²), yielding the stated small-angle coefficient. The ordinary forgetting two-cycle has phases with swapped weights 1 and lambda; each has condition number governed by trace 1+lambda and determinant lambda sin²(theta), giving the stated comparison.",
+      "residual_risks": [
+        "The archived 2565 numerical assertions are finite corroboration, not proof of uniform deterministic excitation or nonlinear rate attainment. Equal retained singular values and the uniform frame bound are hypotheses of the global guarantee; the rate formula is a local two-direction statement per epoch, not a parameter-error rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lai–Bernstein gives information/covariance bounds and parameter-estimator stability. Randomized block BFGS gives expected linear convergence under random sketch positivity. Lai–Bernstein attributes the scalar information decomposition and existence of bounds to Cao–Schwartz."
+        ],
+        "reasoning": "Bounds and parameter convergence do not determine the information-state limit. Random sketch positivity for the full update does not include arbitrary deterministic window frames for a convexly averaged information update. A scalar predecessor cannot directly cover varying-rank frames, but exact scalar overlap is not resolved by the DOI landing page.",
+        "searches": [
+          "Lai–Bernstein arXiv:2404.10844v1, Introduction and Thm. 4",
+          "Gower–Richtárik arXiv:1602.01768v3 Thm. 6.2",
+          "Cao–Schwartz DOI 10.1016/S0005-1098(00)00093-5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.10844v1",
+        "arXiv:1602.01768v3",
+        "arXiv:1703.10547",
+        "Cao–Schwartz DOI (primary access limitation)",
+        "Resultary 7b775acd2004, b8bbc35226f1, d828788ae3af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full undamped map and the two-projection Jacobian have direct antecedents. The SIFt literature inspected provides the nonlinear recurrence but not its exact normalized equilibrium attraction theorem."
+        ],
+        "reasoning": "The linear spectrum and its angular expansion follow by specialization and are not separate contributions. A spectrum for a linear projection algorithm does not identify the nonlinear SIFt Jacobian or prove attainment by a positive-definite orbit; the nonlinear step must be controlled. Similarly the global limit uses the exact Stein decrement and the deterministic window argument, not just equality of the full undamped map to a sketch update.",
+        "searches": [
+          "arXiv:1602.01768v3 §8.8 and Thm. 6.2",
+          "arXiv:1703.10547 pp. 4–5, eqs. (6)–(8)",
+          "arXiv:2404.10844v1 §4 and Thm. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Specializing Lai–Bernstein gives precisely (1). With A=I and sketch V the inverse of the Gower–Richtárik full update gives G_V. The logarithmic determinant Bregman projection onto XV=V also gives G_V (the complementary block solves the inverse-block first-order equation). Fält–Giselsson gives the spectrum of a product of individually relaxed projections, including the common-orthogonal block."
+        ],
+        "reasoning": "The averaged SIFt information iteration is not simply an undamped inverse-block update or standard curvature-pair damping. The linearized epoch derivative is exactly the Fält–Giselsson product with both relaxation parameters 1-lambda and principal cosine cos²(theta); their spectrum specializes exactly to the frozen roots, including lambda².",
+        "searches": [
+          "Lai–Bernstein arXiv:2404.10844v1 §4, eqs. (27),(29)",
+          "Gower–Richtárik arXiv:1602.01768v3 §8.8, eq. (82)",
+          "Fält–Giselsson arXiv:1703.10547, eqs. (6)–(8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed BFGS record gives a specific exact-line-search orbit reaching an identity limit, greedy PSB gives finite recovery on a fixed basis, and d828788ae3af studies relaxation of a product instead of a product of individual relaxations. Fält–Giselsson gives an exact algebraic formula for the linearized spectral invariant."
+        ],
+        "reasoning": "No table is required for this dynamical theorem, but exact indexed formulas were compared: the known derivative spectrum is covered, while none of the compared exact results supplies the nonlinear information limit and attained rate for this recursion.",
+        "searches": [
+          "Resultary: equal-strength SIFt, isotropic information, BFGS identity attraction and angular rate; 7b775acd2004, b8bbc35226f1, d828788ae3af",
+          "arXiv:1703.10547 eq. (8)"
+        ]
+      },
+      "rationale": "Credit the exact prior SIFt recursion, the undamped block BFGS/LogDet map, and the exact relaxed-two-projection linear spectrum. The original claim that remains is the deterministic equal-strength isotropic limit for the averaged nonlinear SPD recursion with a uniform subspace frame, together with its calibrated sharp nonlinear epoch rate and the directional-conditioning comparison. The linearized formula by itself is not credited as original.",
+      "residual_risks": [
+        "Cao–Schwartz full-text scope remains unresolved; earlier deterministic LogDet/BFGS analyses could have matching implications under arithmetic relaxation. The comparison is limited to actual inspected statements, not proof of universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same update after specialization; stated bounds/stability have a different conclusion",
+          "evidence": [
+            "The two equations define the information downdate and measurement update; the reported stability theorem concerns parameter error."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2404.10844v1",
+          "material_read": "Introduction and §3; §4 equations (27),(29), offsets 27900–34900; Theorem 4 near offset 51300",
+          "method": "OA primary HTML excerpts",
+          "title": "SIFt-RLS: Subspace of Information Forgetting Recursive Least Squares",
+          "trigger": "Original vector-measurement recursion and possible convergence coverage"
+        },
+        {
+          "assessment": "Exact equivalence of the full normalized step (in inverse coordinates); distinct convergence assumptions and iterates",
+          "evidence": [
+            "With A=I and S=V, the inverse iterate is VVᵀ+(I-VVᵀ)X(I-VVᵀ); the theorem uses random sketches and expectation positivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.01768v3",
+          "material_read": "PDF pp. 19–20, Theorem 6.2; p. 30, §8.8 equation (82); pp. 6 and 11 projection formulations",
+          "method": "OA primary PDF excerpts",
+          "title": "Randomized Quasi-Newton Updates Are Linearly Convergent Matrix Inversion Algorithms",
+          "trigger": "Potentially equivalent block BFGS map and convergence theorem"
+        },
+        {
+          "assessment": "Exact prior coverage of the linear spectrum after parameter substitution; not a theorem for the nonlinear information map",
+          "evidence": [
+            "The principal two-by-two block has trace 2-alpha1-alpha2+alpha1 alpha2 c_i² and determinant (1-alpha1)(1-alpha2). The orthogonal complement block is their product. Set alpha1=alpha2=1-lambda and c_i=cos²(theta)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.10547",
+          "material_read": "PDF pp. 4–5, eqs. (6)–(8), text offset 11900–14495",
+          "method": "OA primary PDF bounded passage read",
+          "title": "Optimal convergence rates for generalized alternating projections",
+          "trigger": "Potential exact prior spectrum of individually relaxed projections"
+        },
+        {
+          "assessment": "Scalar antecedent established; scalar asymptotic coverage unresolved",
+          "evidence": [
+            "Lai–Bernstein describes the decomposition and existence of bounds from this scalar method."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0005-1098(00)00093-5",
+          "material_read": "DOI landing page and Lai–Bernstein Introduction and reference [5]; original primary discussion not read",
+          "method": "Bounded lawful retrieval, no full text obtained",
+          "title": "A Directional Forgetting Algorithm Based on the Decomposition of the Information Matrix",
+          "trigger": "Possible scalar antecedent for the limit and angular application"
+        },
+        {
+          "assessment": "A different BFGS mechanism and rate question",
+          "evidence": [
+            "An exact-line-search trajectory converges to identity in a particular setup; it is not the window-frame SIFt iteration."
+          ],
+          "identifier_or_url": "Resultary 7b775acd2004",
+          "material_read": "Mirrored Finding",
+          "method": "Configured local search and mirror comparison",
+          "title": "Exact Hessian recovery inside a Q-order-one BFGS trajectory",
+          "trigger": "Closest indexed BFGS identity limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof sections 1–4",
+        "arXiv:2404.10844v1 §4",
+        "arXiv:1703.10547 eq. (8)"
+      ],
+      "rationale": "The limit determines the selected information matrix from arbitrary SPD starts for nonperiodic varying-rank frames, strengthening the interpretation of uniform bounds in this special equal-strength regime. A sharp nonlinear local rate explains why eventual isotropy can coexist with arbitrarily slow equilibration at near-parallel excitation, while ordinary forgetting retains anisotropy. The practical mathematical distinction survives even after crediting the prior projection spectrum.",
+      "residual_risks": [
+        "Not a guarantee for unequal-strength batches, estimator tracking error, or finite-time conditioning at every initial state; the explicit timing comparison is local and two-dimensional."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

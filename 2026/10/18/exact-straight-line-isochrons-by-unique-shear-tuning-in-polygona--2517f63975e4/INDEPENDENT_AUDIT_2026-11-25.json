@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:35:11.396849Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 24–78",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "python3 /workspace/audit-replay/frozen_checks.py 4"
+      ],
+      "rationale": "Take s along the edge and V=n·x−C normal to it. An incoming radial displacement δ has (s,V)=(Aδ,Cδ), while an outgoing radial displacement δ′ has (1+(A+1)δ′,Cδ′). Solving V′=−κV and s′=ω−μV gives δ′=δ exp(−κt). At the on-cycle time the tangential matching condition is proportional to δ with shear coefficient C(1−E)/κ>0, so cancellation is exact and unique. On the reference edge the angular velocity is ωC/|x|²>0; both modes cross an adjoining ray in the same direction. Compactness over an edge, restricting the offset, and the simple section root with time derivative ω at δ=0 ensure the selected first crossing stays local. Even at a detuned finite shear the derivative of δ exp(−κt(δ)) at zero is E, so the period and transverse multiplier really are preserved. At tuning, the flight map transports each small incoming radial segment by an affine map with nonzero normal component at every intermediate time. These fixed-time lines are local coordinates, glue to the radial segments at crossings and synchronize under repeated revolutions (amplitude factor ∏E); distinct phases on the simple orbit cannot converge with zero relative time shift. Equal radii give A=−1/2 and the displayed coth formula. An independent exact-rational replay checks tuned and detuned ray identities on six unequal sectors with both signs of offset.",
+      "residual_risks": [
+        "Only local isochrons and uniqueness for edgewise fixed flight time, not uniqueness among all possible phase properties or a global basin."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The established framework permits piecewise affine oscillators and infinitesimal phase calculations. The inspected statements do not guarantee a radial constant-time section or identify its exact synthesis gain. The 2012 text could not be inspected; Kai cites it in the context of limit-cycle synthesis."
+        ],
+        "reasoning": "The general methods are relevant but do not themselves establish the nonlinear equality for this switching geometry. The inaccessible paper is an explicit limitation, not evidence of absence.",
+        "searches": [
+          "Kai DOI 10.1007/s40435-026-02340-6, design and conclusion",
+          "arXiv:1603.03503v3, phase and foliation conditions",
+          "Kai–Masuda 2012, Limit cycle synthesis of multi-modal and 2-dimensional piecewise affine systems"
+        ]
+      },
+      "checked_sources": [
+        "Kai (2026), DOI 10.1007/s40435-026-02340-6",
+        "Park et al., arXiv:1603.03503v3",
+        "Kai–Masuda (2012), citing-paper context only",
+        "Resultary 2026/11/17 … b1ef5fefb339 and 2026/11/8 … 595e7a393d3f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive transverse decay can coexist with a first-flight time that varies with the initial offset. In the return-clock record the displayed first-exit equation, in contrast, has exactly the same cancellation condition."
+        ],
+        "reasoning": "The substantive step relative to the earlier work is selecting the unique gain by matching the outgoing radial displacement at the on-cycle time, then identifying the entire local phase foliation rather than only its tangent directions.",
+        "searches": [
+          "Kai DOI 10.1007/s40435-026-02340-6, design, simulations and conclusion",
+          "Park et al. arXiv:1603.03503v3",
+          "Resultary return-clock record, exact first-crossing equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kai's design specifies the same shear degree of freedom for tangential transients. Park et al. define asymptotic phase and match its infinitesimal response across switching interfaces."
+        ],
+        "reasoning": "The property here is equality of each complete sector flight for a continuum of nonzero offsets, not a phase-gradient value, a Poincaré linearization, or a statement of orbit existence.",
+        "searches": [
+          "Kai DOI 10.1007/s40435-026-02340-6: tangential gain, polygonal affine limit cycles",
+          "Park–Shaw–Chiel–Thomas arXiv:1603.03503v3: phase foliation and saltation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/17/SCOPE-universal-two-jet-control-of-return-clocks-on-polygonal-affine-l--b1ef5fefb339, proof steps 1–2: b=q/(1−q), fixed sector time and radial contraction.",
+          "2026/11/8/SCOPE-polygon-shape-conjugacy-and-an-explicit-full-interior-basin-for--595e7a393d3f gives a different radial-gauge calibration and shape conjugacy."
+        ],
+        "reasoning": "Relabeling k=κ, Δ=C, α=A and q=E in the first record gives exactly μ=(κ/C)(A−E/(1−E)); this is material equivalent coverage of the clock result and would produce the same local isochrons by affine transport. The catalog entry is later. The second record does not give this calibration merely by choosing the same geometry.",
+        "searches": [
+          "Resultary local search: polygonal affine cycles, unique shear, exact return clocks and straight isochrons"
+        ]
+      },
+      "rationale": "The inspected earlier model and phase theory do not supply the edgewise finite-offset calibration and ensuing straight isochron foliation. A later Resultary item is demonstrably equivalent on the exact flight-time calibration, not independent priority evidence against this record; the earlier-priority judgment is bounded by the inspected sources.",
+      "residual_risks": [
+        "Kai–Masuda 2012 full text not inspected; equivalent synthesis may exist under hybrid control or phase coordinates.",
+        "Later exact clock overlap is established; relative dating alone is not proof of priority over uninspected work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, stability, periods and transient shear effects, not the specific calibration in inspected passages",
+          "evidence": [
+            "pp. 3–4 give separate ω, λ, μ design knobs; pp. 9–12 illustrate μ-dependence of the transient rather than exact synchronization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40435-026-02340-6",
+          "material_read": "Abstract, design pp. 3–4, simulations and conclusion pp. 9–12, earlier-framework reference p. 13",
+          "method": "OA article passage inspection",
+          "title": "Piecewise affine oscillators with polygonal limit cycles",
+          "trigger": "Same system and free shear parameter"
+        },
+        {
+          "assessment": "General phase and infinitesimal saltation method, distinct from the finite-offset synthesis",
+          "evidence": [
+            "Matching one-sided phase gradients addresses the infinitesimal response, not the edge gain that equates each radial flight time."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1603.03503v3",
+          "material_read": "Abstract, phase definition and phase/foliation conditions (OA offsets 18866 and 23863)",
+          "method": "OA full-text passage inspection",
+          "title": "The Infinitesimal Phase Response Curves of Oscillators in Piecewise Smooth Dynamical Systems",
+          "trigger": "Strong candidate for earlier phase-foliation theory"
+        },
+        {
+          "assessment": "Equivalent exact calibration in later catalog entry, plus distinct clock-jet control",
+          "evidence": [
+            "Equation (1) gives ωt−1=s[(b+1)exp(−kt)−b]; step 2 sets b=q/(1−q) and gives constant time and contraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-universal-two-jet-control-of-return-clocks-on-polygonal-affine-l--b1ef5fefb339/RESULT.md",
+          "material_read": "Finding and proof steps 1–3 (especially offsets 4300–6890)",
+          "method": "Local Resultary mirror statement and proof comparison",
+          "title": "Universal two-jet control of return clocks on polygonal affine limit cycles",
+          "trigger": "Same exact flight-time property"
+        },
+        {
+          "assessment": "Different calibration and purpose",
+          "evidence": [
+            "Radial-gauge design supplies shape-independent conjugacy and an interior basin, not this fixed-flight condition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-polygon-shape-conjugacy-and-an-explicit-full-interior-basin-for--595e7a393d3f",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Polygon-shape conjugacy and an explicit full-interior basin for calibrated affine oscillators",
+          "trigger": "Related shear calibration in same family"
+        },
+        {
+          "assessment": "Possible earlier synthesis antecedent, exact overlap unresolved",
+          "evidence": [
+            "Kai identifies it as earlier framework work; no finding of noncoverage is made from the inaccessible text."
+          ],
+          "identifier_or_url": "Kai and Masuda (2012), cited in Kai 2026, p. 13",
+          "material_read": "Citation and context in Kai 2026 only",
+          "method": "Citing-paper context; publisher paper inaccessible by attempted lawful routes",
+          "title": "Limit cycle synthesis of multi-modal and 2-dimensional piecewise affine systems",
+          "trigger": "Earlier synthesis for the same broad class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md per-edge synthesis and local isochron construction",
+        "Kai (2026) oscillator design and simulations"
+      ],
+      "rationale": "This supplies an exact tuning rule and a usable local phase map for a motivated hybrid oscillator family without changing its geometric cycle, clock on the cycle, or linear stability. It identifies the precise parameter choice that removes finite-offset timing errors at every switch; this is appreciably stronger than calculating the linear response or verifying a regular polygon example.",
+      "residual_risks": [
+        "Significance is local phase design for this family, not a robustness or arbitrary-switching theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

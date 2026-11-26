@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result uses ordinary induced-submodel public announcement, not arrow-only believed announcements. The proposition-free argument is a structural induction using the nonempty reflexive successor class. In one-agent S5, the critical lemma is type invariance of all modal subformulas within a fixed equivalence class: worlds of one Boolean type have identical truth values given the surviving set of types, so every strict round removes at least one of the at most \(2^k\) types. The explicit maximum-type formula removes one type at a time. The two-agent formula checks the forward partner of alternating equivalence pairs and removes the unique terminal vertex each round. The empty-world terminal convention and all quantifier ranges are explicit. The 3,016 finite checker instances corroborate, but do not replace, the symbolic arguments.
+PASS
 
-## Originality — PASS, with residual risk
+The count h is the first equality of consecutive induced world sets, so it counts strict deletions, including deletion to the absorbing empty set. With no letters, induction on syntax and reflexivity make every formula truth-constant, and ⊥ attains one deletion. In the one-agent case each original class evolves without interacting with other classes. Structural induction shows that truth depends only on a world's Boolean valuation type and the current set of types in its class: a diamond amounts to existence of a witnessing type in that set. Each changing round deletes whole types. Once one class has a no-change round it stays fixed, independently of other classes. All classes are therefore fixed after at most 2^k rounds, even on infinite carriers. A single equivalence class containing every valuation type, with the announced test 'some larger type remains', loses exactly one type per round until empty, attaining 2^k. For at least two agents, on an alternating even/odd path with a-pairs (0,1),(2,3),… and b-pairs (1,2),(3,4),… the one-letter formula selects an even world's a-partner or an odd world's b-partner of the opposite valuation. In both cases the required partner is its successor if present. Exactly the rightmost world dies on every nonempty prefix, so n worlds give n strict rounds, including n=1. Extra identity agents do not change the result.
 
-The closest inspected text is Yamada (2026), especially Lemma 6: the same finite-type disappearance principle is already present for single-agent **believed** public announcements that delete arrow targets, not worlds. The present quantitative claim is only the precise **ordinary PAL** spectrum and its simultaneous sharp constructions (including a fixed one-proposition two-agent witness). The manuscript does not claim the valuation-type lemma or the alternating diamond formula itself as novel: both occur in Yamada’s work. Miller–Moss (2005) supplies complex iterated relativization and muddy-children examples but not this fixed-resource phase transition. Sadzik (2006) analyzes product-update dynamics, not this exact classification. Searches in published records and prior mathematical claims found no covering equivalent, but an older equivalent ordinary-PAL theorem remains a real residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact \(2^k\)-versus-unbounded threshold quantifies how the number of agents fundamentally changes the length of a fixed truthful-announcement process, independent of world count for one agent. The sharpness witnesses show the obstruction needs no growth in modal depth or propositional alphabet once there are two agents. This provides a natural resource-sensitive boundary for epistemic update dynamics, not merely another finite instance.
+Supported for the exact joint agent–alphabet spectrum for ordinary truthful announcement, including sharp one-agent attainability and the depth-one two-agent S5 construction under these semantics. Not new in isolation are the valuation-type upper-bound mechanism, the alternating one-letter formula, or unbounded announcement lifetimes with growing alphabets. The nearest antecedent uses the identical formula and a type-count analogue under believed K45 updates; the comparison of surviving induced structures below shows the connection is more than a keyword match, but does not yield the sharp spectrum from those prior statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The classification asks whether fixing expressive resources alone bounds the duration of a repeated update. It identifies a sharp exponential ceiling independent of carrier size for one agent, versus no ceiling for a fixed depth-one one-letter formula and just two agents. This distinguishes loss of valuation types inside an equivalence class from propagation across two overlapping partitions, with matching examples for the exact ordinary world-deletion convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:12:38.626756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the inclusion–exclusion formula, the discarded even-base terms after division by 8! have valuation at least n−5, as the potentially limiting coefficients 28 have valuation 2. Thus the stated tail cutoff suffices. Re-expanding the retained odd bases by 49=1+48, 25=1+24 and 9=1+8 gives the two normalized branches G(t)=F(2t), H(t)=F(2t+1)/4, with integral Mahler coefficients, odd linear coefficients (17 and 21 before division by −315), and quadratic coefficients of valuations 3 and 2. The higher coefficients have valuation at least 3j−4 and 3j−6 respectively. Vandermonde bounds the binomial differences below by ν₂(t−s)−floor(log₂ j); hence each nonlinear difference has strictly higher valuation than the linear term. Both branches induce permutations on every quotient. In a block of length 2q the even branch takes every residue once, and the odd branch takes each multiple of four four times for k≥2, degenerating to two zeros at k=1. No odd shift can be a period because odd indices never give odd output and infinitely many even indices do. An even shift 2d forces q|d by even-branch isometry. The parity mixture gives the stated Haar density. Independently checked two full blocks, a half-period obstruction and both branch histograms at k=1 through 12 using the product ordinary generating function, not the uploaded checker (python3 /workspace/branches/independent_checks_2_5.py). Neither the proof nor the test claims the cutoff is sharp.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwong develops fixed-column minimum periods; no claim here relies on the endpoint inequalities of the scanned display.",
+          "Bennett–Mosteig prove the conjectured valuation-class structure for columns through 20. Zhao–Hong–Zhao Theorem 1.3 applies to column 8 when both indices are multiples of 2^n with n≥3 and gives ν₂(a·2^n,b·2^n difference in S(·,8)) = n+ν₂(a−b)−1; this is a restricted even-branch overlap.",
+          "Davis (4.4) gives the corresponding exact shifts for all indices in each parity branch of column 8, including the odd branch."
+        ],
+        "reasoning": "Minimum periods and the distribution of valuations about zero are individually weaker than the full residue law. The decisive stronger coverage is the older source's all-basepoint shift identity with the exact parity-dependent offsets.",
+        "searches": [
+          "Kwong 1989, Theorems 3.2–3.6",
+          "Amdeberhan–Manna–Moll arXiv:0707.3104, Conjecture 1.5",
+          "Bennett–Mosteig arXiv:1204.6361, introduction/background",
+          "Exact-title literature lookup for Zhao–Hong–Zhao's Divisibility by 2 of Stirling numbers of the second kind and their differences; arXiv:1209.6284 Theorem 1.3",
+          "Davis arXiv:1402.0433, proof of Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Davis arXiv:1402.0433 Prop. 1.5, Thm. 2.1 proof and (4.4)",
+        "Kwong, Fibonacci Quarterly 27 (1989), 217–221",
+        "arXiv:0707.3104, 1204.6361 and 1209.6284",
+        "Resultary 8f132a5968a1 and a900c8064e91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At e=2, Δ=4, and p=0,1, Eq. (4.4) reads ν₂(P₈(2(x+2^d)+p)−P₈(2x+p))=d+c_p for every d≥0, with c₀=0, c₁=2. The proof also has ν₂(P₈(p))≥c_p. In particular P₈(2x+1) is always divisible by four.",
+          "If x−y=2^d m with m positive odd, sum the m successive increments of step 2^d. Each divided by 2^(d+c_p) is odd, so the sum is odd. Therefore P₈(2t+p)/2^c_p is an isometry, giving every normalized residue once in each finite input quotient.",
+          "The even terms in Proposition 1.5 are coefficients 28, 70, 28 and 1 times bases 2, 4, 6 and 8 to the n-th power, all divided by 8!. Hence the approximation holds at least modulo 2^(n−5) for n≥8. Each parity ranges over q consecutive normalized indices, yielding one uniform full branch, one concentrated branch, the exact histogram and density. The full branch forbids smaller even shifts and its odd outputs forbid odd shifts."
+        ],
+        "reasoning": "The exact difference result applies to the same object and domain. The odd-multiple telescoping step, finite quotient argument and evaluated error bound recover the entire frozen claim, including its sufficient tail cutoff, without a new mathematical ingredient. The rederived Mahler proof is transparent, but the record does not establish a distinct theorem.",
+        "searches": [
+          "Davis arXiv:1402.0433, p. 19 Eq. (4.4), offsets 49058–53452; e=2 discussion pp. 20–21, offsets 54790–56296",
+          "Davis Proposition 1.5 proof, OA offset 7200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Davis's partial function P₈ is the odd-base part of the eighth column up to sign; the frozen interpolant is F=−P₈. Proposition 1.5 and its proof connect it to the actual Stirling number at any fixed finite precision on a tail.",
+          "Theorem 2.1 at (e,Δ)=(2,4) gives the valuation around a zero on each of the two parity branches, with an extra offset 2 for the odd branch."
+        ],
+        "reasoning": "Replacing F by −P₈ does not change valuations of differences and does not change the uniform cosets Z₂ and 4Z₂; the p=0,1 branches in Davis are exactly n=2t and n=2t+1. The zeros statement alone would not prove the fiber law, so the actual proof was inspected.",
+        "searches": [
+          "Resultary: S(n,8) dyadic residue fibers, Haar output law and eighth Stirling column",
+          "Davis arXiv:1402.0433 Proposition 1.5 and Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching S8 index record is the assigned record itself. Same-day 8f132a5968a1 treats the sharp preperiod and transient shift defect for S(n,7). Earlier a900c8064e91 gives two preimages per target for S(n,5), one in each parity.",
+          "Davis's stated corollary counts two exact 2-adic zeros of P₈, not five finite-period zeros modulo 2^k."
+        ],
+        "reasoning": "These tables or catalogue findings do not literally state the S8 target histogram; neither neighboring column specializes to it. The novelty failure is based on exact proof-level implication, not an apparent database match.",
+        "searches": [
+          "Resultary: complete dyadic Stirling residue distributions by fixed column; opened 42b89173ef61, 8f132a5968a1 and a900c8064e91",
+          "Davis arXiv:1402.0433, Theorem 2.1 and Corollary 2.3"
+        ]
+      },
+      "rationale": "Davis's 2014 proof of Theorem 2.1 explicitly establishes a dyadic first-difference valuation (4.4) for the partial Stirling function. At e=2 and Δ=4 it gives precisely the two normalized isometries needed here, not just the zero counts named in the frozen literature comparison. The full fiber table, least period and density follow by finite quotient permutations and counting, and the sufficient cutoff follows by reading the even-base coefficients in Davis's Proposition 1.5 proof. The final table need not appear verbatim in that paper for the claim to be covered as a mechanical corollary.",
+      "residual_risks": [
+        "The older presence of an explicitly printed S8 histogram is not established, and the exact endpoints of the OCR-extracted Kwong theorem were not used. The verdict follows from the verified Davis proof and straightforward implications regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both eighth-column normalized isometries via exact dyadic first differences; the full residue law is a routine corollary",
+          "evidence": "Eq. (4.4) supplies d+c at all basepoints; the displayed c is 2 for (Δ,p mod 2)=(4,1) and e=2, and 0 for Δ=4 with p even. The discussion explicitly includes P₈ for e=2; Proposition 1.5 gives the exact discarded even-base sum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.0433",
+          "material_read": "Proposition 1.5 and its proof; Theorem 2.1 and Corollary 2.3 at offsets 7200–11590; proof of Theorem 2.1 including Eq. (4.4), pp. 19–20 at offsets 49058–53452; e=2 discussion at offsets 54790–56296",
+          "method": "OA PDF passages including decisive original proof",
+          "title": "2-adic partial Stirling functions and their zeros",
+          "trigger": "Identical eighth-column odd-base interpolation; possible proof-level difference formula beyond the stated zeros"
+        },
+        {
+          "assessment": "Prior period theory, not an all-target fiber proof; exact endpoint reading is not needed for the verdict",
+          "evidence": "Treats fixed-column minimum periods modulo prime powers and gives p=2 cases in Theorem 3.6.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/27-3/kwong.pdf",
+          "material_read": "Theorems 3.2–3.6 and Corollary 3.4, OA offsets 5870–8746 and 9300–12731",
+          "method": "OA scanned PDF passages; endpoint signs imperfect in extraction",
+          "title": "Minimum periods of S(n,k) modulo M",
+          "trigger": "Classical possible coverage of the minimum period"
+        },
+        {
+          "assessment": "Valuation-class conjecture, not the output histogram",
+          "evidence": "The class prediction specializes to two nonconstant valuation classes for column eight, but the stated established special case there is column five.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.3104",
+          "material_read": "Conjecture 1.5, PDF pp. 4–7; OA offsets 9800 and 13758",
+          "method": "OA PDF passages",
+          "title": "The 2-adic valuation of Stirling numbers",
+          "trigger": "Earlier fixed-column valuation structure"
+        },
+        {
+          "assessment": "Valuation overlap; not relied on for every fiber",
+          "evidence": "The method proves the valuation-class conjecture for columns through 20; §6.2 works through column seven, not eight.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.6361",
+          "material_read": "Introduction/background PDF pp. 2–4, OA offsets 3150–7608; §6.2, PDF p. 19",
+          "method": "OA PDF passages",
+          "title": "Congruence classes of 2-adic valuations of Stirling numbers of the second kind",
+          "trigger": "Proven valuation-class structure including column eight"
+        },
+        {
+          "assessment": "Covers differences at indices divisible by eight or higher powers, not the complete parity decomposition by this theorem",
+          "evidence": "Theorem 1.3 gives n+ν₂(a−b)−ceil(log₂ c)+s₂(c)+δ(c) for indices a2^n,b2^n and 3≤c≤2^n other than powers of two minus one. At c=8 the constant part is −1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.6284",
+          "material_read": "Original arXiv copy, Conjecture 1.1 and Theorem 1.3, PDF p. 3, OA offsets 6650–12156",
+          "method": "Identified lawful alternate OA copy, then opened the decisive statement",
+          "title": "Divisibility by 2 of Stirling numbers of the second kind and their differences",
+          "trigger": "Closely matching exact difference valuations, DOI 10.1016/j.jnt.2014.01.005"
+        },
+        {
+          "assessment": "Different column and invariant",
+          "evidence": "S(n,7) has least period 2^(k+1), plus sharp tail onset and shift-defect statements, not S(n,8) fibers.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-binary-preperiod-and-transient-shift-defect-law-for-the-se--8f132a5968a1",
+          "material_read": "RESULT.md Finding and relationship to prior work, offsets 140 and 5435",
+          "method": "Local published-record mirror",
+          "title": "Sharp binary preperiod and transient shift-defect law for the seventh Stirling column",
+          "trigger": "Same-day fixed-column binary period and shift analysis"
+        },
+        {
+          "assessment": "Independent exact census for another column, not this coverage",
+          "evidence": "Exactly two occurrences per residue per period, one in each parity, with uniform density.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-binary-residue-fibers-of-the-fifth-stirling-column-with--a900c8064e91",
+          "material_read": "RESULT.md Finding, offset 273",
+          "method": "Local published-record mirror",
+          "title": "Uniform binary residue fibers of the fifth Stirling column with sharp preperiod",
+          "trigger": "Exact dyadic fiber and pushforward precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact pushforward for a natural Stirling column is worth understanding, and the short Mahler computation is a useful exposition. As a distinct research contribution, however, this record extracts the histogram and density by routine quotient counting from already established branch isometries and uses a merely sufficient cutoff obtained by direct evaluation of the existing error formula. No resolved new obstruction, stronger cutoff or otherwise independently useful new remainder survives that comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The combinatorial signed transfer is derived edge-by-edge, with the four forbidden constant-spoke/directed-rim configurations subtracted explicitly. The reversal involution forces odd-character zeros, and the mod-four pair congruence establishes all even-character nonzeros for even rim length. Two explicit \(D_aL_1\) products attain multiplier \(-2\); an off-diagonal odd product gives at least \(2^{n-1}\) additional even-character zeros for odd rim length. The exact standalone checkers agree at all frequencies through seven rim vertices and independently verify properties through eight. The proof, rather than finite tests, supplies all-length scope.
+PASS
 
-## Originality
+With mixed spoke bits, every rim edge crossing the bit cut must point from 1 to 0, forbidding a path from a spoke-0 vertex to a spoke-1 vertex. This excludes a hub cycle, and a coherently directed rim also would cross in both directions. For constant spokes only the two directed rims must be dropped. Conditional summation over each rim edge gives the stated L_b with the signs in the stated edge encoding; contraction over the cyclic spoke indices yields the trace, and the four removed terms give the stated product correction. Fixed-size matrix products take O(n) arithmetic steps with O(n)-bit integers. The count is 3^n−3 from the eigenvalues 3 and 1 and the correction 4. Reversal forces odd characters to vanish and pairs the signs at even characters; the latter coefficients are 3^n−3 modulo 4, so all survive for even n. With b all ones, use J^2=−I and (D_1 J)^2=I: zero a for n divisible by four and two adjacent ones for n=2 mod 4 both give trace 2 and correction 4. Thus the least nonzero magnitude is 2, and the absolute maximum is the zero-frequency count. Fourier diagonalization gives rank and the stated restricted condition ratio; averaging reversal is a contraction fixing a nonzero range, so its norms are one and optimal. For odd n the all-one b product has odd off-diagonal parity and zero trace, with zero correction; precisely 2^(n−1) choices of a in that family have even total weight. This proves an upper bound, not the odd rank itself, including n=3.
 
-PASS under bounded comparison. Savage–Squire–West's 1993 wheel orientation description and known count \(3^n-3\) imply the combinatorial premises. Those plus reversal make even-rim support relatively easy to deduce, so this portion alone does not establish value or priority. The specific signed matrix-product Fourier evaluation, achieved smallest multiplier, and odd-rim additional blind family were compared against the 1993 full text, the archived sink-counting paper, indexed graph-orientation/Fourier records, and accessible historical wheel-related findings; none of the inspected works supplies or dominates the complete claim. Searches are not a uniqueness proof. Unindexed equivalent Fourier calculations remain possible.
+## originality
 
-## Value
+PASS
 
-PASS. Signed convolution on the edge-orientation cube asks which arbitrary orientation-indexed signals can be reconstructed. The theorem identifies a clean all-length structural separation: complete recovery of the global-reversal-invariant subspace for every even wheel, versus extra information loss for every odd wheel, with efficient exact multiplier evaluation and sharp even-wheel conditioning. The result therefore supplies a meaningful spectral boundary rather than simply recomputing known orientation totals. Odd-rim exact ranks remain open in this claim.
+The combinatorial fibres, unsigned count and the generic reversal argument are not original. The inspected sources do not supply the wheel-specific signed linear-step formula together with the sharp magnitude witness and explicit odd-rim failure of full even-character recovery. Passage-level comparison of the nearby graph-family records gives different orientation cubes or different signals, not a reparameterized wheel result.
 
-## Source and verification limitations
+## value
 
-The 1993 orientation-fibre description and \(3^n-3\) count are prior work, not new results. The 1999-07-12 date is the earliest exact-day verified online source used for source anchoring; the 1993 printed article is older but no public day/month was established. All code-based results are finite corroborations, and no independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For convolution by an orientation indicator, the edge spectrum determines precisely which orientation signals can be recovered and at what conditioning. The new signed calculation supplies a linear-step individual coefficient evaluation and sharp conditioning where only reversal is lost, and a concrete additional obstruction in the other parity. That is useful beyond the known zero-frequency count or flip statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

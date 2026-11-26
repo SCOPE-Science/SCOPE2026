@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:45:30.119051Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–66; VERIFICATION.md and verify_theta_spectrum.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/284d085c-85c5-4a77-bc23-672bccc4647f/fresh_theta_check.py; eight explicit labelled networks through 12 edges and 4096 frequencies, testing signed multipliers and histograms, sharp gaps, rank and maximum"
+      ],
+      "rationale": "A spanning tree deletes k−1 edges. Deleting two edges in one arm would strand internal vertices, and the terminals must be joined by an intact arm. Conversely, retaining one whole arm and deleting one edge from each other arm yields a spanning tree. Factoring out the product of all edge signs therefore gives the signed e_(k−1) of the arm sums. Each j-vector occurs with the product of binomial multiplicities, and Walsh diagonalization on the full edge group gives the rank and the singular magnitudes; the zero frequency attains the triangle-inequality maximum τ. For one even arm, exactly the monomial omitting that arm is odd; the other monomials are even (the first sentence of Proof Step 3 phrases this backwards). Taking that arm sum zero and the other sums one attains the unit minimum. If all arms are odd, the parity is that of k, and with arm sums ±1 the polynomial equals their product times their sum: odd k attains magnitude one, while even k attains both zero and magnitude two. With s≥2, two zero even-arm sums force zero, each monomial is divisible by 2^(s−1), and one zero even-arm sum with the others two and the odd sums one attains the bound. Each witness is permitted by the stated length and parity restrictions.",
+      "residual_risks": [
+        "Bounded enumeration supplements the proof; the rank is given by an exact finite multiplicity expression, not a simplified closed nullity formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown et al. give a theta chromatic-polynomial factorization, not the signed-tree Walsh extrema. Tsang et al. give the unrestricted XOR rank/Fourier-support bridge. The theta zonotope record counts trees or associated vertices, not signed frequencies. The same-day K_{3,n} result studies first zero frequencies on a different graph family."
+        ],
+        "reasoning": "Neither the shared graph family in unsigned enumeration, the general Fourier bridge, nor an adjacent bipartite zero-band theorem covers the complete parity/gap classification.",
+        "searches": [
+          "Brown–Hickman–Sokal–Wagner arXiv:math/0012033 §2; Tsang et al. arXiv:1304.1245 Prop. 1; Resultary generalized-theta 23a76ec8b64b and K_{3,n} c10b88147a95; Goodall DOI 10.1093/acprof:oso/9780198571278.003.0007"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 89f45551846c, ebba5a81d67c, 23a76ec8b64b and c10b88147a95",
+        "Brown et al. arXiv:math/0012033; Tsang et al. arXiv:1304.1245; Goodall chapter access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd total tree count implies no Walsh zero for any indicator, but a signed weighted matrix-tree formula does not, by itself, give zeros for even count or locate the least nonzero magnitude. The theta proof uses realizable zero, unit and two-valued arm sums and uniform 2-adic divisibility across monomials."
+        ],
+        "reasoning": "A general evaluation algorithm can compute each signing, but does not give these sharp extrema without the discrete arm argument. The earlier restricted spectra alone do not imply the statement for mixed arm parities and arbitrary arm count.",
+        "searches": [
+          "RESULT.md equations (1)–(4) vs. the weighted matrix-tree identity, arXiv:1304.1245 Prop. 1, and local mirror passages for 89f45551846c and ebba5a81d67c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A multiplier is the weighted spanning-tree enumerator evaluated at edge weights ±1, equivalently a signed Laplacian cofactor. For the length-two arms the frozen formula reduces to Sum_r a_r b_r Product_(i≠r)(a_i+b_i), exactly the published K_{2,n} formula.",
+          "Record ebba5a81d67c gives Σ(XY+δ(X+Y)) on two longer arms plus a direct terminal edge."
+        ],
+        "reasoning": "All-length-two is exact overlap. Neither the direct-edge subfamily nor a generic cofactor representation states a sharp optimum over the general arm ranges.",
+        "searches": [
+          "Resultary generalized-theta signed spanning-tree Walsh spectrum; 89f45551846c and ebba5a81d67c; signed multivariate spanning-tree/cofactor comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact weighted multiplicities for K_{2,n} cover all arms of length two and include its sharp nonzero gap. The direct-edge and K_{3,n} formulas have different domains. No all-arm table or exact minimum formula was identified in the passages checked."
+        ],
+        "reasoning": "The principal claim is not lookup or recomputation of an individual spectrum; it is a uniform divisibility lower bound and matching witnesses across all of the permitted arm-length patterns.",
+        "searches": [
+          "Resultary exact signed spectra 89f45551846c and ebba5a81d67c; c10b88147a95 zero-band comparison"
+        ]
+      },
+      "rationale": "The added result is the arbitrary-arm parity characterization and sharp strictly positive spectral gap, with attaining frequencies on the full edge group. Credit the standard signed weighted-tree identity, prior unweighted generalized-theta counting, and the already solved all-length-two spectrum. The closest inspected unequal-length Walsh calculation includes a direct terminal edge, which fixes a different admissible arm-sign range and does not cover these hypotheses.",
+      "residual_risks": [
+        "Goodall full text was unavailable; an equivalent theorem under signed tree or multivariate Tutte terminology is not excluded. The broad index lookup was not decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact restricted coverage",
+          "evidence": "Its signed formula agrees by a_i b_i(a_i+b_i)=a_i+b_i.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c",
+          "material_read": "RESULT.md offsets 0–4776 and 3059–4459",
+          "method": "Local mirror",
+          "title": "Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}",
+          "trigger": "Identical all-length-two subfamily"
+        },
+        {
+          "assessment": "Different arm restrictions",
+          "evidence": "Two paths of length at least two plus one direct terminal edge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-walsh-projection-norms-for-two-chordless-path-theta-graphs--ebba5a81d67c",
+          "material_read": "RESULT.md offsets 0–3527",
+          "method": "Local mirror",
+          "title": "Exact Walsh projection norms for two-chordless-path theta graphs",
+          "trigger": "Signed theta Walsh spectrum on a closely related graph family"
+        },
+        {
+          "assessment": "Unweighted background coverage",
+          "evidence": "Counts simple vertices as 2τ(G), not a spectrum of signs.",
+          "identifier_or_url": "Resultary 23a76ec8b64b",
+          "material_read": "RESULT.md offsets 0–4382",
+          "method": "Local mirror",
+          "title": "Local flip degrees and simple graphical-zonotope vertices of generalized theta graphs",
+          "trigger": "Same family and prior spanning-tree enumeration"
+        },
+        {
+          "assessment": "Related chromatic polynomial, not the asserted sharp signed limits",
+          "evidence": "Inspected formulas concern chromatic polynomial evaluations.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0012033",
+          "material_read": "Section 2, equations (2.4)–(2.7), offsets 650–6148 and 11054–15554",
+          "method": "Open-access primary text",
+          "title": "On the chromatic roots of generalized theta graphs",
+          "trigger": "Primary generalized-theta polynomial factorization"
+        },
+        {
+          "assessment": "Known Fourier bridge only",
+          "evidence": "The rank is Fourier sparsity; no theta-specific values follow without a sign calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.1245",
+          "material_read": "Proposition 1, offset 9265",
+          "method": "Open-access primary text",
+          "title": "Fourier sparsity, spectral norm, and the Log-rank conjecture",
+          "trigger": "General XOR rank diagonalization"
+        },
+        {
+          "assessment": "Different graph family and frequency invariant",
+          "evidence": "K_{3,n} first zero band is not the all-arm nonzero gap.",
+          "identifier_or_url": "Resultary c10b88147a95",
+          "material_read": "RESULT.md offsets 0–3275",
+          "method": "Local mirror",
+          "title": "The sharp first Walsh zero band for spanning trees of K_{3,n}",
+          "trigger": "Distinct same-day overlap in spanning-tree Walsh zeros"
+        },
+        {
+          "assessment": "Unresolved access, not negative evidence",
+          "evidence": "Both routes returned HTTP 403.",
+          "identifier_or_url": "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007",
+          "material_read": "Full text not retrieved; DOI and alternate public ResearchGate route attempted",
+          "method": "Lawful public access attempts",
+          "title": "Fourier Analysis on Finite Abelian Groups: Some Graphical Applications",
+          "trigger": "Plausible signed graph Fourier antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (2)–(4), parity and sharpness arguments",
+        "Exact prior all-length-two spectrum and distinct direct-edge theta spectrum"
+      ],
+      "rationale": "The theorem identifies exactly which theta convolution operators are invertible, and in the singular cases separates zero from the recoverable spectrum by a sharp parity-controlled scale. The realizable arm witnesses show that a uniform divisibility bound is the actual best bound, including unequal path lengths. This yields useful conditioning data not apparent from a generic determinant or ordinary tree count.",
+      "residual_risks": [
+        "No stronger claims about projection norms on other spaces or about general series-parallel graphs are supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

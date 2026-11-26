@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim applies to finite connected simple unicyclic graphs, arbitrary positive edge weights and roots at distance at least one from the unique cycle; it assumes no diagonal potentials. A gauge argument isolates one cycle flux; winding-lift geodesics establish minimal lengths and unique shortest-walk weights. Splitting the return amplitude into real even and imaginary odd series certifies the even-cycle contribution and cancellation of the linear odd-cycle winding sector. The inequality \(2m+2d<2(m+2d)\) for \(d\ge1\) establishes the leading twice-winding term, with no missing lower-order interference. Exact rational checker cases corroborate the formula without replacing the proof. The root-on-cycle boundary requires a different calculation and is excluded.
+## correctness
 
-## Originality — PASS, with residual risk
-The comparison is against weighted/chiral continuous-time walks, cycle-flux winding expansions, and published rooted-return/interference theory, rather than matching paper titles. Coutinho et al. (arXiv:2208.08971) focus on exact spectral/average-mixing questions; Frigerio and Paris (arXiv:2207.05168) on swift transport; Chaves et al. (arXiv:2203.13857) on Hermitian directed walks and zero transfer. Luppi (arXiv:2608.12519) explicitly treats cycle-rooted parity onset and general rooted-walk interference, making it the closest antecedent. The inspected description does not give the arbitrary attached-tree, off-cycle-root, distance-dependent weighted coefficients proved here. The full text of that especially relevant source could not be materially examined, so a stronger implication from its general statements remains a concrete priority risk. This review does not establish universal novelty.
+PASS
 
-## Value — PASS
-The first flux-visible power of time quantifies local detection latency of a remote magnetic loop in a coherent transport network. Its exact dependence on graph distance, cycle parity and edge-weight products supplies a natural invariant robust against the shape of off-path tree branches. The unexpected odd-cycle double-winding mechanism, including exact half-flux blindness, sharpens the geometric interpretation of phase response and gives direct design predictions beyond a small-case calculation.
+Each bridge has zero net traversal and any walk of winding q≠0 crosses every bridge on the root-to-cycle route at least once in each direction. Conservation at cycle vertices gives the same signed net traversal q on each cycle edge. The length is therefore at least 2d+m|q| and has parity mq; any excess from cancelling traversals is even. Equality permits only the prescribed path out/back and |q| consecutive oriented circuits, giving T² C^|q| per orientation. Zero winding implies even length, so there is no lower-order imaginary amplitude to pair with a first-winding term. For m even the real amplitude first sees flux at L=m+2d and the constant amplitude doubles its coefficient on squaring. For m odd only even winding enters the real amplitude, first at K=2m+2d. The odd amplitude starts at L, and its square starts at 2L>K since d≥1. These facts give the signs from (−i)^L or (−i)^K, the factor of four from reversal and squaring, and the next even Taylor order as remainder. Gauge equivalence of −H with H at flux Φ+π for odd m proves exact half-periodicity, since −H conjugates the diagonal return amplitude. At the blind fluxes the contrast is identically zero; the orders refer to generic contrast. Replay: RESULT.md lines 17–34, or count bridge and cycle traversals as above. The frozen scripts/notes were inspected, not executed; the checker's printed 'lengths' summarize total vertex counts (3–13), not the cycle-length range (3–8), and its d=0 cases are separate controls.
 
-## Verification and limitations
-`verify.py` gives exact integer/Laurent and rational checks on 96 graph-weight profiles, including boundary controls. The derivation does not depend on finite enumeration. The source from 2026 was inspected via its publicly accessible abstract/secondary detailed summary, not full primary text. No multi-cycle or onsite-potential generalization is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior rooted closed-walk framework, cycle-rooted parity effect, and on-cycle half-flux symmetry to Luppi. The distinct result is the weighted off-cycle delay and leading probability coefficient, especially the strictly earlier double-winding real contribution for odd cycles. The most relevant actual prior passages and indexed analogues do not supply it.
+
+## value
+
+PASS
+
+An off-cycle local return measurement is a natural probe of where magnetic flux first becomes observable. The theorem gives its exact distance and weight dependence for arbitrary attached trees. In the odd case it identifies a genuine change in the leading interference mechanism relative to a cycle root, rather than just a shift of the on-cycle order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

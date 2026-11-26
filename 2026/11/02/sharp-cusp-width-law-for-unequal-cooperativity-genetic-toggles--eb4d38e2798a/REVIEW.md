@@ -1,19 +1,21 @@
-# Scientific review: sharp synthesis-rate cusp width
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated claim is precisely the two unequal-exponent fold expansions and their sharp positive difference coefficient. Stationary elimination gives a one-dimensional curve; the derivative factorization proves a unique critical minimum of the turning-point function for \(pq>1\), and exact Jacobian algebra labels the branches. At the strictly positive cusp, the curvature is \(p(pq-1)x_c^{2q-1}\), so the fold roots separate on the square-root scale. Integrating the cubic-normal-form derivative profile gives the three-halves power with explicit prefactor. The uniform local remainder bound yields \(O(\varepsilon^2)\) in the two boundary rates and their difference. The separate portable checker confirmed 337 rational/numerical assertions. It is not used to justify any infinite claim.
+PASS
 
-## Originality — PASS (best-knowledge, priority not independently established)
+For the abstract dimensionless ODE, eliminate the first nullcline on 0<x<α to obtain β=B_α(x). Its endpoint limits are +∞ and 0. For pq≤1 the derivative is strictly negative. Otherwise its sign can change only above (pq−1)^(−1/q), where its numerator factors into a positive factor times α−F(x). F diverges at both ends of its domain, decreases then increases about its unique minimum α_c, and is greater than x there, so its two roots for α>α_c lie in the domain of B_α. This gives the stated counts. The Jacobian trace is −2 and its determinant has the opposite sign to B_α′, giving the two attracting outer equilibria and the intervening saddle. At either ordinary fold, B_α″≠0; changing coordinates locally to (x,ẋ) shows a nonzero quadratic center-manifold term (the acceleration on ẋ=0 is a smooth nonzero factor times β−B_α(x)). Hence the zero-eigenvalue fold equilibrium is not asymptotically stable, consistent with the open interval. At the cusp only the claimed linear type is needed. α_c is the infimum of the rates admitting two stable equilibria, not an attained minimum; the precise scope in RESULT.md lines 36–45 is clear on this point. For ε=α−α_c>0, differentiate F′ at its minimum to get D>0, expand the exact factored derivative uniformly on the O(√ε) layer as K(ε−Ds²/2)+O(ε^(3/2)), and integrate. The endpoints are ±√(2ε/D)+O(ε) relative to x_c; the derivative remainder integrates to O(ε²) and replacing the endpoints by the leading ones costs no more. The fixed-x change gives the displayed shared slope; the two integrals give opposite (2/3)K√(2/D) terms. Setting p=q=2 yields D=6 and K=1. This is a replay of RESULT.md lines 49–89, for fixed exponents only. The inspected verification record reports 337 finite rational/numerical assertions; the supplied script was not executed and these assertions do not prove the asymptotic law.
 
-The original 2000 Gardner–Cantor–Collins paper gives the underlying equations and qualitative bifurcation region, not the explicit unequal-Hill fold-width prefactor. Li–Zhang (online 2019) rigorously analyzes a restricted exponent case and establishes a cusp; its full accessible text was compared, including the degeneracy and bifurcation discussion. Guilberteau–Pouchol–Pouradier Duteil (2021) gives broader Hill-response bistability criteria: therefore the existence of one/three equilibria and a cusp, and the generic exponent three-halves, are explicitly recognized as prior background. The assessed claim is the exact coefficient and balance-line slope in the Gardner synthesis-rate coordinates for all real \(p,q>0\), \(pq>1\), rather than a general qualitative bifurcation statement. No inspected full text states that coefficient, and targeted searched phrases did not identify it. This does not certify historical uniqueness; the 2021 source was accessible only in its abstract/appendix, not complete main text.
+## originality
 
-## Value — PASS
+PASS
 
-Close to onset of bistability, a synthetic toggle's usable range of the second synthesis rate becomes very narrow. An explicit leading prefactor converts the generic qualitative cusp picture into a rate-tolerance formula, allowing the precise effect of unequal repressor cooperativities to be compared without repeating a numerical bifurcation analysis. The threshold and slope also determine the balance line. This is a natural and parameter-motivated invariant of the classical model; it does not purport to predict stochastic switching or optimize experimental cells.
+Pass concerns the explicit coordinate-dependent leading width and balance-line coefficients for all fixed positive p,q with pq>1. It does not credit the model, the bistability/cusp classification where already established, or the generic three-halves exponent. The full accessible broad Hill-switch preprint was consulted, improving on the frozen access note; it gives substantial parameter-set coverage but not the same full exponent range or local quantitative result.
 
-## Limitations and evidence
+## value
 
-The model is strictly deterministic, two-dimensional and normalized, with no basal transcription or delays. A generic local cusp already implies three-halves scaling; novelty is limited to its explicit sharp parameter-dependent coefficient plus rate balance. A prior paper deriving the same closed expression, even with different notation, would defeat originality; a future independent literature audit is needed. The 2021 general-biological-switch main text and 2013 instructional preprint were not examined in full. The source materials and exact executable checker are identified in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed-coordinate width is a natural quantitative invariant of this established planar model: it answers how quickly the three-equilibrium region opens in the original coordinates, which a canonical cusp shape does not quantify. The explicit exponent-dependent prefactor and first-order center slope, across nonsymmetric as well as symmetric cases, are the useful content; the generic exponent and equilibrium counts alone would not support this assessment. The result is mathematical and not an experimental calibration or a practical engineering claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

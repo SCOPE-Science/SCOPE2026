@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies stationary initialization, all positive parameters, and work at **both** on- and off-switches. The two state-conditioned stationary quadratic-moment identities yield \(u_1=D/k\) and \(u_0=(Da/b)(1/k+2/(a+b))\). Direct substitution verifies the pointwise Poisson equation \(j+\mathcal Lg=\mu\) with \(g_0=kx^2/2+Dk/(a+b)\), \(g_1=0\). This turns the signed switching-work martingale jumps into the constants \(\pm Dk/(a+b)\). The explicit bracket evaluates to the stated \(V\). Stationary fourth moments control the boundary term; ergodicity and bounded martingale jumps yield the CLT. Exact rational algebra and independent mixed-moment ODE evolution in the packaged `verify_work.py` corroborate the formulas across four parameter sets. Neither a finite simulation nor the verification log is used as a proof of an infinite-time claim.
+## correctness
 
-## Originality — PASS, with risks
-The mean injected-work rate is **not new**. The complete Frydel (2024) on/off-trap exposition covers stationary distributions, moments, and mean heat/entropy production (notably Section VI, equation (48)); the full relevant Alston–Cocconi–Bertrand (2022) harmonic sections cover mean steady-state entropy production with asymmetric switching, including equation (40). Compared by assumptions and implication, these sources do not establish the evaluated signed integrated-work variance, the martingale coboundary, or the stated CLT. Results for fluctuating trap center, spatial position correlations, and generic Markov-modulated OU moments do not themselves provide these work-specific conclusions. Relevant searches of mathematical-result records and related literature found no directly equivalent evaluated statement. Residual priority risk: a broader work large-deviation formula or general Markov additive-functional result may imply the specialization without matching its title or wording; source discovery is not exhaustive.
+PASS
 
-## Mathematical value — PASS
-A mean energy-dissipation rate does not determine energetic reliability. The explicit positive fluctuation coefficient makes this distinction quantitative: at fixed on/off occupancy, changing the switching clock leaves the mean power exactly unchanged while moving the asymptotic work variance through an entire strictly decreasing one-parameter family, from divergence at slow switching to a finite noise floor at fast switching. This gives a physically interpretable and testable precision relation, not merely a normalization identity or a routine restatement of existing mean results.
+Use F_s(x)=k(1-s)x²/2. Its jumps cancel the signed work at both switches, and Itô's formula gives W_t+F_{S_t}(X_t)-F_{S_0}(X_0)=Dk∫_0^t 1_{S_u=0}du+k√(2D)∫_0^t X_u 1_{S_u=0}dB_u. Centering the occupation via chain corrector c·1_{s=0}, c=Dk/(a+b), gives a martingale with jumps ±c, orthogonal continuous and jump parts, and stationary bracket rate 2Dk²u_0+c²(bp_0+ap_1). Here the generator's stationary second-moment equations give u_1=D/k and bu_0=2Dp_0+au_1, recovering both variance terms and mean Dkp_0. The affine intercycle recursion has independent cycle innovations with finite moments and E e^{-rkT_on}<1 for every r>0, supporting the stationary finite fourth moment and ergodicity. The boundary term is bounded in L²; Cauchy–Schwarz bounds its contribution to variance/t by O(t^{-1/2}). The ergodic bracket limit and the bounded-jump Lindeberg condition give the martingale CLT and the same work CLT after removing the boundary. Substitution a=pλ, b=(1-p)λ gives a positive constant plus a strictly positive multiple of 1/λ and reproduces 2D²k+9D²k²/(4γ) at a=b=γ. The supplied mixed-moment ODE check was inspected; no finite-time numerical computation is needed for these limits.
 
-## Scope and residual scientific limits
-All assertions require stationary one-dimensional overdamped dynamics, independent Brownian and two-state exponential switching, and strictly positive rates. Claims do not concern general two-positive-stiffness modulation, heat fluctuations, inertial dynamics, or a joint time/switching scaling limit. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The mean dissipation rate is known and excluded. The inspected same-model earlier literature does not supply the evaluated deterministic-time variance rate for stationary signed switching work, its Gaussian limit at unequal rates, or the strict fixed-duty dependence. A later catalogue entry exactly overlaps the symmetric specialization only. Credit the arbitrary-rate fluctuation finding, not global priority or general martingale and thermodynamic identities.
+
+## value
+
+PASS
+
+Variance per deterministic observation time is an independently useful measure of work fluctuations in the established intermittent-trap model. At fixed duty fraction the known mean cannot distinguish switching speeds, but the exact variance can and quantifies both the slow-switching divergence and the positive fast-switching floor. The CLT identifies the scale of typical fluctuations of the signed work; neither per-switch moments nor finite-time exponential moments are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

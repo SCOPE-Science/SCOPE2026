@@ -1,27 +1,21 @@
-# Review of the fixed-phase entrance law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A fixed interior interval \(K=[d,1/n-d]\) stays uniformly away from the discontinuity under the finite rotation itinerary. Its only two order-\(e^{-ad}\) errors are the positive and negative nearest-site corrections, with product \(e^{-a/n}\). The proof bounds all other visits and propagated corrections by \(O(ae^{-a/n})\), uniformly on \(K\), rather than relying on a shrinking neighborhood. The period-return is strictly increasing with derivative below one, has a unique fixed phase \(h+o(1/a)\), and maps the segment between this point and any fixed interior initial condition into itself. For the sign-adjusted exponential coordinate \(y_m\), the recurrence is \((y_{m+1}-y_m)/(a e^{-a/(2n)})=1-y_m^2+o(1)\) uniformly along every orbit time. Discrete Gronwall gives the complete \(\tanh\) limit, and strict threshold crossing gives the inverse hyperbolic tangent first-passage time. Numerical checks are diagnostic only. No claim is made outside the specified fixed-parameter regime.
+PASS
 
-## Originality — PASS under examined sources
+On K=[d,1/n-d] the discontinuous itinerary advances the site index by k modulo n in the interval of indices k-n through k-1. Coprimality visits each site once, and the nearest positive and negative sites are t and t−1/n. A finite induction bounds the smooth itinerary error by O(e^(-ad)), preserving signs. Every other site's correction is O(e^(-a(1/n+d))). The shift of the nearest negative site's argument is p_a(t) plus those smaller terms; its derivative is O(a e^(-a(1/n-t))) along that shift. This gives the uniform O(a q_a²) remainder in the one-return displacement. For large a, all branch derivatives are in (0,1), giving an increasing return with decreasing displacement and an interior fixed point. Testing h±c/a for each c>0 yields a(t_a*−h)→0 and the orbit from x_0 is trapped monotonically between x_0 and t_a*. In y=e^(-σa(t-h)), with σ the initial side, let u=e^(-at), v=e^(-a(1/n-t)). Then y(u+v)=q_a(1+y²), with y≤2 eventually and u+v=O(e^(-ad)). This controls the exponential and logistic Taylor remainders uniformly even at y→0, and the step a q_a has drift 1−y²+o(1). Discrete Gronwall gives y→tanh τ uniformly on bounded time intervals from y_0→0. The logarithm is uniform only away from τ=0. After a possible crossing of h the scaled displacement is o(1), so the absolute-displacement threshold observable differs uniformly from y by o(1). The uniform limit brackets the first sampled crossing, proves finiteness and gives the artanh clock. The verification notes and script were inspected, not executed; the 88 recorded checks evaluate the smooth map numerically and are not certificates for the limits.
 
-The motivating paper [1] establishes rational-period attraction but not a sharp clock for an arbitrary fixed starting phase. The closest published quantitative result [2] obtains the half-grid correction and the local Floquet contraction gap, which motivate the clock but quantify the return displacement only in an exponentially shrinking neighborhood. Those statements do not imply a global-inside-the-bin displacement estimate, universal nonlinear entrance waveform, or first-passage law for initial phases separated from the half-grid by a fixed positive distance. The 2018 and 2024 game-map studies [3,4] address different dynamical outcomes; no equivalent full entrance profile was found in the actual searches. Mathematical priority remains uncertain because searches cannot prove absence, and the publicly available 2022 manuscript precursor was read, while version-specific differences in the final 2024 journal article remain a bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-A stable orbit's small multiplier gap does not quantify its capture time from macroscopic phases: the entire entrance trajectory may be nonlinear over most of its duration. The theorem solves that natural missing question at a physically specified tolerance \(\theta\), proving an unexpectedly universal \(\log\coth\)-shaped entrance profile, loss of the magnitude of initial-phase memory, and a sharp \(e^{a/(2n)}/a\) delay. This is distinct from a restatement of a local linearized contraction or from a routine fixed-point correction.
+The supported distinct claim is the full positive-time profile and sharp first-return clock from a fixed noncentral interior phase. The same-family half-grid orbit, local return formula and exponential contraction scale are already known and not counted as new. The strongest checked quantitative formula is restricted to a neighborhood shrinking exponentially in a, and the qualitative global results do not bridge the fixed-phase portion of the orbit on the rescaled clock.
 
-## Primary scientific context and limitations
+## value
 
-[1] Bielawski et al., *Interval maps mimicking circle rotations*, arXiv:2411.01495v1, full HTML Sections 2–5.
+PASS
 
-[2] *Singular half-grid selection and exponentially weak attraction in rational EOS maps*, publicly available published-finding corpus mathematical research record (2026), proof section inspected.
+The natural dynamical question is how long actual trajectories take to enter the inverse-steepness layer, not how slowly a trajectory already extremely near its attractor contracts. The theorem gives an entire scaled transient and a sharp threshold-dependent clock independent of the fixed initial distance and rotation numerator. Uniform control across the intermediate phases makes this more than a restatement of the local multiplier.
 
-[3] Chotibut et al., *Family of chaotic maps from game theory*, arXiv:1807.06831v1.
-
-[4] Bielawski et al., *Unpredictable dynamics in congestion games: memory loss can prevent chaos*, arXiv:2201.10992 (2022), complete accessible manuscript inspected; journal successor *Memory loss can prevent chaos in games dynamics*, *Chaos* 34, 013146 (2024), DOI:10.1063/5.0184318.
-
-Residual risk: An equivalent fixed-phase entrance asymptotic in unindexed smoothing or game-theory literature cannot be ruled out. The theorem does not address denominator-uniformity, basin-entry from another phase bin, or phases approaching boundaries with steepness.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

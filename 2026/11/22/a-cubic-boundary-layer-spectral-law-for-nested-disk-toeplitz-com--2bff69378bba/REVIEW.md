@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact one- and two-dimensional angular decomposition follows from the representation of bianalytic functions as \(f_0+\bar zf_1\). The radial measure is a normalized beta distribution; its mean and variance give an orthonormal polynomial basis. Exact integration yields the displayed cutoff compression matrix, and an explicit two-by-two commutator calculation gives both imaginary eigenvalues and both equal singular values in each angular block. The sole negative angular-frequency block contributes exactly one kernel dimension. For positive distinct rates, compact local convergence to the cubic-exponential profile plus an exponential dominating envelope establishes the full Schatten-power Riemann sums for every \(p>0\); the same envelope controls the norm maxima. Differentiation of the rate objective proves the sharp optimization. `CHECK.py` independently tests the finite moment formulas through exact fractions and checks the scaling constants. No inference about infinitely many modes rests solely on those finite checks.
+## correctness
 
-## Originality — PASS, qualified
-The 2020 Barrera-Castelán–Maximenko–Ramos-Vazquez paper establishes radial Jacobi blocks and the 2023 sequel determines their generated algebras. Neither inspected text identifies the paired spectrum of **two nested sharp disk cutoffs** or the two-rate continuum spectral asymptotic. The published smooth-polyanalytic boundary-jet result assumes fixed smooth symbols and yields decreasing high-frequency singular values; its hypotheses do not apply to moving discontinuous cutoffs. The analytic Bergman disk-cutoff commutator uses multiplication by a coordinate instead of two radial compressions. The bianalytic Fock nested-disk formula is closely analogous, but Gaussian moments on the plane give different singular-value profiles and do not imply the exact beta-moment disk theorem. The 2025 Shi–Li–Zhang–Lu paper concerns commutation in the same ambient space; its available abstract suggests a different statement, but its full text was not obtainable and remains a priority risk. Searches cannot prove absolute novelty; earlier unindexed special-function calculations may exist.
+PASS
 
-## Mathematical value — PASS
-On the analytic Bergman space all radial Toeplitz operators commute. The full bianalytic space is the minimal polyanalytic order where nested radial disk compressions can fail to commute, making their exact spectral response to a common boundary limit a natural invariant rather than an arbitrary truncation. The result identifies the mechanism of strong convergence without norm convergence, gives the entire escaping singular-value profile and every sharp Schatten asymptotic, and isolates the optimal ratio of boundary recession rates. This quantitatively distinguishes two almost-identity noncommuting operators from the corresponding analytic and Gaussian-Fock models.
+The angular expansion of f0+bar(z)f1 exhausts the full space: one scalar sector at -1 and two dimensions per nonnegative mode. With x=n+1, the truncated beta law normalized by q^x is the law of qS for S~Beta(x,1). For the standardized degree-one polynomial, this gives compressed first moment −sqrt(x(x+2))(1−q) and compressed second moment q²+x(x+2)(1−q)² after division by q^x. In multiplying the two matrices the cross-terms linear in their diagonal differences cancel, leaving the signed (r−q) factor claimed. Each positive branch has two singular values, and coincident branch values add multiplicities; no simplicity across different modes is required. All these blocks are invertible for distinct cutoffs, so the scalar sector gives the complete kernel. Exponential decay proves fixed-cutoff Schatten membership. The exact formula on the u=epsilon(n+1) grid converges uniformly on interior compacta, with envelope ab|a−b|(u+epsilon)^3 exp(−(a+b)u); this controls both tails of power sums and maxima. The limiting maximum is at u=3/(a+b), and the rate optimization reduces to maximizing w(1−w²), with w=|a−b|/(a+b). Strong convergence of the compressions follows by dominated convergence on each vector and uniform contractivity. Independent 40-digit quadrature of the moments gave signed block entries .122213505, .0270662057 and .008350872055 at (n,q,r)=(0,.3,.7),(5,.42,.91),(19,.7,.93), matching the formula to within 3e−42 at working precision. For rates (1,3) and epsilon=.001, independently summed finite-mode ratios to the analytic limits were .999990920, .999999250 and .999999033 for powers 1/4, 1 and 2; the norm ratio was .999999694. These are corroboration only; the supplied checker was inspected, not executed.
 
-## Closest literature and limits
-- R. M. Barrera-Castelán, E. A. Maximenko and G. Ramos-Vazquez, *Radial operators on polyanalytic weighted Bergman spaces*, arXiv:2009.14301 (2020), Sections 7–8: underlying matrix representation, not the moving-cutoff commutator spectrum.
-- The same authors, *C*-algebras generated by radial Toeplitz operators on polyanalytic weighted Bergman spaces*, arXiv:2306.06231 (2023), Sections 3–4 and main results: fixed-symbol algebra, no sharp simultaneous two-rate singular-value limit identified.
-- *A universal boundary-jet law for noncommuting radial poly-Bergman Toeplitz operators* (2026): fixed \(C^3\) symbols and a different \(n^{-3}\) regime.
-- *A sharp noncommutativity constant for nested-disk concentration in the bianalytic Fock space* (2026): Gaussian Fock model, not the beta-moment Bergman model.
-- Y. Shi, Y. Li, B. Zhang and Y. Lu, *Commuting Toeplitz Operators on the 2-analytic Bergman Space*, Acta Mathematica Sinica (2025), DOI:10.1007/s10114-025-3195-5: available abstract and bibliographic data only; full-text priority uncertainty is explicitly retained.
+## originality
 
-The result is restricted to the full unweighted bianalytic disk, concentric sharp cutoffs, and fixed distinct positive rates. General weights, higher analytic order, nonconcentric sets, and rates coalescing with the limit parameter remain unproved. Independent mathematical validation is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The general block representation is established prior work, and the finite-cutoff formula is an explicit low-degree evaluation of it, not a new diagonalization theorem. The surviving main contribution is the moving two-cutoff spectral profile with sharp norm and all-Schatten constants; no covering result was identified in inspected material. In particular, compactness for each pair does not decide whether the pairwise commutator retains order-one norm when both cutoffs move.
+
+## value
+
+PASS
+
+The full bianalytic space is the first radial Bergman setting with genuine matrix-valued fibers. Two increasing concentration regions provide a natural test of whether compressions becoming identities retain noncommutativity. The result locates the escaping order-one modes, quantifies their combined mass at all powers, and determines the sharp rate ratio rather than merely exhibiting two operators that fail to commute.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

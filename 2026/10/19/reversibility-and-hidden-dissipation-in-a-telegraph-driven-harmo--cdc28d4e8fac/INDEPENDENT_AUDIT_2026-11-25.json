@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:10:21.439488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original headline is correct, but the purported all-orders identity in frozen RESULT.md line 36 is false as written: it sorts the reflected times while keeping the output coordinates in their original order. At equal rates take times (0,epsilon,3epsilon); the first two coordinates on the two sides would have covariances at lags epsilon and 2epsilon, respectively. Their diagonal covariance has derivative -kq at zero, so they differ for sufficiently small epsilon. repairs/4/RESULT.md gives the complete corrected statement with reflected times in their corresponding coordinate slots. For the repaired claim, conditional Gaussian stationarity follows from the orthogonal fundamental matrix, and sign-chain coalescence plus contraction gives uniqueness. The jump adjoint keeps the rates by detailed balance; its diffusion component reverses rotation. Equal-rate sign conjugacy gives the corrected path identity, whereas the derivative of the antisymmetric lag covariance is 2D omega (b-a)/(k(a+b)), proving necessity. At fixed sign parity the drift difference is 2 omega S JX and the likelihood factor is 1/(4D), yielding 2 omega^2/k. The conditional-mean semigroup obstruction uses m'(0)=0 and m''(0)=-omega^2. The event of exactly one jump gives the random phase a continuous component, making the conditional Wick contribution strictly positive at any positive lag. The rotating frame removes the skew drift pathwise without changing the conditional Brownian law, proving the equilibrium radial alias for all rates. Inspected frozen VERIFICATION.md and verify.py; its checks corroborate identities but do not check the faulty time ordering or replace the analytic audit. No uploaded script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two inspected Findings concern a telegraph angular velocity driving an angle whose unit vector then enters position additively; their results are a cumulant threshold and orbital current/covariance, respectively.",
+          "The third treats fixed three-dimensional rotational OU and its observational projections, without sign switches."
+        ],
+        "reasoning": "None is a stronger Markov-switching OU result that specializes to the rotational drift of this record; the seeming angle-variable equivalence rotates the noise and state, not just an additive self-propulsion.",
+        "searches": [
+          "2026/11/22/SCOPE-a-universal-one-quarter-chirality-flip-boundary-for-stationary-k--7bd960c68958",
+          "2026/11/8/SCOPE-faster-biased-chirality-reversals-strictly-amplify-trapped-orbit--86480f46eb3b",
+          "2026/10/26/SCOPE-exact-reversible-observation-planes-and-half-turn-aliasing-in-a--96eaade26d8d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§2–6 and Relationship to prior work",
+        "arXiv:2507.22199",
+        "arXiv:2403.10442",
+        "2026/11/22/SCOPE-a-universal-one-quarter-chirality-flip-boundary-for-stationary-k--7bd960c68958",
+        "2026/11/8/SCOPE-faster-biased-chirality-reversals-strictly-amplify-trapped-orbit--86480f46eb3b",
+        "2026/10/26/SCOPE-exact-reversible-observation-planes-and-half-turn-aliasing-in-a--96eaade26d8d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General stationary generator adjunction and the symmetry of a two-state label explain sufficiency once the model-specific adjoint is identified.",
+          "The fixed vortex current has the same squared magnitude per unit stationary density as either conditional sign current in the switching system."
+        ],
+        "reasoning": "These implications are credited for individual ingredients. They neither supply the asymmetric-rate obstruction in this projection nor give the exact radius alias and strict two-time non-Gaussianity for the switched drift.",
+        "searches": [
+          "arXiv:2507.22199",
+          "arXiv:2403.10442",
+          "2026/10/26/SCOPE-exact-reversible-observation-planes-and-half-turn-aliasing-in-a--96eaade26d8d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knight–Kaveh–Pruessner, Eqs. (1), (3)–(4) and Table I: additive telegraph forcing of position and time-even reversal.",
+          "Di Terlizzi–Baiesi–Ritort, §5, Eqs. (43)–(46): coordinate-linear vortex with fixed rotational drift."
+        ],
+        "reasoning": "A constant sign reproduces the fixed vortex, but is outside the positive switching domain. An additive sign force translates the conditional mean and generally changes the radius; it cannot serve as the skew term that rotates the conditional mean and leaves the radial process autonomous.",
+        "searches": [
+          "Resultary: telegraph switching angular drift harmonic OU, projected reversibility and entropy",
+          "arXiv:2507.22199",
+          "arXiv:2403.10442"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table I explicitly tabulates zero position-only entropy with nonzero fixed-label entropy for symmetric additive telegraph forcing, but does not tabulate the multiplicative rotational model.",
+          "The nearby indexed entries give different thresholds or different observation models."
+        ],
+        "reasoning": "The target is an analytic all-parameter path theorem, not a finite census. The available analogous exact table covers the qualitative phenomenon in a different model.",
+        "searches": [
+          "Resultary near records identified under broader_coverage",
+          "arXiv:2507.22199, Table I"
+        ]
+      },
+      "rationale": "Best of available evidence for the repaired, model-specific result only. Neither masking irreversibility by a symmetric hidden telegraph variable nor the fixed-drive OU entropy coefficient is claimed as new. The closest compared statements do not cover the sharp classification together with the complete radial law and explicit position diagnostics for a telegraph coefficient multiplying JX.",
+      "residual_risks": [
+        "No usable primary exact match was identified in the broad lookup. This is not evidence of absence; a switching OU or random-frequency oscillator result under different indexing could establish equivalent coverage.",
+        "The rate depends on the sign parity convention and is not an unconditional heat-production statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general effect but not the rotational model",
+          "evidence": "Additive nu w plus noise; reversal relabels time but does not negate w; Table I compares full and projected entropy rates.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.22199",
+          "material_read": "Primary PDF p. 2, Eqs. (1), (3)–(4); p. 4, Table I",
+          "method": "Open-access primary PDF, bounded passage inspection",
+          "title": "Self-propulsion symmetries determine entropy production of active particles with hidden states",
+          "trigger": "Closest symmetric telegraph masking result"
+        },
+        {
+          "assessment": "Fixed torque background and special limiting case, not the switched projection theorem",
+          "evidence": "Coordinate-linear nonconservative drift and equilibrium-shaped stationary Gaussian with no telegraph state.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.10442",
+          "material_read": "Primary PDF §5, pp. 12–13, Eqs. (43)–(46)",
+          "method": "Open-access primary PDF, bounded passage inspection",
+          "title": "Variance sum rule: proofs and solvable models",
+          "trigger": "Exact harmonic Brownian vortex and dissipation"
+        },
+        {
+          "assessment": "Different model and classification",
+          "evidence": "Switched angular velocity in an angle feeding an additive planar drive; fourth-cumulant sign threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-one-quarter-chirality-flip-boundary-for-stationary-k--7bd960c68958",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local indexed source mirror",
+          "title": "A universal one-quarter chirality-flip boundary for stationary cumulants",
+          "trigger": "Indexed switched chirality threshold"
+        },
+        {
+          "assessment": "Different model and statements",
+          "evidence": "Additive propulsion from an angle, with orbital current/cross covariance rather than a position-path reversal criterion.",
+          "identifier_or_url": "2026/11/8/SCOPE-faster-biased-chirality-reversals-strictly-amplify-trapped-orbit--86480f46eb3b",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local indexed source mirror",
+          "title": "Faster biased chirality reversals strictly amplify trapped orbital current",
+          "trigger": "Indexed biased switching and rotational current"
+        },
+        {
+          "assessment": "No switching; not a dominating result for this projection",
+          "evidence": "Fixed three-dimensional OU torque and linear observation planes.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-reversible-observation-planes-and-half-turn-aliasing-in-a--96eaade26d8d",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local indexed source mirror",
+          "title": "Exact reversible observation planes and half-turn aliasing",
+          "trigger": "Indexed rotational OU reversibility/entropy theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp boundary resolves when ordinary trajectory reversal can see a hidden circulation in a natural linear switching model. The full radial-law equivalence and explicit unequal-time squared-coordinate statistic separate three genuinely different observation capabilities: neither radius nor time-antisymmetry reveals the symmetric hidden drive, but even multi-time position statistics can identify its strength under the model. This is a concrete limitation on interpreting entropy diagnostics, not simply a restatement of the general hidden-state principle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

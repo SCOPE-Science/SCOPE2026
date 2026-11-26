@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:11:15.060381Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45; VERIFICATION.md lines 19–25; verify_sparse.py lines 32–114, inspected only",
+        "python3 /workspace/replay.py 4: direct independent interval enumeration, up to length 15, at weights 1, 2, 3 (64, 308, 924 reversal classes), plus both counterexamples"
+      ],
+      "rationale": "For three ones, factors containing all three choose their two outer zero extensions independently; factors containing two choose one of the two consecutive pairs and its allowed extensions. This gives the exact formulas for H3 and H2. Valuation of H3 gives b+c, and degree and peak of its factored residue give the unordered outer gaps. Valuation of H2 gives min(b,c) without cancellation. Fixing the orientation of unequal outer gaps, swapping unequal middle gaps changes H2 by a product of two nonzero polynomials, the second having summands with unequal valuations. Equal gaps give identical words or reversal as stated. The one- and two-one cases reduce to a single top-layer product; zero ones requires length. Both counterexample pairs were reproduced by counting all contiguous intervals.",
+      "residual_risks": [
+        "Finite enumeration is corroboration; all-length injectivity follows from the exact gap identities and orientation argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acharya et al. give a complete-deck characterization. Gupta–Mahdavifar address reconstruction from complete compositions. The related indexed results use H0,H1,H3 or H0,H2,H3 respectively."
+        ],
+        "reasoning": "Full observations contain more data; their reconstruction theorems alone do not prove injectivity of the smaller observation. The other indexed partial observations differ or add a layer; the exact Oct 18 indexed statement is the decisive comparison.",
+        "searches": [
+          "arXiv:1403.2439, pp. 3, 5, 9",
+          "arXiv:2201.09955v2, abstract",
+          "Resultary 2026/10/25 record 36a4a5daa796 and 2026/11/8 record 489f1ecb7528, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 537d6221a547, 36a4a5daa796 and 489f1ecb7528",
+        "arXiv:1403.2439 and arXiv:2201.09955v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weight-three implication is explicit in the indexed theorem; its arrays recover exactly the information in the two polynomials. The frozen weight-one and weight-two corollaries follow from a single product of geometric strings."
+        ],
+        "reasoning": "Recovery at weight three is already stated, not merely available by nontrivial specialization. The lower weights and complement symmetry are routine cases and do not rescue the original claim.",
+        "searches": [
+          "Resultary 537d6221a547, Finding and Proof",
+          "Frozen RESULT.md lines 30–42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding states all-length recovery up to reversal from (N2(w,l), N3(w,l)) for all l, without length or lower layers. It defines the corresponding polynomials as sums of these counts multiplied by t^l."
+        ],
+        "reasoning": "Taking coefficients of H2 and H3 is exactly the indexed observation, with identical hypotheses and conclusion.",
+        "searches": [
+          "Resultary: three-marker binary words, two highest composition layers, reversal",
+          "Local-mirror RESULT.md, 2026/10/18/SCOPE-two-heavy-layer-composition-spectra-reconstruct-all-binary-three--537d6221a547, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem includes every length at exactly three ones and uses 01001101 and 01101001 as the full-deck obstruction. The same obstruction is explicitly verified by Acharya et al."
+        ],
+        "reasoning": "Coverage is a theorem-level match, not inferred from a short-length table or a matching example alone.",
+        "searches": [
+          "Resultary record 537d6221a547, Finding and three-marker gap setup",
+          "arXiv:1403.2439, p. 3 and Section 4"
+        ]
+      },
+      "rationale": "A distinct indexed statement gives the same main all-length injectivity theorem from exactly the two specified multiplicity layers at weight three, with the same classical sharpness witness. This is demonstrated equivalent coverage, not a chronology or authorship judgment. The elementary lower-weight cases and the five-symbol illustration do not provide a surviving substantial distinct finding.",
+      "residual_risks": [
+        "Provenance relationship between the two exact records and formal publication priority were not established. The literature lookup returned no useful additional source; no absence inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent main theorem and same four-one witness",
+          "evidence": [
+            "All lengths; exactly three ones; occurrence counts at exactly two and three ones; only reversal ambiguity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-two-heavy-layer-composition-spectra-reconstruct-all-binary-three--537d6221a547/RESULT.md",
+          "material_read": "Finding, assumptions and polynomial setup (offset 0); gap identities in proof",
+          "method": "Bounded local-mirror text comparison",
+          "title": "Two-heavy-layer composition spectra reconstruct all binary three-marker strings",
+          "trigger": "Exact two-layer same-weight overlap"
+        },
+        {
+          "assessment": "Different layers",
+          "evidence": [
+            "Uses the zero- and three-one layers and resolves ambiguity with the one-one layer."
+          ],
+          "identifier_or_url": "Resultary 36a4a5daa796",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror text",
+          "title": "Selective composition spectra of three-marker binary words",
+          "trigger": "Related sparse observations"
+        },
+        {
+          "assessment": "Strictly richer input than H2,H3",
+          "evidence": [
+            "Uses Q0,Q2,Q3."
+          ],
+          "identifier_or_url": "Resultary 489f1ecb7528",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror text",
+          "title": "Three-marker rigidity for substring composition reconstruction",
+          "trigger": "Related sparse observations"
+        },
+        {
+          "assessment": "Known collision and full-deck setting; no two-layer implication in the inspected passages",
+          "evidence": [
+            "01001101 and 01101001 are not reversals and give the same complete multiset; Section 4 matches the occurrences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.2439",
+          "material_read": "pp. 3, 5, 9; text offsets 9122, 17912, 30415",
+          "method": "Primary open-access paper passages",
+          "title": "String Reconstruction from Substring Compositions",
+          "trigger": "Original complete-deck criterion and length-eight witness"
+        },
+        {
+          "assessment": "Inspected statement is for complete-deck input",
+          "evidence": [
+            "Polynomial-time reconstruction under sufficient conditions from substring compositions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.09955",
+          "material_read": "v2 abstract, p. 1, offset 0",
+          "method": "Primary open-access paper passage",
+          "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+          "trigger": "Potential broader recovery theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–8 and 30–45"
+      ],
+      "rationale": "The statement is a natural exact identifiability result under a sharply reduced measurement model, with an effective decoder and a meaningful next-weight obstruction; its scientific utility is separable from the lack of originality in this record.",
+      "residual_risks": [
+        "No claim of noisy recovery, arbitrary weight, or a characterization using only the second-highest layer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

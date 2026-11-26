@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:14:37.798826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Below the cutoff, cancelling the shorter prefix in uv=vu reduces the free-word commutation problem by the Euclidean algorithm on the lengths, giving a common primitive root; above it both products are zero. Zero can always be added. A shortest nonzero word w of length k<=floor(N/2) forces all companions through length N-k to be powers of p(w); all longer words can be included and multiply to zero with every word of length at least k. The resulting set is closed because a nonzero product of two powers is a power or has reached the included long tier. An omitted shorter word of length h<k fails to commute with at least one length-(N-k+1) word, since h+N-k+1<=N and at most one word of that length shares its primitive root; a>=2 guarantees another word. This also proves the maximality of the odd all-long family. For even N=2m, the all-long set can be enlarged by one length-m word, whose square is in the included (or newly generated) tail. Each C_w has a unique shortest word, giving distinctness and the count. Möbius inversion groups the sizes and centralizers by root length. For i+j<=N a commuting pair is uniquely determined by the common length-gcd(i,j) power block, hence there are a^gcd(i,j) such pairs. For odd N or even k<m, omitting the complete tier at m+1 loses at least a^(m+1)>2m words, more than the maximum possible number of included power words at short lengths; for even k=m exactly one short word is added. N=1 is the entire zero-product semigroup. The separately written /workspace/branches/independent-finite-checks.py verified the exact families, their closure, exact centralizers, extrema and commuting pair totals in (2,1),(2,4),(2,5),(3,4); the supplied eight-case transcript is additional bounded evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Steindl defines the identical ambient construction with the nilpotence parameter N+1, and discusses finite relatedness.",
+          "Bauer–Greenfeld construct monomial semigroups with prescribed commuting graph clique numbers; the Resultary path-semi­group classification uses reachability cuts in finite acyclic multiquivers."
+        ],
+        "reasoning": "The same quotient definition in a finite-relatedness result is not a maximal-commutativity theorem. The monomial construction supplies examples, not the full list for uniform length truncation. Acyclic quiver products vanish when paths cannot be concatenated, not based only on lengths; powers of a short nonzero word are not modeled by a fixed path in an acyclic quiver.",
+        "searches": [
+          "Steindl, DOI:10.1007/s00012-023-00841-5, Section 2",
+          "Bauer–Greenfeld, arXiv:1710.05250, Proposition 6",
+          "SCOPE-20261122-4f50b8d357fb"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-b4abeecc2d8e",
+        "SCOPE-20261122-4f50b8d357fb",
+        "SCOPE-20261122-4fb43e2cf90b (Finding)",
+        "SCOPE-20261026-785ed40cb6ee",
+        "DOI:10.1017/S1446788708081020",
+        "DOI:10.1007/s00012-023-00841-5",
+        "arXiv:1710.05250",
+        "arXiv:1205.1664",
+        "DOI:10.1007/s00233-024-10444-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The free-word lemma plus the quotient law gives the pairwise dichotomy, so the centralizer and pair formulas are straightforward consequences, not independently credited as the main contribution.",
+          "The inverse- and full-transformation-semigroup results give maximum-order classifications for those ambients, not all inclusion-maximal sets of words with a common cutoff."
+        ],
+        "reasoning": "To pass from the dichotomy to exhaustion requires the minimum-word restriction, the ability to include every eligible long word, a witness excluding each shorter candidate, and separate treatment of the all-long family by parity. Those determine the unique normal forms and their sharp maximum multiplicities; they are not statements of the untruncated lemma or of the other-ambient extremal results.",
+        "searches": [
+          "Jackson–Kilibarda, Lemma 16 and Theorem 18",
+          "Steindl, Section 2",
+          "arXiv:1205.1664, Theorems 3.2 and 4.19",
+          "DOI:10.1007/s00233-024-10444-8, abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed classification b4abeecc2d8e is the assigned finding itself.",
+          "Jackson–Kilibarda's Lemma 16 and Theorem 18 characterize untruncated common-root commutation. The Resultary record 785ed40cb6ee classifies cliques in free left legal semigroups, with the relation xyx=xy instead of length truncation."
+        ],
+        "reasoning": "A maximal commuting clique is equivalent to a maximal commutative subsemigroup because generating a semigroup from pairwise commuting elements preserves commutativity. In the untruncated free semigroup, different primitive roots cannot commute at all. In this quotient they can commute above the cutoff. The legal-semigroup relation is not the cutoff operation, so its graph is not the one in this claim.",
+        "searches": [
+          "Local Resultary: maximal commuting families in the free nilpotent word semigroup; shortest word, primitive powers and complete length tail",
+          "Web: \"maximal commutative subsemigroups\" \"free nilpotent semigroup\" OR \"Rees quotient\" words length truncation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day path and Brandt records give exact maximal-family data in different semigroups; the former also gives centralizers and ordered commuting-pair counts.",
+          "The only located exact indexed match for the two-parameter quotient and formulas was the assigned record."
+        ],
+        "reasoning": "This is a parametric census of actual maximal sets, not a single integer sequence; matching values at small a,N or a size table for a different ambient semigroup would not establish coverage. The inspected exact path and Brandt formulas concern cuts or rectangles of composability, rather than the root and length parameters of this census.",
+        "searches": [
+          "Local Resultary: parity of maximum commuting families, full centralizer spectrum, and length-gcd ordered commuting-pair count in truncated free words",
+          "Local Resultary: b4abeecc2d8e, 4f50b8d357fb, 4fb43e2cf90b and 785ed40cb6ee"
+        ]
+      },
+      "rationale": "The classical primitive-root lemma and the definition of the free nilpotent quotient are not new. The supported distinct contribution is the exhaustive shortest-word/long-tier classification in this quotient and its parity behavior and derived spectra. The strongest distinct catalogue and literature comparisons have different ambient multiplication or a different mathematical question; no verified implication of the full classification was found.",
+      "residual_risks": [
+        "The exact targeted web search did not locate a source; differently indexed monomial-semigroup results remain possible.",
+        "The earlier inverse-semigroup Rees-quotient abstract mentioned in the source limitations could not be identified; no assertion about its full content is made.",
+        "The classical root criterion is existing work; the centralizer and pair counts depend directly on it and truncation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the classical free-word lemma, not the length-quotient maximal families",
+          "evidence": "Commuting words in a free semigroup are powers of a common word.",
+          "identifier_or_url": "https://doi.org/10.1017/S1446788708081020",
+          "material_read": "Lemma 16 and Theorem 18, p. 125, extracted around offset 101000",
+          "method": "Open-access paper PDF",
+          "title": "Ends for monoids and semigroups",
+          "trigger": "Equivalent common-root formulation before truncation"
+        },
+        {
+          "assessment": "Same ambient, different theorem in the inspected passage",
+          "evidence": "The quotient uses the ideal of words of length at least d; the surrounding result studies finite relatedness.",
+          "identifier_or_url": "https://doi.org/10.1007/s00012-023-00841-5",
+          "material_read": "Section 2, p. 3, around offset 7900",
+          "method": "Open-access paper PDF",
+          "title": "Not all nilpotent monoids are finitely related",
+          "trigger": "Identical free nilpotent word semigroup"
+        },
+        {
+          "assessment": "Construction of prescribed clique numbers, not the uniform-cutoff classification",
+          "evidence": "Constructs monomial semigroups to realize commuting-graph behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.05250",
+          "material_read": "Abstract p. 1 and Proposition 6, p. 3, around offset 6500",
+          "method": "Open-access paper text",
+          "title": "Commuting graphs of boundedly generated semigroups",
+          "trigger": "Monomial quotients and commuting cliques"
+        },
+        {
+          "assessment": "Different ambient and extremal rather than inclusion-maximal problem",
+          "evidence": "Maximum-order commutative inverse and nilpotent subsemigroups of I(X).",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664",
+          "material_read": "Theorems 3.2 and 4.19, pp. 6 and 15, latter around offset 60855",
+          "method": "Open-access paper text",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Commutative nilpotent extremizers via commuting graphs"
+        },
+        {
+          "assessment": "Full transformation semigroup, not a uniform truncated free-word semigroup",
+          "evidence": "Studies maximum-order commutative nilpotent transformation subsemigroups.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-024-10444-8",
+          "material_read": "Abstract and introduction, pp. 60–61, around offsets 100 and 2200",
+          "method": "Open-access paper PDF",
+          "title": "Commutative nilpotent transformation semigroups",
+          "trigger": "Other nilpotent commutative extrema"
+        },
+        {
+          "assessment": "Analogy only; the zero-product relation differs",
+          "evidence": "Source/target reachability cuts in acyclic multiquivers; multiplication is concatenation subject to composability.",
+          "identifier_or_url": "SCOPE-20261122-4f50b8d357fb",
+          "material_read": "Finding from offset 0",
+          "method": "Configured local Resultary mirror",
+          "title": "Reachability cuts classify maximal commuting families in finite acyclic path semigroups",
+          "trigger": "Most similar distinct indexed package of maximal families, centralizers and pair counts"
+        },
+        {
+          "assessment": "Different quotient identities and graph",
+          "evidence": "Uses the identity xyx=xy, rather than turning long products into zero.",
+          "identifier_or_url": "SCOPE-20261026-785ed40cb6ee",
+          "material_read": "Finding and classification around offsets 36 and 1176",
+          "method": "Configured local Resultary mirror",
+          "title": "Commuting graph decomposition and maximal commutative subsemigroups in free left legal semigroups",
+          "trigger": "Distinct catalogue classification for a free semigroup in a variety"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The length-cutoff quotient is a natural free nilpotent object, and commuting subsemigroups change substantially when products cease to distinguish primitive roots above the cutoff. The theorem identifies every maximal family from one shortest word except for the odd all-long family, yielding a genuine parity change in maximum multiplicity and an exact spectrum for subsequent comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:49:36.687696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and testing scope",
+        "VERIFICATION.md and verify.py, inspected statically"
+      ],
+      "rationale": "The torus map has kernel {0,(1/2,1/2)}, is surjective, and has absolute Jacobian two. The area formula gives half the sum of the sheet densities almost everywhere; normalized Haar is attained exactly when the sum is two. Equivalently the dual pulls back (k,ℓ) to (k+ℓ,k−ℓ), the full same-parity lattice. Copula marginals kill nonconstant axis modes. The only remaining modes of total degree at most two are (±1,±1), so there is no lower-degree nonconstant witness. At degree three, f(u)g(v)=sin(2πu)sin(4πv) cancels between the sheets, has both marginal integrals zero, and with 0<ε<1 gives strict positivity. Its CDF perturbation is ε times the product of the nonnegative primitives F and G, and swapping (1/4,1/8) distinguishes the density from its transpose. The first moments of the sines are −1/(2π) and −1/(4π), giving Spearman 3ε/(2π²). In the Kendall integral the two linear terms are each ε/(8π²) and the quadratic term vanishes since ∫Ff=∫Gg=0. The half-L¹ distance equals 2ε/π². The retained moment cos(2π(−U+2S)) has mean −ε/4 by expanding cos(2π(U+2V)). Identical oracle image laws give identical product laws and rejection probabilities, with no claim about ranks.",
+      "residual_risks": [
+        "The lower-degree result uses total Fourier degree for trigonometric polynomials, not another degree convention or an arbitrary notion of smoothness. The exact power statement is for independent paired oracle observations only; the integration checks in the supplied script were not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Torus character pullback is the general mechanism giving the visible lattice; for this map the complete kernel is the two-point diagonal half-period group.",
+          "The distinct toral-shear record studies a uniform displacement but dependence of time-separated observations in a dynamical system. APIT §2 discusses joining densities of the form g(u±v), not arbitrary copulas."
+        ],
+        "reasoning": "General duality explains the fiber characterization but does not in itself specify the constrained copula degree threshold and the PQD witness for the paired APIT experiment. A normalized joining density depending only on S or D passes unchanged through its corresponding summary, so the nonconstant opposite-parity witness is outside that prior submodel.",
+        "searches": [
+          "Resultary: torus homomorphism sum difference pushforward Fourier lattice kernel non-identifiability copula",
+          "arXiv:2301.02991, §§2–3",
+          "Resultary toral-shear record b67848c6bf78, RESULT.md offset 0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and companions",
+        "Resultary suffixes b9cb0107b34e, b67848c6bf78, 5d9bc352d00c",
+        "arXiv:2301.02991",
+        "DOI 10.1007/978-94-011-5532-8_14 (bibliographic/excerpt only)",
+        "Pewsey–Kato (2016; full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "APIT §3 bases tests on circular uniformity of a sum or difference, uses wording asserting an equivalence to independence, and implements pseudo-observations estimated from original marginals. It does not state equality of the full joint oracle output under a dependent copula.",
+          "Pewsey–Kato's Springer route did not yield full text; the cited model is the specialized Wehrly–Johnson family, but its exact theorem was not inspected."
+        ],
+        "reasoning": "One-summary projection tests do not give the paired-law nonidentifiability statement. The witness forces uniformity of both jointly in the oracle experiment and so disproves sufficiency there, while identical oracle image laws say nothing automatically about an empirical-rank procedure computed from the original sample.",
+        "searches": [
+          "Fernández-Durán–Gregorio-Domínguez arXiv:2301.02991, §3, extraction offsets 22500–22713",
+          "Pewsey–Kato (2016), titled parametric-bootstrap goodness-of-fit paper, lawful full-text attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary suffix b9cb0107b34e is the exact record under review.",
+          "The half-shift anti-invariant perturbations are exactly those on the opposite-parity lattice. Dall'Aglio's 1997 chapter was identified by its ordinary sum/difference title and publisher search excerpt explicitly naming U+V and U−V; its full text was not available."
+        ],
+        "reasoning": "Raw independence cannot give this oracle counterexample. If raw S₀=U+V and D₀=U−V were independent, m=ess sup|D₀| would force S₀∈[m,2−m] a.s. from |D₀|≤min(S₀,2−S₀). Both mod-one laws uniform would then require 2m≥1 and 2−2m≥1, hence m=1/2. On those two unit intervals modulo one is a.e. bijective, so both raw variables would be independent uniforms, making (S₀+D₀)/2 triangular rather than uniform. Thus a theorem confined to raw independence cannot cover the displayed witness; whether the chapter discusses separately wrapped variables remains unverified.",
+        "searches": [
+          "Resultary: joint distribution of (U+V mod 1, U-V mod 1) uniform despite dependent copula Fourier parity aliasing",
+          "Web: copula dependent uniform variables joint modulo one circular sum and difference both uniform counterexample APIT independence Fourier",
+          "Web: \"Joint Distribution of Two Uniform Random Variables\" \"Sum\" \"Difference\" 10.1007/978-94-011-5532-8_14 open PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the bound record, not independent prior coverage. A distinct same-day record gives a sharp conditional Kendall–Spearman envelope for c_f(u,v)=f((u+v) mod 1)."
+        ],
+        "reasoning": "That density family has only diagonal Fourier modes (m,m); the S marginal equals f and would force f=1 under the present joint-uniformity requirement. The same-day record therefore does not tabulate or instantiate this witness. The degree cutoff is a structural frequency constraint, not a lookup of concordance coefficients.",
+        "searches": [
+          "Resultary: explicit copula with both joint circular sum and difference uniform but dependent same copula independence law",
+          "Resultary wrapped-sum record 5d9bc352d00c, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp total-degree onset for smooth PQD copula aliasing of the joint oracle pair, with an explicit nonexchangeable witness and exact indistinguishability. The two-sheet averaging and dual-lattice argument are standard torus facts applied to this map, not new general results. The strongest inspected APIT and indexed statements do not supply the sharp joint witness, and ordinary unwrapped sum–difference independence is a different constraint.",
+      "residual_risks": [
+        "Dall'Aglio and Pewsey–Kato full texts were not retrieved. The raw-versus-wrapped separation is rigorous, but it does not exclude a separate wrapped theorem in unread material. Historical priority is limited to the evidence compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same component summaries; no sharp joint oracle witness in the inspected statements",
+          "evidence": "§3 describes circular uniformity for sum or difference and calculates APITs from empirical pseudo-observations; §2 describes a restricted joining model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02991",
+          "material_read": "§2 offsets near 16500, §3 offset 22500 around the uniformity and pseudo-observation passages",
+          "method": "OA primary preprint passage reads (journal copy unavailable)",
+          "title": "Test of Bivariate Independence Based on Angular Probability Integral Transform with Emphasis on Circular-Circular and Circular-Linear Data",
+          "trigger": "Exact applied summary and possible earlier oracle result"
+        },
+        {
+          "assessment": "Raw-independence interpretation mathematically distinguished; any modular discussion remains unchecked",
+          "evidence": "The publisher excerpt asks what happens when U+V and U−V are independent. Raw independence cannot coexist with the required two modulo-uniform marginals and uniform U,V, by the support argument above.",
+          "identifier_or_url": "https://doi.org/10.1007/978-94-011-5532-8_14",
+          "material_read": "Publisher search excerpt naming U+V and U−V; author and title in RePEc; no full text",
+          "method": "Targeted literature searches; configured direct/VPN OA requests to publisher and bounded RePEc bibliographic read",
+          "title": "Joint Distribution of Two Uniform Random Variables When the Sum and the Difference are Independent",
+          "trigger": "Closest classic sum–difference title for the same uniform marginals"
+        },
+        {
+          "assessment": "Related Fourier method, different hypotheses and observable",
+          "evidence": "It concerns a nonmonotonic toral dynamical shear and an individual uniform two-step displacement.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-step-fourier-law-and-hidden-dependence-in-a-non-monotonic-to--b67848c6bf78",
+          "material_read": "RESULT.md Finding, extraction offset 0",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Two-step Fourier law and hidden dependence in a non-monotonic toral shear",
+          "trigger": "Closest separate indexed torus hidden-dependence mechanism"
+        },
+        {
+          "assessment": "Different copula family and invariant; no equivalent claim",
+          "evidence": "Its densities depend on the wrapped sum alone and the finding is an attainable envelope within that family.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-conditional-kendall-spearman-envelope-for-wrapped-sum-copu--5d9bc352d00c",
+          "material_read": "RESULT.md Finding, extraction offset 0",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Sharp conditional Kendall–Spearman envelope for wrapped-sum copulas",
+          "trigger": "Strongest distinct same-day wrapped copula comparison"
+        },
+        {
+          "assessment": "Unresolved text access, no negative evidence",
+          "evidence": "The title identifies a parametric goodness-of-fit problem for Wehrly–Johnson distributions, not itself a statement for the joint oracle transform of unrestricted copulas.",
+          "identifier_or_url": "Pewsey and Kato, Statistics and Computing (2016)",
+          "material_read": "Bibliographic title; primary theorem not retrieved",
+          "method": "Lawful Springer OA attempt",
+          "title": "Parametric bootstrap goodness-of-fit testing for Wehrly–Johnson bivariate circular distributions",
+          "trigger": "Possible special-model precedent in angular independence methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, Proof and Limitations",
+        "APIT preprint §3"
+      ],
+      "rationale": "The paired observable appears to carry more information than either of the summaries used for angular independence testing. A strictly positive analytic and positively quadrant-dependent counterexample shows the information loss persists even when both summary values are retained and dependence is positive by multiple criteria. The sharp first Fourier degree pinpoints that loss, and the oracle qualification prevents overreading it as a result on rank-based power.",
+      "residual_risks": [
+        "Does not describe power or consistency of the published empirical-rank implementation and does not imply a universal optimal replacement test."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,13 +1,21 @@
-## Correctness — PASS
-An exact 56-cell branch formula reduces the first-return map to a finite directed graph with seven return towers. The displayed complete towers cover all 56 half-open cells, the aperiodic cases recur with minimum height at least two, and the other four have rigid-cell cycles yielding whole periodic intervals. The half-open endpoint argument rules out exceptional periodic points in the recurring cases. The executable exact-integer certificate verifies all finite claims. The external equivalence of nonperiodicity and Lebesgue ergodicity is specifically Theorem 1.4 in Bruin–Lukina (2023). Risk: the result is conditioned on the explicit choice of half-open endpoint conventions.
+# Independent mathematical audit
 
-## Originality — PASS within inspected evidence
-The originating complete paper, arXiv:2101.00868 / DOI 10.1112/jlms.12731, gives general return-map machinery and examples involving seven intervals but does not identify the ergodic status of each cyclic translation by a multiple of one-seventh in the inspected substantive sections. The authors' arXiv:2104.05420 addresses the dyadic-denominator family; another prior mathematical research record handles the three-interval family; an earlier available result classifies cyclic rotations with denominator five. None of those statements implies the exact seven-case split without new calculation. Independent rediscovery and unindexed computations remain possible, and the method itself is substantially anticipated by prior work.
+## correctness
 
-## Value — PASS
-The question whether a given rotated odometer has periodic islands is central because it is equivalent to ergodicity for this natural measure-preserving family. Seven is the next prime denominator beyond the previously classified smaller prime examples. The explicit classification displays a nontrivial coexistence of ergodic and nonergodic translations among a complete natural family, with exact certificates and full endpoint control, not an arbitrary numerical sampling exercise.
+PASS
 
-## Limits
-No broader all-permutation classification, precise periodic basin masses, or independent audit is asserted.
+For cells of length 1/56, Rπ permutes 7 blocks of 8 cells preserving the internal offset. The first three branches of a are rigid translations aligned with cell boundaries, and its tail on [7/8,1) is exactly the scaled a mapping onto [0,1/8). The three rigid branch ranges avoid that section, so the first tail edge ends each first-return path. I independently computed paths and cycles by applying each branch to exact rational cell boundaries, matching all listed rows and the periodic cycles. For k=0,1,4, complete tower coverage persists along the stated recurring words. Iterating the complete first returns shows every point visits every depth section, with least first return at depth r at least 2ʳ; a finite periodic orbit would meet every section and therefore contain zero, contradicting these growing minimum return times. For k=5,6 the rigid cycles return whole half-open cells by an exact translation with net displacement zero. For k=2,3 the same argument holds in the induced map after one full covering step, so gives nonempty periodic intervals for the original map. Half-open branches justify the endpoint claim, not just almost-everywhere recurrence. Bruin–Lukina Theorem 1.4 gives precisely the stated Lebesgue ergodicity equivalence for this composition and domain.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the combined seven-shift classification and its explicit return certificates, not a new induction technique or seven individually new cases. The identity shift is the ordinary odometer. Bruin–Lukina Example 5.20 already explicitly identifies the k=6 case as periodic and contains the same incomplete tower profile. Credit that example and the prior general criterion; no inspected source gives the combined seven-shift classification.
+
+## value
+
+PASS
+
+Cyclic translations form a natural subgroup slice of the permuted-interval family. Its full exact seven-case dichotomy gives both recurrent covering examples and explicitly certified nonergodic examples, and exhibits two distinct initial shifts entering the same recurrent induction and others entering a noncovering state. Exact endpoint-inclusive completeness is useful as a test of induction for non-dyadic rational rotations. Neither the already known k=6 case nor the generic criterion alone supplies that benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

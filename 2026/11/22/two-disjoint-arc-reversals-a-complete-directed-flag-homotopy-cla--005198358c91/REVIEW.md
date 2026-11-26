@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses are fixed: arbitrary finite total order with at least four vertices and exactly two disjoint reversed arcs. A tournament's transitive subsets are exactly those without directed triangles, and a three-vertex set can meet at most one reversed pair. This identifies every minimal nonface precisely. The cone, join, suspension-plus-edge, dominated-vertex, and explicit ten-pair crossing-collapse arguments prove all homotopy types over the integers for every size. The packaged executable exhausts 756 two-reversal configurations through nine vertices and validates each crossing free-face removal. Finite mod-two homology supports the proof but cannot establish the unlimited classification alone. The integral conclusion follows from the stated homotopy constructions, not from field-rank extrapolation.
+PASS
 
-## Originality — PASS against inspected evidence
+A triple contains at most one reversed arc; checking its orientations shows it cycles only if its outer arc was reversed. A tournament is transitive iff all triples are acyclic, so these are exactly the minimal nonfaces. Any label outside [a,d] gives a cone. With a=0 and d=n−1, separated arcs give either a middle-gap cone or a join of the two single-reversal complexes. Such a complex is a simplex for adjacent endpoints and otherwise consists of two simplices along their interior simplex plus the edge between endpoints, hence is a circle. The separated join is S^3 precisely if c=b+1 and both interiors are nonempty. In the nested case the outer endpoints suspend the inner complex and an extra edge attaches between the suspension vertices. This is S^1 wedged with that suspension because the suspension is path-connected; the inner complex is a circle exactly for b=a+1, c=d−1, c−b>=2, and otherwise contractible. In the crossing case a label in an outer gap dominates the appropriate interior endpoint b or c: adding that label could only make a forbidden triple whose other two vertices would already forbid the original face containing the endpoint. After its deletion the opposite exterior label is a cone vertex. Multiple central labels have identical obstructions and strongly collapse to one. With no gap the four-label core is two triangles sharing an edge plus a further edge, giving S^1. With a central label the five-label core has six triangles and no tetrahedra; the first six listed collapses remove the triangles leaving the path 1–0–3–2–4, and the last four remove its leaves to vertex 2. This proves the integral homotopy classification, not just an equality of Betti numbers. Independent direct orientations matched the forbidden-triple rule in all 756 cases for n=4 through 9 and verified the exact 21-face collapse certificate.
 
-The 2020 tournament-complex paper defines the directed flag setting and analyzes directionality filtrations, without classifying arbitrary two disjoint arc reversals. The 2023 reversed-pairings work concerns indecomposability and modular decomposition, rather than the homotopy type of transitive-subtournament complexes. Govc's complete all-tournament census through ten vertices includes finite instances of this family, which are prior coverage, but no uniform all-order endpoint/gap theorem. The nearest scholarly records about second-path digraphs or a single reversal of an already cyclic tournament have different assumptions and do not imply the complete four-case theorem. Targeted similarity searches and direct source inspection did not find a covering claim; the residual risk is unindexed equivalent literature.
+## originality
 
-## Value — PASS
+PASS
 
-The same two local orientation faults yield four topologically distinct integral outcomes, including a genuinely three-dimensional sphere and a mixed-dimensional circle–two-sphere wedge. A necessary-and-sufficient classification of **all** placements is a structurally motivated local-perturbation result for tournament topology; its proof explains why interval separation, nesting, and crossing lead to different homotopy mechanisms. It is not a restatement of tournament indecomposability, a single small-graph table, or a derived homology count only.
+Pass is for the complete all-order criterion for arbitrary placements of two disjoint reversals, not for the wedge subfamily alone or for the previously computed low-order cases. A distinct same-day result genuinely covers the nested S^1 wedge S^2 subfamily as r=2 of a stronger family and should be credited for that coverage; their relative priority is unknown. The broader result does not classify separated, crossing or other nested configurations. Bibliographic correction: Govc–Levi–Smith introduce tournaplexes, but their p. 2 credits Reimann et al. with introducing the directed flag complex; the frozen related-work sentence should not be taken to establish that attribution.
 
-## Scope of the review
+## value
 
-The result is confined to vertex-disjoint reversed arcs. Equivariant homotopy and additional or overlapping reversals remain open here. The literature check cannot exclude all unavailable or unindexed sources. A separate independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This classifies the effect of two local perturbations of a transitive tournament by three geometric placements and their exact gaps. It shows when the same number of reversals yields a cone or creates distinct sphere dimensions, with arbitrary numbers of unused labels and actual homotopy types. The uniform structural reduction, including the crossing contractibility dichotomy, is useful beyond the known wedge subfamily and existing finite tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

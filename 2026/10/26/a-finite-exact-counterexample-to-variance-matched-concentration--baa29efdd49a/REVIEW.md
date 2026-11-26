@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The law \(\nu^k\) is centered with variance \((k^2-1)/3\). The heterogeneous sum has total variance \(299\). The candidate common parameter \(619/10710\) lies in the \(k=17\) mixture interval, gives mixture weight \(24/35\), and yields variance \(299/3\) per summand. Exact coefficient counts give the heterogeneous concentration \(7/160\) and the equalized concentration \(219116707/5055477000\), with strict difference \(8241647/20221908000\). The accompanying script asserts these values using exact rational arithmetic.
+PASS
 
-## Originality
+This is an exact violation of the conjecture as stated for independent T laws. The two endpoint laws have variances 133 and 33, so the tuple gives total 299. On the strictly monotone variance cell k=17 the weight of ν¹⁷ is 24/35, giving α*=619/10710 and single-law variance 299/3. Every half-open length-two interval on integer supports is accounted for by summing an adjacent integer pair, including possible zero atoms. The separate exhaustive exact rational convolution reproduced Q₂=7/160 and Q₂=219116707/5055477000, respectively, and gap 8241647/20221908000>0. The equalized maximum occurs at the central pair, whose atoms p₀ and p₁ are 4818196/210644875 and 6087059/297381000. The heterogeneous parity lattice has only one possible nonzero atom per window, and its largest coefficient is 175 out of 4000.
 
-PASS, subject to the residual risks below. The primary paper states the variance-matched comparison as Conjecture 6.1 after proving the distinct extremal bound in Theorem 1.2. The example contradicts the conjectured direction for an allowed parameter triple. Searches of published-finding corpus and the literature for the conjecture, equivalent formulations, and the exact rational witness found related concentration/variance results but no exact match. This is evidence of a specific counterexample, not a claim that search exhausts all literature.
+## originality
 
-## Value
+PASS
 
-PASS. The result refutes a universal proposed equalization principle in a sharp concentration problem. The exact rational witness makes the failure reproducible and shows that matching total variance alone does not ensure the conjectured concentration ordering. The claim is deliberately limited to this counterexample.
+The bounded comparisons support the three-summand counterexample as distinct. The original published conjecture is precisely about this variance matching and window, but its quoted positive results concern a different parameter range. Earlier two-summand results and nearby three-summand point-concentration results cannot yield the stated refutation.
 
-## Closest literature and limitations
+## value
 
-Juškevičius, arXiv:2201.09861, Theorem 1.2 and Conjecture 6.1; published version, DOI 10.1112/blms.13132. Mattner and Roos, arXiv:math/0603522, on a related two-point concentration bound. The publisher page exposed bibliographic metadata and abstract in this access path; the full accessible arXiv text of the primary paper was read. A separate older Leader–Radcliffe PDF fetch timed out and was not used as evidence for non-coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One strict, exact violation suffices to disprove a named universal conjecture in a published paper. Three summands expose a failure not present in the compared two-summand result. The width-two parity effect and exact variance match make this a useful boundary example for any replacement conjecture; the small magnitude is irrelevant to the exact falsification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:59.103399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coprimality gives x=b(k−t), y=at with 0≤t≤k. For interior t the three coprimality tests in (1) are necessary and sufficient by considering which factors a common prime divides; the two endpoints have gcd>1. I checked the prime-power argument and all four exceptional cases (7, 11, 13, 15), including the split on 3|b at 11. An independent exhaustive check colors every prime <k by membership in a, b, or neither; larger primes cannot affect an interior solution. It found no obstruction for k=2..15, and six obstructing colorings out of 729 at 16. Direct enumeration of 240240=273x+55y gave 17 nonnegative solutions, none primitive. Multiplying 55 by m coprime to 273 preserves both coprimality of the generators and each obstruction. Replay: /workspace/replays/recheck_frozen.py, primitive(). This is not a claim about larger k or arbitrary targets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jaffe Theorem 4.3 and Theorem 6.5 concern the global largest absent target and its bounds. Ding–Wang–Zhang Theorems 1.6–1.7 and Section 4 concern global bounds and shifted targets, including qa₁a₂+1. The primorial-obstruction record uses kab−ac−bd under extra generator-size hypotheses."
+        ],
+        "reasoning": "General results about a global maximum or shifted target do not establish which exact unshifted multiples are primitive for every generator pair.",
+        "searches": [
+          "arXiv:2610.17267v1",
+          "arXiv:2509.08599v1",
+          "Resultary: uniform primorial obstructions, 0eee43f23b58"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Resultary 435c14e82144 and 0eee43f23b58",
+        "arXiv:2610.17267v1",
+        "arXiv:2509.08599v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=16 the separate record states failure iff (55|a and 273|b) or (273|a and 55|b)."
+        ],
+        "reasoning": "Set (a,b)=(273,55) or (273,55m) in the second case. Alongside its universal k=2..15 result, this entails the entire frozen Finding.",
+        "searches": [
+          "Resultary: 435c14e82144, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary diagonal targets are the same kab with coprime generator pair and primitive nonnegative coefficient pairs; its Finding states k=2..15 universal and 16 the first possible failure."
+        ],
+        "reasoning": "Unshifted diagonal multiple is exactly product multiple here, with the same first-exception quantifier.",
+        "searches": [
+          "Resultary: first missing nontrivial diagonal multiple in a primitive Frobenius problem, 435c14e82144",
+          "primitive representations ax+by gcd coefficients Farey Stern Frobenius product ab multiple universal cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary Finding states the exact cutoff and larger failure family. Jaffe computes global g(a,b) for pairs at most 200 and gives g(5,7)=156 in the compared passage."
+        ],
+        "reasoning": "The Resultary hit is a separate record with exact claim-level coverage. The bounded global table is not a table of universal membership at kab.",
+        "searches": [
+          "Resultary: 435c14e82144",
+          "arXiv:2610.17267v1, pp. 16–17"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives the identical universal interval and first failure at 16, and gives a stronger exact classification at 16 by divisibility by 55 and 273. The frozen witness and the entire infinite family are immediate specializations. Thus an independently distinct contribution is not established; this is exact coverage, not a title match or an inference about which same-day result was posted first.",
+      "residual_risks": [
+        "Same date does not establish order or dependency between the two exact records.",
+        "Other earlier formulations were not excluded; the documented exact coverage already suffices for the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact cutoff and strictly stronger classification",
+          "evidence": "Universal 2..15 and first failure at 16 exactly for the two specified divisibility assignments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-first-missing-nontrivial-diagonal-multiple-in-a-primitive-fr--435c14e82144/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "The first missing nontrivial diagonal multiple in a primitive Frobenius problem",
+          "trigger": "Same diagonal targets, primitive representations and cutoff"
+        },
+        {
+          "assessment": "Related global invariant, not the exact cutoff in the inspected material",
+          "evidence": "Finiteness and bounds for g(a,b); computations for pairs at most 200.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.17267v1",
+          "material_read": "Abstract, Theorems 4.3 and 6.5, pp. 16–17 example and table scope",
+          "method": "OA PDF passage inspection",
+          "title": "Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers",
+          "trigger": "Same primitive two-generator Frobenius model"
+        },
+        {
+          "assessment": "Related methods and shifted targets",
+          "evidence": "The displayed construction includes qa₁a₂+1, not a universal unshifted classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.08599v1",
+          "material_read": "Theorems 1.6–1.7; Section 4 pp. 9–11",
+          "method": "OA PDF passage inspection",
+          "title": "The Diophantine Frobenius Problem revisited",
+          "trigger": "CRT prime obstructions and primitive Frobenius bounds"
+        },
+        {
+          "assessment": "Related lower bounds, not the same target regime",
+          "evidence": "Obstructed N=kab−ac−bd with an additional generator-size condition.",
+          "identifier_or_url": "Resultary 2026/10/18, 0eee43f23b58",
+          "material_read": "Construction of nonprimitive targets in RESULT.md",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Uniform primorial obstructions for primitive two-generator Frobenius representations",
+          "trigger": "Prime coverage in the same arithmetic model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first breakdown of a universal product-multiple guarantee is a well-motivated sharp arithmetic boundary, not an arbitrary sample cutoff. However, the frozen result adds no exact invariant, stronger classification, or separately useful remainder beyond the indexed theorem, which also gives the entire exceptional set at k=16. The frozen presentation does not establish a standalone scientific increment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-## Reproducibility
-Compile the standalone `verify.cpp` using `g++ -std=c++17 -O2 -Wall -Wextra -Werror verify.cpp -o verify` and run `./verify`. The executable prints the nullity/rank pair for each order from one to nineteen and the final PASS line.
+# Independent mathematical audit
 
-The program derives a complete spectrum in two independent ways: (1) Ferrers-board rook coefficients and the signed factorial formula; (2) exact word-count recurrence and Walsh–Hadamard transform. It checks equality at **all 524287 frequency/order pairs**, direct permutation enumeration through order eight, reversal duality, the list of twenty-four zero masks at order nineteen, inertia, sharp minimum and first failed residue-class order. Both combinatorial identities are justified in `RESULT.md`, so the checker is an exhaustive certificate of a finite theorem, not a proposed proof of an infinite conjecture.
+## correctness
 
-The zero-set file lists the complete mask set at order nineteen. All counts use exact integers and no statistical tolerances. The code does not claim independent external validation. The archival origin for the explicitly dated source is arXiv:1403.0691 on 2014-03-04; the more foundational older publication gives month/year only.
+PASS
+
+The real Walsh basis diagonalizes unnormalized XOR convolution with signs (−1)^|S∩E|. Expanding one factor 1−2·1_{π(i)>i} per selected row groups constraints by a nonattacking partial assignment, with (n−j)! completions for j assigned rows. On processing selected rows in descending order, each previously used column is also allowed in the new row, leaving exactly n−i−(j−1) choices when inserting its j-th rook. This proves the integer algorithm. The frozen second method uses the classical excedance-word recurrence and boundary deletions (checked against the cited original), then an unnormalized Walsh transform. An independent exact replay of the rook formula exhausts all 524287 order/mask pairs and matches direct permutation enumeration at n≤8. It reproduces the full nullity table, including zero nullity at 3,7,11,15. Every one of the 24 zero masks at 19 matches the certificate; bit reversal gives 12 two-element orbits. The inertia is (131048,131072,24) and the smallest nonzero magnitude is 3403284480. By the triangle bound, attained at the empty mask, the largest magnitude is 19!, so the quotient is exactly 41247931725/1154. The dimension used in the calculation is 2^(n−1); the uploaded program's printed dimension label uses n−1, the bit length, but its loop bounds, rank expression and the stated theorem use the correct dimension.
+
+## originality
+
+PASS
+
+The supported distinct claim is the first failed order in the specified residue class, with complete blind-space and conditioning data at that order. The underlying excedance counts, recurrences, complement-reversal duality and classical rook/inclusion–exclusion enumeration are not originality claims.
+
+## value
+
+PASS
+
+An invertible multiplicity-weighted pattern convolution permits recovery of every input on the cube. Odd orders avoid the elementary forced reversal-fixed odd-frequency zero present at even orders, and the initial successful residue-class orders are not enough to guarantee subsequent recovery. The first exact failure at 19 and its complete blind modes tell precisely which signals are unrecoverable there, and the nonzero gap quantifies worst-case stability on the remaining modes. This is a motivated cutoff, not a single arbitrary order or frequency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

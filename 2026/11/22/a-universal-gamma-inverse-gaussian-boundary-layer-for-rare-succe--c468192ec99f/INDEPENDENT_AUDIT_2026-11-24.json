@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:30:27.990797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed search parameters the assumed exit flux gives h(L−ε)=(rq/D)ε+o(ε). Rescaling the OU backward equation with the stated K, Z_K and V_K gives F''+(1−z/K)F'=sF with boundary values 1 and 0. At s=0 the splitting ratio is the integral from z to K of exp(−v+v²/(2K)) divided by the integral from 0 to K of the same integrand. For K≥1 the denominator is at least 1−e^(−1), and the numerator is bounded by 2e^(−z/2). The same bound holds for s≥0 by killing/discount comparison. The integrating-factor equation gives compact derivative bounds from the bounded values of F at two separated sites; the resulting local limit uniquely solves F''+F'=sF with F(0)=1 and decay at infinity (the latter matters at s=0). Thus F=exp(−a_s z), a_s=(1+sqrt(1+4s))/2. Near L one may dominate the rescaled integral by a constant times z exp(−z/2); away from L the exponential bound times the finite mass of h is negligible even after multiplication by K². Integration gives rL²q/(DK²) times (u+a_s)^−2. Paths starting below 0 cannot succeed on return. The conditional hitting-time transform is exp(−z(a_s−1)), with mean z and variance 2z, so the limit mixture has mean 2 and variance 6. The eventual return-success fraction is P(E_K)/(q+P(E_K)), not the per-cycle rare-event probability. The finite BVP and MFPT scripts in the frozen package were inspected, not executed; the asymptotic decision is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubey–Pal's Eqs. (2)–(3) cover the matching target-visible protocol and renewal mean. Biswas et al. use target-visible returns with a linear return potential in their MFPT analysis.",
+          "225188b13814 gives a correction to the full completion-time Laplace transform at fixed transform variable as r→∞; 1c82f789b3f9 concerns a fast-reset mean correction."
+        ],
+        "reasoning": "The same process with an unmarked mean does not recover both marks, and a limit that changes the alarm rate does not dominate a limit with fixed alarm law and diverging return stiffness.",
+        "searches": [
+          "arXiv:2610.18814v1, model and renewal expression",
+          "arXiv:2406.08975v1, target-visible stochastic returns",
+          "Resultary: 225188b13814 and 1c82f789b3f9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18814v1",
+        "arXiv:2511.14646v1",
+        "arXiv:2406.08975v1",
+        "Resultary c468192ec99f (self), 225188b13814 and 1c82f789b3f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published splitting law supplies the s=0 return factor and can be combined with the killed search boundary flux to derive the probability and gap asymptotic. The inspected protocol/mean statements do not give the joint tilted boundary layer at s>0."
+        ],
+        "reasoning": "The positive-discount rescaled hitting problem and its uniform integration against the near-target alarm density are needed for the full claim; the established mean-delay logarithm and finite-stiffness probabilities alone do not yield it by specialization.",
+        "searches": [
+          "arXiv:2511.14646v1, Eqs. (15)–(17), (22), (48)–(50)",
+          "arXiv:2610.18814v1, Eqs. (2)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit c468192ec99f is the assigned result itself, not independent evidence of overlap.",
+          "Frydel, arXiv:2511.14646v1, Eqs. (48)–(50), gives splitting and successful-return mean quantities rather than the Gamma(2) gap jointly mixed with the inverse-Gaussian clock."
+        ],
+        "reasoning": "Equivalent forms include the two-variable limiting Laplace transform and the joint law of a Gamma gap followed by a drift−1 passage time from that gap. An unmarked completion transform or a conditional mean is not either form.",
+        "searches": [
+          "Resultary: stiff harmonic return joint conditional law alarm position near-target gap successful return duration",
+          "joint conditional space-time distribution successful return harmonic resetting alarm position stiff return Dubey Pal Frydel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue record is the only exact match found. The distinct catalogue comparisons concern unmarked completion outcomes and a different asymptotic parameter."
+        ],
+        "reasoning": "A table of mean return times or splitting probabilities could corroborate a marginal quantity but cannot establish a continuum conditional law for all u,s≥0 and all search laws satisfying the flux assumptions.",
+        "searches": [
+          "Resultary: stiff harmonic return joint conditional law alarm position near-target gap successful return duration",
+          "joint conditional space-time distribution successful return harmonic resetting alarm position stiff return Dubey Pal Frydel"
+        ]
+      },
+      "rationale": "The distinct content is the flux-normalized joint law of the boundary-layer starting gap and conditioned successful duration in the stiff-return limit. The protocol, renewal formulas, finite-strength splitting law and drifted-Brownian first-passage transform are antecedents, not priority claims. No separate inspected statement covers the joint selection and time limit together.",
+      "residual_risks": [
+        "A general conditioned-diffusion boundary-layer theorem or unindexed work might give the same marked law; the inspected sources and bounded search do not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching protocol and finite-strength mean, not the marked joint result",
+          "evidence": [
+            "The renewal expression is for mean completion time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18814",
+          "material_read": "PDF pp. 2, 5–6; abstract, model and Eqs. (2)–(3)",
+          "method": "Lawful OA primary passages",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Same target-visible OU protocol"
+        },
+        {
+          "assessment": "Preexisting splitting and duration-moment ingredients",
+          "evidence": [
+            "Eq. (22) gives the logarithmic mean-delay regime; Eqs. (48)–(50) give two-boundary splitting and mean-time quantities, not the two-mark limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.14646",
+          "material_read": "PDF pp. 4, 6, 9; Eqs. (15)–(17), (22), (48)–(50)",
+          "method": "Lawful OA primary passages",
+          "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials",
+          "trigger": "OU splitting and return-time formulas"
+        },
+        {
+          "assessment": "Linear return potential and MFPT comparison",
+          "evidence": [
+            "Targets remain visible during return, but the studied force and observable differ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.08975",
+          "material_read": "v1 PDF p. 2, model and MFPT discussion, OA offset 8179",
+          "method": "Lawful OA primary passage",
+          "title": "Stochastic return with target detection during the return phase",
+          "trigger": "General two-stage renewal comparison"
+        },
+        {
+          "assessment": "Different limit and observable",
+          "evidence": [
+            "Uses r→∞ for a full completion-time transform correction, with no successful-return alarm-gap mark."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-laplace-profile-correction-for-rapid-stochastic-retu--225188b13814",
+          "material_read": "RESULT.md, including offsets 9670–12377",
+          "method": "Resultary catalogue followed by local-mirror statement comparison",
+          "title": "A universal Laplace-profile correction for rapid stochastic returns",
+          "trigger": "Distinct same-date result on return Laplace transforms"
+        },
+        {
+          "assessment": "Mean completion correction in fast-reset limit",
+          "evidence": [
+            "Correction depends on clock moments; no stiff-return joint conditional law."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-r-3-2-clock-moment-law-for-stochastic-return-ornstein-uhle--1c82f789b3f9",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement comparison",
+          "title": "Sharp r^(-3/2) clock-moment law for stochastic-return Ornstein–Uhlenbeck search",
+          "trigger": "Possible earlier stochastic-return asymptotic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this target-visible protocol the theorem quantifies a rare detection channel that total mean completion times can hide. It identifies both the inverse-square frequency and the coupled entrance-gap and duration scales from the local flux alone, not from a fitted Brownian example or a typical-return approximation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

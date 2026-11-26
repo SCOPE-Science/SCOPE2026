@@ -1,31 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the block type \((1,a,b)\), the natural Segre–Pluecker line bundle has highest weight
-\[
-\omega_1+\omega_{a+1}.
-\]
-The positive-root leading coefficient of the Weyl dimension formula gives
-\[
-D(a,b)
-=
-\frac{(ab+a+b)!\,2^b\prod_{r=0}^{a-1}r!}
-{(a+b)!\prod_{r=0}^{a-1}(b+r)!}.
-\]
-The Schubert-cell decomposition gives
-\[
-E(a,b)=\frac{(a+b+1)!}{a!\,b!}.
-\]
-For \(R=D/E\), exact cancellation shows that both coordinate increments are strictly greater than \(1\) throughout \(a,b\ge1\). Since \(R(1,1)=1\), equality is unique and every other case is strict.
+## correctness
 
-The bundled checker matches the factorial degree formula against an independent positive-root product for every \(3\le n\le80\) and verifies the exact ratio identities on a \(60\times60\) parameter grid. Finite computation is not used as the infinite proof.
+PASS
 
-## Originality
-PASS. The inspected archival flag-variety literature supplies the geometric and representation-theoretic inputs but does not state the sharp degree-versus-Euler comparison. Targeted searches in two-step-flag, \(F(1,k;n)\), \(\mathcal O(1,1)\), Schubert-cell, and Euler-characteristic language did not locate the monotone quotient law or the unique equality case.
+For complex flags of block type (1,a,b), the pullbacks of the line and Grassmannian Plücker bundles give weight λ=(2,1^a,0^b). Borel–Weil identifies the Hilbert function for nonnegative tensor powers with the dimension of the representation of highest weight mλ (duality does not affect dimension). Only roots between distinct blocks contribute to the leading term, N=ab+a+b in all. The roots from the first coordinate contribute 2^b/(a+b)!; for each of the a remaining nonzero coordinates the roots to the last block contribute r!/(b+r)! with r ranging from 0 to a−1. Multiplication by N! gives the claimed degree. The affine Schubert cells contribute one each to the topological Euler characteristic, which is (a+b+1)!/(a!b!). For R=D/E the a increment gives ∏_{j=1}^{b+1}(N+j)/(a+1+j), and the b increment gives 2∏_{j=1}^{a+1}(N+j)/(b+1+j), by factorial cancellation. The numerator terms exceed the denominator terms by b(a+1)−1 and a(b+1)−1 respectively. Both are positive, and R(1,1)=6/6, proving the unique equality at (n,k)=(3,2) without finite extrapolation. Checked sample values (D,E)=(40,12), (20,12) at (4,2), (4,3). Inspected the bundled checker but did not execute it. Other flag types and polarizations are outside the result.
 
-The closest known comparison in the available literature concerns ordinary Grassmannians, whose degree formula and polarization are different and do not imply the two-step line-flag statement. Residual risk remains that an older unindexed source contains this short consequence of the standard formulas.
+## originality
 
-## Value
-PASS. Euler characteristic and projective degree measure two natural complexities of the same homogeneous variety: Schubert-cell count and generic complementary intersection count. The theorem gives a complete all-parameter comparison, proves strict domination away from one minimal case, and extends this kind of topology-versus-enumeration threshold from Grassmannians to a genuinely two-step flag family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the classical formulas and the material restricted-family overlaps. The supported distinct result is the sharp comparison over all block types (1,a,b), with strict ratio growth in both parameters; it is not the first computation of either invariant or a new proof principle for factorial product inequalities.
+
+## value
+
+PASS
+
+The comparison relates the generic complementary linear-section count to the Schubert-cell count in the full naturally polarized family with a marked line. The unique equality and strict growth everywhere else are the useful classification, rather than the routine individual degree and Euler computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

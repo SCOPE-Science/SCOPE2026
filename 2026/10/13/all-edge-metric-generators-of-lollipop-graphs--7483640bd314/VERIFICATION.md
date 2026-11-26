@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every integer \(k\ge3\) and \(\ell\ge1\). The computational replay is a finite stress test of the definitions, boundary cases, counting formula, and basis-membership corollaries.
+# Independent mathematical audit
 
-The standalone checker constructs each graph, computes all vertex distances by breadth-first search, forms the distance signature of every edge for every candidate landmark set, and compares the direct definition with the claimed criterion. It also expands the closed-form polynomial independently by binomial coefficients and compares every coefficient.
+## correctness
 
-Checked range: \(3\le k\le6\), \(1\le\ell\le5\), maximum graph order \(11\).
+PASS
 
-Expected replay line:
+Two omitted nonattachment clique vertices x,y leave ax and ay indistinguishable. With just x omitted and no tail vertex, ax and ap_1 are indistinguishable even if a is selected. On all of X, distinct clique edges have different nonempty zero-coordinate sets, while path edge p_{r−1}p_r has constant distance r. With one omission x, the remaining clique coordinates (nonempty even at k=3) distinguish path edges by their constant r, and reduce the residual clique collisions to ax′ versus xx′ for each remaining x′. Any selected p_j separates those by distances j and j+1; it also separates ax from ap_1 by distances j and j−1. This proves sufficiency for every ℓ≥1, including the single-edge tail. Counting disjoint cases gives the polynomial; the minimum sets are X and the (k−1)ℓ single-replacement sets, proving the counts and all three membership assertions. Fresh independent BFS/signature enumeration agreed on k=3…6 and ℓ=1…5 (7,440 subsets, 170 coefficient comparisons, 20 parameter pairs for the minima and membership checks). The frozen verifier was inspected, not executed; its expected output alone was not evidence of fresh execution or of the infinite theorem.
 
-`VERIFY_OK k_range=3..6 ell_range=1..5 subset_checks=7440 criterion_checks=7440 coefficient_checks=170 minimum_checks=20 max_order=11`
+## originality
 
-The finite enumeration does not certify untested parameter values; those are covered by the proof in `RESULT.md`.
+PASS
+
+The strongest exact-family match establishes vertex covers as generators for tails of length at least two and characterizes dominant edge metric bases. Its actual proof uses the cover assumption and does not establish necessity or sufficiency over all ordinary candidates. The sources reached do not supply the ordinary set system or basis enumerator; the related basis-membership paper could only be checked at landing/abstract level, which is not evidence of noncoverage.
+
+## value
+
+PASS
+
+A natural clique-with-tail joining operation raises a concrete question not answered by knowing the edge dimension of either factor alone: which clique landmarks can be replaced, and by which tail vertices? The classification answers it for every candidate, separating the attachment vertex from positive tail vertices, yielding the full enumeration and exact basis incidence rather than just a dimension or a sample of short tails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

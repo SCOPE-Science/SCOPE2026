@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_king4_d4.py` using ordinary Python 3 and its standard library. The complete construction of king faces, square symmetries, barycentric flags, orbit cells, signed integer boundaries, integral unimodular pivots and finite-field rank checks is embedded in the script. Expected successful last line is `H_0=Z H_1=0 H_2=Z/2 H_3=0; no other degrees` preceded by `KING4_D4_QUOTIENT_INTEGRAL_HOMOLOGY_OK`.
+## correctness
 
-Checks: 313 nonempty faces with counts 16, 78, 140 and 79; 50, 283, 471 and 237 quotient cells; the integral consecutive boundary compositions vanish; 49, 234, 236 unit Smith pivots and a final degree-three invariant factor 2; mod-two and mod-three boundary ranks match. These are exhaustive finite checks, not an infinite proof or independent mathematical audit. The result does not determine the quotient's fundamental group or homotopy type.
+PASS
+
+For strict face chains the size sequence distinguishes all vertices and subfaces within each closed simplex, so the quotient has regular flag-orbit cells with alternating deletion boundaries. An independent representative enumeration using prefix stabilizers rebuilt the eight symmetries and counts (16,78,140,79) and (50,283,471,237); it checked both zero boundary compositions and obtained integer ranks (49,234,237), with sole nonunit Smith factor 2 for the third boundary. In the short exact sequence from homology to the cokernel of the incoming boundary and then to the image of the outgoing boundary, the last term is free; hence all cokernel torsion lies in homology. The Betti vector (1,0,0,0) then gives precisely the asserted reduced H2=Z/2. The proof does not infer simple connectivity or a homotopy type.
+
+## originality
+
+PASS
+
+No inspected statement covers the integral homology of this king quotient. Equal board size and symmetry group in the closest quotient records do not identify their attack complexes with the king complex; the work on the identical king complex computes an invariant before taking orbits. This is a best-of-knowledge decision, not priority certification.
+
+## value
+
+PASS
+
+The board and full rigid symmetry group are canonical, not arbitrary parameters. The exact invariant distinguishes a rationally acyclic orbit space from an integrally acyclic one and shows that the symmetry quotient contributes torsion absent in the known underlying king complex. This gives a useful integral benchmark for other chessboard quotients, independently of any general classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

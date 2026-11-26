@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:27:23.217107Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing L=N−1, weighting the cosine mode by the square root of the degree gives the symmetric normalized-path eigenvector, including the alternating terminal mode; each mode normalization cancels in its vertex/endpoint ratio. The observation matrix is a Vandermonde times a diagonal eigenvector-evaluation matrix; the nonzero common factor cancels, leaving amplitude ratio 2^(m/2) times the absolute cosine product at interior sites. For m=2, reflection and strict monotonicity reduce to comparison at π/L. For m=3, the side lobe of |u(2u²−1)| is at most 2/(3√6); at L≥6 the first-interior product is at least √3/4 and beats endpoints. For L=2,3,4,5 the maximum unscaled interior products are 0, 1/4, 0, 1/4. For m=4, z=cos²x gives z(2z−1)(4z−3). On 0≤z≤3/4 the larger absolute extremum is (10+7√7)/108, less than 21/64; on the remaining interval the cubic increases. For L≥9, z at j=1 exceeds 7/8, making the amplitude ratio exceed 4(21/64)>1 and all other half-path values strictly smaller. The small-L cases reduce to exact products: at L=5, |cos x cos 2x|=1/4 for every interior site; at L=7, cos(4x) and cos(3x) agree in magnitude and |sin(8x)/sin x|=1, giving unscaled product 1/8; at L=8, odd j give 1/4 by the sine double-angle identity and even j give zero. For L=3,4,6 direct substitution gives the remaining all-tie, endpoint-only, and j=2,4 tie cases. Finally the three cosines tend to one at j=1 and the squared amplitude ratio tends to 16. The bounded checker is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bulai et al., pp. 20–27, give nonvanishing/frame recovery conditions and numerical comparison on a P40 six-mode experiment. The October 11 indexed antecedent treats all N modes with N time samples."
+        ],
+        "reasoning": "Nonvanishing means positive determinant but does not rank determinants; optimizing a frame lower bound or condition number is also different. Full-spectrum endpoint optimality does not compare restricted low-band Gramians.",
+        "searches": [
+          "Bulai et al., arXiv:2609.25472, general finite-graph recovery and finite-path placement",
+          "SCOPE-20261011-d0ca7333cb0f, full-spectrum endpoint theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_path_sampling.py",
+        "Resultary SCOPE-20261102-e45b195df1c5 and SCOPE-20261011-d0ca7333cb0f",
+        "Bulai et al., arXiv:2609.25472"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched ratio is d_x^K times the product of squared cosines for k=1,…,K−1. Its full-spectrum antecedent alone lacks this low-band decision table."
+        ],
+        "reasoning": "The indexed table already gives the finite migration thresholds and ties. Setting x=1, K=4 in its exact ratio gives 2^4 in the long-path limit by continuity, so the extra boxed limit is not a distinct result.",
+        "searches": [
+          "SCOPE-20261102-e45b195df1c5, displayed det(G_x)/det(G_0) and spectral factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched record uses S=D^(−1/2)AD^(−1/2), not I−S, and the top K adjacency eigenvalues. Its sampling times are 0 through K−1 with distinct multipliers."
+        ],
+        "reasoning": "S and I−S have identical eigenvectors, so the first K in the respective stated ordering are the same. The functional calculus reparametrization gives the same observation matrix.",
+        "searches": [
+          "Resultary low-bandwidth normalized-path D-optimal single-vertex sampling, two to four modes",
+          "SCOPE-20261102-e45b195df1c5, Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261102-e45b195df1c5 gives the full K=2,3,4 maximizing index lists with M=N−1, including M=6 and M=8 ties and the M≥9 strict first-interior regime. The extra M=1 statement for K=2 is outside the frozen scope."
+        ],
+        "reasoning": "This is an exact symbolic table over all path lengths, not an empirical experiment or keyword resemblance.",
+        "searches": [
+          "Resultary low-bandwidth path sensor phase diagram, including four-mode exceptional ties"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding covers the entire classification under precisely the same observation and multiplier hypotheses. Normalized adjacency S and normalized Laplacian I−S have the same ordered low-frequency modes after reversing the eigenvalue order, and the multiplier function is changed by composition with λ↦1−λ. The extra displayed limit follows immediately from that finding's exact ratio. The distinct record is dated later; the equivalent coverage is demonstrable, but no earlier priority or dependence is inferred from the dates.",
+      "residual_risks": [
+        "The later catalogue entry does not establish who obtained the classification first, or whether one record derives from the other. Neither that question nor any uninspected parts of the motivating paper change the exact comparison with the indexed theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage over the entire frozen claim, without determining historical priority",
+          "evidence": "Explicit table and exact determinant ratio in Finding; S-based sampling definition in Assumptions and scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-low-bandwidth-path-sensor-phase-diagram-for-three-temporal--e45b195df1c5/RESULT.md",
+          "material_read": "Finding, assumptions, determinant factorization and optimizing proof, beginning at offset 0; publication date and distinct ID from its METADATA.json",
+          "method": "Local mirror and algebraic identification of the normalized operators",
+          "title": "Sharp low-bandwidth path-sensor phase diagram for three temporal frames",
+          "trigger": "Exact semantic match for the low-band classification and exceptional ties"
+        },
+        {
+          "assessment": "Different full-spectrum regime; no fixed low-band migration classification",
+          "evidence": "Uses all M+1 eigenmodes and exactly M+1 observations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f/RESULT.md",
+          "material_read": "Finding and mode/time hypotheses",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Earlier normalized-path determinant optimum"
+        },
+        {
+          "assessment": "Inspected statements do not supply the table. The relevant full-text sections are accessible, contrary to the original access limitation.",
+          "evidence": "Nonvanishing spectral evaluation criterion and P40 six-mode frame/conditioning experiments.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "OA PDF pp. 20–27, finite-graph recovery criteria and finite-path example",
+          "method": "Compare theorem hypotheses, objectives and example with determinant optimization",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Primary antecedent for low-frequency normalized-graph dynamical sampling and sensor placement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete low-band optimal-placement diagram with real equality cases is a meaningful design result, not an arbitrary set of small paths. But as submitted it adds no new design case to the exactly covered diagram; the only extra numerical limit is a direct evaluation of the indexed formula, not a substantive surviving increment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

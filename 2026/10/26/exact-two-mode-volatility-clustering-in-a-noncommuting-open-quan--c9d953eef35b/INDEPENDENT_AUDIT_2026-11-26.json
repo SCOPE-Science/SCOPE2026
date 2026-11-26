@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:39.515173Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Hermitian Kraus operators satisfy completeness and make the averaged channel unital. Equal operators for opposite jumps give conditional mean zero, so the signed increments are pairwise uncorrelated for any initial state. On sigma_x+sigma_z the channel eigenvalue is 3/4; on sigma_x-sigma_z it is theta=1/4+1/(2sqrt(2)). The second-moment operator is M=(5/4)I+sigma_x+sigma_z/4, so the weighted first step from I/2 produces M/2; its two Pauli coefficients in the displayed eigenbasis are 5/16 and 3/16. Evaluating Tr[M Phi^(ell-1)(M/2)] and subtracting (5/4)^2 verifies both positive covariance coefficients, including ell=1. Var(S_1)=17/4-(5/4)^2=43/16, and the exact lag convolution gives G_n including n=1 and the stated limiting inflation. For arbitrary Bloch initialization the signed variance sums Tr[M Phi^j(rho_0)] and its linear Bloch correction has the stated Euclidean norm, attained at opposite pure states. Stationary initialization is needed for the squared-step covariance, not for the signed martingale or finite-time displacement result. An independent matrix/history calculation through n=4 (617 nonzero paths at n=4) gave stationary E Q_4=5 and Var(Q_4)=21.2315594555, and Var(X_4)=5.1504334921 for Bloch coordinates (.2,.3,-.4). The supplied script was inspected, not executed; no inference of all-time validity rests on those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former supplies general output concentration; the latter gives a general limiting covariance for measurement records."
+        ],
+        "reasoning": "These results provide general tools but do not give the actual two spectral weights and factors at every lag, or the dependence of finite-time transport extrema on initial state. The exact channel mode projections and finite sums are still needed.",
+        "searches": [
+          "arXiv:2206.14223 outcome concentration",
+          "arXiv:1206.1472 §6.2 Theorem 6.2 measurement-record CLT"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01844v1",
+        "arXiv:2206.14223",
+        "arXiv:1206.1472",
+        "Resultary 67b74b540df7",
+        "Resultary 6b5a6c4e7323",
+        "Resultary 9e35afb2f386",
+        "Resultary eefb98620b5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior example identifies 5/4 as the position CLT variance coefficient and gives an adjacent-step dependence witness. The Hadamard comparison concerns asymptotic second moments in a distinct unitary model."
+        ],
+        "reasoning": "A displacement CLT or general covariance functional does not force this finite-time all-lag spectral decomposition or exact state-uniform extremum. No exact primary or indexed statement inspected supplied those additional results.",
+        "searches": [
+          "arXiv:2610.01844v1 Example 3.10 (3.70)–(3.73)",
+          "arXiv:1206.1472 Theorem 6.2",
+          "Resultary initial-state related Hadamard-sector finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original example uses the same five Kraus operators and exhibits dependence of consecutive +1 outcomes. The audited statistic is the all-lag second moment of the squared outcomes, not dependence of a single signed outcome event."
+        ],
+        "reasoning": "A joint probability for consecutive +1 outcomes neither determines the covariance of all squared outcomes nor its two decay factors. The same instrument was compared, not merely a model with a similar title.",
+        "searches": [
+          "Resultary: exact two-mode squared jump covariance, volatility clustering, activity noise and finite-time quantum-walk variance",
+          "arXiv:2610.01844v1 Example 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed two-rate dyadic interval-map covariance has a different process; similarly indexed Haar-random coined-walk purity and continuous-time exclusion jump activity are different observables on different models. No matching coefficient/lag formula surfaced."
+        ],
+        "reasoning": "The closest hits were compared at statement level. None substitutes the Example 3.10 instrument into a known evaluated formula.",
+        "searches": [
+          "Resultary queries for OQRW squared-step covariance, two-exponential finite-time variance, trajectory memory, and arbitrary initial-state variance"
+        ]
+      },
+      "rationale": "The fixed instrument, I/2 stationarity, nonindependence and the displacement diffusion coefficient are prior. The supported distinct claims are the exact squared-step two-mode profile with its finite and limiting variance consequences, and the sharp finite-time arbitrary-state displacement interval.",
+      "residual_risks": [
+        "Ranked catalogue and primary search coverage are bounded; another explicit model-specific treatment could exist. This is not a priority claim for quantum-instrument spectral or moment methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and stationary signed diffusion result; distinct statistic",
+          "evidence": "Shows I/2 invariance, signed CLT coefficient 5/4 and the jump dependence example 1/8 versus 1/4.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01844v1",
+          "material_read": "§3.2 Example 3.10, Eqs. (3.70)–(3.73), OA text from offset 98373",
+          "method": "OA primary text",
+          "title": "Ballistic Speed and Potential-Theoretic Recurrence for Homogeneous Open Quantum Random Walks",
+          "trigger": "Original source of the exact instrument"
+        },
+        {
+          "assessment": "Inspected passage concerns concentration bounds; not whole-paper exclusion",
+          "evidence": "Time-averaged outcome concentration, not the explicit evaluated coefficients at this instrument in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.14223",
+          "material_read": "Abstract around OA offset 593",
+          "method": "OA primary abstract",
+          "title": "Concentration Inequalities for Output Statistics of Quantum Markov Processes",
+          "trigger": "Possible general output fluctuation coverage"
+        },
+        {
+          "assessment": "Limiting general result, not exact finite time",
+          "evidence": "The covariance in the theorem concerns a limiting Gaussian law.",
+          "identifier_or_url": "https://arxiv.org/abs/1206.1472",
+          "material_read": "§6.2 Theorem 6.2 around OA offset 61029",
+          "method": "OA primary text",
+          "title": "Central limit theorems for open quantum random walks and quantum measurement records",
+          "trigger": "General CLT covariance for quantum records"
+        },
+        {
+          "assessment": "Analogous form on a different process",
+          "evidence": "Dyadic-depth observable of a random interval map, not quantum squared jumps.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-two-rate-dyadic-depth-correlations-and-a-critical-variance--67b74b540df7",
+          "material_read": "Original Finding",
+          "method": "Resultary mirror",
+          "title": "Exact two-rate dyadic-depth correlations and a critical variance",
+          "trigger": "Strongest analogous two-rate correlation finding"
+        },
+        {
+          "assessment": "Different walk and observable",
+          "evidence": "Haar-random coined-walk reduced-state purity replaces displacement volatility.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-trajectory-purity-memory-in-haar-random-coined-walks-on-ab--6b5a6c4e7323",
+          "material_read": "Original Finding",
+          "method": "Resultary mirror",
+          "title": "Exact trajectory purity memory in Haar-random coined walks",
+          "trigger": "Same-day quantum-walk trajectory memory"
+        },
+        {
+          "assessment": "Different activity observable and model",
+          "evidence": "Continuous-time exclusion jump-count Fano noise.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-jump-activity-noise-for-two-particle-exclusion-on-hamming--9e35afb2f386",
+          "material_read": "Original Finding",
+          "method": "Resultary mirror",
+          "title": "Exact jump activity noise for two-particle exclusion",
+          "trigger": "Same-day exact activity-variance finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An established noncommuting instrument has an exact observable-dependent memory profile: uncorrelated signed displacements coexist with two positive persistent modes of squared steps and approximately 3.85 times the independent-reference variance per step. The coefficients and finite-time envelope provide a quantitative benchmark for trajectory fluctuation calculations, beyond a dependence witness or the signed diffusion coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

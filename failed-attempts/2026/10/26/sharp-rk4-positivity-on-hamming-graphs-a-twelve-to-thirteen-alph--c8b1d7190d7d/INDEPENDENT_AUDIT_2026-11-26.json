@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:03:14.607087Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact RK4 interval and q=13 switch check out, but the Finding (RESULT.md line 29) additionally asserts strict improvement over forward Euler for every allowed d,q. At q=2 the graph has degree d, Θ=2d and the proved sharp horizon H_{d,2}=H3=1/d equals the forward-Euler horizon. For example H(3,2) has both endpoints 1/3. This falsifies the stated universal strict inequality; equality occurs for all q=2 and the strict comparison holds for q≥3. For the main interval I rebuilt the off-diagonal coefficients independently from signed moments of the commuting clique spectral projectors. The distance-two coefficients after homogenization on [0,H3] are positive; for distance one all but the last are positive and its sign at d=3 is the sign of 64−5q, with a positive-coefficient certificate when d≥4. Descartes on the transformed polynomial gives the unique exceptional zero, and the distance-three entry is strictly negative for every h>H3. The diagonal is positive by the scalar fourth-order Taylor remainder and spectral resolution; distances above four are structural zeros, not active boundary zeros. For the strict Euler comparison in the exceptional q≥13 case, the adjacency coefficient of A is positive at Euler's horizon and the other coefficients are nonnegative (the A³ coefficient is zero there, not strictly positive as claimed in the proof). The scaled limiting cubic and the example roots agree. Replay exact shell and sign checks with python /workspace/branches/math_checks.py 1; the frozen checker and notes were inspected, not run. This is a completed-step result, not stage positivity.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9b715f55a0bc gives the minimum of adjacent-entry roots and distance-three walk bounds for every unweighted bipartite graph, with no later recovery.",
+          "The SSP papers give forward-Euler-based sufficient conditions or study schemes and method coefficients, not this fixed graph's sharp shell thresholds."
+        ],
+        "reasoning": "Bipartiteness applies exactly to the binary Hamming graphs here, since q≥3 gives clique triangles. On the d-regular hypercube the distance-three bound is 1/d; (A³)uv=3d−2 for an adjacent pair and the bipartite edge polynomial is 1/3 at 1/d. Its unique root is therefore later, giving the covered binary result.",
+        "searches": [
+          "Resultary 9b715f55a0bc, global bipartite endpoint criterion",
+          "doi:10.1137/S003614450036757X, §2.1",
+          "doi:10.1023/A:1020338228736, §3",
+          "arXiv:1403.6519, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4d16a209d9cc",
+        "Resultary 9b715f55a0bc",
+        "Resultary 42b36260c821",
+        "Resultary 2042521dfc9d",
+        "Resultary 37dd2f54631e",
+        "Resultary 570888096e27",
+        "doi:10.1137/S003614450036757X",
+        "doi:10.1023/A:1020338228736",
+        "arXiv:1403.6519"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact q≥3 closed interval and distance class switch in 4d16a209d9cc, together with the binary specialization of 9b715f55a0bc, entail the full sharp endpoint classification.",
+          "The scaled limit is obtained by coefficient limits of the same covered cubic; the corrected forward-Euler comparison follows by substituting the Euler step in the adjacency expansion."
+        ],
+        "reasoning": "The cited general time-discretization literature alone does not imply the switch. The exact catalogue matches do, including no reentry. The remaining analytical certificate is an alternate derivation and the short consequences do not support a distinct repaired finding.",
+        "searches": [
+          "Resultary 4d16a209d9cc, Finding and proof §1; local mirror offset 0",
+          "Resultary 9b715f55a0bc, Finding; local mirror offset 0",
+          "Gottlieb–Shu–Tadmor §2.1, equations (2.4), (2.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4d16a209d9cc uses the same Laplacian, graph family and truncated exponential, with entrywise nonnegativity expressed equivalently as preserving every nonnegative input.",
+          "For d=3, its Bernstein-form polynomial is exactly F_{3,q}(H3 t): the coefficients of t(1−t)^2 and t²(1−t) are 4(q+1)/(3q) and (29q²+24q+12)/(27q²), and the terminal coefficient is (64−5q)/(81q)."
+        ],
+        "reasoning": "The shared q=13 is not coincidental: the same polynomial, all-step sign classification and first failing distance match, after rescaling h=H3 t.",
+        "searches": [
+          "Resultary: completed classical RK4 positivity Hamming graph, Cartesian clique product, q-ary hypercube, alphabet switch at q=13",
+          "Resultary 4d16a209d9cc, Finding and exact distance-shell entries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4d16a209d9cc gives exact formulas and the same q=12,13 examples, rather than merely a numerical table.",
+          "42b36260c821, 2042521dfc9d, 37dd2f54631e and 570888096e27 treat paths/cycles, trees, complete multipartite graphs, and subdivided regular graphs respectively; none has the present Hamming domain."
+        ],
+        "reasoning": "The later-dated Hamming match is a distinct catalogue record with equivalent sharp contents for all q≥3. Earlier or same-day different graph families are not substituted for a genuine theorem match.",
+        "searches": [
+          "Resultary: exact graph-family RK4 endpoints for Hamming graphs, trees, paths/cycles, complete multipartite graphs and subdivided regular graphs",
+          "Resultary 4d16a209d9cc and 9b715f55a0bc, Findings"
+        ]
+      },
+      "rationale": "The substantive 12-to-13 transition and the full endpoint for d≥3,q≥3 are exactly covered in a distinct Resultary Hamming diffusion record. The omitted binary slice is a direct specialization of the separately indexed exact bipartite-network theorem and requires only elementary walk counts. The example and asymptotic root are evaluations of the same exact Hamming polynomial. Catalogue dates do not show historical priority: both covering records have later path dates than the frozen record. The verdict is about demonstrable equivalent and stronger coverage in the audited corpus, not who first obtained the result.",
+      "residual_risks": [
+        "The inspected sources establish coverage but not the historical relationship between the similarly worded Hamming records. No earliest source or absence of additional primary literature is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact endpoint and controlling-distance match for d≥3,q≥3; excludes q=2 and additionally states a spectral endpoint.",
+          "evidence": [
+            "The exceptional Bernstein polynomial and the q=12/13 numerical examples agree after rescaling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-alphabet-driven-positivity-barriers-for-rk4-on-hamming-diffusion--4d16a209d9cc/RESULT.md",
+          "material_read": "Finding, assumptions and proof §1, local mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Alphabet-driven positivity barriers for RK4 on Hamming diffusion networks",
+          "trigger": "Exact same Hamming alphabet switch"
+        },
+        {
+          "assessment": "Specializes to all binary Hamming graphs in the claimed domain.",
+          "evidence": [
+            "Its global sharp endpoint is the minimum of the unique edge-cubic roots and the distance-three four-degree walk bounds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-local-all-step-rk4-positivity-law-for-every-unweighted-biparti--9b715f55a0bc/RESULT.md",
+          "material_read": "Finding and assumptions, local mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A local all-step RK4 positivity law for every unweighted bipartite network",
+          "trigger": "Stronger exact criterion for the binary subfamily"
+        },
+        {
+          "assessment": "General sufficient conditions; the inspected argument does not give the fixed-Hamming threshold.",
+          "evidence": [
+            "Forward Euler bound Δt≤Δt_FE and SSP restriction Δt≤cΔt_FE."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+          "material_read": "§2.1, pp. 90–91, equations (2.4) and (2.6)",
+          "method": "Lawful UMD repository original article after author-site timeout",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "General SSP and positivity restriction"
+        },
+        {
+          "assessment": "Compared passage treats linear SSP method/CFL restrictions and forcing, not distance-shell signs.",
+          "evidence": [
+            "Linear constant-coefficient SSP methods can have larger CFL coefficients than nonlinear SSP methods."
+          ],
+          "identifier_or_url": "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf",
+          "material_read": "§3, printed p. 98, extracted offset 79436",
+          "method": "Author-hosted original article",
+          "title": "Strong Stability Preserving Properties of Runge–Kutta Time Discretization Methods for Linear Constant Coefficient Operators",
+          "trigger": "Potential general linear operator coverage"
+        },
+        {
+          "assessment": "Stated contribution constructs optimized SSP methods, not a fixed Hamming diffusion endpoint; this is a passage-level comparison.",
+          "evidence": [
+            "High linear order and optimal fourth-order nonlinear order are the optimization objectives."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.6519",
+          "material_read": "Abstract, p. 1",
+          "method": "OA original preprint passage",
+          "title": "Optimal Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order and Optimal Nonlinear Order",
+          "trigger": "Related explicit fourth-order method result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact stochastic timestep and active entry obstruction on a categorical product graph are worthwhile. The substantial switch, complete interval and no-reentry fact are already under exact equivalent or stronger coverage, however. After correcting the false strict Euler comparison at q=2, the additional comparison and large-q limit are short consequences of those same laws, not an independently useful new sharp result. No scientifically distinct repaired claim remains.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

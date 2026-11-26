@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:10:54.332624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–68",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent reproduction: /workspace/branches/174c43d0-ce0e-406f-9891-8412f8f9c42f/finite_flux_check.py and finite_flux_check.out"
+      ],
+      "rationale": "At zero flux the only real eigenmodes are the normalized dark sines from nontrivial Fourier pairs: dissipativity forces zero trap amplitude, and a pair has exactly one such direction. They also satisfy K_0^* d_k=E_k d_k, so their orthogonal complement reduces K_0 and has strictly negative imaginary spectrum. This justifies algebraic simplicity, not only a one-dimensional eigenspace. At small nonzero total flux Fourier energies are distinct and each plane wave sees the trap, so all modes decay. The two colliding energies have half-gap Delta=(2/n)sin(2pi k/n) phi+O(phi^3) up to sign. Multiplying the rank-one secular equation by (z-mu)^2-Delta^2 gives an analytic equation with z-derivative 2i gamma/n at the dark energy. Its root shift is (n/2)(h(E,0)-i/gamma)Delta^2+O(phi^3), giving the stated decay rate. The leading integrated contribution for each dark branch is its squared projected source amplitude divided by twice that rate. The other branch cross terms are bounded by distinct limiting frequencies, and the fast sector by a uniform finite-dimensional contour estimate. If every dark overlap vanishes, the perturbed slow amplitudes are O(phi), which suffices for bounded lifetime, not merely a zero scaled limit. Parseval on cyclic intervals evaluates the sine sum as a(n-a)/2 for odd n and b(m-b) for even n before the gamma/2 factor. The only zero coefficients are precisely the stated sites. An independent finite-flux Lyapunov calculation corroborated both parities and a bounded antipode with residual below 1.8e-11 in the tested cases.",
+      "residual_risks": [
+        "The finite calculations are corroboration only; the asymptotic proof fixes n, source and positive gamma. Bounded near zero does not itself assert continuity across zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact odd-ring work derives the trace formula T=n/kappa+C+kappa B with Fourier-gap sums for arbitrary fixed site source. That derivation uses the Fourier basis, simple energies and equal trap overlaps, not parity. The exact even-ring publication addresses a maximally mixed source, not individual sites. The earlier zero-flux work identifies the same dark-sector absent-overlap sites."
+        ],
+        "reasoning": "At nonexceptional flux the even ring has the same hypotheses of the Step 2 identities. The mixed-source results check only the average coefficient, and zero-flux dark geometry alone cannot fix the detuned lifetime; the general site-source trace identity is the decisive broader coverage.",
+        "searches": [
+          "Resultary …578f2f6ca62d, proof Step 2 exact Lyapunov identities",
+          "Resultary …8d7e31b3966a, Finding and Step 2",
+          "arXiv:1311.6298, §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and references",
+        "Resultary …578f2f6ca62d, …8d7e31b3966a, …5a8f58030e71",
+        "arXiv:1311.6298 §4.2 and related quantum-trapping papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the exact identity B=(1/n)sum_k y_k g_k, g_k is the sum of inverse energy gaps; y_k is the sum of the same reciprocals weighted by [1-cos(2pi(l-k)a/n)]/n. C consists of sine-weighted single reciprocals. At zero flux the only small gaps are k versus n-k, with magnitude (4/n)|sin(2pi k/n) phi| to first order at J=1."
+        ],
+        "reasoning": "The two indices in a pair contribute 2[1-cos(4pi ka/n)]/(n^2 (E_k-E_(n-k))^2) to the leading B. Thus kappa B gives gamma/2 times the sine quotient for each pair; C has no inverse-square term. The cyclic sine-sum then gives exactly gamma b(m-b)/2 on an even ring. At a=0 or the even antipode the coalescing-pair source phases coincide identically, so the corresponding terms in C and y vanish. In B the potential simple-pole terms from the pair multiply y_k-y_(n-k), which is O(phi) since the other gaps are regular and their weighted limits agree. Thus the exact identity also supplies boundedness at both exceptional sites. No new even-site spectral formula is needed to imply the stated asymptotic.",
+        "searches": [
+          "Resultary …578f2f6ca62d, proof Step 2, exact y_k, g_k, B and C",
+          "Frozen RESULT.md lines 64–68, sine-sum identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact odd-cycle time is n/kappa plus an oriented term of order 1/sin(phi) plus kappa a(n-a)/(8J^2 sin^2(phi)), with T_0=n/kappa. The lossy triangle already gives an inverse-square coefficient gamma/2 for a=1."
+        ],
+        "reasoning": "Set J=1 and convert population loss kappa to the frozen imaginary onsite coefficient via kappa=2gamma. The magnetic phase is total flux in both models. Multiplication by phi^2 removes the constant and orientation term and leaves the precise frozen odd coefficient; the one-sided orientation convention cannot affect this limit.",
+        "searches": [
+          "Resultary …578f2f6ca62d, Finding and Assumptions",
+          "Resultary …5a8f58030e71, exact lossy triangle site-source formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The triangle is an exact special case, not a numerical table; the all-size comparisons are closed spectral sums. With kappa=2gamma and J=1 the mixed even coefficient is gamma(m^2-1)/12."
+        ],
+        "reasoning": "Averaging gamma b(m-b)/2 over one period in b reproduces gamma(m^2-1)/12. This exact average is corroborating overlap, not an inference of the full position dependence. The frozen finite checks are not evidence of originality.",
+        "searches": [
+          "Resultary …5a8f58030e71",
+          "Resultary …578f2f6ca62d and …8d7e31b3966a"
+        ]
+      },
+      "rationale": "A distinct exact odd-ring Resultary formula directly includes every odd-size coefficient and the bounded trap case. More importantly, its Step 2 exact site-source spectral formula uses only equal-magnitude Fourier overlaps and simple energies, with no odd-size assumption. Applying that identity to the even Fourier pairs yields exactly the even site-resolved coefficient and the bounded exceptions; the even publication's mixed-source law alone would not suffice. The frozen proof's use of resonance projectors rather than this identity does not change coverage of the stated lifetime law. This is a mathematical coverage finding, not a determination of chronology from the paths.",
+      "residual_risks": [
+        "The exact odd and mixed even catalogue matches have later path dates; no priority, dependence or order of discovery is inferred. The decisive conclusion is equivalent coverage via the exact identity, not comprehensive historical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct odd overlap and parity-independent site-source identity implies the even result",
+          "evidence": [
+            "Population loss kappa/2 in the amplitude generator; y_k weighted inverse gaps, B=(1/n)sum y_k g_k, C sine inverse gaps; exact odd formula and constant trap time."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-flux-optimization-of-absorption-time-on-odd-magnetic-cycle--578f2f6ca62d/RESULT.md",
+          "material_read": "Finding, assumptions, strict decay, exact trace identity in Step 2, and odd-specific simplification in Steps 3–4 (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Exact flux optimization of absorption time on odd magnetic cycles",
+          "trigger": "Identical coherent-loss site-source model and exact finite-flux time"
+        },
+        {
+          "assessment": "Exact averaged overlap; initial maximally mixed state prevents direct sitewise inference",
+          "evidence": [
+            "Leading mixed coefficient kappa(m^2-1)/(24J^2) and exact Lyapunov inverse-gap identity for its mixed input."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-flux-optimization-of-mean-capture-time-on-even-quantum-rin--8d7e31b3966a/RESULT.md",
+          "material_read": "Finding, assumptions and proof Steps 1–2 (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Exact flux optimization of mean capture time on even quantum rings",
+          "trigger": "Identical even-ring model and zero-flux lifetime divergence"
+        },
+        {
+          "assessment": "Genuine narrower case",
+          "evidence": [
+            "For the adjacent source T=3/(2g)+g/(2 sin^2(phi))+1/(2 sin(phi))."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/…5a8f58030e71",
+          "material_read": "Exact lifetime formula in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Sharp flux-absorption tradeoff in a lossy chiral quantum triangle",
+          "trigger": "Exact same-model triangle"
+        },
+        {
+          "assessment": "Prior zero-flux geometry, not the lifetime coefficient",
+          "evidence": [
+            "Dark sector and trap/antipode exceptions at zero flux."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.6298",
+          "material_read": "§4.2, pp. 15–16, offsets about 41700 and 45698",
+          "method": "Open arXiv text",
+          "title": "Survival of classical and quantum particles in the presence of traps",
+          "trigger": "Same unthreaded ring with an imaginary local sink"
+        },
+        {
+          "assessment": "Related trapping on rings; inspected passage does not establish this detuning law",
+          "evidence": [
+            "Concerns continuous-time quantum walks with traps and survival, not the matching rank-one Fourier-gap formula used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.3288",
+          "material_read": "p. 1, offset about 2200",
+          "method": "Open arXiv text",
+          "title": "Continuous-time quantum walks and trapping",
+          "trigger": "Finite rings and mean survival with trapping"
+        },
+        {
+          "assessment": "Different dynamical model or observable in the inspected material",
+          "evidence": [
+            "Repeated projective measurements in the first; experimental directional transport in a momentum-space ring in the second."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.10669; https://arxiv.org/abs/2001.01859",
+          "material_read": "First paper p. 2 around offset 10900; second paper p. 1",
+          "method": "Open arXiv text",
+          "title": "Optimal quantum transport on a ring via locally monitored chiral quantum walks; Tunable non-reciprocal quantum transport through a dissipative Aharonov–Bohm ring in ultracold atoms",
+          "trigger": "Magnetic rings with monitoring or localized dissipation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "Exact site-source versus mixed-source comparisons"
+      ],
+      "rationale": "A position-resolved threshold between bounded capture time and a quantitative inverse-square divergence is useful for comparing transport on finite rings. The parity and distance dependence are visible neither from the presence of dark states alone nor from a mixed-source average. The spectral proof explains the separate roles of source overlap and the leakage rate. The judgment of usefulness does not make the mathematically covered law original.",
+      "residual_risks": [
+        "Does not describe a joint large-ring or changing-loss limit, nor an absorption-time distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

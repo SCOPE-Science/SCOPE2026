@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:05:05.914128Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=ρ⁴/(8D₀), q'=ρ³/(2D₀); the drift of q is 2−α and D(q')²=2q. Under the specified instantaneous zero-flux extension this is BESQ(δ), including δ=1 (instantaneously reflecting) and δ=2 (entrance from zero). Independent Poisson resets give regeneration and a unique stationary law with age Exp(r). The BESQ Laplace transition, checked by the backward equation, has gamma law from 0. Averaging its no-reset term over the stationary state gives the first term of the joint transform; the last-reset integrand is independent of Q₀ and yields the second. The age product yields moments 2^k k!(δ/2)_k/r^k. Finite moments and full support give the orthogonal basis by degree with no completeness assumption in L² needed. The reset generator is triangular on polynomials, with highest coefficient −r for positive degrees. Independently, G P₁=−rP₁ and G P₂=−rP₂+2(δ+2)P₁, using the moment-derived coefficients. Exponentiating that two-dimensional block gives zero reverse covariance and 2(δ+2)Var(Q) t e^(−rt) forward; all the equal-degree normalized correlations follow by degree preservation and orthogonality. The moment and lag formulas invert on δ∈[1,2] and r,D₀>0 at known t>0. No finite-sample claim is supported; the supplied script and its stated diagnostics were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (2.10) gives the generic Poisson reset transition law in terms of the unrestarted propagator, explicitly beyond usual diffusion. The 2021 study gives the stationary exp(−rΔ) position correlation for a resetting drift-diffusion example. The 2026 model paper gives the radial forward model and one-time reset law."
+        ],
+        "reasoning": "Together with the standard BESQ transition and change of variable, the generic reset rule supplies the model-specific bivariate transform; no new renewal theory is implied. A scalar diffusive covariance does not establish directional correlations across orthogonal polynomial degrees.",
+        "searches": [
+          "Evans–Majumdar–Schehr, arXiv:1910.07993, Eq. (2.10)",
+          "Stojkoski–Sandev–Kocarev–Pal, arXiv:2107.11686v1, §3.2",
+          "Sandev–Fumeron–Henkel–Lenzi, arXiv:2609.24427v1, model and stationary radial density"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 89950c720c1c, dc05fda63195, 27c2a84f25d6 and 82659e25c406",
+        "arXiv:2609.24427v1, 2107.11686v1 and 1910.07993",
+        "Frozen RESULT.md, VERIFICATION.md and check_bessel_reset.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day endpoint-law record uses multiplicative resets in a different Bessel process; the same-day golden-ratio lag result uses two Gaussian probes with a common OU source. The threshold-reset record uses first-hit resetting and a time-rescaled BESQ. The generic Poisson renewal rule by itself applies just as well to processes without polynomial degree lowering."
+        ],
+        "reasoning": "The nonzero lowering coefficient for this stationary orthogonal basis and its one-way lag witness require more than a reset decay factor or a one-time law. The derivation is short but the directional statement is not asserted in the inspected prior passages.",
+        "searches": [
+          "arXiv:1910.07993, Eq. (2.10), versus polynomial generator action",
+          "Resultary: polynomial arrow of time, triangular cross-lag resetting modes",
+          "Resultary dc05fda63195, 27c2a84f25d6 and 82659e25c406"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest record gives Y=R⁴/(16D₀)=TG_k, with exponential age T and independent gamma G_k, and its diffusion generator is the BESQ generator in Y=Q/2 coordinates. It also gives Corr(R₀⁴,R_t⁴)=exp(−rt)."
+        ],
+        "reasoning": "The change of scale is exactly equivalent; those facts must not be mistaken for differences. The record is later than the frozen date, and the inspected full theorem does not contain the triangular mode law or one-way P₁/P₂ coefficient.",
+        "searches": [
+          "Resultary: inverse-square planar radial diffusion, origin Poisson resets, quartic-radius BESQ and three-statistic identifiability",
+          "Resultary 89950c720c1c, complete RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "89950c720c1c uses E[R²], E[R⁴] and the same known-lag autocorrelation. The stationary one-time law of the exact model already determines the frozen variance ratio by moments; no earlier exact lag asymmetry formula was identified in the inspected results."
+        ],
+        "reasoning": "This is an exact formula comparison, not a claim of novelty for a moment table. The overlapping recovery scheme does not establish the joint orthogonal hierarchy.",
+        "searches": [
+          "Resultary: R⁴ normalized variance 1+4/δ, Poisson origin reset parameter inversion, orthogonal quartic/octic lag correlation",
+          "Resultary 89950c720c1c, exact statistics and inversion"
+        ]
+      },
+      "rationale": "The original model and one-time law are prior and the bivariate formula is a specialization of the known last-renewal transition rule and BESQ transform. The exponential scalar lag and broad idea of identification are not standalone originality. The strongest distinct catalogue match covers equivalent BESQ scaling, quartic autocorrelation and a different set of identification statistics, but is later and its full statement and proof do not establish the stationary triangular orthogonal-polynomial hierarchy or the explicit one-way mode pair. That model-specific test of time reversal and the exact synthesis with the stated moments support the limited finding.",
+      "residual_risks": [
+        "Earlier general results on reset polynomial Markov processes or related lag-asymmetry tests may imply more than the passages inspected. No priority claim is made for the general conjugacy or renewal techniques, the scalar exponential lag, or identification as a concept."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial content overlap; later date; not the polynomial crossing theorem",
+          "evidence": "Y=R⁴/(16D₀)=TG_k and e^(−rt) autocorrelation, with recovery from E[R²], E[R⁴] and lag correlation.",
+          "identifier_or_url": "Resultary 89950c720c1c (2026-11-08)",
+          "material_read": "Complete RESULT.md, statements and proof",
+          "method": "Lawful local mirror text",
+          "title": "Stationary and temporal fingerprints for resetting in singular planar diffusion",
+          "trigger": "Strongest exact same-model overlap"
+        },
+        {
+          "assessment": "Prior model and one-time law; no whole-document exclusion of temporal results",
+          "evidence": "Poisson-origin renewal equation applied to the radial diffusivity D₀/ρ² and explicit stationary radial law.",
+          "identifier_or_url": "arXiv:2609.24427v1",
+          "material_read": "pp. 1–2 and 10, offsets near 2300, 7000 and 27400",
+          "method": "Lawful open-access passages",
+          "title": "Heterogeneous planar diffusion with axisymmetric power-law decaying diffusion coefficient under stochastic resetting",
+          "trigger": "Prior introduction of the exact physical model and stationary distribution"
+        },
+        {
+          "assessment": "Prior exponential scalar reset correlation, not evidence of the present model's directional mode law",
+          "evidence": "Stationary exp(−rΔ) correlation for the position of reset drift-diffusion.",
+          "identifier_or_url": "arXiv:2107.11686v1",
+          "material_read": "§3.2, pp. 8–9, offset near 29100",
+          "method": "Lawful open-access passages",
+          "title": "Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+          "trigger": "Known exponential lag correlation under resetting"
+        },
+        {
+          "assessment": "Generic reset law covers the renewal step and directly gives the form of the joint law when the BESQ transform is inserted",
+          "evidence": "p(x,t|x₀)=e^(−rt)G₀(x,t|x₀)+r∫₀ᵗ e^(−rτ)G₀(x,τ|X_r)dτ; the text expressly extends this to more general unrestarted propagators.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.07993",
+          "material_read": "p. 7, Eq. (2.10) and surrounding text, offset 20600",
+          "method": "Lawful OA PDF passage, located by last renewal and read by offset",
+          "title": "Stochastic resetting and applications",
+          "trigger": "Generic theorem potentially covering the joint transform"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact low-degree asymmetry supplies a population-level diagnostic where every single orthogonal mode has the same normalized exponential autocorrelation. It distinguishes reversible from irreversible dynamics using concrete radial observables, not an arbitrary special parameter. The parameter inversion gives a calibration-free model check in the same setting, with no claim that it is stable in noisy finite samples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

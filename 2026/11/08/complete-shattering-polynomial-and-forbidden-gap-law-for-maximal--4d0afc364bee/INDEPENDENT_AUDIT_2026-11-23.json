@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:29:09.016621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source package, including static inspection only of verify_cycle_mis.py",
+        "Repaired RESULT.md and supporting files",
+        "Replay: python3 -B /workspace/reviews/check_3.py"
+      ],
+      "rationale": "Reconstructed the unrestricted repaired proof. A maximal independent set is independent and dominating. All-positive labels rule out adjacency; across a forbidden run beginning and ending with two distinct short gaps, positives at its endpoints (a single positive if they coincide cyclically) and zeros inside force a chain of selected right neighbors, the last adjacent to the final positive. Conversely, a gap ≥4 ensures at least two steps even if both helpers move inward. Across a gap 3, the two negative labels cannot use right/left helpers together; common orientation within a block avoids this. At gap 2 a mixed label forces the negative's outward helper; because each block has at most one such gap, a single choice works per block. The witnesses never occupy negative queried vertices, are independent, and their fixed domination ensures that greedy maximal extension preserves all queried bits. The repaired text explicitly treats singleton and both arcs for k=2. With p long gaps and q short gaps, p intervals have generating function (1/(1−u)+v/(1−u)^2)^p, yielding binom(p,q)binom(k−1,k−p−q); long-gap excess contributes stars-and-bars. Count indexed sequences with a marked long gap in two ways, including periodic sequences, then label a start vertex and divide by k, yielding n/p. Without long gaps only all-three and single-two gap types are allowed, giving 3 and n respectively. These are disjoint counts with empty support handled separately. Independently enumerated all 524280 supports at n=3..18 by rotated adjacency/domination bit masks and direct distinct trace cardinalities (an adjacent support cannot realize all ones); agreed for each support and coefficient. The examples n=3,4,10 give [1,3], [1,4], and [1,10,35,40].",
+      "residual_risks": [
+        "Finite replay is not a proof outside the tested lengths; only the block criterion and counting proof establish the universal formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bisdorff–Marichal enumerate the concepts themselves and their rotation/reflection orbits. November 2 proves dimension additivity across all 2-regular graphs but does not give the all-degree support law even on connected cycles."
+        ],
+        "reasoning": "A stronger graph-domain dimension theorem loses the distribution of the support cardinalities. A concept count or enumeration theorem likewise does not give projection sizes on arbitrary subsets.",
+        "searches": [
+          "arXiv:math/0701647v2 §§3–4",
+          "November 2 exact VC dimension and first adaptive gap, Steps 1–4",
+          "Literature query: maximal independent sets cycles shattered VC dimension shattering independent dominating sets trace forbidden gaps (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Public full texts listed above; Resultary path-related hits compared at summary scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=3k−1 prior necessity gives the unique cyclic gap type 2,3,…,3; its single-short construction covers that type, and rotations give exactly n supports. Both earlier proofs target extremal sizes or use uniform orientations for at most one short gap overall."
+        ],
+        "reasoning": "The tight coefficient is already implied. The additional observation that long gaps separate orientations allows arbitrary blocks; e.g. gaps (4,2,4,2) give a size-four support at n=12 outside the prior sufficient families but inside the exact criterion. The interval series, excess count and incidence double count are additional arguments, not a restatement of the prior maximal-width constructions.",
+        "searches": [
+          "October 26 exact Boolean trace rank, ‘Boolean trace upper bound’ and ‘Boolean trace lower bound’; November 2 exact VC dimension, proof Steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 26 exact Boolean trace rank (5aa3700acbcd) uses precisely the same object and membership incidence; the dimension is exactly VC dimension. November 2 exact VC dimension and first adaptive gap (11ee458f4c85) uses the same queries and cycle class. Both prove the two-short-gap obstruction.",
+          "Independent domination is equivalent to maximal independence. Minimum-size independent domination and fixed-size independent sets do not have this exact family."
+        ],
+        "reasoning": "The same-class records settle the dimension rather than merely an analogous path problem. But the revised claim enumerates all shattered supports by size, not just existence of a maximum-size one.",
+        "searches": [
+          "Resultary: earlier than October 26 2026 cycle maximal-independent-set static Boolean trace classification all-order cyclic vertex memberships exact VC dimension",
+          "Resultary: Linear static–online shattering separation for maximal independent sets of paths exact VC dimension Littlestone dimension path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier October 26 adaptive-gap table has exact VC dimensions for orders 3–16; it explicitly notes prior all-order static coverage. Its verifier's trace test is a generic finite method, not a formula. The November 2 source has four-/five-query histogram data at n=13. The otherwise exact search hit is this frozen record; the November 22 full polynomial is for paths."
+        ],
+        "reasoning": "Finite histograms already contain particular counts, but do not entail the symbolic labeled coefficient table for every n and k. The different path boundary conditions cannot be substituted for a cycle closure.",
+        "searches": [
+          "Resultary earlier all-order cycle trace-rank lookup; October 26 finite adaptive-gap RESULT.md (8b0b7f77dba1); November 2 exact VC and adaptive-gap RESULT.md (11ee458f4c85)"
+        ]
+      },
+      "rationale": "Reassessed narrower claim: all-degree exact support counts for arbitrary n. The known VC dimension, necessary forbidden-run condition, and mechanically implied tight top coefficient are not claimed as contributions. The genuinely surviving count requires handling arbitrary admissible supports, including those with several short gaps, and counting all of their sizes.",
+      "residual_risks": [
+        "External literature search was unavailable; no negative evidence from that failure. A general cyclic constrained-word result or independent-dominating trace enumeration may encode equivalent full coefficients. Scoped assessment, not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers same dimension, necessity, and implies tight coefficient; no general shattering polynomial",
+          "evidence": [
+            "Boolean trace upper bound proves 2,3*,2 obstruction; lower bound uses uniform helper choice for at most one short gap"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimal-one-pass-implications-and-exact-boolean-trace-rank-for-c--5aa3700acbcd/RESULT.md",
+          "material_read": "Full RESULT.md",
+          "method": "Primary repository text; matched incidence and compared upper/lower proofs and tight-case implications",
+          "title": "Minimal one-pass implications and exact Boolean trace rank for cycle maximal-independent-set contexts",
+          "trigger": "Exact earlier static dimension in an equivalent formulation"
+        },
+        {
+          "assessment": "Dimension and obstruction covered, with some finite histogram data but no all-degree formula",
+          "evidence": [
+            "Obstruction lemma; Matching all-width VC lower bound; finite C13 four- and five-query histograms"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-maximal-independent-sets-of-cycles-exact-vc-dimension-and-the-fi--11ee458f4c85/RESULT.md",
+          "material_read": "Full RESULT.md",
+          "method": "Primary repository text; compared proof Steps 1–4 and sizes covered by histogram",
+          "title": "Maximal independent sets of cycles: exact VC dimension and the first adaptive gap",
+          "trigger": "Same cycle maximal-independent-set incidence; explicit obstruction and trace data"
+        },
+        {
+          "assessment": "Gives a finite adaptive/static table, not an all-degree support enumerator",
+          "evidence": [
+            "Finding table for n=3..16; Relationship to prior work explicitly acknowledges all-order static VC"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-first-online-versus-static-shattering-gaps-for-maximal-independe--8b0b7f77dba1/RESULT.md",
+          "material_read": "Full RESULT.md plus relevant parts of AUDIT.json",
+          "method": "Primary repository text; compared scope and tracked the same-class static prior lead",
+          "title": "First online-versus-static shattering gaps for maximal independent sets of cycles",
+          "trigger": "Same incidence and prior finite table; points to earlier all-order rank"
+        },
+        {
+          "assessment": "Prior local characterization and concept enumeration, not trace-support counts",
+          "evidence": [
+            "eqs. (4)–(5); Proposition 4.1; Theorems 3.1 and 4.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0701647v2",
+          "material_read": "Primary HTML Introduction and §§3–4",
+          "method": "Compare the object counted in the statements and proofs",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Identical cycle concepts and gaps; possible counting overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Steps 1–5; prior dimension results above"
+      ],
+      "rationale": "The known VC dimension only answers whether a size is attainable. The repaired all-degree formula computes the number, hence the exact fraction of supports of each size that can realize all assignments; it requires distinguishing arbitrary cyclic configurations with several short gaps. This is a natural exact refinement, not a repeated computation of the old dimension or tight coefficient.",
+      "residual_risks": [
+        "The result counts labeled static support sets; it does not determine adaptive rank or the multiplicity of an individual trace."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

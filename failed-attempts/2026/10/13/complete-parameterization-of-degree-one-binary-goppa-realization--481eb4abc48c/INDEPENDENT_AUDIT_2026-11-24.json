@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:08.160201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 21–47 define an anchored realization as a pair (β,L), but assert a bijection from these pairs to injections ψ alone. Fixing ψ and translating β and every support point by a field element preserves all differences and ψ, producing 2^M distinct anchored pairs. For example the [3,1,3] repetition code in F4 has 24 realizations and only six injections; direct enumeration of every anchor and ordered allowed support gave six groups of four via python /workspace/branches/independent_reproduction.py 1. The corrected bijection is with (β,ψ), or with ψ alone at a fixed β. The proof actually uses the corrected parameterization at lines 109–174: the Goppa check map has kernel C and factors uniquely into the quotient and an injection; d(C)≥3 gives distinct nonzero coordinate classes, and the inverse field-element map returns valid distinct support points. Thus the anchored count and the obstruction M<s are correct for the stated fields. The bundled example checks generated supports/kernels for selected codes, with only the frame count at degree four; it does not rescue the false anchor-forgetting statement. No uploaded code was executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 proves the iff condition and minimum extension degree for all binary linear codes in the stated distinct-support setting.",
+          "Extended irreducible Goppa enumeration counts classes of codes up to equivalence, not actual labeled realizations of one fixed code."
+        ],
+        "reasoning": "Prior existence and converse already supply the two directions needed here; the separate orbit-enumeration problem is not a generalization of this fixed-code count.",
+        "searches": [
+          "Liang–Zhang Theorem 3.1, DOI 10.3934/math.20261194",
+          "Chen–Zhang arXiv:2204.02083, scope of extended irreducible Goppa enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py, and artifacts/certificate.json",
+        "Liang–Zhang DOI 10.3934/math.20261194, Theorem 3.1/proof",
+        "Resultary 44d62fe907fe and 45b69e15f87b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof realizes a full-rank binary parity check by reciprocal support differences and extracts a field-valued check from every realization. The explicit field-size lower bound is rank–nullity."
+        ],
+        "reasoning": "For every such check the universal kernel quotient gives exactly one embedding. Conversely choose any embedding and any anchor, and invert the same scalar formula. Choosing ordered independent basis images gives the standard ordered-frame product, multiplied by the independently free anchor count. There is no further orbit or compatibility count.",
+        "searches": [
+          "DOI 10.3934/math.20261194, Theorem 3.1, especially the converse rank argument",
+          "Frozen RESULT.md lines 109–174"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary proof obtains C as the kernel of a single field-valued linear check with reciprocal shifted support columns."
+        ],
+        "reasoning": "Factoring the check through the kernel quotient is exactly the coordinate-free form of a full-rank parity-check matrix followed by an injective binary linear embedding. Keeping the freely chosen anchor recovers the support via the inverse reciprocals.",
+        "searches": [
+          "Liang–Zhang DOI 10.3934/math.20261194, Theorem 3.1 and proof",
+          "Resultary: Goppa realizability, syndrome-space injection, anchor/support parameterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact match among inspected catalogue results. 44d62fe907fe is a systematic-function encoder redundancy theorem; 45b69e15f87b is about the minimum-weight span in p-ary BCH codes."
+        ],
+        "reasoning": "Neither distinct same-day statement covers anchor choices or the fixed-code check-kernel count. This bounded screen is not a negative priority certificate.",
+        "searches": [
+          "Configured Resultary: representability/minimum degree; construction for distance at least three; full anchored classification; exact realization count",
+          "Local-mirror Findings 44d62fe907fe and 45b69e15f87b"
+        ]
+      },
+      "rationale": "The natural corrected theorem is not literally stated by Liang–Zhang, but it is a direct linear-algebra consequence of their explicit forward construction and converse kernel identity. The literal anchor-forgetting formulation is false, not a new correct claim. The absence of a matching catalogue hit does not reverse the implication from the primary source.",
+      "residual_risks": [
+        "No exhaustive global priority claim; catalogue matches are bounded. Older inequivalent-code work is not relied upon to exclude coverage.",
+        "The decisive earlier theorem passage was retrieved; later PDF retry failures do not negate that inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_AND_MINIMALITY_EXPLICIT; CORRECTED_PARAMETERIZATION_AND_COUNT_DIRECTLY_IMPLIED",
+          "evidence": "The proof converts between parity-check columns and reciprocal differences and deduces the required extension dimension from the kernel. The quotient and ordered-frame count are standard consequences.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/9/PDF/math-11-09-1194.pdf",
+          "material_read": "PDF p. 7, Theorem 3.1 and proof, passage around offsets 23500–24783 and following theorem argument",
+          "method": "Lawful publisher PDF, targeted theorem passage",
+          "title": "New lower bounds for the minimum distance of a class of binary Goppa codes",
+          "trigger": "Same degree-one distinct-support representation theorem and candidate construction"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTS",
+          "evidence": "One minimizes systematic encoder redundancy; the other classifies a BCH minimum-weight span. Neither classifies degrees, anchors, or supports of fixed-code Goppa realizations.",
+          "identifier_or_url": "Resultary 44d62fe907fe; 45b69e15f87b",
+          "material_read": "The two local-mirror Findings",
+          "method": "Configured catalogue search and bounded local-mirror statements",
+          "title": "Exact binary systematic linear function separation at distance four; Exact minimum-weight span of odd-extension p-ary BCH codes",
+          "trigger": "Semantically nearby same-day records on binary checks and code distances"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The multiplicity question is natural, but with coordinate labels and anchors retained there is no nontrivial enumeration left after the prior check-kernel representation: it is an ordered-frame count times an independent free parameter. Repairing the missing anchor restores a useful explanation, not a surviving distinct research claim. Orbit counts that might have independent interest are out of scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

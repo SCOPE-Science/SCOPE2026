@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Reflection-principle ballot counts and the first-return generating functions produce an explicit bivariate series for the expected Dyck step. Algebraic simplification and an independently checked differential identity extract every step mean with correct endpoint and parity conventions. Summing Bernoulli coordinate variances yields the exact inertia. The elliptic hypergeometric generating function yields the full logarithmic correction and explicit constant via the NIST-documented singularity, with controlled coefficient errors. A checker independently enumerated all Dyck vectors and ordered pairs for semilengths one through seven.
+## correctness
 
-## Originality
-PASS on searched evidence, with residual historical priority risk. The closest foundational papers treat lattice-path matroid face structures, lattice-point counts, Ehrhart polynomial and negative correlation, rather than a complete exact uniform-vertex Euclidean second moment with the logarithmic correction. The closest publicly indexed Catalan-matroid result concerns Euclidean inball centers, a different continuous optimization problem. Searches under the equivalent terminology of random Dyck-path Hamming overlap and average squared distance found no decisive stronger coverage. The negative-correlation theorem does not determine the one-coordinate means or the exact asymptotic constant. An unindexed explicit step-bias identity or averaged-overlap theorem could still precede this result.
+PASS
 
-## Value
-PASS. The result quantifies a natural Euclidean metric feature of an established infinite family of matroid polytopes and compares it with the containing hypersimplex. The logarithmic, rather than linear or constant, deficit and exact coefficient are structural features of the Catalan nonnegativity constraint. The proof also yields an exact finite-size rational formula suitable for geometric benchmarks.
+Each distinct 0/1 Dyck incidence vector is extreme, so uniform vertices are exactly uniform paths. Reflecting ballot prefixes gives the stated prefix counts; reversing suffixes and summing the two possible signs after time 2j yields the bivariate Catalan series. With s=√(1−4x), t=√(1−4y), subtract the zero-suffix term C(x)−1 to obtain F=(s−t)/(s+t). For D=x∂x+y∂y one has DF=F/(st) and D(D+1)F=(s²−t²)/(2s³t³)=S(x)yS′(y)−xS′(x)S(y); comparing homogeneous degrees gives (L−j)a_j a_L/[n(n+1)], n=j+L. Division by the Catalan count gives the stated odd-step bias, equal to the preceding even-step bias by the local swap at odd positive height. Endpoints are forced. The coordinate variances (1−μ_i²)/4 then yield the inertia, and independent sampling doubles it for squared pair distance; the hypersimplex has all means 1/2. To verify the constant and error independently, put b_j=(a_j/4^j)², E(z)=Σe_jz^j with e₀=1 and e_j=b_j−1/(πj)=O(j⁻²) for j≥1. DLMF's real singular expansion and absolute convergence imply E(1)=log(16)/π. The coefficients of E(z)log(1/(1−z)) are E(1)/n+O(log n/n²) by splitting j≤n/2 from the tail, and those of E² are O(n⁻²). Together with the exact log-squared coefficients 2H_{n−1}/n, this gives T_n as stated. Since j b_j=1/π+O(1/j), U_n=n/π²+O(log n). The squared bias weight (n−2j)²/n² accounts for −4U_n/n² and the two unit endpoint contributions give the frozen formula for n/2−I_n. Substitution confirms both constants and both remainders. An independent exact ballot dynamic program (python3 /workspace/reviews/evidence_4_5.py) verified all marginals and the distance identity for n=2..50; it did not execute the supplied script, and the exact check is not the asymptotic proof.
 
-## Closest literature and limits
-Bidkhori (2012), https://arxiv.org/abs/1212.5705; Knauer et al. (2017), https://arxiv.org/abs/1701.05529; An et al. (2017), https://arxiv.org/abs/1701.00362; Cohen et al. (2015), https://arxiv.org/abs/1505.06710; NIST DLMF §19.12, https://dlmf.nist.gov/19.12. The proof treats uniform vertices in the canonical binary coordinates, not volume-uniform points. Independent historical priority remains unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct assertion is the exact and sharp asymptotic uniform-vertex Euclidean second moment, equivalently independent Dyck up-step Hamming overlap. The Catalan embedding, identity of squared distance with Hamming distance on binary vertices, variance–distance relation and elliptic expansion are not new. An exact earlier ordinary-time excursion mean would determine the step marginals; the best matching finite-height study was not accessible in full, leaving an explicit risk about this ingredient.
+
+## value
+
+PASS
+
+Uniform vertex dispersion is a natural comparison with the hypersimplex in the same coordinate metric. The calculation establishes that the Dyck constraint changes macroscopic pair distance by a sharply quantified logarithmic deficit, not by an order-n or a bounded loss, and gives its explicit constant and a controlled error. This is not a claim about volume, covariance eigenvalues or the full distance distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

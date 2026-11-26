@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:00:18.377043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof; VERIFICATION.md; inspected checks/verify.py without execution",
+        "Independent replay: python3 -B /workspace/branches/audit-replay/conservation.py (SymPy; exact witness)"
+      ],
+      "rationale": "Independence gives an edge sum; its negative Hessian is a sum of positive-semidefinite rank-one terms with a positive-definite pendant contribution. Thus KKT and continuity of the unique optimum apply. The two-tip stationary split has interior derivatives u/(u+v), v/(u+v). For the boundary argument, a downward crossing of any intermediate positive level r after budget B1 would have the crossing at a budget strictly above r (choose r<x_i*(B1)≤B1), hence at an interior point with positive derivative, impossible. One tip is trivial. A stemless three-tip tree is a star or a pair-clade plus singleton, up to suppression of subdivisions. Strict concavity passes to the pair value function. For a separable budget split, if one group budget fell and another rose, transferring the same small amount from the former to the latter at the first optimum and reversing the transfer at the second would contradict the strict decrease of the corresponding concave secant slopes. This also handles boundaries and the star. Independent exact reconstruction verified the witness gradient, Hessian and normalized inverse sensitivity (-2,18,18,21)/55, with budget about 2.898291333. At an interior point the bordered KKT system is nonsingular; the binary cherry resolution preserves ultrametricity, positivity and the strict negative derivative for small positive resolution length.",
+      "residual_risks": [
+        "The result is local in budget in the four-tip witness and assumes independent extinction, exponential spending response, and no stem. No claim for trees with a stem or correlated extinction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simianer §§2.3, 2.6 cover spending-response models and incremental budget assignment for livestock diversity. The frozen record describes the classic exponential variant of Hartmann–Steel as using a common per-unit factor; primary passage unavailable."
+        ],
+        "reasoning": "Neither the inspected continuous-funding model nor the described common-factor guarantee supplies a heterogeneous rooted-PD minimal leaf count; treat the unconfirmed primary-text comparison as limited.",
+        "searches": [
+          "Hartmann–Steel DOI 10.1080/10635150600873876 and cited author copy",
+          "Simianer et al. DOI 10.1016/S0921-8009(03)00092-2"
+        ]
+      },
+      "checked_sources": [
+        "Simianer et al. (2003), author-hosted primary PDF",
+        "Resultary records 1fa598fc0118 and dc53d6309137",
+        "Hartmann–Steel (2006), source access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "KKT yields the inverse-Hessian derivative at a positive optimum but gives no general coordinate sign. The sign depends on the clade Hessian and on separability of the smaller stemless root splits."
+        ],
+        "reasoning": "The weak generic implication is uniqueness and differentiability of an interior solution, not the three-tip no-withdrawal guarantee and four-tip violation; discrete greedy failures do not imply these.",
+        "searches": [
+          "Simianer §2.6; Resultary 1fa598fc0118; classical KKT for fixed-budget concave optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-taxon greedy-failure statement concerns discrete equal-cost interventions and fixed cardinality, not derivatives of a continuous optimizer."
+        ],
+        "reasoning": "Changing from a discrete intervention choice to the continuous budget derivative changes both feasible sets and claims. The four-taxon number is not evidence of equivalence.",
+        "searches": [
+          "Resultary local index: continuous exponential conservation spending and budget withdrawal; record 1fa598fc0118"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The continuous exponential restoration match dc53d6309137 concerns unequal edge investments for connectivity, not a negative tip slope. The priority and sampling records concern discrete decisions."
+        ],
+        "reasoning": "These are relevant catalogued thresholds, but none tabulates or states the continuous tip-coordinate threshold or the same comparative-static problem.",
+        "searches": [
+          "Resultary local index; records 1fa598fc0118, dc53d6309137, c84204c65b93, f677ebc252b9"
+        ]
+      },
+      "rationale": "The verified distinct claim is a sharp monotonicity boundary for continuous allocations with heterogeneous efficiencies, not a new expected-PD formulation or generic sensitivity formula. The closest inspected prior findings optimize materially different choices; priority is bounded by the material inspected.",
+      "residual_risks": [
+        "The decisive Hartmann–Steel primary passage was inaccessible via both identified routes; adjacent allocation literature is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved primary passage; no whole-paper exclusion",
+          "evidence": "Frozen line 60 attributes a common per-unit extinction multiplier to the older variant; this attribution was not independently confirmed.",
+          "identifier_or_url": "https://doi.org/10.1080/10635150600873876",
+          "material_read": "Citation and model comparison in frozen RESULT.md §Relationship to prior work; no primary full-text passage obtained",
+          "method": "Attempted publisher and cited lawful author-hosted PDF at math.canterbury.ac.nz; requests rejected",
+          "title": "Maximizing Phylogenetic Diversity in Biodiversity Conservation: Greedy Solutions to the Noah's Ark Problem",
+          "trigger": "Closest classic exponential-budget PD model"
+        },
+        {
+          "assessment": "Inspected model and incremental method differ",
+          "evidence": "§2.3 evaluates alternative expenditure-to-risk models; §2.6 assigns successive small equal budget shares by recalculated marginal diversity, not a rooted-PD leaf threshold.",
+          "identifier_or_url": "https://www.uni-goettingen.de/de/document/download/57dcb4e6357f5d6dd02e36d8248cb675.pdf/Simianer.pdf",
+          "material_read": "Abstract p.377; §§2.3, 2.6, pp.380–384",
+          "method": "Author-hosted OA PDF text",
+          "title": "An approach to the optimal allocation of conservation funds to minimize loss of genetic diversity between livestock breeds",
+          "trigger": "Continuous budget allocation with extinction-risk responses"
+        },
+        {
+          "assessment": "Different decision problem",
+          "evidence": "Failure of greedy selection of a fixed number of equal-cost discrete interventions.",
+          "identifier_or_url": "2026/11/8/SCOPE-homogeneous-extinction-risk-does-not-guarantee-greedy-conservati--1fa598fc0118",
+          "material_read": "RESULT.md finding (offset 430)",
+          "method": "Local Resultary mirror",
+          "title": "Homogeneous extinction risk does not guarantee greedy conservation",
+          "trigger": "Four-taxon rooted-PD sharp boundary"
+        },
+        {
+          "assessment": "Different objective and property regardless of date",
+          "evidence": "Expected connected pairs on a path, testing equality of optimal investment rather than withdrawal from a tip as budget rises.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-habitats-are-the-sharp-onset-of-unequal-reliability-investm--dc53d6309137",
+          "material_read": "RESULT.md finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Four habitats are the sharp onset of unequal reliability investment",
+          "trigger": "Four-unit exponential restoration budget threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and its four-tip witness; continuous funding context in Simianer et al. §2.6"
+      ],
+      "rationale": "Management spending is frequently compared across budgets. A sharp minimal topology separates guaranteed nesting from its failure even without ties, zero untreated survival, or unequal root-to-tip distances. The result makes clear why individual optimal allocations need not grow when the total budget grows, despite strict concavity and positive marginal returns. It is a model benchmark, not advice to cut funding.",
+      "residual_risks": [
+        "No empirical fit or generalization to other expenditure-response models is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

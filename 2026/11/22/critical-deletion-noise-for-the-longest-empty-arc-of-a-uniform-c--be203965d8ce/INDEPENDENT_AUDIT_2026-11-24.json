@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:56:21.736257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–103; VERIFICATION.md and checker.py inspected, not executed.",
+        "Schlemm, arXiv:1405.6114, §3 Corollary 1 (marginal tightness input)."
+      ],
+      "rationale": "Root the cyclic order at a labeled point so its gaps have the Dirichlet(1,…,1) law without size-bias from an external cut. The sum of k<n adjacent gaps is Beta(k,n−k); both distinct endpoints must survive and the k−1 intervening points be deleted, giving the asserted exact expectation. Before normalization, the corresponding Erlang exceedance at log n+x has expected count tending to e^(−x) τ^(k−1)/(k−1)!. In each mixed factorial moment for finitely many lengths and disjoint height bins, overlapping prescribed retained gaps are incompatible. Disjoint blocks with a shared endpoint contribute O(n^(r−1)) choices times O(n^(−r)) probabilities; all other choices factor. The infinite geometric–Erlang sum is q_n exp(−q_n u), by summing the Erlang polynomial term by term. Subtracting the first K limiting terms supplies the vanishing upper-tail error for lengths above K; one/no survivor events are negligible. The expected number of lost original exceedances is (1−q_n²)e^(−x), so the original and retained length-one limits coincide. Normalizing by S_n changes either centered maximum by o_P(1) since (n/S_n−1) log n→0. This yields the joint CDF as the product of two no-point probabilities. Exact persistence requires a separate argument, not weak convergence on the diagonal: the two endpoints of the original maximizer survive with probability q_n², and then persistence is the event that the original maximum beats the largest genuinely new block. New and original block sums have no ties; comparing their independent limiting extremes gives ∫e^(−x)exp(−e^τ e^(−x))dx=e^(−τ). At τ=0, new exceedances vanish above each fixed cutoff; the original maximum is above a sufficiently low cutoff with arbitrarily high probability. Finally, in the stated high-noise regime the binomial survivor count is asymptotic to n and the marginal Gumbel tightness conditional on that count gives a centered shift (ε_n/q_n) log n+O_P(1), which diverges while the original maximum stays tight.",
+      "residual_risks": [
+        "The proof does not give a quantitative rate, nonuniform spacing extension, or analogous result under adversarial deletion. The genuinely new/original comparison is distinct from equality of the two coupled maxima."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-order theorem concerns a marginal Gumbel law for overlapping k-spacings without marks. Nehring concerns the splitting characterization of a Poisson process. Resultary c6c931f4bc72 gives independent clocks for the largest one-gap and adjacent two-gap sum in a worst-case one-deletion coverage problem."
+        ],
+        "reasoning": "These statements do not jointly control the new retained gaps across all run lengths in a randomly nested sample; Poisson splitting applies to an existing Poisson process rather than supplying the convergence of the merged-block process here.",
+        "searches": [
+          "Resultary: exponential/Poisson spacing processes and deletion robustness",
+          "Mijatović–Vysotsky arXiv:1508.00944, Theorem 1",
+          "Nehring arXiv:1407.1700, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic comparisons and local records 046a69096bbc and c6c931f4bc72",
+        "arXiv:1405.6114, 1508.00944, 1407.1700",
+        "Frozen RESULT.md, Finding and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two sources give marginal extremes. The one-random-deletion probability gives a related sensitivity scale, and the worst-case theorem gives an independent two-clock limit for different block statistics."
+        ],
+        "reasoning": "The marginal laws do not determine the dependence or diagonal mass. The one-deletion estimate suggests a scale but does not control interacting deletion runs or yield a Poisson law for the competing new extremes. The limit depends on both independence of the marked extremes and the uniform all-length truncation.",
+        "searches": [
+          "Schlemm arXiv:1405.6114, §3 Corollary 1",
+          "Mijatović–Vysotsky arXiv:1508.00944, Theorem 1",
+          "Resultary 046a69096bbc and c6c931f4bc72, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen finding compares nested samples with independent per-point deletion. Resultary 046a69096bbc deletes exactly one uniformly selected point and gives change probability H_(n−1)/(n−1), with a marked conditional limit."
+        ],
+        "reasoning": "Conditioning a Bernoulli mask to delete one point gives the latter experimental setup, but the unconditioned finite-positive-τ window has order n/log n deletions and can merge arbitrarily many consecutive gaps. Neither law restates the other.",
+        "searches": [
+          "Resultary: critical ε_n log n deletion window for coupled circular gaps",
+          "Resultary: longest-spacing persistence for nested samples",
+          "Resultary 046a69096bbc, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned the target itself and two materially distinct same-day records, on exactly one random deletion and on worst-case one-deletion coverage. Neither cited Finding states the Bernoulli persistence value e^(−τ)."
+        ],
+        "reasoning": "The exact probability is an asymptotic law, not a table problem. The actual same-day statements are distinguishable by experiment and scaling; dates alone establish no ordering.",
+        "searches": [
+          "Resultary: joint thinned/original longest circular-spacing law and unchanged-maximum probability",
+          "Direct findings 046a69096bbc and c6c931f4bc72"
+        ]
+      },
+      "rationale": "The Bernoulli critical-window joint limit and persistence probability are distinct from the inspected marginal Gumbel laws, generic Poisson splitting, and one-deletion statements. Neither the single-sample marginal nor the Dirichlet/Beta representation should be credited as new. The finding is assessed on the marked joint law and exact persistence across the critical scale, not on historical priority over all possible coupling theorems.",
+      "residual_risks": [
+        "A broader marked renewal-extremes or nested-spacing theorem outside the inspected literature could affect the assessment. Same-day record dates do not resolve chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct related one-deletion theorem, different random experiment",
+          "evidence": "Exactly one uniformly selected point is deleted; the change probability is H_(n−1)/(n−1) and the conditional limit describes the increase and split mark.",
+          "identifier_or_url": "Resultary 046a69096bbc",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Rare one-point deletion sensitivity and a marked extreme-value law",
+          "trigger": "Same circular maximum and random deletion"
+        },
+        {
+          "assessment": "Related extreme-process independence, different observables",
+          "evidence": "Compares the largest one-gap and the largest adjacent two-gap sum for robustness against any one deletion, not Bernoulli-selected gaps.",
+          "identifier_or_url": "Resultary c6c931f4bc72",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Independent extreme clocks for circular coverage and one deletion",
+          "trigger": "Circular-spacing extremes and one-deletion robustness"
+        },
+        {
+          "assessment": "Prior marginal limit",
+          "evidence": "n d_max−log n converges to standard Gumbel.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.6114",
+          "material_read": "PDF pp. 1, 5; abstract/introduction and §3 Corollary 1",
+          "method": "OA original PDF passages",
+          "title": "Limiting distribution of the maximal distance between random points on a circle",
+          "trigger": "Same unthinned marginal"
+        },
+        {
+          "assessment": "Fixed-k marginal theorem, no nested deletion experiment in the checked statement",
+          "evidence": "A Gumbel limit is proved for maximal fixed-k spacings using exponential blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00944",
+          "material_read": "PDF p. 2; Theorem 1 and spacing representation",
+          "method": "OA original PDF passages",
+          "title": "On the weak limit law of the maximal uniform k-spacing",
+          "trigger": "Extremes of exponential block sums"
+        },
+        {
+          "assessment": "Checked statement concerns a separate structural theorem",
+          "evidence": "The result concerns a splitting characterization of the Poisson process and does not state a uniform circular-spacing limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1700",
+          "material_read": "PDF p. 1 abstract, offset 461",
+          "method": "OA original abstract passage",
+          "title": "A Characterization of the Poisson Process revisited",
+          "trigger": "Generic Poisson splitting as a possible implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Schlemm, §3 Corollary 1; Resultary 046a69096bbc, Finding"
+      ],
+      "rationale": "The longest empty arc quantifies the worst uncovered part of a random circular sample. A deletion fraction tending to zero can change that extreme with order-one probability; the result identifies exactly when and separates unchanged extreme gaps from newly merged competitors, giving a joint calibration not obtainable from two marginal Gumbel fits.",
+      "residual_risks": [
+        "Interpretation is for independent uniform circular points and independent deletions, with no universal claim about higher-dimensional coverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

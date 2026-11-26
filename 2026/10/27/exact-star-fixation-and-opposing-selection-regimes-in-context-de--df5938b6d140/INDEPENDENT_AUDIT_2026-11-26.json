@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:14.297206Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct first-step conditioning gives H_{0,k}-H_{0,k-1}=d_k/(qm) and H_{1,k+1}-H_{1,k}=qd_k/m, where d_k=H_{1,k}-H_{0,k}; these are valid at the endpoint k=m and k=0 of their respective ranges. Thus d_{k+1}/d_k=R_m(q), and the two unanimous boundaries give d_0=1/Z_m(q). Absorption is almost sure on the finite connected star with both acceptances positive, so this harmonic solution is unique. Uniform seeding weights the center once and leaves m times. The Riemann sum with m log R_m(q) tending to q-1/q yields the positive constant C(q); it is uniform in the summation variable for fixed q. For q_n=1+λ/n, m log R_m(q_n) tends to zero, so the terms tend uniformly to one and Z_m tends to two. The clique has constant down/up ratio q and gambler's ruin gives its stated fixed- and weak-bias limits. Neutrality gives H_{0,k}=k/(2m) and H_{1,k}=1/2+k/(2m), hence uniform probability 1/n, including λ=0. The exact-fraction verifier was inspected, not needed to extend the proof to arbitrary m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becchetti et al.'s Theorem 3 assumes regularity. Sood et al. give a degree-moment approximation in the weak-selection regime on heterogeneous graphs."
+        ],
+        "reasoning": "A star with m≥2 is not regular. The general-network approximation uses a selection regime and does not specialize to an exact all-q star solution. The unavailable search is not negative coverage evidence.",
+        "searches": [
+          "arXiv:2305.07377v2 §4.1 and Appendix F",
+          "arXiv:0712.4288 §VI A, Eq. (62)",
+          "Published-literature lookup on exact biased-voter star fixation (provider unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2305.07377v2",
+        "arXiv:0712.4288",
+        "Resultary ad1f89da5394"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regular-graph formula (1-r^{-k})/(1-r^{-n}) maps exactly to (1-q^k)/(1-q^n). The later indexed star formula does not state the varying-bias result or the clique comparisons."
+        ],
+        "reasoning": "The clique limit and both comparisons are deductions once the exact star law is known; the weak-bias star limit also follows directly from that law even if unstated in the later item. The substantive unsupported-by-earlier-sources step is solving the two-coordinate star harmonic problem; the regular-graph reduction does not furnish it.",
+        "searches": [
+          "arXiv:2305.07377v2 Appendix F",
+          "arXiv:0712.4288 Eq. (62)",
+          "Resultary ad1f89da5394 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Sood–Antal–Redner the voter is chosen with weight inverse to its fitness and samples a uniform neighbor. With relative type-1 fitness r, type-1 and type-0 flip propensities have the acceptance model's common configuration-dependent rescaling for q=1/r."
+        ],
+        "reasoning": "This preserves the jump chain and hence fixation (not timing). It rules out novelty of the kernel as a fixation model, but the prior analysis is weak-selection diffusion, not an exact arbitrary-bias star formula. Choosing a replacement neighbor with a fitness-weighted probability is instead a different kernel on mixed-neighbor states.",
+        "searches": [
+          "Resultary: exact star fixation for context-dependent opinion adoption, hub and leaf seeding",
+          "arXiv:0712.4288 §VI A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separately indexed November 8 Resultary finding gives the same all-start star law in (F_k,G_k), plus strict hub advantage and separate fixed-bias hub/leaf limits. Its q_m=(mr+1)/(r(m+r)) is R_m(q) for r=1/q."
+        ],
+        "reasoning": "This is exact equivalent coverage, not just a similar title or numerics. Averaging those limits gives the uniform fixed-bias star limit. The archival item is later than the assigned finding and no inspected source establishes prior availability of that solution; the catalogue evidence alone does not establish independent discovery or originating authorship.",
+        "searches": [
+          "Resultary: exact hub advantage and fixation law for context-dependent voting on a star",
+          "SCOPE-exact-hub-advantage-and-fixation-law-for-context-dependent-votin--ad1f89da5394"
+        ]
+      },
+      "rationale": "Credit the adoption rule, clique formula and equivalent biased-voter jump mechanism as prior. The checked earlier sources do not give or mechanically imply the arbitrary-bias exact harmonic function on the star. Its exact overlap with a separately indexed later Resultary item is explicit below; the finding is credited only for the star specialization and its consequences, not for an exclusive priority claim.",
+      "residual_risks": [
+        "The literature lookup was unavailable; an uninspected exact star result stated as an inverse-fitness or other equivalent biased voter process could cover the law.",
+        "The relationship to the later indexed exact law remains undetermined beyond the mathematical equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact regular-graph comparator, not star coverage",
+          "evidence": [
+            "The regular-graph formula has r=α01/α10=1/q and yields the frozen clique formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.07377v2",
+          "material_read": "§4.1 Theorem 3 and Appendix F, offsets about 29000 and 85800",
+          "method": "OA full-text passages",
+          "title": "On a Voter Model with Context-Dependent Opinion Adoption",
+          "trigger": "Identical update rule and exact fixation theorem"
+        },
+        {
+          "assessment": "Same embedded chain; heterogeneous-network result is approximate",
+          "evidence": [
+            "Inverse fitness weights the receiver, followed by uniform neighbor sampling; Eq. (62) belongs to the diffusion/weak-selection analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0712.4288",
+          "material_read": "pp. 9–10, update definition, §VI A Eq. (62), offsets about 64200 and 66700",
+          "method": "OA PDF passage inspection",
+          "title": "Voter Models on Heterogeneous Networks",
+          "trigger": "Equivalent biased update under a time change"
+        },
+        {
+          "assessment": "Later exact all-start overlap; additional hub advantage",
+          "evidence": [
+            "F_k,G_k agree after r=1/q; separate center and leaf limits imply the uniform fixed-bias result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hub-advantage-and-fixation-law-for-context-dependent-votin--ad1f89da5394",
+          "material_read": "RESULT.md offsets 0–6494, formula, fixed-bias limits and scope",
+          "method": "Local full-text mirror",
+          "title": "Exact hub advantage and fixation law for context-dependent voting",
+          "trigger": "Potential duplicate exact star law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves fixation at every starting state on a canonical heterogeneous graph, rather than supplying a particular-size simulation or just rederiving the clique result. It quantifies a qualitative effect under the same copying rule: a fixed favorable bias gives order 1/n instead of order one on a star, and a fixed unfavorable bias gives order 1/n instead of exponential suppression. Exact hub-versus-leaf initialization and the weak-bias scale make the result useful without asserting extremality among graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

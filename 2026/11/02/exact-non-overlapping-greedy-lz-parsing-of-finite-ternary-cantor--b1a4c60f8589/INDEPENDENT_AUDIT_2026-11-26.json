@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:23.371217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–34; VERIFICATION.md; checker.py",
+        "/workspace/branches/77159e58-dd13-4f45-8b85-40a53dc7ed47/greedy_replay.py",
+        "/workspace/branches/77159e58-dd13-4f45-8b85-40a53dc7ed47/greedy_replay.txt"
+      ],
+      "rationale": "Use the exact eligibility s+ℓ≤i. Base-three digits give c(n)=1 precisely for digits 0 and 2; at scale q=3^(j−1), aligned blocks are C_(j−1) or all zero, and the former begin and end in 1. The first five phrases reach 8. At 8q the source at 2q supplies 4q characters, and extension would require a zero run longer than the largest preceding run of 3q. At 12q the maximal zero match is 3q, witnessed by the source at 9q which ends exactly at the head. At 15q the nine-block match is witnessed at 3q. An extension would have to copy the internal C_j of length 3q at source offset 3q: both endpoints must be 1, so this C_j starts at 0 or 6q in the earlier prefix. The two one-bearing triples are too far apart to allow crossing, and within either triple a length-3q occurrence must use both extremes. The only nonnegative candidate source is thus 3q, and its next symbol at 12q is 0 whereas the target next symbol at 24q is 1. This proves maximality including q=1. Since 24q is 8 times the next scale, the triples exhaust the infinite parse. Cutting at 3^k retains the same eligible sources until the last head and leaves exactly 3^(k−2) symbols there for k≥2; the transmitted phrase is truncated, giving 5+3(k−2)+1=3k. The exact k=0,1 cases are direct. A separately written source scan reproduced every finite pair through k=7 (15 full triples over the tested parses) and checked the three source witnesses. The supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "Finite replay is diagnostic; the aligned source and maximality arguments establish all scales."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cassaigne et al. provide the same nonoverlap convention and a generic Θ(i) phrase-count result for nonperiodic morphic iterates. Constantinescu–Ilie give asymptotic morphic results and an exact example for a Fibonacci morphism, under their own exhaustive convention."
+        ],
+        "reasoning": "Θ(i) provides the order, not the coefficient 3 or a single exact phase endpoint. The Fibonacci example changes both the word and, for the main LZ invariant of that paper, the convention.",
+        "searches": [
+          "Cassaigne et al., doi:10.1016/j.jcta.2024.105936, §3.3 Proposition 21",
+          "Constantinescu–Ilie doi:10.1137/050646846, uniform morphisms and Example 21"
+        ]
+      },
+      "checked_sources": [
+        "Constantinescu–Ilie 2007, Kärkkäinen–Kempa–Puglisi 1307.1428v1, Cassaigne et al. 105936",
+        "Resultary 78f0f3f90e61, 66d12ac759d2, 9bb94f66cf28, 82f7c56b9823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known longest-repeat statement for C_k fixes the globally longest repeat length and its locations, not the constrained longest prefix match for every iterative head. First repeated-window index is a minimum over two starts, not a profile of admissible sources at specified heads; a generic parsing algorithm computes instances, not the all-level closed formula."
+        ],
+        "reasoning": "The three phase-specific all-scale upper bounds require using source-end constraints and the local zero and endpoint geometry. They do not follow by parameter specialization from the compared global repetition or asymptotic results.",
+        "searches": [
+          "Cassaigne et al. §3.3 Proposition 21",
+          "Resultary 78f0f3f90e61 and 66d12ac759d2, original Finding statements",
+          "Kärkkäinen–Kempa–Puglisi §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen s+ℓ≤i matches a longest prefix occurring within the preceding phrase prefix, but not the condition p_i<i alone or the shortest-new exhaustive history. For C2 the replay gives respectively 6 (nonoverlap), 5 (overlap allowed), and 4 (exhaustive) phrases."
+        ],
+        "reasoning": "A parser name without its eligibility rule is insufficient. The competing conventions already separate on C2, so related counts were compared only after checking the definitions.",
+        "searches": [
+          "Cantor word 1→101, 0→000; non-self-referential greedy longest previous factor; earlier nonoverlapping source",
+          "Constantinescu–Ilie, pp. 3–4; Kärkkäinen–Kempa–Puglisi, §2; Cassaigne et al., p. 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Resultary records 78f0f3f90e61 and 66d12ac759d2 concern maximal absent factors/repeated factors at a specified length and the first repeated-window index. Exact LZ-related records 9bb94f66cf28 and 82f7c56b9823 instead treat order-five de Bruijn cycles and radix-power marker words."
+        ],
+        "reasoning": "The latter records vary either the word or the parsing rule. The same-word records do not tabulate source-disjoint greedily attainable lengths at successive phrase heads. No exact match in this bounded check is not negative proof.",
+        "searches": [
+          "Resultary: finite Cantor words, longest repeat and nonrepetitive complexity",
+          "Resultary: overlap versus source-disjoint LZ77 and exact radix-power parsing"
+        ]
+      },
+      "rationale": "The supported increment is the full exact, nonoverlapping greedy parse of a natural uniform morphic word, including its exact finite coefficient and phase alignment. Credit the established asymptotic law and the general LPF parsing methods. The inspected primary results and related indexed findings neither state this parse nor give matching all-head maxima for this convention and input.",
+      "residual_risks": [
+        "The exploratory web search was noisy and contributes no exclusion evidence. An exact parse under other terminology might be unindexed; same-day dates do not prove precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exhaustive history is distinct; no covering exact result in the compared statements",
+          "evidence": [
+            "Defines exhaustive and maximally reproductive histories separately. Example 21 gives lz(f^n(a))=n+1 for the Fibonacci morphism."
+          ],
+          "identifier_or_url": "https://www.csd.uwo.ca/~ilie/SIDMA07.pdf",
+          "material_read": "Author PDF pp. 3–4, reader offsets 7300–13488; Example 21 p. 12 around offset 37100",
+          "method": "Bounded original paper passages and definition comparison",
+          "title": "The Lempel–Ziv Complexity of Fixed Points of Morphisms",
+          "trigger": "Exact and asymptotic LZ results for morphic words"
+        },
+        {
+          "assessment": "Occurrence may overlap current phrase",
+          "evidence": [
+            "Requires source p_i<i without the additional end constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1307.1428v1",
+          "material_read": "§2, HTML reader offset 6000",
+          "method": "Read original LPF definition",
+          "title": "Lempel-Ziv Parsing in External Memory",
+          "trigger": "Possible equivalent LPF terminology"
+        },
+        {
+          "assessment": "Matches the parser and supplies growth order but not the exact claim",
+          "evidence": [
+            "Defines the longest prefix occurring in the preceding phrase prefix; the morphic iterate count is Θ(i)."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jcta.2024.105936; ORBi record 2268/309672",
+          "material_read": "Original author version p. 6 around offset 19800; §3.3 Proposition 21 pp. 10–11 near offsets 37600 and 41700",
+          "method": "Bounded original PDF read",
+          "title": "New string attractor-based complexities for infinite words",
+          "trigger": "Nonoverlap LZ parsing and known morphic bounds"
+        },
+        {
+          "assessment": "Same input, different invariant, no implication of headwise parse",
+          "evidence": [
+            "Classifies the two repeated factors of length 3^(k−1) and rules out repeats of length 3^(k−1)+1, allowing overlapping occurrences."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-three-longest-minimal-absent-words-in-finite-cantor-words--78f0f3f90e61",
+          "material_read": "RESULT.md Finding, scope and recursive geometry, local reader offsets 0–2491",
+          "method": "Local index then original mirror read",
+          "title": "Three longest minimal absent words in finite Cantor words",
+          "trigger": "Strongest same-word repetition match"
+        },
+        {
+          "assessment": "First repeated-window location, not the greedy conditional source-length profile",
+          "evidence": [
+            "The stated function I(n) depends on first window repetition at each length, not a greedily evolving head."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-complete-initial-non-repetitive-complexity-of-the-binary-cantor--66d12ac759d2",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Local index then original mirror read",
+          "title": "Complete initial non-repetitive complexity of the binary Cantor word",
+          "trigger": "Exact repeated-window result for infinite input"
+        },
+        {
+          "assessment": "Different input family and finite range",
+          "evidence": [
+            "The exact spectrum is over rooted order-five de Bruijn cycles."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-rooted-lz77-overlap-cost-spectrum-for-binary-order-five-de--9bb94f66cf28",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Local index then original mirror read",
+          "title": "Exact rooted LZ77 overlap-cost spectrum for binary order-five de Bruijn cycles",
+          "trigger": "Exact counts using source-disjoint and overlapping LZ77"
+        },
+        {
+          "assessment": "Different word and shortest-new criterion",
+          "evidence": [
+            "It treats marker words and shortest-new-factor parsing with overlapping earlier occurrences allowed."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-exact-ziv-lempel-parsing-of-radix-power-marker-words--82f7c56b9823",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Local index then original mirror read",
+          "title": "Exact Ziv–Lempel parsing of radix-power marker words",
+          "trigger": "Nearby complete scale-by-scale parsing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Cassaigne et al., §3.3, asymptotic morphic comparison"
+      ],
+      "rationale": "The binary Cantor word is a standard nonperiodic uniform morphic input with a natural scale sequence. A complete nonoverlap parse resolves the exact constant hidden in generic logarithmic growth, displays the mechanism of its scale recurrence, and gives explicit inputs and expected phrase boundaries for comparing parsers that otherwise have the same asymptotic rate. This is an all-level structural classification, not a chosen finite example.",
+      "residual_risks": [
+        "No exact formula for other parsing conventions or arbitrary finite prefix lengths is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:25:10.920535Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An h-signature records the atom values and a join of outgoing weights in each (h−1)-signature fiber. Filtering by a Boolean characteristic formula for a fiber recovers its join with diamond, and finite distributivity and the Heyting adjunction give the stated aggregation for both modalities even with infinitely many successors. Independent tree realizations give every signature and show truncation is onto. Any realization needs one state per type and at least one outgoing pair for each positive coordinate per source. On the type-labelled frame, each arbitrary rowwise choice of a single target in the prescribed truncation fiber makes the actual projected signatures agree by induction, including when loops are selected. Counting the positive slots over all types gives E_h; equality forces one edge of the prescribed weight in each nonzero fiber. The stated sample counts agree. `python3 /workspace/branches/independent_replay.py 1` reconstructed the types and edge counts with independently varied representatives for four cases, including depth two and the four-element Boolean algebra; it is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Liau give γ_n=F^n γ_0, ι_n=F^n ι_0 for a right inverse ι_0 of γ_0 and form the coalgebra (F^n T_0,ι_n), for which the stage-n behavior map is the identity (Lemma 1 and proof of Theorem 3). This is the required all-types stage frame.",
+          "Das–Ray–Mali preserve the value of an individual formula in a bounded finite tree. The indexed local crisp successor budget and rooted atom-free tree minimum are different extremal problems."
+        ],
+        "reasoning": "The specific earlier section construction is stronger evidence than generic finite-model existence. A section can be chosen with the depth-zero atom color unchanged and zero outgoing row; functorial iteration already yields minimal support in each join fiber.",
+        "searches": [
+          "arXiv:2209.14688 pp. 8–9, γ and ι definitions, Lemma 1 and Theorem 3",
+          "arXiv:2608.05550 exact finite tree certificates; Resultary SCOPE-533e4477e12f and SCOPE-dda455b75ffa"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65, VERIFICATION.md and checker.py (read only); arXiv:2209.14688 and arXiv:2608.05550; Resultary SCOPE-533e4477e12f, SCOPE-dda455b75ffa, SCOPE-24fe4ca0d82d and SCOPE-52ca12dd7ed4; attempted SCOPE-06c5919ebb94 mirror read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h>=1, the earlier ι_h=F(ι_{h−1}) pushes each weight along the injective section ι_{h−1}:T_{h−1}→T_h. Pushforward along an injection preserves support exactly, so each row has one nonzero edge per nonzero coordinate. Any lift of a row through the connecting map needs at least one weight per nonzero fiber; the uniform coordinate count gives N_h N_{h−1}(1−1/q).",
+          "After labeling a state-minimal frame by T_h, its coalgebra structure ξ is a section of Fπ_h, where π_h is the previous truncation. Conversely any such section realizes the stage: if its depth-j behavior is π_{h,j} with j<h, its next behavior is Fπ_{h−1,j}∘Fπ_h∘ξ=Fπ_{h−1,j}=π_{h,j+1}. A minimal-support section consists exactly of one edge having the fiber's prescribed join in each nonzero fiber, with the choices independent per row."
+        ],
+        "reasoning": "This derives both the exact invariant and the equality description from the actual prior model construction and the coordinatewise map specialization. The positive-support lower bound and equality are immediate properties of a join-image fiber; no additional realizability obstruction survives.",
+        "searches": [
+          "Lin–Liau arXiv:2209.14688 proof of Theorem 3 and Example 7 vs. frozen RESULT.md §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Lin–Liau's covariant terminal-sequence framework take F(X)=A^k × A^X with the second component pushed forward by joining along fibers. This action is functorial; it also gives naturality of the weighted diamond in Appendix B (evaluation on a Boolean singleton recovers the join). The frozen truncations are exactly the connecting maps. The paper's underlying Hom notation on predicate sets is contravariant; it is not being used as a contravariant transition functor in this specialization.",
+          "The Boolean characteristic formula step supplies language separation for the exact-test extension without altering the transition functor or the stage models."
+        ],
+        "reasoning": "Truncation by join and the characteristic test identify the exact same stages, not just a bound for some unrelated modal rank construction.",
+        "searches": [
+          "arXiv:2209.14688 §3.2, Definition 7 and stage projections; Appendix B Example 7",
+          "Resultary meaning search: universal bounded-depth modal types, positive-edge minima, finite Heyting weighted sparsification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 47-vertex minimum is for a rooted atom-free Boolean tree; the 3q² census is for partial-functional weakly transitive frames at depth two. The later basic-K size cutoff treats a single satisfiable formula, not simultaneous representation.",
+          "The SCOPE-06c5919ebb94 summary concerns same-world closure-model representations; its matching text was unavailable in the local mirror and the summary does not decide overlap. The inspected coalgebraic construction, rather than a preprinted table of resource counts, is decisive."
+        ],
+        "reasoning": "Neither exact indexed example resolves the unrestricted weighted problem by its printed numbers. The prior stage section works at all h and all q and yields the count by counting its nonzero coordinates.",
+        "searches": [
+          "Resultary SCOPE-dda455b75ffa, SCOPE-24fe4ca0d82d, SCOPE-52ca12dd7ed4, and indicated possible SCOPE-06c5919ebb94",
+          "Lin–Liau Definition 7 and Lemma 1 for arbitrary stage h"
+        ]
+      },
+      "rationale": "Lin–Liau's existing terminal-sequence section construction realizes the whole stage on itself with the exact support pattern of a joint minimizer under the join-image specialization. The extremal count and all rowwise equality choices follow by direct coordinatewise support minimization for that same map, not by a new model-building principle or a separate constraint interaction. The earlier work need not print the edge count to entail it.",
+      "residual_risks": [
+        "The matching result of SCOPE-06c5919ebb94 was unavailable, so no claim of equivalence or priority is made for that hit. The adverse decision is instead based on the older available terminal-sequence construction and its explicit support implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical implication",
+          "evidence": "Existing section-induced models have identity behavior through the entire stage. Covariant pushforward along their injective sections conserves each row's support.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.14688",
+          "material_read": "§2 predicate liftings, Definition 7, Theorem 2, pp. 8–9 stage sections, Lemma 1 and Theorem 3; §6 finite models; Appendix B Examples 6–7 (PDF offsets 8700–11649, 13600–20064, around 29861, and 41200–46584)",
+          "method": "Public full-text passages and explicit functor specialization",
+          "title": "An Inductive Construction for Many-Valued Coalgebraic Modal Logic",
+          "trigger": "Prior pseudo-terminal sequence, section frames, and weighted semantics"
+        },
+        {
+          "assessment": "Different resource problem",
+          "evidence": "Bounds height and branching for preserving a designated formula's exact value.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.05550",
+          "material_read": "p. 4 exact-value certificate (offset near 10791)",
+          "method": "Public PDF passage",
+          "title": "A Bitopological Approach to Finite Reduction and Bounded Exact-Value Certificates for Fitting's Finite Heyting-valued Modal Logic",
+          "trigger": "Exact resource bounds for the same truth algebras"
+        },
+        {
+          "assessment": "Different crisp local preservation task",
+          "evidence": "Local box-value preservation via an exact hitting-set characterization, not a universal-frame total.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-value-sensitive-successor-budgets-for-finite-heyting-value--533e4477e12f",
+          "material_read": "Finding and scope",
+          "method": "Resultary local search and mirror",
+          "title": "Sharp value-sensitive successor budgets for finite Heyting-valued modal logic",
+          "trigger": "Local exact edge budget"
+        },
+        {
+          "assessment": "Different frame class",
+          "evidence": "Atom-free Boolean rooted tree optimum; tree connectivity changes the construction and count.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-47-vertex-tree-for-all-sixteen-depth-three-modal-types--dda455b75ffa",
+          "material_read": "Finding and scope",
+          "method": "Resultary local search and mirror",
+          "title": "A sharp 47-vertex tree for all sixteen depth-three modal types",
+          "trigger": "Indexed all-types extremum"
+        },
+        {
+          "assessment": "Different restricted frames",
+          "evidence": "Partial functionality and weak transitivity yield a depth-two count 3q², with no joint unrestricted edge extremum.",
+          "identifier_or_url": "2026/11/2/SCOPE-depth-two-normal-form-and-exact-free-algebra-size-for-determinis--24fe4ca0d82d",
+          "material_read": "Finding and scope",
+          "method": "Resultary local search and mirror",
+          "title": "Depth-two normal form and exact free algebra size for deterministic frames",
+          "trigger": "Same-day type and state census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp state and edge census for arbitrary weighted frames is a natural question, and the elementary presentation can be useful. Here the existing section construction already has minimal fiber support, and the equality classification is precisely the independent choice of support-one lifts at each nonzero coordinate. Thus the tally does not resolve an independently unknown resource tradeoff or provide a distinct surviving result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

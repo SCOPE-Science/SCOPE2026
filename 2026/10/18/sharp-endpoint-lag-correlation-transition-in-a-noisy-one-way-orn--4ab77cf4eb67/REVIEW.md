@@ -1,19 +1,21 @@
-# Review: endpoint-lag correlation transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The declared stationary Gaussian chain is stable because its drift is a finite lower-triangular matrix with diagonal \(-a\). The covariance recursion, independent-noise Itô isometry, and nilpotent matrix exponential yield the claimed normalized endpoint correlation and variance. Dividing the derivative by its final monomial proves a unique maximizing lag. A uniform geometrically dominated expansion yields the root \(\lambda_m=2m-2+O(m^{-1})\); Stirling and the central-binomial generating function produce all three depth regimes and the critical \(h_m=e^{\theta/m}\) window. Finite Lyapunov and matrix-exponential checks independently reproduce the exact formulas; they are not substituted for the analytical argument.
+PASS
 
-## Originality
+For A=-aI+gL the nilpotent shift gives finite-chain stability and entrywise impulse responses exp(-as)(gs)^k/k!. Itô isometry adds the independent site contributions to the sink variance (D/a)S_m(h). Only source noise enters the endpoint cross-covariance: its forward lag integral is proportional to exp(-at) times the integral of exp(-2as)(s+t)^m over s>=0, yielding E_m(2at); the reverse replaces (s+t)^m by s^m. Differentiating the normalized profile gives the falling-factorial equation, whose ratio decreases strictly from infinity to zero, including m=1. Expanding at lambda=2m+c gives 1-(c+2)/m+O(m^-2), uniformly for c in a compact interval about -2: for ell<=m^(1/3) the term remainder is bounded by O((1+ell)^4 2^-ell/m^2) and the other terms are geometrically small. Evaluating at c=-2±C/m brackets the optimizer. At the root Stirling yields a peak asymptotic sqrt(2/(pi m))*h^m/sqrt(S_m(h)), with a relative error independent of h. Below one the generating function gives S_m→(1-h^2)^-1/2; at one S_m=(2m+1) binom(2m,m)/4^m; above one, the tail ratios are dominated by C sqrt(k+1)h^-2k and converge to h^-2k, giving the geometric multiplier. In the exp(theta/m) window, the first epsilon*m indices contribute O(sqrt(epsilon)) to the rescaled sum, so the bulk Riemann integral gives the stated crossover. The checks log and a separate root/recurrence calculation are consistent with the proof, not substitutes for it.
 
-**PASS with residual risk.** In Hennequin–Vogels–Gerstner (2012), the random triangular network and its ensemble-amplification calculation do not determine the lag maximizing the stationary normalized endpoint correlation in a deterministic nearest-neighbor cascade. Browning–Jenner–Baker–Maini (2024) drive downstream compartments from only a single noisy input; their explicit one-noise stationary covariance does not supply the fresh-noise-at-each-site normalization \(S_m(h)\) and its critical coupling window. Pal–Gupta (2026) discuss exceptional-point covariance relaxation, but its accessible abstract does not state the sharp endpoint peak and its three size regimes. Searches for aliases (feedforward OU, nonnormal linear cascade, triangular Gaussian network, Lag/Poisson polynomial, variance amplification) returned no equivalent theorem. General Gaussian semigroup identities themselves are known prerequisites, not claimed discoveries. The full motivating 2026 paper could not be read; implicit coverage or unindexed earlier work remains a risk, as does derivability from known linear-system formulas.
+## originality
 
-## Value
+PASS
 
-**PASS.** Directional time-delayed sensing in stable feedforward stochastic chains is a natural counterpart to known nonnormal amplification. The exact location of the correlation peak and its exponentially/algebraically separated detectability regimes give an interpretable sharp design boundary at coupling equal to damping. The transition occurs entirely without an eigenvalue stability change, with a finite-depth critical window that quantifies what a downstream observer can detect. This is more informative than a fixed-size covariance entry or a numerical peak location.
+Pass for the sharp normalized OU peak law as a whole, especially the distinct dependence on coupling across the three regimes. The underlying OU model and exact covariance ingredients are covered by Pal–Gupta; the frozen relationship paragraph understates this because the relevant primary PDF is now available. A separate indexed resetting model gives the same time kernel, optimizer root and lag asymptotic, not a distinct scalar optimizer here. Another indexed paper yields the same OU critical variance integral and hence, with the peak numerator, the crossover constant. Neither states or supplies the full three-regime OU normalized endpoint-peak amplitudes: the supercritical and subcritical stationary normalizations differ in order as well as in coefficient, and neither follows from rescaling the resetting correlation or from the mesoscopic critical-window statement. The pass does not assert priority for the model, covariance formulas, scalar pulse, or the crossover denominator in isolation.
 
-## Closest literature and limitations
+## value
 
-Pal and Gupta, arXiv:2609.05391 (2026), motivate the exceptional-point question but their full preprint could not be inspected. Hennequin, Vogels and Gerstner, Phys. Rev. E 86, 011909 (2012), analyze random triangular network amplification; Browning et al., Phys. Rev. E 109, 054405 (2024), analyze one-noise-input multicompartment smoothing. The current claim is limited to the exact open-chain homogeneous independent-noise model defined in the result; no novelty is claimed for general OU covariance calculus. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result separates a persistent directional delay from observability: the peak moves linearly with depth, yet normalized signal strength has three different attenuation rates despite unchanged finite-chain drift stability. The exact crossover and distinctions between m^-3/4 and m^-1/4 depend on local independent noise accumulated along the chain; the known scalar pulse or a calculation of total variance alone does not communicate that quantitative distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

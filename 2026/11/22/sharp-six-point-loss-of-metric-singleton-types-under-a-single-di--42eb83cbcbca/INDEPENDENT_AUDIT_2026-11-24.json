@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:04:52.186119Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ultrahomogeneity and the finite extension property identify nonalgebraic singleton types with positive distance vectors satisfying all Katětov inequalities. At base distances 1, 2 and 3 the forbidden endpoint label pairs are respectively {(1,3),(3,1)}, the empty set and {(1,1)}. Therefore the exact change is C13+C31-C11, using all unchanged constraints; the support sum in the frozen checker also follows by fixing the ones and independently placing threes outside that support and its distance-one neighborhood. For the two-shore family the only old triangles altered have side lengths (1,1,2) changed to (3,1,2), both admissible. With endpoint labels (1,1) every satellite independently takes 1 or 2. With (1,3), X takes 1 or 2 and Y takes 2 or 3, and only simultaneous use of 1 in X and 3 in Y is excluded; no within-shore constraint further restricts those palettes. Interchanging palettes gives C13=C31=2^p+2^q-1, so the difference is exactly 2-(2^p-2)(2^q-2), negative precisely for p,q>=2. This is an all-order argument. The independent exhaustive replay (python3 /workspace/branches/5215f64e-71a1-40cf-8e6b-670b2ebf2e30/replay.py; full_run.txt lines 1–7) tests both metrics for every ternary candidate with d(0,1)=1 and counts the conditional cases directly rather than using the packaged support method. It reproduces minima (1,2,2,2,-2), all strict increases through five points, and 401356 increases, 96 ties and 24 decreases among 401476 switchable metrics at six. All decreases have conditional counts (16,7,7) and the claimed two-shore structure. The six choices of the two vertices in X and the four internal distance patterns account for the 24; permitting a swap of the unordered distinguished pair combines the two one-internal-two patterns, giving three classes of sizes 6,12,6. The fixed labeled pair and the unordered pair stabilizer for isometry are different conventions, as stated in the source. The frozen artifact output agrees, including the three example before/after counts. No census is asserted at higher orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sauer's available PDF abstract (p. 1) addresses amalgamation and homogeneous metric distance sets; the restricted-type-function section could not be retrieved independently. The Widom–Rowlinson record's Finding and Proof give the partition-function identity for bases with distances 1 and 2. The capped-tree entry concerns type-count extremality on its tree family."
+        ],
+        "reasoning": "The general extension theorem supplies admissibility, not the count difference and its sign. The graph-metric equivalence applies to the pre-switch two-shore example but not its post-switch metric with an additional distance-three exclusion, and does not cover arbitrary switchable bases. Extremality over capped tree metrics does not give local monotonicity for all switchable pairs.",
+        "searches": [
+          "Sauer arXiv:1107.4794; Katětov type functions and Urysohn distance sets",
+          "2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "2026/11/22/SCOPE-sharp-seven-vertex-failure-of-path-minimality-for-capped-tree-ka--cfb579b2560b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:5–30, 34–88; VERIFICATION.md:19–33; artifacts/verified_output.txt",
+        "Resultary 7b4f8a785d18, ec80747a5989, cfb579b2560b",
+        "Sauer arXiv:1107.4794, abstract preview"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing restriction to distance labels and triangle inequalities gives the three conditional contributions to a change; the graph-metric formula counts types for the old all-1/2 two-shore base."
+        ],
+        "reasoning": "The prior framework does not evaluate the gain and loss of assignments when a distinguished 1 becomes 3: extensions with labels (1,1) are lost while (1,3),(3,1) become available. The exact competition from the two shores and the first-boundary exhaustive classification are additional, not automatic sign conclusions from admissibility or an existing ordinary Widom–Rowlinson partition function.",
+        "searches": [
+          "Sauer arXiv:1107.4794",
+          "Widom–Rowlinson RESULT.md Finding and Proof (ec80747a5989)",
+          "Cycle response RESULT.md Finding and Proof Step 1 (7b4f8a785d18)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-switch searches found the present result itself. The distinct cycle-result RESULT.md Finding and Proof Step 1 concern a 3-to-2 change of a distance in a truncated cycle metric, with a type-polynomial response there."
+        ],
+        "reasoning": "Neither reversing that change nor relabeling the alphabet yields a 1-to-3 change over all switchable metrics. The difference between forbidding an opposite extreme pair and forbidding the two small labels is specific to the Katětov rules of 1 and 3; distance 2 forbids neither. The same-day cycle result is a material analogue, not equivalent coverage or an established priority ordering.",
+        "searches": [
+          "Resultary: Katětov extension count decrease, single 1-to-3 switch, two-shore law, local metric singleton type response",
+          "2026/11/22/SCOPE-a-sharp-local-response-law-for-three-distance-cycle-type-spectra--7b4f8a785d18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified exact descriptions tabulate or count extensions on restricted cycle or graph-metric bases, not a joint table of pre- and post-switch type counts among all fixed-pair switchable metrics. The exact census search returned the present record."
+        ],
+        "reasoning": "An exact table of all marked metrics with matching type counts could mechanically imply this census, but the identified specialized result scopes do not supply such data. The search is bounded and does not rule out unindexed tables.",
+        "searches": [
+          "Resultary: exhaustive 2–6 point switchable {1,2,3} metric census, pointed isometry classes, 24 strict losses",
+          "Cycle response record 7b4f8a785d18 and partition-function record ec80747a5989"
+        ]
+      },
+      "rationale": "Credit is due to the sharp first loss and complete six-point census for a metric-preserving one-to-three elongation, and to the unbounded two-shore family with its exact loss law. The general Katětov correspondence and the graph-metric partition-function identity are prior; the local changed-pair identity is an elementary consequence, not a separate originality claim.",
+      "residual_risks": [
+        "Sauer's target full-text section was not independently accessible, and the closest local works do not exhaust all discrete-metric counting literature.",
+        "An unindexed exact marked-metric enumeration or prior perturbation calculation remains possible; no same-day priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material related response theorem in a different regime",
+          "evidence": "Truncated cycles and a 3-to-2 change rather than arbitrary switchable bases and a 1-to-3 change.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-local-response-law-for-three-distance-cycle-type-spectra--7b4f8a785d18",
+          "material_read": "RESULT.md Finding and Proof Step 1",
+          "method": "Resultary semantic search and targeted local-mirror reading",
+          "title": "A sharp local response law for three-distance cycle type spectra",
+          "trigger": "Closest exact single-distance type-polynomial perturbation"
+        },
+        {
+          "assessment": "Covers baseline framework and pre-switch two-shore instances, not their post-switch counts",
+          "evidence": "The parameter metrics in its identity take distances only 1 and 2.",
+          "identifier_or_url": "2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Same singleton types and possible broader counting coverage"
+        },
+        {
+          "assessment": "Prior general framework, not a whole-document coverage determination",
+          "evidence": "Abstract concerns distance sets, amalgamation and homogeneity.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.4794",
+          "material_read": "PDF preview p. 1, Abstract; restricted Katětov section not retrieved",
+          "method": "Identified OA PDF preview and targeted passage attempts",
+          "title": "Distance sets of universal and Urysohn metric spaces",
+          "trigger": "Primary source for Katětov realizability and potential general enumeration"
+        },
+        {
+          "assessment": "Distinct extremal problem as indexed",
+          "evidence": "Compares extremality among capped-tree metrics, not one-edge changes with a fixed marked pair.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-seven-vertex-failure-of-path-minimality-for-capped-tree-ka--cfb579b2560b",
+          "material_read": "Resultary search summary",
+          "method": "Local semantic search",
+          "title": "Sharp seven-vertex failure of path-minimality for capped-tree Katětov counts",
+          "trigger": "Neighboring sharp discrete metric type-count threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The elementary admissibility rules pull in opposite directions under this elongation, so monotonicity cannot be read off one side of the triangle inequality. The natural single-coordinate question has a sharp minimum obstruction, a complete classification at that boundary, and an analytic family with losses growing exponentially. The result distinguishes first occurrence from magnitude and does not simply present an arbitrary metric slice or claim an all-order census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

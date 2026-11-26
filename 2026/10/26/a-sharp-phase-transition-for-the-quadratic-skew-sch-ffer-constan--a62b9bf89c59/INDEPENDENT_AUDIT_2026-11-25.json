@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:50:58.498695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md and verify.py (read only; replay path: python3 verify.py from the source directory)",
+        "Direct exact checks at τ=0, τ=1 and of the active-set certificates"
+      ],
+      "rationale": "The six-edge isometries and the pair operation (x,y)↦(y,−x) induce j↦−j and j↦3−j on relative edge indices. The two orbits are {0,3} and {1,2,4,5}; the first-coordinate test gives the lower bound A=1+τ² in the first orbit. In the second orbit take x=(1,a), y=(-1+b,-1). For x+τy the two nonnegative candidates 1−τ+τb and 1−a+τb dominate |a−τ|, and for τx−y the two nonnegative coordinates dominate their absolute difference. This gives precisely the two maxima in the frozen proof and a convex squared objective. At a=τ, b=τ(1−τ), choosing the second-norm branch weight θ=τ(1−τ) zeros the b component; the required first-norm weight κ=τ(1−θ)/(1−τ) zeros the a component iff κ≤1, exactly the sign test for 1−2τ+τ²−τ³. This polynomial is strictly decreasing and changes sign. Above its root, the candidate a=(A²−τ)/(A²+τ²), b=τ(1−a) has a<τ, satisfies AU=τV for the two transformed norms U,V, and the ridge weight θ=τ²/A gives zero gradient of the squared objective in the subgradient sense. The candidates coincide at the transition. The first trial family is admissible on [0,1] and its squared objective is ≤A, with the stated nonnegative factorization; this closes the comparison with the other orbit. At τ=1 the second candidate gives (U,V)=(4/5,8/5) and squared value 8/5, while at τ=0 all pairs give 1. Norm symmetry proves reciprocity and the Taylor coefficients are 1, −1/2, 9/8. The active-facet description concerns a representative optimizer; the pair symmetry can exchange the two norms.",
+      "residual_risks": [
+        "The frozen finite grid includes tolerances and is only corroborative; neither this grid nor the representative optimizers assert general Banach-space or finite-exponent formulas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Liu give (1+τ²)/(1+τ) as a lower bound and the power mean of 1+τ and |1−τ| as an upper bound; exact Hilbert and Lp profiles concern other spaces.",
+          "The quartic record has a weighted fourth-power supremum with transition polynomial ρ³+2ρ²−2, not this two-output RMS infimum."
+        ],
+        "reasoning": "Universal bounds do not match the hexagon formula throughout its range; the Hilbert value at 1 is √2 instead of 4/√10. The quartic objective and maximization do not imply the quadratic minimum.",
+        "searches": [
+          "Xu–Liu universal bounds and Theorems 3.1–3.2, equations (6)–(7) and (10)–(11)",
+          "Resultary skew-quartic same-norm phase transition record 5b2871dd891b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03050v1",
+        "Resultary f04783dce9a4 and 5b2871dd891b",
+        "Frozen citation and unsuccessful local retrieval for ab622dc4661e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At τ=1, one can independently distinguish the outer maximum from the RMS: the same/opposite edge orbit has outer maximum ≥2; in the other orbit, V≤M forces a≤M−1 and b≥2−M, hence U≥4−2M. Thus the outer maximum cannot be below 4/3, attained with U=V=4/3. The quadratic optimum instead has U=4/5, V=8/5 on the representative orbit and value 4/√10."
+        ],
+        "reasoning": "Knowing the endpoint value or its optimizer does not fix the quadratic optimum even at one endpoint. General power-mean and skew-James inequalities give comparisons, not this phase transition or the switch between exact branches.",
+        "searches": [
+          "Frozen RESULT.md lines 68–69, cited exact same-norm endpoint record ab622dc4661e",
+          "Xu–Liu general bounds and comparison with skew James"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Liu's equation (2) is the same outer power-mean infimum. The same-norm record f04783dce9a4 uses a supremum of the minimum of the two skew norms.",
+          "The norm N has a six-vertex unit ball and is not linearly isometric to the Euclidean plane used in the Hilbert calculation."
+        ],
+        "reasoning": "Reciprocity and renaming the plane do not give a new invariant; neither the Hilbert normalization nor exchanging infimum and supremum recovers the stated quadratic profile.",
+        "searches": [
+          "Xu–Liu arXiv:2610.03050v1, equation (2)",
+          "Resultary skew James and Schäffer aliases on the affine-regular hexagon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected same-norm James and quartic profile records match the geometry but not the target objective.",
+          "The ab622dc4661e result passage was unavailable in the mirror; the frozen citation identifies it as the outer-∞ profile, taking value 4/3 at τ=1."
+        ],
+        "reasoning": "No retrieved database statement gives both quadratic branches or their transition. Unavailable text is a limit, not a finding of noncoverage.",
+        "searches": [
+          "Resultary lookups by the transition cubic, branch formula, quadratic hexagonal Schäffer phrasing and outer-∞ endpoint title/formula",
+          "Exact catalogue IDs ab622dc4661e, f04783dce9a4, 5b2871dd891b"
+        ]
+      },
+      "rationale": "The general invariant and reciprocal identity are antecedents. The exact outer-quadratic profile on the stated real hexagon, including the active-set switch, is distinct from the inspected Hilbert and Lp formulas and from same-norm skew-James or skew-quartic supremum results. The cited outer-∞ record is the closest plausible overlap; its reported value at τ=1 is for a different objective, and its text could not be independently retrieved from the mirror. No priority is inferred from search misses.",
+      "residual_risks": [
+        "Full text of the cited same-norm outer-∞ record was unavailable in the local mirror; its presently verifiable endpoint objective does not imply the quadratic answer, but other statements in it are unverified.",
+        "Bounded source comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, general bounds, exact results on distinct spaces",
+          "evidence": [
+            "For a Hilbert space the outer quadratic value is √(1+τ²)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03050v1",
+          "material_read": "Eq. (2), offset 3900; bounds offset 5360; Thm. 3.1 offset 10955 and Thm. 3.2 offset 13700",
+          "method": "OA HTML passage inspection",
+          "title": "Skew Schäffer Type Constants",
+          "trigger": "Originating invariant and potentially broader exact special-space profile"
+        },
+        {
+          "assessment": "Reported distinct exponent and endpoint value; content beyond the frozen description not passage-verified",
+          "evidence": [
+            "The citation reports τ+(1+τ+τ²)^−1, with finite outer exponents untreated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-skew-sch-ffer-endpoint-profile-of-the-regular-hexagonal-ba--ab622dc4661e",
+          "material_read": "Frozen RESULT.md lines 68–69 and 76 only; cited result passage not retrieved",
+          "method": "Local mirror path and focused Resultary search attempts; frozen citation inspection",
+          "title": "Exact skew Schäffer endpoint profile of the regular hexagonal Banach plane",
+          "trigger": "Same geometry and same invariant at outer exponent infinity"
+        },
+        {
+          "assessment": "Exact skew-James supremum, not the quadratic infimum",
+          "evidence": [
+            "sup min{N(x+τy),N(τx−y)}=(τ²+τ+1)/(τ+1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-fu-yang-liu-li-skew-james-profile-of-the-affine-regular-he--f04783dce9a4",
+          "material_read": "RESULT.md Finding (offset 0) and Relationship to prior work (offset 5403)",
+          "method": "Resultary hit and local mirror passages",
+          "title": "Exact Fu–Yang–Liu–Li skew James profile of the affine-regular hexagon",
+          "trigger": "Same hexagon and pair of skew transforms"
+        },
+        {
+          "assessment": "Different outer power, supremum and weight-ratio parameter",
+          "evidence": [
+            "Its stated cubic threshold solves ρ³+2ρ²−2=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-strongly-skew-quartic-von-neumann-jordan-profile-on-the-day-jame--5b2871dd891b",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Resultary hit and local mirror passage",
+          "title": "Strongly skew quartic von Neumann–Jordan profile on the Day–James hexagonal plane",
+          "trigger": "Same-norm exact phase-transition near-match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Xu–Liu primary definition and examples",
+        "Same-norm James and skew-quartic comparison records"
+      ],
+      "rationale": "The affine-regular hexagon is a natural test space for the published Banach invariant because it has finitely many support directions without being Hilbert. The complete quadratic profile gives an explicit non-Hilbert example in which the active facets change at a nontrivial parameter and the small-skew decrease is linear. A user needing this exact value or its change under the skew parameter cannot obtain it by importing the Hilbert or outer-∞ value.",
+      "residual_risks": [
+        "Value is the precise invariant and transition on this canonical plane, not a resolution of the general Banach-space extremal problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

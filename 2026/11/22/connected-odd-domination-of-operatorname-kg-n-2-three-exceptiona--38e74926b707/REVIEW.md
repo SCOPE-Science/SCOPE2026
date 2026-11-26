@@ -1,15 +1,21 @@
-# Scientific review: connected odd domination of rank-two Kneser graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof treats the closed neighborhood, not open domination, and derives the **exact** identity \(|N_{G}[\{i,j\}]\cap S|=m-d_i-d_j+2x_{ij}\). Parity for every pair is equivalent, for \(n\ge5\), to odd edge count and all auxiliary degrees equal mod two. No one-edge set satisfies that condition. The only connected three-edge possibility is a perfect matching spanning six ground elements. At weight five, exhaustive abstract degree reasoning yields the five-cycle, the eight-vertex one-three-degree star-plus-two-matches case, and the ten-vertex perfect matching. Counts use standard labelled combinatorial bijections with no overlap. The five-cycle optimum exchange graph on the Petersen case is reconstructed from shared edges, five 2-opt neighbors per cycle, and parity of the cyclic order, forcing the six-crown. Two separately implemented finite programs independently reproduce all cardinalities on ground-set orders five through ten and the crown graph. The proof covers **all** orders without relying on finite extrapolation.
+## correctness
 
-## Originality — PASS (best-knowledge, residual priority risk)
-Caro–Goldwasser–Klostermeyer (2001) and Caro–Klostermeyer (2003) treat odd domination; Caro–Klostermeyer–Yuster (2005) treats connected odd domination generally. The inspected 2005 paper considers several graph classes but does not state the rank-two Kneser minimum classification. Existing indexed statements for \(KG(n,2)\) concern ordinary or total domination, not closed parity plus connectivity. The 12 weight-five odd dominating sets on the Petersen graph are already implied by a published odd-domination enumerator of \(GP(5,2)\), so that coefficient alone is not credited as new. The minimum connected classification across the full rank-two family, the two even-order exceptional types, and the six-crown optimum-replacement graph are not implied by those statements. Some full texts and historical files are inaccessible; unindexed priority cannot be excluded. Source coverage is not a mathematical uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-This gives a complete, label-sensitive classification for a standard infinite graph family rather than an arbitrary one-off computation. It pinpoints an exact interaction of parity, induced connectivity, and ground-set size: unique 3-element behavior at order six, plus previously hidden extra optimum families at eight and ten. The Petersen boundary has a sharply structured and fully identified reconfiguration obstruction: every one-replacement move is frozen while two-replacement moves yield a crown graph. The exact configurations matter for parity-constrained sensor, code, and reconfiguration questions; no unsupported downstream theorem is asserted.
+For an edge ij of K_n, the exact closed-neighborhood count is m-d_i-d_j+2x_ij. Subtracting equations sharing one index forces uniform ground-set degree parity, and then m must be odd; the converse follows immediately. Size 1 is impossible. At size 3, the only even-degree support is a triangle (its selected vertices are independent in the disjointness graph); the only all-odd possibility for n>=5 is a perfect matching at n=6. At size 5, an even-degree simple graph decomposes into cycles and can only be a single 5-cycle. All-odd degrees require even n<=10; n=6 is already solved, n=8 forces degrees 3,1,1,1,1,1,1,1 giving the star and two disjoint edges, and n=10 forces a perfect matching. Disjointness gives a cycle, a connected star/matching join, or a clique, respectively. Counts are 12*binom(n,5), 8*binom(7,3)*3, and 10!/(2^5*5!) plus the separate 6!/(2^3*3!) case. For the exchange claim, four common edges determine a spanning path and a unique completion. The five nonadjacent two-edge cuts each admit one different cyclic reconnection, in each case reversing a block of length two or three not containing the distinguished element and reversing sign. This gives a 5-regular bipartite graph on 6+6 cycles; the omitted cross edges form a matching and each omitted pair has distance three. Independent replay: python3 /workspace/review_checks.py 3 uses XOR of actual closed-neighborhood masks and induced connectivity, checks all cardinalities up through the minimum at each n=5..10, verifies degree signatures, and constructs both exchange relations at n=5. Reproduced counts 12,15,252,1512,1512,3969. The PDF proof and finite replay are not interchangeable; the argument above exhausts all n. The frozen Python verifier intentionally stops at size 3 for n=6 despite the broader wording in the original Verification paragraph.
 
-## Limits
-Only minimum connected closed-neighborhood odd dominating sets are classified. The 2001 source has an earlier publication **year** without an independently verified precise public day; the metadata qualifying day comes from the published 2003 web record. Independent external validation and comprehensive absolute priority adjudication are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the connected closed-parity optimizer classification, including the exact additional branches at n=8 and n=10 and the specific optimum replacement relation. The record already disclaims priority for the Petersen weight-five count. The even/odd partition of Hamilton cycles is also known, but the closest inspected group-testing result does not identify the two-replacement exchange graph. The comparison is bounded, not a priority guarantee.
+
+## value
+
+PASS
+
+The rank-two Kneser family is canonical. Closed parity on all ground-set pairs unexpectedly allows only three exceptional ground-set orders to change the minimum configuration types, and two of those change multiplicity without changing size. The exact labelled classification and the contrast between frozen one-replacement and connected two-replacement optima identify structure not visible in the known Petersen weight count or in ordinary domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

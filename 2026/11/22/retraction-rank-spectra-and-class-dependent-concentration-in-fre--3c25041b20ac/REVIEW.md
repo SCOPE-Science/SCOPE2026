@@ -1,15 +1,21 @@
-# Review of retraction-rank spectra and concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal property yields all generator maps and the invertibility criterion for maps invertible on the abelianization. For each idempotent, the explicit generator change \(H(u)=F(u)\) and \(H(w)=w-F(w)\) conjugates it to its homogeneous projection. The identity-linear automorphism stabilizer gives the exact exponent \(r[S_c(d)-S_c(r)]+(d-r)S_c(r)\); separate orbit counts give both the image-subalgebra census and constant retraction multiplicity per image. Hall/Witt dimensions work over every field, including characteristic two. A uniform asymptotic expansion of the counting exponents and a uniquely maximized polynomial \(a+(1-2a)a^c\) give the probability decay and rank-fraction limits. The packaged checker independently tests all generator assignments in small class-three and class-four examples. No finite test is used as an unbounded proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The complete prior class-two retraction theorem and class-two concentration theorem were read and compared at statement/proof level. Both explicitly restrict to \(c=2\), while the result here treats all \(c\ge3\), including the image embedding census and an explicit class-dependent rank asymptotic. The 2019 general free-nilpotent automorphism parameterization has no idempotent finite-field census. The 2011 free-nilpotent metric article concerns a different invariant. A published cubic retraction asymptotic in anti-associative algebras uses an analogous argument and happens to have the same cubic saddle root; neither its anti-associative multiplication nor its finite-field count is the Lie-algebra theorem, and no novelty is claimed for that shared constant or for the general projection method. Classical retract literature from 1997 was available only as an abstract; this and any undiscovered general free-object result are residual overlap risks. The actual searches, closest records, and limitations are recorded in the structured audit.
+PASS
 
-## Value — PASS
-The problem determines natural invariants of every finite free nilpotent Lie algebra of fixed class, rather than an isolated parameter table. It simultaneously gives all conjugacy types of retractions, numbers of distinct embedded images, multiplicities of maps onto each image, and a class-dependent law of large ranks across a genuinely nonabelian graded family. Higher bracket layers change exact census exponents and the limiting generator and image-rank proportions, which cannot be read off from class-two formulas. The distinct image counts can be used in questions about split subalgebras and random endomorphism geometry. It does not claim a novel generic orbit-stabilizer technique or a paper-sized advance.
+After choosing a basis adapted to the induced projection, lift retained generators by F(u) and discarded generators by w-F(w). The lifts give an automorphism because they are the identity on degree one and hence on the associated graded, and they conjugate F to the standard generator projection in all characteristics. The retained generators freely generate the image; D_c(r) is strictly increasing by the Hall dimensions (the degree-one part already strictly increases). For each r-plane U there are q^{r S_c(d)} choices of lifts of a basis, each generating an eligible image. A given image is counted q^{r S_c(r)} times: all lifts in that image generate it and differ by its higher-degree part. With that choice of free generators, a retraction fixes the first r and maps the other d-r arbitrarily into the image, giving q^{(d-r)D_c(r)} maps per image; this gives the stated polynomial, including zero and identity. With c and q fixed the log of the coefficient equals d^{c+1} f_c(r/d)/c + O(d^c) uniformly. The derivative first increases and then decreases, is positive at 1/2 and negative at 1; the unique maximizer gives a uniform positive gap on every nonempty excluded compact set, while the nearest lattice rank attains the leading exponent. This proves the concentration bound, the rank fraction, and the entropy limit.
 
-## Limits and literature
-The theorem concerns free nilpotent Lie algebras only. The rank concentration assumes fixed class and fixed field size; it does not assert a sharper two-adjacent-rank law. The 1997 free-Lie retract characterization remains a material priority uncertainty, as do possible broader unlabeled free-object census formulas. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected distinct finding gives or directly implies the class-c Lie census together with the class-dependent concentration law. The class-two and anti-associative cases are substantive antecedents for the method and are credited; neither counts these idempotents or supplies their class-dependent entropy law.
+
+## value
+
+PASS
+
+The enumeration separates embedded images from maps to a prescribed image and includes all nonlinear generator corrections and finite characteristics. It yields a class-dependent quantitative rank law for a natural random retraction, not simply an automorphism count or a by-hand extension to a particular small class. The shared class-three saddle is not claimed as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

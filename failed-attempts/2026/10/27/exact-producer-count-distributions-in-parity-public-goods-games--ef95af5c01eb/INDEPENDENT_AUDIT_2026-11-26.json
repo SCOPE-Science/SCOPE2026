@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:57:16.282281Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58 and frozen VERIFICATION.md; standalone verify.py inspected without execution",
+        "Independent exact closed-neighborhood bitmask enumeration: python3 /workspace/reviews/reproduce.py 3"
+      ],
+      "rationale": "Over F2 the two removals of the center cancel in the open-neighbor sum, so the equilibrium equation is x_ij=1+r_i+c_j. The row and column sum equations are necessary and sufficient: they ensure prescribed parities are exactly the parities of the reconstructed x, and thus ensure no double counting. They force zero parities for even-even, one constant parity vector and one freely odd vector in mixed parity, and two independently odd parity vectors for odd-odd. In the latter, weight is ab+(m-a)(n-b); both coordinate slopes are nonzero since m and n are odd. Every minimum is a corner, and comparing the four corners gives the claimed counts and the two tied choices for odd squares. Each coordinate of a uniform odd vector of length at least two is fair, giving the stated expectations. Direct tests on six labeled boards, including 3×3 and 3×5, reproduce the weight histograms.",
+      "residual_risks": [
+        "The finite replay checks representative boards; the sufficiency and minimizer arguments establish the general result.",
+        "Only pure equilibria, the stated deterministic best response, and labeled fully occupied boards were reviewed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper on alternating response gives the general GF(2) reduction; Batal gives a rank-parity property; Curtis et al. give open-neighborhood Cartesian-product nullities.",
+          "The frozen source credits Peters et al. with closed universal solvability on the even-by-even rook graph; the proposition was not verified in full text."
+        ],
+        "reasoning": "Rank, parity and solvability do not in general determine all coefficients of an affine binary code by weight. They credit established tools and partial cases; the decisive exact coverage is the indexed closed-neighborhood classification.",
+        "searches": [
+          "Gilboa–Nisan arXiv:2207.04238 pp. 2–3",
+          "Batal arXiv:2011.10270 Theorem 2.4",
+          "Curtis et al. arXiv:1802.05359 Theorem 2.1",
+          "Peters–Goldwasser–Young DOI:10.13001/1081-3810.3483 Proposition 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9d5d63966d08 Finding and proof",
+        "Gilboa–Nisan p. 3; Batal Theorem 2.4; Curtis et al. Theorem 2.1; Peters et al. citation only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both parametrize solutions by x_ij=1+r_i+c_j. For odd-odd the other record explicitly identifies the two diagonal rectangles and gives the identical exponent and binomial factors. A normalized derivative P'(1)/P(1) of that polynomial yields the mean; the 3×5 sample is a direct substitution."
+        ],
+        "reasoning": "The economics interpretation and scalar summaries of the enumerator do not add a mathematical result not already covered by the identified equivalent statement.",
+        "searches": [
+          "Resultary record 9d5d63966d08, Finding and proof, mirrored RESULT.md offsets 0 and 3000",
+          "Frozen RESULT.md equations (1)–(2) and Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a producer set, best response is equivalent to x_ij plus its active open-neighbor count being odd, so it is exactly an odd-dominating set. In binary closed-neighborhood Lights Out the all-ones target has equation Nx=1, with N the closed-neighborhood matrix. Its solution coset has the same weight enumerator.",
+          "The Finding of 9d5d63966d08 gives precisely this polynomial in those terms."
+        ],
+        "reasoning": "Labeling, dimensions, closed neighborhoods and the Hamming weight statistic agree term for term; this is not a change of graph, parity, or equivalence relation.",
+        "searches": [
+          "Resultary: parity rook rectangle weight enumerator; odd domination of K_m square K_n; even-neighbor production; closed-neighborhood Lights Out on a labeled rook board",
+          "Batal arXiv:2011.10270, odd-domination definition",
+          "Gilboa–Nisan arXiv:2207.04238, alternating responses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RESULT.md of record 9d5d63966d08, Finding and assumptions, offset 0–4167: all four enumerators, exact totals and minimum size and multiplicity on labeled rectangles m,n>=2."
+        ],
+        "reasoning": "The exact match is a full theorem, not a table of a few boards or the identical frozen record. Its later displayed date does not establish which derivation came first.",
+        "searches": [
+          "Resultary exact producer-weight distribution and parity-rectangle/odd-domination queries"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record, 9d5d63966d08, states the equivalent complete enumerator and classification for the same labeled rook boards, including the minima and every multiplicity. The identity with odd domination is exact and is acknowledged in the frozen assumptions. The current finding is not distinct coverage. The catalogue entry has a later displayed date, so this establishes mathematical duplication, not that the indexed version was published earlier, or any conclusion about dependence or historical priority. The expected value and worked example are immediate consequences of the identical enumerator and are not a distinct surviving finding.",
+      "residual_risks": [
+        "The order and relationship of the frozen and exact indexed versions were not established; this is a duplicate-coverage decision, not a historical-priority decision.",
+        "Peters–Goldwasser–Young and the identified Giffen–Parker PDF were not inspected at full-text theorem level. These access limits do not supply the FAIL reason."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalence of main theorem, not an inference from title or dates.",
+          "evidence": "The closed-neighborhood equation, full four-case polynomial, least weights and minimizing multiplicities agree. The object is precisely the producer set under the stated response rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-rectangle-classification-and-odd-domination-weight-enumer--9d5d63966d08/RESULT.md",
+          "material_read": "Finding, assumptions, and row/column reduction, offsets 0 and 3000; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search; direct mirrored-file read",
+          "title": "Parity-rectangle classification and odd-domination weight enumerator of rectangular rook graphs",
+          "trigger": "Strongest exact same-object candidate"
+        },
+        {
+          "assessment": "General linearization, not explicit rook weight formulas.",
+          "evidence": "Alternating parity best responses can be handled via GF(2) linear equations.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.04238",
+          "material_read": "p. 3, offset about 10600",
+          "method": "OA primary passage",
+          "title": "Complexity of Public Goods Games on Graphs",
+          "trigger": "Possible established game-theoretic classification"
+        },
+        {
+          "assessment": "Determines cardinality parity, not the full distribution.",
+          "evidence": "Odd domination uses closed neighborhoods and the weight parity equals graph-matrix rank parity.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.10270",
+          "material_read": "p. 1 definition; p. 3 Theorem 2.4",
+          "method": "OA primary passages",
+          "title": "Parity of an Odd Dominating Set",
+          "trigger": "Odd-domination equivalent formulation"
+        },
+        {
+          "assessment": "Open-neighborhood nullity is not the closed-neighborhood affine Hamming-weight enumerator.",
+          "evidence": "Formulates open switching as a Sylvester equation and derives nullities.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.05359",
+          "material_read": "pp. 2–3, offsets 5800–8569, Theorem 2.1",
+          "method": "OA primary passage",
+          "title": "Resolution of Conjectures Related to Lights Out! and Cartesian Products",
+          "trigger": "Possible broader Cartesian-product code calculation"
+        },
+        {
+          "assessment": "Attribution recorded, no independent full-text coverage claim.",
+          "evidence": "Frozen RESULT.md line 66 credits the closed even-even uniqueness implication.",
+          "identifier_or_url": "DOI:10.13001/1081-3810.3483",
+          "material_read": "Bibliography and frozen attribution; primary proposition not retrieved",
+          "method": "DOI and identified lawful full-text retrieval attempts",
+          "title": "Lights Out! on Cartesian Products",
+          "trigger": "Frozen citation of Proposition 3.1 for even-even case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, producer-count theorem and minimum-weight proof",
+        "Resultary 9d5d63966d08, classification for the equivalent graph-theoretic problem"
+      ],
+      "rationale": "The mathematical content is a natural full classification, not simply a total solution count: it resolves every producer weight, the optimal support and label multiplicities uniformly across dimension parities. That structural value does not confer a distinct contribution when the same classification is already indexed.",
+      "residual_risks": [
+        "No welfare, dynamics, or empirical application of the strict parity response is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

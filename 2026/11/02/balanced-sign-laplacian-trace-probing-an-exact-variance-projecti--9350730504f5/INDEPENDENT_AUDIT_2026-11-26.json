@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:42:45.776909Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–106 and verify.py lines 57,59–64; VERIFICATION.md inspected",
+        "Replay: python3 /workspace/independent_checks.py 5; every balanced-cut edge covariance entry checked by exact enumeration at N=4,6,8,10 and actual constant cut sizes exhaustively checked for all simple graphs N=4,6",
+        "Replay: python3 /workspace/repairs/5/verify.py; 66624 simple graph/size cases and 560 weighted cases passed using exact supports and integer rank tests",
+        "Replacement RESULT.md, VERIFICATION.md, verify.py and SLOGAN.txt inspected for scientific scope and deliverability"
+      ],
+      "rationale": "Reassessed the replacement RESULT.md. Singularity of a real covariance matrix is exactly the existence of a nonzero constant linear combination of the within-part edge totals on their finite full support. For any i,j with i in the first part and j in the second, put δ_x=w_ix-w_jx for the other vertices and R=A\\{i}. Exchanging the two vertices in α W_A+β W_B gives (α+β)sum_R δ_x=β(d_i-d_j). If α+β=0 it forces constant degrees. Otherwise all (k-1)-subset sums of δ agree; k,ell>=2 means one can replace any available vertex with any other, so all δ_x equal. Fixing a reference vertex and using symmetry then yields all w_ij=u_i+u_j, as detailed in the replacement proof; conversely these weights give constant W_A/(k-1)+W_B/(ell-1), while constant degrees give constant W_A-W_B. Binary potentials are either all equal (empty or complete), or pick distinct potentials: the two rows differ by one and force all other potentials to a common c with 2c=0 or 1 (star or its complement). In the complement of a star the isolate lies in either part with positive probability; the possible within-edge vectors differ by (k-1,-(ell-1)), giving rank one. In the balanced case the cut is W-W_A-W_B. The quoted RISE bracket is exactly 2/[(N-1)N] times the frozen bracket and the equal-split variance prefactor for U_w is N^2/[8(N-3)]; rescaling by [4(N-1)/N]^2 gives the retained formula. Solving the normal equations yields the stated projection and unique potentials. Boundaries N=4, both parts of size two, and odd N for the covariance-only result are accounted for.",
+      "residual_risks": [
+        "Enumeration does not prove the full statement; the exchange proof requires both parts of size at least two and full partition support. The numerical variance normalization is used only at equal sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted RISE result covers unequal sizes and supplies numerical conditions C1/C2. Slice harmonic decomposition explains the degree-two residual and gives general orthogonality. Percus et al. explicitly average cuts over balanced partitions, give the fixed-graph mean and formulas averaged over random graphs, and state that the fixed-graph second and third moment expressions were not displayed."
+        ],
+        "reasoning": "The numerical RISE equality specializes to the exact old variance bracket; combined with the normal equations it yields the old weighted additive criterion directly. It does not supply the binary classification or identify the omitted Chen–Friedman family in the inspected passages. Neither a slice dimension nor a general orthogonality norm identifies which binary arrays belong to the additive subspace.",
+        "searches": [
+          "arXiv:2112.12948v2 §2.2; arXiv:1507.02713 §3.2; Filmus EJC 23(1) #P1.23",
+          "Cut Size Statistics of Graph Bisection Heuristics §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.12948v2, 1307.6294v6, 1507.02713, cond-mat/9804027",
+        "Filmus EJC 23(1) #P1.23",
+        "Resultary 9f27a74b23b2, 856183f7828f, ae4b067d8462, a6f6c2aa217b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In RISE, at group sizes N/2, U_w=(U_x+U_y)/2=W-C; substituting r_d^2=2Q/[N(N-1)], r_1^2=D_2/[N(N-1)^2], and r_0=2W/[N(N-1)] gives equation (1) of the frozen result and the exact zero bracket. In the simple graph setting the Chen–Friedman determinant has that same bracket as one factor. Its explicit classification misses K_(N-1) plus isolate, whose within-pair statistic has rank-one support."
+        ],
+        "reasoning": "This is full mechanical coverage of the old numerical identity, not partial analogy. Turning the weighted equality into an exact binary classification and showing the false necessity assertion requires the structural exchange and binary rigidity steps. The correction includes balanced bisections but is not restricted to them.",
+        "searches": [
+          "arXiv:2112.12948v2 offset 14000–19698, Theorem 2.2 and variance of U_w",
+          "arXiv:1307.6294v6 Theorem 3.2 and determinant proof",
+          "Resultary fixed-size permutation covariance candidates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A uniform bisection equals the fixed-size permutation null; balanced sign Laplacian energy is four times the cut, and the cut is total weight minus the within-part weight. Chen–Friedman Lemma 3.1 gives the unweighted moments; Zhou–Chen Theorems 2.1–2.3 give weighted moments.",
+          "Chen–Friedman Theorem 3.2 v6 states only regulars and stars for covariance degeneracy. The clique plus an isolate gives a two-point within-part support for every allowed pair of sizes."
+        ],
+        "reasoning": "The trace name changes the scale but not the random statistic, so the variance is prior coverage. Weighted within-part degeneracy has the graph-theoretic regular/additive interpretation; the repaired binary family list corrects an actual missing case rather than restating a moment formula.",
+        "searches": [
+          "Graph all bisections same size / constant bisection cuts",
+          "Weighted cross edge count statistic / exact permutation variance",
+          "Chen Friedman Theorem 3.2 singular covariance and clique with isolate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected indexed Resultary 9f27a74b23b2 concerns cubic-character Gram matrices; 856183f7828f concerns two coupled full-cube sign probes; ae4b067d8462 concerns iid probes of a path pseudoinverse, and same-day a6f6c2aa217b concerns a shifted-star inverse Lanczos estimator. None computes the fixed-size within-part covariance classification. The exact unweighted prior family list from Theorem 3.2 v6 is the decisive classification comparison."
+        ],
+        "reasoning": "These nearby records concern other functions or laws, not just other labels for the same objects. The local catalogue is not proof of absence; the evidence for the surviving contribution is the exact counterexample and completed family list against the closely matched primary statement.",
+        "searches": [
+          "Resultary: graph edge-count permutation null within sample covariance singular Chen Friedman clique with isolated vertex complement of star regular graphs constant balanced bisection cut additive vertex weights",
+          "Resultary: exact Johnson/Boolean slice covariance and trace-probing variance"
+        ]
+      },
+      "rationale": "Only the repaired structural correction is credited. The version-read Chen–Friedman theorem explicitly lists regular graphs and stars, while a clique plus an isolate is neither and always gives singular covariance. The inspected Zhou–Chen numerical conditions cover the weighted moment/degeneracy formula, not a correct graph-family list in the read text. The repair identifies that missing family and proves that no other unweighted exceptions occur, for all allowed sizes. The weighted projection and the moment calculations, which are directly covered, are now background. No claim is made that a journal version or an uninspected correction has the same omission.",
+      "residual_risks": [
+        "The RISE supplementary material was not inspected and another publication may classify the degeneracy structurally; no absolute priority claim is made.",
+        "The Chen–Friedman correction is limited to the actual read arXiv version. A same-day exclusion-process candidate 63ed21b70fd1 was not available through the mirror, and the bisection candidate was unavailable through OA; neither access issue is negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact old weighted variance and numerical equality covered; no missing-family structural correction in these passages.",
+          "evidence": [
+            "Within ordered edge totals U_x, U_y under uniform fixed-size labels; weighted covariance and (C1)/(C2); formula for variance of weighted within total U_w."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2112.12948v2",
+          "material_read": "§2.2 offsets 14000–19698; Theorem 2.1, Theorem 2.2 and the variance formula after Theorem 2.3",
+          "method": "OA arXiv HTML locate and bounded passage",
+          "title": "RISE: Rank in Similarity Graph Edge-Count Two-Sample Test",
+          "trigger": "Strongest weighted permutation counterpart"
+        },
+        {
+          "assessment": "Gives the exact covariance and states an incomplete family classification in version 6; repair directly checks it.",
+          "evidence": [
+            "R_0=|G|-R_1-R_2 under fixed total edges. Theorem 3.2 lists equal degrees and the perfect star. Its determinant includes (N-2)|G|+2|G|^2/(N-1)-sum_i d_i^2, zero also for the complement of a star."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1307.6294v6",
+          "material_read": "§3, HTML offset about 21934; OA PDF pp. 9–12, offsets 19200–28810, Lemma 3.1, Theorem 3.2 and determinant proof",
+          "method": "OA arXiv PDF and versioned HTML",
+          "title": "A new graph-based two-sample test for multivariate and object data",
+          "trigger": "Exact unweighted degeneracy theorem, potential covering classification"
+        },
+        {
+          "assessment": "Broader moment theory, not the graph-family correction.",
+          "evidence": [
+            "Different homogeneous harmonic degrees are orthogonal for exchangeable measures; same-degree moments scale by the product of squared pair differences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.02713",
+          "material_read": "§3.2, p. 10, Theorem 3.10 near offset 37637",
+          "method": "OA arXiv PDF passage",
+          "title": "Harmonicity and Invariance on Slices of the Boolean Cube",
+          "trigger": "Broader degree-two slice variance framework"
+        },
+        {
+          "assessment": "Structural prior machinery, not an explicit simple-graph classification.",
+          "evidence": [
+            "Its harmonic degree-two space has dimension binom(N,2)-N, corresponding to arrays with zero row sums."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p23/pdf",
+          "material_read": "Abstract and §§2–3 pp. 1, 4–7; offsets 0, 9200, 15100, 18200, 21400",
+          "method": "OA journal PDF passages",
+          "title": "An orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Explicit Johnson-scheme degree-two eigenspace structure"
+        },
+        {
+          "assessment": "Exact fixed-graph balanced mean; reports calculation but omits displayed fixed-graph moments, writing ensemble averages instead. No binary zero-locus claim in inspected passage.",
+          "evidence": [
+            "Each edge crosses with probability N/[2(N-1)]; the paragraph introducing the second and third fixed-graph moments calls the expressions too long to give there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9804027",
+          "material_read": "§3 p. 4, offsets 14400–17859",
+          "method": "OA arXiv PDF identified through DOI 10.1137/S1052623497321523",
+          "title": "Cut Size Statistics of Graph Bisection Heuristics",
+          "trigger": "Direct same-statistic random graph bisection paper"
+        },
+        {
+          "assessment": "Unresolved relevance; not used as evidence for novelty.",
+          "evidence": [],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0095895613000385",
+          "material_read": "No readable full text obtained",
+          "method": "OA direct/VPN attempts; HTTP 403",
+          "title": "Bisections of graphs",
+          "trigger": "Potential source for prior exact cut classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen–Friedman arXiv:1307.6294v6 Theorem 3.2",
+        "Replacement RESULT.md Finding and exchange proof",
+        "Exact repair verifier"
+      ],
+      "rationale": "The repair corrects a concrete invertibility assertion for the covariance used in a permutation test. It gives an explicit omitted family, an exact proof of all degenerate simple graph cases for unequal as well as equal parts, and a usable structural explanation in terms of weights, rather than treating a prior second moment as new. The balanced trace estimator is a transparent application to the cut-constancy subcase.",
+      "residual_risks": [
+        "No claim about practical inference performance, unbalanced Laplacian trace normalization, or optimal probing algorithms follows from the correction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:57:23.725607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two holes in one blade obstruct each other permanently: every possible sender to either sees both. With one hole in each of t blades there are binom(k,t)m^t labelled choices. With the hub seeded, t=0 succeeds, t=1 requires beta<=U, and t>=2 requires beta<=L. Without the hub, t=k cannot start; t=0 requires beta<=H; 2<=t<k requires beta<=L, which also guarantees the hub first fills. For t=1, the hub receives A=m(k-1)alpha in round one, and the last hole receives L+alpha A in round two. It received nothing in round one, and any no-fill round terminates the process, so cumulative weights do not supply an uncounted later opportunity. The hub retains its full received weight, not beta. Thus both inequalities at T=min(A,L+alpha A) are inclusive. Summing binom(k,t)m^t z^(N-t) or z^(N-1-t) over these cases gives exactly the two polynomials; L<T<=H and U<=H yield the four minimum-size regimes. For alpha=1/(4mk) the jump k-2 is realized for k>=3. The minimum-multiplicity example starts at 2^4+4*2^3=48 in the low-threshold regime; the rest follows from the one- and two-hole coefficients. The supplied exact-rational verifier was inspected, not run; its stated 337 instances do not prove the theorem. Replay: RESULT.md lines 36–56 and the case derivation here; python3 /workspace/review_evidence/bounded_checks.py reproduces the first sample multiplicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For ordinary forcing, blade sizes r_i give z^(sum(r_i-1))*((1+z)*prod(z+r_i)-prod(r_i)); setting r_i=m yields the entire low-threshold branch. The same-date record has no mixed transmission threshold.",
+          "The broader block-graph circuits enumerate P_3-convex sets (a different local exclusion condition), not successful transmission seeds."
+        ],
+        "reasoning": "A stronger ordinary enumerator covers an exact specialization, not alpha- and beta-dependent success. The graph family is also not complete multipartite for k,m>=2.",
+        "searches": [
+          "SCOPE-heterogeneous-clique-bouquets-zero-forcing-polynomial-recognitio--1b3c17ded724",
+          "SCOPE-a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c",
+          "SCOPE-a-linear-size-weighted-p-3-convex-set-circuit-for-block-graphs--473be4ff33e8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_transmission_windmill.py",
+        "arXiv:2606.22246",
+        "Resultary 1b3c17ded724, b77605779c1b, af818a6c215c, 473be4ff33e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (1) adds current transmissions to each unfilled vertex's weight and retains filled weights; the process stops when the new filled set is empty. Maximum-degree criteria concern the high cutoff, while the ordinary polynomial recovers only beta<=L."
+        ],
+        "reasoning": "Neither the general update rule nor the ordinary success criterion supplies the labelled two-hole count across the two-round threshold. Establishing it needs the hub/holes structural classification; it is not a substitution in the known ordinary formula.",
+        "searches": [
+          "arXiv:2606.22246, §2.2 (1), Definition 2.2.2",
+          "SCOPE-heterogeneous-clique-bouquets-zero-forcing-polynomial-recognitio--1b3c17ded724, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "When beta<=L, success is independent of alpha and reduces to ordinary zero forcing on these graphs. The friendship count z^k((1+z)(z+2)^k-2^k) is its m=2 case.",
+          "The primary signed-off notion here is cumulative synchronous transmission, not an ordinary or asynchronous forcing process; overshooting hub weight affects subsequent transmissions."
+        ],
+        "reasoning": "Changing graph names or scaling a low-threshold formula does not produce the high-threshold transmission polynomial. The hub-absent two-hole contribution can remain after a hub-seeded one-hole contribution vanishes (T can exceed U).",
+        "searches": [
+          "Resultary clique bouquet/windmill and friendship-graph forcing enumerators",
+          "arXiv:2606.22246, §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The heterogeneous and friendship records match the low-threshold coefficients as described; the P_3-convexity windmill specialization is 1+tmx+x(1+x^m)^t, counting a different property."
+        ],
+        "reasoning": "The catalogue returned real partial overlap but no inspected entry encoding the T-dependent coefficients of the whole family. The primary-literature search did not provide a useful additional match.",
+        "searches": [
+          "Resultary forcing polynomial records: 1b3c17ded724, b77605779c1b, af818a6c215c, 473be4ff33e8"
+        ]
+      },
+      "rationale": "The supported distinction is the complete two-parameter transmission enumerator, especially the two-round, uncapped alpha-squared threshold. The ordinary low-threshold branch is demonstrably covered by a same-date heterogeneous-bouquet record; it should not be credited as a separate novel contribution, and date alone does not establish ordering. The frozen novelty assertion is for the full mixed-parameter polynomial, not the ordinary friendship-graph count. No inspected result covers that full assertion.",
+      "residual_risks": [
+        "The bounded primary and catalogue comparisons cannot rule out another exact transmission enumeration under different indexing.",
+        "No priority is inferred for the two same-date records; the low-threshold identity is acknowledged independent of ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rule and framework established; no mixed bouquet enumerator in inspected passages",
+          "evidence": "Stops when the next new-filled set is empty; unfilled receivers keep prior weight and add weighted sends; filled vertices retain weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22246",
+          "material_read": "§2.2, p. 5, stopping clause, equation (1) and Definition 2.2.2 (PDF text offset 15300 onward)",
+          "method": "OA PDF locate and bounded passage",
+          "title": "Transmission Zero Forcing",
+          "trigger": "Exact rule and prior graph-family framework"
+        },
+        {
+          "assessment": "Exactly covers the low-threshold specialization; not the full mixed claim",
+          "evidence": "All r_i=m specializes its product formula to the first branch; the indexed date does not resolve priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-heterogeneous-clique-bouquets-zero-forcing-polynomial-recognitio--1b3c17ded724/RESULT.md",
+          "material_read": "RESULT.md Finding, ordinary labelled enumerator",
+          "method": "Local published-record mirror",
+          "title": "Heterogeneous clique bouquets: zero forcing polynomial recognition",
+          "trigger": "Same family with stronger unequal blade sizes"
+        },
+        {
+          "assessment": "Restricted ordinary overlap",
+          "evidence": "Formula agrees with the low-threshold specialization m=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b/RESULT.md",
+          "material_read": "RESULT.md polynomial statement",
+          "method": "Local published-record mirror",
+          "title": "Zero forcing polynomial of friendship graphs",
+          "trigger": "Friendship alias at m=2"
+        },
+        {
+          "assessment": "Different enumerated property",
+          "evidence": "The condition disallowing two selected neighbors of an outside vertex is not successful transmission forcing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c/RESULT.md",
+          "material_read": "RESULT.md property definition and windmill specialization",
+          "method": "Local published-record mirror",
+          "title": "A three-state multivariate P_3-convexity polynomial for block graphs",
+          "trigger": "Same graph class and polynomial enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete labelled enumerator on an unbounded natural block-graph family identifies a genuine two-round threshold and an unbounded k-2 change in the minimum seed size. It also locates a failure of seed-set upward closure, so ordinary forcing enumerators cannot simply be carried over. The value is in these mixed-threshold conclusions, not in recomputing the already covered ordinary branch.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

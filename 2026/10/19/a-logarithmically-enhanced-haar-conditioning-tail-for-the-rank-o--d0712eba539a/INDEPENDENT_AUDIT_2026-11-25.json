@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:02:47.059114Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently expanded diag(1−2p)+ppᵀ on Σp=1 to obtain det M=2p₁p₂p₃; the Gram identity gives positivity. On p₃=0 the first 2×2 block is the outer product of (p₂,p₁) and the third eigenvalue is 1, so even at the axes rank is two. The row sums 1−pᵢ give λmax≤1 and λmin≥det M. Off fixed axis caps, the second-largest |uᵢ| has a positive lower bound, so the small-eigenvalue event is confined to O(√t)-width coordinate bands. In a cap parameterized by (x,y), the two large eigenvalues are 1+O(ρ²) by the entrywise perturbation bound, and λmin/(2x²y²)=1+O(ρ²). Bounding the disk by two squares gives area 4a log(1/a)+Oρ(a) for |xy|<a. With a=√(t/2), area density tending to 1/(4π), and six caps, the resulting coefficient is 3/(π√2). The condition-number event has the same cap asymptotic because λmax tends uniformly to 1 there; the complement is again lower order. Integration gives the moment cutoff, including divergence at equality (the truncated critical moment grows as a squared logarithm). The determinant moment follows by integrating the Dirichlet(1/2,1/2,1/2) density. Reviewed frozen proof and finite verification evidence; no uploaded scripts executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The factor-structure Hessian uses xxᵀ where the present Gram matrix written in u has (u∘u)(u∘u)ᵀ; the Hessian theorem is a deterministic rank criterion.",
+          "The circular Fourier sketch finding has a C_L ε^{(L−1)/2} small-eigenvalue law for a complex 2×L sketch."
+        ],
+        "reasoning": "Neither the Hessian support theorem nor the Fourier sketch law specializes to this real Haar Gram distribution.",
+        "searches": [
+          "Resultary: Hadamard square of random Haar projector smallest eigenvalue logarithmic tail condition number factor analysis tangent projection",
+          "Borsdorf–Higham–Raydan, DOI article OA PDF, equation (3.9), Theorem 3.6",
+          "Resultary 2026/11/2, 5fb2ea549d24"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.03373v1 §3.3, Proposition 3, equation (26)",
+        "Borsdorf–Higham–Raydan, Theorem 3.6 and equation (3.9)",
+        "Resultary 5fb2ea549d24, 648d5309530d, 2cf8444fe5f7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior solve formula is valid without a Haar law; prior Hessian support theorem concerns deterministic nonsingularity. Neither supplies the near-axis comparison λmin∼2x²y² or identifies the codimension-two neighborhoods contributing the leading logarithm."
+        ],
+        "reasoning": "An exact determinant law alone would also not identify the eigenvalue-tail coefficient without controlling the other eigenvalues on the events that produce the logarithmic term. The record supplies that comparison.",
+        "searches": [
+          "arXiv:2407.03373v1 §3.3, Proposition 3, equation (26)",
+          "Borsdorf–Higham–Raydan Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bonnabel–Lambert–Bach Proposition 3, equation (26) gives exactly ((I−UUᵀ)^{∘2})⁺ in the tangent normal equations.",
+          "Resultary Haar rank-one Sylvester projections (2026/11/8, 2cf8444fe5f7) studies a projected-solution norm with an R⁻¹ tail, not an eigenvalue of this Gram matrix."
+        ],
+        "reasoning": "Specializing the published normal-equation formula identifies M but does not yield a distribution; the cited Haar projection law is a different random variable. The web query was low-yield, not positive evidence of originality.",
+        "searches": [
+          "Resultary: exact lower tail asymptotic smallest eigenvalue Hadamard square Gram P∘P Haar sphere S² coefficient 3/(pi sqrt(2)); condition-number tail",
+          "Resultary: rank-one factor analysis diagonal least-squares Gram matrix inverse conditioning random coherence sphere-coordinate product small eigenvalue",
+          "Web: factor-analysis tangent projection diagonal Gram Hadamard square random Haar orientation smallest eigenvalue condition-number logarithmic tail asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-coefficient queries yielded no matching statement; the three-node quadrature finding (2026/11/22, 648d5309530d) gives (3√2/π²)(log T)/T for a quadrature-weight norm."
+        ],
+        "reasoning": "The closest logarithmic-tail entry concerns another invariant and normalization; it cannot provide a tabulated coefficient for this Gram spectrum.",
+        "searches": [
+          "Resultary: P = I - uu^T, M = P Hadamard P, lambda_min tail sqrt(t) log(1/t) 3/(pi sqrt(2))",
+          "Resultary: 3/(pi sqrt(2)) or 3/(π√2) exact tail constant smallest eigenvalue random projector diagonal Gram",
+          "Resultary: a logarithmically enhanced Haar conditioning tail for rank-one factor-analysis tangent solve"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp Haar spectral/conditioning laws. The normal-equation matrix is published, and the determinant moment is a Dirichlet beta integral once its polynomial is known; neither is the basis of the originality pass. The closest matrix and random-tail comparisons do not cover the sharp eigenvalue or condition-number statement.",
+      "residual_risks": [
+        "Bounded literature search had low yield; an equivalent specialist result under diagonal-Gram, coherence or Dirichlet-product terminology could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same coefficient matrix, not the Haar tail theorem",
+          "evidence": "Diagonal solve ((I−UUᵀ)^{∘2})⁺ diag((I−UUᵀ)H(I−UUᵀ)).",
+          "identifier_or_url": "https://arxiv.org/html/2407.03373v1",
+          "material_read": "Section 3.3, Proposition 3 and equation (26), OA offset around 27900",
+          "method": "OA original HTML, bounded passage",
+          "title": "Low-rank plus diagonal approximations for Riccati-like matrix differential equations",
+          "trigger": "Same factor-analysis tangent solve"
+        },
+        {
+          "assessment": "Different Hessian; support criterion, not a spectral tail",
+          "evidence": "H_n(x)=||x||²I+xxᵀ−2D², with D=diag(x).",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/1523/1/SML002603.pdf",
+          "material_read": "PDF pp. 9–10, equation (3.9) and Theorem 3.6",
+          "method": "OA author-repository PDF, bounded passages",
+          "title": "Computing a Nearest Correlation Matrix with Factor Structure",
+          "trigger": "Closely shaped factor-structure Hessian"
+        },
+        {
+          "assessment": "Different ensembles or observables",
+          "evidence": "Complex Fourier Gram lower tail, quadrature-weight norm, and projected Sylvester solution norm respectively.",
+          "identifier_or_url": "Resultary 5fb2ea549d24; 648d5309530d; 2cf8444fe5f7",
+          "material_read": "Local-mirror claim statements",
+          "method": "Local Resultary semantic search and mirrored passages",
+          "title": "Circular Fourier sketch; three-node random first-harmonic quadrature; Haar rank-one Sylvester projections",
+          "trigger": "Closest indexed eigenvalue or logarithmic random-tail laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural small-dimensional normal-equation matrix from a published tangent solve, not an arbitrary random Gram example. The sharp logarithmic term isolates intersecting rank-loss loci rather than merely locating singular directions, and the infinite mean despite almost-sure invertibility is relevant to amplification in the intermediate solve. The result does not claim the full tangent projector or final covariance is ill-conditioned.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:48:23.819742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–45 and 50–51; VERIFICATION.md, lines 19–21",
+        "checker.py, lines 13–110 (inspected, not executed); class_table.csv, header and all 24 rows",
+        "Independent replay: enumerate points ((u₁,u₂),(v₁,v₂)) with u≠0; enumerate zero-sum subsets, split by disjoint zero-sum triples; take lexicographically least matrix in each conjugacy class in each factor; apply point maps to sorted subset labels and orbit-count. Compare cycle monomials, counts and classes to class_table.csv. The fresh script recompute_spectra.py accepts the certificate CSV as a read-only argument."
+      ],
+      "rationale": "A rational flex O makes the hyperplane class 3O and Frobenius act linearly on the elliptic-curve torsion. Restriction identifies all line and conic sections with the complete linear systems of 3O and 6O: it is injective because a cubic is not contained in a degree-one or degree-two curve, and the vector spaces have matching dimensions 3 and 6 by genus-one Riemann–Roch. Abel's criterion reduces contact 6P and distinct three/six-point incidence to the respective torsion sum tests. A factored conic with divisor 6P would have both line divisors equal to 3P, so P would be a flex; this leaves precisely E[6] minus E[3] for genuine sextactic contact. A conic through six distinct points has no repeated component, and over the algebraic closure its singular/reducible cases exactly correspond to two disjoint zero-sum triples. Characteristic prime to six makes the torsion étale. CRT gives the two matrix factors; the Weil pairing gives det B=q mod 3. The GL₂(F₂) classes are identity, one nontrivial Jordan class and one irreducible quadratic class; GL₂(F₃) has two scalar, two Jordan, one split-distinct and three irreducible quadratic classes. Conjugate elements have the same permutation spectra. Fresh exact enumeration tested all three- and six-subsets of the 27 points, constructed the reducibles from disjoint line pairs, then computed the induced cycle decompositions for all 24 class pairs. The five sizes are 27,81,8244,2268,5976; the 19 keys match the RESULT lists, every key has exactly one joint spectrum and there are exactly 19 distinct joint spectra. All 24 rows of the actual frozen class_table.csv match the independently computed matrices, class sizes, determinants, cycles, listed fixed counts and second-extension counts field by field. The (2,3,76) example gives K: 1^76 2^4084, reducible 1^54 2^1107, smooth 1^22 2^2977. Each length-d cycle contributes d points exactly when d divides the extension degree, and the corresponding zeta factor is (1−T^d)^(-1).",
+      "residual_risks": [
+        "The classification is of group-theoretic spectra, not a realization statement for each field, nor uniqueness of the Frobenius conjugacy class. No affine action without a rational flex or characteristic two/three was analyzed.",
+        "Fixed objects are geometric objects defined over the base or extension, not configurations made only of individually rational points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day record 1cb01bddc7d8 covers even smooth cubics without a rational flex in characteristic ≠3, but reconstructs zeta functions of nine flexes and twelve Hesse lines from their separate counts, with ten spectra.",
+          "Banerjee–Chen give geometric torsion construction for smooth cubics. Their universal multisection and monodromy framework is not a reconstruction result from the two fixed-object counts."
+        ],
+        "reasoning": "A broader curve hypothesis alone does not dominate a theorem for different schemes: flex/Hesse data do not give the mod-two action controlling sextactic points. The two settings use distinct statistics and configuration spaces; same-day dating establishes no priority.",
+        "searches": [
+          "Resultary: finite-field flex/Hesse configuration reconstruction and sextactic arithmetic, records 1cb01bddc7d8 and df5c903b74d3",
+          "Primary literature on sextactic Frobenius configuration zeta data for finite-field cubics; Banerjee–Chen §6.1"
+        ]
+      },
+      "checked_sources": [
+        "Szemberg–Szpond arXiv:2211.00494; Banerjee–Chen arXiv:2101.03824; arXiv:2406.13802; arXiv:2412.16993",
+        "Resultary df5c903b74d3 and 1cb01bddc7d8, and assigned-record self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Fermat computation covers only its particular Frobenius cases: split 2- and 3-torsion, q≡1 mod 3 with 2 a noncube, or q≡2 mod 3. The determinant constraint and torsion construction leave 24 abstract pairs.",
+          "The crucial new comparison is not the permutation cycle-to-zeta identity, but that distinct joint cycle spectra never collide on the map to (det B,#Fix S,#Fix K), despite collisions between conjugacy pairs."
+        ],
+        "reasoning": "Known geometry gives a reduction to a finite test but does not imply its outcome. Neither the existing Fermat cases nor the nine-flex/twelve-line framework proves the separation of all sextactic spectra by these two counts.",
+        "searches": [
+          "Banerjee–Chen §6.1; Szemberg–Szpond §4; actual Findings/proofs of Resultary df5c903b74d3 and 1cb01bddc7d8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geometric objects admit the standard E[6] minus E[3] encoding; points under different torsion bases yield conjugate permutations, so the question is equivalently about fixed counts of torsion-induced subset permutations.",
+          "Fermat record df5c903b74d3 computes the same five schemes' spectra for that cubic, including exactly the example K: 1^76 2^4084 and its smooth/reducible subcycles."
+        ],
+        "reasoning": "Changing from sextactic objects to torsion does not itself supply originality. One equivalent prior case is credited; recovering all joint spectra from the specified key over all rational-flex curves requires more than that specialization.",
+        "searches": [
+          "Resultary: arithmetic descent of sextactic conics/trisecants, six-torsion Frobenius spectra and two-count reconstruction",
+          "Banerjee–Chen arXiv:2101.03824, §6.1; Szemberg–Szpond arXiv:2211.00494, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five geometric cardinalities are already available for Fermat. The prior arithmetic result provides three exact Fermat spectral cases on the same objects, one equal to the stated det-2 example.",
+          "The 24-row, 19-spectrum general table was located as the frozen record's own certificate, not as independent prior material."
+        ],
+        "reasoning": "Credit the older geometric counts and the overlapping spectral rows. An existing full class-character table on these exact permutation sets could cover the remaining classification; the bounded index/literature comparison did not verify one.",
+        "searches": [
+          "Resultary: exact sextactic counts and configuration spectra, Fermat arithmetic, general cubic torsion class table",
+          "Szemberg–Szpond arXiv:2211.00494, Remark 4.1, Lemmas 4.2, 4.5 and 4.8, Corollary 4.7; arithmetic record df5c903b74d3"
+        ]
+      },
+      "rationale": "The sextactic torsion description, geometric cardinalities and specific Fermat Frobenius spectra are known. In particular the illustrative (2,3,76) spectrum is exactly covered by prior Fermat arithmetic. The distinct supported claim is the universal 24-class, 19-spectrum classification for rational-flex cubics and separation by the two counts plus the known determinant; the strongest inspected special-case and analogous results do not establish it.",
+      "residual_risks": [
+        "Bounded comparison is not a finding of historical priority. An unindexed general permutation-character table could supply the same reconstruction; no such table was verified.",
+        "The strongest Fermat comparator was available in full as a published Resultary record; it is not merely a summary-level comparison in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometric-cardinality overlap and Fermat torsion geometry, not the general two-count arithmetic classification.",
+          "evidence": "27 sextactic points, 81 lines, 8,244 conics with 2,268 reducible and 5,976 smooth; describes 6-division points that are not 3-division points.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.00494",
+          "material_read": "pp. 5–6, Remark 4.1, Lemmas 4.2, 4.5 and 4.8, Corollary 4.7, OA offsets 15000 and 20917",
+          "method": "Bounded OA PDF passages",
+          "title": "Sextactic points on the Fermat cubic curve and arrangements of conics",
+          "trigger": "Same geometric configurations and exact cardinalities"
+        },
+        {
+          "assessment": "Established general geometric input, not the finite-field fixed-count separation.",
+          "evidence": "Type-6 points are precisely the 27 six-torsion points not in the three-torsion, in the context of multisections and monodromy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.03824",
+          "material_read": "p. 2 and §6.1 p. 25, OA offsets 4288 and 76000",
+          "method": "Bounded OA full-text passages",
+          "title": "Choosing points on cubic plane curves: rigidity and flexibility",
+          "trigger": "General smooth-cubic six-torsion characterization"
+        },
+        {
+          "assessment": "Strong arithmetic overlap; genuine special-case coverage of prior spectra, not the general claim.",
+          "evidence": "Three Fermat cases; for q≡2 mod 3, S: 1^3 2^12, L: 1^9 2^36, K: 1^76 2^4084, reducible: 1^54 2^1107, smooth: 1^22 2^2977.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-descent-of-sextactic-conics-and-trisecants-of-the-fer--df5c903b74d3",
+          "material_read": "Finding and proof passages, local mirror offsets 0, 4069, 9330 and 15284",
+          "method": "Resultary index and bounded passages of matching mirror text",
+          "title": "Arithmetic descent of sextactic conics and trisecants of the Fermat cubic",
+          "trigger": "Same five geometric schemes with exact Frobenius spectra"
+        },
+        {
+          "assessment": "Parallel theorem for different schemes and counts; no equivalent coverage.",
+          "evidence": "Recovers zeta functions on nine flexes and twelve Hesse lines with ten spectra in characteristic ≠3, not on the sextactic schemes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-one-rational-flex-hesse-line-count-pair-determines-both-arithmet--1cb01bddc7d8",
+          "material_read": "Finding and hypotheses of exact reconstruction",
+          "method": "Resultary index and matching local mirror text",
+          "title": "One rational-flex/Hesse-line count pair determines both arithmetic spectra",
+          "trigger": "Same-day two-count reconstruction with a broader smooth-cubic setting"
+        },
+        {
+          "assessment": "Geometry and coordinates in the inspected material, not this general arithmetic inference.",
+          "evidence": "Treats Fermat sextactic and type-9 points and their explicit configurations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.13802",
+          "material_read": "pp. 1–3, OA offsets 634 and 6553",
+          "method": "Bounded OA passages",
+          "title": "Merta–Zięba, sextactic and type-9 points on the Fermat cubic",
+          "trigger": "Related explicit coordinates and Fermat sextactic configurations"
+        },
+        {
+          "assessment": "Known geometric line count; no Frobenius classification in the inspected passage.",
+          "evidence": "Records the 81-line sextactic configuration.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.16993",
+          "material_read": "Remark 3.7, p. 11, OA offset 26700",
+          "method": "Bounded OA full-text passage",
+          "title": "Moe–Toft, plane cubic configurations",
+          "trigger": "Exact sextactic trisecant counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 4–15, 26–42 and 50–51; class_table.csv",
+        "Fermat arithmetic record df5c903b74d3"
+      ],
+      "rationale": "The two easy-to-state base-field invariants recover cycle structure and all extension counts simultaneously for several naturally associated schemes, even for conics whose individual sextactic points need not be rational. This is an exact separation result for a motivated arithmetic configuration, not recomputation of its geometric sizes or a one-field coincidence. Identifying the 19 joint spectra rather than forcing uniqueness of 24 class pairs is useful precisely because the observations do not determine the actual conjugacy pair.",
+      "residual_risks": [
+        "The output is a small lookup classification, not an algorithmic estimate of how hard it is to obtain the two input counts or an extension to flex torsors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

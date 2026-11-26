@@ -41,7 +41,7 @@ The transition is already visible in the more informative **local profile**: if 
 \left(|u-1|+\frac1c\right),
 \tag{3}
 \]
-where the quotient at zero has its continuous value \(\pi\). In particular \(K(1)=4.1433385565\ldots\), while \(K(\infty)=2.2516703\ldots\); these exceed the unperturbed coefficient \(2/\pi\).
+where the quotient at zero has its continuous value \(\pi\). In particular \(K(1)=4.143338556577\ldots\), while \(K(\infty)=2.251670218254\ldots\); these exceed the unperturbed coefficient \(2/\pi\).
 
 ## Assumptions and scope
 
@@ -79,13 +79,13 @@ L_{m+1}(y)=1+O(\varepsilon_n),\qquad
 \sum_{j\notin\{m,m+1\}}|L_j(y)|=O_a(\varepsilon_n\log n).
 \tag{7}
 \]
-The last bound follows directly by splitting at \(|j-m-1|\le\eta n\) for fixed small \(\eta>0\): the cardinal for each \(j\notin\{m,m+1\}\) is bounded by \(C_a\varepsilon_n/(1+|j-m-1|)\) in that range, and by \(C_a\varepsilon_n/n\) outside; summing gives the harmonic factor. Formula (6) also implies the global bulk-cardinal bound
+The last bound follows directly by splitting at \(|j-m-1|\le\eta n\) for fixed small \(\eta>0\): the cardinal for each \(j\notin\{m,m+1\}\) is bounded by \(C_a\varepsilon_n/(1+|j-m-1|)\) in that range, and by \(C_a\varepsilon_n/n\) outside; summing gives the harmonic factor. For the uniform order estimate when \(0<\varepsilon_n<1/2\), (6) gives \(L_m(y)\asymp_a \sin(\pi\varepsilon_n)/(1-\varepsilon_n)\asymp\varepsilon_n\) and \(|L_{m+1}(y)|\le C_a\sin(\pi\varepsilon_n)/\varepsilon_n\le C_a\), all uniformly for sufficiently large \(n\). Formula (6) also implies the global bulk-cardinal bound
 \[
 |L_m(\cos\theta)|\le\frac{C_a}{1+|u|},
 \qquad u=\frac{n\theta}{\pi}-m,
 \tag{8}
 \]
-and the compact-offset convergence \(L_m(\cos((m+u)\pi/n))\to\sin(\pi u)/(\pi u)\), uniformly for bounded \(u\), with continuous values at integers.
+and the compact-offset estimate \(L_m(\cos((m+u)\pi/n))=[\sin(\pi u)/(\pi u)](1+O_{R,a}(n^{-1}))\) for \(|u|\le R\), with continuous values at integers. In fact the factor multiplying the sinc is \(\sin((m+u)\pi/n)\) divided by the average of the sine over the angular interval from \(m\pi/n\) to \((m+u)\pi/n\), which stays bounded away from zero for bounded \(u\) and bulk \(m\).
 
 **C. Exact local profile.** Fix \(R>0\) and set \(z_n(u)=\cos((m+u)\pi/n)\) for \(|u|\le R\). For the two distinguished indices, (4), (7), and the compact-offset convergence give, uniformly over this interval,
 \[
@@ -135,7 +135,7 @@ is strictly concave: both terms have negative second derivatives, with \(\sin(\p
 \lambda_n(x_m)=\frac{1+\sum_{j\ne m}|L_j(y)|}{|L_m(y)|}.
 \tag{14}
 \]
-Using (7) and \(c_n\to0\) yields \(\varepsilon_n\lambda_n(x_m)\to2\), giving the matching lower bound and (2). The same upper bound with (3) gives \(\Lambda_n=O_a(\log n+1/\varepsilon_n)\), and the local harmonic lower bound plus (14) give the matching order estimate stated after (2).
+Using (7) and \(c_n\to0\) yields \(\varepsilon_n\lambda_n(x_m)\to2\), giving the matching lower bound and (2). For the uniform order estimate, the uniform bounds in B give (12) without requiring \(\varepsilon_n\to0\), hence \(\Lambda_n=O_a(\log n+1/\varepsilon_n)\). At \(u=-1/2\), (11) gives a uniform lower bound of order \(\log n\) since \(\delta>1/2\), and (14) and \(|L_m(y)|\le C_a\varepsilon_n\) give a uniform lower bound of order \(1/\varepsilon_n\). Their maximum is at least a constant times their sum.
 
 ## Verification
 
@@ -147,11 +147,11 @@ Wu [1] provides perturbation stability criteria for Chebyshev–Lobatto interpol
 
 ## Limitations
 
-The theorem treats exactly one bulk node tending toward its immediate neighbor and excludes simultaneous or arbitrary perturbations. The critical and supercritical logarithmic limits require the specified limits of \(c_n\), and no rate of convergence is asserted. The coefficient is defined through a unique scalar critical point rather than elementary radicals. The uniqueness statement concerns asymptotic *maximizing locations*, not a claim that a finite-degree Lebesgue function has a unique maximizer. Publication priority is assessed against the specified accessible sources and search records, not an exhaustive mathematical bibliography. No independent validation is claimed.
+The theorem treats exactly one bulk node tending toward its immediate neighbor and excludes simultaneous or arbitrary perturbations. The critical and supercritical logarithmic limits require the specified limits of \(c_n\), and no rate of convergence is asserted. The coefficient is defined through a unique scalar critical point rather than elementary radicals. The uniqueness statement concerns asymptotic *maximizing locations*, not a claim that a finite-degree Lebesgue function has a unique maximizer. Publication priority is assessed against the specified accessible sources and search records, not an exhaustive mathematical bibliography. No formal verification or expert attestation is claimed.
 
 ## References
 
 1. H.-N. Wu, *When do perturbed Chebyshev–Lobatto points remain Chebyshev?*, arXiv:2606.23409, first publicly posted 2026-06-22. https://arxiv.org/abs/2606.23409
-2. *Sharp logarithmic amplification from one displaced Chebyshev–Lobatto node*, published record dated 2026-11-17. https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-logarithmic-amplification-from-one-displaced-chebyshev-lob--c68d83ac7ece
-3. *Single-erasure boundary layers for Chebyshev–Lobatto interpolation*, published record dated 2026-10-18. https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f
+2. *Sharp logarithmic amplification from one displaced Chebyshev–Lobatto node*, published record dated 2026-11-17. https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-logarithmic-amplification-from-one-displaced-chebyshev-lob--c68d83ac7ece
+3. *Single-erasure boundary layers for Chebyshev–Lobatto interpolation*, published record dated 2026-10-18. https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f
 4. J.-P. Berrut and L. N. Trefethen, *Barycentric Lagrange interpolation*, SIAM Review 46 (2004), 501–517. https://doi.org/10.1137/S0036144502417715

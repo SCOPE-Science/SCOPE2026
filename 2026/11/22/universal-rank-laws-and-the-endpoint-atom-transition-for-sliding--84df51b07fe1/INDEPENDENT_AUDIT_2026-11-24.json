@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:24:52.351640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With iid continuous inputs the union ranks are uniformly permuted. A common output must occupy one of w−ℓ+1 intersection slots. Conditional on its quantile, each exiting/entering pair must agree on its exceedance indicator, since exactly r−1 observations must exceed the output in every window. Choose k above-candidate pairs and r−1−k above-candidate shared observations and integrate their conditional probabilities, giving the factorial sum. Sum only admissible binomial indices, so no negative factorial is evaluated when a binomial vanishes. For two adjacent windows the only ways to retain the value are that both exclusive endpoints are below union rank r or both above union rank r+1. Counting these ordered pairs gives 1−p_{w,r}. Stationarity subtracts S(ℓ+1) from S(ℓ) for the start event, and the mean telescopes to 1/p; empty intersection rules out ℓ>w. On compact subintervals of (0,1), the finite fixed-r sum expands uniformly as s_r(ℓ/w)+g_r(ℓ/w)/w+O(w⁻²), with smooth g_r and s_r(t)=((1−t)/(1+t))^r; adjacent subtraction and wp→2r yield the stated survival. Differentiation gives the densities, and the two one-sided survival limits identify all endpoint masses. At ℓ=w only k=r−1 is admissible and the factorial products give C_r w^(1−r), in particular 1/4 for r=1 and leading 1/(16w) for r=2. An independent bounded replay enumerated permutations of the w+ℓ entries in windows −1 through ℓ−1, filtered on entry at zero and counted constant output for ℓ windows; all 13 cases at w=2,3 (2,652 permutation instances) agreed. This is separate from the 1,678 reported frozen checks; the supplied verifier was inspected, not run. For bottom ranks the symmetry is value reversal (negate the inputs), not reversal of time indices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 bivariate law covers overlapping samples of unequal widths and differing ranks, and gives the singular diagonal law for two values.",
+          "Bücher–Haufs analyze weak limits for Top-Two block vectors and estimation; Alon–Feldheim give qualitative existence of monotone or constant strings for general sliding-window processes."
+        ],
+        "reasoning": "The bivariate result covers every two-window coincidence, including adjacent windows, but not all intermediate windows jointly; the other broader results do not have the finite conditional run-length functional or its sharp scaling limit.",
+        "searches": [
+          "arXiv:1903.08047 Proposition 2.4 and Theorem 2.5",
+          "arXiv:2502.15036 §4.2 and Appendix B.2",
+          "arXiv:1402.1975 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_rank_plateaus.py",
+        "Resultary 704d29c12dc2, edb65e349ab4, 14cb4a65704f",
+        "arXiv:1903.08047, 2502.15036, 1402.1975"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For width 3, rank 2 and three windows, take common candidate at index 2 and indicators of exceeding it at indices 0,1,3,4 equal to 1,0,0,1. The first and last windows select the candidate, but the middle does not. This pattern has positive probability.",
+          "Matching counts in the two exclusive parts suffice for two-window equality, but the frozen factorial sum requires matched indicators of each exit/entry pair separately."
+        ],
+        "reasoning": "The exact bivariate diagonal law cannot be read as a plateau survival law at nonextremal ranks; nor do change-indicator pairwise covariances suffice for a whole string. The higher-rank scaling and endpoint mass require this multistep distinction.",
+        "searches": [
+          "arXiv:1903.08047 §2.2 Proposition 2.4, Theorem 2.5, §2.2(ii)–(iii)",
+          "edb65e349ab4 Finding; frozen RESULT.md lines 30–47"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "704d29c12dc2 Finding gives the entry-conditioned maximum lifetime and quarter atom, as well as distinctions not needed here such as starts by direction.",
+          "López-Blázquez–Su–Wesołowski arXiv:1903.08047 §2.2(ii) gives exact equality mass (w−d)/(w+d) for equal-width maxima at separation d."
+        ],
+        "reasoning": "For maxima (and minima by value reversal) endpoint equality forces persistence across intervening windows. Thus the rank-one overlap is exact, including the lifetime as a stationarity difference of the older maximum equality law. This equivalence fails for interior ranks.",
+        "searches": [
+          "Resultary: exact plateau lifetimes for sliding sample maxima; 704d29c12dc2",
+          "joint distribution same order statistic from overlapping samples singular diagonal common elements exact rank order statistics overlapping samples recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "edb65e349ab4 gives exact 2j(w+1−j)/[w(w+1)] for the change rate in ascending rank j, identical at j=w+1−r, plus change-indicator covariances.",
+          "704d29c12dc2 gives exactly the extremal lifetime, whereas 14cb4a65704f addresses cyclic maximum-change statistics."
+        ],
+        "reasoning": "No exact table or indexed result for the nonextremal full string law was found. The pairwise indicators and exact entry rate are overlapping marginals, not the all-zero consecutive block probabilities.",
+        "searches": [
+          "Resultary: rank-dependent sliding-window change indicators and median shell; edb65e349ab4",
+          "Resultary: 704d29c12dc2 and 14cb4a65704f",
+          "arXiv:1903.08047 Eq. (13) and §2.2(ii)"
+        ]
+      },
+      "rationale": "Credit the exact rank-one lifetime and quarter-atom law, and the already indexed all-rank entry probability. The distinct assertion is the full all-width plateau-entry law beyond extremal ranks and its fixed higher-rank survival and endpoint-atom comparison. The strongest bivariate overlap does not encode consecutive persistence once intermediate windows can return to the original output.",
+      "residual_risks": [
+        "Historical multivariate overlapping-rank enumeration could have further implicit coverage not found in the targeted searches.",
+        "Same-date entries do not settle chronology. The rank-one distribution and all-rank entry rate should not be claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact extremal case, already credited; date does not resolve priority",
+          "evidence": "Maximum entry survival and endpoint mass 1/4, not an arbitrary-time residual lifetime.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-plateau-lifetimes-and-a-quarter-atom-limit-for-sliding-sam--704d29c12dc2",
+          "material_read": "Finding; relationship and limitations around offset 6797",
+          "method": "Local Resultary mirror",
+          "title": "Exact plateau lifetimes and a quarter-atom limit for sliding sample maxima",
+          "trigger": "Identical max plateau observable and conditioning"
+        },
+        {
+          "assessment": "Exact entry-rate overlap; neither exact multi-window survival nor its endpoint transition follows from bivariate indicators",
+          "evidence": "Change probability 2j(w+1−j)/[w(w+1)] and lagged change covariances.",
+          "identifier_or_url": "2026/11/22/SCOPE-rank-dependent-covariance-and-an-independent-median-shell-for-sl--edb65e349ab4",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Rank-dependent covariance and an independent median shell for sliding order statistics",
+          "trigger": "Arbitrary-rank change probabilities"
+        },
+        {
+          "assessment": "Exact pairwise overlap, and enough to recover extremal duration, not general consecutive equality",
+          "evidence": "Diagonal weights sum probabilities of sharing one rank of the union; maxima have diagonal weight (n−d)/(n+d).",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.08047",
+          "material_read": "§2.2 Proposition 2.4, Theorem 2.5 Eq. (13) and cases (ii)–(iii) on pp. 6–7",
+          "method": "OA PDF locating and offset passages",
+          "title": "Order statistics from overlapping samples: bivariate densities and regression properties",
+          "trigger": "Exact singular diagonal law for overlapping rank selections"
+        },
+        {
+          "assessment": "Asymptotic inference and joint weak limits, not plateau entry laws",
+          "evidence": "Overlapping Top-Two block weak limits, no consecutive exact rank persistence in the cited results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.15036",
+          "material_read": "§4.2 Theorem 4.9 pp. 15–16, Appendix B.2 Lemma B.6 and (B.12) p. 42",
+          "method": "OA PDF passages",
+          "title": "Extreme Value Analysis based on Blockwise Top-Two Order Statistics",
+          "trigger": "Sliding maximum and second-ranked statistic from overlapping blocks"
+        },
+        {
+          "assessment": "Qualitative existence, not a sharp probability law here",
+          "evidence": "Positive probability of monotone or constant strings; stronger constant-string statement for finite-valued functions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.1975",
+          "material_read": "p. 1 Theorems 1–2",
+          "method": "OA PDF passage",
+          "title": "A note on general sliding window processes",
+          "trigger": "Broader constant-window string result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Consecutive exact persistence is a natural stability observable for a sliding rank, distinct from agreement at two times or residual persistence at a random time. The full finite-width distribution and the sharp fixed-rank disappearance of the endpoint atom show why the extremal rule does not characterize nearby ranks. The result is useful at fixed width as well as asymptotically, without assumptions about the continuous marginal law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

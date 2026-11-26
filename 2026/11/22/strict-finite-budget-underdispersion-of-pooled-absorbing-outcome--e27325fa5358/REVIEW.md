@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-deadline joint pgf is derived by conditioning on complete iid renewal cycles and differentiating. An explicit inversion, independent two-state tilted-generator checks, and a globally positive power series verify the exact coefficient, strict inequality and equal-rate boundary. The probability-one-event subcases ensure the centered count is nondegenerate. This is an analytical all-positive-parameter proof, not an inference from the finite numerical checks.
+## correctness
 
-**Originality — PASS, with material residual priority risk.** Reia–Fontanari (arXiv:2611.12692v1) introduces this exact exponential binary renewal model and its first moment and ratio-of-expectations; their Section 4.1 explicitly says the pooled variance is not generally Bernoulli but does not state its exact coefficient or strict finite-budget sign. Patch–Nazarathy–Taimre (arXiv:1408.1530) gives broad late-time covariance corrections, potentially implying the limiting constant but not the all-time sign formula after time-dependent centering. An earlier analysis of the same model proves a cross-count covariance sign reversal using the same bivariate renewal pgf; that prior count-covariance claim is distinct from, and not sufficient to imply, the strict all-budget pooled-fraction variance inequality without further analysis. A 1987 paper by Kremers–Robson addresses stopped renewal sampling, inspected only in abstract; an implicit equivalent in inaccessible older work remains a publication risk. Multiple equivalent-formulation and full-text comparisons of scientific claims found no dominating result; search absence does not certify novelty.
+PASS
 
-**Value — PASS.** The strict sign settles a naturally motivated finite-budget uncertainty-calibration question left explicit in the current simulation literature. It distinguishes joint completed-count dependence from either an iid Bernoulli surrogate or just an observed-probability bias, and the closed form is directly computable for asynchronous ensemble experiment design. It is deliberately limited to fixed-time large-worker precision; variance reduction does not correct selection bias.
+For iid mark–duration pairs the renewal transforms give the stated m=E K>0 and q=E R/m in (0,1). Poisson domination gives finite second moments. The fixed-horizon worker CLT and ratio delta method yield Var(R−qK)/m²; zero total completions has vanishing probability with increasing workers. Keeping q fixed during inversion, the diagonal second moment is q² E K+(1−2q) E R=q(1−q)m at the selected horizon. The ordered cross terms give the inverse transform of 2(f_1−qf)²/[s(1−f)²]. Verified the linear numerator over s(s+c) and, writing y=e^(−z), simplified the inverse-transform bracket to 2z(1−y)²−z²(1−y²)/2−z³y=−H(z). The first two even powers of the hyperbolic bracket cancel and all coefficients of z^(2n) for n≥3 are (2n−4)/(2n)!, strictly positive. The residual is nonconstant, for instance zero completions and one completed trajectory of outcome 1 both occur with positive probability. H(z)∼z²/2 and m∼Lz/c give the residual gap limit −(h/c)². It is nonzero only for unequal rates, as the formula and equal-rate clause imply. A separately written block-generator check also agrees at three heterogeneous cases and the homogeneous boundary.
 
-**Verification and residual risks.** The included `check_variance.py` passed 61 analytical/independent-generator checks. The hyperbolic positivity and transform inversion are proved in `RESULT.md` and checked by separate symbolic simplification. Main residual risk: an equivalent finite-horizon identity embedded in historical renewal-sampling theory; specialist independent review remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the finite-horizon exact mean-matched variance correction and its strict sign at every positive horizon in the heterogeneous exponential model. The model, first moments and bias, marked-renewal transform, and general renewal-reward covariance techniques are prior; the long-time constant alone is not the basis of the decision.
+
+## value
+
+PASS
+
+The natural mean-matched Bernoulli sampling variance can misrepresent the uncertainty of a pooled renewal estimate even after allowing for its biased center. The theorem shows the direction of that error for every positive deadline under the model, gives its exact magnitude and locates the persistent residual-scale correction. The sign is a structural result about deadline censoring rather than a single small numerical effect or another bias calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

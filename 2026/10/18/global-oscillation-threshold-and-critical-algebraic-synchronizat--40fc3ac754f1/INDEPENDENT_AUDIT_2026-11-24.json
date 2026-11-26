@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:23.045508Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected RESULT retains the mathematical trichotomy and supplies independent computations of its decisive spectral and quartic inputs. Logistic forcing in (0,1), linear damping and global Lipschitz bounds give bounded global forward solutions, with the precise invariant cube [0,1/v]^3. Taking differences gives an autonomous sum-zero plane, and a zero difference at an equilibrium forces all differences to vanish. Otherwise v s−φ(s) has the sign of s for v≥1, so the equilibrium signs would alternate around an odd cycle. Strict rearrangement for ψ(s)=s−φ(s) gives T(d)>0 off zero since equality under the cyclic shift requires a constant triple. The exact balance R′/2=(3/2−v)R−T controls the whole plane; above threshold T/R=O(R) near zero is integrable, giving a strictly positive rescaled limit. At threshold a positive limiting radius contradicts strict dissipation on a compact annulus. Each entry of d is a root of u³−(R/2)u−d_1d_2d_3, so the cubic contraction entering T gives exactly 3R²/4 before multiplication by 4/3. Thus (1/R)′→2 and the coefficient is 1/2 in the original time. Below threshold the smaller disk has outward radial derivative bounded below by a positive multiple of R, so every nonzero trajectory stays eventually outside and no equilibrium can lie in its compact omega limit. Poincaré–Bendixson gives a periodic difference orbit, and the stable driven mean has only one bounded entire response over each translate of it; this yields distance convergence to the lifted orbit without claiming phase convergence or uniqueness. The frozen verify.py uses finite rational grid checks (not a polynomial certificate as originally described) and its eigenvalue assertion uses inserted values. The repaired verification notes preserve its limited diagnostic role and do not rely on running it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2006 paper's §5 Corollary 3 gives global stability for real-space cyclic systems with x a(x)>0, x b(x)>0, b/a≤γ and a proper storage integral, if the product of γ_i is strictly below sec(π/n)^n.",
+          "For a(s)=v s−φ(s), b(s)=φ(s), v>1, the exact upper ratio is 1/(v−1), approached at zero; b tends to nonzero signed limits, so its integral is proper. For n=3 the criterion is (v−1)^−3<8, exactly v>3/2."
+        ],
+        "reasoning": "The universal statement of attraction above the boundary is directly covered by the broader theorem in differences and scalar mean tracking. It is not independently original. At equality the strict condition fails, and the result does not concern the leading inverse-time coefficient or all-start dynamics on the oscillatory side.",
+        "searches": [
+          "Arcak Sontag Diagonal stability of a class of cyclic systems and its connection with the secant criterion 2006 pdf Theorem 2 real R nonlinear cyclic system",
+          "Arcak–Sontag arXiv:0705.3188v1 §2 eqs. (5)–(9)"
+        ]
+      },
+      "checked_sources": [
+        "Arcak–Sontag Automatica 42 (2006), §5 Corollary 3",
+        "Pokutnyi–Sadyrbaev arXiv:2610.18261v1 §§3.2–3.3",
+        "Belgacem arXiv:2606.04709v1 §§2.3, 3.3",
+        "Arcak–Sontag arXiv:0705.3188v1 §2",
+        "Resultary 3ecc92a730da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict secant attraction covers all starting states in real difference space when v>3/2. It gives neither the positive rescaled limit from the integrable radial remainder nor the law at equality.",
+          "Poincaré–Bendixson is classical and gives the periodic conclusion only after the model-specific reduction and the exclusion of all equilibria from the omega limit for every nonsynchronous start. A numerical attractive orbit at v=1 and a nonnegative-network diameter bound impose neither condition."
+        ],
+        "reasoning": "Credit the existing strict stability implication and single-parameter computation explicitly. The exact coefficient comes from the direction-independent cubic contraction in the sum-zero plane, and the oscillatory quantifier is stronger than existence of one numerically seen orbit. No inspected prior result covers this combined conclusion.",
+        "searches": [
+          "Compare Arcak–Sontag §5 Corollary 3 against both ends of the trichotomy",
+          "Compare Pokutnyi–Sadyrbaev §3.2 and Resultary 3ecc92a730da with the planar reduction, equilibrium exclusion and tR coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With k=1 and zero thresholds Pokutnyi–Sadyrbaev (21) is the identical system at v=1, not merely an analogy. Their variation of v_3 fixes v_1=v_2=1 and changes thresholds, not the simultaneous common-rate variation.",
+          "Belgacem's single signed-weight sigmoid matches the uncorrected model class. The difference equations have self term v s−φ(s) and inhibitory predecessor term φ, and reversing d_2 makes the three links have the sign pattern of the secant criterion."
+        ],
+        "reasoning": "The formulation comparison must be done after exact passage to differences, not on the mixed-input sigmoid in the original x variables. It finds a true strict-stability implication and an exact single-parameter overlap, but not an equivalent marginal time law.",
+        "searches": [
+          "Pokutnyi–Sadyrbaev arXiv:2610.18261v1 §3.2 eq. (21) and Fig. 2, then §3.3",
+          "Belgacem arXiv:2606.04709v1 §§2.3, 3.3, eqs. (9), (23)",
+          "Arcak–Sontag DOI:10.1016/j.automatica.2006.04.009 §5, signed cyclic systems on real state space"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby same-day Resultary finding 3ecc92a730da uses nonnegative row-stochastic W and proves a critical diameter limsup estimate √(3/2) for a Dobrushin-parameter comparison. This is not the signed difference energy limit.",
+          "Pokutnyi–Sadyrbaev Table 2 includes the exact v=1 eigenvalues (−1,0.5±0.866i); its other entries vary only v_3 with adjusted thresholds. Figure 2 gives a cycle example at v=1, not a table of common-rate global outcomes."
+        ],
+        "reasoning": "The table-equivalent match is for the common-rate family and the specific sum of squared differences with its time normalization, not for linear eigenvalues or a nearby envelope in another observable. Neither table nor catalogue comparison supplies that limit.",
+        "searches": [
+          "Resultary semantic lookup: three-variable signed logistic cycle exact oscillation threshold and critical algebraic synchronization",
+          "Resultary 3ecc92a730da, Finding",
+          "Pokutnyi–Sadyrbaev §3.2 Fig. 2 and Table 2"
+        ]
+      },
+      "rationale": "The repaired statement credits two material overlaps: the exact v=1 example and its reported numerical cycle, and the implication of the strict supercritical attraction from Arcak–Sontag's real-space secant theorem. The frozen assertion about the former paper postdating an eligibility anchor cannot be checked from the supplied materials and has been removed. The exact marginal coefficient and all-nonsynchronous trichotomy across the common-rate family survive these comparisons; no novelty is assigned to the source model, the strict stable half alone, or a cycle at v=1 alone.",
+      "residual_risks": [
+        "The published comparison already contains an exact oscillatory parameter instance. No priority asserted for it or for the strict supercritical convergence theorem, and the separate eligibility date in the frozen narrative is not established.",
+        "The comparisons use bounded catalogue and primary-text passages; one unavailable literature query is not negative evidence and other equivalent model-specific radial calculations could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies strict supercritical qualitative convergence; no marginal time-law conclusion",
+          "evidence": [
+            "Real-state cyclic form with one negative link; strict product-sector inequality and proper integral imply global asymptotic stability."
+          ],
+          "identifier_or_url": "https://sontaglab.org/FTPDIR/arcak_sontag_automatica06.pdf (DOI:10.1016/j.automatica.2006.04.009)",
+          "material_read": "Automatica p. 1535, §5 eqs. (33)–(36), (41) and Corollary 3, PDF offsets 28400–34322",
+          "method": "Targeted primary title lookup and OA author-hosted published PDF passage",
+          "title": "Diagonal stability of a class of cyclic systems and its connection with the secant criterion",
+          "trigger": "Strongest general stability implication after signed difference reduction"
+        },
+        {
+          "assessment": "Exact at v=1 with numerical cycle; variations inspected use unequal decays or different matrices/thresholds and do not establish the target family theorem",
+          "evidence": [
+            "Equation (21) with k=1, θ_i=0 is the frozen v=1 vector field. Figure 2 is its cycle example. For Table 2 only v_3 changes; an apparent displayed Jacobian inconsistency is not relied on."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18261v1",
+          "material_read": "PDF pp. 12–13, §§3.2–3.3 eqs. (21)–(27), Fig. 2, Table 2, offsets 43580–54137; §3.1 heading and setting at offset 41386",
+          "method": "OA original PDF passages",
+          "title": "The influence of decay in dynamic models of gene regulatory networks",
+          "trigger": "Exact same matrix and slope at a parameter instance"
+        },
+        {
+          "assessment": "Matching uncorrected node response class; not a proof of the target trichotomy",
+          "evidence": [
+            "One signed weighted sum inside a sigmoid; one positive and one negative input gives σ(μ(x_1−x_2)) at zero threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.04709v1",
+          "material_read": "§2.3 eq. (9) at offset 27900; §3.3 eq. (23) at offset 54300",
+          "method": "OA original PDF passages",
+          "title": "A Bias-Corrected Weighted Logistic Model for Gene Regulatory Networks",
+          "trigger": "Original model-class comparison"
+        },
+        {
+          "assessment": "Related strict nonlinear stability theory; real-space specialization checked in the 2006 paper",
+          "evidence": [
+            "Recalls the strict secant gain condition and cites the Automatica theorem; an example of coexistence in a different system does not prove the trichotomy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0705.3188v1",
+          "material_read": "§2 eqs. (3)–(9), PDF pp. 3–5 offsets 7000–18331; reference [1] at offset 58161",
+          "method": "OA original PDF passages",
+          "title": "A Passivity-Based Stability Criterion for a Class of Interconnected Systems and Applications to Biochemical Reaction Networks",
+          "trigger": "Cited general cyclic-feedback antecedent and locator of the exact real-space theorem"
+        },
+        {
+          "assessment": "Different feedback and observable; not direct or dominating coverage",
+          "evidence": [
+            "Nonnegative row-stochastic W, diameter D, comparison threshold βδ(W)=4 and a limsup bound, not an exact signed-cycle radial limit."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-nonlinear-synchronization-envelope-for-logistic-threshold--3ecc92a730da",
+          "material_read": "RESULT.md Finding, beginning at offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp nonlinear synchronization envelope for logistic threshold dynamics",
+          "trigger": "Strongest same-day catalogue near match in logistic synchronization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even after crediting strict secant attraction and the known numerical cycle example, there is an exact normalization-sensitive limit at loss of stability, and a globally quantified oscillatory conclusion rather than a local bifurcation or finite-time plot. The invariant-plane energy calculation explains why the coefficient is universal across nonsynchronous initial conditions. These features make the result a useful sharp dynamical benchmark at a parameter where strict stability criteria stop, with no claim about period, uniqueness, or physical implementation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

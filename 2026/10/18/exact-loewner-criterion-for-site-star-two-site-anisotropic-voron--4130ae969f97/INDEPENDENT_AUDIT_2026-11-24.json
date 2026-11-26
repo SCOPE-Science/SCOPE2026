@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:35:32.712552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Translating the site p to zero gives g(y)=yᵀHy+2bᵀy−c, with H=A−B, b=B(q−p), c=(q−p)ᵀb>0, g(0)<0 and g(q−p)>0. A positive semidefinite H makes the closed sublevel set convex and hence site-star. Otherwise, on each negative quadratic direction both sufficiently remote signed endpoints lie in the cell, so site-star visibility would force the entire line into the cell. On any limit null direction its linear coefficient must vanish. For indefinite H the null directions span the space by pairing positive and negative eigenvectors (and including the kernel), forcing b=0 contrary to c>0. For nonzero negative semidefinite H every direction is a limit of negative directions, including q−p, so continuity would give g(q−p)≤0. This also covers dimension one. The witnesses produced by failure of site-star visibility have a positive gap on an eventual-inside ray, consistent with the stated quadratic roots. Interchanging the sites gives both cells site-star exactly when H and −H are both positive semidefinite, i.e. A=B.",
+      "residual_risks": [
+        "Independent hand substitution for the supplied ray yields g(tu)=−21t²+20t−1, with values −1, 15/4 and −2 at t=0, 1/2 and 1. This certifies one non-star example, not the universal theorem. No Lean or expert attestation claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tensor formulas of Venkovic–Anzt are for cells already star-convex at their site. Labelle–Shewchuk treat wedge-restricted two-site visibility and give wedging as a sufficient condition. Cañas–Gortler give sufficient orphan-freeness conditions. Held–de Lorenzo's inspected passages give a computational framework for scalar multiplicative weights."
+        ],
+        "reasoning": "The assumptions and conclusions differ: a conditional tensor formula does not determine when its hypothesis holds. Sufficient sampling or face-wedging conditions for a broader diagram class do not logically give an unrestricted matrix-order iff for an arbitrary pair. Scalar multiplicative metrics restrict the two matrices to scalar multiples of the identity and omit indefinite differences.",
+        "searches": [
+          "Venkovic–Anzt arXiv:2610.08656v1; Labelle–Shewchuk SoCG 2003 visibility lemma and wedged-face theorem; Cañas–Gortler Theorem 1; Held–de Lorenzo ESA 2020",
+          "Prior-work sections of Resultary dbd6f50c026b and 53c1e4e86bb9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–18 and 53–62",
+        "Resultary local mirror dbd6f50c026b and 53c1e4e86bb9",
+        "Primary passages in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p=0, q=e₁, A=2I, B=I in the plane, the full cell is the disk (x₁+1)²+x₂²≤2, star at 0, but the bisector exits the wedge 0<x₁<1. Thus the cited face-wedging hypothesis is not necessary in this setting."
+        ],
+        "reasoning": "Convexity from positive semidefiniteness is standard; the new direction uses the generating-site constraints c>0 and g(q−p)>0 with the full radial behavior of a quadratic. Indefiniteness alone does not preclude a star-shaped arbitrary quadratic sublevel set around another center (e.g. x²−y²≤1 about the origin). Neither the generic sufficiency argument nor the restricted wedge lemma gives the frozen necessity direction.",
+        "searches": [
+          "Labelle–Shewchuk visibility and wedging passages pp. 3–4; Cañas–Gortler Theorem 1; quadratic sublevel and site-star formulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary dbd6f50c026b (2026-11-08) states the identical star/convex/Loewner criterion for d≥2. Resultary 53c1e4e86bb9 (2026-11-01) states it for each cell in the plane and adds a connected-component/orphan law. Both catalogue dates are later than the frozen record."
+        ],
+        "reasoning": "Translation to zero and relabeling identify exactly the same sites, site-assigned SPD metrics, closed cell and generating star center. This is stronger evidence than title or parameter similarity. A statement about an arbitrary star center, about only connectedness, or about a clipped cell would not be equivalent.",
+        "searches": [
+          "Resultary semantic search for generating-site visibility, anisotropic two-site quadratic Voronoi cell, Loewner rigidity",
+          "Primary literature search for a full-space two-site anisotropic Voronoi star-shapedness criterion or equivalent quadratic-sublevel characterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two indexed later matches give exact symbolic tests, including the planar test for both cells in 53c1e4e86bb9. No earlier exact indexed statement was located in the inspected results."
+        ],
+        "reasoning": "The symbolic if-and-only-if is the relevant exact lookup. A table of finite matrix samples or of orphan probabilities would not specify the universal visibility predicate for all SPD pairs and displacements.",
+        "searches": [
+          "Resultary for exact two-site site-star Loewner tests, convexity, and simultaneous site-star-shapedness"
+        ]
+      },
+      "rationale": "The supported distinction is the necessity of Loewner order for visibility from the generating site under the full-space two-site assumptions, and thus its equivalence with convexity. The earlier work inspected treats site-star-shapedness as a hypothesis or supplies restricted and sufficient conditions, not this exact test. Two later-catalogued Resultary records do give the exact result in their overlapping scopes; that is direct mathematical coverage, not evidence that the finding was already covered at the time of this frozen record or a determination of provenance.",
+      "residual_risks": [
+        "Broader quadratic-sublevel or anisotropic geometry literature may contain unlocated implications. The later exact overlaps do not establish who derived the criterion first, and the access limits do not prove absence of older coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact two-site overlap for d≥2 in a later catalogue record",
+          "evidence": [
+            "The translated closed cell is star at zero iff A−B is positive semidefinite, and convex in that case. The record additionally treats a three-site configuration."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-minimal-site-visibility-and-three-site-phase-thresholds-in--dbd6f50c026b/RESULT.md",
+          "material_read": "Finding and assumptions at offsets 268–2646; prior-work discussion near offset 8340 and reference passages",
+          "method": "Resultary local mirror",
+          "title": "Sharp minimal-site visibility and three-site phase thresholds in anisotropic Voronoi diagrams",
+          "trigger": "Closest exact match and possible broader theorem"
+        },
+        {
+          "assessment": "Exact planar coverage in a later catalogue record",
+          "evidence": [
+            "Each of the two cells is star at its own site iff its metric dominates, and is then convex. The angular orphan law is additional and different."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-loewner-rigidity-and-an-exact-angular-orphan-law-for-two-site-an--53c1e4e86bb9/RESULT.md",
+          "material_read": "Finding and assumptions at offsets 1167–3019; prior-work passage near offset 6808",
+          "method": "Resultary local mirror",
+          "title": "Loewner rigidity and an exact angular orphan law for two-site anisotropic Voronoi cells",
+          "trigger": "Matching planar conditions and both-cells consequence"
+        },
+        {
+          "assessment": "Site-star-shapedness is a hypothesis, not the matrix-order test",
+          "evidence": [
+            "The abstract concerns tensor formulas for planar cells that are star-convex; the definition uses visibility from the nucleation site."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08656v1",
+          "material_read": "PDF pp. 3 and 5 at offsets about 7795 and 16232",
+          "method": "Primary PDF passages",
+          "title": "Minkowski Tensors of Planar Anisotropic Voronoi Diagrams",
+          "trigger": "Closest motivating source on the same site-star property"
+        },
+        {
+          "assessment": "Wedge restriction and sufficient face condition, not the full-space equivalence",
+          "evidence": [
+            "The pairwise lemma works in a wedge; the star-shapedness result imposes a wedged-face condition. The disk example in the implication check is star despite part of the bisector lying outside that wedge."
+          ],
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~jrs/papers/aniso.pdf",
+          "material_read": "PDF p. 3 around offset 19362 and p. 4 around offset 22804",
+          "method": "Primary PDF passages and mathematical comparison of hypotheses",
+          "title": "Anisotropic Voronoi Diagrams and Guaranteed-Quality Anisotropic Mesh Generation",
+          "trigger": "An earlier two-site visibility lemma and star-shapedness theorem"
+        },
+        {
+          "assessment": "Sufficient conditions for an appropriate variable-metric diagram",
+          "evidence": [
+            "The asymmetric net theorem supplies sufficient conditions that prevent orphans for a Du/Wang diagram and yield star-shapedness; it is not a necessary-and-sufficient two-site constant-metric criterion."
+          ],
+          "identifier_or_url": "https://www.eecs.harvard.edu/~sjg/papers/avd.pdf",
+          "material_read": "Abstract p. 1 and Theorem 1 p. 10, about offset 28175",
+          "method": "Primary PDF passages",
+          "title": "Orphan-Free Anisotropic Voronoi Diagrams",
+          "trigger": "General results on connectedness and visibility"
+        },
+        {
+          "assessment": "Algorithm and scalar subfamily; no conclusion beyond the material read",
+          "evidence": [
+            "The setting is multiplicative scalar weighting, which cannot exhibit an indefinite difference of two site matrices."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2020.56",
+          "material_read": "Abstract and definitions, pp. 1–3 at offsets about 150 and 6859",
+          "method": "Primary PDF passages",
+          "title": "An Efficient, Practical Algorithm and Implementation for Computing Multiplicatively Weighted Voronoi Diagrams",
+          "trigger": "Cited related geometry of scalar weights and circular bisectors"
+        },
+        {
+          "assessment": "Unresolved comparison, not evidence against priority",
+          "evidence": [
+            "The title refers to star-shaped distance measures, not an explicit theorem about the shape of their two-site cells."
+          ],
+          "identifier_or_url": "Computer-Aided Design and Applications 19 (2022), 967–976",
+          "material_read": "Bibliographic citation only; identified exact-title search returned no usable copy",
+          "method": "Resultary reference passage and focused literature lookup",
+          "title": "On Modeling Coverage Areas of Anisotropic Transmitters by Voronoi-like Structures Based on Star-Shaped Distance Measures",
+          "trigger": "Related citation in dbd6f50c026b; possible broader anisotropic distance geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–18 and 27–57",
+        "Venkovic–Anzt site-star hypothesis and Labelle–Shewchuk restricted visibility passages"
+      ],
+      "rationale": "The unrestricted two-site model is the smallest case in which heterogeneous site metrics can defeat visibility from a generating site. An exact matrix test distinguishes global visibility from potentially favorable clipped plots and distinguishes symmetric metric equality from one-sided dominance. Its useful content is the necessity direction and the resulting two-cell rigidity, not the routine sufficiency of convexity of a quadratic.",
+      "residual_risks": [
+        "No implication for multisite diagrams, variable metrics, arbitrary star centers, or bounded observation windows is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:36:16.760813Z",
+  "axes": {
+    "correctness": {
+      "bounded_reproduction": "Independent enumeration checked parity equivalence and the n! favorable count through n=6 among unrestricted matchings. For every parity-reversing matching through n=9 it checked the exact simple-chord binomial moments and that every non-all-simple failure of the pair relation had a closed-interval witness. There were 105825 such failures at n=9, all witnessed, and exactly two all-simple matchings. Replay: python3 /workspace/branches/8563064b-e351-4ee0-8106-71b69c9fded5/replay.py. These finite checks corroborate counts and witness behavior only at those sizes.",
+      "rationale": "For a chord (a,b), other chords contribute 0, 1 or 2 endpoints strictly between a and b, with 1 exactly for a crossing. Thus all degrees even is exactly opposite endpoint parity, giving a uniform n! permutation space. Each r-edge matching of the cycle forces r prescribed permutation cells, of probability (n−r)!/n!; cycle matching enumeration gives the stated binomial moments even at r=n, when two subsets contribute. The stated moment ratio after scaling by 2^r/r! follows by factor cancellation. For r≤n/2 each product deficit is at most (r−j)/n, and the prefactor is at most 2 with excess at most r/n; for r>n/2 the product bound 0≤A≤2 suffices (A=0 past support). Absolute binomial inversion is summable against 4^r/r!; the r² error weights sum to 20e^4, giving the claimed 30e^4/n. For the witness, an outside chord avoiding a connected component separates the circle into two arcs. Each chord of the component lies entirely to one side, and by crossing connectivity all lie on the same side. Hence the outside chord lies within a single gap of that component, each gap is closed, and an outside connected component occupies just one such gap. Two nonsingleton components give a closed gap and its closed complement each with at least two chords, so take the smaller. If an isolated chord is nonsimple, the two open arcs formed by deleting its endpoints are both nonempty and closed. For n≥4, if the smaller arc contains just one chord, adjoining the two endpoints of the enclosing chord gives a closed interval of two chords; otherwise take the smaller arc itself. This also handles the case of no nonsingleton component and too many nonsimple isolates. At n=2,3 there is no non-all-simple failure of the target pair relation (direct finite check). For any length 2k window, the k-by-k parity-preserving restriction has probability k!(n−k)!/n!, not the unrestricted double-factorial ratio. Union bounding and comparing k≥3 with binomial(n,3) yields O(1/n). The two all-simple cases contribute 2/n!. Outside the exceptional event, taking all chords other than the simple isolates as the unique remainder gives precisely (K,n−L)=(1+S,S), including when that remainder is a singleton. Coupling and the pushforward of the Poisson approximation give the joint TV bound; testing (1,0) gives the connectivity corollary. Frozen code and supporting evidence were inspected as text, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy Theorems 1–2 and Acan Theorem 3.2 give the matching monolith mechanism and Poisson(1) component asymptotics with unrestricted diagrams; Acan's proof already uses an O(n^-1) sum of unrestricted closed-block probabilities.",
+          "Blitvić's noncrossing factorization, including Theorem 3 and the multiplicative-statistic discussion of §2.3, supplies a broad exact framework and weights for connected pieces. Arratia–Goldstein–Gordon §4.5 treats Poisson approximation for a general restricted-position class with an O(log n/n) benchmark bound and points to sharper coupling literature for the marginal."
+        ],
+        "reasoning": "No unrestricted probabilistic bound has sufficiently small failure probability to condition on this exponentially rare event. The exact noncrossing factorization can encode component-size weights, but extracting the joint approximation and rate requires controlling closed blocks or an equivalent asymptotic analysis. The broader permutation hit bounds do not describe the crossing graph.",
+        "searches": [
+          "Literature: random chord connected permutations component distribution parity reversing pairings weighted noncrossing partitions factorial condensation giant component Poisson 2",
+          "Literature: Philippe Flajolet Marc Noy Analytic combinatorics of chord diagrams pdf monolithic theorem component count largest component 2000",
+          "Acan arXiv:1501.01489 §3",
+          "Resultary: sharp total variation constant simple chords uniform chord diagram Poisson 1"
+        ]
+      },
+      "checked_sources": [
+        "Blitvić 2014, DMTCS paper 2443",
+        "Flajolet–Noy, Analytic Combinatorics of Chord Diagrams",
+        "Acan, arXiv:1501.01489",
+        "Li, arXiv:1502.06068v1",
+        "Arratia–Goldstein–Gordon 1990 §4.5",
+        "Barbour–Holst 1989 (abstract and explicit discussion in Arratia–Goldstein–Gordon)",
+        "Resultary sharp unrestricted simple-chord TV record f3c18b7beed6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic witness for nonmonolithic diagrams is prior and can be reused, and classical permutation Poisson theory already approximates S_n. Both should be treated as prior inputs.",
+          "An independent matching on alternating types needs parity-balanced window counts, giving 1/binomial(n,k) at a specified closed window; this controls the simultaneous errors of the component count and largest deficit. That is what allows one Poisson random variable, rather than two unrelated marginals, in the joint conclusion."
+        ],
+        "reasoning": "The new joint law is a focused adaptation of known techniques, not a new basic counting principle. The all-matchings monolith theorem and restricted-position hit approximation cannot be substituted for the needed conditioned monolith estimate; the proof supplies it by recomputing and summing closed-block probabilities in the different measure. The inspected exact enumeration sources do not make that distributional step.",
+        "searches": [
+          "Blitvić Theorem 3, §§2.2–2.3",
+          "Flajolet–Noy Theorems 1–2; Acan proof of Theorem 3.2",
+          "Arratia–Goldstein–Gordon §4.5 Examples 1.2–1.3; Barbour–Holst 1989 (abstract and comparison in §4.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blitvić Definitions 2–3: perfect matchings of an alternating string are parity-reversing pairings, and chord-connected permutations are those with connected crossing diagrams.",
+          "With the usual labeling of opposite-parity sites, S counts hits π(i)∈{i,i+1 mod n}; the alternative zero-based indexing with i−1 is equivalent by relabeling. Arratia–Goldstein–Gordon §4.5 Example 1.2 studies exactly these hits with mean 2. Li §1.2 identifies their zero event as the ordinary ménage permutation property."
+        ],
+        "reasoning": "A Poisson(2) assertion for S alone is mathematically a known permutation problem, not a new circle-graph marginal. The component partition depends on crossings of the chords other than those hits; the statement about its joint count and largest size is strictly additional.",
+        "searches": [
+          "Literature: even random chord diagrams parity reversing permutations random circle graph connected isolated chords Poisson 2 component Touchard connected permutations",
+          "Literature: cyclic permutations number of positions i or i+1 rencontres menage Touchard distribution rook polynomial Poisson mean 2 total variation",
+          "Literature: Barbour Holst Some applications of the Stein-Chen method for proving Poisson convergence 1989 permutations forbidden positions menage total variation 74 90 pdf",
+          "Resultary: random circulant cubic matching parity two-vertex components joint Poisson component isolated"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The connected counts 1,0,1,2,13,74,544,4458 are explicitly printed by Blitvić, so at fixed n connectivity probability is already c_n/n!.",
+          "Touchard's formula in Li (1) is the alternating sum of terms [2n/(2n−r)] binomial(2n−r,r)(n−r)!, exactly n! times the signed binomial moments of S. Thus the entire elementary rook coefficient computation used for the marginal is classical. The A000179 search result identifies the same ordinary ménage exclusion condition; direct OEIS access for the connected sequence was unavailable.",
+          "The distinct indexed sharp TV entry applies to unrestricted simple chords, with Poisson(1), not parity-conditioned component sizes."
+        ],
+        "reasoning": "No exact sequence or marginal transform is being passed as original. The exact connected count divided by n! and the avoidance count divided by n! are different sequences (connectivity implies no simple chord for n≥2, but not conversely). The joint O(1/n) law is neither of these finite tables and needs the probabilistic coupling.",
+        "searches": [
+          "Literature: chord-connected permutations asymptotics n! e^-2 connected parity reversing pairing free cumulants exponential factorial asymptotics",
+          "Literature: cyclic permutations number of positions i or i+1 rencontres menage Touchard distribution rook polynomial Poisson mean 2 total variation",
+          "Resultary: sharp total variation constant simple chords uniform chord diagram Poisson 1",
+          "Blitvić Definitions 2–3 and connected-count list; Li equation (1); OEIS A390400 and A000179 identified by citations/search"
+        ]
+      },
+      "rationale": "Pass is specific to the asymptotic joint component-count/largest-deficit law with the one-giant/simple-isolate estimate in the parity-reversing model. The model, exact connected counts, deterministic closed-block method, and Poisson approximation of the simple-chord marginal all have substantial prior coverage. In particular the latter marginal is classical restricted-position counting in the ménage problem; that overlap is stronger than the unrestricted simple-chord comparison in the frozen record and should be cited explicitly in future presentations. None of these inspected results establishes the required joint conditional component coupling with rate.",
+      "residual_risks": [
+        "An equivalent joint estimate extracted earlier from the exact parity-reversing decomposition may exist. No exhaustive priority claim is made.",
+        "The matching/ménage application of Barbour–Holst was not read in full. The 2024 article Enumeration of Even and Odd Chord Diagrams (DOI 10.1134/S1990478924020042) was considered from its indexed abstract on parity enumeration; its full text was unavailable, so potential overlap in finer statistics was not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of model and connected enumeration, not an established joint quantitative asymptotic in the inspected passages",
+          "evidence": [
+            "Theorems 1 and 3 factor permutations via SIF and chord-connected permutations; the connected count list includes c_2=0 and c_8=4458."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/2443/pdf",
+          "material_read": "Definitions 2–3, exact count list, Theorem 3, §2.2 proof opening and component noncrossing decomposition, and §2.3 multiplicative-statistic remark",
+          "method": "Open publisher PDF, relevant sections",
+          "title": "Stabilized-Interval-Free Permutations and Chord-Connected Permutations",
+          "trigger": "Same parity-reversing model, component decomposition and exact connected counts"
+        },
+        {
+          "assessment": "Same graph observables, different measure and Poisson mean",
+          "evidence": [
+            "In Theorem 2 the largest-component deficit is asymptotically Poisson(1), and the component-count enumeration uses connected diagrams plus isolated edges without an even-degree restriction."
+          ],
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Introduction and main section's monolith definition, proof of Theorem 1 and Theorem 2 statement/proof",
+          "method": "Open author report PDF",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Prior giant-component and Poisson laws for uniform unconditioned chord diagrams"
+        },
+        {
+          "assessment": "Deterministic witness and O(n^-1) argument known for the unrestricted law; does not give the parity-conditioned interval weights",
+          "evidence": [
+            "The proof bounds the expected counts of closed intervals using 2n(2k−1)!!(2n−2k−1)!!/(2n−1)!!, and Lemma 3.3 gives mean 1 rather than 2 in the simple-chord limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+          "material_read": "Introduction and §3 definition, Theorem 3.2 proof and beginning of Lemma 3.3 with the prescribed-chord probability",
+          "method": "Open arXiv PDF sections",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Prior closed-block witness and probabilities of nonmonolithic diagrams"
+        },
+        {
+          "assessment": "Covers the counting coefficients of the simple-chord moment calculation through the same restricted board, not connectivity",
+          "evidence": [
+            "Equation (1) is the inclusion-exclusion sum using precisely the cycle matching coefficients and (n−r)! completions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.06068v1",
+          "material_read": "§1.2 ordinary ménage permutations and §1.3 Touchard formula (1)",
+          "method": "Open arXiv full-text sections",
+          "title": "Ménage Numbers and Ménage Permutations",
+          "trigger": "Exact equivalence of no cyclic simple chords and ménage avoidance; classical coefficient formula"
+        },
+        {
+          "assessment": "Earlier Poisson approximation for the same marginal and credible sharper antecedents; no component analysis in the inspected section",
+          "evidence": [
+            "Example 1.2 explicitly takes F_i={i,i+1 cyclic}, E W=2, and discusses the order 1/n correction at W=0. The broader derivation bounds the approximation for discordant permutations and compares with sharper older couplings."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/pacs-1.pdf",
+          "material_read": "§4.5 statement and comparison of bounds, Examples 1.2–1.3 on the cyclic restricted positions, and setup of the indicator calculation",
+          "method": "Open authors' institutional copy",
+          "title": "Poisson Approximation and the Chen–Stein Method",
+          "trigger": "Same Poisson(2) marginal under the exact conditional-permutation representation"
+        },
+        {
+          "assessment": "Supports known overlap for the marginal; exact full theorem/rate not independently checked here",
+          "evidence": [
+            "The abstract names total variation bounds and applications to matching and ménage. The 1990 survey says its general restricted-position approximation has a worse bound than the earlier couplings."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0001867800017201",
+          "material_read": "Indexed journal abstract and explicit discussion of the restricted-position comparison in Arratia–Goldstein–Gordon §4.5; publisher PDF not independently accessible",
+          "method": "Scholarly search and exact lawful full-text attempt, with comparison through accessible primary survey",
+          "title": "Some applications of the Stein–Chen method for proving Poisson convergence",
+          "trigger": "Plausibly stronger prior approximation for the same ménage hits"
+        },
+        {
+          "assessment": "Sharper marginal estimate in unrestricted model only",
+          "evidence": [
+            "The sample space is all (2n−1)!! matchings and the signed approximation is around Poisson(1), without an even-degree condition or a joint component statistic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-total-variation-constant-for-simple-chords-in-a-uniform-ch--f3c18b7beed6/RESULT.md",
+          "material_read": "Finding and exact sampling assumptions",
+          "method": "Published record via local mirror",
+          "title": "Sharp total-variation constant for simple chords in a uniform chord diagram",
+          "trigger": "Direct indexed quantitative Poisson comparison for simple chords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditioning is canonical and exponentially rare, so it is not a parameter relabeling of the unrestricted model. The worthwhile output is that the global giant-component deficit and the number of other components coincide up to a shift with quantified high probability, and follow one shared Poisson(2) variable. This identifies the structure left after conditioning, rather than just recomputing classical ménage counts or reporting the known mean of adjacent chords.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

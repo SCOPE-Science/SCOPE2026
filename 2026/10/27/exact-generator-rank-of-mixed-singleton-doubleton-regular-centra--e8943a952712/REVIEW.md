@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Commutation with the retraction gives a unique section-and-bit normal form, with independently checked composition. Positive-block permutations and three explicit nonunits generate arbitrary index maps and allowable bits; three exhaustive destination cases prove generation. The lower bound separates two necessary permutation-group generators (except in small degrees) from three inequivalent nonunit types by index bijectivity, survival of all positive-source bits, and first collision. The standalone Python verifier independently constructs and enumerates actual transformations for four small degrees. Residual risk is a subtle factorization or quantifier issue beyond these bounds; the written case proof addresses the general degrees.
+## correctness
 
-**Originality — PASS, best-knowledge with residual historical risk.** The fully inspected 2014 motivating preprint expressly asks for ranks of regular section-preserving transformation monoids. Its established theorem is for the larger partition-preserving monoid, not the present centralizer. A later full-moniod wreath-product relative-rank theorem covers uniform block families, which does not imply the mixed singleton–doubleton rank. Searches of mathematical research records and titles/abstracts of 2004 and 2011 centralizer sources revealed no equivalent assertion, but the entire full texts of those two relevant older papers were inaccessible; a hidden prior specialization remains a real risk. Finding a matching title alone would not establish coverage.
+PASS
 
-**Value — PASS.** This gives an exact rank classification for a natural infinite mixed-block family within the regular centralizers singled out in a published problem, and shows precisely how the singleton creates a new indispensable generator type. The result includes an explicit minimal generating set and a structural three-type lower bound, not just a numerical census.
+The repaired result retains the nonempty-word convention and proves ranks 3,4,5. A map commutes exactly when it sends blocks to blocks and representatives to representatives; mapping a positive block to zero forces its one bit to vanish, and multiplication multiplies the transmitted bits. The specified adjacent transposition and full cycle generate the units for b>=3; at b=1 the identity is included explicitly. Unit conjugates of t,z,c give single zero deletions, selective bit deletions and positive collapses. For an index map moving zero to a>0, the three cases are an existing positive source of a, an existing source of zero, or a positive collision to vacate a block before the swap. These realize every maximal-bit map and bit deletions give the rest. A nonempty unit word can use only units. A word for t requires an index permutation moving zero, and a word for z needs a factor moving zero while restricting to a full-bit positive permutation. These two needed types are distinct even at b=1. For c the first merger must act noninjectively on the entire set of positive indices, while preserving their bits and avoiding zero. It is neither of the other two types.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is minimum semigroup generator size and the necessary nonunit types in this mixed family, particularly the b>=2 cases. The normal form and cardinality do not carry originality. The closest exact object-level statement counts maps by image rank, while the closest known generator-rank theorem for arbitrary partition sizes omits the section constraint. Neither supplies this generator rank.
+
+## value
+
+PASS
+
+One singleton changes the compositional constraints in an otherwise uniform doubleton family. Giving a minimal generating set and proving the need for three different nonunit mechanisms determines an exact natural mixed case of the regular centralizer rank problem. This is useful independently of the elementary counting formula and the b=1 convention correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

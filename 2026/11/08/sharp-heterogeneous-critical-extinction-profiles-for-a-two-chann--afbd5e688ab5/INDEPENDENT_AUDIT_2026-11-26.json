@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:48:53.835580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated deterministic critical ODE, the cube is invariant; at faces with a coordinate equal to 1 its derivative is strictly inward. Each scalar coordinate is a nonnegative input minus a bounded nonnegative multiple of itself. An initially positive coordinate remains positive, and the integrating-factor formula propagates strict positivity along each connected incidence/dyadic path for any positive time, including from environment-only or boundary data. The node effective matrix is irreducible because an incidence two-step gives a positive BBᵀ edge. Direct multiplication gives the stated normalized positive left and right null vectors; L is irreducible Metzler and is also similar to a symmetric matrix (scale the environmental coordinates by √(σ/β_e)), so the orthogonal-to-left-mode part in the spectral splitting decays exponentially. The nonnegative nonlinear loss Q makes a=wᵀz a Lyapunov function; strict positivity at later times excludes nonzero trajectories from the zero-loss invariant set. LaSalle gives global decay. On the cone, z=O(a), so 0≤-a'≤Ca² and a is bounded below by a reciprocal affine function. For late τ≤s, a(τ)≤a(s)exp(Ca(T)(s-τ)); choose T so 2Ca(T) lies below the spectral gap. Variation of constants then gives transverse remainder O(a²), with the earlier convolution exponentially small. The quadratic loss on v has entries γu_i² and (σ²/δ)q_h²; projection against w gives exactly K>0. Thus (1/a)'→K and both coordinate limits follow. The numerator is cubic in Perron coordinates; the amplitude equation is quadratic, not cubic. The frozen example gives W=9/2 and K=5/3 on direct substitution. The package’s numerical checker was inspected, not executed; neither integrations nor the formal verification status are used to prove the universal quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khanafer–Başar–Gharesifard establish global disease-free stability at R₀≤1 for a single-layer SIS ODE.",
+          "Paré et al. give threshold stability for a related infrastructure model, including equality under their hypotheses. Neither cited statement gives the sharp leading coefficient here."
+        ],
+        "reasoning": "A threshold theorem alone supplies neither the decay scale nor the spatial constant. A simple-zero-eigenvalue local reduction is standard but still requires verification of global attraction and exclusion of faster decay for every positive trajectory, as well as evaluation of the two-block quadratic term.",
+        "searches": [
+          "Resultary: general ODE asymptotic stability critical zero eigenvalue; Paré arXiv/title",
+          "arXiv:1407.6076v2 Proposition 3 and arXiv:2109.09493v1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2601.03563v1",
+        "arXiv:1407.6076v2",
+        "arXiv:2109.09493v1",
+        "Resultary c0fb1830567e, 0ec732feed40 and catalogue entry 5b81918ce12a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited local complete-hypergraph theorem addresses strict sides of the threshold; the regular-hypergraph theorem provides local stability below threshold.",
+          "The scalar-node reciprocal-time law and related threshold stability do not imply varying node amplitudes across a general connected graph."
+        ],
+        "reasoning": "At exact criticality one must additionally project the nonlinear loss onto the null mode and control the transverse part. Neither local thresholds nor homogeneous scalar amplitudes give the formula on the reviewed domain.",
+        "searches": [
+          "arXiv:2601.03563v1, p. 6 Eq. (3.1), p. 7 Theorem 3.1 and p. 10 Theorem 3.3",
+          "arXiv:2109.09493v1 Theorem 1",
+          "Resultary 0ec732feed40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nguyen–Porter’s individual-level closure and arctan choice match the underlying equations under the stated specialization, not the new asymptotic.",
+          "0ec732feed40 has explicit reciprocal-time coefficients but only one infection coordinate, with multiple environment coordinates; c0fb1830567e uses a single-layer discrete-time product-hazard map."
+        ],
+        "reasoning": "A scalar homogeneous reduction can reproduce the mechanism but cannot express the vector spatial profile for arbitrary incidence and nonsymmetric initial conditions. A discrete-time product law is not the same ODE or coefficient.",
+        "searches": [
+          "Resultary: Nguyen–Porter title/arXiv and critical epidemic ODE extinction t^-1 Perron eigenvector",
+          "arXiv:2601.03563v1, §2.2 and Eq. (3.1)",
+          "Resultary 0ec732feed40 and c0fb1830567e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives exact leading-coefficient formulas for distinct discrete-time and scalar-node models.",
+          "The motivating theorems state local threshold conclusions for complete or regular homogeneous cases, not a table/formula for the heterogeneous critical coefficient."
+        ],
+        "reasoning": "The profile depends on the arbitrary incidence matrix and is not a finite entry lookup; the plausible equivalent exact formula matches were compared at their model assumptions.",
+        "searches": [
+          "Resultary critical extinction / Perron profile lookup, including c0fb1830567e and 0ec732feed40",
+          "Nguyen–Porter arXiv:2601.03563v1 Theorems 3.1 and 3.3"
+        ]
+      },
+      "rationale": "Credit the closure, critical global stability precedents and generic positive-system/spectral reduction methods. The supported distinct result is the explicit spatial leading coefficient, together with its validity from all nonzero cube states, for the fixed heterogeneous two-block deterministic closure. The closest indexed multichannel ODE has a scalar infection variable and substantially overlaps the mechanism but does not cover arbitrary node-level incidence; same-day dating does not decide priority.",
+      "residual_risks": [
+        "Resultary 5b81918ce12a was found by catalogue summary (directed SIRS and a logarithmic correction), but its exact statement was not retrieved. The summary is not sufficient to decide coverage.",
+        "Equivalent applications of general critical positive-ODE asymptotic theorems may exist; the bounded evidence does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source of the model, not of the all-initial-state critical profile",
+          "evidence": [
+            "arctan contamination law and deterministic approximation",
+            "Local threshold for complete and regular models"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.03563",
+          "material_read": "v1 §2.2 pp. 4–5, Eq. (3.1) p. 6, Theorems 3.1 p. 7 and 3.3 p. 10",
+          "method": "OA primary PDF passages",
+          "title": "A disease-spread model on hypergraphs with distinct droplet and aerosol transmission modes",
+          "trigger": "Original closure and possible prior critical theorem"
+        },
+        {
+          "assessment": "Critical global stability for single-layer system, not quantitative profile",
+          "evidence": [
+            "The zero state is GAS at R₀≤1 on a strongly connected digraph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.6076",
+          "material_read": "v2 Eq. (2) and Proposition 3, p. 5",
+          "method": "OA primary PDF passages",
+          "title": "Stability of Epidemic Models over Directed Graphs: A Positive Systems Approach",
+          "trigger": "Critical global extinction precedent"
+        },
+        {
+          "assessment": "Threshold stability including equality under the cited assumptions",
+          "evidence": [
+            "No time-preconstant conclusion in that theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.09493",
+          "material_read": "v1 Theorem 1, p. 5",
+          "method": "OA primary PDF passage",
+          "title": "Multi-Layer SIS Model with an Infrastructure Network",
+          "trigger": "Closely related environmental model"
+        },
+        {
+          "assessment": "Material analogue in discrete time with a single layer",
+          "evidence": [
+            "Explicit t^-1 Perron profile for a product-hazard map."
+          ],
+          "identifier_or_url": "c0fb1830567e",
+          "material_read": "RESULT.md offsets 0–4921 and 4921–8077",
+          "method": "Local Resultary mirror",
+          "title": "Universal critical decay and a spectral collision coefficient",
+          "trigger": "Indexed all-state Perron critical asymptotic"
+        },
+        {
+          "assessment": "Substantial overlap; a scalar infection coordinate does not generalize the frozen heterogeneous theorem",
+          "evidence": [
+            "Global critical reciprocal-time amplitudes for a scalar infection state coupled to several environmental states, including arctan laws."
+          ],
+          "identifier_or_url": "0ec732feed40",
+          "material_read": "RESULT.md offsets 0–4939 and 4939–8577",
+          "method": "Local Resultary mirror",
+          "title": "Sharp ventilation budget threshold and universal critical decay",
+          "trigger": "Very close multichannel deterministic critical law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At criticality stability alone says nothing about the leading decay or about the relative sizes of the nonzero compartments. This gives a scale-independent explicit asymptotic on the entire nonzero invariant cube, including heterogeneous and boundary initial data, and identifies how the stable directions drop out. It is a mathematical extinction result in a deterministic closure, not a calibrated forecast or a stochastic extinction-time law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

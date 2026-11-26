@@ -1,19 +1,21 @@
-# Review of the spectral-component construction
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The coefficient function belongs to \(H^2\) by a uniform integrable power-singularity bound, so the rank-one perturbation is bounded and square zero. The exterior spectrum follows from an explicit resolvent coefficient. The closed disk survives by the shift's Fredholm index and essential spectrum. A strict derivative sign proves two crossings in every sufficiently late negative-sine lobe, giving the exact logarithmic count. The assertions concern distinct positive real eigenvalues; possible complex outliers are not counted in the asymptotic.
+PASS
 
-## Originality
+In RESULT.md lines 39–105, the bounded logarithm argument gives |h(re^{iθ})|² ≤ cosh²(π/2)|1−re^{iθ}|^(−1/2), with uniformly bounded radial integrals. The coefficient of w is zero and that of w² is −1: K₁ is nonzero, bounded, rank one and kills its own range. Factoring the exterior resolvent gives precisely 1−c h(1/z); the interior index −1 and the circle's non-Fredholmness survive the perturbation. The zero set is discrete and extends across the circle except at 1, with no zeros near w=0, so each exterior eigenvalue is a singleton component. On each negative-sine lobe the log derivative strictly decreases from positive to negative infinity while every fixed interior subinterval eventually lies above level 1. Exactly two crossings follow, their distances to the endpoints tend to zero, and Taylor expansion gives the two displayed shifts. The strict threshold is t<log((1+δ)/δ), so the slope is 2/(2π). These checks are analytic, not a simulation or a formal certificate; the count is of distinct positive real outliers at fixed c, not of complex outliers.
 
-**PASS (with residual bibliographic risk).** Bračič–Kandić's 2026 full text studies quasinilpotent compact shifts, whereas the theorem fixes the unweighted noncompact isometry. Ko–Lee's 2011 full text supplies the rank-one eigenvalue criterion and a one-point exterior example but not this explicit infinite-component logarithmic law. Hansmann's 2026 construction varies the base operator rather than fixing the unilateral shift. Earlier Hardy-space zero-prescription or rank-one spectral theory might implicitly contain the construction, so independent literature confirmation remains desirable. The standard rank-one resolvent criterion is not represented as an original contribution.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The example distinguishes a fixed noncompact shift from the compact quasinilpotent setting of the motivating work and exhibits infinitely many spectral components under a single arbitrarily small nilpotent rank-one perturbation. Beyond existence, the exact real outlier density and endpoint asymptotics identify the spectral mechanism quantitatively; neither follows merely from generic dense spectral-class results.
+The determinant criterion and the general structural phenomenon for compact weighted shifts are prior art. The supported distinct contribution is the explicit noncompact fixed-shift realization on one nilpotent coupling ray with a sharp real boundary count and endpoint shifts. The strongest inspected comparators do not imply that package. This is not a claim of exhaustive priority.
 
-## Source coverage and limitations
+## value
 
-Compared the full accessible primary text of Bračič–Kandić (arXiv:2611.12208), Hansmann (arXiv:2610.33630), and the available full-text transcription of Ko–Lee (2011). The result does not classify nonreal eigenvalues or general perturbation families. Independent external mathematical validation has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed canonical noncompact isometry gains infinitely many components under a single norm-scalable square-zero rank-one direction while retaining its full disk. The exact real boundary rate and per-lobe positions make the example useful beyond generic spectral instability or the already-known compact constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

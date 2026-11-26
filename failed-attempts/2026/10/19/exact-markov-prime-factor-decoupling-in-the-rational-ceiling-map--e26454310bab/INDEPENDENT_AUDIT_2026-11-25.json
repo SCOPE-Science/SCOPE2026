@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:05:45.460833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>1, write the reduced numerator a=mt+c, with c a unit mod m. For next denominator d put g=m/d and t+1=gs; the exact constraint is gcd(s,d)=1. If a is uniform on units mod m^{N+1}, t is uniform mod m^N independently of c. Conditional on d, s is uniform among residues mod m^N/g that are units mod d, so uniform on units mod d^N on reduction. The new numerator P(s)=mg s^2+(c-m)s is a permutation there: P(s)-P(s')=(s-s')[mg(s+s')+c-m], with the bracket a unit at every prime of d. The quotient probability is phi(d)/m, and conditioning on the full past preserves the required numerator uniformity by induction. The singleton modulus and integer absorption at d=1 are immediate. Multiplicativity factors finite path probabilities; consistency defines the process without a uniform measure on all positive integers. At prime p the decrement is min(e,G) with Pr(G>=k)=p^{-k}; summing over sums 0 through e-1 of the first n-1 geometric decrements gives the claimed hitting-time mass (for n=1 it is p^{-e}). The package records VERIFY_OK, but its script was not executed in this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3 sums over next denominators d dividing m. Its map Phi records both the reduced next numerator modulo m^{n-1}d, with denominator d, and the original residue c modulo m.",
+          "The proof inverts (m^2/d)s^2+(c-m)s by solving a unique congruence via Hensel lifting and CRT. The local calculation applies to every target unit modulo d, not just targets with a prescribed future order; the later-order condition merely selects a subset of targets."
+        ],
+        "reasoning": "This is a stronger transition description than the marginal order recurrence by itself. Read on a full representative system mod m^{n+1} as in Proposition 2.2, its inverse gives exact fibers for arbitrary targets.",
+        "searches": [
+          "arXiv:1210.0042v1, Proposition 2.2 and Theorem 2.3 pp. 3–5, PDF text offsets 11980–19318"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1210.0042v1",
+        "Resultary fbd8012ff8d1, 759f9f170175, 55eb9f2dd896"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At precision n=N, fix c and d>1, let g=m/d, and use the paper's variable s=(t+1)/g ranging mod m^{N-1}d. Its inverse congruence permutes this entire modulus and respects unit status mod d. Hence each prescribed reduced next numerator class mod d^N has exactly (m/d)^{N-1} lifts, for every fixed c. The d=1 branch is absorption and the residue count mod m is elementary.",
+          "Dividing the lift count by m^N, then summing over phi(d^N) reduced targets, gives phi(d)/m and uniformity conditional on d. Iterating this same bijection, lowering precision by one at each step, gives the claimed product on arbitrary prefixes, including those not yet absorbed. Euler multiplicativity then factors all prime paths."
+        ],
+        "reasoning": "No new arithmetic or limit argument is needed to pass from the prior proof to the frozen joint law. It is the same inversion and precision, with an order filter dropped and the retained target classes counted rather than summed by order. The theorem's probabilistic wording is new to these inspected passages, but the mathematical assertion is mechanically implied.",
+        "searches": [
+          "arXiv:1210.0042v1, Theorem 2.3 inverse of Phi, pp. 4–5, offsets 14990–19318"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2012 map is exactly chi(x)=x ceil(x); its order is first entrance into the integers, and its residue modulus for order n is M^{n+1}.",
+          "Indexed records fbd8012ff8d1, 759f9f170175 and 55eb9f2dd896 instead analyze T(x)=floor(x)(1+{x}), for entrance minima, survivors, or stopping marginals."
+        ],
+        "reasoning": "The indexed T results are not interchangeable with chi, even when their denominator regimes agree. The publication treats the identical rational dynamics and modular sampling, so its proof, not the different-map index hits, is decisive.",
+        "searches": [
+          "Resultary rational stopping orders, ceiling/floor maps, and prime-power denominator trajectories",
+          "Azevedo, Carvalho and Machiavelo, arXiv:1210.0042v1, PDF p. 1 and Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact whole-path index hit was found; the strongest index neighbors concern T, not chi.",
+          "Corollary 2.4 gives A(n,p^e)=binomial(n+e-2,n-1) phi(p^e)^n, which after division by phi(p^{e(n+1)}) is exactly the frozen prime hitting-time mass."
+        ],
+        "reasoning": "The marginal law is explicitly covered. Not finding an exact joint-law table does not undo the proof-level comparison.",
+        "searches": [
+          "Local Resultary ceiling-map and denominator-path lookup",
+          "arXiv:1210.0042v1 Corollary 2.4, p. 5, offset 19756"
+        ]
+      },
+      "rationale": "The 2012 source does not print a whole-path Markov theorem. Nevertheless its actual Theorem 2.3 proof gives the same single-step congruence bijection at exactly the needed precision. Removing the order filter in that bijection and counting lifts extracts the conditional numerator law and hence the entire displayed result. This is verified proof-level coverage, not a conclusion from a title, an unavailable source, or overlap of the hitting-time marginals alone.",
+      "residual_risks": [
+        "The inspected earlier paper does not explicitly state the extracted Markov or prime-path formulation; the FAIL is for mechanical implication from its proof, not an assertion that those words previously appeared.",
+        "The literature lookup was scoped; no claim is made about other explicit prior formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior proof-level coverage of the path law; explicit prior statement of the marginal count",
+          "evidence": "The proof inverts the next numerator modulo m^{n-1}d given a unit initial residue modulo m. Counting its fibers without the order filter provides the joint conditional transition on the same m^{n+1} sample.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.0042",
+          "material_read": "Definition, Proposition 2.2, Theorem 2.3 including inverse of Phi, Corollary 2.4, and Theorem 3.1 (PDF pp. 1,3–5,7–8; decisive inverse near offset 16992)",
+          "method": "Open primary PDF passages, with direct reinspection of the inverse and the residue convention",
+          "title": "Dynamics of a quasi-quadratic map",
+          "trigger": "Identical map and a cited proof-level bijection at finite precision"
+        },
+        {
+          "assessment": "Different map and different statistic",
+          "evidence": "T(x)=floor(x)(1+{x}), prime-power exact-order-two minima, explicitly not the older ceiling map.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-two-step-entrance-minima-for-prime-power-denominators--fbd8012ff8d1",
+          "material_read": "RESULT.md, map definition and scope",
+          "method": "Local mirror passage",
+          "title": "Sharp two-step entrance minima for prime-power denominators",
+          "trigger": "Closest indexed neighbor by stopping terminology and denominator arithmetic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Markov description is useful exposition, but the frozen contribution as a research finding requires no new transition calculation beyond the cited bijection and standard product-kernel algebra. It supplies neither a new independent arithmetic invariant nor another consequence that closes an identified gap; the prime hitting law itself was already available.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

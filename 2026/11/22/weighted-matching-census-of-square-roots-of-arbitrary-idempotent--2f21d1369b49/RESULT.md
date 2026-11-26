@@ -1,57 +1,62 @@
 # Weighted matching census of square roots of arbitrary idempotent transformations
 
 ## Finding
-For every nonempty finite set \(X\) and every idempotent \(f\in\mathcal T_X\), the number of solutions \(g^2=f\) depends only on the sizes of the fibers of \(f\) and is given by a weighted sum over matchings of those fibers. The same classification yields a rank-refined exponential generating function for every \(g\in\mathcal T_n\) whose square is idempotent.
 
-Let \(S=f(X)=\{s_1,\ldots,s_r\}\), and write \(a_i=|f^{-1}(s_i)|\). Set
+For every nonempty finite labeled set \(X\) and every idempotent \(f\in\mathcal T_X\), the number of solutions to \(g^2=f\) is a weighted matching sum determined by the sizes of the fibers of \(f\). Fixed fibers and exchanged pairs of fibers have different weights.
+
+Let \(S=f(X)=\{s_1,\ldots,s_r\}\) and let \(a_i=|f^{-1}(s_i)|\). Define
 \[
-F(a)=\sum_{u=0}^{a-1}\binom{a-1}{u}u^{a-1-u},\qquad
-V(a,b)=\sum_{u=0}^{a-1}\sum_{v=0}^{b-1}\binom{a-1}{u}\binom{b-1}{v}v^{a-1-u}u^{b-1-v}.
+F(a)=\sum_{j=0}^{a-1}\binom{a-1}{j}j^{a-1-j},\qquad
+V(a,b)=\sum_{j=0}^{a-1}\sum_{k=0}^{b-1}\binom{a-1}{j}\binom{b-1}{k} k^{a-1-j}j^{b-1-k}.
 \]
-Then, writing \(\operatorname{Cyc}_2(\pi)\) for the unordered pairs in the two-cycles of the permutation \(\pi\),
+Then
 \[
-N(f):=\#\{g\in\mathcal T_X:g^2=f\}=
+\#\{g\in\mathcal T_X:g^2=f\}=
 \sum_{\substack{\pi\in S_r\\\pi^2=1}}
 \prod_{\pi(i)=i}F(a_i)
-\prod_{\{i,j\}\in\operatorname{Cyc}_2(\pi)}V(a_i,a_j).
+\prod_{\{i,j\}\in\operatorname{Cyc}_2(\pi)}V(a_i,a_j),
 \]
-The product over an empty index set equals one.
+where \(\operatorname{Cyc}_2(\pi)\) is the set of unordered pairs in the two-cycles of \(\pi\).
 
-For \(P_n(u)=\sum_{g\in\mathcal T_n,\ g^4=g^2}u^{|\operatorname{im}g^2|}\), with \(P_0(u)=1\), the companion rank identity is
+For comparison with the enumeration of all maps whose square is idempotent, let \(P_n(u)=\sum_{g\in\mathcal T_n,\,g^4=g^2}u^{|\operatorname{im}g^2|}\), with \(P_0(u)=1\). Marking the cycle vertices in the known bounded-height functional-digraph enumeration gives the companion identity
 \[
-\sum_{n\ge0}P_n(u)\frac{z^n}{n!}=
-\exp\left(uR(z)+\frac{u^2}{2}R(z)^2\right),\quad R(z)=z\exp(ze^z).
+\sum_{n\ge0}P_n(u)\frac{z^n}{n!}=\exp\left(uR(z)+\frac{u^2R(z)^2}{2}\right),\qquad R(z)=z\exp(ze^z).
 \]
+This is a direct rank marking of the cycle construction underlying OEIS A060908, which gives \(P_n(1)\). The marked series is included for comparison and is not asserted as a separate originality claim.
 
 ## Assumptions and scope
-\(\mathcal T_X\) is the monoid of all total self-maps of a **finite labeled set**, with composition \((hg)(x)=h(g(x))\). We assume \(f^2=f\), so every \(s_i\in S\) is fixed by \(f\), and all \(a_i\ge1\). In every power sum, including at zero, \(0^0=1\) means the unique empty assignment. The weighted matching formula holds at every finite size and includes the rank-one constant and full-rank identity boundary cases. The generating series are formal exponential generating functions; no convergence hypothesis is required. For \(n=0\), only the generating-function convention is used.
+
+\(\mathcal T_X\) is the monoid of all total self-maps of a finite labeled set, with composition \((hg)(x)=h(g(x))\); \(\mathcal T_n=\mathcal T_{\{1,\ldots,n\}}\). The target is idempotent, so all members of \(S\) are fixed by \(f\), and every \(a_i\ge1\). The convention \(0^0=1\) represents the unique empty assignment, and empty products are one. The series are formal exponential generating functions; \(n=0\) is used only in the series convention.
 
 ## Proof
-**1. The roots induce an involution of the fixed-point set.** If \(g^2=f\), then \(gf=g^3=fg\). For any \(s\in S\), \(f(s)=s\), hence \(f(g(s))=g(s)\); so \(g(S)\subseteq S\). The restriction \(\pi=g|_S\) satisfies \(\pi^2=\mathrm{id}_S\), and is therefore an involutive permutation. Moreover, for every \(x\in f^{-1}(s_i)\),
-\[
-f(g(x))=g(f(x))=g(s_i)=s_{\pi(i)},
-\]
-so \(g\) sends the \(i\)-th fiber into the fiber indexed by \(\pi(i)\). Distinct cycles of \(\pi\) cannot interact.
 
-**2. Fixed fibers.** When \(\pi(i)=i\), the distinguished point \(s_i\) is fixed by \(g\). Let \(A_i\) be the subset of the \(a_i-1\) other points sent directly to \(s_i\), and let \(u=|A_i|\). Every remaining point must map to some member of \(A_i\), because its second iterate must be \(s_i\), and mapping directly to \(s_i\) would put it in \(A_i\). Conversely, every such assignment has second iterate constantly equal to \(s_i\) on this fiber. Hence there are exactly \(\binom{a_i-1}{u}u^{a_i-1-u}\) assignments at fixed \(u\); summation gives \(F(a_i)\).
+**1. Restriction to the image.** If \(g^2=f\), then \(gf=g^3=fg\). For any \(s\in S\), \(f(g(s))=g(s)\), so \(g(S)\subseteq S\). The restriction of \(g\) to \(S\) squares to the identity and is therefore an involutive permutation \(\pi\) of the distinguished points, with \(g(s_i)=s_{\pi(i)}\). For every \(x\in f^{-1}(s_i)\), \(f(g(x))=g(f(x))=s_{\pi(i)}\). Thus \(g\) sends the \(i\)-th fiber into the \(\pi(i)\)-th fiber. Distinct cycles of \(\pi\) cannot interact.
 
-**3. Exchanged fibers.** When \(\pi(i)=j\) and \(\pi(j)=i\), one has \(g(s_i)=s_j\) and \(g(s_j)=s_i\). Select \(A_i\subseteq f^{-1}(s_i)\setminus\{s_i\}\) of size \(u\) to map directly to \(s_j\), and \(A_j\subseteq f^{-1}(s_j)\setminus\{s_j\}\) of size \(v\) to map directly to \(s_i\). Each other point in the \(i\)-fiber must go to one of the \(v\) points of \(A_j\), while each other point in the \(j\)-fiber must go to one of the \(u\) points of \(A_i\). These conditions are both necessary and sufficient for \(g^2=f\) on the paired fibers. Their product count is \(\binom{a_i-1}{u}\binom{a_j-1}{v}v^{a_i-1-u}u^{a_j-1-v}\), giving \(V(a_i,a_j)\) on summation.
+**2. Fixed fibers.** Suppose \(\pi(i)=i\). Let \(A_i\) be the subset of the \(a_i-1\) nondistinguished points mapped directly to \(s_i\) by \(g\). If \(|A_i|=j\), each of the remaining \(a_i-1-j\) points must map into \(A_i\): its second image must be \(s_i\), but mapping directly to \(s_i\) would put the point in \(A_i\). Conversely every such assignment gives the prescribed square on the fiber. Choosing \(A_i\) and making these assignments gives \(\binom{a_i-1}j j^{a_i-1-j}\) possibilities. Summing over \(j\) gives \(F(a_i)\).
 
-**4. No overcounting and completeness.** Each root \(g\) has the unique restriction \(\pi=g|_S\); the directly-to-root subsets \(A_i\) are uniquely recovered from \(g\); and the images of other points are exactly the assignments counted in steps 2 and 3. Conversely every combination described there defines a total map with square \(f\). Multiplying over independent fixed points and two-cycles and summing over involutions proves the exact fiber formula.
+**3. Exchanged fibers.** Suppose \(\pi(i)=j\) and \(\pi(j)=i\). The roots satisfy \(g(s_i)=s_j\), \(g(s_j)=s_i\). Choose \(A_i\) of size \(p\) from the nondistinguished points of the \(i\)-fiber to map directly to \(s_j\), and \(A_j\) of size \(q\) from those of the \(j\)-fiber to map directly to \(s_i\). Each remaining point of the \(i\)-fiber must map into \(A_j\), and each remaining point of the \(j\)-fiber into \(A_i\). These conditions are sufficient as well as necessary for \(g^2=f\) on the two fibers. At fixed \(p,q\) the count is \(\binom{a_i-1}p\binom{a_j-1}q q^{a_i-1-p}p^{a_j-1-q}\), giving \(V(a_i,a_j)\) on summation.
 
-**5. Rank-refined identity.** The condition \(g^4=g^2\) is equivalent to \(g^2\) being idempotent. A finite functional digraph has this property precisely when every component has a directed cycle of length one or two, and each attached in-tree has height at most two, measured from its cycle vertex. A labeled rooted tree of height at most two is a root carrying an unordered set of children, each carrying an unordered set of leaves; its exponential generating function is \(R(z)=z\exp(ze^z)\). A one-cycle component has weight \(uR(z)\), while a two-cycle component has weight \(u^2R(z)^2/2\): each cycle vertex is fixed by \(g^2\), and the divisor two removes interchange of the two roots. Components form an unordered set, so the labeled exponential formula proves the stated identity. This also identifies \(|\operatorname{im}g^2|\) with the number of cycle vertices.
+**4. Completeness.** The restriction \(\pi\), the subsets \(A_i\), and the remaining images are uniquely recovered from \(g\). Conversely the choices just described define a total map with square \(f\). Multiplying over the cycles and summing over the involutions proves the matching formula.
+
+**5. Rank marking of the global enumeration.** In a finite functional digraph, \(g^4=g^2\) means that each vertex reaches a point fixed by \(g^2\) after at most two steps. Equivalently, cycles have length one or two, and attached in-trees have height at most two. Every cycle vertex is in \(\operatorname{im}g^2\), and these are all the vertices in the image. A labeled rooted tree of height at most two is a root with an unordered set of children, each with an unordered set of leaves, giving \(R(z)=z\exp(ze^z)\). Each cycle vertex contributes a factor of \(u\): a one-cycle component contributes \(uR(z)\), and a two-cycle component contributes \((uR(z))^2/2\). Taking an unordered set of components gives the stated series, with the unmarked series precisely that of A060908.
 
 ## Verification
-The standalone program `verify_roots.py` requires only Python's standard library. It independently enumerates every self-map in \(\mathcal T_n\) for \(1\le n\le7\), computes its square and checks whether that square is idempotent, then groups all roots by that actual square and checks the weighted matching formula against every idempotent. The program separately computes the exact formal-series coefficients from \(R(z)\) by rational series arithmetic, and verifies each rank-weighted total at \(u=1,2,3\) against the exhaustive maps. This confirms totals \(1,4,25,194,1791,19312,237637\) for \(n=1,\ldots,7\) and generates the next formal coefficient \(3280524\) at \(n=8\). These finite tests support but do not replace the proof for all \(n\).
+
+The standalone Python standard-library program `verify_roots.py` enumerates every self-map for \(1\le n\le7\), computes its square and checks whether the square is idempotent. It groups the roots by the actual square and checks the matching formula over every idempotent. It also checks the rank-weighted totals at \(u=1,2,3\) by exact rational series arithmetic. The unmarked total counts for \(n=1,\ldots,7\) are \(1,4,25,194,1791,19312,237637\), with the next formal coefficient \(3280524\). These finite checks are ancillary to the bijective proof.
 
 ## Relationship to prior work
-Kozyra (2018) studies finite functional square roots and explicitly counts the **constant-map** and **identity-map** special cases in Propositions 17 and 14, respectively; those cases are credited and are recovered at \(r=1\) and \(r=n\). The novel assessed statement is the single profile-sensitive formula for *every* idempotent, including all unequal fiber sizes and the \(V(a,b)\) interaction for swapped roots, together with the joint rank generating function for idempotent squares. Kozyra (2021) gives structural existence criteria for square roots on finite functional digraphs, and Bhat–Gopalakrishna (2022), Section 2, emphasizes existence and obstruction for general maps. Neither the accessed relevant text of the 2018 and 2022 works nor the available abstract of the 2021 work supplied this arbitrary-idempotent enumeration. Sarkar–Singh (2023) provides recent context for partition-structured full transformation semigroups, but no square-root formula is asserted there.
+
+Kozyra (2018, Propositions 14 and 17) counts the identity-map and constant-map cases, respectively. The identity has only singleton fibers, for which \(F(1)=V(1,1)=1\), so the count is precisely the ordinary number of involutions. The constant map has one fiber, giving \(F(|X|)\). The contribution assessed here is the explicit profile-sensitive enumeration for every idempotent, including arbitrary unequal fiber sizes and the interaction \(V(a,b)\) for exchanged fibers. General finite half-iterate algorithms, graph-based existence criteria, and fiber-size obstructions address related questions. The accessible results of Kozyra (2018) and Bhat–Gopalakrishna (2022 online) compared here do not provide this fixed-target profile formula; the body of Kozyra (2021) was not available for full comparison.
+
+The unmarked global sequence and its exponential generating function are already tabulated in OEIS A060908, which cites Goulden–Jackson (1983). Its general cycle construction uses the component terms \(T_k^d/d\) for cycle lengths \(d\mid m\), with bounded-height tree series \(T_k\); for \(k=m=2\) those terms are \(R(z)\) and \(R(z)^2/2\). Multiplying each \(d\)-cycle term by \(u^d\) gives the companion rank series above. Neither the unmarked enumeration nor this direct marking is part of the originality claim for the weighted matching formula.
 
 ## Limitations
-The result concerns **only idempotent target maps** \(f\) in a finite *full* transformation monoid. It does not enumerate square roots of arbitrary non-idempotent maps, nor does it resolve global extremal questions about which arbitrary map has most roots. The rank-generating function counts transformations \(g\) with idempotent squares, not the distinct idempotents \(g^2\). The 2021 structural paper was available only as an official abstract in the present comparison, so an unknown earlier specialization remains a priority risk. No independent mathematical validation is claimed.
+
+The result concerns idempotent target maps in finite full transformation monoids, not non-idempotent targets or extremal root counts. The global rank series counts maps \(g\) whose squares are idempotent; it does not count distinct squares. Wider historical priority for the arbitrary-idempotent matching formula is not certified.
 
 ## References
-1. P. M. Kozyra, *On Half Iterates of Functions Defined on Finite Sets*, Computational Methods in Science and Technology 24(3) (2018), 187–209, DOI:10.12921/cmst.2018.0000027, published online 2018-09-30. Propositions 14 and 17.
-2. P. M. Kozyra, *The Structure Of Functional Graphs For Functions From A Finite Domain To Itself For Which A Half Iterate Exists*, Theory and Applications of Graphs 8(1) (2021), DOI:10.20429/tag.2021.080108.
-3. B. V. Rajarama Bhat and C. Gopalakrishna, *Iterative square roots of functions*, Ergodic Theory and Dynamical Systems 43 (2023), 2201–2227, DOI:10.1017/etds.2022.35, online 2022-05-24.
-4. M. Sarkar and S. N. Singh, *Semigroups of transformations whose characters belong to a given semigroup*, arXiv:2310.19414, first submitted 2023-10-30.
+
+1. P. M. Kozyra, *On Half Iterates of Functions Defined on Finite Sets*, Computational Methods in Science and Technology 24(3) (2018), 187–209, DOI:10.12921/cmst.2018.0000027. Propositions 14 and 17.
+2. P. M. Kozyra, *The Structure of Functional Graphs for Functions from a Finite Domain to Itself for Which a Half Iterate Exists*, Theory and Applications of Graphs 8(1) (2021), DOI:10.20429/tag.2021.080108.
+3. B. V. Rajarama Bhat and C. Gopalakrishna, *Iterative square roots of functions*, Ergodic Theory and Dynamical Systems 43 (2023), 2201–2227, DOI:10.1017/etds.2022.35.
+4. OEIS A060908, https://oeis.org/A060908, COMMENTS and FORMULA; the entry cites I. P. Goulden and D. M. Jackson, *Combinatorial Enumeration*, Wiley, 1983.

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:07:59.805308Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–80",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt (inspected, not executed)"
+      ],
+      "rationale": "Gaussian conditioning followed by whitening gives a quadratic form in two independent standard normals plus a constant. Wick's identity gives the claimed explained variance and the dimensionless change of variable contributes exactly lambda^(-2). An independent way to check the margin identity is to start from the whole-line whitened Gram matrix and subtract the two tails. These are z/2 and v/2 times rank-one projections onto K^(1/2)e_1 and K^(1/2)e_2, respectively. The vectors have norm one, inner product r, and whole-line Gram quadratic form one in both directions. Squaring and taking the trace gives the stated margin penalty; at fixed gap only U=z+v matters and minimizing it strictly favors equal margins. In the centered eigenbasis the collision score is (1-exp(-L))^2 with the same strictly positive right derivative; at the endpoint both eigenvalue derivatives are strictly negative (the weaker sign uses sinh L>L) and both eigenvalues are positive. Thus every optimum is strictly interior. For the limiting log-concavity certificate the hyperbolic numerator reduces to (cosh(4d)-1)/8+2d sinh(2d)-d^2 cosh(2d)-2(cosh(2d)-1); its Taylor expansion gives the displayed coefficients, starting positive at n=2 with strictly increasing bracket. The positive excess above 2 therefore has strictly concave log and tends to zero at either end of its positive interval. A fixed competitor with limiting score above 2 rules out subsequences of finite-horizon maximizing gaps tending to zero or infinity; along any remaining convergent subsequence the boundary correction vanishes. The limiting maximizer is unique, not claimed unique at finite L. Independent bisection of 1/d+h'(d)/h(d)-2/(1-exp(-2d)) on [2.4,2.8] gives 2.5549289500952668 and limiting score 2.0181855560856614 in double precision. This corroborates, but does not certify all digits of, the quoted decimal.",
+      "residual_risks": [
+        "The numerical replay is double precision only; the existence, uniqueness and convergence statements are analytical. The result is for two distinct, nonadaptive noiseless point observations of a stationary Gaussian OU process."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sikolya–Baran optimize trajectory IMSPE and entropy. Grebenkov optimizes quadratic-form weights for already observed trajectories under a mean constraint."
+        ],
+        "reasoning": "Neither result is a design theorem on conditional prediction of the integrated square from freely located exact samples.",
+        "searches": [
+          "arXiv:1808.03444v1, OU trajectory design",
+          "arXiv:1307.0185v1, Gaussian quadratic form optimization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification support",
+        "arXiv:1808.03444v1 and arXiv:1307.0185v1",
+        "Resultary 5b6200720fdd, 24c538a32a15, 7c5064a2bb85, 4293b65a498d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-start OU result assumes one noisy measurement and locates an optimum after the midpoint. The noisy stationary OU result minimizes integrated posterior pointwise variance, an explained-covariance trace rather than a trace-square."
+        ],
+        "reasoning": "Removing noise cannot turn trajectory IMSPE into the energy criterion; rank-two trace and trace-square orderings are not equivalent in general. The finite-horizon centering argument and the unique limiting maximizer need the distinct exponential-kernel calculation.",
+        "searches": [
+          "Resultary zero-start OU one-sensor quadratic energy and noisy stationary OU two-sensor IMSPE",
+          "Sikolya–Baran, arXiv:1808.03444v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two exact Brownian-bridge observations give symmetric energy sampling in the Resultary bridge record; the Brownian-motion analogue uses an asymmetric polynomial design. The same risk formulation does not transfer the optimizing locations between covariance kernels."
+        ],
+        "reasoning": "The equivalent trace-square formulation is not a trajectory IMSPE, a linear integral, or a change of units from the pinned or free Brownian models.",
+        "searches": [
+          "Resultary: stationary Ornstein–Uhlenbeck quadratic energy, two exact observations, optimal gap",
+          "Primary literature: stationary Gaussian quadratic path energy sampling and conditional variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same frozen result was indexed and excluded as self-matching. Distinct records on the Brownian-bridge pair, zero-start OU one-sensor optimum and noisy stationary-OU trajectory design were compared at their Finding passages; none gives the same stationary quadratic-energy design or separation invariant."
+        ],
+        "reasoning": "The database search checked the mathematical setting of exact nearby designs, not just the decimal or title.",
+        "searches": [
+          "Resultary: two-time quadratic-energy optimal locations and stationary OU separation"
+        ]
+      },
+      "rationale": "Best of current knowledge: the distinct result is exact centering/interiority and the limiting separation for the stationary exponential kernel and the integrated-square conditional-variance objective. The Gaussian quadratic-form identity and related designs in other sampling models are not novel parts of the claim.",
+      "residual_risks": [
+        "The primary search and inspected passages are not an exhaustive priority check; an older equivalent second-chaos design under different terminology could be missed.",
+        "No ordering is inferred among distinct catalogue records dated the same day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different optimization target",
+          "evidence": [
+            "Trajectory prediction with integrated mean-square prediction error and entropy criteria."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.03444",
+          "material_read": "p. 1, offsets 0–3991",
+          "method": "OA primary PDF passage",
+          "title": "On the optimal designs for the prediction of complex Ornstein–Uhlenbeck processes",
+          "trigger": "Same OU design setting"
+        },
+        {
+          "assessment": "Different design variables and objective",
+          "evidence": [
+            "Quadratic-form selection for sampled trajectories, under a fixed-mean constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.0185",
+          "material_read": "p. 1, offsets 644–3108",
+          "method": "OA primary PDF passage",
+          "title": "Optimal and sub-optimal quadratic forms for non-centered Gaussian processes",
+          "trigger": "Quadratic Gaussian criteria and possible general coverage"
+        },
+        {
+          "assessment": "Same loss and sampling budget, different kernel",
+          "evidence": [
+            "Pinned Brownian bridge; exact conditional-mean risk and symmetric pair."
+          ],
+          "identifier_or_url": "Resultary 5b6200720fdd",
+          "material_read": "RESULT.md, offsets 0–3942",
+          "method": "Published mirror passage",
+          "title": "Globally optimal two-point observation of Brownian bridge quadratic energy",
+          "trigger": "Two exact samples for the same type of energy"
+        },
+        {
+          "assessment": "Different nonstationary covariance",
+          "evidence": [
+            "Standard Brownian motion gives an asymmetric polynomial design."
+          ],
+          "identifier_or_url": "Resultary 24c538a32a15",
+          "material_read": "RESULT.md, offsets 0–2576",
+          "method": "Published mirror passage",
+          "title": "Unique two-time observation design for Brownian quadratic path energy",
+          "trigger": "Two exact samples for the same type of energy"
+        },
+        {
+          "assessment": "Zero start and one noisy sensor",
+          "evidence": [
+            "Unique optimum strictly after midpoint for that model."
+          ],
+          "identifier_or_url": "Resultary 7c5064a2bb85",
+          "material_read": "RESULT.md, offsets 0–2750",
+          "method": "Published mirror passage",
+          "title": "Unique noise-calibrated sensing time for Ornstein–Uhlenbeck quadratic energy",
+          "trigger": "Same OU energy functional"
+        },
+        {
+          "assessment": "Noisy trajectory prediction, not energy estimation",
+          "evidence": [
+            "Minimizes integrated pointwise posterior variance."
+          ],
+          "identifier_or_url": "Resultary 4293b65a498d",
+          "material_read": "RESULT.md, offsets 0–2566",
+          "method": "Published mirror passage",
+          "title": "Strict interior two-sensor design and a high-noise separation law",
+          "trigger": "Same stationary OU observation geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof"
+      ],
+      "rationale": "The nonlinear integrated energy is a natural measurement target. A global reduction from unconstrained two-site placement to one scalar gap is useful independently of the long-horizon theorem; the latter shows that optimal sites keep a finite separation in correlation-length units even on arbitrarily long intervals, and quantifies the absolute risk reduction.",
+      "residual_risks": [
+        "No generalization to finite-horizon uniqueness, noisy measurements or more than two sites has been established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof has explicit domain, global-period normalization, four mutually exclusive residue classes, and a matrix lifting lemma for ternary valuations. The Cayley–Hamilton factorizations determine the first nonvanishing ternary layer, and direct residue counting proves all six multiplicity formulas. The resulting counts partition all \(3^{2e}\) parameter pairs. An exhaustive independent small-modulus enumeration in `verify.py` agrees for every pair at exponents \(e=1,2,3,4\). These finite checks only corroborate the infinite proof; they do not replace it.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-The closest directly matching primary text is Chen–Wong–Liao–Xiang (2014), Definition 1 and Section 5. It explicitly leaves \(3^e\), \(e>1\), as future work. Their 2012 prime-power abstract covers primes strictly greater than three; their 2013 sequel covers powers of two. The 2014 prime case does not imply depth-dependent multiplicities over \(3^e\). Nance (arXiv:1111.2984v1) only studies the fixed classical matrix. Bao–Yang (2012) supplies some individual-period formulae, but a complete \(3^e\) parameter census was not verified in its abstract; inaccessible full text leaves a specific priority risk. Targeted published-record and literature searches found no equivalent claim. No historical uniqueness is asserted.
+PASS
 
-## Mathematical value — PASS
-The claim answers a specifically formulated open prime-power case in a well-studied finite dynamical family, not a private artificially sliced invariant. It supplies a closed-form classification for every exponent and a nonobvious scale-invariant proportion \(4/27\) of maximal-period shuffles. This matters directly to the distribution of finite-state periods and to distinguishing short-period parameter choices.
+The global period is the order of the matrix, not a single point's orbit length. For x=pq, Cayley–Hamilton gives A^2=(2+x)A−I; reduction mod 3 is respectively identity, nonidentity unipotent, a matrix squaring to −I, or the negative of a nonidentity unipotent, yielding exact base orders 1,3,4,6. Direct substitution gives A^3−I=(x+3)((x+1)A−I), A^4−I=(x+2)A(A^2−I), and A^3+I=(x+1)((x+3)A−I). Unit off-diagonal entries and, when used, invertible factors modulo 3 ensure exact rather than lower-bound depth. For r=1 the off-diagonals already exhibit the minimum. If A^r=I+3^s C with a unit entry in C and s<e, cubing increases the minimum valuation exactly by one and powers prime to three preserve it; depth e needs no lifting. For r=1 subtract consecutive squares of residue-subgroup cardinalities. In the other cases each product has 2φ(3^e) ordered factorizations with exactly one unit or φ(3^e) with both units. The valuation shells around −3, −2, −1 have 2·3^(e−s−1) residues for s<e and one at s=e. This gives the joint counts, including merged periods from r=1 and 3. The maximum 6·3^(e−1) is unique to (r,s)=(6,1); there are two maximizing pairs at e=1 and 4·3^(2e−3) otherwise. Independent direct multiplication, not the uploaded verifier, matched all pairs at e=1 and 2; for e=2 the observed histogram was 1:1, 3:20, 4:6, 6:6, 9:24, 12:12, 18:12.
 
-## Scope and unresolved checks
-The theorem concerns global periods of the matrix family, not individual state orbit counts. One relevant earlier Springer article and the 2012 IEEE article were only available as abstracts; full-text historical priority therefore remains unconfirmed. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact joint census in the specified two-parameter slice over 3^e, including scalar reductions and the maximal-period fraction, not the order-lifting mechanism. The closest older preprint yields closely related ambient transitions; its count alone does not specialize to counts in this slice. Access limits for two precise family references remain explicit.
+
+## value
+
+PASS
+
+The full parameter sample is the same natural two-parameter cat-map family studied for period distributions, and the base prime 3 is outside the stated p>3 prime-power result. The distinction between ambient lifts and restricted parameters matters in counting how often the longest global return actually occurs. The exact valuation rule and census account for period collisions and give a uniform quantitative selection statistic beyond individual period or lifting recipes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

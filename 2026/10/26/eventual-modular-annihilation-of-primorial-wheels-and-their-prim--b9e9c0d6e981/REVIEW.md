@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the exact reduced-residue lift-and-delete polynomial identity, a prime congruent to \(1\pmod{mr}\) (Dirichlet), and persistence of annihilation under later prime insertions. The endpoint replacement in the binary encoding gives the odd-modulus formula. At modulus \(17\), the admissible prime \(137\) gives a constructive stage bound and infinitely many primes congruent to \(3\pmod4\) give the two different residues repeatedly. Exact finite checks replay successfully from the included standalone script. They do not establish the infinite theorem by enumeration.
+## correctness
 
-## Originality — PASS
-The originating Shunia–Prunescu paper proves the binary wheel encoding and prime and gap outputs, but not coefficientwise congruence annihilation for all residue moduli or unnormalized state congruences for all odd integers. Holt and Rudd study primorial wheel gaps and constellation counts rather than this full-vector modular property. Searches for modular wheels, polynomial equivalences, and the recurrence's odd-modulus residues in scholarly literature and indexed research records disclosed no implication that covers the final theorem. The comparison is substantive but not proof of priority; an unindexed general result is the principal residual risk.
+PASS
 
-## Mathematical value — PASS
-The result gives a uniform arithmetic invariant for an entire family of primorial sieve objects and turns an extremely large prime-generating integer state into a simple exact residue modulo every fixed odd number. The modulus-\(17\) phenomenon distinguishes eventual two-valued behavior from convergence and shows the result conveys more than the familiar totient count. The mechanism is structural cancellation after inserting a prime in an arithmetic progression, not a numerical fit.
+For an old primorial L and new prime q, lift each old unit by a+tL for 0≤t<q. The discarded lifts are exactly qb with b an old unit, since q is coprime to L. This gives U_(Lq)(X)=U_L(X)Σ_t X^(tL)−U_L(X^q). If q≡1 (mod mr), the noninitial summands split in the quotient ring into (q−1)/r identical blocks of r summands, and m divides the number of blocks. The initial summand is 1 and X^q=X, so the two terms cancel, regardless of gcd(r,L). The substitution X↦X^s preserves the quotient ideal even when gcd(s,r)>1, propagating the zero to later stages. Dirichlet applies to the reduced class 1; m=1 is trivial, and q≥3 when m>1, so a nonempty preceding primorial is available. For odd m the order of 2 allows an evaluation homomorphism; the confirmed binary invariant removes 2 and adds 2^(P_k+1). Modulo 17 the order is 8, 137 is the 33rd prime, and multiplication of P_k by any odd prime congruent to 3 modulo 4 toggles P_k modulo 8 between 2 and 6. Infinitely many toggles give both stated state residues infinitely often. The independent replay compared direct and inclusion-exclusion count vectors in 96 bounded cases, and checked p_33 and the two endpoint expressions 7 and 6 after 137 and 139. These corroborate, but do not replace, the proof.
 
-## Limits and related literature
-No sharp general earliest-stage bound is claimed, nor a statement about even moduli, and no independent priority examination has occurred. References [1] Shunia and Prunescu, arXiv:2610.13365v1, and [2] Holt and Rudd, arXiv:1312.7569, are the closest inspected primary literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier state encoding and the general primorial-wheel setup are established work. The inspected recurrence paper's modular criterion describes a normalized state and detects a prime gap; it does not give the unnormalized eventual odd-modulus residues. The wheel-gap recurrence tracks a different statistic. The supported distinct result is full coordinatewise annihilation, including incompatible-length cases r not dividing P_k, with persistence and its odd-state application. This is a best-of-knowledge comparison, not a priority certification.
+
+## value
+
+PASS
+
+The theorem supplies an exact invariant of all sampled residue coordinates of a natural sieve object, not just Euler's totient or the CRT-divisor case. It gives a simple residue law for otherwise enormous prime-generating states without computing the state itself, and an explicit fixed odd modulus where eventual support of size two does not mean stabilization. This is a modest but useful arithmetic application of the wheel transition, with no claim to a sharp least threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

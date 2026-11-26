@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:10:06.356960Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–46, including the telescoping polynomial; independently checked by binary coordinates and interval counting",
+        "Frozen VERIFICATION.md, line 19; verify_sector_multiplicities.py, lines 3–28, inspected, not executed"
+      ],
+      "rationale": "Write each shifted local digit as a_j+2b_j with a_j,b_j binary. By uniqueness of binary expansion the two strings give independent integers A,B in [0,N-1] with N=2^L and shifted charge r=A+2B. Its count is the number of integers B between max(0,ceil((r-N+1)/2)) and min(N-1,floor(r/2)). Evaluating the endpoints gives the rising, plateau and falling ranges as stated, including the empty outer ranges at L=1. Reflection (A,B)->(N-1-A,N-1-B) yields d(r)=d(3(N-1)-r); summing gives N^2=4^L. The shift is 3(N-1)/2, a half-odd-integer for every L>=1. All displayed multiplicities in support are positive; no charge is zero. The count is for microscopic sectors, not energy degeneracies.",
+      "residual_risks": [
+        "The source's finite convolution script is supplementary. Correctness above does not depend on a computational run or on any claim about energy levels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary exponential-symmetry paper defines the charge for general q,S and treats the same pysical spin and base. It discusses open-chain spectrum and irreducible representations rather than sector dimensions.",
+          "The integer-spin q-VBS paper uses a real quantum-group deformation, not the exponential weighting of charges."
+        ],
+        "reasoning": "Neither a degeneracy result for low-energy states nor a classification of symmetry irreducibles fixes the microscopic multiplicities. The sufficient broader input here is the exact known charge operator on the full on-site tensor product, not a presumed unopened spectrum table or an unrelated q-deformed model.",
+        "searches": [
+          "ArXiv:2610.10682v2, Eq. (1), q=2/S=3/2 example and supplemental §I A; arXiv:1009.4018v3, model definition",
+          "Bounded search for a general weighted binary-digit, convolution or box-spline count"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv:2610.10682v2 and its supplemental OBC irreducible-representation passages; arXiv:1009.4018v3",
+        "Resultary exact and equivalent-formulation lookups, with the two original findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding 3/2 on each site gives the consecutive four-digit alphabet with no constraints on words.",
+          "Given r and B, A=r-2B is uniquely determined; 0<=A<N and 0<=B<N solve the count by intersection of two intervals."
+        ],
+        "reasoning": "The proposed exact formula and both breakpoints come from clipping the endpoints of that interval. This is a direct consequence of the established model plus positional notation, rather than a new combinatorial theorem or physical selection rule.",
+        "searches": [
+          "Direct comparison of arXiv:2610.10682v2, Eq. (1) and q=2, S=3/2 case, with frozen RESULT.md, lines 5–42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known shifted on-site alphabet {0,1,2,3} factors as {0,1}+2{0,1} with unique representations.",
+          "The exact equivalent counting problem is [x^r](1+x+...+x^(N-1))(1+x^2+...+x^(2(N-1))), not a convolution of two unit-step intervals."
+        ],
+        "reasoning": "There is one spin configuration for each ordered pair (A,B) of binary words interpreted as integers. The weighted two-interval convolution is the same object, not an analogy.",
+        "searches": [
+          "Ranked Resultary lookups for the exact title and q=2, S=3/2 charge counting",
+          "Primary-literature lookup for binary digit, discrete convolution and box-spline count equivalents",
+          "ArXiv:2610.10682v2, Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching binary carry record counts natural densities under addition by a fixed sparse integer.",
+          "The same-day SU(2) record's Finding gives an asymptotic squared-twist expectation with weights j and an integer-spin primitive MPS, not sector counts with weights 2^(L-j)."
+        ],
+        "reasoning": "They are distinct statements by object, measure and parameter, not by date. No exact table was located in the bounded ranked hits; this is not evidence that no such record exists.",
+        "searches": [
+          "Resultary ranked lookups for the exact title, q=2/S=3/2 exact charge dimensions, binary carry counts and same-day open-boundary spin results"
+        ]
+      },
+      "rationale": "No inspected catalogue or primary passage explicitly prints the entire piecewise multiplicity. Nevertheless the statement is a mechanical count from the known weighted-charge definition in the very same model. Its four-digit on-site alphabet is exactly the Cartesian product of two full binary alphabets with weights 1 and 2. Positional uniqueness removes all spin-chain structure and leaves the length of a single bounded integer interval. Neither a new counting identity nor a nontrivial restriction of the two strings survives in the finding. The decision is immediate implication, not a claim that the primary authors printed the formula or that an exact earlier table was found.",
+      "residual_risks": [
+        "Bounded full-text passages and catalogue ranks do not establish publication priority or rule out an explicit formula elsewhere. The failure rests on the mechanical implication, not on access, a keyword miss, or an unavailable counting reference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact underlying model; inspected irreducible-representation and energy-level statements are not a table of sector dimensions",
+          "evidence": [
+            "Eq. (1) weights site j by q^(L-j). The supplement labels 2D irreducibles by nonzero pseudospin and discusses integer versus half-odd-integer projectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10682v2",
+          "material_read": "Abstract; Eq. (1), text offset 5172; OBC spin-3/2 example, offset 36500; supplemental §I A, S1–S4, offsets 86320–91520",
+          "method": "Lawful OA PDF passages",
+          "title": "Spin Chain with Continuous Exponential Symmetry: Topological Phase and Beyond",
+          "trigger": "Identical charge operator and physical model"
+        },
+        {
+          "assessment": "Different model and invariant",
+          "evidence": [
+            "The cited q is a real quantum-group deformation in an integer-spin VBS correlation calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1009.4018v3",
+          "material_read": "Abstract and model description, pp. 1–2, text offsets 0 and 3246",
+          "method": "Lawful OA PDF passages",
+          "title": "Spin-spin correlation functions of the q-VBS state of an integer spin model",
+          "trigger": "Cited potentially overlapping spin model"
+        },
+        {
+          "assessment": "Carry-density statistic, no equivalent spin-sector count",
+          "evidence": [
+            "It counts natural densities of carry numbers in adding a fixed sparse binary integer."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-finite-gap-shielding-and-first-contact-correction-for-bina--2fd2f492b4f5/RESULT.md",
+          "material_read": "Finding (offset 0)",
+          "method": "Local mirror original RESULT.md",
+          "title": "Exact finite-gap shielding and first-contact correction for binary carries",
+          "trigger": "Closest ranked alternate binary counting formulation"
+        },
+        {
+          "assessment": "Asymptotic expectation on a specified family of states, not weighted sector dimensions",
+          "evidence": [
+            "Operator exponent is proportional to sum_j j S^z_j, and the theorem concerns its normalized expectation being 1+O(1/L)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-open-boundary-twist-convergence-for-primitive-su-2-symmetric-mat--44652cd90562/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1434",
+          "method": "Local mirror original RESULT.md",
+          "title": "Open-boundary twist convergence for primitive SU(2)-symmetric matrix product states",
+          "trigger": "Same-day open-boundary spin result with weighted spin expression"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–23 and 25–54",
+        "ArXiv:2610.10682v2, Eq. (1) and half-odd-integer spin discussion"
+      ],
+      "rationale": "The Hilbert-space block size is a natural quantity and the profile can be convenient for bookkeeping. In this case the full configuration space is exactly two freely chosen ordinary binary words, so all thresholds and block sizes reduce to routine clipping of one integer interval; no constraint or structural obstacle from exponential symmetry remains. The record does not give a further motivated sector phenomenon beyond this elementary calculation, and the absence of a neutral sector is already understood from the parity of the model.",
+      "residual_risks": [
+        "This value judgment concerns this particular specialization, not the interest of the physical model or the value of charge multiplicity results when the binary decomposition is unavailable."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

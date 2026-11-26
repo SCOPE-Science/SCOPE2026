@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem refers to exactly four labeled cubic graphs, and edge domination is equivalent to the endpoint-cover criterion stated in the proof. For each graph the exhaustive edge-subset enumerator and the independent cut-partition enumeration return identical minimum edge sets and zero feasible sets at one below the asserted size. Upward monotonicity excludes all smaller sets. The automorphism certificate explicitly maps an orbit representative to every minimum configuration and a checker validates preservation of the entire original edge set. Residual components are counted with isolates. The separate edge-domination counts and the cubic degree bound support the four stated values. Recorded outputs and all certificate bytes are packaged; limits are confined to these four finite instances.
+## correctness
 
-**Originality — PASS with residual risk.** Inspected full primary texts: Fenstermacher–Hedetniemi–Laskar (arXiv:1605.04330v1), §§1–3, containing definitions, elementary bounds and the listed complete/cycle/wheel/complete bipartite/tree/path values, and Spiro–Adriaensen–Mattheus (arXiv:2211.14339v1), §§1–2 and descriptions of later incidence-structure applications, treating ordinary edge domination and incidence-free sets. Neither gives the combined cut-and-edge-domination classification, component profile, or orbit lists. Searches for "edge cut domination"/"split edge domination" with the named graphs gave no covering document. Relevant pre-existing cut-complex and cut-cone studies of these symmetric graphs have different objects and do not supply the simultaneous edge-domination constraint or explicit tables. The original 2004 split-edge paper could not be materially inspected, and unindexed computations remain possible; priority is not certified.
+PASS
 
-**Value — PASS.** The literature explicitly poses comparisons between the cut-constrained and unconstrained minima. These canonical cubic bipartite symmetric graphs show both equality and a sharp one-edge penalty, with complete orbit classifications and exceptionally different separating geometries. In three cases every optimum is an exact balanced cut; Heawood alone has three structurally different orbits, including augmented isolating stars. These profiles are natural exact benchmarks for edge-cut domination and comparative finite-incidence graph work, rather than arbitrary selections or restatements of generic bounds. No extrapolation to larger graphs is asserted.
+The endpoints of the selected edges meet every edge exactly when the selection dominates; deletion connectivity is checked on all original vertices. The cut-first test is exhaustive since every disconnecting selection contains the boundary of some nonempty proper vertex set, which can be chosen to contain vertex zero. Independently of both supplied enumerators and their logs, I generated all four edge lists and exhausted subsets through sizes 6,6,7,6 with closed-line-neighborhood masks and residual floods. The nonzero ordinary counts through those levels are Heawood 42,1918 at 5,6; Möbius–Kantor 368 at 6; Pappus 36,2349 at 6,7; Desargues 5 at 6. Joint counts are zero before the claimed levels, then 98,8,27,5; the empty selection does not dominate. Every joint minimum has two components. Sorted sizes / cross-edge count / multiplicity are (1,13)/3/56, (4,10)/6/14, (6,8)/6/28 for Heawood, and (8,8)/6/8, (9,9)/7/27, (10,10)/6/5 for the other graphs. The small Heawood sides have residual degrees 1,1,1,3 and 2,2,2,2,2,2, and in these rows all deletions cross, so the claw and cycle are also induced. The isolated-vertex row deletes exactly three additional internal edges. I normalized both endpoints of every certificate edge, matched the complete independently generated minimum families, and independently checked each orbit witness as an adjacency-preserving bijection sending its representative to its target. Different size profiles are automorphism invariants, which proves the exact six orbits without assuming a group order.
 
-**Closest literature and limitations.** [1] https://arxiv.org/html/1605.04330v1; [2] https://arxiv.org/html/2211.14339v1; [3] Neeralagi–Nayak, *The split edge domination and split edge neighbourhood numbers of a graph* (2004), full text inaccessible. The proof is a finite computation supported by complete exhaustive algorithms and independently checkable orbit witnesses. Independent expert or external scientific audit is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct material is the cut-constrained optimum census with residual size and automorphism-orbit classification. The parameter and ordinary edge domination are preexisting, and exact ordinary Heawood data demonstrably overlap another entry. The review does not count the ordinary Heawood value as separately distinct, nor infer priority from catalogue dates.
+
+## value
+
+PASS
+
+On natural cubic bipartite benchmark graphs the census distinguishes the extra cost of demanding disconnection from the geometry of how it is achieved. The same parameter yields balanced exact boundaries in three graphs but three distinct Heawood types, including minima that cannot be described solely by their separating boundary. Counts and orbit witnesses make the data usable for testing structural conjectures about symmetry and minimum dominating disconnecting sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:30:40.992857Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Algorithm 1 has the two cross-control terms with the same sign and applies its controls additively to descent in x and ascent in y. The leading-coordinate prescription is I in the equal-dimensional case. Independent block calculation: for symmetric K and eigenvalue s, the squared modal factor is 1+2ηβs+η²(β²+δ²)s². With β≠0 select a same-sign eigenvalue in the indefinite case; with β=0 the factor is at least one (exactly one when δ=0). In the positive definite case with β>0 every block expands by a factor bounded below by a fixed number greater than one, proving exponential growth of every nonzero state. For I and β<0 sufficiently small η contracts; changing y by diag(1,−1) makes the game indefinite if the coupling is reset to I. With A_c=K, independent left/right SVD coordinates give normal blocks with squared radius f(z)=1−2bηz+η²z(T+b²z), z=s²>0. This proves the strict L-controlled stability interval, including the unit-modulus boundary, and equality of the spectral radius with the Euclidean operator norm. Convexity in z reduces the envelope to μ² and L². For μ<L the crossing is η_e=2b/[T+b²(μ²+L²)]; the stationary point of the L-mode is at or below η_e, so the right branch is increasing beyond the crossing. The μ-mode stationary point lies on the left branch iff T≥b²(L²−μ²); otherwise the crossing minimizes. Substitution yields both stated squared factors; equality and μ=L reduce to the common or single-quadratic formula, respectively. The positive curvatures ensure uniqueness. This exact calculation is the proof; the uploaded NumPy/SymPy test was inspected, not executed. Its finite tests are not needed for the universal claim (and one odd-dimensional signed test includes a zero eigenvalue). No assertion about distinct gains, nonlinear or stochastic updates, or the continuous velocity controller is validated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 8 analyzes momentum-accelerated consensus optimization and gives a local rate under Jacobian singular-value hypotheses"
+        ],
+        "reasoning": "The broader spectral-shape method motivates the endpoint analysis, but the cited rate is neither the minimizer over η alone with both gains held fixed nor a result on the identity-coupled signed update.",
+        "searches": [
+          "Azizian et al., PMLR 108 (2020), §6.2, Proposition 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2610.12915",
+        "Azizian et al., PMLR 108 §6.2",
+        "Resultary local-mirror record d5d179aa191c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Printed algorithm specifies an iteration, not the sign-based impossibility",
+          "Consensus Jacobian correction places the gain on the positive squared singular values, but the exact tuning still requires comparing which endpoint and which stationary point is active"
+        ],
+        "reasoning": "The claims are not a renaming of the update or the known correction. They identify the failure across all equal gains and positive steps at default A_c and solve the distinct one-parameter minimax problem, including the switch and boundary.",
+        "searches": [
+          "arXiv:2610.12915, Algorithm 1 and future-work section",
+          "PMLR 108, Azizian et al. §6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 prints paired cross-control terms with plus signs; §4.1 prescribes leading-coordinate coupling",
+          "Theorem 4.3 concerns a different continuous velocity-feedback system; the future-work discussion reserves discrete-time stability"
+        ],
+        "reasoning": "Equating the controller with its continuous counterpart or with a covariantly transformed A_c would change the state map and remove the precise comparison under audit.",
+        "searches": [
+          "arXiv:2610.12915, §4.1, Algorithm 1 and §7",
+          "Resultary comparison: deterministic signed bilinear obstruction and aligned fixed-step phase transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected local-mirror record: 2026/11/2/SCOPE-exact-moment-stability-thresholds-for-markov-switching-bilinear--d5d179aa191c, Finding and Assumptions (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+        ],
+        "reasoning": "Its scalar Markov sign-switching dynamics and almost-sure/moment thresholds neither reproduce the deterministic symmetric-indefinite no-go nor prescribe the two-branch fixed-gain optimum. Ranked searches are not exhaustive.",
+        "searches": [
+          "Resultary: lead-coordinate bilinear stability obstruction; aligned consensus singular-mode optimal learning rate"
+        ]
+      },
+      "rationale": "The assessed novelty is the obstruction for the printed leading-coordinate discrete update and the exact fixed-gain optimal-step transition for its aligned variant. Neither the consensus correction itself nor the spectral-shape framework is new. Actual algorithm and closest compared results support this distinction, with no exact equivalent found in the material checked.",
+      "residual_risks": [
+        "The literature query did not surface a useful additional primary hit. This is not a priority guarantee; a general fixed-step spectral-shape treatment outside the compared passages could contain an equivalent special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the exact map; does not give the audited discrete stability results in the relevant passages",
+          "evidence": [
+            "u_x=λ_x g_x+β A_c g_y; u_y=β A_c^T g_x−λ_y g_y; additive controls in both updates",
+            "Leading-coordinate identity block; discrete-time stability explicitly left for future work"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.12915",
+          "material_read": "§4.1 p. 4, Algorithm 1 p. 5, future-work passage p. 8",
+          "method": "OA primary PDF passages (extraction offsets approximately 28000, 32550 and 55800)",
+          "title": "Controlled-Minimax: Stabilizing Adversarial Optimization via Control Theory",
+          "trigger": "Exact parent algorithm and potentially covering stability theorem"
+        },
+        {
+          "assessment": "Related method and accelerated convergence-rate result, not either exact discrete comparison audited here",
+          "evidence": [
+            "Consensus with momentum and local singular-value-based rate, not the exact single-step fixed-gain scalar minimization"
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v108/azizian20a.html",
+          "material_read": "§6.2 and Proposition 8, p. 8",
+          "method": "OA primary PDF passages (offsets approximately 49700–54000)",
+          "title": "Accelerating Smooth Games by Manipulating Spectral Shapes",
+          "trigger": "Potential broader consensus and spectral-shape coverage"
+        },
+        {
+          "assessment": "Related algorithm family, different stability problem",
+          "evidence": [
+            "Scalar two-state Markov sign-switching payoff; almost-sure and moment criteria"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-moment-stability-thresholds-for-markov-switching-bilinear--d5d179aa191c",
+          "material_read": "Finding and Assumptions",
+          "method": "Local published-record mirror",
+          "title": "Exact moment stability thresholds for Markov-switching bilinear dynamics",
+          "trigger": "Strongest related Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The indefinite sign witness rules out tuning the advertised identity-like coupling even in elementary bilinear games and isolates the dependence on how the coordinates choose that coupling. The aligned analysis then answers a practical mathematical question about exactly when improving the slow mode is capped by the fast one. It gives a sharp step and factor rather than a bound or a new name for consensus optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:12:18.290213Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen assumptions only require exactly one representation of integers in the interval and omit the exclusion of extra sums. Under that literal condition, n=6 and m=2 admit infinitely many tuples: ({0,1,2,M},{0,3}) works for every M>=6. The asserted finite formula is false on that reading, even though the standard term suggests the intended exact sumset. The complete replacement RESULT.md explicitly requires a bijective addition map onto the interval, hence no extra sums and product of cardinalities n. This matches the primary source of the Stirling transform, now checked on the corrected claim. For example, at n=6 the size-two part is {0,d}, and its translates by the size-three part must partition [0,5]. Along residue classes modulo d the partition requires even chain lengths, forcing d=1 or 3. Each gives one tiling and either part order, in agreement with 2c_2(6)=4. For the proof, ordered factorizations are exponent rows with no zero column, giving the stated inclusion–exclusion, including c_1=1. Conditioning on outsider-prime assignments leaves mandatory slots for the two selected primes. Degree profiles of their slot generating functions are products of complete homogeneous functions; in two variables the one-step coefficient gain is the Schur coefficient of (a-1,b+1), nonnegative by Pieri. If more than a+b slots are mandatory, both monomial counts are zero. For strictness, occupy min(h,S) slots with the outsider units. With zero or one mandatory slot use two positive degrees a-1,b+1; with q>=2 mandatory slots balance a+b over them, giving largest degree at most ceil((a+b)/2)<=a-1. This makes the profile dominated by the two-row shape and gives a positive Kostka coefficient. The positive Stirling transform transfers strictness since its j=m coefficient is m!. Repeated balancing decreases the sum of squares until the balanced profile; reversing transfers from any non-spike profile concentrates it and strictly decreases all counts. For strict support splitting, use any old allocation in which the prime to be split appears in two slots, possible for h<=k. The greedy split is injective by merging the slots' prime exponents; a distinct split exists because both new exponents are positive and the old exponent has at least two positive slot capacities, permitting a unit transfer from a used slot to a distinct slot with spare capacity. This proves strictness at every stated h; it does not extend strictness to length one or to j,m>k. The uploaded checker was inspected without execution and applies an algebraic transform; its finite checks cannot repair the definition or establish the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader enumeration gives a positive transform for exact interval sum systems. Path colouring brings in the coefficient m!S(j-1,m-1); none of those passages compares two exponent shapes at a given j."
+        ],
+        "reasoning": "A known positive transform is a reduction to factorial-length inequalities, not a proof of them. Ordinary two-variable Schur positivity provides weak balancing but not the particular positive coefficient for all j; that is supplied by the explicit slot-degree witness.",
+        "searches": [
+          "arXiv:2610.13864v1, Section 1 and Theorem 5.1/Remark 5.2",
+          "Law–Lettington–Schmidt, Theorem 1.5 and Section 3",
+          "arXiv:2609.38567, Section 3 and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result and its verification files; corrected RESULT.md",
+        "Resultary October 12 and two same-day records",
+        "arXiv:2610.13864v1",
+        "Law–Lettington–Schmidt (2025)",
+        "arXiv:2609.38567",
+        "arXiv:2307.16691v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>1, kappa_0(n)=2K(n) and K(n)=sum_j c_j(n). The positive transform gives N_2=2(K-1) since S(j-1,1)=1 for j>=2. Thus the older balancing and support-extremum law already gives the m=2 assertion."
+        ],
+        "reasoning": "That implication is made explicit in the corrected prior-work discussion. For m>=3 the transform weights different lengths differently; aggregate strictness does not imply its positivity, while coefficientwise strictness does. The original formulas and prior aggregate conclusions remain credited.",
+        "searches": [
+          "Resultary October 12 strict exponent balancing for recursive divisors",
+          "Fink arXiv:2307.16691v1, Theorem 2",
+          "Huxley–Lettington–Schmidt arXiv:2610.13864v1, Remark 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 result gives balancing for recursive divisor counts, and Fink identifies that count with twice the total ordered factorizations. This is not coefficientwise.",
+          "The two same-day fingerprints use the same c_j as statistics for recovering exponents, rather than comparing c_j after transfers. The literature query did not return a usable specific match."
+        ],
+        "reasoning": "The exponent-allocation matrix can equally be viewed as ordered nonempty cells holding a multiset of prime copies. Neither recovering the multiset from the statistics nor strictly comparing their sum establishes simultaneous strict increase in each cell count.",
+        "searches": [
+          "Resultary comparison of strict exponent balancing, ordered factorization counts, fixed-length fingerprints, and sum systems",
+          "Primary-literature query for Schur concavity of fixed-length ordered factorizations and multiset surjections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier records and formulas give c_j values or determine exponent profiles from some of those values; the Stirling formula computes exact interval-decomposition counts from c_j. The aggregate K and the two-part count are equivalent, not separately new data."
+        ],
+        "reasoning": "This is a universal strict inequality on unbounded integer exponent profiles, not a new tabulation. A table or evaluation formula alone does not give its sign under every unit transfer. Known count formulas and examples carry no separate originality credit.",
+        "searches": [
+          "Resultary fixed-length ordered-factorization and two-count fingerprint records",
+          "Fink arXiv:2307.16691v1, Theorem 2 and factorization formulas",
+          "Huxley–Lettington–Schmidt arXiv:2610.13864v1, Remark 5.2"
+        ]
+      },
+      "rationale": "Reassessed for exact interval sum systems. The distinct claim is strict balancing and the matching extremizers simultaneously at every individual factorization length, with consequences for higher-part systems. The aggregate and two-part cases, the transform, and the binomial enumeration are credited as known, including the aggregate priority clarification in the replacement.",
+      "residual_risks": [
+        "The original 2020 Integers paper was not retrieved, and a broad multiset-occupancy theorem could yield an unlocated coefficientwise comparison. The inaccessible source and limited literature lookup are not treated as evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior transform; confirms the necessary sumset equality",
+          "evidence": "The definition uses Minkowski sum equal to the interval. Equation (5.1) gives N_m(n)=sum over j of m!S(j-1,m-1)c_j(n).",
+          "identifier_or_url": "https://arxiv.org/html/2610.13864v1",
+          "material_read": "Section 1, HTML offsets 1387–2164, and Theorem 5.1/Remark 5.2 near 33500–35894",
+          "method": "Open primary arXiv HTML passages",
+          "title": "On Divisor Function Polynomials and Dirichlet Series",
+          "trigger": "Exact sum-system definition and transform used in the proof"
+        },
+        {
+          "assessment": "Prior enumeration and bijection, not a fixed-length balancing law",
+          "evidence": "Definition 3.1 requires sumset equality; the theorem and corollary connect multi-factorizations and sum systems via the signed coefficient formula.",
+          "identifier_or_url": "https://combinatorialpress.com/article/um/volume%20125/multifactorisations-and-divisor-functions.pdf",
+          "material_read": "Theorem 1.5 near extracted offset 11000; Definition 3.1 and Proposition 3.3/Corollary 3.4 near 39900 and 44100",
+          "method": "Primary PDF passages",
+          "title": "Multifactorisations and divisor functions",
+          "trigger": "Earlier sum-system model and formula"
+        },
+        {
+          "assessment": "Equivalent count transform, not exponent-shape ordering",
+          "evidence": "The ordered factorization of length j and the colouring of its path separate, with m!S(j-1,m-1) colours-as-labels assignments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.38567",
+          "material_read": "Section 3 and Theorem 2, PDF pp. 5–6, extracted offsets 16200–19962",
+          "method": "Primary PDF passages",
+          "title": "On c-polynomial factorisations",
+          "trigger": "Combinatorial formulation of the same transform"
+        },
+        {
+          "assessment": "Prior aggregate law, also implies two-part case",
+          "evidence": "Strict unit balancing and splitting for kappa_0, with the same spike and balanced fixed-support extrema.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-strict-exponent-balancing-and-sharp-support-extrema-for-recursiv--263a7e9c189f",
+          "material_read": "Finding with the strict transfer and support-splitting assertions",
+          "method": "Local prepared Resultary record",
+          "title": "Strict exponent balancing and sharp support extrema for recursive divisor counts",
+          "trigger": "Closest prior balancing result"
+        },
+        {
+          "assessment": "Aggregate identity; no coefficientwise comparison in the inspected theorem",
+          "evidence": "For the positive integer range at issue, kappa_0(n)=2K(n), with K the total ordered-factorization count.",
+          "identifier_or_url": "https://arxiv.org/html/2307.16691v1",
+          "material_read": "Theorem 2, HTML offsets 6800–9790",
+          "method": "Primary arXiv HTML passage",
+          "title": "Number of ordered factorizations and recursive divisors",
+          "trigger": "Relates the aggregate comparison to factorization counts"
+        },
+        {
+          "assessment": "Same statistic, distinct inference",
+          "evidence": "The first r+1 counts recover the exponent multiset rather than ordering those counts under balancing.",
+          "identifier_or_url": "2026/10/18/SCOPE-finite-ordered-factorization-fingerprints-recover-the-prime-expo--b7d42340c3a6",
+          "material_read": "Finding",
+          "method": "Local prepared Resultary record",
+          "title": "Finite ordered-factorization fingerprints recover the prime exponents",
+          "trigger": "Same-day match on fixed-length factorization counts"
+        },
+        {
+          "assessment": "Bounded-exponent recovery, not strict balancing",
+          "evidence": "Uses two ordered divisor statistics to recover bounded-exponent profiles; does not state all-length monotonicity.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-exponent-twelve-reconstruction-from-two-ordered-divisor-co--3fb220c5c852",
+          "material_read": "Finding",
+          "method": "Local prepared Resultary record",
+          "title": "Sharp exponent-twelve reconstruction from two ordered divisor counts",
+          "trigger": "Same-day match on c_2 and c_3"
+        },
+        {
+          "assessment": "Unresolved source access; no inference about its full content",
+          "evidence": "The accessible 2025 and 2026 primary passages independently verify exact-sumset counting and the transform used in the corrected claim.",
+          "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/133889/8/u61.pdf",
+          "material_read": "No primary passage obtained",
+          "method": "Direct and VPN open-copy attempts at ORCA (403) and a journal-domain URL (certificate failure)",
+          "title": "Divisor functions and the number of sum systems",
+          "trigger": "Earlier exact enumeration, cited as Integers 20 (2020), A61"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the corrected exact interval problem, the coefficientwise theorem gives a genuine distributional comparison hidden by the known total count: any fixed nontrivial length, and any higher-part system counted by the positive transform, exhibits the same strict spike-to-balanced ordering. At varying support it also gives a strict ordering under splitting, with common extremizers. The balancing and extremum classification apply to a natural family of counting problems and not merely to a table recalculation or the already known two-part case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

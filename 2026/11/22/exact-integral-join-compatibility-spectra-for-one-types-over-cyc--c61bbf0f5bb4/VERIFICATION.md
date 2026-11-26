@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Exact verification and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy. The script builds each cycle's independent sets, constructs its positive-literal union-compatibility matrix directly, and computes the Smith normal form with SymPy's integer-domain implementation. It separately evaluates all link weights by direct supersets and by path factors, reconstructs the integer zeta congruence, and checks the cubic rank recurrence. All checks use exact integers, not floating-point approximations.
+## correctness
 
-Observed full replay:
+PASS
 
-```
-C4: types=7, rational_rank=3, torsion2=0, equality_and_SNF=OK
-C5: types=11, rational_rank=11, torsion2=0, equality_and_SNF=OK
-C6: types=18, rational_rank=12, torsion2=1, equality_and_SNF=OK
-C7: types=29, rational_rank=15, torsion2=0, equality_and_SNF=OK
-C8: types=47, rational_rank=35, torsion2=0, equality_and_SNF=OK
-C9: types=76, rational_rank=40, torsion2=1, equality_and_SNF=OK
-C10: types=123, rational_rank=63, torsion2=0, equality_and_SNF=OK
-VERIFICATION_OK: 7 exact integer-matrix SNFs; 24449 feasibility entries; rank/link checks through C19
-```
+The triangle-free extension property realizes exactly independent positive neighborhoods among the individually named vertices; the join test concerns the union of positives, not the original negatives. Each Boolean interval of faces has alternating sum zero except at equal endpoints, so incidence inversion gives M=Z diag(w) Z^T with integer-unitriangular Z and w(F)=I(C_n minus N[F],-1). For nonempty F, complementary runs have lengths max(d_i-3,0) for cyclic gaps d_i, including d_1=n for a singleton. The path values 1,0,-1,-1,0,1 repeat, giving weights 0 or ±1 and excluding exactly gaps 1 mod 3. The empty-face cycle weight is 2cos(n pi/3) by the two-state transfer trace, so this is the sole source of a possible 2, precisely when 3 divides n. Rooted gap sequences with A(z)=(z^2+z^3)/(1-z^3) count each k-point set k times; n[z^n]log((1-z^3)/(1-z^2-2z^3)) plus one yields the stated integer rank recurrence. Integer congruence gives the complete Smith form and the single rank loss in characteristic two when 3 divides n. Directly constructed small matrices had rank/order 3/7, 11/11, 12/18, 15/29 through C7, with precisely the single factor 2 at C6 (`/workspace/branches/8da3627e-03a2-4c76-96cf-c27a7f91cb1e/independent_check.py`). The all-n conclusion uses the proof, not small cases or the frozen script's recorded results.
 
-In addition, link-weight counts were checked for cycles of lengths 11 through 19. The finite replay does not certify infinitely many lengths; the incidence factorization, path recursion, transfer matrix, and formal-power-series coefficient argument in `RESULT.md` prove the general case.
+## originality
 
-No Lean proof, external expert assessment, or independent audit has been performed.
+PASS
+
+The distinct claim is the exact integral Smith form, including the full rank formula for the positive-union compatibility matrix of a cycle. The model-theoretic type criterion, incidence inversion, and link Euler characteristics have antecedents; they are not treated as independently new. The strongest related indexed statements have different matrices.
+
+## value
+
+PASS
+
+Cycles are natural finite induced bases, and the integer Smith form isolates a characteristic-two obstruction invisible in the rational rank. The result gives the complete integral invariant at every cycle length, not a rephrasing of the background type criterion, empty-link Euler sum, or sample determinants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

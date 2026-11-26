@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:59:04.070390Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated the full 20-bit equation space and the nine rational-point conditions, obtaining 2047 nonzero forms. Tested geometric smoothness in all four charts by univariate gcds, not by re-running the supplied Gröbner checkers: write f=A(x)y^3+B(x)y^2+C(x)y+D(x); in the A != 0 branch use y^2=C/A from f_y=0 and eliminate the remaining linear expression in y from f_x by squaring. The A=0 branches check C=0 and separate B != 0 from B=0. This yields 66 smooth righthand forms, exactly the four asserted orbits under the 36 matrix pairs. Reproduced all 99 filling-form orbits, four smooth-orbit stabilizer types, six extension counts and six numerator coefficients for each mask, and the Homma–Kim example's orbit. Positive bidegrees and the intersection pairing give geometric integrality for a smooth divisor here; adjunction gives genus six. The distinct numerators distinguish the isogeny classes over F2, and swapping factors transports the census to (3,4). Replay: python3 /workspace/review_evidence/filling.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homma–Kim §4 Thm. 4.1 proves minimum degree and constructs a smooth (4,3) example.",
+          "Ahammed–Campbell–Moon Rem. 2.7 cites the binary minimum; their §4 computations concern q=3,5. Asgarli–Ghioca concern the projective plane.",
+          "The October 18 Jacobian RESULT.md states the same isogeny-class result, plus each orbit's 2-rank and a-number."
+        ],
+        "reasoning": "The primary existence and minimum-degree results alone do not count binary forms. The stronger arithmetic result on precisely this family does cover the frozen zeta and isogeny assertions.",
+        "searches": [
+          "arXiv:2203.11595v1",
+          "arXiv:2512.02796v1",
+          "arXiv:2307.03072v1",
+          "SCOPE-four-jacobian-isogeny-classes-and-the-sharp-2-rank-bound-for-bin--81bc97295642"
+        ]
+      },
+      "checked_sources": [
+        "e7a76829ef36 (local mirror, October 18)",
+        "81bc97295642 (local mirror, October 18)",
+        "arXiv:2203.11595v1",
+        "arXiv:2512.02796v1",
+        "arXiv:2307.03072v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former has all four representatives and orders 6,2,1,6 in frozen mask order; the latter explicitly attaches the four polynomials to those same masks and concludes four F2-isogeny classes."
+        ],
+        "reasoning": "The principal conclusions are explicit, not just plausible consequences. The transposed case follows by swapping factors. The order-six group types are a direct element-order check on two stabilizers in the 36-element ambient group, with no further structural claim supplied.",
+        "searches": [
+          "SCOPE-four-ambient-symmetry-classes-of-minimal-smooth-filling-curves-o--e7a76829ef36, Finding and Proof",
+          "SCOPE-four-jacobian-isogeny-classes-and-the-sharp-2-rank-bound-for-bin--81bc97295642, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 ambient-symmetry RESULT.md, Finding and Proof, offsets 229 and 3120: exactly 66 forms and four factor-preserving orbits, masks 396246, 399606, 404886, 420790 of sizes 6, 18, 36, 6."
+        ],
+        "reasoning": "Smoothness is geometric, the bidegree is ordered, and the group and mask encoding agree. This is not mere coincidence of an abstract genus or point count.",
+        "searches": [
+          "Resultary local semantic lookup for smooth filling biquartic-cubics on P1 x P1 over F2",
+          "SCOPE-four-ambient-symmetry-classes-of-minimal-smooth-filling-curves-o--e7a76829ef36"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 Jacobian Finding, offset 0, tabulates the exact same masks, orbit sizes and six N_n, and lists all thirteen coefficients of each Weil numerator."
+        ],
+        "reasoning": "An abstract Weil table by itself would not decide this embedded problem. This actual table labels the same embedded equations and their ambient orbits. A separate abstract genus-six database was not needed to establish coverage.",
+        "searches": [
+          "Resultary local lookup for four binary filling curve Weil numerators and embedded orbits",
+          "SCOPE-four-jacobian-isogeny-classes-and-the-sharp-2-rank-bound-for-bin--81bc97295642"
+        ]
+      },
+      "rationale": "Two distinct, earlier indexed results explicitly supply the main frozen claims under the very same definitions: the four-orbit census of 66 smooth divisors and the four masks and stabilizer orders, and the complete Weil table associated to those same four masks and orbit sizes. The latter adds further 2-rank and a-number information. The nontrivial leftover detail is identifying the two order-six ruling-preserving stabilizers as C6 and S3 instead of giving their orders. That is not an original 66-curve or four-isogeny-class census.",
+      "residual_risks": [
+        "No separate abstract genus-six table was checked; the exact embedded tabulation already establishes coverage.",
+        "No claim of priority for the two order-six type labels in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers geometric census and orbit/stabilizer orders",
+          "evidence": "66 smooth forms; same four masks of sizes 6,18,36,6; stabilizer orders via orbit–stabilizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-four-ambient-symmetry-classes-of-minimal-smooth-filling-curves-o--e7a76829ef36/RESULT.md",
+          "material_read": "Finding and proof, offsets around 229 and 3120",
+          "method": "Local mirror statement inspection",
+          "title": "Four ambient symmetry classes of minimal smooth filling curves",
+          "trigger": "Exact ambient census match"
+        },
+        {
+          "assessment": "Covers entire arithmetic table and isogeny conclusion; gives additional 2-rank and a-number data",
+          "evidence": "Same masks and sizes, identical N_n, full L_C coefficients, same mask convention and explicit embedded scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-four-jacobian-isogeny-classes-and-the-sharp-2-rank-bound-for-bin--81bc97295642/RESULT.md",
+          "material_read": "Finding, table and assumptions, offsets 0–3509",
+          "method": "Local mirror statement inspection",
+          "title": "Four Jacobian isogeny classes and the sharp 2-rank bound for binary filling biquartic-cubic curves",
+          "trigger": "Exact arithmetic table match"
+        },
+        {
+          "assessment": "Covers minimum bidegree and existence, not the classification",
+          "evidence": "Constructs one smooth irreducible (4,3) filling curve.",
+          "identifier_or_url": "arXiv:2203.11595v1",
+          "material_read": "Abstract and §4 Thm. 4.1, p. 8",
+          "method": "OA full-text passage comparison",
+          "title": "Filling curves for P1 x P1",
+          "trigger": "Same field, degree and surface"
+        },
+        {
+          "assessment": "Different field regime in its census",
+          "evidence": "Recalls the q=2 minimum; computes for q=3,5.",
+          "identifier_or_url": "arXiv:2512.02796v1",
+          "material_read": "Introduction, Remark 2.7 and §4",
+          "method": "OA full-text passage comparison",
+          "title": "Minimal algebraic space filling curves on the product of projective lines",
+          "trigger": "Later work on minimum filling curves on the same surface"
+        },
+        {
+          "assessment": "Different ambient space",
+          "evidence": "Concerns P2 rather than an ordered bidegree on P1 x P1.",
+          "identifier_or_url": "arXiv:2307.03072v1",
+          "material_read": "Abstract and introduction (p. 1)",
+          "method": "OA full-text passage comparison",
+          "title": "Plane-filling curves of small degree over finite fields",
+          "trigger": "Related filling-curve problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A first exhaustive classification and associated Weil table in this minimal-degree boundary case would be useful. Here both are already explicit, including all representatives and group orders. The residual C6/S3 distinction is a routine check on those known representatives and does not by itself answer a motivated new classification or arithmetic question. No valuable surviving repair identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

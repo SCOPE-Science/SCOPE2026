@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:14:15.023683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–93; VERIFICATION.md; verify.py lines 8–169; independent symbolic collection of the five cycle-index type families"
+      ],
+      "rationale": "The derived subspace is characteristic and the alternating bracket forces the lower diagonal block to be the exterior square of A; all q^9 central shears are permitted. The natural dimension-three exterior duality identifies that block with det(A) times the inverse transpose, so its 1-eigenspace dimension equals the d-eigenspace dimension of A even for nonsemisimple A. At d=1 the two graded dimensions agree. The k-dimensional incidence count has q^{k(3-k)} free coordinates and an SL determinant fiber if the complement is nonzero. At d!=1 an ordered pair of eigen-subspaces of dimensions k,l is disjoint; the second subspace has q^{kl} graph lifts after its projection in V/U is chosen. The determinant on the remaining r-dimensional block is d^{1-l}, and there are q^{(k+l)r} off-diagonal choices. At r=0 exactly d^l=d is required, allowing l=1 and additionally l=3 precisely at d=-1 distinct from 1. The single and product Gaussian inversions follow from the alternating Gaussian sum for each interval of the subspace lattice. The block-triangular fixed-point-free criterion holds without asserting additivity of the fixed-space dimension. Expanding the zero-dimension Gaussian sums, the d=1 contribution is q^3(q+1)(q^4-2q^3+2); the d!=1 contribution is q^3(q^2+q+1)(q^3-3q^2+5)-q^3 times the indicator of d=-1 distinct from 1 (with the subtraction applied only to the last term). Summing gives the claimed parity correction. An independent rational-canonical-type calculation reproduced the same polynomial symbolically and the base counts 48, 4860, 98048 at q=2,3,4; the replay is given in the implication check. The frozen script was inspected, not run. For q=2 the two irreducible cubics alone give 2|GL3(2)|/7=48; the smaller Heisenberg algebra has its whole derived line fixed because det is always 1 over F2.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulman's exact GL(n,q) cycle-index factorization uses a distinct polynomial/partition marker and a reciprocal centralizer weight for each factor, covering every degree and every finite field. The marked coefficients retain the information needed for the filter.",
+          "The free nilpotent Lie automorphism source gives a structural decomposition in characteristic zero, and Burde–Dekimpe treat fixed-point-free Lie automorphisms over characteristic zero. Neither is the deciding exact finite-field enumeration source."
+        ],
+        "reasoning": "This is stronger weighted coverage, not an inference merely from abstract automorphism structure or from the fact that rational canonical forms exist.",
+        "searches": [
+          "Fulman, Probability in the Classical Groups over Finite Fields, §3.2 pp. 35–36 (PDF pp. 43–44)",
+          "arXiv:1911.01897v2 Proposition 1, Corollary 1, Remark 2; arXiv:2604.27916v2 §2"
+        ]
+      },
+      "checked_sources": [
+        "Fulman 1997 §1.2, §3.2 and Lemma 11",
+        "arXiv:1911.01897v2 and 2604.27916v2",
+        "Bryant–Papistas DOI 10.1017/S0017089500020024, Theorems A and C",
+        "Resultary f8563d5bdc84, 17f0de4cb789 and 568adf24efd6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take cycle-index degree 3. For each type (lambda_phi), read d=(-1)^3 times the product of phi(0) raised to |lambda_phi|. Keep terms with lengths a,b for phi=X-1,X-d respectively, using the same partition at d=1. Sum their weights and multiply by q^9 times |GL3(q)|. This yields every coefficient in the original law without exhaustively enumerating matrices.",
+          "Replay of the closed coefficient: set h=q-1, s=q-2, G=|GL3(q)|, e=1 at odd q and 0 otherwise. Cubic irreducibles contribute (q^3-q)/(3(q^3-1)) to the proportion. A quadratic irreducible and a linear root contribute s(q^2-2q+e)/(2(q^2-1)h): the linear root must differ from 1 and the quadratic norm from 1. The norm-one subgroup has q+1 elements of which 1+e lie in F_q, so (q-e)/2 monic irreducible quadratics are excluded.",
+          "In the split cases all three roots avoid 1 and no pair multiplies to 1. All-equal root labels number s-e; two-equal root labels number (s-e)(s-2); three-distinct unordered labels number binom(s,3)-(s-e)(s-2)/2. Their cycle-index weights per label are respectively 1/G+1/(q^3 h^2)+1/(q^2 h), 1/(q h^2)+1/(q h^3(q+1)), and 1/h^3. Adding the five contributions and simplifying with e symbolic gives exactly the displayed proportion. Multiplying by G reproduces the base counts, and by G q^9 the Lie automorphism counts."
+        ],
+        "reasoning": "The all-profile law is a filtered weighted type sum from the prior theorem. Even for the simplified coefficient, only the elementary norm-one and inverse-pair exclusions are needed and the same parity term is forced. No surviving distinct theorem is established by replacing the prior summation with Gaussian inversion.",
+        "searches": [
+          "Fulman 1997 §1.2 p. 7, §3.2 pp. 35–36, Lemma 11 p. 42; Resultary f8563d5bdc84 Finding and rational-canonical proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The action on the grade two space is determinant-twisted duality. Hence the two statistics are the lengths of the X-1 and X-d primary partitions, with d the determinant.",
+          "Fulman §1.2 reads the characteristic polynomial from primary partitions, and Lemma 11 reads fixed-space dimension as the length of the X-1 partition. The same Jordan-block observation for X-d gives the other dimension."
+        ],
+        "reasoning": "The whole graded profile translates to two primary partition lengths with a determinant filter and a constant multiplicity. There is no dependency on the shear once the graded pieces are specified.",
+        "searches": [
+          "Determinant-conditioned GL(3,q) eigenvalue profile, finite general-linear cycle index and exact conjugacy type weights; Fulman 1997 §1.2, §3.2 and Lemma 11",
+          "arXiv:1911.01897v2 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f8563d5bdc84 states the identical parity-corrected fixed-point-free polynomial for the six-dimensional algebra and proves it by rational-canonical cases. It does not state the full bivariate law. Its catalogue date is later than the target's.",
+          "17f0de4cb789 counts the rank-two Heisenberg case, q^3(q+1)(q-2)^2. The fixed-tensor record 568adf24efd6 is for a different dimension-two matrix statistic."
+        ],
+        "reasoning": "The rank-two and fixed-tensor results do not dominate this profile. The exact match for one coefficient is distinct from historical priority; prior weighted coverage of the full law is established separately.",
+        "searches": [
+          "Resultary: exterior-square and rank-three free class-two fixed-point-free count and graded profile; f8563d5bdc84, 17f0de4cb789, 568adf24efd6"
+        ]
+      },
+      "rationale": "The strongest prior source is the fully weighted Kung–Stong cycle index, explicitly presented in Fulman (1997) §3.2. It gives exact weights for each irreducible-primary partition family, not just a list of possible normal forms. The two graded dimensions and determinant are labels on those very types, so coefficient filtering and the constant q^9 shear factor give the complete rank-three law without a new enumeration theorem. The zero-zero specialization also reduces directly to five standard type families, yielding exactly the advertised closed polynomial and parity term. The Gaussian-binomial formula supplies a different, concise expression, but the census and its closed specialization are mechanically implied. A later distinct Resultary record prints the same fixed-point-free polynomial; its date is not the basis of the failure.",
+      "residual_risks": [
+        "The review establishes coverage by an exact specialization, not priority of the displayed Gaussian-binomial expression or a claim about relationships between the two catalogue records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage by determinant-filtered specialization, not the printed Gaussian-binomial expression",
+          "evidence": [
+            "The cycle-index factors are indexed by monic irreducibles other than X and their primary partitions. Their denominators are explicit centralizer factors, and the class size is |GL(n,q)| divided by their product.",
+            "The characteristic polynomial is the product of the irreducibles to the partition sums; the X-1 partition length is the fixed-space dimension."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/jason-fulman/wp-content/uploads/sites/224/2023/06/thesis20.pdf",
+          "material_read": "§1.2 printed p. 7; §3.2 printed pp. 35–36; Lemma 11 printed p. 42",
+          "method": "Open primary thesis text, offsets 31200, 150621 and 179469",
+          "title": "Probability in the Classical Groups over Finite Fields: Symmetric Functions, Stochastic Algorithms, and Cycle Indices",
+          "trigger": "Exact general weighted rational-canonical table that could imply every target coefficient"
+        },
+        {
+          "assessment": "Structural comparison only",
+          "evidence": [
+            "The structural decomposition does not itself count simultaneous finite-field eigenspaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1911.01897v2",
+          "material_read": "Characteristic-zero hypothesis and §2, Proposition 1, Corollary 1, Remark 2",
+          "method": "Open primary text, offsets 3868 and 7825",
+          "title": "Derivations and automorphisms of free nilpotent Lie algebras and their quotients",
+          "trigger": "Structural automorphism theorem for the same class of Lie algebras"
+        },
+        {
+          "assessment": "Exact overlap for (0,0) only; chronology not used to decide historical priority",
+          "evidence": [
+            "The same all-q polynomial is given via rational-canonical cases, without the full graded profile."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 f8563d5bdc84",
+          "material_read": "Finding and rational-canonical proof",
+          "method": "Local published RESULT.md offsets 321–6633",
+          "title": "Fixed-point-free automorphisms of the six-dimensional free class-two Lie algebra",
+          "trigger": "Exact same algebra, all-field parity correction and fixed-point-free statistic"
+        },
+        {
+          "assessment": "Different rank and derived module",
+          "evidence": [
+            "The formula vanishes over F2 and concerns a one-dimensional derived layer."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 17f0de4cb789",
+          "material_read": "Finding and assumptions",
+          "method": "Local published RESULT.md, offset 91 onward",
+          "title": "Exact fixed-point-free automorphism count for the three-dimensional Heisenberg Lie algebra",
+          "trigger": "Related finite-field count on the rank-two free class-two algebra"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graded fixed-space statistic is natural, and the Gaussian inversion is a concise alternate calculation. The submitted increment, however, is a narrow exact type count mechanically supplied by the prior weighted cycle index; the parity term is already accounted for by the ordinary norm and inverse-pair labels. Neither a new invariant beyond the weighted filter nor an independently useful extension or obstruction is established that warrants a separate repaired claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

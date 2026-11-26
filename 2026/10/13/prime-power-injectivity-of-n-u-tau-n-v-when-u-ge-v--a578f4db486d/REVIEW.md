@@ -1,12 +1,21 @@
-# Review of Prime-power injectivity of \(n^u\tau(n)^v\) when \(u\ge v\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** On a prime power, \(\tau(p^a)=a+1\), so equality becomes \(p^{au}(a+1)^v=q^{bu}(b+1)^v\). If the prime bases differ, prime-adic valuation gives \(p^a\mid b+1\) and \(q^b\mid a+1\) because \(u\ge v\). Hence \(p^a q^b\le(a+1)(b+1)\), while \(p^a\ge a+1\) and \(q^b\ge b+1\). Equality would force both prime powers to be \(2^1\), contradicting distinct bases. Equal bases are handled by strict monotonicity in the exponent. The counter-ray is exact: \(F_{t,3t}(2^6)=F_{t,3t}(7^3)=21952^t\) for every \(t\ge1\).
+## correctness
 
-## Originality
-**PASS.** Gabdullin--Iudelevich--Luca (arXiv:2201.09287v1, 2022) analyze the image of \(k\mapsto k\tau(k)\) and record its noninjectivity, but do not state prime-power injectivity. The focal 2023 paper proves squarefree injectivity for \(n^u\tau(n)^v\), but prime powers of exponent greater than one fall outside that theorem. Its section on \(D(n)=n\tau(n)\) studies global collisions and leaves primitive collisions open, without a prime-power classification. OEIS A338382 catalogs collision values but does not state prime-power injectivity. Exact-form, alias, and implication searches in the published published-finding corpus corpus and the open web returned no equivalent statement. The closest published published-finding corpus records concern Jordan-totient products or compositions with divisor-function iterates, so neither implies this claim. Residual risk remains that an older source states the elementary prime-power lemma under different terminology.
+PASS
 
-## Value
-**PASS.** Prime powers are the canonical non-squarefree local strata for multiplicative arithmetic functions. The result complements the published squarefree theorem on an infinite family of repeated-prime inputs and does so uniformly over the two-parameter range \(u\ge v\). The infinite counter-ray \(v=3u\) demonstrates that parameter balance matters rather than being cosmetic.
+Using tau(p^a)=a+1, each fixed-base sequence increases strictly. For distinct bases, taking p- and q-adic valuations gives v*v_p(b+1)>=au and v*v_q(a+1)>=bu. Thus u>=v implies p^a divides b+1 and q^b divides a+1. Multiplying their size bounds, and using r^e>=2^e>=e+1, forces equality in both individual lower bounds. The only equality case is (r,e)=(2,1), impossible for distinct bases. Direct evaluation gives 2^6·7^3=7^3·4^3=21952; both sides raised to t give the claimed ray. I checked the code and saved output as regression evidence, not as a proof or fresh execution. The synopsis in RESULT.md and VERIFICATION.md abbreviates the stdout label: verification_output.txt actually records boundary_ray_checks=10 and base_collision=21952, consistent with the code and mathematical check.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest indexed low-Omega theorem overlaps for u=v=1 and exponents at most three. Published squarefree injectivity is broader in parameters but applies to a different input domain except for exponent one. Neither covers the all-exponents prime-power result for u>=v or the displayed parameter ray. This is the best judgment on inspected statements, not a priority guarantee.
+
+## value
+
+PASS
+
+Prime powers are the natural nonsquarefree local inputs complementary to known squarefree injectivity. The valuation obstruction gives a qualitative structural statement across a two-parameter region, while the explicit ray shows strict dependence on the weighting and precludes a blanket parameter extension. The value is this separation, not the isolated number 21952 or a claim of optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

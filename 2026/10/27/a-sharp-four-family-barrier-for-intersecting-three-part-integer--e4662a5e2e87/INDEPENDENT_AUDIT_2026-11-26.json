@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:09.022775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any two distinct shared part values determine the third part by the total, including repeats, so distinct supports intersect at most once. A nontrivial family cannot contain a singleton support and must contain a triangle with three distinct pairwise intersections a,b,c. With three full supports the only candidate avoiding a,b,c uses the three private values; its fixed sum would force a+b+c=n and make a private value coincide with a base value. Each candidate meeting exactly one base vertex is determined by that vertex and the opposite private value. For candidates at a and b only their remaining parts could coincide, but those parts b+c-a and a+c-b coincide only for a=b. With a repeated base member (a,a,b), all additions must meet at a or b; the opposite private value is required, so a missing private value rules out the corresponding addition and each orientation supplies at most one. When both private values exist, the two candidates again can only meet via the remaining parts b-a+c and a-b+c, impossible as a!=b. This proves the cap including repetitions. The displayed witnesses at 8 and for n>=9 are distinct and pairwise intersecting without a common part. A star has floor((n-j)/2) members by deleting j, so at n>=11 a largest family is a largest full star with the stated centers. Independently ran python3 /workspace/checks/3_small_orders.py, enumerating all subfamilies at n=3,...,10: maxima 1,1,2,2,3,4,4,4, with exactly the stated largest family at 8. The frozen script and stored output were inspected, not executed; the infinite cap follows from the proof, not the stored table.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borg's Theorem 1.8 gives a largest star for n>=3^t*k^5, hence n>=729 for k=3,t=1, and does not furnish uniqueness in the case k=t+2; the low-order result covers n<=2k-t+1=6",
+          "Person–Schweser Theorem 1.1 gives the bound for n>=A*k^3 with fixed A>24 and k sufficiently large"
+        ],
+        "reasoning": "The known high-n theorem partially covers the ordinary maximum value, not the cap on families with no common part or the sharp start and centers of the regime. The large-k result's quantifier cannot be specialized to k=3.",
+        "searches": [
+          "Resultary: Borg conjecture fixed-length integer partitions exceptional (n,k)=(8,3) star",
+          "Resultary: Person Schweser intersecting integer partitions counterexamples fixed k three parts",
+          "Borg PDF literal query Remark 1.5, p. 3 offset 6000",
+          "Person–Schweser HTML literal query fixed, offsets 0 and 5000"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Borg (2016) and Person–Schweser arXiv:2610.01747v1, passages above",
+        "Resultary 416ae231acd9, SCOPE011, dca1fcc16e77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=8 the only omitted partition (1,1,6) misses both (2,2,4) and (2,3,3), so Borg's list already implies uniqueness",
+          "Borg's eventual star maximum does not bound nontrivial families by a constant, and the distinct set-system catalogue records do not exploit equal sums"
+        ],
+        "reasoning": "Removing these implications, the proof still establishes a new obstruction at every total: equal sums force any two distinct candidate triangle extensions to be disjoint. That obstruction, not the known exceptional example or star count, supports the remaining exact classification.",
+        "searches": [
+          "Borg Remark 1.5, Conjecture 1.6 and Theorem 1.8",
+          "Person–Schweser Theorem 1.1",
+          "Resultary SCOPE011 mirrored findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borg p. 1 offset 650 and Person–Schweser offsets 0–5199 count common parts with multiplicities, which agrees with a shared distinct value at t=1",
+          "Resultary 416ae231acd9 mirrored RESULT.md offset 0 uses rank-two flats of K_N with edge-sharing, not fixed-total integer partitions",
+          "Resultary SCOPE011 offset 800 concerns intersecting 3-uniform hypergraphs on 9–13 points"
+        ],
+        "reasoning": "The two primary definitions apply to the exact same object at t=1. Neither enumerating a set-system on a few ground points nor partitioning a graph into flats gives this fixed-sum multiset constraint; that constraint generates linearity and the additional obstruction to two triangle extensions.",
+        "searches": [
+          "Resultary: nontrivial intersecting fixed-sum three-part integer partitions four member bound exact maxima n=8 star classification",
+          "Resultary: P_{n,3} intersecting integer partitions nontrivial four member family n=8",
+          "Borg PDF literal query common parts",
+          "Person–Schweser arXiv:2610.01747v1, opening definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Borg Remark 1.5 gives the entire five-partition list at n=8 and explicitly gives the four-member nonstar family, one larger than the 1-star",
+          "Frozen verification_output.txt gives finite maxima and classifications at n=3,...,20, not an earlier source; no matching larger public table appeared in the bounded catalogue returns"
+        ],
+        "reasoning": "The exact exceptional maximum is covered, and its uniqueness is a direct deduction from Borg's five rows. Neither this case, the unhelpful external query nor independent finite enumeration supplies a prior exact classification across all n.",
+        "searches": [
+          "Borg PDF literal query Remark 1.5",
+          "Resultary: P_{n,3} intersecting integer partitions nontrivial four member family n=8",
+          "Web: \"Intersecting integer partitions\" Borg Problem 1.3 Conjecture 1.6 Remark 1.5 n=8 k=3 Person Schweser"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp four-member nontrivial bound uniform in the total, and the resulting exact star regime/maximizer description beyond the previously known range. Do not credit as new the n=8 exception, whose four-family and full ground list appear in Borg (and whose uniqueness can be read off), or the eventual existence of an optimal star. The inspected large-k asymptotic result does not entail any fixed k=3 claim.",
+      "residual_risks": [
+        "An older exact result on equal-sum linear triple systems or the fixed three-part problem may have escaped the bounded searches; the external search returned no useful lead.",
+        "The exception and partial maximum-size coverage credited above are known; no new priority is claimed for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact exceptional example and implied uniqueness, and partial star coverage at small/large n; not the all-order cap",
+          "evidence": "Lists all five partitions of 8 into 3 and the four-family. The large-n theorem has n>=3^t*k^5, with no uniqueness conclusion in the case k=t+2.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/66/ajc_v66_p265.pdf",
+          "material_read": "Definition, printed p. 1 offset 650; Remark 1.5, Conjecture 1.6 and nearby bounds, printed p. 3 offset 6000",
+          "method": "OA literal locate then bounded PDF passage retrieval",
+          "title": "Intersecting integer partitions",
+          "trigger": "Original fixed-length extremal question and exact n=8 precedent"
+        },
+        {
+          "assessment": "Same t=1 notion; asymptotic in k rather than fixed k=3",
+          "evidence": "Star bound for every fixed A>24 and n>=A*k^3 for sufficiently large k, uniformly over 1<=t<k.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01747v1",
+          "material_read": "Opening definitions, abstract and Theorem 1.1, offsets 0 and 5000",
+          "method": "OA bounded HTML passage retrieval after locate",
+          "title": "Intersecting integer partitions: star bounds and counterexamples at every scale",
+          "trigger": "Recent strengthening of the same fixed-length conjecture"
+        },
+        {
+          "assessment": "Different definition of partition and intersection, and maximal rather than maximum",
+          "evidence": "Studies flats of K_N sharing a graph edge.",
+          "identifier_or_url": "Resultary 416ae231acd9",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Catalogue search and bounded local-mirror passage",
+          "title": "All maximal intersecting families of rank-two partition flats",
+          "trigger": "Adjacent intersecting partition-family classification"
+        },
+        {
+          "assessment": "Finite differently constrained hypergraph problem",
+          "evidence": "Studies diversity/minimum degree on ground sets of size 9–13, rather than positive triples of a fixed sum.",
+          "identifier_or_url": "Resultary 2026/9/8/SCOPE011",
+          "material_read": "Mirrored RESULT.md offset 800",
+          "method": "Catalogue search and bounded local-mirror passage",
+          "title": "Intersecting 3-uniform hypergraph findings",
+          "trigger": "Possible broader intersecting triples coverage"
+        },
+        {
+          "assessment": "Different fixed ground set and invariant",
+          "evidence": "Studies homology of a complex of intersecting 3-subsets on seven points, not the maxima of fixed-total partition families.",
+          "identifier_or_url": "Resultary dca1fcc16e77",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Catalogue search and bounded local-mirror passage",
+          "title": "The full S_7 homology character of pairwise intersecting triples",
+          "trigger": "Adjacent pairwise-intersecting triple object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves the natural small-length gap between a known exception and the eventual star theorem. The proof gives an additive obstruction on extending an intersection triangle, explaining a sharp, total-independent cap that generic triple-system bounds or a few enumerated totals do not provide. It determines exactly when larger stars are forced and which stars can maximize.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

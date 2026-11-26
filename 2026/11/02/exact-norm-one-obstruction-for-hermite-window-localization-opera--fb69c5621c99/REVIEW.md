@@ -1,19 +1,21 @@
-# Self-review: Exact norm-one obstruction for Hermite-window localization operators
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-For each integer \(k\ge2\), each Laguerre root gives exact annihilation of one character in true-level Toeplitz quantization. The Gaussian generating integral and a unit-norm Weyl-covariant averaging functional prove that every bounded-symbol Toeplitz operator stays at distance at least \(1\) from its forbidden Weyl shift, with equality at the zero operator. The normalized Hermite STFT and true-polyanalytic Bargmann transform are unitarily equivalent as shown by Abreu--Speckbacher (2018, Section 6.3). Independently repeated standard-library exact arithmetic confirms 256 supplementary Laguerre Gaussian identities. The finite checker is not used to establish the operator-norm theorem; it is proved analytically.
+PASS
 
-## Originality (PASS, historical priority provisional)
+The displayed Weyl action multiplies with phase exp(−iσ(z,w)/2), so conjugation of W_xi and of the character Toeplitz operator has the same eigencharacter. Irreducibility gives scalar proportionality. With the radial unit vector L_{k−1}(|w|²) and real a=|xi|, pairing with its shift leaves the tilt exp(a w) after multiplying the character. In the two-variable Laguerre generating integral the Gaussian quadratic coefficient is (1−st)/[(1−s)(1−t)], the linear coefficients are a/(1−t) and at/(1−t), and the constant is −a²t/(1−t). Gaussian integration gives (1−st)^−1 exp(−a²st/(1−st)), establishing every diagonal coefficient and the stated zero without a Fourier convention ambiguity. The phase-weighted Weyl matrix average has norm at most 1 and equals 1 on W_xi. Covariance and the translated disk substitution leave a bounded scalar times the zero character operator, plus an error tending to zero by dominated convergence: the disk symmetric-difference fraction tends to zero pointwise and is bounded by 2, and the test-vector product is integrable. This works for each fixed bounded symbol with no uniform symbol bound needed. Thus the lower bound is 1 for the full range, and the zero symbol attains it. Distance is unchanged under norm closure; norm continuity of Weyl conjugation on this shift follows from the eigencharacter. For BUC symbols the Toeplitz range lies in C_1 by covariance and the symbol sup-norm bound, so the proper-subset conclusion is valid. The Hermite STFT/Bargmann unitary in Abreu–Speckbacher Eq. (6.2) identifies the mask and Toeplitz sesquilinear forms by coordinate reflection/rescaling; the phase cancels. Time-frequency shifts correspond to Weyl shifts up to unimodular factors, which do not affect distance to the complex linear range. The argument requires the irreducible true level and a Laguerre root, not the full reducible sum or arbitrary frequencies.
 
-Abreu--Speckbacher (arXiv:1808.02258v1) establishes Hermite-window concentration methods and the STFT/Fock correspondence but no operator-norm separation. Fulsche--Hagger (arXiv:2308.11292v1 and published open access 2024), Theorem 3.4, Corollary 3.10 and Section 5 Question 2, establish nonrepresentability at Laguerre roots and explicitly leave **uniform closure** open. An operator outside a set can still lie at distance zero from it; their statement therefore does not imply the exact distance \(1\) found here. Fulsche's analytic p-Fock density theorem (arXiv:1911.12668) is for the Gaussian level without Laguerre roots; Keller--Luef (arXiv:1905.07741) studies semiclassical/multilevel approximation, not the fixed-level bounded-mask norm problem. McNulty (2026) concerns a translation commutant. Searches for alternative terminology and stronger indirect norm-density results revealed no decisive coverage. Broad historical priority has not been independently certified.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The result addresses a naturally motivated all-symbol localization approximation problem, yielding a **sharp**, nonzero, window-dependent obstruction and resolving the linear part of an explicit published open problem. It separates norm closure from exact representability and from weak-star closure. It is not an arbitrary finite parameter slice or a routine specialization.
+The supported new content is the exact distance to the full L-infinity linear range and its norm closure, not the Laguerre-zero kernel or the lack of exact representation. Fulsche–Hagger explicitly leave uniform-closure membership open. The distinction is about norm density, not weak-* density or C*-generation. The printed first clause of Question 2 lacks a closure bar; the preceding sentence expressly poses the uniform-closure issue meant here. No equivalent norm-gap statement was found in the inspected sources, not a guarantee of priority.
 
-## Limitations and risks
+## value
 
-The theorem concerns fixed one-dimensional Gaussian true levels and Weyl shifts at the positive Laguerre roots. It does not establish any gap for other frequencies, non-Gaussian Fock weights, full reducible polyanalytic spaces, or the separately posed question about the \(C^*\)-algebra generated by localization operators. A general uninspected theorem could still bear on historical priority; an independent proof audit and external validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp norm obstruction answers the stated norm-closure problem for every higher true level and for the full bounded-mask range. It pinpoints a genuine distinction between weak-* and norm density and uses an explicit contractive separation at each forbidden frequency. It is stronger than identifying a null symbol or an operator with no exact representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

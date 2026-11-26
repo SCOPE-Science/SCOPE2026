@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof identifies all possible selected-edge components in a squared path, proves their separation, and derives an exact four-tile bivariate generating function. The vertex-budget argument gives the six-residue maximum; explicit slack enumeration gives the number of all maxima. Independent direct edge-conflict subset enumeration through path order eleven and formula cross-checks through order fifty support—but cannot replace—the unrestricted proof. See `RESULT.md` and `verify.py`.
+## correctness
 
-**Originality: PASS with priority risk.** The published scalar EOP problem is already tractable on general proper interval graphs (Santra, arXiv:2510.16236, Theorem 6). That algorithmic scalar coverage is acknowledged; the present contribution is a full exact size polynomial and complete optimizer-count census. Brešar and Samadi (arXiv:2403.00750) establish complexity and graph bounds, not this polynomial. The product-graph paper arXiv:2406.04020 addresses other classes. Bu, Chen and Zhu (AAIM 2022, DOI 10.1007/978-3-031-16081-3_36) address injective chromatic index of powers of paths: that is a coloring partition parameter rather than this count of individual EOP sets. Its full proceedings text was inaccessible and remains a priority risk; no statement of complete noncoverage is made from its abstract alone.
+PASS
 
-**Value: PASS.** The full enumerator of a natural triangular proper-interval graph family refines a scalar maximum in every coefficient. The structural tile classification yields a reproducible rational generating function and explicit multiplicities of all optimum solutions. The exact six-phase optimization profile and optimizer census are useful for analyzing concurrent edge assignments in communication interference models.
+Under the stated distinct-third-edge rule, a selected three-edge path is impossible (its middle edge is a forbidden third edge), as is a selected triangle. Hence the selected-edge components are stars; three leaves cannot all be independent within the allowed offsets −2,−1,1,2. The two-leaf offsets (−2,1),(−1,2),(−2,2) give two width-four and one width-five patterns. The nearest-endpoint and interleaving arguments force an exact two-unused-vertex minimum gap between spans; the gap and leaf conditions also suffice. Unique ordered components then give T^t x^{2(t−1)}/(1−x)^{t+1}, and leftover vertices distributed in t+1 slots give the binomial expression, including the constant 1. For m>0 selected edges the minimum order is 3m−2 plus the parity of m, attained with the shortest tiles. For n=6k+r and r=0,1, the only maximal families have 0 or 2 singleton tiles. After dividing out 2^k, their slack counts are [y^(r+2)](1+y/2)^k/(1−y)^(k+1) and binom(k+1,2)/2 times [y^r](1+y)^2(1+y/2)^(k−1)/(1−y)^(k+2). Expanding at r=0,1 gives the claimed numerators 11k²+17k+8 (over 8) and 15k³+47k²+50k+16 (over 16). Residues 2,3 have one singleton and slack 0,1; residues 4,5 have no singletons and slack 0,1. A slack unit either lengthens a tile or is placed in one gap, yielding the other four formulas. I separately enumerated every edge subset up to n=11 by conflict masks directly on graph edges and compared complete coefficients, and checked the exact rational/integer maxima through 50 using the rational GF's recurrence. Order zero gives 1 as intended; orders 1–5 give the stated maxima multiplicities. No finite test substitutes for the structural proof.
 
-**Limits.** The result covers squares of paths only. An independent scientific audit, comprehensive literature certification, and full-text comparison against the AAIM proceedings paper have not been performed. Finite computation is not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported novelty is the full size enumerator/unique component encoding and maximum-set census for the path square. The scalar optimization is already algorithmically covered and the packing problem is an established object. No inspected source covers the claimed enumerative result.
+
+## value
+
+PASS
+
+The gap-and-tile description isolates the local mechanism of the packing on a basic infinite chordal graph family and gives every subset-size coefficient, not only the optimum. The exact residue-dependent multiplicity exposes how width slack and alternative singleton tiles create many optima at certain lengths, information not provided by scalar optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

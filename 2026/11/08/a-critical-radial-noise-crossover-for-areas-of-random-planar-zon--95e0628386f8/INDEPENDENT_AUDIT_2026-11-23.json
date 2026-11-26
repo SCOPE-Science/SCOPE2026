@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:23:24.230900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adding a segment increases the area by its length times the width in the perpendicular direction, and widths add; this gives the absolute-determinant pair sum. Put t_n=τn^(−β), q_n=v t_n², and K=|sin(Θ_i−Θ_j)|−α. The canonical remainder kernel is exactly r²[(1+t_n ξ_i)(1+t_n ξ_j)K+αt_n²ξ_iξ_j]. The two terms are orthogonal by angular centering, and distinct pair kernels are uncorrelated by conditional degeneracy. Thus its one-pair variance is r⁴[(1+q_n)²(1/2−α²)+α²q_n²]; adding the first projection variance n(n−1)²α²r⁴q_n to the binomial(n,2) pair variances recovers the displayed variance, including β=0. Replacing the kernel by r²K has one-pair squared error r⁴[(2q_n+q_n²)(1/2−α²)+α²q_n²], giving the asserted L² bound. Direct integration gives cosine coefficient −4/[π(4m²−1)]; the sine/cosine coordinates each have variance 1/2 and are orthogonal, so the squared moduli in the finite-dimensional CLT are independent Exp(1) limits. Pair degeneracy and Fourier orthogonality give the stated uniform tail bound, and Parseval gives sum (4m²−1)^−2=(π²−8)/16. The unsquared sum telescopes to 1/2. Absolute summability gives L³ convergence by Minkowski, hence the strictly negative third cumulant; the upper support point is attained in the essential sense by requiring a finite exponential head to be small and controlling the independent nonnegative weighted exponential tail by its vanishing mean. The radial projection is an ordinary sample sum of scale n^(3/2−β); the angle-only remainder has scale n. At β=1/2 these independent finite-row terms converge jointly to independent nonzero limits by factorization of characteristic functions and Slutsky. These analytic checks establish the result; the uploaded geometry/Monte Carlo program was inspected but not run, and no finite simulation is offered as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schneider Theorem 3 applies Hoeffding's CLT with one fixed law and ζ_1>0. Here the first-projection variance vanishes with n for β>0 and is zero for the fixed-circle kernel.",
+          "An indexed Limit Theorems for a Triangular Scheme of U-Statistics item describes asymptotic normality for triangular schemes under its conditions; the attempted JSTOR primary page did not yield full text."
+        ],
+        "reasoning": "A general joint limit for a moving linear projection and a degenerate quadratic projection could be close. The inspected fixed-law theorem cannot supply the joint limit; a normal-only limit would not by itself yield the critical non-Gaussian convolution. No whole-paper exclusion is drawn from the search fragment.",
+        "searches": [
+          "arXiv:2202.06774 §§2–4, Lemma 1 and Theorem 3",
+          "Web: near degenerate U statistics triangular array varying kernels local alternatives gaussian quadratic chaos independent linear term Hoeffding limit weak projection theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.06774",
+        "doi:10.2307/3213243 (metadata and access attempt)",
+        "doi:10.37920/sasj.1987.21.2.1 (access attempt)",
+        "arXiv:0807.3590 (scope as reported by Schneider)",
+        "JSTOR 2243872 (index and access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schneider Theorems 1–2 and the discussed Vitale result cover the mean/determinant setup, and Theorem 3 covers the fixed-law Gaussian case at β=0. Known fixed-kernel spectral methods can give the independent exponential harmonics at fixed radius.",
+          "At β=1/2 the variance of the degenerate sum divided by n² is nonzero, just like the variance of the radial projection divided by n²; discarding either term as in the separate fixed-law limits loses part of the law."
+        ],
+        "reasoning": "The new content needs the row-wise remainder transfer and the joint independence furnished by the independent angle and radial sequences. Neither known marginal limit states or entails the critical result without that comparison. de Wet's DOI did not yield full text independently, so the fixed-kernel priority assessment is not a whole-paper finding.",
+        "searches": [
+          "arXiv:2202.06774 Theorems 1–3 and §4 proof",
+          "doi:10.37920/sasj.1987.21.2.1 (full-text access attempt)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact alias for the zero-noise area is a constant times the sum of all chord lengths on the doubled-angle circle, since |sin(θ_i−θ_j)|=|exp(2iθ_i)−exp(2iθ_j)|/2.",
+          "Silverman's 1978 paper is the pertinent fixed-distance-process comparator; the DOI supplied bibliographic metadata, and the frozen audit reports the scope of the abstract, not a full-text comparison."
+        ],
+        "reasoning": "Even full coverage of the fixed-radius law through chord distances would not cover the retained independent radial Gaussian at criticality. The natural alias for the new claim is a radially weighted circle U-statistic with vanishing weights' variance, not an ordinary unweighted distance process.",
+        "searches": [
+          "Web: random zonotope area variance distribution fixed length segments uniform circle Distances on circles Silverman chord distance U statistic shrinking radii",
+          "doi:10.2307/3213243",
+          "Resultary: zonotope area concentrated radii critical radial triangular crossover circle pair chord (transport failure)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No search data from Resultary were returned; this is not negative evidence. The exact constants in Schneider's explicit example are for a fixed standard normal generator vector law, not shrinking radial noise around a deterministic radius.",
+          "Donoho–Tanner arXiv:0807.3590, as characterized in Schneider's introduction, treats face counts of projected hypercubes rather than an area limit."
+        ],
+        "reasoning": "A previously computed exact critical law for this weighted pair statistic would count, as would a table encoding it. The accessible explicit formulas use different generators or a different invariant; the coverage of inaccessible searches remains unknown.",
+        "searches": [
+          "Resultary: random planar zonotope area uniform directions critical shrinking radial noise Hoeffding degenerate U statistic Gaussian exponential crossover (transport failure)",
+          "Web: zonotope area shrinking radial noise critical limit degenerate U-statistic circle sum distances Silverman triangular array local alternatives Gaussian noncentral chi square",
+          "arXiv:2202.06774 §4 Gaussian-generator example"
+        ]
+      },
+      "rationale": "Qualified to triangular radial concentration for this area, with the exact competition of scales, explicit independent critical convolution, and finite-n variance. The determinant sum, fixed-law normal and degenerate U-statistic methods, and fixed-circle component are not counted as novel. The accessible fixed-law zonotope theorem does not give this moving-law result by specializing parameters.",
+      "residual_risks": [
+        "Silverman's historical work may subsume the fixed-radius term, not treated as novel here.",
+        "An unlocated local-alternative or triangular U-statistic theorem may subsume the full crossover under the same weighting regime; priority is provisional.",
+        "Resultary produced transport failures for this topic, and the cited de Wet survey did not yield a full text on the attempted route; neither is used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean and nondegenerate fixed-law Gaussian regime are background; the theorem requires a fixed positive first projection and does not state a critical moving-law result.",
+          "evidence": [
+            "§3 Eq. (9) gives a fixed-kernel U-statistic representation for the scaled zonotope valuation.",
+            "§4 Theorem 3 gives a sqrt(n) normal limit under Lemma 1 and uses ζ_1>0 explicitly."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.06774",
+          "material_read": "Introduction and definitions, Theorems 1–2 with the expected determinant comparison, §3 pair/U-statistic representation, §4 Theorem 3 and its first-projection hypothesis and Gaussian example",
+          "method": "Primary arXiv PDF text and public HTML theorem passage",
+          "title": "Random zonotopes and valuations",
+          "trigger": "Same geometric construction, expectation and CLT"
+        },
+        {
+          "assessment": "Plausible coverage of fixed-circle background; no independent full-text exclusion of other results.",
+          "evidence": [
+            "J. Appl. Probab. 15(1), 136–143 (1978); exact chord-distance equivalence established in this review."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213243",
+          "material_read": "Bibliographic DOI response; full paper not available on attempted route",
+          "method": "DOI resolution and lawful JSTOR access attempt",
+          "title": "Distances on circles, toruses and spheres",
+          "trigger": "Doubled-angle chord-distance reduction of the fixed-radius area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The degeneracy at constant generator length is natural in the isotropic planar model. The exact radial/angle variance split identifies the sensitivity of area to small independent radial noise, and determines both order and distribution on either side of a sharp threshold. The non-Gaussian critical convolution and calibratable finite-size variance add value beyond either classical fixed-law endpoint. The result is for the stated bounded-noise model and fixed exponents, not a uniform convergence rate or higher-dimensional theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

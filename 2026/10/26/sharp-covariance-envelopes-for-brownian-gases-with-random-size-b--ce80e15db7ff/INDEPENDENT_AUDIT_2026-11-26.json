@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:10:20.934346Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently condition on the two backward ages, truncated at t for zero initialization. Write a=rq1 and b=rq2. For 0<s,u<t their joint survival is exp[-a(s+u)+b min(s,u)], since the overlap excludes the union of the two reset marks. Independent Brownian drivers give C(t)/(4D^2) as the double tail integral over [0,t]^2 of exp[-a(s+u)](exp[b min(s,u)]-1). This proves strict comparison at every t>0 and verifies the generator calculation: u'=2D-au, w'=4Du-(2a-b)w imply C'=-(2a-b)C+b u^2. At stationarity the double joint-survival integral is 2/[a(2a-b)] and a marginal age is Exp(a); Gaussian fourth moments give Var(X_i^2)=20D^2/a^2, verifying both normalizations. A two-sided Poisson construction and the probability bound N exp(-at) for a coordinate not yet reset give existence and uniqueness. For f(m)=m(m-1), the difference from the lower supporting line through k,k+1 is (m-k)(m-k-1), and the upper endpoint chord minus f(m) is (m-1)(N-m). Equality supports and the fixed mean force the stated unique laws (at integer means the lower law is a singleton); for mu=1,N only one law is feasible. Linear mixing of the endpoint laws and continuity give the entire range. At t=0 the range is {0} and all feasible laws attain it; strictness and optimizer uniqueness are at positive times or stationarity, as the proof specifies. The frozen checker was inspected, not run; its subset enumeration and finite quadrature are not the all-time proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source generator is linear in the mark law, yielding the same two joint rates after averaging. The later calibrated result treats strict ordering of squared-displacement laws in a fixed-batch family."
+        ],
+        "reasoning": "Those methods address the dynamical ingredient; neither supplies the fixed-budget feasible interval, the endpoint laws, or the full attainment statement.",
+        "searches": [
+          "arXiv:2601.20077v1, model and correlations Eqs. (17)–(20)",
+          "Resultary calibrated batch resetting and pair dependence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.20077v1",
+        "Resultary 8e6eba896b4c, 6eb1adb91d8a, 4abad2345c8f and fe3e31789427"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited paper explicitly says it would be natural to explore where the number of reset particles m is itself random (PDF text offset about 36700).",
+          "The same-day findings treat empirical densities and pair tail asymptotics at fixed sizes; the calibrated monotonicity finding compares fixed batches and does not optimize the law of M."
+        ],
+        "reasoning": "The full interval follows only after combining random-mark dynamics with sharp finite-support optimization. No inspected prior statement provides that combined fixed-mean classification.",
+        "searches": [
+          "arXiv:2601.20077v1, concluding discussion and Eq. (8)",
+          "Resultary fe3e31789427, 8e6eba896b4c, 6eb1adb91d8a, 4abad2345c8f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In deterministic size m, q1=m/N and q2=m(m-1)/(N(N-1)) reproduce Eq. (8) and the two reset rates in the supplement.",
+          "At fixed mean, q2 is an affine function of Var(M); the November 22 calibrated-reset record varies deterministic m and adjusts r to fix the marginal rate, rather than varying Var(M) at fixed r and mean."
+        ],
+        "reasoning": "Changing deterministic m at fixed r does not make the claimed comparison; allowing a deterministic rate adjustment samples specified co-reset values but does not determine the attainable laws at a given mean.",
+        "searches": [
+          "Resultary: random-size batch resetting covariance and pair monotonicity",
+          "arXiv:2601.20077v1, Eq. (8) and correlations supplement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed empirical-density and pair-exceedance findings use fixed sizes; Eq. (8) tabulates dependence on a single deterministic size, not random size laws."
+        ],
+        "reasoning": "No checked table gives this interval across all laws. Bounded search is not a priority certificate.",
+        "searches": [
+          "Resultary: covariance under random-size Brownian batch resetting at fixed expected size",
+          "arXiv:2601.20077v1, fixed-batch covariance formula and discussion"
+        ]
+      },
+      "rationale": "Credit the known fixed-size transient and stationary correlations and the routine random-mark extension of the underlying generator. The supported contribution is the complete fixed-mean distributional envelope, not the fixed-size formula or a new convex-order method.",
+      "residual_risks": [
+        "A broader marked-Poisson dependence theorem combined with sharp convex-order bounds might imply the classification; no such combined result was verified in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the deterministic subfamily and generator method, not the fixed-mean envelope.",
+          "evidence": [
+            "Eq. (8) has the deterministic factor N^2(m-1)/(m^2(2N-m-1)); conclusion explicitly proposes random m."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.20077v1",
+          "material_read": "Model, Eq. (8), Eqs. (17)–(20), and concluding discussion through the final paragraph (PDF offsets 36200–38859)",
+          "method": "Open-access primary HTML and PDF passages",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Same model and known fixed-batch covariance"
+        },
+        {
+          "assessment": "Related stronger observable within a deterministic, calibrated-rate family, not the optimization over law shapes.",
+          "evidence": [
+            "r_m=lambda N/m and size m is fixed at events."
+          ],
+          "identifier_or_url": "Resultary fe3e31789427",
+          "material_read": "Indexed finding and model parameters",
+          "method": "Local Resultary comparison",
+          "title": "Strict all-threshold and conditional monotonicity under calibrated batch resetting",
+          "trigger": "Closest all-time pair-order comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At identical expected reset activity the marginal motion is unchanged, yet pair fluctuations can be tuned over a nontrivial sharp interval at every positive time. The optimizing protocols can be implemented directly, and the result distinguishes fixed-budget control from the known variation with deterministic size at fixed clock rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:45:59.516727Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen and repaired RESULT.md, definitions and proof",
+        "NeurIPS 2022 original, Eq. (2), PDF p. 3; Eq. (4), p. 5",
+        "Frozen check.py, check-output.json and VERIFICATION.md inspected, not executed; Monte Carlo concerns finite samples and dimensions only",
+        "Independent replay python3 /tmp/opencode/frozen_math_rechecks.py: at s=2, the elementary t_2 survival calculation and a separate SciPy t tail agreed at .182400163254645; the scaled Student 95th-percentile cutoff was 4.12948320967011."
+      ],
+      "rationale": "The balanced split statistic and its s-denominator within-group variances agree with the published equations. For the finitely many cross-split pairs, distance-square fluctuations about 2d sigma^2 are jointly O_p(sqrt(d)). Taylor expansion about that center with the same random bandwidth in all pairs gives a uniform O_p(d^(-1)) remainder; neither conditioning on the bandwidth nor pretending it is independent is needed. The constant and evaluation squared norm cancel when taking the witness contrast. The remaining second-split squared-norm term is common across both first-split groups and cancels from their mean difference and each centered variance. Dividing by the positive common factor exp(-d sigma^2/ell_d^2)*sqrt(d)/ell_d^2 makes the remainders o_p(1) and leaves the scores X_i dot G_d/sqrt(d) and Y_i dot G_d/sqrt(d), with G_d the difference of second-split means. The vector contribution from one coordinate has covariance (2 sigma^4/s)I by split independence and zero means; the multivariate iid CLT yields independent Gaussian limit scores despite shared G_d. Their difference of means is independent of pooled within-group residual sum of squares, which after variance scaling is chi-square_(2s-2). The published denominator uses s twice in squared units, giving sqrt(2s) Z/sqrt(Q), not ordinary t_(2s-2). The limiting denominator is positive almost surely, hence zero denominators vanish in probability. The repaired bandwidth example explicitly applies the median to ell_d^2, and a positive fallback on a zero median preserves the stated limit and avoids undefined kernels under discrete laws. No main limit or calibration number changes.",
+      "residual_risks": [
+        "No dimension-uniform error, finite-dimensional RBF Student law, power comparison, or growing-s asymptotic follows. The median example requires the same bandwidth for every pair, not independently selected pairwise widths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original xMMD theory and related trained witness and studentized U-statistic results require diverging test/sample sizes. Zhu–Shao explicitly treat fixed sample sizes, posit a joint limit of centered pair terms and derive an unsplit distance/MMD statistic and permutation limit."
+        ],
+        "reasoning": "Growing-sample normality does not apply at fixed s. The earlier fixed-sample joint pair framework supplies closely related ingredients for deterministic bandwidths but does not itself evaluate the published cross-MMD within-group studentizer or address cancellation for an arbitrary common observation-dependent bandwidth.",
+        "searches": [
+          "arXiv:2211.14908 Theorem 15 and NeurIPS Theorems 4–5",
+          "Zhu–Shao arXiv:1902.07279 Assumption 2, Theorem 3.1 and Proposition 3.1",
+          "Gao–Shao arXiv:2109.14913 Theorem 16",
+          "Kübler et al. AISTATS 2022 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary",
+        "NeurIPS cross-MMD primary text and arXiv:2211.14908",
+        "arXiv:1902.07279",
+        "arXiv:2109.14913",
+        "AISTATS 2022 WiTS primary paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhu–Shao Theorem 3.1 derives a marginal limit for a fixed permutation of their unsplit statistic, not its equivalence to this ratio. Its joint centered-pair premise and expansion are relevant to a derivation; the split score centering and nonlinear within-group studentization are additional steps."
+        ],
+        "reasoning": "One can reuse the earlier pair-array viewpoint for deterministic widths. Obtaining the exact scaled t still requires checking how the shared offsets and scales interact with the published studentizer and proving a nondegenerate iid Gaussian score-vector limit, including the common random-bandwidth extension. Sample-size CLTs or classical Student theory alone do not cover those steps.",
+        "searches": [
+          "arXiv:1902.07279 Assumption 2 (PDF p. 9) and Theorem 3.1 (p. 11)",
+          "Original cross-MMD Eq. (4) and Theorems 4–5",
+          "Gao–Shao Theorem 16 and Kübler et al. Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cross-MMD equals the difference of first-group mean scores for a common witness fitted to the second split, with two separately centered biased variances. Zhu–Shao use the same bandwidth order through squared Euclidean distances divided by d, but aggregate an unsplit, unstudentized U-statistic."
+        ],
+        "reasoning": "The witness rewrite is exactly the original cross-MMD. Identical kernel and bandwidth order do not make a non-split permutation statistic equivalent to the published studentized split ratio.",
+        "searches": [
+          "Original NeurIPS cross-MMD Eqs. (2)–(4)",
+          "Zhu–Shao arXiv:1902.07279 normalized interpoint distances and Gaussian example",
+          "Local Resultary: fixed-sample high-dimensional cross-MMD, Student law and kernel null covariance; d5750fe3a778, e79a24aef730"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary match d5750fe3a778 is the assigned record itself. The distinct same-date e79a24aef730 gives a finite Gaussian null covariance kernel and bandwidth-correlation trichotomy for a one-sample MMD-square statistic under known normal law."
+        ],
+        "reasoning": "The covariance kernel and the previous normal/permutation laws are not a table or formula for the studentized split statistic at fixed s; exact Student survival calculations only apply after the distinct limit reduction.",
+        "searches": [
+          "Local Resultary exact xMMD Student-null and high-dimensional MMD covariance comparison",
+          "NeurIPS Eq. (4), Theorems 4–5 and expanded arXiv:2211.14908 Theorem 15",
+          "arXiv:1902.07279 fixed-size limit statements"
+        ]
+      },
+      "rationale": "The repair credits Zhu–Shao's explicit fixed-sample high-dimensional Gaussian-kernel regime and centered-pair expansion framework, a closer antecedent than the growing-sample work alone. The credible distinct contribution is the exact limiting calibration of the published split statistic with its biased studentizer, including shared data-dependent bandwidth and the fixed-sample nominal-size discrepancy. It is not a claim to originate high-dimensional distance linearization, joint Gaussian approximations, or the Student ratio.",
+      "residual_risks": [
+        "Bounded source comparisons are not a priority certificate; a broader joint-kernel Studentization result or an unindexed fixed-size analysis may partially subsume this argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact statistic and variance overlap; normal limits are large-sample results.",
+          "evidence": [
+            "Eq. (4) uses n_1 and m_1 as centered-variance denominators and then scales the two variance terms by 1/n_1 and 1/m_1."
+          ],
+          "identifier_or_url": "https://proceedings.nips.cc/paper_files/paper/2022/file/731b952bdc833485eb72f458cdd5c489-Paper-Conference.pdf",
+          "material_read": "Kernel contrast p. 2; Eq. (2) p. 3; Eq. (4) p. 5; Theorems 4–5 p. 6; PDF text offsets 3600, 9500, 25500, 31900",
+          "method": "OA conference primary text",
+          "title": "A permutation-free kernel two-sample test",
+          "trigger": "Exact statistic and possible limit coverage"
+        },
+        {
+          "assessment": "Both sample sizes diverge; no fixed-s implication.",
+          "evidence": [
+            "Theorem requires a finite positive limit for n/m_n as n tends to infinity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.14908",
+          "material_read": "Theorem 15, p. 18, text offset 75600",
+          "method": "OA primary preprint",
+          "title": "A permutation-free kernel two-sample test (expanded)",
+          "trigger": "Potential broader changing-kernel null law"
+        },
+        {
+          "assessment": "Same order of squared bandwidth, closely related centered-pair machinery; different statistic and calibration.",
+          "evidence": [
+            "Gaussian kernel is on normalized squared coordinates. Assumption 2 concerns joint centered interpoint terms. Theorem 3.1 evaluates the unsplit statistic for a fixed permutation and Proposition 3.1 its permutation behavior."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.07279",
+          "material_read": "HDLSS regime pp. 2–3, Gaussian example pp. 4–5, Assumption 2 p. 9 offset 31368, Theorem 3.1 and Proposition 3.1 p. 11 offset 35100 and following text",
+          "method": "OA primary PDF passage comparison",
+          "title": "Interpoint Distance Based Two Sample Tests in High Dimension",
+          "trigger": "Strongest fixed-sample high-dimensional RBF antecedent"
+        },
+        {
+          "assessment": "Unsplit U-statistic and growing sample sizes.",
+          "evidence": [
+            "Theorem 16 takes n,m and dimension to infinity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.14913",
+          "material_read": "Statistic and Theorem 16, PDF pp. 10, 12–13, offsets 40464 and 50400",
+          "method": "OA primary PDF",
+          "title": "Two Sample Testing in High Dimension via Maximum Mean Discrepancy",
+          "trigger": "High-dimensional studentized MMD"
+        },
+        {
+          "assessment": "Different witness method; growing test set.",
+          "evidence": [
+            "Theorem 1 requires n+m tending to infinity with a stable sample fraction."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v151/kubler22a/kubler22a.pdf",
+          "material_read": "Theorem 1, PDF p. 4, offset 20500",
+          "method": "OA primary PDF",
+          "title": "A Witness Two-Sample Test",
+          "trigger": "Similar independent witness and studentization"
+        },
+        {
+          "assessment": "One-sample MMD-square with a known Gaussian null, not the two-sample studentized split statistic.",
+          "evidence": [
+            "Exact bandwidth-indexed covariance and a high-dimensional correlation trichotomy, rather than a fixed-s distribution for cross-MMD."
+          ],
+          "identifier_or_url": "Resultary:e79a24aef730",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "An exact Gaussian-null MMD covariance kernel and its sharp high-dimensional behavior",
+          "trigger": "Strongest distinct same-date catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and assumptions",
+        "NeurIPS cross-MMD Eq. (4) and Theorems 4–5"
+      ],
+      "rationale": "The question concerns calibration of a named published two-sample procedure in a natural different asymptotic regime. At four observations per group, a nominal one-sided 5% Gaussian cutoff has limiting null rejection about 18.24%; the theorem yields an exact replacement cutoff. The discrepancy is not a cosmetic Bessel correction: even correcting the variance does not turn a fixed-degree Student limit into a normal law. Applicability to non-Gaussian coordinates and common pooled bandwidth selection broadens the usefulness of the calibration boundary.",
+      "residual_risks": [
+        "The limit is not a recommendation of finite-sample Gaussian-kernel calibration accuracy at any particular dimension and does not address power."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

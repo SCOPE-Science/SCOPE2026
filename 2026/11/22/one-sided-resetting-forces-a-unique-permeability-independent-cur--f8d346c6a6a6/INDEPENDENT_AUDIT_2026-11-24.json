@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:01:23.796096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the directed boundary law and signed flux in RESULT.md:18–29, 48–58, 64–124. As an independent sign/normalization check, test Dp''−rp=−rμ with cosh(η(L−x)) and cosh(ηx) and integrate by parts: the equal endpoint derivatives give p(0)=A+gJ and p(L)=B−gJ with g=(cosh(ηL)−1)/(Dη sinh(ηL)). Substitution gives the claimed positive denominator. The explicit Neumann solution plus the flux corrector gives existence and uniqueness; the two positive traces and the positive Dirichlet Green kernel for −D∂xx+r imply interior positivity for a finite Borel source, also for singular continuous μ. Integrating the weak equation gives total mass one. For the left semicircle, the derivative of log(B/A) is the difference of cosh-weighted averages of z tanh(ηz) on opposite sides of L/2 and hence is strictly negative for each η>0. The ratio tends to 1 at zero and to 0 at infinity: positive mass a definite distance left of the midpoint suffices for exponential domination even if the source accumulates at the midpoint. Reflection inverts the ratio. Thus the stated β criteria, current signs, transversality (dη/dr=1/(2Dη)), and absence of κ in the root equation all follow. Integrating the coshes verifies the uniform formulas and expanding them at η=0 verifies the weak-bias coefficient for any fixed eligible source. The numerical example replays as 4*acosh(1.5)**2 = 3.70503712923511. VERIFICATION.md and verify_biased_membrane.py were read, not executed; the reported finite-volume and discrete-source results are auxiliary, not a proof for all Borel sources. This check concerns only the displayed diffusive membrane flux, not reset displacements or two-sided sources.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff (2024) Eq. (2.34) gives asymmetric interface transmission; Eqs. (3.1a–c) use symmetric transmission in the stationary reset ring.",
+          "Bressloff (2023) §II treats biased crossing and an asymmetric interval first-passage problem."
+        ],
+        "reasoning": "The boundary and Green techniques are general ingredients, but neither checked statement entails the ordered-transform ratio inequality for every strict one-sided Borel law in the combined biased reset-ring model. No encompassing theorem was established by these comparisons.",
+        "searches": [
+          "arXiv:2402.16403v1 §§II.E, III",
+          "arXiv:2211.12460v1 §II"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.16403v1",
+        "arXiv:2211.12460v1",
+        "SCOPE-20261102-6de9da8f8562",
+        "SCOPE-20261122-493d7044dfb9",
+        "SCOPE-20261108-c2705ab73d30",
+        "SCOPE-20261102-9bd1a590e00a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining a biased boundary condition with the symmetric resolvent method can give the algebraic equation B=βA for a zero; the symmetric source transform itself measures B−A, not B/A; the tomography record explicitly treats the forward transform as antecedent."
+        ],
+        "reasoning": "The zero equation alone neither counts positive roots nor shows nonzero derivative. The strict comparison of weighted endpoint transforms and their full limiting range yields the distinct phase diagram; the κ cancellation by itself is an elementary consequence, not a separate novelty claim.",
+        "searches": [
+          "arXiv:2402.16403v1 Eq. (2.34) and Eqs. (3.1a–c)",
+          "Resultary: SCOPE-20261102-6de9da8f8562 Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boundary-current tomography Finding (offset 0) gives the same current transform at β=1 for a fixed Borel source.",
+          "The periodic Brownian ratchet Finding gives a reset-rate reversal for winding velocity in a periodic bulk potential with point resetting into a well."
+        ],
+        "reasoning": "At β=1 the checked symmetric transform has constant sign on each strict one-sided class. Reflection reciprocates the biased source ratio and exchanges the left and right cases but does not symmetrize a nonunit bias. The drift ratchet's velocity, generator, and source assumptions are different; it does not provide an equivalent membrane phase diagram.",
+        "searches": [
+          "Resultary: SCOPE-20261102-6de9da8f8562",
+          "Resultary: SCOPE-20261108-c2705ab73d30",
+          "arXiv:2402.16403v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day throughput record's Finding optimizes |J(r)| for one reset point and symmetric transmission.",
+          "The permeability-optimizer Finding maximizes interfacial entropy over κ at fixed reset rate for the symmetric membrane; the tomography Finding reconstructs a source component from the symmetric transform."
+        ],
+        "reasoning": "None of these exact optimizers or transforms tabulates the same signed-current zero or bias-dependent uniform-half threshold. In particular the zero at issue is not the maximizing reset rate. The comparison is nonexhaustive.",
+        "searches": [
+          "Resultary: SCOPE-20261122-493d7044dfb9",
+          "Resultary: SCOPE-20261102-9bd1a590e00a",
+          "Resultary: SCOPE-20261102-6de9da8f8562"
+        ]
+      },
+      "rationale": "Pass is limited to the biased-interface, strictly one-sided fixed-source sign classification, with a transverse permeability-independent crossover in the competing-bias regimes. The symmetric current transform and the asymmetric interface law separately are antecedents, not discoveries.",
+      "residual_risks": [
+        "A broader transport or boundary-resolvent comparison under a different formulation could already imply the ratio monotonicity; priority is not certified.",
+        "Screened-resetting literature was not exhaustively checked for broader generalizations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers separate ingredients, not the combined crossover theorem in those passages",
+          "evidence": [
+            "Eq. (2.34) directional law; Eqs. (3.1a–c) symmetric reset ring"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.16403",
+          "material_read": "v1 p. 6 §II.E, §III current boundary equations",
+          "method": "Original accessible paper, passage-level comparison",
+          "title": "Entropy production for diffusion processes across a semipermeable interface",
+          "trigger": "Both bias and stationary resetting on a ring appear in one primary paper"
+        },
+        {
+          "assessment": "Different first-passage problem, no implication to the stationary ring classification shown",
+          "evidence": [
+            "§II: biased switching and asymmetric barrier passage"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.12460",
+          "material_read": "v1 pp. 1–2 and relevant §II asymmetric-interface material",
+          "method": "Original accessible paper, passage-level comparison",
+          "title": "Renewal equations for single-particle diffusion through a semipermeable interface",
+          "trigger": "Potentially broader biased-interface theory"
+        },
+        {
+          "assessment": "Exact overlap at symmetric permeability; its inverse result does not cover directional bias",
+          "evidence": [
+            "Finding: symmetric current transform; Relationship: forward Green/current law antecedent"
+          ],
+          "identifier_or_url": "SCOPE-20261102-6de9da8f8562",
+          "material_read": "Finding at offset 0 and Relationship to prior work at offset 11300",
+          "method": "Published result via local mirror",
+          "title": "Boundary-current tomography and its reflection-blind subspace",
+          "trigger": "Same geometry and arbitrary Borel source"
+        },
+        {
+          "assessment": "Different invariant and restricted source and membrane",
+          "evidence": [
+            "Unique argmax of absolute current, symmetric membrane and point resetting"
+          ],
+          "identifier_or_url": "SCOPE-20261122-493d7044dfb9",
+          "material_read": "Finding, offset 0",
+          "method": "Published result via local mirror",
+          "title": "A unique throughput-optimal reset rate and a sharp membrane-contact law",
+          "trigger": "Distinct same-day unique reset-rate assertion"
+        },
+        {
+          "assessment": "Different mechanism and observable",
+          "evidence": [
+            "Winding velocity with bulk periodic potential and reset to a minimum"
+          ],
+          "identifier_or_url": "SCOPE-20261108-c2705ab73d30",
+          "material_read": "Finding",
+          "method": "Published result via local mirror",
+          "title": "Reset-rate current reversal in a one-well periodic Brownian ratchet",
+          "trigger": "Same reversal terminology"
+        },
+        {
+          "assessment": "Entropy optimization in permeability at fixed reset rate does not determine signed-current zeros",
+          "evidence": [
+            "Symmetric membrane and interfacial entropy as objective"
+          ],
+          "identifier_or_url": "SCOPE-20261102-9bd1a590e00a",
+          "material_read": "Finding",
+          "method": "Published result via local mirror",
+          "title": "A universal unique membrane-permeability optimizer for reset diffusion",
+          "trigger": "Exact optimizer on same symmetric geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete sharp phase diagram for competition between directional transmission and the location of reinjection, valid even for singular one-sided sources. It separates what permeability controls (the magnitude) from what it cannot shift (the unique transverse zero when one exists), with a directly evaluable uniform-source threshold. It does not constitute empirical transport validation or a result about winding due to reset jumps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

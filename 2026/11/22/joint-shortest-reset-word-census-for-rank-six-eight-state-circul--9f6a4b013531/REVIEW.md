@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain comprises every rank-six map on the labelled eight-state set, quotiented only by conjugation with the designated cycle. There are exactly \(5{,}362{,}560\) labelled maps and \(670{,}608\) rotation classes by direct Burnside counting. Two independent, complete finite programs calculate the full 648-cell shortest-length/shortest-word-count histogram using forward and reverse shortest-path recurrences on the 255 nonempty subsets. All cells, totals, the unique maximal multiplicity, and overflow checks agree. The included verification script compares the exact files. The proof is exhaustive only for eight states.
+## correctness
 
-**Originality — PASS, qualified.** An earlier same-family exact census already covers the threshold marginal (and in particular the class with length 36); these results are expressly not claimed new. Neither the previous threshold histogram nor the cited 2020 circular-automaton state-complexity theory nor the 2022 shortest-length algorithm results imply the new **joint multiplicity** distribution: for example, fixed length ten has multiplicities ranging from one to 32. Nearby literature counts shortest words for different special automata, not all rank-six cyclic eight-state automata. A possibly unindexed equivalent table remains the residual originality risk.
+PASS
 
-**Value — PASS.** A complete exact control-language multiplicity statistic for a natural class of finite circular synchronizing automata tests a fundamentally different property from shortest reset length. The unique maximum of \(110{,}592\) distinct shortest protocols occurs at length 30 while the maximal-duration automaton has just eight shortest protocols. The 388,869 cases with one optimal protocol and the 648-cell joint table provide a precise benchmark for algorithm design and reset-language enumeration; no general asymptotic claim is needed for that finite classification.
+I reproduced the full table independently using Python integers, not the frozen executables. The generator enumerates the 266 partitions of eight inputs into six nonempty fibers and all 8P6 injective output assignments; lexicographic cyclic conjugation gives one map per orbit. Breadth-first distances from the full subset define a shortest-path DAG. Backward suffix counting in that DAG sums each letter separately, including coincident image edges. I timed 8 fiber patterns, then exhausted contiguous ranges [0,8), [8,72), [72,136), [136,200), [200,264), [264,266), saving each range. All 5,362,560 maps yielded 670,608 representatives (576 size-four orbits, as by Burnside), and every one of the 648 joint entries and 121 word-marginal entries matched the frozen CSVs. This includes 6,928 nonsynchronizing, 663,680 synchronizing, 388,869 with one shortest word, the unique (30,110592) and (36,8) cells, both representative maps and quoted reset words, and the 1–32 range at length 10. The frozen prose incorrectly says both packaged algorithms guard overflow: the reverse guards its additions; the forward uses unchecked 64-bit arithmetic. The repair corrects that description; the claims and tables are unchanged and the independent exact computation does not rely on either arithmetic implementation.
 
-**Closest literature and limits.** S. Hoffmann, arXiv:2011.14404 (full text inspected: state complexity and complete reachability); M. Szykuła and A. Zyzik, arXiv:2207.05495 (full text inspected: exact reset-length algorithms and random-automaton experiments). Earlier exact rank-six threshold census covers the time marginal only. This finite proof does not extend automatically to larger automata. No independent external review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Only the joint shortest literal word multiplicities and their new extremal information are credited. The same-day same-family threshold spectrum, orbit count, and threshold extremizer are explicitly cited and excluded from the distinct contribution. No order within that date is inferred.
+
+## value
+
+PASS
+
+This is the complete multiplicity classification of the same eight-state defect-two circular stratum whose length distribution was already a studied finite census, not an arbitrary small instance. Literal shortest words distinguish automata with the same threshold and measure how many minimal control sequences are available. The complete table and sharp witness show that the longest-threshold automaton is not the multiplicity extremizer, and give exact benchmark counts for independent algorithms or later structural work. No new shortest-path algorithm or extrapolation is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

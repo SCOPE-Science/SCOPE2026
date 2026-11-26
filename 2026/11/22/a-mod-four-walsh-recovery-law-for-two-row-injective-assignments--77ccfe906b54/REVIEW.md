@@ -1,19 +1,21 @@
-# Scientific assessment: two-row injective-assignment Fourier spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier character of a two-edge injective matching is exactly \(x_i y_j\) for distinct \(i,j\), so the complete signed coefficient is \(ab-c\). Overlap-type counting is multinomial, and four-way residue analysis exhibits zero modes when and only when \(n\not\equiv3\pmod4\). The even and odd sign constructions attain sharp positive gaps of \(2\) and \(4\), as appropriate. The finite verification programs independently passed and do not stand in for the proof. The exact rank computation uses diagonalization of Boolean convolution, not an assumption about numerical rank.
+PASS
 
-## Originality — PASS under bounded comparison
+With counting convolution the characters of F_2^(2n) are an orthogonal eigenbasis. Each support vector uses row-one coordinate i and row-two coordinate j with i!=j, so deleting the diagonal from the product of the two row sums gives W=ab-c. The (u,v,t) type count chooses the first negative set and the inside/outside portions of the second; no type multiplicity is lost when different types give the same W. Modulo 4, W=n(n-1)-2(n-1)(u+v)+4(uv-t); for odd n this gives residues 0 or 2 and the claimed nonzero lower bounds. At n=4k+3 the stated (2k+1,2k+1,k) yields 2, including k=0. At n=4k+1, k>=1, the feasible overlaps k and k-1 give 0 and 4. At every even n a balanced first row and constant second row give 0; flipping a position where the first row is positive gives 2, including n=2. The all-positive signs attain the triangle-inequality bound n(n-1); rank and condition number then follow in the stated normalization. n=1 has empty support and no nonzero gap, and is not claimed.
 
-The closest classical square-sign permanent paper is Wanless (2005), inspected from the author-hosted seven-page full text, especially section 4 and Theorem 1. It classifies existence of a vanishing **square** sign permanent, not the two-row rectangular assignment operator or its complete Fourier multiplicities and sharp gaps. The complete order-five square-permutation Fourier census from an indexed result is also a distinct object and gives no all-width rectangular classification from its available summary. Indexed searches for two-row injections, signed rectangular permanents, matching Walsh coefficients and period-four zero modes did not return an implication-equivalent result. The conventional Fourier diagonalization is not claimed to be new. Absolute priority cannot be established; equivalent older two-row rook calculations are a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The family is a canonical resource-injective two-task assignment model and a natural boundary case of rectangular matching Fourier analysis. A complete all-width answer decides whether every Boolean signal can be recovered from its counting convolution, gives exact dimensions of the lost space when not, and gives the optimal \(\ell^2\) conditioning on the surviving range. The mod-four transition and exact signed spectrum make this more than a routine count of assignments, without asserting a broad extension to larger rectangular matchings.
+The contribution is the combined all-width signed classification, exact singularity criterion and sharp surviving gaps for the row-saturating 2-by-n injections, not diagonalization by Walsh characters or a general permanent identity. No implication-equivalent statement was located in the checked material.
 
-## Limits and related sources
+## value
 
-Wanless (2005), DOI: 10.1080/03081080500093990, is distinct but highly relevant for its theory of signed permanents. O'Donnell (2014), DOI: 10.1017/CBO9781139814782, provides general Boolean-Fourier background, not a claimed antecedent for the rectangular classification. Accessible indexed summaries do not substitute for the full text of every potentially relevant archival paper. Exact nullity is provided as a finite binomial sum, not an asymptotic expansion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-row model is the first row-saturating assignment convolution in which a genuinely nontrivial collision exclusion couples the rows. The result identifies when recovery on the full labelled Boolean space is possible and, otherwise, gives exactly how many directions are lost and how strongly the remaining directions can be inverted in l2. The all-width mod-four transition and attained norm ratio add substance beyond applying the standard diagonalization or giving a routine small-board spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

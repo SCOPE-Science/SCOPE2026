@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:26:21.985484Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An episode arriving before the preceding window ends cannot have its first detection later: it either intersected a previous window or expired. Conditional on a not-yet-arrived episode, the exponential arrival clock restarts. The one-window arrival/survival integral at equal rates gives e^(−y)(y+1−x), with y=λg and x=e^(−λw); adding the future value gives e^(−y)(y+1−x+xv). Its derivative is e^(−y)[x(1−v)−y], establishing a strict global maximum and a unique continuation by induction, since the future term has strictly positive weight at every finite gap. The scalar iterates increase strictly to 1, so chronological gaps are positive and strictly increasing when there is more than one. The miss recurrence e_(j+1)=1−exp(−xe_j)<xe_j implies both the strict idle-time bound (the positive-width limit is below x/[λ(1−x)]) and strict improvement over the miss x^n at equal active time but not equal elapsed time. The sum of logs of the product factors converges absolutely by e_j≤x^j, giving 0<C<1. At w=0 the separately defined perfect point observation has the same Bellman rule at x=1; the reciprocal increment tends to 1/2, yielding n e_n→2 and the harmonic-sum idle asymptotic. A fresh 75-digit recurrence at x=1/2 gives v_4=0.9581868628320855 and gaps (.042712464884,.089295725693,.196734670144,.5), confirming RESULT.md's example. The supplied checker was read, not run; its recorded finite diagnostics do not prove the optimization or the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circular model has uniform start phase, fixed budget and switching overhead; at fixed count it gives equal silent gaps.",
+          "The carcass-search model concerns continuing Poisson fatalities over a fixed season, exponential removal and imperfect point searches; it gives equal interior gaps and distinct endpoint gaps.",
+          "The OA multisite paper uses a cyclic route for continuing Poisson events; ACM access attempts for Yau et al. did not yield the detailed source."
+        ],
+        "reasoning": "None of the inspected general or adjacent models includes the present combination of one nonstationary arrival, a free end time and prescribed identical positive windows as a stated special case. The closest blocked source is an access risk, not evidence of noncoverage.",
+        "searches": [
+          "Resultary stochastic transient monitoring, finite positive-width windows and finite-season search",
+          "arXiv:1309.6041",
+          "DOI:10.1145/1824766.1824774"
+        ]
+      },
+      "checked_sources": [
+        "Resultary instantaneous snapshot theorem",
+        "Resultary finite-window circular budget theorem",
+        "Resultary finite-season carcass-search theorem",
+        "arXiv:1309.6041",
+        "DOI:10.1145/1824766.1824774 (attempted)",
+        "DOI:10.1002/ece3.1056 and DOI:10.1016/j.envint.2024.108706 (publisher/open-copy attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Point snapshots have a neutral derivative at zero miss, giving an algebraic rather than geometric asymptotic. At positive widths that derivative is x<1.",
+          "Uniform phase and active-time budgeting on a circle permit no distinguished origin; a cyclic multisite route addresses repeated events."
+        ],
+        "reasoning": "A change from neutral to contracting iteration, including computation of its nonzero normalization constant and finite accumulated idle cost, is not a relabeling of the boundary theorem. Neither cyclic model reduces to the exponential residual-arrival Bellman state under the stated hypothesis.",
+        "searches": [
+          "2026/11/8 SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40",
+          "2026/11/22 SCOPE-a-universal-mean-duration-boundary-and-integer-staircase-for-ove--d7bd2b2d953a",
+          "arXiv:1309.6041 §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal-rate point-observation result states b_k=exp(b_(k−1)−1), the same gaps at x=1, the 2/n miss law and logarithmic idle time.",
+          "The frozen Finding and Relationship to prior work treat that same point-observation model as a known boundary."
+        ],
+        "reasoning": "The match at x=1 is exact. At positive width, detection of arrivals within the current window and the reduced residual-arrival factor both enter the recurrence; the positive-width summable miss trajectory and its product constant are not contained in the point-observation theorem.",
+        "searches": [
+          "Resultary single transient episode, fixed-duration windows and optimal snapshot calendars",
+          "2026/11/8 SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact titled hit is the frozen record itself; the other inspected Resultary hits are the point-snapshot boundary and different finite-window or finite-horizon models."
+        ],
+        "reasoning": "A self-match does not establish independently known coverage; the matched boundary is not an exact positive-width recurrence or sharp C(x) formula.",
+        "searches": [
+          "Resultary: exponential one-episode finite-window optimal scheduling, nested recurrence and sharp miss asymptotic",
+          "2026/11/22 SCOPE-fixed-duration-transient-episode-monitoring-has-a-sharp-algebrai--a27abbb498d2"
+        ]
+      },
+      "rationale": "The quoted point-observation boundary is already known and explicitly credited. The surviving claim is the positive-width global calendar and its sharp relative miss constant and bounded idle cost under the stated one-episode model. The strongest inspected finite-window and survey-calendar alternatives have different arrival laws, objectives or horizon constraints; they do not supply this positive-width result.",
+      "residual_risks": [
+        "The bounded web search did not settle historical priority in older inspection-scheduling literature.",
+        "Some cited articles, in particular Yau et al., were inaccessible; no detailed noncoverage inference was made from access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact covering boundary, already credited",
+          "evidence": "Equal-rate point recurrence and n miss→2; no positive-window observation terms.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40",
+          "material_read": "RESULT.md, Finding and Proof §§1–4",
+          "method": "Resultary local-mirror passages",
+          "title": "Optimal snapshot calendars for a single transient ecological presence episode",
+          "trigger": "Same episode and exponential distributions"
+        },
+        {
+          "assessment": "Related but circular uniform-start problem",
+          "evidence": "The fixed-count optimum equalizes silent gaps under a budget; it does not optimize the one-off exponential model's increasing gaps.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-mean-duration-boundary-and-integer-staircase-for-ove--d7bd2b2d953a",
+          "material_read": "RESULT.md, Finding, Assumptions, Proof §§1–2",
+          "method": "Resultary local-mirror passages",
+          "title": "A universal mean-duration boundary and integer staircase for overlap monitoring",
+          "trigger": "Finite-width optimal gap scheduling"
+        },
+        {
+          "assessment": "Different objective, horizon and observation rule",
+          "evidence": "Expected count of repeatedly arriving carcasses, fixed season and imperfect instantaneous searches.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-separation-threshold-and-endpoint-offset-law-for-carcass--b31ffe3779db",
+          "material_read": "RESULT.md, Finding, Assumptions, Proof §§1–3",
+          "method": "Resultary local-mirror passages",
+          "title": "A sharp separation threshold and endpoint offset law for carcass searches",
+          "trigger": "Exponential loss and unique calendar in a distinct same-day record"
+        },
+        {
+          "assessment": "Not the one-episode model",
+          "evidence": "Poisson events at multiple stations, cyclic route with station dwell times.",
+          "identifier_or_url": "arXiv:1309.6041",
+          "material_read": "PDF p. 2, offset about 7000; p. 5 §II, offset about 18900",
+          "method": "OA PDF passages",
+          "title": "Persistent Monitoring of Events with Stochastic Arrivals at Multiple Stations",
+          "trigger": "Scheduling with dwell times and event arrivals"
+        },
+        {
+          "assessment": "Unresolved in detail, not excluded on title or snippet",
+          "evidence": "The frozen record describes periodic recurrent monitoring; detailed assumptions could not be independently read.",
+          "identifier_or_url": "https://doi.org/10.1145/1824766.1824774",
+          "material_read": "No primary passages; DOI and ACM PDF returned HTTP 403",
+          "method": "OA retrieval attempts",
+          "title": "Quality of monitoring of stochastic events by periodic and proportional-share scheduling of sensor coverage",
+          "trigger": "Closest cited intermittent continuous monitoring paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural constrained interception problem has an exact unique solution, not just an example or numerical optimization. The singular change in miss rate and in aggregate idle time at zero window width quantifies a design difference and the strict constant measures the benefit of separation at equal active effort. It is a useful mathematical benchmark under perfect overlap detection and a free finish time, not a claim about empirical sampling performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

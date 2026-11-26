@@ -47,9 +47,9 @@ This is a natural fixed-dynamics input-location optimization on
 two dense groups connected by a tunable number of matched bridges.
 It gives not just the minimum control budget but the exact allowable
 vertex configurations and an enumerative invariant for every
-connectivity regime. The equality
-\(N(m,m-1)=N(m,m)=m2^{m-1}\), despite different optimal-set geometries,
-is an exact, interpretable transition. The finite non-zero-forcing
+connectivity regime. Completing the matching preserves the actual family
+of optimal placements on the same labeled vertices, not just the count
+\(N(m,m-1)=N(m,m)=m2^{m-1}\). The finite non-zero-forcing
 example shows why general strong-structural sufficient tests do not
 settle the entire fixed-Laplacian problem.
 

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The quotient of the square grid by either translation or a vertical glide reflection is the stated surface; every nonidentity deck transform moves a vertex by at least the side length. Thus all shorter loops are contractible, the four-cycles are precisely facial squares, and the first group stage follows from the two surface presentations. Both length-side generators kill the groups at the final stage. The connected dual square grid makes the face-boundary rank exactly one less than the face count over the binary field; the two length-side cycles then exhaust the residual rank. This proves the entire barcode. Independent finite checks confirm all smaller cases shown in VERIFICATION.md. The infinite theorem uses the written proof, not extrapolation of the checks.
+## correctness
 
-## Originality
-**PASS, within accessible priority evidence.** Rajković gives the group definition, the minimum-basis interpretation, and the torus at stage four, but not the complete twisted/untwisted paired filtration or matching full binary death spectra. Horton–Berger analyzes a different Klein-bottle triangulation to contrast rational and binary cycle bases; it neither compares these graphs nor establishes their group-valued persistence. Prior published square-complex results concern other invariants such as graph-metric Rips homology or neighborhood/cut complexes, which do not imply the complete cycle-length-spectrum matching. Similar unindexed graph examples, and the unavailable companion exposition, remain possible priority risks.
+PASS
 
-## Mathematical value
-**PASS.** The purpose of the coordination-scale persistence framework is to retain nonabelian relations beyond its tractable binary barcode. A uniform, natural pair of four-regular grids exhibiting equality of their *entire* binary persistence modules while having different surface groups at a full range of scales is a motivated structural boundary, not an isolated calculation. The exact death multiplicities and middle-stage groups are established for all side lengths, and the result quantifies precisely the information lost by binary linearization. It does not claim the loss is invisible over the integers.
+In the square-grid cover each deck map has normal form h^p v^q; for q nonzero its vertical displacement is |q|L, and otherwise a nonidentity map has horizontal displacement at least L. Hence walks shorter than L close upstairs if closed downstairs. There are no triangles, and simple four-cycles are exactly projected unit squares since L≥5; projections of squares are embedded and distinct. The group before filling is free of rank E−V+1=L²+1. The square-filled complexes are the torus and Klein bottle, with the stated presentations. Other disks before L attach along nullhomotopic loops and give isomorphisms on π1. A row and the x=0 column are simple length-L representatives of the deck generators, so the quotient group is trivial at L and thereafter. Over F₂ the square boundary matrix has its one face relation: an edge forces its two incident faces to have equal coefficients in the kernel, and the dual graph is connected. The dimensions are thus L²+1, two and zero; the natural maps are surjective, so there are no later births and the full barcodes agree. Integral homology would distinguish the middle groups, consistently with the stated mod-two scope.
 
-## Literature and limits
-Closest: Rajković, arXiv:2611.09967v1, Proposition 6(d) and Sections 2–4; Horton–Berger (2005), Theorem 4. Verification involves only sides 5 through 9; the proof is unrestricted. Further literature may contain an equivalent construction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work already gives the coordination-scale definition, binary minimum-cycle-basis correspondence, torus at scale four, and examples exhibiting group information invisible to later-scale binary ranks. The supported distinction is the explicit torus/Klein square-grid pair for all L≥5 with equality of the complete barcode including the initial free stage and exact winding-cycle deaths, alongside differing middle group systems. The frozen torus citation locator should be Proposition 11(d), not Proposition 6; this bibliographic correction does not change the claim or proof.
+
+## value
+
+PASS
+
+This uniform, low-degree example isolates information lost by binary coordination persistence under the stronger control of identical graph size and complete barcode, not merely the same later-stage dimensions. The exact group and length calculations make the pair an explicit benchmark for which winding relations a group-valued invariant sees and binary homology does not distinguish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:34:30.930246Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rigid-lid Laplace modes are cosh profiles; the interface kinematic and pressure conditions lead to the temporal quadratic with coefficients alpha_i=rho_i coth(k h_i). Its weighted-square minimum in frequency is k^2 alpha_l alpha_u U^2/(alpha_l+alpha_u), so a nonreal pair occurs exactly above the stated scalar threshold. The Dirichlet–Neumann partial-fraction expansion of tanh(h sqrt(z))/sqrt(z) has residues 2/h at poles -pi^2(n+1/2)^2/h^2; the series and its derivatives converge on compact nonnegative z intervals. For S=sum c/(z+a), B=-S/S'-z is a mean under weights c/(z+a)^2, and differentiation gives -2 Cov(a,1/(z+a))>0, since there are distinct poles and the second function strictly decreases. B(0)=3M1/M3 and B(z)~z at infinity. The derivative of (b+z)S has the sign of B-b, proving strictness at b=b_c and unique positive minimization only above it. The tanh expansion gives B'(0)=12 M1 M5/(5 M3^2)-2>=2/5 (strict for unequal depths), and local inversion and integration of the derivative give k_*^2=epsilon/C+O(epsilon^2) and the gap (M3/6C)epsilon^2+O(epsilon^3). At exact onset the finite root is repeated real on the finite branch only; it is not an exponentially growing mode. For the separate phase-speed boundary, the denominator T(z)=sum rho_i sqrt(z)coth(h_i sqrt(z)) has the expansion T(0)+sum d_j z/(z+a_j), d_j,a_j>0, from the coth poles. Thus T''<0 and the derivative sign of (b+z)/T is the sign of T-(b+z)T', strictly increasing and eventually positive. This supplies a global check beyond the frozen small-k expansion: its boundary is T(0)/T'(0), equivalent to the stated gamma_phase. Exact signed tension comparisons at two unequal-depth contrasts and at the matching ratio passed (python3 /workspace/repro/frozen_checks.py). The analysis only establishes temporal linear onset, not above-onset fastest growth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lannes–Ming give bounds rather than the resolved minimum. The flat constant in the broader nonlinear stability work is still expressed by a supremum. The cited 2010 finite-layer full text was not retrievable, including DOI recovery."
+        ],
+        "reasoning": "A more general stability theory or bound is not an explicit classification of this minimization. The Taylor zero at k=0 alone is a local test, not a global threshold, without a global mechanism ruling out additional extrema.",
+        "searches": [
+          "two fluids Kelvin-Helmholtz unequal depths minimum critical velocity rigid lid long waves surface tension wavelength",
+          "doi:10.1088/0029-5515/50/11/115005",
+          "Lannes and Ming, bounds after all-mode criterion",
+          "arXiv:1005.4565, Remark 5.1 and stability criterion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Kelvin–Helmholtz and phase-speed searches; October 26 capillary minimum and tomography records",
+        "Lannes and Ming, §3.2",
+        "Lannes arXiv:1005.4565",
+        "Targeted unequal-depth literature lookup; OA attempts on the 2010 specialist treatment and shallow-water depth-discontinuity paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The phase-speed work minimizes positive wave speed in a one-layer uniform-vorticity problem. The shear criterion uses the reciprocal of alpha_l plus the reciprocal of alpha_u, rather than the reciprocal of alpha_l+alpha_u as in zero-shear phase speed."
+        ],
+        "reasoning": "The unequal-depth objectives cannot be identified by a constant scaling: the exact tension difference can have either sign. Neither a fixed-shear band edge nor a phase-speed minimum establishes the unique first marginal KH mode or its quantitative emergence in unequal depths.",
+        "searches": [
+          "Lannes and Ming, §3.2 onset minimum and fixed-shear critical wavenumber",
+          "October 26 uniform-vorticity capillary–gravity phase-speed minimization record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lannes–Ming derive the capillary factor times the depth-weighted tanh sum and the global minimum over wavenumber; Lannes’s related flat-interface criterion uses a supremum involving a depth-weighted tanh sum."
+        ],
+        "reasoning": "The variational onset statement already appears in equivalent physical variables. The compared formulas leave an extremum to evaluate and do not specify the unequal-depth regime boundary, a single critical point, or the coefficient C.",
+        "searches": [
+          "Resultary: finite-depth two-fluid Kelvin–Helmholtz onset, threshold and critical wavenumber",
+          "Lannes and Ming, rigid-lid criterion, §3.2 Eqs. 24–27 and all-mode threshold",
+          "arXiv:1005.4565, Remark 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact minimization record gives a unique finite-depth surface-wave phase-speed minimizer and square-root emergence with coefficient sqrt(15/2) in a uniform-vorticity model. The two-layer inversion item omits both shear and capillarity."
+        ],
+        "reasoning": "These are exact results in other models, not tables or formulas for the minimum of the stated unequal-depth Kelvin–Helmholtz threshold. The equal-depth coincidence of selection kernels is explicitly excluded from distinct novelty.",
+        "searches": [
+          "Resultary finite-depth onset and phase-speed search",
+          "SCOPE-global-shear-ordering-and-three-singular-laws-for-the-capillary--9e41ebf2487a, Finding",
+          "SCOPE-two-wavenumber-tomography-and-an-exact-depth-reflection-ambiguit--77cae454cb33, Finding"
+        ]
+      },
+      "rationale": "The physical dispersion and all-mode variational threshold are substantially prior and not credited as new. The distinct supported result is a global root-count theorem for the unequal-depth kernel, with the weighted-moment transition and explicit edge law, plus separation from the distinct zero-shear phase-speed criterion. Closest inspected sources do not give these conclusions; an inaccessible cited specialist treatment is a residual risk, not a negative comparison.",
+      "residual_risks": [
+        "The 2010 Miloshevsky–Hassanein text could contain more unequal-depth analysis than the frozen record describes. No full-text result is inferred from the inaccessible copy.",
+        "An older specialized evaluation of the same kernel or an equivalent global theorem may be unindexed; the comparisons establish neither absolute priority nor novelty of the standard dispersion or variational formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Variational onset prior, global selection law not supplied in the passages compared",
+          "evidence": [
+            "Capillary multiplier times sum of layer tanh terms divided by k; tau_cr=tau_KH min alpha_sigma."
+          ],
+          "identifier_or_url": "https://david-lannes.perso.math.cnrs.fr/wp-content/uploads/2019/01/lannesming.pdf",
+          "material_read": "§3.2, Eqs. 24–27, print pp. 198–199, offsets 35100–38000; all-mode minimum and bounds, pp. 201–202, offsets 44000–47000",
+          "method": "Author-hosted OA PDF",
+          "title": "The Kelvin-Helmholtz Instabilities in Two-Fluids Shallow Water Models",
+          "trigger": "Exact two-fluid finite-layer variational onset law"
+        },
+        {
+          "assessment": "Related flat-interface optimization within broader stability theory; not resolved in inspected passages",
+          "evidence": [
+            "Flat constant c(0) is defined as a supremum of a ratio with density-weighted tanh terms."
+          ],
+          "identifier_or_url": "arXiv:1005.4565",
+          "material_read": "Introduction p. 4 offset 12620; Remark 5.1 and dimensional stability criterion, offset 166990",
+          "method": "OA PDF text",
+          "title": "A stability criterion for two-fluid interfaces and applications",
+          "trigger": "Broader finite-depth gravity-capillary Kelvin criterion"
+        },
+        {
+          "assessment": "Unresolved unequal-depth coverage; not counted as non-covering",
+          "evidence": [
+            "Frozen record cites Eqs. 1–4; that attribution was not independently verified in the inaccessible text."
+          ],
+          "identifier_or_url": "doi:10.1088/0029-5515/50/11/115005; https://engineering.purdue.edu/CMUXE/GenaPDFs/NF-2010.pdf",
+          "material_read": "No full text; Purdue link timed out; DOI route had no open copy",
+          "method": "Lawful OA attempts, author link and DOI recovery",
+          "title": "Modelling of Kelvin–Helmholtz instability and splashing of melt layers from plasma-facing components in tokamaks under plasma impact",
+          "trigger": "Frozen citation attributes finite-layer dispersion and numerical critical wavenumber"
+        },
+        {
+          "assessment": "Structural analogy, different physical objective and parameters",
+          "evidence": [
+            "Positive phase speed in a finite-depth surface-wave model with uniform vorticity; square-root coefficient sqrt(15/2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-global-shear-ordering-and-three-singular-laws-for-the-capillary--9e41ebf2487a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Global shear ordering and three singular laws for the capillary–gravity phase-speed minimum",
+          "trigger": "Strongest indexed apparent exact selection overlap"
+        },
+        {
+          "assessment": "No substantive coverage inference from title",
+          "evidence": [
+            "Search index identifies a shallow-water depth-discontinuity problem."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0375960122001554",
+          "material_read": "Indexed title; full text unavailable on tried routes",
+          "method": "Literature lookup and OA page attempts",
+          "title": "Effect of depth discontinuity on interfacial stability of tangential-velocity discontinuity in shallow-water flow",
+          "trigger": "Targeted search for related unequal-depth thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Without wavenumber search the weighted-depth criterion distinguishes long-wave onset from the first isolated finite wavelength, and uniqueness eliminates competing first-onset modes. The explicit near-transition wavelength and critical-shear gap quantify how this change happens. Demonstrating that phase-speed selection can err in either direction when substituted for KH onset is a concrete consequence in the natural unequal-depth model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

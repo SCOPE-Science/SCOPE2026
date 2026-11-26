@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:43.584436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof, lines 25–43",
+        "Frozen verify.py and verification_output.txt, inspected without executing"
+      ],
+      "rationale": "After restricting to one letter, any accepted length N at least the number of states has a run containing a simple directed cycle. Repeating it advances the length by the LCM P of the usable simple-cycle lengths, so within each residue modulo P acceptance, once attained above the threshold, persists. This proves eventual periodicity by P in both directions. The exact length predicate has least period m, hence m divides P. A prime power dividing a finite LCM must divide an individual length c, forcing at least c distinct states. When the underlying simple graph is bipartite and c is at least m ≥ 4, c is even (each step of that cycle changes color). Formal loops do not affect this inference. Counters on cycles of lengths m and lcm(m,2) attain the unrestricted and graph-restricted bounds; the latter cycle is itself a cactus. Non-full-period subsets are exactly those invariant under the order-p subgroup, giving 2^(p^(k−1)) such sets, and the 2m singleton/complement exclusions are distinct primitive sets.",
+      "residual_risks": [
+        "The recorded exhaustive search through four states attacks a modulo-three control, not the general m ≥ 4 lower bound. The conclusion uses the proof, not extrapolation from that search."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "To's Lemma 2 and preceding union over superpaths express the accepted tail as a finite union of progressions with periods gcd(D) for nontrivial SCCs D of the given NFA; gcd(D) is the gcd of directed simple-cycle lengths in D.",
+          "The Chrobak normal-form construction for general NFAs can increase size quadratically. The bipartite-cactus theorem establishes existence, not optimum size."
+        ],
+        "reasoning": "It is the original-SCC result, not the mere existence of another equivalent NFA or a general expressivity theorem, that constrains the number of states and parity of cycles in the actual machine.",
+        "searches": [
+          "Anthony Widjaja To, arXiv:0812.1291, Lemma 2 and original SCCs",
+          "Czerwiński et al., arXiv:2302.06435, §2.1",
+          "Grobler, Koziel and Siebertz, arXiv:2610.11717, Theorem 1.1 and §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.1291v1",
+        "arXiv:2302.06435",
+        "arXiv:2610.11717",
+        "Resultary 08999567f29d",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-text period decomposition refers to SCCs of the input graph after root/sink normalization, with periods gcd(D), not SCCs of a potentially larger Chrobak normal form."
+        ],
+        "reasoning": "For To's conventions one may create an entry vertex by copying the initial state's outgoing arcs and a sink by copying arcs entering final states, including a direct entry-to-sink arc for an accepted one-letter word. Keep the old transitions; the positive accepted lengths are unchanged. The new endpoints are acyclic and trimming does not create cycles, so the cited cyclic SCCs occur in the original graph. The LCM of their gcds is an eventual period, hence is divisible by m. For m=p^k one gcd(D) is divisible by m, so a simple cycle of D in the original graph has length a multiple of m; if the graph is bipartite that length is even since it is not a loop. The matching counters give equality immediately. The stronger prior decomposition thus supplies all substantive lower bounds through the same argument even though it does not print these formulas.",
+        "searches": [
+          "To, Unary finite automata vs. arithmetic progressions, PDF pp. 3, 5–6, Lemma 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparator defines a progression of accepted lengths from a threshold and imposes a transition-compatible bipartition, excluding loops. Its lower bound pumps one cycle and uses the fact that all accepted lengths lie in one residue class."
+        ],
+        "reasoning": "This indexed result is a nearby LCM-and-parity application, not a proof for several accepted residues with loops permitted. On the other hand, the actual language here restricts to its unary length set without increasing states or creating edges, and any unary counter construction extends to all letters without changing the simple graph. The unary form is the appropriate equivalent comparison.",
+        "searches": [
+          "Resultary: prime-power unary modular length predicates, bipartite-cactus nondeterministic state complexity",
+          "Resultary 08999567f29d, exact state cost of thresholded unary residue languages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The thresholded unary formula concerns one accepted residue; neither this formula nor the frozen small automaton table classifies separate arbitrary multiresidue inputs. Binary masks of period dividing m/p are exactly the 2^(m/p) repetitions of a block of length m/p."
+        ],
+        "reasoning": "A finite exact-table cutoff is not part of this all-parameter theorem; no extrapolation from one is appropriate. The numerical clause is the standard primitive cyclic binary mask count 2^m−2^(m/p), minus the 2m exclusions, not a new census.",
+        "searches": [
+          "Resultary 08999567f29d threshold-family formula and scope",
+          "Frozen count-of-predicates formula against full-period binary indicator words"
+        ]
+      },
+      "rationale": "The exact formulas are a direct corollary of the published original-graph SCC period decomposition for unary NFAs, followed by prime-power divisibility, the even-cycle lower bound and residue-counter constructions. This is stronger prior coverage than either a language-equivalent Chrobak normal-form construction or the published bipartite-cactus existence theorem. The indexed thresholded-residue record alone is not an equivalent result. The count is the usual primitive binary period count at a prime power, with singleton/complement exclusions.",
+      "residual_risks": [
+        "No claim is made about first publication of the exact displayed formulas; the decisive coverage is by implication, independent of whether the formulas appeared verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger period theorem mechanically implies the unrestricted and bipartite lower bounds.",
+          "evidence": [
+            "The long accepted lengths over superpaths with last nontrivial component D are a union of a+gcd(D)ℕ; superpaths with no nontrivial SCC contribute only bounded lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0812.1291v1",
+          "material_read": "PDF p. 3 normalization (offset 8150 onward), pp. 5–6 gcd(D) definition, decomposition of accepted lengths over superpaths and Lemma 2 (offsets 15650–16909 and 17450–19072).",
+          "method": "Lawful primary full-text PDF; followed the original graph and cycles through endpoint normalization.",
+          "title": "Unary finite automata vs. arithmetic progressions",
+          "trigger": "A graph-preserving period theorem would imply the exact lower bounds without requiring size-preserving Chrobak conversion."
+        },
+        {
+          "assessment": "Related special mechanism but not equivalent to the frozen multiresidue result; no priority inferred from dates.",
+          "evidence": [
+            "One accepted residue with delayed start, transition-compatible bipartition, max{ℓ, threshold+ℓ−period+1} with ℓ=lcm(period,2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d",
+          "material_read": "RESULT.md finding and model at offset 0, and cycle lower-bound passage near offsets 1979–2544.",
+          "method": "Local mirror statement and proof comparison.",
+          "title": "Exact state cost of thresholded unary residue languages in bipartite-cactus NFAs",
+          "trigger": "Closest indexed graph-restricted residue-family minimum."
+        },
+        {
+          "assessment": "Existence theorem, not exact state minima.",
+          "evidence": [
+            "Epsilon-free cactus realization; underlying graph forgets loops, directions and labels, and the construction itself works without loops."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11717",
+          "material_read": "Theorem 1.1 p. 2 and graph convention in §2 p. 4.",
+          "method": "OA primary statement and definitions.",
+          "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+          "trigger": "Primary prior existence result for the same graph class."
+        },
+        {
+          "assessment": "The general NFA normal-form statement alone does not give the needed size or graph preservation.",
+          "evidence": [
+            "General conversion to a stem followed by cycles may increase size to O(n²); the size-preserving statement inspected concerns UFAs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.06435",
+          "material_read": "§2.1 pp. 5–6 (offsets 24400–28535), Chrobak form and size guarantees.",
+          "method": "OA primary text, comparing arbitrary NFAs and UFAs.",
+          "title": "Languages given by Finite Automata over the Unary Alphabet",
+          "trigger": "Test whether unary normal forms alone already give the exact bound."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and limitations",
+        "To, Lemma 2",
+        "Grobler, Koziel and Siebertz, Theorem 1.1"
+      ],
+      "rationale": "The parity overhead is a natural question and the elementary proof usefully illustrates period extraction, but the audited prime-power minima and mask count follow immediately from the stronger known period theorem, standard cyclic counter and elementary primitive-mask count. No independent invariant or unresolved case remains in this claim; it does not settle overhead for composite periods with more than one prime divisor or general regular languages.",
+      "residual_risks": [
+        "The non-prime-power regime is not part of this review; the prime-power LCM inference does not extend to it."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact six-dimensional Fourier symbol is reconstructed directly from the stated continuum PDE and its homogeneous state, including all density-coupling factors. The angular ring generator has simple zero eigenvalue and nonzero gaps \(1,3,4,3,1\), making local analytic eigenvalue perturbation legitimate. The winding-number selection rule proves all angular terms below order six vanish. Precisely two length-six closed walks contribute \(e^{\pm6i\theta}\), and their edge weights and five denominators give the coefficient in the claim. Direct multiplication proves \(M\mathbf1=-k^2\mathbf1\) at half filling for all \(k\). The packaged independent high-precision checker passed the expected order-six limits in four parameter cases, exact denominator algebra, and half-filling identities. Numerical checks are corroboration only; the path proof establishes the asymptotic statement.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+Independently rederived the linearized symbol of the matched PDE. In angular Fourier coordinates, sI−M has diagonal s+Γ_m+d_m k², with Γ=(0,1,3,4,3,1), d_0=1, d_m=1−r otherwise. Each off-diagonal shift from m to m±1 contributes ikp(1−r−rδ_{m0})exp(±iθ)/2. In the determinant the only nonconstant angular terms are the two full six-cycles: all other permutations use diagonal entries and disjoint adjacent transpositions whose phases cancel. The six-cycles have permutation sign −1 and i⁶=−1, giving exactly +k⁶p⁶(1−r)^5(1−2r)cos(6θ)/32 in the characteristic polynomial. Its s-derivative at the simple root (s,k)=(0,0) is 36. This yields the claimed coefficient with the opposite sign and denominator 1152. The diagonal k² term and the two transpositions involving mode zero give the stated a₂. The determinant is real and polynomial in k² and cos(6θ); the simple-root implicit expansion is uniform on the compact angular range at fixed r,p. At r=1/2 the transport column of angular mode zero vanishes, so its uniform orientation vector has eigenvalue −k² at every wavevector, regardless of any crossings. The heading–bisector difference and its sign follow. The archived finite eigensolver compares the branch at sample parameters, not an exact symbolic proof; the determinant derivation proves the result without executing it. RESULT.md's reference to an 'infinite-wave-number-limit argument' in its verification paragraph is a wording slip, not the small-k argument actually used.
 
-The source model [1] derives the six-state continuum equation and treats the rotationally isotropic active-model-B+ reduction through fourth gradient order. Its supplemental derivation [2] leaves higher angular-harmonic terms beyond that truncation; neither gives the exact sixth-order density eigenvalue angular coefficient or its occupancy sign flip. The closest four-heading comparison [3] studies a genuinely different right-angle turning process and cannot imply the six-heading density-coupled sign law. A public finding on current fluctuations in an interacting active lattice gas uses another density-fluctuation observable; a six-frequency Fourier-aperture moment finding is not a dynamic density generator. Searches for aliases including sixfold \(k^6\) anisotropy, triangular lattice density dispersion, Bhowmick–Mohanty source, and half-filling cancellation did not locate a dominating claim. Indexed summaries and search completeness cannot establish priority; an unindexed or differently named spectral expansion remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The source highlights that hexagonal geometry permits an isotropic fourth-order closure. The exact first anisotropic sixth-order correction is therefore the natural next diagnostic for that specific microscopic geometry, not an arbitrary parameter slice. It provides a sharp, density-controlled switch between bond-directed and inter-bond-directed *long-wave* linear relaxation or early instability, and shows that at half filling the conserved-density branch is exactly pure diffusion without any activity-dependent renormalization. The effect is calculable from the same macroscopic equations used to analyze motility-induced phase separation. No claim is made about finite-wavelength global fastest modes or nonlinear morphology.
+Credit the continuum model and its isotropic fourth-order reduction as prior. The inspected sources do not evaluate the sixfold sixth-order coefficient of the exact time-dependent density branch for general occupancy or state its exact uniform-vector cancellation at half filling. The assessed contribution is this spectral refinement, not the model, the selection rule alone, or the known fourth-order closure.
 
-## Residual risks and limits
+## value
 
-The PDE is adopted as a deterministic hydrodynamic model; the microscopic model's finite-size dynamics are not verified here. Near-zero-wave-number direction preferences can be masked by lower-order isotropic growth and by nonlinear effects. General point-group theory permits sixth-harmonic terms, and unindexed or inaccessible full-text sources may already contain a numerically equivalent coefficient. Prior fourth-order adiabatic coefficients should not be conflated with this full time-dependent spectral calculation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves where spatial symmetry first permits the exact density mode to distinguish headings from bisectors in the existing triangular-lattice continuum model, and determines which direction wins at fixed small wave number on each side of half filling. It identifies the occupancy boundary where anisotropy vanishes exactly for the uniform branch and gives a benchmark missing from the isotropic fourth-order model. This is a meaningful local spectral invariant, not a claim about nonlinear phase selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

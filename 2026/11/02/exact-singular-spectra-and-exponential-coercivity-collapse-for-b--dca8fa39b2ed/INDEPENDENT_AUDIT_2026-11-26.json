@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:54:13.649287Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The orthonormal Takenaka–Malmquist basis gives the compressed multiplication operator (aI+J)(I+aJ)^(-1) with J the forward nilpotent shift. For the restricted backward shift X, if g=(I-X)f then g(1)=f(0) and the quotient of g is Xf. This gives Q=A*/(1-a), A=(aI+J)(I-J)^(-1). The shifted Gram identity AA*+aI=(1+a)^2 U, U_ij=min(i,j)+a/(1+a), holds entrywise. Applying the invertible first-difference map to U yields diagonal variances a/(1+a),1,...,1, proving the stated inverse tridiagonal including N=1. The nonzero subdiagonal makes its eigenvalues simple and det(A)=a^N gives strict positivity, the singular-value product and, by triangularity, the stated ordinary spectrum. Embedded in L2 via isometric step functions, A/N converges in Hilbert–Schmidt norm to (1+a) times Volterra, whose squared singular modes satisfy mixed Dirichlet–Neumann conditions. At the other edge the row-reversed and sign-adjusted a^N A^(-1) has geometric entries (1+a)a^(r+t) up to r+t=N-2; the omitted tail and the antidiagonal of norm sqrt(N)a^(N-1) vanish in Hilbert–Schmidt norm. The rank-one limit has norm (1+a)/(1-a^2), giving exactly s_N/a^N→1 and the condition number. The local Douglas identity adds I to the Gram operator for the embedding, so only the quotient seminorm loses coercivity, not the full embedding norm. An independent rational monomial-numerator calculation verified the quotient matrix, Gram identity, tridiagonal inverse and inverse of A for 27 parameter/dimension pairs; the spectral limits are analytic, for fixed real 0<a<1, with the top limit at fixed rank only.",
+      "replay_paths": [
+        "/workspace/replay/04_boundary.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bellavita–Dellepiane–Mashreghi give ordinary spectra and norm bounds; Bellavita–Dellepiane give an embedding criterion. Greenbaum–Kyanfar–Salemi give σ_N(J-zI)≤|z|^N and σ_(N-1)(J-zI)≥1-|z| and study exponential splitting for finite-band Toeplitz symbols."
+        ],
+        "reasoning": "Those norms, bounds and qualitative embedding conclusions do not determine approximation numbers or the sharp scaled inverse norm after multiplication by I-J.",
+        "searches": [
+          "arXiv:2410.18623, Theorems 2.1, 2.6, 2.8 and local-Dirichlet discussion",
+          "arXiv:2310.03604, Theorem 1.1",
+          "arXiv:2501.07686, Theorem 3 and Section 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary critical-window record ad9e67002c01",
+        "arXiv:2410.18623",
+        "arXiv:2310.03604",
+        "arXiv:2501.07686",
+        "Bounded web lookup on triangular Toeplitz and model-space singular spectra; no directly comparable primary result retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The perturbation by -I changes each singular value by at most one. Thus division by N in the exact zero-window formula gives the stated leading top law, including the 2/pi norm-to-boundary-derivative ratio. The ordinary eigenvalue is a specialization of Theorem 2.1.",
+          "The best Jordan trial-vector bound in (9) is |z|^N/(sum_{j=0}^{N-1}|z|^(2j))^(1/2); it does not assert the sharp inverse-product constant or the exact shifted spectrum."
+        ],
+        "reasoning": "These implications remove independent originality for the ordinary spectrum and leading fixed ranks. The perturbation bound is vacuous at the a^N scale and does not fix finite singular values, so it cannot supply the remaining two primary results.",
+        "searches": [
+          "Resultary 2026/10/11 SCOPE-first-order-critical-window-singular-spectra-of-nilpotent-shift--ad9e67002c01, zero-window formula",
+          "arXiv:2410.18623, ordinary spectrum theorem",
+          "arXiv:2501.07686, Theorem 3 and (9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent singular problem is A=c(I-J)^(-1)-I with c=1+a, followed by the 1/(1-a) scale; A^(-1)=(I-J)(aI+J)^(-1).",
+          "Resultary SCOPE-first-order-critical-window-singular-spectra-of-nilpotent-shift--ad9e67002c01 gives the spectrum for the unshifted (I-J)^(-1) at window parameter zero."
+        ],
+        "reasoning": "An affine shift by -I is not a scalar rescaling of singular values. The Jordan resolvent is also not the inverse A^(-1), which includes a non-unitary prefactor.",
+        "searches": [
+          "Resultary: nilpotent-shift resolvent, boundary model-space quotient and triangular Toeplitz singular spectrum",
+          "arXiv:2410.18623, Theorem 2.1",
+          "arXiv:2501.07686, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior critical-window record tabulates an exact zero-window spectrum [2 sin((2k-1) pi/(4N+2))]^(-1). In the inspected result that is the unshifted resolvent, not the finite list for c(I-J)^(-1)-I."
+        ],
+        "reasoning": "It is a substantive exact match to the comparison matrix, not to the Gram matrix with the nonzero a-dependent boundary term. No exact fixed-a spectrum or bottom coefficient was located in the scoped lookup; that is not an exhaustive database exclusion.",
+        "searches": [
+          "Resultary: exact singular values of nilpotent-shift inverses, triangular Toeplitz matrices and fixed-zero Blaschke model quotients"
+        ]
+      },
+      "rationale": "Credit the established ordinary spectrum and the materially covered fixed-top-rank leading law. No inspected stronger result gives both the finite fixed-a singular spectrum and the sharp least-singular coefficient in this model operator; those are the supported distinct contribution. The embedding list follows algebraically from the spectrum, not from a separately new embedding criterion.",
+      "residual_risks": [
+        "Exact affine-shift singular spectra and equivalent covariance inverse formulations may be available under older Toeplitz, bidiagonal-pencil or discrete covariance terminology.",
+        "No blanket priority claim for Volterra laws or nilpotent-shift resolvents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Top fixed-rank asymptotics mechanically covered; finite fixed-a list and bottom coefficient not supplied",
+          "evidence": "At s=0, R_N(s)=(I-(1+s/N)J)^(-1) has singular values [2 sin((2k-1) pi/(4N+2))]^(-1).",
+          "identifier_or_url": "2026/10/11/SCOPE-first-order-critical-window-singular-spectra-of-nilpotent-shift--ad9e67002c01",
+          "material_read": "RESULT.md offsets 0–4200 and 7600–9785, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Scoped Resultary lookup and local mirror passage reads",
+          "title": "First-order critical-window singular spectra of nilpotent-shift resolvents",
+          "trigger": "Closely related exact singular matrix"
+        },
+        {
+          "assessment": "Ordinary spectrum and norm/embedding context, not the audited exact singular list and endpoint",
+          "evidence": "Theorem 2.1 transfers the inner-function spectrum to the ordinary quotient spectrum; the Dirichlet discussion uses the local Douglas formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.18623",
+          "material_read": "Theorems 2.1, 2.6, 2.8, OA offset 8028 onwards; local Dirichlet discussion, pp. 19–20, offset 48000",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The spectral analysis of the difference quotient operator on model spaces",
+          "trigger": "The same operator in general model spaces"
+        },
+        {
+          "assessment": "Embedding membership rather than the singular spectrum",
+          "evidence": "The theorem characterizes an embedding condition, not an all-rank list for the power-Blaschke sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.03604",
+          "material_read": "Theorem 1.1 and local Douglas formula, pp. 2–3, offset 4800",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Embedding model and de Branges–Rovnyak spaces in Dirichlet spaces",
+          "trigger": "Embedding approximation numbers"
+        },
+        {
+          "assessment": "Related bounds and rank-one behavior, no asserted exact shifted-spectrum or inverse-product coefficient",
+          "evidence": "Uses the trial vector (1,z,...,z^(N-1)) for J-zI, giving a one-sided upper bound on its smallest singular value.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.07686",
+          "material_read": "Theorem 3 and proof including (9), PDF pp. 7–8, offset 52200; opening of Section 5",
+          "method": "Primary OA PDF statement and proof inspection",
+          "title": "When is the Resolvent Like a Rank One Matrix?",
+          "trigger": "Least singular value of a Jordan resolvent; related Toeplitz asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a canonical repeated-zero model space the exact formula solves a finite approximation-number problem, with a simple positive Jacobi matrix and a sharp a^N lower scale that the nonzero ordinary eigenvalue and qualitative embedding results conceal. The contrast with the linear top scale is significant for norm conditioning. The supported value rests on the finite list and sharp lower coefficient, not rediscovery of the leading Volterra law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

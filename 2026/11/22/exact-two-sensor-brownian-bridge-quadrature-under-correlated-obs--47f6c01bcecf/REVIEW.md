@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Equation (1) is the exact law-of-total-expectation combination of conditional Brownian-bridge integral variances, using the conditional independence of disjoint bridge gaps. Strict convexity of the cubic-gap objective gives a unique global ordered optimum including all boundary designs, reflection forces symmetry, and the scalar derivative has exactly one feasible zero. An exact algebraic factorization and the envelope argument establish the strictly positive optimized-risk derivative in the joint availability parameter. `verify.py` checks the symbolic identities, exact Schur complements for representative rational sites and a broad finite set of boundary and interior comparisons. Its finite tests support, but do not establish, the quantified theorem.
+## correctness
 
-**Originality — PASS, provisional.** The most directly related published Brownian-bridge kernel quadrature record proves the classical cubic-gap fixed-node variance and a global optimum **over iid random node distributions without dropouts**. The result here instead optimizes two fixed sites under a general joint Bernoulli observation-erasure law, and proves a strict marginal-preserving correlation penalty. A published OU kernel-quadrature optimum has a different covariance and full delivery; Santin's Brownian-bridge interpolation results optimize pointwise approximation rather than posterior scalar-integral risk. Karvonen et al. and Briol et al. provide the general conditioning and sampling frameworks, not this pair of erasure-dependent design laws. No direct covering claim was identified after checking those full texts and searching relevant published records. Older specialized sensor-loss design literature may remain unlocated, so historical priority is not independently certified.
+PASS
 
-**Value — PASS.** Equal marginal sensor availability does not determine optimal placement: the joint delivery probability changes the unique optimal separation, with a sharp range from repeated midpoint queries to trisection. The strict increase of optimized error with correlated delivery reveals a natural and operationally meaningful tradeoff between spatial diversity and simultaneous sensor availability. This is an exact classification of a complete two-site Gaussian Markov integration design under a natural family of missingness laws, not an arbitrary parameter slice. It does not address general kernels, noisy or adaptive readings, or higher sensor budgets.
+The joint status vector is independent of the bridge. Subtracting piecewise-linear conditional means leaves independent bridges with gap-integral variances ℓ³/12, including a zero contribution for a repeated or endpoint knot. The four status probabilities give (1), strictly convex on the ordered triangle: the gap map is injective and the cube is strictly convex on the nonnegative axis, while the one-reading part is strictly convex as well. Reflection fixes the minimizer. The centered derivative divided by 3/2 is 12qd²+(8p−4q)d−q, strictly increasing on the feasible half-axis. It vanishes at 0 when q=0 and at 1/6 when q=p; the displayed radical and the strictly increasing inverse q/p follow. The fixed-design q derivative factors as a(1−b)(1+b−a)/4. Substituting the unique interior sites, with the envelope derivative taken one-sided at feasible ends, gives strict positivity for 0<p<1; at p=1 the feasible set for q is a singleton. Independent covariance Schur complements including duplicate and endpoint readings and both risk benchmarks replay via `cd /workspace && python -B -c 'import independent_checks as c; c.correlated_bridge()'`. These are bounded corroboration; the analytic argument supplies the full quantifiers. The frozen verification notes mark audit, Lean and expert attestation not performed; the frozen checker was read, not executed. Its finite location scan is floating-point, not exhaustive exact arithmetic.
 
-**Residual risks.** The Gaussian conditioning and cubic-gap identities themselves are classical; only their correlated-erasure optimization and risk comparison are asserted as new. General pairwise sensor-availability designs outside the inspected literature might imply the result by specialization. No independent mathematical or historical-priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the fixed-marginal correlation comparison in the dependent-delivery model, not exclusive priority for the optimizer. The strongest same-day indexed independent-erasure theorem supplies the two-site rule up to an exact objective rescaling; neither its independent-law optimization nor the periodic dependent-erasure theorem supplies the strict fixed-marginal penalty on the pinned interval. No covering statement for that distinct claim was located in the bounded searches.
+
+## value
+
+PASS
+
+The practically distinct result is an exact correlation sensitivity at fixed marginal reliability: higher co-delivery pushes the sites apart yet strictly worsens the optimally attainable risk. A single design optimizer from the independent sampling model does not answer that reliability question. The law is complete for feasible two-request status distributions, not a single benchmark; no extension to heterogeneous marginals, noisy observations or other kernels is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

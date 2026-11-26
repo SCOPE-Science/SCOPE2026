@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The model equations and the exact endemic equilibrium were independently substituted into the original vector field. The Jacobian entries, trace, determinant, discriminant scaling, and central frequency-to-damping identity are reconstructible from the displayed rational expressions in `RESULT.md`.
+## correctness
 
-Run `python3 CHECK.py` to reproduce 245 exact-rational parameter checks (across admissible infection strengths and avoidance ratios), two explicitly rational Jacobian spectra, and one illustrative set of time-domain sign changes calculated by fourth-order Runge–Kutta with step length \(10^{-3}\). No packages other than the Python standard library are required. The computations previously returned `Exact rational cases: 245 ; example spectrum: PASS` and finite-time differences of signs \(+,-,+,-\) at times \(1,5,15,25\).
+PASS
 
-**Limits of computation:** Finite cases and numerical trajectories do not prove exact optimization, the infinite family of turnover speeds, or infinitely many future crossings. Those claims rely on the algebraic discriminant, derivative sign, strict spectral gap, and nonlinear variation-of-constants argument in `RESULT.md`. The statement at defective repeated eigenvalues is specifically a spectral exponential rate, allowing polynomial prefactors. Independent audit has not been performed.
+Eliminating z gives the shared endemic state. The Jacobian has trace −(A+κB), determinant κ(τ−1), and scaled discriminant (1−r)²−4rg for r=κ/κ₀; the nonzero off-diagonal entry rules out a scalar matrix at the two discriminant roots. Differentiating κ/(A+κB)² gives the unique damping-ratio optimizer. For the spectral rate, put S=A+κB, T=τ−1 and X=BS−2T; on the node branches X²−B²D=4TC>0, with X negative on the lower branch and positive on the upper branch. Thus the rate increases through the lower node and focus intervals and decreases on the upper one. For the nonlinear claim, at κ₀ the map e^(−Jt) applied to the state deviation is the initial deviation plus a convergent integral of the quadratic remainder. Indeed the normalized integrand is O(ε² exp(−(A−2δ)t)) for any fixed 0<δ<A/2 using local exponential stability with rate A−δ. This directly gives an ε+O(ε²) cosine coefficient. At fixed κ_b>κ₀, the eigenvalues are strictly left of −A (for real roots use the characteristic polynomial's value κ_b C>0 at −A and the sum of roots less than −2A). The faster local solution is o(exp(−At)), also at its Jordan point. Alternating signs at successive sufficiently late cosine extrema prove the exact nonlinear same-initial-state comparison. The RK4 and finite rational checks are supplementary only.
+
+## originality
+
+PASS
+
+Credit the model, endemic state, Jacobian, attraction and qualitative spiral to the primary article. A distinct Resultary record already displays the same phase interval and spectral-rate optimizer and proves nonlinear endemic-level crossings; those are not treated here as distinct on their own. The supported distinction is the two-objective tuning comparison and, in particular, the quantified nonlinear comparison of two trajectories with the same initial state and equilibrium, for every fixed faster κ_b, using a strict tail-rate separation and a nonvanishing slow leading term.
+
+## value
+
+PASS
+
+Holding equilibrium burden fixed separates transient behavior from limiting prevalence. The spectral and damping-ratio optima show that two well-defined transient objectives prefer different speeds, and the nonlinear result rules out an eventual permanent prevalence ordering for the specified paired perturbations. Infinitely late but vanishing reversals are more informative here than a plotted spiral or equal endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

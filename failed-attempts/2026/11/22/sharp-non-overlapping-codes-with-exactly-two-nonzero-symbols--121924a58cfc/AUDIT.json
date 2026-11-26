@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For all q>=2,n>=3 the complete proof counts primitive two-marker necklaces by shorter gap, proves the even antipodal words must use a single orientation with disjoint first/second label sets, applies the sharp product bound floor((q-1)^2/4), and constructs matching families. All possible prefix-suffix overlaps are eliminated by the inequality n-s<=k<=t and the sole even middle-length exception; self-pairs included. Independent exhaustive clique optimization for 17 parameters, full pairwise construction checks for 84, and necklace count for 35 independently reproduce bounded cases. Finite tests are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn, arXiv:1303.1026: unconstrained code constructions, asymptotic bounds, exact unrestricted codes at short lengths.",
+        "Zakharov, arXiv:2602.20143: upper bound on density product for bipartite sets under overlaps.",
+        "Yang and Ding, DOI:10.1587/transfun.2025EAL2050: restricted-overlap construction and enumerator, not an exact extremal theorem for the support-two layer."
+      ],
+      "reasoning": "The known general-purpose upper bounds do not attain this polynomial-size constrained capacity, and the construction enumerators are not global optimization results for exactly two nonzero coordinates. Neither the general density theorem nor prior restrictions dominate the stated sharp result.",
+      "searches": [
+        "nonoverlapping code constant Hamming weight two exact optimal size binary n self bifix free",
+        "q-ary nonoverlapping cross bifix free code Hamming weight two over 0 q-ary alphabet exact maximum all n positions nonzero symbols"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2602.20143",
+      "https://arxiv.org/abs/1303.1026",
+      "https://arxiv.org/abs/1209.0236",
+      "https://doi.org/10.1587/transfun.2025EAL2050",
+      "Exact weight-two capacity under the two longest forbidden overlaps (published indexed result, 2026-11-02)",
+      "Necklace-perfect constant-weight-three binary non-overlapping codes (published indexed result, 2026-11-02)",
+      "Exact capacity and rigidity of weight-three binary cross-bifix-free codes (published indexed result, 2026-11-02)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct necklace packing upper bound gives (n/2-1)(q-1)^2+binomial(q-1,2) at even n, strictly larger than the claimed optimum for q>=4.",
+        "The proof uses a separate length-n/2 prefix-suffix obstruction on antipodal two-marker words, reducing allowable labels to a directed cut of at most floor((q-1)^2/4).",
+        "The all-length construction selects one short-gap representative per necklace and a balanced cut among antipodal words."
+      ],
+      "reasoning": "General primitive-necklace counting does not alone imply the parity-deficit theorem. A distinct structural obstruction and a sharp construction are needed; the known weaker-overlap theorem does not imply the required exclusion of all shorter overlaps.",
+      "searches": [
+        "non-overlap q-ary Hamming weight two prefix suffix zero marker antipodal",
+        "q ary alphabet size q nonoverlapping code exactly two nonzero symbols sharp size odd even n formula (q-1)^2 floor(n/2) cut"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The standard term cross-bifix-free means all nonempty proper prefix-suffix matches are forbidden (Blackburn 2015; Chee et al. 2013).",
+        "The directly related indexed binary weight-two theorem prohibits only lengths n-2 and n-1, a strictly weaker condition."
+      ],
+      "reasoning": "Searched mutually uncorrelated, non-overlapping, cross-bifix-free and fixed-composition aliases. The weaker two-length problem permits overlaps that are prohibited here, so its numerical formula cannot be reinterpreted as this theorem.",
+      "searches": [
+        "\"constant weight\" \"cross-bifix-free\" ternary codes",
+        "\"weight two\" \"cross-bifix-free\" q ary",
+        "\"non-overlapping codes\" \"weight 2\" \"q\" exact",
+        "q-ary cross-bifix-free codes optimal weight two antipodal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed exact result “Exact weight-two capacity under the two longest forbidden overlaps” has value floor((n-1)/2) floor(n/3) plus an even correction in the binary layer, but only excludes two overlap lengths.",
+        "Indexed exact binary non-overlapping weight-three results determine a different content layer; they neither give nor numerically determine weight-two q-ary capacity.",
+        "Finite exhaustive clique and necklace checks in verify/exhaustive.py and verify/construct.py agree with the claimed new formula for tested cases."
+      ],
+      "reasoning": "Existing indexed numerical spectra are for the wrong overlap constraint, support weight, or entire unrestricted alphabet. No exact table with matching two-marker, all-overlap parameters was recovered; finite agreement is only supporting evidence, not proof of novelty.",
+      "searches": [
+        "primitive necklaces of sparse weight two q ary words cross bifix free parity half distance Turan balanced bipartition",
+        "q ary two-marker nonoverlapping synchronizing codes exact capacity odd even n upper matching"
+      ]
+    },
+    "rationale": "Full-text statements of the cited 2026 overlap-isoperimetric paper, earlier non-overlapping-code bounds, 2025/2026 q-ary restricted-overlap constructions, and the closest indexed fixed-weight results do not imply a sharp all-length, all-alphabet extremum for exactly two nonzero positions under every proper overlap. The proof yields a new parity-sensitive antipodal obstruction and a matching explicit construction. An unindexed equivalent remains a documented risk.",
+    "residual_risks": [
+      "An equivalent result in older unindexed coding theory or unpublished notes may exist despite targeted checks.",
+      "The known general necklace bound does not alone certify the even case; the independent antipodal-cut proof is essential.",
+      "External independent review not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: treats density products of two sets, not exact sparse single-code capacity.",
+        "evidence": [
+          "Theorem 1.1 bounds a product of word-set densities and its examples concern unrestricted alphabet words.",
+          "arXiv v1 first posted 2026-02-23."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.20143v2",
+        "material_read": "Full accessible HTML, statement of Theorem 1.1, introduction, product-density formulation, proof sections and references; verified v1 date separately on arXiv abstract",
+        "method": "Full-text mathematical statement and hypothesis comparison",
+        "title": "An isoperimetric inequality for word overlap",
+        "trigger": "Recent primary motivation: word overlap exclusion"
+      },
+      {
+        "assessment": "NOT_COVERING: general code bounds, not fixed exactly two nonzero positions.",
+        "evidence": [
+          "Unrestricted q-ary code construction and constant-factor size estimates.",
+          "Short-length unrestricted optima are not a parameterized fixed-weight theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.1026v3",
+        "material_read": "Accessible HTML full-text main theorems, constructions and short-length sections",
+        "method": "Checked the scope of the exact and asymptotic results",
+        "title": "Non-overlapping codes",
+        "trigger": "General non-overlapping-code constructions and known bounds"
+      },
+      {
+        "assessment": "NOT_COVERING: universal near-optimal code-size bounds do not give fixed two-nonzero capacity.",
+        "evidence": [
+          "The paper explicitly states general q-ary constructions within a constant factor of unrestricted optimality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1209.0236v2",
+        "material_read": "Accessible HTML abstract, introductory definitions, construction and cardinality bounds",
+        "method": "Compared constrained optimum to general construction statements",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Synonym cross-bifix-free and universal constructions"
+      },
+      {
+        "assessment": "NOT_COVERING: enumerates particular constructions, not maximum capacity over all two-marker codes.",
+        "evidence": [
+          "Theorem 3.4 counts one construction; taking t1=1,t2=n-1 recovers a general construction.",
+          "No exact global two-nonzero-position optimum given."
+        ],
+        "identifier_or_url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+        "material_read": "Full accessible HTML Introduction; Definitions 2.1–2.2; Constructions 2.3–2.4; Theorem 3.4; Sections 4–5 and tables",
+        "method": "Compared code-generating formulas with global constrained extremum",
+        "title": "Q-Ary (t1, t2)-Overlap-Free Codes",
+        "trigger": "Full-overlap special case and q-ary restricted-overlap constructions"
+      },
+      {
+        "assessment": "NOT_COVERING: forbids only lengths n-2 and n-1, not all proper lengths, even for the binary restriction.",
+        "evidence": [
+          "The result explicitly identifies the weaker forbidden-length set {n-2,n-1}.",
+          "Its formula differs from the fully cross-bifix-free optimum."
+        ],
+        "identifier_or_url": "Published research record dated 2026-11-02 (exact title as above)",
+        "material_read": "Complete published RESULT.md including proof, assumptions, comparisons and limitations",
+        "method": "Direct implication comparison on excluded overlap lengths",
+        "title": "Exact weight-two capacity under the two longest forbidden overlaps",
+        "trigger": "Closest indexed result: same binary weight-two objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "121924a5-8cfc-4237-a332-05b999244b39",
+  "value": {
+    "rationale": "The extremum is a complete exact all-length, all-alphabet capacity for a natural sparse synchronization code layer. It reveals a sharp parity dichotomy: necklace bound attained at all odd lengths, but even lengths have a quantified deficit forced by a balanced bipartition of nonzero labels. This structural obstruction and explicit universal construction are mathematically substantive, not a routine table or renaming.",
+    "status": "PASS"
+  }
+}

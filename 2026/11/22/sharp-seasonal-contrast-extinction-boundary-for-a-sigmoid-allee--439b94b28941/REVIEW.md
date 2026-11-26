@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-year return map is strictly increasing and bounded. Its displacement has the exact signed quartic form established in the proof. The auxiliary scalar curve is strictly convex and diverges at both ends, proving the exhaustive zero/one/two-positive-state alternative. The quartic discriminant identity and uniqueness of the positive parameter root identify the sharp polynomial boundary; signed iteration proves the complete basins, including tangency. The geometric-mean factorization and elementary product inequality independently verify the phase boundary and critical equality. The standalone arithmetic checker supplies reproducible finite diagnostics but is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected material
-The full accessible treatments by Elaydi–Sacker (2009 online), Luís–Elaydi–Oliveira (2010 postprint), and Brett–Kulenović (2014) concern overlapping Allee-model concepts but do not establish the specific all-parameter two-season sigmoid classification \(\mathcal H(a,b)\), the complete monotone-return basins, or the exact fixed-geometric-mean contrast cutoff. Roth–Schreiber (2014) studies stochastic forcing rather than this deterministic periodic map. Closest indexed mathematical records treat different map families, such as cubic Allee maps, two-patch dispersal Allee effects, and periodic Ricker recruitment. The exact claim is not asserted to be historically first without independent priority checking; residual risk is prior special-case algebra in uninspected literature.
+PASS
 
-## Value — PASS
-The sharp algebraic criterion resolves a natural ecological question: when can alternating environmental quality extinguish a density-dependent population despite a favorable and fixed geometric-mean growth coefficient? The theorem supplies complete global basins and equality behavior for a standard saturating Allee response; exact contrasting parameter examples show the threshold has real qualitative force beyond a local calculation. It is an idealized structural benchmark, not a field validation.
+The original line 22 incorrectly uses a strict inequality for survival from sufficiently large initial biomass; the double-root case in its own theorem is a counterexample. The complete corrected RESULT.md uses ≤ there, retains strict < for the two-state regime, and explicitly gives survival at and above the semistable state at equality. Independently, G(x)−x has the sign of b−B_a(x), where B_a=((1+a²)x+2/x+1/x³)/a² is strictly convex, diverges at both ends, and has one minimum. At positive tangency, writing y=F_a(x), the derivative of G is 4/[(1+x²)(1+y²)]=1; put s=xy=4/(ab). Then x²+y²=3−s² and a−b=(y−x)(3+s)/s², which gives (a−b)²=(1−s)(3+s)³/s⁴ and H=0. For fixed a, H as a quadratic in b² has negative constant term and exactly one positive zero, hence its sign gives the three root regimes. The quartic discriminant also checks by substituting A=1+a², B=−ba² into 256A(A−1)²+(288A−32)B²−27B⁴ for Ax⁴+Bx³+2x²+1. Bounded, increasing G cannot cross a fixed point, so displacement signs determine all basins, including strict downward approach from above the double root and extinction below it. The odd-year limits follow by continuity of F_a. Substitution at fixed g gives H=(g²−4)(3g²+4)³−1024g² sinh² θ, so the repaired inclusive survival cutoff and exclusive two-state cutoff follow. The exact equal-product examples 132571 and −178229 check. The source checker was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported claim is the explicit symmetric contrast polynomial and its exact complete basins for this particular alternating sigmoid. The generic monotone-map argument and the homogeneous Allee threshold are standard and are not credited as new. No observed independent claim implies the exact contrast boundary; external same-family access limitations remain.
+
+## value
+
+PASS
+
+The exact surface settles whether two environments with the same geometric mean can nonetheless lie on opposite sides of total extinction. The threshold and all initial-condition basins, including positive survival at equality, go beyond a qualitative fixed-point count and supply a usable benchmark for the standard saturating response.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

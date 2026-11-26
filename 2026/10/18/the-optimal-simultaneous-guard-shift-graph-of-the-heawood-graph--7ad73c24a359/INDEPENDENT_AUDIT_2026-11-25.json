@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:05:59.985268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 25–56. Three guards cover at most 12 of 14 vertices. A four-set with p points covers at most 12−2p points and 4+2p lines, so p=2. The two point guards meet five distinct lines, forcing the other two lines as the line guards. Their intersection is the third point on the line of the point pair: the two other lines through that third point avoid both occupied points, and no other lines do. Conversely these two lines cover the five unoccupied points, giving all 21 states indexed by incident flags. When two flags share a point, both new point destinations can only receive the guard from the one source line equal to the new flag's line. When the flags share a line, both new line destinations can only receive the one source guard on the new flag's point. Both are matching obstructions. Flag-transitivity and the verified sixteen routes from (0,L0) give all remaining moves. Independent replay `python3 /workspace/review_evidence/heawood_replay.py` checked all four-sets, all 210 unordered state pairs by subset DP, the 16 literal witness tuples and all 210 state/attack cases without running the submitted scripts. It recovered 168 shift edges. Under the flag bijection each vertex has four other flags sharing an endpoint, so degree 16, and each nonadjacent pair has a common neighbor; diameter is 2. After any attack there is a reachable state containing that vertex, still in the same family; reiteration is an infinite defense from each state. The domination lower bound gives optimality. The frozen cyclic and vector source scripts and stored outputs are consistent with this argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carr et al. give an equality under an efficient dominating set hypothesis. Heawood is cubic of order 14; a partition by closed neighborhoods of size four is impossible.",
+          "Calamoneri et al. Theorem 1 is NP-hardness on bipartite graphs of diameter four, and the abstract's structural classifications concern infinite grids. The cited original and correction could not both be compared in full primary text."
+        ],
+        "reasoning": "Even a broad result giving the optimum guard number where applicable would not classify every possible pair of minimum-state transitions or imply that every minimum state wins. The inspected sufficient condition is not applicable to this graph.",
+        "searches": [
+          "Carr–Clarke–MacGillivray–Morris arXiv:2607.04024 §2, efficient domination",
+          "Calamoneri et al. arXiv:2507.09283v1, abstract and bipartite-graph Theorem 1",
+          "Goddard et al. 'Eternal Security in Graphs' and Braga et al. Cayley correction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e9b5f8960619",
+        "Carr et al. arXiv:2607.04024 §2",
+        "Calamoneri et al. arXiv:2507.09283v1 abstract and Theorem 1 locator",
+        "Frozen RESULT.md, VERIFICATION.md, both submitted verifiers and both stored outputs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The point-pair census is interchangeable with the flag census: use the joining line L and its third point r. It is not a novel part of the frozen finding.",
+          "A point or line shared by flags prevents the required perfect matching; the converse uses actual guard matchings, not just the state census or equality of domination parameters."
+        ],
+        "reasoning": "Prior identification of optimal states does not mechanically determine which of its pairs admit simultaneous shifts. The move obstruction and complete converse establish that extra structure.",
+        "searches": [
+          "Compare the minimum-domination shattering Finding and its point-pair classification against RESULT.md §§2–4",
+          "Compare the efficient-domination theorem and the bipartite m-eternal result with the exact Heawood adjacency predicate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent disjoint-flag graph is the graph of pairs of Heawood edges with no common vertex, equivalently the complement of the line graph. Feasibility of a guard move is a perfect bipartite matching in closed adjacency between two whole configurations.",
+          "Resultary e9b5f8960619 builds a shattering complex; its edge graph is the complement of Heawood on individual vertices, not the complement of L(H) on 21 configurations. The one-guard terminology also denotes a different move relation."
+        ],
+        "reasoning": "A statement about shattering or single-token moves on the same underlying graph is not equivalent. The required statement classifies simultaneous bijections on entire optimal four-sets exactly by disjointness of flags.",
+        "searches": [
+          "Heawood Fano eternal domination all guards move minimum dominating reconfiguration simultaneous shifts complement line graph token sliding",
+          "Resultary shifts, flags, Fano incidence minimum configurations and domination shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed finding handles the exact Heawood minimum-set family and counts 21, but reports a different complex. It provides no table or structural description of legal all-guard shifts among those 21 configurations.",
+          "The frozen cyclic/vector outputs and witness table are calculations attached to this submission, not independent evidence of prior coverage."
+        ],
+        "reasoning": "A statement or exact table of legal pairs on these 21 states would count, even without the name line graph. A list of the 21 states or of edges of a different complex cannot supply that table without doing the guard-matching calculation.",
+        "searches": [
+          "Resultary exact Heawood configuration/finite-state comparison; e9b5f8960619 Finding and proof",
+          "Primary search for Heawood minimum-state reconfiguration, all-guard simultaneous moves or a transition census"
+        ]
+      },
+      "rationale": "The supported distinct claim is the natural identification of the entire simultaneous-shift graph, not the 21-set census, the game rule, or merely equality of two domination numbers. The nearest indexed claim uses the very same set census but takes a shattering complex on individual vertices. The broader inspected eternal-domination results do not determine the one-step adjacency predicate for Heawood. No implication-equivalent classification was established in the bounded comparisons; the inaccessible papers remain explicit access risks.",
+      "residual_risks": [
+        "The original 2005 text and the 2016 correction remain uninspected in full through the attempted lawful sources. Older unindexed transition calculations or formulations under a different reconfiguration name could exist. The observed ranked results do not exhaust prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same minimum-state census, different complex and edge graph",
+          "evidence": [
+            "One minimum set per selected point pair; its shattering-complex edge graph is the complement of Heawood, not the present simultaneous-shift graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-minimum-domination-shattering-complex-of-the-heawood-graph--e9b5f8960619",
+          "material_read": "Mirrored RESULT.md Finding and proof, offsets 0–4970; prior-work discussion, offsets 9000–11081",
+          "method": "Resultary semantic search and local mirror bounded passage reads",
+          "title": "The minimum-domination shattering complex of the Heawood graph",
+          "trigger": "Same graph and 21 minimum configurations, potentially matching structural claim"
+        },
+        {
+          "assessment": "The inspected efficient-domination theorem's hypothesis fails here",
+          "evidence": [
+            "The theorem gives equality for vertex-transitive graphs possessing an efficient dominating set; 4 does not divide the order 14 of H."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.04024",
+          "material_read": "§2, PDF pp. 2–3, offsets 7748–9941",
+          "method": "Primary PDF bounded section read",
+          "title": "Eternal domination in Cayley graphs",
+          "trigger": "Possible comparison with broader equality results for symmetric graphs"
+        },
+        {
+          "assessment": "Inspected bipartite and grid results do not give a Heawood move classification",
+          "evidence": [
+            "The bipartite theorem concerns NP-hardness on graphs of diameter four; the structural results announced in the abstract concern infinite regular grids. The keyword miss is not itself evidence of noncoverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.09283v1",
+          "material_read": "Abstract PDF p. 1; literal locator for Theorem 1 PDF p. 7; Heawood locator returned no hit",
+          "method": "Primary arXiv PDF opening passage and theorem locator",
+          "title": "m-Eternal Domination and Variants on Some Classes of Finite and Infinite Graphs",
+          "trigger": "Matched search result using all-guards movement and bipartite graphs"
+        },
+        {
+          "assessment": "Access limitation, not evidence of noncoverage",
+          "evidence": [
+            "The frozen record cites the 2005 paper as the original model source; the exact Cayley argument was not independently read here."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/249799004_Eternal_Security_in_Graphs",
+          "material_read": "Indexed bibliographic identification only; no readable primary passage through the attempted host",
+          "method": "Bounded OA attempt returned HTTP 403",
+          "title": "Eternal Security in Graphs",
+          "trigger": "Foundational all-guards model and possible broader Cayley comparison"
+        },
+        {
+          "assessment": "Access limitation, not evidence of noncoverage",
+          "evidence": [
+            "No substantive inference about the correction rests on the failed extraction."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-096/a-note-on-the-paper-eternal-security-in-graphs-by-goddard-hedetniemi-and-hedetniemi-2005/",
+          "material_read": "Publisher bibliographic identification; linked PDF had no extractable primary text via attempted routes",
+          "method": "Primary publisher direct and VPN OA retrieval attempts",
+          "title": "A Note on the Paper ‘Eternal security in graphs’ by Goddard, Hedetniemi, and Hedetniemi (2005)",
+          "trigger": "Correction of the general Cayley claim cited in the submission"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Heawood is the natural Fano incidence graph and optimal all-guards dynamics are a motivated state system. The exact identification explains its otherwise nonobvious pattern of 42 blocked pairs, supplies every admissible one-turn move and shows eternal defense from every minimum state. It adds structural information that neither the minimum-set census nor an optimum guard number supplies. The result stays within the stated finite graph and movement rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

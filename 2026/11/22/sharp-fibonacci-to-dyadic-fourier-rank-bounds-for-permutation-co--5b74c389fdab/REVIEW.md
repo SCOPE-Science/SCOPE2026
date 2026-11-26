@@ -1,11 +1,21 @@
-# Review: Sharp Fibonacci-to-dyadic Fourier-rank bounds for permutation comparisons on trees
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier factorization and prior bipartite graph-Eulerian nonvanishing theorem identify the rank with the odd-component subforest count. The two-state recurrence and Fibonacci inequalities are exact, the leaf argument proves unique minimizers, and the parity count with two-disjoint-edge obstruction proves unique maximizers. The verifier checks 1,441 labelled trees and 2,142 direct multipliers. The computations do not replace the infinite proof.
+## correctness
 
-**Originality — PASS under bounded source comparison.** Foata--Schützenberger [1] covers the path-era Eulerian background. Celano--Sieger--Spiro [2] supplies the nonvanishing theorem and even-edge tree positivity, and therefore much of the *support criterion* is known. Their extremal theorem concerns the magnitude of one evaluation rather than the number of nonzero frequency evaluations on each tree. The new claim is only the global sharp rank bound, the two unique extremal tree types and the recurrence. Indexed comparison searches did not reveal an equivalent claim; unindexed earlier combinatorics remains the main priority risk.
+PASS
 
-**Value — PASS.** A genuine all-order Fourier identifiability classification for the natural distribution of edge comparisons, not a small finite improvement or an isolated special case. It directly quantifies shape dependence and gives a linear arithmetic-time exact algorithm.
+Walsh diagonalization gives the support count over the reals. Independent relative orders factor the multipliers over the selected forest. Celano–Sieger–Spiro's Theorem 1.6 gives nonzero factors for odd-order trees (the singleton factor is 1); component-wise order reversal cancels the even-order factors. The frozen citation to Theorem 1.4 and Lemma 4.3 abbreviates the additional recurrence in Lemma 4.1; Theorem 1.6 is the direct reference. Independently, orient the selected forest across its bipartition and generate the permutation by ranking independent continuous uniforms on [-1,1]. Conditional on their absolute-value ranks, each edge contributes the sign of the higher-magnitude vertex, negated if that vertex is the tail. Averaging the independent vertex signs gives the indicator that each vertex has an even number of lower-magnitude neighbours, since all edges at any vertex have the same direction relative to it. Such an order exists for an odd tree: direct each cut edge toward its even-size side and take a sink as the last vertex; all branches there are odd, their number is even, and recursion gives the required orders. An even component cannot have such an order since it has an odd number of edges. The two-state recurrence counts precisely the permissible edge subsets, giving A >= F_m and B >= F_(m-1) by Fibonacci addition. An endpoint-rooted path attains both state bounds. For n >= 5, leaf deletion at equality forces the smaller tree to be a path; attaching the leaf to an internal vertex makes its even-root state strictly exceed the Fibonacci bound by F_(p-1) F_q > 0, with p-1 and q the two arm lengths. The two n=4 shapes have counts 3 and 4. Only even edge subsets can survive; a star permits every even subset and a nonstar misses the subset of two disjoint edges.
 
-**Limits.** Does not give inverse norms, individual multiplier magnitudes or graph-general bounds; full external priority and correctness reviews remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the sharp all-tree bounds and unique extremizers, not for the odd-component support rule or the path rank in isolation. One prior theorem implies the support rule and a distinct indexed result proves the path specialization; neither supplies the needed extremal comparison over all trees.
+
+## value
+
+PASS
+
+The rank is an exact statistic for loss of Fourier frequencies in permutation comparisons. Determining both sharp ends of its range and singling out the unique extremal shapes is useful beyond computing the known path case; the parity recursion also gives a simple linear-in-tree-size count in integer operations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Place `verify.py` and `certificates.json` in the same directory and run `python3 verify.py`. No nonstandard Python packages, network access, cached graphs, or earlier-run artifacts are necessary.
+## correctness
 
-The verifier exhaustively enumerates \(\operatorname{Av}_n(\tau)\) for every \(\tau\in S_3\), \(1\le n\le5\), and checks all adjacent-position-swap outputs. A separate Kendall-distance calculation checks every compatibility edge. One exact Bron–Kerbosch algorithm enumerates maximal codebooks; another increasing-index search counts every codebook of the asserted maximum size and excludes the next size. Both give the same capacities and optimizer counts for the two representative pattern classes. Reversal and complementation, together with direct six-pattern traversal, verify the complete classification.
+PASS
 
-For the fractional program, exact rational sparse primal and dual witnesses are supplied for representatives \(123\) and \(132\) at lengths three, four and five. The checker regenerates all source and output indices and checks every input-cover and output-packing inequality with `fractions.Fraction`, then verifies equality of objective sums. Lengths one and two are immediate by full-ball intersection.
+The actual channel permits no change or one adjacent position transposition, with every permutation admissible as a receiver. Its radius-one output balls intersect exactly at Kendall distance at most two (use a shortest path and its midpoint for the converse). Reversal and value complement are channel isometries and have exactly the two claimed orbits on classical length-three patterns. Independent exhaustive compatibility-clique enumeration over all six sources and n=1,…,5 reproduced both the maximum and the number of maximizing labeled subsets: common (1,1), (1,2), (2,2), then monotone (5,2), (12,40) versus nonmonotone (4,17), (11,96). Reading the frozen sparse JSON as data, independently reconstructed exact feasible primal packings and dual covers at n=3,4,5 for representatives 123 and 132, checking every inequality and matching objectives 2,5,12 and 2,23/5,227/18 respectively. Unobserved outputs have zero dual weight and vacuous primal constraints. The fractional optima at n=1,2 are 1 because respectively the unique output and a shared full ball impose total mass at most 1, attained by any singleton. Thus the first capacity difference is n=4 and the first integer-rounded fractional gap is n=5. Both explicit length-five code witnesses were checked.
 
-In the package replay, the last line was `VERIFY_OK`. Exhaustive finite computations are valid for the stated bounded instances only; the result makes no claim about higher-order capacities or external independent mathematical validation.
+## originality
+
+PASS
+
+The supported distinct claim is the exact bounded table for single-classical-pattern avoiding permutation sources in the specified channel, notably the first separation and first rounded gap. Kendall packing and Catalan enumeration are not claimed as new. No equivalent or dominating result was found among the compared statements.
+
+## value
+
+PASS
+
+Classical Wilf equivalence equalizes source sizes, not the local-error packing invariant; finding the first separation is a natural finite-boundary question. Including n=5 identifies the first failure of rounding a concrete fractional bound, unlike the n=4 fractional gap that rounding erases. The exact optimizer counts and reproducible fractional witnesses make the table usable as a test case for any proposed generalization. The value is in these sharp small counterexamples, not the enumeration method or an extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

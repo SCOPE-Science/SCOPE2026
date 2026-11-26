@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `verify.cpp` and `certificate.json`.
+# Independent mathematical audit
 
-The verifier first regenerates all \(6^5=7776\) partial maps for one letter and checks the functional digraph of every total map, obtaining exactly \(1569\) one-cluster maps. It then exhausts every proper ordered binary PFA having at least one such letter, for \(14{,}594{,}838\) candidates.
+## correctness
 
-For every candidate, a forward breadth-first search starts at the full state set and a separately implemented reverse multi-source breadth-first search starts at the five singleton subsets. Defined subset transitions are generated directly from the partial state maps. The two distances must agree for every candidate.
+PASS
 
-The verified carefully synchronizing histogram has maximum \(13\), with \(1200\) labeled extremizers. Each extremizer is canonicalized under all \(5!\) state relabelings and both letter orders; exactly five canonical representatives occur, each with orbit size \(240\).
+Properness and the one-cluster condition jointly force exactly one total letter and require its functional graph to have one directed cycle. As an independent count check, classify total maps by the cycle length: the cycle choices times the number of rooted forests feeding the prescribed cycle vertices give 625, 500, 300, 120 and 24 for lengths 1–5, hence 1,569. There are 6⁵−5⁵=4,651 partial nontotal maps, so the ordered candidate total is 2·1,569·4,651=14,594,838 without duplication. A letter edge in the subset graph exists only if every active state has a defined image; each visited set is nonempty. BFS from the full set thus gives the shortest careful length exactly when some singleton is reachable. Reverse multisource BFS in the companion code verifies distances by a second traversal but shares its transition routine. A separate bounded independent implementation exhausted the full candidate set and matched all histogram entries and the sync total 8,206,270. The maximum finite length is 13, with 1,200 labeled cases. Canonicalization under S5 and letter exchange matched all five representatives and sizes 240; separate scalar BFS replay confirmed the five shortest words, including the three copies of bbababbbababb. Nonsynchronizing inputs have no finite threshold; complete DFAs are excluded even if one-cluster.
 
-The computation is exhaustive only for five states and two letters. Independent audit has not been performed.
+## originality
+
+PASS
+
+The supported distinct finding is the exact five-state restricted threshold and equality census. The total-letter functional-graph definition, finite power-automaton method and broader binary PFA enumerations are prior; no inspected source gives the joint one-cluster/proper filter's maximum and classes.
+
+## value
+
+PASS
+
+One-cluster structure arises naturally in synchronization theory: a total letter with one basin is a standard structural competitor to unrestricted transitions, and properness separates careful reset from familiar complete examples. The exact drop from the unrestricted five-state proper-binary maximum 15 to 13 and the equality classes quantify the effect of that restriction and give reusable test cases for proposed bounds or algorithms. This is a meaningful small-order benchmark, not a general upper-bound theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

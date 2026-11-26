@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the extracted package root. The verifier needs only the Python standard library. Its `EXPECTED` table contains the 13 finite equality-pattern coefficients used in the proof; the script *independently recomputes* these coefficients from all four-letter outputs with zero or one fixed outside symbol, and refuses to pass if a coefficient disagrees. It also verifies the exact symbolic affine-over-alphabet identity at several distinct alphabet sizes for each pattern, then exhaustively compares every pair of centers for each integer alphabet size from two through six. Successful completion prints `VERIFY_OK`.
+## correctness
 
-The full-domain theorem does not rely on induction from those sample alphabet sizes. The argument that at most one outside symbol can appear in any common output proves the symbolic reduction for every alphabet size. There are exactly 13 distinct-center equality patterns, and their coefficients require only finitely many direct sums (alphabet sizes at most five, for the one-outsider tests). The checker does not independently establish originality, importance, or an external scientific audit. The claims apply only to exact-two-insertion multisets with distinct insertion vectors and do not address the non-multiset channel model.
+PASS
+
+Choosing the original pair of positions is in bijection with gap-based insertion vectors producing a given output, including repetitions. An output with at least two positions outside the joint center alphabet can have at most two usable positions, which cannot realize both distinct centers, so an alphabet of size q contributes exactly C_p+(q-s)E_p. Of the 15 partitions of four positions, two give identical centers, leaving 13 patterns, independently recomputed. Four patterns have (s,C,E)=(2,11,8) and all other admissible expressions are 8q-6, 4q or 6, strictly smaller than 8q-5. The four patterns are precisely one constant word and one mixed word with one letter in common, in either order, hence 2q(q-1) unordered labeled pairs. Any shared output multiset can be realized with distinct vectors up to each minimum multiplicity, so the maximum plus one is the exact threshold. Independent replay: /workspace/branches/fe1c6237-5bbe-4323-a9b5-63c887d34d3c/record4_coeff_check.py and record4_coeff_check.log, all 13 coefficients, 44 finite pattern/alphabet cases, and full maximizer checks for q=2 through 8. The original verifier was inspected, not executed; the all-q proof is the support argument plus the exhaustive finite table.
+
+## originality
+
+PASS
+
+The repair expressly credits both binary maximum and consequent threshold to prior work. The remaining claim is the exact all-alphabet size and full equality classification, not the binary scalar or established multiset model.
+
+## value
+
+PASS
+
+The motivating unique-error reconstruction model needs a sharp multiset overlap bound. The all-alphabet formula gives the exact worst-case observation requirement and the equality classification identifies every ambiguous extremal pair. This is a complete base regime for the model's recursive bounds, not merely recomputation of the published binary number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

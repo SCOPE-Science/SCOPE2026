@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:38:10.233354Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46, 50–134, 148",
+        "Corrected /workspace/repairs/3/RESULT.md, assumptions and proof §3 including equality",
+        "VERIFICATION.md body and verify_coupled_bursts.py lines 15–105, inspected without execution"
+      ],
+      "rationale": "The original main rate and endpoint order are correct. Its limitations incorrectly said the optimal coupling may be non-unique for atomic or degenerate marginals. The complete corrected RESULT.md in /workspace/repairs/3/ fixes this, verifies equality at both endpoints, and clarifies the exponential upper bound used for general delay laws. Independent proof reconstruction: killed hitting has success probability exp(-x_0 sqrt(d/D)), and a<=q(u)<=a+exp(-du). Given all arrival/mark pairs the survival product is exact. Relative to the product of eventual failure probabilities the logarithm of their ratio is bounded by (j_+/a)/(1-exp(-d w_-)), even at an arrival time or when no batch has arrived. H(s)=E[exp(sW)a^J] is finite, strictly increasing, starts below one, and diverges. At its root, exp(theta S_n)a^(sum J_i) is a mean-one martingale. Stop at K=N(t)+1, bounded by floor(t/w_-)+1, rather than at N(t). With t<S_K<=t+w_+ and a^j_+<=a^J_K<=1, this gives e^-theta(t+w_+)<=F(t)<=a^-j_+ e^-theta t. This proves the exact limit for Q without nonlattice assumptions. For each s>0, use E[XY]=integral of P(X>x,Y>y) with X=exp(sW), Y=a^J. The two Fréchet tail bounds are pointwise attained by opposite and same order matching of X,Y, respectively; since Y decreases with J, this makes comonotone W,J minimize H and countermonotone W,J maximize H. Increasing roots reverse this order. Equality of rates forces equality of integrals at that positive root. The nonnegative integrand gap must vanish almost everywhere, hence at every threshold by right-continuity from above. The joint tail determines the joint law, and both transforms are injective. Atoms allow nonunique representations, not nonunique laws; a degenerate marginal gives a single law for both extrema. Recomputed the three quadratics in exp(theta) with the respective matching weights: y^2+2y=8, y^2+y=16/3, and 2y^2+y=8. Their positive roots give rates 0.6931471805599453, 0.6221386073711349, 0.5684704336385026 and ratio 1.2193196682604011. Throughput is E[J]/E[W]=1 in each case by the iid renewal reward ratio, and x_0=log 2 for D=d=1 gives the stated a. The added equality argument is analytical; no supporting numeric file needed a change.",
+      "residual_risks": [
+        "The repaired claim assumes iid bounded interval/batch pairs, independent searchers and an initially empty system. It does not order finite-time survival or give a sharp prefactor; the numerical checks of F(t) alone would not prove the Q(t) rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Butler's abstract describes double transforms for dependent renewal–reward processes and first passage of cumulative reward across a fixed threshold; it does not state the Brownian-delay reduction or the fixed-marginal extrema. Full text was unavailable. The two arrival-model references are identified as Poisson and Poisson-batch in the frozen comparison; independent full-text retrieval timed out."
+        ],
+        "reasoning": "A general dependent renewal–reward transform may subsume or rederive the marked root mechanism. Even then it does not establish delayed equivalence and fixed-marginal physical optimization unless its observable and parameter scope genuinely cover those steps. The inaccessible texts are not certified nonmatches.",
+        "searches": [
+          "Butler DOI 10.1017/jpr.2024.99 publisher indexed abstract and attempted full text",
+          "Boyer–Mercado-Vásquez arXiv:2611.04843 and Mercado-Vásquez–Boyer arXiv:2602.11095, attempted original texts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md references",
+        "Original passages, index searches, and access limits in source_inspections",
+        "Repaired /workspace/repairs/3/RESULT.md proof §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With one searcher, independent failure factors out of the transform, so changing its dependence with W is not available in the prior theorem. In the marked problem the classical extremal product bounds apply directly to H(s) for all s>0; equality of the roots inherits equality of the transform at the crossing."
+        ],
+        "reasoning": "The inequality for transform products and reversal of root order require no new transport theorem. What is not a substitution into the prior physical result is certifying the marked delayed survival root for arbitrary pair dependence, then obtaining the coupled envelope under identical throughput and both fixed marginals.",
+        "searches": [
+          "Resultary b14ecd398861, Finding and proof §§1–4",
+          "Butler DOI 10.1017/jpr.2024.99, indexed abstract",
+          "Frozen RESULT.md proof §§1–3, exact rearrangement and martingale reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Permanent-failure survival is the event of no eventually successful batch yet born at t, with a mark-dependent failure weight a^J. Its marked transform specializes at J=1 to the prior (1-p) E exp(theta W)=1. For any fixed s the expected-product extremization is exactly a classical Fréchet rearrangement after the increasing transform of W and decreasing transform of J."
+        ],
+        "reasoning": "Instantaneous thinning is not the true time of target contact. The bounded-in-time multiplicative transfer from permanent failures to delayed physical reactions is needed. The prior fixed-mean marginal comparison is not an interval–batch joint-dependence comparison with both marginals fixed.",
+        "searches": [
+          "Resultary b14ecd398861, renewal production clocks, one-searcher rate and fixed-mean order",
+          "Butler DOI 10.1017/jpr.2024.99, dependent renewal–reward first passage",
+          "Classical extremal-dependence comparison, arXiv:1512.03232 attempted Theorem 2.1 retrieval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact query returns 6da71896305d as top formula match, the identical assigned record. The strongest distinct matching result is the one-searcher precursor. The same-day one-or-three arrivals record gives an adjacent-gap covariance sign phenomenon, not rate extrema at fixed interval and batch marginals."
+        ],
+        "reasoning": "A known table of the three quadratic numbers alone would not imply the physical comparison. The exact database alias of interest is a marked renewal root and matching extremal rates at fixed marginals; no distinct source inspected establishes that table or its sharp conclusion.",
+        "searches": [
+          "Resultary exact example/formula query: mortal searchers preceding interval batch coupling e theta W a J comonotone 1.219319668 log sqrt 65 fixed marginals renewal",
+          "Resultary b14ecd398861 and related 111946ee283b"
+        ]
+      },
+      "rationale": "Credit the physical, delayed-search, sharp fixed-marginal burst–interval exponent comparison, not the classical rearrangement bounds (including their joint-law equality) or the renewal-reward root as a general transform mechanism. Proven prior coverage includes the one-searcher renewal root exactly. Neither that result nor the inspected dependent-renewal abstract establishes the model's fixed-marginal interval–batch envelope. Changing the equality-limitations sentence does not make generic rearrangement an originality claim. This is a bounded, best-of-knowledge verdict.",
+      "residual_risks": [
+        "Butler's full transform results and inaccessible cited papers may further narrow the prior-coverage boundary. No new classical rearrangement theorem or priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case coverage; not fixed-two-marginal pair optimization",
+          "evidence": "One searcher per renewal, scalar weight (1-p) outside E exp(theta W), and rate order when varying the interval marginal at fixed mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-renewal-production-clocks-govern-the-long-time-survival-of-morta--b14ecd398861",
+          "material_read": "Mirrored RESULT.md Finding and proof §§1–4, offsets 0–7256 and following relevant passage",
+          "method": "Local mirror original passages",
+          "title": "Renewal production clocks govern the long-time survival of mortal diffusive searchers",
+          "trigger": "Exact one-searcher survival exponent precursor"
+        },
+        {
+          "assessment": "Potential broader root coverage unresolved; no complete-paper exclusion",
+          "evidence": "Double transforms for dependent renewal–reward and first passage across a fixed cumulative reward threshold, not an exact fixed-marginal delayed-search claim in the abstract.",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2024.99",
+          "material_read": "Publisher indexed abstract; publisher page timed out and no readable lawful linked PDF was obtained",
+          "method": "Publisher index and lawful OA attempts",
+          "title": "Distribution theory for dependent renewal–reward processes and their first-passage times using saddlepoint and residue expansions",
+          "trigger": "Most plausible general marked transform coverage"
+        },
+        {
+          "assessment": "Different observable and model, not a priority determination",
+          "evidence": "Adjacent-gap covariance sign reversals for one-or-three arrivals under an inverse-subordinator clock.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-critical-infinite-sign-reversals-in-three-unit-batch-renewal-gap--111946ee283b",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror original passage",
+          "title": "Critical infinite sign reversals in three-unit batch renewal gaps",
+          "trigger": "Distinct same-date marked batch-renewal hit"
+        },
+        {
+          "assessment": "Poisson-batch comparator as reported in the bound source; full relation not independently cleared",
+          "evidence": "Frozen RESULT.md reports independent random batch sizes in Poisson production, not preceding-interval coupling.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.04843",
+          "material_read": "Frozen novelty comparison; attempted primary retrieval timed out",
+          "method": "Attempted lawful OA original text",
+          "title": "Stochastic synthesis and degradation of arbitrary diffusive processes",
+          "trigger": "Cited stochastic batch production and target-finding model"
+        },
+        {
+          "assessment": "Poisson comparator as reported in the bound source; no complete-paper exclusion",
+          "evidence": "Frozen source contrasts Poisson production with general iid renewal pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.11095",
+          "material_read": "Frozen novelty comparison; attempted primary retrieval timed out",
+          "method": "Attempted lawful OA original text",
+          "title": "Stochastic synthesis-degradation processes: first-passage properties and connections with resetting",
+          "trigger": "Cited mortal diffusion physical predecessor"
+        },
+        {
+          "assessment": "Do not credit the known rearrangement method as original; no assertion about all contents of the paper",
+          "evidence": "The expectation comparison used here follows directly from the integral of Fréchet bounds; no publication-specific original passage was obtained in this attempt.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.03232",
+          "material_read": "Targeted theorem retrieval attempted; direct and alternate network access timed out",
+          "method": "Attempted OA; classical principle reconstructed directly",
+          "title": "Extremal Dependence Concepts",
+          "trigger": "Classical general fixed-marginal rearrangement, not a new tool"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding, proof §§1–4 and limitations",
+        "One-searcher precursor b14ecd398861"
+      ],
+      "rationale": "The effect is a controlled design comparison: the interval law, batch-size law, production rate and throughput all stay fixed, while the sharp delayed first-reaction exponent changes. The exact upper/lower bound for all joint laws, with an explicit realizable separation between extrema and equality at the quantile couplings, supplies useful information not captured by tuning the mean or one marginal. Its value is in that physical rate characterization and constrained comparison, not in recomputing the example's roots or classical dependence bounds.",
+      "residual_risks": [
+        "The application is specific to the independent-searcher, bounded-renewal regime; it gives no finite-time or feedback-design optimizer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

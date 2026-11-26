@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:28:45.691561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–20 and 25–46; VERIFICATION.md lines 19–22; verify.py inspected, not executed.",
+        "Repaired RESULT.md lines 4–30 and 35–56.",
+        "Independent replay: python3 /workspace/review-evidence/exact_checks.py 5; see /workspace/review-evidence/check-5.txt for labeled graph checks through n=10 and n=3 cyclic placements."
+      ],
+      "rationale": "Reassessed /workspace/repairs/5/RESULT.md. The frozen counts are correct, but the frozen Finding's last sentence overstates what the preceding summaries determine: for n=3 there are two 3-cycles and three fixed points, and the nonzero leaf counts 6 and 3 both occur on the cycle (6,15,24). Moving the size-6 leaf set to the other 3-cycle (3,12,21), without changing any cycle, yields the same cycle and leaf histograms but a nonisomorphic graph (two decorated 3-cycles instead of one). The repaired Finding gives the pointwise criterion, using the original square-root rule and the unique depth-one antecedent of each cycle vertex. For the mathematical reassessment, residue routing is 1→2→0 and Hensel's lemma bijects classes 0 and 2 separately onto class 0. For valuation t≥1, the base iterate displaces by x², and when G=F^(3^k) displaces by u of valuation s≥2, three iterates displace by u(1+G′+G′²)+O(u²), where the factor in parentheses has valuation 1 and 2s>s+1. Thus periods are 3^max(n−2t,0), the valuation-t balls have full compatible cycles and hence are odometers, and only 0 is periodic at infinite precision. Fixed points, cycle counts and zeta follow by counting each shell and dividing by its orbit length. At each periodic x the antecedent in class 2 is (w−1)/2 for the unique root of 1+4x congruent to 2. The next root problem has discriminant A≡0 mod 3. A=0 has 3^floor(n/2) roots; exact valuation 2r<n with unit part 1 modulo 3 has two simple unit roots each with 3^r free lifts; all other nonzero A have none. This puts the correct rooted star at each vertex and yields the histogram by counting A. At n=1 the rule gives a fixed point with a two-edge chain. The finite replay checks the pointwise rule, not just the aggregate counts, and is corroboration rather than the all-level proof.",
+      "residual_risks": [
+        "Finite replay does not certify arbitrary n or infinite precision. The proof relies on the exact displacement induction and elementary lifting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General odd-prime growth conditions and translation conjugacy via full quotient cycles cover the proof mechanism and qualitative minimality; the general convergent-power-series theorem gives the partition into minimal systems, periodic points and basins.",
+          "None of those inspected theorem statements specifies the finite critical fiber counts around the cycles of this quadratic."
+        ],
+        "reasoning": "Cycle lifting and qualitative basin decomposition do not classify singular incoming branches, so they cannot supply the graph even when they readily give the shell periods.",
+        "searches": [
+          "arXiv:1010.5583v1 §2 and Theorem 2.1",
+          "arXiv:1208.2016 Theorem 6",
+          "arXiv:1401.1062v2 Theorem A/Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic and conjugate-form comparisons",
+        "arXiv:1010.5583v1",
+        "arXiv:1208.2016",
+        "arXiv:1401.1062v2",
+        "Local corpus findings 0353bbb32765, 170fdf08b793 and 24093f02440f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old lifting framework plus the initial displacement x² readily explains the ternary periods and odometers. The indexed branch-incidence theorem is specifically for the other map and prime; it does not specialize to the two discriminants 1+4x and 1+4u in the repaired result.",
+          "The exact pointwise decoration needs the residue-class inverse, counts of singular roots, and coupling of those counts to the cyclic order; the formulas are not a consequence of the aggregate histogram (n=3 provides a counterexample)."
+        ],
+        "reasoning": "The exact incidence and distribution together are not supplied by a stronger inspected theorem; the constituent root counts and iteration machinery themselves are standard.",
+        "searches": [
+          "arXiv:1010.5583v1 Theorem E and §2",
+          "arXiv:1208.2016 Theorem 6",
+          "SCOPE-20261025-0353bbb32765 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translation y=x+1/2 conjugates F to y²+1/4, transferring the full graph at all ternary levels. The alias query returned structurally related but different maps/primes, not that conjugacy class at prime three.",
+          "Fan–Liao Theorem E is explicitly over Z_2; the ternary shell and critical fibers cannot be obtained by renaming its binary powers."
+        ],
+        "reasoning": "An equivalent graph under affine conjugacy at the same prime would cover the claim. A change of prime or critical dynamics is not such an equivalence.",
+        "searches": [
+          "Resultary: 3-adic odometer x+x^2 ternary functional graph cycle census depth-two preimage square roots",
+          "Resultary: quadratic polynomial y ↦ y²+1/4 modulo powers of three Z_3 parabolic fixed point 1/2 exact cycle and quadratic critical point preimage tree (affine conjugate to x+x²)",
+          "arXiv:1010.5583v1, Theorem E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0353bbb32765 computes cycle decoration at prime 5 for x²−2; 170fdf08b793 gives shells for x²+1 at prime 7; 24093f02440f counts first-hit depths of x³−3x at prime 3. No exact ternary-power table or graph for this map in these returned comparisons."
+        ],
+        "reasoning": "None of the three exact indexed comparisons enumerates the same pointwise graph for the same map and modulus family. Finite independent enumeration is corroboration, not historical database evidence.",
+        "searches": [
+          "Resultary: F(x)=x+x^2 on Z_3 balls radius 3^{-2t} cycles modulo 3^n depth-two roots q_n",
+          "Resultary: x^2+x modulo 3^n minimal components on Z_3 exact cycle periods depth two indegrees"
+        ]
+      },
+      "rationale": "For the repaired claim, credit known odd-prime lifting, odometer criteria, and modular square-root counts. The supported distinct content is the explicit all-level ternary graph tying the cycles to the nonuniform critical preimage trees, not a new general theory of cycles or square roots. The closest inspected exact example for the same polynomial is at prime 2; the closest graph with pointwise branch incidence uses x²−2 at prime 5. Bounded comparisons do not certify universal priority.",
+      "residual_risks": [
+        "The 2015 paper's relevant general theorem was inspected, not every example; a non-indexed equivalent explicit calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact example is binary; odd-prime lifting is relevant general background.",
+          "evidence": "Theorem E uses binary shells and binary minimal-component counts. General lift growth concerns periodic cycles and not their transient incidence.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.5583v1",
+          "material_read": "Theorem E, PDF p. 3, offset ≈7753; §2/Theorem 2.1, pp. 3–4, offsets 7600–15783",
+          "method": "Lawful OA PDF passages",
+          "title": "On the minimal decomposition of p-adic polynomial dynamical systems",
+          "trigger": "Identical polynomial and general cycle-lifting framework"
+        },
+        {
+          "assessment": "General criterion applicable to restrictions, not explicit graph coverage.",
+          "evidence": "Minimality for a compatible onto map is equivalent to full quotient cycles and translation conjugacy.",
+          "identifier_or_url": "doi:10.1112/blms/bdp003; arXiv:1208.2016",
+          "material_read": "Theorem 6, PDF p. 6, offset ≈13096",
+          "method": "Lawful OA preprint passage",
+          "title": "Minimal polynomial dynamics on the set of 3-adic integers",
+          "trigger": "Same prime and minimality theorem"
+        },
+        {
+          "assessment": "Covers the qualitative decomposition, not the pointwise ternary graph in the inspected theorem.",
+          "evidence": "General decomposition into periodic points, minimal subsystems and basins.",
+          "identifier_or_url": "doi:10.1016/j.jde.2015.03.042; arXiv:1401.1062v2",
+          "material_read": "Theorem A / Theorem 1.1, PDF pp. 2–3, offset ≈4300",
+          "method": "Lawful OA preprint passage",
+          "title": "Dynamics of convergent power series on the integral ring of a finite extension of Q_p",
+          "trigger": "Broader minimal decomposition that could cover the qualitative theorem"
+        },
+        {
+          "assessment": "Different graph and prime; no specialization.",
+          "evidence": "Explicit depth-two branch counts attached to selected cycle vertices of x²−2 over powers of five.",
+          "identifier_or_url": "SCOPE-20261025-0353bbb32765",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-corpus mirror",
+          "title": "Exact critical-branch incidence for x²−2 modulo powers of five",
+          "trigger": "Closest exact branch-incidence analogue"
+        },
+        {
+          "assessment": "Different map and prime.",
+          "evidence": "Classifies adding-machine shells of x²+1 at seven, not F at three.",
+          "identifier_or_url": "SCOPE-20261101-170fdf08b793",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-corpus mirror",
+          "title": "Two multiplier orders and exact Haar basin weights for the 7-adic quadratic map",
+          "trigger": "Closest indexed odometer-shell analogue"
+        },
+        {
+          "assessment": "Different polynomial and invariant.",
+          "evidence": "First-hit depths for a cubic, not the quadratic's cyclic placement of trees.",
+          "identifier_or_url": "SCOPE-20261025-24093f02440f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-corpus mirror",
+          "title": "Exact first-hit depth distribution for the cubic Dickson map modulo powers of three",
+          "trigger": "Exact depth census at the same prime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof Steps 1–4; independent pointwise replay."
+      ],
+      "rationale": "The parabolic quadratic at the smallest odd prime is a concrete test case that exhibits both odometer growth on the invariant class and singular unbounded branching in the transient classes. The repaired result identifies where those trees sit on every finite cycle, and not merely how many there are, which is what a researcher comparing graph isomorphism types or finite quotient dynamics needs. The graph and zeta formulas are all-level, not an arbitrary short census.",
+      "residual_risks": [
+        "No general-prime or arbitrary-quadratic classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

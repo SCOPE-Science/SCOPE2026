@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:22:47.722736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof and Verification; VERIFICATION.md; verify.py (inspected)",
+        "Independent replay: python /workspace/review_checks/exact_replay.py spin"
+      ],
+      "rationale": "Realizing the chain as the permutation-symmetric subspace of N spins with Hamiltonian the sum of their single-spin flips gives eigenvalues E=N−2k, simple in this subspace. The endpoint squared weights are binomial, from expanding the all-zero state in the flip eigenbasis. Dividing site amplitudes by their endpoint amplitude and multiplying by √binom(N,j) yields the polynomial recurrence E K_j=(N−j+1)K_{j−1}+(j+1)K_{j+1}. The first three terms give the stated K₂ and K₃. A real eigenvalue of the damped generator forces the vector into the kernel of the positive loss operator, so the real subspace is exactly the span of the K₃-zero eigenvectors of H_N. That subspace reduces the generator, and the remaining finite block decays. The side-root integer condition is 3N−2=s², with s automatically of the right parity and s≤N. The central root differs from the two side roots, and s of either parity coprime to three gives an infinite exceptional sequence. Taking the endpoint projection and averaging by trace gives the stated probabilities. Stirling at scaled displacement ±√(3−2/N) gives the e^(−3/2) side factors, while the center has factor one. The two loss sites cannot vanish together: K₂ on the dark levels equals −N/2 or N−1. Each former real eigenvalue is algebraically simple because its orthogonal complement in the dissipative decomposition has no additional copy. The left and right vectors there are the normalized Hermitian-chain eigenvector, so the first derivative is −i|u_k(2)|²/2. The two simplified coefficients follow directly. My recurrence and coefficient check used exact integers and fractions for 3≤N≤200. The frozen script's arithmetic loop is range(3,55), not through 70 as stated in RESULT.md; this discrepancy in advertised finite test coverage does not affect the analytic proof or this independent check.",
+      "residual_risks": [
+        "The weak-loss estimate is for fixed N and γ. The replay checks nodes and coefficient arithmetic, not finite-time dynamics or a uniform η expansion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christandl's spin realization matches with M=N+1, λ=2. Le et al. give the Hamiltonian eigennode criterion for a target trap, including path examples. The 1996 institutional abstract reports bounds and nonexistence criteria; its full text and the 2019 article's full text were not accessible."
+        ],
+        "reasoning": "The standard spin model and nodal criterion give the representation of the dark projector. The inaccessible sources do not establish prior coverage and are not used to decide the verdict.",
+        "searches": [
+          "Christandl et al. arXiv:quant-ph/0309131, Eqs. (13)–(15)",
+          "Le et al. arXiv:1707.07482, dark eigenspaces and path examples",
+          "Older binary integral-zero literature, Krasikov–Litsyn DOI:10.1006/jcta.1996.0038 and Heo–Kiem DOI:10.1016/j.laa.2019.01.005"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked and exact-neighbor lookup; OA passages and limited-access comparators listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric-spin eigenvectors give the known endpoint binomial weights; the explicit node equation gives either E=0 or E²=3N−2. Thus the local binomial Gaussian exponent E²/(2N) tends to 0 or 3/2, and the constants are sums over one or two supplied nodes. In any fixed connected Jacobi chain, two adjacent zeros of an eigenvector force all coordinates to vanish by the tridiagonal recurrence. The site-2 weights at the listed nodes come from the first two recurrence steps, with K₂=(E²−N)/2; diagonal eigenvalue perturbation reads out just those weights."
+        ],
+        "reasoning": "The transport recast and evaluated first derivatives use ordinary projection, standard local Stirling asymptotics and diagonal first variation with no further independent spectral or arithmetic obstruction. The entire physical wording need not occur in the integral-zero literature for this to be a mechanical specialization. No priority is inferred from the same-day matches.",
+        "searches": [
+          "Christandl et al. p. 3 spin matrix; Le et al. pp. 2–3; Heo–Kiem–Lee §2.2; frozen proof of perturbation and asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The m=4 case factors P₃^(k+ℓ)(k)=(ℓ−k)[(ℓ−k)²−3(k+ℓ)+2]/6, and gives k=ℓ or (ℓ−k)²=3(k+ℓ)−2, including both nonsymmetric residue families. Set N=k+ℓ. For N≥3, k=0,N add no nodes since |E|=N and N²>3N−2."
+        ],
+        "reasoning": "This is exactly the bound arithmetic classification at the nodal-polynomial level, not only a similar number-theoretic condition. The arXiv identifier and printed date are discordant and the printed date is the frozen date segment; a publication-priority claim is not warranted.",
+        "searches": [
+          "Resultary: site 3 darkness weighted perfect-transfer spin chain; two-monitor recovery and loss opening",
+          "Heo–Kiem–Lee arXiv:2611.08518v1 §2.2 Proposition 2.2, offsets 10200 and 14900"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact node census is the central family and the two branches δ≡1,2 mod 3 in the inspected proposition. Indexed same-day records treat alternating-coupling darkness or quadratic reopening under hopping detuning, not this exact spin chain. No exact table of the bound loss slopes was located."
+        ],
+        "reasoning": "The indexed chain neighbors are real comparisons but not duplicates: changing a hopping ratio at a fixed graph size is not varying the weighted spin-chain size or the strength of an adjacent new sink. The full nodal census, not the exact slope table, appears in the literature comparison.",
+        "searches": [
+          "Resultary: site-3 dark resonance, endpoint survival, second monitor and weak absorption",
+          "Heo–Kiem–Lee Proposition 2.2, families (ii)–(iv)"
+        ]
+      },
+      "rationale": "The arithmetic heart is an exact low-degree Krawtchouk zero classification appearing in an independently located paper. Its reliable priority relative to the frozen record is unresolved, so no assertion of earlier publication of that exact proposition is made. Independently of priority, the rest of the frozen scientific claim does not establish a distinct advance over the standard engineered-chain eigensystem, the nodal criterion, and direct low-degree evaluation: the parity classes read off the cubic, the survival constants apply binomial Stirling at its listed roots, and the adjacent-site recovery and slope are direct Jacobi recurrence and first-order diagonal perturbation. No nonroutine asymptotic or loss-opening result beyond these mechanical consequences is established. This is a judgment of scientific distinction, not a claim that a source prints the entire absorber theorem or that inaccessible papers contain it.",
+      "residual_risks": [
+        "Unknown reliable priority between the exact cubic-zero proposition and this frozen record. Older Krawtchouk full texts were not reached. No claim of a prior printed table of endpoint constants or linewidths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage of the root families; a different application, no reliable priority comparison",
+          "evidence": "The m=4 proof gives both k=ℓ and (ℓ−k)²=3(k+ℓ)−2, with the full two nonzero residue families. PDF prints 26 Oct 2026 despite the 2611 identifier.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.08518",
+          "material_read": "Front matter; §2.2 Proposition 2.2 and proof, pp. 3–4, offsets 10200 and 14900; reference list",
+          "method": "Lawful OA PDF passages, independently reread",
+          "title": "Integral Zeros of Krawtchouk Polynomials and Quantum Entanglements",
+          "trigger": "Identical Krawtchouk degree, binary parameter and integer node criterion"
+        },
+        {
+          "assessment": "Pushes the Hamiltonian to the standard finite spin matrix; not an absorber classification",
+          "evidence": "Hopping J_n=(λ/2)√[n(M−n)] and the spin-rotation transfer amplitude.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0309131",
+          "material_read": "p. 3 Eqs. (13)–(15), offset about 21236",
+          "method": "OA PDF passages",
+          "title": "Perfect state transfer in quantum spin networks",
+          "trigger": "Identical analytic weighted chain"
+        },
+        {
+          "assessment": "Prior nodal framework, not the chain's endpoint or slope constants",
+          "evidence": "Dark eigenspaces defined by orthogonality to the target; nodal eigenvectors on uniform paths discussed.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.07482",
+          "material_read": "pp. 2–3, offsets 8914 and 18872",
+          "method": "OA PDF passages",
+          "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+          "trigger": "General dark-state formulation and path-channel applications"
+        },
+        {
+          "assessment": "Different chain and resonance parameter",
+          "evidence": "Odd alternating-coupling chain, with two dark modes at selected hopping ratios and endpoint survivor formula.",
+          "identifier_or_url": "2026/10/26/SCOPE-chiral-protection-versus-tuned-pairwise-dark-resonances-in-odd-a--4b28ac603d2b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Chiral protection versus tuned pairwise dark resonances in odd alternating chains",
+          "trigger": "Same-day site-3 and endpoint-darkness analog"
+        },
+        {
+          "assessment": "Different perturbation; no evidence of exact duplicate or priority",
+          "evidence": "Quadratic reopening when changing an SSH hopping ratio in a single-sink chain, not a linear response to activating a second sink.",
+          "identifier_or_url": "2026/10/26/SCOPE-algebraic-dark-mode-resonances-and-quadratic-loss-reopening-in-f--ac4a37ad49df",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Algebraic dark-mode resonances and quadratic loss reopening",
+          "trigger": "Prior-looking loss-opening claim on a quantum path"
+        },
+        {
+          "assessment": "Specific priority limitation, not relied on for coverage",
+          "evidence": "Abstract reports nonexistence conditions and upper bounds for binary Krawtchouk integral roots; does not by itself establish coverage of the degree-three family.",
+          "identifier_or_url": "https://doi.org/10.1006/jcta.1996.0038",
+          "material_read": "Tel Aviv University research entry, abstract and bibliographic metadata only",
+          "method": "Lawful institutional page; publisher and CORE copy returned 403, alternate lookup did not supply the full text",
+          "title": "On Integral Zeros of Krawtchouk Polynomials",
+          "trigger": "Relevant established literature that might contain the earlier cubic classification"
+        },
+        {
+          "assessment": "Not used for a coverage conclusion",
+          "evidence": "Subject is binary Krawtchouk integral zeros via the entanglement range criterion.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2019.01.005",
+          "material_read": "Bibliographic reference and search summary; full text not read",
+          "method": "Publisher retrieval returned 403 via direct and alternate routes",
+          "title": "On characterizing integral zeros of Krawtchouk polynomials by quantum entanglement",
+          "trigger": "Older paper specifically cited by the exact low-degree comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations; exact comparison and implications above"
+      ],
+      "rationale": "This is a natural Hamiltonian and the correct formulas are useful model calculations. The proposed arithmetic gap, however, is exactly the cubic nodal equation and its elementary evaluated zeros; the scaled survival weights are binomial Stirling at those zeros. Adding a neighboring monitor has a general immediate recurrence explanation, and its fixed-size linewidth here is just the site weight read from the first two recurrence steps. The remaining numerical constants do not amount to an independent unknown exact invariant not mechanically implied by these inputs. A uniform small-loss/large-size law or a genuinely new classification across detector positions would pose different questions, neither answered by the frozen record.",
+      "residual_risks": [
+        "Does not imply that no other detector or asymptotic regime has scientific value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:33:34.473025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique center is fixed under any automorphism. Its arms may only be permuted within length classes, and distance from the center fixes the position of each edge along an arm. The named colors are not exchanged. Independently enumerated interval cuts of m edges, keeping nondecreasing positive arm lengths with at least three parts. For each shape, enumerated all 2^m labeled edge masks, computed the unordered endpoint-pair path as XOR of the two center-route masks, and tallied (path length, number of ones) using bit counts. This gives exactly the two-component Parikh data, with multiplicity and no empty paths. Canonicalization by sorting arm words within equally long arms was cross-checked by the product of multiset counts. For edge counts 3…9 the row tuples (shapes, coloring classes, topology-scoped profiles, non-singleton fibers) are (1,4,4,0), (2,17,17,0), (4,66,66,0), (7,221,221,0), (11,688,688,0), (17,2034,2034,0), (25,5788,5786,2). The only ambiguous shape has distinct lengths (2,3,4), so all 512 of its labeled colorings are distinct modulo tree automorphism; its two exact doubletons match lines 10–11 and are swapped by complement. The direct profile in lines 52–56 matches the calculation with 45 endpoint pairs. No inference is made for topology-blind readout or larger spiders. Replay: python3 /workspace/branches/check_2.py and check_2.out beside it. Frozen spider_verify.py and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CPM 2016 p.1 states extension of the polynomial method to general trees and special cases. Frozen RESULT.md line 66 reports a nonbinary example with five two-edge arms.",
+          "The same frozen comparison reports a binary all-tree aggregate census up to twelve vertices in the 2021 thesis.",
+          "Dailly–Lehtilä publisher metadata establishes title and citation only; the vertex-colored connected-subgraph distinction is described in the frozen comparison, not confirmed from primary passages here."
+        ],
+        "reasoning": "General tree methods are antecedent, and a published per-shape/fiber census of all binary trees would dominate the spider calculation, but a general computable recurrence or only an all-tree aggregate at ten vertices does not identify the exceptional shape and fibers. The reported CPM example is outside the binary nine-edge scope.",
+        "searches": [
+          "Bartha thesis, DOI 10.15476/ELTE.2021.095, §3.3.3 and Table 3.5",
+          "Bartha–Burcsi–Lipták, DOI 10.4230/LIPIcs.CPM.2016.10, OA PDF",
+          "Dailly–Lehtilä, DOI 10.1016/j.dam.2026.04.023"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b16ae21f8704 (same record)",
+        "Bartha–Burcsi–Lipták CPM 2016 p.1",
+        "Bartha thesis DOI 10.15476/ELTE.2021.095 (bibliography, frozen comparison, attempted original retrieval)",
+        "Dailly–Lehtilä DOI 10.1016/j.dam.2026.04.023 (metadata and frozen comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CPM p.1 includes an equal-subtree-profile example whose path profiles are different, so it cannot witness this path ambiguity.",
+          "The reported global aggregate combines spiders, paths and other trees. The frozen claim retains topology and specifies the exact two fibers and all earlier spider cases."
+        ],
+        "reasoning": "A complete injectivity statement on all colored trees of some smaller order would of course imply the spider subcase at that order. The independently available evidence does not supply such a theorem covering the threshold and fibers, and determining them from a general recurrence requires the exhaustive restricted classification.",
+        "searches": [
+          "CPM 2016 DOI 10.4230/LIPIcs.CPM.2016.10, p.1 preview and targeted later-page attempts",
+          "Bartha thesis DOI 10.15476/ELTE.2021.095, reported §3.3.3 and Table 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CPM 2016 PDF p.1 abstract distinguishes Parikh vectors of all subtrees, all paths, and all maximal paths; here the second model with fixed topology is used.",
+          "On the binary alphabet the path-Parikh pair (zeros,ones) is equivalent to (length,ones), including all multiplicities."
+        ],
+        "reasoning": "Path small unjumble, jumbled paths, and edge-labeled path composition can refer to exactly this reconstruction invariant. Maximal paths, subtrees, weighted sums without length and vertex-color queries need not agree. No equivalent spider-resolved statement is evidenced by the passages retrieved.",
+        "searches": [
+          "Resultary: binary edge-colored spider path Parikh composition ambiguity fixed topology 2 3 4 threshold nine edges",
+          "Primary literature: Bartha Reconstructibility of Tree Graphs 2021 thesis §3.3.3 Table 3.5 binary edge-labeled trees path-Parikh reconstruction, and Bartha Burcsi Lipták CPM 2016 three-way nonreconstructible example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue hit b16ae21f8704 has the exact nine-edge onset, shape, and two doubletons and is the same source identity, not independent earlier work.",
+          "Frozen AUDIT.json reports Table 3.5 aggregates at n=10 of 24742 coloring classes and 24668 topology-scoped observations for all trees; the original table was not retrieved here."
+        ],
+        "reasoning": "Aggregate loss across all trees at ten vertices does not allocate that loss to spider shapes, much less identify their witnesses. The accessed catalogue does not supply a distinct exact table. Unread sections or instance-level files could alter that comparison.",
+        "searches": [
+          "Resultary: binary edge-colored spider path Parikh composition ambiguity fixed topology 2 3 4 threshold nine edges",
+          "Bartha thesis repository 10831/85503 and OA literal query Table 3.5"
+        ]
+      },
+      "rationale": "The prior path-Parikh inverse problem and its polynomial method are established. The supported distinct claim is the sharp first known-topology binary spider failure plus the exhaustive topology/fiber classification. The closest aggregate census has the right invariant and includes trees of the relevant order; its available description does not localize the ambiguity. Priority remains qualified, in particular because the decisive thesis passages and possible underlying data were unavailable in this review.",
+      "residual_risks": [
+        "The original thesis census and its instance data or appendices were not available for inspection; they may identify particular binary collisions.",
+        "Later passages of the CPM paper were unavailable in targeted access, and the newer composition paper was checked at bibliographic rather than theorem level.",
+        "Unindexed equivalent statements are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record; no separate priority inferred",
+          "evidence": [
+            "Nine edges; only (2,3,4); exactly two doubletons exchanged by global complement."
+          ],
+          "identifier_or_url": "Resultary b16ae21f8704; frozen RESULT.md",
+          "material_read": "Summary and frozen Finding, lines 5–18",
+          "method": "Resultary and frozen original",
+          "title": "The first binary jumbled-path ambiguity in edge-colored spiders",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Potentially covers cases in unpublished or uninspected detail; available aggregate description does not cover local fibers",
+          "evidence": [
+            "Frozen RESULT.md line 66 and AUDIT.json describe aggregate counts through twelve vertices, including order ten."
+          ],
+          "identifier_or_url": "https://doi.org/10.15476/ELTE.2021.095; https://edit.elte.hu/xmlui/handle/10831/85503",
+          "material_read": "Repository bibliographic result; frozen description of §3.3.3, Table 3.5; original text not retrieved",
+          "method": "Primary search, targeted OA request and repository retrieval attempt",
+          "title": "Reconstructibility of tree graphs",
+          "trigger": "Aggregate census over all binary trees and all relevant orders"
+        },
+        {
+          "assessment": "Establishes the same framework and polynomial method, not the exact binary spider threshold in accessed text",
+          "evidence": [
+            "Page 1 explicitly includes the multiset of Parikh vectors of all paths. Its introductory equal-subtree example has unequal path profiles."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2016.10",
+          "material_read": "OA PDF first-page abstract and introductory example; later sections not retrievable in targeted attempts",
+          "method": "Lawful OA PDF preview and targeted OA query/offset attempts",
+          "title": "Reconstruction of Trees from Jumbled and Weighted Subtrees",
+          "trigger": "Same inverse problem with broad tree coverage"
+        },
+        {
+          "assessment": "Reported vertex-labeled connected-subgraph model does not resolve this problem; whole-text coverage unassessed",
+          "evidence": [
+            "Discrete Applied Mathematics 390 (2026), 198–219; frozen comparison distinguishes vertex compositions from edge-path compositions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.04.023",
+          "material_read": "Bibliographic metadata and frozen RESULT.md line 66; no relevant primary theorem retrieved",
+          "method": "DOI retrieval and frozen comparison",
+          "title": "Reconstructing graphs with subgraph compositions",
+          "trigger": "Possibly adjacent composition-based reconstruction model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Spiders are the simplest singly branching extension of paths, and fixed binary colors are the minimal nontrivial observation alphabet. The exact onset, unique obstructing shape and complete complement-paired fibers give minimal test instances and a finite identifiability boundary for the established small-unjumble problem, rather than another aggregate total.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

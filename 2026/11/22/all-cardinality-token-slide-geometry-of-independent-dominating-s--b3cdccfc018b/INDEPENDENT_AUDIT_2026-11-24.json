@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:57:48.449701Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–65",
+        "Frozen VERIFICATION.md and each of verify_direct.cpp, verify_word.py, verify_median.py and their recorded outputs"
+      ],
+      "rationale": "Independence gives at most one selection per rung. An empty endpoint or a pair of consecutive empty rungs leaves a vertex undominated. Between successive occupied rungs with no empty rung, independence forces opposite selected rails; across a single empty rung, domination of both vertices on that rung forces the same alternation condition. These three conditions are also sufficient. A first-rail choice and the z=n−k one-vacancy gaps among p=k−1 gaps therefore encode the states exactly. Since n≥2 requires k≥2, a vertical flip breaks alternation with at least one neighboring occupied rung, by independence or by domination according as the gap has size zero or one. A horizontal slide preserves feasibility exactly when it transfers a vacancy across an internal selected rung into an empty gap, hence swaps adjacent 01 and 10 and preserves the first-rail choice. This proves the two path-token components, including z=0,p. For their metric, sorted tokens cannot pass. Moving all left-going tokens in increasing order and then all right-going tokens in decreasing order attains the sum of absolute displacements; target positions are strictly increasing, so no intervening token blocks those moves. Opposite packed configurations attain z(p−z). Coordinatewise medians are strictly increasing and are the unique tuple in all three pairwise metric intervals. Each consecutive gap pair contributes binom(p−2,z−1) edges per copy in the nonsaturated range. Summing the binomial counts gives the two stated series (subtracting the n=1 term for vertices). At minimum size, z=p for odd n and z=p−1 for even n, yielding the stated singleton and path cases.",
+      "residual_risks": [
+        "The scripts were inspected, not rerun. The direct checker tests original ladder subsets through n=10. The word checker through n=18 builds candidates from the gap encoding, not all ternary words, and its occupied-cell guard skips vertical flips (the proof rules them out). Its evidence is the adjacency comparison on the generated configurations.",
+        "The path-token checker goes through p=8 and checks median triples only when the number of states is at most 28. The universal assertions rely on the structural and metric proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The minimum i-graph work defines the general slide framework at minimum size; its path theorem gives singleton, path and two-particle factors for path seeds.",
+          "The earlier circular-prism record identifies cyclic gap bits and legal cyclic swaps in the minimum-size problem, with boundary and phase behavior for C_n□K₂ rather than P_n□K₂."
+        ],
+        "reasoning": "The open path endpoint constraints and the parameter of arbitrary k are not specializations of a theorem for minimum configurations on a cycle. Cutting an edge changes which configurations dominate the endpoints, so simply deleting wraparound moves from the circular graph does not yield the frozen result.",
+        "searches": [
+          "Brewster–Mynhardt–Teshima, Reconfiguration of Minimum Independent Dominating Sets in Graphs, §1.3",
+          "The i-Graphs of Paths and Cycles, §2 Theorem 2.3",
+          "Resultary minimum independent-domination reconfiguration on circular ladders"
+        ]
+      },
+      "checked_sources": [
+        "Resultary open/circular searches and the original circular record",
+        "Stevanović; both Brewster–Mynhardt–Teshima papers; Hoang, primary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing circular and path constructions supply close analogies for gap swaps and some of the resulting factor graphs. The ordered-coordinate model a_i−i also identifies a general path factor with the cover graph of the rectangle's order-ideal lattice, so distance and medians are consequences once the factor is identified.",
+          "The open-ladder enumeration treats maximal independent sets but not which legal slides exist."
+        ],
+        "reasoning": "The critical implication not supplied by those results is the if-and-only-if between a legal slide of arbitrary size-k configurations on the open ladder and a single adjacent gap swap at fixed rail phase. The component formulas and lattice geometry follow from that correspondence, not from new general theorems about path-token graphs.",
+        "searches": [
+          "Circular ladder original RESULT.md §§1–3; path i-graphs Theorem 2.3 and ordered-pair model; open-ladder Fibonacci enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The static maximal-independent-set terminology denotes exactly the frozen configurations before restricting size and assigning edges. The Brewster–Mynhardt–Teshima i-graph fixes the minimum size, not arbitrary k.",
+          "The earlier L_r factor on strictly ordered two-coordinate pairs is T₂(P_{r+2}); complementation covers the two-hole case. Hoang instead treats ladders as target sliding graphs, not as independent-domination seeds."
+        ],
+        "reasoning": "Static configurations alone do not fix their reconfiguration edges. Known factors, or classifying a ladder as a target, do not say which factors occur or how many copies arise for the frozen seed and rule.",
+        "searches": [
+          "Maximal independent sets of open ladders, equivalently independent dominating sets; Stevanović (2001)",
+          "Minimum independent-domination i-graphs and path factors; arXiv:2303.06299 and arXiv:2303.08190",
+          "Token-sliding realizability for ladders; arXiv:2606.03765"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title indexed hit is the frozen record itself. The material earlier distinct catalogue hit is the circular record 5713d863fdac, with a cyclic minimum-size theorem.",
+          "Stevanović's p-square ladder has 2F_{p+1} maximal independent sets, hence gives exactly the frozen total after summing over k and setting p=n−1."
+        ],
+        "reasoning": "The univariate shortcut is known and explicitly credited, but it gives neither the size-refined sequence nor the state graph. No distinct exact all-k table or stronger statement giving the claimed two components was found in the inspected sources.",
+        "searches": [
+          "Focused Resultary open-ladder token sliding/all-cardinality and circular-ladder i-graph queries",
+          "Stevanović, Corollary 1, open-ladder maximal independent sets"
+        ]
+      },
+      "rationale": "Bounded pass for the all-cardinality structure theorem for the open ladder as a seed, especially the exact two-copy isomorphism and preservation of a first-rail phase under every legal slide. The unweighted maximal-independent-set count, known path-factor examples and standard grid/lattice metric consequences are not independent originality claims. The closest circular-ladder result uses a related gap construction but does not cover this open-boundary state space or all feasible open-ladder cardinalities.",
+      "residual_risks": [
+        "An unindexed exact path-particle encoding or an open-ladder treatment under maximal-independent-set reconfiguration could affect priority. The bounded searches and comparisons do not establish historical exclusivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in cyclic gap encoding, not open all-cardinality geometry",
+          "evidence": "The notation P_n in that source denotes a prism with circular base; it studies minimum size, cyclic swaps and cyclic phase phenomena.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-minimum-independent-domination-reconfiguration-on-circular-ladde--5713d863fdac",
+          "material_read": "Original RESULT.md, Finding and proof §§1–3, offsets 0, 2106, 4413",
+          "method": "Local mirror original record",
+          "title": "Minimum independent-domination reconfiguration on circular ladders",
+          "trigger": "Nearest distinct catalogue match, with the same gap-word method"
+        },
+        {
+          "assessment": "Exact total count, not the slide graph",
+          "evidence": "The p-square convention gives 2F_{p+1} for the open ladder; the frozen convention counts n=p+1 rungs.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/39-3/stevanovic.pdf",
+          "material_read": "Definition and Corollary 1, PDF pp. 1 and 3, offsets 680 and 5250",
+          "method": "OA scanned primary PDF passages; formula extraction is noisy",
+          "title": "On the Number of Maximal Independent Sets of Vertices in Star-Like Ladders",
+          "trigger": "Same open-ladder static configurations"
+        },
+        {
+          "assessment": "Same slide rule but restricted to minimum size; does not give the open-ladder result",
+          "evidence": "The i-graph vertices in the definition are minimum-cardinality independent dominating sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.06299",
+          "material_read": "Introduction and §1.3, pp. 2 and 4, offsets 3293 and 9744",
+          "method": "OA primary passages",
+          "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+          "trigger": "General i-graph terminology and legal moves"
+        },
+        {
+          "assessment": "Some factors known, different seeds",
+          "evidence": "The L_r graph has increasing coordinate pairs in {1,…,r+2} and single-coordinate unit edits, precisely two exclusion tokens on a path.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.08190",
+          "material_read": "§2, pp. 5–6, Theorem 2.3 and definition of L_r, offsets 14122–15372",
+          "method": "OA primary passages",
+          "title": "The i-Graphs of Paths and Cycles",
+          "trigger": "Plausibly equivalent factor graphs"
+        },
+        {
+          "assessment": "Ladder as a target graph, different from the frozen ladder seed",
+          "evidence": "Its question asks when H is a token-sliding graph TS_k(X); the inspected classification does not impose independent domination on configurations of the open-ladder seed.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.03765",
+          "material_read": "Introduction and grid/ladders summary, pp. 1–2, offsets 3892 and 7843",
+          "method": "OA primary passages",
+          "title": "Token-sliding realizability for complements, Cartesian-products, and grid graph families",
+          "trigger": "Potential ladder token-sliding classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof Steps 1–6",
+        "Earlier circular-ladder comparison and Stevanović's static count"
+      ],
+      "rationale": "The result identifies every fixed-size state graph of a natural and widely used seed, not just its independent domination number or total static count. The explicit coordinate map decides reachability, constructs shortest legal sequences and identifies the exact obstructions to crossing components. This is a useful structural classification; the older Fibonacci total and standard consequences for path-token factors are not by themselves the contribution.",
+      "residual_risks": [
+        "The results do not describe other ladders or moves that permit leaving the fixed-size independent-dominating state space."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

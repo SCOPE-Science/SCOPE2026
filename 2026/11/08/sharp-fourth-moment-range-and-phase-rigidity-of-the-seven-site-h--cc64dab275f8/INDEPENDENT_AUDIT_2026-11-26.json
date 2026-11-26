@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:38:59.481407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)"
+      ],
+      "rationale": "Haar orthogonality expresses the fourth moment as the sum of autocorrelation squares, including 49 at zero. In the displayed gauge the three two-pair shifts have squared moduli |x+y|², |y+z|², |x+z|², with sum 3+|s|²; three other representatives have one term each. Listing the three four-pair shifts (1,0),(0,1),(1,1) gives the stated A+WB. Expanding each squared norm gives the sum of the unmixed terms |s|²+9+2 Re(s) and the mixed coefficient 2(s+e2)/(xy). Thus M=61+2(|s|²+L). Since e2=xyz times conjugate(s), for t=|s|≤1 the last parenthesis is at least 2t²+9-10t≥1, and for t≥1 it is at least t². Equality requires t=1, L=0, Re(s)=-1 and |s+e2|=2, hence s=e2=-1 and xyz=1. The cubic (X-1)(X+1)² then fixes the unordered roots as (1,-1,-1), and A+WB=0 fixes W in each placement, yielding all three and only the listed tuples after recovering T. For the upper endpoint the multiplicities give 175; alignment in the (1,1) shift forces W=conj(U)=conj(V)=conj(T), and (1,0) then forces W=1. The torus is connected. The unique gauge restricts to the q-phase group, giving exactly q³ lifts of each of those minima for even q and none for odd q. Each shift coordinate is in [-2,2], so five or more in each finite dimension guarantees distinct characters and the identical moment functional; the orbit statement keeps the explicitly stated coefficient action.",
+      "residual_risks": [
+        "No conclusion for aliased grids or the best value when q is odd. The gauge classification uses the stated phase action, not a quotient by lattice reflections or a narrower action restricted to grid translations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding et al. treat the same seven-point hexagonal array in §II-D, exclude a complementary pair and give complementary triples and quadruples.",
+          "The related same-support record faa52fdf3aef deals with sixth moments and five phases."
+        ],
+        "reasoning": "Cancellation across several arrays is a different constraint on the correlation vectors and does not bound or classify the norm squared of a single vector sharply. Tabulating a sixth moment for a finite alphabet is not a dominating fourth-moment theorem.",
+        "searches": [
+          "Ding–Noshad–Tarokh arXiv:1506.02160 §II-D",
+          "Resultary seven-site phase-alphabet and nonaliasing finite-grid fourth moment"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.02160, §II-D",
+        "Resultary cc64dab275f8 (same record), 7f7aa7e01e0e, 5147476c65ae, bea9cf2ed885 and faa52fdf3aef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-support primary source gives joint complementarity results, while the cataloged rectangle and simplex give single-array statements for different difference profiles, with minima 50 and 48 respectively."
+        ],
+        "reasoning": "Even constructing a good member of a complementary family would not exclude lower-energy phases or classify all single-array minima. Nor is a six-mode result a theorem for seven unimodular sites: adding the seventh term changes correlated mixed products. No inspected result supplies the continuum minimum and rigidity, from which the even-q attainment and raw count follow.",
+        "searches": [
+          "Ding et al. §II-D seven-point hexagon nonexistence and constructions",
+          "Resultary 5147476c65ae six-mode rectangle and bea9cf2ed885 six-point simplex Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-record hit cc64dab275f8 is not independent coverage. The linear projection (i,j)↦i+5j is injective on the difference set and yields identical fourth moments for a sparse one-dimensional support.",
+          "Minimum sidelobe energy is 14 and maximum aperiodic merit factor is 49/14 when all nonzero shifts are counted."
+        ],
+        "reasoning": "The sparse one-dimensional problem genuinely transports every array and every moment, not just the number of sites. The seven-consecutive-frequency Barker classification is not that sparse problem; shifted indexing cannot remove the difference multiplicities.",
+        "searches": [
+          "Resultary minimum 63 and three phase orbits for the centered seven-point hexagon",
+          "Resultary sparse Fourier/autocorrelation support {0,±1,±5,±6}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7f7aa7e01e0e tabulates finite-alphabet extrema on consecutive frequencies 0,…,6. Exact target hits returned the target itself, not a distinct table for its sparse support."
+        ],
+        "reasoning": "The same number of sites and nearby moment data are not an equivalent table: in particular the seven consecutive modes have six positive shifts and the target has nine shift-pair representatives. Finite phase enumeration on another support cannot decide the continuous target minimum.",
+        "searches": [
+          "Resultary exact 63 and 175, three minimum orbits and even-q attainment",
+          "Resultary seven-phase Barker seven fourth moments (7f7aa7e01e0e)"
+        ]
+      },
+      "rationale": "Pass for the sharp single-array continuous minimum and full minimizing phase classification on the specified motif. The support and autocorrelation model are known; triangle-inequality maximum and the no-aliasing/parity deductions are not themselves claimed as independent original contributions.",
+      "residual_risks": [
+        "Literature coverage is bounded; broad web searches yielded no usable evidence in this check. An equivalent earlier single-array result for the sparse one-dimensional support or merit factor 7/2 remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same support, different optimization",
+          "evidence": "Exclusion of unimodular complementary pairs and constructions with three and four arrays; the inspected results constrain a sum of correlations, not the optimal self-energy of one array.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.02160",
+          "material_read": "§II-D, PDF pp. 6–7, OA text near offset 28198",
+          "method": "Primary OA PDF",
+          "title": "Complementary Lattice Arrays for Coded Aperture Imaging",
+          "trigger": "Exact same seven-point support and autocorrelation framework"
+        },
+        {
+          "assessment": "Different support and alphabet regime",
+          "evidence": "Consecutive frequencies 0,…,6, not the sparse projection of the hexagon.",
+          "identifier_or_url": "Resultary 7f7aa7e01e0e",
+          "material_read": "Finding and q-table for q=2,…,7",
+          "method": "Local Resultary mirror",
+          "title": "The seven-phase threshold for improved Barker-seven Fourier fourth moments",
+          "trigger": "Exact seven-site finite phase tables"
+        },
+        {
+          "assessment": "Different support",
+          "evidence": "3×2 six-mode rectangle, range [50,114].",
+          "identifier_or_url": "Resultary 5147476c65ae",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact fourth-moment range and all phase orbits of a six-mode Fourier aperture",
+          "trigger": "Same invariant and even-alphabet threshold"
+        },
+        {
+          "assessment": "Different support",
+          "evidence": "Six-point simplex, [48,102], cube-root minimizers.",
+          "identifier_or_url": "Resultary bea9cf2ed885",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fourth-moment phase rigidity for the six-point triangular Fourier aperture",
+          "trigger": "Natural triangular-lattice aperture with the same invariant"
+        },
+        {
+          "assessment": "Different moment; later dated",
+          "evidence": "Concerns sixth moments for five phases rather than the continuum fourth moment.",
+          "identifier_or_url": "Resultary faa52fdf3aef",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact sixth Fourier moments for five-phase alphabets on the seven-site hexagon",
+          "trigger": "Same support and phase restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions",
+        "Ding–Noshad–Tarokh §II-D"
+      ],
+      "rationale": "The fixed support is the elementary centered hexagonal aperture already singled out in lattice-array design. Its optimal possible autocorrelation energy for one unimodular array, all phases attaining it and the even-alphabet obstruction answer a natural different question from complementary-family cancellation. They give a precise benchmark when only one array or a finite phase alphabet is available, without implying optical performance guarantees.",
+      "residual_risks": [
+        "The result does not optimize distinguishability or reconstruction in a physical imaging system."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

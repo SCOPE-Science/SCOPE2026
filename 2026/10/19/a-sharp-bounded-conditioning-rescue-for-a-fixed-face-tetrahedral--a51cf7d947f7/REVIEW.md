@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a fixed-face, one-parameter, positive-weight theorem. The face boundary relation gives an exact three-coordinate SPD reduction; no asymptotic norm equivalence is assumed. Direct rank-one diagonalization proves the inherited condition number. The reweighted characteristic polynomial has three distinct positive limiting roots. A scale-invariant correlation lower bound on a principal two-dimensional block, followed by eigenvalue interlacing, applies to **every** positive diagonal weight choice. Hence the constructive upper bound and the universal lower bound match to first order, including the sharp improvement coefficient. The accompanying checker passes 74 rational or numerical assertions, independently constructing the oriented six-edge incidence matrix; the infinite and optimizing statements are proved analytically.
+PASS
 
-## Originality — PASS, with limits
+For the fixed oriented tetrahedral faces, write B for the first three columns. The remaining column is -B1; B has full column rank, so (B D^{1/2})^+ B=D^{-1/2}. Thus the preconditioned operator is exactly D^{-1/2} M D^{-1/2} for M=diag(a,1,1/a)+11^T. The inherited choice gives I+vv^T with squared length 1/a+1+a, hence condition number 2+a+1/a. With D=diag(M), an independent symbolic determinant of lambda I-D^{-1}M gives (lambda-1)(lambda^2-2lambda+1/2)-a lambda/(1+a)^2. The three simple positive roots at a=0 justify the O(a) condition-number estimate about 3+2 sqrt(2). For any D, the leading principal block has invariant correlation c=[2(1+a)]^{-1/2}; its normalized determinant det/(trace)^2 is at most (1-c^2)/4, so by interlacing the full condition number is at least (1+c)/(1-c). This bound is uniform over all positive D and squeezes the infimum to the claimed order. The reciprocal sharp ratio follows directly. Replay: use RESULT.md lines 41–87, or construct M and symbolically compute det(lambda I-diag(M)^{-1}M). The packaged check.py was read, not executed; its rational and finite eigenvalue checks do not certify the optimization. There is no claim of a finite-a optimum, variable face selection, or stability in finite precision.
 
-The closest motivating paper is Savostianov--Tudisco--Guglielmi (arXiv:2401.15492v1), specifically the fixed-subcomplex weight approximation discussion in Section 6.1 and their conditioning formula in Theorem 18. It studies the same Hodge object, but the norm-difference weight objective is not the spectral-condition-number minimization studied here; its spectral statement does not supply the new sharp asymptotic diagonal-reweighting constant. Qu--Gao--Hinder--Ye--Zhou (arXiv:2209.00809v2) give general diagonal scaling optimization and SDP methods; they do not state the tetrahedral weight family, its simple additive rule, or the sharp explicit limiting optimum in the inspected sections. Searches for equivalent face-removal, Hodge preconditioning, tetrahedral diagonal scaling, and rank-one-plus-diagonal formulas found no dominating specialized statement. Earlier generic diagonal-preconditioning theory remains a residual priority risk. Separate mathematical-record comparisons and accessible previous claims revealed no equivalent implication.
+## originality
 
-## Value — PASS, with limits
+PASS
 
-This is a motivated spectral-conditioning problem raised by the fixed-subcomplex setup of the motivating paper: face subsets may be externally fixed, and face weights may be strongly graded. The theorem demonstrates an unbounded conditioning penalty for blindly carrying the sampled weights, while a computable local correction is provably asymptotically optimal against **all** positive reweightings of those same retained faces. The constant is a genuine optimal-conditioning invariant, rather than a selected error statistic, and the proof explains its two-face correlation obstruction. The limitation is significant: another omitted face, chosen by a heavy-face algorithm, can avoid the adverse regime; no guarantee is claimed for that algorithm or for larger meshes.
+The inherited spectral method, Jacobi scaling, and two-by-two principal-block inequality are established tools. The distinct result supported on the inspected evidence is their sharp fixed-face application to this graded tetrahedral Hodge family, including the universal asymptotic infimum with its O(a) control and the unbounded penalty of inheritance.
 
-## Closest literature and residual risks
+## value
 
-The general diagonal-preconditioning problem has prior algorithmic solutions, and the special-case asymptotic might exist in specialized unpublished computations. The tetrahedral family is intentionally small; broader discretization effects and runtime benefits remain open. A separate independent priority check is needed before claims about publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed retained subcomplex is a natural constraint in Hodge preconditioning. This sharp example distinguishes improving conditioning from approximating the operator in norm, and quantifies when inherited weights lose by order 1/a despite a simple bounded correction. The universal lower bound makes it an exact benchmark for positive reweighting, not merely a choice of an improved heuristic; no claim about larger meshes, running time or better face selection is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

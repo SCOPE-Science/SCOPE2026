@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:11.327798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–37, VERIFICATION.md and verify.py",
+        "/workspace/audit-evidence/replay.py, rec4; run with argument 4"
+      ],
+      "rationale": "Rook distance is two between cells in distinct rows and columns, so the forbidden triple is an induced two-edge path, equivalently a selected incidence edge whose endpoints both have selected degree >=2. Requiring a degree-one endpoint on every selected edge forces each nontrivial incidence component to be a star. A spanning star forest is maximal because any newly added edge would join two already used vertices. With an unused row, all columns must be used, and any column center or singleton-edge endpoint would permit a legal addition. Hence every column is a leaf at a row center of degree >=2, and conversely any addition to this configuration destroys the star-forest property. The transposed case is disjoint. The exponential generating terms are exactly those for labeled isolated selected edges and the two orientations of stars with >=2 edges. The nonspanning terms choose the used centers and assign all opposite-side labels with each fiber of size >=2, matching the T counts with no symmetry multiplier missing. For m<=n the spanning forests have c in [2,m] components and m+n-c edges. Every such c is realized by c-2 isolated selected edges and a pair of oppositely centered stars on the remaining at-least-2 by at-least-2 board. The nonspanning classes have sizes m or n; a full column supplies m. The proof covers m=n and m=2, including coincident exponents in the sum. Independent replay checked forbidden triples, one-cell maximality, and an alternative labeled-component recursion on seven boards; e.g. M_2,5=5z^2+32z^5, M_3,5=5z^3+213z^5+15z^6, M_4,4=104z^4+144z^5+16z^6.",
+      "residual_risks": [
+        "The finite checks support but do not prove the all-board identity.",
+        "No claim for higher Cartesian powers or for enumeration modulo relabeling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier lower general-position theorem gives min(m,n); it cites m+n-2 for the maximum",
+          "The higher Cartesian-product lower-number theorem covers the minimum",
+          "Cao treats generic algorithms for listing maximal induced subgraphs including cluster graphs"
+        ],
+        "reasoning": "Those theorems do not report the size multiplicities and would not by themselves imply that exactly the gap and no other sizes are missing. They establish partial overlap only; the explicit equivalent records are stronger evidence.",
+        "searches": [
+          "arXiv:2306.09965 Theorem 5.3",
+          "arXiv:2404.19451 Theorem 2.6",
+          "Cao arXiv:2004.09885 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6c3197c28686, 5ac1a3fe8a52, 45629ca1d9f3",
+        "arXiv:2306.09965, 2404.19451, 2004.09885, 2111.07425 and 2205.03526",
+        "DOI 10.1007/s00025-024-02133-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5ac1a3fe8a52 uses x(e^(zy)-1)+y(e^(zx)-1)-xyz in the spanning EGF and associated-Stirling terms for nonspanning classes",
+          "The game results classify winners for rook graphs, not the enumerators"
+        ],
+        "reasoning": "The exponent is exactly xyz+x(e^(zy)-1-zy)+y(e^(zx)-1-zx). If S_{>=2}(N,k) counts partitions with all blocks of size >=2, T(N,k)=k!S_{>=2}(N,k), so binom(m,k)T(N,k)=(m)_k S_{>=2}(N,k). This identifies every coefficient, and subtracting the stated support from its endpoint interval immediately gives the frozen gap count.",
+        "searches": [
+          "Resultary 5ac1a3fe8a52 Findings and three-family proof; 6c3197c28686; 45629ca1d9f3",
+          "Achievement and avoidance game Theorems 3.6 and 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "45629ca1d9f3 states a labeled maximal induced-cluster polynomial and the same support",
+          "A two-edge induced path in a rook graph is exactly a forbidden geodesic triple because its nonadjacent ends are at distance two"
+        ],
+        "reasoning": "An induced cluster graph is exactly an induced P3-free graph. Its cell sets here coincide with general-position sets, and the equivalence preserves one-cell extensions, size and labels. They are not maximal cliques in general. In the incidence graph the same property is being a star forest.",
+        "searches": [
+          "Resultary: maximal general position rook polynomial and size spectrum; maximal induced cluster/P3-free rook sets; saturated star forests",
+          "Resultary 45629ca1d9f3, 6c3197c28686 and 5ac1a3fe8a52"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Resultary Findings explicitly give the maximal GP polynomial and support {m} union {n,...,m+n-2}",
+          "The primary general-position polynomial counts all GP subsets; its grid theorem concerns Cartesian products of paths"
+        ],
+        "reasoning": "The indexed closed expressions cover all multiplicities, not just sample tables or endpoints; the primary all-subset polynomial is a different statistic.",
+        "searches": [
+          "Resultary 6c3197c28686 and 5ac1a3fe8a52 exact maximal-set polynomials and size support",
+          "Iršič et al., General Position Polynomials, Definition 1.1 and Theorem 3.5"
+        ]
+      },
+      "rationale": "Two distinct earlier-dated Resultary records each give the same complete labeled maximal-set polynomial and exact support; a third exact indexed match uses the name maximal induced cluster sets. The correction terms differ in notation only. Prior primary endpoint and game results alone would not give the full census. The catalog dates establish displayed order, not discovery priority or dependence.",
+      "residual_risks": [
+        "Differently indexed primary star-forest formulas may exist; no claim of exhaustive historical priority. This does not undermine the explicit indexed matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Same three-family maximal polynomial and size support on all rectangular boards.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-general-position-and-maximal-set-polynomials-of-rectangular-rook--6c3197c28686/RESULT.md",
+          "material_read": "Finding near offset 0; three-family proof and support near offset 3710",
+          "method": "Local Resultary mirror",
+          "title": "General-position and maximal-set polynomials of rectangular rook graphs",
+          "trigger": "Exact same graph and maximal-set invariant"
+        },
+        {
+          "assessment": "Exact coverage by algebraic equivalence",
+          "evidence": "Identical spanning EGF and two falling-factorial/associated-Stirling correction terms, and explicit same support.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-general-position-polynomials-and-maximal-set-spectra-of-rectangu--5ac1a3fe8a52/RESULT.md",
+          "material_read": "Finding near offset 0; classification and proof near offset 3774",
+          "method": "Local Resultary mirror",
+          "title": "General-position polynomials and maximal-set spectra of rectangular rook graphs",
+          "trigger": "Exact formula versus associated-Stirling notation"
+        },
+        {
+          "assessment": "Same-day exact coverage under object equivalence",
+          "evidence": "Matching spanning component EGF, associated-Stirling correction and support.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-maximal-induced-cluster-subgraphs-of-rook-graphs-an-exact-enumer--45629ca1d9f3/RESULT.md",
+          "material_read": "Finding near offset 0 and labeled formula/classification near offset 3682",
+          "method": "Local Resultary mirror",
+          "title": "Maximal induced cluster subgraphs of rook graphs: an exact enumerator",
+          "trigger": "Potentially equivalent P3-free formulation"
+        },
+        {
+          "assessment": "Endpoint results only",
+          "evidence": "Lower value min(r,s) and known upper value r+s-2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09965",
+          "material_read": "p. 13 Theorem 5.3 near offset 37877 and ensuing maximum citation",
+          "method": "OA primary PDF passages",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Same family, lower general-position invariant"
+        },
+        {
+          "assessment": "Generalizes the minimum, not the census",
+          "evidence": "Lower general-position number for products of complete graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.19451",
+          "material_read": "p. 6 Theorem 2.6, extracted offset 16935",
+          "method": "OA primary PDF passage",
+          "title": "Lower General Position in Cartesian Products",
+          "trigger": "Broader Cartesian-product result"
+        },
+        {
+          "assessment": "Different statistic/family",
+          "evidence": "Counts all GP sets; cited grid theorem is for products of paths.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+          "material_read": "Definition 1.1, p. 1, and Theorem 3.5, p. 7",
+          "method": "OA published primary passages",
+          "title": "General Position Polynomials",
+          "trigger": "Potential same enumerating polynomial"
+        },
+        {
+          "assessment": "Generic algorithms, not an exact rook count",
+          "evidence": "Maximal induced subgraph enumeration including the cluster property.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.09885",
+          "material_read": "Theorem 1.1, p. 2, extracted offset 7651",
+          "method": "OA primary PDF passage",
+          "title": "Enumerating Maximal Induced Subgraphs",
+          "trigger": "Broader maximal cluster enumeration"
+        },
+        {
+          "assessment": "Not the counting problem",
+          "evidence": "Winner classification rather than counting all maximal configurations by size.",
+          "identifier_or_url": "arXiv:2111.07425; arXiv:2205.03526",
+          "material_read": "Achievement Theorem 3.6 p. 8; avoidance Theorem 4.4 p. 16",
+          "method": "OA primary PDF passages",
+          "title": "General position achievement and avoidance game papers",
+          "trigger": "Same rook boards and terminal play"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–4",
+        "Resultary 6c3197c28686, 5ac1a3fe8a52 and 45629ca1d9f3"
+      ],
+      "rationale": "A maximal-set spectrum and labeled multiplicity polynomial are natural refinements of the earlier minimum and maximum parameters. But this frozen finding adds no independently useful new invariant or structural classification to the complete indexed enumeration. Its potentially long gap is precisely the complement of the already stated support, not a separate surviving claim.",
+      "residual_risks": [
+        "No judgment is made about related terminal-set enumerators on other graph classes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

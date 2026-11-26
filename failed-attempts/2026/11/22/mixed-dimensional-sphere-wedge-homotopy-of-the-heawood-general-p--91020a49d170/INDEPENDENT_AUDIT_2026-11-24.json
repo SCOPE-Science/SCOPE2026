@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:49:09.600541Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–58, VERIFICATION.md and verify_heawood_gp.py",
+        "Independent replay: python3 /workspace/branches/four_cut_and_heawood_reproduction.py 4"
+      ],
+      "rationale": "In the Fano incidence graph same-part distances are 2 and cross-part distances are 1 (incident) or 3 (nonincident). A mixed triple is forbidden exactly when one of its cross pairs is incident: its distance multiset is then (1,1,2) or (1,2,3), while both cross distances equal to 3 give no equality. Same-part triples are allowed. I reconstructed all faces with this direct criterion, then independently reproduced the specified matching and oriented incidence check. There were 210 forbidden triples, 478 nonempty faces, 225 pairs, and complete acyclic elimination of 478 nodes and 1610 arcs. The critical faces were exactly the listed vertex, 21 edges, and six tetrahedra. With no two-cells in the resulting CW model the 3-cells attach to a graph, hence all attaching maps from S² are null. This proves the integral wedge and associated homology; no modular inference is needed.",
+      "residual_risks": [
+        "No equivariant splitting or higher-projective-plane formula is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two works concern maximum sizes and counting polynomials; the multipartite topology theorem concerns complete multipartite graphs, a class not containing the Heawood graph."
+        ],
+        "reasoning": "These broad results do not imply this topology, but exact same-graph coverage is supplied through independence, regardless of these broader results.",
+        "searches": [
+          "arXiv:1710.00244 §1",
+          "arXiv:2401.05696 §1 and Petersen example",
+          "Resultary b98b6f454baf Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dbd95019d1e2, 22d8d1736d3b, 0c820ea0de16, 74d08503ff46, b98b6f454baf",
+        "arXiv:1710.00244, 2401.05696 and 2307.11859"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior graph has the same Fano difference-set labeling and exactly the six claimed 3-sphere summands before edge additions. Its own proof lists the same six unmatched tetrahedra."
+        ],
+        "reasoning": "The only new simplices are 21 edges with both ends in a connected complex, so each adds a circle; both ranks and the full homotopy type follow without new nontrivial computation.",
+        "searches": [
+          "Resultary dbd95019d1e2 Finding, Assumptions and Proof",
+          "Frozen RESULT.md lines 22–54 and the Fano distance calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The independence complex uses the identical 14 vertices and incidence rule; its positive-dimensional face counts differ only in edges (70 rather than 91). The cap complex has only seven Fano point vertices."
+        ],
+        "reasoning": "The distance calculation gives a rigorous reduction to the independence-complex theorem plus 21 maximal edges. The seven-point cap statement or the two-independence complex alone is not an equivalent formulation.",
+        "searches": [
+          "Resultary Heawood independence, two-independence, and Fano cap: dbd95019d1e2, 22d8d1736d3b, 0c820ea0de16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dbd95019d1e2 gives the connected wedge of six S³ for Ind(H) and lists the same six critical tetrahedra in point–line labels. The same-day Q_4 general-position result is a different graph; two-independence uses a different face predicate."
+        ],
+        "reasoning": "A GP table entry with both ranks was not needed: the exact independence-complex homotopy type determines the claimed Heawood wedge by the maximal-edge reduction.",
+        "searches": [
+          "Resultary exact Heawood homotopy and same-predicate comparison: dbd95019d1e2, 22d8d1736d3b, 74d08503ff46"
+        ]
+      },
+      "rationale": "The complete claimed wedge is a routine corollary of the exact, earlier Heawood independence-complex wedge in Resultary dbd95019d1e2, not merely a coincidence of rank six. With the distances verified above, any set of size at least three containing an incident point–line pair contains a forbidden triple: take any third vertex. Conversely, all independent sets have no forbidden triple. Every pair is in GP. Thus GP(H) equals Ind(H) with exactly the 21 graph edges added as maximal one-simplices. The known Ind(H) wedge of six S³ is connected, and attaching any such interval between its existing vertices adds precisely one S¹ up to homotopy. This gives the full displayed wedge, including torsion-freeness, from the existing exact result.",
+      "residual_risks": [
+        "A primary search yielded unrelated results and was not used as negative evidence. A prior direct GP statement may also exist; it is not needed for the concrete implication already proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines the full claim by a maximal-edge attachment",
+          "evidence": "Identical incidence rule, Ind(H) homotopy equivalent to the six-sphere wedge in dimension 3, and identical critical tetrahedra.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof, Verification, local-mirror offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The Heawood independence complex is a wedge of six 3-spheres",
+          "trigger": "Same graph and exact higher sphere wedge"
+        },
+        {
+          "assessment": "Different vertex set and face predicate",
+          "evidence": "The complex on seven points forbids complete lines and has reduced H₂ of rank six.",
+          "identifier_or_url": "Resultary 0c820ea0de16",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Six triangle generators of integral homology in the Fano cap complex",
+          "trigger": "Fano plane and homology rank six"
+        },
+        {
+          "assessment": "Foundational definition, different conclusion",
+          "evidence": "The gp-number is defined by maximization over geodesic-avoiding sets, not by the homotopy type of their complex.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.00244",
+          "material_read": "Section 1, PDF p. 1, offset 2843",
+          "method": "OA PDF passage",
+          "title": "Graph theory general position problem on some interconnection networks",
+          "trigger": "Foundational graph-geodesic general position"
+        },
+        {
+          "assessment": "Enumeration, not this wedge",
+          "evidence": "Counts faces by size and discusses maximum and maximal sets for the Petersen graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "Section 1 and Petersen example, PDF pp. 1–2, 4, offsets 1000, 2500 and 11515",
+          "method": "OA PDF passages",
+          "title": "General Position Polynomials",
+          "trigger": "Enumeration of full geodesic face families"
+        },
+        {
+          "assessment": "Different topological construction in the inspected passage",
+          "evidence": "Concerns toroidal graphs and dual triangulated tori indexed by integer sequences.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.11859",
+          "material_read": "Abstract, PDF p. 1, offset 498",
+          "method": "OA PDF passage",
+          "title": "Generalized Heawood Graphs and Triangulations of Tori",
+          "trigger": "Generalized Heawood topology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and finite matching",
+        "Resultary dbd95019d1e2 Finding and Proof",
+        "Exact maximal-edge reduction in the originality rationale"
+      ],
+      "rationale": "The graph is a natural benchmark, but the precise frozen invariant is mechanically recoverable from the known same-graph independence wedge: a diameter-three incidence check isolates the 21 graph edges, and each adds a circle by the standard interval attachment. The new certificate reproduces the same critical tetrahedra and adds those edges; it does not establish a distinct substantive invariant, a uniform family classification, or a meaningful independent remainder to repair.",
+      "residual_risks": [
+        "This decision concerns the fixed-graph claim, not the possible value of a future nontrivial incidence-family result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

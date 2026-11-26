@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:49:40.060990Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5, VERIFICATION.md, VERIFY.py and requirements.txt (static inspection)",
+        "Goldman arXiv:0901.1404v1, introduction and §5.1",
+        "Chen arXiv:2611.08513v1, Theorem 3.2 and Proposition 4.1"
+      ],
+      "rationale": "At c=0, C²=-I and A²B²=-I. If a≠0, commuting with B²=-A^(-2) gives [B,A²]=0 and then [B,A]=0 by Cayley–Hamilton; if a=0 then B²=I and det B=1 force B=±I. Thus Z=AB has Z²=-I, and writing A in the centralizer span{I,Z} gives A=(aI+bZ)/2 and B=(bI+aZ)/2 with a²+b²=4; these formulas conversely realize every pair on that conic. Fixing Z=diag(i,-i), the centralizer torus has invariant ring C[t,vw]/(vw+1+t²)=C[t] on the traceless C slice, with s=2it. The reduction to the torus slice is regular by the homogeneous-space description of the conjugacy class of Z; the asserted global ring also directly verifies the reduced boundary scheme. For c≠0, the companion matrices have tr(AB)=(a-t)(b-t)+2 and determinant one. With D=(A²B²)^(-1) the trace constraint gives tr D+2=c²; det(I+D)=tr D+2 and (I+D)²=(tr D+2)D, so C=(I+D)/c works even at a=0 or b=0. Independently, tr(ABC²)=tr(AB) by cyclic permutation and inversion, hence cs=2p without any division; cyclically permuting A,B,C proves the other two identities globally. Goldman's seven trace generators descend surjectively by exactness of reductive invariants over C. The linear polynomial F in s is primitive because none of a,b,c divides its constant coefficient in s. Realizing D(c) in the irreducible hypersurface forces zero kernel, and the partial in s forces abc=0 at any putative singular point; the other two corresponding trace partials then force a=b=c=0, impossible. VERIFY.py and requirements.txt were read without executing the script. The verification is limited to the reduced complex affine GIT quotient, not a scheme or stack with additional structure.",
+      "residual_risks": [
+        "No assertion is audited for the unreduced relation scheme, real forms, or characteristic two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldman's rank-three character ring is an affine hypersurface in the seven traces a,b,c,p,q,r,s. Exactness of invariants for SL2 over C makes the reduced surface character quotient a closed subvariety of that same affine trace space.",
+          "Chen Corollary 5.2 also identifies the c≠0 chart as dense, invoking the prior irreducibility result. This permits closure in a fixed affine embedding, not a choice of abstract gluing."
+        ],
+        "reasoning": "Goldman alone does not impose the surface relation, but combining the standard closed embedding with Chen's explicit chart and polynomial identities does settle the whole reduced quotient. A search of related Hodge and birational literature is not needed as negative evidence for this conclusion.",
+        "searches": [
+          "Goldman arXiv:0901.1404v1, §5.1",
+          "E polynomial character varieties nonorientable surface genus three SL(2) character variety explicit cohomology Timothy Baird nonorientable surfaces SU2 complexification",
+          "Benyash Krivets Chernousov representation varieties compact non orientable surfaces Theorem SL2 genus 3 sm242 pdf full text"
+        ]
+      },
+      "checked_sources": [
+        "Chen arXiv:2611.08513v1",
+        "Goldman arXiv:0901.1404v1",
+        "Resultary boundary record 3ccaf0310411 (indexed claim)",
+        "Frozen RESULT.md and AUDIT.json (also state that the boundary was separately known)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen computes tr(ABC²)=p by substituting C²=B^(-2)A^(-2), then equates it with cs-p. There is no division in that computation. Rotating gives q=as/2, r=bs/2, including on c=0.",
+          "The three linear graph equations eliminate p,q,r from the closed seven-trace embedding. By Theorem 3.2 the remaining equation is F; by Theorem 5.1(iii), its whole D(c) is attained. Since F is primitive linear in s and c is not a factor, D(c) is dense in V(F); the only closed reduced image between D(c) and V(F) is V(F). Independently of the generic chart's existence argument in Chen, his c² constraint and the classical rank-two pair-trace realization yield it via C=(I+D)/c and Cayley–Hamilton.",
+          "Setting c=0 now gives a²+b²=4, s free, and the elementary Jacobian computation gives smoothness. These steps use only the known polynomial data of the same object plus standard reduced closure and the Jacobian criterion."
+        ],
+        "reasoning": "This is stronger than the unhelpful observation that an abstract open variety and an abstract closed stratum need not determine gluing. Here all regular coordinates in the established affine embedding are accounted for, already by identities from the prior paper, so the closure is forced and the claimed new part is mechanically implied.",
+        "searches": [
+          "Chen arXiv:2611.08513v1, Theorems 3.2 and 5.1, Proposition 4.1, Corollary 5.2 and §5.2",
+          "Goldman arXiv:0901.1404v1, rank-three trace generators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen's hypersurface on c≠0 is c²=abp-a²-b²+4. With p=cs/2 this is F=0 on precisely the same open set. The conversion there is invertible with s=2p/c.",
+          "Cyclic permutation preserves A²B²C²=I and preserves tr(ABC), so the computation of cs=2 tr(AB) gives the other two pair identities verbatim."
+        ],
+        "reasoning": "The resemblance is not just a similar Markoff equation: it is an explicit identification in the same invariant functions. The published equality is polynomial before localization.",
+        "searches": [
+          "SL2 character variety nonorientable genus three crosscap x^2 y^2 z^2 trace hypersurface smooth Horowitz",
+          "SL2 character variety closed nonorientable Euler characteristic -1 ABC crosscap trace Markoff hypersurface commutator square trace cyclic traces exact",
+          "Chen arXiv:2611.08513v1, Theorem 3.2 and Proposition 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact global match is the frozen record itself. The indexed companion result 'The trace-zero boundary of a three-crosscap SL2-character variety is an algebraic cylinder' (3ccaf0310411) states the complete seven-trace defining ideal on c=0 and the loss of one parameter in the p projection."
+        ],
+        "reasoning": "The boundary result is not itself a global equation. It corroborates that the boundary part is not new, but the decisive prior implication uses Chen and the classical embedding and does not depend on a same-date priority ordering or on a negative database search.",
+        "searches": [
+          "Resultary: SL2 character variety nonorientable genus three crosscap x^2 y^2 z^2 trace hypersurface smooth Horowitz",
+          "Resultary: SL2 character variety closed nonorientable Euler characteristic -1 ABC crosscap trace Markoff hypersurface commutator square trace cyclic traces exact"
+        ]
+      },
+      "rationale": "The proposed global result is a direct corollary of the already proved identities and generic chart for the exact same object, not a new gluing theorem. Crucially, the equality cs=2p in Chen §4 is proved by trace manipulation without division. Applying that calculation to the cyclically reordered triples gives as=2q and bs=2r everywhere. Even if one uses only Chen's stated generic chart rather than the undivided calculation, its dense image and reducedness extend all three polynomial equalities to the full quotient. These identities eliminate the pair traces in the classical seven-coordinate affine embedding, so the closure of the known dense chart determines the claimed global presentation. No earlier print occurrence of the exact four-trace equation is needed for this implication. The matrix boundary argument is an alternative verification of a boundary already separately covered, not a surviving novel part of the frozen claim.",
+      "residual_risks": [
+        "Historical first print occurrence of the final equation has not been established and is not the basis for the FAIL. The implication is for reduced varieties, as claimed; it does not settle scheme-theoretic extensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication even though the paper does not state the global presentation and explicitly leaves its p-coordinate boundary analysis open",
+          "evidence": [
+            "Theorem 3.2 gives c²=abp-a²-b²+4; Proposition 4.1 proves cs-p=p before dividing by c; Theorem 5.1(iii) identifies the entire c≠0 chart."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08513v1",
+          "material_read": "Theorems 3.2 and 5.1, Proposition 4.1 and its complete proof of cs=2p, Corollary 5.2, §5.2 boundary discussion",
+          "method": "Read public arXiv HTML and trace every algebraic operation in the decisive calculation; check cyclic permutations and closure in the seven-coordinate embedding",
+          "title": "An Explicit Equation for The SL2(C) Character Variety of RP²#RP²#RP²",
+          "trigger": "Exact same surface, group presentation and trace coordinates"
+        },
+        {
+          "assessment": "Gives the ambient trace embedding and pair realization needed for the direct deduction from Chen",
+          "evidence": [
+            "Theorem A realizes arbitrary (a,b,p) for a pair; the introduction displays the seven-generator ring R3, with the reverse triple trace eliminated by the sum relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0901.1404v1",
+          "material_read": "Introduction pp. 3–5, explicit rank-two realization and rank-three generator/Fricke statements (the rank-three ring treated in §5.1)",
+          "method": "Read the public arXiv PDF text and compare trace variables",
+          "title": "Trace coordinates on Fricke spaces of some simple hyperbolic surfaces",
+          "trigger": "The fixed affine embedding required for reduced closure"
+        },
+        {
+          "assessment": "No negative priority inference; no need to rely on this inaccessible comparison because the undivided cyclic trace proof already gives the global elimination",
+          "evidence": [
+            "Chen cites the theorem on irreducibility specifically when proving density of D(c)."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/sm242",
+          "material_read": "Citation and use in Chen's introduction and Corollary 5.2; independent full text not obtained from the attempted MathNet copies",
+          "method": "Checked the cited role in the accessible primary Chen text; attempted the listed full-text links",
+          "title": "Representation varieties of the fundamental groups of non-orientable surfaces",
+          "trigger": "Earlier general structure for nonorientable representation varieties"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen Theorems 3.2 and 5.1 and Proposition 4.1",
+        "Goldman rank-three trace ring",
+        "Frozen RESULT.md Finding and Relationship to prior work"
+      ],
+      "rationale": "The four-coordinate formula is convenient and the proof is a readable synthesis. As a standalone new mathematical result, however, the alleged gluing gap disappears after applying Chen's undivided trace computation cyclically in the existing closed trace embedding. The only remaining steps are reduced closure, a one-line Jacobian check and the already separately classified cylinder; there is no further substantive claim in the frozen record beyond this routine deduction. This does not detract from the usefulness of the formula as an exposition of consequences of the prior work.",
+      "residual_risks": [
+        "No new unreduced, arithmetic, or global geometric invariant is asserted that could be independently assessed as a surviving claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

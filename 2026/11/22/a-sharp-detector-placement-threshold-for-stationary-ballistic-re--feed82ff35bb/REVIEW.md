@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a stationary equilibrium renewal process, a flight at speed \(v\) is sampled with weight proportional to \(1/v\), independently of a uniform position on \((0,L)\). Starting above the detector, a threshold hit cannot occur before \(a/v_+\); this gives the exact positive-part formula for \(H_a(t)\). After changing to \(z=(L-a)/t\), the observable is precisely a stop-loss potential with distributional second derivative \(\psi\). The equivalence-class statement and the if-and-only-if cutoff follow by separating its observed upper distributional derivative from the unobserved lower mass and first moment. The counterexample is a smooth moment-preserving perturbation supported strictly below the visibility boundary. Atomic and boundary cases are addressed explicitly. The standalone exact-rational checker passes 293 tests. Those tests corroborate, but do not replace, the proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest motivating source is Das, Majumdar and Pal, arXiv:2611.16733v1, inspected in its renewal, stationary, transient, shock and concluding material. Its uniform stationary marginal is acknowledged, but its studied observables are one-time densities and transients, not the stationary spatial binary two-time inverse operator or a sharp detector-location threshold. Zamparo (J. Stat. Phys. 187, 5 (2022)), inspected in its model and autocovariance/inverse sections, treats renewal-*epoch* binary sequences in discrete time, not this spatially coarse-grained ballistic detector. Standard renewal-residual-life and stop-loss inversion ideas are recognized and not claimed as novel. Targeted published-finding corpus and published literature comparisons did not find a directly covering theorem. Residual risk: a classical general alternating-renewal observation theorem could imply the present result as an unstated specialization, and exhaustive priority research has not been independently performed.
+PASS
 
-## Value — PASS
-The source model has universal stationary position density regardless of its random velocity law. The theorem answers the natural precise inverse question of whether minimal binary stationary spatial measurements can distinguish underlying kinetics. It gives an exact closed-form full-law reconstruction, a necessary-and-sufficient detector placement criterion depending only on the speed contrast, and an exact equivalence class when the detector lies below the threshold. This sharp positive/negative identifiability boundary supports detector design rather than merely evaluating another moment or repeating a known one-time density. No stability or noisy-data claim is made.
+In equilibrium a flight sampled at a clock time is weighted by its duration L/v. Conditional on its speed the phase is uniform, so X(0) is uniform and independent of the biased speed law ψ(dv)=(φ(dv)/v)/∫φ(du)/u. The two-time binary law is determined by H=P(1,1) and the common one-time marginal (L−a)/L. Given X(0)>a, no reset can occur for t<a/v_+. Integrating X(0)>a+vt yields H(t)=L⁻¹∫(L−a−vt)_+ ψ(dv). Put ℓ=L−a, z=ℓ/t and z₀=ℓv_+/a. Then K(z)=LzH(ℓ/z)/ℓ is the lower stop-loss potential, whose distributional second derivative equals ψ on z>z₀. The unobserved [v_−,z₀] part contributes exactly zM−m there, determined by its mass M and first moment m. Thus the observed restriction and these two moments are necessary and sufficient for pair-law equivalence. At z₀=v_− the only hidden mass is an endpoint atom fixed by normalization; at z₀<v_− none is hidden. When z₀>v_−, choose three nonzero smooth bumps with disjoint compact supports below min(z₀,v_+) and above v_−. There is a nonzero signed combination with both moments zero, and disjointness ensures it is not the zero function. Add and subtract a small multiple from a strictly positive continuous density to obtain different full-support laws with equal data, including when the entire support is hidden. Unbiasing by v and normalizing is bijective. This proves a≥Lv_+/(v_−+v_+) iff identification holds. As an independent replay, take L=1, admissible speeds [1,4], shared ψ-atoms of mass 1/10 at 1 and 4, and distribute the other 4/5 at 7/6 versus 2/5 each at 13/12 and 5/4. At a=3/4 the differing atoms are all below z₀=4/3 and have matched mass and mean, so all short-lag data agree. At a=4/5 and t=6/35 the second law gives H greater by exactly 1/175. The equilibrium construction applies even to deterministic or lattice flight times; the theorem is not a fresh-start convergence claim. The supplied exact-rational script was inspected but not run.
 
-## Scope and residual risks
-The observation is an ideal entire continuum of *short-lag* two-time probabilities, not finitely many measured lags. The bounded positive speed interval, fixed flight length, independent renewed speeds, stationary initialization and instantaneous return are essential. Full-lag data may contain extra identifying information below the cutoff. General renewal and inverse-risk literature may contain implicit broader formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ballistic equilibrium marginal, renewal length bias, residual-survival identity and stop-loss inversion are known components. The supportable increment is the finite-window equivalence class for this binary spatial observation and the sharp detector cutoff, including critical atoms and smooth full-support ambiguity below it. The closest full-text and catalogue comparisons do not give or cover that inverse criterion; priority remains best-of-knowledge only.
+
+## value
+
+PASS
+
+Every speed law has the same stationary spatial marginal, so even a perfect spatial histogram cannot identify the kinetics. One binary detector at short lags can instead identify the entire law exactly above a quantitative placement boundary; below it the theorem tells precisely what is and is not learned. This gives a useful sensor design criterion, not merely a transform evaluation, with no promise of stable noisy inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

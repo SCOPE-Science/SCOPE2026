@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:45:22.053143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a canonical 2m-digit palindrome the outer bit is fixed and the paired exponents have opposite parity, so 3 divides P. For odd d=2m−1−2j, lifting the exponent gives v₃((2^d+1)/3)=v₃(d); the quotient weight is congruent to (−1)^j d mod 3. On increasing m by 3 the old free weights retain their residues and the three new ones (distances 5,3,1) supply one of each residue. The bases m=1,2,3 therefore give the claimed counts of zero weights and the three possible imbalances of unit weights. Independently of the Fourier calculation, pairing a +1 and a −1 gives the residue multiplicity vector (2,1,1), a uniform count plus one extra at zero. Applying the leftover unit, when present, and translating by the fixed outer weight gives the asserted three count formulas and discrepancy. Directly the smallest three lengths miss a class and all counts are positive from m=4. At level ℓ the odd distances 3^ℓ and 5·3^ℓ are distinct and at most 2m−3 under the stated bound; their two unit contributions cover all three next digits without changing the previous digits. This gives every target at every permitted length, hence density in precisely the closed ideal 3ℤ₃ of Haar measure 1/3. The bound is claimed sharp only at k=2. Reviewed RESULT.md, VERIFICATION.md and verify.py as text. The script's finite cases are corroboration and were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem C gives infinitely many unrestricted-length base-b palindromes in eligible progressions. The palindromic equidistribution results compared at arXiv:2307.16637 use coprimality to b³−b, and the starred set excludes even binary palindromes."
+        ],
+        "reasoning": "Neither theorem gives positive support at every sufficiently large even length for the excluded ternary prime powers, let alone the exact first-level frequencies.",
+        "searches": [
+          "Harminc–Soták, Fibonacci Quarterly 36, Theorem C",
+          "arXiv:2307.16637, Theorems 1.3 and 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bab47a6477c9",
+        "Harminc–Soták, Fibonacci Quarterly 36 (1998), 259–262",
+        "arXiv:2307.16637",
+        "JIS 27 (2024), Article 24.4.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior even-length divisibility leaves the frequencies of the three first-lift classes undetermined. Existence along arbitrary lengths does not yield the universal length threshold. The equidistribution hypotheses cannot be specialized to modulus 3^k in base two."
+        ],
+        "reasoning": "The exact periodic-count calculation and the availability of two freely selectable weights per valuation level are additional arguments, not substitutions into those statements.",
+        "searches": [
+          "Resultary exact residue-count record and Harminc–Soták Theorem C",
+          "arXiv:2307.16637 pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting P/3 mod 3 is exactly counting P mod 9 among 0,3,6, not counting P mod 3. The Resultary q|b+1 count gives only the latter for b=2. Onphaeng et al. assume b=0 or 1 mod q."
+        ],
+        "reasoning": "Changing to congruences for the quotient or to counts in fixed-length intervals does not remove the modulus gap.",
+        "searches": [
+          "Resultary: exact residue counts for palindromes modulo divisors of the base plus one",
+          "Onphaeng et al., JIS 27, 24.4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact table/formula for moduli dividing b+1 has only the zero class at even lengths; q=9 is outside its hypothesis for b=2. The JIS exact-formula hypothesis also excludes q=9."
+        ],
+        "reasoning": "The closest available exact-count sources were checked for the same modulus and length restrictions; their results do not tabulate the claimed splitting. A finite list at a few lengths would not settle the all-depth theorem.",
+        "searches": [
+          "Resultary: fixed-length palindrome residue counts and lifting; 2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9",
+          "JIS 27 Article 24.4.8 exact counting formulas"
+        ]
+      },
+      "rationale": "The inspected prior results cover classical divisibility, general palindrome existence or exact counts under different modulus conditions. None establishes the exact mod-nine histogram for canonical even binary palindromes or the explicit all-sufficient-length lifting statement. This is a bounded, best-of-knowledge judgment, not a priority assertion.",
+      "residual_risks": [
+        "The search does not exclude an unindexed digit-automaton treatment or a prior formula in an unsurveyed source.",
+        "The higher-level bound is sufficient, not a claim of optimality for k≥3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "q|b+1; every even-length palindrome is zero mod q.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9",
+          "material_read": "RESULT.md theorem at offset 0 in local mirror",
+          "method": "Resultary lookup and matching mirror text",
+          "title": "Exact residue counts for palindromes modulo divisors of the base plus one",
+          "trigger": "Closest indexed exact fixed-length counts"
+        },
+        {
+          "assessment": "Broader progression existence with a weaker length quantifier",
+          "evidence": "Infinitely many base-b palindromes when the progression contains a member not divisible by b; no assertion of every prescribed sufficiently large even length or counts.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/36-3/harminc.pdf",
+          "material_read": "Introduction and Theorem C with proof hint, printed pp. 259 and 261, PDF text offsets 393 and 6980",
+          "method": "Lawful journal scan after cited copies were inaccessible; located and read theorem passage",
+          "title": "Palindromic Numbers in Arithmetic Progressions",
+          "trigger": "Potential broader base-b progression theorem"
+        },
+        {
+          "assessment": "Coprimality and length restrictions exclude the current setting",
+          "evidence": "Even-digit palindromes are divisible by b+1; the modular hypotheses and starred set are coprime to b³−b.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.16637",
+          "material_read": "pp. 3–4, offsets 8900–12377, including Theorems 1.3 and 1.5 and the starred-set definition",
+          "method": "Primary OA PDF passages",
+          "title": "Infinitude of Palindromic Almost-Prime Numbers",
+          "trigger": "Possible modular equidistribution covering higher lifts"
+        },
+        {
+          "assessment": "Stated exact formulas do not apply",
+          "evidence": "The stated modulus hypotheses are b≡0 or b≡1 mod q, neither true at b=2 and q=3^k.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.pdf",
+          "material_read": "Abstract and formula scope on PDF p. 1, near text offset 2377",
+          "method": "Primary OA PDF passage",
+          "title": "Exact Formulas for the Number of Palindromes in Certain Arithmetic Progressions",
+          "trigger": "Potential exact count for congruence progressions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first modulus at which the forced ternary divisibility of an even binary palindrome leaves a nontrivial distribution. The formulas quantify a persisting, sign-changing discrepancy rather than merely identifying allowed residues. The all-depth statement gives a usable exact-length construction and a quantitative threshold in a modulus family excluded from the standard coprime distribution results inspected.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

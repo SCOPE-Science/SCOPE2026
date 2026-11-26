@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:38:41.457700Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–35; VERIFICATION.md and check.py (inspected)",
+        "/workspace/branches/7b024987-01dd-4ad0-8873-43de81b14dcd/independent_check.py (bounded independent enumeration)"
+      ],
+      "rationale": "The transfer matrix J−I has eigenvalues 2,−1,−1; inversion over least periods followed by division by n gives T_n. Choosing the initial symbol and the indexed steps determines the walk. An integer sum zero, rather than merely zero modulo 3, gives the factor 3 times the central binomial coefficient, and repetition multiplies this sum, so inversion in the zero sector is legitimate. For a specified reflection i↦−i, passing to any divisor period preserves the reflection; odd divisor periods have a swapped adjacent pair (or the impossible length-one loop). At even period d, the vertex axis fixes 3·2^{d/2} words, by the half-path count. Edge axes fix none. The fixed-point sets of distinct axes are disjoint on primitive indexed words since two axes compose to a nonidentity rotation. Counting over n/2 vertex axes and dividing by n gives A_n, including n=2 where the vertex reflection acts as the identity on positions. Reversal negates the sum, so the achiral census is contained in the zero sector. Exact substitution at n=2,4,6,8 gives (3,3,3),(3,3,3),(9,9,9),(30,24,18). Proper divisors are ≤n/2, making the lower terms exponentially smaller than the leading binomial and 2^{n/2} terms. Stirling gives the claimed constant and decay along even n. Independent n≤12 enumeration confirms the counts without proving the all-length statements.",
+      "residual_risks": [
+        "Scope is the named ternary symbolic shift only. The matrix number in the record differs from the corresponding §6 matrix number in the retrieved HTML; the no-repeat model and caveat themselves match."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bracelet paper counts symmetric necklaces/bracelets for unrestricted colorings",
+          "The rotor article proposes a no-repeat grammar but explicitly cautions against applying the surrogate matrix to actual periodic trajectories",
+          "The distinct same-day Resultary records count swap-frozen proper colorings and negative-avoiding span-three cycles, respectively"
+        ],
+        "reasoning": "Dihedral fixed-point tools apply here but unrestricted coloring counts do not specialize to the adjacency constraint and signed winding; the two same-day censuses impose different restrictions.",
+        "searches": [
+          "DOI 10.1017/S0004972713000701, Counting symmetric bracelets",
+          "arXiv:2606.25766 §6",
+          "Resultary dc57dd577606, 8c9cf33f292b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.25766 v1 and v2 §6",
+        "DOI 10.1017/S0004972713000701",
+        "arXiv:1801.09516v1 §1",
+        "Resultary 5aa20f7fb339 (self), dc57dd577606, 8c9cf33f292b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical fixed-density formula implies Z_n once the period-preserving lift is identified",
+          "The proper-cycle adjacency matrix and classical inversion give T_n",
+          "Unrestricted symmetric-bracelet formulas and the rotor grammar do not supply primitive reflection counts subject to the no-repeat constraint and their comparison with Z_n"
+        ],
+        "reasoning": "The classical ingredients and the balanced formula are not originality credit. For the joint claim one must account for forbidden edge axes, repetition under a fixed vertex axis, and the fact that a primitive indexed word can lie on only one reflection axis, or find their exact equivalents in a reversal-complement census.",
+        "searches": [
+          "arXiv:1801.09516v1 §1",
+          "DOI 10.1017/S0004972713000701",
+          "arXiv:2606.25766 §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At zero winding the sign word and the ternary word have the same least period: a repeating sign block has integer step sum zero and closes already on the block",
+          "Thus each balanced primitive binary necklace has exactly three ternary lifts up to rotation",
+          "Under the step projection a ternary reversal corresponds to reversing and negating the signs; under the vertex axis through 0 the condition is ε_i=−ε_{−i−1}, which also suffices by integration from the fixed initial symbol"
+        ],
+        "reasoning": "The balanced primitive count is equivalent up to a factor of three. The symmetry-refined comparison needs a reversal-complement condition on those binary necklaces (or a proper-coloring reflection count), not ordinary literal reflection on unrestricted binary necklaces.",
+        "searches": [
+          "Resultary: primitive ternary chirality and winding, cyclic proper ternary colorings",
+          "arXiv:1801.09516v1 p. 1 §1, fixed-density Lyndon enumeration",
+          "Zelenyuk & Zelenyuk DOI 10.1017/S0004972713000701"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5aa20f7fb339 is the assigned record itself, not independent coverage",
+          "The fixed-density divisor formula yields Z_n/3 at density one-half",
+          "dc57dd577606 gives a recurrence for a different frozen-state count, despite using the same cyclic proper-coloring domain"
+        ],
+        "reasoning": "There is exact prior enumeration for the balanced count underlying Z_n. No distinct inspected table gives the joint counts and nonzero difference at n=8; the audit's small-case reproduction is not prior evidence.",
+        "searches": [
+          "Resultary: exact primitive ternary zero-winding and achirality census, proper ternary cyclic colorings",
+          "arXiv:1801.09516v1, exact fixed-density Lyndon numbers"
+        ]
+      },
+      "rationale": "Total proper-cycle coloring and period inversion are classical. In particular the zero-winding count is an exact translation of the balanced binary primitive necklace count, not a new standalone enumeration. The supported distinct part is the joint comparison with literal reversal in the proper ternary shift, including the first nonempty chiral zero sector and its asymptotic dominance. Neither the rotor grammar nor the unrestricted symmetric-bracelet comparison supplies that combined proper-coloring result on the statements inspected.",
+      "residual_risks": [
+        "An older restricted-necklace enumeration or a table under reversal-complement on balanced primitive binary necklaces may cover more of the joint comparison; the bounded checks do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivation and scope only",
+          "evidence": "The no-repeat rule is proposed for the chaotic symbolic grammar, and the authors explicitly say the matrix does not apply to physical periodic orbits in that regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.25766",
+          "material_read": "v1 HTML §6, offsets 102600–105000 and following caveat; corresponding v2 offsets 107000–109720",
+          "method": "OA HTML offset reads",
+          "title": "Symbol sequences from three-rotor coincidences and their word-complexity",
+          "trigger": "Source of the grammar and possible physical-orbit implication"
+        },
+        {
+          "assessment": "Classical symmetry precedent for a different counting domain",
+          "evidence": "The stated symmetric necklace/bracelet counts are for unrestricted r-colorings, not these proper ternary colorings or balanced sign words with reversal-complement.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972713000701",
+          "material_read": "pp. 431–432, abstract and introduction, extracted offsets 0 and 3500",
+          "method": "OA PDF passage",
+          "title": "Counting symmetric bracelets",
+          "trigger": "Possible broader primitive symmetry census"
+        },
+        {
+          "assessment": "Exact coverage of the binary count underlying Z_n",
+          "evidence": "The fixed-density Lyndon formula with d=n/2 counts the primitive balanced binary necklace lifts before multiplying by three.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.09516",
+          "material_read": "v1 p. 1 §1, offset 0",
+          "method": "OA PDF passage also inspected for record 5",
+          "title": "A Pascal-like Bound for the Number of Necklaces with Fixed Density",
+          "trigger": "Exact enumeration under the signed-step reduction"
+        },
+        {
+          "assessment": "Different constraint and count",
+          "evidence": "Adjacent-swap frozen states are characterized by avoiding three equal successive increments. The recurrence counts indexed states for that predicate, not primitive winding and achirality sectors.",
+          "identifier_or_url": "Resultary dc57dd577606",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact frozen-state spectrum for cyclic proper ternary colorings",
+          "trigger": "Strongest distinct same-day comparator on the same proper ternary cycles"
+        },
+        {
+          "assessment": "Different constraint and lengths",
+          "evidence": "Treats length-13 triple-window negative avoidance and reversal/negation classes rather than the claimed turn-balance sector and its all-length comparison.",
+          "identifier_or_url": "Resultary 8c9cf33f292b",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact census of maximal ternary span-three negative-avoiding cycles",
+          "trigger": "Same-day ternary cyclic symmetry census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed symbolic walk can have zero net orientation either by retracing under an orbit symmetry or without any reversal symmetry. Distinguishing these two natural properties is useful in the abstract no-repeat surrogate: the theorem identifies the exact first counterexamples and shows the nonsymmetric part is asymptotically typical, rather than offering only an instance. The value is confined to the combinatorial grammar, not claimed as a result about real rotor trajectories.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

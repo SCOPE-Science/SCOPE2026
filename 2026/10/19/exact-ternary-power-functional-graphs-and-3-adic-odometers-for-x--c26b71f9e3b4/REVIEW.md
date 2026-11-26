@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The critical valuation identity \(v_3(F^{3^k}(x)-x)=2v_3(x)+k\) for nonzero \(x\in3\mathbb Z_3\) follows by induction from an integral Taylor expansion and the unit congruence of the derivative. It determines exact cycle lengths at each finite level, hence minimal odometer balls in the inverse limit. Hensel lifting and the complete quadratic-square-root count determine every transient branch. All quantifiers include \(n=1\), arbitrary exponents, degenerate zero square roots, and fixed vertices. Independent enumeration through exponent eight corroborates, but is not used in lieu of, the infinite proof.
+## correctness
 
-## Originality — PASS with stated priority risk
-Fan–Liao (arXiv:1010.5583v2, §§1–2 and Theorem E in §6) provide general odd-prime cycle lifting and the full *2-adic* classification of this polynomial. Their result does not give the explicit *3-adic* minimal balls, exact whole finite cycle census or critical-leaf histogram here. Durand–Paccaut (2009) address global minimality of a polynomial on \(\mathbb Z_3\), which fails here because zero is fixed; it does not directly imply these local components and finite functional graphs. Targeted published-record comparisons did not locate these combined formulas. An unindexed case study might predate the present derivation, and a later general power-series article was inspected only to abstract level; thus the review does not certify universal priority.
+PASS
 
-## Mathematical value — PASS
-The explicit minimal decomposition and all-exponent finite functional graph answer the natural classification problem for a named quadratic parabolic map over the smallest odd prime. The invariant-cycle picture and the critical-square-root transient branching are structurally different: the latter produces nonuniform, unbounded leaf indegrees that cycle lifting cannot read off. The full zeta function and constant maximal-cycle proportion give natural exact invariants, without inventing an arbitrary finite cutoff. The claim is restricted to prime three; no general-prime theorem is asserted.
+Reassessed /workspace/repairs/5/RESULT.md. The frozen counts are correct, but the frozen Finding's last sentence overstates what the preceding summaries determine: for n=3 there are two 3-cycles and three fixed points, and the nonzero leaf counts 6 and 3 both occur on the cycle (6,15,24). Moving the size-6 leaf set to the other 3-cycle (3,12,21), without changing any cycle, yields the same cycle and leaf histograms but a nonisomorphic graph (two decorated 3-cycles instead of one). The repaired Finding gives the pointwise criterion, using the original square-root rule and the unique depth-one antecedent of each cycle vertex. For the mathematical reassessment, residue routing is 1→2→0 and Hensel's lemma bijects classes 0 and 2 separately onto class 0. For valuation t≥1, the base iterate displaces by x², and when G=F^(3^k) displaces by u of valuation s≥2, three iterates displace by u(1+G′+G′²)+O(u²), where the factor in parentheses has valuation 1 and 2s>s+1. Thus periods are 3^max(n−2t,0), the valuation-t balls have full compatible cycles and hence are odometers, and only 0 is periodic at infinite precision. Fixed points, cycle counts and zeta follow by counting each shell and dividing by its orbit length. At each periodic x the antecedent in class 2 is (w−1)/2 for the unique root of 1+4x congruent to 2. The next root problem has discriminant A≡0 mod 3. A=0 has 3^floor(n/2) roots; exact valuation 2r<n with unit part 1 modulo 3 has two simple unit roots each with 3^r free lifts; all other nonzero A have none. This puts the correct rooted star at each vertex and yields the histogram by counting A. At n=1 the rule gives a fixed point with a two-edge chain. The finite replay checks the pointwise rule, not just the aggregate counts, and is corroboration rather than the all-level proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+For the repaired claim, credit known odd-prime lifting, odometer criteria, and modular square-root counts. The supported distinct content is the explicit all-level ternary graph tying the cycles to the nonuniform critical preimage trees, not a new general theory of cycles or square roots. The closest inspected exact example for the same polynomial is at prime 2; the closest graph with pointwise branch incidence uses x²−2 at prime 5. Bounded comparisons do not certify universal priority.
+
+## value
+
+PASS
+
+The parabolic quadratic at the smallest odd prime is a concrete test case that exhibits both odometer growth on the invariant class and singular unbounded branching in the transient classes. The repaired result identifies where those trees sit on every finite cycle, and not merely how many there are, which is what a researcher comparing graph isomorphism types or finite quotient dynamics needs. The graph and zeta formulas are all-level, not an arbitrary short census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

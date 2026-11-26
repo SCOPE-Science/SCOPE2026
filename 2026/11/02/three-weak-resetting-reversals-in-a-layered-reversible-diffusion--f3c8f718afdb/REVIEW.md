@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Finite hitting moments solve a well-posed divergence-form one-dimensional diffusion problem with absorbing/reflection/interface conditions. Two independently derived exact rational representations (nested moment integrals and Laplace-transfer matrices) agree on four rational test positions. The proof gives explicit layerwise formulas for \(F=(\mathbb E H)^2-\operatorname{Var}(H)\) and proves one and only one interior zero on each of three layers by derivative signs, not finite enumeration. The renewal expansion shows the reset derivative equals \(F/2\). Smooth robustness follows from bounded positive-coefficient approximation and continuous dependence of explicit integral functionals. Limits: no exact count for generic smoothed profiles or higher reset rates.
+PASS
 
-## Originality
+Integration by parts with continuous flux f'/s and the killed/reflecting boundary conditions makes the generator symmetric in m dx; the divergence coefficients are bounded and bounded away from zero. Integrating the first two killed moment equations gives u'=sM and, by reversing the integral for w'−2uu', v'=2sK for M=∫_x^1 m and K=∫_x^1 sM². At layer boundaries u,v and their scaled fluxes are continuous, not in general u',v'; the wording 'join continuously' in the proof should be understood for the matched moment functions/fluxes. The Green integral bounds the mean uniformly; the strong Markov property then gives a geometric tail on a sufficiently coarse time grid, justifying the Laplace expansion through order two. Renewal gives J=u²−w/2=(u²−v)/2. Exact rational integration independently recovered all three layer polynomials and the four alternating rational witnesses. In the first layer the cubic factor rises from a negative value to its sole in-layer maximum, then decreases to a positive value, so its one zero is simple. The middle polynomial is strictly decreasing; e.g. F''=4s²M²−2smu<0 there and F'(1/3+) is already −1/1536. The last derivative has one interior sign switch, from negative to positive, and the layer values are negative at 2/3 and positive at 1, so the one zero is simple. Neither interface is a zero, and 0 is excluded. Bounded positive L¹ smoothing gives uniform moment convergence; smoothings equal to the constants near the three simple zeros can be chosen, giving local derivative convergence there as well and preserving a simple crossing in each neighborhood. The claim of at least three smooth-model sign changes is therefore valid.
 
-PASS within the sources materially checked, with residual priority risk. The motivating Menon–Anteneodo work studies the same kind of confined reset search under a fixed convention tying scale and speed to a single diffusivity; it does not state an explicit three-reversal theorem for independently heterogeneous reversible coefficients. The spatially dependent model of Ray has a single-form diffusivity/drift; the two-reset-site optimization of Julián-Salgado et al. concerns a different objective and resetting mechanism. A 2022 bounded-domain nonstandard diffusion study has different endpoint conditions. Published-record searches for triple/reentrant reset thresholds, aliases via first-passage coefficient of variation and scale/speed density, and available earlier results found no directly dominating claim. General unindexed diffusion or restart theory could subsume the example; publication priority is not independently certified.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The sign of the weak-restart derivative is the natural, experimentally interpretable coefficient-of-variation decision criterion. The explicit example shows two *disconnected* favorable launch bands for a fixed search geometry and resetting protocol, rather than the single change familiar from standard homogeneous or one-profile illustrations. Its exact three-crossing analysis and smooth-coefficient robustness distinguish a structural possibility from plotting artifacts. The theorem is deliberately restricted to local weak reset effects, not global optimality.
+Weak-rate expansion in terms of hitting-time moments and spatially heterogeneous sign diagrams are prior. The surviving distinct contribution is the fully explicit reversible absorbing–reflecting scale–speed construction with exactly three simple crossings of the mean-response derivative, and existence of its smoothly robust analogue. The strongest inspected analyses do not state or force this exact reversal count. This is a bounded assessment, not a claim of first historical discovery of nonmonotone resetting response.
 
-## Closest literature and limitations
+## value
 
-Primary comparison: Menon Jr.–Anteneodo (arXiv:2408.04726v1), sections II–IV and appendices; Ray (arXiv:2010.14237v2); Julián-Salgado–Dagdug–Boyer (arXiv:2311.11897v4); Méndez et al. (*Phys. Rev. E* 105, 054118). A more comprehensive unindexed general potential-theoretic result remains possible. No independent proof or originality audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact multiple-reversal example distinguishes this problem from a single crossover in spatial reset benefit. It gives a simple, reproducible counterexample under uniform ellipticity and reversibility, with one threshold in each layer and two disconnected regions of infinitesimal benefit. Smooth robustness shows the phenomenon is not an artifact of jump interfaces in scale or speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

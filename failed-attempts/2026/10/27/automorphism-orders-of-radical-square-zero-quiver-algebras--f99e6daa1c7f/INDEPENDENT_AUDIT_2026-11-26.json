@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:19:15.573852Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In A=kQ/J², J denotes the image of the arrow ideal and is the radical. Since J²=0, the Peirce action on J only depends on idempotents modulo J. Thus the induced vertex permutation must preserve all block dimensions; conversely any such permutation lifts by block isomorphisms. For an automorphism in the kernel, f_v=φ(e_v) are orthogonal lifts; u=Σ_v f_v e_v≡1 mod J is invertible and f_vu=ue_v. After conjugating by u⁻¹ only the independent GL actions on the arrow blocks remain. Conjugation by 1+J is normal and has kernel 1+(Z(A)∩J). Projecting along the Peirce blocks shows that Z(A)∩J is exactly the diagonal loop subspace, including for arbitrary loop combinations; a map from 1+J fixing all e_v acts trivially. This gives the stated semidirect product and order, including disconnected and isolated vertices and the GL_0 convention. Hand checks include one vertex with r loops, giving GL_r with no additive factor, and one arrow, giving q(q−1). The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical complement conjugacy: in a finite-dimensional algebra with separable semisimple quotient, complements are conjugate by a unit in 1+radical. The split quotient here is separable, with no restriction on q beyond the field assumption.",
+          "The Adachi and Nasr-Isfahani statements inspected concern representation finiteness and graded Morita equivalences, respectively; neither inspected statement gives the desired automorphism factors."
+        ],
+        "reasoning": "Complement conjugacy gives the whole reduction to complement-preserving automorphisms, with conjugation kernel the radical centralizer; the vector-space blocks then give the remaining group factors. The failed retrieval of a reference page for the classical theorem is not the basis for rejection; the complement conjugacy instance is reconstructed explicitly above.",
+        "searches": [
+          "Wedderburn–Malcev conjugacy theorem for separable semisimple quotients",
+          "arXiv:1401.1438v2, Theorems A–B",
+          "arXiv:1603.04191v2, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_aut_radical_square_zero.py",
+        "Resultary 99cbf103e009, 625ba30274cb and e31ce68efddb",
+        "arXiv:1401.1438v2 and 1603.04191v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjugacy modulo 1+J reduces to automorphisms preserving S; the conjugation subgroup has dimension dim J−dim J^S, where J^S=⊕_v e_vJe_v and J²=0.",
+          "Over S⊗S^op≅k^(V×V), bimodule automorphisms are the product of GLs. Permuting factors is permitted exactly by equal multiplicities."
+        ],
+        "reasoning": "These facts yield precisely q^(E−L), the GL product, and the multiplicity-matrix stabilizer; no further quiver invariant enters. This is explicit prior-theorem implication, rather than inferring duplication from titles or the loop-only table.",
+        "searches": [
+          "Wedderburn–Malcev complement conjugacy, specialized to the split extension k^V⋉J"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent split null extension is S⋉M with S=k^V and M=⊕_{u,v}e_uJe_v. The intrinsic bimodule multiplicities are the arrow counts.",
+          "The catalog returned exact loop-only special cases, but no separate unrestricted finite-quiver formula in the bounded results."
+        ],
+        "reasoning": "The presentation has no further multiplication data because M²=0. Once S is preserved, automorphisms consist exactly of an induced permutation of its factors and isomorphisms of the corresponding matrix-indexed vector spaces.",
+        "searches": [
+          "Resultary: radical-square-zero finite quiver algebra automorphism order, split square-zero extension, arrow-block linear group"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 99cbf103e009 and 625ba30274cb each give GL_n(k) for the n-generator one-vertex square-zero cross.",
+          "Resultary e31ce68efddb concerns the infinite-ray unitization, not arbitrary finite quivers."
+        ],
+        "reasoning": "The loop-only match is exact for one vertex and cannot detect the off-diagonal radical or vertex permutation factors. No exact all-quiver catalog formula was found in the bounded search; that is not affirmative evidence of being the first to state it.",
+        "searches": [
+          "Resultary: truncated coordinate-cross automorphisms; finite quiver radical-square-zero automorphism orders"
+        ]
+      },
+      "rationale": "No assertion is made that the exact displayed formula was found verbatim for all quivers. The claimed structure and order are a direct specialization of classical conjugacy of semisimple complements: here the semisimple quotient is k^V, whose bimodule category is just vector spaces indexed by ordered pairs. After complement conjugacy there is no additional classification problem, and each factor is fixed by that observation. The cited papers on other quiver invariants are not the decisive comparison.",
+      "residual_risks": [
+        "No exhaustive historical bibliography for automorphisms of split null extensions was obtained.",
+        "A verbatim unrestricted finite-quiver formula may be folklore or appear elsewhere; the decision is about mechanical implication, not priority of this wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case overlap",
+          "evidence": "All lengths equal to two give the GL_n(k) case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-mixed-length-truncated-coordinate-crosses-automorphisms-and-fini--99cbf103e009/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local indexed mirror passage",
+          "title": "Mixed-length truncated coordinate crosses: automorphisms and finite-field counts",
+          "trigger": "Same square-zero algebra for one vertex"
+        },
+        {
+          "assessment": "Exact special-case overlap",
+          "evidence": "Aut(A_(n,2))≅GL_n(k), with no other vertex blocks in scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local indexed mirror passage",
+          "title": "Automorphisms of truncated coordinate-cross algebras over arbitrary fields",
+          "trigger": "Uniform square-zero coordinate cross"
+        },
+        {
+          "assessment": "Different invariant in the inspected theorems",
+          "evidence": "The theorems concern representation finiteness and τ-rigid finiteness.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.1438v2",
+          "material_read": "PDF p. 1 near OA offset 3100, Theorems A–B",
+          "method": "Open-access original passage",
+          "title": "Characterizing τ-tilting finite algebras with radical square zero",
+          "trigger": "Cited source on the same algebra class"
+        },
+        {
+          "assessment": "Different conclusion in the inspected theorem",
+          "evidence": "The theorem compares graded Morita equivalences of Leavitt path algebras, not the group of k-algebra automorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.04191v2",
+          "material_read": "PDF p. 7 near OA offset 22800, Theorem 3.1",
+          "method": "Open-access original passage",
+          "title": "Singular equivalence of finite dimensional algebras with radical square zero",
+          "trigger": "Cited source on the same algebra class"
+        },
+        {
+          "assessment": "Access limitation only",
+          "evidence": "The actual special-case conjugacy identity f_vu=ue_v for u=Σ_v f_v e_v is independently checked; the unavailable page is not cited as inspected text.",
+          "identifier_or_url": "https://encyclopediaofmath.org/wiki/Wedderburn-Mal%27tsev_theorem",
+          "material_read": "No external text retrieved; alternate public exposition also unavailable",
+          "method": "Bounded public retrieval attempts; direct mathematical verification of the special case",
+          "title": "Wedderburn–Malcev complement conjugacy (reference page)",
+          "trigger": "Classical structural theorem used in the implication test"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite-field order is a legitimate and natural invariant, but in this split square-zero case every factor is obtained directly from conjugacy of complements and linear algebra on independent blocks. The report adds no further structural constraint, nonroutine count or motivated boundary phenomenon beyond those deductions.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

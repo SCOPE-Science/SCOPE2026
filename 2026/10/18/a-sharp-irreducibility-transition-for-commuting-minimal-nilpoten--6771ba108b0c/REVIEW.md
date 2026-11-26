@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is self-contained modulo standard Grassmannian, rank-one determinantal and subspace-Möbius facts. The key reduction is that commuting rank-one square-zero endomorphisms necessarily annihilate each other: a hypothetical nonzero common product would force a common image line, which both factors kill. The common image and kernel then give the exact intermediate-subspace cover. Each incidence locus is closed and irreducible, and the necessary generic spanning witnesses show noncontainment and prove the claimed dimensions. Subspace-lattice Möbius inversion counts tuples once by their unique image span. The packaged script independently checks matrix products and counts, including characteristic two and a degree-two extension field. Finite checks are not a proof of the infinite theorem; the geometric and combinatorial arguments supply that proof.
+PASS
 
-## Originality — PASS (with residual risk)
+Re-audit of the repaired theorem: a nonzero commuting product would have the common image line of the factors, which a square-zero factor kills. Consequently S=sum of images lies in K=intersection of kernels and the admissible intermediate dimensions are exactly dim S<=d<=dim K. Both ranks are at most r, so the asserted index sets cover, including the zero tuple; neither S=V nor K=0 can occur. Each incidence is closed in the product with the projective Grassmannian and locally a product with r irreducible rank-one cones of dimension n-1. At retained indices r>=d, the images can generate U, giving generic fiber dimension zero. In the reducible range r>=n-d also; choose r vector factors spanning U and independently r covector factors spanning (V/U)*. Then S=K=U, excluding every competing index, not just those of maximal dimension. The interval in the reducible range contains the middle dimensions, yielding the total dimension and strict reducibility including n=2r-1. The companion formula follows directly by one subspace Möbius inversion with the image span fixed; its equivalence with the double-flag marginal follows because both partition and count precisely the same ordered tuples. A separate F2 implementation directly multiplied 106 eligible matrices and counted 2836 pairs and 38536 triples, matching the formula; the triple count with every entry nonzero was 30345. These runs corroborate only those finite cases.
 
-Scope excludes the known three-dimensional minimal-orbit case in Ngo's *Mixed Commuting Varieties over Simple Lie Algebras*, Section 4.4. The higher-dimensional statements concern only the minimal-orbit closure, whereas Guralnick–Ngo, Ngo (2014), and Levy–Ngo–Šivic analyze the entire nilpotent commuting variety and do not give this component list or all-arity rank-one point count in the inspected sections. Huang's exact series is for two mutually annihilating arbitrary matrices, not the same all-arity rank-constrained locus. Searches for equivalent terms, rank-one nilpotent commuting varieties, Grassmannian components, and Gaussian-binomial point counts found no directly covering theorem in the inspected material. A less-visible quiver-module or representation-variety formulation remains a genuine publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Minimal nilpotent orbits are canonical small closed orbit strata; the geometry of commuting tuples is a basic representation-theoretic question motivated by established nilpotent commuting-variety work. The theorem identifies a sharp general transition from one to multiple components, gives every component and its exact dimension (including a natural non-equidimensional example), and determines the complete all-arity rational-point count over arbitrary finite fields. This is a structural classification and an infinite-family enumeration, not a small isolated numerical census.
+Pass for the repaired, narrower finding: the complete list of irreducible components, with lower-dimensional pieces and the exact irreducibility transition. The strongest rank-one overlap explicitly stops at maximal-dimensional components, and the full list requires the image-span/common-kernel witness. The removed census novelty is not necessary for this finding and is explicitly credited in its new place. Catalogue dates are not taken as priority proof.
 
-## Closest literature and limitations
+## value
 
-The strongest low-dimensional antecedent is Ngo (2013), arXiv:1301.2712, Section 4.4, which covers the dimension-three minimal-orbit situation. Guralnick–Ngo (2013), arXiv:1308.2420, Section 3.4, proves reducibility for unrestricted nilpotent tuples, not the rank-one locus. Ngo (2014), arXiv:1401.6820, studies general restricted nilpotent tuples. Huang (2021), arXiv:2110.15566, Theorem 1.2, counts unrestricted mutually annihilating pairs. Levy–Ngo–Šivic (2022), arXiv:2105.07918, analyzes full nilpotent varieties and their large-tuple maximal components. The proof does not address scheme-theoretic reducedness, singular loci, conjugacy quotients, or ranks above one. Literature uniqueness and independent mathematical validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result provides a full classification of the reduced commuting locus for every arity on the smallest nonzero nilpotent orbit closure. It answers irreducibility and non-equidimensionality, which cannot be inferred from the largest components alone. The (4,3) example already separates the full component list from a unique largest component. This structural result is useful independently of the credited point-count corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

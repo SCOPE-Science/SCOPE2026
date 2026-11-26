@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Stark tight-binding transition probabilities have the standard Bessel form; the Poisson renewal density operator is unique by trace-distance contraction. The Bessel series yields a uniform fixed-argument relative error, the time-integrated power of sine obeys an exact finite-product recurrence, and Stirling and the hyperbolic-sine Euler product give the stated coefficient. The result holds at each fixed nonzero field, hopping amplitude and positive reset rate. Finite-dimensional and high-precision numerical checks are corroborative only; they are not used to infer the infinite-distance asymptotic.
+## correctness
 
-## Originality — PASS, residual priority risk
-The underlying renewal formula and Stark/Bessel dynamics are established. The closest primary text Dattagupta–Das–Gupta (arXiv:2209.14117), whose model equation, results descriptions and conclusions were inspected, treats a finite-frequency oscillatory field and reset localization; it does not present the sharp static-field factorial tail constant. Acharya–Gupta (arXiv:2308.14040) treats conditional resetting and periodic forcing, not this fixed-origin static-field tail. Wald–Böttcher and Rose et al. cover general resetting but not this asymptotic. Targeted mathematical-record queries for the specific combination, tail shape and constant produced no matching finding. A singular zero-frequency limit of a broader driven formula might still lead to the same exact integral; independent priority review remains outstanding.
+PASS
 
-## Value — PASS
-This asymptotic resolves the ultimate far-distance localization profile of a natural model combining a constant electric field with stochastic reinitialization. The factorial scale and exact prefactor are directly usable to assess rare large excursions and to distinguish Wannier–Stark localization from reset-only exponential localization. The fixed-field qualification is mathematically substantive; the theorem does not make uniform small-field claims.
+Conditioning on the last reset gives the stationary exponential-age mixture; the initial-state term decays exactly as e^(−rt) in trace norm on equal-trace differences. This proves existence and uniqueness among normal states and hence the unique limiting position law. In Fourier coordinates the time-integrated hopping phase along k−F(t−s) is (4h/F) sin(Ft/2) cos(k−Ft/2); its Bessel Fourier coefficients give the exact diagonal and evenness, for either sign of h or F. The Bessel remainder relative to the leading monomial is bounded uniformly on the fixed argument range by exp(A²/[4(n+1)])−1, with zeros handled by factoring out the monomial. Independently of the frozen product proof, letting a=r/|F|, the remaining age moment is 2a/(1−e^(−2πa)) times the integral of e^(−2au)sin^(2n)(u) on [0,π]. Laplace scaling u=π/2+v/√n gives e^(−πa)√(π/n), yielding exactly a√π/sinh(πa). The stated finite product also follows from the integration-by-parts ratio K_n/K_(n−1)=n(2n−1)/(2(n²+a²)). The parameter limit is at fixed h,F,r. The supplied code was inspected, not run: its finite Hamiltonians and pointwise quadratures would corroborate only their stated test cases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The renewal principle and the unreset propagator are prior inputs. The exact position integral is also already implicit in the zero-frequency specialization of Dattagupta–Das–Gupta, as made explicit below; the frozen record does not claim the renewal integral as new. The distinct supported claim is the sharp fixed-field factorial tail with its rate-dependent prefactor.
+
+## value
+
+PASS
+
+A qualitative localization bound, the exact renewal integral, or a logarithmic factorial estimate leaves the leading stationary mass undetermined. The result isolates a factorial rather than exponential profile, the n^(-1/2) integration factor, and the explicit dependence on reset rate through the weights of recurrent excursion maxima. It gives a useful benchmark for distinguishing static-field coherent transport with resets from field-free or driven reset laws without extrapolating to singular parameter limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

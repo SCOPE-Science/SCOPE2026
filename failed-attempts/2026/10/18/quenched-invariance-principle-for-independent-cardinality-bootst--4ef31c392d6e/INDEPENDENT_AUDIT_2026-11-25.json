@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:08:31.529696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lucas parity gives a conditional mean bounded by rho^b(S_n) with rho=1-2epsilon. Dyadic sums of rho^b(s) are (1+rho)^d on [0,2^d); the independent geometric holding times at level s have mean 2 and variance 2. A weighted strong law and positivity for the last incomplete hold therefore give Cesàro decay along almost every sign path. Conditional on such a path the centered signs use disjoint coefficient rows, so the independent-variable strong law applies. Fubini gives the quenched almost-sure bracket limit; the bracket tends locally uniformly to tI and bounded jumps give Lindeberg. The joint martingale FCLT applies on every compact time interval and in D([0,infty)). The support script was inspected, not executed; its finite identities do not verify these limit steps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamza–Tournier Corollary 9 is annealed for independent time rows, and the introduction identifies the corresponding quenched question as unresolved. The general quenched independent-subset theorem uses different independence hypotheses, which fail for same-size subsets sharing coefficients. Collevecchio et al. give a bracket criterion, not this model's almost-sure verification.",
+          "Resultary 00b4222393d7 gives a two-sided quenched LIL for the bracket in the identical independent-row setting."
+        ],
+        "reasoning": "The LIL is strictly stronger than bracket vanishing after normalization by N; the primary annealed result alone is not.",
+        "searches": [
+          "arXiv:2610.01658v1 §§4.2–4.3, Corollaries 9 and 12, and Introduction",
+          "arXiv:2010.16000 §3.1 Theorem 6",
+          "Resultary 00b4222393d7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84, VERIFICATION.md, verify_quenched.py; frozen record 3 lines 20–37",
+        "arXiv:2610.01658v1",
+        "arXiv:2010.16000",
+        "Resultary 00b4222393d7 and 7435461eecaa, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quenched LIL entails Q_N=O(sqrt(N log log N)) almost surely, hence Q_N/N tends to zero."
+        ],
+        "reasoning": "For each such fixed environment, convergence of Q_k/k gives local uniform convergence of Q_floor(Nt)/N to zero; bounded martingale jumps and deterministic diagonal brackets give the FCLT on all compact times. Expressing the conclusion in D([0,infty)) adds no distinct claim.",
+        "searches": [
+          "Resultary 00b4222393d7 Finding and assumptions; arXiv:2010.16000 Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triangular array, ellipticity, fair signs and Pascal multiplier in 00b4222393d7 coincide. Its bracket sum is written sum xi_j eta_j; eta_j is the Y increment, so xi_j eta_j=zeta_(j-1)."
+        ],
+        "reasoning": "These are pathwise equal sums, not just models with the same limiting law.",
+        "searches": [
+          "Resultary independent-row/cardinality-grouped quenched bootstrap; SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "00b4222393d7 expressly gives independent-coordinate quenched Brownian convergence in D([0,1]). The same-day 7435461eecaa and frozen record 3 use coefficients reused across time (fair only in 7435461eecaa)."
+        ],
+        "reasoning": "The exact database check is theorem-level; there is no numerical invariant or table. The two same-day frozen-environment claims are not equivalent to independently resampled rows.",
+        "searches": [
+          "Resultary 00b4222393d7 and 7435461eecaa; frozen record 3"
+        ]
+      },
+      "rationale": "A distinct catalogue finding gives a quenched law of the iterated logarithm for the very same bracket under the same hypotheses, and expressly gives the Brownian limit on [0,1]. This implies every scientific assertion of the frozen finding, including the compact-time extension. This is a finding of statement coverage, not a priority or attribution judgment; the matching catalogue entry bears a later date. No separate theorem remains to repair.",
+      "residual_risks": [
+        "Catalogue coverage does not establish priority or dependence between the records; no priority determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full implication via identical-model LIL; record date does not assign credit for the original claim",
+          "evidence": "Mutually independent elliptic beta_(n,k) with the same Pascal parity and fair signs; LIL for sum xi_j eta_j and Brownian FCLT on [0,1].",
+          "identifier_or_url": "2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7",
+          "material_read": "RESULT.md Finding and assumptions at offsets 0 and 3827; Relationship to prior work from offset 7000",
+          "method": "Resultary local mirror",
+          "title": "A quenched law of the iterated logarithm for cardinality-grouped bootstrap walks",
+          "trigger": "Same coefficients and quenched bracket"
+        },
+        {
+          "assessment": "Annealed baseline in this regime; separate frozen model in §4.3",
+          "evidence": "Corollary 9 uses independent rows; the introduction distinguishes the unresolved quenched problem.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01658v1",
+          "material_read": "Introduction offset 13100; §4.2 Corollary 9 offset 47600; §4.3 offsets 60000–61100",
+          "method": "OA HTML passages",
+          "title": "Are random random walks normal?",
+          "trigger": "Original problem and assumptions"
+        },
+        {
+          "assessment": "General bracket criterion, not verification of its hypothesis here",
+          "evidence": "The normalized off-diagonal predictable bracket is the average of the sign multipliers.",
+          "identifier_or_url": "https://arxiv.org/html/2010.16000",
+          "material_read": "§3.1 Theorem 6 and proof, offset 20200",
+          "method": "OA HTML passage",
+          "title": "Limit theorems and ergodicity for general bootstrap random walks",
+          "trigger": "General limit theorem might cover the claim"
+        },
+        {
+          "assessment": "Different temporal dependence",
+          "evidence": "Fair cardinality coefficients held fixed across all time, and annealed scenery fluctuation result.",
+          "identifier_or_url": "2026/10/18/SCOPE-hidden-independent-scenery-quenched-normality-and-variance-three--7435461eecaa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Hidden independent scenery, quenched normality and variance three",
+          "trigger": "Same-day quenched cardinality normality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The quenched upgrade addresses a specific gap left by the annealed theorem despite shared coefficients for all equal-size subsets. The occupational averaging proof handles genuinely nonidentical elliptic arrays, and the pathwise bracket limit explains the quenched independence. This scientific interest is separate from the full statement overlap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

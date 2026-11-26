@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Compile and execute the complete finite census by running `python3 replay.py` in this directory, with Python 3 and `g++` supporting C++17. Each implementation enumerates exactly 14,348,907 distinct ternary initial states separately for each threshold one through four and computes the complete deterministic successor relation. The first uses indegree elimination; the second uses direct path tracing and a disjoint-pairs construction of the Petersen graph with bit-plane state encoding.
+## correctness
 
-The replayed stdout is checked against both captured implementations' output and exact expected counts. Every primitive cycle count, individual basin-size histogram, full first-entry/period table and global population total is compared. Both implementations agree for all thresholds. The observed sharp maximal transient lengths are 12, 6, 3, and 3. The threshold-two starting state 66495 in the primary encoding reaches zero for the first time on update six; 930 labelled states take the maximum time. The threshold-one witness 94238 first reaches periodicity on update twelve.
+PASS
 
-Proof scope: this is complete enumeration of an explicitly defined finite graph and the four stated contact thresholds. It does not verify any arbitrary graph, produce a closed-form all-size formula, or constitute third-party independent audit.
+Independently recomputed every one of the 3^15 labelled states at each threshold, without executing frozen scripts. checks/petersen_images.py computes the successor of each resting edge from disjoint active incidences at its two Petersen endpoints; the other phases have their unconditional successors. Iterated images of the complete state set are nested and stabilize precisely on the periodic set. Traversing this set gives each orbit once; successive synchronous predecessor layers give exact first entry and inherit the orbit label. For all four thresholds the attractor/period/basin populations, entry histogram, joint time and period histogram, and individual basin-size histogram match both frozen output tables in full. The four recorded max depths are 12,6,3,3; directly checked 94238 at depth 12, and 66495→5626834→12602018→3228168→169→2→0 with exact depths 6 through 0. All-rest is fixed and the only fixed state since phases 1 and 2 always change. The threshold-one period lcm is 120, giving equality after 12 and failure one update earlier. Run python3 checks/petersen_images.py with theta=1,2,3,4 as the positional argument (NumPy); each checks/petersen_images_*.out is saved. This certifies the stated finite graph and thresholds only.
+
+## originality
+
+PASS
+
+The exact all-threshold census and sharp finite settling statistics are supported as distinct findings. Qualitative eventual threshold-two extinction is already implied by a matching same-day structural Resultary theorem and the earlier Tait correspondence. Do not claim that qualitative extinction itself is distinct or infer order from the shared date. Neither structural theorem nor the other inspected results supply the sharp depth 6, its 930 initial states, or the labelled threshold-one census.
+
+## value
+
+PASS
+
+This line graph is a natural small four-regular example at the critical half-degree threshold, built from a canonical snark. The sharp worst-case settling time and how many states attain it are additional natural invariants even after eventual extinction is structurally known. The complete low-threshold basin/period census and the finite cutoff provide an exact comparative benchmark beyond detecting recurrence on a few states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

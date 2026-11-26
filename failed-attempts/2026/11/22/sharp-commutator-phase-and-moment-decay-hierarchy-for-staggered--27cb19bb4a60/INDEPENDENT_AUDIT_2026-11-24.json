@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:46:47.111484Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/check_staggered.py, and verification/requirements.txt",
+        "Replay: python3 /workspace/branches/independent_5.py; output /workspace/branches/independent_5.txt"
+      ],
+      "rationale": "The normalized overlaps of lengths p−r and r give the cross Gram aI+bS, where a=(p−r)/p and b=r/p. Squaring yields the claimed heat multiplier λ=1−4τsin²(θ/2) with spectrum [1−4τ,1]. It is strictly below one almost everywhere but has essential supremum one, so strong convergence and norm one for every power both hold. In an orthonormal pair spanning the range vectors in a nondegenerate fiber, the commutator has off-diagonal entries ±sqrt(λ(1−λ)) up to unitary phase, with eigenvalues ±i sqrt(λ(1−λ)). Outside their full range the continuous matrix multiplier has uniformly bounded inverse; every point in the range admits unit approximate eigenvectors supported in arbitrarily small shrinking frequency neighborhoods, weakly converging to zero, so none is Fredholm there. Positive level sets of sqrt(λ(1−λ)) have measure zero; zeros on the active pair occur only on a null set, leaving p−2 zero directions per frequency. Maximizing on [1−4τ,1] gives the phase transition at τ=1/8, including equality; for r=1 the inequality (p−1)/p²≥1/8 is exactly 2≤p≤6 over the allowed integers. For the moment law, finite support gives a finite vanishing order k, |F(θ)|²~|m_k/k!|²θ^(2k), and λ^(2N)≤exp(−8τNθ²/π²) for |θ|≤π. Parseval and θ=y/sqrt(N) give the Gaussian integral Γ(k+1/2)/(2τ)^(k+1/2), with Parseval factor 1/(2π), including (8πτN)^(-1/4) for an impulse. Independent integer-sum projection checks and exact-rational convolution norms sampled the heat operator and decay constants; the spectral and asymptotic claims rely on analysis, not the finite checks.",
+      "residual_risks": [
+        "The analysis is for the bilateral uniform equal-width problem and the asymptotic is individual for finitely supported data; the finite computations are not an essential-spectrum certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 and eq. (1.2) give a uniform local probability expansion through arbitrary order when the nonmodal-residue sum grows faster than log variance. In the nearest-neighbor lazy walk, the only required modulus is 2, the sum is n·min(2τ,1−2τ)>0 and linear, and the variance is 2τn. The expansion applies at n=2N without degeneracy even at τ=1/4.",
+          "The general alternating-projections papers give convergence rates on restricted or dense input classes; the continuous-time lattice heat result gives a rate to the leading mass profile. Those are weaker comparisons for this exact multiplicative constant."
+        ],
+        "reasoning": "The local Edgeworth theorem covers far more walks and supplies the terms needed for all moment cancellations. The usual first-order local limit theorem alone would not suffice when k>0.",
+        "searches": [
+          "Dolgopyat–Hafouta arXiv:2011.14852 Theorem 1.4 and §3.4; lattice local Edgeworth expansion for bounded independent integer summands",
+          "arXiv:1911.06176 pp. 2,4; arXiv:1510.04560 Theorem 4.3; arXiv:2401.16377 Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 491d3bae8ceb, d9f30fffe04e, 127b8c51e074 and the target as indexed",
+        "OA primary comparisons arXiv:2011.14852, 1911.06176, 1510.04560, 1306.1923, 1705.05866, 2401.16377, 1212.4700 at the stated passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the prior cross-Gram polynomial with the bilateral shift instead of the cyclic shift gives the same continuous Fourier symbols. The finite commutator band function γ sqrt(1−γ²) fills the interval as the frequency sample becomes dense; standard localized packets give Fredholm essentiality, and the nonconstant band has null level sets. Internal atom zero-sum vectors give precisely p−2 extra directions per period. Optimizing the same prior band yields τ≥1/8, and λ^N gives strong but not norm convergence.",
+          "For the moment formula let B_d=Σ_(i−j=d)c_i conjugate(c_j). The squared norm is Σ_d B_d p_(2N)(d) for the lazy walk. Binomial expansion gives Σ_d B_d d^j=0 for j<2k and Σ_d B_d d^(2k)=(−1)^k binom(2k,k)|m_k|². Apply the local Edgeworth expansion of order 2k+1 with σ²=4τN. In each higher correction (σ^(-b) times a bounded-coefficient polynomial times the standard Gaussian g evaluated at d/σ, b≥2), the Taylor terms below degree 2k cancel, leaving O(σ^(−b−2k)). The first term σ^(-1)g(d/σ) contributes exactly σ^(−2k−1)g^(2k)(0)(−1)^k |m_k|²/(k!)², with g^(2k)(0)=(−1)^k(2k)!/(sqrt(2π)·2^k k!). Substitution gives the very same Gamma coefficient in the squared norm."
+        ],
+        "reasoning": "The bilateral conclusions after the exact active-cell dictionary and the all-moment formula after weighted summation are direct consequences, rather than independent sharper theorems. The proofs in the frozen package are sound but do not change that coverage.",
+        "searches": [
+          "491d3bae8ceb full Hilbert-space Proof §4, offsets 3800–5500",
+          "Dolgopyat–Hafouta arXiv:2011.14852 eq. (1.2), Theorem 1.4 and proof §3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "491d3bae8ceb Proof §§1,4 splits each histogram cell into consecutive atoms of lengths t and 1−t, with each shifted cell using the second atom and its successor's first atom. The normalized atom-indicator model in the frozen record is exactly the same with t=r/p: the atom lengths r and p−r divide by p in the projection weights. Both pairs vanish on all within-atom zero-sum directions.",
+          "The prior formula G=(1−t)I+tS on arbitrary cyclic sizes yields the same squared overlap λ and the same nonzero Hilbert commutator singular values per frequency."
+        ],
+        "reasoning": "The common-refinement match is an exact unitary match of the active two-coordinate cell operators, with a different boundary and a null summand, not merely an analogy between finite and infinite averaging.",
+        "searches": [
+          "Resultary: staggered block transfer, translated histogram projection commutator, L² spectrum, 491d3bae8ceb",
+          "Public primary query: shifted histogram projections translated averaging L2 commutator spectrum block averaging half-cell shift alternating projection heat piecewise constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "491d3bae8ceb supplies a formula for the exact Hilbert singular-value multiset at every cyclic length n, not just numerical grid samples. The family of frequency grids becomes dense on the circle. The frozen exact catalogue hit is the record itself, not another confirmation.",
+          "The other inspected block-average census is aligned and unshifted with finite spectral sets; the half-shifted spline result is piecewise affine with a fourth-order limit."
+        ],
+        "reasoning": "A fixed finite table would be inapplicable to an essential interval or the full moment hierarchy. The actual all-period exact formula is applicable to the spectral bands via the identified local operator; the Edgeworth theorem handles the large-iteration law separately.",
+        "searches": [
+          "Resultary: sharp commutator interval, norm 1/8, staggered heat step, moment hierarchy; 491d3bae8ceb, d9f30fffe04e, 127b8c51e074"
+        ]
+      },
+      "rationale": "The two substantive pieces are covered by explicit stronger or equivalent calculations. The older translated-histogram record gives the identical common-refinement Hilbert model on every cyclic period and gives its exact cross-Gram and commutator bands at every sampled frequency. The bilateral symbol, phase, spectral type and kernel dimension follow from that model by Fourier multiplication and the extra null atom directions. The full moment constant, not merely the impulse exponent, is a direct specialization of the bounded-lattice local Edgeworth expansion and the autocorrelation cancellation detailed below. These are mathematical implications of accessible sources, not a verdict based on an inaccessible source or a matching title.",
+      "residual_risks": [
+        "The older finite record is not itself a statement about a bilateral Fredholm spectrum. Its relevance rests on the exact active-cell equivalence and the standard spectral implication, not identity of ambient spaces. The bounded source review does not assign first discovery or exclude still earlier equivalent treatments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive overlap: same active-cell operator, cyclic rather than bilateral, with exact Hilbert band function",
+          "evidence": "Common-refinement pairs A_j,B_j; cyclic cross Gram (1−t)I+tS and commutator singular values γ sqrt(1−γ²), twice per nondegenerate frequency.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-endpoint-commutator-instability-for-translated-histogram-p--491d3bae8ceb/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–4, through offsets 0–6949",
+          "method": "Resultary local mirror, exact indexed slug",
+          "title": "Sharp endpoint commutator instability for translated histogram projections",
+          "trigger": "Earlier translated uniform projection grids and exact Hilbert spectrum"
+        },
+        {
+          "assessment": "All-order expansion under conditions verified for this walk; supplies the full moment law by finite weighted summation",
+          "evidence": "Uniform error o(σ^(-r)), leading standard Gaussian, bounded-coefficient correction polynomials; one nonmodal residue condition when K=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.14852",
+          "material_read": "Eq. (1.2), Theorem 1.4 (offsets 7380–11924), Proof §3.4 (offsets 33190–38749)",
+          "method": "OA primary PDF",
+          "title": "Edgeworth expansions for independent bounded integer valued random variables",
+          "trigger": "Stronger local expansion for the same finite-step lattice walk"
+        },
+        {
+          "assessment": "Different aligned operator; same date supplies no priority",
+          "evidence": "Unshifted blocks on ℓ²(ℕ₀), finite pure-point spectrum; shifts excluded.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-spectral-law-for-commutators-of-two-integer-block-ave--d9f30fffe04e",
+          "material_read": "Finding and assumptions (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "Arithmetic spectral law for commutators of two integer block averages",
+          "trigger": "Closely related block commutator theorem"
+        },
+        {
+          "assessment": "Different operator and order",
+          "evidence": "Piecewise-affine periodic projections yield a biharmonic scaling limit.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-trace-class-biharmonic-limit-from-alternating-half-shifted-per--127b8c51e074",
+          "material_read": "Finding and assumptions (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "A trace-class biharmonic limit from alternating half-shifted periodic spline projections",
+          "trigger": "Alternate shifted meshes and a diffusion limit"
+        },
+        {
+          "assessment": "Restricted input-class estimates, not the individual moment asymptotic",
+          "evidence": "O(N^(-1/2)) on a sum of orthogonal complements, not uniformly on all finite-support inputs.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.06176",
+          "material_read": "PDF pp. 2 and 4, offsets 4494 and 9486",
+          "method": "OA primary PDF",
+          "title": "Alternating projections, remotest projections, and greedy approximation",
+          "trigger": "Cited general convergence-rate comparator"
+        },
+        {
+          "assessment": "Dense-subset rates rather than exact individual constants",
+          "evidence": "Dense classes with arbitrarily fast polynomial or super-polynomial convergence.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04560",
+          "material_read": "Theorem 4.3, around offset 42926",
+          "method": "OA primary PDF",
+          "title": "Ritt operators and convergence in the method of alternating projections",
+          "trigger": "Potential stronger general decay theorem"
+        },
+        {
+          "assessment": "Known principal-angle blocks",
+          "evidence": "Reduction of two projections to elementary low-dimensional pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.1923",
+          "material_read": "§1, pp. 1–2, offsets 0 and 4491",
+          "method": "OA primary PDF",
+          "title": "Principal angles and approximation for quaternionic projections",
+          "trigger": "Two-projection geometry"
+        },
+        {
+          "assessment": "Related general anticommutator result, not the decisive covering source",
+          "evidence": "Anticommutator spectrum in terms of the compression.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.05866",
+          "material_read": "Theorem 1.1 and proof around offsets 0 and 8958",
+          "method": "OA primary PDF",
+          "title": "Spectra of anticommutator for two orthogonal projections",
+          "trigger": "General spectral reduction via PQP"
+        },
+        {
+          "assessment": "Continuous-time lattice comparison, not the decisive discrete-time implication",
+          "evidence": "Norm estimate for discrepancy from leading mass times kernel, with additional first-moment bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.16377",
+          "material_read": "Theorem 6.1 and argument at offsets 62950–67134",
+          "method": "OA primary PDF",
+          "title": "Large time behaviour for the heat equation on Z, moments and decay rates",
+          "trigger": "Heat evolution and finite moments"
+        },
+        {
+          "assessment": "Background on generalized local limits, not used to exclude or prove coverage",
+          "evidence": "Focuses on local limits and supremum bounds for convolution powers of finitely supported functions.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.4700",
+          "material_read": "Introductory scope and examples, offsets 0–5477",
+          "method": "OA primary PDF",
+          "title": "On the convolution powers of complex functions on Z",
+          "trigger": "Broader convolution-power asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and proof",
+        "Exact translated-histogram Hilbert comparison and local Edgeworth implication above"
+      ],
+      "rationale": "There is expository value in presenting the concrete projections and their diffusion together. As a new scientific finding, however, the band and norm are the known translated-histogram calculation with a bilateral instead of cyclic shift; the moment constants follow from a general local expansion by cancellation of a finite weight. The only extra discrete multiplicity comes from zero-sum vectors inside each atom, a dimensional count. No independently useful, nonmechanical remaining classification was identified that would justify a repair.",
+      "residual_risks": [
+        "This value decision is confined to the frozen classification, not to possible results on irregular meshes, unequal staggered widths, or other evolution operators."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

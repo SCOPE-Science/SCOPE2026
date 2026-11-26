@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite graph is fully defined through duad–syntheme incidence. Octagons are enumerated through two distinct combinatorial mechanisms, with exact equality of the 90 edge masks. Edge frequency sixteen yields a proof of the universal modulo-four congruence. A spanning-tree gauge reduction gives all 65,536 frequency classes, with 29 cut dimensions supplying the ambient multiplicity factor. Each signed multiplier is independently computed by direct summation and an integer Walsh transform. The exact eighteen-level histogram passes Parseval, total character sum, minimum witness and structural checks. The certificate code is included, uses exact integers and has been executed successfully.
+PASS
 
-## Originality — PASS, bounded evidence
+The unnormalized XOR convolution is diagonal on all 45-edge characters, with one summand per unoriented simple octagon. The independent enumeration projects onto four distinct synthemes with successive intersections equal to four distinct duads, and chooses one cyclic orientation and base per cycle. It finds 90 distinct octagons, 16 uses of each edge, and no smaller cycle. The incidence graph is connected: disjoint duads share a syntheme, and two intersecting duads have a third duad disjoint from both. Switching is addition of a cut and fixes all cycle evaluations, hence each switching class has 2^29 frequencies. An independent binary row reduction of the 45-by-90 incidence matrix finds rank 16, so the evaluation image is precisely one word per switching class. Enumerating the image in Gray order and binning by 90−2 times Hamming weight reproduces all eighteen levels and multiplicities. The even edge incidence makes every codeword even weight and every multiplier 2 mod 4. In the original BFS convention cotree mask 85 attains −2; the trivial character attains 90. Fourier diagonalization therefore gives full range, inverse norm 1/2 and condition number 45 for the stated normalization.
 
-Baez's 2015 full exposition proves the 90-cycle count and identifies quadrangles, but does not evaluate signs of all octagons across arbitrary edge assignments. Farrokhi–Mohammadian (arXiv:1611.03241) classifies symmetry of generalized Tutte–Coxeter graphs and tabulates short cycles; its inspected HTML full text gives no Boolean Walsh histogram. MathWorld tabulates graph adjacency eigenvalues, not the 45-edge cube convolution. Public mathematical records about Tutte–Coxeter majority dynamics and two-particle homology use different invariants. Analogous shortest-cycle spectra for other graphs do not imply this table. The residual risk is a non-indexed preexisting signed-cycle or coding-theoretic table; priority cannot be certified by search alone.
+## originality
 
-## Value — PASS
+PASS
 
-The unique cubic girth-eight cage is a natural next test for recoverability of shortest-cycle incidence measurements. A complete exact signed histogram is a finer invariant than the already known number of octagons: it determines full-space invertibility, exact inverse stability, all signed cancellation levels, and the sharp conditioning of this particular measurement operator. It is not presented as a general family theorem or as a new count of 90 octagons.
+The 90 octagons, their quadrangle interpretation, and underlying graph symmetry are credited. The nonvanishing congruence follows easily from that known cycle count and edge-transitivity; it is not the differentiating contribution. The exact signed frequencies on switching classes, or equivalently the length-90 evaluation-code weight distribution, survive the comparisons. The closest Resultary entries for other graphs or operators are not stronger statements about this spectrum.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The Tutte–Coxeter graph is the natural cubic girth-eight cage, and its shortest cycles define a canonical support for recovery by convolution. The spectrum determines the complete cancellation distribution and sharp stability on the full Boolean edge space, beyond the unsigned cycle count or the parity-based nonsingularity alone. It also provides the exact weight enumerator of the associated short-cycle evaluation code, which can be used independently for comparisons with parallel cage constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

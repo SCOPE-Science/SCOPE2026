@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact stationary translational heat flux follows from the critically damped linear-response kernel \(u e^{-u}\) and the chiral orientational correlation \(e^{-du}\cos(\Omega u)\), yielding the rational function of \(w=1+d\) and \(t=\Omega^2\). The global maximum classification is established using strict concavity of the derivative numerator, a directly verified exact Sylvester resultant, strict convexity of the unique positive sextic root, rational sign witnesses, and endpoint analyses. Implicit differentiation establishes the leading onset and large-frequency laws. The supplied stand-alone checker reproduced the symbolic identities, rational witnesses and 137 analytical/numerical checks; these checks are supplementary to the proof. The angular phase at \(d=0\) and the definition of translational heat are explicit.
+## correctness
 
-## Originality — PASS, qualified
-D. Frydel's 2022 study (arXiv:2211.02082, publicly available full text inspected) establishes the active heat-flow framework and the achiral resonant rate. Olsen and Löwen (arXiv:2405.14326, full text inspected) establish the chiral orientation correlation and optimize free-space diffusion, not this confined oscillator's bath heat. Later arXiv:2511.18361 concerns inertial free motion and arXiv:2604.05722 reports harmonic-trap spatial statistics, not the exact global heat-optimum bifurcation in the material inspected. Searches for corresponding resolvent, resonant dissipation, persistence and chiral reentrant formulas found related work but not an equivalent or dominating statement. The exact stationary flux is a direct linear-response calculation; the assessed addition is the complete global maximizer classification with a first-order jump and continuous later onset. Prior implicit coverage by a general linear-response optimization analysis remains a genuine risk, and independent priority review is outstanding.
+PASS
 
-## Mathematical value — PASS
-Translational dissipated active power is a meaningful quantity of energetic design for active particles in a confining harmonic trap. The theorem proves an exact and non-monotone switching of the optimal persistence as chirality changes, with separate discontinuous and continuous transition laws, and a temperature-invariant objective. The boundary \(d=0\) and the competing interior maximum are both physical, so the optimization cannot be settled by a routine monotonicity argument. The result is restricted to critical mechanical damping; it is not a claim about full thermodynamic cost or nonlinear systems.
+The stationary angular correlation and independent thermal bath yield the velocity susceptibility p/(1+p)^2, where p=d+iOmega; Itô energy balance gives Q=2(E|V|²-2T). For w>=1 the derivative numerator N is strictly concave past 1, so there is at most one interior maximum. Independently factoring the gap from the boundary gives F(w,t)-F(1,t)=(w-1)G/[(w²+t)²(1+t)²]; the cubic G has discriminant -4t(1+t)²P(t), so an interior tie for positive t requires P(t)=0. P''>0, P'(0)<0 and P(0)<0 ensure exactly one positive root. Around that root, N(1,t)<0 uniformly, so the boundary is a strict local maximum uniformly in t; G's negative cubic leading coefficient bounds competing w uniformly. The opposite strict global signs at 19/100 and 1/5 therefore force a genuine interior tie, not merely convergence of a maximizer to 1. Elsewhere a change can occur only at a tie or N(1,t)=0. At t_- the outward second derivative is positive and the boundary cannot win; at t_+ strict concavity with N_w(1,t_+)<0 makes the boundary unique. At zero the unique optimizer is w=2, and above t_+ the positive boundary derivative forces an interior optimizer. Implicit differentiation gives both local slopes. For the large-t limit let e=t^(-1/2), y=e w; the rescaled equation is 1-y^4+e(2y^3-6y)=0, whose regular root at y=1 gives w=sqrt(t)-1+O(t^(-1/2)).
 
-## Residual limitations
-The orientation-driving energetic cost is excluded. In parameter ranges with boundary optimum, a strictly positive angular-diffusion constraint gives a supremum rather than an attained maximum. No independent experimental or publication-priority assessment has been performed; potentially related general linear-response literature may still contain an implied special case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The substantiated addition is the global critical-damping optimizer diagram in squared chirality (including a separated tie and continuous return), not the achiral persistence optimum, translational heat framework, or the linear susceptibility.
+
+## value
+
+PASS
+
+For a physically motivated dissipation objective, this identifies when a finite angular randomization rate helps, loses to deterministic rotation abruptly, and becomes favorable again continuously. The first global switch occurs after the boundary slope has already turned negative, so testing that slope does not answer the optimization question. The thresholds and onset laws are useful exact benchmarks at critical damping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

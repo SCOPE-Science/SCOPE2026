@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The abstract invariant identifies a group only up to isomorphism. For a prime-square order, the two targets are precisely the cyclic and rank-two elementary abelian groups. Every sparse multiplication pattern yields a relation matrix whose rows split into a unit vector and an incidence difference. Total unimodularity makes every determinant a sum of at most \(2^k\) unit-determinant terms. If \(p>2^k\), these minor bounds forbid hidden \(p\)-torsion and force every label difference to be either zero in both targets or primitive in both. The union bound is strictly below one because \(t\le3k\) and \(\binom{3k}{2}<4^k<p^2\). The addition-chain construction supplies the upper bound and the exact families. All boundaries, including \(p=2\), are addressed. The code checks small cases but is not a substitute for the theorem's proof.
+PASS
 
-## Originality — PASS, historically provisional
+For t distinct names, the group equations define the quotient of Z^t by the rows e_a+e_b−e_c; a realization is a homomorphism separating all names. Split each equation row into a unit row and an oriented incidence row, keeping any appended e_i−e_j intact. Restricted incidence rows have at most one entry of each sign; induct on the minor size by expanding a row with at most one nonzero, or use the zero row sums when all rows have both signs. Multilinearity bounds every minor by 2^k, even with repeated labels, so M and each augmentation retain their rational ranks modulo p for p>2^k. A full-rank pivot minor is a p-local unit: its rows generate the localized row lattice by solving on the pivot columns, and the quotient is free. A difference lying in the row span mod p lies in the rational span by equality of augmented ranks and hence in the localized row lattice, so it vanishes in both targets. In a realizable pattern each other difference has a unit coordinate; its collision probability under a uniform homomorphism is p^(−2) in either target. The union bound binomial(3k,2)<4^k for k≥1 gives a collision-free realization in both, with unused labels filled arbitrarily. The addition chain names distinct powers of a generator in C_(p²), but in exponent p the first and last powers agree. Doubling and a final +2 give the stated families; the chains for 11, 19 and 23 give lengths 4, 5 and 5. At p=2 every one-entry equality pattern is possible in both groups (identity, doubling a suitable nonzero element, an identity factor, or two distinct nonzero summands with a third distinct sum), and the two-step chain separates. The p=3 lower bound is already 2. Inspected VERIFICATION.md and cayley_sparse_check.cpp; no uploaded executable was run. RESULT.md:63 has a prose slip: the tested primes 5,7 for k=1,2 and 11,13 for k=3 are above 2^k, not below it; they are below the reference 17. This does not affect the theorem or the stated finite partition counts. The package marker is finite corroboration only.
 
-OEIS A387855, dated October 8, 2025, names the invariant and tabulates up to order 23. The full Chernev–Chernev preprint of November 19, 2026 was inspected and gives a general upper bound and small-order computations, not the all-prime indistinguishability lemma or exact Mersenne/Fermat families. Bean's Latin-square critical-set bound and Gowers–Long's approximate associativity result concern materially different notions; neither implies the new claim. Published-result searches and comparison with all 98 recoverable claims in the current accessible algebra ledger found no equivalent or stronger theorem. Earlier unindexed results remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new lower bound is uniform over all primes and all partial multiplication constraints, rather than an isolated addition-chain example. It identifies the precise three-entry threshold on the entire family of prime-square orders, gives the first unlisted exact cases \(25,49,121\), and ties infinitely parametrized exact families (conditional on prime existence) to addition chains and incidence-matrix structure. It quantifies the information content of sparsely sampled group tables, which is the invariant's motivating question.
+Credit the earlier identification invariant and order-at-most-23 computations. The supported distinct result is two-way equivalence of all sparse patterns above a uniform prime threshold and its consequences for prime-square orders, not the definition, the already tabulated small values, or a general cyclic-group upper bound in isolation.
 
-## Scope and risks
+## value
 
-The sandwich does not determine \(m(p^2)\) for every prime; no infinitude claim is made. The October 2025 sequence record is the earliest verified public source used for scope. The later November 2026 preprint is compared for priority only. Independent mathematical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a structural obstruction for the natural minimum-fill identification invariant, ruling out every sparse pattern rather than just short power witnesses. It also yields an explicit logarithmic bound and exact infinite-form prime families without implying that either family contains infinitely many primes. The p-local minor argument explains why the two different exponents cannot be detected by such patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

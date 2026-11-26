@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The n=7 theorem specifies the exact coordinate order, binary incidence encoding, unnormalized Fourier convention, and projection range. An independent nonattacking-rook construction agrees with the 162 singleton-free partition masks. Integer Walsh butterflies exhaust all 2,097,152 Fourier coefficients; direct parity sums independently check every cubic zero, with additional representative signs and Plancherel. A second exact integer transform gives the range projection kernel and its sum of absolute values. Translation averaging proves its minimum endpoint norm among all projections over both scalar fields. The verifier run produced `PASS`.
+## correctness
 
-**Originality — PASS, with bounded-search risk.** The 2007 full-text singleton-free partition paper determines block enumerators, recurrence, real zeros and modular counts, not a signed arc-incidence spectrum. The 1991 set-partition rook-statistic paper and 2012 arc-pattern paper do not determine the claimed nullity or projection norm. Related existing unrestricted-partition Fourier claims employ additional singleton-containing codewords, and co-block pair-incidence claims have different coordinates; neither implies the new constrained signed transform. Semantic literature and mathematical-record searches on the exact constrained family, 162 states, first cubic zeros and claimed projection norm returned no covering statement. An unindexed computation or alternate equivalent remains a risk; absence from search alone is not proof of global novelty.
+PASS
 
-**Value — PASS.** Deleting singleton blocks is a classical natural statistical and enumerative restriction, not an arbitrary set of binary masks. The seven-point case is the first post-four-point loss of Fourier recoverability after the five- and six-point examples are fully invertible, and it supplies a complete finite nullity and sharp endpoint amplification constant. The fraction of invisible modes is only about 7.5%, yet the least possible endpoint projection norm exceeds 142, a quantitatively useful distinction between Hilbert gap and endpoint range reconstruction. No all-order or application-specific claims are asserted.
+There are 1+21+35+105=162 partitions in block-size patterns (7), (5,2), (4,3), and (3,2,2); consecutive arcs determine the partition by recovering the connected paths. The exact independent restricted-growth-word replay in /workspace/branches/83a45965-603f-4b54-99fe-67131a410611/independent_replay.py (results independent_replay_n5.json and independent_replay_n7.json in the same directory) reproduced 157808 zeros, rank 1939344, least nonzero magnitude 2, the first 19 zero modes all of weight 3, projection-kernel support 521828 and absolute numerator 298503520. All first zeros were checked by direct parity summation; Plancherel and Walsh involution also held. The maximum 162 occurs at the trivial character and is an upper bound by the triangle inequality, giving condition 81. The second transform gives the kernel numerator because the inverse Walsh transform divides by 2^21; the quotient for the absolute sum is 9328235/65536. A projection onto the range fixes that range, so averaging conjugates by translations still fixes it and still maps into it. The average commutes with translations and is forced to be the nonzero-frequency cutoff, since each Walsh character spans a one-dimensional simultaneous translation eigenspace over either field. The absolute row and column sums both equal the kernel l1 norm, proving the global minima without requiring uniqueness among arbitrary optimal projections. The replay and conclusions are for the specified labeled incidence encoding, not all partitions or arbitrary n.
 
-Scientific limitations: the finite classification relies on exhaustive integer computation; a completely independent mathematical audit has not been conducted, and an unindexed equivalent is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked sources establish the underlying partition enumeration and arc convention, or analyze substantially different Fourier encodings. They do not cover the seven-point singleton-free consecutive-arc spectral census and exact endpoint constant. The Walsh diagonalization and averaging argument are standard, not themselves originality claims.
+
+## value
+
+PASS
+
+Singleton exclusion and consecutive arcs define a natural constrained partition code, also a path-cover model with no isolated vertices. The seven-label census gives an exact recovery boundary within this cube: one- and two-coordinate signs never cancel, while cubic signs do, despite the large recoverable space. A researcher using this fixed code needs the whole rank, conditioning and the optimal endpoint cost to distinguish local cancellations from operator-level stability. These statistics are not apparent from the ordinary partition count. No general-order classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

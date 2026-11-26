@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The critical local identity for the second iterate is a uniform second-order Taylor expansion of the actual circle lift; its harmonic coefficient was checked symbolically by direct composition, with zero residual. Positivity of the one-step increments and monotonicity in the gain give a unique parameter profile; uniform derivative estimates and the nondegenerate first resonant harmonic establish exactly four critical points. The commutation of the map with its square pairs profile extrema, yielding precisely one attracting and one repelling primitive period-two orbit inside the parameter window and one nondegenerate neutral orbit at either boundary. The physical-cap crossover is a nondegenerate implicit root in the forcing parameter. The exact symmetric slice follows by the half-turn quotient. The accompanying checker independently solves the full unexpanded recurrence and reports 93 passed finite consistency checks; it does not replace the proof.
+## correctness
 
-## Originality — PASS within inspected literature
-The 2022 originating article develops the map and numerical phase behavior, but its analytic bifurcation conditions are for period-one saddle-node curves, not a full half-rotation locking window or the gain-cap threshold. Three highly related published mathematical reports were inspected in full: the same-map global fold classification tests spatial derivative zeros rather than period-two resonances; the complementary-two-harmonic result assumes denominator at least three and distinct harmonic frequencies; the standard sine-map half-tongue result does not include the intrinsic quadratic second harmonic and physical parameter cap. Thus none of their stated conclusions implies the explicit coefficient and gain-cap crossover here. Classical perturbative tongue theory provides general background and may contain methods from which these formulas can be derived. A 2025 nontwist map article was available only in abstract form and is retained as a material coverage risk; the absence of an indexed equivalent is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The exact restricted-model locking window answers a natural finite-time dynamical question suggested by the originating period-two and multistability diagrams. Its coefficient separates direct second-harmonic forcing from the resonant quadratic effect of the first harmonic, and the physical upper bound produces a new sharp nonempty locking region past the zero-coupling critical frequency. Complete local orbit counts, stability and nondegenerate boundaries make the result more than an arbitrary series coefficient or a simple substitution into a single-harmonic normal form.
+At a₀=1/(2d), write a=a₀+cb² and F=x+1/2+b h(x)+b² k(x)+O(b³), where h=(Ω/d)sin(2πx), k=dc−a₀sin²(2πx). Then h(x+1/2)=−h(x) and k(x+1/2)=k(x), so the second iterate has coefficient 2k−hh′, namely 2dc−a₀+a₀cos(4πx)−π(Ω/d)²sin(4πx). The remainder is uniform in C² on bounded c and compact Ω ranges with d>0. For small b, g(x)=1−(Ω−b sin(2πx))² is positive and F′>0 on the relevant parameter strip. In fact ∂ₐF²(x)=g(F(x))+F′(F(x))g(x)>0. Thus there is a unique periodic profile a=𝒜_b(x) (inside (0,1) at fixed |Ω|<Ω_c by uniform bracketing), analytic even through b=0 before selecting extrema, with 𝒜_b−a₀ divisible by b². Its scaled profile tends in C² to the single frequency-2 harmonic plus a constant; its four simple critical points persist with no additional ones. The map x↦F_{𝒜_b(x)}(x) is C¹-close to a half-turn, preserves the profile and pairs the two maxima and the two minima; a regular level therefore gives precisely two primitive orbits. Since ∂ₓ(F²−x−1)=−∂ₐ(F²−x−1)𝒜_b′ along the profile, signs give one attracting and one repelling orbit, while at extrema the second derivative is nonzero and ∂ₐ(F²−x−1)>0, giving nondegenerate saddle-nodes. Half-turn conjugacy under b↦−b makes the analytic extreme values even, so the remainder is O(b⁴). For Ω=0, G=F−1/2 is increasing and G²=F²−1; G²(x)=x iff G(x)=x. The increment range gives the exact symmetric interval. Near Ω_c the same profile extends through the cap; ∂_Ω a₀(Ω_c)=2√2, which gives the stated unique local cap edge and its coefficient (√(1+4π²)−1)/(2√2). At the edge only the lower endpoint is admissible. Inspected the frozen verification and numerical script without running it. The analytic comparison controls the all-orbit count and uniformity, not a grid search.
 
-## Limitations
-Only sufficiently weak forcing is treated, and the gain-cap crossover is local near its threshold. No assertion is made about other rotation numbers, stronger forcing, physical basins or all historically unindexed literature. Numerical checks do not independently certify an infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact map, its harmonic decomposition and some period-one and numerical dynamics are prior. The strongest examined same-map and general resonant comparisons do not give the half-rotation profile with these harmonics tied to a single capped gain, the explicit width and symmetric slice, or the resulting cap edge.
+
+## value
+
+PASS
+
+The two contributions to the resonance have the same perturbative order and affect the lower and upper edges differently. The width and complete local census are quantitative results for a studied map, and the strictly positive cap shift shows that small coupling permits locking in a region forbidden at zero coupling. The cap is a pre-existing model constraint, not a slice chosen merely to get a solvable example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

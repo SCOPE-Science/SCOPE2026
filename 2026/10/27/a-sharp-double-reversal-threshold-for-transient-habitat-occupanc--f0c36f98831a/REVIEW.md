@@ -1,19 +1,21 @@
-# Scientific review: transient habitat occupancy ranking reversals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The affine occupancy equations give exact exponential trajectories for all rates and initial probabilities in the stated domain. Once the two relaxation rates are ordered, the difference has the form \(A(t)=d+u e^{-r_f t}-v e^{-r_s t}\) with strictly positive initial and limiting values. Its derivative has at most one zero. The derivative can form a negative minimum exactly when \(u,v>0\), \(r_fu>r_sv\), and \(d<m\), so continuity and strict monotonicity give exactly two positive simple zeros; otherwise there cannot be two. At equality the minimum is a tangency. The second derivative at the minimum equals \(r_fr_sm\), proving the local square-root duration law. An interior exact-rational counterintuitive example passes sign checks; finite randomized tests are supplementary rather than infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+Solving the two scalar ODEs gives A=d+u e^(−r_f t)−v e^(−r_s t), with positive initial and limiting differences. Equal rates give a monotone or constant difference and no crossing under those endpoint conditions. For unequal rates, multiply A' by e^(r_f t); its sign is that of −r_f u+r_s v e^((r_f−r_s)t). Except for the constant case it has at most one zero. A strict interior minimum requires u,v>0 and r_f u>r_s v, and its depth relative to d is exactly m by the stationary equation. Hence d<m gives two simple crossings and d=m a quadratic tangency. At the minimum A''=r_f r_s m, so for fixed amplitudes and rates, d=m−η gives displacements ±√(2η/(r_f r_s m))+O(η) and the claimed gap. For the supplied interior witness the exact signs at t=0, log 2 and ∞ are 1/20, −1/80 and 1/10. Independent bisection of 2+4x⁴−5x on either side of x=1/2 gives t≈0.127598992901 and 0.852234164747. Fixed-amplitude variation to the threshold is feasible in this example by holding q₂ fixed and increasing q₁ and p₁(0) by the same amount.
 
-Levins (1969) addresses migration/extinction and heterogeneity, not a two-habitat transient ranking. MacKenzie et al. (2003) focuses on detection-adjusted estimation, not this mean-difference phase diagram. Yackulic et al. (2015) is a materially close primary source: the accessed theoretical sections investigate transient habitat association and show a single directional sign change from invasion/empty starting conditions, but do not exhibit or classify **two strictly positive reversal times with both nonzero initial occupancies and the same initial and final ordering**. The generic exponential-zero bound alone does not certify a biologically feasible two-reversal regime or threshold. Published-record searches and accessible prior claim comparisons revealed no dominating statement. The full 2015 publisher view/supplements could not be completely retrieved and generic exponential-polynomial literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete, sharp parameter criterion for an ecologically meaningful counterintuitive transient: the apparently favored habitat at both endpoints can be disfavored between two distinct times without any change in underlying colonization/extinction rates. It gives two necessary physical mechanisms (simultaneous above-equilibrium or below-equilibrium relaxation, with the correct faster habitat), a strictly interior robust witness, and the exact square-root disappearance law that quantitatively describes how long the reversed ranking persists. These address the interpretation of longitudinal occupancy surveys, rather than a gratuitous parameter substitution. No claim is made about field frequencies, observation error, or priority certification.
+Transient occupancy–environment associations under time-invariant rates are already established motivation, and elementary zero counting and fold asymptotics are not new methods. The supported distinct result is the exact, admissible two-positive-time reversal threshold with strictly positive initial and limiting gaps and its model-specific interval coefficient. The closest inspected indexed theorems have different trajectories or vary a parameter rather than positive time. The most relevant ecological paper was independently confirmed at abstract level only; its unavailable main text is a live priority risk, not evidence of noncoverage.
 
-## Closest literature and limits
+## value
 
-Yackulic et al. (2015), DOI 10.1890/14-1361.1, explicitly explores transient habitat differences; overlap is confined to the model family and one-crossing scenarios, not the joint two-reversal criterion, based on accessible theoretical material. MacKenzie et al. (2003), DOI 10.1890/02-3090, describes the discrete survey/detection framework, and Levins (1969), DOI 10.1093/besa/15.3.237, supplies the older habitat-heterogeneity background. An inaccessible complete publisher presentation of the 2015 source and potential general exponential-sum results remain residual risks. The theorem does not apply to interacting habitats, temporally varying rates, or imperfect observations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An observer can see a ranking opposite to both initial and equilibrium rankings even when the rates never change. The theorem specifies exactly when this false indication is possible, gives a robust feasible example rather than an unphysical exponential fit, and says how the duration vanishes at the boundary. The usefulness is in these model-specific conditions, not in presenting the generic square-root fold as new mathematics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

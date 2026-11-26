@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:14:38.620041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and density_verify.py, inspected without execution",
+        "Dietz–Flowers–Lockard (2026), Theorem 2.7 and Corollary 2.9"
+      ],
+      "rationale": "A conjugate power-base partition has distinct row widths that are powers of m and cumulative multiplicities at those widths that are powers of q. If the largest width has multiplicity greater than one, all cumulative multiplicities are divisible by q and the last operation is uniquely inverted by dividing the multiplicities by q. If the top multiplicity is one and its width is greater than one, shrink that row by a factor m, merging it with the next group if needed; this uniquely inverts migration. The sole terminal shape is one cell. Each inverse reduces area. These operations give a word encoding, with migration count k fixed by the largest width m^k and raise count t by the number q^t of rows. Area at most X implies k <= K and t <= T. Two applications of the hockey-stick identity to the sum of binom(k+t,k) over that box give the asserted bound, including equality of the envelope with the box word count but not with the area-restricted shape count. For L=log X, Stirling with arguments aL+O(1) and bL+O(1) gives alpha L minus (log L)/2 plus O(1) in the logarithm, including when alpha=1. Alpha is strictly increasing in a and b, hence decreasing in the respective bases; alpha(4,4)=1 exactly, alpha(2,11) is about 0.989797 and alpha(3,6) about 0.975146. The strict inequalities can be bounded with the positive atanh series for log and a geometric tail bound. At X=1 the sole shape has one cell. The named prior statements are correct, but in the inspected published text the locators are Theorem 2.7, Corollary 2.9 and Question 4.9, not the numbering used in the frozen record.",
+      "residual_risks": [
+        "The finite independent-shape/word enumeration supplied with the record is corroborative only; the bound was checked analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 equal-base paper isolates two congruence classes and classifies the sizes in one of them as m^s+m^t-1; its other inspected bounds treat the number of partitions at given n. The 2026 paper asks for the density for the general pair."
+        ],
+        "reasoning": "The older results constrain equal-base support and are stronger on one residue class, but do not force sparsity in the remaining class or supply the all-pair entropy criterion.",
+        "searches": [
+          "Resultary: equal-base density/counting estimates",
+          "Flowers–Lockard (2021), Theorems 3.3, 3.4, 6.3 and Lemma 4.1",
+          "Dietz–Flowers–Lockard (2026), Question 4.9"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary catalogue, four structural and density search angles",
+        "Dietz–Flowers–Lockard (2026), primary text",
+        "Flowers–Lockard (2021), primary text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The word theorem controls shape generation, not how many distinct represented integers lie below X. The congruence description permits positive density in the class not parametrized by m^s+m^t-1."
+        ],
+        "reasoning": "The new conclusion uses the independent height and width constraints from area, a two-count word envelope, and a retained Stirling prefactor. It is an elementary deduction using the prior encoding, not a specialization of a stronger existing density or counting theorem found in the comparison.",
+        "searches": [
+          "Dietz–Flowers–Lockard, Theorem 2.7, Corollary 2.9, Question 4.9",
+          "Flowers–Lockard, Theorems 3.3–3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior paper's unique R/M encoding and height/width count are exactly the representation used here. Ferrers transposition swaps the bases without changing the supported sizes. No distinct materially matching Resultary record was retrieved."
+        ],
+        "reasoning": "A rephrasing of the encoding, including under transposition, is not new; the supported increment is bounding the distinct areas by the box of letter counts and the quantitative asymptotic bound.",
+        "searches": [
+          "Resultary: conjugate power-base zero density; operator-word counting",
+          "arXiv:2609.08799 / DOI 10.13069/jacodesmath.v13i3.393"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact counts and monotonicity results concern the number of shapes for particular integers, not the number of integers with a shape up to X. No exact matching catalogue finding was retrieved."
+        ],
+        "reasoning": "Finite support data or counts at specified sizes cannot settle a whole-support asymptotic, in particular the critical sqrt(log X) saving.",
+        "searches": [
+          "Resultary: density and the cited Question IV.15 (published as Question 4.9); equal-base counting estimates",
+          "Flowers–Lockard (2021), Lemma 4.1 and Theorem 6.3"
+        ]
+      },
+      "rationale": "Credit the word bijection and symbol counts to Dietz–Flowers–Lockard and the equal-base congruence and special-class results to Flowers–Lockard. The supported addition is the area-induced counting envelope with its Stirling prefactor, giving a zero-density region for the whole represented support rather than just a sparse residue class. No equivalent or stronger support-count result for that region was verified.",
+      "residual_risks": [
+        "An unindexed earlier deduction from the encoding may exist; the checked comparisons do not establish priority or exponent optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the encoding premise, not the new density bound.",
+          "evidence": [
+            "Unique R/M generation; counts fixed by largest part and part count; explicit question about the density of the represented integers."
+          ],
+          "identifier_or_url": "https://doi.org/10.13069/jacodesmath.v13i3.393",
+          "material_read": "Theorem 2.7 (p. 389), Corollary 2.9 (p. 390), Question 4.9 (p. 400)",
+          "method": "Primary full-text passage inspection",
+          "title": "A study of m-ary partitions whose conjugates are q-ary",
+          "trigger": "Same objects and claimed density question"
+        },
+        {
+          "assessment": "Partial support and shape-count coverage; no whole-support density consequence for the claimed region.",
+          "evidence": [
+            "For m>2, support is restricted to n congruent to m or 2m-1 modulo m(m-1); only the latter class is parametrized by m^s+m^t-1."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/81/ajc_v81_p458.pdf",
+          "material_read": "Theorems 3.3–3.4 (pp. 464–465), Lemma 4.1 (p. 465), Theorem 6.3 (p. 471)",
+          "method": "Primary PDF passage inspection",
+          "title": "Conjugate m-ary partitions",
+          "trigger": "Earlier treatment of the same-base diagonal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dietz–Flowers–Lockard, Question 4.9",
+        "Flowers–Lockard, Theorems 3.3–3.4",
+        "Frozen RESULT.md, Finding"
+      ],
+      "rationale": "This partly answers a stated support-density question with a uniform fixed-base criterion and resolves the critical symmetric pair (4,4), where a plain X^alpha bound would not decide density. The result concerns distinct represented integers, not just multiplicities or a congruence obstruction.",
+      "residual_risks": [
+        "No conclusion for alpha>1 and no sharpness or full classification claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

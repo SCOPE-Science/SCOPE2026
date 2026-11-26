@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:13.153959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated deterministic ODE, nonnegativity and boundedness follow from the inward coordinate faces, the human-population balance N'=Lambda-mu*N-d*I, and the stable environmental equation. The uninfected S,V subsystem is Metzler and Hurwitz; variation of constants with its nonnegative infection losses gives the exponentially accurate componentwise upper ceiling at S0,V0, including for arbitrary finite initial data above those values. Differentiating g_n(C)/C gives the claimed unique positive maximizer and the optimal scalar envelope, with the inequality also holding at zero. Strict threshold makes the eventual perturbed infection comparison Hurwitz via the positive-vector test. At equality the positive left nullvector gives the exact identity for Z; its possible positive drift is bounded by an integrable exponential times bounded Z. Adding the tail integral of this bound gives monotonicity and convergence of Z. On the omega-limit set S<=S0 and V<=V0, and constant Z with I>0 or C>0 forces S=S0,V=V0, where S'<0. Positivity of I or C persists briefly, contradicting constancy of Z. If E>0 with I=C=0 then I' is positive, also impossible there. Thus E,I,C decay to zero, and S,V,R converge by stable equations. At equality the local direct-transmission number is strictly below one, and g'_n(0)=0; the disease-free Jacobian is block triangular with Hurwitz blocks and yields trajectory-wise eventual exponential convergence. The rational witnesses check by substitution (thresholds 43/204 and 1). This is a sufficient condition, not an optimal epidemic threshold or an applied eradication guarantee. The frozen verify.py was inspected and not executed; it is a finite check, not proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The n=1 source applies a general Metzler upper-matrix approach and checks that its upper bound is attained only on the disease-free submanifold. On the frozen limiting ceiling, its bound can instead be attained at S0,V0 and positive C_*, so that argument is not directly transferable at equality.",
+          "arXiv:2603.28285v1 treats n>=2 persistence for local R_c>1; arXiv:2307.12707v1 treats possible backward bifurcation for n=2."
+        ],
+        "reasoning": "Generic comparison explains the strictly subcritical part but does not itself supply the asymptotic ceiling or dispose of the neutral boundary with the positive-concentration contact point. The frozen proof rules out remaining at that contact by susceptible depletion.",
+        "searches": [
+          "arXiv:2603.28285v1 pp. 11–14 and 17, use of Kamgang–Sallet Theorem 4.3 and the n>=2 case",
+          "Kamgang–Sallet DOI 10.1016/j.mbs.2007.10.005 as cited via the application in arXiv:2603.28285v1",
+          "arXiv:2307.12707v1 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.28285v1",
+        "arXiv:2307.12707v1",
+        "Resultary 45f2bd1d5fd8; 8ac4fb6bd206",
+        "Kamgang–Sallet comparison as used in arXiv:2603.28285v1, not a separate full-text inspection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published direct-transmission linearization for n>=2 does not contain the environmental slope; it yields local information, not the sharper model-specific global sufficient condition.",
+          "The n=1 theorem and earlier backward-bifurcation result do not assert global extinction at the frozen threshold or its equality case."
+        ],
+        "reasoning": "The novelty is not differentiation of a Hill curve or invoking a general comparison theorem. It is the nontrivial global consequence of combining the post-transient ceiling, optimal linear envelope and nonlinear exclusion of a neutral limiting trajectory.",
+        "searches": [
+          "arXiv:2603.28285v1, Theorem 1, Remark 1 and discussion (PDF pp. 12, 14, 21)",
+          "arXiv:2307.12707v1, Theorem 3.1, p. 13",
+          "Resultary 45f2bd1d5fd8 and 8ac4fb6bd206, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1 assumes n=1 and uses a Lambda/mu population ceiling; the frozen threshold uses the disease-free split and a maximizer of g_n(C)/C at positive concentration for n>=2.",
+          "45f2bd1d5fd8 uses a Perron-weighted infection mass in a heterogeneous SAIRS model without this Hill response. The HPV record 8ac4fb6bd206 uses standard incidence and an S/N strictness argument."
+        ],
+        "reasoning": "The comparison and invariance ideas overlap, but neither a reparameterization of the n=1 criterion nor a change of notation in the other models gives the frozen threshold.",
+        "searches": [
+          "Resultary: fomite/Hill extinction, vaccination-weighted envelope and critical threshold",
+          "arXiv:2603.28285v1 Eq. (2), Theorem 1, Remark 1",
+          "Resultary 45f2bd1d5fd8 and 8ac4fb6bd206"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact counterpart surfaced in the bounded catalogue comparison; the closest inspected formula in the model paper is J_c with n=1.",
+          "The finite rational examples and Hill orders sampled by the verifier are not the target claim."
+        ],
+        "reasoning": "A finite table cannot settle the universal statement over all positive parameters and integer orders; the exact catalogue/formula comparison tested for a symbolic covering criterion instead.",
+        "searches": [
+          "Resultary: all-order Hill/fomite extinction criterion and model-specific threshold",
+          "arXiv:2603.28285v1 Theorem 1 and Remark 1"
+        ]
+      },
+      "rationale": "The checked source establishes a different, n=1 global criterion and discusses n>=2 separately. The strongest catalogue comparisons use a related neutral-threshold proof for different equations and thresholds. The distinct supported content is the sharp scalar Hill envelope coupled to the disease-free susceptible/vaccinated composition and an inclusive sufficient global extinction threshold for the stated n>=2 system, with eventual exponential convergence.",
+      "residual_risks": [
+        "A broader or unindexed invariant-set comparison result might cover part of the proof; bounded checks do not establish priority.",
+        "No claim of novelty for the scalar optimization or general Metzler theory in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, but global criterion covers n=1 with different ceiling",
+          "evidence": [
+            "Theorem 1 begins ‘Let n=1’; its Eq. (19) bounds infection entries using Lambda/mu. Its n>=2 persistence result has a different hypothesis and conclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.28285v1",
+          "material_read": "Eq. (2) and Hill function p. 5; Theorem 1 and its comparison hypotheses pp. 12–13 (offsets 34730–39729); Remark 1 p. 14, persistence p. 17, discussion p. 21",
+          "method": "Bounded OA PDF passages and comparison of the assumptions and matrix bounds",
+          "title": "Global stability and uniform persistence in an epidemic model with saturating fomite-mediated transmission",
+          "trigger": "Primary model and plausible covering global theorem"
+        },
+        {
+          "assessment": "Backward bifurcation under conditions for n=2, not a covering extinction criterion",
+          "evidence": [
+            "Local direct-transmission subcriticality alone is not a general global test."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.12707v1",
+          "material_read": "Theorem 3.1, p. 13, OA offset about 47153",
+          "method": "Bounded OA PDF theorem comparison",
+          "title": "Dynamics of a mathematical model of virus spreading incorporating the effect of a vaccine",
+          "trigger": "Possible obstruction or implication from n=2 analysis"
+        },
+        {
+          "assessment": "Related proof patterns for different models and different thresholds",
+          "evidence": [
+            "Multi-group SAIRS with heterogeneous vaccination and an HPV standard-incidence system, respectively, not the all-order Hill envelope and disease-free composition criterion."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11 45f2bd1d5fd8; 2026/10/13 8ac4fb6bd206",
+          "material_read": "Findings and equality-case mechanisms in local mirror",
+          "method": "Bounded statement-level catalogue comparison",
+          "title": "Critical-threshold extinction with heterogeneous vaccination; critical HPV extinction at the closed reproduction threshold",
+          "trigger": "Strongest catalogue matches for closed-threshold convergence under vaccination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result addresses the model paper's distinction between local and global extinction for higher-order response. The composition-based sufficient bound can certify a case the coarser total-population envelope does not. In particular the equality case and its exponential convergence are useful distinctions because the bounding matrix is neutral, not strictly stable, at that boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

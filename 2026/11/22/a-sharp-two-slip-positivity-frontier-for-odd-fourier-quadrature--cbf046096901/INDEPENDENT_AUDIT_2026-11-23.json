@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:47:00.272108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distinct nodes give unique interpolation and thus unique normalized weights. Equating old uniform cardinal coefficients at the two reflected shifted nodes forces w_0=w_1=1/S and gives the displayed signed csc expression for all other weights. Its denominator is positive. Odd unchanged indices have positive corrections; among even indices the two endpoints j=2,n−1 maximize the csc sum by strict convexity and reflection. Thus the first sign loss is exactly H_n(α)=1, at those two and no others. The sine ratios increase strictly in α, start at zero, and give H_n(1/2)>1 by the limiting first ratio and the two positive remaining terms. For fixed α each ratio increases strictly with x=π/n by monotonicity of t cot t; hence the odd-size crossing increases to a_*=(√3−1)/2. In the expansion, H_∞−1=(4a²+4a−2)/[(1−a²)(2+a)] and the x² coefficient of H_n at a_* is 2a_*/3. Dividing by H_∞'(a_*) gives √3/24, so the crossing has the stated negative n⁻² correction. For n=3 the moved-node gap equals π at α=1/4, giving just one zero; at n=5 and α=1/3 the three surviving nodes form a uniform three-point degree-two rule. For the noise formula, subtract the two shifted cardinal rows from the original two unit rows. Their sum is orthogonal to uniform weights, their squared norm is 4+2Q−4S/n, and the scalar coefficient is 1/S. It is nonzero for α>0 by the sign correction in an unchanged weight. An independent real sin/cos moment-system solve at (n,α)=(3,1/4),(5,1/3),(7,0.34),(7,0.36),(11,0.21),(11,0.41) matched the sign checks and squared norms to floating precision. Read VERIFICATION.md, verify.py and verify-output.txt without executing the supplied verifier; all-size correctness follows from the analytic identities, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu–Townsend prove existence of negative weights on alternating many-node perturbations and a total-absolute-weight bound below 1/4. Austin–Trefethen prove convergence and Lebesgue bounds for general perturbation.",
+          "Both five-node records give the same approximately 0.2014594 worst-case tolerance, not the 1/3 first zero for the prescribed two-slip path."
+        ],
+        "reasoning": "A sharp tolerance against all perturbations is a different extremum and does not give the first sign loss for this safe particular pattern, even with n fixed. Stability bounds don't prescribe the exact signs or the second-moment noise penalty.",
+        "searches": [
+          "Yu–Townsend arXiv:2202.04722 §§4.1–4.2; Austin–Trefethen arXiv:1612.04018 §§1–2",
+          "Local Resultary all-configuration five-node radii 02df184d2d31 and d1e17fb2a7f8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify-output.txt",
+        "arXiv:2202.04722 and arXiv:1612.04018 at the listed passages",
+        "Resultary exact and distinct records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounded-data norm one at inward displacements is an ℓ¹ property, whereas the new variance formula depends on the squared ℓ² norm for outward displacements.",
+          "Low-rank row or cardinal replacement is a technique, not a theorem specifying the three-csc unit crossing or its finite-size correction."
+        ],
+        "reasoning": "Even where the linear algebra is shared, selecting the sign-critical neighboring weights and proving the one crossing uniformly by strict convexity and ratio monotonicity are additional arguments. None of the inspected statements gives those outcomes by setting the audited parameters.",
+        "searches": [
+          "Juxtapose Resultary Findings 92a65f43a0d4, 34d52f2ee2dd, b54fb697d31c and Yu–Townsend Theorems 4.1–4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "92a65f43a0d4 uses αh and (1−α)h, with strict positivity toward collision; the audited path uses −αh and (1+α)h, moving toward the next unchanged neighbors.",
+          "34d52f2ee2dd moves the two outer nodes of a triple inward while the middle node stays put; only the middle weight crosses and its limit is 1−1/√2."
+        ],
+        "reasoning": "Neither translation nor reflection of the original lattice changes the shrinking mutual gap of the inward pair to the growing mutual gap of the outward pair while preserving which other nodes stay fixed. The three-site gap and sign pattern also differ. An unrestricted signed-displacement formula would be relevant, but the materially inspected findings do not state the outward crossing.",
+        "searches": [
+          "Local Resultary odd Fourier/trigonometric quadrature, nearby adjacent shifts and positivity",
+          "Local Resultary inward collision 92a65f43a0d4 and three-site transition 34d52f2ee2dd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the frozen record. The one-node result has a half-step frontier and a singular-spectrum law; the two-erasure result gives conditional and average random-noise quantities for missing samples."
+        ],
+        "reasoning": "The theorem concerns a continuum of shifts and all odd sizes, not a finite table; these are the relevant exact-index comparisons. The supplied finite output is validation evidence, not a catalogue of known formulas.",
+        "searches": [
+          "Local Resultary exact two-slip Fourier positivity comparison, cbf046096901",
+          "Local Resultary one-node 639f82704fb3 and two-erasure b54fb697d31c"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact odd-size threshold, first-zero pair, finite-size correction and noise law for the outward adjacent-pair path. The strongest inspected comparisons involve inward motion, other shift/erasure patterns, or worst-case guarantees rather than an exact statement on this path. The exact match cbf046096901 is the same record, not another result. The n=3 degeneracy and broad perturbation framework are not the novelty claim.",
+      "residual_risks": [
+        "A general signed two-displacement Fourier formula or an older trigonometric moment treatment may contain the outward family; the strongest inspected inward-pair theorem does not give that equality classification.",
+        "The source's attribution of known three-node positivity theory is not a priority claim for the odd n≥5 frontier."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Many-node construction and worst-case bounds, not outward-pair classification",
+          "evidence": [
+            "Alternating many-node displacement can yield a negative weight for arbitrarily small fixed positive perturbation at sufficiently large sizes. Below one quarter there is a bound on the absolute sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+          "material_read": "§4.1 Thm. 4.1, pp. 10–11, OA offsets 40171–45652; §4.2 Thm. 4.2, p. 12, offset 45494",
+          "method": "Lawful arXiv OA PDF",
+          "title": "Yu and Townsend, On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+          "trigger": "General Fourier quadrature perturbation and weight negativity"
+        },
+        {
+          "assessment": "Convergence and stability, not exact weight signs or variance in this family",
+          "evidence": [
+            "The cited theorems bound approximation error/Lebesgue constants under arbitrary mesh perturbation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+          "material_read": "Abstract; §1 Thm. 1.1, pp. 2–3, offset 4590; §2 Thm. 2.1, p. 4, offset 13212",
+          "method": "Lawful arXiv OA PDF",
+          "title": "Austin and Trefethen, Trigonometric Interpolation and Quadrature in Perturbed Points",
+          "trigger": "Broader interpolation/quadrature setting"
+        },
+        {
+          "assessment": "Different shift geometries; not equivalent thresholds",
+          "evidence": [
+            "Inward adjacent pair stays positive through collision; two inward outer nodes of a triple make its stationary center weight cross."
+          ],
+          "identifier_or_url": "2026/11/16/92a65f43a0d4; 2026/11/22/34d52f2ee2dd",
+          "material_read": "Findings and setup at offset 0 for each",
+          "method": "Local Resultary mirror",
+          "title": "Positive Fourier quadrature survives symmetric pair collision; A sharp three-site positivity transition",
+          "trigger": "Closest earlier pair and distinct same-day positivity/noise overlap"
+        },
+        {
+          "assessment": "Respectively worst-case five-node jitter, one moving node and two erased nodes, not the current path",
+          "evidence": [
+            "Five-node worst-case radius ≈0.2014594; one-node frontier 1/2; erasure noise formula pertains to deletion rather than shifts."
+          ],
+          "identifier_or_url": "2026/11/22/02df184d2d31; 2026/11/22/d1e17fb2a7f8; 2026/11/22/639f82704fb3; 2026/11/22/b54fb697d31c",
+          "material_read": "Findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Five-node tolerance/radius records; One-node Fourier quadrature; Exact two-erasure Fourier quadrature sign law and random-noise floor",
+          "trigger": "Other same-day exact positivity and noise coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an ordinary interpolatory circle rule, the result identifies exactly which unchanged samples first require negative quadrature weights when adjacent timing errors push two nodes apart. It quantifies the gap between this local path and general grid perturbation guarantees, gives its odd-size limiting law, and measures independent sample-noise variance even on the positive side. This does not improve worst-case jitter guarantees or certify a deterministic discretization error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:39:34.000769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–83",
+        "Frozen VERIFICATION.md and check_reversal_pairs.py (read, not executed)",
+        "Independent exact replay: python3 /workspace/review_checks.py (telegraph function)"
+      ],
+      "rationale": "Success at the right endpoint requires positive final velocity and hence even parity from the inward positive start. In rate-scaled length, first-flight conditioning gives the marked backward equations; eliminating the minus component yields f_+''=(1−z²)f_+, f_+'(0)=f_+(0), f_+(c)=1. Thus the marked boundary value is 1/F_c(1−z²), in particular 1/(1+c) at z=1. Absorption occurs almost surely because at each flight the chance of an exit without another reversal is at least e^(−c). The entire function F_c(s) is the value at c of the scalar solution with u(0)=u'(0)=1; at a zero, integration by parts gives −s=(∫|u'|²+|u(0)|²)/∫|u|²>0. With ξ=c√(−s) the root equation is tan ξ=−ξ/c, one simple root in each stated half-period, none at zero. Growth at most exp(O(√|s|)) and ∑ξ_n^(−2)<∞ justify the normalized genus-zero product, with no exponential linear factor. Its ratios give the stated geometrics; the sum of their means is finite. The absolutely convergent log series gives the positive Lévy masses and rate −log H_c(0); F_c(1)=e^c. Independently expanding the two coefficients at s=0 gives Var(M)=A+A²−2B for A=F_c'(0)/F_c(0), B=F_c''(0)/(2F_c(0)); the factored expression and mean and variance scaling were checked by exact algebra. The supplied checker checks simulated success, mean and mass at zero, not simulated variance. At s>0 the Laplace limit follows by substituting q=e^(−s/c²), and at s=0 the transforms equal one. Euler's product and the convergent inverse squares and fourth powers give the independent-exponential law and its moments. These checks establish correctness without asserting physical-time or path convergence.",
+      "residual_risks": [
+        "The statements concern counts under right-exit conditioning, not physical crossing time or other boundary conditions. Finite simulations in the frozen record are not relied on for tail laws, the product or variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The local record treats both exit sides and all interior positions with the actual reversal-rate parameter; its scalar transfer solution extends to the inward state without a singularity.",
+          "Monthus's abstract describes arbitrary position-dependent speeds/rates and extrema/exit framework, not the exact comparison used here. Full-text coverage by the two older trap papers was not established.",
+          "Fill–Lyzinski pp. 1–2 discuss Markov-chain hitting-time convolutions and path decompositions; the inspected material does not identify this continuous telegraph stopping model as an applicable discrete chain result."
+        ],
+        "reasoning": "The established stronger coverage comes from the explicit marked transform, not from guessing that the older papers on physical passage times or general spectral decompositions apply.",
+        "searches": [
+          "Resultary 13632ddb5c13, Assumptions, marked transform and proof",
+          "Monthus arXiv:2611.18270v1; Masoliver–Porrà–Weiss DOI 10.1103/PhysRevA.45.2222; Foong–Kanno DOI 10.1016/0304-4149(94)90061-2",
+          "Literal primary lookup of Hitting Times and Interlacing Eigenvalues: A Stochastic Approach Using Intertwinings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 39–96",
+        "Resultary 13632ddb5c13, exact transform and proof",
+        "arXiv:1201.6441 and arXiv:2611.18270v1, inspected passages; DOI 10.1016/0304-4149(94)90061-2, limited accessible material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At s=0 the numerator is 1 and the denominator is F_c(1−q). F_c(t) is the value at c of u''=tu, u(0)=u'(0)=1; the standard self-adjoint Robin–Dirichlet problem gives simple roots −ξ_n²/c² and F_c has order at most 1/2. The genus-zero product divided by its value at t=0 then gives factors r_n²/(r_n²+1−q).",
+          "Each factor has log ∑_{k≥1}(q^k−1)(1+r_n²)^(−k)/k, and −log H_c(0)=c−log(1+c). The moments and q=e^(−s/c²) limit are direct operations on the available function; Euler's product for sinh identifies the limit."
+        ],
+        "reasoning": "These steps explicitly show the implication, rather than treating uniqueness of a PGF alone as evidence that a nontrivial structural discovery is unoriginal. The special Robin product is the standard factorization of the characteristic function already displayed, with its parameters read off directly. No nonroutine distinct remainder of the frozen Finding is established by the comparison.",
+        "searches": [
+          "Resultary 13632ddb5c13 full marked count passage and backward proof, RESULT.md offsets 0–5396; compare frozen RESULT.md lines 51–80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With ℓ=γL/v, s=x/L and w=√(1−z²), the indexed F_R(z) is [cosh(ℓsw)+sinh(ℓsw)/w]/[cosh(ℓw)+sinh(ℓw)/w]; its success probability is (1+ℓs)/(1+ℓ).",
+          "Its proof uses f_−(0)=0, f_+(L)=1 just as the frozen inward/outward model does, so the continuous s→0 specialization is the inward trace rather than immediate killing at x=0.",
+          "Normalize that trace by success, and put q=z² to count pairs, to obtain exactly H_c(q)."
+        ],
+        "reasoning": "There is no change of observable beyond taking half of an even reversal count; no new boundary condition, regenerative argument or limiting coupling is needed for the exact boundary PGF. The two-sided transform is stronger than the boundary specialization.",
+        "searches": [
+          "Resultary reversal-count PGF / two-sided telegraph exit and compound Poisson reversal pairs; Resultary 13632ddb5c13 exact forward launch transform",
+          "Primary search for diffusion passage-time spectral and geometric decompositions; arXiv:1201.6441"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day indexed record explicitly states the general closed PGF in its Assumptions and scope. It is not the self-match to the reviewed record. Its exact marked count law covers the boundary parameters after taking the trace; it is not merely a record about its titular moment thresholds.",
+          "No literal matching table of the Lévy masses was identified in that source."
+        ],
+        "reasoning": "Exact broader functional coverage matters even without a matching table or a threshold in the title. Same-day dating does not establish which derivation came first.",
+        "searches": [
+          "Resultary ranked search for telegraph/run-and-tumble reversal-count first exit, right exit PGF and Robin spectrum; local mirror 13632ddb5c13"
+        ]
+      },
+      "rationale": "A distinct indexed statement, 13632ddb5c13, gives the full marked right-exit transform for arbitrary interior launch position, with exactly the same outgoing boundary conditions and rate convention. At its continuous inward boundary value it gives the frozen PGF exactly. The remaining frozen formulas are routine consequences of that explicit transform, not merely information that is implicitly encoded in an arbitrary PGF: its displayed denominator is directly the scalar constant-coefficient Robin–Dirichlet characteristic function, with the usual order-below-one canonical product. Normalizing and substituting 1−q makes each linear factor a geometric PGF; taking its log immediately yields the compound-Poisson formula. Differentiation, evaluation at zero and substitution q=e^(−s/c²) give the moments, intensity and scaling limit. No new statement of the Robin representation was found verbatim in the other record; the failure is on mechanical implication of the entire frozen claim by the inspected broader transform plus standard identities, not an allegation of historical priority, nor based on failure to retrieve older literature.",
+      "residual_risks": [
+        "The timestamp ordering or historical discovery is not determined. Older reversal-resolved and two-trap texts were not fully available; the verdict rests on verified broader transform coverage and the explicit implication, not an access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader marked transform covers the target PGF at the inward boundary; routine derivation of the remainder",
+          "evidence": "The displayed two marked PGFs include the right-exit denominator used here; the proof uses the same kinetic boundary conditions and its solution is continuous up to the inward launch state.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-nested-reversal-count-fluctuation-thresholds-for-finite-inte--13632ddb5c13/RESULT.md",
+          "material_read": "Finding and Assumptions through marked PGFs, backward proof and start of moment expansion, offsets 0–5396",
+          "method": "Local Resultary mirror",
+          "title": "Two nested reversal-count fluctuation thresholds for finite-interval run-and-tumble escape",
+          "trigger": "Same finite interval and reversal-count observables; plausible broader PGF"
+        },
+        {
+          "assessment": "Unresolved historical coverage, not the basis of the verdict",
+          "evidence": "Relevant reversal-resolved first passage; the evidence accessed does not establish the exact two-boundary inward conditional PGF or spectral law.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(94)90061-2",
+          "material_read": "DOI landing metadata and abstract only; original result pages unavailable",
+          "method": "Lawful landing page and identified alternate public PDF attempt (unavailable)",
+          "title": "Properties of the telegrapher’s random process with or without a trap",
+          "trigger": "Earlier reversal-resolved first-passage work"
+        },
+        {
+          "assessment": "Access limitation, not an absence or coverage finding",
+          "evidence": "No original marked-count passage verified; the historical comparison is not decided by this inaccessible source.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.45.2222",
+          "material_read": "Citation and model description in frozen RESULT.md; original DOI retrieval unavailable, no primary result passage read",
+          "method": "Lawful DOI OA attempt",
+          "title": "Solutions of the telegrapher's equation in the presence of traps",
+          "trigger": "Classical telegraph propagation with traps and possible exiting-flux relation"
+        },
+        {
+          "assessment": "Context only; no exact marked-transform implication established from this passage",
+          "evidence": "The two scale functions depend on switching-to-speed ratios and govern interval exit probabilities and renormalized paths.",
+          "identifier_or_url": "https://arxiv.org/html/2611.18270v1",
+          "material_read": "Abstract and opening, offsets 0–2799",
+          "method": "Lawful OA article",
+          "title": "Real-Space-RG for the drawups and drawdowns of run-and-tumble trajectories",
+          "trigger": "Broad run-and-tumble interval exit and extrema framework"
+        },
+        {
+          "assessment": "Related Markov-chain decomposition methodology, not used as stronger coverage",
+          "evidence": "Discusses discrete Markov chain hitting times and sample-path constructions for geometric components; does not in the inspected passage give the continuous telegraph exit law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.6441",
+          "material_read": "Introduction pp. 1–2, offsets 2200–6385",
+          "method": "Lawful arXiv copy after author-hosted link unavailable",
+          "title": "Hitting times and interlacing eigenvalues: a stochastic approach using intertwinings",
+          "trigger": "Possible alternate formulation via established hitting-time convolution results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–34 and 39–80",
+        "Resultary 13632ddb5c13 exact two-sided marked count law and matching transfer problem"
+      ],
+      "rationale": "The stopping model is natural and the geometric representation is a useful interpretation, but the submission does not establish a further worthwhile mathematical gap after the already available explicit full exit-count transform. The boundary specialization, constant-coefficient Robin characteristic product and elementary logarithmic expansion supply the exact candidate invariant without an additional structural or analytical step beyond standard tools. The other exact moments and limiting transform likewise follow directly; the frozen claim does not give a pathwise decomposition, new estimate, or different boundary model that would survive as a distinct motivated result under the narrow-invariant standard.",
+      "residual_risks": [
+        "The scientific-value finding is specific to this standalone frozen claim given the demonstrated coverage, not a judgment against the usefulness of telegraph crossing counts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

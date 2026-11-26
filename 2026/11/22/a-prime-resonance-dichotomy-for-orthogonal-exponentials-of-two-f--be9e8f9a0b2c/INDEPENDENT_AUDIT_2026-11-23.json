@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:05:36.001913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The geometric sum vanishes exactly at k/(rc) with r not dividing k; the denominator-zero points give value 1. Thus pairwise orthogonality is precisely the union-of-two-zero-sets difference condition. With p∤b and q∤a, coprimality gives gcd(pa,qb)=1. After translating any member to zero, all frequencies are on the common rational grid, and reduction modulo integers is injective on the family (a difference in Z gives inner product 1). Chinese remaindering places all nonzero zero residues on the two axes. Points from distinct nonzero axes cannot coexist because their difference is on neither axis. On an axis the residue condition modulo the corresponding digit count gives the bound p or q, with equality q possible only on the q-axis. Lifting back to real frequencies gives exactly the stated k_j/(qb) with a complete residue system modulo q, not just an assertion modulo Z. In resonance the displayed frequencies are orthogonal by the unequal-j/equal-j cases, and repackaging with p and q interchanged verifies the second construction, including the case when both divisibilities hold. In either resonance case ia+jb are all distinct by b | i−i′ and a | j−j′ together with b≥p or a≥q. Dimension then gives the upper bound pq and completeness, while the nonresonant support has at least p+q−1>q locations even when some sums collide. A separate exact rational check of 61 small finite cyclic graphs (p,q in {(2,3),(2,5),(3,5)}, coprime steps up to 6, lcm(pa,qb)≤120) agreed with the clique numbers and tested the explicit families. Replay: python3 /workspace/branches/89ff7c1c-d1a1-4bad-9d5a-7d3bb071f05c/ordinal1_exact_check.py. This is supplementary; the uploaded checker was inspected, not run, and the proof addresses all parameters and arbitrary real frequency translates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou's Theorem 1.1 assumes that one factor's Fourier zero set together with zero is an additive subgroup. For either finite prime progression, r copies of 1/(rc) sum to 1/c, where the transform is 1, so the hypothesis is not met.",
+          "Fu–Wang's theorem concerns an infinitely iterated separated self-similar Bernoulli convolution and nonexistence of frame measures in its specified scaling regime. Full primary text of the cited classical Jorgensen–Pedersen paper was not accessible in the routes checked."
+        ],
+        "reasoning": "The subgroup spectrality criterion does not apply, and a frame obstruction for an infinite convolution is not a maximum orthogonal-family theorem for this two-factor finite measure. No whole-document conclusion about the unavailable classical result is asserted; even a sufficient resonant spectrum construction would not settle the nonspectral capacity.",
+        "searches": [
+          "\"Orthogonal harmonic analysis of fractal measures\" Jorgensen Pedersen 1998 convolution spectrum theorem",
+          "arXiv:2610.33987v1, Theorem 1.1",
+          "arXiv:2608.19676v1, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.33987v1, Theorem 1.1",
+        "arXiv:2608.19676v1, abstract and Theorem 1.1",
+        "Resultary e3a62faf9ed1, RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhou characterizes existence of full spectra under the subgroup hypothesis, not the size and rigidity of incomplete orthogonal families in the excluded case.",
+          "The adjacent two-atom record handles cancellations from rational Bernoulli scales via the 2-adic valuation, rather than maximum cliques supported on the q-axis of a two-modulus product."
+        ],
+        "reasoning": "Even proving nonspectrality only forbids a family of dimension size. It does not imply that the largest orthogonal family has exactly q members or that each optimizer uses the same axis and all residues. The arithmetic zero-axis argument supplies these conclusions independently.",
+        "searches": [
+          "arXiv:2610.33987v1, Theorem 1.1, HTML offsets 9975–13574",
+          "Resultary e3a62faf9ed1, RESULT.md, offsets 0–3783"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The difference constraint is a clique problem in a finite cyclic Cayley graph after translating one frequency to zero and reducing differences modulo the integer period. In nonresonance the graph is a Cartesian product of two complete multipartite graphs (one per cyclic coordinate, with parts distinguished by residues modulo the corresponding digit count after rescaling).",
+          "The inspected commensurable biased-Bernoulli record instead uses two-atom factors and dyadic valuations of the fair factors; its upper bound has a different zero-set structure."
+        ],
+        "reasoning": "The general clique fact for a Cartesian product accounts for the coordinate-axis argument once the Fourier-zero graph is identified; it does not itself give the arithmetic separation versus full-basis resonance for this family. Inclusion-wise maximal sets are not the same as maximum-cardinality sets: the assertion in the record classifies size-q optimizers only.",
+        "searches": [
+          "Resultary: finite convolution two uniform arithmetic progressions distinct prime digit counts maximum cardinality orthogonal exponentials nonresonant q versus pq CRT zero-set axes",
+          "Resultary: maximum size pairwise orthogonal exponentials incomplete orthogonal set finite cyclic spectral measure arithmetic progressions two convolution factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected exact capacity formula in the corpus is 2^r in the commensurable two-atom setting, with r counting distinct dyadic valuations of fair factors. No exact table for the mixed-prime two-progression capacity was identified among the inspected hits.",
+          "The external finite-convolution query returned general Fourier material, with no pertinent capacity passage. It provides no evidence of absence."
+        ],
+        "reasoning": "A capacity table or formula for binary factors is not a table for two prime progressions of different lengths; q is odd and one factor has at least three atoms with a non-dyadic zero constraint. Related ranked summaries were not relied on for whole-document noncoverage.",
+        "searches": [
+          "Resultary: maximum size pairwise orthogonal exponentials incomplete orthogonal set finite cyclic spectral measure arithmetic progressions two convolution factors",
+          "\"finite convolution\" \"orthogonal exponentials\" uniform arithmetic progressions distinct primes maximum cardinality",
+          "Resultary e3a62faf9ed1, RESULT.md, Finding and Proof"
+        ]
+      },
+      "rationale": "The convolution-mask method and resonant product-form construction are not the novelty. The substantive increment is the exact nonspectral maximum and all-maximizer classification for two different prime lengths. The inspected comparisons support that increment within bounded coverage; an inaccessible classical theorem and differently indexed finite character-packing work remain risks.",
+      "residual_risks": [
+        "Established but differently indexed finite Fourier-zero/character-clique results could overlap the q-case. Searches were bounded. Full coverage of Jorgensen–Pedersen (1998) and a secondary-cited distinct-valuation construction was not independently verified.",
+        "Resonant spectrum existence uses a standard construction theme and is not credited as independently new. No absolute priority assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The actual subgroup hypothesis excludes these factors, and the theorem is about full spectra.",
+          "evidence": [
+            "Theorem 1.1 assumes the zero set plus zero is an additive subgroup before giving its spectrality criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.33987v1",
+          "material_read": "Theorem 1.1 and surrounding text, HTML offsets 9975–13574",
+          "method": "Located and read the original theorem passage",
+          "title": "Spectrality of convolution and product measures: a block decomposition approach",
+          "trigger": "Closest accessible primary theorem about spectrality of convolution measures"
+        },
+        {
+          "assessment": "The inspected theorem treats frame measures for separated infinite self-similar convolutions; it does not cover the claimed finite maximum.",
+          "evidence": [
+            "The theorem uses the infinite self-similar measure μ_(ρ,N) and nonexistence of a frame measure under the power/nondivisibility condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.19676v1",
+          "material_read": "Abstract and Theorem 1.1, PDF p. 3, text offset 8191",
+          "method": "Read the original PDF passages at the stated locations",
+          "title": "Nonexistence of Frame Measures for Separated Uniform Consecutive-Digit Bernoulli Convolutions",
+          "trigger": "Same consecutive-digit terminology and possible Fourier obstruction"
+        },
+        {
+          "assessment": "A genuinely adjacent result, not a proven priority predecessor: record and target share a sync time. The two-atom hypotheses do not cover the mixed-prime family in any case.",
+          "evidence": [
+            "The exact capacity is 2^r for r distinct dyadic valuations among the fair factors, with all factors supported on two points."
+          ],
+          "identifier_or_url": "Resultary e3a62faf9ed1, 2026/11/22, RESULT.md",
+          "material_read": "Finding and definition, offsets 0–933, and scope, formula and Fourier-zero argument, 629–3783",
+          "method": "Read the matching published record via local mirror",
+          "title": "Exact orthogonal exponential capacity of commensurable biased Bernoulli convolutions",
+          "trigger": "Same exact orthogonality-capacity invariant over commensurable finite factors"
+        },
+        {
+          "assessment": "Independent full-text coverage unresolved. No snippet or failed access was used to conclude this paper lacks a packing theorem.",
+          "evidence": [
+            "The paper is cited for the resonant construction context in the frozen package, not counted as independently checked evidence about the nonresonant bound."
+          ],
+          "identifier_or_url": "https://ftp.gwdg.de/pub/misc/EMIS/journals/ERA-AMS/1998-01-006/1998-01-006.tex.html",
+          "material_read": "Identification and landing/abstract material only; no primary theorem passage readable",
+          "method": "Exact-title search and lawful alternative copies of the same paper attempted; theorem text unavailable",
+          "title": "Orthogonal harmonic analysis of fractal measures",
+          "trigger": "Cited classical compatible-convolution spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fourier packing capacity is a natural partial-basis invariant, and two uniform digit progressions with different prime sizes are a motivated setting for comparing cross-divisibility with basis existence. Beyond the standard resonant construction, the result gives an exact gap with no intermediate capacities and tells which frequencies can attain the nonspectral optimum, including for convolutions with collided sums. These statements answer a concrete packing and rigidity question not supplied by the compared basis-existence results; the concise clique argument does not turn the complete arithmetic classification into an arbitrary numerical slice. The review credits this narrow structural result, not applications to infinite convolution or a new general clique theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:50:15.679354Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md definitions and component/orbit proofs; VERIFICATION.md; component_enumerator.py, direct_label_enumerator.cpp and ORBIT_REPRESENTATIVES.tsv inspected as text",
+        "Independent replay from /workspace: python3 checks/heawood_prism.py source/2026/11/22/nine-optimal-orbits-*/ORBIT_REPRESENTATIVES.tsv; output checks/2.txt"
+      ],
+      "rationale": "For a fixed zero set the source correctly uses a separate two-coloring choice on each connected component of the positive induced subgraph, including isolated vertices, and requires each zero to see both named colors. I independently used maximal cliques in the complement of the Heawood prism. Under the label-to-layer correspondence, a prism independent set uses at most one copy of each vertex; every used fiber is dominated by its vertical edge, and each unused fiber needs domination in both layers. Thus maximal independent sets of the prism give exactly the labeled functions, with weight preserved. The new census gave coefficients 868,168,42,28,2 at weights 8,9,10,11,14 and zero elsewhere, totaling 1108. It reproduced the optimum point-zero counts (70,84,168,224,168,84,70). The connected incidence graph's automorphisms either preserve or reverse the bipartition; testing every point-to-side bijection and uniquely recovering the line images from neighborhoods yields exactly 336 automorphisms. Acting on the 868 optima without exchanging the named colors gave the complete nine-orbit TSV, including all specified lexicographic representatives and sizes.",
+      "residual_risks": [
+        "Finite enumeration for the specific incidence graph. The orbit count uses Aut(H), not the automorphism group of the prism or an additional global color swap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources give bounds, scalar examples and/or complexity results. The 2023 source gives scalar minima for specified cycle products and generalized Petersen P(n,2)."
+        ],
+        "reasoning": "Neither a bound nor a minimum-value theorem for these other graph families gives the Heawood all-weight distribution and automorphism action.",
+        "searches": [
+          "arXiv:1709.08966v1, §3; arXiv:1908.01432v1, bounds and complexity; DOI 10.1007/s10100-023-00840-w, graph families and method"
+        ]
+      },
+      "checked_sources": [
+        "Primary sources and Resultary records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Petersen record reports 30z^6+80z^7 and five symmetry orbits. The 2020 paper on P(n,2)/P(n,3) studies the different subset-label predicate, not the named-label census."
+        ],
+        "reasoning": "The known bijection converts the problem but requires a new exact weight census on this prism and a specified group action. Neither the Petersen analogue nor scalar formulas for another predicate imply those values.",
+        "searches": [
+          "arXiv:1709.08966v1, Prop. 2.4 proof; Resultary Petersen and cycle-prism analogues; generalized Petersen exact-number papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prop. 2.4 states equality of the scalar minima and its proof's correspondence preserves weights.",
+          "Independent rainbow domination in DOI 10.3390/math8060996, §2.1, uses subset labels and independent total support."
+        ],
+        "reasoning": "The Heawood prism is a genuine alternate formulation for the polynomial. Its full automorphism group also permits layer exchange, so the orbit census only translates using the subgroup induced by Aut(H) on both layers. The similarly named subset-label invariant is not equivalent.",
+        "searches": [
+          "Heawood two-rainbow independent domination and independent domination on the Heawood Cartesian prism; Resultary",
+          "arXiv:1709.08966v1, §2 and Prop. 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact record 473476ae158f is the assigned record. Distinct close matches are the Petersen census dde53fd50c0f and cycle-prism minimum enumeration 7f4052acd4a2."
+        ],
+        "reasoning": "No distinct matching Heawood table was identified; the two closest catalogue entries have different underlying graphs, and the cycle-prism count only treats minima.",
+        "searches": [
+          "Resultary: Heawood all-weight polynomial, optimum orbit enumeration and prism independent domination"
+        ]
+      },
+      "rationale": "The invariant and the prism correspondence are known. The inspected same-invariant papers and closely analogous enumerators do not imply the complete Heawood polynomial or the nine optimal orbits for named labels. The exact catalogue match was the frozen record itself; priority is assessed only relative to the evidence inspected.",
+      "residual_risks": [
+        "A specialized independent-domination table or unindexed graph census might include the Heawood prism. The bounded examination is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known weight-preserving correspondence; not a Heawood enumeration",
+          "evidence": "Uses ordered partitions with separate independent positive classes and shows equality with independent domination on the Cartesian product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.08966",
+          "material_read": "§2 p. 3, Prop. 2.4 p. 5 and proof, §3 pp. 7–9; OA offsets 7600 and 14000 for definition and proposition",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On k-rainbow independent domination in graphs",
+          "trigger": "Original invariant and equivalent prism problem"
+        },
+        {
+          "assessment": "Bounds and computational complexity, not the claimed census",
+          "evidence": "Uses the same ordered-partition definition; the bipartite result addresses NP-completeness, not finite exact enumeration on Heawood.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01432",
+          "material_read": "Abstract p. 1, definition p. 2, bipartite decision theorem p. 8; OA offsets 500, 5600, 41000",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Notes on k-rainbow independent domination in graphs",
+          "trigger": "Same invariant and bipartite graph theorem"
+        },
+        {
+          "assessment": "Scalar minima on different families",
+          "evidence": "Scope lists cycle products with other cycles or paths and generalized Petersen P(n,2); §3 treats the path-algebra method.",
+          "identifier_or_url": "https://doi.org/10.1007/s10100-023-00840-w",
+          "material_read": "Abstract/Introduction pp. 1–2 and §3 p. 5; OA offsets 0 and 11700",
+          "method": "Lawful OA Springer PDF passage inspection",
+          "title": "On the 2-rainbow independent domination numbers of some graphs",
+          "trigger": "Exact results for the same invariant"
+        },
+        {
+          "assessment": "Different domination predicate",
+          "evidence": "Allows sets of colors at a vertex and requires the entire positively supported vertex set to be independent.",
+          "identifier_or_url": "https://doi.org/10.3390/math8060996",
+          "material_read": "Abstract p. 1 and definition §2.1 p. 2; OA offsets 2400 and 4300",
+          "method": "Lawful OA publisher PDF passage inspection",
+          "title": "Independent Rainbow Domination Numbers of Generalized Petersen Graphs P(n,2) and P(n,3)",
+          "trigger": "Near-title match and exact minima on generalized Petersen graphs"
+        },
+        {
+          "assessment": "Different base graphs",
+          "evidence": "One counts minima on cycle prisms; the other enumerates the Petersen weight polynomial and five optimum orbits.",
+          "identifier_or_url": "Resultary records 7f4052acd4a2 and dde53fd50c0f",
+          "material_read": "Catalogue statements of objects and results",
+          "method": "Local Resultary statement comparison",
+          "title": "Resultary optimum-label censuses on cycle prisms and the Petersen graph",
+          "trigger": "Very close enumeration and orbit analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen polynomial, orbit representatives and point-zero data; independent replay; prior prism correspondence"
+      ],
+      "rationale": "Heawood is a canonical small incidence graph. The noncontiguous feasible-weight spectrum is information not supplied by the minimum, and the nine kinds of minimum configurations separate solutions otherwise indistinguishable by weight. Together with the point-zero distribution and representatives, this supplies a precise comparison or validation instance for enumeration and symmetry calculations on other incidence graphs.",
+      "residual_risks": [
+        "This is a finite classification, not a claimed extension to other planes or a general domination algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

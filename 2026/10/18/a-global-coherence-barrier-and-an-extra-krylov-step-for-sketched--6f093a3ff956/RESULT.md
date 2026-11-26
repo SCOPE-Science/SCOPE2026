@@ -2,7 +2,7 @@
 
 ## Finding
 
-Consider the sketched block-Jacobi inverse preconditioner defined in equation (12)–(13) of Vitale et al., *BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning* (arXiv:2610.13382v1). For a positive equicorrelation kernel, **every partition into at least two equal blocks leaves the spectral condition number of the kernel-ridge normal matrix exactly unchanged**. When the blocks contain at least two coordinates, the preconditioner additionally creates a third distinct spectral value and, for generic data, increases exact-arithmetic conjugate-gradient termination from two iterations to three.
+Consider the sketched block-Jacobi inverse preconditioner in equations (12)–(13) of Vitale et al., *BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning* (arXiv:2610.13382v1). The main case is Nyström kernel ridge regression with a **strict subset of centers in an equicorrelated set of distinct training points**. Every partition into at least two equal blocks preserves the spectral condition number exactly. When the blocks contain at least two coordinates, the specified sketch gives three distinct spectral values rather than two, so generic exact-arithmetic conjugate gradients takes three rather than two steps. The formulas include the full-center case as a boundary comparison.
 
 The statement is quantified over all integers \(n\ge m\ge2\), all integers \(s\ge1\) with \(s\mid m\) and \(q=m/s\ge2\), every correlation \(0<\rho<1\), and every ridge parameter \(\lambda>0\). It includes the genuinely Nyström-restricted case \(m<n\), not only full kernel ridge regression.
 
@@ -57,6 +57,12 @@ H=h_0I_m+\rho(2\delta+n(\rho+\lambda))\mathbf1_m\mathbf1_m^{\mathsf T}.
 \]
 The constant-vector eigenvalue is \(h_1\); its orthogonal complement has eigenvalue \(h_0\). These are distinct because \(\rho>0\).
 
+This tall-matrix calculation is not scalar replication of the center Gram matrix. At fixed \(m,s,\rho,\lambda\) the ratio
+\[
+\frac{h_1}{h_0}=1+\frac{m\rho}{\delta}\left(1+\frac{\delta+n\rho}{\delta+\lambda n}\right)
+\]
+increases with \(n\) when \(\rho>\lambda\), decreases when \(\rho<\lambda\), and is constant only when \(\rho=\lambda\). The three-value spectrum divided by its smallest value is \(1,t_1/t_0,h_1/h_0\); the middle ratio is independent of \(n\). Thus adding distinct nonlandmarks changes the normalized spectrum in general even though the exact conditioning obstruction persists.
+
 **Step 2: three orthogonal eigenspaces.** Within a block, \(K_s\) acts by \(\delta\) on vectors with zero coordinate sum and by \(\delta+s\rho\) on the all-ones vector. Accordingly, \(T_j\) acts by \(t_0\) and \(t_1\) on these two subspaces. Decompose \(\mathbb R^m\) orthogonally as: (a) zero-sum vectors within each block, of total dimension \(m-q\); (b) vectors constant within each block but with total sum zero, of dimension \(q-1\); and (c) the span of \(\mathbf1_m\). On (a) the pair \((H,P)\) has generalized eigenvalue \(h_0/t_0\); on (b), \(h_0/t_1\); on (c), \(h_1/t_1\). These subspaces exhaust the domain, proving the spectrum and multiplicities.
 
 **Step 3: strict ordering.** As \(\rho>0\), clearly \(t_1>t_0\), hence \(h_0/t_1<h_0/t_0\). It remains to show \(h_1/h_0>t_1/t_0\). After subtracting one from each ratio and cancelling \(\rho/\delta>0\), this becomes
@@ -92,7 +98,7 @@ Run `python verify.py` in a Python environment with NumPy and SymPy installed. T
 
 ## Relationship to prior work
 
-Vitale et al. (2026, arXiv:2610.13382v1) define the sketched block preconditioner and evaluate large-scale kernel learning empirically; equations (7), (12), and (13), plus Appendices B–C, are the direct method specification. The source does not state the equicorrelation spectral identity or its exact-CG consequence in the inspected full-text sections. Classical optimal block-scaling work by Shapiro (1985), Kolotilina (2002), and Demmel (2023) addresses the general optimization of block-diagonal conditioning and may subsume the *abstract* block-local lower bound in Step 4; novelty is not claimed for that lemma in isolation. Southworth and Olivier (2020) analyze broad two-block preconditioner spectra and Krylov termination, but their stated block operators and hypotheses do not specify this 2026 sketched kernel construction or the all-block-size formulas. The assessed contribution is the exact, algorithm-specific three-value spectral profile, all-parameter condition-number equality, and one-extra-CG-step example on legitimate normalized kernel data. Bibliographic overlap through older general frameworks remains a residual risk.
+Vitale et al. (2026, arXiv:2610.13382v1) specify the block sketch and normal equation in equations (7), (12), and (13). Classical optimal block-scaling work by Shapiro (1985), Kolotilina (2002), and Demmel (2023) may subsume the abstract lower bound of Step 4; no separate novelty is claimed for that lemma. Southworth and Olivier (2020) treat general two-block preconditioner spectra, not this specific tall kernel model. The Resultary analyses of [rank-one coarse correction](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-optimal-rank-one-coarse-correction-for-equicorrelated-sketche--fbb7f09b97e0/RESULT.md) and [rank-one block orientation](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-two-eigenvalue-kernel-system-whose-sketched-block-precondition--1b0a634c0def/RESULT.md) already exhibit the three-level mechanism for homogeneous blocks on different training configurations. The former uses copies of each center: its normal matrix is \((n/m)K_m^2+\lambda nK_m\), giving normalized spectral ratios equal to the full-center case here, independently of copy count. The latter studies a full-center rank-one construction. Neither setup yields the changing normalized spectrum as *distinct* nonlandmarks are added at fixed center Gram matrix and ridge. The exact formulas and uniform strict ordering for that setting are the focus here, not the first occurrence of a two-to-three Krylov-step increase in a block sketch.
 
 ## Limitations
 

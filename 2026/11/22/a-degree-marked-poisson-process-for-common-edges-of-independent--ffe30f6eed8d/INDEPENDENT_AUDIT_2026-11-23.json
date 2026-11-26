@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:40:16.925737Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on a fixed matching, the quotient tree has weight product c_i^{deg(i)}, and its n-r-2 Prüfer letters have probabilities c_i/n. Independently lifting each incidence gives one fair endpoint allocation per matched component plus a multinomial of length n-r-2 with probability 1/n per marked endpoint. This yields (1), also at n=r+2, and covariance -1/4-(n-3)/n². Two layers still factor after conditioning on both containments. For h distinct edges inclusion in both is at most (2/n)^{2h} (zero for cycles; otherwise use c≤2^{c-1}); only O_h(n^{2h-1}) tuples overlap. Disjoint tuples give the Riemann-sum intensity and the product limiting mark law. In particular all total factorial moments are bounded by 2^h, which dominates the multivariate generating-function expansion and justifies Poisson identification. Boundary strips and mark tails have uniformly negligible expected mass in the limit; one can work on the closed triangle to include finite atoms at y=1, or restrict those atoms out at a cost at most 4(n-1)/n². A fixed endpoint is a leaf with probability (1-1/n)^{n-3}/2 given the edge, and for n≥3 both endpoints cannot be leaves. This yields (2) and the nine independent Poisson limits. The uploaded checker was inspected as finite evidence, not used for the limit or executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bender–Canfield Theorem 1 counts all shared edges of random embeddings; its theorem does not identify oriented endpoint mark classes or their joint independence. Ge, doi:10.1016/j.dam.2025.04.058, abstract advertises weighted forest extension; exact theorem not accessed."
+        ],
+        "reasoning": "With edge weight x_u x_v, quotient enumeration directly gives the generating polynomial proportional to product of component sums times the total sum to power n-r-2, after removing the forced-edge weight. Treat the finite pgf as a specialization of weighted forest enumeration, not a claim of a fundamentally new enumerator. Scalar relabeling theorems can inform a marked extension but do not alone specify the multitype spatial law; one must add matching conditioning or oriented type-specific moments.",
+        "searches": [
+          "marked multivariate Poisson edge intersections sparse graphs random relabeling colored graphs Bender Canfield common edges overlap degree",
+          "Weighted Moon-type formulae Jun Ge arxiv product degree weighted forest complete graphs generating function"
+        ]
+      },
+      "checked_sources": [
+        "Bóna–Wagner 2501.18570v1 (full HTML)",
+        "Bender–Canfield 10.37236/1468 (author PDF)",
+        "Cameron–Kagan arXiv:2210.09009v1 (Theorem 1)",
+        "Janson 10.1017/S0305004100066111 (bibliographic record only)",
+        "Moon 1964 (publisher extract plus Bóna–Wagner’s reproduction)",
+        "Ge 10.1016/j.dam.2025.04.058 (abstract only)",
+        "Resultary cycle-cumulant record 705bc2214115 (indexed summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bóna–Wagner §1 reproduces Moon’s exact count and extracts the unmarked limit; §2 Lemma 1 and Proposition 2 already supply the forest probability and matching dominance.",
+          "Bender–Canfield §3 already splits factorial moments into independent and dependent edge tuples."
+        ],
+        "reasoning": "The overlap methods and forest probability are not contributions. The known scalar statements do not imply the product law for marked disjoint tuples or the spatial Poisson thinning; those require tracking incidence lifts and location sums. The improvement is explicit complete overlap structure, not a sharper scalar approximation.",
+        "searches": [
+          "Moon the second moment of the complexity of a graph 1964 1962 spanning trees common edges exact Moon Pittel expected number of induced subtrees shared two Cayley trees Janson 1986 pdf",
+          "arXiv:2501.18570v1",
+          "doi:10.37236/1468"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published pairwise-overlap cycle-cumulant record (705bc2214115) records tree-indexed scalar counts, not per-edge vertex degree pairs; Bóna–Wagner §2 Theorem 3 is scalar."
+        ],
+        "reasoning": "The new process projects to the scalar overlap law, but projection loses even the within-edge negative covariance, and edge-length/location results for one tree do not give rare overlaps of two trees.",
+        "searches": [
+          "Resultary: intersection independent uniform Cayley trees degree marked common edges endpoint size biased Poisson",
+          "Cayley trees adjacent endpoint degree joint distribution conditional edge random labelled trees degree-degree correlations uniform random tree Burda Pittel common induced subtree Moon second moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed records include the assigned record itself and unmarked multitreed overlaps; Moon’s finite distribution reproduced in Bóna–Wagner §1 has no endpoint-type refinements."
+        ],
+        "reasoning": "Compared the exact distributions against the finite pgf and nine-category claim. An exact unmarked table sums over all degree classes and cannot recover same-versus-opposite pendant ends. No matching independent table was identified; indexing is not exhaustive.",
+        "searches": [
+          "Resultary degree-marked Cayley overlap query above",
+          "Bóna–Wagner arXiv:2501.18570v1 §2",
+          "Bender–Canfield EJC 6 #R36 §§1–3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the joint space/four-degree overlap process, not for the unmarked law or the general underlying weighted enumeration. The familiar weighted forest count and sparse-collision moment methods are close inputs; the new content is their assembly into an explicit simultaneous conditional degree law and independence of marks across random common edges, including the pendant alignment projection. Credit Moon (1964) for the earlier exact unmarked formula and its implicit scalar limit, as documented by Bóna–Wagner; the record’s historical discussion omits Moon.",
+      "residual_risks": [
+        "Full text of Janson, Moon, and Ge not independently inspected; no absence finding for unread passages.",
+        "A more general previously published marked random-embedding theorem might subsume the limit given input on degree frequencies. Some targeted literature search capacity was unavailable; this is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers classical scalar projection, exact forest inclusion, method, and Moon attribution; not the marked limit.",
+          "evidence": [
+            "§1 Moon exact count; §2 Lemma 1, Proposition 2, Theorem 3; §§3–4 alternate host graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.18570v1",
+          "material_read": "Full HTML, especially introduction and complete-graph section",
+          "method": "Read theorem statements and matching/overlap proof",
+          "title": "On the intersection of pairs of trees",
+          "trigger": "Exact same Cayley overlap and candidate stronger theorem"
+        },
+        {
+          "assessment": "Unmarked general intersection and proof template; no recovery of full four-degree law from scalar theorem.",
+          "evidence": [
+            "Theorem 1 defines Y_n as total common edge count; §3 independent/dependent tuple split."
+          ],
+          "identifier_or_url": "https://mathweb.ucsd.edu/~ebender/reprints/104.pdf",
+          "material_read": "Author PDF §§1–3 theorem statements and beginning of factorial-moment proof",
+          "method": "Read accessible PDF extraction around Theorems 1, 2, 4 and equation (11)",
+          "title": "Intersections of Randomly Embedded Sparse Graphs are Poisson",
+          "trigger": "General randomly embedded graphs could dominate overlap result"
+        },
+        {
+          "assessment": "Earlier scalar coverage; no whole-document claim on unread original text.",
+          "evidence": [
+            "Mathematika 11 (1964), 95–98; reproduced count indexed by number of common edges only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S0025579300004290",
+          "material_read": "Cambridge extract/bibliography and exact formula reproduced in Bóna–Wagner §1",
+          "method": "Publisher and secondary full-text comparison",
+          "title": "The second moment of the complexity of a graph",
+          "trigger": "Earlier exact pair enumeration attributed by Bóna–Wagner"
+        },
+        {
+          "assessment": "Treat weighted enumeration as prior background; exact published equation not independently checked.",
+          "evidence": [
+            "Abstract explicitly advertises weighted versions of Moon’s forest formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2025.04.058",
+          "material_read": "Bibliography and abstract only; publisher full-text request returned access error",
+          "method": "Publisher and indexed abstract search",
+          "title": "Weighted Moon-type formulae for complete graphs and complete bipartite graphs",
+          "trigger": "Potentially dominating weighted forest identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural refinement of the classical overlap law distinguishes strong negative correlation of degree marks within an edge from asymptotic independence between collision sites. It calculates genuinely discriminating motif probabilities (aligned/opposed pendancy), and jointly predicts all fixed oriented degree classes, not just a numerical scalar or a cherry-picked finite case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

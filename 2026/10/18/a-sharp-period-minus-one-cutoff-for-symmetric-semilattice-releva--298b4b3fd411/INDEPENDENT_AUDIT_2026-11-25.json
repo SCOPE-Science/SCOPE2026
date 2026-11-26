@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:37.222994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed set of size a and a partner of size b, the overlap can be any integer from 0 to min(a,b), so output sizes are exactly [max(a,b),a+b]. At a fixed a, a small partner b yields those sizes directly (if a is in the tail they are a+[0,b]). A tail partner of residue r yields precisely the tail residues r+[0,a] modulo m: every union size differs from the partner size by at most a, and choosing b≥max(a,k) in residue r realizes every increment. Thus the rows of reachable pairs depend only on the current signature precisely when the least tail size k is at least m−1 (including m=1). When k<m−1, sizes k and k+m have the same signature but different rows: the tail partner of residue k can reach residue k+k+1 only from the larger set. Take p true on that partner class and q false exactly on that output class; p→q separates the two sets. More generally, any missing projected (partner,output) pair at a representative is detected with these singleton/complement valuations. This verifies the quantifier order of the bounded-morphism back condition; forth is by projection. The usual induction using both directions for implication gives preservation at every finite set, in particular the empty set. A common multiple of the atomic periods and a cutoff at least max(common preperiod,m−1) yield the exact finite procedure. This uses an infinite ground set and only signature-invariant atomic valuations. Inspected the frozen finite arithmetic checker without using its recorded output as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 two-coordinate result is a bounded morphism to an infinite interval frame; summing the coordinates gives the one-dimensional infinite interval model. Appendix A of arXiv:2506.16366 concerns team logic/principal valuations on a powerset frame, not these finite-subset semantics with signature-invariant valuations.",
+          "The cited Kashima report was inaccessible. Weiss was identified bibliographically by the frozen record, not verified in full."
+        ],
+        "reasoning": "An infinite p-morphic image is a useful intermediate result, but a second arbitrary quotient is not automatically a bounded morphism. The other restricted valuation class is not the one in the theorem. No inspected broader result establishes the exact finite criterion.",
+        "searches": [
+          "Knudstorp arXiv:2605.29880 Definition 5.2, Fact 5.3, Lemma 5.4",
+          "Knudstorp arXiv:2506.16366 Appendix A (restricted valuations and p-morphic reduction)",
+          "Kashima C-157 OA URL; Weiss DOI:10.1007/s11225-020-09921-2 as frozen bibliographic comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cardinality.py",
+        "LICS 2024 DOI:10.1145/3661814.3662128",
+        "arXiv:2605.29880",
+        "arXiv:2506.16366",
+        "Kashima C-157 (access attempt only)",
+        "Local Resultary bcb8ab37d0ee, 5a1786b1ea8a and e9bccfe2e4de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under coordinate sum, desired overlap a+b−c can be split across the two fixed-set coordinates and the rest of the partner placed outside. This directly yields the infinite total-cardinality frame. But the finite quotient still needs exact independence of the row at each representative: a tail partner's reachable residues are r+[0,a]. The smallest tail a=k is decisive, and a=k+m exposes failure below m−1."
+        ],
+        "reasoning": "General p-morphism preservation covers the logical induction after the back condition is verified; it does not establish that condition for this periodic identification, nor give the negative formula witness. These are the distinct contributions.",
+        "searches": [
+          "arXiv:2605.29880 §5.2 interval-frame back condition; compare with frozen finite quotient and obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LICS 2024 §§2–4 uses semilattice relevant implication and mod-four/parity tiling labels. arXiv:2605.29880 Example 2.10 gives the same finite-set union carrier and implication; its §5.2 p-morphism records separate even/odd cardinalities in an infinite interval frame."
+        ],
+        "reasoning": "The fixed-partition residue labels and the infinite coordinate model do not identify truth for arbitrary unions of fibers of a single finite prefix/tail signature. The correct equivalent formulation uses set-union overlap and a ternary relation, not a semilattice homomorphism or a residue of a disjoint sum. The failed web lookup supplies no negative evidence.",
+        "searches": [
+          "Knudstorp, Relevant S is Undecidable, DOI:10.1145/3661814.3662128 §2 and tiling labels",
+          "Knudstorp arXiv:2605.29880 Example 2.10 and §5.2",
+          "Focused web query for finite symmetric cardinality p-morphisms and modular interval-frame cutoff (lookup unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record bcb8ab37d0ee gives 67 atomic types, a seven-element model bound and eleven finite spectra for a two-noun cardinality syllogistic. Record 5a1786b1ea8a classifies rank-three first-order theories of finite powerset meet-semilattices, and e9bccfe2e4de concerns finite spectra in noun-Boolean cardinality syllogistic."
+        ],
+        "reasoning": "These actual indexed statements do not encode the same implication or exact k,m boundary; same-day dating of bcb8ab37d0ee is not evidence about priority. No exact entry was identified in the compared sources.",
+        "searches": [
+          "Local Resultary search for finite quotients, residual implication, semilattice union and monadic cardinality logic; inspect bcb8ab37d0ee, 5a1786b1ea8a and e9bccfe2e4de"
+        ]
+      },
+      "rationale": "The relevant semantics, p-morphism preservation and the infinite cardinality interval model have clear prior precedents. The supported distinct claim is the sharp finite prefix/period quotient criterion and the one-implication obstruction, not introduction of that semantics or a solution to unrestricted validity. No inspected source gives or mechanically implies the cutoff without the extra analysis of the finite modular projection.",
+      "residual_risks": [
+        "The focused public search could not be completed, Kashima remained inaccessible, and no full-text Weiss comparison was made. An unlocated equivalent finite interval-frame theorem is not ruled out. The strongest directly relevant accessible prior result does give the infinite cardinality reduction, which is credited. "
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers semantics and modular encodings, not this finite quotient in the inspected material",
+          "evidence": [
+            "Universal relevant implication over a semilattice; parity counts and mod-four labels have a tiling role."
+          ],
+          "identifier_or_url": "https://pure.uva.nl/ws/files/232537714/3661814.3662128.pdf",
+          "material_read": "§2 Definitions 2.1–2.3, pp. 2–3; mod-four and parity tiling passages pp. 4–5 (offsets 5719, 8786, 20500)",
+          "method": "OA primary full-text targeted passages",
+          "title": "Relevant S is Undecidable",
+          "trigger": "Earlier relevant union semantics and modular labels"
+        },
+        {
+          "assessment": "Direct precedent for the infinite model, not the finite exact cutoff",
+          "evidence": [
+            "X maps to (|X∩2ℕ|,|X∩(2ℕ+1)|) with coordinatewise interval composition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.29880",
+          "material_read": "Example 2.10 p. 7; §5.2 Definition 5.2, Fact 5.3 and Lemma 5.4 pp. 21–22 (offsets 18331, 55870)",
+          "method": "OA primary full-text targeted passages and assessment of coordinate-sum reduction",
+          "title": "Undecidability in Relevant Logic",
+          "trigger": "Exact same finite-set model and closest prior structural reduction"
+        },
+        {
+          "assessment": "Different language and restricted valuation scheme",
+          "evidence": [
+            "Uses powerset frames, principal valuations and a p-morphism in propositional team logic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.16366",
+          "material_read": "Appendix A pp. 25–27 (offsets 74879, 78672)",
+          "method": "OA primary full-text targeted passages",
+          "title": "Diamonds and Dominoes: Impossibility Results for Associative Modal Logics",
+          "trigger": "Motivating powerset-union and restricted p-morphic quotient comparison"
+        },
+        {
+          "assessment": "Remainder unresolved",
+          "evidence": [
+            "No readable full text was obtained; this does not substantiate noncoverage."
+          ],
+          "identifier_or_url": "https://www.is.c.titech.ac.jp/users/kashima/pub/C-157.pdf",
+          "material_read": "None; cited OA URL inaccessible",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Proof Theoretical Studies on Semilattice Relevant Logics",
+          "trigger": "Potential prior semilattice semantics or quotient results"
+        },
+        {
+          "assessment": "Different finite language and cutoff",
+          "evidence": [
+            "Two-noun cardinality syllogistic without sentence-level Boolean connectives; no union implication or prefix/modular-tail quotient."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-eleven-spectra-sixty-seven-atomic-types-and-a-sharp-seven-elemen--bcb8ab37d0ee",
+          "material_read": "RESULT.md invariant and scope",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "Eleven spectra, sixty-seven atomic types and a sharp seven-element cutoff",
+          "trigger": "Same-day indexed cardinality cutoff candidate"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": [
+            "Six rank-three first-order theories on finite powersets under intersection."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-rank-three-threshold-for-finite-powerset-meet-semilattices--5a1786b1ea8a",
+          "material_read": "RESULT.md classification",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "Sharp rank-three threshold for finite powerset meet-semilattices",
+          "trigger": "Indexed exact powerset-semilattice classification"
+        },
+        {
+          "assessment": "Different language and object",
+          "evidence": [
+            "Finite model spectra, not preservation of relevant implication on finite subsets."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-all-finite-spectra-of-the-noun-boolean-cardinality-syllogistic-a--e9bccfe2e4de",
+          "material_read": "RESULT.md classification",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "All finite spectra of the noun-Boolean cardinality syllogistic",
+          "trigger": "Indexed exact periodic-cardinality candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The periodic-cardinality abstraction is natural for permutation-invariant valuations, but union with overlap is not a function of the two signatures. The result gives an exact cutoff for when relational reachability nonetheless suffices for nested implication, a minimal-depth counterexample when it does not, and a concrete finite decision procedure for specified ultimately periodic atoms. This is a meaningful boundary for a standard relevant semantics, not a claim about all valuations or a mere counting formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

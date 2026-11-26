@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:04:46.272921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An odd-length bit string cannot equal its reverse complement at the middle bit; sixteen required classes need sixteen windows, hence at least twenty bits. An independently written exhaustive check visited all 2^20 literal words, found 512 covers and none with unequal four-bit ends, and recovered 32 rotation classes, eight four-element complement/reversal orbits, and exactly the eight listed representatives. Replay: /workspace/branches/6cec91fc-00bc-4cd0-a625-2fc23d0aff53/independent_enumeration.py; saved chunk evidence: independent_chunks.jsonl in that directory. The analytic closure argument is also valid: the selected and reverse-complemented edges partition the directed order-five edge set (and likewise at every odd order for a tight cover); each vertex imbalance equals that of its partner and is even at a fixed vertex. The imbalance +1 of an open trail is therefore impossible. Each cycle has full period sixteen because otherwise a window class would repeat. Each literal cover is a cut extended by its starting four bits, giving exactly sixteen cuts per rotation class. In the frozen Euler-tour route, a choice of orientation fixes one edge per pair, the balance/connectivity tests are the Euler conditions, and choosing the only used edge from (00000,11111) as first breaks rotations uniquely. The frozen code and recorded output were inspected; the independent enumeration did not execute either frozen algorithm.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 gives divisibility of the full CR de Bruijn cycle count, not an exact total. The discussion after Theorem 3.11 constructs 32 full de Bruijn sequences from a given order-five maximum-complexity CR example, not the set of all order-five CR cycles or half-cover cycles. The general shortest-common-superstring work gives approximations. The frozen record credits the old odd-order minimum result; its original full text was not independently accessible."
+        ],
+        "reasoning": "Existence, upper/lower bounds on length, and a divisibility theorem do not determine the set or number of equality cases. No inspected broader theorem specifies the total or the eight half-cover orbits.",
+        "searches": [
+          "arXiv:2408.01794 §3, Theorems 3.6 and 3.11",
+          "arXiv:2611.16573 pp. 1–2",
+          "DOI:10.1093/bioinformatics/btt230"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.01794",
+        "arXiv:2611.16573",
+        "10.1093/bioinformatics/btt230 (full text not available)",
+        "d6390cf3cc11",
+        "d2dd86a41c28",
+        "7253333c6ec9 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At order five Theorem 3.6 gives a multiple of 16 for the count of full CR de Bruijn sequences. Via the two-to-one factor for counts, this gives a multiple of eight for half-circles, not 32 or its eight explicit orbits. The other indexed equality census removes edges to destroy directed cycles and hence does not determine this covering census."
+        ],
+        "reasoning": "The decisive new enumeration needs completion of the edge selections and compatible Euler tours or an equivalent full census. None of the confirmed prior counts or constructions performs that step for this object.",
+        "searches": [
+          "Chang–Wang §3 Theorem 3.6 p. 11 at offset 38766; application after Theorem 3.11 at offset 44750",
+          "Resultary nearest same-parameter finding d6390cf3cc11, Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Wang exhibit the first listed sixteen-bit representative, using it and its reverse complement as halves of a full CR-invariant de Bruijn cycle. Ordinary reversal of the windows is the equivalence in the different d2dd86a41c28 record."
+        ],
+        "reasoning": "Optimal linear words correspond to cuts of primitive half-cycles, not to full order-five de Bruijn circles. Each qualifying half-cycle can be joined to its reverse complement at any of the four reverse-complement-fixed four-bit vertices: its selected in/outdegrees are both one there. Conversely a full CR-invariant circle has a unique edge reflection (a second would give a nontrivial rotational symmetry, impossible for distinct edges). The two half-trails between the axes are reverse-complement partners with one edge per pair; closure makes their common joining vertex fixed. Thus the full rotation-class count is twice the half-circle count, not equal to it. A full-cycle count would be relevant, but an explicit example or divisibility alone does not give that number.",
+        "searches": [
+          "Resultary reverse-complement-complete binary order-five half-cycles and length-20 optimal literal covers",
+          "Chang–Wang arXiv:2408.01794 Example 2.1 and Lemmas 3.1–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 512/32/8 hit is the assigned record itself. The distinct same-day d6390cf3cc11 counts ten minimum RC-invariant decycling sets of size 12, not covering words. The shortest cyclic ordinary-reversal cover entry has length 26 at order five, with 128 rotation classes and 36 classes after more symmetries. Chang–Wang's example gives a member of the eventual census, not a table of all members."
+        ],
+        "reasoning": "Neither a hitting set for directed cycles nor a minimum cover for a different equivalence supplies the requested equality cases. No independent exact table was located in the inspected evidence; this does not establish historical priority by absence.",
+        "searches": [
+          "Resultary 7253333c6ec9 (self-match), d6390cf3cc11 (strand-symmetric five-mers), d2dd86a41c28 (order-five cyclic reversal covers)",
+          "arXiv:2408.01794 order-five examples and count passages"
+        ]
+      },
+      "rationale": "The accepted distinct claim is the full binary order-five optimizer census and symmetry classification. The known minimum and the previously exhibited representative are not new. The strongest examined full-cycle construction and divisibility results do not give the exact census, even after accounting for the natural joining relation. Separate indexed neighbors concern distinct optimization or equivalence relations.",
+      "residual_risks": [
+        "An unindexed exact census of full order-five CR de Bruijn cycles would imply the count of half-circles by the joining relation, although not an orbit list without further information.",
+        "The historical Orenstein–Shamir article was unavailable in full; the comparison does not exclude historical publication of an equivalent enumerative specialization elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior witness and structural/divisibility results, not a full half-cycle census in the inspected passages.",
+          "evidence": [
+            "Example 2.1 supplies 0000010001101011. Theorem 3.6 is a divisibility theorem; the later 32-sequence construction is not a classification of all half-cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.01794",
+          "material_read": "Example 2.1 p. 8 offset 27665; §3 joining discussion offsets 29500 onward; Lemma 3.5 and Theorem 3.6 p. 11 offset 37400 onward; comparison after Theorem 3.11 offset 44750",
+          "method": "Primary arXiv PDF passages and explicit joining/count comparison",
+          "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+          "trigger": "Same order, same representative, possible exact reduction from full CR de Bruijn cycles"
+        },
+        {
+          "assessment": "The minimum is credited rather than claimed here; exact historical scope is not ruled out on access evidence.",
+          "evidence": [
+            "The submitted audit excludes the known sharp length and attainability from the novelty claim. The frozen source reports the publication posed the counting question; that passage was not independently confirmed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btt230",
+          "material_read": "Frozen RESULT.md relationship to prior work and citation; original decisive full text not obtained",
+          "method": "Bounded DOI, OUP, PMC and Europe PMC access attempts",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+          "trigger": "Historical minimum-length reverse-complement completeness and the cited counting question"
+        },
+        {
+          "assessment": "Approximation guarantees, not this exact enumeration in the compared passages.",
+          "evidence": [
+            "General approximate optimization does not count all optimizers at the exact lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16573",
+          "material_read": "pp. 1–2, PDF offsets 1979 and 5109",
+          "method": "Primary arXiv PDF passage comparison",
+          "title": "Tight Cycle-Cover Inequalities and Improved Approximation for Shortest Common Superstring with Reverse Complements",
+          "trigger": "Broad reverse-complement shortest-common-superstring result"
+        },
+        {
+          "assessment": "Different optimization invariant.",
+          "evidence": [
+            "Ten minimum RC-invariant decycling sets of size twelve, not length-twenty covering words."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-equality-classification-of-strand-symmetric-binary-five--d6390cf3cc11",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local original-file mirror",
+          "title": "Complete equality classification of strand-symmetric binary five-mer decycling sets",
+          "trigger": "Same alphabet, order, symmetry and equality-classification terminology"
+        },
+        {
+          "assessment": "Different window equivalence and therefore different optimizer set.",
+          "evidence": [
+            "Ordinary reversal instead of reverse complementation; reported length 26 and 128 circles at order five."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-shortest-cyclic-binary-reversal-covers-through-order-five--d2dd86a41c28",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local original-file mirror",
+          "title": "Shortest cyclic binary reversal covers through order five",
+          "trigger": "Closest cyclic cover at the same order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the first nontrivial odd binary size with these multiple equality types, the classification tells how many optimizers actually exist and separates all their symmetry orbits rather than supplying one construction. The census yields a useful exact small-order benchmark for strand-symmetric binary cover structure; the parity argument explains why tight words can all be classified as circular cuts, independently of exhaustive computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

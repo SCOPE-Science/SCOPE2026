@@ -1,19 +1,21 @@
-# Review of the Heawood blockade zero-mode classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The theorem specifies the Fano incidence graph, the entire nearest-neighbour-independent configuration basis, the real point-to-line drive ratio, and the complete zero-energy kernel. The 458-state enumeration and excitation-parity split are exhaustive. The 168 incidence-preserving symmetries give the 13-even/14-odd invariant-orbit imbalance needed for the universal rank upper bound. Exact integer row elimination proves the exceptional ranks. Two different 225-minor polynomial determinant identities, each supported by full-degree modular evaluation plus a rigorous integer coefficient bound, establish the lower rank bound for every other real parameter. The residual common polynomial is strictly positive on the nonzero real axis. Independently labelled graph construction and integer elimination reproduce the ranks.
+PASS
 
-## Originality
+Independent reconstruction by enumerating the available line submasks for each fixed point set gave the occupation counts (1,14,70,154,147,56,14,2), parities 232/226 and configuration orbits 13/14 under the 168 incidence-preserving linear maps. The invariant odd-to-even block has a kernel, so the full odd-by-even block has rank at most 225 and the chiral Hamiltonian has nullity at least 8. Exact integer ranks at 0,1,-1,2 were 155,216,216,225, respectively; point-occupation parity conjugates t to -t. A further check at zero: point slices with 0,1,2,4,7 available lines occur 64,35,21,7,1 times. On each slice the line flip hypercube has zero multiplicity binomial(k,k/2) for even k and zero for odd k, giving 64+42+42=148. Without executing the frozen code, /workspace/heawood_review_check.py read the supplied minor indices, reconstructed the entries and compared both exact integer determinants (FLINT) to the displayed polynomials on 226 distinct integers -25 through 200, in two batches (outputs /workspace/heawood_review_check_a.txt and /workspace/heawood_review_check_b.txt). Both sides have degree at most 225; this independently certifies both identities, not just sampled ranks. At nonzero real t, Q(t)/t^4 is 1440u^2+7125u-19898 for u=t^2+t^-2≥2: increasing there, with value 112 at 2. The two remaining factors vanish at disjoint parameter sets. Thus some 225-minor survives precisely where required, and the formula 458-2rank gives the stated 148/26/8 on the full space. This is an exact finite algebraic check for the specified Hamiltonian, not a formal proof certificate or a claim for other dynamics.
 
-PASS on inspected evidence, subject to historical priority. The literature develops projector-blockaded Rydberg Hamiltonians and chiral-index lower bounds, including extensive zero modes on one-dimensional PXP chains and scars in two-dimensional arrays. The particular exact point–line-contrast phase diagram on the Heawood graph, its sharp eighteen-state uniform-drive enhancement and the explicit polynomial minors were not located in those materials. A general chiral-index theorem itself is not being claimed as new. Work on other graphs or different linear-algebraic Hilbert spaces does not imply the Fano-incidence result. Searches cannot exclude unindexed equivalent calculations.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The Fano plane is a canonical smallest projective-plane geometry, and its Heawood incidence graph has nontrivial collineation symmetry. A physically natural shore-resolved drive changes the exact number of mid-spectrum blockade zero modes between eight and twenty-six, with a much larger decoupled limit. The proof isolates a symmetry-protected contribution beyond the elementary parity index and an accidental homogeneous-drive enhancement, supplying an all-real-parameter benchmark rather than a single arbitrary numerical example.
+The general PXP blockade model, spectral reflection and symmetry-resolved chiral index are known. The supported distinct result is the exact Heawood-specific one-parameter nullity classification, especially that no other real nonzero point-to-line drive ratio can change the generic nullity. The line drive is fixed at one; the exact same-ID catalogue hit is the finding itself. The inspected analogues and primary sources do not supply the full kernel formula.
 
-## Literature and limitations
+## value
 
-Lesanovsky (arXiv:1010.2349) motivates the hard-blockade flip Hamiltonian; Schecter–Iadecola (arXiv:1801.03101) and Buijsman (arXiv:2203.09264) provide spectral-reflection and zero-mode-index context; Lin–Calvera–Hsieh (arXiv:2003.04516) concerns two-dimensional Rydberg scar states. Their inspected problem geometries and theorems do not give the specific full rank classification here. The proof concerns ideal zero-detuning, shore-uniform driving and a fixed finite network, not realistic interactions beyond perfect blockade. Independent historical-priority review and independent scientific audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite graph and perturbation are canonical: the Fano incidence structure distinguishes two shores, and changing their relative drive preserves collineation symmetry while testing equal-shore enhancement. The exact all-real count separates the ordinary parity bound of six, the invariant-sector bound of eight, and the extra eighteen at equal magnitude, with no undetected real exceptions. This is a useful finite benchmark of a symmetry-preserving blockade spectral problem, not a stand-alone claim about arbitrary arrays or the dynamics of all states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

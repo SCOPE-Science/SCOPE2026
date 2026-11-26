@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:25:55.916218Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed received-length change δ, a shorter removal window can be extended to d=min(k,k−δ) on the input and padded with the unchanged letters on the corresponding sides of the inserted block. Such a containing window always exists since n≥k, including insertions at the ends. If i=d+δ>0, an output at a nonfinal position j has a later representation exactly when its first inserted symbol equals x_j: later positions preserve x_j, and matching it permits a shift by one and appending x_(j+d). Thus each nonfinal window contributes (q−1)q^(i−1) distinct rightmost representatives and the final one q^i. At δ=−k, deletion outputs at a<b agree exactly when x_j=x_(j+k) throughout a≤j<b; the outputs count equal runs. The k nontrivial nonpositive offsets sum to the geometric part of A, and δ=1,…,k gives the displayed arithmetic part. Along the residue-class paths there are q^k root assignments and exactly q−1 child choices for each edge designated unequal (one for each equal edge). This gives the full histogram, binomial law, all extrema and moments; n=k is degenerate and the normal limit only standardizes positive variance as n−k→∞ at fixed q. Exact replay in /workspace/review-replay.py (argument 1) independently built deduplicated outputs as strings and checked all layers, the closed-form baseline and entire center histogram on 44 triples and 17,413 centers; the symbolic argument supplies the unrestricted theorem. Minimum centers are precisely words having k as a period in the finite-word sense, not necessarily having least period dividing k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al.'s arbitrary-q statement covers each fixed pair with s>0, including t=0. Lu–Zhang's binary formula is a special case. Xi–Sun–Ge give the q-ary pure length-b burst-deletion identity in Lemma 2.3, attributed there to earlier work; their main combined ball allows two locations."
+        ],
+        "reasoning": "Taken with the elementary padding equivalence, the general fixed-pair result covers all positive-insertion shells for every q; the known deletion identity covers the last shell. The broader two-location channel is not being substituted for the frozen channel.",
+        "searches": [
+          "arXiv:2403.11750v2, Theorem 1",
+          "arXiv:2201.10259v2, Theorem 2 and Lemma 4",
+          "arXiv:2506.07817, Lemma 2.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.11750v2",
+        "arXiv:2506.07817",
+        "arXiv:2201.10259v2",
+        "arXiv:2610.05696",
+        "Resultary cadcb4698a54"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1's bracket (q−1)(n−t+1)+1 equals q+(n−t)(q−1). With (t,s)=(k,k+δ) for −k<δ≤0 or (k−δ,k) for δ>0 this is exactly the frozen formula. At δ=−k the known deletion formula adds one per mismatch x_j≠x_(j+k)."
+        ],
+        "reasoning": "Writing an edit as a maximal-pair edit needs only extension with unchanged letters; disjoint output lengths are then summed. For each designated set of j mismatches there are q^k(q−1)^j words by the sequential choices of letters. Summing over the binomial number of sets proves every population count and the displayed law. The mean, variance and normal limit are immediate binomial consequences. No new obstruction or invariant survives this implication.",
+        "searches": [
+          "arXiv:2403.11750v2 §III, arbitrary-alphabet fixed-pair formula and first-mismatch partition",
+          "arXiv:2506.07817 §II-C, Lemma 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al. define a (t,s)-burst as removing t symbols and inserting s at the same coordinate, allowing either length zero. Their Theorem 1 states |B_(t,s)(x)|=q^(s−1)((q−1)(n−t+1)+1) for s>0. Ye–Ge define the variable-length channel by usv→utv with both middle blocks bounded by k."
+        ],
+        "reasoning": "The specialized same-position, fixed-length (t,s) ball is exactly the maximal-pair shell after extending the removal interval and copying padding. This is not the channel with independently located deletion and insertion.",
+        "searches": [
+          "Resultary: single substring-edit ball volume and received-length spectrum",
+          "q-ary t-deletion s-insertion burst balls exact cardinality Tang Motamen Correcting a Substring Edit Error of Bounded Length preprint",
+          "arXiv:2403.11750v2, §§II–III",
+          "arXiv:2610.05696, model definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected Resultary match, cadcb4698a54, concerns optimal code sizes for binary 2-substring edits through length 8, not ball-volume histograms. No verbatim matching aggregate table was established in the bounded search. Exact prior formulae cover the individual layers."
+        ],
+        "reasoning": "A packing optimum is not a single-center ball size or its distribution. The lack of an exact aggregate table does not create novelty where all layers and population counts follow mechanically.",
+        "searches": [
+          "Resultary: variable-length exact substring-edit volume, length spectrum, binomial population law",
+          "Resultary cadcb4698a54",
+          "arXiv:2403.11750v2 Theorem 1 and arXiv:2506.07817 Lemma 2.3"
+        ]
+      },
+      "rationale": "The frozen comparison misses the arbitrary-alphabet fixed-pair theorem of Sun, Lu, Zhang and Ge (arXiv:2403.11750v2, Theorem 1), not just the earlier binary formula. It covers exactly the two claimed positive-insertion shell counts after a one-step window-padding reduction. The only exceptional shell is the already published burst-deletion size formula. Its random-center law is obtained directly by freely choosing the first k letters and choosing at each subsequent position either the letter k places back (one choice) or any other letter (q−1 choices). Disjoint lengths then give the displayed binomial histogram without another counting problem. The complete aggregate was not located verbatim; the failure is straightforward implication from existing exact results, not a claim of verbatim prior publication or of incorrect formulas.",
+      "residual_risks": [
+        "A verbatim aggregate distribution may also exist under a different name. The rejection does not depend on locating it.",
+        "The founder paper of Tang et al. is identified by Ye–Ge but its full text was not examined; the cited exact fixed-burst and deletion results suffice for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers every positive-insertion maximal-pair count at any q",
+          "evidence": [
+            "Theorem 1 states q^(s−1)((q−1)(n−t+1)+1). The proof partitions by the first disagreement with the input prefix, the same distinguishing event used in the frozen rightmost-window count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.11750",
+          "material_read": "v2 title page and definition/Theorem 1, PDF pp. 3–4, OA offset 22550 onward",
+          "method": "Primary OA PDF; locate then read decisive passage",
+          "title": "Asymptotically Optimal Codes for (t, s)-Burst Error",
+          "trigger": "Same-site arbitrary-alphabet fixed-pair cardinality, omitted from frozen comparison"
+        },
+        {
+          "assessment": "Covers the varying pure-deletion layer",
+          "evidence": [
+            "The pure length-b deletion cardinality is 1+|{i:x_i≠x_(i+b)}|; the authors credit their reference [10], Lemma IV.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.07817",
+          "material_read": "§II-C, Lemma 2.3, OA offset 12100",
+          "method": "Primary OA HTML passage",
+          "title": "On the Fixed-Length-Burst Levenshtein Ball with Unit Radius",
+          "trigger": "Known deletion-only varying layer; distinguish independently placed operations"
+        },
+        {
+          "assessment": "Binary precedent; the newer fixed-pair paper already gives the q-ary extension",
+          "evidence": [
+            "Theorem 2 gives (n−t+2)2^(s−1); Lemma 4 covers pure insertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.10259v2",
+          "material_read": "Theorem 2 and Lemma 4, OA HTML offset around 37300",
+          "method": "Primary OA HTML passages",
+          "title": "t-Deletion-s-Insertion-Burst Correcting Codes",
+          "trigger": "Frozen binary fixed-pair precedent"
+        },
+        {
+          "assessment": "Same channel, but no complete spectrum in the inspected passages; p. 1 credits Tang et al. for the model",
+          "evidence": [
+            "Defines usv→utv with both middle lengths at most k; treats same-length outputs for a packing lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.05696",
+          "material_read": "pp. 1, 4–5; p. 1 model and attribution around OA offset 3491",
+          "method": "Primary OA PDF passages",
+          "title": "Substring Edit Correcting Codes and Optimal Single Burst-Deletion Correcting Codes",
+          "trigger": "Same bounded-length channel and code-packing context"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Optimal code-size profile through length eight for the binary 2-substring-edit channel, not per-center ball volume."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-initial-profile-for-binary-2-substring-edit-codes--cadcb4698a54",
+          "material_read": "RESULT.md Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact initial profile for binary 2-substring-edit codes",
+          "trigger": "Closest inspected indexed same-channel record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The error-ball distribution is a natural diagnostic, but this version writes out a direct aggregation of the known arbitrary-q fixed-burst formula and pure-deletion count. Padding determines the representative pair with no new overlap enumeration; the binomial law is immediate sequential counting once the deletion count is inserted. The result is useful as a summary of existing facts, but no nonmechanical exact gap remains and no independent code-size or inverse-ball result is proved. There is no substantive repair in the frozen scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

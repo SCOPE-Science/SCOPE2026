@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:18:25.924911Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–43, VERIFICATION.md lines 19–27 and verify.py inspected only",
+        "python3 /workspace/replay.py 5: independent digit-position construction and bitwise testing of every possible period on all length-n windows of allowed adjacent block pairs, for 18 (q,k) cases"
+      ],
+      "rationale": "The substitution recurrence W_(j+1)=W_j 0^[(q-2)q^j] W_j gives palindromic prefixes with 2^j ones and no adjacent ones. At length n=q^k, the fixed point is partitioned into W_k and all-zero n-blocks; each W_k is followed by a zero block. A factor beginning at one-position p of W_k is W_k[p:n] followed by p zeros. At p=0 the endpoints give a one-letter border. For 0<p<m=q^(k-1) the prefix and suffix of length m both equal A[p:m] followed by p zeros. For a start in the second copy of A, the last one is at t<m in the proposed word. Any proper border gives period d, so the first one gives a one at d<=t, and the last one gives another at t+d<2m<=n, a contradiction. Reversal is closed because the prefixes are palindromes, and the number of ones distinguishes all listed starts. This exhausts both endpoint orientations. An independent finite test found the exact sets rather than just their sizes.",
+      "residual_risks": [
+        "The finite cases corroborate the argument; completeness for all q,k is analytic. No formula outside the power lengths is asserted by the frozen record."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General automatic-sequence results include the automatic indicator of existence of an unbordered factor, and regularity of the count is noted in the k-synchronization paper. Specific formulae for Thue–Morse and period doubling involve other words. The same-family paper was not available in full text for this review."
+        ],
+        "reasoning": "Regularity alone supplies neither the factor list nor the exact power subsequence. The decisive coverage comes from the explicit Cantor border criterion rather than the general automatic-sequence machinery.",
+        "searches": [
+          "arXiv:1102.3698, Theorems 2 and 24",
+          "arXiv:1206.5352, Section 11",
+          "arXiv:1211.1301, p. 8 and Section 5",
+          "Lü et al., DOI 10.1016/j.tcs.2015.12.022, attempted"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1b3612a473be and 40182d509c13",
+        "arXiv:1102.3698, 1206.5352 and 1211.1301",
+        "DOI 10.1016/j.tcs.2015.12.022 retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed criterion says such a factor is unbordered iff every completed internal gap is shorter than its terminal zero run. Matching a proper suffix and prefix checks the same list of complete gap equalities and exactly one terminal threshold after replacing gaps of rank v by 3^v and t by 3^h. The rank pattern is unchanged because each substitution level concatenates two equal copies around the new maximal gap."
+        ],
+        "reasoning": "This is a constructive transfer, not an inference from similarity of titles or formulas. Apply the complete finite ternary classification to the transported factors, pull the allowed suffixes and trailing-gap threshold back, and slice at q^k as in the rationale. The frozen proof is a direct alternative, but no separate distinct classification survives the transfer.",
+        "searches": [
+          "Resultary 1b3612a473be, offset 0 through the gap ruler law, border criterion and classification",
+          "Frozen RESULT.md lines 21–39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite ternary indexed theorem enumerates each unbordered factor oriented from 1 to 0 as a rank-h iterate suffix followed by a number of zeros in (3^(h-1),3^h], with rank 0 handled by t=1. The base-q analogues have the exact same internal equality and terminal gap-threshold tests by the rank map."
+        ],
+        "reasoning": "The apparent differences are ambient length (finite versus infinite) and gap units (ternary versus arbitrary q). At power length n all possible n-windows occur in W_(k+1), which contains W_k next to a zero block on both sides. The rank-preserving gap transformation supplies an explicit reduction for arbitrary q, without claiming equality of the words or lengths themselves under that transformation.",
+        "searches": [
+          "Resultary: generalized q-ary Cantor words arbitrary substitution 1 to 10^(q-2)1 power lengths q^k unbordered factors, generalized ruler gap (q-2) q^v2 trailing gap longest, exact classification",
+          "Resultary 1b3612a473be, Finding, Border criterion and Classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1b3612a473be gives the exact complete finite ternary language, including the power slice; 40182d509c13 gives the two longest unbordered factors in finite ternary blocks, at lengths 2*3^r, not this slice."
+        ],
+        "reasoning": "The full-language comparison dominates a table of individual ternary counts. No distinct numerical table is needed to establish that coverage; the other indexed lengths are not themselves the claimed powers.",
+        "searches": [
+          "Resultary 1b3612a473be, Finding and Classification; 40182d509c13, Finding"
+        ]
+      },
+      "rationale": "The distinct indexed finite ternary-Cantor language theorem gives the exact q=3 power slice, and its border criterion transports mechanically to every q>=3. The key observation is that any candidate border of a factor beginning with 1 and ending in t zeros tests only equality of internal complete gaps and whether a candidate terminal gap is long enough for t zeros. Generalized Cantor gap lengths are (q-2)q^v for the same ruler ranks v=nu_2(i) used in the indexed result. If h is the first rank whose gap is at least t, replacing complete gaps by 3^v and the terminal length by 3^h preserves all these tests, hence preserves borderedness. Applying the indexed classification and selecting length q^k forces rank h=k: lower ranks have length at most (q-1)q^(k-1), while ranks above k require more than (q-2)q^k trailing zeros. At rank k a suffix starting at offset p has t=p, which exceeds (q-2)q^(k-1) exactly at the ones of the second copy. This yields the exact listed factors and count with no additional border analysis. The scientific finding thus has equivalent coverage at q=3 and is a mechanical consequence of the indexed criterion for other bases, though it is not explicitly stated for those bases in that source. No provenance or priority conclusion follows.",
+      "residual_risks": [
+        "Neither the later catalogue date nor proof overlap establishes who first obtained the result. The same-family 2016 paper's broader contents remain an access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite ternary theorem gives the entire ternary power slice; the border criterion transfers by gap ranks to all q",
+          "evidence": [
+            "g_i=3^nu_2(i); the criterion compares internal gaps with terminal zero-run length; exact ranked iterate-suffix and reverse list."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-unbordered-factor-language-of-finite-binary-cantor-words--1b3612a473be/RESULT.md",
+          "material_read": "Finding, assumptions, gap ruler law, border criterion, classification and enumeration, mirror offset 0–5795",
+          "method": "Local-mirror primary text and direct mathematical reduction",
+          "title": "Exact unbordered-factor language of finite binary Cantor words",
+          "trigger": "Exact Cantor classification, potentially stronger"
+        },
+        {
+          "assessment": "Different length invariant",
+          "evidence": [
+            "Identifies the two longest at length 2*3^r."
+          ],
+          "identifier_or_url": "Resultary 40182d509c13",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror primary text",
+          "title": "Three-adic local periods of finite Cantor blocks",
+          "trigger": "Exact unbordered Cantor invariants"
+        },
+        {
+          "assessment": "Automatic existence and general factor count, not exact Cantor power list",
+          "evidence": [
+            "Theorem 2 concerns the indicator that an unbordered length-n factor exists."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.3698",
+          "material_read": "Theorem 2, p. 4 (offset 10096), and Theorem 24, p. 22 (offset 67198)",
+          "method": "Primary open-access paper passages",
+          "title": "Enumeration and Decidable Properties of Automatic Sequences",
+          "trigger": "General automatic-sequence enumeration"
+        },
+        {
+          "assessment": "General regularity, no evaluated Cantor power slice in the passage",
+          "evidence": [
+            "Notes k-regularity of the unbordered-factor counting sequence when the word is k-automatic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.5352",
+          "material_read": "Section 11, pp. 11–12 (offset 30618)",
+          "method": "Primary open-access paper passage",
+          "title": "Subword Complexity and k-Synchronization",
+          "trigger": "General unbordered enumeration applicability"
+        },
+        {
+          "assessment": "Different sequences",
+          "evidence": [
+            "Thue–Morse exact counts on a subsequence; period doubling has two at every positive length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1301",
+          "material_read": "p. 8 (offset 18332) and Section 5, Theorem 4",
+          "method": "Primary open-access paper passages",
+          "title": "On the Number of Unbordered Factors",
+          "trigger": "Exact enumerations for automatic words"
+        },
+        {
+          "assessment": "Exact scope unresolved; not a basis of verdict",
+          "evidence": [
+            "Frozen RESULT.md line 47 describes ordinary factor complexity and permutation complexity."
+          ],
+          "identifier_or_url": "10.1016/j.tcs.2015.12.022",
+          "material_read": "No accessible primary full-text passage",
+          "method": "Lawful OA and repository-copy retrieval attempted; frozen relationship description inspected",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Same Cantor substitution family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–13, 21–39 and 49–51"
+      ],
+      "rationale": "As a mathematical fact the complete power-scale set, rather than a few data points, is useful for understanding how the word's natural substitution dilation constrains its unbordered factors. The correct direct argument is concise. There is no independent surviving distinct theorem here after the originality comparison.",
+      "residual_risks": [
+        "The frozen record does not pose or solve the full arbitrary-length problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

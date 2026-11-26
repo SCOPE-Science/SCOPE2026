@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:17:16.092844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three spokes on each inner triangle have distinct colours. For an all-distinct incoming outer triple, the spoke permutation relative to it is a 3-cycle, so the outgoing triple is also distinct. For an incoming triple with repeated a, singleton b, absent c, the spoke at b must have colour a, making c repeated, b singleton and a absent on the outgoing triple. The seam is a row rotation and cannot reconcile an odd number of these swaps. Thus for odd k all cut triples are distinct. For any omitted colour, a column's two retained paths cover all six column vertices: one stays on the omitted-spoke row, and the other joins the remaining two outer vertices through all three inner vertices. Each changes the cyclic ordering of the active pair by one swap, whereas the seam preserves the order. The odd return transposition gives one spanning cycle for each omitted colour. This argument also works at k=1, with only the twisted seam. For even k, contracting each triangle preserves each bicoloured component count and yields a cubic bipartite graph with parts of size 2k. If all unions were Hamiltonian, the three cyclic relative permutations of the matchings would each be a 2k-cycle of negative sign but would compose to the identity, a contradiction. The published factorization count supplies existence and counts; a Kempe switch on the only bicoloured component merely permutes the names. Both bundled verifier sources and their finite outputs were inspected, not executed. The recorded finite agreement through k=8 and k=10 is not the proof of the all-k claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruhn–Gellert–Günther describe the twisted closure through walks in the transition graphs T and H, including unique extension of valid triples. The H contribution vanishes for odd k, leaving the all-distinct outer triples. The inspected Kempe results concern equivalence classes or unique factorizations, not a general all-factorization Hamiltonicity theorem covering this family."
+        ],
+        "reasoning": "The known classification covers the allowed colourings and already gives the odd cut-type restriction. It does not track the connectivity of the retained strands for each omitted colour. The additional even-side literature search was unavailable and is not negative evidence.",
+        "searches": [
+          "arXiv:1503.03390v1 §2 Lemma 3 and Lemmas 4–6, proof of Theorem 1",
+          "arXiv:2105.01363v1, Theorem 2 and bipartite/Kempe-class results",
+          "Even-part bipartite cubic perfect one-factorization parity obstruction and triangle contraction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier sources and their .out files",
+        "Bruhn–Gellert–Günther arXiv:1503.03390v1",
+        "Goedgebeur–Östergård arXiv:2105.01363v1",
+        "Bonvicini–Mazzuoccolo 2011 publisher and repository metadata, full text unread",
+        "Resultary 16238d2bd17b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "To derive odd universality from the known all-distinct regime one must show the local bicoloured paths are spanning within each column, their pairing reverses the cyclic order, and the seam preserves order. A single known perfect colouring does not give that uniform connectivity statement. For even k, the bipartite sign obstruction applies only after proving that the family-specific contraction both yields even part sizes and preserves all bicoloured component counts."
+        ],
+        "reasoning": "The connectivity proofs add structural information not given by the inspected transition enumeration; Kempe rigidity and the numerical perfect counts then follow directly. Neither existence alone nor the sign test in isolation is being credited as new.",
+        "searches": [
+          "arXiv:1503.03390v1 Lemma 3 and proof of Theorem 1",
+          "Ars Combinatoria 99 (2011), pp. 33–43, publisher and IRIS 11380/649282"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A partition into three matchings is a proper 3-edge-colouring modulo colour names; perfection is precisely that all three bicoloured 2-factors are Hamiltonian. Goedgebeur–Östergård's Theorem 2 concerns a unique factorization and gives a counterexample to its converse in GP(6k+3,2), not the assertion about every factorization of GP(3k,k). The closest Resultary hit 16238d2bd17b treats edge domination in GP(n,3), a different invariant."
+        ],
+        "reasoning": "Neither the inspected uniqueness result nor merely having a Hamiltonian bicoloured union implies the asserted all-colourings property. The exact 2011 perfection paper was located but its theorem was not independently read.",
+        "searches": [
+          "Resultary: perfect one-factorizations, 3-edge-colourings and Kempe rigidity of GP(3k,k)",
+          "Perfect One-Factorizations in Generalized Petersen Graphs Bonvicini Mazzuoccolo GP(3k,k)",
+          "arXiv:2105.01363v1, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier count is J(k) for odd k and 4J(k) for even k, for all one-factorizations. The frozen .out files give finite perfect counts through k=8 and k=10 and serve as corroboration rather than earlier unbounded coverage."
+        ],
+        "reasoning": "The exact Jacobsthal enumeration does not give the exact perfect count until the new all-versus-none criterion is applied. A finite graph census cannot decide that unbounded classification.",
+        "searches": [
+          "Resultary: exact counts of perfect versus all one-factorizations in GP(3k,k)",
+          "arXiv:1503.03390v1 p. 1 Theorem 1"
+        ]
+      },
+      "rationale": "The novelty credited is the all-factorization Hamiltonicity for odd k and the exclusion for even k in this family, with Kempe rigidity a consequence. Not credited as novel are odd existence, the Jacobsthal counts of all factorizations, the all-distinct cut description for odd k, or the general permutation-sign argument. The closest verified structural result describes all colourings, but obtaining Hamiltonicity of every two-colour subgraph requires tracking how its paths connect across each column and the twisted seam, which the enumeration does not calculate. The 2011 paper is a material unresolved access risk; the strongest statements actually inspected support the decision without making a historical priority claim.",
+      "residual_risks": [
+        "The 2011 primary text could not be read in accessible form. Its exact scope, especially regarding even k or odd universality, remains unverified; this is not evidence against overlap.",
+        "The targeted retrieval of an earlier explicit triangle-contraction application or even-side obstruction was not conclusive. The sign argument itself is elementary and not asserted to be new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact total-count overlap and substantial structural overlap, not exact perfection coverage",
+          "evidence": "Odd cases use only all-distinct triple walks, and the paper counts every factorization. The inspected results do not evaluate the bicoloured monodromy.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.03390v1",
+          "material_read": "p. 1 abstract and Theorem 1; §2 Lemma 3 and Lemmas 4–6 with proof of Theorem 1, pp. 2–6",
+          "method": "OA full-text passage read and comparison of colour-transfer and cycle-connectivity statements",
+          "title": "Jacobsthal Numbers in Generalised Petersen Graphs",
+          "trigger": "Exact enumeration and most relevant exhaustive structural encoding"
+        },
+        {
+          "assessment": "Highly relevant but theorem scope unresolved; no inference from the title",
+          "evidence": "The frozen text attributes a particular odd-k construction, but no inspected passage in the 2011 paper independently confirms its scope or establishes whether its conclusions are stronger.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-099-ars-articles/perfect-one-factorizations-in-generalized-petersen-graphs/",
+          "material_read": "Bibliographic records for Ars Combinatoria 99 (2011), 33–43; no original theorem passage obtained",
+          "method": "Lawful direct and VPN retrieval found a scan without extractable text; identified IRIS 11380/649282 and ResearchGate routes were inaccessible",
+          "title": "Perfect One-Factorizations in Generalized Petersen Graphs",
+          "trigger": "Same family and perfection question; frozen source attributes odd existence"
+        },
+        {
+          "assessment": "Related uniqueness and switching claims, not the quantified target family result",
+          "evidence": "Theorem 2 connects unique factorization with three Hamiltonian cycles and shows its converse fails for a different generalized Petersen family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.01363v1",
+          "material_read": "p. 6 Theorem 2 and related Kempe-class passages",
+          "method": "OA full-text passage comparison",
+          "title": "Switching 3-edge-colorings of cubic graphs",
+          "trigger": "Kempe and perfect-factorization implications in cubic and generalized Petersen graphs"
+        },
+        {
+          "assessment": "Different property",
+          "evidence": "Concerns perfect edge domination in GP(n,3), not partitions into matchings or the cycles of their pairwise unions.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-perfect-edge-domination-polynomial-of-generalized-peter--16238d2bd17b",
+          "material_read": "Indexed scope",
+          "method": "Configured Resultary search and scope comparison",
+          "title": "Complete perfect edge domination polynomial of generalized Petersen graphs",
+          "trigger": "Closest domain-only Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parity classification resolves the perfection question for every colouring of a natural cubic graph family, not just the existence of one construction or the number of colourings. Tracking the bicoloured pairings and the triangle-contraction obstruction explains why the known odd and even enumeration classes behave differently, and gives exact Kempe rigidity even when multiple unlabelled factorizations exist.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

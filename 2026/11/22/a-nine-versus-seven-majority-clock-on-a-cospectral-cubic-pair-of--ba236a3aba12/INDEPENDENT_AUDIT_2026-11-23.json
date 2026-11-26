@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:03.251866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, REVIEW.md, METADATA.json and SLOGAN.txt; all three Python checkers inspected, not executed; corresponding frozen JSON outputs compared",
+        "Independent replay: review-evidence/3/ordinal3_recheck.py and adjoining ordinal3_recheck.json",
+        "Godsil–McKay §2.3(c); Bussemaker–Cobeljic–Cvetković–Seidel’s connected cubic graph census"
+      ],
+      "rationale": "The four switched vertices form an independent set; every incidence column into that set has zero or two ones, and J4/2−I4 complements the two-one columns and fixes the zero columns. Conjugation by the displayed involution proves adjacency cospectrality. Both graphs are cubic and connected. The unique triangle has external neighbors 4,5,6 whose common-neighbor intersection is {0} in G and empty in H; this proves nonisomorphism independent of the dynamics. A fresh exact enumeration of all 16,384 states per graph, with vertex v at bit v and at least two of its three open neighbors needed for output 1, reproduces every displayed count, both statewise digests and the witness trajectories. Fixed-point counts are 18/14, recurrent period-two state counts are 402/150 (hence 201/75 orbits), and the total p=1 basins are 3504/4036. There are 12 depth-nine states on G and 60 depth-seven states on H, and no states at greater depth. The witness cycles begin, respectively, with 8194↔384 at time nine and 912↔8205 at time seven. The exact characteristic polynomial also matches. The literature supports minimum order fourteen for connected nonisomorphic cospectral cubic graphs. The sentence saying Godsil–McKay prove the minimum is imprecise: their §2.3(c) reports it and cites the earlier census. This does not affect the minimum or any proof in the record.",
+      "residual_risks": [
+        "The enumeration uses exact finite software, not a formal proof certificate; the maximum is first recurrence entry, not maximum time to unanimity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil–McKay's local switching theorem gives cospectrality and the paper reports cubic order fourteen as the minimum; the construction is used, not claimed as new.",
+          "The general Goles–Olivos periodicity result (also discussed in the accessible Kaaser et al. text) bounds recurrent periods by two. Kaaser et al. give voting-time upper bounds and hardness, not these exact graphs' state distributions."
+        ],
+        "reasoning": "These theorems supply the graph relation or the range of allowed periods, not the counts and sharp times. In particular, a universal period bound cannot decide how many initial states arrive at each periodic component or at each depth.",
+        "searches": [
+          "arXiv:1508.03519, abstract, definitions and voting-time results",
+          "Godsil–McKay, Theorem 2.2 and §2.3(c)",
+          "Resultary: binary majority clocks on cospectral cubic order fourteen"
+        ]
+      },
+      "checked_sources": [
+        "Godsil–McKay 1982; Bussemaker–Cobeljic–Cvetković–Seidel 1976",
+        "arXiv:1508.03519 (includes discussion of Goles–Olivos)",
+        "Resultary a7ee2eb89698 and de29d0d819a4",
+        "Web and Resultary searches on exact cubic voting times and state populations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Shrikhande–rook result has already separated majority censuses and sharp entry times on a cospectral pair, with times 3/5 on degree-six sixteen-vertex graphs and a tie-retention convention. Thus broad spectral nondeterminacy is prior.",
+          "Neither that pair nor the cubic switching relation yields the exact strict-majority period/depth vectors on the reviewed degree-three pair. Histogram disparities on the former graphs cannot be transported by adjacency similarity, which is linear whereas majority is a threshold map."
+        ],
+        "reasoning": "The surviving claim is the explicit minimum-order cubic comparison; it requires a separate finite computation and its evidence does not claim the phenomenon for every switching pair.",
+        "searches": [
+          "Resultary a7ee2eb89698 and de29d0d819a4, substantive RESULT.md passages for the Shrikhande–rook comparisons",
+          "Godsil–McKay, §2.3(c); Kaaser et al., graph dynamics definitions and general bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On these cubic graphs, synchronous binary threshold 2 and open-neighbor strict majority coincide, and voting time is first t satisfying F^{t+2}(x)=F^t(x). Kaaser et al.'s tie convention is immaterial at degree three.",
+          "The period-depth population can also be presented as a functional-graph census or voting-time distribution; the cited spectral classification is a graph classification, not a functional-graph census."
+        ],
+        "reasoning": "Equivalent evaluation conventions are compared under the odd-degree assumption; the novelty does not depend on whether the word 'clock' or 'voting time' is used.",
+        "searches": [
+          "Resultary: cospectral cubic graphs order fourteen synchronous majority fixed points two cycles basins transient clock switching",
+          "Web: cospectral cubic graphs fourteen synchronous majority dynamics fixed points two cycles transient basin Godsil McKay switching minimum cubic adjacency spectrum",
+          "Web: Godsil McKay constructing cospectral graphs cubic fourteen Fig 4 smallest cubic pair majority Goles Olivos voting time threshold attractors cubic cospectral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1976 connected cubic graph table covers all connected cubic graphs through order fourteen and reports the three spectral pairs there (225/226, 336/337, 384/385); its columns include spectra and circuit counts, not majority basins or voting times.",
+          "Resultary returned exact majority enumerations on other graph families (including the sixteen-vertex comparison and the Bidiakis cube). The hit on this frozen record itself is not independent priority evidence."
+        ],
+        "reasoning": "A prior graph entry does not verify or preempt a new non-spectral invariant on that graph. The search did not locate an independent identical majority census; that is provisional negative evidence only.",
+        "searches": [
+          "Web: cubic graphs cospectral 14 smallest Bussemaker Cvetkovic McKay census spectra graph database majority dynamics cospectral pair",
+          "Web: cospectral majority dynamics cubic 14 exact fixed points cycles majority rule attractor enumeration cubic graphs graph spectrum",
+          "Resultary: cospectral cubic graphs order fourteen synchronous majority fixed points two cycles basins transient clock switching"
+        ]
+      },
+      "rationale": "The mathematical novelty supported by this search is the pair-specific recurrent/depth populations and basin-versus-fixed-point comparison at the first cubic order. It is not the graph construction, minimum spectral-pair order, universal period bound, or general phenomenon that cospectral graphs can differ dynamically.",
+      "residual_risks": [
+        "The 1981 Goles–Olivos original was not independently read in full; the stated period bound is supported by the accessible voting-time paper and is not required for the finite proof.",
+        "An unindexed enumeration of the three minimum-order pairs could contain the same counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers switching and reports the known minimum; no dynamics in the relevant construction",
+          "evidence": [
+            "Theorem 2.2 is involutory conjugation; §2.3(c) says the construction supplies two of the three order-fourteen pairs and attributes smaller-order exclusion to its reference [2]."
+          ],
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/papers/GodsilMcKayCospectral.pdf",
+          "material_read": "pp. 257–261, especially §§2.1–2.3",
+          "method": "Open author PDF, text extraction and statement comparison",
+          "title": "Constructing cospectral graphs",
+          "trigger": "Original cospectral switching theorem and order-fourteen cubic examples"
+        },
+        {
+          "assessment": "Prior graph and spectrum table, not a majority-dynamics table",
+          "evidence": [
+            "The report enumerates connected cubic graphs through fourteen vertices and identifies the three cospectral pairs at that order."
+          ],
+          "identifier_or_url": "https://pure.tue.nl/ws/files/1713766/252909.pdf",
+          "material_read": "Introductory description of table fields and §2 spectral discussion",
+          "method": "Institutional OA report PDF, extracted text and exact graph-count information",
+          "title": "Computer investigation of cubic graphs",
+          "trigger": "Exact earlier structural census behind minimum order and known graph pairs"
+        },
+        {
+          "assessment": "Same invariant in broader theory; exact switched-pair counts are not consequences of the inspected statements",
+          "evidence": [
+            "General two-periodicity and O(|E|) results are recalled; graph modules give improved upper bounds and the decision problem is NP-hard in general."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+          "material_read": "Abstract, introduction and relevant majority and voting-time definitions",
+          "method": "arXiv full-text PDF extraction",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Same synchronous update and first-entry invariant"
+        },
+        {
+          "assessment": "Covers the general type of counterexample, not the cubic, smaller-order numerical statement",
+          "evidence": [
+            "The witness comparison is on two order-sixteen degree-six graphs, with 65,536 configurations each."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-spectral-twins-separate-under-majority-dynamics-exact-shrikhande--a7ee2eb89698/RESULT.md",
+          "material_read": "Finding and proof/verification passages on trajectory counts, sharp times and graph distinction",
+          "method": "Local record mirror",
+          "title": "Spectral twins separate under majority dynamics: exact Shrikhande–rook attraction censuses",
+          "trigger": "Earlier exact separation of cospectral majority dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independently regenerated exact period–depth census; minimum-order graph census; earlier separate degree-six comparisons"
+      ],
+      "rationale": "The first available order for a cubic adjacency-cospectral pair fixes a natural comparison class before enumeration. This exact benchmark separates three useful notions—fixed-state abundance, collective fixed basin and worst entry time—and shows that the graph with more fixed states can have a smaller basin. The full period–depth distributions can test proposed spectral predictions for strict-majority dynamics without relying on a tie convention or a sample of starting states.",
+      "residual_risks": [
+        "Only two of the graphs at this order are evaluated; there is no sharp bound for the entire order-fourteen class and no general asymptotic conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:46:09.963039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof Steps 1–5; frozen VERIFICATION.md and verify.py (read only)",
+        "Corrected /workspace/repairs/2/RESULT.md, including final scope, threshold and prior-work discussion",
+        "Independent exact unsigned replay: python3 /tmp/opencode/frozen_math_replay.py, complement(). It returns the same rational function over Q(z) and lambda=1.46557123187676802665..., C=2.62684611970469959756...."
+      ],
+      "rationale": "The repaired result keeps the exact finite linear-word theorem. The absence indicator is the product of four correct pairwise inclusion–exclusion factors. For each forbidden triple set the two-bit suffix transfer counts every word, including arbitrary overlapping factors, and lengths zero and one are handled separately. I checked the infinite rational identity by a separate, unsigned exact computation: after starting with the four two-bit suffixes, use states (observed triple mask, suffix), append a letter unless the complementary triple has been seen, and solve H_state=1+z times the sum of continuation series over legal successors. There are 46 reachable states over 35 masks. The mask never loses a bit, so solving each same-mask block in descending size gives exact rational functions and precisely the displayed numerator and denominator, not just initial terms. Formal division gives 4+2b_n for n>=5. The cubic has one real root and a conjugate pair whose reciprocal growth moduli are lambda^(-1/2) by Vieta; the simple positive pole gives the stated C (checked numerically), and the pole at z=1 contributes four. For lengths one and two the direct run counts are correct; inclusion by length-three prefixes and submultiplicativity justify the threshold and the existence of the rate for larger factor lengths. These checks are unchanged by the repaired attribution and narrower claim of contribution.",
+      "residual_risks": [
+        "The exact enumeration is for finite linear binary words and factor length three only; the asymptotics for higher lengths are not computed here. No formal proof-assistant verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 17 gives distinct uniform images of ternary squarefree words with complementary factors only 0,1,01,10. Since the ternary squarefree family is exponential, the qualitative threshold at three follows with the elementary small-length bounds; uniform block lengths and truncation give the same positivity over all lengths.",
+          "The indexed exact restricted results cover cube-free length-six avoidance at an extremum, complementary-factor spectra of four-run words, and the marked cyclic length-four model, respectively."
+        ],
+        "reasoning": "The construction proves a positive-growth subfamily and the indexed results cover other scopes, but none provides a count of every finite linear word at every length for complementary triples. The threshold is credited, not carried as a novel claim.",
+        "searches": [
+          "Currie et al., optimal pairs and Theorem 17 construction",
+          "Resultary 232fa1d221d6, 359b5bff90f3 and 34c65335df89, matching RESULT.md Findings"
+        ]
+      },
+      "checked_sources": [
+        "Currie et al. arXiv:2209.09598v2 and Baranwal et al. arXiv:2209.09223v3",
+        "Resultary 232fa1d221d6, 359b5bff90f3, 34c65335df89 and 246b4cc4bcec",
+        "Two literal OEIS prefixes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baranwal et al. count the growth of a local antisquare-avoidance language using Pansiot codes and a different recurrence for a growth-determining sublanguage; its characteristic factor X^3-X^2-1 is exactly the present dominant-root polynomial.",
+          "The repaired scalar series enumerates all linear words under a complementary-pair constraint, with a specified initial polynomial, amplitude, and constant tail correction. Neither the restricted morphism nor the strength or shape of the antisquare and cyclic asymptotics determines those coefficients."
+        ],
+        "reasoning": "A qualitative entropy implication and a shared exponential root do not give the all-length scalar enumerator. Boundary contributions and finite word counts are essential to the surviving claim.",
+        "searches": [
+          "Baranwal et al., Theorem 19 proof and its Pansiot recurrence",
+          "Currie et al., Theorem 17 and §5",
+          "Resultary 34c65335df89, length-four cyclic enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avoidance at length three is equivalent to avoidance of all complementary pairs at lengths at least three, by taking prefixes of a hypothetical longer pair. Currie et al. use the equivalent condition in an infinite-word and repetition-restricted setting.",
+          "A contiguous antisquare x followed by its complement is not the predicate here. For instance, 0110 passes triple-complement avoidance but is itself a length-four antisquare and is not good in Baranwal et al.'s sense."
+        ],
+        "reasoning": "The fixed-length versus at-least formulation is an exact alias; neither infinite existence under extra restrictions nor disallowing antisquare concatenations gives the same finite-word language or its exact count.",
+        "searches": [
+          "Resultary complementary triples, pairs of bitwise-complement factors, linear avoidance, exact counts",
+          "Currie et al., arXiv:2209.09598v2, Theorem 3 and §5",
+          "Baranwal et al., arXiv:2209.09223v3, definition and Theorem 19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both tested OEIS prefixes had no exact table match; this is a bounded sequence check.",
+          "The inspected cyclic record gives A_n=4T_7(n)+2T_3(n)-4 at cyclic factor length four. The trigram record counts distinct multispectra rather than words passing the avoidance condition."
+        ],
+        "reasoning": "The cyclic record's matching root is not a matching table: the admissibility rule wraps and the window is longer. Nor does a count of distinct spectra directly count all words carrying them. The originality decision rests on these scientific differences, not on failed sequence lookups.",
+        "searches": [
+          "OEIS exact prefix 1,2,4,8,14,22,30,42,60,86,124,180,262",
+          "OEIS shifted prefix 2,4,8,14,22,30,42,60,86,124,180,262,382",
+          "Resultary search on finite triple avoidance and exact sequence; cyclic result 34c65335df89 and trigram result 246b4cc4bcec"
+        ]
+      },
+      "rationale": "The repaired contribution is the exact enumeration of all finite linear words avoiding complementary triples, including the precise asymptotic amplitude and additive correction. The qualitative positive-entropy boundary already follows from a published morphic construction and elementary small-length cases, and the same algebraic growth base occurs in older antisquare work. The complete word counts were not supplied or mechanically implied by the inspected sources. The repair explicitly credits the overlaps and does not claim the qualitative threshold as a separate contribution.",
+      "residual_risks": [
+        "These bounded searches and exact comparisons are not a historical-priority certification; an equivalent finite enumeration under an alias remains possible.",
+        "The same root and qualitative entropy boundary are explicitly not evidence of a separate contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Important coverage of the qualitative boundary by implication, not an all-finite-word enumerator in these results",
+          "evidence": "Theorem 17 lists a 31-uniform morphism with distinct images and only 0,1,01,10 as complementary factors; Theorem 3 addresses repetition-restricted infinite existence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09598v2",
+          "material_read": "p.1 offset 1530; Theorem 3 pp.3–4 offset 9740; §5 pp.19–20, Theorem 17 and surrounding arguments, offsets 53280 and 55600–58965",
+          "method": "Original open-access PDF passages, read by bounded offsets",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "Same complement-factor avoidance criterion"
+        },
+        {
+          "assessment": "Exact match of base but not of the counted language or finite series",
+          "evidence": "Theorem 19 is a Theta estimate for good words; it factors a characteristic polynomial by X^3-X^2-1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09223v3",
+          "material_read": "Definition p.1 offset 1260; Theorem 19 and proof pp.17–18, offsets 48800–54541",
+          "method": "Original open-access PDF passages, including the recurrence and root factorization",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Same exponential base in a closely related language"
+        },
+        {
+          "assessment": "No exact mixed prefix found in the checked queries; not an exhaustive database result",
+          "evidence": "Both pages reported that the terms did not match anything in the table.",
+          "identifier_or_url": "https://oeis.org/",
+          "material_read": "Exact-prefix result pages with and without the empty-word term",
+          "method": "Two literal sequence queries, prefixes recorded above",
+          "title": "OEIS exact sequence lookup",
+          "trigger": "Possible indexed match at all lengths"
+        },
+        {
+          "assessment": "Cube restriction, window length and extremal question differ",
+          "evidence": "Counts 16 equality cases at length 50 for cube-free words with no complementary factors of length at least six.",
+          "identifier_or_url": "232fa1d221d6",
+          "material_read": "Indexed RESULT.md Finding",
+          "method": "Local record mirror",
+          "title": "Sixteen equality cases at the binary cube-free complement-avoidance boundary",
+          "trigger": "Same avoidance family in a restricted census"
+        },
+        {
+          "assessment": "Counts spectra within four-run words, not all admissible words",
+          "evidence": "Its invariant is an extremum for complementary factors within each such word.",
+          "identifier_or_url": "359b5bff90f3",
+          "material_read": "Indexed RESULT.md Finding",
+          "method": "Local record mirror",
+          "title": "Complementary-factor spectrum and sharp extremum for four-run binary words",
+          "trigger": "Related finite complementary-factor counting"
+        },
+        {
+          "assessment": "Counts marked cyclic words and length-four factors, not the finite linear triple language",
+          "evidence": "The different recurrence combination is A_n=4T_7(n)+2T_3(n)-4, with a matching growth root.",
+          "identifier_or_url": "34c65335df89",
+          "material_read": "Indexed RESULT.md Finding, cyclic marking, count and growth base",
+          "method": "Local record mirror",
+          "title": "Exact enumeration of complement-pair-free binary cyclic words at factor length four",
+          "trigger": "Strongest related exact enumeration"
+        },
+        {
+          "assessment": "Different counted objects",
+          "evidence": "Counts distinct trigram multispectra, with asymptotic 13n^4/288, not individual words with the restriction.",
+          "identifier_or_url": "246b4cc4bcec",
+          "material_read": "Indexed RESULT.md Finding",
+          "method": "Local record mirror",
+          "title": "Sharp asymptotic for binary trigram multispectrum capacity",
+          "trigger": "Same-date exact trigram invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding, proof and comparison to prior work",
+        "Currie et al. Theorem 17; Baranwal et al. Theorem 19; Resultary marked cyclic comparison 34c65335df89"
+      ],
+      "rationale": "Complementary-triple avoidance is the smallest nontrivial exponential member of an independently studied avoidance family. The repaired claim computes its entire finite-word enumeration, not just an existence witness or an already familiar base. The recurrence, exact amplitude, and four-word additive correction quantify finite-length and asymptotic behavior that is not determined by the earlier restricted-language or qualitative results. This is a useful natural counting invariant even without a general formula for larger windows.",
+      "residual_risks": [
+        "Value is the precise enumerator for this linear model; it does not rest on claiming the known positivity construction or shared numerical base as new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

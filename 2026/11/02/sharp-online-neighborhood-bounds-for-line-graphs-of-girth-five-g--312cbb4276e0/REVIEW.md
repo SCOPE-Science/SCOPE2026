@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two positive edge-adjacency answers in a girth-at-least-five graph leave either one center or a star, on which every further query isolates or co-isolates at most one center. This proves the global depth-three bound. A positive first query in maximum degree at most three leaves two star arms of size at most two; every next query has a side of size at most one. For the one-bit gap, a depth-three witness requires a degree-four endpoint adjacent to a degree-two endpoint; two fixed edges at the former have a four-pattern shattering certificate. All quantified statements include empty graphs, duplicate concept functions, and disconnected graphs. The separate exact finite verification demonstrates that the sharp nine-vertex tree has dimensions two and three, and cardinality proves no smaller tree has online depth three.
+## correctness
 
-**Originality — PASS under inspected evidence.** The closest same-query literature (Adler, Benediktsson and Macpherson, arXiv:2007.16042) proves static VC/density properties for Johnson neighborhoods. This includes the complete-graph line graph \(J(n,2)\), which contains all line graphs as induced graphs, but supplies no girth-sensitive Littlestone theorem. A generic all-induced-subgraph bound of four would not imply the new bound three, subcubic bound two, or sharp one-bit gap. Bergold, Hochstättler and Mayer (arXiv:2008.08349) compute common-neighborhood counting polynomials of chordal graphs rather than adaptive query trees. Searches for edge adjacency, thicket dimension, tree line graphs, and bounded-girth graph neighborhoods did not locate an implication-level covering theorem. Historical-priority uncertainty persists.
+PASS
 
-**Mathematical value — PASS.** This establishes an infinite structural online-stability bound for line graphs of all girth-five graphs, a sharp degree-four onset of three-round shattering, an optimal universal one-bit VC–Littlestone gap, and a minimal connected tree witness. The result is stronger than simply restricting a complete-Johnson-graph bound, and the exact nine-vertex boundary is motivated by the four-versus-four root partition obstruction. These properties distinguish unrestricted edge incidence from the cycle-free high-girth regime.
+For two distinct positive queries, disjoint edges have at most one common center (two bridges force a triangle or square); incident edges leave only their common star, in which a new query isolates or co-isolates at most one center. This precludes online depth four. After a positive root uv, queries outside both endpoints hit at most one candidate and queries through u other than uv hit just the other u-edges, excluding themselves. A depth-two split of this positive space therefore requires degree at least four at one endpoint and at least two at the other. That proves the subcubic cap and supplies a fixed shattered pair: two edges a,b at the high-degree endpoint have traces 01,10,11,00 from a,b,uv and an extension at the opposite endpoint. The general lower bound VC <= Ldim and the depth-one case cover the remaining dimensions, including the empty-class convention. The exact nine-vertex depth-three certificate checks out; depth three requires eight distinct edge functions, excluding all smaller trees.
 
-No claim is made for girth at most four, for a complete classification of all individual graphs, or for independent verification. The finite computation corroborates the stated certificates but does not substitute for the infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard VC lower comparison is not novel. The distinct contribution is the girth-dependent online upper bound, its degree and VC refinements, and the exact online sharpness for trees. The strongest same-day comparison on the same incidence relation bounds all induced subgraphs of the triangular graph by four, not three, and supplies no degree or VC-relative refinement. No implication-level match emerged in the available comparisons.
+
+## value
+
+PASS
+
+These are sharp structural thresholds for adaptive edge identification: maximum degree alone excludes depth three below four, and girth forces the adaptive advantage over fixed queries to at most one. The P5 and minimum-order nine-vertex tree show that the advantage is genuine even among trees and certify where the higher online rank starts; the result is not a computation of two arbitrary trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

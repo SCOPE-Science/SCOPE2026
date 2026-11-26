@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The linear contrast exactly annihilates both nuisance parameters, with the stated variance under independent equal-variance errors. An algebraic lower bound gives the odd-baseline uniqueness, while a period-folding dominance argument and a strictly single-crossing logarithmic derivative prove the two even-baseline global optima. The alternative joint determinant is computed explicitly. Numerical bracketing, exact rational cases, and the independently runnable verifier corroborate the constants. The result concerns the specified scalar three-epoch model only.
+## correctness
 
-**Originality — PASS, provisional.** The closest full-text primary studies (Riess et al., 2014; Michalik et al., 2015) establish the physical astrometric model and the need for well-separated annual phases, but do not give the complete fixed-integer-endpoint, marginal-parallax-variance optimizer, its parity law, or exact disagreement with saturated joint \(D\)-optimal designs. The AllWISE explanatory supplement shows practical annual-phase aliasing without an exact all-baseline design theorem. A wider general optimal-design principle might imply the result; no decisive encompassing theorem was found in the materials inspected. Historical priority is not independently certified.
+PASS
 
-**Value — PASS.** The object and objective are directly motivated by sparse parallax/proper-motion separation. Two observation campaigns with different integer-year endpoints can reverse their achievable minimum parallax variance despite one having a longer span. The model also exactly separates the optimal design for one scientific target parameter from the full-parameter determinant criterion; the even-year midpoint is wholly unidentifiable, not merely suboptimal. These are structural boundaries for a natural fixed-endpoints design, rather than a numerical gain asserted to transfer to real instruments.
+For independent equal-variance scalar observations with phase-registered cosine and endpoints 0,K, the endpoint-interpolation contrast cancels position and proper motion. Its parallax coefficient is cos(2πt)−1 and its normalized noise variance is 3/2+2(t−K/2)²/K². The common lower bound 3σ²/8 is attained exactly at the center for odd K; for even K the center is singular. In the even case folding each positive offset to its distance from the nearest integer preserves the cosine and strictly reduces the noise multiplier for offsets above 1/2. The derivative of log inverse variance on (0,1/2) is four times the difference of the decreasing π cot(πv) and increasing v/(3K²/2+2v²); the endpoint signs prove a unique positive optimum and reflection gives exactly two. At each positive offset the variance strictly decreases with K along even baselines; the half-integer benchmark tends to the lower bound. With δ=1/2−v, the stationarity equation first gives δ=O(K⁻²) by tan(πδ)≥πδ and then δ=1/(3π²K²)+O(K⁻⁴). The joint information determinant is proportional to K²[1−cos(2πt)]², hence all half-integers maximize it, and none is variance-optimal at even K. A fresh scalar bisection for K=2 gave v=0.492309377828065 and V/σ²=0.405769566440672, versus 0.40625 at the half-integer. Replay by bisecting the strictly decreasing stationarity difference on (0,1/2) and evaluating the contrast variance. The frozen verify.py was inspected, not executed; its assertion count is record evidence, not the universal proof.
 
-**Closest literature and limitations.** Riess et al. (arXiv:1401.0484), Michalik et al. (arXiv:1507.02963), and the NASA/IPAC AllWISE technical supplement were examined for direct inclusion; broad general design literature leaves residual priority risk. The result neglects unequal errors, source acceleration, field calibration and orbital noncircularity. It is a mathematically exact benchmark and does not claim observational validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the global fixed-endpoint marginal-parallax parity law, including the strict even-baseline displacement and disjoint joint-D optima. The linear model, opposite-phase sensitivity and elementary determinant criterion are not themselves novel. No inspected distinct source states or supplies the full constrained classification; this is a bounded comparison, not a historical priority finding.
+
+## value
+
+PASS
+
+In the smallest identifiable scalar design the classification separates information about one parameter from joint design quality. It gives an exact aliasing boundary and a structural counterexample to either opposite-phase or longer-baseline prescriptions for marginal precision with fixed endpoints. The small numerical gain over a half-year excursion is not the main value. This is an idealized design theorem, not a scheduling rule for real astrometric instruments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

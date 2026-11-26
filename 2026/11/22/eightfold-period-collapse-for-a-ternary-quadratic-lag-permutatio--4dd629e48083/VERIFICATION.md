@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the attached verifier. The program uses only the Python standard library. It independently constructs the exact 84-vertex directed graph by lifting all weight-three or weight-six binary masks through the cyclic difference equation, and by enumerating every one of the \(3^8\) possible ternary eight-tuples and reconstructing the same graph from their differences.
+## correctness
 
-Both constructors agree on all 96 distinct directed edges. The program verifies the exact four-vertex cyclic core and confirms that the other 80 vertices have no path of length three, as well as checking that the all-zero mask cannot transition to a nonzero admissible mask. It then enumerates every state at lags \(2\le k\le11\), compares the fourth and eighth iterates, and checks the closed binomial formula for each fixed count.
+PASS
 
-Expected output:
+Because k>=2, the last old coordinate remains available when inverting T_k. A state fixed at 8k is a cyclic recurrence solution. Writing k columns of eight rows gives D y_j=B_{j-1} and D y_0=rho B_{k-1}, with rho the one-row shift and B the nonzero mask. Cyclic summation forces weights 0,3,6; a zero forces all columns zero because an ensuing nonzero constant would have weight eight. The independent exhaustive enumeration of 3^8 words at /workspace/branches/744fb5ef-27ca-4681-ad52-d3cc8969e69/mask_graph_check.py reproduced 84 vertices, 96 arrows, the stated four-mask adjacency, no core exits, and no three-step exterior walk. Equivariance lets the path to rho^{-1}B_0 close after eight rotated copies; every vertex of a closed walk is on a cycle, hence in the core. Four consecutive predecessor mask bits then sum to three, forcing y_{j,t+4}=y_{j,t}, including across the wrap. The reverse inclusion is immediate. For the count, a unique predecessor zero at row z in a four-row column allows exactly two admissible lifts with zeros at z+1 or z+2, each unique for its support. The wrap contributes one extra row shift; if j transitions move by two, k+j+1 is divisible by four. Four starting rows and the resulting binomial sum count nonzero states, plus the zero state. This argument is universal; bounded direct state counts in the supplied verifier were not rerun.
 
-```
-GRAPH_CERTIFICATE_OK nonzero_masks= 84 edges= 96 exterior_length2_walks= 80 cyclic_masks= [119, 187, 221, 238]
-DIRECT_CYCLE_CHECK_OK k=2..11 fixed_counts= [9, 5, 17, 41, 49, 145, 257, 481, 1089, 1985] total_states= 265716
-CERTIFIED: Fix(T_k^(8k)) = Fix(T_k^(4k)) for every integer k>=2
-```
+## originality
 
-The computer checks are finite, exhaustive for the claimed 84-vertex certificate, and bounded for direct state enumeration. The proof that this one graph controls every lag, including the twisted column boundary, is provided in `RESULT.md`. No assertion about unattested full period spectra or independent validation is made.
+PASS
+
+The same map, fourfold fixed-point count, and equality at k=2 are already known. A related short least-period catalogue concerns the recurrence with the linear and quadratic lags interchanged. The distinct claim is the uniform equality of the two fixed sets; it was not established by the inspected results.
+
+## value
+
+PASS
+
+For a studied family with a known fourfold sector, determining whether the next doubled sector adds any points is a natural gap, not a count of a chosen instance. The uniform exclusion follows from a finite exact recurrent-mask obstruction and a rotation argument that handles every lag, and determines an otherwise unknown iterate-fixed set from an established one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

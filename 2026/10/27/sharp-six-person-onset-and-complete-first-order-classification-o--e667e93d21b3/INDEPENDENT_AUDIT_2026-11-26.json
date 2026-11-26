@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:50:50.297684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An unserved nonbuyer can profitably buy, and a buyer nominated by another buyer can drop its purchase and save the cost. These are exactly the profitable deviations once quotas are fixed, because choosing nominations does not affect the buyer's own access. Thus equilibrium buyer sets are precisely the feasible exact-quota cut covers. Independent replay used lower-bounded circulation: exact inflow at each buyer, unit arcs to eligible nonbuyers, and required inflow at least one per nonbuyer; integral feasible flows correspond to legal nomination sets. The replay covered all labeled connected graphs of orders 2–6 (1, 4, 38, 728, 26704) and every capacity 1 through n−1; larger capacities are identical to n−1. It found no reversal below six and exactly 1330 at six, each with only m2=2<m3=3. Minimizing each mask over all 720 relabelings gave code:count 121:90, 693:360, 127:180, 954:180, 639:60, 703:360, 1759:90, 4060:10. Only 121 has five edges (01,04,05,12,13), the double-star. The independent replay was written separately from the frozen nomination-union checker. The frozen checker's Python 3.9 compatibility note should say 3.10+ because it uses int.bit_count(); this is not a census defect.",
+      "replay_paths": [
+        "/workspace/branches/be0a7f01-0409-4188-99fa-ffb4d9d25ae7/reviewer_replay.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 establishes existence on any graph. Example 2 and its footnote cover reversals on double-stars, including arbitrarily large changes. Appendix C.1 bounds D-set sizes separately in terms of graph size, capacities and minimum degree; C.2 specializes to complete graphs."
+        ],
+        "reasoning": "Existence, family constructions and separate size bounds do not decide whether a smaller diverse graph reverses or which six-vertex isomorphism types reverse.",
+        "searches": [
+          "arXiv:1905.01693, Example 2 n. 13, Theorem 1 and Appendix C.1–C.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary matched record 4e96225c1db3",
+        "arXiv:1905.01693",
+        "arXiv:2003.07106"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier double-star example lists size-three D3 and D4 as maximal independent sets at κ=3 (despite its conflicting prose saying the most efficient size is four); the listed sets and exact quotas agree with the frozen values 2 and 3.",
+          "The balanced-bipartite spectrum implies the code 4060 reversal, but it has no consequences for non-balanced-bipartite reversing types."
+        ],
+        "reasoning": "Neither exact example is a new discovery. No inspected result yields the global lower bound on the first order and the exhaustive onset classification without doing the new analysis.",
+        "searches": [
+          "arXiv:1905.01693 Example 2, Fig. 3 and listed D-sets, PDF pp. 9–10",
+          "Resultary 4e96225c1db3 Finding and balanced-bipartite spectrum formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The DP-Nash definition is spanning bipartite with positive nonbuyer degree and buyer degree min(d_G(v),κ(v)); this is exactly the frozen feasibility test.",
+          "The uniqueness paper studies uniqueness of DP-Nash subgraphs and D-sets, not the change of the minimum D-set size with uniform κ on all small connected graphs."
+        ],
+        "reasoning": "Changing the name from exact-capacitated domination to purchasers adds no novelty; the complete comparison across capacities and all graphs is distinct.",
+        "searches": [
+          "Gerke et al., arXiv:1905.01693, D-sets and Theorem 1",
+          "Gutin, Neary and Yeo, arXiv:2003.07106, DP-Nash subgraph and exact capacitated domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest local matched table/formula covers K_{n,n}; at n=3 it gives purchaser count sets {2,3} at capacity 2 and {3} at capacity 3, the canonical code 4060 row. Gerke et al. Example 2 covers code 121."
+        ],
+        "reasoning": "These are real overlaps with individual rows, not a database or formula giving the complete first-order census. The inconclusive literature lookup adds no negative evidence.",
+        "searches": [
+          "Configured local Resultary search on uniform sharing capacity/purchaser count; actual matched balanced complete bipartite spectrum 4e96225c1db3",
+          "Primary literature lookup for exact-capacity minimum-purchaser reversals; no usable additional primary hit beyond the directly inspected papers"
+        ]
+      },
+      "rationale": "Credit only the first possible order, exhaustive eight-class boundary, multiplicities and unique sparsest class. The game, DP-Nash characterization, double-star reversal, and the K3,3 reversal are already given or implied by the inspected sources. Those sources do not settle the full boundary.",
+      "residual_risks": [
+        "An unindexed exact-capacitated-domination census could duplicate the boundary; the inspected sources do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: same paradox and example, not the complete boundary",
+          "evidence": "Example 2 lists D2={I,J} at κ=2 and D3={i1,i2,J}, D4={I,j1,j2} among the best-shot D-sets at κ=3; the size-four sentence conflicts with these sets. Appendix C.1 Lemma 5 gives separate lower and upper size bounds, not cross-capacity classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.01693",
+          "material_read": "D-set description; Example 2 and n. 13 (PDF pp. 9–10, extracted offset 22093); Theorem 1 (p. 18); Appendix C.1–C.2 (offset 103450)",
+          "method": "OA full PDF passages",
+          "title": "Public goods in networks with constraints on sharing",
+          "trigger": "Originating game and same double-star, possible general bounds"
+        },
+        {
+          "assessment": "Same framework, different invariant",
+          "evidence": "A DP-Nash subgraph is spanning and bipartite, with exact capped degrees on D and no isolated vertex on P; the inspected uniqueness problems do not determine minimum counts at two capacities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.07106",
+          "material_read": "Definitions and problem setup, PDF pp. 4–5 (extracted offsets 7376–10817)",
+          "method": "OA full PDF passages",
+          "title": "Exact capacitated domination: on the computational complexity of uniqueness",
+          "trigger": "Equivalent exact-quota domination formulation"
+        },
+        {
+          "assessment": "Implies one row, not the minimality or full census",
+          "evidence": "For K3,3 the formula gives E(3,2)={2,3} and E(3,3)={3}.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-purchaser-count-spectrum-for-uniform-sharing-on-balance--4e96225c1db3",
+          "material_read": "Finding and purchaser-count formula at n=3",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete purchaser-count spectrum for uniform sharing on balanced complete bipartite graphs",
+          "trigger": "Strongest catalogue hit; contains a listed six-vertex graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first possible size is a natural question forced by a known sharing-capacity paradox, not an arbitrary graph-size slice. The full boundary makes the phenomenon independently usable: it separates one sparse tree obstruction from seven cyclic types, identifies the only increasing capacity step, and lets later work test proposed structural explanations against the full onset layer rather than just one example. The value is not the already-known example or a general welfare claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification protocol and scope
+# Independent mathematical audit
 
-The standalone `CHECK.py` works with the Python 3 standard library; invoke `python3 CHECK.py`. It builds the Petersen graph canonically as \(KG(5,2)\), lists all fifteen edges, and exhaustively checks all \(2^{15}\) directed assignments, rejecting exactly the cyclic ones. Each surviving orientation's Hasse-arc count is computed via DAG reachability and independently via DFS after reversal of each original edge; the methods agree at every case. All \(120\) permutations of five symbols are enumerated and every orientation orbit checked. The certificate separately enumerates all nine-edge spanning trees, checks all nine-edge orientation assignments for coherent chord paths, and verifies all five symmetry-orbit sizes. It terminates with `VERIFY_OK` if and only if the asserted counts match.
+## correctness
 
-Expected outputs include \(16680\) acyclic orientations, the seven local degree coefficients \(1080,2280,3600,3120,3120,2160,1320\), \(168\) orientation orbits, \(2000\) trees, \(540\) coherent trees in five orbits, and \(100080\) total invariant curves.
+PASS
 
-The finite enumeration is complete for this particular graph; it is not a sampling experiment. Geometric use of the enumeration requires the chamber–orientation dictionary, the characterization of reversible arcs, and the unimodularity of oriented tree-incidence matrices, all supplied in the mathematical result. Source overlap was compared only against accessible literature and records; an unindexed equivalent census remains possible. No independent audit or external validation has been undertaken.
+The graphical arrangement has full rank nine because the graph is connected. Its chambers correspond to acyclic orientations; a directed edge inequality is redundant exactly when there is an alternate directed path, and exactly the nonredundant inequalities label incident edges of the zonotope. The cover edges span a connected graph since each original arc refines to a path of covers. Nine covers therefore form a spanning tree. Its roots are a basis of the specified saturated lattice by deleting one incidence row and expanding at leaves; the dual chamber is smooth. More than nine facets means the full-dimensional cone is nonsimplicial, so the corresponding chart is not Q-factorial, in any characteristic. Independent replay uses a pentagon, spokes and pentagram, identifies the five stars and hence the Kneser labels, and excludes all 114 directed simple-circuit patterns from the 32768 orientation words. The surviving flip counts give (1080,2280,3600,3120,3120,2160,1320); their sum is 16680 and half their degree-weighted sum is 100080. Stabilizer counts give every cell of the stated orbit table (168 orbits). Of 2000 spanning trees, the 540 distinct nine-cover masks occur in one orbit of size 60 and four of size 120; every mask occurs for exactly two complementary words. This independently checks the two-orientation assertion without assuming it in the count.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the full Petersen local-degree spectrum, its orientation-orbit stratification, and the coherent-tree orbit census. The orientation/chamber dictionary, characterization of flippable trees, two opposite orientations per tree, and global face enumeration are prior results. No matched source supplies or implies the refined census without a new graph-specific computation.
+
+## value
+
+PASS
+
+Petersen is a canonical highly symmetric cubic graph and the valence spectrum measures all its toric fixed charts, not an arbitrary slice: degree nine detects precisely the smooth charts, and the orbit table distinguishes labeled counts from chart types under the natural graph action. The coherent spanning tree census gives a useful complementary classification. These exact refinements are not recoverable from the prior global face numbers alone and are a concrete benchmark for graphic arrangement and toric singularity studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

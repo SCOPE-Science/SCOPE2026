@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:05:37.416219Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–79; VERIFICATION.md and supplied Python sources inspected without execution",
+        "Independent exact map-set replay: /workspace/branches/0ecaec1a-e655-4fda-8f6e-43ebac1711dd/check_idempotents.py --max 8; finite-check-1-to-8.txt (all 64 pairs, both axes, total sizes and ranks)"
+      ],
+      "rationale": "The prefix automaton is minimal: the completion suffix for the longer prefix separates any two proper prefixes, as a shorter prefix followed by that suffix cannot contain the whole pattern. For a nonempty input, an initial 0^k with k≥r merges all live states; with k<r its first 1 starts a separate trajectory at B_1 from the high-zero suffix and resets the other class to A_0. Before the next zero, ones leave the latter class at A_0 and advance or kill the high class; the next zero merges the two if both survive. A high-class survivor before merging cannot be a fixed output, since every B-state belongs to the other input class. Starting with ones, the first zero already merges the survivors with killed domain K_k or K_*. Short pure runs are not idempotent; long ones give the already enumerated maps. Every listed kill-and-merge form is attained by the stated prefix and a suffix reaching the requested fixed output without acceptance. For s=1 the 1 kills the high class directly and the merged A_r state cannot leave without acceptance; for r=1 a live A_1 reached at the first zero cannot reach A_0 without acceptance. The (1,1) case has five elements and four idempotents. The identity, zero and disjoint rank-two form counts give the displayed formulas; division by the independently sourced total sizes gives the limits.",
+      "residual_risks": [
+        "The replay is finite; the first-run analysis, not the replay, covers arbitrary r,s."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 counts all semigroup elements for principal ideals using inner factors; 0^r1^s has rs−1 nonempty inner factors for r,s≥2. The exceptions give semigroup size (r+s)^2."
+        ],
+        "reasoning": "That more general enumeration specializes to the denominators for the density, but it does not select the transformations satisfying t²=t or stratify them by rank and inverse image of the sink.",
+        "searches": [
+          "Gusev–Maslennikova–Pribavkina, arXiv:1304.3307v1, Theorem 1, proof and exceptional-word note"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1304.3307v1, pp. 11–13",
+        "Resultary local record 75e0b360b676"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof counts transformations; it does not analyze fixed images of live classes or enumerate the boundary-case retractions."
+        ],
+        "reasoning": "The first-change and survivor-fixed-point tests are additional restrictions; the claimed numerator and rank profile do not follow by substituting parameters in the known size formula.",
+        "searches": [
+          "arXiv:1304.3307v1, pages 11–13, syntactic semigroup definition and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top Resultary result is the same title, identifier suffix and Finding, not independent work.",
+          "Reversal followed by alphabet exchange gives an anti-isomorphism preserving idempotents and merely interchanges the two parameter axes of this claim."
+        ],
+        "reasoning": "Neither semigroup versus monoid terminology nor the reversal duality yields a distinct preceding census; for this comparison adjoining identity affects the count by one.",
+        "searches": [
+          "Resultary semantic lookup for idempotents and retractions of the syntactic monoid of the binary factor ideal of 0^r1^s",
+          "arXiv:1304.3307v1, principal ideal languages and prefix/suffix transformations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The displayed exact match is the mirror of the assigned Finding. The focused literature search returned no usable equivalent; the inspected primary theorem reports total sizes rather than a table of idempotents."
+        ],
+        "reasoning": "No separate exact indexed census is established by these results, and an empty lookup is not positive evidence of originality.",
+        "searches": [
+          "Resultary exact-object and invariant match; focused literature lookup for idempotents of these two-run syntactic monoids"
+        ]
+      },
+      "rationale": "Pass for the composition-idempotent count and the explicit rank and killed-domain classification, not the previously known total size. No distinct equivalent was established in the inspected evidence.",
+      "residual_risks": [
+        "The targeted literature comparison does not rule out an unindexed prior idempotent analysis or another classification implying these forms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers total cardinality, not composition-idempotent classification in inspected theorem and proof",
+          "evidence": "σ denotes syntactic semigroup size; σ=n²+1+N(w) outside exceptions and σ=n² for the stated two-run exceptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.3307",
+          "material_read": "Pages 11–13, text offsets 33580 through 40886, including Theorem 1 near 35897 and exception note",
+          "method": "Lawful open primary PDF, relevant passages read",
+          "title": "Principal ideal languages and synchronizing automata",
+          "trigger": "Primary stronger-looking general principal-ideal result"
+        },
+        {
+          "assessment": "Same finding, not independent coverage",
+          "evidence": "Identical binary language, both count formulas, rank profile and density limits.",
+          "identifier_or_url": "2026/11/22/SCOPE-idempotent-retractions-of-binary-two-run-factor-monoids--75e0b360b676",
+          "material_read": "Mirrored RESULT.md offset 0 through the Finding and start of assumptions",
+          "method": "Local Resultary search and local mirror read",
+          "title": "Idempotent retractions of binary two-run factor monoids",
+          "trigger": "Strongest indexed semantic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–22 and 42–79",
+        "Gusev–Maslennikova–Pribavkina, Theorem 1 for comparison with the known invariant"
+      ],
+      "rationale": "The idempotents describe all retract images and sink fibers in a natural benchmark family of factor-recognition monoids. The full classification, including both singular parameter axes, exposes rank collapse and determines asymptotic density while the known total syntactic complexity supplies neither. This is more informative than reproducing the total size or counting a few small instances.",
+      "residual_risks": [
+        "The classification is specific to binary two-run principal factor ideals; it does not establish a general learning or algebra algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

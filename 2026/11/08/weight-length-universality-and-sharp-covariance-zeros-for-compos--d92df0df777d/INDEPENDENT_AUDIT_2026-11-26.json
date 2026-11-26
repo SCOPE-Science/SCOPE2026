@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:41:34.351474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently derive the identity with the uniform cut encoding, K_N=1+sum of N−1 fair independent cut bits. An occurrence beginning at unit offset a=0,...,t fixes w−1 internal bits (r−1 ones) and h additional boundary bits to one, where h=1_{a>0}+1_{a<t}. Its probability is 2^(−w+1−h), and on the event the mean of K_N increases by (2r−w−1+h)/2. Thus it contributes 2^(−w−h)(2r−w−1+h) to covariance. Summing these indicators counts overlapping occurrences without assuming independence among their events. At t=0 there is just h=0; at t≥1 there are two h=1 offsets and t−1 h=2 offsets, yielding the asserted numerator (2r−w+1)t+6r−3w−1. The frozen marked-occurrence series u^r z^w C(z,u)^2 and coefficient extraction give the same moments; at t=1 both rational coefficient formulas continue to hold. With d=2r−w the signs of d−1 and (d+1)t+3d−1 give the complete integer classification; d=−1 yields the stated nonzero constant for t≥1. In the two zero cases a positive-probability occurrence forces K_N=r or r+1 respectively, but the binomial cut count is nondegenerate. The limiting slope follows. Ran python /workspace/reproductions/check.py 5: 130918 exact word/N comparisons through N=16 by the cut-mask calculation. The frozen checker was read, not run; neither finite comparison establishes the all-N theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bender–Canfield give covariance of form nB+o(n) and normal limits for recurrent event counts; this does not determine finite-size intercepts and equality cases.",
+          "No verified full occurrence-marked, independently letter-weighted theorem was retrieved from the Noonan–Zeilberger paper; Shabani–Gjergji full text could not be assessed."
+        ],
+        "reasoning": "Finite boundary zeros and conditional dependence cannot be inferred from a general asymptotic covariance existence theorem. A fully weighted occurrence enumerator would be a more serious comparator than an avoidance or normality theorem.",
+        "searches": [
+          "10.37236/197 §8 Lemma 6 local event covariance",
+          "Noonan–Zeilberger, The Goulden–Jackson Cluster Method: Extensions, Applications, and Implementations (exact title, journal and preprint routes)",
+          "10.46298/dmtcs.2156"
+        ]
+      },
+      "checked_sources": [
+        "370d2debd244",
+        "72a017004061",
+        "arXiv:0903.5135",
+        "10.37236/197",
+        "arXiv:0906.5196",
+        "arXiv:0907.5553",
+        "arXiv:math/9806036 (attempted, no primary passage)",
+        "10.46298/dmtcs.2156 (attempted, no primary passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected marked-by-weight-and-length avoidance function only fixes the occurrence marker at zero; its value there does not give a derivative at one.",
+          "If a cluster theorem allows a simultaneous occurrence marker q and independent letter weights, substituting x_j=u z^j for 1≤j≤N and differentiating at q=1 would give the frozen first marked series: clusters with at least two marked occurrences have a factor (q−1)^2 and only the one-word cluster contributes. That premise was not verified in the targeted primary texts."
+        ],
+        "reasoning": "The asymptotic theorem cannot imply the exact finite-N law; a genuinely occurrence-marked general identity would imply the first mixed moments by extraction, and it should be credited if confirmed. There is no such demonstrated stronger coverage in the retrieved evidence.",
+        "searches": [
+          "Heubach–Kitaev arXiv:0903.5135 §2 Thm.2.1",
+          "Bender–Canfield DOI 10.37236/197 §8",
+          "Noonan–Zeilberger exact title and arXiv:math/9806036 OA attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heubach–Kitaev Thm. 2.1 counts weight and part length for compositions avoiding specified exact words, using correlation polynomials.",
+          "Wilf and Gafni use run-avoidance series or longest-run distributions rather than the mixed first moment with an occurrence count."
+        ],
+        "reasoning": "Avoidance sees only the zero event and the longest-run random variable is different. In the equivalent cut representation, the frozen law is a sum of all possible marked offsets and includes multiplicities from overlaps.",
+        "searches": [
+          "Resultary: uniform random composition exact contiguous word occurrences versus part count covariance",
+          "arXiv:0903.5135 Theorem 2.1",
+          "arXiv:0906.5196 and arXiv:0907.5553"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "370d2debd244 has an exact sign diagram for unit-part count against adjacent-equality count in compositions with both size and length fixed.",
+          "72a017004061 considers counts of binary motifs 001 and 010 with binary symbol multiplicities fixed.",
+          "The exact assigned-record index hit is not independent evidence."
+        ],
+        "reasoning": "Under fixed part length K_N is constant, so the first indexed formula is not this covariance under a change of wording. Fixed symbol multiplicities and different motif observables also do not give the unrestricted composition joint moment.",
+        "searches": [
+          "Resultary: exact composition pattern count part length covariance sign and zero dependence",
+          "370d2debd244",
+          "72a017004061"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit arbitrary-exact-word, finite-N mixed covariance law and the sharp dependent-zero sign classification in unrestricted uniform compositions. The checked exact indexed covariances change both observables and conditioning, the fixed-word indexed and paper overlaps use avoidance or other statistics, and the general local-event result is asymptotic. No novelty credit is assigned to the marked-occurrence method. Coverage by a weighted full occurrence enumerator is a specific unresolved implication risk, not a conclusion from the inability to retrieve it.",
+      "residual_risks": [
+        "An exact occurrence generating function with simultaneous letter weights and occurrence marks would directly supply the mixed moment on specialization. The relevant Noonan–Zeilberger text was not accessible in the checked routes.",
+        "The exact scope of the Shabani–Gjergji primary result was not checked in full text; this review does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observable and conditional sample space",
+          "evidence": [
+            "Total and part count fixed; unit-part and adjacency-equality counts."
+          ],
+          "identifier_or_url": "370d2debd244",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Resultary and local mirror",
+          "title": "Complete covariance sign classification for unit parts and adjacent equalities",
+          "trigger": "Closest indexed exact composition covariance sign result"
+        },
+        {
+          "assessment": "Different probability space and random variables",
+          "evidence": [
+            "Counts of 001 and 010 in fixed-count binary words."
+          ],
+          "identifier_or_url": "72a017004061",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Resultary and local mirror",
+          "title": "A sharp composition threshold for two adjacent binary motif counts",
+          "trigger": "Exact adjacent motif covariance under conditioned composition"
+        },
+        {
+          "assessment": "Avoidance enumerator, not all-occurrence first mixed moment in the inspected statement",
+          "evidence": [
+            "Correlation-polynomial theorem for compositions avoiding prohibited substrings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0903.5135",
+          "material_read": "§2, Theorem 2.1, PDF p.3, offset 8936",
+          "method": "Targeted OA PDF passage",
+          "title": "Avoiding substrings in compositions",
+          "trigger": "Exact-word series tracking both weight and part count"
+        },
+        {
+          "assessment": "Scope is asymptotic; no finite boundary and sign classification in these passages",
+          "evidence": [
+            "Asymptotic local-event covariance nB+o(n)."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/197",
+          "material_read": "Abstract p.1 offset 1091; §8 Lemma 6 p.28 offset 77974",
+          "method": "Targeted OA PDF passages",
+          "title": "Locally Restricted Compositions II. General Restrictions and Infinite Matrices",
+          "trigger": "Potential general covariance theorem for local events"
+        },
+        {
+          "assessment": "Run restriction and maximum statistics do not yield the checked arbitrary-word covariance in those passages",
+          "evidence": [
+            "Generating functions for no runs above a threshold; distribution and mean of longest equal run."
+          ],
+          "identifier_or_url": "arXiv:0906.5196; arXiv:0907.5553",
+          "material_read": "Both PDFs, p.1 offset 0",
+          "method": "Targeted OA passages",
+          "title": "The distribution of longest run lengths in integer compositions; Longest Run of Equal Parts in a Random Integer Composition",
+          "trigger": "Related exact composition run statistics"
+        },
+        {
+          "assessment": "Conditional implication identified, but precise primary hypothesis unverified",
+          "evidence": [
+            "Could not verify joint use of multiplicative letter weights and occurrence marks in the original statement."
+          ],
+          "identifier_or_url": "arXiv:math/9806036",
+          "material_read": "No usable primary passage retrieved; preprint and journal routes attempted",
+          "method": "Targeted OA and exact-title literature lookup",
+          "title": "The Goulden–Jackson Cluster Method: Extensions, Applications, and Implementations",
+          "trigger": "Potential stronger occurrence enumerator with independent letter weights"
+        },
+        {
+          "assessment": "No non-coverage conclusion drawn from the title",
+          "evidence": [
+            "Full text not retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2156",
+          "material_read": "No usable theorem passage",
+          "method": "Targeted OA attempts at publisher and DOI",
+          "title": "Statistics for 3-letter patterns with repetitions in compositions",
+          "trigger": "Potential exact occurrence-count comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural finite dependence statistic for local patterns of an unrestricted composition. The full weight/length collapse despite self-overlap, exhaustive sign switch (including two dependent zero cases), and sample-size-invariant negative covariance family are independently useful exact features that an asymptotic normality or avoidance formula does not explain. Credit is for the full classification, not for introducing a new enumeration method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

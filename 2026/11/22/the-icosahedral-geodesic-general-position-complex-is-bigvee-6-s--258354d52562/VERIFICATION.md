@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_icosa_gp.py`. This uses only the Python standard library, with no external data or dependencies.
+## correctness
 
-Checks: the labeled graph is five-regular with 12 vertices and 30 edges; its diameter is three with six antipodal pairs; all 220 graph triples and all 4096 vertex subsets are examined; 120 forbidden triples and the full face vector are obtained exactly; the distance-two core has 30 edges and 20 triangles and every link is a five-cycle; every original edge has a witness for a free triangle-edge pair; six antipodal edges are excluded from every triangle; and each of thirty tetrahedra has two uniquely incident triangular faces, giving a complete collapse certificate.
+PASS
 
-The verifier does not substitute a numerical calculation for the classical topological implications. The connected closed surface theorem gives the core two-sphere; attaching cells of dimension at least two preserves simple connectedness; elementary collapses preserve homotopy; and Hurewicz plus the simply connected homological Whitehead theorem yield the twenty-one two-sphere wedge. The six remaining one-cell attachments wedge on six circles. Independent audit: not performed.
+An independent exact check (`python3 /workspace/checks/icosa.py`) builds the icosahedral graph from cyclic signed permutations of (0,1,phi), tests integer-pair squared distances in Z[phi], and computes graph distances by Floyd–Warshall. Applying the strict triangle inequalities to every triple in every subset yields f=(12,66,100,30) and 120 prohibited triples. The admissible triangle patterns are (1,1,1), (1,2,2), (2,2,2), with counts 20,60,20. The distance-two core is connected; its edges have two incident triangles and all links are five-cycles. Its Euler characteristic is 2, so it is a closed combinatorial sphere. Each adjacency edge has two candidate (1,2,2) triangles: choose one per edge. In the union of the core and these selected pairs each such edge is free in its own triangle, since that is its only adjacency edge; collapsing all pairs returns to the sphere. The six distance-three edges occur in no triangles. With them removed the remaining complex contains the simply connected enlarged core with the same one-skeleton, so cells of dimension >=2 cannot introduce fundamental-group generators. Each tetrahedron has two faces occurring in no other tetrahedron; choosing one each gives independent valid collapses and a simply connected two-complex of Euler characteristic 22. Its H2 is free of rank 21; Hurewicz and the simply connected homological Whitehead theorem give a wedge of 21 two-spheres. Reattaching the six bare edges adds one free circle per edge to this connected complex. The finite check establishes the combinatorial data only; the integral homotopy conclusion follows from these topological steps.
+
+## originality
+
+PASS
+
+The distinct supported result is the homotopy type and census of the entire intrinsic icosahedral geodesic general-position complex. The distance-two sphere and six antipodal one-cells already occur in the earlier independence-complex calculation and are not new in themselves. The additional face strata and the analysis needed to reach 21 two-spheres are not obtained from that earlier complex or from the available GP membership or other homotopy results.
+
+## value
+
+PASS
+
+For a natural Platonic graph, the full admissible-configuration topology distinguishes GP from independence and neighboring metric complexes. The exact 21 two-spheres, with six free antipodal one-cells, supply a useful structural benchmark not determined by the GP number or by face counts alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

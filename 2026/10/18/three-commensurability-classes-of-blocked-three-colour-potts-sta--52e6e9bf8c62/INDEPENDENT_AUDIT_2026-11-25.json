@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:12:08.825940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43 and 48–49; VERIFICATION.md, lines 19–21; verify.py, lines 11–108."
+      ],
+      "rationale": "Changing an occupied colour c to d in part i changes H by the difference of exterior colour counts, so each used colour must minimize those counts, with ties allowed. An absent global colour would force all used colours to be exclusive, impossible across three nonempty parts with only two colours. A part using all three imposes three equal exterior counts summing to 2n, hence 3 divides n. For 3∤n an exclusive colour forces every colour in that part to be exclusive. Two exclusive colours in one part leave the same third colour on both other parts, where a switch to either exclusive colour would improve. The exclusive-colour part is therefore pure. On the other two parts, if either part is mixed, equality of the exterior counts of its colours forces the opposite part to split equally, which in turn forces the first part to split equally. These are blocked because the third colour has exterior count n to either split part. This gives six proper configurations and, for even n, 9 supports of weight binom(n,n/2)² and energy n²/2. Without exclusive colours the incidence matrix must have exactly two occupied cells in every row and column, so its absent cells are a permutation. The counts in each row are the exterior minima of the two other rows; the three row sums force every such minimum to be n/2. These are blocked since the absent colour has exterior count n. The six supports yield weight binom(n,n/2)³ and energy 3n²/4. For 3|n the all-balanced family gives the stated multinomial-cubed lower bound, and Stirling squeezes its normalized logarithm with the all-colourings upper bound to log 3. The exact nontriple formula yields the other two limits, 0 and log 2. Independent labelled enumeration, looping over 3^(3n) spin words and testing energy changes from the explicit cross-part neighbours, gave histograms {0:6}, {0:6,2:36,3:48}, and {0:6,9:216} for n=1,2,3. This is only corroboration; the proof treats all n.",
+      "residual_risks": [
+        "The supplied n≤12 checker was inspected, not executed. The exact energy polynomial is not claimed for 3|n. Zero-energy changes are ties in the test; the absorbing-state interpretation is for strict-descent dynamics only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The anti-coordination result proves existence and provides the improvement algorithm for arbitrary finite graphs. Kotecký–Sokal–Swart treat proper-colouring ground states and entropy-driven ordering on planar quadrangulations. Resultary 8039a29611d5 analyzes preferred-colour-field ground states for strictly unequal complete tripartite graphs."
+        ],
+        "reasoning": "Neither a general equilibrium existence result nor an equilibrium ground-state result classifies the positive-energy single-spin traps on equal parts; the field result also excludes equal part sizes.",
+        "searches": [
+          "Resultary: residue-class entropy stable colourings balanced complete tripartite graph",
+          "arXiv:1308.3258, Proposition 1; arXiv:1205.4472, p. 5; Resultary 8039a29611d5, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen AUDIT.json and RESULT.md; arXiv:1308.3258, arXiv:2609.00569v1, arXiv:1205.4472; Resultary 525d2a9766cb, 8039a29611d5 and fe442305d1ec."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence gives only at least one stable colouring. Ground-state information can identify zero-energy colourings, whereas the frozen theorem also gives nonzero energy levels n²/2 and 3n²/4 with exact labelled multiplicities and the multiples-of-three lower bound."
+        ],
+        "reasoning": "These statements do not impose the equal-minimum exterior counts in all occupied cells and the resulting support classification. That extra analysis is required for the polynomial and residue-dependent entropy.",
+        "searches": [
+          "arXiv:1308.3258, p. 5 Proposition 1; arXiv:1205.4472, p. 5; Resultary 8039a29611d5 and 525d2a9766cb, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kun–Powers–Reyzin's stable k-colouring uses the same no-improving-unilateral-recolouring predicate. Koana–Oh–Yoneda distinguish their notion, requiring proper colouring and absence of envy cycles. Resultary 525d2a9766cb gives a preference-stable chromatic number of K_{a,b,1}."
+        ],
+        "reasoning": "Unilateral anti-coordination equilibria are exactly the frozen energy minima under single moves; preference/no-envy-cycle stability is not. The same-day preference record is distinguished by its statement, not its catalogue date.",
+        "searches": [
+          "Resultary: stable graph coloring anti-coordination game complete multipartite Potts local energy minima",
+          "Web: (\"stable graph coloring\" OR \"unfriendly coloring\" OR \"blocked configuration\") Potts complete tripartite graph balanced K_{n,n,n} one-vertex recoloring antiferromagnetic",
+          "arXiv:1308.3258, p. 2; arXiv:2609.00569v1, p. 3; Resultary 525d2a9766cb, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest examined indexed exact fixed-state entropy census counts binary synchronous minority fixed points on C_n □ K₃, not single-spin blocked three-colour states on a complete tripartite graph."
+        ],
+        "reasoning": "Its graph, alphabet and local update rule all differ; it is not an exact value lookup or an equivalent enumerator for this theorem. No equivalent indexed formula was identified.",
+        "searches": [
+          "Resultary: Three commensurability classes of blocked three-colour Potts states on complete tripartite graphs",
+          "Resultary: For K_{n,n,n} with three labelled colours, blocked configurations have partition polynomial 6 plus 9 central binomial squared at energy n^2/2 and 6 central binomial cubed at energy 3n^2/4 when n is even, while entropy by n mod 6 is 0, log 2, log 3",
+          "Resultary fe442305d1ec, Finding"
+        ]
+      },
+      "rationale": "The same stability predicate is established in the stable-colouring literature, but the inspected comparative results do not give the equal tripartite support exhaustion, energy-resolved multiplicities or three arithmetic entropy limits. The closest indexed records either change the stability rule or the graph and ground-state versus blocked-state question. This is a bounded statement-level judgment, not priority certification.",
+      "residual_risks": [
+        "An older census under alternate anti-coordination or game-theory terminology may be unindexed; search nonappearance alone was not evidence of noncoverage. No universal priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition; existence/improvement result does not count minima",
+          "evidence": [
+            "Absence of a strictly improving move defines stability; Proposition 1 supplies existence for finite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.3258",
+          "material_read": "P. 2, stable k-colouring definition; p. 5, Proposition 1 (offsets 5000 and 14800)",
+          "method": "Lawful original arXiv PDF, targeted full-text passages",
+          "title": "Anti-Coordination Games and Stable Graph Colorings",
+          "trigger": "Identical local stability predicate and possibly general exact coverage"
+        },
+        {
+          "assessment": "Different stability and feasible colourings",
+          "evidence": [
+            "Preference stability assumes properness and forbids envy cycles; the anti-coordination predicate instead tests unilateral moves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00569v1",
+          "material_read": "P. 3, comparison of the two definitions (offset 10700)",
+          "method": "Lawful original arXiv PDF, targeted passage",
+          "title": "Graph Coloring with Color Preferences",
+          "trigger": "Explains the preference-stability alias in nearby indexed results"
+        },
+        {
+          "assessment": "Ground-state ordering on a different graph family",
+          "evidence": [
+            "Three-state ground states are proper colourings; the geometry is planar quadrangulations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.4472",
+          "material_read": "P. 5, proper colourings and entropy-driven ordering discussion (offset 10600)",
+          "method": "Lawful original arXiv PDF, targeted passage",
+          "title": "Entropy-driven phase transition in low-temperature antiferromagnetic Potts models",
+          "trigger": "Same Potts colours and entropy motivation"
+        },
+        {
+          "assessment": "Different parameter and different criterion",
+          "evidence": [
+            "The displayed quantity is a preference-stable chromatic number for K_{a,b,1} under envy-cycle stability."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-preference-stable-chromatic-number-of-the-one-apex-complete-bipa--525d2a9766cb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original record via local mirror; comparison of feasible states and stability",
+          "title": "Preference-stable chromatic number of the one-apex complete bipartite graph",
+          "trigger": "Same-day semantic hit on stable colourings of a tripartite graph"
+        },
+        {
+          "assessment": "Strictly unequal parts and global field-dependent ground states",
+          "evidence": [
+            "Exact ground-state energies and counts are indexed by a preferred-colour field on strictly unequal K_{a,b,c}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-field-thresholds-and-exact-critical-occupation-polynomials-i--8039a29611d5/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original record via local mirror; comparison of coupling/field and minimizing quantifier",
+          "title": "Two field thresholds and exact critical occupation polynomials",
+          "trigger": "Exact three-colour occupation counts on complete tripartite graphs"
+        },
+        {
+          "assessment": "Not a reduction to the frozen model",
+          "evidence": [
+            "Binary synchronous minority dynamics on C_n □ K₃."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-minority-fixed-state-census-and-entropy-on-triangular-cyli--fe442305d1ec/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original record via local mirror; compared graph, alphabet and updates",
+          "title": "Exact minority fixed-state census and entropy on triangular cylinders",
+          "trigger": "Closest indexed structural fixed-state census with entropy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and support-pattern proof; compared anti-coordination and Potts references above."
+      ],
+      "rationale": "The balanced complete tripartite graph is a natural symmetric dense geometry in which the three colours compete across parts. The same normalization gives six traps along one infinite arithmetic family, a binomial-scale exponentially large population along a second, and a multinomial-scale rate along a third. This is a failure of the unrestricted kinetic entropy limit, not an equilibrium transition. The exact energy-resolved counts on 3∤n distinguish two trap geometries, so the finding adds a reusable census rather than just another existence argument.",
+      "residual_risks": [
+        "No prediction about trap-basin sizes or physical sampling probabilities follows from this counting result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

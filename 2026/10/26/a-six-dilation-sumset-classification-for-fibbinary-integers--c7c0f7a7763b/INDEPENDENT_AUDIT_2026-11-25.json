@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:54:50.059423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–4",
+        "Frozen VERIFICATION.md; verify.py (inspected, not executed); state_table.txt",
+        "Independent replay: python3 /workspace/branches/fibbinary-replay.py"
+      ],
+      "rationale": "The digit recurrence maintains the identity between truncated summand columns and the target prefix, with the excess represented by the carry times the next place value. Both summands are nonnegative and at most the target, so no higher summand bits need be guessed past its canonical length; zero final carry is both necessary and sufficient. An independently written replay checked the frozen table's root, both successors of every row, the carry-zero and exception flags, complete reachability and opposite acceptance after every final-one edge. The frozen row counts were 4,6,18,9,41,29. An additional most-significant-bit-first check reversed the carry relation and used separately written exception recognizers, reaching 2,5,14,10,39,27 states after a leading one with no mismatch. Zero was checked separately in both directions. This checks all canonical lengths, not just the frozen script's bounded census. In ordinary bit order the sixth complement is 11 or (10)+011, giving 3 and the recurrence n -> 4n+7 on the sequence starting at 3, equivalently (4^k-7)/3 for k >= 2. Counting 4^k <= 3X+7 includes equality and handles X below 3, and logarithmic growth implies density zero. An infinite eventually periodic set would have positive density, so nonperiodicity follows.",
+      "residual_risks": [
+        "The exact all-length proof uses a finite-state check; no claim is made for d >= 7 or for representation multiplicities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dekking's introduction treats A+A for positions in substitution fixed points, with representative Beatty/Fibonacci-word settings; the inspected material does not give the specified dilated mixed sums or identify their exceptional sets.",
+          "Related carry methods can decide a proposed language but do not by themselves identify the exceptional language for d=6."
+        ],
+        "reasoning": "The generic availability of a finite-state proof is not a stronger previously stated classification. The related results studied different sumsets or gave no instance determining this precise complement.",
+        "searches": [
+          "Dekking arXiv:2105.04959, substitution fixed-point sumsets",
+          "Configured Resultary semantic search: additive sumsets of restricted binary digit languages"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A003714 and exact term query",
+        "Macfarlane 2405.18128 and 2406.12455",
+        "Dekking 2105.04959",
+        "Three indexed restricted-digit results identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dated comparisons include the same-day digit-weight record, whose A_c union (A_c+A_c) statements use different operands and a different set operation. The zero-run-even record's modular exclusion also concerns a different set.",
+          "Low dilations are elementary: split positions by parity for d=1,2; tile each run of ones by dominoes contributed by 3b and at most one singleton contributed by a for d=3; for d=4 inspect the low two bits and assign the first high bit only to b. These are not the source of the originality pass."
+        ],
+        "reasoning": "Neither those small-dilation identities nor the inspected prior statements provide the singleton at d=5 or the exact unbounded sparse family at d=6. The counting rule itself is a direct consequence of the latter, not a separate novelty claim.",
+        "searches": [
+          "A003714 Comments; Dekking arXiv:2105.04959 introduction; linked Resultary Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moser–de Bruijn coefficient-three concerns base-four digits 0/1, not all binary strings without adjacent ones. The zero-run-even record's local digit constraint and the digit-weight record's popcount congruence are different.",
+          "Macfarlane's fibbinary/Wythoff correspondence concerns indexing fibbinary strings, and the second paper concerns the complement of F itself, not the complement of F+6F."
+        ],
+        "reasoning": "A common representation language or related set of integers does not preserve the weighted arithmetic sum. No equality or reduction in these comparisons transfers the asserted d=5 or d=6 complements.",
+        "searches": [
+          "Configured Resultary semantic search: fibbinary F+dF; exact d=5 singleton and d=6 geometric complement",
+          "Related digit-language and weighted-sumset records linked below",
+          "Macfarlane arXiv:2405.18128 and 2406.12455"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A003714 defines the fibbinary integers and includes the assertion that every nonnegative integer is a sum of two terms, covering d=1.",
+          "The exact sequence query returned no matching table entry in the searched form."
+        ],
+        "reasoning": "Credit the d=1 identity as covered. The finite sequence lookup is a bounded indexing check, not proof that no shifted, rescaled or differently described sequence is known.",
+        "searches": [
+          "OEIS A003714",
+          "OEIS exact term query 3,19,83,339,1363"
+        ]
+      },
+      "rationale": "The pass is for the substantive first-six classification, particularly the precise exceptional sets for d=5 and d=6, not for introducing fibbinary integers, the d=1 identity, or the carry-automaton method. Closest inspected statements did not supply those higher-dilation complements. This is a bounded best-of-knowledge judgment, not historical-priority certification.",
+      "residual_risks": [
+        "Index coverage and exact-term queries are incomplete; equivalent results under an unexamined digit-language or numeration description may exist.",
+        "For the cited adjacent primary literature the recorded checks are opening statements and setup, not whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers d=1, not the higher dilation classification in the material read",
+          "evidence": "No adjacent 1s; every nonnegative integer is a sum of two terms.",
+          "identifier_or_url": "https://oeis.org/A003714",
+          "material_read": "Definition and Comments, offsets 429 and 836",
+          "method": "Public page text",
+          "title": "Fibbinary numbers",
+          "trigger": "Exact set and possible coverage of d=1"
+        },
+        {
+          "assessment": "No hit on these five terms",
+          "evidence": "The lookup reports that the terms do not match anything in the table.",
+          "identifier_or_url": "https://oeis.org/search?q=3%2C19%2C83%2C339%2C1363",
+          "material_read": "Exact-term lookup response",
+          "method": "Public search results page",
+          "title": "OEIS sequence search",
+          "trigger": "Exact exceptional sequence for d=6"
+        },
+        {
+          "assessment": "Different invariant in the passage read",
+          "evidence": "Fibbinary array and its relation to the Wythoff array.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.18128",
+          "material_read": "p. 1, opening statement",
+          "method": "OA PDF text",
+          "title": "On the fibbinary numbers and the Wythoff array",
+          "trigger": "Same base set"
+        },
+        {
+          "assessment": "Complement of F, not a dilated sumset complement",
+          "evidence": "The stated object is the complement of the fibbinary numbers themselves.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.12455",
+          "material_read": "p. 1, opening statement",
+          "method": "OA PDF text",
+          "title": "On the structure of the complement of the set of fibbinary numbers",
+          "trigger": "Same base set and complement terminology"
+        },
+        {
+          "assessment": "Related framework, not an implication shown in material read",
+          "evidence": "A+A for substitution-word indicator positions, including Beatty/Fibonacci-word examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04959",
+          "material_read": "p. 1, setup and examples",
+          "method": "OA PDF text",
+          "title": "Sumsets and fixed points of substitutions",
+          "trigger": "Possible broader additive theorem"
+        },
+        {
+          "assessment": "Different digit set and multiplier",
+          "evidence": "Counts representations a+3b for numbers with base-four digits in {0,1}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-spectral-counting-law-and-fibonacci-multiplicities-for-the-mos--03c3bdcdf47a",
+          "material_read": "RESULT.md Finding, offset 108",
+          "method": "Indexed result and local mirrored text",
+          "title": "A spectral counting law and Fibonacci multiplicities for the Moser–de Bruijn coefficient-three sumset",
+          "trigger": "Weighted restricted-digit sumset"
+        },
+        {
+          "assessment": "Different digit language",
+          "evidence": "Deals with A+A, A+2A, and A+4A for integers excluding odd-length zero runs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-three-exact-additive-sumsets-of-the-zero-run-even-integers--0abca7625fff",
+          "material_read": "RESULT.md Finding, offset 65",
+          "method": "Indexed result and local mirrored text",
+          "title": "Three exact additive sumsets of the zero-run-even integers",
+          "trigger": "Similar exact modular complement pattern"
+        },
+        {
+          "assessment": "Different operands and union operation",
+          "evidence": "Exceptions to A_c union (A_c+A_c) for binary popcount classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-two-summand-exceptions-for-binary-digit-weight-classes-mod--4fac2a0e9b85",
+          "material_read": "RESULT.md Finding, offset 80",
+          "method": "Indexed result and local mirrored text",
+          "title": "Exact two-summand exceptions for binary digit-weight classes modulo three",
+          "trigger": "Possible related sparse exceptions; independent of same-day date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Step 4; independently replayed exact complement certificate"
+      ],
+      "rationale": "The initial consecutive dilations of a standard sparse digit set give a natural comparison. The precise d=6 exceptional sequence determines membership at all scales and a logarithmic, not modular, obstruction immediately after the singleton at d=5. The theorem therefore supplies concrete structure beyond generic decidability or a finite list of observed misses; the elementary or already-known low cases chiefly provide context.",
+      "residual_risks": [
+        "No classification for larger dilations or claim of a threshold beyond the first six."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

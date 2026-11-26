@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:37:02.207286Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–76",
+        "VERIFICATION.md and CHECK.py inspected, not executed; the cell count and pressure were derived analytically"
+      ],
+      "rationale": "On an elementary half-base cell the sign is the side of the half-partition visited by x -> bx mod 1. Refinement yields b consecutive half-cells with alternating signs: equally many of each in an even base and one more with the parent's sign in an odd base. Thus a,c are the transition multiplicities and destination weights give the displayed two-state transfer matrix. The characteristic polynomial has trace 2a cosh(t) and determinant a^2-c^2. Its positive Perron root gives P_b; P_b'=a sinh(t)/sqrt(c^2+a^2 sinh(t)^2) increases strictly from -1 to 1. The finite-cell exponential counting bound gives the upper dimension. For the lower bound the Perron probabilities on individual child edges telescope, giving cylinder log mass per step tu-P_b(t) almost surely by stationarity and ergodicity. This yields a Euclidean dimension bound without assuming gaps: at each finite tilt the largest conditional child probability is p<1, and the conditional probability of landing within the extreme left or right subcell of relative depth ceil(eta*n) is at most 2p^ceil(eta*n). Borel–Cantelli and interpolation of the ball radii give local dimension (P_b(t)-tu)/log b as eta tends to zero. Kinks have zero mass. The endpoint upper bound follows by sending the tilt to infinity; the a self-sign children give matching dimension log(a)/log(b) when a>=2, by uniform cylinder mass and the bounded number of equal-length cells meeting a ball at that scale. For b=2, sparse infinite wrong signs and infinitely many correct signs make each endpoint set nonempty off the dyadics; the upper bound is zero. The even-base entropy and strict concavity follow from the explicit pressure. This concerns finite-sum slopes, not heights or derivatives of the limiting function.",
+      "residual_risks": [
+        "No formal verification; the Euclidean metric check uses equal-length cylinder images and accounts for touching endpoints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Birkhoff-level result gives Bowen entropy sup{h_mu : integral f dmu=u} for the level with average u, including feasible extremal u. The passage expressly attributes this equality to Pfister–Sullivan Proposition 7.1.",
+          "The sign-and-branch presentation is a finite mixing edge shift: both self-loops and both cross transitions exist, so it has specification and is positively expansive. The sign is locally constant."
+        ],
+        "reasoning": "The stronger theorem applies to this shift. Cylinder images are adjacent equal-length intervals at each level: an interval of that scale meets at most a bounded number of cells, so Euclidean dimension equals the symbolic cylinder dimension (Bowen entropy divided by log b). The countable kink codes do not change positive dimensions; binary zero-dimensional endpoints are classical nonempty frequency sets even after excluding dyadics.",
+        "searches": [
+          "Finite Markov Birkhoff averages and the constrained entropy variational principle",
+          "Topological structures on saturated sets, arXiv:2012.09482v2, Birkhoff entropy passage",
+          "Pfister–Sullivan, On the topological entropy of saturated sets, Proposition 7.1, as quoted and applied there"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially §§1–6 and prior-work discussion",
+        "Allaart's exact transition statement",
+        "Prior Birkhoff-level entropy result as stated and used in the open saturated-sets paper",
+        "Suzuki's binary formula and finite-digit comparisons",
+        "Bounded local Resultary exact and related search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The branch multiplicities are b times Allaart's transition probabilities, since the half-base children are all of equal length. The pressure for tilting by the next sign is therefore log rho of [[a exp(t),c exp(-t)],[c exp(t),a exp(-t)]]. The other Takagi papers inspected concern walk limit/localization behavior or height level sets, not the dimension at issue."
+        ],
+        "reasoning": "On the finite edge shift invariant-measure entropy is upper semicontinuous and affine, so its constrained maximum is the infimum of pressure minus tu on the full closed average range. The Perron root follows from trace and determinant; the extreme-sign subshift has a self-loops, so both extreme entropies are log a, equivalently obtained by the infinite-tilt limit. The even-base expression and the other stated shape properties follow immediately from this same closed form. Thus the known general theorem with the known coding and elementary evaluation covers the claimed contribution, not just the strategy.",
+        "searches": [
+          "Allaart §3 exact sign transitions plus the finite-shift Birkhoff entropy variational principle",
+          "Nakano–Takei arXiv:2505.08285v1, Abstract and §1",
+          "Jiang–Ying–Zhang arXiv:2610.08572v1, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For b=2, a one-digit frequency alpha gives drift 1-2 alpha; the classical Besicovitch binary entropy formula stated by Suzuki gives the exact dimension including zero-dimensional extremes.",
+          "Allaart's finite-slope signs have preservation probability a/b and reversal probability c/b in both parity regimes."
+        ],
+        "reasoning": "The general observable is the one-symbol sign in the finite Markov coding. In even bases it also counts membership in one equal half of the digit alphabet; for odd bases the Markov presentation preserves the known correlation.",
+        "searches": [
+          "Finite Takagi slopes / deficient binary digit sum / digit-frequency spectrum",
+          "Allaart arXiv:1312.2119v2 §3, Definition 3.1 and Lemma 3.2",
+          "Suzuki arXiv:2602.06368, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ranked Resultary hit 02f138b4f498 is the frozen result itself; no distinct material match appeared among the bounded ranked results.",
+          "The binary formula is identical after u=1-2 alpha. The Suzuki digit-frequency theorem itself is not an explicit odd-integer-base table."
+        ],
+        "reasoning": "There is literal coverage of the binary case, not an independent indexed duplicate of the whole record in the inspected results. The all-base rejection rests on the stronger theorem and mathematical reduction, not on the catalogue search.",
+        "searches": [
+          "Local Resultary, all-integer-base finite-slope Hausdorff dimension, odd-base pressure, endpoint log ceil(b/2)/log b",
+          "Suzuki arXiv:2602.06368, classical binary formula and Theorem 4.5"
+        ]
+      },
+      "rationale": "The binary result is the classical exact digit-frequency dimension. For every base, including odd bases and both endpoints, the frozen spectrum is already a special case of the known variational theorem for Birkhoff level sets on finite mixing shifts, using the established Takagi sign coding. Evaluating its pressure is the characteristic-root calculation of the already specified two-state tilted transition matrix, and does not leave a separate mathematical finding. This is demonstrable coverage by implication, not a claim that the displayed odd-base formula was found verbatim elsewhere.",
+      "residual_risks": [
+        "The original Pfister–Sullivan full text was not recovered through the identified publisher and repository routes; the quoted Proposition 7.1 equality is independently stated and applied in the inspected open article. A literal odd-base formula could also be unindexed. Neither limitation changes the covering implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the precise Markov coding probabilities, not a literal dimension table",
+          "evidence": "The slope walk has persistence 1/2 for even b and (b+1)/(2b) for odd b, recovering the necessary branch counts by multiplying by b.",
+          "identifier_or_url": "https://arxiv.org/html/1312.2119v2",
+          "material_read": "§3, Definition 3.1 and Lemma 3.2, offset 8200 onward",
+          "method": "Bounded OA original-paper passages",
+          "title": "On the level sets of the Takagi-van der Waerden functions",
+          "trigger": "Exact finite-slope sign process, including the odd-base correlation"
+        },
+        {
+          "assessment": "Stronger result for the constrained entropy spectrum; authors explicitly invoke Pfister–Sullivan Proposition 7.1 for the full Birkhoff level",
+          "evidence": "For R_f(a), the proof uses Bowen entropy equal to t_a=sup of h(T,mu) over invariant mu with integral f=a. The graph shift with a one-symbol observable and uniform cylinder scale is a direct finite specialization.",
+          "identifier_or_url": "https://arxiv.org/html/2012.09482v2",
+          "material_read": "Saturated-set formula around offset 6536 and Birkhoff-average entropy result and proof at offsets 147800–151283",
+          "method": "Bounded OA original-paper passages",
+          "title": "Topological structures on saturated sets",
+          "trigger": "Prior Birkhoff-level entropy formula covering finite mixing shifts"
+        },
+        {
+          "assessment": "Direct binary coverage; the digit setting of this article is not the odd-base Takagi coding",
+          "evidence": "The Introduction reports the Besicovitch binary entropy formula, and Theorem 4.5 gives a pressure evaluation for the article's digit-frequency Birkhoff levels.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.06368",
+          "material_read": "Introduction, offsets 4200–8373; Theorem 4.5 and Proposition 5.1, offsets 83200–87500 and 94600–97877",
+          "method": "Bounded OA original-paper passages",
+          "title": "Dimension spectrum of digit frequency sets for beta-expansions",
+          "trigger": "Exact digit-frequency alias in binary and pressure-method precedent"
+        },
+        {
+          "assessment": "Related general dimension theorem in the EMR setting, not needed for the direct finite-shift implication",
+          "evidence": "Theorem 1.1 gives the supremum of entropy over Lyapunov exponent for constrained averages under its EMR hypotheses; the introduction discusses earlier finite-state symbolic results.",
+          "identifier_or_url": "https://arxiv.org/html/1003.2979",
+          "material_read": "Introduction and Theorem 1.1, offsets 4700–9463",
+          "method": "Bounded OA original-paper passages",
+          "title": "Multifractal analysis of Birkhoff averages for countable Markov maps",
+          "trigger": "Nearby Euclidean Birkhoff spectrum formalism"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and limitations",
+        "Allaart's exact coding and the demonstrated Birkhoff spectrum implication"
+      ],
+      "rationale": "The finite-slope spectrum is a natural pedagogical example, and the odd/even split is a useful illustration of the known correlation. However, in this submission all substantive conclusions are inherited from the exact sign law and the standard Birkhoff spectrum theorem, with only a two-by-two characteristic-root evaluation and elementary consequences. Neither the binary case nor narrowing to odd bases leaves an independently unresolved exact invariant or additional structure of the required scientific value.",
+      "residual_risks": [
+        "This finding can have expository value; this assessment does not address other observables or new questions about the same Takagi family."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

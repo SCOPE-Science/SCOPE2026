@@ -1,9 +1,0 @@
-# Scientific review: quartic del Pezzo conic-pencil incidence critical group
-
-**Correctness (PASS).** The 16 exceptional-curve classes and 10 conic pencils are standard on \(\operatorname{Bl}_5\mathbb P^2\). Direct pair-sum enumeration gives 40 reducible fibers and the 16-by-10 incidence matrix; an independent even-parity five-bit model reconstructs it. Three reduced 25-by-25 Laplacians undergo certified integer-unimodular Smith reductions with fifteen unit factors followed by \(5,20^4,80,320^4\); the Bareiss determinant agrees with the matrix-tree eigenvalue formula. The attached verifier checks the claimed operations, not merely their asserted output. Scope is all smooth complex degree-four del Pezzo surfaces.
-
-**Originality (PASS, historical-priority risk).** Stillman–Testa–Velasco compute the geometric divisor classes and conic decompositions but not this reduced-Laplacian cokernel. Batyrev–Popov's root/Cox-ring geometry and Rybakov's conic-bundle arithmetic are not a Smith-form determination. Existing critical groups for 16-vertex Clebsch graphs and for other del Pezzo incidence graphs are different matrices; an unlocated general parity-graph formula might subsume the specific result. Searches covered exact graph words, the parity-half-cube equivalent presentation, the invariant factors, and the neighboring known graphs; absence of matches is not proof of novelty.
-
-**Mathematical value (PASS).** The graph is canonically attached to the degree-four del Pezzo's complete linear systems, not an arbitrary slice. Its critical group gives the full integral chip-firing equivalence invariant, strictly finer than spectral and spanning-tree data, and is useful in comparing natural configurations and their integral incidence lattices. A graph invariant is not claimed to equal a surface Picard invariant.
-
-Self-review: passed. Independent audit: not yet performed.

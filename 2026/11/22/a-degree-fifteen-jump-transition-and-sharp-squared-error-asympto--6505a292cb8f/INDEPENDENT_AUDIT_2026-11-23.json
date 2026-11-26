@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:56:22.398199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Stieltjes representation on (0,1] includes the possible pointwise endpoint jump and has total variation equal to the input seminorm. Bernstein reproduces constants, so the L² triangle inequality bounds the norm by the supremum of single-jump errors; the unit-variation steps prove the converse. Within each cell the sampled threshold is fixed and d(E²)/dt=2F−1, an increasing function, yielding the two traces per grid point. The artificial endpoint traces (0,0) and (n,n+1) are zero, the right trace (0,1) is a limit, and (n,n) is attained. Reconstructed 270 traces exactly in the Bernstein basis (product coefficients followed by an antiderivative of degree 2n+1), replay `python /workspace/review_checks/4.py`. For n≤14 the only largest trace labels are (0,1) and (n,n), of value 1/(2n+1); for n=15 only (6,7) and (9,9) give 7885956840965217/239784545898437500, strictly above 1/31. The latter trace is the admissible step at 3/5. A separate reviewer-written replay via beta integration agreed. The frozen checker was inspected, not executed. For interior t_n→t, the binomial CLT with bounded third moments and variance comparable to n gives pointwise Φ(z) at x=t_n+sqrt(t_n(1−t_n)/n)z; Hoeffding outside the bounded scaled neighborhood gives an integrable Gaussian majorant uniformly for t_n in compact interior ranges, including shifted thresholds. Writing Q=1−Φ, integration by parts gives ∫₀∞Q²=φ(0)−2∫₀∞φ²=(sqrt(2)−1)/(2sqrt(π)). For the frozen Chebyshev justification of (7), the threshold n|x−t|−1 has to be positive, not merely its squared denominator; the splitting uses Chebyshev only there and the bound 1 in the near part. An independent check is to write F as the CDF of the jth order statistic U of n uniform variables. Jensen gives ∫(F−1_{x≥t})²≤E|U−t|. Its beta mean is m=j/(n+1), variance m(1−m)/(n+2); |m−t|≤2/n implies (7), also for the limiting traces j∈[1,n], and both omitted constant-threshold endpoints are zero. Compactness now excludes both endpoints at scale √n and maximizes sqrt(t(1−t)) uniquely at t=1/2. This proves the displayed sharp asymptotic and the location conclusion, not a finite-n optimizer classification beyond 15.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adell et al. treat a broad class of positive operators but their Bernstein application (5.7) is a local estimate. Their (1.12), attributed also to Bustamante et al. Th.17, explicitly bounds a pointwise midpoint error, with variation over shrinking intervals. Guan's iterated-operator theorems have different approximation goals and input hypotheses."
+        ],
+        "reasoning": "Neither a broader operator class for local estimates nor stronger approximation under smooth input gives the worst jump across locations with exact endpoint sampling. An unchecked different theorem in the 2014 paper could change priority; the assessed comparison is to evidence of its specific cited theorem only.",
+        "searches": [
+          "arXiv:2410.19893v1 Theorems 3.2–3.4, §5, (1.12) and its citation to Bustamante et al. Th.17",
+          "DOI 10.1016/j.jmaa.2013.10.024 lawful full-text attempts and bibliographic inspection",
+          "arXiv:0909.0684v3 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.19893v1 full-text sections cited above",
+        "arXiv:0909.0684v3 PDF, v1 metadata",
+        "Bibliographic and later-citation evidence for Bustamante et al. (2014), Chlodovsky (1929), and Cheng (1983)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berry–Esseen and the binomial expectation can justify a local layer, but worst-case integrated squared loss requires uniform boundary control and exact finite optimization. An exact L¹ norm does not give the squared integrals: even for a single jump, squaring before integration changes the values, and the bound by the L¹ error for a unit step is not sharp in general."
+        ],
+        "reasoning": "The proof of exact maximization over traces plus the global uniform argument adds mathematical content beyond these known inputs. The claimed transition also depends on allowing a separately specified endpoint value in the variation norm; reviewed pointwise estimates do not provide that extremal comparison.",
+        "searches": [
+          "arXiv:2410.19893v1 (1.12), Lemma 5.2, Corollary 5.4 and following comparison",
+          "Guan arXiv:0909.0684v3 §2, Theorems 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator B_n has the same binomial expectation in both primary texts. Adell et al. bound the deviation at a fixed x from a jump midpoint using variation and atoms; Guan's classical error in §2 is the pointwise error for continuous/smooth inputs."
+        ],
+        "reasoning": "The proposed invariant is the norm of B_n−I from pointwise total variation to L², equivalently maximized integrated squared error of all single jumps including endpoint impulses. A jump-midpoint bound at fixed x and pointwise convergence/rate bounds are not equalities for this sharp integrated loss.",
+        "searches": [
+          "websearch: Bernstein polynomial sharp L2 squared error bounded variation Heaviside step 15 jump binomial exact norm sqrt(2)-1 Bustamante Garcia Munoz Quesada discontinuous functions 411",
+          "Adell–Garrancho–Martínez-Sánchez arXiv:2410.19893v1 (1.12), §§3, 5",
+          "Guan arXiv:0909.0684v3 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible prior Bernstein-specific constants in Lemmas 5.1–5.3 and Corollary 5.4 concern atom/pointwise bounds for each x. For example Lemma 5.1 bounds the atom at an interior sampling node, and Lemma 5.2 bounds the centered binomial sign imbalance. These are different numerical objects, not exact entries for integrated binomial-tail squares through degree 15."
+        ],
+        "reasoning": "An earlier tabulation of the exact same cell-trace maxima could cover the crossover regardless of naming. The inspected explicit quantities do not tabulate those maxima. Ranked lookup and the named neighboring result fetches did not complete; these failures are not evidence against such a table.",
+        "searches": [
+          "Resultary: Bernstein operator Jordan bounded variation sharp L2 norm error jump degree 15 normal tail sqrt2-1 (transport failure)",
+          "Adell et al. arXiv:2410.19893v1 §5 Bernstein-specific explicit inequalities",
+          "Targeted published-result reads SCOPE-a4263cb647a4 and SCOPE-d85d67a7f23a (not retrieved)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact pointwise-BV to integrated L² norm, finite crossover, and global sharp asymptotic with location. The binomial pointwise description, normal approximation and BV machinery are not claimed as new. The substantive prior comparison is with published pointwise estimates and continuous-input results, not with search nonappearance.",
+      "residual_risks": [
+        "Primary search and ranked Resultary lookup were unavailable; some precisely linked published findings and the 2003 article page did not yield their text. No negative inference is made from these access results.",
+        "The unread 2014 article and older approximation work are historical-priority risks, particularly for the fixed-jump normal approximation. The pass concerns the combined sharp integrated norm and degree-15 transition, not novelty of the binomial step or CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pointwise/local estimates rather than exact integrated L² operator norm",
+          "evidence": [
+            "(1.12) compares B_nf(x) with the jump midpoint; Corollary 5.4 remains pointwise; Lemma 5.2 uses Berry–Esseen for an x-specific binomial sign bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.19893v1",
+          "material_read": "§§1, 3, 5, especially (1.12), Lemmas 5.1–5.3, Corollaries 5.4–5.5 and discussion",
+          "method": "ArXiv full-text HTML",
+          "title": "Approximation of discontinuous functions by positive linear operators. A probabilistic approach",
+          "trigger": "Directly relevant Bernstein BV/jump analysis with majorante and rates"
+        },
+        {
+          "assessment": "Known pointwise binomial representation, classical rates for continuous inputs and iteration; no sharp BV L² implication from inspected theorems",
+          "evidence": [
+            "§2 Theorems 1–3 assume continuity/differentiability; §3 defines iteration to improve continuous-input approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.0684",
+          "material_read": "v3 PDF abstract and §§1–3, v1 version date separately",
+          "method": "ArXiv PDF text and abstract/version history",
+          "title": "Iterated Bernstein polynomial approximations",
+          "trigger": "Classical point sampling in motivating dated archival source"
+        },
+        {
+          "assessment": "Cited Theorem 17 is pointwise. No whole-document coverage conclusion",
+          "evidence": [
+            "Adell et al. explicitly cite Th.17 in the midpoint bound (1.12)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2013.10.024",
+          "material_read": "Bibliographic record and a later substantive citation to Theorem 17, not the full primary text",
+          "method": "DOI/Crossref/OpenAlex lookup; publisher and text-access attempts unsuccessful; compared arXiv:2410.19893v1 (1.12)",
+          "title": "Bernstein polynomial and discontinuous functions",
+          "trigger": "Plausible preceding theorem for this same operator on discontinuous functions"
+        },
+        {
+          "assessment": "Historical priority not assessed beyond the statements cited in accessible later material",
+          "evidence": [
+            "The 1929 work concerns discontinuity representation; Cheng is cited in Adell et al. among pointwise-rate antecedents."
+          ],
+          "identifier_or_url": "10.4064/fm-13-1-62-72; 10.1016/0021-9045(83)90098-9",
+          "material_read": "Bibliographic records, not paper bodies",
+          "method": "Crossref/publisher links and available OA requests did not yield either body",
+          "title": "Sur la représentation des fonctions discontinues par les polynomes de M. S. Bernstein; On the rate of convergence of Bernstein polynomials of functions of bounded variation",
+          "trigger": "Earlier primary literature revealed by the 2014 references; potentially relevant to discontinuities and CLT approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The jump model and endpoint convention are intrinsic to point sampling on Jordan BV. The exact transition distinguishes the endpoint artifact from a genuine interior extremizer, and the large-degree sharp constant plus localization resolve which jump configurations govern worst squared error. The cutoff is a structural fact for a classical operator, not an arbitrary isolated computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

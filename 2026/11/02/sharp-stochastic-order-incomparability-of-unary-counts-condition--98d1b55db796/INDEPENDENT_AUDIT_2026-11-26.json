@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:35:21.130871Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–54",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/audit_evidence/recompute.py: unary_tails; output recompute.out"
+      ],
+      "rationale": "Removing the conditioned root gives k ordered nonempty trees on n vertices, preserving exactly the designated unary count. Independently, if H=x(1+wH+H^2/(1-H)) marks vertices by x and unary vertices by w, Lagrange inversion gives [x^n]H^k=(k/n)[z^(n-k)](1+wz+z^2/(1-z))^n. Taking [w^u] and normalizing at w=1 gives the asserted PMF. For e=n-k, only strings with e ones and all other entries zero attain e; e-1 unary vertices cannot use the remaining one edge. Thus the tail at e-1 equals binom(n,e)/binom(2n-k-1,e), and the next-root-degree tail there is binom(n,e-1)/binom(2n-k-2,e-1). Their ratio is (2n-k-1)/(k+1), strictly above one exactly for e>1; at e the inequality reverses. The e=1 and e=0 laws are point masses at 1 and 0, and n=3 is the first nonterminal comparison. An independent bounded enumeration by Dyck words confirmed the ratios and support gaps for n=2 through 8.",
+      "residual_risks": [
+        "The enumeration is corroboration; the generating-function argument and exact tail comparison establish the all-size quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives the generalized cyclic-lemma machinery; the latter Janson paper treats asymptotic degree counts.",
+          "Full text of the 1999 degree-distribution paper remained inaccessible after alternate retrieval."
+        ],
+        "reasoning": "Generic enumeration covers the input profile count and asymptotics concern different quantifiers. Neither inspected passage establishes the exact all-size adjacent comparison.",
+        "searches": [
+          "Janson arXiv:1112.0510 and arXiv:1312.1211",
+          "Drmota–Gittenberger DOI 10.1002/(SICI)1097-0118(199907)31:3<227::AID-JGT6>3.0.CO;2-6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 19bd34709e33 and 2b714fef559c",
+        "Janson arXiv:1112.0510 and arXiv:1312.1211",
+        "Drmota–Gittenberger (1999), metadata/access check only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior formula machinery specializes to the PMF, but the comparison exploits the forbidden penultimate unary count and a normalized change in the top mass.",
+          "Leaf-count monotonicity does not transfer to unary counts."
+        ],
+        "reasoning": "The known machinery is credited; the nonmonotonicity question is answered by identifying and comparing the appropriate extreme events, not by inheriting a previously located general stochastic-order result.",
+        "searches": [
+          "Janson arXiv:1112.0510 Lemmas 14.2–14.3, 14.7 and Corollary 14.4",
+          "Resultary 19bd34709e33, stated MLR result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditioned composition count is equivalent at the degree-profile level.",
+          "Leaves count zeros rather than ones; cherry statistics in full binary trees use different objects and conditioning."
+        ],
+        "reasoning": "Expressing the model as a forest or rotation-invariant allocation gives equivalent profile counts, but the located stochastic-order theorems are not equivalent to the unary-tail comparison.",
+        "searches": [
+          "Janson arXiv:1112.0510 §14, ordered forests/conditioned allocations",
+          "Resultary same-model leaf-count and full-binary cherry-count comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest records found state leaf-count monotonicity and binary-tree cherry-count incomparability respectively."
+        ],
+        "reasoning": "Neither contains the exact unary statistic and comparisons, and no indexed exact formula for the tail crossing was located; the finite tables in the package are not external priority evidence.",
+        "searches": [
+          "Resultary catalogue: conditioned plane-tree unary outdegree counts and adjacent root degree",
+          "Resultary local mirror: 19bd34709e33 and 2b714fef559c"
+        ]
+      },
+      "rationale": "The underlying forest count and profile extraction are standard. The supported distinct claim is the complete adjacent-degree incomparability, with a universal two-threshold witness and the deterministic exception, not a new method to count degree profiles. No exact or stronger comparison was established in the sources inspected.",
+      "residual_risks": [
+        "The 1999 article or other earlier exact profile work may contain the same adjacent comparison; the available evidence does not establish that.",
+        "No priority is inferred from same-day catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic",
+          "evidence": "The theorem is MLR/stochastic ordering of total leaves, not a theorem on unary counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-root-degree-ordering-of-leaf-counts-in-uniform-catalan-trees--19bd34709e33",
+          "material_read": "Finding in local mirror",
+          "method": "Resultary search and local mirror reader",
+          "title": "Root-degree ordering of leaf counts in uniform Catalan trees",
+          "trigger": "Same uniform plane-tree model and root-degree conditioning"
+        },
+        {
+          "assessment": "Different model and conditioning",
+          "evidence": "Counts cherries in full binary trees, conditioning on root-split size.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-stochastic-order-obstruction-at-seven-internal-nodes-for--2b714fef559c",
+          "material_read": "Finding in local mirror",
+          "method": "Resultary search and local mirror reader",
+          "title": "A sharp stochastic-order obstruction at seven internal nodes",
+          "trigger": "Similar stochastic-order obstruction"
+        },
+        {
+          "assessment": "Known enumeration machinery",
+          "evidence": "The rotation/degree-sequence formalism yields forest-count factors; root-degree probabilities alone do not compare nonroot unary tails.",
+          "identifier_or_url": "https://arxiv.org/pdf/1112.0510",
+          "material_read": "§14 pp. 61–65, Lemmas 14.2–14.3, 14.7 and Corollary 14.4",
+          "method": "OA PDF passage inspection",
+          "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+          "trigger": "Natural allocation reformulation"
+        },
+        {
+          "assessment": "Asymptotic related work",
+          "evidence": "The inspected normal limit and encoding statements do not give exact adjacent-conditioned upper-tail laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.1211",
+          "material_read": "pp. 7, 9–10, degree-count and degree-sequence passages",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotic normality of fringe subtrees and additive functionals in conditioned Galton–Watson trees",
+          "trigger": "Degree-count distributions"
+        },
+        {
+          "assessment": "Unresolved overlap, not negative evidence",
+          "evidence": "No full-text theorem comparison could be made.",
+          "identifier_or_url": "https://doi.org/10.1002/%28SICI%291097-0118%28199907%2931%3A3%3C227%3A%3AAID-JGT6%3E3.0.CO%3B2-6",
+          "material_read": "Bibliographic identification only; full text unavailable",
+          "method": "DOI direct/VPN attempts and OA alternate resolver",
+          "title": "The distribution of nodes of given degree in random trees",
+          "trigger": "Plausible broader degree-distribution source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact exceptional range and witnesses",
+        "Resultary 19bd34709e33, same-model leaf ordering"
+      ],
+      "rationale": "Increasing the root degree removes one available forest edge, so a decreasing unary count is a natural proposed stochastic comparison. The sharp reversal at the penultimate threshold shows that this support argument fails for every nonterminal adjacent pair, unlike the ordered leaf statistic in the same model. The result supplies a complete finite-size obstruction and specifies where a stochastic-dominance argument cannot be used; the standard coefficient extraction alone is not the contribution.",
+      "residual_risks": [
+        "No classification is made for nonadjacent root degrees, other tree models, or other node counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

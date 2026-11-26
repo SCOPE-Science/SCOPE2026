@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:00:10.887615Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–71; VERIFICATION.md lines 19–34; verify.py",
+        "Lodewijks journal Theorem 2.1, Remark 2.2, and Theorem 3.1, including the constant-weight model specialization"
+      ],
+      "rationale": "At each step, entry into a fixed vertex's fringe has probability given by the fringe size divided by the current tree size; conditional on entry, its parent is uniform within the fringe. Conditioning on the full entry history does not bias these internal parent draws because the entry probabilities depend only on sizes. Thus given final size s the child count is a sum of independent Bernoulli variables with probabilities 1/r for 1<=r<s. The Pólya urn from initial counts (1,j-1) has beta-binomial mass equal to the difference of the two successive products in (2), yielding the stated upper tail. Choose the label tolerance delta positive and smaller than both mu and epsilon. The upper tail excludes sizes at least n^(a+epsilon) uniformly over the candidate labels j>=n^(mu-delta), by n times a stretched-exponential bound. For small fringes, the conditional exponential moment and H_(s-1)<=1+log(s) give a uniform Chernoff bound O(n^(-I(b,a-epsilon))) for the joint event of small fringe and degree >=b log n. At c=1/log 2, a=c/2, I(c,a)=c log 2-c+a=mu; decreasing a strictly increases the rate, so b<c and delta may be chosen with I(b,a-epsilon)>mu+2delta. The union over j<=n^(mu+delta) then vanishes. The root cannot violate the lower size bound; localization excludes it from the maximizers with probability tending to one. The two prior theorems have the required hypotheses at constant weight 1 and one attachment per step, and localization holds for the first and last maximum-degree labels. The intersected high-probability events prove the claim for all tied maxima at once. The finite checker was inspected, not executed; it checks the two finite identities through size eight, not the limiting exponent.",
+      "residual_risks": [
+        "No independence among candidate vertices is used or established; the bounds are first-order in probability, not a scaling-limit distribution or a claim for weighted trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lodewijks proves all-maximizer label localization in a more general weighted model, and the maximum-degree law. The modified attachment-cutoff record is about degrees and labels, not the fringe-size statistic."
+        ],
+        "reasoning": "A broader label theorem is an input, not a generalization of the fringe-size theorem: it can only be used to select candidate labels, and extreme-degree conditioning must still be handled.",
+        "searches": [
+          "Resultary semantic checks on maximum-degree labels and high-degree label/depth results",
+          "Lodewijks journal Theorem 2.1, Remark 2.2 and Theorem 3.1",
+          "Resultary 3448e3262e60"
+        ]
+      },
+      "checked_sources": [
+        "Eslava–López–Ortiz arXiv:2212.00183v1",
+        "Lodewijks journal PDF",
+        "Resultary 3448e3262e60 and f5ead0507350; four bounded catalog checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Label localization and the marginal fringe-size tails suffice for the uniform upper bound. The matching lower bound additionally needs a joint estimate between size and child count; the proof uses the conditional child-count law at small size and the barrier I(c,a)=mu."
+        ],
+        "reasoning": "The lower-size statement is not simply the marginal typical fringe size at a label in the localization interval. That inference would ignore the selection on maximal degree.",
+        "searches": [
+          "Lodewijks Theorem 2.1 and Remark 2.2 compared with frozen proof Steps 2–4",
+          "arXiv:2212.00183v1 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cut definition retains the root component after deleting the selected vertex, so the size of the first cut tree is the size of the discarded fringe. Degrees in the paper count children; undirected degree is not the invariant searched here. The fixed-label-2 subtree size comparison has a different selection rule."
+        ],
+        "reasoning": "First deleted component size and the selected vertex's full fringe size are equivalent in the model, but subtree size at a fixed label or the number of cuts is not the selected-size exponent.",
+        "searches": [
+          "Resultary semantic checks on targeted first-cut size and maximum-degree fringe/subtree size",
+          "arXiv:2212.00183v1 introduction and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related exact conditional subtree result uses fixed label 2; the targeted-cut paper explicitly leaves the first-cut size open and the catalog comparisons did not supply its exponent."
+        ],
+        "reasoning": "A finite numerical table cannot imply the asymptotic in probability for all tied maximizers. Relevant equivalents would be a cataloged exponent or a stronger selected-fringe law; neither appeared in the inspected records.",
+        "searches": [
+          "Resultary targeted first-cut size and maximum-degree fringe/subtree size checks",
+          "Eslava–López–Ortiz, Section 4, first cut tree"
+        ]
+      },
+      "rationale": "The distinct claim is the simultaneous fringe-size exponent at the first maximum-child-count cut in the uniform recursive tree. The strongest inspected prior work supplies label and degree limits, and poses the original first-cut size question, but does not give this conclusion. The result addresses its logarithmic-size aspect only.",
+      "residual_risks": [
+        "Devroye–Lu full text not inspected; targeted-cut original version inspected, not independently attested here for the later journal version. Other high-degree subtree results may be unindexed or use different terms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sets up the problem; no equivalent exponent in the examined results",
+          "evidence": [
+            "The introduction identifies the degree as directed in-degree (child count), describes retaining the root component, and cites the maximum-degree scale. Section 4 identifies first-cut size as an open question."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.00183v1",
+          "material_read": "Introduction (HTML offsets about 1900 and 6900); Section 4 (about 51000)",
+          "method": "Original OA HTML",
+          "title": "Targeted cutting of random recursive trees",
+          "trigger": "Same model and cutting scheme"
+        },
+        {
+          "assessment": "Establishes degree and label asymptotics but not selected fringe size",
+          "evidence": [
+            "With W=1 and m=1, theta=2 and mu=1-1/(2 log 2); the first and last maximizing labels have that exponent. The maximum in-degree divided by log base theta of n tends to 1 almost surely."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.00522 ; journal version in Advances in Applied Probability 56 (2024)",
+          "material_read": "Journal PDF pp. 3–4 (OA offsets about 12250 and 14800): model, Theorem 2.1 and Remark 2.2; p. 11 (offset about 47800): Theorem 3.1",
+          "method": "Original journal PDF passages",
+          "title": "The location of high-degree vertices in weighted recursive graphs with bounded random weights",
+          "trigger": "Closest broader results and the two asymptotic inputs"
+        },
+        {
+          "assessment": "Different model and statistic",
+          "evidence": [
+            "Suppresses attachment to early labels and studies hub degree and location, not the discarded fringe size."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-power-cutoff-hub-transition-in-uniform-recursive-trees--3448e3262e60",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Published record mirror",
+          "title": "A sharp power-cutoff hub transition in uniform recursive trees",
+          "trigger": "Closely related maximum-degree and label exponents"
+        },
+        {
+          "assessment": "Different selection rule and conditional variable",
+          "evidence": [
+            "Concerns the fringe at fixed label 2 and the whole-tree leaf count given its size, not a degree-selected label."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-arbitrarily-many-leaf-moments-conceal-a-recursive-tree-subtree-s--f5ead0507350",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Published record mirror",
+          "title": "Arbitrarily many leaf moments conceal a recursive-tree subtree size",
+          "trigger": "Same-day conditional fringe-size result"
+        },
+        {
+          "assessment": "Access limitation, not evidence of absence",
+          "evidence": [
+            "The targeted-cut introduction quotes the maximum-degree scale, and Lodewijks Theorem 3.1 proves it under hypotheses including the uniform model."
+          ],
+          "identifier_or_url": "Devroye and Lu, Random Structures & Algorithms 7 (1995), 1–14",
+          "material_read": "No original full text; law corroborated in the two accessible papers above",
+          "method": "Publisher and lawful OA lookup, without a recovered copy",
+          "title": "The strong convergence of maximal degrees in uniform random recursive trees and dags",
+          "trigger": "Original citation for the maximum-degree law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Targeted cutting of random recursive trees, Section 4",
+        "Frozen RESULT.md theorem and proof"
+      ],
+      "rationale": "This supplies a quantitative answer to a stated gap about the first targeted cut, distinguishing a mesoscopic polynomial-sized deletion from either a logarithmic or linear one. Uniformity over tied maximum-degree vertices makes it intrinsic to the cutting rule; the conditional extreme-degree lower bound is the substantive step beyond a typical-size heuristic.",
+      "residual_risks": [
+        "The exponent does not identify the limiting rescaled size, its finite distribution, or the behavior of later cuts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

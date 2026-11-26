@@ -1,19 +1,21 @@
-# Review of the two-threshold Arps production-ranking classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The hypotheses \(0<b_1<b_2<1\), \(0<D_1<D_2\) guarantee two finite positive lifetime volumes and a positive, uniquely minimized instantaneous rate ratio. The derivative of the log rate ratio is a rational function with exactly one positive root \(t_R\); the auxiliary comparison \(H=F_1(f_2/f_1)-F_2\) has derivative \(H'=F_1(f_2/f_1)'\). This gives a unique later crossing \(t_C\), a nondegenerate minimum of the cumulative ratio, and the strict threshold chain \(0<r_R<r_C<r_{\max}\). The rate and cumulative differences factor as positive terms times \(r-k\) and \(r-G\); their monotonicity gives the five exclusive regimes and strict interlacing. Direct exact algebra proves the rational-parameter witness, its four crossings, and the quartic threshold. Finite numerical verification supports but does not replace the proof. The square-root scaling requires only the proved nondegenerate minima and local Taylor expansions.
+PASS
 
-## Originality
+Under 0<b₁<b₂<1, 0<D₁<D₂ and 0<r<min(1,ρ∞), integrate f_i directly to get F_i and the finite lifetime limits. The rate ratio k=f₂/f₁ starts at 1, tends to infinity, and has log derivative with strictly positive denominator and affine numerator of positive slope, with unique zero t_R>0. In particular k''(t_R)>0. For H=F₁k−F₂, cancellation gives H'=F₁k'. Thus H starts at 0, falls below 0 through t_R, then rises strictly to infinity (F₁ has positive finite limit and k diverges). Its only positive zero t_C lies strictly after t_R. Since G'=f₁H/F₁², G has the stated unique minimum with G''(t_C)=(f₁/F₁)k'(t_C)>0. The endpoint values of G and G(t_C)=k(t_C)>k(t_R) prove the strict threshold chain. Positivity of f₁,F₁ and the endpoint inequalities give precisely the five strict/tangency cases, excluding the trivial cumulative tie at t=0. At the upward cumulative zero the production difference is positive, and at the downward zero it is negative; with exactly two rate zeros and their sign pattern this forces u₁<v₁<u₂<v₂. Expanding each ratio at its nondegenerate minimum gives the stated two square-root separations. For the rational witness I reduced to z=(1+3t/2)^(1/3) and verified the quartic with its unique positive root >1, the exact sign 2·4^(−1/3)−6/5>0 at t=2, and the crossing root numerics independently: r_C≈0.7139563503876054 and times 0.3144333012, 0.8855289990, 7.5268560670, 55.8267551899.
 
-**PASS with residual historical-priority uncertainty.** The 1945 Arps article establishes the decline family itself, and 2010 decline-curve guidance explains standard rate and accumulated-volume representations. The full accessible 2011 multiwell paper was inspected through its equations, analysis, examples, conclusions and appendix; its multilateral model and its comparisons of decline assumptions are not the two-independent-well rank-reversal phase diagram proved here. General quotient monotonicity principles in Pinelis (2006) supply related abstract methods, but do not state the two sharp specialized Arps thresholds, the interlacing or the exact example. Semantic searches returned mathematically different topics, not a stronger directly covering Arps statement. The full 1945 Arps article and potentially relevant older economic petroleum-ranking sources remain uninspected, and general monotonicity theorems may indirectly imply some components. Novelty is therefore based on the inspected evidence and is not independently certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** Instantaneous output rankings and accumulated-recovery rankings are commonly used but logically different performance assessments. The theorem separates their crossover thresholds strictly, exhibits an interval where the two current production rates exchange order without a cumulative change, and an interval with two cumulative reversals despite inferior initial rate and lifetime recovery. Both wells remain monotonically declining, with no interaction or changed intervention. The exact canonical quartic and square-root onset make the distinction verifiable and structurally stable, rather than a crafted point counterexample. Empirical forecasting and commercial value are not claimed.
+The supported distinct claim is the sharp joint ranking classification for the ordered finite-recovery Arps pair, including a nonempty domain of double cumulative reversal despite inferior initial and lifetime production. The standard Arps family, quotient shape rules and generic square-root fold are not independently novel. The closest quotient and reservoir results furnish tools or related models, not an exact classification that already covers the joint two-threshold Arps claim.
 
-## Limitations
+## value
 
-The original Arps 1945 source was not accessible in full. The analysis assumes two deterministic, independent, permanently hyperbolic decline curves and excludes all interventions, reservoir interactions, piecewise changes, and empirical rate-estimation uncertainty. Crossover classification is mathematically complete within the stated strict parameter regime; no general no-crossing theorem is asserted outside it. Self-review does not constitute independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Current rate and cumulative recovery are both natural performance metrics. Even with the worse initial rate and worse lifetime volume, the first well can be ahead cumulatively over exactly one bounded interval. The sharp split between two rate reversals alone and two reversals of both rankings is a full qualitative classification for every ordered admissible pair, not a numerical curiosity at a handpicked parameter. The exact witness verifies feasibility without field or interaction assumptions; the onset quantifies how the two measurable crossing times emerge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

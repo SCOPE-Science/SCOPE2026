@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:13:23.295677Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed m, the CDF power gives r_k=p_k A_{m,k}, with 0<r_k<=m p_k. At small intensity the masses at zero and one are 1-m lambda+O(lambda^2) and m lambda+O(lambda^2). On all k>=2, monotonicity of -x log x for small x and r_k<=m lambda^k/k! bound the entire entropy remainder by O_m(lambda^2 log(1/lambda)); subtracting the parent expansion yields both coefficients and strict positivity near zero. At high intensity the standardized counts converge to independent normals, so the standardized maximum converges and its second moment converges by a uniform fourth-moment bound. The displayed central Stirling remainder is O(lambda^(-1/2)) in expectation. On the outside event, its probability under the parent or maximum is O_m(exp(-c lambda)); for lambda>=1 one can bound the absolute log mass globally by lambda+k log(lambda)+k^2, so Cauchy–Schwarz and raw Poisson moment bounds make that contribution vanish. For U_lambda=F_M, its CDF at u equals F_j^m for the last j with F_j<=u (or zero); the gap to u is at most the largest Poisson atom, which tends to zero. Thus U_lambda converges to Beta(m,1) and the bound P(-log U_lambda>t)<=exp(-mt) gives the needed uniform logarithmic integrability. Combining gives the stated Gaussian differential entropy difference, not merely weak convergence. Gaussian Poincare is strict because the maximum is not affine, so the variance is less than one and the Gaussian maximum-entropy inequality gives a strictly negative limiting constant. For m=2 the max/min symmetry gives second moment one and c_2=1/2-log 2. Locally uniform factorial entropy tails give continuity and the intermediate value conclusion. No uniqueness, rate uniform in m, or monotonicity is established. The numerical checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Badiella et al. prove discrete order-statistic ultra-log-concavity and Poisson order-statistic underdispersion, with the discrete order-statistic representation.",
+          "The lattice entropic CLT states the limiting normalized Shannon entropy for sums of iid lattice variables of finite variance and maximal span. It applies to the parent along integer intensities by the Poisson sum representation.",
+          "Braiman et al. study increasing, concave Shannon entropy as a function of the parent Poisson intensity."
+        ],
+        "reasoning": "Underdispersion relative to the maximum's own mean does not compare entropy with a different-mean Poisson parent. The entropic sum theorem is not a theorem for the nonlinear maximum of several independent sums and gives no non-Gaussian maximum-entropy constant or reversal.",
+        "searches": [
+          "Badiella–del Castillo–Puig DOI 10.1016/j.spl.2023.109900, Theorems 1–2 and Corollary 1",
+          "Gavalakis–Kontoyiannis arXiv:2106.00514, lattice entropy convergence Theorem 1.1",
+          "Braiman et al. DOI 10.15388/namc.2024.29.35560, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "10.1016/j.spl.2023.109900",
+        "10.15388/namc.2024.29.35560",
+        "arXiv:2106.00514",
+        "Resultary 422e6a20a0da (same record), 066cdb28c97e, 918e94e78ac2, 26763b300b09"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known moments neither determine discrete entropy nor justify a transfer of entropy through a Gaussian weak limit.",
+          "The high-intensity argument additionally controls the log mass under the maximum and the logarithm of the CDF factor; the low-intensity entropy tail yields separate information."
+        ],
+        "reasoning": "The known shape and moment results cannot supply these two missing steps. The normal maximum's negative entropy difference, obtained with classical inequalities, only establishes the high discrete sign after a lattice-to-continuous entropy passage for the maximum.",
+        "searches": [
+          "10.1016/j.spl.2023.109900, Section 4, Corollary 1",
+          "arXiv:2106.00514, Theorem 1.1, PDF p. 2",
+          "Resultary 066cdb28c97e and 918e94e78ac2, indexed finding statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The maximum's CDF is the m-th power of the parent CDF, so this is the last order statistic for the fixed iid Poisson sample.",
+          "The exact entropy reversal Resultary hit is the assigned record 422e6a20a0da itself. The neighboring crossover 066cdb28c97e compares variance instead of entropy."
+        ],
+        "reasoning": "Changing from maximum to last order statistic preserves the object, but changing from Shannon entropy to variance or cumulative entropy does not preserve the functional. A Gaussian differential-entropy difference alone is not the discrete Shannon comparison.",
+        "searches": [
+          "Shannon entropy discrete Poisson sample maximum high intensity fixed sample size entropy difference parent local limit order statistics normal maximum entropy Badiella Ebrahimi",
+          "Resultary fixed-m Poisson maximum entropy reversal and Gaussian-maximum limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 422e6a20a0da hit has the exact assigned asymptotics and comparison and is the same record.",
+          "The distinct closest findings concern two-sample variance crossover and moments/Fano limits, and ultra-log-concavity and common intensities."
+        ],
+        "reasoning": "No independently sourced exact pair of asymptotics and sign reversal was established. The other outputs at similar parameters are different quantities, not a table of the target entropy.",
+        "searches": [
+          "Resultary fixed-size Poisson order-statistic Shannon entropy crossover, compared with 422e6a20a0da, 066cdb28c97e, 918e94e78ac2, and 26763b300b09"
+        ]
+      },
+      "rationale": "The supported new comparison is the fixed-sample Poisson maximum versus its own parent Shannon entropy across the intensity axis, with the two asymptotic formulas and strict opposite signs. Neither the order-statistic mass identity nor the parent or Gaussian entropy tools receive novelty credit.",
+      "residual_risks": [
+        "The Resultary mirror request for the exact self-hit did not return; identity and scope were compared using the catalogue and frozen original.",
+        "Bounded searches do not rule out a stronger entropy transfer theorem for order statistics or unindexed direct work; no historical uniqueness is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mass representation and shape/dispersion, not the entropy comparison",
+          "evidence": [
+            "Theorem 1 represents discrete order-statistic laws; Theorem 2 gives preservation of ultra-log-concavity; Corollary 1 treats Poisson underdispersion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+          "material_read": "Institutional PDF, Section 2, Theorem 1 (around offset 6400); Section 4, Theorem 2 and Corollary 1 (around offset 12354)",
+          "method": "Lawful repository PDF and bounded theorem passages",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Exact Poisson order statistics and a plausible stronger inequality"
+        },
+        {
+          "assessment": "One parent Poisson variable, not the maximum-versus-parent entropy gap",
+          "evidence": [
+            "Shannon entropy of a single Poisson law is increasing and concave in intensity."
+          ],
+          "identifier_or_url": "https://doi.org/10.15388/namc.2024.29.35560",
+          "material_read": "Section 2, Theorem 1, PDF pp. 804–805 (around offset 6300)",
+          "method": "Lawful journal PDF and theorem comparison",
+          "title": "Properties of Shannon and Rényi entropies of the Poisson distribution as the functions of intensity parameter",
+          "trigger": "Prior entropy theory for the exact parent family"
+        },
+        {
+          "assessment": "Sum entropy convergence; not a maximum entropy convergence theorem",
+          "evidence": [
+            "For iid lattice sums S_n of maximal span h and finite variance sigma^2, H(S_n)-log(sqrt(n)/h) tends to log(2 pi e sigma^2)/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.00514",
+          "material_read": "Introduction and Theorem 1.1, PDF pp. 1–2 (especially offsets 5400–8939)",
+          "method": "Lawful arXiv original passage",
+          "title": "Entropy and the discrete central limit theorem",
+          "trigger": "Possible domination by an entropic lattice limit theorem"
+        },
+        {
+          "assessment": "Variance, Fano-factor moments and log-concavity, not Shannon entropy reversal",
+          "evidence": [
+            "Two-sample crossover for variance; two-sample Fano limits; criterion for ultra-log-concavity of Poisson maxima."
+          ],
+          "identifier_or_url": "Resultary 066cdb28c97e; 918e94e78ac2; 26763b300b09",
+          "material_read": "Indexed Resultary finding statements, with the frozen AUDIT.json identifying their original comparisons",
+          "method": "Local record search and functional comparison; not an independent full-text exclusion",
+          "title": "A unique parent-variance transition for the maximum of two Poisson counts; Exact moments and the universal Fano limit for two-sample Poisson extremes; Ultra-log-concavity of Poisson maxima characterizes homogeneous intensities",
+          "trigger": "Closest distinct records for the same distribution or a related transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Retaining the maximum of replicated counts is a standard summary. The fixed-sample reversal says when this summary can have higher or lower marginal uncertainty than one original count, which prior mean and variance results do not answer. The endpoint coefficients quantify a structural comparison for every m, not a single numerical crossover or a claim that taking the maximum creates information about the full sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

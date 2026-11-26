@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:33.725856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For canonical right-continuous BV with trace endpoints, a unit jump at s∈(0,1) samples as the tail beginning at k=ceil(ns); telescoping gives J_{n,k}^α. Equivalently the integrated jump response is E|Y−s| for the random variable with CDF J_{n,k}(x)^α (a CDF power of Beta(k,n−k+1)). On each fixed cell the derivative in s is 2J_{n,k}(s)^α−1, strictly increasing; the maximum on the cell closure is at an endpoint, with disallowed endpoints interpreted only as limits. Signed step-measure superposition gives the upper norm bound and individual jumps or limits of jumps give the reverse bound; free nodal or endpoint assignments would not be justified for this variation seminorm. At n=1 the two one-sided values are 1/(1+α) and α/(1+α). For an interior sequence s_n→s, in the √n window x=s_n+z√(s(1−s)/n) the centered standardized binomial threshold tends to −z, so its survival function tends to Φ(z). For x<s_n, k_n≥ns_n gives the needed upper-tail bound at distance |x−s_n|; for x>s_n, k_n−1<ns_n gives the lower-tail bound. Using 1−J^α≤max(1,α)(1−J) and the Lipschitz variance yields the bound exp(−c_α n u²/[s_n(1−s_n)+4u/3]) up to constants, where u=|x−s_n|. On an interior scaling window this is integrable uniformly, and splitting the unscaled bound at u=s_n(1−s_n) gives O_α(√(s_n(1−s_n)/n)+1/n). Thus boundary-convergent sequences contribute zero to the scaled norm and all interior subsequences have the indicated Gaussian limit. Maximizing the remaining factor √(s(1−s)) gives the sharp constant and forces asymptotically norming jumps to the midpoint. For the parameter claim, locally in α>0 the needed log-weighted derivatives are integrable by the Gaussian tail. In c'=A_α−B_α the log-magnitudes for A are below log 2 and those for B above log 2; hence (log(A_α/B_α))'>0. Strict concavity of −q log q+(1−q)log(1−q) for 0<q<1/2 gives c'(1)<0; the endpoint integrands at α=1 and 2 both equal 2q, so the unique critical point is inside (1,2) and the full comparison window follows. Independent composite Simpson diagnostics using a normal tail integrated backwards to 0 from z=14 with step 0.001 gave α≈1.40542923498526, c≈0.75749746452316 and fractional gain 0.0506177. These are diagnostics, not substitutes for the uniform bounds or parameter proof. The supplied VERIFICATION.md and check.py were read without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lian uses a broader Chlodowsky construction, which for b_n≡1 gives the classical Bernstein–Bézier samples, with separate pointwise estimates for α≥1 and 0<α≤1.",
+          "Ren–Zeng recall Chang's power-tail family but their new operator uses beta-integral averages, not point samples. The older 1998 and 2000 abstracts refer to asymptotically optimal BV estimates and complementary parameter regimes."
+        ],
+        "reasoning": "Pointwise jump estimates for the same family are relevant ingredients but not a theorem about the integrated supremum over variation, including moving jump locations and endpoint control. The beta-integral modification does not dominate the fixed point-sampling sharp constant.",
+        "searches": [
+          "Lian DOI 10.7153/jmi-07-59, Theorems 1–2",
+          "Ren–Zeng DOI 10.1186/s13660-015-0940-9",
+          "Zeng–Piriou DOI 10.1006/jath.1997.3227; Zeng DOI 10.1006/jath.2000.3451"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6c03f534e376",
+        "Lian DOI 10.7153/jmi-07-59",
+        "Ren–Zeng DOI 10.1186/s13660-015-0940-9",
+        "Zeng–Piriou DOI 10.1006/jath.1997.3227 (abstract only)",
+        "Zeng DOI 10.1006/jath.2000.3451 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical record gives the case α=1 by measure reduction and beta moments but does not analyze a powered normal CDF. Lian gives upper pointwise estimates, not the moving-jump uniform asymptotic or unique normal-CDF-power optimizer.",
+          "The available materials for the 1998 and 2000 papers do not resolve all possible full-text overlap."
+        ],
+        "reasoning": "Sharp integration, supremal jump localization, the order-one/order-two crossing and global ordering over α are extra steps. The bounded comparison does not turn unavailable primary text into a noncoverage finding.",
+        "searches": [
+          "Resultary 6c03f534e376, Finding and proof §§1–4",
+          "Lian Theorems 1–2",
+          "Zeng–Piriou 1998 and Zeng 2000 public abstracts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Since J_{n,k} is the Beta(k,n−k+1) CDF, the assigned finite response is a beta CDF-power absolute-deviation moment; at α=1 it is the classical beta moment. Reflection x↦1−x and k↦n−k+1 pairs the two endpoint families at α=1.",
+          "At α=1 the sampling weights are p_{n,k}, and the limiting constant is exactly 1/√(2π). The other record uses pointwise Jordan-BV and can choose specific nodal values, so exact norm overlap does not identify attainment conventions."
+        ],
+        "reasoning": "The beta/quantile formulation proves the classical-slice match rather than merely matching the same benchmark number. The parameter c(α) and optimization require changing the CDF power; this is not a mere reindexing of the classical beta moment.",
+        "searches": [
+          "Resultary 6c03f534e376, exact integrated BV Bernstein norm",
+          "Bernstein-Bezier bounded variation sharp integrated L1 approximation error Zeng 2000 Bézier operator alpha gaussian constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror gives the exact classical finite beta-moment norm and Gaussian localization. Both records share a catalogue date; no order was inferred.",
+          "No compared exact catalogue statement identifies the continuum of powered-CDF norms, the optimal Gaussian root or the equality of the two endpoint leading coefficients outside the classical slice."
+        ],
+        "reasoning": "The relevant exact catalogue entry was tested in its strongest overlapping case. A numerical table of normal means or quadrature values would not imply the strict classification for all α>0 or sharpness over BV.",
+        "searches": [
+          "Resultary exact integrated bounded-variation norm Bernstein, distinct record 6c03f534e376"
+        ]
+      },
+      "rationale": "The classical α=1 norm, Gaussian limit and midpoint localization match the comparable portions of a distinct same-day catalogue record. The sampling family itself and pointwise BV estimates are older. Neither covers the sharp integrated parameter profile for fixed α>0, its unique minimizer, or the strict improvement window in the inspected statements. The absence of full text for the two cited 1998–2000 papers leaves a specific historical-priority risk; no claim of exhaustive novelty is made.",
+      "residual_risks": [
+        "Full primary text for the 1998 and 2000 papers was not available from the lawful sources used, and their abstracts cannot exclude an equivalent result.",
+        "Same-day ordering of the classical Bernstein record is unresolved; the overlap is recorded regardless of ordering.",
+        "The parameter is fixed as degree grows. No uniform-in-parameter or finite-degree superiority claim was validated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the classical slice, subject to nodal convention",
+          "evidence": "Exact beta absolute-deviation finite norm, Gaussian limit 1/√(2π) and midpoint localization, but no Bézier parameter variation.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-integrated-bounded-variation-error-norm-for-bernstein-appr--6c03f534e376",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 4824, Finding and proof §§1–4",
+          "method": "Local Resultary mirror",
+          "title": "Exact integrated bounded-variation error norm for Bernstein approximation and its Gaussian localization",
+          "trigger": "Exact matching integrated norm at α=1"
+        },
+        {
+          "assessment": "Pointwise estimates in the matching subfamily",
+          "evidence": "b_n≡1 recovers Bernstein–Bézier sampling. The inspected theorems give pointwise BV estimates rather than the exact integrated norm.",
+          "identifier_or_url": "https://files.ele-math.com/articles/jmi-07-59.pdf",
+          "material_read": "Abstract, §1 pp. 647–648 (offsets 535, 850), Theorems 1–2 p. 649 (offset 5600)",
+          "method": "OA PDF passage inspection",
+          "title": "Rate of approximation of bounded variation functions by the Bézier variant of Chlodowsky operators",
+          "trigger": "Same power-tail family up to Chlodowsky scaling and BV rates in both parameter regimes"
+        },
+        {
+          "assessment": "Confirms known definition; new operator in that paper is different",
+          "evidence": "Attributes cumulative-binomial-tail Bernstein–Bézier construction to Chang; the paper's L_{n,α} uses beta integral averages and the inspected claims concern approximation/moduli.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-015-0940-9",
+          "material_read": "PDF pp. 1–2, offsets 0 and 4300",
+          "method": "OA PDF passage inspection",
+          "title": "Approximation of a kind of new type Bézier operators",
+          "trigger": "Power-tail definition, historical origin and approximation conclusions"
+        },
+        {
+          "assessment": "Highly relevant; full-text coverage not determined",
+          "evidence": "The abstract describes asymptotically optimal BV estimates; no full-text implication or negative finding is asserted.",
+          "identifier_or_url": "https://doi.org/10.1006/jath.1997.3227",
+          "material_read": "Public DOI landing page and accessible abstract only",
+          "method": "OA access attempt and primary search",
+          "title": "On the rate of convergence of two Bernstein–Bézier type operators for bounded variation functions",
+          "trigger": "Same operator family and asymptotically optimal BV convergence estimates"
+        },
+        {
+          "assessment": "Highly relevant; full-text coverage not determined",
+          "evidence": "The accessible description treats the complementary α≤1 regime; it is not evidence against overlap elsewhere in the text.",
+          "identifier_or_url": "https://doi.org/10.1006/jath.2000.3451",
+          "material_read": "Public DOI landing page and abstract-level description only; alternate public access attempt returned HTTP 403",
+          "method": "OA access attempt and primary search",
+          "title": "On the rate of convergence of two Bernstein–Bézier type operators for bounded variation functions II",
+          "trigger": "Continuation in the small-parameter regime for the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an established positive approximation family, the exact worst-case integrated error over a natural low-regularity class gives a practical criterion for choosing its parameter. The finding identifies the entire improvement interval rather than a single tuned example, and the reversal from worse degree-one behavior to a smaller sharp asymptotic constant shows why that interval is not apparent from low-degree tests. The jump localization and unique parameter optimum make the classification more useful than an order estimate or the classical α=1 recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

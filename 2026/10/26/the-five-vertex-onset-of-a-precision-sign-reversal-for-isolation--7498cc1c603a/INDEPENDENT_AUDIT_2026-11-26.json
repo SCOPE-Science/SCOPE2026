@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:09:01.606501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The distinct isolation events share one incident edge exactly for adjacent vertices, giving the stated positive diagonal congruence to B(t). Its signless-Laplacian quadratic form vanishes only for zero: a vertex of degree at least two has strictly positive diagonal excess for t>1, and the edge sums propagate zero from it. In a bipartition, switching signs gives an irreducible positive-definite matrix with nonpositive off-diagonal entries. The convergent nonnegative Neumann series for its inverse has strictly positive entries by the existence of paths, yielding the stated opposite precision sign. The hub Schur complement has equal diagonal h-r/(t+1) and off-diagonal 1-r/(t+1); positive diagonal scalings cancel in the partial correlation. Its denominator is positive and its numerator changes sign exactly at t=r−1 when r≥3. The hub marginal covariance is pq^(2r+1)>0. A fresh exact replay (not the frozen checker) exhausted 4 and 38 connected labelled graphs at n=3 and 4 and tested their 12 and 228 unordered pair cofactors in z=t−1. Each polynomial is nonzero with coefficients of one weak sign; hence no interior zero. A separate sum over 128 retained-edge configurations per parameter gave hub partial correlations −27/491, 0, 1/211 at p=1/4, 1/2, 3/4, with strictly positive marginal covariances. Replay: python3 /workspace/branches/19f50411-cd78-4d11-8632-08cf4764744b/replay_check.py; full_replay.log records the results. The finite checks are not the proof for arbitrary bipartite graphs or all books. Connected graphs of fewer than three vertices have singular isolation covariance. No inference to conditional independence is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberg–Kirkland (p. 1) studies the smallest signless-Laplacian eigenvector.",
+          "Penrose (p. 1) studies counts of isolated vertices and Poisson approximation."
+        ],
+        "reasoning": "Neither an eigenvector sign result for the ordinary signless Laplacian nor approximation of a scalar count determines signs of all entries of this parameter-dependent inverse. Standard inverse positivity does yield the switched-matrix step, which is not a novelty claim.",
+        "searches": [
+          "Goldberg–Kirkland arXiv:1307.7749, signless Laplacian signs",
+          "Penrose arXiv:1507.07132, isolation in random connection models"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/25/SCOPE-a-parity-reversal-in-complete-graph-monomer-dimer-precision--27cbb780e347",
+        "Dai–Ding–Wahba arXiv:1206.1874",
+        "Goldberg–Kirkland arXiv:1307.7749",
+        "Penrose arXiv:1507.07132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen Schur complement subtracts r/(t+1) from both hub entries, using the retention-specific diagonal and independent nonadjacent pages.",
+          "The monomer–dimer comparison adjusts vertex-disjoint edge indicators, with dependence imposed by the matching constraint."
+        ],
+        "reasoning": "The existing methods explain how the proof works but do not give either the sign switch of 1−r/(t+1) or exclusion of smaller nonbipartite witnesses. Nothing here is an assertion about conditional independence of binary events.",
+        "searches": [
+          "Compare the inspected monomer–dimer finding, signless-Laplacian eigenvector result and binary dependence discussion to the stated H_r formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected Resultary matching-model record concerns monomer–dimer vertex-disjoint edge indicators on K_n, not independent Bernoulli retention and vertex isolation.",
+          "Dai–Ding–Wahba, arXiv:1206.1874 pp. 2,11, contrasts multivariate Bernoulli dependence with Gaussian covariance structure."
+        ],
+        "reasoning": "The equivalence used in this record is between precision signs of a fixed graph's isolation indicators and those of its adjacency matrix plus a degree-dependent diagonal; an analogy to binary indicators of disjoint matching edges does not reproduce those entries or that graph class.",
+        "searches": [
+          "Resultary: percolation isolation-indicator inverse covariance, partial-correlation signs and reversal",
+          "Primary literature lookup on bond-percolation isolation precision and signless-Laplacian inverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly inspected nearby record gives an onset/reversal for odd complete graphs in a different model.",
+          "The 4 and 38 connected labelled graph counts alone contain no isolation cofactor data."
+        ],
+        "reasoning": "The target data are interior sign nonvanishing for every pair over a continuum of p at orders 3 and 4, and the exact book threshold. Neither the inspected matching result nor a list of small graph types supplies them.",
+        "searches": [
+          "Resultary comparison of five-vertex precision-sign onsets and exact inversion formulas"
+        ]
+      },
+      "rationale": "Within the checked literature and catalogue, neither the sharp graph-order boundary for isolation indicators nor the book-family law is covered. The covariance-congruence reduction and inverse-positivity argument use standard methods; the similar five-vertex threshold in a matching model does not establish this one.",
+      "residual_risks": [
+        "The literature lookup did not yield a useful closer result and does not exclude equivalent work under different terminology. Priority is a bounded, best-of-knowledge judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related earlier result, not equivalent",
+          "evidence": [
+            "Vertex-disjoint matching edge indicators on complete graphs; reversal for odd n≥5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-parity-reversal-in-complete-graph-monomer-dimer-precision--27cbb780e347",
+          "material_read": "Mirrored RESULT.md, opening finding (offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Configured catalogue search and bounded local-mirror passage",
+          "title": "A parity reversal in complete-graph monomer–dimer precision",
+          "trigger": "Similar reversal and five-vertex onset"
+        },
+        {
+          "assessment": "Dependence context, not the isolation sign classification",
+          "evidence": [
+            "Discusses binary graphical models and distinctions from Gaussian covariance interpretations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.1874",
+          "material_read": "pp. 2 and 11, offsets 4870 and 33420",
+          "method": "Lawful OA passage reading",
+          "title": "Multivariate Bernoulli distribution",
+          "trigger": "Potential binary precision/dependence overlap"
+        },
+        {
+          "assessment": "Different matrix observable",
+          "evidence": [
+            "Smallest ordinary signless-Laplacian eigenvector signs, not off-diagonal precision signs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.7749",
+          "material_read": "p. 1 and statement of problem",
+          "method": "Lawful OA passage reading",
+          "title": "On the sign patterns of the smallest signless Laplacian eigenvector",
+          "trigger": "Closest cited matrix-sign problem"
+        },
+        {
+          "assessment": "Different probabilistic observable",
+          "evidence": [
+            "Approximates isolated-vertex counts, not the full fixed-graph inverse covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.07132",
+          "material_read": "p. 1 and statement of scope",
+          "method": "Lawful OA passage reading",
+          "title": "Inhomogeneous random graphs, isolated vertices, and Poisson approximation",
+          "trigger": "Isolation indicator literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This establishes a sharp obstruction to inferring the adjusted sign from the fixed positive marginal sign of adjacent isolation indicators. The bipartite parity theorem identifies a broad rigidity regime; the book computation provides a structural mechanism, a full family and the first possible order, not only a numerical crossing in a hand-picked graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:53:20.978265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–67",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/frozen_review_replay_1to5.py 1"
+      ],
+      "rationale": "For a support S in a size-k ideal layer, comparability obstructs shattering, and the all-positive and all-negative traces force |D(S)|≤k≤mn−|U(S)|. For an antichain these bounds suffice: the ideals forcing the positive and negative labels of any trace give nested lower and upper ideals bracketing k, and one can extend by minimal elements of their difference to exactly k. For |S|=m−1, cells incomparable to all queries lie in the one missing row and in unused columns, hence number at most m−1. Since D∩U=S, feasibility forces exactly m−1 incomparable cells and k=|D|. All unused columns must then lie in the one open gap in the missing row. Strict decrease forces the queried columns above the gap to be the largest h−1 and those below to be the smallest m−h. Summing down-closure widths gives m(m+1)/2−1 at h=1; advancing h replaces one row width by a width larger by m−1 and decreases the next width by one, giving the step m−2 (including a terminal zero width). For |S|=m the incomparable set is empty and the closure bounds contradict each other. This covers the extreme missing rows, m=3, the empty and full layer ranks, and uniqueness. Independent direct projections of partitions encoded by lattice paths at m=3,4,5 tested 19,307 support-rank pairs; the exceptional ranks and unique supports matched exactly.",
+      "residual_risks": [
+        "The finite projections are corroboration; the closure proof covers all sizes. Lower dimensions at nonexceptional ranks are not enumerated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general finite-poset criterion characterizes feasibility given a support, but supplies no classification of supports attaining equality in this rectangle. Kusch–Mészáros construct shattering-extremal families from Sperner families; Wild enumerates fixed-cardinality ideals rather than VC supports."
+        ],
+        "reasoning": "The new step is showing that the omitted row must contain every unused column in one gap and finding the resulting ranks exactly, not applying a prior VC formula for this rectangle.",
+        "searches": [
+          "Resultary c1bfbe1cb44f, Finding and prior-work discussion",
+          "arXiv:1710.03165v1; arXiv:1208.2180v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen related-work section",
+        "Resultary c1bfbe1cb44f and c8479381df1b",
+        "arXiv:1805.08375v3; Early 2019; arXiv:1710.03165v1; arXiv:2009.07348v1; arXiv:1208.2180v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square theorem gives a central-band maximum of m−ceil((sqrt(4m+1)−1)/2); it is not a uniform aspect-ratio theorem. Early's unimodality concerns concept counts; Iams–Johnston–Muth optimize adaptive queries under a positive-answer budget."
+        ],
+        "reasoning": "Neither square-board specialization nor rank-unimodality forces the discrete top-support gaps. The multirow geometric equality and uniqueness argument remains necessary.",
+        "searches": [
+          "Early, Order ideals in a product of chains, pp. 478–479",
+          "arXiv:2009.07348v1, abstract",
+          "Resultary c1bfbe1cb44f, Finding and proof context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c1bfbe1cb44f works in the same rank-slice ideal model and uses the same down/up-closure criterion, but specializes its rank spectrum to a square.",
+          "Resultary c8479381df1b studies fixed-size Cartesian-product concepts; these need not be order ideals, and their row/column-quotas are not a fixed area constraint on ideals."
+        ],
+        "reasoning": "The shared trace test and geometric ground set do not equate either earlier result to the rectangular equality classification.",
+        "searches": [
+          "Resultary: fixed-cardinality order ideals, rank-sliced rectangular Young diagrams, VC support closures",
+          "Primary literature: fixed-area ideals, fixed-cardinality ideal enumeration, coordinate shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest different rank-spectrum statement counts an interval of central area ranks attaining a square-board bound, not the m specific ranks or supports here. The Gaussian-binomial data in Melczer–Panova–Pemantle count concepts, not top shattered supports."
+        ],
+        "reasoning": "Neither table of ranks for a distinct board shape nor exact level cardinalities substitute for the labelled shattered-support classification.",
+        "searches": [
+          "Resultary: isolated top shattering ranks, unique maximal support, fixed-area Young diagrams",
+          "arXiv:1805.08375v3, rectangular partition enumeration"
+        ]
+      },
+      "rationale": "Credit the fixed-rank finite-poset trace test as background. The supported distinct result is the rectangle-specific equality case, which yields m isolated feasible ranks with exactly one size-(m−1) support at each and no support of size m at any rank. The closest square-board theorem shares the trace test but not this equality case.",
+      "residual_risks": [
+        "The earlier attribution of the general trace criterion is unresolved and no novelty is assigned to that criterion.",
+        "Bounded searches do not exclude an unindexed or differently phrased rectangular classification; same-day catalog dates are not evidence of ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same general test and model; a square theorem rather than this rectangular classification.",
+          "evidence": [
+            "d_m=m−ceil((sqrt(4m+1)−1)/2) is attained centrally; attainment follows a band statement, not isolated omitted-row supports."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-square-root-shattering-deficit-in-central-gaussian-binomial-le--c1bfbe1cb44f/RESULT.md",
+          "material_read": "Finding and prior-work comparison, offsets 0 and 6326",
+          "method": "Resultary local-mirror passages",
+          "title": "A square-root shattering deficit in central Gaussian-binomial levels",
+          "trigger": "Closest ideal-layer shattering theorem on a product of chains"
+        },
+        {
+          "assessment": "Different concept class.",
+          "evidence": [
+            "Concepts are A×B and support conditions concern incidence star forests and quotas."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-shattering-of-fixed-cardinality-cartesian-rectangles--c8479381df1b/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local-mirror passage",
+          "title": "Exact shattering of fixed-cardinality Cartesian rectangles",
+          "trigger": "Fixed-cardinality cell shattering on a grid"
+        },
+        {
+          "assessment": "Explains the rank populations, not the support spectra.",
+          "evidence": [
+            "Gaussian-binomial coefficients count diagrams of given area."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1805.08375v3",
+          "material_read": "Abstract and introduction, offsets 0 and 3747",
+          "method": "Open primary text",
+          "title": "Counting partitions inside a rectangle",
+          "trigger": "Exact objects and area layers"
+        },
+        {
+          "assessment": "Rank-unimodality is a different invariant.",
+          "evidence": [
+            "Theorem 1 establishes rank-unimodality of L(2,n,m)."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p478.pdf",
+          "material_read": "pp. 478–479, offsets 266 and 2124",
+          "method": "Open primary PDF passages",
+          "title": "Order ideals in a product of chains",
+          "trigger": "Possible rank theorem on related ideal lattices"
+        },
+        {
+          "assessment": "Inspected construction and extension problem have a different hypothesis and conclusion.",
+          "evidence": [
+            "Studies equality between the number of shattered sets and family size for a class built from Sperner families."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1710.03165v1",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "Open primary text",
+          "title": "Shattering-extremal set systems from Sperner families",
+          "trigger": "Possible general shattering theorem"
+        },
+        {
+          "assessment": "The adaptive-search problem is not the target static shattering problem.",
+          "evidence": [
+            "Query strategy minimizes search cost with a positive-answer constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.07348v1",
+          "material_read": "Abstract, offset 0",
+          "method": "Open primary text",
+          "title": "Searching for quicksand ideals in partially ordered sets",
+          "trigger": "Membership queries on order ideals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and omitted-row rigidity proof",
+        "Rectangular rank population context, arXiv:1805.08375v3"
+      ],
+      "rationale": "The board shape is a critical boundary: the number of unused columns at support size m−1 is exactly the number of incomparable cells needed for any feasible rank. At that boundary the exact unique-support progression shows repeated loss and recovery of the top shattering dimension, notwithstanding unimodal counts of all ideals. This supplies an all-size structural example, rather than a single-parameter tabulation.",
+      "residual_risks": [
+        "The finding determines only top-dimensional support occurrences, not the complete rank-dependent shattering complex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

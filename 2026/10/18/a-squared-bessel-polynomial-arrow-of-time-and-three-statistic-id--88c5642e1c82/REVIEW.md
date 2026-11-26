@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The stated radial adjoint matches the source's radial Fokker–Planck operator. The quartic coordinate gives dimension \(\delta=2-\alpha\) squared-Bessel dynamics, whose transition Laplace law is verified in the backward generator. Conditioning on the last Poisson reset proves the stationary two-time transform. Stationary age–gamma moments, triangular polynomial semigroup and three explicit inverse identities are derived in RESULT.md. Symbolic proofs are supported by 54 executable symbolic/quadrature/sampling checks; those finite checks are not the proof of generality.
+## correctness
 
-## Originality (O): PASS with residual risk
-Sandev et al. (arXiv:2609.24427v1) provide the exact target radial model, stationary density, resetting renewal equation and first-passage laws; those are excluded from novelty. Stojkoski et al. (arXiv:2107.11686) cover Brownian resetting correlations and generic exponential decorrelation. Liu et al. (DOI:10.1103/xz7y-n8w2) already pursue stochastic-interpretation inference in **non-resetting, regularized** planar diffusion. The assessed combined contribution is the origin-reset singular-model squared-Bessel two-time law, one-direction-only cross-correlations in its polynomial hierarchy, and simultaneous three-parameter inversion. Checked primary-text portions and semantic research-record searches found no direct covering statement. It remains possible that a broader regenerative semigroup or polynomial-result specialization implies parts of the finding. The general renewal mechanism and isolated exponential autocorrelation are explicitly prior work.
+PASS
 
-## Value (V): PASS
-The quartic coordinate separates model interpretation, intensity and reset rate with accessible population observables, and the asymmetric cross-mode correlation detects a stationary time arrow hidden by identical one-mode autocorrelation spectra. Both address motivated dynamical questions beyond the single-time quantities computed in the source. The coefficient is exact and applies to every allowed prescription, not a finite census or arbitrary narrow parameter test.
+For q=ρ⁴/(8D₀), q'=ρ³/(2D₀); the drift of q is 2−α and D(q')²=2q. Under the specified instantaneous zero-flux extension this is BESQ(δ), including δ=1 (instantaneously reflecting) and δ=2 (entrance from zero). Independent Poisson resets give regeneration and a unique stationary law with age Exp(r). The BESQ Laplace transition, checked by the backward equation, has gamma law from 0. Averaging its no-reset term over the stationary state gives the first term of the joint transform; the last-reset integrand is independent of Q₀ and yields the second. The age product yields moments 2^k k!(δ/2)_k/r^k. Finite moments and full support give the orthogonal basis by degree with no completeness assumption in L² needed. The reset generator is triangular on polynomials, with highest coefficient −r for positive degrees. Independently, G P₁=−rP₁ and G P₂=−rP₂+2(δ+2)P₁, using the moment-derived coefficients. Exponentiating that two-dimensional block gives zero reverse covariance and 2(δ+2)Var(Q) t e^(−rt) forward; all the equal-degree normalized correlations follow by degree preservation and orthogonality. The moment and lag formulas invert on δ∈[1,2] and r,D₀>0 at known t>0. No finite-sample claim is supported; the supplied script and its stated diagnostics were read, not executed.
 
-## Limitations and closest literature
-The theorem requires the canonical singular radial origin extension, origin resetting with independent exponential holding times, fixed interpretation and stationary population statistics. Finite-sample performance, unmodeled regularization and memory-induced changes are outside scope. Closest papers: Sandev et al. (2026) on single-time heterogeneous radial resetting, Stojkoski et al. (2021) on general resetting autocorrelations, and Liu et al. (2026) on interpretation identification in a different setting. Broad resetting and squared-Bessel theorems are acknowledged as standing mathematical tools.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original model and one-time law are prior and the bivariate formula is a specialization of the known last-renewal transition rule and BESQ transform. The exponential scalar lag and broad idea of identification are not standalone originality. The strongest distinct catalogue match covers equivalent BESQ scaling, quartic autocorrelation and a different set of identification statistics, but is later and its full statement and proof do not establish the stationary triangular orthogonal-polynomial hierarchy or the explicit one-way mode pair. That model-specific test of time reversal and the exact synthesis with the stated moments support the limited finding.
+
+## value
+
+PASS
+
+The exact low-degree asymmetry supplies a population-level diagnostic where every single orthogonal mode has the same normalized exponential autocorrelation. It distinguishes reversible from irreversible dynamics using concrete radial observables, not an arbitrary special parameter. The parameter inversion gives a calibration-free model check in the same setting, with no claim that it is stable in noisy finite samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

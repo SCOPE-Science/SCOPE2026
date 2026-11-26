@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:48:45.305979Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–75",
+        "VERIFICATION.md:19–29",
+        "verify_bruteforce.cpp, verify_incidence.py, verify_formula.py (inspected, not executed)",
+        "exhaustive_counts.tsv, incidence_counts.tsv, formula_counts.tsv (recorded outputs)"
+      ],
+      "rationale": "In the selected-edge graph H⊆K_n, the neighborhood of each root pair uv contains d(u)+d(v)−1_{uv selected} selected edges; the test includes missing root edges. Degree ≥4 fails at an incident edge. Degree three forces every positive-degree vertex to be a leaf adjacent to that same center. With maximum degree two, all degree-two vertices are adjacent pairwise, so there are at most three; 0, 1, 2 and 3 yield a matching, one P₃, one P₄, or one triangle, with remaining edges a disjoint matching. All satisfy the inequality. Labelled core weights are 3/3!, 12/4!, 1/3! and 4/4! for P₃, P₄, triangle and lone star; the first three multiply the matching EGF while the star permits isolates only. For maximality, a matching extends when n≥3, and P₃ can close to a triangle. The star is saturated. A P₄ or triangle has at least two degree-two vertices, so increasing any of their degrees gives a forbidden non-star configuration. If no degree-two vertex is touched, an increased degree-one vertex could not be adjacent to all the preexisting degree-two vertices, so an extension must join two isolates. Thus zero or one isolate is exactly the condition for maximality. Multiplying the core weights by perfect matching counts on the other roots and by the isolate factor mandated by parity gives the stated coefficients (with a single full triangle at n=3). The coinciding size-three contributions at n=4 and n=5, the maximum formula, and the parity-dependent facet spectra all agree.",
+      "residual_risks": [
+        "Fresh replay: build closed-neighborhood incidence lists by intersection of root pairs; recursively insert higher-index unselected vertices while updating every containing neighborhood's load and disallowing a fourth entry. A visited set is maximal iff each missing vertex hits a saturated neighborhood. For all n=3–9 both enumerators matched their formulas coefficient by coefficient; e.g. M₅=80z³+10z⁴, M₈=280z³+3360z⁵, M₉=504z³+22680z⁵+1260z⁶. The finite replay is corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balister–Bollobás–Gunderson introduce general closed-neighborhood bounds. Ahmadi et al. study limited-packing partitions and total-packing variants; the relevant Cartesian product results in 2405.03237 are at capacity two."
+        ],
+        "reasoning": "General bounds and packing-partition quantities do not supply the triangular graph's core decomposition or labelled maximal polynomial. A product bound for capacity two is not an exact theorem about this line graph at capacity three.",
+        "searches": [
+          "arXiv:1501.01833, closed-neighborhood definition and general results",
+          "arXiv:2308.16837 and arXiv:2405.03237, limited-packing variants and product sections"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 939bd7bd216d (self), ec69a644685b, 86b89d24b06d, 08634914be96, e45121c4da2e",
+        "arXiv:1501.01833, 2308.16837, 2405.03237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rook formula assumes the complete bipartite root, allowing multiple two-stars on one shore; the complete root instead tests edges between every pair of core centers and admits a triangle."
+        ],
+        "reasoning": "Deleting the bipartite restriction changes both allowed configurations and extensions. Even knowing the largest size would not determine the complete labelled count or the maximal spectrum. Credit is for the decomposition and exact counts, not the common degree identity.",
+        "searches": [
+          "Found statements and hypotheses in ec69a644685b and 86b89d24b06d; arXiv:2405.03237 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "86b89d24b06d tests selected induced degree ≤1; 08634914be96 tests realization of all traces by closed neighborhoods; e45121c4da2e packs edges of T_n rather than vertices."
+        ],
+        "reasoning": "A selected root triangle is closed-3-limited but fails dissociation and shattering. Conversely two disjoint P₃ cores are a dissociation set but fail the closed test at the missing edge between their centers. The edge-open criterion concerns pairs of host edges, not counts of selected host vertices.",
+        "searches": [
+          "Resultary: closed neighborhood capacity three limited packing line graphs complete graph triangular graph Johnson J(n,2) labelled packing polynomial maximal facets",
+          "Resultary: triangular graph dissociation, shattering, edge-open packing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 939bd7bd216d is the supplied record. The separate ec69a644685b gives a five-core polynomial and maximum for L(K_(m,n)). 86b89d24b06d has a different enumerator and support."
+        ],
+        "reasoning": "Only the self-hit states both exact triangular capacity-three enumerators among these matches. Neither the rook polynomial nor the dissociation table is an instance of them.",
+        "searches": [
+          "Resultary: exact triangular graph/J(n,2) three-limited enumerators and maximal spectra"
+        ]
+      },
+      "rationale": "Bounded comparisons support the exact closed-capacity-three classification and both labelled enumerators. The closest same-host polynomials concern distinct tests, and the same-day closed-capacity-three rook result has a different root graph and no corresponding triangular facet law.",
+      "residual_risks": [
+        "The bounded searches do not establish historical priority; an unindexed treatment of capacitated line-graph packing could overlap. Related invariants were distinguished by their actual constraints, not by name alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different induced test",
+          "evidence": "Dissociation is induced maximum degree one, with maximal sizes from ceil(n/2) through floor(2n/3).",
+          "identifier_or_url": "2026/11/2/SCOPE-dissociation-and-maximal-dissociation-polynomials-of-triangular--86b89d24b06d",
+          "material_read": "RESULT.md Finding, offsets 0–1643",
+          "method": "Resultary local mirror",
+          "title": "Dissociation and maximal-dissociation polynomials of triangular graphs",
+          "trigger": "Same host and exact all/maximal spectra"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts sets shattered by neighborhood traces and requires two unused roots in the stated nonempty characterization.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-closed-neighborhood-shattering-polynomial-of-triangular--08634914be96",
+          "material_read": "RESULT.md Finding, offsets 0–1432",
+          "method": "Resultary local mirror",
+          "title": "Complete closed-neighborhood shattering polynomial of triangular Johnson graphs",
+          "trigger": "Same host, neighborhood family, and labelled counting format"
+        },
+        {
+          "assessment": "Different ground set and constraint",
+          "evidence": "A P₃ block represents one chosen edge of T_n; the frozen P₃ block consists of two chosen vertices of T_n.",
+          "identifier_or_url": "2026/10/12/SCOPE-edge-open-packing-polynomial-of-triangular-graphs-via-disjoint-s--e45121c4da2e",
+          "material_read": "RESULT.md Finding and definition at offsets 0–1611",
+          "method": "Resultary local mirror",
+          "title": "Edge-open-packing polynomial of triangular graphs via disjoint short paths",
+          "trigger": "Same host, packing polynomial and path shapes"
+        },
+        {
+          "assessment": "Related but different root and no triangular maximal polynomial",
+          "evidence": "Uses K_(m,n), where a triangle cannot occur, and gives the all-set polynomial and maximum size.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-limited-packings-in-rectangular-rook-graphs-a-five-core-cl--ec69a644685b",
+          "material_read": "Finding and assumptions in `RESULT.md`:5–45",
+          "method": "Frozen source and mirrored comparison",
+          "title": "Three-limited packings in rectangular rook graphs: a five-core classification",
+          "trigger": "Same closed capacity and line-graph structural enumeration"
+        },
+        {
+          "assessment": "Definition and general bounds, not matched exact triangular result",
+          "evidence": "Uses the same definition |S∩N[v]|≤k; the abstract discusses general bounds and the cubic-graph 2-limited specialization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01833",
+          "material_read": "p. 1 abstract and definition at text offsets 0 and 2327",
+          "method": "OA PDF passage",
+          "title": "Limited packings of closed neighbourhoods in graphs",
+          "trigger": "General closed-neighborhood k-limited packing theory"
+        },
+        {
+          "assessment": "Partition and total variants, and capacity-two product bounds",
+          "evidence": "The product theorems concern 2-total and closed 2-limited packing, not exact closed-3 enumeration or inclusion-maximal sizes on L(K_n).",
+          "identifier_or_url": "arXiv:2308.16837; arXiv:2405.03237",
+          "material_read": "2308.16837 pp. 1 and 15; 2405.03237 p. 2 definitions and §3 Theorems 3.1, 3.4",
+          "method": "OA PDF bounded passages",
+          "title": "Limited packings: related vertex partitions and duality issues; On k-(total) limited packing in graphs",
+          "trigger": "Closest cited limited-packing variants and host products"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:7–40,60–75",
+        "arXiv:1501.01833, p. 1"
+      ],
+      "rationale": "On the natural Johnson family the classification yields every labelled coefficient, not just a maximum. The facet polynomial exposes a strong qualitative gap: even orders have only a fixed-size star stratum and the largest stratum although their cardinalities separate arbitrarily far. Those exact multiplicities and the odd-order alternatives are useful data not supplied by general packing bounds.",
+      "residual_risks": [
+        "This is for capacity three on L(K_n), not for arbitrary graphs, higher capacity, or open neighborhoods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

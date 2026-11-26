@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:58.304791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–82",
+        "VERIFICATION.md:19–25 and verify.py:9–129 (inspected, not executed)",
+        "/workspace/branches/repro_frozen_review.py: two_marks()"
+      ],
+      "rationale": "In a p-periodic interval of length at least 2p every marker has a partner at distance p. Therefore the only possible nonconstant run with b>0 has p=b+1, and there is at most one after maximal extension. It extends min(a,b) to the left and min(c,b) to the right: any further step, if present, would force a third marker. Least period follows by the same partner test at every smaller period. The length threshold is exactly a+c≥b. The period-one terms are the zero blocks of length at least two and the adjacent ones if b=0. Thus all four terms first occur at (2,2,2), and extending an outer gap preserves them; direct gap budget at smaller n gives the stated maxima. For the bivariate identity, for m=a+c the extra term has middle-gap weight 1 for b=0, z for b=1 if m≥1, and u times the finite geometric sum z² through z^m for b≥2 if m≥2; this yields the displayed bracket. Translating all gaps by two gives t=n−8, with admissible middle gap B≤(t+2)/2. The excluded triples have B=A+C+3+e with e≥0, giving exactly the subtracted rational term. Summing over B gives the stated closed form and its 3/4 fraction limit. A separate maximal equality-stretch computation tested 2,600 words of lengths 2 to 25 and matched the counts and higher-period intervals; for n=8,9,10,11,12 the four-run counts are 1,3,6,9,14.",
+      "residual_risks": [
+        "Finite enumeration corroborates the classification; the formal-series and all-length assertions follow from the proof, not from interpolation of finite data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct-alphabet parameter d=2 bounds arbitrary binary words and does not encode fixed composition; at n=8 its bound is 5, not 4. Fischer et al.'s 22n/23 bound is likewise not exact for this slice.",
+          "The later three-marker catalogue listing studies a different slice. The later two-marker exponent proof, although its target is a different statistic, explicitly exhausts all runs and obtains length b+2+min(a,b)+min(c,b) for the sole possible higher-period interval."
+        ],
+        "reasoning": "Inspect the ingredients of the closer theorem, not just its output statistic: its later proof gives exact underlying coverage; the general worst-case bounds do not.",
+        "searches": [
+          "arXiv:1406.0263, §3.2, Theorem 12",
+          "arXiv:1502.04644, abstract",
+          "Local Resultary --195f68bb7ba1 listing",
+          "Local Resultary --55435d4f9d79, Proof steps 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.0263",
+        "arXiv:1502.04644",
+        "arXiv:1707.04351",
+        "Resultary --4960a7d58af1, --55435d4f9d79 exact passages; --195f68bb7ba1 listing only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day square proof gives max(0,b−c)≤u≤min(a,b). This interval is nonempty exactly when a+c≥b. Its extremal splits give left extent min(a,b) and right extent b−max(0,b−c)=min(c,b). Each marked square for b>0 is primitive in the required least-period sense because a shorter period would pair a marker at smaller displacement. Every nonconstant run contains such a marked square, and the resultant union is maximal at that period. Period-one runs are immediate from the three gaps and b=0.",
+          "The later exponent proof states the same eligibility test L≥2(b+1) and extensions; the submitted generating function then uses only summation over the allowed middle-gap interval with one extra u weight."
+        ],
+        "reasoning": "The different statistic in the same-day title does not prevent coverage of the central statement. The distribution is an additional evaluation, not an earlier published formula established by this comparison.",
+        "searches": [
+          "Local Resultary --4960a7d58af1, offsets 0–3632",
+          "Local Resultary --55435d4f9d79, offsets 0–4050",
+          "arXiv:1406.0263, run definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bannai et al. use the same maximal least-period definition. Madden counts maximal constant blocks only.",
+          "For exactly two ones, a square containing both markers occurs uniquely at the position determined by its ordered split (u,v), with u+v=b. Its legal u values form a single interval; the extension to the maximal run contains exactly the union of the marked square intervals for b>0."
+        ],
+        "reasoning": "Constant-block runs are not equivalent, but here the marked square classification is position-complete and can be converted to the unique marked maximal-period interval.",
+        "searches": [
+          "arXiv:1406.0263, p.1",
+          "arXiv:1707.04351, p.1",
+          "Local Resultary --4960a7d58af1, Proof: Classification of all squares"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected square and exponent records are distinct from the input and use the identical three-gap parameterization. Exact per-word formulas and their proofs were available for the former two; the three-marker comparison is listing-only. No identical bivariate series was found in these passages."
+        ],
+        "reasoning": "The important match is symbolic classification, not a sequence of a few checked coefficients.",
+        "searches": [
+          "Resultary searches for fixed-weight two maximal periodic runs; local mirror records --4960a7d58af1, --55435d4f9d79, --195f68bb7ba1"
+        ]
+      },
+      "rationale": "The distinct same-day exact-square record does not count runs, but its full position-determining classification of marked squares already gives the central run classification by maximal extension, with no further combinatorial case analysis. The later exponent record explicitly proves precisely the same least-period-one and higher-period run classification. Neither source is credited with stating the frozen bivariate formula; its geometric-sum enumeration is correct but is a direct reweighting of the covered interval classification, not enough to support the combined frozen finding as a distinct contribution. Calendar dates do not resolve within-day order or establish that the later exponent record has priority.",
+      "residual_risks": [
+        "No within-day priority determined. The later exponent result is evidence of overlap, not evidence of priority.",
+        "The three-marker full entry was not obtained; no negative whole-text conclusion is drawn for it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-day mechanical coverage of the central classification, not an identical distribution claim",
+          "evidence": "All marked square roots are 0^u 1 0^v with u+v=b and sharp bounds on u, fixing all their positions.",
+          "identifier_or_url": "Resultary/2026/10/26/SCOPE-exact-square-census-for-binary-words-with-two-marked-symbols--4960a7d58af1/RESULT.md",
+          "material_read": "Finding, assumptions and Proof: Classification of all squares (offsets 0–3632)",
+          "method": "Local mirror exact original passages",
+          "title": "Exact square census for binary words with two marked symbols",
+          "trigger": "Same word family and potentially equivalent maximal periodic repetitions"
+        },
+        {
+          "assessment": "Later explicit overlap of interval classification; different target statistic",
+          "evidence": "The first two proof steps give all unary runs and the exact p and L and extension limits for the unique possible non-unary run.",
+          "identifier_or_url": "Resultary/2026/11/22/SCOPE-sharp-run-exponent-bounds-and-a-two-atom-limit-law-for-binary-tw--55435d4f9d79/RESULT.md",
+          "material_read": "Finding, assumptions and Proof steps 1–2 (offsets 0–4050)",
+          "method": "Local mirror exact original passages",
+          "title": "Sharp run-exponent bounds and a two-atom limit law for binary two-marker words",
+          "trigger": "Same words and run definition, possibly sharing the proof classification"
+        },
+        {
+          "assessment": "Same definition, not a fixed-weight classification",
+          "evidence": "Its parameter d is number of distinct symbols; its separate k parameter is exponent, not marker count.",
+          "identifier_or_url": "arXiv:1406.0263",
+          "material_read": "p.1 definition; §3.2 Theorem 12, PDF p.4",
+          "method": "OA original PDF passages",
+          "title": "The ‘Runs’ Theorem",
+          "trigger": "Parameterization potentially covering low weight"
+        },
+        {
+          "assessment": "Different strength and domain of exactness",
+          "evidence": "Worst-case binary upper bound 22n/23 does not give a sharp constant or run distribution for two ones.",
+          "identifier_or_url": "arXiv:1502.04644",
+          "material_read": "p.1 abstract and run definition",
+          "method": "OA original PDF passages",
+          "title": "Beyond the Runs Theorem",
+          "trigger": "Potential binary bound covering the claim"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "A run there is a maximal subword of consecutive identical symbols.",
+          "identifier_or_url": "arXiv:1707.04351",
+          "material_read": "p.1 abstract and definition",
+          "method": "OA original PDF passage",
+          "title": "A Generating Function for the Distribution of Runs in Binary Words",
+          "trigger": "Matching generating-function terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–40,48–82",
+        "arXiv:1406.0263, Theorem 12"
+      ],
+      "rationale": "Exactly two markers is the first sparse slice supporting a genuinely nonconstant run, and the sharp threshold plus full count distribution gives a useful baseline rather than an arbitrary numerical sample. The useful structure does not establish originality of this combined record.",
+      "residual_risks": [
+        "The classification and distribution do not cover arbitrary fixed weight, exponent sums, or circular words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

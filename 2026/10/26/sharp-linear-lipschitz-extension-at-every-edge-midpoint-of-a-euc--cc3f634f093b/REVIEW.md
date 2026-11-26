@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-positive-real-parameter theorem follows from reflection symmetrization of arbitrary signed one-point evaluations, two explicit corner distance witnesses with opposite affine slopes, and a matching positive measure. The midpoint-pair bounds use convexity of the four-point Kantorovich distance and the four extreme couplings of top/right/uniform measures. The side-length comparison is a rationalized triangle inequality. Strict log-convexity of the denominator factors in logarithmic aspect ratio establishes one and only one interior maximizer. A separate finite dual-polytope enumeration confirms 418 target pairs across 19 aspect ratios; it is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The general random-projection construction of Bruè–Di Marino–Stra (arXiv:1801.07533) proves existence bounds, not this exact configuration. Basso (arXiv:2104.14238) studies finite projection constants and discusses a distinct rectangle in the max metric with only two added points; this does not imply the specified Euclidean eight-point norm. A prior sharp *square* midpoint result is an explicitly acknowledged specialization and does not provide the non-square formula or the unique worst aspect ratio. Searches for anisotropic rectangles, four simultaneous edge midpoint measures, equivalent transportation problems and stronger extension results did not reveal coverage. Concealed or uncatalogued specialized exact computations remain possible.
+PASS
 
-**Value — PASS.** Euclidean rectangular cells are canonical anisotropic refinements, and simultaneous stability cannot generally be inferred from independent one-point feasibility. This result supplies an all-aspect-ratio sharp benchmark, proves simultaneous attainment of four distinct optimal one-point measures, and identifies a genuine worst-shape effect: the square is *not* worst. The non-square maximizer is unique analytically and changes the interpretation of shape-regularity error bounds. It is not a routine numerical variation of the square case.
+Reflection averaging at one midpoint is valid for signed constant-preserving extensions. The two corner distance witnesses give affine lower bounds of opposite slopes, intersecting at L_a (or L_b), with positive minimizing weights. Transport to a vertex attains those bounds. For adjacent midpoints, convexity bounds the transport distance by the maximum of c,b,a,0: in the edge-to-edge case the common corner is fixed and the remaining half mass is sent diagonally. For opposite midpoints the uniform parts cancel. Thus the four operators fit together with midpoint-to-midpoint slopes at most one. Rationalizing D_a-D_b and using D_a+D_b≤3(a+b) identifies the controlling bound. The log of the positive excess over one is strictly concave in log t, and its derivative has opposite signs at the two ends. Independent bisection yields t=0.4115947538262989 and norm 1.0861565120461234. In RESULT.md line 45 the correspondences after squaring are reversed: b+c>D_a uses c>b, and a+c>D_b uses c>a. Both inequalities hold; the theorem and weights are unaffected.
 
-**Limits.** Real scalar values, exact Euclidean distances, positive side lengths, and only four side midpoints; no arbitrary parallelogram or vector-valued claims. Independent validation is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The square specialization is covered and not credited. The evidence supports the distinct all-aspect-ratios rectangle formula, simultaneous one-point optimality, and the unique nonsquare maximizer. No checked source covers or supplies these conclusions.
+
+## value
+
+PASS
+
+The natural four-corner extension test distinguishes one-point obstructions from simultaneous ones. The result computes the exact unrestricted norm and shows positivity and no additional pairwise midpoint loss can attain it jointly. It also identifies which geometry is worst in the whole rectangle family, disproving the square as the worst aspect ratio.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

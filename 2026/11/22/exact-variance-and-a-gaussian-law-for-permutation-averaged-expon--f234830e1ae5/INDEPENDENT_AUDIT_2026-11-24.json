@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:11:05.692644Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/audit-replay.py, ordinal 5",
+        "doi:10.3390/risks11100169, §3.3 equation (12) and algorithm"
+      ],
+      "rationale": "Scale invariance reduces to rate one. The independent exponential pair transforms to an independent gamma sum and uniform split; thus each contrast is uniform and a single matching has variance 1/(6N). Integrating the conditional contrast on either side of y=x gives the displayed E1 expression. The projection is nonconstant (its limit at zero is 1 before centering), and the degenerate remainder has positive variance because the continuous nonconstant contrast cannot be additive in x and y and vanish on the entire diagonal. Given data the matching mean is the complete pair U-statistic: every pair is included with probability 1/(N−1). Its variance counts 2(N−2) ordered shared-index neighbors per edge and has covariance ζ on each such overlap. Conditional independence of resamplings gives the exact V_N plus the residual divided by B, so the removable term vanishes at N=2 and is positive at N>=4. Given fixed B matching draws, tagged edge contrasts have a bounded-degree dependency graph. A pair of matchings with K common edges has K identical pairs and N−2K shared-one-index pairs; E[K]=N/(2(N−1)), so the conditional scaled variance converges in probability to the stated limit. Cumulants of order r>=3 are uniformly O(N) before scaling, from bounded variables and O(N) connected tuples. The corresponding conditional moments converge after scaling, remain uniformly bounded at each fixed order, and integrate to the Gaussian moments. For B_N→∞, the degenerate U-statistic remainder is O(N^−2) in variance, while N times the mean-square matching error is at most 1/(6B_N); projection CLT and Slutsky give the second limit. An independent Dirichlet-simplex integral of the product of centered contrasts gave ζ=0.015867282799652 and reproduced the three printed ratios. Replay: `python /workspace/audit-replay.py 5` (also enumerates overlap counts up to N=8).",
+      "residual_risks": [
+        "The theorem uses independent uniform permutations across repetitions, expressed as independent uniform matchings. The primary paper specifies random reorderings and pairing by successive positions but does not fully specify the joint randomization law. The theorem applies to its zero-threshold statistic under the frozen sampling assumptions, not to every implementation or to positive or adaptive thresholds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conditioning on the data produces the standard complete U-statistic projection and conditioning on the design permits standard bounded-degree normal approximation. The motivating paper's Theorem 1 is formulated for a single R(d,n), then its remarks suggest applying it to the average of 50. No usable full-text passage establishing a dominating result was obtained from the incomplete-U-statistic candidate or the follow-up search."
+        ],
+        "reasoning": "Generic U-statistic and normal-limit methods cover the proof tools, not by themselves the evaluated projection constant and the dependence of the variance on repeated uniform matchings. Exact sampling-design hypotheses matter; a generic independent-pair or independently drawn tuple result is not automatically the matching law.",
+        "searches": [
+          "Primary-literature search for incomplete U-statistics under independent uniform perfect matchings",
+          "doi:10.3390/risks11100169, Theorem 1 and following remarks",
+          "Janson, The asymptotic distributions of incomplete U-statistics, lawful full-text attempt"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/risks11100169, primary §§3.2.1 and 3.3",
+        "Resultary:f66834155c11",
+        "NTUA thesis repository 123456789/53900 (full-text limitation)",
+        "Janson incomplete U-statistics (full-text limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original theorem's proof uses independent kernel values within one pairing; the subsequent repeated-statistic remark does not compute cross-matching covariance. The Resultary scan law uses independence of marks only within a predetermined disjoint pairing."
+        ],
+        "reasoning": "Neither within-matching independence nor the single-matching CLT implies a joint limit or its variance for repeated use of the same observations. The overlap covariance ζ and the fixed-B aggregate limit require an additional calculation. The 98% fraction alone is a generic conditional-averaging identity and is not credited as a standalone novel theorem.",
+        "searches": [
+          "doi:10.3390/risks11100169, p. 16 Theorem 1 and p. 17 remarks (PDF offsets 100200–105922 and 105796 onward)",
+          "Resultary:f66834155c11, proof steps 1 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original pairing algorithm groups successive entries after each reordering. A uniform permutation gives a uniform perfect matching because every matching has the same number 2^(N/2)(N/2)! of preimages. At d=0 the indicators in (12) are one almost surely."
+        ],
+        "reasoning": "The statistics agree at d=0 under independent uniform randomization; merely renaming permutations as matchings is not novelty. The model supplies a joint sampling law across repetitions that is not fully specified in the motivating text.",
+        "searches": [
+          "doi:10.3390/risks11100169, §3.2.1 and §3.3 equations (12)–(13) and Remarks",
+          "Resultary: exponentiality test normalized absolute difference |X-Y|/(X+Y) exact variance incomplete U statistic independently resampled matched pairs projection normal law 50 permutations zero threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's exact repeated-average hit is the assigned record itself. A distinct same-day record f66834155c11 proves the joint law of threshold scans conditional on pair sums for one predetermined pairing, with covariance 1/(12 max(k,l)) for two nested thresholds. The original paper describes empirical standard deviations in Table 2."
+        ],
+        "reasoning": "The threshold-scan law covers the B=1 baseline but not shared observations across distinct matchings; it conditions on sums of a single pairing. Empirical calibration values do not provide the exact all-N,B variance or its projection floor. No priority order is assigned from the shared date.",
+        "searches": [
+          "Resultary query for repeated matching variance, exact projection and zero-threshold law",
+          "Resultary:f66834155c11",
+          "doi:10.3390/risks11100169 §3.3, lead-in to Table 2"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit shared-data variance and numerical kernel projection for independently resampled complete matchings, together with the fixed-B Gaussian law with that variance and the unrestricted growing-B limit. The paired contrast, permutation average, single-pairing CLT and standard variance decomposition are prior; the original paper also suggests applying its CLT to the repeat average. The independent contribution is the quantitative law accounting for dependencies, not the idea that the average can be approximately normal.",
+      "residual_risks": [
+        "Earlier synonymous kernel calculations, the 2021 thesis, the 2022 book precursor and the weighted/bootstrapped U-statistic literature were not exhaustively resolved. No failed retrieval is counted as evidence against coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same contrast and pairing statistic; covers single-pairing normality and suggests extension, not the explicit dependent-repeat law",
+          "evidence": "Equation (12) averages thresholded pair contrasts over B reorderings; pp. 16–17 prove a single-statistic theorem and then propose applying it to B=50. The read passages do not calculate shared-observation covariance or the fixed-B variance parameter.",
+          "identifier_or_url": "doi:10.3390/risks11100169",
+          "material_read": "PDF pp. 8 and 15–17: §3.2.1; equation (12) and procedure; Theorem 1 and remarks",
+          "method": "Publisher's lawful OA PDF via direct retrieval, inspected bounded primary passages",
+          "title": "An Exponentiality Test of Fit Based on a Tail Characterization against Heavy and Light-Tailed Alternatives",
+          "trigger": "Same statistic and direct antecedent for repeated-pairing normality"
+        },
+        {
+          "assessment": "Covers one pairing, not repeated matching dependence",
+          "evidence": "The independent marks law is conditional on a single vector of disjoint-pair sums; dependence concerns nested thresholds over those same marks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-finite-sample-multithreshold-calibration-of-the-paired-exp--f66834155c11",
+          "material_read": "RESULT.md Finding, assumptions and proof steps 1–4 (local-mirror offsets 0–4591)",
+          "method": "Resultary query and local-mirror original text",
+          "title": "Exact finite-sample multithreshold calibration of the paired exponential tail-ratio test",
+          "trigger": "Material same-day overlap in exact null laws for the same ratio mark"
+        },
+        {
+          "assessment": "Earlier exact coverage not resolved from the primary thesis",
+          "evidence": "No negative coverage inference from failure to obtain a decisive passage.",
+          "identifier_or_url": "https://dspace.lib.ntua.gr/xmlui/handle/123456789/53900",
+          "material_read": "Bibliographic identification; usable primary text not recovered in the independent check",
+          "method": "Bounded lawful repository retrieval attempt",
+          "title": "Non Parametric Test for the Exponential Distribution",
+          "trigger": "Earlier thesis on the originating test"
+        },
+        {
+          "assessment": "Unresolved for this specific design",
+          "evidence": "No statement about the exact exponential projection or joint matching law was verified from this source.",
+          "identifier_or_url": "Janson (1984), Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete",
+          "material_read": "No usable primary passage obtained",
+          "method": "Bounded OA attempt and targeted literature lookup for balanced matching designs",
+          "title": "The asymptotic distributions of incomplete U-statistics",
+          "trigger": "Potential stronger theorem for the matching subsampling design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "doi:10.3390/risks11100169, §3.2.1 Figure 4 discussion and §3.3 algorithm",
+        "/workspace/audit-replay.py, ordinal 5"
+      ],
+      "rationale": "The published procedure uses 50 reorderings and explicitly studies d=0. The exact separation between pairing noise and data noise, with a 39.32% asymptotic variance fraction remaining at 50, answers a concrete design and calibration question not settled by the generic 1/B Monte Carlo reduction. The Gaussian laws quantify the uncertainty of a shared-data average rather than that of independent datasets.",
+      "residual_risks": [
+        "Not a positive-threshold calibration result or evidence that the original simulation procedure treated repeats as independent. The variance underestimation factor is conditional on using that shortcut."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

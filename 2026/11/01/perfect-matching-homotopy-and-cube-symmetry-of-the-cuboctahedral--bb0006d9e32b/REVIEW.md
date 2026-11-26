@@ -1,15 +1,21 @@
-# Review of the cuboctahedral perfect-matching homotopy and symmetry classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cuboctahedral graph is defined as \(L(Q_3)\), with 12 graph vertices and 24 edges. An exhaustive least-uncovered-vertex recursion finds all 32 perfect-matching facets. The 1,429 augmented faces agree with an independent completion test. The complete 693-pair sequential element matching leaves only 43 critical two-faces and is proved acyclic by full topological sorting on 4,992 Hasse incidences. The empty face is matched, so the resulting CW complex has one zero-cell and 43 two-cells, proving the integral wedge of 43 two-spheres. Independent full-chain mod-two boundary ranks agree. Separately, all 48 induced cube-edge permutations were checked; fixed-oriented-simplex traces on the complete face set yield ten constant character classes and a weighted sum of 96, so the rational invariant dimension is two.
+## correctness
 
-## Originality
-**PASS relative to inspected sources.** The motivating full text of Bayer–Jelić Milutinović–Vega (arXiv:2209.02803) classifies hexagonal honeycombs, not the cuboctahedron. More recent perfect-matching results explicitly concern polygonal-line tilings or Möbius/circular ladders, not \(L(Q_3)\). The indexed ordinary matching complex of \(L(Q_3)\) is a larger simplicial complex, and its homotopy type does not determine this perfect-matching subcomplex or its symmetry representation. Actual published-record and web searches under graph and construction aliases, exact facet count, sphere multiplicity and character found no equivalent covering result. Full-text access to some newer but different-family papers was unavailable; indexed-search incompleteness and unindexed prior work are residual risks.
+PASS
 
-## Value
-**PASS.** The cuboctahedron is a canonical Archimedean graph and the line graph of the three-cube, making its perfect-matching complex and full octahedral symmetry natural invariants. The exact integral homotopy classification is a complete nontrivial result for an intrinsic graph complex, and the ten-class rational homology representation gives independent structural information beyond Betti numbers, including two invariant generators. No unjustified generalization or conjectured downstream theorem is needed.
+Both the original mathematical assertions and the narrowed character Finding check out. In the independent replay /workspace/branches/review1_replay.py, each cube edge chooses one endpoint. A perfect matching of its line graph is equivalent to such a choice with 0 or 2 edges at each cube vertex (degree three), pairing the two edges whenever present. The replay thus exhausts the 32 facets, yielding the stated six face counts. The ordinary nonempty face-poset certificate has 692 pairs, 4968 covers, one critical vertex and 43 critical triangles, after dropping the augmented empty-face pair. This directly supplies the nonequivariant integral wedge and the homology concentration used by the repair. A fixed simplex that is a union of r permutation cycles contributes -(-1)^r to the augmented alternating trace, including the empty face. The independent replay uses this rule on all 48 actions and reproduces every class trace, all multiplicities, and invariant dimension two. The repaired text treats the wedge as a cited prerequisite and fixes the frozen standalone checker's minimum Python version to 3.10 because it uses int.bit_count. No equivariant wedge or integral representation splitting is asserted.
 
-## Limits
-No claim is made about arbitrary cube dimensions, all line graphs, equivariant sphere splittings, or an integral representation decomposition. Bibliographic overlap searches are not a global uniqueness certificate. All numerical checks are exhaustive for this particular finite graph. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS is for the narrowed character calculation only. The original two-part claim cannot pass originality as written: a distinct dated earlier Resultary theorem gives precisely the same cuboctahedral extendability complex and integral wedge. The complete replacement statement under repairs/1 treats that earlier theorem as a prerequisite, and claims only the rational B3 character and invariant dimension. The strongest character match is for the strictly larger ordinary matching complex; it neither gives nor determines the character on this subcomplex.
+
+## value
+
+PASS
+
+The cube action and extendability condition are intrinsic to a canonical graph. The ten-class character supplies independent representation data beyond the known homotopy rank, e.g. the multiplicity of the trivial action and the traces used to obtain fixed homology dimensions for subgroups. The ordinary matching representation and the nonequivariant wedge cannot substitute for it. The retained finite invariant is complete at the rational character level, with an explicit scope and no claims of new nonequivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

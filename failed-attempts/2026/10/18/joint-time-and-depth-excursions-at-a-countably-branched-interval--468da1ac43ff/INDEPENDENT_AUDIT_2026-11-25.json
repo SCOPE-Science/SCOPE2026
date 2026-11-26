@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:12:56.475053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–91",
+        "VERIFICATION.md and exact named supporting path artifacts/verify.py, inspected as evidence",
+        "Ji–Ma paper, PDF pp. 21–22"
+      ],
+      "rationale": "The branch from V_i maps affinely onto (0,λ^(i−2)], so uniform conditional measure on a target cell persists after every specified itinerary. The cell increment is R−1 with P(R=r)=(1−λ)λ^r on r≥0. Put a=z(1−λ), c=aλ. Subtract λ times each next-state equation from the previous one to obtain f_i−λf_(i+1)=af_(i−1) below the top, and (1−c)f_(m−1)=af_(m−2) at the top. Starting there and working backwards to f_4=1 gives exactly H_m=aP_(m−6)/P_(m−5). Positivity follows from P_j=(r_+^(j+2)−r_-^(j+2))/(r_+−r_-), with r±=(1±√(1−4c))/2 and positive repeated-root limit. At m=6 this is the geometric one-state formula; z=0 gives zero. The skip-free first-hit sequences have total increment −1, so the cyclic lemma on weak compositions gives the Catalan coefficient and the square-root PGF. At z=1, the roots are λ and 1−λ (or repeated at 1/2), and 1−H_m(1) is exactly the stated height tail with exponent m−3. A finite strip is left almost surely by the positive-probability all-down run, so treating nonreturns as infinite height does not alter this computation. The unrestricted PGF at one gives the stated missing mass. For the duration scaling at λ=1/2±ε, Stirling gives prefactor 1/(2√π) and exponential factor (1−4ε²)^(n−1); the bound by a constant times n^(−3/2)e^(−4nε²) justifies the tail integral. The supercritical mass adds 4 after division by ε. q=1∓4ε+O(ε²) gives the two stated depth limits. The result is confined to the auxiliary map, with no transfer by semiconjugacy.",
+      "residual_risks": [
+        "The named supporting script is present despite its omission from the frozen summary support list; it was not executed. Its finite rational and scaling checks are not the proof of the laws or limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Ma give the original cell partition/transition matrix; Bruin–Todd have the same tail after translation. Branching-process survival scaling covers the geometric height marginal as a specialization. The two-barrier walk formula works at arbitrary initial interior positions and gives the two absorption-sided transforms."
+        ],
+        "reasoning": "For geometric offspring survival s_j, s_0=1 and 1/s_(j+1)=q/s_j+1, so the exact maximum tail here is s_(m−4). This is equality of marginals in the geometric case, not a general claim equating exploration queue width with generation height. The unrestricted duration is geometric-offspring total progeny. The broader two-barrier transform gives the joint result, whereas an unrestricted branching-process PGF alone would not.",
+        "searches": [
+          "Ji–Ma, DOI:10.3934/math.2023424, auxiliary-map and transition-matrix section",
+          "Bruin–Todd, arXiv:1104.5452, §2 (4)",
+          "García-Millán–Font-Clos–Corral, DOI:10.1103/PhysRevE.91.042122, §III",
+          "Awogbemi 2020, Eqs. (37)–(47)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and prior work",
+        "Awogbemi 2020, pp. 21–22",
+        "Ji–Ma 2023, pp. 8423–24",
+        "Bruin–Todd §2 Eq. (4)",
+        "García-Millán–Font-Clos–Corral §III",
+        "Resultary 09530ed69aa1 summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For G_0=1,G_B=0, the classical recurrence is G_i=s[λG_(i+1)+(1−λ)G_(i−1)] with characteristic roots r±/(sλ) where r±=(1±√(1−4s²λ(1−λ)))/2."
+        ],
+        "reasoning": "Setting i=1 in the boundary solution gives G_1=s(1−λ)(r_+^(B−1)−r_-^(B−1))/(r_+^B−r_-^B). Multiply by √z and take s=√z and B=m−3: the ratio is precisely P_(m−6)/P_(m−5). This reduces the exact claimed joint formula to the older side-specific formula by the Bernoulli runs, not by separately fitting marginals. The scaling then needs only Stirling summation of the Catalan law and substitution into the geometric height law.",
+        "searches": [
+          "Awogbemi, On the Probability of Gambler's Ruin System, pp. 21–22, equations (37), (41)–(46)",
+          "Ji–Ma, map and transition law; García-Millán–Font-Clos–Corral, §III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Awogbemi, 2020, equations (37), (41)–(46), gives the generating function for termination at zero (not just the total termination time) in a Bernoulli nearest-neighbor walk with two absorbing barriers.",
+          "The Resultary hit 09530ed69aa1 reports same-map return and maximum marginals and crossover laws in the exposed summary; exact joint formula unavailable from the matching local-mirror paths."
+        ],
+        "reasoning": "Shift the cell index by four, start the Bernoulli walk at 1, and replace each R−1 step by R independent-success up steps of probability λ followed by one down step of probability 1−λ. The geometric run lengths between downs are iid with the prescribed law. Each run peaks exactly one unit above its post-down value. Therefore on returns keeping pre-return cells below m is exactly not hitting B=m−3 before zero in the expanded walk. A successful return has τ downs and τ−1 ups, so its expanded duration is 2τ−1. This bijective time and barrier conversion gives H_m(z)=√z G_1(√z), where G_i(s)=E_i[s^T; T_0<T_B] and T is the classical absorption time.",
+        "searches": [
+          "gambler ruin duration joint probability generating function ruin at 0 before N random walk G_x(s) Feller both boundaries absorption probability generating function pdf",
+          "geometric offspring total progeny width maximum Lukasiewicz excursion gambler's ruin length finite strip Catalan Chebyshev probability generating function",
+          "Resultary: exact space-time excursion laws and critical windows of the Fibonacci bimodal comparison map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue exposes exact same-map marginals only in the retrieved summary. The classical transform is an exact symbolic array of first-hit probabilities by time and boundary, for all finite barrier positions and move probabilities."
+        ],
+        "reasoning": "The comparison is to an exact generating function of the probability entries, not to a finite numerical table. The unrestricted Catalan coefficients are only a marginal; finite barrier B plus the exact time substitution matches every joint duration/ceiling coefficient.",
+        "searches": [
+          "09530ed69aa1, catalogue summary for exact duration/depth laws",
+          "Awogbemi 2020, equations (41)–(46) for finite-barrier probability coefficients"
+        ]
+      },
+      "rationale": "The principal finite-ceiling joint transform is an exact recoding of the classical side-specific gambler's ruin duration transform. The geometric run representation gives an exact match of both observables and yields the stated continuant ratio by substitution. This is not merely overlap in the unbounded Catalan marginal or use of a similar recurrence. The known interval-map transition matrix already supplies the stopped chain; the separate crossover laws follow from its classical marginals. The decision rests on demonstrated equivalent coverage, not on the unavailable indexed excursion record.",
+      "residual_risks": [
+        "The exact full statement of 09530ed69aa1 remains uninspected because the matching local-mirror files were unavailable. No priority assigned from the index date and no negative novelty inference from the access failure. The classical exact equivalent is sufficient independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact finite-ceiling joint transform after state and clock conversion",
+          "evidence": "V_m,n is defined as ending at zero on step n. Equations (41)–(44) give the two-barrier recurrence, boundaries and roots for its generating function, with a separate lower-absorption transform in (46).",
+          "identifier_or_url": "https://abjournals.org/ajmss/3/4/on-the-probability-of-gamblers-ruin-system.pdf",
+          "material_read": "Awogbemi (2020), pp. 21–22, Game Duration section and Eqs. (37), (41)–(47); PDF-text offsets 24200–28029",
+          "method": "Primary OA PDF passages; comparison anchored by the defined event, recurrence, boundary values and roots",
+          "title": "On the Probability of Gambler’s Ruin System",
+          "trigger": "Classical generating function for duration with exit at a prescribed lower boundary"
+        },
+        {
+          "assessment": "Same chain and auxiliary scope",
+          "evidence": "Defines the map/partition, gives Lebesgue-induced transition matrix and explicitly rules out semiconjugacy to the original bimodal dynamics.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2023424",
+          "material_read": "Acips section, PDF pp. 21–22, journal pp. 8423–24",
+          "method": "Primary full-text PDF passages",
+          "title": "Phase transition for piecewise linear Fibonacci bimodal map",
+          "trigger": "Original auxiliary interval map and chain"
+        },
+        {
+          "assessment": "Same tail chain, not used as exact joint-transform evidence",
+          "evidence": "Geometric-tail transition matrix agrees after translating indices.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.5452",
+          "material_read": "Section 2, Eq. (4), PDF p. 5",
+          "method": "Primary PDF passage",
+          "title": "Transience and thermodynamic formalism for infinitely branched interval maps",
+          "trigger": "Earlier interval map with same tail"
+        },
+        {
+          "assessment": "General survival crossover contains the height specialization",
+          "evidence": "Scaling of survival through a prescribed generation; geometric offspring gives the same exact survival recurrence and scale.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.042122",
+          "material_read": "Abstract p. 1 and §III pp. 2–3",
+          "method": "Primary OA PDF passages",
+          "title": "Finite-size scaling of survival probability in branching processes",
+          "trigger": "Height marginal critical scaling"
+        },
+        {
+          "assessment": "Summary-level marginal overlap; actual joint statement unresolved",
+          "evidence": "Summary names first-return and maximum-depth laws and the two windows but does not establish a joint PGF.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-space-time-excursion-laws-and-two-critical-windows-for-the-Fibonacci-bimodal-comparison-map--09530ed69aa1",
+          "material_read": "Indexed catalogue summary only; exact local-mirror RESULT.md and VERIFICATION.md paths unavailable",
+          "method": "Resultary search and exact local-mirror attempts",
+          "title": "Exact space-time excursion laws and two critical windows for the Fibonacci bimodal comparison map",
+          "trigger": "Plausibly exact same map, observables and crossover laws"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Awogbemi 2020 side-specific duration formula",
+        "Ji–Ma transition law and branching-process scaling comparison"
+      ],
+      "rationale": "Duration and maximum cell depth are well motivated, but the Bernoulli run representation turns the joint law into the classical finite-barrier ruin statistic with a deterministic clock change on returns. The given formula and separate near-critical limits add no independently unresolved invariant after this identification. The record deliberately claims no extension to original bimodal-map return times or a new joint critical limit beyond the finite transform and its marginal consequences.",
+      "residual_risks": [
+        "The classical comparison is still a useful explanation of the auxiliary map's law; lack of a distinct contribution does not imply the formulas are wrong or useless."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

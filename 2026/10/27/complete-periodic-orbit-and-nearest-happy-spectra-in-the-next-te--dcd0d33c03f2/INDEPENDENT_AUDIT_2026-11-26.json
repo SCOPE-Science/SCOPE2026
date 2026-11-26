@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:30.145716Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A positive base-(-p) integer has odd digit length. The least with 2k+1 digits is (p^(2k)+p)/(p+1), obtained by maximizing the negative-place digits under a leading 1. For k=2 this exceeds both the published descent threshold B_p and 5(p-1)^2 (the latter difference is (p-1)(p-2)(p-3)+1). Successive lower bounds increase by (p-1)p^(2k)>2(p-1)^2 for k>=2, so all integers of at least five digits descend, independently of the cited descent theorem. At most three slots give the closed positive core [1,3(p-1)^2]; B_p has digits (p-1,p-1,p-1) and attains its upper bound after one step. Independent replay in /workspace/branches/audit_negative_core.py uses ordinary-radix expansion after translating the signed digit interval and complementing odd-place digits, and iterates the image of the whole core to stabilization (exactly the cyclic vertices in a finite functional graph). All directed cycles, witness bounds and twenty nearest-happy entries agree. Checking 2 through p^2 and -2 through -p suffices since both endpoints map to 1; successive iterates either hit 1 or repeat. The same independent replay includes p=2 through 10, directly confirming the first primitive period 17 is at -18 in increasing absolute value, unique there. Negative inputs are not periodic because the first image is nonnegative; 0 is outside the asserted positive census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older general negative-base descent bound proves finiteness but reports exact census data only at bases -2 through -10.",
+          "The 2024 extension proves arbitrarily long finite runs of consecutive happy numbers for even b<=-4, not their minimum representatives or the other cycles."
+        ],
+        "reasoning": "The wider base quantifiers refer to termination bounds and existence of runs; neither gives the new orbit data or a period-17 minimal-base bound.",
+        "searches": [
+          "arXiv:1705.04648v1, Thm. 1, Cor. 2 and Table 1",
+          "Grundman, Fibonacci Quarterly 62(2), Theorems 1.1–1.2",
+          "Resultary negative-base squared-digit orbit and threshold comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1705.04648v1 §2 and Table 1",
+        "Grundman (2024), Fibonacci Quarterly 62(2), p. 125",
+        "Resultary 398e2492d132 and f89c12067807",
+        "Frozen RESULT.md, witness JSON and verification source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 gives 0<S_{2,b}(n)<n above (|b|-1)(|b|^2-|b|+1); it does not determine cycles within that interval.",
+          "The complete new interval -11 through -18 is needed to turn period-17 existence at -18 into earliest occurrence, even after crediting the older table."
+        ],
+        "reasoning": "A terminating search and a magnitude bound give computability, not the checked extremal and cyclic data. The exact outputs and first-occurrence assertion are the distinct contribution.",
+        "searches": [
+          "arXiv:1705.04648v1, Thm. 1, Cor. 2 and discussion introducing Table 1",
+          "Fibonacci Quarterly 62(2) (2024), Thm. 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grundman–Harris use the identical sum-of-squared-digits map with negative-base digits and identical nearest-happy conventions.",
+          "Resultary 398e2492d132 instead classifies propagating cycles with positive base b>=2, 1<=n<b^2 and b not dividing n; its first base for period 17 is 1120. Record f89c12067807 concerns positive-base two-digit doubling 2-cycles."
+        ],
+        "reasoning": "Alternating signs of place values change the digit map; neither positive-base restricted periodic-point problem is equivalent to negative-base periodicity. The same-map prior census is checked separately for exact coverage.",
+        "searches": [
+          "Resultary: negative-base digit-square periods, first base for period 17 and nearest happy integers",
+          "arXiv:1705.04648v1, Sec. 2 and Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 explicitly tabulates all fixed points and nontrivial cycles and both closest happy values for -10<=b<=-2, with no 17-cycle.",
+          "The inspected Resultary near-match 398e2492d132 is a positive-base period table, not a dominating range for this map."
+        ],
+        "reasoning": "There is direct same-format prior coverage of the earlier bases only; this is not a recomputation of them as the new finding. No OEIS match or exclusion was independently established.",
+        "searches": [
+          "Grundman–Harris, arXiv:1705.04648v1, Table 1 (HTML offset about 8752)",
+          "Resultary comparison for negative-base cycle tables and first occurrences"
+        ]
+      },
+      "rationale": "The negative-base map, descent theorem, finite-search method and the published earlier census are not novel. The evidence supports distinct exact data for the next ten bases and the earliest absolute base for period 17, not priority for the method or all-base theory.",
+      "residual_risks": [
+        "No independently located OEIS coverage; an unindexed or differently indexed wider exact census remains possible.",
+        "Priority is supported only against the inspected sources, not by a proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method and exact earlier range, not coverage of new bases",
+          "evidence": "Paper states the search range -10 through -2 and supplies both nearest-happy columns along with fixed points/cycles.",
+          "identifier_or_url": "https://arxiv.org/html/1705.04648v1",
+          "material_read": "Section 2, Theorem 1, Corollary 2 and discussion/Table 1 (HTML near offsets 3500 and 8752)",
+          "method": "OA primary text, statement/table comparison",
+          "title": "Sequences of Consecutive Happy Numbers in Negative Bases",
+          "trigger": "Identical map, published trapping bound and possible dominating exact census"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Theorem 1.2 proves existence of arbitrarily long finite runs for even b<=-4.",
+          "identifier_or_url": "https://www.mathstat.dal.ca/FQ/Papers/62-2/grundman11162023.pdf",
+          "material_read": "p. 125, introductory statements and Theorems 1.1–1.2",
+          "method": "OA journal PDF text",
+          "title": "Closing an Open Problem on Negative Base Happy Numbers",
+          "trigger": "Later result on the same negative-base map"
+        },
+        {
+          "assessment": "Different sign and narrower orbit restriction",
+          "evidence": "Positive bases only, 1<=n<b^2 and b not dividing n; beta(17)=1120.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-first-base-spectrum-for-propagating-digit-square-cycles-th--398e2492d132",
+          "material_read": "Finding, parameter regime and period-17 entry",
+          "method": "Resultary and mirrored source comparison",
+          "title": "Exact first-base spectrum for propagating digit-square cycles",
+          "trigger": "Indexed period-17 exact first-base near-match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object and the four recorded invariants are the same as in a published complete census. A contiguous continuation matters because it establishes a sharp first-base threshold, not merely a period-17 example. The full directed witness sets provide an exact baseline for questions about feasible periods, and the -19 nearest negative happy value -17 illustrates why one cannot just report the universal happy endpoint -p. No general result about larger bases or arbitrary periods is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

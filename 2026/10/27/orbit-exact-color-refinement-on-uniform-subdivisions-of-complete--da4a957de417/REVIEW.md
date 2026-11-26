@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree dichotomy makes every automorphism a unique branch permutation. Marker support analysis gives the full pointwise stabilizer \(C_2^{p}	imes S_u\). Truncated marker distances distinguish its branch orbits by round \(L-1\); distances from the resulting branch color classes distinguish internal path orbit types after another \(L-1\) rounds. The exact class count and sizes follow by cross-orbit and folded same-orbit path enumeration. The included independent branch-permutation tests cover 12,424 configurations, without replacing the proof.
+## correctness
 
-**Originality — PASS (provisional).** Full-text inspection of Arvind et al., arXiv:1502.01255, Appendix 0.A.2, finds a related Tinhofer theorem for the line graph \(J(n,2)\), not for uniformly subdivided cliques with arbitrary vertex marks. Full-text inspection of Bhattacharjee et al., arXiv:2605.19702, finds general orbit criteria, not this instance. Semantic searches and accessible historical claims disclosed no equivalent or stronger implication. A record on the once-subdivided clique treats Rips complexes, a different invariant; its full text was inaccessible. Further specialized prior art could remain.
+PASS
 
-**Mathematical value — PASS.** The result demonstrates robustness of orbit recovery across arbitrary uniform path lengths and all individualizations, with a refinement bound independent of clique order and an exact orbit-size spectrum. The interaction between arbitrary marked positions, path reflection, and residual symmetric groups is not merely a regularity or degree count.
+Branch vertices are recognized by degree n−1>2 and determine all automorphisms. Each interior mark forces preservation of its endpoint pair, and an off-midpoint mark fixes both endpoints. Two marked paths sharing an endpoint fix all their endpoints because both distinct pairs must be preserved. This propagates in each nontrivial support component. The only moves left are independent endpoint flips on free-central edges and arbitrary permutations of unused unmarked branches. Refinement at round r recognizes distance ≤r from any original singleton mark, with a distinct out-of-range outcome (induct by a shortest path through a neighbor). By round L−1 the branch signatures distinguish exactly that stabilizer’s branch orbits: a mark identifies a marked branch or an oriented endpoint, and a shared signature of nonempty midpoint supports can only arise from the two endpoints of an isolated free-central edge. The degree test keeps these classes separate from interiors. Another L−1 rounds recognize distances <L from those branch classes. The only branches at distance <L from an interior vertex are its two endpoints; two different endpoint classes give the position relative to either class, and one shared class gives the position up to reflection. Independent block actions have exactly those interior orbits; within a common block the action is transitive on unordered pairs and realizes reversal. Counting gives L−1 orbits per pair of distinct classes, and floor(L/2) per nonsingleton class. For the latter, sizes are twice the number of endpoint pairs except at the midpoint, where they are that number. This also handles S empty, L=2 and u=0 or 1. Since every refinement color is invariant under the stabilizer and its orbit partition is equitable, the partition at the asserted bound is stable.
 
-**Limitations.** Neither arbitrary nonuniform subdivisions nor general initially precolored graphs are included. The bound is not asserted to be universally sharp. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the uniform subdivision family with simultaneous branch and interior marks, an explicit orbit census, and an n-independent round bound. The general Tinhofer criterion and the Johnson graph proof are prior; neither gives these conclusions for the stated graphs.
+
+## value
+
+PASS
+
+A natural extension of a known Tinhofer family question is whether arbitrary marks still suffice when the graph is replaced by its uniform incidence/path subdivision. The result settles it with a mechanism that isolates all residual symmetry and supplies a uniform convergence bound independent of graph order, as well as exact sizes and counts, rather than just certifying individual cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

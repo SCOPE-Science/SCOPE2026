@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives every truncated-path product equation, covers the square-zero locus by four explicitly defined closed reduced loci, proves each irreducible and dimension seven, and computes the motivic class by three disjoint strata. The dihedral realization uses a constructive sign-anti-invariant generator in characteristic seven. Exact arithmetic checks over the three-element field and the generator substitution over the seven-element field were replayed from the package using `verify.py`. The finite runs are supporting evidence, not the arbitrary-field proof.
+## correctness
 
-**Originality — PASS with residual risk.** The strongest adjacent results inspected are Adachi on tau-tilting Nakayama modules, Huisgen-Zimmermann on representation varieties of local truncated path algebras, and Karagueuzian–Oliver–Ventura on submaximal-rank loci of square-zero upper-triangular matrices. Those are different parameter spaces and do not directly imply the four-component classification here. Results about square-zero elements in fourth-truncated cycles with at least four vertices and dihedral nilCoxeter algebras also do not cover this two-cycle seventh-truncated algebra. Jeyakumar's 1970 modular dihedral paper remains uninspected in full; hidden prior overlap is a substantive residual risk. A failed search is not proof of novelty.
+PASS
 
-**Value — PASS.** The natural invariant is the reduced square-zero-element variety of a classical truncated cyclic Nakayama algebra, not an arbitrary coordinate slice. Its complete component classification, all-field motivic class and characteristic-seven dihedral group-algebra realization explain an exact counting polynomial and provide reusable geometric information.
+For k of characteristic other than two, reducing modulo the arrow ideal first kills the two constant diagonal terms. In the remaining path coordinates the diagonal equations are a²+zbc=d²+zbc=0 modulo z⁴ and the off-diagonal equations are b(a+d)=c(a+d)=0 modulo z³. Comparing coefficients verifies the stated equations, with a₃,d₃ free. For a₁≠0 one must have d₁=−a₁, d₂=−a₂ and exactly one of b₀,c₀ nonzero. At a₁=0, the cases a₂+d₂≠0 and a₂+d₂=0 give precisely the remaining branches in the stated union. The b₀≠0 chart of C₁ is G_m×A⁶; after the three eliminations C₁ is given by two equations in A⁹ and its complement has dimension at most six, so the height bound excludes hidden components there. Swapping b,c gives C₂; C₃,C₄ are distinct affine 7-spaces and meet the open where a₂+d₂≠0, which C₁,C₂ do not. These arguments hold over an algebraic closure. The three base-field strata give respectively 2(L−1)²L⁵, L⁵(L−1)(2L−1), and L⁵(4L−3); in the last stratum splitting the zero-product pairs by b's truncated valuation gives the indicated affine/torus pieces. The sum is L⁶(4L−3), giving 2,941,225 at q=7. In characteristic seven the displayed inversion-odd uniformizer generates k[C₇]; its off-diagonal corners relative to (1±s)/2 are opposite arrows and the alternating paths give the full basis. This verifies the algebra identification without assuming scheme-theoretic reducedness. An independent enumeration checked 729 constrained assignments out of 59,049 over F₃, with zero union discrepancies, hence 6,561 points including the two free coefficients. This is a finite consistency check only; the frozen script was inspected, not executed.
 
-Scientific limitations: only the specified two-cycle Loewy-seven algebra, characteristic not two, reduced variety; no claim about all truncations, the original nonreduced equation scheme, or independently established novelty. Full detailed O comparisons and inspected-source coverage are in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the explicit four-component geometry and reduced motivic calculation for the internal square-zero locus. The same count and dihedral realization are present in related catalogue work and are not credited as independent novelty. No inspected work establishes the same geometric decomposition. Historical access limitations remain; this is not a priority certification.
+
+## value
+
+PASS
+
+The square-zero locus is an intrinsic multiplication invariant of a natural truncated cyclic algebra and a modular group algebra. Giving the individual geometric components, their dimensions and an exact Grothendieck class extracts structural information not available from the finite count or from commutation alone. The proof handles all fields in scope without appealing to an exhaustive small-field census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

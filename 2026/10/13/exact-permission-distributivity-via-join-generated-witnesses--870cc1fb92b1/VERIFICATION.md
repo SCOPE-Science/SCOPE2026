@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The finite checker is embedded at `artifacts/verify.cpp`. Reproduce with:
+## correctness
 
-```sh
-g++ -O2 -std=c++17 artifacts/verify.cpp -o verify
-./verify
-```
+PASS
 
-Observed output:
+Let D(X,Y) be inclusive disjunction and let J take all nonempty joins. J is idempotent by flattening joins; dividing any nonempty generating set by its two source sets gives D(JX,JY)=J(X∪Y), including when either set is empty. Thus the right side is J(P(X)∪P(Y)). The left side applies J to P(D(X,Y)); its extra permitters come only from pairs x∨y, and G licenses each in J(P(X)∪P(Y)). This proves equality, and singleton atomic valuations (allowed by binary join closure) give necessity for all t,u. The proof needs arbitrary joins, not finiteness, and does not involve negative content or preclusion. The O(n^4) test checks each of n^3 triples by joining all eligible witnesses below the prospective generated state s; a nonempty such set with join s is equivalent to generation. In the Boolean diamond the specified permission relation fails C1 at the incomparable operands a,b, but their permitters jointly generate top. A smaller complete join-semilattice cannot contain incomparable points, since their join and bottom would give two further points. Independent exhaustive evaluation of all 65,536 relations and all pairs of 14 admissible contents confirmed 42,448 G/schema-valid, 38,416 C1 and 4,032 strict. An analytic replay gives the same counts: the bottom permission column is free (16 choices); at each state there are 7 joint assignments to the other three entries under C1, giving 16*7^4. A strict relation includes top in P({top}) but not in P({a})∪P({b}); this union must contain both a and b. There are 6 choices at each of a,b and 7 at bottom, giving 16*6^2*7 strict cases. The finite packaged replay is artifacts/verify.cpp.
 
-```text
-n=1 relations=2 admissible=2 C1=2 exact_condition=2 schema_valid=2 strict=0
-n=2 relations=16 admissible=4 C1=16 exact_condition=16 schema_valid=16 strict=0
-n=3 relations=512 admissible=8 C1=512 exact_condition=512 schema_valid=512 strict=0
-n=4 relations=65536 admissible=14 C1=38416 exact_condition=42448 schema_valid=42448 strict=4032
-VERIFY_OK
-```
+## originality
 
-All labeled exact-permission relations of the tested state spaces are traversed; the verification compares the exact frame condition with the all-pairs positive disjunction schema for **every** join-closed atomic valuation on those spaces. The four-point witness is checked explicitly. The 1–3 point enumeration uses chains; every complete join-semilattice with fewer than four points is a chain. The theorem for arbitrary complete join-semilattices is independently established in the accompanying symbolic proof and is not inferred from these finite runs. This is not a formal proof assistant certificate or independent audit.
+PASS
+
+The exact positive frame criterion and its cardinality-minimal strict separation from C1 are distinct from the established sufficiency theorem and from correspondence theorems in other semantics. Credit the inclusive clauses and C1 implication to the prior work. The Boolean counts supplement the exact correspondence, rather than supplying its proof.
+
+## value
+
+PASS
+
+A necessary-and-sufficient frame condition pinpoints which exact-permission behavior is actually needed for a natural modal law. The minimal strict witness rules out equating validity with the older sufficient condition, and the finite decision bound and census make that separation testable and concrete. This is a frame correspondence, not an axiomatization or a negative-content result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of exact integer-jet Parseval identities
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized cardinal spline definition and the integer-derivative taps are explicit. For both degrees, rational autocorrelation coefficients cancel at every nonzero lag and give central coefficient one; the polynomial symbols and the weights in the proof are independently reproducible. Discrete Plancherel, density, and polarization yield the infinite coefficient-space isometry and the local adjoint synthesis. The triangular powers of \(s=2-2\cos\theta\) show uniqueness; endpoint spectral values prove the cubic slope-only conditioning obstruction. The checker performs exact symbol and finite-support reconstruction tests, which are not mistaken for infinite proofs.
+PASS
 
-## Originality
+The statement uses coefficient ℓ², not function L². B_n and its first n−1 derivatives vanish at the endpoints of the support by continuity and are zero at all exterior knots. At integer arguments the rth derivative taps are the rth backward differences of the value taps of B_{n−r}, by differentiating the box convolution. These give the listed cubic and quartic filters. Exact integer autocorrelations after scaling by 24 on each filter and using common weight denominators 18 and 864 are respectively (10368,0,0) and (497664,0,0,0); dividing by the denominators and by 24² yields the unit impulse. This proves the weighted energy identity by Plancherel on all ℓ², since the taps are finite and convolution is bounded. For uniqueness, norm equality for all inputs forces the continuous symbol to equal 1. Each derivative-order squared symbol has a zero of exactly order r in s=2−2cos θ at s=0 because the difference factor contributes s^r and the lower-degree value taps sum to 1. Hence the constant term and successive coefficients fix all weights, each nonzero and positive. The adjoint with the weighted sample inner product has precisely the finite correlation stencil; it is contractive and has norm one since it inverts the isometry on its range. With only cubic values and first derivatives, the derivative symbol vanishes at θ=0 and π while the value energy ratio is 9; continuity gives the same obstruction to improving the essential frame-bound ratio. A zero value weight cannot give a positive lower bound, and value-only sampling attains the ratio 9. Here 9 is B/A, equivalently the squared condition number of the analysis map, not the square of the frame-operator condition number.
 
-**PASS, best knowledge.** Fageot et al. (arXiv:1902.02565, examined full-text) classify Hermite spline support and approximation, but their multi-generator interpolation is not the one-generator integer-jet Parseval coefficient identity here. Shen and Xu (arXiv:1112.5771, inspected primary full text) treat dilated B-spline framelets, not the undilated knot-value jet analysis operator or its unique positive weights. Gröchenig, Romero and Stöckler (DOI:10.1007/s00365-019-09456-3, relevant accessible text inspected) give derivative-sampling density criteria, not these rational exact tight constants. Gröchenig–Shafkulovska (arXiv:2311.08352, relevant full primary text inspected) prove cardinal-type derivative sampling from gap and collocation arguments but not diagonal unit-tight coefficient weights or their uniqueness. The 1993 B-spline filter framework of Unser, Aldroubi, and Eden is relevant but its full text was not conclusively inspected; an equivalent earlier multichannel spectral factorization may exist. The searches and precise claim comparisons are recorded in AUDIT.json. No global priority claim is made.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The object is the standard coefficient Hilbert space of cubic and quartic cardinal splines. Exact unit-conditioned measurement and **finite local coefficient recovery** from physically meaningful derivative data solve an inverse-filtering problem directly, not merely by a numerical inverse. Uniqueness means every derivative order is indispensable within the diagonal-tight model. The cubic Nyquist bottleneck identifies why slope sampling does not substitute for curvature; this is a distinct useful design constraint. The cutoff to standard cubic and quartic degrees is natural; no general-order claim is inferred from experiments.
+The distinction supported by the inspected sources is a positive, unique, exactly tight diagonal calibration of the fixed physical knot jets for two degrees in the coefficient norm, with the sharp cubic obstruction when curvature is omitted. General sampling guarantees, standard filter computation, adjoint synthesis as a principle, and dilated spline tight frames are not claimed as new. An earlier general diagonal tight calibration theorem covering these exact channels would be substantive coverage; none was established in the inspected statements.
 
-## Residual limitations
+## value
 
-All weights and claims are for integer-knot samples with standard normalized splines. Coefficient norm is not the ambient continuous \(L^2\) norm. Non-diagonal frame factorizations and higher degrees remain open here. Earlier equivalent spline-filter identities cannot be categorically excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For fixed derivative measurements on the natural cardinal knot grid, exact tightness under scalar channel rescaling is more specific than stable sampling or having some reconstruction. It calibrates coefficient energy without mixing channels and gives a local adjoint rather than a global inverse. Cubic and quartic splines are useful fixed cases; the cubic spectral obstruction explains why the commonly used value and slope channels cannot have comparable performance to the calibrated curvature-inclusive bank even with optimized diagonal weights. Credit that combined calibration and obstruction, not the arithmetic alone or a claim about ambient spline L² energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

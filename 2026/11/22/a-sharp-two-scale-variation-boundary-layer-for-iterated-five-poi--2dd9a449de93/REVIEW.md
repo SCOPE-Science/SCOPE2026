@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-input bounded-variation norm reduces exactly to the \(\ell^1\) norm of each finite convolution power, with a unit step attaining equality. Explicit Fourier analysis isolates two extremal points of the symbol at the critical parameter, with local quartic and Gaussian limits. Fourth-derivative integration-by-parts bounds establish summable spatial tails for each part. The intermediate cutoff \(r^{3/8}\) separates the two distinct spatial widths, so their absolute masses add, uniformly for bounded moving parameters. Fixed-parameter corollaries use the single surviving Fourier maximum. The accompanying rational/Fourier finite checks were executed; they are not a substitute for the infinite-scale argument.
+PASS
 
-## Originality — PASS (qualified)
+Discrete differentiation commutes with convolution, and the unit step has derivative δ₀, so the variation norm equals the convolution kernel's ℓ¹ norm for each power and is attained. For u=1/8+λ/r the two contacts of 1−4u(1−cosθ)² have orders four at 0 and two at π; the Nyquist peak has sign − and peak modulus ρ_r=1+16λ/r. Its powered height converges to exp(16λ) uniformly for compact λ. To check the tail estimate, on a small neighborhood divide the absolute symbol by its peak height and take its smooth log g. There g≤−c|s|^p and g^(k)=O(|s|^(p−k)) for k≤p, with higher derivatives uniformly bounded (p=4 or 2). With d∼r^(1/p), derivatives through order four of r g(v/d) are bounded by polynomials in |v| uniformly on the rescaled cutoff; the exponential and its derivatives are then dominated by a polynomial times exp(−c'|v|^p). This gives O(d³) for the fourth derivative's L¹ norm before rescaling and a uniform O(R⁻³) for the ℓ¹ mass outside |j|≤Rd. Uniform local convergence and Riemann sums give the quartic and Gaussian masses. Off the two neighborhoods a strict uniform modulus gap with two derivative bounds makes the coefficient remainder o(1) in ℓ¹. At radius r^(3/8), the Gaussian mass inside is O(r^(-1/8)) and the quartic mass outside O(r^(-3/8)); hence the loss from combining them before taking absolute values tends to zero. Fixed u on either side leaves only the corresponding dominant peak, and the second signed moment of the unit-mass quartic inverse transform is zero, forcing sign change and L₄>1. Independent cosine and absolute-integral quadrature at mesh pairs (.01,.025), (.007,.01), (.005,.005), truncated at s=4 and z=50,60,70 respectively and doubled by symmetry, gave 1.2372919, 1.2372952, 1.2372945; this checks the displayed rounded value but is not the asymptotic proof. The uploaded checker was inspected, not executed.
 
-The most important archival precedent is Diaconis–Saloff-Coste, arXiv:1205.6490, Proposition 2.4 and Example 2.2: it treats this exact Fourier symbol and identifies both critical peaks. This prior coverage is expressly acknowledged. Its fixed-parameter pointwise local-limit results do not themselves determine an \(\ell^1\) norm for parameters changing by order \(1/r\); summing their pointwise error across the wider Gaussian scale is not justified by those statements. Randles–Saloff-Coste, arXiv:1212.4700, is also a foundational local-limit source. Searches of indexed mathematical findings, relevant historical claims and primary literature did not locate the moving-parameter sharp BV law. The residual risk is an equivalent asymptotic hidden in older signed-convolution stability literature or as an unstated consequence of a stronger theorem not inspected in full.
+## originality
 
-## Value — PASS
+PASS
 
-The precise parameter \(1/8\) is the spectral stability edge for a canonical five-point, quadratic-reproducing fourth-order smoother. The norm distinguishes perturbation stability from pointwise convergence. The critical \(r^{-1}\) width and \(e^{16\lambda}\) crossover quantify a singular, previously under-accounted-for Gaussian contribution to a global stability metric, a natural question in long-iterate filtering and high-order difference schemes.
+Substantial existing coverage of the identical fixed-parameter stencil and both contact orders is verified. The distinct result is the sharp global ℓ¹/BV limit through the moving u=1/8+λ/r layer, compact-uniform in λ. The inspected pointwise limit and uniform boundedness statements do not imply that limit or its two masses by substitution; controlling their absolute masses and their interaction at two spatial scales is essential. No claim of priority for the stencil, threshold, contacts, or individual Fourier profiles.
 
-## Limitations
+## value
 
-The proof is confined to real bilateral sequences and the displayed five-tap family. It does not treat finite-boundary versions or prove any independent external verification of novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural stability boundary for the five-point biharmonic iterate has a sharp transition profile in an attained operator norm. It isolates a positive mass that is invisible in the leading coefficient asymptotic and shows why adding absolute masses is legitimate despite two peaks contributing to every spatial site. This is useful for finite-variation stability of the bilateral scheme and is more than the already known criterion for fixed-parameter boundedness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

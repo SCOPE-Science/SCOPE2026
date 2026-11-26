@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Euclidean segment-projection conditions separate the two endpoint cases from the interior case. For independent errors below \(\min(a,b)/2\), strict coordinate ordering makes either zero-coordinate alternative impossible; a distance-to-segment argument excludes the zero vector, and continuity preserves the positive signs. Explicit boundary and strict-ascent witnesses attain sharpness. For identical errors, the shifted segment lies in a strict positive half-space below \(ab/\sqrt{a^2+b^2}\), and the endpoint/interior conditions establish positivity; translation by the negative original projection attains the boundary. The independent rational checker passed 12,983 sampled identities/cases, but finite testing is not used as proof.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual bibliographic risk).** The 2026 federated multiobjective paper introduces the target aggregation setting but gives expected convergence bounds, not sharp pointwise radii. The 2026 regularity-aware stochastic MGDA paper treats \(1/2\)-Hölder and Lipschitz continuity of the direction as a function of the gradient matrix, without determining the exact robust common-descent thresholds for a planar orthogonal pair or the shared-error improvement. Standard exact-gradient projection theorems alone do not provide these sharp perturbed-coordinate-sign thresholds. Semantic research-record searches found nearby topics on Tikhonov Pareto intervals, gradient methods, and generic projection stability, but no equivalent claims. Equivalent older geometric perturbation analyses remain possible.
+PASS
 
-**Value — PASS.** The distinction is algorithmically motivated: minimum-norm task-gradient aggregation uses estimates that may share data or error components. An identical per-task Euclidean error bound does not determine the worst-case descent margin unless the cross-task error structure is specified. The sharp radii furnish actionable, nonasymptotic pointwise robustness certificates and exact bad examples. The result does not claim convergence of the full algorithm or generic correlated-noise guarantees.
+The directional derivatives along −p are −a p₁ and −b p₂. Below the independent radius, the endpoint x-order and reverse y-order are strict; every segment point also has positive coordinate sum, since each endpoint's sum is at least min(a,b)−sqrt(2)δ>0. An interior projection is therefore along the positive normal. For an endpoint projection, the variational inequality and the strict endpoint orders force the other coordinate to be positive once the coordinate facing its true gradient is positive. The half-small-norm witness is a horizontal or vertical segment; pushing the relevant endpoint slightly past the axis, while tilting the segment so that the endpoint stays optimal, yields strict ascent at any larger allowance. For shared errors the fixed normal (b,a) has positive inner product with the whole translated segment below d₀=ab/sqrt(a²+b²); endpoint variational inequalities cover cases when the normal foot leaves the segment. At equality translating by −p₀ sends the unperturbed interior foot to zero, and translating by −(1+ε)p₀ sends it to −εp₀, still its interior foot. The ratio simplifies to 2max(a,b)/sqrt(a²+b²) with the claimed endpoint behavior. Independent replay `python3 /workspace/branches/independent-replay.py 2` passed 6,542 exact rational below-threshold grid checks and exact equality and above-threshold witnesses in both regimes. The proof supplies the universal claims.
 
-**Closest literature and limits.** Zhao et al., arXiv:2608.22945, define the identical aggregation rule in their server step; Huang and Chen, arXiv:2607.15412, prove regularity bounds for the direction map. Their broader stochastic-convergence results and Lipschitz estimates do not explicitly contain this orthogonal planar worst-case classification. The result remains restricted to two planar orthogonal gradients, exact projection, and either arbitrary norm-bounded or exactly common vector perturbations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Neither the strongest matching catalogue records nor the examined primary MGDA statements establish this sharp comparison of independent bounded errors and identical translations relative to strict descent against the true gradients. Known projection geometry supplies the variational setup but does not state or supply both exact robust thresholds without the special sign and endpoint analysis. This is a bounded comparison, not a priority determination.
+
+## value
+
+PASS
+
+This isolates the exact price of allowing distinct rather than identical errors for a standard multiobjective direction rule, even when the two per-gradient budgets are the same. The comparison is pointwise and idealized but substantive: the sharp radius changes by a factor between sqrt(2) and 2, and the explicit adversarial bound is not just a continuity estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

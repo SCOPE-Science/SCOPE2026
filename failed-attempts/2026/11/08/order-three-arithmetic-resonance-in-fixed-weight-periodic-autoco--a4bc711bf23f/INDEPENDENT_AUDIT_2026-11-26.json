@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:10:39.725708Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–104; supporting VERIFICATION.md and verify.py (read only)",
+        "Independent replay: python3 /workspace/reproductions/4/cycle_run_moments.py; 1998 exact (cycle size, total size, weight) cases, all 6≤N≤36, using exact transfer-polynomial counts and component convolution, including balanced sign formulas"
+      ],
+      "rationale": "The shift graph is a union of simple cycles of length N/gcd(N,d); its triangle count T is N/3 exactly at the allowed shift d=N/3 and zero otherwise. Independently, orient the edges by +d and count 0→1 transitions X, so A_d=k-X even on monochromatic components. No two adjacent directed edges can both be starts. For j=1,2,3 the j-th falling moment of X is the number of ordered j-edge matchings times a_j=(k)_j(N-k)_j/(N)_{2j}, which is the probability of the specified j occupied and j empty sites. The matching counts are N, N(N-3), and N(N-4)(N-5)-6T: the last follows by inclusion-exclusion on the three adjacencies in a triple, with a triangle counted by the all-three intersection. Substitution into the centered moments gives the displayed mean, variance, baseline and +6Ta_3 correction (the third moment changes sign under A_d=k-X). The endpoint weights give a vanishing correction exactly as stated, and substitution at k=N/2 yields the opposite-sign formulas and the N=6 values. A fresh transfer-polynomial enumeration corroborates the formulas independent of the frozen edge-census code.",
+      "residual_risks": [
+        "The replay is bounded and does not establish a full distribution equality or make any claim for the excluded antipodal matching. The falling-moment proof covers the stated infinite range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.8 enumerates triples of edges of a fixed graph under a fixed split, with the triangle contribution entering through the common-neighbor count along edges. Appendix B.1 uses cut skewness for scan calibration; the exact combinatorial identity itself is in §3.4.",
+          "Caullery–Érard–Rodier p. 1 explicitly take independent equally likely signs; the inspected Willms Theorem 1 relates autocorrelation deterministically to runs in the aperiodic case. Neither passage establishes the sampling-law equivalence that Chen–Zhang do."
+        ],
+        "reasoning": "The decisive source's exact moment identity is for a fixed graph, not limited to a particular graph construction, and hence includes the allowed disjoint-union cycle graphs. Asymptotic scan assumptions are unnecessary for the finite moment identity.",
+        "searches": [
+          "Websearch: fixed Hamming weight cyclic autocorrelation third moment order three triangles permutation null cut count graph Chen Zhang skewness E R^3 graph based change point detection Appendix B general third moment exact",
+          "Chen–Zhang arXiv:1209.1625 §3.4, Lemma 3.8 and Appendix B.1",
+          "Caullery–Érard–Rodier arXiv:2410.11347; Willms arXiv:1206.4572"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, and Relationship to prior work",
+        "Primary exact moment calculation of Chen–Zhang and related published passages above",
+        "Local Resultary query responses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let a_j=(k)_j(N-k)_j/(N)_{2j}. With all degrees 2, N edges and common-neighbor sum 3T, Chen–Zhang's raw cut third moment reduces to 8[N a_1+3N(N-3)a_2+(N(N-4)(N-5)-6T)a_3]. The first two raw moments are 2N a_1 and 4[N a_1+N(N-3)a_2]. After centering, dividing the third by -8 gives the frozen baseline plus 6T a_3. The exact shift order is N/gcd(N,d), so in the permitted range T is N/3 at d=N/3 when 3 divides N, and zero otherwise."
+        ],
+        "reasoning": "Identical sampling, degree substitution in the general formula, centering, and the elementary shift-order computation yield all three moments and the unique exceptional term. At half weight the sign comparison follows by substituting k=N/2 and simplifying. No extra structural hypothesis or new coefficient is needed.",
+        "searches": [
+          "Chen–Zhang §3.4 Lemma 3.8, arXiv v3 HTML offsets 44500–52457; §§2.1–2.2, offsets 11000–17953"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sections 2.1–2.2 define R_G(t) as the crossing-edge count under an equiprobable permutation of vertex memberships at a fixed split. At split k this gives a uniform k-subset. Summing its occupied vertex degrees on the non-antipodal shift graph gives 2k=2A_d+R_G(k)."
+        ],
+        "reasoning": "The observation is affine-equivalent for every sampled set, not just asymptotically or in expectation: the centered variables differ by a factor of -2. Fixed weight in the frozen result is the permutation-null split, not the independent-sign probability model.",
+        "searches": [
+          "Resultary: fixed weight periodic binary autocorrelation occupied adjacent pair count cycle triangles third centered moment arithmetic resonance",
+          "Chen–Zhang arXiv:1209.1625 §§2.1–2.2 (permutation-null cut count)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact first search hit was the frozen record itself, 2026/11/8/SCOPE-order-three-arithmetic-resonance-in-fixed-weight-periodic-autoco--a4bc711bf23f. The query also surfaced e.g. 2026/11/16/SCOPE-exact-cyclic-fourier-covariance-and-an-isolated-rank-defect-for--4e4e459386ca (restricted binary circles and Fourier covariance) and 2026/10/18/SCOPE-cyclic-binary-trimer-compositions-an-exact-realization-and-spect--5ce7c84ef38b (counting trimer composition spectra). Only their search summaries were available for this comparison; mirror passage attempts did not return their text."
+        ],
+        "reasoning": "The identical record is not independent coverage, and the related summaries concern different statistics or sampling. Neither a ranked hit nor an inaccessible mirror proves coverage or noncoverage. The exact symbolic case is nonetheless covered by the inspected external moment formula.",
+        "searches": [
+          "Resultary: fixed weight periodic binary autocorrelation occupied adjacent pair count cycle triangles third centered moment arithmetic resonance",
+          "Resultary: fixed composition binary circular runs number of runs circular words cycle disjoint union exact distribution third moment periodic autocorrelation"
+        ]
+      },
+      "rationale": "Chen and Zhang's 2014 arXiv v3 / 2015 publication contains the exact general fixed-graph permutation-null third moment of the cut count (Lemma 3.8). A fixed split is exactly uniform sampling of a k-subset. On the simple 2-regular shift graph the cut count equals 2k-2A_d, and specialization of their local counts gives the full formula including the triangle correction. The prior paper does not state the periodic interpretation; the arithmetic classification and balanced sign comparison follow directly on substituting the cycle length and half weight. This is verified implication, not a verdict based on missing literature.",
+      "residual_risks": [
+        "The source comparison uses the readable public arXiv v3 HTML, not the inaccessible visual PDF equation layout. Chen–Zhang need not have stated or noticed the cyclic resonance as a named phenomenon for their exact formula to imply it. No claim is made about all related indexed source contents or historical priority beyond demonstrable coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general formula implies the frozen moments and arithmetic correction",
+          "evidence": "Fixed graph and split; triangle crossing probability zero, common-neighbor sum counts each triangle three times; third raw cut moment specializes as shown.",
+          "identifier_or_url": "https://arxiv.org/html/1209.1625 ; DOI 10.1214/14-AOS1269",
+          "material_read": "arXiv v3 §§2.1–2.2, offsets 11000–17953; §3.4 Lemma 3.8, offsets 44500–52457; Appendix B.1, offsets 138021–142454; published citation Ann. Statist. 43(1), 139–176 (2015)",
+          "method": "Lawful full arXiv HTML passages; DOI bibliographic comparison; HTML used because decisive PDF layout was not accessible",
+          "title": "Graph-based change-point detection",
+          "trigger": "Possible strict coverage by general permutation-null graph cut moments"
+        },
+        {
+          "assessment": "Inspected law is unconditioned independent signs",
+          "evidence": "Uniform law on all sign sequences is explicitly defined and distinct from fixed content.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.11347",
+          "material_read": "p. 1 around offset 1856; Lemma 1 context pp. 2–3",
+          "method": "OA PDF passages",
+          "title": "Periodic autocorrelation of sequences",
+          "trigger": "Same periodic statistic but possibly different sampling"
+        },
+        {
+          "assessment": "Inspected theorem is a deterministic aperiodic run-vector identity",
+          "evidence": "Second difference of the aperiodic autocorrelation in terms of run-vector coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.4572",
+          "material_read": "Theorem 1 p. 5, offset 18084, with nearby context",
+          "method": "OA PDF passage",
+          "title": "Autocorrelations of Binary Sequences and Run Structure",
+          "trigger": "Run interpretation of correlations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations; Chen–Zhang Lemma 3.8 and the explicit reduction above"
+      ],
+      "rationale": "The fixed-weight cyclic statistic and its skewness contrast are natural, but the exact invariant is a degree-two specialization of the prior general formula, and the only remaining cyclic interpretation uses the elementary order of one shift. The balanced sign contrast is then a substitution. These may be useful expository consequences, but no independent worthwhile mathematical gap remains in the frozen claim.",
+      "residual_risks": [
+        "This judgment concerns incremental research value, not correctness or expository utility of the formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

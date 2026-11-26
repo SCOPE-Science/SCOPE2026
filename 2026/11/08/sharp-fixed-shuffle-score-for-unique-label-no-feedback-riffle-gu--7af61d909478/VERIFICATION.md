@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 checks/verify.py` from the extracted package root. The script requires only the Python standard library. It constructs the exact marginal probability matrix as a mixture of two binomial laws with rational probabilities, checks that all row and column sums equal one, verifies the concrete unique-label guessing strategy is a permutation, and computes exact finite-deck optimal assignments by subset dynamic programming. It checks that the constructed score is bounded between zero and the true finite optimum, and that the optimum does not exceed the column-capacity bound. It also evaluates the proposed fixed-shuffle leading coefficients and compares the one-shuffle closed form \(\sqrt{2/\pi}\).
+## correctness
 
-The expected standalone output includes `Exact checks passed: 61` and leading constants \(0.797884560803\), \(0.337225694841\), and \(0.160563316492\) for mixture sizes \(2\), \(4\), and \(8\). The finite checks do not prove an infinite asymptotic or the novelty of a claim. The analytical proof in RESULT.md supplies the separation, local-limit, capacity, and Riemann-sum steps; it depends on classical bounded-Bernoulli local-limit estimates.
+PASS
 
-Scope of the checks: finite decks with up to twice the number of mixture components for \(m\in\{2,4,8\}\), exact normalization and finite assignment inequalities; no external certification or independent mathematical audit is claimed.
+A forward m-packet shuffle can be drawn by choosing an iid uniform packet word, cutting the input at the word counts, and drawing from the next named packet. Independent inverse stable sorts on fair bits compose to a stable sort on k-bit keys, yielding the forward m=2^k model after inversion. In the forward word construction, conditional on packet t at position i, the original index of the card equals one plus the number of earlier word entries ≤t plus the number of later word entries <t. This is precisely the stated independent pair of binomials. For rows bounded away from the endpoints, the component variance is n v_t(i/n)+O(1) uniformly. The Bernoulli characteristic function bounds the centered product by exp(-c σ²u²) for |u|≤pi, and Taylor expansion at u=O(n^(-1/2)) has cumulative cubic error O(n|u|³). Fourier inversion thus gives both the sharp peak upper bound uniformly in j and the matching asymptotic at j within O(1) of its mean. For a label bounded away from packet interfaces, competing means are linearly far away; even in its own component, rows farther than n^(-2/5) in scaled distance give exponentially small mass by Hoeffding. The column peak therefore has exactly the claimed leading profile, reached asymptotically at the nearest mean row. For excluded columns, the two endpoint components have maximal point probabilities bounded by constants times j^(-1/2) or (n-j+1)^(-1/2): if h trials can yield r successes then h≥r and the binomial peak is O((h+1)^(-1/2)). The other components are O(n^(-1/2)) uniformly. Thus for fixed interface width epsilon the omitted columns cost O((sqrt(epsilon)+epsilon)sqrt(n)+1); the interior integral is first truncated and only becomes full as epsilon decreases to zero. Every permuted guess has the column-capacity upper bound. In the explicit permutation the designated component's mean differs from its guess by t r0/m, so its interior Riemann sum matches the upper bound in the limit. The integrable linear-variance integral evaluates to 2/(sqrt(a_t)+sqrt(a_(t+1))). Independent exact forward-law checks for n=2,…,5 and m=2,4 including composition, and numerical constant evaluation, can be replayed with python3 -B /workspace/audit_checks/1.py. The asymptotic proof does not depend on those finite checks.
+
+## originality
+
+PASS
+
+Pass for the sharp leading constant for one-use-per-label matching and the explicit asymptotically optimal permutation. The forward marginal mixture and the repeated-guess optimal score are established elsewhere and are not credited as new.
+
+## value
+
+PASS
+
+Requiring all labels to be used exactly once is a natural no-feedback variant and genuinely couples positions. Even at one shuffle the restriction changes the leading coefficient from 2/sqrt(pi) to sqrt(2/pi). The theorem quantifies the restriction for each fixed shuffle count, and the constructive permutation attains the optimal leading term without a finite assignment solve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

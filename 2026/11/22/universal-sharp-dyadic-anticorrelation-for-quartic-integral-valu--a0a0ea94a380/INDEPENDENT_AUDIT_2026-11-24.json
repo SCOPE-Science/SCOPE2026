@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:16:37.462017Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coefficient normalization and valuation identity in RESULT.md lines 5–9 and 38–41 exactly agree with Amdeberhan–Manna–Moll, Eq. (1.1) and Theorem 1.1. With w=2ell the centered quantity is a window sum of nu_2-1. For fixed nonnegative offsets bounded by b, second-moment tails of nu_2(n+j) at cutoff M, averaged over 1<=n<=N, are bounded by (1+b/N) times the sum of d^2/2^d for d>=M, by counting multiples up to N+b. Cauchy–Schwarz gives convergence of the product tails, justifying the Haar computation for consecutive averages. In the double divisibility expansion, terms with smaller exponent k are compatible precisely if 2^k divides the shift, and their total weight is 3*2^(-k), yielding the stated kernel and finite triangular sum. At every dyadic modulus q, window residue counts have a constant part and a single arc of length w mod q; the overlap is minimized at shift w. Parity reduction gives Var(F_2w)=Var(F_w), so the minimum covariance is -Var(F_w)/2; the variance is positive since the window sum is unbounded on positive-measure cylinders. Intersecting minimum overlap conditions at P and P/2 leaves exactly +/-w mod P, including a singleton when w=P/2. These residues minimize all smaller scales by symmetry and have no higher-scale collisions because no index difference of magnitude less than w can represent them modulo P. Zero shift maximizes each overlap; any fixed positive shift has a strict deficit at a sufficiently large scale. At 2^j the first j overlaps agree with zero shift and the remaining weighted tail tends to zero. An independent bounded integer check of 2*C_w(h)+C_w(0), using the displayed kernel with denominator 4P, confirmed the minimum and equality for w=2,4,6,8,10,22,30,32,34,64,66 over 0<=h<3P; this is corroboration only. Frozen CHECK.py and VERIFICATION.md were inspected, not run; the former's reported exact checks do not establish the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AMM proves all individual valuations and their block simplicity. Boros–Moll–Shallit gives special coefficient valuations under a different normalization. Spiegelhofer–Wallner give exact digit-sum difference variances for arbitrary increment lengths, including odd lengths."
+        ],
+        "reasoning": "The block length 2^(1+nu_2(ell)) in AMM is not the equality modulus for all lagged second moments. Moment recurrences across increment lengths are stronger than a single variance, but the all-lag bound requires an extremal argument; in this record it uses simultaneous dyadic arc minimization.",
+        "searches": [
+          "arXiv:0707.2119v1, Theorems 1.1 and 3.5",
+          "arXiv:math/0308072, Theorems 6.1 and 7.1",
+          "arXiv:2005.07167, section 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:0707.2119v1",
+        "arXiv:math/0308072",
+        "arXiv:2005.07167",
+        "Resultary a0a0ea94a380 and 099fc39844b1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let V(t)=kappa_2(t) with V(0)=0. Expanding squares of translated digit-sum differences gives 2*C_w(h)=V(h+w)+V(|h-w|)-2*V(h) for h>=0. Thus the published exact variance recurrence also gives exact shifted moments, and V(2w)=V(w) gives C_w(w)=-V(w)/2."
+        ],
+        "reasoning": "Do not credit the existence of an exact computational formula, or the value at one lag, as wholly new. The prior implications do not order this second difference over all h or give its equality set. The separate positive scale weights and the two critical moduli establish that distinct part.",
+        "searches": [
+          "arXiv:2005.07167, Eq. (2.6), recurrence (2.14), remarks after (2.16)",
+          "arXiv:0707.2119v1, Eq. (1.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Legendre's formula gives X_ell(m)-3ell=s_2(m-ell)-s_2(m+ell). Spiegelhofer–Wallner study precisely the single-increment law of s_2(n+t)-s_2(n), with exact variance kappa_2(t)."
+        ],
+        "reasoning": "The valuation formulation is equivalent to autocorrelation of a binary digit-sum increment, not a separate distribution. A one-increment law fixes substantial second-moment information, but does not state or classify all minimizing shifts for the correlation of two translates.",
+        "searches": [
+          "Quartic-integral 2-adic valuation autocorrelation, dyadic overlaps and digit-sum increments; primary sources arXiv:0707.2119 and arXiv:2005.07167"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a0a0ea94a380 is the assigned claim itself. 099fc39844b1 gives exact adjacent-valuation laws for quadratics and a lag-one covariance, not this all-lag classification. The exact variance sequence is known and is identified with twice the van der Corput discrepancy."
+        ],
+        "reasoning": "The exact one-variable variance sequence plus polarization evaluates individual lag values and must be credited. No inspected table or closed classification supplies the minimizing congruences for every window length and positive lag.",
+        "searches": [
+          "Resultary semantic match for exact valuation autocorrelation, floor and equality shifts: a0a0ea94a380 and 099fc39844b1",
+          "arXiv:2005.07167, equations (2.14)–(2.16) and the van der Corput discrepancy remark"
+        ]
+      },
+      "rationale": "Credit the known valuation and binary digit-sum variance theory, which already implies an exact way to evaluate every covariance and the value at h=w. The supported distinct claim is the global sharp anticorrelation bound with the complete set of equality shifts. The inspected single-increment and valuation laws do not directly give the all-lag inequality or its equality arithmetic.",
+      "residual_risks": [
+        "Earlier exact extremal statements for second differences of the van der Corput discrepancy or joint binary carry increments may exist under other terminology. The checked variance recurrence does not itself establish the global inequality or equality characterization.",
+        "The same-day neighboring-valuation record establishes neither priority nor equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact normalization and individual valuation already known; block theorem is not a second-moment extremal classification",
+          "evidence": "nu_2(A_ell,m)=nu_2((m+1-ell)_(2ell))+ell; valuation sequence is 2^(1+nu_2(ell))-simple.",
+          "identifier_or_url": "https://arxiv.org/html/0707.2119v1",
+          "material_read": "Eq. (1.1); Theorem 1.1, Eq. (1.7), offset about 2984; Theorem 3.5, offset about 18416",
+          "method": "OA primary HTML",
+          "title": "The 2-adic valuation of a sequence arising from a rational integral",
+          "trigger": "Foundational valuation formula and possible block-structure implication"
+        },
+        {
+          "assessment": "Special valuation formulas, not all-lag extrema",
+          "evidence": "The coefficient relation is A_ell,m=2^(m+ell)*ell!*m!*d_ell(m); Theorem 7.1 yields the ell=1 valuation identity under that conversion.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0308072",
+          "material_read": "Eq. (1.4) and Theorems 6.1 and 7.1, pp. 5–6",
+          "method": "OA primary PDF",
+          "title": "The 2-adic valuation of the coefficients of a polynomial",
+          "trigger": "Earlier quartic-integral coefficients and normalization"
+        },
+        {
+          "assessment": "Mechanically yields exact lag values via polarization, and attainment at w, but does not supply global extremality/equality classes in the inspected results",
+          "evidence": "kappa_2(t) is the increment variance, kappa_2(2t)=kappa_2(t), and kappa_2(2t+1)=(kappa_2(t)+kappa_2(t+1))/2+1; half the variance is the van der Corput discrepancy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.07167",
+          "material_read": "Abstract; section 2.1, Eq. (2.6), (2.14)–(2.16) and remarks, pp. 6, 8–9",
+          "method": "OA primary PDF",
+          "title": "The binary digits of n+t",
+          "trigger": "Equivalent digit-sum increment and closely related exact variance law"
+        },
+        {
+          "assessment": "Different sequences and lag domain",
+          "evidence": "Lag-one covariance for quadratic valuation sequences, of the form 1/2-3/2^d, is not the all-shift window result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-dyadic-neighbour-valuation-laws-and-a-resultant-controlled--099fc39844b1",
+          "material_read": "Matching result statement on adjacent valuations",
+          "method": "Local Resultary comparison",
+          "title": "Exact dyadic neighbour valuation laws and a resultant-controlled covariance",
+          "trigger": "Nearest distinct catalog hit on dyadic autocovariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum correlation and all equality residues are exact invariants for a mathematically natural family of arithmetic sequences. They determine the strongest opposing lags without search or enumeration; the distinct dyadic near-recurrence at maximal correlation clarifies the behavior at the opposite end. The established value is the extremal classification, not merely evaluating known digit-sum moments under another name.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

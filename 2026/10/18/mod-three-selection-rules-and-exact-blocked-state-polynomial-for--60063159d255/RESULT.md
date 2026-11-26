@@ -1,4 +1,4 @@
-# Mod-three selection rules and exact blocked-state polynomial for the three-spin Ising ring
+# Exact blocked-state polynomial and commensurability correction for the three-spin Ising ring
 
 ## Finding
 
@@ -25,11 +25,11 @@ The exact answer for **every** \(N\geq3\), including all periodic-size congruenc
 \operatorname{tr}(T(z)^N)+3\operatorname{tr}(Q(z)^{N/3}),&3\mid N.
 \end{cases}}
 \]
-The correction is not an arbitrary counting convention: it is forced by which local defect words are realizable by periodic Ising spins.
+For divisible lengths, the second trace arises by imposing Turban's periodic-spin compatibility constraints [4, §3] on the locally blocked words of Kisker, Rieger, and Schreckenberg [1]. The contribution here is the blocked-state transfer formula and its subleading asymptotic, not the unrestricted compatibility projector or partition function.
 
 In particular, every length not divisible by three has one ground state and precisely \(N\) one-defect strictly blocked states, while a length divisible by three has four ground states and **no one-defect spin configurations whatsoever**. When \(N=3m\geq6\), the first excited level has excess energy \(4J\), multiplicity \(2N(m-1)\), and all its states are strictly blocked; when \(3\nmid N\), the first excited level has excess energy \(2J\), multiplicity \(N\), and all its states are strictly blocked. At the exceptional length \(N=3\), the next energy level lies \(6J\) above the ground state and contains no blocked states.
 
-The full (unrestricted) defect-energy density-of-states polynomial is also exactly
+For comparison, the full (unrestricted) defect-energy density-of-states polynomial is
 \[
 \sum_{s\in\{-1,+1\}^N}z^{k(s)}=
 \begin{cases}
@@ -37,7 +37,7 @@ The full (unrestricted) defect-energy density-of-states polynomial is also exact
 (1+z)^N+3(1+z)^{N/3}(1-z)^{2N/3},&3\mid N.
 \end{cases}
 \]
-This last identity is a direct corollary of the same periodic-image selection rule; the main contribution is the blocked-state polynomial and its implications.
+This is the density-of-states form of Turban's zero-field partition-function calculation [4, Eq. (3.13) and Appendix A].
 
 Let \(\lambda\) be the positive root of \(\lambda^3-\lambda^2-1=0\), and let \(p\) be the positive root of \(p^3-p-1=0\). The total number of blocked spin configurations has entropy density \(\log\lambda\) in all length classes. More sharply, along \(N=3m\),
 \[
@@ -61,7 +61,7 @@ H(s^{(i)})-H(s)=2J(\tau_{i-1}+\tau_i+\tau_{i+1}).
 \]
 The parenthesis is an odd integer. Its positivity is equivalent to having at most one negative \(\tau\) in every three consecutive cyclic positions. Equivalently, any two defect positions have cyclic separation at least three. This is the local metastability characterization already motivated by the original three-spin-chain study [1].
 
-**2. Global periodic-spin compatibility.** Write \(s_i=(-1)^{b_i}\) and \(\tau_i=(-1)^{t_i}\), with bits in \(\mathbb F_2\). The map from spins to interaction variables is
+**2. Global periodic-spin compatibility.** For \(3\mid N\), the compatibility and fourfold preimage multiplicity below are the three-spin case of Turban's calculation [4, §3, Eq. (3.5)]. An elementary binary proof also handles \(3\nmid N\). Write \(s_i=(-1)^{b_i}\) and \(\tau_i=(-1)^{t_i}\), with bits in \(\mathbb F_2\). The map from spins to interaction variables is
 \[
 t_i=b_{i-1}+b_i+b_{i+1}\pmod2.
 \]
@@ -77,7 +77,7 @@ They are two independent linear constraints. Since the image has codimension two
 
 **3. Cyclic transfer matrix.** Use three memory states: immediately after a defect, one plus after a defect, and at least two pluses after a defect. An allowed plus advances the first two states or leaves the third fixed; a defect is permitted only from the third state and contributes weight \(z\). In this state order the transition matrix is precisely \(T(z)\). Each cyclic admissible defect word has one compatible closed state trajectory (including the defect-free word), so its generating polynomial is \(\operatorname{tr}(T(z)^N)\).
 
-For \(N=3m\), let \(c_r\) denote the number of defects at indices congruent to \(r\) modulo three. The indicator that all three parities agree satisfies
+For \(N=3m\), let \(c_r\) denote the number of defects at indices congruent to \(r\) modulo three. Turban's projector [4, Eqs. (3.6), (3.8)–(3.9)], now applied to the blocked words, reads
 \[
 4\mathbf1_{c_0\equiv c_1\equiv c_2\;(2)}=
 1+(-1)^{c_0+c_1}+(-1)^{c_0+c_2}+(-1)^{c_1+c_2}.
@@ -102,13 +102,17 @@ The included standalone \(\texttt{verify.py}\) directly evaluates the Hamiltonia
 
 ## Relationship to prior work
 
-Kisker, Rieger, and Schreckenberg [1] introduced this classical three-spin model, its \(\tau\)-variables and local metastability rule, and reported the asymptotic exponential metastable growth constant \(\lambda\). They explicitly assumed lengths divisible by three when discussing ground-state multiplicity. Those ingredients are acknowledged as prior results. The new finite-volume statement adds the **global periodic-image restriction**, the corrected all-size blocked-spin polynomial, the exact low-energy selection and multiplicity rules, and the explicit subleading plastic-constant term, none of which is stated in the material inspected from [1].
+Kisker, Rieger, and Schreckenberg [1, pp. 3–4] give the three-spin model with periodic boundaries, the local metastability rule in \(\tau\)-variables, the leading growth constant \(\lambda\), and four ground states including period-three patterns. These patterned states require a length divisible by three.
+
+Turban [4, §3] gives the periodic constraints and preimage count for general interaction length dividing the ring length, and uses the projector to obtain the unrestricted partition function. For three-spin interactions, Eq. (3.13) gives the unrestricted density-of-states polynomial on lengths divisible by three via \(z=e^{-2K}\) and \(Z=e^{KN}\sum_s z^{k(s)}\), with \(K=\beta J\). On other lengths the same polynomial follows from the site transfer matrix eigenvalues of Appendix A, Eq. (A.2), whose three phase factors cancel in the trace. The excitation counts stated here are consequences of this energy enumeration; their blocking follows from the local rule and the allowed locations of the defects.
+
+Neither of these calculations gives the parity-projected transfer formula restricted to strictly blocked periodic spin states. The restriction leads to a product of signed local-state transfer matrices instead of the independent-site factors in the unrestricted calculation. Its spectrum gives the explicit subleading term \(3p^m\).
 
 De Smedt, Godrèche, and Luck [2] analyze blocked-state statistics and energy distributions for different one-dimensional kinetically constrained spin models. Their transfer/counting methods motivate the comparison but their Hamiltonians and admissible spin sectors differ. Related work on one-dimensional random-bond Ising metastability [3] likewise concerns two-spin random interactions rather than the periodic three-spin map. These source comparisons do not establish global bibliographic uniqueness.
 
 ## Limitations
 
-This is an exact equilibrium/state-space and strictly blocked-state census, not a derivation of trapping probabilities after a quench, lifetimes at positive temperature, transition rates, or any infinite-volume dynamical limit. The subleading asymptotic is for the a priori count of blocked configurations only. The lowest excited physical level at \(N=3\) is not blocked. Bibliographic searches cannot exclude an unindexed equivalent periodic-sector enumeration, and no independent scientific audit has been performed.
+This is an exact equilibrium/state-space and strictly blocked-state census, not a derivation of trapping probabilities after a quench, lifetimes at positive temperature, transition rates, or any infinite-volume dynamical limit. The subleading asymptotic is for the a priori count of blocked configurations only. The lowest excited physical level at \(N=3\) is not blocked. The cited comparisons do not exclude other equivalent periodic-sector enumerations.
 
 ## References
 
@@ -117,3 +121,5 @@ This is an exact equilibrium/state-space and strictly blocked-state census, not 
 [2] G. De Smedt, C. Godrèche, and J. M. Luck, *Jamming, freezing and metastability in one-dimensional spin systems*, arXiv:cond-mat/0202465, first public version 2002-02-26. https://arxiv.org/abs/cond-mat/0202465
 
 [3] S. Masui, B. W. Southern, and A. E. Jacobs, *Metastable states of Ising spin glasses and random ferromagnets*, Physical Review B 39, 6925 (1989), DOI:10.1103/PhysRevB.39.6925. https://doi.org/10.1103/PhysRevB.39.6925
+
+[4] L. Turban, *One-dimensional Ising model with multispin interactions*, arXiv:1605.05199v2 (2016), §3, especially Eqs. (3.5)–(3.13), and Appendix A, Eq. (A.2). https://arxiv.org/abs/1605.05199v2

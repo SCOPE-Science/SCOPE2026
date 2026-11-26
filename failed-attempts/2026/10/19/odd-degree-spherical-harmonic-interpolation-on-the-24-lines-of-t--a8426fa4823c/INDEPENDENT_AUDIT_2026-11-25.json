@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:04:23.410664Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–69",
+        "VERIFICATION.md lines 19–23 and verify.py signed-incidence checks, inspected not executed",
+        "Reproduction recipe: use twice the short representative coordinates and sqrt(2) times the long representative coordinates as integers to construct signs, compare the six matrix identities, and substitute the five small even n in the three eigenvalue sectors",
+        "Dai–Xu arXiv:1304.2585 Section 2, addition theorem"
+      ],
+      "rationale": "The probability-sphere normalization gives n U_ell, with diagonal n^2. The inner-product values on and across the two orbits give the signed coefficients n epsilon and n sqrt(2) eta. One can verify the incidence algebra without a numerical spectrum: form the 12-by-4 matrices A and C of short and long representatives. Both have transpose times themselves 3I_4, by cancellation of mixed terms and the coordinate multiplicities. Then S=2(AA^T-I), T=2(CC^T-I), and B=sqrt(2) AC^T, giving all the stated identities by multiplication. Their complementary eight-dimensional sectors have eigenvalue n(n-2 epsilon) each, and the two four-dimensional frame ranges couple with singular value sqrt(18) for B, giving the two stated eigenvalues of multiplicity four. At n=2,4,6,8,10 the ranks are 4,16,20,24,20; for n>=12 the smallest bracket is at least n-10>0. Equality of the three sectors implies eta=epsilon=0, i.e. 4 and 3 both divide even n. Flipping representatives conjugates by a diagonal sign matrix. The pseudoinverse interpolation statement follows from G=EE*, including its singular cases. An independent exact coordinate reconstruction verified the signed identities and low-degree ranks.",
+      "residual_risks": [
+        "No inference about even degrees, non-probability normalization, spanning the ambient harmonic space, or arbitrary configurations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suter's P=C_aff(t)^(-1) delta determines the multiplicities in every symmetric power for every irreducible, not just the invariant series. Its E7 group data give exactly the three odd sectors needed here.",
+          "Hirao–Nozaki–Tasaka Theorem 1.2 and Table 2 detect the trivial group-sum component; the D4 shell design theorem controls moment vanishing, not the full kernel spectrum."
+        ],
+        "reasoning": "It is the full pre-existing branching result, not the design property or trivial Molien series, that covers the needed spectral information.",
+        "searches": [
+          "Suter arXiv:math/0503542v1 Theorem 2.3 and Section 6 E7 data",
+          "Hirao–Nozaki–Tasaka arXiv:2507.01358 binary octahedral strength and Molien series",
+          "de la Harpe–Pache–Venkov arXiv:math/0505510 D4 design and F4 framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0503542v1, 1304.2585, 2507.01358, math/0505510",
+        "Resultary F4 all-degree and D_n cubic records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integrating the character inner product over the 48 group points using the table and U_ell(1), U_ell(1/2), U_ell(1/sqrt(2))=n, epsilon, sqrt(2) eta gives multiplicities (8n-16 epsilon)/48 for 4 and (4n+16 epsilon±24 eta)/48 for 2 and 2'.",
+          "By Schur orthogonality, convolution with n chi_Sym^ell on the d^2-dimensional d-isotypic block of the regular space has eigenvalue 48 n m_d/d. On one representative per antipodal pair this is 24 n m_d/d. Substitution gives exactly the three boxed eigenvalues with multiplicities 16,4,4."
+        ],
+        "reasoning": "One character inner product and a general convolution identity convert existing data into every claimed eigenvalue, including zeros. This is a routine specialization, with no remaining configuration-specific spectral unknown. The coordinate proof and the interpolation interpretation are alternative presentations rather than a separate new scientific claim.",
+        "searches": [
+          "Suter, Section 6, character table and class sizes; Theorem 2.3 all-irrep series",
+          "Dai–Xu Section 2, zonal kernel in dimension four"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 48 normalized F4 roots are the unit quaternions of 2O. For g,h in 2O the reproducing kernel is n U_ell(Re(g^{-1}h)), equivalently n times the Sym^ell(C^2) character of g^{-1}h. In an ordering by representatives and their negatives, the full odd-degree matrix is the block matrix with G,-G in the first block row and -G,G in the second; it acts as 2G on odd data and kills even data.",
+          "Suter Section 6 identifies the three -1-central-character irreducibles 4,2,2' and gives their character values."
+        ],
+        "reasoning": "The line problem is exactly the odd sector of the known group character kernel, not a nearby sample arrangement. Multiplicity-zero sectors stay present in the 24-dimensional odd space.",
+        "searches": [
+          "Binary octahedral group symmetric-power multiplicities, McKay E7 Poincare series and character tables",
+          "Resultary: F4 root sampling, binary octahedral group, odd harmonic Gram ranks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Suter p. 9 directly tabulates spinorial character values; grouping by positive Re=1, 1/2, 1/sqrt(2) gives triples (4,-1,0), (2,1,sqrt(2)), (2,1,-sqrt(2)), with opposite signs at negative Re. The sizes per sign are 1, 8, 6, respectively. Re=0 contributes zero for odd ell.",
+          "2026/11/2/SCOPE-all-degree-spherical-harmonic-sampling-ranks-on-the-normalized-f--c8794d8a3ae7 tabulates identical small odd ranks and gives the rank-24 tail for the same lines via all 48 directions. It supplies ranks, not the entire odd spectrum; its listed date is later, not evidence of priority over the frozen result. The 2026/10/18 type-D_n cubic record 4fdcf93793d3 covers only the 12 long lines for n=4."
+        ],
+        "reasoning": "There is exact rank overlap in a distinct indexed record and an earlier authoritative table of the character data sufficient for the whole spectrum. The smaller D4 orbit by itself does not establish coverage.",
+        "searches": [
+          "Suter Section 6 octahedral character table",
+          "Resultary: complete cubic type-D_n spectra and all-degree F4 sampling ranks"
+        ]
+      },
+      "rationale": "The claim is mathematically correct, but the full spectrum is a direct consequence of the existing all-irrep branching data for the binary octahedral group and standard finite-group character convolution. Suter does not phrase the result as harmonic interpolation on lines; the objection is a demonstrated prior implication, not an assertion that the exact interpolation wording is already printed. The change to 24 antipodal representatives is a scalar normalization on the odd block. The rank exceptions, positivity threshold and orthogonality class then follow by inspection. No new spectral information beyond this implication is established by the bound claim.",
+      "residual_risks": [
+        "No searched source was shown to print the identical 24-line spectral statement verbatim. The verdict depends on exact mechanical implication from the earlier character and branching data, not on a conjecture about an unlocated publication or on the dates of the catalogue items."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive pre-existing implication for the full stated spectrum",
+          "evidence": [
+            "The full E7 data give the class sizes and both dimension-two spinorial rows, which agree at Re=1/2 and have opposite values at Re=1/sqrt(2); the dimension-four spinorial row has values -1 and 0 there.",
+            "The Poincare coefficients are precisely the multiplicities in Sym^ell of the defining doublet."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503542v1",
+          "material_read": "Definition of multiplicity series p. 2 near offset 6660; Theorem 2.3 pp. 2–3 offsets 6500–13978; class sizes and E7 octahedral table pp. 8–9, offsets 28217–33609",
+          "method": "Bounded primary OA PDF passages, including table columns and spinorial rows",
+          "title": "Quantum affine Cartan matrices, Poincaré series of binary polyhedral groups, and reflection representations",
+          "trigger": "All-degree symmetric-power branching for the exact group underlying the root geometry"
+        },
+        {
+          "assessment": "Provides the standard kernel factor, not a standalone F4 spectrum table",
+          "evidence": [
+            "In dimension four the Gegenbauer kernel is the Chebyshev polynomial U_ell times ell+1 for probability-sphere measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.2585",
+          "material_read": "Section 2, p. 8, addition formula near offset 29306",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Spherical Harmonics",
+          "trigger": "Identify the evaluated S^3 kernel with the defining SU(2) symmetric-power character"
+        },
+        {
+          "assessment": "Exact same point family but harmonic strengths and invariant component only",
+          "evidence": [
+            "For 2O the strength contains every positive odd degree; the scalar Molien series has numerator 1+u^18 and denominator (1-u^8)(1-u^12). This only gives the trivial Fourier component."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.01358",
+          "material_read": "Theorem 1.2 p. 3 near offset 11057; Proposition 2.5 and Lemma 3.1 pp. 8–10 near offsets 28500–32500; Table 2 p. 10 near offset 36100",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Spherical designs for finite quaternionic unit groups and their applications to modular forms",
+          "trigger": "Same set as a quaternionic group and all-degree harmonic data"
+        },
+        {
+          "assessment": "Design and invariant background, not the full spectrum",
+          "evidence": [
+            "The 48-point shell is a spherical 7-design; F4 invariants explain low-degree moment constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0505510",
+          "material_read": "Theorem D4 p. 2 near offset 7796 and Section 6.4 p. 15 near offset 48543",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Construction of spherical cubature formulas using lattices",
+          "trigger": "Prior harmonic properties of the union of the dual D4 orbits"
+        },
+        {
+          "assessment": "Same odd ranks in the later full-set result; earlier cubic comparison is only a subset",
+          "evidence": [
+            "Antipodal evaluation compression preserves rank. The cubic D4 roots are only the 24 signed long roots, so its 12 lines are not the 24 F4 lines."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 c8794d8a3ae7; 2026/10/18 4fdcf93793d3",
+          "material_read": "All-degree mirrored RESULT.md offset 0, rank tables, parity compression and cutoff; cubic record's D4 specialization",
+          "method": "Local catalogue and mirrored results; all-degree snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-degree spherical-harmonic sampling ranks on the normalized F4 root system; Complete cubic harmonic sampling spectra on type D_n roots",
+          "trigger": "Exact-set rank overlap and an orbit-specific spectral comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–23, 42–69",
+        "Suter E7 table and the exact implication documented above",
+        "Resultary all-degree rank comparison"
+      ],
+      "rationale": "The root-line sampling question is well motivated and the coordinate proof is useful exposition. However, the proposed scientific contribution is an exact invariant already mechanically determined by established data: the rank exceptions are zero-multiplicity sectors, the orthogonality progression is equality of three tabulated-character expressions, and minimum-norm recovery is the usual pseudoinverse formula. None provides an independently new classification or a motivated further invariant beyond the prior implication. This is not a rejection for working with a finite configuration.",
+      "residual_risks": [
+        "No broader claim about other groups or even degrees was evaluated; the result can still be pedagogically useful as a geometric derivation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

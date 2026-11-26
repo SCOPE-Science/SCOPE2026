@@ -1,19 +1,21 @@
-# Review: stochastic order of cyclic cores under origin weighting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is defined for every finite \(n\ge2\) and real \(1\le s<t\). Conditional on any prescribed set of origins, all remaining arrows form an independent uniform map on the complement, proving the factorial moment identity. The binomial expansion for \(t\ge1\) has nonnegative coefficients and produces the exact mixture over sizes. The cyclic-core tail is exactly \((m)_{\underline k}/m^k\), strictly increasing with \(m\), and the mixing index increases strictly in likelihood-ratio order with \(t\). This establishes the entire strict stochastic-order claim, including the boundary \(s=1\). The covariance and correlation constants follow by exact moment identities and justified Gaussian-scale Riemann limits. A standalone exhaustive verifier checked every map through size seven (486 exact assertions), but the finite checks are not used as infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Reassessed the corrected RESULT.md and verification notes under repairs/2. Under the uniform baseline, every prescribed r-set is avoided by all n arrows with probability ((n−r)/n)^n. Conditioned on avoidance the complement is a uniform closed submap and contains all cycles. The binomial expansion therefore gives the normalized positive size mixture, including r=0 and omitting the impossible r=n. The matrix-tree minor and telescoping mass differences give the uniform tail, including m=1 and k>m. For k≥2 the tail is nonincreasing in the mixing index and strictly drops from r=0 to r=1 for every assigned n,k; the likelihood ratio is strictly increasing on the whole support for 1<s<t, and the independent-copy covariance argument is strictly negative. At s=1 the initial index is zero and positive mass at 1 proves strictness separately. An independent exact n=4 enumeration gave W_4(2)=85/32 and t=2 tails (57,21,3)/85 versus uniform (3/4,3/8,3/32); for the original auxiliary result the uniform covariance was −855/2048 by both enumeration and the adjacent-mean formula. Inspected the frozen verify.py, not executed. The proof rather than the finite test certifies the all-size and continuum claims.
 
-Arney–Bender (1982) develops origin-fugacity generating functions and cyclic-structure asymptotics, while Hansen–Jaworski (2006, Theorem 1) establishes a broader indegree-based formula for the *marginal law* of cyclic-point counts. Those stronger counting frameworks are acknowledged; neither of the inspected sections establishes the strict **comparison of entire cyclic-vertex distributions between every pair of fugacity values**, and the proof here supplies the missing positive-mixture and likelihood-ratio ordering. The general marginal formula can specialize to this measure, so the novelty claimed is the monotonicity theorem, not the parameterized marginal distribution. The 2010 rooted-forest work addresses conditioning on cyclic count, not comparison under origin weighting. Historical priority risks remain from the full random-mapping and stochastic-order literature, including Flajolet–Odlyzko (1990), whose full text was not retrieved in this review. Independent comparison is still necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question is whether favoring indegree-zero labels forces smaller directed cyclic cores or merely lowers their mean. Proving strict first-order stochastic order answers *all* threshold and monotone-loss questions uniformly in system size and degree of weighting. The positive mixture exhibits the mechanism at finite \(n\), while the sharp negative covariance and decaying-correlation constant quantify the unweighted competition between origins and core size. This is structural information not supplied by an isolated moment computation.
+For the repaired claim only: the comparison of every cyclic-vertex tail across all finite origin weights on [1,∞) is supported as distinct on the inspected evidence. Neither the established origin-weighted model and cyclic asymptotics nor the exact broad fixed-law distribution supplies this monotonicity. The removed uniform dependence results received no originality credit. This assessment is best-of-knowledge, not a priority claim.
 
-## Scientific boundaries
+## value
 
-Only \(t\ge1\) is established; the conditional-forest occupancy formula is included for derivation and checking, not as an independent novelty claim. The asymptotic covariance is for the unbiased model. Broad earlier enumeration frameworks may yield further equivalent forms on specialization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The origin weight is a natural parameter of a classical model. The result gives a strict order simultaneously for every nonconstant cyclic-core tail at every finite size, stronger than a decrease in the mean or a weak limit. The exact positive mixture supplies a computable explanation of the order in terms of standard uniform map sizes. The repair does not rely on presenting known uniform dependence results as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

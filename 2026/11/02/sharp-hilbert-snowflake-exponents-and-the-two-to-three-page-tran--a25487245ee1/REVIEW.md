@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a supremal negative-type exponent and endpoint embedding-dimension classification, not a numerical approximation. Reconstructing the vertex metric gives exactly the within-page, cross-page, and hub-page distance blocks in the proof. On the zero-sum subspace, page contrasts, the global reflection-odd sector, and the global reflection-even sector exhaust all dimensions. The contrast block is strictly negative up to exponent \(6/5\) by the displayed eigenvalue and determinant inequalities; the odd block is also strictly negative throughout the relevant interval. The even block has negative first diagonal entry and the determinant crosses zero in the stated intervals. At the first zero it has exactly one null direction. Li–Weston's strict-interior theorem prohibits regained negative type at any higher exponent and proves strictness below the first zero. The endpoint rank drop and the \(3/[r\log(32/27)]\) scaling follow algebraically. Fifth-power rational bounds certify the two-page endpoint sign. The standalone checker passed 59 supplementary assertion groups. Risk: floating-point tests do not replace the symbolic all-parameter inequalities.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-Searches concerned negative type, snowflakes, theta graphs, pentagonal edge books, generalized theta graphs, and vertex-gluing variants. The nearest primary sources analyze three-path theta graphs at exponent one, including the already-known QE property of the two-page graph, or star products along a vertex. They do not derive the all-page sharp variable-exponent determinant, the three-page failure transition, or the inverse-page asymptotic. A separately published formula under alternate terminology could be missed; novelty is a best-knowledge comparison, not a certification of priority.
+PASS
 
-## Mathematical value — PASS
-The shared-edge book is a natural infinite family of multi-theta graph metrics. A qualitative change at the precise page count three gives a geometric boundary between quadratic embeddability and its failure. The result classifies every multiplicity, identifies the single critical null direction and the corresponding embedding dimension, and quantifies degeneration of the maximal exponent. This is neither a finite table recomputation nor a routine reparameterization of a prior exact theorem.
+The within-page and cross-page distances and the two endpoint-to-page rows in RESULT.md lines 23–31 follow by routing through u or v. Split coefficients into mean page triples, page contrasts with zero sum across pages in each coordinate, and endpoint coefficients; the contrasts are orthogonal to the mean sector for the quadratic form. Reflection splits the mean sector into two odd and two even coordinates after imposing zero total mass. The contrast matrix has odd eigenvalue b−2a<0 and even determinant bc−2(b−1)²>0 with negative diagonal on [0,6/5]; the bounds b≤3 for p≤1 and b<4, c/b≥4/3 above 1 verify the latter. Completing the square in the global odd block gives O_r=r(b+a−a²−1)+(2a−b)>0 for p≤1 by concavity. At r=2 this remains positive up to 6/5, by monotonicity of 2(a−1)²/b and the rational endpoint bounds. For even page coefficients (z,w,z) and endpoints both −r(2z+w)/2, the within-page term is 2az²+4zw and the cross-page term per ordered pair is (2a+2b)z²+4bzw+cw²; adding the endpoint terms gives the displayed rE_r. E_11 is strictly negative on the required ranges, and F_r(0)=3r+2, F_r(1)=8−3r; the source's fifth-power rational enclosures give F_2(6/5)<−234923/125000. The first zero therefore has precisely one null direction; Li–Weston Theorem 5.4 supplies strictness below and excludes any higher exponent, so the strict form at p=1 for r=2 puts its endpoint above 1. The squared Hilbert distance Gram rank agrees with the dimensions. For F_r=r²A+rB+C, differentiation gives A(0)=0, A'(0)=log(27/32), B(0)=3. On bounded x, F_r(x/r)/r=3−x log(32/27)+O(1/r) uniformly. This excludes earlier scaled zeros away from the limiting simple zero and bounds the displacement of the first root by O(1/r) in x, giving the claimed O(r^-2) in p. Independent BFS distances and zero-sum spectral bisection for r=2,3,4,5 corroborated the listed approximations (r=5 gave 0.775437849427, a roughly 3×10^-12 last-place discrepancy only). Those checks do not prove the theorem. Frozen VERIFICATION.md and verify.py were inspected, not executed.
 
-## Limitations and source comparison
-The 2026 complete three-path theta classification covers the \(r=2\), \(p=1\) case but not the claimed sharp \(p\)-threshold or \(r\ge3\). A paper on vertex-glued star products is not automatically applicable to the edge-glued metric. Relevant unindexed material and different equivalent nomenclature remain risks. The checker exercises finite graph sizes only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the all-page, variable-exponent edge-book threshold, its corank and its asymptotic, with the transition to failure for at least three pages. Ordinary quadratic embeddability of two pages already follows from the three-path theta theorem and is not credited as new. Same-day pentagonal catalogue work has materially similar methods but different metrics and threshold regimes; no priority claim is made from dates.
+
+## value
+
+PASS
+
+Edge-sharing is a natural change from single-vertex gluing with a qualitatively different geometric effect: adding a third pentagon destroys ordinary QE, and many pages drive the snowflake exponent to zero on an exact inverse-size scale. The proof distinguishes which symmetry sector changes sign and gives precise endpoint dimension and threshold for every size, rather than just computing selected graph examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

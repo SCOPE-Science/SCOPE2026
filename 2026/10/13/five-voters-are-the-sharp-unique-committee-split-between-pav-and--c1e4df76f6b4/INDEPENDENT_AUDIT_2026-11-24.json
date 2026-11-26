@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:01.516222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and exact incidences; VERIFICATION.md; verify_pav_cc_unique_boundary.py (inspected, not executed)",
+        "/workspace/branches/1a79ad80-55e6-487d-90aa-f6520252784b/independent_pav_cc_census.out (independent source and replay output in same directory)"
+      ],
+      "rationale": "Normalize the distinct unique winners to PAV=AB and CC=AC. Let a,b,c be singleton counts and x,y,z be counts for AB, AC, BC. CC compares the singleton counts of the omitted candidates, so b<a,c. Twice the PAV score difference AB−AC is 2(b−c)+x−y; strictness forces x−y≥3. Thus n≥a+c+x≥2b+5. Equality forces b=0, a=c=1, x=3, and all other ballot counts zero, including empty and full ballots. Direct scores (11/2,5,4) and (4,5,4) give both strict winners, including the comparison with BC. The stabilizer is trivial: C is outside the repeated doubleton, and A is its uniquely singled-out member. There are six candidate renamings and 20 voter labelings each. Independent exact labeled and multinomial-weighted anonymous enumeration confirmed 0,0,0,0,120 conflicts for n=1 through 5, 11,970 jointly unique labeled profiles at n=5, and six conflicts among 792 anonymous profiles. The reported three fractions reduce exactly. This does not bound disagreement through ties or address other candidate and committee sizes.",
+      "residual_risks": [
+        "Finite exhaustive evidence applies only to the stated all-eight-ballot, three-candidate, two-seat domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The analogous indexed record proves a six-voter bloc AV/SAV boundary on nonempty ballots, canonical 3 AB+B+2 C, and 360 labeled conflicts.",
+          "The published CC example uses the same candidate and seat parameters but does not compare strict PAV versus strict CC winners."
+        ],
+        "reasoning": "Changing the scoring rules changes the inequalities. Neither inspected comparison subsumes the frozen boundary.",
+        "searches": [
+          "Resultary: minimal unique-winner differences of approval committee rules",
+          "2026/10/12/SCOPE-six-voters-are-the-sharp-unique-committee-split-between-bloc-app--07394ea18f47",
+          "arXiv:2501.15006, Example 3"
+        ]
+      },
+      "checked_sources": [
+        "Two local Resultary lookups on the boundary/related approval rules",
+        "Closest indexed bloc AV/SAV record, RESULT.md",
+        "Fitzsimmons, Hassan and Hemaspaandra, Example 3, arXiv:2501.15006",
+        "Frozen RESULT.md prior-work discussion and targeted query terms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common scoring framework supplies the definitions, not the strict integer bound or its equality census. The nearest published example has a PAV tie and the nearest indexed boundary has different rules."
+        ],
+        "reasoning": "Even known distinctions in representation behavior do not force the first electorate size, certify strictness, or classify the equality case. The score comparison and exact count are additional work.",
+        "searches": [
+          "arXiv:2501.15006, Example 3",
+          "Local mirror: SCOPE-six-voters-are-the-sharp-unique-committee-split-between-bloc-app--07394ea18f47, RESULT.md",
+          "Standard scoring formulations cited in frozen RESULT.md (arXiv:1407.8269 and arXiv:1309.4405)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Approval CC equals coverage, or equivalently minimizes uncovered ballots; with two seats its marginal weights are (1,0), versus (1,1/2) for PAV.",
+          "Example 3 is a three-candidate/two-seat CC profile with six voters. CC selects AB, whereas direct PAV evaluation ties all three committees at 6."
+        ],
+        "reasoning": "Minimizing uncovered voters or using the alternative weight notation describes the same objectives. A CC-only example is not a resolute split once the second rule is scored.",
+        "searches": [
+          "Resultary: PAV versus approval CC unique-winner boundary",
+          "Targeted literature lookup: PAV, approval Chamberlin–Courant, three candidates/two seats and unique-winner separation",
+          "arXiv:2501.15006, Example 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected indexed exact census is for bloc AV/SAV, with a different boundary and count. The literature lookup did not identify a table giving the PAV/CC boundary, orbit, or jointly resolute denominator."
+        ],
+        "reasoning": "There is no identified same-domain census to credit as covering the counts; unindexed enumerations remain possible.",
+        "searches": [
+          "Resultary: PAV/CC minimal conflict and approval-committee split analogues",
+          "Targeted literature lookup for this small PAV/CC domain"
+        ]
+      },
+      "rationale": "The distinct result supported by the available comparisons is the first resolute PAV/approval-CC split, its single boundary orbit and its exact census in this small domain. No priority claim is made for either rule, their common scoring representation, or general differences between their objectives.",
+      "residual_risks": [
+        "Unindexed examples, teaching sources or software census tables could contain the same profile or counts; the searches do not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different rules and ballot domain; not coverage",
+          "evidence": "Six voters, bloc AV/SAV, nonempty ballots, 3 AB+B+2 C and 360 labeled conflicts.",
+          "identifier_or_url": "2026/10/12/SCOPE-six-voters-are-the-sharp-unique-committee-split-between-bloc-app--07394ea18f47",
+          "material_read": "RESULT.md finding and domain",
+          "method": "Resultary hit resolved to the local source mirror",
+          "title": "Six voters are the sharp unique-committee split between bloc approval and satisfaction approval",
+          "trigger": "Closest indexed analogue in the same candidate and seat geometry"
+        },
+        {
+          "assessment": "Example does not exhibit different unique winners",
+          "evidence": "Six voters; CC selects AB; all three PAV scores are 6.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.15006; DOI 10.3233/FAIA251005",
+          "material_read": "Submitted-version PDF page 3, Example 3 (OA text offset 9500)",
+          "method": "Lawful OA passage inspection and scoring of its profile",
+          "title": "On the Parallelizability of Approval-Based Committee Rules",
+          "trigger": "Published CC example with three candidates and two seats"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen minimality, equality and incidence statements",
+        "Primary CC example in arXiv:2501.15006, Example 3, and indexed bloc AV/SAV comparison"
+      ],
+      "rationale": "Three candidates and two seats is the smallest geometry in which two multiwinner committees can compete. The two established representation objectives handle one approved member identically and differ on their treatment of two; isolating the first strict reversal therefore separates a real rule difference from tie handling. The characterization gives a reusable minimal witness and the exact incidence distinguishes the size of the disagreement set from the size of its jointly resolute domain. This is a narrow exact benchmark, not a general performance claim.",
+      "residual_risks": [
+        "The uniform finite-domain frequencies are not estimates for structured electorates or other ballot distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

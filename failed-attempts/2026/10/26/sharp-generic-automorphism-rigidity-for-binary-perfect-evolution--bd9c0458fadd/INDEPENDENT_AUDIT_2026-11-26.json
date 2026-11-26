@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:51:21.460366Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–65",
+        "Frozen VERIFICATION.md, lines 3–26; verify.py, lines 8–102"
+      ],
+      "rationale": "Reconstructed the proof for uniform labelled GL_n(F₂). The independent vectors e_k² force the supports of images of distinct natural-basis vectors to be disjoint; invertibility makes the automorphism matrix monomial, hence a permutation over F₂. Preservation of squares is equivalent to commuting with the structure matrix. For a transposition write P=I+N with N a single rank-one nilpotent block, Nv=u and N zero on u and the n−2 complementary vectors. A commuting map sends u to au, v to bu+av+w, and a complement vector x to Dx+λ(x)u. Ordering the basis as u, complement, v gives block-triangular determinant a² det D, so the invertible count is 2^(2n−3)|GL_(n−2)(2)|. Dividing by |GL_n(2)| gives the stated probability, including n=2. In the full matrix space, an invariant matrix is constant on simultaneous ordered-pair orbits. For a permutation moving k letters in s nontrivial cycles, the codimension is at least 2(n−k)(k−s)+k²/2, since all orbits on moved–moved ordered pairs have size at least two. The union bound for 3≤k≤n/2 starts at n³2^(−9n/4), and for k>n/2 is bounded by n!2^(−n²/8); the positive lower bound on invertibility preserves negligibility. Two distinct transpositions imply a three-cycle or a double transposition, with respective codimensions 4n−6 and 4n−8 by counting the orbits on their three or four moved letters and the pairs with fixed letters. Thus O(n⁴) intersections are negligible in Bonferroni. This yields the stated leading probability and, conditionally, exactly one nonidentity element, a natural-basis transposition. The finite enumeration code was inspected, not executed.",
+      "residual_risks": [
+        "The result is for labelled matrix-uniform sampling, not isomorphism-class-uniform sampling or larger fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result has the same leading term with a remainder O(n⁴2^(−3n)), and also gives the first isomorphism-class count correction.",
+          "The primary literature gives structural and orbit-counting frameworks, not the sharp distributional conclusion in those passages."
+        ],
+        "reasoning": "The catalogue theorem specializes immediately to all the principal frozen assertions. The broader classical reduction is not itself treated as a sharp asymptotic.",
+        "searches": [
+          "Resultary c0b936280b48, Finding and Proof steps 3–5",
+          "Elduque–Labra arXiv:1902.02191, Theorem 3.2",
+          "Wei–Zou arXiv:2310.12368, Eq. (2.1)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c0b936280b48",
+        "arXiv:1902.02191",
+        "arXiv:2310.12368",
+        "arXiv:2202.01333"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed bound sums over all permutations of deficiency at least two, precisely the nonidentity nontranspositions. If two transpositions stabilize a matrix, their product is included in that exceptional family.",
+          "The structural exact sequence and Burnside identity alone do not state the needed estimates, but the indexed proof does."
+        ],
+        "reasoning": "Off the indexed error event, a nontrivial group has exactly one transposition and no nontransposition. This is the stronger permutation-type conclusion in the frozen result.",
+        "searches": [
+          "Resultary c0b936280b48, Proof steps 3–4, offsets 4800–7209",
+          "Elduque–Labra, Theorem 3.2; Wei–Zou, Eq. (2.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At q=2 the monomial orbit action reduces to simultaneous permutation conjugation. Transposing the structure matrix changes row convention to column convention and preserves the permutation centralizer.",
+          "The indexed source c0b936280b48 has the same labelled measure and the same fixed-transposition formula."
+        ],
+        "reasoning": "This is the same distribution of the full natural-basis stabilizer, not just an analogous asymmetry statement for an unconditioned random digraph.",
+        "searches": [
+          "Resultary: sharp rare-symmetry laws for perfect binary evolution algebras and simultaneous binary matrix permutation stabilizers",
+          "Wei–Zou arXiv:2310.12368, Eq. (1.5) and Corollary 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact probability agrees at every n≥2, not only at dimensions covered by the frozen script.",
+          "Orbit counts and the distribution of labelled stabilizers are different objects, so finite isomorphism counts alone do not establish this distribution."
+        ],
+        "reasoning": "Comparison is with a symbolic all-dimension probability; small numerical enumerations add no independent exact claim.",
+        "searches": [
+          "Resultary c0b936280b48, Finding, prescribed-transposition formula",
+          "Wei–Zou, Corollary 1.1 and Eq. (2.1)"
+        ]
+      },
+      "rationale": "The distinct indexed record c0b936280b48 has the same sampling, exact transposition probability, and sharp rare-symmetry law. Its proof controls all nontranspositions, so the natural-basis-transposition conditional conclusion is also covered, not just the abstract C₂ isomorphism type. It additionally gives a sharper error estimate and a Burnside orbit-count correction. Its column convention is equivalent to the frozen row convention by transposition, which is a bijection on GL_n(F₂) and preserves every permutation commutation condition. The path dates do not settle priority; the assessment is demonstrated equivalent and stronger coverage, not a provenance finding.",
+      "residual_risks": [
+        "The separate record is later-dated by path; no precedence or provenance is inferred from either path.",
+        "The broad primary search yielded no focused new match and was not used as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same probability laws and stronger tail and counting statements; priority not determined",
+          "evidence": "The exact p_n formula and leading asymptotic coincide; the ordered-pair deficiency estimate and group proof cover the conditional transposition generator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-rare-symmetry-law-for-perfect-binary-evolution-algebras--c0b936280b48/RESULT.md",
+          "material_read": "Finding and beginning of Assumptions, offset 0–1600; Proof steps 3–5 passage, offsets 4800–7209",
+          "method": "Resultary search, bounded mirror reads and convention comparison",
+          "title": "Sharp rare-symmetry law for perfect binary evolution algebras",
+          "trigger": "Exact statement match under labelled GL_n(F₂) sampling"
+        },
+        {
+          "assessment": "Structural precedent",
+          "evidence": "Exact sequence with diagonal and graph automorphism groups; no sharp probability claimed in the passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.02191",
+          "material_read": "Theorem 3.2 and preceding remark, PDF p. 9",
+          "method": "OA passage comparison",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "Graph reduction for perfect evolution algebras"
+        },
+        {
+          "assessment": "Earlier orbit framework, not the inspected distributional law",
+          "evidence": "At q=2 the diagonal factor disappears, and Burnside averages permutation fixed counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+          "material_read": "Eq. (1.5), Corollary 1.1 and Eq. (2.1), pp. 3–4",
+          "method": "OA passage comparison",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "General group action on invertible structure matrices"
+        },
+        {
+          "assessment": "Group realization context; conclusion limited to inspected material",
+          "evidence": "Studies realizable automorphism groups and classifications, not a matrix-uniform probability law in the abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01333",
+          "material_read": "Abstract, p. 1",
+          "method": "OA passage comparison",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Broader automorphism-group classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 42–74",
+        "Resultary c0b936280b48, Finding and Proof steps 3–5"
+      ],
+      "rationale": "The leading effect of conditioning on invertibility and the identification of transpositions are mathematically meaningful. But as a distinct finding, the frozen record reproduces exactly those facts from the indexed comparison, which already has a sharper estimate. Its coarser support-size proof and finite census do not supply a different invariant, stronger classification, or separate substantive conclusion.",
+      "residual_risks": [
+        "This assessment is about added scientific content, not the usefulness of the rare-symmetry law itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

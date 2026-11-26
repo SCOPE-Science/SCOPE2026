@@ -1,19 +1,21 @@
-# Review of the sharp hard-core zero-circle classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Conditioning on hub occupation gives the exact degree-\(m+1\) polynomial. The circle is the strict Rouché-dominance boundary, containing \(m\) roots by an all-size argument. Monotone real-axis ratios give exactly one exterior root and the parity-dependent interior count. The multiple-root necessary quadratic has no left-half-plane zeros for \(m\ge3\), and the low-degree cases are covered by the distinct real-root count. The escape asymptotic follows from the unique exterior-root equation; the uniform radial condensation follows from the exact Möbius relation. A separate graph enumeration and exact rational/Sturm check confirmed 103 instances and conditions without replacing infinite proofs.
+PASS
 
-## Originality — PASS on examined evidence, with residual priority risk
+Conditioning on the hub gives the stated degree-(m+1) polynomial. The equality |1+2z|=|1+z| on the stated circle and the strict bound |z|≤2/3 give exactly m interior zeros by Rouché, with none on the boundary. On the negative real axis write z=−x. For 0<x<1/2 the positive ratio (1−2x)/(1−x) decreases from 1 to 0; its m-th power thus crosses x once. For 1/2<x<1 both terms have the same negative sign when m is odd, whereas for even m the log derivative of ((2x−1)/(1−x))^m/x is 2m/(2x−1)+m/(1−x)−1/x>0, and the ratio already exceeds 1 at 2/3. For x>1 the ratio equation becomes x=(2+1/(x−1))^m with a strictly decreasing right-hand side bounded below by 2^m. This proves uniqueness of the exterior zero and the real census, including m=1,2. Differentiation at any multiple zero gives mz=(1+2z)(1+z); for m≥3 its candidates have nonnegative real part, excluded by the root locations, and for m=1,2 all roots are already distinct by the count. Writing Q=2^m, the exterior equation first gives X_m−Q=O(m) by exponentiation and then gives X_m−Q=mQ/[2(X_m−1)]+O(m²/Q)=m/2+O(m²/Q). Under w=(1+2z)/(1+z), an interior zero satisfies |w|^m=|w−1|/|2−w|. On |w|≤1−ε the left side tends uniformly to zero and the right side is at least ε/3; the inverse Möbius map transfers the uniform boundary approach. This is not a claim of angular equidistribution. The accompanying graph/Sturm checks were inspected, not run, and do not certify the complex all-m assertions.
 
-The exact conditional spider polynomial and the general strict left-half-plane stability statement are existing results, not the new claim. Scott–Sokal's tree formulation, Law's spider identities, and Wang's special-tree polynomial results provide the formula and background; Zhang–Tu's Theorem 4 implies only the strict left-half-plane part. The present exact disk, root census, exceptional-root asymptotic and uniform circle condensation require additional comparison, root counting and asymptotic arguments; they are not direct consequences of coefficient unimodality or half-plane location alone. published-finding corpus searches covering once-subdivided stars, hard-core complex zeros, and exponential outliers returned other graph invariants and different stability cases, with no identified exact claim covering the whole statement. The possibility of an earlier specific analytic treatment of this simple binomial-polynomial family remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unit disk is not a numerical plotting artifact: a fixed, sharp Rouché separation circle isolates all but one zero for an unbounded-degree hierarchy of natural hard-core tree models, and a single zero escapes exponentially. The all-size real-zero count, simplicity and condensation together give a complete qualitative complex-zero picture useful when interpreting finite-system partition-function singularities. This exact naturally parameterized classification has clear significance independent of any hypothetical downstream theorem. It is not proposed as a classification for arbitrary spiders or a new general stability theorem.
+The exact partition polynomial, left-half-plane stability and the qualitative circle of accumulation have preexisting coverage. The supported distinct finding is the joint finite-size disk count with simplicity and exact parity census, and the single outlier with its escape expansion. The strongest inspected sources do not give those refinements by direct specialization.
 
-## Closest literature and limitations
+## value
 
-See the citations and direct claim comparisons in `RESULT.md`. The known general spider stability theorem is strictly broader on left-half-plane placement; the new circle/outlier details are narrower but not implied by that placement. The finite computational checker validates only the stated finite range; the proof covers all \(m\ge1\). Novelty remains conditional on unindexed literature and independent specialist review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The once-subdivided star is a natural parameter family separating a shared hub from independent two-vertex arms. The fixed sharp region for the bulk, complete finite-size parity and simplicity, and the location of the one negative outlier give an exact complex-fugacity classification beyond stability and a limiting locus. No angular density or physical phase transition is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

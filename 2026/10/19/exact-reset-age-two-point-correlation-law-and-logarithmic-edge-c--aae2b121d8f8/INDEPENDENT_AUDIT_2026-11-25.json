@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:18:42.496250Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Flipping either marked spin gives −2 C_n plus γ times its two neighboring separations; at n=1 the coincident product is 1, so the Dirichlet bulk operator has forcing γ at site 1. With product-symmetric initial law, the derivative is the semigroup applied to that forcing. The sine kernel gives γ exp(−2t)(I_{n−1}−I_{n+1})=n exp(−2t) I_n(2γt)/t>0. The bulk bounded semigroup contracts at least as e^{−2(1−γ)t}, so the limiting recurrence yields q^n. This supplies an invertible map of the exponential age, with no atoms, not a continuous law for an instantaneous ±1 spin product. The short-time series gives C_n(t)∼γ^n t^n/n!, hence the lower-edge density including the finite n=1 endpoint. Write D=n/√(4πγ); at fixed n, C'_n∼D e^{−λt} t^(−3/2) and its tail δ is ∼C'_n/λ by integrating against the exponential. Thus f∼a(λ/D)^a δ^(a−1)t^(3a/2), with t∼log(1/δ)/λ; the leading constant is a(D√λ)^(−a), and the density still diverges at a=1. Taking the mean and Laplace transforming the bulk equation gives the bounded geometric root with 2 replaced by 2+ρ and boundary value one. Independent replay: python3 /workspace/branches/independent_checks.py 2 (SciPy) uses the sine integral for both the derivative and the rescaled tail, not the frozen computation. The limiting density-ratio check was within 0.00056 of one at the largest sampled time for three (n,γ) and three ρ/λ values (including equality). This quadrature is bounded and not interval-certified; the analytical asymptotic is the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mayo et al. give an I_n(η)/η representation for slow quenches (B1–B4). Magoni et al. give exponential age mixing and a magnetization transition, and explicitly propose the structure of two-point correlation distributions as future work."
+        ],
+        "reasoning": "General age mixing supplies the mapping conditional on an input relaxation law; no inspected broader resetting result supplies the exact product-start pair law and its critical edge classification together. The transient calculation itself uses classical tools.",
+        "searches": [
+          "Glauber (1963) DOI 10.1063/1.1703954",
+          "arXiv:2105.09138 Appendix B",
+          "arXiv:2002.04867 §§ on age mixture and conclusions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and exact record 65cef8842981",
+        "arXiv:2002.04867",
+        "arXiv:2105.09138",
+        "arXiv:2202.12655",
+        "DOI 10.1063/1.1703954 (identity/access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-plus record uses a sum of Bessel functions S_n whose decay is e^{−λt}t^(−1/2); the frozen product law uses the boundary-source kernel nI_n(2γt)/t giving e^{−λt}t^(−3/2)."
+        ],
+        "reasoning": "The elementary CDF formula follows once C_n is known; it is not independently novel. Extending the known age framework to the specific pair relaxation requires the correct boundary-source tail, which changes the equality singularity. The all-plus claim and the magnetization claim do not yield that tail by specialization.",
+        "searches": [
+          "arXiv:2002.04867 conclusion",
+          "arXiv:2105.09138 Appendix B (B1–B4)",
+          "65cef8842981 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-plus Resultary law has decreasing C_n, support (q^n,1), and log^(1/2) at the equilibrium edge. The frozen law has increasing C_n, support (0,q^n), and log^(3/2) there. The coherent quantum reset model has noninteracting Rabi spins, not these Glauber rates."
+        ],
+        "reasoning": "Neither reflecting the correlation about the equilibrium endpoint nor matching λ preserves the edge power of the logarithm, which is determined by the initial condition as well as the generator. The 2020 magnetization threshold is also a different observable.",
+        "searches": [
+          "Resultary local index: Glauber pair-correlator age law, doubled resetting threshold, logarithmic edge",
+          "arXiv:2002.04867 pp. 2–3, 5",
+          "arXiv:2202.12655 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close catalogue entry contains exact edge and mean formulas but starts at all-plus; its edge asymptotic factor is log^(ρ/(2λ)) and its mean includes a nonzero constant offset. The result under review has log^(3ρ/(2λ)) and a pure geometric mean."
+        ],
+        "reasoning": "This is an exact-formula family rather than a finite database invariant. The inspected catalogue formula is not a match; failure to locate another exact entry is not novelty evidence by itself.",
+        "searches": [
+          "Resultary local index for reset-age Glauber pair laws and log edge; compare catalogue result 65cef8842981",
+          "arXiv:2002.04867 concluding discussion of existing and open resetting observables"
+        ]
+      },
+      "rationale": "The classical correlation evolution and the resetting pushforward principle are prior ingredients. The supported distinct result is the unbiased-product fixed-separation law with its sharp t^(−3/2) edge conversion, in particular the critical log^(3/2) divergence and exact coefficient. The closest Resultary hit also has a doubled threshold but uses all-plus preparation, and it gives a different support and a different critical logarithmic exponent. No priority inference is made from directory dates.",
+      "residual_risks": [
+        "The exact transient formulas present in Glauber's classical article were not confirmed from full text; no originality is assigned to the classical evolution or Bessel technique.",
+        "Earlier exact priority for the specific product-start edge or a hidden broader resetting result is not ruled out by bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior resetting and magnetization law; explicit further-work statement for distributions of two-point correlations",
+          "evidence": [
+            "The exponential last-reset age drives the magnetization mixture; the conclusion proposes studying the structure of the distribution of the two-point correlation functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.04867",
+          "material_read": "PDF pp. 2–3, p. 5 (offsets 15111, 21450, 32200)",
+          "method": "OA primary PDF passages",
+          "title": "Ising model with stochastic resetting",
+          "trigger": "Closest prior interacting Glauber reset model and distributional threshold"
+        },
+        {
+          "assessment": "Bessel correlation machinery for cooling, not a resetting edge result",
+          "evidence": [
+            "Equation B2 is an n I_n(η)/η integral with a cooling-schedule dependent weight; nothing in this derivation mixes over Poisson reset ages."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.09138",
+          "material_read": "Appendix B, pp. 17–18, eqs. B1–B4 (offset 121700)",
+          "method": "OA primary PDF passages",
+          "title": "Distribution of Kinks in an Ising Ferromagnet After Annealing and the Generalized Kibble-Zurek Mechanism",
+          "trigger": "Glauber two-point transient involving the same Bessel recurrence"
+        },
+        {
+          "assessment": "Different spin dynamics and observable",
+          "evidence": [
+            "Noninteracting coherent Rabi spins, rather than an interacting classical Glauber generator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.12655",
+          "material_read": "Abstract and opening page",
+          "method": "OA primary PDF",
+          "title": "Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+          "trigger": "Reset correlation law in a superficially similar spin model"
+        },
+        {
+          "assessment": "Precise coverage of the reset-free transient was not established by inspection",
+          "evidence": [
+            "Full-text routes returned 403 or 404; no negative inference about transient formulas is drawn."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/1.1703954",
+          "material_read": "Bibliographic identity and OSTI landing page only",
+          "method": "Lawful AIP/OSTI retrieval attempts; full text not obtained",
+          "title": "Time-Dependent Statistics of the Ising Model",
+          "trigger": "Classical source for exact transient without resets"
+        },
+        {
+          "assessment": "Closely overlapping framework but not the frozen preparation or edge law",
+          "evidence": [
+            "The deterministic all-plus reset has support (q^n,1); at criticality the singularity is a square root of a logarithm at the lower edge."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-doubled-resetting-threshold-and-logarithmic-edge-singularity-f--65cef8842981/RESULT.md",
+          "material_read": "Finding and assumptions (local-mirror offsets 0–4500), plus comparison section (7760–10214)",
+          "method": "Local Resultary search and bounded primary-record passages",
+          "title": "A doubled resetting threshold and logarithmic edge singularity for Glauber–Ising spatial correlations",
+          "trigger": "Same fixed-distance observable and same threshold in a different reset protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distribution of an age-conditioned two-point expectation is a specifically motivated next observable beyond magnetization. Its mean cannot detect either edge. The infinite-chain, fixed-distance relaxation has a power prefactor that changes the edge law qualitatively at the critical reset rate; knowing just the relaxation exponent would miss the divergence there. The preparation-dependent comparison with all-plus also shows why the exact log power matters. This is a local distributional singularity, not a thermodynamic phase transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

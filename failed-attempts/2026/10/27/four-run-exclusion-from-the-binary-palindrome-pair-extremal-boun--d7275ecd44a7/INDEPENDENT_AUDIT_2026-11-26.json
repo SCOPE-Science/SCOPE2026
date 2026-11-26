@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:07:30.669575Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62",
+        "Frozen VERIFICATION.md and checker.py, inspected, not executed",
+        "python3 -B /workspace/branches/audit-replays/strings.py",
+        "Guo–Shallit–Shur arXiv:1503.09112, Proposition 5 (conjugacy criterion used in replay)"
+      ],
+      "rationale": "Counting distinct factors by their run forms gives one empty factor, the two maximal monochromatic ranges, a union of two rectangles for 01 with the overlap subtracted, bc for 10, and ac+bd for three-run factors. All of these are palindrome pairs. For a four-run factor 0^i1^b0^c1^j a qualifying split must either use the initial zero run alone with j=b, or use a three-run first palindrome that ends precisely at the end of the third run with i=c. Their overlap contributes just once. For the bound write X=(n^2+2n)/3. In the region c<=a, b<=d the simplified product is at most (n+2)^2/4. In the opposite region, with s=b+c and t=a+d, use bc<=s^2/4 and ad>=t−1 and complete the square to get (n^2+n+10)/3. In the mixed region c<=a, b>d, set t=a+c, s=n−t and use P=1+n+st+c(t−1−c)+d(s−t−d). If s<=t the last term is at most s−t−1, giving (n^2+n+7)/3 after optimizing in t; if s>t complete both squares and use 2<=t<n/2, giving 5n^2/16+3n/4+5/4. Reversal followed by complement gives the remaining region. These bounds are <=X for n>=10, so P<L. For n=4..9 the independently enumerated maxima are 8,12,16,21,27,33, all strictly below L. The three-run count 1+max(x,z)+y+xy+yz+xz gives L in the three indicated residue classes. The independent conjugacy-based replay checked 1001 four-run words and the three-run witnesses for n=4..14.",
+      "residual_risks": [
+        "The replay checks finitely many lengths; the case inequalities, not extrapolation, handle n>=10. No unrestricted maximum or assertion about more than four runs is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borchert–Rampersad §4 propose the unrestricted benchmark and candidate examples, explicitly without a proof of the maximum.",
+          "The mirrored theorem establishes the at-most-four-run benchmark, computes the exact four-run maximum for every length, and gives all maximizers for n>=8."
+        ],
+        "reasoning": "The unrestricted conjecture does not supply a proof. The sharp theorem under the same bounded-run assumptions is stronger than exclusion and supplies three-run attainment.",
+        "searches": [
+          "Websearch: \"Words with many palindrome pair factors\" binary words distinct factors four runs at most three runs Lemma 13 extremal formula",
+          "Resultary record e23e9ffaf1ab, theorem and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior-work section",
+        "Resultary e23e9ffaf1ab",
+        "arXiv:1509.05396",
+        "arXiv:1503.09112"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror gives M_4(n)=floor((n^2+n+10)/3) for n>=8 and M_4=8,12,16,21 for n=4..7. Borchert–Rampersad Lemma 13 already gives palindrome-pair status for all words with at most three blocks."
+        ],
+        "reasoning": "For n>=8 the argument of the floor in M_4 is strictly less than the argument of the ceiling in L; n=4..7 follow from the four explicit values. Three-run eligibility and the two-rectangle factor inventory give the proposed witness counts directly. No new exclusion remains after the stronger bound and exact inventory are compared.",
+        "searches": [
+          "arXiv:1509.05396 §4 and Lemma 13",
+          "Resultary e23e9ffaf1ab, mirrored RESULT.md, theorem and Eq. (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record e23e9ffaf1ab, Eq. (1), gives the same empty, one-, two-, three- and four-run factor counts with the same overlap corrections. It uses H(n)=1+floor((n+1)^2/3)=L(n).",
+          "Guo–Shallit–Shur characterize products of two palindromes by conjugacy to reversal."
+        ],
+        "reasoning": "Conjugacy supplies an individual factor test, not the distinct-factor enumeration. The mirrored formula itself, however, counts the identical object under identical conventions. The expression for H agrees with L because (n+1)^2 is 0 or 1 modulo 3.",
+        "searches": [
+          "Resultary: binary words distinct contiguous factors that are concatenations of at most two palindromes; exact counts or extremal bounds for four runs and three-run benchmark",
+          "Resultary: exact distinct palindrome-pair factor count for binary four-run word 0^a1^b0^c1^d, including four-run factors",
+          "arXiv:1503.09112 Proposition 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separate catalogue record states the entire claimed parameter regime and gives an exact formula, not a match of a few tabulated values."
+        ],
+        "reasoning": "No external numerical table is necessary for this symbolic claim; the searchable corpus has an exact statement-level match.",
+        "searches": [
+          "Resultary: binary palindrome pair factors distinct contiguous factors at most three runs extremal count ceil((n^2+2n+3)/3) and four-run exclusion",
+          "2026/11/8/SCOPE-sharp-palindrome-pair-factor-bounds-for-four-run-binary-words--e23e9ffaf1ab"
+        ]
+      },
+      "rationale": "The exact factor formula is repeated term-for-term, and the strict four-run exclusion is covered by a stronger sharp theorem in a distinct Resultary record. The benchmark and three-run attainment are likewise covered. This is a decision about demonstrable coverage in the checked corpus, not about priority: the matching catalogue label is later and does not show that this frozen result was derived from it or lacked novelty when first obtained.",
+      "residual_risks": [
+        "The distinct matching catalogue record is labelled later. Mathematical overlap is verified; chronology of discovery, independence and earlier dissemination are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula and stronger theorem imply all frozen conclusions",
+          "evidence": "Same four-run inventory and benchmark. Exact four-run maximum is strictly lower than the benchmark, which is attained with at most three runs.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-palindrome-pair-factor-bounds-for-four-run-binary-words--e23e9ffaf1ab",
+          "material_read": "Mirrored RESULT.md offsets 0–8007 in bounded passages; theorem at offset 130 and Eq. (1) at offset 2170",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp palindrome-pair factor bounds for four-run binary words",
+          "trigger": "Exact claim and stronger sharp maximization"
+        },
+        {
+          "assessment": "Same problem and conjectural benchmark, not the exact four-run theorem in the passages checked",
+          "evidence": "Counts distinct palindrome-pair factors, proposes the displayed L, lists candidate extremizers mod 3 and proves the three-block lemma.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.05396",
+          "material_read": "Introduction, PDF p. 1; §4 pp. 4–5; Lemma 13 p. 6, offsets 0, 15000–19451 and 18760",
+          "method": "OA full-text passages",
+          "title": "Words with many palindrome pair factors",
+          "trigger": "Same extremal problem and benchmark"
+        },
+        {
+          "assessment": "Individual membership criterion, not the claimed optimization",
+          "evidence": "A product of two palindromes is precisely a word conjugate to its reversal.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.09112",
+          "material_read": "§3, Proposition 5, PDF p. 5, offset 13056",
+          "method": "OA full-text passage",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Equivalent characterization of palindrome pair"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–20 and 26–66",
+        "Borchert–Rampersad §4",
+        "Resultary e23e9ffaf1ab, theorem and Eq. (1)"
+      ],
+      "rationale": "Excluding an entire run class in the Borchert–Rampersad problem is a meaningful restricted question. Here the frozen conclusion is already covered by an exact worst-case theorem and the same distinct-factor inventory. The frozen coarser upper inequalities do not provide a further structural or extremal result beyond that coverage.",
+      "residual_risks": [
+        "This is not a judgment about the value of pursuing the unrestricted conjecture or a historical priority determination."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

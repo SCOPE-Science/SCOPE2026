@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:21:26.044996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen variance expression has denominator N-1 although N=2n-k=1 is permitted when n=k=1. The original formula is undefined there. The complete corrected repairs/4/RESULT.md restricts the expression to N>=2 and proves the deterministic zero variance at N=1. For N>=2 total variance yields a^2 Var(M)+a(1-a) E[M(N-M)]/(N-1), which equals the displayed harmonic expression. The event that a retained point is maximal twice is exactly maximality in the combined union. With the retained indices fixed, all union positions are exchangeable conditional on the number M of maxima, giving the hypergeometric law; independent ranked planar record indicators and independent selection of the rank marks give the coefficient PGF. The product-uniform orthant integral gives the alternating sum by binomial expansion. For refreshed labels, if the shared side is large, the joint upper bound is E exp(-m max(A(X),A(Y))); the CDF of the maximum is F_d^2 and the change of variable u=s/m in its Laplace integral gives O((1+log m)^(2d-2)/m^2). If instead the refreshed side is large, the two independent one-sample maxima probabilities give the same order. Consequently P and I can differ only with uniformly o(1) probability. Bai et al. (2)–(4) give the growth and concentration of M, uniformly over N in [n,2n]. Coupling marks by drawing M slots with replacement and handling a repeated slot at cost at most M(M-1)/(2N) gives the independent thinning limit, and binomial concentration supplies the factor q/(2-q) and rare mean theta/[2(d-1)!]. In dimension two the independently marked record count has Bernoulli probabilities a/j; the Poisson–Stein bound is at most a sum(1/j^2)/H_N <= C/H_N. The change in the Poisson parameter under K fluctuation is O(log n / sqrt(n)), uniformly in q, using a(k) Lipschitz with constant 2/n and harmonic increments at most 1/n there. At a=0 the approximation is exact for the thinned count. The supplied code was inspected rather than rerun; its variance helper already treats N=1 separately. No other files need correction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai et al. give one-sample mean and variance for fixed-dimensional hypercubes. Hwang–Tsai–Chen change the order relation by using k-dominance within one sample.",
+          "6c5efa9ae94d deals with long runs in coupled bit arrays and a joint Poisson crossover under per-bit refresh."
+        ],
+        "reasoning": "Neither a single-sample count nor change of dominance relation determines simultaneous same-label maximality. Coupled bit runs use a different local dependence mechanism, not a general theorem about overlap of random antichains.",
+        "searches": [
+          "https://luc.devroye.org/max-d-cube.pdf, pp. 2–3",
+          "arXiv:1111.6224, abstract and p. 2 definition",
+          "Resultary 6c5efa9ae94d, independent bit refresh"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 396064bae986 (self), 278e7537a80c, db827d47108a, 6c5efa9ae94d",
+        "Bai et al., Maxima in Hypercubes",
+        "Barndorff-Nielsen–Sobel via citation and Bai et al. (original PDF unavailable)",
+        "arXiv:1111.6224"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical maxima estimates control M, and exchangeable thinning then yields the rare-retention law for P. The matching overlap result conditions on independent exchangeable edge sets, not retained union points.",
+          "The original refreshed-label bounds use either two independent refreshed clouds or the two-probe shared-cloud orthant volume; the uniform planar conclusion also needs random K parameter control."
+        ],
+        "reasoning": "Core marking is routine given the union identity, but a Poisson theorem for the total count I does not follow by merely specializing single-sample results or thinning records without bounding the refreshed labels. The compared sources do not provide those model-specific estimates.",
+        "searches": [
+          "Bai et al., Maxima in Hypercubes (2)–(4)",
+          "Resultary 278e7537a80c, Finding",
+          "arXiv:1111.6224"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record is a local-catalogue self-match. The distinct hit 278e7537a80c is overlap of two independent label-exchangeable matchings and gives a circle reciprocal-neighbor pair limit.",
+          "Union maximality gives the correct marked-core reformulation only for the retained component P. The total I also allows a refreshed label to be maximal at two distinct positions."
+        ],
+        "reasoning": "A common maximum in two partially shared Pareto samples is not the overlap of independent matchings, and a fixed-size color selection in the union accounts only for P, not the error from refresh coincidences.",
+        "searches": [
+          "Resultary: Pareto maximum persistence under independent resampling, retained-core hypergeometric thinning, marked planar maxima and overlap",
+          "Bai–Devroye–Hwang–Tsai, Maxima in Hypercubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Pareto persistence hit is self. The matched corner-covariance finding concerns threshold counts of maxima within one planar sample. Bai et al. attribute the exact single-sample maxima integral to Barndorff-Nielsen–Sobel.",
+          "The ordinary planar record probabilities already give the PGF upon inserting exchangeable size-k marks; the finite check is not a historical source."
+        ],
+        "reasoning": "The single-sample tables and exact formulas must receive credit. They are not an index of overlap laws across partially refreshed samples or of uniform-in-retention error estimates.",
+        "searches": [
+          "Resultary: exact marked/colored record PGF and planar maxima counts",
+          "Resultary db827d47108a, single-sample corner covariance",
+          "MathNet Barndorff-Nielsen–Sobel citation and Bai et al., §1"
+        ]
+      },
+      "rationale": "The distinct content supported by the comparison is the persistence law for two partially shared samples under whole-vector refresh, especially the uniform negligible refreshed-label term and the resulting uniform planar Poisson approximation. The exact hypergeometric step is generic marking/exchangeability, and classical one-sample skyline and record identities are inputs, not independent claims of novelty. The one-point variance correction does not alter the literature comparison or any asymptotic claim.",
+      "residual_risks": [
+        "An earlier marked-record or random-antichain overlap theorem could cover more than the inspected statements; the bounded primary search did not resolve that possibility.",
+        "The Barndorff-Nielsen–Sobel original full text was not retrieved. The exact classical moment input is independently available in Bai et al."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact mean and fixed-dimension concentration, not a partial-refresh statement in these results",
+          "evidence": "Variance divided by (log n)^(d-1) stays bounded for d>=2; the expectation asymptotic has factor 1/(d-1)!.",
+          "identifier_or_url": "https://luc.devroye.org/max-d-cube.pdf",
+          "material_read": "Introduction pp. 2–3, around offsets 3969 and 4967–7533, (2)–(4) and Theorem 1",
+          "method": "Lawful author PDF, bounded passages",
+          "title": "Maxima in Hypercubes",
+          "trigger": "Decisive single-sample maxima mean and variance input"
+        },
+        {
+          "assessment": "Verified citation and classical single-sample input, not a full-text comparison",
+          "evidence": "Bai et al. p. 2 credits this paper with the single-sample maxima integral.",
+          "identifier_or_url": "Barndorff-Nielsen–Sobel (1966), Theory of Probability and Its Applications 11, 249–269; https://m.mathnet.ru/links/c4da4be81939f1b3092c1f57d18d3494/tvp624.pdf",
+          "material_read": "MathNet citation/landing material at offset 844, not original PDF; the mean is verified in Bai et al.",
+          "method": "Identified MathNet open PDF attempted; used accessible independent mathematical statement for the cited input",
+          "title": "On the distribution of the number of admissible points in a vector random sample",
+          "trigger": "Classical exact maxima formula and possible exact overlap source"
+        },
+        {
+          "assessment": "Different one-sample order relation",
+          "evidence": "Relaxes dominance to k coordinates within one dataset.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.6224",
+          "material_read": "Abstract p. 1 at offset 1547 and definition p. 2 at offset 4877",
+          "method": "Open primary paper, bounded passages",
+          "title": "Threshold phenomena in k-dominant skylines of random samples",
+          "trigger": "Skyline threshold phenomena"
+        },
+        {
+          "assessment": "Analogy, not stronger coverage",
+          "evidence": "Exact conditional overlap PGF for independent label-exchangeable matchings, including a reciprocal-nearest-neighbor circle limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-distribution-free-overlap-calibration-and-multiscale-limits-for--278e7537a80c/RESULT.md",
+          "material_read": "Finding, offset 0, local mirror",
+          "method": "Local catalogue and matched mirrored file",
+          "title": "Distribution-free overlap calibration and multiscale limits for exchangeable matchings",
+          "trigger": "Strongest distinct mathematical overlap hit"
+        },
+        {
+          "assessment": "Distinct statistics or refresh rules",
+          "evidence": "First uses a single skyline with corner thresholds; second uses longest runs in bit arrays under per-bit refresh.",
+          "identifier_or_url": "Resultary db827d47108a and 6c5efa9ae94d",
+          "material_read": "Both Findings at offset 0, local mirror",
+          "method": "Local catalogue and matched mirrored files",
+          "title": "Exact negative corner-count covariance for planar Pareto maxima; sharp shared-run Poisson transition under independent bit refresh",
+          "trigger": "Closest separate maxima and refresh matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The robustness of a Pareto skyline to retention and refresh is a motivated two-sample problem. The union-normalized q/(2-q) survival fraction, the dimension-dependent rare-retention calibration, and a bound uniform from no retention to full retention in the plane together quantify it. The fresh-label control and uniform error make this more than the routine exact law for marking a fixed set; the finite boundary correction preserves that contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

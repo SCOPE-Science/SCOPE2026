@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:33:46.343683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–50",
+        "VERIFICATION.md and checker.py (read as evidence, not executed)",
+        "Nishimura, Definitions 2.2–2.5 and 4.22, Figure 1, Lemma 4.29"
+      ],
+      "rationale": "If a relation on the same worlds and valuation preserves all truth, its successor set at w is contained in E_w and satisfies exactly the formulas in H_w; hence KRep is necessary. Conversely taking E_w as successor sets proves agreement by induction. Only the direction from truth on E_w to membership can fail. Given a missing formula, one H_w-formula falsified at each of its finitely many counterworlds is a complete certificate of failure, including the empty tuple when there are no counterworlds. Membership and truth tests are effective on the total-input promise; dovetail the certificate tests if treating all codes as potential inputs. For hardness one can tabulate all subformulas on the all-false assignment and the singleton-true assignments at the input formula's finitely many atomic indices that qualify by bounded simulation. All other singleton-true assignments agree with the all-false one on its support, so the tabulation is exact, and primitive recursive. With H the intersection of the resulting theories, the concrete one-world frame under each valuation evaluates by the same recursion. Thus E and G hold under their all-valuations quantifiers, while M, C, N, K follow from classical truth at every simulated assignment. The absent contradiction excludes the dead-end relation; after halting a missing negated atom, true at the actual world, excludes the reflexive relation. Before halting the reflexive relation agrees on all formulas. This verifies both directions and preserves the promise.",
+      "residual_risks": [
+        "Completeness is relative to promised total effective inputs, not an assertion about recognizing total descriptions or the promise itself.",
+        "The explicit closure preserves nonempty finite unions (binary union suffices), not the nullary union; it has cl(empty) = H. Neither a fixed finite propositional alphabet nor an explicit finite closure table is covered.",
+        "The frozen checker supplies bounded diagnostics only; the proof is independent of them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Takahashi classify decision problems on finitely axiomatized transitive tense logics, including logic-level metaproperties, not representability of an effective model on its fixed set of worlds.",
+          "The Rudolph record is about representations of closure operators; no full-text claim about effective modal model recognition was established."
+        ],
+        "reasoning": "Changing from a logic or a finite ground-set representation to an effective infinite-language membership procedure and requiring both a fixed carrier and fixed atomic valuation is not a parameter restriction of the verified logic-level results.",
+        "searches": [
+          "arXiv:2606.31863, page 1",
+          "doi:10.1016/j.tcs.2015.12.028, bibliographic record"
+        ]
+      },
+      "checked_sources": [
+        "Nishimura arXiv:2610.01433",
+        "Chen–Takahashi arXiv:2606.31863",
+        "Rudolph doi:10.1016/j.tcs.2015.12.028 (limited)",
+        "Resultary findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nishimura's separation criterion immediately suggests the finite-counterworld certificate, and his example supplies a (G)+(K) non-KRep model on an infinite carrier.",
+          "The later U+K characterization supplies a different recognition criterion under K, not a reduction preserving the six frame conditions."
+        ],
+        "reasoning": "Even granting that the upper-bound observation follows naturally from separation, a semantic example or criterion does not prove co-c.e. hardness in the promised class. The bounded-simulation construction, both directions and preservation of all six conditions are the additional content.",
+        "searches": [
+          "arXiv:2610.01433, Example 4.24, Definition 4.22 and Theorem 4.30",
+          "Resultary: finite-world model-relative normality and exact Kripke representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nishimura gives successor separation and the truth-preserving translation.",
+          "The later indexed finite-world result characterizes representation via model-relative U plus K and counts relations."
+        ],
+        "reasoning": "Successor separation is an equivalent formulation of the semantic property, not of the effective complexity classification. Model-relative U does not follow from frame-relative G: the hard nonrepresentable branch has actual-world truths absent from H.",
+        "searches": [
+          "Focused literature search on effective closure-semantics Kripke representability",
+          "arXiv:2610.01433, Definition 4.22 and Theorem 4.30",
+          "Resultary: 2026/11/2/SCOPE-finite-world-model-relative-normality-and-exact-kripke-represent--06c5919ebb94"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 finding gives one-world countermodels for classes of non-theorems under no-modal-rule choices, not a promise index classification.",
+          "The October 4 finding concerns a topological modality on a countably infinite carrier; the October 25 cutoff finding concerns iteration on finite Kripke frames."
+        ],
+        "reasoning": "No exact indexed complexity result was identified; these are related models or operator properties, not recognition classifications.",
+        "searches": [
+          "Resultary closure-model recognition and one-world normality searches",
+          "2026/10/13/SCOPE-serial-consistency-and-positive-introspection-preserve-one-world--700dd8e5e5b0",
+          "2026/10/4/SCOPE-kd45-without-a-kripke-operator-on-the-countable-indiscrete-halo--878b13083da0",
+          "2026/10/25/SCOPE-a-sharp-half-world-cutoff-for-iterated-box-diamond-top-on-finite--0fdb970e6f27"
+        ]
+      },
+      "rationale": "The strongest inspected work provides the underlying same-carrier semantic criterion or studies recognition on materially different inputs. Neither supplies the finite-effective co-c.e. classification with a primitive-recursive normal one-world hard family. No prior coverage was established in the bounded comparison.",
+      "residual_risks": [
+        "Full text of Rudolph was not obtained; search was bounded and does not exclude older effective syntactic-knowledge or modal index-set work under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies semantics and same-carrier representation, not effective hardness.",
+          "evidence": "Frame validity quantifies over valuations; KRep uses separation by a successor satisfying every H_w-formula; the representing structure retains W and V.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01433",
+          "material_read": "Definitions 2.2–2.5 and Figure 1 (PDF pp. 4–6), Definition 4.22 (p. 19), Definition 4.28, Lemma 4.29 and Theorem 4.30 (pp. 21–22)",
+          "method": "OA paper, passage and page inspection",
+          "title": "Closure Semantics for Weak Modal Logics",
+          "trigger": "Exact semantic terminology and translation"
+        },
+        {
+          "assessment": "Different decision problem.",
+          "evidence": "The varying inputs are finite axiomatizations of transitive tense logics and the properties are logic-level (e.g. completeness, FMP or decidability).",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31863",
+          "material_read": "Page 1, statement of problem and scope",
+          "method": "OA paper",
+          "title": "Most Properties are Undecidable for Transitive Tense Logics",
+          "trigger": "Potential broader undecidability theorem"
+        },
+        {
+          "assessment": "Related semantic criterion, later entry; not equivalent coverage.",
+          "evidence": "Uses U relative to the actual model plus modus ponens, and counts representing relations.",
+          "identifier_or_url": "2026/11/2/SCOPE-finite-world-model-relative-normality-and-exact-kripke-represent--06c5919ebb94",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary and mirror passage",
+          "title": "Finite-world model-relative normality and exact Kripke representation",
+          "trigger": "Closest indexed finite-world representation result"
+        },
+        {
+          "assessment": "One-world method in a distinct separation problem.",
+          "evidence": "Countermodels for non-theorems over selections of M, C, N, K, D, 4 without modal rules; not same-carrier recognition under E and G.",
+          "identifier_or_url": "2026/10/13/SCOPE-serial-consistency-and-positive-introspection-preserve-one-world--700dd8e5e5b0",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary and mirror passage",
+          "title": "Serial consistency and positive introspection preserve one-world countermodels",
+          "trigger": "Earlier indexed one-world closure constructions"
+        },
+        {
+          "assessment": "Insufficient for a whole-paper exclusion; no positive coverage established.",
+          "evidence": "Publication concerns closure-operator representations; no accessible passage established a modal-model recognition theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.028",
+          "material_read": "Citation and landing-page information only; lawful full text not obtained",
+          "method": "Bibliographic lookup and bounded OA attempt",
+          "title": "Succinctness and tractability of closure operator representations",
+          "trigger": "Potential related representation complexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, upper bound and one-world promise-preserving reduction",
+        "Nishimura, same-world representation and separation"
+      ],
+      "rationale": "The result identifies precisely when finite-carrier recognition differs from a finite-table test. The reduction shows that the obstruction survives even primitive-recursive membership, one world, and all the stated normality principles, so neither stronger frame assumptions of this kind nor finite branching alone repairs the algorithmic problem. This is more informative than an arbitrary undecidable encoding or a nonrepresentable example.",
+      "residual_risks": [
+        "The lower bound is about the declared encoding and does not settle fixed-alphabet or restricted syntactic classes outside the hard family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

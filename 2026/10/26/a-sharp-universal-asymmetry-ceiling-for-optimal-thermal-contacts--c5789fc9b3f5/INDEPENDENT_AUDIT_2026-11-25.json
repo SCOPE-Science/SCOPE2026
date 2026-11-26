@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:56:37.396859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–103, VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Replay: python3 /workspace/review-evidence/thermal_exact.py (SymPy)"
+      ],
+      "rationale": "Mechanical dissipation on (y,v₁,v₂) is nonpositive; the invariant subset with both velocities zero is just the origin, yielding a Hurwitz linear drift and unique stationary covariance. Stationarity gives c=E[yv₁]=E[yv₂], and elimination of E[v₁v₂] and the two velocity variances gives c=(T₁−T₂)/D with D=γ₁+γ₂+k[m₁/γ₁+m₂/γ₂+(m₁−m₂)²/(γ₁m₂+γ₂m₁)]. Algebra agrees with the stated J=kc and reduces fixed-sum maximization to F_r(p). The current vanishes at both endpoints. The positive term in (log F_r)'' is smaller than p⁻² for r>1 and (1−p)⁻² for r<1, so the interior stationary point is the unique maximum. Independently expanded the derivative numerator and both resultants. A direct ceiling proof also follows by setting p₀=1/2−√7/28: P_r(p₀)=(29√7−28)(r−(16+5√7)/9)²(r+(23−8√7)/9)/1568, nonnegative with just one positive zero. Strict log-concavity therefore gives p_*≥p₀ with equality only at that ratio; exchanging masses gives the upper bound and its reciprocal equality. The exact midpoint derivative gives the side of 1/2 for each r, and evaluating the two currents in the worked example agrees with the printed numbers.",
+      "residual_risks": [
+        "Stationarity is asserted only for the relative variables. The optimization uses physical frictions, not friction divided by mass. No finite-time or pinned-system conclusion follows.",
+        "The packaged numerical Lyapunov tests use fixed positive bath temperatures, despite broader wording about randomized parameters. The derivation covers arbitrary stated temperatures."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Falasco et al. use common γ and unit masses; Eq. (9) gives free-boundary mode temperatures",
+          "Resultary 24ca9ac95c81 Finding: pinned three-site heat-current optimum over central mass, u_*=1+kw/(k+w)²",
+          "Henkel full-text attempt returned 403; frozen relationship section describes a general spectral current formula"
+        ],
+        "reasoning": "Even a general current expression would need to be specialized and the budget-constrained maximum and sharp bound proved. The inspected chain results concern either mode repartition or a different optimized variable and pinning; they supply no dominating allocation theorem. No assessment of entire Henkel full text is made.",
+        "searches": [
+          "Resultary: Langevin oscillator two baths fixed total friction optimized split maximum heat current unequal masses",
+          "arXiv:1505.05088 OA search friction, followed by model and mode-temperature passages",
+          "Henkel DOI 10.1002/andp.202100089 OA retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work discussion and references",
+        "Resultary targeted catalogue queries and 31a1a7ad6a4b, 24ca9ac95c81",
+        "arXiv:1207.6044",
+        "arXiv:1505.05088",
+        "Henkel DOI access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectral-relaxation problem maximizes the negative drift spectral abscissa as a single damping g varies, not J as two bath frictions are reallocated",
+          "A central-mass optimizer of a pinned three-site chain is not an optimizer under friction exchange",
+          "The equal-mass, equal-friction current samples just a special slice of the dimer parameters"
+        ],
+        "reasoning": "None of the inspected results implies the log-concave mass-only optimization or the uniform extremal bound. Stationary moment elimination itself is established machinery and not credited as a new general method.",
+        "searches": [
+          "Resultary 31a1a7ad6a4b, Finding and Proof",
+          "Resultary 24ca9ac95c81, Finding and Global optimality",
+          "Morgado–Duarte Queirós arXiv:1207.6044 §§II and Eq. (9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Morgado–Duarte Queirós arXiv:1207.6044, §II Eqs. (1)–(2), and Eq. (9), use identical masses and frictions, and allow onsite springs",
+          "Resultary 31a1a7ad6a4b studies one-sided damping and spectral decay for a free dimer"
+        ],
+        "reasoning": "Contact resistance/damping allocation with fixed sum of physical frictions is not separate normalization by the two masses. Neither an equal-friction evaluation nor one-sided decay optimization is the two-positive-friction budget maximization.",
+        "searches": [
+          "Literature: \"Langevin dimer\" optimal friction allocation fixed total damping mass ratio heat current asymmetry ceiling unequal masses",
+          "Resultary: fixed sum friction coefficients Langevin dimer unequal masses optimal friction allocation sharp universal asymmetry ceiling sqrt(7)/28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact optimization records give either spectral-decay thresholds θ=1/9 and 1/5 or a pinned-chain impurity mass formula; both were inspected",
+          "The classical two-oscillator current formula fixes equal γ and m"
+        ],
+        "reasoning": "The exact object is a continuous optimizer and its global range, not a finite tabulation. Neither source records the requested share, its stationarity polynomial, or its extremizing mass ratios. Agreement at the balanced symmetric point alone is not coverage of the family.",
+        "searches": [
+          "Resultary: fixed sum friction coefficients Langevin dimer unequal masses optimal friction allocation sharp universal asymmetry ceiling sqrt(7)/28",
+          "Resultary: Langevin oscillator two baths fixed total friction optimized split maximum heat current unequal masses",
+          "Morgado–Duarte Queirós Eq. (9)"
+        ]
+      },
+      "rationale": "The inspected transport and damping-optimization sources do not give an equivalent full fixed-budget result. Classical oscillator current formulas are antecedents, not themselves the optimal allocation or its uniform sharp ceiling. The closest indexed free dimer optimizes a different quantity and control, and the thermal near match optimizes a mass in a pinned chain. The distinct claim is the unique fixed-sum friction optimizer, its mass-only dependence and its universal sharp extremum.",
+      "residual_risks": [
+        "The targeted web search did not yield useful matching material. Henkel and the complete Barton (2015) text were not available in the inspected evidence; both remain literature risks, not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping mechanics, different objective and optimization domain",
+          "evidence": "P_{g,θ}(s)=s³+gs²+s+θg. For θ≥1/5 the decay-optimal g=(1+θ)/(2√θ); there is a single adjustable damper, no split of fixed two-bath frictions.",
+          "identifier_or_url": "2026/10/25/SCOPE-two-universal-mass-thresholds-for-fastest-relaxation-of-a-freely--31a1a7ad6a4b",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local mirror",
+          "title": "Two universal mass thresholds for fastest relaxation of a freely translating dimer",
+          "trigger": "Closest earlier free-dimer damping optimization in catalogue"
+        },
+        {
+          "assessment": "Different model and design variable",
+          "evidence": "Pinned three-site chain; u_*=1+kw/(k+w)² maximizes current over the central mass.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-damping-independent-optimal-impurity-mass-in-a-pinne--24ca9ac95c81",
+          "material_read": "RESULT.md Finding and Global optimality",
+          "method": "Local mirror",
+          "title": "A universal damping-independent optimal impurity mass in a pinned harmonic chain",
+          "trigger": "Closest indexed stationary-current optimizer with parameter independence"
+        },
+        {
+          "assessment": "Heat-current antecedent, does not settle friction-split allocation",
+          "evidence": "Equal m and γ enter both equations. The linear current denominator is m k₁²+γ²(k+k₁), with onsite k and coupling k₁.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1207.6044",
+          "material_read": "Eqs. (1)–(2) at offset 0 and Eq. (9) near offset 8000",
+          "method": "OA passages after literal thermal conductance query",
+          "title": "The role of the nature of the noise in the thermal conductance of mechanical systems",
+          "trigger": "Primary two-oscillator current precedent"
+        },
+        {
+          "assessment": "Uniform damping and repartition, not allocation",
+          "evidence": "A common γ appears in every acceleration and in every bath noise variance 2γT_n; Eq. (9) computes mode temperatures.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1505.05088",
+          "material_read": "Model around offset 4800; free-boundary mode temperatures near offset 9500",
+          "method": "OA passages",
+          "title": "Energy repartition for a harmonic chain with local reservoirs",
+          "trigger": "More general harmonic-chain bath model"
+        },
+        {
+          "assessment": "Residual access risk; not evidence of noncoverage",
+          "evidence": "No conclusion about the details of the inaccessible text.",
+          "identifier_or_url": "10.1002/andp.202100089",
+          "material_read": "No primary full text recovered; bibliographic record and frozen description only",
+          "method": "OA retrieval attempted (HTTP 403)",
+          "title": "Heat Transfer and Entanglement–Non-Equilibrium Correlation Spectra of Two Quantum Oscillators",
+          "trigger": "Possibly broader two-oscillator spectral current result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–5",
+        "Exact factor proof of the uniform endpoint",
+        "Comparison with spectral relaxation and fixed uniform bath work"
+      ],
+      "rationale": "For a natural resource constraint on two contacts, the analysis solves the full unequal-mass design problem and bounds the greatest adjustment required over all mass ratios. Independence from stiffness, budget and temperatures, plus exact equality at intermediate reciprocal ratios rather than at extreme mass disparity, is informative beyond a routine covariance calculation or one small example.",
+      "residual_risks": [
+        "The objective is only expected stationary heat current in the unpinned classical model; no claim about efficiency, fluctuations, other pinning or realistic contact constraints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

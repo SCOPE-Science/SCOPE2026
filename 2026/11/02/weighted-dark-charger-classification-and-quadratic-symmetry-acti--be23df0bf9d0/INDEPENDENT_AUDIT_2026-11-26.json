@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:33:31.634311Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–89",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen verify_weighted_dark.py, lines 16–83"
+      ],
+      "rationale": "In battery-last notation, the exchange term sends |00,1> into (g1|10,0>+g2|01,0>) and |11,0> into (g2|10,1>+g1|01,1>). Both two-level bright blocks have detuning magnitude |Delta| and coupling G, so the population swap is q. For an excited input the two possible leakage channels land in orthogonal charger excitation sectors; their total q(|a00|^2+|<Bdown|zeta>|^2) vanishes exactly on span{|11>,D}. The excited-output vectors from battery inputs |0> and |1> lie in orthogonal charger subspaces, so the pumping law holds for coherent and mixed inputs. The squared overlap of D with Bup is ((g1^2-g2^2)/G^2)^2=1-C_D^2. The two-qubit determinant formula gives C=c C_D and hence the claimed affine law. For readout, the difference between normalized conditional charger marginals is traceless. Choose the first spin axis perpendicular to its first Bloch vector; choose the second perpendicular to both the second Bloch vector and the contracted correlation matrix. Each of the four product projectors then has identical probabilities on the two marginals, so conditioning on a nonzero-probability outcome preserves the same energy expectation. Adaptive repetition gives the scalar geometric law without suppressing battery shot noise. The quadratic asymptotic is about an admissible symmetric reference q(0)>0: at fixed g, detuning and pulse duration, q is even in epsilon, giving r=4q(0)epsilon^2+O(epsilon^4). D is the weighted family D(epsilon), not the unchanged symmetric singlet. A stroboscopically frozen reference q(0)=0 lies outside this asymptotic claim. Direct Taylor evolution of a resonant three-qubit example with g1=2, g2=1, c=1/2, e=1/3 and q=1/2 gives 0.5599999999999998, agreeing with 14/25 (node /workspace/independent_checks.js, section 3). The single numerical example is not the proof, and the uploaded verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first Gong model has equal g for both charger qubits in Eq. (1), even when Eq. (15) permits a general pure charger.",
+          "The second Gong model and Seah et al. collide one charger qubit with the battery at a time. Quach–Munro use a reservoir-mediated open-battery generator."
+        ],
+        "reasoning": "Generality in charger input amplitudes at fixed symmetric coupling is not generality in the exchange Hamiltonian. Single-qubit and open-system models do not contain the two unequal simultaneous couplings, the pure-state concurrence and the same full-charge fixed-point question.",
+        "searches": [
+          "Gong–Zhang–Li arXiv:2610.31242v1 and arXiv:2610.01332v1, Hamiltonians and exact population laws",
+          "Seah et al. arXiv:2105.01863v2; Quach–Munro arXiv:2002.10044v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.31242v1, Eq. (1) and Eq. (15)",
+        "arXiv:2610.01332v1, Eq. (2) and Eq. (4)",
+        "arXiv:2105.01863v2 and arXiv:2002.10044v2",
+        "6e2bc77809fa",
+        "83d755472fd5",
+        "824f40e03c28 and 919c784f4ad8, indexed statement summaries",
+        "Frozen RESULT.md, lines 32–105"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known symmetric q is the frozen q at G=sqrt(2)g. The new invariant is the nonparallelism of Bup and Bdown, which controls both the nullspace of the excited-state leakage and the nonzero ground-to-excited overlap.",
+          "The exact unequal-coupling relation r=q(1-C_D C) has allowed range C in [0,C_D], with dark-only rate q[(g1^2-g2^2)/G^2]^2. Neither follows by merely replacing the pulse frequency in the identical-coupling recurrence."
+        ],
+        "reasoning": "The constructive product-measurement lemma supports reproducibility of the ideal fluctuations claim but is not claimed as the novel part. The surviving asymmetric result is necessary and sufficient and distinguishes an inactive fixed point at symmetry from positive pumping away from symmetry.",
+        "searches": [
+          "Gong–Zhang–Li arXiv:2610.31242v1 Eq. (1), Eq. (15) and local measurement discussion; Resultary 6e2bc77809fa",
+          "Frozen RESULT.md, lines 43–85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same total exchange strength gives the same Rabi probability, but not the same one-excitation charger vectors. Unequal couplings give Bup proportional to (g1,g2) and Bdown proportional to (g2,g1).",
+          "6e2bc77809fa uses equal couplings and a dark antisymmetric singlet; 83d755472fd5 studies a dissipative dark-state fidelity rather than a collision charging-rate law."
+        ],
+        "reasoning": "A rescaling of pulse area preserves q but cannot produce a nonzero overlap of the weighted down-dark vector with the up-bright vector. The symmetric and dissipative claims are therefore not equivalent.",
+        "searches": [
+          "Resultary: sharp concurrence frontier for phase-blind cascaded quantum charging; weighted dark charging and quadratic disorder fidelity",
+          "Gong–Zhang–Li arXiv:2610.31242v1 Eq. (1) and Eq. (15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tabulable symmetric case has Rabi probability L=q and r=q(1-C); the equal-coupling frontier and singlet give no values for a second independent coupling.",
+          "The inspected catalogue hits specify fixed-concurrence intervals, one-ancilla phase feedback or thermal-ancilla lifetimes, not an exact all-unequal-coupling family."
+        ],
+        "reasoning": "The target is an exact continuum classification over a two-coupling Hamiltonian, pure state space and pulse parameters. A symmetric table or finite list of Bell families cannot establish that continuum classification. No matching exact parametric table was identified.",
+        "searches": [
+          "Resultary: phase-blind cascaded charger concurrence frontier 6e2bc77809fa; finite-step half-excitation 824f40e03c28; thermal-ancilla collisions 919c784f4ad8",
+          "arXiv:2610.31242v1 special Bell-like families and exact evolution Eq. (15)"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete unequal-coupling pure full-charge-preserving family, with its weighted concurrence–charging law and symmetry activation. The symmetric exchange probability and adaptive equal-energy idea were already present. Gong et al.'s exact equal-g Hamiltonian does not contain the independent ratio g1/g2: the two bright vectors coincide there and differ in the asymmetric case, so merely substituting G for sqrt(2)g in the known pulse probability does not yield the classification or activation. The closest concurrence-frontier record explicitly excludes asymmetric couplings. Other checked near matches concern one-ancilla or dissipative models, not the exact weighted collision law. This is a bounded comparison, not a historical priority certification.",
+      "residual_risks": [
+        "Other asymmetric collision or central-spin works may contain related implicit classifications; this is a bounded search. No negative inference is drawn from the failed passage-reader requests.",
+        "Novelty does not include the symmetric pulse, adaptive equal-energy readout as a general idea, or the existence of dark states in batteries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Symmetric slice and adaptive readout overlap; the exact Hamiltonian excludes independent g1,g2",
+          "evidence": [
+            "Both charger–battery exchange terms use g; both charger gaps are omega0. The pulse uses Omega=sqrt(Delta^2+8g^2), which agrees with the frozen symmetric limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.31242v1",
+          "material_read": "Model Eq. (1), raw HTML approximately 26.6k–33.1k; general recurrence Eq. (15) around 101.7k and 113.0k",
+          "method": "Lawful full-text arXiv HTML and arXiv metadata after passage-reader timeout",
+          "title": "Fluctuation-free Quantum Battery Charging Enabled by Bell-like Entangled and Separable Charger States",
+          "trigger": "Closest prior exact two-qubit charger, concurrence and product readout"
+        },
+        {
+          "assessment": "One charger qubit, not two simultaneous charger qubits",
+          "evidence": [
+            "A single exchange term connects one ancilla to the battery; Omega=sqrt((Delta/2)^2+g^2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01332v1",
+          "material_read": "Model Eq. (2), raw HTML around 35.6k; propagator Eq. (4), around 47.8k–54.5k",
+          "method": "Lawful full-text arXiv HTML and metadata",
+          "title": "Achieving Identical Stored Energy in Cascaded Collisional Quantum Battery Charging: Analytical Result",
+          "trigger": "Earlier adaptive identical-energy collision law"
+        },
+        {
+          "assessment": "Different frontier and symmetric Hamiltonian; asymmetric couplings are explicitly excluded",
+          "evidence": [
+            "The two exchange terms use equal g, the singlet is dark, and the maximally entangled family exhibits a deterministic half-charge result."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-concurrence-frontier-for-phase-blind-cascaded-quantum-char--6e2bc77809fa",
+          "material_read": "RESULT.md Finding, Assumptions, Proof, Relationship and Limitations, lines 3, 33, 49, 91, 97",
+          "method": "Configured Resultary and lawful public record passage inspection after local lookup failure",
+          "title": "Sharp concurrence frontier for phase-blind cascaded quantum charging",
+          "trigger": "Closest indexed local-product readout and concurrence claim"
+        },
+        {
+          "assessment": "Different dynamical generator and observable",
+          "evidence": [
+            "Quadratic change is stationary-state fidelity under onsite disorder in a one-particle Lindblad bond network, not a pumping rate in a closed finite collision."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-graph-gap-preparation-and-quadratic-disorder-fidelity-for-bond-d--83d755472fd5",
+          "material_read": "RESULT.md Finding and Assumptions, lines 3–45",
+          "method": "Configured Resultary and lawful public record passage inspection after local lookup failure",
+          "title": "Graph-gap preparation and quadratic disorder fidelity for bond-dark states",
+          "trigger": "Potentially equivalent quadratic activation in a dark sector"
+        },
+        {
+          "assessment": "Repeated single-qubit units do not instantiate the asymmetric two-qubit charger",
+          "evidence": [
+            "The collision units are identical single-qubit chargers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.01863v2",
+          "material_read": "Abstract and model",
+          "method": "Lawful arXiv full-text inspection",
+          "title": "Quantum Speed-Up in Collisional Battery Charging",
+          "trigger": "Related collisional charging architecture"
+        },
+        {
+          "assessment": "Open reservoir-stabilized charging is not the exchange pulse and readout setting",
+          "evidence": [
+            "The battery stabilization is reservoir-mediated; no paired unequal bright-sector pulse or full-charge-preserving concurrence law is established by the inspected passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.10044v2",
+          "material_read": "Abstract and Lindblad section, raw HTML around 17.4k and 38.5k",
+          "method": "Lawful arXiv full-text inspection",
+          "title": "Using Dark States to Charge and Stabilize Open Quantum Batteries",
+          "trigger": "Potential dark-charging analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Preserving full charge while pumping an incompletely charged battery is an operationally natural design constraint. The proof identifies every admissible pure charger, derives the exact entanglement–pumping tradeoff and exposes a qualitatively distinct response to imbalance through a coupling-dependent dark direction. The local readout result makes the population law apply to every allowed trajectory, not just an average, without claiming elimination of single-shot energy noise or any preparation or readout cost advantage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

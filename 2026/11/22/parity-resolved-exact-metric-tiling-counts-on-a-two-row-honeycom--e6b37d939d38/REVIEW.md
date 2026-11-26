@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement covers exactly the labelled binary edge-closure assignments on the specified two-row periodic honeycomb, including the small-period multiedge quotient. Per-face closure reduces to three signed differences with a single shear value. The width-two first difference forces opposite shear signs in the two rows; conserved sums of the other two edge families then reduce every nonzero-shear assignment to a weighted four-state cycle. Explicitly, the matrix has characteristic polynomial \((z^2-6)(z^2-2)\); its trace gives every nonzero-shear cycle plus a known zero-shear overlap. A direct zero-shear count and subtraction yield the all-period formula. Positivity and both entropy limits follow algebraically. An independent exact-integer enumerator of shear fields and edge-cycle solutions matches all \(2\times n\) cases \(2\le n\le9\) and the reported \(3\times3\) benchmark, while the transfer/closed-form identity was checked through \(n=44\). The proof, not this finite test, establishes the universal claim.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Wu and Ji's arXiv:2611.16730v1 establishes the model, affine alphabet invariance, exact finite computations, and a coprime-period count observed in tested sizes. The odd-period two-row count is credited as already predicted by that observation. The inspected main paper does not state the closed formula at every even period, the all-period nonzero-shear sector count and sharp existence criterion, or the two exact parity-subsequence entropies. The all-period symbolic formula is stronger than a finite table of examples or a generic numerical transfer implementation. Searches for binary honeycomb metric edge alphabets, width-two transfer matrices, shear constraints, and parity-dependent partition functions found no equivalent prior theorem. The source's supplemental material could not be fully inspected and remains the central priority risk; general claims of historical uniqueness are not made.
+PASS
 
-## Mathematical value — PASS
-This is the minimal-width nontrivial toroidal honeycomb in the new equiangular metric-tiling ensemble. The complete finite-size partition function separates trivial opposite-edge-equal states from genuinely sheared metric configurations. Those sheared configurations exist exactly at even periods of at least four; their exponential contribution makes the per-face partition function have two unequal thermodynamic subsequential limits. This quantitatively resolves the first commensuration transition left open by generic finite-width numerical counts and provides a reproducible exact benchmark for wider transfer models. The novelty is not a routine evaluation of one predetermined finite table entry but an all-period classification with a structural parity mechanism.
+The sum of the six direction vectors is zero, so the affine change of alphabet preserves face closure. With the specified edge indexing, the two scalar closure equations are equivalent to ΔA=ΔC=−ΔB=t. The A equation forces opposite row shears and gives two choices at a zero-shear column, one otherwise. Each of B and C has constant sum across the two rows; a nonzero shear makes both sums one. Writing b,c for row-zero variables then gives b_j−b_{j−1}=−s_j and c_j+c_{j−1}−1=s_j. For states 00,01,10,11 a zero shear flips c with multiplicity two; the only additional edges are 00→10 and 11→01 of weight one. The cyclic trace counts labelled assignments, not their rotation classes. In the bipartition {00,11}|{01,10}, the two-step operator has two diagonal blocks [[4,2],[2,4]], hence trace 0 in odd length and 2(6^k+2^k) at n=2k. Zero shear gives 2^n choices for A, four for the constant B rows, and 2 or 4 for the row-swapping C sequence at odd or even n. Its overlap with the trace sector is 0 or 4·2^n, respectively, giving both count formulas. The positive-shear-sector expression vanishes at k=1 and is strictly positive at k≥2 by strict convexity at 2,4,6. The growth rates follow by taking the leading terms and dividing by 2n faces. Independent exhaustive enumeration of binary edge arrays for n=2,3,4 gave total/nonzero counts 64/0, 64/0, 272/16, including the distinct parallel edge occurrences at n=2. No uploaded script was run. The claim is local closure only, not existence of a global embedded tiling.
 
-## Source comparison and limitations
-Primary: X. Wu and Q. Ji, *Metric random tilings: exact entropy and the diffraction of counted disorder*, arXiv:2611.16730v1 (2026-11-12), abstract and HTML main text, especially Sections II–III. The prior paper's tested coprime count and width-dependent transfer-method framework are properly credited. Its supplemental methods and any possible tabulation of a width-two symbolic transfer polynomial were not fully available; this is an explicit historical-priority limitation. The result asserts neither a global embedded-tiling theorem nor arbitrary-width counts. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit Wu–Ji for the binary local-closure model, alphabet invariance, transfer methodology, winding-sector interpretation and the stated coprime closed form, which already yields the odd branch. The defensible distinct claim is the exact all-even width-two expression, its exact nonzero-shear count and threshold, and therefore the explicit fixed-width parity limits. The primary SI and count tables were not retrievable, so there is a specific residual risk of earlier symbolic or numerical coverage there.
+
+## value
+
+PASS
+
+Width two is the first nontrivial two-row torus with alternating row identifications. The exact count of configurations with actual shear distinguishes mere commensurability from the sufficient even-length threshold: n=2 is resonant but has none. The four-state spectrum then quantifies the fixed-width parity obstruction by two exact entropy accumulation points, sharpening the prior qualitative resonance discussion and supplying a useful finite-size benchmark beyond the known coprime count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

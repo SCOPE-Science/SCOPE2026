@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:55:46.308594Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Proof; VERIFICATION.md; verify.py (inspected only); certificate.json (checked as data)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 1"
+      ],
+      "rationale": "The length-five universe has 2^5(C(5,2)+C(5,3))=640 eligible words. Reverse complement preserves this set and is fixed-point-free because it would have to fix the middle symbol. After checking each two-word orbit internally, the remaining conditions are pairwise, so compatibility cliques are in bijection with all labeled codebooks, including the empty codebook. An independent regeneration used prefix/suffix set intersection and coordinate-deletion projections (two distinct words agree after some aligned coordinate is deleted exactly when they differ at one coordinate). It recovered 320 pairs, 104 admissible vertices and 1068 edges, and validated the seven-color certificate and matching witness. A binary include/exclude census terminating at leaves, with a degree-based choice of the branching vertex, gave (1,104,1068,3472,4648,2776,720,56), total 12845. All eight letter permutations commuting with complement preserve the allowed composition range, including the pair swaps that interchange counts two and three. Checking each permutation's fixed maxima gave (56,0,0,0,0,0,0,0), proving seven free orbits of eight. Thus the maximum is 14 words and every claimed coefficient and equality count is reproduced.",
+      "residual_risks": [
+        "Exhaustion is exact for the specified labeled length-five domain only; this is neither a formal proof-assistant verification nor a biochemical performance result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two five-mer findings give 24 without a distance constraint and 36 without a balance or distance constraint, respectively.",
+          "Stanovnik–Moškon–Mraz, p. 3 and conclusion p. 15, give almost-balance and non-overlap definitions and identify joint Hamming separation as an additional question."
+        ],
+        "reasoning": "The broader capacities bound this subset but do not mechanically recover its extremum or histogram. The almost-balanced constructions do not amount to a classification under strand closure plus distance two.",
+        "searches": [
+          "SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435",
+          "SCOPE-maximum-strand-closed-five-base-cross-bifix-free-dna-code--ff9edf45a3b2",
+          "arXiv:2410.18458"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and three distinct corpus matches above",
+        "arXiv:2410.18458",
+        "arXiv:1804.05371",
+        "arXiv:1709.05214"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restricting the previously optimized 24-word problem by the distance requirement yields only an upper bound of 24; its certificate does not enforce distance two.",
+          "The four-mer theorem is on a different pair-orbit universe and gives no recurrence in word length."
+        ],
+        "reasoning": "The coefficient counts and free symmetry action require a new exhaustive compatibility calculation on this domain, not evaluation of a known sharp formula.",
+        "searches": [
+          "Local corpus RESULT.md Finding and Assumptions for b39eb37f2435 and 4848b308e1f3",
+          "arXiv:2410.18458 conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned both the frozen result itself and the distinct four-mer spectrum, the latter imposing the same non-overlap and aligned-distance restriction at length four without GC balance.",
+          "Levy–Yaakobi discuss balanced MU codes with Hamming constraints; their balanced section assumes even word length. Yazdi et al. use κ-WMU and exactly half GC, impossible for an odd-length word."
+        ],
+        "reasoning": "Mutual uncorrelatedness and cross-bifix-freeness give relevant aliases, but the length and composition restrictions and the fixed-point behavior of reverse complement distinguish the closest formulations. The identical index row is not independent corroboration or coverage.",
+        "searches": [
+          "Resultary semantic search for reverse-complement-closed, near-GC-balanced five-mers with non-overlap and minimum Hamming distance two (limit 50)",
+          "arXiv:1804.05371",
+          "arXiv:1709.05214"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed four-mer table counts 3037 total, maximum 9, and 32 maxima in four orbits for a different universe.",
+          "The cited small-parameter search addresses almost-balance/non-overlap, and the conclusion leaves joint Hamming separation outside its classification."
+        ],
+        "reasoning": "No independently prior table for the exact five-mer intersection was identified in the inspected sources. The even-length table with potential reverse-complement fixed words cannot be transported to this fixed-point-free odd layer.",
+        "searches": [
+          "Resultary exact-spectrum comparison under reverse-complement closure and one-substitution detection",
+          "Stanovnik–Moškon–Mraz arXiv:2410.18458, p. 7 small-parameter search and p. 15 conclusion"
+        ]
+      },
+      "rationale": "The closest matches separately omit Hamming separation or change the length and balance restrictions. None of the inspected statements supplies the combined admissibility graph, its size polynomial, or the maximum orbit classification. Pass is for that exact finite classification, not for the general clique reduction, strand-closure concept, or universal priority.",
+      "residual_risks": [
+        "A finite table under a different indexing convention or in unindexed sources could predate this one; the comparisons are not a proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the combined census",
+          "evidence": "Sharp maximum 24; no Hamming-distance restriction.",
+          "identifier_or_url": "Resultary/2026:2026/11/2/SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Bounded local mirror reading",
+          "title": "Exact capacity of strand-invariant, GC-balanced, non-overlapping DNA five-mers",
+          "trigger": "Same length, balance and closure"
+        },
+        {
+          "assessment": "Different domain",
+          "evidence": "Length four, no GC restriction, possible fixed words; maximum 9 and 3037 codebooks.",
+          "identifier_or_url": "Resultary/2026:2026/11/2/SCOPE-the-complete-four-mer-spectrum-of-reverse-complement-closed-non--4848b308e1f3",
+          "material_read": "RESULT.md Finding, Assumptions and scope, and Relationship to prior work (offset 6208)",
+          "method": "Bounded local mirror reading",
+          "title": "The complete four-mer spectrum of reverse-complement-closed non-overlapping DNA codes detecting one substitution",
+          "trigger": "Same distance, closure and overlap notions"
+        },
+        {
+          "assessment": "Only a loose upper bound",
+          "evidence": "Maximum 36 with neither GC balance nor distance two required.",
+          "identifier_or_url": "Resultary/2026:2026/11/8/SCOPE-maximum-strand-closed-five-base-cross-bifix-free-dna-code--ff9edf45a3b2",
+          "material_read": "RESULT.md finding and conditions",
+          "method": "Local mirror comparison",
+          "title": "Maximum strand-closed five-base cross-bifix-free DNA code",
+          "trigger": "Same length and strand/non-overlap constraints"
+        },
+        {
+          "assessment": "Not covering the stated intersection",
+          "evidence": "Definitions, limited searches, and conclusion explicitly raising the additional Hamming-distance requirement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.18458",
+          "material_read": "pp. 3, 7, 15 (text offsets 9700, 29400, 66200–67600)",
+          "method": "Bounded passages from open full text",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Potential broader classification and small-parameter tables"
+        },
+        {
+          "assessment": "Related constraints; no covering statement in inspected sections",
+          "evidence": "Balanced MU treatment assumes even length; does not give the target spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.05371",
+          "material_read": "pp. 1 and 13 (offsets 2200 and 109800)",
+          "method": "Bounded passages from open full text",
+          "title": "Mutually Uncorrelated Codes for DNA Storage",
+          "trigger": "Same MU alias and distance/balance constraints"
+        },
+        {
+          "assessment": "Different balance and scope",
+          "evidence": "Exactly 50% GC and κ-WMU, not the odd-length near-balance census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.05214",
+          "material_read": "pp. 1–2 and 4 (offsets 7000 and 30700)",
+          "method": "Bounded passages from open full text",
+          "title": "Mutually Uncorrelated Primers for DNA-Based Data Storage",
+          "trigger": "Possibly analogous finite primer code classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Limitations",
+        "Five-mer capacity SCOPE report without Hamming separation, b39eb37f2435"
+      ],
+      "rationale": "Five is a natural odd test length: strand closure here forces two-word orbits and exact half balance is impossible, making the adjacent two GC counts the natural symmetric choice. Comparing with the otherwise identical maximum of 24 quantifies the true cost of aligned single-substitution detection (a drop to 14). The full size spectrum and classification of optimal designs up to the natural relabeling group give an exact benchmark beyond an exhibited example or mere upper bound.",
+      "residual_risks": [
+        "Value is as a finite combinatorial benchmark, not a claim of practical primer performance, correction of substitutions, or a scalable coding construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

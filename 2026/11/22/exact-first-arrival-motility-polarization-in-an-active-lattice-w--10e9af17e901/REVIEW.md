@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-state backward equations, root factorization, absorbing boundary data, and bounded-solution uniqueness yield the contact-state probability for all stated parameter values, including strict and limiting bias. The centered position–motility martingale proves almost-sure contact for positive tumbling. An independently assembled truncated-state generator verifies the law, and the two singular limits follow algebraically. A numerical checker alone is not treated as proof.
+## correctness
 
-**Originality — PASS (qualified).** The 2022 model paper gives position propagation and the 2022 first-passage paper gives position-only first-contact time laws, not the contact motility-state distribution. The 2024 correlated-walk paper considers incoming-step orientations for a different Markov structure. The observable and its fast-switching residual bias are not entailed by the cited displayed scalar first-hit results. A source treating the exact same marked two-state boundary problem could subsume this formula, however; the 2020 Larralde article was not available in full text, and publication priority is not independently confirmed.
+PASS
 
-**Mathematical value — PASS.** A capture apparatus may respond to an arriving active particle's motility orientation, not merely to its time of arrival. The exact dependence on distance and switching rate, particularly persistent contact-state bias in a dynamically symmetric position limit, supplies a physically interpretable boundary statistic and a mathematical distinction between internal-state and step-based persistence. This is an entire spatial hierarchy with a singular limiting mechanism, not a fitted finite sample.
+Stopping the centered martingale X_t+(epsilon/gamma)*sigma_t at the first hit of either -L or N is valid: the stopped process is bounded, and the finite strip has paths to absorption from every state, including at epsilon=D because flips remain possible. The far-left exit probability is at most (N+2epsilon/gamma)/(N+L) from 0, so contact is almost sure and bounded harmonic solutions are unique. Independently, at spatial jump times the interjump spin transition Q has eigenvalues 1 and c=D/(D+gamma); the right/left substochastic jump kernels A_+, A_- multiply Q's columns by the respective directional probabilities. Skip-free first passage and the strong Markov property give H=A_+ + A_- H^2 for passage through one level, with H^N for N levels. Direct exact symbolic substitution (python /workspace/review-work/check-arrival.py) verifies the candidate stochastic H with first column (K+(1-K)rho,K(1-rho)), invariant mark law (K,1-K), and eigenvalues 1,rho. Its powers give the bounded Dirichlet solution, hence the stated fair-start law. The b=1 contact must have plus mark, and at b=0 the mark at a spatial hitting time is fair under the fair initialization; the displayed formulas agree. The strictly increasing geometric approach holds only in the stated strict-bias range. On any fixed horizon the spatial clock is independent Poisson of rate 2D and conditional on its finitely many positive gaps, spins at jump times tend jointly to independent fair signs as gamma tends to infinity. The unmarked walk therefore converges to the symmetric walk while the marked contact law tends to (1+b)/2 for N>=1. At zero flip rate and positive bias the two initial signs have different contact probabilities, so the separate defective-hitting calculation does not contradict the theorem. The frozen reflected-left checker is a finite diagnostic, not the infinite-domain proof.
 
-Scientific limits: fixed point target on a full infinite one-dimensional lattice, positive tumbling, exact motility state at first arrival; no claim for time-conditioned marks or continuum boundary models. Closest sources are arXiv:2202.02995, arXiv:2206.04562, arXiv:2404.13360, and the partially inaccessible DOI:10.1103/PhysRevE.102.062129. Independent publication-priority review remains needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existing exact lattice-model and scalar first-passage-time results do not give this state-resolved hitting law, and examined directional or continuum first-passage results use a different state or process. This best-of-knowledge judgment concerns the displayed lattice law and fast-tumbling contact bias, not the origin of the model or renewal method.
+
+## value
+
+PASS
+
+The arrival spin is a natural capture statistic that cannot be replaced by the known time-to-hit or the deterministic incoming direction. The exact law gives its whole distance dependence and shows a residual directional sampling bias even in a symmetric unmarked fast-flip limit. This exact distinction can matter for mark-dependent boundary reactions and is not a recomputation of a scalar position observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

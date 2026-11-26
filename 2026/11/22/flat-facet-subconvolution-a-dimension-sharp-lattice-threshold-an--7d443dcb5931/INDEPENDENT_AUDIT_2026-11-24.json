@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:54:13.996720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p>d, the exponential ratio is at most one, and splitting according to which of r,s is larger bounds the polynomial ratio by 2^p times (1+min(r,s))^(−p). Each resulting sum is controlled by the summable cubical shells, uniformly in n. On the axis, the defect vanishes exactly when 0≤j≤N and the transverse radius is at most min(j,N−j); this gives the displayed (2min(j,N−j)+1)^(d−1) slice count with counting measure. On the inner half 0≤j≤N/2 off this region, transverse radius j+h gives defect at least h and far factor (N+1)/(1+s)≤2. Summing h≥1 with e^(−ah) gives an O((1+j)^(d−2−p)) bound per j, whether the exponent is positive or negative. On the outer half-line j=−h the defect is at least h+max(h,‖z‖∞), so that sum is uniformly bounded; reflection gives the other half. The complete off-region bound is therefore lower order subcritically and O(1) at p=d. The bulk equality-region Riemann sum has the stated integrand; near 0 or 1 the normalized sum on an interval of width ε is O(ε^(d−p))+o(1). At p=d the summand on 1≤j≤N/2 differs from 2^(d−1)/j by O(j^−2)+O(N^−1), so both ends give exactly 2^d log N+O(1), without dependence of the leading coefficient on a. The packaged checker was treated as finite evidence, not used to prove an infinite tail or limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-q family treats 2≤q<∞ with threshold 1+(d−1)(1−1/q) and axis orders. Its finding excludes q=∞ and its limitations permit no uniform q→∞ estimates.",
+          "Kaleta–Ponikowski give threshold (d+1)/2 for continuous radially tempered directional convolution equivalence, not a lattice Chebyshev-norm result."
+        ],
+        "reasoning": "Even convergence of the finite-q thresholds to d does not transfer uniform bounds or asymptotic coefficients to q=∞. The norm-equivalence constants between Euclidean and cubical norms cannot compare the exponentials at a fixed rate by bounded factors in every direction, and the equality-region geometry differs.",
+        "searches": [
+          "SCOPE-uniformly-convex-fourier-weights-an-exact-all-dimensional-subcon--503d42e83292",
+          "arXiv:2109.06336, Example 3.4, Proposition 3.5, Lemma 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:1912.11664 and arXiv:2109.06336",
+        "doi:10.1007/s43037-024-00398-y",
+        "Resultary/SCOPE 503d42e83292 and 82f7420b66c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Das–Giannakis use subconvolutivity as a hypothesis in the RKHA result and also treat a different subexponential example.",
+          "The quoted abstract equivalence would consume the submitted inequality as input. The finite-q theorem gives no result on the cube's full-dimensional equality slices."
+        ],
+        "reasoning": "The standard summability argument for p>d is not novel in isolation. The reverse bound, the power coefficient, and the universal critical residue require the flat-facet counting and a quantitative bound on the positive defect region; they do not follow from the abstract equivalence or the finite-q statement.",
+        "searches": [
+          "arXiv:1912.11664, equations (2)–(3), Theorems 4 and 11",
+          "doi:10.1007/s43037-024-00398-y, Theorem 2.2",
+          "503d42e83292/RESULT.md, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das–Giannakis distinguish the L¹ criterion for a weight V (submultiplicativity) from the L∞ convolution criterion for V (subconvolutivity of its inverse, attributed to Feichtinger).",
+          "Montgomery–Giannakis Theorem 2.2 translates the reciprocal squared weight's subconvolution inequality into the corresponding Fourier RKHS algebra criterion."
+        ],
+        "reasoning": "The reciprocal V of w is submultiplicative for every p≥0 here and that distinct criterion cannot establish the threshold. In the RKHS formulation the same threshold question is recovered by setting ω^(−2)=w; the equivalence alone supplies neither the threshold nor the residue.",
+        "searches": [
+          "Resultary/SCOPE: cubical and uniformly convex spectral subconvolution, critical residue",
+          "arXiv:1912.11664, subconvolutivity and Beurling algebra criteria",
+          "doi:10.1007/s43037-024-00398-y, Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed quartic result has d=2, q=4, threshold 7/4, and critical coefficient √2 Γ(1/4)a^(−1/4); it is not the cubical value 4 at d=2, p=2.",
+          "The continuous comparison is supported by the proposition and lemma, not by an applicable exact table entry."
+        ],
+        "reasoning": "Exact norm, counting normalization and exponent are decisive for comparing a symbolic value. No inspected exact match gives the cubical residue or integral; the source-specific table locator is not evidence of exhaustive negative coverage.",
+        "searches": [
+          "Resultary/SCOPE: exact spectral threshold and critical coefficient",
+          "SCOPE-sharp-quartic-spectral-subconvolution-threshold-and-its-critical--82f7420b66c4",
+          "arXiv:2109.06336: Table 1 locator and underlying Proposition 3.5"
+        ]
+      },
+      "rationale": "The strongest inspected family-level result treats only finite norm exponents and expressly excludes the cube, and the closest continuous density result has different norm geometry and normalization. The abstract RKHS/subconvolutivity criteria apply but do not evaluate this weight family. The supported distinct claim is the cubical iff threshold together with the exact axis leading orders and constants, not the general subconvolution criterion.",
+      "residual_risks": [
+        "The Feichtinger comparison is based on the reviewed secondary account; the original was not inspected. Unindexed exact asymptotics for polyhedral weights are not excluded.",
+        "The same-date catalogue records do not settle chronological priority; the mathematical distinction here is scope and constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and a different subexponential family; no equivalent cubical calculation in inspected results.",
+          "evidence": "Subconvolutivity appears as an input; the example has power α∈(0,1) inside the exponential.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.11664",
+          "material_read": "pp. 2–3, 8, 15; equations (2)–(3), Theorems 4 and 11",
+          "method": "Primary OA PDF passages, including offsets 4830–10935, 25747 and 48637",
+          "title": "On Harmonic Hilbert Spaces on Compact Abelian Groups",
+          "trigger": "Subconvolution and weighted algebra criteria for exponential Fourier weights"
+        },
+        {
+          "assessment": "Applies via ω^(−2)=w to the associated Fourier RKHS. It is a criterion, not an evaluation of Q for this family.",
+          "evidence": "Theorem 2.2 equates the RKHA property with ω^(−2)*ω^(−2)≤Cω^(−2) in its setting. The frozen limitation should not be read as denying this setting-specific implication.",
+          "identifier_or_url": "https://doi.org/10.1007/s43037-024-00398-y",
+          "material_read": "Theorem 2.2 with its hypotheses, pp. 8–9",
+          "method": "Primary OA PDF passage, offsets 20647–25128",
+          "title": "An Algebra Structure for Reproducing Kernel Hilbert Spaces",
+          "trigger": "Possible implication of a Fourier RKHS algebra theorem"
+        },
+        {
+          "assessment": "Continuous radial problem, not the cubical counting measure or constants.",
+          "evidence": "The radial profile is e^(−mr)(1∨r)^(−β); the threshold for the directional class is β>(d+1)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.06336",
+          "material_read": "Example 3.4, Proposition 3.5 and Lemma 3.6, pp. 13–14",
+          "method": "Primary OA PDF passage, offsets 56695–62264",
+          "title": "On Directional Convolution Equivalent Densities",
+          "trigger": "Sharp thresholds for exponentially tempered densities"
+        },
+        {
+          "assessment": "Related sharp result, but finite q only; no strict implication to the cubical endpoint or its constants.",
+          "evidence": "Threshold 1+(d−1)(1−1/q) for finite 2≤q<∞, with no uniformity at infinity; this record mentions the cubical case as separate work.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-uniformly-convex-fourier-weights-an-exact-all-dimensional-subcon--503d42e83292/RESULT.md",
+          "material_read": "Finding, norm range and Limitations",
+          "method": "Local mirror of the matching RESULT.md passages",
+          "title": "Uniformly convex Fourier weights: an exact all-dimensional subconvolution threshold",
+          "trigger": "Closest indexed multi-norm family"
+        },
+        {
+          "assessment": "Finite-q quartic norm and different constants; not an alias of the cube.",
+          "evidence": "On Z² with the ℓ⁴ norm the critical exponent is 7/4 and the critical coefficient depends on a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-quartic-spectral-subconvolution-threshold-and-its-critical--82f7420b66c4/RESULT.md",
+          "material_read": "Finding and norm assumptions",
+          "method": "Local mirror of the matching RESULT.md passages",
+          "title": "Sharp quartic spectral subconvolution threshold and its critical coefficient",
+          "trigger": "Indexed exact threshold and residue for a non-Euclidean norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube is the natural nonsmooth endpoint of the ℓ^q family. Its equality slices have full transverse size, changing the threshold and making the leading constants independent of the exponential scale. The proof turns that mechanism into an exact subcritical coefficient and a critical logarithmic residue, not merely a summability test or an illustrative truncated computation. The scope of the residue is axis directions and fixed parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

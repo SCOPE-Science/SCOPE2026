@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:49:21.287642Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2 and full-support U on nonempty L, the displayed greedy factorization starts with two UaUb arches, then bUa and UbUa, followed by UbbUa and UbUa pairs as needed; the remainder UbbZ contains all non-a letters and no a. One letter per arch embeds every length-2m word. The 2m copies of a exclude a^(2m+1). Before the second a the prefix is UaUbU and the only missing pairs are aa,ba,bb. Before the jth a for j>=3 (or in the whole word at j=2m+1), there are j-1 complete arches followed by a piece containing all non-a symbols. Thus a missing length-j word must end in a, and matching at the last available a is equivalent to embedding its prefix before that a. Induction gives exactly the stated three words; only the specified fixed alphabet and tails in (L union {b})* are used. For d>=3 the ordinary ruler recursion until the first b gives W_(d-1)=UaUb and phi(U)0=UaU. The exceptional b image gives W_d=RRb and W_(d+1)=(RRb)^2 0bb. For R the only a cannot be paired with itself and the only b is terminal. For RRb all pairs embed, terminal b can follow any pair, final a gives the three missing initial pairs above, and before the last occurrence of each L-letter only bb fails among the pairs. This gives the two d+1 counts at lengths 2 and 3 and the stable three-word case at length 5. Independent direct enumeration on 82 bounded hosts agreed with the stable theorem; the all-parameter proof does not rely on this finite test. The supplied checker and recorded output were inspected, not executed. No claim for all subsequent morphic iterates is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 is an iff: one greedy position per arch subject to the positional conditions of Theorem 3.1. It covers all these hosts structurally and is stronger than an algorithmic existence claim.",
+          "Example 3.5 applies that theorem to 012121012 and gets {000,100,200} by propagating constraints from the final missing rest letter. Proposition 3.6 analyzes monotone words for a different repeated-permutation host.",
+          "The 2025 enumeration paper describes efficient exact listing for individual input strings."
+        ],
+        "reasoning": "The general characterization is existing coverage of how to enumerate SAS, and its example already shows backward constraints can produce exactly three. It is not a family formula that specializes by setting the alphabet size or universality index: the constraints depend on the detailed position of letters. The frozen result supplies the new uniform implication that all j>=3 steps force the same appended a, reduce to a specific missing-pair base, and are unchanged by arbitrary allowed tails. This is an exact parametric application, not a claim to be the first word with three shortest absences.",
+        "searches": [
+          "Literature: \"Absent Subsequences in Words\" \"Theorem 3.4\" arch shortest absent subsequences Kosche Koß Manea Siemer",
+          "Kosche et al., Theorems 3.1 and 3.4, Example 3.5 and Proposition 3.6",
+          "Manea–Ringleb–Siemer–Winkler arXiv:2504.21471, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "Kosche et al. arXiv:2108.13968, journal PDF structural theorems and examples",
+        "Dvořáková–Mol–Pelantová arXiv:2611.13676 and Manea et al. arXiv:2504.21471, inspected passages",
+        "Resultary distinct comparisons d154a4351ab0 and d88887bf9366"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SAS iff alone leaves potentially many position paths depending on the arcs and rest; the worked three-word example has two arches and only covers its own input.",
+          "The morphism prior gives the images, not which length-2, -3 or -5 scattered words fail. The Tribonacci exact languages do not have the frozen images."
+        ],
+        "reasoning": "The new reduction is from the explicit three-level morphic boundary to a uniform arch family and then from every length-j failure to the same base failure extended by a. That requires the prefix decomposition and support argument as well as the ruler identity; these are not supplied by the inspected generic statements. The known general theorem and morphism should still be credited as covering the framework and model.",
+        "searches": [
+          "Kosche et al. Theorem 3.4 and Example 3.5, https://fi.episciences.org/12396/pdf",
+          "Dvořáková–Mol–Pelantová equation (1), https://arxiv.org/pdf/2611.13676"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dvořáková–Mol–Pelantová define exactly the same nonuniform morphism, in a study of repetition thresholds and infinite rich words.",
+          "SCOPE-d154a4351ab0 concerns the ternary Tribonacci morphism (01,02,0) and an SAS classification depending on k modulo 3, not the morphism (0(i+1),0bb) and the boundary at d+1.",
+          "SCOPE-d88887bf9366 concerns binary Cantor iterates and nine shortest absences, not this alphabet or family."
+        ],
+        "reasoning": "Scattered absence is not contiguous factor avoidance. Relabeling cannot identify the two morphisms: even for d=3 their image lengths differ. Computing SAS in either compared family does not give the three words in (RRb)^m Z.",
+        "searches": [
+          "Resultary: three shortest absent subsequences rich-word morphism stable three-word theorem UaUb (RRb)^m",
+          "Resultary: shortest absent subsequences rich word morphism sharp transition d+1 d+1 3",
+          "Dvořáková–Mol–Pelantová arXiv:2611.13676 equation (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Tribonacci record gives a singleton except for k congruent to 2 mod 3, when the set is {2^r0,2^r1,2^(r+1)}; it is a different substitution and a different family of shortest absent words.",
+          "The Cantor record gives the nine-word product {00,01,11}1^(2^n-3){00,10,11} for its binary hosts. No distinct matching exact set and host transition was established."
+        ],
+        "reasoning": "Matching cardinalities at isolated levels or a generic algorithm's capability to list a frozen input is not an existing table of the claimed languages. The quantified host family and exact sets must coincide.",
+        "searches": [
+          "Resultary: three shortest absent subsequences \"a^{2m+1}\" \"b^2a^{2m-1}\"",
+          "Resultary: shortest absent subsequences rich word morphism sharp transition d+1 d+1 3",
+          "Mirror RESULT.md for SCOPE-d154a4351ab0 and SCOPE-d88887bf9366"
+        ]
+      },
+      "rationale": "Credit the exact substitution to Dvořáková–Mol–Pelantová and the general structural characterization of shortest absent subsequences to Kosche et al. The supported distinct result is the explicit stable three-word classification uniform in full-support U, m and the allowed tail, and its three-level transition for this particular morphism. Neither a new general SAS characterization nor historical priority is claimed. The strongest prior characterization indeed applies, but does not give the family-specific prefix and morphism identities that resolve all its constraints uniformly.",
+      "residual_risks": [
+        "An earlier explicit specialization of general arch theory might exist; bounded searches cannot certify priority.",
+        "The general structural result is a close methodological overlap, including a different three-word example; the pass concerns only the stated uniform specialization and morphic boundary.",
+        "The journal PDF for Kosche et al. prints 2022 while the frozen bibliography lists 2023; arXiv v6 is dated 2023. This does not affect coverage or correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural criterion applies; closely related example, but no equivalent frozen family classification established",
+          "evidence": [
+            "Thm. 3.4 uses one position per arch satisfying Thm. 3.1; Example 3.5 obtains {000,100,200} for 012121012; the repeated-permutation family has a monotone-language description."
+          ],
+          "identifier_or_url": "https://fi.episciences.org/12396/pdf (arXiv:2108.13968)",
+          "material_read": "Definition 2.3, Thm. 3.1, Thm. 3.4, Example 3.5 and opening of Prop. 3.6; pp. 203–206, offsets about 12448, 15100, 19250–24738",
+          "method": "Lawful OA PDF locators and bounded passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Plausibly dominating structural result for arbitrary words"
+        },
+        {
+          "assessment": "Exact object is prior; inspected passages concern repetition and rich-word structure, not the stated SAS transition",
+          "evidence": [
+            "Equation (1) gives the same exceptional top-letter image; stated goals are repetition thresholds and infinite rich-word structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13676",
+          "material_read": "Abstract and displayed equation (1) on p. 3, extracted offsets 0 and 8244",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "An automated approach to structure theorems for minimally repetitive rich words",
+          "trigger": "Exact same morphism"
+        },
+        {
+          "assessment": "Computational coverage per input, not an explicit uniform exact-table result",
+          "evidence": [
+            "Uses enumeration algorithms and data structures for arbitrary input strings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+          "material_read": "Abstract and introduction pp. 1–2, offset about 950",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "Recent general exact enumeration"
+        },
+        {
+          "assessment": "Different morphism and modulo-3 language, irrespective of shared date",
+          "evidence": [
+            "The alphabet is ternary and the top image is 0; the result has one- and three-word residue classes."
+          ],
+          "identifier_or_url": "SCOPE-d154a4351ab0",
+          "material_read": "Actual Finding in mirror RESULT.md",
+          "method": "Local Resultary and mirror statement comparison",
+          "title": "Complete shortest absent subsequence language of finite Tribonacci words",
+          "trigger": "Closest distinct finite-morphic complete SAS classification"
+        },
+        {
+          "assessment": "Different family and absent-language pattern",
+          "evidence": [
+            "The uniform language is a nine-word product around a central block of ones."
+          ],
+          "identifier_or_url": "SCOPE-d88887bf9366",
+          "material_read": "Actual Finding in mirror RESULT.md",
+          "method": "Local Resultary and mirror statement comparison",
+          "title": "Nine shortest absent subsequences of every finite binary Cantor word",
+          "trigger": "Earlier exact uniform SAS pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shortest forbidden scattered words directly measure where universality breaks, and the substitution is independently motivated by rich-word structure. The exact boundary and complete languages distinguish that family from other substitutions, without merely reporting three finite runs. The uniform extension explains why arbitrary internal multiplicity/order and a-free tails from the specified alphabet do not perturb the three obstructions; the length and count alone would miss this structural information. The claim remains limited to the three morphic levels and the stated block class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

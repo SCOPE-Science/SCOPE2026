@@ -1,19 +1,21 @@
-# Scientific review: Gini order under common concave income transformations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated majorization hypothesis and common equal original total give both endpoint inequalities and the concave Karamata inequality. For one, two or three observations, the Gini numerator is respectively zero, the transformed endpoint gap, or twice the transformed endpoint gap. Combining numerator increase with denominator decrease proves the full universal result, including ties and arbitrary positive nondecreasing concave transformations. For four observations, the two specified vectors satisfy every partial-sum inequality; both the top-code and smooth strictly concave transformed Gini values were reconstructed from exact pairwise-difference sums. The smooth function is strictly positive, increasing and concave on the complete stated domain. The standalone verifier supplies separate exact arithmetic checks; finite tests are not substituted for the universal argument.
+PASS
 
-## Originality — PASS, subject to stated literature-access risk
+Write G=N/(nS) in the sorted convention with N=sum_{i<j}(z_j-z_i). At n=1 N=0; at n=2 and 3 N is the extreme gap multiplied by 1 and 2, respectively, by cancellation of all intermediate terms. Original majorization with equal totals gives x_1<=y_1 and x_n>=y_n (use the prefix of length n-1 and subtract from the common total). The common monotone map preserves these comparisons, enlarging the gap in f(x) relative to f(y). Concave Karamata gives S(f(x))<=S(f(y)), both strictly positive. Thus the numerator and denominator changes both favor the stated ratio, with ties and flat f allowed. For n=4 the sorted prefix totals of x and y are (1,2,3,6) and (1,2,4,6); raw (N,S) are (6,6) and (4,6), and after the top-code they are (3,5) and (4,6). The resulting reversal is 3/20 versus 1/6. For f(t)=1-8^(-t), f is positive and f'>0>f'' on t>0. From the exact three transformed values, using denominators 512 for x and 64 for y, the (N,S) pairs are (189,1855)/512 and (28,238)/64. The Ginis are 27/1060 and 1/34, with difference -71/18020. This algebra independently checks the exact witnesses; universal preservation does not rely on finite enumeration. The supplied exact-arithmetic checker and recorded verification output were read, not executed. The claim requires original equal totals and the majorization comparison of profiles, not just their untransformed Gini ranking.
 
-Fellman's 2016 transformation theorems compare an income distribution to its own transform or two transforms of one distribution, not the relative-Gini rankings of two different Lorenz-ordered finite profiles under one common transform. The 2008 Census working paper documents empirical Gini effects of topcoding without a minimal household theorem. The 1994 Bishop--Chiou--Formby abstract reports empirical changes in ordinal Lorenz comparisons under truncation, not a three-household guarantee and four-household counterexample. The latter paper's body could not be accessed and could conceal relevant prior results. Additional searches for majorization, top-coding, finite Gini comparisons and the exact threshold did not identify the complete theorem; negative search results are not a proof of priority. Standard majorization and endpoint identities themselves are not presented as novel.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A survey's common top-code or an income-saturation transformation may change the ranking of two populations even if one initially dominates the other in the strong Lorenz/majorization order. Establishing the exact lower-dimensional rigidity limit identifies when that concern is mathematically impossible and the smallest number of household values needed for a reversal. The strict smooth witness rules out an explanation confined to the nondifferentiability or flat top of the cap. This is a natural structural measurement boundary, not a claim about observed frequency or policy impact.
+The credited result is the combined sharp boundary for a single relative Gini coefficient comparing two initially majorized profiles after a common positive nondecreasing concave map. Endpoint cancellation at n<=3 and Karamata are existing ingredients. Impact of top-coding on ordinal inequality rankings is also documented, but the checked evidence does not establish the universal small-n theorem or the sharp first strict reversal under these matched hypotheses. Same-input comparisons, different indices, and data-dependent Winsorization are distinguished below. This judgment is limited by the unavailable full text of the 1994 empirical paper.
 
-## Boundaries and remaining risks
+## value
 
-The theorem concerns positive, equally weighted finite profiles with equal original total and majorization, not arbitrary Gini-ordered pairs; transformed totals may differ. Originality uncertainty remains because the full text of the relevant 1994 empirical source was inaccessible. Neither the numerical checks nor the literature search provides independent scientific certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A common top-code or saturating concave rescaling is a natural way to modify incomes. The result identifies exactly when a reversal first becomes possible even with initial Lorenz dominance, and demonstrates it with a strict smooth witness rather than an artifact of a flat cap or noncomparable originals. The mechanistic distinction is useful: an endpoint gap controls the low-dimensional numerator, while at four households interior ranks matter and can overcome the favorable denominator comparison. No empirical prevalence or maximal size is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

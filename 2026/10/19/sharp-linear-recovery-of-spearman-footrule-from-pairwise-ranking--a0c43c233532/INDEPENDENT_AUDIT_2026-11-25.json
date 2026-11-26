@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:28:56.647098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform S_n, swapping values x<y between a<b changes footrule by twice the number of cuts t in [a,b) with x<=t<y; other locations are unaffected. Averaging over unordered value pairs gives the stated positive covariances. Two- and three-site orderings give Sigma=(I+B^T B)/12, which is positive definite even at n=2. The cross-covariance is B^T h, so the complete-graph Laplacian puts it in the (n+1)/12 eigenspace of Sigma, yielding the unique affine fit. The residual is for affine prediction only, not a loss of information in the full comparison vector. Independently evaluated the two all-size sums using symbolic power sums: for s_i=i^2-(n+1)i+n(n+1)/2, the double-centered assignment variance is [n^2(n^2-1)/6-2 sum_i(s_i^2)/n+(n^2-1)^2/9]/(n-1). With H_i=i(i-1)(3n+1-2i)/6, the squared cross-covariance norm is [n sum_i(H_i^2)-(sum_i H_i)^2]/[n(n-1)]^2. These reduce to (5) and (6); subtraction verifies (4). The exact forward difference of (3) has numerator 3(2n+1)(23n^4+46n^3-311n^2-334n-504) over a positive denominator. The quartic is negative for 2 and 3 and strictly positive from 4 by its expansion in n-4. R_2^2=1, R_3^2=9/10 and R_4^2=58/65; the leading terms give 51/56. Replay: sum the displayed polynomials over i=1,...,n (or use symbolic summation), then factor R^2(n+1)-R^2(n). The supplied verifier was inspected but not executed; its finite counts are frozen self-reported evidence, not the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The incidence precision Finding gives the cut/cycle eigenspaces of the comparison covariance.",
+          "Xia–Guan–Xu pp. 3–5 report the footrule variance and discuss the earlier asymptotic-normality proof."
+        ],
+        "reasoning": "Generic inverse covariance can solve the regression given the cross-covariance vector; it does not compute that vector or the projection variance for footrule. Available evidence of marginal or weighted metric results does not establish broader exact projection coverage.",
+        "searches": [
+          "Resultary: incidence precision and finite uniform-null comparison projection",
+          "Diaconis–Graham DOI:10.1111/j.2517-6161.1977.tb01624.x",
+          "Chen–Li–Feng arXiv:1207.2541"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-f6af0a8c3805",
+        "SCOPE-413aa6318ee6",
+        "arXiv:2505.01825v2",
+        "Diaconis–Graham DOI (access limited)",
+        "arXiv:1207.2541 (unavailable as cited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sigma and total footrule variance are known; neither specifies the cross-covariance vector c.",
+          "The fitted cut vector has every edge coefficient positive before centering, and its squared norm involves all cut cross products, not the variance or scalar covariance of two named distances."
+        ],
+        "reasoning": "The prior ingredients leave the pair-swap calculation and all-size evaluation of the fitted variance, minimum and limit. These are the precise claims credited here.",
+        "searches": [
+          "SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805, Finding",
+          "SCOPE-exact-permutation-null-correlation-of-spearman-footrule-and-rho--413aa6318ee6, Finding",
+          "arXiv:2505.01825v2, pp. 3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For centered comparisons X, BX is the vector of centered positions' ranks, so B^T h applied to X is h applied to the centered ranks.",
+          "Xia–Guan–Xu's representation sums independent input contributions asymptotically, not centered permutation ranks in an exact finite orthogonal projection."
+        ],
+        "reasoning": "The cut-space reduction is a genuine alternative formulation of the same result; the asymptotic independent-input projection has a different domain, regressors and target error.",
+        "searches": [
+          "Resultary: footrule covariance with each pairwise inversion, complete comparison projection, and rank-sum/Hajek equivalence",
+          "arXiv:2505.01825v2, pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest identified exact-moment record evaluates covariance with squared displacement (Spearman rho), not the comparison-regression norm.",
+          "The incidence record tabulates spectral values for Sigma, not cross moments against footrule or explained fractions."
+        ],
+        "reasoning": "The exact quantities actually found concern a marginal variance or a different pair of statistics. No matching table was identified; this is not proof of absence.",
+        "searches": [
+          "Resultary: 58/65 sharp minimum at n=4 and 51/56 limit for all-comparison footrule recovery",
+          "SCOPE-exact-permutation-null-correlation-of-spearman-footrule-and-rho--413aa6318ee6, Finding"
+        ]
+      },
+      "rationale": "The supported distinction is the exact footrule cross-covariance and complete finite affine projection, including the sharp worst-size and limiting variance fractions, not comparison precision, footrule moments or asymptotic normality. The closest available statements give ingredients or different projections, not the claimed evaluated projection.",
+      "residual_risks": [
+        "The unavailable classical and weighted-ranking texts or another source could express the same finite fit as a positional-rank regression. This access risk alone is not contrary evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers comparison covariance and precision, not footrule cross-covariance or explained variance",
+          "evidence": [
+            "Comparison covariance and precision matrices and their cut/cycle spectrum."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "material_read": "RESULT.md, Finding, offset 307",
+          "method": "Indexed local mirror, statement comparison",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Same full comparison vector and normal-equation matrix"
+        },
+        {
+          "assessment": "Covers footrule variance and a different covariance",
+          "evidence": [
+            "Uses squared displacement for Spearman rho instead of the full comparison vector."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-permutation-null-correlation-of-spearman-footrule-and-rho--413aa6318ee6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Indexed local mirror, statement comparison",
+          "title": "Exact permutation-null correlation of Spearman footrule and rho",
+          "trigger": "Same footrule law and another evaluated correlation"
+        },
+        {
+          "assessment": "Covers marginal variance and a different asymptotic projection",
+          "evidence": [
+            "Marginal variance is stated on p. 3; the Hajek representation on pp. 4–5 is an independent-input sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.01825v2",
+          "material_read": "PDF p. 3 at offset 11665 and pp. 4–5 at offset 16651",
+          "method": "Lawful open PDF passage inspection",
+          "title": "Asymptotic representations for Spearman's footrule correlation coefficient",
+          "trigger": "Footrule projection with seemingly similar rank-based terminology"
+        },
+        {
+          "assessment": "Historical overlap remains unresolved beyond the cited normality result",
+          "evidence": [
+            "The later paper attributes a combinatorial-CLT normality proof to Diaconis–Graham."
+          ],
+          "identifier_or_url": "DOI:10.1111/j.2517-6161.1977.tb01624.x",
+          "material_read": "Bibliographic identification and the citation on p. 5 of Xia–Guan–Xu; no primary body",
+          "method": "Attempted OA retrieval (403 and no lawful repository copy identified); indirect citation only",
+          "title": "Spearman's Footrule as a Measure of Disarray",
+          "trigger": "Foundational exact and asymptotic footrule theory"
+        },
+        {
+          "assessment": "No statement-level noncoverage claim for this paper",
+          "evidence": [
+            "The supplied identifier did not yield retrievable primary text in these attempts."
+          ],
+          "identifier_or_url": "arXiv:1207.2541 (identifier as supplied)",
+          "material_read": "Frozen bibliographic identification only; no primary body obtained",
+          "method": "Attempted OA abstract/HTML/PDF retrieval (404)",
+          "title": "A New Weighted Spearman's Footrule as A Measure of Distance between Rankings",
+          "trigger": "Weighted footrule and Kendall-type comparisons may hide an equivalent projection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform null is a natural benchmark for replacing footrule by linear comparison summaries. This solves the complete affine prediction problem and supplies both the exact worst-size performance guarantee and the persistent nonlinear fraction 5/56, a distinction one cannot infer from complete pairwise information or a scalar footrule–Kendall correlation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

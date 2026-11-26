@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The update matrix follows from two coordinate-overwrite equations. At unit relaxation the exact scalar product determines both rates. At overrelaxation the sampled matrices, characteristic discriminants, strict common-in-expectation Lyapunov witness \(H\), and positive covariance growth witness \(Q\) were independently reconstructed with exact rational arithmetic from the packaged `verify.py`. Positive definiteness certificates and the covariance/dual identities imply opposite mean-square behaviors for every-time dynamics. The open-neighborhood claim follows from strict inequalities and eigenvalue continuity. The exact model is homogeneous and has independent sweep draws, and no actual floating-point assertion is made.
+## correctness
 
-## Originality — PASS (same-model, residual risk)
-Published work on roundoff and general stochastic matrix splitting contains important ingredients, but the primary materials inspected do not identify the exact dependence reversal between two joint coefficient laws having the same marginals. In particular, the 2021 stochastic-rounding theory uses mean-independent errors whereas opposite within-sweep coupling violates that conditional assumption, and the published two-coordinate delay law concerns a different random operation. This is not merely a renamed scalar iid product: the overrelaxed matrices are full-rank and noncommuting, and the counterexample requires distinct exact covariance and Lyapunov certificates. The 2026 motivating manuscript was accessible only as an abstract and remains the most important unresolved source-comparison risk. General switched-system theory could contain an equivalent specialized example; independent review is still needed.
+PASS
 
-## Value — PASS
-This is a robust motivated boundary to a common correlation-design intuition for imprecise linear iterations: negative dependence improves unit-relaxation contraction but can destroy second-moment stability at overrelaxation even though the individual matrices remain Schur-stable. The same marginal cost/precision is held fixed. The exact witnesses distinguish random-product stability from deterministic single-sweep spectral tests and can inform cautious selection of dependence models. It does not claim hardware superiority or a universal SOR phase diagram.
+Both laws give the same individual marginals and the reference A is SPD; the sweep is the stated sequential substitution with independent draws between sweeps. At omega=1 the update eliminates the first input component and the exact second-moment multiplier for the surviving recursion is E[(bc)^2], respectively 64/625 and 136/625; the sharp vector rate follows by conditioning on each fresh draw. At omega=1.87, every trace discriminant is negative and det M=(0.87)^2. I constructed the covariance operator directly on (x²,xy,y²) and independently verified the displayed Lyapunov residual, including both strictly positive leading minors, and the exact positive-definite covariance eigenmatrix with eigenvalue 1.00028424. Conditional quadratic contraction gives exponential stability for shared coupling. The anti eigenmatrix decomposes as a sum of deterministic-start rank-one matrices; its exponentially growing trace forces at least one such start to grow exponentially along a subsequence. The all-start stability criterion is equivalent to covariance spectral radius below one because deterministic rank-one matrices span symmetric matrices. Strict separation, strict spectral stability of the sample matrices and the omega=1 rate ordering persist by continuity. Replay: python3 /workspace/reproductions/finite_checks.py 2; shared omega=1.87 covariance radius is about 0.917477872302 (supplementary numerical value only).
 
-## Limitations and closest literature
-Connolly–Higham–Mary (2021) addresses ordinary stochastic rounding and conditional mean independence; Fox–Parker (2017) treats stochastic Gibbs equivalents of matrix splittings; Richtárik–Takáč (2019) gives general stochastic linear-system formulations. The new theorem is a specific exact-arithmetic joint-coefficient counterexample, not an analysis of those algorithms' full assumptions. Full text of Lindquist et al. (2026) was unavailable. Published generic random-product results remain a source of possible indirect overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the concrete two-coordinate SOR dependence reversal with fixed coefficient marginals and exact strict certificates. Random-product instability despite individually stable factors and covariance lifting are not new general principles. The strongest accessible conceptual analogue has a different shear-flow law, and the directly relevant mixed-precision SOR passages treat different perturbations and bounds.
+
+## value
+
+PASS
+
+This is a motivated counterexample to transferring the Gauss–Seidel benefit of antithetic coupling to overrelaxed sweeps, even when the individual factor laws are unchanged and every realized sweep is Schur-stable. Exact strict witnesses make the distinction reproducible and robust rather than a barely discernible simulation artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

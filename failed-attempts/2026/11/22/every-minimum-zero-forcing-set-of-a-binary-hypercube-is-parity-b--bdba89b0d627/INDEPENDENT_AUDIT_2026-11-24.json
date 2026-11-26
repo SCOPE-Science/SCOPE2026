@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:06:33.189760Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Restriction of a kernel vector to an ordinary zero-forcing set determines it: when the currently known blue coordinates are zero, the equation at a forcing vertex has only one remaining nonzero edge coefficient. The prefix signs make the coordinate flips symmetric involutions and anticommute by changing the sign of the higher-index flip exactly once. The integer weight identity gives K²=a²I and all edge coefficients are nonzero. The two-layer matrix has kernel (x,−Kx/a) and rank 2^(d−1). Its diagonal is zero, so in full-cube parity order it is [0 B; Bᵀ 0] and each parity-supported kernel has dimension 2^(d−2). Restriction to each parity therefore gives the stated lower bound even for nonminimum forcing sets. A coordinate facet attains the total, and each cube-edge slide changes the signature; opposite facets give disconnectedness, while K2 admits one slide. Read both frozen checkers without running them. An independent sequential bitset enumeration (`python3 /workspace/independent_checks.py 2`) exhausted subsets through the minimum in dimensions 1–4; it found 2, 4, 30, 2360 minima and 1, 0, 0, 0 undirected minimum slides respectively. The all-dimension proof does not rely on enumeration or modular rank tests. Minor documentation issue: the frozen scripts use int.bit_count (introduced in Python 3.10), so their Python 3.8+ requirement is too broad; it does not affect the result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For every dimension d≥2, AIM sets L_1=[0 1;1 0], L_j=(1/√2)[L_(j−1) I; I −L_(j−1)] and H_d=[L_(d−1) I; I L_(d−1)]. Theorem 3.1 proves rank(H_d)=2^(d−1); zero diagonal follows directly from the recursion.",
+          "Bong et al. show general bipartiteness of sliding over bipartite base graphs, which allows edges. Brimkov et al. discuss cube optimal sets and propagation times; their lack of a full classification does not rule out the parity corollary."
+        ],
+        "reasoning": "The earlier matrix theorem has full dimension coverage and gives a stronger algebraic witness than the bare scalar optimum. Bipartiteness of a reconfiguration graph would not suffice without the witness.",
+        "searches": [
+          "AIM 2008 Theorem 3.1, journal p. 1636; arXiv:2501.03642 Theorem 2.3.4; arXiv:2507.10826 §4"
+        ]
+      },
+      "checked_sources": [
+        "AIM (2008), Theorem 3.1",
+        "arXiv:2009.00220; arXiv:2507.10826; arXiv:2501.03642",
+        "Resultary: 7db32b1999ae, 9228c57633d9, 4c5b7f9219b1",
+        "Huang–Chang–Yeh DOI 10.1016/j.laa.2010.01.001 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d≥2 put the AIM H_d in bipartition order. Its zero diagonal and cube edge support yield [0 B;Bᵀ 0]. Since rank(H_d)=2^(d−1), rank(B)=2^(d−2); both parity blocks have nullity 2^(d−2). The standard zero-forcing kernel-injectivity argument forces at least that many initially blue vertices in each part. AIM also gives the equality Z(Q_d)=2^(d−1).",
+          "A minimum edge slide changes these counts by one. Unrestricted token exchange is different and can preserve the signature."
+        ],
+        "reasoning": "This is a direct corollary of the earlier explicit H_d and standard forcing, irrespective of whether the corollary was worded as a token-sliding theorem. The new choice of integer entries is irrelevant to that implication.",
+        "searches": [
+          "AIM Minimum Rank–Special Graphs Work Group, Zero forcing sets and the minimum rank of graphs, Theorem 3.1 (lawful Coimbra copy)",
+          "Geneson–Haas–Hogben, arXiv:2009.00220, definition of exchange reconfiguration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parity balance is equivalent here to both independent lower bounds holding at known minimum size. A fixed signature precludes slides, but an edgeless slide graph alone need not imply a fixed signature.",
+          "The same-day Herschel record uses the same parity-signature obstruction for a different graph, and the earlier Möbius–Kantor record also gives an edgeless slide graph for ordinary minima. Neither graph is a cube family."
+        ],
+        "reasoning": "The real zero-diagonal minimum-rank witness is the relevant prior formulation, not simply the known value of Z or a finite reconfiguration observation.",
+        "searches": [
+          "Resultary: hypercube ordinary zero forcing parity balance and frozen optimal slides; 7db32b1999ae, 9228c57633d9",
+          "Primary literature: zero-diagonal rank and signed cube minimum rank; AIM (2008), Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier four-cube record covers 2,360 minima and unrestricted exchange (22,848 edges, diameter eight), not base-edge slides as the adjacency relation. The 1,704 Möbius–Kantor minima have an empty slide graph on a different graph. The same-day Herschel census has 114 minima and a 3+2 signature, also on a different graph."
+        ],
+        "reasoning": "Neither the four-cube finite census nor exact exploration of other base graphs gives the all-dimensional cube result; the exact earlier algebraic family, not a parameter-matched table, is decisive.",
+        "searches": [
+          "Resultary: 4c5b7f9219b1 four-cube minimum set exchange; 9228c57633d9 and 7db32b1999ae ordinary forcing slides; identical bdba89b0d627 excluded"
+        ]
+      },
+      "rationale": "The prior AIM minimum-rank proof already constructs, for every d≥2, a real symmetric zero-diagonal cube matrix H_d of rank 2^(d−1). This is not merely the earlier scalar minimum-rank number: H_d already has the exact block structure needed to read off both parity-supported kernel dimensions. The ordinary forcing kernel argument then gives both parity lower bounds immediately, and their equality at minimum size rules out one-edge slides. The submitted integer coefficients are an alternative witness, but integrality is not needed for the claimed rigidity and no new integer-rank invariant is established.",
+      "residual_risks": [
+        "No priority claim for an explicit published statement about cube token sliding; the earlier implication, not literal wording, is decisive.",
+        "Huang–Chang–Yeh full text was not independently inspected. The same-day Herschel comparison does not determine publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication of the full parity-rigidity theorem.",
+          "evidence": "L_1 has zero diagonal, the recurrence preserves zero diagonal, H_d has two copies of L_(d−1) on the diagonal blocks, and the displayed elimination proves rank exactly 2^(d−1).",
+          "identifier_or_url": "https://www.mat.uc.pt/~leal/FCT09/AIM08.pdf",
+          "material_read": "Theorem 3.1 and proof, journal p. 1636 (PDF p. 9, offsets 23400–25500)",
+          "method": "Lawfully available Universidade de Coimbra copy of the journal paper; located and read the matrix recurrence",
+          "title": "Zero forcing sets and the minimum rank of graphs",
+          "trigger": "Check the actual original minimum-rank witness, not just the scalar optimum"
+        },
+        {
+          "assessment": "Different adjacency definition; cube in the inspected §4 passage is a reconfiguration graph, not the base graph.",
+          "evidence": "One exchanged vertex need not move along an edge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+          "material_read": "PDF p. 1 offsets 393–1158 and §4 p. 7 offset 20575",
+          "method": "Lawfully available arXiv PDF",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Check ordinary exchange adjacency and occurrence of hypercubes"
+        },
+        {
+          "assessment": "Credits AIM for the scalar number and studies other structural properties.",
+          "evidence": "§4 discusses non-automorphic minima and distinct propagation times; reference [3] identifies the earlier AIM theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.10826",
+          "material_read": "PDF p. 5 offset 14412; §4 p. 11 offset 33590; references p. 17",
+          "method": "Lawfully available arXiv PDF",
+          "title": "On the forts and related parameters of the hypercube graph",
+          "trigger": "Direct prior structural work on cube minimum sets"
+        },
+        {
+          "assessment": "Bipartiteness of the slide graph is weaker than edgelessness.",
+          "evidence": "The parity of the occupancy in a base-graph part toggles under a slide; their theorem does not fix its exact value.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.03642",
+          "material_read": "PDF p. 2 offset 4800, Theorem 2.3.4 p. 5 offset 20854",
+          "method": "Lawfully available arXiv PDF",
+          "title": "Reconfiguration of Minimum PSD Forcing Sets and Minimum Skew Forcing Sets",
+          "trigger": "General theorem about slide graphs over bipartite bases"
+        },
+        {
+          "assessment": "Same mechanism on different finite graphs; no date-order inference.",
+          "evidence": "All 114 ordinary minima on the Herschel graph have signature 3+2 and cannot slide, while unrestricted exchange is connected.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-bipartition-rigid-zero-forcing-on-the-herschel-graph-and-six-exc--7db32b1999ae/RESULT.md",
+          "material_read": "Finding, offset 70",
+          "method": "Resultary local mirror",
+          "title": "Bipartition-rigid zero forcing on the Herschel graph and six exceptional graphs",
+          "trigger": "Strongest structural overlap in Resultary"
+        },
+        {
+          "assessment": "Earlier identical phenomenon on a different base graph, not cube-family coverage.",
+          "evidence": "Edgeless slide graph of the 1,704 Möbius–Kantor ordinary minima.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md",
+          "material_read": "Finding, offset 90",
+          "method": "Resultary local mirror",
+          "title": "A sharp token jumping versus token sliding dichotomy for minimum zero forcing",
+          "trigger": "Prior ordinary forcing slide obstruction"
+        },
+        {
+          "assessment": "Constrains unrestricted exchange on Q4, not adjacent slides.",
+          "evidence": "Reports 2,360 optima, 22,848 unrestricted exchanges and diameter eight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-self-centered-nonregular-exchange-graph-for-minimum-zero-forci--4c5b7f9219b1/RESULT.md",
+          "material_read": "Finding, offset 70",
+          "method": "Resultary local mirror",
+          "title": "A self-centered, nonregular exchange graph for minimum zero forcing of the four-cube",
+          "trigger": "Exact same-family finite census"
+        },
+        {
+          "assessment": "Full-text scope unresolved; not relied on for the decision.",
+          "evidence": "The frozen report credits the scalar cube optimum here; the independently inspected 2008 AIM proof already establishes the witness.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2010.01.001",
+          "material_read": "Landing page and abstract only",
+          "method": "DOI and lawful PDF URL attempted; PDF unavailable",
+          "title": "On minimum rank and zero forcing sets of a graph",
+          "trigger": "Alternative cited cube minimum-rank source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A parity signature explains why a minimum ordinary forcing configuration can be completely immobile under adjacent moves even where unrestricted exchanges permit motion. The distinction is structurally useful across cube dimensions, independent of any finite enumeration. It does not furnish an original result here because the earlier algebraic witness already yields it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

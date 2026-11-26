@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the exact Johnson distance and uses a three-variable recursive definition of every fixed distance. The upper-bound game matches nonempty ordered Venn-cell populations of at most \(p-1\) retained \(r\)-subsets, with at least \(r\) fresh ground elements on both sides at \(n,m\ge pr\). This extends through every move, regardless of quantifier depth. The lower-bound formulas for \(t=jr+i\), where \(2\le j\le p-1\) and \(1\le i\le r\), have at most \(p\) variables and force union size precisely \(t\); they distinguish every consecutive order below \(pr\). Different normalized ranks are separated by definable graph diameter. The two standalone programs check finite cases, but the all-parameter proof is mathematical.
+PASS
 
-## Originality — PASS (qualified)
+Independent proof reconstruction of RESULT.md: one replacement changes overlap with the target by at most one, and successive replacements reach it in r minus the overlap. The normalized order guarantees disjoint pairs, so diameter equals normalized rank and distinguishes unequal ranks. A fixed-distance test has two free endpoints and reuses a third name for its recursively scoped helpers. At each move, first restrict the cell matching to the retained sets (merge the old patterns that now coincide, and discard the all-zero cell). Their union uses at most (p−1)r points. Both ground sets have at least r fresh points when their orders are at least pr, so a response can match exactly the number selected from every cell and from outside the union. The matched profiles preserve equality and adjacency, indefinitely, including repeated pebbled vertices. For each 2r<t≤pr write t=jr+i with 1≤i≤r and 2≤j≤p−1. Witnesses consisting of j pairwise disjoint bases and one r-set disjoint from all but the first, meeting the first in r−i points, exist exactly at orders at least t. Each distance test locally shadows an unused endpoint name from the j+1 outer names. Applying t=n+1 separates every smaller order n<pr from every larger one. This gives the count and minimum representative within the family. The least-width claim is restricted to 3r≤n<m; the game works at width 3 as well and hence rules out all smaller widths there. Inspected VERIFICATION.md and the bundled logic/Venn source and output pairs: pair refinement corroborates width 3, while higher-width samples check the stronger cell-profile invariant, not a general FO^p enumeration. The proof, not those outputs, establishes the unrestricted claim.
 
-The precise new content is the unrestricted \(p\)-variable classification with \(p\ge4\) and \(r\ge3\). The three-variable consequence of distance regularity and the rank-two triangular graph result are prior cases, not claimed here. Earlier marked-Johnson counting-refinement results identify stabilizer orbits, not uncounted higher-width theories. Chepoi 2015 treats isometric embeddings; Grohe and Otto 2012 treat general pebble game equivalence; merged Johnson graph literature treats automorphisms; Adler, Benediktsson and Macpherson treat adjacency VC complexity. Inspected material does not cover the sharp multiway Venn-cell \(pr\) boundary. A stronger general theorem about set-system interpretations could imply it; the 2005 paper was not read in full.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines a natural exact logical-width hierarchy across all higher widths for uniform-matroid basis graphs, with \((p-2)r+1\) theories at fixed rank, exact consecutive distinguishability below \(pr\), and the smallest stable representative \(\binom{pr}{r}\). These are structural model-theoretic resources rather than isolated experimental values. The explicit extension invariant may aid comparisons of higher-rank subset systems, though no further downstream theorem is asserted.
+The strongest catalog matches give an exact rank-two analogue and a general width-three criterion, respectively. Neither entails the sharp cutoff for p≥4 and r≥3; no inspected general pebble-game or Johnson-graph work gives that classification. This pass is for that higher-width, higher-rank content, not for its special cases or for historical priority.
 
-## Limitations
+## value
 
-This is a within-family classification in the pure adjacency language without counting; it does not apply automatically to other graph families, richer signatures, bounded-depth questions, or counting logic. Independent mathematical evaluation and exhaustive historical-priority verification are not complete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural family of uniform-matroid basis graphs, the result specifies exactly what a fixed number of reusable variables can recover even with unlimited depth. Both the threshold and the intervening order distinctions matter: an eventual equivalence bound alone would not identify the least width or the smallest Johnson representative. The construction gives an explicit unbounded hierarchy at a fixed rank without invoking counting, and does not assert minimum representatives in arbitrary graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

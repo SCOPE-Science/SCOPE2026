@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The closed-neighborhood bound forces at least four guards. The two-part incidence count forces exactly two selected points and two selected lines; the omitted-line intersection argument identifies the complete family of 21 flags. A shared point or line coordinate obstructs a perfect one-step matching of the four guards, whereas a full sixteen-row explicit guard-routing table, transported by Fano flag-transitivity, constructs every other transition. This proves the complement-of-line-graph isomorphism. Explicit responses to attacks on point or line vertices prove that every minimum configuration is indefinitely defensible. Independent cyclic and binary-vector scripts exhaustively verify all state and move assertions and all response cases.
+PASS
 
-## Originality — PASS with residual risks
+Reconstructed RESULT.md lines 25–56. Three guards cover at most 12 of 14 vertices. A four-set with p points covers at most 12−2p points and 4+2p lines, so p=2. The two point guards meet five distinct lines, forcing the other two lines as the line guards. Their intersection is the third point on the line of the point pair: the two other lines through that third point avoid both occupied points, and no other lines do. Conversely these two lines cover the five unoccupied points, giving all 21 states indexed by incident flags. When two flags share a point, both new point destinations can only receive the guard from the one source line equal to the new flag's line. When the flags share a line, both new line destinations can only receive the one source guard on the new flag's point. Both are matching obstructions. Flag-transitivity and the verified sixteen routes from (0,L0) give all remaining moves. Independent replay `python3 /workspace/review_evidence/heawood_replay.py` checked all four-sets, all 210 unordered state pairs by subset DP, the 16 literal witness tuples and all 210 state/attack cases without running the submitted scripts. It recovered 168 shift edges. Under the flag bijection each vertex has four other flags sharing an endpoint, so degree 16, and each nonadjacent pair has a common neighbor; diameter is 2. After any attack there is a reachable state containing that vertex, still in the same family; reiteration is an infinite defense from each state. The domination lower bound gives optimality. The frozen cyclic and vector source scripts and stored outputs are consistent with this argument.
 
-The contribution is not the known count of 21 minimum configurations or an unsupported general Cayley equality. Goddard, Hedetniemi and Hedetniemi (2005) established the all-guards-move model but gave a purported general Cayley assertion subsequently shown false. Braga, de Souza and Lee (2016) analyze a separate 18-vertex, degree-six Cayley counterexample. Carr, Clarke, MacGillivray and Morris (2026) establish equality for vertex-transitive graphs possessing efficient dominating sets, inapplicable to a 14-vertex cubic graph because four does not divide 14. None of these inspected texts contains the present Heawood shift-graph isomorphism. A known classification of Heawood dominating sets already establishes its twenty-one four-sets under a different reconfiguration operation: that background statement does not imply any allowable simultaneous moves. A bounded search of mathematical research records and relevant primary literature found no equivalent shift graph. Residual risk: the closing three pages of the 2016 paper were temporarily inaccessible and an unindexed or unpublished classification might exist. The novelty assessment does not claim exhaustive publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The structural identification \(\mathcal B(H)\cong\overline{L(H)}\) transforms a dynamic game on 21 constrained configurations into a standard graph operation on the canonical Fano incidence graph. It yields a complete optimal one-turn transition rule, diameter two, exactly 168 moves, and a uniform, endlessly repeatable optimal guarding strategy. In particular it isolates exactly which *pairwise* optimal configurations cannot be directly exchanged even though each admits a defense against any single attack, information not obtainable from a domination-number equality alone. The Fano/Heawood object and simultaneous-guard dynamics are intrinsically motivated, rather than selected by an arbitrary numerical cutoff.
+The supported distinct claim is the natural identification of the entire simultaneous-shift graph, not the 21-set census, the game rule, or merely equality of two domination numbers. The nearest indexed claim uses the very same set census but takes a shattering complex on individual vertices. The broader inspected eternal-domination results do not determine the one-step adjacency predicate for Heawood. No implication-equivalent classification was established in the bounded comparisons; the inaccessible papers remain explicit access risks.
 
-## Scope of review
+## value
 
-The combinatorial assertions are finite and established without extrapolation. An external independent scientific audit has not been performed. The accessible 2005 full text and relevant 2016 primary-paper sections were compared with the actual theorem; recent related work was checked as to hypothesis and stated scope. Remaining accessibility and historical-priority risks are documented rather than treated as novelty proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Heawood is the natural Fano incidence graph and optimal all-guards dynamics are a motivated state system. The exact identification explains its otherwise nonobvious pattern of 42 blocked pairs, supplies every admissible one-turn move and shows eternal defense from every minimum state. It adds structural information that neither the minimum-set census nor an optimum guard number supplies. The result stays within the stated finite graph and movement rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

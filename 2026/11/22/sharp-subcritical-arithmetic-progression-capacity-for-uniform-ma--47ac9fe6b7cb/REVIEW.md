@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof disintegrates successful tuples into residue chains, uses symmetrization and sentinel marginal-capacity bounds, and constructs measurable coordinatewise uniform-preserving permutations attaining equality. The full-success characterization follows from consecutive chain lengths. The packaged exact-grid and independent LP checker passed 4,136 assertions, but does not replace the general proof.
+## correctness
 
-## Originality
-PASS against inspected, accessible evidence. The 2026 dependent-two-uniform-sum characterization gives bivariate atom feasibility, not the stated multi-coordinate event. Finite copula interpolation and general multi-marginal transport cover broader frameworks but provide no identified exact subcritical progression-capacity formula. The closest accessible historical claim about sharp minimum separation is constant one on this subcritical interval and therefore does not imply the nontrivial exact-gap capacity. Search failures do not prove global novelty; the residual risk is an unlocated equivalent in older multi-marginal transport literature.
+PASS
 
-## Value
-PASS. Below the hard-core separation threshold, the usual maximal separation probability is identically one and supplies no resolution of exact equal-spacing dependence. The theorem gives a complete all-dimensions sharp singular-event capacity and shows an infinite arithmetic sequence of full-capacity resonances separated by strict losses, a structural feature relevant to dependence-uncertain sample designs and multimarginal transportation.
+Off a marginal-null set, write x=t+jr with 0<t<r and let S be the levels j=k-1 mod k. Every successful tuple has exactly one coordinate in S, so its probability is at most E[sum_a 1_S(U_a)]=k|S|, without assuming exchangeability. The fibers have N(t)=m+1 for t<s and m for t>s, so |S|=s floor((m+1)/k)+(r-s)floor(m/k). Rotating a uniform seed by a-1 within every complete disjoint k-block and fixing leftovers gives a measurable Lebesgue-preserving map for coordinate a; precisely the complete-block seeds succeed. This attains the bound and reduces to the stated formula. The deficit is the integral of N(t) mod k and vanishes iff s=0 and k divides m (ell>=2 in the open range). The three k=3 examples check exactly. Separate finite replay: 70 labelled-marginal LPs on rational grids, allowing every label permutation of each progression and diagonal failures, match to 1e-8. The analytic certificate treats all real gaps.
 
-## Closest literature and limitations
-Chaudhary–Khandelwal (arXiv:2610.24197), Theorem 4.3 and Corollary 6.1(i), cover symmetric three-point laws for sums of two uniforms, not joint equal-spacing across three or more coordinates. Omladič–Vuk–Zalar (arXiv:2611.14008), Sections 1–4, address finite copula-CDF interpolation. Vögler (arXiv:1901.04568) provides potentially relevant general finite-state multi-marginal transport; only accessible abstract was examined. Independence, approximate gaps, all maximizers and publication priority are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the all-k attained subcritical exact-progression capacity for k>=3, not pair displacement, minimum separation or the general chain integrality argument. No statement inspected supplies this claim. The nearest comparisons provide substantial precedents in objective or method, and priority is provisional.
+
+## value
+
+PASS
+
+Exact spacing is a natural sharp dependence-uncertainty event that neither independence (zero) nor subcritical hard-core separation (capacity one) resolves. An attained expression for arbitrary real gaps shows full-capacity resonances and intervening strict deficits, and makes the qualitative nonmonotonicity precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

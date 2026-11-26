@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:40:48.163328Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated linear directed counts and fixed k copies, the largest label is contiguous; its observed neighbors uniquely determine the deletion update. Fixed row and column deficits recover the endpoints, so every reduced realization admits exactly one compatible endpoint insertion or exactly the reduced count of the specified internal pair. Insertion and deletion are inverse, also when the neighbors coincide. The realizability procedure inverts every accepted chain, and rejects a negative count, invalid largest-label pattern, or mismatched boundary. If an oriented pair ab with a!=b occurred twice, some smaller letter would lie between copies of a larger letter. A self-pair count is k minus the number of its homogeneous runs. Accordingly every branching factor is <=k-1. In the nontrivial k>=3 equality case, all stages split a fully contiguous block; induction forces the immediately previous largest label to be the only such block and hence fixes the entire maximizing profile. For k=2 all factors equal one. A first split of any block when k>=3 already gives k-1 choices; conversely all-block words give singleton fibers, with n! orders. This covers n=1 as the empty product. The cardinality product, Gamma identity and fixed-k asymptotic give the stated probability. As a cross-check the branching product for any attainable profile reduces to the product over labels of (k-1)!/m_aa!, since a loop branch consumes exactly one loop of its host and only those branches change old loop counts. Independent small multiset-word enumeration rejecting forbidden interlacings directly (not by generating via the supplied insertion routine) verifies that product and the extremal counts, replay: python3 /workspace/review_checks/stirling.py. Finite cases are supplemental; the universal assertions follow from deletion and induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noncrossing words of multiplicity at most 2r-2 are unique from the complete contiguous r-spectrum in a broader competitor class (take r=2). The separate labeled noncrossing double-occurrence theorem likewise gives global rigidity. The tree Eulerian paper concerns selected ascending adjacencies, not full matrices."
+        ],
+        "reasoning": "Every multiplicity-two Stirling word is noncrossing, so both broader reconstruction statements cover that exact boundary. The multiplicity restriction at read length two excludes k>=3; selected adjacent statistics do not determine equality of full profiles.",
+        "searches": [
+          "Resultary a4b2c35d85dd: sharp contiguous-read reconstruction of noncrossing words",
+          "Resultary f558cb3257d9: global two-gram rigidity of labeled noncrossing double-occurrence words",
+          "González D’León, EJC 23(1) P1.20, p. 9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:0805.4084v1 and arXiv:1301.5104v1",
+        "EJC 23(1) P1.20",
+        "Cowan 1991 and limited-access Whittle 1955",
+        "Resultary f558cb3257d9, a4b2c35d85dd, 548b5bcbdca0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known insertion formula counts all positions, not compatible gaps inferred from a profile. Euler-trail formulas count unrestricted sequences for given endpoints. The noncrossing double-occurrence decoder operates in a regime in which loops can never give a factor >1."
+        ],
+        "reasoning": "The novel comparison is not a renaming of any count: it requires showing that each attainable profile has a uniquely reduced profile with the same observable per-source branching, proving which insertions can give k-1 choices, and forcing an extremal insertion chain. The source-cardinality denominator and multiplicity-two statement are expressly excluded from the original portion.",
+        "searches": [
+          "Janson–Kuba–Panholzer, arXiv:0805.4084v1, Section 2.1 and Theorem 1",
+          "Cowan 1991, equations (3)–(5), and Whittle 1955 bibliographic trail",
+          "Resultary f558cb3257d9, Finding and recursive decoder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Since the alphabet counts are specified, the two-gram observation has exactly the same information as the two-Abelian profile. The directed transition multigraph gives an Euler-trail description in the unrestricted language. The increasing-tree bijection encodes the Stirling language at the source level."
+        ],
+        "reasoning": "The equivalent inverse problem counts only Euler trails with Stirling-ordered nesting, or equivalently increasing trees with the specified full word observation. Neither the unrestricted transition count nor the unconditioned tree enumeration computes these restricted fibers.",
+        "searches": [
+          "arXiv:1301.5104v1, Definition 2.1 and Lemma 2.3",
+          "Cowan, Expected Frequencies of DNA Patterns Using Whittle’s Formula, equations (3)–(5)",
+          "arXiv:0805.4084v1, Section 2.1, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day noncrossing records entail multiplicity-two rigidity. The nonnesting double-occurrence record gives an all-block singleton condition for a different class and a count n! times 2^(n-1), not the present higher-multiplicity result. The frozen finite tables describe restricted k-Stirling profiles."
+        ],
+        "reasoning": "These are real partial overlaps or related exact counts, not identical to the higher-multiplicity result. No within-day priority is inferred; the comparison uses source language, competitor class, observation and multiplicity.",
+        "searches": [
+          "Resultary a4b2c35d85dd, f558cb3257d9 and 548b5bcbdca0, all Findings"
+        ]
+      },
+      "rationale": "Best current evidence supports the higher-multiplicity restricted-fiber calculation, unique extremal spectrum and singleton law. Largest-label insertion, ordinary two-Abelian factor counting, the total source count and k=2 rigidity are established ingredients or exact overlaps and are not treated as novel.",
+      "residual_risks": [
+        "A specialization of Euler-trail or increasing-tree enumeration might already have been written in an uninspected source; the original Whittle full text was not available and is not used for a whole-paper coverage verdict.",
+        "The largest-label construction is classical and the deductions here are close to it; the scoped originality judgment concerns the full higher-multiplicity inverse classification, not historical priority for the construction or same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers source insertion/cardinality and increasing-tree encoding, not profile-restricted counts",
+          "evidence": "Insertion is counted over every available position; Theorem 1 is a source bijection.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.4084v1",
+          "material_read": "Section 2.1, pp. 2–3 equations (1)–(2), and p. 7, Theorem 1",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Generalized Stirling permutations, families of increasing trees and urn models",
+          "trigger": "Same source and largest-block construction"
+        },
+        {
+          "assessment": "Covers the observation and endpoint characterization, not the restricted inverse problem",
+          "evidence": "Equality of factor counts through length two gives the relevant equivalence for fixed unigram counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104v1",
+          "material_read": "p. 4, Section 2, Definition 2.1 and Lemma 2.3",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Equivalent factor-count observation"
+        },
+        {
+          "assessment": "Related statistic, not full directed profile counting",
+          "evidence": "The selected ascending-pair statistics omit most of the matrix constraints under review.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p20/pdf/",
+          "material_read": "p. 9, selected ascending adjacent pairs and sequences",
+          "method": "Bounded primary PDF inspection",
+          "title": "A note on the gamma-coefficients of the tree Eulerian polynomial",
+          "trigger": "Adjacent-pair statistics for Stirling permutations"
+        },
+        {
+          "assessment": "Verified unrestricted transition counts, no verified restricted implication",
+          "evidence": "Whittle's formula as given by Cowan counts linear sequences satisfying transition and endpoint constraints, not increasing nesting.",
+          "identifier_or_url": "J. Appl. Probab. 28 (1991), 886–892, Cowan; Whittle JRSS B 17 (1955), 235–242",
+          "material_read": "Cowan personal-archive PDF pp. 1–2, equations (3)–(5). Whittle original full text not reached (journal access failure and JSTOR landing page).",
+          "method": "Bounded OA alternate of Cowan and lawful primary access attempts for Whittle",
+          "title": "Expected Frequencies of DNA Patterns Using Whittle’s Formula",
+          "trigger": "General Euler-trail counting could subsume the inverse formula"
+        },
+        {
+          "assessment": "First two entail the k=2 slice; third is related but non-equivalent",
+          "evidence": "The first is a directed two-gram result even against arbitrary double-occurrence competitors. The second gives a read-length/multiplicity guarantee covering it. The third counts block words in the nonnesting class under a different competitor regime.",
+          "identifier_or_url": "Resultary f558cb3257d9; a4b2c35d85dd; 548b5bcbdca0",
+          "material_read": "Findings and proofs, respective local-mirror offsets 0–6341, 0–6598 and 0–7943",
+          "method": "Local Resultary mirror statement and scope comparison",
+          "title": "Global two-gram rigidity of labeled noncrossing double-occurrence words; Sharp contiguous-read reconstruction of noncrossing words with bounded symbol multiplicities; Global two-gram singleton boundary for nonnesting double-occurrence words",
+          "trigger": "Closest distinct exact reconstruction or singleton claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete labeled directed observation defines a natural lossless/ambiguous reconstruction problem on an established nested language. An all-profile exact decoder and fiber product, a unique worst spectrum achieving exponential ambiguity, and an attained classification and probability of exact recovery supply a reusable inverse result rather than isolated collisions or routine recounting of the language.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

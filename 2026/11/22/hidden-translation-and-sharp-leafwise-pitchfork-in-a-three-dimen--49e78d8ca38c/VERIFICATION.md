@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and limits
 
-Execute `python3 check_resonance.py` from this directory. It uses only the Python standard library, tests the exact algebraic-drift identity against 400 randomly chosen states and parameters, checks the two-step global contraction for 100 sets of initial fibers, checks six supercritical root/stability instances, and compares one irrational-rotation coordinate mean to the proven first-order bound. The deterministic run returned PASS.
+Run `python3 check_resonance.py` from this directory. The checker uses the Python standard library. It checks sampled drift identities, sampled fiber bounds, six nearby supercritical cases, and an irrational-rotation mean diagnostic. In the branch tests only the sine row of the Jacobian acquires the cosine factor, and finite differences check both Jacobian columns. The tests compare the multiplier near one to its first-order expansion and check the absolute values of both multipliers.
 
-The infinite-time statements rely on explicit analytic identities, a two-step contraction of continuous periodic fiber graphs, unique ergodicity of irrational rotation, and elementary scalar bifurcation analysis. Finite tests do not establish the all-state or all-parameter conclusions. No independent mathematical validation was conducted.
+The finite checks are supplementary. The exact translation, invariant-probability assertions, all-time contraction, stationary law, mean-error estimate and local stability classification follow from the analytic argument in `RESULT.md`.

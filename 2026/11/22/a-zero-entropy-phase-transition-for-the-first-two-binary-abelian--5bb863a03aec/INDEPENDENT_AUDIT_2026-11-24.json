@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:04:52.125970Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After excluding 000 and 111, an ordinary period-two Abelian cube consists exactly of three consecutive blocks in {01,10}. This gives a memory-five graph. Independent direct-window reconstruction (independent_check.py) obtained the displayed 16 vertices and 18 edges, with a direct word check through n=16 and path counts through n=200; the frozen checker scripts and VERIFICATION.md were read, not executed. The graph itself proves the all-length formula: at path length >=3 one has six cycle-only paths, two entry-only and two exit-only paths, with two further paths of lengths 4 mod 3 using both an entry and an exit. The remaining transient paths have at most two edges. These phases give 10+2*1_{3 divides n} from n=8; the short counts and generating function follow. With no intercycle connection, no transient edge can occur on a path extending in both directions; the two three-cycles give precisely six bi-infinite points. The full linear-word census includes transient words, so it is not identical to the set of factors of the two-sided shift, although both have entropy zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rao–Rosenfeld proves that no infinite binary word avoids every Abelian cube of periods >=2 and notes the unrestricted length-nine ceiling.",
+          "Huova–Karhumäki and the higher k-Abelian papers concern another block equivalence or different forbidden sets."
+        ],
+        "reasoning": "Forbidding all periods >=2 is not the same as forbidding 1 and 2; period 3 is allowed in the audited shift and is exhibited by every shift point. The unrestricted ceiling pertains to a smaller language. Refining the Abelian equivalence also changes which cubes are forbidden. Standard shift-of-finite-type machinery does not supply this graph's exact components and boundary paths.",
+        "searches": [
+          "Rao–Rosenfeld arXiv:1507.02581 Section 3; Huova–Karhumäki arXiv:1104.4273 Table 1; k-Abelian avoidability references"
+        ]
+      },
+      "checked_sources": [
+        "Rao–Rosenfeld 2014 preprint and arXiv:1507.02581",
+        "Huova–Karhumäki arXiv:1104.4273; Rao k-Abelian avoidability abstract and definitions; Mercaş–Saarela p. 469",
+        "Resultary 5bb863a03aec, 6ae1af13106e and f351b762e936",
+        "Frozen RESULT.md, VERIFICATION.md and both checkers; independent_check.py and run log"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The revised proposition treats every period >=2 and its approach uses the absence of arbitrary powers under that restriction.",
+          "The audited admissible period-three patterns have arbitrarily long powers and are therefore outside the proof's language.",
+          "The distinct ternary result gives positive entropy and a different series, rather than a theorem tracking the binary sublanguage by allowed symbols."
+        ],
+        "reasoning": "Neither nonavoidability with long periods nor a transfer formula for a different alphabet entails these binary recurrent or transient path counts. The finite graph calculation supplies the exact structural information.",
+        "searches": [
+          "Rao–Rosenfeld 2014 preprint p. 2 and revised Section 3 Proposition 1; Resultary ternary local Abelian-cube result and binary Abelian-square classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact forbidden-list form is {000,111} together with all concatenations of three blocks in {01,10}.",
+          "Resultary hit 5bb863a03aec is the assigned record itself. A nearby binary six-factor result f351b762e936 concerns squares of exact orders 2 and 3."
+        ],
+        "reasoning": "The exact forbidden-list formulation is equivalent, but substituting half-lengths of squares for one-third-lengths of cubes changes the list and produces a different period-six pattern in the nearby result.",
+        "searches": [
+          "Resultary: binary short-period Abelian cubes, periods 1 and 2, eventual periodicity",
+          "Literature: short Abelian cubes, automaton, six periodic words and count sequence; binary words avoiding Abelian cubes periods 1 and 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index hit is the frozen record; distinct 6ae1af13106e uses the same two periods on a ternary alphabet.",
+          "Huova–Karhumäki Table 1 is an avoidability table, not an enumeration of the local binary language."
+        ],
+        "reasoning": "The ternary counts cannot be read as binary counts, and the avoidability table does not enumerate linear words, boundary transients or the six points. No distinct matching exact table was identified in the bounded search.",
+        "searches": [
+          "Resultary: exact local Abelian cube entropy and exact binary counts",
+          "Literature: 1 2 4 6 10 16 18 12 binary Abelian cubes and exact periods 1,2"
+        ]
+      },
+      "rationale": "The standard finite-type enumeration method is not new. The exact ordinary binary short-period language and the six-point classification are distinct from the closest inspected results for other restrictions and alphabets.",
+      "residual_risks": [
+        "A differently indexed equivalent forbidden-list automaton or earlier exact census was not ruled out exhaustively.",
+        "Index dates alone do not order closely related findings; no priority claim is based on them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different forbidden-period sets, no short-period census here",
+          "evidence": [
+            "Length greater than nine forces an unrestricted Abelian cube.",
+            "Proposition 1 forbids all periods at least two, not only periods one and two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.02581",
+          "material_read": "Revised Section 3, p. 3, Proposition 1 and preceding argument, extraction offset 7150; original 2014 PDF p. 2 at offset 4770",
+          "method": "Bounded original PDF passages",
+          "title": "Avoidability of long k-abelian repetitions",
+          "trigger": "Closest binary ordinary Abelian-cube avoidance theorem"
+        },
+        {
+          "assessment": "Separates block-equivalence notions; no counts for this short-period ordinary language",
+          "evidence": [
+            "Binary ordinary Abelian cube nonavoidability and the different 2-Abelian setting appear separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.4273",
+          "material_read": "Table 1, p. 3, extraction offset about 6900",
+          "method": "Bounded primary PDF passage",
+          "title": "Observations and Problems on k-abelian avoidability",
+          "trigger": "Prior avoidability table and potentially equivalent block constraints"
+        },
+        {
+          "assessment": "Same periods but genuinely different alphabet and entropy",
+          "evidence": [
+            "Ternary alphabet and positive entropy with different generating function."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-local-abelian-cube-entropy-on-a-ternary-alphabet--6ae1af13106e",
+          "material_read": "Mirrored RESULT.md Finding and alphabet, offset 0",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Exact local Abelian-cube entropy on a ternary alphabet",
+          "trigger": "Distinct index match with exactly the same cube periods"
+        },
+        {
+          "assessment": "Different local squares producing a different periodic language",
+          "evidence": [
+            "Squares of exact orders 2 and 3, with eventual factors of (000111) repeated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-eventual-periodicity-and-alphabet-threshold-for-avoidance--f351b762e936",
+          "material_read": "Mirrored RESULT.md Finding and forbidden windows, offset 0",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Sharp eventual periodicity and alphabet threshold for avoidance of short Abelian squares",
+          "trigger": "Distinct binary zero-entropy structural match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Tests the earliest natural cutoffs of ordinary Abelian-cube periods, not a selected isolated word length. At cutoff one, concatenations of 01 and 10 already give exponentially many extendible words; adding period two reduces the entire two-sided shift to six points. The index-sensitive finite census also records the remaining boundary transients, which entropy alone misses. The result gives a useful complete local baseline for comparison across periods and alphabets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

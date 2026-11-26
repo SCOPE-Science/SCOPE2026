@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite normal-form algorithm eliminates exactly those coefficients with indices not congruent to one modulo the linear multiplier's order; its coefficient transformation is triangular and bijective. The normalized substitution preserves exponent residues. Nonzero residues have no fixed vectors, while the lowest nonconstant term of a residue-zero polynomial supplies a nonzero leading obstruction exactly through degree \(m\) because \(m\le p\). This identifies the complete fixed subalgebra rather than only a dimension, and independent uniform resonant coefficients yield the stated probabilities. The bundled direct-substitution checker verified 38,674 examples in ten exhaustive parameter configurations, including nonprime fields. The characteristic-two counterexample beyond the scope was confirmed. The proof, not finite tests, covers arbitrary permitted parameters.
+## correctness
 
-## Originality — PASS within checked coverage
-Closest classical source: Cohen, arXiv:1804.00059, Section 5.2 summarizes the preexisting Muckenhoupt resonance normal form; its statements are not an exact finite-field fixed-subalgebra distribution and assume characteristic zero. Byszewski–Cornelissen–Tijsma, arXiv:2008.04971, concern finite-order Nottingham elements and break sequences, not invariant subalgebra type distributions for uniform truncated automorphisms. Other relevant nearby records were compared by object and implication, including work on truncated Nottingham braces and automorphism groups of coordinate-cross algebras; their results do not determine the current isomorphism-type fibers. Search nonmatches are not a proof of priority; residual risk is a treatment of finite jet fixed rings under different terminology.
+PASS
 
-## Mathematical value — PASS
-Fixed subalgebra is a canonical invariant of an automorphism, and the answer classifies all possible ring isomorphism types with exact probabilities for every field, tame multiplier order, and permitted truncation parameter. It reveals a field-independent geometric resonance mechanism and a genuine small-characteristic boundary, going beyond routine fixed-point counting and beyond the classical normal-form theorem alone. The result neither claims a general moduli theory nor relies on unsupported downstream applications.
+At degree j, conjugation by t+c t^j preserves every lower coefficient and shifts the degree-j coefficient by c(a^j-a). Retain each eliminated coefficient just before elimination as an auxiliary coordinate; it and each retained resonant coordinate are affine bijections of the original coefficient at that degree, for every choice of earlier ones. This proves the uniform product law on the resonant coefficients, not a law on conjugacy classes. The resonance degrees sd+1 have 1≤s≤m−1. All nonzero exponent residues modulo d have invertible substitution-minus-identity by the diagonal entries. On the zero residue algebra z=t^d, first resonance r gives a nonzero term γ z^(r+1), with γ=d b_r, in φ(z)-z. A first nonconstant term u_j z^j in an invariant would change by jγu_j z^(j+r) if j+r≤m; no higher term can cancel this, and j≤m−r<p, including m=p. All remaining monomials are individually fixed, with multiplication inherited from the truncated z-ring, or the whole z-ring is fixed when all coefficients vanish. Thus this is an algebra classification, and the independent coordinates give the stated first-hit law and its dimension expectation. The argument includes d=1 with no eliminations. Independently enumerating fixed vectors directly over F2 and F3 on three in-range cases gave the expected dimension counts, with the out-of-range p=2,m=3 counts {3:3,4:1} (/workspace/replay/independent_checks.py, fixed). That finite replay is not a proof or an arbitrary-field multiplication certificate.
 
-## Limits
-The probability refers to uniform coefficient choices with a fixed multiplier. No assertion is made when \(m>p\), and original priority remains subject to unexamined specialist literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical resonant formal normal form. There is an exact formula-level match with a distinct later indexed Resultary record when p>N, but that record does not cover the frozen theorem's characteristic range m≤p≤N. The inspected classical and finite-characteristic sources do not establish the conditional-uniform algebra law. The distinct scope is the identified ring-type distribution under uniform finite-jet coefficients in the stated small-characteristic window as well as in large characteristic; no exclusive priority claim is made for the shared formula.
+
+## value
+
+PASS
+
+Uniform jets with fixed multiplier are a natural conditional model; the distribution of the entire invariant algebra is stronger than a single dimension statistic and does not follow from classical characteristic-zero conjugacy alone. The tame multiplier law persists when p need not exceed the truncation degree, and the explicit boundary failure shows why the leading-term characteristic constraint is meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

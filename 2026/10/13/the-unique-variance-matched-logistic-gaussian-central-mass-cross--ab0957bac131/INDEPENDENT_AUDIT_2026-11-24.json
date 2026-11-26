@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:46:37.830675Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Variance matching gives logistic scale sqrt(3)/pi. With a=pi/(2 sqrt(3)), H(c)=tanh(ac)-(2 Phi(c)-1), H(0)=0. The log ratio R of the positive derivatives of the two central masses has R'=S=c-2a tanh(ac), S(0)=0, S'(0)=1-pi^2/6<0 and S''=4a^3 sech^2(ac)tanh(ac)>0 for c>0. Since S' tends to 1 and S tends to infinity, R has a single strict minimum on the positive half-line. Its endpoint values satisfy R(0)>0 (pi^3>24) and R(c) tends to infinity (quadratic Gaussian exponent versus linear logistic exponent). Independently of numerical signs of R, the logistic two-sided tail is asymptotic to 2 exp(-2ac) and the Gaussian two-sided tail to 2 phi(c)/c by the Mills ratio, giving the quoted prefactor and ensuring H(c)<0 for sufficiently large c. Since H initially increases from zero, H' must be negative somewhere by the mean value theorem, so R's minimum is negative. Thus H is increasing, decreasing, then increasing to zero. The first increasing part is positive and the last is strictly negative, so exactly one positive crossing lies in the middle and the signs follow. Independent exact-rational replay, python3 /workspace/checks/2.py, uses Machin's formula with alternating arctangent bounds, outward rational square-root bounds, a positive exponential Taylor bound with geometric remainder, and integrated Gaussian Taylor remainder bounds. It certifies H(1)>0, H(2)<0, and H(1.74447161774732493)>0>H(1.74447161774732494). The Finding's decimal is supported; the bundled floating-point transcript's longer value ending in 319 is not a reliable rounding to that precision (the correct value at 15 decimal places ends in 325). This does not affect the Finding or the all-radius proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Hu–Sun give the CDF, the variance pi^2 s^2/3, and the logistic-versus-Gaussian inequality specifically at one standard deviation.",
+          "Bowling models the full slope-dependent deviation but chooses gamma=1.702 for its best one-parameter fit, not the unit-variance slope 1.8138... .",
+          "SCOPE-20261013-8e44a5956c55 proves exactly two positive central-mass crossings for standardized Exp(1)-1 versus standard Gaussian, not logistic versus Gaussian."
+        ],
+        "reasoning": "One-radius information leaves the number of later crossings open, a fitted scale changes the law, and a theorem about a shifted exponential does not control the standardized logistic.",
+        "searches": [
+          "arXiv:2304.11459v2, §2.3, Theorem 2.3",
+          "Bowling et al., §§2 and 3.1–3.3",
+          "Resultary: exact Gaussian central-mass crossings for other standardized distributions"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3926/jiem.2009.v2n1.p114-127",
+        "arXiv:2304.11459v2",
+        "SCOPE-20261013-8e44a5956c55",
+        "Focused Resultary and transform-order literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bowling states that changing gamma moves the non-origin intersection points and then fits a second-order regression 'based on this experimental observation.' It does not in those passages establish that the exact curve is strictly increasing.",
+          "Theorem 2.3 establishes that the standardized logistic has larger central mass at c=1 only. The same-day catalogue result uses a different distribution and yields two crossings."
+        ],
+        "reasoning": "The frozen result requires one and only one positive crossing and an exact global sign ordering at a particular variance normalization. The empirical fit, a known pointwise inequality, and the exponential theorem cannot logically supply it. The displayed tail equivalent itself is a standard consequence of the two tail formulas.",
+        "searches": [
+          "doi:10.3926/jiem.2009.v2n1.p114-127, §3.2 printed p. 120 and §3.3 printed p. 122, OA text offsets 12851 and 16235",
+          "arXiv:2304.11459v2, Theorem 2.3",
+          "SCOPE-20261013-8e44a5956c55, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetry gives H(c)=2(F_L(c)-Phi(c)) for c>=0, so a positive CDF crossing is the exact equivalent, whereas the two density crossings are not.",
+          "Bowling's non-origin roots are roots of this same type of CDF deviation, at a variable slope. Its fitted crossing relation gamma≈0.061 z^2+1.622 yields an approximate crossing near 1.77 when gamma=pi/sqrt(3), not a certified location or global sign theorem.",
+          "The transform-order lookup yielded no on-point primary theorem in its returned material; that is not evidence of absence."
+        ],
+        "reasoning": "A proved monotonicity of the exact positive crossing curve log(Phi(c)/(1-Phi(c)))/c would, together with endpoint slopes, cover the claimed uniqueness at variance matching. A polynomial fit to that curve does not prove exact monotonicity or exclude any additional roots.",
+        "searches": [
+          "Resultary: variance-matched standardized logistic vs Gaussian central mass, symmetric CDF crossing, exact crossover value",
+          "Bowling et al., §§3.2–3.3, one-parameter logistic deviation and non-origin roots",
+          "Web: normal logistic distribution \"convex transform order\" OR \"star order\" symmetric logistic normal single crossing logit Phi quantile ratio convex van Zwet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables 2–3 give discrete comparisons of normal-CDF approximations rather than the unit-variance logistic crossing constant or a sign classification.",
+          "Figure 3 and §3.3 give an empirical slope/zero relation, potentially useful for numerically predicting the vicinity, but do not tabulate an exact unit-variance root."
+        ],
+        "reasoning": "An exact published table or formula would reduce the novelty of the numeric locator; isolated sampled deviations or an empirical crossing locus cannot alone determine the analytical number of crossings.",
+        "searches": [
+          "Resultary: root 1.74447161774732 and logistic/normal CDF crossing terms",
+          "Bowling et al., §3.3 Fig. 3 and Tables 2–3, printed pp. 122–124"
+        ]
+      },
+      "rationale": "The closest primary literature studies exactly the same CDF-deviation equation with a tunable logistic slope and gives a numerical relation for non-origin crossings. It anticipates a crossing near the claimed location, but the available primary passages do not give or imply an exact crossing count and everywhere sign comparison at variance matching. The one-sigma theorem for the same variance normalization and the same-day exponential comparison are also non-covering. The distinct supported claim is the all-radius analytic classification at fixed variance, not discovery of logistic-versus-normal CDF deviations, standardization, or the elementary tail asymptotics by themselves.",
+      "residual_risks": [
+        "Older probit/logit comparison or peakedness literature may contain an exact transform-order result implying the same classification. The Hamaker and Lin papers cited by Bowling were not independently inspected; Bowling's tables describe different approximations, not a full reading of those papers.",
+        "Figure 3 of Bowling numerically represents the crossing relation; it is acknowledged as overlap, not represented as a proof or an exact variance-matched root."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material numerical overlap, but no analytical unit-variance crossing count implied by the fit",
+          "evidence": "Eq. (8) uses gamma=1.702. Section 3.3 and Fig. 3 describe an experimental regression of gamma against the non-origin intersection, not a proved exact curve.",
+          "identifier_or_url": "doi:10.3926/jiem.2009.v2n1.p114-127; https://www.jiem.org/index.php/jiem/article/download/60/27",
+          "material_read": "Full OA PDF available; inspected §§2, 3.1–3.3 including Figs. 1–3, text offsets 12851 and 16235 for the decisive passages, and Tables 2–3",
+          "method": "Actual primary PDF text and exact primary passages; implication comparison under variance matching",
+          "title": "A logistic approximation to the cumulative normal distribution",
+          "trigger": "Strongest earlier primary match: CDF deviations and slope-dependent crossing locus"
+        },
+        {
+          "assessment": "Covers radius one only",
+          "evidence": "The logistic probability is approximately 0.719641 at one standard deviation, larger than the Gaussian probability about 0.6827.",
+          "identifier_or_url": "arXiv:2304.11459v2; doi:10.1007/s00362-024-01561-1",
+          "material_read": "§2.3, Theorem 2.3, p. 4, text offset 9903",
+          "method": "OA primary theorem statement and normalization comparison",
+          "title": "Variation comparison between infinitely divisible distributions and the normal distribution",
+          "trigger": "Exact same variance-normalized central-mass statistic for the logistic and normal"
+        },
+        {
+          "assessment": "Different distribution and sign pattern, not equivalent coverage",
+          "evidence": "Compares Exp(1)-1 to the Gaussian with two positive crossings near 0.49617 and 1.93299, and no stated logistic result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exactly-two-gaussian-central-mass-crossings-for-the-standardized--8e44a5956c55/RESULT.md",
+          "material_read": "Finding and Proof in the local mirror",
+          "method": "Exact statement and distribution/parameter comparison",
+          "title": "Exactly two Gaussian central-mass crossings for the standardized exponential",
+          "trigger": "Closest same-day indexed result for the same question and Gaussian baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching variance is a standard, independently motivated way to compare coverage in common standard-deviation units. The prior one-sigma comparison does not indicate when the ordering reverses or whether it reverses repeatedly. The all-radius theorem fixes that boundary and the direction on either side, separating a precise structural result from numerical fits and isolated probability-table values. The standard tail equivalent supports the interpretation but is not the sole value claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

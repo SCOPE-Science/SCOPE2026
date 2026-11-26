@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result follows from exact Poisson frequencies of zeros and ones, two nonnegative probability-generating-function remainder bounds, and a conditional convergence argument identifying each reciprocal-Poisson atom and the infinity branch. Fixed-parameter delta-method center and variance were reconstructed independently from the Poisson covariance matrix; the explicit limiting critical boundaries strictly separate the Poisson atoms. The complete proof is in `RESULT.md`, and `verify.py` supplies additional exact-rational and numerical checks rather than an infinite-proof substitute.
+PASS
 
-## Originality
+Independently reconstructed RESULT.md Steps 1–5. K_n is binomial with mean tending to lambda; the one-count frequency divided by mu_n tends to lambda by its binomial variance bound, and the row mean differs from mu_n by o_P(1) since mu_n/n tends to zero. Writing r=mu_n u_n, the two PGF remainders in the numerator and denominator have expectations n mu_n exp(-mu_n)(exp(r)-1) and n exp(-mu_n)(exp(r)-1-r). Markov at scales mu_n and r gives A_n/mu_n → lambda and (B_n-K_n)/r → lambda in probability. Each fixed K_n=k has limiting probability bounded away from zero, so these estimates survive conditioning; at k=0, r T_n → 1, at k>0, T_n → lambda/k. Tightness of K_n proves compactified weak convergence, with the undefined all-zero event negligible. For the calibration, set G=E[u^X], H=E[u^(2X)]/G^2. Use the centered, mean-normalized versions alpha, beta, gamma of X, X u^(X-1), u^X. The Taylor bias coefficient is E[alpha^2+gamma^2+alpha gamma-alpha beta-beta gamma]; PGF differentiation gives these five moments (in order) as 1/mu, H-1, u-1, u-1+1/mu, uH-1. The variance of beta-gamma is H[(1-u)^2+1/mu], and Cov(alpha,beta-gamma)=1/mu, yielding the stated first-order delta variance. H/n → 1/lambda, also in probability under mean plug-in. For lambda=1 the acceptance interval has its lower endpoint strictly between 1/25 and 1/24 and its upper endpoint above one; the endpoints have zero limiting mass, so the K=0 and K≥25 events give the stated exact limiting size. The on-disk checker was inspected, not run; the limit rests on the analytical argument.
 
-**PASS (qualified).** Aleksandrov, Weiß and Jentsch (doi:10.1111/stan.12252) introduce the ratio, its fixed-parameter normal calibration and the possible zero-denominator issue. Weiß, Puig and Aleksandrov (doi:10.1002/bimj.202200073) analyze the same exponential weight family and warn about degenerate boundary choices. The second paper's Gaussian CLT/delta method does not apply to the critical triangular array; its warnings do not identify an atom at infinity, the reciprocal-Poisson law or the 36.79% null rejection rate. Mathematical-record and prior-claim comparisons found no directly covering statement. Classical Poisson rare-event and generic reciprocal-ratio results could offer components or historical priority, so absolute novelty is not claimed.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact limiting rejection probability exposes an extreme and precisely quantified failure of a conventional calibration when the expected number of zero observations remains order one. The statistic-specific mechanism distinguishes a Gaussian approximation's nonuniformity from routine small-sample bias. The result neither invalidates the authors' ordinary fixed-parameter assumptions nor evaluates simulation-based alternatives.
+Best-of-knowledge pass for the published-statistic-specific reciprocal-Poisson law, the no-zero scaling, and the resulting exact Gaussian size failure; not for the test, the delta coefficients, or rare binomial-to-Poisson convergence.
 
-## Closest literature and limitations
+## value
 
-The original 2021-online study, its 2022-online weight-selection successor, and classical rare-binomial Poisson approximation are the closest identified mathematical sources. The regime requires iid Poisson counts with increasing means and weights approaching zero, and the 36.79% figure is specific to a two-sided 5% normal calibration. No claim is made about finite-sample accuracy, an optimal replacement test, high-dimensional dependence, or fully exhaustive historical priority. The result has no independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical zero frequency is a natural boundary of the denominator, not an arbitrary numerical slice. An explicit escape atom and exact 36.79% null size identify the mechanism and a sharp failure of a real calibration rule while leaving its fixed-parameter domain intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

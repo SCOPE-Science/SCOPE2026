@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The symmetric/pseudo-symmetric pair condition is sufficient when combined with the explicitly checked closure condition; every possible factor is represented. The exhaustive 14-bit mask search proves the four-factor count and profile census. An independent inclusion-exclusion computation over the same complete factor catalogue returns exactly 56. The packaged script checks all stated finite claims and the separate small-F membership enumeration.
+## correctness
 
-**Originality — PASS, qualified.** The motivating 2026 article already proves the exceptional four-factor existence at the first multiplicity and must receive credit. Its Example 4.2, Theorem 4.3 and Remark 4.4 do not enumerate all shortest decompositions or distinguish their Frobenius profiles. The earlier 2024 treatment provides decomposition context but no such census. Targeted source, parameter, equivalent-formulation and repository-record comparisons found no covering classification; this cannot eliminate the possibility of an unindexed prior computation.
+PASS
 
-**Value — PASS.** The first known failure of an otherwise natural constructive-length formula is a distinguished test case for the theory of irreducible decomposition lengths. Counting its complete set of shortest realizations, giving the two rigid Frobenius signatures and a small explicit parameterization (seven masks times three binary choices) reveals how atypical shorter decompositions occur, beyond the single known witness. This is a motivated finite structural classification, not a purported all-rank theorem.
+An irredundant factor must miss a special gap in 14–27; covering that interval also excludes every smaller positive integer because it has a positive multiple in the interval. The symmetric/pseudo-symmetric characterization plus testing closure up to the Frobenius number gives exactly the relevant factors. Independent enumeration gives 285 factors and 163 distinct masks. The 8,788 three-mask unions (allowing repeats) cover at most 13 positions, excluding all lengths at most three. A descending subset DP over distinct factors gives 56 four-covers, 28 of each stated Frobenius multiset. Each of the seven A masks has two realizations, B and D each have two choices, and C is unique. All products cover; the roles remain distinguishable in the repeated-27 case. Since triples cannot cover, all 56 are irredundant. In reading the pair-join description, the intended rule is two consecutive pairs in sorted index order (j < k), as in the frozen code; lexicographic order of pairs alone would not ensure uniqueness.
 
-**Limitations.** Priority is qualified; an independently conducted mathematical audit is not available. The enumeration is specific to this semigroup, and finite completeness does not extend to other multiplicities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior paper supplies the first-exception observation and a four-factor witness, not the exact minimum lower-bound certificate, 56-count, or role/profile census. Credit the specific complete shortest-decomposition classification, not the setting, the logarithmic construction, the special-gap reduction, or the exhibited possibility of four factors.
+
+## value
+
+PASS
+
+H28 is selected by a published construction's first failure, not an arbitrary cutoff. The exact extremal census resolves whether alternative shortest factorizations exist and determines all overlaps in Frobenius profiles, including a repeated Frobenius number, with a small fully explicit family and a lower-bound certificate. This is useful as a test case for shortest-decomposition methods and is more than rechecking one known example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

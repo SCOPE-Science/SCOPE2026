@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:29:49.695378Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59 and 65",
+        "Frozen VERIFICATION.md and check_cycle.py, inspected not executed",
+        "Replay: python3 /workspace/branches/c9c5ebfd-46f0-492c-a960-61bf49e26d78/independent_cycle_census.py; recorded output census-through-5.jsonl in the same directory"
+      ],
+      "rationale": "Exchangeability conditional on r gives the uniform r-subset law. For an undeleted noncontroller in the interior of a gap, both disjoint paths to its neighboring controllers must be blocked for it to be unserved; inclusion–exclusion gives the four stated binomials. Independently, count a maximal unserved surviving run of length ell by its two deleted end vertices, ell surviving interior vertices and r-2 unrestricted deletions outside: for a gap d there are d-ell positions, so F(d)=sum_{ell=1}^{d-1}(d-ell)*ell*binom(n-ell-2,r-2). This directly gives the asserted second difference and agrees with F=0 for r=0,1. It also yields the two-deletion specialization. A transfer from a to b with a>=b+2 sums the second differences at d=b+1,...,a-1. These d are <=n-k, so the second differences are strictly positive for 2<=r<k, or for r=2 regardless of k. Convexity survives nonnegative mixing and strictness survives positive mass at r=2. Under independent deletion, the vertex and disjoint blocking paths factor, and mixing the binomial second differences gives d*p^2*(1-p)^d. Cases k=n and r=n have the asserted counts. Independently enumerated component checks through n=5 agreed, with 227 placement/formula comparisons and 1,040 placement–failure pairs across 47 parameter cases.",
+      "residual_risks": [
+        "The finite census corroborates, rather than proves, the universal formula. Strictness was checked under the sufficient conditions claimed, not assumed for every law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gutowski et al. formulate adversarial zero-sum pure and mixed games for the same surviving-component payoff.",
+          "The frozen comparison describes Pióro et al. as using a strategic nonuniform family of two-deletion pairs, with antipodal controller pairs; full text could not be inspected."
+        ],
+        "reasoning": "A worst-case strategic optimum, or an equilibrium for one targeted distribution, does not imply optimum under each uniform fixed-size distribution; it does not identify the exact conditional expectation.",
+        "searches": [
+          "Gutowski et al., arXiv:2605.17572v1",
+          "Pióro et al., DOI:10.1109/RNDM59149.2023.10293051"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and arithmetic checks",
+        "Gutowski et al., arXiv:2605.17572v1, indicated passages",
+        "Resultary 6c5b61a32101 and 252203f12810, actual findings",
+        "Pióro et al. DOI/publisher OA attempt and frozen comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The transfer proof depends on d*binom(n-d-2,r-2), which counts choices for the rest of the deletion set after fixing the deleted endpoints of a surviving run."
+        ],
+        "reasoning": "Neither graph-game complexity nor support-threshold gap inequalities count these runs. Exchangeability gives uniformity, but does not by itself imply convexity or common optimizers.",
+        "searches": [
+          "arXiv:2605.17572v1 abstract and introduction; indexed discounted-hitting cycle findings 6c5b61a32101 and 252203f12810"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Expected service is n minus expected deletions and expected undeleted outage; in the run formulation the latter has a gap kernel depending explicitly on conditional cardinality.",
+          "Indexed discounted hitting results retain all vertices and edges when source status changes; deleting a controller vertex in the frozen model can disconnect the graph."
+        ],
+        "reasoning": "Relabeling unserved vertices as loss is an equivalence; relabeling vertex deletion as source-status failure is not, because the reachability graph and the optimized statistic both change.",
+        "searches": [
+          "Resultary: cycle resilience, gap balancing, controller/source failures",
+          "arXiv:2605.17572v1 surviving component controller payoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest exact indexed formulas are discounted hitting support thresholds and consecutive-gap conditions under source-status failures, not expected outage counts under graph vertex deletion."
+        ],
+        "reasoning": "This is not a finite-database invariant; the useful exact comparison is whether known formulas cover the same conditional gap kernel and optimizer. The nearby distinct indexed formulas do not, including the same-day record.",
+        "searches": [
+          "Resultary 6c5b61a32101 and 252203f12810, original findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact separable fixed-cardinality outage law and its all-cardinality convexity, yielding one balanced placement optimal for every exogenous exchangeable deletion law. The shared component-protection payoff and a strategic two-controller antipodal observation are not credited as new. The closest examined indexed results involve loss of source status on a cycle that remains intact; even their multigap conditions optimize a different quantity. The general controller game does not supply this conditional law or the transfer inequality.",
+      "residual_risks": [
+        "The inaccessible Pióro et al. paper could contain an implicit or explicit uniform-outage special case. No universal priority claim is made, including against graph reliability terminology not surfaced by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same payoff, different strategic problem; inspected passages do not supply the conditional gap law.",
+          "evidence": "Adversarial zero-sum variants with pure and mixed strategies and algorithms for restricted graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.17572v1",
+          "material_read": "Abstract (p. 1, offset 0) and introduction (pp. 2–3, offsets 4000–8400)",
+          "method": "OA primary PDF passages",
+          "title": "Modelling Network Resilience: The Complexity of Some Graph Division Games",
+          "trigger": "Same placement and payoff model"
+        },
+        {
+          "assessment": "Plausible special-case overlap. Not counted as primary evidence for or against coverage.",
+          "evidence": "Frozen citation distinguishes the reported strategic attack distribution from a uniform cardinality law.",
+          "identifier_or_url": "https://doi.org/10.1109/RNDM59149.2023.10293051",
+          "material_read": "Frozen RESULT.md's description only; primary text not accessible in the attempted lawful retrieval",
+          "method": "DOI and publisher OA attempt; no repository copy recovered",
+          "title": "Finding Optimal Mixed Strategies in a Matrix Game Between the Attacker and the Network Operator",
+          "trigger": "Potential two-controller/two-deletion antecedent"
+        },
+        {
+          "assessment": "Different failure mechanism and performance objective; not equivalent.",
+          "evidence": "Loss of pinned status leaves the cycle unchanged, with discounted-walk support thresholds rather than expected component coverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-one-source-failure-discounted-hitting-domination-on-cycles--6c5b61a32101",
+          "material_read": "Mirrored Finding offset 0 and Assumptions offset 2140",
+          "method": "Local Resultary mirror",
+          "title": "One-source-failure discounted hitting domination on cycles",
+          "trigger": "Strongest nearby distinct indexed cycle gap result"
+        },
+        {
+          "assessment": "Multiple faults concern source status without graph deletion.",
+          "evidence": "Uses sums of f+1 consecutive gaps and a support threshold, not the sum of the unserved-run kernel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-fault-tolerant-discounted-hitting-domination-on-cycles--252203f12810",
+          "material_read": "Mirrored Finding and scope, offset 0 onward",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fault-tolerant discounted hitting domination on cycles",
+          "trigger": "Indexed extension to multiple source faults"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27, 35–59 and 65",
+        "Closest strategic and discounted-source comparison passages"
+      ],
+      "rationale": "For a natural component-survival objective the result gives exact finite-n expected losses even with correlated failures, and a common optimizer without needing the cardinality distribution. The explicit loss kernel, convexity coefficient and strictness distinguish genuine robustness of the placement from an intuition about separation; they are useful even when individual scenario distributions differ substantially.",
+      "residual_risks": [
+        "No stochastic dominance, worst-case protection, or extension to placement-dependent or nonexchangeable failures follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

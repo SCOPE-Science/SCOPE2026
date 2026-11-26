@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scalar specialization is obtained from the paper's unrelaxed last-sweep equations rather than a surrogate scheme. Eliminating the relaxed inner pressure variable yields the fourth-degree characteristic polynomial in RESULT.md; independent direct-matrix and symbolic factorization calculations reproduce it. At zero flow the polynomial factors into \((\zeta-1)(\zeta-1/3)(\zeta^2+2a_K\zeta-a_K)\). Classical strict Schur inequalities give exactly \(-1<a_K<1/3\); the perturbation of the physical root has rigorously negative first derivative. The claimed implication is only for sufficiently small **positive** flow and avoids unproved equality cases. Finite numerical checks do not stand in for the proof.
+PASS
 
-## Originality — PASS, with residual priority risks
+Equations (3.6a–d) specialize to the relaxed multiplier -w/(2+w) and an unrelaxed final solve, with w=kappa/(1+epsilon), so the final pressure input uses q=(-w/(2+w))^(K-1). Put A=(1-q)/(1+w), H=(4zeta-1)/(3(1+epsilon)), and v=2zeta-1. The two-by-two final update on a mode has trace H[1+(kappa-w)A]-wqv and determinant -kappa qvH. Its two-step companion characteristic polynomial is thus the stated monic quartic, including on the full four-state space and without dividing by zeta. At zero flow the factorization gives roots 1, 1/3 and the pair from zeta^2+2a_K zeta-a_K. The strict Jury inequalities are exactly -1<a_K<1/3. Outside the closure, a_K<-1 forces modulus greater than one by the root product, and a_K>1/3 makes the quadratic negative at -1, forcing a real root below -1. Exactly P_epsilon(1)=epsilon(1+wq)/(1+epsilon+kappa) and P_0'(1)=2(1+a_K)/3; the simple root moves into the disk with slope -3/[2(1+kappa)]. The other strict inequalities persist by continuity, which also preserves an unstable root in the outer regimes. At K=2,kappa=3/2, a_K=-9/14 yields the stated roots and modulus. The K=2 frontier 2 is a fixed-coupling weak-flow limit; the published sufficient frontier 1 is likewise limiting in this comparison. Equality cases, including the multiple root at a_K=-1 where the simple-root argument does not apply, are not classified. Source checker and recorded 469-check output inspected; the conclusion rests on the recurrence and exact algebra, not running that script.
 
-The closest source is Altmann--Deiml, arXiv:2403.12699: Proposition 4.1 proves \(3\omega^K<(2+\omega)^{K-1}\) as a sufficient bound, and Section 5.1 already **observes** that even sweep counts can be more stable. Those findings are prior art, not recharacterized as new. The new claim is the exact open necessary/sufficient scalar *second-order spectral* threshold for each parity and the physical-root asymptotic, notably \(K=2\) permitting couplings strictly between \(1\) and \(2\). The first-order Euler result arXiv:2304.12224 happens to yield the even parity inequality but has a different update and cannot imply this BDF2 spectral classification. The fixed-stress higher-order work arXiv:2311.14400 uses a distinct stabilized iteration. No covering statement was identified in the checked primary texts, mathematical search results, or the known published records. Older spectral analyses or a later uninspected revision might contain an equivalent result; novelty is not certified independently.
+## originality
 
-## Value — PASS
+PASS
 
-The original method's published experiments document a sizable unexplained even-versus-odd stability difference. A sharp modal threshold is a natural diagnostic of whether its general sufficient inner-iteration requirement is conservative, and the \(K=2\) window \(1<\kappa<2\) gives a material (not tiny) improvement for small-positive-flow instances. The claim does not generalize this advantage to arbitrary spatial discretizations and does not assert new high-dimensional error theory.
+The BDF2 algorithm, sufficient condition and the empirical even-sweep advantage are antecedents. The one-pass scheme and a delay-based one-third sufficient condition are also prior. The supported distinct result is the sharp strict scalar fixed-sweep weak-flow separation for general K, proving that the even-K improvement really enlarges the open spectral regime of the specified four-state recurrence. No exact matching theorem was verified; historical priority is not certified.
 
-## Limitations and closest literature
+## value
 
-Primary comparison: Altmann--Deiml (2024), arXiv:2403.12699, Sections 3.6, 4 and 5.1; earlier first-order iteration, arXiv:2304.12224, Sections 3--4; related higher-order fixed-stress scheme, arXiv:2311.14400, Sections 2--4; one-pass BDF2, arXiv:2203.16664. Strict parameter inequalities exclude marginal points. The mathematical finding is self-reviewed only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp fixed-coupling spectral frontier explains a previously numerical parity advantage, distinguishes actual instability from failure of a sufficient condition, and gives an exact stable witness outside the published sufficient range. It is a natural, reproducible benchmark for general splitting analysis, not a claim of spatial or nonlinear stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

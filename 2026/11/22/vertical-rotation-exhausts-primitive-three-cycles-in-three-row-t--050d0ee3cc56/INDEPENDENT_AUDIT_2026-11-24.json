@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:52:30.213419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three-time column equations are necessary and sufficient for F^3 x=x because a valid word determines the next two configurations uniquely from the first and imposes the wraparound update. The independent check /workspace/review_checks/2.py (python3) generates successors by forced eastern bits, computes bitset transitive closure, and reproduces all 1120 edges and exactly the three stated cyclic components of sizes 2, 6, 6. The first two are time-constant, the third consists exactly of nonuniform rotating histories, so a closed walk cannot mix stationary and rotating columns. In the rotating graph Newton identities from exact traces give z^6−3z^4−2z^3+3z^2−6z=z(z−2)(z²−z+1)(z²+3z+3). Its roots give the displayed trace and the ten listed orbit counts; labelled closed walks count labelled configurations without a spatial quotient and each nonfixed temporal orbit has size three. The displayed rooted 2- and 3-cycles generate every length n≥3, and the subleading root moduli are ≤√3. The universal conclusion comes from the exhaustive history classification, not the small-circumference direct tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Makowiec's inspected 1998 passages concern stochastic criticality and stationary measures; the 1997 abstract concerns simulated ground/stationary states with periodic boundaries.",
+          "Gács's abstract concerns Toom thickness/consensus; the plausible Jen transfer paper was not obtained in full by the attempted routes."
+        ],
+        "reasoning": "General transfer machinery can encode these temporal equations but does not itself imply the recurrent-component lemma or exact spectrum. The materials actually read do not give a larger classification specializing to this one.",
+        "searches": [
+          "Jen DOI 10.1007/BF01221109",
+          "Makowiec arXiv:cond-mat/9808247v1 and DOI 10.1103/PhysRevE.56.5195",
+          "Gács arXiv:math-ph/0102009v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and prior work",
+        "verify_transfer_output.txt; verify_direct_output.txt",
+        "Resultary ba0ec0595c40 and 9fd2abd1e911",
+        "Jen DOI 10.1007/BF01221109",
+        "Makowiec DOI 10.1103/PhysRevE.56.5195 and arXiv:cond-mat/9808247v1",
+        "Gács arXiv:math-ph/0102009v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-state source expressly excludes general temporal cycles; the four-row calculation requires 3|n and yields horizontal travelling patterns."
+        ],
+        "reasoning": "To infer the new count from a fixed-point count one would additionally need the fixed-point count for F³, which is not supplied; the height-four rigidity cannot be applied to height three. A same-day stamp alone was not treated as a priority decision.",
+        "searches": [
+          "Resultary ba0ec0595c40, RESULT.md offsets 0–7115",
+          "Resultary 9fd2abd1e911, RESULT.md finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ba0ec0595c40 has the same F and labelled torus but describes Fx=x, not F³x=x with Fx≠x.",
+          "Resultary 9fd2abd1e911 treats primitive temporal period three at height four, with horizontal rather than vertical rotation."
+        ],
+        "reasoning": "Period dividing three is the disjoint union of fixed points and least-period-three points, and changing the height changes the underlying automaton. Neither prior statement is an equivalent formulation.",
+        "searches": [
+          "Resultary: three-row Toom fixed states and toroidal temporal period three",
+          "Primary literature: NEC/Toom toroidal periodic points and cylindrical transfer methods"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published assigned record itself is not independent prior evidence. The close fixed-state record counts 2^n+6∑_{6|k} binom(n,k) fixed labelled states; the height-four record has two temporal orbits only when 3 divides n."
+        ],
+        "reasoning": "Neither inspected exact count is the height-three primitive count; even the domain of positivity in the height-four table differs. No independent earlier matching sequence was established in the searches.",
+        "searches": [
+          "Resultary: height-three NEC/Toom cycles and exact fixed-state census",
+          "Resultary: temporal-three rigidity on narrow Toom tori"
+        ]
+      },
+      "rationale": "Pass the all-n height-three least-period-three classification and count, not the underlying NEC rule, fixed-point count, or transfer technique. Inspected same-rule results do not cover that combination of height, period and classification. This is a best-of-knowledge decision, not a priority guarantee.",
+      "residual_risks": [
+        "Jen 1988 and Makowiec 1997 full texts were not verified; historical equivalent exact calculations outside the examined material are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping setup, distinct result",
+          "evidence": "One-step fixed points only; states 2^n+6∑_{6|k} binom(n,k) and excludes general temporal cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-two-coexisting-fixed-state-phases-in-the-three-row-toom-automato--ba0ec0595c40",
+          "material_read": "RESULT.md offsets 0–4413 and 4413–7115",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two coexisting fixed-state phases in the three-row Toom automaton",
+          "trigger": "Same rule, same height and labelled torus"
+        },
+        {
+          "assessment": "Not equivalent; distinct width",
+          "evidence": "Six labelled configurations/two orbits if 3 divides n, and horizontal travelling patterns, at height four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-three-column-resonance-and-temporal-three-rigidity-in-four-row--9fd2abd1e911",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A three-column resonance and temporal-three rigidity in four-row Toom dynamics",
+          "trigger": "Same-day, same least temporal period and rule"
+        },
+        {
+          "assessment": "Unresolved full-text coverage risk, not negative evidence",
+          "evidence": "No proof statement was available for a stronger coverage judgment.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01221109",
+          "material_read": "Bibliographic record; no full-paper passage obtained",
+          "method": "Identified Academia alternate (403), publisher redirect, repository recovery and Euclid volume preflight without the passage",
+          "title": "Cylindrical Cellular Automata",
+          "trigger": "Plausible coverage by cylindrical counting methods"
+        },
+        {
+          "assessment": "Abstract-level scope comparison only",
+          "evidence": "Describes simulations of stationary/ground states; no exact deterministic height-three count in material inspected.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.56.5195",
+          "material_read": "Indexed APS abstract only",
+          "method": "Primary search and publisher/OA retrieval attempts",
+          "title": "Ground-state configurations for Toom cellular automata: Experimental hints",
+          "trigger": "NEC rule on periodic boundaries"
+        },
+        {
+          "assessment": "Stochastic criticality, not statement-level coverage in inspected passages",
+          "evidence": "Stationary measures and critical behavior rather than deterministic primitive period-three counts.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/9808247v1",
+          "material_read": "Abstract and passages at offsets 0, 9637 and 16864",
+          "method": "OA text",
+          "title": "Critical properties of Toom cellular automata",
+          "trigger": "Toom dynamics on periodic lattices"
+        },
+        {
+          "assessment": "Related rule theory in inspected material",
+          "evidence": "Thickness and consensus, not a toroidal primitive-cycle census.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0102009v1",
+          "material_read": "Abstract at offset 0",
+          "method": "OA record",
+          "title": "A Toom rule that increases the thickness of sets",
+          "trigger": "Primary Toom rule reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-circumference finite-width classification identifies the only periodic mechanism at primitive period three, rules out mixed stationary/rotating columns, and gives occurrence and growth from a six-state spectrum. This is a natural deterministic toroidal-strip question not answered by the fixed-state census, and supplies a concrete width-three baseline for other temporal periods and widths. No attraction-basin or larger-width theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

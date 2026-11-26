@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:22:40.372486Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an initially stationary heading, the reset generator gives harmonics E cos(jΘ)=r/(r+j²d), E sin(jΘ)=0. Both centered velocity harmonics decay at rate λ=r+d; stationarity and independence of the translational Brownian motion justify integrating the angular covariance kernel and adding 2Dt. Reflection makes the off-diagonal covariance vanish. The ratio of the lag weights (t₂−s)/(t₁−s) increases strictly on shared support, with additional support to the right for the longer lag. Normalizing therefore strictly increases the mean of s, making the derivative of the log variance ratio strictly negative. The zero-rate limit is the squared time ratio; the large-rate limit follows from Hλ(t)∼t/λ. The transverse amplitude at fixed u,λ is proportional to g(z)=(1+z)²/[z²(4+z)]; its log derivative is strictly negative and its limits are infinity and zero, proving sufficiency and uniqueness for positive parameters. At z=2/13 and 1/4 the excess anisotropy equals 26/25, and the positive rates exist uniquely because 6/325 and 17/400 both lie in (0,1/2), the range of Hλ(1). Adding 2 to both excess variances gives the stated covariance. This is exact ensemble identifiability with known D and reset direction, not a conditioning theorem or an ambiguity of full displacement laws. CHECK.py was inspected, not run: forward and inverse calls share the stated formulas, so the round trips are diagnostics rather than independent checks of the generator-to-moment calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baouche et al. Section III treats the forward ISF, displacement moments and full distribution; the discussion proposes comparing observations to theory to access motility parameters.",
+          "Kumar–Sadekar–Basu is a plausible earlier source for the protocol, but I did not independently inspect its decisive Section V passage."
+        ],
+        "reasoning": "A full forward description, or calibration using the whole time-dependent distribution, is not a stronger inverse theorem for these three scalars. Known-amplitude exponential fits do not establish the joint unknown-amplitude and unknown-rate inversion.",
+        "searches": [
+          "arXiv:2405.06769 Section III Results and discussion on motility parameters",
+          "arXiv:2008.03294 Section V, earlier orientation-only resetting protocol"
+        ]
+      },
+      "checked_sources": [
+        "Baouche et al., arXiv:2405.06769",
+        "Resultary f82fdad5b28b and feb740e47874 (catalogue)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common time factor cancels amplitude in the two-lag transverse ratio; a strict likelihood-ratio ordering is then needed for uniqueness and sharp endpoints.",
+          "The prior longitudinal and transverse equations imply the rational anisotropy function, but an anisotropy collision alone need not match drift and both amplitudes with positive rates. The proof establishes that compatibility."
+        ],
+        "reasoning": "The underlying forward inputs are credited, but the inverse properties are not a substitution or directly supplied by the prior formulas.",
+        "searches": [
+          "arXiv:2405.06769 equations (17), (18a), (18b), Figure 3 and discussion passage on motility parameters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting Λ=r/d and D_rot=d in Baouche et al. reproduces the frozen forward map exactly.",
+          "The same frozen item is indexed as f82fdad5b28b; feb740e47874 concerns a long-time third-cumulant direction transition, not first- and second-moment identifiability."
+        ],
+        "reasoning": "Neither renaming the rates nor switching from moments to integrated velocity covariances is new; the novelty is in inverting the particular finite-lag observations and showing a genuine failure when the second lag is removed.",
+        "searches": [
+          "orientational resetting active Brownian particle parameter identification finite-lag moments",
+          "Resultary: orientation reset active particle two transverse lags mean drift identifiability",
+          "arXiv:2405.06769 Section III.1, equations (17)–(18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 3 gives forward variance curves/effective diffusivities with selected reduced resetting rates, not the admissible inverse region or the two ambiguity branches.",
+          "The exact catalogue match is the assigned item itself; the other returned same-model record has a different cumulant and different lag regime."
+        ],
+        "reasoning": "An inverse range is not a lookup of forward examples, and a single numerical coincidence would not establish the claimed positive-rate feasibility.",
+        "searches": [
+          "Resultary: finite-lag orientation-reset ABP inverse identification and one-lag covariance ambiguity",
+          "arXiv:2405.06769 Figure 3 and equations (17)–(18)"
+        ]
+      },
+      "rationale": "The forward stationary drift and both finite-lag variance formulas are exactly prior. The supported distinct contribution is the global inverse range and injectivity for the specified three observables, together with the explicit one-lag full-covariance obstruction. The forward formulas yield the inverse equations but do not give the needed strict global comparison of integrated kernels, the attainable data region, or the simultaneous feasibility of two positive branches.",
+      "residual_risks": [
+        "The independent comparison did not recover the decisive text of Kumar–Sadekar–Basu, arXiv:2008.03294.",
+        "Related unindexed inverse-calibration work could contain equivalent deductions from the same forward map; no general priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of forward map; inspected material did not assert the inverse theorem",
+          "evidence": [
+            "Equation (17) gives vtΛ/(1+Λ); (18a)–(18b) share exp(−tD_rot(1+Λ))−1+tD_rot(1+Λ) and add 2Dt.",
+            "The discussion suggests simulations or experiments could give access to motility parameters, not the specific minimal moment protocol."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2405.06769",
+          "material_read": "Section III.1, Figure 3 context, equations (17)–(18), discussion passage about motility parameters",
+          "method": "Bounded passages in the original open-access rendering, plus PDF abstract",
+          "title": "Active Brownian particle under stochastic orientational resetting",
+          "trigger": "Identical stationary model and exact moment map"
+        },
+        {
+          "assessment": "Distinct third-cumulant result; exact inverse-summary match is the frozen record itself",
+          "evidence": [
+            "Long-time off-axis third-cumulant transition versus a finite-lag first/second-moment inverse map."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-off-axis-third-cumulant-transition-for-orientationally-r--feb740e47874",
+          "material_read": "Local catalogue summary for feb740e47874 and the assigned f82fdad5b28b",
+          "method": "Statement comparison using published catalogue",
+          "title": "Resultary matching and related orientational-reset entries",
+          "trigger": "Same model and same-day related finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Position-only calibration is naturally useful when headings are hidden. The exact data range, two scalar inversions, and matching positive one-lag covariance branches identify a meaningful observational limit of these moments. This does not establish useful conditioning near the range endpoints or a limitation of inference from entire displacement laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

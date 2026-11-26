@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:35:20.820437Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–74; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/a16d2153-b283-4ccc-bfd6-e237224fb695/check_010.py; recorded check_010_m2_m12.txt in that directory"
+      ],
+      "rationale": "The counter tracks the three exact prefix statistics modulo m. Summing i(x−i) over 1s with i preceding zeros proves z≡(x−1)y for even m. Direct composition in left-to-right word order gives C(x,y,z)=(x,y+1,z−x−1) and D(x,y,z)=(x,y,z−2); inverse letters are positive powers, so the parity obstruction is complete. Reversing suffixes gives the complete attainable set (a,b,d), and for fixed a,b the unique d that accepts the first state is feasible exactly when (x+a−1)(y+b) has parity t. For odd m all suffix statistics are possible and affine tests separate the states. For even m the feasible parity pairs first recover x,y parities. Varying a,b by two then allows only the half-modulus shifts in x,y. An odd half-modulus is prohibited by equal parities, and for even t the three feasible parity pairs test both coordinate differences individually. For 4|m and odd t there is just one feasible parity pair, so each of the four choices of even half-modulus shifts determines exactly one even shift in z and hence one reachable equivalent state. This proves the complete-DFA count for every target residue, including m=2 and t=0. Independent minimization matched all 77 cases with 2≤m≤12 (e.g. [32,8,32,8] for m=4); it corroborates the symbolic proof only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-run Moore theorem gives m^b times a prime-power product for patterns 0^a1^b, excluding 010. The three-run parity-lift theorem includes 010 but only for full output mod 2. Mansour et al. use cutoff r continuation equivalence and transfer matrices, not residue-language minimization."
+        ],
+        "reasoning": "The broader-looking pattern classes either do not include a repeated endpoint run or do not cover arbitrary moduli and a prescribed-residue quotient. A cutoff automaton tracks counts until they exceed a bound, unlike modular wraparound.",
+        "searches": [
+          "Resultary searches for general modular scattered subword minima",
+          "2026/11/22/SCOPE-exact-minimal-modular-subsequence-counters-for-every-binary-two--64015373a52c",
+          "2026/11/22/SCOPE-a-parity-lift-dichotomy-for-three-run-scattered-subsequence-moor--e2845a40d715",
+          "arXiv:1905.05646 §2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches and inspected findings above",
+        "arXiv:1905.05646 §2.2",
+        "Hahn–Cheon–Han corrected CIAA 2023 author PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-output state count agrees numerically elsewhere but gives m³/2 rather than m³/8 when 4|m and t is odd; the prior passage does not compute the target's right congruence."
+        ],
+        "reasoning": "Changing the output map to an acceptance indicator gives an upper bound from the Moore graph, not its minimal Boolean size. The parity-dependent affine suffix tests are needed for both the further identifications and the remaining nonidentifications.",
+        "searches": [
+          "2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db, 010 statement and scope",
+          "arXiv:1905.05646 §2.2",
+          "Hahn–Cheon–Han Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-output theorem gives m³/gcd(m,2) for 010, allowing every word; its finding expressly distinguishes output from a single-residue DFA. Hahn–Cheon–Han pp. 1–2 and Theorem 2 treat equality of exact ternary counts 0,1,2,01,12,012."
+        ],
+        "reasoning": "Equality of all residual output residues is finer than equality of the indicator for one target residue; the two invariants differ by a factor of four in the key regime. Exact ternary M-equivalence is not modular binary acceptance equivalence.",
+        "searches": [
+          "Resultary searches for modular scattered 010 continuation equivalence and output-state complexity",
+          "2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+          "Hahn–Cheon–Han, DOI 10.1007/978-3-031-40247-0_10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The no-11 record gives 2m³/gcd(m,2)+1 for the 0 residue with a contiguous-11 avoidance constraint, including a sink. The zero-power-one record gives m times a prime-power product for 0^d1, independent of the target. No exact unconstrained 010 single-residue table appeared in the ranked searches."
+        ],
+        "reasoning": "The no-11 restriction changes the continuation language and requires a sink; zero-power-one is a different subsequence. Neither count reindexes the three cases here.",
+        "searches": [
+          "Resultary searches for exact state counts of scattered 010 modular residue languages and binary modular subsequence tables",
+          "2026/11/22/SCOPE-exact-minimal-automata-for-modular-scattered-010-counts-under-th--721b1c01a04c",
+          "2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330"
+        ]
+      },
+      "rationale": "The claim is the single-residue Myhill–Nerode index, especially the fourfold collapse for odd residues when 4 divides m. The closest catalog theorem counts the full-output Moore states, not the Boolean quotient. Other inspected results change the pattern, restrict the input words, or count a different equivalence. None gives the stated single-residue classification in the inspected material.",
+      "residual_risks": [
+        "Bounded scholarly and catalog searches do not rule out an equivalent single-target quotient theorem for group actions or modular subword counters that was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same counting function, different output equivalence; later dated",
+          "evidence": "Moore count m³/gcd(m,2); explicitly does not determine individual-residue DFA counts.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+          "material_read": "RESULT.md around mirror offset 877, 010 finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "Exact output-state complexity for modular alternating scattered counts",
+          "trigger": "Exact 010 modulus match"
+        },
+        {
+          "assessment": "Different constrained language; later dated",
+          "evidence": "Avoids contiguous 11 and targets residue zero; 2m³/gcd(m,2)+1 states.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimal-automata-for-modular-scattered-010-counts-under-th--721b1c01a04c",
+          "material_read": "RESULT.md around mirror offset 300",
+          "method": "Resultary and local mirror",
+          "title": "Exact minimal automata for modular scattered 010 counts under a constraint",
+          "trigger": "Same subsequence and Boolean automata"
+        },
+        {
+          "assessment": "Mod-2 output only, no arbitrary target collapse",
+          "evidence": "Covers 0^a1^b0 mod 2, giving four output states at a=b=1.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-lift-dichotomy-for-three-run-scattered-subsequence-moor--e2845a40d715",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A parity-lift dichotomy for three-run scattered-subsequence Moore counters",
+          "trigger": "Generalization includes 010"
+        },
+        {
+          "assessment": "Does not include 010",
+          "evidence": "Full-output count for 0^a1^b.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimal-modular-subsequence-counters-for-every-binary-two--64015373a52c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact minimal modular subsequence counters for binary two-run patterns",
+          "trigger": "Broad modular minima"
+        },
+        {
+          "assessment": "Different subsequence pattern",
+          "evidence": "For 0^d1, the count is independent of the target residue.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact state complexity of modular scattered zero-power-one counts",
+          "trigger": "Related single-residue DFA count"
+        },
+        {
+          "assessment": "Inspected automaton construction counts up to a cutoff, not modulo m",
+          "evidence": "Occurrence-count cutoff equivalence and transition matrix, including the six classes in the v=123,r=1 example.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.05646",
+          "material_read": "§2.2, pp. 6–8",
+          "method": "Lawful OA original PDF passages",
+          "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+          "trigger": "Continuation equivalence for occurrence languages"
+        },
+        {
+          "assessment": "Exact ternary equivalence, not modular quotient complexity",
+          "evidence": "Exact counts for 0,1,2,01,12,012 characterize the studied matrix data.",
+          "identifier_or_url": "https://toc.yonsei.ac.kr/~emmous/papers/corrected_ciaa23.pdf",
+          "material_read": "pp. 1–2 and Theorem 2, p. 9",
+          "method": "Lawful OA author PDF passages",
+          "title": "M-equivalence of Parikh Matrix over a Ternary Alphabet",
+          "trigger": "Potential equivalent subword-count classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–20, 46–74; full-output Moore comparison"
+      ],
+      "rationale": "This is a natural exact invariant of one of the simplest subsequence counters with separated identical letters. The result distinguishes acceptance complexity from the number of reachable counting states and identifies precisely when selecting a different residue on the same counter saves a factor of four. That distinction supports computing actual minimal recognizers and is not an instance-by-instance table or a corollary of the raw counter size.",
+      "residual_risks": [
+        "Only binary scattered 010 and complete deterministic residue recognizers are classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

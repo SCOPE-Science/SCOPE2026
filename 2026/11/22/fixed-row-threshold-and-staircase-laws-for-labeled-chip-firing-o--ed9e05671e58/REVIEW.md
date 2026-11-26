@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a consequence of the documented cumulative small-label recurrence. The polynomial comparison function is obtained by a formal generating-function solution. The exact removal of nested floors converts the integer count to a single floor with a weighted error term. A universal rowwise error bound and a separate estimate on the last logarithmically many diagonals give a vanishing correction at the critical fixed-row scale. Threshold asymptotics and the nonintegral staircase then follow. The attached executable independently checks the recurrence against actual sorted-label firing for small graphs and verifies the algebraic identities using rational arithmetic. Risks: the fixed-coordinate restriction is essential; finite checks alone would not prove uniformity.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The binomial formula follows by solving the unfloored row generating functions (2-z)H_a=H_(a-1)+m with H_0=2m/(2-z). The error obeys the linear average recursion with local loss in {0,1/2}, so 0<=L-C<=a+1 by induction. Integer inputs in the row update allow all same-row floors to collapse into one floor. Its correction is the weighted sum 2^(-b) sum_(r=1)^b 2^(r-1)(L-C)(a-1,r). For r<=b-h, h=ceil(2 log_2 b), this is at most a 2^(-h); for the other h terms, substituting the unfloored lower row bounds the contribution by a constant times m h (b+1)^(a-1) 2^(-b), uniformly O(log b/b) on the stated m range. Continuity of floor away from the integers proves the staircase. At the threshold, 1/Lambda is a lower bound and ceil((1+B log b/b)/Lambda) is an upper bound for sufficiently large fixed B: first fix a uniform scaling range containing these candidates eventually, then choose B larger than its rounding-loss bound. This avoids a circular uniformity argument. The leading coefficient of Q gives the threshold and adjacent-row ratio; row zero is exactly floor(m/2^b). Theorem 21 of arXiv:2611.25137v1 verifies the stated reachability correspondence, with the same directions. It is the first positive value of the auxiliary array that gives physical reachability.
 
-The direct precursor, OEIS A397913, provides the exact floor recurrence and initial table, not a fixed-row scaling theorem. The fully inspected ordered-directed-graph paper (arXiv:2611.25137v1) rigorously proves the recurrence's reachability meaning and treats the exact boundary row and the first adjacent row, but does not obtain the all-fixed-row asymptotic or limiting nonintegral staircase. Directed-tree reachability and unlabeled lattice-firing results have different quantified objects. Searches of related mathematical records, published material and accessible historical claims did not locate equivalent higher-row results. This is not a proof of historical uniqueness, and unindexed work and the partly inaccessible OEIS full page remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The least-chip boundary is a natural invariant in labeled directed chip-firing, and the existing exact recurrence by itself conceals the growth regimes as a coordinate tends to infinity. The theorem gives an explicit polynomial correction to an exponential scale for every fixed row, a quantitative relative error, the sharp first-order ratio between adjacent rows, and a whole nonintegral threshold staircase. These quantify path merger effects and extend known one-row asymptotics to a complete infinite hierarchy, rather than producing a single additional table entry.
+The recurrence, its interpretation, finite values, and the leading threshold laws for a=0,1 are prior. The contribution supported by the inspected sources is the quantitative fixed-row loss estimate, its noninteger staircase, and the threshold laws for every fixed higher row. Catalogue and primary-source comparisons support that distinction, not global priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The minimum chip crossing the two-coordinate boundary is a natural labeled dynamics invariant, not an arbitrary fitted slice. The exact hierarchy of polynomial factors with row, the adjacent-row ratio, and the full limiting response off integer thresholds answer questions not apparent from finite tables; the proof isolates how path mergers and floor errors affect near-threshold counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:20.846426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Three disjoint row paths require one removal per row in any minimum cut; removing a column realizes size three. A gap of at least two permits a vertical bypass at an intermediate column; with adjacent cut positions differing by at most one, j minus the deleted column of its row cannot go from negative to positive without a zero vertex. Thus the triples and the single-coordinate jump representation are exact, including L=0. Counting over middle coordinates gives 9L-1 vertices and 18L-10 outer-coordinate edges. The middle-coordinate edges contribute 3(L-1)+2 for coincident outer positions and 2L for adjacent outer positions; larger gaps contribute none. For L>0 first and last jumps are unit and internal jumps have absolute length at most two, so net gain 3L forces at least ceil(3L/2)+1 moves. At equality all moves go forward; parity forces two units on the same coordinate for even L, and exactly one unit per coordinate for odd L. Double outer jumps require moving from b-1 to b+1, and a double middle jump requires both outers at b+1. For even L an outer first move leaves no available double; a middle start and end therefore bound alternating ordered pairs of outer doubles and single middle doubles, with two choices per pair. For odd L, an outer start followed by a middle unit either immediately equalizes all three (before the goal) or leaves the last outer unit unusable after its double. So an outer start needs the other outer unit next; then the middle unit cannot be used until the final equalization, and intermediate layers have two outer orders. A middle start leaves only the outer units available: spending one before the last layer ties that coordinate with the middle and stops the next double middle jump, because the tied outer cannot then double and its unit is spent. Thus both outer units are final, with two orders. Each of the two types contributes twice 2^((L-1)/2); L=1 has six one-move-per-row orders and L=0 only the empty route. Independent replay: `python -B /workspace/independent_replay.py 3` generated actual graph cuts and BFS counts for L=0..7, including (62,150,12,32) at L=7. The supplied code and saved checks were read, not run; neither finite diagnostic replaces the all-L argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gomes et al., arXiv:2307.07782, search passages identify polynomial shortest-slide optimization and NP-complete bounded-length jump decision in general.",
+          "SCOPE-a-sharp-depth-transition-for-optimum-vertex-cut-relocation-on-re--19b9a4d5a4c6 available summary discusses opposite-boundary interior-row terminals with slide mobility/frozen cases and jumping exceptions."
+        ],
+        "reasoning": "General existence and complexity statements do not evaluate the geodesic multiplicity. For the depth-transition comparison, interior boundary vertices have different attachments from the external terminals adjacent to all three rows. The available statement addresses mobility and exceptions rather than an exact shortest-path count in this setup.",
+        "searches": [
+          "“minimum separator reconfiguration” token jump three-row grid shortest paths equivalent lattice walks",
+          "Resultary: minimum separator reconfiguration token jump versus token slide shortest paths NP-complete grid boundary cuts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKS.txt, verify_grid.py, verify_triples.py",
+        "Local Resultary results: same record and 45171202d901, 19b9a4d5a4c6",
+        "arXiv:2307.07782 indexed passages",
+        "OEIS A227665 as described in the frozen record; independent unit-step count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shortest-route counts here use a saturation bound plus parity with two different odd-length patterns, not just separator connectivity.",
+          "Neither indexed catalogue statement gives all geodesic orders or the full-boundary distances under the stated TJ rule; available Gomes search passages do not provide a count."
+        ],
+        "reasoning": "The retrieved statements supply related geometry or a decision framework, not a stronger implication fixing the parity-dependent distance and geodesic multiplicities. This comparison is restricted to the available statements.",
+        "searches": [
+          "arXiv:2307.07782 shortest slides, bounded jumps and canonical paths",
+          "Resultary records 45171202d901 and 19b9a4d5a4c6; exact mirror attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent state model is a Lipschitz triple with up to two units moved in one coordinate per step.",
+          "The exact-title/formula catalogue match was the assigned record, not a distinct source. SCOPE-exact-manhattan-mobility-of-minimum-separators-in-three-rail-gri--45171202d901 describes Manhattan-optimal SLIDES and middle-row endpoint terminals in its available summary."
+        ],
+        "reasoning": "Same coordinate language does not imply the same move graph. Unit-edge walks cannot stand in for replacements by nonadjacent vertices. An invariant for middle-row terminals does not by itself give the full-boundary-attached extreme jump paths.",
+        "searches": [
+          "Resultary: token-jumping reconfiguration of Lipschitz triples (a,b,c) with |a-b|≤1 and |b-c|≤1 extreme states shortest route counts",
+          "Resultary: minimum token jump distance between extreme minimum vertex separators in three-row grid ceil(3L/2)+1 shortest reconfiguration sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen comparison identifies A227665 as lattice paths in the same region with unit-coordinate steps; OA lookup timed out.",
+          "Independently evaluating the slide recurrence summing the three permissible predecessors gives 44 monotone unit-step routes at L=2. The verified jump graph has distance four and just two shortest routes at L=2."
+        ],
+        "reasoning": "A shared region or superficially similar path numbers is not exact coverage; the counted unit-step routes are distinct from jump geodesics. Catalogue self-hit identifies the record only, not independent priority.",
+        "searches": [
+          "OEIS A227665",
+          "Resultary: Sharp token-jump relocation distance and route multiplicities for three-row grid separators"
+        ]
+      },
+      "rationale": "The supported distinction is the exact extreme-cut distance and complete shortest state-sequence count in this three-row, full-boundary-attached token-jump graph. Min-separator reconfiguration and the underlying Lipschitz state region are not claimed as new. Exact prior matches were not established in the inspected evidence; inaccessible sections and similarly scoped catalogue results remain residual risks.",
+      "residual_risks": [
+        "Exact catalogue mirror passages and full primary paper were not available through the attempted retrieval; in particular the depth-transition result's detailed jump exceptions were not verified.",
+        "An older enumeration for this same Lipschitz triple graph under two-unit jumps could cover the formulas under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General decision/optimization framework distinct from this exact enumeration",
+          "evidence": "Available passages distinguish slide shortest paths and jump hardness; no full-text noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.07782",
+          "material_read": "Indexed passages for shortest slides, bounded-length jumps and canonical paths",
+          "method": "Primary literature search and bounded OA request; OA timed out",
+          "title": "Minimum Separator Reconfiguration",
+          "trigger": "Primary source covering shortest paths for these move rules"
+        },
+        {
+          "assessment": "Different moves and count",
+          "evidence": "44 monotone unit-step paths at L=2 versus two shortest jump paths.",
+          "identifier_or_url": "https://oeis.org/A227665",
+          "material_read": "Description reported in frozen RESULT.md lines 44–53; live entry not retrieved",
+          "method": "OA entry query; independent check of the unit-step recurrence at L=2",
+          "title": "Lipschitz-coordinate lattice paths",
+          "trigger": "Exact-region table comparison"
+        },
+        {
+          "assessment": "Different terminal attachment and slides rather than jumps in the available statement",
+          "evidence": "The summary describes middle-row endpoint terminals and exact Manhattan slide mobility, radius and diameter.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-manhattan-mobility-of-minimum-separators-in-three-rail-gri--45171202d901",
+          "material_read": "Resultary indexed summary; exact local mirror passage not recovered",
+          "method": "Local catalogue and targeted mirror attempts",
+          "title": "Exact Manhattan mobility of minimum separators in three-rail grids",
+          "trigger": "Same number of rows and locally constrained coordinate model"
+        },
+        {
+          "assessment": "Different boundary terminals and guarantees in the available statement; detailed jump exceptions unresolved",
+          "evidence": "The summary concerns opposite-side boundary vertices in interior rows and slide mobility/frozen states with jump exceptions.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-depth-transition-for-optimum-vertex-cut-relocation-on-re--19b9a4d5a4c6",
+          "material_read": "Resultary indexed summary; exact local mirror passage not recovered",
+          "method": "Local catalogue and targeted mirror attempts",
+          "title": "A sharp depth transition for optimum vertex-cut relocation",
+          "trigger": "Possible grid jump-case overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two extreme cuts are canonical endpoints of a natural fixed-width reconfiguration problem. A fully explicit cost and exact multiplicity distinguish jump geometry from unit-step motion and expose an odd/even change in the mechanism of the optima. The exponential counts come from a complete optimal-route classification, not a tiny-instance speed gain or the recomputation of the unit-step table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

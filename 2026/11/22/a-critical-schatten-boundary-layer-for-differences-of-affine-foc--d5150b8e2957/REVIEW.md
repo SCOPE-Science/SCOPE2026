@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact binomial coefficient expansion yields a trace-class series. Summable bounds on the higher subdiagonals give trace norm \(O(1)\), operator norm \(O(1-q)\), and interpolated \(\mathcal S_p\) remainder smaller than the claimed main term. The leading subdiagonal gives the full singular-value counting law by Riemann sums, while the subdiagonal orthogonality identity gives the exact Hilbert–Schmidt formula. The 33 finite checker test groups passed; they are supplementary and not substitutes for infinite-dimensional estimates.
+PASS
 
-## Originality — PASS, qualified
+On the normalized monomial basis the binomial expansion gives one weighted backward shift for each degree drop k, with weights q^m h^k(u^k-v^k)sqrt((m+k)!/m!)/k!. The sum over m of the moduli is its trace norm; applying Cauchy–Schwarz to the two q^(m/2) factors and summing the rising factorial series gives |u^k-v^k| h^(k/2-1)/sqrt(k!). This sums absolutely. The maximal weight bound follows from (m+k)!/m! <= (m+k)^k and maximizing y^(k/2)exp(-delta y), delta=-log q>=h: shifting y=m+k costs at most 2^k for q>=1/2. Thus all k>=2 give an O(1) trace and O(h) operator remainder. Point evaluations are continuous, so the binomial identity on polynomials identifies the resulting bounded operator with the composition difference on the entire space. For each fixed p>=1, sum of singular values to power p is bounded by the trace norm times operator norm to power p-1 for the remainder. Dividing by the leading h^(1/2-1/p) makes the norm error O(sqrt h) on that scale. The nonzero weights of the first shift divided by sqrt h have exact form |u-v| sqrt(hn)q^(n-1); for q near one this is bounded by 2|u-v|sqrt(hn)exp(-hn). This controls tails for the Riemann sums, yields the integral Gamma(1+p/2)/p^(1+p/2), and gives the maximum |u-v|/sqrt(2e). The uniform rescaled singular-value error bounds the count between shifted thresholds, and the strict superlevel length is continuous at every asserted threshold. The Hilbert–Schmidt calculation sums squares on mutually orthogonal matrix diagonals with the binomial series at q^2, giving precisely the three-exponential identity and the |u-v|/2 limit. The checker was read, not run; its two HS sums share the same coefficient routine and are diagnostics, not independent proof. Independently reproducible certificates are the two convergent binomial sums and the one-variable profile integral. The symbols are strict affine contractions, not necessarily contractive operators (C_{q,u}z=qz+hu and exponential kernels distinguish the norms); the theorem itself makes no operator contractivity assumption.
 
-The inspected 2017 difference-operator work treats boundedness, compactness and essential norms; 2021 Fock semigroup work treats individual semigroups; the 2024 order-bounded differences paper treats another operator-order property; and the 2026 finite-sums result provides fixed-symbol ideal membership, not uniform sharp coalescence. A published polynomial-dilation result describes the scalar leading profile, but does not deliver the whole difference-operator theorem. The nearest unpublished-or-unindexed equivalent results remain a historical-priority risk. These are statement-implication comparisons rather than inference of novelty from absent search hits.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a sharp topology-dependent boundary layer: the same family converges in operator norm, has nonvanishing Hilbert–Schmidt distance, and diverges in trace norm, with full leading singular-count distribution and an exact Hilbert–Schmidt identity. This is a natural quantitative refinement of known compact difference and affine semigroup theory, not a parameter renaming or a single numerical test.
+Best of checked evidence: fixed-symbol Schatten membership and the first-shift spectral profile are covered and not credited. The surviving contribution is the uniform approximation of the actual non-diagonal coalescing affine difference on both norm extremes, with transferred sharp moving counting law and evaluated exact Hilbert–Schmidt expression. The closest same-date result about coalescing sums was checked at the level of its full symbol hypotheses and is distinct.
 
-## Scope and limitations
+## value
 
-Fixed distinct centers, common real contraction approaching one, Gaussian dimension one, and \(p\ge1\). No independent historical priority or independent mathematical audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a sharp classification of a natural coalescing-family difference, not a new label for fixed-symbol ideal membership. Operator-norm disappearance, a nonzero limiting HS norm, and trace blow-up coexist; the singular count reveals that the mass resides in order h^{-1} singular values of order sqrt(h). Establishing where the established leading profile accurately describes a genuinely non-diagonal operator is mathematically substantive. Scope is fixed distinct centers, one-dimensional Gaussian Fock space, common real slope and fixed p>=1; there is no claim about drifting centers or lower quasi-norm exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

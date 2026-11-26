@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:27:18.303168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–19; VERIFICATION.md; baer_refinement_verifier.py; field_plane_verify.py (scripts inspected, not run); verification_output.txt",
+        "Independent replay: python3 /workspace/review_evidence/replay_1.py"
+      ],
+      "rationale": "A projectivity normalizes any ordered quadrangle to (0,0), (1,0), (0,1), (1,1) in an affine chart. Joins and meets of two distinct singleton vertices on the same side become singletons. The opposite horizontal and vertical edge pairs give the two coordinate directions at infinity, and the principal diagonal gives direction (1,1). From any constructed (a,0), intersect its vertical with y=1, then take the diagonal parallel back to y=0 to obtain (a-1,0). This generates the prime field, including in characteristic two. Transferring the scalars to the y-axis along that diagonal direction and intersecting horizontal and vertical parallels produces all prime-field affine points; joins and meets give the remaining rational points and lines. These constructions also force any Baer subplane through the marked quadrangle to equal the prime subplane. For an exterior point write a homogeneous representative as u+alpha*v over the prime field. The rational triples u,v are independent since otherwise the point is rational. The unique rational line through it is the common annihilator of u,v; projective duality gives the corresponding unique rational point on an exterior line. Each fibre has p^2-p members by subtracting rational incidences. An exterior point with foot line l has one neighbour in the exterior-line fibre of P exactly when P is off l, by uniqueness of the line joining the point to P, and none if P lies on l. The dual count and the singleton incidences give equitability. The proposed partition therefore cannot split under 1-WL, and its different fibres cannot merge after the singleton feet have been distinguished. The replay generates both sides in three planes and compares the actual stable partition, not just sizes, with both types of fibres.",
+      "residual_risks": [
+        "The finite replay covers p=2,3,5 only; the join–meet and equitability argument covers all primes. No stabilization-round bound, other extension degree or non-Desarguesian plane is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cofman gives the unique Baer subplane through a quadrangle in a square-order Desarguesian plane. The earlier Resultary subfield criterion covers all extensions with marks containing a frame for the singleton conclusion. The general colour-refinement literature supplies the algorithmic framework."
+        ],
+        "reasoning": "Specializing the broader subfield theorem to a normalized four-point frame does settle the singleton part. Neither that theorem nor the general WL framework specifies the multiplicities and contents of all nonsingleton cells.",
+        "searches": [
+          "doi:10.4153/CJM-1972-011-4, pp. 1–2",
+          "Resultary: Baer subplane singleton classes criterion Weisfeiler Leman projective plane incidence graph",
+          "arXiv:1502.01255, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f7ad48a4f739 and 93d11627de18",
+        "doi:10.4153/CJM-1972-011-4",
+        "arXiv:1307.5697",
+        "arXiv:1502.01255"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier subfield proof, projective vertices not fixed by Frobenius cannot be singleton. It does not compare colours between its different two-element exterior orbits. The present proof uses the mixed fibre-to-fibre incidence counts, zero or one according to rational incidence."
+        ],
+        "reasoning": "The uniqueness of feet plus the singleton result forces separation of different exterior fibres, but not nonsplitting within one fibre. The additional mixed incidence argument constructs an equitable refinement on both sides, supplies the missing reverse containment, and is not an application of the subfield statement by substituting the quadratic parameter.",
+        "searches": [
+          "Resultary f7ad48a4f739, RESULT.md offsets 0 and 5100–8094",
+          "Cofman, pp. 1–2; Grohe et al., p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-point calculation in Resultary f7ad48a4f739 uses coordinatewise Frobenius. Grohe et al. use the coarsest equitable refinement formulation. Point–line duality exchanges the two families of exterior cells in the proposed quotient."
+        ],
+        "reasoning": "Frobenius already gives the exterior pairs for p=2 once the singleton feet are known, but for p>=3 its orbits of size two do not imply a single cell of size p(p-1). The generic quotient formulation is equivalent to the problem, not an evaluation of it.",
+        "searches": [
+          "Resultary: colour refinement coherent configuration quadrangle seeded Desarguesian projective plane Baer subplane",
+          "Resultary: Baer subplane exact stable WL quotient exterior points on rational lines 4b cells",
+          "arXiv:1307.5697, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed result was the exact singleton classification f7ad48a4f739. The distinct same-date fibre record 93d11627de18 treats Hermitian-cubic projections, not projective-incidence refinement. The literature search was unavailable and is not used as negative evidence."
+        ],
+        "reasoning": "The actual indexed statements compared do not contain the same quotient or a table specializing to it. A bounded index search is not a proof that no such table exists.",
+        "searches": [
+          "Resultary: Complete quadrangle-seeded colour refinement on quadratic Desarguesian planes",
+          "Resultary: four separately coloured quadrangle point-line incidence graph Baer subplane 1-WL exact stable partition exterior fibres",
+          "Literature query: Baer subplane colour refinement Weisfeiler-Leman projective plane four points exterior fibres"
+        ]
+      },
+      "rationale": "The prior subfield criterion already determines exactly the singleton vertices and credits the five-point threshold. The distinct content here is the full quadratic-plane quotient, specifically simultaneous nonsplitting of both families of exterior fibres. The Frobenius and Baer geometry comparisons delimit how much of this was already known.",
+      "residual_risks": [
+        "Primary literature comparison is restricted to checked open passages; the broader search was unavailable. An equivalent quotient in specialist tactical-decomposition or coherent-configuration literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers singleton subplane and nondiscreteness, not full quadratic quotient",
+          "evidence": "The generated field determines the singletons; the proof rules out additional singletons via Frobenius-fixed vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-subfield-criterion-and-five-point-individualization-threshold--f7ad48a4f739",
+          "material_read": "RESULT.md Finding offset 0 and proof around offset 5661; follow-up passage offsets 5100–8094",
+          "method": "Local Resultary full-text mirror",
+          "title": "A subfield criterion and five-point individualization threshold",
+          "trigger": "Earlier and stronger on singleton sets"
+        },
+        {
+          "assessment": "Covers geometric subplane input",
+          "evidence": "Every quadrangle in a square-order Desarguesian plane lies in one Baer subplane; the coordinatization identifies the subfield subplane.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1972-011-4",
+          "material_read": "PDF pp. 1–2 (offsets 1849 and 4208)",
+          "method": "Open-access primary PDF passage comparison",
+          "title": "Baer Subplanes in Finite Projective and Affine Planes",
+          "trigger": "Direct prior geometry of marked quadrangles in square order"
+        },
+        {
+          "assessment": "Generic equitable refinement, not a projective-geometry evaluation",
+          "evidence": "Stable refinement gives the coarsest equitable refinement of the input partition.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.5697",
+          "material_read": "p. 1 (offset 4026)",
+          "method": "Open-access full-text passage comparison",
+          "title": "Dimension Reduction via Colour Refinement",
+          "trigger": "Potential general quotient theorem"
+        },
+        {
+          "assessment": "Background, not evidence of an exact exterior-fibre theorem",
+          "evidence": "The inspected passage treats general graph isomorphism and colour refinement.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "p. 1 (offset 931)",
+          "method": "Open-access full-text passage comparison",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Related graph-isomorphism use of stable colour refinement"
+        },
+        {
+          "assessment": "Different notion of fibre",
+          "evidence": "Projection fibres of a Hermitian cubic are not cells of a seeded 1-WL partition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-splitting-fiber-stratification-of-projections-of-a-hermiti--93d11627de18",
+          "material_read": "RESULT.md claim and geometric scope",
+          "method": "Local Resultary mirror comparison",
+          "title": "Exact splitting fiber stratification of projections of a Hermitian cubic",
+          "trigger": "Distinct same-date fibre classification hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and sections 2–4 of proof",
+        "Prior subfield criterion and equitable-refinement comparison",
+        "Independent replay_1.py"
+      ],
+      "rationale": "A projective frame and its prime-field Baer subplane are canonical in the quadratic extension. The full quotient identifies exactly which residual vertices are indistinguishable by 1-WL and gives the cell sizes and incidence data useful for testing individualization/refinement or quotient-based methods on this family. The singleton criterion alone cannot supply that data. The short equitability argument gives a natural complete invariant beyond the earlier discreteness threshold, not a new theorem about graph-isomorphism complexity.",
+      "residual_risks": [
+        "The usefulness is confined to the marked quadratic projective incidence graphs and does not imply an algorithmic speedup or higher-dimensional WL result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:38:06.104217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<x<1 all entries of the capture matrix are positive, so delta>0. Equilibrium uniquely forces P=1/delta and Y=(r-1/(K delta))/delta. With those definitions Q=K delta²(hY-g), so Q(x)=0 is exactly the remaining equation; a candidate root must also satisfy Y>0. No division by h is needed, and no root gives more than one coexistence state. The average-rate identities r=u_B+xg and delta=v_B+xh cancel the xgh term in rh-delta g, leaving u_B h-v_B g of degree at most two. Thus degree Q<=4 and Q not identically zero gives the upper bound for distinct states. Independent exact checks/5.py (Python 3 and SymPy) reconstructs the quartic directly from the original payoff averages, confirms the five coefficients, gcd(Q,Q')=1, and exact real-root counts in the four supplied brackets. The signs of Q at the pairs of endpoints are (+,-),(-,+),(+,-),(-,+). The affine g,h are both negative throughout each of the first three brackets and positive throughout the last; hence Y=g/h>0 at all four roots. With positive parameters all these strict endpoint signs persist on a neighbourhood, furnishing four distinct admissible roots and ruling out Q identically zero there. The four states are isolated and independent of beta>0. This is a statement about equilibrium counts, not dynamical stability or Q identically zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cruz–Neves, Section 4 p. 13, describes a fifth-degree elimination, not a universal quartic bound.",
+          "Resultary aed3c0deecc8, Finding at offset 18 onward, gives a Hopf bifurcation and an attracting periodic orbit at one specified positive-payoff threshold, not an all-parameter bound.",
+          "Resultary debfca23230e search summary identifies a constrained constant-aggregate subclass; the local mirror file was absent, so its exact degeneracy relation was not checked. The model-origin paper was unavailable on the attempted lawful DOI and identified author-page routes."
+        ],
+        "reasoning": "A Hopf statement about one branch is not a bound on the total number of positive equilibria. Neither inaccessible text is treated as negative evidence; the closest available same-model primary text does not contain the asserted sharp maximum in the passages checked.",
+        "searches": [
+          "arXiv:2607.13281 Sections 3.3 and 4",
+          "DOI 10.1088/1751-8121/ac40e4 and identified author-page copy",
+          "Local Resultary: Hopf threshold, boundary exchange, neutral-memory foliation under constant aggregate payoffs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.13281",
+        "10.1088/1751-8121/ac40e4 (full text not retrieved)",
+        "Resultary aed3c0deecc8",
+        "Resultary f423853e0012",
+        "Resultary debfca23230e (summary only)",
+        "Resultary 5d720ef2b79e (assigned record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equilibrium relation matches for h nonzero; the apparent fifth degree cancels by the affine/average identity, giving a bound only if the polynomial is not identically zero.",
+          "Attaining four positive states requires a separate admissible-root argument with all entries positive; the prior three-state example and the unrelated four-state map do not provide that witness."
+        ],
+        "reasoning": "The novelty is not the algebraic starting equation or another multiplicity example in arbitrary dynamics. The known formula enables cancellation but does not yield sharpness by specialization: a nonzero quartic alone need not have any, much less four, admissible roots.",
+        "searches": [
+          "arXiv:2607.13281 original positive-equilibrium and multiple-equilibrium passages, OA offsets 33980,41238,47692",
+          "Resultary aed3c0deecc8 and f423853e0012 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cruz–Neves give Y=g/h, F=r-delta*g/h, and K F=1/delta. For nonzero h, this is the same Q=0 after clearing denominators.",
+          "The original bound avoids division by h and therefore also treats its zeros; the count considers only strictly positive P,Y and 0<x<1."
+        ],
+        "reasoning": "The known rational-intersection form is the correct equivalent starting point on h nonzero. Giving the same equation is not a second theorem about the number of its admissible real roots.",
+        "searches": [
+          "arXiv:2607.13281 Section 3.3, Eqs. 23–25",
+          "Local Resultary: positive ABY coexistence equilibria, quartic cancellation, rational intersections, predator-dependent replicator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 5d720ef2b79e is this assigned record itself.",
+          "Cruz–Neves Section 4.4, PDF pp. 14–15, shows as many as three positive ABY equilibria at a parameter choice. Resultary f423853e0012 gives four robust states for a rational shared-parasite competition map (RESULT.md offset 0), a discrete two-variable model, not the audited differential equation."
+        ],
+        "reasoning": "A table or construction for another model cannot validate or pre-empt the four-positive-root witness for these payoff averages. The same-model example with three gives no universal maximum.",
+        "searches": [
+          "arXiv:2607.13281 Section 4.4",
+          "Local Resultary: four robust coexistence equilibria, two prey, predator-dependent payoffs; entries 5d720ef2b79e and f423853e0012"
+        ]
+      },
+      "rationale": "The supported distinct result is sharpness in the full nondegenerate positive-payoff family: exactly four positive states are achievable for strictly positive rational data, robustly, and four is the global nondegenerate maximum. The model, feasibility conditions and rational equilibrium relation for h nonzero are known; clearing that denominator is not credited as new. The same-model primary text calls the elimination fifth degree and gives an example with three, not a sharp count of four. The exact cancellation supplies a sharper bound, but it is the positive, robust saturation of that bound together with the uniform proof that distinguishes the finding. Related catalogue statements do not cover the theorem. The origin paper was not retrievable by the attempted lawful routes, so this is not a universal priority claim.",
+      "residual_risks": [
+        "The original Braga–Wardil full text and the equation-level details of the neutral-memory record could not be independently checked.",
+        "An unindexed earlier equivalent upper bound or positive four-state construction remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model equation and multiplicity were already known; accessed evidence states fifth degree and an example with three, not the sharp four-state result",
+          "evidence": [
+            "KF(x)=1/delta(x) with F=r-delta*g/h.",
+            "The multiple-equilibrium example reports as many as three (two stable, one unstable)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.13281",
+          "material_read": "Section 3.3 p. 11, Eqs. 23–25, Section 4 p. 13 and Section 4.4 pp. 14–15, offsets 33980, 41238, 47692",
+          "method": "Bounded primary arXiv PDF passage reading",
+          "title": "Predator-dependent replicator dynamics or a predator-prey model with two prey types and frequency dependence",
+          "trigger": "Identical model and direct possible antecedent to the equilibrium bound"
+        },
+        {
+          "assessment": "Unresolved source-specific risk, not counted as evidence against coverage",
+          "evidence": [
+            "The attempted routes were unavailable or returned 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ac40e4",
+          "material_read": "No full-text passage retrieved in this review; model provenance cross-checked in Cruz–Neves",
+          "method": "Lawful DOI/publisher and identified ResearchGate author-page attempts",
+          "title": "The predator-dependent replicator dynamics",
+          "trigger": "Original model paper might discuss earlier count results"
+        },
+        {
+          "assessment": "A local bifurcation and stable cycle for specified data, not a maximum over positive payoff matrices",
+          "evidence": [
+            "The reported conclusion is periodic coexistence beyond a threshold, not a bound on the number of stationary states."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-supercritical-hopf-threshold-for-periodic-coexistence-in-a-pre--aed3c0deecc8",
+          "material_read": "Local RESULT.md Finding from offset 18",
+          "method": "Local Resultary mirror after catalogue search",
+          "title": "A supercritical Hopf threshold for periodic coexistence in a predator-dependent replicator",
+          "trigger": "Same-day same-model parameter-family result"
+        },
+        {
+          "assessment": "Different discrete model; does not imply or reproduce the finding",
+          "evidence": [
+            "H(x,y)=(x phi_1,y phi_2) is a rational map, not the two-prey one-predator differential equation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-robust-coexistence-equilibria-in-a-shared-parasite-competit--f423853e0012",
+          "material_read": "Local RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror after catalogue search",
+          "title": "Four robust coexistence equilibria in a shared-parasite competition map",
+          "trigger": "Exact numeric multiplicity and robustness match"
+        },
+        {
+          "assessment": "Summary concerns a restricted neutral subclass; equation-level relation to Q identically zero not resolved",
+          "evidence": [
+            "Summary describes a neutral-memory foliation under constant aggregate payoffs, not a claimed all-payoff sharp count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-eco-evolutionary-selection-and-neutral-memory-foliation-un--debfca23230e",
+          "material_read": "Local search summary only; matched file unavailable in local mirror",
+          "method": "Local catalogue search and attempted local mirror reading",
+          "title": "Exact eco-evolutionary selection and neutral-memory foliation under constant aggregate payoffs",
+          "trigger": "Same-model case with special aggregate assumptions and equilibrium degeneracy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum number of positive coexistence states is a natural structural feature of this model. Reducing the exact root degree constrains the whole nondegenerate family, while the rational witness shows the bound can be met on an open set under strict positivity, not just by counting formal roots or on a finely tuned slice. This settles a meaningful equilibrium-count question without asserting stability, generic ecological prevalence, or a classification of the degenerate family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

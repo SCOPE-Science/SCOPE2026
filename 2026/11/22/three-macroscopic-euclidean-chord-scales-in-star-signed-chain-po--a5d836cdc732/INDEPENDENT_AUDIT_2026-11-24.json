@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:57:07.407527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61; verify_book_chords.py lines 9–57; VERIFICATION.md",
+        "Independent exact active-constraint/chord calculation, branches/correctness_checks.py (chords)"
+      ],
+      "rationale": "Between successive z-layer boundaries −1,0,1, each coordinate interval is an affine interpolation of its boundary intervals. Taking the same relative position in each interval gives a feasible endpoint-layer convex decomposition. The only layer vertices are the box corners, and these really are global vertices: the active hub and leaf bounds give full rank at ±1, and at zero the active e_i and e_i+e_z normals (up to signs) give full rank. For ordered pairs the per-leaf factors are 2+2q^4 at (0,0), 2+2q in the two equal nonzero types, and 1+2q+q^4 in each unequal type. The unequal types have ordered hub-gap weights 4q+2q^4. Subtract all 3·2^m diagonals and halve. Among all terms, the largest exponent is 4m+4 with ordered coefficient 2, and the next is 4m+1, with 4m contributions from the opposite nonzero hubs and 4 from the zero/nonzero hubs. Dividing each per-leaf factor by four yields conditional iid laws with means 2, 1/2, 3/2 and variances 4, 1/4, 9/4, respectively. The bounded hub gaps vanish on both scales. The conditional diagonal probability on either equal-hub class is 2^(−m), and it is zero on unequal classes, so both the mixture and the three CLTs survive removal of the diagonal. Independently enumerated exact active-facet intersections and all unordered chords for m=2,3; every coefficient agrees. The source checker was inspected, not executed: its loop to m=100 checks totals, zeros and top shell; the second-shell assertion itself is only in the loop through m=8. The symbolic shell proof covers all m.",
+      "residual_risks": [
+        "These are anchored-coordinate distances and conditional vertex-pair limits, not intrinsic zero-sum distances or interior-point limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Greene-width law gives diam=2√d₂; for this star d₂=m+1. The two-level body at parameters (1,m) has known coordinate volume, and the covariance source uses uniformly random interior points in the intrinsic zero-sum metric."
+        ],
+        "reasoning": "The previously covered extremal diameter is excluded. Neither a scalar volume nor an interior covariance, in particular in a different metric, yields the anchored two-vertex distance distribution or the second shell.",
+        "searches": [
+          "Resultary second Greene width and two-level signed-chain polytopes; 8da88c3c9f80; 84c1d3d87a65; 7b1ca41fe5a4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 63–76",
+        "arXiv:2311.04409 §6",
+        "Resultary eea1883022b3, 84c1d3d87a65, 7b1ca41fe5a4, 8da88c3c9f80 and a491432b4d2c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Face polynomial (3+2t)(2+t)^m−t^m(1+t); separate diameter theorem and contact-set result; two-scale result on the graphical zonotope. The focused web query did not identify an equivalent paper."
+        ],
+        "reasoning": "The face invariant and maximal contacts do not give the mixed-layer leaf-gap factors or weights; neither do the zonotope's differing vertex counts and squared-distance populations. No date-based priority inference is made from the same-day comparators.",
+        "searches": [
+          "eea1883022b3 Finding; 8da88c3c9f80 Finding and proof; a491432b4d2c Finding and proof; focused primary-web search on anchored book-graph chord spectra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beck–Hlavacek Definition 6.5 gives the signed-chain inequalities. The cubical norming-faces record gives Q_m with |x_i−b|≤1; z=−b is an anchored isometry, and its face polynomial gives 3·2^m vertices."
+        ],
+        "reasoning": "Signed-chain and anchored book-graph descriptions encode the same object; their construction and face counts are not discrete metric enumerators. Porting between these descriptions does not create a new result.",
+        "searches": [
+          "Resultary: exact two-vertex squared Euclidean chord generating polynomial anchored book-graph Lipschitz polytope",
+          "arXiv:2311.04409 §6 and Resultary eea1883022b3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned result itself was returned; the closest distinct exact-spectrum source computes a two-hub graphical zonotope spectrum with 2·3^m−2^m vertices, not this intersection-of-strips body with 3·2^m vertices."
+        ],
+        "reasoning": "The same graph underlying both bodies and the same kind of statistic are insufficient for a matching table. The vertex sets and chord populations differ.",
+        "searches": [
+          "Resultary: exact two-vertex squared Euclidean chord generating polynomial anchored book-graph Lipschitz polytope; comparator a491432b4d2c"
+        ]
+      },
+      "rationale": "The anchored polytope, vertex count, volume and diameter are background. No inspected source covers the evaluated full discrete vertex-pair spectrum, its second shell, and its three-scale limit and conditional Gaussian laws in the specified metric. Reasonable bounded searches do not settle global priority.",
+      "residual_risks": [
+        "Potential unindexed equivalent two-point enumerators, particularly under Lipschitz-free or transport terminology.",
+        "Same-day catalogue dates do not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction background",
+          "evidence": "Signed chain-sum inequalities, not a vertex chord polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.04409",
+          "material_read": "§6 Definition 6.5, printed p. 16, PDF offset 55400",
+          "method": "Targeted OA PDF passage",
+          "title": "Signed Poset Polytopes",
+          "trigger": "Primary source for signed chain polytopes"
+        },
+        {
+          "assessment": "Covers face polynomial and vertex count",
+          "evidence": "Q_m has |x_i−b|≤1 and 3·2^m vertices; negate b to recover the assigned inequalities.",
+          "identifier_or_url": "Resultary eea1883022b3",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror passage",
+          "title": "Cubical norming faces and a complete face polynomial for book-graph Lipschitz-free spaces",
+          "trigger": "Isometric anchored polytope"
+        },
+        {
+          "assessment": "Volume only",
+          "evidence": "C_{1,m} is the same body; the invariant is coordinate volume.",
+          "identifier_or_url": "Resultary 84c1d3d87a65",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact volume and strict imbalance law for two-level signed-chain polytopes",
+          "trigger": "Broader signed-chain family contains the star exactly"
+        },
+        {
+          "assessment": "Different population and metric",
+          "evidence": "Interior covariance in intrinsic zero-sum coordinates.",
+          "identifier_or_url": "Resultary 7b1ca41fe5a4",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror passage",
+          "title": "Book-graph Lipschitz polytopes have a sharp three-page inertia crossing",
+          "trigger": "A distribution of Euclidean distances may imply moment information"
+        },
+        {
+          "assessment": "Covers diameter and extremal contacts, not second shell",
+          "evidence": "Difference body of ordinary chain polytope; diam=2√d₂ and d₂=m+1 for the star.",
+          "identifier_or_url": "Resultary 8da88c3c9f80",
+          "material_read": "Finding and proof opening, offset 0",
+          "method": "Local mirror passage and star specialization",
+          "title": "A second-Greene-width outer-sphere law for classical signed-chain polytopes",
+          "trigger": "Earlier-claimed diameter and extremal contacts"
+        },
+        {
+          "assessment": "Close methodological comparator, different object",
+          "evidence": "Graphical zonotope with 2·3^m−2^m vertices rather than the anchored Lipschitz polytope with 3·2^m.",
+          "identifier_or_url": "Resultary a491432b4d2c",
+          "material_read": "Finding and proof opening, offset 0",
+          "method": "Local mirror passage",
+          "title": "Two-scale Euclidean chord spectra of two-hub graphical zonotopes",
+          "trigger": "Same graph family with exact squared-chord histogram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–35, 50–69",
+        "Prior face, continuous covariance and diameter statements"
+      ],
+      "rationale": "The exact histogram recovers a finite metric statistic not visible in the face vector, continuous covariance or diameter, and shows that uniform vertices do not concentrate at one normalized pair distance even as m grows. The three masses, type fluctuations and exact multiplicity of near-diameter pairs make this a useful benchmark contrasting discrete vertex geometry with interior geometry on a naturally defined polytope family.",
+      "residual_risks": [
+        "The phenomenon is established only in the displayed coordinate metric and on this star family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

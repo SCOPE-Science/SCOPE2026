@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The general claim is analytic; it does not rely on a finite test or external proof certificate. `RESULT.md` defines the graph, exact SIS recurrence, community sums, all parameter ranges, and the proof of the strict \(m^2/8\) lower bound. The algebraic eigenvector identities used as critical lemmas are \((\Lambda-m+1)V_A=v_{b_1}\) and \((\Lambda-m+1)V_C=mV_B\); they follow by summing the adjacency eigenvalue equation over the first and third cliques. The spectral bounds follow by a two-block Rayleigh test and maximum-degree estimate. Existence, uniqueness and normalized critical convergence are proved without numerical approximation.
+# Independent mathematical audit
 
-Execute `python checker.py` from the extracted package using Python 3.10+, NumPy and SciPy. In the observed run, ten nonlinear fixed-point solves for \(m\in\{4,6,10,20,40\}\) and \(\varepsilon\in\{0.02,0.005\}\) passed, with fixed-point residuals below \(10^{-8}\). The checker verifies the matrix construction, local spectral ordering, block-sum identities, upper/lower spectral bounds, all-community isolated subcriticality and the positive equilibrium's ratio inequality. Its numerical eigenvalues and optimizer output are not certificates of an infinite theorem.
+## correctness
 
-This is a deterministic mean-field product map, not the exact finite-state Markov chain. It is not asserted that the quadratic bound is optimal, or that it persists under arbitrarily weak inter-community mixing. Publication priority has not been independently assessed.
+PASS
+
+The claim is for the deterministic product map, fixed finite m ≥ 4 and 0 < δ < 1. The isolated clique radius m−1 exceeds the path radius 2 cos(π/(m+1)); the two-cell Rayleigh test for B–C gives Λ ≥ ((m−1)+sqrt((m−1)²+4m²))/2 > m and d=Λ−m+1 ≥ (m+1)/2. The maximal degree gives d ≤ m. For βΛ>δ, a small positive Perron multiple is a subsolution; monotone iteration gives existence. Along any positive capped ray, the product-map output is concave (its nonnegative one-sided slope decreases at caps), strictly so up to the unit scale because retention and at least one neighbor have positive coefficients. This yields strict subhomogeneity and uniqueness by the maximal coordinate-ratio comparison. At criticality the strict union bound tested against the left Perron vector excludes nonzero fixed points; compactness and the linear expansion with quadratic remainder then give convergence to zero and convergence of the normalized direction to the positive Perron vector. The exact block sums give dV_A=v_b1 and dV_C=mV_B. The b1 equation implies (Λ−1/d)v_b1 ≤ (1+m/d)V_B, so V_B/V_A ≥ d(Λd−1)/(d+m) > (m+1)(m(m+1)−2)/(8m) > m²/8. Since Λ strictly exceeds all isolated radii, the required common isolated subcritical interval exists. The bound is on burdens, not the threshold ratio.
+
+## originality
+
+PASS
+
+The inspected evidence covers the local threshold definition, global versus isolated threshold comparison, Perron-mode behavior, and even finite ranking reversals. It does not establish the distinct quantitative theorem: an unbounded quadratic lower bound for the reversed near-onset burden ranking in three equal-size connected induced blocks, for the specified discrete-time product update.
+
+## value
+
+PASS
+
+A qualitative reversal could be a finite anomaly; the unbounded quantitative construction proves that isolated-threshold ordering alone provides no size-independent factor controlling near-onset burden, even when comparing equal-size connected blocks and all isolated blocks are subcritical. This is a useful boundary for interpreting that model's community threshold statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

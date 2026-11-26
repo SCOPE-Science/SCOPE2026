@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:50:53.306116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–30 and 32–85",
+        "VERIFICATION.md, lines 18–24; checker.py, lines 26–82, inspected only",
+        "/workspace/review-evidence/4-optimized-envelope-replay.md"
+      ],
+      "rationale": "Parseval gives precisely the alias of coefficients 0 and 8 of F², equivalently the merge of autocorrelations ±4. The reflected RMS step improves each nonnegative correlation, strictly improving some nonzero lag for unequal reflected magnitudes. The independent envelope calculation optimizes first in t=u² and then factors the derivative of the resulting rational function in v into a negative positive factor times v⁴+4v³−7v−2; the unique positive root is the global maximum, including the boundary checks. Positive magnitudes force affine phases by equality in the lag-one triangle inequality; the merged lag-four term forces phase increment in (π/4)Z, giving exactly eight classes. The exact formula is correct; the printed K approximation is off in the last displayed digit (K=3.527901483813719443…); the quoted floating-point quadrature is diagnostic, not an exact check.",
+      "residual_risks": [
+        "No assertion for other supports, sample sizes, or exponents. The minor decimal and verification wording issues do not affect the exact result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Green–Ruzsa give even-exponent majorization, not the free-magnitude sharp norm. Schmidt studies unimodular polynomials, not arbitrary five complex coefficients.",
+          "The sixfold result treats residues {0,1,2,3} in Z/6 and has a different constant."
+        ],
+        "reasoning": "The prior reductions and analogous resonance do not supply the exceptional five-band envelope or its quartic stationary equation.",
+        "searches": [
+          "Green–Ruzsa, arXiv:math/0303244",
+          "Schmidt, arXiv:1302.2766",
+          "Resultary, 2026/11/16/SCOPE-sharp-fourth-moment-amplification-and-sixfold-phase-locking-for--bf7aed817472"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 87–104",
+        "Green–Ruzsa and Schmidt OA preprints",
+        "Resultary exact three-point table, linked-midpoint four-point and sixfold phase-locking records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even-exponent majorization allows nonnegative magnitudes and reflection reduces the number of distinct magnitudes, but neither decides their optimizing ratios.",
+          "Three-point and four-point solutions omit collisions of the full five-point support. The decisive new maximization is the aliased envelope and the unrestricted equality analysis."
+        ],
+        "reasoning": "No inspected general theorem or dominating parameter case supplies this norm and its equality. The phase restriction has a clear general mechanism, but delivering the exact norm and nonzero maximal profile requires the model-specific calculation.",
+        "searches": [
+          "Green–Ruzsa, arXiv:math/0303244, pp. 1–3",
+          "Brown–Goldstein–McDonald continuous-circle objective; frozen RESULT.md, lines 87–92",
+          "Exact three-character table and sixfold phase-locking records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is the squared cyclic convolution energy of the coefficient vector per squared input energy, or the fourth power of the sampled Λ(4) constant.",
+          "Under the Fejér–Riesz correspondence a continuous nonnegative trigonometric-polynomial extremum is a real comparator, but the circle keeps both endpoint convolution terms separate."
+        ],
+        "reasoning": "The cyclic cross term 2 Re(a_0² conjugate(a_4²)) changes the optimization and is what locks the phase after positivity; a bound or extremizer for the continuous average does not transport unchanged.",
+        "searches": [
+          "Resultary: five consecutive Fourier characters Z/8 fourth moment and C4/Lambda(4) constants",
+          "Brown–Goldstein–McDonald, doi:10.1016/0022-247X(88)90330-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three-character table yields 15/7 for the nondegenerate progression, agreeing with the boundary here.",
+          "The linked-midpoint result has support {0,1,2,4}, and its stable range starts at order 9."
+        ],
+        "reasoning": "Those are checked adjacent exact results, not entries for the full five-character support at order eight. No exact match was located; this is bounded evidence, not proof of absence.",
+        "searches": [
+          "Resultary, 2026/10/11/SCOPE-exact-lambda-4-constants-for-every-three-character-subset-of-a-c--5562292e7127",
+          "Resultary, 2026/10/11/SCOPE-sharp-fourth-moments-for-linked-midpoint-four-character-spectra--0b57c5d24021"
+        ]
+      },
+      "rationale": "Known majorization and reflection methods provide reductions, and an indexed exact three-character result already covers the x=0 boundary. The closest phase-locking result found is for four characters on the six-cycle, not five on the eight-cycle. Continuous-circle trigonometric-polynomial maximization has a different functional because it does not identify degrees 0 and 8. The supported distinct result is the exceptional finite norm and its eight equality classes, not those general methods or boundary cases.",
+      "residual_risks": [
+        "Primary web search was unavailable for the chosen wave, and both older trigonometric-polynomial papers remain incompletely inspected. An equivalent tabulation under sampled Nikolskii or filter-energy terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reduction covered, not the exact norm",
+          "evidence": "Even powers admit a majorant principle; that principle does not optimize an unconstrained magnitude profile.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0303244",
+          "material_read": "p. 1 and pp. 2–3, offsets 0 and 7229",
+          "method": "Lawful OA full text",
+          "title": "On the Hardy–Littlewood majorant problem",
+          "trigger": "Even-exponent reduction and relation to restriction"
+        },
+        {
+          "assessment": "Covers the three-character boundary only",
+          "evidence": "The nondegenerate three-term progression value is 15/7 in fourth-power normalization.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-lambda-4-constants-for-every-three-character-subset-of-a-c--5562292e7127",
+          "material_read": "RESULT.md offsets 431 and 6653",
+          "method": "Resultary local mirror",
+          "title": "Exact Lambda(4) constants for every three-character subset of a cyclic group",
+          "trigger": "Closest exact small cyclic-support table"
+        },
+        {
+          "assessment": "Different support and modulus",
+          "evidence": "Four consecutive characters on Z/6 give six projective equality directions and fourth-power constant approximately 2.892164.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-fourth-moment-amplification-and-sixfold-phase-locking-for--bf7aed817472",
+          "material_read": "RESULT.md Finding offset 413",
+          "method": "Resultary local mirror",
+          "title": "Sharp fourth-moment amplification and sixfold phase-locking",
+          "trigger": "Same type of finite Nyquist resonance and equality claim"
+        },
+        {
+          "assessment": "The continuous objective is a distinct comparison; internal discrete treatment unresolved",
+          "evidence": "Retrieval did not expose the paper. An internal cyclic example cannot be ruled out from this evidence.",
+          "identifier_or_url": "doi:10.1016/0022-247X(88)90330-7",
+          "material_read": "No relevant full-text passage; bibliographic and frozen comparison only",
+          "method": "Lawful DOI retrieval",
+          "title": "A sequence of extremal problems for trigonometric polynomials",
+          "trigger": "Plausible sharp trigonometric polynomial comparator"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "No negative inference drawn from lack of lawful full text.",
+          "identifier_or_url": "doi:10.1112/jlms/s2-29.1.81",
+          "material_read": "Bibliographic metadata only",
+          "method": "Lawful DOI/repository attempts",
+          "title": "An extremal problem for non-negative trigonometric polynomials",
+          "trigger": "Plausible older equivalent under nonnegative-polynomial terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 3–29 and 33–42 and 82",
+        "/workspace/review-evidence/4-optimized-envelope-replay.md"
+      ],
+      "rationale": "Eight samples with five consecutive Fourier modes are the critical size where the two endpoint degrees of the squared polynomial first alias. This is a natural finite threshold, not an arbitrary numerical slice. The sharp sampled norm and complete equality set determine how the alias changes the actual optimizing magnitude profile and replaces continuous modulation by a finite family; they provide an exact test case for cyclic restriction and sampling estimates.",
+      "residual_risks": [
+        "Value is the exact first-alias case and equality mechanism, not a general classification or numerical superiority claim for other Fourier bands."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

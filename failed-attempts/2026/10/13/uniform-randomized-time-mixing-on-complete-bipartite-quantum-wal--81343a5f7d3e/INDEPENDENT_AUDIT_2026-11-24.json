@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:38:44.231405Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 27-68; VERIFICATION.md and verify.py (read only)"
+      ],
+      "rationale": "On the two unit constant vectors of the parts, adjacency acts as sqrt(mn) times the swap; it vanishes on their orthogonal complement. This gives same-part amplitudes delta_uv+(X-1)/part_size and cross-part squared amplitude (1-X^2)/(mn), where X=cos(sqrt(mn)T). For m,n>=2 the cross-part target forces (m-1)(n-1)<=1. For a star with n>=2 the hub diagonal forces E X^2=1/(n+1), and a distinct-leaf entry forces E X=1-n/2. This is impossible for n>=5 and forces X=-1 a.s. for n=4, inconsistent with the second moment. Direct substitution gives the four stated positive witnesses, including the three-point law for K_{1,2} with moments (0,1/3). For K_{1,4}, writing delta for the worst entry error, the hub diagonal and distinct-leaf entry give E X^2<=1/5+delta and E X<=-1+17 delta/2. Since E(1+X)^2>=0, E X^2>=1-17 delta, proving delta>=2/45. These analytic checks apply to every Borel law, not just the finite test grid.",
+      "residual_risks": [
+        "The stated bound is nonoptimal. Verification of the frozen claim does not extend to weighted or normalized-Laplacian walks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem optimizes a full norm over all laws for all unweighted bicliques. Its star formula is m(m-3)^2/(m+1)^2 for m>=3, plus zero deficits for the smaller stars. For both parts >=2, its entry-polynomial evaluation can vanish only at (2,2): the cross entry is at most 1/(mn), below 1/(m+n) on every other such pair.",
+          "Proposition 9 by itself excludes m+n>7, and the preprint supplies all four positives (including Corollary 10 for P3)."
+        ],
+        "reasoning": "The stronger indexed result applies on the entire parameter domain, not just the large-order cases of Proposition 9.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-sharp-randomized-time-uniformity-deficit-on-complete-bipartite-q--70f3ea695414, Finding and proof",
+          "arXiv:2308.16378v1, Proposition 9 and Corollary 10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 70f3ea695414",
+        "arXiv:2308.16378v1",
+        "arXiv:quant-ph/0608044v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a 5 by 5 matrix E, max|E_uv| >= ||E||_F/5, so squared Frobenius deficit >=4/25 implies max|E_uv|>=2/25>2/45.",
+          "All four zero-deficit cases are attained. A different finite law for the already known P3 case does not change that claim."
+        ],
+        "reasoning": "Both the classification and the quantitative frozen obstruction are covered by direct implications. Same-day indexing provides no priority order, but does establish material statement-level overlap with a distinct record.",
+        "searches": [
+          "70f3ea695414 RESULT.md, squared Frobenius deficit theorem, cases and optimizer statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 2 operates on the whole matrix with one sampling law. Carlson et al.'s claw result concerns one initial vertex and does not imply whole-matrix uniformity.",
+          "Zero attained Frobenius deficit in the indexed theorem is precisely exact full-matrix uniformity; folding T to |T| leaves entries unchanged."
+        ],
+        "reasoning": "The indexed theorem and frozen theorem use the same graph, Hamiltonian, target and effective time laws. The fixed-start claw results are not equivalent.",
+        "searches": [
+          "Resultary: uniform randomized observation times for full adjacency mixing on complete bipartite graphs",
+          "arXiv:2308.16378v1, Definition 2 and Section 3.1",
+          "arXiv:quant-ph/0608044v1, Definition 1 and Corollary 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The preprint explicitly lists the four positive cases; the indexed Finding gives exact attained deficits, including Delta_{1,4}=4/25 and Delta_{2,2}=0."
+        ],
+        "reasoning": "The decisive exact comparison is to an all-sizes formula in the catalogue, not an extrapolation from the small-graph list.",
+        "searches": [
+          "Resultary: exact deficit, optimal time and zero-deficit bicliques",
+          "arXiv:2308.16378v1, Section 3.1 list of positive bicliques and Section 3.2 P3 law"
+        ]
+      },
+      "rationale": "A distinct same-day indexed theorem gives the exact minimum attained squared Frobenius deficit for every biclique and determines optimizers. It implies the identical zero-deficit classification as well as a stronger 2/25 worst-entry lower bound on K_{1,4}. Real versus nonnegative times is no difference because the adjacency is real and M(-t)=M(t). This is demonstrable stronger coverage, not a chronological priority determination from catalogue dates.",
+      "residual_risks": [
+        "No priority between the same-day records is inferred.",
+        "The version-of-record body of Unexpected Averages of Mixing Matrices was not separately inspected; the decision rests on directly inspected stronger coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger result implies both headline claims",
+          "evidence": [
+            "Exact squared Frobenius deficit for all a,b with attained optimum; star value at m=4 is 4/25."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-randomized-time-uniformity-deficit-on-complete-bipartite-q--70f3ea695414",
+          "material_read": "RESULT.md Finding and proof; Finding offsets 0-3535 include exact formulas and optimizers",
+          "method": "Local indexed search and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp randomized-time uniformity deficit on complete bipartite quantum walks",
+          "trigger": "Same bicliques, full matrix, and optimization over all time laws"
+        },
+        {
+          "assessment": "Covers positives and large-order exclusion, not the missing cases as stated",
+          "evidence": [
+            "Prop. 9 excludes m+n>7 for any R; Cor. 10 gives the full uniform P3 average."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.16378v1",
+          "material_read": "Definition 2, Proposition 9, Corollary 10",
+          "method": "OA preprint HTML passages",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "Same random-time mixing matrix and biclique example"
+        },
+        {
+          "assessment": "Different scope, fixed initial state and in some cases variable weights",
+          "evidence": [
+            "Definition uses a walk starting from x; center-start uniformity does not give all columns at once."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0608044v1",
+          "material_read": "pp. 4, 6, 9: Definition 1, Theorem 2, Corollary 5",
+          "method": "OA PDF passages",
+          "title": "Universal Mixing of Quantum Walk on Graphs",
+          "trigger": "Instantaneous mixing terminology on unweighted and weighted claws"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; indexed exact-deficit Finding; arXiv:2308.16378v1, Corollary 10"
+      ],
+      "rationale": "A complete classification would answer a natural question, but this record supplies a zero-level corollary of an exact all-orders optimization and a numerically weaker obstruction. The alternative three-point law for an already-established positive case is not an independently motivated surviving result.",
+      "residual_risks": [
+        "No assertion about the value of other distance objectives is made."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

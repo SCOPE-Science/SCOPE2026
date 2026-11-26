@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:15:58.288147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For char != 3, the hyperplane divisor 3O at a geometric flex identifies the nine flexes with E[3]. The distinct zero-sum triples are exactly affine lines; the identifications intertwine arithmetic Frobenius, whose linear part has determinant q mod 3 by the Weil pairing. Independent interpolation from all possible images of an affine frame, with lines constructed as distinct zero-sum triples, reproduced 432 maps, 11 classes, all ten CSV spectra and their multiplicities. The 7/3 keys are unique in their determinant classes, and a cycle of length d contributes (1-T^d)^(-1). Direct F7 arithmetic reproduced point counts 5,13,7 and division-polynomial root sets empty, {0}, {0,1,2,4}; the proof's phrase 'nonzero x-coordinates' should mean finite x-coordinates (zero is valid). Rational roots specify stable subgroups, and A-I invertible when f=1 ensures no further fixed cosets. Correct for characteristic 2 as none of the torsor/divisor argument uses char != 2. The list is for compatible actions, not field-by-field realization. Reproduction: /tmp/opencode/check_hesse_independent.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruen–Hirschfeld–Wehlau classify rational flex counts alone, which would not suffice. Popov treats the geometric determinant-one symmetry.",
+          "The Zariski-chamber supporting table records the two permutation partitions class by class, also including both determinant-two order-eight classes separately."
+        ],
+        "reasoning": "A complete per-class table for the full group is stronger than the aggregated two-spectrum table; no extension to determinants or translation classes is needed.",
+        "searches": [
+          "Resultary: Hesse affine incidence full 432-element group; Zariski chambers; critical groups",
+          "arXiv:1107.4387"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, hesse_verify.py (read only), hesse_spectra.csv",
+        "Hesse-surface Zariski chambers RESULT.md and fixed_table.json",
+        "Hesse 21-curve boundary RESULT.md and VERIFICATION.md",
+        "arXiv:math/0611590; arXiv:2408.16488; arXiv:1107.4387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take fixed counts as the 1-cycle multiplicities, use the Weil pairing for the known determinant, and substitute the stored cycle lengths in the standard Euler factors. Each projected determinant/count key has a unique spectrum even at the doubled order-eight entry.",
+          "The three short F7 Weierstrass witnesses are examples of already covered rows, not a surviving independent invariant or general result."
+        ],
+        "reasoning": "The stated all-extension recovery is a direct readout from covered data and standard Frobenius identities. Arithmetic phrasing and examples do not repair the main overlap.",
+        "searches": [
+          "Hesse-surface chambers RESULT.md, table and assumptions at mirror offset 770; fixed_table.json entirety (5960 characters), projected and compared",
+          "Hesse 21-curve boundary RESULT.md, opening and cycle-collision paragraph",
+          "arXiv:math/0611590 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nine exceptional sections of the Hesse surface are indexed by the nine flex points and its twelve triangular-fiber components by the affine lines. The chamber companion explicitly uses the full 9-point/12-line incidence group.",
+          "The degree-nine and degree-twelve finite-étale zeta functions are precisely the cycle-factor products for the point and line actions, not the zeta function of the union of lines."
+        ],
+        "reasoning": "Under the common affine incidence identification the two class-action invariants are the same, even when the cited geometric surface itself is split or the arithmetic application is to a twist.",
+        "searches": [
+          "Resultary: affine symmetry and Frobenius descent of Hesse-surface Zariski chambers; Eleven integral Frobenius-fixed graph Jacobians of the Hesse 21-curve boundary",
+          "arXiv:math/0611590 §2; arXiv:2408.16488 §3.3 Lemma 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Every JSON row was read and projected to (det, number of ones in point_cycles, number of ones in line_cycles, point_cycles, line_cycles, class_size). For det 1 the resulting key/frequency pairs are (9,12)/1, (3,3)/24, (1,4)/9, (1,1)/72, (1,0)/54, (0,3)/8, (0,0)/48. For det 2 they are (3,4)/36, (1,0)/(54+54), (0,1)/72. Both order-eight rows contain point_cycles [1,8] and line_cycles [4,8]. The actual cycles in all ten projections agree with the frozen CSV."
+        ],
+        "reasoning": "Exact stronger stored data, not a keyword or title match; collapsing and reindexing is deterministic and leaves no new classification.",
+        "searches": [
+          "2026/11/22/SCOPE-affine-symmetry-and-frobenius-descent-of-hesse-surface-zariski-c--e7a282c2351a/verification/fixed_table.json, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "frozen hesse_spectra.csv"
+        ]
+      },
+      "rationale": "Demonstrable exact coverage by a distinct indexed work and its supporting table, not an inference from a shared date. The Zariski-chamber companion's fixed_table.json explicitly supplies determinant, both action spectra on the same 9 points and 12 lines, and class sizes for all eleven classes. Counting the 1s in each stored permutation cycle list and collapsing the two identical order-eight spectra yields all ten lookup rows, with the exact same frequencies, and hence the zeta reconstruction. It is not merely a table of representatives or of unrelated chamber counts. No priority ordering within the shared date is claimed.",
+      "residual_risks": [
+        "No same-day ordering or historical priority attribution is made; exact distinct-source coverage is established regardless.",
+        "General literature search was deferred and not treated as absence of other coverage; it cannot undo the checked table match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrably covers and strengthens the exact finite table, regardless of same-day ordering",
+          "evidence": [
+            "Fields det, class_size, point_cycles, line_cycles identify both exactly tabulated spectra; all seven plus three rows agree after merging the two order-eight classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-affine-symmetry-and-frobenius-descent-of-hesse-surface-zariski-c--e7a282c2351a/RESULT.md",
+          "material_read": "RESULT.md at offset 770, class table and assumptions; verification/fixed_table.json all eleven rows",
+          "method": "Local mirror, direct projection of actual stored cycle lists; comparison with frozen CSV",
+          "title": "Affine symmetry and Frobenius descent of Hesse-surface Zariski chambers",
+          "trigger": "Same incidence action, exact class census"
+        },
+        {
+          "assessment": "Overlaps the affine action and order-eight collision; fixed critical groups and combined boundary cycles are not themselves the requested two-spectrum table",
+          "evidence": [
+            "The 21 components consist of the nine sections and twelve fiber components; both order-eight classes have identical combined component and node cycle partitions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-eleven-integral-frobenius-fixed-graph-jacobians-of-the-hesse-21--87b703a9169b",
+          "material_read": "RESULT.md opening/class table, order-eight cycle comparison, VERIFICATION.md",
+          "method": "Local mirror, statement comparison",
+          "title": "Eleven integral Frobenius-fixed graph Jacobians of the Hesse 21-curve boundary",
+          "trigger": "Same eleven affine classes and 21 objects"
+        },
+        {
+          "assessment": "Covers geometric incidence, not the ten-row arithmetic lookup",
+          "evidence": [
+            "Twelve flex lines arise as cosets of four order-three subgroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611590",
+          "material_read": "§2 PDF p. 3, passage at offset 9140",
+          "method": "Primary OA text, mathematical comparison",
+          "title": "The Hesse pencil of plane cubic curves",
+          "trigger": "Classical identification of the two action sets"
+        },
+        {
+          "assessment": "Classical affine plane and special affine projective symmetry; not the full arithmetic determinant-two census",
+          "evidence": [
+            "Geometric collinearity geometry is the affine plane over F3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.16488",
+          "material_read": "§3.3 and Lemma 6, PDF pp. 14–17",
+          "method": "Primary OA text, scope comparison",
+          "title": "The variety of flexes of plane cubics",
+          "trigger": "Geometric affine action"
+        },
+        {
+          "assessment": "Single flex-count classification, not the pair of permutation partitions",
+          "evidence": [
+            "Possible rational flex counts 9,3,1,0 do not distinguish the three F7 examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.4387",
+          "material_read": "PDF p. 1 and §7 p. 11, rational flex counts and curve arithmetic",
+          "method": "Primary OA targeted comparison",
+          "title": "Cubic Curves, Finite Geometry and Cryptography",
+          "trigger": "Possible stronger finite-field cubic classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The low-information recovery question is naturally motivated, but for this record the exact invariant is a mechanical reindexing of a published, stronger paired cycle table. Neither the elementary Euler-factor restatement nor three small-field examples supply a separately substantial surviving finding. No repair is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:55:24.184755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated normalization V_h1=(1/√π)∂_x V_h0. Differentiating the Gaussian-window transform of each Hermite function gives radial densities te^(−t) for h0 and e^(−t)t^(m−1)(m−t)²/m! for m≥1, times the radial measure dt, where t=π|z|². The angular indices m−1 are distinct, so completeness makes the centered disk form exactly diagonal; STFT covariance translates the norm to every center. Integrating via the incomplete gamma recurrence gives adjacent differences e^(−T)T^m(m−T)(m+1−T)/(m!(m+1)), including m=0 by direct integration. At T=1 there are exactly three tied highest levels and a strictly decreasing tail. In the annulus, the fixed h0 input yields the integral of te^(−t) on [a,a+1]; its derivative is e^(−a)((a+1)/e−a), with a unique sign reversal from positive to negative. The strict advantage follows from moving off a=0 (or the logarithm inequality in the proof). A separate high-precision integral gives 0.353224356803948823939 versus 0.264241117657115356809, and rational bounds on the two exponential factors certify a relative gain greater than 33%. Replay: python /workspace/calculations/reproduce_frozen.py (check hermite_annulus). The result gives a lower bound on the annular operator norm, not that norm or its global optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 radial-spectrum formula is for general radial symbols and polyanalytic levels and supplies the spectral integrals used here.",
+          "The distinct Oct. 26 record explicitly covers the exact disk norm at area one and more generally the piecewise disk norm and spectral gaps. Its inspected finding does not compare disks to the annulus."
+        ],
+        "reasoning": "Credit the stronger disk coverage, separately from priority and from the principal new comparison. Universal radial diagonalization does not order the top eigenvalues between two shapes without additional calculation.",
+        "searches": [
+          "arXiv:1905.00978, Prop. 6.3, formula (43), PDF p. 21",
+          "Resultary 2026/10/26/SCOPE-sharp-disk-concentration-and-spectral-gap-resonances-in-the-firs--60f08a58beae"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and inspected 2026/10/26 disk finding",
+        "arXiv:1012.4283",
+        "arXiv:1905.00978",
+        "arXiv:2106.03423"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radial eigenvalue formula gives each disk integral, but not which index maximizes it at area one. The factorized adjacent differences establish the full ordering and threefold tie.",
+          "The standard superlevel-set comparison on the fixed spectrogram te^(−t) gives this annulus, but alone it compares masks only for the fixed Gaussian input, not all disk inputs."
+        ],
+        "reasoning": "Each ingredient is available as a general tool; the supported distinct statement combines an all-input spectral bound with a sharp fixed-input witness. Neither Gaussian-window shape dominance nor fixed-input rearrangement alone establishes the strict operator-norm comparison.",
+        "searches": [
+          "arXiv:1905.00978 Prop. 6.3 vs. frozen proof lines 37–80",
+          "arXiv:2106.03423 Thm. 1.1 vs. the fixed first-excited window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hermite STFT problem converts to radial Toeplitz concentration in the first excited true-polyanalytic component. Prop. 6.3 gives the radial spectrum in that formulation.",
+          "Nicola–Tilli fix a Gaussian analysis window, not the first excited Hermite function, so the theorem is for a different optimization problem."
+        ],
+        "reasoning": "Neither a rephrasing of Gaussian-window disk dominance nor use of another representation suffices; the comparison must hold against the highest first-Hermite disk eigenvalue across all input modes.",
+        "searches": [
+          "Resultary: first Hermite window spectrogram concentration, disk spectrum, and annular counterexamples",
+          "arXiv:1012.4283 §2; arXiv:1905.00978 Prop. 6.3; arXiv:2106.03423 Thm. 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 26 record gives the exact disk value, not the joint equal-area annulus and disk comparison. The neighboring Gaussian-annulus record has a different analysis window."
+        ],
+        "reasoning": "The exact disk benchmark is not itself a novel datum; the searched exact values and catalogued disk theorem do not give the full comparison. No applicable independent exact annulus norm table was located or needed for a lower-bound claim.",
+        "searches": [
+          "Resultary: exact disk value 1−2/e and first-Hermite annular concentration",
+          "Oct. 26 sharp disk record, RESULT.md Finding; nearby Oct. 18 Gaussian-annulus entry"
+        ]
+      },
+      "rationale": "Best of current knowledge: the general radial eigenvalue integral and fixed-input superlevel-set principle are established. The supported contribution is the exact strict equal-area annulus-versus-all-disks comparison for the first excited Hermite analysis window. The disk benchmark alone is a specialization of known spectral machinery, and the fixed-input annulus is a standard superlevel-set construction.",
+      "residual_risks": [
+        "A more general shape comparison for non-Gaussian windows, or an unlocated explicit application of the radial formula, could cover the joint comparison; the bounded searches and cited passages do not exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known transform correspondence",
+          "evidence": "The Hermite windows of the STFT are connected to normalized true-polyanalytic spaces.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.4283",
+          "material_read": "Hermite and true-polyanalytic correspondence, PDF p. 1, opening passage",
+          "method": "Open primary PDF",
+          "title": "Banach Gabor frames with Hermite functions: polyanalytic spaces from the Heisenberg group",
+          "trigger": "Hermite STFT representation in equivalent notation"
+        },
+        {
+          "assessment": "Covers the spectral-integral machinery for both shapes",
+          "evidence": "Radial Toeplitz matrices are diagonal in the true-polyanalytic basis with Laguerre integral eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.00978",
+          "material_read": "Prop. 6.3 and (43), PDF p. 21, offset 61596",
+          "method": "Open primary PDF, bounded proposition",
+          "title": "Radial operators on polyanalytic Bargmann–Segal–Fock spaces",
+          "trigger": "General radial masks and disk spectra"
+        },
+        {
+          "assessment": "Does not apply to the excited Hermite window",
+          "evidence": "The window is explicitly the unit Gaussian 2^(1/4) exp(−πx²).",
+          "identifier_or_url": "https://arxiv.org/abs/2106.03423",
+          "material_read": "Definition (1.1), PDF p. 1; Thm. 1.1, pp. 2–3",
+          "method": "Open primary PDF, bounded definition and theorem",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Shape dominance at fixed phase-space area"
+        },
+        {
+          "assessment": "Verifies overlapping stronger disk-only coverage, not the annular witness",
+          "evidence": "States the disk value 1−2/e as part of a general piecewise formula with maximizing spaces and spectral gaps.",
+          "identifier_or_url": "Resultary/2026: 2026/10/26/SCOPE-sharp-disk-concentration-and-spectral-gap-resonances-in-the-firs--60f08a58beae",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Sharp disk concentration and spectral-gap resonances in the first Hermite window",
+          "trigger": "Exact match to disk benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same physical area, covariance over disk centers, and comparison to the full disk operator norm make this a useful counterexample to transferring Gaussian-window disk optimality. Unit area is a natural normalized spectral degeneracy where three maximizing input modes tie; the simple annular witness gives a certified substantial gap. The constrained fixed-input optimum does not purport to solve free-input shape optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

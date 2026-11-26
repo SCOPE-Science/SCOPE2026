@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run, with Python 3 standard library only:
+## correctness
 
-```sh
-python3 verify_direct.py
-python3 verify_forbidden.py
-```
+PASS
 
-Both scripts build the two sixteen-vertex adjacency structures independently from coordinate rules. `verify_direct.py` visits all combinations of vertices and checks total domination and every closed-neighborhood identifying signature. `verify_forbidden.py` builds sixteen complements of open neighborhoods and 120 complements of closed-neighborhood symmetric differences; it marks all submasks of these caps. Their methods are equivalent by the explicit forbidden-cap lemma, but their implementations and traversal are distinct. The algorithms assert every coefficient and produce identical complete 65,536-byte membership bitmap hashes per graph.
+Verified the joint definition: every open-neighborhood witness must meet the chosen set, and every symmetric difference of distinct closed neighborhoods must meet it. The first condition already makes all closed signatures nonempty. Independently built each graph from translates of its generator set in Z₄² and used a Boolean subset-zeta transform to propagate failure from each witness to all complements containing it. This covers all 65,536 labeled choices per graph, including the empty set. The length-17 coefficient vectors, sums 42375 and 42459, and both full membership-bitmap hashes matched the frozen values. I checked the strongly regular common-neighbor counts and that the 64 size-six witnesses are distinct and pairwise differ in at least four positions, so their ten-vertex complements share no nine-subset. This independently explains the identical tail: all size at least 11 sets count, there are binom(16,10)−64 valid ten-sets and binom(16,9)−640 valid nine-sets. The two minima are 6; the labeled-count difference is exactly 16z⁶−64z⁷−36z⁸. The frozen scripts were inspected, not executed.
 
-Recorded values:
+## originality
 
-| Graph | Size-6 codes | Size-7 codes | Size-8 codes | Size-9 codes | Bitmap SHA-256 |
-|---|---:|---:|---:|---:|---|
-| Rook | 1056 | 5520 | 10170 | 10800 | `9d8d0ad3f0e7e26b8737e31617483ac657db0e4340475b25880a5e4cc845fcd7` |
-| Shrikhande | 1040 | 5584 | 10206 | 10800 | `571438a8c5572fa534b1eb16e2cdc80cba596dcd92b1fc8fcb8b905f405fb912` |
+PASS
 
-Both programs assert the complete remaining coefficient vector. The direct program confirms degree six and exactly two common neighbors for any distinct vertex pair. The second program confirms the 64 ten-vertex forbidden caps are distinct, with pairwise intersection size at most eight; this also proves the binomial high-degree tail. Execution outputs are retained as separate text artifacts.
+The joint code class is already known (including under the alias differentiating-total dominating set), as are related invariant values for this graph pair. The supported distinct claim is the exact joint cardinality distribution and where it distinguishes this pair. Prior minimum-size theorems, minimum ordinary-code counts, and separate total- or paired-domination distributions do not supply this joint census.
 
-**Limits:** The exhaustive universe comprises exactly all vertex subsets of these two specified sixteen-vertex graphs. This is not a theorem about arbitrarily large strongly regular graphs. Replayability and self-review are not external independent auditing or publication-priority certification.
+## value
+
+PASS
+
+The Shrikhande and 4×4 rook graphs are a natural strongly regular comparison pair with the same parameters and known identical pure total-domination distributions. The established joint code class detects a difference where even its minimum size does not, with reversed order between size six and sizes seven/eight and exact equality above them. That profile is a meaningful precise benchmark for separation criteria and stronger than exhibiting a single numerical distinction. The witness geometry accounts for the common tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

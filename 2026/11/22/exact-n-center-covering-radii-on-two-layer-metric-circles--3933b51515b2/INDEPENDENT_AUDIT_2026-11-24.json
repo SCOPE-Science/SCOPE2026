@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:18:21.081949Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formula survives unchanged. The original odd-N construction incorrectly says every pair of adjacent covering arcs touches at the gap midpoint in the minority sheet. On an unlike-label gap the radii b and b-s are unequal, so the meeting point is at distance equal to the starting radius, not generally at the midpoint. The corrected complete RESULT.md replaces that sentence with the directed-gap criterion: distances from a point x along a gap of length g to the endpoint projections are at most x and g-x, so radii with sum at least g cover it. Same-label and unlike-label gaps satisfy this criterion on both target sheets, and the odd gap lengths sum to L. The lower bound splits at r=s: when r<s each sheet requires its own ceil(L/(2r)) centers, and when r>=s the lesser sheet arclength bound is 2rN-2s max(n0,n1), giving b=(L+2sh)/(2N). The separate equal-spacing construction attains a=L/(2k), including s=a, and the mixed construction applies for s<a where b>s. For N=1 the antipode in the other sheet forces and attains L/2+s. This proves the exact formula for all positive real parameters and the stated parity and endpoint behavior. The original exact-fraction interval-union checker was inspected, not executed; its 7200 recorded rational cases are supplemental, and the repair does not change its tested constructions or any verification status.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tree-factor case applies via D_s in a segment and gives N>=2 ceil(L/(2r)) for r<s and N>=ceil(L/(2r)) for r>=s.",
+          "The Finsler theorem requires dimensions m>=n>5 and small radii; the prism theorem covers domination on a finite unit-edge graph."
+        ],
+        "reasoning": "The lower bound for r<s agrees with a prior special case, but no stated broader theorem both applies to the discrete fiber and determines the exact continuum optimum when balls cross between the circles.",
+        "searches": [
+          "arXiv:2611.15599v1, Conjecture 1.1, §3, Proposition 3.9 and Corollary 3.10, Theorem 1.3",
+          "arXiv:2601.03488v1, statement and prism graph setting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15599v1",
+        "arXiv:2601.03488v1",
+        "Resultary --3933b51515b2, --1d6e4d8e8c45, --6c9dc6cb1bf9, --040426ee2222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the tree-factor bound, r>=s only entails N>=ceil(L/(2r)), not L<=2rN-2s ceil(N/2). The infinity-metric equality in Corollary 3.10 is not the sum-metric equality.",
+          "Discrete prism domination covers vertices at fixed graph radius, rather than every point with distances r and r-s on the two target sheets."
+        ],
+        "reasoning": "The known ingredients account for the separated obstruction and ordinary single-circle covering. They do not impose the balance of the two arclength budgets or construct an alternating placement with the shorter odd gap, so they do not imply the mixed optimum or full transition formula.",
+        "searches": [
+          "arXiv:2611.15599v1, tree-factor case and sum-metric monotonicity",
+          "arXiv:2601.03488v1, finite prism domination result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary formula is the assigned record --3933b51515b2 itself.",
+          "The inverse formulation in terms of minimum ball count for a given radius uses the same intrinsic metric and the same center set; the covering number of the two-point factor drops from two to one at r=s."
+        ],
+        "reasoning": "The sum-product covering-number viewpoint is equivalent after inverting the radius/count relation. A lower inequality for that count, however, does not give the exact all-radius function or the parity refinement.",
+        "searches": [
+          "Local Resultary two-layer metric circle N-center covering-radius lookup",
+          "arXiv:2611.15599v1, sum-metric product covering-number formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching all-parameter formula is in the assigned record. The distinct radius result is for a metric graph with parallel edges and expressly leaves its strict regime undetermined. The other close parity hits concern a connected twofold cover approximation and fixed-site diagonal torus perturbations.",
+          "The prism enumeration treats fixed-radius discrete domination, not continuous radii on two sheets."
+        ],
+        "reasoning": "Neither the catalog variants nor the discrete exact enumeration supply the continuum formula for freely placed centers, arbitrary separation, and all budgets. Parity in a different optimization is not equivalent coverage.",
+        "searches": [
+          "Local Resultary covering radius and parity-related matches --3933b51515b2, --1d6e4d8e8c45, --6c9dc6cb1bf9, --040426ee2222",
+          "arXiv:2601.03488v1, exact domination and minimum dominating set counts"
+        ]
+      },
+      "rationale": "The corrected statement credits the applicable tree-factor covering-number inequality and the standard one-circle ingredients. The overlapping separated-regime obstruction is thereby accounted for. The parity-sensitive mixed-regime bound, the placement attaining it on both circles, and the complete exact formula do not follow from the inspected broader bounds, Finsler asymptotics, or finite prism enumeration.",
+      "residual_risks": [
+        "This is bounded statement-level comparison, not exhaustive priority verification. An unindexed all-scale two-sheet covering result remains possible; dates alone play no role in distinguishing the related catalog hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a lower bound and the separated-sheet obstruction, not the mixed radius or full exact spectrum",
+          "evidence": "Product covering conjecture is not an equality theorem; the tree result gives the relevant inequality by metric monotonicity, and the Finsler theorem has high-dimensional small-radius assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15599v1",
+          "material_read": "Conjecture 1.1 and Theorem 1.3, pp. 2–3, offsets 2300–4542; tree-factor introduction offset 6745, Proposition 3.9 and Corollary 3.10, pp. 9–11, offsets 21213–27276",
+          "method": "OA original arXiv PDF passages",
+          "title": "Covering numbers of metric spaces",
+          "trigger": "Closest primary product-covering result; tree case can include a discrete two-point subspace"
+        },
+        {
+          "assessment": "Different discrete problem",
+          "evidence": "The domain is the finite vertex set of C_n Cartesian P_2 with unit-edge graph distance.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.03488v1",
+          "material_read": "PDF pp. 1–2, offsets 1443–6947, graph hypotheses and exact domination/minimum-set statements",
+          "method": "OA original arXiv PDF passages",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Same prism-like geometry and exact parity-dependent domination results"
+        },
+        {
+          "assessment": "Same assigned record, not independent prior coverage",
+          "evidence": "Same formula, center constraints and quantifiers.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-n-center-covering-radii-on-two-layer-metric-circles--3933b51515b2",
+          "material_read": "RESULT.md Finding near offset 522",
+          "method": "Local Resultary mirror",
+          "title": "Exact N-center covering radii on two-layer metric circles",
+          "trigger": "Exact catalog formula hit"
+        },
+        {
+          "assessment": "Different domain and incomplete radius spectrum in the strict regime",
+          "evidence": "One long edge with equal parallel short edges is a connected metric graph, not a two-point-layer sum-product; the finding does not determine the radius off saturation.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-sharp-cycle-saturation-threshold-for-intrinsic-nets-of-equal-arm--1d6e4d8e8c45",
+          "material_read": "RESULT.md Finding near offset 225",
+          "method": "Local Resultary mirror",
+          "title": "Sharp cycle saturation threshold for intrinsic nets of equal-arm metric graphs",
+          "trigger": "Related exact covering-radius transition for a circle-like metric object"
+        },
+        {
+          "assessment": "Different objective and connected-domain model",
+          "evidence": "The parity law concerns approximation of an average on a connected twofold cover, not N-center ball coverage.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-sharp-parity-law-for-lipschitz-approximation-of-a-twofold-circ--6c9dc6cb1bf9",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp parity law for Lipschitz approximation of a twofold circle-cover average",
+          "trigger": "Same-day twofold-circle and parity match"
+        },
+        {
+          "assessment": "Different domain, fixed sites and perturbative statistic",
+          "evidence": "The result concerns fixed diagonal sites and first variation at p=1 on a square flat torus, not the free-center two-point-fiber radius.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-parity-resolved-first-variation-of-diagonal-coverings-of-the-squ--040426ee2222",
+          "material_read": "RESULT.md Finding near offset 108",
+          "method": "Local Resultary mirror",
+          "title": "Parity-resolved first variation of diagonal coverings of the square flat torus",
+          "trigger": "Same-day parity-dependent circle-product covering match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-point factor is the simplest discrete fiber in a natural product-covering problem. In the mixed regime the worse sheet limits cover length and produces a sharp parity effect that the general product bound misses. The exact transition from coupled to separated placement, with realizers for every budget and scale, is a useful benchmark for stronger product-covering bounds, not a sampling result or a restatement of the usual circle formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

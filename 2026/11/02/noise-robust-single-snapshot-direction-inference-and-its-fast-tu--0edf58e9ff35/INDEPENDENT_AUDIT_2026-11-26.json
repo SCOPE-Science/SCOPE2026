@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:50:48.350867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the sign-pair coordinates the heading generator is the sum of two rate-γ flip generators, even though a fixed sense of turn does not always flip the same bit. Orthogonal Brownian rotation and stationary OU filtering therefore give two independent copies, each X=Z+δG with Gaussian variance δ²=μD/v₀². In the athermal scalar stationary equations the total current vanishes, giving P_+−P_−=z(P_++P_−); substitution into either component equation gives the stated beta density and E[S|Z]=Z. The posterior sign for x>0 follows by pairing z with −z: the integrand contains g(x−z)−g(x+z)>0; by symmetry the opposite sign holds for x<0. With simultaneous thermal and sensor noise, the convolved kernel is still strictly decreasing in |x|: express the symmetric decreasing sensor density as a positive mixture of centered interval indicators; each Gaussian-smoothed nondegenerate interval is strictly decreasing for x>0. At zero noise the posterior mean equals the observed coordinate on its support. The factorized MAP signs give the four sectors and null decision boundaries. Conditioning the sign-success indicator on Z gives the erf integral; the product rule gives p². Differentiating the Gaussian convolution gives the score formula and the posterior mean derivative Var(Z|X=x)/δ². The beta integral gives the displayed γ-function ratio at zero noise, monotone likelihood-ratio order for Z² gives strict β monotonicity, and the erf integrand gives strict δ monotonicity. Independently integrating the uniform-coordinate case β=1 gives p=0.727536119397839 at δ=.3, hence p²=0.5293088050284667; at δ=0 the exact result is 9/16. Replay of the .3 case: python3 /workspace/branches/independent-boundary-checks.py. For fixed positive δ, Taylor expansion uses E Z²=(2β+1)^−1 and E Z⁴=O(β^−2). In the joint limit, √(2β)Z tends to N(0,1) with uniformly bounded second moments, so joint convergence with the scaled noise and uniform integrability justify the linear-growth expectation, including λ=0. For independent standard normals G,H, conditioning G on G+λH gives E[G sign(G+λH)]=√(2/π)/√(1+λ²). This yields the stated constant with its factor 1/(2√π); the frozen diagnostics were inspected, not used in place of the limiting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "83578980642d concerns angular mutual information and a weak-noise angular boundary layer in the same quarter-turn model.",
+          "18a2152addfb reconstructs the motor state in a different three-state run/rest oscillator.",
+          "The cited one-dimensional works give exact stationary position formulas including thermal noise."
+        ],
+        "reasoning": "An angular information law concerns a statistic and a loss distinct from full-position 0–1 Bayes success; a weak-noise angular boundary layer does not give the joint fast-tumbling accuracy limit. The three-state extension is not a theorem covering this independent sign-pair model.",
+        "searches": [
+          "Resultary: noisy quarter-turn harmonically trapped particle angular information and inference",
+          "Resultary: hidden motor-state reconstruction from a stationary position",
+          "arXiv:2207.08695v3 §II.A and arXiv:2012.02900 Appendix G"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.10445v2",
+        "arXiv:2610.24961v1",
+        "arXiv:2207.08695v3",
+        "arXiv:2012.02900 Appendix G",
+        "Resultary 83578980642d and 18a2152addfb RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact p integral follows directly by conditioning the sign-success indicator on the known latent posterior and Gaussian noise.",
+          "For arbitrary permitted kernels, the likelihood-difference sign requires pairing the two halves of the convolution. The sharp joint limit uses the β-dependent rescaling, uniform integrability and the limiting Gaussian sign correlation."
+        ],
+        "reasoning": "The stationary formulas do not constitute a new density derivation here; they make several special inference formulas direct. The distinct result is the extension to the noise-kernel class and the quantitative order and crossover analysis, not merely changing the name of the known density.",
+        "searches": [
+          "arXiv:2207.10445v2 Eqs. (18)–(23), (41)–(46)",
+          "arXiv:2610.24961v1 Eqs. (24)–(26)",
+          "Resultary 83578980642d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith et al. factor the full state-resolved evolution and establish additive Gaussian thermal convolution.",
+          "Sun et al. give P(S=+|Z=z)=(1+z)/2 in athermal units; with the rotated factorization, this is the scalar sign-likelihood input for MAP.",
+          "The web lookup located Smith et al. and related listings, not a distinct explicit accuracy theorem."
+        ],
+        "reasoning": "Posterior sign classification and likelihood comparison are equivalent for the scalar binary problem, and factoring the 2D likelihood yields the same MAP sectors. These basic consequences of known formulas are excluded from independent novelty credit.",
+        "searches": [
+          "Resultary: Bayes or MAP instantaneous heading from a single stationary position, equal-rate four-direction model",
+          "Web: Exact position distribution harmonically-confined run-and-tumble particle two dimensions state-conditioned heading posterior Bayes classifier single snapshot accuracy",
+          "arXiv:2207.10445v2 III.1–2, IV.4; arXiv:2610.24961v1 III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed angular-information finding gives no corresponding p² accuracy formula in its inspected result. The inspected primary position-density formulas are beta and beta–Gaussian laws, not a symbolic table of MAP success versus β,δ."
+        ],
+        "reasoning": "No exact entry for the accuracy function or crossover was established by this bounded comparison. A positional density or mutual-information value does not itself tabulate the classifier's Bayes risk.",
+        "searches": [
+          "Resultary: four-heading classifier exact beta–Gaussian erf success and fast-switching crossover"
+        ]
+      },
+      "rationale": "The stationary model, rotated independence, athermal conditional law, Gaussian smoothing, and the basic posterior and Gaussian MAP sectors as direct consequences are not credited as novel. The supported distinct contribution is the Bayes inference result across general independent strictly unimodal kernels together with a quantitative Gaussian accuracy transition: strict orders, two rates of convergence, and the explicit scaling function. These require an additional comparison for general noise and an analysis of the joint limit. Neither the closest exact stationary distributions nor the same-model angular information result was found to establish that contribution.",
+      "residual_risks": [
+        "General binary observation or asymptotics results outside the inspected sources could subsume further parts; no priority certificate follows from the bounded search.",
+        "The result should not be described as new state-resolved stationary laws or as the first derivation of the Gaussian posterior ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and factorized likelihood ingredients; these directly imply the basic sectors with the known conditional law.",
+          "evidence": [
+            "Equation (20) factors the state-resolved Green's function, and the thermal section gives Gaussian convolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.10445v2",
+          "material_read": "§§III.1–III.2 Eqs. (12), (18)–(23); §IV.4 Eqs. (41)–(46)",
+          "method": "Primary OA passages and comparison of dynamics, conditional evolution and convolution",
+          "title": "Exact position distribution of a harmonically-confined run-and-tumble particle in two dimensions",
+          "trigger": "Exact same four-heading model including thermal noise"
+        },
+        {
+          "assessment": "Gives the scalar athermal conditional law, not the extra robustness and crossover claim.",
+          "evidence": [
+            "Conditioned densities are proportional to (1±x)(1−x²)^(γ/2−1) in its units, corresponding to effective flip rate γ/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.24961v1",
+          "material_read": "§III Eqs. (24)–(26) p. 5",
+          "method": "Primary OA passages with redraw-rate comparison",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker-Planck equation from the equations of motion",
+          "trigger": "State-conditioned athermal stationary law"
+        },
+        {
+          "assessment": "The exact scalar position law is prior.",
+          "evidence": [
+            "The inspected thermal formulas convolve the athermal beta law with a Gaussian."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.08695",
+          "material_read": "v3 §II.A Eqs. (11)–(15), pp. 2–3",
+          "method": "Primary OA comparison",
+          "title": "Positing the problem of stationary distributions of active particles as third-order differential equation",
+          "trigger": "Exact beta convolution stationary input"
+        },
+        {
+          "assessment": "These passages address the scalar stationary distribution, not the extra four-heading inference law.",
+          "evidence": [
+            "Appendix G treats the stationary marginal with and without thermal diffusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.02900",
+          "material_read": "Appendix G Eqs. (G.3)–(G.4), pp. 17–18",
+          "method": "Primary OA passage comparison",
+          "title": "Run-and-tumble motion: field theory and entropy production",
+          "trigger": "Earlier thermal scalar harmonic-trap theory"
+        },
+        {
+          "assessment": "Same model but angular mutual information, not Bayes accuracy at fast tumbling.",
+          "evidence": [
+            "Its boundary layer concerns weak thermal noise and angular information, not the frozen four-state success probability."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-angular-information-boundary-layer-for-a-noisy-quart--83578980642d/RESULT.md",
+          "material_read": "Finding and angular-information scope",
+          "method": "Local Resultary mirror, compare observable and scaling",
+          "title": "A universal angular information boundary layer for a noisy quarter-turn model",
+          "trigger": "Same stochastic dynamics and nearby information-theoretic crossover"
+        },
+        {
+          "assessment": "Different hidden chain, no inclusion of the four-heading theorem.",
+          "evidence": [
+            "Its three-state model includes a rest state and gives a beta-binomial law for its own state reconstruction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-state-resolved-stationary-reconstruction-and-a-unique-beta-binom--18a2152addfb/RESULT.md",
+          "material_read": "Finding and run/rest model definition",
+          "method": "Local Resultary mirror and model comparison",
+          "title": "State-resolved stationary reconstruction and a unique beta-binomial law",
+          "trigger": "Closely related position-based state inference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a model where the stationary position landscape changes with noise and tumbling, a stable single-frame decision rule is useful only with calibrated performance. This result both identifies the independent-kernel regime of stable decisions and quantitatively distinguishes the inference advantage in the athermal, crossover, and fixed thermal-noise regimes. The value lies in the observable inference transition, not in reparametrizing the previously solved stationary distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

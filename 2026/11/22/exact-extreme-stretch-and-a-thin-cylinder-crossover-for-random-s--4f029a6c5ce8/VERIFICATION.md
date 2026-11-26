@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and scientific limits
+# Independent mathematical audit
 
-The proof's decisive steps are the sidewall covering-space distance formula, the independent triangular axial-difference law, exact conditioning for the distribution, and the analytic expansion
-\[\pi/2-Z=\delta/2+\beta x^2+O(\delta^2+\delta x^2+x^4).\]
-This expansion gives a parabolic finite-area sublevel set for a fixed positive aspect ratio and a different bounded-height integral when the height scales like \(\sqrt\varepsilon\). The Jacobian of the normalized squared axial defect gives the \(\operatorname{Dirichlet}(1,\tfrac12,1)\) limit. These are analytic arguments and are not certified by sampling.
+## correctness
 
-Run `python verify.py` with Python 3 standard library. Its output in the reviewed package was `CYLINDER_STRETCH_TAIL_CHECKS_OK 22 Dirichlet_samples 99896`. The checker compares the one-dimensional exact distribution with direct two-dimensional midpoint quadrature, tests the sharp coefficient at two fixed aspect ratios and two small deficits, tests six critical-window parameters, verifies strict stochastic ordering, numerically recovers an aspect ratio, and checks the first moments of the limiting Dirichlet law by independent rejection sampling. This is supporting reproducibility, not exhaustive certification of a continuum limit.
+PASS
 
-No mathematical result about other samplings, capped cylinders, arbitrarily varying collapse rates, or independent expert validation is asserted. The exact historical priority of the combined coupled-distribution and transition theorem remains unverified.
+Unwrapping in the shortest angular class gives squared intrinsic and ambient distances r²(θ²+x²) and r²(4 sin²(θ/2)+x²). The independent angular and normalized axial differences have densities 1/π and 2(1-v), respectively. This yields the exact threshold formula; for any two positive heights its integrand drops strictly on a positive-length interval just above θ_t. The ratio extends continuously at coincidence with value 1 by its axial-independent bound θ/(2 sin(θ/2)); continuity and positive-measure neighborhoods establish the essential range, with the stated maximizing distinct pairs. At the maximum the loss in (δ,x²) is δ/2+βx² plus a quadratic remainder. Positivity localizes δ=O(ε), x=O(√ε). After scaling the remainder lies in a level shell of width O(ε) in scaled variables; the fixed-height density correction is O_h(√ε), giving precisely the stated ε^(3/2) coefficient and O_h(ε²) remainder. Squaring the axial coordinate in the uniform parabolic limit gives the claimed Dirichlet density. For bounded λ, sandwiching the angular admissible length at fixed v between 2[ε(1−βλ²v²)±O_Λ(ε²)]_+ gives a uniform error including at clipping. Integration yields both branches, with third derivative jump 8/π in L=λ√β. Independent axial-first integration at fixed h and across the clipping point corroborates the coefficients.
+
+## originality
+
+PASS
+
+The closest actual ratio-tail laws share a parabolic limit, including the same Dirichlet parameters, but do not imply the finite-cylinder triangular-height law or its thin-window crossover. The same-surface records treat separate marginals. No equivalent coverage of the assessed cylinder claim was established in the bounded comparison; no priority is inferred from publication dates or retrieval gaps.
+
+## value
+
+PASS
+
+The coupled metric distortion is a natural observable not captured by either metric alone. The exact probability law identifies height-to-radius from one fixed threshold; the explicit crossover quantifies when fixed-height rare-event behavior ceases to describe a thin cylinder and detects a specific nonanalytic transition from the axial cutoff. Together with the conditional limit, this goes beyond a routine distance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

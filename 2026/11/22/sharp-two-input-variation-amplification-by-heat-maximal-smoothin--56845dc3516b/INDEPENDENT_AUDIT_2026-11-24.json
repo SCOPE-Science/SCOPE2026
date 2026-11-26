@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:55:21.759037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the combinatorial P3 Laplacian the constant, odd (1,0,−1), and even (1,−2,1) modes have eigenvalues 0,1,3. For mode coefficients m,u,v and z=e^(−t), the three coordinates are m+uz+vz^3, m−2vz^3, m−uz+vz^3. Including z=0 does not change the supremum. In the input quotient V=2 max(|u|,3|v|). On any segment, each coordinate supremum is Lipschitz as a maximum of affine functions of the segment parameter. Where its segment derivative exists, it equals the slope of any active affine function (that function supports the maximum there); this proves the segment argument even on exceptional lines. With active endpoint parameters x,y in [0,1], and beta in [0,1] for the middle branch max(0,−2v), the two oriented edge derivatives are x du+(x^3+2 beta)dv and y du−(y^3+2 beta)dv. Dualizing the output l1 norm gives two cases: (3(x+y)+|x^3−y^3|)/6 ≤ 1, and (3|x−y|+x^3+y^3+4 beta)/6 ≤ 4/3. For x≥y both increase in x, so set x=1 and use 3y−y^3≤2 and y^3≤3y respectively; the reverse ordering is symmetric. Absolute continuity along the segment gives the global estimate. At the two positive rational inputs the first endpoint cubic is strictly increasing and the last strictly decreasing; the maxima are exactly (13,12,10) and (15,11,10), with input/output variations 3 and 4. For P2 the output edge difference is half the input edge difference, from clipping both coordinates at their mean. For a fixed P3 heat step the odd and even quotient modes decay by e^(−t) and e^(−3t), so its norm is exactly e^(−t), attained on the odd mode. Replay of exact witness: python3 /workspace/checks/frozen_exact.py 2. The submitted checker was inspected, not executed: its numerical witness tests and time grids are supplementary. For signed data the proof only extends to a supremum without taking input absolute values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carneiro–Svaiter studies a convolution model, not the three-site finite combinatorial heat generator with endpoint degree one.",
+          "The general graph operator in González-Riquelme–Madrid is a centered ball-average maximal map by p. 1 abstract, not heat-time supremum.",
+          "The catalogue entry 86f601cc5033 concerns a fixed-time heat-step norm on complete bipartite graphs."
+        ],
+        "reasoning": "P3 happens to be complete bipartite, so that family is genuinely relevant to the ancillary fixed-time claim; it does not transfer to the nonlinear supremum. The first- and second-mode spectral decay of a fixed operator is not the new invariant.",
+        "searches": [
+          "arXiv:1309.1529",
+          "arXiv:2005.03146v3",
+          "doi:10.3390/math10060950",
+          "Resultary: 86f601cc5033"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 86f601cc5033",
+        "SCOPE-20261122-867a1e664c41",
+        "SCOPE-20261122-909cfd4583c5",
+        "arXiv:1309.1529",
+        "arXiv:2005.03146v3",
+        "doi:10.3390/math10060950 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reported heat variation inequality compares an output to its own input. The frozen witness has P3 pairwise gain 4/3 despite all fixed heat steps having norm ≤1."
+        ],
+        "reasoning": "A separately chosen time at each coordinate cannot be replaced by a common linear heat step in an estimate of a difference. A one-input inequality also does not subtract through nonlinear maximalization. Neither known property supplies the exact Jacobian bound on different baselines.",
+        "searches": [
+          "arXiv:1309.1529",
+          "arXiv:2005.03146v3",
+          "Resultary: 86f601cc5033"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carneiro–Svaiter, PDF p. 1, discusses variation of heat/Poisson maximal outputs of a single function, with discrete counterparts; (1.1) defines a convolution maximal map.",
+          "The closest P4 pairwise formulation in the local source uses centered graph balls, not heat kernels."
+        ],
+        "reasoning": "A two-function Lipschitz estimate on the constant quotient in the heat time-supremum is not equivalent to either a single-input variation ratio or a pairwise coefficient for a different kernel.",
+        "searches": [
+          "Resultary: heat maximal two-input variation amplification three-vertex path",
+          "arXiv:1309.1529",
+          "SCOPE-20261122-867a1e664c41"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 56845dc3516b hit is this same assigned record, not separate coverage.",
+          "Distinct heat catalogue hit 86f601cc5033 supplies heat-step norms, and the local catalogue pairwise results 867a1e664c41 and 909cfd4583c5 explicitly use ball averages."
+        ],
+        "reasoning": "The fixed-time norm and ball-average coefficients are not entries in a table for the time-supremum heat variation Lipschitz coefficient.",
+        "searches": [
+          "Resultary: exact pairwise heat maximal P3 coefficient 4/3",
+          "SCOPE-20261122-56845dc3516b",
+          "Resultary: 86f601cc5033"
+        ]
+      },
+      "rationale": "The checked comparison supports a distinct coefficient for the nonlinear supremum over time on P3, not a known bound on a linear heat step or a one-input smoothing bound. The P2 identity by itself is elementary and is treated as the boundary comparison, not the main novelty.",
+      "residual_risks": [
+        "The full discrete theorem and the body of the related fixed-time Resultary record were not accessible through targeted retrieval.",
+        "Unindexed treatments of equivalent finite heat-time envelopes may overlap; no historical-priority or exhaustive literature claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The abstract explicitly includes discrete analogues, so its Gaussian description does not contradict the frozen record's reference to a discrete theorem. Visible statements are one-input; the uninspected theorem section is an access limitation.",
+          "evidence": [
+            "Abstract: one-dimensional Lp-variation is not increased, with similar results for discrete operators; (1.1) uses a convolution kernel and one f."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.1529",
+          "material_read": "Original PDF preview, p. 1 abstract and §1.1 to (1.2); discrete theorem passage not accessible",
+          "method": "Open-access PDF excerpt and attempted targeted fuller retrieval",
+          "title": "On the variation of maximal operators of convolution type",
+          "trigger": "Heat-flow maximal variation and discrete analogues"
+        },
+        {
+          "assessment": "Displayed sharp results concern single inputs for a centered Hardy–Littlewood map, not the heat-time envelope.",
+          "evidence": [
+            "Abstract displays Var_p(M_G f) ≤ C_G,p Var_p(f) and lists complete or star graphs for sharp cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.03146",
+          "material_read": "Original PDF preview p. 1, abstract and §1.1 opening",
+          "method": "Open-access arXiv PDF preview",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "Potential finite graph variation theorem"
+        },
+        {
+          "assessment": "Relevant to the fixed-step comparison, but not the time-supremum claim.",
+          "evidence": [
+            "Catalogue describes fixed-time norms for heat semigroup edge variation on complete bipartite graphs."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-edge-variation-heat-amplification-on-complete-bipartite-gr--86f601cc5033",
+          "material_read": "Published Resultary catalogue statement, not full record",
+          "method": "Local statement-level catalogue comparison",
+          "title": "Sharp edge-variation heat amplification on complete bipartite graphs",
+          "trigger": "Heat semigroup and edge norm on a graph family including P3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-site result is a minimal nontrivial example in which maximizing over a contractive heat family makes perturbations expand. Its exact coefficient and strictly positive witnesses are a useful benchmark for nonlinear maximal-semigroup stability. The P2 comparison shows this is a genuine onset for unit open paths, not an arbitrary three-site parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

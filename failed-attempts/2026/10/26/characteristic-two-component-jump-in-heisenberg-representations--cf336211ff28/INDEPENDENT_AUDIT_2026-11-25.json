@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:42:32.817256Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eliminate the image of z via Z=[X,Y]. The degree-two commutator entries are p=det(u,v) and s=det(v,w); the degree-three entry is central. Thus exactly su−pw=0 remains, independently of six higher coordinates. Independent u,w force v=0; for u=at,w=bt the left side is −2ab det(t,v)t. This gives the three coordinate four-spaces and the rank≤1 2×3 locus away from characteristic two, versus v=0 and det(u,w)=0 in characteristic two. In the former case each coordinate component has rank-two points and the rank-one locus has points with no zero column; in the latter case neither locus contains the other. Determinantal rank-one loci are geometrically irreducible with dense rational charts defined by a nonzero entry, with dimensions 4 for 2×3 and 3 for 2×2. Including free coordinates gives exactly the claimed dimensions and rationality. Independently stratifying by the outer columns gives (2q²−1)q² solutions with at least one outer column zero, (q²−1)(q−1) times q or q² with nonzero proportional outer columns (q away from characteristic two, q² in characteristic two), and (q²−1)(q²−q) with independent outer columns. Multiplying their sum by q⁶ gives both polynomials. The supplied code was inspected, not executed. Independent replay `python3 /workspace/audit_replay.py 1` checks actual nested brackets for all first-diagonal pairs at q=2,3,4,5, and all higher-coordinate lifts at q=2. It yields totals 2944,181521,5718016,34140625; this is a bounded check, not geometric or all-field certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nilradical commuting variety and unitriangular commuting-pair calculations only address [X,Y]=0 or group commutation. The Heisenberg subgroup representation theorem in arXiv:1105.4935 supplies the identities but not this small-characteristic geometry. In contrast the indexed subalgebra proof gives triple-bracket equations and tests them on each two-dimensional projected plane with its normal coordinates (β,−τ,α)."
+        ],
+        "reasoning": "The usual commuting-variety comparison is a genuine restriction, not coverage. The direct plane criterion in the indexed proof is stronger evidence than its stated finite counts: its linear-algebra identities work over an arbitrary field and test vanishing of precisely the needed brackets.",
+        "searches": [
+          "arXiv:1209.1289, §3.3 type A₃",
+          "arXiv:2006.01493, §8",
+          "Resultary 0700d390a0aa; Resultary 4f1870ff33f0, Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_heisenberg_n4.py",
+        "Resultary 4f1870ff33f0, 384549b5164b and 0700d390a0aa",
+        "arXiv:1105.4935v1",
+        "arXiv:1404.3510",
+        "arXiv:1209.1289",
+        "arXiv:2006.01493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At projected rank two the indexed proof explicitly gives the exceptional plane b=0; for all remaining planes the vanishing criterion is τ=0 in characteristic two and τ=0 plus αβ=0 otherwise. The same proof writes the triple brackets as functions of the first-diagonal minors α,β and the outer entries."
+        ],
+        "reasoning": "At rank≤1 the displayed bracket equations vanish automatically. At rank two the exceptional plane gives v=0. In odd characteristic the other two allowed planes give u=0 and w=0. In characteristic two τ=0 is exactly det(u,w)=0 and already includes rank≤1 under closure. Taking the indicated coordinate spaces and standard irreducible rank-one determinantal loci therefore gives the full stated component list, dimensions and rational charts by their usual nonzero-entry parametrization. This uses the actual proof's vanishing criterion, not an inference of geometry from counts or matching parameters.",
+        "searches": [
+          "Resultary 4f1870ff33f0, projected-plane normal criterion and bracket equations, Proof offsets 0–5596"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The marked maps differ from orbits, example faithful representatives, and unmarked embedded subalgebras. Every map with nonzero bracket has a Heisenberg image and is injective; every zero-bracket map has its generator pair in the zero fiber of the additive commutator."
+        ],
+        "reasoning": "For a fixed Heisenberg image, one chooses an ordered basis modulo its one-dimensional center in |GL₂(F_q)| ways and two central coordinates independently. This makes the two catalog counts precisely convertible to marked maps, without equating them with an orbit count.",
+        "searches": [
+          "Resultary: ordered Heisenberg homomorphisms, embeddings, additive-commutator fibers and nilradical representations; 4f1870ff33f0 and 384549b5164b",
+          "arXiv:1105.4935v1, Theorems 1.1–1.2; arXiv:1404.3510, Proposition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The zero fiber has 2q⁹+q⁸−2q⁷ ordered pairs for all q. The numbers of unmarked Heisenberg subalgebras are (q+3)q⁴ in characteristic two and 4q⁴ otherwise. The second proof also explicitly counts |GL₂(F_q)|q² generating pairs per embedded copy."
+        ],
+        "reasoning": "Adding the zero fiber to (q²−1)(q²−q)q² times the respective subalgebra count expands to each frozen polynomial identically, not just at the tested field orders.",
+        "searches": [
+          "Resultary 384549b5164b, Finding offset 0; Resultary 4f1870ff33f0, Finding and Proof offsets 0–5596"
+        ]
+      },
+      "rationale": "Two distinct indexed records supply an exact reconstruction of the marked count, and the closely related subalgebra record's actual proof gives a projected-plane criterion which, together with its displayed bracket equations and routine determinantal closure, yields the full reduced-component jump. The conclusion is coverage in available material, not an inference of priority from the same-day date or a claim that the theorem is false.",
+      "residual_risks": [
+        "Same-day path dates do not establish precedence, authorship or independence of the compared records. The coverage finding does not depend on resolving that ordering or on exhaustive external historical searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the nonzero arithmetic stratum and gives the decisive geometric criteria in its proof",
+          "evidence": "Explicit q-dependent Heisenberg subalgebra counts and generating multiplicity; projected-plane normal (β,−τ,α), exceptional b=0, and characteristic-sensitive normal conditions.",
+          "identifier_or_url": "Resultary 2026/10/26, 4f1870ff33f0",
+          "material_read": "Finding, assumptions and proof, local mirror offsets 0–5596",
+          "method": "Read actual indexed RESULT.md",
+          "title": "Characteristic-sensitive enumeration of nonabelian two-generated subalgebras of the four-by-four niltriangular Lie algebra",
+          "trigger": "Closest match in small characteristic, same algebra and nonzero-bracket pairs"
+        },
+        {
+          "assessment": "Direct coverage of the other summand in the count",
+          "evidence": "Zero-target additive-commutator fiber has 2q⁹+q⁸−2q⁷ elements for every prime power.",
+          "identifier_or_url": "Resultary 2026/10/12, 384549b5164b",
+          "material_read": "Finding at mirror offset 0 and beginning of scope",
+          "method": "Read actual indexed RESULT.md",
+          "title": "Three exact additive-commutator fibers distinguish the central series",
+          "trigger": "Exact zero commutator counts for the same ordered domain"
+        },
+        {
+          "assessment": "Related setup; does not cover the small-characteristic fixed-target claim",
+          "evidence": "Positive-characteristic theorem requires p≥2d and thus does not include dimension four in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.4935",
+          "material_read": "Theorems 1.1–1.2, pp. 1–2, offset 2800",
+          "method": "Bounded primary full-text inspection",
+          "title": "Generic Representation Theory of the Unipotent Upper Triangular Groups",
+          "trigger": "Same Heisenberg representation identities"
+        },
+        {
+          "assessment": "Minimal representatives, not full marked Hom variety",
+          "evidence": "Gives minimum dimension n+2 for the (2n+1)-dimensional Heisenberg algebra and a natural representative.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.3510",
+          "material_read": "Proposition 4, pp. 13–14, offset 31500",
+          "method": "Bounded primary full-text inspection",
+          "title": "Minimal Faithful Upper-Triangular Matrix Representations for Solvable Lie Algebras",
+          "trigger": "Could classify Heisenberg embeddings in upper-triangular matrices"
+        },
+        {
+          "assessment": "Two components of a different locus, not this jump",
+          "evidence": "Studies [X,Y]=0 in characteristic zero, while the frozen result allows nonzero bracket and imposes centrality inside the generated algebra.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1289",
+          "material_read": "Definition and hypotheses, p. 1; type A₃ in §3.3, p. 6, offset 18655",
+          "method": "Bounded primary full-text inspection",
+          "title": "On Commuting Varieties of Nilradicals of Borel Subalgebras of Reductive Lie Algebras",
+          "trigger": "Same type-A₃ nilradical and component classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The characteristic-two boundary is naturally motivated and the proof is useful as an exposition, but the exact marked invariant is a zero-fiber plus an embedding-count conversion. The same companion proof already resolves the admissible projected planes, from which the reduced components are routine coordinate and determinantal closures. No separate exact or structural gap survives in this frozen claim under the review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

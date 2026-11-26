@@ -1,23 +1,21 @@
-# Scientific assessment: optimal finite-lag circulation measurement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary covariance is reconstructed from the Lyapunov equation, not inferred from simulation. The lagged covariance is \(C_t=\Sigma e^{A^\top t}\); its antisymmetric part is the mean signed chord. Wick's fourth-moment formula and \(\det(e^{At})=e^{-2t}\) give the full finite-lag variance. The global maximum follows from strict monotonic decrease of \(v\coth(vt)(1-e^{-2t})\), established by a convexity inequality. Differentiating in \(v\) proves monotonicity of the optimizer; an exact exponential identity yields the near-critical logarithm. Independent numerical matrix calculations and Gauss-Hermite integration pass 716 checks. Risks are limited to the stated model: no conclusion is made for dependent multi-pair sampling or measurement noise.
+PASS
 
-## Originality — PASS, subject to independent priority review
+The drift eigenvalues −1±u are negative, and the stationary Lyapunov equations give a−b=Tₓ−Tᵧ and c=u(Tₓ+Tᵧ)/(2(1−u²)), hence the stated positive determinant d. With C=Σ exp(Aᵀt), the cross-entry difference is (Tₓ−Tᵧ)e⁻ᵗsinh(ut) and det C=d e⁻²ᵗ. Pairing the four variables in the two squared wedge terms and their product, then subtracting the mean square, leaves 2d−2C₁₁C₂₂+C₁₂²+C₂₁²=2(d−det C)+(C₁₂−C₂₁)². This makes the squared SNR a strictly increasing function of sinh²(vt)/(e²ᵗ−1), independently of temperatures for the argmax. The sign of its derivative is that of G_v−1 with G_v=v coth(vt)(1−e⁻²ᵗ). The derivative of G_v has the sign of sinh(2vt)−v(e²ᵗ−1)<0 by convexity and sinh(2t)<e²ᵗ−1; endpoints give 2 and v<1. Its partial derivative in v is positive because sinh(2vt)>2vt. The v→0 limit follows by bracketing the level-one root of (1−e⁻²ᵗ)/t; independently evaluating the positive root gives 0.79681213002002004616. The v→1 roots diverge since G₁=1+e⁻²ᵗ; for ε=1−v and q=e⁻²ᵗ*, the exact equation ε=(1+v)qᵛ−vq−vqᵛ⁺¹ bounds q above by 2ε and below by (ε/(1+v))^(1/v) eventually. Thus ε|log q|→0 and the equation divided by q yields q/ε→1. The unnormalized absolute expected Q_t peaks at artanh(v)/v; strict monotonicity of v coth(vt) and the optimum equation give the strict ordering and the two nonzero limiting gaps. Mean L_t=Q_t/t is not the unnormalized signal comparison. When u=0 or the temperatures agree the informative maximum disappears; |u|=1 is not stationary. Analytic replay with a bounded scalar root check; frozen checker read but not executed.
 
-The closest directly relevant source, Viot et al. (arXiv:2307.05248), studies a discrete **Euler-step** angular-momentum observable, derives its probability law and noise-to-signal ratio, and mentions possible optimization of the step size. The new claim instead treats the exact continuous-time Ornstein–Uhlenbeck propagator at arbitrary observation lag and proves the unique bath-temperature-independent optimum with monotonicity and critical asymptotics; those results are not given in the primary text or supplementary Eqs. (S11)-(S16). Du Buisson, Mnyulwa and Touchette (arXiv:2307.06245) treat the **path-integrated** stochastic area; du Buisson and Touchette (arXiv:2212.12022) treat dynamical large deviations of time-integrated functionals. Those stronger frameworks do not explicitly state the finite-lag single-chord optimum. A general Gaussian bilinear-moment identity could enable a separate derivation; exact scholarly priority remains a residual risk, not a claim of proved uniqueness.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The motivating Brownian-gyrator fluctuation study identifies poor performance at very short observation intervals and anticipates an intermediate favorable interval. The theorem resolves that experimentally interpretable finite-lag question for exact sampled trajectories: it selects a unique optimal lag by a parameter-free scalar equation and shows surprising universality with respect to temperature asymmetry. The logarithmic divergence as coupling approaches loss of stability identifies a nontrivial critical-slowing prediction. It also separates the maximum-SNR lag from the strictly later maximum-mean-signal lag, with a nonvanishing limiting gap at both ends of the stable coupling interval. This value is restricted to a single-pair moment-based circulation statistic, not to optimizing full experimental inference.
+The supported distinct result is the unique lag maximizing the single-chord SNR for exact observations, including temperature independence of the argmax, strict coupling monotonicity, and asymptotic laws. The Gaussian moment method and finite-step angular-momentum observable are antecedents; an optimal discretization idea was already raised by Viot et al. Neither that regime nor the inspected nearby exact two-observation quantities gives the asserted optimal lag.
 
-## Closest literature and limitations
+## value
 
-- P. Viot et al., arXiv:2307.05248, full 16-page preprint including relevant supplemental model/characteristic-function sections inspected.
-- J. du Buisson et al., arXiv:2307.06245, path-integrated area and irreversibility test inspected.
-- J. du Buisson and H. Touchette, arXiv:2212.12022, scope and linear-diffusion dynamical-observable sections inspected.
+PASS
 
-Finite checker execution verifies examples and algebraic identities; it cannot by itself certify the parameter-uniform inequalities. Independent audit and independent priority validation have not been performed.
+Prior gyrator fluctuation work raises an intermediate sampling-interval question. For the experimentally interpretable design of one exact stationary position pair, the result supplies the unique best lag, independent of the unknown or varying bath-temperature pair, and a coupling-dependent slowdown near the stability boundary. The nonvanishing gap from the lag maximizing mean wedge explains why larger mean signal need not give better standardized signal. The value is this exact design benchmark, not a claim about the most efficient use of a full experimental time series.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

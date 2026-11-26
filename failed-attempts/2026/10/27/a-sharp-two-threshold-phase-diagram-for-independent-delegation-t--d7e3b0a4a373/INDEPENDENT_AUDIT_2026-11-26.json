@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:03:18.963023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the Bin(4,d) count gives P₀,P₁,q,q,q. Switching a single fixed ballot from direct to delegated changes the conditional accuracies by Δ₀=B−A=3p(1−p)[q(1−p)²−(1−q)p²] and Δ₁=−B=q(1−p)³−(1−q)p³. The remaining successive differences vanish. Differentiation gives F′(d)=4(1−d)²[(1−d)Δ₀+3dΔ₁]. The bracket is affine, with strict sign inside each monotonic region including the boundary q=Q₂ or Q₃; both endpoints cannot vanish simultaneously. In the open middle region it has exactly one zero, (B−A)/(4B−A), with strict gains over both endpoints. Odds powers give Q₂<Q₃; for one voter there is no choice, and for three only the first successive difference can be nonzero, giving a monotone or constant polynomial. This proves both uniqueness and sharp minimality. The frozen exact verifier was inspected, not run. The independent /workspace/branches/independent_replay.py counts correct profiles by expanding actual ballots and reproduces the exact witness and representative behaviors at both thresholds and inside. The proof establishes universality, not the finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dhillon et al. cover arbitrary odd N in the same single-expert homogeneous competence environment in their deterministic pivotality analysis. A later Resultary result gives explicit deterministic increments for arbitrary odd N with finite signal-state mixtures; the one-state case has the same exact values, and its prior-work passage credits Dhillon et al. for the log-odds cutoff. Campbell et al. instead have heterogeneous private precisions and threshold strategies."
+        ],
+        "reasoning": "The broad existing exact pivotal probabilities suffice for the five-voter binomial calculation. Campbell's nearby partial-delegation gains alone would not suffice. The later catalogue overlap corroborates the deterministic reduction but is not the basis for historical priority.",
+        "searches": [
+          "arXiv:2306.03960 Proposition 3 all odd N and full proof",
+          "Campbell et al. arXiv:2212.09715 §3 and §4",
+          "Resultary 8d3d2ea032f1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.03960, especially Appendix A.1.3",
+        "arXiv:2212.09715",
+        "DOI:10.1609/aaai.v32i1.11468",
+        "Resultary 8d3d2ea032f1 and 6a41be4f4ced"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At N=5 the two computed differences are Δ₀=3p(1−p)[q(1−p)²−(1−q)p²] and Δ₁=q(1−p)³−(1−q)p³; Δ₂=Δ₃=0. The derivative of the binomial-weighted accuracy is 4[(1−d)³Δ₀+3d(1−d)²Δ₁]. At N=3 only Δ₀ can be nonzero."
+        ],
+        "reasoning": "The exact sign cutoffs, uniqueness at equality, explicit maximizer and minimal odd size are all elementary consequences of the existing probabilities, the majority plateau, and a single linear equation. This is demonstrable implication, not inference from matching terms or a missing search hit.",
+        "searches": [
+          "arXiv:2306.03960 Appendix A.1.3, PDF pp. 47–48, conditional pivotality formula",
+          "Resultary 8d3d2ea032f1, explicit successive-difference formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior expertise ratio w*(e)=log(q/(1−q))/log(p/(1−p)); w*=2 and 3 translate to Q₂,Q₃. Prior conditional pivotal-success formulas have the same inputs and give the two success increments exactly."
+        ],
+        "reasoning": "A signal-independent common rate replaces deterministic proxy count by a binomial variable; the candidate policy accuracy is the Bernstein polynomial with deterministic accuracies as coefficients. This is an exact translation with no changed signal, tie or voting assumptions at N=5.",
+        "searches": [
+          "Resultary: deterministic proxy counts and randomized common-rate delegation on an expert star",
+          "Dhillon et al., arXiv:2306.03960, single expert committee, Proposition 3 and Appendix A.1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Campbell's table reports a five-voter one-expert heterogeneous uniform-precision example with .215 delegation and .731 predicted accuracy versus .717 for majority; it does not give the homogeneous optimization. The earlier 6a41be4f4ced exact fixed-edge result treats state-dependent competence; the later 8d3d2ea032f1 exact increments are materially closer."
+        ],
+        "reasoning": "These are exact table or catalogue comparisons, not proof by absence. The conclusion concerns a continuous two-parameter family, so a table of sampled optimized rates would not itself prove it; the decisive overlap is exact primary-source mathematics.",
+        "searches": [
+          "Resultary: homogeneous one-expert five-voter common delegation probability; fixed edge and deterministic counts",
+          "Campbell et al. arXiv:2212.09715 §4, Table 1"
+        ]
+      },
+      "rationale": "The exact phase diagram is mechanically implied by the prior single-expert pivotality formulas in Dhillon et al., arXiv:2306.03960, Proposition 3 and Appendix A.1.3, not just analogous to their equilibrium result. Their model in that section has the same odd electorate with one superior expert and homogeneous independent nonexperts. In the appendix the payoff from switching an ordinary vote is the pivotal event probability times expert posterior correctness minus ordinary correctness. They give both conditional pivotal probabilities. In the present notation, for N=5 and t=0,1 existing delegates, write a_t=Pr(pivotal|expert correct), b_t=Pr(pivotal|expert incorrect). Their formulas give (a₀,b₀)=(3p(1−p)²,3(1−p)p²) and (a₁,b₁)=((1−p)²,p²). Hence Δ_t=(1−p)q a_t−p(1−q)b_t yields the exact two differences above, not merely their signs. The appendix also identifies the payoff plateau once the expert dictates. The elementary binomial/Bernstein derivative then gives F′=4(1−d)²[(1−d)Δ₀+3dΔ₁] and immediately yields both thresholds, all equality cases and the closed optimizer. For N=3 the same prior formula plus the dictator plateau leaves only one difference, so the lower-size minimality check also follows mechanically. Taking flat binary priors in the prior paper does not restrict this implication: in the stated symmetric competence model correctness conditional on either truth is identical. No assertion is made that the prior paper explicitly states or labels a Bernoulli-rate optimizer.",
+      "residual_risks": [
+        "No claim that a source explicitly writes this Bernoulli optimizer; the failure is established by direct prior implication. The judgement concerns exactly the frozen common-rate model, not other randomized or signal-dependent policies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive covering formulas, not an explicitly stated randomized-rate theorem",
+          "evidence": "The appendix conditions the expected accuracy gain on pivotality, spells out the two conditional pivotal probabilities as binomial monomials, and handles the dictator plateau. Specializing those probability formulas gives the exact Bernoulli derivative and proof above.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03960",
+          "material_read": "Single expert committee, Proposition 3 and discussion, PDF pp. 19–21, text offsets 59380–66363; Appendix A.1.3, PDF pp. 44–48, decisive passage offsets 140000–145420",
+          "method": "Lawful OA original preprint PDF; Wiley DOI 10.1111/iere.70126 routed to its OA preprint",
+          "title": "Information aggregation with delegation of votes",
+          "trigger": "Same single-expert homogeneous odd-N model; exact log-odds thresholds and possible pivotal-probability coverage"
+        },
+        {
+          "assessment": "Heterogeneous competence and equilibrium threshold strategies, not the exact homogeneous common-rate argmax",
+          "evidence": "Predicted .215 delegation and .731 correctness versus .717 in a five-voter experiment setting with uniform nonexpert precisions; experiment does not establish this result for fixed identical p.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.09715",
+          "material_read": "Model p. 4 (offset 9215); §3 pp. 11–12; §4 Table 1 p. 15 (offset 47300); experiment discussion p. 27",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Liquid Democracy: Two Experiments on Delegation in Voting",
+          "trigger": "Five-voter single-expert comparison and partial-delegation gain"
+        },
+        {
+          "assessment": "Network mechanism example without the common Bernoulli optimization",
+          "evidence": "Direct voting of many 2/3-competent leaves can outperform unrestricted delegation to the 4/5 center.",
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v32i1.11468",
+          "material_read": "Star example p. 4, offset near 21650",
+          "method": "Lawful primary article passage",
+          "title": "Liquid Democracy: An Algorithmic Perspective",
+          "trigger": "Competence-based single-center local mechanism example"
+        },
+        {
+          "assessment": "Exact increments imply the same formula after binomial mixing; later record separately credits earlier deterministic single-state count results",
+          "evidence": "The h=2 one-state specialization recovers Δ₀ and Δ₁. The new content of that record concerns state mixtures, not the present randomized-rate policy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unimodality-and-weakest-signal-selection-in-common-signal-proxy--8d3d2ea032f1",
+          "material_read": "RESULT.md Finding, Assumptions and exact formula at offset 0; Relationship to prior work at offset 8400",
+          "method": "Local published-record mirror",
+          "title": "Unimodality and weakest-signal selection in common-signal proxy voting",
+          "trigger": "Same homogeneous expert star with exact deterministic increments"
+        },
+        {
+          "assessment": "State-dependent fixed-edge effect, not the common-rate claim",
+          "evidence": "One fixed edge with two-state competence differences and an at-most-one electorate-size reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-one-crossing-law-for-majority-accuracy-under-single-edge-liqui--6a41be4f4ced",
+          "material_read": "RESULT.md opening theorem, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A one-crossing law for majority accuracy under single-edge liquid delegation",
+          "trigger": "Closely related majority accuracy formulas and three-to-five transition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Calibration of an anonymous randomized rate is meaningful as an application, but here the purported contribution is entirely a binomial reweighting of already available exact pivotal probabilities and the zero-increment plateau. The thresholds and minimality, not just the qualitative benefit, follow from a linear bracket, and the exact example illustrates that deduction without an independent new structural result. No valuable distinct remainder of the frozen theorem was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

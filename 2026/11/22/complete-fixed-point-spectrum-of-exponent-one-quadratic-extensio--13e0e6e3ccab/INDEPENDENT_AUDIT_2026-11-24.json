@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:53:32.398984Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and VERIFICATION.md; inspected verify.py but did not execute it",
+        "Tang–Fan arXiv:2611.14162, Theorem 1.2/Table 1",
+        "Independent exact FLINT replay: python /tmp/opencode/scope_fixed_point_repro.py"
+      ],
+      "rationale": "Tang–Fan Theorem 1.2/Table 1 specializes at r=1 (including q=3) to s=(-a)^h=-1 or 3 for a nonzero; the latter disappears in characteristic 3. The exponent map has kernel h and its image contains the base multiplicative group; a=0 independently gives the gcd(3,q+1) test. The nonzero fixed points are a fiber over u=1-a of the map with image μ_h and kernel 2(q−1). In the s=-1 branch, the two norm-one requirements give Tr(a)=1 and u=a inverse, so a^h=1 but h must be odd and a^3=-1. In the s=3 branch the two norm requirements give u²+7u+1=0. In characteristic 5 its root -1 fails u^h=1; in other eligible characteristics split roots in the base field cannot be ±1. For nonsquare 5 the roots -φ^{±4} satisfy u^h=(-1)^h, and for h even the coefficient test reduces to (-a)^h=-3χ_q(3). Quadratic reciprocity, restriction of characters from the prime subfield at odd extension degree, and q≡3 mod 4 give exactly 7 and 43 mod 60. Thus the histogram including the degenerate coefficient follows.",
+      "residual_risks": [
+        "The packaged diagnostic prescreens coefficients by the theorem, then tests the admitted maps; it is not an independent check of necessity. My replay checks every coefficient without the criterion for q=3,5,7,9,11,13,25,27,49,81,125 and all possible high-fixed-point coefficients at q=343, on the q+1 multiplicative fibers. No finite replay proves the general classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Fan covers general r, but its larger parameter range concerns being a permutation. Hou–Pallozzi Lavorante Result 1.2 covers the earlier exponent-one non-unit-norm branch."
+        ],
+        "reasoning": "The prior results provide the coefficient-level input, not a stronger dynamical theorem subsuming the fixed-point histogram.",
+        "searches": [
+          "Resultary: permutation classification family and finite-field cycle-spectrum work",
+          "arXiv:2611.14162 and arXiv:2111.06533"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact, family, implication and cycle searches",
+        "Tang–Fan arXiv:2611.14162",
+        "Hou–Pallozzi Lavorante arXiv:2111.06533",
+        "Distinct indexed parity record ending 008dae091151"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct same-day record includes d=2,r=1 within a broader sign/coefficient-square classification. Related indexed records ending 758682ca98a9 and fecac967fe37 also focus on parity, not a fixed-point count."
+        ],
+        "reasoning": "A sign constraint is a product over all cycles, not a count of 1-cycles. Neither that constraint nor branch sizes distinguish the translated roots; the exclusion and quadratic-character analysis establish the new intersection.",
+        "searches": [
+          "Resultary: parity or cycle data of two-to-one-index permutation binomials",
+          "2026/11/22/SCOPE-uniform-parity-of-two-to-one-index-permutation-binomials--008dae091151"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record is an exact self-hit, not an independent source. Tang–Fan gives equivalent admissibility branches but imposes no condition on 1−a."
+        ],
+        "reasoning": "Reformulating a high count as membership of 1−a in μ_h identifies an extra intersection problem, not another expression for admissibility.",
+        "searches": [
+          "Resultary: exact fixed-point spectrum and exceptional coefficient locus; fixed-point data of quadratic-extension binomials",
+          "arXiv:2611.14162, Theorem 1.2/Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct located exact spectrum; the table is of permissible s, not fixed-point multiplicities."
+        ],
+        "reasoning": "The s table cannot be read or specialized as a census of the coefficients with 1−a in μ_h.",
+        "searches": [
+          "Resultary: 2q−1 fixed points and q≡7,43 mod 60 for the exponent-one binomial",
+          "Tang–Fan Table 1"
+        ]
+      },
+      "rationale": "Credit the nonzero permutation criterion to prior work. The supported distinct claim is its exact intersection with the translated subgroup 1−μ_h, in particular the two coefficients and mod-60 dichotomy; neither coefficient admissibility alone nor the parity of the resulting permutations determines this intersection.",
+      "residual_risks": [
+        "Bounded best-of-knowledge comparison. Other finite-field dynamical computations or unindexed treatments could contain the intersection; same-day indexing is not evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the coefficient criterion, not the fixed-point intersection",
+          "evidence": "At r=1 the residue j is h−1; the two options give s=-1 and s=3.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14162",
+          "material_read": "Theorem 1.2 and Table 1, PDF p. 2; classification references p. 26",
+          "method": "OA PDF passages",
+          "title": "A complete classification of permutation binomials of the form X^r(X^{2(q−1)}+a) over finite fields",
+          "trigger": "Exactly the same polynomial family; possible broader theorem"
+        },
+        {
+          "assessment": "Prior non-unit-norm branch, not dynamical data",
+          "evidence": "For odd q and a^{q+1}≠1 the exponent-one branch gives (-a)^h=3; cites Hou 2015 Theorem A.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2023.102179",
+          "material_read": "Result 1.2, PDF pp. 1–2",
+          "method": "OA PDF arXiv:2111.06533",
+          "title": "New Results on Permutation Binomials of Finite Fields",
+          "trigger": "Earlier published exponent-one result"
+        },
+        {
+          "assessment": "Different invariant, despite inclusion of the same family",
+          "evidence": "The hypotheses include gcd(d,q+1)=2 and allow d=2,r=1, but the claim gives a parity rule, not fixed-point counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-parity-of-two-to-one-index-permutation-binomials--008dae091151",
+          "material_read": "Indexed claim on the sign and coefficient-square condition",
+          "method": "Local indexed and source comparison",
+          "title": "Uniform parity of two-to-one index permutation binomials",
+          "trigger": "Strong distinct indexed family overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fixed-point intersection proved in RESULT.md",
+        "Tang–Fan Table 1 and the indexed parity comparison"
+      ],
+      "rationale": "The fixed-point count is a natural first dynamical invariant of this classified family. Knowing exactly when nonzero parameters yield 2q−1 rather than one fixed point, with explicit parameters, gives a uniform selection rule across prime powers rather than an isolated small-field check. The exact mod-60 boundary is not supplied by the known permutation classification.",
+      "residual_risks": [
+        "No claim about longer cycles or conjugacy classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

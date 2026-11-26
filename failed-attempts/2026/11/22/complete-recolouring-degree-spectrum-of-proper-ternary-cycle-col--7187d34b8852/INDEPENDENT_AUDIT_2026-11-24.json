@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:10:36.497531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof",
+        "Frozen verify.py and VERIFICATION.md (inspected, not executed)",
+        "Antal–Droz–Rácz arXiv:cond-mat/0308442v1 §IV.A, equations (26) and (30)"
+      ],
+      "rationale": "For three named colours, reading successive differences gives ±1 cyclic words of sum M≡0 (mod 3), with exactly three lifts per indexed word. A vertex admits exactly one move when its two neighbours agree, namely when the adjacent signs differ. Thus degree equals the even number of domain walls. At positive degree 2r, marking a positive run gives n choices of its first index and independent positive compositions of the two sign counts into r parts each, with r markings per word. The two constant words are available exactly for 3|n. Marking one movable vertex fixes two opposite signs in two ways; the closure filter on the other n−2 signs has (2^(n−2)+2(−1)^(n−2))/3 completions. Counting lifts and dividing by two proves the edge formula. Two alternating words attain degree n for even n. For odd n=2m+1, n−1 walls force M=±1; at n−3 the two admissible positive counts are m−1 and m+2, giving n m(m+1) colourings for m≥2. At n=3 all six are isolated. If 3 does not divide n, a positive count between 1 and n−1 satisfying closure exists, giving a degree-two word of two runs. All normalization and small cases agree.",
+      "replay_paths": [],
+      "residual_risks": [
+        "The supplied enumeration through n=12 was not rerun; the signed-word proof is unbounded and does not depend on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their finite-N formula for periodic boundary conditions counts all indexed ± spin configurations at every pair (M,2s), including magnetizations not allowed by ternary closure. Equation (26) gives the two all-aligned words. Equations (29) and (30), before any scaling limit, give binomial product counts for positive wall number."
+        ],
+        "reasoning": "This is broader in the exact controlling parameter M, and the periodic boundary convention includes the last-to-first wall, as does the frozen degree formula. The later asymptotic treatment is not needed.",
+        "searches": [
+          "Antal–Droz–Rácz arXiv:cond-mat/0308442, §§IV and IV.A, equations (26)–(30)"
+        ]
+      },
+      "checked_sources": [
+        "Antal–Droz–Rácz arXiv:cond-mat/0308442v1",
+        "Brewster–Moore arXiv:2008.12185",
+        "Cereceda–van den Heuvel–Johnson repository abstract",
+        "Resultary Fourier, ladder and adjacent-swap Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With a=N↑ and b=N↓=n−a, equation (30) is C(a−1,r−1)C(b,r)+C(b−1,r−1)C(a,r). Replacing C(j,r) by (j/r)C(j−1,r−1) yields exactly (n/r)C(a−1,r−1)C(b−1,r−1). Summing at M=2a−n≡0 mod 3 and multiplying by three gives the frozen formula identically; equation (26) gives its zero-degree bin. The edge total is its first moment divided by two, and the extremal values and multiplicities follow by reading and specializing the same support."
+        ],
+        "reasoning": "Only a direct change of variables, a congruence restriction and constant normalization separate the statements. The edge and extremum corollaries are elementary extraction from the already covered count, not independent surviving novelty.",
+        "searches": [
+          "Antal–Droz–Rácz arXiv:cond-mat/0308442v1 p. 5, equation (30), and p. 4, equation (26)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Periodic Ising spins σ_i are the ternary colour increments. A spin domain wall is a legal single-site recolouring position. Magnetization M is the signed winding numerator and a word lifts iff M≡0 mod 3; there are three lifts.",
+          "Brewster–Moore §2 specializes (p,q)=(3,1) to ordinary proper colourings. Their Theorem 2.5 studies mixing via winding, not the enumerator."
+        ],
+        "reasoning": "The target is exactly the domain-wall marginal for M divisible by three, with a constant lift factor. Reachability is not an equivalent census, but the joint magnetization/wall formulation is stronger.",
+        "searches": [
+          "proper 3-colourings of a cycle single-vertex recolouring degree distribution frozen colourings cyclic sign changes run compositions",
+          "Antal Droz Racz probability distribution magnetization one-dimensional Ising model periodic boundary conditions number configurations 2s domain walls fixed magnetization binomial",
+          "Brewster–Moore arXiv:2008.12185 §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared Fourier Finding gives the proper-colouring indicator spectrum, not a wall/degree table. The ladder Finding concerns Cₙ□K₂ and reports winding and exchange counts, not this graph's mobility distribution. The frozen-state analogue concerns adjacent swaps, a different move. The prior published Ising joint count is already an exact formula at every length and pair of statistics."
+        ],
+        "reasoning": "Inverting the Fourier indicator and then counting would not itself supply the new closed census; that is not the reason to reject. The exact earlier wall/magnetization formula supplies the needed counts directly without new enumeration.",
+        "searches": [
+          "Resultary: proper ternary cycle colouring recolouring degree distribution cyclic sign changes runs",
+          "Resultary 2026/11/16/SCOPE-a-modulo-three-resonance-law-for-the-complete-ternary-fourier-sp--a98d4f2cf356",
+          "Resultary 2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colouri--d41f740a6f49",
+          "Resultary 2026/11/22/SCOPE-exact-frozen-state-spectrum-for-cyclic-proper-ternary-colorings--dc57dd577606",
+          "Antal–Droz–Rácz equation (30)"
+        ]
+      },
+      "rationale": "The complete degree census is an immediate congruence marginal of the earlier explicit joint periodic Ising count of magnetization and domain walls (Antal–Droz–Rácz, §IV.A, equation (30); equation (26) for zero walls). This is stronger enumerative coverage of precisely the data used by the claim, not merely an abstract encoding or a search resemblance. The translation to recolouring uses successive signed colour increments and three possible initial colours; it does not require a new counting result.",
+      "residual_risks": [
+        "The exact Fourier citation ending 3973681a19d3 was unavailable in the local mirror, and the primary Cereceda et al. full text was not obtained. Neither access limitation drives the verdict; the Ising formulas are explicit, available prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage",
+          "evidence": "Equation (26) counts the two aligned configurations and (30) gives the finite joint indexed spin count, which reduces algebraically to the frozen formula after projecting M≡0 and multiplying by three.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0308442",
+          "material_read": "v1 title and authors, pp. 4–5, §IV and §IV.A equations (26)–(30), OA offsets 30100–39907",
+          "method": "Bounded open primary PDF inspection",
+          "title": "Probability distribution of magnetization in the one-dimensional Ising model: Effects of boundary conditions",
+          "trigger": "Joint counts of circular binary runs and fixed sign count under an equivalent spin interpretation"
+        },
+        {
+          "assessment": "Relevant winding antecedent; not the decisive enumerative source",
+          "evidence": "The q=1 model specializes to ordinary proper colouring; the theorem addresses winding-based mixing rather than degree multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.12185",
+          "material_read": "§2 p. 3, OA offset 8200; Theorem 2.5 p. 5, offset 15500",
+          "method": "Bounded primary OA inspection",
+          "title": "Characterizing Circular Colouring Mixing for p/q<4",
+          "trigger": "Same local recolouring and winding framework"
+        },
+        {
+          "assessment": "Abstract establishes relevant reachability scope only",
+          "evidence": "Abstract describes deciding whether one proper colouring transforms to another; it is not evidence about all results in the paper.",
+          "identifier_or_url": "https://researchonline.lse.ac.uk/id/eprint/36005/",
+          "material_read": "Repository abstract, OA offsets 458–1206; original full text unavailable in checked copies",
+          "method": "Repository and lawful publisher access checked",
+          "title": "Finding paths between 3-colorings",
+          "trigger": "Same single-vertex recolouring relation"
+        },
+        {
+          "assessment": "Same colouring set, different observable",
+          "evidence": "The complete transform formally determines the indicator by inversion, but another walk through the colouring space or a counting argument would still be needed to extract the census.",
+          "identifier_or_url": "2026/11/16/SCOPE-a-modulo-three-resonance-law-for-the-complete-ternary-fourier-sp--a98d4f2cf356",
+          "material_read": "Finding, local-mirror RESULT.md offset 0",
+          "method": "Resultary lookup and local-mirror text inspection",
+          "title": "A modulo-three resonance law for the complete ternary Fourier spectrum",
+          "trigger": "Same proper-colouring indicator and exact spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Antal–Droz–Rácz §IV.A, equations (26) and (30)"
+      ],
+      "rationale": "The degree spectrum is a natural mobility statistic and a useful recolouring interpretation. But the submitted exact census is a direct normalization and congruence restriction of a known joint exact count. The first moment and extrema are straightforward consequences of that same count; no independently new exact fact with mathematical utility survives the comparison. This is not a rejection of the proof or of the reconfiguration question.",
+      "residual_risks": [
+        "No priority claim is made about the terminology or explicit recolouring presentation. It does not change the exact-count implication."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

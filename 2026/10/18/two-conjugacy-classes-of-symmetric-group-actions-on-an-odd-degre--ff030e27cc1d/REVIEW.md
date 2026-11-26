@@ -1,9 +1,21 @@
-# Scientific review: two \(S_3\) actions on a hyperelliptic family
+# Independent mathematical audit
 
-**Correctness — PASS.** The full automorphism group follows from the finite \(\mathrm{PGL}_2(\mathbb C)\) classification and explicit lifts. The counting argument exhausts order-three subgroups and involutions; the conjugacy calculation separates two classes. Fixed-point calculation and Riemann–Hurwitz give the branch profiles and quotient genera for all \(h\ge1\). Exact checks through \(h=15\) reproduce the finite-group and polynomial identities; these are not used in place of the proof.
+## correctness
 
-**Originality — PASS, with a substantive known-framework limitation.** Pan's October 2026 result fixes one \(S_3\) action, not all possible actions. Novoselov's 2019/2020 Theorem 1/2 already supplies the two involution-quotient equations and known dihedral automorphisms; those equations and the full automorphism group are prior work. The more specific complete conjugacy classification of \(S_3\) subgroups of this family, and their inequivalent branched-action profiles, was not identified in the materially inspected references or focused searches. A systematic treatment of subgroups in older dihedral-curve literature may subsume the group-theoretic classification and is the key remaining risk.
+PASS
 
-**Value — PASS.** The two inequivalent actions arise on exactly the same recently motivating curve, give genuinely different quotient genera, and change the branch signature relevant to equivariant curve invariants. Exhaustively determining these action types for the infinite family resolves a natural ambiguity not settled by knowing one example or only the two involution quotient equations.
+For m=12h−6≥6 the branch set is {0,∞} plus the roots of t^m=−1. Its reduced group contains rotation of order m and inversion; the finite subgroups of PGL₂(C) admitting order ≥6 are cyclic or dihedral, and inversion conjugates the rotation to its distinct inverse. Hence the full reduced group is dihedral: its rotation part fixes 0,∞, and scales preserving the m roots have order dividing m. The lifts ρ=(ξ²t,ξy), for ξ of order 2m, and s=(1/t,y/t^{(m+2)/2}) lift both generators; ρ^m is the hyperelliptic involution, and substitution gives sρs=ρ^(m−1). In the noncyclic coset (ρ^a s)²=ρ^(ma), so the order-three subgroup A is unique and all candidates are <A,ρ^(2j)s>. Each is S₃ because s inverts A. Its index j is unique mod m/3=2k with k=2h−1. Conjugation by ρ adds 1−3k, of gcd 2 with 2k; conjugation by s multiplies j by m−1 and preserves parity. Thus there are 2k subgroups, k in each conjugacy class, with representatives s and ρ^m s. A fixes only the two points over 0 and ∞, which are exchanged by either reflection. The plus reflection fixes four points over t=±1, the minus none. Distinct plus transpositions cannot have a common fixed point, since their product is a nontrivial element of A and neither fixes a point in the A-fixed pair. The contributions to Riemann–Hurwitz are therefore 4+12 and 4, giving genera h−1 and h. Independently, t³ and ty generate the order-three fixed field, and in that field x+x⁻¹ together with the stated signed invariants gives index two for each reflection. P_{2h−1} has 2h−1 distinct roots obtained by pairing inverse roots of x^(4h−2)=−1, none at ±2. This also checks the h=1 endpoint.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The defensible contribution is the exhaustive S₃-subgroup and ambient conjugacy classification, with the ramification type of each class. The same minus action and its branch/genus data are in Pan; both quotient models and the genus distinction are within the known involution-quotient framework. Neither of those is credited as an independent contribution. No inspected passage covers the complete subgroup census.
+
+## value
+
+PASS
+
+On a naturally specified unbounded-genus family previously studied for one S₃ action, the census specifies all conjugacy classes of the same acting group, and the inertia dichotomy determines exactly which actions give each quotient genus. This answers a finite-group action classification uniformly rather than merely giving another defining equation or another example. The known paired quotient equations alone are not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

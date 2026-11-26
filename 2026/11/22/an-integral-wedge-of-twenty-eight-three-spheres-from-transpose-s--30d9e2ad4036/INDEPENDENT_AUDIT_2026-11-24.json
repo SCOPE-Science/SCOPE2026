@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:31:46.330685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/branches/eda755e0-93ef-46a1-ac46-23e33909905e/independent_check.py and independent_check_n5.txt (independent finite replay)",
+        "Shareshian–Wachs arXiv:math/0409054, Theorem 1.1, p. 3 (PDF offset 8023)",
+        "Armstrong DOI:10.1017/S0305004100038974 cited; special case justified directly by quotient edge-loop lifting"
+      ],
+      "rationale": "The object is the ordinary transpose quotient of the complete 5×5 chessboard complex. On barycentric flags, ranks ensure that if two points in one closed simplex are identified then the action fixes their supporting vertices pointwise. Different deletions have different rank sets, hence no repeated facet in one cell. The independent bounded replay gives the full and fixed flag counts, quotient cell vector (843,8340,22110,21900,7260) and integral d²=0. In descending upper dimensions it reproduces (7260,9156,2919,173) genuine free-face pairs. In Step 2 the intended condition is absence of a higher surviving coface of the proposed free face, not absence of every higher-dimensional cell globally. Indeed, any surviving higher coface would contain at least two distinct d-faces through the proposed (d−1)-face, distinguished by their ranks. The unique surviving d-coface suffices. Integral Schur complements at unit entries split off contractible generator pairs; d²=0 justifies the corresponding deletion in adjacent degrees. The replay leaves chain ranks (1,0,0,28,0) and differential zero. The quoted connectivity bound gives simple connectivity upstairs. One can see the required special case of the orbit-space fundamental-group argument directly: based edge loops in the quotient flag complex lift successively edge by edge, choosing a translate at each lift vertex; the base diagonal vertex has a singleton orbit, so each lift is a closed loop based there. Such a loop contracts upstairs, and projecting the contraction shows simple connectivity downstairs. Hurewicz and homological Whitehead now prove the integral wedge conclusion, not just the homology calculation.",
+      "residual_risks": [
+        "The full Armstrong paper was not accessible through the attempted OA route; the fixed-basepoint argument above provides an independent justification in this case.",
+        "No result for other board sizes or symmetry subgroups follows. Algebraic unit pivots alone do not prove a homotopy equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general chessboard connectivity bound makes X simply connected; the known torsion calculation is H2(X;Z)=Z/3. The four-by-four transpose quotient has its own wedge-of-two-spheres type, not a uniform theorem including size five."
+        ],
+        "reasoning": "The connectivity theorem gives a premise, not a quotient homology computation; no inspected broad family result determines the integral type in the stated symmetry case.",
+        "searches": [
+          "Shareshian–Wachs Theorems 1.1 and 5.4; Jonsson Theorem 3.1; Resultary whole-board, crown and transpose records"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary same-quotient, four-by-four and crown records",
+        "Shareshian–Wachs arXiv:math/0409054; Jonsson arXiv:1203.5644"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Localization at 3 loses possible 2-primary integral homology. A fixed-point quotient's integral chains are not recovered from the invariant rational representation or from the integral homology of the unquotiented complex alone."
+        ],
+        "reasoning": "The integral unit-pivot argument excludes missing torsion and allows the integral Hurewicz/Whitehead upgrade. The reviewed result implies the three-local statement, not the reverse.",
+        "searches": [
+          "Resultary:62667cf31b8c, scope at offset 1489 and proof conclusion at offset 4912; Shareshian–Wachs and Jonsson exact unquotiented calculations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chessboard squares and edges of K_(5,5) give the same matching complex and exchanging row and column labels gives the transpose involution.",
+          "62667cf31b8c uses the same full ordinary geometric quotient; 790ee52a5d2d deletes diagonal vertices, and 0d835e117881 uses a four-by-four board."
+        ],
+        "reasoning": "These formulations distinguish the same orbit space with a weaker coefficient/localization conclusion from a superficially similar restricted complex, board, or Borel space.",
+        "searches": [
+          "Resultary: 5×5 chessboard complex, matching complex of complete bipartite K_(5,5), transposition orbit space; 62667cf31b8c, 790ee52a5d2d, 0d835e117881",
+          "Shareshian–Wachs arXiv:math/0409054; Jonsson arXiv:1203.5644"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-space hit gives 28 three-local spheres in its Finding (offset 0), with integral type explicitly excluded from scope (offset 1489). Jonsson's exact H2 calculation is for X, not Y."
+        ],
+        "reasoning": "Agreement at multiplicity 28 after localization does not determine the integral invariant. No exact integral same-space result beyond the frozen claim was identified in the inspected statements.",
+        "searches": [
+          "Local Resultary search for the 5×5 transpose quotient and torsion cancellation; exact prior record 62667cf31b8c"
+        ]
+      },
+      "rationale": "The October Resultary record classifies exactly this orbit space after localization at 3 and explicitly does not settle its integral homotopy type. The supported distinct result is the integral classification, including the exclusion of two-primary torsion; the three-local result and the unquotiented 3-torsion computation are credited as known. Other strong indexed matches concern a different size or a restricted complex, not this integral claim.",
+      "residual_risks": [
+        "The catalog and literature comparisons are bounded; an unindexed equivalent integral computation is possible. Distinct records were not assigned a priority order from a shared date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior overlap, only at localization at 3",
+          "evidence": "States wedge of 28 three-local three-spheres, explicitly makes no integral homotopy assertion, and ends its proof at the three-local equivalence.",
+          "identifier_or_url": "Resultary:62667cf31b8c",
+          "material_read": "RESULT.md offsets 0, 1489, 4912",
+          "method": "Local mirror",
+          "title": "Three-local torsion cancellation in the transpose quotient of the five-by-five chessboard complex",
+          "trigger": "Exact same space and sphere multiplicity"
+        },
+        {
+          "assessment": "Connectivity premise and unquotiented torsion",
+          "evidence": "Theorem 1.1 gives 1-connectivity for the 5×5 matching complex; the 3-torsion theorem concerns X.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0409054",
+          "material_read": "Theorem 1.1 p. 3 (offset 8023); Theorem 5.4 p. 23 (offset 52068)",
+          "method": "OA PDF passages",
+          "title": "Torsion in the Matching Complex and Chessboard Complex",
+          "trigger": "General connectivity and known torsion of complete chessboard complexes"
+        },
+        {
+          "assessment": "Unquotiented invariant",
+          "evidence": "States reduced H2 of the complete five-by-five chessboard complex is Z/3, not the homology of its transpose quotient.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.5644",
+          "material_read": "Theorem 3.1 p. 9 (offset 21969)",
+          "method": "OA PDF passage",
+          "title": "On the 3-torsion Part of the Homology of the Chessboard Complex",
+          "trigger": "Exact integral torsion of the 5×5 complex"
+        },
+        {
+          "assessment": "Different underlying complex",
+          "evidence": "The diagonal-deleted five-crown complex is a wedge of S² and thirteen S³s before any transpose quotient.",
+          "identifier_or_url": "Resultary:790ee52a5d2d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Homotopy and complete symmetric-label character of the five-by-five crown complex",
+          "trigger": "Possible match by board size or use of diagonal symmetry"
+        },
+        {
+          "assessment": "Different board size",
+          "evidence": "States the integral wedge of six two-spheres at size four, not a result at size five.",
+          "identifier_or_url": "Resultary:0d835e117881",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Transpose quotient of the four-by-four chessboard complex",
+          "trigger": "Same symmetry, different size; distinct same-date record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary:62667cf31b8c scope and conclusion",
+        "Jonsson Theorem 3.1",
+        "Independent exact integral chain replay"
+      ],
+      "rationale": "The complete 5×5 chessboard is a canonical small chessboard complex with known integral 3-torsion, and transposition is a natural symmetry interchanging its shores. Earlier work isolated the same orbit space and the 3-local classification but left the possible 2-primary effect of quotienting by an involution open. The exact integral answer resolves this identified gap and establishes the full homotopy type rather than reproducing a known local count.",
+      "residual_risks": [
+        "The value is a complete classification of this specific canonical quotient, not a general collapse theorem for all boards."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

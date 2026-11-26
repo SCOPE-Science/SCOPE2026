@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:00:16.303385Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–70",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py 1 (exact Gram quotient, derivative, minimum, and quadratic conjugate polynomial; passed)"
+      ],
+      "rationale": "The first two measurements have rank two, so the delay map embeds the phase circle. For every initial phase a finite initial orbit segment is a twofold net at any prescribed resolution. Uniform continuity of the map and its inverse on the embedded circle forces every delay-nearest phase to approach its base phase uniformly, including ties. The exact chord cancellation evaluates the relative test at the pair midpoint modulo pi, so the ratios converge uniformly to the corresponding phase function; the absolute test vanishes uniformly by equidistribution of the first two moments (sample standard deviation tends to 1/sqrt(2)). Writing the squared ratio as (b·v)^2/(v^T A v), the Gram determinant is 2 sin²(theta)+sin²(2 theta), and the numerator of b^T A^(-1)b is the sum of sin²(m theta) for m=1,2,3. These give the claimed E. For 0<R²<E the threshold quadratic form has trace 1-3R² and determinant R² det(A)(R²-E)<0; its two angular cones give the stated arctangent and its finite boundary is null for equidistribution. At and above the maximum the strictly greater relative test is impossible for every chord, not merely almost surely; the absolute test can still matter at small finite n. The derivative changes sign once at z=(sqrt(2)-1)/2. At this point 4cos²(theta)=2sqrt(2)-2 has a negative algebraic conjugate, whereas for a root of unity all conjugates of (2cos(theta))² are nonnegative. Thus the minimizers really are irrational rotations.",
+      "residual_risks": [
+        "The exact reconstruction covers the specified noiseless single-nearest-neighbour model only; neither a convergence rate nor the recorded six finite empirical runs was independently tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 gives large-relative-tolerance asymptotic vanishing of a limsup for prevalent observables; Theorem 1.3 assumes rapid correlation decay and delay count below the dimension threshold."
+        ],
+        "reasoning": "Prevalence does not select the prescribed cosine, and large-tolerance asymptotic vanishing does not determine a fixed threshold or distribution. Theorem 1.3's regime is not the irrational three-delay rotation.",
+        "searches": [
+          "Śpiewak arXiv:2611.18087v1, §§1.5–1.6"
+        ]
+      },
+      "checked_sources": [
+        "Śpiewak arXiv:2611.18087v1",
+        "Exact Resultary mirror and distinct periodic phase-aliasing record named above",
+        "Classical/applied DOI retrieval attempts named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source definition and generic convergence findings are available in Śpiewak; attempts to obtain the three classical/applied full texts were blocked."
+        ],
+        "reasoning": "Standard ellipse linear algebra can compute a tangent ratio at each angle, but alone neither identifies the limit of the empirical diagnostic nor optimizes its uniform cutoff. No such implication follows from the inspected convergence statements; the inaccessible articles are a residual risk, not negative evidence.",
+        "searches": [
+          "Śpiewak §§1.4–1.6",
+          "DOI 10.1103/PhysRevA.45.3403; 10.1103/PhysRevE.47.3057; 10.1155/2015/932750"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-exact-phase-aliasing-bounds-for-sampled-analogue-neighbor-satura--207f5a130d9b, Finding and Proof: exact matches in a stride-sampled periodic scalar record",
+          "Śpiewak arXiv:2611.18087v1, Definition 1.1 and equation (1.5): two-threshold FNN diagnostic"
+        ],
+        "reasoning": "Exact discrete phase matches are not a continuous appended-coordinate/delay-distance quotient. The ellipse is an equivalent geometric representation, but the nearest-chord limit and angular superlevel distribution require additional steps not furnished by the general FNN definition.",
+        "searches": [
+          "Resultary false-nearest-neighbour/cosine-rotation comparison",
+          "Literature lookup for harmonic-delay ellipse and FNN"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-false-nearest-neighbour-spectra-and-an-optimal-frequency-f--7e571f5a3488, Finding: the same arctangent and sqrt(4sqrt(2)-5)."
+        ],
+        "reasoning": "The exact catalogue hit mirrors the assigned finding, not a distinct overlapping publication. The compared distinct entry concerns a different diagnostic.",
+        "searches": [
+          "Resultary catalogue for the exact FNN spectrum and optimal frequency"
+        ]
+      },
+      "rationale": "No inspected distinct prior result gives or implies the exact fixed-cosine, fixed-tolerance angular law and its sharp irrational-angle optimization. This is a bounded best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "Unindexed harmonic-delay or FNN analyses could overlap, particularly with the local maximum calculation.",
+        "Three related full texts were not available through the attempted lawful routes; no inference of absence is based on those failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related general results, not fixed-cosine coverage",
+          "evidence": [
+            "Theorem 1.2 uses prevalence and a limit in R; Theorem 1.3 uses mixing and a low-delay regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.18087v1",
+          "material_read": "§1.4 Def. 1.1 and (1.5); §1.5 Thms. 1.2–1.3; §1.6 embedding discussion",
+          "method": "OA HTML, targeted passages",
+          "title": "On the convergence of the False Nearest Neighbours algorithm",
+          "trigger": "Same diagnostic with rigorous convergence theorems"
+        },
+        {
+          "assessment": "Different observable invariant",
+          "evidence": [
+            "Counts exact recurrence matches with finite phase multiplicities in periodic samples."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-phase-aliasing-bounds-for-sampled-analogue-neighbor-satura--207f5a130d9b",
+          "material_read": "RESULT.md Finding and Proof passages",
+          "method": "Resultary and local mirror",
+          "title": "Exact phase aliasing bounds for sampled analogue neighbor saturation",
+          "trigger": "Closest distinct indexed time-series nearest-neighbour result"
+        },
+        {
+          "assessment": "Same assigned record",
+          "evidence": [
+            "Same formula and minimizing frequency."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-false-nearest-neighbour-spectra-and-an-optimal-frequency-f--7e571f5a3488",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact false-nearest-neighbour spectra and an optimal frequency for three-delay circle observations",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Detailed implications unresolved from these texts",
+          "evidence": [
+            "Full-text attempts returned HTTP 403; two-threshold formulation confirmed separately from Śpiewak."
+          ],
+          "identifier_or_url": "DOI 10.1103/PhysRevA.45.3403; 10.1103/PhysRevE.47.3057; 10.1155/2015/932750",
+          "material_read": "Citation metadata and Śpiewak's historical context only; not full texts",
+          "method": "Lawful direct and alternate configured OA retrieval attempts",
+          "title": "Classical and applied False Nearest Neighbours articles cited by the finding",
+          "trigger": "Foundational or related diagnostic papers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Śpiewak arXiv:2611.18087v1, §1.5"
+      ],
+      "rationale": "This is an exact calibration of a standard diagnostic on a canonical smoothly embedded signal: it quantifies how a positive false-neighbour fraction can persist despite injectivity, distinguishes a strictly positive limit from an eventual zero, and identifies the best worst-case relative threshold as the frequency varies. The fixed-observable benchmark fills a gap left by generic large-tolerance results.",
+      "residual_risks": [
+        "The calibration is family-specific, not a recommendation for arbitrary signals, noise or other delay designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

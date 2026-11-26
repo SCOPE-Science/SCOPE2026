@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:30:44.238078Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A specified unordered consecutive-label triple contracts to one object with six internal orders, giving 6/[n(n-1)]. At label offsets 1 and 2 the triple windows overlap in two and one positions; allocating shared labels to the overlap gives 4 and 8 orders of their union, respectively. Disjoint triples contract separately with 36 internal choices. Summing the resulting intersections gives O(n^(-2)), so Bonferroni yields P(E_n)=6/n+O(n^(-2)) and asymptotic uniqueness. Given a specified triple, the block order is uniform and independent of the contracted permutation; its successive differences give exactly the four stated marks. At most two original consecutive-value edges cross the block boundary, each requiring an outside label to neighbor the contracted block and hence having probability O(1/n) uniformly. Each feasible assignment of ell fixed directed singleton edges contracts to directed runs of the value paths, with probability 1/(n-2)_ell; contradictory choices, including both signs of the same edge, have probability zero. Disjoint-label ordered selections give n^ell+O(n^(ell-1)) choices, all overlapping selections O(n^(ell-1)). Each mixed factorial moment tends to 1 uniformly in the triple. Tightness and moment identification (the product Poisson law has exponential moments) give the asserted external joint limit, independent of the internal mark. Replacing the union indicator by the sum of marked indicators costs at most the pair intersection sum on bounded tests, or O(1/n) after conditioning. Adding the components gives the claimed shifted Poisson(2) law and fixed-k probabilities. The exact signed means have internal contribution 2/3, one contribution 1/(n-2) per external singleton edge and 1/[3(n-2)] per boundary edge. Independent positional-window enumeration over all 46,230 permutations for n=3, through 8 verified single and pair counts, all internal marks and both signed conditional means; replay: python3 /workspace/branches/reproduce_records_1_to_4.py. Frozen verification, source code and same-model review were inspected, not treated as independent evidence. The enumeration is only a finite check of the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Xu–Alain–Sankoff primary abstract gives Poisson(2) for unsigned and Poisson(1/2) for signed genome models as marginal limits. The frozen RESULT.md 93–95 reports unconditional Poisson and three-block counts from Corteel–Louchard–Pemantle; targeted primary text retrieval was unsuccessful."
+        ],
+        "reasoning": "Neither the reported unconditional law nor counting the rare event separately identifies their dependence. Conditioning on an event of order 1/n can change the entire joint law without affecting the unconditional limit; actual overlap of the relevant signed variables with the triplet must be determined.",
+        "searches": [
+          "Resultary: condition a random permutation on existence of a common interval or common consecutive block; distribution of common adjacencies or Poisson law",
+          "DOI:10.46298/dmtcs.362, queries Poisson distribution, Poisson, common intervals",
+          "DOI:10.1093/bioinformatics/btn295; PMID:18689817, Poisson adjacency distributions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, REVIEW.md, AUDIT.json",
+        "Resultary be76713add64, 4c6f84cc27e6, 3ef05ac3ee62",
+        "DOI:10.46298/dmtcs.362 (attempted, no independent full-text passage)",
+        "PMID:18689817 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A triple produces at least one adjacency with probability one, unlike a marginal Poisson(2), which assigns mass e^(-2) to zero. Given a specified contracted block the two sign backgrounds have factorial moments tending to 1, and uniformity plus the overlap bound transfers the marked law to the union event."
+        ],
+        "reasoning": "Reusing standard contraction is not a new technique, but the exact direction split and its independent limit after selection require this joint calculation. Marginal law, expectation of the selection count, and classical unconditional approximation cannot supply it mechanically.",
+        "searches": [
+          "Corteel–Louchard–Pemantle DOI:10.46298/dmtcs.362",
+          "Xu–Alain–Sankoff PMID:18689817 abstract",
+          "Frozen RESULT.md 46–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact index match be76713add64 is the assigned record. Resultary 4c6f84cc27e6 reports orientation-resolved j-way successor collisions across k orders, and 3ef05ac3ee62 concerns cycle statistics conditional on a signed adjacent jump."
+        ],
+        "reasoning": "Relabeling one of two independent linear orders as identity is the same model; direction counts in that model do not use signed genes. Neither a growing-order successor collision limit nor a cycle law conditioned on a jump is the triple-conditioned joint adjacency law.",
+        "searches": [
+          "Resultary: joint conditional law signed adjacency counts given a common consecutive triplet in a uniform permutation; independent Poisson(1) backgrounds plus four-point internal orientation mark",
+          "Resultary: common triplet conditional signed adjacency Poisson(1) orientation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact four-point table plus two independent Poisson backgrounds appears in the assigned record's own index result and frozen RESULT.md 13–41; no distinct matching table was found in the returned candidates."
+        ],
+        "reasoning": "Tables of orientations for one isolated three-element block could give the mark alone, but not independence from the limiting external process after conditioning on existence. A query with no distinct match is not proof of novelty.",
+        "searches": [
+          "Resultary: common triplet conditional signed adjacency Poisson(1) orientation",
+          "Resultary: joint conditional law signed adjacency counts given a common consecutive triplet in a uniform permutation; independent Poisson(1) backgrounds plus four-point internal orientation mark"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the rare-event conditional joint law, not for ordinary adjacency limits, overlap enumeration or Poisson factorial-moment technique. The retrieved marginal results neither state nor determine the mark. The closest common-interval primary passage could not be independently retrieved; this leaves a specific priority risk, not a result about the whole paper.",
+      "residual_risks": [
+        "Corteel–Louchard–Pemantle primary conditional or joint formulas were not independently inspectable; Xu–Alain–Sankoff comparison is abstract-limited.",
+        "Equivalent marked-rare-event calculations under runs, bond counts or genomic-cluster terminology may exist outside the inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the reported unconditional and common-three-block work; a full conditional comparison remains access-limited",
+          "evidence": "The frozen report attributes marginal Poisson limits and counts for common three-blocks, not their joint conditional signed law.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.362",
+          "material_read": "Frozen RESULT.md 93–95 comparison only; landing page/PDF attempts supplied no primary passage",
+          "method": "Identified OA attempts with literal keywords",
+          "title": "Common Intervals in Permutations",
+          "trigger": "Same common blocks and Poisson adjacency problem"
+        },
+        {
+          "assessment": "Verified abstract reports marginal laws; no full-document exclusion",
+          "evidence": "Unsigned Poisson mean 2, signed-genome Poisson mean 1/2; no triplet-selected law appears in the abstract.",
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btn295; PMID:18689817",
+          "material_read": "PubMed primary abstract; OUP full-text attempt returned 403",
+          "method": "Identified OA searches and lawful bibliographic abstract",
+          "title": "Poisson adjacency distributions in genome comparison: multichromosomal, circular, signed and unsigned cases",
+          "trigger": "Signed and unsigned adjacency null laws"
+        },
+        {
+          "assessment": "Synopsis concerns different statistic and regime",
+          "evidence": "It reports j-way adjacency collisions in k orders, not conditioning on a shared triple of successive labels.",
+          "identifier_or_url": "2026/11/2/SCOPE-poisson-orientation-profiles-at-the-growing-successor-collision--4c6f84cc27e6",
+          "material_read": "Resultary synopsis; local mirror read unavailable",
+          "method": "Semantic index and identified mirror attempt",
+          "title": "Poisson orientation profiles at the growing successor collision threshold",
+          "trigger": "Close orientation-resolved Poisson catalogue hit"
+        },
+        {
+          "assessment": "Different conditional observable and event",
+          "evidence": "Cycle law conditional on a signed jump, rather than signed consecutive-value adjacency counts conditional on a triple.",
+          "identifier_or_url": "2026/10/25/SCOPE-cycle-laws-conditional-on-signed-adjacent-jumps-in-random-permut--3ef05ac3ee62",
+          "material_read": "Resultary synopsis",
+          "method": "Local semantic index",
+          "title": "Cycle laws conditional on signed adjacent jumps in random permutations",
+          "trigger": "Another conditioned signed permutation statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Selecting comparisons by a shared three-marker block changes the null law nontrivially: a particular direction-correlated mark cannot be approximated by reusing the unconditional Poisson(2) model. The joint law quantifies this selection effect for the natural uniform-permutation null model, with no claim about evolutionary sampling or a finite-size rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

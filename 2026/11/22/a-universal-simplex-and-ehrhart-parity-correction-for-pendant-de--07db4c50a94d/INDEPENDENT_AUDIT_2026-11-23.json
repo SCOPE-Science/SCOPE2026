@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:52:59.238190Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assessed the corrected /workspace/repairs/4/RESULT.md. The frozen phrase ‘open simplex’ taken literally is incorrect: even the apex is in F_G minus M_G. The replacement states precisely that only the base facet is removed. Balinski’s half-integral support description leaves only the all-half rim as a fractional vertex because every other edge meets the rim. For cyclic shift P of odd order, (I+P)^(−1)=(1/2)Σ_{r=0}^{n−1}(−P)^r and |det(I+P)|=2. In mixed degree-slack and leaf coordinates the defect is all nonnegative vectors of total j<1, since each inverse rim coordinate is ≥(1−j)/2; equality j=1 gives the base. Unit base vectors leave one rim vertex unmatched or match that vertex to its designated leaf. Every new clipped vertex is on that integral base, and every old retained vertex is integral, so the clipped polytope is exactly M_G. The determinant gives volume 1/(2d!). At dilation k, summing the inverse equations gives right-hand side total nk−j. The cycle matrix has image exactly the even-sum sublattice by containment and index two. Stars and bars on the surviving j<k of parity k yields the asserted count (in particular Δ(0)=Δ(1)=0, Δ(2)=1 and Δ(3)=d). The single pole at −1 gives 2^(−d−1)(−1)^k, which cannot cancel a lattice Ehrhart polynomial. The repair preserves the quantitative formulas and scope. The frozen checker and verification notes were read, not executed: enumeration counts strict rim-inequality violations for 47 finite cases; the proof, not the enumeration, identifies the matching hull in general.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day capacity theorem gives an even-minus-odd constant 2^(−n) for a nonsingular odd adjacent-sum cycle with an admissible fractional all-tight point; its proof isolates that cone's parity correction. Capacity counts have n variables with prescribed rhs. In cyclic block models each coordinate is in two neighboring constraints; a leaf here is in only one rim constraint. Half-integrality and odd-set inequalities already describe the relevant vertex types and the matching cut."
+        ],
+        "reasoning": "Neither the fixed-RHS capacity theorem nor the cyclic block theorem includes independent pendant variables. Even applying the same cone parity argument in d dimensions would get the alternating component only, not the complete cap series; the cut height and integral base are additional geometric facts.",
+        "searches": [
+          "Resultary 4ce7355a2277, Finding and proof §§1–3; c9d98c9238ae, Finding",
+          "Balinski half-integrality, IPCO 2020 notes; Edmonds odd-set formulation, MIT notes; arXiv:2409.07283v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_matching_cap.py; corrected repair RESULT.md",
+        "Resultary 07db4c50a94d, 826a819e0b80, c9d98c9238ae, 4ce7355a2277",
+        "IPCO 2020 matching notes; MIT Edmonds matching-polytope notes",
+        "arXiv:2409.07283v1; arXiv:1709.09642v1 §1",
+        "DOI:10.1016/j.ejc.2023.103906, identification only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bare-cap proof gives all nonnegative rim slacks with total <1 and inverse determinant 1/2. The capacity proof explicitly gives the even-sum image and parity of cone slacks. Classical matching theory identifies the sole fractional rim point and the available cut."
+        ],
+        "reasoning": "The closest derivation from those tools is a wedge over a slack facet of the bare cap, one per pendant edge. Establishing that this gives exactly the removed region of the decorated matching hull, and that every new coordinate enters the index-two parity condition with coefficient one, gives the decorated invariant. A general rational simplex or wedge need not have that parity condition, that cut height, or that integral base. The prior formulas themselves do not imply the full decorated difference by parameter substitution.",
+        "searches": [
+          "826a819e0b80, proof §1; 4ce7355a2277 cone computation; IPCO 2020 matching notes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Via the line graph the bare fractional stable-set cap is exactly the t=0 matching cap. The prior bare proof already uses the affine slack map of determinant two to a simplex with the sum-one facet deleted. The exact hit 07db4c50a94d is the assigned record itself."
+        ],
+        "reasoning": "The decorated theorem is not the bare result relabeled: the line graph of the decorated graph has extra vertices and clique constraints. A leaf splits a bare degree slack into two nonnegative coordinates, and the enlarged lattice condition must be retained. This extension is related, not a change in the formula's notation alone.",
+        "searches": [
+          "Resultary: odd-cycle matching relaxation pendant edge integrality cap simplex Ehrhart lattice defect and parity",
+          "Resultary 826a819e0b80, proof §1; c9d98c9238ae, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned entry gives this series; the strongest distinct indexed entries give the bare half-volume or bare/fixed-capacity Ehrhart parity. The Ehrenborg hit concerns the adjacent-sum cycle and its Ehrhart quasipolynomial, but the full text was not available on the checked routes."
+        ],
+        "reasoning": "An exact table or series for the same positive-pendant defect would count as coverage. The compared fixed-capacity formulas count a different family and cannot provide a full series depending on d=n+t, which can be even.",
+        "searches": [
+          "Resultary: exact pendant-decorated odd-cycle defect z²/[(1−z)^d(1−z²)] and half-simplex volume",
+          "Ehrenborg DOI:10.1016/j.ejc.2023.103906, graph polytope of a cycle"
+        ]
+      },
+      "rationale": "For the corrected statement the distinct result is the exact attachment-pattern-independent defect, including its full lattice series for positive pendant count. The bare-cap simplex and odd-cycle parity mechanism are credited, not claimed anew. The comparison explicitly accounts for how the earlier slack argument extends and for the scope of tangent-cone parity results.",
+      "residual_risks": [
+        "Bare-cycle primary formulas in Ehrenborg could not be inspected (403). Equivalent pendant statements could exist in literature on graph-polytope wedge operations or rational Ehrhart caps. Same-day records were compared by mathematical scope, without inferring publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record; the repair clarifies the exact set",
+          "evidence": [
+            "States t≥1 and the full binomial and rational-series formulas."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-simplex-and-ehrhart-parity-correction-for-pendant-de--07db4c50a94d",
+          "material_read": "Frozen RESULT.md and matching catalogue statement, Finding and slack proof",
+          "method": "Resultary and bound text/local mirror",
+          "title": "A universal simplex and Ehrhart parity correction for pendant-decorated odd-cycle matching polytopes",
+          "trigger": "Exact catalogue result"
+        },
+        {
+          "assessment": "Covers the bare-cap geometry by the same slack mechanism",
+          "evidence": [
+            "For odd n≥5 the inverse of y=1−(I+P)x maps unit slack vectors to maximum stable sets and gives volume 1/(2n!)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-antiperiodic-brownian-geometry-of-the-odd-cycle-integrality-cap--826a819e0b80",
+          "material_read": "Finding and proof §1, offsets 0 and 1650",
+          "method": "OA local mirror",
+          "title": "Antiperiodic Brownian geometry of the odd-cycle integrality cap",
+          "trigger": "Exact bare-cycle line-graph equivalent"
+        },
+        {
+          "assessment": "Bare case and distinct block model",
+          "evidence": [
+            "The single-coordinate block gives the bare odd-cycle parity difference 2^(−n); higher blocks put coordinates in two neighboring constraints."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-parity-degree-and-minimal-quasiperiod-of-odd-cyclic-block--c9d98c9238ae",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact parity degree and minimal quasiperiod of odd cyclic block polytopes",
+          "trigger": "Related exact parity coefficient and block extensions"
+        },
+        {
+          "assessment": "Related tangent-cone mechanism and prescribed capacities, not the positive-pendant defect",
+          "evidence": [
+            "The exceptional cone has even-sum image; its even/odd analytic difference gives 2^(−n). The theorem counts the whole n-variable fixed-capacity polytope, not the difference from the matching hull in n+t variables."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-exact-ehrhart-parity-anomaly-and-sharp-period-collapse--4ce7355a2277",
+          "material_read": "Finding and proof §§1–3, offsets 0–5974",
+          "method": "OA local mirror",
+          "title": "Universal exact Ehrhart parity anomaly and sharp period collapse for alternating odd cycles",
+          "trigger": "Same-day exact Ehrhart parity, potentially stronger"
+        },
+        {
+          "assessment": "Classical ingredient, not the entire cap",
+          "evidence": [
+            "Positive supports consist of matching edges and vertex-disjoint odd cycles at weights 1 and 1/2 respectively."
+          ],
+          "identifier_or_url": "https://www.lse.ac.uk/ipco-2020/summer-school/Sanita-complete.pdf",
+          "material_read": "Fractional matching vertices section, PDF pp. 89–91, OA offsets 28860–30612",
+          "method": "OA PDF",
+          "title": "IPCO 2020 matching-polytope notes",
+          "trigger": "Standard half-integral support classification"
+        },
+        {
+          "assessment": "Volume approximation for a different truncation",
+          "evidence": [
+            "The described problem uses truncated fractional matching polytope volumes, not the integral blossom cap or its lattice series."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.07283v1",
+          "material_read": "Abstract and Definition 2, offsets 0 and 5417",
+          "method": "OA full text",
+          "title": "Deterministic approximation for the volume of the truncated fractional matching polytope",
+          "trigger": "Fractional matching volume comparison"
+        },
+        {
+          "assessment": "Unresolved at formula level; no whole-paper claim",
+          "evidence": [
+            "Described scope is the adjacent-sum graph polytope of a cycle and its Ehrhart quasipolynomial."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2023.103906",
+          "material_read": "Identification and search description only",
+          "method": "OA direct and alternate routes did not return full text",
+          "title": "The Ehrhart and face polynomials of the graph polytope of a cycle",
+          "trigger": "Primary bare-cycle Ehrhart comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full defect answers how a natural fractional relaxation differs from its matching hull at every lattice dilation. It distinguishes exact period from the denominator-two upper bound, and distinguishes the full lattice correction from the previously known bare volume or the alternating coefficient alone. The leaf-slack characterization explains why arbitrary attachment patterns with the same edge count give the very same count despite changing the two polytopes. The assessment is for direct leaves only and does not assign novelty to the classical cut or lattice counting in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

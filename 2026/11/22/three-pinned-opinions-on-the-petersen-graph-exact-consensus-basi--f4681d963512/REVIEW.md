@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite object, pin constraint, strict threshold-two update, sample space and first-entry convention are explicit. The coordinatewise monotonicity lemma reduces the universal-consensus question to the all-zero-free seed state, with no improper assumption that unpinned active sites remain active. The four distinct three-edge patterns on five labels exhaust all possible triples, and the explicit star/nonstar seed trajectories establish exactly twenty universally forcing triples and a sharp three-update star bound. Every pair extends to a nonforcing triple, proving minimality. The exact, distinct majority-basin fractions and entry times are certified by two independently coded full integer enumerations of all 120 pin sets times 128 compatible starts. The two-pin checks cover 45 pairs times 256 starts. Every trajectory is followed to its first repeated state, not cut off at a guessed iteration count. Source and output files are supplied for replay.
+PASS
 
-Residual scientific risk: there is no formally machine-checked proof; both checkers rely on correct implementation of the stated ten-vertex graph, although they construct adjacency separately and the forcing theorem is proved directly by hand. No infinite-graph claim is made.
+The repaired RESULT.md preserves the update map and all census statements. The four shapes exhaust three-edge sets on five labels; permutations of the five labels act on their placements and intertwine the update. A pinned update is monotone, and its least initial state S maps above itself. Its iterates therefore increase and obey exactly the bootstrap recurrence, since adding the previously active sites to the next state is then redundant. This proves the newly stated equivalence and the sufficiency of checking S for universal forcing. The four explicit least-state trajectories were checked by open-neighbor threshold counting; the star takes exactly three steps and the others stop short. For independent verification of the arbitrary-start census, construct the pinned functional digraph, peel indegree-zero vertices to isolate periodic states, verify F² fixes every periodic vertex, and traverse backward to assign basin and first-entry depth. The complete independent calculation gives (one, two-cycle, other fixed, max entry) = (128,0,0,3), (98,28,2,2), (124,0,4,5), (94,30,4,4) for star, triangle, path and wedge-plus-edge. Pair counts give 141 and 188 consensus starts respectively in the adjacent and nonadjacent types. The minimum is also verified without the prior scalar theorem by these pair obstructions and monotonicity in added pins.
 
-## Originality — PASS, with stated historical uncertainty
+## originality
 
-The nearest full inspected Petersen result, *A four-step Petersen majority projection and the Desargues double-cover basin spectrum*, treats the unpinned map. Its 124 recurrent Petersen symbols and basin fibers cannot be substituted for the present frozen-vertex map, which changes each affected coordinate and whose four pin-layout basin distributions are not supplied there. The 2012 strict-majority dynamic-monopoly paper studies irreversible activation and general upper/lower bounds, not synchronous opinions that can turn off or the four-class exact census. The 2014 general synchronous-majority paper supplies general period-at-most-two theory, not the finite pinned Petersen computation. A 2026 odd-graph bootstrap paper again uses irreversible two-neighbor activation. Direct named-claim and equivalent-terminology searches of the public mathematical record found no dominating or identical statement. Different titles and a failed search alone are not a proof of priority; a previously tabulated computation or unseen general pinned-majority theorem remains possible.
+PASS
 
-## Value — PASS
+The frozen treatment of the scalar minimum as part of a new forcing result fails the prior-implication check: arXiv:2606.03687v3 Theorem 1.2 already gives three at k=2, and the least-state equivalence transfers that number exactly to fixed-one pinning. The repaired RESULT.md removes the scalar threshold from the contribution, credits it as background, and proves the precise reduction. The surviving claim is the exact arbitrary-start basin and sharp periodic-entry profile by pin shape, including which triples have a full consensus basin and the two nontrivial basin sizes for pairs. Neither irreversible hull closure nor the published unpinned Petersen map supplies those profiles. The repaired claim, not the original attribution, passes.
 
-This is a natural small, vertex-transitive, nontrivial benchmark for *where* permanent opinion interventions should be placed, not an arbitrary selected subset: the smallest budget that guarantees unanimous consensus is proved to be three, but only one of the four geometry types actually guarantees it, with a factor-of-twenty exact placement census and full basin probabilities for the other types. The triangle and wedge-plus-disjoint placements still support genuine oscillatory attractors despite the same number of fixed opinion leaders. The contrast offers structural guidance for stubborn-agent placement and an exact stringent test case for majority-dynamics algorithms. No general-graph theorem is implied.
+## value
 
-## Verification and independence
+PASS
 
-The finite results were reproduced by `check_bitmask.py` and `check_tuples.py`, each using the Python standard library and disjoint implementations, with their corresponding JSON outputs attached. External mathematical validation has not been performed; scope and historical-priority limitations are recorded in `RESULT.md`.
+The revised contribution measures how stubborn placements alter the fixed-point and oscillation basins and worst transients of a natural symmetric test graph. The census distinguishes two pin shapes with the same number of other-fixed starts but dramatically different oscillatory basins, and separates the shapes that can exhibit oscillation from those that cannot. Exact basins and sharp clocks are useful finite benchmark data for reversible majority under interventions, not a recomputation of the already known minimum.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

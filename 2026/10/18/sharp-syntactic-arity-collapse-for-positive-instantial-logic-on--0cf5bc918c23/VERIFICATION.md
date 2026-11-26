@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and logical limits
+# Independent mathematical audit
 
-Run `python3 check_pinl_width.py` with Python 3 and no third-party packages. This tests the source witness and co-witness truth conditions directly, separately from the partition construction. It enumerates upsets for eight finite orders, verifies the partition identities for multiple input arities, compares both persistent sharpness frames through every lower arity, and verifies each separating valuation at the width.
+## correctness
 
-Successful output ended:
+PASS
 
-```
-PINL_WIDTH_VERIFY_OK comparisons=1204834 lower_checks=76857
-```
+On the stated persistent frames all argument truth sets are upsets, since box families increase and diamond families decrease along the order. For a box witness U, choose one point of U intersecting each argument, then assign each index to a maximal sampled point above its chosen point. Maximal sampled points are an antichain of size at most w and still belong to U; the upset property places each in all arguments of its block. Conversely a witness of the block meets hits every original argument. For a diamond failure choose points of U outside the arguments, keep minimal sampled points, and assign downwards; each retained point lies outside all arguments of its block and hence outside their union. Failure of one grouped diamond implies original failure since every original argument is contained in its block union. Existential and universal interchange with the corresponding finite disjunction and conjunction; different neighborhoods do not invalidate either equivalence. The finite samples, not the whole carrier, need extrema. Recursive substitution preserves depth because the same argument subformulas occur within one enclosing modality under only lattice connectives. For sharpness let S be the upset of a maximum antichain E and compare constant diamond families of proper subupsets of S with and without S. If S refutes a k<w test, the upset of k chosen counter-witnesses in S still refutes it and omits an element of E: a chosen point can force e in E only by being e. This works also for the empty generator set at k=0. Thus all lower-arity operations agree on every upside-closed argument tuple and induction handles all nesting. At arity w the arguments S minus one antichain point each are upsets; every proper subupset satisfies one, whereas S satisfies none, with empty scope. An independent exhaustive test on the seven naturally labelled three-world orders (`python3 /workspace/branches/independent_checks.py 5`) gave 584,730 bounded comparisons, including both local clauses and lower-arity pairs. The proof covers infinite carriers as well; the check does not.
 
-The eight orders are the singleton, a four-element chain, four-element fork and diamond, two disjoint two-element chains, three- and four-element antichains, and a six-element crown. Some larger case arguments are fixed-seed samples; the script does **not** exhaust all models or all formulas. The theorem for every finite-width poset, including infinite carriers, follows from Lemmas 1–3, the structural induction, and the explicit arbitrary-poset distinguishing pair in `RESULT.md`. These mathematical arguments, rather than computation or lack of counterexamples, establish correctness.
+## originality
 
-Two external results matter for novelty comparison: the published finite Boolean-BAIO neighbourhood-reconstruction theorem has a distinct outcome and hypotheses, and the 2026 PINL manuscript defines the ordered two-sided semantics but not a uniform finite-width term translation. The older classical-INL fragment paper was available in abstract only; independent expert assessment of mathematical priority remains outstanding.
+PASS
+
+There is material overlap with the same-day finite width signature result in precisely the same semantics, not a new observation that width suffices for finite-carrier observational determination. The supported distinction is explicit positive term elimination for both modalities on all finite-width posets, even without global extrema, plus sharpness on each fixed carrier by a co-witness pair. No priority ordering is inferred from same-day dating.
+
+## value
+
+PASS
+
+A width-indexed reduction of the positive vocabulary matters for expressivity: it translates an actual nested formula without requiring named worlds or neighborhood information. The matching obstruction on each carrier shows that arbitrary nesting cannot compensate for fewer instance positions; the bound is not merely a discrete worst case or an observational recovery theorem. It applies even to infinite chains or other finite-width orders lacking global extrema. It is not a claim of efficient formula size or sharpness under stronger neighborhood restrictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

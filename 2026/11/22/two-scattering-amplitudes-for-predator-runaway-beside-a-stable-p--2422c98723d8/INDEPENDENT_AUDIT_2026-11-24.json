@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:37:16.722566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5, VERIFICATION.md and verify.py (inspected, not executed).",
+        "Hong–Zhang OA PDF p. 3, Eq. (2) and Theorem 1."
+      ],
+      "rationale": "The OA primary PDF confirms Eq. (2) at β=1 gives the frozen recurrence. Strict inequalities force k>0 and P to decrease through x_* before γ. The prey-only multipliers are 0 and exp(P(γ))<1; the interior characteristic polynomial is positive at zero (A>B), negative at one (−B), and positive for large t, giving the claimed saddle. Exact arithmetic verifies the chamber witness. Within the wedge the predator multiplier is bounded below by exp(P(ε))>1, so summing geometric predation yields ∑ exp(rn)x_n<∞ for every finite r>0. The exact predator telescope gives positive L; the remaining log-predator error is a nonnegative tail of O(x_j). Its weighted sum at exp(sn) is finite by interchanging nonnegative sums, hence ∑|y_n−L exp(sn)|<∞ and ∑x_n y_n<∞. Consequently replacing y_n/(H+x_n) by L exp(sn)/H changes the accumulated prey forcing by an absolutely summable error, leaving a finite log K. The estimates are uniform on wedge compacts; the geometric prey bound gives L≥const·y_0 at fixed x_0, establishing nonconstancy. The numerical example at y_0=Y is on the wedge boundary but enters it strictly after one step, so it does not invalidate the diagnostic or extend the theorem's stated quantifiers.",
+      "residual_risks": [
+        "Only the five-dimensional β=1 slice and the stated wedge are used for the amplitude theorem. No full basin classification or ecological realism follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hong–Zhang gives the local prey-only sink criterion; its stated results concern local equilibria and Neimark–Sacker bifurcation. The distinct Resultary wedges lead to finite coexistence or total extinction in ODEs."
+        ],
+        "reasoning": "Local stability does not supply an invariant escaping set, and the checked wedge results have different dynamics and limits. The continuous-time runaway is known, but that broader qualitative label does not imply the discrete theorem.",
+        "searches": [
+          "Hong–Zhang PDF §§2–3 and 6; Parshad et al. Theorem 2.2; Resultary 44f68572e8a3 and 4341070d577c"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math11061399",
+        "arXiv:2208.00153v1",
+        "Resultary 44f68572e8a3, 4341070d577c and bd8c96fa6219"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previously established prey-only sink condition yields only the finite attractor. The ODE explosion theorem has no discrete geometric forcing sum; the nearby Euler result instead loses positivity in finitely many steps."
+        ],
+        "reasoning": "Even y_n∼L exp(sn) alone does not imply finite K: the forcing error must be summable. The checked results do not give that error estimate or the denominator exp(s)−1 in the coexisting discrete runaway.",
+        "searches": [
+          "Hong–Zhang Theorem 1 and §6; Parshad et al. Theorem 2.2; Resultary bd8c96fa6219"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same-model Eq. (2) agrees at β=1. The related explosion theorem treats a continuous additional-food ODE without the frozen map's refuge factor and has a prey-only saddle in its explosion regime."
+        ],
+        "reasoning": "Sampling the continuous flow at integer times would not produce the published semi-discrete rule, which freezes rates over each step. Identical qualitative extinction/escape is not equivalence of the basin or amplitude assertions.",
+        "searches": [
+          "Resultary: predator runaway, escape wedge and scattering amplitudes; arXiv:2208.00153v1 §§2.3.2–2.4; Hong–Zhang DOI 10.3390/math11061399 Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact returned title is the source record itself, 2422c98723d8. Distinct nearby records have different maps, flows or limit states."
+        ],
+        "reasoning": "This is an initial-data-dependent identity of two infinite-orbit limits, not a number amenable to lookup by the rational witness. The local index comparison found no distinct formula on the same recurrence and chamber.",
+        "searches": [
+          "Resultary focused comparison on escape, two amplitudes, and prey-only coexistence; nearby record bd8c96fa6219"
+        ]
+      },
+      "rationale": "The recurrence, boundary sink criterion and fixed-point setting are prior. The checked same-map paper treats local equilibria and bifurcations; the closest verified escape results use different continuous-time equations or a different discrete update. None supplies the positive-orbit escape wedge coexisting with the sink and both discrete amplitudes. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "Earlier unindexed discrete estimates or an equivalent amplitude formulation may exist. The continuous-time Ghosh–Sahoo–Poria precursor was compared as reproduced in Hong–Zhang §2, not via a separate full-text inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map and prey-only sink criterion covered; paired escape clocks not in inspected results",
+          "evidence": "Eq. (2) has prey term (1−c)y/(1+αξ+x) and at β=1 predator term ((1−c)x+ξ)/(1+αξ+x)−δ. Theorem 1 characterizes the sink via its predator multiplier; §6 describes the local and bifurcation contributions.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-11-01399/article_deploy/mathematics-11-01399.pdf",
+          "material_read": "§2 ODE precursor and Eq. (2), pp. 2–3; §3 Eq. (2), Theorem 1 and proof/start of Theorem 2, pp. 3–4; §6 p. 12 (offsets 7550, 11200, 18199, 78033)",
+          "method": "OA primary publisher static PDF, alternate to blocked publisher landing route",
+          "title": "Neimark–Sacker Bifurcation of a Discrete-Time Predator–Prey Model with Prey Refuge Effect",
+          "trigger": "Same exact published map and local equilibria"
+        },
+        {
+          "assessment": "Related continuous-time qualitative explosion, not the discrete theorem",
+          "evidence": "Positive ODE orbits can converge to (0,∞); the prey-only point is a saddle in the stated explosion regime, rather than a coexisting sink.",
+          "identifier_or_url": "https://arxiv.org/html/2208.00153v1",
+          "material_read": "§§2.3.2–2.4 and Theorem 2.2, offsets ca. 7000 and 14000–24500",
+          "method": "OA arXiv primary text",
+          "title": "Additional food causes predator ‘explosion’—unless the predators compete",
+          "trigger": "Earlier functional-response outbreak with vanished prey"
+        },
+        {
+          "assessment": "Distinct flow and attractor",
+          "evidence": "A homogeneous ODE with a prey-only sink and a positive coexistence sink; no escaping discrete orbit or pair of amplitudes.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-coexistence-wedge-from-predator-induced-refuge-carrying--44f68572e8a3",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3581",
+          "method": "Local Resultary search and mirror",
+          "title": "A sharp coexistence wedge from predator-induced refuge carrying capacity",
+          "trigger": "Relevant refuge-model wedge and local sinks"
+        },
+        {
+          "assessment": "Different flow and escape outcome",
+          "evidence": "A ratio-dependent ODE sends the wedge to total extinction with exponential-times-power decay.",
+          "identifier_or_url": "2026/11/8/SCOPE-lambert-fold-extinction-with-a-noninteger-power-correction--4341070d577c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Lambert fold extinction with a noninteger power correction",
+          "trigger": "Coexistence with a quantitative extinction wedge"
+        },
+        {
+          "assessment": "Different model and finite-step behavior",
+          "evidence": "Smith-growth continuous model with runaway, contrasted with positivity loss for its forward-Euler update, not the positive exponential recurrence.",
+          "identifier_or_url": "2026/10/13/SCOPE-over-capacity-runaway-and-step-independent-positivity-loss-in-a--bd8c96fa6219",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Over-capacity runaway and step-independent positivity loss",
+          "trigger": "Runaway with a discrete comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; Hong–Zhang local results and Parshad et al. continuous-time comparator."
+      ],
+      "rationale": "An explicit open escape set in a published recurrence demonstrates why a stable extinction equilibrium does not guarantee bounded positive orbits. The summable forcing estimate adds a finite prey prefactor and a finer timescale than the usual qualitative runaway or leading log-growth result. The slice is stated openly and supports a nonempty chamber of full dimension within that slice.",
+      "residual_risks": [
+        "Mathematical behavior of a model without predator self-limitation; not a management or ecological prediction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

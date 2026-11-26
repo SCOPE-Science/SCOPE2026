@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is fully quantified for finite, simple, connected unicyclic graphs and homogeneous independent site survival. The pointwise Euler cycle-rank identity \(K=S-E+Z\) is valid on every retained outcome, including the empty outcome. Every covariance category is enumerated by cycle edges and cycle-incident branch edges; the degree-pair sum controls edge covariances. Matching graph invariants then leave only the signed branch-attachment term. A direct n≤5 case split proves sharpness and a six-vertex pair supplies attainment. The bundled checker independently verifies 7,796 exact moment-polynomial equalities on 3,898 labeled graphs, but is explicitly supplementary to the unrestricted proof.
+PASS
 
-## Originality — PASS (self-review, historically provisional)
+Let S and E be the numbers of surviving vertices and edges, and Z the indicator that all cycle vertices survive. The surviving induced graph has cycle rank Z, including on the empty outcome, so K=S−E+Z and the mean follows from the host having n edges. In Var(E), only pairs sharing one vertex contribute off-diagonal terms, adding 2W p³(1−p) to n(p²−p⁴); Cov(S,E)=2n p²(1−p). For cycle covariance, each cycle vertex contributes p^ℓ(1−p) to Cov(S,Z). An edge on the cycle contributes p^ℓ(1−p²) to Cov(E,Z), and a cycle-to-off-cycle edge contributes p^(ℓ+1)(1−p). Every other edge is independent of Z; in particular a chord cannot exist. Subtraction gives Cov(S−E,Z)=−(ℓ+h)p^(ℓ+1)(1−p). Together with Var(Z) this proves the stated variance and sign, including zero variance at p=0,1. For n≤5, any possible h disagreement requires a triangle and two noncycle vertices; the one-attachment pendant chain has one leaf, while the two-attachment alternatives each have two leaves. For the displayed six-vertex pair the cycles are 345 and 124, and h=1 and 2 respectively at identical degrees. An independent union-find enumeration found labeled counts 1, 15, 222, 3,660 by order, and verified both raw moment polynomials by grouping retained subsets by size (7,796 exact equalities). Direct half-retention variances of the pair were 31/64 and 27/64. The proof, not the census, establishes the all-order law.
 
-The general subgraph component polynomial of Tittmann, Averbouch and Makowsky (2008) encodes arbitrary induced-component distributions and therefore implies that variances can be computed; this general framework is *not* claimed as new. The full primary text does not state the exact unicyclic closed-form variance, degree/cycle-length matching comparison or six-patch sharpness. Liao and Hou (2013) study related reconstructibility without the stated comparison. A particularly close later result on degree-matched trees concerns equality of their first two moments, and its cycle-free hypotheses exclude this claim. Public semantic searches and full-text comparisons support novelty of the targeted structural statement, not absolute priority. Residual risk is earlier literature on unicyclic graph reliability or covariance identities outside the inspected set.
+## originality
 
-## Value — PASS
+PASS
 
-The claim identifies exactly which placement information survives beyond a habitat degree census and mean-fragmentation curve: the number of branch edges attached at the redundancy cycle. That yields a strict, all-survival-probability variance ranking, not merely a computed example, and proves the smallest network size at which this mean-versus-variance ambiguity arises under fixed degree and cycle-length data. It provides a compact checkable structural benchmark for reliability comparisons; it does not assert field validity or applicability to nonindependent failures.
+General induced-component laws and the tree variance mechanism are existing coverage. The distinct result supported here is the reduction of unicyclic variance to the attachment count after degree and cycle-length matching, including strict all-p ranking and the sharp minimum pair. This is an exact structural comparison, not a new general procedure to compute the component law or a historical priority certification.
 
-## Closest literature and limitations
+## value
 
-Hanski and Ovaskainen (2000) provide the ecological connectivity motivation but use spectral capacity. Tittmann et al. (2008) provide the known general graph polynomial encoding the component-count law. Liao and Hou (2013) address graph information recovered from that polynomial. A published result on degree-matched trees provides the closest moment comparison, but does not include cycles. No independent historical-priority or scientific audit was performed. Results require simple connected unicyclic networks, independent homogeneous vertex survival, and unconditional component counts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+When mean fragmentation and degree inventory agree, knowing the number of branches incident to the cycle is sufficient to order fluctuations strictly at every nondegenerate survival probability. This is a structural invariance and identifiability statement useful for comparing small redundant networks, not just two evaluated graphs. The six-vertex minimum identifies exactly when that distinction can first arise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

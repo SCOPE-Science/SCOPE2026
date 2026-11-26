@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:15:07.340170Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reproduced the exact census with `python /workspace/review-work/cubic_census.py` (SymPy 1.14.0 for the base ideals). The smoothness test here uses F4 and F8 with an exhaustive geometric argument, not the frozen finite-field check as a certificate: an absolutely irreducible cubic cannot have two distinct singular points by intersecting with their joining line, so if singular its unique point is rational. A reducible cubic with a rational line has a singular point at an intersection with the residual quadratic, rational or defined over F4 (or a repeated line). If geometrically reducible with no rational line, the factors must be three Frobenius-conjugate lines defined over F8, which meet pairwise over F8. In degree three and characteristic two, the vanishing partials imply the equation by Euler. Testing the partials at all projective points of these two fields gave 336 smooth forms. Enumerating subspaces by their sorted nonzero element sets gave 5544 pencils and 864 nets; explicit invertible coordinate actions gave disjoint orbits of the eight listed representatives covering precisely that set. Independent projective-chart elimination gave the unit ideal for six reps and no points at X=0 for any rep. For (522,395,101) and (579,271,229), the X=1 ideals have Y+Z^4+Z^3+Z² and Y+Z^5+Z² respectively, each with Z^6+Z^4+1. The latter is (Z³+Z²+1)², with no rational root in its cubic factor. The local doubling is curvilinear, of length two at each of the three geometric points, not the square of a point's two-generator plane ideal. Orbit sizes give 16 versus 848. The three cubics of a basepoint-free net define a projective morphism, and every curve in a fiber would have zero degree against its pulled-back line bundle O(3), impossible. Proper quasi-finite implies finite; the image has dimension two and the intersection pullback gives degree 9. This tests only the seven rational members per net. The submitted checkers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives maximal projective dimension two and existence. Its §3 construction for p not dividing d spans powers of independent linear forms after base extension, so gives a geometrically basepoint-free example, not a census. The other two papers study geometric irreducibility of cubics or all-smooth pencils."
+        ],
+        "reasoning": "The existence construction entails basepoint-freeness for a particular family, but gives no bound forcing it for all 864 nets or determining exceptional schemes. Irreducibility does not force smoothness, and pencil incidence does not determine geometric net bases.",
+        "searches": [
+          "arXiv:2207.00918 Theorem 2 and §3 (normal-basis construction)",
+          "arXiv:2407.18104 abstract and p. 2",
+          "arXiv:2203.07169 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:47b8354c5dfc",
+        "Resultary:2fceb3218a06",
+        "arXiv:2207.00918",
+        "arXiv:2407.18104",
+        "arXiv:2203.07169"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof excludes a rational base by a dimension-three to dimension-two differential at that rational point. The two explicit ideals have no rational solutions but are proper. The prior normal-basis example uses a nonsingular Moore change of variables and has no common geometric zero."
+        ],
+        "reasoning": "Neither argument decides the geometric base of each orbit. The earlier census makes calculation possible but does not evaluate the invariant. The degree formula once basepoint-free is standard and is not a separate originality claim.",
+        "searches": [
+          "Compare prior rational-base argument in 47b8354c5dfc (offset 6460) to geometric ideals; compare arXiv:2207.00918 p. 4, (3.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 census gives 864 nets in five size-168 and three size-8 orbits and no common rational base point. The extension-incidence record likewise limits its base data to rational points, explicitly excluding geometric multiplicities."
+        ],
+        "reasoning": "The comparable invariant is the projective subscheme cut out by a basis of each net, not the rational intersection of the seven members nor the count of irreducible members. A degree-three base point is invisible to the prior rational test.",
+        "searches": [
+          "Resultary: all-smooth binary ternary cubic nets, geometric common base schemes, length-six Frobenius orbit",
+          "47b8354c5dfc Finding and rational base discussion",
+          "2fceb3218a06 Finding and Limitations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact census matches the ambient eight-orbit classification and point profiles, not the two length-six entries. No examined table gives the scheme structures or the 848 total."
+        ],
+        "reasoning": "The old finite representatives are real input, not new data. Finding that two of the three order-21 stabilizer orbits have a common degree-three support with nilpotents requires new geometric computation; all three have identical rational-point profiles.",
+        "searches": [
+          "Resultary: exact 864 cubics orbit census and doubled degree-three bases; 47b8354c5dfc and 2fceb3218a06"
+        ]
+      },
+      "rationale": "Pass only the geometric-base refinement, which is the stated new assertion. The earlier exact census supplies the 864 nets, orbit partition and rational-point information, and explicitly stops at rational base points. A prior general construction already gives geometrically basepoint-free examples (hence degree-nine maps in this case); the new result is which nets are geometrically basepoint-free and the length and structure of the two exceptional orbits.",
+      "residual_risks": [
+        "A complete table of representatives permits unindexed independent elimination computations. Priority beyond the inspected sources is not established.",
+        "The comparison with the two more peripheral preprints was limited to the cited passages, not an assertion about every theorem in each."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior ambient census; not the geometric base refinement",
+          "evidence": "864 nets, eight orbits, rational-point profiles; text explicitly excludes the complete geometric base locus from its base statement.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-projective-and-arithmetic-census-of-smooth-plane-cubic--47b8354c5dfc",
+          "material_read": "RESULT.md Finding offset 0 and rational-base discussion offset 6460",
+          "method": "Compared counts, invariants and explicit base-point scope",
+          "title": "Complete projective and arithmetic census of smooth plane-cubic nets over F2",
+          "trigger": "Same finite population and projective orbits"
+        },
+        {
+          "assessment": "Prior incidence and rational bases, not geometric schemes",
+          "evidence": "The limitations separate rational counts from geometric support and scheme multiplicities.",
+          "identifier_or_url": "2026/10/18/SCOPE-extension-incidence-and-projective-classes-of-smooth-plane-cubic--2fceb3218a06",
+          "material_read": "RESULT.md Finding offset 0 and Limitations offset 9651",
+          "method": "Checked field of the base counts and invariant classified",
+          "title": "Extension incidence and projective classes of smooth plane-cubic systems",
+          "trigger": "Related exact enumeration of bases and net extensions"
+        },
+        {
+          "assessment": "Prior existence, maximality and one basepoint-free construction, not enumeration",
+          "evidence": "The system is the span of powers y_i^d of independent coordinates after extension, so there is no common projective zero in that example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.00918",
+          "material_read": "PDF pp. 1–2, definition and Theorem 2; p. 4 §3 normal-basis construction and (3.3)",
+          "method": "Specialized n=2,d=3,p=2 and checked the geometric span of the constructed system",
+          "title": "Linear families of smooth hypersurfaces over finitely generated fields",
+          "trigger": "General result on maximal smooth systems and possible basepoint-free antecedent"
+        },
+        {
+          "assessment": "Examined statements concern irreducibility, not this census",
+          "evidence": "Reports a system with at most one geometrically reducible member and discusses projective dimension three.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18104",
+          "material_read": "PDF abstract and p. 2, OA offsets 250 and 5800",
+          "method": "Compared predicates and target conclusions",
+          "title": "Linear system of geometrically irreducible plane cubics over finite fields",
+          "trigger": "Nearby finite-field cubic linear systems with a weaker geometric condition"
+        },
+        {
+          "assessment": "Background for pencil smoothness, not this geometric net invariant",
+          "evidence": "The inspected statement concerns all rational members of projective dimension-one pencils.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07169",
+          "material_read": "PDF p. 1, abstract and setup, OA offset 300",
+          "method": "Checked the parameter-space dimension and smoothness scope",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "Possibly stronger rational-member smoothness theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An intrinsic scheme-theoretic invariant distinguishes nets that agree on simple rational data and explains exactly which maximal smooth systems induce finite morphisms by their defining cubic forms. The extra information is the number, placement in orbits and curvilinear multiplicity of the otherwise invisible base points, not a re-count of the ambient nets or a standalone degree computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

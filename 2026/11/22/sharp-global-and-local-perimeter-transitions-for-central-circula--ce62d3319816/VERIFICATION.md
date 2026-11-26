@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytical proof uses only the exact section boundary parametrization, the triangle inequality for a Euclidean vector integral, monotonicity of \(\alpha\cot\alpha\), and elementary Taylor expansion. The supplied `check_section.py` is self-contained and requires Python 3 and no third-party packages. Executing `python3 check_section.py` produced `PASS: 1344 independent numerical assertions`.
+# Independent mathematical audit
 
-Numerical coverage includes 13 cylinder aspect ratios, selected cap-contact angles, 1000 reproducible random aspect-angle pairs, and limiting series near both the axial orientation and the first cap-contact angle. The polygonal boundary length is computed independently from Euclidean distances between sampled points on the sliced-cylinder boundary. The code's numerical pass is not an infinite-dimensional verification, an exhaustive symbolic check, an independent audit, or a guarantee of historical priority.
+## correctness
+
+PASS
+
+With t=tan(theta) and k=min(1,h/t), the boundary is four ellipse arcs plus two chords of total length 4R sqrt(1-k²). In the clipped regime the quarter arc is the integrated norm of (t,(1-x²)^(-1/2)) on [0,k]. Its strict integrated-norm bound gives P/(4R)>sqrt(h²+alpha²)+cos(alpha), alpha=arcsin(k). The derivative has the sign of alpha cot(alpha)-h, a strictly decreasing test; the bound's minimum is at an endpoint. At h=pi/2-1 the lower endpoint bound is pi/2; monotonicity in h and the full-ellipse strict inequality give exactly the claimed minimizers. Near the axial angle, the integral in the vertical coordinate gives w and w² coefficients 2Rh(1-h) and R(2h³/3-h/2-h⁴/2), so h=1 is already a strict local maximum. The full-ellipse expansion at zero angle starts with +pi R theta²/2. At contact, the missing arc minus chord is (2R/3)(1+t²)a³+O(a⁵), a²=1-h²/t². The quotient by a³ extends analytically in a² and t; substitution into theta gives the stated 3/2 coefficient and C¹ but not C² regularity, without differentiating an arbitrary error term. Strictness is for the angle variable, not for azimuthal motion among rotationally equivalent planes. Independent high-precision diagnostics agreed; the analytic proof, not those tests, establishes the theorem.
+
+## originality
+
+PASS
+
+The available evidence supports a distinct central perimeter theorem with equality, axial stability and cap-contact regularity. Adjacent results about area, cap-incidence probabilities or complete ellipse circumference do not establish that theorem. Assessment is best-of-knowledge, not a guarantee of priority.
+
+## value
+
+PASS
+
+The natural orientation optimization is not settled by comparing the obvious disk and rectangle: a clipped oblique section also competes. Ruling it out, proving that local and global changes occur at different aspect ratios, and quantifying the loss of contact smoothness give usable geometric information beyond an ellipse formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

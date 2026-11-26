@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unit-group construction follows from the radical and center constraints in arXiv:2611.16086v1, Theorem 1.4 and Lemmas 2.1–2.4. In the subgroup \(1+J\), central squares are \(2a+a^2\); the central commutator is the unique nonzero additive radical commutator. The group-isomorphism problem reduces to quadratic maps \(\mathbb F_2^2\to\mathbb F_2^3\) with fixed nondegenerate commutator polar. The rank of the image modulo the commutator direction and, in rank zero/one, Arf/kernel-square distinctions prove that there are exactly five orbits. The five invariant signatures distinguish them. Each of the 88 parameter representatives from published tables was transformed using this formula; the seven source subfamily totals sum correctly. The standalone checker exactly reproduces five orbits, signatures, all 88 source representatives and each finite group multiplication law. The proof relies explicitly on the published ring-classification completeness.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Use the published minimal-order classification as input. The units are 1+J because the residue field is F₂. The square-zero elementary abelian central subgroup 1+Z₀ has order eight; independent cosets of J/Z₀ have unit commutator 1+w because their ring commutator annihilates J. The resulting nondegenerate alternating form proves that this subgroup is the full unit-group center. In central coordinates the square map is xu+yv+xyw. Modulo w it is linear: rank zero gives the two binary Arf types, rank one is split by the square (0 or w) of its unique nonzero kernel vector, and rank two has one orbit. Changing quotient and center bases gives precisely the presentation equivalence. The square-zero cosets give 8|q^{-1}(0)| elements including the identity, and the Frattini space is spanned by u,v,w. The resulting signatures distinguish the five groups; in the first and third types the generators with w give D₈ and Q₈ with the other two central factors splitting off. Independently read and transcribed Tables 1–3 and Props. 4.1–4.3 rather than running the frozen checker. In characteristic four the shifts to the ring square pair are zero for 2·1 in W₀, (s₁,s₂) in Prop. 4.2, and (w,0) in Prop. 4.3. The seven independent count rows in frozen order are (2,4,1,3,0), (1,2,1,2,3), (2,4,1,3,0), (3,6,1,6,0), (1,2,1,2,3), (2,4,1,3,0), and (2,6,1,7,8). They give the exact characteristic split and totals. This checks the transport of the published representatives, not the completeness proof for rings independently.
 
-The full available text of the motivating arXiv:2611.16086v1 was examined, especially its structural theorem, three tables and all characteristic-four case distinctions. It lists ring isomorphism classes and additive radical types, but no abstract unit-group isomorphism counts. The earlier arXiv:2610.36174v1 proves the minimal order and partial structures, but not the 88-class unit-group distribution. Searches for exact group-invariant wording, equivalent central-extension and Arf descriptions, and other published work did not find the distribution. A previous zero-product statistic on the same 88 rings counts an inequivalent relation and cannot imply a group-isomorphism classification. Classifications of groups of order 32 may contain all five types, but do not yield their ring-class frequencies without the new transport computation. Risk: undiscovered computations of the same census.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unit group is a canonical functorial invariant and the first natural finite group attached to any local ring. This result quantifies exactly how the freshly classified 88 nonisomorphic minimal rings collapse to only five abstract unit groups; computes fibers both globally and by characteristic; and gives simple intrinsic group signatures and a complete five-orbit structural explanation. These are substantive exact classification and invariant-loss statements, not a restatement of the ring tables or a single arbitrary test case.
+The supported distinct result is the characteristic-refined distribution of abstract unit groups across the minimum-order ring catalogue. The ring list, square/double data, and general group classification are inputs or background, not independently new claims.
 
-## Limits and priority
+## value
 
-The ring list is a mathematical input from the preprint, not independently proved here. The finite checker validates formulas and transcription but does not imply historical uniqueness or substitute for the structural argument. Searches cannot rule out all unindexed literature. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unit group is a natural multiplicative invariant of these extremal rings. A complete distribution with presentations and an inexpensive intrinsic type signature explains how the 88 ring classes collapse under this invariant, including the effect of changing characteristic. This exact structural census can be used without reconstructing radical multiplications every time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

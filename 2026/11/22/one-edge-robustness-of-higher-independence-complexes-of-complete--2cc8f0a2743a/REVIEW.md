@@ -1,19 +1,21 @@
-# Review of the one-edge higher-independence theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new faces are exactly the two families of top-dimensional simplices containing the deleted edge endpoints and one whole adjacent component of size equal to the threshold. Each has a demonstrably free codimension-one face. Descending anchoring collapses the remaining oversized pure-part simplices, leaving a complex of dimension at most the homology degree. The intact full skeleton guarantees connectivity, while the relative chain complex has exactly the new cells and no lower relative cells. Euler characteristic and the integral long exact sequence establish the binomial ranks and primitive split surjection. The external verifier passed 1,111 independent cases and each reported elementary collapse; no infinite conclusion is inferred solely from that sample.
+PASS
 
-## Originality — PASS against the inspected record
+Every mixed induced subgraph of the intact graph is connected. On a mixed set containing u and v, a vertex in any third part keeps the graph connected after deletion; with just the first two parts present and at least two vertices in each, an alternate length-three path also keeps it connected. In the remaining cases deleting uv isolates the endpoint alone in its part. Thus the only new faces are the listed sets of size r+1, exactly t_r in number. Each has an explicit mixed r-set facet with just that one proper coface: it omits the endpoint in the shore with the additional vertices, and cannot lie in a pure-part coface or in a second new face. The word 'unique' in Step 2 need not mean that a new simplex has no other free facet (a newly allowed triangle on the whole vertex set can have three); the required and used property is uniqueness of the coface of the chosen facet. These collapses followed by anchoring the pure parts leave dimension at most r−1. Both originals contain the full (r−1)-skeleton, giving (r−2)-connectivity; the dimension bound yields wedges by the connected-graph case or Hurewicz and Whitehead. For the intact complex the collapse from the skeleton count removes exactly C(m_i−1,r) faces of dimension r−1 in each part. The modified complex removes t_r additional such faces, giving the stated rank by Pascal's identity. The relative chain complex has only the t_r new r-simplices, so the reduced long exact sequence gives a short exact sequence of free abelian groups in the claimed degrees; freeness of the target yields the integral splitting and primitivity. For r≥N the complexes are simplices and all binomial ranks are zero. This verifies the map, not just the two ranks.
 
-The 2020 Deshpande–Singh result concerns intact complete multipartite graphs. The previously published matching-deletion result fully covers the second-independence bipartite specialization, which is acknowledged. Higher thresholds, arbitrary numbers of parts, and the split inclusion-map theorem were not covered by the inspected statements. Searches included near-complete multipartite graphs, edge-deleted higher-independence complexes, equivalent dissociation terminology, and the specific integral homology kernel. Searches cannot establish mathematical uniqueness. The residual risk is an unindexed or differently phrased theorem; secondary related work was inspected to the actual extent documented in the structured review.
+## originality
 
-## Value — PASS
+PASS
 
-Complete multipartite graphs are a canonical exact-test family for higher-independence topology, and deletion of a single cross-edge is its minimum nontrivial perturbation. A universal classification across every threshold and number of parts, combined with an exact primitive homology loss law, supplies structurally meaningful information not captured by a collection of small Betti numbers. It also isolates how many homology classes vanish under an edge fault, a map-level invariant that remains integral for every parameter.
+The intact ranks and wedge theorem are prior; no originality is assigned to them or to the cited bipartite r=2 baseline. The all-r one-edge comparison for arbitrary multipartitions and its kernel on integral homology survive the closest checked comparisons. In particular the nearest matching-defect persistence record uses a different complex.
 
-## Limits
+## value
 
-No equivariance, higher-multiple-edge robustness, or direct elementary collapse onto the final wedge is claimed. The independent external audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural family the theorem precisely quantifies the topology killed by one local edit across all thresholds, and identifies an integral split quotient rather than merely giving Betti numbers before and after. The classification of changed faces and the integral ranks make this a useful test case for persistence under graph edits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

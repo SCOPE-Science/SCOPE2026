@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:12:38.529574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–29 and 33–132; VERIFICATION.md, lines 19–25; verify.py, lines 8–44 (inspected, not executed)"
+      ],
+      "rationale": "For a,b,c>0 and integer k≥1, the polar identities give r=(r₀^(−2k)+2kat)^(−1/(2k)) and θ̇=br²sin²θ+cr⁴. The decreasing radius gives stability, attraction and forward completeness. At k=1, in s=log(r^(−2)), θ′=A sin²θ+B e^(−s). For any sufficiently late crossing of nπ, the barrier (n+1)π−L/(s−s₀+D), L=1/(2A), starts strictly above θ and has derivative exceeding the right-hand side there: the sine term uses at most half the derivative, and the exponential uses less than half uniformly for s≥s₀. Thus θ is bounded and its increasing limit must lie in πℤ. At k≥2, ∫r⁴dt diverges, including the logarithmic case k=2. At fixed radius q, substitution of tan θ on a quadrant gives the full-turn time 2π/[q³√(c(b+cq²))]. On a physical interval of length Mq^(−3), the radius stays within relative O(q^(2k−3)) of q. Taking M>2π/√(bc), comparison with the angular speeds at the two endpoint radii first bounds the actual turn within that interval and then sandwiches its duration. Consequently r^(−(2k−3)) increases by 2π(2k−3)a/√(bc)+o(1) each turn. Summing and using monotonicity between crossings gives the exact limit for the real-valued N(t). For k=2 and a=b=c=1 this gives N∼t^(1/4)/(π√2), hence t_n∼4π⁴n⁴. All assertions apply to any fixed nonzero initial point, not just a trajectory at a particular phase.",
+      "residual_risks": [
+        "The finite 30-turn and k=1 checks do not certify the limiting law; the audit relies on the analytical comparison. No general perturbation or analytic return-map assertion was checked or inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected García–Giné theorems compute Poincaré-map data for monodromic singularities; the primary search yielded no useful further match, not evidence of absence."
+        ],
+        "reasoning": "Those hypotheses and outputs cannot give the k=1 alternative in this family or the coupled physical-time turn duration. The polar Riccati reformulation z=tan θ, ż=cr⁴+(br²+cr⁴)z², does connect to scalar oscillation tools, but no inspected source gives the joint classification including the nonoscillatory borderline and the stated time law under these coefficients.",
+        "searches": [
+          "Resultary: physical-time winding count asymptotic angular bottleneck planar polynomial vector field monodromy",
+          "Primary literature search: \"monodromic singularities without curves of zero angular speed\" \"winding\" physical time planar angular bottleneck polynomial",
+          "arXiv:2611.15233v1, Theorem 12; arXiv:2412.09205v1, Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary and local mirror records identified above",
+        "arXiv:2611.15233v1",
+        "arXiv:2412.09205v1",
+        "DOI 10.3934/math.2025069 (OA attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two primary results under comparison determine a Poincaré coefficient or formal expansion, whereas RESULT.md needs a finite-winding barrier and an actual per-turn time sandwich."
+        ],
+        "reasoning": "A frozen bottleneck period alone is also not the claimed time law: it must remain asymptotically valid over a full turn as the dynamical radius decreases. The comparison that closes this step requires 2k−3>0, and the k=1 statement needs separate control. The inspected orbit/first-crossing results do not yield both by substitution.",
+        "searches": [
+          "Resultary: García Giné Stability of analytic monodromic singularities without curves of zero angular speed Poincare map coefficients monodromy angular velocity",
+          "arXiv:2611.15233v1, pp. 1, 6; arXiv:2412.09205v1, pp. 1, 4; SCOPE-universal-first-crossing-tails-and-the-complete-cubic-angular-de--b6a9712d7f01"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "García–Giné arXiv:2611.15233v1 p. 1 defines monodromy via winding/absence of characteristic orbits; Theorem 12 treats the linear term of a radial return map."
+        ],
+        "reasoning": "Writing the k=1 limit as existence of characteristic directions is equivalent at the level of classification. A radial return map uses angle as the independent variable and does not encode clock time. Even time reparametrization leaving trajectories fixed can change the winding rate; knowing monodromy is not equivalent to the clock-time result.",
+        "searches": [
+          "Resultary: radial polynomial planar system dot r = -a r^(2k+1), dot theta = b r^2 sin^2(theta) + c r^4 winding asymptotic",
+          "Resultary: finite versus infinite winding monodromic planar singularity positive angular speed zero angular speed curve"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is 2026/11/22/SCOPE-a-sharp-monodromy-threshold-and-physical-time-winding-law-for-po--804d4e2a838c. The distinct hit 2026/11/22/SCOPE-universal-first-crossing-tails-and-the-complete-cubic-angular-de--b6a9712d7f01 was read at Finding and Assumptions."
+        ],
+        "reasoning": "The exact record reproduces the assigned family and formula. The distinct result gives first downstream-ray crossing and an ensemble tail for a different homogeneous star-node flow, not recurrent winding as radius shrinks or its physical-time exponent. No separate exact tabulation was resolved.",
+        "searches": [
+          "Resultary: radial polynomial planar system dot r = -a r^(2k+1), dot theta = b r^2 sin^2(theta) + c r^4 winding asymptotic",
+          "Resultary: polynomial planar origin finite angular displacement versus infinite winding radial attraction angular speed positive characteristic directions exact winding law"
+        ]
+      },
+      "rationale": "The resolved sources share tools and the angular degeneracy motivation but do not supply the joint finite/infinite winding classification and leading physical-time asymptotic for this shrinking family. The indexed exact match is the frozen record itself. A related distinct catalogue record was compared on substance, without inferring order from its date.",
+      "residual_risks": [
+        "Bounded literature coverage; priority is not established. The 2025 AIMS article was not read through the attempted route. An equivalent explicit Riccati/Sturm example or a broader specialized winding theorem may be unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conceptual overlap; inspected result is about the radial return map.",
+          "evidence": "Theorem 12 gives a linear Poincaré-map coefficient, not a physical-time turn count.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15233",
+          "material_read": "v1 PDF p. 1 and Theorem 12 p. 6 (offset about 19000).",
+          "method": "Open primary PDF, literal locator and bounded reading.",
+          "title": "Stability of analytic monodromic singularities without curves of zero angular speed",
+          "trigger": "Same angular-speed and monodromy terminology; plausible planar classification overlap."
+        },
+        {
+          "assessment": "Formal return-map comparison, not a clock-time result.",
+          "evidence": "Theorem 4 gives a formal Poincaré-map expansion under its assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.09205",
+          "material_read": "v1 PDF p. 1 and Theorem 4 p. 4 (offset about 10800).",
+          "method": "Open primary PDF, literal locator and bounded reading.",
+          "title": "Principal Bautin ideal of monodromic singularities with inverse integrating factors",
+          "trigger": "No-local-zero-angular-speed hypothesis and possible stronger result."
+        },
+        {
+          "assessment": "No inference of noncoverage from the access failure.",
+          "evidence": "No decisive passage available from this attempt.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2025069",
+          "material_read": "No full-text passage retrieved.",
+          "method": "OA retrieval attempt.",
+          "title": "Monodromic singularities without curves of zero angular speed",
+          "trigger": "Closely titled cited primary article."
+        },
+        {
+          "assessment": "Identical record, not an antecedent.",
+          "evidence": "The same family, k=2 threshold and leading time law.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-monodromy-threshold-and-physical-time-winding-law-for-po--804d4e2a838c",
+          "material_read": "RESULT.md, Finding and Assumptions (offset 0).",
+          "method": "Resultary search and local mirror.",
+          "title": "A sharp monodromy threshold and physical-time winding law for polynomial angular bottlenecks",
+          "trigger": "Highest exact catalogue match."
+        },
+        {
+          "assessment": "Different system, observable and limiting question.",
+          "evidence": "First ray-crossing times and ensemble tails for a homogeneous star-node, not successive turns at an attracting origin.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-first-crossing-tails-and-the-complete-cubic-angular-de--b6a9712d7f01",
+          "material_read": "RESULT.md, Finding and Assumptions (offset 0).",
+          "method": "Resultary search and local mirror.",
+          "title": "Universal first-crossing tails and the complete cubic angular degeneracy",
+          "trigger": "Distinct related catalogue hit on angular zeros and timing."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof steps 2–3",
+        "García–Giné arXiv:2611.15233v1, p. 1 and Theorem 12"
+      ],
+      "rationale": "This family is a controlled comparison: positive off-origin angular speed and global attraction persist while changing just radial order switches the existence of characteristic rays. It gives a sharp counterexample to using pointwise angular positivity as a winding test, and a quantitative benchmark in physical time including the exact leading coefficient and quartic revolution times. The contribution is the coupled classification and timing, not the polar algebra or a claim about arbitrary analytic singularities.",
+      "residual_risks": [
+        "No perturbation robustness, generic monodromy criterion or cyclicity conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

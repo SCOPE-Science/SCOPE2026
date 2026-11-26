@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph-of-class-intersections encoding is a bijection between transverse named-equivalence structures and simple bipartite graphs without isolated graph vertices. Direct partition counting gives 15 distinct-triple types and 10 equality-degenerate types. The necessity of left and right three-stars and a three-edge matching proves the six-element bound; examination of the single edge outside their shared stars proves all four extremizers. The three-corner closure law for commuting relations proves the complete-biclique component decomposition. Star and path resource bounds give the nine-element minimum and three sharp component multisets. All sizes beyond the minima follow by adjoining isolated incidence edges. The standalone program checks each conclusion independently on finite configurations; the unrestricted proofs do not rely on enumeration.
+## correctness
 
-## Originality
-**PASS within the inspected record.** Fiuk's 2026 work analyzes the finite model property and computational complexity of guarded logic with nested equivalences. The verified newer local-type analysis for two equivalences treats ordinary pointed rank-one types without the transversality condition and obtains 8 types and 12-element minimal diversity, not ordered quantifier-free three-variable universality. A separate published commutation study determines an expressibility threshold and a joint size boundary for rank-two-equivalent commuting/noncommuting structures, not the exact three-variable universality cost. The older two-equivalence literature primarily addresses decidability and modal definability. None of the materially inspected statements covers the six-versus-nine theorem or its extremizer classifications. Residual priority risk: an unindexed incidence-design result or inaccessible full text could contain an equivalent theorem.
+PASS
 
-## Value
-**PASS.** The intersection of two equivalence relations is a basic finite-model object; quantifier-free three-variable configurations form its first level at which stars, matchings and alternating paths interact. The simultaneous-realization invariant measures the minimum single finite test structure needed for all these configurations. Relational commutation is a substantive algebraic restriction, and the theorem determines its exact three-element resource cost and both complete extremizer classifications. These are natural full classifications, not arbitrarily selected instances.
+Each element occupies a unique cell (E-class,F-class), so equality follows from the two coordinate equalities and shore names matter. The distinct-variable partition pairs number 5+3×3+1=15; exactly-two-equal triples give 3×3=9, and all-equal gives one. The six distinct-edge motifs, including both orientations of stars, are edge-selected and supply all repeated-variable cases as well. The opposite-shore three-stars occupy six edges if disjoint and cannot supply a three-matching; their shared five-edge double star also fails until an edge avoiding both centers is added. Such an edge leaves a spare leaf on each side for a matching and supplies both two-star-plus-disjoint-edge motifs by omitting at most one old leaf. The shared stars supply a three-edge path. The four choices of whether the extra endpoints are old/new are shore-size-distinguished. Commutation is equivalent to rectangular components by fourth-corner closure along alternating paths. Both stars in one rectangle cost ≥9 edges; in different rectangles they cost ≥3 each and a path requires either expanding one to ≥6 or using a third rectangle of ≥4. At equality the three listed rectangles/unions meet every motif; a disjoint singleton edge extends all larger sizes. An independent integer-mask enumeration found 25 profiles and the six-edge 4×4 labelled counts 576,288,288,144 by shore cardinalities (3,3),(3,4),(4,3),(4,4), and independently recovered exactly the three commuting nine-edge component multisets. The replay design and frozen replay path are `verify_profiles.py`, lines 10–80; the frozen script was inspected, not executed. The all-size proof does not rest on the bounded grid check.
 
-## Limitations
-The result is restricted to two named equivalence relations with trivial intersection and formulas with no quantifiers. It does not extend to arbitrary overlaps, more relations, or complete quantified theories. The 2022 primary article on commuting equivalences was only checked by its accessible abstract, leaving a specific historical-priority risk. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the simultaneous realizability classification and sharp six-versus-nine comparison for named transverse equivalences. The incidence translation and rectangularity criterion are background mechanisms, not claims to novelty. Checked rank-one, nested, bipartite extension-rank and graph universality work neither matches the assumptions and objective nor entails the exact minima and named equality classes.
+
+## value
+
+PASS
+
+Simultaneously realizing every permitted three-variable atomic configuration is a natural finite-model invariant. At this first arity where opposite-shore incidence and a path interact, permutability has an exact three-element cost and changes the entire minimum-host classification. Researchers can use the lists as small universal testing structures for the two named relations. The theorem is finite and quantifier-free, not a claim about general satisfiability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

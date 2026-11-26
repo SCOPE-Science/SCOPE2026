@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:27:48.724955Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to repairs/2/RESULT.md, not to the literal universal velocity-completion sentence of the original. Originally w0=0 satisfied the homogeneous displayed moment equation but adjoined no direction: take X=(1,1)^T, V=(1,0)^T, unit weights, velocity nodes 0,1 and M=J=1. The mean 1 is physically attainable, while the second column of XSV^T is identically zero and the momentum is always zero. The replacement requires w0 nonzero and nonnegative; b>0 then implies positive mass, and normalization proves w0 is outside W if its target mean was missing. For the main theorem, the weighted marginals Fb and F^Ta are nonzero in their respective factor spaces; conversely the normalized product gives the target mass and momentum and exact rank one. Normalizing the spatial marginal gives the two independent r-variable LPs. The closed convex feasible core set gives existence and uniqueness of its squared-distance minimizer by coercivity and strict convexity. The velocity slice is compact; at a vertex its positive-support columns must be independent in the stacked constraint matrix of rank n-r+1. For codimension one, singleton zero-coefficient supports and opposite-sign pairs exhaust vertices (a pair of zero coefficients gives a nonextreme mixture). The support bound is sharp: take the first n-r+1 entries constrained equal and the rest free, with b all ones, and use the normalized constant block with all free entries zero. Both completion obstructions are independent; once both are absent the same product witness works, also for rectangular cores. Independently checked 240 weighted opposite-sign-pair balances exactly and the zero-vector obstruction; replay: python3 /workspace/independent_checks.py 2. The frozen verifier was read, not run; finite checks do not establish the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kormann–Nazarov–Wen discuss increasing rank as a possible feasibility remedy, not a necessary and sufficient condition or exact dimension count.",
+          "The polynomial-grid note gives sharper explicit numerical bounds in degrees 0,1,2 but assumes equally spaced scalar nodes, uniform weights, and a constant spatial vector."
+        ],
+        "reasoning": "Better numerical formulas for those velocity spaces are not stronger coverage of arbitrary spaces, weighted vector moments or target-specific one-sided enlargement. Standard product coupling and basic feasible solutions supply ingredients, not an independently located prior theorem classifying this kinetic correction.",
+        "searches": [
+          "arXiv:2606.31662v1 §3 Remark 3.4 and §4",
+          "Resultary 2026/11/22/SCOPE-sharp-momentum-feasibility-cones-for-affine-and-quadratic-veloci--66e2dee77c04"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31662v1",
+        "Resultary 66e2dee77c04 RESULT.md",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Polynomial theorem says |J|≤M R_{d,n}, with an all-ones spatial vector and sampled polynomials; its product p(v_j)/N_x proves feasibility on that domain.",
+          "The parent QP explicitly leaves possible infeasibility and suggests enrichment.",
+          "Example X=(1,-1)^T at r=1 shows the absent spatial ray can prevent positive mass regardless of attainable velocity moments, a regime excluded by the polynomial note."
+        ],
+        "reasoning": "The exact polynomial statements imply overlapping restricted examples, not the repaired classification including space-dependent obstructions and minimal dimension changes. The identical indexed record is the audited record, not a separate prior result.",
+        "searches": [
+          "arXiv:2606.31662v1 §4 pp. 10–11",
+          "Resultary 66e2dee77c04 RESULT.md Finding and Reduction to a one-variable cone"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kormann–Nazarov–Wen formulate the same class of S-correction quadratic problems and recognize possible infeasibility; §4 does not give a separate marginal iff test.",
+          "The same-day polynomial-grid note, Reduction to a one-variable cone, uses sum of rows and a constant spatial product; this is the unit-weight case with the spatial obstruction removed and a particular family of velocity spaces."
+        ],
+        "reasoning": "A moment image of a normalized cone is the equivalent geometric formulation, not a second theorem. Neither the joint QP formulation nor the narrower polynomial cone determines both obstructions for arbitrary X,V.",
+        "searches": [
+          "Resultary fixed-basis positivity and moment feasibility; mass-momentum nonnegative core; velocity feasibility cones",
+          "arXiv:2606.31662v1 §4 (4.1)–(4.5)",
+          "primary literature lookup for fixed low-rank basis mass/momentum feasibility and rank-one marginal factorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related note lists (R_{1,3},R_{2,3})=(2/3,1). R_{1,3}=2/3 is exactly the symmetric interval endpoint in Step 6, not independent novelty."
+        ],
+        "reasoning": "The worked example overlaps an exact table. The final theorem is not an extension by recomputing grid entries; it classifies arbitrary factor-space feasibility and a minimal repair, not just radii of homogeneous symmetric grids.",
+        "searches": [
+          "Resultary polynomial velocity feasibility cones and exact three-velocity obstruction",
+          "Resultary 2026/11/22/SCOPE-sharp-momentum-feasibility-cones-for-affine-and-quadratic-veloci--66e2dee77c04, Finding, finite-grid examples"
+        ]
+      },
+      "rationale": "The distinct contribution is a complete arbitrary-fixed-space feasibility classification for this correction problem, including the spatial obstruction, global vector momentum with arbitrary positive quadratures, the codimension-one image hull, and minimal target-specific completion. The product witness and basis-feasible support argument are classical ingredients, not claimed as new. A distinct same-day polynomial-grid record contains the marginal/product reduction in its restricted setting and the three-node numerical interval, so neither is treated as a separate new result here. Its assumptions and theorem do not cover the final arbitrary-space claim. No priority ordering is inferred from the shared publication date.",
+      "residual_risks": [
+        "A prior general marginal-feasibility theorem in a different matrix-cone formulation remains possible; the bounded primary lookup is not a priority guarantee.",
+        "No chronology beyond the shared date is established for the overlapping polynomial-grid note."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact motivating formulation; no marginal iff criterion, codimension-one image hull or minimal exact completion in the compared formulation.",
+          "evidence": [
+            "Remark 3.4: solutions not guaranteed for (3.3) and (3.5); §4 formulates the S-correction and discusses enhanced feasibility with larger rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31662",
+          "material_read": "PDF pp. 9–11, §3 Remark 3.4 and §4 (4.1)–(4.5)",
+          "method": "Lawful arXiv PDF text, bounded page passage around text offset 32000",
+          "title": "Positivity-preserving dynamical low-rank methods for the Vlasov equation",
+          "trigger": "Direct source for prescribed-moment core positivity correction and rank enrichment"
+        },
+        {
+          "assessment": "Substantial overlap on the polynomial-grid subfamily and three-node worked case, not general coverage. Same-day priority unresolved.",
+          "evidence": [
+            "Finding: |J|≤M R_{d,n}, including R_{1,3}=2/3; Reduction to a one-variable cone: F_{ij}=p(v_j)/N_x is permitted by the constant spatial factor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-momentum-feasibility-cones-for-affine-and-quadratic-veloci--66e2dee77c04/RESULT.md",
+          "material_read": "RESULT.md Finding and bounded Assumptions and Proof passage at offsets 0 and 3800",
+          "method": "Resultary lookup and local mirror statement comparison, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp momentum-feasibility cones for affine and quadratic velocity factors",
+          "trigger": "Distinct indexed record sharing an exact moment obstruction and a marginal reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the exact, practically motivated S-correction with otherwise unspecified feasibility, one can diagnose which factor space blocks prescribed moments before attempting the squared-distance problem, replace a joint r²-variable decision by separate r-variable feasibility tests, and construct an exactly minimal per-side direction when necessary. The result is useful as an arbitrary-space structural criterion, not as discovery of rank-one coupling, a three-node table entry, a runtime bound, or a guarantee for dynamical corrections.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

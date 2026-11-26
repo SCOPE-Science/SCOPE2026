@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact block-energy expansion proves the finite-parameter theorem without an unverified structural lemma. For positive orientations the rowwise nonnegativity lower bound yields an explicit neighborhood certificate. For subcritical orientations a feasible singleton perturbation has negative second-order term. At the exact boundary the constrained second variation is nonnegative, but an explicitly normalized rotation of the positive head profile combined with a singleton perturbation lowers energy by precisely half the square of the perturbation parameter. All hypotheses, including strictly positive orientation and enough factor columns to attain the global zero loss, are used. The standalone exact-rational verification exercises the polynomial identities and perturbation inequality; it does not substitute for proof of universal statements.
+PASS
 
-## Originality — PASS (with residual risk)
+The exact block loss difference is half the squared head Gram residual plus ||YZ^T||_F^2-||Z||_F^2+||ZZ^T||_F^2/2. The gradient vanishes at each collapsed orientation, and k+1 columns suffice for exact fit by disjoint supports. If the minimum head entry is strictly above 1/sqrt(m), it remains so in a neighborhood; nonnegative rows z give ||Yz^T||_2^2 >= m(min Y_ij)^2||z||_2^2. This proves local optimality for all feasible perturbations there, with nonstrictness from nearby positive unit orientations. Below threshold, inserting one entry t in a minimizing column of one tail row gives a negative quadratic coefficient and a positive t^4/2; head scaling also supplies an increasing direction. At equality the displayed Hessian coefficient is nonnegative on the full tangent cone (head arbitrary, tail nonnegative, gradient zero). Reducing the minimizing squared orientation coordinate by t^2/m and transferring that mass to another coordinate keeps the head Gram fixed; the same tail insertion now gives exactly -t^4/2 at distance t+O(t^3). The critical construction needs r>=2; the stronger r>=k+1 hypothesis ensures zero global loss. The balanced vector uniquely maximizes the minimum coordinate, so a local minimum in this family exists exactly for m>r. The source's exact-rational checks are finite; its script was inspected, not executed.
 
-Richard Y. Zhang, *Nonnegative Low-rank Matrix Recovery Can Have Spurious Local Minima* (arXiv:2505.03717, Theorem 4 and Lemma 12), already proves the balanced-profile spurious minimum for \(m>r\); that case is not new. The full text's statement and proof fix equal positive factor coordinates and do not classify general orientations, their sharp necessity, or the second-order stationary but nonminimizing equality stratum. The new assertion concerns the entire continuous, Gram-equivalent stationary family and its threshold, not just a separate imbalance example. Related symmetric-factorization algorithms (Hayashi et al., DOI:10.1137/24M1638355) and unconstrained benign-landscape work address different questions. Published-record searches returned no statement covering the orientation classification; this is not proof of universal novelty. Potentially unindexed equivalent analyses and simple extensions of the cited block proof remain limitations.
+## originality
 
-## Value — PASS
+PASS
 
-The phase diagram resolves a natural ambiguity in the motivating cluster-collapse counterexample: identical low-rank Gram matrices, identical loss, and zero first derivative do **not** determine local-minimum status under nonnegativity. It identifies precisely which latent positive orientations are traps, which are negative-curvature directions, and which satisfy second-order tests yet have higher-order escape. The explicit one-sided stability tube and sharp rank-versus-cluster-size existence condition characterize practical landscape geometry rather than an arbitrary enumeration or numerical slice. It does not claim a general algorithmic convergence theorem.
+Credit Zhang for the same target and balanced spurious minimum, as the frozen original does. The supported distinct claim is the sharp classification over the whole positive unit orientation family, including opposite local behavior at an identical Gram matrix and the second-order stationary but quartically descending boundary.
 
-## Limitations
+## value
 
-This covers only the collapsed-block stationary fiber of the fully observed nonnegative symmetric Gram loss. The initial 2025 public version and later 2026 journal version of Zhang's paper are the same motivating source, not two independent results. General nonnegative factorization landscapes may exhibit other stationary types. The exact second-order escape and the value assessment have not undergone independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The example isolates a genuine ambiguity in judging constrained factor landscapes from fitted Gram matrices or first derivatives alone. A sharp threshold on the full positive orientation fiber and explicit fourth-order descent at a second-order stationary point convey more than another isolated spurious minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

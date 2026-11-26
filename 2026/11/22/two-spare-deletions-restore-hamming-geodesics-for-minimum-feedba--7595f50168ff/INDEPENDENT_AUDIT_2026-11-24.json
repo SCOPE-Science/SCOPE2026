@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:19:31.680584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic Fano lines are translates of {0,1,3} modulo seven (every nonzero difference occurs once). Independently enumerating deletion masks and repeatedly stripping remaining vertices of degree at most one tests foresthood exactly: every forest strips to nothing, while no cycle can lose its first vertex under this rule. The feasible counts at sizes zero through six are 0,0,0,0,70,812,2254, and the fourteen five-vertex kernels give exactly the seventy four-vertex masks. Different kernels meet in at most two vertices and two minima in one kernel meet in three, so the only shared size-five neighbor of two minima is their common kernel. At cap five, each of fourteen such centers has five size-four neighbors, each with nine private size-five leaves; the remaining 168 size-five vertices are isolated. This gives 882 states and 700 edges with disconnected optima (also isolated at cap four). Flipping one mask bit gives exactly the TAR adjacency. At cap six all-source breadth-first searches give one component, 3136 states, 8008 edges, and eccentricities 10,11,12 at sizes 4,5,6 respectively. All 2415 unordered optimum pairs attain the symmetric-difference lower bound, with distance counts 140,630,980,665 at 2,4,6,8. Attaining the bound forces exactly one flip per differing coordinate and no other flips, proving monotonicity. Over all unordered distinct pairs, the excess counts at 0,2,4 are 4532374,382466,840, with no other excess. A separate DFS-based enumeration reproduces the finite census. Replay: node /workspace/heawood-replay.js. Both supplied scripts were inspected, not executed. These checks are exhaustive for the specified graph and capacities, not for arbitrary subcubic graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DOI yielded landing/abstract material rather than a readable original Theorem 4. The inspected Petersen record describes Theorem 4 as fixed-size exchange connectivity for nonminimum FVSs of subcubic graphs."
+        ],
+        "reasoning": "If the described theorem applies at size five, exchanges lift to cap-six TAR walks, so size-five states and all optima are connected at cap six. Together with the prior cap-five kernel obstruction this already implies the optimum threshold. This gives no lengths between specific optimum pairs and no all-state eccentricity or excess distribution. The primary wording and all its hypotheses were not independently confirmed.",
+        "searches": [
+          "Bousquet et al. Feedback vertex set reconfiguration in planar graphs, DOI full-text lookup with Theorem 4",
+          "Resultary local mirror: Petersen feedback set TAR geodesics, prior-work passage at offset 11978"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_exhaustive.py and verify_independent.py",
+        "Resultary catalogue and local mirror",
+        "doi:10.1016/j.tcs.2023.114188 (limited primary access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Heawood classification determines the minimum-set kernel families and therefore every cap-five component that contains a minimum.",
+          "The four-cube and Petersen analogues give exact optimum distances on different graphs, with the Petersen analogue also giving an eccentricity trichotomy."
+        ],
+        "reasoning": "The kernel description alone does not enumerate feasible five-sets without a minimum, and neither the kernel classification nor an unrestricted exchange connectivity theorem ensures monotone shortest TAR paths or fixes global metric counts. The graph-specific analogues do not imply this computation. No intraday ordering follows from the same date.",
+        "searches": [
+          "All seventy minimum feedback-vertex sets of the Heawood graph, §Finding, local mirror offset 390",
+          "Q_4 two-vertex buffer finding, optimum distance passage offset 1511",
+          "Same-day Petersen finding, offset 1447"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feedback vertex and decycling sets describe the same feasible family here.",
+          "A fixed-size one-for-one exchange can be realized by adding the new vertex and then removing the old one, since the union remains feasible; this requires one extra slot.",
+          "The distinct same-day Heawood connected-FVS finding concerns minimum size seven and fixed-size exchange under an extra connectivity restriction."
+        ],
+        "reasoning": "The fixed-size exchange and TAR graphs are related, not identical: one exchange takes two TAR steps, and some TAR states need not contain a minimum solution. A connected-FVS restriction changes the minimum and solution space.",
+        "searches": [
+          "Resultary: Heawood feedback vertex/decycling sets, TAR reconfiguration, exact distance and symmetric-difference geodesics",
+          "Bousquet et al., doi:10.1016/j.tcs.2023.114188, Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Heawood table has seventy minima of size four, in types of size fourteen and fifty-six, with tree complements.",
+          "The same-day Petersen record 503caad49ec2 reports a two-spare threshold, optimum Hamming geodesics and its eccentricities; the same-day Heawood record 3a08e71ce91a gives 770 connected minima of size seven."
+        ],
+        "reasoning": "The count of minima is prior. Neither closely indexed record is the exact unrestricted Heawood cap-five and cap-six TAR census: one is a different graph, and the other imposes a different feasible-family and move restriction. No exact prior metric table was found in the checked material.",
+        "searches": [
+          "Resultary: Heawood complete minimum FVS classification, TAR component and metric census",
+          "Local mirror: all-seventy Heawood record, Petersen TAR record, connected Heawood FVS record"
+        ]
+      },
+      "rationale": "The known Heawood geometry directly explains the nontrivial cap-five components; a cited general exchange theorem may also cover optimum connectivity at cap six via a two-step lift. The distinct supported contribution is the complete Heawood TAR census including the isolates, the all-optimum Hamming isometry at the threshold, and the unrestricted cap-six metric and excess census. Similar statements on Petersen and the four-cube are substantive analogues, not Heawood results.",
+      "residual_risks": [
+        "The closest general paper's exact theorem and further special-case content were not independently inspected in readable primary full text.",
+        "The same-day analogues do not establish ordering, and a different earlier computation of the Heawood metric is not ruled out beyond the checked material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum size, number and geometry; implies cap-five nontrivial component shape",
+          "evidence": "70 size-four minima in two types, with counts 14 and 56 and tree complements; no TAR metric stated in the finding.",
+          "identifier_or_url": "2026/10/13/SCOPE-all-seventy-minimum-feedback-vertex-sets-of-the-heawood-graph--83a003d33b54",
+          "material_read": "RESULT.md §Finding, offset about 390",
+          "method": "Local Resultary mirror",
+          "title": "All seventy minimum feedback-vertex sets of the Heawood graph",
+          "trigger": "Exact prior same-graph minima and potential cap-five implication"
+        },
+        {
+          "assessment": "Conditionally supplies optimum connectivity via an exchange lift; does not establish an exact metric from the described statement; access risk remains",
+          "evidence": "The secondary passage describes fixed-size exchange connectivity of nonminimum FVSs of subcubic graphs. It is not a verified primary-text quotation here.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+          "material_read": "Original landing page/abstract; secondary theorem description in the Petersen RESULT.md prior-work section, offset 11978",
+          "method": "Configured direct and VPN OA retrieval and focused lookup; primary full text not retrieved; local mirror for the secondary statement",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Potential broader theorem implying the optimum threshold"
+        },
+        {
+          "assessment": "Same phenomenon in a different ten-vertex graph with minimum size three",
+          "evidence": "Two-spare threshold, all-optimum Hamming geodesics and eccentricities for Petersen, not Heawood.",
+          "identifier_or_url": "2026/11/22/SCOPE-petersen-feedback-set-tar-geodesics-and-an-eccentricity-trichoto--503caad49ec2",
+          "material_read": "RESULT.md §Finding, offset 1447, and prior-work section offset 11978",
+          "method": "Local Resultary mirror",
+          "title": "Petersen feedback-set TAR geodesics and an eccentricity trichotomy",
+          "trigger": "Strong same-day overlap in threshold and metric claims"
+        },
+        {
+          "assessment": "Different feasible states and fixed-size exchange",
+          "evidence": "Minimum connected FVSs are of size seven and number 770; not unrestricted size-four minima under TAR.",
+          "identifier_or_url": "2026/11/22/SCOPE-complementary-induced-tree-bisections-and-antipodal-connected-de--3a08e71ce91a",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complementary induced tree bisections and antipodal connected decycling sets",
+          "trigger": "Same-day same underlying Heawood graph and decycling reconfiguration"
+        },
+        {
+          "assessment": "Relevant method and phenomenon on Q_4, no same-graph implication",
+          "evidence": "Gives a two-spare connection and exact optimum-pair distances in the four-dimensional cube.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-two-vertex-feedback-set-buffer-in-the-four-dimensional-c--593577b7fb16",
+          "material_read": "RESULT.md §Finding, offset 0 and optimum-pair passage offset 1511",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-vertex feedback-set buffer in the four-dimensional cube",
+          "trigger": "Earlier buffer and exact optimum distance analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the canonical Fano incidence graph, the first feasible buffer that merges the optimum components is also sufficient to make every optimum pair Hamming-isometric, even though hundreds of thousands of larger feasible pairs still require detours. The exact component, eccentricity and excess counts distinguish global connectivity from this stronger local constraint and provide useful finite benchmarks for feedback-set reconfiguration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

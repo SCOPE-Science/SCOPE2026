@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:35:10.261753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On normalized source monomial e_{ℓ+n}, differentiating gives (ℓ+n)!/ℓ!, and converting the output coefficient at qℓ+j to the normalized target basis gives the factors (ℓ+n+1)^{(β₁−1)/2}(qℓ+j+1)^{(1−β₂)/2}. Each fixed nonzero band is asymptotic to p_j c_q ℓ^{−Δ/2}; output indices are distinct within a column, giving unboundedness when Δ<0. A finite sum of bounded bands gives boundedness for Δ≥0. At Δ=0 each residue block is a Hardy shift band weighted by a convergent diagonal, so discarding the finite differentiation kernel gives the column of analytic multipliers modulo compact operators. The Gram model is the scalar Toeplitz compression of H. Its quadratic form places the spectrum in [min H,max H]; normalized Szegő kernels are weakly null and give a Weyl sequence at each attained value by continuity and kernel concentration. Thus the Fredholm essential spectrum is the full scaled interval and the essential norm is c_q sqrt(max H) by the essential C*-identity (equivalently using an off-diagonal block on the source-target direct sum). The only kernel is the first n source monomials, by polynomial density, continuity of holomorphic evaluations and injectivity of multiplication/composition after differentiation. Hence zero in the essential spectrum contradicts closed range, while a positive lower edge gives Fredholm Gram and closed range. At Δ>0 finite-column truncation bounds s_N above and qL>deg P provides disjoint supports for columns ℓ=Lm and the min–max lower bound. The p-series endpoint diverges, including for quasi-norm Schatten parameters below 1. The verifier was inspected, not executed. An independent exact Gaussian-integer coefficient calculation (python3 reproductions/frozen_math_checks.py, polyphase) checked 300 complex Gram comparisons; this is not spectral evidence for the infinite theorem. The original checker uses real coefficients in its Fourier comparisons, so its exponent-sign comment does not test the complex orientation; the analytic Toeplitz form is unaffected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Liu's nondecaying linear case gives the same exponent cutoffs for monomial weight. Barik–Sen–Paul give same-index Carleson-measure criteria and essential-norm estimates, not the full critical Gram interval. Stević–Jiang treat order boundedness. Pau–Pérez could not be retrieved in full from the identified routes."
+        ],
+        "reasoning": "These broader operator techniques may imply qualitative parts or special cases. They do not in the inspected statements derive the joint all-real source/target critical polyphase Gram and compact singular-value estimates; the monomial case has orthogonal columns and does not address cancellations due to aliases.",
+        "searches": [
+          "Sun–Liu arXiv:2610.19658, Thm. 9.2",
+          "Barik–Sen–Paul arXiv:2605.00213, Thms. 1.1–1.3",
+          "Stević–Jiang DOI 10.1186/s13660-026-03469-w, Thm. 1",
+          "Pau–Pérez hdl:2445/96788 and DOI route"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 9dc7f504b01b, 30feb1a39297 and 0d3a36fdff0e",
+        "Sun–Liu arXiv:2610.19658; Barik–Sen–Paul arXiv:2605.00213; Stević–Jiang 10.1186/s13660-026-03469-w; Dong–Xu arXiv:2609.27584, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At unit linear modulus Sun–Liu have exactly the thresholds Δ≥0, Δ>0 and pΔ>2 in their monomial setting. Setting g=P and k=q in the later companion record matches the Gram symbol and in suitable indices even the scaling constant. Dong–Xu present boundedness, compactness and Hilbert–Bergman Schatten results for generalized companions."
+        ],
+        "reasoning": "Matching exponent or limiting model does not recover the entire stated T from those results. For arbitrary polynomial P the critical alias phenomenon depends on cross terms from degrees in the same residue class, unavailable in a single-band criterion. The result requires establishing compact equivalence for the specific normalized coefficient bands, and a lower singular-value bound in the presence of overlapping columns.",
+        "searches": [
+          "Sun–Liu Thm. 9.2, pp. 61–63",
+          "Resultary 9dc7f504b01b, Finding and Proof",
+          "Dong–Xu arXiv:2609.27584, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9dc7f504b01b constructs the same polynomial/decimation Calkin Gram model for a generalized Volterra companion and states the boundary-orbit closed-range criterion. Sun–Liu Theorem 9.2 uses monomial symbols with linear composition."
+        ],
+        "reasoning": "A common zero at ζ of all P_r is equivalent to P vanishing at every root of z^q=ζ (finite Fourier inversion on that orbit). The later companion result is therefore a real overlap in the model, not a different symbol due to notation. Its operator contains radial integration and a radial derivative, not the frozen T; its finite spectral bulk is not part of the frozen result.",
+        "searches": [
+          "Local Resultary search for nonlinear polynomial-weighted dilation, polyphase Toeplitz Gram and boundary orbit aliasing",
+          "Primary-literature search on power composition–differentiation and polyphase essential spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first gives an exact Gram symbol for a different operator and is dated later. The other two concern strictly contractive linear dilation and spectral asymptotics in deformation parameters."
+        ],
+        "reasoning": "The relevant exact comparisons are operator formulas, not discrete entries of a finite spectral table. No finite-section data could settle the essential spectrum or Schatten threshold asserted here.",
+        "searches": [
+          "Local Resultary exact model and singular-spectrum matches 9dc7f504b01b, 30feb1a39297, and 0d3a36fdff0e"
+        ]
+      },
+      "rationale": "Pass the explicit critical essential Gram interval and common-root boundary for the stated nonlinear power, arbitrary polynomial multiplier and coefficient-index differentiation family, combined with the all-region classification. Neither standard Toeplitz tools nor the known monomial index-counting cutoff are credited as new. A later catalogue record has substantial overlap in the exact limiting model but concerns a different operator; earlier priority beyond the inspected statements is not established.",
+      "residual_risks": [
+        "An earlier formulation via decimation, weighted composition or block Toeplitz operators might already give some exact model implications. The later Resultary model overlap is not resolved by terminology or independent priority assumptions.",
+        "Pau–Pérez full text could not be read; overlap for unweighted composition is plausible. The retrieval failure itself is not evidence for or against coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same Calkin symbol and orbit test for another operator in a later record",
+          "evidence": "The radial-integral companion has essential Gram symbol k^{−(α+3)} Σ|g_r|² and the same polyphase Hardy column; it also has a finite-section spectral-bulk theorem.",
+          "identifier_or_url": "2026/11/22/SCOPE-boundary-orbit-aliasing-and-spectral-bulk-for-polynomial-power-m--9dc7f504b01b",
+          "material_read": "Finding, Proof and comparison at offsets 0, 5000 and 8800, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror text",
+          "title": "Boundary orbit aliasing and spectral bulk for polynomial power maps",
+          "trigger": "Strongest exact Gram and closed-range model match"
+        },
+        {
+          "assessment": "Strict linear contraction, rather than the nonlinear boundary model",
+          "evidence": "Schatten and singular-value distributions as e^{−ε} approaches 1 along linear symbols.",
+          "identifier_or_url": "2026/10/25/SCOPE-two-scale-singular-spectrum-law-for-polynomially-weighted-dirich--30feb1a39297",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror text",
+          "title": "Two-scale singular spectrum law for polynomially weighted Dirichlet operators",
+          "trigger": "Exact polynomial-weighted Dirichlet singular-value comparison"
+        },
+        {
+          "assessment": "Different symbol, multiplier scope and asymptotic",
+          "evidence": "Monomial multiplier, strict radial contraction and high-Schatten spectral edges.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-theta-function-spectral-edge-transition-for-monomial-dirichlet--0d3a36fdff0e",
+          "material_read": "Offsets 0 and 8500",
+          "method": "Local Resultary mirror text",
+          "title": "A theta-function spectral edge transition for monomial Dirichlet operators",
+          "trigger": "Nearby exact Schatten model"
+        },
+        {
+          "assessment": "Prior cutoffs and exact singular values in the monomial-linear family",
+          "evidence": "Monomial weight z^m and linear ρz, hence no nonlinear polyphase polynomial columns.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19658",
+          "material_read": "Thm. 9.2, pp. 61–63, and v1 first page",
+          "method": "OA PDF text",
+          "title": "Weighted composition–differentiation operators on mixed-norm, derivative Hardy and F(p,q,s) spaces",
+          "trigger": "Same normalization and closest Schatten exponent calculation"
+        },
+        {
+          "assessment": "Overlaps qualitative criteria, not exact critical spectral formula in inspected results",
+          "evidence": "Same-index boundedness, essential-norm estimates, compactness and Hilbert–Schmidt results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00213",
+          "material_read": "Thms. 1.1–1.3, pp. 2–3, offset 7000",
+          "method": "OA PDF text",
+          "title": "Composition-differentiation operators on weighted Dirichlet spaces",
+          "trigger": "General weighted composition–differentiation results"
+        },
+        {
+          "assessment": "Different operator property",
+          "evidence": "Integral conditions for order boundedness, not an essential Gram or singular-value characterization.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-026-03469-w",
+          "material_read": "Thm. 1, PDF pp. 9–10",
+          "method": "OA DOI/PDF text",
+          "title": "Order bounded polynomial differentiation composition operators between weighted Dirichlet spaces",
+          "trigger": "Cited cross-space differentiation-composition result"
+        },
+        {
+          "assessment": "Possible special-case overlap unresolved",
+          "evidence": "Reported composition-only norm, Schatten and closed-range context; no full-text inference is made.",
+          "identifier_or_url": "https://hdl.handle.net/2445/96788",
+          "material_read": "Bibliographic identification and frozen description only; repository unavailable and DOI returned a redirect",
+          "method": "OA retrieval attempts, not full-text inspection",
+          "title": "Composition operators acting on weighted Dirichlet spaces",
+          "trigger": "Closest cited closed-range analogue for P=1,n=0"
+        },
+        {
+          "assessment": "Adjacent operator family; not the claimed theorem in the inspected abstract",
+          "evidence": "Boundedness and compactness criteria and Hilbert–Bergman Schatten results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27584",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF text",
+          "title": "Dong–Xu, generalized Volterra companions on finite-type Bergman spaces",
+          "trigger": "Literature adjacent to the matching Volterra model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result classifies a natural operator family's critical positive spectrum, not merely scalar boundedness. The P=1+z and P=1+z² example at q=2 distinguishes closed range for identical coefficient magnitudes and shows why the exact residue grouping matters. That structural diagnostic and the compact-side endpoint are useful beyond an isolated norm calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The normalized two-dimensional CW presentation lists every cell: original and reverse graph arrows, distance-two shortcut arrows, backtracking disks and ordered two-edge-walk disks. A chosen backtracking disk eliminates one reverse arrow per original edge, leaving one free sphere; the two path disks eliminate both orientations of every uniquely determined distance-two shortcut; and each edge-disjoint triangle has six equivalent attaching loops, one eliminating an original triangle edge and five becoming free spheres. Every elimination uses a one-cell with exponent one in its chosen disk, so it is a homotopy-preserving CW cancellation, not only a rational or modular rank argument. Removing one edge per triangle preserves graph connectivity, establishing the remaining circle rank. Integer Smith computations on independent examples and mod-two checks on 5111 graphs corroborate the proof, with no infinite extrapolation from the finite experiments.
+PASS
 
-## Originality: PASS, with residual priority risk
+The listed nondegenerate tuples exhaust the inclusive cutoff: each nondegenerate step uses at least one unit of length, and a backtrack is not a degeneracy. At cutoff two the oriented-edge pair for each underlying edge has two backtrack disks. Using one disk removes the reverse edge, and the other attaches by a nullhomotopic loop. Each directed distance-two shortcut is removed using its unique length-two disk, uniqueness following from no four-cycle. The remaining non-backtrack disks are precisely the six ordered triangle disks per triangle. One disk removes a triangle edge and the five remaining boundary loops become nullhomotopic. These are homotopy substitutions, not just boundary-matrix operations: at each step the chosen disk has a single boundary arc mapping to the eliminated edge and the rest stays in the retained one-skeleton; this pair retracts to the retained subcomplex before the other disks are attached along the induced loops. Replacing nullhomotopic attaching maps by constant maps gives spheres. Triangle edge sets are disjoint and alternate paths preserve connectivity on every removal. The same edge removal collapses each filled triangle in the clique complex; no larger clique exists. The remaining graph thus gives e−v+1−t circles and the ordered cells give e+5t spheres. In the single-vertex case both counts are zero. The triangle sharing an entire edge with the pentagon checks the noncactus qualification.
 
-Otter's original full manuscript introduces the exact ordered simplicial-set filtration and relates its persistent homology to blurred magnitude. Ivanov and Xu's full open paper identifies the same \(\ell_1\) theory and proves general stability and metric-space results. Asao's 4 November 2026 full HTML develops length-filtered tuple homologies and spectral sequences; Kuribayashi's full 17 November 2026 paper develops interleavings, products and related persistence theory. None of these inspected theorems states or implies the graph-specific integral homotopy decomposition. The known triangle-free classification and one-point-wedge cactus special cases are expressly excluded from the new contribution; a noncactus graph having a triangle and pentagon sharing an edge lies outside those special cases. A recent paper devoted to the associated graded length filtration was accessible only by abstract, so an unindexed or inaccessible equivalent calculation remains a live priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The no-quadrilateral constraint is precisely the unique-middle-vertex condition that makes a uniform two-dimensional CW reduction possible. Permitting arbitrary triangles while retaining no quadrilaterals yields an unrestricted family of noncactus examples and a sharp decomposition into the graph's filled clique core plus an explicitly counted free two-sphere summand. The result distinguishes a real triangle-driven homotopy transition: for every triangle one first-homology direction dies and five further top-dimensional spheres appear. The criterion fails for a four-cycle, demonstrating the structural boundary; it is more than a collection of numerical special cases.
+The construction and triangle-free length-two wedge are already known. The supported distinct claim is the exact homotopy correction for all four-cycle-free graphs with triangles, including graphs whose triangular cycles share edges with longer cycles. The strongest distinct inspected sources do not imply this correction.
 
-## Scientific limitations
+## value
 
-No equivariant or longer-scale theorem is claimed. The homotopy equivalence is noncanonical; exact prior publication priority awaits independent review. Finite computations are supporting checks, not proof of the uniform statement. All cited source dates are their first verified preprint dates where known, not journal or revision dates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an explicit integral homotopy type at a natural early filtration stage, not an Euler characteristic or a table of examples. The theorem separates the graph clique core from the spheres contributed by the ordered cells, and isolates the effect of both triangles and the four-cycle obstruction. It covers arbitrary cycle overlap with longer cycles and is not restricted to one-point gluing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:07.118609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and scope and Proof",
+        "Frozen VERIFICATION.md and verification.py (inspected, not executed)",
+        "arXiv:2610.19904, Eq. (2) and §III.B for the baseline model"
+      ],
+      "rationale": "Each row of either pump or nonlinear-loss jump has at most one nonzero entry, and each corresponding jump Gram matrix is diagonal. Hence the diagonal of the two dissipators depends only on the diagonal of the input, even though the output can have coherence. The other indicated terms vanish on the output diagonal for any input, including complex diagonal dephasing jumps. This gives the stated one-way population cycle, stationary distribution and determinant z[z²+(3a+b)z+2a²+3ab]. On the zero-sum plane, B=K+m₀Q satisfies B²=(Δ/4)Q. At each real discriminant root the minor −ab and the zero determinant give rank two for K+m₀I and a nonzero rank-one Jordan nilpotent on that plane. The population map is onto and intertwines, so the population minimal polynomial divides the full one; its repeated root forces full defectiveness regardless of other eigenvalues. For vacuum input its deviation is e^(−m₀t)[A cosh(ωt)+C sinh(ωt)/ω], with A=(2a+b)/(2a+3b)>0 and C=(2a²−ab+b²)/(2(2a+3b))>0. Thus it changes sign infinitely often in the open complex-root interval and in fact never crosses outside it or at its endpoints, stronger than the stated at-most-once bound. The endpoint vacuum response has a genuinely nonzero t coefficient. The nonlinear jump supplies a nonzero stationary source √2 b π₂ for the 02 coherence, with strictly negative real damping and no feedback to populations.",
+      "residual_risks": [
+        "The stated proof applies to the exact three-level truncation, not to other truncations or the infinite oscillator. It gives no classification of Jordan blocks on the invariant kernel of the population map. The reported finite checks do not establish the perturbation quantifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directed cycle with rates (x,y,z) has nonzero polynomial λ²+(x+y+z)λ+xy+yz+zx and a defective nontrivial eigenvalue at the square-root-rate triangle equalities.",
+          "Other inspected Lindblad papers treat exceptional points and damped Jordan time dependence in continuous-variable oscillators or driven qubits."
+        ],
+        "reasoning": "Substitution (x,y,z)=(a,2a,b) fully covers the classical spectral boundary, so the numerical ratios alone are not new. The general cycle result supplies no Arosh population map or assertion of protection under quantum diagonal perturbations; the other EP results do not establish this model-specific map.",
+        "searches": [
+          "Resultary e5d1f1e388c4, characteristic polynomial and square-root triangle boundary",
+          "arXiv:2304.05792, §6.1",
+          "arXiv:2306.12322, Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 93e8a50a6f3e and e5d1f1e388c4",
+        "arXiv:2610.19904, 2304.05792, 2306.12322",
+        "Bounded external search (no useful source returned by the search itself)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact qutrit stationary formulas do not determine the full evolution. The generic cycle theorem yields defectiveness once a population block has been identified.",
+          "A defective induced quotient forces a defective original linear operator by minimal-polynomial divisibility; no novelty is claimed for that implication."
+        ],
+        "reasoning": "The result adds a model-specific invariant quotient throughout the allowed family, relating a classical spectrum to full quantum non-diagonalizability and a concrete occupation signature. This connection requires establishing autonomous populations even for coherent inputs and under every allowed perturbation, not merely substituting rates into a known polynomial.",
+        "searches": [
+          "arXiv:2610.19904, §III.B",
+          "Resultary e5d1f1e388c4, RESULT.md offsets 0–6166",
+          "arXiv:2304.05792, §6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-text qutrit paper gives the same jumps, equilibrium population and nonzero baseline stationary coherence.",
+          "Resultary 93e8a50a6f3e studies the same model's static Wigner topology, not transients. Resultary e5d1f1e388c4 studies the same population block up to transposition and choice of rates."
+        ],
+        "reasoning": "The directed Markov cycle is an equivalent formulation of the occupation quotient but not of the full quantum state evolution. The stationary coherence or Wigner result has the same physical object but a different conclusion.",
+        "searches": [
+          "Resultary 93e8a50a6f3e and e5d1f1e388c4",
+          "arXiv:2610.19904, Eq. (2) and §III.B",
+          "Bounded external search under qutrit, Liouvillian exceptional point, and population keywords"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact baseline stationary density is available, and the generic indexed cycle result gives these exact classical rates by specialization.",
+          "The inspected same-model exact catalogued values concern equilibrium or Wigner geometry; no exact entry in those passages gives the full perturbed quantum defect and the vacuum transient."
+        ],
+        "reasoning": "Existing exact values are credited. The claim is about the dynamics uniformly across diagonal Hermitian and diagonal jump parameters rather than a set of tabulated baseline exceptional points.",
+        "searches": [
+          "Resultary 93e8a50a6f3e and e5d1f1e388c4",
+          "arXiv:2610.19904, Eqs. (40)–(47)"
+        ]
+      },
+      "rationale": "The generic three-state directed-cycle discriminant and the corresponding population defective ratios are covered by a broader indexed CTMC result. The supported distinct content is the exact identification of that defect as a full quantum Liouvillian defect for the whole stated diagonal-perturbation family, with an occupation-level transient witness. Static qutrit solutions and the comparison Liouvillian EP literature do not establish this for the stated family in the inspected passages.",
+      "residual_risks": [
+        "A wider treatment of invariant population quotients for this model could narrow the distinct claim further. Catalogue dates are not relied on for priority, and the classical overlap is credited irrespective of ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same generator and baseline stationary state, not the transient claim in inspected passages",
+          "evidence": "The populations match π and the unperturbed stationary 02 coherence is nonzero. The inspected section solves the stationary state and Wigner function.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19904",
+          "material_read": "Eq. (2), §III.B, especially p. 7, Eqs. (40)–(47); OA offsets 18500 and 42000–50199",
+          "method": "Open-access PDF passages",
+          "title": "Single and coupled quantum van der Pol oscillators: Wigner-function dynamics, exact qutrit solutions, and synchronization",
+          "trigger": "The same qutrit oscillator and generator"
+        },
+        {
+          "assessment": "Same system but a static claim",
+          "evidence": "Classifies stationary Wigner negativity and blind spots of angular averages, using the existing stationary solution.",
+          "identifier_or_url": "Resultary 93e8a50a6f3e",
+          "material_read": "RESULT.md opening and offsets 6400–8818",
+          "method": "Resultary discovery and local-mirror result text",
+          "title": "Complete Wigner-negativity topology and radial blind spots in an Arosh qutrit",
+          "trigger": "Same finite oscillator, exact rate transitions"
+        },
+        {
+          "assessment": "Broader classical spectral coverage; no full quantum conclusion",
+          "evidence": "Its quadratic gives the population polynomial at (a,2a,b), and its triangle conditions give both defective roots. Its design result concerns constrained cycle rates.",
+          "identifier_or_url": "Resultary e5d1f1e388c4",
+          "material_read": "RESULT.md offsets 0–6166",
+          "method": "Resultary discovery and local-mirror result text",
+          "title": "Exact priced spectral-abscissa design on a one-way three-state cycle",
+          "trigger": "Exact directed-cycle quadratic and defective boundary"
+        },
+        {
+          "assessment": "Related mechanism in other oscillator models",
+          "evidence": "Gives critical-damping Jordan terms of the form t exp(−γt/2) in continuous-variable master equations, not this protected qutrit quotient.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.05792",
+          "material_read": "Abstract p. 1 and §6.1 p. 12, OA offsets 0 and 69000",
+          "method": "Open-access PDF passages",
+          "title": "Liouvillian exceptional points in continuous variable system",
+          "trigger": "Oscillator Liouvillian defects and Jordan time dependence"
+        },
+        {
+          "assessment": "Different system in the inspected passages",
+          "evidence": "Studies a driven two-level Lindbladian and population-inversion observables, not the autonomous Arosh cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.12322",
+          "material_read": "Abstract p. 1 and Introduction p. 3, OA offsets 0 and 6500",
+          "method": "Open-access PDF passages",
+          "title": "Exceptional points and exponential sensitivity for periodically driven Lindblad equations",
+          "trigger": "Exceptional point signatures and diagonal noise in population observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:2610.19904, §III.B",
+        "Resultary e5d1f1e388c4 for the classical baseline"
+      ],
+      "rationale": "The result identifies which exact defect survives detuning and dephasing of arbitrary allowed strength in a specified quantum model. Vacuum counts furnish a direct diagnostic of the oscillatory sector and boundary transient without reconstructing coherences. This physical and spectral protection, rather than computing the two roots of a generic cycle, is the useful conclusion.",
+      "residual_risks": [
+        "The analysis does not identify the full Liouvillian gap or exclude additional full-spectrum exceptional points, nor does it apply to drives that change the population map."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

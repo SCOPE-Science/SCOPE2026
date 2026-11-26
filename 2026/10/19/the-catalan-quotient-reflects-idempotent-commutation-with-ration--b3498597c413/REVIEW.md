@@ -1,15 +1,21 @@
-# Review of the idempotent-commutation quotient theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof identifies all idempotents with parabolic longest elements and Catalan fixed-point sets; the forward and backward implications of commutation are separately established. Its nontrivial direction uses the standard Bruhat-maximal-product property and a cut obstruction for the reversing permutation. Every commutation-preserving family has its product preserved by the union/complement rule. The higher-arity language is recognized by the stated finite-state system, and the thirteen-state, thirteen-consecutive-zero calculation plus Cayley–Hamilton certifies the complete rational triple series. The included checker independently replays the exact matrix and small-rank products. The proof does not assert commutation reflection for non-idempotents.
+## correctness
 
-## Originality
-**PASS, with residual risk.** Xuhua He, *A Subalgebra of 0-Hecke Algebra* (arXiv:0904.1786), proves foundational Demazure/Bruhat product formulas but discusses a distinct commutative monoid on parabolic data. Denton–Hivert–Schilling–Thiéry (arXiv:1010.3455) establish the idempotent structure and the Catalan quotient. Ganyushkin–Mazorchuk (arXiv:1006.0316) establish the oriented type-A quotient and its idempotent count. In the inspected relevant passages, none asserts reflection of all idempotent commutation or the rational triple enumerator. Prior numerical Catalan commuting-*pair* counts and product fibers do not imply the displayed triple series without a new compatibility calculation; no novelty is claimed for the pair sequence. Denton’s arXiv:1303.3767 studies the same quotient in the context of permutation pattern avoidance; its full text was inaccessible and its possible implications remain a named risk. An unlocated specialized equivalent theorem remains possible, and the search does not certify global uniqueness.
+PASS
 
-## Value
-**PASS.** Preserving an idempotent count under a quotient does not generally preserve idempotent commutation. The theorem establishes the stronger, structurally natural fact that the entire idempotent commuting graph and clique complex survive a highly noninjective quotient. The first genuinely higher-arity enumeration is an exact all-size formula, while the finite-state construction handles every fixed arity and supplies a reproducible certificate. It refines known pairwise enumerations without relabeling their numerical answers.
+The repaired RESULT.md proves the actual remaining claim for every n, including n=0. For the parabolic longest idempotent the absent generators' points are fixed, and absorption by each present generator excludes its lowered point from the image. An increasing regressive idempotent retracts every point to its greatest fixed point below it, so these images are a bijection. Two exclusive fixed-point colors in one common gap give unequal compositions; otherwise both compositions retract the gap to its left end. Under complement this condition says each run of I union J belongs entirely to one factor. The separated runs commute, and in each run the full parabolic longest idempotent absorbs the other factor, proving the lift and the union product. Subproducts of commuting idempotents remain commuting idempotents. The transfer keeps exactly the relevant exclusive-side memory in each pair and handles repeated entries. Independently, /workspace/review_evidence/check_1.py constructs the 13 states and their four symmetry classes, obtains the quartic by an exact determinant ratio, and compares against direct Catalan compositions for n=0,...,5. The frozen verifier was inspected, not executed. The quartic remains a checked contextual example, not part of the distinctness claim.
 
-## Limits
-The specific closed rational function counts ordered commuting triples; general arities have finite-state rational expressions, not similarly compact closed forms. Relevant literature may contain equivalent results not found during the searches. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen two-part originality framing did not survive: 494cdd8f9928 contains the identical Catalan triple series as a specialization of an exact rank refinement. The complete replacement at /workspace/repairs/1/RESULT.md retains as the distinct claim the structural reflection of commutation and all its partial idempotent products across the noninjective quotient; exact Catalan pair/triple results are credited and arbitrary-arity counting is presented as a consequence. The closest sources give the quotient, classifications, or Catalan-side criteria and refinements, not the 0-Hecke lift. This is a statement-level comparison, not an assertion of historical priority.
+
+## value
+
+PASS
+
+The structural identification is worth separating from the numerical overlap: the noninjective quotient loses information on elements in general, yet it retains which idempotents commute and every product of a mutually commuting family. This permits results about the full commuting configurations and their products in either model to be transported to the other, not just equality of a small table. Locating the runwise absorption mechanism supplies the missing reason for that transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

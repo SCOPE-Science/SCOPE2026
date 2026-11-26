@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:46:26.049314Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5 the five positions in one cyclic window are distinct. A window with three ones must be 10101, corresponding to two consecutive unit zero-gaps. Counting pairs by their order within a window gives 3 starts at distance two, 2 at distance three and 1 at distance four. The last category is either one gap of length three or two unit gaps, so summing pair counts gives b+3t=3p+2q+r+t. This counts oriented offset occurrences, so it is valid also at n=5 and for periodic inputs. The weighted count of one-occurrences equals 5w. The observation coordinates are integer weight and counts (equivalently the gap counts and h must be integers; t is a window count). For nonempty inputs, assigning the length surplus E to the h long gaps accounts for all nonnegativity conditions, including E=0 when h=0. In a nonconstant pattern of unit gaps there are k=p-t unit runs and as many non-unit runs; both lengths can be composed into k positive parts exactly on the claimed interval. The two compositions, choice of the labeled starting slot and division by k count labeled cyclic patterns, and gap-type multinomial assignment and stars and bars complete the count. Pointing to any one of the w indexed ones bijects with a labeled gap list and one of n starting indices, giving n/w without a primitivity assumption. The all-zero word is separate. Independently, a four-symbol context automaton with allowed shifts has transition monomial s^b_new y^[windowweight=2] z^[windowweight=3] for appended bit b_new. Its closed walks of length n at fixed index biject with the indexed words. Its exact determinant det(I-xM) is (1-x)D, so the trace-log derivative confirms every claimed coefficient for n>=5, not only the finite direct checks. Literal support sizes n=5,...,19 also agree. Replay: python -B branches/independent_reproductions.py 5 from /workspace (SymPy). The zero-error optimum is one word per nonempty fiber, not a noisy-channel bound or a necklace count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah–Puleo–Milenkovic count ordered constrained profile vectors via de Bruijn flows and prove a general quasipolynomial count in the stated graph setting. Acharya et al. treat all substrings of a linear string. The cyclic sliding-weight record retains read positions."
+        ],
+        "reasoning": "Counting possible ordered types does not count their noninjective images or the indexed sequences in each image. The complete linear multiset and indexed cyclic weight-vector settings also ask different inverse questions.",
+        "searches": [
+          "arXiv:1502.00517, Section 2 and Theorem 3.3",
+          "arXiv:1403.2439, Section 2",
+          "Resultary indexed sliding-weight law 21136e4ec91c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.2439 and 1502.00517 original PDF passages",
+        "Resultary 903e81384c5f, d7a18695ef7b, 5e91d703d058, 5ce7c84ef38b, 21136e4ec91c and exact self-match 45603b76da88"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-gap cycles (1,1,2,2) and (1,2,1,2) have the same ordered four-gram profile but one versus zero adjacent unit-gap pairs, so their C3 differ. The shorter reads do not observe this adjacency interaction.",
+          "Weighted closed walks imply rationality, but obtaining the sharp k=p-t interval and the evaluated inverse counts requires the gap/run construction."
+        ],
+        "reasoning": "The length-four constrained classification cannot recover individual five-window profiles. The retained advance is the evaluated feasibility/fiber classification, rather than merely recognizing a projected Markov-type problem.",
+        "searches": [
+          "Resultary d7a18695ef7b (ordered four-gram fibers), 5e91d703d058 and 5ce7c84ef38b (short composition reads)",
+          "arXiv:1502.00517, ordered profile theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observation is the image of the ordered five-gram counts Nu under C_j=sum of Nu over u of weight j. Indexed fibers sum over all the compatible ordered types; neither ordered profiles nor a vector of weights indexed by position are the claimed observation.",
+          "The occupancy-weighted length-four context transfer is an equivalent exact enumeration, and its determinant simplifies to (1-x)D in the independent check."
+        ],
+        "reasoning": "The generic graph reduction gives an alternate coefficient algorithm, but it does not supply the claimed evaluated gap-run formula and direct feasibility by a few integer parameters without ranging over ordered profiles.",
+        "searches": [
+          "Resultary: exact cyclic five-window composition histogram, hard-core or golden-mean binary source, gap adjacency",
+          "arXiv:1502.00517, exact word profiles and de Bruijn graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 45603b76da88 is the focal record. The distinct same-date 903e81384c5f gives ordered length-three cyclic observations on rotation classes, not pooled length-five compositions on indexed words. Other exact composition entries concern shorter lengths."
+        ],
+        "reasoning": "No distinct inspected result gives the same coefficient or feasible set. Same-day records were compared by statements without inferring priority from their dates.",
+        "searches": [
+          "Resultary: cyclic five-window and hard-core searches; exact matches against enumerator and support claims"
+        ]
+      },
+      "rationale": "Pass the explicit all-length feasibility and indexed fiber formula using unit-gap adjacency and its two-state compression. Generic cyclic finite-state walk enumeration already gives rationality and an uncompressed enumerator; neither is a novelty claim by itself. The closest inspected shorter-window and ordered-profile results do not give the pooled five-window feasibility interval or evaluated fiber multiplicities for indexed legal words.",
+      "residual_risks": [
+        "An earlier equivalent evaluation of projected de Bruijn or Markov-type profiles could exist; only the inspected statements and bounded catalog comparison are established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "broader graph methods, a different enumerated object",
+          "evidence": [
+            "Profiles index exact grams; the theorem counts ordered profile vectors, not pooled cyclic fibers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.00517",
+          "material_read": "Section 2, p. 2 offset 12889; restricted graphs p. 5 offset 26528; Theorem 3.3 p. 7 offset 36800",
+          "method": "lawful OA PDF, bounded passages",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "constrained ordered-profile theorem and potential aggregation"
+        },
+        {
+          "assessment": "different read and source assumptions",
+          "evidence": [
+            "Compositions of all contiguous substrings of a linear string; no fixed-length cyclic no-11 window restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.2439",
+          "material_read": "Section 2, p. 3 offset 7522",
+          "method": "lawful OA PDF, bounded passage",
+          "title": "String Reconstruction from Substring Compositions",
+          "trigger": "canonical composition-based inverse problem"
+        },
+        {
+          "assessment": "distinct exact theorem; no priority conclusion from date",
+          "evidence": [
+            "Ordered oriented length-three factor multisets on necklaces, not indexed words with pooled five-window weights."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 903e81384c5f",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "semantic lookup and original local-mirror passage",
+          "title": "Exact cyclic three-gram fibers and capacity for binary words avoiding 11",
+          "trigger": "closest same-date constrained cyclic record"
+        },
+        {
+          "assessment": "shorter ordered observation cannot recover the new adjacency statistic",
+          "evidence": [
+            "The four-gram fibers are on necklaces. Equal four-gram counts can arise from distinct unit-gap run counts, which the five-window histogram detects."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, d7a18695ef7b",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "original local-mirror passage",
+          "title": "Exact fibers and uniquely reconstructible profiles for cyclic four-gram reads under a binary run-length constraint",
+          "trigger": "same constraint and adjacent read length"
+        },
+        {
+          "assessment": "different read lengths and unconstrained source",
+          "evidence": [
+            "Counts arrays of composition observations for lengths up to four on all cyclic binary words; no five-window adjacency interaction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 5e91d703d058",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "original local-mirror passage",
+          "title": "Exact codebook count for cyclic binary composition reads of lengths at most four",
+          "trigger": "closest shorter pooled-composition code-size result"
+        },
+        {
+          "assessment": "length-three unrestricted circular words",
+          "evidence": [
+            "The earlier spectrum uses trimer compositions and does not give the length-five constrained multiplicity."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 5ce7c84ef38b",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "original local-mirror passage",
+          "title": "Cyclic binary trimer compositions: an exact realization and spectrum theorem",
+          "trigger": "earlier exact pooled feasibility and rational spectrum"
+        },
+        {
+          "assessment": "not the same inverse observation",
+          "evidence": [
+            "The detector preserves the entire position-indexed sliding-weight vector, which the focal histogram pools."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 21136e4ec91c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "original local-mirror passage",
+          "title": "Exact fiber and constant-weight capacity laws for cyclic binary sliding sums",
+          "trigger": "possible alternative idea of cyclic composition fibers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Five is the first window length in this source that can see three ones and thereby adjacent unit gaps, which shorter composition or even ordered four-gram counts miss. The explicit realization test and full indexed fiber law, not just short tables or a generic finite-state enumeration, answer natural inverse and noiseless coding questions for all lengths and preserve the effect of periodic words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

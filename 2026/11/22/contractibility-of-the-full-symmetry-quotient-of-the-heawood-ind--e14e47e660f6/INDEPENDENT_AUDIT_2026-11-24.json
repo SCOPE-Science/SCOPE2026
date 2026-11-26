@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:49:01.310695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–39, VERIFICATION.md and verify.py (frozen code inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/99169721-4511-4993-9084-ba8511a099d4/verify_heawood_orbit.py; reported HEAWOOD_ORBIT_INDEPENDENT_REPRODUCTION_OK. Exact group/actions and boundary computation, Smith reduction at lines 149–209 and presentation at lines 222–275 inspected."
+      ],
+      "rationale": "The connected incidence graph has a unique bipartition up to reversal. Its part-preserving maps are the 168 invertible linear maps: images of a noncollinear basis triple determine the collineation by the Fano lines {u,v,u+v}. Dot-product polarity supplies the other coset. In the barycentric subdivision the strictly increasing face sizes prohibit inversions, and every orbit of open simplices is an open cell of the ordinary quotient. Orientation by inclusion order yields the signed orbit-of-deletion boundary and the corresponding triangular attaching words, with no multiplicity from stabilizers. Finite dimensional exhaustion follows also from the linear incidence equations: one point allows four nonincident lines, a pair allows two, and a triple allows at most one, with the dual bounds for lines. Thus mixed faces have size at most five and pure faces at most seven. An independent Python standard-library enumeration, using line normals and integer Smith operations, reproduced 457 nonempty faces, 336 automorphisms, orbit cell counts (14,64,149,218,210,120,30), boundary ranks (13,51,98,120,90,30), and only unit nonzero Smith factors. Boundary compositions were zero. Primitivity means each image is saturated in the ambient free chain group, hence also in the kernel of the preceding boundary; rank differences then give integral acyclicity, not just rational acyclicity. The independent triangular presentation has a 13-edge spanning tree, 51 generators and 149 relators. Unit eliminations killed all 51, leaving only empty words, so the quotient is simply connected. Hurewicz at a least possible nonzero homotopy degree and Whitehead give contractibility of this finite CW complex.",
+      "residual_risks": [
+        "This is exhaustive for the given graph and action, not for subgroups, other graphs or homotopy quotients. The two relator slots remaining in the independent run are empty words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barmak Theorem 3.4 gives the triangle-free independence suspension result at the ambient level; the inspected Tsukuda statements are ambient homotopy equivalences too.",
+          "Same-day Möbius–Kantor full-group quotient record 399dc0d156db gives a different graph and a Moore space, not a result including Heawood."
+        ],
+        "reasoning": "The broader independence-complex homotopy framework does not control stabilizers and integral attaching maps after quotienting by the full group. The closest comparable finite computation pertains to another graph.",
+        "searches": [
+          "Focused web search for a Heawood full ordinary quotient/incidence-graph orbit theorem",
+          "Barmak arXiv:1007.0418v1 and Tsukuda DOI 10.55016/ojs/cdm.v12i1.62277",
+          "Resultary related full-automorphism graph independence quotients"
+        ]
+      },
+      "checked_sources": [
+        "The six cited primary or mirrored texts above; comparison mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ambient wedge of six 3-spheres is simply connected. The rational collineation representation has no invariant vector, so the full quotient has no positive rational homology: for finite actions the barycentric orbit chains over Q are coinvariants and coinvariants are exact.",
+          "By the standard orbit fundamental group theorem for a finite action on a simply connected polyhedron, fixed-point elements normally generate the kernel from the action group. Elementary transvections generate GL(3,2) and fix points of the Fano plane; dot-product polarity fixes the midpoint of the independent pair consisting of (1,0,0) and its polar line. Thus trivial quotient fundamental group is already a consequence of the ambient result with this standard argument.",
+          "Neither argument gives the saturated integral boundary images verified here. Rational acyclicity plus simple connectivity by itself leaves possible higher-degree integral torsion."
+        ],
+        "reasoning": "Credit the rational and simple-connectivity implications. Contractibility is not established by that conjunction without genuinely integral information; the frozen proof and independent certificate resolve precisely that remaining issue.",
+        "searches": [
+          "Published Heawood mirror records dbd95019d1e2, 213fded46807 and 3552c24fcce8; compare ambient, rational representation and subgroup fixed spaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The clique complex of the complement is the same vertex-action complex; contrasts were made at the level of the geometric orbit complex, not a complex on orbit vertices.",
+          "Tsukuda gives ambient incidence-poset and Alexander-dual suspension equivalences, not a full geometric quotient comparison with the side-swapping duality."
+        ],
+        "reasoning": "A nonequivariant suspension or duality statement cannot replace the ordinary quotient computation. Fixed loci and the quotient are different constructions.",
+        "searches": [
+          "Resultary Heawood ordinary quotient, complement independence/clique equivalence, collineation/duality orbit-chain comparison",
+          "Tsukuda, DOI 10.55016/ojs/cdm.v12i1.62277, Theorem 4.10 and Corollary 4.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit e14e47e660f6 is the assigned result, not another computation.",
+          "The ambient wedge record dbd95019d1e2 and census 3552c24fcce8 describe the unquotiented complex and fixed loci of 412 nonidentity subgroups respectively, not integral orbit-cell invariants."
+        ],
+        "reasoning": "Neither an independent-face count nor a fixed-space census is a table of signed incidences between geometric orbit cells. No separate exact quotient invariant was found in the bounded comparison.",
+        "searches": [
+          "Resultary exact Heawood/Fano quotient, all 336 automorphisms, integral homology and orbit cells"
+        ]
+      },
+      "rationale": "Prior ambient topology and rational character explain part of the result. In fact, simple connectivity can also be deduced using the standard orbit fundamental group theorem and elementary fixed-point generators; it is not credited as a separate new invariant. The verified absence of integral torsion and the resulting complete ordinary quotient homotopy determination remain distinct on the examined evidence.",
+      "residual_risks": [
+        "A differently named integral orbit theorem or more extensive equivariant reduction may exist outside the bounded search. A query without hits is not evidence of absence.",
+        "No priority inference is drawn from the same-day Möbius–Kantor record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the ambient simply connected homotopy type",
+          "evidence": [
+            "The wedge is before taking the quotient."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local published-record mirror",
+          "title": "The Heawood independence complex is a wedge of six three-spheres",
+          "trigger": "Ambient topology as a potential implication"
+        },
+        {
+          "assessment": "Implies rational quotient acyclicity, not integral invariants",
+          "evidence": [
+            "The 168-collineation rational module has no invariant vector."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-the-exceptional-rational-homology-representation-of-the-heawood--213fded46807",
+          "material_read": "RESULT.md offsets 0 and 4339",
+          "method": "Local published-record mirror",
+          "title": "The exceptional rational homology representation of the Heawood independence complex",
+          "trigger": "Prior quotient homology implication"
+        },
+        {
+          "assessment": "Different spaces; not an integral orbit classification",
+          "evidence": [
+            "The 412 entries concern geometric fixed-point spaces."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-all-nonidentity-subgroup-fixed-homotopy-types-of-the-heawood-ind--3552c24fcce8",
+          "material_read": "RESULT.md offsets 0 and 4357",
+          "method": "Local published-record mirror",
+          "title": "All nonidentity subgroup-fixed homotopy types of the Heawood independence complex",
+          "trigger": "Closest same graph/full group topological classification"
+        },
+        {
+          "assessment": "Different graph and quotient type",
+          "evidence": [
+            "The Möbius–Kantor result gives M(Z/2,3)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-torsion-moore-space-quotient-of-the-m-bius-kantor-independen--399dc0d156db",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two-torsion Moore space quotient of the Möbius–Kantor independence complex",
+          "trigger": "Same-day ordinary quotient comparison"
+        },
+        {
+          "assessment": "Ambient suspension result, not full-group quotient",
+          "evidence": [
+            "The theorem concerns the homotopy type before identifying group orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1007.0418v1",
+          "material_read": "Theorem 3.4, HTML offset 5480",
+          "method": "Open primary full-text passage inspection",
+          "title": "Star clusters in independence complexes of graphs",
+          "trigger": "Potential general reduction for triangle-free incidence graphs"
+        },
+        {
+          "assessment": "General ambient incidence equivalences, without the required full-group orbit control",
+          "evidence": [
+            "The finite-hypergraph corollary identifies an ambient suspension of a combinatorial Alexander dual."
+          ],
+          "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v12i1.62277",
+          "material_read": "PDF p. 1 abstract; pp. 12–13 Theorem 4.10 and p. 14 Corollary 4.11",
+          "method": "Open primary PDF passage inspection",
+          "title": "Independence complexes and incidence graphs",
+          "trigger": "Potential general incidence/Alexander-duality theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–11 and 26–45",
+        "Prior ambient and rational Heawood records and the distinct Möbius–Kantor quotient compared above"
+      ],
+      "rationale": "The ordinary symmetry quotient of the canonical Fano-plane independence complex is a natural exact invariant. Establishing that it has no integral obstruction, in contrast to what the ambient type and rational representation could decide alone, answers a concrete topological question about retaining full duality. The distinction is relevant to other geometric independence quotients, where positive-degree torsion can survive. The value is the complete answer for this natural object, not the size of the enumeration or a general family claim.",
+      "residual_risks": [
+        "The value judgment does not rely on novelty of the fundamental group or on generalization to proper subgroups or higher-order planes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

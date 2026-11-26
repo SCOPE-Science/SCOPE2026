@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:47:30.853619Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–70; verification/verify_short_clocks.py, check_direct.py and both recorded outputs (inspected, not executed)",
+        "Independent replay: python3 /workspace/audit_evidence/rule110.py 1 2 3 4 5 8 9 10",
+        "Complete corrected /workspace/repairs/2/RESULT.md; core formulas, proof and verification interfaces unchanged"
+      ],
+      "rationale": "The frozen census is correct, but its eight-site witness read in increasing site order is false: 00111101 has preperiod 5 and eventual period 16. The replacement explicitly declares the orientation and gives all phases of the valid least-period-eight word 00101111; 000111 has least period nine. The replacement also distinguishes the 31 vertices after degree pruning from the 30 in cyclic SCCs. A separate graph build enumerated both side columns using the local constraints at each fixed middle column and ran SCCs without degree pruning; it reproduced every row at heights 1,2,3,4,5,8,9,10, with temporal periods measured on pairs of columns. Configurations fixed at height t give unique indexed cyclic walks and vice versa because the rule is deterministic. Each simple length-l component contributes l exactly when l divides n. Subtracting the appropriate proper-divisor fixed sets and dividing by the phase count proves C8 and C9. At height 10 every closed walk stays in an SCC with a common period dividing 2 or 5, so all such states are in Fix(F²) or Fix(F⁵); no extrapolation over n is used. The corrected limsup convention gives zero entropy for heights 8 and 9.",
+      "residual_risks": [
+        "The all-size proof depends on exact finite SCC exhaustion at the specified temporal heights, not on proving a result for unbounded temporal period. The supplied 3≤n≤20 output is supplementary evidence only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stricker pp. 230, 233 discusses spectra, with complete enumeration only at bounded sizes. The inspected seven-height proof has the same pair-column graph construction but computes the census at height seven."
+        ],
+        "reasoning": "Neither a bounded list of possible periods nor a general transfer construction contains the evaluated target SCC inventories needed to imply the count for every n.",
+        "searches": [
+          "Stricker, Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+          "Resultary temporal-five and temporal-six/seven Rule 110 records"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matches and inspected passages above",
+        "Cook, p. 14; Martínez, Adamatzky and McIntosh, arXiv:1609.05240, pp. 1, 4–5",
+        "Frozen and replacement Finding, Proof and prior-work sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The preceding temporal findings compute heights through five or at six and seven. The one-step image is an output-language rather than a return sector."
+        ],
+        "reasoning": "The same method must be evaluated at new temporal heights; lower-period data remove imprimitive sectors but do not determine the remainder or its absence at ten.",
+        "searches": [
+          "Lucas arithmetic and the first exponential short-return class in elementary Rule 110, Finding and proof",
+          "A sharp thirty-site gap between six- and seven-step recurrence in Rule 110, Finding and proof",
+          "Exact spatial dynamical zeta function and least periods of the Rule 110 one-step image (scope from frozen bibliography)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former diagram paper studies patterns through ten generations, including shift/generation pairs; Cook and the collider paper give period/displacement pairs of individual gliders."
+        ],
+        "reasoning": "Shifted returns are not generally zero-shift indexed returns. Glider periods and widths can explain some witnesses, but don't enumerate all indexed configurations even after dividing by phase. Spatial reflection to Rule 124 is equivalent, not a separate result.",
+        "searches": [
+          "Rule 110 periodic orbits on finite cyclic rings temporal period 8 9 10 transfer graph",
+          "Martínez et al., arXiv:0706.3348 and arXiv:1609.05240; Cook, Universality in Elementary Cellular Automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned finding, not an antecedent. Earlier census rows stop at height five or seven; the available primary passages do not give exact 8/9/10 orbit multiplicities as functions of all circumferences."
+        ],
+        "reasoning": "Existence tables, bounded ring data and diagrams possibly displaying individual witnesses are not counts with the indexed-ring normalization.",
+        "searches": [
+          "Resultary exact title and adjacent temporal-return census lookup",
+          "Stricker pp. 230, 233; Martínez et al. 2007 pp. 13–14"
+        ]
+      },
+      "rationale": "The repaired finding claims only the evaluated all-circumference census for primitive 8, 9 and 10 on labelled rings. Prior transfer-graph methods, separate lower heights, and individual glider witnesses are not claimed as novel.",
+      "residual_risks": [
+        "A visual reconstruction of the 2007 diagrams was not made; individual witnesses may already occur there. Unindexed exact counts or stronger historical results have not been ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial method and pattern overlap; exact census not found in passages read",
+          "evidence": [
+            "Discusses shifts, generations, the difficulty of all-cycle classification, and tiles T7–T11."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0706.3348",
+          "material_read": "pp. 13–14, extracted text offsets 32890 and 33424",
+          "method": "OA PDF passages",
+          "title": "Determining a regular language by glider-based structures called phases in Rule 110",
+          "trigger": "Closest early diagrams through ten generations"
+        },
+        {
+          "assessment": "Bounded complete spectra, not all-circumference orbit counts",
+          "evidence": [
+            "Complete spectra only through k≤22, partial data past that; Rule 110 discussion concerns lengths and envelopes."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+          "material_read": "pp. 230 and 233",
+          "method": "OA PDF passages",
+          "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+          "trigger": "Candidate finite-ring period table"
+        },
+        {
+          "assessment": "Prior method, different temporal heights",
+          "evidence": [
+            "Excludes primitive six and counts primitive seven using pair-column SCCs at height seven."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00",
+          "material_read": "RESULT.md offsets 0 and 1980",
+          "method": "Published local mirror",
+          "title": "A sharp thirty-site gap between six- and seven-step recurrence in Rule 110",
+          "trigger": "Closest same-rule transfer proof"
+        },
+        {
+          "assessment": "Lower heights, used as background",
+          "evidence": [
+            "Evaluates returns through height five and primitive temporal five."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-lucas-arithmetic-and-the-first-exponential-short-return-class-in--6da91943e80a",
+          "material_read": "RESULT.md offsets 0 and 1960",
+          "method": "Published local mirror",
+          "title": "Lucas arithmetic and the first exponential short-return class in elementary Rule 110",
+          "trigger": "Closest lower-height census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and proof; inspected period-five and period-seven comparisons; independent SCC inventory"
+      ],
+      "rationale": "A complete short-return census in the standard Rule 110 model resolves three consecutive low periods without a spatial cutoff. It exhibits a natural contrast with exponential lower clocks, and a universal absence at 10 despite positive lower-divisor sectors. The arithmetic populations distinguish all ring sizes and are usable data, not a finite-size conjecture or an isolated witness.",
+      "residual_risks": [
+        "No conclusions about other temporal periods, arbitrary spatial entropy notions, basins or transients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:12:10.599007Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After shearing so the base contains zero, at fixed nonnegative height difference h both lateral scales decrease as the lower height increases. The nested Minkowski sums are largest at lower height zero. Integrating this section and its reflection gives (1), including the direct prism limit; the mixed-volume expansion gives the exact quotient. Its integrand relative to the denominator weight is vol(B−s^−1 B)/vol(B), strictly decreasing because the added body is full-dimensional. The lower bound and equality follow from Brunn–Minkowski; all upper weights are positive, so the verified Godbersen inequality and the arbitrary-body equality theorem force a simplex. These arguments also cover the prism and pyramid; in m=1 the bounds agree. Continuity along Minkowski interpolation fills the interval. For the crossover, reflection symmetry and Alexandrov–Fenchel make the mixed-volume reweighting of Binomial(m,1/2) decrease in distance from m/2. Opposite monotonicities give mean m/2 and variance at most m/4. Taylor expansion of (1−u/m)^J about J=m/2 gives error at most u²/(2m), and comparison to exp(−u/2) contributes at most as much. The denominator differs from exp(−u) by at most u²/m and its integral is bounded below by τ exp(−2T), giving a uniform O_T(1/m) ratio error including τ=0. The planar linear inverse follows by integrating 1+2cs+s². The standalone verify.py and check_polytope.py were inspected as finite diagnostics, not executed or used to prove the unlimited-dimension statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Godbersen papers establish the coefficientwise upper bound and its equality characterization for arbitrary convex bases; 59eda2d783ad covers the pyramid endpoint.",
+          "The general difference-body framework treats geometric inequalities, not this tapered profile or normalized mixed-volume limit."
+        ],
+        "reasoning": "Bounds on individual mixed volumes and an exact calculation at t=0 do not yield the arbitrary-base all-taper section identity or convergence uniformly as t approaches one.",
+        "searches": [
+          "arXiv:2607.20387v2 Theorem 1.1",
+          "arXiv:2610.04527v2 Theorem 3",
+          "arXiv:2305.00479, difference bodies",
+          "Resultary: convex pyramids and exact mixed-volume lifting"
+        ]
+      },
+      "checked_sources": [
+        "1c5960ef3302",
+        "e2258ca0df47",
+        "59eda2d783ad",
+        "dda979276949",
+        "3dbfdaf0b359",
+        "arXiv:2607.20387v2",
+        "arXiv:2610.04527v2",
+        "arXiv:2305.00479"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expansion of the prior symmetric formula recovers a compact-interval O_T(1/m) error for that subclass. For arbitrary bases the decisive estimate is Var(J)≤m/4 for binomial weights times normalized mixed volumes, using Alexandrov–Fenchel log-concavity and reflection symmetry."
+        ],
+        "reasoning": "Exact symmetric and simplex data and pointwise upper bounds do not provide the needed arbitrary-base concentration around m/2. The paper gives a comparative estimate for every base and applies it to a nontrivial moving-endpoint limit.",
+        "searches": [
+          "1c5960ef3302 equations (3)–(4)",
+          "Godbersen theorem and equality theorem",
+          "Resultary 59eda2d783ad and dda979276949"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1c5960ef3302 equations (3)–(4) give the same normalized logistic limit for centrally symmetric bases; their normalizing 2^(m+1) is exactly the prism quotient for this subclass. e2258ca0df47 gives an exact reflected polynomial for that subclass.",
+          "3dbfdaf0b359 concerns the affine volume product, not the difference-body quotient."
+        ],
+        "reasoning": "Changing the normalization does not create novelty on the symmetric subclass. For noncentrally symmetric bases the prism normalization and coefficients depend on shape and cannot be replaced by those formulas.",
+        "searches": [
+          "Resultary: homothetic frusta, difference bodies and reflected mixed volumes",
+          "Resultary: frustum crossover, Santaló and volume product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact formulas overlap the centrally symmetric subclass, the pyramid endpoint, and specialized truncated-simplex mixed-volume data. The inspected matching formulas do not range over arbitrary nonsymmetric bases at an arbitrary taper."
+        ],
+        "reasoning": "Neither interpolating the endpoint values nor looking up extremal bases determines general nonsymmetric mixed-volume weights. The overlap is real but only partial.",
+        "searches": [
+          "Resultary: exact reflected mixed volumes, homothetic frusta and simplex truncations",
+          "Resultary records 1c5960ef3302, e2258ca0df47, 59eda2d783ad, dda979276949"
+        ]
+      },
+      "rationale": "The exact symmetric-base profile and its logistic limit are already on record, as is the arbitrary-base pyramid endpoint. The distinct claim supported here is the uniform normalized crossover for arbitrary varying, possibly nonsymmetric bases, with a shape-independent compact-interval error bound, together with the all-taper arbitrary-base section formula. The prior symmetric formula removes base dependence before the limit; it does not give concentration for the full collection of mixed-volume profiles. Godbersen and its equality theorem are inputs, not original findings.",
+      "residual_risks": [
+        "An equivalent all-base frustum identity or asymptotic in older or differently indexed convex-geometry literature is not ruled out. The symmetric limit and pyramid endpoint should be credited explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage on the symmetric subclass",
+          "evidence": "Same logistic ratio relative to the symmetric prism value; no arbitrary nonsymmetric bases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-universal-reflected-mixed-volume-law-and-a-high-dimensional-cros--1c5960ef3302",
+          "material_read": "Finding, equations (3)–(4) and central-symmetry hypothesis",
+          "method": "Local Resultary mirror",
+          "title": "Universal reflected mixed-volume law and a high-dimensional crossover for symmetric-base frusta",
+          "trigger": "Exact matching invariant and logistic limit"
+        },
+        {
+          "assessment": "Subclass overlap",
+          "evidence": "Formula requires central symmetry of the base.",
+          "identifier_or_url": "e2258ca0df47",
+          "material_read": "Finding and reflected polynomial/difference-body formula",
+          "method": "Local Resultary mirror",
+          "title": "Exact reflected mixed volumes of homothetic frusta with symmetric bases",
+          "trigger": "Exact all-taper result for the same invariant"
+        },
+        {
+          "assessment": "Endpoint overlap",
+          "evidence": "Arbitrary bases are allowed, but the upper slice is a single apex.",
+          "identifier_or_url": "59eda2d783ad",
+          "material_read": "Finding and pyramid scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact mixed-volume lifting and sharp difference-body bounds for convex pyramids",
+          "trigger": "Exact arbitrary-base difference-body law for the t=0 endpoint"
+        },
+        {
+          "assessment": "Correct proof input; the displayed equality characterization there is for polytopes",
+          "evidence": "V(K[k],−K[n−k])≤binom(n,k)vol(K) for all convex bodies; simplices attain the bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.20387v2",
+          "material_read": "Theorem 1.1, p. 2, PDF offset 9300",
+          "method": "Primary OA PDF",
+          "title": "Godbersen's conjecture and the Lp-Rogers-Shephard inequality",
+          "trigger": "Decisive coefficientwise bound and potential coverage of equality"
+        },
+        {
+          "assessment": "Supplies the needed arbitrary-body equality case",
+          "evidence": "Equality at even one interior mixed-volume index forces a simplex.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04527v2",
+          "material_read": "Theorem 3, p. 1, PDF offset 4150",
+          "method": "Primary OA PDF",
+          "title": "The equality case in Godbersen's inequality and its generalizations",
+          "trigger": "Equality for bases not assumed polytopal"
+        },
+        {
+          "assessment": "Different restricted family",
+          "evidence": "Exact deficits for one-vertex simplex truncations, not concentration or a frustum crossover for arbitrary bases.",
+          "identifier_or_url": "dda979276949",
+          "material_read": "Finding and special-family scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Potential exact non-symmetric mixed-volume frustum profile"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Concerns the Santaló point and polar volume product rather than difference bodies.",
+          "identifier_or_url": "3dbfdaf0b359",
+          "material_read": "Finding and invariant definitions",
+          "method": "Local Resultary mirror",
+          "title": "Universal Santaló and volume-product laws for homothetic frusta",
+          "trigger": "Same object and scale parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quotient is a standard affine invariant of a natural family. The complete taper profile interpolates two distinct sharp geometric regimes, and the uniform extension identifies a boundary layer even when the base changes arbitrarily with dimension. Reflection symmetry plus mixed-volume log-concavity giving a shape-independent variance estimate is the substantive reusable mechanism, beyond the known extremal-base calculations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

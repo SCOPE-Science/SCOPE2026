@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:11:16.285529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rainbow blade advances all three residues, and no rainbow can be created: a new rainbow has a 2 from an old 1, and if its old triangle had two zeros then both were adjacent to that 1 and advance together. With an active blade the hub rotates. For unordered pairs (00,01,02,11,12,22), direct application of the wing rule gives first times to the phase-appropriate passive pair as (1,4,1,4,-,0), (0,3,-,3,3,3), and (2,-,2,0,2,2) for initial hub 0,1,2 respectively; dashes denote rainbow types. Swapping the peripheral labels commutes with evolution. Without rainbow blades an initial hub 2 yields no 1 after one update (01 is prohibited), then all zero; a hub at 1 leads to this situation at hub 2. A hub at 0 with any 1 advances to 1; with none it rests and all vertices rest after at most one update. This proves the uniform four-step bound. The frozen sharp witness has passive additional blades going 00,00,11,22,00, and a single triangle's ten unordered color multisets give maximum three (001 and 011 attain it). The recurrent active labels fix the periodic state at each hub phase; per phase there are seven choices per inactive blade and one per prescribed orientation, giving all counts and the binomial law. Independent adjacency-based enumeration with first-repeat orbit detection for r=1,2,3,4 confirmed maxima 3,4,4,4, all basin sizes, and counts by active number. Replay: frozen RESULT.md Proof Steps 1–5 and verify.py lines 30–101 are exact finite reductions and supplementary finite-graph checks; the supplied verification_output.txt for r through 5 was inspected, not rerun. The argument applies only to the stated deterministic labelled rule and topology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact entrance-time census provides all ten period/entry classes and the sharp first-entry times, fixed state, total three-cycles and aggregate basins.",
+          "Gravner–Lyu–Sivakoff give an arbitrary-graph irrotationality criterion and state that contour integrals of dX_t are time invariant. Their matching-based probability bound applies with the nonhub triangle edges as the matching.",
+          "Doba gives circuit-phase criteria for eventual rest versus periodic excitation and a long-run excitation rate."
+        ],
+        "reasoning": "The entrance-time census strengthens the cutoff by counting every first-entry class; its counts alone do not separate individual cycles. Arbitrary-graph conserved circulations supply the missing orbit label when combined with the known exact recurrent skeleton.",
+        "searches": [
+          "Resultary 2026/11/8 ...13eed7214670 proof and verification, offset 3500–7879",
+          "arXiv:1610.07320 Theorems 3 and 5 and post–Proposition 3.4 remark",
+          "Doba doi:10.25088/ComplexSystems.27.2.101 Theorems 1 and 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 2026/11/2 ...e79c2691fb75 and 2026/11/8 ...13eed7214670",
+        "arXiv:1610.07320",
+        "doi:10.25088/ComplexSystems.27.2.101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The change in an oriented-edge difference is the difference of endpoint excitation indicators; on a closed contour this telescopes and the paper explicitly notes time invariance.",
+          "In the indexed recurrent skeleton, the full vector of oriented blade circulations singles out exactly one three-cycle for each nonzero vector."
+        ],
+        "reasoning": "The circulation on an oriented triangle is +3 or -3 for the two rainbow orders and 0 otherwise. A given recurrent orbit therefore has exactly all initial states with its circulation vector (the all-zero vector forces the rest state). Fix the hub color: a ±3 entry gives one ordered pair and a zero gives seven. Summing over three hub colors forces 3·7^(r-k) and choosing the nonzero entries gives binomial(r,k)·2^k. This is mechanical from the known invariant and the exact recurrent skeleton, independent of whether the printed basin count is aggregate.",
+        "searches": [
+          "arXiv PDF 1610.07320, p. 13 Eq. (37) and remark immediately after proof of Proposition 3.4, offsets 43600–46180",
+          "Resultary 2026/11/2 ...e79c2691fb75 proof, Shared recurrent three-cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shared three-cycle skeleton explicitly gives F^4=F^7 for GHM and the recurrence pair types (c+1,c+2), (c+2,c+1), (c+2,c+2) modulo 3, requiring at least one of the first two."
+        ],
+        "reasoning": "These are exactly the two rainbow orientations and the passive pair for hub color c. The identified three-cycle orbits and sharp bounds at r=1 and r≥2 match the frozen ones.",
+        "searches": [
+          "Resultary: three-state GHM/Greenberg–Hastings, friendship graph/shared-hub windmill triangle bouquet, oriented cycle basin, exact entrance cutoff",
+          "Resultary 2026/11/2 ...e79c2691fb75 proof, offset 3400–7346"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/11/8 record provides an exact 189-signature certificate and exact formulas for all ten classes. The 2026/11/2 record gives a support-size by entry-time table and explicitly lifts the recurrent configurations to the labelled graph. No distinct close same-day match surfaced in the ranked results."
+        ],
+        "reasoning": "These are exact covering counts for the cutoff and period census, not a mere finite extrapolation. Neither table needs to print the per-cycle count, because the following direct implication supplies it.",
+        "searches": [
+          "Resultary indexed exact friendship-graph GHM entrance counts and shared three-cycle skeleton",
+          "Resultary same-day comparison for labelled friendship graph and triangle bouquet GHM"
+        ]
+      },
+      "rationale": "Distinct indexed results prove the same sharp cutoff and identify the exact recurrent configurations. The allegedly additional oriented basin count is then a direct product count using the known conservation of contour integrals for three-state GHM. Thus the missing formula in an abstract or finding does not establish a distinct theorem; this is a coverage comparison, not a claim about historical priority.",
+      "residual_risks": [
+        "Historical priority or dependence among indexed records was not established from dates.",
+        "The two earlier lattice papers were not independently fully inspected; the positive coverage comparison does not rely on their absence of results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent skeleton and cutoff, plus stronger entrance law and CCA comparison",
+          "evidence": [
+            "Necessary and sufficient recurrent ordered petal types; F^4=F^7 and sharp maxima; exact support lifting."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shared-three-cycle-skeleton-and-unequal-stopping-time-laws-for-e--e79c2691fb75/RESULT.md",
+          "material_read": "Finding and proof, especially offsets 3400–7346",
+          "method": "Indexed retrieval and mirrored passage inspection",
+          "title": "Shared three-cycle skeleton and unequal stopping-time laws for excitation on friendship graphs",
+          "trigger": "Exact match to recurrence, labelled friendship graphs and GHM cutoff"
+        },
+        {
+          "assessment": "Broader entrance-time law; aggregate basin totals",
+          "evidence": [
+            "189-signature reduction lifts to ordered states, proves all ten temporal classes and sharpness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-entrance-time-census-for-three-state-excitation-on-friends--13eed7214670/RESULT.md",
+          "material_read": "Finding and quotient/lifting/verification passages around offsets 3500–7879",
+          "method": "Indexed retrieval and mirrored passage inspection",
+          "title": "Exact entrance-time census for three-state excitation on friendship graphs",
+          "trigger": "Exact census on same graph and rule"
+        },
+        {
+          "assessment": "Known conserved circulation gives direct product split given the exact recurrent skeleton",
+          "evidence": [
+            "Explicit time-invariant contour integrals; irrotationality and a matching-based synchronization bound. The stated equality example in Theorem 5 is for disjoint triangles under CCA, not this hub-sharing GHM example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Theorems 3 and 5 pp. 4–5; Proposition 3.4 Eq. (37) and following remark p. 13",
+          "method": "OA full-text passage inspection",
+          "title": "Limiting Behavior of 3-Color Excitable Media on Arbitrary Graphs",
+          "trigger": "Arbitrary-graph circulation criteria and possible oriented orbit invariant"
+        },
+        {
+          "assessment": "Prior asymptotic criterion, not by itself an orbit-level census or cutoff",
+          "evidence": [
+            "Zero phase difference on every circuit gives rest; nonzero circuit gives eventual periodic excitation; separate rate law."
+          ],
+          "identifier_or_url": "doi:10.25088/ComplexSystems.27.2.101",
+          "material_read": "Model definition and Theorems 1 and 2 at printed pages 114 and 117",
+          "method": "OA full-text passage inspection",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Phase-difference and periodic excitation theorem on finite graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp transient cutoff and an oriented basin census on a natural graph family would be useful. But the exact cutoff is already covered by stronger entrance classifications, and the split by orbit is the immediate product count of conserved labels once the recurrent skeleton is known. No distinct worthwhile remainder is established by the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

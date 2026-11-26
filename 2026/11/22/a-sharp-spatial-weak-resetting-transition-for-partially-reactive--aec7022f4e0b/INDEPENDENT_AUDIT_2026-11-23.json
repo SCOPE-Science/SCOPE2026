@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:36:01.299209Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In time units 1/λ the folded generator is ±s⁻¹∂a plus unit-rate heading reversal. A failed inward crossing at zero renews on the outward branch with weight exp(−ks); at the outer wall the outward lifetime adds an independent Exp(1) wait to the inward lifetime. These give g(1)=1/2, G(1)=1+f(1)−g(1), f(0)=cg(0), F(0)=cG(0) and the stated moment equations. A crossing with capture has a state-uniform positive probability in a fixed finite time block (allow an outward start time to reach the wall, reverse there, then travel inward without another reversal), so the needed moments and Taylor expansion are justified. Complete independent restarting gives right derivative −Δ/(2λ²) in physical units. Reconstructing the moment polynomials confirms the endpoints and the Bernstein signs: b0 and b1 are positive, and b1>b2>b3>b4; no ordering of b0 and b1 is needed. Descartes' rule with multiplicities and the endpoint signs give the unique simple interior crossover when the wall sign is negative. On P>0, coth(ks/2)P strictly decreases in s while Q strictly increases; P≤0 cannot furnish an extra root. At fixed s, increasing k decreases the positive product, proving strict decrease of the threshold; compactness between the strong and weak limits and the defining root equation give both limits. Integrating F and f under uniform launch and squaring only the integrated first moment gives the positive uniform susceptibility. Equality at the wall or at the crossover specifies only the first derivative; a=0 enters solely as the limiting folded value, not as an allowed restart site. The independent symbolic check reconstructed f,g,F,G from the integrals, expanded Δ, and compared the coefficients using b_j=Σ_{i≤j}[a^i]Δ·binom(j,i)/binom(4,i). This checks the identities, not the stochastic model or the sign theorem by sampling. Uploaded code was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-interval Bressloff models use instantaneous reflection or absorption from wall occupation, respectively. The resetting paper recovers full renewal in §5 but on a half-line with a non-sticky target wall.",
+          "a02eb1d7ba06 treats Brownian diffusion with a partially reactive endpoint and a reflecting opposite endpoint."
+        ],
+        "reasoning": "Neither half-line resetting nor the diffusion/sticky-absorption variants specialize to the confined sticky-reflecting telegraph process and its all-site sign pattern.",
+        "searches": [
+          "arXiv:2209.07293v2 §2",
+          "arXiv:2302.01158v1 Introduction",
+          "arXiv:2503.01304v1 Abstract and §5",
+          "Resultary: 2026/11/2/SCOPE-an-exact-global-reset-benefit-threshold-for-a-partially-reactive--a02eb1d7ba06"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.04016v1",
+        "arXiv:2209.07293v2",
+        "arXiv:2302.01158v1",
+        "arXiv:2503.01304v1",
+        "Resultary a02eb1d7ba06 and identical aec7022f4e0b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar renewal formula establishes the criterion F>2f² but not the sign at every fixed site. The uniform variance does not determine the entire position-dependent quartic, and a positive uniform susceptibility is compatible with a negative wall susceptibility."
+        ],
+        "reasoning": "The fixed-site wall threshold and one-change proof for the full quartic are not obtained by transforming the prior uniform formula or invoking renewal alone.",
+        "searches": [
+          "arXiv:2310.04016v1 Appendix C",
+          "arXiv:2503.01304v1 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact assigned Resultary item aec7022f4e0b is the same record, not separate corroboration or priority evidence.",
+          "Jeon–Go–Kim specify the same crossing survival exp(−κ/v) and wall waiting, but their launch law is uniform and the paper studies motility, not the fixed-site restart derivative."
+        ],
+        "reasoning": "Folding the two sides maps zero to a partially absorbing endpoint with reversal upon failure; the opposite sticky endpoint and full heading renewal must both be preserved to be equivalent.",
+        "searches": [
+          "Resultary: weak restart of partially reactive run-and-tumble search, sticky walls and spatial crossover",
+          "arXiv:2310.04016v1 §§II–III and Appendix C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed threshold a02eb1d7ba06 has the different Brownian hypotheses; Eq. (113) is a spatially averaged variance, not a table or formula of fixed-site thresholds."
+        ],
+        "reasoning": "The claim is a continuum classification, not a new numerical evaluation of a catalogued invariant. The approximate constants are incidental evaluations of the defining root equations.",
+        "searches": [
+          "Resultary: fixed-launch telegraph reset benefit and reactive-boundary thresholds",
+          "arXiv:2310.04016v1 Appendix C, Eq. (113)"
+        ]
+      },
+      "rationale": "The closest unreset process and the general restart criterion are known. Neither supplies the claimed fixed-site sign classification across all s,k>0; the endpoint polynomial and uniqueness argument are substantive additional results. No equivalent or dominating result was identified in the bounded comparisons.",
+      "residual_risks": [
+        "Bounded best-of-knowledge literature review; work phrased in terms of a persistent telegraph process with renewal could use different indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same physical process, not the fixed-site weak restart classification",
+          "evidence": [
+            "p_find=1−exp(−κ/v); outward particle remains stuck until switching; Pσ(X)=1/4 for the uniform launch in the paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.04016v1",
+          "material_read": "§II sticky walls, target matching and initial distribution; §III crossing attempts; Appendix C Eq. (113)",
+          "method": "OA full-text passages, offsets 6550–10487, 13950–16228, 19000–21943 and 60200–63378",
+          "title": "Searching for a partially absorbing target by a run-and-tumble particle in a confined space",
+          "trigger": "Same unreset system and cited variance"
+        },
+        {
+          "assessment": "Different reflecting wall law",
+          "evidence": [
+            "The reflecting endpoint causes immediate velocity reversal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2209.07293v2",
+          "material_read": "§2 boundary conditions, offsets 11900–14899",
+          "method": "OA full text",
+          "title": "Encounter-based model of a run-and-tumble particle",
+          "trigger": "Potentially equivalent folded finite interval"
+        },
+        {
+          "assessment": "Different target mechanism",
+          "evidence": [
+            "Absorption uses time spent bound to a wall."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.01158v1",
+          "material_read": "Introduction, offsets 8500–11016",
+          "method": "OA full text",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "Sticky wall and reaction"
+        },
+        {
+          "assessment": "Reset comparison, not this geometry",
+          "evidence": [
+            "The geometry is a half-line. Collision memory is initially retained; the §5 protocol resets it and draws a fresh threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.01304v1",
+          "material_read": "Abstract and §5, offsets 0–2141 and 40500–44100",
+          "method": "OA full text",
+          "title": "Encounter-based model of a run-and-tumble particle with stochastic resetting",
+          "trigger": "Partially absorbing persistent search under renewal resetting"
+        },
+        {
+          "assessment": "Analogous question, different stochastic process and boundaries",
+          "evidence": [
+            "Brownian motion with reflecting and reactive endpoints, rather than sticky outer walls and a central crossing target."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-global-reset-benefit-threshold-for-a-partially-reactive--a02eb1d7ba06",
+          "material_read": "Finding and model assumptions, RESULT.md offset 0",
+          "method": "Local published-record mirror",
+          "title": "An exact global reset-benefit threshold for a partially reactive target",
+          "trigger": "Closest distinct indexed threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact threshold and unique change of sign identify where restarting helps or hurts in a standard confined persistent-search model. This sign information cannot be inferred from the uniform-launch benefit, and it gives an actionable distinction without claiming an optimal finite restart rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

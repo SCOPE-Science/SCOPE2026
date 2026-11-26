@@ -1,15 +1,21 @@
-# Scientific review: sharp two-cycle threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof eliminates predator variables to obtain an exact sign relation between \(v-y\) and \(x-u\). Strict positivity of both predator coordinates yields \(x+u<2\lambda-2\leq4\); the arithmetic–geometric-mean inequality then makes the sign opposite to the sign imposed by nondecreasing predator recruitment. This excludes every nontrivial positive period-two point, without smoothness assumptions. The converse constructs affine positive recruitment at every \(\lambda>3\) and proves admissibility via a strict limiting inequality. An exact rational example and three additional rational instances were recomputed directly; these are checks, not the basis for infinite quantification.
+## correctness
 
-## Originality — PASS against examined sources
-The primary 2025 phytoplankton–zooplankton study has the \(\lambda=2\) model and a Neimark–Sacker analysis, but not an all-nondecreasing-recruitment period-two exclusion and an every-\(\lambda>3\) sharpness result. A directly overlapping 2019 predator–prey map is conjugate by positive linear rescaling to the zero-intercept subfamily, \(h(X)=(\beta/\mu)X\); its stated global-convergence theorems address lower-growth regions and do not imply the universal sharp threshold and positive-intercept constructions. Other located period-two classifications concern different nonlinear maps. An exhaustive historical-priority claim is not made; unlocated specialized results remain possible.
+PASS
 
-## Mathematical value — PASS
-The exact boundary \(\lambda=3\) separates an entire cone of monotone recruitment functions with rigorously forbidden coexistence two-cycles from a regime where such cycles are realizable with positive affine biological parameters. It supplies a structural no-flip-coexistence constraint complementary to equilibrium and Neimark–Sacker analyses, without incorrectly claiming global stability or absence of other recurrence.
+On a strictly positive two-step orbit, the prey equations give y=λ−x−u/x, v=λ−u−x/u. Hence v−y=(x−u)(1−1/x−1/u), and x+u<2λ−2. For λ≤3 the reciprocal sum exceeds one by AM–GM, so unequal prey states force the opposite ordering of v−y to that required by h(x)h(u)=1 and nondecreasing h. Equal prey states force equal predator states, proving exclusion even at λ=3 without continuity. For each λ>3 one can choose z=2+(λ−3)/6, and x=z+ε,u=z−ε with both recovered predator states near Y=λ−z−1>0. Here v>y, so interpolating the reciprocal positive ratios v/y and y/v gives strictly positive slope. Its limiting intercept is 1−2(z−2)/Y in (0,1), as follows by writing the slope as (1−1/x−1/u)(v+y)/(vy). Sufficiently small positive ε preserves the strict inequalities and yields an exact period-two cycle. At r=1 the special h(x)=γx is still positive on x>0. The rational λ=4 witness was independently checked by exact substitution (both updates close); the supplied script was inspected, not run, and does not prove the universal threshold.
 
-## Residual limitations
-This is a strictly positive least-period-two theorem. It neither covers boundary cycles nor rules out longer cycles, invariant curves, chaotic recurrence, or stability differences; the constructed cycles are not asserted attracting. Earlier special-case analyses and possible unlocated equivalent results limit historical certainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established plankton recurrence, the logistic boundary dynamics and the zero-intercept model. A later indexed paper gives exactly the affine-family frontier and goes further with a parameterization; this is genuine mathematical overlap, not evidence of an earlier covering publication. It states an affine theorem, while the original's exclusion is formulated and proved for arbitrary positive nondecreasing h, including nonsmooth and non-strictly-increasing cases. The strongest inspected earlier primary period-two calculation is on the invariant axis of the λ=2 model. The decision is for the original uniform theorem as a whole, with priority risk in the older overlapping-field literature.
+
+## value
+
+PASS
+
+The growth threshold is for an entire monotone recruitment class, with no need for differentiability, a trapping region or restrictions on the particular positive two-step orbit. Demonstrating attainability on the positive affine subfamily makes the obstruction exact and nonvacuous. This is an existence frontier, not a stability or general global-dynamics claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

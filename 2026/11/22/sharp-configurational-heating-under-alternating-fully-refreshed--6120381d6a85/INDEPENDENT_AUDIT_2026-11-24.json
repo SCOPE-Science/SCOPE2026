@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:39:28.960172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated unit oscillator and full-refresh limit, the last kick gives p_n=ξ_n−h_n q_n/2. Substitution in the next first kick and two half drifts gives q_n=A_n q_{n−1}+h_n(ξ_{n−1}+ξ_n)/2 with A_n=1−h_n(h_n+h_{n−1})/4. The two-step affine Gaussian recursion contracts (|A_s A_t|<1), giving unique centered stationary phase laws; retaining Cov(q_{n−1},ξ_{n−1})=h_{n−1}/2 yields the stated coupled moment equations. After subtracting unit variance the forcing at phase s is s²(s+t)(s−t)/16 and at phase t is −t²(s+t)(s−t)/16. Inverting with determinant (1−A_s A_t)(1+A_s A_t)=(s+t)²(4−st)D/256 reproduces both variances, with D>0. Their difference and sum give the phase sign test and heating formula. With u=s+t, v=st, the excess decreases strictly in v at fixed u. Its lower-v boundary is v=0 for u≤2, with excess u²/(8−u²)≤1, and v=2(u−2) for u≥2, with denominator minus numerator 2(u−2)(u²−4u+8). These boundary comparisons also hold by continuity on the closed step square (D≥352/27 there); equality in the upper bound occurs only at the two limiting corners. The equal split maximizes v. Uniform phase selection gives a centered Gaussian mixture with fourth cumulant 3(V_s−V_t)²/4, strictly positive off-diagonal. An independent exact diagnostic at (1,4/5) gives phase variances 345/338 and 168/169 and mean 681/676. The supplied verifier was inspected, not executed; recorded symbolic and finite checks are supplementary, not the proof. The result does not concern time-weighted observation, random steps, or finite damping.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leimkuhler–Matthews §III gives the harmonic stationary moments at a constant step; the web query returned unrelated harmonic-balance material.",
+          "Nearby Resultary descriptions concern random-order Verlet or iid step variation in deterministic Verlet, not a periodic invariant under refreshed noise."
+        ],
+        "reasoning": "The fixed-step theorem covers the diagonal only. No available broader comparison established the exact two-phase covariance, ceiling, or phase cumulant under unequal steps.",
+        "searches": [
+          "Resultary: periodic variable timestep BAOAB alternating Langevin harmonic oscillator exact invariant configurational distribution",
+          "Web: harmonic BAOAB alternating variable timestep full momentum refresh stationary phase-dependent configurational variance",
+          "DOI:10.1063/1.4802990",
+          "DOI:10.1101/266619"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and requirements.txt",
+        "Local Resultary exact target and distinct alternating Verlet finding 35a4953830cc; related catalogue summaries 3120b4c2e0a4 and 82d670980b95",
+        "Leimkuhler–Matthews (2013) §III; access attempts for Fass et al. and Kieninger–Keller"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constant step covariance gives Gibbs configurational variance; the alternating recurrence has a mixed term h_n h_{n−1} in its drift and covariance through the preceding refresh.",
+          "The deterministic stability finding assumes no OU noise and does not give a stationary covariance equation with those mixed terms."
+        ],
+        "reasoning": "Neither the diagonal nor the homogeneous stability criterion implies the off-diagonal formulas, their sharp bound, or the unequal phase mixture. The elementary Gaussian mixture cumulant identity itself is not claimed as new.",
+        "searches": [
+          "Leimkuhler–Matthews §III, pp. 9–10",
+          "Resultary 2026/10/12/SCOPE-exact-two-step-stability-tongues-and-unstable-stage-rescue-in-al--35a4953830cc, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest distinct Resultary Finding and assumptions concern deterministic alternating kick–drift–kick, with a determinant-one transfer matrix and no momentum refresh.",
+          "The stochastic-dynamics/BAOAB equivalence paper is a relevant alias lead; attempts did not provide primary full text."
+        ],
+        "reasoning": "The deterministic alternating stability inequality is not an alternative formulation of the stochastic invariant law; an algorithm equivalence alone would transport a known law only if the relevant alternating law had been obtained on one side.",
+        "searches": [
+          "Resultary: alternating BAOAB full momentum refresh harmonic configurational variance phase-dependent",
+          "Resultary: alternating time steps stochastic Verlet harmonic oscillator phase-dependent stationary Gaussian variance",
+          "DOI:10.1021/acs.jctc.2c00585"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is 2026/11/22/SCOPE-sharp-configurational-heating-under-alternating-fully-refreshed--6120381d6a85, the assigned result itself. The closest distinct result, 35a4953830cc, tabulates no phase laws and proves homogeneous deterministic stability."
+        ],
+        "reasoning": "An exact self-match is not independent prior coverage; no independently tabulated alternating BAOAB phase law was located.",
+        "searches": [
+          "Resultary: BAOAB phase mixture non Gaussian fourth cumulant alternating timestep Langevin",
+          "Resultary: alternating BAOAB full momentum refresh harmonic configurational variance phase-dependent"
+        ]
+      },
+      "rationale": "Existing coverage gives constant-step harmonic configurational exactness and related deterministic stability results, not the alternating stochastic phase laws. On the evidence inspected, the off-diagonal invariant, its sharp ceiling and phase-law distinction are supported distinct content. This is a bounded comparison, not a priority certificate.",
+      "residual_risks": [
+        "The broad web query did not yield relevant text; unindexed variable-step work is possible.",
+        "The Fass and Kieninger–Keller full texts were not retrieved, so their results beyond accessible identification are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified diagonal coverage; no alternating law in inspected derivation",
+          "evidence": "Constant-step BAOAB gives configurational variance K⁻¹β⁻¹.",
+          "identifier_or_url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/11336040/Robust_and_efficient_configurational_molecular_sampling_via_Langevin_dynamics.pdf",
+          "material_read": "Lawful Edinburgh manuscript, splitting definition pp. 8–9; §III harmonic covariances pp. 9–10, offsets 25500–31443",
+          "method": "OA text, bounded passage read",
+          "title": "Robust and efficient configurational molecular sampling via Langevin dynamics",
+          "trigger": "Foundational BAOAB harmonic exactness and possible broader invariant law"
+        },
+        {
+          "assessment": "Different assumptions and invariant",
+          "evidence": "Deterministic kick–drift–kick recurrence tests power boundedness for every initial condition; transfer matrix has determinant one and no thermostat.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-two-step-stability-tongues-and-unstable-stage-rescue-in-al--35a4953830cc",
+          "material_read": "Finding, assumptions, start of proof, offsets 0–2636",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Exact two-step stability tongues and unstable-stage rescue in alternating Verlet",
+          "trigger": "Closest distinct catalogue match: alternating harmonic Verlet"
+        },
+        {
+          "assessment": "Coverage unverified, not a negative finding",
+          "evidence": "bioRxiv 429/403; attempted MDPI paths returned landing material or 403.",
+          "identifier_or_url": "DOI:10.1101/266619; Entropy 20 (2018), 318",
+          "material_read": "No primary full-text passage retrieved; bioRxiv and MDPI access attempts only",
+          "method": "Lawful web/OA access attempts",
+          "title": "Quantifying Configuration-Sampling Error in Langevin Simulations of Complex Molecular Systems",
+          "trigger": "Cited configurational error and high-friction analysis"
+        },
+        {
+          "assessment": "No statement-level evidence about alternating scheduling retrieved",
+          "evidence": "ACS 403, PubMed did not provide text.",
+          "identifier_or_url": "DOI:10.1021/acs.jctc.2c00585",
+          "material_read": "Identification only; no full-text passage returned",
+          "method": "ACS and PubMed lawful access attempts",
+          "title": "GROMACS Stochastic Dynamics and BAOAB Are Equivalent Configurational Sampling Algorithms",
+          "trigger": "Equivalent-scheme possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Constant-step BAOAB exactness makes unequal-step invariant sampling a naturally motivated test. The theorem distinguishes systematic configurational heating from phase-specific cooling and gives a sharp twofold ceiling under the stated stability caps. It also shows why phase mixing is not described by a single Gaussian with the averaged variance. These are usable properties for diagnosing alternating sampling, not fixed-step recomputations or a claim about general Langevin dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

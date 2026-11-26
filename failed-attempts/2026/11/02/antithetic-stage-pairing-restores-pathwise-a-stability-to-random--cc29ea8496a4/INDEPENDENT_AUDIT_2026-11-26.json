@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:54:42.988441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–64",
+        "Frozen VERIFICATION.md, lines 19–31",
+        "Frozen verify.py, lines 10–52 (inspected only)",
+        "arXiv:2404.19059v1, §1.2"
+      ],
+      "rationale": "Substituting the scalar test equation into either implicit stage gives R(z,t)=(1+(1−t)z)/(1−tz); poles do not enter the closed left half-plane. With c=t(1−t), the complementary pair is (1+z+cz²)/(1−z+cz²), where subtracting squared moduli of numerator from denominator gives −4 Re(z)(1+c|z|²). This is strictly positive in the interior, zero on the boundary, and continuity over t∈[0,1] gives a uniform-in-stage factor q_z<1 at each fixed interior z. No independence is needed across the paired products. The modulus squared of a general two-stage product on iy has leading excess 2(1−u−v)y², forcing u+v≥1 under nonexpansion. The sum of the two means then forces equality, including endpoint atoms; the paired identity gives sufficiency. On iy the one-step excess equals y² E[(1−2T)/(1+y²T²)]. Both factors inside the expectation are strictly decreasing for y≠0 and the first is centered, so the independent-copy covariance formula gives strict positivity for any nondegenerate centered law. Exact integration for a uniform stage gives the stated arctangent and logarithm. Direct integration of the squared factor at z=−5 gives 1+25/6−2 log 6>1, while the paired ratio (−4+25c)/(6+25c) is increasing on 0≤c≤1/4 and its maximum absolute value is 2/3. These conclusions apply to the autonomous scalar test at a common step; the deterministic bound is for completed pairs.",
+      "residual_risks": [
+        "The sample grid in the script is floating point, not an exact rational grid proof. The exact modulus identity and analytic argument establish the uniform statements. No nonlinear or variable-step stability conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2c39a18b1c6f, Proof Step 3, mirrored RESULT.md offsets 3600–6350: Euclidean nonexpansion for all dissipative complex matrices (including nonnormal ones), plus exact paired mean-square stiff damping in Proof Step 4.",
+          "The source RK paper uses independent uniform stages; v3 §3.2 bounds the mean-square region and rules out the closed right half-plane, including the imaginary axis, for that law."
+        ],
+        "reasoning": "The matrix result encompasses samplewise scalar nonexpansion, and that record states the additional strict scalar interior result explicitly. Lack of iid mean-square A-stability was separately prior; paired stability is not supplied by the iid convergence proofs.",
+        "searches": [
+          "Resultary: centered stage coupling U+V=1 necessary sufficient samplewise stability randomized RK2",
+          "arXiv:2404.19059v1, §1.2; v3, §3.2, Eq. (16), Facts 2–3"
+        ]
+      },
+      "checked_sources": [
+        "2c39a18b1c6f",
+        "3d7701908c6c",
+        "arXiv:2404.19059v1 and v3",
+        "arXiv:0812.0377"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older rigidity proof uses the negative-integer stiff limit (1−U)(1−V)/(UV)≤1 and then E(U+V)=1. Its only other use of uniformity is to exclude endpoint values while taking that limit.",
+          "If one component is 0 and the other is less than 1, the stiff product diverges; if the other is 1 the pair is complementary. A component equal to 1 already gives U+V≥1. The same limit argument therefore covers arbitrary centered couplings, including atoms.",
+          "The source paper's symmetrization in (17) specializes on iy to averaging a squared modulus and its reciprocal. For uniform stages this is strictly above one on a set of positive measure for y≠0; its original integral is also the one that gives the elementary closed form."
+        ],
+        "reasoning": "Replacing the stiff-limit necessity proof by an imaginary-axis Taylor coefficient is an alternative proof, not a new mathematical claim at the review's standard. The all-centered imaginary-axis strictness is stronger than the cited stiff obstruction with respect to frequency and is proved correctly, but is a direct scalar covariance consequence of the existing stability integral and does not restore novelty of the main theorem.",
+        "searches": [
+          "2c39a18b1c6f, mirrored RESULT.md Proof Steps 1–3",
+          "3d7701908c6c, mirrored RESULT.md Finding",
+          "arXiv:2404.19059v3, §3.2 Fact 2 Case 3 and Eq. (17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2c39a18b1c6f, mirrored RESULT.md offset 0, Finding and Proof Step 2: same rational transfer and exactly −4(1+c|z|²)Re z for the squared-modulus difference, hence strict contraction in the interior and equality on the imaginary axis.",
+          "Blanes–Casas–Murua, PDF p. 11: definition of adjoint and composition with the adjoint to obtain a symmetric method."
+        ],
+        "reasoning": "Under R_{1−t}(z)=1/R_t(−z), the complementary pair is the theta step composed with its adjoint. The classical adjoint observation does not itself prove random-coupling rigidity, but the matched-marginal formulation and actual scalar theorem already appear in the more specific published record. Compactness gives the claimed deterministic q_z bound directly.",
+        "searches": [
+          "Resultary: randomized implicit Runge-Kutta antithetic complementary stage coupling pathwise A-stability",
+          "Resultary: adjoint theta method composition stability function complementary theta steps random Runge-Kutta",
+          "Blanes–Casas–Murua, arXiv:0812.0377, §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2c39a18b1c6f, published path dated 2026-10-25, mirrored RESULT.md offsets 0–3728 and 3600–6350: exact match to the centered paper's uniform-coupling special case and its full paired transfer/stability statement.",
+          "3d7701908c6c, mirrored RESULT.md Finding: for arbitrary nondegenerate iid stage laws of mean 1/2, the stiff negative-real second moments obstruct mean-square A-stability, with a sharp variance bound."
+        ],
+        "reasoning": "This is exact published overlap of the central stability result, independent of naming. The other record concerns negative-real stiff amplification rather than the arbitrary-centered iid imaginary-axis pointwise statement. The exact z=−5 choice is a witness to the already established independent instability, not new stability coverage.",
+        "searches": [
+          "Resultary: randomized implicit Runge-Kutta antithetic complementary stage coupling pathwise A-stability",
+          "Resultary: independent random stage fractions imaginary axis mean square amplification theta Runge-Kutta"
+        ]
+      },
+      "rationale": "Demonstrable prior coverage of the central result: published record 2c39a18b1c6f uses the same stage factor, complementary coupling, matched uniform marginals and identical scalar closed-left-half-plane modulus calculation, with stronger dissipative-matrix scope. Its rigidity proof extends to the frozen centered-marginal statement with only a boundary-case check. Thus this is a correct result with an alternative short rigidity proof, not a new paired-stage theorem. The pointwise comparison for arbitrary centered iid laws is a distinguishable subsidiary observation, and is not represented as a theorem explicitly stated by the older pairing record.",
+      "residual_risks": [
+        "The two inaccessible deterministic-method papers may provide additional antecedents, but the FAIL is grounded in the directly inspected published exact overlap and its mechanical implication, not in unverified possible coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact core overlap and stronger matrix treatment",
+          "evidence": "Unique uniform coupling using negative-real stiff tests; identical paired rational factor and modulus identity; extension to all dissipative matrices; exact log stiff damping law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-antithetic-coupling-rigidity-and-logarithmic-stiff-damping-for-r--2c39a18b1c6f/RESULT.md",
+          "material_read": "Finding, scope, Proof Steps 1–4 and relationship passage, offsets 0–3728 and 3600–6350",
+          "method": "Configured local Resultary/GitHub mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Antithetic coupling rigidity and logarithmic stiff damping for randomized implicit stages",
+          "trigger": "Same complementary coupling, marginals, rigidity and scalar modulus calculation"
+        },
+        {
+          "assessment": "Prior coverage of centered iid failure, not a pointwise imaginary-axis result",
+          "evidence": "Sharp stiff lower bound 1+12 Var(T) and examples of A-stable upward-biased laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-mean-stage-obstruction-and-two-point-a-stability-frontier--3d7701908c6c/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2846",
+          "method": "Configured local Resultary/GitHub mirror",
+          "title": "Sharp mean-stage obstruction and two-point A-stability frontier for randomized implicit RK2",
+          "trigger": "Same independent centered stage obstruction"
+        },
+        {
+          "assessment": "Original iid baseline; no complementary coupling theorem in compared passages",
+          "evidence": "Independent uniform fractions, both scheme equations, and mean-square amplifier integral with right-half-plane exclusion and bounded stability region.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+          "material_read": "v1 abstract and §1.2, pp. 1–3; v3 §3.2 Eq. (16), Fact 2 Case 3 and Fact 3, pp. 8–10",
+          "method": "OA paper PDF, bounded passage reading",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Source updates and iid complex mean-square stability"
+        },
+        {
+          "assessment": "Deterministic composition background",
+          "evidence": "Defines adjoint and explains how composing with it yields a symmetric order-two method.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.0377",
+          "material_read": "§2.1, PDF p. 11",
+          "method": "OA paper PDF, bounded passage reading",
+          "title": "Splitting and composition methods in the numerical integration of differential equations",
+          "trigger": "Classical adjoint composition for complementary theta steps"
+        },
+        {
+          "assessment": "Residual source-access risk only, not the reason for failure",
+          "evidence": "Both requests returned HTTP 403 and no lawful alternate was located in the bounded recovery.",
+          "identifier_or_url": "DOI:10.1137/S003614299834736X; https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P39.pdf",
+          "material_read": "Identification only; no original full text retrieved",
+          "method": "Lawful OA retrieval and alternate-copy search attempted",
+          "title": "Composition Methods for Differential Equations with Processing; Theta method dynamics",
+          "trigger": "Exact cited deterministic adjoint/theta background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 10–23 and 37–64",
+        "2c39a18b1c6f, Finding and Proof Steps 1–4",
+        "3d7701908c6c, Finding",
+        "arXiv:2404.19059v3, §3.2"
+      ],
+      "rationale": "A fixed-marginal pathwise stability repair is a meaningful objective, but the substance of this repair and the coupling rigidity are already available in stronger form. The different necessity argument and the isolated stiff witness do not add a new design criterion. The remaining arbitrary-centered imaginary-axis inequality is a useful check on the baseline; as supplied it is an elementary covariance consequence of the known scalar stability function, and the uniform formula is its elementary integral. The record does not develop that comparison into an independent advance beyond the known obstruction sufficient to carry a replacement finding. No repaired record is submitted.",
+      "residual_risks": [
+        "This does not dispute correctness of the subsidiary imaginary-axis inequality or suggest that general random-stage stability is unimportant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:55:51.068466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After removing the common scalar shift, each season matrix squares to (1+m²)I. The determinant-one period product has half-trace 1+2m² sinh²(T sqrt(1+m²))/(1+m²); its Perron root gives the displayed exponent with the full-period divisor 2T. At m=0 the shift alone remains, and for m>0 monotonicity of sinh x/x gives strictly positive gain, bounded above by sqrt(1+m²)-m and tending to zero at infinity. This ensures a finite positive maximizer. With z=mT and u=T², the difference of the regular analytic arcsinh expression from z is divisible by u. Its scaled limit is g=(z-tanh z)/(2z²) with g(0)=0; Taylor control is uniform on compact intervals, and twice differentiable locally at the positive maximizer. The bound by 1/(2z) keeps the global optimizer in a compact region, and g(0)=0 excludes the origin. For h=2tanh z-z(2-tanh² z), the sign of h' changes exactly once on z>0 as sinh(2z)/z rises through 4; h starts at 0, goes positive, then tends to -infinity. Thus g has a unique strict maximum with g''(z*)<0. All global optimizers converge there, and local strict concavity of the scaled objective gives uniqueness for small T. Stationarity and the O(T²) derivative error give z(T)=z*+O(T²), hence the displayed O(T) and O(T³) claims. Mortality is an exact additive shift, and no decision at scaled equality follows from the leading coefficient alone. Replay `cd /workspace && python audit_checks/check_frozen.py 5` uses independent 65-digit matrix exponentials and a stationary point for each of four finite T values, including sample competitors z=0 and z=200, and yields z*=1.60611529880276736408814145, G=0.132487539446827390709040742. Finite numbers are corroboration; global uniqueness follows analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katriel's more general periodic network theorem takes frequency to infinity at fixed migration. The catalogue theorem uniquely maximizes directional rates at fixed sum, so selects a=b, and gives fixed-rate short-period terms."
+        ],
+        "reasoning": "Neither a fixed-sum allocation theorem nor a pointwise fixed-m asymptotic optimizes the migration sum as a function of period. Uniform high-rate tail control and limiting profile optimization are still required.",
+        "searches": [
+          "Katriel arXiv:2104.01589 §4.2 Lemma 8",
+          "Resultary 5ff4ced1d8b6 balanced migration under antiphase seasons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.12633v1 and v2",
+        "arXiv:2104.01589",
+        "Resultary 5ff4ced1d8b6, 03045c39af8a, 087b8ca4b9b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model prior formula makes the optimization possible and the v2 small-period no-growth cutoff at fixed ε>0 is related. It does not give the singular optimum or the leading scaled threshold ε/T=G in the passages checked."
+        ],
+        "reasoning": "The cutoff at fixed mortality does not identify the leading optimized gain along a vanishing mortality scale. Obtaining the constants from the formula requires joint scaling, excluding the noncompact rate regimes, and identifying the unique limiting optimum. The added web lookup returned unrelated material and does not establish absence of prior coverage.",
+        "searches": [
+          "Benaïm et al. arXiv:2111.12633v1 Props. 2.3, 2.4 and 2.6; v2 Props. 2.6–2.8",
+          "Primary websearch: optimized antiphase two-patch fast-season migration and threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One can maximize mT=z at each T and normalize the mortality-free gain by T. Benaïm et al. v1 give the same formula expressed as Δ=2λ, where λ is the log spectral radius divided by the full period 2T. Their fixed-m limit is Δ→-2ε."
+        ],
+        "reasoning": "It is the same dynamics under the growth-factor convention, not an independent claim to the exponent. The reviewed maximizer lets m diverge with T, whereas the compared short-period limit holds m fixed.",
+        "searches": [
+          "Resultary: exact coefficient, defining tanh equation, opposite-season model and inverse-season-length optimization",
+          "arXiv:2111.12633v1 §§2.2–2.2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest hits are the fixed-sum result 5ff4ced1d8b6, the one-way frontier 03045c39af8a, and the discrete-generation all-or-nothing optimum 087b8ca4b9b8. The one-way result has its own nonzero mT_c limit but is neither the same model nor a symmetric optimum."
+        ],
+        "reasoning": "No indexed exact statement reproducing these constants and quantifiers was identified; matching an inverse-period scaling in a different frontier does not establish equivalent coverage.",
+        "searches": [
+          "Resultary: z*=1.6061152988, G=0.1324875394, tanh defining equation and short-period migration optimization"
+        ]
+      },
+      "rationale": "The exact Floquet formula for the opposite-season model and fixed-parameter asymptotics are verified prior coverage and explicitly credited. The distinct claim is the globally optimized singular fast-season regime, with uniqueness and first coefficient. No equivalent of that result was located in the inspected sources; targeted external search was unproductive and not a priority survey.",
+      "residual_risks": [
+        "Equivalent derivations from the known exact exponent may be unindexed or appear under seasonal sink or periodic-control vocabulary. The external search was unproductive; no absolute priority asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula and fixed-m limits are prior work. The frozen §2.2 citation is accurate for v1; later numbering differs.",
+          "evidence": [
+            "v1 Prop. 2.3 gives the explicit formula, Prop. 2.4 gives Δ→-2ε at fixed m, Prop. 2.6 connects Δ to the spectral radius; the later version also gives a positive small-period extinction cutoff for each fixed ε>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12633v1",
+          "material_read": "v1 contents p. 1, §2.2 and §2.2.3 Props. 2.3–2.4 and 2.6, pp. 12–14; v2 §§2.3.1–2.3.3 pp. 8,10,12–13",
+          "method": "OA PDF passages in the two versions",
+          "title": "Untangling the role of temporal and spatial variations in persistence of populations",
+          "trigger": "Same square-wave model, exact Floquet formula and fixed-m fast-season limits"
+        },
+        {
+          "assessment": "General network framework and a fixed-migration limit; not the scaled global optimization.",
+          "evidence": [
+            "At fixed m the frequency-to-infinity limit is the top eigenvalue of the time-averaged matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.01589",
+          "material_read": "pp. 3, 8–9, 14: equations (1)–(5) and (15), Example 3, Lemma 8 in §4.2",
+          "method": "OA PDF passages",
+          "title": "Dispersal-induced growth in a time-periodic environment",
+          "trigger": "General high-frequency dispersal-induced-growth precedent"
+        },
+        {
+          "assessment": "Closely related model; fixes the sum of directed rates rather than optimizing the magnitude of the common symmetric rate.",
+          "evidence": [
+            "The best allocation for a fixed a+b is a=b; short-period expansion is stated at fixed rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-balanced-migration-maximizes-growth-in-antiphase-seasonal-two-pa--5ff4ced1d8b6",
+          "material_read": "Finding and regime assumptions",
+          "method": "Resultary local mirror",
+          "title": "Balanced migration maximizes growth in antiphase seasonal two-patch networks",
+          "trigger": "Same periodic two-patch environment with migration optimization"
+        },
+        {
+          "assessment": "A prescribed one-way seasonal rate and a survival frontier, not global symmetric optimum.",
+          "evidence": [
+            "Its mT_c(m) limit uses a different model and defining constant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-survival-frontier-for-seasonally-reversing-one-way-dispers--03045c39af8a",
+          "material_read": "Finding and model assumptions",
+          "method": "Resultary local mirror",
+          "title": "Exact survival frontier for seasonally reversing one-way dispersal between two sink habitats",
+          "trigger": "High-rate, short-season survival scaling"
+        },
+        {
+          "assessment": "Discrete-generation endpoint optima, unrelated to the reviewed continuous-time singular profile.",
+          "evidence": [
+            "The optimized variable is a post-reproduction migration fraction with travel mortality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-exact-all-or-nothing-dispersal-transition-under-alternating-h--087b8ca4b9b8",
+          "material_read": "Finding and model assumptions",
+          "method": "Resultary local mirror",
+          "title": "An exact all-or-nothing dispersal transition under alternating habitat quality and migration mortality",
+          "trigger": "Same-day catalogue finding with alternating habitat quality and optimized migration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural decision variable here is the magnitude of a constant symmetric dispersal rate. Optimizing before taking the period limit exposes the nonuniform rate scale and order-T gain that a fixed-rate limit misses, with a precise leading survival boundary for mortality on the same scale. The optimization is global within the stated class but does not claim optimality among time-varying controls or stochastic persistence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

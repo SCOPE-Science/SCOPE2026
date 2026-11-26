@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The companion-coordinate exchange equations are necessary and sufficient and yield the two polynomial identities in the result. Separating the four \(d,e,B\) coefficient branches exhausts all real period-two possibilities, including degenerate conics. The exact two-step matrix gives a factor \(\lambda-1\) and a quadratic with constant \(1/16\); elementary necessary-and-sufficient quadratic Schur inequalities establish the exact strict normal stability band. The independent symbolic checks exercise both algebraic identities, 160 rational parameter selections and exact characteristic polynomials. No numerical experiment is used to assert completeness.
+## correctness
 
-## Originality — PASS within inspected evidence
-The originating 2022 and 2023 Hampton–Meiss papers were inspected in their accessible arXiv full text; the former's nonisolated periodic points concern a singular anti-integrable correspondence, not the finite map with \(a\ne c\), and the latter follows generic attracting orbits and numerical bifurcations. The closest indexed same-dimensional quadratic-map finding gives a generic isolated two-cycle discriminant and Floquet window, not an inspected proof of the resonant line or its normal attraction interval. The generic discriminant formula is treated as background, not as new. Because the indexed finding's full text was not retrievable, unrecognized overlap remains a serious residual risk, alongside uncatalogued earlier normal-form classifications.
+PASS
 
-## Mathematical value — PASS
-An entire one-dimensional set of genuine primitive two-cycles at finite parameters contrasts structurally with generic isolated orbits. Its normal stability changes twice as amplitude varies, so an attracting segment coexists with transversely unstable tails without changing parameters. The general coefficient reduction identifies the exact natural resonance and excludes other two-cycles in the displayed example, making the phenomenon more informative than an arbitrary polynomial substitution.
+The frozen opening's ‘entire real line’ of primitive points is false literally: the midpoint with u=v is fixed. The completed repair states the punctured line and distinguishes uniform normal attraction along a compact arc from an open-basin attractor consisting just of that closed arc. Rechecking the entire repaired theorem: subtracting the exchange equations gives (v−u)(B+d(u+v))=0, and adding gives its stated sum/product equation. For d≠0 the sum is fixed, giving the discriminant branch or the tuned line; for d=0 the obstruction is B and the remaining condition is e w²=(t−S)²+4α−S² with w≠0, with the claimed strict and non-strict thresholds. In the example, normal coordinates (x+y,y+z) transform by [[1+x/2,1/4],[1,0]]; the two-step product along the line has trace 3/2−u²/4 and determinant 1/16. The tangent multiplier is one. The quadratic Schur inequalities give the stated strict band and the endpoint multipliers +1 and −1. The repaired proof uses a uniformly contracting transverse norm and summable tangential displacements on a slightly larger interior arc to justify local normal attraction to the curve.
 
-## Limitations
-No independent validation, global basin calculation, or general higher-period classification is asserted. The accessible indexed overlap source has not been inspected in full. Normal attraction is to a locally invariant cycle family, not convergence to a specified member.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired distinct result is the exact tuned finite companion-map resonance and a two-normal-multiplier stable band separated from the fixed midpoint and from the large-amplitude tails. It neither claims the generic isolated-cycle formula as new nor claims the first normally varying cycle continuum in any family.
+
+## value
+
+PASS
+
+The complete real census identifies an exact resonance in a classical companion family, and the explicit invertible example shows two distinct mechanisms for loss of normal attraction at opposite ends of a finite band without varying the map. The corrected statement distinguishes this finite resonance both from a generic isolated sink and from planar examples with one normal multiplier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

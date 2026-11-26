@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:55:22.660420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Beta integration against b_{n,j} on a monomial of degree k≤n produces a polynomial in j with leading coefficient (n+1)!/(n+k+1)! after multiplying by n+1. The binomial expectation contributes leading coefficient n!/(n−k)!, and selfadjointness then diagonalizes M_n in shifted orthonormal Legendre polynomials. Modes above n are orthogonal to the polynomial image and vanish. The shifted recurrence has off-diagonal β_k=(k+1)/(2√((2k+1)(2k+3))); the commutator has opposite entries of absolute size β_k(λ_{n,k}−λ_{n,k+1}), including the final edge to degree n+1. Phase conjugation gives the symmetric Jacobi matrix for i√n C_n with weights a_{n,k}. Expanding the λ product for k≤R√n gives log λ=−k(k+1)/n+O_R(n^−1/2). For arbitrary k≤n, each log factor is at most −(j+1)/(n+1), since the ratio is 1−(2j+2)/(n+j+2); thus the stated Gaussian envelope holds and controls the normalized weighted ℓ^p tail for every fixed p>0. Split the compact window into blocks of length ⌊n^(1/4)⌋: the weight-deletion error has o(√n) bounded singular values, and freezing the weights within blocks gives an o(1)-norm error of rank O(√n). More generally the p-tail error is bounded by summing the p-th powers of the edge weights for the two weighted shifts, using the Schatten triangle inequality for p≥1 and trace-power subadditivity in both directions for 0<p<1. These bounds justify both perturbation and removal of the cutoff. Constant-block eigenvalues give the asserted angle-frequency integral, whose factors are the displayed gamma integrals. Substitution gives trace constant 1/π and squared Hilbert–Schmidt constant √π/(16√2). The limsup operator norm is at most twice the limiting maximum edge; a growing principal block of length o(√n) near √(n/2) attains the asymptotic value 1/√(2e). Dividing by its square gives the stable-rank constant. This applies to the classical unweighted interval operator and each fixed p, without uniformity in p or a claim about individual singular values. The supplied exact/finite spectral checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 gives an averaged arcsine law for continuous recurrence profiles. Applied to the first R√n indices with off-diagonal a(t)=t exp(−t²)/2 and zero diagonal, it gives the compact-window limit for continuous |x|^p. The Kac–Murdock–Szegő theorem also accounts for bounded test functions on the truncated normal matrices.",
+          "Mowzer's pointwise normal kernel limit does not give a spectral trace-ideal bound."
+        ],
+        "reasoning": "There is verified stronger coverage of the local spectral-distribution step, not of the full asymptotic. The usual full-dimension normalized zero/eigenvalue law loses the O(√n) window inside O(n) modes; truncating at the correct scale requires the separate uniform p-tail estimate and a norm-edge calculation.",
+        "searches": [
+          "Kuijlaars–Van Assche, Theorem 1.4, https://wis.kuleuven.be/analyse/members/walter/varrec.pdf",
+          "arXiv:1610.00084v1 §2.2 Theorem 2.4",
+          "arXiv:2303.11061 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Kuijlaars–Van Assche Thm. 1.4",
+        "arXiv:1610.00084v1 Thm. 2.4",
+        "arXiv:2303.11061 Thm. 1.2",
+        "DOI:10.1007/s00025-026-02740-2 pp. 1–2",
+        "Resultary 7bbc01919259, b293f27b565c, 3ac17f17da22 and 36e857d693ca (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each fixed R, the truncated recurrence measure has the correct limiting moment by the general theorem, but that theorem's unit-mass normalized limit on the full degree-n problem controls neither √n-normalized mass outside R√n nor extremal eigenvalues.",
+          "The semigroup-error comparison at time one or fixed positive time is a diagonal spectral-error problem, rather than the adjacent eigenvalue differences and localized high modes of a single degree-n smoother commuted with X."
+        ],
+        "reasoning": "The local step can be replaced by a direct invocation of known theory. To get the claimed sharp law one still needs the model-specific Legendre-gap profile and summable p-tail uniformly in n, then a separate bound for the extremal eigenvalue. The inspected semigroup statements do not give those facts.",
+        "searches": [
+          "Kuijlaars–Van Assche Theorem 1.4 hypotheses and conclusion",
+          "Resultary b293f27b565c offsets 0–2145 and 8500–10600, 3ac17f17da22 offsets 0–2182, 7bbc01919259 offsets 0–2191"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned commutator is unitarily equivalent after scaling and multiplication by i to the symmetric Legendre eigenvalue-gap Jacobi matrix. Its singular powers correspond to the absolute-eigenvalue p-th moment of that matrix.",
+          "Abel et al. discuss commuting Durrmeyer approximants, including the common Legendre basis, and commutativity with differential operators; the inspected passage does not treat the coordinate multiplier. The exact indexed commutator hit was the assigned item itself."
+        ],
+        "reasoning": "Changing from singular values to absolute Jacobi eigenvalues is equivalent; operator pairs commuting because they share an eigenbasis are not equivalent to the multiplier, which acts on adjacent degrees.",
+        "searches": [
+          "Resultary: Bernstein Durrmeyer coordinate commutator [M_n,X] Schatten trace norm",
+          "DOI:10.1007/s00025-026-02740-2, commutativity of Bernstein–Durrmeyer-type operators and their differential operators",
+          "Kuijlaars–Van Assche, varying recurrence coefficients and Jacobi zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7bbc01919259 gives tr(M_n^s) for Dirichlet simplex smoothers. b293f27b565c gives every-Schatten asymptotics of the semigroup approximation error M_n^{tN}−H_t in the Dirichlet setting, and 3ac17f17da22 gives the unweighted interval one-dimensional trace-class semigroup error and clock. 36e857d693ca is the frozen item's self-match."
+        ],
+        "reasoning": "These are exact spectral formulas, but none is a table for the off-diagonal multiplier commutator. Their overlap in operator family, Legendre setting or Schatten parameter is credited without inferring priority from a shared publication date.",
+        "searches": [
+          "Resultary exact commutator query and IDs 36e857d693ca, 7bbc01919259, b293f27b565c, 3ac17f17da22"
+        ]
+      },
+      "rationale": "The compact-window arcsine spectral-distribution step is already supplied by a stronger varying-recurrence theorem and is not itself novel. The supported distinct contribution is the full commutator result: exact Legendre-gap reduction and its square-root-frequency profile, integrable tail control at a scale much smaller than the full matrix size, the evaluated all-p constants, and the sharp norm edge. The known compact-window theorem alone neither controls the removed singular-value mass nor bounds the maximum. Nearby exact Durrmeyer records have different spectral observables, and no inspected theorem was found to cover the full law as a special case.",
+      "residual_risks": [
+        "An unlocated semiclassical trace-ideal result incorporating the required window, tail and edge could imply more of the full claim. The stated broader Jacobi theorem has been credited for the part it does cover.",
+        "Same-day indexed records are compared by statements, without an inferred within-day order. Bounded searches do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the truncated all-p distribution, not the removed tail or full sharp norm",
+          "evidence": [
+            "The varying recurrence coefficients converging to continuous profiles produce the averaged arcsine zero measure, equivalent to the finite Jacobi spectra."
+          ],
+          "identifier_or_url": "https://wis.kuleuven.be/analyse/members/walter/varrec.pdf",
+          "material_read": "Theorem 1.4, PDF pp. 3–4, extracted offset 6800–11258",
+          "method": "Read theorem and applied the coefficient and test-function assumptions to the finite square-root window",
+          "title": "The asymptotic zero distribution of orthogonal polynomials with varying recurrence coefficients",
+          "trigger": "A stronger Jacobi-matrix spectral theorem potentially yields the stated Schatten law"
+        },
+        {
+          "assessment": "Supports local spectral distribution, not the full commutator result",
+          "evidence": [
+            "The theorem takes the dimension-normalized spectral average of continuous test functions for generalized normal KMS sequences."
+          ],
+          "identifier_or_url": "arXiv:1610.00084v1",
+          "material_read": "§2.2 Theorem 2.4, p. 13, offset 30900–33388",
+          "method": "Read normal-matrix spectral distribution theorem and compared normalization and domain",
+          "title": "Spectral Asymptotics for Kac–Murdock–Szegő Matrices",
+          "trigger": "Potential general continuous-test-function spectral law"
+        },
+        {
+          "assessment": "Prior commuting pairs are not the multiplier commutator; no whole-text exclusion from this passage",
+          "evidence": [
+            "Pairwise classical smoothers commute through a common Legendre basis; associated differential operators are another object of study."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-026-02740-2",
+          "material_read": "PDF pp. 1–2, offset 0–3449",
+          "method": "Compared the named pairs of operators in primary passages",
+          "title": "Commutativity for a General Class of Bernstein–Durrmeyer Operators",
+          "trigger": "Same smoother and commutativity terminology"
+        },
+        {
+          "assessment": "Kernel approximation, not finite-matrix spectral control",
+          "evidence": [
+            "The normal limit is for the kernel distribution at fixed spatial point, not for the scaled eigenvalue-gap matrix."
+          ],
+          "identifier_or_url": "arXiv:2303.11061",
+          "material_read": "Theorem 1.2, p. 1, offset 3200–4870",
+          "method": "Compared the pointwise kernel law with the commutator singular-value statement",
+          "title": "Convergence in distribution of the Bernstein-Durrmeyer kernel and pointwise convergence of a generalised operator for functions of bounded variation",
+          "trigger": "Same averaging operator and square-root Gaussian scaling"
+        },
+        {
+          "assessment": "Exact powers of the smoother, not of the multiplier commutator",
+          "evidence": [
+            "The theorem treats tr(M_{n,θ}^s) with positive Dirichlet parameters on a simplex of dimension at least two."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-spectral-power-trace-cancellation-for-dirichlet-bernstein-durrme--7bbc01919259",
+          "material_read": "Local-mirror RESULT.md, offset 0–2191",
+          "method": "Compared the operator, dimensions and trace observable",
+          "title": "Spectral-power trace cancellation for Dirichlet Bernstein–Durrmeyer operators on simplices",
+          "trigger": "Related exact spectral-power law"
+        },
+        {
+          "assessment": "Same spectral framework but different deviation operator",
+          "evidence": [
+            "The norm is that of a difference between iterated smoothing and the diffusion semigroup; the text identifies the time-one centered clock interval case separately."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-multivariate-all-schatten-fourth-order-expansion-for-centered-di--b293f27b565c",
+          "material_read": "Local-mirror RESULT.md offsets 0–2145 and 8500–10600",
+          "method": "Compared the target Schatten operator and the credited interval case",
+          "title": "Multivariate all-Schatten fourth-order expansion for centered Dirichlet Bernstein–Durrmeyer diffusion",
+          "trigger": "Same-day strong all-Schatten overlap in the smoothing family"
+        },
+        {
+          "assessment": "Exact semigroup error and clock, not an off-diagonal commutator limit",
+          "evidence": [
+            "The norm compares an iterate with the diffusion operator, not M_nX with XM_n."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-optimal-integer-clock-for-bernstein-durrmeyer-diffusion-and--3ac17f17da22",
+          "material_read": "Local-mirror RESULT.md offsets 0–2182",
+          "method": "Compared the interval trace-norm quantity and scaling",
+          "title": "The optimal integer clock for Bernstein–Durrmeyer diffusion",
+          "trigger": "Exact trace-class limit on the same unweighted interval"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical finite-rank smoother and the natural position observable, the result quantifies a sharp failure of trace-class commutation despite operator-norm commutation. The nonzero trace-norm constant, diverging stable rank and entire fixed-p power scale distinguish a population of order √n weak spectral modes from an estimate of just the largest one. The finite degree is inherent to the operator, and the square-root window and critical p=1 are derived rather than arbitrary slices. The exact commutator constants are the value, not a new general Jacobi distribution method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

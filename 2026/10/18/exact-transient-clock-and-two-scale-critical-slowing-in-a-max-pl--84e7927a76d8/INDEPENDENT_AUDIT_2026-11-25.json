@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:01:04.841338Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With g(x)=B-max(0,mx), F^2(x,y)=(g(x),g(y)) and F^4(x,B)=(g(g(x)),B). The first three physical iterates cannot equal (B,B): respectively the second, second, and first coordinates differ from B. Writing a=(m-1)B/m^2 and b=B/m, the fourth iterate has first coordinate B for x>=b, m^2x+(1-m)B in (0,B) for a<x<b, and nonpositive first coordinate for x<=a. The latter hits (B,B) at the fifth iterate, including x=a; x=b hits at four. The interior affine map centered at c_m=B/(m+1) expands signed distance by m^2. Therefore S_n=(c_m-c_m m^(-2n),c_m+(B-c_m)m^(-2n)) is exactly the open survivor interval after n excursions, with endpoints exiting at excursion n. This proves the ceiling and the side-dependent extra iterate. The exceptional primitive period-four orbit repels along the section (the fourth map in the full plane has a locally reset transverse coordinate, so this is not a claim of two-directional plane repulsion). Each survivor length is B m^(-2n) and each escaping shell has left:right lengths 1:m, giving independence and the stated geometric law, PGF and mean. Multiplying the ceiling by m-1 suppresses its bounded error; ordinary fixed x gives the stated log limit, while the central initial point has logarithm log(2m/(m-1)), proving the separate scale. The limiting function has null level sets under any density, which justifies dominated convergence for all t>=0 and the exponential specialization. Replay: RESULT.md lines 56–82; python3 /workspace/review_evidence/bounded_checks.py tests both exact endpoints of the first eight survivor shells for m=2. The frozen verifier was read, not executed: its 5,856 total is a counter of check units, not literally 5,856 assert statements executed, and finite samples do not prove the real-parameter limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 family specializes at T=0,D=m and gives cycles and periods, not the original-time section law in the inspected text. The 2022 Sel'kov map has a positive max term and multiple section branches, with self-similar basin structure for a different system."
+        ],
+        "reasoning": "The containing family addresses asymptotic cycles, not their phase-specific transient clock. A basin partition on another map is not a theorem about the lengths or phase offsets of this expanding affine survivor interval.",
+        "searches": [
+          "arXiv:2402.06230v1 Eq. (1), case I and §6",
+          "10.14495/jsiaml.14.127 Eqs. (1), (3), §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2305.05908v1 and 2402.06230v1",
+        "10.14495/jsiaml.14.127",
+        "Resultary 4b0c6f578196",
+        "10.1016/j.jtbi.2015.04.024 abstract and secondary attribution only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old piecewise return map already determines geometric survivor widths and finite termination off the fixed point. It has no phase correction in its count. The original map supplies the extra fifth step at left exits; the explicit movement c_m→B/2 must be tracked to obtain the midpoint logarithm."
+        ],
+        "reasoning": "The geometric structure is a natural implication of prior dynamics and should not be presented as independent discovery. Neither the earlier return-map statement nor a full-square averaged law states the original-time point-target clock and its two critical scales as claimed.",
+        "searches": [
+          "arXiv:2305.05908v1 §3, Eq. (12) and its stable/unstable fixed-point discussion",
+          "Resultary 4b0c6f578196, RESULT.md scalar reset and capture assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 prior has the exact same F and induced P_m, including both terminal cutoffs. The 2026/11/8 indexed record also uses F and reduces it to scalar resets, but changes initial data and the hitting event."
+        ],
+        "reasoning": "A return count is not the physical time to the distinguished (B,B); both terminal branches return to B in the prior P_m but do not take the same number of physical iterates. Replacing a point target by its orbit as a set can favor an earlier phase.",
+        "searches": [
+          "arXiv:2305.05908v1 Eqs. (9), (12)",
+          "Resultary exact original-time capture statistics and critical scaling, 4b0c6f578196"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later-dated record gives full-square cycle-set capture with parity masses, mean (4m-1)/(m-1), a maximum-of-two-exponentials critical limit, and a scalar geometric reset law. These are genuine overlap but not the section formula, its mean, or its single exponential."
+        ],
+        "reasoning": "A uniform full-square probability formula cannot be specialized merely by conditioning on a measure-zero section, and the target event must also be changed. Catalogue dates are not themselves a ruling on absolute priority.",
+        "searches": [
+          "Resultary SCOPE-exact-original-time-capture-statistics-and-critical-scaling-in-a--4b0c6f578196"
+        ]
+      },
+      "rationale": "The map, affine section return with absorbing endpoint, four-cycles and approach to unit return slope are explicit prior results. The supported addition is the exact physical first hit of a specified cycle point including the one-iterate phase correction, and its uniform and general-density limit laws, especially the distinct deterministic midpoint scale. The strongest competing transient record concerns a later-dated full-square ensemble and entry into the cycle as a set.",
+      "residual_risks": [
+        "Full text of Gibo–Ito was not accessible; uninspected equivalent transient calculations remain possible.",
+        "The later indexed record and general reset construction leave related provenance and implications unresolved beyond the compared statements.",
+        "The limited literature search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for F, P_m and cycles; physical roof and section transient laws not stated there",
+          "evidence": "Middle return is m^2x+(1-m)B with cutoffs (m-1)B/m^2 and B/m. Return slope tends to one; c_m and B are the unstable and stable section fixed points.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.05908v1",
+          "material_read": "p. 6 Eq. (9), p. 8 Eq. (12) and fixed-point discussion (Eq. (12) text offset 18281)",
+          "method": "Bounded OA PDF passages",
+          "title": "Dynamical properties of discrete negative feedback models",
+          "trigger": "Exact prior map, return map and bifurcation"
+        },
+        {
+          "assessment": "Broader cycle theorem with a different conclusion",
+          "evidence": "The inspected results describe cycle existence, periods and family structure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.06230v1",
+          "material_read": "pp. 2–3 Eq. (1) and case I, offsets 4958–9934; §6 p. 18 offset 46185",
+          "method": "Bounded OA PDF passages",
+          "title": "A Generalization for Ultradiscrete Limit Cycles in a Certain Type of Max-Plus Dynamical Systems",
+          "trigger": "Contains this family as T=0,D=m"
+        },
+        {
+          "assessment": "Different map and question",
+          "evidence": "Uses X_{n+1}=Y_n+max(0,2X_n) with a different return-map structure.",
+          "identifier_or_url": "https://doi.org/10.14495/jsiaml.14.127",
+          "material_read": "pp. 1, 3–4, Eqs. (1), (3) and §3",
+          "method": "Bounded OA passages",
+          "title": "Poincaré map approach to limit cycles of a simplified ultradiscrete Sel'kov model",
+          "trigger": "Related basin and return-map calculations"
+        },
+        {
+          "assessment": "Full text unresolved",
+          "evidence": "The 2023 paper attributes the map and oscillation/cycle existence to this work; this does not establish the transient law.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2015.04.024",
+          "material_read": "Landing page/abstract only, with attribution checked in arXiv:2305.05908v1 pp. 1, 6",
+          "method": "Lawful OA attempt and alternate-copy check",
+          "title": "Discrete and ultradiscrete models for biological rhythms comprising a simple negative feedback loop",
+          "trigger": "Originating model paper may include transient analysis"
+        },
+        {
+          "assessment": "Material mathematical overlap with different target and ensemble; later-dated listing",
+          "evidence": "Two independently sampled coordinates produce a critical maximum of two exponentials, rather than the section's single exponential; the distinguished phase-specific section clock is not the same claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-original-time-capture-statistics-and-critical-scaling-in-a--4b0c6f578196",
+          "material_read": "RESULT.md, full-square sampling, cycle-set target, reset law and critical limit",
+          "method": "Local published-record mirror",
+          "title": "Exact original-time capture statistics and critical scaling in a max-plus map",
+          "trigger": "Strong match on same F, physical time and critical scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physical roof resolves a meaningful phase-specific first-hitting problem not answered by the return map alone. The exact clock separates the ordinary critical scale from the stronger midpoint slowdown and explains why a continuous initial ensemble sees only the ordinary scale. This is a natural all-parameter transient result for a known map, not a new classification of its cycles or a full-plane theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

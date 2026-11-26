@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:24:33.738466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Folkman incidence graph, closed-neighborhood initialization, monotone forcing closure, and legal moves were checked as stated. Analytically, a successful set must initially observe at least one twin at each label: a pair of still-unobserved twins cannot have one forced first. Coverage therefore requires each label to have a selected clone or be incident with a selected edge vertex. Subject to coverage, the initially unobserved edge vertices are the unselected edges on labels with no selected clone. Their underlying graph is peeled by degree-one forcing from observed clones, so they clear exactly when it is a forest. With at least one selected edge, its endpoints have both clones observed; once all edge vertices are observed, such an endpoint lets one force each remaining clone via a suitable edge between the labels. For sets of size at most four these criteria give precisely the four stated types, with none below four. The automorphisms permute the five pairs of twins and can swap within each pair; the edge vertices are determined by their incident pairs. This also establishes the claimed orbit distinctions. A fresh exhaustive reproduction processed all 6,196 subsets of sizes 0–4 and independently reproduced all four optimum orbits. Using intersection size three for jump adjacency and the differing vertices' adjacency for slide, it checked BFS from all 560 configurations in each graph and covered all 156,520 unordered pairs. It reproduced both connected graphs with all stated counts, distance and penalty histograms, centers, and the sharp penalty 4 attained by 1,320 pairs, including the 780/540 split. Private replay and output: /workspace/branches/c6ffd6eb-b91e-4f7e-bb5a-7fed98e14ec7/fresh_reproduction.py and full.json in the same directory. The two uploaded programs are frozen evidence, not the executed reproduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published paper treats standard graph families and a K_{2,3}(G) construction that replaces each edge with three length-two paths. The related record theorems quantify over full one-subdivisions of complete graphs."
+        ],
+        "reasoning": "Neither construction gives the graph with twins at each original vertex, joined to each incident edge vertex. Their general results cannot specialize to the claimed optimum sets and distance data for this graph.",
+        "searches": [
+          "Bjorkman et al., Power Domination Reconfiguration, §§5.1–5.2",
+          "Resultary f1009b21833f and the slide results 58aff7a86fea, 438257c07ae7"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, verify_bitmask.py and verify_incidence.py",
+        "Exact Resultary subject hit cbfae2ae985a and distinct original statements f1009b21833f, 58aff7a86fea and 438257c07ae7",
+        "MathWorld Folkman Graph",
+        "Bjorkman et al., published OA PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two slide statements identify a subdivided triangular graph on the once-subdivided-clique optimum states; at n=5 they have 40 states, not 560.",
+          "The jump theorem f1009b21833f is for optimum exchanges on the same 15-vertex construction at n=5."
+        ],
+        "reasoning": "Standard jump/slide definitions and generic graph search do not imply the four optimum types, the connected strict-slide graph, or the distribution of its distance excess over jumping. Same-day statements were compared by substance, not priority inferred from dates.",
+        "searches": [
+          "Bjorkman et al., introduction and §§5.1–5.2",
+          "Original local-mirror statements f1009b21833f, 58aff7a86fea, 438257c07ae7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld names the twenty-node semisymmetric graph.",
+          "The actual statements in the three related records use a single undoubled vertex per original label and one subdividing vertex per edge. Their K5 instance has 15 rather than 20 vertices and optimum size 3 rather than 4."
+        ],
+        "reasoning": "The graph alias has been checked; collapsing twin pairs gives the related subdivision rather than a re-encoding of the same instance. It does not preserve the optimum sets or the slide graph.",
+        "searches": [
+          "Resultary: Folkman graph, four-token optimum power domination, jumps and strict slides",
+          "MathWorld, Folkman Graph",
+          "Once-subdivided-clique results f1009b21833f, 58aff7a86fea, 438257c07ae7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit cbfae2ae985a was the assigned record itself.",
+          "The named-graph passage confirms order and graph class, not the optimum census or reconfiguration tables. The exact tables in the frozen record were independently reproduced, not taken from a graph catalogue."
+        ],
+        "reasoning": "No distinct table of the matched invariant was established. Cataloguing the underlying graph does not catalogue the feasible configurations or their two metrics.",
+        "searches": [
+          "Resultary exact-claim search for Folkman optimum power domination and jump/slide penalty",
+          "MathWorld named-graph entry"
+        ]
+      },
+      "rationale": "The contribution assessed is the optimum-set classification and coupled reconfiguration metrics on the twenty-vertex Folkman graph, not the graph, forcing definitions, or traversal algorithm. Neither the closest published reconfiguration article nor inspected distinct, same-day subdivided-clique statements cover this graph. An exact catalogue search retrieved the subject record, not independent evidence of coverage. This is a best-of-evidence assessment.",
+      "residual_risks": [
+        "The checks are not a historical priority certification. Unindexed exact calculations on this graph remain possible.",
+        "The named-graph entry was inspected for alias and order, not used as proof of any metric."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms named object, not exact power-domination invariants",
+          "evidence": "Identifies the Folkman graph as semisymmetric on 20 nodes.",
+          "identifier_or_url": "https://mathworld.wolfram.com/FolkmanGraph.html",
+          "material_read": "Literal-query passage at offset 110",
+          "method": "Public page inspection",
+          "title": "Folkman Graph",
+          "trigger": "Named graph alias and possible catalogue coverage"
+        },
+        {
+          "assessment": "Framework overlap; inspected families and construction do not cover Folkman",
+          "evidence": "Jump and slide definitions; standard families; each edge of G replaced by three length-two paths in K_{2,3}(G).",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "Abstract (offset 0); p. 2 (offset 3963); §5.1 p. 21 (offset 60701); §5.2 p. 23 (offset 63589)",
+          "method": "OA PDF, bounded passages",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "Closest published reconfiguration framework and possible graph-family theorem"
+        },
+        {
+          "assessment": "Different target graph and optimum state space",
+          "evidence": "At n=5, the full one-subdivision has 15 vertices, minimum size 3 and 40 optimum states.",
+          "identifier_or_url": "2026/11/22/SCOPE-nonmatroidal-isometric-power-domination-exchanges-in-fully-subdi--f1009b21833f/RESULT.md",
+          "material_read": "Original Finding at offset 0 and jump theorem near offset 2400",
+          "method": "Local Resultary mirror",
+          "title": "Nonmatroidal isometric power-domination exchanges in fully subdivided cliques",
+          "trigger": "Same-day general token-jump theorem"
+        },
+        {
+          "assessment": "Different incidence graph",
+          "evidence": "Two optimum-set types and slide graph Sub(J(n,2)) for once-subdivided K_n.",
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-power-domination-slides-in-subdivided-cliques-form-a-sub--58aff7a86fea/RESULT.md",
+          "material_read": "Original RESULT.md at offsets 0 and 1800",
+          "method": "Local Resultary mirror",
+          "title": "Minimum power domination slides in subdivided cliques form a subdivision",
+          "trigger": "Same-day exact minimum slide graph"
+        },
+        {
+          "assessment": "Different incidence graph",
+          "evidence": "One subdivision per edge without doubling original labels, yielding 40 optimum states at n=5.",
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-power-domination-token-slides-subdivide-the-triangular-g--438257c07ae7/RESULT.md",
+          "material_read": "Original RESULT.md at offsets 0 and 1400",
+          "method": "Local Resultary mirror",
+          "title": "Minimum power domination token slides subdivide the triangular graph",
+          "trigger": "Same-day locality and slide metric on a related family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph is a classical semisymmetric example in which equal vertex degrees hide the difference between twin-clone and edge vertices. The local-vs-unrestricted move comparison asks whether one can keep an optimum monitor set throughout a physically adjacent relocation. Connectedness is not automatic, and neither is a finite sharp distance overhead; the types identify exactly the slide centers while every jump state is central. This supplies a concrete benchmark and a structural contrast for power-domination reconfiguration, not just a recomputation of a named graph's basic invariants. The claim is finite and does not assert a graph-family law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

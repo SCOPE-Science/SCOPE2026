@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:31:37.533189Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The change u=y-x, w=2az-x^2 is nonsingular for a>0 and gives u'=-(a+gamma*z)u-beta*y*w, w'=-2aw+2ayu. In E=a*u^2+beta*w^2/2 the cross terms cancel. Variation of constants in z'+2az=y^2 gives z>=-Z_- exp(-2at) for all times of existence, so E'<=(-2a+2gamma*Z_- exp(-2at))E and integration gives the stated bound, also valid on the stationary locus E=0. Finite-time bounds on u,w and the integral of x'=au bound all original coordinates, giving forward completeness. The integrable exponential bound on x' gives a single limiting s and the stated tail bound; the formulas for y,z transfer the rate. The convergence is uniform on compact sets of initial states, so the limit is a continuous retraction, invariant along forward trajectories. Bounded convergence proves support on the closed equilibrium parabola for invariant probabilities. For a compact invariant set, invariance means equality under every forward map, not merely positive invariance: preimages in the compact set and the uniform energy estimate force zero energy. The normal matrix has trace -3a-gamma*s^2/(2a) and determinant 2a^2+(2a*beta+gamma)s^2, giving strict normal attraction at gamma>=0 and a transverse eigenvalue with positive real part if gamma<0 and s^2>6a^2/(-gamma). This is not a classification of negative-coupling nonlinear dynamics. `python /workspace/review_replay.py 2` independently replayed the exact energy derivative and the two spectral invariants from the stated vector field.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.4(1) covers the general balanced normal linearization; the global estimate in Proposition 4.4(2) explicitly sets b3=0. Remark 4.5 mentions parabolic stabilization for other systems.",
+          "The nearby catalogue results concern quadratic flows with an isolated limiting equilibrium or only a conditional parabola confinement result, or a four-dimensional cubic flow with a line of equilibria."
+        ],
+        "reasoning": "The strongest same-model spectrum is a broader local theorem, not a global basin theorem. The different-dimensional and quadratic comparisons have different hypotheses and do not cover the particular positive-coupling cancellation and negative-height transient.",
+        "searches": [
+          "Wang et al. Proposition 4.4(1), (2), proof and Remark 4.5",
+          "Resultary 6e81d619c507, 6f4764b80cf0 and e5bf26b57123"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1038/s41598-023-33826-4",
+        "Resultary 4475762fad24 (self-match)",
+        "Resultary 6e81d619c507",
+        "Resultary 6f4764b80cf0",
+        "Resultary e5bf26b57123"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At b3=0 the source inequality E(t)<=E(0) exp(-2at) implies exponential convergence to a point by integrating x'=a(y-x), even if the point selection is not separately stated.",
+          "The source trace -(a+c+b3*s^2/c) directly implies far-out transverse instability for gamma<0. Its global proof explicitly omits gamma>0."
+        ],
+        "reasoning": "The zero-coupling and spectral conclusions are covered by implication. For gamma>0 the new lower bound on z gives an integrable upper bound on possible loss of damping for arbitrary real data, making the global convergence result distinct on the inspected evidence. The stationary-measure and compact-invariance claims are consequences of that global result, not independent discoveries.",
+        "searches": [
+          "Wang et al. p. 9 Proposition 4.4 and p. 10 proof",
+          "Wang et al. normal trace tau_2 on the parabolic family"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source condition b1=0 and cb4+b3+b2=0, with c=2a, b4=beta and b3=gamma, is exactly the frozen model; its parabola is exactly the same. The source energy at b3=0 is the same E, up to the sign of the squared height error."
+        ],
+        "reasoning": "The gamma=0 case is prior, not a distinct formulation; taking gamma>0 gives a genuine nonzero term in the transformed damping which can have adverse sign at negative height. The same zero-coupling estimate cannot simply be copied.",
+        "searches": [
+          "Wang–Ke–Pan–Su DOI 10.1038/s41598-023-33826-4, Propositions 4.1 and 4.4",
+          "Resultary: cubic Lorenz balanced parabolic equilibrium, c=2a, b3 positive, transverse energy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 4475762fad24 is the frozen record itself. No distinct inspected catalogue entry gives the positive-coupling global theorem or its explicit negative-height estimate."
+        ],
+        "reasoning": "A self-match is not prior coverage. This is a continuum theorem, not a tabulated invariant; reproducing source equilibria or its stability parameter table would not establish it.",
+        "searches": [
+          "Resultary exact parabolic convergence and sharp normal sign; balanced cubic Lorenz normal trace and retraction"
+        ]
+      },
+      "rationale": "The supported new part is global, quantitative convergence for arbitrary positive mixed coupling on the balanced parabola surface, including negative initial height and the resulting complete recurrence/measure conclusions in that regime. Neither the zero-coupling case, the parabola itself, nor the normal spectral threshold is credited as independently new.",
+      "residual_risks": [
+        "The related papers cited in Remark 4.5 were not individually inspected; their relevance was not ruled out from citation alone.",
+        "Broader web lookups did not return usable evidence in this audit. The pass is limited to current evidence, not worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_MODEL_AND_PARTIAL_THEOREM_COVERAGE",
+          "evidence": "The parabolic condition and transverse trace are given for the wider surface. The proof of global exponential stabilization explicitly fixes b3=0, with E decay already available there.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-33826-4",
+          "material_read": "Open PDF pp. 7, 9–10: Proposition 4.1(ii), Proposition 4.4(1)–(2) and proof, Remark 4.5; offsets approximately 30500, 49200, 54000 and 56656",
+          "method": "Original-source passage inspection and specialization of conditions and formulas",
+          "title": "Modeling, dynamical analysis and numerical simulation of a new 3D cubic Lorenz-like system",
+          "trigger": "Exact originating model, parabolic surface and strongest potential global theorem"
+        },
+        {
+          "assessment": "DIFFERENT_QUADRATIC_FLOW",
+          "evidence": "Global relaxation to an isolated central equilibrium in a quadratic model, not this cubic model with a parabola of equilibria.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-global-stabilization-and-logarithmic-critical-relaxation-i--6e81d619c507",
+          "material_read": "Mirrored RESULT finding and model",
+          "method": "Local catalogue and primary record inspection",
+          "title": "Sharp global stabilization and logarithmic critical relaxation in a quadratic Lorenz-like flow",
+          "trigger": "Cited potentially overlapping global Lorenz stabilization"
+        },
+        {
+          "assessment": "CONFINEMENT_FOR_DIFFERENT_FLOW",
+          "evidence": "Conditional confinement above a parabola for bounded complete trajectories, not exponential convergence of every initial state to one point of an equilibrium parabola.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-parabolic-confinement-of-bounded-complete-trajectories-in-a-lore--6f4764b80cf0",
+          "material_read": "Mirrored RESULT finding and assumptions",
+          "method": "Local catalogue and primary record inspection",
+          "title": "Parabolic confinement of bounded complete trajectories in a Lorenz-like flow",
+          "trigger": "Cited similar use of a parabolic region and complete trajectories"
+        },
+        {
+          "assessment": "DIFFERENT_CUBIC_MODEL",
+          "evidence": "Four-dimensional flow, equilibrium line, and radial law rather than the balanced three-dimensional flow.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-monotone-radial-law-excludes-recurrent-chaos-in-the-yang-liu-c--e5bf26b57123",
+          "material_read": "Mirrored RESULT finding and model",
+          "method": "Local catalogue and primary record inspection",
+          "title": "A monotone radial law excludes recurrent chaos in the Yang–Liu cubic flow",
+          "trigger": "Nearby cubic flow with monotone function and exclusion of recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Keeping an entire positive coupling ray on the equilibrium surface, rather than setting the mixed coupling to zero, addresses a natural constraint of the original cubic family. The height estimate treats a sign-indefinite transient and proves all-state convergence, selected phase and absence of compact recurrent motion. This extends the global theorem, not just a local trace computation; the known negative sign boundary appropriately limits the claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

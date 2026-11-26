@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:51:19.925668Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a smooth plane quartic, the restriction of cubics is the complete |3K|; writing a bitangent contact divisor as θ₀+v converts the sum of six such divisors to 3K plus their binary XOR. Similarly a conic through three bitangents' contact pairs exists precisely when the residual theta class θ₀+u+v+w is effective. A degree-two theta class on a nonhyperelliptic genus-three curve is effective precisely when odd, giving the stated triad test. I independently enumerated all six-subsets and compared class bitmasks directly for intersection size four, rather than using the frozen checker/tetrad index. The affine theta transvections, computed by choosing v+w whenever it is odd, give full orbits of sizes 1008 and 5040 and preserve the edge test. Exact factor-by-factor application gives P(G)e₀=0, hence P(G)=0 by transitivity. The seven traces were independently reproduced, from 1008 through 5215177324964880; rational elimination gives (105,280,168,330,1,35,27). The nonsquare discriminants 4329 and 3465 force equal multiplicities within each conjugate pair. Sorting the real roots gives the claimed positive least, simple largest and second-largest eigenvalues; direct degree checks give 45, 9, and 45360 edges, so division by 405 gives the asserted gap (0.5754762338135238). Replay `python /workspace/branches/audit_hexad_reproduction.py`. The supplied certificate and verification note were inspected, not executed, and the note is self-review rather than independent attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edge's §8 explains the table's entries as subspaces in or containing a given space; the inspected table and explanation do not give the spectrum of the cross-orbit hexad operator."
+        ],
+        "reasoning": "A group-action framework can organize a solution but requires evaluation of this particular intertwiner; no inspected stronger spectral theorem already evaluates it.",
+        "searches": [
+          "Edge 1960, A setting for the group of the bitangents, Table 1 and §8",
+          "Classical bitangent group incidence/representation-theoretic comparison with the four-overlap operator"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2363b4154825 and the exact self-match 52b207dfc495",
+        "Bannai–Tokunaga arXiv:2610.38071",
+        "Shimada DOI 10.5427/jsing.2022.24g",
+        "Edge, Proc. Lond. Math. Soc. (3) 10 (1960), 583–598"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "G(H,H′) counts class-II hexads that four-overlap both H and H′. The known rows count overlap sizes relative to one fixed hexad, and tetrad extensions count completions of one tetrad. Those counts do not supply the simultaneous incidence tensor. Connectedness and biregularity give the simple top eigenvalue 405, not the rank or the lower eigenvalues."
+        ],
+        "reasoning": "The graph can be built from the prior theta model, but exact simultaneous incidence and a nontrivial annihilator/multiplicity computation are needed for this spectrum. No prior formula inspected supplies these by parameter substitution.",
+        "searches": [
+          "2363b4154825, Finding and Proof, tetrad extensions and intersection rows versus BBᵗ entries",
+          "Shimada Table 9.1, internal orbit invariants versus cross-family common-neighbor counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bannai–Tokunaga explicitly report 1008 and 5040 hexads in the two types and acknowledge their classical origin.",
+          "Shimada's orbit rows for the 28-bitangent six-subsets include sizes 1008 and 5040 with 0 and 8 liftable triangles. The reviewed spectrum is for BBᵗ (equivalently nonzero squared singular values of B), not an orbit size or an internal two-graph spectrum."
+        ],
+        "reasoning": "Theta coordinates, cubic-contact terminology and the two-graph description refer to the same hexad families, not independent objects. The new invariant couples the two families.",
+        "searches": [
+          "Resultary: cubic-contact bitangent hexads four-overlap incidence, adjacency and Gram spectrum",
+          "Bannai–Tokunaga arXiv:2610.38071 Introduction; Shimada §9.1, Table 9.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2363b4154825 has tetrad extension types (0,0),(3,3),(0,4), complete marginal overlap rows and the connected (45,9)-biregular graph with 45360 edges. It does not give the reviewed characteristic polynomial or gap.",
+          "Shimada's table enumerates individual six-subset orbit types and their internal two-graph counts, not Gram eigenvalues. The indexed exact spectral hit is this frozen record itself."
+        ],
+        "reasoning": "The earlier tables cover the exact incidence setup and several classical numbers, but not the exact spectral data of the finite operator.",
+        "searches": [
+          "Resultary exact hexad and spectral queries; local mirror of record 2363b4154825",
+          "Shimada Table 9.1; Edge Table 1"
+        ]
+      },
+      "rationale": "The classification and graph are prior art. The exact Gram characteristic polynomial, injectivity and two-step spectral gap are distinct from the inspected prior finite geometry, orbit tables and intersection rows. No exact prior evaluation was found in the checked sources.",
+      "residual_risks": [
+        "An older specialist decomposition of this exact intertwiner or a table of common neighbors not located in the checked material could imply the spectrum. The bounded external search and inspected sources do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the graph and marginal incidence counts, not the Gram spectrum",
+          "evidence": "Fixed I versus II intersection row 1005,2100,1470,420,45,0,0; reverse row 201,420,294,84,9,0,0. Gives connectedness and all three tetrad extension types.",
+          "identifier_or_url": "2026/11/8/SCOPE-cubic-contact-bitangent-hexads-tetrad-extensions-and-a-connected--2363b4154825",
+          "material_read": "Local RESULT.md, offsets 0–5973 and 5800 onward, Findings and Proof",
+          "method": "Resultary lookup and local mirror",
+          "title": "Cubic-contact bitangent hexads: tetrad extensions and a connected exchange graph",
+          "trigger": "Explicit prior record on the identical graph"
+        },
+        {
+          "assessment": "Prior classical family counts",
+          "evidence": "6048 hexads, split as 1008 in case (i) and 5040 in case (ii); attributes earlier knowledge via Salmon.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.38071",
+          "material_read": "Introduction, PDF p. 3, OA offset 10702",
+          "method": "Lawful OA PDF text",
+          "title": "A curve of genus 2 over C(t) and hexads of bitangents to a smooth quartic",
+          "trigger": "Primary source on identical hexad families"
+        },
+        {
+          "assessment": "Prior orbit sizes and internal two-graph invariants",
+          "evidence": "All 376740 bitangent six-subsets are partitioned by orbit; the relevant rows are (1008,0) and (5040,8) in orbit-size and liftable-triangle columns.",
+          "identifier_or_url": "https://www.journalofsingularities.com/volume24/shimada.pdf",
+          "material_read": "§9.1, Table 9.1, printed p. 187, OA text around 69000",
+          "method": "Lawful OA PDF text",
+          "title": "Zariski multiples associated with quartic curves",
+          "trigger": "Potential exact orbit/association table"
+        },
+        {
+          "assessment": "Incidence framework, not an evaluated four-overlap Gram spectrum in the passages checked",
+          "evidence": "Entries above and below the diagonal count subspaces contained in, and spaces containing, a given space respectively.",
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~icheltso/edge2016/pdf/1960a.pdf",
+          "material_read": "Table 1, printed pp. 589–590, and §8 incidence interpretation, OA offsets 16692 and 26157",
+          "method": "Lawful OA PDF text",
+          "title": "A setting for the group of the bitangents",
+          "trigger": "Possible classical finite-geometry incidence equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a naturally defined finite incidence operator in classical quartic geometry. The exact least singular value certifies stable reconstruction from the opposite class, while the second eigenvalue quantifies convergence of the canonical two-step walk. Neither lower-spectrum fact is implied by connectedness, and both are concrete uses for the exact invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

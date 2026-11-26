@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The forcing is strictly decreasing from periastron to apastron and its exact orbital mean is \((1-e^2)^{-1/2}\). A positive periodic resolvent has one maximum, and the resolvent identity makes the next-time-constant response strictly smaller at the preceding maximum. Its derivative must therefore still be positive there; this yields strict peak-time ordering. The two kernel limits prove sharp range and identifiability. The exact mean-crossing anomaly and asymptotic coefficient follow by Kepler calculus. Independent finite-grid checks for four eccentricities and 32 response configurations succeeded; those calculations are supporting stress tests, not substitutes for the general proof.
+## correctness
 
-## Originality — PASS, qualified
-The original inverse-square orbital forcing and qualitative thermal lag are already in the eccentric-exoplanet literature. In particular, Iro–Deming (2008, 2010) analyzes time-varying atmospheric heating, while Cowan–Agol (2010) treats a nonlinear, wind-sensitive system. The examined full-text model/limiting sections and the relevant mathematical-record searches did not disclose the exact linear-proxy theorem: a strictly monotone response-time-to-peak-time bijection with the sharp closed Keplerian quarter-period ceiling. This is a best-knowledge originality assessment, not evidence that every prior theorem has been exhausted. Generic positive-filter variation-diminishing results may furnish a stronger coverage theorem; exact historical priority is provisional.
+PASS
 
-## Mathematical value — PASS
-The theorem supplies a parameter-inversion criterion and a falsifiable model-specific upper lag, rather than merely another numerical thermal curve. For high eccentricity the bound can be a few percent of the orbital period, far below the familiar quarter-cycle harmonic bound. Its continuous parameter range and exact endpoint/asymptotic laws give an interpretable benchmark for separating scalar thermal relaxation from additional atmospheric/viewing mechanisms. The linear proxy is deliberately not a direct quantitative light-curve prediction.
+For fixed 0<e<1, the Kepler map is invertible, f is strictly decreasing on (0,π) and increasing on the other half, and changing integration variable to E gives the time mean (1-e²)^(-1/2). The normalized periodic exponential kernel averages strictly between the extrema of f. For q=y−f, the integrating-factor derivative has the sign of −f′; together with q(0)<0<q(π), this proves exactly one maximum and one minimum. At the maximum y=f and y is strictly above its own mean, which equals the mean of f. Hence the maximum precedes the descending mean crossing, given by the stated E_e and M_e, with 0<M_e<E_e<π/2. The resolvent identity rewrites the slower response as a strict convex mixture of the faster response and its positive smoothing. At the faster response's maximum that smoothing is strictly smaller, so the slower response is still rising there and peaks later. Transversality gives continuity; the approximate-identity and uniform-mean limits give the two endpoint phases (for the latter use f(m)=y(m), not the argmax of the constant limiting output). Expanding the kernel near each limit gives the optional rates: at small θ use y′=f′−θf″+O_e(θ²); at large θ use the mean-zero primitive of f−μ, with dν/dM=√(1−e²)f. An independent direct periodic-kernel quadrature/root check at e=1/2, θ=1 gave 0.433404826272 rad versus ceiling 0.936395659985 rad, with peak-equation residual below 5×10^−16. That check is finite. The supplied bisection/FFT test was inspected, not executed; see RESULT.md lines 29–65 and verify_thermal_peak.py lines 6–50.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected antecedents establish delayed heating/temperature responses in physical models and classical exponential smoothing, not the strict monotone bijection and sharp eccentricity-dependent maximum-phase ceiling for this scalar filter. The strongest located indexed neighbor changes both the filter and the independent variable being compared. This is a bounded, best-of-knowledge assessment, not a priority certification.
+
+## value
+
+PASS
+
+For a natural Kepler inverse-square input, the theorem gives a global identifiability criterion for the idealized time constant and an exact infeasibility boundary for peak lags. It gives substantially more than the single-harmonic quarter-period intuition; e.g. e=1/2 has ceiling about 0.14903 of a period. The conclusions refer to a single constant-coefficient linear proxy, not atmospheric or light-curve inversion in general; as θ grows the response becomes flat and the inverse problem is ill-conditioned.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:08:19.028752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For trace-normalized right-continuous real BV, the signed derivative represents f as a constant plus an integral of unit upward steps, including the values at all sampled knots. Constants are preserved. The triangle inequality and Fubini bound the operator ratio by the supremum of single-step errors, and testing single steps supplies the reverse inequality. With first sampled index k at or above the jump, its response is the CDF of the kth uniform order statistic; integration on the two sides of the step gives E|U_k-s|. Since this is convex in s for fixed k, the supremum is among the stated one-sided nodal candidates and the point-mass outer-cell candidates; when b=0, the formal zero-width outer candidates have error zero and do not alter the maximum. For indices j/n→u in (0,1), represent the Beta order statistic as the ratio of its independent gamma block to the sum of both gamma blocks. The two central limit theorems and the ratio derivative give variance u(1-u) after scaling by sqrt(n). At u=0 or 1 the scaled variance tends to zero, including deterministic end laws. The centered mean shift tends to b(u-1/2), and the uniform second-moment bound gives convergence of the absolute-deviation means. Compactness then reduces the norm to maximizing this folded-normal profile. With t=|2u-1| and a=bt/sqrt(1-t²), differentiation yields b(2Phi(a)-1)-2phi(a)t/sqrt(1-t²); dividing by 2a phi(a)/b yields b²R(a)-1 with strictly increasing R from 1 to infinity. Thus any interior critical point is a minimum, and the endpoint objective values are sqrt(2/pi) and b before division by two. This gives the asserted branches and equality case. A minor wording error in the final localization sentence is that the inter-knot mesh 1/(n+beta_n) is not a bound on an outer cell. Within an inter-knot cell the error is 1-Lipschitz, so that mesh controls the scaled error by o(1); within a left or right outer cell the error is exactly s or 1-s, bounded by beta_n/[2(n+beta_n)], and the locations approach the appropriate boundary. In particular those cells cannot be norming when b<sqrt(2/pi); this completes the stated localization without changing the theorem. Inspected check.py and VERIFICATION.md; did not run the frozen checker. The checker docstring's alternate filename does not affect the documented replay via check.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gandhi–Mishra give the same sampling family, continuous-function uniform convergence, and knot clustering or displacement with varying Stancu parameters. Dong–Yu use a kernel integral modification and give pointwise direct and converse results.",
+          "The frozen bibliography describes Üster–İbikli Theorem 1.1 as a pointwise estimate for BV, but the DOI/publisher routes did not return a readable primary passage in this audit. Classical BV references were identified without full-text comparison."
+        ],
+        "reasoning": "These are broader in different senses (parameter family or classes of approximation estimates). The primary passages actually inspected do not produce a sharp integrated BV→L1 asymptotic under beta_n=b sqrt(n) and its full localization. No noncoverage conclusion is made about an unread full document.",
+        "searches": [
+          "10.36753/mathenot.421231, Stancu pointwise BV approximation, DOI and open publisher access attempts",
+          "arXiv:1707.07424 parameter sensitivity",
+          "10.1186/s13660-016-1291-x Durrmeyer–Stancu direct and converse results",
+          "10.1016/0021-9045(83)90098-9 and 10.1016/j.jmaa.2013.10.024 classical BV Bernstein leads"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Bernstein, Beta moment, and Stancu phase-boundary searches",
+        "6c03f534e376",
+        "64355cf0016c",
+        "arXiv:1707.07424",
+        "10.1186/s13660-016-1291-x",
+        "10.36753/mathenot.421231 (OA access attempt)",
+        "classical BV DOI leads 10.1016/0021-9045(83)90098-9 and 10.1016/j.jmaa.2013.10.024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Replacing the classical grid by the Stancu grid retains the Beta order-statistic reduction and changes the argument of the absolute moment, so the finite formula is a natural extension of the classical mechanism rather than the main novel step.",
+          "At square-root scale, the new mean shift b(u-1/2) survives together with noise sqrt(u(1-u))Z, creating a different limit optimization whose competing center and boundary values and absence of interior maxima must be proved."
+        ],
+        "reasoning": "The ordinary variance/noise limit alone and the known Stancu mean displacement alone do not determine the supremum of the absolute error or its maximizing locations. The folded-normal optimization identifies a sharp constant and strict alternatives not given by the previous classical or continuous-input results.",
+        "searches": [
+          "6c03f534e376 RESULT.md Finding and scope",
+          "64355cf0016c RESULT.md Finding and scope",
+          "arXiv:1707.07424 pp. 1–2, Eq. (3) and moment formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The norm is equivalently the supremum of a Lebesgue-integrated binomial tail error over unit jumps, or a maximum absolute first moment of a Beta order statistic relative to a knot.",
+          "Gandhi–Mishra use the identical sampling knots and state the mean displacement (alpha-beta x)/(n+beta). Their stated input and convergence comparison is for continuous functions."
+        ],
+        "reasoning": "A moment formula for the sampler or a continuous-input uniform approximation conclusion does not characterize this worst discontinuous BV input, the L1 norm, or where it concentrates. A Durrmeyer-type integral operator is not interchangeable with point sampling.",
+        "searches": [
+          "Resultary: exact Bernstein–Stancu integrated BV error, Beta absolute deviation and jump order statistics; symmetric square-root parameter drift and boundary/midpoint phase transition",
+          "arXiv:1707.07424 Eq. (3) and moments (4)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit b2f50bc0f568 is the frozen record itself. Distinct same-day 6c03f534e376 gives the exact norm by Beta absolute deviations and midpoint localization at b=0 (mirror offsets 0–3506).",
+          "Distinct same-day 64355cf0016c gives an exact integrated BV law with asymptotic fixed-parameter sensitivity and midpoint localization in a Bernstein–Bézier family (offsets 0–3491). Resultary also returned related integral-sampling variants."
+        ],
+        "reasoning": "The classical Beta formula is genuinely covered for b=0. The other catalogue matches change the operator rather than introduce this symmetric Stancu knot displacement; none of their inspected statements yields the drift-dominated endpoint branch.",
+        "searches": [
+          "Resultary: classical Bernstein exact integrated BV-to-L1 norm and Beta-order-statistic formula",
+          "6c03f534e376",
+          "64355cf0016c"
+        ]
+      },
+      "rationale": "The strongest explicit indexed overlap is an exact Beta-deviation norm and midpoint localization for classical Bernstein, already covering b=0. Its date is the same as the frozen record and does not establish relative priority. The Stancu sampling operator and its moment/parameter sensitivity are also established. The surviving claim is the sharp norm competition in the nonzero symmetric square-root-displacement regime, including the exact critical coefficient and the boundary versus midpoint location dichotomy. The closest distinct literature and exact catalogue formula do not supply this determination. The prior BV Stancu source was not independently accessible, so the priority judgment is qualified.",
+      "residual_risks": [
+        "Üster–İbikli primary text and the original Stancu article in Calcolo 20 (1983), pp. 211–229, were not inspected. Unread classical sources or unindexed Stancu results may contain related sharp formulations.",
+        "No priority claimed for b=0, the Stancu node definition, or the standard order-statistic central limit theorem. Same-day metadata is not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at b=0 only; no date ordering inferred",
+          "evidence": [
+            "Classical Bernstein sampling has the same Beta absolute-deviation representation and midpoint localization."
+          ],
+          "identifier_or_url": "6c03f534e376",
+          "material_read": "RESULT.md Finding, offsets 0–3506",
+          "method": "Published finding local mirror",
+          "title": "Exact integrated bounded-variation error norm for Bernstein approximation",
+          "trigger": "Closest equivalent exact integrated BV formula"
+        },
+        {
+          "assessment": "Different operator and asymptotic objective",
+          "evidence": [
+            "The Bernstein–Bézier result has fixed-parameter sensitivity and midpoint localization, not a Stancu boundary-drift regime."
+          ],
+          "identifier_or_url": "64355cf0016c",
+          "material_read": "RESULT.md Finding, offsets 0–3491",
+          "method": "Published finding local mirror",
+          "title": "A sharp asymptotic Bézier parameter window for integrated bounded-variation approximation",
+          "trigger": "Exact asymptotic BV sensitivity for another Bernstein modification"
+        },
+        {
+          "assessment": "Establishes model and moment ingredients but not sharp integrated BV norm on this scale",
+          "evidence": [
+            "Eq. (3) evaluates continuous f at (k+alpha)/(n+beta); Eq. (5) gives the signed mean displacement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1707.07424",
+          "material_read": "pp. 1–2, abstract, Eq. (3), node spacing and moments (4)–(6), OA offsets 0–7388",
+          "method": "OA primary PDF passage, including equation context",
+          "title": "Study of sensitivity of parameters of Bernstein-Stancu operators",
+          "trigger": "Identical sampling grid and displacement"
+        },
+        {
+          "assessment": "Different operator and estimates",
+          "evidence": [
+            "Its Durrmeyer variant averages by integration; the inspected direct and converse statements are pointwise, for continuous inputs."
+          ],
+          "identifier_or_url": "10.1186/s13660-016-1291-x",
+          "material_read": "Primary PDF pp. 1 and 3, offsets 850–4564 and 9600–13120",
+          "method": "OA primary PDF passages",
+          "title": "Pointwise approximation by a Durrmeyer variant of Bernstein-Stancu operators",
+          "trigger": "Same Stancu family name with BV/pointwise approximation relevance"
+        },
+        {
+          "assessment": "Unresolved full-text priority; no whole-document noncoverage assessment",
+          "evidence": [
+            "The frozen bibliography describes pointwise estimates, but the primary passages were unavailable in this review."
+          ],
+          "identifier_or_url": "10.36753/mathenot.421231",
+          "material_read": "Cited bibliographic information and frozen description of Theorem 1.1 only; no primary passage independently retrieved",
+          "method": "OA attempts at DOI, publisher article and PDF",
+          "title": "On the rate of convergence of the Stancu type Bernstein operators for functions of bounded variation",
+          "trigger": "Highest overlap external title: same point-sampling operator and BV class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The discontinuous-input sharp norm measures the worst integrated bias from a standard sampling approximation. Inward grid shift and binomial spreading contribute at the same scale, but the worst discontinuity switches sharply from midpoint below the exact threshold to boundary above it, with no other limits allowed at equality. That competition and the calibrated leading constant are useful for choosing or assessing a symmetric grid, unlike simply reusing the zero-displacement norm. The theorem does not claim finite-degree equality classification, other parameter scalings, or nonsymmetric extensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

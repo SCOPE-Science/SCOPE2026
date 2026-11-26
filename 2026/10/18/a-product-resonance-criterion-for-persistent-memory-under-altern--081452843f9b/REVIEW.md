@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The dissipative Hilbert–Schmidt identity proves all peripheral eigenspaces lie in the joint commutant of the site projections. Off-diagonal Hamiltonian blocks exclude nonzero imaginary frequencies; contraction excludes defective zero modes. A connected cycle of nonzero entries in the monitored Gram matrix forces the monitored block to be scalar, reducing all fixed points to the kernel of one cyclic bidiagonal matrix. Its exact determinant gives the even-cycle product condition and a one-dimensional dark kernel. Conservation of trace and dark occupation determines the complete limiting channel. For the geometric hopping example the dark recurrence and geometric-series norm yield the positive return limit. The finite-dimensional checker independently tests these identities and does not substitute for proof.
+PASS
 
-## Originality
+The site projectors are Hermitian, so Re⟨X,LX⟩=−γΣ||[P_j,X]||²/2 and every imaginary-axis eigenoperator is block diagonal with a diagonal E block. The Hamiltonian commutator of such a block operator is off diagonal, excluding nonzero imaginary eigenvalues. The same identity makes the semigroup Hilbert–Schmidt contractive, excluding Jordan blocks at zero and proving finite-dimensional convergence. Stationarity gives TY=CT and YTᵀ=TᵀC, hence [C,TTᵀ]=0. Its adjacent entries a_j b_(j+1)>0 connect every E index (including n=3), so C is scalar. After subtracting that scalar identity, W has both range and adjoint range in ker T. The cyclic recurrence gives nullity one exactly at n even and ∏a_j=∏b_j; here n is the number of sites on each sublattice, and the physical cycle then has length divisible by four. Conservation of Tr ρ and Tr Dρ determines the full stated limit for every initial density operator. For the localized example the recurrence, including the wrap-around at zero, gives amplitudes (−1)^j q^min(j,2m−j), and the squared norm gives the positive limiting site return in the stated order of limits. Changing any one bond nontrivially makes T nonsingular. An independent exact commutator calculation on the projector commutant found fixed-space dimensions 1,2,1,2 on four test cases, including a product-balanced odd cell count, a nonuniform balanced even case and an exactly detuned one; it confirmed the localized rational return with q=2/3 at n=6. This is a bounded check, not the convergence proof.
 
-**PASS with a stated bibliographic risk.** The closest examined studies of quantum transport with dephasing give general models, full-site decoherence, edge-jump open walks, or many-body homogeneous chains. Their actual dissipators do not imply the exact half-monitored weighted-ring product resonance and initial-state-dependent limiting channel. Related earlier calculations of graph absorbers or uniformly dephased networks do not cover this statement, even when they also have dark states. Specific specialized ring literature could have an equivalent presentation, so the status is not a claim of exhaustive uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Positive hopping on a connected cycle ordinarily allows transport around the whole graph, while half-lattice dephasing is substantial environmental monitoring. The result identifies the unique algebraic obstruction to complete mixing, quantifies retained memory for every initial state, and constructs a family with finite positive long-time return in the growing-size limit. This separates localization from mere finite-size stationary degeneracy and exposes a sharp detuning discontinuity. It is not a routine count of modes without physical interpretation.
+The dark-state recurrence and general dephasing framework are established tools. The supported distinct claim is the necessity of this product resonance for nontrivial stationary memory in the specified periodic, one-sublattice projector-dephased model, the resulting full asymptotic state, and its explicit localized-return/detuning consequence. The closest inspected frameworks and exact classifications differ in the coupling geometry, noise operators, or both.
 
-## Limitations and nearest literature
+## value
 
-The result is a one-particle, no-onsite-potential, real-positive hopping theorem. The thermodynamic assertion takes time to infinity before size. Known general principles concerning dark states and commutants are not claimed as new. Relevant comparisons are Mohseni et al. (2008), Rebentrost et al. (2008), Liu–Balu (2016), Medvedyeva–Essler–Prosen (2016), and Bressanini–Benedetti–Paris (2022). The accessible main results and operative jump operators were inspected; unindexed specialized selective-dephasing work remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire graph remains connected with positive bonds and every site of one sublattice is dephased, yet the theorem distinguishes complete mixing from one persistent observable. Quantifying a positive local return after increasing the ring size, and its exact disappearance under one-bond detuning, goes beyond detecting a finite-dimensional kernel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

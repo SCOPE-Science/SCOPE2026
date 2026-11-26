@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:50:01.444056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choosing equality partitions and ordering their blocks by least label gives a bijection between original matrices and clarified matrices with their two partitions. Row and column duplication preserves rank: the two duplication maps each have a left inverse obtained by selecting representatives. In a full-rank factorization H=UV, the maps sending a row of U or a column of V to the corresponding row or column of H are injective. Thus pairwise distinct spanning tuples are the correct factors and each H is represented by one free GL(d,q) orbit. Subspace Möbius inversion gives (2), and the basis-extension construction realizes precisely d≤a,b≤q^d for d>0; rank zero requires a=b=1. The Stirling EGF and rank normalization follow by summing the partition bijection. Independent direct enumeration used field elimination and distinct row/column vectors for every binary matrix of sizes 2×2, 3×3, 4×4 and every ternary 2×2 matrix. All profiles matched (1); the clarified binary vectors by rank were (96,168) and (96,13608,20160) for 3×3 and 4×4. These tests are bounded; the proof, not those counts, establishes the field-general claim. The frozen verify.py was inspected, not run; the direct replay is to enumerate the q^(rm) entry arrays, bucket by row and column set sizes and elimination rank, and compare each bucket to (1).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "fcaR p. 3 defines clarification as deletion of duplicate rows and columns and discusses preservation of conceptual information.",
+          "The ordinary finite-field rank census covers all rectangular matrices but only gives the rank marginal as stated. A landing page was available for Null Models; the relevant full text was not verified."
+        ],
+        "reasoning": "The checked formal-concept passage gives the same operation but not a labelled rank-refined census. No retrieved source supplied a theorem explicitly covering the complete profile and support.",
+        "searches": [
+          "Cordero et al., fcaR, clarification",
+          "Felde–Hanika–Stumme, Null Models for Formal Contexts",
+          "Resultary: field-rank matrix and clarification profiles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "OEIS A181230",
+        "MathOverflow 258258 (title only)",
+        "Cordero et al., fcaR",
+        "Felde–Hanika–Stumme (landing/abstract only)",
+        "Resultary SCOPE008, SCOPE003 and Walsh minor rank census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A181230 uses two signed-Stirling sums applied to 2^(ij). For a named matrix constant on specified row/column partitions with i,j blocks, its rank equals the rank of the i×j quotient, so the rank-d count under those constraints is C_q(i,j,d)=[i choose d]_q[j choose d]_q|GL(d,q)|.",
+          "The same product-partition inversion derives H_q(a,b,d)=Σ_{i≤a,j≤b}s(a,i)s(b,j)C_q(i,j,d), with s signed Stirling numbers of the first kind. Multiplying by the two Stirling numbers of the second kind gives the joint count. The inverse sums factor; they count distinct spanning tuples, yielding the same count as (1)."
+        ],
+        "reasoning": "The unranked source does not assert the rank-refined theorem, but its published counting recipe with the standard rank census substituted mechanically determines the joint counts. The explicit tuple formula and support are presented differently; no priority is inferred from the altered presentation.",
+        "searches": [
+          "OEIS A181230 signed-Stirling formula",
+          "Ordinary finite-field rank census; comparison to frozen RESULT.md equations (1)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The MathOverflow title matches the unranked object, but no primary discussion text was obtained.",
+          "SCOPE008 uses ordinary rank over Q, nonnegative rank and equivalence classes, not field rank of named matrices. The same-day Walsh minor census uses complex rank of Walsh submatrices."
+        ],
+        "reasoning": "Renaming duplicate-free matrices as clarified contexts does not change the object. Restricting real-rank or nonnegative-rank counts, or changing named matrices to orbits, does change the count; no equivalence to those retrieved statements was established.",
+        "searches": [
+          "MathOverflow question 258258; ordinary page and StackPrinter copy",
+          "Resultary: distinct rows and columns, clarified incidence, rank census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A181230 is the unranked duplicate-free binary matrix array and gives the square totals 264 and 33864.",
+          "SCOPE008 counts 719 classes at ordinary rank 3 for 5×5 matrices and separates nonnegative ranks. SCOPE003 addresses diagonal-ones J2-free matrices and real rank; the Walsh record counts an unrelated complex-rank profile."
+        ],
+        "reasoning": "A181230 reproduces a rank sum, not its summands. The other tables use a different population or a different rank.",
+        "searches": [
+          "OEIS A181230",
+          "Resultary: duplicate-free rank census; SCOPE008, SCOPE003 and the four-by-four Walsh minor record"
+        ]
+      },
+      "rationale": "The retrieved sources do not state or subsume the explicit finite-field factorization, exact support and generating-function package as a result on the joint profile. This is a qualified assessment of statement-level distinctness, not a claim of priority or that the underlying census is independently hard or mathematically novel. The census itself is mechanically determined by established results, as shown in the prior-implication and value assessments.",
+      "residual_risks": [
+        "The MathOverflow rank discussion and the detailed Null Models results were not independently inspected. An earlier finite-field formulation could exist; neither the qualified statement comparison nor the value failure relies on those access gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unranked count and supplies the inversion method",
+          "evidence": "Rank is not an index; formula uses 2^(ij).",
+          "identifier_or_url": "https://oeis.org/A181230",
+          "material_read": "Definition, displayed terms and signed-Stirling formula, OA offsets 421–1705",
+          "method": "Lawful public entry, passage comparison",
+          "title": "Pairwise distinct rows and columns",
+          "trigger": "Exact database for the same unranked objects"
+        },
+        {
+          "assessment": "Unresolved; not evidence of absence or coverage",
+          "evidence": "No primary text obtained; whether the follow-up treats only real rank is not independently established here.",
+          "identifier_or_url": "https://mathoverflow.net/questions/258258/",
+          "material_read": "Title only; no discussion passage retrieved",
+          "method": "Public page, alternate access and StackPrinter attempts",
+          "title": "Number of {0,1} matrices with distinct rows and distinct columns",
+          "trigger": "Cited same-object rank discussion"
+        },
+        {
+          "assessment": "Covers the terminology and operation, not a rank count in this passage",
+          "evidence": "Defines clarification by removal of duplicated rows and columns.",
+          "identifier_or_url": "https://journal.r-project.org/articles/RJ-2022-014/RJ-2022-014.pdf",
+          "material_read": "P. 3, OA offset 14919",
+          "method": "Public journal PDF excerpt",
+          "title": "fcaR, Formal Concept Analysis with R",
+          "trigger": "Prior use of clarification"
+        },
+        {
+          "assessment": "Relevant framework; scope of detailed results not definitively assessed",
+          "evidence": "No decisive rank-profile passage was read.",
+          "identifier_or_url": "https://doi.org/10.3390/info11030135",
+          "material_read": "Landing/abstract material only",
+          "method": "Public DOI and journal retrieval; no lawful alternate full text obtained",
+          "title": "Null Models for Formal Contexts",
+          "trigger": "Random-context prior work"
+        },
+        {
+          "assessment": "Different rank and equivalence relation",
+          "evidence": "713 plus 6 classes by nonnegative rank, with ordinary rank over Q and permutations/transposition quotiented out.",
+          "identifier_or_url": "2026/9/7/SCOPE008",
+          "material_read": "RESULT.md, offsets 0–2874",
+          "method": "Public record through local mirror",
+          "title": "Certified census of the binary 5×5 rank-3 stratum",
+          "trigger": "Resultary same-matrix census match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parameters are natural, but the proposed exact census is a mechanical application of the established unranked double Stirling inversion with q^(ij) replaced by the standard rank-d count of an i×j quotient. This works because copying rows and columns preserves rank, with no additional counting problem on a specified partition. The EGF is then the ordinary Stirling substitution and the support is the elementary dimension/cardinality bound with a basis padded by distinct vectors. The alternative factorization is a convenient expression of the determined census, but does not establish a separate substantive result that rescues this frozen finding. The failure is for scientific value as a distinct exact finding, not for false formulas or inaccessible literature.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

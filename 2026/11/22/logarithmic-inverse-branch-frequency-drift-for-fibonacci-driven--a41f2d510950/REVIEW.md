@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The four inverse branches are uniquely specified by the order-two recurrence; the positions and final two predecessor coordinates are included in the counting definition. The decorated-substitution construction is valid because the sixteenfold Fibonacci word induces the original two symbol permutations. The exact eight-state matrix satisfies \(R(M^3-I)=V\) and \(VM=V\), whence the claimed recurrence holds for *all* nonnegative integers \(k\). Both packaged checkers pass: one reconstructs all finite certificate identities using integer arithmetic, and the other directly counts predecessor states at three substitution depths, including length \(5702887\). The direct scans corroborate but do not replace the infinite induction.
+## correctness
 
-**Originality — PASS within inspected evidence.** Kang–Jäger, arXiv:2609.01140v2, Sections 1, 3–5, establish finite-to-one inverse branches, permutation skew products and qualitative strict-ergodicity results; their worked family is an endpoint-difference map, not the three-tap Rule 150 cocycle. These facts do not imply the *exact* branchwise logarithmic coefficients and three-step recurrence without the new eight-state computation. The published-finding corpus entry “Minimal permutative lifts preserve linear recurrence” establishes an abstract qualitative property, and its strongest relevant implication likewise gives no explicit branchwise finite-scale discrepancy. Claussen (2008) treats Rule 150 temporal activity from a one-site seed, not the present Fibonacci-driven spatial inverse. Searches for Rule 150, Fibonacci cocycles, substitution-Jordan effects, group extensions and frequency discrepancies did not surface a statement covering this formula. Historical priority remains at risk from less readily indexed specialized literature.
+PASS
 
-**Value — PASS.** The four inverse branches form a canonical finite family for a natural three-input permutative local map over an aperiodic low-complexity sequence. A full asymptotic frequency alone hides a sharp difference: bounded error for two branches and a nonzero universal logarithmic coefficient for two others, with an exact residue law. This is a meaningful quantitative refinement of qualitative frequency statements, and the complete finite matrix certificate allows further analysis of substitution-driven inverse observables without assuming arbitrary independence.
+Reconstructed the four-state inverse recurrence from x_(i+2)=y_i XOR x_i XOR x_(i+1). Counting the old state at each output position, concatenation composes return permutations and adds decorated-letter counts from the second block at the first block's exit state. An independent exact block-composition reconstruction, /workspace/branches/independent-certificate-3.py (replay: python3 /workspace/branches/independent-certificate-3.py), without running the supplied scripts or expanding the words, verified the two depth-16 return permutations (0,3,1,2) and (1,2,0,3), lengths 2584 and 1597, and the complete transpose incidence certificate. With T=Mᵀ and w=Rᵀ, it gave (T³-I)w=(0,0,24,-24,24,-24,0,0)ᵀ and T times that vector equal to itself. Both finite identities matter: the return identities ensure block compatibility inductively under substitution; the invariant increment implies the k+3 identity at every k. Exact k=0,1,2 initial rows match, and log F_(16k+2)=16k log φ+O(1), giving signed count slopes ±1/(8 log φ) with bounded residue terms. The Findings' indexing and the proof agree. Editorial off-by-one in the scope sentence: the last counted pair is (x_(N_k-1),x_(N_k)); the final update uses x_(N_k+1), which is not itself counted. This does not change the explicitly defined count or theorem. No inference is made for arbitrary prefixes or temporal dynamics.
 
-The main limitation is the restriction to specified canonical Fibonacci-prefix lengths; no arbitrary-prefix discrepancy bound is claimed. All certificates are ordinary mathematical computations, not external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Available inverse-lift theory gives structural, and possibly broader qualitative, coverage. The supported distinct claim is the exact branch-dependent period-three discrepancy drift at the specified Fibonacci prefixes, not the existence of inverse branches, the use of permutations, or qualitative frequencies alone.
+
+## value
+
+PASS
+
+For a natural parity inverse of an aperiodic substitution word, identical limiting frequencies conceal a signed logarithmic bias on two of the four branches and bounded bias on the other two. The exact recurrence identifies which initial conditions exhibit the drift and its scale along two permutation-compatible full substitution blocks, not a fitted or arbitrary small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

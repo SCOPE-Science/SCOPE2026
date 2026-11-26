@@ -1,17 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The module decomposition bijection and centralizer unit quotient yield a fully normalized integer Gaussian-binomial formula. The first positive coefficient has q-adic scale q^{2d(B-1)} times a strictly increasing finite q^{-1} sum in [1,q), recovering B and m_d. At each j, the shorter-block contribution is computable solely from previously recovered multiplicities and B; the remaining coefficient is zero or a strictly increasing known-prefactor geometric sum recovering m_j. This proves the inverse theorem for every nilpotent dimension and every prime-power q. Exhaustive direct matrix checks and 22-dimensional partition inversion tests corroborate calculations, but are not substituted for the proof.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-Full text inspection of the closest published two-length idempotent-count theorem credits the forward formula as classical; this result claims only the field-linear ordinary-rank inverse reconstruction. The superficially similar published nilpotent partial-injection theorem counts different maps, and the general split-basic theorem covers different semisimple quotients and regular ranks. Full primary centralizer articles supply necessary structure, not the inverse theorem. Claim comparisons, not just title searches, support best-knowledge novelty; a broader unindexed invariant theorem remains a risk.
+PASS
 
-## Value — PASS
-A finite-field matrix rank polynomial of natural commuting algebraic projections is a complete similarity invariant on all nilpotent matrices, with a constructive explicit coefficient algorithm even without pre-specified dimension. This is a structural inverse theorem rather than a routine restatement of the classical forward count: a coarse univariate projection-rank distribution unexpectedly recovers every Jordan block length and multiplicity. It is reusable for invariant recognition and cannot be obtained by merely reading a single count or centralizer dimension.
+Over the fixed field F_q, commuting idempotents are ordered decompositions of the nilpotent F_q[t]-module into image and kernel; the projection is unique for each decomposition. The multiplicities add by uniqueness of the cyclic summands, and orbit-stabilizer gives the stated ordered profile count. Independently checking the unit-group factor: Hom between cyclic blocks of sizes i,j has dimension min(i,j). Reducing modulo t gives a block triangular matrix ordered by lengths, since maps from a shorter source into a longer block reduce to zero. Invertibility is equivalent to invertibility on M/tM by the finite nilpotent filtration, hence to each same-length leading block being invertible; this gives exactly q^D times the product of the stated Phi factors. The resulting Gaussian coefficient formula follows. The identity gives degree n, and the empty space gives polynomial 1. The first positive rank d is the shortest summand length. Its coefficient equals q^(2d(B−1)) times the geometric sum of m_d terms lying in [1,q), including at q=2; the exact base-q integer logarithm recovers B. After shorter multiplicities are known, their contributions at rank j need only the number B−S_j of blocks of length ≥j, since min(i,l)=i for i<j≤l. The rank-j residual can use only a single length-j summand; it is zero if absent and otherwise a known power of q times a strictly increasing finite geometric sum giving m_j. This closes the induction through n and similarity is equivalent to partition equality in the nilpotent class. Separate direct enumeration of every 3×3 candidate over F₂, for each of the three partitions, gave coefficient vectors (1,0,0,1), (1,4,4,1), (1,28,28,1); replay details are in /workspace/branches/9ec909e3-e716-425f-a9cb-fbdae5be481d/record3-independent-check.md. Source scripts and recorded logs were inspected, not executed. The exhaustive small-matrix check and the separate logged formula tests through n=22 are finite corroboration only.
 
-## Closest prior literature and limits
-The most relevant inspected article is *Independent theta coordinates for idempotents centralizing two-length Jordan forms* (2026), whose entire published RESULT.md credits the forward profile count as prior work and instead asserts a parity-sensitive limiting law. The published inverse theorem for nilpotent partial permutations uses a different centralizer and domain-rank polynomial. A split-basic algebra all-arity idempotent count uses regular module ranks and does not imply the present inverse theorem for arbitrary matrix nilpotent centralizers. Mingueza–Montoro–Roca (2019) and de la Cruz–Misa (2022) provide classical centralizer structure.
+## originality
 
-The limits are that only nilpotent matrix classes are covered, no coefficient-noise stability follows, and unindexed priority coverage remains possible. Small-field exhaustive tests corroborate but do not establish the infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The forward profile count is existing orbit-stabilizer input and is not credited as new. The distinct surviving claim is the inverse for every nilpotent Jordan partition from its ordinary-rank commuting-idempotent polynomial. Actual inspected analogues use other ranks, idempotents, or operator classes, and the closest forward formulas do not supply the rank-coefficient inverse.
+
+## value
+
+PASS
+
+The invariant is natural: it grades all splittings of an operator module by image dimension without observing image Jordan types. It is not apparent that the resulting coarse sums can separate arbitrary partitions. Recovering the total number of blocks from the shortest-rank term and subtracting lower-length contributions with limited information gives a uniform constructive rigidity theorem, not a re-enumeration or a small-table observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:02:32.786134Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At degree at most two, the forbidden induced graphs leave just isolates and at most one edge-bearing component, which must be P2, P3 or C3. On a path, fixing the start of a unique long monochromatic run of length 2 or 3 uniquely determines the rest, yielding n-1 and n-2 choices. With two long runs the number at k total runs is 2 floor(k^2/4) for each ordered pair of lengths. Summing at k=n-2,n-3,n-4 with multiplicities 1,2,1 gives 2(n-3)^2; the inactive terms at n=3 are zero. On a cycle, one long run has parity-forced length and n choices of first vertex. With two, an admissible pair of excesses e1,e2 has 2k=n-e1-e2 runs; boundary double counting gives nk and the permissible excess pairs give n(n-3), including C4. C3 has four assignments activating each color, counting the two monochromatic assignments. Forbidden cross-component 2K2s are precisely the x^2 and y^2 terms. Each odd cycle consumes one color's defect budget; two odd cycles can use distinct colors and three cannot. Proper three-colorability supplies the upper bound. The alternating reformulation is about acyclicity within each color class, not the stronger cross-class requirement. Independently corroborated by branches/d46b48ce-6757-4165-9f07-a40aaa9e5096/independent_threshold_check.py: 26 single graphs, 134 disconnected unions, 24 triangle/5-cycle mixtures and arithmetic formula checks through order 1000. Finite checks do not establish the general result; the argument in RESULT.md lines 63–86 does. The source verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multipartite enumerator allows all palette sizes but assumes a complete multipartite graph; P4, longer odd cycles and many disconnected examples are outside that family.",
+          "The maximum-degree-two result instead concerns proper independent-set color classes and their sizes, not classes permitting one edge-bearing component.",
+          "Cographs forbid P4 only; the threshold restrictions also forbid C4 and 2K2."
+        ],
+        "reasoning": "Neither an enlarged palette on a narrower family nor an independent-set result on the same family dominates the exact threshold count. A cograph partition theorem would require separate C4 and 2K2 control.",
+        "searches": [
+          "Resultary complete-multipartite threshold-class enumeration, b5200634b0db",
+          "Resultary prescribed proper colorings in maximum degree two, 9aaf81e2ad5d",
+          "Dorbec–Montassier–Ochem 10.1002/jgt.21724"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.32954v1",
+        "Resultary b5200634b0db and 9aaf81e2ad5d",
+        "DOI 10.1002/jgt.21724 and DOI 10.1016/j.ejor.2007.09.018 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hardness addresses unrestricted two-class existence, not the component counts. A proper two-coloring rules out every odd cycle; the audited invariant accepts up to two, each spending a different color's defect budget."
+        ],
+        "reasoning": "The exact cyclic boundary count, path run sum, and component product are not implied by the cited equivalence or the proper partition classification. Nor does the complete multipartite formula apply to arbitrary disjoint unions of locally admissible components.",
+        "searches": [
+          "Corollary 4.2 and Sections 1, 4.1–4.2 of arXiv:2610.32954v1",
+          "Proof hypothesis of Resultary b5200634b0db and statement of 9aaf81e2ad5d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 4.2 identifies the acyclic class in complete red/blue edge-colorings with threshold graphs and gives general decision hardness; Section 4.2 adds a distinct cross-class requirement in its stronger invariant."
+        ],
+        "reasoning": "Red edges and blue nonedges translate a threshold partition to a partition into classes with no internally alternating cycle. This is verified prior equivalence and does not itself enumerate such maps or decide the degree-two case.",
+        "searches": [
+          "Resultary: exact threshold-class coloring enumerators and prescribed colorings of maximum degree two",
+          "Bang-Jensen–Bessy–Reinald arXiv:2610.32954v1, alternating chromatic number and Corollary 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day multipartite record is an indexed exact enumeration for all palettes in its own family; its overlap with this degree-two count includes the edgeless family, P2, P3, C3 and C4."
+        ],
+        "reasoning": "These overlapping exact values are not newly credited. They do not fix the component polynomials of general paths and cycles, or their combination for arbitrary disjoint unions. No priority order is inferred.",
+        "searches": [
+          "Resultary exact threshold-class enumerators, connected and component formulas"
+        ]
+      },
+      "rationale": "The exact count of named two-color threshold partitions on arbitrary degree-two graphs, and the associated two-defect budget criterion, are distinct from the strongest checked results. The equivalence to the alternating chromatic number is already known and is not credited as new. Complete multipartite graphs overlap only in small or edgeless cases; general hardness and proper-coloring results do not imply the classified family.",
+      "residual_risks": [
+        "Full texts of the two older papers were not inspected; availability alone did not determine the verdict.",
+        "An equivalent enumeration under other partition or alternating-color terminology could remain unindexed. No priority ordering of same-day records is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent interpretation and general hardness, not the restricted enumerator",
+          "evidence": [
+            "Corollary 4.2 treats two sets inducing threshold graphs; Section 4.2 separately imposes cross-part acyclicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.32954v1",
+          "material_read": "Section 1 near offset 11100; Sections 4.1–4.2 including Corollary 4.2, offsets near 47300–49900",
+          "method": "OA HTML passages",
+          "title": "Acyclic 2-edge-coloured graphs: polynomial-time linkages and colouring hardness",
+          "trigger": "Exact equivalent threshold-partition vocabulary"
+        },
+        {
+          "assessment": "Partial graph-family overlap only; same-day priority unresolved",
+          "evidence": [
+            "Multivariate named-color enumeration and minimum number of classes require complete multipartite input."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-threshold-class-coloring-enumerators-for-complete-multipar--b5200634b0db/RESULT.md",
+          "material_read": "Finding, first passage at offset 0",
+          "method": "Local mirror",
+          "title": "Exact threshold-class coloring enumerators for complete multipartite graphs",
+          "trigger": "Strongest distinct indexed exact named-color count"
+        },
+        {
+          "assessment": "Different class property and invariant",
+          "evidence": [
+            "Feasible sizes of independent color classes are characterized using the independence number and odd-cycle component count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d/RESULT.md",
+          "material_read": "Finding, first passage at offset 0",
+          "method": "Local mirror",
+          "title": "Prescribed colorings at maximum degree two",
+          "trigger": "Identical degree restriction and odd-cycle obstruction"
+        },
+        {
+          "assessment": "Full-text coverage not assessed",
+          "evidence": [
+            "The cited class is cographs or stars, not by definition threshold graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.21724",
+          "material_read": "Bibliographic identification only; frozen comparison is abstract-level",
+          "method": "OA attempt with no accessible same-paper repository copy located",
+          "title": "Vertex Partitions of Graphs into Cographs and Stars",
+          "trigger": "Cited related induced-class partitions"
+        },
+        {
+          "assessment": "Earlier complexity context; full-text coverage not assessed",
+          "evidence": [
+            "Bang-Jensen–Bessy–Reinald credit this work with earlier NP-hardness of minimizing threshold classes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejor.2007.09.018",
+          "material_read": "Landing page/abstract and secondary attribution in Section 1 of arXiv:2610.32954v1",
+          "method": "OA landing page; no lawful full-text copy located",
+          "title": "A tutorial on the use of graph coloring for some problems in robotics",
+          "trigger": "Earlier threshold partition-coloring hardness cited by the primary alternating-coloring paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-state exact invariant solves a natural disconnected counting problem where locally valid restrictions need not combine: two disjoint edges in one color invalidate the union. The path and cyclic counts give reusable factors, and the single budget per named color explains why the third odd-cycle component, not the first, forces a third class. This is more informative than the known equivalence, proper coloring, or decision feasibility alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

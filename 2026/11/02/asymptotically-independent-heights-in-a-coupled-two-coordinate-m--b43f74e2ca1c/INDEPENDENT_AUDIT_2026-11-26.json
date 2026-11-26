@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:51.495324Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–48, especially the marker and overlap calculation",
+        "Arratia–Goldstein–Gordon (1989), standard local-dependence Poisson-process estimate applied before aggregating colors",
+        "VERIFICATION.md lines 19–23; moran_height_checker.py lines 6–71",
+        "Independent weighted update-string enumeration at q=3/4 for unequal thresholds"
+      ],
+      "rationale": "Writing ell_i=h_i-1, a coordinate reset at t followed by ell_i nonresets gives exactly one qualifying marker, with t from 1 to n-ell_i and probability (1-q)q^ell_i. Starting from zero, the only additional way to reach h_i is the initial run of h_i successes, of probability q^h_i=O(1/n) in the window. Each indicator depends on its closed update interval and is independent jointly of all indicators on disjoint intervals. Same-type overlapping distinct markers and distinct types started at the same time are impossible. For an X reset and a later Y reset at lag 1≤k≤ell_X, the later reset also serves as one forced X success; L=min(ell_X-k,ell_Y) simultaneous successes have mass a=2q-1 instead of q^2. The resulting joint mass is (1-q)^2 q^(ell_X+ell_Y-1)(a/q^2)^L. Independently enumerated unequal-length examples at q=3/4 with integer weights 1,1,2, including ell_X=4, ell_Y=1, k=1 (18/1024) and k=4 (81/4096), agree. The window bounds the difference of lengths and a/q^2<1 gives an O(1) geometric sum in each direction, so the distinct-neighbor joint term is O(1/n). The product term including self pairs is O(log n/n), from O(n log n) pairs each O(n^-2); the term for dependence on the outside is zero. The standard local-dependence Poisson process bound at individual indices, followed by contraction under summing the two disjoint color classes, gives the claimed vector TV estimate and independent Poisson means. Simultaneous absence plus the initial-run error and the O(log n/n) mean adjustments yield exactly the uniform height formulas. The lattice limits are interpreted along subsequences with convergent intensities, not as a continuously centered weak limit. The frozen checker was read, not executed; its marker-pair loop uses equal lengths, while the independent check above and, decisively, the product argument cover unequal thresholds.",
+      "residual_risks": [
+        "Constants are for fixed q,c,C; no uniform parameter-endpoint or outside-window claim.",
+        "Direct OA retrieval of the cited Arratia–Goldstein–Gordon paper was unsuccessful; the proof uses the standard process form and monotonicity of TV under aggregation, not a citation-specific constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arbitrary reset subsets are handled in a terminal-age PGF, and the scalar height theorem gives a lattice profile. The 2025 time-dependent Moran paper gives a height formula for the first coordinate in Theorem 2 and discusses asymptotic H_n as future work. Its joint Theorem 3 is for terminal coordinates, not two path maxima.",
+          "The local-dependence Poisson theorem is more general than the present model, but its error depends on an unevaluated joint-probability sum."
+        ],
+        "reasoning": "Neither broader temporal dynamics nor a stronger approximation tool supplies this coupled vector law without applicable run types and the model-specific joint-error calculation.",
+        "searches": [
+          "arXiv:2311.13124v1 Theorems 3.3 and 5.2",
+          "Abdelkader DOI:10.3390/sym17091387, Theorem 2 and perspectives",
+          "Arratia–Goldstein–Gordon, Two Moments Suffice for Poisson Approximations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.13124v1",
+        "DOIs 10.3390/math11173774, 10.3390/sym15051046, 10.3390/sym17091387 and 10.1007/s10463-015-0551-8",
+        "Arratia–Goldstein–Gordon (1989) as general method",
+        "Local Resultary c19ec9a1f26d and public joint maxima/longest-reset-runs searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar height asymptotics do not imply asymptotic independence. The proof here evaluates the full cross-coordinate neighboring-marker mass through the factor ((2q-1)/q^2)^L, and sums it uniformly over shifted unequal intervals, treating mutually exclusive reset times separately."
+        ],
+        "reasoning": "General Poisson approximation supplies the framework; it does not certify that overlapping-coordinate clusters are negligible. The exact joint overlap and controlled neighbor sum are what make the quantitative coupled result follow.",
+        "searches": [
+          "Arratia–Goldstein–Gordon 1989 local-dependence process theorem",
+          "arXiv:2311.13124v1 §3.2",
+          "Kong DOI:10.1007/s10463-015-0551-8 Theorem 2",
+          "Abdelkader DOI:10.3390/sym17091387"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The multivariate Moran transition parameters reduce to p=2q-1, p_1=p_2=1-q, p_0=0, up to the reset-value convention. Theorem 5.1 concerns terminal ages. Aguech–Abdelkader Theorem 4 gives the same symmetric model's terminal PGF and explicitly leaves height H_n to future work. Individual coordinate heights are longest survival runs, with a special initial run."
+        ],
+        "reasoning": "Terminal ages and final-coordinate maxima cannot be identified with path maxima or marked counts. Equivalent run language is credited; both present success predicates include the shared-survival symbol, unlike distinct same-letter runs.",
+        "searches": [
+          "Aguech–Althagafi–Banderier arXiv:2311.13124v1 §§3.2, 5.1–5.2",
+          "Aguech–Abdelkader DOI:10.3390/math11173774, Section 6",
+          "Public query: Two-Dimensional Moran Model joint maxima heights maximum altitude longest reset runs Aguech Abdelkader two dimensional"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kong's finite exact run formulas classify contiguous runs of different individual letters, conditional on composition, with mixing available for unconditional laws. The nearest lattice catalogue result concerns the scalar maximum zero-run of a maximal-entropy renewal shift with iid geometric block lengths."
+        ],
+        "reasoning": "Neither exact enumeration uses the two overlapping survival predicates with mutually exclusive start resets. A scalar lattice extreme formula does not give a bivariate count approximation.",
+        "searches": [
+          "Kong DOI:10.1007/s10463-015-0551-8, pp. 500–501 and Theorem 2",
+          "Resultary 2026/11/22/SCOPE-lattice-extreme-value-law-for-maximal-entropy-frequency-shifts--c19ec9a1f26d"
+        ]
+      },
+      "rationale": "Credit the model, its terminal laws, scalar lattice-height laws and the general Poisson approximation method as prior. The distinct supported result is the uniform, quantitative joint rare-run law for two overlapping survival predicates, including the O(log n/n) total-variation estimate, whence the joint independent lattice profile. The overlapping-prefix calculation is not covered by the disjoint-letter run census or by the same-model terminal PGFs. Secondary literature dating of the Kong comparator should cite the earlier journal version; this does not change that scope comparison.",
+      "residual_risks": [
+        "Other general dependent run-pattern results may address overlapping predicates; no exhaustive priority claim.",
+        "The earlier cited 2023 materials are distinguished by actual statements; nothing is inferred from an unavailable search result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar bridge to critical-window height; multivariate quantities in the read statements are terminal ages.",
+          "evidence": [
+            "Theorem 3.3 gives a discrete-Gumbel-type one-coordinate height estimate. Theorems 5.1–5.2 give terminal PGFs for mutually exclusive or subset resets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.13124v1",
+          "material_read": "Theorem 3.3 p. 14 (offset 51000), Theorem 5.1 pp. 30–31 (124800), and Theorem 5.2 p. 32 (131200).",
+          "method": "Bounded primary PDF passage inspection.",
+          "title": "Height of Walks with Resets, the Moran Model, and the Discrete Gumbel Distribution",
+          "trigger": "Same discrete process, marginal height law and multivariate extension."
+        },
+        {
+          "assessment": "Exact same-model terminal PGF, with path heights explicitly deferred.",
+          "evidence": [
+            "Theorem 4 is labeled a PGF of final altitude; the preceding paragraph identifies studying H_n as future work."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11173774",
+          "material_read": "Section 6 immediately preceding and including Theorem 4, p. 16 (alternate PDF offsets 83300–85579).",
+          "method": "Primary open publisher asset PDF, located by future/height and read by offset.",
+          "title": "Two-Dimensional Moran Model: Final Altitude and Number of Resets",
+          "trigger": "Same symmetric transition model; exact height work might subsume the result."
+        },
+        {
+          "assessment": "Distinguishes final altitude and height; its stated main result uses final altitudes.",
+          "evidence": [
+            "The main-result paragraph specifies the PGF of the maximum of the two final altitudes, plus the mean and variance and geometric limit for terminal coordinates."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15051046",
+          "material_read": "p. 2, discussion following its example paths (offsets 7140–8916).",
+          "method": "Primary open publisher asset PDF, located by height and read by offset.",
+          "title": "Two-Dimensional Moran Model",
+          "trigger": "Earlier exact terminal or path law for two coordinates."
+        },
+        {
+          "assessment": "Theorem 2 gives finite first-coordinate height, Theorem 3 gives joint terminal altitudes; the maximum-height limiting behavior is explicitly listed as a direction.",
+          "evidence": [
+            "The statement in Theorem 2 has superscript (1), and its proof calls the recursion a first-component height distribution. The asymptotic H_n bullet is prospective."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym17091387",
+          "material_read": "Abstract, Theorem 2 pp. 5–6 (offsets 33200–35312), Theorem 3 p. 11 near 59901, p. 14 proof near 80650–82232, and perspectives pp. 15–16 offsets 88050–90581.",
+          "method": "Primary open publisher asset PDF, bounded targeted reads.",
+          "title": "Time-Dependent Probability Distribution of Two-Dimensional Moran Walk",
+          "trigger": "A later generalization mentions path heights; may subsume fixed-q maxima."
+        },
+        {
+          "assessment": "Exact disjoint single-letter runs conditional on composition; overlapping letter subsets not in the inspected theorem.",
+          "evidence": [
+            "Ann. Inst. Stat. Math. 69 (2017), 497–512, published online 1 February 2016, earlier than the frozen citation's 2024 arXiv posting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10463-015-0551-8",
+          "material_read": "Definition and distribution setup pp. 500–501 (offset 10525) and Theorem 2 pp. 506–507 (offset 34000); journal dating on PDF.",
+          "method": "Primary PDF passage inspection.",
+          "title": "The m-th Longest Runs of Multivariate Random Sequences",
+          "trigger": "Joint exact longest-run distributions might yield the quantitative coupled result."
+        },
+        {
+          "assessment": "Scalar maximum in a renewal shift, not two rare-count coordinates.",
+          "evidence": [
+            "Scalar maximum zero-run for iid geometric renewal blocks."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-lattice-extreme-value-law-for-maximal-entropy-frequency-shifts--c19ec9a1f26d",
+          "material_read": "Mirrored RESULT.md Finding from offset 0.",
+          "method": "Local catalogue search and mirror statement comparison.",
+          "title": "Lattice extreme-value law for maximal-entropy frequency shifts",
+          "trigger": "Closest retrieved local lattice-extremes record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof, lines 4–48",
+        "Aguech–Abdelkader Theorem 4 and its future-height remark",
+        "Abdelkader 2025 Theorem 2 and perspectives"
+      ],
+      "rationale": "The two heights interact through the same update symbols, so independent marginal laws and expected intensities are insufficient. The quantitative joint theorem shows that dependence does not persist in the critical window despite intersecting success predicates. It also gives control of counts, not just the maximum distribution, along with the correct discrete phase; this is a meaningful strengthening over terminal-altitude or one-coordinate analyses.",
+      "residual_risks": [
+        "No claim for many coordinates, all thresholds, time-varying q, or continuous Gumbel convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

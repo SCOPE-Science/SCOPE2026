@@ -1,19 +1,21 @@
-# Scientific review: sharp DGDA finite-horizon transient
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(A^{\mathsf T}A=a^2I\) and \(\rho=1/2,\eta=1/a\), the update reduces by the skew-complex-structure eigenbasis to \(B=\left(\begin{smallmatrix}1/2-i&1/2\\1/2&1/2\end{smallmatrix}\right)\). Subtracting its eigenvalue \(\lambda=(1-i)/2\) leaves a rank-one nilpotent of norm one. The exact singular value of its binomial power yields the operator-gain formula and quadratic prefactor. The discrete upper bound for all \(k\ge4\), with explicit comparisons at \(k=0,1,2,3\), proves the unique global maximum. Direct evaluation on synchronized states yields the original-variable amplification. The embedded standard-library verifier passed 209 direct and algebraic checks; it does not substitute for the all-horizon proof.
+PASS
 
-## Originality — PASS, with limitations
+The real skew matrix J=M/a squares to −I and has conjugate complex eigenspaces, so the Euclidean product-norm computation splits into identical-norm B and conjugate B blocks. The real induced norm equals the complexified norm: writing a complex input as x+iy splits both squared norms into sums of real squared norms. Direct subtraction of λ=(1−i)/2 from B gives a nonzero rank-one N with N²=0, trace zero and Frobenius square 1. Thus B^k=λ^k(I+kN/λ), and the latter parenthesized matrix has determinant 1 and squared Frobenius norm 2+2k². Solving the quadratic for its squared singular values gives 1+k²+k√(k²+2), proving the exact power norm and the asymptotic coefficient 2. The finite candidates 0,1,2 are smaller than k=3; in particular 99>96 verifies the k=3 versus k=2 radical comparison. For k≥4 the monotone upper bound 2^(−k)(2k²+2) starts at 34/16, below the k=3 value. On a synchronized modal vector (w,w), the two components of N(w,w) are (λw, conjugate(λ)w); dividing by λ gives the stated primal and auxiliary powers, and the consecutive primal squared-gain ratio drops below 1 exactly when k≥2. The weak 3/4 bound from the DGDA reference is compatible. The sharper general inequality printed in the same reference, at its repeated-root endpoint, is not compatible; the frozen statement carefully refers to the weaker bound only.
 
-Zheng, Loizou, You and Mallada, *Dissipative Gradient Descent Ascent Method* (arXiv:2403.09090v1, 2024), Secs. III–IV and Appendix B, introduce the same iteration and its geometric convergence rates. Their inspected analysis does not furnish the exact induced power norm, sharp all-time integer peak, synchronized-state amplification or critical Jordan polynomial prefactor. De Montbrun and Renault (arXiv:2208.03085, 2022) analyze a distinct optimistic two-step method. The published published-finding corpus Jordan affine-norm result (2026/10/11, id 00a25760cd57) optimizes an affine nilpotent pencil and spectral-set constant, not DGDA powers; the published PDHG results (2026/10/4, ids f8268fe426bc and 788191221208) concern different primal-dual update operators and asymptotic ratios. The algebraic Jordan-power identity itself is standard and is **not** claimed as new. Search absence alone does not prove novelty; an equivalent DGDA analysis in another source remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp squared finite-time amplification \((10+3\sqrt{11})/8\) occurs for an algorithmically recommended tuning even in a perfectly conditioned bilinear game. Natural synchronized initialization yields an actual-variable error spike \(9/4\). The resulting \(k^2 2^{-k}\) norm behavior differentiates spectral-radius convergence from uniform finite-horizon performance and provides exact stress benchmarks for damping and finite-iteration assessments. This is a complete structural boundary, not a claim that DGDA diverges.
+The algorithm, chosen steps and spectral mode analysis are prior. The strongest inspected DGDA source does not give the exact Euclidean norm of every power, the two distinct sharp discrete peaks, or a correct pure-rate estimate at the defective boundary. Its displayed general rate would in fact imply the false pure 2^(−k) estimate there, even though its separately stated weaker rate is valid. The distinct contribution is the sharp amplification and finite-time contrast, not Jordan calculus or the spectral eigenvalues alone.
 
-## Scope and residual risks
+## value
 
-The finding covers only equal-singular-value square bilinear games and the stated fixed steps. Published methods with equivalent state-space similarity, alternative norms, or finite-step transient estimates may overlap even where keyword searches do not. Independent external originality assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the critical boundary of the recommended step choice at best conditioning, not an artificial slice. Exact gains quantify how much transient error is missed by asymptotic spectral reasoning, and the synchronized peak shows the effect can reach original variables under a standard initialization, not merely an adversarial auxiliary state. The formula identifies why one printed rate cannot hold at boundary equality and precisely separates it from the weaker valid one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

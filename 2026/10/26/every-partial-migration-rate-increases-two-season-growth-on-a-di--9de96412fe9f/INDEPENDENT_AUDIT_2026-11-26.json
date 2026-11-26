@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:14:39.970298Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54; VERIFICATION.md, verify.py and certificate.json (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, case 5"
+      ],
+      "rationale": "With a=1−d, b=d and Q=M D⁻¹ M D, put u=x/y, v=y/z, w=z/x, so uvw=1. The trace is 3a² and the principal 2×2 minors sum to 3a⁴−ab³(u+v+w+uv+uw+vw). Also det Q=(det M)²=(a³+b³)². It follows that det(I−Q) differs from its homogeneous value by −ab³ times the ratio sum minus 6; the homogeneous value is zero because Q=M² is column-stochastic. This proves the asserted identity for all parameters. The defect is the sum of (D_ii−D_jj)²/(D_ii D_jj) over the three index pairs i<j, and is positive exactly for a nonconstant diagonal. The index-pair reading is needed at repeated values: the shorthand sum over pairs in the set {x,y,z} in the proof should not drop multiplicities, which are explicit in the Finding. A strictly negative monic characteristic polynomial at 1 has a real zero above 1, yielding the strict spectral-radius bound. At d=0 the normalized operator is I; at d=1 it is a weighted permutation on one 3-cycle with weight product one. The homogeneous case has radius one at every rate, and continuity ensures an interior global maximizer in the heterogeneous case. For a two-patch kernel with both off-diagonals positive, positive diagonal similarity gives a symmetric migration matrix N(d) without changing either growth diagonal. Conjugating the period operator by D₁^(1/2) then gives BᵀB for B=D₂^(1/2)N(d)D₁^(1/2); ||B||₂ is convex in d and maximized by at least one endpoint. A one-way or diagonal kernel is triangular, with each period diagonal term bounded by its no-migration value; one patch is immediate. The independent rational replay checked trace/minor/determinant expressions in 448 cases, 300 strict, and independently recovered the example polynomial and its value −1/2 at two. This corroborates the all-parameter algebra, not a sampling proof of it.",
+      "residual_risks": [
+        "The model and classification concern deterministic two-season linear growth with the same lossless directed-cycle migration in both seasons. They do not imply uniqueness of the optimal rate or conclusions for nonlinear or stochastic populations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 2 and 3 assume diagonal symmetrizability",
+          "4bf78d70bf53 allows arbitrary positive seasonal diagonals and migration mortality in any dimension but retains diagonal symmetrizability; its interior example uses three seasons",
+          "277a84601303 treats the equal-pool two-patch seasonal-count question",
+          "The accessible abstract-level result in S0024379506001868 quantifies a universal bound ρ(SD)≤ρ(D) over block D with nonnegative diagonal blocks via absence of polychromatic cycles; its full text was not read"
+        ],
+        "reasoning": "The strictly directed three-cycle cannot become symmetric by positive diagonal similarity, since one-way off-diagonal support is preserved. More patches, general diagonals, or mortality in the reversible theorem do not cover it. Failure of a universal reduction inequality over a class of block matrices would only imply a counterexample somewhere in that class, not the frozen pointwise strict law for every heterogeneous reciprocal profile and every partial rate. Uninspected parts of the latter paper remain a risk.",
+        "searches": [
+          "Schreiber–Li Theorems 2 and 3",
+          "Resultary reversible two-season endpoint bound 4bf78d70bf53 and equal-pool two-patch seasonal boundary 277a84601303",
+          "Broader multi-state matrix comparison in On dispersal and population growth for multistate matrix models, publisher record S0024379506001868"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1007.5267",
+        "DOI:10.1371/journal.pcbi.1000876",
+        "arXiv:1011.1109",
+        "S0024379506001868 (indexed abstract only)",
+        "Resultary 4bf78d70bf53, 277a84601303 and c0a5c849bd97"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior triangle example refutes a symmetrizable-kernel monotonicity claim without its assumption, but imposes a specified heterogeneous triple and a fixed rate",
+          "The prior reversible norm argument and 4bf78d70bf53 imply the endpoint bound for symmetrizable two-patch movement with general seasonal diagonals",
+          "The ecology comparisons concern age-structured persistence or stochastic occupancy, not the same monodromy"
+        ],
+        "reasoning": "The dimensional novelty is not the existence of a three-patch witness. The necessary distinction is between a prior counterexample and a complete equality/strictness classification for the reciprocal discrete triangle. The exact discriminant, and the resulting strict theorem at every d in (0,1), do not follow from the cited instance or the cited reversible theorem.",
+        "searches": [
+          "Schreiber–Li Eq. (2.1), Thm. 3 and p. 20 example",
+          "Artzy-Randrup–Stone DOI:10.1371/journal.pcbi.1000876 and Kleinhans–Jonsson arXiv:1011.1109",
+          "Same-day Resultary 4bf78d70bf53 and c0a5c849bd97"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior F(d)=D M(d)D⁻¹M(d) equals D Q(d) D⁻¹ for the same migration interpolation",
+          "The prior paper takes D=diag(3,2,1) and reports ρ(F(1/2))>1 with ρ(F(0))=ρ(F(1))=1",
+          "Indexed c0a5c849bd97 has an exponential monodromy for a fixed continuous-time migration generator, and varies the environmental period T"
+        ],
+        "reasoning": "Moving the diagonal by similarity is not a new model. The previous discrete example is a literal special case, not an all-d or all-D result. The continuous-time model has a different parameter and propagation law and does not give the discrete interpolation.",
+        "searches": [
+          "Schreiber–Li arXiv:1007.5267 Eq. (2.1), Appendix A Thm. 3 and concluding remark after Appendix B",
+          "Resultary semantic lookup of two-season growth, reciprocal diagonal fitness, and nonreversible dispersal",
+          "Literature query: nonreversible directed three cycle two season Schreiber Li reciprocal diagonal growth dispersal spectral radius all intermediate fraction determinant D inverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior and indexed examples report exact or computed growth comparisons at particular parameters, with either a three-season discrete product, a continuous-time period comparison, or one reciprocal two-season rate",
+          "The frozen invariant is a continuous four-parameter identity for det(I−Q), rather than one computed spectral radius"
+        ],
+        "reasoning": "A finite table or a witness cannot establish the determinant identity or its universal strict sign. The nearest indexed exact findings were compared by their model and observable, not counted as matches merely for sharing a three-patch or two-season setting.",
+        "searches": [
+          "Resultary exact reciprocal growth and three-patch nonmonotonicity comparisons, including 4bf78d70bf53 and c0a5c849bd97",
+          "Schreiber–Li final directed-cycle remark"
+        ]
+      },
+      "rationale": "Schreiber–Li already show strict interior advantage for the same normalized two-season family at one directed-triangle parameter point. The overlapping witness and the reversible endpoint argument are not supported as distinct claims. The all-positive-profile, all-intermediate-rate if-and-only-if and its ratio discriminant are the distinct core: the known example fixes both D and d, and the general reversible results exclude one-way cycles. The frozen paper locator for the example should be the closing remark after Appendix B on PDF p. 20, not an Appendix A concluding remark.",
+      "residual_risks": [
+        "A stronger nonreversible matrix comparison theorem could cover the pointwise law; the multistate matrix paper remained inaccessible in full.",
+        "The known discrete directed-triangle witness and reversible endpoint argument carry no priority claim here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior witness in the same family; its symmetrizable general theorem excludes the directed triangle.",
+          "evidence": [
+            "Thm. 3 analyzes the reciprocal product for diagonally symmetrizable S; the final remark reports the 3-cycle D=diag(3,2,1) result at d=1/2 with both endpoint radii one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1007.5267",
+          "material_read": "§2 Eq. (2.1), Thm. 2 p. 6, Appendix A Thm. 3 pp. 16–17, closing remark after Appendix B p. 20 lines 395–399",
+          "method": "OA primary passages, including offsets about 17500, 51000 and 60300",
+          "title": "Evolution of unconditional dispersal in periodic environments",
+          "trigger": "Same migration interpolation and a directed reciprocal two-season example"
+        },
+        {
+          "assessment": "Different age-structured persistence model and operator; no claim about uninspected supplements.",
+          "evidence": [
+            "The inspected passages analyze network persistence or extinction and patch heterogeneity, not reciprocal seasonal growth matrices."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1000876",
+          "material_read": "Abstract p. 1 and Extensions: Nonidentical patches p. 6",
+          "method": "OA primary passages, offsets about 1342 and 40500",
+          "title": "Connectivity, Cycles, and Persistence Thresholds in Metapopulation Networks",
+          "trigger": "Cycle networks with heterogeneous habitat patches and persistence threshold"
+        },
+        {
+          "assessment": "Stochastic patch-occupancy problem, not this spectral classification.",
+          "evidence": [
+            "Persistence is studied for a stochastic metapopulation occupancy model on regular dispersal networks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1011.1109",
+          "material_read": "Introduction and model discussion, pp. 1–2",
+          "method": "OA primary passages, offsets about 1200 and 5800",
+          "title": "On the impact of dispersal asymmetry on metapopulation persistence",
+          "trigger": "Asymmetric movement on a patch network"
+        },
+        {
+          "assessment": "The available comparison is about a uniform reduction bound over block models; full coverage is unresolved.",
+          "evidence": [
+            "The accessible snippet ties absence of polychromatic cycles to a bound ρ(SD)≤ρ(D) for all admissible block D, not to the strict reciprocal product inequality at each d."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379506001868",
+          "material_read": "Indexed abstract-level result only; no full text",
+          "method": "Literature lookup, followed by OA attempts at publisher and the identified Academia mirror; both returned HTTP 403",
+          "title": "On dispersal and population growth for multistate matrix models",
+          "trigger": "Potential broader spectral-radius criterion for directed graph cycle structure"
+        },
+        {
+          "assessment": "Substantial coverage of the symmetrizable endpoint comparison; the directed-triangle core is outside its hypothesis.",
+          "evidence": [
+            "The bound explicitly assumes a positive diagonal similarity to a symmetric kernel even with mortality; the interior witness is three-season, two-patch."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53",
+          "material_read": "Finding, assumptions and two-season proof, offset 0",
+          "method": "Resultary lookup and decisive local-mirror passages",
+          "title": "Two-season endpoint optimality and the first interior dispersal optimum",
+          "trigger": "Same two-season spectral radius and endpoint comparison"
+        },
+        {
+          "assessment": "Special equal-pool two-patch movement and a season-count threshold, not the directed triangle.",
+          "evidence": [
+            "The statement rules out strict interior improvement for one to three seasons in the equal-pool two-patch family and gives existence with four."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local-mirror statement",
+          "title": "Four seasons are necessary and sufficient for interior optimal dispersal",
+          "trigger": "Interior optima boundary for seasonal mixing"
+        },
+        {
+          "assessment": "Different time regime and control parameter; not an all-rate statement.",
+          "evidence": [
+            "Fixed conservative continuous-time generator L and two different R_i are used to prove Λ(2)>Λ(8) as the environmental period changes."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-season-nonmonotonic-growth-in-a-minimal-three-patch-me--c0a5c849bd97",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary lookup and decisive local-mirror passages",
+          "title": "Exact two-season nonmonotonic growth in a minimal three-patch metapopulation",
+          "trigger": "Same directed three-patch cycle and two seasons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations",
+        "Schreiber–Li final directed three-cycle remark",
+        "Resultary 4bf78d70bf53"
+      ],
+      "rationale": "The all-parameter identity resolves whether a known failure of reversible dispersal intuition depends on a carefully chosen migration rate and growth triple. For the minimal directed cycle with equal isolated period multipliers, the strict advantage holds at every genuine partial rate under precisely heterogeneity, with both endpoints and the homogeneous equality case identified. This is a complete classification of a natural basic model rather than a new numerical example, and it does not presume a field or nonlinear consequence.",
+      "residual_risks": [
+        "No location or uniqueness theorem for the optimizer, ecological field claim, or broader asymmetric-dispersal conjecture is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review of the two-channel half-cycle design theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** The unitary Fourier transform of the half-cycle boxcar has even-frequency zeros and an explicit inverse-sine-square odd-frequency response. For all translations, the frame operator is exactly diagonal in frequency. The proof counts the two exceptional indices and every remaining odd-response value, including the \(m=2\) boundary. A weight-exchange involution and convexity/concavity of extremal eigenvalues establish global equal-power optimality, strict for any imbalance. Exact parity-dependent response minima and monotonicity of the sine factor give all optimizing gaps. The independent, standard-library finite checker completed 85,546 tests. The unbounded-parameter result is proved analytically, not inferred from enumeration.
+## correctness
 
-**Originality (PASS relative to inspected literature).** The 2026 block-equivalence manuscript supplies the general diagonalization but not the exact all-integer, all-power, two-frequency minimax conclusion. The prior critically sampled boxcar theorem optimizes lengths on a distinct translation/modulation grid. Previously published two-tap erasure and three-tap phase-potential results apply different window supports/objectives and do not imply the present frequency-pair condition-number design. Exact response formulas are classical and are not presented as new. A possible earlier equivalent polyphase or Fejér-kernel pair optimization remains a bibliographic risk.
+PASS
 
-**Value (PASS).** The theorem gives a complete, sharp engineering-motivated design classification under a minimal two-channel acquisition budget: admissibility, exact minimax powers, all frequency gaps, tightness exception, exact condition numbers, and a parity-dependent quadratic instability barrier. This determines when one can and cannot improve conditioning by channel placement or power reallocation, which is not simply a restatement of general frame diagonalization.
+Independently reconstructed the Fourier optimization in RESULT.md lines 49–95. Summing over all translations annihilates the off-diagonal Fourier entries. The geometric sum gives R(0)=m, R(k)=0 at other even residues, and R(k)=1/(m sin²(πk/(2m))) on odd residues. Thus an even gap leaves an even Fourier index uncovered for m≥3; an odd gap covers every index. Swap weights by j→s−j and average, which cannot raise the maximum or lower the minimum. For an odd gap the equal-power maximum is m+R(s) at the two channel labels; their larger eigenvalue grows strictly under imbalance because R(s)<m (the geometric sum is strict off zero). The remaining eigenvalues consist of two odd-residue lists omitting s and −s, respectively. At odd m the unique smallest response at m disappears from both lists only at s=m; the next responses are at m±2. At even m the two minima at m±1 cannot both disappear. Minimizing the maximum and maximizing the minimum therefore singles out the asserted gaps and bounds. At m=2 the even gap has spectrum (2w0,2w1,2,2), while the odd gaps have equal-power ratio 3. Substitution and the cosine Taylor expansion reproduce both constants beyond m². The subsection heading 'for each gap' applies to spanning gaps for strictness; all weights on a singular gap have infinite ratio, which does not affect global uniqueness. The 85,546 assertions are reported source diagnostics, not an independent run or the all-m proof.
 
-**Limits and literature.** Findings apply only to half-cycle rectangular windows, all translations, two integer frequency channels, and positive channel powers. No robust noise or larger-window-family optimality is claimed. Relevant primary sources: arXiv:2605.16139 (full HTML statement/proofs inspected), arXiv:2509.01325 (frame/noise sections examined), and three published finite-Gabor results cited in RESULT.md (relevant statements/proofs examined). Independent expert validation is still necessary before relying on the conclusion as a new published mathematical result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the complete parity-sensitive half-cycle-boxcar gap and power optimum, not the general Fourier reduction or equal-power symmetry. None of the strongest inspected statements includes this window and solves that optimization.
+
+## value
+
+PASS
+
+The problem is a natural minimal two-channel design at fixed window and full translations. The exact parity classification is actionable: in even half-lengths at least four the intuitive antipodal design fails to span, whereas the nearest odd gaps are uniquely best up to reversal. Even optimally weighted, the squared condition number grows quadratically; the result separates correct channel placement from intrinsic ill-conditioning. No broader window or sensing-model claims are needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

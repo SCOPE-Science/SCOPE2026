@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:25:30.161433Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–25,29–80",
+        "VERIFICATION.md:19–23",
+        "verify.py:9–59 (inspected, not executed; finite sign checks only)"
+      ],
+      "rationale": "At each fixed time, independence makes the variance a sum of Bernoulli variances, whereas the mean derivative is strictly negative. The derivative of the variance is a nonzero sum of at most 2n distinct exponentials after grouping; it is positive at zero. Multiplying by a nonvanishing exponential that eliminates one exponent, differentiating and using Rolle's theorem with multiplicities proves the requisite zero bound inductively, including when rates coincide. Two distinct strict maxima enclose a stationary minimum, so the ceiling of 2n−1 derivative zeros permits at most n strict maxima. For the ratio-20 construction at a_j=log(4)/λ_j, the jth term is −λ_j/8, faster terms are negative and slower terms sum to at most λ_j/19. At b_j=log(2)/(2λ_j) the jth term exceeds λ_j/4 and the slower terms are positive; the faster negative tail is bounded by a series whose first term is 20λ_j/1024 and successive ratios are at most 20·2^(−190)<1/2. Hence it contributes in magnitude less than λ_j/20. Chronologically the consecutive witnesses a_{j+1}, b_j, a_j are ordered by their multiples 2, 10 and 40 of log(2)/λ_{j+1}; the origin is a positive-sign initial witness. This gives 2n−1 distinct positive zeros, and the global ceiling with multiplicity makes each simple and excludes any others. The one-species case uses just the origin and a_1. Alternation gives the exact maxima/minima counts, and strict signs persist in a neighborhood of the hazards at these fixed witness times, directly proving robustness. No finite numerical replay is needed for this analytic proof.",
+      "residual_risks": [
+        "The theorem requires independent irreversible exponential losses and refers to extrema of the ensemble variance, not modes of the richness distribution or variation along a realization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General extended Chebyshev theory supplies the zero bound for distinct exponential functions.",
+          "The occupied-box variance literature treats limiting oscillation of infinite geometric frequency models; Example 2.2 gives a telescoping family and a convergence result, not the finite n-peak law.",
+          "The phylogenetic result proves a persistent pair of peaks in a branch-weighted statistic under a common risk; its exhibited variance includes the additional q⁹ and covariance terms. The relaxation paper reports empirical multiple modes in a distinct viscoelastic statistic."
+        ],
+        "reasoning": "Broad Chebyshev theory supplies the ceiling but does not guarantee it is attained under the pairing of rates λ and 2λ and their constrained coefficients. Neither asymptotic oscillation for an infinite model nor the other two-mode results supplies exactly n peaks for a finite n and the stated geometric progression.",
+        "searches": [
+          "Zalik, Some Properties of Chebyshev Systems, PDF p. 2",
+          "On the variance of the number of occupied boxes, §§1.2 and 2.2",
+          "Resultary e04d268d2b3a, Finding and displayed V_a(q)",
+          "Ge–Tsao–Evans DOI 10.1038/s41467-023-43073-w"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0701718 §2; arXiv:math/0609498 §§1.2, 2.2",
+        "Zalik p. 2",
+        "Local Resultary 487e9cb7e1cc, e04d268d2b3a and neighboring fixed-budget richness records",
+        "Ge–Tsao–Evans p. 2; PNAS search abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Infinite geometric frequencies with ratio 1/2 in Example 2.2 telescope to 1−e^(−t); finite truncation of that example telescopes to a difference of two exponentials, not n resolved peaks.",
+          "The standard single-interval Bernoulli maximum and the multiplicity zero ceiling leave attainment open, and the fixed-sample counterpart explicitly has a different two-species obstruction.",
+          "Uniform sign control at the proposed finite geometric scales plus the multiplicity ceiling produces the simple zeros and open hazard neighborhood."
+        ],
+        "reasoning": "The finite constructive claim is not implied simply by renaming the Bernoulli sum, applying the zero-count theorem, or citing infinite-model oscillations. Credit is confined to exact finite attainment and the resulting sharp classification and robustness, not to the standard variance function.",
+        "searches": [
+          "Compare arXiv:math/0609498, Example 2.2 and the geometric oscillation discussion, with RESULT.md:39–74",
+          "Compare Resultary 487e9cb7e1cc Finding and Eq. (1) and e04d268d2b3a Finding with RESULT.md:13–25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent Poisson processes of rates λ_j have independent first arrivals distributed as Exp(λ_j); at any time the survivor count is n minus the Poissonized occupied-box count. The exact variance is Φ(2t)−Φ(t)=Σ_j(exp(−λ_jt)−exp(−2λ_jt)), already given in the occupancy literature.",
+          "The closest indexed richness record uses a fixed iid draw count, with additional nonzero covariance terms in its displayed identity."
+        ],
+        "reasoning": "Poissonized occupancy is mathematically equivalent for the complete variance curve, not just an analogy. Rate normalization changes only time units. The inspected statements establish the model and exact curve, not the finite sharp count. The fixed-draw result does not transfer by treating draw count as real time or deleting covariance terms.",
+        "searches": [
+          "Literature: Poissonized occupancy variance Phi(2t) Phi(t) finite urns local maxima oscillations number peaks separated frequencies Gnedin Karlin",
+          "arXiv:math/0701718 §2; arXiv:math/0609498 §2.2",
+          "Resultary 487e9cb7e1cc exact variance identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked entry tabulates the exact continuum extremum count for finite independent exponential survival. The fixed-iid-draw record has at most one peak for two species, unlike this theorem, and the fixed-budget records use without-replacement sampling with abundance profile (1,6,6). The occupancy paper's geometric examples are variance-asymptotic examples, not a matched finite extremum table."
+        ],
+        "reasoning": "This all-size theorem is not a single table entry, but an exact extremum classification or a tables-based formula for the same curve would be material. The actual inspected counts in the neighboring indexed statistics do not supply such a classification.",
+        "searches": [
+          "Resultary: repeated richness-uncertainty peaks and double-peak variance thresholds; records 487e9cb7e1cc, 7d5b7b6433e4, and cd2e17e54dc9",
+          "Poissonized occupancy literature query for exact peak counts and geometric spacings"
+        ]
+      },
+      "rationale": "The same variance curve is classical under the exact alias of Poissonized occupied-box counts. The universal zero bound follows from classical exponential Chebyshev theory, and neither that bound in isolation nor the one-component peak is credited as new. The distinct verified contribution is the sharp finite-n mode classification, especially the explicit factor-20 rate separation achieving the full zero bound for every size, with stability. The closest occupancy work treats oscillation and limiting variance in infinite models and the indexed richness work uses a different sampling rule. This is a bounded statement-level assessment.",
+      "residual_risks": [
+        "Further finite Poissonized occupancy results could contain a sharp peak-count theorem; no universal noncoverage claim is made.",
+        "Full text of the nanocalorimetry paper was not accessible. Engen (2007), DOI 10.1016/j.mbs.2007.06.002, is an unresolved extinction-model comparison identified in the submission, not evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the variance representation, not the sharp finite peak claim in the checked statements",
+          "evidence": [
+            "Independent Poisson box processes with rates p_j; arbitrary positive rates via the stated time rescaling; V(t)=Φ(2t)−Φ(t)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701718",
+          "material_read": "§2, independent process representation and Eq. (6), offsets 14095–17467",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Notes on the occupancy problem with infinitely many boxes: general asymptotics and power laws",
+          "trigger": "Exact Poissonized-occupancy alias of the exponential survival curve"
+        },
+        {
+          "assessment": "Exact curve is known; inspected geometric results concern limiting behavior and different ratios, not finite sharp peak counts",
+          "evidence": [
+            "Same additive sum of exponential differences; geometric ratio 1/2 telescopes to 1−e^(−t) in the infinite model; geometric asymptotic oscillation terms can cancel at dyadic resonances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609498",
+          "material_read": "§1.2 geometric asymptotic discussion, offsets 13320–15054; §2.2 Eqs. (2.12)–(2.13), Example 2.2 and remark, offsets 27150–29933",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Exact variance curve and closest geometric-frequency oscillation analysis"
+        },
+        {
+          "assessment": "General known ingredient for the upper bound, no rate construction",
+          "evidence": [
+            "Nontrivial combinations in an extended Chebyshev system have at most m−1 zeros counted with multiplicity; distinct real exponentials qualify by the nonvanishing Vandermonde Wronskians."
+          ],
+          "identifier_or_url": "https://webhome.auburn.edu/~zalikri/fv/chebyshev.pdf",
+          "material_read": "PDF p. 2, Theorem 1, near extracted offset 3900",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Some Properties of Chebyshev Systems",
+          "trigger": "General zero-count theorem for extended Chebyshev systems"
+        },
+        {
+          "assessment": "Different fixed-count discrete model, not the Poissonized equivalent",
+          "evidence": [
+            "Variance includes nonpositive covariance terms, and two species cannot have two strict peaks. For m≥3 the result proves at least m−1 strict peaks, not a matching universal exact upper bound."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-repeated-richness-uncertainty-peaks-from-separated-species-abund--487e9cb7e1cc",
+          "material_read": "RESULT.md Finding, scope and Eq. (1) with the two-species proof, offsets 0–3479",
+          "method": "Exact local-mirror file passage",
+          "title": "Repeated richness uncertainty peaks from separated species abundances",
+          "trigger": "Directly related richness variance peaks from separated scales"
+        },
+        {
+          "assessment": "Related result under identical risks for a different, branch-weighted statistic",
+          "evidence": [
+            "A ten-tip rooted phylogeny gives two peaks of the variance of total retained branch length; shared subtrees introduce terms absent from the unweighted richness variance."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-two-separated-variance-peaks-for-future-rooted-phylogenetic-dive--e04d268d2b3a",
+          "material_read": "RESULT.md Finding and first variance formula, offsets 0–1414",
+          "method": "Exact local-mirror file passage",
+          "title": "Two separated variance peaks for future rooted phylogenetic diversity under uniform extinction",
+          "trigger": "Closest earlier recorded temporal variance phenomenon under independent extinctions"
+        },
+        {
+          "assessment": "Empirical multiple relaxation modes, not the exact variance/extremum theorem",
+          "evidence": [
+            "Two modes are reported for one hydrogel setting, with a warning that a mixture of fast and slow bonds does not always have resolved modes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41467-023-43073-w",
+          "material_read": "PDF p. 2, near extracted offset 10600",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Polymer architecture dictates multiple relaxation processes in soft networks with two orthogonal dynamic bonds",
+          "trigger": "Related superposition of relaxation peaks at separated dynamical scales"
+        },
+        {
+          "assessment": "Unresolved whole-text coverage, not negative evidence",
+          "evidence": [
+            "The accessible abstract describes composing glass-relaxation peaks from exponential units."
+          ],
+          "identifier_or_url": "https://doi.org/10.1073/pnas.2302776120",
+          "material_read": "Search-result abstract only",
+          "method": "Published literature search; lawful PNAS and PMC attempts did not return readable full text",
+          "title": "Detecting the exponential relaxation spectrum in glasses by high-precision nanocalorimetry",
+          "trigger": "Plausible scale-separated exponential thermal peak analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–25,29–74",
+        "Poissonized occupancy comparisons and related Resultary richness settings"
+      ],
+      "rationale": "Even with independent losses and monotone mean richness, the temporal ensemble variance can have as many distinct strict and stable peaks as there are species. The least size allowing two peaks and the all-size finite sharp scale construction give explicit, reproducible counterexamples to inferring unimodality of uncertainty from monotone survival. The exact bound also answers how much arbitrary positive rate heterogeneity can change the temporal peak count in this model; it is not merely the standard Bernoulli variance identity.",
+      "residual_risks": [
+        "The constructed rate separations need not be ecologically plausible. No empirical prediction or conclusion for dependent or nonexponential extinction is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

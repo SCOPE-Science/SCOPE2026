@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is a complete, finite-field, all-parameter statement for every integer \(n\ge4\) and every \(q=2^f\). The proof reconstructs the perturbed adjacency matrix as \(H^TH+ef^T+fe^T\), establishes surjectivity of the incidence-coordinate map, and derives all iterate ranks and periods from an explicit evolution on \(\{t:\sum t_i=0\}\times\mathbb F_q^2\). For odd \(n\), this evolution has order four on the image, with fixed-space dimensions \(n-3\) and \(n-1\) for the first two iterates. For even \(n\), it becomes a swap on a two-dimensional image after three steps, with a separate four-point boundary. Primitive orbit counts follow by subtraction and division by periods. Basin sizes and time-layer populations follow from constant fibers of linear maps. No infinite conclusion relies on extrapolation from tests. Both independent packaged checkers were executed and passed, including direct exhaustive state evolution for \(n=4,5,6\) and a four-element-field example.
+## correctness
 
-## Originality — PASS, qualified
-The strongest directly relevant archival antecedent, Peeters' Section 4.1 on Johnson modular adjacency matrices, computes annihilating polynomials and ranks for **unmodified** Johnson graphs. The full relevant section was inspected. Ciandrini and coauthors (arXiv:0809.1526v1, submitted 2008-09-09) supply general linear-XOR attractor principles, but no triangular-graph complementary edge insertion formula. The closest found published exact perturbed-Johnson theorem instead removes an **existing** edge; its full proof was read and yields recurrent periods three/six and sixteen binary recurrent states, not the two/four and four binary states obtained here. A two-set Kneser parity theorem was also read in full and concerns the **entire disjointness graph**, not a triangular graph plus one edge. No exact table or stronger published statement covering all parameters and the four-period mechanism was located in the checked literature and indexed research records. Absence from search results is not a mathematical uniqueness proof, and historical equivalents may remain.
+PASS
 
-## Value — PASS
-The perturbation is a canonical missing edge orbit of the triangular graph, not an artificial parameter slice. The theorem determines a natural complete dynamical invariant: all primitive periods, all labelled attraction basins, and the sharp transient-depth distribution for every graph order and characteristic-two field size. The qualitative change is not merely a small numerical improvement: one added edge creates persistent two-cycles from nilpotence for even order and creates primitive four-cycles from an idempotent system for odd order, with a sharp boundary at four ground vertices. A two-subset incidence reduction explains these contrasting mechanisms rather than just enumerating examples.
+Over characteristic two, A₀=HᵀH and HHᵀ=(n mod 2)I+J give the unedited identity A₀²=(n mod 2)A₀. Keeping the two chord coordinates u,v prescribed still permits every incidence vector t with coordinate sum zero: the other edge columns are the incidence columns of a connected graph. The perturbed image is Hᵀt+ve+uf, and a nonzero cut vector cannot be supported on just the two chord coordinates (a nontrivial label class forces at least n−1 nonzero coordinates). Constants are in the incidence hyperplane exactly for even n; the respective ranks follow. In the odd case the reduced update has fourth power identity. Fixing one iterate requires u=v=0 and both chord incidence forms a=b=0; fixing two requires a=b and u+v=a. The two forms are independent when there is a fifth ground point. This gives dimensions n−3,n−1,n+1 at iterates 1,2,4, hence the stated orbit counts by subtraction. In the even case the span of A₀e+f and A₀f+e is the third image and the map swaps those independent vectors; it is thus exactly the recurrent subspace. The second image has rank four from the two independent cuts and free input forms at n≥6, but rank two at n=4 because the cuts agree and a=b. These ranks determine all entrance times by counting the inverse image of the recurrent subspace. At the settling time, every recurrent state has q^(N−r) preimages, proving each basin formula. The odd settling bound is sharp since N>n+1, and the even bounds are sharp by the last rank drop. Fresh reconstruction of power ranks, fixed-space dimensions, and polynomial identities for n=4,…,12 using dense adjacency matrices and elimination over F₂ agrees with the theorem; rank identities extend to F_(2^f), and the proof independently treats the whole field family. Replay cd /workspace && python3 review-evidence/reproduce.py 2; output review-evidence/2.txt. Frozen checks were inspected, not executed: the binary enumeration checks individual basins; the F₄ loop actually asserts only entry-layer totals, not separate per-orbit basin assertions.
 
-## Closest literature and limitations
-- R. Peeters (2002), Section 4.1, https://doi.org/10.1023/A:1013842904024 — original Johnson matrices only; the modular rank and polynomial antecedent is acknowledged.
-- L. Ciandrini et al. (2008), https://arxiv.org/abs/0809.1526 — general XOR attractor/basin theory, no exact new graph family.
-- *One-edge defects create universal six-cycles in nilpotent Johnson parity dynamics* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-one-edge-defects-create-universal-six-cycles-in-nilpotent-johnso--6ee185cd61fc — deletes an original Johnson edge rather than adding a nonedge.
-- *Four-residue orbit, basin, and flip-mask classification for parity dynamics on two-set Kneser graphs* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-four-residue-orbit-basin-and-flip-mask-classification-for-parity--ea8bd5beb089 — applies XOR to the whole complementary Kneser graph instead.
-- The \(n=4\) graph also has a matching-deleted complete-graph description; no independent priority claim is based on this single boundary instance. Odd characteristics, multiple defects, and arbitrary local rules are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct part is the rank, recurrence and entry-filtration classification for a nonadjacent-pair addition in T(n) over characteristic two, including the n=4 exception. Neither the unedited Johnson results nor the previously adjacent-pair deletion covers this perturbation.
+
+## value
+
+PASS
+
+A single missing-line-graph-edge insertion creates qualitatively different periods in the two natural parity classes, and a sharp transient hierarchy with one small-order exception. The exact global basins quantify the response to the edit. This is a motivated, all-order sensitivity classification, rather than merely the routine Fitting argument or an isolated rank calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

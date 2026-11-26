@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:52:57.579095Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof",
+        "Frozen verify_leaf_collapse.py and verification_output.txt",
+        "/workspace/evidence/proof_checks.md §2"
+      ],
+      "rationale": "Independently classified the relative faces by their common-neighbor witnesses. Old-only faces witnessed at the leaf are empty or old singletons that still have a witness in their color fiber, so the target is induced even if the old neighbor becomes isolated. A pair of distinct leaf colors has a unique witness, the third leaf color, so its edge and triangle form a free pair. After the three such deletions, each remaining new-color face lies in that color's cone x_i*L_i. Pair each such face lacking h_i with its extension by h_i, in reverse inclusion order. All other strict cofaces have then been deleted. This proves the relative collapse and the exact 3+3·2^(d+1) pair count for every finite simple H. Tree pruning terminates at the triangle boundary; cyclic annular strips also independently verify the credited n≥5 torus consequence. See /workspace/evidence/proof_checks.md, section 2; the frozen finite checker was inspected, not executed.",
+      "residual_risks": [
+        "Scope is the ordinary open neighborhood complex with the Cartesian K3 factor, not arbitrary clique factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shukla treats connected graphs of maximum degree at most three and designated four-regular circulants.",
+          "8ad90b221ab2 requires a clique of size at least four and a connected square-free base."
+        ],
+        "reasoning": "The ambient Cartesian product here can have unbounded degree, and the other clique-product theorem excludes the triangular fiber.",
+        "searches": [
+          "Shukla arXiv:1802.04526v2 Thms. 2.1–2.6",
+          "Resultary 8ad90b221ab2, c372840096d2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6cb83cce9897 (same record), f4000215540f, 01a3930414ca, 8ad90b221ab2",
+        "Shukla arXiv:1802.04526v2",
+        "Frozen RESULT.md and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fold homotopy preservation assumes a fold, absent for the fiber vertices at issue. The torus Findings assume a pure cycle. They do not supply a collapse relative to a tree-augmented base."
+        ],
+        "reasoning": "The proof's unique two-new-color witnesses and residual cones supply the missing operation. Its exact pair count is forced by face difference once such an elementary collapse exists; it is not a separate priority claim.",
+        "searches": [
+          "Shukla Prop. 3.3; Resultary f4000215540f and 01a3930414ca Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct 6cb83cce9897 hit is the assigned record itself.",
+          "A graph fold requires open-neighborhood inclusion. For a leaf-fiber vertex x_i, the only vertex adjacent to both other leaf colors is x_i itself, so no such vertex can be folded away in the larger graph."
+        ],
+        "reasoning": "The relative deletion is not just an application of a domination fold on the removed fiber.",
+        "searches": [
+          "Resultary: pendant-edge collapse, triangular-fiber neighborhood complex",
+          "Shukla arXiv:1802.04526v2 §3.4 Prop. 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct inspected entry gives the arbitrary-base relative collapse or its pair count; both October 25 entries do give the n≥5 cycle-core torus and 6n steps."
+        ],
+        "reasoning": "The inherited torus is already covered; the relative pendant operation is not a numerical lookup or a restatement of those cycle tables.",
+        "searches": [
+          "Resultary: triangular-product pendant deletion and triangular-cycle torus; 6cb83cce9897, f4000215540f, 01a3930414ca"
+        ]
+      },
+      "rationale": "The inspected fold, bounded-degree, and clique-product results do not give the relative pendant deletion for arbitrary triangular Cartesian products. The distinct earlier cycle records already give the torus and its cup product before attaching trees; credit is restricted to the general pruning operation and its direct consequences.",
+      "residual_risks": [
+        "Exact c372840096d2 mirror unavailable.",
+        "Bounded statement-level comparison is not a global priority proof; a broader unindexed relative-collapse theorem could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "related, not covering the triangular pendant operation",
+          "evidence": "Proposition 3.3 uses neighborhood inclusion; theorem regimes are bounded-degree or designated circulant families.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.04526",
+          "material_read": "v2 §2 Theorems 2.1–2.6 and §3.4 Prop. 3.3, pp. 2 and 4",
+          "method": "OA primary text, targeted passages",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "possible general fold or homotopy theorem"
+        },
+        {
+          "assessment": "covers the cycle core, not pruning",
+          "evidence": "For n≥5 the complex collapses in 6n pairs to a torus; the integral cup product is nonzero.",
+          "identifier_or_url": "Resultary f4000215540f",
+          "material_read": "Finding and integral cup-product passage around offset 1087",
+          "method": "local mirror",
+          "title": "A triangular-cycle neighborhood complex collapses to a torus",
+          "trigger": "exact cycle-core consequence"
+        },
+        {
+          "assessment": "same cycle-core coverage, no priority order assigned",
+          "evidence": "Same n≥5 pure cycle and 6n collapse, not arbitrary leaf attachment.",
+          "identifier_or_url": "Resultary 01a3930414ca",
+          "material_read": "Finding and collapse discussion near offsets 96 and 5113",
+          "method": "local mirror",
+          "title": "A torus spine for open neighborhood complexes of triangular cycles",
+          "trigger": "distinct same-day cycle result"
+        },
+        {
+          "assessment": "different clique and base regime",
+          "evidence": "Connected square-free H, m≥4.",
+          "identifier_or_url": "Resultary 8ad90b221ab2",
+          "material_read": "Finding and hypotheses",
+          "method": "local mirror",
+          "title": "Open-neighborhood homotopy of clique fibers over square-free bases",
+          "trigger": "possibly stronger clique-product result"
+        },
+        {
+          "assessment": "unresolved exact text, not negative evidence",
+          "evidence": "Frozen comparison describes m≥4 and short-cycle-free hypotheses; not independently confirmed for this ID.",
+          "identifier_or_url": "Resultary c372840096d2",
+          "material_read": "Frozen citation and comparison; exact mirror file unavailable",
+          "method": "attempted exact local mirror retrieval",
+          "title": "Open-neighborhood topology of clique fibers over graphs without short cycles",
+          "trigger": "cited related clique-product theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and consequences",
+        "Resultary f4000215540f and 01a3930414ca"
+      ],
+      "rationale": "A structural relative-collapse rule on a natural graph operation removes every attached tree from arbitrary base graphs without calculating new topological invariants. It preserves cup products as well as homology and needs neither a degree bound nor a girth bound. The value is in the general deletion operation, not the already known cycle core or the arithmetic count alone.",
+      "residual_risks": [
+        "Leafless cores are not classified by this result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

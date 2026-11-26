@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact enumeration of equal-species lag pairs proves that both nine-symbol histories have the same full profile; direct polynomial multiplication of the independent per-donor failure factors gives the displayed degree-18 difference. The degree-nine residual polynomial has signs \(R(0)=1\), \(R(1)=-1\), and the transformed polynomial under \(t=q/(1-q)\) has one sign change, so Descartes and continuity prove a unique root in the open interval. The standalone integer/rational checker reproduces these identities and the complete small-length binary enumeration. Boundary values and the conditional biological assumptions are explicit.
+PASS
 
-## Originality — PASS on inspected evidence
+Independent exact recomputation gives four 1s and five 0s in each word, the common pooled profile (4,2,3,3,2,0,1,1), and disjoint reversal/complement orbits. For each distinct recipient, independence among its earlier donor attempts yields the product of failures; linearity then adds the success probabilities without requiring independence between recipients. The exact polynomial difference is (q^9−q^6)(1−2q³−q⁴−q⁶+q⁷+q⁹). The degree-nine residual has values 1 and −1 at q=0 and q=1, and its t=q/(1−q) transform has coefficient vector (1,9,36,82,113,91,33,−6,−9,−1). Descartes and continuity give one simple interior zero, independently bracketed by rational computations and near 0.719457639510222. Since q^9−q^6<0 inside the interval, the rankings are negative then positive, with ties at the two boundary limits. Exhausting all binary words through length nine gives no nontrivial collision below nine and exactly one profile with two inequivalent orbits at nine. This is a statement about nontrivial homometry, not the minimum length for all order-sensitive differences including trivial reversals. The additive-score tie uses the pooled conspecific counts and a common lag-only weight, not species-stratified scores.
 
-Katz, Rahman and Ward (arXiv:2308.07467) already prove the nine-symbol minimum and give the first nontrivial aperiodic binary homometry class. This known part is not presented as a novelty. Kortsch et al. (DOI 10.1111/1365-2435.14353) specify the nonlinear independent-transfer pollination metric and study its simulated ecological consequences, but do not compare full-lag-identical histories or prove this exact unique retention crossover. Bruninga-Socolar et al. (DOI 10.1002/ece3.10349) analyze pollen-mediated coexistence and individual specialization, but do not imply the displayed polynomial sign law. Relevant published mathematical records on cyclic binary phase retrieval or pairwise plant coextinction concern different objects and do not dominate this ordered-visit result. Historical completeness of the comparison remains a risk; direct transfer-model and phase-retrieval searches did not reveal the same conclusion.
+## originality
 
-## Value — PASS
+PASS
 
-The distinction is not that adjacent-visit counts are insufficient (already familiar), nor the known nine-symbol phase-retrieval ambiguity. Even the **complete pairwise lag spectrum**, sufficient to predict any additive, lag-weighted expected transfer count, cannot order the more relevant *distinct-plant* success expectation. Which history is better changes once with the physically motivated pollen-retention parameter, so this is a precise structural identifiability boundary for a published ecological metric. It is deliberately finite and does not assert empirical importance without calibration.
+The known homometric pair class and known ecological score are prerequisites, not original results. The remaining contribution supported by the inspected sources is the exact failure of the pooled lag data to rank distinct-recipient expectations, with precisely one interior sign reversal for the specified retention family.
 
-## Closest literature and limits
+## value
 
-The primary Kortsch et al. methods and discussion and the Katz et al. introduction, classification table and binary-equicorrelation treatment were read. Bruninga-Socolar et al.'s substantive model description was inspected. Some broad nonlinear phase-retrieval literature may contain an unrecognized equivalent; no exhaustive priority claim is made. No probabilistic independence across pollinator bouts, ecological stationarity, or field prediction is proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This tests an established ecological modeling score against a natural information boundary: even all lag-wise pooled conspecific counts, which predict every additive score of the stated form, cannot rank the distinct-recipient expectation. A unique reversal is more informative than a difference at one arbitrary retention setting. Using the first nontrivial binary ambiguity controls the example size and excludes mere reflection or species relabeling as the explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:22:30.396658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=1 the nth coefficient of Y=(1+x)U is u(n)+u(n-1), hence the XOR of mask bits in positions 0 through the two-adic valuation of n, the bits flipped by incrementing n-1. The coefficient of r^(2^j), r=x/(1+x), is one exactly at positive multiples of 2^j. Thus Y=sum_j a_j F^j(r) coefficientwise and periodicity yields B(F)Y=A(F)r, independently of the even/odd recurrence. The common divisor D has constant coefficient one; its additive operator preserves the leading term of a nonzero constant-free series, so it can be cancelled there. Bézout HC+JE=1 gives W=H(F)Y+J(F)r with E(F)W=r and also C(F)W=Y. For an independent degree argument, r is a transcendental generator of F2(x); the polynomial E(F)Z-r is irreducible in F2[r,Z] since the quotient by it is F2[Z] and it is monic in Z. By Gauss's lemma its degree over F2(r) is 2^deg(E), corroborating the original pole/ramification proof. The field equality and invertible rescaling from Y to U now prove irreducibility of the displayed polynomial. The zero mask gives E=1,C=0,Y=0 and degree 1. No least-period assumption was used. For d=3, the two factors of B are 1+T and 1+T+T^2, giving the four stated degree classes. Campbell–Cloitre Theorem 26 clears positions 2 mod 3, giving A=1+T, E=1+T+T^2, C=1 and the stated irreducible quartic. The supplied output checks coefficients and a DFAO only. An independent replay, python3 -B /workspace/reproduce_finite.py 3, found the mask recurrence by linear dependence of cyclic shifts and checked 128,898 nonconstant coefficient identities for periods 1–6, including the period-three counts. No frozen script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christol et al. Theorem 1 relates algebraicity and automaticity without the claimed exact field-degree formula.",
+          "Rowland–Stipulanti–Yassawi Theorems 1–2 bound automaton size in terms of degree and height parameters rather than compute the degree for a specified digit mask.",
+          "Cloitre's mask transform applies to general masks, but the inspected result tracks a transformation on the mask series rather than irreducibility of the coefficient series."
+        ],
+        "reasoning": "Knowing that U is algebraic, or giving bounds on state counts in terms of a polynomial, does not determine the minimal field degree. Classical irreducibility at a simple pole can supply a step after a suitable additive equation is found; it does not by itself identify which common factor to cancel or the resulting degree as a function of the mask.",
+        "searches": [
+          "Christol–Kamae–Mendès France–Rauzy, Suites algébriques, automates et substitutions, Theorem 1",
+          "Rowland–Stipulanti–Yassawi arXiv:2308.10977 Theorems 1–2",
+          "arXiv:2604.06243 §2.2"
+        ]
+      },
+      "checked_sources": [
+        "Christol et al., Bull. Soc. Math. France 108 (1980), Theorem 1",
+        "arXiv:2602.23395",
+        "arXiv:2604.06243",
+        "arXiv:2308.10977",
+        "OEIS A391614",
+        "Resultary 9318e44f1d50 and 1d3c5b46bcba RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published M2 mask determines gcd(A,1+T^3)=1+T once supplied with the independent mask-to-degree theorem. A four-state DFAO by itself does not imply field degree four.",
+          "The generic additive equation after one digit period only gives degree at most 2^d. Cancelling D on constant-free series and converting the reduced equation by Bézout to one with right-hand side a transcendental generator gives equality at 2^deg(E), including masks where the unreduced bound is loose."
+        ],
+        "reasoning": "The exact classification is not an automaticity corollary, a relabeling of the mask transform, or a claim to discover M2. The supported contribution is the all-period exact relation, including arbitrary supplied periods and the zero mask. The reduction and final generic irreducibility argument use standard algebra and are not themselves priority claims.",
+        "searches": [
+          "arXiv:2602.23395 Theorems 22, 25 and 26",
+          "arXiv:2604.06243 Theorem 2.2 and §2.2",
+          "arXiv:2308.10977 Theorems 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cloitre §2.2 writes general weighted digit parity as sigma_c(n), with a generating series for the weight mask c. For a periodic mask that mask series here is A(T)/(1+T^d).",
+          "Campbell–Cloitre proves the binary masking rule for the particular M2 coefficient sequence and states its four-state automaton."
+        ],
+        "reasoning": "The equivalent digit-weight definitions and the rational series of weights are groundwork. That rational generating series is not U, the series with digit-parity sequence coefficients. The claim identifies the degree of U in terms of the denominator of the former, not the rationality of the weights. The two series and the two notions of algebraic degree must not be conflated.",
+        "searches": [
+          "Cloitre arXiv:2604.06243 Theorem 2.2 and §2.2",
+          "Campbell–Cloitre arXiv:2602.23395 Theorems 22, 25, 26",
+          "OEIS A391614 formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A391614 gives the same M2 sequence, including t(q(n)) with positions 2 and 5 mod 6 cleared, but its inspected formula and automaton do not state a quartic or exact field degree.",
+          "The distinct same-day dyadic-shift record 9318e44f1d50 computes state complexity for parity of overlapping all-one factors, not parity of digits at periodic positions. Record 1d3c5b46bcba studies prefix opacity for three-bit-factor parity."
+        ],
+        "reasoning": "The specific M2 sequence is already catalogued, as are these neighboring parity constructions; none of these entries is a degree table for the periodic masks. The same-day record was compared by its actual factor-count and state-complexity invariant, not dismissed by date. The bounded semantic searches do not establish that no exact prior table exists.",
+        "searches": [
+          "OEIS A391614 comments/formula",
+          "Resultary 9318e44f1d50 RESULT.md Finding",
+          "Resultary 1d3c5b46bcba RESULT.md Finding"
+        ]
+      },
+      "rationale": "The known masks, automaticity and the general additive-polynomial method are not claimed as new. The supported distinct statement is the exact field-degree law governed by the reduced mask denominator for all periodic binary masks. The inspected literature gives the sequence definition and automata, general algebraicity or bounds on state counts, not this exact denominator-to-degree correspondence. The single quartic is an application rather than the ground for acceptance.",
+      "residual_risks": [
+        "The passages and bounded targeted searches do not rule out an earlier exact formula under Mahler series, generalized Artin–Schreier equations, or periodic valuation-sequence terminology.",
+        "The mathematical comparison distinguishes field degree from automaton size; no comprehensive historical-priority or equivalent-notation claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative algebraicity correspondence, not the periodic-mask degree classification",
+          "evidence": [
+            "Theorem 1 establishes the algebraic-series/automaticity relation."
+          ],
+          "identifier_or_url": "Bull. Soc. Math. France 108 (1980), 401–419",
+          "material_read": "PDF p. 7, Theorem 1 near offset 12422",
+          "method": "OA primary PDF passage inspection",
+          "title": "Suites algébriques, automates et substitutions",
+          "trigger": "Potential dominating theorem on automatic coefficient series"
+        },
+        {
+          "assessment": "Gives the automaton, base-four formula and digit mask, not the asserted minimal degree in the compared results",
+          "evidence": [
+            "Theorem 26 masks binary positions congruent to 2 mod 3 before applying Thue–Morse parity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.23395",
+          "material_read": "Theorems 22, 25, 26 around offsets 40250, 44282, 45700",
+          "method": "OA primary passage inspection",
+          "title": "Meta-Automatic Sequences",
+          "trigger": "Primary source of the M2 automaton and digit mask"
+        },
+        {
+          "assessment": "Equivalent weighted-digit-parity objects and effect on the mask series, not the checked exact degree of U",
+          "evidence": [
+            "Section 2.2 represents mask transformation by multiplication by (1-x)^(-1) in the mask series."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.06243",
+          "material_read": "PDF p. 6 Theorem 2.2 around offset 13692; p. 8 §2.2 around offset 18100",
+          "method": "OA primary PDF passage inspection",
+          "title": "The Thue-Morse Transform",
+          "trigger": "General weighted binary-position mask formalism"
+        },
+        {
+          "assessment": "Automaton-size bounds, not an exact degree from position-mask input",
+          "evidence": [
+            "The theorem controls the size of automata in terms of polynomial parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.10977",
+          "material_read": "PDF p. 2 Theorems 1–2 around offset 5000",
+          "method": "OA primary PDF passage inspection",
+          "title": "An Elementary Proof of Bridy’s Theorem",
+          "trigger": "General relationship between algebraic-series polynomial data and automaton size"
+        },
+        {
+          "assessment": "Gives sequence and mask but does not report the coefficient-series quartic in the inspected entry",
+          "evidence": [
+            "Formula t(q(n)) with bits 2 and 5 mod 6 set to zero."
+          ],
+          "identifier_or_url": "https://oeis.org/A391614",
+          "material_read": "Entry overview, formula and four-state automaton, offset 0 and formula near 2068",
+          "method": "OA public record passage inspection",
+          "title": "OEIS A391614",
+          "trigger": "Exact entry for the M2 sequence"
+        },
+        {
+          "assessment": "Different digit-parity statistic and different invariant",
+          "evidence": [
+            "Classifies minimal states under dyadic shifts for parity of overlapping all-one patterns."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-dyadic-shift-state-complexity-of-all-one-pattern-parity-se--9318e44f1d50/RESULT.md",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published-record mirror passage inspection",
+          "title": "Exact dyadic-shift state complexity of all-one pattern parity sequences",
+          "trigger": "Close same-day parity/automaton record"
+        },
+        {
+          "assessment": "Three-bit-factor prefix opacity, not coefficient-series field degree",
+          "evidence": [
+            "Classifies prefix opacity for parity counts of three-bit factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-prefix-opacity-classification-of-binary-three-block-parity--1d3c5b46bcba/RESULT.md",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published-record mirror passage inspection",
+          "title": "Exact prefix-opacity classification of binary three-block parity",
+          "trigger": "Related binary parity classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Algebraic degree is a natural invariant beyond the automaticity of a weighted digit-parity sequence. A computable gcd explains why some masks have smaller degree than the straightforward Frobenius equation suggests and distinguishes all masks simultaneously; for example, the four period-three degree classes cannot be read off from the specified period alone. This supplies explicit minimal equations and a reproducible exact classification, not merely an additional sample or an annihilating polynomial. The result is limited to the stated binary periodic setting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

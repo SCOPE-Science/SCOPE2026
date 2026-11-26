@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:44:30.118628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two integer reflections give exactly the alternating prefix-counter updates by Pascal and reflected binomial identities, including j=1 and t<0. In F2[[X]], (1+X)^L=1+X^L gives the required periodicity through every j<L. The empty word gives zero in all positive coordinates; 01 advances one residue. Lucas's mask at u=k distinguishes the half-period shift and all smaller candidate periods divide that half-period. Every pair therefore has a common distinguishing suffix of the form (01)^a. An independent linear-algebra check: on the full prefix vector the two letter maps are involutions I+A,I+B, with A,B supported on complementary entries of the first subdiagonal. R=(I+B)(I+A)=I+U has U with unit first subdiagonal. U^j e0 first becomes nonzero at index j, and the order of R and orbit size of e0 are exactly L by characteristic-two squaring. The second involution fixes e0, so the whole orbit is the rotation orbit. For a difference with leading coordinate j, the kth coordinate of U^(k-j) times that difference is one; consequently some power of R distinguishes the pair. This also checks the lower bound independently of Lucas. Inspected the supporting files without executing uploaded programs; independently ran the fresh replay for 10,230 direct subset-count comparisons and exact orbit/output distinguishability at 14 dyadic boundary lengths through 128. The finite checks supplement, not replace, the all-length proof.",
+      "replay_paths": [
+        "/workspace/branches/alternating_replay.py"
+      ],
+      "residual_risks": [
+        "No claim for nonalternating words, other moduli, or models with different memory/output conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 counting-trie DOI gives bibliographic metadata but publisher access failed. Fazekas–Huang–Mercaş's abstract concerns existence/universality and the fraction of inputs that contain a pattern, conditioned on integer Parikh counts. The indexed three-run theorem concerns 0^a1^b0."
+        ],
+        "reasoning": "Even a general trie construction is not a minimal-state theorem without an orbit and observable-state analysis. Pattern containment and class proportions are different outputs, and the three-run theorem cannot cover 0101. No whole-text exclusion is made for the inaccessible trie paper.",
+        "searches": [
+          "doi:10.1142/S0129054111008817",
+          "arXiv:2610.06717",
+          "Resultary: parity counters alternating binary scattered subsequences state complexity dihedral automata modular alternating triples"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.07159v1",
+        "arXiv:2610.06717 abstract",
+        "doi:10.1142/S0129054111008817 metadata",
+        "Resultary indexed modular triples and three-run parity theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard prefix-count vectors bound memory by 2^k; the asserted formula and representation instead require the involution-generated orbit and the detecting last coordinate. Neither indexed special family has >3 runs."
+        ],
+        "reasoning": "The k-dependent output formula and uniform lower bound are nontrivial new conclusions relative to standard representations and the inspected special cases, not a parameter substitution.",
+        "searches": [
+          "arXiv:2510.07159v1, §3.2 on storing and computing binomial equivalence",
+          "Resultary modular alternating triples and three-run parity theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary Moore and parity-one DFA formulations are the same minimization problem. Richomme's integer 2-binomial congruence counts all length-at-most-two patterns over the integers; it is not that parity right congruence."
+        ],
+        "reasoning": "A solution for integer two-binomial equivalence does not supply the modular right-language classes at arbitrary length. The web lookup did not yield supporting literature evidence; the named comparisons are positive source evidence.",
+        "searches": [
+          "Resultary: parity counters alternating binary scattered subsequences state complexity dihedral automata modular alternating triples",
+          "Literature: alternating words scattered subwords subsequences parity minimal automata modulo two dihedral group state complexity Parikh matrix subword counts alternating binomial coefficient Berstel Reutenauer",
+          "arXiv:2510.07159v1 §§1,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The triple record gives m^3/gcd(m,2), exactly 4 for m=2. The three-run theorem's exceptional a=b=1 specializes to the same length-three parity case. A public full-text request for the triple record timed out; this comparison uses its displayed indexed theorem and the corroborating description in the frozen record."
+        ],
+        "reasoning": "The exact overlap is a known finite specialization, not a competing all-length table or theorem.",
+        "searches": [
+          "Resultary indexed record Exact output-state complexity for modular alternating scattered triples (2026-11-08)",
+          "Resultary indexed record A parity-lift dichotomy for three-run scattered-subsequence Moore counters (2026-11-22)"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge assessment for the all-length minimal parity counter, not a priority claim for the counting recurrence or small lengths. The overlap at k=3 is known, and the indexed three-run parity family has no targets of length at least four with strict alternation. General counting representations do not compute the rotation orbit or prove minimality.",
+      "residual_risks": [
+        "Full text of the 2011 trie paper was not inspected; an equivalent all-length result in older, unindexed or inaccessible automata literature remains possible.",
+        "The nearest corpus formula was inspected at index level only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Integer 2-binomial equivalence is distinct",
+          "evidence": [
+            "§3.1 defines equality of counts for every short subword; §3.2 relates the binary length-two case to integer Parikh matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.07159v1",
+          "material_read": "Primary HTML introduction, definitions and §§2–3.2",
+          "method": "Direct comparison of equivalence and observables",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Scattered-word binomial counts and equivalence"
+        },
+        {
+          "assessment": "Stated results concern a different observable; no whole-text judgement",
+          "evidence": [
+            "Abstract specifies fixed a,b,ab counts and arithmetic characterizations of universality, not parity-output automaton state counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "Public abstract",
+          "method": "Scope and quantifier comparison",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Broader fixed-pattern subsequence results"
+        },
+        {
+          "assessment": "Residual priority risk",
+          "evidence": [
+            "2011 IJFCS 22(6), 1457–1469; no full theorem available in the inspected material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+          "material_read": "DOI bibliographic metadata; publisher returned 403",
+          "method": "Lawful access attempt, not a substantive full-text comparison",
+          "title": "Counting Subwords Using a Trie Automaton",
+          "trigger": "Plausible general scattered-count automaton antecedent"
+        },
+        {
+          "assessment": "Covers k=3, does not state variable k",
+          "evidence": [
+            "States m^3/gcd(m,2) for 010 and 101 as m varies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+          "material_read": "Resultary theorem summary; direct full-text request timed out",
+          "method": "Compare stated formulas and target domains",
+          "title": "Exact output-state complexity for modular alternating scattered triples",
+          "trigger": "Direct exact overlap at length three"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform, sharp streaming memory classification for a natural target family: 2^k candidate prefix patterns collapse to between k+1 and 2k actual states, with provably no further identifications. Two reflections and powers-of-two jumps explain why the natural periodic suffix is enough to distinguish states. This is considerably more than checking isolated examples or giving a general counter construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

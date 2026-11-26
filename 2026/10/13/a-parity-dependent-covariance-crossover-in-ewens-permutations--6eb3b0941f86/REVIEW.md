@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The tagged-cycle beta-binomial law reconstructs exactly from the Ewens finite-cycle probability, giving the integrated expectation. Finite-family differentiation proves the covariance identity. The even-order integrand has a fixed sign. For odd orders, two strictly positive integrals have supports separated at \(1/2\), making their ratio strictly decrease with the cycle-weight parameter. Strict concavity establishes positivity at parameter \(1\); endpoint bounds establish eventual negativity. Uniform Laplace endpoint estimates prove the sharp logarithmic law \((\theta_n-1)\log n-\log\log n\to0\), hence convergence to \(1\). Exhaustive finite weighted-permutation calculations corroborate the moment identities. Risks: no independent proof review; asymptotics rely on standard dominated Laplace scaling (expanded in `RESULT.md`).
+## correctness
 
-**Originality — PASS (provisional historical priority).** The cycle enumeration and single-length expectations in Lugo (2009, arXiv:0907.5351, Lemma 1.2 and Proposition 2.4) imply the finite expectation after summation, so that formula is not claimed as new. The inspected paper's all-even-cycle restriction does not imply the mixed covariance sign law for unrestricted permutations. Maples–Nikeghbali–Zeindler (2012, arXiv:1203.4132) establish total-cycle fluctuations, not the parity-dependent mixed moment. The specific universal sign dichotomy, exact odd-order uniqueness, and limiting crossover are not found in the inspected passages. Residual risk: a broader historical treatment of parity-weighted cycle statistics might implicitly contain the classification; independent priority review is outstanding.
+PASS
 
-**Value — PASS.** Total cycle count is a global partition-complexity statistic; even-cycle mass measures how many labels participate in a natural parity-defined type of component. The finite-order sign transition is not determined by the marginal distribution of either statistic, and its asymptotic crossover at the canonical unbiased parameter \(1\) provides a useful structural boundary in Ewens models. The result is a global sign/uniqueness theorem, rather than a small-parameter table or routine coefficient evaluation.
+The size-biased fixed-cycle count gives the stated beta-binomial law for the length of the cycle through label 1. Binomial parity projection followed by integration by parts gives the expectation: the endpoint evaluation is 1 and cancels the 1 outside the integral (the frozen wording that the boundary terms vanish is imprecise). Finite differentiation with respect to log θ gives the covariance. The kernel has one sign for even n; for odd n≥3 the L/R log derivative is strictly negative by the ordered supports, reflection and strict concavity give L(1)>R(1), and a fixed subinterval to the right of 1/2 bounds L/R by a decaying geometric factor as θ grows. For the moving root, rescale both endpoints by 2m, m=n−2. On θ∈[1,2], the left integrand after extracting log m/(2m)^(θ+1) is dominated by a constant times (x+x²)(1+|log x|)e^(−x) and converges uniformly in θ on fixed compact x-intervals away from zero. The right integrand after extracting (2m)^−2 is at most 2xe^(−x), using −log(1−u)≤2u for u≤1/2, and has limit xe^(−x). These give the required uniform relative o(1); an O(1/m) error for the full leading term on the left is not needed. The ratio asymptotic first confines the root to θ→1, then yields (θ_n−1)log n−log log n→0. At n=2 the sign is strict; at n=3 differentiating 6θ/((θ+1)(θ+2)) gives the stated sqrt(2) crossover. Independent exact enumeration (independent_check.py, check-log.txt) confirmed finite cycle-sum moments in 28 cases and both integrals in 14 cases; uploaded code was not executed. These checks do not prove uniqueness or the asymptotic.
 
-Closest known tools: Lugo, *Profiles of permutations* (2009), and Maples–Nikeghbali–Zeindler, *On the number of cycles in a random permutation* (2012). Finite computations cannot establish infinite claims; no joint distribution or finite convergence rate is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical expected cycle counts and the exact moments recoverable from them. The supported distinct claim is the strict parity-dependent sign classification and the location and logarithmic asymptotic of the unique odd-order crossover for total cycle count versus even-cycle label mass. No inspected statement gives that classification or an applicable general result already yielding it.
+
+## value
+
+PASS
+
+The statistic compares how fragmented a permutation is with how much mass lies in even cycles, not with a count of such cycles. The global even/odd split, uniqueness, and log-log displacement of the odd threshold resolve a structural question about a standard model. This goes beyond a mean calculation or a few computed roots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:14.407996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed u with annihilator g and d=deg(g), the determinant lemma reduces the target to a linear equation in v. The coefficient vectors of g(t)(tI-A)^(-1)u form a triangular basis of the cyclic span of u,Au,...,A^(d-1)u. Thus the image is all (chi_A/g) times polynomials of degree <d, with q^(n-d) lifts per target, including u=0 by the zero-dimensional convention. Primary exponent e has precisely K_e-K_(e-1) choices by the kernel dimensions of the f-power maps; divisibility by chi_A/g gives exactly the lower limits r_f, and summation factors. Every nonzero rank-one matrix has q-1 factorizations and zero has 2q^n-1, giving the correction. At the unchanged target the summation-by-parts coefficients on the kernel sizes before stabilization are strictly positive. Indeed sum_j min(e,lambda_j) equals M minus max_r(sum_(j<=r) lambda_j - re), so dominance gives the stated direction; distinct partitions have different increments of these dimensions, ensuring strictness somewhere before M. Rank-one extremes follow from a single irreducible factor or from the scalar dot-product count. These arguments work in characteristic two and in dimension one as well. Independent finite checks used direct determinant expansion and literal updates for 92 targets across 13 types over F_2 and F_3, plus 699 exact partition comparisons for q=2,3,5 and partition size up to seven. Replay: python3 /workspace/branches/2dcda91d-ea99-4105-aaf8-f8900e12579b/independent_fiber_check.py. Those checks are bounded and do not establish the theorem for general q or n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-field rank <= m theorem requires, for each eigenvalue, target multiplicity at least the algebraic multiplicity minus the total size of the m largest Jordan blocks. The earlier rank-one theorem likewise addresses existence. Hansmann addresses prescribed spectral configurations for complex operators, not finite-field multiplicities at a fixed A."
+        ],
+        "reasoning": "For m=1 over a finite field, separability identifies the eigenvalue condition with nu_f(theta)>=M_f-L_f; since that power divides chi_A, this is exactly nu_f(chi_A-theta)>=M_f-L_f. This covers positivity of the ordered-pair fiber, not its size or the size after subtraction of the zero update at the unchanged target.",
+        "searches": [
+          "arXiv:2111.10624, Theorem 2",
+          "arXiv:2306.10253v2, Theorem 1 and rank <= m scope",
+          "arXiv:2610.33630v1, opening statement"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_isospectral.py and verify_output.txt (support inspected, not executed)",
+        "arXiv:1104.0618v1, 2111.10624, 2306.10253v2, 2610.33630v1 and Farrell 1508.07633v2 Theorem 1.3",
+        "doi:10.1002/mma.8240 (full text not accessed)",
+        "Resultary 2cad679e45a7 and 2b967606e5d0 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant identity linearizes the target for fixed u, and existence identifies support. The proof must still group u by all its primary annihilator exponents and sum different compatible-covector weights. Strict dominance additionally needs positivity of the summation-by-parts weights and comparison of the kernel profiles."
+        ],
+        "reasoning": "Feasibility alone supplies no cardinalities and cannot distinguish isospectral fibers, all of which contain the zero update. Fixed-input placement does not by itself account for the distribution of cyclic subspaces as u varies. The standard linearization and fixed-u counting are not credited as new.",
+        "searches": [
+          "Ran–Wojtylak Proposition 2.2; Merzel et al. Theorems 1 and 2; fixed-input pole placement, doi:10.1002/mma.8240"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ran–Wojtylak give the rank-one resolvent/characteristic-polynomial identity in the complex setting. The Resultary rank-one Fourier result 2cad679e45a7 sums a squarefree target class at rank-one frequencies, not a translated rank-one update set at fixed A."
+        ],
+        "reasoning": "In the additive matrix group the update count is a convolution with the rank-one sphere, plus the zero-update contribution for ordered pairs. Knowing the target's Fourier coefficients only at rank-one frequencies is not that pointwise convolution, and the squarefree restriction does not include the varying primary partitions of the dominance theorem.",
+        "searches": [
+          "Finite-field rank-one perturbation characteristic-polynomial multiplicities; prescribed pole placement and Jordan dominance",
+          "Resultary: characteristic-polynomial fibers and rank-one Fourier coefficients",
+          "arXiv:1104.0618v1, Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finding indexed at 2b967606e5d0 is the frozen record itself. The distinct squarefree Fourier record gives exact class sizes and Fourier data for a different statistic. No separate full fiber table or symbolic enumeration for the stated parameters was located in the checked sources."
+        ],
+        "reasoning": "An exact count of all matrices in a target class is not a count of the members lying in the translated rank-one update set, and the self-match supplies no independent coverage.",
+        "searches": [
+          "Resultary: exact rank-one characteristic-polynomial fibers, local-primary data and isospectral dominance",
+          "Resultary 2b967606e5d0 and 2cad679e45a7"
+        ]
+      },
+      "rationale": "The scoped distinct contribution is the complete multiplicity across all input vectors for each target and its strict isospectral dominance law, not the rank-one characteristic-polynomial identity, fixed-input pole placement, or the set of attainable targets. The available comparisons support this distinction.",
+      "residual_risks": [
+        "Earlier finite-field enumeration under feedback or matrix-module terminology may be unlocated. The Wiley full-text access limitation concerns the fixed-input literature comparison, not correctness.",
+        "The inspected theorem passages do not warrant blanket whole-document exclusions or comprehensive priority claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact support implication, not a multiplicity statement",
+          "evidence": "Rank <= m existence iff the target multiplicity lower bounds from the m largest Jordan blocks hold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.10253v2",
+          "material_read": "Theorem 1 including the inequality across pp. 1–2, offsets 0 and 3350",
+          "method": "OA PDF passages",
+          "title": "Spectral perturbation by rank m matrices",
+          "trigger": "Broader rank perturbation for fixed A over an arbitrary field"
+        },
+        {
+          "assessment": "Existence overlap",
+          "evidence": "Characterizes possibility of a prescribed characteristic polynomial; does not enumerate the admissible pairs in the inspected theorem.",
+          "identifier_or_url": "arXiv:2111.10624",
+          "material_read": "Theorem 2, PDF offset 1064",
+          "method": "OA PDF passage",
+          "title": "Spectral perturbation by rank one matrices",
+          "trigger": "Prescribed rank-one spectra"
+        },
+        {
+          "assessment": "Shared algebraic setup",
+          "evidence": "Relates the rank-one perturbed characteristic polynomial to a scalar resolvent over the complex numbers.",
+          "identifier_or_url": "arXiv:1104.0618v1",
+          "material_read": "Proposition 2.2, HTML offset 17210",
+          "method": "OA HTML passage",
+          "title": "Eigenvalues of rank one perturbations of unstructured matrices",
+          "trigger": "Resolvent and characteristic-polynomial relation"
+        },
+        {
+          "assessment": "Different statistic and restricted to squarefree targets",
+          "evidence": "Computes the exact class size and additive Fourier profile at rank-one nonzero frequencies from factor and rational-root data.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-rank-one-fourier-coefficients-recover-the-rational-roots-o--2cad679e45a7/RESULT.md",
+          "material_read": "Finding and start of normalization discussion, offset 0",
+          "method": "OA local-mirror passage",
+          "title": "Normalized rank-one Fourier coefficients of squarefree matrix-characteristic-polynomial fibres",
+          "trigger": "Nearest distinct indexed fiber formula"
+        },
+        {
+          "assessment": "Detailed comparison unavailable, not treated as negative evidence",
+          "evidence": "Citation describes placement by state feedback; an exact all-input count was not established from accessible material.",
+          "identifier_or_url": "doi:10.1002/mma.8240",
+          "material_read": "Citation only; publisher full text returned HTTP 403 and no OA repository copy was identified",
+          "method": "Lawful OA attempts",
+          "title": "Kalman reduced form and pole placement by state feedback for multi-input control systems over Hermite rings",
+          "trigger": "Possible stronger fixed-input placement formulation"
+        },
+        {
+          "assessment": "Different setting and problem in the inspected material",
+          "evidence": "Complex closed operators on Hilbert space; introductory finite-dimensional construction varies the matrix rather than enumerating updates at a fixed finite-field matrix.",
+          "identifier_or_url": "arXiv:2610.33630v1",
+          "material_read": "p. 1, PDF offset 0",
+          "method": "OA PDF passage",
+          "title": "Prescribed spectral configurations under rank-one perturbation",
+          "trigger": "Potentially broader spectral prescription"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact fiber size gives the probability of each characteristic polynomial under uniform factorized rank-one updates, or under uniform distinct nonzero rank-one updates after correction. The unchanged-target counts also strictly detect comparable changes in the primary partitions that the support condition cannot distinguish. These are motivated finite-field statistics for arbitrary input matrices, not just an extra test of a known attainability criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

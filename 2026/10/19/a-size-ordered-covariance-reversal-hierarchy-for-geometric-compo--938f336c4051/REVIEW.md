@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The gap-to-geodesic-component reduction is exact once at least two circular gaps exceed the connection radius; the exceptional connected case is handled by the explicit \(\mathbf1\{X=0\}\) correction. Exchangeable Dirichlet spacings give the joint exceedance identity, an exact conditional pattern regression, and the finite-sample mixed moments. The fixed-scale expansion of each finite binomial sum gives the displayed limiting covariance density. A separate \(\operatorname{Var}(X)=O(n)\) bound establishes that the connected correction vanishes after normalization. The factor \(e^t-1-t^2\) is strictly positive for \(t>0\), so exactly the stated logarithmic thresholds remain. These are analytic arguments for all permitted parameters, not an inference from simulation. The standalone script independently passes 12,124 deterministic checks, including direct geodesic graph BFS against cyclic indicator formulas.
+PASS
 
-## Originality — PASS with residual priority risk
+Start the gap list at a designated sample label, not at the first point after a deterministic origin; translating that label to zero gives the exchangeable uniform simplex law. Two or more long gaps split the circle into runs, and a cross-run edge would traverse a long gap in either direction. With 0 or 1 long gap there is a spanning path. For k in the support of X, a specified word 1,0,…,0,1 has probability (k)₂(n−k)_{j−1}/(n)_{j+1}; multiplying by n gives exactly the normalized formula in the actual RESULT.md line 24 (no extra n). The other k values are an extension of the conditional-mean version, not positive-probability conditioning events. On the positive segment the ratio minus 1 has the sign of 2n−(j+1)k−(j−1); the zero tails and j=1 separately give the stated monotonicity properties. For the covariance, simplex translation yields q_h=(1−hr)_+^(n−1). Each run indicator has two fixed ones, j−1 fixed zeros, and n−j−1 unrestricted entries, giving the stated finite moments. The first-order term in n(q_{h+1}−q_1 q_h) is −h t² p^{h+1}; substituting into the finite sums gives Γ_j=m′_j(p)[p(1−p)−t²p²] for m_j(x)=x²(1−x)^{j−1}. The same expansion gives Var(X)=O(n), and Chebyshev with E[X] of order n makes the X=0 correction O(n⁻¹) in the density. These estimates are uniform on compact positive t ranges. Since e^t−2t>0, the variance factor is strictly positive for all t>0. Cancelling for j=1 and checking 2−(j+1)p for j≥2 gives the claimed signs and their precise limiting scope. The finite script was inspected, not executed.
 
-The complete primary paper of Decreusefond–Ferraz (arXiv:1008.5140, §4.2) gives total Poisson-circle component distributions without the fixed-size/total covariance in a fixed-size sample. Schulte–Yukich (DOI 10.1214/22-AAP1822, full PDF, Theorem 3.5) gives general Poisson-input component-count vector normal approximations, not the present evaluated constant or threshold classification. Searched research records about ER component covariances, fixed-composition transitions and uniform set partitions concern non-equivalent stochastic models and do not logically imply the circle-specific formula. The two accessible own ledgers contain adjacent but not covering circle gap/covariance claims; their exact gap-based objects and implications were compared. General earlier geometric-graph covariance integrals could conceivably yield the same formula after evaluation; Penrose's Chapter 13 was accessible only as a synopsis. Independent historical-priority confirmation remains unperformed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Total component count and exact-size component counts are canonical topological observables of sparse spatial networks. Their finite-sample association is not fixed by their marginal distributions and, unlike an unmotivated numerical slice, the result gives a natural all-component-size phase diagram with an infinite ordered ladder of sign thresholds and a new radius-invariant structural conditional regression. The distinction between isolated components (always positive asymptotic covariance) and larger components (negative-to-positive transition at a size-specific density) gives a qualitative dependence law, not merely a first-moment recounting.
+The supported distinct result is the evaluated fixed-n binomial-circle covariance limit for all fixed component sizes and its ordered sign reversals. The exact conditional regression is a run/composition identity and is not a standalone originality basis. No inspected earlier work gave the all-size evaluated limit or directly implied its thresholds without the finite-population covariance calculation.
 
-## Boundaries
+## value
 
-The result is for fixed \(j\), fixed thermodynamic \(t>0\), and independent uniform points on the circle. No uniqueness of finite-\(n\) covariance zeros, rate at criticality, varying-size \(j\) regime, or general arbitrary-manifold result is asserted. Finite enumeration is verification only, not an infinite proof. Historical priority is subject to independent literature assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical fixed-size geometric graph this gives a closed covariance density relating the total component count to its size-resolved parts, including a finite-population correction and an ordered, exact sign change for every size ≥2. This is more informative than a generic covariance representation or a single numerical crossover. The finite regression is useful in the argument but would not alone warrant this assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:08:12.011938Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Flattening a series–parallel tree leaves an ordered series decomposition identifiable by its incomparability components. Each nonsingleton factor is a top parallel node; additivity of width forces two nonempty chains. At prefix size p, the first point of each chain and no later factor has exactly p predecessors. At a two-chain factor with successor counts u and v at those points, the two lengths, as an unordered multiset, are n-p-1-u and n-p-1-v. Taking the full predecessor interval of width equal to the factor size consumes exactly that factor, since later factors start at the next prefix or above. Within a factor, identical pairs require identical chain positions and, for points in distinct chains, equal lengths; only then can the chain-swap automate the match. Counting vertices of each pair is expressible with two variables with counting, so the conclusion is internal to the strict-order class. The sum over unordered chain lengths is z^2/((1-z)(1-z^2)); carrying out the sequence expansion gives the listed coefficients. For the finite boundary, induct on size: a series composite introduces no cross-factor orbit collision because the predecessor ranges are disjoint; in a parallel composite work with the connected comparability components. An isolate has pair (0,0), and two size-two connected components are interchangeable chains. Through size five the only remaining possible cross-component collision is between a chain of size two and a connected size-three poset. The latter is a chain, V, or its dual. The three-chain's degree sums are 2 and cannot match the size-two chain's sums of 1, whereas V and its dual give exactly the claimed types. Independent enumeration of reduced series/parallel trees and all vertex permutations confirmed 1,2,5,15,48 types and 0,0,0,0,2 failures through order five. Width sharpness here concerns first-round orbits, not cross-structure reconstruction. The supplied scripts were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gellert–Sanyal state a stronger unique labelled net-degree realizability claim for connected width-two posets in Theorem 3.6. In the connected width-two series–parallel poset C1 ordinal-summed with (C2 parallel C1), the triple above the bottom is an edge a→b and an isolated c. Replacing only a→b by a→c→b preserves all labelled net degrees and gives a different simple digraph. This is the paper's own net-degree preserving operation from the preceding section."
+        ],
+        "reasoning": "A valid unique labelled net-degree realization theorem would imply the paired-degree reconstruction and orbit assertion, since the net degree is the difference of the pair, and one can attach a bottom to make the poset connected. The printed broader claim is false in its own stated comparison class of simple digraphs and thus does not supply that implication. The independent decoder uses the exact series decomposition and does not rely on that claim.",
+        "searches": [
+          "Gellert–Sanyal arXiv:1512.08448v2, Theorem 3.6 and Corollary 3.5",
+          "SCOPE-20261018-01bf6e8789db",
+          "SCOPE-20261018-75a64ec066f3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result, verification notes and both supplied checkers",
+        "Resultary search and close records above",
+        "arXiv:1512.08448v2",
+        "OEIS A122584",
+        "arXiv:1901.00026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Canonical series/parallel decomposition is background. Counting its allowed factors yields the already tabulated series; the later steps recover unknown ordered factors specifically from the observed degree multiset and classify equal-degree orbits."
+        ],
+        "reasoning": "Known decomposition and enumeration are not treated as original. The inspected available results neither give the strict-degree decoder throughout this class nor imply the two exact five-point orbit failures.",
+        "searches": [
+          "Resultary same-day degree-profile and interval-order records",
+          "Gellert–Sanyal arXiv:1512.08448v2, Theorem 3.6",
+          "Bóna–Smith arXiv:1901.00026, Section 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261018-01bf6e8789db uses the same degree-pair multiset in a finite census of arbitrary width-two posets, with the first cross-structure collision at size six.",
+          "SCOPE-20261018-75a64ec066f3 establishes paired-degree reconstruction and orbit recovery for interval orders."
+        ],
+        "reasoning": "The finite census does not give all-order reconstruction in the series–parallel subclass and does not establish the orbit failure classification. The interval-order theorem does not apply to the full class: C2 parallel C2 is series–parallel of width two, but is forbidden in interval orders. The order-dual boundary is compared as part of the same finite assertion, not counted as separate novelty.",
+        "searches": [
+          "Resultary: unordered multiset strict predecessor successor degree pairs reconstruct width-two series-parallel posets automorphism orbits sharp five point V plus 2-chain",
+          "Literature lookup on paired strict degrees and reconstruction of posets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entry lists the same coefficients after two initial entries; its offset-1 series is z+z^2+z^3F(z). Bóna–Smith obtain exactly F(z) for strongly 312-avoiding permutations, by a sequence decomposition with floor(n/2) blocks of size n>=2."
+        ],
+        "reasoning": "The coefficient list and generating function are not novel numerical results. The same enumeration in the other setting does not reconstruct posets from strict degrees or identify vertex automorphism orbits.",
+        "searches": [
+          "OEIS sequence lookup: 1,1,2,4,9,19,41,87,186,396,845",
+          "OEIS A122584",
+          "Bóna–Smith arXiv:1901.00026, Section 3.2"
+        ]
+      },
+      "rationale": "The supported distinct contribution is exact all-order reconstruction and orbit recovery on the stated series–parallel class with the sharp finite orbit boundary. The numerical sequence and rational generating function, as series, already occur in another combinatorial setting; they are not an independent novelty claim. Same-day Resultary comparisons were made on scope, without inferring priority.",
+      "residual_risks": [
+        "An unlocated poset or directed-refinement result may cover the same class via a different encoding. The known numerical enumeration and overlapping degree-profile results do not by themselves establish such coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-day finite comparison; no equivalent all-order classification",
+          "evidence": "All width-two posets are distinguished through five points; the two six-point collision witnesses are not series–parallel.",
+          "identifier_or_url": "SCOPE-20261018-01bf6e8789db",
+          "material_read": "Finding and six-point witnesses",
+          "method": "Resultary local record and prepared mirror passages",
+          "title": "The unique six-point degree-profile collision among width-two posets",
+          "trigger": "Same invariant and closely related finite boundary"
+        },
+        {
+          "assessment": "Substantial overlap on a different class",
+          "evidence": "The theorem is stated for finite interval orders, which exclude induced 2+2.",
+          "identifier_or_url": "SCOPE-20261018-75a64ec066f3",
+          "material_read": "Finding",
+          "method": "Resultary local record and prepared mirror passage",
+          "title": "Degree-pair reconstruction and Catalan margin fibers of finite interval orders",
+          "trigger": "Same invariant with an all-order reconstruction and orbit claim"
+        },
+        {
+          "assessment": "The printed stronger unique-realizability claim has a connected width-two counterexample in its own simple-digraph comparison class",
+          "evidence": "Its net-degree preserving edge-to-two-edge operation is applicable to a width-two connected series–parallel example; hence its condition cannot give the stated uniqueness.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.08448v2",
+          "material_read": "Theorems 3.4 and 3.6, Corollary 3.5 and their surrounding proof, PDF pp. 7–8, extracted offsets 22500–27581",
+          "method": "Primary PDF passage",
+          "title": "On Degree Sequences of Undirected, Directed, and Bidirected Graphs",
+          "trigger": "Potential stronger prior implication via net degrees"
+        },
+        {
+          "assessment": "Exact prior numerical coverage up to the two added initial terms and shift",
+          "evidence": "The numerator is z(1+z)(1-2z), denominator 1-2z-z^2+2z^3-z^4; subtracting z+z^2 gives z^3 times the frozen generating function.",
+          "identifier_or_url": "https://oeis.org/A122584",
+          "material_read": "Terms, offset, formula and links",
+          "method": "Direct public database entry after sequence lookup",
+          "title": "OEIS A122584",
+          "trigger": "Exact coefficient match"
+        },
+        {
+          "assessment": "Exact same generating function for strongly 312-avoiding permutations",
+          "evidence": "Equation (2) and the stated block-count series give exactly the same sequence; no paired-degree poset reconstruction appears in this argument.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.00026",
+          "material_read": "Section 3.2, PDF pp. 6–7, extracted offsets 17100–19796",
+          "method": "Primary PDF passage",
+          "title": "Pattern avoidance in permutations and their squares",
+          "trigger": "OEIS link with a combinatorial explanation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A weak invariant consisting of just one round of strict predecessor/successor counts recovers both an unlabeled order and its orbits on a natural hereditary class. The minimal boundary tells exactly where that orbit statistic first ceases to suffice within the series–parallel family; it is not merely a table of known counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

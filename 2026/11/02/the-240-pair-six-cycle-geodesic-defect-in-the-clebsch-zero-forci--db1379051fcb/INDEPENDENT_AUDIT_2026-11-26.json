@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:22:56.117697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Lemmas 1–5; VERIFICATION.md; checks/clebsch_full.cpp and checks/clebsch_orbits.py",
+        "/workspace/reproductions/clebsch.py and clebsch.txt (run with Python 3)"
+      ],
+      "rationale": "The successive forces are order-independent: a currently legal force stays legal until its target is blue. Monotonicity then makes it sufficient to rule out all nine-blue sets and classify the successful ten-blue sets. An independent set-based implementation with sequential forces obtained 3872 minimum sets and seven orbits under the 1920 explicit graph automorphisms. The orbit representatives were matched to the displayed graph types by direct induced-graph isomorphism, and the converse classification was tested over all six-subsets. Building precisely the single-token swaps and running BFS at every orbit representative gives eccentricity 6 throughout and unordered counts 64720, 625440, 2214640, 2986160, 1412976, 190320; orbit weights give the full ordered census, and division by two gives unordered pairs. All defects have Johnson distance 2 and metric distance 3; exactly one partner occurs for each of the 480 P4 plus two isolates configurations and none otherwise. The independent enumeration of all eight-subsets found 80 induced six-cycles with two isolates. The three opposite-pair constructions on each are distinct and together give exact labelled-set equality with the 240 defects, not merely equal totals.",
+      "residual_risks": [
+        "Independent reproduction used exhaustive orbit-weighted BFS, not a rerun of the uploaded all-source C++ program. Exhaustiveness here is for the specified labelled sixteen-vertex graph only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer et al. count forcing sets by cardinality; Hogben et al. study the time evolution of forces from a blue set; the AIM paper introduces ordinary forcing for minimum-rank bounds."
+        ],
+        "reasoning": "Forcing time measures transitions within a single forcing process and the polynomial does not give the relative positions of the minimum sets. Neither implies the new exchange census.",
+        "searches": [
+          "arXiv:1801.08910 zero forcing polynomial",
+          "arXiv:1410.4191 propagation time",
+          "AIM08.pdf, ordinary zero forcing"
+        ]
+      },
+      "checked_sources": [
+        "Geneson–Haas–Hogben; Boyer et al.; Hogben et al.; AIM Minimum Rank–Special Graphs Work Group",
+        "Resultary 4d4ea7d55c41, 81c4ae0ea3cb, 64ea619489d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general paper asks about shortest-path distances. The same-graph fort finding treats the 3872 ordinary minimum sets as known but does not specify their pair-distance/defect geometry."
+        ],
+        "reasoning": "A count and orbit classification are inputs, expressly excluded from novelty. They do not state the shortest paths or force the claim that only the two opposite arcs of certain induced six-cycles produce all defective pairs; the swap and cycle analyses add mathematical content.",
+        "searches": [
+          "Geneson–Haas–Hogben arXiv:2009.00220 conclusion",
+          "Resultary 64ea619489d7 Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geneson–Haas–Hogben define exactly the minimum-set token-jump graph and ask about computing distances."
+        ],
+        "reasoning": "White complements preserve single exchanges and Johnson bounds, so the reconfiguration terminology describes the same invariant. Their general definition and distance question do not identify the Clebsch distances or induced cycle obstruction.",
+        "searches": [
+          "Clebsch / folded five-cube minimum zero forcing token jumping exchange graph Johnson distance",
+          "arXiv:2009.00220"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4d4ea7d55c41 (KG(6,2), radius/diameter 5) and 81c4ae0ea3cb (Möbius–Kantor, radius/diameter 6 and a Johnson-excess census) are same-day distinct graph findings.",
+          "64ea619489d7 concerns Clebsch forts and binary information sets and refers to unspecified earlier exchange geometry, but does not state the 240/C6 theorem."
+        ],
+        "reasoning": "The same-day comparisons differ in base graph, not just in naming or posted order. The later same-graph fort result has a different invariant; its unspecific antecedent is not verified duplicate coverage.",
+        "searches": [
+          "Resultary Clebsch 240-pair detours, C6 plus two isolates, folded five-cube exchange distances and seven orbits"
+        ]
+      },
+      "rationale": "The accepted originality claim is the exchange metric and exact geometric description of its defects, not the forcing number, minimum-set count or seven configuration types. The closest inspected same-graph record is later and does not contain the claimed 240-pair theorem; distinct same-day metric results are for other graphs.",
+      "residual_risks": [
+        "The precise prior bibliographic source for the 3872-count and seven-type background was not recovered; both were reproduced, not credited as new.",
+        "The unspecified earlier exchange computation mentioned in the later fort record remains untraced. Searches cannot rule out an unindexed prior equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct framework antecedent, not Clebsch census",
+          "evidence": "Defines the token-jumping graph of minimum forcing sets and asks about efficient distance computation.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "Abstract and introduction, PDF p. 1; conclusion p. 19",
+          "method": "Lawful open arXiv full-text retrieval (publisher page returned 403)",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Equivalent reconfiguration graph definition"
+        },
+        {
+          "assessment": "Cardinality counts are a different invariant; not a located census citation for this graph",
+          "evidence": "Introduces the polynomial enumerating zero-forcing sets by size.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "PDF p. 1 and full-text term location",
+          "method": "Open arXiv PDF",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Plausible coverage of forcing and configuration counts"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Propagation time counts force rounds, not paths between minimum sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.4191",
+          "material_read": "PDF p. 1 and full-text term location",
+          "method": "Open arXiv PDF",
+          "title": "Propagation time for zero forcing on a graph",
+          "trigger": "Plausibly related zero-forcing distances"
+        },
+        {
+          "assessment": "General background, not evidence for the exchange claim",
+          "evidence": "Introduces forcing for minimum-rank bounds.",
+          "identifier_or_url": "https://www.mat.uc.pt/~leal/FCT09/AIM08.pdf",
+          "material_read": "pp. 1–2 of PDF and term location",
+          "method": "Lawful open author/institutional copy",
+          "title": "Zero forcing sets and the minimum rank of graphs",
+          "trigger": "Foundational ordinary zero forcing"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "KG(6,2) has 1662 minimum sets, seven S6-orbits and metric radius and diameter 5.",
+          "identifier_or_url": "Resultary 4d4ea7d55c41",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue and mirrored record",
+          "title": "Seven forcing complement types and a self-centered exchange graph",
+          "trigger": "Same-day seven-type/self-centered match"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Möbius–Kantor metric radius and diameter 6, distance histogram and Johnson excess.",
+          "identifier_or_url": "Resultary 81c4ae0ea3cb",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue and mirrored record",
+          "title": "A self-centered nonregular zero-forcing exchange graph on 1,704 vertices",
+          "trigger": "Same-day radius, diameter and Johnson-defect analogue"
+        },
+        {
+          "assessment": "Later, different finding; antecedent unspecified",
+          "evidence": "Treats 3872 ordinary minimum sets as known and mentions earlier exchange geometry without identifying the 240-pair statement or a source for it.",
+          "identifier_or_url": "Resultary 64ea619489d7",
+          "material_read": "RESULT.md Finding and relationship to prior work",
+          "method": "Local catalogue and mirrored record",
+          "title": "The unique fort orbit separating Clebsch zero forcing from binary information sets",
+          "trigger": "Same Clebsch graph and reference to prior exchange geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Lemmas 4–5",
+        "Geneson–Haas–Hogben, distance question in conclusion",
+        "Independent Clebsch reproduction"
+      ],
+      "rationale": "Exchange distances for minimum forcing configurations are a natural reconfiguration invariant with a sharp Johnson lower bound. For this symmetric standard graph the finite metric analysis isolates exactly when the bound fails and ties that failure bijectively to an induced graph structure rather than just producing another size census. The explicit exceptional matching and geometry are a reproducible comparison point for other forcing reconfiguration graphs.",
+      "residual_risks": [
+        "No extrapolation to a family of folded cubes or other Clebsch conventions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

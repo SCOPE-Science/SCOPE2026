@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:03.747047Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact published gap recurrences agree after the first gap; the odd first gap on the even Lucas interval gives difference starts (0,1). The source fixes the least exponent at −2j; the upper exponent is 2j, since a nonadjacent finite word headed at e has value in [φ^e,φ^(e+1)), and the interval lies in [φ^(2j),φ^(2j+1)). The span is therefore 4j. Subtracting the recurrences and setting v=u−u_previous gives the stated two nonnegative transitions; v stays at least 1, so u strictly increases at every later gap. Independently checking the envelope: for odd-gap updates the four inequalities reduce, up to shifting k, to (a+1)F_(k+1)+F_k≤F_(k+a+2) and aF_(k+1)+F_k≤F_(k+a+1); the Fibonacci recurrence checks a=0,1,2 and the forward slopes thereafter dominate the left slopes. For even-gap updates, at a=1,2 the four bases follow from F_(k+1)≤2F_k, F_k≤2F_(k−1) for k≥2, and F_(k+2)≥2F_k. At a=2 the four right forward increments are 2F_(k+1), 2F_k, F_(k+3), F_(k+2), respectively, which dominate the slopes F_(k+1), F_(k+1), 2F_k, 2F_k. All later increments are nondecreasing. Initial even span has (1,1) below the envelope, and span 3 is unreachable. The unique difference 1 comes from the two endpoint exponents, giving L_(2j). The sharp witness word has exact sum L_(2j)+F_(2j)=2F_(2j+1) and gaps 1, then j−1 copies of 3, then 1. Before the last gap the difference state is (F_(2j),F_(2j−1)); after it the first coordinate is F_(2j+1). The separate recurrence values before that gap are K_j=F_(2j+1), H_j=F_(2j−1), with K_0=H_0=1 (also consistent with F_(−1)=1 when j=1); applying the last gap gives the two claimed final counts. The nested checks/verify.py and verification notes were read, not executed; they give finite checks, and their sampled uniqueness of the maximum is not asserted or used for the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shallit §§8–9 give linear representations and Fibonacci/Lucas values, not an extremal product bound for the intervening words.",
+          "Resultary f0209d185493 proves a Fibonacci-partition doubling dichotomy yielding K>H on even intervals and equality on odd intervals."
+        ],
+        "reasoning": "A sign dichotomy plus pointwise formulas neither caps all differences by F_(2j+1) nor proves this cap attained.",
+        "searches": [
+          "arXiv:2305.02672v6 §§8–9",
+          "2026/11/8/...--f0209d185493"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.11387",
+        "arXiv:2305.02672v6",
+        "Resultary f0209d185493 and 4f2b4f64b8d9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dekking–van Loon determine span and first-gap parity; Shallit permits exact evaluation for specified words; Resultary gives the positivity comparison."
+        ],
+        "reasoning": "The positivity is a direct consequence of the borrowed recurrences, but point evaluation or sign does not furnish a uniform upper bound. That requires controlling all span-cost gap transitions, with separate parity envelopes and an integer word realizing equality. The minimum is secondary to that new extremum.",
+        "searches": [
+          "Dekking–van Loon arXiv:2304.11387, Theorems 2.3, 4.1 and Proposition 5.1",
+          "Shallit arXiv:2305.02672v6, §§8–9",
+          "Resultary f0209d185493"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dekking–van Loon give the exact two right-to-left gap recurrences and starting data; after subtracting them the odd first gap gives (0,1).",
+          "Shallit gives linear representations for Knott and natural counts and special-point evaluations (e.g. 3F_n for Knott)."
+        ],
+        "reasoning": "These are equivalent ways to compute the counts, not their sharp difference extremum over an entire even Lucas interval. Odd-interval equality was already explicit.",
+        "searches": [
+          "arXiv:2304.11387, Theorems 2.3, 4.1, 4.3 and Proposition 5.1",
+          "arXiv:2305.02672v6 §§8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later f0209d185493 quantifies partition doubling and equality by interval parity, without the exact difference maximum or witness.",
+          "Same-day 4f2b4f64b8d9 gives Fibonacci extremal counts for shortest absent subsequences of binary words, a different statistic."
+        ],
+        "reasoning": "Neither actual catalog statement is a table or formula for extrema of Knott minus natural expansions. No ordering is inferred from the same-day entry.",
+        "searches": [
+          "Local Resultary: Knott/natural base-φ difference, even Lucas interval Fibonacci maximum and witness",
+          "2026/11/8/...--f0209d185493",
+          "2026/11/2/...--4f2b4f64b8d9"
+        ]
+      },
+      "rationale": "The digit recurrences, parity and interval geometry are borrowed; the bounded comparison supports the sharp interval maximum and witness rather than any priority claim for the sign dichotomy or the recurrence.",
+      "residual_risks": [
+        "Targeted source comparison and bounded catalog hits do not rule out another sharper published extremal theorem. No assertion of a complete set of maximizers or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies premises and complementary zero difference; does not give the sharp even-interval maximum in those passages",
+          "evidence": [
+            "Equal transitions, first-gap starts differ by one for odd s_1 only; s_1 odd and least exponent −2j on even Lucas intervals"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11387",
+          "material_read": "Theorems 2.3, 4.1 and proof of 4.3 (pp. 5, 7); Proposition 5.1 (p. 9)",
+          "method": "Targeted OA PDF passages",
+          "title": "Counting base phi representations",
+          "trigger": "source of exact recurrences and Lucas geometry"
+        },
+        {
+          "assessment": "Counts and special points, not the extrema of their difference",
+          "evidence": [
+            "Knott and natural linear representations; Fibonacci/Lucas evaluations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.02672v6",
+          "material_read": "§8, p. 25, Theorem 8.1 and Proposition 8.2; §9, p. 27, Theorems 9.1–9.2",
+          "method": "Targeted OA PDF passages",
+          "title": "Proving Properties of phi-Representations with the Walnut Theorem-Prover",
+          "trigger": "equivalent count representations and special values"
+        },
+        {
+          "assessment": "Sign dichotomy, not extrema",
+          "evidence": [
+            "K>H on even intervals, K=H on odd intervals via partition identities"
+          ],
+          "identifier_or_url": "2026/11/8/...--f0209d185493",
+          "material_read": "RESULT.md offsets 0–7584",
+          "method": "Local Resultary mirror",
+          "title": "A sharp Fibonacci-partition doubling dichotomy across Lucas intervals",
+          "trigger": "strongest catalog overlap with difference parity"
+        },
+        {
+          "assessment": "Different combinatorial invariant",
+          "evidence": [
+            "Extremal binary shortest-absent-subsequence counts F_(m+3) and F_(m+3)−F_(m−2)"
+          ],
+          "identifier_or_url": "2026/11/2/...--4f2b4f64b8d9",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The sharp second extremal Fibonacci gap for binary shortest absent subsequences",
+          "trigger": "same-date Fibonacci extremum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These prior count notions and established Lucas blocks make their discrepancy a motivated invariant. Going from a sign pattern to an exact extremum over every whole block, with a Fibonacci-realizing integer and a span envelope valid over all admissible gaps, gives an independently useful sharp comparison rather than another special-point evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

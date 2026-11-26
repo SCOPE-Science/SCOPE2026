@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:10:54.528277Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–47",
+        "VERIFICATION.md lines 19–21",
+        "verify.py lines 7–85 and verification_output.txt lines 1–20 (inspected)",
+        "branches/independent-replays/star-census.js (replay: node on this independently written file; equivalent bounded code executed)"
+      ],
+      "rationale": "For center degree d the two red leaves can be chosen in d(d−1) ordered ways and the blue leaf in n−1−d ways, disjoint from both red leaves. Degrees on A,B,C are n−1,a+b−1,a on the nonempty classes, with m=binom(a+b,2)+ac, including the zero-class cases. Independently exhausted (a,h) with 0≤a≤h≤n and (a,b,c)=(a,h−a,n−h). For each order I constructed actual adjacency matrices: a pair u<v is in H iff u<a or v<h, and Q and S use the first and last m pairs in order of increasing v then u, respectively. The first m pairs give exactly the full clique and partial next vertex, including m=0 and complete graphs; the last m are the complement of the first binom(n,2)−m. The exact run covered 1767 triples; none improved on both endpoints through n=19. The complete n=20 output in (a,b,c;m;H,Q,S) order is (6,12,2;165;7308,7860,7344) and (7,11,2;167;6992,7370,7072). Literal ordered four-vertex counts checked all three graphs for each witness and every profile through n=8. The frozen enumeration and recorded log agree; the independent enumeration did not execute the frozen script.",
+      "residual_risks": [
+        "The cutoff is only within H_{a,b,c} and orders 2–20; it does not give a global minimizer at either edge count or a cutoff for all graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deng–Hou give the limiting fixed-density minimum and a strict improvement at limiting density 9/10. Balogh et al. give asymptotic upper-profile work for this star and the earlier endpoint-profile context."
+        ],
+        "reasoning": "Even a minimum theorem for every limiting density is not a finite exact-order classification, and the upper profile is a different optimization direction.",
+        "searches": [
+          "arXiv:2606.23351 Theorem 1.6",
+          "arXiv:2601.03433 Table 1 and §7"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary indexed results",
+        "Deng–Hou arXiv:2606.23351v1",
+        "Balogh–Lidický–Mubayi–Pfender–Volec arXiv:2601.03433v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known construction/count identity reduces the task to finite integer comparisons. A strict limiting gap may give examples at sufficiently large orders but gives neither a lower bound excluding every smaller order nor equality cases for a finite discrete strict-comparison census."
+        ],
+        "reasoning": "Determining the crossover and enumerating all first-order exceptions still requires exact finite work; neither follows by substituting parameters in a prior theorem.",
+        "searches": [
+          "arXiv:2606.23351 p. 3 and Theorem 1.6; arXiv:2601.03433 §7",
+          "Frozen RESULT.md lines 8–20 and 27–47"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation exchanges red and blue and interchanges quasi-clique and quasi-star. The family in the complemented problem is K_c joined to an independent b-set, with a isolates. The two exact complementary witnesses have 25 and 23 edges, respectively."
+        ],
+        "reasoning": "Deng–Hou's construction covers this same family, even after exchanging edge colors; their asymptotic comparison does not state the complemented exact cutoff and the two finite triples either.",
+        "searches": [
+          "Resultary: finite endpoint departure/red-blue star/quasi-star and quasi-clique",
+          "arXiv:2606.23351, introduction and three-class construction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching finite census among the indexed hits consulted. The relevant primary table concerns asymptotic profiles, not all small class-size triples or the witnesses at m=165,167."
+        ],
+        "reasoning": "The observed table does not contain or determine the fine finite data. The absence of a matching indexed hit is not a completeness claim.",
+        "searches": [
+          "Resultary title, finite comparison claim and cited-paper terms",
+          "arXiv:2601.03433 p. 6 Table 1"
+        ]
+      },
+      "rationale": "The edge family, general counting identity and asymptotic endpoint departure are already known. Credit only the exact finite onset and complete census at the first order in that family. The strongest inspected primary statements and the indexed search did not establish this finite claim.",
+      "residual_risks": [
+        "An unindexed finite computation or earlier exact census in a complementary formulation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage, not finite cutoff coverage",
+          "evidence": [
+            "Degree-count identity; same three-class construction and its limiting formulas; strict gap at β=9/10; asymptotic minimum profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.23351",
+          "material_read": "v1 abstract, p. 3 introduction/construction and Theorem 1.6",
+          "method": "Bounded primary PDF passages",
+          "title": "Fixed-density profiles for the semi-induced 4-vertex star",
+          "trigger": "Same three-class construction and endpoint question"
+        },
+        {
+          "assessment": "Related asymptotic results, no finite lower-comparison census in the inspected passages",
+          "evidence": [
+            "Table 1 and §7 address asymptotic upper profiles for S_{2,1}; Deng–Hou p. 3 attributes the endpoint-profile conjecture to this work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.03433",
+          "material_read": "v1 p. 6 Table 1 and related star discussion in §7",
+          "method": "Bounded primary PDF passages",
+          "title": "Semi-Inducibility of some small graphs",
+          "trigger": "Earlier semi-induced star profile and proposed endpoints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–20",
+        "Deng–Hou arXiv:2606.23351 p. 3 and Theorem 1.6"
+      ],
+      "rationale": "This is the least exact order realizing the documented asymptotic failure in its natural witness family. The full first-order classification and fixed edge counts give small reproducible tests for discrete endpoint conjectures or algorithms. The value is the sharp cutoff with all first witnesses, not the small absolute score gains or the reuse of the known construction.",
+      "residual_risks": [
+        "No gain in scope to global finite graph extremality is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

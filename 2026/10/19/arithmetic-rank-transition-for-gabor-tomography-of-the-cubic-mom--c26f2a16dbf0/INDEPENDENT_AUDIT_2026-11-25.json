@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:08:45.568881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent proof reconstruction for primes p≥5: conjugation sends each Weyl input to a distinct output character times its ambiguity coefficient. The input Hilbert–Schmidt norm is p^(3/2), the output character norm p^3, so singleton intersections give singular value sqrt(p). For a nonzero curve difference the first coordinate is the nonzero parameter increment and the second uniquely fixes the base parameter; this yields precisely p(p−1) nonzero shifts, with one term at every frequency on those shifts and no terms at other nonzero shifts. At zero shift the multiplicity polynomial has degree at most p−1, and a primitive pth-root zero forces it to be 1+X+…+X^(p−1). Hence cancellation is exactly permutation. Nonconstant linear phases permute; genuine quadratic phases have a reflection collision. After depression of a cubic to t^3+ut, any u≠0 gives a distinct-input collision: for c=−4u the number of solutions of 3s²+v²=c is p−χ(−3)>2, and at most two have v=0. The character-sum identity follows by factoring (s−b)(s+b)=a≠0. For u=0, the cube map permutes exactly for p≡2 mod 3. Counting yields the stated two ranks, the full complementary Weyl basis, and precisely p^4(p−1) supported nonzero-shift singular directions, without claiming this is the total multiplicity of sqrt(p). Applies to the full complex-linear map, not pure-state injectivity. The frozen finite verification was inspected, not re-executed; it is not the arbitrary-prime evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Binary Sidon tomography uses elementary abelian 2-groups and reports all zero-shift directions surviving.",
+          "The prime-cycle result gives p|D| with disappearance exactly off the difference set, independent of modulation.",
+          "The cyclic nonvanishing theorem does not resolve a singular full orbit."
+        ],
+        "reasoning": "The general linear algebra explains how to obtain rank from ambiguity, but these support theorems do not cover the odd prime three-dimensional group with a nontrivial cubic zero-shift deficit.",
+        "searches": [
+          "Resultary record 1a034131f60d (binary Sidon supports)",
+          "Resultary record 65df80cb23d5 (positive weights on a prime cycle)",
+          "arXiv:1503.05800, Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "arXiv:1503.05800",
+        "arXiv:1901.05296",
+        "Resultary 1f76e4a64221",
+        "Resultary 1a034131f60d",
+        "Resultary 65df80cb23d5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quartic proof uses prime cyclotomic cancellation and permutation testing, but on a different zero-shift family and with nonsingleton shift geometry.",
+          "For the frozen claim the second moment coordinate makes nonzero ordered differences unique; at shift zero the full linear/quadratic/cubic span, after depressing the cubics, contributes p−1 or p²−1 zeros."
+        ],
+        "reasoning": "The proof legitimately combines known tools and classical finite-field facts; the count and Weyl support need the two separate curve-specific calculations and are not a substitution into the checked rank theorems.",
+        "searches": [
+          "Resultary record 1f76e4a64221, finding and proof",
+          "arXiv:1503.05800, Theorem 2.3",
+          "arXiv:1901.05296, Lemma 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.3 gives a basis under everywhere nonzero ambiguity for cyclic Gabor measurements; the present ambiguity has a large kernel.",
+          "Lemma 2.2 gives a Fourier product of two ambiguity functions, not their moment-curve support.",
+          "Quartic-graph Resultary finding gives a rank and Weyl kernel for {(t,t^4)} in F_p² and a p=7 exception, not the cubic moment-curve rank in F_p³."
+        ],
+        "reasoning": "Rephrasing the projector span as Weyl support or as Fourier-transformed measurements exposes the same mechanism but no matching support count or kernel.",
+        "searches": [
+          "Resultary: exact Gabor rank and Weyl kernel for polynomial-curve indicator windows",
+          "arXiv:1503.05800, Theorem 2.3",
+          "arXiv:1901.05296, Lemma 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact formula is p²(1+(p−1)(2p+χ_p(−3))/3)−(p−1)(1+2·1_{p=7}) for a quartic graph in F_p²; the other indexed ranks concern binary Sidon groups and a one-dimensional prime cycle."
+        ],
+        "reasoning": "The exact-formula index comparison did not identify the cubic rank or nullspace. A numerical rank table alone would not cover the all-prime kernel theorem.",
+        "searches": [
+          "Resultary local index: exact Gabor rank and Weyl kernel for polynomial-curve indicator windows; inspected 1f76e4a64221, 1a034131f60d and 65df80cb23d5"
+        ]
+      },
+      "rationale": "The Weyl diagonalization, prime-root permutation criterion, and cubic permutation facts are not the novelty. The closest indexed exact-rank result has a different ambient space, shift geometry, and permutation family. None of the inspected statements gives or mechanically specializes to the cubic moment-curve rank, kernel and supported nonzero-shift band together. This is a scoped judgment from the evidence, not a priority guarantee.",
+      "residual_risks": [
+        "Ranked index and literature searches are not exhaustive; a literature query returned no match and is not evidence of absence.",
+        "No dedicated historical primary source for the elementary cubic permutation classification was retrieved; no novelty is attributed to that classification itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method antecedent; not the singular curve rank",
+          "evidence": "The rank-one orbit forms a basis under an everywhere nonzero ambiguity hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Theorem 2.3, PDF p. 4",
+          "method": "Bounded OA full-text passage",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Canonical Gabor projector frame theorem"
+        },
+        {
+          "assessment": "Known transform relation; not a classification of zero sets",
+          "evidence": "The two-dimensional Fourier transform of the spectrogram is an ambiguity product.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.05296",
+          "material_read": "Lemma 2.2, PDF p. 4",
+          "method": "Bounded OA full-text passage",
+          "title": "Stability estimates for phase retrieval from discrete Gabor measurements",
+          "trigger": "Equivalent ambiguity-domain formulation"
+        },
+        {
+          "assessment": "Close antecedent, distinct object and exact formula",
+          "evidence": "The window is the graph (t,t^4) in F_p² and the formula includes a p=7 exception.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-exact-rank-and-weyl-kernel-classification-for-quartic-graph-gabo--1f76e4a64221",
+          "material_read": "Finding and cyclotomic/permutation proof, mirror offsets 0 and 2500",
+          "method": "Local published-record mirror",
+          "title": "Exact rank and Weyl kernel classification for quartic graph Gabor tomography",
+          "trigger": "Closest indexed exact Gabor-rank analogue"
+        },
+        {
+          "assessment": "Binary hypothesis and different zero-shift conclusion",
+          "evidence": "G≅(Z/2Z)^n; all zero-shift directions survive.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d",
+          "material_read": "Finding and pair-shift argument, mirror offsets 0 and 3250",
+          "method": "Local published-record mirror",
+          "title": "Phase-alphabet tomography ranks for binary Sidon supports",
+          "trigger": "Possible general Sidon-support coverage"
+        },
+        {
+          "assessment": "Prime-cycle analogue, not coverage",
+          "evidence": "The rank p|D| uses a one-dimensional prime cycle and positive rational weights.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-arithmetic-rigidity-of-prime-cyclic-gabor-tomography-for-positiv--65df80cb23d5",
+          "material_read": "Finding, mirror offset 400",
+          "method": "Local published-record mirror",
+          "title": "Arithmetic rigidity of prime-cyclic Gabor tomography for positive rational weights",
+          "trigger": "Possible general support-difference count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The standard cubic moment curve is a natural sparse window with maximal uniqueness of its ordered nonzero differences. Exact tomography rank and a full operator nullspace determine the recoverable linear directions; the supported nonzero shifts also have a fixed singular scale. The arithmetic deficit at zero shift distinguishes the two prime classes in a way a difference-set count or generic Gabor theorem alone does not. This is a narrow structural invariant, not a claim of phase retrieval or general stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

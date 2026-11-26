@@ -1,127 +1,66 @@
-# Two sharp caliper-width switches and a cubic density caustic in parabolic segments
+# Minimum-width transition and cubic caustic for parabolic segments
 
 ## Finding
-For each \(a>0\), the Euclidean parabolic segment
+
+Let \(a>0\) and \(K_a=\{(x,y): |x|\le a,\ x^2\le y\le a^2\}\), so the ratio of rise to half-chord is \(a\). The Euclidean minimum caliper width switches from the vertical normal to a pair of oblique normals at
 \[
-K_a=\{(x,y)\in\mathbb R^2:-a\le x\le a,\ x^2\le y\le a^2\}
+a_m=\sqrt{s_m}=1.92532470080679\ldots,\qquad 16s_m^3-56s_m^2-12s_m-1=0,
 \]
-has an exact directional-width law and three ordered aspect-ratio thresholds. The segment has half-chord \(a\), rise \(a^2\), and after a similarity its rise-to-half-chord ratio is exactly \(a\). For a Haar-uniform unoriented unit normal, write its caliper width as \(W_a\). Let
-\[
-P_a(t)=t^3+(2-4a^2)t+4a,
-\qquad b_a=\arctan(2a).
-\]
-For \(0\le\theta\le\pi/2\), put \(t=\tan\theta\) and
+where \(s_m\) is the unique positive root. For \(a<a_m\) the minimum is \(a^2\) and only the vertical normal minimizes (modulo antipodes). For \(a>a_m\) the minimum is \(w_a(t_+)\) with \(t_+=a+\sqrt{a^2-2}\); its normals have \(|u_x/u_y|=t_+\). At \(a=a_m\) these three unoriented normals coexist.
+
+For a Haar-uniform unoriented unit normal, the width \(W_a\) has the law of \(w_a(\tan\theta)\) for \(\theta\) uniform on \([0,\pi/2]\), where
 \[
 w_a(t)=\begin{cases}
-\dfrac{at+a^2+t^2/4}{\sqrt{1+t^2}},&0\le t\le2a,\\[4pt]
-\dfrac{2at}{\sqrt{1+t^2}},&t\ge2a.
+(a+t/2)^2/\sqrt{1+t^2},&0\le t\le2a,\\
+2at/\sqrt{1+t^2},&2a\le t\le\infty.
 \end{cases}
 \]
-The law of \(W_a\) is the pushforward of \((2/\pi)d\theta\) on \([0,\pi/2]\) by \(w_a(\tan\theta)\). In particular,
-\[
-F_a(v)=\frac2\pi\int_0^\infty\frac{\mathbf1_{\{w_a(t)\le v\}}}{1+t^2}\,dt.
-\]
-This is an *exact algebraic-arctangent algorithm* for the complete CDF: split at \(t=2a\); on the first branch determine the sign intervals from the real nonnegative roots of
-\[
-(at+a^2+t^2/4)^2-v^2(1+t^2)=0,
-\]
-and on the upper branch use its strictly increasing inverse \(t=v/\sqrt{4a^2-v^2}\), wherever \(0<v<2a\). The integral of every sign interval is an arctangent difference.
+At \(t=\infty\) use the limiting value \(2a\). In particular the CDF is \((2/\pi)\int_0^\infty\mathbf1_{\{w_a(t)\le v\}}\,dt/(1+t^2)\). For \(v\ge0\) the first branch is evaluated by the sign intervals of \((a+t/2)^4-v^2(1+t^2)\) on \([0,2a]\); the second branch is increasing with inverse \(v/\sqrt{4a^2-v^2}\) on its range below \(2a\). Each interval contributes \(2/\pi\) times its arctangent length. For \(v<0\) the CDF is zero.
 
-Two distinct *global* transitions occur:
+At \(a=\sqrt2\) there is a cubic stationary point at \(\theta_* =\arctan\sqrt2\). Put \(w_*=3\sqrt3/2\) and \(c=3\sqrt6/4\). Then
 \[
-a_M=\sqrt{\frac{11+5\sqrt5}{8}}=1.66509533839278\ldots,
+\Pr(|W_{\sqrt2}-w_*|\le\varepsilon)\sim (4/\pi)c^{-1/3}\varepsilon^{1/3},\qquad
+f_{\sqrt2}(v)\sim (2/(3\pi))c^{-1/3}|v-w_*|^{-2/3}\quad(v\to w_*\text{ from either side}).
 \]
-and \(a_m=\sqrt{s_m}=1.92532470080679\ldots\), where \(s_m\) is the unique positive root of
+The two critical widths born for \(a=\sqrt2+\delta>\sqrt2\), at \(t_\pm=a\pm\sqrt{a^2-2}\), satisfy
 \[
-16s^3-56s^2-12s-1=0.
+w_a(t_-)-w_a(t_+)\sim \frac{4\,2^{3/4}}{3\sqrt3}\delta^{3/2}\quad(\delta\downarrow0).
 \]
-When \(a>\sqrt2\), let \(0<t_-(a)<t_+(a)<2a\) be the positive roots of \(P_a\). Then the *global maximum* is \(2a\) for \(a\le a_M\) and \(w_a(t_-)\) for \(a\ge a_M\); the *global minimum* is \(a^2\) for \(a\le a_m\) and \(w_a(t_+)\) for \(a\ge a_m\). At the equality cases the two listed direction families coexist. For \(a\le\sqrt2\) no strict interior stationary directions exist; at \(a=\sqrt2\) they merge into one horizontal-inflection level.
-
-At the birth aspect ratio \(a=\sqrt2\), put \(w_*=3\sqrt3/2\) and \(c=3\sqrt6/4\). Then
-\[
-\Pr(|W_{\sqrt2}-w_*|\le\varepsilon)
-\sim\frac4\pi c^{-1/3}\varepsilon^{1/3},
-\qquad\varepsilon\downarrow0.
-\]
-On either side of \(w_*\) the density satisfies
-\[
-f_{\sqrt2}(v)\sim\frac{2}{3\pi}c^{-1/3}|v-w_*|^{-2/3}.
-\]
-The emerging pair of stationary-width values has the sharp splitting law
-\[
-w_{\sqrt2+\delta}(t_-)-w_{\sqrt2+\delta}(t_+)
-\sim \frac{4\,2^{3/4}}{3\sqrt3}\,\delta^{3/2},
-\qquad\delta\downarrow0^+.
-\]
-These are interior distribution singularities, not endpoint large-deviation tails.
 
 ## Assumptions and scope
-All widths use ordinary Euclidean distances between parallel supporting *lines*. Directions are uniform modulo antipodes, with no orientation-dependent reweighting. The body is the full closed convex parabolic segment, including its chord. The parameter \(a\) measures Euclidean shape up to similarity; all assertions are quantified for every \(a>0\). The asymptotics apply to the specified limits, not uniformly to unrelated double limits.
+
+All widths are Euclidean distances between parallel supporting lines of the closed body including its chord. The angle is uniform modulo antipodes, with no additional reweighting. The asymptotics are for the limits stated. The global maximum switch is not part of the contribution: it is implied by the diameter result for the corresponding arc [1], as explained below.
 
 ## Proof
-**Support calculation.** For a unit normal with nonnegative coordinates \((u_x,u_y)\), \(u_x^2+u_y^2=1\), the positive support equals \(a u_x+a^2u_y\), since the upper chord is at \(y=a^2\). The opposite support maximizes \(-u_xs-u_ys^2\) over \(-a\le s\le a\) on the lower parabola. The quadratic vertex is admissible precisely when \(u_x\le2a u_y\). If admissible its value is \(u_x^2/(4u_y)\); otherwise the maximizing endpoint yields \(a u_x-a^2u_y\). Sum these values, substitute \(t=u_x/u_y=\tan\theta\), and obtain the displayed two branches; the formulas join continuously at \(t=2a\). Reflection across the vertical axis and \(w(u)=w(-u)\) give the factor \(2/\pi\) for a uniform acute normal angle. The CDF formula follows, and the quartic root recipe is exhaustive because each sign interval is bounded by a root or branch endpoint.
 
-**Stationary directions.** The upper branch \(2at/\sqrt{1+t^2}\) increases strictly with \(t\). On \(0<t<2a\), direct differentiation gives
-\[
-\frac{dw_a}{dt}=\frac{P_a(t)}{4(1+t^2)^{3/2}}.
-\]
-For \(a\le1/\sqrt2\) the polynomial is increasing on \([0,\infty)\). For larger \(a\), its positive stationary minimum occurs at \(t_0=\sqrt{(4a^2-2)/3}\). The sign of this minimum changes precisely when
-\[
-(4a^2-2)^3=108a^2.
-\]
-Writing \(s=4a^2\), the difference factors as \((s-8)(s+1)^2\); hence the only positive threshold is \(a=\sqrt2\). At equality
-\[
-P_{\sqrt2}(t)=(t-\sqrt2)^2(t+2\sqrt2).
-\]
-For \(a>\sqrt2\), \(P_a(0)>0\), its positive minimum is negative, and \(P_a(2a)=8a>0\); thus exactly two roots satisfy \(0<t_-<t_+<2a\). The first is a strict local maximum of width and the second a strict local minimum. The only remaining global candidates are \(w_a(0)=a^2\) and \(\lim_{t\to\infty}w_a(t)=2a\). As \(w_a(t_-)>a^2\) and \(w_a(t_+)<w_a(2a)<2a\), the maximum compares \(w_a(t_-)\) with \(2a\) and the minimum compares \(w_a(t_+)\) with \(a^2\).
+By reflection and antipodal symmetry use a normal \((u_x,u_y)\) with nonnegative coordinates and \(t=u_x/u_y\). The positive support is at \((a,a^2)\); the negative support is the maximum of \(-u_x x-u_y x^2\) for \(|x|\le a\). Its unconstrained vertex is admissible when \(t\le2a\); otherwise the maximizer is \(x=-a\). Substitution gives the stated width, including the horizontal normal by a limit. Folding Haar angular measure gives the density \(2/\pi\) of \(\theta\) measured from vertical. The CDF calculation follows by integrating on each monotone or polynomial sign interval.
 
-**Uniqueness of both global switches.** At either stationary root the envelope theorem applies. For \(t<2a\),
+In the first branch,
 \[
-\frac{w_a(t)}a=\frac{t+a+t^2/(4a)}{\sqrt{1+t^2}},
-\qquad
-\partial_a\frac{w_a(t)}a=\frac{1-t^2/(4a^2)}{\sqrt{1+t^2}}>0.
+w'_a(t)=\frac{(t+2a)(t^2-2at+2)}{4(1+t^2)^{3/2}}.
 \]
-Consequently \(w_a(t_-)/a\) grows strictly from \(3\sqrt3/(2\sqrt2)<2\) at the fold to infinity as \(a\to\infty\); it equals the horizontal comparator \(2\) once. Similarly,
-\[
-\frac{w_a(t)}{a^2}=\frac{(1+t/(2a))^2}{\sqrt{1+t^2}},
-\qquad
-\partial_a\frac{w_a(t)}{a^2}
-=-\frac{t(1+t/(2a))}{a^2\sqrt{1+t^2}}<0,
-\]
-so \(w_a(t_+)/a^2\) falls strictly from \(3\sqrt3/4>1\) to zero, and equals the vertical comparator \(1\) once. Eliminating the stationary root between \(P_a(t)=0\) and \(w_a(t)=2a\) produces the nontrivial factor \(16a^4-44a^2-1\). Eliminating it between \(P_a(t)=0\) and \(w_a(t)=a^2\) produces \(16a^6-56a^4-12a^2-1\). Extraneous resultant factors are powers of \(a\) and \(4a^2+1\), which are nonzero for \(a>0\). Existence and uniqueness proved above select the displayed positive roots. The strict order \(\sqrt2<a_M<a_m\) follows either from the polynomial brackets or from the exact expressions.
+The second branch increases strictly; at \(2a\) the first branch has positive derivative. Thus the only interior stationary direction for \(a\le\sqrt2\) occurs at equality and is not an extremum. For \(a>\sqrt2\) one has \(0<t_-<t_+<2a\), with a local maximum at \(t_-\) and local minimum at \(t_+\). The horizontal width exceeds \(w_a(t_+)\), as the width increases strictly after \(t_+\). Hence the minimizing candidates are just \(t=0\) and \(t=t_+\).
 
-**Interior cubic caustic.** At \(a=\sqrt2\), \(t_*=\sqrt2\) and \(\theta_*=\arctan\sqrt2\) are interior to the first width branch. Direct differentiation gives \(w_*=3\sqrt3/2\), zero first and second \(t\)-derivatives, and \(d^3w/dt^3=\sqrt6/6\) at \(t_*\). Since \(dt/d\theta=1+t_*^2=3\),
-\[
-w_{\sqrt2}(\tan\theta)-w_*=
-\frac{3\sqrt6}{4}(\theta-\theta_*)^3+O((\theta-\theta_*)^4).
-\]
-The acute normal angle has density \(2/\pi\), and the width is strictly increasing except for this isolated stationary angle, so the interval \([w_*-\varepsilon,w_*+\varepsilon]\) corresponds to an angular interval of length \(2(\varepsilon/c)^{1/3}(1+o(1))\). Multiplying by \(2/\pi\) proves the mass coefficient. Differentiating the local inverse on either side gives the density coefficient. No smooth preimage can change the leading singularity.
+At a stationary root put \(x=t^2\), so \(a=(x+2)/(2\sqrt x)\) and \(w_a(t)=(1+x)^{3/2}/x\). The sign of \(w_a(t_+)^2/a^4-1\) is the sign of \(x(-x^3+8x^2+24x+16)\) at \(x=t_+^2\). That cubic has exactly one positive zero by Descartes's rule and the signs at zero and infinity, and is positive at \(x=2\). As \(t_+^2\) increases strictly from 2 to infinity, the unique minimum switch and all equality cases follow. To identify \(s=a^2\) at equality use \(x^2-Lx+4=0\), with \(L=4s-4\). The cubic reduces modulo this quadratic to \(Ax+B\), with \(A=-L^2+8L+28\) and \(B=4L-16\). The product of its values at the two quadratic roots is \(4A^2+LAB+B^2=-64(16s^3-56s^2-12s-1)\). The latter cubic also has exactly one positive zero by Descartes's rule and the signs at zero and infinity, identifying the switch.
 
-**Fold unfolding.** Put \(a=\sqrt2+\delta\), \(t=\sqrt2+\eta\). The stationary polynomial expands as
-\[
-P_a(t)=3\sqrt2\,\eta^2-12\delta+O(|\eta|^3+|\eta|\delta+\delta^2).
-\]
-Thus \(t_\pm=\sqrt2\pm2^{3/4}\sqrt\delta+O(\delta)\). Integrate \(-dw_a/dt\) between these roots using \(4(1+t^2)^{3/2}=12\sqrt3+o(1)\). This yields
-\[
-w_a(t_-)-w_a(t_+)
-=\frac{4\,2^{3/4}}{3\sqrt3}\delta^{3/2}+o(\delta^{3/2}).
-\]
-All remainder estimates are uniform on the shrinking root interval by analyticity near the fold.
+At the birth \(a=\sqrt2\), the numerator of \(w'_a\) is \((t-\sqrt2)^2(t+2\sqrt2)\). Thus \(w'_a(t)=(\sqrt6/12)(t-\sqrt2)^2+O((t-\sqrt2)^3)\). Integrating and using \(dt/d\theta=3\) at \(\theta_*\) gives \(w_a(\tan\theta)-w_*=c(\theta-\theta_*)^3+O((\theta-\theta_*)^4)\). Width is strictly increasing in the folded angle at this parameter, so the angular band has length \(2(\varepsilon/c)^{1/3}(1+o(1))\). Inverting on either side and using the Taylor expansion of the angular derivative gives the asserted density.
 
-## Verification
-The accompanying `parabolic_segment_width_check.py` independently maximizes linear functionals over the chord and parabola, checks polynomial/resultant identities in exact symbolic arithmetic, and compares global extrema, Cauchy's mean-width consistency, the critical mass law and the splitting constant. The reproduced execution passed 50,331 numerical checks and its symbolic assertions. These finite diagnostics are not substitutes for the parameter-uniform derivative and monotonicity proof. Cauchy's formula independently gives the non-claimed classical mean-width check
-\[
-\mathbb E W_a=\frac{2a+a\sqrt{1+4a^2}+\tfrac12\operatorname{arsinh}(2a)}\pi.
-\]
+For the unfolding let \(t=\sqrt2+\sqrt\delta\,u\), with \(a=\sqrt2+\delta\). The two roots converge in the \(u\)-coordinate to \(\pm B_0\) where \(B_0=2^{3/4}\). Uniformly for bounded \(u\), \(-w'_a(t)/\delta\to(12-3\sqrt2 u^2)/(12\sqrt3)\). Integration between the two roots yields the coefficient \(\int_{-B_0}^{B_0}(12-3\sqrt2 u^2)/(12\sqrt3)\,du=4B_0/(3\sqrt3)\).
 
-## Relationship to prior work
-Classical parabolic-segment geometry includes exact area, arc length, centroid and optimal inscribed-triangle facts; these do not give a distribution of directional widths. The direct comparison with Finch's 2011 width-distribution paper finds explicit examples for triangles, squares, tetrahedra and cubes, not the curved parabolic segment or an aspect-parameter cubic stationary merger. The elementary planar Cauchy formula determines only the mean, not the cubic caustic, the two global switch ratios or the complete root-based distribution. Broader three-dimensional polytope width-density frameworks operate on a different class of bodies and do not explicitly imply the listed curved-boundary equalities. This literature comparison supports originality provisionally; it does not establish definitive historical priority.
+## Comparison with earlier or related results
 
-## Limitations
-The exact distribution is an algebraic-root/arctangent prescription rather than a single elementary expression on all parameter strata. The singularity is for the stated unoriented uniform direction model; it does not assert a universal exponent for unrelated shapes. The fold-splitting law concerns \(a\downarrow\sqrt2\) from above. Primary-source coverage is incomplete for one older journal article available only by abstract and one later general width study available only by abstract; this uncertainty remains relevant to historical priority. No independent mathematical validation has been performed.
+The arc \(\Gamma_a=\{(x,x^2):|x|\le a\}\) in [1] has convex hull \(K_a\). Taking the convex hull does not change diameter, and maximizing the caliper width over normals gives that diameter. The diametral pairs in [1] therefore specify the global maximum-width switch at \(\sqrt{(11+5\sqrt5)/8}\) and the maximizing directions (parallel to the diametral displacements), including coexistence. This is credited overlap, not a priority claim. The random variable in [1] is a distance between two sampled arc points, not the width in a single sampled direction. Its statements do not furnish the minimum-width transition or the cubic width-density singularity and splitting law.
+
+Finch [2] studies angular widths for regular polygonal and polyhedral examples, and Abas [5] studies three-dimensional polytopes; these do not state the present curved planar width law. Classical segment geometry [3] and the Cauchy mean-width identity do not determine its distribution or minimum-width transition. Historical coverage is not exhaustive; the full text of [4] was not available for comparison.
+
+## Reproducibility
+
+`parabolic_segment_width_check.py` supplies supplementary algebraic checks and finite numerical diagnostics for the width profile, the extremal comparisons (including the credited diameter threshold), mean width, and the local asymptotics. Its historical execution is recorded in `CHECKS.txt`. The proof above, not the finite diagnostics, addresses the quantifiers over all shapes and directions.
 
 ## References
-1. S. R. Finch, *Width Distributions for Convex Regular Polyhedra*, initial public arXiv posting 2011-10-04, https://arxiv.org/abs/1110.0671.
-2. E. W. Weisstein, *Parabolic Segment*, Wolfram MathWorld, https://mathworld.wolfram.com/ParabolicSegment.html (page inspected; publication day not asserted).
-3. M. H. Thibodeaux, *Arc Lengths and Curvature of Parabolic Segments*, *Journal of the Pipeline Division* **90** (January 1964), https://doi.org/10.1061/JPLEAZ.0000062 (abstract inspected; full text inaccessible).
-4. O. Abas, *Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability*, https://arxiv.org/abs/2609.26202 (abstract inspected; three-dimensional polyhedral framework).
+
+1. *Golden-ratio diameter bifurcation and sharp long-chord tails on a truncated parabola*, Resultary record `2e6c3c85982f`, 2026-11-22, [Finding](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-golden-ratio-diameter-bifurcation-and-sharp-long-chord-tails-on--2e6c3c85982f/RESULT.md).
+2. S. R. Finch, *Width Distributions for Convex Regular Polyhedra*, [arXiv:1110.0671](https://arxiv.org/abs/1110.0671).
+3. E. W. Weisstein, [Parabolic Segment](https://mathworld.wolfram.com/ParabolicSegment.html), Wolfram MathWorld.
+4. M. H. Thibodeaux, *Arc Lengths and Curvature of Parabolic Segments*, Journal of the Pipeline Division 90 (1964), 1–6, [DOI](https://doi.org/10.1061/JPLEAZ.0000062).
+5. O. Abas, *Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability*, [arXiv:2609.26202](https://arxiv.org/abs/2609.26202).

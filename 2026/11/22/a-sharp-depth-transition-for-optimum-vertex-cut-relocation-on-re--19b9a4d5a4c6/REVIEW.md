@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the minimum cut cardinality using three vertex-disjoint rails and an explicit upper bound. Every possible minimum cut is restricted to three distinct rails; two bypass-path constructions prove the adjacent-column inequalities and the outer-row endpoint constraints. An explicit two-colour separation proves the converse. The enumeration and token adjacency follow coordinate-by-coordinate, separately treating the short-column exception. Two standalone standard-library checkers, one testing actual graph disconnection and the other checking the coordinate model, passed 56 and 1,232 distinct parameter instances, respectively. These tests support but do not substitute for the all-parameter proof.
+PASS
 
-## Originality — PASS (qualified)
+Deleting either terminal neighborhood shows the minimum is at most three. The straight row and the two one-row detours are three internally disjoint paths, so a cut of size three hits each exactly once and has one selection in each row r−1,r,r+1. Write their columns a,b,c, with 1≤b≤n−2. If a≤b−2, follow the middle row to a+1 then take the upper rail to the far side; if a≥b+2, take the upper rail to b+1 then the middle row. Either bypasses the proposed cut; reflecting gives the lower bound |c−b|≤1 as well. An extra row above the top rail permits a full bypass through the endpoint columns unless a is itself an endpoint, and similarly below. Conversely, color each cut rail to the left/right of its missing vertex. Adjacent cut columns differing by at most one prohibit vertical edges between opposite colors. When an extra band exists beyond a rail, its cut is at a column endpoint, so the entire band receives the single surviving color of that rail. The two terminals thus lie in separate colors. Under legal moves exactly one of a,b,c changes, by one for a slide. At shallow depth two branches each have three consecutive free-coordinate values, giving two P₃ slides and a K₃ jump graph on each branch. A cross-branch jump is possible exactly at n=3, when b agrees, and joins matched free-coordinate values to make the prism. At deep placement both outer coordinates are endpoints; n=3 permits independent endpoint choices (four isolated slide vertices and a jump square), while n≥4 forces both endpoints on the same side and the two configurations disagree in all three coordinates. An independent direct finite grid check enumerated deletion sets of cardinality 0–3, tested reachability by BFS, and compared legal replacement graphs for 27 choices (n=3–5, w=4–6, every interior r); all matched. The finite test corroborates, not replaces, the proof. The supplied two scripts were inspected, not run.
 
-The 2023 primary paper on minimum-separator reconfiguration, arXiv:2307.07782, was materially inspected (introduction, canonical-path lemmas, both movement models, and searches for grid/Cartesian/ladder terminology). Its general polynomial-time slide framework does not state or directly imply the exact rectangular-grid cut description and sharp mobility phase classification without additional graph-specific analysis. The 2020 nonminimum vertex-separator paper, arXiv:2004.10873, was accessible only at abstract level. Related existing work on width-three grids concerns a disjoint parameter range and does not cover width at least four. Available indexed findings and primary literature searches did not reveal a covering statement. Residual risk: an unindexed or unread mathematically equivalent result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A complete natural-parameter classification of optimal network cutset mobility is a structural reconfiguration benchmark. Holding the minimum cut capacity fixed at three, moving both terminals only one row deeper produces absolute token-slide rigidity, while at three columns the jumping model remains connected even after sliding freezes. These sharp distinctions are not detected by the minimum-cut value alone and distinguish local relocation feasibility from unrestricted replacement feasibility. The result is for the complete parameter family, not an arbitrary small graph or an incrementally improved table entry.
+The three-rail confinement, general reconfiguration framework and width-three inequalities have prior or overlapping counterparts. The supportable increment is the exact classification for at least four rows: outer-row bypasses impose endpoint restrictions, generating the depth transition and both complete move graphs. Compared passages do not state or cover that classification; this is a best-of-knowledge finding, not a historical order claim about same-day entries.
 
-## Boundaries
+## value
 
-Same-row, interior, opposite-side terminal placements only; at least four rows and three columns. Only strict minimum separators and one-token moves. The finite tests are corroboration, not an infinite proof. The 2020 abstract-level prior comparison and the potential existence of unindexed historical equivalences are the principal scientific-access risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Keeping the minimum separator size three while changing only the terminals' depth exposes a structural distinction between cut capacity and mobility. The total slide freeze, and the survival of a connected jump graph for precisely the deep three-column exception, are useful sharp reconfiguration benchmarks, not merely a finite grid census. The result is limited to opposite ends of one interior row, minimum cuts, and one-token moves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

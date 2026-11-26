@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and limits
 
-Run `python check.py` from a directory containing the embedded `check.py` file. No nonstandard libraries or files are required. The program prints six counts: 1,632 exact rational zero-baseline ties; 523,590 allocation-grid comparisons; 56,000 seeded random allocation comparisons; 119,988 pairwise-shape checks; 552 boundary checks; and 614,215 positive-baseline grid comparisons, totalling 1,315,977 passing assertions. The actual program was run against the packaged source during this review. These are finite diagnostics, not proofs of universal quantifiers.
+Run `python check.py` from a directory containing the embedded `check.py` file. No nonstandard libraries or files are required. The program reports six diagnostic counts: 1,632 support values across 136 zero-baseline rational tie cases; 523,590 zero-baseline allocation-grid comparisons; 56,000 seeded random zero-baseline comparisons; 119,988 zero-baseline pairwise-shape comparisons; 552 checks around zero-baseline crossings; and 614,215 positive-baseline grid comparisons. The counters total 1,315,977; this is not a literal count of Python `assert` evaluations. These are finite diagnostics, not proofs of universal quantifiers.
 
-The mathematical proof derives all-patch optimizer structure from the pairwise balancing lemma, unique adjacent crossings from exponential tilting, and no skipping from strict unimodality of a continuous support-envelope derivative. Reproduction of the reported four-patch threshold approximations uses the equations in RESULT.md. There is no independent audit. Unavailable historical mathematical full texts leave residual priority uncertainty.
+The mathematical proof derives all-patch optimizer structure from the pairwise balancing lemma, unique adjacent crossings from exponential tilting, and no skipping from strict unimodality of the continuous support objective. Reproduction of the reported four-patch threshold approximations uses the equations in RESULT.md. Unavailable historical mathematical full texts leave residual priority uncertainty.

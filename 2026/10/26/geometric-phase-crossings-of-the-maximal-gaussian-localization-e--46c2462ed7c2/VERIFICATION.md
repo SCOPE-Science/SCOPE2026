@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the geometric-phase crossing theorem
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. Run `python triad_checker.py` in an environment with NumPy and SciPy installed. The checker evaluates finite Fock-basis Toeplitz blocks for the three cyclic rotation characters, integrates each equal disk by tensor-product radial Gauss--Legendre and angular trapezoidal quadrature, and searches for a sign change of the leading-sector eigenvalue difference. Its checks are supplemental sanity tests, not an infinite-dimensional certificate.
+## correctness
 
-Observed successful checks: the first three predicted limiting resonance radii were approximately \(1.099636110791\), \(1.904625613728\), and \(2.458861094243\). Finite positive-disk numerical crossings were located respectively near \(1.100379601129\), \(1.904665597932\), and \(2.458861227263\); the two crossing modes dominated the third, with computed normalized sector gaps approximately \(0.4853762894\), \(0.0129547994\), and \(0.0003454377\). At radii \(0.3\), \(0.9\), and \(1.7\), the sorted small-disk spectral levels agreed with the analytic coherent-Gram eigenvalues to better than \(3\times10^{-5}\) using disk radius \(0.004\).
+PASS
 
-The infinite-dimensional conclusion relies separately on an exact reproducing-kernel identity, operator-norm \(C^1\) Taylor estimates, the explicit circulant Gram spectrum, the nonzero crossing slope \(6R_m e^{-3R_m^2/2}\), threefold invariant subspaces and local isolated-eigenvalue continuity. Finite sections cannot certify these steps for all indices or finite widths. No claim is made of external or independent mathematical validation.
+The normalized disk operator is exactly the sum of three centered averages of normalized Fock projectors; the area normalization gives trace 3 for disjoint disks. The coherent-vector power series and its real derivatives converge locally in Fock norm. Hence disk averaging cancels the first moments and gives O(epsilon^2) in operator norm for both the operator and its R derivative. The cyclic orbit of coherent vectors has one positive Gram level in each character, with off-diagonal magnitude rho=exp(-3R^2/2) and phase sqrt(3)R^2/2 up to choice of cyclic sign. At the stated odd-phase radii the levels are 1+rho twice and 1-2rho once. The derivative difference has magnitude 2 rho times sqrt(3) times sqrt(3) R = 6 R rho. On a small closed interval around each fixed radius the two selected sector branches are simple within their own sectors, and jointly separated from all other levels. Sector Riesz projections and the resolvent identity give C^1 branch errors of O(epsilon^2). Opposite endpoint signs and a derivative of fixed nonzero sign give one transverse zero, the mean-value theorem gives the claimed shift, and the spectral gap persists. The interval and the allowed disk radius can be shrunk to ensure disjointness, independently for each m. This also checks m=0 and leaves no claim uniform in m. The finite quadrature in triad_checker.py is supplemental, not an infinite-dimensional certificate; it was inspected, not run.
+
+## originality
+
+PASS
+
+The supported distinction is the per-resonance small-disk result: local uniqueness, transversality, exact top multiplicity two and quadratic radius shift for the actual disk operator. There is material overlap in coherent Gram phases and qualitative positive-disk doublets with the fixed-disk large-separation Resultary result; neither that statement nor the inspected literature gives the small-disk derivative control or the local crossing law. This is a bounded comparison, not a historical priority certification.
+
+## value
+
+PASS
+
+The multiplicity counts the independent optimal signals for a fixed observation mask. The theorem gives an exact, stable-under-radius-tuning nonuniqueness mechanism for natural equal-area disconnected masks, not merely a repeated eigenvalue of a three-point surrogate. The local location, transverse behavior, and strict gap make the specified result stronger and more informative than a numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

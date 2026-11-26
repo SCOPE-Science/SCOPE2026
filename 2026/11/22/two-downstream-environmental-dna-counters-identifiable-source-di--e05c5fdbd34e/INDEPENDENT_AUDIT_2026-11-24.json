@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:21:46.123494Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–84",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent Poisson total/split likelihood derivation, endpoint bounds, local second derivative test and rational check"
+      ],
+      "rationale": "For g a calibrated positive mixture, H is the tilted mean attenuation rate and H' is minus the strictly positive tilted variance; the log mean ratio therefore increases strictly to the claimed unattainable limit. The Poisson split conditional on total T is binomial with downstream probability p=g(x+h)/(g(x)+g(x+h)). Reparameterizing the nuisance Q by the free total mean E[T] removes the total-score contribution to source distance. Here p'=p(1-p)(H(x)-H(x+h)); the binomial information E[T](p')^2/[p(1-p)] gives the stated formula independently of a Schur complement. It is positive for h>0 and tends to zero at both ends. Write b=c2/c1, a=a1, delta=a2-a1. The expansions g(u)=c1 exp(-au)(1+O(exp(-delta u))) and H(u)=a+delta b exp(-delta u)+o(exp(-delta u)) yield the proposed profile after extracting Q c1(delta b)^2 exp(-(a+2delta)x); two h-derivatives of the scaled information converge on compact h intervals by the finite exponential expansions and denominators bounded away from zero once the leading factors are extracted. Uniformly for u>=x both H(u)-a and |H'(u)| are O(exp(-delta x)); with the Poisson prefactor this bounds scaled information at small h by C h^2 and at large h by C' exp(-ah). These exclude escaping maxima. The limiting log derivative decreases strictly from +infinity to -a, so the maximum is unique and strictly nondegenerate. Compact convergence plus local strict concavity of the scaled information gives eventual uniqueness, not just subsequential convergence. Exact check: at x=h=log(2) for rates 1,2 and weights 1,1 with Q=16, the conditional downstream probability is 5/17, total mean is 17, and hazard difference is 2/15, giving 16/255. For an uncalibrated mixture a shift x to x' is exactly absorbed in each source amplitude by multiplication by exp(a_j(x'-x)); a one-pool model is an alias even with known shape.",
+      "residual_risks": [
+        "Only local Fisher information at fixed source scale and known mixture shape; no claim of finite-sample error bounds, unique optimum for every source distance, or field-model validity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poisson source localization in Farinetto et al. uses propagation timing, a known speed and background, and three spatial sensors; Pyatkov–Neustroeva treat pointwise overdetermination for point-source heat/mass-transfer PDEs.",
+          "Van Driessche et al. experimentally find downstream peaks and effects of discharge, species and biomass. It does not give the ideal positive finite-mixture information design."
+        ],
+        "reasoning": "General localization or observational transport relevance does not give a broader theorem covering the static calibrated positive-mixture design and its uniform distant-source optimization.",
+        "searches": [
+          "arXiv:1806.06381v1, pp. 1 and 4",
+          "arXiv:2308.16866v1, p. 1",
+          "DOI 10.1002/edn3.361, published article p. 1",
+          "Resultary 49a07f0253c2, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e05c5fdbd34e (same record), 49a07f0253c2, 1d30ea7555b9 and 035dbf4c4ed9",
+        "Primary OA arXiv:1806.06381, arXiv:2308.16866 and DOI 10.1002/edn3.361",
+        "Lawful access attempts only for 10.1111/1755-0998.13934, 10.1111/ecog.07644, 10.1002/edn3.417 and 10.1101/2024.03.27.586987"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator takes the slow source class fraction to zero and has a threshold at mu=2 lambda. The frozen theorem holds for arbitrary finite known positive weights and sends source distance to infinity, so the slow downstream class dominates instead of becoming rare. Its limiting gap is finite for every a,delta>0.",
+          "Schur complements and strict log convexity give standard ingredients but do not supply the uniform endpoint control and eventual optimizer uniqueness for this mixture model."
+        ],
+        "reasoning": "The comparator is not a stronger theorem from which the distinct mathematical result follows: its maximizing polynomial belongs to a different family of functions. Conversely, one cannot read the comparator's rare-class threshold off the frozen distant-source formula.",
+        "searches": [
+          "Same-day Resultary 49a07f0253c2, determinant, polynomial optimum and rare-class asymptotic, offsets 558–4279",
+          "Frozen RESULT.md, Statements 1–4 and lines 54–75"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day comparator has a source reference plus a downstream count, with unknown source fraction p and scale. Its D-objective is proportional to t^r(1-t)^2/[p+(1-p)t], t=exp(-(mu-lambda)h), r=lambda/(mu-lambda). The frozen limiting efficient-distance objective is t^r(1-t)^2/(1+t^r).",
+          "For r=1,p=1/2 the two objectives really are proportional; that explains the shared log((3+sqrt(17))/2) when the rates are 1,2. They are not generally proportional: affine and power denominators cannot match throughout 0<t<1 at other r. Farinetto et al. use three sensors and time-shifted Poisson signals, not this split likelihood on static attenuated counts."
+        ],
+        "reasoning": "Credit the exact specialized overlap rather than treating equal numbers as coincidence. For two pools the likelihoods themselves coincide after setting the comparator's reference intensity A=Qg(x), equal efforts one, and p=c1 exp(-ax)/g(x), smoothly invertible on its physical range. Its displayed Fisher matrix already yields the two-pool information by taking the Schur complement in A and multiplying by [dp/dx]^2; inserting p→1 in that expression also gives the fixed-h two-pool limiting profile. What does not transfer from the other optimizer theorem is maximization of that profile or stability for arbitrary finite mixtures: the nuisance-scale efficient objective divides the determinant by the scale diagonal, which varies with h.",
+        "searches": [
+          "Resultary and primary searches: downstream Poisson source localization, calibrated sum-of-exponentials, Fisher-optimal separation and nuisance amplitude",
+          "Resultary 49a07f0253c2, Finding and Proof, offsets 558–4279",
+          "Farinetto–Kutoyants–Top arXiv:1806.06381v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e05c5fdbd34e is the frozen record itself. 49a07f0253c2 is a distinct same-day result with a genuinely matching special numerical optimum but a different general formula. 1d30ea7555b9 uses four exact steady concentrations under two flows with known source position. 035dbf4c4ed9 concerns transient traces and unknown transport parameters, not Fisher spacing."
+        ],
+        "reasoning": "No inspected distinct entry tables the general calibrated-source profile, optimizer, or all-distance injective mean ratio together. Same-day records were compared by statements rather than excluded by date.",
+        "searches": [
+          "Resultary e05c5fdbd34e, 49a07f0253c2, 1d30ea7555b9 and 035dbf4c4ed9, matching RESULT.md passages"
+        ]
+      },
+      "rationale": "The supported distinct claim is the general distant-source efficient-information profile and eventual unique two-rate optimal gap under calibrated shape, together with the source-distance identifiability boundary. Log convexity and the Fisher calculation are standard. A distinct same-day optimization record exactly overlaps the equal-gap/equal-weight example at the level of objective shape, but has a different parameter, criterion, general objective and asymptotic regime. Neither the matching example nor same-day order is claimed as priority evidence.",
+      "residual_risks": [
+        "No within-day priority established for the overlapping special objective. The relevant full text for Pont, Lambert–Ellner, Kirtane et al. and Augustine et al. was not retrievable in the bounded check; closer prior design methods could exist there or in unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special profile overlap when r=1 and p=1/2; does not cover general distant-source optimum",
+          "evidence": "Reference count plus one downstream count; D-optimal joint intensity and fraction criterion with denominator p+(1-p)t; rare-slow-fraction threshold rather than distant-source design.",
+          "identifier_or_url": "Resultary 49a07f0253c2",
+          "material_read": "RESULT.md, Finding, Assumptions, Proof offsets 558–4279, and Verification example near offset 5281",
+          "method": "Local published mirror; full equations compared",
+          "title": "A sharp two-to-one attenuation boundary for Poisson-optimal downstream DNA sampling",
+          "trigger": "Closest overlap; same example and two exponential Poisson counts"
+        },
+        {
+          "assessment": "Different observation law and design",
+          "evidence": "Three spatial sensors and a signal shifted in time by propagation delays, with background.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.06381",
+          "material_read": "v1 pp. 1 and 4",
+          "method": "Primary OA full-text passages",
+          "title": "Poisson source localization on the plane: the change-point case",
+          "trigger": "Primary Poisson source localization comparator"
+        },
+        {
+          "assessment": "Does not state the calibrated-mixture information optimization",
+          "evidence": "Heat and mass-transfer PDE point-source identification.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16866",
+          "material_read": "v1 p. 1, problem setting",
+          "method": "Primary OA full-text passage",
+          "title": "Point sources identification problems with pointwise overdetermination",
+          "trigger": "Source identifiability in transport"
+        },
+        {
+          "assessment": "Empirical antecedent and scope caution, not the ideal model theorem",
+          "evidence": "Spatial concentration peaks and dependence on flow and biomass are inconsistent with interpreting the positive loss-only kernel as a universal empirical description.",
+          "identifier_or_url": "https://doi.org/10.1002/edn3.361",
+          "material_read": "Published article p. 1, offsets 1300–4257",
+          "method": "Lawful OA copy of published article",
+          "title": "Experimental assessment of downstream environmental DNA patterns under variable fish biomass and river discharge rates",
+          "trigger": "Physical observation motivating the design"
+        },
+        {
+          "assessment": "Different parameter objects or observation laws",
+          "evidence": "Steady exact observations under two flows in one case, transient impulse traces in the other.",
+          "identifier_or_url": "Resultary 1d30ea7555b9 and 035dbf4c4ed9",
+          "material_read": "RESULT.md Findings",
+          "method": "Local published mirror",
+          "title": "Four one-sided concentrations and two-versus-three-monitor identifiability",
+          "trigger": "Distinct same-day inverse transport comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "DOI 10.1002/edn3.361, empirical downstream observations",
+        "Resultary 49a07f0253c2, alternative observation and design benchmark"
+      ],
+      "rationale": "The model gives a useful exact benchmark: an unknown scale still permits localization if a mixture shape is calibrated, but without calibration even noiseless full downstream data can alias all distances. The two-rate Fisher gap and the faster loss of localization information than of mean counts quantify distinct design consequences that identifiability alone cannot reveal.",
+      "residual_risks": [
+        "No direct prescription for a field reach: loss-only homogeneous transport, known rates and weights, independence and Poisson counting are stipulations, not validated approximations. No guarantee of accurate inference from one pair of counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

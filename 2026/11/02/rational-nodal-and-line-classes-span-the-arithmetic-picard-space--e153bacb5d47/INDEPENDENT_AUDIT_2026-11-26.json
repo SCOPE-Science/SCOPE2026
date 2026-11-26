@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:41.546313Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Frozen verify.py lines 19–68, VERIFY_OUTPUT.txt lines 2–6 and VERIFICATION.md (read-only inspection)",
+        "Independent replay: python /workspace/branches/4326cb5c-73ce-4ebf-8b1a-9523a3b2a924/independent_reproduce.py",
+        "Independent results: /workspace/branches/4326cb5c-73ce-4ebf-8b1a-9523a3b2a924/independent_reproduce.out lines 1–10"
+      ],
+      "rationale": "For F=e1 e3−e4 each gradient entry in characteristic three is P(x_i), with P(X)=X³+(e2−e1²)X+e1 e2. This also gives a geometric completeness check independent of the finite-point search: for three distinct coordinate values the three roots sum to zero. If a is repeated, then e1=a and the pairwise sum of the roots is e2, forcing a=0 from P, hence the remaining coordinates are opposite. For two distinct values of multiplicity 2+2 the root equations give a²+b²=0 and a²(b−a)=0, a contradiction. For multiplicities 3+1, P(X)=X(X²−b²) where b is the single value, so the repeated value is 0 or −b. The all-equal case is one point. These classes all satisfy F=0 and give exactly the four rational orbits. Their nonsingular quadratic terms were verified, agreeing with the reported chart quotient lengths and showing ordinary double points. Finiteness of the geometric singular locus implies geometric integrality; adjunction and the crepant nodal resolution give the K3. The independently enumerated projective planes give all 20 rational lines by testing the restriction polynomial, not just rational point evaluations. On the resolution, adjunction gives self-intersection −2, a line through a node meets the exceptional conic transversely once, distinct lines through one node separate by their distinct tangent directions, and smooth line intersections are transverse. The independent incidence matrix has rational rank 21 and reproduces the indexed principal determinant 1536. The same replay gets quartic counts (25,145) and resolution counts (70,280), adding q points per rational node over each field. Purity and equality in the F_9 bound force squared eigenvalues 9, and the F_3 trace 60 gives multiplicities 21 and 1 for +3 and −3. Injectivity of the étale divisor class map bounds the fixed rational space by 21; the minor and rationality give the opposite inequality and spanning. No Tate assumption is needed for spanning, while the geometric complementary direction uses the established K3 Tate theorem over F_9.",
+      "residual_risks": [
+        "The replay searches singular points over F_3, not over its algebraic closure. The gradient argument and the frozen chart length calculation address that separate completeness step.",
+        "Only the rational Frobenius-fixed span is certified; no integral saturation or enumeration of non-rational lines is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dardanelli–van Geemen study the lattice from 20 curves on a general complex Hessian K3. Dolgachev gives moduli-general complex 15-nodal Picard rank 16 and a lattice description; the configuration source discusses 20 Steiner lines and a Plücker-point incidence."
+        ],
+        "reasoning": "Characteristic-zero lattices and named incidences are relevant comparisons but do not fix intersections and their arithmetic span in this special characteristic-three reduction. The classical Plücker-point incidence is not used as an identification of the exact node set in the reviewed computation.",
+        "searches": [
+          "Dardanelli–van Geemen arXiv:math/0409322 §1.6",
+          "Dolgachev arXiv:1906.12295 §8 and arXiv:math/0304258 §9.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 354587d82ab3",
+        "arXiv:math/0409322 §1.6",
+        "arXiv:1906.12295 §8",
+        "arXiv:math/0304258 §9.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dimension is 21 by the same-model zeta argument. The frozen configuration requires an independent nodal/line intersection calculation, including ten smooth line-pair intersections and the nonzero principal minor."
+        ],
+        "reasoning": "Knowing the ambient invariant dimension and that the classes are invariant provides only an upper bound for their span, not a lower bound. Even the node-versus-line incidence degrees do not specify smooth line intersections or the rank of the full form. The enumerated configuration's rank is the new input that bridges the gap.",
+        "searches": [
+          "354587d82ab3 proof and verification, mirror offsets 6110–8120",
+          "Dolgachev arXiv:1906.12295 §8 and arXiv:math/0304258 §9.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the Clebsch pentahedron e1^(5)=0 eliminate x4 as −e1^(4); then e4^(5)=e4^(4)−e1^(4)e3^(4), the negative of the frozen equation.",
+          "354587d82ab3 gives this exact model's rational nodes and Frobenius/Picard ranks."
+        ],
+        "reasoning": "This is equivalence of the quartics over F_3, not merely the same node count. The matching record's rank and spectrum are credited, but its inspected conclusion and verification cover point counts and zeta, not ranks of a specified divisor configuration. The common date is not used to assign priority.",
+        "searches": [
+          "Resultary search for characteristic-three Clebsch/Cayley Hessian, supersingular zeta and Picard classes; exact same-model record 354587d82ab3",
+          "arXiv:math/0409322 Hessian models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-model entry tabulates the same zeta spectrum and ranks, but its verification checks Hessian, nodes, point counts and trace arithmetic, not rational lines or their intersection pairing.",
+          "The inspected complex lattice tabulations concern different geometric objects or characteristics."
+        ],
+        "reasoning": "A catalogue rank for the ambient Picard space is already known here; it is not a table of the rank attained by the 35 specified generators. The bounded search found no such exact lattice entry, which is not evidence that none exists.",
+        "searches": [
+          "Local Resultary exact-model, supersingular Hessian and Picard-lattice search; 354587d82ab3 Finding, Proof and Verification"
+        ]
+      },
+      "rationale": "The supported distinct claim is generation by this explicit list of 35 geometric classes defined over F_3, certified by their rank-21 intersection pairing. The characteristic-three model, singularities, zeta function, and the arithmetic dimension 21 already have material same-model coverage; none of those, on its own, is credited here as new.",
+      "residual_risks": [
+        "Unindexed or inaccessible explicit positive-characteristic lattice computations could cover this configuration. The supported distinction is rational generation, not historical priority for the model, nodes, zeta or Picard ranks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and rank overlap; not evidence of an explicit spanning configuration.",
+          "evidence": "Zeta denominator (1−T)(1−9T)(1−3T)^21(1+3T), Picard ranks 21 and 22; the listed checks do not include rational line classes or an intersection minor.",
+          "identifier_or_url": "354587d82ab3",
+          "material_read": "RESULT.md Finding, zeta/Picard proof conclusion, Verification and related work (including offsets 6110–8120)",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Fifteen rational nodes and a supersingular zeta function for the characteristic-three Hessian",
+          "trigger": "Equation-equivalent same-day characteristic-three model with the same arithmetic Picard rank"
+        },
+        {
+          "assessment": "Related complex Hessian lattice, different specialization and arithmetic.",
+          "evidence": "Rank 16 lattice from twenty curves in the generic complex case.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0409322",
+          "material_read": "§1.6, PDF p. 3",
+          "method": "OA primary PDF passage",
+          "title": "Hessians and the moduli space of cubic surfaces",
+          "trigger": "Hessian K3 lattice and curve configurations"
+        },
+        {
+          "assessment": "Moduli-general complex situation; not the F_3 special-fibre generation statement.",
+          "evidence": "Picard rank 16 with different lattice description.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.12295",
+          "material_read": "§8, PDF pp. 32–33",
+          "method": "OA primary PDF passages",
+          "title": "15-nodal quartic surfaces. I: Quintic del Pezzo surfaces and congruences of lines in projective 3-space",
+          "trigger": "Possible general lattice result for fifteen-nodal quartics"
+        },
+        {
+          "assessment": "Related configuration; no direct assertion there about the arithmetic divisor span.",
+          "evidence": "Discusses Steiner lines and a (15_4,20_3) configuration involving Plücker points; the node set is introduced separately.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304258",
+          "material_read": "§9.6, PDF p. 27",
+          "method": "OA primary PDF passage",
+          "title": "Abstract configurations in algebraic geometry",
+          "trigger": "Classical fifteen-node and twenty-line incidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Independent incidence and minor replay",
+        "Resultary 354587d82ab3"
+      ],
+      "rationale": "The arithmetic rank alone or a Tate-theoretic existence result leaves arithmetic divisors abstract. Exhibiting a geometrically motivated complete rational spanning set on this special fibre, together with an explicit nonsingular intersection minor, makes divisor classes and intersections available for further work. It answers a natural generation question rather than merely recomputing the known point counts.",
+      "residual_risks": [
+        "The certificate does not determine an integral basis or the Artin invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

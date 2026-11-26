@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The return-tail event is an explicit monotone inverse-branch cylinder, so its probability under an arbitrary density is precisely a one-sided boundary integral. The inverse-branch recurrence is expanded through its quadratic Taylor term, and summation of a summable remainder yields the logarithmic inverse-orbit correction with its exact coefficient. Integrating the general power-cusp boundary expansion and comparing uniform ratios proves the complete pair of distributional correction profiles. A one-variable derivative calculation gives both sharp uniform constants. Numerical checks supplement, rather than replace, these arguments.
+PASS
 
-## Originality
+The strict return tail at n uses the left-branch threshold x_(n-1) and the initial-section integral up to (1+x_(n-1))/2. For w_j=x_j^(-alpha), the increments are A-B/w_(j+1)+O(w_(j+1)^(-2)), A=alpha*2^alpha, B=alpha*(1+alpha)*2^(2*alpha)/2. Linear growth first gives w_j=Aj+O(log j); replacing 1/w_(j+1) by 1/(A(j+1)) introduces a summable error. Inversion gives the stated positive Q_alpha=B/(alpha*A^2). The integrated density has relative second coefficient d*r*2^(-beta)/(r+beta); substituting the orbit gives L. For k=floor(un)-1, k=un+O(1) and k>=n-1 uniformly. The floor incurs O(n^-1) in the relative leading term, the small-o density bound is uniform over this tail of indices, and log(k)/k differs from (log n)/(nu) by uniformly O(n^-1). This yields the two profiles, with the logarithmic term dominating also at beta=alpha. Differentiating u^(-p)(1-u^(-eta)) gives the stated maximizers and constants; comparison with n^(-p) gives the moment criterion for positive s (nonpositive orders are automatically finite).
 
-PASS under examined evidence, with priority risk stated below. Korepanov–Wei–Wormell's Abel-coordinate theorem supplies stronger information about the inverse LSV orbit but concerns rigorous numerics and invariant densities, not the claimed boundary-regularity transition in conditional first-return excess laws. Wang–Su establish an open-system conditional law and the leading return-tail estimate, not the two sharp uniform correction profiles for arbitrary non-invariant boundary-power densities. Demers–Fernandez and Duvall address different survivor-conditioning problems. Published nearby findings on invariant-density subprincipal asymptotics describe an observable at the neutral fixed point, not the initial-density cusp at the return section. A broader second-order regular-variation formulation might yield a related formulation and remains a residual priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result classifies the precise mechanism determining the leading finite-observation error of a natural Pareto return-excess statistic: a boundary-density cusp or the map's intrinsic neutral-orbit logarithm. The transition is sharp, persists throughout both finite- and infinite-invariant-measure LSV ranges, and includes exact distribution-wide bias functions and constants, not merely a pointwise asymptotic or restatement of the first-order tail. It quantifies when a change of sampling law changes the statistical convergence rate and when dynamics overwhelms sampling regularity.
+The distinct result is the explicit crossover with sharp full-half-line conditional excess profiles and supremum constants for the specified local density expansion, not the logarithmic inverse orbit, the leading return tail, or the algebra of a generic Pareto profile. The inspected results do not supply the combined second-order arbitrary-start tail, its two competing coefficients, and the sharp normalized excess conclusion.
 
-## Closest literature and limits
+## value
 
-The inverse-orbit logarithmic term is already accessible from the 2026 Abel-function work and is independently reconstructed here, not asserted as new. Neither the finite numerical checks nor the absence of a search hit proves priority. The result does not address arbitrary holes, unconditional equilibrium distributions, or density expansions with vanishing first correction. Independent external assessment has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantitative bias of the Pareto excess approximation depends on which of the start density and neutral orbit supplies the slowest correction. The boundary beta=alpha and the positive sharp supremum constants tell when improving start regularity no longer improves the error, even without an invariant probability law. This is a meaningful natural transition and a distributional error guarantee, not a standalone moment test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

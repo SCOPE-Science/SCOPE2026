@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:56:10.420158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write p=E11, n=E12, L=E11+E21, and W=(Fp+Fn) plus M2(F)omega. In the specified multiplication, p(a+b omega)=pa+(bp)omega and likewise for n. The first components have zero second row, and right multiplication of b by p or n fills the first or second column respectively; therefore pO+nO=W, and every Phi value lies in W. With y=A+B omega and x=L, the first component is pLA-nAL=(a11-a21-a22)p+a12 n. The second component is B(Lp-bar(L)n)=B times the matrix with rows (1,0) and (1,1). For any target sp+tn+C omega take A with first row (s,t) and zero second row, and B=C times the matrix with rows (1,0) and (-1,1). This constructs a preimage in the fixed slice over every allowed field. The six target coordinates are independent. The determinants of p,n,p+n vanish, proving the stated norm orthogonality, and p,n are independent nonzero zero divisors. Parentheses are kept as in Phi, without associativity of the octonion algebra. The frozen verifier and its determinant-one-minor output were inspected, not executed; this algebraic check does not rely on that run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The v2 theorem states Im Phi=AO+BO, dimension six, for all independent norm-orthogonal nonzero zero divisors, strictly broader than the frozen canonical pair.",
+          "V1 gives only the dimension of the span in that case. The associative M2 theorem of Panja–Saini–Singh gives a subspace image over an algebraically closed field but is not about this octonion product."
+        ],
+        "reasoning": "Automorphism covariance transports a result along an orbit but does not on its own cover every orthogonal pair. V2 gives multiple normal forms and an all-pairs theorem.",
+        "searches": [
+          "de Mello–Saini v1 and v2 Theorem 1.1(iii); v2 Proposition 5.4",
+          "Panja–Saini–Singh arXiv:2312.13865 Theorem B"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 2–79; VERIFICATION.md, verify.py, and verification_output.txt",
+        "de Mello–Saini arXiv:2610.04466v1 and v2, exact passages above",
+        "Panja–Saini–Singh arXiv:2312.13865 Theorem B",
+        "The two distinct Resultary records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "V1's six-dimensional span does not imply that the image is a subspace, let alone that a single slice fills it.",
+          "V2's theorem gives the image; the fixed x0 used in the proof for (p, alpha p+n) gives its full surjective slice at alpha=0. Even the constructive part is therefore covered, not merely the dimension."
+        ],
+        "reasoning": "The older cited theorem and current broader theorem must be distinguished; version comparison, not priority inference, determines coverage.",
+        "searches": [
+          "arXiv:2610.04466v1 Theorem 1.1(iii), span versus image",
+          "arXiv:2610.04466v2 Theorem 1.1(iii), Proposition 5.4 pp. 27, 30–31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In v2 the split-model p,n,m are E11,E12,E21. The normal form (p, alpha p+n) in the proof of Proposition 5.4 uses the fixed x0=p+m. At alpha=0 the pair, map and x0 are exactly the frozen ones.",
+          "Ordinary octonion commutator results use equal scalars as coefficients, not these independent isotropic coefficients; a shared word 'commutator' is not equivalence."
+        ],
+        "reasoning": "No change of signs, field, or multiplication convention is needed for the exact v2 specialization. Its image AO+BO is the frozen W in this matrix model.",
+        "searches": [
+          "de Mello–Saini arXiv:2610.04466v1 and v2, Theorem 1.1(iii) and Proposition 5.4 normal forms",
+          "Resultary generalized commutator split octonions, orthogonal coefficients E11 and E12, fixed slice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-exact-commutator-fibers-of-split-octonion-algebras-over-odd-fini--a9de9b1b9f96 counts ordinary commutator fibers (trace-zero image, dimension seven). Resultary 2026/11/22/SCOPE-three-prescribed-commutator-fibers-in-characteristic-two-split-o--7a3f8106ff5a concerns the ordinary map in characteristic two.",
+          "The exact matching item is a primary normal-form computation, not a finite-field table; the latter would not establish the arbitrary-field slice theorem as stated."
+        ],
+        "reasoning": "No matching distinct Resultary table or item was identified in the bounded search; the exact full-text match in v2 is decisive.",
+        "searches": [
+          "Resultary exact images and commutator fibers of split octonions, ordinary vs generalized coefficient pairs",
+          "arXiv:2610.04466v2 Proposition 5.4 normal-form computation"
+        ]
+      },
+      "rationale": "The cited v1 genuinely left a span-versus-image gap. The current v2 of the same paper establishes the image for the entire independent orthogonal zero-divisor case and gives the identical fixed surjective slice for this pair as a normal-form specialization. This is demonstrable current coverage including the stronger fixed-slice claim, not an assertion of earlier priority: v2 is dated November 23 UTC, after the frozen item dated October 13 UTC. No comparable exact coverage was identified in the bounded pre-record sources.",
+      "residual_risks": [
+        "The statement-level comparison does not determine priority, independence, or causation between the October finding and November v2.",
+        "The audit is restricted to the specified pair and allowed characteristic; it does not independently prove the all-pairs theorem or extend it to characteristic two."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correctly characterized in the frozen citation; does not prove this exact image",
+          "evidence": "States span dimension six and leaves open whether the image itself is a subspace in case (iii).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04466v1",
+          "material_read": "PDF p. 3, Theorem 1.1(iii) and adjacent discussion",
+          "method": "Primary OA version-specific full-text comparison",
+          "title": "Generalized commutator on octonion algebra, v1",
+          "trigger": "Frozen source of the span-only gap"
+        },
+        {
+          "assessment": "Current stronger theorem and exact same fixed slice",
+          "evidence": "Im Phi=AO+BO for every case-(iii) pair; the calculation for (p, alpha p+n) uses x0=p+m, specializing to E11+E21 at alpha=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04466v2",
+          "material_read": "PDF pp. 3 and 6; Proposition 5.4 pp. 27, 30–31",
+          "method": "Primary OA full-text comparison of theorem, split basis and proof",
+          "title": "Generalized commutator on octonion algebra, v2",
+          "trigger": "Revised theorem and exact normal-form slice"
+        },
+        {
+          "assessment": "Different domain and field assumptions, not coverage",
+          "evidence": "The theorem concerns associative M2 over an algebraically closed field, not the split octonion extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13865",
+          "material_read": "PDF p. 2, Theorem B",
+          "method": "Primary OA theorem comparison",
+          "title": "Images of polynomial maps with constants",
+          "trigger": "Analogous image result for Axy-Byx"
+        },
+        {
+          "assessment": "Not the same image problem",
+          "evidence": "xy-yx has trace-zero image of dimension seven; this is not the two-coefficient map.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-commutator-fibers-of-split-octonion-algebras-over-odd-fini--a9de9b1b9f96",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local full-text mirror comparison",
+          "title": "Exact commutator fibers of split octonion algebras over odd finite fields",
+          "trigger": "Closest odd-characteristic Resultary hit"
+        },
+        {
+          "assessment": "Different map and characteristic",
+          "evidence": "Ordinary commutator fibers in characteristic two, not this characteristic-not-two exact image.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-prescribed-commutator-fibers-in-characteristic-two-split-o--7a3f8106ff5a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local full-text mirror comparison",
+          "title": "Three prescribed commutator fibers in characteristic-two split octonions",
+          "trigger": "Related split-octonion catalogue hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Showing that a single slice fills the exact image of this canonical pair was a mathematically motivated test of the v1 span-only gap, not an arbitrary choice of invariant. But as a current stand-alone narrow exact-image result, it adds no distinct fact beyond v2: the full image, the same slice, and the broader case are already given there. The explicit coordinate solution does not supply a separate new structural claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

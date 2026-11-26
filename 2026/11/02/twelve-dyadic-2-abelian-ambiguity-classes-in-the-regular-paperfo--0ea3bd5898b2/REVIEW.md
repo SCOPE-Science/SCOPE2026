@@ -1,15 +1,21 @@
-# Mathematical review: dyadic 2-Abelian fibres of paperfolding factors
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for all integers \(k\ge4\), all twelve signatures, and **distinct** length-\(2^k\) factors. Its proof uses the published exact factor-complexity theorem for paperfolding words (Allouche 1992), whose proof and defining hypotheses were examined in the primary PDF, together with a self-contained four-skeleton construction. Every factor is a rotation of a canonical skeleton, and the source theorem forces all \(4N\) labelled rotations to be distinct. The odd-position alternation and even-position recurrence establish the circular bigram counts. Cutting a circular edge gives the explicit endpoint-resolved signatures and class sizes. A separate executable check uses overlapping bigrams and direct factor enumeration at seven dyadic levels. Unrestricted validity rests on the argument and the established dependency, not the finite checks.
+## correctness
 
-## Originality — PASS (qualified)
-The closest result, Allouche (1992), counts all distinct factors, but does not state their 2-Abelian multiplicities. The exact counting approach is compatible with but not identical to the canonical-position programme of Allouche and Bousquet-Mélou (1994); its complete primary text was not accessed. Madill and Rampersad (arXiv:1208.2856) study one-letter Abelian complexity of the same word and not this finer endpoint-and-bigram fibre distribution. Parreau et al. (arXiv:1405.3532) consider 2-Abelian complexities of Thue–Morse and period-doubling rather than paperfolding. Semantic research-record and published-literature searches found no statement with the same full parameter domain and cardinality law; that failure alone is not proof of global novelty. The exact 1994 full-text comparison is a residual priority risk, not a claim of thorough exclusion.
+PASS
 
-## Value — PASS
-This class-size spectrum quantifies the loss of distinguishability when a paperfolding factor is represented by local bigram data. The full, endpoint-resolved, all-dyadic-level classification is substantially more informative than merely counting the \(4N\) factors or the number of 2-Abelian classes. Its Toeplitz skeleton/edge-cut interpretation naturally explains the extreme fibres and can guide comparable multiplicity calculations for other automatic sequences. The restriction to dyadic lengths and regular folding instructions is explicit; no downstream general theorem is asserted.
+Final assessment is of the corrected RESULT.md. The frozen line 6 lists q five times, giving thirteen entries of total size 4N+q; as written that multiset is false. The endpoint formula and proof already require q exactly four times, so the replacement removes the one extra entry and leaves the substantive theorem and proof unchanged. Independently, in a length-N interval only residues 0 and N/2 have fewer than two odd-part bits fixed by the residue. The former gives g(m) at index Nm; the other is g(2m+1) or g(2m-1), fixed by parity of m for a fixed start phase. In each parity class g(m) takes both values at arbitrarily large m, so each labelled cut and bit choice occurs. Allouche's 4N complexity theorem then forces all labels to represent distinct strings. Around an even site the two odd neighbors differ, hence the two incident directed edges consist of one transition and one equal pair; the direction of the transition is determined by the left odd neighbor, regardless of the even bit. There are q transitions each way. At a zero even site the equal pair is 00, and at a one even site it is 11. The count of ones on the even sites of the unmodified prefix is q-1 by g(2r)=g(r) and the dyadic prefix weight recurrence, so toggling h exceptional bits gives B_h. Cutting an edge of type ba subtracts exactly that closing edge and gives endpoints a,b. Bigrams and endpoints determine letter counts and conversely the letter and bigram counts recover the endpoints. Thus different triples give distinct nonempty classes and each has binom(2,h)B_h(ba) strings. For h=1 there are four size-2q classes; the other levels together give two q-1, four q, and two q+1. These are twelve classes of total size 16q=4N. Independently enumerated starts for N=16,32,64,128 from the two lowest relevant index bits, deduplicated strings and binned by endpoints, weight and transition count; the sample counts match the proven spectrum. The repair was diffed against the original and the corrected literal multiset checked against the formula.
 
-## Limitations
-The paperfolding factor-complexity theorem is an explicit published dependency. No assertion is made for non-dyadic lengths, general folding instructions, occurrence-weighted probabilities, or higher-order Abelian classes. Earlier equivalent results under different terminology remain possible, especially in the 1994 canonical-position literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The corrected claim is the adjacent-pair, endpoint-resolved dyadic fibre-size spectrum, not the ordinary complexity, the four-template catalogue by itself, or regularity of class counts. The strongest same-day records give the same templates for a different statistic or exactly this type of statistic on a different word. Neither examined claim states the ordered adjacent-pair counts of the circles or the resulting twelve dyadic paperfolding fibres. The unavailable 1994 full text remains a specific priority risk, not a verdict.
+
+## value
+
+PASS
+
+For a natural automatic word the fibre sizes answer how many distinct strings are compatible with one local observation (endpoints and pair counts). Total factor complexity or the number of 2-Abelian signatures cannot answer that question. The dyadic restriction is tied to the two exceptional residues, and the ordered-cut calculation gives an all-level ambiguity distribution, with an explicit factor-two multiplicity effect from the middle weight level. This is a motivated quantitative invariant rather than a sampled list or another statement of ordinary complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python verify.py` using Python 3.10 or newer; there are no third-party dependencies. The script checks four different small graph classes by two exact rational recursions (one on physical labeled vertex subsets, one on coarse vacancy counts), the generator inequalities for integer class totals 10 through 1999 together with their factored identities, and independently integrates the limiting martingale variance using midpoint quadrature. It also runs two seeded finite-size simulations solely as sanity checks.
+# Independent mathematical audit
 
-The exact terminal distributions for \((|A|,|B|,|C|)=(2,2,2)\), \((2,2,4)\), and \((3,3,2)\) assign respectively \(8/65\), \(96/1183\), and \(1644/7865\) probability to two unmatched vertices. The limiting variance values computed by both the formula and quadrature are approximately \(0.005316274621\), \(0.045661088368\), and \(0.087538396729\) for \(\alpha=0.2,0.3,0.4\).
+## correctness
 
-The symbolic rational identities printed in RESULT.md establish the generator bounds for all integer \(L\ge10\); the loop is an additional consistency check, not their infinite proof. Finite recursions and Monte Carlo cannot establish the asymptotic central limit theorem. The latter follows from the stopped-martingale argument and its explicit all-time tail control.
+PASS
+
+This is a pass for the repaired claim, not for the frozen formula interpreted literally. The frozen disjoint-union symbol deletes all A–B edges, contradicts its prose and rate AB/N, and for α>1/4 would leave at least 4m_N−N unmatched vertices deterministically, disproving the stated scaling under that reading. The complete corrected RESULT.md in /workspace/repairs/5/ replaces the disjoint union by the complete bipartite graph and preserves the adjacency actually used by the proof and verifier. It explicitly states the rescaled time, makes the stopping/localization argument precise, and describes the finite verifier as labeled-subset recursion rather than full permutation enumeration. On the corrected graph, exponential memorylessness gives the four rates, parity and maximality give U=|D_jam|, and A–B matching plus clique pairing gives a perfect matching. I substituted each jump into both scaled generator ratios and checked the deficits with AB≤L²/4 and C≤L, including C=0. The D² compensator bound uses the actual cross-to-clique count (at most C₀); stopping bounds imbalance exits by O(N^(−1/3)). The 2C/L estimate controls both the ratio exit and the tail integral of c, and the NC/L² supermartingale with its integrating factor gives C at L≈N^(2/3) of order O_P(N^(1/3)). The cutoff time bound follows from summing 9N/L² over remaining levels; a failed cutoff has vanishing probability. Hence later D changes are o_P(√N). The squared integrating factor is tight, and the tail of the unweighted bracket has expectation ≤E C_T/N, which vanishes in the successive limits. With the stated localization, the jumps vanish uniformly and the martingale CLT yields the claimed normal for D and folded normal for U. Evaluating the positive fluid bracket gives the displayed variance; E D_jam²≤C₀ gives uniform integrability for the mean. Independent bounded calculation agrees with the recorded three nontrivial exact probabilities and variance values.
+
+## originality
+
+PASS
+
+For the corrected graph, the credited result is the terminal centered √N fluctuation with the explicit variance and uniform-integrability conclusion under balanced, macroscopic reservoirs and a macroscopic clique. The greedy algorithm and density-dependent finite-time framework are known. The strongest earlier indexed split-graph result has the same scale for fluctuations but about positive density in a different graph. The closest folded-normal analogue concerns a rare independent third part and is later. No checked prior passage covers the corrected finding.
+
+## value
+
+PASS
+
+On the corrected dense graph, a perfect matching is immediate while irreversible uniform greedy matching leaves a diverging terminal defect despite its limiting fraction being zero. The explicit folded-normal law and mean identify the finite-size amount of jamming and its dependence on composition; a fixed-time or density approximation cannot supply that information. The terminal cutoff matters mathematically because the observable lives at absorption rather than at a fixed fluid time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

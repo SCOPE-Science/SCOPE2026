@@ -1,20 +1,21 @@
-# Scientific assessment: exact attraction-basin lift under clique coning
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over every finite, simple, undirected graph with at least two vertices and no isolated vertex, and over every integer number of added universal clique vertices. The proof first proves \(f^3=f\) directly for all open-neighborhood NOR maps using antitonicity and \(x\le f^2(x)\). It identifies the zero/one oscillator's base basin as one plus the number of total dominating supports, proves an exact four-case classification of a one-hub extension, and then iterates that extension. This establishes all attractor labels, exact nonprincipal basin preservation, new singleton basins, the principal-basin formula and its asymptotic. Two separately implemented exhaustive checkers test complete attractor/basin dictionaries, with 1,890 and 138 graph/attachment experiments respectively. Finite tests support, but do not replace, the proof. The isolate-free assumption is essential to the stated embedding and base oscillator.
+## correctness
 
-## Originality — PASS, with stated residual risks
-The nearest primary work on negative AND-NOT and AND–OR–NOT networks (Veliz-Cuba–Laubenbacher 2011; Aracena–Richard–Salinas 2014) examines fixed points and their relation to maximal independent sets, not this transformation of entire attraction basins. The accessible full 2015 survey and 2020 periodic-point study establish the qualitative period framework and some periodic-point counts, without supplying the arbitrary-base, arbitrary-clique basin-preservation law. Prior wheel-specific NOR analysis gives the principal basin only for a cyclic base, and explicitly leaves other basin sizes unclassified; the current claim is its precise whole-attractor graph-operation extension and does not reassert the wheel calculation as new. Published-record searches and primary-literature searches for equivalent coning, hub, domination and basin formulations did not identify a stronger covering theorem. The 2011 full text was not accessible from the sources accessible for this review; its abstract concerns fixed points, but inaccessible material remains a historical-priority risk. No database search alone proves uniqueness.
+PASS
 
-## Value — PASS
-A universal-vertex attachment is a canonical graph operation. The theorem shows that it transfers the entire nonprincipal recurrent dynamics unchanged, while exactly redirecting all but one newly introduced bit assignments into one distinguished oscillator. This is a structure theorem for all finite isolate-free base graphs, not an isolated finite computation, and its binomially large basin change is governed precisely by a natural graph invariant (the total domination count). It establishes unique basin dominance after one added vertex and asymptotically certain selection after many additions, without computing any of the original nonprincipal attractors. The statement is useful for transporting exact orbit classifications across cone and clique-join families.
+Symmetry of adjacency gives A⊆f²(A) for every support A, and antitonicity gives the reverse comparison needed for f³=f. In an isolate-free graph only the empty support maps to the full support; the preimages of empty are exactly the total dominating supports. Hence the full principal basin has size T+1. Directly for arbitrary r, split a state into base support S and clique support U. If U is empty and S is nonempty, the next state is (f_H(S),∅); exactly the nonprincipal base basins avoid empty forever, preserving the trajectories and labelled basins. The empty state maps to all vertices. If U is nonempty, the update gives zero except when S is empty and U is a singleton, in which case it gives that same singleton. This proves the complete dictionary, including no external predecessors to the singleton fixed points, and adds precisely 2^{n+r}−2^n−r states to the original principal count. At r=1 the principal basin size 2^n+T(H) is already strictly above half, and the excess strictly grows on further lifts. Division by 2^{n+r} gives the claimed limit; r=0 reduces to the base. The example total-domination counts 4,9,11 give all the displayed basin sizes. RESULT.md lines 21–37 provide a replay via one hub. Both uploaded checkers were inspected, not executed. CHECKS.txt labels 262 as the random base count, but the code prints a count bounded by 150 there; 262 is the number of attachment experiments for 131 accepted random draws, consistent with the total 1890. This is a nonmaterial supporting-transcript discrepancy, not an all-size proof issue.
 
-## Closest literature and limitations
-- Veliz-Cuba and Laubenbacher, *On the computation of fixed points in Boolean networks* (first online 2011-10-15), https://doi.org/10.1007/s12190-011-0517-9; full article inaccessible here, abstract and bibliographic facts checked.
-- Aracena, Richard and Salinas, *Maximum number of fixed points in AND–OR–NOT networks* (2014), https://doi.org/10.1016/j.jcss.2014.04.025; relevant definitions, extremal fixed-point statements and conclusions inspected.
-- Aledo, Martinez and Valverde, *Parallel Dynamical Systems over Graphs and Related Topics* (2015), https://doi.org/10.1155/2015/594294; open full text inspected for NOR periods, attraction terminology and scope.
-- Aledo et al., *Counting Periodic Points in Parallel Graph Dynamical Systems* (2020), https://doi.org/10.1155/2020/9708347; open full text inspected for relevant max/minterm periodic-point results.
+## originality
 
-The new theorem does not cover a base graph with isolated vertices. It provides a full *lift* of a base basin spectrum, not an internal enumeration of each base graph's attractors. Independent specialist assessment and historical-priority confirmation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass is for the exact labelled nonprincipal basin transport under arbitrary clique coning on every isolate-free base, with the added basins identified. Do not credit the one-step NOR transient bound, the principal-basin count in isolation, maximal-independent-set counting, or the wheel specialization as separate original results. The wheel proof already contains the one-hub update and zero-hub confinement for its cyclic base; it is a close methodology overlap.
+
+## value
+
+PASS
+
+Clique joining is a natural graph operation. Preserving the actual labelled basins of every old nonprincipal orbit, not just counting attractors or computing the principal mass, lets one transfer any base classification under arbitrarily many new vertices without recomputation. That structural information is what survives the known total-domination formula and the wheel example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

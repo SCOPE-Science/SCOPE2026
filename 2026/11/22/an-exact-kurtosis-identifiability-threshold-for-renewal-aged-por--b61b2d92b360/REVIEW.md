@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precise exponential-age mixture (not a generic nonlinear reset-source PDE), the beta and gamma integrals reconstruct all stated moments. The rational-factor derivatives and increasing digamma yield global strict monotonicity. Values at rational endpoints, computed with interval arithmetic, bracket the unique fourth-moment crossing and rigorously separate its sixth moment from the Gaussian value; `checker.py` also performs independent moment integrations. The proof covers all positive exponents, rates and packet scales, with the ordinary-diffusion endpoint obtained by limits.
+PASS
 
-## Originality — PASS, qualified
+Substitution y² gives the beta seed moments and independence multiplies each by the corresponding exponential-age gamma moment. In particular let b=3/2+1/σ: the compact seed's fourth and sixth normalized moments are 3b/(b+1) and 15b²/((b+1)(b+2)); b strictly decreases and both expressions strictly increase in b. For m=2,3 the log derivative of Γ(1+mu)/Γ(1+u)^m is m[ψ(1+mu)−ψ(1+u)]>0, and u=2/(σ+2) strictly decreases. This proves strict monotonicity for both ratios; K has endpoint limits 6 and 9/5 and crosses 3 exactly once. The symmetry cumulant identity then reduces its sixth cumulant at the crossing to S−15. For independent strict sign verification, Euler's gamma product gives the factor ∏_{n≥1}(1+u/n)^m/(1+mu/n). The tail log is in [0,m(m−1)u²/(2N)] by differentiating each log factor and comparing ∑_{n>N}1/n² with the integral. Exact fixed-point floor/ceiling arithmetic at N=2500 gave K(1.14) in (3.00639481,3.00688277), K(1.15) in (2.99833820,2.99882177), and S(1.14) in (14.59190752,14.59901485). The same integer recurrences are replayable in /workspace/branches/audit_gamma.py. This verifies the sign without depending on the frozen checker’s float conversions of interval endpoints. The audit is for the independent renewal mixture, not a solution of a nonlinear PDE with an imposed source or finite-sample identifiability.
 
-Chełminiak, *Non-linear diffusion with stochastic resetting* (arXiv:2107.14680), already establishes the Barenblatt packet, exponential renewal law and stationary integral; these are not claimed as new. The additional global monotone inverse-kurtosis theorem and unique fourth/sixth-order distinction are not stated in the inspected relevant primary sections. Other index hits about reset kurtosis concern different Markovian or active models. Lenzi et al., *Results for Nonlinear Diffusion Equations with Stochastic Resetting* (2023), could not be inspected completely and remains a priority risk. A general distribution formula determines moments in principle, so originality rests on the complete strict classification and not on a formula substitution alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Kurtosis is an experimentally and theoretically natural shape statistic for nonlinear transport. The theorem proves complete ideal-observable identification of the porous-medium exponent independently of the reset time scale, and distinguishes the unique false fourth-order Gaussian signal using sixth cumulant. These are natural shape and identifiability questions, not a chosen finite slice. It makes no assertion about finite-sample estimation errors.
+Pass is for the global standardized-moment identifiability law and its unique Gaussian-fourth-moment crossing with strictly negative sixth cumulant. The free shape, renewal law, stationary integral, and mixed even-moment recipe are covered or immediate from known formulas; they are not the originality basis. The source integral yields the ratios but does not supply the joint range, invertibility, and signed standardized sixth-cumulant classification as a stronger result.
 
-## Limitations and relevant literature
+## value
 
-All statements concern a mathematical renewal-aged packet mixture; no direct trajectory-level nonlinear resetting model is asserted. Exact population moments are required. Potential prior coverage in an inaccessible related 2023 full paper and other unindexed sources remains unresolved. Primary references and the reproducible moment calculations are in RESULT.md and checker.py.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normalized statistic is informative for a natural physical family even when length and reset rate are unknown: one exact fourth moment uniquely identifies the nonlinear exponent over its whole finite range. The unique exponent matching a Gaussian at fourth order has a proved nonzero sixth-order diagnostic, so the result distinguishes parameter identification within the model from Gaussian identification across models. This is not a claim about estimator performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

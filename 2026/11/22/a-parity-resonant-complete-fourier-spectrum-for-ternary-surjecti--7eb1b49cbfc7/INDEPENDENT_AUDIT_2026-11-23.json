@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:42:56.114328Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For counting convolution on the full ternary group, inclusion–exclusion gives the missing-colour contribution as the product of 2 for every zero frequency coordinate and minus the excluded letter's character at every nonzero coordinate. The singleton terms subtract that product from 1, and summing over the three colours restricts to balanced frequencies. At frequency zero ordinary inclusion–exclusion gives the support cardinality. The roots-of-unity filter on the nonzero digits gives (2^r+2(-1)^r)/3, including the empty r=1 class; only z=0 with even n adds balanced zeros. At odd n the z=1 class uses balanced pairs and realizes magnitude 3; at even n the z=1 class uses a balanced triple and pairs and realizes 9, while other surviving nontrivial classes have magnitude at least 9. The trivial magnitude is maximal by the triangle inequality. For the range projection, diagonal averaging is the inverse transform of the balanced-frequency indicator; at even n subtract the all-nonzero balanced mask. Its inverse transform at a word with n−2 zeros and two ones is (2^(n−2)+5)/3^(n+1), so the range kernel is negative there. The kernel mass is one and its absolute sum is the convolution norm at both endpoints. Multiplicity here means frequencies in a class, with multiplicities added if numerical levels coincide (already at n=3). An independent exact integer-pair enumeration matched all 1,080 frequencies for n=3 through 6 and the projection witnesses −3/81 and −7/729; it is bounded corroboration, not the all-length proof. The supplied checker was inspected, not executed.",
+      "replay": "Enumerate all ternary words and all frequencies at each length 3 through 6; keep words containing all three symbols. For each frequency tabulate the three dot-product residues with counts c0,c1,c2 and compare the integer pair (c0−c2,c1−c2) with the claimed coefficient in Z[ω]. For even n repeat the residue count over all-nonzero balanced frequencies at the test word, and divide the negative character sum by 3^n to get the projector value. The frozen package also contains verify_ternary_surjections.py, inspected as evidence, with a separate finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-colour theorem is restricted to the Klein four alphabet; it has extra zeros at odd length, least magnitudes 8/16 and even-length norm-one complementability."
+        ],
+        "reasoning": "It is a close methodological antecedent, not a larger-alphabet theorem that specializes here. The group has no ternary subgroup or quotient, onto-ness is a different indicator, and the Walsh computation includes a two-letter orthogonality term using the Klein four geometry. Its spectral and projection conclusions cannot be restricted to recover the asserted ternary values.",
+        "searches": [
+          "Resultary: ternary surjective words Fourier counting convolution rank translation even length projection spectrum characters",
+          "SCOPE-four-colour-surjections-complete-walsh-support-sharp-gaps-and-a--4d6ebacd6082"
+        ]
+      },
+      "checked_sources": [
+        "First-band Fourier sampling (2026-11-01)",
+        "Four-colour Walsh support (2026-11-16)",
+        "Myers–Wilf, arXiv:math/0304229v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-band Gram entries are the expectation of products of coordinate characters, hence access frequencies of support at most two. Its off-diagonal ternary entry is the support-two coefficient −3(2^(n−2)−1), divided by 3!S(n,3)."
+        ],
+        "reasoning": "That is real overlap, but the even-length extra zeros are at support n, at least four, not in these data. Even the z=1 even-degree gap witness involves support n−1. The quaternary theorem supplies the analogous analytic strategy but not these ternary consequences.",
+        "searches": [
+          "SCOPE-exact-first-band-fourier-sampling-spectra-on-surjective-words--38dfe55b7163",
+          "SCOPE-four-colour-surjections-complete-walsh-support-sharp-gaps-and-a--4d6ebacd6082"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Search found the exact record itself, the four-colour complete Walsh-support result, and the first-band Fourier sampling result; the primary-literature query mainly returned standard Cayley and transform references."
+        ],
+        "reasoning": "The spectrum is equally that of the Cayley adjacency operator with onto ternary words as generators. Standard Fourier diagonalization gives the character-sum representation, not the balanced cancellation classification. A matched primitive-word or hard-core word spectrum changes the generator set rather than translating this particular theorem.",
+        "searches": [
+          "Resultary: ternary surjective words Fourier counting convolution rank translation even length projection spectrum characters",
+          "Fourier transform surjective words ternary 3 colors additive character sum Cayley graph all symbols occurring spectrum rank inclusion exclusion all coordinate values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Myers–Wilf use Stirling numbers and inclusion–exclusion for complete coupon collections; the scalar count 3!S(n,3) gives the trivial coefficient. Resultary located no other matching ternary spectral table besides the result under review."
+        ],
+        "reasoning": "A table of counts of onto words does not record any character weighting. Nor would a rank-only table determine signed multiplier levels, their frequency classes, or the sign of the range kernel. No independent specialized complete coefficient table was verified.",
+        "searches": [
+          "Resultary: ternary surjective words Fourier counting convolution rank translation even length projection spectrum characters",
+          "arXiv:math/0304229v1, introduction and section 2.1"
+        ]
+      },
+      "rationale": "The binary distinction between symmetry-forced and accidental Fourier zeros has a close published four-colour analogue using the same inclusion–exclusion strategy. The underlying counting formula and method are not new. The specific ternary signed spectrum, extra-zero parity, exact least magnitudes, and sign witness are not supplied by that result or by the earlier onto-word Gram theorem. This is a bounded finding, not a priority guarantee.",
+      "residual_risks": [
+        "An unindexed character-weighted occupancy or Cayley-graph calculation may give the same classification. The simplicity of ternary inclusion–exclusion warrants modest novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap only",
+          "evidence": [
+            "The characters sampled are the constant and nonconstant one-coordinate characters; the proof computes only one- and two-coordinate moments and diagonalizes n-by-n Gram blocks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-first-band-fourier-sampling-spectra-on-surjective-words--38dfe55b7163/RESULT.md",
+          "material_read": "Full result, especially the character family and Gram computation",
+          "method": "Read the published result and compared operators and frequency supports",
+          "title": "Exact first-band Fourier sampling spectra on surjective words",
+          "trigger": "Same underlying set of onto words, with ternary alphabet admitted"
+        },
+        {
+          "assessment": "Close analogue, not a theorem covering the ternary model",
+          "evidence": [
+            "The hypotheses use F₂²; the formulas distinguish one versus at least two nonzero frequency types. The additional zeros occur at odd n, opposite to the ternary case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-four-colour-surjections-complete-walsh-support-sharp-gaps-and-a--4d6ebacd6082/RESULT.md",
+          "material_read": "Full result and all four proof steps",
+          "method": "Compared character sums, resonance classes, and projection proof",
+          "title": "Four-colour surjections: complete Walsh support, sharp gaps and a parity jump in projection contractivity",
+          "trigger": "Same exact spectral and projection questions on a different alphabet"
+        },
+        {
+          "assessment": "Classical scalar overlap",
+          "evidence": [
+            "The completion probabilities and two-collector comparison depend on Stirling counts and do not encode a character-indexed convolution operator in the inspected formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0304229v1",
+          "material_read": "Abstract, introduction and section 2.1 including the Stirling formulas",
+          "method": "Compared the enumerated events and their weights",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Classical exact occupancy counts used at the trivial frequency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural onto-word indicator, the complete spectrum distinguishes the frequencies erased by translation symmetry from the extra balanced modes erased only at even lengths, with sharp recovery amplification on the retained space. The negative-kernel witness shows that even a small additional proportion of erased modes changes whether orthogonal recovery preserves positivity. These are exact operator-level distinctions from scalar counting and the low-frequency Gram law, not a claim of a new Fourier method. The orthogonal projection's endpoint norm is only separated from one, not evaluated sharply in the even case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

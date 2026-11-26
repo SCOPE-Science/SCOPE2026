@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:47:30.494793Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, assumptions and proof §§1–5",
+        "VERIFICATION.md and verify.py, inspected as supplementary numerical evidence; the submitted script was not executed"
+      ],
+      "rationale": "The orbit offsets satisfy B_(Pd)+v_(Pd)=B_d; hence the center is constant at cycle steps. In Fourier variables the four-step transition is I+4(1−p_n)(G−I)+O((1−p_n)²), with the stated cyclic twirl G. The remainder times n vanishes, also when λ=0. The cyclic eigenvalues are g₀,g₁,g₂,g₁, and conjugating back to position with uniform initial direction gives the same four weights g₀,g₁,g₂,g₁. The multipliers from P^r are 1,i^r,(−1)^r,(−i)^r. This gives the stated characteristic function; continuity at zero gives weak convergence. At (π,π) the value is (−1)^r, and at (π,0) it is e^(−λ/2)cos(πr/2), proving exactly three distinct laws at every finite λ. For the center displacement the starting vector is the direction law at zero center displacement and the final direction is summed out; every column sum of G is g₀. This gives the orientation-independent compound-Poisson characteristic function, with g₀ the transform of the difference of two independent uniform square vertices. Equivalently, conditional on a fixed finite number of resets, the ordered reset slots have asymptotically independent uniform residues modulo four, by counting ordered slots in distinct four-step blocks. The fresh rotating-frame labels are independent uniform, and each independent uniform phase maps the previous label and fresh label to an independent uniform pair of absolute square vertices conditional on the past. Summing the jumps gives the same center limit. Summing the lag correlation p_n^k cos(kπ/2) with weight 2(n−k) gives the finite geometric-sum expression in the proof; its main term, constant term and terminal term tend respectively to λ, 1 and −e^(−λ)cos(πr/2). Finally the center jump covariance is I₂/2 and endpoint position offsets are bounded, giving the stated iterated Gaussian limit.",
+      "residual_risks": [
+        "The position formula assumes uniform initial direction. The Gaussian limit takes λ→∞ in the already constructed family, not a single unspecified joint limit. No numerical check is used as proof of convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two chiral lattice papers give transport coefficients via a fixed-coin Green–Kubo limit. In the disorder paper its annealed p is site availability, not the present probability of a deterministic clockwise update; even its obstacle-free specialization concerns the diffusion coefficient at fixed chirality.",
+          "The Resultary comparison gives fourth-cumulant recovery for fixed strictly positive circulant coins, not this boundary limit; the continuous cyclic-motion work varies intensities of continuous-time direction sojourns."
+        ],
+        "reasoning": "The stronger-looking diversity of coin and environment parameters does not imply a law in the joint nearly periodic regime n(1−p_n)→λ, where the phase correction stays of order one.",
+        "searches": [
+          "arXiv:2602.09920v1, Eqs. 11–13 and Appendix A Eqs. 25–29",
+          "arXiv:2609.12680v1, Eqs. 17–20 and obstacle-free specialization",
+          "DOI:10.1007/s11009-024-10083-0, abstract and limiting regime",
+          "Resultary d97bd1fc19a2, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.09920v1",
+        "arXiv:2609.12680v1",
+        "DOI:10.1007/s11009-024-10083-0",
+        "Resultary:d97bd1fc19a2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact finite-time lag-weighted sum yields the moment profile once the correlation is known, but the fixed-parameter diffusion coefficient retains only the part linear in time and loses the residue term. A binomial-to-Poisson limit counts resets but does not identify their unit-square marks, their phase dependence in position, or the endpoint characteristic function."
+        ],
+        "reasoning": "Credit the prior coin and the elementary correlation and Poisson tools. The marked orbit-center law and the Fourier resolution of the surviving lattice phases are not deductions from the stated fixed-coin transport results alone.",
+        "searches": [
+          "arXiv:2602.09920v1, Appendix A Eqs. 25–29 vs. RESULT.md proof §§1–5",
+          "arXiv:2609.12680v1, Eqs. 17–20",
+          "Resultary d97bd1fc19a2, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original chiral random walk's lab-frame coin is precisely the cycle/refresh coin. The orbit-center change of variables subtracts the endpoint phase, so its convergence is not equivalent to forgetting the phase of the physical position.",
+          "In the continuous cyclic motion source the particle travels at constant velocity in R³ with direction sojourns governed by geometric counting processes, producing tetrahedral support rather than square-lattice steps and rare uniform direction refreshes."
+        ],
+        "reasoning": "The same physical coin must be compared at matched scaling, not by name alone. The fixed-coin diffusive limit and the continuous cyclic-motion model do not reformulate this discrete rare-refresh process.",
+        "searches": [
+          "Primary websearch: Wójcik Kalz chiral random walk deterministic four cycle rare uniform resets critical scaling compound Poisson orbit center 2602.09920",
+          "Resultary rare-reset chiral lattice limits and circulant coin searches, closest match d97bd1fc19a2",
+          "Wójcik–Kalz arXiv:2602.09920v1, Eq. 11; Iuliano–Verasani DOI:10.1007/s11009-024-10083-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue and paper formulas give fixed-coin cumulants or diffusion coefficients, not the critical-window three-exponential characteristic function, its three distinct position laws, or the center law. The primary websearch returned author-index hits, not an explicit competing critical-window formula."
+        ],
+        "reasoning": "Fixed-coin coefficient formulas are not exact tables of the unscaled crossover. The bounded search does not prove absence of an unindexed exact formula.",
+        "searches": [
+          "Resultary exact chiral coin fourth-cumulant/critical crossover lookup; inspected d97bd1fc19a2",
+          "arXiv:2602.09920v1 and arXiv:2609.12680v1, transport formulas"
+        ]
+      },
+      "rationale": "The same coin and fixed-parameter transport are prior work. The distinct part supported by the inspected comparisons is the unscaled rare-refresh limit, including the explicit residue-dependent position law and phase-independent compound-Poisson orbit-center displacement. The moment profile is a relatively direct finite-sum consequence of the known model's velocity correlations; it is not the main basis for novelty.",
+      "residual_risks": [
+        "The literature and catalogue searches are bounded and cannot establish historical priority. No general novelty is claimed for periodic-chain perturbation or Poisson approximation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; analyzed long-time fixed-coin diffusion, not the stated triangular-array limit",
+          "evidence": "Eq. 11 mixes a uniform direction matrix with the deterministic cycle; the diffusion coefficient is obtained by the fixed-coin Green–Kubo calculation.",
+          "identifier_or_url": "https://arxiv.org/html/2602.09920v1",
+          "material_read": "Eq. 11, Eqs. 12–13 (HTML offsets 14500–19490), and Appendix A Eqs. 25–29 (offsets 40580–49538)",
+          "method": "Lawful open arXiv full-text passages",
+          "title": "The chiral random walk: A quantum-inspired framework for odd diffusion",
+          "trigger": "Original paper on the exact same coin and deterministic endpoint"
+        },
+        {
+          "assessment": "Different use of p and different limit",
+          "evidence": "The coin mixes the chiral update with reversal due to obstacles; p→1 recovers the homogeneous fixed-χ diffusion coefficient, not the residue-dependent rare-refresh limit.",
+          "identifier_or_url": "https://arxiv.org/html/2609.12680v1",
+          "material_read": "Annealed model and obstacle-free limit, Eqs. 17–20, HTML offsets 27500–30097",
+          "method": "Lawful open arXiv full-text passage",
+          "title": "Chirality enhances diffusion in disordered environments",
+          "trigger": "Same lattice coin, later transport and crossover calculations"
+        },
+        {
+          "assessment": "Different state space, dynamics and limiting parameters",
+          "evidence": "Constant velocity in R³ with cyclically ordered directions, tetrahedral support and geometric-counting-process sojourn times; the limiting density varies the four sojourn intensities.",
+          "identifier_or_url": "https://doi.org/10.1007/s11009-024-10083-0",
+          "material_read": "Open PDF p. 1, abstract, offset 250",
+          "method": "Lawfully accessible publisher PDF passage",
+          "title": "A Cyclic Random Motion in R3 Driven by Geometric Counting Processes",
+          "trigger": "Four cyclic directions and exact position laws in a high-intensity regime"
+        },
+        {
+          "assessment": "Distinct fixed-coin fourth-order inference problem",
+          "evidence": "The finding uses cumulant anisotropy for a fixed strictly positive coin; it does not state a law at the nearly deterministic boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-fourth-cumulant-tomography-of-the-hidden-nematic-coin-in-a--d97bd1fc19a2",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured Resultary search and local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp fourth-cumulant tomography of the hidden nematic coin",
+          "trigger": "Strongest ranked catalogue overlap on four-direction circulant coin statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md position and center laws",
+        "Wójcik–Kalz, fixed-parameter transport, arXiv:2602.09920v1"
+      ],
+      "rationale": "The fixed-parameter diffusion coefficient vanishes at the deterministic edge and cannot describe the law at order-one refresh counts. This crossover calculation resolves that boundary: the position retains exactly three phase laws while the center removes the terminal phase and has independently identified lattice jumps. The formulas give a usable comparison across the deterministic, compound-Poisson and large-rate Gaussian regimes for a previously studied walk.",
+      "residual_risks": [
+        "The result does not address coherent walks, boundary reflection, disorder, or arbitrary four-state coins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

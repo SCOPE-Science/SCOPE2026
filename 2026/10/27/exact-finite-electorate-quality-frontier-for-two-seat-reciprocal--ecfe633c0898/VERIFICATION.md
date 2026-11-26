@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,6 +20,6 @@
 ---
 # Reproducibility and limits
 
-Run `python verify.py` using standard Python 3 from the package directory. The program directly enumerates voter groups under the defined reciprocal-JR and reciprocal-EJR affordability conditions and computes the highest-quality two-seat satisfying committee, separately for both axioms. It tests finite rational-quality and finite support-pattern instances, random larger ones with a fixed seed, and the exact sharpness profiles. Execution on the packaged program gave `CHECKS_OK 24407`.
+Run `python3 verify.py` using standard Python 3. The program enumerates nonempty voter groups and all their nonempty commonly approved sets using exact rational affordability, then evaluates reciprocal JR and EJR separately on each committee. Expected output: `EXACT_OK exhaustive=16551 sampled=240 sharp=9 separation=1`.
 
-The infinite-domain result is verified by the complete symbolic proof in `RESULT.md`, not by the finite checks. In particular the bound applies to every positive real quality and any finite approval pattern. The nonnegativity identity, equality cases, support assumption, and exact supremum/infimum quantifiers are stated there. This package performs no independent audit and makes no claim about axioms not included in the finding.
+The exhaustive panel varies all nonempty support sets and qualities from `{1/3, 3/4, 1}` for `(n,m)=(2,3),(3,3),(2,4)`. The sampled panel uses a fixed seed, electorates of four through seven voters and two through six candidates. The additional exact cases cover the sharpness construction for two through ten voters and a profile where the two axioms have different feasible sets. The checks include the equality of optimum qualities, preservation of either member of an optimal rJR pair in some optimal rEJR pair, the one-replacement rEJR quality guarantee from every unrestricted optimum pair, and the approval-intersection criterion when a two-seat demand exists. They do not prove the result beyond these finite panels; the proof in `RESULT.md` establishes the claims for arbitrary allowed qualities and sizes.

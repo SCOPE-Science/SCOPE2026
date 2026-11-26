@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:58:28.601483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The page boundary is only the center. For center 3 all page labelings pass, except that the all-zero outer labeling isolates the center. For center 2 the excluded ordered pairs are (0,0),(0,1),(1,0); any allowed page attaches the center to positive support. For center 1 a zero requires a mate 3 and a one requires a mate 2 or 3. Every allowed page contains a label at least 2, so also defends the center. For center 0 an empty page fails zero-defense and a singleton positive page fails totality. Thus both labels must be positive; only (1,1) fails. With no 3 present these pages supply at least r labels 2, which defends the center for r >= 2. This establishes the four page factors and validates both the evaluation at 1 and the unique lowest-degree contribution, from one outer label 1 with center 3. The r=1 exclusion is needed for the formula as written (center 0 with page (1,2) is not valid). The independent check `python3 /workspace/reviews/reproduce.py 3` exhausts 279552 labelings for r=2,3,4 using the vertex rules, compares coefficients separately for each center label, and checks the actual minimum labelings. The frozen checker corroborates coefficient and minimum counts, but does not itself check the form of the minimum functions as claimed in RESULT.md. It was inspected, not executed. Neither finite check replaces the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary double Roman heterogeneous windmills explicitly exclude total variants",
+          "2026/10/13/SCOPE-total-roman-domination-polynomial-of-heterogeneous-windmills--5959e7c34d61 uses labels 0,1,2"
+        ],
+        "reasoning": "Neither a larger graph class with the wrong predicate nor the general extremal theory for the correct predicate provides all-weight counts. In particular a same-weight aggregation does not identify functions with isolated positive vertices.",
+        "searches": [
+          "Resultary heterogeneous windmills: double Roman and total Roman weight polynomials",
+          "DOI 10.1109/ACCESS.2019.2911659",
+          "DOI 10.22049/cco.2019.26484.1118"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Three local-mirror Resultary statements identified in source_inspections",
+        "Primary-literature lookup and OA retrieval for the two 2019 papers cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Universal-center extremal value 4 is acknowledged in the frozen prior comparison",
+          "The ordinary double Roman polynomial includes non-total functions and does not retain positive-support connectivity information"
+        ],
+        "reasoning": "Credit the minimum value to prior theory. The page exclusions and the center-0 defense threshold are extra information needed to obtain the enumerator, not an invariant recoverable merely by specializing graph sizes in the ordinary polynomial.",
+        "searches": [
+          "Shao et al., DOI 10.1109/ACCESS.2019.2911659, universal vertex; frozen RESULT.md prior-work section",
+          "Heterogeneous windmill double Roman enumerator, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/12/SCOPE-double-roman-weight-enumerator-of-heterogeneous-windmills--0179133c45f9",
+          "2026/10/13/SCOPE-italian-domination-polynomial-of-friendship-graphs--69e4823604ef"
+        ],
+        "reasoning": "Setting all page sizes to 2 makes the heterogeneous windmill graph exactly F_r, but not the predicate: labeling just the center 3 is admissible in ordinary double Roman domination and is excluded here. Italian functions have a different label set and defense rule.",
+        "searches": [
+          "Resultary: friendship graphs / windmills / K1 join rK2, total double Roman domination",
+          "Targeted literature lookup on the total double Roman friendship/windmill enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected local-mirror entries concern ordinary double Roman, total Roman, or Italian domination"
+        ],
+        "reasoning": "No distinct inspected hit had both the total-double-Roman predicate and the frozen weight coefficients. Same-day entries were compared by their actual definitions, not date.",
+        "searches": [
+          "Resultary: total double Roman friendship/windmill plus weight enumerator"
+        ]
+      },
+      "rationale": "Pass for the exact all-weight total-double-Roman enumerator, not for the scalar minimum 4 or the use of center states as a method. The closest inspected statements cover the same graph with a materially different feasibility rule. No statement-level coverage of the full enumerator was established.",
+      "residual_risks": [
+        "Unrecovered primary full texts and unindexed results leave residual risk of a broader total-double-Roman enumerator or earlier minimum-structure classification; priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structurally close, not covering",
+          "evidence": [
+            "K1 joined with a disjoint union of cliques; ordinary double Roman functions only; total variants excluded"
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-double-roman-weight-enumerator-of-heterogeneous-windmills--0179133c45f9",
+          "material_read": "RESULT.md, Finding and Assumptions and scope, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Double Roman weight enumerator of heterogeneous windmills",
+          "trigger": "Exact graph as specialization; same center-state structure"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": [
+            "Roman label set {0,1,2}, not the four-label double Roman defense rule"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-total-roman-domination-polynomial-of-heterogeneous-windmills--5959e7c34d61",
+          "material_read": "RESULT.md, statement and label convention",
+          "method": "Local Resultary mirror",
+          "title": "Total Roman domination polynomial of heterogeneous windmills",
+          "trigger": "Same total-support condition on a larger join family"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": [
+            "Italian function predicate rather than total double Roman"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-italian-domination-polynomial-of-friendship-graphs--69e4823604ef",
+          "material_read": "RESULT.md, exact statement",
+          "method": "Local Resultary mirror",
+          "title": "Italian domination polynomial of friendship graphs",
+          "trigger": "Same graph with full weight enumeration"
+        },
+        {
+          "assessment": "Scalar minimum credited; no whole-paper negative inference",
+          "evidence": [
+            "Frozen prior-work section credits the universal-vertex implication for 4"
+          ],
+          "identifier_or_url": "10.1109/ACCESS.2019.2911659",
+          "material_read": "Frozen record's prior comparison only; primary full text not recovered",
+          "method": "Lawful OA retrieval including IEEE public PDF route did not yield readable full text",
+          "title": "On the Total Double Roman Domination",
+          "trigger": "Correct predicate and prior universal-vertex minimum"
+        },
+        {
+          "assessment": "Coverage not resolved from full text",
+          "evidence": [
+            "No alternate repository copy was located by the DOI lookup"
+          ],
+          "identifier_or_url": "10.22049/cco.2019.26484.1118",
+          "material_read": "Citation and frozen prior comparison only; primary text not recovered",
+          "method": "Lawful OA lookup by DOI and repository recovery",
+          "title": "Total double Roman domination in graphs",
+          "trigger": "Early treatment of the exact predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Friendship graphs are a natural join family, and the exact distribution (including the total count and minimizer census) supplies information not present in the known scalar parameter. The solution identifies exactly which boundary states factor and why a zero center is automatically defended only from two pages onward. It applies for arbitrary r, not just the instances feasible to exhaust.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:43:16.351515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 15–36 specify distinct no-self payoff averaging and Fermi update conventions. The deterministic difference is (2x−1)[1+(2−T)x], so x=1/2 separates the two equal-length basins. Writing x=i/N, I derived Δ_i={N(2x−1)[1+(2−T)x]−[T−1+(4−T)x]}/(N−1); the second term removes U_CC−U_DD. Symbolic sums from i=1 to N−1 give S=[(2−T)(N−5)−6T]/6 and W=−[N²+(2T−1)N−T+4]/6<0, including N=2. The first-step recurrence for absorption increments has ratio exp(−βΔ_i), so the ratio of the first and last increments is exp(βS). The slope in N is positive for 1<T<2; equality in the odds requires an integer N equal to the specified real cutoff (23 at T=3/2). For A_k the partial sums starting at A_0=0, the mean of exp(−βA_k) is at least exp(−βW/N)>1, proving strict subneutrality including at the reversal, for every β>0. This uses the stated instantaneous feedback, not arbitrary stochastic extensions or weak-selection asymptotics.",
+      "replay": "Independent symbolic reproduction: /tmp/opencode/frozen_1_to_5_math_replay.py, section 2, checks both all-N summations directly from the finite self-encounter correction. The exact recurrence and Jensen argument, not the frozen verify.py samples, prove the probability statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. derive the deterministic equation, not the well-mixed absorption law. Their p. 3 characterizes Lv et al. as studying feedback, selection and population-size effects using a Moran process; the full Moran comparison was not available.",
+          "General recurrence plus convexity gives sufficiency of a negative mean partial sum for subneutrality; it does not supply that sign for this feedback family, nor the opposite large-N sign of its total sum."
+        ],
+        "reasoning": "No inspected broader theorem gives both signs for this update and parameter interval. A Moran finite-population result, even at the same payoffs, would require comparing the actual transition ratios and endpoint conventions. The accessible secondary description is evidence of proximity, not proof of noncoverage in that whole paper.",
+        "searches": [
+          "arXiv:2610.21575, §2 and p. 3 review of Lv–Li–Zhao",
+          "doi:10.1016/j.amc.2024.128957",
+          "doi:10.1103/PhysRevE.74.011909"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21575",
+        "doi:10.1103/PhysRevE.74.011909 (primary text unavailable)",
+        "doi:10.1016/j.amc.2024.128957 (full text unavailable)",
+        "Resultary 2026/10/26/SCOPE-a-sharp-minimal-population-threshold-for-feedback-enabled-fixati--9ab61ce6476e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal basins follow from where the infinite-population payoff difference changes sign, not from its discrete sum or sums of partial sums. The proof needs both of those different sums.",
+          "The standard Fermi absorption formula is prior machinery. This complete threshold requires the exact no-self term; subneutrality uniformly in β additionally requires W<0 via the convex exponential."
+        ],
+        "reasoning": "The named prior results provide the feedback law, a deterministic comparison, or a reusable probabilistic formula, but do not state or settle the signed joint comparison. The exact signs isolate why equal basins can coexist with an odds reversal without implying above-neutral cooperation.",
+        "searches": [
+          "Chen–Zhang–Li arXiv:2610.21575, Eqs. (1)–(4)",
+          "Traulsen–Nowak–Pacheco doi:10.1103/PhysRevE.74.011909",
+          "Resultary record 9ab61ce6476e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Zhang–Li Eqs. (2)–(3) use x and 1−x as the opponents' frequencies rather than removing the focal player. Their lattice Fermi update is not the well-mixed chain under audit.",
+          "For an arbitrary birth–death chain the two-direction odds are the reciprocal product of the backward/forward transition ratios. This recovers exp(β∑Δ_i) but not the specialized signs or N threshold without the payoff law."
+        ],
+        "reasoning": "The odds can be stated as a sign test on the discrete payoff sum. The no-self term is essential: with uncorrected frequency-weighted payoffs the sum would be (2−T)(N−1)(N−2)/(6N), giving no negative-then-positive crossing. A related but different update rule is not automatically equivalent to the Fermi ratio for every β.",
+        "searches": [
+          "arXiv:2610.21575, Eqs. (1)–(4) and spatial simulation section",
+          "doi:10.1103/PhysRevE.74.011909",
+          "doi:10.1016/j.amc.2024.128957"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 2026/11/22/SCOPE-a-sharp-population-size-reversal-behind-equal-deterministic-coop--8d0f684df4cc is this record, not independent coverage.",
+          "The distinct 2026/10/26/SCOPE-a-sharp-minimal-population-threshold-for-feedback-enabled-fixati--9ab61ce6476e uses a continuous-time chain with three individuals and switching between environments; its minimum-size statement concerns outperforming frozen-environment fixation."
+        ],
+        "reasoning": "Neither the matched distinct model nor the deterministic/spatial cases inspected give the exact symbolic cutoff or the N=23 case for the current stochastic process. This is a bounded published-record check, not a claim of absence in all tables.",
+        "searches": [
+          "Local Resultary semantic lookup for finite Fermi fixation with row-reversing environmental feedback and a sharp population threshold",
+          "arXiv:2610.21575, deterministic case analysis and spatial simulations"
+        ]
+      },
+      "rationale": "Credit the row-reversing feedback, deterministic basin boundary, general Fermi method, and classical fixation identities as prior. The supported distinct contribution is the explicit joint size-reversal and strict all-intensity subneutrality result for the specified well-mixed no-self stochastic extension. The closest inspected formulations do not establish that result. Historical priority is qualified.",
+      "residual_risks": [
+        "Full derivations of Lv–Li–Zhao were not accessible; a matching payoff convention or related threshold in the Moran setting remains possible.",
+        "This comparison does not establish comprehensive historical priority across all stochastic environmental-game formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact feedback and equal deterministic basin calculation are covered; inspected stochastic section is spatial and does not establish the specified no-self fixation theorem.",
+          "evidence": [
+            "Eq. (1) interpolates the two row-reversed games; Eqs. (2)–(3) use frequency weights; Eq. (4) is a replicator equation. The p. 16 passage concerns a lattice."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21575",
+          "material_read": "pp. 3–5, model Eqs. (1)–(4) and review of related work; p. 16 spatial updating passage",
+          "method": "Open-access primary-text passage inspection",
+          "title": "Cooperation Dynamics with Environmental Feedback: Steady States and Transitions",
+          "trigger": "Exact feedback interpolation and possible Fermi finite-population precedent"
+        },
+        {
+          "assessment": "Closest unresolved primary comparison. Secondary characterization points to a Moran rather than Fermi process, but exact payoff and threshold overlap cannot be excluded.",
+          "evidence": [
+            "Chen et al. describe finite-population environmental-feedback fixation under Moran updating and effects of size, selection intensity and feedback timescale."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.128957",
+          "material_read": "Publisher landing/abstract indication; secondary description in Chen et al., pp. 3–5; no derivations read",
+          "method": "Lawful publisher/open-access lookup; full text not retrieved",
+          "title": "Fixation of cooperation in evolutionary games with environmental feedbacks",
+          "trigger": "Closely matching topic and potentially overlapping population-size comparison"
+        },
+        {
+          "assessment": "Credit standard formulas; precise coverage beyond the general machinery not inferred from the failed retrieval.",
+          "evidence": [
+            "For the specified Fermi transition probabilities, the recurrence alone yields exponential cumulative-payoff weights for every N and β."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.74.011909",
+          "material_read": "Citation identified; primary text not retrieved from APS",
+          "method": "Lawful publisher lookup; independently reconstructed the standard recurrence rather than attributing an unread passage",
+          "title": "Stochastic dynamics of invasion and fixation",
+          "trigger": "Standard Fermi absorption theory and possible broader implication"
+        },
+        {
+          "assessment": "Not equivalent: two switching states and a frozen-environment benchmark rather than the two-direction Fermi odds and neutral benchmark.",
+          "evidence": [
+            "Three-individual continuous-time process, compared against fixation in each frozen environment."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-minimal-population-threshold-for-feedback-enabled-fixati--9ab61ce6476e",
+          "material_read": "Mirrored RESULT.md opening theorem and model, offset 0",
+          "method": "Local Resultary query and mirrored source comparison",
+          "title": "A sharp minimal-population threshold for feedback-enabled fixation",
+          "trigger": "Closest distinct published Resultary threshold match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same continuous game and an ordinary finite-population convention produce a sharp decision boundary even though the deterministic basin comparison never changes. The substantive point is the simultaneous separation of three benchmarks: equal deterministic basins, size-dependent relative fixation, and uniformly below-neutral absolute cooperator fixation. The exact all-intensity result addresses when finite-size selection criteria demonstrably disagree; the isolated number 23 or the generic recurrence alone would not justify acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

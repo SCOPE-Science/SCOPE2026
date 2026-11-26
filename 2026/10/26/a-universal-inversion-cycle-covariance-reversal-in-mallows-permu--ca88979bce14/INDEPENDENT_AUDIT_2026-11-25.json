@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:19:49.411447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md:22–26 is the exact derivative of a finite tilted mean: qμ'_n=Cov_q(C,I). For q=1, contracting the two prescribed arcs to residual paths gives H_(n−2) plus the already closed cycles, valid even when there are zero paths. With i<j fixed, the descending image pairs force loops or a 2-cycle in (i−1)+(n−j)+1 cases, giving conditional mean H_n−[2(j−i)−1]/[n(n−1)]. Hence summing pair covariances gives −(2n−1)/12. Near 0, all one-inversion neighbors of identity merge two cycles and yield −(n−1)q. Near infinity, the reversal is the unique top state and its adjacent swaps are all next-to-top states. Swaps merge cycles except that the unique central adjacent pair for even n splits one; the resulting mean correction is (−n+1)/q for odd n and (−n+3)/q for even n. The rational functions are analytic in the relevant endpoint variables, so taking q times the derivative gives the claimed high-bias coefficients and the signs for n≥3. On a compact interval with negative derivative at the left endpoint q=1 and positive derivative at its right endpoint, a minimizer must be interior. n=1 is deterministic and n=2 has covariance −q/(1+q)². Independent exact n=3 enumeration gave the displayed partition and numerator polynomials, and their derivative numerator has exactly one positive root by its one coefficient sign change and endpoint signs. Bisection gives 2.324963524095. Independent enumeration for n=3–7 agreed at the uniform and reversal endpoints. The frozen script was not executed. No claim of general uniqueness was evaluated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gladkich–Peled give an order estimate for the expected total cycle count for 0<q<1, and a proposed exposure approach for q>1. He–Müller–Verstraaten study fixed-length cycle counts as n→∞ at fixed q, finding parity effects for odd lengths at q>1."
+        ],
+        "reasoning": "Neither order estimates on one range nor large-n results for fixed q determine a derivative or its coefficient as q→∞ at fixed n. Changing the order of limits or replacing total cycles by a fixed length does not establish the reversal theorem.",
+        "searches": [
+          "arXiv:1601.06991 Theorem 1.5 and Section 5",
+          "arXiv:2201.11610 abstract",
+          "Resultary: cycle count inversion covariance high q reverse permutation Mallows"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "October 4 and October 25 Resultary findings, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Primary-paper passages and access attempts in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October 25 obtains +2 and −2 high-bias covariance coefficients for fixed points at odd and even sizes. October 4 fixes only the uniform value for total cycles."
+        ],
+        "reasoning": "The earlier uniform result provides the negative endpoint only. The fixed-point coefficient does not control the change in counts of cycles of lengths ≥2; in particular its even-size sign is opposite to that of total cycles for n≥4. The needed additional step is the total merge/split count at all reversal neighbors, giving both the eventual positive sign and the sharp size cutoff.",
+        "searches": [
+          "Local mirror: 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051/RESULT.md",
+          "Local mirror: 2026/10/25/SCOPE-high-inversion-mallows-bias-reverses-fixed-point-covariance-at-e--1d60ba988c46/RESULT.md",
+          "Gladkich–Peled Section 5, arXiv:1601.06991"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gladkich–Peled, p. 46, contrasts line-graph adjacent-transposition and complete-graph transposition distances; the latter gives Ewens weights.",
+          "Resultary October 4 explicitly states the uniform result as a Mallows derivative at q=1."
+        ],
+        "reasoning": "The expected-cycle derivative and covariance are equivalent. Although C=n−d_Cayley, replacing the weighting inversion count by d_Cayley changes the measure. Complementing the inversion count by multiplying by reversal replaces C(π) by the cycle count of a composition, so the ordinary low-q cycle theorem does not carry over unchanged.",
+        "searches": [
+          "Resultary: A universal inversion-cycle covariance reversal in Mallows permutations",
+          "Resultary: Mallows permutation inversion number total cycles covariance q greater than 1",
+          "Mallows permutations covariance between total cycle count and inversion number high q > 1 sign reversal; distinguish inversion-distance Mallows model from transposition-distance (Cayley) Mallows; compare Gladkich Peled On the Cycle Structure of Mallows Permutations and He Müller Verstraaten Cycles in Mallows random permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 4 indexed result reproduces exactly −(2n−1)/12 at q=1, including its inversion-gap profile; October 25 indexed result gives 1+√3 as the n=3 fixed-point zero, not the total-cycle zero."
+        ],
+        "reasoning": "The all-size sign reversal is not a table lookup; inversion counts alone do not give cycle-weighted counts. The exact indexed uniform invariant is credited and the distinct n=3 polynomial is independently enumerated.",
+        "searches": [
+          "Resultary: A universal inversion-cycle covariance reversal in Mallows permutations",
+          "Resultary: cycle count inversion covariance high q reverse permutation Mallows"
+        ]
+      },
+      "rationale": "The uniform covariance is already known and is explicitly credited. The strongest prior related high-inversion finding establishes a different, parity-signed fixed-point theorem, which does not determine the total cycle count. The supported distinct result is the fixed-size total-cycle reversal, its parity-dependent coefficient and n=2 boundary, with the n=3 crossing as a special case. No strong prior coverage of that result was located in the comparisons below.",
+      "residual_risks": [
+        "The original Mallows full text was not inspected. A fixed-size mixed enumerator under alternate ranking terminology could encode nearest-reversal coefficients; limited searches and the inspected literature cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scope of original full text not established",
+          "evidence": [
+            "The inversion-weighted law itself is explicit in the later He–Müller–Verstraaten text and is not a new contribution."
+          ],
+          "identifier_or_url": "doi:10.2307/2334029",
+          "material_read": "Landing material only, no readable full text retrieved",
+          "method": "DOI/OA lookup",
+          "title": "Non-null ranking models. I",
+          "trigger": "Foundational ranking model"
+        },
+        {
+          "assessment": "Inspected results do not imply finite-size reversal",
+          "evidence": [
+            "Expected-count scale (1−q)n+log(n+1) for 0<q<1; proposed q>1 graph exposure; separate complete-graph transposition model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.06991",
+          "material_read": "pp. 2, 4 and 46, introduction, Theorem 1.5, §5; offsets 6091, 13200, 151850",
+          "method": "OA arXiv PDF",
+          "title": "On the Cycle Structure of Mallows Permutations",
+          "trigger": "Exact model and expected total cycle count, includes discussion of q>1"
+        },
+        {
+          "assessment": "Different asymptotic question in inspected statement",
+          "evidence": [
+            "Fixed-length cycle-count limits as n→∞ at fixed q; parity of odd cycle counts, not the fixed-n covariance coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.11610",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "OA arXiv PDF",
+          "title": "Cycles in Mallows random permutations",
+          "trigger": "Same inversion law and parity at q>1"
+        },
+        {
+          "assessment": "Covers uniform component (credited)",
+          "evidence": [
+            "Cov(C,I_ij)=−[2(j−i)−1]/[2n(n−1)]; aggregate −(2n−1)/12."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Linear inversion-gap profile for cycle count in a uniform random permutation",
+          "trigger": "Exact uniform covariance"
+        },
+        {
+          "assessment": "Related, not the total-cycle theorem",
+          "evidence": [
+            "High-bias fixed-point coefficient +2 for odd and −2 for even sizes; n=3 zero at 1+√3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-high-inversion-mallows-bias-reverses-fixed-point-covariance-at-e--1d60ba988c46",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "High inversion Mallows bias reverses fixed point covariance at even and odd sizes differently",
+          "trigger": "Same law, nearby observable, fixed-size high-q sign and parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-size reversal shows that total cycles do not respond monotonically to inversion bias, despite their negative uniform response and their extremal identity value. It isolates the adjacency mechanism distinguishing odd from even sizes, yields an exact first-size boundary, and distinguishes total cycles from fixed points. This value comes from the general qualitative reversal, not solely a small polynomial or the already known uniform invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

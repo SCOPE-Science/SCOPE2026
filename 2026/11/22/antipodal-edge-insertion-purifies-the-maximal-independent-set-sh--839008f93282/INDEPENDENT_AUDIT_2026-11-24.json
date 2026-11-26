@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:35:07.075003Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the explicit folded 5-cube F=Q4 plus antipodal edges, not the 10-regular complement. A shattered support must be independent to admit the full trace. An independent triple can be translated to 0 and two sums of direction pairs with a shared member; translations and direction permutations give one orbit. At {0,3,5} the three independent extensions are 6,9,14: the latter two lie with the triple in N(1), and the first is the affine-sum extension, adjacent to both others. This gives 160 triples, 80 neighborhood quadruples and 40 affine planes. The planes are maximal independent and the sole extensions beyond four are the 16 neighborhoods. Each neighborhood quadruple extends to exactly one maximal independent set, ruling out shattering a five-set. The two orbit representatives are shattered by the listed witnesses. Independent reproduction enumerated all 65,536 supports per graph and all maximal-independent-set traces; replay python3 /workspace/branches/13e11a5a-0a54-4226-a73e-81ef5bbc595f/recheck.py. It confirmed both polynomials, the orbit types for F and the eight antipodal pair facets of Q4. The difference is setwise, not just a net count: a Q4 shattered four-set contains no antipodal pair by the pair-facet result, so is independent in F and remains shattered; exactly 16 new four-sets result. A separate local obstruction identifies these new four-sets as the 16 ordinary Q4 neighborhoods: each neighbor of a queried vertex in N_Q4(v) is v or is at distance two from v, and so fails to be private to that vertex. No trace with exactly that one vertex absent can be achieved in Q4. All 16 neighborhoods become shattered independent quadruples in F, accounting for the whole difference. The supplied scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lemma gives VCdim M(G) ≤ bipartite induced-matching number by exhibiting one private neighbor per support vertex. The hypercube theorem instead counts maximal independent sets asymptotically."
+        ],
+        "reasoning": "The private-neighbor obstruction is known in this general form and rules out some supports, but a matching across two shores does not guarantee all traces (neighbors within the witness shore may be adjacent). A bound on VC dimension, even if sharp, does not locate the facets or explain purification.",
+        "searches": [
+          "arXiv:2403.17910v3 §2.4, Lemma 2.20 p. 11",
+          "arXiv:1909.04283v2 §1.1, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63, VERIFICATION.md, verify_folded.py and verify_quotient.cpp",
+        "Resultary snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 and exact Q4 comparison",
+        "arXiv:2403.17910v3, 1909.04283v2 and 2007.16042v1, limited passages above; Brouwer Constructions and OEIS A284707"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Q4 has maximal antipodal-pair faces and 104 four-faces. The ordinary independence structure of the folded graph has maximal sets of sizes four and five. The frozen claim instead shatters every independent folded quadruple, excludes all folded five-sets by a missing trace, and thereby compares the two face families."
+        ],
+        "reasoning": "Independent quadruples being feasible full-positive traces does not imply that all other traces occur. Changing graph edges may remove or create maximal concepts, so shattering is not monotone under edge insertion. The folded witness classification is an additional fact; together with the credited baseline it gives the exact perturbation, not a re-enumeration of Q4 alone.",
+        "searches": [
+          "Resultary exact nonpure Q4 record, Finding and support orbit characterization, offsets 0 and 5000",
+          "Brouwer, Clebsch graph, Constructions",
+          "arXiv:2403.17910v3 Lemma 2.20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dual of B(G) in Liu–Shangguan–Skokan–Xu is exactly the maximal-independent-set hypergraph. Maximal cliques of the graph complement are the same concepts; minimal vertex covers complement traces and thus preserve shattering. Neighborhoods constitute a different concept class."
+        ],
+        "reasoning": "Exact facet or support tables for any of the equivalent concept families would overlap. The usual neighborhood VC results do not supply the traces of all maximal independent sets. The indexed 5-regular graph is the complement of the Clebsch graph under the 10-regular naming convention.",
+        "searches": [
+          "Resultary: shattering complexes of maximal independent sets, hypercubes and Clebsch/folded cube",
+          "External search: maximal independent sets, VC dimension and shattered supports, including maximal cliques and minimal vertex covers",
+          "arXiv:2403.17910v3 §2.2, dual B(G) formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Q4 Resultary comparator explicitly gives the same polynomial and four-facets and eight antipodal facet pairs. OEIS gives a count of 42 concepts for Q4, not their traces. The exact folded title returned is the assigned record itself."
+        ],
+        "reasoning": "The prior comparison is a direct match for the cube portion, irrespective of the order of same-day releases. Total concept counts alone cannot specify supports, and no confirmed independent table gives the folded supports or the edge-insertion comparison.",
+        "searches": [
+          "Resultary HE exact support and orbit lookup on cube and folded cube",
+          "OEIS A284707 maximal independent set counts of Q_n",
+          "Indexed search for exact maximal-independent-set Boolean traces using clique/cover aliases"
+        ]
+      },
+      "rationale": "The standalone Q4 polynomial and facet structure are directly covered by a distinct same-day Resultary record and are credited rather than accepted as a distinct result. In the frozen comparison Q4 is the baseline. The supported distinct contribution is the structural folded-cube shattering classification and exact change of the complex under inserting the antipodal edges. The earlier or same-day general/comparison statements examined do not cover that contribution.",
+      "residual_risks": [
+        "Same-day date alone does not resolve precedence or independence for the Q4 half; it is credited as covered.",
+        "The Ignatov chapter and cited local-limit maximal-independent-set paper could not be read in full. Older or unindexed tables of traces could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Q4 half covered; folded half and perturbation not stated",
+          "evidence": "104 four-facets, eight antipodal pair facets, and four-orbit characterization of Q4 support geometry.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-nonpure-maximal-independent-set-shattering-complex-in--480bd3d24ed9",
+          "material_read": "RESULT.md offsets 0 and 5000, checker openings verify_census.py and verify_orbits.py",
+          "method": "Resultary local mirror",
+          "title": "The first nonpure maximal-independent-set shattering complex in the hypercube family",
+          "trigger": "Exact Q4 polynomial, facets and support orbits"
+        },
+        {
+          "assessment": "Equivalent family and known necessary condition, not exact coverage",
+          "evidence": "Proof explicitly takes distinct private neighbors from traces missing one queried vertex; does not claim sufficiency.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.17910v3",
+          "material_read": "§2.2 p. 8 at offset 32280 and §2.4 p. 11 Lemma 2.20 around offset 42300",
+          "method": "OA PDF text",
+          "title": "Liu–Shangguan–Skokan–Xu, arXiv:2403.17910v3",
+          "trigger": "Same concept class via duality and a general upper bound"
+        },
+        {
+          "assessment": "Counts concepts, not Boolean projections",
+          "evidence": "Asymptotic enumeration concerns the number of maximal independent sets; a concept count does not classify supports.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.04283v2",
+          "material_read": "Abstract and §1.1 Theorem 1.1 at offset 0",
+          "method": "OA PDF text",
+          "title": "The number of maximal independent sets in the Hamming cube",
+          "trigger": "Exact object on Q4 and broader cube family"
+        },
+        {
+          "assessment": "Different concept class",
+          "evidence": "Concepts are open neighborhoods rather than all maximal independent sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042v1",
+          "material_read": "Abstract at offset 0",
+          "method": "OA PDF text",
+          "title": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs",
+          "trigger": "VC results on the hypercube class"
+        },
+        {
+          "assessment": "Known underlying graph",
+          "evidence": "Folded 5-cube description and 5-regular complement convention; no MIS trace result in the inspected material.",
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Clebsch.html",
+          "material_read": "Constructions at HTML offset 0",
+          "method": "OA webpage",
+          "title": "Clebsch graph",
+          "trigger": "Graph alias, adjacency and symmetries"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "Publisher redirects prevented inspection; not used as a negative comparison.",
+          "identifier_or_url": "Ignatov (2023), cited in the exact Q4 comparator",
+          "material_read": "Full text unavailable",
+          "method": "Lawful alternate publisher and PDF retrieval attempts",
+          "title": "On the Maximal Independence Polynomial of the Covering Graph of the Hypercube up to n=6",
+          "trigger": "Possible finite maximal-independent-set table overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural symmetric edge insertion raises the number of shattered four-sets while removing pair facets and making the shattering complex pure, without changing its dimension. The folded four-facet geometry and obstruction at five give a concrete structural distinction from independence. The exact perturbation is useful as a benchmark for how shattering by maximal independent sets responds to changes in adjacency; the already covered cube numbers serve as its comparison, not its value on their own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

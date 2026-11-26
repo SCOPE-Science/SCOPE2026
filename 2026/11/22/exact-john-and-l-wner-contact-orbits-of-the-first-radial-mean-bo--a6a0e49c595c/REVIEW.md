@@ -1,24 +1,21 @@
-# Mathematical review: exact radial contacts of the three-cube
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The first mean radial function is the normalized integral of the cube's product covariogram; the change of variables gives \(\rho=\sqrt{1+s^2+t^2}(6-2s-2t+st)/6\) on all unit directions. For its positive numerator \(H\), the only interior critical pair is \((2/3,2/3)\): the gradient difference factors as \((s-t)(D-S)\), with \(D-S>0\) inside, and the equal-coordinate equation factors as \((1-s)^2(3s-2)\). The four boundary edges have explicit one-variable derivatives, and the strict gap \(27-19652/729=31/729\) excludes body-diagonal minimizers. Thus all directions are covered analytically. Hyper-octahedral symmetry and uniqueness of John and Löwner ellipsoids show they are exactly the extreme radial balls. `verify.py` passed its exact rational and independent integral checks.
+PASS
 
-## Originality
+With the positive-ray Gardner–Zhang normalization, Fubini gives the normalized cube covariogram integral. Sort by largest absolute coordinate and use [0,1]^2 ratios s,t; integrating (1-z)(1-sz)(1-tz) on [0,1] gives H/6, H=sqrt(S)D for S=1+s²+t², D=6−2s−2t+st. The scaled derivatives have difference (s−t)(D−S); D−S decreases in both ratios and vanishes only at (1,1), so interior stationarity is diagonal. Its derivative numerator factors as (1−s)^2(3s−2), giving the only interior candidate (2/3,2/3) with H²=19652/729. On a zero edge the derivative numerator is −2(2t−1)(t−1), yielding candidate squared values 36, 125/4 and 32 including endpoints. On a unit edge the numerator is −2(t−1)^2, yielding endpoint squared values 32 and 27. Hence the interior minimum is strict, with gap 31/729 below the body diagonal, and (0,0) is the only reduced maximum. Convexity at this positive parameter and uniqueness of John and Löwner ellipsoids imply cubic invariance: reflections force zero center and a diagonal form, permutations make that form scalar. Thus extremizing the radial function gives both radii and exactly 3·8 inner and 3·2 outer contacts. The result fixes [-1,1]^3 at p=1; no general p or dimensions are treated. The analytic proof is exhaustive over directions; verify.py was inspected, not executed.
 
-**PASS, with historical-priority qualification.** Proposition 34 of Langharst–Manui–Zvavitch (arXiv:2601.20117v2) already contains the cube's radial integral and axial/diagonal evaluations; these are explicitly not claimed. The manuscript's Section 3.3 discusses ellipsoid-comparison lower bounds, not the sharp three-dimensional global angular optimizer. A separate general work on cube radial-mean gauge differentiability gives local regularity and exact representations but no sharp three-cube John orbit. The closest square result determines the planar contact-phase diagram, which does not imply the three-dimensional \(3:2:2\) orbit. The distinctive full-dimensional proof is a constrained two-variable extremization with a strict interior–boundary comparison. The original 1998 Gardner–Zhang work was bibliographically identified but its full text was not obtained; an unindexed equivalent calculation cannot be ruled out.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The John and Löwner ellipsoids are canonical affine-geometric invariants. Their sharp exact radii and contact sets for a fundamental test body quantify the anisotropy of the first radial-mean operator. The striking non-axis, non-diagonal orbit shows that looking only at high-symmetry directions misses the true extremum, albeit by a small strict amount. This makes the precise contact classification a useful benchmark for geometric tomography and ellipsoid bounds, rather than an arbitrary finite numerical slice. No general-dimension or all-parameter classification is asserted.
+Pass the global three-dimensional radial extrema and full contact orbits, not the generally known radial integral or the axis and body-diagonal evaluations. The exact oblique minimizer requires a global two-variable calculation not provided by the strongest inspected sources.
 
-## Closest references and limits
+## value
 
-- Langharst, Manui and Zvavitch, arXiv:2601.20117v2, Proposition 34: known full cube integral and special axial/diagonal radii; no complete three-dimensional global contact classification.
-- Langharst, arXiv:2603.14134v5: general convexity of radial mean bodies; no Euclidean contact evaluation for the cube.
-- Gardner and Zhang (1998): foundational definition/convexity; full primary text inaccessible in the current comparison.
-- Published sharp differentiability-strata and planar-square contact results: local regularity and dimension-two contact geometry, not this three-dimensional orbit.
+PASS
 
-The source comparison cannot establish universal historical priority, and no independent mathematical audit has occurred.
+John and Löwner contacts are canonical geometric data for a fundamental radial-mean test body. Exact oblique equality points disprove the natural axis/diagonal guess and quantify a small but strict body-diagonal gap. This all-direction comparison is useful for sharp geometric bounds and is not simply the evaluation of a known formula at preassigned directions.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The out-degree Laplacian is a rank-one perturbation of the identity and its inverse yields contribution-independent centered equilibrium opinions. Exactly sixteen directed rooted forests exist on three labeled vertices; grouping them by the number of vertices with root 3 proves the exact one-draw polarization moment. Independence across sampled forests gives the quadratic plug-in bias identity. The cross-sample estimator is unbiased because its factors come from different independent forests. The stated absolute-error tail follows from the bounded centered norm and McDiarmid's inequality. A standalone exact rational enumerator independently checks the forest law and matrix inverse for 1,230 assertions. Its finite scope is not mistaken for proof of the all-real-parameters statement.
+PASS
 
-## Originality
+For a three-person edge Xu–Zhang Eq. (4) gives destination weights hγ_j. Since 1γᵀ is idempotent and centering kills its image, P(z)=P(x)/(1+h)², with P(x)=2/3 in the example. The root-oriented forests have total weight 1+2h+h²: for each tree root r the three trees sum to h²γ_r. Only the empty forest and the four one-arc forests other than 3→1,3→2 give nonconstant binary root opinions, of weight 1+h(1+γ_3). Each such vector has polarization 2/3. Expanding the squared norm of the iid centered mean gives the stated single-draw centered second moment divided by T and no assumption of independence within one forest. The pairwise kernel is unbiased for T≥2. Centered sampled vectors have norm at most √m/2; changing one draw changes 2(T−1) ordered kernel terms by at most m/2 each, giving the stated McDiarmid bound. Bias is strictly positive for the specified h, shares and finite T; the large-h divergence is only relative expected bias.
 
-**PASS with publication-priority uncertainty.** The closest direct source is Xu–Zhang, arXiv:2310.05689v1: its forest sampling construction and coordinate unbiasedness are established prior art, while its squared plug-in polarization step is not accompanied by this precise three-person influence-dependent bias calculation. The later NeurIPS 2025 Sun–Sun–Zhou–Zhang paper uses a related squared plug-in estimator in an undirected-network setting and proves additive-error control. Neumann–Dong–Peng, arXiv:2404.16464v1, uses other sublinear estimation mechanisms. Mathematical record searches did not identify an equivalent statement. Generic variance decomposition, matrix-forest enumeration and cross-product U-statistics are standard: originality attaches to their exact interaction in the specified directed three-person example and the unbounded high-coupling relative distortion, not to those ingredients separately. A specialized prior analysis may remain unindexed.
+## originality
 
-## Value
+PASS
 
-**PASS.** A quantitative study of influence heterogeneity based on sampled polarization can misattribute a sampling effect to an underlying change in equilibrium polarization, even in the smallest genuine group-interaction model. The exact factor both explains the mechanism and determines its worst high-influence scaling for any fixed sampling budget, and the companion unbiased estimator provides a concrete control. This is a motivated limitation of a published social-network computation method rather than an arbitrary choice of three numerical parameters. Absolute bias still vanishes as influence grows, and the correction can have negative finite realizations.
+The directed model and plug-in, the generic quadratic-mean bias identity and the order-two cross-product correction are antecedent or standard. The distinct bounded result is the exact model-specific separation, including the contribution-dependent factor and strong-coupling expectation scaling, not a claim of priority for U-statistics or generic bias analysis.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This minimal heterogeneous example is a concrete warning for a published type of estimator: varying influence can change estimated polarization in expectation even when the centered equilibrium is invariant, and strong interaction can make the expected relative distortion arbitrarily large at fixed T. The exact factor quantifies that failure rather than merely asserting Jensen bias.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

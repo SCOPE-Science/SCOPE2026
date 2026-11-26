@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact Dirichlet–multinomial singleton and double-singleton probabilities follow directly from multinomial sums over the remaining colours. The ratio identity gives covariance sign, and its logarithmic derivative is a discrete second difference of Laplace transforms. Strict convexity was proved by the positive second derivative of \(g_u(s)=1/(e^{u/s}-1)\), with the critical bracket shown positive by differentiation. Both endpoint ratios were derived from exact products. A three-term alternating-binomial lower bound and the strictly positive translated degree-six polynomial give the complete all-integer large-mass classification. All boundary cases \(m=2,3,4\) were explicitly handled. The standalone exact checker passed 229 assertions, corroborating but not replacing the infinite proof.
+PASS
 
-## Originality
+Grouping the unspecified colours in the symmetric Dirichlet mixture gives the reported rising-factorial formulas for p_m and q_m. Two colours and three draws force q_2=0, so the covariance is strictly negative there; strict ratio monotonicity is asserted only for m>=3. For those m the covariance sign is that of q_m/p_m^2-1. The k=0 terms cancel in the logarithmic derivative; the remaining three grids give the discrete second difference of F_s. The Laplace representation follows by the finite geometric sum, and (exp(u/s)-1)^(-1) is strictly convex in s>0: the bracket in its second derivative is B(x)=x(exp(x)+1)-2(exp(x)-1) with B(0)=B'(0)=0 and B''(x)=x exp(x)>0. The strictly positive discrete second difference integrates against a positive weight. The small-mass limit is below one by (2m-1)/((m+1)(m-1)^3); the large-mass limits are 243/256 and 32768/32805 for m=3,4. For t=m-1>=4 the truncated alternating binomial series is a lower bound (successive terms decrease), and multiplying out gives the stated polynomial with positive coefficients after t=u+4. Hence each m>=5 crosses once and only once. A separate exact sequential state recursion reproduced both m=5 covariances, and numerical bisection gave 0.3168812738193324758.... Another exact composition enumeration checked the two probability formulas and normalization for m=2 through 6 and alpha=1/4,1,2.
 
-**PASS with historical-priority risk.** The first-source framework of Dello Schiavo–Quattrocchi and the classical Dirichlet–multinomial reference cover the count law and its standard moments. The 2026 open-access revision of the former was inspected at Examples 5.53–5.54 and the Dirichlet moment section; its relevant material does not state the pairwise singleton-covariance phase theorem. Accessible published comparisons also addressed ordinary iid occupancy indicators and richness–frequency covariances, neither of which asserts this Pólya-urn two-singleton all-size transition. A targeted search for the event aliases and concentration crossing found no covering statement; absence from searches alone is not proof of priority. The older general distribution chapter was available only in abstract, so a residual priority risk is retained. No historical finding was altered or re-certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** The first overfull sampling length \(m+1\) is a natural occupancy boundary, and singleton colours are a basic frequency-spectrum statistic. The theorem shows the surprising possibility of positive co-occurrence of singletons despite universally negative count covariance, and characterizes the exact sharp threshold and its uniqueness for every size \(m\). This is an all-parameter structural phase diagram, not a chosen numerical counterexample.
+The exact event probabilities follow from the classical law, and the alpha=1 slice for these very indicators is already known in a broader sample-size window. The supported distinct claim is the strict concentration monotonicity of the ratio and the existence and uniqueness classification in alpha at N=m+1, not the single slice or either standard occupancy law. No inspected statement implies this varying-alpha result.
 
-## Closest literature and limitations
+## value
 
-The full claim is not implied by negative count covariances, nor by statements about events of *at least one* occurrence in independent occupancy. The open-access motivating paper's Dirichlet colour-count representation supplies the common distributional background, not the convexity/threshold theorem. No arbitrary sample size or asymmetric-colour extension is claimed. Independently verified historical priority and independent mathematical validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first overfull sample size is a natural occupancy boundary at which repetitions are forced. A complete all-alphabet classification for two nonlinear indicators, including a separation from negative count covariance and a proof of exactly one concentration crossing, answers a concrete dependence question that neither the fixed-mass occupancy comparison nor an isolated sign example resolves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

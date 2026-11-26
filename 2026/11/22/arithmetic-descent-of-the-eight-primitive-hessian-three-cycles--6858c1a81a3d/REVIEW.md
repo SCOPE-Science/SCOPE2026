@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The asserted map \(h(x)=(4-x)^3/(27x^2)\) is the standard Hessian map on normalized elliptic \(j\)-invariants (Mula–Pintore–Taufer, arXiv:2407.17042; Kettinger, arXiv:2408.04117). An exact composition factorization isolates three finite fixed points and 24 primitive period-three points; the fixed point at infinity is treated separately. Quotient-ring reduction proves the cycle-sum identities for each irreducible degree-\(6\), degree-\(6\), and degree-\(12\) factor. Rabin's modular test over \(\mathbb F_5\) establishes all required irreducibilities and separability. Degree comparison shows that each sum uniquely identifies a three-cycle. Finally the quartic resolvent and cycle types modulo five and seven prove the dihedral Galois group. The accompanying verifier reproduces these calculations in exact arithmetic.
+PASS
 
-## Originality: PASS, with residual historical risk
+The frozen proof's Frobenius certificate fails: G mod 7=(z−3)^2(z²−z−1), and its own discriminant is divisible by 7. The archived test counts factors with multiplicity, so it accepts the repeated linear factor without checking squarefreeness. The replacement proves the same arithmetic result using the good prime 13: G=z(z−5)(z²−4z+2) mod 13, with two different linear factors and quadratic discriminant 8 a nonsquare. The resulting transposition and the four-cycle at 5 force D4 inside the stabilizer of the rational resolvent pairing. Independently rewritten exact code under repairs/5 was run: it confirms the displayed homogeneous iterate/fixed-factor quotient, squarefreeness and point-factor irreducibility, the three cycle-sum remainder identities, the two quadratic discriminants, and the entire quartic resolvent and both good-prime tests. The three irreducible sum polynomials have disjoint roots and the degree ratios are all three; each sum identifies exactly one cycle, so its stabilizer equals the setwise cycle stabilizer. This checks the arithmetic descent for unordered cycles, rather than assuming point fields are cycle fields. The frozen files were not executed or modified.
 
-The complex count of eight primitive three-cycles is **already known** (Kettinger). Explicit computations of fixed points and period-two points are also published and are excluded from the claim. The new assessed statement is the arithmetic partition \(2+2+4\) of the eight unordered three-cycles, two quadratic minimal fields equal to \(\mathbb Q(\sqrt{-3})\), and the quartic dihedral normal closure. Full texts of the directly relevant 2024 studies were examined for these implications; they describe the Lattès map and complex orbit counting but do not state these number-field results. The earlier 2008 work was considered from bibliographic/abstract evidence rather than line-by-line full-text verification. Relevant indexed mathematical-result searches gave noncovering neighboring records. An unindexed arithmetic computation of the same dynatomic map remains possible and constitutes a priority risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The field of definition of a periodic *orbit*, in contrast to that of one periodic *point*, is a natural arithmetic-dynamical invariant of an algebraic moduli self-map. The result determines the complete descent decomposition in the first uncomputed odd prime period beyond the explicit low-period examples, exhibits quadratic cyclotomic fields alongside dihedral quartic fields, and proves that no primitive three-cycle is rational as an unordered set despite the rationality of the map. It is a complete classification of a naturally defined finite invariant, not a selected numerical specialization.
+The known count of eight complex cycles and the classical Hessian map are excluded from the distinction. The repaired theorem identifies the arithmetic partition, exact cycle fields and quartic normal closure. The changed prime repairs the proof and is not itself asserted as a new scientific finding.
 
-## Boundary
+## value
 
-No claim is made about fields of definition of elliptic cubics with chosen plane equations, Galois groups of the individual degree-twelve points, higher periods, or universal novelty beyond examined sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Once the classical map and its geometric count are known, descent of its first 24 primitive three-period points is a concrete next arithmetic question. The exact fields decide whether an unordered cycle descends over specified fields, and the D4 closure captures structure not conveyed by a raw polynomial factor count. This is a complete classification at a natural period, including a rational nonexistence conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

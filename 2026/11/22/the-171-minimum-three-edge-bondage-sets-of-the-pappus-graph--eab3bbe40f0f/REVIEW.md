@@ -1,15 +1,21 @@
-# Review of the Pappus-graph three-edge bondage classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is specified by nine points and nine lines in a three-direction affine configuration, with an independently matched 18-cycle LCF presentation. The lower bound \(\gamma\ge5\) follows from closed-neighborhood capacity. Point/line incidence counting classifies all 18 five-vertex dominating sets in two natural nine-element families. Every candidate edge failure is then decided by an exact destruction predicate for each of these 18 sets. A separate C++17 exhaustive direct domination check (not the same predicate implementation) confirms all cardinalities. All 351 edge pairs are safe, 171 of 2925 edge triples are destructive, and the orbit program verifies the complete 216-automorphism group and four orbit sizes. The one-step restoration argument proves the increase is exactly one. Risks: finite code implementation and graph representation; mitigated by two independent graph constructions and checks.
+## correctness
 
-## Originality — PASS with disclosed residual risk
-The 2013 full-text bondage survey defines the invariant, gives general bounds and special graph families, and does not state a Pappus-graph three-edge failure census. The Sage documentation explicitly gives the previously known ordinary domination number five. Related mathematical records for truncated-octahedral bondage and Pappus semitotal domination are on distinct mathematical statements and do not imply the 171 failures or their four automorphism orbits. Exact query phrases and result IDs appear in `AUDIT.json`. The strongest residual risk is an unindexed bespoke historical calculation or private table; the claim is not certified unique by search alone.
+PASS
 
-## Value — PASS
-The Pappus graph is a canonical cubic symmetric incidence network. The result completely classifies its smallest link-failure configurations for ordinary domination: strikingly, 153 of 171 optimal attacks delete disjoint links and leave every vertex nonisolated, so isolating a vertex is far from the only minimal failure mechanism. The sharp three-link threshold and orbit partition provide a nontrivial, reproducible stability benchmark for domination and symmetric graph failure studies, not merely a recomputation of the known domination number.
+The incidence graph is cubic and its independent LCF reconstruction is isomorphic to it. Four closed neighborhoods cover at most 16 of 18 vertices. For a minimum five-set, both color shores require the split (3,2) or (2,3). In the first case the two selected lines must be parallel and the three selected points exactly the omitted line. In the other case the two points must be on no common allowed line; their six distinct incident lines leave exactly three lines to select, those through the third point on the omitted-direction line through the pair. Each case gives nine dominating sets. An edge-deleted graph cannot acquire a new five-set dominator, so direct coverage tests of these 18 candidates suffice for every deletion. I reconstructed the deleted closed neighborhoods and checked every one-, two- and three-edge subset, obtaining respectively 0,0,171 failures. The 171 include every complete star and otherwise have six distinct endpoints. Each failed triple contains a two-edge proper subset with a surviving five-set. When the third edge is removed, if coverage is lost the formerly dominated outside endpoint can be added, giving a six-set and proving equality. Complete adjacency-preserving bijection enumeration returned 216 automorphisms and disjoint orbits of sizes 9,18,36,108 for the exact listed representatives. The endpoint signatures give 3K2, C6 and P6 for the non-star cases: bipartiteness and girth six rule out shorter-cycle alternatives. The induced-matching and path signatures also occur among nonfailures, so they are not standalone criteria. All ranges were exhausted on this labelled graph.
 
-## Scientific limits
-This is a finite result on one canonical graph and relies on fully exhaustive computation for the 171 count and orbit sizes. A human-independent audit is not supplied. Unindexed earlier literature could change priority assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact ordinary edge-deletion threshold and exhaustive classification with symmetry and non-isolating failures, not the known domination number or the already-described 18 minimizers. Neither the strongest same-object results nor the checked general bondage theorems establish the minimum failure census.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical cubic incidence graph, and ordinary bondage tests the resistance of its minimum domination budget to link removal. The classification answers the distinct structural question whether isolation is the principal minimum failure mechanism: 153 of the 171 failures are matchings and isolate no vertex. The full orbit list and the fact that several endpoint shapes are not sufficient tests are useful exact benchmark data. This is a motivated all-minimum-deletions classification, not a recomputation of gamma or an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

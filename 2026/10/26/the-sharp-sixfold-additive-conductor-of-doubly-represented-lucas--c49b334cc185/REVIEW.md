@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Chu–Luo–Miller’s published closed form is an explicit premise. The exact gap alphabet \(\{4,7\}\) follows immediately from its floor increments. Ten explicit sums certify \([997,1006]\subseteq5K\); translating these intervals by successive elements of \(K\) gives every integer from \(1002\) onward in \(6K\). The exclusion of \(1001\) is checked two ways: complete bitset propagation of six sums through \(1001\), and a rigorous reduction to \(T=164\) or \(167\), exact quadratic-irrational candidate sets and two zero coefficients. For each \(h\le5\) the counting bound has leading factor \(h/(4+3/\varphi)<1\). The stand-alone script executed successfully. Infinite coverage and noncoverage are symbolic deductions, not extrapolations.
+## correctness
 
-## Originality — PASS within inspected evidence
-The Lucas ambiguity sequence, its generalized-Beatty representation and density are already in arXiv:2004.08316 and OEIS A342089. The studied literature on sumsets of Wythoff and Beatty sequences includes a known general bridge lemma, but its inspected explicit objects are different; no prior exact sixfold conductor or minimal order for A342089 was found in inspected literature and mathematical records. The full texts of two related broader-method papers were not completely accessible; an unindexed specialized calculation remains possible. Semantic record searches cannot establish mathematical uniqueness.
+PASS
 
-## Mathematical value — PASS
-This determines two standard exact additive invariants for a naturally occurring, previously classified sequence: its least fixed summand number for asymptotic coverage and the sharp exceptional threshold. The results connect Lucas representation nonuniqueness with additive-basis phenomena for generalized Beatty sets. The exact \(1001\) boundary requires a finite obstruction certificate rather than only the known asymptotic density or the general consecutive-block lemma. No arbitrary parameter slice is introduced.
+The cited Lucas representation theorem has the matching convention allowing indices 0 and 2 together, and its formula has the precise shift n+1. I separately reconstructed the bounded K by the include/skip dynamic program on indices: the count polynomial after adjoining L_j is the preceding one plus X^L_j times the polynomial from two stages earlier, truncated at 1006. This independently finds 171 elements with exactly two representations and recovers the closed-form prefix. Starting from {0}, iterating exact truncated sums with this K proves [997,1006]⊂5K and excludes 1001 from 6K; positive summands make the truncation exact and repetition is allowed at every stage. The gap bound at most 7 follows from successive floors; the translated ten-point blocks therefore overlap without end, beginning at 997+5=1002. For h≤5 the total index T controls every sum via 5h+4T+3S, with S in an open interval of length h and T≤X/(4+3α)+O_h(1). The resulting upper counting density h/(4+3α) is strictly less than one, so the other exact sumsets miss infinitely many positive integers. This is not a claim about the union of sums with at most h summands. Replay: /workspace/replays/recheck_frozen.py, lucas(), an exact direct Lucas-index and sumset check independent of the frozen witness and exclusion code. The infinite conclusions follow from the gap and counting arguments.
 
-## Closest sources and limitations
-Chu–Luo–Miller (arXiv:2004.08316) and OEIS A342089 define the same sequence; Pongsriiam (doi:10.3934/era.2022121) provides the related block mechanism for different Beatty sets; Shallit (arXiv:2006.04177) and Schaeffer–Shallit–Zorcic (arXiv:2402.08331) concern wider additive/automata questions. Part of the latter related literature was inspected only at abstract or excerpt level. The theorem addresses exactly six repeated-allowed summands, not sums of at most six terms. No independent priority or certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The set K, its precise generalized Beatty representation and its density are credited to prior work; general effective decidability for additive orders of generalized Beatty sequences is also prior. The supported distinct finding is the minimal exact-summand order six with its exact conductor 1002 and last miss 1001 for this K. No compared source states or directly supplies those numbers. This is a best-of-knowledge comparison, with an uninspected primary Beatty-sumset source explicitly noted.
+
+## value
+
+PASS
+
+The additive basis question is natural for the established set of nonuniquely represented Lucas integers, whose gaps are bounded but whose residue blocks can leave holes in low-order sumsets. The exact minimum order resolves a qualitative obstruction, and the sharp conductor gives a usable membership guarantee for the smallest feasible order. The last exception is certified together with all-size coverage, not presented as a leaderboard number from an arbitrary finite scan.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

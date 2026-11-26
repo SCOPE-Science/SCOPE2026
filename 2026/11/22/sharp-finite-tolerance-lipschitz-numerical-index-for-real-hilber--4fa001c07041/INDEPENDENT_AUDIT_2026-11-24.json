@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:51:24.951757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–37, 41–92",
+        "VERIFICATION.md lines 19–25 and checker.py inspected, not executed"
+      ],
+      "rationale": "Write c=1-delta and s=sqrt(1-c^2). For unit reference a and nonzero increment b, put x=|<a,b>|/||b||. Maximizing over the closed cap gives ||b|| for x>=c, and ||b||(cx+s sqrt(1-x^2)) for x<c, by aligning the perpendicular component with the signed perpendicular component of b. Boundary values are limits from the open cap, so the suprema coincide. Concavity on [0,c] gives minimum s at x=0. Since each reference increment is unit for an isometry, taking the supremum over pairs gives the lower index bound without any norm-attainment assumption on f. A rank-two skew J has Ja perpendicular to a. Its plane contains one nonzero reference increment, so ||Jg||_Lip is positive and equals one in the isometric case. For a merely norm-one g and admissible u, the orthogonal component of u relative to a/||a|| has norm at most s because <u,a>/||a||>c. Thus normalized Jg gives the upper bound even without an isometry. For unit a the limiting radius equals the supremum of the longitudinal evaluations, by the uniform estimate ||u-a||<=sqrt(2 epsilon). At finite tolerance the perpendicular term adds at most s||f||_Lip. The same skew witness has zero longitudinal evaluation and finite radius exactly s. In real dimension one with isometric g the matching unit sign evaluates the entire increment in absolute value, giving index 1 and error 0.",
+      "residual_risks": [
+        "Exact identities require an isometric reference; the open-cap supremum need not be attained by a functional. The proof is analytic and no diagnostic replay is needed for the universal quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First-page abstract of Choi–Han–Jung verifies the norm-one Lipschitz reference formalism and bounds on the g-relative index",
+          "First-page abstract of Pérez-Hernández proves equality of Lipschitz and linear indices for separable or dual real spaces; frozen account attributes a near-norming approximation to Lemma 3.2",
+          "First-page abstract of Kadets et al. identifies the zero limiting relative index in the real Hilbert case"
+        ],
+        "reasoning": "An equality of limiting indices, or a generic approximation estimate without a matching optimal example at each tolerance, does not prove either finite identity; a linear theorem also would need a reduction preserving the cap over metric molecules. No such implication follows from the inspected statements.",
+        "searches": [
+          "Choi–Han–Jung arXiv:2611.20406 Corollary 6.3",
+          "Pérez-Hernández arXiv:2507.18208 Lemma 3.2",
+          "Kadets–Martín–Merí–Pérez–Quero arXiv:1905.12257 Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Choi–Han–Jung arXiv:2611.20406, Pérez-Hernández arXiv:2507.18208, Kadets et al. arXiv:1905.12257, first-page PDF abstracts",
+        "Resultary 4fa001c07041, e3174ee41b5a and 4cc1edb9b791 (indexed statements)",
+        "Frozen comparison and citations at RESULT.md lines 98–110"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior linear abstract takes infimum in delta and gives limiting zero for real Hilbert spaces",
+          "Frozen source attributes analogous limiting vanishing in the Lipschitz setting to Corollary 6.3; that passage was not retrieved"
+        ],
+        "reasoning": "Even with the standard skew witness, knowing only zero limiting radius does not identify the modulus or force that every norm-one f has radius at least s for each positive tolerance. The projection estimate for arbitrary norm-one g may be elementary given a skew witness, but the jointly sharp isometric identities are the supported distinction.",
+        "searches": [
+          "Choi–Han–Jung abstract, attempted 6.1/Corollary 6.3 passage, and frozen comparison lines 98–110",
+          "Kadets et al. abstract linear relative-index formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By real Riesz representation the near-norming functionals are precisely unit spherical cap directions",
+          "Kadets et al. arXiv:1905.12257 abstract, extraction lines 7–27, expresses the linear relative index by an infimum over tolerance of near-norming suprema"
+        ],
+        "reasoning": "The infimum over tolerance loses the function of tolerance. The sharp finite cap lower bound and uniform error are stronger than vanishing of the limit and apply to arbitrary metric isometries rather than just linear maps.",
+        "searches": [
+          "Resultary for finite-tolerance Lipschitz numerical index, exact cap constant and regularization error",
+          "Focused literature lookup on numerical index with respect to a Lipschitz map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 4fa001c07041 is the assigned record",
+          "Earlier e3174ee41b5a concerns classical index bounds via Banach–Mazur distance, and 4cc1edb9b791 ordinary indices of three-point Lipschitz-free spaces, per summaries"
+        ],
+        "reasoning": "A square-root dependence on distortion is not a finite cap formula in delta, and a three-point ordinary index cannot imply a uniform finite-tolerance constant over all isometric metric domains. Catalogue comparisons were at summary level.",
+        "searches": [
+          "Resultary for exact sqrt(2delta-delta^2) Hilbert numerical index and sharp tolerance error",
+          "Related catalogue entries e3174ee41b5a and 4cc1edb9b791"
+        ]
+      },
+      "rationale": "The supported distinction is the exact positive-tolerance profile and best uniform regularization error on all isometric metric domains in real Hilbert targets. Near-norming definitions, skew maps, and a zero limiting relative index are not novel ingredients.",
+      "residual_risks": [
+        "The decisive numbered passages were not retrieved; a closely related finite-tolerance estimate in the full works or under another numerical radius convention remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared framework verified; no full-text exclusion of sharper positive-tolerance bounds",
+          "evidence": "The abstract introduces the g-Lipschitz radius/index and reports upper bounds for the g-Lipschitz index with ell_p targets, not a finite-delta profile in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.20406",
+          "material_read": "OA PDF first page abstract, lines 10–29; Corollary 6.3 not retrieved",
+          "method": "Focused lead search, literal OA retrieval attempts, then lawful PDF preview",
+          "title": "The numerical index with respect to a Lipschitz map",
+          "trigger": "Same relative Lipschitz definitions and closest general bounds"
+        },
+        {
+          "assessment": "Near-norming construction and zero limiting real Hilbert index verified at statement level",
+          "evidence": "The displayed definition infimizes over delta>0, and the Hilbert case reported for the resulting indices is {0}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.12257",
+          "material_read": "OA PDF first-page abstract, lines 7–27",
+          "method": "Lawful PDF preview",
+          "title": "On the numerical index with respect to an operator",
+          "trigger": "Operator-relative near-norming sets and Hilbert vanishing"
+        },
+        {
+          "assessment": "Verified ordinary index comparison; precise approximation estimate not independently read",
+          "evidence": "The abstract states equality of Lipschitz and classical indices for real separable or dual Banach spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.18208",
+          "material_read": "OA PDF first-page abstract, lines 10–17; targeted lemma not retrieved",
+          "method": "Lawful OA copy after DOI retrieval attempt",
+          "title": "Lipschitz vs Linear Numerical Index in certain Banach spaces",
+          "trigger": "Cited Lemma 3.2 for numerical-radius approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–37, 55–104",
+        "Operator-relative near-norming formula in arXiv:1905.12257 abstract"
+      ],
+      "rationale": "The finite near-norming relaxation is a preexisting object, and exact control matters because the real Hilbert limiting index is zero. The theorem quantifies the positive floor introduced by tolerance and the worst bias across all normalized test maps, showing that neither square-root scale nor its leading coefficient can be reduced. The construction works on arbitrary metric subsets without needing attainment, differentiability or compactness. This supplies a uniform benchmark, not just a planar cap calculation.",
+      "residual_risks": [
+        "No matching lower bound for arbitrary nonisometric g, or conclusion for complex targets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

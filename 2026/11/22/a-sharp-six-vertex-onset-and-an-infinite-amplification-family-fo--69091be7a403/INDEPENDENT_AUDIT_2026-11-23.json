@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:45:28.268937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed object is location-specific neutral fixation on a simple unweighted tree with δ the dB probability. Ordered copying u→v has probability ((1−δ)/d_u+δ/d_v)/N. On a tree, propagating w_v/w_u=q_(v→u)/q_(u→v) balances each edge, and the weighted mutant count has zero conditional drift; a finite positive-probability route to consensus and bounded convergence give fixation w_v/sum(w) including δ=0,1. Through order five only the five-vertex fork is not bidegreed: maximum degree ≤2 is a path, degree N−1 a star, and the five-vertex degree-3 nonstar has pendant branch lengths 1,1,2. The bidegreed theorem applies to all other trees; a singleton, if adjoined by the absorbing convention beyond the update rule's N≥2 domain, is trivial. I independently multiplied the fork weights in t=δ/(1−δ); their common denominator has coefficients (23,101,128,48) in ascending powers, and the derivative numerators agree with the four listed strict-sign certificates. For D_{1,3} the same polynomial method gives the reported rational function and a single strict maximum; the cubic is decreasing (its derivative is convex with negative endpoint values) and bisection gives 0.0336810499232197 and fixation 0.2110651074585313. The boundary derivatives and pure-rule limits follow by differentiating and evaluating the exact weight formula. At δ=m^−1/2, the small hub weight tends to 1/2 and the large-hub edge ratio divided by the large-leaf edge ratio tends to 1, so the normalizer divided by m tends to 1/2, proving the third asymptotic. The positive derivative at 0 and negative derivative at 1 give interior improvement over both endpoints. Replay paths for the frozen algebraic certificate: `verify.py`, lines 49–91, and the exact weight formula in RESULT.md Proof 2–4; the frozen script was inspected, not executed. This is not a threshold over all graphs or a global optimal-factor theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bidegreed monotonicity is an exact theorem for general bidegreed graphs and covers the path/star cases. The conclusion in the later preprint leaves classification of monotone graphs open."
+        ],
+        "reasoning": "The five-vertex fork and the D_{1,m} witnesses for m≥3 each have three degree values and are not covered by that monotonicity theorem. A general stationary weight method does not itself establish the family derivative-sign tests or the asymptotic scale.",
+        "searches": [
+          "Brewster et al. arXiv:2512.11164 Theorems 3.4–3.5 and conclusion",
+          "arXiv:2511.18252 Example 3.2 and §5",
+          "PLOS Comput Biol DOI 10.1371/journal.pcbi.1014829 Fig. 2 and Theorems 3.4–3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Brewster et al. arXiv:2512.11164, arXiv:2511.18252 and DOI 10.1371/journal.pcbi.1014829",
+        "Resultary tree/double-star search and frozen self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result that graphs may have an interior optimum does not constrain the minimum order over trees. The bidegreed theorem is credited and used, but it does not assign the signs for the fork or witness."
+        ],
+        "reasoning": "The sharp lower bound needs the four fork signs and the positive result needs the six-vertex rational derivative. The uniform endpoint derivative sign and the vanishing-mixing asymptotic require a separate family analysis, not substitution into a bidegreed formula or the cyclic witnesses.",
+        "searches": [
+          "Published Fig. 2 and Theorems 3.4–3.5; conference Example 3.2 and Theorem 5.2; frozen Proof 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest catalogue result --69091be7a403 is the same record. Brewster et al. show neutral nonmonotonicity on cyclic graphs. Their conference draft takes λ to be the probability of Bd, so λ=1−δ."
+        ],
+        "reasoning": "A change of parameter direction preserves whether fixation is nonmonotone; that is not a distinction from the prior examples. The acyclic class, sharp minimum within it and uniform family of specified sites are the distinctions.",
+        "searches": [
+          "Resultary: mixed neutral fixation on trees double stars, minimum order nonmonotonicity",
+          "Web: mixed updating Brewster Huang Mitzenmacher Nowak tree double star neutral fixation monotonicity six vertices leaf Bd dB",
+          "Web: double star neutral fixation mixed death birth reproductive values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The conference exact small graph has five vertices and six edges; the journal Fig. 2 witness is a star with two additional edges on the same vertices. Neither is a tree. The catalogue self-match is not independent."
+        ],
+        "reasoning": "A graph atlas could enumerate the trees but would not determine location-specific rational dependence on the mixing parameter, much less the infinite-family comparison. The identified prior finite examples do not settle the tree threshold.",
+        "searches": [
+          "Resultary exact tree minimum or D_{1,3}/D_{1,m} mixed fixation profile",
+          "arXiv:2511.18252 Example 3.2 and arXiv:2512.11164 Fig. 2 as candidate exact small-graph records"
+        ]
+      },
+      "rationale": "Generic neutral nonmonotonicity, the neutral balance formulation, and bidegreed monotonicity are prior. The supported distinct contribution is the all-tree sharp order-six onset, exact small-side-leaf witness, and infinite one-sided double-star family with an achievable asymptotic factor of two. The strongest primary examples are cyclic, and the bidegreed theorem leaves precisely the small obstruction and witness outside its domain.",
+      "residual_risks": [
+        "The printable journal supplement was not separately retrieved via its public link; the theorem statements, cited preprint sections and exact cyclic witnesses were inspected. A distinct unindexed exact tree analysis may exist.",
+        "The audit establishes an attainable asymptotic improvement, not an upper bound over all mixtures or all tree families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior bidegreed input and cyclic example, not tree cutoff or amplification",
+          "evidence": [
+            "Degree-d1 fixation strictly decreases and degree-d2 strictly increases for d1<d2. The neutral Fig. 2 nonmonotone graph adds two edges to a star. The preprint discussion asks about further monotonicity classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1014829; arXiv:2512.11164",
+          "material_read": "Journal pp. 5–7, Fig. 2 caption and Theorems 3.4–3.5; preprint neutral section, Fig. 2 and conclusion (PDF offsets about 17300–20506 and 43500)",
+          "method": "OA primary PDF passages",
+          "title": "Mixed updating in structured populations",
+          "trigger": "Same model, known nonmonotonicity and possible sharp classifications"
+        },
+        {
+          "assessment": "Five-vertex counterexample in the unrestricted graph class, not in trees; bidegreed formula is prior",
+          "evidence": [
+            "Example 3.2 lists six edges on five vertices, so is cyclic. Parameter λ is the probability of Bd, not dB."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.18252",
+          "material_read": "Example 3.2 PDF p. 7, offset 23500; §5 Theorem 5.2 pp. 11–12, offset 40500",
+          "method": "OA primary PDF passages",
+          "title": "The Mixed Birth-death/death-Birth Moran Process",
+          "trigger": "Earlier exact small-graph witness and possible counterexample to size six"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem answers a natural structural restriction of an existing mixed-updating question. It identifies the first acyclic obstruction and shows why its small six-vertex improvement is not the substantive limit: the same geometry at larger order admits a factor approaching two over the better pure rule. The exact lower-order monotonicity certificate and infinite-family scaling are independently useful, with no claim to an optimal universal factor.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

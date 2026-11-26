@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:10:20.081315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–60",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The rim mean-zero subspace carries B=3I−S−S⁻¹; the hub–rim contrast vector (1,…,1,−m) has eigenvalue m+1, and constants are killed. The projector formula for these subspaces gives the stated block Green entries and c_m. The geometric line kernel q^{|d|}/√5 solves the exact three-term recurrence including the source, and periodizing it gives a_{m,d}. Since rows sum to zero, their absolute sums are twice their positive mass. The hub absolute sum is 2m/(m+1)²; for m≥4 the positive rim diagonal alone beats it in doubled mass since a_{m,0}>1/√5>2/(m+1)=c_m+m/(m+1)². At m=3 the graph is K4, and all rows equal 3/8 in absolute sum. The row sign vector attains the unrestricted infinity norm, and a unit coordinate vector at a rim column attains the 1 norm by symmetry. For the asymptotic, the shortest-distance kernel replacement has total error O(q^{m/2}) by summing the discarded terms geometrically. Replacing c_m by 1/m changes the positive-part sum by at most m/[m(m+1)²]. The replacement retains distances through k=floor T_m, counting the origin once and nonzero distances twice (a zero at the boundary is harmless). The discarded tail gives 4q^{k+1}/[√5(1−q)], and the subtracted pedestal contributes 2(2k+1)/m, giving the claimed phase and uniform remainder. The derivative of Φ increases from negative to positive, using αq<1−q<α, and the endpoints agree. Integer approximations to √5 exp(α(j+u)) realize any interior limiting phase u, with one-sided approximations at the ends. Uniform error then gives exactly the claimed accumulation interval.",
+      "residual_risks": [
+        "The finite checker is not a proof of uniformity or accumulation and was not replayed. The norm is on all input functions, not the norm of a restricted mean-zero domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary wheel papers give kernel or resistance entries; the inspected results do not optimize induced vertex norms or give a second-order phase.",
+          "Resultary 3efd9f463ccd gives a conductance-weighted edge Hodge projection with an optimized log-over-size norm deficit."
+        ],
+        "reasoning": "The Hodge operator acts on edge functions with different normalization and cannot supply this vertex absolute-row norm. The established Green formulas imply the entries and immediately reduce the norm to row sums, but do not provide a dominating asymptotic theorem.",
+        "searches": [
+          "Ipsen–Mallik Theorem 3.6; Yang Theorems 2.2 and 2.5",
+          "Resultary: wheel Poisson amplification, phase law; sharp wheel Hodge endpoint stability"
+        ]
+      },
+      "checked_sources": [
+        "Ipsen–Mallik arXiv:2201.02579",
+        "Yang (2012), Theorems 2.2 and 2.5",
+        "Resultary bda401cecdc2 and 3efd9f463ccd",
+        "Focused primary literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the prior wheel kernel, the finite absolute-row computation and the positive-part form are short consequences. The phase theorem additionally controls the replacement error uniformly across a cutoff that can lie arbitrarily close to an integer, sums the geometric tail, and proves density of the logarithmic phases.",
+          "The inspected cycle phase is indexed by a different lattice sequence and its conclusion does not evaluate the wheel centered quantity."
+        ],
+        "reasoning": "Do not credit the finite inverse as new. Deriving and proving a nonconstant periodic second-order coefficient and its full accumulation set is a separate asymptotic calculation, not a substitution into an existing norm or phase theorem found in the comparisons.",
+        "searches": [
+          "Ipsen–Mallik, arXiv:2201.02579, pp. 13, 16–17",
+          "Yang (2012), pp. 2–3",
+          "Resultary bda401cecdc2, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For symmetric G=L†, the two induced endpoint norms are the same largest absolute row or column sum; for zero-sum rows this is twice the greatest positive row mass.",
+          "Yang's full resistance matrix R recovers G by G=−HRH/2 with H the mean-zero projector; Ipsen–Mallik supply G directly."
+        ],
+        "reasoning": "Resistance, inverse circulant and projected Green formulations provide the same kernel data. The result reviewed applies the unrestricted vertex norm to those data and resolves the asymptotic integer cutoff, not the recovery of the kernel.",
+        "searches": [
+          "Focused primary lookup: wheel pseudoinverse induced vertex endpoint norms, positive row sums and logarithmic lattice phase",
+          "Ipsen–Mallik arXiv:2201.02579, Corollary 3.3 and Theorem 3.6; Yang 2012, Theorems 2.2 and 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-date cycle record bda401cecdc2 gives an unrestricted endpoint norm for C_n with quadratic leading growth and accumulation interval [0,1/(4√3)] for a different normalized residual.",
+          "The weighted-wheel record 3efd9f463ccd concerns an edge projection, not the vertex Laplacian pseudoinverse."
+        ],
+        "reasoning": "A closely analogous phase result for the massless cycle is not exact coverage for a wheel. The latter has an exponentially decaying massive rim kernel with a log-radius positive region rather than the cycle's sign structure.",
+        "searches": [
+          "Resultary: wheel graph Poisson norm and logarithmic lattice phase",
+          "Resultary bda401cecdc2 and 3efd9f463ccd; local mirrored findings"
+        ]
+      },
+      "rationale": "The wheel Green matrix is already known explicitly and also recoverable from prior resistance distances. The norm's row-sum interpretation is standard. The supported distinct contribution is the sharp rim cutoff analysis giving the uniform nonconstant m⁻¹ phase after the logarithmic correction, and the exact interval of accumulation values. Neither the wheel kernel literature nor the inspected graph-Poisson and wheel Hodge comparators state that phase law or resolve this same asymptotic question.",
+      "residual_risks": [
+        "Bounded comparison is not absolute priority. Equivalent norm results could be indexed under Green-function Lebesgue constants or discrete maximum-principle stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior kernel coverage; not the inspected norm asymptotic",
+          "evidence": "Provides the inverse rim circulant and the wheel Laplacian Moore–Penrose inverse.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.02579",
+          "material_read": "Corollary 3.3, PDF p. 13, OA offset 38539; Theorem 3.6, PDF pp. 16–17, offset 48345",
+          "method": "Bounded open primary PDF passage comparison",
+          "title": "Incidence and Laplacian matrices of wheel graphs and their inverses",
+          "trigger": "Exact same unweighted wheel pseudoinverse"
+        },
+        {
+          "assessment": "Mechanically supplies the full kernel, but no cutoff asymptotic from the inspected statements",
+          "evidence": "Hub–rim and rim–rim resistances by cyclic separation reconstruct the pseudoinverse by double centering.",
+          "identifier_or_url": "https://www.naturalspublishing.com/files/published/90uo7hk8rzs133.pdf",
+          "material_read": "Theorem 2.2, PDF p. 2, OA offset 7639; Theorem 2.5, PDF p. 3, offset 11449",
+          "method": "Bounded primary OA PDF comparison and double-centering identity",
+          "title": "Simple Random Walks on Wheel Graphs",
+          "trigger": "Same wheel resistance and Green-kernel information"
+        },
+        {
+          "assessment": "Related invariant on a different graph with different growth and phase",
+          "evidence": "The cycle norm grows quadratically and has a constant-order residual with a different accumulation interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-cycle-poisson-norm-and-its-irrational-lattice-phase-limi--bda401cecdc2",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding",
+          "method": "Bounded local mirror comparison",
+          "title": "A sharp cycle Poisson norm and its irrational lattice phase limit",
+          "trigger": "Same-date endpoint Poisson and lattice-phase claim"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "The endpoint norm is for an energy-normalized edge Hodge projection on a weighted wheel, not the unnormalized vertex Green matrix.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-endpoint-hodge-stability-and-logarithmic-contrast-tuning-o--3efd9f463ccd",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding",
+          "method": "Bounded local mirror comparison",
+          "title": "Sharp endpoint Hodge stability and logarithmic contrast tuning",
+          "trigger": "Sharp wheel endpoint norm with a logarithmic asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–32 and 46–60",
+        "Ipsen–Mallik Theorem 3.6 for the prior kernel comparison"
+      ],
+      "rationale": "The counting-measure endpoint norm is the sharp maximum vertex response to a bounded source. On a wheel, exponential rim decay competes with the global mean-removal pedestal, giving a logarithmic cutoff. The exact second-order phase decides that a constant correction after the leading logarithmic defect cannot exist and quantifies every possible residual limit. That is useful precise information beyond a known kernel or a leading estimate.",
+      "residual_risks": [
+        "This motivation is for the unrestricted unweighted wheel norm and does not imply analogous results for weighted wheels or other graph joins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

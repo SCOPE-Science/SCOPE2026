@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:42:14.553310Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–66; VERIFICATION.md and verify.py inspected, not run",
+        "Independent script /workspace/branches/a38536c8-8a6b-45dc-969d-47b49338e756/audit_record5.py: exact radical comparison and numerical direct determinant checks at L=2,3,4, including ring offsets"
+      ],
+      "rationale": "The stated result is correct within the south-pole, nested odd-ring family. On ring k, channel q in [-k,k] has no alias with absolute order at most k other than q; sorting by decreasing absolute order gives triangular signed-order blocks without needing any prior invertibility. The derivative Legendre polynomials have consecutive degrees and the stated normalized leading coefficients. Their Vandermonde products give the ring and spacing powers by counting signed orders; unit-modulus phases leave the determinant modulus invariant. The strictly negative log-curvature of the endpoint factors gives strict concavity in every open ordering chamber, and the product vanishes on its boundary. At L=3 the first derivatives yield the two displayed equations and there is one interior critical point per chamber. Exact evaluation in Q(sqrt(2305)) confirms the positive chamber-value difference and the stated ratio to the equiangular placement.",
+      "residual_risks": [
+        "Finite numerical agreement is not the all-bandwidth proof; no formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "fcdce61959b4 covers all L on the identical ring family and in fact states nondegeneracy of every chamber maximum. The inspected transform papers seek conditioning or error-amplification improvements, not this determinant optimum."
+        ],
+        "reasoning": "The exact indexed theorem supplies the all-bandwidth result; sampling or transform construction alone does not establish the global optimum.",
+        "searches": [
+          "fcdce61959b4, Finding and Assumptions and scope",
+          "arXiv:1403.4661; arXiv:1709.02497; arXiv:2611.16441"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 159f16df7cbc, fcdce61959b4 and ccfc9816bd27",
+        "Khalid et al., arXiv:1403.4661; Nafees et al., arXiv:1709.02497; Khalid, arXiv:2611.16441; NASA 19730008792 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier general positive constant is the product of the squared normalized derivative leading coefficients and the full row-count factors, exactly K_L^2. The earlier nine-sample normalization is K_3^2; its reported squared gain is the square of the frozen gain."
+        ],
+        "reasoning": "Together the inspected earlier results imply both central theorems with the same normalization, ring offsets and domain. The explicit chamber-value subtraction is an auxiliary certificate, not a different optimum theorem.",
+        "searches": [
+          "159f16df7cbc Finding; fcdce61959b4 Finding and constant at local-mirror offsets 2023–3334"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "159f16df7cbc gives the same radical pair and exact squared F factorization. fcdce61959b4 doubles every frozen exponent and its constant is K_L squared."
+        ],
+        "reasoning": "For the determinant modulus the square map is strictly increasing on the positive range, making these statements equivalent.",
+        "searches": [
+          "Resultary: determinant-optimal nine-sample quadratic spherical harmonics; all-bandwidth determinant factorization and chamber-unique ring designs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "159f16df7cbc prints the latitude pair, squared determinant normalization and equiangular comparison. ccfc9816bd27 addresses fixed-grid permutations and a different objective."
+        ],
+        "reasoning": "The exact earlier design matches, whereas the same-day related design does not.",
+        "searches": [
+          "Resultary exact nine-sample determinant latitudes, 159f16df7cbc; related fixed-grid placement, ccfc9816bd27"
+        ]
+      },
+      "rationale": "Two distinct earlier indexed statements already cover the two main results exactly: the all-bandwidth product and chamber uniqueness, and the global nine-sample optimum with the same equiangular comparison. Positive square roots convert their squared-determinant statements to the frozen modulus statements without altering maximizers.",
+      "residual_risks": [
+        "Indexed dates and exact overlaps are not a broader claim about authorship or first public priority. Uninspected parts of historical sources may contain additional antecedents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap",
+          "evidence": [
+            "Same arbitrary offsets, radical optimum in both permitted orders, squared determinant and gain"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-determinant-optimal-latitudes-for-nine-sample-quadratic-sp--159f16df7cbc/RESULT.md",
+          "material_read": "Finding, mirror offset 0–1926",
+          "method": "Resultary search and exact local-mirror passage",
+          "title": "Exact determinant-optimal latitudes for nine-sample quadratic spherical harmonics",
+          "trigger": "Matching nine-point design"
+        },
+        {
+          "assessment": "Exact overlap after taking square root",
+          "evidence": [
+            "Same normalization, exponent counts, offset independence and one maximum per chamber"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-all-bandwidth-determinant-factorization-and-chamber-unique-spher--fcdce61959b4/RESULT.md",
+          "material_read": "Finding, assumptions, constant and first proof step, mirror offset 0–3334",
+          "method": "Resultary search and exact local-mirror passages",
+          "title": "All-bandwidth determinant factorization and chamber-unique spherical ring designs",
+          "trigger": "Matching parametric product and unique maxima"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": [
+            "Fixed equiangular permutations and error-amplification criterion"
+          ],
+          "identifier_or_url": "ccfc9816bd27",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Bounded local-mirror read",
+          "title": "First failure of greedy latitude placement at spherical band-limit L=12",
+          "trigger": "Same-date ring placement hit"
+        },
+        {
+          "assessment": "Related methods; different optimization goals in inspected passages",
+          "evidence": [
+            "Sequential interpolation, condition number and error-amplification criteria"
+          ],
+          "identifier_or_url": "arXiv:1403.4661; arXiv:1709.02497; arXiv:2611.16441",
+          "material_read": "Ring counts and transform matrices in 1403.4661; placement discussion in 1709.02497 and 2611.16441",
+          "method": "Bounded OA PDF reads",
+          "title": "Optimal-dimensional spherical harmonic sampling and transform papers",
+          "trigger": "Primary sources for ring structure and placement"
+        },
+        {
+          "assessment": "Sampling context only at this inspection depth",
+          "evidence": [
+            "Mentions (N+1)^2 samples for harmonic degrees through N"
+          ],
+          "identifier_or_url": "NASA 19730008792",
+          "material_read": "Abstract, PDF offset 3496",
+          "method": "Bounded OA PDF read",
+          "title": "Sampling Functions for Geophysics",
+          "trigger": "Historical spherical sampling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–15 and 38–72",
+        "Exact statement comparisons to 159f16df7cbc and fcdce61959b4"
+      ],
+      "rationale": "The underlying structured design problem is worthwhile, but the frozen record does not establish an independent advance over the two exact indexed results. A different power of the same determinant and a rational certificate for comparing two already-optimized chambers add no independently motivated exact invariant in the stated scope.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

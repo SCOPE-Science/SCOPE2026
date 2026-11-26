@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies conditional independence, the modal polytope, independent uniform committee sampling, and randomized three-way tie-breaking. The exact \(2,1,1\) vote-profile identity holds for every deterministic four-vote profile. The feasible modal-probability set is rigorously shown to be the convex hull of four rational vertices, so separate affineness reduces all continuous laws to 256 extreme joint laws (35 types up to permutations). Each rational type is calculated in the self-contained verifier and table in RESULT.md. The maximum is exactly \(1/12\), the minimum is zero, and the witness gives accuracies \(1\) and \(11/12\). Uniform four-person sampling followed by uniform deletion supplies the exact all-\(N\) reduction. No numerical sampling or asymptotic extrapolation is treated as proof. This review is of the complete final theorem, including boundary tie cases.
+PASS
 
-## Originality — PASS, with residual risk
+Only the (2,1,1) multiplicity pattern changes the accuracy under deletion averaging: for a doubled true label the gain is 1/3; for a doubled false label it is −1/6. The (2,2) case averages its fair tie correctly, and the two-label identity follows by omitting (2,1,1). The four stated probability vectors generate the modal simplex slice by the supplied nonnegative convex coefficients. Independence gives separate affineness. I independently computed the 35 multiset types by multiplying integer generating polynomials for their uniform supports and extracting the three (2,1,1) coefficients; every table value matches and 0012 is the only maximizing vertex type. In it A4=1, and the outcome which gives the gain 1/3 occurs with probability 1/4, giving A3=11/12. The general N argument is exact because each triple has N−3 four-element extensions and each extension deletes to that triple with probability 1/4.
 
-Berend and Sapir (2005), Theorem 1, is the closest direct random-subcommittee comparison but is explicitly **dichotomous**: it yields equality for binary three-versus-four comparisons, and cannot cover the present three-label strict witness. Goertz and Maniquet (2011) treat three alternatives, but their propositions concern large strategic Poisson games and equilibrium efficiency, not finite uniform random subcommittee increments under heterogeneous modal probability vectors. Saari (2002) develops the plurality-profile method and was bibliographically checked, but its inaccessible original full article remains an explicit uncertainty. Comparison of the actual claims, domains, and implication direction found no identical or stronger result in the inspected primary materials or searched mathematical records. Searches cannot prove global novelty, and an unlocated generalized multi-alternative jury bound could subsume the statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural smallest nontrivial odd-to-even comparison for three-label plurality. The binary random-jury identity predicts a zero three-to-four increment, yet with three labels a strictly positive increase can arise, and a universal **sharp** eight-and-one-third percentage-point cap still survives heterogeneous voter reliability and arbitrarily large electorates. This is directly interpretable for randomly staffed multi-class judging panels and finite vote sampling, while avoiding unsupported consequences for strategic elections or dependent classifiers.
+Prior jury theorems address binary random-subcommittee monotonicity, asymptotic modal competence with common vote laws, or strategic voting in large elections. No compared source establishes both this finite heterogeneous nonnegativity result and the sharp 1/12 upper envelope. The claim is not that plurality, modal competence or the jury framework is new.
 
-## Scope and limitations
+## value
 
-Only exactly three possible labels, independent conditional votes, pointwise modal correctness, uniform random committee samples, and fair random tie-breaking are addressed. This is an exact mathematical correctness and novelty review, not independent proof certification. Saari (2002) is known from publisher metadata and abstract, not full text, and its potential unknown stronger claims remain a residual scholarly risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This adjacent odd-to-even comparison distinguishes ternary accuracy from an identically flat binary comparison. The deterministic gain has both signs, so monotonicity under independent weak modal competence is a genuine restriction, especially with different error directions. The exact 1/12 envelope and an explicit attaining panel give a finite, interpretable benchmark for multiclass judging from randomly staffed panels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

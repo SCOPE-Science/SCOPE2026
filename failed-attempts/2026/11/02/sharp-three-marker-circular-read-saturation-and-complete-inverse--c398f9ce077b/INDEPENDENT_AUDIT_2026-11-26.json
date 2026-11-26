@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:21:02.698195Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–66",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "Let the three positive clockwise spacings sum to n. At n≥3k−1 at least one is long (≥k). Pair correlations at offsets below k are recovered by summing the observed counts of factors containing the two specified ones. If no factor sees all three ones, no two consecutive spacings sum to less than k, and those correlations exactly give the multiset of short spacings. The empty and singleton correlations are fixed; with the triple correlations zero, Boolean inclusion–exclusion recovers the full spectrum from the pair correlations. If a factor sees all three markers, it specifies the ordered short spacings and the total n fixes the remaining long one, so the source is fixed up to rotation. There are respectively 1_{n≥3k}, k−1, binom(k,2)−floor((k−1)^2/4), and binom(k−1,2) labels. Every label is realized in its stated range. Marking the unique short spacing in B or unique long spacing in C and D gives n placements per ordered cyclic configuration. For A, an indexed word with a distinguished marker has n times the number of weak compositions of n−3k into three parts as its total count over all words; division by three handles periodic words without a freeness assumption. These yield every stated fiber size, also for k=2, and the deficit of exactly one label at n=3k−1 proves permanent stabilization at 3k.",
+      "residual_risks": [
+        "An independent direct window enumeration reported agreement on 27 cases and 37,764 indexed words, not a proof of the general law; the proof is combinatorial."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior gap-spectrum lemma applies to arbitrary read lengths within its three-marker setting, not only to n≥3k−1.",
+          "Kiah–Puleo–Milenkovic give profile-count asymptotics for a broader string coding framework, not this cyclic constant-weight identity; Marcovich–Yaakobi use acyclic spectra."
+        ],
+        "reasoning": "In the frozen range at most two gaps are short. The prior invariant then leaves just zero, one, or two short spacings with sum at least k, and the known unique-necklace case leaves the ordered short pairs with sum less than k. This is a restriction of the prior structural description.",
+        "searches": [
+          "Resultary 53b37289c576, Proof Step 1; arXiv:1502.00517; arXiv:1912.11108"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–80",
+        "Resultary 53b37289c576, 92625b7494d0, 708ab3380ccb, 1516a959f63f, ca93411def6b and e75b073e3080",
+        "arXiv:1502.00517, arXiv:1804.04548 and arXiv:1912.11108",
+        "OEIS A263807"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once labels are given by the earlier lemma, partitions into short and long spacings give the four label counts and the one-label deficit when three long spacings cannot fit.",
+          "Indexed fiber counts are direct weak-composition counts or n placements per ordered pattern, with the distinguished-marker correction in A. The nearby e75b073e3080 record instead observes compositions of linear windows."
+        ],
+        "reasoning": "No additional channel invariant, reconstruction phenomenon or nonroutine enumeration is needed to turn the earlier lemma into the frozen formulas. The exact all-k count and fibers need not have appeared verbatim for this implication to constitute coverage.",
+        "searches": [
+          "Resultary 53b37289c576, Proof Step 1 (gap-spectrum lemma and triple-factor argument) and cyclic gap orbits; Resultary e75b073e3080"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record's Proof, Step 1, offsets 3173–7649: without a three-one factor, the spectrum determines and is determined by n and the multiset of zero gaps strictly below k−1. With a three-one factor, its two ordered zero gaps recover the necklace."
+        ],
+        "reasoning": "Zero gaps g and positive spacings d satisfy d=g+1, so g<k−1 iff d<k. Passing from necklaces to indexed inputs does not change equality of observed spectra; only orbit sizes change. The known classes become A–C without a three-one factor and D with one.",
+        "searches": [
+          "Resultary search for cyclic binary three-marker reconstruction, truncated gaps, and inverse fibers; record 53b37289c576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October composition-refined trigram count contains the k=3, weight-three slice. The separate same-day 708ab3380ccb record gives exactly 5 profiles at n=8 and 6 at all n≥9 in that slice.",
+          "The shifted OEIS match A263807 counts cells in a cellular automaton (Rule 157), not circular-word profiles."
+        ],
+        "reasoning": "The trigram tables do not by themselves cover all k, and neither a numerical prefix nor a same-day deposit date establishes duplicate scope or priority. The earlier gap-spectrum lemma, rather than those tables, settles coverage.",
+        "searches": [
+          "Resultary composition-refined circular trigram records 92625b7494d0, 708ab3380ccb, 1516a959f63f, ca93411def6b",
+          "OEIS stabilized prefix 3,6,11,17,25,34,45,57,71,86: A263807"
+        ]
+      },
+      "rationale": "The earlier 2026-10-26 three-marker reconstruction record contains a stronger gap-spectrum lemma in its proof. On the same observation model it already classifies equality of all spectra lacking a three-one factor, and proves uniqueness up to rotation whenever such a factor is present. Its theorem about reconstruction length is not the decisive overlap; the underlying lemma and triple-factor argument cover the entire equivalence classification asserted here. The new displayed numbers follow mechanically by counting those known labels and their indexed realizations.",
+      "residual_risks": [
+        "Counting Markov Types, Balanced Matrices, and Eulerian Graphs (10.1109/TIT.2012.2191476) was unavailable in full text; broader historical coverage is not settled. The negative verdict uses a primary Resultary lemma that was read, not the unavailable article or the OEIS match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural coverage strictly beyond the frozen length range",
+          "evidence": [
+            "No-triple spectra are equivalent to equality of n and the multiset of gaps below k−1; any triple factor fixes the cyclic necklace."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-cyclic-read-length-reconstruction-for-three-marker-binary--53b37289c576/RESULT.md",
+          "material_read": "Finding and scope, offset 0; Step 1 gap-spectrum lemma and triple-factor reconstruction and subsequent orbit counting, offsets 3173–7649",
+          "method": "Primary local Resultary mirror",
+          "title": "Sharp cyclic read-length reconstruction for three-marker binary words",
+          "trigger": "Identical observation channel and three-marker restriction"
+        },
+        {
+          "assessment": "Exact count overlap at k=3",
+          "evidence": [
+            "Its composition count P_{p,q} covers q=3 and p=n−3."
+          ],
+          "identifier_or_url": "92625b7494d0",
+          "material_read": "Finding of fixed-composition trigram enumeration",
+          "method": "Primary local Resultary mirror",
+          "title": "Composition-refined enumeration of circular binary trigram spectra",
+          "trigger": "Exact database candidate"
+        },
+        {
+          "assessment": "Same-day, transposed parameter roles; exact overlap at k=w=3",
+          "evidence": [
+            "For fixed read length three and weight w, n=3w is the permanent threshold with a deficit of one at n=3w−1; individual fibers are outside scope."
+          ],
+          "identifier_or_url": "708ab3380ccb",
+          "material_read": "Finding and limitations",
+          "method": "Primary local Resultary mirror",
+          "title": "Composition-resolved cyclic binary three-gram profiles and their sharp saturation threshold",
+          "trigger": "Matching one-profile deficit and saturation threshold"
+        },
+        {
+          "assessment": "Related asymptotic enumeration, not used for exact coverage",
+          "evidence": [
+            "The profile is a vector of substring counts; c(2,3)=1/288 is an asymptotic constant, not a saturation law at fixed weight."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.00517",
+          "material_read": "Definition on p. 2 and asymptotic discussion pp. 8 and 20",
+          "method": "Primary OA PDF passages",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Profile enumeration framework"
+        },
+        {
+          "assessment": "Different, acyclic observation model",
+          "evidence": [
+            "It uses n−L+1 reads and distinguishes this from a possible cyclic version."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.11108",
+          "material_read": "Definition and Remark 2, pp. 1 and 8",
+          "method": "Primary OA PDF passages",
+          "title": "Reconstruction of Strings from their Substrings Spectrum",
+          "trigger": "Spectrum reconstruction alias"
+        },
+        {
+          "assessment": "Related coding model, not the coverage basis",
+          "evidence": [
+            "It studies reconstruction codes for multiset spectra rather than this exact cyclic weight-three census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+          "material_read": "Spectrum and reconstruction-code discussion around offset 16541",
+          "method": "Primary OA PDF passage",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Multiset substring reconstruction context"
+        },
+        {
+          "assessment": "Numerical match with different interpretation",
+          "evidence": [
+            "The listed object is a cellular automaton."
+          ],
+          "identifier_or_url": "https://oeis.org/A263807",
+          "material_read": "Sequence description and values",
+          "method": "OEIS indexed entry",
+          "title": "Number of ON cells in Rule 157",
+          "trigger": "Exact stabilized-count prefix match under an index shift"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 2–4",
+        "Resultary 53b37289c576, gap-spectrum lemma"
+      ],
+      "rationale": "Exact channel sizes and collision fibers are useful quantities, but this frozen claim is a routine enumeration of the already characterized classes after imposing the at-most-two-short-spacings condition. It adds no independent structural step beyond a change of coordinates and elementary counts of labeled placements. The formulas are correct and convenient, but not a distinct scientific contribution under the stated standard.",
+      "residual_risks": [
+        "The judgment does not deny the utility of consulting the closed forms."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:27:19.380852Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under positive row and column degrees, equal same-row signatures require two column leaves at that row (and conversely); for cells differing in both coordinates, any common signature consists only of the two possible cross edges. Positivity forces both of those edges to be isolated if the signatures coincide. An empty row would force every other row to have degree at least two, as a degree-one row and the empty row would agree at its selected column. Thus an empty line costs at least 2(n-1)>3n/2 for n>=6, and the kP4 construction ensures a minimizer stays below that cost. For the remaining covered boards, a component other than the at-most-one K2 has at least four vertices and defect 4e-3v>=v-4, with a further multiple of four for cycle excess. The total defect is at least -2 and is divisible by four, proving the bound. At equality, either all components are P4 or a K2 uses defect -2 and the remaining trees spend exactly two units above the P4 sizes. The no-two-leaves condition reduces the possibilities to P6 or T6, or two oppositely oriented P5s, with all residual components P4; the criterion proves the converse. All graph automorphisms preserve or exchange the row/column clique families. In the shore-preserving group the path components of even order have trivial internal stabilizers, the odd paths have a size-two stabilizer each, and T6 has a size-two stabilizer but permits two shore orientations. Permuting equal P4 components provides the factorial divisors. This recovers every stated count, including the factor four for the two P5s and the cancellation of the T6 stabilizer by its two orientations. At k=3 the counts give 86,400, 518,400, 518,400 and 129,600. The supplied verification/verify_n6_direct.cpp, verification/verify_n6_structural.cpp and verification/verify_n4_boundary.py were inspected, not executed; VERIFICATION.md reports bounded runs, not a proof for every order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goddard–Wash extend cardinality results to rectangular products; their statements do not classify all minimizers. Foucaud et al. give broader line-graph criteria and specialize a cardinality bound and construction to K_{n,n}."
+        ],
+        "reasoning": "Neither broader coverage identifies all even-square equality shapes, the T6 shore orientation split, or the orbit stabilizers underlying the counts.",
+        "searches": [
+          "Goddard and Wash, ID Codes in Cartesian Products of Cliques, Theorems 2.1 and 2.2",
+          "Foucaud et al., Lemma 7 and Proposition 10"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and all three verification/ scripts",
+        "Resultary exact subject hit fb33fb75dc16 and distinct original statement 5e47d2796f63",
+        "Gravier–Moncel–Semri 2008",
+        "Goddard–Wash 2013",
+        "Foucaud et al., arXiv:1107.0207"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 already yields 3k in even order; Lemma 2 establishes the Type I equality case without an isolated selected edge. The closing example shows an optimum with such an edge.",
+          "Foucaud et al. constrain component sizes in their bound proof but do not partition or enumerate the entire isolated-edge equality family."
+        ],
+        "reasoning": "The new content is not any of those old parts in isolation. One must exclude empty lines in this range, analyze all ways to spend the positive component defect against the single isolated edge, and distinguish shore balance and stabilizers. The examples and the earlier bound do not settle those steps or the asymptotic predominance of IIc.",
+        "searches": [
+          "Gravier–Moncel–Semri DOI 10.37236/879, Theorem 1, Lemma 2 and closing example",
+          "Foucaud et al., Proposition 10 and its component-size argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rook graph is L(K_{n,n}), so edge-identifying codes of K_{n,n} are the same objects. Foucaud et al. give the exact size and a P4-block construction in this equivalent formulation.",
+          "The distinct Resultary record 5e47d2796f63 uses the same ordinary identifying-code predicate but odd n."
+        ],
+        "reasoning": "The edge formulation is credited as actual equivalent coverage of the bound and construction, but the inspected result does not classify the even equality cases or count their labeled placements. The odd equality problem is not an equivalent reparameterization.",
+        "searches": [
+          "Resultary: ordinary identifying codes on even square rook graphs, four minimum orbits and labeled counts",
+          "Foucaud et al., identifying codes in line graphs, arXiv:1107.0207, Proposition 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact hit fb33fb75dc16 is the subject itself. The closest distinct inspected Finding gives an odd-order count and exchange results, neither a table nor a formula for the even placements."
+        ],
+        "reasoning": "Counts of odd square codes, counts for changed separation predicates, and the exceptional 4-by-4 board do not determine the even enumerator for every n>=6. No distinct exact enumerator was established by the comparisons.",
+        "searches": [
+          "Resultary exact four-type total and labeled enumerator for even rook graphs",
+          "Resultary 5e47d2796f63 original Finding"
+        ]
+      },
+      "rationale": "The minimum size is established prior art, as are the no-isolated-edge equality case, the existence of optima with an isolated edge and the main line-graph viewpoint. The supported distinct claim is the complete even-order classification with the isolated-edge cases exhausted and their labeled counts and proportions. The inspected lower-bound proofs inform the equality analysis but do not contain that full implication without additional work. The closest distinct same-day ordinary-identifying record is about odd order. This is not a priority certification.",
+      "residual_risks": [
+        "The catalogued matches and bounded primary literature comparisons do not exclude earlier unindexed even-order equality analyses or exact counts.",
+        "Finite reported runs were treated as package evidence only; the universal check uses the mathematical proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of bound and no-isolated-edge equality case; example but no exhaustion of isolated-edge cases",
+          "evidence": "The bound is floor(3n/2). Lemma 2 treats absence of a [1,1]-vertex, and the closing example exhibits a [1,1]-vertex in an even optimum.",
+          "identifier_or_url": "https://doi.org/10.37236/879",
+          "material_read": "Theorem 1 p. 2, Lemma 2 p. 5, closing discussion p. 6",
+          "method": "Published OA article passages",
+          "title": "Identifying Codes of Cartesian Product of Two Cliques of the Same Size",
+          "trigger": "Same object and exact minimum; possible complete equality classification"
+        },
+        {
+          "assessment": "Broader cardinality results, not the four even equality types",
+          "evidence": "Theorem 2.1 restates the equal-clique minimum, and Theorem 2.2 gives the rectangular minimum size.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-085/id-codes-in-cartesian-products-of-cliques/",
+          "material_read": "Theorems 2.1, 2.2, p. 2",
+          "method": "Published OA article passages",
+          "title": "ID Codes in Cartesian Products of Cliques",
+          "trigger": "Potential dominating rectangular theorem"
+        },
+        {
+          "assessment": "Equivalent bound and P4 construction, relevant criteria and proof ingredients but no full equality classification",
+          "evidence": "Proposition 10 proves the edge-identifying number of K_{n,n} is ceil((3n-1)/2) and constructs the even P4 code; the proof uses component-size bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.0207",
+          "material_read": "Lemma 7 p. 3 and Proposition 10 pp. 4–5",
+          "method": "OA primary article passages",
+          "title": "Identifying Codes in Line Graphs",
+          "trigger": "Equivalent edge-identification formulation and possible broader theorem"
+        },
+        {
+          "assessment": "Different parity and classification question",
+          "evidence": "The statement assumes n=2m+1>=5, credits the odd minimum and unique orbit, and studies its exchange graph and odd-order count.",
+          "identifier_or_url": "2026/11/22/SCOPE-exchange-geometry-of-optimal-identifying-codes-on-odd-square-roo--5e47d2796f63/RESULT.md",
+          "material_read": "Original Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exchange geometry of optimal identifying codes on odd square rook graphs",
+          "trigger": "Closest distinct same-day ordinary-identifying comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known optimum size does not describe the extremizers on this symmetric graph family. In contrast to the known single odd-order orbit, exactly four full orbits persist for every even order in scope. The defect analysis isolates precisely where the isolated selected edge changes the feasible shapes. Exact labeled counts then reveal that the class with two oppositely oriented P5s, not the familiar all-P4 construction, has limiting proportion one. This is a complete equality classification with quantitative consequences, not a restatement of the minimum size or an arbitrary small-board census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

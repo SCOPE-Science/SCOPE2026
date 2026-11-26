@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:33.382405Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–6; VERIFICATION.md; bundled verify.py inspected, not executed",
+        "Separate exact trial-factorization check of the ten asserted solutions and trial division of 3,5,17,257,65537,641; verified 641 × 6700417 = 2^32+1"
+      ],
+      "rationale": "From φ(n)=2^k and T(n)=1 one obtains φ(σ(n))=2^(k+1). For every d dividing σ(n), φ(d) divides that power of two by the prime-power formula. A dyadic totient forces the odd part of n to be a squarefree product of Fermat primes. For F_j with j≥2, its divisor-sum factor F_j+1 has odd part 2^t+1 with odd t=2^j−1≥3. Any Fermat prime F_i with i≥1 has order 2^(i+1) for base 2, which cannot divide 2t. If the odd part had dyadic totient, it would therefore have to be 3 alone with exponent one, impossible. Only supports 1,3,5,15 remain. The odd cases 3,5,15 have differences −1,−5,−7. For a≥1 and M=2^(a+1)−1, the 5-ray needs φ(6M)=2(M+1) but φ(6M)≤2M. On the 15-ray, even a+1 gives 9|24M; odd a+1 gives gcd(24,M)=1 and requires φ(M)=2^a. Both remaining rays also require this last equality. If m=a+1 has an odd prime divisor ℓ then a prime divisor of 2^ℓ−1 has order ℓ, inconsistent with φ(2^m−1) dyadic. Thus m=2^s. For s≥6 the Fermat prefix includes F_5 with prime divisor 641 and hence φ has a factor 5; for 1≤s≤5 the prime Fermat prefix gives exactly φ(2^m−1)=2^(m−1). This also excludes the odd exponent on the 15-ray and proves both directions on the two surviving rays. Independently verified primality by trial division through the respective square roots and the factorization of F_5. A separate trial-factorization evaluation on the ten listed n verified dyadic φ(n) and T(n)=1, using the prime-power product formulas for each intermediate φ and σ.",
+      "residual_risks": [
+        "The bounded computation verifies the listed solutions and small primality inputs only. Exclusion of all other totient-dyadic n comes from the unrestricted proof, not from a bound or absence of additional known Fermat primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A116083 conjectures exhaustion of the unrestricted equation by the same ten terms and reports no further term through 11 × 10^9; it does not state an unrestricted proof. A006872 identifies the Golomb scan; the scan did not yield extractable text and was not read."
+        ],
+        "reasoning": "A proof of the unrestricted conjecture would subsume the dyadic-totient theorem, but a conjecture and finite search do not. The known Fermat-prefix evidence concerns a subcase rather than a dominating proof, with the Golomb manuscript's precise scope unconfirmed.",
+        "searches": [
+          "OEIS A116083 comments of March 24, 2006 and April 13, 2010",
+          "Primary title search: Equality Among Number-Theoretic Functions, Golomb 1992, phi, 2^m−1; OEIS A006872 links and annotated manuscript"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A116083, A092591, A006872",
+        "Local Resultary searches including nearest thematic result 2912d159dcd4",
+        "Golomb annotated scan identified but not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The A116083 constructions give the solutions on the two known rays. The A092591 comment uses Fermat-prefix arithmetic for the pure-ray mechanism. Gauss–Wantzel reduces dyadic totients to products of distinct possible Fermat primes and powers of two; it does not impose the unit-difference equation."
+        ],
+        "reasoning": "These facts cannot exclude supports outside the two rays by substitution. The new argument first imposes the dyadic totient of the divisor sum, excluding every Fermat factor ≥17, then separately rules out the 5 and 15 supports. The classification is distinct from reproving the ray mechanism.",
+        "searches": [
+          "A116083, March 24, 2006 comment on the two rays",
+          "A092591, June 14, 2025 comment, k=1; A006872 Golomb bibliography"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A116083 uses the exact sign T=+1. A092591 uses 1−A065395=1+T, with the relevant k=1 threshold on powers of two. The strongest local thematic hit, 2912d159dcd4, concerns φ(n) dividing σ(n)−n on Ω(n)≤3, a different equation and domain."
+        ],
+        "reasoning": "The sign conversion and Gauss–Wantzel formulation give relevant aliases, but the A092591 power-of-two analysis and unrelated divisibility condition do not classify the entire dyadic-totient slice. The ranked search is bounded and does not show nonexistence of other records.",
+        "searches": [
+          "Local Resultary: complete constructible-totient slice of the unit commutator; totient-dyadic classification of phi(sigma(n))-sigma(phi(n))=1",
+          "Local Resultary: constructible regular polygon totient-dyadic A116083 unit commutator Fermat primes; A116083 phi(sigma(n)) - sigma(phi(n)) = 1 constructible totients exactly ten solutions",
+          "OEIS A092591 June 14, 2025 comment via 1−A065395(2^m); A116083 Definition and Comments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The displayed data of A116083 are exactly 2,6,8,24,128,384,32768,98304,2147483648,6442450944. Its 2006 comment calls them the ten known terms. The 2010 comment gives a finite cutoff. The pure-power comparison provides the corresponding exponents for known Fermat primes."
+        ],
+        "reasoning": "The table covers every asserted example, so none is counted as new. A finite list of known terms is not a proof that it is every term even under the dyadic-totient restriction.",
+        "searches": [
+          "OEIS A116083 displayed values and Comments",
+          "OEIS A092591 June 14, 2025 comment and displayed exponents"
+        ]
+      },
+      "rationale": "The ten numbers, two generating rays and pure-power Fermat-prefix mechanism are known. The distinct supported claim is the unconditional absence of any other solution with dyadic totient, particularly the exclusions of the 5 and 15 rays and of all potential larger Fermat-prime factors. Neither the numerical database equality with the ten presently known entries nor the general conjecture on A116083 supplies that classification.",
+      "residual_risks": [
+        "Precise coverage in Golomb's scanned manuscript remains unknown. An unindexed elementary proof of the whole intersection may exist. The decision credits the directly verified ray and database coverage and makes no claim of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact examples and broader conjecture, not a completeness proof",
+          "evidence": "Two rays with indices 1≤s≤5, ten known terms, and finite negative search through 11 × 10^9.",
+          "identifier_or_url": "https://oeis.org/A116083",
+          "material_read": "Public sequence definition, listed values and comments at offset 0, especially March 24, 2006 and April 13, 2010",
+          "method": "Direct public page text",
+          "title": "A116083: Numbers n such that φ(σ(n))−σ(φ(n))=1",
+          "trigger": "Exact equation and exact list in the finding"
+        },
+        {
+          "assessment": "Prior pure-power analysis; not a dyadic-totient whole-class result",
+          "evidence": "Analysis of 1−A065395(2^m), including k=1 and exponents from the known Fermat-prime cases.",
+          "identifier_or_url": "https://oeis.org/A092591",
+          "material_read": "Public page text from offset 0; June 14, 2025 comment",
+          "method": "Direct public page text",
+          "title": "OEIS A092591",
+          "trigger": "Equivalent signed commutator for n=2^m"
+        },
+        {
+          "assessment": "Precise primary coverage unconfirmed; not treated as evidence against coverage",
+          "evidence": "A006872 identifies an annotated scan by Golomb and a separate 1992 letter. The pure-power mechanism is independently documented in A092591.",
+          "identifier_or_url": "https://oeis.org/A006872/a006872_1.pdf",
+          "material_read": "The link and annotation on A006872 were read; manuscript text was not obtained",
+          "method": "Identified public scan; OA direct/configured alternate route reported no extractable text, with secondary text and bounded retrieval attempts unsuccessful",
+          "title": "Equality among number-theoretic functions",
+          "trigger": "Golomb's manuscript cited for prior powers-of-two work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and Steps 1–5",
+        "OEIS A116083, existence of the unrestricted conjecture and known solutions"
+      ],
+      "rationale": "The dyadic-totient class is independently natural both via constructibility and because the unit difference makes the divisor sum's totient dyadic as well. The result proves an unbounded exclusion over all potential Fermat-prime supports and places a structural restriction on any additional A116083 solution. This is not another finite search or a list of already known examples.",
+      "residual_risks": [
+        "No conclusion about the existence of additional terms outside the dyadic-totient class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

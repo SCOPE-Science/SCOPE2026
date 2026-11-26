@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:42.507705Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At universality index 2 the shortest length is 2σ: two complete greedy arches require σ letters each. At that length the arches are permutations, and conversely any two permutation arches cover every ordered pair and miss xxx. For first arch increasing, length-three subsequences break into disjoint two- and three-symbol supports. An ascending pair contributes 4 and a descending pair 3. In lexicographic order the six local triple counts with all symbols distinct are 5,5,5,4,4,4. Thus the excess over 3 binom(σ,2)+4 binom(σ,3) is the sum of two nonnegative counts; the pair-count excess is already strictly positive unless Q reverses P, where both vanish. There is one word per first permutation. Uniqueness for simultaneous extremality follows at length three and existence follows from Adamson et al.'s all-length result. Independent incremental distinct-subsequence replay (python3 /workspace/branches/independent_checks.py 3) verified both local tables and all normalized second permutations at σ=2,…,8; the local support argument proves the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al. gives a non-strict simultaneous extremal inequality for all lengths and explicitly leaves other shortest equalities open; the one-switch result permits arbitrary positive a,b and supplies both extrema."
+        ],
+        "reasoning": "The older non-strict inequality supplies existence but not uniqueness; the newer covering theorem is stronger in exactly the needed direction.",
+        "searches": [
+          "arXiv:2407.18599v1/v2, alternate arches at fixed universality",
+          "Resultary one-switch result, exact N_{P,Q}(a,b)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json, verify.py (inspected, not run)",
+        "One-switch Resultary result and Adamson et al. arXiv:2407.18599v1/v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict rearrangement in the one-switch result gives the unique reverse; the exact count specializes to sum_c (1+σ−p(c))s(c)."
+        ],
+        "reasoning": "The formula gives the full length-three count vector over Q, while its strict case gives both the labeled count σ! and one relabeling class. Combined with the already-known simultaneous existence theorem, it also gives the shortest simultaneous equality class. The support decomposition is a different proof of the same count and extremum, not a separate main finding.",
+        "searches": [
+          "One-switch permutation arches RESULT.md, Finding and maximum proof (offsets 0–2427 and near 5980)",
+          "arXiv:2407.18599v2, p. 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-switch result treats P^aQ^b. For fixed P,a,b the sole maximizer of the number of shortest absent subsequences is rev(P)."
+        ],
+        "reasoning": "At a=b=1 the words are precisely the length-2σ words with universality 2 and the shortest absences are precisely length three. The entire equality class, not just the optimal count, matches.",
+        "searches": [
+          "Resultary: two permutation arches, reverse second arch, shortest absent subsequences",
+          "2026/11/2/SCOPE-one-switch-permutation-arches-exact-shortest-absent-spectra-and--2c21f758a96b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ternary table with universality 2 gives the length-three counts 17,16,16,14,14,13 and unique minimum at cba after fixing abc."
+        ],
+        "reasoning": "An exact ternary comparison is not by itself a classification for σ≥4. Uploaded certificate.json is evidence of the present verification design, not a prior database.",
+        "searches": [
+          "arXiv:2407.18599v2, Table 1 p. 15"
+        ]
+      },
+      "rationale": "The exact strongest equality statement is covered by a distinct indexed theorem: the one-switch permutation-arch result gives it as the immediate a=b=1 case, and even counts all the absent triples for arbitrary Q. The covering record is in a later-dated catalogue path; this verdict is about demonstrable coverage now, not a claim that the assigned result was copied or that catalogue dates establish discovery priority. The earlier Adamson et al. general theorem by itself does not classify equality.",
+      "residual_risks": [
+        "The relation and discovery order of the two catalogue records is unestablished; different path dates establish neither derivation nor authorship.",
+        "The separately mentioned binary equality source was not obtained; the covering one-switch theorem already decides coverage for the assigned range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger coverage of the equality classification; separate later-dated catalogue path, priority not established",
+          "evidence": [
+            "a=b=1 gives PQ; unique maximizing Q is rev(P); shortest absences have length a+b+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-one-switch-permutation-arches-exact-shortest-absent-spectra-and--2c21f758a96b/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2427; strict rearrangement near offset 5980",
+          "method": "Resultary search and local mirror passages",
+          "title": "One-switch permutation arches: exact shortest-absent spectra and sharp order extrema",
+          "trigger": "Potentially covers all pairs of permutation arches with shortest absent strings"
+        },
+        {
+          "assessment": "Covers simultaneous existence and ternary case; does not state the general equality theorem",
+          "evidence": [
+            "v2 p. 14 explicitly does not exclude other equality cases. Table 1 has only the ternary instance. The reviewed v2 labels the theorem Theorem 2 rather than the frozen citation’s Theorem 4.1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599v2",
+          "material_read": "p. 14 theorem and following caveat, p. 15 Table 1; v1 Theorem 29 p. 11 also inspected",
+          "method": "Targeted primary OA PDF passages and bounded literature lookup",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "General theorem that alternating arches attain minimal existing subsequences"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Classifying all shortest extremizers would address a meaningful equality question left open by the non-strict inequality, but the exact result is already available by the one-switch specialization. The frozen claim adds no extremal case outside that coverage, so there is no distinct valuable finding to repair here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

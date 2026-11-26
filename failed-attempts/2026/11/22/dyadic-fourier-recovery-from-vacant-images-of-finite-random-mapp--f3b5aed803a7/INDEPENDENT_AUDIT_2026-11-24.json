@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:56:16.138243Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the Walsh sign at S, expand ∏_(i∈S)(1−2 I_i); maps avoiding j prescribed target labels number (n−j)^n. Grouping terms by j gives exactly the multiplier for counting-measure convolution, with no factor 2^(−n) or n^(−n). Odd n has only the odd j=0 summand modulo 2. For even n≥4 and k≥1, with a=v₂(k), the j=1 term has valuation a+1. The j=0 term has n v₂(n)≥a+2. For j≥2, j·C(k,j)=k·C(k−1,j−1) implies v₂(2^j·C(k,j))≥a+j−v₂(j). For odd j≥3 this is at least a+3; for even j the even base contributes at least n extra powers of 2 or the term is zero. Thus other terms cannot cancel the leading valuation. The constant term is n^n, and n=2 gives (4,2,0); Walsh multiplicities C(n,k) give rank three and nullity one at n=2, all other orders invertible, and the asserted determinant valuations. Exact vacancy counts are the surjection counts onto the complement. The provided checker was inspected, not run: it directly enumerates small kernels, then tests all degrees in a bounded range, not an all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The terminal-count marginal in 0c1fa0e07cad determines the full vacancy kernel by label exchangeability. The primary urn papers study general occupancy statistics, not the Walsh valuation law in the read passages.",
+          "The neighboring p-primary spectrum is for cyclic vertices at odd-prime-power orders and excludes p=2."
+        ],
+        "reasoning": "A broader occupancy law supplies the unsigned kernel and permits the Walsh transform, but its probability statement alone does not settle cancellation modulo powers of two. The matched termwise Cayley argument is stronger evidence on that point than the broadly related occupancy literature.",
+        "searches": [
+          "Resultary exact joint law of cyclic and terminal vertices (0c1fa0e07cad)",
+          "Hwang–Janson arXiv:math/0604397 and Bogachev–Gnedin–Yakubovich arXiv:math/0609498",
+          "Resultary p-primary cyclic-set Fourier and Smith spectra (6c9b36df6a84)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42 and 45–71; VERIFICATION.md and verify.py inspected statically",
+        "Resultary 4027fa303a3d, 0c1fa0e07cad, cf11581f186f, 6c9b36df6a84",
+        "Hwang–Janson arXiv:math/0604397 p. 2",
+        "Bogachev et al. arXiv:math/0609498 p. 2 around offset 5322",
+        "Soria, Distribution of Image Points in Random Mappings, seminar HTML offsets 0 and 3204"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leaf proof shows each non-leading summand has sufficiently high valuation using the j-binomial identity, parity of n−j and its exponent n−2. Multiplying all summands by (n−j)² cannot reduce any divisibility; it preserves exactly the leading valuation because n−1 is odd. The constant frequency and determinant formulas then follow from normalization and multiplicities.",
+          "The literal leaf eigenvalue statement alone is not a theorem equating the two sums, and its n=2 exception does not transfer."
+        ],
+        "reasoning": "Examination of the actual proof, not simply matching 1+v₂(k), gives a direct implication for the nonconstant valuations at n≥4. Odd n and the finite edges require only parity or substitution. Same-day priority is not assigned.",
+        "searches": [
+          "4027fa303a3d proof §§2–4, OA local-mirror offsets 3300 onward",
+          "0c1fa0e07cad proof occupancy representation, OA offset 3371"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Image vacancy in the target is empty-symbol occupancy of a word of n IID labels. Prüfer leaves are empty-symbol occupancy of a word of n−2 IID labels. The character sums are Σ_j C(k,j)(−2)^j(n−j)^d, with d=n and d=n−2 respectively.",
+          "The singleton-fibre Walsh entry cf11581f186f counts singleton occupancy instead and gives valuation 1+v₂(n)+v₂(k) at even order and a different n=2 nullity."
+        ],
+        "reasoning": "The kernels at the two occupancy lengths are not equal, but their same termwise formula with a two-step exponent change is decisive for comparing the arithmetic claims. Singleton occupancy and cyclic vertices are not synonymous with vacancy.",
+        "searches": [
+          "Resultary semantic queries for dyadic vacant-image recovery, exact Walsh multipliers and signed occupancy",
+          "Resultary Cayley tree leaves, 4027fa303a3d, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact vacancy-spectrum hit is the assigned record. No independently stated identical vacancy table was identified. There is an exact classical Stirling-number count for any prescribed vacant set, and the Cayley spectrum has the same even nonconstant valuation at k≥1 while its n=2 leaf transform is different."
+        ],
+        "reasoning": "Neither a prior unsigned count nor an exact valuation table for another kernel is itself an exact vacancy-spectrum table. The critical evidence is the transfer of proof inequalities, not a table lookup.",
+        "searches": [
+          "Resultary exact vacancy-order-2 singularity, λ_n,k and dyadic valuation queries",
+          "0c1fa0e07cad exact terminal counts and 4027fa303a3d exact leaf valuations"
+        ]
+      },
+      "rationale": "The exact numerical theorem is true, but a distinct all-order arithmetic advance is not established against the strongest checked same-day comparison. The Cayley leaf-set law at 4027fa303a3d is the empty-symbol-set Walsh spectrum of n−2 independent uniform Prüfer labels. The frozen spectrum uses n independent labels in the same occupancy transform. Term by term its j-summand is the leaf-spectrum j-summand times (n−j)² for n≥3. The inspected Cayley proof, §3, establishes that at even n≥4 each j≠1 summand is individually divisible by 2^(v₂(k)+2), not merely their sum; the j=1 factor (n−1)² is odd and preserves the unique leading valuation. This immediately transfers the complete nonconstant valuation law, and the odd-n parity argument transfers as well. Thus the target does not only resemble the earlier-style statement: the decisive published-in-index termwise estimates already yield it by multiplying each term by an integer square. The n=1 edge and n=2 singularity follow by direct evaluation at three degrees and are not covered by the leaf theorem. This is a finding of mathematical dependence of the claimed advance on available evidence, not a determination of which same-day item came first or an attribution of copying.",
+      "residual_risks": [
+        "The same-day order of the matching Cayley and vacancy records is unestablished; the decision is about the overlap and implication, not historical priority.",
+        "The comparisons are bounded; no claim is made that every prior signed occupancy or Krawtchouk source was checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_ARITHMETIC_COVERAGE_BY_IMPLICATION",
+          "evidence": "The upper divisibility of every j≠1 summand is individually certified at exponent n−2. Multiplying by (n−j)² transfers all of it and leaves the leading odd factor unchanged. Both index records are same-day.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-leaf-set-walsh-recovery-and-exact-dyadic-valuations-for-cayley-t--4027fa303a3d/RESULT.md",
+          "material_read": "Finding at local-mirror offset 0, exact termwise proof §§3–4 at offset 3300, plus scope and prior-work discussion.",
+          "method": "Read exact expressions and test the j-summand transfer from Prüfer length n−2 to mapping length n.",
+          "title": "Leaf-set Walsh recovery and exact dyadic valuations for Cayley trees",
+          "trigger": "Same even nonconstant valuation and a power-shifted occupancy character sum."
+        },
+        {
+          "assessment": "UNSIGNED_KERNEL_COVERAGE",
+          "evidence": "The distribution of number of terminal vertices follows by averaging the conditional occupancy law given the cyclic count; each set of the same size has the same probability. The inspected law does not supply dyadic valuations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-law-of-cyclic-and-terminal-vertices-in-uniform-rando--0c1fa0e07cad/RESULT.md",
+          "material_read": "Finding and local-mirror proof occupancy representation around offset 3371.",
+          "method": "Read statements and specialize by marginalization and exchangeability.",
+          "title": "Exact joint law of cyclic and terminal vertices in uniform random mappings",
+          "trigger": "Exactly the same random map population and terminal/vacant vertices."
+        },
+        {
+          "assessment": "DISTINCT_OCCUPANCY_KERNEL",
+          "evidence": "Singleton-fibre term carries n!/(n−j)! and gives a different valuation and exceptional nullity.",
+          "identifier_or_url": "2026/11/22/SCOPE-dyadic-walsh-rigidity-for-singleton-fibre-profiles-of-finite-map--cf11581f186f",
+          "material_read": "Local-mirror Finding at offset 0.",
+          "method": "Compare profile statistic, multipliers and rank edge case.",
+          "title": "Dyadic Walsh rigidity for singleton-fibre profiles of finite mappings",
+          "trigger": "Walsh nonvanishing and exact binary valuations for the same self-maps."
+        },
+        {
+          "assessment": "OCCUPANCY_BACKGROUND",
+          "evidence": "Occupied-box count and local-limit setup, not the all-order Walsh law in the passage read.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0604397",
+          "material_read": "PDF p. 2 around offset 6354.",
+          "method": "Targeted OA passage comparison.",
+          "title": "Local limit theorems for finite and infinite urn models",
+          "trigger": "General occupancy source cited for related distributions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Vacancy recoverability is natural, but the proposed substantive advance is the all-order dyadic law, which transfers from the inspected empty-symbol spectrum estimates by a two-step increase in the number of draws. The finite n=2 singularity is true and distinct from the corresponding leaf case, but is a three-coefficient calculation and no independent scientific need for that tiny residual instance is established. No new general normalization, stability result, or other surviving advance is demonstrated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

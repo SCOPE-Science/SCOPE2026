@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:47:51.600520Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the Gaussian covariance loss on the closed ordered triangle, including coincident sites and endpoints: K+ηI is positive definite for every allowed pair. An independent SymPy certificate integrates k(t,x)k(t,y) on the three ordered intervals, computes the inverse two-by-two covariance formula, and verifies the gap-comparison and derivative identities with exact coefficients (python3 /workspace/evidence/bridge_certificate_replay.py, BRIDGE_REPLAY_OK; SymPy 1.14.0). For b≤1/2 and fixed u=(x+y−1)², the bracket multiplying u in the centered difference decreases in u and is strictly positive even at u=(1−b)², by the displayed endpoint coefficients and η>0; the prefactor is positive. For b≥1/2 the scaled difference from the centered gap 1/2 is a concave quadratic in u, nonnegative at the centered endpoint and strictly positive at the boundary endpoint. The centered endpoint is strict for b>1/2 by its η³ coefficient. These comparisons cover boundaries as well as the interior. After the rational change of variable on (0,1/3), the five intermediate coefficient polynomials have one positive noise zero each in the five reported disjoint intervals, in decreasing order of index. Thus after ignoring any zero coefficients there is one sign variation for every η>0. Together with the signs at b=0 and b=1/3, this gives one root and the derivative changes from negative to positive. The upper-interval transform verifies H<0 up to b=1, so no further minimum occurs there. At fixed b the quadratic coefficient in η turns negative below 1/4 and the linear one above 1/4; the constant is positive and the leading coefficient negative, giving exactly one positive η-zero. Interior uniqueness and compactness of the closed gap interval yield continuity; uniqueness for fixed b makes the continuous root curve injective. The simple roots in the small-noise and inverse-noise rescalings give the stated limits and local expansions, hence the direction is strictly decreasing. Independent calculations are exact sign/identity checks, not numerical evidence for a continuous optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general GP selection paper uses mutual information; the noisy Kalman design paper considers error objectives for dynamic state estimation and sensor sets.",
+          "Santin Theorem 5 uniquely minimizes the L-infinity interpolation power function, without independent measurement noise."
+        ],
+        "reasoning": "The broader noisy sensing frameworks inspected do not give an exact optimizer for this continuous two-site path IMSE. The interpolation theorem uses a different loss and observation model.",
+        "searches": [
+          "https://jmlr.org/papers/volume9/krause08a/krause08a.pdf",
+          "arXiv:1509.08146",
+          "arXiv:2210.15959, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and the two local published close records 41e0234034fd and 15716724ea95",
+        "arXiv:2210.15959",
+        "JMLR 9 (2008), Krause–Singh–Guestrin",
+        "arXiv:1509.08146",
+        "Purdue AAI3043760 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric record explicitly does not claim global optimality over asymmetric site choices.",
+          "The noise-free interpolation optimum is not a proof of centering in the noisy integrated-loss problem. The Metrika full text was not obtained."
+        ],
+        "reasoning": "The frozen claim needs two independent global inequalities: strict improvement by centering for short gaps and exclusion of arbitrary large-gap pairs. Neither a one-parameter symmetric optimization nor the noiseless interpolation theorem supplies them. No chronological priority is inferred from equal publication dates.",
+        "searches": [
+          "41e0234034fd mirrored RESULT.md, Finding and scope",
+          "arXiv:2210.15959, Theorem 5",
+          "doi:10.1007/s00184-023-00893-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "41e0234034fd addresses the same bridge, noise and integrated path variance, restricted to reflected pairs.",
+          "15716724ea95 minimizes posterior variance of the single integral, not the integral of posterior pointwise variances."
+        ],
+        "reasoning": "Reflection invariance does not imply every minimum is symmetric; a reflected pair of asymmetric minimizers would also respect it. The quadrature loss integrates the posterior covariance over two variables, unlike the marginal-variance integral in the frozen record.",
+        "searches": [
+          "Resultary: Brownian bridge, two equal-noise point readings, optimal integrated posterior path variance",
+          "2026/11/22/SCOPE-unique-noise-calibrated-separation-for-symmetric-brownian-bridge--41e0234034fd",
+          "2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact symmetric-branch match includes the same spacing asymptotics, with an explicit disclaimer about asymmetric configurations. The unrestricted match is the assigned record itself.",
+          "The dissertation catalogue yielded abstract-level evidence only."
+        ],
+        "reasoning": "Here the exact object is the optimizer curve for all positive noise levels, not discrete tabulated gaps. A matching symmetric curve is genuine partial coverage but does not certify unrestricted uniqueness.",
+        "searches": [
+          "Resultary: exact Brownian-bridge spacing law with equal independent positive observation variance; records 689f315478aa and 41e0234034fd",
+          "Purdue dissertation catalogue AAI3043760"
+        ]
+      },
+      "rationale": "Pass for the unrestricted global result over all pairs. There is material overlap with a same-day indexed symmetric-design theorem for the same loss, including the unique optimal symmetric spacing and the two spacing asymptotics. Those features are not counted on their own as distinct. Neither that theorem nor the other strongest inspected statements establishes that every asymmetric design loses to the global symmetric optimizer or that this is the unique optimum over the closed two-site domain.",
+      "residual_risks": [
+        "The Mukherjee full dissertation and the cited Metrika full text were not obtained; older exact noisy integrated-loss results may be indexed under path design or kriging.",
+        "One targeted primary search returned an unrelated hit; it was not treated as evidence of absence.",
+        "Same-day overlap supplies partial scientific coverage, not evidence of priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage of the restricted result; not the unrestricted centering/global comparison",
+          "evidence": "Reflection-symmetric site pairs only; unique spacing and same small/large noise asymptotics, with asymmetric configurations expressly outside scope.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-noise-calibrated-separation-for-symmetric-brownian-bridge--41e0234034fd",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding and scope",
+          "method": "Published local mirror after Resultary search",
+          "title": "Unique noise-calibrated separation for symmetric Brownian-bridge path reconstruction",
+          "trigger": "Strongest match to the exact loss, noise model and optimizer curve"
+        },
+        {
+          "assessment": "Different target random variable",
+          "evidence": "Minimizes posterior variance of one path integral.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding",
+          "method": "Published local mirror after Resultary search",
+          "title": "Unique noncolliding optimal locations for two noisy Brownian-bridge quadrature observations",
+          "trigger": "Same noisy sites and bridge, related variance objective"
+        },
+        {
+          "assessment": "Noise-free max-power optimization, not noisy IMSE",
+          "evidence": "Equally spaced sites uniquely minimize the L-infinity power function.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15959",
+          "material_read": "Abstract p. 1 and Theorem 5 p. 5, text offset about 21500",
+          "method": "OA primary PDF",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Exact Brownian-bridge interpolation design theorem"
+        },
+        {
+          "assessment": "Different principal criterion",
+          "evidence": "Maximizes mutual information between selected and unselected locations.",
+          "identifier_or_url": "https://jmlr.org/papers/volume9/krause08a/krause08a.pdf",
+          "material_read": "pp. 1–2 of PDF, offsets 1395–1567 and 4928",
+          "method": "OA primary PDF",
+          "title": "Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies",
+          "trigger": "General GP sensing and placement optimization"
+        },
+        {
+          "assessment": "Does not supply the exact continuous path-design optimizer in the inspected sections",
+          "evidence": "Noisy dynamic-state estimation via sensor-set selection; criteria include MMSE and log determinant of Kalman error.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.08146",
+          "material_read": "PDF pp. 1 and 3 on noise, pp. 4–5 offsets about 28400–34600 on objectives",
+          "method": "OA primary PDF",
+          "title": "Sensor Placement for Optimal Kalman Filtering: Fundamental Limits, Submodularity, and Algorithms",
+          "trigger": "Noisy state estimation and placement with error criteria"
+        },
+        {
+          "assessment": "Limited access; no whole-thesis conclusion",
+          "evidence": "No full thesis comparison was possible; the frozen record credits the classical error-free design.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Catalogue and abstract only",
+          "method": "Public university dissertation record",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Potential historical exact path-design result"
+        },
+        {
+          "assessment": "Unresolved access, not an exclusion",
+          "evidence": "The distinction stated in the frozen record was not independently established from this article.",
+          "identifier_or_url": "https://doi.org/10.1007/s00184-023-00893-6",
+          "material_read": "No primary text retrieved; DOI and publisher attempts timed out",
+          "method": "Public DOI/publisher OA attempts",
+          "title": "Robust optimal designs using a model misspecification term",
+          "trigger": "Cited source related to bridge prediction and historical designs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unrestricted comparison removes a substantive design constraint, including ruling out repeated readings and endpoint sacrifices as optima at every finite noise level. It answers whether asymmetric sites could improve a practically natural two-reading path recovery benchmark; center reflection by itself is insufficient. The calibrated spacing and collision law describe the verified unconstrained optimum, not merely an optimum within a symmetry ansatz. The scope is exactly this bridge and independent equal noise, not a general GP placement rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:46:25.956037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–60",
+        "VERIFICATION.md, verify_fifth_power_cut.py and verification_output.txt (inspected; supplied program not executed)",
+        "/workspace/branches/reproduce_fifth_cut.py and /workspace/branches/fifth_cut_13-16.txt, /workspace/branches/fifth_cut_17-18.txt, /workspace/branches/fifth_cut_19-20.txt (fresh exact independent replay)"
+      ],
+      "rationale": "The ordinary cut complex has a face exactly when its complement contains a disconnected triple. In the dual this means that the induced complement graph has maximum degree at most one: two missing edges of a triple share a vertex, and conversely two missing edges incident to one vertex give a disconnected triple. Fresh exact code tested this matching condition for every mask, then computed the augmented boundary ranks modulo 3. Those ranks are lower bounds on rational ranks; the resulting reduced mod-3 homology is supported in just one degree for every input. Rational homology is therefore zero elsewhere, and the Euler characteristic fixes the remaining rank. Alexander duality transfers the degree by n−d−3. The frozen integral calculation uses genuine unit pivots: the Schur complement and deletion in the adjacent maps follow from the chain identity after isolating the unit pair. The fresh replay concerns rational homology, not an independent torsion test. For each dihedral element, its fixed space is the complex of orbit unions that are faces of the original complex, since fixed barycentric coordinates are constant on each vertex orbit. The reduced Euler characteristic of this fixed space equals the reduced Lefschetz trace; alternatively, an invariant simplex on j vertices and m orbits contributes (−1)^(j−1)(−1)^(j−m)=(−1)^(m−1). This bypasses the ambient orientation twist in the dual formula and independently reproduces all 264 character entries. After barycentric subdivision there are no inversions; the rational quotient chain complex is the coinvariant chain complex of the subdivision, and averaging is exact. The independent character averages give the rotation ranks 1,0,3,6,4,1,1,0 and the full quotient ranks 0,0,0,4,4,0,0,0. For n=20 the rotation traces equal 2cos(2π·2k/20)+2cos(2π·6k/20) and both reflection traces vanish, so the stated real constituents describe the rational representation after extension of scalars.",
+      "residual_risks": [
+        "No integral quotient calculation or integral equivariant lattice is established. The independent replay uses a rank bound and Euler characteristic for the required rational result; it does not substitute modular rank for an integral torsion test."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 proves shellability and a sphere count for n>=6p−3, not a dihedral character.",
+          "Resultary dc14cc478a70 and 8bfc1f916bcc give full-character results for p>=2 and n>=6p−3; for p=5 their lower bound is 27.",
+          "The f07e0bb07df6 item listed in the frozen references was not retrievable at its exact path in the local mirror."
+        ],
+        "reasoning": "The verified general full-character results leave the entire eight-order window outside their hypotheses. Their status here is verified catalogue coverage; the arXiv shellability theorem is not itself a character publication. The unavailable reference alone contributes no negative coverage inference.",
+        "searches": [
+          "arXiv:2603.23155 Theorem 1.4",
+          "Resultary 2026/10/18 dc14cc478a70 and 2026/11/1 8bfc1f916bcc",
+          "Resultary 2026/11/17 sharp threshold 5cedad4bd12d and cited general character f07e0bb07df6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.01979v2 Table 2 and Conjecture 4.2",
+        "arXiv:2603.23155 Theorem 1.4",
+        "Resultary dc14cc478a70, 8bfc1f916bcc, 5cedad4bd12d and exact f07e0bb07df6 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known rank and degree determine the identity character and which alternating homology trace must be isolated; they do not determine the signed traces for the nonidentity symmetries.",
+          "The threshold result detects lower-degree homology and shellability, not its action under ambient vertex permutations."
+        ],
+        "reasoning": "Obtaining the characters still requires analyzing or enumerating the invariant faces for each element in this range; the general orbit-trace identity is a method, not a theorem providing those counts. Once the characters are known, the quotient ranks follow by exact averaging and are a consequence of the distinct character computation.",
+        "searches": [
+          "arXiv:2406.01979v2 p=5 table and Conjecture 4.2",
+          "Resultary dc14cc478a70 and 8bfc1f916bcc Findings",
+          "Resultary 5cedad4bd12d Finding and homology table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objects in the table are ordinary Delta_3(C_n^p); they are not total three-cut complexes. Dualizing gives faces whose induced complement graph has maximum degree one, with the ambient orientation twist for homology characters.",
+          "The two verified general-range character records also study ordinary three-cut complexes and therefore are true range comparisons, not changes of the object."
+        ],
+        "reasoning": "The ordinary formulation, the signed dual trace and the fixed-space Lefschetz trace describe the same action with the orientation accounted for. Nonequivariant Betti ranks in the same object give identity traces only.",
+        "searches": [
+          "Resultary comparisons: ordinary three-cut complexes of cycle powers, fifth-power Alexander duals, reflection and rotation traces, rational orbit-space homology",
+          "arXiv:2406.01979v2 Table 2 and Conjecture 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The integral Betti degree/rank pairs were already reported in Table 2: (5,1),(6,1),(9,21),(10,101),(11,52),(12,19),(13,1),(15,4).",
+          "The prior sharp-threshold record gives the same range of nonvoid nonshellable complexes and the same mod-2 degree/rank sequence."
+        ],
+        "reasoning": "Neither exact table computes rotation and reflection traces, nor does it give the geometric quotient ranks. The frozen finding appropriately excludes these prior Betti numbers from the novelty claim.",
+        "searches": [
+          "arXiv:2406.01979v2 pp. 21–22, Table 2, p=5 column",
+          "Resultary sharp threshold record 5cedad4bd12d, Finding and mod-2 homology table"
+        ]
+      },
+      "rationale": "The distinct claim is the equivariant window for the ordinary three-cut complex: complete rational characters and the ranks on the geometric orbit spaces for p=5, 13<=n<=20. The nonequivariant homology table and nonshellability range are prior results, not claimed as new. Verified general character results start at n=27 for p=5, and the source for the sharp shellability threshold does not determine the characters.",
+      "residual_risks": [
+        "An unindexed computation or a differently located copy of the specifically unavailable catalogue reference could narrow priority. The assessment relies on the materially inspected sources, not on treating the failed exact-path retrieval as absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact nonequivariant homology overlap, no character table in the compared result",
+          "evidence": [
+            "The p=5 column gives the same integral rank/degree pairs for n=13 through 20."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.01979v2",
+          "material_read": "Homology computation description on PDF p. 21, Table 2 p. 22 and Conjecture 4.2",
+          "method": "OA PDF passages at offsets 84389 and 87389 onward",
+          "title": "Shellability of 3-Cut Complexes of Squared Cycle Graphs",
+          "trigger": "Identical fifth-power complexes and known numerical ranks"
+        },
+        {
+          "assessment": "Shellability and sphere counts in a higher range, not the dihedral theorem",
+          "evidence": [
+            "The hypotheses p>=2, n>=6p−3 give n>=27 at p=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.23155",
+          "material_read": "Theorem 1.4, offset 9462",
+          "method": "OA HTML primary-text passage",
+          "title": "Shellability of 3-cut complexes of powers of cycle graphs",
+          "trigger": "General p,n theorem claimed to start beyond the window"
+        },
+        {
+          "assessment": "Direct equivariant analogue outside the assigned range",
+          "evidence": [
+            "Full rational dihedral character and quotient ranks are for n>=6p−3."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-dihedral-reflection-characters-and-quotient-homology-of-cycle-po--dc14cc478a70",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Configured local Resultary mirror",
+          "title": "Dihedral reflection characters and quotient homology of cycle-power cut complexes",
+          "trigger": "Potential exact stronger character and quotient theorem"
+        },
+        {
+          "assessment": "Same higher range for the ordinary complex",
+          "evidence": [
+            "Full character for p>=2, n>=6p−3."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-reflection-fixed-duals-and-complete-dihedral-homology-characters--8bfc1f916bcc",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Configured local Resultary mirror",
+          "title": "Reflection-fixed duals and complete dihedral homology characters",
+          "trigger": "Second broader exact character result"
+        },
+        {
+          "assessment": "Same nonshellable window and Betti ranks, no equivariant law in the compared theorem",
+          "evidence": [
+            "Nonshellable for 13<=n<=20; shellability for n>=21 with the top-sphere count in that range."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-sharp-three-cut-shellability-threshold-for-fifth-power-cycles--5cedad4bd12d",
+          "material_read": "RESULT.md Finding and mod-2 homology table",
+          "method": "Configured local Resultary mirror",
+          "title": "Sharp three-cut shellability threshold for fifth-power cycles",
+          "trigger": "Identical nonshellable window"
+        },
+        {
+          "assessment": "Unresolved as a distinct citation; not treated as proof of noncoverage",
+          "evidence": [],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-complete-dihedral-rational-homology-characters-of-three-cut-comp--f07e0bb07df6",
+          "material_read": "No readable RESULT.md at cited path",
+          "method": "Exact configured local mirror lookup",
+          "title": "Complete dihedral rational homology characters of three-cut complexes of cycle powers",
+          "trigger": "Exact general-character reference in frozen source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–26 and 56–69",
+        "Sharp-threshold Resultary 5cedad4bd12d",
+        "Independent character and quotient replay"
+      ],
+      "rationale": "The eight cases form the entire naturally determined nonvoid nonshellable range for the fifth power, not an arbitrary cutoff. The character resolves behavior invisible from known Betti ranks: a nonzero rational class survives the full geometric quotient only at n=16,17, with rank four in both, and the n=20 rotation action separates the two real constituents. This is independently useful equivariant information for these ordinary cut complexes, not a recomputation of their nonequivariant table.",
+      "residual_risks": [
+        "The finite classification does not predict the character at other parameters or the integral homology of the quotients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

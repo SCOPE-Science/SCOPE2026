@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:28:10.660806Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–6",
+        "Frozen VERIFICATION.md and check.py"
+      ],
+      "rationale": "Orthogonalizing against 1 gives K(s,t)=1+(u(s)-m)(u(t)-m)/v with u(t)=exp(-lambda t). Convexity in u(s) reduces the absolute row integral to the two endpoints; a sign test attains it there. The strictly positive mean of (1-u)(u-q) gives v<(1-m)(m-q), so the monotone endpoint rows cross once with the asserted root ordering and opposite signs at t=0. Their primitives give the displayed branches. Since the signed row mass is 1, an indicator of the negative part attains the most negative output over data in [0,1]; this is the sharp lower value meant by the negative-overshoot wording. For the small-rate check, the equivalent basis function g=(1-u)/lambda has mean 1/2-lambda/6+O(lambda^2) and variance 1/12-lambda/12+O(lambda^2). Substitution gives the frozen endpoint-row corrections 3t^2-4t+1 and 2t-3t^2; integrating with the signs at the simple limiting zeros 2/3 and 1/3 gives derivatives 4/27 and -4/27. The shifted sign intervals affect the expansions only at O(lambda^2). At large rate k_+=2lambda+2+O(1/lambda), 1-k_+m=-1-2/lambda+O(lambda^-2), and z_+=1/(2lambda)+O(lambda^-2). Thus the zero is at log(2lambda)/lambda+O(lambda^-2) and (k_+/lambda)(1-z_+)=2+1/lambda+O(lambda^-2), yielding exactly the stated norm correction. The other row is 1+O(1/lambda), so only the first row matters in this limit. No all-rate branch dominance is needed.",
+      "residual_risks": [
+        "The reported supplementary checks were not replayed or used to certify the analytic statements. Frozen expert, independent-audit and Lean channels are marked not performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kayumov gives a sharp partition-uniform bound of 3 for symmetric opposite-sign exponents, and a uniform-in-partition bound for unequal strictly opposite-sign exponents. The two least-squares papers treat polynomial projection on spheres with sampling/quadrature; Xu treats perturbation of finite-dimensional L2 projections."
+        ],
+        "reasoning": "A mesh-uniform supremum or general kernel norm representation does not give the finite-interval, zero-exponent rate corrections or zero locations. Conjugation by multiplication to shift exponents is not an unweighted L2 or L∞ isometry.",
+        "searches": [
+          "Kayumov arXiv:math/0408418v1, §1.3 Theorems 1–2",
+          "Themistoclakis–Van Barel arXiv:1806.00439v2, (18)–(20), and arXiv:1808.03530, p. 2",
+          "Xu arXiv:1809.00200v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries 4ad1686eb11b, 8de5a5d258c9, 187e0851884f and the subject entry",
+        "Kayumov math/0408418",
+        "Themistoclakis–Van Barel 1806.00439 and 1808.03530",
+        "Xu 1809.00200 (abstract comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The kernel row-norm principle and an exponential-spline supremum of 3 are known. The half-line result depends on a rate ratio and does not retain the finite cutoff of the constant mode."
+        ],
+        "reasoning": "The standard projection formula is an input, not a new principle. The signed endpoint-zero calculation and the nonuniform logarithmic term in the weighted one-mode-plus-constant family are not a mere statement-level specialization of the inspected norm bounds.",
+        "searches": [
+          "Themistoclakis–Van Barel arXiv:1806.00439v2, (18)–(20)",
+          "Kayumov arXiv:math/0408418v1, §1.3",
+          "Resultary two-rate half-line record 4ad1686eb11b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine formulation after x=exp(-lambda t) uses the normalized measure dx/(lambda x) on [exp(-lambda),1]. The affine-Jacobi hit has symmetric Dirichlet weights on a simplex and a dimension limit, not this measure. The two-rate hit has two strictly decaying modes on the half-line, with norm 4(R+1)R^(-1-1/(R-1))."
+        ],
+        "reasoning": "The change of variables to the log-uniform measure preserves the endpoint norm; replacing that law by uniform, Dirichlet, or by the unweighted half-line changes the projection. A coincident value of 3 is not equivalence.",
+        "searches": [
+          "Resultary: exact endpoint norm for projection onto 1 and exp(-lambda t)",
+          "Resultary SCOPE-sharp-uniform-norm-and-endpoint-rigidity-for-a-two-rate-exponent--4ad1686eb11b",
+          "Resultary SCOPE-a-logarithmic-concentration-boundary-for-affine-jacobi-projectio--8de5a5d258c9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact small-rate coefficient matched the subject record; it was not independently matched in the inspected catalogue results. The quadrature comparator has lambda(1-a)-log(2lambda) tending to 0 for a free quadrature node."
+        ],
+        "reasoning": "The quadrature scale belongs to a different observable on a symmetric three-mode space. No applicable exact tabulation over positive rates was identified; the queried catalogue provides an exact-form check and the subject's own entry is not corroborating prior art.",
+        "searches": [
+          "Resultary: exponential projection 5/3 + 4 lambda/27",
+          "Resultary: log(2 lambda)/lambda finite-rate exponential projection layer",
+          "Resultary SCOPE-sharp-four-node-mass-exact-exponential-sbp-quadrature-and-bounda--187e0851884f"
+        ]
+      },
+      "rationale": "The inspected comparisons establish the general Lebesgue-kernel framework and an antecedent for the constant 3, not prior coverage of this real finite-interval two-mode rate-dependent calculation and its corrections. The strongest related catalogue results change the domain, the sampling law, or the observable. The narrow pass is for the exact rate dependence and asymptotic layer for this projector, not for least-squares norm methods or the envelope 3 in general.",
+      "residual_risks": [
+        "Bounded priority check, not exhaustive; older or weakly indexed log-uniform affine or finite-interval exponential least-squares results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant broader bound, not exact coverage",
+          "evidence": "Theorem 1 takes a supremum over partitions for D²-lambda². Theorem 2 involves strictly opposite signs and gives a partition-uniform bound.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "§1.3, PDF p. 4, OA offset 9187; Theorems 1–2",
+          "method": "Lawful OA full-text passages",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Closest prior exponential projector bound, including the limiting value 3"
+        },
+        {
+          "assessment": "General framework only",
+          "evidence": "The formulas express least-squares Lebesgue constants as operator norms in a discrete spherical setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.00439",
+          "material_read": "v2 PDF p. 6, offset 21191, (18)–(20)",
+          "method": "Lawful OA full-text passages",
+          "title": "Uniform approximation on the sphere by least squares polynomials",
+          "trigger": "Known Lebesgue norm framework"
+        },
+        {
+          "assessment": "Different projection measure and space",
+          "evidence": "The hypotheses concern least-squares polynomial approximation and hyperspherical sampling.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03530",
+          "material_read": "p. 2, offset 5621, setting",
+          "method": "Lawful OA full-text passage",
+          "title": "Optimal Lebesgue constants for least squares polynomial approximation on the (hyper)sphere",
+          "trigger": "Potential generalization of the norm result"
+        },
+        {
+          "assessment": "Close but different domain and spectral parameters; no date-based inference",
+          "evidence": "Unweighted half-line, two positive decay rates and a ratio-dependent exact norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-uniform-norm-and-endpoint-rigidity-for-a-two-rate-exponent--4ad1686eb11b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp uniform norm and endpoint rigidity for a two-rate exponential projection",
+          "trigger": "Strongest independent same-day exact-norm hit"
+        },
+        {
+          "assessment": "Different observable, not a norm theorem",
+          "evidence": "The limit is for node placement in four-node quadrature on [-1,1].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-four-node-mass-exact-exponential-sbp-quadrature-and-bounda--187e0851884f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp four-node mass-exact exponential SBP quadrature and boundary layer",
+          "trigger": "Same logarithmic layer scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and asymptotic proof",
+        "Kayumov §1.3 and related Resultary comparisons"
+      ],
+      "rationale": "The exact amplification of uniformly bounded data and the exact loss of positivity concern a natural two-mode least-squares model. The comparison of nearly coalescing modes with rapid decay separates a polynomial-limit sensitivity from a logarithmic correction and locates the row sign change. These are quantitative facts unavailable from just a generic kernel estimate or the limiting constant.",
+      "residual_risks": [
+        "No conclusion about optimal projections, other sampling laws, or larger exponential families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

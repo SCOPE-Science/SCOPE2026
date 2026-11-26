@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tree reduction follows from the molecular \(p\)-gauge and linear-dependence elimination. All 16 labeled spanning trees have been compared by exact affine inequalities over the full parameter interval; the supplied checker certifies these finite identities. The derivative's two competing sides are strictly monotone on the relevant half-interval, proving uniqueness for every \(0<p<1\). For \(p=1\), the equilateral transport norm and Cauchy–Schwarz prove the stated **global** extremizer classification. The normalized cusp gives strict instability for every nonconvex exponent.
+## correctness
 
-## Originality — PASS, subject to independent priority verification
-The general finite-tree formula in Cúth–Raunig, arXiv:2311.02920, is foundational prior work, not the novelty claimed. That source's full relevant theoretical section was read; its worked closed form concerns three vertices. Closely related published work on Euclidean triangles and Hilbert distortion of equilateral four-point **Banach** spaces does not directly assert the present fixed-four-point \(p<1\) unique-imbalance law. The exact numeric norm is a specialization of the known tree algorithm; the distinctive assertion is the sharp all-exponent symmetry breaking with an interior unique optimizer and quantified cusp. An equivalent unlocated concave transport optimization remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-This is the smallest equilateral configuration supporting two positive and two negative masses. Balanced patterns exhaust the classical \(p=1\) global maximizers, but every one loses local optimality at every \(p<1\), with a sharp \(t^p\) gain and an analytically unique replacement inside its natural symmetry-breaking family. It demonstrates a structural failure of convex-case extremizer geometry rather than a routine finite norm recomputation.
+The Cúth–Raunig finite-tree formula applies to the real equilateral metric and evaluates each edge coefficient by a mass cut, with no distance factors other than 1. An independent exact Prüfer-code replay (python3 /workspace/checks/01_tree_certificate.py) checked all 16 trees. All cut magnitudes belong to 0,t,1−t,1,1+t,2; sorted comparison is affine on each side of t=1/2, so comparisons at 0,1/2,1 certify domination throughout and two trees realize the minimum throughout. This gives the p-th power, and the coefficient ℓ2 norm is sqrt(4+2t²). On (0,1/2) the positive numerator of the first fraction in the logarithmic derivative decreases strictly while its denominator increases strictly; the odd-in-t Euclidean derivative term t/(2+t²) increases there. The sign changes once from positive to negative and remains negative for 1/2≤t<1. The expansion is 2+t^p+o(t^p) before taking the p-th root, with the denominator changing only at order t². At p=1 the free norm is half total variation in the coefficient ℓ1 convention (half the sum of absolute masses); equality in ℓ1≤2ℓ2 forces four equal magnitudes and the zero-sum condition forces two of each sign. Permutation and scaling carry the cusp perturbation to every such extremizer. Only the specified family is optimized for p<1. The recorded floating-point diagnostics are not needed and were not used.
 
-## Scope and limits
-The symmetry-breaking optimization is **not** the unrestricted four-point Hilbert-to-free-space operator norm. Full bibliographic absence cannot be inferred from searches or abstracts alone. The analytic proof, rather than sampled numerical output, establishes the continuous quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general tree formula and the classical p=1 benchmark to existing theory. The distinct supported claim is the analytic symmetry-breaking/unique-optimum result for this signed coefficient profile, with an exact closed cost and a cusp at the classical optimum.
+
+## value
+
+PASS
+
+Four points are the natural first balanced two-source/two-sink equilateral configuration. The chosen path keeps both source masses and total sink mass fixed and varies the single sink imbalance, up to swapping the sinks. The exact shift and its positive Hölder cusp refute persistence of local optimality at every classical global extremizer for all p<1. This is useful even though it does not compute the unrestricted p<1 maximum. The finite tree calculation alone would be a routine instance, not the main value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

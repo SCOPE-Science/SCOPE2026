@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:09:42.817762Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3 and witness",
+        "Frozen check.py and VERIFICATION.md, inspected only"
+      ],
+      "rationale": "The two geometric columns of V are independent and the positive eigenvalues of VV* equal those of V*V; its positive off-diagonal entry makes them distinct. With p=ab and q=a²+b², the trace fixes (1−a²)(1−b²)=(1−p²)/(T−1) and q=(T−2+Tp²)/(T−1). The determinant is the reciprocal of the former product minus (1−p)⁻². The discriminant for a²,b² is (1−p²)((T−2)²−T²p²)/(T−1)², so the precise nondegenerate range is 0≤p<(T−2)/T. The reconstructed squares have nonnegative sum, nonnegative product p²<1, and positive product of their complements, so both are in [0,1); p=0 is allowed. The derivative of D_T has the sign of −Q_T, where Q_T=Tp²+(3−T)p+1. At T>9 the vertex is inside the interval and Q_T is negative there, but Q_T(0)=1 and Q_T((T−2)/T)=1+(T−2)/T>0, proving both critical points are admissible. The three strictly monotone branches give the claimed open interval; the cross-multiplied cubic bounds every fiber by three, including endpoints. At T=9, Q_9=9(p−1/3)², and the derivative denominator (1−p)³(1+p)² equals 128/243 at p=1/3, giving the cubic coefficient −729/64 and strict monotonicity through the flat point. For an exact replay of the witness at T=12,D=199/20, the numerator of D_T−D after multiplication by 20(1−p)²(1+p) is 1−41p+199p²−199p³; its signs at p=0,1/10,1/2,5/6 are +,−,+,−, so all three roots exist in the admissible interval. The stated checker was inspected but not executed.",
+      "residual_risks": [
+        "The proof and witness apply only to nonnegative distinct poles below one with fixed unit masses. The audit is analytic, not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang–Treil and Gérard–Grellier use paired Hankel and shifted-Hankel data.",
+          "Pushnitski–Treil's positive Hankel spectral theorem uses a cyclic-vector spectral measure, not just the support eigenvalues.",
+          "Brevig–Seip study Hankel norm saturation."
+        ],
+        "reasoning": "A uniqueness or parametrization theorem with eigenvector weights or an additional shifted spectrum cannot be specialized by simply omitting those observations. The fiber count after forgetting them and imposing the pole–mass relation is a separate claim.",
+        "searches": [
+          "arXiv:2204.00115v3",
+          "arXiv:1201.4971v1",
+          "arXiv:2503.22189v3",
+          "arXiv:2301.07937v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2504.18707v2",
+        "arXiv:2503.22189v3",
+        "arXiv:2204.00115v3",
+        "arXiv:1201.4971v1",
+        "arXiv:2301.07937v1",
+        "Resultary ae855637ef38, 66a5dfb907bc, 7e1e7b451f74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest involution recovers weighted Cauchy parameters from the eigenvalues and their weights; in the frozen claim the pole locations are restricted by A_i=(x_i+1)²/2 and only the eigenvalues are supplied.",
+          "Counting the resulting constrained two-point fibers requires restricting the trace curve and locating changes of monotonicity of its determinant."
+        ],
+        "reasoning": "Those earlier inverse maps can serve as frameworks for this problem but do not guarantee the fixed-mass intersection count or its change at nine. The location and multiplicity of this intersection are the audited contribution.",
+        "searches": [
+          "arXiv:2504.18707v2, pp. 1–2",
+          "arXiv:2503.22189v3, Theorem 2.1 and spectral measure definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For x_i=(1+a_i)/(1−a_i), 1/(1−a_i a_j)=sqrt(A_i A_j)/(x_i+x_j) with A_i=(x_i+1)²/2; this is an exact kernel equivalence, not merely an analogy.",
+          "Pushnitski–Treil, p. 2, includes the spectral projection weights B_k along with the eigenvalues.",
+          "The same-day near hits use eight Fourier moments of complex atoms on a torus or four ordinary moments of a signed real measure."
+        ],
+        "reasoning": "The Cayley transform identifies the operator class with a constrained weighted Cauchy subfamily but does not identify the inverse data or remove the weights required as inputs by the involution. The moment statements likewise specify observables that cannot be recovered from the two eigenvalues alone when several pole pairs share them.",
+        "searches": [
+          "arXiv:2504.18707v2, weighted Cauchy matrix spectral map",
+          "Resultary ae855637ef38, 66a5dfb907bc and 7e1e7b451f74, two-atom inverse problems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed trace-nine hit is the frozen record itself, with the same finding and proof. The other inspected records have materially different data and admissible atom classes."
+        ],
+        "reasoning": "The self-hit is not independent coverage. No other inspected entry provides the trace-nine cutoff or the three-pair region; the bounded search is not proof of priority.",
+        "searches": [
+          "Resultary ae855637ef38, exact trace-nine hit; 66a5dfb907bc, 7e1e7b451f74, same-day two-atom inverse hits"
+        ]
+      },
+      "rationale": "The closest general theorem does contain the Gram matrix after a Cayley transform, but it inverts richer, weighted spectral data. The inspected primary and indexed statements do not establish the eigenvalues-only fiber cardinality or its trace-nine transition under the fixed-unit Hankel mass constraint. This passes the supported specialized classification, not novelty of Gram reduction, Cauchy spectral theory, or inverse moment problems.",
+      "residual_risks": [
+        "An unindexed equivalent analysis of eigenvalues of two unnormalized Hardy kernels may exist. No order or priority is inferred from same-day entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent matrix form, stronger observation data; not the same inverse problem",
+          "evidence": "Spectral map inputs include the eigenvalues and their projection-norm weights B_k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.18707v2",
+          "material_read": "pp. 1–2, offsets 0 and 4385",
+          "method": "Bounded OA PDF text inspection",
+          "title": "The spectral map for weighted Cauchy matrices is an involution",
+          "trigger": "Exact Cayley-equivalent weighted Cauchy Gram kernel"
+        },
+        {
+          "assessment": "Different operator representation and fuller spectral data",
+          "evidence": "The inverse statement uses the cyclic-vector spectral measure and does not discard weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.22189v3",
+          "material_read": "Theorem 2.1 p. 7 (offset 18723); spectral measure definition pp. 19–20 (offset 50585)",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Inverse spectral problems for positive Hankel operators",
+          "trigger": "Positive Hankel inverse theory may cover finite-rank cases"
+        },
+        {
+          "assessment": "Paired spectral data differ from the target",
+          "evidence": "Uses the Hankel and shifted-Hankel operators rather than the sole unaugmented eigenvalue list.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.00115v3",
+          "material_read": "p. 1, offset 446",
+          "method": "Bounded OA PDF text inspection",
+          "title": "A dynamical system approach to the inverse spectral problem for Hankel operators: the general case",
+          "trigger": "Candidate general inverse theorem"
+        },
+        {
+          "assessment": "Different input spectra",
+          "evidence": "Compares Hankel and shifted-Hankel spectral data.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.4971v1",
+          "material_read": "p. 1, offset 407",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Spectral inverse problems for compact Hankel operators",
+          "trigger": "Compact Hankel inverse framework"
+        },
+        {
+          "assessment": "Norm saturation not fixed-mass inverse fibers",
+          "evidence": "The stated objective is maximal norm saturation, not counting pole pairs with a given pair of eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.07937v1",
+          "material_read": "p. 1, offset 370",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Maximal norm Hankel operators",
+          "trigger": "Hardy Hankel setting and norm/eigenvalue overlap"
+        },
+        {
+          "assessment": "Identical frozen record, not a separate earlier statement",
+          "evidence": "Same domain, unit masses, scalar determinant and threshold nine.",
+          "identifier_or_url": "Resultary ae855637ef38",
+          "material_read": "Finding and proof, offsets 0 and 6000",
+          "method": "Local Resultary mirror text inspection",
+          "title": "A sharp trace-nine inverse-spectral bifurcation for two-pole Hankel operators",
+          "trigger": "Exact database match"
+        },
+        {
+          "assessment": "Distinct object, data and inversion result",
+          "evidence": "Complex two-atom measure on a torus reconstructed from eight Fourier moments.",
+          "identifier_or_url": "Resultary 66a5dfb907bc",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "Constructive eight-moment inversion for every two-atom measure on the torus",
+          "trigger": "Same-day two-atom inverse record"
+        },
+        {
+          "assessment": "Distinct signed moment problem",
+          "evidence": "Four ordinary moments and total-variation recovery of oppositely signed atoms on [−1,1].",
+          "identifier_or_url": "Resultary 7e1e7b451f74",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "Sharp four-moment recovery frontier for signed two-atom measures",
+          "trigger": "Same-day two-atom recovery record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, inverse fiber and critical expansion",
+        "arXiv:2504.18707v2, weighted spectral inputs",
+        "arXiv:2204.00115v3, paired spectral inputs"
+      ],
+      "rationale": "Fixing both masses at one removes the usual free normalization parameters and leaves as many unknowns as measured eigenvalues. It is not then evident that spectra can have three preimages or that the entire low-trace region is identifiable. The sharp trace boundary, open interval of triple ambiguity, and flat cubic at criticality give useful limits on reconstruction from spectral data alone, including the loss of first-order inverse conditioning at the critical fiber. The inverse statement concerns a motivated two-atom Hankel class, not a single numerical isospectral coincidence.",
+      "residual_risks": [
+        "The fixed unit masses and nonnegative poles are essential to the audited parametrization. No uniform stability bound or extension to more poles is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary cycle-indexed affine recursion gives exact second- and fourth-order moment equations. The covariance reduction uses conditional propagation of squared positions and the signed work \(W_n=k(U_n^2-V_n^2)/2\), yielding the exact geometric-lag factor. Exact rational simplification proves the one-, two-, and three-stage Erlang formulas. The three-stage polynomial has precisely one positive root by a single Descartes sign change and endpoint signs; rational root bracketing is checked. For every shape at least three, the opposite weak- and strong-confinement asymptotics ensure a sign reversal. The periodic expression has strict negative sign because \(\sinh x>x\). The independently reconstructed fourth-moment formula, exact algebraic identities, and sampled Brownian-cycle transitions all passed the standalone verification checks. Numerical checks are not used to infer any infinite-parameter sign law.
+PASS
 
-## Originality — PASS, qualified
+The stable affine OU/free-diffusion recurrence defines the stationary event-indexed chain; its random coefficient contracts in L^4 and the innovations have finite fourth moment. For an independent derivation, write the conditional start variance as Q+R given past durations and put M=exp(-2kT). The conditional release variance is Q+MR and the next excess variance is MR+2DS. Thus E[R]=L/(1-a) and E[R^2]=(2aL E[R]+H/3)/(1-b). Conditional Gaussian square products give G=2(a-1)Q^2+(1-a)Q E[R]+3(a-b)E[R^2]-L(Q+a E[R]), which simplifies to the recorded expression. The affine conditional second moment propagates the next-cycle covariance by a at each additional lag, giving strictly positive prefactors multiplying G for all j>=1. Substitution independently reproduces the three rational functions; the third numerator polynomial has one sign change and a positive root bracketed by 11.141522 and 11.141523. The weak and strong limits give the claimed endpoint signs for all fixed m>=3, not uniqueness beyond m=3. The deterministic variance recursion gives the stated negative formula, and A-B=L gives the identical mean work kD/q. Replay via RESULT.md lines 40–113 or the variance recursion above. The supplied verification script was inspected, not executed; the conclusions are exact, not simulation estimates.
 
-Santra–Das–Nath (arXiv:2104.00609) develop the original intermittent harmonic diffusion and positional observables; Alston–Cocconi–Bertrand (arXiv:2202.02630) study fluctuating-potential energetics; Frydel (arXiv:2407.12213) gives position-law and mean-power results. The closest related complete research reports concern stationary Poisson integrated-work variance and its martingale CLT, a multibody rank-one physical-time work covariance, and a general semimarkov two-positive-stiffness **position** response. They do not state the present complete-cycle event-work covariance sign classification or the minimal three-Erlang-stage threshold. General Gaussian transition and renewal techniques can imply formulas after further algebra, and unindexed or inaccessible related work may exist. The 2026 semimarkov primary full text was not accessible; its closest complete research derivation was inspected and compared. No claim of exhaustive novelty certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Different physical residence clocks with identical on/off means and identical mean injected work per complete cycle produce different *signs* of work-memory correlations. The first permitted negative sign is sharply classified at three Erlang stages, with a unique exact transition polynomial; periodic switching supplies the opposite-sign boundary at every confinement. The universal geometric-lag law reduces the entire work-memory sign question to a testable single-cycle observable. This is a motivated stochastic-thermodynamic classification, not an arbitrary numerical parameter slice.
+The distinctive result is the exact stationary cycle-indexed switching-work covariance for renewal trapping, with all positive lags sharing the sign and a minimal three-stage matched Erlang clock for negative covariance. Inspected annual-catalogue and literature results overlap in model, work statistics, or correlation transitions, but the compared statements do not imply this sign classification.
 
-## Scope and risks
+## value
 
-The observation is indexed by complete cycles rather than laboratory time. A unique crossing is proved for three stages only; higher shapes are covered by existence. Full publication priority and independent mathematical validation are outstanding. The finite-data verifier is supportive, not a certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Changing the dwell-time shape at fixed mean changes an experimentally interpretable cycle-memory statistic while leaving mean injected work unchanged. The exact minimal-stage boundary and common sign at every positive lag are sharper than observing a numerical sign change or a physical-time variance trend. The result supplies a testable benchmark for linear renewal-driven energetics; it does not claim a laboratory-time sign law or uniqueness for all Erlang shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

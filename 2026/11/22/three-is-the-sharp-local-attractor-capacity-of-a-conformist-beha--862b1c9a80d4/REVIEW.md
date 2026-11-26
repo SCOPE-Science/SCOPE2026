@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The at-most-three bound uses an analytic classification, not a simulation. Each invariant pure-adherence face contains at most one potentially stable equilibrium, since a fixed-adherence SIRS subsystem has exactly one stable epidemiological state (apart from its nonhyperbolic threshold). A disease-free state with mixed adherence has a strictly positive behavioral eigenvalue. On the positive-endemic mixed branch, \(G''<0\) exactly; the previously established Jacobian determinant identity makes \(G'<0\) necessary for stability, which at most one root can satisfy. The witness gives six exact rational biological equilibria, and its three sinks are confirmed by strict rational Routh–Hurwitz inequalities. The standalone checker recalculates these algebraic certificates. Nonstandard steps are proved in RESULT.md; the finite checker is confined to its witness.
+PASS
 
-## Originality — PASS (bounded literature assessment)
+On each pure-adherence face, the disease-free equilibrium is the only possible sink below the infection threshold; at equality it has a zero eigenvalue, and above it only the unique endemic equilibrium can be a sink. At a mixed disease-free equilibrium the infectious direction separates triangularly and the behavioral eigenvalue is 2 epsilon kappa x(1-x)>0; kappa=0 gives no such root. The same behavioral argument excludes mixed sinks if a=0. Otherwise the endemic branch is an interval since b is nonincreasing. Substituting the endemic prevalence into the payoff cancels the 1-e x factor in the reciprocal term and gives G''=-2 P a^2/[rho(1-a x)^3]<0. The epidemic block A is invertible with positive determinant. Differentiating its equilibrium conditions with respect to x identifies the Schur complement as epsilon x(1-x)G'; hence det J has the sign of G', and the Hurwitz condition in dimension three requires G'<0. Strict concavity admits at most one such zero, including at tangency where det J vanishes. For the rational vector an independently differentiated exact calculation obtains precisely the six listed feasible roots, the two quoted mixed characteristic polynomials and exactly three sinks. At the lower mixed root C3<0 gives a positive real eigenvalue and C3 differs from C1 C2, excluding imaginary-axis roots. At the upper mixed root the exact Hurwitz gap is 2224280063/28224000000. The two other unstable roots have explicit positive real directions within invariant physical faces. The face and mixed sinks persist by their strict inequalities and branch feasibility under sufficiently small admissible perturbation.
 
-The exact originating model and its published supplement already include the scalar response \(G\), equilibrium formulas, a determinant sign identity, and qualitative bistable outcome diagrams. None of those pieces is claimed as new. The assessed claim is the universal **sharp upper bound of three attracting equilibria** together with a strictly feasible **simultaneous three-sink exact rational realization** under the full conformist, waning-immunity model. The inspected source's main text and supplement do not state this bound or provide this exact realization. The 2023 Saad-Roy–Traulsen model and the 2026 Martin–Castella–Hamelin SIS model differ in infection/behavior mechanisms and do not imply the claim; the latter was accessible only in abstract. The related public mathematical results on no-conformity permanent-immunity global convergence and on finite-horizon Poisson masking bistability address structurally different subclasses. Comparison of these statements and implications supports bounded originality, not exhaustive priority.
+## originality
 
-## Value — PASS
+PASS
 
-A maximal attractor-count theorem and a full exact rational witness clarify how several behavioral and epidemiological regimes can be locally robust under identical conditions. The result answers a structural question motivated by the paper's coexistence maps: whether non-adherence, partial adherence and full adherence can all locally attract at once, and what is the maximum number. Its significance lies in a reproducible classification boundary, not in a tiny numerical improvement or an unsupported policy extrapolation.
+Kumata–Ito–Yamamichi supply the exact same model, endemic reduction, boundary stability conditions, determinant identity, necessary slope sign and cubic tests, and report coexistence via parameter maps. That is substantial prior coverage. Credit here is restricted to the analytic global three-sink ceiling (in particular the one-mixed-sink bound from concavity) and the exact rational certificate of attainment and persistence. The inspected main text and supplement do not state that sharp uniform theorem. A separate exact calculation confirms that triple coexistence also occurs in the parameter slice they plotted in Fig. S3; no priority is assigned for the qualitative phenomenon or numerical detection of it.
 
-## Limitations and risks
+## value
 
-Only locally exponential stability of equilibria is established, not global convergence, basin sizes, or absence of periodic orbits. The statement depends on the specified linear social-conformity payoff and homogeneous behavioral SIRS equations. The related 2026 SIS article's full text could not be inspected, and other historical literature may contain a broader bound. Independent review and external validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same-model literature gives stability conditions for a candidate equilibrium and outcome maps. A sharp uniform ceiling answers a different useful question: no admissible parameter choices can give two Hurwitz mixed outcomes or more than three concurrent sinks, even though a phase diagram at fixed settings can miss regions of three-way coexistence. The rational witness demonstrates attainment with strict margins and open persistence, distinguishing a capacity theorem from a numerical pattern or a routine isolated root check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

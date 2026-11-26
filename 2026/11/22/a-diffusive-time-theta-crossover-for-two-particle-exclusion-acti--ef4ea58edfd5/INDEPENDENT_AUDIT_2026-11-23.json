@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:49:33.842278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stationarity and reversibility give the separated-jump product E[dK_s dK_{s+u}]/(ds du)=<a,exp(uL)a>; the diagonal contributes E K. This is a jump-count calculation, not a conditional-Poisson approximation. Random labeling makes the ordered gap uniform on N=n-1 states; each allowed gap step has rate 2 and the two endpoint intensities are 2 (interior 4). The reflecting cosine basis has eigenvalues 4(1-cos(pi h/N)); endpoint symmetry selects h=2j with squared projection 32 cos^2(pi j/N)/N^2. Integrating gives (1); positive decaying modes give strict increase when N>=3, while the two-state N=2 intensity is constant and gives exactly Poisson. Endpoint Green pairing is 2g(0)/N for the mean-zero quadratic in (87), hence 8 times this pairing divided by mu gives (N-2)/(3N). For fixed t, the excess variance is at most t^2 Var(a), which is O(t^2/N). At t=xN^2 the sin lower bound gives an O(j^-2) Fano summand majorant, and the limit uses N^2 lambda -> 8 pi^2 j^2. The theta expansion gives S''=-64 pi^4[(2 sqrt(8 pi x))^-1-1/2+exponentially small], yielding the positive sqrt(x) and negative 4x terms in (4); zeta(4) gives 1/360 at the long-window edge. Inspected both supplied scripts as source without executing them. Independent full-chain marked-moment exponential replay checked 32 sizes/times for n=3..10 (maximum mean/variance discrepancies 1.599e-14 and 1.776e-13); at n=4 the unique decay rate is 6, integrated covariance prefactor 16/9, F'(0+)=1/3 and F(infinity)-1=1/9. Only the analytic argument covers all sizes and the double limit.",
+      "replay_paths": [
+        "/workspace/branches/a882ce85-f016-400b-b516-5ba518cf5449/replay_full_chain.py",
+        "/workspace/branches/a882ce85-f016-400b-b516-5ba518cf5449/replay_output.txt"
+      ],
+      "residual_risks": [
+        "No higher-order cumulants, full process limit, positive particle-density limits, or nonstationary initial laws verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2008 Eq. (12) applies for general particle number but after t→∞; Eq. (1) defines the scaled cumulant generator with that limit. Causer et al. Eqs. (8)–(10) provide the applicable finite-time tilted method, but their SSEP uses open boundaries with entry/exit and their estimates use tensor networks."
+        ],
+        "reasoning": "The general stationary eigenvalue does not determine spectral weights or time dependence, and the finite-time semigroup representation is a method, not the evaluated spectral/crossover law.",
+        "searches": [
+          "arXiv:0804.2590v1 §§II.1, III.2",
+          "arXiv:2108.11418v2 Models, Dynamics and finite-time statistics",
+          "Resultary two-particle accepted-hop activity and transient diffusivity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0804.2590v1 §II.1",
+        "arXiv:2108.11418v2",
+        "Resultary indexed Hamming activity, heterogeneous two-tag diffusivity and tandem exclusion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The periodic paper's two-point recurrence is for the long-time tilted eigenstate. Its system-size crossover also concerns large size at fixed density and a counting-field scaling, not t/(n-1)^2. The finite-time open-boundary work locates a biased susceptibility peak, not the unbiased two-particle Fano curve."
+        ],
+        "reasoning": "The old integrated variance rate collapses the full covariance to one inverse spectral moment. Recovering all decay weights and their diffusive-time scaling is additional mathematical work.",
+        "searches": [
+          "arXiv:0804.2590v1 Eqs. (1),(9),(12)",
+          "arXiv:2108.11418v2 Eqs. (5),(8),(10),(12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appert-Rolland et al. use the total number of configuration changes, exactly the same marked count in this simple graph model. Distinct indexed results treat two-tag MSD, tandem dynamics, or activity on Hamming graphs."
+        ],
+        "reasoning": "Accepted hops, configuration changes, and total dynamical activity are aliases here; signed current, tagged displacement and integrated occupancy are not. The literature lookup returned no hits; not treated as evidence of absence.",
+        "searches": [
+          "Resultary: two particle exclusion activity accepted hops ring finite observation time variance theta reflecting gap diffusive crossover",
+          "Literature: SSEP symmetric exclusion two particles ring finite time variance activity total number jumps dynamical activity theta covariance diffusive finite time Appert Rolland Causer exact dilute",
+          "arXiv:0804.2590v1 §II.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In Eq. (12), n^2 sigma=4(n-2) for two particles, so the long-time ratio is [4(n-2)+4n-4]/[6(n-1)]=1+(n-3)/(3(n-1)). Indexed Hamming noise is also a long-time rate and changes the graph."
+        ],
+        "reasoning": "The exact long-time value is covered and not counted toward originality; the tested closest tables/theorems do not tabulate the two-particle transient on a cycle.",
+        "searches": [
+          "arXiv:0804.2590v1 Eq. (12)",
+          "Resultary: two particle exclusion activity accepted hops ring finite observation time variance theta reflecting gap diffusive crossover"
+        ]
+      },
+      "rationale": "The claimed increment is the explicit finite-window variance and the diffusive observation-time theta law at particle count exactly two. Prior long-time mean and Fano benchmark are already credited; the finite-time tilted-semigroup method itself is also known.",
+      "residual_risks": [
+        "The public search did not yield further positive evidence; an earlier equivalent computation under covariance or spectral-counting terminology may be unindexed. This is not a historical priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly covers long-time benchmark, not stated finite-window law",
+          "evidence": [
+            "Configuration changes are counted at unit allowed hop rate. Eq. (12) is explicitly in the t→∞ limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0804.2590v1",
+          "material_read": "Primary full-text model and §II.1 Eqs. (1)–(13), scope of §III.2",
+          "method": "Direct normalization and order-of-limits comparison",
+          "title": "Universal cumulants of the current in diffusive systems on a ring",
+          "trigger": "Same periodic SSEP and same activity"
+        },
+        {
+          "assessment": "Covers generic generating method and an open-system numerical crossover, not the stated two-particle canonical ring result",
+          "evidence": [
+            "Model after Eq. (5) uses reservoirs at rate 1/4. Eq. (8) uses the full tilted semigroup; Fig. 2 locates peaks in counting-field susceptibility."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.11418v2",
+          "material_read": "Primary full-text model, tilted partition function and finite-time scaling sections",
+          "method": "Compare boundary law, observable, ensemble and parameters",
+          "title": "Finite time large deviations via matrix product states",
+          "trigger": "Plausible finite-time SSEP activity/crossover antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed time the dilute system looks Poissonian in variance, while the known infinite-window limit is not Poissonian. The full Fano function quantifies when repeated collisions become visible, with the natural mixing scale, a sharp square-root onset, and the reciprocal-time approach to the late-time benchmark. This resolves a motivated connection between two distinct limits and is not just a recomputation of the long-time cumulant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

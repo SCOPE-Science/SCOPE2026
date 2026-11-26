@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:01:11.642165Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84; verify_pappus_walsh.py inspected",
+        "Independent replay: python3 /workspace/branches/reproduction/review_pappus.py spectral; review_pappus_spectral.out in the same directory"
+      ],
+      "rationale": "I independently enumerated compatible permutations of the nine points and lines in both the classical and affine incidence models; each gives 42 matchings and every edge occurs 14 times. For each frequency S the parity of its negative matching count is the parity of the sum of those edge marginals over S, which is even. Therefore the signed sum is 42 modulo 4, never zero. Translating the matching masks by one reference mask and taking successive binary spans produces all 1024 elements of the cycle space: matching differences are even-degree, and the connected graph has cycle rank 27−18+1=10. I evaluated the 1024 signed sums by direct dot-product character evaluation in that basis, without a spanning-tree gauge or fast transform. Their absolute histogram is (2:504, 6:342, 10:81, 14:96, 42:1). Each character of the cycle space has 2^17 full extensions, whose sums differ only by the reference-mask phase. This proves the full multiplicities and the Hilbert norm and condition number. Direct reciprocal Fourier inversion in the translated space gave every stated numerator count, with no zero entries and absolute sum 1,676,288 at denominator 1024·210. I checked all 1024 direct XOR convolution identities; translating the kernel back by the same reference matching gives the full-group inverse because the translations cancel in characteristic two. Hence its support is exactly the matching coset. A delta input attains the kernel ℓ^1 norm for the ℓ^1 operator, and choosing the input signs to align all terms at one output attains the same norm on ℓ^∞. Both equal 1637/210, for unnormalized convolution on the full space.",
+      "residual_risks": [
+        "Fixed unweighted graph and specified normalization only. The frozen verifier's stated Python 3.9 minimum is misleading: int.bit_count needs Python 3.10 or later. This does not affect the mathematical result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1002.1891 includes Pappus in a classification of irreducible pseudo 2-factor isomorphic cubic bipartite Levi graphs; arXiv:1002.1033 describes the parity property and determinant-extremal theory. The 2008 DOI yielded only landing/abstract evidence here.",
+          "The matched recovery records solve explicitly different fixed graphs. In particular, Heawood and dodecahedral recovery requires allowing zero modes, unlike the claimed full Pappus inverse."
+        ],
+        "reasoning": "General cycle-space or two-factor structure supplies coordinate reduction and some matching data, but no table of signed Pappus multipliers or inverse coefficients follows from the inspected theorems.",
+        "searches": [
+          "Abreu et al., arXiv:1002.1033 and arXiv:1002.1891; JCTB 98 (2008), DOI 10.1016/j.jctb.2007.08.006",
+          "Resultary graph matching convolution: Heawood 706d7c9e0a96, dodecahedral 0645b73a843d, Desargues 93f8d550f67c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 706d7c9e0a96, 0645b73a843d, 93f8d550f67c, 157dc0be9f8c, b52665049fe7; frozen Pappus record 8fdd3ef262b5",
+        "arXiv:1002.1033, arXiv:1002.1891; DOI 10.1016/j.jctb.2007.08.006 (landing/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the 42 unsigned matchings as a count does not determine their edge-sign sums. If the masks themselves are enumerated, computing the whole cycle-space table and the inverse remains a separate exact calculation. The Pappus global-forcing record counts injective coordinate restrictions and their exchanges, not Fourier values.",
+          "The Desargues result is a graph-specific statement, not a formula for arbitrary graphs. Heawood and dodecahedral endpoint statements are for range projections, not a full invertible convolution."
+        ],
+        "reasoning": "The multiplicities and especially the reciprocal transform depend on the incidence vector distribution, not merely on the number of matchings, underlying cycle rank, possible unsigned complementary two-factor lengths, or another graph's spectrum. No direct specialization of the checked claims gives the frozen exact result.",
+        "searches": [
+          "Comparison of the Pappus matching flip states (157dc0be9f8c, b52665049fe7), the Pappus edge-observation record 8fdd3ef262b5, and the Desargues inverse theorem 93f8d550f67c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent signed-permanent problem uses independently signed nonzero entries in the nine-by-nine Pappus incidence matrix, modulo row/column switches; its eigenvalue statistic is the matching-sign sum under all binary edge frequencies.",
+          "arXiv:1002.1033 pp. 2–3 inspects Pappus complementary two-factor parity and general one-factor sign/determinant theory, not the distribution of that permanent under all edge signings. The focused public search returned no hits and is not evidence of absence."
+        ],
+        "reasoning": "The sign of a permutation in a determinant is not the product of freely varying edge signs. Even if a determinant or permanent identity were available, it would have to supply the all-sign histogram and the placement of reciprocal multipliers, not merely one evaluation.",
+        "searches": [
+          "Resultary: Pappus perfect-matching Walsh, signed permanent, inverse endpoint norm and zero-free recovery",
+          "Primary literature query: Pappus graph, signed permanent, Walsh spectrum/dimer perfect matchings, 1637/210, parity incidence and cycle space"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Heawood has signed levels −24,−8,0,8,24. Dodecahedral has six absolute levels including zero. Desargues is zero-free but gives 68/15 for the corresponding sharp inverse endpoint norm. The earlier Pappus flip records enumerate 42 matchings but do not give a table over signed frequencies."
+        ],
+        "reasoning": "These exact tables genuinely overlap in method, not in the fixed graph, level histogram or endpoint constant. The ordinary count 42 is explicitly excluded from the new contribution.",
+        "searches": [
+          "Resultary: exact Pappus levels 2,6,10,14,42 and 1637/210; nearby exact tables 706d7c9e0a96, 0645b73a843d, 93f8d550f67c; Pappus matching census 157dc0be9f8c and b52665049fe7"
+        ]
+      },
+      "rationale": "The 42 matchings, gauge principle and reciprocal Fourier inversion are not new. The distinct claim is the Pappus-specific full signed-multiplier classification in absolute value together with the exact all-coordinate inverse support and endpoint amplification. The strongest same-day Resultary analogues use essentially the same method but different graphs or range-projection operators, with explicitly different spectra and constants. Prior Pappus sources treat ordinary matchings, their flip graph, or complements as two-factors, not evaluation over all edge signs. No inspected result or implication supplies the frozen spectrum or inverse data; this is a bounded statement about the exact invariant, not a claim of global priority.",
+      "residual_risks": [
+        "Unindexed signed-permanent/dimer tables could contain equivalent data. The 2008 paper was not inspected in full. The public query miss carries no negative evidentiary weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related graph structure and sign methods, not the explicit Pappus Walsh classification",
+          "evidence": "Pappus is identified as pseudo 2-factor isomorphic; the general determinant-extremal theory concerns signs of one-factors.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.1033",
+          "material_read": "PDF pp. 2–3, text near offset 4700",
+          "method": "OA preprint passages",
+          "title": "Pseudo and Strongly Pseudo 2-Factor Isomorphic Regular Graphs",
+          "trigger": "Pappus two-factor structure and one-factor sign theory could constrain the spectrum"
+        },
+        {
+          "assessment": "Classifies Levi graphs by two-factor properties, not by arbitrary edge-sign evaluation",
+          "evidence": "The irreducible class includes the Pappus graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.1891",
+          "material_read": "PDF pp. 2–3, text near offset 4300",
+          "method": "OA preprint passages",
+          "title": "Irreducible pseudo 2-factor isomorphic cubic bipartite graphs",
+          "trigger": "Structural classification of the same Levi graph"
+        },
+        {
+          "assessment": "Residual direct full-text gap, not proof of noncoverage",
+          "evidence": "The algebraic and structural comparisons above rely on the passages actually read in the accessible related preprints.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2007.08.006",
+          "material_read": "Landing/abstract; relevant full-text statement not obtained for this paper",
+          "method": "Lawful OA lookup and comparison with accessible related preprints",
+          "title": "Pseudo 2-Factor Isomorphic Regular Bipartite Graphs",
+          "trigger": "Potential Pappus-specific complementary two-factor details"
+        },
+        {
+          "assessment": "Related graph-specific result, not Pappus",
+          "evidence": "Heawood signed levels −24,−8,0,8,24 include zero; the operator statement is for a range projection.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-walsh-spectrum-and-optimal-range-projection-for-heawood-pe--706d7c9e0a96",
+          "material_read": "Finding, operator scope and spectrum",
+          "method": "Local Resultary mirror",
+          "title": "Exact Walsh spectrum and optimal range projection for Heawood perfect matchings",
+          "trigger": "Same Walsh invariant and same-day exact spectral table for a classical bipartite incidence graph"
+        },
+        {
+          "assessment": "Different graph and range recovery rather than full inverse",
+          "evidence": "Six absolute levels include zero, unlike the five strictly positive Pappus levels.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-walsh-spectrum-and-optimal-recovery-for-dodecahedral-perfe--0645b73a843d",
+          "material_read": "Finding and operator scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact Walsh spectrum and optimal recovery for dodecahedral perfect matchings",
+          "trigger": "Same-day exact Walsh table plus endpoint recovery"
+        },
+        {
+          "assessment": "Same method and norm question, different graph and exact constant",
+          "evidence": "The Desargues result gives full invertibility and sharp endpoint inverse norm 68/15.",
+          "identifier_or_url": "2026/11/22/SCOPE-zero-free-signed-perfect-matchings-and-sharp-inverse-walsh-norms--93f8d550f67c",
+          "material_read": "Finding, Desargues graph scope and endpoint norm",
+          "method": "Local Resultary mirror",
+          "title": "Zero-free signed perfect matchings and sharp inverse Walsh norms",
+          "trigger": "Closest parallel zero-free Walsh/inverse theorem"
+        },
+        {
+          "assessment": "Prior count and matching reconfiguration, not the edge-sign table",
+          "evidence": "There are 42 matchings; the reported relations arise from alternating cycles of specified lengths.",
+          "identifier_or_url": "Resultary 157dc0be9f8c and b52665049fe7",
+          "material_read": "Findings and definitions of allowed flips",
+          "method": "Local Resultary mirror",
+          "title": "The Pappus perfect-matching hexagon-flip graph is two alternating hexagon triangles; Hexagon parity and octagon mobility in Pappus perfect matchings",
+          "trigger": "Prior exact Pappus perfect-matching enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–32 and 50–84; independently reproduced spectrum and kernel",
+        "Resultary nearby graph recovery findings 706d7c9e0a96, 0645b73a843d, 93f8d550f67c"
+      ],
+      "rationale": "For the classical Pappus Levi graph this is a complete, useful recovery invariant, not the ordinary matching count or adjacency spectrum. Zero-free signed convolution distinguishes full recovery from projection onto a proper Fourier range in comparable cubic graphs. The exact endpoint amplification, substantially different from the Hilbert inverse norm, and complete affine inverse support matter for worst-case pointwise or total-error recovery. Neither is supplied by the unsigned count nor the generic Walsh method, and the exact histogram makes the inverse calculation checkable.",
+      "residual_risks": [
+        "No stability theorem beyond the stated exact operator norms and no family-wide recovery conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

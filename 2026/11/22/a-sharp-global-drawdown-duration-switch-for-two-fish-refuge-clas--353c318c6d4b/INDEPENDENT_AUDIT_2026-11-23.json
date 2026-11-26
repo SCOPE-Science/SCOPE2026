@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:35:02.268507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence gives the whole-duration factor exp(-mu T); there is no success before c_f. For s=lambda(T-c_f), the early and late smooth expressions, after dividing out exp(-mu c_f), are w g_1(s) and g_C(s), with g_A(s)=exp(-rs)-A exp(-(r+1)s). Differentiation gives the unique unrestricted maximum B A^(-r) at log(KA), B=r^r/(r+1)^(r+1). The two upper bounds tie exactly when C=w^(-1/r). At that tie e^d>K by the strict tangent inequality for w^(-1/r), and e^d/C=(1-w^K)/(1-w)<K by the strict tangent inequality for w^K. The late feasibility margin log(K[w exp(-d)+1-w]) decreases in d, so the winning late maximum is interior for d at or below the tie; the early maximum is interior for d at or above it. Strict unimodality excludes the join and all other durations. The winning height is continuous and the locations differ by -log(w)/mu. The exact witness has heights 1/24, 1/32, 1/24 at exp(T)=4,8,12 (replay: drawdown_witness() in /workspace/branches/independent_replay.py; no frozen script executed). This proves an unconstrained duration decision in the specified surrogate, including c_f=0, not a calibrated policy. One class has the single smooth optimum c+log(K)/lambda for the same rate assumptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known broader Bateman local-mode theorem allows independent input amplitude and delay; its proof has the derivative criterion m_B>Q(d) for a second local peak when d>t0. The external query did not supply a relevant original global-height theorem."
+        ],
+        "reasoning": "An exact global-height theorem for the broader family could subsume the result, but the retrieved broader statement addresses a different property and does not settle the height switch. The external search result is not proof that no broader theorem exists.",
+        "searches": [
+          "Resultary: global height switch global dominance threshold between peaks delayed Bateman inputs",
+          "Primary literature: \"Bateman function\" delayed inputs unequal dose peak heights global maxima"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2eb46436a2c9 (original statement/proof)",
+        "Resultary 8965d61750fe (summary only)",
+        "Resultary 353c318c6d4b (self-match)",
+        "Primary literature lookup: delayed Bateman input peak heights and global maxima"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The post-input location is log[(r+1)(1+m_B exp((r+1)d))/(r(1+m_B exp(rd)))], which becomes log(KC); the prior local criterion gives feasibility when two local peaks exist, not equality of their heights."
+        ],
+        "reasoning": "To obtain the frozen result one still has to compute and compare both branch heights as d varies, prove the crossing lies strictly inside the feasible two-peak window for every (w,r), and control the branch comparisons on either side. The known stationary-location result does not by itself equate height dominance to any quoted threshold.",
+        "searches": [
+          "2eb46436a2c9, RESULT.md, proof steps 2–3, local mirror offsets 1450–5706"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2eb46436a2c9, RESULT.md, proof steps 1–3: local maxima of g(s)+m_B g(s-d) and their stationary locations; rates r,r+1, scaled early amplitude w, and m_B=(1-w)exp(-rd)/w make the fish curve exactly this mixture."
+        ],
+        "reasoning": "The mixture form and local locations must not be counted as original. At the frozen switch the local count stays two while the identity of the global winner changes.",
+        "searches": [
+          "Resultary: A sharp reentrant two-peak window for delayed unequal Bateman inputs",
+          "Resultary: delayed Bateman peak height comparison which local maximum is global dose ratio delay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "353c318c6d4b is the identical assigned result, not prior evidence. Same-day hit 8965d61750fe describes maximizing time above a concentration threshold by dose allocation in its searchable summary; no mirror RESULT.md was retrievable for statement-level checking."
+        ],
+        "reasoning": "A duration maximizing a pointwise success fraction is not an allocation maximizing a superlevel-set time; the summary offers no mathematical agreement on that point. The unavailable text is a residual risk, not negative evidence or a priority judgment. There is no finite parameter table that could establish this continuous all-parameter argmax claim.",
+        "searches": [
+          "Resultary: delayed Bateman peak height comparison which local maximum is global dose ratio delay; Results 353c318c6d4b and 8965d61750fe"
+        ]
+      },
+      "rationale": "The shifted Bateman mixture and its stationary locations and local mode-count criterion are known, including for this constrained amplitude path. The supported distinct claim is the strict GLOBAL dominance classification, feasible co-global tie and exact optimizer jump along that path. The closest verified source compares derivatives at the join, not global peak heights. No inspected matching result covers the global crossing; this is a bounded best-of-knowledge conclusion.",
+      "residual_risks": [
+        "Other exponential-mixture or pharmacokinetic work may explicitly treat global height dominance, possibly under different terminology.",
+        "Full text for the same-day bolus fractionation hit was not available in the local mirror. The ecological literature context in the frozen package was not exhaustively re-inspected, and no field priority or calibration is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local-mode and stationary-point coverage; no global height threshold in the decisive statement or argument",
+          "evidence": "Proof step 3 compares C' at the input join to zero; step 2 only identifies the post-input stationary point and requires it to fall after the join.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9/RESULT.md",
+          "material_read": "Finding at offset 0 and proof steps 1–3, bounded passage offsets 1450–5706",
+          "method": "Local-mirror original passages and positive-amplitude path substitution",
+          "title": "A sharp reentrant two-peak window for delayed unequal Bateman inputs",
+          "trigger": "Exact match of shifted two-exponential kernel"
+        },
+        {
+          "assessment": "Summary concerns threshold-time dose allocation, not the pointwise peak-height claim; full comparison limited by access",
+          "evidence": "Described objective is time above a concentration threshold under a dose fraction choice.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-half-life-boundary-for-discontinuous-and-continuous-optimal-two-bolus-fractionation--8965d61750fe",
+          "material_read": "Searchable scientific summary only; original file unavailable",
+          "method": "Resultary search and attempted local-mirror original retrieval",
+          "title": "A half-life boundary for discontinuous and continuous optimal two-bolus fractionation",
+          "trigger": "Two inputs and an optimizer discontinuity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mode count alone cannot tell a decision maker which duration wins. This complete two-class classification shows that even a minimal heterogeneity can make the optimizer jump by a finite, identifiable amount while the value stays continuous. It supplies an exact benchmark for competing timing and exposure effects. It is deliberately model-specific: if mortality stops on refuge arrival and only survival to arrival is required, success as a function of allowed duration is a cumulative event and is nondecreasing. The result is not a river-operation recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

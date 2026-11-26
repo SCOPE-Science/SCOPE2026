@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact weak-characteristic reduction includes self-convolution and both unequal group masses. Symbolic identities independently verify both group-velocity equations, the gap and barycenter, and the derivative formulas for the scalar shape function. The sign of its derivative is globally controlled by a function whose derivative changes sign exactly once at \(1/\sqrt2\); this proves the unique shape maximum and all level-crossing counts. Scalar ODE uniqueness and monotonicity prove the global basins, and Taylor limits establish the escaping speed, consensus rates and fold law. The attached executable passed the symbolic checks, finite examples and independent two-coordinate ODE integrations; those numerical tests are not treated as infinite proofs. There are no unresolved proof premises within the stated zero-diffusion two-atom scope.
+PASS
 
-## Originality — PASS, with priority caveats
+The bounded Lipschitz convolution kernel gives a unique measure flow for the probability datum (the usual characteristic stability estimate controls velocity differences by the spatial distance plus the Wasserstein distance). In its invariant two-atom class the self terms are p·b/e and q·b/e in the two velocities before the common factor c, and their inclusion gives the exact gap and barycenter equations in lines 66–79. Uniqueness rules out finite-time collision. Differentiating R gives R'=2(F−1)/sinh²(2d); F' has the sign of 1−2d², F(0)=1, and F tends to −∞. Thus R starts at 0, has one strictly nondegenerate maximum, and then falls past 0 to −∞. Reading the signed level δbR−(2−b) gives all basins, including the semistable fold, the equal-mass frozen continuum at b=2, and strict shrinking for b=0. For δ<0 on the escape side the derivative tends to cb|δ|/e; the two collapse rates follow from j~2d and h−1~d². The fold uses the bias derivative 2/b_lock and gap curvature δb_lock R'', yielding the stated coefficient. Independently solving R'=0 and R=0 at 48-digit precision confirmed d*=0.907739233841074601..., R*=0.292182549800972871..., and d₀=1.555728630669671926...; with |δ|=1/2 and b=1.95 the signed levels reproduce the example gaps 0.103110814637206529..., 1.506831535033476222..., and 1.598639907304102643.... These numerical checks corroborate the example only, not the phase portrait.
 
-The 2023/2024 full text of Koertje and Sayama introduces the exact interaction kernel and numerically observes drift and group overtaking, explicitly proposing possible escape on an unbounded opinion axis (Discussion). It does not state a mass-orientation-dependent exact two-atom phase diagram or a saddle-node threshold with stable translating pairs. Its homogeneous-density stability threshold is neither a stronger nor equivalent assertion: it studies a spatially uniform state and nonzero diffusion. The 2020 Sayama predecessor concerns a different symmetric information-gathering kernel. Comparisons to indexed mathematical research and available previous claims found no equivalent sharp classification; these unsuccessful searches are not proof of uniqueness. A 2023 thesis cited by the primary article remained inaccessible for full-text priority comparison, and general particle-aggregation theory could contain relevant reductions.
+## originality
 
-## Value — PASS
+PASS
 
-The original model emphasizes the scientifically motivated possibility that a large group can leave a smaller group behind when opinions live on the full line. The new theorem gives an exact answer for two idealized groups, and unexpectedly identifies a *different* stable nonzero-distance outcome when the larger group is on the opposite side. The exact universal shape maximum, sharp mass-dependent critical bias, complete basin boundaries and fold scaling are structural rather than arbitrary finite numerical slices. This supports interpretation of biased group drift while making no claim about broader diffusion-dominated populations.
+The kernel, transport equation, homogeneous instability analysis and qualitative speculation about escape already belong to Koertje–Sayama. The distinct checked claim is the complete two-atom gap phase portrait, in particular the Gaussian level geometry, explicit mass-dependent fold, and orientation-sensitive basins and escape speed. No equivalent theorem was found in the material inspected; same-model thesis access is the main remaining risk.
 
-## Boundaries and risks
+## value
 
-Only two atomic opinion groups and zero diffusion are proved; the result is not a theorem about positive-diffusion simulated peaks. Global uniqueness and asymptotics are analytical, numerical checks only reproduce samples. Publication priority relative to the unavailable 2023 thesis and possibly unindexed aggregation literature remains a risk. Independent scientific validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural exact test of the source paper's free-line group-drift question. It supplies the sharp initial-distance boundary and shows that orientation can give bounded translating locks instead of merely merger or drift, a qualitative distinction not observable from the homogeneous instability test. The finite-dimensional specialization is scientifically useful without claiming diffusive stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

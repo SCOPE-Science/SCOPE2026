@@ -1,19 +1,21 @@
-# Scientific review: cubic spherical-gradient sampling spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses degree-three homogeneous **harmonic** polynomials, normalized probability area measure on the unit sphere, a Dirichlet source norm with factor \(3(d+1)\), and equal-weight tangent-gradient observations at all \(2^d\) signed cube vertices. Three explicit subspaces have verified harmonicity, are invariant and mutually orthogonal under sign flips and coordinate permutations, and their dimensions exhaust the entire harmonic-cubic space. They are irreducible signed-permutation sectors, or equivalently direct symmetry calculations show that all three sampled-gradient and spherical norm forms diagonalize in these blocks. Exact sixth-order spherical moments and cube sign averages give the three scalar ratios. Their positivity and pairwise rational ratios prove the sole \(d=3\) null mode, injectivity for every \(d\ge4\), and the exact spectral upper-branch switch at \(d=9\). All dimensions are proved algebraically; computation is not substituted for infinite proof. Independent exact rational Gram reconstruction passed every basis-pair identity for \(d=3,4,5,6,7\).
+PASS
 
-## Originality — PASS, with residual priority risk
+For exact-degree harmonic cubics the sphere Laplacian eigenvalue is 3(d+1); both sphere and corner measures are probability-normalized. The singleton sign-character block consists of x_i(a x_i²+Σ_{j≠i} b_j x_j²) with 3a+Σ b_j=0. Off-axis permutations split it into the line Z_i and the zero-sum contrasts Q_{i;jk}, of dimension d−2. Each triple character supplies the single square-free line R_{ijk}. For both Hermitian forms signs separate distinct characters, the permutation-invariant pairing of the line with contrasts is zero, and each contrast Gram form is scalar on the standard zero-sum coordinate space. Permutations also identify ratios across blocks of a given type. At a corner the projected gradient of Z_i is (3/d−3/(d+2))(e_i−x_i x), giving energy 36(d−1)/(d³(d+2)²); Q vanishes at corners but has ambient (already tangent) energy 8/d²; R has ambient energy 3/d² and radial squared component 9/d³. The sphere squared norms of these representatives computed from degrees two, four and six are respectively 6(d−1)/(d(d+2)²(d+4)), 4/(d(d+2)(d+4)), and 1/(d(d+2)(d+4)). Dividing by 3(d+1) times these norms verifies all three branches including d=3 and their multiplicities. Only R vanishes for d=3, hence rank six. The ratios T/Z=d(d+2)/3 and S/Z=(d−3)(d+2)/2 exceed one for d≥4, and T/S=2d/[3(d−3)] gives the exact tie at 9. The condition numbers refer respectively to the ratio of squared singular values and its square root. RESULT.md, VERIFICATION.md and check_cubic_gradient.py were inspected, not executed; the reported d=3–7 Gram checks do not supply the arbitrary-dimensional argument.
 
-The checked point-value hypercube Walsh theorem (research record in References) characterizes only scalar evaluation ranks. Its strongest relevant assertion explicitly omits positive singular values and makes no claim about tangential derivatives. Moore–Russell's Gegenbauer–Krawtchouk coefficient formula similarly concerns point-value sampling after random rotation, not the fixed-frame derivative spectrum; its full arXiv HTML was examined through its main evaluation-map and Appendix A arguments. Bigi–Fraux–Browning–Ceriotti derive efficient Cartesian derivative recurrences, but not a discrete frame lower bound. Xiao–Zhuang's gradients are those of a spherical-design optimization objective rather than observation of harmonic gradients. Allasia–Cavoretto–De Rossi construct geodesic radial cardinal Hermite–Birkhoff interpolants rather than the exact pure-degree Dirichlet spectral classification. A related cubed-sphere numerical interpolator's full text was inaccessible; accessible material indicates a different geometry and point-value data, but this does not eliminate all priority risk. Database searches of gradient-only frames, aliases and three-sector spectra did not identify a dominating theorem; absence of a search match alone is not proof of originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete all-dimensional sharp first-order observation classification on a canonical cubical spherical design. Unlike scalar values, tangent derivatives determine the entire cubic harmonic in every dimension at least four; dimension three has a concrete, irreducible exceptional blind mode. Explicit singular values quantify noise amplification and exhibit a nontrivial change of the worst-amplified/most-observed symmetry class at dimension nine. These are motivated exact recovery facts for derivative data, not merely a renamed moment identity or arbitrary fixed-parameter enumeration. No all-degree frame or perturbation theorem is asserted.
+Best of current knowledge, the exact gradient-only spectrum on the full-support signed cube is distinct. Same-node scalar results and a same-day different-node gradient result are strong method-level overlaps, not the same spectral result.
 
-## Boundaries and checks
+## value
 
-The normalization and multiplicities in `RESULT.md` were compared directly against the extracted exact checker; every new package path is standalone. The numerical tests are finite and serve as reproducibility corroboration. The novelty comparison is limited by indexing and the unavailable full text mentioned above. Independent mathematical validation has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cube is a natural orbit and gradient-only reconstruction is materially different from scalar interpolation. The exact branches quantify the rank recovery in d≥4, the surviving cubic blind mode in d=3, and the transition determining the sharp upper bound and condition growth. These are directly usable quantitative recovery bounds for the specified nodes and norm; finite full-rank checks, scalar interpolation ranks or a general derivative evaluation algorithm do not give them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

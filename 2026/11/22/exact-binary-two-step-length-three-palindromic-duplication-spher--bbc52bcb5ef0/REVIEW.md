@@ -1,11 +1,21 @@
-# Scientific review of the finite binary duplication-sphere census
+# Independent mathematical audit
 
-**Correctness (C): PASS for the explicitly finite claim.** The bitwise insertion formula is derived from the channel definition. Every legal two-step history is enumerated, every binary source is covered through exact complement equivariance, and distinct equal-length outputs are counted by sorting losslessly encoded integers. The completed program exhausts 4,194,300 complement representatives across all source lengths three through twenty-two, with an independent string-based full-history cross-check on 2,040 smaller words. The sharpness and uniqueness assertions are restricted to exactly these tested lengths. The actual verifier source and successful output are bundled.
+## correctness
 
-**Originality (O): PASS against the available comparison corpus.** The contemporary full-text work by Zabokritskiy establishes even-block two-step maxima, not binary odd-block length three. The related published odd-block result assumes alphabets at least as large as the word; the length-two maximizer census treats a different block length. The previous shorter-step results do not imply a finite sharp binary length-three table or the rigidity of its optimizer set. Searches of related names, exact capacity values, periodic maximizers and aliases in an indexed research corpus found no equivalent. No search establishes absolute historical novelty; an unindexed finite census remains a risk.
+PASS
 
-**Value (V): PASS.** Binary is the first alphabet not handled by the known large-alphabet odd-duplication sharpness construction. Determining its exact output-ambiguity boundary is intrinsic to evaluating the channel, not a random restricted statistic. This complete finite classification spans twenty consecutive lengths and all 8,388,600 labeled sources in those lengths, identifying a persistent two-source optimum for seventeen successive lengths and a quantified gap from the universal sphere upper bound. The finite endpoint is openly disclosed; the unresolved all-length binary problem remains substantive.
+The specified operation retains the prefix through the copied triple, inserts its reversal, and retains the original suffix. The two start ranges are 0..n-3 and 0..n inclusive; the second range includes windows involving newly inserted symbols. With fixed output length n+6 the bit encoding is injective and the frozen C++ loop generates all histories, sorts, and counts distinct output words, without overflow on this domain. Complementation commutes with every operation and partitions sources into free pairs. Independently reproduced all twenty rows with big-endian vectorized integer encodings, keeping one history from each commuting pair and computing exact distinct-word counts, not hashes or ordered-history totals. Precisely the omitted histories duplicate the right original window at i first and then the unchanged left window j<=i-3; each is equivalent to the retained history starting at j and then using i+3. These pairs are disjoint in history space and there are binom(max(n-4,0),2) of them, proving the upper bound. This reduction's entire output set was also compared with literal unreduced string histories at all 2,040 sources of lengths 3..10. The independent census visited 4,194,300 complement representatives through n=22. It agrees on maxima 4,9,16 at n=3,4,5 with labeled populations 2,4,4; for n=6..22 it finds only the two specified complementary prefixes and exactly n(n+3)/2-3 outputs, including 272 at n=22. Subtracting this expression from the commutation bound gives 2n-9. Review did not execute the uploaded C++ program; the independent complete computation is the replay. No n>22 conclusion follows.
 
-The closest scientific sources are arXiv:2609.00779 (Section 5), the published large-alphabet odd-length sphere result dated 2026-11-08, and the published all-maximizers length-two result dated 2026-11-02. Additional background includes arXiv:1712.09345. Their proofs are compatible with the universal commutation bound but do not cover this binary finite optimum. Limitations: possible unindexed equivalent tables, no all-length extension, and no independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Evidence supports distinctness of the finite binary sharp values and full optimizer census, not the two-step operator, encoding idea, or disjoint-window bound. The closest same-day result attains that bound at q>=3 with a different periodic word; it neither claims nor implies sharpness or equality classification at q=2. Same-day indexing is not used to infer priority.
+
+## value
+
+PASS
+
+Binary is the alphabet-size boundary at which universal-bound attainment for length-three duplication fails, not a randomly chosen set of words. The full finite optimum and both maximizing words give exact calibration of worst-case distinct descendants and collision loss, useful for testing finite channel bounds and prospective analytic binary equality conditions. Length 22 is a computational endpoint, not a structural transition; what makes the result informative is coverage of every source at twenty consecutive lengths with a persistent sharp linear deficit and rigid equality pattern. Neither a coding-capacity result nor an infinite-length result is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

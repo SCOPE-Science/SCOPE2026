@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:10.018531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–24",
+        "VERIFICATION.md, lines 19–21",
+        "verify.py lines 3–25 (inspected; not executed)",
+        "Independent enumeration of nonconstant 2n-bit masks and strict pair comparisons for n=2–6; replay: node /workspace/review_checks/bounded-enumerations.mjs 2"
+      ],
+      "rationale": "Write h=b-k for the red count in the second class. Same-color swaps cannot make both strictly better, and swaps within a class leave the opposite class and each moved agent's payoff unchanged. For a red in the first class and blue in the second, the pre-swap own fractions are h/n and (n-k)/n; the post-swap fractions, after relocating both agents, are (k-1)/n and (n-h-1)/n. Squaring the exact distance comparisons yields (k-h-1)(b-n-1)<0 and (k-h-1)(b-n+1)>0. The strict inequalities require the last factors to have opposite signs, which for integer b-n forces b=n; then they hold just when k-h>1, ensuring both participants exist. Reversing classes yields h-k>1. Thus the equilibrium test is exactly the stated one, including the ties at abs(2k-n)=1 and the endpoint population values. Counting labeled red subsets with fixed k gives binom(n,k)binom(n,b-k); at b=n only one even or two odd central values survive. The central binomial asymptotics give the factors 2/sqrt(pi*n) and 4/sqrt(pi*n). An independent finite enumeration over binary masks relocated each candidate red–blue pair and recomputed both open-neighbor integer distances. For n=2 through 6 it found respectively 4,18,36,200,400 balanced equilibria and no nonbalanced exceptions; the unbounded result is algebraic.",
+      "residual_risks": [
+        "The proof and test use open neighborhoods and strict gains; the test supplies no evidence for changing those conventions beyond the stated population range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior h-part result for part size m requires r_i-r_j>=2 and r_i+r_j=2R-(h-1)m for that cross-part profitable swap.",
+          "Use h=2,m=n,r_1=k,r_2=b-k,R=b. The second equation is b=2b-n, and the two ordered directions give abs(2k-n)>=2.",
+          "The closed-neighborhood Corollary 1 gives existence on bipartite graphs at peak 1/2, not this census."
+        ],
+        "reasoning": "The prior multipartite criterion applies with exactly the frozen assumptions at h=2. The substantive population discontinuity and parity of the central equilibria are already determined.",
+        "searches": [
+          "2026/10/25/SCOPE-equilibrium-hyperplanes-and-an-exact-census-for-balanced-neighbo--35b4a89b1bc4, Finding and proof at offsets 0–6779",
+          "arXiv:2204.12599, Corollary 1, p. 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 35b4a89b1bc4, 8f9b7cb22dc3, 53610bc7b976, c6c340e09db0",
+        "arXiv:1909.02421 and arXiv:2204.12599"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting over the prior theorem's two-part stable k values gives every placement when b!=n, and gives precisely the one or two central binomial products at b=n. Dividing by binom(2n,n) and applying Stirling requires no new model argument.",
+          "The open and closed own shares on K_{n,n} are related by t=(ns+1)/(n+1), so an appropriate general single-peaked payoff in t has peak (n+2)/(2n+2) and yields identical rankings. Bilò et al. impose additional normalization: p(0)=p(1)=0 and strict increase up to the peak, whereas the transformed payoff ties the attainable t=1/(n+1) and t=1."
+        ],
+        "reasoning": "The exact direct implication is from the older open-neighborhood theorem. Broadly shifting the closed peak is a valid modeling equivalence if the payoff class is unrestricted, but not a justification for substituting into the inspected normalized closed-neighborhood theorem. The count and parity asymptotic add no nonmechanical remainder to the direct implication.",
+        "searches": [
+          "Resultary 35b4a89b1bc4, exact swap condition and census",
+          "arXiv:2204.12599, model normalization at p. 2 and Corollary 1 at p. 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The covering result writes the payoff as -|2q-1| for opposite-color share q. Since q=1-s for own-color share s, this is exactly the same strict ranking as any asserted p.",
+          "Agarwal et al. use strictly improving swaps with open own-type fractions but monotone payoffs; this model comparison alone does not cover the claim."
+        ],
+        "reasoning": "Changing from opposite-color share to same-color share and allowing an arbitrary strictly distance-decreasing utility is ordinally equivalent. Strict-improvement edges, and hence equilibrium sets, are unchanged.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-equilibrium-hyperplanes-and-an-exact-census-for-balanced-neighbo--35b4a89b1bc4",
+          "arXiv:1909.02421, Model, p. 3",
+          "arXiv:2204.12599, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The covering record is an exact published general criterion, not a table. The K_{2,n} result varies unlike part sizes and is not the equal-part family.",
+          "The November records are exact closed-neighborhood results: one gives the same balanced central set for peak above 1/2; the other gives universal stability at peak 1/2."
+        ],
+        "reasoning": "The later closed-model matches do not establish priority or cover this all-populations open model. A numerical table is not needed to show coverage of its all-n phase diagram: the October 25 theorem does that analytically.",
+        "searches": [
+          "Resultary 35b4a89b1bc4",
+          "2026/10/26/SCOPE-one-step-convergence-and-parity-spikes-in-two-by-n-swap-schellin--8f9b7cb22dc3",
+          "2026/11/2/SCOPE-a-three-regime-equilibrium-and-exact-convergence-law-for-balance--53610bc7b976",
+          "2026/11/8/SCOPE-complete-bipartite-integration-spectra-in-symmetric-single-peake--c6c340e09db0"
+        ]
+      },
+      "rationale": "The distinct October 25 Resultary record 35b4a89b1bc4 gives an open-neighborhood profitable-swap theorem for equal-size complete multipartite graphs. Its two-part specialization has precisely this phase diagram under the same strict payoff ordering. The binomial parity census and its asymptotics are mechanical consequences of the already determined stable values of k. No distinct remainder is supported.",
+      "residual_risks": [
+        "Bounded literature and corpus checks do not establish earliest historical priority; the explicit broader coverage in the earlier October 25 record is decisive regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage by two-part specialization and ordinal payoff equivalence",
+          "evidence": "The strict profitable-swap condition is r_i-r_j>=2 and r_i+r_j=2R-(h-1)m.",
+          "identifier_or_url": "2026/10/25/SCOPE-equilibrium-hyperplanes-and-an-exact-census-for-balanced-neighbo--35b4a89b1bc4",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offsets 0–6779",
+          "method": "Local published-record mirror passage read",
+          "title": "Equilibrium hyperplanes and an exact census for balanced-neighborhood swap games",
+          "trigger": "Same open-neighborhood half-peaked game on a more general graph family"
+        },
+        {
+          "assessment": "Same open-neighborhood convention, different payoff",
+          "evidence": "Agents see own-type fractions in open neighborhoods and require mutual strict gain; own-type utility is monotone, not peaked in the middle.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.02421",
+          "material_read": "Abstract/intro p. 1 and Model p. 3 at offset 12100",
+          "method": "OA PDF passage reads",
+          "title": "Swap Stability in Schelling Games on Graphs",
+          "trigger": "Open-neighborhood swap-game precedent"
+        },
+        {
+          "assessment": "Normalized closed-neighborhood model; not the direct coverage",
+          "evidence": "Self is counted and the utility has the normalization tying 0 to 1; at peak 1/2 the bipartite result is an existence guarantee.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12599",
+          "material_read": "Model p. 2 offset 10800; Corollary 1 p. 8 offset 49500",
+          "method": "Primary-literature search and OA PDF passage reads",
+          "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+          "trigger": "Single-peaked precedent and possible affine normalization"
+        },
+        {
+          "assessment": "Later and only balanced totals in a closed-neighborhood game",
+          "evidence": "When peak exceeds 1/2, the stable k and counts for balanced K_{n,n} agree with the frozen balanced subcase.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-three-regime-equilibrium-and-exact-convergence-law-for-balance--53610bc7b976",
+          "material_read": "RESULT.md Finding, Assumptions, Proof, offsets 0–6565",
+          "method": "Local published-record mirror passage read",
+          "title": "A three-regime equilibrium and exact convergence law for balanced swaps",
+          "trigger": "Same balanced central equilibria after shifting the peak"
+        },
+        {
+          "assessment": "Later closed-neighborhood comparison, not coverage of the open game",
+          "evidence": "At half peak the closed-model result allows every placement, unlike the frozen balanced-population split.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-bipartite-integration-spectra-in-symmetric-single-peake--c6c340e09db0",
+          "material_read": "RESULT.md Finding, Assumptions, Proof, offsets 0–6528",
+          "method": "Local published-record mirror passage read",
+          "title": "Complete bipartite integration spectra in symmetric single-peaked games",
+          "trigger": "Half-peaked complete bipartite spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and count proof",
+        "Resultary 35b4a89b1bc4, exact multipartite criterion"
+      ],
+      "rationale": "The exact population-instability comparison is meaningful for this model, but as a distinct result the frozen record only instantiates a known multipartite criterion and counts its central values using standard binomial asymptotics. The parameter substitution and census leave no independent new invariant or phenomenon.",
+      "residual_risks": [
+        "This does not discount the usefulness of the known population effect; it assesses the incremental scientific content of the frozen result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

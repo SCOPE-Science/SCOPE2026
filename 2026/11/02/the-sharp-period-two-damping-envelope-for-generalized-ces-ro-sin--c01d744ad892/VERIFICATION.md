@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,6 @@
 }
 ---
 
-The mathematical argument is in RESULT.md, Steps 1–4. It establishes an infinite singular-value counting limit by a finite-band periodic Fourier reduction, not by a finite numerical experiment. The quantitative counting remainder is controlled by trace-class denominator discrepancies and by at most \(m\) cross-boundary singular values per block; the geometric-series tail is controlled in the weak trace ideal.
+The fixed-parameter coefficient in RESULT.md follows from a trace-class comparison with a smooth matrix-symbol operator and the Birman–Solomyak Weyl formula. The endpoint finite part follows by isolating the elliptic logarithm and applying dominated convergence to the rationalized remainder. No joint singular-index/endpoint limit is claimed.
 
-Run `python check.py` with NumPy and SciPy to reproduce the supplementary matrix singular-value, elliptic-envelope and endpoint checks. In the reviewed execution, 691 finite assertions passed. Numerical quadrature and finite sections cannot certify uniqueness of the theorem in the literature or replace infinite-dimensional proof.
-
-The prior unweighted scalar result is not newly claimed. Full priority relative to abstract matrix-valued symbolic asymptotic results is not independently established. Independent mathematical audit is not performed.
+Run `python check.py` with NumPy and SciPy for supplementary numerical consistency checks of the matrix symbol, the fixed-budget context, the endpoint finite part and finite sections. The recorded source run reported 691 finite assertions. These checks are diagnostic, not proof of either infinite limit or evidence of originality.

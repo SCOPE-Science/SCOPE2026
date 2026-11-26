@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:23:39.975324Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The midpoint target bounds each coordinate difference by D/2 on a full-measure product box; the bilateral weight sum 3 proves failure at and above 3D/2 in the iid case, including the Dirac case. For each fixed arbitrary target separately, choose the farther support endpoint in each coordinate. Both endpoint neighborhoods have positive marginal mass, so disjoint translates of a fixed finite block have independent chances bounded below to contribute more than any r<3D/2. This proves nullity by Borel–Cantelli without an uncountable union over targets. De Finetti then integrates null masses below (3/2) ess inf D. Above it, slack permits covering the midpoints of a positive-measure sublevel of D by finitely many neighborhoods; one common constant target captures positive mass from the corresponding components. In the explicit mixture the weights sum to one, the positive Lebesgue-product part gives full support, and all components are atomless and mixing, with positive radii tending to zero. A mixture boundary assertion is not needed for the supremum: at d_*>0 an atomic midpoint among D=d_* components gives failure, whereas if that restricted midpoint law has no atoms then any fixed target can have positive critical-window mass for at most one midpoint: infinitely many coordinates separated from a component midpoint would provide infinitely many disjoint blocks with an extra positive center discrepancy and force escape by the same endpoint argument. This confirms that the frozen statement did not silently assume a boundary convention for mixtures. The frozen finite arithmetic checker was inspected, not run; neither it nor its recorded examples substitutes for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lacerda treats the same weighted metric and uses 2 epsilon<1 as a sufficient condition for product Lebesgue measure; the representation describes components but not their sharp radii. Convexity at a common radius follows by integrating zero dynamical-ball masses."
+        ],
+        "reasoning": "None of these broader facts entails the upper bound for mixtures whose component thresholds differ and whose midpoints need not coincide.",
+        "searches": [
+          "Lacerda arXiv:2610.09482v1 §2",
+          "Lee–Morales–Shin DOI 10.1142/S0219199717500869, cited Lemma 3.2",
+          "de Finetti–Hewitt–Savage representation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_examples.py",
+        "Lacerda arXiv:2610.09482v1",
+        "Resultary a21666c938a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The box argument in Lacerda is sufficient for the Lebesgue case, but does not supply a worst-case-endpoint lower bound with the constant 3D/2. In the frozen example D(u_m)=1/(2m) and the radii have no positive common bound."
+        ],
+        "reasoning": "Specializing the earlier product result gets only the existence of a positive iid radius. Common-radius convexity cannot prove expansivity of the explicit countable mixture; depencence of its coordinates prevents applying the product theorem.",
+        "searches": [
+          "Comparison of a21666c938a0 and Lacerda Theorem A with the frozen radius and explicit mixture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed concentration criterion is divergence of a coordinate concentration-deficit series at some scale, for independently sampled coordinates. For iid it reduces to D>0."
+        ],
+        "reasoning": "That covers qualitative iid expansivity, but not the optimal weighted-ball radius or the equivalent assertion that a dependent mixture radius equals the essential infimum of the component radii.",
+        "searches": [
+          "Resultary: Hilbert-cube shift concentration, exchangeable/de Finetti mixtures, worst-case iid expansions",
+          "Record a21666c938a0, Finding and Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved exact-formulation record, a21666c938a0, states a product criterion and no weighted radius formula."
+        ],
+        "reasoning": "A numeric table is inapplicable to an essential-infimum formula over arbitrary Borel directing measures; the search for indexed statements found the product-only neighbor.",
+        "searches": [
+          "Resultary queries for Hilbert-cube shift sharp expansivity radii, exchangeable mixtures and ergodic criteria"
+        ]
+      },
+      "rationale": "The product Lebesgue example, qualitative iid criterion, de Finetti representation, and common-radius mixture argument are prior or elementary. The distinct result is the sharp metric-dependent radius, including the Bernoulli equality case and the matching upper bound across dependent exchangeable mixtures, with a nonatomic full-support obstruction to expansivity.",
+      "residual_risks": [
+        "Search is bounded; an equivalent exact sharp threshold in other symbolic-dynamics or exchangeable-process literature is not excluded.",
+        "Full-text attribution of common-radius convexity to Lee–Morales–Shin was not confirmed. No originality conclusion relies on that attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE IID SUBCASE ONLY",
+          "evidence": "Divergence of concentration deficits at some common coordinate scale; no sharp weighted-ball radius or dependent laws.",
+          "identifier_or_url": "2026/10/11/SCOPE-a-concentration-criterion-and-baire-dichotomy-for-product-measur--a21666c938a0",
+          "material_read": "RESULT.md Finding and Proof §§1–2, local mirror offset 0",
+          "method": "Configured Resultary search and mirrored text inspection",
+          "title": "A concentration criterion and Baire dichotomy for product measures on the Hilbert-cube shift",
+          "trigger": "Closest indexed neighboring criterion"
+        },
+        {
+          "assessment": "SAME METRIC AND SUFFICIENT BOUND, NOT THE SHARP THRESHOLD",
+          "evidence": "The displayed metric has denominator 2^|i| and the proof uses 2 epsilon<1 for Lebesgue product.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09482v1",
+          "material_read": "§2, offsets 5990 and 12490, metric/box lemma and proof of Theorem A",
+          "method": "Read the primary HTML passages",
+          "title": "Typical expansive measures for infinite-dimensional maps",
+          "trigger": "Same shift and metric"
+        },
+        {
+          "assessment": "ATTRIBUTION NOT INDEPENDENTLY VERIFIED",
+          "evidence": "The common-radius convexity fact itself follows immediately from linearity of mass on each fixed dynamical ball.",
+          "identifier_or_url": "https://doi.org/10.1142/S0219199717500869",
+          "material_read": "No primary Lemma 3.2 passage retrieved",
+          "method": "Tried lawful DOI and ResearchGate OA access; both returned 403",
+          "title": "On the set of expansive measures",
+          "trigger": "Cited common-radius convexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural metric invariant is computed exactly across the full exchangeable class. The example answers a meaningful inheritance question: full support and nonatomicity do not rescue expansivity when individually expansive ergodic components admit no common positive radius. The value is in sharp constants and a structural obstruction, not the existence of an iid expansivity constant alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

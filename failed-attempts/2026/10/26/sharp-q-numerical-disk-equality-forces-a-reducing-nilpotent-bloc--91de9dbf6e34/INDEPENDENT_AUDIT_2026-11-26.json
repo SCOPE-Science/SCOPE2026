@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:13.630529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim uses real 4/5<q<1, exact overlap q, norm attainment, and the closed scaled unit disk. Kaunisto–O'Loughlin–Virtanen's overlap bound makes a norming input x and its normalized output y orthogonal: the first branch is strictly less than rho_q for positive overlap, and the second is at most 1<rho_q. Under the first-variable-linear convention the test overlap numerator is 2z and its coefficient F is holomorphic, with constant term rho_q/2. The boundary bound at |z|=h and equality at zero imply a constant, yielding the zero second column of the compression. In the cross-block test the first-order coefficient in either perturbation is t times the appropriate mixed matrix element times epsilon or its conjugate; arbitrary complex phase would increase the modulus of the nonzero saturated value if that element were nonzero. The two input phases and the two output phases span the compression plane because c,s>0. This proves both invariances, not merely a compressed square-zero block. The general norm bound gives the converse. The unitary-dilation argument in the originality assessment independently verifies the same result. The excluded endpoints are not needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "KOV applies to bounded operators on arbitrary Hilbert spaces and the original closed scaled-disk hypothesis. It gives a unitary dilation with the exact coefficient, not just the first-power inequality.",
+          "Aouichaoui–O'Loughlin give a sharp spectral-set constant for finite matrices, and the Denčić et al. formula applies to rank one. Neither narrower comparison is the basis of rejection."
+        ],
+        "reasoning": "The dilation theorem applies before imposing norm attainment and implies the needed structure once norm attainment is imposed. A broader constant bound alone would not have been dispositive.",
+        "searches": [
+          "Kaunisto–O'Loughlin–Virtanen arXiv:2610.00443v1 Theorem 2.2, (1), (3), Lemma 2.1",
+          "Aouichaoui–O'Loughlin arXiv:2608.09866v1 Thm. 4.1",
+          "Denčić et al. arXiv:2503.05036v1 Thm. 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2610.00443v1 PDF and HTML",
+        "arXiv:2608.09866v1",
+        "arXiv:2503.05036v1",
+        "Resultary 3892a19a510d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The HTML theorem explicitly has the closed disk, and Eq. (3) explicitly includes both m=1 and m=2. The same identities for the adjoint follow by taking adjoints.",
+          "For the norm pair the projected and original unitary images coincide; in the second-power identity this compares rho Ay to Ay. The adjoint gives the opposite coupling's vanishing. This directly yields reduction and is independent of the rank."
+        ],
+        "reasoning": "This verifies genuine implication coverage even though the paper need not state the equality theorem in those words. The converse uses the first-power bound already explicit in the same source.",
+        "searches": [
+          "arXiv:2610.00443v1 HTML Theorem 2.2 offset 11143 and PDF equation (3) pp. 2–3; Remark 2.4 p. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At equality the images of a pair of unit vectors satisfy Ax=rho y and A*y=rho x. The reducing nilpotent block is equivalent to also having Ay=0 and A*x=0, which implies orthogonality.",
+          "The first two power compression identities of a unitary rho-dilation already force both vanishing conditions when rho>1."
+        ],
+        "reasoning": "The unitary dilation formulation is stronger than the proposed classification for disk-contained A; the key observation is equality of the norms of a unitary image and its orthogonal projection.",
+        "searches": [
+          "arXiv:2610.00443v1, scaled disk and C_rho",
+          "Resultary: q-numerical equality rigidity reducing square-zero block"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Remark 2.4 already gives the exact sharp 2-by-2 square-zero example. Resultary 3892a19a510d has the square-zero coefficient and joint realization by square-zero families, and is dated later than the frozen finding.",
+          "No table of matrix extrema is needed: finite tabulation of cases would not classify arbitrary bounded norm-attaining operators."
+        ],
+        "reasoning": "Credit the prior exact example. The arbitrary-rank implication is established by the prior dilation identity rather than inferred from an example or a catalogue miss.",
+        "searches": [
+          "Resultary: scaled q numerical norm equality and square-zero realization",
+          "Resultary 3892a19a510d",
+          "arXiv:2610.00443v1 Remark 2.4"
+        ]
+      },
+      "rationale": "The full reducing-block iff is a mechanical consequence of the stronger prior dilation theorem, not just related to a known constant or example. In arXiv:2610.00443v1, Theorem 2.2 and (3) give A^m=rho P_H U^m|_H for m>=1, with U unitary and rho=rho_q>1. Let Ax=rho y for unit x,y. Then P_H Ux=y has norm one, hence Ux=y. Now rho Ay=A^2x=rho P_H U^2x=rho P_H Uy=Ay, so Ay=0. Also A*y=rho x by U*y=x. Applying the m=1,2 identities for the adjoint dilation U* to that pair gives A*x=0. Thus x and y are orthogonal (Ax is orthogonal to x), and both A and A* preserve their span. Conversely the summand yields norm at least rho while the m=1 dilation bounds the norm by rho. The earlier identities cover the same quantifiers, including arbitrary dimension and arbitrary rank. No new conclusion survives by restricting the stated theorem.",
+      "residual_risks": [
+        "The comparison is not a comprehensive history of equality cases; no source must specifically state the iff for the verified implication from Theorem 2.2 and (3) to hold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication of the full iff",
+          "evidence": [
+            "Theorem 2.2: if Omega_q(A) is contained in the closed unit disk then A belongs to C_{rho_q}.",
+            "Definition (3) identifies this with A^m=rho_q P_H U^m|_H for every positive integer m.",
+            "Remark 2.4 gives the scaled nilpotent example and the m=1 norm bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00443v1",
+          "material_read": "Formula (1), Eq. (3) pp. 2–3 (PDF offsets 6500–8391), Lemma 2.1, Theorem 2.2 p. 4 (HTML offset 11143; PDF offset 12900), and Remark 2.4 p. 5 (offset 15825 onward)",
+          "method": "Bounded OA PDF and HTML passages; HTML confirms the overline in the hypothesis",
+          "title": "Dilation Theory for Scaled q-Numerical Ranges",
+          "trigger": "Same closed disk, sharp norm coefficient, potentially stronger dilation conclusion"
+        },
+        {
+          "assessment": "Sharp coefficient and example for finite matrices; not by itself decisive",
+          "evidence": [
+            "The lower bound uses a 2-by-2 nilpotent."
+          ],
+          "identifier_or_url": "arXiv:2608.09866v1",
+          "material_read": "Theorem 4.1 p. 8, OA offset 19345",
+          "method": "OA PDF passage",
+          "title": "Sharp spectral constants for scaled q-numerical ranges",
+          "trigger": "Same optimal constant and possible comparable matrix rigidity"
+        },
+        {
+          "assessment": "Radius formula for rank one, narrower than arbitrary-rank classification",
+          "evidence": [
+            "The theorem assumes a rank-one representation."
+          ],
+          "identifier_or_url": "arXiv:2503.05036v1",
+          "material_read": "Theorem 2.1 p. 3, OA offset 6910",
+          "method": "OA PDF passage",
+          "title": "q-numerical radius of rank-one operators and the generalized Buzano inequality",
+          "trigger": "Exact rank-one q-radii may cover the proposed extremal example"
+        },
+        {
+          "assessment": "Material square-zero overlap, but later-dated and not the arbitrary-A converse",
+          "evidence": [
+            "Norm-one square-zero operators have the matching q-radius coefficient; the record concerns realization by such families."
+          ],
+          "identifier_or_url": "Resultary 3892a19a510d",
+          "material_read": "Mirrored Finding offsets 0–2689 and square-zero estimate offsets 1848–4116",
+          "method": "Resultary search and local mirror passages",
+          "title": "Simultaneous q-numerical realization by pairwise-annihilating operators",
+          "trigger": "Catalogue match in sharp square-zero coefficient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The equality question is natural, but the claimed structure uses only equality in a projection of a unitary image and the first two powers in the already published dilation. The longer compression/perturbation proof neither improves the assumptions nor gives a stronger invariant. There is no independently useful surviving result in the submitted scope to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

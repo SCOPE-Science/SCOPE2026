@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The transfer states are all nonzero ordered pairs over the prime field. The two unimodular residue maps are permutations, so their sum is a doubly 2-regular integer transfer matrix. Binary expansion verifies the transition-count formula for every dyadic prefix. The displayed five characteristic polynomials are reproduced from the matrices by exact symbolic arithmetic, and each has a simple Perron factor \(X-2\). For the four primes below eleven, the reciprocal-quartic substitution \(Y=X+2/X\) proves the root bound \(\sqrt2\), including possible Jordan polynomial factors. At eleven, an exact nonzero degree-114 matrix-polynomial projection certifies that the irreducible cubic \(X^3-X+2\) genuinely acts on the selected pair count. Its negative real root has modulus exceeding \(\sqrt2\), so the scalar recurrence has that root-growth obstruction. The packaged verifier was executed against the concrete file and printed PASS. Neither numerical floating-point roots nor initial finite enumeration are offered as proofs of an infinite assertion.
+## correctness
 
-## Originality — PASS (qualified best-knowledge review)
-Reznick (2008) and Deshouillers–Schinzel (2019) establish modular distribution and finite-state methods but do not evaluate the sharp minimal-prime root-growth threshold with a nonzero eleven-modulus cubic mode. A prior fully inspected result for a pair modulo nine proves a different composite-modulus obstruction, with a different degree-six factor; its statement does not imply the first **prime** modulus. Other indexed Stern results concern residue-five signed discrepancies, digit-weight independence, or eight-residue marginals. Actual searches for the first prime threshold, the eleven-state cubic, spectral rates and equivalent formulations found no covering claim. The conclusion is a bounded literature assessment, not proof of historical uniqueness; an unindexed spectral calculation is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The problem asks for a sharp naturally ordered prime threshold where a general equidistribution theorem ceases to admit a square-root-scale dyadic error bound. Characteristic-polynomial data plus a nonvanishing scalar-mode certificate supply a concrete explanation, while the complete smaller-prime exclusions make the boundary exact. The composite-modulus-nine failure makes the prime-versus-composite distinction especially substantive. No claim about all primes or a general analytic error theorem is made.
+The two recursions on consecutive residues arise by replacing n with 2n and 2n+1, so starting at (0,1) gives exactly the full prefix vector. Both maps are permutations; the uniform vector and its zero-sum complement are invariant, and the computed simplicity of eigenvalue 2 isolates the centering term. Independently recovered the five characteristic polynomials by tracing powers with the inverse predecessor maps and applying Newton identities over the integers. All displayed factors and multiplicities matched. The nontrivial reciprocal quartics for p=5,7 reduce at y=x+2/x to the stated three quadratics, with real y-roots strictly between ±2sqrt(2); the two x-roots at each y are conjugate with product 2. All other nonprincipal factors for p<11 have roots of modulus at most sqrt(2). A possible polynomial factor from Jordan blocks does not affect the root limsup. For p=11, exact scalar counts and det(I−zT) give the generating-function numerator from its first 120 coefficients by the adjugate degree bound. Canceling its gcd with the denominator leaves the irreducible 1−z²+2z³, once, so z=−1/rho is an actual pole, not a merely available eigenmode. Subtracting the uniform geometric series cannot remove it. The frozen scalar certificate also independently reproduced as 573530441763580574433280. The cubic for rho is negative at sqrt(2) and increasing on [1,infinity), proving the strict failure and the prime minimum.
 
-## Closest work and limitations
-B. Reznick, *Regularity Properties of the Stern Enumeration of the Rationals* (2008); J.-M. Deshouillers and A. Schinzel, *The modular distribution of Stern's sequence* (2019); and the earlier evaluated non-square-root residue-pair result modulo nine. The theorem applies only to dyadic prefix intervals. At eleven it proves a lower bound for a single pair, not the exact largest discrepancy exponent. A historical priority risk remains, and no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the evaluated first-prime threshold and the active order-eleven cubic at the designated pair. The transfer matrices, spectral bounding argument, and the square-root upper bounds at 2 and 3 are not new. The earlier modulus-nine phenomenon does not settle the asserted prime threshold.
+
+## value
+
+PASS
+
+The natural benchmark is square-root error for a length-2^k prefix. Known power saving does not decide this benchmark, and a composite counterexample leaves it open along the primes. Proving the exact prime onset by excluding every smaller prime and certifying an active, explicitly specified pair at the next prime gives a useful boundary, rather than just finding a large-modulus numerical eigenvalue or reproducing the general transfer method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

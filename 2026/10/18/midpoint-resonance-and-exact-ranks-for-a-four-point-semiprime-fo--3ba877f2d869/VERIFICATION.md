@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof uses exact Fourier row elimination and a factorized two-by-two determinant over the full range of odd primes. The distinct residue differences in the two parity blocks are nonzero; consequently all singular four-by-four partners have rank exactly three. For homogeneous and three-versus-one blocks, the required three-by-three Fourier minors over a prime field are nonsingular because, after multiplying columns by a nonzero phase, their three rows become powers zero, one, and two evaluated at three distinct nonzero roots of unity. The count follows from \((p-1)/2\) distinct unordered two-element frequency pairs for each sum modulo \(p\).
+# Independent mathematical audit
 
-Replay `python3 checker.py` from a folder containing the supplied standalone script. It uses no third-party dependencies, floating-point numbers, imported datasets, or external services. The determinant expansion is reduced to length-\(p\) integer coefficient vectors; a polynomial of degree at most \(p-1\) vanishes at a primitive \(p\)-th root of unity if and only if every coefficient is equal. Thus the checker performs exact singularity testing, not approximate rank thresholding.
+## correctness
 
-An exhaustive comparison of all four-frequency subsets for \(p=3,5,7,11,13\) returns the singular totals \(3,30,133,935,1898\), respectively; the exact counting formula agrees in every case. For the same primes, exact row/column phase-ratio tests show that exactly \(3,20,63,275,468\) singular submatrices, respectively, have no proportional row or column pair, confirming the balanced-resonance count. The program ends with `CHECK_PASS`. This finite check supplements, rather than establishes, the infinite-prime theorem.
+PASS
 
-The result does not classify noncentered four-point apertures or nonsingular matrix condition numbers. Historical equivalences under alternate terminology remain possible. Independent audit has not been performed.
+Normalize c and ε by row translation, which multiplies each column by a nonzero phase, and put z_y=ζ_p^(ay). For homogeneous parity the two center rows are proportional, while any three projected columns have a nonsingular three-row minor with rows 1,z_y,z_y^(−1), by a column-scaled Vandermonde. For 3+1 the sum/difference of the center rows isolates the singleton, leaving the same Vandermonde on the other three columns. For 2+2, block differences reduce rank to 2+rank K: the two first coordinates of K are nonzero z-differences, and its second coordinate in each column is its first multiplied by −1/(z_u z_v) for that pair. Thus rank is exactly three iff the pair sums agree modulo p, otherwise four. In a balanced partner two columns of opposite parity are distinguished by the center-row ratio and two same-parity columns by the 0-to-a phase ratio; similarly the two center rows differ across parity, and rows at distinct projected coordinates have different ratios on the two columns of either parity. Homogeneous partners always have proportional center rows. The pair counts are ((p−1)/2)² per common sum, with p choices of sum and 2 binom(p,4) additional homogeneous partners; p=3 is included with none of the latter. The repeated projected residue and majority parity recover c and ε, and the remaining unordered offsets give (p−1)/2 choices. Analytic replay: frozen RESULT.md lines 32–59. The checker was inspected but not executed: it certifies determinants at finitely many primes via cyclotomic arithmetic and tests proportionality, not the all-prime theorem nor exact lower ranks by itself.
+
+## originality
+
+PASS
+
+For the frozen result, the distinct part supported by the comparison is the balanced parity midpoint obstruction, its exact rank (without proportional pairs), and the resulting complete partner census for the centered aperture. The 3+1 nonvanishing and Vandermonde pieces are not claimed separately as new. A later indexed theorem does give exactly the balanced rank criterion by transposition and specialization; this is direct mathematical coverage of that stratum, not evidence that an earlier source supplied the frozen classification.
+
+## value
+
+PASS
+
+The support consists of an antipodal pair together with two symmetric displaced samples in one channel, giving a motivated geometry for four-frequency interpolation. The all-prime rule specifies when interpolation fails and quantifies the failure for every partner; the balanced failures are not explained by any proportional pair. The exact resonance and census are useful structural information in the frozen setting, rather than a small-prime table or a routine matched-parity nonvanishing application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

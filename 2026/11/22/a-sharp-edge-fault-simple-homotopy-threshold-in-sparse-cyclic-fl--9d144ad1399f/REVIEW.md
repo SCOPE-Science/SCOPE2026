@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full result is established by a uniform five-step proof: (1) unique maximal simplices containing a distance-\(q\) edge provide free-face collapses of the intact cyclic flag complex to the original cycle; (2) exact common-neighbor intersection, justified by \(n\ge4p+2\), identifies a linear threshold graph link; (3) the link has an explicit vertex-domination collapse when \(p\ge3\), with a single-vertex exception for \(p=2,d=2\); (4) each link collapse lifts to a **relative elementary collapse** of all flag faces containing the deleted edge; (5) for \(p=2,d=1\), all remaining triangles collapse onto a connected graph with \(n+1\) edges and \(n\) vertices. Complete finite replays check the interval condition, face freeness and edge counts, but the quantifiers rely on the written proof rather than experiments. All claims use the graph-as-one-skeleton convention; no post-fault metric is recomputed.
+## correctness
 
-## Originality — PASS against inspected sources
-Adamaszek–Adams' full-text Lemma 4.8 already covers an edge-fault regime in which both directed graphs stay cyclic, so the outermost edge orbit is not counted as a new general phenomenon. The **inner edge orbits** \(1\le d<p\) violate its cyclic closure hypothesis and the paper contains no replacement local-link classification for them. Adams–Coldren–Willmot's full-text cyclic persistence algorithm similarly requires cyclic members. Full published texts of the indexed cycle-power Alexander-dual result and the demihypercube one-edge result were compared: they respectively concern an intact cyclic flag subcomplex of a different complex, and a different edge-fault graph family. No inspected result implies the uniform simple-collapse classification with the squared-cycle sharpness; an unindexed or unread equivalent remains possible. The generic link/edge-star collapse principle itself is standard and is not claimed as invented.
+PASS
 
-## Value — PASS
-This is an exact all-parameter robustness threshold for a natural metric flag-complex family, across every edge orbit, proved at the stronger simple-homotopy level and including the induced inclusion map. The squared-cycle nearest-edge obstruction demonstrates that the threshold is mathematically sharp in the power parameter rather than a vacuous consequence of every cyclic flag complex being a circle. It gives a reproducible local criterion for distinguishing a graph-bond perturbation that changes the topological signature from those that do not. It does not assert downstream results for arbitrary simultaneous faults or a minimal graph-order threshold.
+The graph edge, not the graph metric, is modified. With e={0,d}, the common neighbors are the integers in [d-p,p] other than 0 and d: in representatives in [-p,p], the distances to d cannot use a wraparound edge to gain an extra neighbor; differences within the resulting set also cannot wrap to distance at most p under n>=4p+2. Consecutive vertices in this set differ by at most three. For p>=3 the leftmost vertex is dominated by its successor: every vertex to the right adjacent to the leftmost is at least as close to the successor. Pair faces containing the leftmost vertex by toggling the successor, largest first, then iterate. The link is a single vertex for (p,d)=(2,2), and two isolated vertices for (2,1). Lifting the link pairs by adjoining e does not introduce cofaces from the retained complex; after the lifted pairs only e and its triangle with the surviving link vertex remain to be paired. Independently, a length-q edge in the intact qth power lies in the unique maximal (q+1)-vertex interval simplex, with no second length-q edge in that simplex, so the same toggle argument reduces q one power at a time. In the exceptional deleted square there are two missing triangles, and the remaining triangles can be paired with their respective distinct free length-two edges. The retained consecutive edges form a spanning path and the two surviving chords raise its cycle rank to two. These are uniform arguments, including both p=2 edge types. Inspected VERIFICATION.md and VERIFY.py (finite interval checks, relative free-face tests and the explicit rank calculation); did not execute the frozen verifier.
 
-## Residual limitations
-The cited 2026 paper on induced subcomplexes of cycle-power flag complexes could not be fully inspected; induced vertex deletion is not spanning edge deletion. Published or unindexed alternative formulations may exist. The stated result is only for \(n\ge4p+2\) and graph-edge deletion without recomputed distances. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact collapse is already a special case of Adamaszek's Proposition 2.2, and its proof also supplies the outermost-edge mechanism. For d>=2 the local common-neighbor graph has a universal vertex strictly between 0 and d, so the standard cone-link reduction is enough; these alone do not justify an originality claim. The contribution that survives is the uniform classification including d=1: this link has no global cone vertex, yet admits a relative elementary collapse through successive domination unless p=2, where the homotopy type changes. Neither the inspected cyclic-graph theorems nor the distinct exact corpus matches give that classification. This is a best-of-knowledge assessment, not a global priority claim.
+
+## value
+
+PASS
+
+For the canonical finite cyclic flag model, one-edge perturbations are a natural robustness question: does the inclusion itself preserve topology, and which edge type fails first? The result distinguishes an actual relative collapse from mere equality of abstract homotopy types, and the exceptional squared nearest edge adds a full independent loop. The sharpness in p, including the nearest-neighbor link without a single cone vertex, is the substantive boundary; reproducing the known intact circle would not have value by itself. No optimal bound on n, multiple-fault robustness, or recomputed-metric stability is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

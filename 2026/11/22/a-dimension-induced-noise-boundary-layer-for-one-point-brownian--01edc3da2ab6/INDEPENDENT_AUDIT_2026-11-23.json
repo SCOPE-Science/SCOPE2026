@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:47:49.246330Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tensor integration gives Var(J_d)=3^−d, Cov(J_d,Y_x)=∏a(x_i), a(u)=u(1−u/2), and Var(Y_x)=v+η, v=∏x_i. Gaussian conditioning minimizes squared error over all measurable estimators, with explained variance F=∏a(x_i)²/(v+η). At v=0 it is zero even at η=0, by F≤v. An independent diagonal reduction: at fixed v>0, put l_i=log x_i; the sum l_i is fixed and log(1−e^l/2) has second derivative −2e^l/(2−e^l)²<0. Strict Jensen therefore selects x_i=v^(1/d) uniquely, including the trivial v=1 case. On this diagonal the log-information derivative divided by d/r is 4(1−r)/(2−r)−r^d/(r^d+η); the endpoint 1 has negative derivative for every finite η. The only interior root is r=2/3 if η=0; otherwise r^d(3r−2)/(1−r)=4η has a strictly increasing left side from zero to infinity on (2/3,1). For fixed r in that interval the left side strictly decreases in d, establishing both monotonicities in the claim. At zero noise h(r)^d, h=r(1−r/2)², gives I=(8/27)^d and fraction (8/9)^d. For fixed η>0, let z=d(1−r). The exact root gives z e^z≤d/(4η), hence z=O(log d). Logarithms then give z+log z=log(d/(4η))+O((log d)²/d); the derivative of the inverse comparison map is bounded by one. Thus the Lambert error in 1−r has order (log d)²/d². In I=4^−d(1−(1−r)²)^(2d)/(r^d+η), the correction tends to one and r^d→0 by the root equation. For η_d=c(2/3)^d/d, write y_d=d(r−2/3). The exact monotone relation is c=(9/4)y_d(1+3y_d/(2d))^d/(1−3y_d/d). Its locally uniform limit yields y e^(3y/2)=4c/9 by bracketing, with c=0 exact. At r=2/3, (log h)'=0 and (log h)''=−27/8, while η_d/r^d=c exp(−3y/2)/d+o(1/d); substituting gives both terms of the asserted log-information coefficient. Replay: RESULT.md proof steps 1–4 or the Jensen reduction above. A separate high-precision log-domain bisection at d=100,1000,10000 confirmed convergence for η=1/5 and c=7/3; for example at d=10000 the fixed-noise information ratio to 4^−d/η was 0.98610315 and the crossover coefficient error was −4.15×10^−5. These are spot checks, not proofs. The original verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pronzato–Zhigljavsky (2.13) gives the centered-process posterior integral variance; (3.19)–(3.20) factorize energy and kernel potential.",
+          "Karvonen et al. describe the Brownian-motion kernel and positivity, and §3.9 gives weights for noiseless Cartesian-product point sets. The search also returned a 1990 general noisy-information complexity paper; its accessible abstract describes linear operators under Gaussian measures, not a Wiener-sheet optimizing-node formula."
+        ],
+        "reasoning": "Adding η to the observation variance is standard and supplies the objective. A general posterior formula or locally optimal noiseless Cartesian rules do not supply the global site comparison at fixed total product, or the high-dimensional singular-root limits with one absolute noise variance.",
+        "searches": [
+          "Web: average case noisy information integration Wiener sheet Ritter Plaskota additive Gaussian noise optimal one point location quadrature dimension",
+          "Pronzato–Zhigljavsky arXiv:1808.10722v1 §§2.2 and 3.6",
+          "Karvonen–Kanagawa–Särkkä DOI:10.1007/s11222-019-09901-0 §§2.1, 3.7, 3.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1808.10722v1",
+        "DOI:10.1007/s11222-019-09901-0",
+        "Resultary Brownian-sheet boundary-layer query and related bridge/hyperplane summaries",
+        "Woźniakowski and 1990 noisy-information article search records (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known noiseless one-node objective is ∏[x_i(1−x_i/2)²] and immediately gives coordinates 2/3. In contrast, taking the product of one-dimensional *noisy* information ratios produces denominators ∏(x_i+η), with extra terms absent from v+η.",
+          "The two-dimensional limit mechanisms within this study reduce respectively to z e^z∼d/(4η) with z=d(1−r), and y e^(3y/2)→4c/9 with y=d(r−2/3), the latter combined with the second derivative of the noiseless log-information."
+        ],
+        "reasoning": "Tensorizing the old noiseless solution explains the baseline but does not determine even the coupled noisy root, much less the two distinct high-dimensional scaling balances and the crossover correction. No explicit or mechanically covering prior optimized-design statement was found in the material actually inspected.",
+        "searches": [
+          "Karvonen et al. §3.9 product weights and prior Brownian-motion kernel results",
+          "Woźniakowski, Average case complexity of multivariate integration (search record and attempted lawful full-text retrieval)",
+          "Pronzato–Zhigljavsky (2.13) and (3.19)–(3.20)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The field is the classical product Wiener-sheet measure. The one-site criterion is also the squared worst-case RKHS quadrature error plus ηw², optimized in the scalar weight w: 3^−d−2w∏a(x_i)+w²(v+η).",
+          "Woźniakowski's indexed average-case integration result uses the classical Wiener sheet and a relationship to L² discrepancy."
+        ],
+        "reasoning": "Optimizing the weight recovers the same objective, so known Gaussian regression or kernel discrepancy formulations count as prior where applicable. The novelty question is the site and its joint noise/dimension limits, not this reformulation. Noiseless designs factor in this objective, but absolute scalar noise added after forming the product couples the coordinates.",
+        "searches": [
+          "Resultary: one-point Brownian sheet integration noisy Gaussian quadrature optimal node dimension Lambert W small noise",
+          "Web: Wiener sheet Brownian sheet average case integration single sample optimal one node 2/3 noisy quadrature variance optimal sampling tensor product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed alternatives included the Beta-weighted Brownian bridge one-point boundary layer and Brownian-sheet hyperplane precision allocation. The bridge record varies polynomial order in one time variable and the sheet record uses an entire slice integral per coordinate, not a point value.",
+          "The kernel-energy/potential table supplies covariance inputs, not a table of optimal noisy sites or root crossovers."
+        ],
+        "reasoning": "Neither indexed alternative uses the observation variance v+η with point-value v=∏x_i. The different sufficient statistics give different scalar design equations and asymptotic balances. A related use of a boundary layer is not coverage of these laws.",
+        "searches": [
+          "Resultary: one-point Brownian sheet integration noisy Gaussian quadrature optimal node dimension Lambert W small noise",
+          "Pronzato–Zhigljavsky §3.6 Table 1 and (3.19)–(3.20)"
+        ]
+      },
+      "rationale": "On the evidence inspected, the defensible contribution is the unrestricted one-site noisy optimizer with its sharp dimension/noise crossover, especially the coefficient after the small-noise scaling. The conditioning formula, tensor integration, noiseless rule and ordinary one-dimensional noisy specialization are excluded from the novelty finding. No inspected prior result supplies the competing fixed-noise and vanishing-noise dimensional laws or the crossover coefficient; historical noisy-information literature remains a priority risk.",
+      "residual_risks": [
+        "Older average-case Wiener-sheet and Gaussian noisy-information literature may contain a comparable noisy one-site worked example or stronger design statement. The limited-access sources were not cleared by full-text inspection.",
+        "The best-of-knowledge judgment attaches chiefly to the sharp dimensional limits and crossover, not the standard conditional variance or noiseless tensorization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies prior covariance and variance criterion, not the noisy one-point dimension asymptotics in the inspected sections",
+          "evidence": "(2.13), (3.18)–(3.20), Table 1 on energy and potential.",
+          "identifier_or_url": "https://arxiv.org/html/1808.10722v1",
+          "material_read": "§2.2 formula for centered prior and prior-integral energy; §3.6 product factorization and table description",
+          "method": "Primary arXiv HTML and PDF text",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "Product Gaussian kernels and posterior-integral variance for designs"
+        },
+        {
+          "assessment": "Prior noiseless rule framework and product weights, with no explicit noisy site asymptotics in these sections",
+          "evidence": "Eq. (2); §3.7 min(x,x′) interpolation; §3.9 product weights assume Cartesian nodes.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-019-09901-0",
+          "material_read": "§2.1 posterior variance, §3.7 Brownian-motion kernel case, §3.9 tensor-product discussion",
+          "method": "Publisher lawful open-access full text",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Prior Brownian-motion quadrature and Cartesian-product rule analysis"
+        },
+        {
+          "assessment": "Clearly relevant to the noiseless baseline; cannot make a full-text noncoverage finding",
+          "evidence": "Indexed description of optimal sample points and L² discrepancy for the classical Wiener sheet.",
+          "identifier_or_url": "https://academiccommons.columbia.edu/doi/10.7916/D8NS12ZM",
+          "material_read": "Search-index statement of the Wiener-sheet setting and discrepancy connection only; the Project Euclid PDF lookup failed and the repository required human verification",
+          "method": "Literature lookup followed by lawful full-text attempts",
+          "title": "Average case complexity of multivariate integration",
+          "trigger": "Classical Wiener-sheet optimal sample points"
+        },
+        {
+          "assessment": "Possible broader framework; not used as negative evidence about all statements in the paper",
+          "evidence": "The indexed abstract states general results on approximating Gaussian-prior linear operators from noisy information.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0885064X9090007Z",
+          "material_read": "Bibliographic search entry and indexed abstract fragment only; direct full text returned access denial",
+          "method": "Literature lookup and lawful publisher retrieval attempt",
+          "title": "On average case complexity of linear problems with noisy information",
+          "trigger": "Older general Gaussian noisy-information theory, potentially a covering special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same sensing budget gives two different exponential explained-variance rates depending on whether noise is exactly zero or fixed positive. The result identifies the movement of the global design that accompanies this change and locates the exponentially small noise scale at which it first moves by order 1/d, with a quantitative information loss at that scale. This is a structural calibration law for one observation, not merely a table of single-dimension roots. No consequence for multiple, adaptive, or heteroscedastic observations follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

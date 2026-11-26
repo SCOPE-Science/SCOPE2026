@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The Kneser-coordinate program enumerates all legal named four-edge-colourings using an exhaustive MRV branching rule, enumerates *all* bichromatic connected-component exchanges, checks edge reciprocity and computes 21 full distance-sphere vectors, one per orbit under generating graph and palette automorphisms. Group invariance reduces an exact all-vertex distance conclusion to these 21 traversals; it is not random sampling. The generalized-Petersen implementation independently enumerates the matching partitions and bichromatic union-find components, and its exact computed orbit profile multiset and all headline counts agree. The definition of a maximal component and the exact ordering of edge-colour assignments are explicit. The two independent algorithms are finite complete checks; neither claims a general infinite-graph result.
+## correctness
 
-**Originality: PASS, with residual risk.** OEIS A159233 already gives 49,920 states, and McDonald–Mohar–Scheide's general Theorem 3 already proves Kempe connectedness: neither is proposed as novel. Belcastro–Haas's 3-edge-colouring work excludes this class-two 4-edge-colouring setting, and the 2017 class-one regular-graph paper does not provide the displayed Petersen metric profile. The proposed original content is the exact diameter, radius, degree, orbit, eccentricity and diametral-pair enumeration. Dedicated searches for edge-Kempe diameter, line-graph recolouring aliases, Petersen class-two snarks, and the numerical fingerprints yielded no comparable encompassing calculation. A concealed equivalent old finite enumeration remains possible.
+PASS
 
-**Value: PASS.** The Petersen graph is the smallest non-three-edge-colourable bridgeless cubic graph, so four colours are its minimum legal palette. Although Kempe equivalence at this palette follows from an older general theorem, the *length* of required Kempe sequences is not determined by that theorem. The sharp diameter \(8\), two distinct eccentricity classes, and explicit diametral pair counts quantify this local mobility in the canonical smallest snark and provide a benchmark beyond mere connectedness.
+An independent exhaustive reconstruction used fixed-order edge assignments with endpoint masks, built each two-colour component by traversal on the ten Petersen vertices, and checked that every resulting neighbour was a proper enumerated state and every adjacency was reciprocal and loop-free. The graph automorphism group is exactly S5: the five size-four independent sets of KG(5,2) are the five stars of two-subsets through a fixed symbol. A pairwise intersecting family of two-subsets without a common symbol has size at most three; each vertex is recovered as the intersection of its two stars. Applying adjacent transpositions on symbols and on labels therefore gives the full required orbit decomposition. One complete BFS per orbit independently gave 49,920 states, 377,280 edges, degrees 15 and 16 with multiplicities 44,160 and 5,760, 21 orbits, radius 7, diameter 8 and eccentricity multiplicities 45,600 and 4,320. BFS reached all states. The two eccentricity-eight orbit sizes and far-sphere sizes gave (1440*2+2880*1)/2=2880 unordered pairs. The replay matched every frozen representative to a different reconstructed orbit, verified every sphere vector and recovered the exact recorded far targets at both eccentricity-eight roots, including the stated witness.
 
-Limitations: finite exhaustive source-code proof; exact values should be independently reproduced and compared with any historical unpublished computation. No external or independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The count and connectivity are already known and are correctly credited. The strongest inspected tables and reconfiguration results do not supply the claimed local degree, combined symmetry-orbit, eccentricity or distance-eight classification. This assessment applies to those additional data, not to the state count or connectivity.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical class-two cubic graph and four is its smallest feasible palette. For the natural component-switch move, exact distances quantify the worst-case number of exchanges and distinguish typical states from the peripheral ones, information not given by connectedness. Counting the extremal pairs and classifying their two orbit types provides a concrete benchmark for reconfiguration and symmetry-reduction methods rather than another computation of the previously known state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:02:14.565658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive diagonal fixed point is unique because h is strictly decreasing with the required endpoint limits. For z>t put r=(z/t)^(1/k)>1. Dividing the original equations gives r=(1+1/t)/(1+1/z); substituting z=r^k*t gives t=(1-r^(1-k))/(r-1)=sum_{j=1}^{k-1}r^(-j) and then z=r^k*t. Substitution back gives the stated rational activity and is reversible. For r=e^(2s), the exponential factors cancel in the sinh quotient; its log derivative equals sum_{j=1}^{k-2}(H_s(j+1)-H_s(j))-k*(H_s(k)-H_s(k-1)), negative since H_s is increasing and strictly convex (differentiate u*coth(us)). The limits are lambda_cr and 0, so there is a unique swapped pair only below lambda_cr. Expansion of log(sinh(us)/(us)) at zero gives ((k+1)(k-1)^2-1-k^3)/6=-k(k+1)/6 as the s^2 coefficient of log(lambda). Since log(z/t)=2ks exactly, inversion gives the stated onset coefficient and the O((lambda_cr-lambda)^(3/2)) error. This check applies only to the positive reduced I_2 system; no completeness outside I_2 or extremality follows. Inspected RESULT.md, VERIFICATION.md and verify.py; the analytic proof did not require executing the supplied script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.6 gives exactly one parity-periodic Gibbs measure at or below mu_cr=(k/(k-1))^k/(k-1) and exactly three above, two of which are not translation invariant; it uses the boundary laws in (2.9)–(2.10).",
+          "The wand paper proves exact k=2,3 counts and an at-least-three assertion below the general threshold. Its quoted Kesten lemma alone provides existence, not uniqueness."
+        ],
+        "reasoning": "The two-state theorem, not the lemma used in the wand paper, supplies the already-known exclusion of additional two-cycles. It is for the same k and applies for every reciprocal activity.",
+        "searches": [
+          "arXiv:2111.11163 Theorem 2.6 and reference [25]",
+          "arXiv:2007.14611v1 Theorems 3–4 and Lemma 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.14611v1",
+        "arXiv:2111.11163",
+        "arXiv:math-ph/0703039v1",
+        "Local Resultary searches and the identified catalogue records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2^k/mu_cr=2^k*(k-1)*((k-1)/k)^k; lambda=lambda_cr maps to the one-solution case.",
+          "The explicit wand k=2 calculation already yields coefficient 4; the k=3 calculation supplies a critical curve. The two-state paper treats the special-order explicit solutions separately from its all-order count."
+        ],
+        "reasoning": "Under the bijection the whole main count follows immediately. A ratio of the two known scalar equations solves for the branch in one linear step, and the known count gives injectivity of its activity curve; the general onset in this specific coordinate is a short Taylor consequence. This is not evidence that every displayed formula was previously printed.",
+        "searches": [
+          "arXiv:2111.11163 Eq. (2.10), Theorem 2.6, and §3",
+          "arXiv:2007.14611v1 Eqs. (3.10), (3.14), and (3.16)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-state source uses a=(1+mu*b)^(-k), b=(1+mu*a)^(-k).",
+          "The wand equations give the same equations after a=1/(mu*z), b=1/(mu*t), mu=2^k/lambda."
+        ],
+        "reasoning": "This is an exact bijection of positive ordered solution sets, not an analogy between phases. The equivalence is confined to the boundary-law subsystem.",
+        "searches": [
+          "Resultary: ordinary two-state hard-core independent-set model on regular Cayley tree, exact two-periodic count, arbitrary order, alternating occupancy two-cycle",
+          "arXiv:2111.11163 Eq. (2.10)",
+          "arXiv:2007.14611v1 Eq. (3.16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The generalized-key Finding uses a different model and produces at least four non-diagonal solutions in part of its range.",
+          "The order-three reconstruction record concerns a reconstruction margin; its references point to the paper containing the exact all-order two-state count."
+        ],
+        "reasoning": "No exact catalogue entry was identified in the ranked results. The latter hit leads to decisive direct theorem coverage regardless of the catalogue's own scope.",
+        "searches": [
+          "Resultary searches for wand I_2 and for the ordinary two-state staggered hard-core recursion",
+          "Resultary:2026/10/12/SCOPE-order-six-reversal-of-the-generalized-key-two-periodic-bifurcati--e9b9bad08e1d",
+          "Resultary:2026/10/12/SCOPE-exact-reconstruction-margin-on-the-order-three-hard-core-periodi--1d6895e8fdce"
+        ]
+      },
+      "rationale": "The headline all-order solution count is already implied exactly by the ordinary two-state hard-core model's parity-periodic theorem. For the wand variables set mu=2^k/lambda, a=1/(mu*z), b=1/(mu*t); then a=(1+mu*b)^(-k), b=(1+mu*a)^(-k), reversibly for each positive activity. This is precisely (2.10) of arXiv:2111.11163; its Theorem 2.6 gives the exact one-versus-three count for all k>=2, including equality, and attributes it to Suhov–Rozikov (2004). The change of variables maps the threshold to the displayed wand threshold, reverses the activity inequality, and preserves diagonal solutions and the swapped pair. The wand source's weaker count is not the relevant prior upper bound. The separate formulas for the parameter and onset are correct; the checked general theorem need not state them in wand coordinates.",
+      "residual_risks": [
+        "The 2004 paper was identified through the attribution in Theorem 2.6; the decisive directly inspected text was the 2021 paper. The precise priority of the hyperbolic expression and coordinate-dependent onset coefficient was not established. Neither limitation affects the exact prior coverage of the main count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact prior implication",
+          "evidence": [
+            "Theorem 2.6 states the full one-versus-three parity-periodic count for (2.10) in arbitrary order and credits Suhov–Rozikov, Queueing Systems 46 (2004), pp. 197–212."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.11163",
+          "material_read": "Abstract, Eq. (2.3), Eqs. (2.9)–(2.11) and Theorem 2.6 on PDF p. 5 (offset 17500), §3 pp. 6–7, and reference [25]",
+          "method": "Targeted OA PDF full-text passages",
+          "title": "Periodic Gibbs measures for the two states HC model on a Cayley tree",
+          "trigger": "Equivalence to the ordinary two-state recursion"
+        },
+        {
+          "assessment": "Same wand model; special-order counts and general two-cycle existence, not the general exact exclusion",
+          "evidence": [
+            "Theorem 4 gives at least three at the same general threshold; Theorem 3 gives exact low-order counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.14611v1",
+          "material_read": "§3 pp. 7–11, Eqs. (3.10), (3.14), (3.16), Theorems 3–4 and Lemma 2",
+          "method": "Targeted OA PDF passages",
+          "title": "Periodic Gibbs measures for three states HC models in the case Wand",
+          "trigger": "Source of the actual invariant set and claimed gap"
+        },
+        {
+          "assessment": "Not direct prior coverage of the all-order wand branch",
+          "evidence": [
+            "The wand discussion is translation invariant at order two and disclaims wand analogues of earlier periodic propositions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0703039v1",
+          "material_read": "§3.2, PDF p. 7",
+          "method": "Targeted OA PDF passage",
+          "title": "Fertile Three State Hard-Core Models on a Cayley Tree",
+          "trigger": "Earlier three-state periodic work"
+        },
+        {
+          "assessment": "Different invariant; lead to decisive equivalent source",
+          "evidence": [
+            "The record concerns a reconstruction bound at k=3 and cites arXiv:2111.11163."
+          ],
+          "identifier_or_url": "Resultary:2026/10/12/SCOPE-exact-reconstruction-margin-on-the-order-three-hard-core-periodi--1d6895e8fdce",
+          "material_read": "Catalogue finding summary and RESULT.md references",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact reconstruction margin on the order-three hard-core periodic branch",
+          "trigger": "Closest two-state periodic branch hit"
+        },
+        {
+          "assessment": "Different model and bifurcation",
+          "evidence": [
+            "The generalized-key branch can have at least four non-diagonal solutions and is not the wand scalar recursion."
+          ],
+          "identifier_or_url": "Resultary:2026/10/12/SCOPE-order-six-reversal-of-the-generalized-key-two-periodic-bifurcati--e9b9bad08e1d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Order-six reversal of the generalized-key two-periodic bifurcation",
+          "trigger": "Closest catalogue analogue for an I_2 parametrization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "For the stated scope the phase count is a change of variables of a known exact count. The ratio substitution and convexity argument illustrate the recursion, but the remaining closed form is obtained directly from the known two equations and the log-ratio coefficient is its elementary quadratic Taylor expansion. No distinct physical boundary, extremality result, or mathematical gap that needs this particular coordinate coefficient was established. The remaining presentation is useful exposition, not a standalone repair of the claimed classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

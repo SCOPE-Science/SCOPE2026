@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Finite verification and mathematical limits
 
-Execute `python3 verify.py`. The program exhaustively constructs all functions on \([n]\) for \(2\le n\le7\) and computes the number of cyclic vertices and the number of indegree-zero vertices directly from the maps. Using exact rational arithmetic, it compares the observed tails with the factorial formula, the conditional origin factorial moments with occupancy counts, the complete origin-fugacity mixture at tested weights, the strict stochastic inequalities, and the uniform covariance identity.
+The unchanged `verify.py` enumerates all functions for sizes 2 through 7, computes origins and cyclic vertices directly, and compares exact rational cyclic tails to the uniform law and tilted mixture. It checks strict comparisons for the indicated weight pairs in the script. Its checks of conditional origin-count laws and uniform covariance, including the floating-point asymptotic diagnostic, concern auxiliary facts outside the narrowed finding.
 
-Executed output includes `PASS exact assertions: 486`; at \(n=7\) all \(823543\) mappings were enumerated. Supplementary floating-point calculations at \(n=2000,10000,50000\) approximate the coefficient \(\sqrt{\pi/8}\). These are diagnostic only. The all-size and asymptotic results rely on the independent proof in `RESULT.md`, particularly the positive mixture, likelihood-ratio order, and tail-difference Riemann sum. No independent audit has been performed.
+The all-size, all-weight strict result is established by the prescribed-origin mixture and the likelihood-ratio comparison in `RESULT.md`, not by the finite checks.

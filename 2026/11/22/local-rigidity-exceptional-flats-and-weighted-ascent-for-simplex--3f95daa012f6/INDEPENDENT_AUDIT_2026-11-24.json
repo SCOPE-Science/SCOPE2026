@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:49:21.738799Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–78",
+        "Frozen VERIFICATION.md and checker.py (read as source evidence)",
+        "Independent replay: OPENBLAS_NUM_THREADS=1 python -B /workspace/review-evidence/2.py"
+      ],
+      "rationale": "From the incidence identity BᵀB=(q−2)I+J, the midpoint Gram projection has the stated three nonzero entry types. Thus its sign matrix is 2BBᵀ−2I−J and on the constant, midpoint, and remaining spaces its eigenvalues are (−m²+7m−4)/2, 2(m−2), and −2. As F is the trace against this sign matrix divided by N in the sign neighborhood, the loss is exactly the two spectral-gap-weighted leakage traces. Their sum is half the squared Frobenius distance. Testing a rotation toward either complementary eigenspace gives sharpness, and comparing the gaps yields the equality sets and the m=7 crossover. A different projection cannot be another local optimum within the sign neighborhood for m≥5: stationarity under conjugating rotations would require it to commute with the sign matrix, and a missing top-eigenvalue direction could then replace a lower one by arbitrarily small improving rotations. At m=4 the constant and midpoint spaces tie, so the equal-value locus near P₀ is the dimension-four Grassmannian of hyperplanes in their sum. Writing the complementary normal w near c, the row sums of the absolute Gram are 8/5+4/N−4w_e². The constant-vector Rayleigh quotient equals the top eigenvalue only for constant row sums, forcing w=c locally. The derivative at zero sends c to −(4/5)u while the constant Rayleigh quotient stays fixed. The unperturbed weighted eigenvalue gap to the u-space is 8/5+1/15=5/3, giving the Taylor coefficient (16/25)/(5/3)=48/125. Independently built midpoint vectors give max leakage error 3.19e-15 in 21 perturbations across seven dimensions, with small-angle weighted coefficients 0.38399756 to 0.38399960 across sampled directions. This supplements the exact trace and perturbation proofs.",
+      "residual_risks": [
+        "Local maximizer uniqueness refers to the indicated sign neighborhood, not the whole real Grassmannian. Strict weighted increase on the flat is for sufficiently nearby nontrivial projections, not a claim across distant projections with the same signs.",
+        "The Taylor term is not an exact finite gain; the statement leaves general Grassmannian directions at m=4 and complex frames open."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first abstract concerns stabilization with the ambient coordinate count at fixed rank; the second concerns bounds on graph eigenvalues. The general trace maximization principle identifies a top eigenspace given a sign matrix, but does not supply the configuration-specific sign gaps or weight response."
+        ],
+        "reasoning": "The general theorems explain the method, not the dimension crossover, equality classes, or how the Perron eigenvector of the absolute Gram moves on the equal-weight flat.",
+        "searches": [
+          "arXiv:2609.03200, relative projection constants stability",
+          "arXiv:2608.02429, graph eigenvalues and projection constants",
+          "Standard Ky Fan and simple-eigenvalue perturbation formulas"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bc57de4b689b, 91538d3ec7f3, c8f52abf70b1, 433deb0e4dc9",
+        "arXiv:2608.08695, 2609.03200, 2608.02429",
+        "Hypersimplex table bibliographic listing and attempted source access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The midpoint paper computes 4(m−2)/(m+1). The fixed-frame paper already computes the unperturbed spectrum, including the gap used in the ascent formula, and excludes frame perturbations."
+        ],
+        "reasoning": "Those facts fix the initial value and some ingredients, but not the sign-trace leakage gaps and their equality geometry, or the first derivative of the weighted Gram acting on c needed to obtain the second-order ascent. An improvement in a global table would be compatible with the local F plateau and would not by itself give the L ascent.",
+        "searches": [
+          "arXiv:2608.08695, Example 2.1 and Corollary 2.1",
+          "Resultary bc57de4b689b, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older fixed-frame result gives the absolute-Gram eigenvalues and a sharp nonuniform-weight penalty but expressly omits perturbations of the frame vectors. The triangular graph record instead gives relative ℓ1 projection constants for cut and circulation subspaces."
+        ],
+        "reasoning": "At fixed P₀ the weight Rayleigh quotient is a single matrix problem. Varying the range of P changes which absolute Gram matrix enters that quotient. In particular, strict preference for uniform weights at the unperturbed frame does not forbid ascents of optimized weights under a nearby change of the frame.",
+        "searches": [
+          "Resultary bc57de4b689b (fixed midpoint frame and weight rigidity)",
+          "Resultary 91538d3ec7f3 (triangular graph edge-space projection constants)",
+          "arXiv:2608.08695 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-record hits for fixed-frame weight rigidity and edge-frame matching erasures do not vary the frame locally as in this theorem; the erasure regime also excludes the m=4 case. The same-day tetrahedron rigidity hit concerns edge-length dispersion, a different object. The small global table's precise N=10 row and construction were inaccessible; the title and bibliographic listing are not table evidence."
+        ],
+        "reasoning": "A larger global rank-4, N=10 value would not imply the existence of improving projections arbitrarily close to this P₀ or the local Taylor coefficient. The table construction remains a plausible source of other overlap that cannot be resolved from metadata.",
+        "searches": [
+          "Resultary bc57de4b689b, c8f52abf70b1 and 433deb0e4dc9",
+          "Hypersimplex frames exact quasimaximal projection-constant table up to N=11, ideosphere.ai/papers/projconst-mn-v1.pdf"
+        ]
+      },
+      "rationale": "Credit the midpoint configuration, its baseline value and fixed-frame weight spectrum, and the standard spectral variational and eigenvalue perturbation tools. The supported distinct claim is the behavior as the real Gram projection varies: the sharp local leakage and equality diagram and the exceptional dimension-four flat with strict optimized-weight ascent and explicit curvature.",
+      "residual_risks": [
+        "The precise m=4, N=10 small-table construction was not accessible; no negative inference from the access failure.",
+        "An unindexed equivalent via triangular-graph spectral optimization or local frame perturbation is possible. No priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known spectrum and fixed-frame weight rigidity, not perturbation of the frame",
+          "evidence": "The uniform maximizing weights and weight-mode crossover are for one fixed frame; the limitations explicitly exclude stability under vector perturbation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-weight-rigidity-and-a-spectral-crossover-for-regular-simpl--bc57de4b689b/RESULT.md",
+          "material_read": "Finding and scope offsets 0–2975; limitations near 6369–8630",
+          "method": "Local published-record mirror",
+          "title": "Sharp weight rigidity and a spectral crossover for regular-simplex midpoint frames",
+          "trigger": "Same frame, absolute Gram spectrum and weighting objective"
+        },
+        {
+          "assessment": "Credits construction and value, not its local perturbation theorem",
+          "evidence": "Gives the midpoint frame value 4(m−2)/(m+1) as a lower bound, i.e. 8/5 at rank 4, N=10.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.08695",
+          "material_read": "Abstract p. 1, and §2 Example 2.1 / Corollary 2.1, PDF pp. 7–8 (offset 17835)",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Maximal Projection Constants and Extremal Vector Configurations: Some Conjectures and Examples",
+          "trigger": "Original midpoint construction and baseline"
+        },
+        {
+          "assessment": "Inspected statement varies ambient coordinate count rather than a given projection",
+          "evidence": "Eventual stabilization of the maximal relative constants for fixed rank as the ambient count grows.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.03200",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Stability of maximal relative projection constants",
+          "trigger": "Plausible general stability theorem"
+        },
+        {
+          "assessment": "Inspected statement addresses adjacency eigenvalue bounds",
+          "evidence": "Uses orthogonal projections and projection constants to bound graph eigenvalues, not the stated frame perturbation landscape.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02429",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Graph Eigenvalues and Projection Constants",
+          "trigger": "Possible equivalent graph-spectral theorem"
+        },
+        {
+          "assessment": "Unresolved specific access risk; no assertion of noncoverage",
+          "evidence": "Global-table scope is indicated in the title, not enough to verify a value, configuration, or local geometric claim.",
+          "identifier_or_url": "https://ideosphere.ai/papers/projconst-mn-v1.pdf",
+          "material_read": "Bibliographic title only; underlying table and construction not read",
+          "method": "Lawful OA PDF and webpage attempts via direct and VPN routes returned HTTP 403; local catalogue did not resolve the table",
+          "title": "Hypersimplex frames beyond the simplex bound, and the exact table of quasimaximal projection constants up to N=11",
+          "trigger": "Potential rank-4, N=10 competing exact construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–23 and 45–78",
+        "Midpoint frame primary baseline, arXiv:2608.08695 §2",
+        "Fixed-frame comparison, Resultary bc57de4b689b"
+      ],
+      "rationale": "The local geometry of a natural candidate projection-constant frame is useful independently of the global conjecture. The theorem distinguishes dimensional regimes, identifies which directions are cheapest at fixed weights, and shows that a whole equal-weight flat in rank four is nevertheless improving when weights adapt. The explicit positive coefficient measures that instability rather than just detecting a larger value elsewhere.",
+      "residual_risks": [
+        "No proof of a global projection constant or full Hessian classification for optimized weights is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

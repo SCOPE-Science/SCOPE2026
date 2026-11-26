@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:44:31.462490Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The event that y has no outgoing path of length at most two to x is exactly that x covers y. A fixed x covering y requires x→y and independently forbids (0,1) at every remaining label; conditioning therefore leaves iid uniform (1,1),(1,0),(0,0) marks and fair independent edges among the remaining labels. In the second Bonferroni sum, shared-coverer and shared-covered pairs have 5/8 allowed patterns per outside label; chains have 4/8; opposed directions are incompatible; disjoint endpoints have 9/16. Independently enumerated both the outside patterns and the internal orientations (2/8 for either same-role overlap, 1/8 for a chain, 0/2 for opposition, 6/64 for disjoint endpoints). Replay: python3 /workspace/frozen_review_arithmetic.py (requires SymPy; no frozen code executed). Summing O(n^3) or O(n^4) pairs and dividing by mu=E W=n(n-1)(3/4)^(n-2)/2 gives the stated bound, including the negligible chain term. Multiple covers have unconditional probability at most the Bonferroni sum. For the full marked tournament the total-variation identity is exact: on a tournament T with W>0 the chosen mark has mass P(T)/P(F), whereas sampling a uniformly chosen specified cover first gives mass P(T)/mu for each valid mark at T. Their total overlap is P(F)/mu, and projection to the pair and array can only decrease TV. Scores under the reference are (1+A+B,A), giving the stated iid bivariate CLT with covariance (2,1;1,2)/9 and O(1) centering shifts. Other vertices have Bin(n-3,1/2) scores on the outside subgraph plus at most two, so a union of Hoeffding bounds separates all of them from the two marked scores with probability 1-o(1); it does not require independent scores across outside vertices. TV transfers the separation and conditional uniqueness identifies the sole covered vertex. The claim is rank recovery given the rare event, not a test for its existence from the scores of an unconditional tournament. Read the frozen verification note and enumerator; its tests are finite and do not prove these limiting assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two papers' inspected abstracts handle independent orientations with varying probabilities and reachability thresholds, respectively. The close November 8 source gives a second-order asymptotic for P(W>=1), P(W>=2)~B_n, and shared coordinates of two failures, not score polarization."
+        ],
+        "reasoning": "A threshold for how many kings there are, or information on coincidences between obstructions, is not a score profile conditional on failure. The stronger frequency estimates are already covered.",
+        "searches": [
+          "Saile–Suksompong: Robust bounds on choosing from large tournaments",
+          "Manurangsi–Suksompong: Generalized kings and single-elimination winners in random tournaments",
+          "cd69f9872e0a mirrored Finding and Two obstructions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary covering-pair and rare-obstruction results",
+        "Mirrored cd69f9872e0a sections and the public abstract passages cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Since P(F)~mu and P(W>=2)~B_n, high conditional uniqueness was already implied. The identity TV_full=1-P(F)/mu shows the marked approximation rate follows once the severity of the prevalence deficit is known; use the elementary fixed-pair product model for the reference.",
+          "Score-rank recovery additionally has to control all n-2 competing scores under the marked experiment. A marginal endpoint CLT alone cannot determine whether either endpoint attains the global extreme."
+        ],
+        "reasoning": "Do not claim a new prevalence, uniqueness or TV-rate estimate in isolation. The application of the marked model to the joint endpoint scores, with the simultaneous separation from all other vertices, is the distinct contribution.",
+        "searches": [
+          "cd69f9872e0a mirrored RESULT.md, Finding / One obstruction / Two obstructions",
+          "Frozen RESULT.md, Rare-event change of measure and Scores and exceptional set"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cover x→y means there is no length-at-most-two path from y to x; under this ordered-pair convention the November 8 obstruction count is exactly the count W of covers, not a different statistic.",
+          "The uncovered set consists of the 2-kings; degree ranks are Copeland ranks in this strict tournament."
+        ],
+        "reasoning": "The equivalences credit known unconditional obstruction results under either vocabulary. Conditional comparison of the two degree ranks is a different observable.",
+        "searches": [
+          "Resultary: unique covering pairs, marked-array total variation, score extremes and rare kings",
+          "Fey, Choosing from a Large Tournament",
+          "Exact mirrored RESULT.md, cd69f9872e0a, Finding and One obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact score-profile entry is the assigned record; the closest separate indexed claim is cd69f9872e0a and its exact Finding concerns unmarked counts. The 3≤n≤6 census in the assigned package tests a specified pair rather than the conditional limiting rank statement."
+        ],
+        "reasoning": "The relevant exact-results database was checked. A table of small tournament counts cannot establish a limiting marked model or unique global degree extremes.",
+        "searches": [
+          "Resultary: exact marked-array and extreme-score formulation; rare-obstruction law in fair tournaments"
+        ]
+      },
+      "rationale": "Credit the earlier obstruction theorem for prevalence, multiplicities and, by division, conditional uniqueness and its scale. The marked TV rate is also a direct change-of-measure consequence of the known prevalence deficit plus the specified-cover product law; it does not independently establish priority. The supported distinction is the conditional score profile, especially the joint recovery of both exceptional labels as the global strict degree extremes (and the Gaussian fluctuations of their scores). The earlier verified theorem is about path obstructions and their endpoint coincidences, not order-statistic recovery over all vertices. No checked statement supplies the conditional score recovery result.",
+      "residual_risks": [
+        "The published-paper comparisons above are limited to the inspected passages, mostly abstracts; they cannot rule out incidental conditional-degree results elsewhere.",
+        "Other work on rare-event Palm or size-biased laws could cover the marking argument in more general language. No historical priority is inferred from search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing stronger rarity/multiplicity result; the inspected theorem does not address rank recovery or joint conditional scores",
+          "evidence": "P(W>=1)=A_n-B_n+O(n^6(9/16)^(n-6)); P(W>=2)~B_n; multiple failures asymptotically come in pairs sharing one coordinate. A specified obstruction has probability (3/4)^(n-2)/2.",
+          "identifier_or_url": "2026/11/8/SCOPE-second-order-rare-obstruction-law-for-kings-in-random-tournament--cd69f9872e0a",
+          "material_read": "Mirrored RESULT.md Finding and Proof subsections One obstruction and Two obstructions",
+          "method": "Resultary and targeted local mirror passage",
+          "title": "Second-order rare-obstruction law for kings in random tournaments",
+          "trigger": "Exact obstruction event by reversing the reachability description"
+        },
+        {
+          "assessment": "Proven prevalence background; full paper not excluded by abstract alone",
+          "evidence": "The uncovered set, top cycle and Banks set equal the full set with probability tending to one in a uniformly random tournament.",
+          "identifier_or_url": "https://doi.org/10.1007/s00355-007-0279-3",
+          "material_read": "Author-hosted PDF, abstract on PDF p. 1",
+          "method": "Targeted lawful author-hosted PDF after passage lookup",
+          "title": "Choosing from a Large Tournament",
+          "trigger": "Classical all-kings prevalence"
+        },
+        {
+          "assessment": "Inspected passage is about prevalence, not score recovery",
+          "evidence": "The uncovered set and other tournament solutions are unlikely to rule out alternatives under broad orientation probabilities.",
+          "identifier_or_url": "https://doi.org/10.1007/s00355-019-01213-6",
+          "material_read": "Publisher PDF, abstract at journal p. 87",
+          "method": "Lawful PDF passage",
+          "title": "Robust bounds on choosing from large tournaments",
+          "trigger": "Independent-edge model beyond fair orientations"
+        },
+        {
+          "assessment": "Relevant k-kings thresholds; no conditional score claim in the inspected passage",
+          "evidence": "Studies reachability within k edges and thresholds for alternatives being k-kings, with the largest change between k=2 and k=3.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-022-09557-7",
+          "material_read": "Abstract of article 28",
+          "method": "Lawful PDF passage",
+          "title": "Generalized kings and single-elimination winners in random tournaments",
+          "trigger": "Two-step reachability and random kings thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful output is structural identification, not another small improvement in the probability of universal kingship. Given a failure, one can typically locate both labels of the exceptional covering relation from the strict global score extremes without checking all pairwise length-two paths. The theorem also distinguishes its strongly polarized bivariate conditional score law from the fair, near-half scores of the rest of the tournament. These claims have precise scope and do not assert that an unconditional tournament's extreme scores certify failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

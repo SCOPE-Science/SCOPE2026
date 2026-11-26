@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:29:32.741716Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original theorem is true. For positive B with B-cI compact, infinitely many subthreshold eigenvectors force a sequence of distinct eigenvalues increasing to c; their closed span reduces B and its restriction has norm c without an eigenvector of that eigenvalue. Thus beta(H) forces finite subthreshold multiplicity r. Conversely, for such a positive scalar-plus-compact operator with finite subthreshold multiplicity, every reducing restriction is positive scalar plus compact and still has finite negative index relative to c. If it has a positive compact eigenvalue relative to c, its largest one realizes the norm; otherwise an infinite-dimensional restriction has a c-eigenvector because its negative part is finite rank, and a finite-dimensional restriction always attains. For the estimate let A=cI-B and C=B-D, so A+C=cI-D. For the positive eigenvalues with zeros appended, compact self-adjoint Weyl min–max gives lambda^+_(r+n)(A+C)<=lambda^+_(r+1)(A)+lambda^+_n(C)<=s_n(C), because the first term on the right is zero. Directly, when kappa_(r+n)>0, the span of the first r+n eigenvectors of Q intersects E_B([c,infty)) in dimension at least n, and the quadratic form of C is at least kappa_(r+n) on that intersection. Neither argument assumes commutation. The clipping formula keeps at most m subthreshold eigenvalues and is positive, including when some retained eigenvalues are zero or fewer than m deficits exist. Its compact error has exactly the asserted zero-padded tail. Taking p-th powers termwise is valid also for p<1 and with infinite extended cost. With no fixed budget, dropping finitely many terms cannot change Schatten summability. An infinite Schatten-summable deficit has tail cost tending to zero and cannot have a repair of zero cost since D itself fails beta(H); a finite deficit gives D itself as a zero-cost repair. Read RESULT.md lines 4–39 and the supporting verification material. The recorded 27 finite-matrix tests in verify.py were not rerun and are supplementary; no finite check proves the operator theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For compact self-adjoint A,C, lambda^+_(r+n)(A+C)<=lambda^+_(r+1)(A)+lambda^+_n(C), with zeros appended. In the target A=cI-B has positive index r.",
+          "The prior positive AN decomposition and beta_0 reverse-well-ordering criteria already give the required feasible-class restriction.",
+          "Bala–Golla instead controls the full squared-modulus defect of scalar partial-isometry perturbations for p>=1; it is not the direct source of the one-sided envelope."
+        ],
+        "reasoning": "The standard spectral inequality applies directly to arbitrary noncommuting compact self-adjoint summands. No extra approximation or spectral estimate is needed to specialize it here.",
+        "searches": [
+          "Compact self-adjoint Weyl/Courant–Fischer positive-eigenvalue inequality with a finite-index summand",
+          "arXiv:1501.05869 Theorem 5.1; arXiv:2609.37621v1 Theorems 3.4 and 5.4; arXiv:2607.15222v1 Theorem 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Golla–Osaka–Sequeira arXiv:2610.13490v1 Theorem 2.2",
+        "Pandey–Paulsen arXiv:1501.05869 Theorem 5.1 and Doust arXiv:1810.08286 Theorem 2",
+        "Su–Zhang arXiv:2609.37621v1 Theorems 3.4 and 5.4",
+        "Bala–Golla arXiv:2607.15222v1 Theorem 2.9",
+        "Resultary 4e75fd7c38ef original",
+        "Classical compact self-adjoint two-index Weyl inequality, explicitly checked by min–max"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The substitution yields kappa_(r+n)<=s_n(B-D) exactly, with no loss of constant, scope, multiplicity or noncommuting cases.",
+          "Retaining the m largest deficits and setting the rest to zero is a feasible diagonal equality witness by the same prior criterion. Its cost is exactly the tail; the unrestricted Schatten criterion follows because finite prefixes cannot affect summability."
+        ],
+        "reasoning": "The main bound is a direct instance of an existing stronger inequality and the tradeoff, optimizer and iff are its routine sharpness and summability consequences. This is an implication comparison, not a search-absence judgment.",
+        "searches": [
+          "arXiv:2610.13490v1 Theorem 2.2; arXiv:1810.08286 Theorem 2; two-index Weyl min–max specialization to cI-B and B-D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For positive scalar-plus-compact operators in the frozen class, beta(H) reduces to finite rank of (cI-B)_+, which also characterizes positive AN in this setting.",
+          "The proposed objective is spectral nearness with at most m negative eigenvalues relative to c, and the error profile is the tail of the negative part of D-cI."
+        ],
+        "reasoning": "This formulation eliminates any novel norm-attainment obstruction: the target constraint is just a rank bound on a compact positive part.",
+        "searches": [
+          "Resultary: finite-exception beta(H) repairs, singular-value tails, positive spectral clipping, Schatten approximation",
+          "arXiv:2610.13490v1 Theorem 2.2; arXiv:1810.08286 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/1/SCOPE-sharp-schatten-repair-tails-for-essentially-scalar-moduli--4e75fd7c38ef original Finding and proof give the same all-index tail and a simultaneous optimizer in a broader invertible-modulus formulation, covering positive invertible D by specialization."
+        ],
+        "reasoning": "The indexed overlap is substantive, not a mere title hit, but is dated later and its invertibility scope differs from the frozen statement. It is not evidence of pre-October priority and is not the reason for the failure. No finite table needs querying for this analytic operator result.",
+        "searches": [
+          "Resultary: all-n Schatten repair tails, noncommuting perturbations, essentially scalar norms and moduli"
+        ]
+      },
+      "rationale": "The decisive issue is mechanical implication, not lack of access or a priority claim about a later catalogue result. The known positive beta(H)/AN structure identifies the feasible class here by a finite negative index relative to c. The exact proposed noncommuting inequality is the ordinary two-index compact self-adjoint Weyl min–max inequality with one summand's (r+1)-st positive eigenvalue zero. Deleting the spectral tail gives its equality case directly, and the Schatten and zero-distance conclusions are then summation and the same class criterion. This leaves no nonmechanical remainder in the frozen theorem. The checked earlier sources do not need to state the optimization verbatim for this deduction to be decisive.",
+      "residual_risks": [
+        "The review does not establish who first wrote out the variational interpretation.",
+        "The later catalogue statement is explicitly invertible; the failure is justified without treating that record as covering the singular case or as a prior source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the spectral premise; it gives finite subthreshold multiplicity in this compact setting",
+          "evidence": [
+            "Positive beta(H) is pure point with eigenvalues reverse-well-ordered; infinitely many values from below tending to c are excluded."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13490v1",
+          "material_read": "Theorem 2.2, offset 9500",
+          "method": "OA HTML primary passage",
+          "title": "Quasinormal and hyponormal operators in the beta(H)-class",
+          "trigger": "Exact prior positive beta(H) membership premise"
+        },
+        {
+          "assessment": "Positive AN criteria reproduce the finite-exception condition in this setting",
+          "evidence": [
+            "Scalar plus positive compact plus self-adjoint finite rank; equivalently the singleton essential spectrum condition with finitely many spectral values below it."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.05869 ; https://arxiv.org/abs/1810.08286",
+          "material_read": "Pandey–Paulsen Theorem 5.1 in the accessible arXiv text (offset 74750); Doust Theorem 2 (offset 1850)",
+          "method": "OA primary theorem passages",
+          "title": "A spectral characterization of AN operators; A note on positive AN operators",
+          "trigger": "Earlier structural characterization for the same scalar-plus-compact feasible class"
+        },
+        {
+          "assessment": "Prior spectrum and compact-perturbation membership, not a verbatim all-rank cost statement",
+          "evidence": [
+            "The class beta_0 is defined via the modulus and hence coincides with beta on positive operators; the relevant condition uses reversed eigenvalue ordering."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.37621v1",
+          "material_read": "Theorems 3.4 and 5.4, offsets 34836 and 57867",
+          "method": "OA HTML primary passages",
+          "title": "The Stability and Density of Norm Attaining Operators on Reducing Subspaces",
+          "trigger": "Potential earlier compact-perturbation result for beta(H)"
+        },
+        {
+          "assessment": "Different target and two-sided defect, not the direct implication used here",
+          "evidence": [
+            "The criterion includes alpha I-T^*T in the Schatten class for 1<=p<infty, rather than the one-sided finite-negative-index spectral nearness problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.15222v1",
+          "material_read": "Theorem 2.9, offset 19000",
+          "method": "OA HTML primary passage",
+          "title": "Spectral Characterizations of Schatten-class perturbations of Partial isometries",
+          "trigger": "Potential covering Schatten criterion"
+        },
+        {
+          "assessment": "Direct overlap for the positive invertible subcase; later date cannot establish earlier priority",
+          "evidence": [
+            "The result is for invertible essentially scalar modulus and permits nonnormal, noncommuting repairs; it gives the same simultaneous tail bound and Schatten objective when specialized to positive invertible D."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-schatten-repair-tails-for-essentially-scalar-moduli--4e75fd7c38ef",
+          "material_read": "Original RESULT.md offsets 0, 5200, 7450",
+          "method": "Local catalogue mirror, Finding and proof comparison",
+          "title": "Sharp Schatten repair tails for essentially scalar moduli",
+          "trigger": "Strongest catalogue overlap in the entire lower envelope and optimizer"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The one-sided repair problem is natural and the exact formula is a useful way to package the spectral data. But the value standard for a narrow invariant excludes a routine consequence: the full noncommuting lower envelope follows by the standard eigenvalue-index substitution, and the equality and Schatten statements follow by ordinary clipping and summation. The frozen record supplies no further invariant, obstruction, or estimate not mechanically supplied by those ingredients. No distinct surviving claim was identified for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

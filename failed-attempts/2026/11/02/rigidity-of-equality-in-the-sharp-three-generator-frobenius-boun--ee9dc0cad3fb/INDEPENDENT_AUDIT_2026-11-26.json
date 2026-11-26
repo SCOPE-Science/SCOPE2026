@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:08:56.882158Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 17–46",
+        "VERIFICATION.md and supplied verify.py, inspected, not executed",
+        "Chen–Hu–Mao–Zhang, arXiv:2610.32219v1, Theorem 1 and Theorem 2 proof"
+      ],
+      "rationale": "For X={0,a,b} modulo c and k=ceil(c/2), if kX has stabilizer of order h, Kneser gives at least 2k+1 elements for h=1 or at least (k+1)h for h>1, since X generates the group. Hence kX is the whole group. Equality in the cited bound makes the maximum Apéry representative kb−1. A representative using at most k copies has size at most kb; kb is in a different residue, so the total deficit is exactly one. As b≥2, all k slots are used and exactly one b is replaced by a=b−1. If a≥2 and c=a+t<2a, k≥t+1 and the proposed Frobenius number is the representable value ta+(k−t−1)(a+1). If c≥2a+1, the bound exceeds the two-generator Frobenius number: this holds at 2a+1 and 2a+2 and the bound increases by a−1 under c↦c+2. At c=2a the generator c is redundant and equality holds. With a=1 the necessary b=2 and the convention F=−1 give precisely even c≥4. Both families are nonminimal generating triples.",
+      "residual_risks": [
+        "A separate bounded residue shortest-path computation reported 116,920 triples through c=95 and 92 equality cases. A replayable copy of that separate script was not available at the reported location; the verdict rests on the general proof, not on that computation or the recorded checker run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. prove the bound for an arbitrary ordered finite generator set and exhibit (q,q+1,2q) in the three-generator case; the inspected bound and construction are not an iff claim.",
+          "Aguiló–Miralles classify extremizers for a bound that depends only on the fixed largest generator, not on b."
+        ],
+        "reasoning": "The primary bound and a sufficient family do not by themselves give necessity. Maximizing over b for fixed c is not the same equality question as testing the given b-dependent upper bound. The complete necessity is nevertheless covered by the distinct indexed record.",
+        "searches": [
+          "arXiv:2610.32219v1, pp. 1–2 and §3.2 p. 5",
+          "Aguiló–Miralles, DOI 10.46298/dmtcs.3462, Theorem 6 p. 321"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --dae7625c4d38",
+        "arXiv:2610.32219v1",
+        "doi:10.46298/dmtcs.3462"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched proof uses k-fold residue coverage and the Apéry deficit identity to deduce b=a+1, followed by representability arguments excluding all other cases.",
+          "In the two exact families c=2a or a=1, so the redundant-generator consequence follows immediately from the covered classification."
+        ],
+        "reasoning": "The full implication, including the no-embedding-dimension-three corollary, is already secured by the matching theorem. The shorter exclusion via the two-generator Frobenius number is a proof variant, not a distinct surviving result.",
+        "searches": [
+          "Resultary --dae7625c4d38, proof at offset 0",
+          "arXiv:2610.32219v1, Theorems 1–2",
+          "Aguiló–Miralles, Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched Finding lists (c,a,b)=(2k,1,2) and (2k,k,k+1), k≥2, under strict ordering and joint gcd one, with F=−1 for the unit case."
+        ],
+        "reasoning": "Reordering the tuple to (a,b,c) gives exactly the two frozen families; modulus parity and the lower endpoint coincide.",
+        "searches": [
+          "Resultary local searches for sharp three-generator Frobenius equality and consecutive smaller generators; --dae7625c4d38, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives exactly two triples at each fixed even c≥4 and none at odd c, with both triples specified explicitly."
+        ],
+        "reasoning": "This is an exact family-level match, stronger than agreement on any finite table of Frobenius values.",
+        "searches": [
+          "Resultary local index: equality in the sharp three-generator Frobenius bound; --dae7625c4d38, Finding"
+        ]
+      },
+      "rationale": "The distinct indexed record --dae7625c4d38 states and proves the identical iff classification for the identical bound and hypotheses, including the unit-generator convention. It is not a mere title match or the same source file: its elimination argument differs, but its main Apéry-deficit step is also substantially the same. Its displayed catalogue date does not establish priority or how the records came to overlap. The fail is for demonstrable equivalent coverage, not a claim of historical priority.",
+      "residual_risks": [
+        "Index dates and the text comparison do not identify the origin or priority of the matching records.",
+        "The cited 1998 work of Hamidoune was not inspected in full; stronger older coverage remains possible and would not undo the demonstrated match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent conclusion in a distinct indexed text",
+          "evidence": [
+            "Same two iff families; same necessary consecutive-generator step; a different even/odd representability argument."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigidity-of-equality-in-the-sharp-three-generator-frobenius-boun--dae7625c4d38/RESULT.md",
+          "material_read": "Finding, scope and decisive proof passages at offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "Rigidity of equality in the sharp three-generator Frobenius bound",
+          "trigger": "Plausible exact equality match"
+        },
+        {
+          "assessment": "Covers the bound and one equality family, not complete equality in the passages read",
+          "evidence": [
+            "The general formula specializes directly with n=3, and the family S_{n,q} specializes to (q,q+1,2q)."
+          ],
+          "identifier_or_url": "arXiv:2610.32219v1",
+          "material_read": "Introduction pp. 1–2; Theorem 1 p. 2 (offset 4932); Theorem 2 and proof p. 5 (offset 14848)",
+          "method": "OA PDF, bounded passages",
+          "title": "A Sharp Upper Bound for the Frobenius Number",
+          "trigger": "Exact sharp bound and known equality examples"
+        },
+        {
+          "assessment": "Distinct optimization objective",
+          "evidence": [
+            "Its extremizers maximize F with the largest generator fixed, rather than testing equality in the middle-generator-sensitive bound."
+          ],
+          "identifier_or_url": "doi:10.46298/dmtcs.3462",
+          "material_read": "Theorem 6 p. 321, offset 10919",
+          "method": "OA PDF, bounded passage",
+          "title": "On the Frobenius’ Problem of Three Numbers",
+          "trigger": "Same triples, potentially stronger extremal theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Chen–Hu–Mao–Zhang, Theorems 1–2",
+        "Resultary --dae7625c4d38"
+      ],
+      "rationale": "As a mathematical question, the equality classification is natural: a general sharp bound has examples, but classifying every equality case shows that a genuinely three-generator numerical semigroup cannot be extremal. This is more than an exact table or a substitution. The classification has intrinsic structural value, but this record adds no new such result beyond the equivalent match.",
+      "residual_risks": [
+        "Neither the classification nor the alternate proof supplies a quantitative bound for embedding dimension three or stability near equality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

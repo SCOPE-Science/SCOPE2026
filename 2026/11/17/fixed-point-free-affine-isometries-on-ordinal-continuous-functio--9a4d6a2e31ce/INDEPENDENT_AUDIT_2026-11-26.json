@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:24:44.229637Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the punctured ordinal interval, let r send each successor to its predecessor and fix each nonzero limit. At a limit λ and for any γ<λ, input points in (γ+1,λ] go to (γ,λ]; this works without a countable local base. Thus r is continuous. If a compact superlevel set of f lies in [0,β], the corresponding nonzero-coordinate superlevel set of f∘r lies in [1,β+1] and is closed therein; β+1<τ. Extending by zero at the isolated point 0 defines a positive linear map U on C_0. Every f-coordinate is copied to its successor, so U is isometric. Adding e_0 on its separate support makes T affine, order preserving, and sphere-valued on the ball. A fixed point would equal 1 at 0 and all successors by the equation, and at all limits by continuity and transfinite induction, violating vanishing at infinity. Convex averaging preserves the ball and is nonexpansive with the same fixed points. For x_n=T_θ^n(0), successive differences are θ[(1−θ)I+θU]^n e_0. As Ue_k=e_{k+1} for finite k, their supremum norm is θ times the Bin(n,θ) mode probability; the usual tied modes are harmless. For fixed 0<θ<1 the mode differs from nθ by O(1), so Stirling gives exactly the stated equivalent. The residual is that of successive iterates (divide by θ for ||T x_n−x_n||), not a universal sharp bound. The supplied rational checker was inspected, not run; its finite coordinates cannot certify the transfinite step.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DiPaulo provides a fixed-point-free nonexpansive ball map for every noncompact locally compact Hausdorff space, hence all these ordinal examples. The construction uses a positive-function subset and a retraction.",
+          "Barroso classifies the ball fixed point property for real C(K) and uses transfinite propagation for compact F-spaces; the inspected statements yield no affine isometry with this residual."
+        ],
+        "reasoning": "The broader existential BFPP result covers the weaker fixed-point-free nonexpansive conclusion, not the operator's affine, positive, norm-preserving structure or its explicit orbit. A general upper bound on KM residuals, as such, would not determine the exact norm for this construction.",
+        "searches": [
+          "arXiv:2611.01486v1 Theorem 2.1 and Corollary 3.1",
+          "arXiv:2609.16318 Theorem 1.2",
+          "Bounded OA lookup for sharp averaged-map rates, arXiv:1606.05300 (timed out)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Verification; VERIFICATION.md; check_binomial.py",
+        "arXiv:2506.17995",
+        "arXiv:2609.16318",
+        "arXiv:2611.01486v1",
+        "Resultary self-match 9a4d6a2e31ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior failure-of-BFPP results already give the loose existence statement. The affine isometry needs a continuous proper coordinate predecessor extended at all limit points, and fixed-point exclusion needs transfinite induction. The exact residual then follows mechanically from the standard finite-coordinate shift."
+        ],
+        "reasoning": "Credit both the prior ordinal shift idea and the weaker broad BFPP result. Neither checked construction gives this affine map on the specified C_0 spaces by restricting or substituting a parameter. The distinction is the all-ordinal affine witness, not a new probabilistic theorem.",
+        "searches": [
+          "arXiv:2506.17995 displayed construction in Theorem 4.1",
+          "arXiv:2609.16318 §1.2",
+          "arXiv:2611.01486v1 Theorem 2.1 and Corollary 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avilés et al. give an ordinal two-step shift and limsup/liminf rules, with fixed coordinates 1 and -1; the displayed map is isometric and sphere-valued but the envelope rules are not affine.",
+          "The present one-step successor map uses limit evaluation and a separate e_0 translation, with vanishing at infinity rather than an eventual constant-off-small-set condition."
+        ],
+        "reasoning": "There is genuine overlap as ordinal shift constructions, but nonlinear envelopes are not equivalent to this positive linear isometry plus translation. Nor can an ordinary embedded c_0 shift force a hypothetical fixed point to equal 1 on the full ordinal interval.",
+        "searches": [
+          "Resultary: ordinal C_0 fixed-point-free positive affine isometry and binomial relaxation",
+          "arXiv:2506.17995 Theorem 4.1 and arXiv:2609.16318 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target 9a4d6a2e31ce is a self-match; no distinct close catalogue match was returned.",
+          "The prior BFPP classifications address existence, not tabulated affine-shift residuals. The largest binomial mass and its mode are classical facts, not new table entries."
+        ],
+        "reasoning": "A finite table is not the natural form of a theorem over every infinite limit ordinal, continuous θ and all iterate numbers. A table of binomial probabilities can evaluate this formula once proved but cannot establish the universal construction or identify those probabilities as its residuals.",
+        "searches": [
+          "Resultary: fixed-point-free affine isometries of ordinal continuous-function balls",
+          "Avilés et al. Theorem 4.1; DiPaulo Corollary 3.1"
+        ]
+      },
+      "rationale": "The literature already proves failure of the ball fixed point property, with a close earlier ordinal isometric shift using nonlinear envelopes. The surviving distinct claim is the positive affine construction on every ordinal C_0 ball, including at uncountable cofinality, with the explicit relaxed orbit for that map. The finite-coordinate binomial law is a standard shift calculation; this pass does not assign independent priority to the ordinary c_0 law or to asymptotic regularity bounds.",
+      "residual_risks": [
+        "Earlier literature may give an equivalent affine ordinal C_0 shift outside the inspected comparisons.",
+        "Exact KM shift-orbit priority was not resolved; the bounded additional OA comparison timed out. The finite-coordinate calculation is not claimed as independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in isometric sphere-valued shift idea, not affinity or the given C_0 setup",
+          "evidence": "Coordinates 0 and 1 are fixed, f(α) is copied to α+2, and limit/successor-of-limit values use nonlinear limsup/liminf envelopes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.17995",
+          "material_read": "Theorem 4.1 and displayed construction, PDF pp. 8–9, OA offset 20915",
+          "method": "Lawful OA PDF passage read",
+          "title": "The ball fixed point property in spaces of continuous functions",
+          "trigger": "Closest prior ordinal shift witness"
+        },
+        {
+          "assessment": "Relevant transfinite nonexpansive construction; not the affine-isometric claim in read passages",
+          "evidence": "Real C(K) has BFPP iff K is extremally disconnected; §1.2 explicitly cites the older successor–limit envelope shift.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16318",
+          "material_read": "Theorem 1.2, PDF p. 2 offset 4580, §1.2 p. 3 offset 6499",
+          "method": "Lawful OA PDF passage reads",
+          "title": "Transfinite contractive propagation and the ball fixed point property in C(K)",
+          "trigger": "Broader transfinite fixed-point-free result"
+        },
+        {
+          "assessment": "Subsumes fixed-point-free nonexpansive existence, not checked finer affine result",
+          "evidence": "Failure of BFPP for C(K,p) when p is non-isolated gives failure for C_0(L) when L is noncompact; proof uses a map on a positive subset and a retraction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01486v1",
+          "material_read": "Theorem 2.1 PDF p. 1 offset 3276 and Corollary 3.1 p. 3 near 9843",
+          "method": "Lawful OA PDF passage reads",
+          "title": "The ball fixed point property for continuous functions on locally compact spaces",
+          "trigger": "Same spaces under a broader theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An order-preserving affine isometric witness is considerably more constrained than an arbitrary map failing BFPP. The ordinal construction gives a direct witness with no cofinal-sequence assumption and shows on that witness that an exactly quantifiable vanishing residual does not imply a fixed point. The uncountable-cofinality case requires the full transfinite compatibility; the familiar finite shift and binomial mode alone would not have this force.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

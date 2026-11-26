@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit lift is continuous, degree one, and its displacement is bounded exactly between \(0\) and \(m\). Two common fibre fixed points modulo the circle realize averaged displacements \(0\) and \(1\) under a Bernoulli frequency of \(1/m\), while no trajectory exceeds those bounds. Li–Lloyd–Romaña's interval theorem gives the whole random rotation interval. The identity-step Bowen metric equals that of the active deterministic map at the activation count, giving exact entropy scaling; the elementary Lipschitz bound then tends to zero. The source's positivity theorem applies to each individual example. Exact rational finite checks reproduce the algebra without replacing the limiting proof.
+## correctness
 
-## Originality — PASS with residual priority risk
-The primary source proves positive entropy from nondegenerate random rotation intervals and asks about quantitative control through recurrence data. It does not itself assert a universal entropy lower bound, let alone disprove one at constant interval width and constant expected lift-displacement budget. Earlier deterministic entropy bounds apply before Bernoulli time insertion. Closest indexed work on Bernoulli rotation sections addresses section entropy, not entropy of the full cocycle. Exhaustive mathematical priority is not asserted; an abstract entropy time-change construction may provide a broader ancestor.
+PASS
 
-## Mathematical value — PASS
-The result settles a natural obstruction to strengthening qualitative positivity into a lower bound based only on rotation width. The equal expected integrability budget removes a facile explanation based on divergent average displacement, and the two-branch example identifies the missing recurrence/uniform-geometry control. The exact entropy time-thinning law makes the obstruction quantitatively transparent, rather than a numerical observation. There is no claim about systems with uniformly bounded per-symbol geometry.
+The affine pieces join and the periodic extension has degree one, displacement in [0,m], equality at 0 and 1/2 for the respective extremes, and mean sup displacement exactly one. Independently of the cited rotation theorem, on J=[0,1/2] the active increasing branch admits two inverse branches g_d(t)=(t+md)/(2m+1) for d=0,1 with disjoint images in J. Nested inverse intervals realize every binary sequence; the lift after k active steps exceeds the bounded residual coordinate in J by m times the number of ones in the first k digits. Choosing any limiting digit frequency and using N_n/n→1/m gives every ordinary rotation value in [0,1] on a single full-measure base set. The global displacement bound excludes any other upper rotation value. At time n the sample Bowen metric equals the deterministic metric of length N_{n−1}+1 because the sampled activation counts visit every intervening integer. These lengths go through all positive integers on the full-measure set, and their ratio to n tends to 1/m, proving the exact separated-set entropy rescaling at each fixed scale and in the limit. The inverse cylinders give 2^k separated points at a fixed scale for the deterministic map, while its Lipschitz bound 2m+1 gives the covering upper bound log(2m+1). Thus each member is positive and per-step entropy tends to zero with both controls fixed.
 
-## Closest sources and limits
-Li–Lloyd–Romaña, arXiv:2606.16498v1, Theorems 2.1, 2.3 and Section 5; Alsedà–Llibre–Mañosas–Misiurewicz, *Nonlinearity* 1 (1988), for deterministic bounds. The proof uses the former's two stated theorems and independent elementary estimates. A complete independent priority search and independent proof audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the simultaneous normalization of global rotation width and expected sup lift displacement with vanishing global random entropy, not positivity or the elementary identity-insertion rule alone. Inspected results on restricted invariant families, rotation spectra, deterministic bounds and full-cover block probabilities do not establish this obstruction. This is bounded evidence, not a priority claim.
+
+## value
+
+PASS
+
+The example gives a boundary for quantitative extensions of the random rotation-interval positivity theorem. Width alone cannot quantify entropy, and even the natural first-moment integrability norm does not prevent rare large active steps. Both proposed controls are kept exactly fixed, not merely uniformly bounded on a degenerating family. This explains why a recurrence or stronger uniform control matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

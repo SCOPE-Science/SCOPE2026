@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The checks below are finite and reproducible from the companion files. The proof-critical enumeration is implemented directly in `verify_exact.cpp`; no incumbent from a heuristic solver is used as an upper-bound certificate. The compatibility graph is rebuilt from the channel definition. In a recursive call, a proper coloring of the remaining compatibility graph bounds how many more vertices can belong to a clique, and all unpruned alternatives are considered.
+## correctness
 
-On a clean extraction, compile the C++ file with `g++ -O3 -std=c++17 verify_exact.cpp -o verify_exact`, then invoke `./verify_exact 2`, `./verify_exact 3`, `./verify_exact 4`, `./verify_exact 5`, `./verify_exact 6`, and `./verify_exact 7`. Outputs must respectively report maxima \(1,3,4,8,12,22\); the length-seven call reports \(1,526,900\) recursion nodes. `optimal_codebooks.json` gives directly checkable feasible sets for the same maxima.
+PASS
 
-Run `python3 verify_fractions.py`. This uses only Python's standard library and `fractional_certificate.json` to verify exact rational primal/dual feasibility and equal objectives \(3/2,3,9/2,42/5,27/2,99/4\) for lengths \(2\) through \(7\). The checker independently regenerates all possible words and deletion descendants, including outputs containing adjacent repeated letters.
+Two deletion positions i<j give the same word iff the entire interval i…j is constant, impossible here. Disjoint shadows are exactly the decoding condition and must include descendants with adjacent repeats. The supplied color-prefix search is sound: independent color classes bound a clique on the remaining prefix, and each feasible extension has a largest processed vertex, so it is visited or excluded by the bound. Independently rebuilt the incidence and conflict masks from the definition, checked all supplied witnesses, and excluded a family of size M_n+1 by exact branching on a group of mutually conflicting words (one member or none); partitioning the remaining candidates into such groups gives a valid upper bound. This proved (1,1,3,4,8,12,22), with 1,837,807 nodes for the length-seven upper bound. For the ordinary packing LP, an independent rational replay checked every primal load and dual cover against the rebuilt incidence and verified equality of objectives (1,3/2,3,9/2,42/5,27/2,99/4). The empty word gives both optima at n=1. Lengths through six give fewer than 16 messages, while the length-seven witness suffices; its additive LP gap is 99/4−22=11/4. No assertion about later lengths or an asymptotic capacity is validated.
 
-For a separately formulated integer-model cross-check, run `python3 alternate_milp.py` with a recent NumPy/SciPy installation. It creates output-incidence inequalities independently and requires an optimizer status of proven optimality, not a time-limit status. No solver logs are accepted as proof without the exact mathematical reduction and verified arithmetic.
+## originality
 
-The base case at length \(1\) has three possible letters and one common empty descendant, giving integer and fractional optimum \(1\). The tests establish no claim for longer lengths. This package has not been independently mathematically audited.
+PASS
+
+The exact finite integer and ordinary LP optima concern ternary input words of maximum run length one, with unconstrained deletion outputs and unknown position. Comparison finds the standard hypergraph and LP framework and multiple related exact capacities, but not a verified same-hypothesis theorem or a mechanical implication for these values. Credit is for the resolved finite optima and first 16-message length, not for either optimization formulation.
+
+## value
+
+PASS
+
+The source restriction, unknown-deletion channel and minimum block length for 16 codewords define a concrete finite coding question rather than an arbitrary cutoff. The constructed optimum and exact exclusion of larger codes give an actionable threshold, while the rational LP table shows specifically where the ordinary shadow relaxation ceases to certify the integer sizes. Those exact facts are not supplied by the broader matching model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

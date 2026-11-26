@@ -1,19 +1,21 @@
-# Scientific review: local-codegree law for dense regular complements
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the graph class, projection normalization, and every finite parameter. The key identity \(L_{\overline H}|_{\mathbf1^\perp}=NI-L_H\) leads to an absolutely convergent Neumann expansion because \(2r/N\le1/2\). Its remainder has \(\ell_1\) norm at most \(16r^2/N^3\). The first two terms have exactly three non-source potential levels, counted by \(A=r-c_e\); the proof evaluates their total variation in the complete graph and subtracts every deleted edge, including the explicitly controlled non-source contribution \(T\). The resulting \(32r^2/N^2\) error is then converted to the \(44r^2/N^2\) complementary-projection error using the exact diagonal resistance identity. Distinct integer codegrees differ at first order by at least \(2/N\), establishing the stated sufficient threshold. Independent finite matrix reconstruction of 606 columns is supplementary rather than the basis of the infinite proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+On the zero-sum subspace the complement Laplacian is NI-L_H; the graph is connected since a component would have size at least N-r>N/2. For s=e_u-e_v, the tail after s/N+L_Hs/N² has ℓ1 norm at most 2(2r/N)²/[N(1-2r/N)]≤16r²/N³. Independently counted edges in G for the truncated potential. With A=r-c_e and d=N-1-r, endpoint edges contribute 2d(1/N+r/N²)-2A/N²: the remaining neighbors of u contribute A positive δ values, and those of v contribute A negative values. Away from the endpoints the complete three-level δ profile contributes 2A(N-2-A)/N², less T/N² from deleted edges. This gives the claimed identity with correction 2r(r+1)+2A(A+3)+T≤16r², using T≤4Ar. Total variation is d-Lipschitz in vertex ℓ1, giving error 32r²/N². The actual signed resistance Q_ee differs from 2/N+2r/N² by at most the tail norm; 0≤Q_ee≤1 and p_e=q_e+1-2Q_ee give the bound 44r²/N² for N≥4r. Orientation changes only signs. Symmetry gives the same row and column operator norms; comparing an edge with c_* to any edge with larger integer codegree yields strict separation at N>44r². Taking maxima with interval bounds also works below this threshold, without an extremizer claim. For cycles the minimum is zero once N≥6 and the stated threshold is 177; for cubes distance two gives codegree two versus zero at larger distances, and 2^m>44m² for m≥13. Fixed-r first-order limits follow directly. The all-size proof above is an analytic replay, not an extrapolation; CHECKER.py was inspected rather than executed.
 
-Schild–Rao–Srivastava, *Localization of Electrical Flows* (arXiv:1708.01632), gives a universal average localization result and an expander Neumann expansion, but not a local codegree coefficient for arbitrary regular complements. Dilworth–Kutzarova–Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost* (arXiv:2305.12582), treats invariant projections and explicitly computes ordinary Hamming-cube norms, not regular deleted-subgraph perturbations. Gurel-Gurevich–Nachmias–Sachdeva, *A Tight Bound on Localization of Electrical Flows* (arXiv:2605.24130), gives a universal logarithmic localization estimate, again not the edgewise density expansion. Relevant indexed results about sparse-graph and graph-subspace projections were checked by mathematical implication, and do not directly establish the result. No search result proves novelty; equivalent unpublished or poorly indexed perturbation results remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem supplies the first-order response of canonical real Banach endpoint projection norms to a general regular pattern of edge deletions. Its coefficient reveals an otherwise hidden **local-neighborhood overlap** effect despite identical graph degrees, and yields a uniform strict rule excluding larger-codegree edges from both global maximizer sets for sufficiently dense complements. The conclusions apply to nontransitive regular deleted graphs and give concrete structural consequences for complements of cycles and hypercubes. This goes beyond merely restating spectral or resistance bounds; it resolves which local graph statistic selects maximizing currents to first order. The constants and density cutoff are only sufficient, not asserted optimal.
+The distinct supported claim is the first-order absolute-column law and consequent extremizer restriction for the whole class of regular deletions, not the current-matrix representation, the Neumann series, or a claim to be first to compute endpoint norms. The strongest related statements inspected do not cover it.
 
-## Remaining limits
+## value
 
-No assertion is made about exact global values for every graph, ranking within the minimum-codegree class, weighted or irregular deletions, intermediate \(\ell_p\), or minimum norms over nonorthogonal projections. Bibliographic completeness is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The endpoint projection norm concerns the largest absolute current length, not its average, and degree alone does not resolve its maximizers. The theorem gives a local, readable invariant with a uniform error and excludes whole codegree classes from both maximizing sets, even for complements without strong symmetry. Cycle and cube applications illustrate a nonconstant coefficient rather than supplying isolated numerical cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

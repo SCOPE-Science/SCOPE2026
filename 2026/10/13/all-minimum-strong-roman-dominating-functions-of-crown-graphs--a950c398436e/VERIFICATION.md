@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses an exact fixed-zero-support reduction. If the zero-index sets have sizes \(p\) and \(q\), intersection size \(c\), and \(r=n-p-q+c\) common-positive indices, then the least excess on the \(A\)-side needed to defend the \(q\) zero vertices in \(B\) is the smaller available value among
-\[
-\left\lceil\frac q2\right\rceil\quad(r\ge1)
-\]
-and
-\[
-2\left\lceil\frac{q-1}{2}\right\rceil\quad(q-c\ge2).
-\]
-The symmetric formula holds for the other side. This is exact because a common-positive strong vertex sees every opposite zero, whereas without such a vertex at least two inside-index strong vertices are necessary and two suffice.
+# Independent mathematical audit
 
-The standalone script `verify_strong_roman_crown.py` performs three independent finite checks:
+## correctness
 
-1. Direct exhaustive labeling enumeration for \(n=3,4,5\), using the defining strong Roman inequality at every zero vertex. It finds minimum values \(4,6,6\) and exactly \(3,76,5\) minimum functions, and checks equality of the entire enumerated minimum-function set with the theorem's classified family.
-2. Exhaustive enumeration of every feasible integer zero-support triple \((p,q,c)\) for each \(3\le n\le50\), using the exact fixed-support formula. The only minimizing patterns are precisely the one odd pattern and five even patterns used in the proof.
-3. Construction of every classified minimum function for \(3\le n\le20\), followed by direct evaluation of the defining strong Roman condition and the claimed weight.
+PASS
 
-Replay output:
+For fixed zero sets of sizes p,q, a positive A vertex at a common-positive index can cover all q B zeros for excess ceil(q/2) above one. If no common-positive defender is used, each A defender misses its own opposite zero, so at least two are necessary and two distinct ones suffice at cost 2ceil((q-1)/2), if available. The same argument holds on B, independently, with zero cost when there are no zeros to defend. This gives the exact support formula and the bound w>=2n-floor(p/2)-floor(q/2). If an entire shore is zero, the other cannot have any zeros and the cost is at least n+2ceil((n-1)/2), strictly above the matched-pair witness for n>=3. For n=2m+1, equality forces both zero counts 2m (the floor drops at 2m-1), and the only positives must form a deleted matched pair. For n=2m, equality forces p,q in {n-2,n-1}; only a common-positive defender can realize equality if n>=6 because the two-defender excess is strictly larger. At n=4 a side with two opposite zeros also has strict excess for inside-only defense. For three opposite zeros the possible cost tie cannot occur at equality: the opposite shore has a sole positive which must have a common-positive index; this leaves at most one inside-index candidate. With nonempty support intersection exactly the five claimed support patterns remain, and on each side only one common-positive vertex carries excess. The counts are n; n(n-1) each for the asymmetric 2-by-1 cases; n(n-1)(n-2) for two 2-supports meeting once; and 4 binom(n,2) for identical 2-supports. Summing gives n(n^2+n-1) for even n. The labels fit the degree-based cap and each listed family attains the lower bound.
 
-`VERIFY_OK exhaustive_n=3..5 filtered_labelings=11182 pattern_n=3..50 pattern_checks=316236 classified_n=3..20 generated_minima=25719`
+## originality
 
-These finite checks validate boundary behavior and the implementation of the classification. They do not establish the theorem for unbounded \(n\); that is supplied by the symbolic fixed-support proof in RESULT.md.
+PASS
+
+The scalar formula and the matched-pair witnesses are explicitly prior and are not a contribution here. A same-day indexed result enumerates a restricted subclass whose minima coincide with the matched-pair functions at both parities. Even-order ordinary equality beyond those n functions is the clearest distinct contribution: the other four families and full census are not implied by either source. The closed classification of all ordinary optimizers therefore goes beyond the inspected results.
+
+## value
+
+PASS
+
+The exact equality families show that the even case has cubic multiplicity and four additional support geometries, where the known scalar formula only identifies a one-unit change. This gives a reusable optimum-set benchmark for the canonical almost-complete bipartite family and distinguishes ordinary from restricted response; it is not a recomputation of the scalar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

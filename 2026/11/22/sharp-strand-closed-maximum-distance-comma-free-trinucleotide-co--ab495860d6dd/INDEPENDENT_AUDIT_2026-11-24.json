@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:42:35.308253Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–63",
+        "VERIFICATION.md, verify_permutations.py and verify_direct.py (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/evidence/record-5.py"
+      ],
+      "rationale": "Distance three makes each coordinate projection injective, so |C|<=q; at equality the rows have form (i,f(i),g(i)) for bijections f,g. A shift-one splice is possible exactly where g(i)=f^2(i); a shift-two splice is possible exactly where that equality holds at g(i). Complemented reversal sends row i to row t(i)=c(g(i)); the middle position gives t=f^{-1}cf and t^2=id ensures that the final position matches. This proves both directions of the stated classification. In the binary case any nonempty closed code would have size two, but f can only be the identity or c, both forcing g=f^2=id. The explicit four- and six-symbol blocks were checked against the literal conditions. Disjoint complement-stable blocks preserve distance and closure, and cross-block splices use symbols from both blocks, hence cannot equal a row. Every even q>=4 is a sum of fours or a six plus fours. An independent exhaustive replay pairs each smallest unused first symbol with its mate's first symbol, tries all unused middle-complement pairs, and checks literal splices and coordinate distinctness, without assuming the permutation inequality. It verifies the exact four-symbol list, both orbit sizes 2 and 4, and the counts 0,6,160,8988 for q=2,4,6,8.",
+      "residual_risks": [
+        "The finite census does not supply a counting formula for general q. The maximum and equality criterion for general even q are proved symbolically, not extrapolated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest paired-even-alphabet indexed theorem gives a size spectrum under the stricter non-overlap model.",
+          "Frozen RESULT.md lines 65–69 distinguishes the published circular-code hierarchy and Michel's 20-word self-complementary circular code from this maximally separated splice problem."
+        ],
+        "reasoning": "The restriction to non-overlapping codes cannot by itself prove nonexistence in the weaker binary model or characterize its full-size optima. A self-complementary 20-word circular code cannot have distance three on a four-symbol alphabet, because one coordinate already bounds size by four. The available statements therefore do not cover the target theorem; appendices of inaccessible related texts remain untested.",
+        "searches": [
+          "Resultary 0a0389fdc4a8",
+          "Michel–Pirillo DOI:10.1155/2011/659567",
+          "Michel DOI:10.1016/j.jtbi.2015.04.009",
+          "Blackburn arXiv:1303.1026"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–75",
+        "Resultary 0a0389fdc4a8, bd3ff540fee7 and 4130581d3102 (indexed statements)",
+        "Michel–Pirillo 2011, Michel 2015, Blackburn 2015 (attempted OA; attributed comparisons only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The current equality classification requires two bijections and complemented reversal, and reduces splice avoidance to one pointwise inequality (RESULT.md lines 39–46).",
+          "The nearest indexed even-alphabet result requires non-overlap, which is impossible here at full size, while the closest distance-resolved comma-free count has no such involution."
+        ],
+        "reasoning": "Neither a spectrum in a strict different class nor a census without the pairing proves the permutation equivalence, attainable all-even maximum, or exact four-symbol census by specialization. The injection upper bound itself and the individual coding notions are elementary or established, not claimed as novel.",
+        "searches": [
+          "Resultary 0a0389fdc4a8, bd3ff540fee7, 4130581d3102",
+          "Michel DOI:10.1016/j.jtbi.2015.04.009",
+          "Blackburn arXiv:1303.1026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 36–44 distinguish reverse-complement closure from distance to a reverse complement, and alignment from shifted splices.",
+          "Resultary 0a0389fdc4a8 uses non-overlap; bd3ff540fee7 uses a ternary alphabet with no fixed-point-free pairing."
+        ],
+        "reasoning": "Non-overlap forbids common one-letter prefixes/suffixes of codewords, while full-size distance-three codes use every symbol in each outer position. Thus non-overlap cannot describe these equality cases. Ordinary circular-code constraints also cannot be substituted for closure plus the two length-three splice tests.",
+        "searches": [
+          "Resultary semantic matches for complemented reversal and distance-three comma-free triples",
+          "Resultary 0a0389fdc4a8 and bd3ff540fee7",
+          "Michel–Pirillo DOI:10.1155/2011/659567",
+          "Blackburn arXiv:1303.1026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest four-base census, 4130581d3102, uses four positions and GC balance and reports different counts (12-word maximum and 16 codebooks in five classes).",
+          "The ternary distance-resolved census has the correct length but not the complement structure. The assigned record returned by similarity search is a self-match."
+        ],
+        "reasoning": "These tables are not enumerations of the same objects with any stated relabeling equivalence. No prior exact census of the target six codebooks or two orbits was established. Same-day dating does not settle priority.",
+        "searches": [
+          "Resultary 4130581d3102",
+          "Resultary bd3ff540fee7 (distinct same-day result)",
+          "Resultary 0a0389fdc4a8"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the simultaneous length-three synchronization, closure and maximal-distance problem, in particular the full-size classification and exact four-symbol census. The strongest distinct statements available concern genuinely different constraints; access to several plausible prior full texts remained incomplete.",
+      "residual_risks": [
+        "Full texts of the closest even-alphabet indexed work and the cited circular-code papers were not independently inspected. A historical classification or related appendices might still cover part of the result.",
+        "A literature search without a relevant hit is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial scope overlap; no implication from indexed statement",
+          "evidence": "The summary treats non-overlap and contains no maximum-Hamming-distance constraint; non-overlap cannot hold at full distance-three size in the present formulation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-size-spectrum-of-reverse-complement-closed-length-three--0a0389fdc4a8",
+          "material_read": "Indexed Resultary summary; full record unavailable",
+          "method": "Semantic search and attempted mirror lookup",
+          "title": "Complete size spectrum of reverse-complement-closed length-three non-overlapping codes",
+          "trigger": "Same length, closure and paired even alphabets"
+        },
+        {
+          "assessment": "Different alphabet and closure assumptions",
+          "evidence": "A ternary alphabet admits no fixed-point-free complement involution.",
+          "identifier_or_url": "Resultary bd3ff540fee7",
+          "material_read": "Indexed Resultary summary",
+          "method": "Semantic search",
+          "title": "Complete distance-resolved extremizer census for ternary comma-free codes",
+          "trigger": "Same-day distance-three comma-free census"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Four positions, fixed GC, indexed 12-word maximum and 16 codebooks in five classes.",
+          "identifier_or_url": "Resultary 4130581d3102",
+          "material_read": "Indexed Resultary summary",
+          "method": "Semantic search",
+          "title": "Complete census of optimal GC-balanced four-base DNA Hamming codes",
+          "trigger": "Four-symbol Hamming and complemented-reversal census"
+        },
+        {
+          "assessment": "Attributed hierarchy differs; exact primary coverage unresolved",
+          "evidence": "Frozen comparison describes circular/comma-free and stronger prefix/suffix restrictions, not a joint maximal distance and closure theorem.",
+          "identifier_or_url": "https://doi.org/10.1155/2011/659567",
+          "material_read": "Frozen RESULT.md lines 65–66; no independently retrieved primary passage",
+          "method": "OA lookup timed out; publisher access returned 403",
+          "title": "Strong Trinucleotide Circular Codes",
+          "trigger": "Primary work on length-three comma-free and circular codes"
+        },
+        {
+          "assessment": "Distinct described optimization; full-text overlap not ruled out",
+          "evidence": "The described code has 20 words, incompatible with paired Hamming distance three at q=4.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2015.04.009",
+          "material_read": "Frozen RESULT.md lines 65–69 and its attributed abstract-level comparison; primary full text not read",
+          "method": "OA retrieval attempted; PubMed access required cookies",
+          "title": "The maximal C^3 self-complementary trinucleotide circular code X in genes of bacteria, eukaryotes, plasmids and viruses",
+          "trigger": "Potentially relevant self-complementary trinucleotide classification"
+        },
+        {
+          "assessment": "Not an equivalence of the stated models",
+          "evidence": "For full-size present codes every symbol occurs in the first and last positions, so one-letter overlap is unavoidable.",
+          "identifier_or_url": "arXiv:1303.1026",
+          "material_read": "Frozen RESULT.md lines 65–69; no independently retrieved primary passage",
+          "method": "Attempted OA lookup, timed out",
+          "title": "Non-Overlapping Codes",
+          "trigger": "Stronger synchronization model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–37 and 39–69"
+      ],
+      "rationale": "Length three is the natural first case for the specified simultaneous word-boundary synchronization, complemented reversal closure and one-substitution correction. The important content is not the coordinate upper bound but its exact attainability away from the binary obstruction, an efficient equality test for every paired alphabet, and the complete four-symbol census with its genuine relabeling symmetries. The census determines design diversity at a natural parameter point rather than evaluating an arbitrary small slice.",
+      "residual_risks": [
+        "This is a formal coding result, not evidence of biochemical implementation, sequencing performance or suitability for a biological application."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

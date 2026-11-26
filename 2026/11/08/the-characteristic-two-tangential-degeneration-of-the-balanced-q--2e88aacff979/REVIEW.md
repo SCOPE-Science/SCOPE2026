@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tangent-plane incidence construction, dual-conic calculation and rank-two density determine the exact prime equations over both characteristic regimes. A function-field chart proves purely inseparable degree two in characteristic two, the Jacobian and Serre criterion establish normality, and the rank-one matrix divisor establishes nonnormality away from characteristic two. Exact symbolic and finite checks corroborate these arguments without replacing their general proofs.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Oeding–Raicu gives characteristic-zero equations, and Catalisano–Oneto and Khadam–Vodička likewise work over the complex numbers. Van Geemen–Marrani proves analogous characteristic-two quadric behavior for a different list of homogeneous varieties but not the balanced quartic scroll or its incidence map. Searches for both scroll and Segre–Veronese aliases found no implication covering this theorem. A specialized, as-yet-unlocated source may affect priority; search failure is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-This is a naturally motivated failure of specialization for the tangential construction of a smooth minimal-degree surface. The geometric contrast includes the degree drop from four to two, normality reversal, Frobenius inseparability of the tangent incidence, and double structure in the integral quartic's fiber, not only an elementary equation reduction.
+At each base coordinate z the two rows are independently in the span of (z²,z,1) and (2z,1,0). On the rank-two locus the derivative coefficients recover the ruling point, so this row-space model computes the degree of the actual tangent-plane incidence map. Its normal is [1:−2z:z²]. Away from characteristic two the annihilator discriminant gives H, recovering z rationally on M_0≠0. The rank-one locus cannot supply a hypersurface component and the displayed rank-two point has derivative ∂H/∂A_0=4, so H is geometrically prime in these characteristics. Along the rank-one divisor H lies in the square of its defining ideal; nonregularity in codimension one follows even over imperfect fields. In characteristic two the normals fill a dense part of the line M_1=0 geometrically, and Q is an irreducible 2-by-2 determinant. Its gradient ideal is exactly (A_0,A_2,B_0,B_2); codimension three of the singular locus and the hypersurface S_2 property give normality. On A_2=1, Q solves for B_0, and A_0 has valuation one at (A_0) in the resulting rational function field. Adjoining its square root gives the whole generic incidence field and purely inseparable degree two. Primitivity gives a torsion-free integral homogeneous-coordinate quotient and flatness, with special equation Q². This is a geometric image, not the closure of just the k-rational tangent planes. The supplied verifier and recorded output were inspected, not run; their finite samples are not needed for these arguments.
 
-## Scope and limitations
-The result concerns the reduced tangential image in the explicitly fixed monomial embedding over arbitrary fields. It does not treat all integral models, every Segre–Veronese surface, or higher osculating schemes. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The characteristic-zero quartic case and analogous characteristic-two discriminant degenerations are established prior work. The exact matching local mirror has the same identity as the frozen record and is not independent prior evidence. The distinct related records and inspected primary literature do not supply the fixed S(2,2) reduced characteristic-two image, degree and normalization behavior together or the quartic-to-double-quadric comparison for it. This pass is limited to that characteristic-dependent result and not the characteristic-zero equation by itself.
+
+## value
+
+PASS
+
+The balanced quartic scroll is a basic, fixed embedded test case for tangent schemes in mixed characteristic. The exact comparison separates three phenomena that an equation over characteristic zero alone misses: noncommutation with reduced image, the change in normality, and inseparable generic incidence despite a single geometric generic preimage. These are useful model-specific boundary data, not merely a modular polynomial expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

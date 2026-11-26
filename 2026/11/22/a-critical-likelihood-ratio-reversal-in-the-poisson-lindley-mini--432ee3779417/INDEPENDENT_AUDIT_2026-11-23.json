@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:53:23.418447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The PGF of the modified geometric sum is the stated geometric/shape-two negative-binomial mixture (polynomial rational identity independently checked). Its tail divided into the Poisson–Lindley tail gives E(k); the exact identity (1-U)D=t^2F was independently checked. The upward quadratic F has one positive root, above 1/(1+t), so gamma<1; the difference formula for E(k)-E(k+1) is positive for k>=1, with U=1 exactly at the endpoint. This both certifies the innovations and establishes stationarity by independent multiplication of tails. For each k>=1, the shorter geometric sum can equal k-1 while the added summand is positive with nonzero probability, so multiplication by E(k)>0 makes the conditional tail order strict. Expanding the two columns with p=r^(y+1) and consecutive factor rp gives Delta_y=-qp B_a(y) symbolically for arbitrary y. Independent rational reduction of N=U(1+Vq^2)-2qV to the displayed L^2 Q divided by the positive denominator confirms that the positive-coefficient certificate is exact, so B_a(0)<0, not just a sampled sign. At U=1, B_a=V-1-Vr^(y+2)<0. In the interior B_a is strictly increasing to infinity, proving uniqueness and the integer signs and refuting TP2 there. The root escapes all bounded intervals by continuity and the strictly negative boundary function, and r^(z_*+2) then vanishes since r is bounded away from one near fixed a_c(t). The zero equation and differentiation of (1-U)D=t^2F at that simple root give exactly the stated escape constant. The supplied verify.py was inspected but not run; to replay the exact checks, clear denominators in the PGF and certificate and expand the symbolic two-column minor with p and rp. No TP2 assertion for other boundary minors is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The originating article introduces exactly the PL-MINAR model and treats transition probabilities, conditional measures and estimation; frozen equation (17) comparison identifies the general transition-mass representation.",
+          "The Qian–Zhu covariate model is broader in a design direction but the accessible comparison concerns ergodicity, estimation and testing, not the PL-specific uniform sign certificate."
+        ],
+        "reasoning": "A broad class of transitions includes the subject but not automatically the sign of cancellations in their adjacent minors. A primary result for the sign of all minification minors under covering innovation assumptions would be decisive; none is established by the inspected sources.",
+        "searches": [
+          "doi:10.3934/math.20241102",
+          "doi:10.1111/anzs.12379",
+          "Resultary: Poisson Lindley minification autoregressive transition total positivity adjacent likelihood ratio minor stochastic monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.20241102",
+        "doi:10.1111/anzs.12379",
+        "Resultary: Reversibility and a three-band minor sign law for geometric-minification count chains"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior transition law yields the first two columns directly; common-summand coupling already underlies the stochastic-order statement.",
+          "The sign reversal adds a uniform initial-sign calculation N>0, a strictly increasing exponential-affine B, and a singular root limit with derivative of the admissibility gap. These are not given by a prior moment, stationarity, or transition formula alone."
+        ],
+        "reasoning": "Extracting the first two columns is routine; showing the sign orientation flips once for every interior pair but never at the boundary and calculating its escape constant is the surviving claim.",
+        "searches": [
+          "doi:10.3934/math.20241102",
+          "doi:10.1111/anzs.12379",
+          "Resultary: reversibility and a three-band minor sign law for geometric-minification count chains"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K(y,0)>0 for every finite y, including at the boundary, so the sign is exactly the sign of the consecutive difference of K(y,1)/K(y,0). A stationary joint-mass version has the identical sign after positive row scaling by pi_y.",
+          "The indexed geometric-minification three-band result has a different stationary marginal and a different sign pattern: in the same output columns, adjacent minors sufficiently far from the diagonal are zero, versus strictly negative in this PL interior."
+        ],
+        "reasoning": "These aliases do not state the same theorem. In particular different stationary marginals change innovation survival, hence the zero-column tail and the large-y sign. The direct prior-literature search was unavailable; this supplies no negative literature evidence.",
+        "searches": [
+          "Resultary: Poisson Lindley minification autoregressive transition total positivity adjacent likelihood ratio minor stochastic monotonicity",
+          "Poisson Lindley minification INAR likelihood ratio total positivity adjacent minors monotone transition Stojanovic Bakouch Qian Zhu model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact result is the assigned finding, not independent evidence. The nearest signed-minor result is the distinct geometric-minification theorem, and the indexed PL thinning frontier concerns Bernoulli innovations, not these transitions.",
+          "The source article's transition expressions and empirical/simulation purpose do not provide a known all-parameter table of sign roots."
+        ],
+        "reasoning": "The object is an analytic infinite-index classification. Any finite table of transitions, even with both displayed rational witness signs, would not give the boundary theorem.",
+        "searches": [
+          "Resultary: Poisson Lindley minification autoregressive transition total positivity adjacent likelihood ratio minor stochastic monotonicity",
+          "doi:10.3934/math.20241102"
+        ]
+      },
+      "rationale": "Provisional and limited to the explicit two-column reversal classification and its critical escape rate. The PL-MINAR model, its transitions and stationarity are prior, and the strict stochastic order follows from the established construction. The nontrivial new comparison is the sign of the likelihood-ratio minor uniformly across the admissible region, not another transition formula.",
+      "residual_risks": [
+        "The primary model's publisher PDF could not be recovered via the independent text fetch; the originating article's full-text claims were not independently excluded.",
+        "Earlier general minification full papers might formulate an equivalent kernel criterion; the independent generic literature lookup was unavailable, not a negative result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the model and its transitions; no showing that the previously stated results supplied this sign classification",
+          "evidence": [
+            "Published 22 July 2024; abstract identifies modified negative binomial thinning, PL marginals, transition probabilities and conditional moments; frozen source cites equations (14)–(17) for innovation/admissibility and transitions."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.20241102",
+          "material_read": "Publisher abstract and reference list independently; theoretical equations and appendix scope from the frozen source inspection, not a newly read full PDF",
+          "method": "Publisher HTML and attempted direct publisher PDF; compared the documented transition formulas to the separately reconstructed kernel",
+          "title": "Poisson-Lindley minification INAR process with application to financial data",
+          "trigger": "Exact originating model; plausible prior transition-order result"
+        },
+        {
+          "assessment": "Possible general-model priority risk, but no covering theorem demonstrated by accessible evidence",
+          "evidence": [
+            "Aust. N. Z. J. Stat. 64(4), 478–494; abstract comparison in the frozen package identifies covariate modeling, ergodicity, estimation and specification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/anzs.12379",
+          "material_read": "Resolved citation independently; accessible scope from frozen publisher abstract comparison, not full body",
+          "method": "DOI resolution and comparison of reported model/results",
+          "title": "A new minification integer-valued autoregressive process driven by explanatory variables",
+          "trigger": "Earlier possible general minification theorem"
+        },
+        {
+          "assessment": "Different geometric model and incompatible far-off-diagonal minor behavior; not a wider theorem about the PL kernel on inspected evidence",
+          "evidence": [
+            "Consecutive stationary joint masses have a three-band sign pattern, off-band zeros, and a common-geometric-shock representation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-reversibility-and-a-three-band-minor-sign-law-for-geometric-mini--f623657d6910",
+          "material_read": "Published index summary with mathematical sign regions and geometric marginal",
+          "method": "Resultary semantic search and statement comparison at the level of the reported sign regions",
+          "title": "Reversibility and a three-band minor sign law for geometric-minification count chains",
+          "trigger": "Closest indexed signed adjacent-minor law for a minification chain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two lowest columns are a natural minimum witness for distinguishing stochastic monotonicity from TP2, rather than a randomly selected finite minor. Their complete sign classification over both parameters provides a counterexample for every interior pair; the reciprocal-distance escape law explains why checks confined to small counts can miss that failure near admissibility. The result does not claim a census of higher-column minors or empirical financial significance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

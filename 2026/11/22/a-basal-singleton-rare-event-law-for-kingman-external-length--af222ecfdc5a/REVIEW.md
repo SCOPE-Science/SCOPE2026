@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the standard pair-rate-one Kingman topology, a designated leaf avoids mergers with probability \(2/[n(n-1)]\); the events for distinct leaves are disjoint for \(n\ge3\). Conditional on this event, the remaining \(n-1\) leaf-merger topology is again uniform Kingman. The singleton-stage expectation \(m(m-1)/(n-2)\) and independent exponential waiting times yield the exact conditional mean and covariance. A coupled rescaling of waiting times shows that the rest of the external length differs from a standard \((n-1)\)-sample external sum by a nonnegative term of mean \(4(H_n-3/2)/(n-2)\); the latter concentrates at two, while the surviving leaf has the full nondegenerate Kingman height. Complete exact enumeration through seven leaves corroborates, but does not establish, the general proof.
+PASS
 
-## Originality
+For one named leaf, the avoidance factors at k=n,...,3 telescope to 2/[n(n−1)]; for n≥3 the n events are disjoint. Conditioned on survival, each history of the other lineages gets the same avoidance factor (depending only on the current k), so those histories retain the (n−1)-Kingman topology and the n-sample holding times are unchanged. At k≥2 the conditional singleton mean is 1+(k−1)(k−2)/(n−2), including k=2. Multiplying by 2/[k(k−1)] and summing gives the claimed mean and, since E[L_n]=2, the claimed covariance. The numerator after removing the positive factor is n−2H_n+2/n, which starts at zero and increases by 1−2/n per step. An independent rational dynamic program on states (k,w) used transition multiplicities binom(w,2), w(k−w), binom(k−w,2) for losses of 2, 1, 0 singletons; it tracked P(R), E[L 1_R] and E[L] and matched through n=25 (n=4 gives 2/3, 7/3 conditional mean, 2/9 covariance). For the limiting claim the held-out leaf contributes the entire height, and each other-stage time is shorter than the corresponding (n−1)-sample time by the factor (m−1)/(m+1) on the same exponential. The expected missing length is 4(H_n−3/2)/(n−2). Janson–Kersting give ordinary external-length variance O(log n/n) in the same pair-rate-one normalization, so the other-leaf length tends to two in L1. The height converges in L1 by summability; no independence between it and the remaining length is necessary for Slutsky. Its Laplace product and nondegeneracy (independent rate-one final interval) are valid.
 
-PASS under the inspected evidence, with historical priority qualified. Janson and Kersting's full-text treatment derives unconditional limit and long-edge behavior, not the basal-singleton conditional total-length result. Reppell and Zöllner's full HTML treatment gives conditional single-branch length construction and branch-count algorithms, not the stated aggregate event conditioning. The closest plausible unresolved source is Disanto and Wiehe (2020), which explicitly studies the longest external edge in relation to root balance; only its abstract was accessible, and the full article could still contain relevant formulas. Search and implication comparisons are recorded in AUDIT.json. No claim of exhaustive uniqueness or independent certification is made.
+## originality
 
-## Value
+PASS
 
-PASS. The basal singleton is a natural maximally asymmetric genealogy, a rare topology of probability order \(1/n\). The theorem quantifies a previously unchecked statistical consequence: despite unconditional concentration of total external length at two, conditional root asymmetry leaves an order-one random coalescent-height contribution. This is pertinent to unusually large pendant mutation burden and demonstrates why an unconditional Gaussian approximation can overlook structurally defined rare subsets. Both an exact finite-sample dependence and the full non-Gaussian conditional limit are supplied, not merely a normalization check.
+Best-of-knowledge support for the aggregate external-length law on an exact rare topology, not for standard singleton survival, the root split probability in isolation, or standard Kingman external-length concentration. The closest longest-branch reference remains only partially accessible; its described statistics do not give the conditional aggregate, and no decisive stronger or equivalent result is evidenced by the inspected material.
 
-## Limitations and closest literature
+## value
 
-The single-lineage survival rule and ordinary external-length variance are established background; the full conditional aggregate law is the assessed claim. The strong comparison risk is the inaccessible full 2020 article about longest branches and root balance, which is distinguished from the present total-branch statistic only at abstract level. The 2021 coalescent covariance compendium was not fully accessible and is another weaker residual source risk. No results are claimed for non-Kingman merger rules or other rare root splits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This event has probability of order 1/n but a genuine order-one effect on the entire external-length distribution. It supplies an identifiable genealogy for excess external length that is not described by typical Gaussian fluctuations, quantifies the finite association, and isolates the remaining randomness as the height.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

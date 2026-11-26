@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The theorem is proved symbolically in `RESULT.md`. To reproduce finite corroboration, run `python3 verify.py` from the directory containing that file. The program uses only the standard Python library, performs no downloads, and prints the field, scalar, computed character-exponent set, predicted total, and direct coefficient-enumeration count. Its recorded output is embedded as `verification_output.txt` and ends with `VERIFY_OK checked=24`.
+## correctness
 
-The checks include all permissible scalars over the prime fields of orders \(3\) and \(5\), several over \(7\), every permissible scalar over the additive field \(\mathbb F_9\) with \(\mathbb F_3\)-coefficients, every permissible scalar over fields of orders \(4\) and \(8\) with \(\mathbb F_2\)-coefficients, and two selected scalars over \(\mathbb F_{16}\) with \(\mathbb F_2\)-coefficients. In the extension-field checks, field multiplication is implemented by the irreducible polynomials \(T^2+1\) over \(\mathbb F_3\), \(T^2+T+1\) and \(T^3+T+1\) over \(\mathbb F_2\), and \(T^4+T+1\) over \(\mathbb F_2\). A separate bitmask recurrence tests all \(2^{16}\) binary coefficient vectors in the largest finite check, without reusing the character-space proof.
+PASS
 
-The exhaustive cases are finite checks only: they do not prove the formula for arbitrary field size, coefficient degree, or parameter. The general result instead follows from the nilpotent augmentation ideal, exponent-\(p\) principal-unit group, equivariant filtration, Maschke splitting, and regular-character decomposition, as recorded in `RESULT.md`. The categorical/historical priority of the theorem has not been independently audited.
+In K[(F,+)] the original product is ρ_α(u)ρ_β(v) with ordinary multiplication on the right. The augmentation ideal I is nilpotent and each augmentation-zero idempotent lies in I^{2^j} for every j, so only the algebra zero is lost on restricting to augmentation one. Frobenius and px=0 give v^p=0 for v∈I, so 1+I is an elementary abelian p-group under ordinary multiplication. Its idempotents in the transported product are the F_p-linear kernel of ρ_α+ρ_β−1, stable under both automorphisms. The equivariant quotients of the principal-unit filtration equal I^j/I^{j+1}; Maschke applies over F_p since p does not divide |F×| and identifies 1+I noncanonically with I as an F_p[F×]-module. The basis X^x−1 for x≠0 is permuted regularly, so after scalar extension the characters t↦t^k give exactly the claimed nullity over K. This also verifies the gcd and Frobenius lower bound; the excluded F2 case is the only case where the stated parameter set is empty. The zero vector of W corresponds to the nonzero algebra idempotent e_0, so there is one additional algebra zero, not an extra point of W.
+
+## originality
+
+PASS
+
+There is exact prior catalogue coverage of the prime-order base case and substantial prior coverage of prime-subfield scalars on elementary abelian groups. Credit those cases rather than a new general prime-subfield census. The supported distinct result is the exact count and nonzero-idempotent quandle for genuine extension-field scalars, including characteristic two. Their multiplication operators can have no invariant F_p-lines, and the prime-scalar eigenspace formulas and integral/ordered treatments inspected do not give this case.
+
+## value
+
+PASS
+
+The result explains how a modular idempotent locus that is not a linear subspace in the original algebra becomes an explicit Alexander quandle, and counts it over every finite coefficient extension. The genuine extension-scalar range allows large differences on the same additive group (17 versus 1025 idempotents in the F16 examples) and includes characteristic two where a midpoint reduction is unavailable. The regular-character mechanism explains those differences rather than just fitting small counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

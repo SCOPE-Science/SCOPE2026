@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:33:57.538807Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–61 and example at line 66",
+        "Frozen VERIFICATION.md and verify_gap_spectrum.py (inspected, not executed)"
+      ],
+      "rationale": "With t coins all excesses 0,…,2t over t(pk+1) are attainable, so passage to multiples of p gives the stated represented intervals J_t. They are empty up to t_p−1, nonempty thereafter, with both endpoints strictly increasing. Thus the interval before J_{t_p} has exactly kt_p missing integers and, between J_t and J_{t+1}, the number of missing integers is the positive part of k−2q−floor(3r/p), with t=pq+r. Within each quotient block this is nonincreasing, with unchanged value at wraparound because p≥3. At q=0 the j=0 residue class is excluded precisely by t≥t_p; all classes occur at q≥1. For 1≤ℓ<k the odd deficit k−ℓ picks the middle class only; the even deficit ≥2 picks the outer pair, including the valid last class at q=0 when k−ℓ=2. This gives the histogram and the unique length kt_p. Counting the two deficit parities and then weighting by ℓ gives the stated block count and genus. This covers p=3 and k=2 without appeal to the finite diagnostic; the worked example (7,8) has 24 blocks and genus 116.",
+      "residual_risks": [
+        "The proof and review concern the stated quotient family, not an arbitrary three-coin progression or a representation-count p-gap statistic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior gap decomposition holds for every a≥3, so a=pk+1 is within scope even at k=2.",
+          "Liu's representation/generator description is more general but is not itself an explicit run classification. The other Liu formula under p|a does not apply here. The half-quotient classification has p=2."
+        ],
+        "reasoning": "The unrestricted prior interval theorem, rather than the f97e4a87e254 Frobenius threshold a≥2p+4 or the p=2 result, dominates the full frozen range.",
+        "searches": [
+          "Resultary 972b2eeba586 §1; f97e4a87e254 Exact gap intervals",
+          "Liu arXiv:2312.10889 Theorem 1.1; arXiv:2312.06096 Theorem 1.3",
+          "Resultary 028b7bb60928"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 972b2eeba586, f97e4a87e254, 028b7bb60928, ce99c1d39cb5, a40c79c05b6e",
+        "Liu arXiv:2312.10889 and 2312.06096"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting a=pk+1 into the prior endpoints gives the projected interval [kt+ceil((3t+1)/p), k(t+1)+floor(t/p)]. Its nonnegative length is the prior summand k+floor(t/p)−floor(3t/p)."
+        ],
+        "reasoning": "For 0≤t<ceil(p/3) the intervals are [kt+1,k(t+1)] and merge into the initial run. From t≥ceil(p/3) onward, the complementary represented interval [kt+ceil(t/p),kt+floor(3t/p)] is nonempty and separates consecutive positive projected gaps. Setting t=pq+r now gives length k−2q−floor(3r/p): the residue classes of floor(3r/p) equal to 0,1,2 have sizes t_p,c_p,p−t_p−c_p. Odd deficits select class 1 and positive even deficits select classes 0 and 2. This is direct specialization and residue counting from a prior exact theorem, including the endpoint merge and k=2; it does not depend on recovering information from the scalar genus.",
+        "searches": [
+          "972b2eeba586 RESULT.md, §1 and Eq. (1), mirrored offsets 1900–4292"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "972b2eeba586 §1 gives all complementary intervals I_t=[t(a+2)+1,(t+1)a−1] of the ordinary semigroup and counts the p-multiples in each.",
+          "ce99c1d39cb5 is a same-day two-generator analogue with constant short multiplicities; a40c79c05b6e counts gaps by representation threshold, not quotient membership."
+        ],
+        "reasoning": "For the frozen quotient, projecting I_t onto the p-lattice and dividing by p gives exactly the missing quotient points; only adjacency of the projected pieces needs checking. The two-generator and representation-count variants do not give this equivalence.",
+        "searches": [
+          "Resultary 972b2eeba586, f97e4a87e254: complete ordinary gap intervals and their projected multiples",
+          "Resultary ce99c1d39cb5 and a40c79c05b6e: quotient gap-run spectra versus representation-count gaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed run enumerator ce99c1d39cb5 concerns only ⟨pk+1,pk+2⟩/p and has multiplicity p at each short length.",
+          "972b2eeba586 has a complete symbolic list of ordinary-gap endpoints and the corresponding exact projected counts."
+        ],
+        "reasoning": "The indexed two-generator formula is not a matching entry and its date supplies no priority inference. The decisive exact evidence is the symbolic interval table, not a finite database of numerical-semigroup examples or a matching title.",
+        "searches": [
+          "Resultary ce99c1d39cb5: same-day exact quotient run enumerator",
+          "Resultary 972b2eeba586: exact per-interval lengths, Eq. (1)"
+        ]
+      },
+      "rationale": "The histogram is not printed as such in the earlier sources, but it is mechanically implied by a prior exact interval decomposition and its explicit per-interval multiple count, valid on the whole frozen domain. No distinct remainder was found. This is stronger coverage evidence than the scalar genus or Frobenius formulas, which alone would not determine a run histogram.",
+      "residual_risks": [
+        "The comparison is bounded. No explicitly printed earlier alternating histogram was identified; the failure is the demonstrated mechanical implication, not a claim of verbatim duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the full frozen histogram",
+          "evidence": "All ordinary gaps in disjoint intervals I_t; Eq. (1) counts the multiples separately in each I_t. The same proof already groups t by residues modulo p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-least-genus-quasiperiod-for-quotients-of-three-consecutive--972b2eeba586/RESULT.md",
+          "material_read": "Proof §1 Exact gap intervals and Eq. (1), start of §2; OA offsets 1900–4292",
+          "method": "Resultary search and local-mirror full-text passage",
+          "title": "Exact least genus quasiperiod for quotients of three consecutive generators",
+          "trigger": "Prior full ordinary-gap intervals and their counts under quotient projection"
+        },
+        {
+          "assessment": "Same interval method; main Frobenius theorem alone has a stricter parameter lower bound",
+          "evidence": "Gives I_t; its Frobenius theorem assumes a≥2p+4.",
+          "identifier_or_url": "f97e4a87e254",
+          "material_read": "Exact gap intervals, OA offsets 1364–2490 and main theorem hypothesis",
+          "method": "Resultary and mirrored full-text passage",
+          "title": "Sharp quotient-Frobenius quasiperiod for three consecutive generators",
+          "trigger": "Same three denominations and quotient statistic"
+        },
+        {
+          "assessment": "Material analogue, distinct family",
+          "evidence": "Two generators and a constant short-multiplicity run enumerator, not the three-generator parity formula.",
+          "identifier_or_url": "ce99c1d39cb5",
+          "material_read": "Finding and scope, mirror offsets 0 and 562",
+          "method": "Resultary and mirrored full-text passage",
+          "title": "A uniform gap-run spectrum for quotients of consecutive generators",
+          "trigger": "Same-day result on maximal quotient runs"
+        },
+        {
+          "assessment": "Generator and representation tools, not the explicit run extraction",
+          "evidence": "General generating function and quotient-generator descriptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.10889",
+          "material_read": "p. 1 abstract and pp. 2–3 §1 and Theorem 1.1",
+          "method": "OA PDF passages, offsets 0 and 5000",
+          "title": "Generating functions for the quotients of numerical semigroups",
+          "trigger": "General quotient representation methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary 972b2eeba586, §1 and Eq. (1)"
+      ],
+      "rationale": "The histogram is a natural and useful refinement of genus in principle. In this submission the exact histogram and apparent transition at p=4 follow by elementary residue counting and merging the initial projected intervals from an existing complete gap description. No independently useful exact fact beyond that mechanical extraction survives the value requirement for a narrow invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

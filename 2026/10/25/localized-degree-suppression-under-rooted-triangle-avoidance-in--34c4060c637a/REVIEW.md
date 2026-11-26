@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact joint mass \(\Pr(D=d,S)\) follows directly from the independent potential edges inside a degree-\(d\) neighborhood. The exact ratio is strictly decreasing; the Lambert saddle comparison uses \(u\to\infty\), \(u=o(n)\), and \(p^2u\to0\), so it applies uniformly for every fixed \(0<\alpha<1\). Geometric weight tails prove conditional concentration, not merely a mode calculation. The low-density absence exponent follows from bounding the whole normalization series; the critical large-deviation claim uses a compact uniform Stirling estimate and exponential tightness; and the high-density exponent is split according to whether the leading exponent diverges, stays finite, or vanishes. The degree-localization proof conditions on the entire root neighbor set, uses the actual independent Bernoulli edges left after conditioning, and invokes a uniform Chernoff/union bound. All 99 exact/numerical checker assertions passed. No finite check is used as an infinite proof.
+## correctness
 
-## Originality: PASS (self-review)
-The structurally nearest primary full text is Janson--Ruciński's 2009 paper on rooted subgraph **upper** tails. It includes rooted cliques but controls \(X\ge t\mathbb EX\), not their absence \(X=0\) jointly with the root degree. The 2012 sparse-induced-subset result optimizes a graph-wide independent set; the 2013 degree/clustering paper uses random intersection graphs; and the 2023 triangle-free study conditions **every** triangle to be absent. The related recorded claim concerning a *clique* root neighborhood in a near-complete graph does not imply a root *independent* neighborhood in a sparse graph: graph complementation exchanges the root's neighbors with its nonneighbors. Actual semantic searches were also made for independent neighborhoods, Lambert-saddle conditioned degrees, and the critical \(n^{-1/2}\) regime. Residual historical-priority risk persists from general exponential-tilting theories, including less accessible historical papers.
+PASS
 
-## Mathematical value: PASS
-For a fixed vertex, forbidding all incident triangles is an important local version of triangle avoidance, distinct from global triangle-freeness. The theorem identifies a sharp change at \(p\asymp n^{-1/2}\) between two distinct realizations of this event: suppressing the root degree versus suppressing edges inside an otherwise typical neighborhood. It simultaneously determines the exact asymptotic event cost, an explicit Lambert-critical degree law, the full critical conditional rate function, and macroscopic localization of the defect to the conditioned vertex. This is not a renamed textbook count or an arbitrary slice. Extensions to simultaneous multiple roots and a conditional CLT are not proved.
+For a deterministic root in G(n,c n^{-alpha}), conditioning on its exact neighbor set gives the stated tilted binomial joint law, and the strictly decreasing successive ratios give exponentially small relative tails on the Lambert scale, not just mode convergence. The cost below alpha=1/2 follows by a binomial lower-tail split; uniform Stirling and exponential tightness give the critical normalization and full conditional LDP. Above alpha=1/2 a binomial relative-degree band proves the diverging-cost case, bounded expectations prove the constant-cost case, and rooted-triangle Bonferroni bounds prove the vanishing-cost equivalence. The nonroot concentration is uniform after conditioning on the neighbor set because its size is o(n) and np is larger than log n. Two minor points in the proof text do not change the conclusion: positivity of the critical minimum follows from the disjoint zero sets of the Poisson entropy and the quadratic penalty, not from the two observations at the end of Step 4 alone; the fixed root-incident edges in Step 6 are deterministic and are not among the edges left Bernoulli. The displayed marginal laws there are correct. Independent derivation: /workspace/proof_check_5.md. The bundled finite checks were inspected, not used as proofs of any limit.
 
-## Closest literature and risks
-Full-text portions materially inspected: Janson--Ruciński (2009), Section 3 including rooted-clique Example 3.3 and proofs; Fountoulakis--Kang--McDiarmid (2012), introduction, theorem, and large-deviation framework; Bloznelis (2013), introduction and degree/clustering theorem; Jenssen--Perkins--Potukuchi (2023/2025), introduction and global triangle-free conditioning theorem descriptions. Older Wormald (1996) was accessible only at abstract level; it treats a different global conditioning event, but any uninspected general result remains a risk. There has been no independent historical-priority audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact mass is an elementary starting point; the supported distinct result is its root-conditioned phase diagram with explicit rates and uniform localization. The nearest same-day indexed result conditions on an additional forbidden cycle, which changes the weight and critical scaling. No examined theorem with the same event or a stronger theorem implying this package was identified; the verdict is bounded, not a priority determination.
+
+## value
+
+PASS
+
+No rooted triangle is the simplest nontrivial local cycle exclusion. The result resolves when its cost comes with a macroscopic relative root-degree change, identifies an explicit critical saddle and good rate function, and shows that even the maximum relative deviation outside the root vanishes. The small-cost regime is controlled at its actual scale, not only by convergence of the event probability to one. These conclusions go beyond the elementary exact mass and do not rely on a global triangle-free analogy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Analytical and computational verification
+# Independent mathematical audit
 
-1. Reconstruct the stationary generator recurrence for mixed monomials \(\mathbb E[X^pY^q]\). The checker reproduces the exact published \(m_2,m_4,m_6\) rational functions using an independently ordered computation, rather than assuming these expressions.
-2. Symbolically divide the position moments to obtain \(K\) and \(H\). Verify the exact bivariate equality polynomial, the critical derivative, the second-root involution, and the sixth-order separation identity with symbolic factorization.
-3. For \(0<b<9\), the positive residual contributions obey \(357b^6+2030b^5<(357\cdot81+2030\cdot9)b^4=47187b^4<436986b^4\). All other residual coefficients are negative. This proves the strict inequality over the complete interval without numerical sampling.
-4. Construct two exact rational positive parameter pairs with the same normalized fourth moment, scale them to a common variance, and verify a nonzero normalized sixth-moment difference.
+## correctness
 
-Run `python checker.py` after installing `requirements.txt`. The test code checks exact symbolic equalities, not merely floating-point examples. Even a successful finite test does not itself establish the global theorem; the global proof is in `RESULT.md`.
+PASS
 
-**Unverified:** independent review, publication-priority completeness, finite-sample conditioning guarantees, other driving laws, and absolute-parameter identification.
+The stationary generator on x^p y^q has reset loss only for q>0. Normalizing time by r and position and driver by sqrt(D/r), I recovered the three forward moments by recursive symbolic evaluation (replay: python /workspace/branches/independent_moments.py, SymPy; output /workspace/branches/independent_moments.log). The exact fourth-moment cross difference is -2(b-c)(7bc+3b+3c-27). Its derivative and K-2=b(9-b)/((b+2)(b+3)) give precisely two positive preimages for 2<K<Kmax; the lower endpoint b=0 is excluded, K=2 occurs only at b=9, and the maximum has a single preimage. As an independent sign check, on distinct positive equal-K pairs write t=b+c; then 0<t<9 and both arguments satisfy x^2-t*x+(27-3*t)/7=0. Reduce the numerator and denominator of H to linear residues. The numerator of (H(b)-H(c))/(b-c), with the original positive denominator Q(b)Q(c), is 14256(t+5)^2(307760+63141t-290t^2-51t^3)/2401. Since 290t^2+51t^3<6741t, it is strictly positive. Thus the larger branch strictly increases H. A prescribed positive variance can be matched at either branch by adjusting s, so the ambiguity is real without m6. Once the branch is known, variance gives s; simultaneous rescaling of mu,r,D changes only the clock, not the stationary distribution. Neither statistical accuracy from samples nor separate recovery of all three rates is claimed.
+
+## originality
+
+PASS
+
+The exact inverse folding and separation classification is distinct from the known model, scaling, and forward moments, which are excluded from the originality claim. No inspected equivalent or dominating result supplies the same classification; this is a bounded comparison, not certification of priority.
+
+## value
+
+PASS
+
+For an established exactly solvable persistent-noise model, the result identifies where variance and kurtosis genuinely fail to distinguish a memory ratio, and which next consecutive even moment resolves it uniformly over admissible positive parameters. The global ordering is usable for choosing between two moment-matched parameter sets, not just a new parametrization of a tabulated moment. The result is about population observability, not practical estimator conditioning or absolute parameter recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

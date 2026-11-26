@@ -1,19 +1,21 @@
-# Review of the square-zero census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof in `RESULT.md` tracks all hypotheses, proves the diagonal Fourier product exactly, and handles the Frobenius descent and cycle count including length one and two. The square is the single bilinear product in a generally nonassociative algebra, so higher powers are not claimed. The reproducibility script independently exhausts 14 configurations and confirms each predicted count.
+PASS
 
-## Originality
+For the given bilinear table e_i e_j=e_{2j-i}, the unscaled Fourier transform of u² at t is X_{-t}X_{2t}; p is invertible and the zero frequency must vanish. The inverse transform gives descent exactly when X_{qt}=X_t^q. Every nonzero index has orbit length d, so an orbit has one freely chosen F_{q^d} coordinate, with q^d−1 nonzero choices. The condition couples cosets by multiplication by −2; its quotient cycles all have length ℓ. Loops force zero, a 2-cycle permits at most one chosen vertex, and the usual circular gap count gives the displayed coefficients for longer cycles. The binary case reduces to the order of −1 modulo the subgroup, which is one precisely when d is even. This establishes the full quantifiers without assuming associativity or using a finite experiment as a proof.
 
-PASS within the investigated literature. Bardakov–Passi–Singh study zero divisors and selected idempotents; Elhamdadi–Ta–Virgin already prove the *general Fourier product identity* in complex coefficients. The latter is a precursor, not newly discovered here. Neither examined result states the precise all-prime nonmodular finite-field square-zero census, the Frobenius weighted-cycle formula, or its arithmetic existence criterion. Zhang's group-ring methods and a previously developed finite-field *idempotent* census are compared separately. The strongest residual risk is an equivalent unstated corollary or older Fourier-support enumeration not located by the searches; a search does not prove priority.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Square-zero loci are natural invariants of these nonassociative algebras, and the theorem gives all their finite-field sizes in one expression. The exact arithmetic dichotomy in characteristic two and the support-cycle structure go beyond trivial zero-divisor existence and cannot be inferred merely from idempotent counts.
+Credit the established Fourier identity and the material matching indexed coverage for splitting fields. The supported distinct contribution is the nonsplit descent and the resulting uniform arithmetic census, in particular the binary order-parity criterion and counts. A splitting-field theorem alone counts supports before descent; neither extension-field point counts nor the existence of the same permutation over a splitting field determine which whole Frobenius orbits may be occupied over the base field without the additional quotient-and-weight argument.
 
-## Scope and limits
+## value
 
-Only odd prime quandle orders and nonmodular finite fields are covered. Tests are exhaustive in 14 small cases, not an infinite certificate. No independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact count resolves when these nonassociative finite algebras admit a genuinely nonzero element with vanishing square and measures how many there are. The dependence on the base field matters: passing to a splitting extension can create solutions, and the binary specialization cleanly separates existence regimes. The useful contribution is the Frobenius-orbit invariant and associated census, not recomputation of a known Fourier product or of a cycle independence polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

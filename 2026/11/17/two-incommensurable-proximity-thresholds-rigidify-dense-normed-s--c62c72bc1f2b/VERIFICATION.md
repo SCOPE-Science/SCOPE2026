@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the mathematical argument
+# Independent mathematical audit
 
-The source of the central claim is the proof in `RESULT.md`, not experimental output. Its sensitive steps were checked under arbitrary real normed-space geometry: (i) dense-subset path composition preserves strict radii sums; (ii) the exact ball-inclusion identity preserves *closed* thresholds at positive differences, including equality of the boundary; (iii) each positive element of the additive integer span belongs to one of the sum or difference cases; (iv) irrational radii give a dense subgroup, so closed-threshold comparisons recover the full distance; (v) the extension to completions is surjective, hence affine; (vi) the rational-ratio construction is a strictly increasing homeomorphism, preserves integer-unit thresholds, and is nonaffine.
+## correctness
 
-The finite supplementary arithmetic checker `check.py` was executed using `python3 check.py` and returned:
+PASS
 
-```text
-PASS: 362404 exact threshold comparisons and 6321 translations
-```
+For R_r(x,y) meaning distance <r, R_r composed with R_s is R_(r+s) on either dense subset: split the segment in ratio r:s, where both inequalities have slack, and approximate the split point in the subset. For r>s, inclusion of the open s-neighborhood of y in the open r-neighborhood of x is equivalent to d(x,y)≤r−s. The forward metric bound uses the triangle inequality with one strict leg. If d>r−s, choose t between max(0,r−d) and s and extend the ray from x through y by t. The two strict witness inequalities persist on a dense-set approximation. A bijection preserves compositions and inclusions of the corresponding neighborhood sets, so preserves the closed thresholds at all positive differences of positive semigroup elements. Every positive element of Z a+Z b is such a difference (add a common positive semigroup element if one side is zero). For irrational a/b this subgroup has arbitrarily small positive elements by pigeonholing multiples modulo one radius, and is therefore dense; comparisons at its positive elements force exact distance equality, including boundary cases. The unique extension to the completions is isometric with closed dense image, hence surjective and affine by Mazur–Ulam. At rational ratio the scaled fractional-part square map is strictly increasing and continuous also at tile endpoints, and commutes with every integer translation in the common unit. Monotonicity then preserves all the strict integer-unit thresholds. It fixes 0 and the unit and does not fix their midpoint, so is nonaffine. None of these universal conclusions depend on the supplied finite rational example check, which was inspected but not executed.
 
-The checker uses Python's exact `fractions.Fraction` type and samples a rational-ratio witness only. It cannot certify the theorem for every pair or arbitrary normed spaces. There are no unproved computational certificates, external solver requirements, or finite-to-infinite inference steps. The independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The justified distinct claim is uniform rigidity from two incommensurable open-ball relations on dense subsets of arbitrary real normed spaces. The rational-ratio example is an exact rescaling of a prior example and is not independently original. The prior integer-ball inclusion argument also supplies the mechanism behind the difference step; the mixed-scale difference and dense-subset argument is the new use. The strongest inspected comparisons do not state or mechanically yield the principal claim without that additional step.
+
+## value
+
+PASS
+
+The theorem gives an exact criterion for universally recovering a metric from just two qualitative relations on a dense sample, with no dimensional or strict-convexity assumption. It identifies commensurability as the obstruction and produces full affine rigidity on the completions. The known scaled counterexample makes the criterion sharp but is not the source of its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

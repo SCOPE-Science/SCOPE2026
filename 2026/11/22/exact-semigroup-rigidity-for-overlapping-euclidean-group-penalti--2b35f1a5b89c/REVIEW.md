@@ -1,19 +1,21 @@
-# Scientific review — Exact semigroup rigidity for overlapping Euclidean group penalties
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive side is the explicit radial-threshold formula for disjoint blocks, including zero and killed blocks. The negative side is proved for all finite hypergraphs and all positive weights: local implicit-function expansion forces \(H\nabla F=0\) if time-additivity holds; the Hessian is a sum of positive-semidefinite tangent projections; a common-group pair with asymmetric memberships and a single large coordinate forces unequal gradient-to-input ratios and \(\nabla F^{\mathsf T}H\nabla F>0\). The exact three-coordinate witness gives \(Hg=(-1/4,1/2,-1/4)\), and the packaged checker passed 1,044 supplementary assertions. It is an all-finite-family proof; sampling is corroborative only.
+PASS
 
-## Originality — PASS (qualified)
+Positive weights and the quadratic term give a unique proximal map. In the disjoint case, combine duplicate weights; radial soft thresholding subtracts t times the aggregate weight from the radius with a floor at zero, which composes additively, including zero blocks and coordinates in no group. At strictly positive x the implicit proximal equation gives T_h(x)=x-hg+h²Hg+O(h³), g=grad F(x), H=Hess F(x). The solution is analytic jointly in input and step nearby, so the two-step and one-double-step expansions have h² coefficients 3Hg and 4Hg. Each Hessian group term is a positive scalar times the orthogonal projection onto the within-group tangent space perpendicular to x_G. Consequently Hg=0 requires g_i/x_i constant within every group. Any unequal intersecting groups provide a pair i,j in one group distinguished by another, oriented so that a group contains i but not j. Increasing x_i with the other coordinates set to 1 makes the sum of i-only contributions to g_i/x_i tend to zero and leaves the j-only sum fixed; if that fixed sum is zero then the i-only sum stays strictly positive at every finite x_i. Thus the two ratios differ at a finite positive witness, making the Hessian quadratic form and Hg nonzero. This includes proper nesting and singleton groups. Independent symbolic differentiation (/workspace/replay/local_formulas.py) confirms the stated crossing-pair coefficient and the nested two-coordinate obstruction. The frozen checker does not exhaust all distinct group families on three coordinates: it caps family size at four in n<=3. The accompanying all-family language about numerical checks should be read with that limit; the proof, not sampling, proves the all-family theorem. No claim is made for the latent penalty or non-Euclidean group norms.
 
-Liu–Ye (2010), arXiv:1009.0306, Sections 2–3, defines and computes proximal maps of this precise direct group-sum penalty, but the inspected material concerns dual methods and component properties rather than the exact parameter-additivity iff condition. Qi–Li (2022), arXiv:2211.09221, Sections 1–3, motivates separability through non-overlapping approximations, without a semigroup classification. Mairal et al. (2011), Section 2 and proximal algorithms, cover the same underlying structured penalty but different algorithmic claims. Bungert et al. (2019), Theorem 4.5, treats general equivalences between gradient flows and variational minimizers; it offers a conceptual sufficient condition, not the concrete finite-hypergraph iff characterization or forced local defect. Semantic searches of published mathematical records on direct/grouped/overlapping prox semigroups returned no matching assertion; the closest records concern other proximal maps, ordinary \(\ell_p\) norm semigroups, lasso ADMM or unrelated semigroups. Neither lexical search nor indexing proves uniqueness. Unindexed priority and possible implicit consequences of general one-homogeneous flow results remain the main risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Iterating a proximal regularizer with step parameters is a natural numerical and variational operation. The classification gives a complete, simple combinatorial condition for exact replacement by a single regularization step, with a constructive strict obstruction for *every* proper overlap and every choice of positive weights. It distinguishes direct overlapping group penalties from non-overlap approximations and from infinite-step gradient-flow convergence, without claiming broader general convexity results.
+Closest inspected prior work supplies direct group penalty algorithms, projection duality or a general gradient-flow criterion. Neither the individual principles nor the same-day classifications for different penalties give this necessary and sufficient group-incidence condition with its local obstruction.
 
-## Limits and independent status
+## value
 
-No claim extends to latent group norms, arbitrary block norms, or nonquadratic fidelity. The small-step coefficient is local and the numerical tests are not proofs. Equivalence may exist in literature not retrieved; independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classification determines exactly when repeated parameterized regularization can be replaced by a single step for a standard penalty. The necessity includes overlaps for which the individual proximal map is easy to compute, and the explicit defect witnesses show failure already at arbitrarily small steps, uniformly as a qualitative assertion over all positive weight choices. This is a structural result rather than a generic statement that resolvents need not compose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

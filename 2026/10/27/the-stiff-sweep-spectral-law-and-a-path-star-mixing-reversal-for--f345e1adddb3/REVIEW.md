@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each positive step size, every edgewise midpoint matrix is a nonnegative doubly stochastic averaging matrix with positive diagonal, and the complete tree sweep is primitive. The limiting factors are endpoint transpositions, whose product on a tree is a single cycle. The exact first-order perturbation of the ordered product is the sum of transformed incidence outer products with reciprocal-rate weights. The single-cycle Fourier eigenvectors yield the explicitly stated attenuation rates; the product identity for transformed transpositions establishes strict positivity of each nonconstant rate. Explicit transformed chords give the path and star constants. Laplacian algebraic connectivity gives the small-step ordering; the large-step coefficients give the opposite strict ordering. The accompanying checker reproduces exact and sampled consequences but does not replace the proof.
+PASS
 
-## Originality — PASS, subject to residual publication-priority uncertainty
+The rank-one midpoint factor is the stated convex two-site update at finite h. Positive diagonal entries and a positive sweep transition for each original oriented tree edge imply irreducibility and aperiodicity, so the zero-sum radius is strictly below one. Starting with singleton cycles, every edge joins different components of a growing forest, and the transposition merges their cycles; the limiting P is one n-cycle. Writing s=1/h gives P⁻¹M=I−sH+O(s²) with H the sum of the transported incidence outer products divided by rates. Differentiating each simple eigenvalue of P gives −ζ_k u_k*Hu_k, and the normalized cycle Fourier vectors give the displayed sine-square formula. If any nonconstant mode had zero first-order attenuation, it would be fixed by all the transported transpositions and therefore by P, a contradiction. As a check on the path and star simplifications, omitting edge j from P multiplies it on the right by its transported transposition; this splits P into cycles of lengths d_j and n−d_j. The two cycles are the components after deleting the original edge. Thus a path has split sizes j and n−j (the sine-square sum is n/2), whereas all star splits are 1 and n−1. For small h the scaled matrix (I−M)/h is L_T+O(h); since the baseline L_T is symmetric, its eigenvalues cluster within O(h) of those of L_T, with the appropriate multiplicities, giving the stated spectral-radius expansions even for the repeated star eigenvalue. For n≥4 the connectivity ordering is opposite to the ordering of the stiff deficits. Continuity on the fixed zero-sum space gives at least one crossover, not uniqueness.
 
-Spiteri–Wei (arXiv:2205.06365) analyze fractional-step integrators and scalar/simultaneously diagonalizable stability, not the noncommuting edge Laplacian's singular large-step permutation law. Yu–Anderson–Mou–Liu–He–Morse (DOI:10.1109/TAC.2017.2688278) prove the *known* tree edge-order spectral invariance and explicitly cover non-half common gossip weights; their paper's fully examined path/star examples do not derive the new stiff-limit Fourier coefficients or the reversal across the physical midpoint step. Chen–Belabbas–Liu (arXiv:2102.08853) treat holonomic gossip frameworks without this parameter asymptotic. Semantic mathematical-record searches returned related positivity, consensus and cyclic-process results but no covering exact claim. Equivalent developments in overrelaxed cyclic projections remain a residual risk; no stronger novelty certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Tree topology changes which graph is preferable for the same complete-sweep edgewise implicit-explicit integration cost. The universal single-cycle formula quantifies slow stiff-limit mixing for every tree with arbitrary positive weights and edge ordering; the path–star reversal supplies a directly interpretable numerical-design boundary. This is not a normalization identity or an arbitrary finite enumeration. The result concerns asymptotic spectral mixing, not transient norm bounds, and asserts no unique crossover or universal graph optimum.
+Best-of-knowledge pass for the explicit weighted-tree stiff Fourier coefficient and the parameter-driven equal-rate path/star reversal. The finite-h pair update is exactly a convex gossip update of neighbor weight q=ha/(1+ha); neither periodic gossip, its tree edge-order invariance, nor path/star benchmarking is new. The closest periodic-gossip full text could not be obtained lawfully in the attempted routes; its actual abstract and the other accessible passages do not establish coverage of the stiff coefficient or reversal.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result quantifies how a strictly mixing algorithm approaches a nonmixing permutation in the stiff regime; the coefficient explains precisely why an ordering suggested by continuous-time connectivity can reverse for the completed discrete sweep. The formula treats arbitrary positive rates on every finite tree, not just an isolated numerical crossover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

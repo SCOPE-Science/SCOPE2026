@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Both executables use Python 3's standard library and run directly with the accompanying complete `certificate.json`:
+## correctness
 
-```text
-python verify_flips.py certificate.json
-python verify_direct.py certificate.json
-```
+PASS
 
-The first program enumerates cycle edge masks and symmetric differences with all host-graph four-cycles; it independently derives component diameters and the full graph-automorphism action. The second constructs the graph from its triangular faces and produces legal two-opt moves by explicit segment reversal of vertex sequences. They check the entire ordered list of cycle masks and the entire unordered switch-pair list against the certificate.
+Read the complete enumeration proof and both supplied algorithms without executing uploaded scripts. A legal switch is equivalent to two distinct spanning cycles sharing exactly ten edges; since each cycle has degree two, the four symmetric-difference edges are an alternating four-cycle. An XOR candidate must still be one Hamiltonian cycle, not just a 2-factor. I independently regenerated the host graph from cyclic permutations of (0,±1,±(1+√5)/2), testing squared edge distance four in the exact quadratic ring. Relabeled a vertex as 0, its neighbor ring as a_i, and the second common neighbor of a_i,a_{i+1} as b_i. An independent degree-constrained edge-set recursion propagated the forced inclusions/exclusions for degree two and branched exhaustively on each unresolved vertex's remaining edge choices; a full assignment was retained iff connected. Bucketed each cycle by every ten-edge subset obtained by deleting two edges, and joined cycles in the same bucket. This exactly reproduced the frozen certificate's sorted 1,280 masks and entire 1,800-pair list. Traversals produced 80 singletons, 60 pairs and 30 components of order 36. Each large component had 58 edges, diameter 8 and degree counts 1:2, 2:11, 3:8, 4:8, 5:6, 6:1. Distances to the vertices of one ordered triangular face distinguish all 12 vertices. Every automorphism is thus uniquely determined by the image of this face; testing each ordered image face by distance fingerprints and adjacency produces 120 automorphisms. Their action gives component orbit (order,count) pairs (1,20),(1,60),(2,60),(36,30), proving large-component isomorphism. Replay paths for the frozen certificate are `python verify_flips.py certificate.json` and `python verify_direct.py certificate.json` in the record directory; the former checks the automorphism action and diameter and both verify the full tables. This is finite exact enumeration for the specified graph and move, not an all-graph assertion.
 
-Recorded successful checks:
+## originality
 
-```text
-VERIFY_FLIPS_OK edges=30 undirected_Hamilton_cycles=1280 4cycles=30 switch_edges=1800
-VERIFY_FLIPS_OK components=30x36+60x2+80x1 nontrivial_large_components_each_58edges_diameter8
-VERIFY_SYMMETRY_OK automorphism_order=120 component_orbits=[(1, 20), (1, 60), (2, 60), (36, 30)]
-VERIFY_DIRECT_OK source_faces=20 edges=30 tours=1280 independent_2opt_edges=1800
-VERIFY_DIRECT_OK exact_cycle_and_transition_tables_equal=true components=30x36,60x2,80x1
-```
+PASS
 
-The certificate uses the edge ordering stored in its `icosahedron_edges` field. Each Hamiltonian cycle is one nonnegative integer bitmask; switch pairs use zero-based indices into the sorted bitmask list. The programs compute these quantities afresh and abort on any mismatch. The exhaustive domain has precisely 12 labeled vertices, 30 edges, and all Hamiltonian cycles of that graph; no claim for arbitrary graph size is checked or implied. These are internal computational checks, not independent external validation.
+Best of current knowledge: the switch and tour census are prior, but no inspected available statement or table gives the two-edge reachability graph, its component invariants, or its component action for the icosahedron. Access to two historical sources was partial; neither the count nor the move is credited as original.
+
+## value
+
+PASS
+
+This is a natural symmetric benchmark for Hamiltonian reconfiguration under the standard local move, not an arbitrary subcollection of tours. The exact decomposition shows very limited reach despite the host's high symmetry and sizeable tour set, and the distinct singleton orbits distinguish two symmetry classes of frozen tours. The full certified adjacency and orbit classification give comparable data for other graph classes or move sets. The value lies in this classification, not counting Hamiltonian tours again.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

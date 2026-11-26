@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Each equivalence block contributes either zero or its full size to the sampled rough boundary; disjoint blocks are independently sampled. This gives the exact generating product. Positive nonconstant factor coefficients allow a coefficient-by-coefficient inverse after division by the positive constant term. The induction excludes cancellations and uniquely determines all non-singleton multiplicities. The equal-constant truncated counterexamples follow from the explicit unbiased block probabilities and equal total sizes. The rough-lattice statement is a direct coordinatewise classification. A standalone independent subset enumerator corroborates all integer partitions of universes through size nine for three rational sampling rates. Exhaustive finite computation is supplementary, not the general proof.
+## correctness
 
-## Originality — PASS (qualified)
-The inspected 2020 primary rough-set lattice paper supplies approximation and lattice theory but not the proposed boundary-size probability inverse; the 2022 primary rough-topology article treats boundaries as setwise objects, not as a sampling law from which all hidden class sizes can be reconstructed. Previous aggregate partition-statistic searches did not identify an implication or equivalent formula. The independent-factor generating function is an elementary tool; originality is claimed for its complete inverse classification, singleton obstruction, sharp truncated-information limitation, and contrast with abstract rough-set lattice identifiability. Equivalent unindexed results under granulation-profile terminology remain a concrete residual risk. Publication priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The result solves a natural reconstruction problem: can one infer the sizes of hidden rough granules from only the scalar boundary-cardinality histogram of randomly sampled sets? It answers this completely with an explicit inverse procedure, proves a sharp obstruction for singleton granules, and separates the information recovered by the probability law from that stored in the standard abstract rough-set algebra. The low-degree example shows exactly why coarse histograms cannot recover large granules, even when basic global statistics are known.
+In a block of size b, the Pawlak boundary contains the whole block if the sample is nonempty and proper, and none otherwise. The two excluded events have total probability q_b, and disjoint blocks have independent contributions. Singleton factors are 1. For b>=2 the odds ρ_b=(1−q_b)/q_b are known and positive; normalize by the positive constant term F(0). The coefficient in degree b after cancelling only known factors in degrees below b is exactly m_bρ_b: multiple selections of a degree-b factor and all higher factors have degree >b. Apply this in the truncated power-series ring through degree K or through deg F for the full inversion; an empty universe and an all-singleton partition both correctly give F=1. Knowing |X| recovers the singleton number by subtraction. The sharp raw-prefix example at p=1/2 gives equal constants 2^(−2K−2), no positive terms through K, fixed total 2K+4 and two classes, yet only (K+1,K+3) has positive coefficient in degree K+1. The rough-pair lattice is the independent block product of two- and three-element chains. At p=1/2 the profiles (2,4) and (3,3) both have two three-element factors but clearly different boundary laws. In a fresh integer replay (`python3 /workspace/review-evidence/exact_checks.py`), all 291 partition/bias cases and 71865 subset evaluations agreed with factorization. This does not prove general inversion. The frozen verify_boundary.py was inspected, not run; its use of int.bit_count() requires Python 3.10+, not the stated 3.8 minimum.
 
-## Limits and comparison
-Known background: Järvinen–Radeleczki (2020), arXiv:2002.05238, for rough approximations and their lattice structure; Al-shami (2022), DOI:10.1007/s40747-022-00704-x, for approximation/boundary framework. Neither accessible inspected text directly covers the inverse law. Exact known sampling rate, independent points, and exact full probabilities are essential. Finite program checks do not prove the infinite assertion. A separate independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The product law is a direct use of independent block contributions and the Pawlak lattice structure is established context. The distinct contribution supported on inspected evidence is the exact recovery of the nonsingleton multiplicities from this boundary-size observable, its degree-local recovery and sharp fixed-metadata obstruction, and the resulting separation from the abstract lattice. Nearby indexed results recover different invariants, under different observation models, or on tolerance rather than equivalence relations.
+
+## value
+
+PASS
+
+The boundary is a canonical rough-set observable. Its size law distinguishes equivalence granulations of fixed universe size even when their abstract rough-set lattices are indistinguishable, and the sharp degree cutoff specifies precisely which sizes survive a restricted exact observation. This is an interpretable inverse classification and a concrete information-loss witness, not just a routine calculation of a PGF or expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

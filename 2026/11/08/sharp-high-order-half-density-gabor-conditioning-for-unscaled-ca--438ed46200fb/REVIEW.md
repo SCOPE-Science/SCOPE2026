@@ -1,15 +1,21 @@
-# Review of sharp high-order half-density Gabor conditioning
+# Independent mathematical audit
 
-## Correctness
-PASS. The statement fixes both the integral-one spline normalization and the physical Gabor lattice. The exact Zak/Walnut identity gives the actual optimal frame multipliers, with the order-two spline furnishing a direct factor check. On the central frequency interval the Fourier alias remainder is uniformly geometrically small relative to each dominant term. Convexity of the two leading sinc-power profiles gives the global minimum, and an outer-frequency gap excludes any escaping minimizer. Partition of unity and a uniform distant-alias bound control the upper frame constant. The checker separately compares direct spline Zak sums with Poisson aliases and tests representative minima; finite computation is not invoked as the proof of the infinite limit.
+## correctness
 
-## Originality
-PASS relative to inspected literature and available records. Hasannasab–Lemvig (2026, arXiv:2609.13116) prove existence and classify Zak zeros but do not derive a large-order sharp Gabor bound. Stangl–Frederick (2026, arXiv:2609.00481) study the second-order spline. Christensen–Kim–Kim (2017, arXiv:1708.04803) approximate Gaussian windows by **rescaling** large-order splines; their regime does not cover the fixed unscaled window and the displayed sharp constant. Kloos–Stöckler (2013, arXiv:1311.7359) consider exponential B-splines and density-to-one behavior, not spline-order growth. The closest related frame calculations for the hat spline concern changes of lattice parameters at fixed order. None of these statements dominates the joint asymptotic \(A_n\sim2(8/\pi^2)^n\), \(B_n^{\mathrm{up}}\to1\) in this normalization. Residual risk: an equivalent sinc-alias calculation could be present in older numerical spline or Weyl–Heisenberg literature under different indexing.
+PASS
 
-## Mathematical value
-PASS. Increasing spline order is an intrinsic smoothness parameter for a standard compactly supported generator family, whereas frame existence at this lattice is known for every order. The sharp exponential decay constant, exact leading factor, and frequency localization quantify the reconstruction penalty of smoothing a window without changing the lattice. These are natural stability invariants, not a chosen finite example or a rescaled restatement of known frame existence. The quantitative result is distinct from studying approaching critical lattice density.
+Separating j even and odd gives two Parseval coefficient sums on the unit Zak torus: their windows have squared moduli |ZB_n(x,nu)|² and |ZB_n(x,nu+1/2)|², with lattice shifts contributing only unimodular factors. Hence the exact optimal bounds are the min and max of their sum; continuity removes an essential-extremum ambiguity. This gives A_2=1 and B_2^up=2 with the prescribed normalization. The Fourier aliases of a cardinal spline at reduced frequency t have magnitude s(t)^n times (|t|/|t+ell|)^n. For |t|<=3/8 the nonleading ratios are at most 3/5 and have uniformly bounded square sum, so the error amplitude relative to the unique leading alias is O((3/5)^n), also after taking squared moduli. On [1/8,3/8] the two nearest distances are nu and 1/2−nu. On the outer intervals one distance is at most 1/8, all its subleading ratios are at most 1/7, and s(1/8)>s(1/4). For L=log(s) on the central interval, L' is bounded away from zero and L'' bounded, so (s^(2n))''>0 for large n. Symmetric convexity gives the leading minimum 2s(1/4)^(2n) uniformly in x; any frequency staying a fixed positive distance away has an exponentially larger leading term. For the maximum, partition of unity gives |ZB_n|<=1 and equality at zero; the other component at any chosen frequency pair with distance at least 1/4 has amplitude bounded by a constant times s(1/4)^n, using the bounded square sum of alias ratios even at a tie. These estimates prove all prefactors and frequency localization claims. Hasannasab–Lemvig Theorem 7.1 supplies the frame property at every n>=2, not only large n.
 
-## Limitations
-Asymptotics are for the fixed lattice with steps one and one-half and integral-one, unscaled cardinal splines. No general lattice optimization, exact finite-order extrema, or other window class is asserted. Literature priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the sharp fixed-lattice order-growth conditioning law for the unscaled, integral-one spline, with absolute leading constants and minimizing-frequency localization. The Zak formula, spline Fourier transform, and frame existence are prior machinery, not new claims.
+
+## value
+
+PASS
+
+The lattice is a canonical redundancy-two oversampling where existence alone can conceal growing ill-conditioning. The exact exponential rate and factor distinguish stability of increasingly broad standard cardinal windows from mere positivity or an unspecified asymptotic rate, and the limiting bad-frequency location identifies where conditioning is lost. This answers the motivated fixed-lattice question without conflating it with variance-normalized Gaussian approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

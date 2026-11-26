@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finding is proved by exact finite counting followed by algebraic identities.
+# Independent mathematical audit
 
-For three iid uniform draws from \(\{1,2,3,4\}\), the joint count of \((L,U)=(i,j)\) is \(1\) on the diagonal and \(6(j-i)\) above it. This yields row counts \((37,19,7,1)\) and column counts \((1,7,19,37)\).
+## correctness
 
-For \(g_a=(0,a,1-a,1)\), the exact variance and covariance are
-\[
-\operatorname{Var}(g_a(L))=\operatorname{Var}(g_a(U))=\frac{95a^2-68a+28}{256},
-\]
-\[
-\operatorname{Cov}(g_a(L),g_a(U))=\frac{-7a^2+4a+4}{256}.
-\]
-Subtracting the ordinary correlation \(41/143\) gives the exact factorization
-\[
-\frac{-96(3a-1)(17a-6)}{143(95a^2-68a+28)}.
-\]
-The denominator is everywhere positive, so the strict-improvement interval is exactly \(1/3<a<6/17\).
+PASS
 
-`verify.py` independently enumerates all \(64\) ordered triples at the rational witness \(a=7/20\), checks the exact positive gap, and checks the polynomial identities for the comparison and derivative using rational arithmetic. The optimizer \(a_*=6-4\sqrt2\) is established analytically from the derivative sign; no floating-point computation is needed for the proof.
+Independent enumeration of all 64 ordered triples gives counts 1 on the diagonal and 6(j−i) above it. Reflection makes the two transformed variances equal. The exact variance and covariance numerators over 256 are respectively 95a²−68a+28 and −7a²+4a+4. Affine scoring at a=1/3 gives 41/143; a=7/20 gives 1817/6335 with gap 96/905905. The positive denominator and the two factors of the difference give the full open improvement interval. The derivative numerator is 96(a²−12a+4), proving the unique maximum 6−4√2 with value (5+6√2)/47 on the stated family. The witness belongs to both admissible same-transform classes; no global supremum is inferred.
 
-Limits: the verification certifies the stated family and counterexample. It does not attempt to compute the full supremum defining \(R_4''(1,3:3)\) or \(R_4'(1,3:3)\).
+## originality
+
+PASS
+
+The explicit monotone witness and its sign interval contradict the preliminary equality in the inspectable arXiv v1 rather than restate it. The strongest matching Resultary findings alter the parent probabilities and/or sample size, not the scoring of the fixed uniform, three-draw law. No covering result was established. This is not a claim that a proven theorem in the journal edition is false.
+
+## value
+
+PASS
+
+The small gain matters because it changes the exact qualitative answer to a stated conjectural equality under its stricter monotone common-function constraint. A rational witness and an interval of strict improvement show that this is not a rounding accident or a change of parent distribution. The within-family optimum does not claim an unrestricted optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

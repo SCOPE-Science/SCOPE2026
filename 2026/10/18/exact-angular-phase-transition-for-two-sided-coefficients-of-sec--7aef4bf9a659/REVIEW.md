@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The boundary representation and Fourier coefficient duality are exact. Euclidean projection onto a closed convex sector yields a pointwise inequality with exact equality by its projected dual. The positive and negative cosine half-waves each have normalized squared mass \(1/4\). Maximizing the resulting two-factor expression yields the displayed piecewise sharp profile, and the equality cases follow from strict Hilbert-space Cauchy--Schwarz. Endpoint and critical-parameter cases are treated explicitly. `verify_sector.py` passed finite numerical consistency checks; no infinite conclusion relies on those tests.
+## correctness
 
-## Originality
-PASS with residual historical-priority risk. The close 2026 primary source establishes the unrestricted harmonic Hardy coefficient norm but no sector-restricted angular norm or optimizer transition. Searches of published research records and mathematical web sources using the constrained claim, the angular threshold, aliases involving two-sided Fourier norms, and cone projections identified no statement implying the complete claim. Closest neighboring records treat unrestricted Hardy extremizer spectra or a sectorial numerical-radius sum for two operators. Neither statement directly includes the Poisson-boundary sector constraint, the \(h^2\) coefficient optimization, or its full equality phase diagram. The full text of those neighboring records was not accessible in this session; this is a documented priority risk, not asserted negative proof.
+PASS
 
-## Value
-PASS. Sector-valued traces are a natural positivity-to-half-plane interpolation inside harmonic Hardy theory. The exact threshold distinguishes a sector restriction that leaves the sharp norm fixed from one that permits strictly greater two-sided Fourier concentration. It also determines the complete and changing geometry of extremizers, including a continuum of critical configurations. The result is a sharp structural classification, not a change of notation or arbitrary finite parameter computation.
+The L² boundary-trace reduction works in both directions by Fourier–Poisson representation and convexity of the closed sector. In the real L² pairing, the two independently chosen coefficient phases give K=2 exp(−iτ) cos(nt+δ). The pointwise projection residual is polar to the cone and orthogonal to the projection, so the exact maximum for a fixed K on the unit cone is ||PβK||₂, attained only by positive multiples of the projection for nonzero optimum. Each cosine half-wave has squared mass 1/4. For 0≤τ≤π/2 the squared norm is u²+v², where u=1 up to β and then cos(τ−β), and v=max(0,−cos(τ+β)). If β<π/4, the one-wave exterior branch is strictly below 1 and the two-wave branch has value 1+cos(2τ)cos(2β)<1. If π/4<β<π/2, the portion with u=1 is at most 1+cos²(2β)<1−cos(2β), and on the remaining branch the latter bound is attained only at π/2. At β=π/4 all phases maximize; at β=π/2 use u²+v²=1+sin²τ directly, and β=0 is the one-ray case. This proves the stated constants and all equality cases by the equality condition in Cauchy–Schwarz and reflection symmetry. The bundled trace tests were inspected, not executed; no limiting or exhaustiveness claim depends on them.
 
-## Closest literature and limitations
-Chen--Huang--Jin--Li, arXiv:2609.33159v1, Theorem 1.3, supplies the unrestricted \(p=2\) reference constant. Related published records titled *Extremizer spectrum and index rigidity for sharp harmonic Hardy coefficients* and *Sharp two-sector numerical-radius sum bound and angular phase transition* were compared at the level of their available claims, not represented as fully inspected manuscripts. The result covers only \(p=2\) and sector half-angles at most \(\pi/2\). Exhaustive historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unrestricted coefficient estimate, dual cosine test, and rotated-cosine equality examples are known. The supported distinction is the sector-dependent sharp law for the specified harmonic L² problem, including the sharp whole family of optimizers at the critical sector. Neither the closest published coefficient theorem nor the closest indexed equality classification supplies that constrained result.
+
+## value
+
+PASS
+
+The sector is a natural quantitative restriction interpolating from a nonnegative real trace to a half-plane. The result tells when coefficient maximizers require both signs of the dual cosine and exactly which boundary rays they occupy. The full critical equality family, not simply an improved numerical constant, identifies where support ceases to be rigid. This is useful information for sector-constrained harmonic coefficient problems even at a single exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

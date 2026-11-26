@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the geometric-base refinement, the finite domain is exactly the ten-dimensional \(\mathbf F_2\)-space of ternary cubics. The geometric Jacobian criterion is implemented on all three projective charts with exact Gröbner bases over the algebraic closure, yielding \(336\) smooth forms. Row-echelon enumeration over the field exhaustively gives \(5544\) smooth pencils and \(864\) smooth nets. The \(168\) invertible projective coordinate matrices produce eight complete orbits. Algebraic elimination for the eight orbit representatives proves the base-scheme dichotomy: two size-eight orbits have a squared irreducible cubic elimination equation and six orbits have the unit ideal. A separately implemented finite-field enumerator agrees on the three counts. The proofs do not extrapolate from randomly sampled fields.
+## correctness
 
-## Originality — PASS, qualified
-The general all-smooth system existence/dimension theorem is known (Asgarli–Ghioca–Reichstein, arXiv:2207.00918). A separate earlier exhaustive binary enumeration already establishes the \(864\)-net count, eight orbit sizes, rational-point spectra, and absence of common rational base points. **None of those conclusions is claimed as new.** The earlier enumerated representatives and point data do not state whether each net has a common geometric base scheme. The new theorem is the explicit geometric scheme stratification: two exceptional size-eight orbits with doubled degree-three base points, and all other nets basepoint-free, yielding degree-nine morphisms. Full elimination of the defining ideals supplies nontrivial additional geometry. published-finding corpus and searched primary sources revealed no equivalent geometric-base scheme classification. Because finite representative tables can implicitly encode these ideals, unindexed earlier elimination computations remain a publication-priority risk.
+PASS
 
-## Value — PASS
-The common geometric base scheme controls whether the cubic net defines an actual degree-nine morphism of projective planes or merely a rational map. The exact \(848\)-versus-\(16\) dichotomy, and the structural identification of exceptional bases as doubled Frobenius degree-three points, are natural invariant refinements with consequences for the associated maps. They are not implied by rational base-point absence; this requires elimination over the algebraic closure. The object and invariant are intrinsically motivated, rather than an arbitrary parameter slice.
+Independently reproduced the exact census with `python /workspace/review-work/cubic_census.py` (SymPy 1.14.0 for the base ideals). The smoothness test here uses F4 and F8 with an exhaustive geometric argument, not the frozen finite-field check as a certificate: an absolutely irreducible cubic cannot have two distinct singular points by intersecting with their joining line, so if singular its unique point is rational. A reducible cubic with a rational line has a singular point at an intersection with the residual quadratic, rational or defined over F4 (or a repeated line). If geometrically reducible with no rational line, the factors must be three Frobenius-conjugate lines defined over F8, which meet pairwise over F8. In degree three and characteristic two, the vanishing partials imply the equation by Euler. Testing the partials at all projective points of these two fields gave 336 smooth forms. Enumerating subspaces by their sorted nonzero element sets gave 5544 pencils and 864 nets; explicit invertible coordinate actions gave disjoint orbits of the eight listed representatives covering precisely that set. Independent projective-chart elimination gave the unit ideal for six reps and no points at X=0 for any rep. For (522,395,101) and (579,271,229), the X=1 ideals have Y+Z^4+Z^3+Z² and Y+Z^5+Z² respectively, each with Z^6+Z^4+1. The latter is (Z³+Z²+1)², with no rational root in its cubic factor. The local doubling is curvilinear, of length two at each of the three geometric points, not the square of a point's two-generator plane ideal. Orbit sizes give 16 versus 848. The three cubics of a basepoint-free net define a projective morphism, and every curve in a fiber would have zero degree against its pulled-back line bundle O(3), impossible. Proper quasi-finite implies finite; the image has dimension two and the intersection pullback gives degree 9. This tests only the seven rational members per net. The submitted checkers were inspected, not executed.
 
-## Limits
-The classification is over \(\mathbf F_2\), up to its rational projective transformations, and smoothness of the seven rational members is not smoothness of all geometric members. External independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only the geometric-base refinement, which is the stated new assertion. The earlier exact census supplies the 864 nets, orbit partition and rational-point information, and explicitly stops at rational base points. A prior general construction already gives geometrically basepoint-free examples (hence degree-nine maps in this case); the new result is which nets are geometrically basepoint-free and the length and structure of the two exceptional orbits.
+
+## value
+
+PASS
+
+An intrinsic scheme-theoretic invariant distinguishes nets that agree on simple rational data and explains exactly which maximal smooth systems induce finite morphisms by their defining cubic forms. The extra information is the number, placement in orbits and curvilinear multiplicity of the otherwise invisible base points, not a re-count of the ambient nets or a standalone degree computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

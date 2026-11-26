@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:17.512469Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–132, especially the registration convention and the periodic response equations",
+        "VERIFICATION.md and check.py, read as finite numerical diagnostics"
+      ],
+      "rationale": "With the e^(-inx) coefficient convention, the two periodic equations have multipliers (1+inℓ)^(-1) and (1-inℓ)^(-1). The reverse shift contributes e^(-inδ) and the baselines only affect mode zero. Thus R_n=ρ e^(-inδ)(1+inℓ)/(1-inℓ). Unit-normalizing and dividing the second mode by the square of the first cancels δ. The resulting phase Θ=2 arctan(2ℓ)−4 arctan(ℓ) has derivative −12ℓ²/[(1+ℓ²)(1+4ℓ²)] and decreases from 0 to −π with neither endpoint attained. This gives the open lower semicircle exactly, with no unwrapping ambiguity. The tangent difference yields the positive inverse equation 2ℓ³/(1+3ℓ²)=−tan(Θ/2); the first ratio then recovers the gain modulus and shift modulo one lap. An arbitrary smooth field consisting of those two harmonics plus a sufficiently large constant realizes every feasible ratio pair. One mode allows any positive ℓ by adjusting the shift, even if the measured forward coefficient is held fixed by changing the unknown concentration coefficient. The small-length phase expansion is −4ℓ³+12ℓ⁵+O(ℓ⁷) and the large-length one is −π+3/ℓ+O(ℓ⁻³), giving the stated inverse sensitivity. At ℓ=1/2 the half-angle tangent has magnitude 1/7, giving z=(24−7i)/25. No numerical test is needed for the result. Positivity is an explicit physical hypothesis; the remark about a sign-flip ambiguity should not be read as a necessity theorem for signed relative gains (a negative gain would instead put the two-mode invariant in the other open half-circle).",
+      "residual_risks": [
+        "No robustness or field-validation claim; near the two limiting phases inversion is ill-conditioned. Ratio-level sufficiency does not establish full-trace model fit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balzano–Nowak, pp. 1–2: gain/offset calibration using signal oversampling. Poe et al., p. 1: blind linear system identification with sparse inputs."
+        ],
+        "reasoning": "Neither inspected formulation covers unchanged unrestricted smooth inputs observed by those paired, direction-reversed continuous-time filters with unknown registration, nor implies the exact two-ratio range under the finding's assumptions.",
+        "searches": [
+          "Blind sensor calibration and blind linear system identification: Balzano–Nowak, Poe et al. (arXiv:2604.00520v1)"
+        ]
+      },
+      "checked_sources": [
+        "Hübner et al. (2014), Buehler et al. (2021)",
+        "Balzano–Nowak (2007), Poe et al. (arXiv:2604.00520v1)",
+        "Published record e2a866389d04 and identical hit 0eca1d30da34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-direction theorem recovers an unknown normalized causal response and field via a speed-dependent Fourier product. Hübner performs runwise correction after separate response-time estimation; Buehler reports e-folding times by sensor."
+        ],
+        "reasoning": "A speed ratio between two positive speeds with known common origin cannot be substituted for direction reversal with unknown relative shift in these theorems. None of the retrieved methods produces the sharp half-circle test, the unique cubic or the one-mode obstruction for this data model.",
+        "searches": [
+          "Read the e2a866389d04 Finding, Assumptions and Fourier-product proof; compare Hübner §3.2 and Buehler §3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hübner et al. use a first-order response and show forward/backward traverses, but determine response lengths via controlled laboratory transitions and correct runs individually."
+        ],
+        "reasoning": "A measured lab step, or a separately calibrated lag followed by relocation, supplies information not assumed in blind paired harmonic ratios and does not yield their joint inverse or admissible semicircle.",
+        "searches": [
+          "Primary-literature search for opposite-direction first-order mobile scan response correction and blind lag/registration; Hübner et al., §§2.2, 3.1–3.2, Fig. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the frozen item. e2a866389d04 gives a different two-traverse identification result, full signals at distinct known speeds in the same direction, with common known spatial origin."
+        ],
+        "reasoning": "The result is a theorem, not a numerical table. The closest indexed exact identifiability theorem neither has the unknown relative origin nor uses the same bidirectional data. The shared date establishes no priority.",
+        "searches": [
+          "Published-record search: blind mobile pollutant response, multiple traverses and Fourier reconstruction; compare e2a866389d04 and exact hit 0eca1d30da34"
+        ]
+      },
+      "rationale": "The exact identifiable region and two-mode inverse jointly treating lag, relative position and unknown positive gain survive the strongest inspected comparisons. First-order correction, Fourier shift cancellation, and broad blind calibration are not themselves claimed as new.",
+      "residual_risks": [
+        "Hofman et al. journal and preprint full text not independently accessible in this check. A limited literature query cannot exclude earlier blind calibration for this same data model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest empirical method; does not supply unknown-lag paired inverse",
+          "evidence": "Laboratory transitions determine τ63; correction selects endpoints and a gradient for each run separately.",
+          "identifier_or_url": "https://amt.copernicus.org/articles/7/2967/2014/amt-7-2967-2014.pdf",
+          "material_read": "§2.2 Eq. 1, §3.1, §3.2, Fig. 4 (OA offsets 33169, 40036, 43485, 49335, 46080)",
+          "method": "Targeted OA original PDF passages",
+          "title": "A horizontal mobile measuring system for atmospheric quantities",
+          "trigger": "First-order lag and opposite mobile scans"
+        },
+        {
+          "assessment": "Material thematic overlap, not coverage",
+          "evidence": "Same-direction traversals at different known speeds, known spatial origin, and Fourier-product reconstruction using full data.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-different-traversal-speeds-identify-an-unknown-causal-sensor--e2a866389d04",
+          "material_read": "RESULT.md offsets 0–3369 and 3200–5772",
+          "method": "Published-record mirror passages",
+          "title": "Two different traversal speeds identify an unknown causal sensor response",
+          "trigger": "Strongest distinct indexed response-identification theorem"
+        },
+        {
+          "assessment": "Different blind calibration problem",
+          "evidence": "Gain/offset recovery under signal oversampling, not two filters of opposite spatial direction.",
+          "identifier_or_url": "https://nowak.ece.wisc.edu/BalzanoNowakIPSN07.pdf",
+          "material_read": "pp. 1–2, OA offsets 0–3175, 6010–8790",
+          "method": "Targeted OA original PDF passages",
+          "title": "Blind Calibration of Sensor Networks",
+          "trigger": "Possible general gain/offset identification coverage"
+        },
+        {
+          "assessment": "Adjacent formulation, no implication shown",
+          "evidence": "Sparse input assumption rather than arbitrary unchanged smooth concentration and a direction-reversal phase ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.00520",
+          "material_read": "v1 p. 1, OA offset 0–2326",
+          "method": "Bounded original preprint passage",
+          "title": "BLISS: Global Blind Identification of Linear Systems with Sparse Inputs",
+          "trigger": "Possible blind system-identification coverage"
+        },
+        {
+          "assessment": "Response characterization, not the paired inverse",
+          "evidence": "Defines e-folding time and reports sensor-specific timing measurements.",
+          "identifier_or_url": "https://doi.org/10.5194/amt-14-995-2021",
+          "material_read": "§3.3, PDF p. 12, OA offset 64021",
+          "method": "Targeted OA original passage",
+          "title": "Stationary and portable multipollutant monitors for high-spatiotemporal-resolution air quality studies including online calibration",
+          "trigger": "Mobile calibration and lag characterization"
+        },
+        {
+          "assessment": "Unresolved access, no noncoverage conclusion from it",
+          "evidence": "The journal and preprint routes did not supply inspectable paper text in this check.",
+          "identifier_or_url": "https://doi.org/10.3390/s24175653 ; https://doi.org/10.20944/preprints202406.1513.v1",
+          "material_read": "Landing/access responses only; no full-text passage read",
+          "method": "Attempted lawful OA journal and public preprint access",
+          "title": "Portable Sensors for Dynamic Exposure Assessments in Urban Environments: State of the Science",
+          "trigger": "Cited mobile measurement review"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: reconstruction, one-mode obstruction and conditioning",
+        "Hübner et al., lab response and spatial-correction passages"
+      ],
+      "rationale": "A field traverse confounds response lag with relative registration even when one harmonic is measured without error. The exact two-mode feasibility test breaks that confounding without knowing the input and provides concrete rejection tests and sharp endpoint conditioning. It is a useful benchmark for noiseless paired-scan calibration and for judging when noisy extensions should be unstable, not a claim of calibrated deployment.",
+      "residual_risks": [
+        "Scope is the same unchanged field, equal-speed scans, common ideal first-order lag and known scale for conversion to seconds; drift and unmodeled delay are not resolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

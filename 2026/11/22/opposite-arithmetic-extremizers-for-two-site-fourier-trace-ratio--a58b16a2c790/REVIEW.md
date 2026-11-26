@@ -1,11 +1,21 @@
-# Review of the two-site Fourier trace-ratio theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The group-independent regular-representation eigenvalue count proves the exact expression, with all normalizations displayed. At fixed phase, strict concavity gives equality only at balanced amplitudes; piecewise strict concavity of the cosine-modulus sum gives every optimum phase. The elementary finite sine and cosine sums establish the exact values, while strict scalar monotonicity and Cauchy's theorem identify the optimal element orders. Positive odd-order groups require the maximum *realized element order*, not the possibly unattained group exponent. The saved checker provides corroborative tests rather than proof.
+## correctness
 
-**Originality: PASS relative to inspected sources.** The closest published two-spike rank-support law supplies the same representation-theoretic setup but only counts singular zeros; it does not determine their trace norm. The two-frequency idempotent concentration result supplies a cosine-sum identity, but not freely optimized coefficients or an all-nonabelian sharp order classification. The motivating Fourier-ratio entropy/synthesis papers likewise do not state the exact theorem. An older equivalent two-point Fourier-algebra norm calculation remains a live bibliographic risk.
+PASS
 
-**Value: PASS.** The two-site stratum is the first meaningful sparse level of a natural noncommutative Fourier-ratio invariant. The complete formulas identify an unexpected opposition: cancellation favors minimal element order while positivity favors maximal actual element order on odd groups. The equality classification makes this a usable sharp invariant, not a finite table or generic inequality restatement.
+Left translation factors a unitary from the Fourier blocks and leaves aI+b pi(g)* for g=x⁻¹y. Across the regular representation each root of unity occurs n/m times, from n/m cycles of length m. These blocks are normal, hence their singular values are the moduli of their eigenvalues; dividing the sum by √n√(|a|²+|b|²) gives (1). With lambda=2|ab|/(|a|²+|b|²), the normalized mean of √(1+lambda cos(phi+2πj/m)) is concave in lambda with derivative zero at 0. It strictly decreases for lambda>0 if any cosine is nonzero; when all cosines vanish (only an orthogonal phase at m=2), the constant mean 1 is strictly larger than the balanced cancelling value 1/√2. For phase zero this exception cannot occur. At lambda=1 the positive cosine-modulus sum is periodic and satisfies S''=−S<0 between its zeros of individual summands, so all minima are at a cancelling summand. All such locations have the same sum by cyclic permutation. The phase relation b/a∈−mu_m and the signed constant follow from 2∑_{j=1}^{m−1}sin(πj/m)=2cot(π/(2m)). For phase zero, pairing j and m−j gives 1+2∑_{j=1}^{floor((m−1)/2)}cos(πj/m); finite cosine summation yields cot for even m and csc for odd m. With x=π/(2m), x cot x decreases as x increases while x csc x increases; the monotonicities are strict. Lagrange and Cauchy give the smallest possible nonidentity order p. In even-order groups order two gives 1/√2 and strictly beats all other orders (odd m have D_m>2√2/π); in odd-order groups the largest realized order minimizes D_m. The order-21 example is the nontrivial semidirect product C₇ ⋊ C₃, not a direct product. The control character in the typesetting of the semidirect-product symbol is a presentation defect; independently checked the intended example using the action by multiplication by 2 modulo 7, with 14 elements of order 3 and six of order 7.
 
-**Limitations.** No result is claimed for support sizes three or greater, other matrix Schatten indices or infinite groups. The standard cyclic-representation reduction and finite cosine sums are credited as prior ingredients. The checker is finite and supplementary; mathematical priority remains subject to broader historical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the trace formula as a direct consequence of the earlier two-spike rank proof's full regular spectral multiplicities. Also credit the equal-positive root mean and parity/order dependency, including the two-point indicator specialization, to overlapping known or same-day comparisons; do not infer precedence from a shared date. What remains distinct is the complete optimization over nonzero coefficients in this trace/ℓ² ratio: unique balancing in both classes, all optimal complex phases, exact normalized sharp minima, and the signed-versus-positive comparison for arbitrary finite groups. No stronger inspected claim supplies that coefficient optimization.
+
+## value
+
+PASS
+
+The complete coefficient minimum and its equality classification are useful exact sparsity benchmarks for the normalized Fourier-algebra/trace objective, including the first genuinely variable support size. Positive and arbitrary complex coefficients have different arithmetic minimizers in the nontrivial odd-order cases where the least prime and largest actual order differ. The classification explains that contrast through a sharp equality condition on coefficient balance and cancellation, rather than merely recomputing an indicator norm or a rank count. It also covers coincidence of the optimizing orders, without falsely asserting strict separation for all odd-order groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

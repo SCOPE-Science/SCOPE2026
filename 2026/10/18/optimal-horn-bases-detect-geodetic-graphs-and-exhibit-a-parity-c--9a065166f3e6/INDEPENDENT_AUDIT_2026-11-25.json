@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:06:56.258419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Original correctness FAIL: the frozen universal equivalence is false. The step from validity to membership of the head in I(u,v) is wrong for general graphs; validity only requires the iterated hull. In H5=K_{5,5} minus a matching, each same-shore pair forces three common neighbors; every vertex of the first shore then has two neighbors among those three, and the full first shore forces the second. A matched cross-shore pair already has the whole graph in its interval. Thus every nonedge has full hull, even though the graph has multiple shortest paths. The basis in the repair uses one unit rule per nonedge, iterating matched pair i to matched pair i+1 by two rules and making every same-shore pair enter this cycle. Its weight is 75=3M, refuting the necessity assertion. The delivered corrected finding drops that necessity, preserves geodetic sufficiency and the complete cycle census, and includes the crown only as a counterexample. In a geodetic graph every subpath is uniquely geodesic, so the hull of a pair really is its path; an arbitrary singleton split suffices by induction. The frozen even-cycle lower bound also failed to consider adding the second semicircle from a larger premise containing the antipodes. The repaired proof groups every potential escape rule by the unique antipodal pair in its semicircle. A premise missing either endpoint lies in a proper convex subarc, so cannot escape. Each group contains the compulsory pair rule and costs at least four; at four there can only be the single two-head pair rule, one head in each open side. No nonantipodal mandatory rule belongs to a group. Shorter-arc induction proves attainability and independence of choices. This gives the cost and factorial counts including C3 and C4. Replay `cd /workspace/repairs/3 && python3 verify.py`: considers all sound rules for C3–C5 by exact weighted set cover, tests all candidate optimum bases for C3–C7 and samples C8–C10, compares all subset models in H5–H7, and checks the H4 square obstruction. Finite experiments corroborate, not prove, the repaired all-size statements. The frozen source and its claims remain unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bichoupan formulates the same weight and proves hardness for convex geometries; Meunier et al. classify all optima by minimum hitting sets under anti-exchange. C4 has a closed edge to which either outside vertex can be added to force the other, violating anti-exchange.",
+          "Proposition 3.3 makes Hamiltonian graphs single-headed, which covers the crown complement under the full-pair-hull premise."
+        ],
+        "reasoning": "The strongest broader optimization theorem does not cover the whole cycle family; the hydra result does cover the credited full-hull crown application but supplies neither the mixed-hull cycle optimal cost nor its census.",
+        "searches": [
+          "Bichoupan arXiv:2211.08524 Theorem 3",
+          "Meunier–Nourine–Vilmin arXiv:2603.14615v2 Theorem 1",
+          "Sloan–Stasi–Turán arXiv:1504.07753 Definitions 2.1,3.2 and Proposition 3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.08524, 2405.07512, 2603.14615, 1504.07753",
+        "doi:10.1016/j.tcs.2022.04.022",
+        "Resultary 5074ded0ed82, 1ecaeca96ad2, 369daf4b0d28, ac79cded1cfa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complement of the s-crown is Hamiltonian by concatenating opposite traversals of the two shore cliques via two of the matching edges. By the full-hull result and Proposition 3.3, one unit rule per complement edge is a known construction in this regime, giving weight 3s². The Resultary record is later by catalogue date, not necessarily by mathematical priority, and overlap is credited regardless.",
+          "Neither full-hull hydras nor anti-exchange optimization yields the two independent semicircle obligations while retaining arbitrary long premises on all even cycles."
+        ],
+        "reasoning": "Direct known coverage is removed from the novelty claim, not evaded by different wording. The certified distinction is the complete arbitrary-rule lower bound and all-optima classification and census, particularly for even cycles beyond the small full-hull case.",
+        "searches": [
+          "Sloan, Stasi, Turán hydra number Hamiltonian line graph single-headed spanning subgraph",
+          "arXiv:1504.07753 Proposition 3.3, Theorem 4.2",
+          "Resultary 369daf4b0d28 Finding, Proof (1)–(3)",
+          "arXiv:2603.14615v2 Theorem 1 and definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chepoi uses equivalent implication and convex-set descriptions but asks semispace enumeration questions. The key-Horn and hydra encodings use pair keys with full hull; the even-cycle problem has both full antipodal and proper nonantipodal hulls.",
+          "The repaired cost counts premises once per set-valued rule, whereas converting to single-head CNF duplicates the premise for each head."
+        ],
+        "reasoning": "The model equivalence does not preserve literal objectives under splitting. For cycles of length at least five the full-hull reductions miss the proper geodesic intervals; generic optimization of the key function is not the cycle result.",
+        "searches": [
+          "Resultary: geodesic convexity, optimum Horn implication basis, literal count, cycle census",
+          "Chepoi arXiv:2405.07512 §4.3.1",
+          "Bérczi et al. doi:10.1016/j.tcs.2022.04.022",
+          "Sloan–Stasi–Turán arXiv:1504.07753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hamming geodesic Horn circuits count prime unit rules for one synchronous pass; Cartesian box closure minimizes rule count, including the C4 instance. The crown catalogue results address convex-set rigidity and direct geodetic set counts."
+        ],
+        "reasoning": "The C4 overlap is real but neither the same objective in general nor the parity family census. No exact table or formula for all these cycle literal optima was found in bounded retrieval.",
+        "searches": [
+          "Resultary geodetic optimum cost, all optimum choices, cycle literal cost and factorial census",
+          "Resultary 5074ded0ed82, 1ecaeca96ad2, 369daf4b0d28, ac79cded1cfa"
+        ]
+      },
+      "rationale": "For the repaired result only: the full minimum literal-cost classification and all-bases counts on geodetic graphs and both cycle parities were not established by the inspected results. Crown tightness is covered as a consequence of full nonedge hulls and the Hamiltonian hydra theorem; it is credited and retained solely as a counterexample, not assessed as new. The false original converse is not passed.",
+      "residual_risks": [
+        "Older transit-function, graph-betweenness or implicational minimization work could contain a related cycle computation. General key-Horn approximation literature was not exhaustively inspected. These risks do not erase the established crown coverage or identify equivalent cycle coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same literal objective and NP-hardness, not graph-geodesic classification.",
+          "evidence": [
+            "Size sums premise and conclusion sizes; Theorem 3 gives hardness for convex geometries."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.08524",
+          "material_read": "v1 Introduction p. 1 and Theorem 3 p. 5",
+          "method": "OA PDF passages",
+          "title": "Complexity Results for Implication Bases of Convex Geometries",
+          "trigger": "Same objective on a broad convexity domain"
+        },
+        {
+          "assessment": "The inspected section uses bases as representation, not minimum total literal cost.",
+          "evidence": [
+            "It discusses converting bases to semispace/intersection representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.07512",
+          "material_read": "§4.3.1 p. 22, text offset 96600",
+          "method": "OA PDF passage",
+          "title": "Separation axiom S3 for geodesic convexity in graphs",
+          "trigger": "Graph-geodesic implication bases"
+        },
+        {
+          "assessment": "Matches objective but requires anti-exchange, failing for C4 and hence not covering all cycles.",
+          "evidence": [
+            "The theorem uses minimum hitting sets of quasi-closed hypergraphs to characterize optima of a convex geometry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.14615",
+          "material_read": "v2 Theorem 1 p. 3 (offset 10464), definitions p. 5 (offset 17900)",
+          "method": "OA PDF passages",
+          "title": "Characterizing the optimum bases of a convex geometry using quasi-closed hypergraphs",
+          "trigger": "Potentially dominating all-optima theorem"
+        },
+        {
+          "assessment": "Provides the crown tightness via Hamiltonian complement given full nonedge hulls, not the mixed-hull cycle theorem.",
+          "evidence": [
+            "All key pairs reach the full vertex set. Every Hamiltonian graph is single-headed; Theorem 4.2 gives a broader sufficient condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.07753",
+          "material_read": "Definition 2.1 p. 3 (offset 10200), Definition 3.2 and Proposition 3.3 p. 5 (offset 16350), Theorem 4.2 pp. 7–8 (offset 22870)",
+          "method": "OA PDF passage location and bounded reads by offset",
+          "title": "Hydras: Directed Hypergraphs and Horn Formulas",
+          "trigger": "One-head-per-pair exact optimality for full-hull closure systems"
+        },
+        {
+          "assessment": "Determines a pure Horn function from certain key graphs. It is not a minimum grouped-literal representation theorem.",
+          "evidence": [
+            "Theorem 9 characterizes graphs of minimal keys determining a unique function; the displayed key formula provides every outside variable as a head."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2022.04.022",
+          "material_read": "Definitions PDF pp. 2–3, offsets 11300–17288; Theorem 9 §4.1 p. 173, offset 21797",
+          "method": "OA author-repository PDF",
+          "title": "Unique key Horn functions",
+          "trigger": "Broader characterization from pair keys"
+        },
+        {
+          "assessment": "At defect t=1 and shores at least five proves proper convex sets are just empty, singleton and adjacency pairs. Combined with the hydra proposition this covers tightness in these crowns.",
+          "evidence": [
+            "At shore sizes at least 2t+3 all nonedge pairs have full hull."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-bipartite-defect-threshold-for-geodesic-convexity-rigidity--369daf4b0d28/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof (1)–(3), offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp bipartite defect threshold for geodesic-convexity rigidity and online shattering",
+          "trigger": "Same crown nonedge hulls"
+        },
+        {
+          "assessment": "Counts direct geodetic sets, not iterative Horn representation optima.",
+          "evidence": [
+            "Distinguishes one-round geodesic interval coverage from iterative hulls."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-geodetic-and-minimal-geodetic-cardinality-polynomials-of-crown-g--ac79cded1cfa/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Geodetic and minimal-geodetic cardinality polynomials of crown graphs",
+          "trigger": "Exact crown geodesic invariant"
+        },
+        {
+          "assessment": "Different graph and objective; not excluded by date.",
+          "evidence": [
+            "Counts prime unit implications for one-pass bases and compares to multipass rule counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-rooted-horn-circuit-spectrum-of-hamming-geodesic-convexity-and-a--5074ded0ed82",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Rooted Horn-circuit spectrum of Hamming geodesic convexity and a quasipolynomial direct-basis barrier",
+          "trigger": "Same-day geodesic Horn representations"
+        },
+        {
+          "assessment": "Recognized overlap at C4 with a different objective; no larger even-cycle census.",
+          "evidence": [
+            "Minimizes the number of rules, not total premise and conclusion literals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-minimal-implication-bases-for-finite-cartesian-box-closure-have--1ecaeca96ad2",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary local mirror",
+          "title": "Minimal implication bases for finite Cartesian box closure have a canonical form",
+          "trigger": "Exact rules for the box closure including C4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected theorem answers the natural minimum-literal encoding problem over unrestricted bases and counts every optimum for two infinite cycle families. The even-cycle extra cost is a provable local obstruction that must be charged even in the presence of larger antecedents; the repaired census survives the failure of the global converse. The geodetic construction and explicit counterexample clarify what shortest-path uniqueness does and does not determine. The surviving value is not a claim of novelty for the known full-hull crown mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

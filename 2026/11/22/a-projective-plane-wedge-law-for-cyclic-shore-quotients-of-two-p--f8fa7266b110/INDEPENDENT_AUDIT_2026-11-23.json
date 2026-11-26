@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:55:52.034291Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof 1–3, VERIFICATION.md, verify.py, and verification_output.txt; read only",
+        "Independent local collapse and ordered boundary traversal reconstructed above"
+      ],
+      "rationale": "Reconstructed the equivariant retraction and the nonabelian attaching words. The geometric diagonal is full in the center-coned triangulation; normalizing the complementary barycentric weights defines an equivariant strong deformation retract off the diagonal. A square coming from distinct incident edges loses exactly its common-end diagonal corner. Label the three retained corners q,r,s in consecutive order and its center c. The only center triangles are cqr and crs; collapse the free spokes cq and cs with their triangles, then remove c along cr. Center supports are disjoint and the C₃×S₂ action has trivial stabilizer on these ordered centers, so the same collapses descend. Equal-edge squares have their central vertex and two diagonal corners removed; disjoint-edge squares remain intact. Thus the quotient reduces to the stated deleted-product CW model. The cell representatives and count follow by indexing each two-cell by its increasing pair of right vertices, translating the first left vertex to a₀, and choosing one of two distinct other left vertices. The ordered square traversals are L_i⁺ R_{i,j} R_{j,i}⁻¹ (L_j⁻)⁻¹ and L_i⁻ R_{i,j} R_{j,i}⁻¹ (L_j⁺)⁻¹, not merely their signed edge multisets. The specified tree leaves A:y⁻¹x_j⁻¹ and B:x_i y⁻¹. Solve B for y and transfer the other attaching map by homotopy before cancellation; this is a presentation-complex move, not a free-face collapse of the original square pair. The resulting x_i x_j relations give x_j=x₁⁻¹ for j>1 and leave a circle with binomial(n−1,2) attaching maps of degree −2. At n≥3 one such cell makes RP²; the others now attach by nullhomotopic maps, giving the sphere wedge of the claimed rank. This also checks the n=3 boundary and integral consequences without inferring homotopy type from homology.",
+      "residual_risks": [
+        "The frozen verifier compares sorted signed edge lists at lines 124 and 146; despite the wording of its verification description, those assertions do not test traversal order. That order was checked separately by tracing the four oriented sides; the topology proof does not depend on the checker.",
+        "The recorded finite runs at n=3–9 do not establish the uniform or equivariant statements alone. The quotient is ordinary and nonfree, not the Borel construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The disk result treats the entire graph automorphism group for all m,n and starts from the same symmetric center-coned square triangulation. The ordered tensor-lattice computation includes shore permutations and particle exchange on homology, but does not classify nonfree geometric orbit spaces."
+        ],
+        "reasoning": "Further quotienting by the full group can destroy cells and cycles; a disk for that quotient does not determine the earlier C₃ quotient. Ordered homology with a symmetry action may inform rational orbit homology but does not determine the ordinary quotient's attaching maps, 2-torsion or integral homotopy type.",
+        "searches": [
+          "Resultary disk-retractions result 35dd42d009c7",
+          "Resultary crown-cycle tensor result 16e1f073b869",
+          "Farber–Hanbury arXiv:1005.2300v2; Barnett 2010 Durham thesis abstract and contents"
+        ]
+      },
+      "checked_sources": [
+        "Resultary subgroup, full-symmetry and tensor works above",
+        "Crisp–Wiest arXiv:math/0303217v2 §3",
+        "Farber–Hanbury arXiv:1005.2300v2 abstract/introduction",
+        "Barnett Durham thesis abstract and contents"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base case fixes only the existence of the projective-plane quotient at n=3. The full-group proof uses equality patterns that eliminate right-index dependence in its orbits; C₃ instead fixes those right indices individually. Its relators retain one pair of right indices until the explicit word reduction."
+        ],
+        "reasoning": "Keeping n−3 further right vertices produces genuinely new 2-cells described by ordered attachment, not repetitions identified by the prior quotient. Neither the discrete model, the n=3 classification, nor the full-symmetry quotient prescribes the residual degree-two cell and binomial sphere summands.",
+        "searches": [
+          "Crisp–Wiest §3 and Figure 1",
+          "Local subgroup census 499041f7bd49 Finding and assumptions",
+          "Local disk retractions 35dd42d009c7 Proof 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous orbit space is modeled by the deleted product only through an equivariant retraction, followed by particle exchange and then the one-shore rotation (or the simultaneous product-group quotient). The known ordered two-point configuration and unquotiented braid-space models do not impose this orbit relation."
+        ],
+        "reasoning": "Neither ordered deleted-product homology, diagonal rotation on both shores, nor a Borel quotient is an equivalent formulation of this ordinary nonfree one-shore quotient. The equivalent cubical reformulation is the unordered disjoint-cell quotient by this specific C₃.",
+        "searches": [
+          "Resultary: projective plane spheres cyclic shore quotient unordered two particle complete bipartite K 3 n configuration",
+          "Literature: K_{3,n} configuration space two particles cyclic group graph braid quotient deleted Cartesian squares orbit projective plane",
+          "Crisp–Wiest arXiv:math/0303217v2 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The subgroup-census Finding and table explicitly give the projective plane for a three-cycle confined to one shore of K_{3,3}; it also distinguishes the diagonal three-cycle, and its hypotheses fix n=3. The exact frozen law appeared in the index, not as an independent antecedent."
+        ],
+        "reasoning": "Credit the base-case homeomorphism result; that table has no n≥4 row of the same family/action and gives no sphere-growth law. Search coverage is not exhaustive.",
+        "searches": [
+          "Resultary orbit-surface census 499041f7bd49",
+          "Literature: configuration space complete bipartite quotient graph two points K3 n projective plane cyclic automorphism deleted product"
+        ]
+      },
+      "rationale": "The n=3 cyclic quotient is known in the discretized model, and the coned-square triangulation and diagonal-complement method already appear in the full-symmetry disk work. Neither covers the all-n proper-subgroup quotient computation. The new content is the uniform proper-action orbit-cell and attaching-map reduction, especially the extra spheres for n≥4.",
+      "residual_risks": [
+        "Global historical priority remains best-of-knowledge. A thesis or older deleted-product calculation not indexed under quotient or shore could contain a related result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the n=3 cubical case, not the all-n law.",
+          "evidence": "Explicitly distinguishes the one-shore RP² quotient from the diagonal order-three action; scope is the K_{3,3} finite cubical complex.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-seven-orbit-surface-types-for-all-graph-symmetries-of-the-two-pa--499041f7bd49/RESULT.md",
+          "material_read": "Finding, table, assumptions, proof of quotient surface recognition, offsets 0–5143",
+          "method": "Published local mirror",
+          "title": "Seven orbit-surface types for all graph symmetries of the two-particle K3,3 configuration surface",
+          "trigger": "Identical action on the smallest member"
+        },
+        {
+          "assessment": "Prior construction for the full graph automorphism group, not the proper C₃ quotient.",
+          "evidence": "Every ordered product square is coned to its center. The uniform reduction of full-group chain orbits uses arbitrary relabelings on each side to obtain a size-independent disk model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-disk-retractions-for-two-particle-symmetry-quotients-of-complete--35dd42d009c7/RESULT.md",
+          "material_read": "Finding and assumptions, start of coned-square construction, and orbit-chain and disk proof passages around offsets 4557–7945",
+          "method": "Published local mirror",
+          "title": "Disk retractions for two-particle symmetry quotients of complete bipartite graphs",
+          "trigger": "Same continuous model and general quotient family"
+        },
+        {
+          "assessment": "Computes ordered-space lattices with symmetry, not attaching maps of orbital quotients.",
+          "evidence": "States the tensor description of the ordered second integral homology and the particle exchange operator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-crown-cycle-tensor-lattices-in-the-two-particle-homology-of-comp--16e1f073b869/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2900",
+          "method": "Published local mirror",
+          "title": "Crown-cycle tensor lattices in the two-particle homology of complete bipartite graphs",
+          "trigger": "Equivariant integral result for the related configuration family"
+        },
+        {
+          "assessment": "Provides the underlying reduced surface example, with no matching one-shore quotient theorem in these passages.",
+          "evidence": "The unquotiented K_{3,3} reduced two-point configuration model is nonorientable of χ=−3 and consists of 18 squares.",
+          "identifier_or_url": "https://arxiv.org/html/math/0303217v2",
+          "material_read": "§3 and Figure 1 passages near offsets 25125 and 27466",
+          "method": "Public OA full text",
+          "title": "Embeddings of graph braid and surface groups in right-angled Artin groups and braid groups",
+          "trigger": "Primary K_{3,3} two-particle model and potential quotient overlap"
+        },
+        {
+          "assessment": "Accessible framing concerns the ordered space F(Γ,2) and its Betti numbers; the full thesis was not searched for all possible quotient remarks.",
+          "evidence": "Contents list complete bipartite graphs within the nonplanar configuration homology chapter; abstract specifies ordered collision-free F(Γ,2).",
+          "identifier_or_url": "https://etheses.durham.ac.uk/id/eprint/293/1/thesis.pdf",
+          "material_read": "Repository abstract and OA PDF abstract and contents, including §5.2 title",
+          "method": "Repository page for exact PDF link; OA thesis text offsets 0–7725",
+          "title": "The Configuration Space of Two Particles Moving on a Graph",
+          "trigger": "Plausible earlier complete-bipartite classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, scope, and attaching-word construction; prior one-shore n=3 and full-symmetry models"
+      ],
+      "rationale": "This is a uniform integral homotopy classification for a natural nonfree symmetry of a standard configuration family. The quotient fundamental group remains of order two while the number of actual wedge-sphere summands grows quadratically. The integral attaching-map calculation detects more than rational symmetry invariants or the n=3 special case, and distinguishes this proper subgroup from the full-symmetry disk quotient.",
+      "residual_risks": [
+        "No other shore subgroup, more particles, equivariant homotopy type, or inclusion-map classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

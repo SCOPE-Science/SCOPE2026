@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:30:49.540207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unnormalized positive-exponent transform preserves oddness, doubles positive-representative support counts, and squares to 15 times reflection. A one-column sine support has at most two zero rows since entry S_yu vanishes exactly when 15 divides yu. For two columns, zeros are the zero rows plus at most one projective direction. Evaluation at a primitive order-15 root in characteristic 31 or 61 preserves complex cyclotomic zero minors; reduced rows that become entirely zero can be counted separately, so the modular maximum indeed bounds the complex maximum. Inspected the script and output without executing the upload. Independently reduced all 441 two-by-two minors modulo Phi_15 in characteristic zero: 24 vanish and the zero-cap histogram is {1:8,2:12,4:1}. For columns (3,6) row 5 vanishes and the other rows split as {1,4,6} and {2,3,7}. The only four-row rank-one matrices on those columns are these triples with row 5, so the exact Fourier geometric sums for h_1,h_2 identify the two distinct kernels. Other coefficient lines on the same support have only the common zero row. The singleton bound, the two-column bound and duality exclude pair-count sums below 5 and leave only (2,3),(3,2) at equality; hence the four distinct rays. As an additional direct check, among 735 five-row/three-column matrices exactly two had rank two, with columns (1,4,6) or (2,3,7) and rows (1,2,4,5,7); each was checked by zero 3x3 minors and a nonzero 2x2 minor. Replay: /workspace/branches/be1ce370-d673-4cd2-8684-5f81b69cc2ac/exact_replay.py and exact_replay_output.txt in that directory. This is not a claim about every higher-order sine minor or other moduli.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meshulam's unrestricted bound for time support 4 is Fourier support at least 4. Bonami–Ghobber's sharper unrestricted at-most-k profile on Z_3 x Z_5 has theta(4)=5 and theta(6)=3; these k are not profile-drop cases of their listed equality theorem."
+        ],
+        "reasoning": "The unrestricted exact profile at 4 combined with parity gives the bare lower bound of 10 in that case; its unrestricted equality statements do not determine the four odd rays. That narrower inference is not used as the decisive coverage.",
+        "searches": [
+          "Meshulam arXiv:math/0312407, Theorem 1.2",
+          "Bonami–Ghobber arXiv:1003.5060, Proposition 12 and Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and check_output.txt",
+        "Resultary 6d1752cd1bea and 04538f9363bb",
+        "arXiv:1807.07648, arXiv:1003.5060, arXiv:math/0312407"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Any set of zero positive frequencies for coefficients supported on two odd pairs is a clique in the full-rank exclusion graph. In the lone candidate triangle for (1,4), at y=3 the two nonzero sine entries are opposite (4*3=-3 modulo 15), while at y=5 they are equal (4*5=5 modulo 15); thus no coefficient line kills both rows. Multiplication by the unit 2, with a sign change for the representative -7, handles (2,7). For (3,6), row y=5 vanishes and the others depend up to sign only on y=1,2 modulo sign in Z/5. The two order-5 geometric-sum witnesses give the two distinct one-dimensional kernels, so other lines kill only row 5."
+        ],
+        "reasoning": "This recovers the stronger nonexceptional lower bound of 10 Fourier values as well as the exceptional six-or-twelve dichotomy. Applying odd Fourier duality and the elementary singleton test gives the four equality rays and the minimum. The projection of a known exact table plus one sign comparison and order-5 character orthogonality is mechanical coverage under the audit standard.",
+        "searches": [
+          "Resultary 6d1752cd1bea, mirrored full-Fourier orbit-incidence table, offsets 0–4318"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For F on signed row and column pairs, the decomposition into even and odd subspaces gives a cosine block and the 2x2 sine block. In particular any zero odd determinant forces the full 4x4 determinant to be zero.",
+          "The fixed-row Resultary result at {0,1,2,5} identifies 15 singular rank-three 4x4 blocks at order 15; that fixed-row fact alone does not control the signed pairs.",
+          "Garcia–Karaali–Katz identify the odd transform framework and the all-minors nonvanishing property at prime orders, without enumerating order 15."
+        ],
+        "reasoning": "Oddness is not the same as unrestricted support sparsity, and the fixed-row theorem does not suffice. The signed-pair reduction does translate the relevant sine exclusions into necessary rank tests in the complete Fourier census.",
+        "searches": [
+          "Resultary: order-fifteen Fourier minor rank incidence, 6d1752cd1bea and 04538f9363bb",
+          "Garcia–Karaali–Katz arXiv:1807.07648, Theorems 1.3 and 1.5(i)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Every nonzero singular incidence listed is the entire column-orbit size, so the table gives singularity of each signed-pair block once its two affine orbits are identified. With edges between distinct positive rows y,z when the full signed 4x4 is singular, the only non-(3,6) column pairs admitting a triangle are (1,4) and (2,7), in orbit 16; the triangle in each is {3,5,6}. The other nonexceptional signed column orbits are 0,5,11,12,14 and have maximum clique size at most 2 in this seven-vertex restriction. For (3,6), orbit 17, the only four-cliques are {1,4,5,6} and {2,3,5,7}."
+        ],
+        "reasoning": "This is a finite extraction from the published table by taking affine orbits of {u,v,-u,-v} and {y,z,-y,-z} and checking their pairwise adjacency. No new Fourier rank census is needed. Aggregate counts alone would not suffice, but the complete orbit incidences here do.",
+        "searches": [
+          "Resultary: complete rank-incidence census for four-frequency Fourier sampling on the cyclic group of order fifteen, 6d1752cd1bea, Finding and orbit table"
+        ]
+      },
+      "rationale": "The closest full-matrix rank census is stronger in the relevant direction. Its actual orbit-incidence table, not merely the title or shared modulus, gives the frozen two-column exclusion and the equality rays via the involution blocks and one elementary sign check. The unrestricted uncertainty papers and the fixed-row record do not by themselves give that coverage. The catalogue dates do not determine priority.",
+      "residual_risks": [
+        "No chronology or priority conclusion from the dates of distinct records.",
+        "No identical odd equality statement was found in the bounded literature check; the decisive comparison is mathematical implication by a stronger result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the critical exclusions when combined with involution and the stated sign check",
+          "evidence": [
+            "All nonzero singular orbit incidences equal the relevant full orbit size, determining singularity at the level of orbit pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/1/SCOPE-complete-rank-incidence-census-for-four-frequency-fourier-sampli--6d1752cd1bea/RESULT.md",
+          "material_read": "Finding, affine orbit representatives and full orbit-pair incidences, assumptions, start of exact determinant proof",
+          "method": "Resultary search and local-mirror passage 0–4318; extracted signed-pair graph from table",
+          "title": "Complete rank-incidence census for four-frequency Fourier sampling on the cyclic group of order fifteen",
+          "trigger": "Plausibly stronger full-matrix table on exactly the same cycle"
+        },
+        {
+          "assessment": "Fixed-row full-matrix result is not the required complete table",
+          "evidence": [
+            "At order 15, row set {0,1,2,5} gives precisely 15 singular rank-three blocks linked to order-five cosets."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 record 04538f9363bb",
+          "material_read": "Finding and assumptions, offsets 350–4427",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An odd-semiprime full-spark rigidity theorem for a four-row Fourier configuration",
+          "trigger": "Same-day order-15 rank overlap"
+        },
+        {
+          "assessment": "Prime-order all-minors and symmetry results, not order-15 equality classification",
+          "evidence": [
+            "Odd sine minor nonvanishing for all minors is equivalent to prime order; the odd prime support bound has a different domain."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.07648",
+          "material_read": "Theorems 1.3 and 1.5(i), pp. 4–5",
+          "method": "OA PDF target near offset 13723",
+          "title": "An improved uncertainty principle for functions with symmetry",
+          "trigger": "Exact odd sine-transform uncertainty"
+        },
+        {
+          "assessment": "Covers the unrestricted profile, not the complete odd equality cases",
+          "evidence": [
+            "At-most-k support convention; theta(4)=5 and theta(6)=3, not the odd extremal pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.5060",
+          "material_read": "Proposition 12, p. 7; Theorem 4, p. 3",
+          "method": "OA PDF, offsets about 27654 and 11703",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Unrestricted exact profile and equality results on the same group"
+        },
+        {
+          "assessment": "General bound does not specify the relevant odd projective lines",
+          "evidence": [
+            "Divisor interpolation at order 15 gives a lower bound of 4 at time support 4 and 14/5 at time support 6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0312407",
+          "material_read": "Theorem 1.2, p. 2",
+          "method": "OA PDF near offset 3218",
+          "title": "An uncertainty inequality for finite abelian groups",
+          "trigger": "General group support bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Order fifteen is a natural small odd squarefree test case, and odd equality classification is more informative than a bare uncertainty bound. But the exact result at this modulus is recoverable from the indexed full Fourier incidence table by a direct signed-pair restriction and elementary exclusions of the remaining candidates. The frozen record supplies no uncovered higher-modulus theory or other separate invariant; the replay and alternative proof do not by themselves add one.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

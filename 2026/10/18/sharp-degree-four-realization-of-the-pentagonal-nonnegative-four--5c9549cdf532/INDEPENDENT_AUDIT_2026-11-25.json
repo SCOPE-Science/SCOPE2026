@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:17:10.040538Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–83",
+        "VERIFICATION.md:19–23",
+        "verify.py:9–56",
+        "Repaired RESULT.md:5–64 and SLOGAN.txt",
+        "arXiv:math/0312218v1, Example 3 p. 12"
+      ],
+      "rationale": "Re-audited the repaired Finding and proof. For P(cos t)=f(t), the interior chord zero c=−φ/2 forces a double root since P is nonnegative on [−1,1]. At degree ≤3, P=(x−c)^2(A+B x); the third cosine coefficient B/4 must be nonnegative. Comparing x=d=η/2 to x=1 makes the ratio at most ((d−c)/(1−c))²=η², with equality forcing B=0. The normalized square belongs to the class and uniquely attains the bound. The five-point sample is I+q A(C5); explicit adjacent nonnegative rank-one terms plus (1−2q)I give complete positivity up to 1/2, including the full lower-degree range. The negative eigenvalue threshold 1−φq≥0 bounds arbitrary degree. For sharpness, the prior N=4 polynomial divided by sqrt(5) is exactly F. An independent symbolic replay solves for weights u,v,w in u+v x+w T4(x) from P(1)=1, P(c)=P'(c)=0, recovering the stated F; exact division by (x−c)^2 gives the displayed positive quadratic and exact evaluations give F(d)=η and the two Horn pairings 10−5sqrt(5), 10+5sqrt(5) for F and 1+cos 2t. Copositivity follows from mass transfer at nonadjacent vertices, reducing a triangle-free graph to a clique; the pairing is strictly negative at F. For the illustrative perturbation, the summands' zero sets do not meet, and strictly positive weights on all Fourier residues give full sample rank. Its Horn bound is sufficient only. The frozen verification script was inspected, not run.",
+      "residual_risks": [
+        "No minimum degree is asserted without the exact chord constraint or for other sampling nodes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Schoenberg–Delsarte statements compared concern a positive-definite extension framework and polynomial witnesses in a spherical constrained-angle setting.",
+          "The pentagon matrix at q=η is already explicitly known, including non-complete positivity. The Turán paper solves its distinct sparse frequency extremal problem even for general N."
+        ],
+        "reasoning": "The matrix obstruction is entirely covered at the sample level, but the cone classification does not impose nonnegativity between nodes or Fourier bandwidth. The Turán result supplies an upper-bound witness for minimum degree; its broader sparse-support optimization does not exclude lower-degree interpolants in the joint positivity class. The Delsarte statement does not give their chord-value bound.",
+        "searches": [
+          "arXiv:2602.09010v1, §§7–8, Theorem 8.2",
+          "arXiv:math/0312218v1, Example 3",
+          "Peyré's pentagon example and Burer–Anstreicher–Dür doi:10.1016/j.laa.2009.05.021"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0312218v1",
+        "arXiv:math/0302193v1",
+        "arXiv:2602.09010v1",
+        "Peyré pentagon exposition",
+        "Resultary 8565bf95f4aa and b2ce368d6213"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior quartic evaluated at θ has q=η; the eigenvalue 1−φq gives the matching upper bound independently of degree. Thus the original unrestricted attainment follows from established facts.",
+          "The repaired lower-degree proof requires both an interior double root from global pointwise nonnegativity and the sign of B from nonnegative Fourier coefficients. It yields η²<1/2 with the specified unique quadratic; neither prior sparse optimizer nor the sample eigenvalues establish this degree-restricted bound."
+        ],
+        "reasoning": "Using established matrices and the exact prior quartic for sharpness does not make the converse a prior implication. The criterion q≤1/2 is a matrix fact, while the repaired result is the degree-driven loss in the maximum possible q. The strict perturbation was demoted to an illustration because it is a direct controlled application of the prior witness and copositive separation.",
+        "searches": [
+          "arXiv:math/0312218v1 Example 3 and Peyré's pentagon matrix vs. frozen RESULT.md:9–24,32–61 and repaired RESULT.md:7–11,19–52",
+          "arXiv:math/0302193v1, definition of M(H), vs. chord interpolation proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kolountzakis–Révész use a nonnegative cosine polynomial as the Fourier transform of a positive-definite function on Z supported on {0,±1,±N}. For N=4 they give p0=1+(4 cos t+cos 4t)/(5 cos(π/5)), with p0(0)=sqrt(5). The zero at 6π/5 gives the required zero by evenness.",
+          "Their other paper maximizes the first Fourier coefficient in a nonnegative cosine polynomial, with a discrete-grid counterpart; it is not the chord-ratio objective under the interior-zero constraint."
+        ],
+        "reasoning": "Switching to the Fourier-dual Turán formulation and normalizing p0 at zero yields exactly F, not merely a similar polynomial. That equivalence covers the quartic interpolation but not the degree-three constrained optimization. The old first-coefficient bounds constrain a different variable and do not handle this prescribed zero.",
+        "searches": [
+          "Primary literature inquiry on nonnegative positive-definite circle polynomials, pentagonal chord zeros and sparse Fourier support",
+          "arXiv:math/0312218v1, Example 3 p. 12",
+          "arXiv:math/0302193v1, pp. 3–4,9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8565bf95f4aa, Finding offset 0, gives sqrt(5)/2 for a first-coefficient maximum with harmonics 1,4,6, not η² under the chord zero.",
+          "b2ce368d6213 treats finite cyclic Turán defects for {0,±1,±4}; its Relationship section, offset 7283, credits the exact continuous sqrt(5) optimum and witness to the 2003 Example 3. It is a later indexed record; the 2003 source establishes prior coverage."
+        ],
+        "reasoning": "The quartic formula is independently and exactly matched in the prior primary source. The indexed neighboring optima with different support or discrete geometry are not entries for the repaired degree-three bound and equality classification.",
+        "searches": [
+          "Resultary index for sharp trigonometric coefficient problems and pentagonal Turán constructions",
+          "Resultary 8565bf95f4aa and b2ce368d6213"
+        ]
+      },
+      "rationale": "PASS only for the repaired degree-three inequality, unique equality case, and the resulting sharp zero-chord bandwidth threshold. The frozen identification of the quartic interpolation as part of the contribution is not supported: a prior paper supplies literally the same polynomial after normalization, so quartic and unrestricted attainment are now expressly prior consequences. In the inspected comparisons, the prior extremal objective and matrix results do not supply the sharp exclusion or equality analysis for degree ≤3.",
+      "residual_risks": [
+        "An older equivalent formulation of the repaired sharp degree-three inequality is not excluded by focused searches.",
+        "The 2009 matrix-cone full text was not independently retrieved in the attempted copy; no originality conclusion rests on a negative assertion about it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior quartic; directly supplies its chord attainment, not the degree-three inequality",
+          "evidence": [
+            "For even N=2n the paper displays p0=1+[2n cos t+cos(2nt)]/[(2n+1)cos(π/(2n+1))]. Setting n=2 gives F up to the factor p0(0)=sqrt(5). The extremality argument evaluates at π+π/(2n+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312218v1",
+          "material_read": "Example 3, p. 12, PDF offset 50450 onward",
+          "method": "OA primary PDF passage; independent normalization comparison",
+          "title": "Turán's extremal problem for positive definite functions on groups",
+          "trigger": "Exact sparse quartic alias under Fourier duality"
+        },
+        {
+          "assessment": "Different objective and hypotheses",
+          "evidence": [
+            "Defines continuous and discrete cosine problems maximizing a first Fourier coefficient, with a consecutive-harmonic formula M_n=2 cos(π/(n+2))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302193v1",
+          "material_read": "pp. 3–4 definitions, offsets 8556,9584; p. 9 at 21730",
+          "method": "OA primary PDF passages",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "Nearby sharp Fourier coefficient maximization"
+        },
+        {
+          "assessment": "Exact classical matrix, no bandwidth proof in the inspected passage; no conclusion based on inaccessible full text",
+          "evidence": [
+            "Peyré displays I+η A(C5) and proves doubly nonnegative but not completely positive."
+          ],
+          "identifier_or_url": "https://www.gpeyre.com/blog/2026/07/04/doubly-nonnegative-completely-positive/ ; doi:10.1016/j.laa.2009.05.021",
+          "material_read": "Peyré matrix and separation passage at offset 781; Burer–Anstreicher–Dür landing page only in the independent retrieval",
+          "method": "OA public page and attempted lawful paper retrieval",
+          "title": "Two notions of positivity, separated by a pentagon; The difference between 5 × 5 doubly nonnegative and completely positive matrices",
+          "trigger": "Exact matrix and classical copositive separation"
+        },
+        {
+          "assessment": "Sphere-constrained Delsarte polynomial witness and group representation background are not the repaired zero-chord bound",
+          "evidence": [
+            "Theorem 8.2 gives polynomial witnesses in its Delsarte-sharp setting, whose angular constraints differ from the five-node Fourier-degree question."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.09010v1",
+          "material_read": "§8 Theorem 8.2, p. 34 at offset 81909; circle representation passage p. 12 at 30011",
+          "method": "OA primary PDF passages",
+          "title": "Complete Discrete Schoenberg-Delsarte theory for homogeneous spaces",
+          "trigger": "Possibly stronger positive-definite extension/interpolation theorem"
+        },
+        {
+          "assessment": "Different extremand in first; second points to the decisive older quartic formula",
+          "evidence": [
+            "The pentagonal Turán record expressly credits Example 3 for the continuous witness and optimum."
+          ],
+          "identifier_or_url": "Resultary 8565bf95f4aa; b2ce368d6213",
+          "material_read": "RESULT.md Finding at offset 0 for 8565bf95f4aa; Relationship at offset 7283 for b2ce368d6213",
+          "method": "Resultary query and local mirror paper passages",
+          "title": "Exact sparse Carathéodory–Fejér constant on 1,4,6; Pentagonal locking and residue-sensitive finite Turán defects",
+          "trigger": "Closest indexed coefficient and pentagonal Fourier-support statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md:5–36,66–68",
+        "arXiv:math/0312218v1 Example 3",
+        "Peyré's pentagon exposition"
+      ],
+      "rationale": "The antipodal chord class is dictated by the sparsity graph of the classical five-cycle obstruction. The useful new boundary is not the old quartic formula but a necessary bandwidth theorem with unique lower-degree extremizer: it quantifies how much complete positivity is forced by a global nonnegativity constraint and three Fourier harmonics, although it fails at four. This is a motivated exact finite interpolation invariant not supplied by the cone example or the older sparse support optimum.",
+      "residual_risks": [
+        "The conclusion is a sharp local benchmark, not a result for arbitrary bandwidth sampling or the unconstrained Gram problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

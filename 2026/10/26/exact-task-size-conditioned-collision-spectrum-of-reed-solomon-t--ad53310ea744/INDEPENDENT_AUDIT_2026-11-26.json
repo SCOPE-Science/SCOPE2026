@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:44.072233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translation by the negative message makes the task an unordered sample without replacement from the M nonzero difference polynomials. For a prescribed t-point set the vanishing constraints leave exactly q^{K−t}−1 nonzero polynomials for t<K and none otherwise. Inclusion–exclusion gives A_r for avoidance on r sites. For a fixed candidate collision set J, applying inclusion–exclusion to the points of J still required to be hit after forbidding E minus J gives the claimed H_j; this also proves invariance, nonnegativity, and normalization. The cap min(T,S(K−1)) is attained by polynomials with disjoint prescribed root blocks and, in the saturated case, padding with distinct polynomials; the root-product factors, unlabeled blocks and nonzero scalars give the exact equality count in the unsaturated case, including S=0. K=1 has no collisions and T=1 needs only a single avoidance probability. Computing indicator covariances using one- and two-site avoidance gives the moments as stated. For fixed K≥2, S=floor(αq) and r=1,2, (M−A_r)/(M−i)=r/q+O(q^−2) uniformly for 0≤i<S as q→∞. Summing the log avoidance factors gives −rα+o(1), so the mean tends to 1−exp(−α) while the variance tends to zero. This is convergence of the coverage fraction, not a Poisson law for the number of collisions. I inspected the prime-field checker and its recorded output (113 grids), without executing the frozen script; the proof applies to prime powers by interpolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaplan pp. 2–3: ordered tuples with zero and repetitions permitted; a column contributes when not all components are zero",
+          "Liu et al., Lemma 4.1, (21)–(23) and Proposition 4.1: prescribed supports of linear subcodes of single-twist TRS via common zeros"
+        ],
+        "reasoning": "Even if order, repetition and zero entries are removed, ordinary tuple support still tests a common zero rather than at least one zero. Passing to the linear span ignores which selected words meet each coordinate hyperplane. The distinction is in the measured event, not only in the ensemble.",
+        "searches": [
+          "Kaplan arXiv:1205.1277, §1, m-tuple support weights",
+          "Liu–Chen–Zheng–Chen arXiv:2610.16283v1, §1.2 and §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01228v2",
+        "arXiv:1205.1277",
+        "arXiv:2610.16283v1",
+        "Resultary f962e2969a02, 62b2e855dedf and 4938cfd2f0a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper bound is explicitly in He–Yu–Zhu; it does not specify counts of tasks attaining it or the typical task distribution",
+          "Over F_3 with K=2, {1,x} and {x,x−1} are two distinct two-word spanning families with identical ordinary tuple support at all three evaluation points, but root unions of sizes 1 and 2"
+        ],
+        "reasoning": "Rank grouping and removal of repeated tuple entries cannot recover the missing zero patterns from these results. A general complete coordinate-pattern enumerator could support a separate zero-pattern and distinctness inversion, but that is not the ordinary support table here. MDS interpolation and subset avoidance turn the task question into an explicit population law; standard ingredients and the credited bound are not themselves original claims.",
+        "searches": [
+          "arXiv:2610.01228v2, Proposition 1 (9)",
+          "arXiv:1205.1277 pp. 2–3; arXiv:2610.16283v1 pp. 27–29"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He–Yu–Zhu §III-A and Prop. 1, (9): the RS tag model and the bound min(1,S(K−1)/T)",
+          "Kaplan §1: support of an ordered tuple is the union of its nonzero coordinate supports"
+        ],
+        "reasoning": "The set of noncolliding positions is the intersection, not the union, of the nonzero supports of the chosen words. Equivalently the collision count is the coverage size of their zero sets; switching to ordinary higher support weights loses the needed coordinate information.",
+        "searches": [
+          "Resultary: Reed–Solomon tag collisions, task-conditioned spectrum, union of polynomial roots and support distributions",
+          "arXiv:2610.01228v2, §III-A and Proposition 1",
+          "Web lookup: Reed Solomon code random distinct subset polynomials exact union of roots distribution intersection of supports MDS coupon collector fixed size inclusion exclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary f962e2969a02, Finding: counts permutation collisions in unordered dimension-two, three-point RS outputs",
+          "Resultary 62b2e855dedf and 4938cfd2f0a6: same-day results about burst-deletion descendants and Hamming-metric function-correcting thresholds"
+        ],
+        "reasoning": "The closest RS lookup counts output fibers when coordinate order is lost, not zero-set unions across size-S tasks. No matching finite-population table or uniform spectrum was established in the indexed or published comparisons.",
+        "searches": [
+          "Resultary: exact Reed–Solomon collision population, fixed-size positive sets, exact tag-error spectrum",
+          "arXiv:2610.01228v2 §III, tagging construction and error bound"
+        ]
+      },
+      "rationale": "The prior tagging proposition already gives the universal upper bound. The best-matching tuple and subcode support enumerators instead aggregate positions where at least one constituent word is nonzero, whereas a tag collision requires at least one constituent word to be zero. The located sources do not supply the distinct-task probability law, unsaturated maximizer count, or typical-task limit. A complete coordinate-pattern enumerator could give the law with further extraction; this is not a claim to a new general enumerator, nor a certification of priority.",
+      "residual_risks": [
+        "A specialized zero-pattern enumerator or older coverage-distribution calculation could encode the same law. The primary and catalogue searches were bounded and did not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of upper bound, not the distinct-task law",
+          "evidence": "Proposition bounds by min(1,S(K−1)/T); the inspected treatment does not count all size-S tasks.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01228v2",
+          "material_read": "§III-A and Proposition 1 (9), PDF offsets about 9300 and 15200",
+          "method": "Targeted OA primary PDF",
+          "title": "Task-Oriented Boolean Function Computation: Practical Code Constructions",
+          "trigger": "Same RS tagging model and worst-case bound"
+        },
+        {
+          "assessment": "Different support statistic",
+          "evidence": "A tuple support records coordinates where at least one component is nonzero. It cannot distinguish a mixed zero/nonzero column from an all-nonzero column.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1277",
+          "material_read": "§1, PDF pp. 2–3, offsets about 6250–13220",
+          "method": "Targeted OA primary PDF",
+          "title": "MacWilliams Identities for m-Tuple Weight Enumerators",
+          "trigger": "Potential higher tuple support implication"
+        },
+        {
+          "assessment": "Subcode support rather than arbitrary-selected-word root unions",
+          "evidence": "Counts r-dimensional subspaces with prescribed nonzero support using common-zero constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16283v1",
+          "material_read": "§1.2 and §4, Lemma 4.1, Eqs. (21)–(23), Proposition 4.1, PDF pp. 3 and 27–29",
+          "method": "Targeted OA primary PDF",
+          "title": "Generalized Hamming Weights and Subcode Support Weight Distributions of Twisted Reed–Solomon Codes",
+          "trigger": "Possible generalized support census for RS-like codes"
+        },
+        {
+          "assessment": "Different collision mechanism",
+          "evidence": "Concerns coordinate permutations and stabilizers of evaluation positions, not random distinct tasks.",
+          "identifier_or_url": "2026/10/12/SCOPE-affine-rigidity-and-permutation-collisions-of-three-point-reed-s--f962e2969a02",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Affine rigidity and permutation collisions of three-point Reed–Solomon codes",
+          "trigger": "Closest indexed reed–Solomon collision comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural uniform distinct-task ensemble in RS tagging, the full task distribution gives tail frequencies and moments that the universal union bound does not determine. The explicit maximizer count and asymptotic concentration show the gap between typical and worst tasks, e.g. 1−exp(−1) versus one at K=2 and S=q. The claim produces a concrete exact benchmark for that ensemble without extrapolating to arbitrary deterministic tasks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

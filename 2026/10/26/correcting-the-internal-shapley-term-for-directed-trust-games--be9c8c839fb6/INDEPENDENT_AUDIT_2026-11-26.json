@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:04:13.195378Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original internal Shapley identity and directed-cycle calculation are correct. Reassessed the repaired claim directly on the source equations for every finite loopless graph: for target j with m_j ranked in-neighbors, Delta_j(t)/t occurs in the self term (8) and exactly t-1 terms (9) for the predecessors, and the terminal subtraction b_j(m_j)/(m_j+1) occurs m_j+1 times. Thus the sum of external contributions for j telescopes to b_j(m_j)-b_j(0)-b_j(m_j)=0, including m_j=0 and ties. The printed internal sum counts each reciprocal pair's total arc weight once across the endpoints. Definition 2.1 gives all-arc weight as v(N), hence the displayed vector's efficiency shortfall is exactly the weight of one-way arcs; nonnegative weights ensure strict failure if one is positive. The internal replacement is independently justified by two-player unanimity linearity. For the unit 3-cycle each player's printed external terms are +1/2 and -1/2, the reciprocal contribution is zero, and the exact coalition worth is cardinality. Thus the printed and true vectors are zero and all ones respectively. Replay via arXiv:2605.18157v1 Definition 2.1, the b_j(0)=0 convention preceding Definition 2.2, and Corollary 3.3 equations (8)–(9); proofs and verification scope are in the repaired files. The frozen script was inspected, not executed; it checks the finite witness, not the symbolic efficiency identity or text of the preprint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard unanimity representations apply to the internal game, and the later preprint itself includes the all-internal-arc decomposition. The indexed sparse-network result computes Shapley payoffs for unit weights and a distribution in a random graph model; it does not compute the defect of the formula as printed."
+        ],
+        "reasoning": "Broader and prior exact allocation formulas cover the true internal contribution, even where not restated. They do not concern the values of equations (8)–(9) under the printed reciprocal restriction. The repaired assertion quantifies the consequences of that restriction independently from correctness of any unrelated result.",
+        "searches": [
+          "arXiv:2605.18157v1, Definitions 2.1–2.2, Lemmas 2.3 and 3.2",
+          "AAMAS 2024 Trust in Shapley, Definition 3.1 and Proposition 3.6",
+          "Resultary 2026/11/8/SCOPE-sparse-trust-networks-a-compound-poisson-shapley-law-and-a-sharp--481f46a64688"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.18157v1",
+        "AAMAS 2024 Trust in Shapley, official proceedings PDF",
+        "Focused literature and Resultary searches on the printed directed Shapley formula and efficiency defect",
+        "Four inspected Resultary records above",
+        "Frozen RESULT.md, VERIFICATION.md and verify_trust_game.py; repaired RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The internal identity follows mechanically from the earlier exact formula, or from applying the known Shapley formula to the later paper's unanimity summands. Shapley efficiency gives total worth for the true allocation. The printed expression discards directed arcs and has separate signed external terms."
+        ],
+        "reasoning": "Neither crediting the internal identity nor pointing to linearity would establish a new theorem about true Shapley values. The valid remainder is the discrepancy for the printed full vector. Computing it requires identifying the exact restriction and showing that the actual printed external terms cancel in aggregate; no broader inspected statement treated this printed allocation.",
+        "searches": [
+          "arXiv:2605.18157v1, Lemma 3.2 and equations (7)–(9)",
+          "AAMAS 2024 Trust in Shapley, Proposition 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.6 explicitly sums weights of all outgoing and incoming arcs, divided by two, on the same internal game. The 2026 corollary instead uses (i,j) in E AND (j,i) in E in the first summand of (8). The most relevant indexed hits treat other properties, not a defect of the printed formula."
+        ],
+        "reasoning": "The all-incident formula is exactly equivalent to Proposition 3.6 and cannot be claimed as new. The repaired formula measures v(N) minus the sum of a particular incorrect printed allocation, not the Shapley value of the internal game or an equivalent restatement of it.",
+        "searches": [
+          "Ryzák Kroupa Corollary 3.3 trust game Shapley efficiency defect equals total weight of one-way arcs directed 3-cycle omitted reciprocal restriction",
+          "AAMAS 2024 Trust in Shapley, Proposition 3.6",
+          "arXiv:2605.18157v1, Corollary 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date insertion-budget record characterizes nonempty cores in subgames; the arborescence and in-star records concern Shapley–core coincidence or core entry, and the sparse result gives true Shapley payoff under random unit arcs. The exact internal formula was found directly in the 2024 proceedings, not inferred from catalogue rankings."
+        ],
+        "reasoning": "The candidate is a symbolic efficiency defect uniform over weights and graphs, not a finite invariant table. The inspected indexed exact results neither identify the printed omission nor give the deficit or bound witness for that display. The same-day comparison is made by mathematical scope, not presumed priority.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-an-exact-insertion-budget-criterion-for-stable-directed-trust-ga--8b418e1d5e04",
+          "Resultary 2026/11/8/SCOPE-directed-arborescences-calibrate-shapley-core-coincidence-in-tru--cd47bc808075",
+          "Resultary 2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda",
+          "Resultary 2026/11/8/SCOPE-sparse-trust-networks-a-compound-poisson-shapley-law-and-a-sharp--481f46a64688"
+        ]
+      },
+      "rationale": "Originality passes for the repaired source-specific quantitative defect, not the original record's prominently displayed internal formula as a new identity. An exact earlier copy of that formula is Proposition 3.6 of Bandhana–Kroupa–García, not merely a related general principle. The repair relegates it to credited background and proves how much the printed full vector falls short of efficiency, with a directed witness. The inspected precedents do not give this diagnosis of Corollary 3.3.",
+      "residual_risks": [
+        "Focused searches cannot rule out an unindexed correction, competing derivation of the defect, or a later author revision.",
+        "The repaired claim does not establish new priority for the internal formula or guarantee unrelated statements in the preprint. The proof concerns the v1 display as written."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly establishes the discrepancy under the same game definition",
+          "evidence": [
+            "Definition 2.1 sums all internal arcs; Corollary 3.3 restricts the first sum to reciprocal pairs. The t-indexed self term and r+1 through m_j neighbor term make the printed external sums telescope."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.18157v1",
+          "material_read": "Definition 2.1 p. 2 (offset 8088), ordering and b_j(0)=0 p. 3 (offset 9180), Lemma 3.2 and Corollary 3.3 p. 5 (offsets 18150–21360)",
+          "method": "OA PDF passage comparison and algebra of displayed sums",
+          "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+          "trigger": "Source of the incorrect displayed formula"
+        },
+        {
+          "assessment": "Exact prior coverage of the internal formula only; it predates the display at issue",
+          "evidence": [
+            "Proposition 3.6 explicitly states the half sum of all incoming and outgoing trust weights on the same internal arc game."
+          ],
+          "identifier_or_url": "https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p132.pdf",
+          "material_read": "Definition 3.1 (offset 19488) and internal game and Proposition 3.6, pp. 135–136 (offsets 32824–36570)",
+          "method": "OA official proceedings PDF",
+          "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+          "trigger": "Original trust game and potentially identical Shapley formula"
+        },
+        {
+          "assessment": "Correct payoff for a random unit-arc model rather than a statement about the printed expression",
+          "evidence": [
+            "The model includes one-way and reciprocal arcs and gives an exact law for the true payoff; the inspected result does not assert the deficit under reciprocal-only credit."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sparse-trust-networks-a-compound-poisson-shapley-law-and-a-sharp--481f46a64688",
+          "material_read": "RESULT.md Finding and assumptions, offset 0–3224, reciprocal mention offset 3028",
+          "method": "Local published-record mirror",
+          "title": "Sparse trust networks: a compound-Poisson Shapley law and a sharp zero-credit threshold",
+          "trigger": "Nearest additional match in the targeted efficiency search"
+        },
+        {
+          "assessment": "Different mathematical claim in the directed trust model",
+          "evidence": [
+            "An insertion criterion for nonempty cores in subgames of externally aggregated directed trust games, not a Shapley defect."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-insertion-budget-criterion-for-stable-directed-trust-ga--8b418e1d5e04",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "An exact insertion-budget criterion for stable directed trust games",
+          "trigger": "Same-date record with the same directed internal game"
+        },
+        {
+          "assessment": "Restricted target-homogeneous calibration, not a correction of Corollary 3.3",
+          "evidence": [
+            "Analyzes Shapley–core equality with indegree at least two and an arborescence formula."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-directed-arborescences-calibrate-shapley-core-coincidence-in-tru--cd47bc808075",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Directed arborescences calibrate Shapley–core coincidence in trust games",
+          "trigger": "Closely matched directed Shapley allocation"
+        },
+        {
+          "assessment": "Core-entry threshold for an interpolated star game, not the efficiency of the printed formula",
+          "evidence": [
+            "Studies a weight-dependent core-entry threshold for directed in-stars."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Core boxes and a sharp Shapley-entry threshold in interpolated directed trust stars",
+          "trigger": "Another exact Shapley result for one-way trust networks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result quantifies a failure of a claimed way to compute all players' Shapley allocations: in networks with many one-way arcs the printed credit can lose the entire grand-coalition worth, not just change a tie or a normalization. The symbolic deficit is a practical check for that printed method and the cycle makes the issue independently reproducible. This is a motivated correction to a specific preprint rather than a rediscovery of the familiar endpoint-sharing identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

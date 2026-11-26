@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:51:13.370126Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, especially line 55 at the strict boundary",
+        "Corrected /workspace/repairs/4/RESULT.md, proof Step 3 and prior comparison",
+        "VERIFICATION.md diagnostic body and verify.py lines 7–69, inspected without execution",
+        "Free last-zero law: arXiv:2610.34568 §5.1 Eq. (52), arXiv:2410.22097"
+      ],
+      "rationale": "The original conclusions are correct, but the supporting-line argument at t=m asserted a false unique contact: H_m is zero throughout [0,m]. The complete corrected RESULT.md in /workspace/repairs/4/ proves the boundary case separately. Independent reconstruction: the signed Bessel radial coordinate |X|^k/(sqrt(2) k), k=(alpha+2)/2, has dimension 2-1/k=2-2 mu, giving the known last-zero Beta(mu,1-mu) free law. Conditional on touching zero between the two observation times, the product of signs has zero expectation by the strong Markov property and symmetry; without a zero it is one. A reset likewise destroys sign correlation. In equilibrium, the unnormalized measure of elapsed age a in a cycle remaining free of resets through t is P(W>a+t) da/m, also for atomic clocks by length bias and the uniform position within the covering cycle. Combining gives the exact incomplete-beta integral, or E[H_t(W)]/m. For w>t, H_t'(w)=I_(1-t/w) increases strictly while for w<=t the function is zero. When t<m, the tangent at m lies strictly below the graph at every other w, including w<=t because H_t(m)<(m-t)H'_t(m); Jensen is strict for a nonconstant clock. At t=m a nonconstant positive W of mean m necessarily has mass above m, on which H_m>0, proving strictness despite the entire contact segment. For t>m there may be equality, e.g. W<=t almost surely. The variance is (1/(2T^2)) integral_0^T (T-t) C_W(t) dt, because the indicator covariance is C_W/4; strict comparison holds at each positive horizon by integrating over 0<t<min(m,T). For the mass, substituting u=a+t and v=a/u inside one reset interval w gives Jacobian u and integral (w^2/2) E[1-B] with B~Beta(mu,1-mu); Tonelli includes infinite second moments. This implies the stated finite-moment variance coefficient. For the heavy tail, scale a=tx; the tail equivalence at t(1+x) holds with uniform relative error over x>=0 as t increases. Interchange the Beta probability and the x integral to obtain E[(1-B)^(beta-1)]/(beta-1), evaluating to the displayed Q. Rescaling the variance integral at 1<beta<2 gives the factors (2-beta)(3-beta) by integration of (1-s)s^(1-beta). At beta=2, Q=1-mu, integral_0^T C_W(t)dt~c(1-mu)log(T)/m and integral_0^T tC_W(t)dt=O(T), giving the logarithmic coefficient. The Poisson case also checks independently: the correlation is E exp(-rt/(1-B)); after differentiating with respect to rt and using z=B/(1-B), its derivative is -exp(-rt)(rt)^(-mu)/Gamma(1-mu), the Gamma survival derivative with the correct boundary. No claim of a CLT is made from variance alone.",
+      "residual_risks": [
+        "Exact for equilibrium, independent complete renewal resetting of the nonsticky symmetric continuum diffusion. The stated power-law/critical constants assume the ordinary tail equivalent with a constant, and the repair does not extend to trajectory-selected clocks or initial nonstationarity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (32) gives the two-time autocorrelation for a centered driving process under complete renewal resetting as the integral of the free autocorrelation times interval survival times the renewal rate. Akimoto has T^(1-alpha) occupation variance in an equilibrium alternating-renewal regime. The Poisson sluggish reset paper establishes long-time occupation fluctuations for exponential reset intervals."
+        ],
+        "reasoning": "The general two-time formula does imply the stationary averaging ingredient for regular nonarithmetic finite-mean clocks, by applying the key renewal theorem to the free sign-correlation kernel times interval survival. This part is credited explicitly. It does not state the convexity/strict optimizer criterion across clocks including the periodic case, or the explicit integrated and heavy-tail constants. The comparator with the same variance power has a different covariance, and exponential resetting cannot yield the heavy-tail conclusions.",
+        "searches": [
+          "Taźbierski–Metzler–Magdziarz DOI 10.1088/1367-2630/adee40, Eq. (32), p. 7",
+          "Akimoto arXiv:2306.00359, §V.C.2 and §VII",
+          "Frimpong–Bresque–Roldán arXiv:2610.21962 §6.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md references and claims",
+        "Repaired RESULT.md relationship and reference 5",
+        "Primary and Resultary evidence in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can specialize the general reset correlation to the known free Beta kernel and take the stationary limit under regular nonarithmetic hypotheses; the mathematical implication is explicitly acknowledged. The all-lag comparison uses convexity in the cycle's duration and a separate equality argument at t=m, followed by variance integration. The new coefficient depends on the Beta persistence rather than just the heavy-tail exponent."
+        ],
+        "reasoning": "The observed general structural coverage is real but only for one part. The alternating sign renewal model cannot be parameter-substituted to give a diffusion changing sign, potentially many times, inside each independently marked cycle. A fixed-mean comparison of a one-time spatial density does not order two-time sign integrals or variance.",
+        "searches": [
+          "DOI 10.1088/1367-2630/adee40 Eq. (32) read with arXiv:2610.34568 Eq. (52)",
+          "Akimoto arXiv:2306.00359 Eqs. (112)–(114), (121)",
+          "Resultary fixed-mean Brownian renewal-density a1a5c9c420de"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetry identifies the free sign kernel with probability of no zero, equivalently the known Beta last-zero CDF. General complete renewal resetting has survival times within-cycle correlation under the renewal convolution. The alternating-renewal occupation indicator is instead constant during each holding interval, with sign transition dynamics independent of a within-cycle diffusion."
+        ],
+        "reasoning": "Using last-passage language or a generic centered-process autocorrelation does not create a new underlying identity. The all-lag inequality and exact variance constants concern the Beta-shaped age kernel with independently regenerated diffusion paths, not a sign constant over a renewal holding interval.",
+        "searches": [
+          "arXiv:2610.34568 §5.1 Eq. (52) and §5.2; arXiv:2410.22097, generalized arcsine/last passage",
+          "DOI 10.1088/1367-2630/adee40, Eq. (32), general reset autocorrelation",
+          "arXiv:2306.00359, equilibrium alternating sign and occupation laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula/optimization record 1ee39cc9ce47 is the bound finding itself. The Brownian renewal-density hit optimizes a one-point spatial density; the Poisson and threshold-reset occupation hits concern a large-deviation law or a CLT in different reset regimes. Two distinct same-day entries concern same-diffusion Poisson position/kurtosis, or Pareto-reset magnetization covariance sign changes in a Glauber model."
+        ],
+        "reasoning": "Different observable, clock, or driving process prevents those near hits from determining this sign/occupation result, not their publication dates. A table of Beta integrals would cover only evaluation after the kernel is derived, not the phase-randomized stationary optimization or its occupation comparison.",
+        "searches": [
+          "Resultary renewal-reset sign correlation, incomplete-beta persistence, periodic fixed-mean optimization and heavy-tail occupation variance; exact 1ee39cc9ce47 and distinct a1a5c9c420de, 7145b66264ca, f8f2702eef5d, adbf7ee7c24f, e35e63abadb4, e3c6160c9468"
+        ]
+      },
+      "rationale": "Pass the sharp fixed-mean all-lag sign decorrelation and model-specific exact occupation variance constants, including the critical logarithmic term. The prior comparison in the corrected result now gives explicit credit for substantial structural coverage: the Beta last-zero law is prior, general complete renewal resetting already gives the underlying correlation formula, and equilibrium alternating renewal signals already exhibit related anomalous occupation variances. Neither the generic formula alone nor the inspected specialization/other model covers the full sharp optimum and constants for the specified diffusion. Pass the supported distinction, not standalone originality for renewal averaging, the Poisson reduction, or the anomalous power law as a phenomenon.",
+      "residual_risks": [
+        "Further general renewal-equilibrium or Bessel-persistence theorems could cover more of this model-specific comparison. The generic renewal convolution and the free Beta kernel are already credited, not offered as novelty.",
+        "Detailed Poisson occupation comparison was limited by PDF access; only the actual HTML passages support the assessment. Bounded index results do not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantially overlaps: the stationary averaging kernel is a consequence in a regular nonarithmetic setting; no sharp optimum or target variance constants in the inspected statement",
+          "evidence": "For mean-zero X, c_C(t1,t2) integrates c_X(t1-u,t2-u) times the reset-interval survival at t2-u times renewal rate r(u), from 0 to t1. Coverage of equilibrium deterministic/atomic clocks was not established in the read passage.",
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/adee40",
+          "material_read": "PDF Eq. (32), p. 7, offset 35000",
+          "method": "OA original equation and surrounding passage",
+          "title": "Series representation approach to stochastic processes with complete and incomplete renewal resetting",
+          "trigger": "Strongest structural coverage of arbitrary-reset correlation"
+        },
+        {
+          "assessment": "Free law and Poisson special-case ingredients covered",
+          "evidence": "Free normalized last-zero density is sin(pi mu)/(pi x^(1-mu)(1-x)^mu), and the Poisson stationary last-passage age is Gamma with shape 1-mu and rate r.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34568",
+          "material_read": "PDF §5.1 Eq. (52) p. 17, offset 66000; §5.2 Poisson limit",
+          "method": "OA original passages",
+          "title": "Extremal and global-time statistics of sluggish random walks with stochastic resetting",
+          "trigger": "Same free sign-persistence input and Poisson comparator"
+        },
+        {
+          "assessment": "Free last-passage result, not independent-renewal optimization",
+          "evidence": "Generalized arcsine laws for free sluggish walks, including the last-passage observable.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.22097",
+          "material_read": "p. 1 last-passage summary, offset 2011",
+          "method": "OA original contribution passage",
+          "title": "Generalized arcsine laws for a sluggish random walker with subdiffusive growth",
+          "trigger": "Original generalized-arcsine prior result"
+        },
+        {
+          "assessment": "Closely related anomalous equilibrium variance mechanism, different sign signal",
+          "evidence": "Equilibrium occupation fraction variance scales as T^(1-alpha) with the model-specific holding-time constant for 1<alpha<2. The signal in Eq. (121) alternates between two states at renewal times.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.00359",
+          "material_read": "PDF §V.C.2 Eqs. (112)–(114), p. 15, offset 189600; §VII Eq. (121), offset 196900",
+          "method": "OA original equations",
+          "title": "Statistics of the number of renewals, occupation times and correlation in ordinary, equilibrium and aging alternating renewal processes",
+          "trigger": "Competing heavy-tail stationary occupation variance/correlation theorem"
+        },
+        {
+          "assessment": "Poisson occupation precedent; detailed coefficient not independently recovered from the primary PDF",
+          "evidence": "The inspected Poisson result gives long-time Gaussian occupation centered at 1/2, not optimization over general interval laws.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21962",
+          "material_read": "OA HTML abstract offset 828 and §6.1 offset 68842; PDF retrieval timed out",
+          "method": "OA HTML passages and attempted PDF",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Poisson occupation under the same sluggish diffusion"
+        },
+        {
+          "assessment": "One-time spatial density, not the two-time sign observable",
+          "evidence": "A deterministic interval maximizes the stationary density in a spatial/mean regime; a near-zero/two-point mixture approaches the supremum in another.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-mean-stationary-occupancy-under-brownian-renewal-res--a1a5c9c420de",
+          "material_read": "Mirrored/indexed result statement on the optimal clock",
+          "method": "Local Resultary comparison",
+          "title": "Sharp fixed-mean stationary occupancy under Brownian renewal resetting",
+          "trigger": "Closest indexed fixed-mean renewal-clock comparison"
+        },
+        {
+          "assessment": "Different observable or reset mechanism; not a whole-document exclusion",
+          "evidence": "7145b66264ca addresses a Poisson-reset occupation large-deviation law; f8f2702eef5d and adbf7ee7c24f concern CLT coefficients with spatial-threshold resetting.",
+          "identifier_or_url": "Resultary 2026: 7145b66264ca, f8f2702eef5d, adbf7ee7c24f",
+          "material_read": "Indexed statements of the respective large-deviation and fluctuation results",
+          "method": "Local Resultary comparison",
+          "title": "Poisson and threshold-reset occupation comparators",
+          "trigger": "Occupation results for the same diffusion"
+        },
+        {
+          "assessment": "Genuine related regimes, no priority inferred from date; no exact result match in those findings",
+          "evidence": "e35e63abadb4 gives the stationary position and kurtosis for the Poisson-reset sluggish diffusion; e3c6160c9468 concerns covariance sign changes in a Pareto-reset Glauber magnetization.",
+          "identifier_or_url": "Resultary 2026: e35e63abadb4, e3c6160c9468",
+          "material_read": "Indexed findings",
+          "method": "Local Resultary comparison",
+          "title": "Same-day sluggish-position and Pareto-reset magnetization comparators",
+          "trigger": "Distinct nearby hits for sluggishness, heavy renewal tails, or covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and proof Steps 2–6",
+        "Prior general reset autocorrelation and Akimoto alternating-renewal model, compared above"
+      ],
+      "rationale": "The sign observable gives a unit-free measure of memory and a directly linked cumulative occupation noise. Comparing clocks of the same mean removes mere rate tuning. A single deterministic clock attaining every lag minimum (and every finite-window variance minimum), together with exact dependence on the reset tail and a logarithmic boundary, is a useful sharp benchmark, not merely an evaluation of the prior free Beta law or a generic renewal correlation formula. The proof resolves genuine equality and moment-regime boundaries and specifies the effect of long externally reset cycles that may themselves contain sign changes.",
+      "residual_risks": [
+        "It is a variance comparison, not a distributional limit or an optimization over state-dependent reset rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

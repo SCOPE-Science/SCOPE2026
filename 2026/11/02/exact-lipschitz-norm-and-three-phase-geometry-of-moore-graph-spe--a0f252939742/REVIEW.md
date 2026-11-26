@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof computes an unrestricted real Lipschitz operator norm for every signed \(\alpha I+\beta A\) by an exact three-variable edge-potential reduction; every feasible optimum extends to the full metric. The max-of-three formula and its spectral interpolation hold for all finite diameter-two girth-five Moore graphs without symmetry assumptions. The separate heat calculation and degree-seven peak follow algebraically. The pure-Python checker establishes exact graph and rational sign-region identities on degrees 2, 3 and 7, and the optional independent LP solver verifies additional signed samples; these are supplementary to the universal proof. The claimed degree-57 case is conditional on existence.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-Bonini et al. (arXiv:1907.06733, Thm. 1.4 and Sec. 2) already give the exact girth-five *positive* lazy-kernel curvature; in combination with familiar Moore spectral identities they imply the heat specialization here. This specialization and initial curvature are therefore not claimed as independent discoveries. Münch–Wojciechowski (arXiv:1712.00875) give the general semigroup-curvature framework. Neither inspected source addresses the complete signed two-parameter operator family or its three nonredundant Lipschitz-norm sectors. Targeted equivalent-formulation, broader-coverage, exact-table and implication checks found no covering signed-filter theorem, but could miss an older association-scheme norm identity. Search absence alone is not novelty proof.
+PASS
 
-## Mathematical value — PASS
-The precise object—operator norms of arbitrary real adjacency spectral filters on graph-distance Lipschitz spaces—is natural and its complete six-facet norm ball is structurally informative. Positive-curvature methods do not describe the sectors with negative filter coefficients; the explicit sharp potentials and uniform no-transitivity proof close that distinction. The exact signed classification is the principal contribution; the realized heat-flow amplification peak illustrates an application, not a separate novelty claim.
+For each edge xy the difference functional uses x,y and their disjoint outside neighbor sets X,Y. Girth and diameter give distance two for all X-to-Y pairs and between either endpoint and the opposite outside neighbors. With f(y)=0 and u=f(x), the maximal difference of the two outside means is min(2,u+2), attained for -1<=u<=0 by means u+1,-1 and for 0<=u<=1 by u+1,u-1. Giving constant values to each support and using Lipschitz extension yields genuine global witnesses, with no transitivity assumption. Evaluating the two affine pieces at -1,0,1 and using overall sign symmetry gives the norm and nonempty facet regions, including beta=0 and d=2. The adjacency identity A²=(d-1)I-A+J yields interpolation on the nonconstant eigenvalues; both occur since a scalar action on the entire mean-zero subspace would make all off-diagonal entries equal. Heat has alpha>=beta>=0, so the positive branch gives the two-exponential coefficient by Kantorovich–Rubinstein duality. In degree seven, writing z=e^(-5t) gives (14z-9z²)/5, with the claimed peak and return to one. The derivative of the logarithmic contraction rate is positive for the stated two-exponential form.
 
-## Scope and limits
-Unit-edge graph metrics, real scalar Lipschitz functions, finite Moore graphs of diameter two and girth five, real adjacency spectral algebra. The statement does not address arbitrary graph filters beyond the adjacency spectral calculus, weighted or directed graphs, or non-Moore strongly regular graphs. Degree 57 is purely conditional. General literature coverage is incomplete; independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim supported as distinct is the exact full signed norm, including the active opposite-sign branch and the six-facet ball, not the lazy curvature, the C_5 heat subcase, or priority for the positive heat branch. The prior idleness analysis gives a closely related three-line optimization template and, with known curvature, the high-idleness expression. It does not give the exact signed norm over the full plane; the present proof determines the missing signed extremal geometry using these graphs' support distances.
+
+## value
+
+PASS
+
+On a natural two-dimensional adjacency spectral algebra the theorem determines the sharp maximum distortion for every real multiplier, even those not acting as ordinary Markov averages. The exact supporting facets, phase boundaries and extremizers are useful for deciding whether a given signed filter expands or contracts rather than merely bounding it. This is a complete invariant with a geometric mechanism; the familiar heat case illustrates it but is not needed to carry the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

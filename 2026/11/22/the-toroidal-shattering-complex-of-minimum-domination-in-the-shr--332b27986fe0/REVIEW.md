@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the standard Cayley graph on \(\mathbb Z_4^2\), with closed-neighborhood ordinary domination. A complete 15-difference classification gives 32 and only 32 dominating triples and proves that none of size at most two exists. These are exactly the 32 triangles of an isomorphic but edge-disjoint Cayley graph. Two complete translation-orbit trace tables verify all eight patterns for a triangle; the all-positive trace proves that no other supports can be shattered. The polynomial and VC dimension follow. A positive-only branch bounds online depth by three, and an explicit periodic triangular torus embedding proves the *integral* homology and torsion-free result. The two standalone checkers independently reproduce the optimum and shattering censuses; the Python checker also checks the geometric classification and witness table. The finite-field boundary rank is used as a consistency check only.
+PASS
 
-## Originality — PASS within inspected evidence
+Closed neighborhoods have size seven, so even two centers cannot cover sixteen vertices. Independently covering all vertex triples by direct set unions gives exactly 32; for an anchored pair, the uncovered-set test gives zero extensions for all differences in A or the order-two class and exactly the two stated extensions for each difference in B. In particular {(0,0),(1,2),(2,1)} covers all vertices and contradicts the cited ordinary gamma=4 claim for the standard graph. To check the geometric identification independently, use the 32 periodic square triangles {p,p+(1,1),p+e_i} (i=1,2); the given determinant-one map L takes their full set exactly to the computed minimum family. The inverse map identifies the complex with the triangulation of R²/(4Z)²: every allowed adjacency triangle lifts about a vertex, since the six neighbor differences have coordinates in {−1,0,1} and no difference between two of these offsets wraps into an allowed step. The link is the planar six-cycle, so there are no larger cliques or extraneous quotient triangles. Direct membership traces on every support of size at most three verify that precisely their subfaces are shattered, consistent with the two translated witness tables; larger supports cannot realize the all-positive trace. The same positive-branch requirement bounds online depth by three since a consistent full tree cannot repeat a query on a branch, and a shattered triple attains three. Integral reduced homology follows from the explicit torus, not from the modular rank in the supplied checks.
 
-The 2015 geometric source already gives a toroidal Shrikhande model; its graph topology is not claimed new. The 2017 minimum-domination source is a general motivation, not a finite-graph shattering result. The 2019 special-graph domination article addresses cardinalities, not the optimal-set shattering complex, and its stated ordinary domination number four conflicts with an explicit three-vertex cover checked here. Three particularly close public full mathematical records were inspected: *Dominance homotopy and symmetry distinguish the Shrikhande–rook twins* computes a complex of complements of all dominating sets, *Paired-domination distinguishes two graphs with identical total-domination polynomials* studies distinct total/paired constraints, and *A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs* uses only closed neighborhoods as concepts, not minimum ordinary dominating sets. Their conclusions do not imply a toroidal complex from 32 three-element optimizers. Concept-family definitions, not similar terminology, decide noncoverage. An unindexed or inaccessible equivalent result remains possible; searches cannot certify absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The minimum ordinary dominating sets unexpectedly reconstruct a second, edge-disjoint copy of the original graph as their two-point shattering relation; the entire shattering complex is a torus rather than a simplex skeleton or a flag matroid. This supplies a structural bridge between an extremal graph-optimization family, VC/online learning geometry and integral topology, alongside an explicit resolution of a conflicting published domination-number claim. These are motivated exact invariants, not arbitrary finite table entries.
+Credit existing coverage of gamma=3 and 32 minimum sets through the complements/Alexander dual of the all-dominating-set complex. The supported distinct contribution is the structural identification of the optimizer family with the triangles of an edge-disjoint copy of the Shrikhande graph, and the trace theorem that its *entire* membership-shattering complex is that torus. Neither the cardinalities nor the existing topology of the original graph identify these traces.
 
-## Closest literature and limitations
+## value
 
-- Sane (2015), *The Shrikhande graph*: known toroidal Cayley construction, not optimizer-shattering.
-- Cyman–Henning–Topp (2017), *On accurate domination in graphs*, arXiv:1710.03308: background definitions and comparison of optimization notions, not this concept family.
-- VinuPriya–Mageswari–Bibi (2019), *Total Domination and Inverse Total Domination Number of Some Special Classes of Graphs*: directly examines the same graph but claims a conflicting ordinary domination number; the Cayley cover-table proof here is independent of its figure numbering.
-- Three 2026 publicly accessible exact graph-complex and shattering records named in `RESULT.md`: all inspect different predicates/concept families.
+PASS
 
-This is an exact finite graph statement with independent implementations, but no external mathematical audit. Historical priority against unpublished or unindexed work is unresolved. The modular homology rank alone is not used as a proof of integer homology.
+This is an exact structural link between a canonical finite optimization family and a topology-bearing complexity invariant, not just two previously recoverable counts. Co-occurrence of an optimal pair reconstructs a disjoint isomorphic Cayley graph, and the otherwise stronger requirement of every membership trace happens to recover exactly that graph's clique complex. Its integral torus topology is substantially more informative than the VC dimension or a modular rank and permits a precise comparison with the matching rook parameters and different concept families.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

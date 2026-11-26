@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:18:08.750651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put u=P², f_t=U_{2t}/P and g_t=U_{2t+1}. The two-step recurrence or powers of [[0,1],[1,P]] give A^{2t}=[[g_t−u f_t,P f_t],[P f_t,g_t]], including t=0. Its diagonal entries are 1 mod u and g_t is odd. Squaring gives f_{2t}=f_t(2g_t−u f_t) and H_{2t}=2H_t+uH_t²+f_t² with H_t=(g_t−1)/u. Since 4 divides u, induction gives valuations k for f_{2^k} and k−1 for H_{2^k} when k≥1 (H_2=3+u), with no cancellations. Multiplying A^{2t} by A^{2n} yields the claimed shift valuations, and telescoping an odd number of shifts preserves each exact valuation. Thus the isometries are for U_{2m}/P and (U_{4m+1}−1)/P², not for all normalized odd indices at once. Each isometry permutes residues at every level, and all other odd indices lie in the same odd ball by the diagonal congruence. The balls are disjoint already mod 2, including N≤h; counting reductions and summing Haar measures proves the remaining statements for either sign of P. The symbolic check, not the frozen reported finite modular checks, establishes the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanna specializes at a=P, b=1, p=2, Δ=P²+4 to ν₂(U_{2r})=h+ν₂(r) and ν₂(U_{odd})=0.",
+          "Lang–Lang Lemma 4.1 gives non-completeness, not the two balls.",
+          "Accossato–Sanna Theorem 1.1 concerns counts varying initial sequences and moduli for the characteristic polynomial family."
+        ],
+        "reasoning": "Non-completeness and variable-data counts are not enough here. The general valuation theorem actually specializes to the needed exact term valuations and yields the full result by the following short implication.",
+        "searches": [
+          "Sanna, The p-adic valuation of Lucas sequences, Theorem 1.5",
+          "arXiv:1307.7463",
+          "arXiv:2401.07661"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE local index and the two distinct exact-image/closure records above",
+        "Sanna The p-adic valuation of Lucas sequences Theorem 1.5",
+        "arXiv:2003.01559",
+        "arXiv:1307.7463",
+        "arXiv:2202.00704",
+        "arXiv:2109.05734 abstract",
+        "arXiv:2401.07661"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For even s, the standard product identity is U_{r+s}−U_{r−s}=U_s V_r. With V_r=P U_r+2U_{r−1}, Sanna's term valuations give ν₂(V_r)=h for odd r and ν₂(V_r)=1 for positive even r.",
+          "For indices 4x+1 and 4y+1, r=2(x+y)+1, s=2(x−y), so the difference valuation is 2h+ν₂(x−y). For 2m,2n with even m−n>0, use r=m+n and s=m−n to get h+ν₂(m−n); when m−n is odd, U_{2m}/P≡m mod 2 from the two-step recurrence gives the remaining case."
+        ],
+        "reasoning": "The two isometries then give surjectivity modulo each power by residue counting; U_{2m+1}≡1 mod P² follows from the initial values and its two-step recurrence. No unproved digit-distribution step remains. The closure, residue counts and density are mechanical consequences.",
+        "searches": [
+          "Sanna Theorem 1.5, original p.119",
+          "de Clercq et al. Theorem 5 and its shift congruence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-23ba7f995042 concerns U_{n+2}=P U_{n+1}−U_n with 4|P and has three balls; its minus sign is substantive.",
+          "De Clercq et al. Theorem 5 and proof cover the shift law for f_m=U_{2m}/P, whose recurrence coefficients are P²+2≡2 and −1≡3 mod 4."
+        ],
+        "reasoning": "The minus-sign recurrence is not an equivalent reformulation. The normalized even branch is exactly a reparameterization of a recurrence satisfying the earlier dyadic congruence criterion.",
+        "searches": [
+          "Resultary: exact dyadic images of even-parameter and even-trace Lucas sequences",
+          "arXiv:2003.01559"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-23ba7f995042 lists the two odd balls with residues ±1 mod 2^(2h) for the minus-sign recurrence, while the inspected later plus-sign SCOPE-4c0425f545ea uses initial data (1,1).",
+          "Bragman–Rowland give Fibonacci’s exact dyadic density 21/32 at P=1; Sanna (2021) studies attainable counts over recurrence data and moduli."
+        ],
+        "reasoning": "These exact values and catalogued images are for different parameters, signs, initial conditions or invariants; no identical earlier table is needed to establish the implication from term valuations.",
+        "searches": [
+          "Resultary: exact image balls and dyadic Lucas closures",
+          "arXiv:2202.00704 Theorem 6",
+          "arXiv:2109.05734"
+        ]
+      },
+      "rationale": "The exact two-ball wording was not located in the relevant earlier papers. However both claimed isometries, hence the entire image/count/density statement, are direct corollaries of Sanna’s general valuation theorem and the standard Lucas factorization of a difference with even half-gap. The even isometry is also covered directly by the power-of-two discriminator theorem. No distinct surviving claim is established.",
+      "residual_risks": [
+        "An earlier direct statement of the exact two-ball image may exist; this decision uses a verified mathematical implication and does not allege a direct literature match.",
+        "Catalogue dates do not settle first-online chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication via standard product identity, not an exact image statement in source",
+          "evidence": "For p=2, a=P, b=1, the theorem gives valuation zero at odd indices and h+ν₂(n)−1 at even indices.",
+          "identifier_or_url": "https://fq.math.ca/Papers1/54-2/Sanna02242016.pdf",
+          "material_read": "Theorem 1.5, p.119, PDF offset 4200",
+          "method": "Bounded original OA PDF",
+          "title": "The p-adic valuation of Lucas sequences",
+          "trigger": "Exact general valuation theorem at p=2"
+        },
+        {
+          "assessment": "Direct general coverage of even isometry",
+          "evidence": "The admissible coefficient pair implies u_{n+2^k}≡u_n+2^k mod 2^(k+1); the target f satisfies that pair's congruence requirements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.01559",
+          "material_read": "Theorem 5 and proof, pp.5–7, OA offsets 12250–27238",
+          "method": "Bounded OA PDF passages",
+          "title": "Binary Recurrences for which Powers of Two are Discriminating Moduli",
+          "trigger": "Normalized even branch has discriminating moduli 2^k"
+        },
+        {
+          "assessment": "Partial prior conclusion",
+          "evidence": "An even coefficient with initialization (0,1) implies non-completeness modulo 2^N for N≥2.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.7463",
+          "material_read": "§4.1, Lemma 4.1, PDF p.4, offset 14815",
+          "method": "Bounded OA PDF",
+          "title": "Three term recurrence and residue completeness",
+          "trigger": "Same canonical initialization and plus recurrence"
+        },
+        {
+          "assessment": "Different parameter",
+          "evidence": "Fibonacci P=1 has density 21/32 at 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.00704",
+          "material_read": "Theorem 6, p.3, PDF offset 9787",
+          "method": "Bounded OA PDF",
+          "title": "Limiting density of the Fibonacci sequence modulo powers of a prime",
+          "trigger": "Exact dyadic density in a related Lucas sequence"
+        },
+        {
+          "assessment": "Different quantification of residue counts",
+          "evidence": "R(X²−a₁X−1) is all positive integers with the stated variation, not the exact image for canonical initialization at each fixed power of two.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.07661",
+          "material_read": "Theorem 1.1, p.1, PDF offset 3950",
+          "method": "Bounded OA PDF",
+          "title": "On the number of residues of certain second-order linear recurrences",
+          "trigger": "General characteristic polynomial includes the target"
+        },
+        {
+          "assessment": "Same-date distinct analogue; sign and h-range differ",
+          "evidence": "Minus-sign sequence and 4|P give two odd balls and an even ball, not the plus-sign two-ball image.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-three-exact-2-adic-image-balls-for-the-even-trace-lucas-sequence--23ba7f995042",
+          "material_read": "Finding and assumptions offset 0, related work offset 4655",
+          "method": "Local mirror passages",
+          "title": "Three exact 2-adic image balls for the even-trace Lucas sequence",
+          "trigger": "Closest exact image-ball formulation in catalogue"
+        },
+        {
+          "assessment": "Different initialization and invariant",
+          "evidence": "Initial values (1,1) and a value/quotient-closure problem, not the canonical (0,1) image.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-prime-power-fibers-and-a-dyadic-quotient-closure-transitio--4c0425f545ea",
+          "material_read": "Statement of recurrence and parity-branch result",
+          "method": "Local mirror passage",
+          "title": "Exact prime-power fibers and a dyadic quotient-closure transition",
+          "trigger": "Plus-sign parity difference laws in catalogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The explicit image is useful as a worked consequence of the valuation and discriminator theory, but the proposed new invariant, isometries and counts are mechanically determined by that theory and the usual product identity. No separate nonroutine consequence or distinction remains.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

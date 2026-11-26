@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is about the center-pinned chord in a fixed equal-radius bicylinder, not about invariant lines with random offsets. The radial function follows directly from the two quadratic inequalities. Spherical azimuth and height coordinates have constant area element; the factor of eight symmetric azimuth sectors and the full vertical interval give the correct coefficient. Differentiating the exact integral and matching the upper boundary uniquely establishes the elementary survival formula. Its derivative is a normalized positive density; expansion at each endpoint yields the stated half- and three-halves-power laws with explicit constants. The exact identity for the four diagonal neighborhoods, plus bounded-domain \(L^1\) convergence of their rescaled indicators, proves total-variation convergence and the \(3/4\) limiting density. The proof handles both strict thresholds and equality endpoints. The standalone script provides 440,041 finite diagnostics, not a replacement for the proof.
+## correctness
 
-## Originality — PASS, provisional
-Classical expositions including Ngô Quốc Anh (2008) and Weisstein concern the solid's construction, volume, and area. Finch (2012; arXiv:1211.4514), materially inspected in its introductory and intrinsic-volume sections, treats a linearly related orthogonal-disk hull, but an affine map does not preserve Haar directions and Euclidean chord lengths. Kellerer's (1971) invariant track models have nonzero random offsets and are not center-pinned; his sampling definitions were inspected in the open PDF. An available complete published result establishes the central *plane-section area* profile of the bicylinder, a different dimension and functional; other indexed results establish rectangular-box central-chord laws or contained-simplex extrema. Their hypotheses/results do not logically imply the entire bicylinder central-ray CDF or the four marked total-variation limits. Exact, alias, broader-coverage, and implication searches were conducted with recorded queries and sources. The full 1974 Moore and 1987 Angell–Moore studies were not available for a conclusive whole-text comparison; unindexed older work remains a residual risk. Search failure is not a proof of historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-Anisotropic radial chords of the classical non-smooth bicylinder form a natural Euclidean measurement relevant to isotropic ray geometry. Their exact distribution is not determined by known total volume or central-plane area. The sharp change from a square-root *short*-chord tail to a three-halves-power *long*-chord tail is structurally explained by four isolated extremizers and a two-scale parabolic localization; the stronger marked limit yields local directional information not encoded by a mean or an extremum alone. This is a natural complete classification with an explicit nontrivial limit law, not an arbitrary numerical parameter slice.
+For the repaired claim, the two cylinder inequalities give L=2/√(1−min(|Ux|,|Uy|)^2). The exact inequality in azimuth/height is z²+(1−z²)|sin 2q|<h. For 0<h<1 there are exactly four disjoint sectors, with constant area Jacobian h^(3/2), giving independent uniform marks and the exact arcsine slice width. The inequality arcsin x≥x and the denominator 1−hb²≤1 show genuine nesting. Expanding the half-width uniformly yields w_h−w_0=(h/2)b²(1−b²)+O(h²), and hence excess area (4/15)h+O(h²). Uniform measures on nested sets decompose into a common and a mutually singular excess term; the latter weight is exactly TV and its expansion is h/5+O(h²), not only O(h). Normalizing the twice-half-width excess yields height density converging uniformly to (15/4)b²(1−b²); sign is uniform and the magnitude converges uniformly to (1−b²)/2, proving weak shell convergence. The boundary limit is singular and not a shell TV limit. Independent support and quadrature checks and finite moment checks passed.
 
-## Scope, sources and residual risk
-The theorem uses congruent orthogonal cylinders and uniform *central* directions; no other random-line model is covered. Older works on symmetric cylinder intersections could contain differently worded related calculations and were not read in full. The bounded numerical sample does not independently prove an infinite theorem; no external mathematical audit is asserted. Primary dated geometric source: Ngô Quốc Anh, 2008-01-19, https://anhngq.wordpress.com/2008/01/19/steinmetz-solid/ ; geometry and intrinsic volumes: https://arxiv.org/abs/1211.4514 ; random lines: https://epub.ub.uni-muenchen.de/6318/1/6318.pdf ; same-body plane-area result: https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-complete-planar-section-area-profile-of-the-steinmetz-bicylinder--1bfc7d9fbd11/RESULT.md .
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired finding claims the marked conditional law with the exact excess decomposition, its sharp TV error, and the normalized boundary distribution of the excess; it credits the older scalar lens calculation, rather than asserting it as new. No inspected statement mechanically supplies the conditional excess distribution.
+
+## value
+
+PASS
+
+The anisotropic extreme geometry gives a useful conditional approximation for any measurable event of marked direction, with a sharp and attained uniform error. The boundary shell identifies where the first-order discrepancy lies and gives its nonuniform height law, something scalar tail probabilities and a qualitative limit cannot provide. This is an intrinsic geometric statistic of the natural nearly-longest-chord event, not merely a higher scalar Taylor coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

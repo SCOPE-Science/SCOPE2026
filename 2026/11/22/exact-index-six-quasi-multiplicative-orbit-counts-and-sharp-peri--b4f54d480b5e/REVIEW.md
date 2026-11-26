@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every prime power \(q=6s+1\); the counted objects are exact-index-six permutation-polynomial functions vanishing at zero, modulo quasi-multiplicative equivalence. Fan's published Theorem 4.5 bounds degree by five and period by twelve. The exact modular fixed-point calculation uses Fan's Lemma 4.1 and Burnside/Möbius formula, and checks six **prime** interpolation arguments for each residue class. Every residue polynomial is therefore rigorously determined by six evaluations; this is not a finite-experiment extrapolation. An independent direct-orbit check matches three small fields. Dirichlet's theorem supplies infinitely many admissible primes in each residue class, and comparison of the residue-six, residue-twelve and residue-four constituent polynomials proves sharpness of the period. The bundled standard-library checker passed its exhaustive finite tasks. The general degree bound is a cited, rather than independently reproved, premise.
+PASS
 
-## Originality — PASS with stated residual risk
+The exponents of an exact-index-six function have a common residue r modulo s; bijectivity on the cosets implies gcd(r,s)=1. A unit exponent normalizes r to 1 modulo s, and output scaling normalizes F(1)=1. Writing the normalized function on nonzero inputs as x times a profile on the sixth roots gives the permutation test j+H_j mod 6 and residual maps H'_j=ksj+H_{t+(1+ks)j}-H_t modulo 6s. By the invertible sixth-root evaluation transform, support in one class c modulo d amounts to H_{j+6/d}-H_j=cs(6/d) modulo 6s. The characters are disjoint for a given d, and the joint failures for d=2,3 are exactly the d=6 term; inclusion-exclusion and Burnside therefore count exact index six. Independently reproduced the integer sums by solving both families of edge constraints on the full six-vertex profile graph modulo 6s, propagating affine offsets in H_t on spanning forests and counting permitted component offsets, not by invoking the supplied quotient-cycle code. `python3 /workspace/reproductions/index6.py 7` matched the six frozen rational expressions at all 72 interpolation primes, 12 further primes, and 8 nonprime prime powers. Fan's Theorem 4.5 makes six distinct matches per residue a polynomial identity, not empirical extrapolation. For period T, pairs of residues modulo 12 congruent modulo gcd(T,12) can be joined to one admissible residue modulo T by avoiding the single forbidden class at each prime p>=5 dividing T. Both CRT progressions then have infinitely many primes by Dirichlet, forcing equality of their polynomials. The 0-versus-6 and 0-versus-4 differences exclude all proper gcds, so 12 is minimal on the actual domain.
 
-The closest primary paper is Fan, arXiv:2611.16944v1, which gives the general algorithm and the **upper bound** twelve, but not the six explicit index-six formulas or the exact minimal period. In particular, index-four formulas in Fan show that the universal even-index bound need not be sharp, so exact period twelve at index six is not an immediate logical consequence of the general bound. The general algorithm makes the computation possible, and novelty is **not** claimed for that method. Garg et al., arXiv:2503.20982v3, consider selected low-term quadratic-extension classes instead of the full index-six function. Indexed equivalent-formulation, broader-coverage, table and implication searches did not locate a containing result. An unindexed independent calculation may nevertheless exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest squarefree composite index is a natural next unresolved closed-form case after Fan's prime-index and index-four evaluations. The exact formula identifies all six arithmetic phases and proves that the bound \(2\ell\) on the quasi-polynomial period is genuinely attained at this index; it distinguishes three-adic and two-adic divisibility regimes in a way the general degree/period theorem leaves undetermined. This is a complete, motivated exact invariant rather than an arbitrary finite-field census or a routine isolated substitution.
+The supported contribution is the evaluated index-six coefficient polynomials together with sharpness of the period on prime-power inputs. Fan already gives the normalization, finite counting machinery and the upper period/degree bounds; no novelty is credited for those. The available exact source and indexed comparisons do not give the evaluated coefficient data or the period obstruction.
 
-## Scope and limitations
+## value
 
-The proof assumes Fan's classification and quasi-polynomiality theorem. All interpolation counts are finite exact-arithmetic certificates, not independent proof of the source theorem. The calculation covers only zero-constant, exact-index-six classes; it does not claim all polynomial functions of index at most six or classes with nonzero constant term. Primary literature inspected includes the complete counting sections of Fan and the relevant equivalence section of Garg et al. Residual risk: possible unindexed earlier derivation of the same explicit period and formulas.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Index six is the first squarefree composite index and the first such test of the even-index bound. The result supplies usable coefficients for the entire arithmetic family and shows that the bound remains sharp after restricting to genuine finite fields. This is a motivated sharpness witness, not just sample counts or substituting six into a known period bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

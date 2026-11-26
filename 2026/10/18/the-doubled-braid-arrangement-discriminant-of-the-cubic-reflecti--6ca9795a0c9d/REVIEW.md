@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Over \(\mathbb C\), the gradient-determinant identity restricts every possible cubic singularity to the six reflection lines in the curve plane. Explicit restrictions of \(\nabla G\) prove that a singularity forces one parameter coefficient to vanish or two to agree. The converse follows from the two explicit line–conic factorizations and permutation symmetry. Exact conic determinants and binary intersection discriminants verify two ordinary nodes on each generic discriminant line. At the seven line-arrangement intersections, the displayed exact factorizations give three triangle points and four concurrent-triple points. Finally, the ternary-cubic discriminant has degree twelve, and the two independent ordinary nodes at a generic point of each discriminant line force at least order two of vanishing there; the six squares exhaust degree twelve. The symbolic checker supplements rather than replaces this argument.
+PASS
 
-## Originality — PASS, subject to remaining risks
+Checked the homogeneous gradient determinant and the reductions to x=0 and x=y by the common coordinate/parameter permutation. The rank-drop test puts every singular point on those six source lines; the two gradient restrictions force respectively a=0 and a=b in the representatives. Conversely the explicit line factors give singularity there. Off their intersections, the two representative residual conics have nonzero determinants and distinct roots on the component line, so both intersections are nodes. The four triple and three double parameter points account for all 15 unordered pairs of parameter lines (4*3+3); representative factorizations give a triangle at [1:1:0] and distinct concurrent lines at [0:0:1] and [1:1:1]. The universal discriminant near two ordinary nodes has independently smooth branches: the first-order smoothing maps are evaluations at the two nodes, independent on cubic forms, and the ordinary-node Hessians are invertible. Both branches vanish along each generic arrangement line. Each line therefore contributes at least two to the degree-12 nonzero specialized polynomial; the product exhausts its degree. As a separate exact symbolic check, on projection from [0:0:1] with y=1, t=x/y, the quadratic in z has branch quartic (a-b*t^2)^2-4*(b*t-a)*c*t*(t-1). Its exact univariate discriminant is 4096[abc(a-b)(a-c)(b-c)]^2; replay with a symbolic polynomial discriminant in t and factor over Q[a,b,c]. This is corroboration, not an identification by fiat of the plane-cubic discriminant with a projection discriminant. Off the arrangement a smooth plane cubic is geometrically integral by Bézout and of genus one. All arguments use characteristic zero. The frozen script was inspected, not executed; its seven-point test checks listed incidences, whereas exhaustion here uses the line-pair count.
 
-The originating primary text arXiv:2306.09443v4, Section 5 and Theorem 5.2, was materially inspected. It constructs the cubic-generating net and gives freeness criteria for general members, not the singular-parameter divisor, its six doubled components, or the seven exceptional intersection fibers. Semantic searches of recorded mathematical findings (including parameter permutations and the equivalent \(A_3\) braid hyperplane description) identified only results on distinct discriminant or conic/line arrangements. Published mathematical-record statements were checked for logical coverage and equivalence. Classical sources or unindexed work could contain this particularly structured net under another projective presentation; searches cannot establish absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The complete discriminant resolves a precise natural gap in a published net used to construct free curves: it replaces the unspecified word 'general' with the exact six-hyperplane exclusion, identifies every boundary fiber, and distinguishes the *scheme-theoretic double structure* from the reduced arrangement. This is a uniform classification of all members of the smallest reflection-arrangement cubic net, not a single numerical example or routine change of variables; it gives concrete degeneration data for subsequent intersection, monodromy, and arrangement calculations. No downstream theorem is asserted or needed.
+The net and its reflection-arrangement context are already known. The supported distinct claim is the scheme multiplicity and complete stratification for the original plane cubic equations over the whole parameter plane. Neither the closest primary statements nor the closely related indexed double-plane model supplies that plane-cubic result. This is a bounded statement-level assessment, not a global priority guarantee.
 
-## Closest literature and limits
+## value
 
-Closest primary text: Di Gennaro et al., *Free curves, Eigenschemes and Pencils of curves*, Section 5, arXiv:2306.09443; general net/freeness does not imply the displayed parameter discriminant or every singular-fiber type without new calculation. General plane-cubic discriminant theory supplies degree and ordinary-node deformation facts, and hence is used as a proof tool, not claimed as original. published-finding corpus entries on another free conic-line arrangement and a marked-point discriminant concern different objects. The conclusion is over characteristic zero; no claims are made about elliptic \(j\)-invariants or finite characteristic, and bibliographic incompleteness remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the cubic case of a pre-existing natural reflection net, not an arbitrary slice. The precise multiplicity separates a reduced support description from the discriminant divisor used in degeneration calculations. The stratification distinguishes two nodes along a generic discriminant line, a triangle at one intersection type and an ordinary triple point at the other; those distinctions inform which degenerations a pencil in this net can encounter. This is an exact, useful plane-geometry invariant beyond the prior freeness and double-plane branch descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

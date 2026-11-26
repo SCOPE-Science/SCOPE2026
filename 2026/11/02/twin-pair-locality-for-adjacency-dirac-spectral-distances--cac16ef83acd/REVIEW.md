@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A unit antisymmetric pair vector gives a universal commutator norm lower bound. The sign-antisymmetric pair potential gives a matching exact rank-two skew commutator. The two zero/nonzero cases, finite-dimensional quantifiers, and arbitrary outside-to-outside matrix entries are handled explicitly. The included standalone exact-rational checker passed 539 finite diagnostic matrices; the universal claim rests on the reconstructed matrix proof, not the finite test count.
+PASS
 
-## Originality — PASS, with disclosed residual risk
+Write q=(e_x-e_y)/sqrt(2) and v=(gamma(e_x+e_y)+sum_z w_z e_z)/sqrt(2). For every real diagonal F, [D,F]q=(f(x)-f(y))v, so ||[D,F]|| is at least sqrt(C) times the gap. For the gap-one potential supported on {x,y} with values +1/2 and -1/2 the entire commutator is vq^T-qv^T. It vanishes off span(q,v), and its two nonzero singular values when C>0 are both ||v||=sqrt(C). Scaling attains the bound. For C=0 both rows have no off-diagonal entries, and the same potential can be scaled arbitrarily. D's diagonal commutes with every F and does not enter. Substitution gamma=0 or 1 and sum w_z^2=k gives both unweighted cases and their ratio. Independent symbolic spot check: python3 -B /workspace/reproduce_frozen.py 2 verifies the two witness identities with arbitrary symbolic weights, diagonals on the pair, outside edge and potentials on a four-point space; the argument above proves all sizes.
 
-The 1999 finite-space source already has the uniform complete-graph and one-edge-deleted formulas, and the 2021 source gives triangle/pruning/comparison tools; those individual instances are deliberately excluded from claims of priority. The 2024 graph-distance work gives general methods and a path classification. In inspected material, no source states the arbitrary weighted equal-external-row theorem, its insensitivity to all other edges, or the exact two-apex law for an arbitrary graph attached to the pair. Targeted mathematical-literature and semantic-result searches did not identify stronger coverage. An equivalent theorem under another name could exist and would change the originality verdict.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a full, sharp structural locality result for a natural graph module, not a small finite table: it eliminates the ambient spectral norm optimization for an infinite class of graph pairs, provides a norm-attaining witness, and establishes an exact restricted edge-deletion monotonicity rule addressing a question highlighted in the motivating literature. The arbitrary-host double-cone construction shows genuine coverage beyond the previously computed symmetric hosts.
+Exact complete-graph/deleted-link formulas and two same-day false-twin specializations are established coverage. The supported distinction is the sharp common-profile formula for arbitrary real weights (either zero or nonzero pair coupling), independent of the whole outside submatrix. The located sources and related records do not cover that statement. Antisymmetrization is a standard symmetry argument, not itself a new method here.
 
-## Limits and closest prior literature
+## value
 
-See Iochum–Krajewski–Martinetti (1999), Proposition 5 and three-point formulas; Besnard (2021), Sections 2–3, especially edge deletion and pruning; Clare–Li–Poon–Swartz (2024), Sections 2–4. The equal-row assumption is essential to the given proof. Independent appraisal and broader equivalence searches remain worthwhile.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The substantive result is exact ambient-independence for a natural class of vertex pairs, not the elementary averaging trick or the known complete-graph value. For a graph joined to two twin apices it determines their distance without solving the surrounding distance problem and gives an exact edge-deletion response independent of every internal edge of the base. It also covers signed weighted attachments, and provides a sharp norm certificate and optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

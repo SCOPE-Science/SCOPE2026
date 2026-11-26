@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The definitions distinguish infinite-time return from pointwise convergence, and all eigenvalue multiplicities are handled through full spectral projectors. Signed square-root incidence blocks and the zero-mode projector prove the all-graph formula. The two nonzero signless eigenvalues of each clique and the edge zero projection then yield both explicit rational expressions and the exact n=6 threshold. Direct adjacency-matrix tests and symbolic factorization corroborate the analytic calculation; they do not substitute for it.
+PASS
 
-## Originality
+Independently, the original-vertex block of exp(-it A_S) is cos(t sqrt(B B^T)) by the power series, with B the unsigned incidence matrix. The constant zero-mode contribution has time-averaged square F_0(u,u)^2; distinct positive frequencies have vanishing cross terms and each cosine has mean square 1/2. The equation B^T f=0 forces opposite values on endpoints, so in a connected bipartite graph F_0(u,u)=1/n and otherwise it is zero. This also covers n=2 and nonregular graphs. On S(K_n), the positive squared frequencies 2(n-1) and n-2 have multiplicities 1 and n-1. Each signed eigenspace projects half its trace onto each bipartition, by the singular-vector pairing, and symmetry is transitive on each part. With part size k the weights per sign are 1/(2k) and (n-1)/(2k), and the remaining weight is 1-n/k. Taking k=n or k=n(n-1)/2 and summing squared weights recovers both fractions and their difference. The zero weight vanishes at n=3. The cubic factor is negative at 4 and 5, positive at 6, and increasing thereafter, giving the full cutoff and limits.
 
-**PASS on examined evidence, subject to historical-priority risk.** Godsil's projector identity [arXiv:1103.2578] is the foundational general method, not claimed new. Godsil--Guo--Sobchuk [arXiv:1910.02039] treat diagonal average mixing and graph products, but inspected statements do not yield the full subdivision return-halving law and sharp complete-graph site reversal. Ide [arXiv:1406.0347] treats localization in a distinct Laplacian Hamiltonian setting. Targeted semantic-index and local-claim comparisons found no stronger earlier implication. A specialized earlier subdivision calculation may remain undiscovered; the inspected sections are not a certificate of exhaustive priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result gives a structural all-graph relation between two quantum returns that are otherwise computed on different Hamiltonians. Its complete clique specialization proves a counterintuitive site-selection reversal with a sharp and natural size boundary, and reveals an asymptotic dark-mode mechanism. It solves a motivated graph-transport question without requiring new physical dynamics or external experiments.
+Credit the known average-mixing projector formula and standard incidence blocks. The inspected same-invariant and vertex/edge-walk literature does not establish the evaluated pointwise subdivision identity and the all-order two-orbit return comparison. The closest inspected indexed record concerns spectral inertia of a line graph of a subdivision, not the return invariant. This is a bounded scientific comparison, not a historical priority certification.
 
-## Scope and reproducibility
+## value
 
-The finding is limited to finite simple connected graphs, one subdivision per edge, unweighted adjacency Hamiltonians, and infinite-time return probabilities. The special ordering concerns only subdivided cliques. The included standalone checker independently diagonalizes actual Hamiltonians and tests the general identity on all connected labeled graphs of order at most five. No independent validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The adjacency return invariant tests whether a once-subdivision transfers long-time return from hubs to newly inserted low-degree vertices. The exact clique cutoff answers this for all orders, and the edge-kernel term identifies the mechanism behind a limiting gap of 1/2 rather than just exhibiting a few examples. The pointwise identity also isolates exactly when bipartiteness prevents exact halving.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

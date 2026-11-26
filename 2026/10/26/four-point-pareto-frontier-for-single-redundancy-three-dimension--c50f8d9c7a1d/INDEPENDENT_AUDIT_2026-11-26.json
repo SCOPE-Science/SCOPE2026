@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:40:00.091244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The set of the first s distinct indices is uniform, and while that set does not recover a file the mean wait for the next new index is 4/(4-s). Summing over s=0,1,2,3 proves the exact subset formula. A zero column is strictly improvable for F1 and no worse for F2 by replacing it with e1 under the same draws. The unique relation on four nonzero columns has support 2, 3, or 4. With support 4, all triples are independent, at most two columns lie in F2, and two pairs meeting at a column not proportional to e1 cannot both span e1 without a dependent triple. With support 3, the dependent triple spans a plane: E1<3 is possible only if it contains a column in the e1 direction, in which case E1=8/3, the dependent triple does not recover F2 and at most one pair can recover F2, giving E2>=5. With support 2, E1<3 requires the parallel pair to lie along e1, giving E1=2 and E2>=6. Separately, E2<4 requires at least two recovering pairs and hence three F2 columns; the fourth must be outside F2, so the F2 triple fails to recover e1 and E1>=4. The universal E2 lower bound is 10/3. The four witnesses have recovery counts (a1,a2,a3;b2,b3) equal to (2,5,4;1,2), (1,4,4;1,3), (1,3,4;1,4), and (1,3,3;3,4); all ranks and directions persist in every characteristic. The points are pairwise incomparable and exhaust the lower boundary. The supplied script and output were inspected, not run: projective enumeration is over q=2,3, and witness checks additionally cover q=5,7. The all-field conclusion rests on the proof, not those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bar-Lev's concrete related example uses dimensions (1,3), length 8",
+          "Vlachos–Bar-Lev discusses finite-length Pareto optimality of dedicated MDS schemes as a question and nonsystematic codes as a further direction"
+        ],
+        "reasoning": "General expectation formulas and achievability constructions can supply individual expected times but no inspected general theorem excludes all better tradeoffs over arbitrary rank-three matrices at the assigned length.",
+        "searches": [
+          "Bar-Lev §III finite-length achievability region and bounds",
+          "Vlachos–Bar-Lev §§I, V, systematic mixed-column bounds and open problems"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_retrieval_frontier.py and verification_output.txt",
+        "arXiv:2603.17154v2",
+        "arXiv:2609.36067",
+        "Resultary b0daab8aecae",
+        "Resultary dac4d636ce33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dedicated MDS allocations give (2,6) and (4,10/3); systematic [4,3] MDS is a known construction family",
+          "b0daab8aecae: 1/E1+2/E2<=1 under its systematic one-mixed-column hypotheses"
+        ],
+        "reasoning": "Achieving points and bounding a weighted scalar combination does not imply their nondominance or completeness. For instance the scalar inequality alone even permits hypothetical (29/10,9/2), undominated by the listed frontier; the dependence-support proof excludes it. No novelty is assigned to the two dedicated attainments or to use of the general subset formula.",
+        "searches": [
+          "Compare the rank-support and F2 obstruction in frozen RESULT.md with Bar-Lev's constructions and the prior one-mixed-column inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bar-Lev arXiv:2603.17154v2 §§II–III uses span-based recovery, sampling with replacement and the rank-k achievable region",
+          "Resultary b0daab8aecae uses the same dimensions for systematic matrices with one mixed nonzero column"
+        ],
+        "reasoning": "The first paper is the same retrieval optimization problem, not an unrelated sampling model; its inspected examples and bounds do not give the unrestricted rank-three length-four frontier. The second source restricts the admissible matrices and gives a scalar inequality.",
+        "searches": [
+          "Resultary semantic search for dimension-three one-redundancy two-file Pareto frontier under uniform indexed column draws",
+          "Primary-literature lookup for finite-length Pareto frontiers in unequal-file-size DNA storage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b0daab8aecae §Finding gives a one-mixed-column hyperbolic bound, not such a table",
+          "dac4d636ce33 §Finding analyzes the binary point (2,6) and a five-column obstruction, and is later"
+        ],
+        "reasoning": "A shared attainable point or a monotonicity obstruction across lengths is not an earlier tabulation of all four Pareto points. No exact whole-frontier match was found in the bounded comparisons.",
+        "searches": [
+          "Resultary: exact four-point retrieval tradeoff, dimensions (1,2), rank three and length four"
+        ]
+      },
+      "rationale": "The exact unrestricted four-point frontier is distinct within the sources checked. The recovery model, general identity, construction families and some attainments are prior; the claimed contribution is complete dominance and all-field classification, not introducing retrieval with replacement or the underlying code families.",
+      "residual_risks": [
+        "Limited to the inspected finite-length results and semantic index matches; an unindexed classification or sharper general theorem cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational direct overlap, not complete classification in the inspected passages",
+          "evidence": [
+            "Subset-count identity, region over rank-k matrices, and dedicated allocations; concrete related example uses k=4, n=8, dimensions (1,3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.17154v2",
+          "material_read": "§II offset 13220; §III offsets 20569, 24112, 28972",
+          "method": "OA full-text passage inspection",
+          "title": "Coded Information Retrieval for Block-Structured DNA-Based Data Storage",
+          "trigger": "Same sampling and achievable-retrieval-region definitions"
+        },
+        {
+          "assessment": "Restricted bounds and an open finite-length question",
+          "evidence": [
+            "Systematic codes with a mixed-column condition; conclusion leaves finite-length dedicated-MDS Pareto optimality open, and nonsystematic extension as a direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.36067",
+          "material_read": "§I offset 5482; §V offset 29921",
+          "method": "OA full-text passage inspection",
+          "title": "A Hyperbolic Bound for File Retrieval in DNA-Based Data Storage",
+          "trigger": "A stronger bound could imply exact Pareto optimality"
+        },
+        {
+          "assessment": "Restricted prior inequality",
+          "evidence": [
+            "Systematic rank-three, (1,2) files, exactly one mixed nonzero column, scalar upper bound on 1/E1+2/E2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dimension-three-one-mixed-column-hyperbolic-bound--b0daab8aecae/RESULT.md",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Dimension-three one-mixed-column hyperbolic bound",
+          "trigger": "Same dimensions and a closely related tradeoff"
+        },
+        {
+          "assessment": "One shared point, different obstruction and later date",
+          "evidence": [
+            "[e1,e1,e2,e3] gives (2,6); no binary rank-three five-column code weakly improves both coordinates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-four-to-five-column-obstruction-to-binary-block-retrieval-mono--dac4d636ce33/RESULT.md",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A four-to-five-column obstruction to binary block retrieval monotonicity",
+          "trigger": "Exact length-four point and same file dimensions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length four is the first redundant case in dimension three for unequal complementary files. A complete field-uniform lower boundary settles all possible tradeoffs there, tests dedicated versus mixed/global redundancy on precisely the expected retrieval cost of interest, and shows that no nonsystematic code can improve the boundary. This is useful beyond enumerating a few witnesses or one field's outcomes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

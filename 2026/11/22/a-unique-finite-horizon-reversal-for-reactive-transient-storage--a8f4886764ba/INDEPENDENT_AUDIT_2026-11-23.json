@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:39:14.234513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the cumulative difference H against removal of storage (not against accessible inert storage). The Laplace transform, with c=v+k and decay rates λ± from the two-state generator, is α[(ℓ−k)s+ℓv]/[s(s+c)(s+λ−)(s+λ+)]. Equivalently H(t)=α[(ℓ−k)g(t)+ℓv∫_0^t g(u)du] for g the convolution of the three decaying exponentials. All three rates are positive, so this independently checks the strict signs at ℓ=0 and ℓ≥k, the eventual gain, and the Taylor coefficients near ℓ=k. For 0<ℓ<k, the characteristic polynomial is negative at c and both density weights are positive; the density ratio to the no-storage exponential is strictly convex, starts at 1 with negative derivative and eventually exceeds 1, hence has exactly one positive crossing. The cumulative difference first decreases from zero, then rises to the strictly positive eventual gain αvℓ/[c(c(β+ℓ)+αℓ)], giving exactly one later positive crossing. Increasing ℓ can be coupled by adding a storage-only reaction clock; strict gain at any t>0 follows on paths entering and staying stored through the deadline with an added event and no lower-rate reaction. This strictly orders the roots. Continuity at each finite t gives the two endpoint limits of the root. Near zero reactivity, the spectral separation persists, the crossing is O(log(1/ℓ)) by exponential tail bounds, and balancing the slow spectral tail and the eventual gain gives the full logarithm with P₀ and ν in the record, since (λ−−ν)T_*→0. Near equal reactivity, g(t)=t²/2+O(t³) uniformly, and the nonzero root gives k−ℓ=(vk/3)T_*+O((k−ℓ)T_*+T_*²). This first implies T_*=O(k−ℓ) and then the stated quadratic-error expansion. The conclusions assume a mobile initial pulse, constant rates and an independent exponential mobile exit, not a general residence-time law. Inspected check.py; did not execute the supplied diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O’Connor et al. include channel advection and dispersion with storage exchange; the inspected result concerns reactive transport and nitrate mass loss, not a theorem comparing marked reaction times at all deadlines.",
+          "General two-state absorption equations supply an exponential mixture and eventual probabilities. Sign uniqueness additionally uses λ−<v+k<λ+ and positivity of the two modal weights when ℓ<k."
+        ],
+        "reasoning": "A broader dynamics or a general mixture representation does not by itself give the exact cumulative ordering, crossing monotonicity or endpoint coefficients. The two-site sorption and other potentially related papers with blocked full-text retrieval remain bounded risks, not evidence of noncoverage.",
+        "searches": [
+          "O’Connor et al. full author-hosted PDF, equations (4)–(5)",
+          "Two-site sorption/decay tracer model DOI:10.1002/wrcr.20276; hyporheic transport review DOI:10.1002/2012RG000417; benthic/hyporheic breakthrough DOI:10.1086/680037",
+          "Phase-type/competing-risk interpretation of two transient states and two absorbing outcomes"
+        ]
+      },
+      "checked_sources": [
+        "O’Connor et al. DOI:10.1061/(ASCE)HY.1943-7900.0000180",
+        "Resultary f409147a2e80, 79d9da59cb20 and 90e60e501f6a",
+        "Bibliographic only: DOI:10.1002/wrcr.20276, DOI:10.1002/2012RG000417, DOI:10.1086/680037"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spatial transport with separate reaction rates motivates the clocks but does not identify the no-entry counterfactual sign at each deadline.",
+          "Gamma-shape and Gamma/inverse-Gaussian comparisons give crossings for different transforms or distributions and use different varying parameters."
+        ],
+        "reasoning": "The model correspondence and the analogy with exponential/arrival comparisons do not imply the unique zero of the integrated sign difference, its strict ordering in ℓ, or the matching of the small ultimate gain to the slow time tail and the equal-rate Taylor cancellation. Those are the distinct results assessed here.",
+        "searches": [
+          "O’Connor et al. equations (4)–(5) and nitrate mass-loss comparison",
+          "SCOPE f409147a2e80 and 79d9da59cb20 primary result statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f409147a2e80 compares E[(1−e^(−aS))e^(−bS)] for three mean-matched Gamma laws; its one-crossing variable is mean transit time, not observation deadline.",
+          "90e60e501f6a compares flow-regime order in a reversible storage/export model without reaction; an order threshold in initial composition is not a reaction-incidence deadline.",
+          "Equations (4)–(5) of O’Connor et al. describe mobile and stored concentration with separate reaction rates and spatial transport."
+        ],
+        "reasoning": "Replacing the comparison by an intermediate product, an export-order comparison or a downstream concentration would change the observable, the comparator and in the latter case the dynamics. None of these is an equivalent restatement of Pr(reaction by t) for an initially mobile parcel with competing exit and no-storage benchmark.",
+        "searches": [
+          "Resultary semantic lookup: two-zone reactive transient storage finite-horizon crossover, consecutive first-order reactions, residence-time laws and reversible trapping",
+          "O’Connor et al. DOI:10.1061/(ASCE)HY.1943-7900.0000180 equations (4)–(5)",
+          "SCOPE f409147a2e80 and 90e60e501f6a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a8f4886764ba is the identical record and was excluded. 79d9da59cb20 tabulates a two-crossing comparison between Gamma and inverse-Gaussian arrival CDFs with matched first two moments; other close exact results found are mean-transit or export-order comparisons."
+        ],
+        "reasoning": "These exact entries do not give the finite reaction deadline or its endpoint scales for the two-zone competing-risk comparator. The catalogue is not exhaustive.",
+        "searches": [
+          "Resultary: reactive transit crossover, storage export threshold and moment-matched residence-clock crossings",
+          "SCOPE a8f4886764ba, f409147a2e80, 79d9da59cb20 and 90e60e501f6a"
+        ]
+      },
+      "rationale": "On the checked evidence, the supported distinction is the exact cumulative-incidence sign classification against removing storage, including the unique monotone crossover and both endpoint laws. Separate channel/storage first-order uptake and generic phase-type formulas are not new. The exact catalogue match was this same frozen record, and the distinct same-day analogues were compared without assuming priority from their date.",
+      "residual_risks": [
+        "Equivalent first-event order theorems in phase-type/competing-risk or trapping treatments may be unindexed under stream terminology.",
+        "Independent full-text comparison of Liao, Boano and Aubeneau remained unavailable; no claim of exhaustive historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial model motivation; not the finite-time competing-risk comparison in inspected material.",
+          "evidence": [
+            "Model adds an exchange term and an equation for storage-zone concentration, with first-order mobile and storage reaction coefficients; the experiment reports measured nitrate mass loss."
+          ],
+          "identifier_or_url": "https://water.usgs.gov/nrp/jharvey/pdf/O%27Connor%20et%20al_2010%20Predictive%20transient%20storage%20modeling_JHE.pdf",
+          "material_read": "Abstract, PDF p. 1; equations (4)–(5), PDF p. 2, journal p. 1019, offset 13300.",
+          "method": "Read bounded passages of the lawful author-hosted primary PDF.",
+          "title": "Predictive Modeling of Transient Storage and Nutrient Uptake: Implications for Stream Restoration",
+          "trigger": "Same channel/storage exchange and zone-specific reaction modeling."
+        },
+        {
+          "assessment": "Different distributions, comparison and varying parameter.",
+          "evidence": [
+            "Three Gamma transit laws with equal mean, consecutive-reaction function (1−e^(−as))e^(−bs), and pairwise crossover as that mean varies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-three-shape-response-staircase-for-fixed-mean-reactive-transit--f409147a2e80/RESULT.md",
+          "material_read": "RESULT.md statement, offset 0.",
+          "method": "Local mirrored record comparison.",
+          "title": "A three-shape response staircase for fixed-mean reactive transit",
+          "trigger": "Same-day one-crossing law for related exponential reaction functions."
+        },
+        {
+          "assessment": "An arrival-CDF comparison, with two reversals, not the cumulative probability of a marked reaction under storage.",
+          "evidence": [
+            "Two CDF crossings for Gamma and inverse-Gaussian clocks with matched mean and variance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exactly-two-arrival-fraction-reversals-between-moment-matched-ga--79d9da59cb20/RESULT.md",
+          "material_read": "RESULT.md statement, offset 0.",
+          "method": "Local mirrored record comparison.",
+          "title": "Exactly two arrival-fraction reversals between moment-matched Gamma and inverse-Gaussian laws",
+          "trigger": "Exact finite-horizon crossings expressed as residence-time distributions."
+        },
+        {
+          "assessment": "No reaction; initial composition rather than observation horizon controls which flow order gives more export.",
+          "evidence": [
+            "Exact difference between two ordered flow periods with a possible initial bed-fraction threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-duration-independent-order-law-for-reversible-riverbed-contami--90e60e501f6a/RESULT.md",
+          "material_read": "RESULT.md statement, offset 0.",
+          "method": "Local mirrored record comparison.",
+          "title": "A duration-independent order law for reversible riverbed contamination",
+          "trigger": "Two-zone storage, export and exact finite-horizon ordering."
+        },
+        {
+          "assessment": "No full-text coverage claim.",
+          "evidence": [
+            "Title explicitly names two-site sorption and decay in the hyporheic zone."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/wrcr.20276",
+          "material_read": "Bibliographic title; institutional accepted PDF and publisher full-text/PDF routes were not accessible.",
+          "method": "Bounded lawful alternate-copy and publisher retrieval attempts.",
+          "title": "Modeling and inverting reactive stream tracers undergoing two-site sorption and decay in the hyporheic zone",
+          "trigger": "Close trapping/sorption and zone-reactivity alias."
+        },
+        {
+          "assessment": "Contextual lead; not used as negative evidence.",
+          "evidence": [
+            "Review scope indicated by the title: hyporheic flow, transport and biogeochemical implications."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2012RG000417",
+          "material_read": "Bibliographic title; full text not read in the independent check.",
+          "method": "Bounded lawful retrieval attempt.",
+          "title": "Hyporheic flow and transport processes: Mechanisms, models, and biogeochemical implications",
+          "trigger": "Review of transport and uptake in storage environments."
+        },
+        {
+          "assessment": "No independent full-text coverage decision; the frozen citation's description of a signal-detection time was not relied on as a primary statement.",
+          "evidence": [
+            "The title concerns breakthrough curves in benthic and hyporheic reactive transport."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/680037",
+          "material_read": "Bibliographic title; full text not accessible in the independent check.",
+          "method": "Bounded lawful retrieval attempt.",
+          "title": "Effects of benthic and hyporheic reactive transport on breakthrough curves",
+          "trigger": "Reactive transport with a potentially related time comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp sign trichotomy answers when a longer observation window actually reverses the conclusion about adding storage, rather than just delaying removal. The divergent and collapsing crossover scales explain two different experimental horizon sensitivities even in the minimal model. The mathematical benchmark remains useful without a fitted stream model, but must not be interpreted as a downstream breakthrough prediction or a field-scale extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:25:53.465096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The state graph contains the positive-rate closed walk 00→10→01→11→10→01→00, also at r=0, so it is irreducible. I rebuilt its generator using the two separate contributions to 01→11. Principal Markov-chain-tree minors independently give the four stationary weights with total Z=(r+t)(r²+3rt+r+2t²+3t); their 2×2 cross-product difference equals tP_t(r). Z>0. P_t(0)=t³(1−2t) and the nonnegative nonconstant coefficients (with strictly positive quadratic coefficient) give strict increase on [0,∞), including t=1 where the linear term vanishes. The partial derivatives at (1/2,0) are −1/4 in t and 3/8 in r, so the root opens with slope 2/3. The large-r expansion follows by degrees. Independent replay: python3 /workspace/review_checks/2.py (SymPy); it also gives the exact rational bracket (0.3148293584778,0.3148293584779) at t=1. This is a check of the specified two-site generator, not formal verification, expert attestation or a longer-chain calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee–Goswami–Mukherjee use bulk rates scaled as λ_g/L and λ_d/L and report simulated correlations; no corresponding exact classification is in the inspected passages. Juhász–Santen §2 has single-site attachment and detachment to a reservoir at rates ω_A, ω_D rather than the specified facilitated births and occupied-pair annihilation. The older exact open exclusion correlation reference concerns reaction-free TASEP in the available description; its full text was not independently read."
+        ],
+        "reasoning": "The larger physical model motivates the local rules but its inspected correlation results do not imply the finite threshold; the other mechanisms do not contain the required active-bond generator as a specialization.",
+        "searches": [
+          "arXiv:2611.06463v1 §II and correlation discussion",
+          "arXiv:cond-mat/0311208v2 §2",
+          "DOI:10.1051/jp1:1993132"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.06463v1",
+        "arXiv:cond-mat/0311208v2",
+        "DOI:10.1051/jp1:1993132 (limited scope evidence)",
+        "Resultary b0930de236ae and 0821d74585d9; identical db82b7c33eeb search hit excluded as independent evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting c=1 in the back-pressure result recovers the frozen r=0 value and its t=1/2 zero, but varying c adds states, not the reaction edges. Varying the resetting rate instead makes the two-site numerator decrease, rather than providing the reaction-induced negative-to-positive crossing. The stationary-tree formula alone supplies a method, not the domain sign and boundary analysis."
+        ],
+        "reasoning": "Credit known r=0 and standard stationary algebra; the complete active sign classification and threshold opening survive the comparison.",
+        "searches": [
+          "Capacity-three back-pressure record, Finding and Assumptions",
+          "Locally resetting two-reversal record, Assumptions and Proof step 1",
+          "arXiv:2611.06463v1 correlation discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For binary sites the covariance sign equals the sign of the stationary 2×2 table determinant, so odds-ratio sign is an equivalent target. The directly related resetting record has 01→10 rather than 10→11, 01→11 and 11→00. The motivating arXiv paper uses the neighboring-site reactions but studies bulk correlation corrections, not that exact table determinant for the stipulated four-state channel."
+        ],
+        "reasoning": "Agreement on equal-time covariance or the reaction-free generator is not equivalence of the rate-dependent sign theorem.",
+        "searches": [
+          "Resultary: two-site exclusion covariance sign threshold driven pair annihilation facilitated birth 10 to 11 01 to 11 11 to 00 resetting back pressure",
+          "arXiv:2611.06463v1 §II and correlation discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is this same finding. The distinct same-day capacity/back-pressure record gives C_1(t)=(1−2t)/(2t+3)^2 and separate capacity-2 and capacity-3 results. The earlier locally resetting record gives (1−a−b−r)/T(r)^2 for two sites under relocation; its three-site quartic is another observable/generator."
+        ],
+        "reasoning": "These are exact comparable entries, not census evidence for the active-bond quintic or its positive-root thresholds. The capacity-one entry does establish the r=0 overlap.",
+        "searches": [
+          "Resultary: two-site exclusion covariance sign threshold driven pair annihilation facilitated birth 10 to 11 01 to 11 11 to 00 resetting back pressure"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact reaction-dependent sign diagram for the stated two-site bond generator. The local mechanism and the reaction-free slice are not new. Inspected studies and neighboring records do not establish the active-bond root classification; a general means of computing stationary laws is not itself a sign classification.",
+      "residual_risks": [
+        "An unlocated finite-chain calculation or an exact treatment of the same active bond with unequal boundaries may contain the sign result.",
+        "No independent full-text negative conclusion about Derrida–Evans.",
+        "Novelty is not claimed for the r=0 slice or Markov-chain-tree algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates the reaction rules; bulk convention and numerics do not establish the exact two-site result.",
+          "evidence": [
+            "§II: directed hopping and bond reactions with size-scaled rates; correlation discussion: nearest-neighbor measurements and quantitative question."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.06463v1",
+          "material_read": "Model and correlation discussion, offsets 6300–8933 and 36950–41946",
+          "method": "Open primary article, bounded passage comparison",
+          "title": "Steady states in asymmetric exclusion processes with reactions: Fluctuations and non-mean field behaviour",
+          "trigger": "Same elementary bond birth/death mechanism"
+        },
+        {
+          "assessment": "Different transitions.",
+          "evidence": [
+            "The model explicitly uses bulk single-site attachment and detachment to a reservoir."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0311208v2",
+          "material_read": "§2, offsets 4400–5625",
+          "method": "Open primary article",
+          "title": "Dynamics of an exclusion process with creation and annihilation",
+          "trigger": "Earlier driven creation-annihilation process"
+        },
+        {
+          "assessment": "Reaction-free comparison only; no whole-document exclusion.",
+          "evidence": [
+            "Classical open exclusion correlation reference, J. Phys. I France 3, 311–322 (1993)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/jp1:1993132",
+          "material_read": "Bibliographic and reaction-free scope description; independent full text unavailable",
+          "method": "Identified reference and attempted lawful retrieval",
+          "title": "Exact correlation functions in an asymmetric exclusion model with open boundaries",
+          "trigger": "Possible stronger exact correlation formula"
+        },
+        {
+          "assessment": "Reaction-free slice matches; neither active generator nor threshold matches.",
+          "evidence": [
+            "C_1(t) is the r=0 expression; capacity changes allowed site occupations rather than adding bond reactions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-capacity-three-correlation-threshold-in-a-two-site-back-pressu--b0930de236ae",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 85–1646",
+          "method": "Resultary local mirror",
+          "title": "A capacity-three correlation threshold in a two-site back-pressure exclusion chain",
+          "trigger": "Same-day exact two-site covariance threshold"
+        },
+        {
+          "assessment": "Different generator and sign behavior.",
+          "evidence": [
+            "Resetting relocates a particle without creation or loss; the two-site numerator is 1−a−b−r."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-smallest-locally-resetting-exclusion-chain-with-two-covarian--0821d74585d9",
+          "material_read": "RESULT.md offsets 1290–2664, two-site statement, assumptions and first proof step",
+          "method": "Resultary local mirror",
+          "title": "The smallest locally resetting exclusion chain with two covariance sign reversals",
+          "trigger": "Exact reaction-rate sign reversals in a related minimal chain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest channel supporting the motivating bond reactions distinguishes positive covariance throughout from one genuine anticorrelation-to-association reversal, with a sharp boundary and an explicit rate threshold for every boundary drive in scope. This is a concrete finite benchmark for approximations that neglect neighboring occupations; a single stationary-law calculation or isolated negative covariance would not by itself supply that classification. It gives no macroscopic phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

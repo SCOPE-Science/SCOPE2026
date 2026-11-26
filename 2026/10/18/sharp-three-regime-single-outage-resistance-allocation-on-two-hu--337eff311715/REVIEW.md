@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact domain is every integer \(m\ge3\), every positive exceptional route price, and every positive total linear budget. Thomson's jointly convex flow energy makes each failed-edge terminal resistance convex in the remaining conductances, so averaging the full unrestricted feasible graph over hub interchange and ordinary-path permutations is valid. Series/parallel reduction yields two exact outage-resistance expressions. Their difference has the sign of the exceptional-to-ordinary conductance ratio minus one; strictly monotone derivative numerators on either side give the two exact transitions. A standalone checker independently verifies the symbolic identities and finite full-graph resistances. Finite sampling is not used to prove the infinite-family optimum.
+## correctness
 
-**Originality (PASS, with risk).** Johnson and Chertkov's 2010 Sections III and V give the general convex conductance-design and outage formulation but no exact two-hub price-phase theorem. Zelazo and Bürger's 2014 Sections IV and V derive a distinct robustness criterion for uncertain signed networks. Suliman and Weinstein's 2023 Sections 1 and 3.3 analyze intact-edge resistance rather than resistance after deleting the tested edge. Indexed-claim comparisons found no equivalent all-size threshold. A relevant earlier cactus allocation result does not imply this one because the \(K_{2,m}\) graph for \(m\ge3\) has overlapping cycles and failure paths coupled through the other routes. Unindexed equivalent literature remains possible.
+PASS
 
-**Value (PASS).** The result gives a concrete exact single-outage design for an infinite family of redundant two-hub networks. The equal-allocation plateau remains optimal over a multiplicative exceptional-route price range asymptotic to \(m^3/4\), which an ordinary marginal-cost allocation rule would not predict. Both endpoints and strict regimes are exact, and the expensive route stays active rather than being discarded because every edge failure must retain a finite replacement resistance.
+For fixed failed e=xy, the resistance is the supremum over voltage potentials p of 2(p_x−p_y)−Σ_{d≠e}w_d(p_{d+}−p_{d−})² (complete the square around the unit-current solution). This independently gives convexity in w. The worst case is convex and invariant under the cost-preserving group, so averaging gives a symmetric design no worse than any independent allocation. A vanishing weight sends the mate-deletion resistance to infinity, since the mate deletion leaves that current terminal attached by the vanishing conductance alone. In the averaged design the surviving mate is in series with the other routes in parallel, giving 1/a+2/((m−2)a+b) or 1/b+2/((m−1)a). With A=m−1, d=m−2 and r=b/a, the scaled branch difference has sign r−1 because A(d+r)−2r=Ad+(m−3)r>0. Derivatives of the budget-scaled active branches on r≥1 and r≤1 are respectively t+(2td−2A)/(d+r)² and 2t/A−A/r². The first derivative has the sign of t[(d+r)²+2d]−2A, strictly increasing as a sign numerator; the second is strictly increasing. Evaluating signs at r=1 yields t_−=2A/(m²−3), t_+=A²/2 with t_−<t_+ (A≥2 and m²−3≥6); thus the unique minima of the two half-intervals combine to exactly the three stated branches, including both endpoints of the plateau. The stated a,b and D follow by substitution. At m=3, B=1 the exact three example resistances are 8,12,36. The statement supplies an unrestricted optimum value and an attaining symmetric design, not a classification of all asymmetric optima.
 
-**Limitations.** Unrestricted global value and a symmetric optimizer are established; unrestricted optimizer uniqueness is not claimed. The objective is post-deletion terminal resistance, not total intact-network resistance or arbitrary multiple failures. Existing unindexed source coverage is a residual originality risk. No external validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Worst-outage resistance allocation and even an equal-conductance plateau are present in nearby work. The distinct supported contribution is the exact transition law for single-deletion endpoint resistance on the two-hub family, including both out-of-plateau ratios. Neither a general robustness formulation nor the even-cycle outage sum supplies it.
+
+## value
+
+PASS
+
+Parallel two-hop routes are a natural model where loss of an edge changes both where the terminal is attached and which complete route is available. The exact transition is the value: equal conductances remain optimal across a price interval whose multiplicative width grows as m³/4, yet conductance moves in opposite directions outside it. Standard convexity alone predicts none of these thresholds or that growing price tolerance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

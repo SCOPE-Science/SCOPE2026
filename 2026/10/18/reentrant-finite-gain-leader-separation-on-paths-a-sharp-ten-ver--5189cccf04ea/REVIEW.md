@@ -1,19 +1,21 @@
-# Scientific review: finite-gain leader placement on paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For exactly two equally pinned nodes on an unweighted path, positive definiteness follows from the graph quadratic form and the strictly positive grounding terms. The electrical-network diagonal-inverse identity yields equation (1) of `RESULT.md`; exact Gaussian elimination independently confirms the formula in 656 rational cases. Balancing outer tails is a strict discrete convexity statement, so the reduction to separation is globally exhaustive. All other separations in orders three through ten are eliminated by thirty-one universal-in-gain quadratic sign certificates; the two exceptional phase polynomials and strict root order yield the complete ten-vertex classification and all tie cases. In the infinite family, the continuous relaxation differs from the exact integer objective by only a nonnegative parity correction, and Descartes' rule plus explicit factored differences proves the strict gain-one/gain-two reversal for every integer parameter. No part of the infinite claim rests on sampling.
+PASS
 
-## Originality — PASS, with residual historical risk
+The theorem survives unchanged; the complete corrected RESULT.md in /workspace/repairs/3 fixes the material misattribution of the general finite-gain criterion and noise-free path results and describes the coefficient checks accurately. Re-audit of the surviving result: L plus the two positive pins is positive definite by its quadratic form, and the stationary covariance is half the inverse. Grounding gives a middle resistance (x+s)(d−x+s)/(d+2s) at x and a tail resistance equal to distance plus the leader resistance. Summing shows the only fixed-gap placement dependence is the sum of the two quadratic tail lengths; moving one unit from the longer to the shorter improves it unless the gap in tail lengths is at most one. In /workspace/branches/replay_3.py, direct resistance summation and selected exact grounded matrix inverses agree; positive quadratic certificates exclude 1,2,2,4,5,6,5,6 gaps, respectively, for n=3,…,10. The remaining pair differences give strictly increasing transitions at five and nine, and the stated four phases and isolated ties at ten. For n=5m the smooth derivative numerator at gains 1 and 2 has one positive zero in (3m,3m+1), by its signs and Descartes' rule. The exact odd-tail correction is 1/4; the zero-correction gaps 3m−1 and 3m+1 bound all gaps farther out by strict monotonicity. Independently reconstructed rational gaps strictly select 3m+1 at gain one and 3m at gain two for every m≥2. Balancing gives exactly the listed sets, with all ties retained. The finite checks cover all relevant small orders, while the family conclusion follows from symbolic inequalities rather than sampled sizes.
 
-Lin, Fardad and Jovanović (arXiv:1302.0450) already define the objective and give general combinatorial optimization methods. Fitch and Leonard (arXiv:1407.1569, Theorem 3) already give the joint-centrality expression for two finite-gain noisy leaders, including illustrative path optimizers at two gains; their explicit path theorem treats the noise-free regime. Patterson, McGlohon and Dyagilev (arXiv:1412.6595) address noise-free path/ring leaders. Patterson, Yi and Zhang (arXiv:1708.06873), in their full text, give a resistance-to-ground formulation, solve noise-free path placement and noisy cycle placement, but not noisy finite-gain path placement. None of those inspected statements gives the first ten-vertex nonmonotonicity, exact all-gain thresholds, or the strict infinite-family reversal. These results are more than direct restatement of a generic optimization formula: their global discrete parameter comparisons and all-gain sign certificates require additional mathematics. An equivalent specialization in further historical literature is possible. An inaccessible 2011 conference version of the early noisy-leader work remains a limited source-access risk.
+## originality
 
-## Value — PASS
+PASS
 
-The problem has a natural control interpretation: where to place two noisy feedback leaders for minimal steady-state error as gain changes. The finding fully classifies the first nonmonotone path and all its exact ties, proves that the smallest possible path has ten vertices, and establishes gain-driven *shrinking* optimal separation for arbitrarily large paths. Thus a plausible extrapolation from previously published larger-path numerical examples, namely monotone spreading as leaders become more strongly pinned, is not universally valid. The infinite-family phenomenon and closed algebraic thresholds give structural design information, not an arbitrary table entry.
+General two-noisy-leader objectives and prior noise-free path placements are acknowledged. The distinctive claims supported here are the exact all-positive-gain P10 diagram with proof of the first possible decrease and the all-m fixed-gain reversal on P_(5m), not the formulation of the general placement problem or the first indexed observation of any reentrant example.
 
-## Restrictions and unperformed validation
+## value
 
-The result concerns unweighted paths, two equal finite pinning gains, and unit covariance. The general finite-gain optimization on all path sizes or heterogeneous gains is not classified. Exact finite computations are independent consistency checks but not substitutes for the analytical argument. Historical originality remains provisional pending independent literature evaluation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result challenges monotone gain-separation intuition in a common finite-gain consensus problem. It identifies the smallest counterexample, resolves every positive-gain tie there, and shows the decrease persists at fixed gains in arbitrarily large paths, rather than being an isolated finite anomaly or an effect visible only after rescaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

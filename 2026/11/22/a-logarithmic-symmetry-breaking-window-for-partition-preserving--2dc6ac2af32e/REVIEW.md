@@ -1,19 +1,21 @@
-# Scientific review: logarithmic asymmetry of partition-preserving retractions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof works for every fixed integer \(m\ge2\), every real perturbation vector, and all sufficiently large \(n\). It starts from a verified rooted-fiber product count, proves a uniform saddle at image-point count \(tn/\log n\), derives the strict entropy gap for multiple target blocks, and then obtains the critical softmax law from the logarithmic one-point sensitivity of the rooted count. The sensitivity formula explicitly includes the extra endpoint term that arises when the target block size increases. The uniform large-size extension retains the total source size \(N\) in the leading formula, avoiding a potentially invalid \(o(n)\) replacement. Finite direct enumeration passes for six small block profiles; all thirty tested binomial increment identities pass. Finite experiments are corroboration, not proof of the limiting statement.
+PASS
 
-## Originality — PASS, subject to priority risk
+Every point image is fixed, and every nonempty block maps wholly to one block. For each idempotent induced block map, choose r fixed points in a root of capacity s and send its M−r remaining fiber points independently to them, giving H_s(M) and the product over roots. A separate exact replay confirmed 21 rooted counts, all 31 ordered positive block-size profiles with total size at most five, and 30 endpoint-inclusive binomial increments. For M/n→t and s/n→1, the consecutive-term ratio decreases because both its positive rational prefactor and its nonnegative power factor decrease. At r∼cn/log n its log is (t/c−1)log n+o(log n). Using test points halfway from t to each fixed tail threshold, the ratio over Θ(n/log n) intervening indices is bounded by n raised to a strictly signed constant. Each tail therefore has normalized mass exp(−Ω(n)) after allowing O(n) terms. The maximum lies at r∼tn/log n; at such r, log binom(s,r)=o(n), r log r=tn+o(n), and the leading coefficient of log(n/log n) must be the actual M, not tn. This gives the root-weight expansion. The common N log(n/log n) term cancels for all induced maps; among at least two fibers the largest sum of t_a log t_a is realized by (m−1,1), giving the stated exponent even for near-equal sizes. For capacity u=n+o(n), the added r=u+1 summand divided by H_u(N) has log −(1+o(1))n log n. On the saddle window the multiplier (u+1)/(u+1−R) is 1+R/(u+1)+O(1/log² n); the uniform exponential tail absorbs the O(u) maximum. Arbitrarily small fixed windows give the uniform increment (m+o(1))/log n. Signed telescoping at fixed N proves the odds formula, including ties, floors and both sublogarithmic and superlogarithmic gap conclusions. The proof does not cover growing m or non-equal limiting block proportions; no finite test is used to infer a limit.
 
-The exact idempotent census for all nonuniform partitions is already established by Dolinka, East and Mitchell (2015), Proposition 3.1–3.2. The uniform case is covered by Dolinka and East (2014), and earlier equal-block entropy laws already show that multiple image blocks are exponentially rare. Nothing in those specific statements supplies the limiting selection weights after block sizes are perturbed by \(\lfloor\beta_j\log n\rfloor\), nor the exact threshold between uniform and deterministic target selection. The new mathematical step is the uniform one-unit root-capacity sensitivity, whose cumulative effect appears precisely on the logarithmic size scale. The published exact enumeration algebraically determines all finite probabilities, so this is a nontrivial asymptotic consequence of prior counts rather than a new finite enumeration. Independent priority checking against any broad older asymptotic saddle analysis remains advisable.
+## originality
 
-## Value — PASS
+PASS
 
-This fills a natural stability gap in the symmetry of random retractions of uniform partitions: equal blocks give an exactly symmetric target selection, while an additive perturbation of order only \(\log n\) produces arbitrary nondegenerate softmax selection laws. Pairwise smaller perturbations disappear in the limit and superlogarithmic gaps yield a deterministic winner. The exact scale and continuous crossover describe how strongly a finite transformation monoid amplifies small changes in block cardinality, beyond the first-order condensation entropy rate.
+The finite census and the equal-size condensation rate are covered and are not the novelty. The surviving exact contribution is the capacity increment for near-equal blocks and the consequent logarithmic-scale selection law, not entailed by symmetry or an equal-size leading-rate theorem.
 
-## Scope, related results, and limits
+## value
 
-The statement is for fixed \(m\) and asymptotically equal block sizes; it does not cover growing \(m\), unequal macroscopic block proportions, or arbitrary transformation distributions. The rooted enumeration and its finite recurrence are antecedents. Relevant primary sources are arXiv:1407.3312 and arXiv:1504.02520, inspected in their available full-text HTML versions. No independent audit or external expert validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The symmetric idempotent model has an intrinsic question about how much capacity asymmetry changes which block receives all images. The theorem gives a quantitative sharp crossover: smaller gaps wash out, arbitrary finite log-odds arise at logarithmic gaps, and a uniquely larger gap selects a winner. That information is invisible in the leading entropy rate and is scientifically useful beyond the finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

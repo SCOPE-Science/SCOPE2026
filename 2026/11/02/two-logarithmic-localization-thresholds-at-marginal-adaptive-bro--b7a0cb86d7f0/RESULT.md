@@ -1,97 +1,78 @@
-# Two logarithmic localization thresholds at marginal adaptive Brownian resetting
+# Exact Green-function tail at the double-logarithmic critical rate for adaptive Brownian resetting
 
 ## Finding
 
-**Theorem (sharp logarithmic and iterated-logarithmic stationary boundaries).** Fix an integer \(d\ge1\) and diffusivity \(D>0\). Let \(X_t\) be Brownian motion on \(\mathbb R^d\) with generator \(D\Delta\), returned instantaneously to the origin at a state-dependent exponential hazard \(\kappa(|X_t|)\). Suppose \(\kappa:[0,\infty)\to(0,\infty)\) is continuous and locally bounded, and, for some constants \(b,c\in\mathbb R\),
+Let Brownian motion on \(\mathbb R^d\), \(d\ge1\), have generator \(D\Delta\), \(D>0\). It resets instantaneously to the origin at continuous positive radial rate \(\kappa(r)\). Let \(G\) be the unnormalized occupation density for the trajectory started at the origin and stopped at its first reset. Suppose, for real \(b,c\), that
 \[
-\kappa(\rho)=\frac{D}{\rho^2}\left(2d+\frac{b}{\log \rho}+\frac{c}{\log\rho\,\log\log\rho}+O((\log\rho)^{-2})\right),\qquad \rho\longrightarrow\infty.
+\kappa(r)=\frac D{r^2}\left(2d+\frac b{\log r}+\frac c{\log r\,\log\log r}+O((\log r)^{-2})\right),\qquad r\to\infty.
 \]
-The big-O is a uniform real-valued radial bound, not an assumption of differentiability of the error. Let \(G(x)\) be the occupation-density Green function for diffusion started at the origin and killed at hazard \(\kappa\), up to its first killing time. Then there is a constant \(C\in(0,\infty)\), dependent on the complete hazard, such that
+Write \(\beta=b/(d+2)\), \(\gamma=c/(d+2)\). Then there exists \(C\in(0,\infty)\) such that the *density per unit volume* satisfies
 \[
-G(x)\sim C|x|^{-d}(\log|x|)^{-b/(d+2)}(\log\log|x|)^{-c/(d+2)}\qquad (|x|\to\infty).
+G(r)=C r^{-d}(\log r)^{-\beta}(\log\log r)^{-\gamma}\bigl(1+O((\log r)^{-1})\bigr).
 \]
-The reset diffusion admits a stationary **probability** distribution precisely when
+In particular, the ratio to the displayed power and logarithms tends to a strictly positive finite constant, including when no stationary probability exists. Only a bound on the coefficient remainder is needed; its derivative is not used.
+
+As consequences, the unique stationary law exists exactly when \(\beta>1\) or \(\beta=1,\gamma>1\), and has density \(G/M\) where \(M=\int_{\mathbb R^d}G(x)\,dx\). In these two regimes respectively, its precise tail mass is
 \[
-\boxed{\quad b>d+2\quad\text{or}\quad [b=d+2\ \text{and}\ c>d+2].\quad}
+\mathbb P_*(|X|>R)\sim \frac{|\mathbb S^{d-1}|C}{M}
+\begin{cases}
+\dfrac{(\log R)^{1-\beta}(\log\log R)^{-\gamma}}{\beta-1},&\beta>1,\\[4pt]
+\dfrac{(\log\log R)^{1-\gamma}}{\gamma-1},&\beta=1,\ \gamma>1.
+\end{cases}
 \]
-In that case the stationary density is \(G/\int_{\mathbb R^d}G\), and the stationary law is unique. Otherwise its regenerative occupation measure has infinite total mass, so there is no stationary probability law. In particular, the leading marginal rate \(2dD/\rho^2\) alone does **not** determine localization: the first and second logarithmic corrections settle its boundary.
+The exact occupation-density equivalent is the contribution of this result; the stationarity thresholds are stated for context and are not asserted to be new.
 
 ## Assumptions and scope
 
-Brownian trajectories are continuous, resetting is instantaneous to a fixed origin, and conditional survival along an unreset trajectory of length \(t\) equals \(\exp(-\int_0^t\kappa(|X_s|)\,ds)\). Diffusive noise, hazard clocks, and successive excursions are independent in the usual killed-process construction. The rate is radial and continuous and may take arbitrary strictly positive values on compact sets. The asymptotic statement is required only outside some radius \(\rho_0>e^e\). All limits concern fixed \(d,D,b,c\) and one fixed hazard function, not a uniform parameter family. The result addresses existence of an invariant probability, not the precise mixing rate or correlations of the stationary process.
+Along a Brownian excursion \(B\), the conditional survival to time \(s\) is \(\exp(-\int_0^s\kappa(|B_v|)\,dv)\). Brownian paths and exponential clocks are renewed after each reset. The asymptotic hypothesis applies beyond a fixed radius. Continuity, positivity, and the stated asymptotics imply global boundedness, so reset times cannot accumulate in finite time. There is no differentiability requirement on the rate, uniformity in the parameters, or assertion about anisotropic rates or mixing.
 
 ## Proof
 
-**1. Radial killed Green equation.** The unnormalized occupation density is the minimal nonnegative Green solution of
+**1. The physical Green equation and killing mass.** For \(A_s=\int_0^s\kappa(|B_v|)\,dv\), the killed occupation measure is defined by integrating \(\mathbb E_0[e^{-A_s}\mathbf 1_{\{B_s\in dx\}}]\) over time. It is absolutely continuous since each killed transition is dominated by Brownian transition measure. Tonelli's theorem gives
 \[
-D\Delta G-\kappa G=-\delta_0.
+\int\kappa(|x|)G(x)\,dx=\mathbb E_0\int_0^\infty\kappa(|B_s|)e^{-A_s}\,ds=1-\mathbb E_0[e^{-A_\infty}]\le1.
 \]
-Away from the origin, spherical symmetry reduces this to \(D[G''+(d-1)G'/\rho]=\kappa G\). Standard local Green-kernel theory applies because \(\kappa\) is nonnegative and locally bounded; the singularity at the source has the Laplacian type (bounded with a derivative jump in dimension one, logarithmic in dimension two, and a Newtonian pole for larger dimensions). We determine the positive solution with vanishing radial flux at infinity and normalize its source flux to one.
+On compact sets \(\kappa\) has a positive minimum, so \(G\) is locally integrable. For any smooth compactly supported test function \(\phi\), apply the product rule to \(e^{-A_s}\phi(B_s)\), take expectations and integrate in time. The terminal expectation tends to zero by domination by \(\mathbb E_0|\phi(B_s)|=O(s^{-d/2})\). This proves \((-D\Delta+\kappa)G=\delta_0\) in distributions. Spherical symmetry gives a radial solution; on any annulus the equation \((r^{d-1}G')'=(\kappa/D)r^{d-1}G\) gives a \(C^2\) representative by integrating the locally integrable right-hand side and then using continuity. It is strictly positive there: on any finite time interval, the killed transitions dominate the free transitions multiplied by \(e^{-s\sup\kappa}>0\).
 
-**2. Exact logarithmic transformation.** Put \(z=\log\rho\), \(a=d+2\), and \(G(\rho)=\rho^{-d}h(z)\). Direct differentiation, with no approximation, gives
+**2. The slow asymptotic solution.** Set \(z=\log r\), \(a=d+2\), and \(G(r)=r^{-d}h(z)\). Direct differentiation gives
 \[
-\rho^{d+2}\left[G''+\frac{d-1}{\rho}G'\right]=h''-a h'+2dh.
+r^{d+2}\bigl(G''+(d-1)G'/r\bigr)=h''-a h'+2dh.
 \]
-Consequently, for sufficiently large \(z\),
+Thus for large \(z\) the equation is \(h''-a h'-q(z)h=0\), where \(q(z)=b/z+c/(z\log z)+O(z^{-2})\). With \(g(z)=z^{-\beta}(\log z)^{-\gamma}\), set \(h=gu\). Then
 \[
-h''-a h'-q(z)h=0,\qquad q(z)=\frac b z+\frac c{z\log z}+O(z^{-2}).
+u''-A(z)u'+f(z)u=0,\qquad A=a-2g'/g,\qquad f=g''/g-a g'/g-q.
 \]
-Set \(\beta=b/a\), \(\gamma=c/a\), \(g(z)=z^{-\beta}(\log z)^{-\gamma}\), and \(h=gu\). Since
+Here \(g'/g=-\beta/z-\gamma/(z\log z)\), so \(f=O(z^{-2})\) and \(A=a+O(z^{-1})\). In particular \(A>a/2\) for sufficiently large \(z_0\). On bounded continuous functions on \([z_0,\infty)\), use the equation
 \[
-\frac{g'}{g}=-\frac\beta z-\frac\gamma{z\log z},\qquad
-f(z):=\frac{g''}{g}-a\frac{g'}{g}-q(z)=O(z^{-2}),
+u(z)=1-\int_z^\infty\int_s^\infty e^{-\int_s^t A(w)\,dw}\,f(t)u(t)\,dt\,ds.
 \]
-the exact equation for \(u\) is
-\[
-u''-A(z)u'+f(z)u=0,\qquad A(z)=a-2g'(z)/g(z)=a+O(z^{-1}).
-\]
+The norm of the integral operator is at most \((2/a)\int_{z_0}^{\infty}|f(t)|dt=O(z_0^{-1})\). For large \(z_0\) the contraction theorem gives a bounded solution. The same estimate with lower limit \(z\) gives \(u(z)=1+O(z^{-1})\), and differentiating once gives \(u'(z)=O(z^{-2})\) by the exponential kernel bound. The second derivative gives the ODE, with no derivative of \(f\). Thus \(h_s=gu\) is positive on a tail and \(h_s'/h_s=O(z^{-1})\).
 
-**3. The unique slow positive branch.** For a sufficiently large \(z_0\), let \(A(z)>a/2\) for \(z\ge z_0\). Consider the Volterra integral equation
-\[
-u(z)=1-\int_z^\infty\int_s^\infty
-\exp\left(-\int_s^t A(w)\,dw\right)f(t)u(t)\,dt\,ds.
-\]
-Its associated operator on bounded continuous functions has norm at most \(\frac2a\int_{z_0}^\infty|f(t)|\,dt=O(z_0^{-1})\). It is therefore a contraction for large \(z_0\), and its unique solution obeys
-\[
-u(z)=1+O(z^{-1}),\qquad u'(z)=O(z^{-2}).
-\]
-Differentiation of the integral equation recovers the ODE. Thus the positive slow solution satisfies
-\[
-G_{\mathrm{slow}}(\rho)=\rho^{-d}(\log\rho)^{-\beta}(\log\log\rho)^{-\gamma}[1+O((\log\rho)^{-1})].
-\]
-By reduction of order, a second independent solution for \(h\) is \(h_{\mathrm{slow}}(z)\int^z e^{at}h_{\mathrm{slow}}(t)^{-2}\,dt\), which behaves asymptotically as \(a^{-1}e^{az}/h_{\mathrm{slow}}(z)\). The corresponding spatial branch grows like \(\rho^2(\log\rho)^\beta(\log\log\rho)^\gamma\) and cannot be the tail of a positive occupation density with finite source mass.
+**3. The occupation density selects this solution.** An independent solution is \(h_s(z)\int_{z_0}^z e^{at}h_s(t)^{-2}\,dt\), starting sufficiently far out that \(h_s>0\). Since the logarithmic derivative of the integrand tends to \(a\), the integral is asymptotic to \(a^{-1}e^{az}h_s(z)^{-2}\), by l'Hôpital's rule. The corresponding radial branch is asymptotic to \(a^{-1}r^2(\log r)^\beta(\log\log r)^\gamma\). A negative coefficient of this branch would make the density eventually negative. A positive coefficient would give \(\int\kappa G\,dx=\infty\) since \(\kappa(r)\sim 2dD/r^2\), contradicting step 1. Therefore the positive physical density is a strictly positive multiple of the slow branch on the tail, proving the claimed equivalent and relative error.
 
-**4. Positive inward extension and source normalization.** For all sufficiently large \(\rho\), the slow solution is positive and strictly decreasing because its leading logarithmic derivative is \(-d/\rho+O(1/(\rho\log\rho))\). Continue it toward the origin using the nonsingular radial ODE on each compact annulus. For \(F(\rho)=\rho^{d-1}G'(\rho)\),
-\[
-F'(\rho)=\frac{\kappa(\rho)}{D}\rho^{d-1}G(\rho)>0
-\]
-wherever \(G>0\). Since \(F<0\) at large radius, inward continuation keeps \(F<0\), \(G'<0\), and \(G>0\); it cannot cross zero or encounter a finite-radius blow-up. Local boundedness of \(\kappa\) gives the classical fundamental-solution singularity near zero and a finite strictly negative limit \(F(0+)\). For \(d=1\), the radial derivative is interpreted on the positive half-line and the source flux includes both sides. Multiplying by a positive constant sets
-\[
--D|\mathbb S^{d-1}|F(0+)=1,
-\]
-which is exactly the Green source strength. The asymptotic slow branch has \(F(\infty)=0\). Integrating the radial equation thus gives \(\int\kappa G\,dx=1\), so the killed trajectory is absorbed with probability one and the Green solution is the physical occupation potential. In particular, \(C>0\).
+**4. Stationary consequences.** In the Green equation use a smooth cutoff equal to one in \(|x|\le R\) and zero in \(|x|\ge2R\), with Laplacian bounded by a constant times \(R^{-2}\). The term testing \(G\) against the Laplacian tends to zero by the tail estimate on that annulus. Dominated convergence for the \(\kappa G\) term now gives \(\int\kappa G\,dx=1\), hence an almost surely finite first reset. The mean cycle length is \(M\). Local integrability and the substitution \(z=\log r\) reduce finiteness of \(M\) to the integral of \(z^{-\beta}(\log z)^{-\gamma}\) at infinity. It converges exactly in the stated regimes; the integrals from \(\log R\) to infinity have the two displayed equivalents (by the integral test and l'Hôpital's rule in the first regime, and an exact substitution in the second). Positivity and ratio convergence allow integration of the density equivalent in each convergent case.
 
-**5. Exact integrability criterion and stationary equivalence.** The mass in a far radial shell is asymptotic to
+For finite \(M\), the regenerative occupation formula gives the invariant probability \(G/M\). For necessity and uniqueness, let \(P_t^\kappa\) be the killed transition semigroup and let \(\mu\) be any invariant probability for the reset process. The reset generator is the killed generator plus the bounded operator \(f\mapsto\kappa(\cdot)f(0)\). Variation of constants and invariance give, for any smooth compactly supported \(\phi\),
 \[
-|\mathbb S^{d-1}|C\,\rho^{-1}(\log\rho)^{-\beta}(\log\log\rho)^{-\gamma}\,d\rho.
+\int\phi\,d\mu=\mu P_t^\kappa\phi+\left(\int\kappa\,d\mu\right)\int_0^t P_s^\kappa\phi(0)\,ds.
 \]
-With \(z=\log\rho\), the tail mass is comparable to \(\int^\infty z^{-\beta}(\log z)^{-\gamma}\,dz\). The integral converges if and only if \(\beta>1\), or \(\beta=1\) and \(\gamma>1\). The local Green singularity is integrable at zero in every finite dimension, completing the announced criterion. Each reset begins an independent excursion of duration \(\tau\), with \(\mathbb E\tau=\int G\,dx\). The regenerative stationary-probability theorem gives density \(G/\mathbb E\tau\) exactly when that mean is finite; for infinite mean the recurrent regenerative process has no invariant probability. Uniqueness follows because killing/resetting provides a common regenerative atom accessible almost surely from every starting point. \(\square\)
+The first term tends to zero by the uniform all-starting-points Gaussian bound \(\|P_t^\kappa\phi\|_\infty\le(4\pi Dt)^{-d/2}\|\phi\|_1\). Thus \(\mu\) is a positive multiple of \(G(x)dx\), which is impossible for infinite \(M\) and forces \(\mu=G(x)dx/M\) otherwise.
 
 ## Verification
 
-The radial conjugation and residual are exact derivative identities. The Volterra kernel has positive exponential decay for \(a=d+2>0\) and remainder \(f(z)=O(z^{-2})\), providing a convergent analytic fixed-point argument; numerical tail fitting is not used. The two integrability boundaries follow from the classical integral test for \(\int z^{-\beta}(\log z)^{-\gamma}\,dz\). An independent short symbolic identity checker is included as `verify.py`; it tests the radial conjugation formula in representative dimensions, and is **not** a substitute for the infinite-domain Volterra and regenerative arguments.
+The proof uses exact radial conjugation and an explicit tail contraction of norm \(O(1/z_0)\). The accompanying `verify.py` checks the radial derivative identities and cancellation of the two leading terms in representative dimensions. It does not test the infinite-domain asymptotics, branch selection, or stationary equivalence; these follow from the proof.
 
 ## Relationship to prior work
 
-Keidar and Reuveni (2026, arXiv:2608.27090v1) derive the leading inverse-square localization boundary at \(\kappa(\rho)\sim 2dD/\rho^2\), as well as the occupation-measure approach; the present theorem does not claim that leading boundary or renewal representation. Instead it resolves the previously undecided leading-critical case under two specified logarithmic correction scales, and it determines the exact dimension-dependent secondary thresholds. Keidar, Blumer, Hirshberg and Reuveni (2024, arXiv:2409.14419) study adaptive resetting and engineered nonequilibrium steady states but do not state these secondary thresholds. Pinsky (2018, arXiv:1805.00320) considers spatially dependent resetting for first-passage search rather than this stationary normalization question. Ishige, Kabeya and Ouhabaz (2016, arXiv:1602.04172) treat radial inverse-square Schrödinger operators; their explicit power-asymptotic hypothesis on the coefficient error does not directly cover \(1/\log\rho\) tails. More general asymptotic-ODE methods remain a possible source of implicit overlap; no broad priority claim is made.
+Keidar and Reuveni [1] derive the leading inverse-square resetting boundary using power-law tails. A prior one-dimensional analysis [2] explicitly gives the thresholds at coefficients \(3\) and \(3\) in the first and second logarithmic corrections, with the corresponding nonintegrable equality cases and logarithmic limits of the stationary tails. It uses comparison exponents rather than giving a finite nonzero limit of the density ratio to its proposed profile. The threshold portion also transfers at the level of the radial ODE: in step 2 the change \(s=az/3\) sends the drift coefficient to \(3\), the first and second log coefficients to \(3b/a\) and \(3c/a\), and \(\int h(z)dz\) to a constant multiple of the transformed integral. Away from \(b=a\), the first-order comparison exponents suffice; at \(b=a\) the induced error is \(O(1/[s(\log s)^2])\), within the prior second-boundary comparison. The distinction here is the exact Green equivalent in all dimensions, including its positive amplitude and the resulting equivalent, rather than only logarithmic order, of a finite stationary tail. The contraction argument is a direct application of standard asymptotic-ODE ideas after the logarithmic conjugation. The inverse-square Schrödinger asymptotics of Ishige, Kabeya and Ouhabaz [3] assume power-rate control of the coefficient error, not the two slow corrections treated here. Pinsky [4] uses related positive-solution methods for first-passage times under resetting.
 
 ## Limitations
 
-This is a theorem for continuous radial, locally bounded, positive rates and diffusion with a fixed reset point. The asymptotic remainder must be \(O((\log\rho)^{-2})\) in the displayed expansion; an uncontrolled \(o(1/(\log\rho\log\log\rho))\) remainder at the double threshold can produce further iterated-log boundaries. No spectral-gap, mixing-time, finite-time crossover, anisotropic reset-rate, or moving-reset-point conclusion is established. Independent literature-wide priority adjudication has not been performed.
+The amplitude \(C\) depends on the full hazard and is not evaluated here. The theorem assumes the stated controlled remainder; an unspecified smaller-order term than \(1/(\log r\,\log\log r)\) can decide integrability at the double equality. No historical priority beyond the compared sources is asserted.
 
 ## References
 
-1. O. Keidar and S. Reuveni, *Localization–Delocalization Transition in Diffusion with Adaptive Resetting* (2026), arXiv:2608.27090v1, https://arxiv.org/abs/2608.27090.
-2. O. Keidar, D. Blumer, B. Hirshberg, and S. Reuveni, *Adaptive Resetting for Informed Search Strategies and the Design of Non-equilibrium Steady-states* (2024), arXiv:2409.14419, https://arxiv.org/abs/2409.14419.
-3. R. G. Pinsky, *Diffusive Search with Spatially Dependent Resetting* (2018), arXiv:1805.00320, https://arxiv.org/abs/1805.00320.
-4. K. Ishige, Y. Kabeya, and E. M. Ouhabaz, *Heat kernel of a Schrödinger operator with inverse square potential* (2016), arXiv:1602.04172, https://arxiv.org/abs/1602.04172.
+1. O. Keidar and S. Reuveni, *Localization–Delocalization Transition in Diffusion with Adaptive Resetting*, arXiv:2608.27090, especially equations (14)–(15).
+2. [*Nested logarithmic localization thresholds for critically adaptive Brownian resetting*](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-nested-logarithmic-localization-thresholds-for-critically-adapti--06919c67c871/RESULT.md), 18 October 2026, Finding and proof steps 2–5.
+3. K. Ishige, Y. Kabeya and E. M. Ouhabaz, *The heat kernel of a Schrödinger operator with inverse square potential*, arXiv:1602.04172, assumption (1.2) and Theorem 1.1.
+4. R. G. Pinsky, *Diffusive Search with Spatially Dependent Resetting*, arXiv:1805.00320, Theorem 3.

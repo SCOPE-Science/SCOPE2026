@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:58:03.087630Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(9); VERIFICATION.md, lines 19–25; verify.py, lines 11–106."
+      ],
+      "rationale": "Uniform relative order suffices. Given a record at i, the earlier relative order is still uniform, and triples strictly after i are independent. The peak at i−1 is impossible. The joint event at j=i puts the maximum of the first i+1 at i. At j=i+1 the maximum of the first i+2 must be at i+1, and the relative order of the first i must put its maximum at i; the latter has conditional probability 1/i. These give the four conditional probabilities and the claimed entries without integration. Multiplying the two frozen bidiagonal factors reproduces every entry, including the first diagonal 1/6, so their diagonal product gives the determinant. The triangular inverse recurrences give the claimed sum. Independently, its product telescopes to (i−1)i(i+1)/[(k−1)k(k+1)]; with m=max(i,j) the sum becomes 3j(i−1)i(i+1)/2 times [1/((m−1)m)−1/((n−1)n)], strictly positive even at the boundary. Invertibility gives both stated linear detection implications.",
+      "residual_risks": [
+        "The frozen finite checks were inspected, not rerun: the inversion loop checks positivity and MQ=I, not explicit agreement with (3). The recurrence and telescoping above verify (3) for all sizes. The result concerns cross-covariance, not a precision matrix or nonlinear recovery."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later rectangular kernel restricts exactly to equation (1). Billey–Burdzy–Sagan count permutations by prescribed peak positions, whereas Gnedin represents laws in terms of record sets; neither inspected passage supplies the joint labeled law. The targeted primary search returned unrelated results."
+        ],
+        "reasoning": "The widest inspected relevant statement covers the entries but not the stated matrix invariants, and its displayed date is not evidence of earlier coverage. A prior joint position-marked law would be material; separate marginals and totals do not supply one.",
+        "searches": [
+          "Resultary: upper record local peak position-indexed cross-covariance determinant inverse",
+          "Primary search: \"record\" \"peak\" position-indexed joint permutation enumerator covariance upper records local peaks theorem",
+          "Billey–Burdzy–Sagan, arXiv:1209.0693; Gnedin, arXiv:math/0611538"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9c70121babad; arXiv:2310.01053, 1209.0693, math/0611538; targeted primary literature search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiation in total-count variables yields sums, not individually marked covariances. Restricting the later rectangle recovers (1) immediately; an additional factorization or recurrence is needed to get (2) and (3)."
+        ],
+        "reasoning": "No inspected earlier statement makes the whole result a parameter substitution or immediate corollary. This is a bounded comparison, not a historical priority certificate.",
+        "searches": [
+          "Ji, arXiv:2310.01053, Theorem 1.4 and Eq. (3.17)",
+          "Billey–Burdzy–Sagan, arXiv:1209.0693, Theorem 1.1",
+          "Gnedin, arXiv:math/0611538, p. 2",
+          "Resultary 9c70121babad, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relative-order permutation formulation is equivalent to the iid continuous one. The November catalogue record supplies the same entry rule in that formulation on a wider record-index range.",
+          "Ji marks total left/right maxima together with valley/exterior-peak totals and gives a separate interior-peak/minima interpretation."
+        ],
+        "reasoning": "Changing from iid observations to permutations is not a novelty. Nor is a univariate identity of peak/valley counts by itself a joint identity with record counts. Neither Ji expression recovers the labeled entries by differentiation.",
+        "searches": [
+          "Resultary: upper record local peak position-indexed cross-covariance determinant inverse",
+          "Ji, arXiv:2310.01053, equations (1.17), (1.18), (2.1)–(2.2), (3.17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8, 9c70121babad, gives the matching rectangular entry formula; no determinant or inverse appears in the inspected result.",
+          "The targeted primary query did not surface a table or formula for the invariants."
+        ],
+        "reasoning": "An entry catalogue match is material but not a complete match to the claim. A finite list of entries or determinants would also not imply the stated unlimited-size determinant and inverse.",
+        "searches": [
+          "Resultary: upper record local peak position-indexed cross-covariance determinant inverse",
+          "Primary search: \"record\" \"peak\" position-indexed joint permutation enumerator covariance upper records local peaks theorem"
+        ]
+      },
+      "rationale": "The exact position-indexed kernel overlaps a distinct catalogue record displaying a wider rectangular matrix; its displayed catalogue date is later and it does not state the determinant or entrywise inverse of this square restriction. This overlap is credited, not treated as evidence of earlier priority or ignored. The inspected earlier results supply aggregate joint statistics, individual position-set enumerations, or both types of statistics separately, not the square cross-covariance theorem with its all-size factorization, determinant and inverse.",
+      "residual_risks": [
+        "The later exact kernel might have an older common source; displayed dates are not independent priority certification. The primary query was noisy; an older unindexed joint position-marked law may have escaped this bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact entry overlap, on a wider index range, with later displayed catalogue date; no determinant or inverse stated",
+          "evidence": "Its three cases i=j+1, i=j, i=j−1 reduce to the frozen entries −1/(3i), (2i−1)/(3i(i+1)), −(i−1)/(3i(i+2)); all other entries vanish.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-three-diagonal-record-peak-covariance-kernel-in-uniform-random--9c70121babad",
+          "material_read": "RESULT.md Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, statement and index substitution",
+          "title": "A three-diagonal record–peak covariance kernel in uniform random permutations",
+          "trigger": "Strong distinct local catalogue match"
+        },
+        {
+          "assessment": "Related aggregate result, not a labeled cross-covariance theorem",
+          "evidence": "Totals of maxima in Theorem 1.4 are paired with valleys/exterior peaks; the interior-peak expression in (3.17) uses minima totals.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.01053",
+          "material_read": "PDF pp. 5, 9, 14; Eq. (1.17), Theorem 1.4/Eq. (1.18), Definition 2.1/Eqs. (2.1)–(2.2), Eq. (3.17)",
+          "method": "OA PDF passages",
+          "title": "The (α, β)-Eulerian Polynomials and Descent-Stirling Statistics on Permutations",
+          "trigger": "Closest identified aggregate joint enumerator"
+        },
+        {
+          "assessment": "Position-resolved peak marginal",
+          "evidence": "Counts permutations with specified peak positions without joint marking of record positions.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0693",
+          "material_read": "PDF p. 2, offset 3300, definition of P(π) and Theorem 1.1",
+          "method": "OA PDF passage",
+          "title": "Permutations with given peak set",
+          "trigger": "Possible position-resolved enumeration"
+        },
+        {
+          "assessment": "Related record-set result",
+          "evidence": "Peak sets are mentioned as separate subject matter, not in the inspected representation of record sets.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611538",
+          "material_read": "PDF p. 2, offset 5500, description of coherent laws with upper/lower record sets",
+          "method": "OA PDF passage",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Possible record-set theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, equations (1)–(3); comparison with Resultary 9c70121babad."
+      ],
+      "rationale": "The full interior block is the natural pairing of position-labeled records and peaks. The determinant and strictly positive Green matrix quantify its nondegeneracy and give a concrete way to solve for responses to individual covariance probes at all sizes, not merely a list of small examples or a change of notation for the overlapping entry rule.",
+      "residual_risks": [
+        "No analogous claims for nonidentical observations, tied inputs or nonlinear inference are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

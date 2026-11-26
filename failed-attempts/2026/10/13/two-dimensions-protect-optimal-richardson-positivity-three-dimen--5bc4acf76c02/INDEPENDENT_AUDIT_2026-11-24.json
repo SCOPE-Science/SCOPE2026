@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:42:02.291518Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 2–30 and 32–72",
+        "VERIFICATION.md and verify.py, inspected, not executed; verify.py lines 52–57 use one rational example, not a symbolic certificate for the general 2×2 identity"
+      ],
+      "rationale": "At n=1 the step solves the equation. At n=2 the optimal residual matrix T=I−αA has trace zero and eigenvalues ±q with 0≤q<1, so its square is q²I by Cayley–Hamilton. I+T has positive diagonal entries and nonnegative off-diagonal entries; summing consecutive even and odd powers proves all even Richardson iterates nonnegative, and the odd ones add αq^(2m)b. For the 3×3 block witness, the block eigenvalues are 9 and 11 and the singleton eigenvalue is 1. With α=1/6, the active residual block has diagonal −2/3 and off-diagonal 1/6. Exact successive active coordinates are (0,1/6), (1/36,1/18), (−1/108,29/216); the third coordinate stays zero. The residual spectral radius is 5/6, and solving the block system gives (1/99,10/99,0). Thus the frozen threshold and witness are correct.",
+      "residual_risks": [
+        "The argument uses the exact spectral endpoints and zero start; it does not extend as stated to nonsymmetric matrices or arbitrary step choices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior Newton–Schulz proof works for every even positive m in q_m(λ)=[1−(1−αλ)^m]/λ, since its strict-decrease proof uses only parity, with the broader damping range 0<α<2/L. The prior Chebyshev result supplies third-step positivity up to condition number 3 in every dimension and a violating block family for every condition number above 3, for an off-diagonally equivalent polynomial."
+        ],
+        "reasoning": "The general positive-splitting sufficient condition T≥0 by itself would not cover optimal damping, since T can have negative diagonal entries. But the two verified prior polynomial results cover the positive side and give a strictly stronger third-step obstruction.",
+        "searches": [
+          "2c2f43a9b905, RESULT.md, Proof, monotonicity and two-point interpolation",
+          "6e9af63df14e, RESULT.md, Finding and prescribed-condition-number proof",
+          "Resultary and primary literature: M-matrix splittings and functions preserving the Stieltjes class"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c2f43a9b905 and 6e9af63df14e, exact findings and proofs; 31fff666d705 and 4b8466063129, nearby findings",
+        "DOIs 10.1016/0024-3795(79)90098-3, 10.1137/0725077 and 10.21136/AM.1985.104140, access as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For α=2/(L+μ), the Richardson third matrix is 3αI−3α²A+α³A². The Chebyshev comparator has nonconstant part (32/D)[A²−3(L+μ)A/2], where D=(L+μ)(L²+14Lμ+μ²)>0. Thus every off-diagonal Richardson entry is α³D/32 times its Chebyshev counterpart. The earlier comparator's same block and e₂ already give a negative coordinate. In n=2 the eigenvalues of I−αA are ±q, so extending earlier even-term positivity to odd steps only adds αq^(2m)b."
+        ],
+        "reasoning": "This is direct implication with positive scaling and the two-eigenvalue identity, not an analogy between method names. Earlier works need not display the precise Richardson label or the numerical third iterate to entail the finding. Also I+T is entrywise positive on the diagonal and nonnegative elsewhere for any dimension, so calling step three the first possible loss would add only a direct check, not a new threshold.",
+        "searches": [
+          "6e9af63df14e, RESULT.md, text offsets 0–5802",
+          "2c2f43a9b905, RESULT.md, text offsets 0–7157",
+          "Frozen RESULT.md, Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For scalar Newton–Schulz initialization X₀=αI the prior proof gives X_j=αΣ_{i=0}^{2^j−1}(I−αA)^i. This is exactly the matrix sending b to the 2^j-th zero-start stationary Richardson iterate. The Chebyshev and Richardson third approximants have off-diagonal polynomials proportional to A²−3(L+μ)A/2."
+        ],
+        "reasoning": "The methods are not identical as sequences, but the relevant positivity questions have exact polynomial correspondences. At the third step the positive diagonal of each approximant makes off-diagonal proportionality sufficient for equivalence of entrywise positivity, and hence of preservation for every b≥0.",
+        "searches": [
+          "Resultary: transient sign loss, Stieltjes inversion, minimal dimension and polynomial positivity",
+          "2c2f43a9b905, RESULT.md, Proof",
+          "6e9af63df14e, RESULT.md, degree-three polynomial proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In 6e9af63df14e the block has diagonal κ−c, off-diagonal −c, and an additional singleton 1, with 0<c<(κ−3)/4 and b=e₂ sufficient. Taking κ=11 and c=1 gives exactly the frozen A and b. The separate stagewise-safe Richardson hit concerns Euclidean nonexpansion, and the Jacobi hit a differently normalized iteration."
+        ],
+        "reasoning": "The precise witness was already present as a parameter choice, whether or not indexed under its numerical entries or under stationary Richardson. Negative ranked title searches cannot outweigh this parametric coverage.",
+        "searches": [
+          "Resultary: exact Richardson positivity and minimal-dimension title/aliases",
+          "6e9af63df14e, explicit sharpness family A_{κ,c}",
+          "31fff666d705 and 4b8466063129, RESULT.md findings"
+        ]
+      },
+      "rationale": "Verified existing coverage, not an access-based failure. The prior Newton–Schulz record writes precisely the same inverse approximant as Richardson at step 2^j and its proof establishes two-dimensional positivity for every even number of terms. Optimal damping makes every odd step in dimension two the preceding even step plus a nonnegative scalar multiple of b. More decisively, the prior degree-three Chebyshev record's explicit polynomial has the same ratio of the A and A² coefficients as optimal Richardson at step three. The two approximants differ only by positive scaling and an identity shift, and both have strictly positive diagonals. The earlier Chebyshev sharpness theorem therefore transfers its three-dimensional obstruction at k=3, even using the frozen matrix and right-hand side as a direct parameter choice from its family. The combination covers the minimal dimension and the third-step failure. The particular fractions in the new presentation are a recurrence evaluation, not a distinct scientific claim.",
+      "residual_risks": [
+        "Older matrix-function and splitting literature was incompletely accessible; the failure rests instead on explicit inspected polynomial coverage and does not require resolving historical priority beyond those sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact correspondence for dyadic Richardson steps; the proof's even-term divided-difference argument plus optimal two-eigenvalue symmetry covers all low-dimensional steps.",
+          "evidence": [
+            "The displayed formula q_m and its monotonicity proof for even m, scalar α in (0,2/L). The prior example's particular α is not needed for the optimal-step counterexample."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-three-dimensions-are-minimal-for-transient-sign-loss-in-converge--2c2f43a9b905",
+          "material_read": "RESULT.md, finding and proof, offsets 0–7157",
+          "method": "Resultary search and local mirror",
+          "title": "Three dimensions are minimal for transient sign loss in convergent Newton–Schulz inversion of Stieltjes matrices",
+          "trigger": "Same dimension threshold for Stieltjes polynomial approximants"
+        },
+        {
+          "assessment": "Positive proportionality of off-diagonal entries transfers its positivity result and its witness family to optimal third-step Richardson.",
+          "evidence": [
+            "q₂(A)=(2/D)[16A²−24(L+μ)A+(9L²+30Lμ+9μ²)I]; A_{κ,c} with b=e₂ gives a negative coordinate for 0<c<(κ−3)/4."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e",
+          "material_read": "RESULT.md, finding, explicit polynomial and parametric witness, offsets 0–5802",
+          "method": "Resultary search and local mirror",
+          "title": "Condition three is the sharp positivity frontier for the degree-three Chebyshev semi-iterate",
+          "trigger": "Same spectral interval, Stieltjes sign pattern and three-step positivity boundary"
+        },
+        {
+          "assessment": "Not used to decide coverage; the primary statement was not independently checked.",
+          "evidence": [
+            "Micchelli and Willoughby, Linear Algebra and its Applications 23 (1979), pp. 141–156."
+          ],
+          "identifier_or_url": "DOI:10.1016/0024-3795(79)90098-3",
+          "material_read": "Bibliographic metadata and frozen discussion; no theorem passage independently retrieved",
+          "method": "Crossref metadata and OA retrieval attempts",
+          "title": "On functions which preserve the class of Stieltjes matrices",
+          "trigger": "Possible general matrix-function positivity criterion"
+        },
+        {
+          "assessment": "Convergence-focused abstract does not resolve Stieltjes-cone positivity; no whole-paper inference.",
+          "evidence": [
+            "Describes Richardson polynomial construction for near-optimal convergence over complex spectral regions."
+          ],
+          "identifier_or_url": "DOI:10.1137/0725077",
+          "material_read": "Bibliographic abstract only",
+          "method": "Crossref abstract; OA full text returned 403",
+          "title": "Polynomials by Conformal Mapping for the Richardson Iteration Method for Complex Linear Systems",
+          "trigger": "Prior Richardson polynomial theory"
+        },
+        {
+          "assessment": "Not used as positive or negative evidence of exact coverage.",
+          "evidence": [
+            "Vajteršic, Applications of Mathematics 30 (1985), pp. 176–186; no theorem passage independently retrieved."
+          ],
+          "identifier_or_url": "DOI:10.21136/AM.1985.104140",
+          "material_read": "Bibliographic identification only; frozen description of cyclic parameters",
+          "method": "Primary-source retrieval attempt and frozen citation",
+          "title": "Some iterative Poisson solvers applied to numerical solution of the model fourth-order elliptic problem",
+          "trigger": "Older Richardson use and spectral parameters"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; prior Results 2c2f43a9b905 and 6e9af63df14e, polynomial comparisons"
+      ],
+      "rationale": "The separation between spectral convergence and sign preservation is a worthwhile question, but after the verified prior implications the frozen addition is a particular rational evaluation of an already sufficient witness family and a direct pairing of powers of the same inverse polynomial. It does not establish a distinct useful boundary, new case or invariant that would justify the incremental presentation as a research finding.",
+      "residual_risks": [
+        "This does not diminish the usefulness of the underlying positivity question or exclude new classifications for other relaxation rules or regimes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review: the first-Hermite annular concentration counterexample
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The spectral identity is reconstructed from the complete Hermite basis and the first true-polyanalytic Bargmann transform. Its angular frequencies are distinct, so the centered-disk localization form is diagonal, not merely bounded by a truncated computation. The factorization
-\[
-\lambda_m(T)-\lambda_{m+1}(T)=e^{-T}\frac{T^m}{m!}\frac{(m-T)(m+1-T)}{m+1}
-\]
-proves the disk's exact infinite-dimensional maximum at unit area, including all boundary equalities. Time-frequency covariance handles off-center disks. Annular area is exactly one; an elementary strict logarithmic inequality proves the lower bound exceeds the disk norm. The supplied stand-alone checker independently reproduces the finite integral identities and numerical inequality. No finite calculation is used to justify the infinite-dimensional supremum.
+PASS
 
-## Originality
+With the stated normalization V_h1=(1/√π)∂_x V_h0. Differentiating the Gaussian-window transform of each Hermite function gives radial densities te^(−t) for h0 and e^(−t)t^(m−1)(m−t)²/m! for m≥1, times the radial measure dt, where t=π|z|². The angular indices m−1 are distinct, so completeness makes the centered disk form exactly diagonal; STFT covariance translates the norm to every center. Integrating via the incomplete gamma recurrence gives adjacent differences e^(−T)T^m(m−T)(m+1−T)/(m!(m+1)), including m=0 by direct integration. At T=1 there are exactly three tied highest levels and a strictly decreasing tail. In the annulus, the fixed h0 input yields the integral of te^(−t) on [a,a+1]; its derivative is e^(−a)((a+1)/e−a), with a unique sign reversal from positive to negative. The strict advantage follows from moving off a=0 (or the logarithm inequality in the proof). A separate high-precision integral gives 0.353224356803948823939 versus 0.264241117657115356809, and rational bounds on the two exponential factors certify a relative gain greater than 33%. Replay: python /workspace/calculations/reproduce_frozen.py (check hermite_annulus). The result gives a lower bound on the annular operator norm, not that norm or its global optimality.
 
-**PASS, subject to remaining bibliographic risk.** The motivating historical Hermite-window transformation (Abreu–Gröchenig, arXiv:1012.4283, §2) concerns transforms and sampling, not optimal concentration regions. Maximenko–Tellería-Romero (arXiv:1905.00978, Proposition 6.3) provides general radial Toeplitz spectral integrals but neither the unit-area disk's threefold top eigenvalue nor the optimized, strictly superior equal-area annular construction. Obtaining the counterexample requires comparing the full infinite disk spectrum with a separate area-constrained variational calculation. Nicola–Tilli's Gaussian-window Faber–Krahn theorem (arXiv:2106.03423) concerns a different window and hence cannot imply the same disk-optimality statement for the first Hermite window. Targeted searches for annular counterexamples and equivalent formulations did not identify a prior statement of this precise strict comparison. A broader unpublished or unlocated shape-optimization theorem, or an overlooked explicit deduction of the 2019 radial formula, could affect novelty; absence from searches is not a proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** Gaussian-window disk optimality is a fundamental benchmark for spectrogram energy concentration. Changing only the analysis window to the first excited Hermite state changes the optimal *shape*: an explicitly optimized unit-area ring improves captured energy by approximately \(33.675\%\) over every disk. The theorem is an exact motivated counterexample to an otherwise tempting extension of an isoperimetric principle. It delimits a concrete measurement-design limitation without asserting an unproved global annular optimizer.
+Best of current knowledge: the general radial eigenvalue integral and fixed-input superlevel-set principle are established. The supported contribution is the exact strict equal-area annulus-versus-all-disks comparison for the first excited Hermite analysis window. The disk benchmark alone is a specialization of known spectral machinery, and the fixed-input annulus is a standard superlevel-set construction.
 
-## Remaining limitations
+## value
 
-The optimized annulus is optimal only among concentric unit-area annuli for the fixed Gaussian test signal. Global optimizers among arbitrary measurable regions or other input states are not characterized. Bibliographic comparison includes full relevant sections of the primary sources, but cannot rule out every more-general theorem. Computational checks are corroborative, not external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same physical area, covariance over disk centers, and comparison to the full disk operator norm make this a useful counterexample to transferring Gaussian-window disk optimality. Unit area is a natural normalized spectral degeneracy where three maximizing input modes tie; the simple annular witness gives a certified substantial gap. The constrained fixed-input optimum does not purport to solve free-input shape optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

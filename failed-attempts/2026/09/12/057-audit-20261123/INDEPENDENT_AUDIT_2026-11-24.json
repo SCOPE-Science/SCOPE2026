@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:46:40.276090Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing H=95232 and alpha=2H, the centered quotient floor((r+H-1)/alpha) is taken modulo 44; the quotient 44 folds to zero and subtracts one from the low part. Thus block zero wraps through q-1 and has alpha+1 residues; the other 43 have alpha. The edge from c_j to c_j+1 is the only transition in a neighborhood of the block top, and the circular seam from q-1 to 0 is not a transition. For a positive shift d the crossing starts lie in [c_j-d+1,c_j]; for a negative shift -d they lie in [c_j+1,c_j+d]. On the first range the low part is positive; on the second it is negative, also for the 43-to-0 high-bit transition. The resulting UseHint correction is the neighboring high bit modulo 44. Counts are 44d per signed shift, 44*156=6864 in the union and 44*78*79=271128 pairs in total. A fresh scalar implementation checked every candidate edge neighborhood for every shift and matched the committed census JSON, and independently checked the archived hint vector and the 81-weight modification. Global exhaustion follows from the block partition, not from sampling the complement of those neighborhoods. This does not demonstrate the behavior of a concrete signing implementation or valid signatures at weight 80.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 1, pp. 11–12, gives UseHint(MakeHint(z,r),r)=HighBits(r+z) for shifts up to alpha/2 under its modulus and centering hypotheses."
+        ],
+        "reasoning": "q=44 alpha+1 and 78<alpha/2, so the lemma already covers the whole reconstruction claim, even with zero hints.",
+        "searches": [
+          "CRYSTALS-Dilithium Round 3 specification, correction lemma"
+        ]
+      },
+      "checked_sources": [
+        "FIPS 204",
+        "CRYSTALS-Dilithium Round 3 specification",
+        "Resultary SCOPE057 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With q=44 alpha+1 the exceptional fold joins two end intervals into the one enlarged block; all 44 boundaries are separated by at least alpha."
+        ],
+        "reasoning": "A length-d move shorter than alpha selects d starts per edge; taking both signs and summing the arithmetic series directly yields the frozen totals.",
+        "searches": [
+          "FIPS 204 centered remainder convention, Decompose and UseHint; FIPS Table 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary SCOPE057 is the same record.",
+          "FIPS Algorithm 39 defines MakeHint as the indicator that the two HighBits values differ."
+        ],
+        "reasoning": "The two formulations of flipping count in the record have identical events, not independent phenomena.",
+        "searches": [
+          "Resultary: ML-DSA-44 MakeHint HighBits boundary census and UseHint reconstruction",
+          "FIPS 204 Algorithms 36–40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed count is the target itself, not independent prior art.",
+          "FIPS tabulates the parameter values and weight cutoff, not the three derived totals."
+        ],
+        "reasoning": "The absence of printed decimal counts does not create an unresolved mathematical census once the intervals are given.",
+        "searches": [
+          "Resultary: 44|z|, 6864, 271128 and ML-DSA-44 hint weight 80",
+          "FIPS 204 Table 1 and rounding helpers"
+        ]
+      },
+      "rationale": "Reconstruction is an explicit prior theorem under weaker shift restrictions. The other numbers are immediate from the standard's integer rounding intervals and parameter values; no independent exact-census source is needed to establish this implication. The weight-80/81 fixture is a synthetic repetition crossing a published helper boundary and testing a published cutoff.",
+      "residual_risks": [
+        "Search coverage is bounded; no claim is made about where the numeric census may already have been printed. The verdict rests on the inspected prior mathematical implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "mechanically implies the exact census",
+          "evidence": "Centered remainder interval (-H,H], q-1 fold, high-bit comparison and modulo-44 directional correction.",
+          "identifier_or_url": "https://doi.org/10.6028/NIST.FIPS.204",
+          "material_read": "Table 1; centered reduction; Section 7.4, Algorithms 36–40",
+          "method": "OA PDF passage inspection",
+          "title": "FIPS 204: Module-Lattice-Based Digital Signature Standard",
+          "trigger": "identical parameters, helper definitions and cutoff"
+        },
+        {
+          "assessment": "explicitly stronger reconstruction result",
+          "evidence": "Identity for MakeHint followed by UseHint under the stated rounding and shift bounds.",
+          "identifier_or_url": "https://pq-crystals.org/dilithium/data/dilithium-specification-round3-20210208.pdf",
+          "material_read": "Lemma 1, pp. 11–12",
+          "method": "OA PDF passage inspection",
+          "title": "CRYSTALS-Dilithium Round 3 specification",
+          "trigger": "prior rounding and hint-reconstruction lemma"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The edge cases are useful for conformance tests but the totals are routine consequences of the prescribed rounding. The synthetic vectors exercise a scalar threshold without a new signing-level boundary result or a demonstrated implementation defect.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

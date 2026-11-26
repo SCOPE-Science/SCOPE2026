@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:25:56.091656Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–109",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen CHECK.py, lines 19–70 (read only)"
+      ],
+      "rationale": "Exposure localizes the cap to the graph neighborhood; the positive-definite quadratic term bounds its scaled footprint. The graph convergence there gives both Hausdorff and symmetric-difference convergence to the capped paraboloid. Affine projection commutes with invertible affine pushforward. The limiting covariance is nonsingular, so kernels converge uniformly on a common compact set. Uniform convergence of absolute row integrals and Hausdorff convergence give convergence of their suprema. The L-infinity norm is the maximum row integral (attain the row by its sign, using continuity and full support); the L1 norm equals it by symmetric-kernel duality. Model slicing gives V density b v^(b-1), E[V]=b/(b+1) and E[U_1^2]=E[V]/(d+1)=1/(d+3). Radial convexity maximizes the row integral at the rim of each height slice, not necessarily at s=1. At the tip, integrate the negative part above (b+1)/(b+2); this gives the stated T_d. The omitted transverse term changes any row integral by at most sqrt(d+3); the remaining convex function of height is bounded by its two endpoints, of which s=1 is O(1) and s=0 is d/e+O(1). This proves the two-sided growth estimate. For d=2 I split the exact rim integral in t=sqrt(v) at t=(sqrt(30)-3)/7. The primitives on the lower and upper intervals respectively are (5t^3-7t^5)/2 and 15t^2/16-5t^4/16+245t^6/144; evaluation in the quadratic field gives the displayed rational and radical coefficients.",
+      "residual_risks": [
+        "The limit is at fixed d as h decreases; the growth estimate is for the limiting constants, not a convergence bound uniform in d. Neither witness is claimed to be a universal maximizer. The uploaded quadrature was not run and is not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hangelbroek et al. give endpoint norm equality and boundedness for spaces of kernel translates with quasi-uniform centers. Kroó–Lubinsky study bulk universality as polynomial degree increases on a fixed domain. The publicly accessible Kroó abstract discusses pointwise Christoffel bounds and boundary behavior."
+        ],
+        "reasoning": "The cap assertion holds at fixed degree one with shrinking support. High-degree diagonal kernel information is not the maximum integral of the absolute off-diagonal kernel at this fixed degree. Endpoint equality is standard and is not the credited novelty.",
+        "searches": [
+          "arXiv:1005.2424, manifold kernel projector endpoint norms",
+          "DOI 10.4153/CJM-2012-016-x, Christoffel bulk universality",
+          "DOI 10.1016/j.jmaa.2014.07.037, Christoffel bounds on convex and starlike domains"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 012d525c4466, 99c2b9dd9b34, cb9364827f8d, 2cc8cfb763bd",
+        "Hangelbroek–Narcowich–Sun–Ward arXiv:1005.2424",
+        "Kroó–Lubinsky DOI 10.4153/CJM-2012-016-x",
+        "Kroó DOI 10.1016/j.jmaa.2014.07.037, public abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-domain affine kernel formula and symmetric-kernel duality are reusable ingredients; Beta slicing, covariance-kernel convergence including boundary rows, and the uniform comparison of transverse and normal terms realize a different asymptotic here."
+        ],
+        "reasoning": "Replacing the body by a solid cone changes the slice-radius dependence from linear in height to square root in height and changes the height distribution. Known projector formulas therefore do not supply the numerical leading coefficient without a model-specific calculation and a bound over all rows.",
+        "searches": [
+          "Resultary 012d525c4466 and cb9364827f8d, fixed convex bodies and solid cones",
+          "arXiv:1005.2424, p. 17",
+          "DOI 10.4153/CJM-2012-016-x, opening scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "012d525c4466 compares affine projector row functions for interior versus cone-boundary measures of fixed centered bodies. 2cc8cfb763bd concerns extremal ellipsoids for the same model domain."
+        ],
+        "reasoning": "L1, L-infinity and the maximum absolute row integral are equivalent here by symmetry; the convex-body comparisons were checked at that invariant level. Neither a change to radial cone-boundary measure nor an extremal-ellipsoid volume ratio is that limiting row integral. The shared 10/18 date for the first record is not a reason to discard it or to infer priority.",
+        "searches": [
+          "Resultary: affine least-squares projector endpoint norms and Lebesgue functions on thin caps and capped paraboloids",
+          "Resultary 012d525c4466 and 2cc8cfb763bd, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The simplex record has a positivity-loss quantity of scale d/e but its full norm has scale 2d/e. The solid-cone record gives an apex and row-profile law with coefficient 2/e. The capped-paraboloid record gives John/Löwner invariants rather than the projector row function."
+        ],
+        "reasoning": "Matching a coefficient or a geometry does not match both the object and invariant. No numerical table could by itself supply the universal cap-limit theorem, but these exact indexed results were compared for a matching model norm or witness. None of these statements yields that norm.",
+        "searches": [
+          "Resultary 99c2b9dd9b34, cb9364827f8d and 2cc8cfb763bd, exact projector/shape quantities and leading constants"
+        ]
+      },
+      "rationale": "Support is for the collapsing positive-curvature cap limit, its explicit paraboloid norm and sharp coefficient 1/e, not for the general covariance kernel, endpoint duality, or classical quadratic scaling in isolation. The strongest available matches concern fixed-body changes of measure, different affine-projector domains, or different invariants of the same model, and do not establish this limit or coefficient.",
+      "residual_risks": [
+        "Search was bounded, not a historical-priority finding. Earlier Lebesgue-function calculations for parabolic-segment or high-dimensional paraboloid measures may contain special cases. The restricted Kroó text was not treated as known not to cover the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, distinct fixed-domain comparison",
+          "evidence": "Pointwise ordering and strict norm separation under comparison of volume and cone-boundary laws on centered symmetric bodies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-volume-has-strictly-larger-affine-projection-amplificati--012d525c4466/RESULT.md",
+          "material_read": "Finding and Assumptions, from offset 0",
+          "method": "Resultary search, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform volume has strictly larger affine projection amplification",
+          "trigger": "Same-day affine projection and endpoint amplification"
+        },
+        {
+          "assessment": "Different shape, and d/e is not the norm coefficient there",
+          "evidence": "The simplex's full norm is asymptotic to 2d/e.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+          "material_read": "Finding, from offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Related exact norm and d/e scale"
+        },
+        {
+          "assessment": "Solid cone, not the curved cap model",
+          "evidence": "Exact apex norm and a height-profile law with coefficient 2/e.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-quantitative-apex-rigidity-and-a-uniform-height-law-for-affine-p--cb9364827f8d/RESULT.md",
+          "material_read": "Finding, from offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Quantitative apex rigidity and a uniform height law for affine projection",
+          "trigger": "Endpoint row profiles with height and apex witness"
+        },
+        {
+          "assessment": "Same body, different invariant",
+          "evidence": "Extremal inscribed and circumscribed ellipsoids and volume ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-john-l-wner-ellipsoids-of-capped-paraboloids-and-an-invari--2cc8cfb763bd/RESULT.md",
+          "material_read": "Finding and Assumptions, from offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact John–Löwner ellipsoids of capped paraboloids",
+          "trigger": "Same capped-paraboloid body"
+        },
+        {
+          "assessment": "Standard endpoint equality in a different setting",
+          "evidence": "The endpoint norms agree for the kernel-translate projection; the estimates concern quasi-uniform centers on a manifold.",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2424",
+          "material_read": "p. 1 and p. 17, PDF text offsets 0 and about 59000",
+          "method": "OA primary PDF",
+          "title": "Kernel Approximation on Manifolds II: The L-infinity-Norm of the L2-Projector",
+          "trigger": "Least-squares projector endpoint symmetry and norm estimates"
+        },
+        {
+          "assessment": "The inspected bulk limit concerns increasing degree and a different invariant",
+          "evidence": "Degree-indexed Christoffel functions on fixed domains.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-2012-016-x",
+          "material_read": "Opening p. 1, offset 0",
+          "method": "Primary text opening page",
+          "title": "Christoffel Functions and Universality in the Bulk for Multivariate Orthogonal Polynomials",
+          "trigger": "Possible broader universality theorem for multivariate projector kernels"
+        },
+        {
+          "assessment": "Adjacent scope in abstract only; full-paper overlap not excluded",
+          "evidence": "Pointwise Christoffel function estimates and boundary behavior.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2014.07.037",
+          "material_read": "Public repository abstract at https://real.mtak.hu/33647/, offset about 628; full text restricted there",
+          "method": "Lawful public repository abstract",
+          "title": "Christoffel functions on convex and starlike domains",
+          "trigger": "Boundary Christoffel behavior on convex bodies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–19 and 67–109",
+        "Related simplex and solid-cone Findings for comparison of amplification scales"
+      ],
+      "rationale": "Endpoint amplification measures a genuine worst-case stability problem for the affine fit. The result removes local curvature dependence from the leading thin-cap constant and quantifies how large that stability penalty can become as dimension increases, with a sharp asymptotic coefficient rather than just an O(d) bound. The planar and tip witnesses illustrate the norm, but do not carry the contribution alone.",
+      "residual_risks": [
+        "No exact location of the maximizing slice in every dimension, nor a rate uniform in dimension for convergence of physical caps, is established or needed for this value assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

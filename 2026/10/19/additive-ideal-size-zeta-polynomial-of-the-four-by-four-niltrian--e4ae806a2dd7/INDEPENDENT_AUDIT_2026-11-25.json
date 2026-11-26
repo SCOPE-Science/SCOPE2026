@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:52:41.894867Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53",
+        "Frozen VERIFICATION.md lines 19–23",
+        "Frozen verify_gf4.py and verify_prime.py (read only)"
+      ],
+      "rationale": "Reconstructed the all-field argument. With a,b,c,d,e,f the indicated matrix units, the nonzero products are ab=d, bc=e, ae=dc=f. For any ideal element with a coordinate outside F_q f, one of multiplication by e (on the right), by a and c (on opposite sides), by d (on the left), or by c or a when only d/e remain, isolates a nonzero multiple of f. Scaling the multiplier forces the whole annihilator C=F_q f. All subspaces of C are ideals and all ideals containing C lift from R/C, with C counted just once. In the quotient, T in W=F_q d+F_q e and the projection S into F_q a+F_q b+F_q c determine an ideal up to a linear graph map S→W/T over F_p. A nonzero a or b coordinate requires all of F_q d in T; b or c requires all of F_q e. These conditions are also sufficient. Thus S=0 gives G_{2m}, T=W and S≠0 gives z^{2m}(G_{3m}−1), and either proper T containing one forced line contributes Gaussian counts weighted by p^{(m−r)dim S}. This yields exactly the displayed polynomial, also for p=2 and m=1. Independent coefficient expansion gave [1,3,1,15,35,39,69,87,651,1395,651,63,1] over F4 and total 3011; repeating the one-coordinate count over F4 for scalar-linear ideals gives 59. The brace correspondence follows from lambda-stability giving left multiplication closure, with circle-normality then giving right closure, and conversely by the quotient map for a two-sided ideal.",
+      "residual_risks": [
+        "Original enumeration scripts were inspected, not executed; the general result is proved independently of their output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marberg's broader matrix-size theorem has the hypothesis q prime.",
+          "The three-block record Finding states (X,Y,Z)(X′,Y′,Z′)=(0,0,XY′) and specifies F_q-linear two-sided ideals."
+        ],
+        "reasoning": "That three-block radical has zero cube, whereas ab c=f≠0 in the frozen ring. Restriction of scalars does not change this obstruction. Its size polynomial does not cover the frozen ring or the non-F_q-linear ideal problem.",
+        "searches": [
+          "arXiv:1005.4150, §4 Theorem 4.1",
+          "Resultary 2026/11/22/SCOPE-complete-ideal-dimension-polynomials-for-three-block-nilpotent-r--5a2168865101"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1005.4150",
+        "arXiv:1804.04106",
+        "Resultary nearest ideal-polynomial statement, ID 5a2168865101",
+        "Frozen RESULT.md, prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime classification can account for the m=1 comparison; the extension-field contribution counts F_p-linear lifts weighted by p^{(m−r)dim S}.",
+          "For F4 the frozen problem has only 59 scalar-linear ideals, versus 3011 additive ideals."
+        ],
+        "reasoning": "Neither a brace-ideal equivalence nor substituting q into a scalar-linear enumeration computes the extra graph maps and additive dimension counts.",
+        "searches": [
+          "arXiv:1005.4150, §3 Proposition 3.2 and §4 Theorem 4.1",
+          "arXiv:1804.04106, §2",
+          "Resultary three-block Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marberg identifies the supernormal-subgroup/two-sided-ideal correspondence for prime field order and distinguishes nilpotent F_p-subalgebras in extension fields.",
+          "Konovalov–Smoktunowicz–Vendramin's brace ideal definition provides an equivalent framework, not a count."
+        ],
+        "reasoning": "Translation to groups or braces does not turn the extension-field additive ideal classification into the prime-field supernormal count; scalar-linearity is a material difference.",
+        "searches": [
+          "Resultary: additive two-sided ideals of the strictly upper triangular 4 by 4 matrix ring over nonprime finite fields; ideal size zeta polynomial; F4 3011 ideals; supernormal subgroups",
+          "arXiv:1005.4150, §3 Proposition 3.2 and §4 Theorem 4.1",
+          "arXiv:1804.04106, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest ideal-polynomial catalogue record gives 2859 for the distinct (2,2,1) three-block radical over F2.",
+          "Marberg's enumerator specializes to the known prime-field total 2p²+5p+7."
+        ],
+        "reasoning": "Neither that other finite-field table nor the prime-field total enumerates the additive ideals over F4 or gives their exact dimension distribution.",
+        "searches": [
+          "Resultary exact comparison: F4 3011 ideals; additive ideal-size polynomial and supernormal subgroups",
+          "arXiv:1005.4150, §4 Theorem 4.1"
+        ]
+      },
+      "rationale": "Credit the known prime-field classification and total. The supported distinct claim is the additive, prime-field-dimension-refined polynomial for extension fields, not a scalar-linear reformulation of the prime case. No inspected result gives or mechanically implies that extension-field polynomial.",
+      "residual_risks": [
+        "Some targeted literature searches were deferred; this is bounded statement-level coverage, not a proof of priority or of the absence of an unindexed ideal classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers prime-field comparison, not the extension-field polynomial",
+          "evidence": "Theorem 4.1 states the antichain/subspace classification for q prime; the extension-field Proposition 3.2 is not that enumeration.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.4150",
+          "material_read": "§3 Proposition 3.2, PDF p. 11 (OA offset 41600); §4 Theorem 4.1, PDF p. 17 (offset 63100)",
+          "method": "Bounded primary PDF passages",
+          "title": "A supercharacter analogue for normality",
+          "trigger": "Primary classification cited for supernormal subgroups and niltriangular ideals"
+        },
+        {
+          "assessment": "Related framework, no numerical classification in the cited passage",
+          "evidence": "The passage gives the ideal definition in terms of stability and normality.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.04106",
+          "material_read": "§2, PDF p. 5 (OA offset 34500)",
+          "method": "Bounded primary PDF passage",
+          "title": "On skew braces and their ideals",
+          "trigger": "Equivalent problem for canonical radical braces"
+        },
+        {
+          "assessment": "Different algebras and scalar-linear regime; not dominating",
+          "evidence": "Formula concerns F_q-linear ideals of J_{a,b,c}(q), with b≥2 and multiplication landing in the annihilating Z-slot.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-ideal-dimension-polynomials-for-three-block-nilpotent-r--5a2168865101",
+          "material_read": "RESULT.md Finding, offset 106 through start of assumptions",
+          "method": "Local mirror, statement passage",
+          "title": "Complete ideal-dimension polynomials for three-block nilpotent radicals with a nontrivial middle layer",
+          "trigger": "Closest published ideal polynomial hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53",
+        "Marberg Theorem 4.1 for the prime-field baseline"
+      ],
+      "rationale": "This is a complete dimension classification for a natural smallest niltriangular example with nonzero triple products and a substantial distinction between additive and scalar-linear ideals. The classification supplies sizes and multiplicities for every extension degree, with a transparent count of the mixed lifts. The F4 contrast is a useful consequence, not the sole claim.",
+      "residual_risks": [
+        "No claim of a corresponding formula for higher matrix sizes or a classification of all group-normal subgroups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

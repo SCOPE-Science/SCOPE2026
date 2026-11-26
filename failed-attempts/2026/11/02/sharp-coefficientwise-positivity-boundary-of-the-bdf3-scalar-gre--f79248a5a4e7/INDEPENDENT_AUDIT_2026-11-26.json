@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:11.728330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–104",
+        "Frozen bdf3_green_verify.py lines 45–145",
+        "Frozen VERIFICATION.md lines 19–21"
+      ],
+      "rationale": "The normalized impulse response has exactly the generating function and seeds stated. I independently expanded it through degree 7, reduced both denominator-cleared new characteristic polynomials modulo the original cubic (zero remainders), and verified the Bernstein table by substituting x=(a+bv)/(1+v), multiplying by (1+v)^deg, and comparing rational coefficients. These are exact checks: H(1/16)=−35/1024 and H(76/1215)=8464/4100625, and H' has strictly positive coefficients in that interval basis. The two nonnegative sparse recurrences cover [x*,256/3915] by induction on the nonnegative seeds. At x* the n and n+1 terms of the order-eight recurrence have strictly positive multipliers, and G₆ is the only zero seed, so no pair of consecutive seeds/later terms can force a second zero. For the large-x segment, d=D(r)/r³ decreases strictly since d'=-6E(r)/r⁴; Vieta and the simple-root residue formula give the stated amplitude identity. The Taylor expansion of T at 8/15 has positive coefficients (constant 344/5625, then 6772/375, 1026/25, 669/5, 126), proving the amplitude bound there. For d>16, r<1/2 and the nonreal pair has strictly larger modulus and nonzero residues. Each sign recurs by density, or in the rational-phase case by the mean-zero nonconstant values of the finite phase cycle. Root moduli are below one and evaluating the convergent generating function at one proves the exact gain identity. Reproduction of the exact algebra can use symbolic polynomial series/remainders and the stated rational substitution; the frozen script was inspected, not executed. This is not a maximum principle for arbitrary starting histories.",
+      "residual_risks": [
+        "No formal-verification claim; all-index validity comes from induction and the root/phase argument, not the finite symbolic checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For BDF formulas the SCB characterization reduces to sequence nonnegativity; SCBs form a downward-closed interval and Lóczi proves the endpoint belongs to it.",
+          "Qiu verifies the same impulse response only on x≥256/3915 in Lemma B.1; Li–Liao address variable-step ratio stability."
+        ],
+        "reasoning": "The earlier SCB characterization supplies a full iff statement and rules out independent re-entry at any larger μ; the distinction from variable-step or arbitrary-start positivity does not avoid this equivalence.",
+        "searches": [
+          "arXiv:1609.07858v2 Theorems 1.6 and 2.3, §3.5 Observations 1–2",
+          "arXiv:2610.32364v1 Lemma B.1",
+          "arXiv:2201.00527 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1609.07858v2",
+        "arXiv:2610.32364v1",
+        "arXiv:2201.00527",
+        "Resultary --67cbe1d016ca, --909f1ef9112e, --5cb4ee0678f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lóczi proves strict positivity at γ* for all indices except 6, using explicit algebraic root bounds for the tail and finite checks through index 92. Gain-one equivalence follows immediately from absolute summability, signed mass one and the preceding classification.",
+          "The reported extra sign split is obtained by the already-identified G₆ polynomial on (μ*,5/6] and the elementary dominant-pair comparison D(r)<2 for μ>5/6; Lóczi's Lemma 3.2 gives infinite negative signs in the latter case, and negating its main term gives infinite positive signs."
+        ],
+        "reasoning": "Exact threshold and boundary equality cases are prior coverage, not just suggested by another result. The short sparse recurrence approach differs from the prior proof; the elementary sign and gain corollaries do not constitute a disjoint novel classification.",
+        "searches": [
+          "arXiv:1609.07858v2 §3.5.3 and Lemma 3.2",
+          "arXiv:2610.32364v1 §§4.1–4.2 and Appendix B.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lóczi's m₀=6/(6γ+11), m₁=108/(6γ+11)², m₂=54(25−6γ)/(6γ+11)³ and same order-three recursion.",
+          "The polynomial d⁴H(1/d) with d=6γ+11 expands to 5184γ⁴−539352γ³+4277340γ²−7093698γ+3248425, precisely the numerator in §3.5.3."
+        ],
+        "reasoning": "The auxiliary sequence equals the normalized causal Green sequence multiplied by 6x>0, and its sixth-coefficient zero and signs coincide. The parameters satisfy γ=μ.",
+        "searches": [
+          "Lajos Lóczi Exact optimal values step-size coefficients for boundedness BDF3 0.831264155 Green recurrence 5/6 arxiv",
+          "arXiv:1609.07858v2 §3.5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 2.3 lists the BDF3 value 0.831264155297 as the smallest real root of the exact transformed quartic; §3.5.3 specifies the same unique sixth-position endpoint zero.",
+          "Indexed BDFL3, BDF3 with memory coupling, and fractional convolution weights were different formulas or observables."
+        ],
+        "reasoning": "The published algebraic entry and its proof identify the same invariant; matching numerical digits are corroborating but not the evidence of equivalence.",
+        "searches": [
+          "Resultary BDF3 scalar modal Green sequence sharp sign threshold 0.831264, quartic",
+          "arXiv:1609.07858v2 Theorem 2.3 BDF family list"
+        ]
+      },
+      "rationale": "Lóczi, arXiv:1609.07858v2, Theorems 1.6 and 2.3, section 3.5 and §3.5.3, already proves the exact all-coefficients threshold and unique zero at index six for the same sequence. Write γ for his step-size variable and m_n(γ) for his auxiliary sequence. Setting x=1/(6γ+11), his initial values and recurrence give m_n(γ)=6xG_n(γ) for every n. This is not an analogy with boundedness: for BDF3 the theorem's stability-interior condition is automatic, so it is literally equivalent to nonnegativity of these same sequence coefficients (the n=0 term is positive). The earlier polynomial is exactly (6γ+11)^4 H(1/(6γ+11)), and §3.5.3 explicitly proves strict positivity at the endpoint except at n=6. Qiu's later sufficient interval for the same sequence is therefore not the strongest prior coverage.",
+      "residual_risks": [
+        "The full classical memory paper was inaccessible; that does not affect the direct 2017 coverage.",
+        "No claim of ultimate first publication or of exhaustive coverage of alternate proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive direct coverage",
+          "evidence": "Eq. (8) and Observation 1 reduce SCB to sequence nonnegativity for BDF; §3.5.3 uses the same recurrence and sixth-coefficient quartic, with strict endpoint signs apart from index six.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.07858v2",
+          "material_read": "Theorem 1.6 around offset 16032; Theorem 2.3 pp. 8–9 around offsets 23336–23596; §3.5 observations and Lemma 3.2 offsets 28540–31376; §3.5.3 pp. 15–16 offsets 37890–41693",
+          "method": "OA PDF passage retrieval, followed by exact independent polynomial substitution and sequence comparison",
+          "title": "Exact optimal values of step-size coefficients for boundedness of linear multistep methods",
+          "trigger": "Exact same cutoff under SCB terminology"
+        },
+        {
+          "assessment": "Same Green sequence, only a sufficient positivity interval in the inspected result",
+          "evidence": "Zero prehistory and gain defined in §4.2; Lemma B.1 proves x≥256/3915 is sufficient; arbitrary-start solution includes a distinct homogeneous term.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.32364v1",
+          "material_read": "§§4.1–4.2 around offsets 19000–25500; §5 Theorem 5.2 around 44000–49000; Appendix B.1 around 81000–90500",
+          "method": "OA HTML passages",
+          "title": "Long-time stability and convergence of a BDF3 method for a parabolic equation with fading memory",
+          "trigger": "Frozen result's declared closest source"
+        },
+        {
+          "assessment": "Different assertion",
+          "evidence": "Bound on step ratios, and variable-step DOC kernels not always positive, not the current constant-step resolvent threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "Abstract; §3.1 and Theorem 3.1 around offsets 10700 and 32100",
+          "method": "OA PDF passages",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Variable-step stability/positivity comparison"
+        },
+        {
+          "assessment": "Described as backward Euler and BDF2; unresolved primary details not used in verdict",
+          "evidence": "The secondary account separates first- and second-order resolvents.",
+          "identifier_or_url": "Thomée–Wahlbin, Math. Comp. 62 (1994), 477–496",
+          "material_read": "Qiu introduction's discussion only; AMS primary text returned 403",
+          "method": "Lawful OA attempt; inspected secondary description",
+          "title": "Long-time numerical solution of a parabolic equation with memory",
+          "trigger": "Cited earlier long-time stability work"
+        },
+        {
+          "assessment": "Different hypotheses and invariants",
+          "evidence": "Respectively BDFL3/BDF2OPT(4) sign oscillations; coupled Volterra stability; fractional derivative weights rather than positive-parameter reciprocal resolvent.",
+          "identifier_or_url": "Resultary --67cbe1d016ca, --909f1ef9112e and --5cb4ee0678f8",
+          "material_read": "Original RESULT.md findings",
+          "method": "Configured local mirror",
+          "title": "Indexed BDFL3, BDF3/Simpson–Adams–Bashforth, and fractional BDF3 near-hits",
+          "trigger": "Material near-hits by method and sign/stability assertions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–25 and 34–101",
+        "Lóczi §3.5.3 and Theorems 1.6, 2.3"
+      ],
+      "rationale": "This is an important endpoint for distinguishing stability from positivity, but the exact endpoint, all-index positivity classification and endpoint zero are known. The submitted finite sign-range lead-in and gain condition are elementary consequences; the sparse recurrences give an alternate special-purpose validation without a demonstrated general or separately motivated mathematical contribution. The frozen submission cannot stand as a new sharp classification by adding that certificate.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

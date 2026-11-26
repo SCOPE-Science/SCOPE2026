@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:38:46.627722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recomputed every one of the 3^15 labelled states at each threshold, without executing frozen scripts. checks/petersen_images.py computes the successor of each resting edge from disjoint active incidences at its two Petersen endpoints; the other phases have their unconditional successors. Iterated images of the complete state set are nested and stabilize precisely on the periodic set. Traversing this set gives each orbit once; successive synchronous predecessor layers give exact first entry and inherit the orbit label. For all four thresholds the attractor/period/basin populations, entry histogram, joint time and period histogram, and individual basin-size histogram match both frozen output tables in full. The four recorded max depths are 12,6,3,3; directly checked 94238 at depth 12, and 66495→5626834→12602018→3228168→169→2→0 with exact depths 6 through 0. All-rest is fixed and the only fixed state since phases 1 and 2 always change. The threshold-one period lcm is 120, giving equality after 12 and failure one update earlier. Run python3 checks/petersen_images.py with theta=1,2,3,4 as the positional argument (NumPy); each checks/petersen_images_*.out is saved. This certifies the stated finite graph and thresholds only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Triangle-locking classifies all recurrent states at the rounded half-degree threshold on connected graphs with every vertex triangular; the only non-rest ones are balanced proper three-colorings rotating in period three.",
+          "The strict-density theorem requires ρ(G)<theta, while the whole four-regular graph attains ρ=2. Doba and Gravner–Lyu–Sivakoff address structural asymptotics of threshold one."
+        ],
+        "reasoning": "Triangle-locking directly applies since at each base vertex the incident Petersen edges make a triangle in its connected line graph. Combined with the Tait obstruction it eliminates all periodic non-rest states, not just period three. It does not bound the transient by six or count basins. The strict-density result does not apply at theta=2.",
+        "searches": [
+          "Resultary 76b9562220e5, Finding, Assumptions, proof",
+          "Resultary 352367f51e91, Finding",
+          "Doba pp. 102–103, 114, 117–118; arXiv:1610.07320 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 76b9562220e5, c4fb511b080a, 7c3fe196f42d, 352367f51e91, 2966a06edd39, 65cafa495105",
+        "doi:10.25088/ComplexSystems.27.2.101",
+        "arXiv:1610.07320",
+        "arXiv:patt-sol/9303002 (full text inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The structural pair proves eventual threshold-two extinction, with no uniform settling time in 76b9562220e5 and no basin census in c4fb511b080a.",
+          "Doba gives one-neighbor extinction/activity and maximum-cycle-density criteria, and Gravner–Lyu–Sivakoff gives one-neighbor synchronization/oscillation criteria."
+        ],
+        "reasoning": "The exact cutoff and shell populations go beyond qualitative extinction, and structural threshold-one criteria do not supply the least-period/basin census of this instance. The four-threshold result is graded on the quantitative distinction.",
+        "searches": [
+          "Resultary 76b9562220e5, c4fb511b080a, 7c3fe196f42d",
+          "doi:10.25088/ComplexSystems.27.2.101 Theorems 1–2",
+          "arXiv:1610.07320 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c4fb511b080a characterizes primitive-three excitation at threshold two on cubic line graphs by Tait edge colorings of the base graph.",
+          "7c3fe196f42d describes primitive period three at half degree by balanced proper three-colorings."
+        ],
+        "reasoning": "A proper Tait coloring is exactly an initial primitive three-cycle for this threshold; Petersen has no such coloring. No-period-three alone is weaker than global extinction and neither color formulation counts labelled configurations by first entry.",
+        "searches": [
+          "Greenberg-Hastings primitive three cycles cubic line graphs Tait coloring half-degree rigidity induced-edge-density extinction",
+          "Resultary c4fb511b080a and 7c3fe196f42d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 15-vertex indexed match is the target record itself.",
+          "2966a06edd39 counts the ten-vertex Petersen graph itself, with sharp time four and 1520 initial states there. 65cafa495105 gives a seven-step Fano nonincidence example."
+        ],
+        "reasoning": "These similar tables use different transition graphs and neither dominates the exact target census. A bounded search with no second exact table is not proof of priority.",
+        "searches": [
+          "Petersen line graph Greenberg-Hastings threshold-two extinction six steps 930 initial states threshold-one basin period census",
+          "\"Greenberg-Hastings\" \"Petersen\" line graph threshold two extinction",
+          "Resultary 2966a06edd39 and 65cafa495105"
+        ]
+      },
+      "rationale": "The exact all-threshold census and sharp finite settling statistics are supported as distinct findings. Qualitative eventual threshold-two extinction is already implied by a matching same-day structural Resultary theorem and the earlier Tait correspondence. Do not claim that qualitative extinction itself is distinct or infer order from the shared date. Neither structural theorem nor the other inspected results supply the sharp depth 6, its 930 initial states, or the labelled threshold-one census.",
+      "residual_risks": [
+        "Unindexed exact finite censuses and incompletely inspected older dynamic analyses could overlap.",
+        "No temporal priority is inferred between same-day records; qualitative threshold-two extinction has demonstrable structural coverage regardless of order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative threshold-two extinction in conjunction with Tait correspondence, not the sharp census",
+          "evidence": "Theorem applies at half degree when all sites belong to triangles; every non-rest recurrent state is a balanced rotating proper coloring.",
+          "identifier_or_url": "Resultary 76b9562220e5",
+          "material_read": "Finding, assumptions, proof, mirror offsets 0–5829",
+          "method": "Local Resultary mirror",
+          "title": "Triangle-locked critical excitation and the Johnson-graph extinction dichotomy",
+          "trigger": "Strongest broader same-rule theorem for this graph"
+        },
+        {
+          "assessment": "Supplies nonexistence of proper Tait excitations but no cutoff",
+          "evidence": "Primitive period three iff a proper three-edge-coloring of the original cubic graph; theorem alone does not classify other periods/transients.",
+          "identifier_or_url": "Resultary c4fb511b080a",
+          "material_read": "General line-graph theorem and Limitations, offsets 0–10359",
+          "method": "Local Resultary mirror",
+          "title": "Tait colourings as primitive-three excitation on cubic line graphs, with a constant-six seam law",
+          "trigger": "Exact primitive-three behavior for cubic line graphs"
+        },
+        {
+          "assessment": "No settling/basin census for L(Petersen)",
+          "evidence": "Initial primitive-three states correspond to balanced proper colorings.",
+          "identifier_or_url": "Resultary 7c3fe196f42d",
+          "material_read": "General half-degree rigidity, Finding onward",
+          "method": "Local Resultary mirror",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "Critical degree condition and period-three classification"
+        },
+        {
+          "assessment": "Strict hypothesis fails at threshold two",
+          "evidence": "Requires induced maximum edge density strictly below contact threshold.",
+          "identifier_or_url": "Resultary 352367f51e91",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "Potential general extinction bound"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Ten-vertex Petersen graph, max four steps, 1520 states on its sharp shell.",
+          "identifier_or_url": "Resultary 2966a06edd39",
+          "material_read": "Finding, offsets 0–5550",
+          "method": "Local Resultary mirror",
+          "title": "A girth-sensitive terminal excitation census for the two ten-vertex cubic graphs",
+          "trigger": "Nearby exact Petersen threshold-two table"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Projective-plane nonincidence graphs; Fano case seven steps.",
+          "identifier_or_url": "Resultary 65cafa495105",
+          "material_read": "Statement on half-degree extinction and the sharp Fano example",
+          "method": "Local Resultary mirror",
+          "title": "Critical-threshold spectral extinction on projective nonincidence graphs",
+          "trigger": "Critical finite extinction census"
+        },
+        {
+          "assessment": "Qualitative and rate results, not the exact census",
+          "evidence": "One-neighbor map; asymptotic activity criterion and maximum-cycle-density rate.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "Printed pp. 102–103 (rule), Theorems 1–2 on pp. 114, 117–118",
+          "method": "OA PDF",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Primary finite-graph threshold-one results"
+        },
+        {
+          "assessment": "No exact target census in theorem",
+          "evidence": "Finite-graph synchronization/oscillation criterion.",
+          "identifier_or_url": "arXiv:1610.07320",
+          "material_read": "Theorem 3, PDF p. 4",
+          "method": "OA PDF",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Arbitrary-graph asymptotics under same threshold-one rule"
+        },
+        {
+          "assessment": "Unresolved priority risk",
+          "evidence": "No substantive exclusion inferred from failed retrieval.",
+          "identifier_or_url": "arXiv:patt-sol/9303002",
+          "material_read": "Citation, no full text",
+          "method": "Lawful OA PDF routes attempted, HTTP 404",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Older threshold-dependent source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This line graph is a natural small four-regular example at the critical half-degree threshold, built from a canonical snark. The sharp worst-case settling time and how many states attain it are additional natural invariants even after eventual extinction is structurally known. The complete low-threshold basin/period census and the finite cutoff provide an exact comparative benchmark beyond detecting recurrence on a few states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

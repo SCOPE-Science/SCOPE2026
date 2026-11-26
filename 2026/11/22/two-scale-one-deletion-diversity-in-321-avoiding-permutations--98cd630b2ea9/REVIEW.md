@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The expansion/marking argument is bijective for increasing consecutive-value bonds: each marked block contracts to a standard \(321\)-avoider. Each marked decreasing small descent forces a direct-sum \(21\) component, and the marked-component decomposition is unambiguous. The Catalan substitution and geometric series yield the stated joint generating function. The dominant square-root singularity \(\rho(u)=1/(u+3)\) and regular denominator establish the Gaussian and independent tight negative-binomial limits through uniform algebraic transfer. The exact mean follows from coefficient differentiation for \(n\ge2\). A standalone enumeration of all avoiders through length nine checks the joint coefficients and actual distinct deletion outputs.
+PASS
 
-## Originality — PASS (qualified)
+For deletions at i<j to agree after standardization, comparing the entries from positions i to j forces a run of consecutive values in the direction from the first deleted value to the second; such a run also suffices. This gives the usual n minus number of bonds. In the marked ascending expansion, an increasing consecutive-value interval contributes at most one entry to any decreasing triple. Contraction is precisely invertible by positive marked-block lengths, giving the Catalan substitution. If adjacent x+1,x forms a descending bond, any larger preceding value or smaller following value would witness 321. Thus this pair forms a direct-sum component. A marked 21 contributes z^2(v−1) and its seams cannot create an ascending succession: they meet the larger entry on the left of 21 or its smaller entry on the right. This proves the geometric-series assembly. For transfer, T=2/(1+sqrt((1−(u+3)z)/(1−(u−1)z))); the Puiseux coefficient for sqrt(1−z/rho) is −2 sqrt((u+3)/4). Composition with T/(1−(v−1)z^2 T) multiplies it by (1−2(v−1)/(u+3)^2)^−2. In a common slit neighborhood in z/rho for u,v close to 1 the other square-root point is far away and the denominator stays nonzero; hence transfer is uniform. The resulting prefactor at u=1 is (8/(9−v))^2, while the expansion of log((3+e^s)/4) has linear coefficient 1/4 and quadratic coefficient 3/32. The recentered joint mgf factors as claimed, and tightness of d and Slutsky give the R limit. Finally the derivatives z^2 C'(z) and z^2 C(z)^2 give (n−1)C_(n−1) and C_(n−1) for n≥2, including n=2; n=1 is correctly excluded from the mean formula.
 
-Homberger's arXiv:1211.7117 supplies the deletion-bond theorem; Baril 2016 supplies the ascending-bond Catalan substitution; Elizalde–Rivera–Zhuang 2026 supply the descending small-descent structural decomposition. The three independently inspected source formulations do not present the simultaneous ascending/descending bond enumerator or its Gaussian/negative-binomial asymptotic product limit. The combination is close to known methods and could have been independently recorded in an unindexed bivariate statistic; this remains a substantive residual risk. Related published mathematical findings on fixed-length permutation patterns, ordinary descent statistics and other avoidance classes do not imply the stated joint law by their recorded results.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A one-deletion receiver's distinct output count is an operationally meaningful statistic. The new joint enumerator distinguishes two types of local deletion collisions: ascending collisions produce linear-order counts with Gaussian fluctuations, while descending collisions remain tight with a nondegenerate negative-binomial law. The resulting asymptotic independence is not an immediate numerical tabulation or a generic substitution exercise; it quantifies the fine-scale loss invisible to the leading mean or Gaussian approximation alone. The contribution is a compact structural distribution theorem rather than a maximum-code-size claim.
+The supported contribution is the simultaneous ascending/descending bond law on classical Av(321) and the factorized joint limit. The one-deletion identity, the two marginals, and their separate limit consequences (including the deletion-count CLT via Slutsky) are known or implied. The joint law is a close synthesis, not a claim of novelty for its separate ingredients.
 
-## Limits
+## value
 
-No assertion of finite-sample independence, multi-deletion reconstruction, or exhaustive uniqueness against all unindexed prior literature. All reviewed claims are self-review, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Undirected deletion volume and separate directed marginals conceal the coupling. The exact directed enumerator distinguishes the linear-scale source of collision variability from the tight small-descent count and identifies their independence in the joint limit. This is a useful fine description of the deletion spectrum in a natural class, beyond the mean or marginal deletion CLT alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:37:10.496985Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the specified Pauli convention, the three rows and first two columns of the Peres–Mermin square multiply to +II, while XX·YY·ZZ=-II. In every context the first two distinct nonidentity Paulis commute and have product epsilon times the third. Each assigned sign occurs twice over the six triples, so at least one triple must have sign product -epsilon. Its positive joint (-r_P,-r_Q) projector has trace one (P,Q and PQ are traceless); its expansion on II,P,Q,R gives signed expectations -r_P,-r_Q,-r_R and zero for all other Paulis. The Pauli expansion of a flat state then gives the projector expectation (1-3 gamma)/4 >= 0. The argument covers every sign assignment and gamma=0 separately has the maximally mixed state. At gamma=1/3 the all-positive signed sum is A⊗I+I⊗A+A⊗A with A eigenvalues ±sqrt(3), so the density has eigenvalues (3±sqrt(3))/6 and two zeros in the local product eigenbasis. The spectrum gives the rank, purity 2/3 and separability; mixing with I/4 preserves separability and scales every Pauli expectation to gamma. The stabilizer witness follows because each pure two-qubit stabilizer state has exactly three unit-modulus nonidentity expectations, so the all-positive witness is at most 3 and equals 15 gamma on the constructed family. The Finding states nonmembership above 1/5; to check the phrase 'exact interval' in the literature comparison, five positive commuting triples partition all 15 strings: (XI,IY,XY),(YI,IX,YX),(ZI,IZ,ZZ),(XX,YZ,ZY),(XZ,YY,ZX). The equal mixture of their joint +1 projectors gives the all-positive gamma=1/5 state and mixing down with I/4 establishes membership for gamma<=1/5. The independent symbolic Pauli replay `python3 /workspace/branches/frozen_math_checks.py` verifies the six context signs, all 512 effective assignments of the nine square signs (the remaining six signs are unused), and the five positive triples. The symbolic and analytic arguments, not a search over density operators, establish the result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cieśliński §IV Eqs. (10)–(14) proves a more general stabilizer-polytope witness and explicitly gives the N-qubit flatness threshold gamma>1/(2^N+1), hence gamma>1/5 here.",
+          "The cited pure-state magic optima do not determine feasibility on the mixed-state all-sign class. The square and its parity obstruction are classical."
+        ],
+        "reasoning": "The witness is a covered specialization. In contrast, a sufficient positivity range valid for arbitrary signs is not an upper bound on the optimal sign, and pure-state nonexistence does not prove the sharp mixed-state ceiling.",
+        "searches": [
+          "arXiv:2610.07172v1 §§III–IV, positivity and sign-aligned witness",
+          "arXiv:2502.17550v3 and arXiv:2412.21083v1 pure-state maximal magic",
+          "Mermin DOI:10.1103/PhysRevLett.65.3373"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07172v1",
+        "arXiv:2502.17550v3",
+        "arXiv:2412.21083v1",
+        "DOI:10.1103/PhysRevLett.65.3373 (primary text unavailable)",
+        "Resultary cf243b5afd39"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cieśliński combines the witness and an explicit example to give nonmembership for gamma in (1/5,1/3] in its own family. That example has negative and positive expectations and is reported entangled.",
+          "The frozen frustrated-context argument yields a rank-one projector bounding every sign vector, and the local-product decomposition makes all-positive attainability separable."
+        ],
+        "reasoning": "The prior example implies a lower bound on the best feasible contrast, and the known witness applies immediately to any new separable flat family. Neither establishes the all-sign upper bound or separability of an attaining family.",
+        "searches": [
+          "Cieśliński Eqs. (9)–(15), Table I, and the signed two-qubit matrix",
+          "Resultary pure Pauli-observable obstruction cf243b5afd39 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 1 and Eqs. (6)–(7) give the same signed Pauli expansion. Section V explicitly formulates the signed positivity SDP and its extremal eigenvalue version.",
+          "Resultary cf243b5afd39 concerns pure two-observable fibers and a three-observable Pauli obstruction, not mixed-state uniform magnitudes on all 15 strings."
+        ],
+        "reasoning": "The equivalent spectral problem is to bound the minimal eigenvalue of every signed Pauli sum by -3. Posing the SDP or eigenvalue problem does not provide that bound.",
+        "searches": [
+          "Resultary exact equal-modulus expectation on all 15 Paulis, 1/3, separable endpoint and positivity witness",
+          "Cieśliński arXiv:2610.07172v1 §III Definition 1 and §V Eq. (15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section V supplies an exact example with contrast 1/3 and mixed signs. Table I lists best-found gamma 0.3334 and purity 0.6667 at N=2; these are not a rigorous upper certificate.",
+          "The inspected example in §§IV–V is entangled at the endpoint; the focused Resultary hits did not show a matching separable optimizer."
+        ],
+        "reasoning": "The endpoint value, feasibility, and purity do not count as new. The prior numerical table and exact entangled example do not imply an all-positive separable realization.",
+        "searches": [
+          "Cieśliński §V explicit two-qubit example and Table I",
+          "Resultary exact sign-universal maximum and rank-two separable optimizer"
+        ]
+      },
+      "rationale": "Pass for the distinct all-sign ceiling and sharp separable all-positive construction. Cieśliński v1 already gave exact feasibility at contrast 1/3, the corresponding endpoint purity and the general sign-aligned witness giving gamma>1/5 for two qubits. The witness and threshold must be credited as prior; their application to this separable family follows from the new construction and is not an independent novelty claim. The inspected prior example is entangled, and the best-found table and optimization formulation do not furnish the rigorous universal ceiling or the separable endpoint.",
+      "residual_risks": [
+        "The historical full text was not inspected; the parity argument itself is standard and directly checked.",
+        "The bounded searches do not exclude an earlier implicit or unindexed all-sign quantitative application or separable construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: endpoint feasibility, purity and stronger general witness are prior; all-sign sharp upper proof and separable attainment not given by the inspected results",
+          "evidence": [
+            "§IV gives Tr(ρW)=gamma(4^N-1), stabilizer bound 2^N-1 and threshold 1/(2^N+1). §V exhibits a mixed-sign family positive up to 1/3 and labels Table I best-found; the endpoint is reported entangled."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07172v1",
+          "material_read": "Title page; §III Definition 1 and Eqs. (6)–(9), offsets 13700–19168; §IV Eqs. (10)–(14) and entanglement discussion, offsets 20800–27673; §V example, Eq. (15), Table I, offsets 27100–34456",
+          "method": "Bounded primary OA PDF passage inspection, including direct witness and SDP read",
+          "title": "Pauli Flat Quantum States Mimicking Maximal Magic",
+          "trigger": "Same mixed-state object, overlapping exact endpoint and witness"
+        },
+        {
+          "assessment": "Different pure-state stabilizer-entropy objective",
+          "evidence": [
+            "Analysis focuses on pure states; mixed-state extensions are not unique."
+          ],
+          "identifier_or_url": "arXiv:2502.17550v3",
+          "material_read": "p. 2 scope and purity discussion, offset 14500",
+          "method": "Primary OA PDF passage",
+          "title": "Maximal Magic for Two-qubit States",
+          "trigger": "Potential prior two-qubit Pauli-spectrum extremum"
+        },
+        {
+          "assessment": "Pure-state optimization, not a mixed Pauli-flat feasibility theorem",
+          "evidence": [
+            "Scope specifies pure states and leaves mixed stabilizer-state issues beyond scope."
+          ],
+          "identifier_or_url": "arXiv:2412.21083v1",
+          "material_read": "p. 3, offset 18000, pure-state scope passage",
+          "method": "Primary OA PDF passage",
+          "title": "Quantum States with Maximal Magic",
+          "trigger": "Potential broader maximal stabilizer-entropy implication"
+        },
+        {
+          "assessment": "Classical structural input credited; no full-text noncoverage claim",
+          "evidence": [
+            "Known Peres–Mermin square used in frozen proof; six explicit operator products verified independently."
+          ],
+          "identifier_or_url": "DOI:10.1103/PhysRevLett.65.3373",
+          "material_read": "Bibliographic identification only; lawful primary full-text attempt did not succeed",
+          "method": "OA retrieval attempt (access denied); operator identities separately verified algebraically",
+          "title": "Simple unified form for the major no-hidden-variables theorems",
+          "trigger": "Historical contextuality input"
+        },
+        {
+          "assessment": "Different pure-state information-fiber problem",
+          "evidence": [
+            "The result concerns two-observable information and a three-observable counterexample, not these mixed full Pauli spectra."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-two-observable-fiber-stability-and-a-three-observable-paul--cf243b5afd39",
+          "material_read": "RESULT.md Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Sharp two-observable fiber stability and a three-observable Pauli obstruction",
+          "trigger": "Closest Resultary Pauli-obstruction hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact allowed interval resolves the two-qubit mixed-state full-spectrum problem beyond the prior best-found value. The contextuality bound and explicitly separable maximizer show that entanglement is unnecessary even for maximally flat states outside the stabilizer polytope. The value here is the sharp obstruction plus separable attainment, not the known cutoff alone or any unproved operational quantum advantage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

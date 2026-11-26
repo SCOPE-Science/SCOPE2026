@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The fixed-modulus residue weights follow from the leading double-pole coefficient for the divisor function in arithmetic progressions, and a convergent prime-valuation sum. CRT multiplicativity gives exact positive rational weights. The documented integer recurrence enumerates every independent subset of each finite cycle; the checked output covers all periods through \(90\). The period-\(90\) witness is independently readable from three local weights. Finite calculations do not establish the analytic progression asymptotic, which is separately proved.
+## correctness
 
-## Originality
-**PASS subject to independent priority review.** Chatterjee's 2026 paper treats unrestricted spacing optimizers, not fixed periodic-residue arithmetic optimization or the first symmetry-breaking period. The global result for unrestricted sets does not imply the exact \(90\)-threshold. Earlier works on divisor sums in arithmetic progressions supply local inputs, while ordinary cyclic independent-set algorithms supply the optimization method, but neither identified inspected source supplies this exact combined extremum. Searches included direct aliases and the exact fractions. An undiscovered earlier periodic formulation remains a residual priority risk.
+PASS
 
-## Value
-**PASS.** The result isolates the first arithmetic period at which choosing all even integers ceases to be optimal *within periodic selectors*. This is an intrinsic first-occurrence threshold for the finite-period version of a currently studied divisor-weighted spacing problem, with an explicit local exchange and sharp rational optimum. The numerical improvement is small, but the first crossing and the exact optimal residue pattern are structural, not an arbitrary parameter substitution. The unrestricted optimum is a different, already larger quantity.
+For fixed m, count pairs ab <= X with ab congruent to r modulo m by the divisor hyperbola split. For a <= sqrt(X), the count in b is X gcd(a,m)/(am) + O(1) if gcd(a,m) divides r, and zero otherwise. Doubling this count and subtracting the common square costs O(X) outside the main term. The harmonic sum of the periodic function gcd(a,m) times the divisibility indicator has leading coefficient its mean. The resulting X log X weight is m^(-2) times the sum of gcd(a,m) over a modulo m for which gcd(a,m) divides r. CRT factors this mean. For p^a the terms with valuation k<a each contribute a total p^(a-1)(p-1) when k <= v_p(r), and the zero class contributes p^a if p^a divides r. This proves precisely the two frozen weights and handles the infinite-limit step without a tail interchange. In the finite optimization, conditioning on the first vertex ensures the end constraint is checked, and the last-selected/not-selected recurrence exhausts the remaining path choices; for m=1 the cyclic rule forbids the sole vertex. Independent exact calculation through 90 confirms no strict gain for m<90 and optimum 2040/2700 at 90, with the stated swap (63-24-24) improving 2025 to 2040. The finite reproduction and analytic asymptotic are separate checks.
 
-## Scope of review
-Proof steps and code were checked together. The exact integer dynamic program and brute-force cross-check are reproducible. Searches are nonexhaustive and cannot certify mathematical priority. The result makes no claim about other lengths or independently verified publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The analytic divisor weights and cycle optimization are standard, but the inspected closest work does not determine the first exact period crossing or its optimum. Pass is limited to that fixed-period extremum, not a historical priority claim.
+
+## value
+
+PASS
+
+Parity supplies a canonical selector and a natural mass benchmark. The theorem identifies the minimum cyclic period needed to improve it, and an explicit local exchange explaining how the first improvement occurs. This sharp barrier is necessary information for optimizing simple periodic constructions and is more than a small numerical gain or an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

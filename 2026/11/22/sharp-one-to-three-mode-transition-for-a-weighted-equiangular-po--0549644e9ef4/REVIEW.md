@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Fourier root-of-unity identity, positive denominator factorization and derivative sign formula reduce all critical points to a single strictly unimodal scalar function on the middle cosine sector. Its exact derivative shows precisely zero, one double, or two simple off-axis cosine solutions. The sign chart settles strict maxima and the threshold shoulders, including the circle endpoints. A strictly increasing closed-form threshold and a negative second derivative establish the unique fold and its square-root separation. `check.py` passes twelve exact assertions independently checking the main algebra; numerical enumeration is not used as a universal proof.
+PASS
 
-## Originality
+The third-root Fourier filter gives U=(w−1)P_r+3P_(r³)(3t). For 0<t<π the derivative is negative outside |cos t|<1/2. Inside, its sign is the opposite of w−1−H_r(x), x=cos t; the positive denominator is the product of the two shifted Poisson denominators. Expanding the numerator of dH_r/dx gives the stated factor (r+2x)(1+2rx)(1+r²−2rx), with negative prefactor and the last two factors strictly positive. Hence H_r has one strictly quadratic maximum at −r/2, of height F(r); it is zero at both endpoints. Two interior roots give derivative signs −,+,− as t increases: the larger cosine gives the minimum and the smaller cosine the lateral maximum. At equality the quadratic zero of the derivative gives a shoulder on each side, not an extremum. The sine factor has simple zeros at 0,π with bracket strictly positive there, so the central maximum and antipodal minimum persist nondegenerately, including at equality. F increases from zero to infinity. The curvature H_xx<0 and F′>0 give nondegenerate folds. Taylor expansion in y=x+r/2, using sqrt(r−r*) as the small parameter, gives the stated coefficient sqrt(2F′/−H_xx) and O(r−r*) remainder. Setting w=2 gives the cubic 10q³+6q²+12q−1, increasing on [0,1] and changing sign.
 
-PASS on a best-knowledge basis. Chaubey (2018) develops circular wrapped-Cauchy smoothing and Fourier recovery, not the exact weighted three-site mode diagram. Zhang and Chen (2020) analyze general directional KDE mode consistency, not finite deterministic Poisson critical-point bifurcations. Baringhaus and Grübel (2023) give representation and convolution identities, not modal threshold classification. Related previously published real-line Poisson extension and Cauchy-mixture results have different domains and do not imply the present circle formula. Literature indexing and older special-case treatments remain risks; no unique-priority certification is asserted.
+## originality
 
-## Value
+PASS
 
-PASS. In circular kernel smoothing, the count of resolvable peaks depends on bandwidth and the source mass imbalance. The complete one-to-three mode transition for an entire natural two-parameter three-site family gives an exact cutoff, a unique critical location, and a quantitative fold exponent. The integer-weight four-observation case has a particularly usable algebraic radius, rather than a freely chosen numerical slice.
+The bounded comparison found no equivalent all-weight periodic threshold and fold law. The exact periodic Resultary hit is the frozen record itself. The most similar distinct hits concern real-line positive Poisson mixtures; the available circular wrapped-Cauchy literature establishes the estimation method, not this mode classification. This is a best-of-knowledge comparison, not a historical priority claim.
 
-## Limits and closest sources
+## value
 
-The result is restricted to the equal-angle three-site arrangement and heavier central weight; asymmetric sources are outside scope. The closest accessible primary papers and the explicit comparison appear in RESULT.md and AUDIT.json. Independent verification and publication-priority review have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is a natural first asymmetric three-site circular smoothing model. A sharp criterion for resolving the satellites is useful in its own right: the weight and bandwidth jointly determine when off-center maxima appear, exclude an intermediate two-mode regime, and identify the non-extremal shoulders at the boundary. The fold law quantifies the onset; w=2 makes it concrete for the smallest repeated-central sample of this form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

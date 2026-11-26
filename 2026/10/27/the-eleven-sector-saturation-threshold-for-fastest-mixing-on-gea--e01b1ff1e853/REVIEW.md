@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and the full feasible set are explicitly defined. Averaging a symmetric stochastic matrix over the dihedral automorphism group cannot increase the SLEM spectral norm. The Fourier decomposition yields one radial three-dimensional block and \(n-1\) two-dimensional blocks. For any orbit-invariant feasible weights the positive first-frequency eigenvalue supplies a lower bound, strictly minimized at both row-budget boundaries for \(n\ge11\). Exact rational bounds distinguish eleven sectors from ten. The candidate meets that lower bound because every other Fourier mode and both radial nonconstant eigenvalues lie strictly inside it. Independent dense-matrix tests and exact rational certificates were replayed successfully. The proof does not claim uniqueness in the non-invariant feasible set.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2004 paper of Boyd, Diaconis, and Xiao formulates FMMC generally and compares standard heuristics; it does not evaluate subdivided-wheel transition weights. The 2009 full text of Boyd, Diaconis, Parrilo, and Xiao explicitly solves unsubdivided wheels in Section 5.4.3 but does not state the gear-graph three-orbit spectral analysis or the eleven-sector saturation cutoff. Jafarizadeh's 2020 full text treats clique-lifted and pendant subgraphs, not this cyclic subdivision-and-hub topology. Searches using gear, subdivided wheel, fastest mixing, Fourier SLEM and saturation terminology found no directly covering statement. The original structure is closely related to the published wheel calculation, and other specialized graph-mixing work could remain unindexed. No independent priority determination is claimed.
+PASS
 
-## Value — PASS
-The gear graph is a natural relay-augmented wheel and has two distinct rim vertex roles. The result gives an exact optimizer over *all* admissible symmetric stochastic matrices for every size above a sharp dimension boundary, identifies which holding probabilities disappear, and quantifies the comparison with a ubiquitous maximum-degree baseline. The eleven-sector boundary is a substantive structural switch caused by the competition between radial and rim Fourier eigenmodes, rather than a numerically chosen graph parameter. A full solution below eleven is not asserted.
+Convex dihedral averaging preserves feasibility and suffices for the global value. For the invariant feasible triangle 0≤p≤1/n, 0≤q≤(1−p)/2, the positive first-frequency eigenvalue decreases strictly in q and its saturated boundary value decreases strictly in p under the stated n≥11 inequality. Equality in that lower bound therefore requires both saturated weights within the invariant family. At this corner the maximum among nonzero frequencies is the positive k=1 value, with the other competing modulus from the negative radial eigenvalue. Exact rational comparisons at 10 and 11 and the increasing cubic bound for n≥12 give the claimed switch. At 10 the isolated active negative mode is not in the kernel of the outer-edge Laplacian (equal rim coordinates in a radial eigenvector would force all three coordinates to give the constant eigenvector); thus moving q down strictly improves the objective locally. For the maximum-degree rule the two nonzero eigenvalues of the radial Laplacian before dividing by n have sum n+5 and product 4n+2. The small root tends to 4 and the large root is n+1+O(1/n), so neither radial modulus competes asymptotically with the positive k=1 transition eigenvalue. Taylor expansion of both dominant eigenvalues gives the stated coefficients and ratio.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest exact published SLEM case inspected is the ordinary wheel, not the gear graph. The distinct indexed comparator with exactly the saturated gear weights optimizes a different spectral objective and has a different cutoff. The supported distinct claim is the explicit gear SLEM optimum with the 10/11 boundary and its spectral-gap comparison, not symmetrization, Fourier decomposition in general, or maximum-degree weighting.
+
+## value
+
+PASS
+
+The weights give a usable exactly optimal chain on a natural relay-augmented wheel. The sharp integer onset explains a genuine change in the active spectral constraint: the negative radial mode obstructs full saturation at ten, while the positive first Fourier mode certifies it from eleven. The benchmark gap ratio is nontrivial and quantified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

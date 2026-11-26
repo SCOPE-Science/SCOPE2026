@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:29:14.126284Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–86; VERIFICATION.md and verify.py inspected. All-time covariance and attainment verified analytically, not inferred from finite tests."
+      ],
+      "rationale": "Independently using the reset-age representation, the stationary angle is an independent reset angle plus circular Brownian motion of independent Exp(λ) age. Its nth Fourier coefficient is the nth reset coefficient times λ/(λ+n²Drot), which gives c₁=aμ and c₂=bη. Coupling at the next reset also shows uniqueness of this stationary law. Conditional on the initial angle, the no-reset contribution to the centered velocity harmonic at lag s decays at k=Drot+λ, while on a reset all dependence on the initial angle is lost. Thus the centered lag covariance is exp(−ks)Σ. In planar coordinates 2Σ=(1−|c₁|²)I+H(c₂−c₁²). Integrating over both times and adding independent translational noise yields the displayed G_k(T) and effective tensor under Cov/(2T). For a circle variable Z of mean μ, |E(Z−μ)²|≤E|Z−μ|²=1−|μ|². Any boundary value is realized by the unique mean-preserving law on the endpoints of the appropriate line through μ; a mixture of opposite boundary phases realizes any interior value, and |μ|=1 forces a single atom. This proves the whole affine tensor disk. Isotropy is its containment of zero in the traceless coordinate, so q_*=b/(b+|b−a²|). At positive extremal drift rotate μ to the positive real axis. Equality forces a perpendicular chord for b−a²>0 and a parallel chord for b−a²<0, giving exactly the stated symmetric and antipodal weights. Since b−a²=t(1−2t)/[(4+t)(1+t)²], the transition has q_*=1 and unique deterministic reset; substitution gives v/3 and D+8v²/(27Drot). The four-atom example gives μ=1/2 and η=5/16, hence v aμ=1/4 and K=D+15/64 in each direction. G_k(T)>0 ensures that isotropy is exactly the same criterion at each positive finite time.",
+      "residual_risks": [
+        "Only convex feasibility at admissible prescribed drift is claimed: |μ|>1 is impossible. Rigidity is for the extremal isotropic solution at nonzero drift or the nondegenerate disk boundary, not interior isotropic solutions in general. Translation noise is independent and isotropic, angular initialization is stationary, and equal covariance eigenvalues do not imply rotational invariance of the displacement law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baouche et al. introduce a reset distribution P but specialize the reported transport coefficients to P=δ on the x-axis. Olsen gives general stationary moment machinery, not a two-time active displacement law. Olsen–Löwen study exact moments and optimization for relative turning increments."
+        ],
+        "reasoning": "The ingredients of angular-moment computation and the deterministic reset model precede the submission. None of these earlier statements alone specifies full fixed-drift tensor attainability, including the off-diagonal coefficient for independent absolute redraws.",
+        "searches": [
+          "Baouche et al. arXiv:2405.06769v1, pp. 2–3, 5 and 10",
+          "Olsen arXiv:2310.04840, pp. 1 and 3–4",
+          "Olsen–Löwen arXiv:2405.14326, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.06769v1",
+        "arXiv:2008.03294",
+        "arXiv:2310.04840",
+        "arXiv:2405.14326",
+        "Resultary 04ad9d150a30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic diffusion coefficients coincide at λ/Drot=1/2. In the catalogue comparison at fixed μ real, the range of Kxx−Kyy is sharp and the endpoint reset laws are the symmetric two-angle law and the antipodal law."
+        ],
+        "reasoning": "For isotropic effective diffusion the catalogue interval must contain zero. Conversely one may reflect a law with zero longitudinal-minus-transverse difference across the drift axis and average, preserving the real first moment and removing the off-diagonal entry. Thus the later interval theorem already implies the long-time isotropic speed bound, and its endpoint rigidity implies the extremal laws (with the unit-mean case deterministic). This is substantive coverage even though the comparator does not state that optimization in the same form. Its dates do not prove any priority or relationship. Obtaining the entire complex disk, realizing arbitrary tensor phases, and checking the stationary finite-time factorization go beyond the stated scalar projection.",
+        "searches": [
+          "arXiv:2405.06769v1, Eqs. (19)–(20)",
+          "Resultary 04ad9d150a30, main result and endpoint optimizers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-drift feasibility is exactly the first-two-trigonometric-moment disk pushed through the affine angular covariance map. Olsen gives a general stationary moment balance for resetting to a position distribution. Olsen–Löwen use relative reorientation with the transition p(x,φ−θ,t), not iid absolute-angle redraws. The catalogue result gives the same general effective tensor and an exact longitudinal-minus-transverse interval at fixed real first moment."
+        ],
+        "reasoning": "Stationary moment balance can formally recover the Fourier coefficients and relative tumbling is not an equivalent process. The catalogue interval is the real projection of the complex disk, not a determination of every feasible real and imaginary pair; the complete disk uses the classical complex centered-moment constraint and its chord realizations.",
+        "searches": [
+          "Absolute Poisson reset angles arbitrary distribution covariance moments",
+          "arXiv:2310.04840, Eq. (19)",
+          "arXiv:2405.14326, p. 2 angular transition",
+          "Resultary 04ad9d150a30, local RESULT.md tensor and interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The problem is a continuous feasible region rather than a finite table. The inspected catalogue record has the exact arbitrary-law tensor and sharp scalar anisotropy interval; the cited primary equations give deterministic-direction diffusivities."
+        ],
+        "reasoning": "The deterministic isotropy point and the catalogue interval are exact partial matches. Neither displayed result is a full exact catalogue of the off-axis feasible tensors.",
+        "searches": [
+          "Resultary fixed-drift diffusion tensor, isotropic drift and anisotropy bounds; local 04ad9d150a30, RESULT.md offsets 0–5806 and 5700–7491",
+          "arXiv:2405.06769v1, Eqs. (19)–(20)"
+        ]
+      },
+      "rationale": "The supported distinction is the exact full fixed-drift tensor synthesis with arbitrary complex traceless phase, constructive finite-support laws, and its joint interpretation with the all-time covariance. The angular moment balance and circle moment disk are prior mathematical machinery, and the deterministic isotropic point at λ/Drot=1/2 follows from previous fixed-direction diffusivities. A later catalogue item overlaps the arbitrary-law long-time tensor and its sharp longitudinal-minus-transverse projection, with genuine implications for isotropic feasibility and extremizers; these parts are not credited as distinct against that comparator. Its stated interval is not the full off-diagonal disk. The inspected earlier literature does not give the fixed-drift tensor synthesis.",
+      "residual_risks": [
+        "A stronger unlocated orientation-control result might already combine arbitrary iid absolute resets with full tensor attainability. The classical moment disk is not new, and the exact partial catalogue overlap does not settle independent derivation or global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General model statement but deterministic explicit transport in the compared passages",
+          "evidence": [
+            "An absolute angle is drawn from P in the model, then P(ϑ₀)=δ(ϑ₀) is imposed. Eqs. (19)–(20) are the deterministic effective diffusion coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.06769v1",
+          "material_read": "PDF model pp. 2–3, Eqs. (19)–(20) p. 5, discussion p. 10",
+          "method": "Lawful OA PDF passages",
+          "title": "Active Brownian particle under stochastic orientational resetting",
+          "trigger": "Exact reset motion, possible general-law transport theorem"
+        },
+        {
+          "assessment": "Relevant to one-time stationary moments, not fixed-drift transport synthesis",
+          "evidence": [
+            "Resets x to x_r sampled from p_R and gives a stationary moment balance. The applications include Brownian and run-and-tumble motion in harmonic potentials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "PDF abstract p. 1 and model/Eq. (19) pp. 3–4",
+          "method": "Lawful OA PDF passages",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "General resetting that might imply angular-moment formulas"
+        },
+        {
+          "assessment": "Relative rather than absolute redraws",
+          "evidence": [
+            "The transition uses an increment with arbitrary distribution b(θ) applied to the current angle, represented by p(x,φ−θ,t)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.14326",
+          "material_read": "PDF pp. 1–2, abstract and angular law",
+          "method": "Lawful OA PDF passages",
+          "title": "Optimal diffusion of chiral active particles with strategic reorientations",
+          "trigger": "General angular-law moments and optimized diffusivity"
+        },
+        {
+          "assessment": "Fixed-protocol antecedent, not arbitrary-law tensor synthesis in the inspected material",
+          "evidence": [
+            "Separates the protocol resetting orientation only from protocols resetting position."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.03294",
+          "material_read": "PDF pp. 1–3 abstract and model protocols",
+          "method": "Lawful OA PDF passages",
+          "title": "Active Brownian Motion in two-dimensions under Stochastic Resetting",
+          "trigger": "Earlier orientation-only resetting protocol"
+        },
+        {
+          "assessment": "Exact overlap in the long-time tensor and the sharp real projection; implies long-time isotropy optimum but does not state full off-diagonal attainable set",
+          "evidence": [
+            "Optimizes longitudinal-minus-transverse diffusivity over absolute reset laws at fixed real first moment; gives unique symmetric-angle and antipodal endpoint laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-anisotropy-bounds-and-a-reentrant-transverse-regime-for-im--04ad9d150a30/RESULT.md",
+          "material_read": "Local RESULT.md Finding, model and tensor offsets 0–5806 and limitations/prior work offsets 5700–7491",
+          "method": "Resultary and local mirror",
+          "title": "Sharp anisotropy bounds and a reentrant transverse regime for imperfect orientation resetting",
+          "trigger": "Same arbitrary absolute-angle model, potentially equivalent sharp feasible range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope; deterministic prior transport and catalogue real-projection comparison."
+      ],
+      "rationale": "The physical design question is to prescribe mean directed transport while controlling covariance in two dimensions, not to maximize one diffusion number in isolation. Complete feasible-tensor geometry and explicit finite-support realizations allow joint control of diagonal and off-diagonal fluctuations. Stationarity makes the same design apply at every observation time. The extremal isotropic transition is a meaningful comparison of reset protocols, while the complete disk is the substantive addition beyond longitudinal anisotropy alone.",
+      "residual_risks": [
+        "This is an idealized single-particle control theorem with independent absolute Poisson redraws; it does not imply full spatial-law isotropy, or guarantees for initial angular transients or interacting swimmers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

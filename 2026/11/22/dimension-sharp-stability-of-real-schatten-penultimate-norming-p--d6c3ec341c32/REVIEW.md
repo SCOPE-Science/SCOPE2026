@@ -1,26 +1,21 @@
-# Review: dimension-sharp stability of real Schatten norming planes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers are fixed: real two-dimensional subspaces of \(N\)-by-\(N\) matrices, even \(N\ge4\), and \(\varepsilon\le1/(100N)\). For every Hilbert--Schmidt orthogonal basis of squared norm \(N\), normalizing an arbitrary pencil element forces its largest singular value below \(1+\varepsilon\). Its fixed squared singular-value sum then forces every singular value into \([1-3N\varepsilon,1+\varepsilon]\). The polar factors of three normalized pencil elements supply a symmetric-product error; the skew part of an orthogonal cross-product admits a *real exact skew-orthogonal polar correction* while the symmetric defect has norm at most \(0.15\). These steps yield the stated \(3N\varepsilon\) and \(33N\varepsilon\) bounds, and Cauchy--Schwarz gives the directed \(34N\varepsilon\) plane estimate. Equality at zero deficit and the converse are both proved.
+PASS
 
-The explicit block family has only two singular levels in each pencil member. Their ratio is maximized when the scalar identity component vanishes, giving exactly \(\varepsilon=t/(m-1)\). The chosen Hilbert--Schmidt-normalized member has singular spread \(tm/((m-1)\sqrt{1+t^2/(m-1)})\); every member of any conformal plane has flat singular values. The singular-value Lipschitz inequality gives the displayed lower bound. No compactness, unverified computational optimizer, or unproved classification is required. Standalone standard-library diagnostics passed 42 finite cases; they support but do not replace the analytic argument.
+For every normalized X in the plane, the nuclear norm is at most N, so s_max <= 1+epsilon. Subtracting the other N−1 squares from N bounds each squared singular value below by 1−(N−1)(2epsilon+epsilon²). Thus both the Gram defect and distance to the polar factor are at most delta=3N epsilon. Apply this to A, B and (A+B)/sqrt(2) to obtain a cross-Gram defect at most 4delta. Moving to their polar factors U,V adds at most 6delta to the symmetrized defect, so the symmetric part H of W=U^T V has norm at most 5delta. The commuting skew part K has K^T K=I−H²; its polar factor J is skew and orthogonal, and is within 2||H|| of W. This proves 3 and 33 in spectral norm; the coefficient bound gives sqrt(1098)<34. At epsilon=0 the frame is exactly conformal; conversely every linear combination in such a plane has all singular values equal. For the block witness, the ratio of the small and large block singular values is minimized at the pure skew element, giving epsilon=t/(m−1) exactly. Every conformal target has zero singular-value spread, so the distance from the normalized skew element is at least half its spread, giving the stated lower bound. The strict comparison at proof line 108 is only strict when epsilon>0; it is equality at zero, and the theorem's non-strict bound is valid there. I inspected the checker; its finite angle grid and explicit block examples are diagnostics, not proof of the uniform estimates or of the exact supremum.
 
-## Originality — PASS, with residual priority risk
+## originality
 
-The exact **scalar** penultimate real Gelfand width and its parity law are already known from the published-finding corpus finding *A parity law for the penultimate Gelfand number of real Schatten embeddings* (2026-11-17). The scalar value and elementary existence of conformal planes are not new claims. The published published-finding corpus theorem *Exact Grassmannian landscape and endpoint stability for real two-by-two Schatten widths* (2026-11-17) has a full planar profile for **order two**, and is credited. The new claim starts in order four and proves a quantified near-minimizer theorem in every even order, with sharp dimension-dependent excess scale rather than the planar exact profile. Prochno's arXiv:2611.08448 (2026-11-05), Prochno--Strzelecki arXiv:2103.13050, and Hinrichs--Prochno--Vybíral arXiv:2011.06554 analyze width values/bounds, not the specific global correction with its sharp order. The accessible primary full texts and matched database claims were compared on statements rather than title similarity. A differently named older stability theorem could still exist.
+PASS
 
-## Value — PASS
+Pass for the quantitative even-order N≥4 frame and plane stability theorem, including matching order from the explicit family. Not a new Gelfand number or a claim of priority for the scalar optimum, orthogonal complex structures, or the structural ingredients. No inspected statement or implication covers the all-even-order uniform spectral-norm bound together with the matching dimension-dependent obstruction.
 
-The first two-parameter test subspace is the smallest nontrivial subspace determining a penultimate Gelfand number. Knowing its optimal scalar width alone does not determine which test planes remain useful after perturbations. The result supplies a constructive basis-level rigidity theorem and a dimension-dependent, **order-optimal** stability modulus; the explicit extremizing family proves that the factor \(N\) cannot be removed, even in arbitrarily small neighborhoods of the optimal family. These facts are useful for quantitative geometry of Schatten embeddings and robustness of structured matrix pencils. They are not a renaming, a finite numerical table, or a trivial corollary of the scalar optimal value. The numerical leading constant \(34\) is explicitly not claimed sharp.
+## value
 
-## Closest literature and limits
+PASS
 
-- Prochno, *Gelfand numbers of Schatten class embeddings in the quasi-Banach range*, arXiv:2611.08448 (2026-11-05).
-- *A parity law for the penultimate Gelfand number of real Schatten embeddings*, published-finding corpus (2026-11-17).
-- *Exact Grassmannian landscape and endpoint stability for real two-by-two Schatten widths*, published-finding corpus (2026-11-17).
-- Prochno--Strzelecki, arXiv:2103.13050; Hinrichs--Prochno--Vybíral, arXiv:2011.06554.
+The exact width alone says nothing about how much singular-value imbalance can be hidden in nearly optimal two-planes. The uniform rounding theorem and the construction concentrating the loss on a single real skew block show that distance can be of order N times a very small deficit. This is a sharp stability modulus for a standard matrix-norm extremal problem, useful even without optimal constants.
 
-Only real even-order square matrix two-planes and the \(\mathcal S_1\)-to-\(\mathcal S_\infty\) endpoint are treated. The proof is analytic; finite tests are supplemental, and independent mathematical validation has not occurred.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

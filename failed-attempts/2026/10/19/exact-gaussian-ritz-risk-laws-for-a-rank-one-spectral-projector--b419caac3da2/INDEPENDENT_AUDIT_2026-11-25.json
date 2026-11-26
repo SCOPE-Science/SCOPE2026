@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:55:02.129373Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The restricted Gaussian sketch has a Haar null line in C^(m+1), represented by independent circular Gaussians h. In the canonical trial basis, with s^2=alpha and c^2=1-alpha, the branch solves mu=s h_1/(s h_1-c h_(m+1)) and z_j=s h_j/h_(m+1). The square mass matrix is invertible a.s.; the m-1 invariant directions and the distinct root account for the entire pencil. Rotating (h_1,h_(m+1)) gives independent Gaussian numerator and denominator for the centered, scaled root, with radial squared density (1+t)^(-2); beta integration verifies the moment threshold and constants. The Rayleigh quotient is alpha/[alpha+(1-alpha)U], where U=|h_(m+1)|^2/sum_(j=2)^(m+1)|h_j|^2 is Beta(1,k). Its decreasing transform gives the stated CDF; integrating via t=1-U gives the finite-sum mean and harmonic correction. Since kU converges to Exp(1), the transition and positive-limit mean follow; the median is at least k alpha/(k alpha+log 2), proving necessity even along nonconvergent subsequences. The probability-to-mean equivalence uses boundedness. These arguments apply only on the stated open angle range and fixed-confidence quadratic accuracy does not control mean risk. The supplied checker was not executed; analytic reconstruction is the evidence, not independent attestation in the package.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 finding includes Hermitian A with m-1 invariant trial directions and all sketch sizes s>=m. The projector has m-1 spectators in the 1 eigenspace; the remaining ordinary Ritz value and residual norm are alpha and sqrt(alpha(1-alpha))."
+        ],
+        "reasoning": "The stronger theorem specializes without further probabilistic analysis to the rotationally invariant law with radial survival (1+(t/sigma)^2)^(-1). It explicitly excludes refinement.",
+        "searches": [
+          "Resultary 2026/10/12/ec7a4a7d4b05 RESULT.md, Finding and Assumptions",
+          "arXiv:2111.00113v2, sketched Ritz framework as cited"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–96 and references; frozen VERIFICATION.md and VERIFY.py (inspection only)",
+        "arXiv:2604.01037v3 named sections",
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: ec7a4a7d4b05, 629c63caaa73, 78ac65592bb6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the catalogue moment formula set the excess parameter nu=s-m+1=1: the gamma denominator equals 1 and its finiteness condition is p<2. Shao provides a local high-probability quadratic Hermitian refinement bound, not an unconditional expected loss."
+        ],
+        "reasoning": "An exact eigenvalue marginal alone does not yield the eigenvector or its quotient, so the demonstrated overlap is confined to the frozen unrefined branch and its risks.",
+        "searches": [
+          "arXiv:2604.01037v3 §4.3 Theorem 3 and §5.3",
+          "Resultary 2026/10/12/ec7a4a7d4b05 Finding, Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With S=Omega* and s=m, (SW)^dagger SAW and the square generalized eigenproblem have identical roots almost surely."
+        ],
+        "reasoning": "Least-squares sketched Ritz with a square mass matrix is the same calculation as the frozen Petrov–Galerkin branch, not a distinct algorithm.",
+        "searches": [
+          "Resultary 2026/10/12/ec7a4a7d4b05 (Gaussian sketched Ritz, invariant spectators)",
+          "arXiv:2604.01037v3, Algorithm 1 and Theorems 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 Finding lists the exact complex tail and gamma moment product. The November 2 finding is first-order and two-dimensional; November 8 gives a different interior-eigenvalue refinement model."
+        ],
+        "reasoning": "The exact unrefined law is a catalogue formula match, not just a similar tail exponent. The later refinement result is not the projector Beta transform.",
+        "searches": [
+          "Resultary 2026/10/12/ec7a4a7d4b05",
+          "Resultary 2026/11/2/629c63caaa73",
+          "Resultary 2026/11/8/78ac65592bb6"
+        ]
+      },
+      "rationale": "A separately asserted principal exact law of the frozen finding is already the complex square-sketch case of the October 12 invariant-spectator theorem, including the centered moment formula and divergence. The refined Beta law, exact mean loss and dimension-angle threshold are not covered by that source and could motivate a narrower statement; this does not validate the frozen package's presentation of the unrefined exact law as part of its distinct contribution. No repaired finding is submitted.",
+      "residual_risks": [
+        "The comparison is targeted, not exhaustive. No global priority conclusion is made for the surviving refined-value claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier mathematical coverage of the unrefined root",
+          "evidence": [
+            "Complex radial exact survival and gamma moments with nu=s-m+1; refinement excluded."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-real-complex-gaussian-oversampling-thresholds-for-sketched--ec7a4a7d4b05/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 280–3360 and refinement exclusion at 3302; proof sections in local result comparison",
+          "method": "Local Resultary mirror, passage lookup and offset read",
+          "title": "Sharp real/complex Gaussian oversampling thresholds for sketched Ritz moments",
+          "trigger": "Exact complex law for an invariant-spectator trial space"
+        },
+        {
+          "assessment": "Method antecedent and probability bounds, not exact unconditional refined law in inspected passages",
+          "evidence": [
+            "Theorem 3 controls small-angle refined accuracy with probability at least 1-4 delta; §5.3 is an empirical comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.01037v3",
+          "material_read": "Introduction/Algorithm 1 offsets 0–8125; Theorem 2 offset 42040, Theorem 3 offset 50967 and §5.3 offset 67715",
+          "method": "Open-access HTML passage reading",
+          "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+          "trigger": "Same RRR pencil and refinement"
+        },
+        {
+          "assessment": "Different refinement model",
+          "evidence": [
+            "Two-dimensional interior-eigenvalue example, not all-m rank-one-complement projector."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/78ac65592bb6",
+          "material_read": "Finding offsets 0–4274",
+          "method": "Local Resultary mirror",
+          "title": "An exact finite-angle law and logarithmic mean-risk penalty",
+          "trigger": "Related exact refinement and logarithmic loss"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Independent of the unrefined-law overlap, the refinement model exposes a real gap between fixed-confidence quadratic accuracy and unconditional mean error, with an exact dimension-angle consistency criterion. These quantities can inform sketch dimension and risk interpretation; the standard Gaussian-ratio identity alone is not the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

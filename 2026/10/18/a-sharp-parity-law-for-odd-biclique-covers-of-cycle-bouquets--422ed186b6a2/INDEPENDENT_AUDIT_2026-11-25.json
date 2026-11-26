@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:27:15.320824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently counted the binary adjacency kernel using each petal's internal equations z_{j+1}=z_{j−1}, with z₀=z_ℓ equal to the common hub coordinate. Even positions have the hub value and odd positions have one free candidate value per petal. Closing an odd petal forces its candidate to equal the hub; closing an even petal leaves it free. The two terms in the hub equation from each petal agree and cancel. Nullity is therefore 1 plus the number of even petals, which gives rank 2s. For a size-s cover, A=MJMᵀ and rank forces the side-incidence matrix M to be injective; Eulerian parity gives A1=0 and thus Mᵀ1=0. Every side is even and hence so is the XOR edge count; odd o is impossible at rank equality. For the upper bound checked the paired triangles explicitly: the two K₂,₂s share only the extra cross-edge bc; the other six edges are exactly the two triangles at the hub. A square costs one biclique and an unmatched triangle costs two. A rim-edge replacement uv→uxyv toggles only uv, ux, xy, yv by one K₂,₂ on disjoint sides {u,y} and {x,v}. This preserves all other edges regardless of previously used cancelling edges, and generates every length with one biclique per two added vertices. The total is s+(o mod 2), including t=1 and o=0. The uploaded checker was inspected, not run; its finite tests and exact-small-instance search are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general rank bound applies. Corollary 5 rules out rank equality if an even core induces an odd number of edges. For the bouquet V(G) is an even core, so this already gives the extra-unit lower bound once rank is computed.",
+          "Theorem 8's hypothesis is a disjoint union: it cannot furnish rank attainment for an even positive number of odd petals at a shared hub."
+        ],
+        "reasoning": "The parity obstruction is a specialization of a prior theorem, not a novel independent obstruction. The paired-petal construction with rim expansion supplies the missing attainment, including the even-o case. No applicable broader exact classification was established.",
+        "searches": [
+          "Buchanan et al., arXiv:2202.09822 symplectic factorization pp. 6–7",
+          "Buchanan et al., arXiv:2408.08598 Corollary 5 and Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_bouquets.py",
+        "arXiv:2202.09822",
+        "arXiv:2408.08598",
+        "Resultary 5223dd0295b3 and 780b6a270baa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sole-petal formulas and butterfly case are covered; even-core theory proves impossibility of an s-cover for odd o. Summing individual odd-cycle covers uses an extra unit per odd petal and cannot establish the claimed upper bound for arbitrary bouquets.",
+          "Rim subdivision is useful only together with a parity-paired hub base case and the exact shared-hub rank calculation; a direct application of the disjoint-union theorem would give the wrong extra term."
+        ],
+        "reasoning": "The distinct part is the exact all-length hub formula, in particular the assembly allowing cross-petal cancellations and the resulting even-odd gap. The prior lower bound and special cases are explicitly credited.",
+        "searches": [
+          "arXiv:2202.09822 Corollary 4.5 and Theorem 5.1",
+          "arXiv:2408.08598 p. 2, Corollary 5, Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary papers allow nonedges with even cancellation as in the finding. The single-cycle formulas match t=1 exactly. The second paper's disjoint-cycle formula has an extra unit for any nonempty collection of odd cycles, not only for odd many.",
+          "The targeted public query did not give a useful comparison; the primary statements above, not misses, are decisive evidence."
+        ],
+        "reasoning": "Graph disjoint union is not hub identification; even two odd petals distinguish the formulas. The butterfly is exactly the two-triangle bouquet but is one covered low-order case, not the friendship family.",
+        "searches": [
+          "arXiv:2202.09822 Corollary 4.5, Theorem 5.1 and incidence factorization",
+          "arXiv:2408.08598 Theorem 8, even cores and butterfly",
+          "Public query for odd biclique covers, cycle bouquets and friendship graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 5223dd0295b3 gives p(G)=t and counts minimum edge-disjoint simple-path decompositions, not XOR biclique covers. Its text mentions unidentified separate odd-cover work. Record 780b6a270baa concerns global forcing of one-leaf coronas.",
+          "The published butterfly example concerns a single two-petal case; no friendship or bouquet table covering the formula was identified in the comparisons made."
+        ],
+        "reasoning": "The two indexed findings are not matches on the invariant, and the unattributed mention cannot establish or exclude an independent prior formula.",
+        "searches": [
+          "Local Resultary semantic searches for odd biclique cover of cycle bouquet/windmill/friendship and parity",
+          "Inspect Resultary 5223dd0295b3 and 780b6a270baa; inspect arXiv:2408.08598 butterfly passage"
+        ]
+      },
+      "rationale": "Credit prior single-cycle values, the rank and even-core lower bounds, and the butterfly example. The supported distinct result is the uniform rank and matching upper/lower formula for one-vertex unions, where the gap depends on parity of the number of odd petals. The comparison is limited to inspected sources; it does not claim priority for the known ingredients.",
+      "residual_risks": [
+        "Unindexed one-vertex-sum results remain possible. The mention of separate odd-cover work in the indexed path-decomposition record is not specific enough to identify a distinct matching theorem or infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the single-petal cases and general rank machinery",
+          "evidence": [
+            "b₂(Cₙ)=(n−2)/2 for even n, (n+1)/2 for odd n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.09822",
+          "material_read": "Symplectic factorization pp. 6–7, Corollary 4.5 p. 10, Theorem 5.1 p. 11 (OA offsets ~17500, ~29535, ~29950)",
+          "method": "OA primary full-text targeted passages",
+          "title": "Odd Covers of Graphs",
+          "trigger": "Foundational rank theory and exact cycle formulas"
+        },
+        {
+          "assessment": "Covers parity lower bound and small case; exact theorem is for a different union operation",
+          "evidence": [
+            "An even core inducing an odd number of edges prevents rank attainment.",
+            "With at least one odd cycle the disjoint union incurs +1 above half its binary rank; it shares no hub."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.08598",
+          "material_read": "p. 2 butterfly example, p. 4 Corollary 5, pp. 6–7 Theorem 8 and proof (offsets ~3800, ~12900, ~23600)",
+          "method": "OA primary full-text targeted passages",
+          "title": "On odd covers of cliques and disjoint unions",
+          "trigger": "Even cores, related disjoint-cycle formula and butterfly"
+        },
+        {
+          "assessment": "Same family, different invariant; cross-reference unresolved",
+          "evidence": [
+            "p(G)=t for edge-disjoint simple-path partitions; mentions separate odd-cover work without identifying it."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-all-minimum-simple-path-edge-decompositions-of-cycle-bouquets--5223dd0295b3",
+          "material_read": "RESULT.md Finding and related-work comparison near offset 5850",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "All minimum simple-path edge decompositions of cycle bouquets",
+          "trigger": "Strongest indexed object match"
+        },
+        {
+          "assessment": "Different graph operation and invariant",
+          "evidence": [
+            "Concerns global forcing in leaf coronas, not odd biclique cover."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-odd-cactus-obstructions-to-global-forcing-in-one-leaf-coronas--780b6a270baa",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Odd-cactus obstructions to global forcing in one-leaf coronas",
+          "trigger": "Same-day closely ranked cactus parity hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycle bouquets are a natural first articulation family after disjoint cycles. Their exact gap above half the binary rank changes from a presence-of-odd-cycles criterion to an odd-number criterion. This isolates what hub identification permits—pairing odd petals by cancelling a cross-edge—and yields an optimal constructive answer for all petal lengths rather than a small example or enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:08:39.707294Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53, VERIFICATION.md, checker.py and checker.cpp (inspected, not executed)",
+        "/workspace/branches/3b935e2f-121f-4a25-b512-4df65a184adb/reproduce.py",
+        "/workspace/branches/3b935e2f-121f-4a25-b512-4df65a184adb/vector_repro.py",
+        "/workspace/branches/3b935e2f-121f-4a25-b512-4df65a184adb/set-checks.txt",
+        "/workspace/branches/3b935e2f-121f-4a25-b512-4df65a184adb/vector-full-run.txt"
+      ],
+      "rationale": "The only strict order comparisons are root-to-leaf. Write A={i:rRi}, E={i:iRr}, and a=1 for rRr. FC forces every leaf row to include A and, if a=1, to be nonempty. BC makes each E row full and, if a=1, requires every leaf column to be nonempty. If A intersects E, transitivity forces the root loop and then A=E=L, the universal relation. Otherwise an A row is exactly A by transitivity from the root, and a C row, for C=L minus (A union E), cannot hit E or the root; it is A plus its row of S on C. Conversely compositions in a C row either stay in C, where S must be transitive, or end in A, whose rows add nothing. The root, A and E rows also preserve transitivity directly. For a=0 and fixed C the remaining labels can be distributed between A and E in 2^{m-c} ways. With a=1 and c<m, the two all-one-side assignments require exactly row or column nonemptiness on S and give 2U_c, and the others give (2^{m-c}-2)T_c. With c=m the loop imposes both conditions (V_m); without it one has T_m. The universal exception adds exactly one. Summing gives the stated expression for m>=1. Independent full star scans for m=0 through 4 obtained 2,8,38,379,7182; set equality with the normal form was checked for m=0 through 3. Independent exhaustive enumeration of T_c,U_c,V_c through c=5 followed by formula substitution gave 238810 at m=5. The latter is not a direct scan of all six-world star relations.",
+      "residual_risks": [
+        "The formula uses m>=1, fixed labels and exactly the two given confluences, not the reflexive or three-confluence variants. The cited count_transitive5.cpp was not in the attached support; the auxiliary counts were independently obtained, and the infinite statement rests on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d6d8ca79c791 is unrestricted in the number of leaves and supplies the full root-loop classification and count.",
+          "c2322bd3fc1f instead imposes reflexivity and three confluences; Fernández-Duque studies a finite-model property with its own expansivity conditions."
+        ],
+        "reasoning": "The covering result is already all-size under matching assumptions. Stronger hypotheses in the reflexive, three-condition census restrict the class and cannot substitute for that exact match. General semantics results explain terminology but are not themselves count theorems.",
+        "searches": [
+          "Resultary d6d8ca79c791 Finding and Proof §§1–4",
+          "Resultary c2322bd3fc1f Finding",
+          "arXiv:2609.27078 Definition 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d6d8ca79c791 and c2322bd3fc1f",
+        "arXiv:2606.07348 §3.2",
+        "arXiv:2403.00201 Definition 7",
+        "arXiv:2609.27078 Definition 2.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier a=0 sum is sum_{c=0}^m binom(m,c) 2^{m-c} T_c; its a=1 sum is V_m+1+2 sum_{c=0}^{m-1} binom(m,c)U_c+sum_{c=0}^{m-2} binom(m,c)(2^{m-c}-2)T_c."
+        ],
+        "reasoning": "The omitted c=m-1 term of the final earlier sum has zero coefficient. For c<m the combined T_c coefficient is 2^{m-c}+(2^{m-c}-2)=2(2^{m-c}-1); the c=m contribution is T_m. The U_c terms, V_m and the constant 1 are unchanged. This gives the exact bound formula and makes its m=5 entry a mechanical evaluation. The matching middle-block and loop cases also cover the structural claim.",
+        "searches": [
+          "Resultary d6d8ca79c791, Finding offsets 0–4448 and Proof §§1–4 offsets 4000–8522"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Resultary d6d8ca79c791 the carrier is one root below labelled incomparable leaves, its relation is transitive with optional loops, and its two quantified laws are the bound FC and BC. Its S,B,M blocks correspond to A,E,C here; the transitive middle relation, complete-relation exception and loop restrictions match.",
+          "Balbiani–Gencer distinguishes C_fb from C_fd; Balbiani et al. use the aliases forth-up and back-up and distinguish forth-down."
+        ],
+        "reasoning": "The older rooted fork is the same poset here; relabeling blocks does not change the relation class or the normal form. This is not a match through a chain, unlabelled count or a different confluence convention.",
+        "searches": [
+          "Resultary meaning search for transitive modal frames on rooted forks/stars with forward and backward confluence",
+          "arXiv:2606.07348 §3.2",
+          "arXiv:2403.00201 Definition 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent catalog hit d6d8ca79c791 gives 8,38,379,7182 for m=1,2,3,4 and provides both all-m root-loop counts, rather than just a short numerical table.",
+          "The distinct c2322bd3fc1f census has different hypotheses and different counts."
+        ],
+        "reasoning": "The small numbers corroborate the explicit class match, but the reason for coverage is the earlier all-m formula and equivalent decomposition. The m=5 value need not be printed there to be covered.",
+        "searches": [
+          "Resultary meaning search for labelled rooted-star / rooted-fork transitive relation normal forms and census"
+        ]
+      },
+      "rationale": "The distinct published Resultary record d6d8ca79c791 (2026-10-18 UTC) gives an equivalent normal form and all-size formula for the same labelled rooted carrier, optional root loop, transitivity and exact two quantified laws. The earlier case-split sum algebraically equals this finding's formula; the extra explicit m=5 evaluation is a direct substitution. This is verified mathematical coverage, not an inference from titles, index dates, or small equal counts, and makes no historical attribution claim.",
+      "residual_risks": [
+        "Historical authorship and priority are not adjudicated. The failure rests on a directly inspected distinct published matching statement, not on an unavailable source or an incomplete search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact substantive coverage",
+          "evidence": "Matching quantified assumptions, corresponding S,B,M blocks, identical loop restrictions and universal exception; summing the displayed two root-loop cases gives the frozen formula.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-two-colour-ordinal-sum-normal-form-for-transitive-modal-frames--d6d8ca79c791",
+          "material_read": "Mirrored RESULT.md Finding offsets 0–4448; Proof §§1–4 offsets 4000–8522",
+          "method": "Configured Resultary search and local mirror primary-record reading",
+          "title": "A two-colour ordinal-sum normal form for transitive modal frames on rooted forks",
+          "trigger": "Same rooted carrier, transitivity, two confluences and formula"
+        },
+        {
+          "assessment": "Distinct restricted relation class",
+          "evidence": "Reflexivity and three confluence conditions, with both labelled and isomorphism counts.",
+          "identifier_or_url": "2026/10/18/SCOPE-preorder-and-ideal-normal-form-for-reflexive-transitive-dunn-fis--c2322bd3fc1f",
+          "material_read": "Mirrored RESULT.md Finding offsets 0–3959",
+          "method": "Configured Resultary search and local mirror primary-record reading",
+          "title": "Preorder-and-ideal normal form for reflexive-transitive Dunn–Fischer–Servi star frames",
+          "trigger": "Nearby star normal form and labelled counts"
+        },
+        {
+          "assessment": "Definition comparison",
+          "evidence": "Forward, backward, upward and downward laws are distinguished; C_fb and C_fd are separate classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.07348",
+          "material_read": "§3.2, PDF pp. 6–7, offsets 16050–19165",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Four intuitionistic modal connectives",
+          "trigger": "Exact FC and BC terminology"
+        },
+        {
+          "assessment": "Equivalent names for the two conditions, not a census in the passage",
+          "evidence": "Quantified forth-up and back-up match the bound FC and BC, with a separate forth-down condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00201",
+          "material_read": "Definition 7, PDF p. 9, offsets 24300–27685",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Constructive S4 modal logics with the finite birelational frame property",
+          "trigger": "Forth-up and back-up aliases"
+        },
+        {
+          "assessment": "Related finite-model theory",
+          "evidence": "Expansivity terminology is tied to that paper’s quantified conditions and does not constitute a star census.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.27078",
+          "material_read": "Definition 2.3, PDF p. 3, offsets 7300–9796",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Fine Selection for Intuitionistic Modal Logic",
+          "trigger": "Expansivity and possible broader modal-frame coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Verification",
+        "Resultary d6d8ca79c791 Finding and Proof §§1–4"
+      ],
+      "rationale": "A structural classification for these frames is worthwhile in itself, but this finding does not add such a classification beyond the existing one. The compact regrouping of the root-loop census adds no new invariant or mathematical range. Its only extra tabulated star size is derived by substituting auxiliary counts into the existing formula, with no independently motivated cutoff or new finite phenomenon at five leaves. The verified finite scans are useful regression evidence, not a distinct scientific finding in this record.",
+      "residual_risks": [
+        "This assessment is of the submitted incremental result, not the utility of the underlying rooted-star normal form."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:09:31.076850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stationary causal convolution, the orientational dot kernel is C(u)=exp(-d|u|)cos(wu), and the independent translational noise has zero mixed covariance. The difference divided by v is the integral of exp(-ks)[C(t-s)-C(t+s)] over s>=0. Splitting at s=t and integrating exponentials gives the stated a and b, with A'(0+)>0. For k<d and w>0 both coefficients are positive; after arranging the zero equation as exp(-(d-k)t)cos(wt+phi)=cos(phi), the initial positive lobe decreases from the level and contributes no positive root. The j-th later positive lobe has its unique maximum at (2πj-delta-phi)/w, with negative second derivative there. Its height exceeds the root level iff j<z and equals it iff j=z, giving the stated rounding rule including quadratic contact and exclusion of t=0. At fixed d,w>0 the logarithm in z is smooth as k tends up to d, so the coefficient of 1/(d-k) and O(1) remainder follow. At k=d>0 with w>0 the two cosine solutions per period are distinct and simple. For k>d and w>0 the oscillatory term dominates after factoring exp(-dt); both the residual and its derivative decay in that normalization, giving infinitely many eventual simple sign changes. At w=0 the scalar difference has positive sign for k≠d and extends to vt exp(-dt) at k=d. Independent replay: python3 /workspace/checks/frozen_replay.py 3; four covariance quadratures including matched and achiral limits, and sampled sign counts 0,2,14 for w=1,3,10 at k=1/2,d=1. Sampling corroborates but does not prove the counts or certify tangencies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pattanayak et al. give the orientation covariance in A8 and obtain mixed equal-time moments from prescribed initial data.",
+          "The run–pause boundary uses a position autocovariance and a discrete propulsion model; the distinct November 22 reversal diagram uses a fourth-order position-only statistic with at most one crossing."
+        ],
+        "reasoning": "Common linear filtering, decay competition and observable names do not turn these results into a theorem for the mixed stationary chiral dot lag, much less a count of all weak-trap roots.",
+        "searches": [
+          "arXiv:2603.26967, Appendix A pp. 15–18",
+          "Resultary SCOPE-a-sharp-oscillatory-memory-boundary-for-a-run-pause-particle-in--f5af1393ce35",
+          "Resultary SCOPE-a-sharp-time-arrow-reversal-diagram-for-a-harmonically-trapped-f--dc843e2cf037"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.26967",
+        "arXiv:2510.15419",
+        "Resultary --89c8c4f46892, --2b4c50ec4d53, --f5af1393ce35, --dc843e2cf037"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary sources supply the orientational covariance, moments with coincident time or a different initial condition and observable; the indexed cases can have a relaxation boundary but count zeros of other functions."
+        ],
+        "reasoning": "The known heading covariance supplies an input, not a ready-made staircase: the causal mixed-lag difference must be formed, with its phase and amplitude, and the later positive lobe maxima compared to the parameter-dependent level. None of the inspected stronger-looking claims yields those thresholds or tangencies.",
+        "searches": [
+          "arXiv:2603.26967 A8 and A17–A22",
+          "arXiv:2510.15419 Eqs. 13–16",
+          "Resultary --f5af1393ce35 and --dc843e2cf037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barman Eqs. 13–16 use a velocity–heading lag and set the initial position to zero.",
+          "Pattanayak et al. Eqs. A17–A22 are equal-time mixed moments, with stationary values as limits.",
+          "For this model the negative derivative of the active part of the stationary scalar position covariance equals v A(t)/2, by differentiating at both ends of the lag and removing the independent OU thermal covariance."
+        ],
+        "reasoning": "A full known same-model stationary scalar position covariance would supply the mixed formula by differentiation; equal-time mixed moments and a nonstationary velocity statistic do not. The root-count and contact classification is the distinctive claim.",
+        "searches": [
+          "Targeted Resultary comparisons for stationary heading–position lag asymmetry and position memory",
+          "arXiv:2510.15419, Section IV and Appendix C",
+          "arXiv:2603.26967, Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact staircase hit --89c8c4f46892 is this very record, not independent coverage. The --2b4c50ec4d53 cancellation record gives infinitely many zero touches at a tuned ratio in a discrete run–pause–reverse position autocovariance."
+        ],
+        "reasoning": "The indexed tangency and boundary claims are not equivalent counts for the same statistic. There is no fixed numerical sequence at issue independent of the continuous model parameters.",
+        "searches": [
+          "Resultary stationary mixed-lag, oscillatory boundary and tangency comparisons, including --89c8c4f46892, --2b4c50ec4d53 and --f5af1393ce35"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact integer staircase, tangencies and regime classification for the stationary mixed heading–position dot statistic in the planar chiral harmonic model. Exponential kernels and lobe counting are standard; related equal-time, velocity–heading and positional memory results are not the same classification.",
+      "residual_risks": [
+        "A same-model full stationary position covariance could imply the closed mixed formula; an unindexed general zero theorem for damped harmonic functions could also overlap the count. The inspected evidence does not establish comprehensive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary covariance input and exact equal-time moments, not inspected coverage of the stationary mixed-lag staircase",
+          "evidence": [
+            "A8 gives the damped cosine heading covariance; A17–A22 are r(t) dotted with heading or transverse heading at t."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.26967",
+          "material_read": "Appendix A pp. 15–18, initial law, A8 and A17–A22",
+          "method": "Bounded OA PDF passages",
+          "title": "Characterizing exact dynamics of a trapped active Brownian particle under torque in two and three dimensions",
+          "trigger": "Same trapped chiral model and close exact correlations"
+        },
+        {
+          "assessment": "Different observable and initialization",
+          "evidence": [
+            "Velocity–heading delay is calculated with r(0)=0, not the stationary position lag."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.15419",
+          "material_read": "Section IV pp. 5–6, Eqs. 13–16; Appendix C pp. 13–14",
+          "method": "Bounded OA PDF passages",
+          "title": "Confinement-Induced Delay in Chiral Active Brownian Particles",
+          "trigger": "Closely related two-direction time asymmetry"
+        },
+        {
+          "assessment": "Structural analogues, not the same model/statistic",
+          "evidence": [
+            "Discrete run–pause position autocovariances, and a fourth-order position-only finite-tumble arrow, respectively."
+          ],
+          "identifier_or_url": "Resultary --2b4c50ec4d53, --f5af1393ce35, --dc843e2cf037",
+          "material_read": "Indexed mathematical claims and hypotheses",
+          "method": "Local Resultary statement comparison",
+          "title": "Run–pause oscillatory memory and finite-tumble time-arrow analogues",
+          "trigger": "Potential equivalent boundary, tangency or reversal count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a measurable stationary lag statistic, the exact finite count, its tangencies and its growth at rate matching are stronger than detecting some oscillation. The formula separates robust sign reversals from touches and isolates the roles of trap, orientational noise and chirality, with thermal positional noise and the positive swimming amplitude irrelevant to the zeros. This is a benchmark for the ideal harmonic model, not a finite-sample detection or generic irreversibility theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

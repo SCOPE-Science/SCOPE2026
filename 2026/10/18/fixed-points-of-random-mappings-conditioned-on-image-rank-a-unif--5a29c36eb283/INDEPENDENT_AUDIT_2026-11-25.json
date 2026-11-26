@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:00:04.088863Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix an image set S of size r. Every surjection onto S is equally likely, and each fixed point is in S. For k prescribed indices in S, fixing those k outputs leaves an inclusion–exclusion count of completions that hit the other r−k labels. Summing over the (r)_k ordered choices yields exactly the displayed moment; the same count is the probability of distinct initial k outputs of a uniform surjection. This proves mean one (k=1), and Var(F)=a₂, with r=1 giving F=1. For iid uniform outputs D counts distinct first-k labels. The probability of full coverage given D=d is nondecreasing in d by inclusion of the sets that still must be hit. Conditioning on coverage thus increases the probability of the top event D=k, proving the lower moment bound, while the distinctness interpretation gives a_k≤1. Expanding the PGF at 1 gives the stated sandwich for z≥1. The birthday bound 1−a_k≤binom(k,2)/r extends to k>r because then the right side is at least one. Factorial inversion is finite for F and absolutely convergent for Poisson(1); summing absolute differences gives (1/2)Σ 2^k(1−a_k)/k!≤e²/r. This includes r=n and is uniform in n. For fixed r the iid output list is onto with probability at least 1−r(1−1/r)^n, so the moments converge to the binomial moments on the same finite support, implying TV convergence. The frozen checker was inspected, not run; its recorded finite tests are not evidence for the uniform estimate or either limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hansen–Jaworski supply the exchangeable-indegree model. The same-day catalogue record states a Poisson–Bernoulli classification for deterministic normalized profiles and a Poisson criterion in terms of maximum relative indegree.",
+          "The inspected Flajolet–Odlyzko theorem includes asymptotic expectations for image points; Bender et al. use a label-sum statistic, not the joint ordinary count and rank."
+        ],
+        "reasoning": "Profile limit theorems concern finer conditioning but cannot be applied by setting only the support size: for the same r the occupancies can be extremely uneven or nearly balanced. In a random rank-conditioned profile, an additional occupancy-concentration argument can recover qualitative limits. This does not give the explicit all-n bound without a further quantitative calculation.",
+        "searches": [
+          "Web: ‘random mappings’ ‘fixed points’ ‘image size’ rank factorial moments Hansen Jaworski",
+          "10.1239/aap/1208358892, §2, Eq. (2.1)",
+          "10.1007/3-540-46885-4_34, §3.1, Theorem 2",
+          "2026/10/18/SCOPE-conditional-fixed-points-of-random-mappings-a-complete-poisson-b--05254e329b97"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_rank_fixedpoint.py",
+        "Two local Resultary profile records cited above",
+        "Hansen–Jaworski 10.1239/aap/1208358892",
+        "Flajolet–Odlyzko 10.1007/3-540-46885-4_34",
+        "Bender et al. 10.37236/1708"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both profile moment identities yield mean one and the exact rank moments by conditional expectation. The same-day identity's upper bound a_k≤1 also survives averaging.",
+          "The finite lower bound comes from monotonicity of the probability of full coverage in the number of distinct initial labels; neither checked profile theorem provides it. Indeed a deterministic profile with r fixed occupied labels and one taking almost all the mass can have a₂ far below 1−1/r."
+        ],
+        "reasoning": "The new lower estimate intrinsically uses the rank-conditioned occupancy distribution, not just the support size of an arbitrary profile. It quantitatively forces a uniform Poisson estimate after inversion, beyond the exact factorial identity and asymptotic profile classifications. No priority order is inferred for the two distinct same-day records.",
+        "searches": [
+          "2026/10/13/SCOPE-poisson-bernoulli-limits-for-fixed-points-of-random-mappings-con--8997d3fea37f, proof 1 and 4",
+          "2026/10/18/SCOPE-conditional-fixed-points-of-random-mappings-a-complete-poisson-b--05254e329b97, proof steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/10/13 prescribed-fibre record gives k!e_k(s)/(n)_k; the 2026/10/18 complete-indegree record gives the same formula in d, among other results.",
+          "Hansen–Jaworski's local-properties paper uses a uniform arrangement with prescribed indegrees. Flajolet–Odlyzko count image points (equivalently nonzero indegrees)."
+        ],
+        "reasoning": "Conditioning on rank r makes the partition uniform over partitions into r blocks, since each admits (n)_r distinct target assignments. Averaging the earlier exact fibre identity then counts ordered k samples falling in distinct blocks of a uniform partition. Labelling the blocks gives a uniform surjection, yielding the same q_k, and inclusion–exclusion gives the displayed expression. This is covered exact-moment content despite different terminology.",
+        "searches": [
+          "Resultary: random mapping fixed points conditioned on image size rank factorial moments surjection collision-free Poisson",
+          "Resultary: simultaneous fixed points image cardinality mixed generating function random mapping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue formulas are indexed by a prescribed partition or a complete degree profile, not by a table of uniform rank-conditioned bounds. Both formulas were read, and their exact-law overlap after averaging is credited.",
+          "The checked classical passages do not tabulate the joint number of image points and ordinary fixed points, or the rank-conditioned error."
+        ],
+        "reasoning": "The formula for a full profile effectively tabulates the factorial moments after averaging, but that table and the label-sum or marginal image-point results did not give the lower comparison with Binomial(r,1/r) or the uniform rate.",
+        "searches": [
+          "Resultary: simultaneous fixed points image cardinality mixed generating function random mapping",
+          "10.37236/1708, pp. 2 and 6",
+          "10.1007/3-540-46885-4_34, §3.1"
+        ]
+      },
+      "rationale": "There is demonstrable overlap in the exact factorial-moment and mean identities: earlier prescribed-fibre moments specialize by averaging, and the distinct same-day indegree-profile result also supplies the moment upper bound. Do not credit those consequences as independently new. The actual rank-conditioned theorem additionally proves a two-sided finite moment comparison and an explicit uniform Poisson error in the rank alone, without imposing a deterministic degree profile; these were not covered by the strongest checked results. The frozen finding is a quantitative rank theorem, not a claim to have discovered the finer conditional moment formula.",
+      "residual_risks": [
+        "The web query returned no useful evidence, so it does not support an absence claim.",
+        "A classical multivariate mapping enumeration or an unindexed quantitative occupancy result could supply equivalent estimates; no such bound was located in the material inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rank moments after mixing; qualitative profile theorem, not uniform rank error",
+          "evidence": "Uniform injection of target labels into blocks gives k!e_k(s)/(n)_k; Poisson iff the maximum relative block size goes to zero.",
+          "identifier_or_url": "2026/10/13/SCOPE-poisson-bernoulli-limits-for-fixed-points-of-random-mappings-con--8997d3fea37f",
+          "material_read": "Finding, assumptions and proof steps 1–4, RESULT.md offsets 0 and 4660",
+          "method": "Local Resultary mirror",
+          "title": "Poisson–Bernoulli limits for fixed points of random mappings conditioned on their fibres",
+          "trigger": "Earlier exact fixed-point moments at the finer fixed-partition level"
+        },
+        {
+          "assessment": "Covers exact rank moments and their upper envelope by mixing over profiles, not the lower envelope or uniform rank rate",
+          "evidence": "Conditional factorial moments are k!e_k(d)/(n)_k≤1; profile TV limits depend on normalized degree coordinates.",
+          "identifier_or_url": "2026/10/18/SCOPE-conditional-fixed-points-of-random-mappings-a-complete-poisson-b--05254e329b97",
+          "material_read": "Finding, assumptions and proof steps 1–4, RESULT.md offsets 0 and 4716",
+          "method": "Local Resultary mirror",
+          "title": "Conditional fixed points of random mappings: a complete Poisson–Bernoulli limit classification",
+          "trigger": "Distinct same-day record with an exact conditional PGF and similar Poisson statement"
+        },
+        {
+          "assessment": "Supplies the model, not the stated quantitative rank theorem",
+          "evidence": "Choose an exchangeable indegree sequence and choose the map uniformly among maps with that sequence.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1208358892",
+          "material_read": "§2, pp. 184–185, Eq. (2.1), offsets 7284 and 9224",
+          "method": "OA original PDF passage inspection",
+          "title": "Local Properties of Random Mappings with Exchangeable In-Degrees",
+          "trigger": "Uniform conditioning on exchangeable indegrees"
+        },
+        {
+          "assessment": "Relevant image-count asymptotics, not the checked joint conditional result",
+          "evidence": "Image points are among parameters with asymptotic expectations in Theorem 2.",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+          "material_read": "§3.1, Theorem 2, pp. 336–337, offset 26400",
+          "method": "Publisher PDF obtained and relevant passage inspected",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classical enumeration of image size and possibly related markings"
+        },
+        {
+          "assessment": "Different statistic, no relevant rank-conditioned bound in passages",
+          "evidence": "Statistic is the sum of fixed labels, not the number of fixed points; the mixed generating-function passage concerns permutations.",
+          "identifier_or_url": "https://doi.org/10.37236/1708",
+          "material_read": "pp. 2 and 6, PDF offsets 1382 and 12041",
+          "method": "OA original PDF passage inspection",
+          "title": "A Discontinuity in the Distribution of Fixed Point Sums",
+          "trigger": "Fixed-point asymptotics for permutations and all maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Image rank is a natural coarse observable distinct from a fixed occupancy profile or the set of cyclic vertices. The moment comparison gives a uniform finite control of the change caused by conditioning only on rank and explains why even very sparse growing ranks have Poisson fixed-point counts, whereas bounded ranks give a different binomial regime. The finite-rank rate requires no relative scaling of n, and the lower moment and variance comparisons give information not contained in the exact mean or qualitative profile criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

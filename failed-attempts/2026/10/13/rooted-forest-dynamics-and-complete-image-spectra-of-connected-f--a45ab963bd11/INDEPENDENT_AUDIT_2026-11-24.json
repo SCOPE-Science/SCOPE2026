@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:02:02.453338Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For xRy, Euclideanness gives R(x)⊆R(y), while transitivity gives R(y)⊆R(x). Connectedness propagates the common successor set, which is nonempty by seriality; its members are reflexive and all other members of the frame are not. Boundedness therefore requires exactly that the source core map onto the target core, with no constraint on satellites. For a self-map the core is permuted. Inverse image preserves the modal operator exactly when it satisfies this boundedness condition, and its Boolean image consists of unions of fibers, giving size 2^{c+j}. Inclusion–exclusion counts the maps with a prescribed satellite image set; idempotents fix their entire image pointwise. Periodic vertices are precisely those in the eventual set image, and a prescribed periodic satellite set requires a permutation there and a forest attaching the other vertices to the periodic set. The reduced Laplacian is (n+r)I-J for n nonroots and r specified roots and has determinant r(n+r)^{n-1}; n=0 has one empty forest. The same supports follow from the idempotents, including s=0. The independent replay matched all three spectra in 21 frame cases through six worlds (296,675 function tables), 100 cross-size cases and 380 modal-preservation cases, including the stated three rows for (2,3). Files: /workspace/branches/5bad11d7-7e16-4b86-81fa-d3e7f0da4c58/independent_check.py and replay.txt. The supplied verifier was inspected, not executed; finite checks supplement the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman counts maps whose set of cyclic points is an arbitrary prescribed root set, fixed pointwise. For C∪J as root set, replacing the fixed-point loops by a permutation separately on C and J preserves every edge off the roots, hence multiplies Pitman's count by c!j!.",
+          "Resultary 7871ef876286 concerns generation with a fixed point; 32778df6a6ff counts cycle data under f(Y)⊆Z, not the exact requirement f(Y)=Y. Neither is needed to infer the formula.",
+          "The 2002 Pitman paper provided the decisive mapping passage; the bounded attempt at the 2001 SLC page yielded a landing page, not full text."
+        ],
+        "reasoning": "The source prescribed-root count holds for every prescribed set, not just a singleton. All the extra choices in the KD45 eventual spectrum are choosing J and replacing loops at the already-designated roots. Even without a specific earlier eventual-image polynomial, this gives all its coefficients exactly.",
+        "searches": [
+          "Pitman, doi:10.1006/jcta.2001.3238, Theorem 1 and cyclic-root discussion pp. 178–179",
+          "Local Resultary: rooted singular transformations and full cycle-type census in restricted partial-range transformations",
+          "Prior exact transformation monoids and rank census, including arXiv:1004.2982"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_kd45.py",
+        "arXiv:2406.10770v3; doi:10.1006/jcta.2001.3238; Pitman 2001 SLC (landing page only); arXiv:1004.2982 (generic comparison)",
+        "Resultary e3fc79d02d42, 828aa31d99eb, 5ce12a321daf, 7871ef876286, 32778df6a6ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the known KD45 normal form, for prescribed image C∪J the j satellites must be hit, and the core sites hit by satellite sources can be any subset of size ell. Summing binom(c,ell) times the standard surjection count (j+ell)! S(s,j+ell) over ell, then multiplying by c! binom(s,j), is exactly the proposed E coefficient.",
+          "For fixed image C∪J, all retractions in the fixed-one-point model on c+s points (with the distinguished point in C) already fix all of C, giving exactly (c+j)^{s-j} without further filtering. The eventual coefficient is the direct prescribed-root specialization above. The cross-frame hom count is a surjection from C to D times a free function on S."
+        ],
+        "reasoning": "This gives a coefficient-by-coefficient reduction to known exact counts under the established structural normal form, including all c>1 and boundary cases. No use is made of inferred priority or of the inaccessible exact-monoid search.",
+        "searches": [
+          "Formula comparison: e3fc79d02d42 at q=1; Pitman pp. 178–179; Sliusarev Theorem 3.17 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bounded endomorphism action is exactly the finite-set transformation monoid {f:Cf=C}, with no restriction off C; Boolean-modal dualization changes the rank label r to 2^r and reverses composition, without changing the census.",
+          "Resultary e3fc79d02d42, at q=1 and p=s, has one fixed point and arbitrary maps elsewhere; all three counts coincide with c=1, including the forest term."
+        ],
+        "reasoning": "This is an exact action-level equivalence, not a similarity of titles or a numerical coincidence. The S4 and KD45 modalities are different, but do not change the allowed self-maps when c=1. The c>1 case replaces the fixed core by a freely chosen permutation for ordinary and eventual maps, or the identity for retractions.",
+        "searches": [
+          "Local Resultary: bounded maps finite KD45 endomorphism idempotent stable-image rank",
+          "Local Resultary: transformations fixing a distinguished subset setwise; bar-Omega(X,Y) ranks and idempotents",
+          "Sliusarev arXiv:2406.10770v3, proof of Theorem 3.17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e3fc79d02d42 provides the exact c=1 triple; 828aa31d99eb and 5ce12a321daf give related complete rooted S4 and S5 rank results under different frame hypotheses.",
+          "No distinct exact c>1 catalogue census was established by those searches. The focused external monoid query was unavailable; no negative conclusion about that literature follows."
+        ],
+        "reasoning": "The counts at (2,3) are direct evaluations of the finite-map formulas, not independent unknown finite invariants. Distinguish the exact c=1 match and mechanically covered c>1 coefficients from identifying a full duplicate record or assigning priority by dates.",
+        "searches": [
+          "Local Resultary searches: exact modal image ranks, endomorphisms/idempotents/eventual ranks, distinguished-subset transformation monoid"
+        ]
+      },
+      "rationale": "The particular three-polynomial packaging in KD45 language was not found verbatim for c>1, but the proposed mathematical counts are direct specializations of the known connected-frame normal form and exact finite-map enumerators. In particular the c=1 triple is explicitly present for the identical underlying map action in e3fc79d02d42, the retraction coefficients for any c are a prescribed-image subcount of that very model, and the eventual counts for any c follow immediately from Pitman's prescribed cyclic-root census. The one-step and hom-set counts are direct ordinary surjection counts on prescribed subsets of a finite target. No additional constrained dynamics remain once the known normal form is substituted. This is an implication-based judgment, not a claim that a paper enumerating the exact monoid's full triple was retrieved. The failed focused web lookup was not used as evidence of coverage.",
+      "residual_risks": [
+        "Whether a primary transformation-semigroup paper explicitly lists the three spectra under bar-Omega(X,Y) terminology was not resolved; this does not affect the stated implications.",
+        "Catalogue dates are not used to assign priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact structural normal form is established",
+          "evidence": [
+            "Connected serial transitive Euclidean frame has relation X×U_F for a nonempty cluster U_F."
+          ],
+          "identifier_or_url": "arXiv:2406.10770v3",
+          "material_read": "Section 3, proof of Theorem 3.17, HTML offset about 47050",
+          "method": "Bounded OA full-text passage reading",
+          "title": "Modal logics of almost sure validities in some classes of Euclidean and transitive frames",
+          "trigger": "Potential structural antecedent for exactly the same frame class"
+        },
+        {
+          "assessment": "Prescribed cyclic-root count used by the eventual-image formula",
+          "evidence": [
+            "The unweighted r N^{N-r-1} counts forests on N points with specified r roots; the paper identifies these with maps whose prescribed cyclic points are fixed roots."
+          ],
+          "identifier_or_url": "doi:10.1006/jcta.2001.3238",
+          "material_read": "Theorem 1, pp. 178–179 and mapping interpretation",
+          "method": "Bounded OA primary passage reading",
+          "title": "Forest Volume Decompositions and Abel–Cayley–Hurwitz Multinomial Expansions",
+          "trigger": "Exact forest and cyclic-point antecedent of the eventual census"
+        },
+        {
+          "assessment": "Exactly covers c=1; prescribed-image retractions also transfer to c>1",
+          "evidence": [
+            "Lower points map freely and the single top point is fixed; forest term T(s+1,j+1) is F(s-j,j+1). A retraction with prescribed larger image already fixes every point of that image."
+          ],
+          "identifier_or_url": "Resultary:e3fc79d02d42",
+          "material_read": "Mirrored RESULT.md statement and E,I,H formulas at q=1",
+          "method": "Local mirror reading and parameter comparison",
+          "title": "Bounded-map rigidity and three exact image spectra of finite height-two S4 frames",
+          "trigger": "Closest exact triple and identical self-map action at one fixed point"
+        },
+        {
+          "assessment": "Related but not a direct full census of the assigned monoid",
+          "evidence": [
+            "The first studies the fixed-point case for idempotent generation; the second assumes f(Y)⊆Z rather than f(Y)=Y."
+          ],
+          "identifier_or_url": "Resultary:7871ef876286; Resultary:32778df6a6ff",
+          "material_read": "Mirrored Findings and their definition of the classes of maps",
+          "method": "Local mirror reading",
+          "title": "Rooted singular transformations and cycle types in partial-range transformation semigroups",
+          "trigger": "Exact monoid terminology and possible broader transformation census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Image ranks are natural, but in this frame family the modal operator enforces only a setwise-preserved core. All three proposed counts then recover exact generic finite-map counts by the elementary reductions given above. Comparing ordinary and eventual ranks at five worlds illustrates the known distinction between image points and periodic points but does not uncover an additional invariant, structural constraint, or independently needed unknown exact fact. No valuable surviving claim was identified by dropping the already covered pieces.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

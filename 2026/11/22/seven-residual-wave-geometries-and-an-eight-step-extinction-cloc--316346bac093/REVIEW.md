@@ -1,19 +1,21 @@
-# Scientific review: near-majority icosahedral excitation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is given by twelve explicit five-neighbor lists. An exhaustive C++17 functional-graph traversal classifies every integer code in the \(3^{12}\)-state range. Independently, a vectorized Python implementation checks the all-state identity \(F^{11}=F^8\), reconstructs each first-entry time and ultimate period, and compares every individual three-cycle basin to the C++ results. Both yield the identical thirteen nonzero depth–period cells, \(200\) three-cycles, \(1260\) oscillatory-basin configurations, and a sharp eight-step bound. A third verifier checks the entire graph automorphism group, the seven geometric classes and basin multiplicities. The code \(2824\) explicitly witnesses the maximal extinction time. The result is a finite exact classification, not an analytic bound for all graphs.
+PASS
 
-## Originality — PASS, with historical-priority limits
+The independent replay used only adjacency.txt and a new transition implementation. On all 531,441 ternary states it found F^11=F^8 and failure of F^10=F^7; the first equality makes every recurrent period divide three. The minimum t with F^(t+3)(x)=F^t(x) is exactly first periodic entry, with F^(t+1)(x)=F^t(x) distinguishing fixed points. The full histogram agrees: period-1 counts at t=0,...,8 are 1, 4095, 66091, 206142, 176472, 64900, 10440, 1620, 420, and the period-3 counts at t=0,...,3 are 600, 540, 60, 60, zero later. Canonicalizing phases yielded 200 cycles with 100, 40 and 60 basins of sizes 3, 6 and 12. Enumerating all 120 spatial automorphisms and acting on phase-canonical cycles gave seven classes of sizes 5, 5, 20, 30, 40, 40, 60, matching the representative codes and per-cycle basin sizes. The 600 successor-color states with at least two successor-color neighbors at every vertex were exactly the nonconstant recurrent states. The explicit orbit of code 2824 is at code 2 at update 7 and 0 at update 8, so sharpness concerns extinction; the oscillating basin enters by update 3.
 
-The closest complete icosahedral census uses a single required contact, while the present result uses two. Its complete list of phase-class representatives could permit post-filtering to recover the *recurrent configuration set*, so the static count alone is not the originality justification. The sharp two-contact iterate identity, the full transient-period histogram, individual two-contact basins and the eight-versus-six delay reversal are not consequences of that single-contact census. A separate four-state icosahedral census uses four local phases rather than three. The 2016 and 2018 arbitrary-graph theorems use single-contact excitation; a published induced-density extinction criterion is inapplicable because the graph's induced edge density exceeds two. Adamatzky's threshold-two experiments concern random Delaunay triangulations, not an exact icosahedral classification. Multiple exact and alias searches found no covering published result. There remains a risk of an unindexed equivalent enumeration.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The icosahedron is the canonical twelve-site five-regular triangular spherical network. Two contacts is the largest threshold below strict majority on that graph. Its complete transient/recurrent partition shows survival collapse from \(48400\) to \(200\) three-cycle orbits, while the sharp periodic-entry clock counterintuitively grows from six to eight updates. The seven surviving spatial wave types and basin sizes \(3,6,12\) provide a natural reproducible threshold-response benchmark, not an arbitrary subgraph or sampling exercise. The claim is deliberately limited to that exact finite system; no wider theorem is inferred.
+The supported distinction is the threshold-two dynamical census: which states reach each attractor and the sharp relaxation time for this graph. The threshold-two phase colorings can be recovered by a local filter of the known threshold-one phase-coloring catalog, so the static count and geometric quotient are less independent than the dynamics. The inspected distinct records and primary passages do not give the two-contact attraction basins or its global iterate identity.
 
-## Sources and limitations
+## value
 
-The closest direct comparison is *Icosahedral excitation: exact three-cycle, geometric-orbit, and six-step entrance census* (2026), with the 2016 full text of Gravner–Lyu–Sivakoff and the 2018 full text of Doba supplying the single-contact general theory. Adamatzky (2011) discusses threshold-two excitation in noncrystalline triangulations. The 2026 induced-density criterion concerns a different sufficient condition. Detailed comparison and material inspected appear in `AUDIT.json`. External historical coverage is incomplete, and independent external validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The regular icosahedral graph is a natural common benchmark for comparing the two local rules. The full transition census provides information not available from phase-coloring data: raising the threshold prunes the recurrent waves from 48,400 to 200 but increases maximum first periodic entry from six to eight. It isolates the slow extinction tail from the small oscillating basin with an exact sharp identity and supplies per-orbit basin sizes. This supports a concrete comparison of persistence versus transient duration, without suggesting a monotonicity or a general theorem for other graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,101 +1,44 @@
-# A universal attachment law along conditioned paths in uniform labeled trees
+# Joint endpoint degrees decrease with distance in a uniform labeled tree
 
 ## Finding
 
-Let \(T\) be uniform over all labeled trees on \([n]\), where \(n\ge3\). Fix a labeled tree \(S\) on a specified set of \(q\) vertices, with \(2\le q<n\), and condition on every edge of \(S\) belonging to \(T\). Put \(m=n-q\) and enumerate the vertices of \(S\) as \(v_1,\ldots,v_q\). Define the *outside attachment count* \(X_i=\deg_T(v_i)-\deg_S(v_i)\). For arbitrary indeterminates \(z_1,\ldots,z_q\), the complete joint probability generating function is
-
+Let \(T\) be uniform on the labeled trees on \([n]\), with \(n\ge3\), and fix distinct labels \(u,v\). For \(1\le k\le n-1\), let \(D^{(k)}\) have the law of \((\deg_T(u),\deg_T(v))\) conditional on \(d_T(u,v)=k\). There is a coupling of all these laws on one probability space such that
 \[
-\boxed{\mathbb E\left[\prod_{i=1}^q z_i^{X_i}\mid S\subseteq T\right]
-=\left(\frac{m+\sum_{i=1}^qz_i}{n}\right)^{m-1}
-\frac{\sum_{i=1}^q z_i}{q}.}
-\tag{1}
+D^{(1)}\ge D^{(2)}\ge\cdots\ge D^{(n-1)}=(1,1)
+\quad\text{coordinatewise almost surely}.
 \]
-
-Equivalently, in law
-
-\[
-\boxed{(X_1,\ldots,X_q)= (Y_1,\ldots,Y_q)+(\mathbf1_{\{J=1\}},\ldots,\mathbf1_{\{J=q\}}),}
-\tag{2}
-\]
-
-where \(J\) is uniform on \(\{1,\ldots,q\}\) and independent of the multinomial vector whose \(m-1\) trials choose each of the \(q\) displayed categories with probability \(1/n\), and an additional unobserved category with probability \(m/n\). Thus the entire outside-degree vector, *not just its marginals*, is exchangeable and depends on the marked connected subtree only through its order \(q\), regardless of topology.
-
-For distinct \(i,j\), in the same conditional law,
-
-\[
-\boxed{\operatorname{Cov}(X_i,X_j\mid S\subseteq T)
-=-\frac{m-1}{n^2}-\frac1{q^2}<0.}
-\tag{3}
-\]
-
-If \(q\ge2\) is fixed while \(n\to\infty\), the vector of attachments converges jointly to
-\[
-(Z_1,\ldots,Z_q)+(\mathbf1_{\{J=1\}},\ldots,\mathbf1_{\{J=q\}}),
-\tag{4}
-\]
-where \(Z_i\) are independent Poisson variables of mean \(1\), independent of uniform \(J\). In particular its negative pairwise covariance tends to \(-1/q^2\), rather than vanishing.
-
-For two distinct fixed labels \(u,v\), condition on their unique path having length \(k\). Then \(q=k+1\), and (1)--(4) describe all path-vertex excess degrees, with baseline degree \(1\) at the endpoints and \(2\) at interior path vertices. In particular, for \(1\le k\le n-2\),
-
-\[
-\boxed{\operatorname{Cov}(\deg_T(u),\deg_T(v)\mid d_T(u,v)=k)
-=-\frac{n-k-2}{n^2}-\frac1{(k+1)^2}.}
-\tag{5}
-\]
-
-At \(k=n-1\) the tree is the prescribed spanning path and both endpoint degrees are \(1\), so the conditional covariance is \(0\). Moreover the *pair* of endpoint degrees admits a coordinatewise monotone coupling as \(k\) increases from \(1\) through \(n-1\), with each marginal expectation strictly decreasing. The bivariate ordering is stronger than the previously established one-endpoint stochastic regression.
+Thus for every coordinatewise nondecreasing function \(g\), the conditional mean of \(g(\deg_T(u),\deg_T(v))\) is nonincreasing in distance. For example, this applies to the probability that both endpoints meet prescribed degree thresholds, or that either endpoint does. The mean of each endpoint degree separately is strictly decreasing. The main claim is the joint order: ordering both marginals alone does not establish it.
 
 ## Assumptions and scope
 
-The underlying probability space is the **uniform labeled-tree** law, not a uniformly random unlabelled tree or a nonuniform spanning-tree model. Conditioning on a fixed connected labeled subtree is legitimate because its containment probability is positive. The notation \(S\subseteq T\) means edge containment, not an induced-subgraph restriction; for a tree containing a connected tree, the two interpretations agree on those marked vertices. Formula (1) holds for every \(2\le q<n\). For \(q=n\), every outside attachment count is deterministically zero. The distance-conditioned conclusions concern fixed labeled endpoints; after specifying the distance, all ordered choices of interior labels have the same conditional outside-degree law.
+This is the uniform **labeled** tree measure, with fixed distinct labeled endpoints; it is not a statement about uniformly chosen unlabeled trees or arbitrary spanning-tree models. The coupling is of the pairs of endpoint degrees, not of full trees or of path-vertex vectors of changing length. The strict mean comparison is not a claim of strict inequality for every increasing test function.
 
 ## Proof
 
-**Extension count.** Write \(m=n-q\). Moon's classical forest-extension formula, as stated and proved in Pitman's *Coalescent Random Forests*, says that a fixed forest with \(c\) components of orders \(s_1,\ldots,s_c\) is contained in exactly \(n^{c-2}\prod_{j=1}^c s_j\) labeled trees. Applied to \(S\) and the \(m\) isolated unmarked vertices, it gives exactly \(qn^{m-1}\) completions.
-
-**Joint factorial moments.** Choose disjoint prescribed sets \(A_i\) of unmarked vertices, with \(|A_i|=r_i\), and prescribe the edges from every vertex of \(A_i\) to \(v_i\). With \(r=\sum_i r_i\le m\), this is a forest with one component of order \(q+r\) and \(m-r\) isolated vertices. The number of completing trees is \((q+r)n^{m-r-1}\). Dividing by the former count, then summing over distinct ordered outside neighbors, yields
-
+First fix the ordered interior labels on the \(u\)-to-\(v\) path and put \(q=k+1\), \(m=n-q\). Suppose \(q<n\). Contract the specified path to a vertex \(*\). Each resulting tree on \(m+1\) vertices can be lifted by choosing, independently for each edge incident to \(*\), which marked vertex receives the edge. Every such choice gives a tree containing the specified path, and these choices recover all completions bijectively. Assign weight \(z_i\) to an attachment to marked vertex \(i\), numbering the endpoints 1 and 2. With \(Z=\sum_{i=1}^q z_i\), the weighted count of lifts of a contracted tree is \(Z^{\deg(*)}\). The classical Cayley degree-generating polynomial \((\prod_i x_i)(\sum_i x_i)^{N-2}\) for \(N=m+1\), evaluated at \(x_*=Z\) and all other \(x_i=1\), gives \(Z(m+Z)^{m-1}\). Normalizing at \(Z=q\) gives the conditional attachment generating function
 \[
-\mathbb E\left[\prod_i(X_i)_{\underline{r_i}}\mid S\subseteq T\right]
-=(m)_{\underline r}\frac{q+r}{q n^r}.
-\tag{6}
+\frac{Z}{q}\left(\frac{m+Z}{n}\right)^{m-1}.
 \]
+This calculation depends only on \(q\), not the interior labels. Each tree has a unique path between the marked endpoints, so averaging over the disjoint label choices preserves the formula. Both endpoint degrees are one plus their attachment counts. If \(q=n\), conditioning forces a spanning path with endpoints \(u,v\) and no outside attachments.
 
-All factorial moments are zero when \(r>m\). There is no independence assumption in this step. These counts remain valid at \(r=m\), because the last extension count simplifies to \(1\).
+The two-variable specialization \(z_1=s,z_2=t,z_i=1\) for \(i\ge3\) factors into the generating function for \(n-q-1\) independent trials (each contributes to endpoint 1 or 2 with probability \(1/n\) apiece and contributes to neither otherwise), times that for one independent choice \(J_q\) uniform on \(\{1,\ldots,q\}\). That choice contributes one to an endpoint only if \(J_q=1\) or \(2\).
 
-**Generating function.** Put \(W=\sum_i(z_i-1)\). Expanding \(\prod_i(1+(z_i-1))^{X_i}\), inserting (6), and applying the multinomial theorem gives
+Use prefixes of one common sequence of independent trials for all \(q\le n-1\). Independently, draw a uniformly random ordering of \(\{1,\ldots,n-1\}\) and let \(J_q\) be the first member of \(\{1,\ldots,q\}\) in that ordering. This is uniform on the prescribed set. Once an endpoint ceases to be first it cannot become first again as the set grows, so both endpoint contributions from the uniform choice are nonincreasing pathwise. Each trial contributes a nonnegative pair, and the prefix shortens as \(q\) increases. The two attachment counts therefore decrease simultaneously, with the final pair at \(q=n\) set to zero. Adding one to each count proves the stated coupling.
 
-\[
-\begin{aligned}
-\mathbb E\prod_i z_i^{X_i}
-&=\sum_{r=0}^m\binom mr \frac{q+r}{q}\left(\frac Wn\right)^r\\
-&=\left(1+\frac Wn\right)^{m-1}\left(1+\frac Wq\right).
-\end{aligned}
-\]
-
-Since \(n=q+m\), the last expression is (1). Factoring the two probability generating functions establishes the independent multinomial-plus-categorical representation (2). For distinct coordinates, multinomial covariance is \(-(m-1)/n^2\) and the one-hot categorical covariance is \(-1/q^2\); independence proves (3). For fixed \(q\), the standard multinomial rare-category limit gives independent Poisson variables of mean \(1\), proving (4).
-
-**Conditioned geodesics.** A tree has one path between fixed labels \(u,v\). When its distance is \(k\), fixing its ordered interior labels specifies a connected labeled subtree with \(q=k+1\) vertices. Formula (1) is independent of those labels, hence averaging over them gives the same law conditional only on the distance. The two endpoint baseline degrees equal \(1\), so their covariance is (3), giving (5). The case \(k=n-1\) is deterministic.
-
-**Joint endpoint coupling.** Fix \(n\), and write \(q=k+1\). For each \(q\le n-1\), represent the attachments to the two marked endpoints using the first \(n-q-1\) variables of one infinite sequence of independent categorical trials, each hitting endpoint one or two with probability \(1/n\) apiece. Independently take \(J_2\) uniform on \(\{1,2\}\), and construct \(J_{q+1}\) by retaining \(J_q\) with probability \(q/(q+1)\), and otherwise setting it equal to \(q+1\). Each \(J_q\) is uniform on \(\{1,\ldots,q\}\), while the indicators \(\mathbf1_{\{J_q=1\}}\) and \(\mathbf1_{\{J_q=2\}}\) can only decrease as \(q\) increases. Consequently both endpoint attachment counts decrease simultaneously under this coupling; at \(q=n\) set both counts to zero. Their means are \((n-q-1)/n+1/q\) for \(q<n\), and zero for \(q=n\), giving strict successive inequalities. This proves the asserted vector stochastic comparison without asserting independence of the endpoints.
+For \(q<n\), each endpoint attachment count has mean \((n-q-1)/n+1/q\). For \(q=n\) it is zero. These means decrease strictly at every step, as asserted.
 
 ## Verification
 
-The accompanying Python standard-library checker reconstructs every labeled tree by its Prüfer code for \(2\le n\le8\), finds the ordered path between fixed vertices, records the *entire* excess-degree vector, and independently compares every attainable coefficient of (1) as an exact rational number, including zero-probability vectors. It also checks the exact distance counts and all pairwise conditional covariances. The checker reports **648 exact assertions**. This enumeration tests finite boundary cases; it does not replace the all-size forest-count proof or prove historical originality.
+The unchanged `geodesic_degree_checker.py` from the source package compares the underlying path attachment distributions with exact Prüfer-word enumeration through \(n=8\); it is a finite check of the distribution used in the coupling, not a proof of the stochastic order. The all-size order follows from the common-prefix and nested-ordering construction above.
 
 ## Relationship to prior work
 
-Pitman's 1996 report gives the needed classical forest-extension formula, which is acknowledged as a premise rather than claimed as a discovery. The published result *Exact negative regression between endpoint degree and distance in a uniform Cayley tree* gives the one-endpoint binomial-plus-Bernoulli marginal law and its stochastic ordering; those one-dimensional statements are not claimed here. The new question is the **simultaneous conditional law along the entire marked path**, its universal one-hot competition, its negative pairwise covariance, and the **two-endpoint** coupling; none follows from a one-dimensional marginal law alone. The underlying extension count is strong enough to enable this additional marked-neighbor derivation, and an older equivalent multivariate weighting remains a real priority risk.
-
-Aldous treats uniform labeled-tree degree marginals via random-walk constructions. Berzunza Ojeda and Janson investigate distance profiles of simply generated random trees and marked-edge decompositions; their inspected open full-text sections concern distance limits and conditioned branches, not an exact finite multi-vertex attachment polynomial of the form (1).
-
-## Limitations
-
-The independence in (2) is between the multinomial vector and a single categorical assignment, **not** among the attachment coordinates. For \(q\ge2\) their covariances are strictly negative. The Poisson limit (4) assumes \(q\) fixed, not growing with \(n\). The bivariate comparison covers the two *marked endpoints* as distance changes; it is not a coupling of entire trees or of path degree vectors of changing dimension. The literature comparison cannot exclude an equivalent statement implicit in classical multivariate Cayley/forest generating functions.
+The attachment generating function is classical weighted Cayley enumeration applied to the contracted path. The same derivation applies when the fixed marked path is replaced by any fixed connected marked subtree. The generating function and its moments are used here as background, not claimed as novel. The earlier one-endpoint Cayley result gives the binomial-plus-Bernoulli marginal and its decreasing stochastic order. The simultaneous coupling controls increasing two-endpoint events, which cannot in general be compared from one-endpoint regressions alone. The earlier conditional leaf-count result studies a different statistic; the bivariate degree formula for complete bipartite spanning trees concerns a different tree law and does not assert the joint ordering here. No absolute publication-priority claim is made.
 
 ## References
 
-1. J. Pitman, *Coalescent Random Forests*, Berkeley Statistics Technical Report 457 (dated 1996-09-01), especially Section 2.2, Lemma 3; public PDF at https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf.
-2. D. J. Aldous, *The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees*, SIAM Journal on Discrete Mathematics 3 (1990), 450–465, DOI 10.1137/0403039.
-3. G. Berzunza Ojeda and S. Janson, *The distance profile of rooted and unrooted simply generated trees*, arXiv:2009.00572 (first posted 2020-09-01); journal DOI 10.1017/S0963548321000304.
-4. *Exact negative regression between endpoint degree and distance in a uniform Cayley tree*, published mathematical record (2026-10-04), https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae.
+1. O. Bernardi and A. H. Morales, *Counting trees using symmetries*, equation (1), Cayley's degree-enumeration formula.
+2. J. Pitman, *Coalescent Random Forests*, Berkeley Statistics Technical Report 457 (1996), §2.2, Lemma 3, https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf.
+3. *Exact negative regression between endpoint degree and distance in a uniform Cayley tree*, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae.
+4. *Conditional joint leaf law along a marked path in a uniform Cayley tree*, https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-conditional-joint-leaf-law-along-a-marked-path-in-a-uniform-cayl--4740ad229d71.
+5. *Two-endpoint degree dependence along paths in bipartite uniform spanning trees*, https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-endpoint-degree-dependence-along-conditioned-paths-in-bipart--67820a932340.

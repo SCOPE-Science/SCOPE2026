@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproduction and limits
 
-Install the dependencies listed in `requirements.txt` and execute `python verify.py`. Exact symbolic assertions test the two marginal-variance equations, both Hessian-contraction matrices, determinants of each Gaussian covariance, the exact objective and its derivative, and the mixed fourth-cumulant identity. The program additionally simulates an independent sequence of full two-update epochs at coupling \(c=3/5\), noise variances \(u=4\), \(v=1\), and order probability \(p=2/5\), with \(5000\) burn-in epochs and \(210000\) retained epochs. The simulation compares the two variances, covariance, objective, and mixed cumulant with the analytic values using stated tolerances.
+The proof in `RESULT.md` uses the contraction in the Hessian norm, the second-moment fixed point and an exact completed-square identity after the last coordinate update. With \(c=1/2,u=9,v=4\) the formulas can be checked by hand: \(a=32/3\), \(d=20/3\), \(L_{12}=6\), \(L_{21}=7\), and \(L(1/2)=6.5\).
 
-The finite simulation is a reproducibility and consistency check only; it is not a proof of stationarity, uniqueness, Gaussianity or exact optimality. Those conclusions follow from the algebraic proof in `RESULT.md`. No independent audit or external mathematical validation has been conducted.
+The accompanying `verify.py` uses Python, NumPy and SymPy. Its symbolic checks include the second-moment equations, the contraction matrices, the exact objective and its derivative. Its seeded simulation compares selected moments with predictions at \(c=3/5,u=4,v=1,p=2/5\), using 5,000 burn-in epochs and 210,000 retained epochs. Additional covariance and fourth-cumulant checks in the script are supplementary distributional calculations, not assertions of originality for the stationary law. The script is a finite diagnostic, not a proof of the ordering criterion.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. On almost every translated configuration exactly one integer-height section is intersected, and it is an axis-parallel square of side \(nt_3\). Conditional horizontal phases are independent Haar variables despite an arbitrary real apex shear. Each coordinate integer count is an independently randomized rounding of the common side length. Averaging the three possible products over each unit interval gives the exact probability law; two finite power sums yield the stated mean and variance. The deterministic normalized-error bound proves the limiting law. The supplied script separately checks exact rational section counts and moments; it is not relied upon for the infinite theorem.
+## correctness
 
-## Originality
-PASS under presently accessible evidence, with a priority caveat. The motivating 2026 survey discusses randomized translation counts and variance but contains no square-pyramid or square/pronic formula. Tokmachev's 2024 theorem concerns dimension-two polygon variance and the translated triangle, not dimension-three square pyramids. The closest mathematical-record result on Reeve-prism lattice-covering multiplicities has a different polytope, a different limiting law, and does not imply the present explicit square/pronic spectrum. Searches for square-pyramid/pronic lattice counts and covariance analogues did not reveal a stronger exact statement; absence from indexed sources cannot prove historical uniqueness. The related Reeve-prism result was checked by reading its RESULT.md full text rather than its title alone.
+PASS
 
-## Mathematical value
-PASS. The square pyramid is a canonical elementary three-dimensional lattice polytope, and the exact **whole distribution** of its random translate count is substantially more informative than the universally known expectation. The two sparse interleaved quadratic value families, exact finite-width masses, apex-shear invariance, and nonconcentrating large-volume limit give a reproducible counterpoint to intuition that more volume should imply relative count concentration. No new general bound for all polytopes is asserted or required.
+For vertical phase U in (0,1), the sole integer layer is at height 1; its section is a square of side L=nU. The deterministic horizontal apex-dependent shifts preserve the independent uniform phases modulo one conditional on U. The two interval counts are independently floor(L)+Bernoulli(frac(L)). Write L=j+r; j is uniform on 0,...,n-1 and r independently uniform on [0,1). The probabilities of zero, one and two additional interval points, integrated over r, are each 1/3. Products are j^2, j(j+1), (j+1)^2; the first two coincide at j=0 and consecutive bins share the interior squares, with no further collisions. This includes n=1 and applies to every real apex displacement. Conditional mean is L^2; conditional second moment is [j^2+(2j+1)r]^2. Integrating and summing gives E N=n^2/3 and E N^2=n^4/5+n^2/9+1/45, hence the claimed variance. Each interval count is at distance at most 1 from nU; the product bound |N/n^2-U^2|<=2/n+1/n^2 establishes almost-sure convergence under common phases and the asserted CDF; the variance formula gives the coefficient of variation. Boundary events have translation measure zero, including over countably many n. The inspected rational checker compares finite section counts and finite moment sums only and was not executed.
 
-## Scope and residual risk
-The limit uses widening bases with height fixed at one; isotropic scaling is different. The classification does not address arbitrary rotations or nonsquare bases. Historical novelty may be altered by unindexed treatment of this particular family; no independent external audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving claim is the complete square/pronic probability law, invariant under real horizontal displacement of the apex, with its exact moments and nonconcentration consequence for this natural thin family. The single-section trick and interval rounding are not original. The closest indexed comparison uses the same height-one reduction for simplex sections, but its distribution and geometry do not cover square sections. The inspected literature and catalogue establish no equivalent or stronger statement covering this law.
+
+## value
+
+PASS
+
+A square pyramid with one lattice unit of height is a canonical convex polytope for isolating anisotropic count fluctuations as volumes diverge. The complete positive mass spectrum, including apex invariance and how interior and endpoint weights differ, gives an exact benchmark that generic mean-as-volume or fluctuation estimates miss. The nonzero limiting coefficient of variation quantifies why fixed-height growth is different from isotropic dilation; it is not itself a new general concentration principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:48:40.058609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–66; frozen VERIFICATION.md, EXPECTED.txt and check.py (inspected, not executed)",
+        "/workspace/repairs/4/RESULT.md",
+        "/workspace/independent_checks.py, selection 4",
+        "Wang–Li arXiv:2610.22082v1, Corollary 6.3"
+      ],
+      "rationale": "Reassessed the complete corrected RESULT.md in /workspace/repairs/4; the finding and quantifiers are unchanged. The frozen proof's four initial values P_3 through P_6 do not seed a stride-four recurrence valid only for L>=5. The replacement explicitly supplies P_5 through P_8=(-1,-1,+1,+1), with P_3,P_4 handled separately. For the fold, conjugate to k=-delta with delta=0 or 1; cross-pair edges depend on the end sums i+j+delta and n-i-j-delta. The explicit lists at each end delete exactly 1 and L-2, allowing them to coincide, and leave precisely ordinary jumps 2,3, including n=6. Invariant barycentric masses identify the geometric fixed space; an invariant face on a orbits containing t pairs has dimension a+t-1 and orientation sign (-1)^t, giving reduced Lefschetz number -P_L. Verified the row identities by independent integer stepping and the bases by direct subset counts. Wang–Li Corollary 6.3 verifies one homology degree with the quoted multiplicities, so Hopf trace gives (-1)^(d_n+1)P_L. Barycentric subdivision removes simplex inversions and the rational quotient cellular complex is the coinvariant complex, so the invariant rank is (b_n+trace)/2. Substitution gives vertex (-1)^q and edge (-1)^(q+1) at n=8q+4. Replay: `python /workspace/independent_checks.py 4` (rows, bases, and bounded orbit comparisons through n=120); the all-order conclusion follows from the corrected argument.",
+      "residual_risks": [
+        "This establishes a rational character and rational quotient ranks, not an integral representation or quotient homotopy type."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Li §16 gives dihedral information for K(n,3), n=5(2l+1), a different graph family.",
+          "Record 6056ae77d731 specifies GP(n,2) on two n-vertex shores, cubic edges u_i u_{i+1}, u_i v_i, v_i v_{i+2}, and a mod-20 character and full dihedral quotient law."
+        ],
+        "reasoning": "The general signed-orbit machinery is standard and can be reused, but these application theorems have neither the stipulated one-vertex-set jump graph nor a reduction giving its end-deleted folded graphs. The Petersen theorem cannot supply the period-four folded law or the two ordered single-reflection ranks.",
+        "searches": [
+          "arXiv:2610.22082v1, §8 and §16 Proposition 16.1",
+          "Resultary/SCOPE 6056ae77d731, RESULT.md offsets 0–2115"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22082v1",
+        "Zenodo 22082056 (full-text attempt only)",
+        "Resultary/SCOPE 6056ae77d731 and target 4fd78e4cfe6b",
+        "Focused primary-literature search for the exact graph and reflection character"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Li Theorem 10.3 gives Q plus Q(zeta_8) for n=0 mod 8, the C_4 augmentation representation at n=4 mod 8, and Q otherwise, as translation modules.",
+          "The audited family-specific increment is the signed period-four folded enumeration for both reflection types, yielding opposite trace signs at n=4 mod 8."
+        ],
+        "reasoning": "Restricting to translations loses reflection signs; the ordinary rank 3 at n=4 mod 8 cannot assign the ordered quotient ranks. The listed other-family dihedral results do not mechanically imply the new statement.",
+        "searches": [
+          "arXiv:2610.22082v1, Corollary 6.3, Theorems 8.2 and 10.3, Proposition 16.1",
+          "Zenodo 22082056 (bounded OA access attempt)",
+          "Resultary/SCOPE 6056ae77d731, statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected same-family cyclic fixed-space theorem treats translation subgroups only, and the translation module theorem gives the character only on rotations.",
+          "The reflection Lefschetz number is equivalent to the top reflection trace here because of one-degree homology; the two orbit ranks then follow from the involution invariants."
+        ],
+        "reasoning": "Neither the translated fixed spaces nor the cyclic representation determines the value of the character at a reflection. A distinct formula in any of the Lefschetz, trace or ordered quotient-rank forms would be relevant; none was found in the inspected same-family passages.",
+        "searches": [
+          "Resultary: two-three circulant independence complex reflection trace and quotient rank",
+          "arXiv:2610.22082v1, Theorems 8.2 and 10.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed 4fd78e4cfe6b reflection result is the assigned entry, not separate prior art; the closest distinct same-date match is 6056ae77d731 on GP(n,2).",
+          "Wang–Li Corollary 6.3 supplies exactly the ordinary homotopy table underlying d_n and b_n, and §10 gives a cyclic character, already credited."
+        ],
+        "reasoning": "The ordinary ranks and cyclic character are known and excluded from the novelty claim. No distinct inspected table supplied the missing reflection-axis values for the same family.",
+        "searches": [
+          "Resultary: all-reflection trace, circulant jumps ±2,±3, vertex/edge quotient ranks",
+          "arXiv:2610.22082v1, Corollary 6.3 and Theorem 10.3"
+        ]
+      },
+      "rationale": "The unchanged finding in the repaired proof adds all-reflection character values and two ordered quotient ranks for a precise circulant family. The inspected same-family sources determine ordinary homotopy and cyclic translation data; the closest distinct same-date indexed statement computes a dihedral law on a different graph. No ordering is inferred from sharing a date.",
+      "residual_risks": [
+        "The earlier Wang deposit's full text was unavailable; unindexed equivalent versions and priority remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the relied-on nonequivariant theorem; inspected same-family equivariant claims are cyclic, not reflective",
+          "evidence": [
+            "Corollary 6.3 covers n>=6 with the four advertised residues/ranks; §8 specifies cyclic translation fixed spaces; §10 specifies the rotation representation; §16 dihedral information concerns K(n,3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22082v1",
+          "material_read": "Corollary 6.3 offset 103589, Theorem 8.2 offset 117065, Theorem 10.3 offset 132770, Proposition 16.1 offset 176302",
+          "method": "Bounded primary HTML passage inspection",
+          "title": "Integral homology lattices of matching and circulant complexes",
+          "trigger": "Exact same graph family, published homotopy dependency and nearest cyclic/dihedral results"
+        },
+        {
+          "assessment": "Earlier contents and priority not independently established; the stated homotopy input was verified in Wang–Li",
+          "evidence": [
+            "No full-text exclusion inferred from the failed retrieval."
+          ],
+          "identifier_or_url": "https://zenodo.org/records/22082056",
+          "material_read": "Citation and access attempt only; not the preprint full text",
+          "method": "Lawful OA lookup; direct retrieval failed",
+          "title": "A Local Block Criterion for Periodic Morse Reductions of Circulant Independence Complexes",
+          "trigger": "Earlier cited source concerning the exact family"
+        },
+        {
+          "assessment": "Methodological analogy, different object and modulus; no relative within-day priority assumed",
+          "evidence": [
+            "GP(n,2) has spokes and two n-vertex shores, with homology degrees indexed mod five and a mod-twenty reflection law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-dihedral-homology-of-generalized-petersen-independence-complexes--6056ae77d731",
+          "material_read": "RESULT.md Finding, offsets 0–2115",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Dihedral homology of generalized Petersen independence complexes and a mod-twenty quotient law",
+          "trigger": "Closest distinct same-day indexed dihedral independence-complex claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/4/RESULT.md, Finding and Proof",
+        "Wang–Li arXiv:2610.22082v1, Corollary 6.3 and Theorem 10.3"
+      ],
+      "rationale": "The repaired proof gives a concrete missing part of the dihedral representation for a natural infinite family with known homotopy and cyclic action. For n=4 mod 8 the two reflection quotients have distinct top rational ranks despite the identical underlying complex, an invariant not visible to the ordinary or cyclic results. The explicit finite-state calculation explains the pattern rather than extrapolating a table.",
+      "residual_risks": [
+        "Value pertains to reflection traces and additive rational quotient invariants, not a complete equivariant homotopy model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

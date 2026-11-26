@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:51:48.119269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a path using j+1 A and j B vertices, contraction gives reduced Laplacian with bI and aI on the diagonal and all minus ones off diagonal; dividing its determinant by a^(b-1)b^(a-1) gives inclusion probability [ab-(a-j-1)(b-j)]/(a^j b^(j+1)), including empty blocks. The alternating label count times this probability equals the difference of successive survival products, because paths with fixed endpoints are disjoint events. The support of J_A ends at b and that of J_B at b-1 when a>b. On common support the mass ratio is a product of accumulated tail-factor ratios and (C_j+b)/(C_j+a), C_j=j(a+b-j-1). Each new tail factor in an adjacent comparison exceeds one by an explicitly positive numerator difference a-b, and C_{j+1}-C_j=a+b-2j-2>0 there. At b=2 strictness comes from the extra A mass; a=b is symmetry. The corrected strict tail inequalities at integers 2 through b follow independently by termwise comparison of the positive products, with zero B tail at b. A fresh exhaustive finite check retained the connected 6-edge subsets of the 12 edges of K_4,3 and measured the two fixed-pair distances by graph traversal: among 432 trees, A counts at 2,4,6 were 288,132,12; B counts were 324,108,0. This exact replay prescription checks the example only. The frozen verify.py and VERIFICATION.md were inspected, not executed; the algebra above covers all sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prescribed-tree counts cover a path, and the prescribed-spanning-forest theorem subsumes those counts."
+        ],
+        "reasoning": "They cover the counting input and the path summation for each side. They do not give mass-ratio monotonicity when the endpoint class is exchanged.",
+        "searches": [
+          "arXiv:1904.07766 Theorem 1.4",
+          "arXiv:2103.05294 Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary one-crossing record 50939acd9f27",
+        "arXiv:1904.07766",
+        "arXiv:2103.05294"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formulas allow the cross-side ratio to be written down. Its strict adjacent minors require a separate inequality, using both a-b>0 and a+b-2j-2>0 on their applicable domain."
+        ],
+        "reasoning": "Computing the marginal laws is a direct prior specialization; the repaired theorem isolates the separate structural comparison. The different-host one-crossing theorem is neither a stronger theorem in this parameter slice nor a likelihood-ratio theorem.",
+        "searches": [
+          "Ge–Dong Theorem 1.4 and the indexed one-crossing record's proof and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed comparison has fixed total N and varies u<v with both marked parts at least half of N; the stochastic conclusion compares survival functions, not adjacent ratios of masses."
+        ],
+        "reasoning": "Exchanging names of the two classes restates a marginal law, but does not put the two target classes into the indexed comparison's domain: the smaller marked size is less than half of N. Stochastic comparison also is not equivalent to likelihood-ratio comparison.",
+        "searches": [
+          "Resultary: one-crossing law, marked same-part distances in complete bipartite uniform spanning trees",
+          "SCOPE-a-complete-one-crossing-law-for-marked-distances-in-bipartite-un--50939acd9f27/RESULT.md, Assumptions and Proof 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both the exact mass and tail are in the local mirror; the displayed falling-factorial tail is the same product as the frozen tail."
+        ],
+        "reasoning": "This is exact formula coverage of the original's claimed distance law. A numerical table of graph sizes could not itself encode the repaired universally quantified strict comparison; no tabulated constant is claimed.",
+        "searches": [
+          "SCOPE-a-complete-one-crossing-law-for-marked-distances-in-bipartite-un--50939acd9f27/RESULT.md, offsets 700–4379"
+        ]
+      },
+      "rationale": "For the repaired claim only: the one-part laws are credited as exact existing results. The comparison across different hosts in the strongest indexed neighbor does not give the within-host strict likelihood-ratio order, and the broader containment results give probabilities, not the sign of their cross-class likelihood-ratio minors. The new comparison rests on a separate sign argument. This assessment is limited to inspected evidence.",
+      "residual_risks": [
+        "A direct or equivalent cross-class likelihood-ratio theorem outside the inspected passages may exist; a targeted literature lookup did not identify one but is not evidence of absence.",
+        "No novelty is assigned to either exact marginal formula, the path counts, or unqualified stochastic dominance alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_COVERAGE_OF_MARGINAL_LAWS_ONLY",
+          "evidence": [
+            "Exact S_k(a) product and explicit p(D_a=2k); the comparison restricts ceil(N/2) ≤ u<v and varies the host."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-complete-one-crossing-law-for-marked-distances-in-bipartite-un--50939acd9f27/RESULT.md",
+          "material_read": "Comparison cases, assumptions, exact tail and Proof 1; offset 700–4379",
+          "method": "Local OA mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; locate then read",
+          "title": "A complete one-crossing law for marked distances in bipartite uniform spanning trees",
+          "trigger": "Same UST distance laws; possible indexed comparison overlap"
+        },
+        {
+          "assessment": "BROADER_COVERAGE_OF_PATH_COUNT",
+          "evidence": [
+            "The count for a prescribed tree depends on how many vertices it occupies in each part; setting the numbers to j+1 and j gives the inclusion probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.07766",
+          "material_read": "p. 2, Theorem 1.4, OA offset 5356",
+          "method": "OA primary theorem passage",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "General counting theorem cited as preceding the path calculation"
+        },
+        {
+          "assessment": "BROADER_COVERAGE_OF_PATH_COUNT",
+          "evidence": [
+            "Prescribed-spanning-forest counts allow one nontrivial component to be the prescribed path; no cross-class mass order is asserted by the theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+          "material_read": "p. 2, Theorem 4, OA offset 7331",
+          "method": "OA primary theorem passage",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "Strongest cited coverage of all path containment cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinguishing the two natural anchor classes in a single unbalanced UST host by monotone likelihood ratios is a sharper, size-uniform structural result than comparing means or tails. In particular the higher-to-lower distance odds remain ordered after conditioning on the same distance window. The result is elementary but answers a natural comparison question not decided by the existing different-host theorem. The standalone law is not counted toward value as a new result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

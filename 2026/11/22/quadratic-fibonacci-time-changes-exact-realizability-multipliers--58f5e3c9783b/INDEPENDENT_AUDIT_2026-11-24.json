@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:08:53.841994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the integral Fibonacci matrix Q, reduction at p≠5 gives Q^p=Q in the split classes and Q^p=−Q⁻¹ in the inert classes (at 2 directly), with Q^(p²)=Q in both. Taking the upper-right entry, the Fibonacci–Lucas addition identity gives the inert defect −F_b L_(a+c), including when a−b+c is negative because Q is invertible over the integers. If b≥1 this is a fixed nonzero integer, so any fixed multiplier still fails the prime Dold condition at all but finitely many inert primes, a set of relative prime density 1/2 by the prime number theorem in arithmetic progressions. For b=0, the argument differences at mp^k and mp^(k−1) are multiples of p^(k−1)(p²−1) at p≠5. At 5, the period 20 modulo 5 lifts to a period 20·5^(k−1) modulo 5^k; the difference 24am²5^(2k−2) suffices except possibly at k=1, where 5|a works unscaled and multiplication by 5 always works. The nilpotent part of Q at the repeated root 3 gives F_(25a+c)−F_(a+c)≡−a·3^(a+c−1) modulo 5, so the multiplier 5 is forced if 5∤a. Grouping the Möbius sum in prime-power pairs establishes divisibility. Positivity follows separately: the proper-divisor terms are bounded by (n−1)F_(a⌊n/2⌋²+c), strictly less than F_(an²+c) by the addition formula for n≥3; the first two indices are positive directly. Thus the scaled transform actually counts cycles. The package checker was inspected, not run; the decision uses the all-index proof, not its finite expectations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moss–Ward gives the sharp multiplier 5 for the unshifted even powers with the standard Fibonacci sequence. Luca–Ward gives general monomial-subsequence Dold sufficiency for recurrences under discriminant and exponent hypotheses; it can also inform the b=0 branch through indexed or shifted recurrences."
+        ],
+        "reasoning": "Those results are broader in recurrence or exponent directions, not a dominance theorem for mixed quadratic indices or the least multiplier as a function of a and c.",
+        "searches": [
+          "Moss–Ward arXiv:2011.13068, Corollary 3 and proof",
+          "Luca–Ward arXiv:2204.02711, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary bd4c6c314992",
+        "Moss–Ward, arXiv:2011.13068",
+        "Luca–Ward, arXiv:2204.02711"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The monomial sufficiency theorems do not test the first ramified congruence F_(25a+c)−F_(a+c) modulo 5 or prove failure for arbitrary b>0. The earlier translation obstruction requires a=1 and c=h², b=2h in its quadratic case."
+        ],
+        "reasoning": "Even granting previously implied sufficiency in b=0 cases, the reviewed sources do not give the exact failure and minimality tests needed for the full trichotomy.",
+        "searches": [
+          "Resultary bd4c6c314992; arXiv:2011.13068 Corollary 3; arXiv:2204.02711 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier translation result classifies F_((n+h)^(2k)); at k=1 it is exactly (a,b,c)=(1,2h,h²). Its inert difference F_((h−1)²)−F_((h+1)²) agrees with −F_(2h)L_(h²+1)."
+        ],
+        "reasoning": "The change of notation recovers a genuine overlap, but h alone cannot encode arbitrary independent a,b,c; in particular it does not yield the 5|a branch.",
+        "searches": [
+          "Resultary: Fibonacci quadratic time changes, realizability and positive translations",
+          "Resultary record bd4c6c314992, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed statement found is the translated even-power record bd4c6c314992. An exact finite table could not by itself determine realizability across all orbit lengths or force the prime obstruction for every multiplier."
+        ],
+        "reasoning": "No distinct indexed classification for arbitrary (a,b,c) was identified in the bounded search. The translated-power entry is not just dismissed as a near match: its exact domain and defect were compared.",
+        "searches": [
+          "Local Resultary search for Fibonacci quadratic realizability, least multiplier and prime defect"
+        ]
+      },
+      "rationale": "The already-covered monomial and positive input-translation cases and general monomial Dold sufficiency are not new here. The supported distinct result is the sharp joint classification for arbitrary nonnegative quadratic coefficients with a≥1, including the leading-coefficient test at the ramified prime and the factored defect for independent linear and constant coefficients.",
+      "residual_risks": [
+        "Bounded literature and index searches cannot exclude an unindexed equivalent polynomial-time-change classification. No priority is claimed for the known subfamilies or for general Dold lifting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "h=0 has least multiplier 5 and h≥1 has none for F_((n+h)^(2k)); at k=1 this fixes (a,b,c)=(1,2h,h²).",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-positive-translations-destroy-almost-realizability-of-even-power--bd4c6c314992",
+          "material_read": "RESULT.md, offset 0, statement and inert-prime comparison",
+          "method": "Local Resultary mirror",
+          "title": "Positive translations destroy almost-realizability of even-power Fibonacci samples",
+          "trigger": "Same Fibonacci time-change obstruction"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "5F_(n^j) is realizable for even j, while the unscaled sequence is not.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.13068",
+          "material_read": "Corollary 3, PDF p. 2 and proof p. 7",
+          "method": "Primary open-access PDF",
+          "title": "Fibonacci along even powers is (almost) realizable",
+          "trigger": "Exact Fibonacci multiplier in monomial case"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Monomial-subsequence Dold sufficiency under discriminant and exponent hypotheses, not an exact minimal-multiplier theorem for mixed quadratic indices.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.02711",
+          "material_read": "Theorem 1, PDF pp. 2–3",
+          "method": "Primary open-access PDF",
+          "title": "On (almost) realizable subsequences of linearly recurrent sequences",
+          "trigger": "Potential stronger recurrence time-change theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A quadratic time change is a natural next family after monomials and translated monomials. The classification precisely separates an obstruction at almost every inert prime caused by the linear term from a single ramified-prime obstruction for the even quadratic. The least multiplier and the positive orbit counts decide actual realizability, not merely a few congruences or the existence of some unspecified multiplier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

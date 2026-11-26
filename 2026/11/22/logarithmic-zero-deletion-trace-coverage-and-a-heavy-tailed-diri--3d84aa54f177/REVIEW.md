@@ -1,9 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every fixed-weight source has a unique nonnegative zero-gap vector. Each positive gap corresponds to one distinct output under zero deletion, and the output probability equals its gap length divided by the number of zeros. Conditional inclusion-exclusion and exact weak-composition counting produce the finite formula. A uniform-simplex limit gives Dirichlet-multinomial occupancy and hence the limiting tail; harmonic-sum and reciprocal-Beta calculations establish the logarithmic leading term and explicit constant. The companion checker independently compared literal deletion outputs against the formula for 702 source words and verified 75 exact limiting-tail identities. The finite checks are checks, not all-length proofs.
+## correctness
 
-**Originality — PASS, qualified.** General weighted coupon-collector methods (Du Boisberranger–Gardy–Ponty, arXiv:1202.0920), deletion descendant counts (Liron–Langberg, arXiv:1202.1644), and channel entropy (Singhvi et al., arXiv:2202.03024) provide relevant ingredients but do not state the full source-specific exact expectation, sharp fixed-marker correction and infinite-mean limit in the inspected material. A closely indexed fixed-composition sphere theorem treats a different cardinality statistic. Dirichlet-multinomial identities are not novel as identities; possible equivalent earlier general random-probability coupon results remain the chief priority risk. Indexed summaries do not establish whole-document noncoverage.
+PASS
 
-**Mathematical value — PASS.** The repeated conditional-deletion observation channel has a sharply quantified heavy-tail obstruction missed by counting attainable descendants alone. It gives all-length finite formulas and a distribution-versus-expectation paradox for a natural fixed-marker source. The proof does not cover growing marker counts, unconditional deletion of both symbols or circular words.
+The uniform fixed-weight source corresponds bijectively to a uniform weak composition of N into m=k+1 gaps. Only positive gaps give coupons; decreasing one positive gap distinguishes its output, and its probability is G_i/N. Tail-sum inclusion-exclusion and counting positive selected coordinates with sum u give the exact A_{m,s} formula, including N<m and the one-marker formula. The small case m=2,N=3 averages the four means 1, 7/2, 7/2, 1 to 9/4. For the limiting law, the uniform grid converges to the uniform simplex and zero coordinates have probability O_m(1/N). Dirichlet integration makes the t-draw count vectors equally likely, so the ratio of positive to weak compositions gives the stated integer-time tail; its first-order coefficient is m(m-1). For the finite mean, coefficient extraction from -log(1-z)/(1-z)^(m-1) gives N A_{m,1} = (m-1)N/(N+m-1) times (H_{N+m-2}-H_{m-2}), which fixes the harmonic constant. For 2<=s<m, the mass at total u with selected coordinates positive is bounded by C_m u^(s-1)/N^s; hence the truncated reciprocal sum for u<=epsilon N is O_m(epsilon^(s-1)). The inverse Beta moment is therefore the correct limit (m-1)/(s-1), and s=m directly gives 1. Integrating [1-mx-(1-x)^m]/x^2 gives the alternating sum m-1-m H_{m-1}. Thus the finite mean expansion is proved independently of distributional convergence. The frozen verification notes and checker were inspected, not executed; finite checks do not establish this expansion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+This pass credits the deletion-source finite-size law, particularly the explicit logarithmic mean and constant for every fixed marker count. The limiting collector law, including its heavy-tail coefficient and infinite mean, is already covered by a more general indexed Pólya-urn result and is not an independent originality credit. The frozen record makes its contribution jointly with the deletion-source finite-size law and does not claim the mixture identity as new.
+
+## value
+
+PASS
+
+The precise finite mean answers a repeated-read cost question that the limit law cannot answer: rare sources with a very small positive gap dominate the mean although a typical source has a tight cover time. The leading logarithm and constant quantify that discrepancy for each fixed marker count and keep zero gaps correctly out of the support. The useful part is the finite mean analysis, not renaming the known Pólya collector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

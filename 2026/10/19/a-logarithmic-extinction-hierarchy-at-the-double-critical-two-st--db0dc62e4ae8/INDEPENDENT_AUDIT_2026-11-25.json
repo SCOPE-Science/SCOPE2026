@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:30:46.340305Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The simplex is invariant, and the critical aggregate equations are multiplicative in Jᵢ; initial positivity persists. Since 1−S−σRⱼ≥Jᵢ, Riccati comparison gives Jᵢ=O(t⁻¹). Writing B=β₁J₁+β₂J₂, the stable equation for z=1−S gives z=O(t⁻¹), hence Jᵢ′ and B′ are O(t⁻²). Subtracting B/μ from z and γᵢJᵢ/μ from Rᵢ leaves stable equations with O(t⁻²) forcing, using Rⱼ≤z and O(t⁻²) secondary infections. This verifies the four reduced coefficients for the full solution, with multiplicative errors in the aggregates. The balance gives β₁>β₂ and k>0; b₂₁>0 since β₁−σ₁₂γ₁≥μ. With s=log t and uᵢ=tJᵢ, the ratio has log derivative −ku₁+O(e⁻ˢ), so is bounded above and converges after removing the integrable error. In particular u₁≤M u₂; comparison with y′=y(1/2−Cy) bounds u₂ away from zero eventually. A positive limiting ratio would contradict the integrated log derivative. Thus u₁→0 and logistic comparison gives u₂→1/a₂. The reciprocal ratio v solves v′=ku₂+ε(s)v, |ε(s)|=O(e⁻ˢ); the integrating factor gives v=O(1+s) and then v/s→k/a₂. Hence su₁→1/k. For w=u₂−1/a₂ the stable equation has coefficient a₂u₂→1 and forcing asymptotic to −b₂₁/(a₂ks); on scaling by s, the recent convolution has limiting mass one by dominated convergence and the part before s/2 is exponentially small. This gives the stated correction. Frozen verification support was inspected without executing the supplied code; its finite integrations are illustrative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen aggregate reduction produces a competitive system in log time perturbed by exponentially decaying per-capita terms. Yeung–Erban Example 2.1 studies the related but mixed-sign system x′=x²−3xy, y′=3xy−y² using a first integral and homoclinic trajectories."
+        ],
+        "reasoning": "The known phase portrait does not cover the perturbed competitive system or the full SIR reduction. No inspected general theorem was found that yields the quantified profile under these hypotheses.",
+        "searches": [
+          "Resultary: perturbed degenerate competitive Lotka Volterra equations boundary critical 1/(t log t)",
+          "Yeung–Erban arXiv:2610.06130v1 Example 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2412.07536v1 equations (1) and Theorem 4",
+        "arXiv:2306.15011 pp. 1 and 4",
+        "arXiv:2610.06130v1 Example 2.1",
+        "Resultary 4584b4463616 and 04eddb3a1618"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formal reduced critical balance gives a nonhyperbolic slow mode, but the inspected primary model analysis does not connect that mode to every positive pair of initial aggregates. The catalogue rate analogy does not supply the stable-variable remainder or the generic b₂₁-dependent correction."
+        ],
+        "reasoning": "The model equations are a starting point, not already a theorem implying these limits by specialization. A global decay and positivity argument, quantitative stable slaving, and control of the ratio in the perturbed slow dynamics are needed.",
+        "searches": [
+          "Gavish arXiv:2412.07536v1 model (1) and Theorem 4",
+          "Resultary 4584b4463616, mirrored Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gavish uses the same eight-state equations up to notation and the same ratios βᵢ/(μ+γᵢ), but Theorem 4 is about instability of a positive supercritical coexistence equilibrium.",
+          "Johnston–Pell–Rubel arXiv:2306.15011 defines ratios βᵢ/γᵢ and has a different temporary-immunity model."
+        ],
+        "reasoning": "Matching equations identify the proper prior comparator; a positive equilibrium instability theorem is not a decay result at the disease-free double threshold, and the other model does not specialize by relabeling.",
+        "searches": [
+          "Web: \"two-strain\" SIR \"partial cross-immunity\" critical threshold logarithmic decay asymptotics reproduction numbers one marginal competition",
+          "Gavish arXiv:2412.07536v1 equations (1), reproduction ratios and Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The homoclinic-extinction record 4584b4463616 has the same rate form 1/(t log t) versus 1/t on b=c>a, but its cross-interaction signs differ and it does not supply the SIR correction. Record 04eddb3a1618 treats periodic cooperative extinction with a t⁻¹ leading term and a resident correction."
+        ],
+        "reasoning": "The nearest indexed profiles are exact comparators for rate forms, not matches for the equations, positive-initial-state quantifier, and subleading coefficient together.",
+        "searches": [
+          "Resultary 4584b4463616 and 04eddb3a1618",
+          "Resultary: perturbed degenerate competitive Lotka Volterra equations boundary critical 1/(t log t)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the global full-system two-rate law and the explicit subleading correction on the marginal double-critical surface. The demographic model and competitive normal-form ideas are not new; the closest inspected statements do not supply the asymptotics in this regime with the full-system error controlled.",
+      "residual_risks": [
+        "Gavish's published SIAM version, DOI 10.1137/25M1826160, was not accessible by the attempted route; the same-author preprint was inspected, not the published version.",
+        "Full texts of Chung–Lui (10.1007/s00285-016-1000-x) and Kadyrov et al. (10.3934/era.2025050) were not inspected after lawful retrieval attempts did not yield a copy.",
+        "A specialist theorem for exponentially perturbed nonhyperbolic competition systems may subsume part of the reduction; the search does not rule this out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same equations; different equilibrium regime",
+          "evidence": "Theorem 4 analyzes instability of a positive supercritical coexistence equilibrium at small μ.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.07536v1",
+          "material_read": "Equations (1), p. 3; reproduction ratios, p. 4; Theorem 4, p. 12",
+          "method": "OA arXiv original, bounded passages",
+          "title": "A new oscillatory regime in two-strain epidemic models with partial cross-immunity",
+          "trigger": "Exact same demographic cross-immunity model"
+        },
+        {
+          "assessment": "Different model and threshold results",
+          "evidence": "Exclusion/coexistence conditions and ratios βᵢ/γᵢ in the temporary-immunity setup.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.15011",
+          "material_read": "Abstract p. 1 and reproduction-number passage p. 4",
+          "method": "OA arXiv original, bounded passages",
+          "title": "A two-strain model with asymmetric temporary immunity periods and partial cross-immunity",
+          "trigger": "Closest returned article on partial cross-immunity thresholds"
+        },
+        {
+          "assessment": "Related mixed-sign equations, not the perturbed competitive profile",
+          "evidence": "The example uses x′=x²−3xy, y′=3xy−y² and a first integral.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06130v1",
+          "material_read": "Example 2.1, p. 3",
+          "method": "OA arXiv original, bounded passage",
+          "title": "Yeung–Erban quadratic chemical systems",
+          "trigger": "Possible antecedent for the quadratic-system rate analogy"
+        },
+        {
+          "assessment": "Related rate forms, not full-system coverage",
+          "evidence": "Mixed-sign critical system with t⁻¹(log t)⁻¹ and t⁻¹ rates; periodic cooperative system with a different critical profile.",
+          "identifier_or_url": "Resultary 4584b4463616 and 04eddb3a1618",
+          "material_read": "Mirrored finding for 4584b4463616, offsets 44 and 932; indexed statement for 04eddb3a1618",
+          "method": "Resultary search and local-mirror comparison where available",
+          "title": "Sharp homoclinic extinction threshold and logarithmic critical tail; Universal two-component critical extinction profiles",
+          "trigger": "Closest indexed critical asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a published deterministic model, the result distinguishes the two strains on a genuine boundary where their linear growth rates coincide. The full-system argument explains why an extra log appears and determines both leading constants and the faster-decaying strain's effect on the other's first correction. It is a global asymptotic statement, not a local linearization or a claim about stochastic elimination times.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

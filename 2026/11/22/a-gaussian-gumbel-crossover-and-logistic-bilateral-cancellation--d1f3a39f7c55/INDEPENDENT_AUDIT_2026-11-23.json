@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:53:02.841796Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed T an independent Brownian integral conditional on the common environment is Gaussian with variance 2A_N, so the entire cloud is a standard Gaussian cloud times an independent common scale. The upper and reflected lower extremes have joint interval probability [Phi(u)+Phi(v)-1]_+^N for standard thresholds; Mills asymptotics yield independent Gumbels at the same a_N=1/sqrt(2 log N) scale. A telegraph flip process has E[S(s)S(t)]=exp(-2 lambda |s-t|); the compensated flip martingale has bracket 4 lambda t and its rescaled jump size goes to zero, giving sqrt(lambda) B_N -> N(0,T). For t1<t2<t3<t4 the sign product expectation is exp(-2 lambda[(t2-t1)+(t4-t3)]). Thus E B_N^4=12 integral_0^T s(T-s)^2 exp(-2 lambda s) ds=O(lambda^-2), justifying the L2 Taylor remainder. Since m_N/b_N=2 log N+O(log log N), the additive shift is (delta log N/A_0) B_N plus o_P(1+log N/sqrt(lambda)); this yields the three coefficients with the stated slow-regime renormalization. The difference of magnitudes removes the common additive shift exactly; the remaining multiplicative factor tends to one for any lambda_N -> infinity, with no condition on the ratio. A difference of the independent Gumbels is log(E_2/E_1), hence standard logistic and independent of the limiting clock. The total variance is exactly 2A_0 Var(U_N)+2 Var(sqrt(A_N))(E U_N)^2. Gaussian maximum moment convergence gives Var(U_N)~pi^2/(12 log N), while Taylor with the fourth moment and the exact clock variance gives Var(sqrt(A_N))~delta^2/(4 Dbar lambda_N); this gives both stated terms. At criticality the two normalized marginal second moments converge, and their product is uniformly integrable by the normal tail bounds and the clock fourth-moment bound, so the covariance assertion is an actual covariance limit as well as the covariance of the weak limit.",
+      "replay_path": "/workspace/reviews/switching_replay.py",
+      "status": "PASS",
+      "verification": "Run python3 /workspace/reviews/switching_replay.py with SciPy. Independent Beta-spacing occupation moments conditional on Poisson flip counts agreed with the analytic second and fourth moments at 12 rate-time pairs each. Conditional-on-maximum quadrature for the Gaussian imbalance was symmetric and showed finite-size approach to the logistic CDF at three sample sizes. These are finite diagnostics, not proofs of a Gaussian or logistic limit; the uploaded checker was not executed. The result is fixed-time, with symmetric positive diffusivities and one common stationary fast clock, not a temporal first-passage result."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uchida et al. allow broad stochastic diffusivities, have a two-state example, and prove one-propagator long-time Gaussianization governed by the diffusivity autocovariance.",
+          "Hass et al. conditional-iid maximum and environmental/sampling framework study spatially varying local drift; the log-squared time scale there is in a distinct model with different critical laws.",
+          "arXiv:1610.04536, indexed abstract, concerns asymptotic dependence and joint tail decay of spatial Gaussian scale mixtures."
+        ],
+        "reasoning": "Neither single-propagator convergence—even for the exact switching model—nor joint tail decay for a fixed spatial scale mixture controls a simultaneous sample size and rate limit. The sufficient ingredients here are the Gaussian extreme scaling and a rate-dependent second-order scale fluctuation. Existing drift-field crossover formulas do not specialize by replacing their local drift with a spatially uniform volatility.",
+        "searches": [
+          "arXiv:2308.08820v3, §§II–IV (especially §III B and IV D), discussion and conclusion",
+          "arXiv:2205.02265v2, model and discussion",
+          "arXiv:2406.17733, abstract and introduction",
+          "Web: Langevin gas harmonic trap switching temperature collective stationary order statistics maximum common stochastic diffusivity intermittent confinement Biroli Majumdar Schehr random scale"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.08820v3",
+        "arXiv:2205.02265v2",
+        "arXiv:2406.17733",
+        "arXiv:1610.04536 (indexed abstract)",
+        "Resultary e990596a9b02 and 6bba66354458 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The propagator immediately yields the exact mixture, but single-vector Gaussianization is compatible with very different residual scales as N grows. The conditional maximum formula and splitting of variance are known tools."
+        ],
+        "reasoning": "To conclude the asserted model-specific limit requires retaining the fluctuating common variance at log N amplification, identifying its limiting clock coefficient, and controlling both sample tails jointly. The finite mixture or a one-particle central limit statement does not specify this amplification, the exact limiting covariance, or cancellation in every fast-mixing sequence. These checked steps are not claimed as a new general probability technique.",
+        "searches": [
+          "arXiv:2308.08820v3, Eq. (8), §§IV C–D and discussion",
+          "arXiv:2205.02265v2, equation (4) and fluctuation discussion",
+          "arXiv:2406.17733"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uchida–Washizu–Miyoshi, arXiv:2308.08820v3, uses the integrated diffusion coefficient in a Gaussian propagator in any dimension, including a two-state Markov example.",
+          "The indexed bilateral logistic result (suffix e990596a9b02) takes positive/negative temporal excursion extremes of one resetting diffusion, not the opposing endpoints of a simultaneous N-particle sample."
+        ],
+        "reasoning": "One may identify the cloud with an N-dimensional scale mixture, or with Brownian endpoints at a common random time. The whole finite conditional cloud law, and thus its exact probability of falling in a box, follow from the propagator. That is existing coverage of the finite reduction. The simultaneous large-N and concentrating-scale limit and Gaussian-amplitude evaluation are different from the propagator and from temporal-excursion logistic limits.",
+        "searches": [
+          "Resultary: common symmetric two-state Markov switching stochastic diffusivity Brownian many tracer extreme fronts telegraph diffusivity joint logistic conditional iid fast switching",
+          "Web: extremes scale mixture common random normal variance triangular array joint extremes both maxima and minima asymptotic independence Gaussian Gumbel random scale triangular arrays"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known telegraph occupation statistics and the two-state propagator supply exact clock-side parameters. The exact Resultary crossover hit is the frozen record itself; nearby hits concern telegraph cumulants or single-particle/resetting laws."
+        ],
+        "reasoning": "A telegraph occupation formula or precomputed finite-time propagator is not an evaluated limit for the two extrema of a growing common-clock sample. No prior table of the joint crossover or coefficients is indicated by the inspected material.",
+        "searches": [
+          "Resultary: common symmetric two-state Markov switching stochastic diffusivity Brownian many tracer extreme fronts telegraph diffusivity joint logistic conditional iid fast switching",
+          "arXiv:2308.08820v3, §IV D two-state case study"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty lies in the evaluated simultaneous fast-clock/large-population, bilateral extreme law with explicit environmental coefficient and the variance competition, not the integrated-diffusivity normal mixture, its single-particle Gaussianization, variance decomposition, or the standard logistic identity separately.",
+      "residual_risks": [
+        "An earlier general theorem on maxima of a common random-scale triangular array could give the crossover by substituting the telegraph scale limit; no such coverage was established in the inspected material.",
+        "Some literature queries were unavailable or returned no usable hits. This is not evidence that broader work does not exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the Gaussian scale-mixture reduction and clock-side modeling; the examined results are propagator results, not the joint many-tracer crossover",
+          "evidence": [
+            "Eq. (8) averages a centered Gaussian kernel over the time-integrated diffusivity; the autocovariance section uses variance of the time-averaged diffusion coefficient; §IV D selects a two-state Markov diffusivity as its first case study."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.08820",
+          "material_read": "Public v3 passages from model and Gaussian propagator, diffusivity covariance/non-Gaussianity and ergodic Gaussianization results, two-state case study, conclusion and discussion",
+          "method": "Open arXiv PDF accessed through the legitimate OA reader",
+          "title": "Diffusion with a Broad Class of Stochastic Diffusion Coefficients",
+          "trigger": "Same underlying diffusion model, including a two-state example; plausible broader coverage"
+        },
+        {
+          "assessment": "Related fluctuation separation with different environment and scaling parameter",
+          "evidence": [
+            "The model near Eq. (2) is spatially dependent beta RWRE; Eq. (4) gives the conditional one-sided maximum law. A log-squared observation-time scale there occurs in the KPZ regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.02265",
+          "material_read": "Abstract, model, mechanism and conditional maximum in the PDF introduction and comparison of fluctuation sources",
+          "method": "Open arXiv PDF text",
+          "title": "Anomalous Fluctuations of Extremes in Many-Particle Diffusion",
+          "trigger": "Many-particle common environment and a log-squared crossover in related work"
+        },
+        {
+          "assessment": "Different local environmental input; no bilateral telegraph crossover in the inspected results",
+          "evidence": [
+            "The reported environmental coefficient is the variance of the local drift under a short-range space-time random walk environment."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.17733",
+          "material_read": "HTML abstract and model/variance discussion in the opening sections",
+          "method": "Open arXiv HTML",
+          "title": "Extreme Diffusion Measures Statistical Fluctuations of the Environment",
+          "trigger": "Broader environment/sampling variance law for diffusion extremes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two front magnitudes provide two complementary measurements of the same sample: their common mode retains environmental fluctuations and their signed imbalance is robust to the leading common fluctuation. The exact critical rate and the two sharp variance coefficients quantify when either source dominates. The joint prediction is appreciably stronger than single-particle Gaussianization or a one-sided maximum in a fixed environment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

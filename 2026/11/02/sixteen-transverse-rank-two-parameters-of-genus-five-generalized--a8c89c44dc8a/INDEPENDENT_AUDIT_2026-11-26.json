@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:49.995674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On U both degree-six branch polynomials are squarefree, their common branch set consists of the four roots of x⁴−1, and their other four branch points are distinct. Infinity is unramified. The connected degree-four biquadratic cover has inertia two at each of the eight branch points (at a common branch point the two local quadratic covers coincide); Riemann–Hurwitz gives 2g−2=−8+8·2=8. The three involution quotients have genera 2,2,1, the third given by z²=Q_u Q_v. Their Jacobians split the genus-five Jacobian by a 2-power isogeny, so the characteristic-eleven torsion and numerical invariants are read additively. The independent coefficient replay (`cd /workspace && python3 audit-evidence/howe11.py`, SymPy) verifies the Cartier matrix and determinant 3(w²−3)²(w²−4)³ in F₁₁[w]. The matrix is invertible off w=5,6 on U and zero there; taking Frobenius roots of coefficients in the semilinear Cartier action does not affect that dichotomy or the stable ranks. The elliptic block vanishes iff H vanishes. The replay verifies the two quartics H(5,v) and H(6,v), symmetry, squarefreeness, nonvanishing at the excluded or other special parameters, and the irreducibility of the respective quadratic factors over F₁₁. This proves all four line restrictions have four simple roots in U and never meet at a point on two special lines; the nonzero restricted derivative proves transversality. Each line contributes two rational and two quadratic geometric points, giving a degree-16 finite étale intersection scheme. It is the rank-two locus as a set with its stated reduced structure, not a determinantal scheme claim. H(5,6)=4 leaves two swapped rank-one parameters and no rank zero. The five exhibited rank witnesses give H-values 4,0,4,0,7 in order. This verify-by-coefficients argument applies over the algebraic closure, rather than inferring exhaustion from a finite field sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Howe quotient isogeny is known; Ohashi Theorem 2.6 gives 2-power degree and Proposition 4.1 even decomposes the symmetric family as E₁²×E₂²×E₃. Ohashi Appendix A gives a superspecial genus-five Howe example in characteristic eleven using the displayed common quartet {∞,0,1,ζ²}, with ζ²−4ζ+2=0. The nearby Resultary Humbert record gives a different five-quotient family and rank at least three."
+        ],
+        "reasoning": "A broader existence result for a characteristic-eleven superspecial curve does not give a rank-zero point in this ordered parameter chart. The displayed common quartet has a nonharmonic cross ratio (ζ² is not in F₁₁), unlike the target's quartet. There is no claim about all presentations of the abstract curve, while the direct rank computation excludes every rank-zero point of the target chart. The isogeny theorems do not tabulate low-positive-rank incidences.",
+        "searches": [
+          "Katsura–Takashima arXiv:2108.06936",
+          "Ohashi arXiv:2604.18074 Theorem 2.6, Proposition 4.1, Appendix A",
+          "SCOPE-20261102-dff7c95142b3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_symbolic.py and verify_fields.py",
+        "Ohashi arXiv:2604.18074",
+        "Katsura–Takashima theorem as reproduced in Ohashi Theorem 2.6",
+        "SCOPE-20261102-dff7c95142b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p-rank weights 2,2,1 and ordinarity/supersingularity dichotomy follow from the displayed decomposition. Algorithm 4.2 only tests pairs of distinct roots of h to find a superspecial curve; Algorithm 4.3 also targets simultaneous supersingularity of all three factors. Neither computes, for exactly one special parameter, the finite intersection divisors or their splitting and multiplicities."
+        ],
+        "reasoning": "Known criteria reduce the question to H along four lines, but the sixteen distinct admissible geometric points, étaleness and eight-rational/four-quadratic split require the characteristic-specific restrictions and factorization, squarefreeness and exclusion checks. That exact divisor information is the supported remainder, not a new isogeny theorem or a rank-zero existence algorithm.",
+        "searches": [
+          "Ohashi §4, Proposition 4.1, (4.3), Algorithms 4.2–4.3, offset 31850 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohashi's C₁,C₂ have branch sets based on 0,∞,±1 with additional pairs ±s,±t. The Möbius map z=−i(x−1)/(x+1), i²=−1, sends the common quartet here to 0,∞,±1 and the other pair of Q_w to ±s with s²=(2−w)/(2+w). Equation (4.3) yields the roots 5,9 in the s² chart at p=11, corresponding to w=6,5."
+        ],
+        "reasoning": "This is a chart of the same family, not a new family under reparametrization. The two known superspecial-factor values explain the four exceptional lines; the claimed new part resolves their entire incidence with the third quotient's supersingular divisor, not just simultaneous superspeciality of both genus-two factors.",
+        "searches": [
+          "Ohashi arXiv:2604.18074 §4, symmetric genus-five generalized Howe family",
+          "Resultary: characteristic eleven genus-five low-rank loci and rank-two intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 covers existence of superspecial generalized Howe curves broadly, and Theorem 6.3's symmetric-family existence range starts above 19. The local Humbert Finding counts 200 parameters with two supersingular quotients and excludes triple supersingularity for its own family."
+        ],
+        "reasoning": "Neither an existence table for rank zero nor points in a different coefficient space are an exact earlier list of the sixteen ordered rank-two parameters here. The catalogue check did not verify another list with this scope; it is relevance-ranked, not an exclusion of all possible matches.",
+        "searches": [
+          "Ohashi arXiv:2604.18074 Table 1, Theorem 6.3 and Appendix A",
+          "SCOPE-20261102-dff7c95142b3 Finding, Humbert family"
+        ]
+      },
+      "rationale": "Credit the characteristic-eleven incidence analysis of the rank-two locus: exhaustive line intersections in the ordered open chart, their multiplicities and splitting over the ground field. The symmetric family, prime-to-characteristic decomposition, criterion for special genus-two factors, and method of computing rank from elliptic factors are not new. The rank-one and rank-zero cases are low-cost specializations of those general criteria once the one remaining elliptic coefficient is evaluated; they are not independently decisive for this pass.",
+      "residual_risks": [
+        "An unindexed explicit p=11 specialization of the known symmetric family could overlap; the bounded comparison is not a historical priority guarantee.",
+        "No statement about intrinsic isomorphism classes or alternative presentations of the Appendix A curve follows from comparing the displayed branch quartets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers family and decomposition; no rank-two incidence table in inspected material",
+          "evidence": "Squares of E₁,E₂ and one E₃ give the decomposition. Superspeciality tests involve two roots of h followed by E₃; the explicit broader p=11 example has a different displayed common branch configuration.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.18074",
+          "material_read": "Theorem 1.2 and Table 1 p. 2; Theorem 2.6 p. 4; Proposition 4.1, eq. (4.3), Algorithms 4.2–4.3 pp. 7–8; Theorem 6.3 p. 11; Appendix A p. 13",
+          "method": "Bounded OA PDF passages",
+          "title": "Superspecial generalized Howe curves of genus 4, 5, and 6 with completely decomposable Jacobians",
+          "trigger": "Equivalent family, explicit superspeciality criterion and potential characteristic-eleven table"
+        },
+        {
+          "assessment": "Prior structural input, not credited to this record",
+          "evidence": "The three character quotients yield the 2-power isogeny; the theorem has no characteristic-eleven intersection census.",
+          "identifier_or_url": "arXiv:2108.06936",
+          "material_read": "Cited antecedent; compared through the precise isogeny statement reproduced as Ohashi Theorem 2.6",
+          "method": "Bounded statement comparison via cited OA theorem",
+          "title": "Decomposed Richelot isogenies of Jacobian varieties of hyperelliptic curves and generalized Howe curves",
+          "trigger": "Standard generalized Howe isogeny"
+        },
+        {
+          "assessment": "Distinct family and loci",
+          "evidence": "Five elliptic quotients in the specified Humbert family, rank at least three and 200 parameters with two supersingular quotients, not the symmetric Howe rank-two scheme.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-no-triple-supersingularity-in-the-characteristic-eleven-genus-fi--dff7c95142b3/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local index and bounded mirror text",
+          "title": "No triple supersingularity in the characteristic-eleven genus-five Humbert family",
+          "trigger": "Strongest retrieved catalogue match: same characteristic and genus and an exact supersingularity count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Characteristic eleven is a concrete characteristic with known superspecial genus-five examples in the broader Howe setting. In the symmetric chart, the rank-two points form the finite rank-drop locus where one genus-two factor loses two ranks and the remaining elliptic quotient simultaneously loses one. Knowing this locus exactly, with simple intersections and residue degrees, determines the low-rank incidence and the extension fields needed to realize its points, rather than just supplying examples. This naturally motivated exact stratum is valuable even though the decomposition is standard and the computation is finite.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

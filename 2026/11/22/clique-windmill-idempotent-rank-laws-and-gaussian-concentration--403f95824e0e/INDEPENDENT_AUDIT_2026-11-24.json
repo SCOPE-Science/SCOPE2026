@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:06:51.152982Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–55; VERIFICATION.md, verify_windmill.py and verification_output.txt (inspected, not executed)",
+        "Independent enumeration by the isolated-fiber criterion and direct check for two size-two blades: coefficients (1,17,38,18,5,1)"
+      ],
+      "rationale": "An idempotent partial function fixes every element of its image F. The inverse image of a singleton may consist of an adjacent pair, so each extra source must neighbor its fixed target and be unique for that target. An adjacent fixed pair forbids extras on either vertex, by the inverse image of the target edge. Conversely these conditions suffice for all vertex and edge faces of the one-dimensional complex. With hub undefined, the independent blade contribution is (1+z)^s+s(s−1)z; only a singleton fixed set in a blade allows an extra source. If the hub is sent to a fixed point in blade i there are s_i choices at rank one for that blade and no other extra source may map to that target. When the hub is fixed there are z(1+z)^S partial identities and Sz extra one-source maps with the hub alone fixed. These cases are exhaustive and disjoint, cover size-one blades, and include the empty map. For equal fixed s≥2 the term mszB_s^(m−1) has mass msb_s^(m−1); the remaining mass divided by it is O_s(1/m), yielding the stated total-variation bound to the discrete iid-sum law. Differentiation gives the asserted moments with positive variance, and the center differs by only a constant from that of the discrete comparison, enabling the iid CLT. In the friendship case the distribution on 0,1,2 has weights 1,4,1 out of 6, giving mean 1 and variance 1/3.",
+      "residual_risks": [
+        "Typical ranks are m+O in probability of sqrt(m) in the friendship case, not contained in a fixed-width multiple of sqrt(m) with probability tending to one. The total-variation bound is not to a continuous normal, and its optimality is not established or required. The limit fixes s≥2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The double-star result proves the very same isolated-fixed-target fiber lemma for general graphs, but its formula is for double-star trees.",
+          "Margolis–Rhodes, Theorem 4.2, concerns Green J-equivalence of idempotents; class structure is not the number of idempotents per image rank."
+        ],
+        "reasoning": "The fiber criterion reduces any graph to matching extra sources into isolated fixed points. It does not evaluate that sum over fixed sets or compute the hub-dependent dominant term. The new assertion uses the full windmill geometry to do both.",
+        "searches": [
+          "Primary search: graph Margolis-Rhodes idempotents windmill complete clique star classification paths cycles matchings",
+          "Inspect arXiv:2609.39370v2 §§1 and 4.1; arXiv:2005.02606 introduction; Resultary double-star 59b10be0366d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.39370v2 and arXiv:2005.02606",
+        "Resultary 403f95824e0e (identical), 59b10be0366d, 03034af7bf4f, a744b2960c42, f7ff06cf4156"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old star coefficients (k+1) binom(m,k)+binom(m,k−1)+m[k=1] match precisely the old boundary specialization.",
+          "The term z sum_i s_i product_{j≠i}B_{s_j} accounts for using the hub as the unique extra source of a peripheral target; in homogeneous blades this term drives the asymptotic law."
+        ],
+        "reasoning": "There is no simple parameter substitution from the known star formula: fixed singleton versus multiple fixed points in a blade and hub consumption change the generating function. The clique-blade factorization and rank concentration conclusion are new relative to the inspected criterion and solved subfamilies; the iid limit theorem itself is standard.",
+        "searches": [
+          "Compare Resultary 59b10be0366d's arbitrary-graph idempotent fiber lemma and 03034af7bf4f's exact star formula to frozen RESULT.md §§2–5",
+          "Compare f7ff06cf4156 with the presence of noninjective idempotents"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Margolis–Rhodes arXiv:2609.39370v2 counts inverse-simplex continuous partial functions in a one-dimensional complex.",
+          "Resultary f7ff06cf4156 is on the same windmill graphs but studies the inverse monoid of partial induced-subgraph automorphisms."
+        ],
+        "reasoning": "Inverse-simplex continuity is not graph-homomorphism continuity or partial-automorphism membership. In the latter monoid the idempotents are only partial identities, a proper subfamily as soon as there is an edge.",
+        "searches": [
+          "Resultary: clique windmill, friendship graph, idempotent rank and partial maps",
+          "Primary search: Margolis Rhodes monoid graph clique windmill friendship graph idempotent rank polynomial inverse simplex continuous partial maps enumeration Gaussian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "403f95824e0e is the identical assigned entry. The distinct entries 03034af7bf4f and a744b2960c42 give exact star rank profiles; 59b10be0366d gives double-star enumeration."
+        ],
+        "reasoning": "Substituting every s_i=1 in the new expression recovers the known finite-star formula, but star and double-star tables do not include heterogeneous cliques or the s≥2 limiting law.",
+        "searches": [
+          "Exact-title and family searches in Resultary for windmill/friendship MR rank, stars and double-stars",
+          "Primary windmill/friendship and complete-clique queries above"
+        ]
+      },
+      "rationale": "The arbitrary-graph fiber criterion and the all-size-one star special case are established and excluded from the novel contribution. The retained claim is the explicit heterogeneous clique-blade polynomial and the consequent equal-blade rank law. The strongest inspected statements do not provide these windmill counts for noninjective partial maps or that rank law.",
+      "residual_risks": [
+        "Priority is limited to the searched and inspected sources. A later focused primary-web query was unavailable; that is not negative evidence. Earlier indexed and OA comparisons above support the distinction but do not exclude unretrieved results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the relevant monoid and studies Green structure and path/cycle enumeration; inspected statements do not enumerate windmill idempotents",
+          "evidence": "The graph is a one-dimensional simplicial complex. Idempotents are L-equivalent to their image partial identities and J-equivalence is a structural question, not a rank count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.39370v2",
+          "material_read": "p. 1, offset 0; p. 7, around offset 24500, Lemma 4.1 and Theorem 4.2",
+          "method": "OA full-text excerpts",
+          "title": "The Margolis-Rhodes Monoid of a Graph",
+          "trigger": "Primary work on the same monoid and its idempotents"
+        },
+        {
+          "assessment": "Established input, strict family overlap only for its enumeration",
+          "evidence": "An isolated fixed target may accept one adjacent extra source, with no source used twice. The explicit formula concerns double-star trees.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-idempotent-rank-enumeration-for-double-star-margolis-rh--59b10be0366d",
+          "material_read": "RESULT.md Finding and arbitrary-graph idempotent fiber lemma, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete idempotent rank enumeration for double-star Margolis–Rhodes monoids",
+          "trigger": "Same idempotent rank invariant and stronger general fiber lemma"
+        },
+        {
+          "assessment": "Exact known boundary case only",
+          "evidence": "Rank-k idempotents on the m-leaf star have count (k+1) binom(m,k)+binom(m,k−1)+m[k=1].",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-rank-idempotent-and-regularity-profiles-of-continuous-part--03034af7bf4f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact rank, idempotent and regularity profiles of continuous partial maps on finite stars",
+          "trigger": "All blades of size one"
+        },
+        {
+          "assessment": "Different semigroup and only partial-identity idempotents",
+          "evidence": "Maps are partial induced-subgraph isomorphisms, hence injective.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-green-class-spectra-of-generalized-windmill-partial-automo--f7ff06cf4156",
+          "material_read": "RESULT.md offsets 0–4338 and 4500–7294",
+          "method": "Resultary local mirror",
+          "title": "Exact Green-class spectra of generalized windmill partial-automorphism monoids",
+          "trigger": "Same graphs and close semigroup terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact heterogeneous formula, dominant-mass comparison and scope",
+        "Resultary star and double-star comparisons above"
+      ],
+      "rationale": "The image-rank invariant is meaningful for the noninjective idempotents of this monoid. The exact formula treats arbitrary heterogeneous clique sizes and isolates the hub's role both combinatorially and asymptotically. The leading term is not the naive independent-blades contribution: the moving hub dominates and yields the discrete rank law to first order, from which the Gaussian scaling follows. This is useful beyond re-evaluating the known star counts.",
+      "residual_risks": [
+        "No claim for varying blade sizes, general clique-sums, the full monoid, or an optimal total-variation rate is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

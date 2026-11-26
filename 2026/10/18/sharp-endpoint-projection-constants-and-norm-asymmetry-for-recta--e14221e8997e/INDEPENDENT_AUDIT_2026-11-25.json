@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:17.667680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "python /workspace/review_evidence/1.py (SymPy; passed)"
+      ],
+      "rationale": "Reconstructed RESULT.md lines 48–73. Signed averaging preserves the range and its pointwise identity, hence reduces the global infimum to equivariant projections without changing the norm problem. In a mean-zero potential column, the endpoint transposition forces the signed coordinate difference and the opposite-coordinate stabilizer leaves exactly the two coefficients shown. The product decomposition then yields the three normalization equations: a complete-graph Laplacian is multiplication by its order on the mean-zero factor. These equations leave exactly one real parameter. I−Pᵀ, not generally I−P, bijects the cut and cycle projections. For 0≤t≤1 the pure-axis sum is 2(m−1)/m on the first orbit for both row and column: the absolute complete-graph difference mass is 2(m−1) and the other-coordinate weights are nonnegative with sum 1/m. The mixed block contributes 2(n−1)t/m to the column and 2(n−1)(1−t)/n to the row, since the row uses the opposite-axis input potential. The swapped contributions follow, and the cycle diagonals give the corrections 1−2d because 0<d<1. Each maximum has an interior crossing with opposite slopes and is convex on all of R (absolute sums), so the crossing is a global minimum, including against parameters outside [0,1]. The symbolic replay confirmed the four crossings, strict endpoint difference factors, and the four (3,4) values. The proof concerns the real unweighted edge coordinates, m≥3 and n>m, and does not require uniqueness of arbitrary minimizers.",
+      "residual_risks": [
+        "The symbolic replay checks algebra, not the representation-theoretic reduction, which was checked separately. The frozen checker comment mentioning PQ=QP=0 is not an actual assertion and is not generally true for these adjoint-complement projections; the checker and theorem need only the separate idempotences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "H(d,q)=K_q^□d uses one alphabet size q; Theorem 43 says its orthogonal cycle projection is uniquely automorphism-invariant.",
+          "05695b9bae19 explicitly excludes non-isomorphic coordinate alphabets."
+        ],
+        "reasoning": "Greater Hamming dimension is not a dominating parameter: it introduces more equal factors, not unequal factors. On the rectangle the missing axis swap permits the nonconstant affine family.",
+        "searches": [
+          "arXiv:2305.12582v1, Theorem 43",
+          "Resultary 05695b9bae19, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.12582v1",
+        "arXiv:2311.14333",
+        "Resultary 05695b9bae19",
+        "Resultary 6666bba3a821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hamming symmetry result removes the invariant choice of projector; Yan et al. use the orthogonal Hodge projector for encoding on a square rook example."
+        ],
+        "reasoning": "An orthogonal projector, even with known entries, does not determine the optimum when invariant projectors vary; the rectangular cut and cycle endpoint minima require different orbit balances.",
+        "searches": [
+          "arXiv:2305.12582v1, §§2.6–2.7.4",
+          "arXiv:2311.14333, pp. 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 63 derives the binary cube's ℓ∞ cut norm via I−Q*, transferring the endpoint but not changing the graph."
+        ],
+        "reasoning": "Changing edge signs, taking adjoint complements, or expressing the cut space via the graph Lipschitz space does not transfer the symmetric binary result to independently unequal clique orders; complementing a projection does not preserve its endpoint norm.",
+        "searches": [
+          "Resultary: cut/cycle minimum endpoint projections for Cartesian clique products",
+          "arXiv:2305.12582v1, §§2.6–2.7.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "05695b9bae19 gives equal endpoint values within each of the two spaces for equal alphabets, including square rook graphs; 6666bba3a821 gives ℓ1 minima on K_m□K_2; the primary explicit cut and cycle endpoint results concern binary cubes."
+        ],
+        "reasoning": "These are actual exact boundary comparisons. None gives the four values for 3≤m<n or the strict differences in that domain.",
+        "searches": [
+          "Resultary exact endpoint comparisons: 05695b9bae19 and 6666bba3a821",
+          "arXiv:2305.12582v1, Theorem 45, Corollary 60 and Theorem 63"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the four unequal-axis optima and strict within-space endpoint asymmetry, not for symmetry averaging, adjoint-complement duality or the equal-axis formulas. The two closest distinct same-day catalogue records were compared on actual domains, without assuming publication order.",
+      "residual_risks": [
+        "A separately indexed or unpublished general unequal-product formula could have been missed; this is not a historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known framework and equal-factor/binary cases, not the unequal case",
+          "evidence": "Theorem 43 is for uniform-alphabet Hamming graphs; Theorem 63 is the binary cube's ℓ∞ cut norm (d+1)/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582v1",
+          "material_read": "§2.6 pp. 20–23 and endpoint statements in §2.7 pp. 23–24, 32–33",
+          "method": "OA original PDF at the selected theorem passages",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Same incidence spaces, symmetry and endpoint method"
+        },
+        {
+          "assessment": "Equal-axis boundary, not a match; date alone establishes no order",
+          "evidence": "Both cut endpoints equal (d+1)(q−1)/q, and both cycle endpoints are equal as well; unequal alphabets are excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minimal-cut-and-cycle-projections-for-nonbinary-hamming-gr--05695b9bae19/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary search and local-mirror statement",
+          "title": "Exact minimal cut and cycle projections for nonbinary Hamming graphs",
+          "trigger": "All four exact endpoint minima for the neighboring product family"
+        },
+        {
+          "assessment": "Different parameter boundary",
+          "evidence": "One factor has order 2, and the claimed minima are for ℓ1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minimal-cycle-and-cut-projections-on-clique-prism-graphs--6666bba3a821/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary search and local-mirror statement",
+          "title": "Exact minimal cycle and cut projections on clique-prism graphs",
+          "trigger": "Unequal clique factors"
+        },
+        {
+          "assessment": "Different use of orthogonal projector",
+          "evidence": "Encoding from a Hodge cycle projector is not an endpoint Banach projection minimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14333",
+          "material_read": "pp. 1–3, including the square rook example",
+          "method": "OA PDF passages",
+          "title": "Cycle Invariant Positional Encoding for Graph Representation Learning",
+          "trigger": "Rook graph and cycle projections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 26–46 and 78–82",
+        "Uniform Hamming comparison, arXiv:2305.12582v1 and Resultary 05695b9bae19"
+      ],
+      "rationale": "Endpoint projection constants are intrinsic linear-extension/complementability invariants for natural graph subspaces. The product just beyond the equal-axis symmetry case separates l1 and l∞ in opposite directions for cut and cycle, and identifies the nonorthogonal optimizers. These exact values answer whether square-case endpoint equality survives unequal axes and give sharp benchmarks, rather than just bounds from a chosen projector.",
+      "residual_risks": [
+        "No generalized optimality at intermediate p or on products with more factors is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

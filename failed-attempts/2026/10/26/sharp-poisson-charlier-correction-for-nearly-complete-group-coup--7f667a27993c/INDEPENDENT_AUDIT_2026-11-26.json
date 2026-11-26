@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:04.024035Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Counting ordered tuples of missed types gives μ_j=λ^j R_j up to r and μ_j=0 thereafter. With b_j=δ j(j−1)/2, in j≤r/2 the logarithm x_j=−log R_j is nonnegative, has |x_j−b_j|≤4t j³/r², and is at most t j²/r; Taylor's inequality for exp(−x_j) gives the stated fourth-degree bound, including the zero-moment-index case. Beyond r/2, 0≤R_j≤1 and j²/r>1/2 give the other bound including the cutoff tail. The generating series in z−1 gives ordinary factorial-moment inversion; the quadratic correction is the coefficient of −δλ²(z−1)² exp(λ(z−1))/2. Its masses have the signed Charlier convention stated in the record. The absolute coefficient norm of (z−1)^j is 2^j, so summing gives the claimed Touchard factor by absolute convergence. The reverse triangle inequality and convergence of the absolute Charlier moment (uniform integrability via bounded Poisson fourth moments) give the stated TV limit since rδ→t. Evaluation at k=0 gives the completion formula; for t>2, 1/n indeed outruns r^−2 on the critical scale. Supporting files were inspected, not executed; frozen finite tests are not the basis for these deductions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 of the accessible Charlier–Parseval paper explicitly bounds half the ℓ¹ error to the signed PGF exp(λ(z−1))[1−λ_2(z−1)²/2] for θ=λ_2/λ<1, where λ_j is the jth power sum of Bernoulli probabilities. Its Eq. (4.2) gives the signed Charlier masses. Betken–Thäle's inspected bound is instead in a different fixed-packet, increasing-round regime."
+        ],
+        "reasoning": "The signed measure from the prior theorem is exactly of the frozen form with δ replaced by λ_2/λ². Correcting that replacement with a second-moment estimate and using a trivial bound when θ>1/2 gives a dominating global bound; the prior theorem's θ restriction does not leave an uncovered range for the frozen inequality.",
+        "searches": [
+          "Zacharovas–Hwang, A Charlier–Parseval approach to Poisson approximation and its applications, arXiv:0810.4756 §§3–4, Eq. (4.2), Theorem 4.2",
+          "arXiv:2202.07485 §2 Theorem 3",
+          "DOI 10.1137/S0040585X97984784"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:0810.4756 Eq. (4.2) and Theorem 4.2",
+        "Resultary 6614ecd26c48, 6b49f29f70db, b21e06270e4c, 7c256b72ae70",
+        "Goldstein–Reinert author manuscript",
+        "arXiv:2202.07485",
+        "DOI 10.1137/S0040585X97984784 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the Bernoulli representation write s_j=λ_j/λ^j and x=t/r. Then s_2=1−R_2, 2s_3=R_3−3R_2+2, by elementary factorial-moment identities. In fact 0≤s_2≤δ≤x, δ−s_2≤x²/2, s_3≤3x²/2. To see the estimates put a=1/r, b=1/n and f(u)=(1−ua)^t/(1−ub)^(t−1); R_2=f(1) and R_3=f(1)f(2), also for r=2 where f(2)=0. Here f(0)=1, f′(0)=−δ and f is convex. On ua≤2/3, f″=t(t−1)(a−b)²[(1−ua)/(1−ub)]^(t−2)/(1−ub)^3≤t(t−1)a², since (1−b/a)^(2/3)≤1−(2/3)b/a≤1−ub. Taylor on [0,1] bounds δ−s_2. The centered second difference f(2)−2f(1)+1 is at most t(t−1)a² by integrating this derivative bound if r≥3; if r=2 it is ≤1, sufficient for t≥3, and for t=2 it is ≤1/2 since f(1)≥1/4. Also 1−f(2)≤2δ. Substitute 2s_3=[f(2)−2f(1)+1]+s_2[1−f(2)] to obtain the stated bound.",
+          "For θ=λs_2≤1/2, Theorem 4.2 gives ℓ¹ error at most 4√3 c_1 θ²+8√(3/2)c_2 λ_3/λ^(3/2) to the signed law using s_2. Here c_1=√e−1<0.65, c_2<0.377 from the integral in Lemma 4.1 (or by bounding exp(u²/2) by 1+c_1 u² on [0,1]). Replacing s_2 by δ adds at most 2(δ−s_2)λ² because ∥π_λ C_2∥_1≤4λ². The bounds above give total error ≤5.6 x²(λ²+λ^(3/2))≤x²(λ+14λ²)≤x² T_4(2λ)/2: 5.6√λ≤1+8.4λ by the negative discriminant.",
+          "For θ>1/2, λx>1/2 and the trivial ℓ¹ estimate is at most 2+2xλ². Already x²T_4(2λ)/2≥14x²λ²+24x²λ³>3.5+12xλ², which dominates this estimate. Thus in both cases the stated signed masses satisfy the stronger bound t² T_4(2λ)/(2r²), with no exponential factor and a smaller prefactor. The reverse triangle inequality gives the same sharp TV limit, and the k=0 evaluation gives the same completion expansion."
+        ],
+        "reasoning": "This is a statement-level implication including a bound that dominates the frozen bound at every allowed parameter, not just the same Charlier shape or an order estimate in one regime. The asymptotic corollaries do not leave a separate uncovered claim.",
+        "searches": [
+          "Resultary 6614ecd26c48 Finding and exact PGF",
+          "arXiv:0810.4756 §3 definition of θ, §4 Lemma 4.1, Eq. (4.2), Theorem 4.2",
+          "Frozen RESULT.md exact factorial moments and K_t"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Finding of 6614ecd26c48 gives real nonpositive PGF roots and equality in law to a sum of independent Bernoulli variables for any independent sequence of fixed-size uniform coupon packets. Set every packet size to n−r. Goldstein–Reinert treat the identical intersection count."
+        ],
+        "reasoning": "The physical vacancy indicators remain dependent, but the univariate count has an independent Bernoulli representation in law. Univariate signed masses, total variation and the void probability are unchanged by that equivalence.",
+        "searches": [
+          "Local Resultary group coupon unseen count / subset intersection / Poisson-binomial; 6614ecd26c48 and 6b49f29f70db",
+          "Goldstein–Reinert, Total Variation Distance for Poisson Subset Numbers, Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6614ecd26c48 gives the full finite-sample vacancy PGF and the exact Bernoulli factorization in this regime; 6b49f29f70db also uses the finite-horizon factorization but studies a different asymptotic. The signed multiset and two-at-a-time completion hits concern different models or regimes."
+        ],
+        "reasoning": "No exact table entry for the frozen constant is required for coverage: the known exact PGF and representation make the first three power sums accessible and permit direct application of the general signed estimate. The other catalogue hits are analogues, not the basis for the failure.",
+        "searches": [
+          "Local Resultary exact vacancy and signed completion comparisons: 6614ecd26c48, 6b49f29f70db, b21e06270e4c, 7c256b72ae70"
+        ]
+      },
+      "rationale": "Verified stronger prior coverage, not merely an inaccessible citation. The known exact Poisson-binomial representation of the vacancy count puts this dependent-drawing problem under the second-order Charlier–Parseval theorem of Zacharovas and Hwang. Its explicit total-variation theorem, specialized using only the second and third factorial moments, implies a finite bound stronger than the entire frozen ℓ¹ bound, with the same δ (see derivation below). The sharp TV and completion formulas then follow immediately. Goldstein–Reinert alone would not have sufficed to reach this conclusion.",
+      "residual_risks": [
+        "The 2011 cited paper was not available in full. Its potential further coverage and the precise historical priority of related methods are not needed for the decision, which rests on inspected exact representation and second-order estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage after the elementary parameter estimates above",
+          "evidence": [
+            "Eq. (4.2) identifies the signed masses with a second Charlier term. Theorem 4.2 gives the explicit ℓ¹/2 remainder in θ² and λ_3/λ^(3/2) with denominators (1−θ)^(5/2) and (1−θ)^2, respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0810.4756",
+          "material_read": "Title/abstract; §3 p. 13 θ and power-sum notation; §4 pp. 16–18, offsets 64100–72223, Lemma 4.1, Eq. (4.2) and Theorem 4.2",
+          "method": "Lawful OA PDF: literal passage location and offset reads",
+          "title": "A Charlier–Parseval approach to Poisson approximation and its applications",
+          "trigger": "General signed Charlier expansion and explicit remainder for the known Bernoulli representation"
+        },
+        {
+          "assessment": "Exact coverage of the distributional representation even when packet sizes vary",
+          "evidence": [
+            "The vacancy PGF has only real nonpositive zeros and equals the PGF of independent Bernoulli sum; the joint physical indicators themselves are not asserted to be independent."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-poisson-binomial-vacancy-law-for-heterogeneous-group-coupon-draw--6614ecd26c48",
+          "material_read": "Local mirror RESULT.md offsets 0–1899, Finding, exact PGF and scope",
+          "method": "Local catalogue lookup and exact mirror passage",
+          "title": "Poisson-binomial vacancy law for heterogeneous group coupon drawings",
+          "trigger": "Applicability of independent-Bernoulli, whole-count theorems to this lottery"
+        },
+        {
+          "assessment": "Exact object and O(1/r) upper bound at bounded mean, not alone the signed approximation",
+          "evidence": [
+            "The bound uses a sum of reciprocal subset sizes and includes equal sizes r; no matching signed second-order term in the inspected bound."
+          ],
+          "identifier_or_url": "https://www.stats.ox.ac.uk/~reinert/papers/poissonsubset.pdf",
+          "material_read": "Author manuscript abstract and Theorem 2.1 p. 6, offsets 11929–15796",
+          "method": "Targeted OA PDF text reading",
+          "title": "Total Variation Distance for Poisson Subset Numbers",
+          "trigger": "Same random subset intersection"
+        },
+        {
+          "assessment": "Different parameter regime; not the decisive implication",
+          "evidence": [
+            "Fixed packet size and (n/s)(log n+x) horizon, rather than fixed rounds and growing packet size n−r."
+          ],
+          "identifier_or_url": "arXiv:2202.07485",
+          "material_read": "§2, Theorem 3, PDF text near offset 11000",
+          "method": "Targeted OA PDF text reading",
+          "title": "Approaching the coupon collector's problem with group drawings via Stein's method",
+          "trigger": "Group-coupon Poisson approximation"
+        },
+        {
+          "assessment": "Potential additional coverage; not used to reach the verdict",
+          "evidence": [
+            "The decisive second-order theorem was independently found in the accessible arXiv:0810.4756, a different identified publication."
+          ],
+          "identifier_or_url": "10.1137/S0040585X97984784",
+          "material_read": "Bibliographic entry only; no lawful full text retrieved via DOI/SIAM routes",
+          "method": "OA direct retrieval and repository-copy attempts",
+          "title": "Uniform Asymptotics of Poisson Approximation to the Poisson-Binomial Distribution",
+          "trigger": "Closely related general Poisson-binomial asymptotics cited in RESULT.md"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The correction and its accuracy would be useful for calibrating near-complete collection, but the claimed gap is already covered by the exact known vacancy representation and a strength-dominating application of an explicit general bound. The elementary factorial-moment inversion is a valid alternative derivation, but the finding does not establish a distinct theorem or comparative proof advantage. The stated asymptotic and completion consequences do not independently survive that coverage, so no substantive repair is justified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

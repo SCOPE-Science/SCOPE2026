@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:27.655056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md equations (1)–(5). At k=ns_j+m the jth segment has magnitude |sin(mL_j/2)|/(pi |m|) for m nonzero; both signs give 2/pi, and the centers give a bounded contribution. The distinct integer slopes separate the windows, so discarding all other segments within them costs O(1) in total. Outside the windows with |k|=O(n) the same count and denominator bound give O(1). In the remote tail the common 1/k endpoint term cancels by continuity and circle periodicity (the real lift only needs endpoint equality modulo 2pi), leaving O(n/k²), with bounded total. Cesàro averaging and Abel summation give the stated rational and irrational coefficients. The bounded error after replacing the sine sums by a logarithm is claimed only when all lengths are rational. The plateau-tent lengths, both sample evaluations, and continuity at irrationals with a strict downward jump at every rational parameter follow from the denominator formula. The frozen checker was inspected but not run; its finite cutoffs are diagnostic, not the basis for the asymptotic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rigidity theorem concerns o(log |n|).",
+          "The available account of Kahane gives two-sided logarithmic Wiener-norm order for nonaffine piecewise-linear phases. Lebedev proves logarithmic order in U(T) for the same broader phase class."
+        ],
+        "reasoning": "These results allow broader slope hypotheses or address a stronger Fourier norm, but their order information does not determine a leading Wiener-norm constant, much less an arithmetic change in it.",
+        "searches": [
+          "arXiv:2610.14981v1, Theorem 1.1",
+          "arXiv:1203.6703v1, Section 1",
+          "Kahane, Séries de Fourier absolument convergentes, Chapter VI §2, as quoted in arXiv:1112.4892v3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and check_wiener.py",
+        "arXiv:2610.14981v1",
+        "arXiv:1112.4892v3",
+        "arXiv:1203.6703v1",
+        "Kahane 1970, Chapter VI §2 (attributed statement; original chapter inaccessible)",
+        "Resultary 2026/11/22/SCOPE-arithmetic-discontinuity-of-sharp-logarithmic-wiener-norms-for-a--2bb826e225d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known two-slope coefficients cover a special case; the order/rigidity results do not compare the rates at rational and irrational segment lengths."
+        ],
+        "reasoning": "Neither summing individual tent norms nor applying norm-order bounds produces the norm of a multi-segment phase: interference must be controlled before taking absolute values. The uniformized window error for fixed phase and the endpoint-cancelled tail supply the missing implication.",
+        "searches": [
+          "arXiv:2610.14981v1, Eq. (8.2) and Theorem 1.1",
+          "arXiv:1203.6703v1, Section 1",
+          "Resultary one-kink tent RESULT.md, offsets 0 and 4000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohrysko's exact Fourier coefficients (8.2) for exp(i|x|) allow recovery of the symmetric tent coefficient 2/pi.",
+          "The matching Resultary record gives an exact coefficient for a one-kink asymmetric tent, with rational/irrational behavior and bounded residual in the rational case."
+        ],
+        "reasoning": "Comparing piecewise-linear circle lifts, and allowing rotations or multiplication by a character, preserves the symmetric two-slope case but cannot turn the three distinct slopes of the plateau family into two. The symmetric special case is covered; the general statement is not equivalent to the tent formulas.",
+        "searches": [
+          "arXiv:2610.14981v1, Example 8.1",
+          "arXiv:1112.4892v3, Introduction",
+          "Resultary 2026/11/22/SCOPE-arithmetic-discontinuity-of-sharp-logarithmic-wiener-norms-for-a--2bb826e225d2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed matching RESULT.md at offsets 0 and 4000 gives an exact tent-family formula for slopes 1 and -alpha/(1-alpha); it agrees at alpha=1/2."
+        ],
+        "reasoning": "This is a meaningful match by exact content, not a dating inference. Its family does not contain the plateau-tent or give a general segmented decomposition. The relevant exact repository check is for formulas, not a table of finite parameter values.",
+        "searches": [
+          "Resultary semantic search: exact Wiener-norm logarithmic coefficient, arithmetic discontinuity, piecewise-affine/tent phase; closest distinct source 2026/11/22/SCOPE-arithmetic-discontinuity-of-sharp-logarithmic-wiener-norms-for-a--2bb826e225d2"
+        ]
+      },
+      "rationale": "The inspected sources cover logarithmic order, rigidity, and a family-specific sharp coefficient, but do not cover the bounded-error harmonic decomposition for arbitrary mutually distinct integer slopes or the three-segment plateau-tent coefficient. This verdict credits the genuine two-slope overlap, including the symmetric tent, and does not claim the first arithmetic discontinuity in any family.",
+      "residual_risks": [
+        "Kahane's original chapter and unindexed older formulas were not exhaustively inspected; the originality verdict is relative to actual statement-level comparisons.",
+        "The distinct indexed tent entry makes a general claim of first observing arithmetic discontinuity inappropriate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a symmetric special case, not the general coefficient.",
+          "evidence": [
+            "Theorem 1.1 is a sublogarithmic rigidity result; Example 8.1 integrates exp(i|x|) and states two-sided logarithmic order."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.14981v1",
+          "material_read": "Theorem 1.1 (offset 5836) and Example 8.1, including (8.2) (offset 54971)",
+          "method": "OA primary full-text passage comparison",
+          "title": "A proof of Kahane's conjecture in the Wiener algebra",
+          "trigger": "Sharp logarithmic rigidity and an exact piecewise-affine example"
+        },
+        {
+          "assessment": "Supports earlier order-of-growth coverage.",
+          "evidence": [
+            "Attributes the general nonaffine piecewise-linear logarithmic-order result to Kahane, Chapter VI §2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1112.4892v3",
+          "material_read": "Introduction around offset 5150",
+          "method": "OA full-text passage; cross-check of attributed result",
+          "title": "Absolutely convergent Fourier series. An improvement of the Beurling–Helson theorem",
+          "trigger": "Kahane's earlier piecewise-linear theorem"
+        },
+        {
+          "assessment": "Order in a different norm; no implication of the sharp Wiener coefficient from the inspected theorem.",
+          "evidence": [
+            "The theorem gives U(T) logarithmic order for nonaffine piecewise-linear maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1203.6703v1",
+          "material_read": "Section 1 around offset 3156",
+          "method": "OA primary full-text passage comparison",
+          "title": "On uniform convergence of Fourier series",
+          "trigger": "Potentially broader result for piecewise-linear phases"
+        },
+        {
+          "assessment": "Original chapter not available for direct comparison.",
+          "evidence": [
+            "Both the attributed logarithmic-order theorem and its scope are documented in the inspected OA papers."
+          ],
+          "identifier_or_url": "Kahane, Springer, 1970, Chapter VI §2",
+          "material_read": "Springer landing page; theorem description through Lebedev, not the original chapter",
+          "method": "Lawful retrieval attempt and attributed statement comparison",
+          "title": "Séries de Fourier absolument convergentes",
+          "trigger": "Earliest cited result on the same type of phases"
+        },
+        {
+          "assessment": "Substantial thematic and special-case overlap, without general or plateau-tent coverage.",
+          "evidence": [
+            "Its one-kink two-slope family includes the symmetric tent and has a rational bounded remainder; it does not have a nonempty plateau with a third slope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-arithmetic-discontinuity-of-sharp-logarithmic-wiener-norms-for-a--2bb826e225d2",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 4000",
+          "method": "Local index and mirror statement comparison",
+          "title": "Arithmetic discontinuity of sharp logarithmic Wiener norms for a tent family",
+          "trigger": "Exact catalogue match on arithmetic dependence of the logarithmic coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-sided logarithmic estimate does not distinguish phases arbitrarily close in the uniform norm. The exact coefficient and its bounded-error harmonic representation explain what length data govern this threshold growth across a natural class, not just an isolated example. The plateau family realizes the effect with fixed slopes and no change in winding, isolating the arithmetic dependence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

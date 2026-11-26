@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:37.022604Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–6, VERIFICATION.md and checker.py inspected, not executed",
+        "repairs/4/RESULT.md",
+        "Independent finite replay: /tmp/opencode/scope_independent_cert.py, escape()"
+      ],
+      "rationale": "The fixed-hole centered variance and its least-overlap-period allocation are correct. The repair distinguishes symbolic period classes from physical membership at the excluded endpoint 1: the all-(q-1) word has least period 1 and contributes nonzero limiting weight, although its half-open cylinder does not contain the corresponding endpoint. The first-occurrence decomposition gives the stated autocorrelation denominator. Its first positive pole is the unique root in the claimed band, with nonzero numerator; submultiplicativity makes the exponential rate a limit, not just a limsup. Uniform Taylor control gives Y=1/C_w(1/q)+O_q(nq^-n). At most q^r words have least period r, so their squared deviations from 1 have a uniform O_q(q^-r) tail per class. A full primitive block fits in every overlap at shifts at most n-p for fixed period p, so that class has a_q(p) phases with deviation tending to -q^-p. The summed squared expansion error and mean-centering correction are O_q(n^2 q^-n). The repair also shows the allocation denominator is positive. An independent scaled-root enumeration reproduced binary scaled variances 0.7918088529466 at n=9 and 0.8196180256213 at n=14.",
+      "residual_risks": [
+        "Fixed q, single fixed uniform q-adic cylinder, and Lebesgue initial law; not a moving-hole model or arbitrary interval-hole ensemble. The finite calculations corroborate but do not prove the limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.4 and Appendix A give a more general escape-root formula; §3 studies maximizers.",
+          "A maximizer, weighted root equation or multi-hole/random-relocation result is not a limiting ensemble centered second moment over single holes."
+        ],
+        "reasoning": "The broader formula provides pointwise inputs. It needs new uniform error control at the rare-event variance scale and summable period-class domination to imply the displayed limit.",
+        "searches": [
+          "Weighted autocorrelation polynomial / maximal escape rate for shifts, arXiv:2112.14248",
+          "Prior full-shift fixed forbidden-word escape and broader random-hole ensemble results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.7000 and arXiv:2112.14248 primary passages",
+        "Resultary c9bf3b88e6a1, 3864c4fc374f, 6dadc656cf56"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier binary per-hole coefficients and primitive counts are substantive direct ingredients.",
+          "Period p contributes a_q(p)q^-2p only after squaring the deviations and controlling the long-period tail and centering."
+        ],
+        "reasoning": "The mean formula does not recover second moments or distinguish which phase classes carry them. The original part is the new scale, constant and normalized allocation, not the counting or root formula.",
+        "searches": [
+          "arXiv:1207.7000 Eq. (14), Eq. (23), Eq. (28); arXiv:2112.14248 Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-hole survival process is equivalent to avoiding a single word in the uniform full shift.",
+          "The binary per-word reciprocal overlap coefficient is Eq. (14) in arXiv:1207.7000; its Eq. (28) is a location mean."
+        ],
+        "reasoning": "Same autocorrelation coordinates and same binary ensemble are genuine overlap, but no centered-square sum or variance-weighted period allocation is stated in those passages.",
+        "searches": [
+          "Fixed q-adic Markov hole escape-rate variance; full-shift one-forbidden-word centered variance / least self-overlap periods",
+          "arXiv:1207.7000 §§III.B–C; arXiv:2112.14248 Proposition 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Findings concern forbidden-word letter frequencies, digit-count variances in two shifts, and periodically moving dyadic holes respectively."
+        ],
+        "reasoning": "None takes the variance of the rate over a fixed uniform single-hole draw, and no equivalent constant/allocation pair was verified in the checked entries.",
+        "searches": [
+          "Local Resultary semantic checks for escape-rate variance and periodic hole allocation",
+          "Resultary c9bf3b88e6a1, 3864c4fc374f, 6dadc656cf56"
+        ]
+      },
+      "rationale": "The closest inspected papers provide the autocorrelation escape equation, primitive-word multiplicities and a cross-hole mean, not the limiting centered variance with its primitive-symbolic-period allocation. Known per-hole formulas make the new moments derivable with additional analysis, but an extremal or mean result alone does not fix them.",
+      "residual_risks": [
+        "A differently phrased or unindexed second-moment calculation could exist; earlier binary formulas are close inputs. The limited comparison is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial inputs and overlap in setup; reports a mean, not the new moment and allocation",
+          "evidence": "Reciprocal overlap coefficient and primitive counts feed the average escape-rate expansion.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.7000",
+          "material_read": "OA PDF pp. 4–7, §§III.B–C, Eqs. (14), (23), (28)",
+          "method": "Lawful OA primary passages",
+          "title": "Faster than expected escape for a class of fully chaotic maps",
+          "trigger": "Same binary fixed Markov hole ensemble and known orbit counts"
+        },
+        {
+          "assessment": "General pointwise foundation, not an ensemble moment statement",
+          "evidence": "The autocorrelation polynomial equation identifies escape roots and supports maximizer comparisons.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.14248",
+          "material_read": "OA PDF p. 3 Proposition 2.4; §3 and p. 14 Appendix A",
+          "method": "Lawful OA primary passages",
+          "title": "Maximal escape rate for shifts",
+          "trigger": "General one-word shift escape theorem"
+        },
+        {
+          "assessment": "Different observables or sampling procedures",
+          "evidence": "Letter frequencies, digit counts and periodically time-varying holes, respectively.",
+          "identifier_or_url": "c9bf3b88e6a1; 3864c4fc374f; 6dadc656cf56",
+          "material_read": "RESULT.md Findings at offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Relevant Resultary forbidden-word and moving-hole records",
+          "trigger": "Closest indexed neighboring uses of borders, variance and escape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md; arXiv:1207.7000 §III mean calculations"
+      ],
+      "rationale": "In a standard fixed-hole ensemble, the mean normalized rate hides rare large deviations at short symbolic periods. The exact variance scale and nondegenerate period allocation quantify that distinction with a natural invariant and identify the classes carrying it; neither is a recomputation of an extremal rate or a small finite example.",
+      "residual_risks": [
+        "No comparable conclusion is asserted for other hole laws or nonuniform sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

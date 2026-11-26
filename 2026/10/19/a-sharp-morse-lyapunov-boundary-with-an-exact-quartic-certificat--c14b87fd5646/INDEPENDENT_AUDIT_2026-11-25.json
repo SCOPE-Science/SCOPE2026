@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:56:54.541950Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–19 and 21–70",
+        "VERIFICATION.md, lines 19–23; check.py, lines 1–51, inspected only",
+        "/workspace/review-evidence/1-morse-replay.md"
+      ],
+      "rationale": "The logarithmic derivative of r⁴(omega−b sin 4theta) cancels the cos 4theta term exactly. Uniform positive radial bounds on P and the strict differential inequality imply forward completeness, attraction, stability and uniqueness of equilibrium. For a C² function at a local minimum, the order-four Lie derivative along the two axes has coefficients (b−a)H11+omega H12 and (b−a)H22−omega H12. Their nonpositivity is impossible for b>a and a positive Hessian. For a strict quadratic both coefficients must be strictly negative, excluding b=a as well. At b=a, r²+P instead is strict and has Hessian 2I; odd positive-definite polynomial degrees cannot occur. This verifies both sharp inequalities with their different equality cases and the semisimple zero Jacobian.",
+      "residual_risks": [
+        "The proof is for a>0 and 0<=b<omega. It does not exclude smooth Lyapunov functions with a degenerate Hessian when b>a, nor classify the angular-locked sector."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For angular speed B=omega−b sin 4theta>0 the angle invariant law is proportional to B^(-1). The average of cos 4theta is zero by integrating B'/B, so the radial log rate averages −a; the angular GAS criterion covers stability.",
+          "Jongeneel's example has nonzero nilpotent linear part and the semisimplicity condition does not exclude a Morse function when the Jacobian is zero.",
+          "The later indexed homogeneous criterion says Morse exists iff a positive H has z^T Hf(z)<=0 everywhere. By the symmetry (or the two axes) this is equivalent to b<=a here, but the criterion neither computes the decay identity nor establishes earlier priority."
+        ],
+        "reasoning": "General stability and broad non-Morse existence are covered mathematics. The closest general Morse criterion is genuine mathematical subsumption of the test, not a different normalization, but its indexed record is later and it does not subsume the exact certificate identity.",
+        "searches": [
+          "Shevchenko–Liu–Liu, arXiv:2610.12434v1, Lemma 3.2",
+          "Jongeneel, arXiv:2610.05626, Proposition 3.5 and Corollary 3.9",
+          "Resultary: 2026/11/1/SCOPE-sharp-morse-lyapunov-threshold-in-a-quartic-dissipative-cubic-fl--3c6a1a0104de"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 74–85",
+        "Phase-locked cubic and later homogeneous Morse criterion in the Resultary mirror",
+        "Jongeneel 2610.05626, Liu–Fitzsimmons 2607.16171, Shevchenko–Liu–Liu 2610.12434"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A negative Lie derivative for a quartic does not entail a Morse function; replacing strict quadratic inequalities by necessary nonstrict inequalities on the Hessian and testing their sum excludes only the supercritical side. The addition of the strictly dissipative quartic at equality proves existence there.",
+          "Liu–Fitzsimmons rule out analytic Lyapunov functions for a different cubic with angular speed r²; this cannot imply non-Morse behavior in a family with a strict analytic quartic."
+        ],
+        "reasoning": "The distinct contribution does not rest on claiming the degree-only threshold or the general counterexample phenomenon is new. The explicit scalar decay identity and the rotating model's C² threshold with the correct boundary each require a different affirmative calculation or argument than the earlier formulations inspected.",
+        "searches": [
+          "Jongeneel, arXiv:2610.05626, Proposition 3.5 / Corollary 3.9",
+          "Liu–Fitzsimmons, arXiv:2607.16171, Theorem II.2",
+          "Phase-locked cubic, RESULT.md offsets 2130–4954; later homogeneous Morse criterion, RESULT.md offset 220"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The phase-locked result has the identical cubic under gamma=b, but 0<=omega<=b. Its alternative quartic has Im(z⁴) coefficient −b omega/(a²+omega²), compared with −b/omega here.",
+          "Its positivity and derivative Gram eigenvalues extend to a>0, b<omega because a²+omega²>b². Its symmetry proof excludes strict quadratics at and above b=a in both sectors."
+        ],
+        "reasoning": "This is substantial same-model coverage after extending displayed algebra, despite disjoint stated sectors. The alternative quartic is not the stated scalar-decay certificate and the strict-quadratic obstruction is not the C² Morse assertion (particularly at equality).",
+        "searches": [
+          "\"(-a+iω)|z|^2z\" \"b\\bar z^3\" Lyapunov Morse cubic",
+          "Resultary: previous theorem strictly rotating sector gamma<omega fourfold equivariant cubic zbar cubed angular frequency sharp Morse Lyapunov boundary exact quartic certificate dot P"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed phase-locked result supplies the exact degree boundary and an alternative explicit strict quartic by its displayed algebra. It mentions an unidentified same-model rotating-sector theorem at offset 5550 without giving a corresponding source ID or stating the Morse conclusion."
+        ],
+        "reasoning": "The indexed result is credited for the degree calculation and cannot be treated as a nonmatch merely by its title. The rotating-sector reference is a concrete priority risk but not evidence that the exact decay law or Morse threshold appears there.",
+        "searches": [
+          "Resultary: exact fourfold model, local Morse obstruction and strict degree boundary",
+          "2026/10/18/SCOPE-sharp-stability-and-optimal-quartic-sos-certificates-in-a-phase--1dfb71c2d567, Finding, Proof §§2–3 and relationship to prior work"
+        ]
+      },
+      "rationale": "An earlier exact calculation for the same model in the angular-locked sector materially overlaps: its algebra extends to give GAS, a strict quartic and the degree-two/four boundary in the rotating sector. GAS also follows from the published angular criterion. The distinct frozen content is the exact scalar decay identity for this particular quartic and the sharp local C²/global Morse classification, including the difference from strict quadratics at equality. A later indexed general homogeneous criterion mathematically subsumes the Morse test once GAS and the symmetry are supplied, but does not give this exact quartic identity or establish that the Morse classification was already known when the frozen result was made. An uncited reference to an older rotating-sector theorem remains unresolved.",
+      "residual_risks": [
+        "The same-model rotating-sector theorem mentioned without identification by the phase-locked record was not located. Its actual statement or chronological relation cannot be inferred from that mention.",
+        "The primary search was bounded; a different notation for the exact cofactor or full threshold could hide an earlier equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage by extending its explicit formulas, but not of the exact cofactor or local Morse threshold",
+          "evidence": "Gram eigenvalues a(1±b/sqrt(a²+omega²)) stay positive in the rotating sector; degree averaging uses only the quarter-turn and radial formula. Prior-work paragraph does not identify the rotating-sector theorem.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-stability-and-optimal-quartic-sos-certificates-in-a-phase--1dfb71c2d567",
+          "material_read": "RESULT.md Finding offset 60, Proof §§2–3 offsets 2130–4954, prior work offset 5550",
+          "method": "Resultary local mirror",
+          "title": "Sharp stability and optimal quartic SOS certificates in a phase-locked cubic flow",
+          "trigger": "Same complex cubic and degree dichotomy"
+        },
+        {
+          "assessment": "GAS is a special case; certificate and Morse claims are not supplied",
+          "evidence": "GAS iff the maximal angular invariant average of the radial log rate is negative; applying the ergodic average here gives −a.",
+          "identifier_or_url": "https://arxiv.org/html/2610.12434v1",
+          "material_read": "§3.2, Lemma 3.2, offset 41150 onward; invariant-average description near offset 39766",
+          "method": "Lawful OA full text",
+          "title": "Global asymptotic stability of homogeneous polynomial vector fields is undecidable",
+          "trigger": "Broader exact angular criterion for stability"
+        },
+        {
+          "assessment": "Related obstruction, not the zero-linearization threshold",
+          "evidence": "A nilpotent linear part furnishes an obstruction and the necessary semisimplicity condition is inconclusive at Df(0)=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05626",
+          "material_read": "Proposition 3.5, PDF p. 9 offset 23700; Corollary 3.9, PDF p. 12 offset 29350",
+          "method": "Lawful OA full text",
+          "title": "On global Lyapunov functions being Morse",
+          "trigger": "Same nonexistence question and linearization obstruction"
+        },
+        {
+          "assessment": "Different cubic and obstruction",
+          "evidence": "Angular speed is r² and analytic Lyapunov functions are excluded; the frozen cubic instead has an explicit analytic quartic.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.16171",
+          "material_read": "Theorem II.2, PDF p. 2, offsets 10100–14450",
+          "method": "Lawful OA full text",
+          "title": "A Globally Asymptotically Stable Planar Homogeneous Polynomial Vector Field With No Polynomial Lyapunov Function",
+          "trigger": "Homogeneous cubic low-degree certificate obstruction"
+        },
+        {
+          "assessment": "Later indexed exact general coverage of the Morse test after computing the averaged radial derivative; not of the specific quartic decay law",
+          "evidence": "The positive-H nonstrict inequality is necessary and sufficient for a homogeneous GAS field; its worked family is different.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-morse-lyapunov-threshold-in-a-quartic-dissipative-cubic-fl--3c6a1a0104de",
+          "material_read": "RESULT.md Finding offset 220, general criterion and explicit example",
+          "method": "Resultary local mirror",
+          "title": "Sharp Morse Lyapunov threshold in a quartic-dissipative cubic flow",
+          "trigger": "Potential stronger homogeneous Morse theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 3–19 and 21–70",
+        "/workspace/review-evidence/1-morse-replay.md",
+        "Jongeneel, Proposition 3.5 and Corollary 3.9"
+      ],
+      "rationale": "A stable homogeneous cubic with semisimple zero linearization and an elementary strict polynomial certificate nevertheless loses every local nondegenerate C² certificate at a precise nonlinear boundary. At the boundary it still has a polynomial Morse function but no strict quadratic, separating these notions without changing stability. The exact decay identity makes the example transparent and reusable for Morse-versus-polynomial converse questions.",
+      "residual_risks": [
+        "Scientific value is as an explicit separating family and boundary, not a classification of all homogeneous cubic flows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

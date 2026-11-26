@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full proof fixes the cyclic source alphabet, periodic boundary convention and normalization of the local majority rule. It uses a reversible correspondence between each nonzero output-one gap and a sequence of input-one gaps, with boundary-overlap arguments for gaps two and at least five. This yields the exact integer product for each individual inverse fiber, not just its support. A three-state cyclic trace computes the exceptional all-zero fiber. The marked-cycle argument proves both rational counting series for arbitrary lengths; positivity and aperiodicity establish the asymptotic rates. Exhaustive direct inversion and independent composition counts through length fifteen agree. The computations are checks rather than substitutes for the proof.
+## correctness
 
-**Originality — PASS (with residual priority risk).** The nearest source is Jen (1989, pages 441–442), which counts predecessors for unrestricted input words; its rule-specific recurrence does not impose the hard-core condition on periodic sources or give this evaluated fiber product. Salo (2022) supplies subshift and finite automaton context, not the specialized statement. The published full-image and cyclic-image results for Rule 232 (October 26 and November 8, 2026) count unrestricted outputs, whose image set strictly includes the current constrained output set, and do not determine the restricted inverse fibers. Semantic searches checked the cyclic-hard-core, golden-mean, predecessor-product, gap, singleton and growth equivalents. Historical priority remains open to specialized earlier results that were not indexed; lack of a match alone does not prove uniqueness.
+PASS
 
-**Value — PASS.** This is an exact inverse problem for the simplest nontrivial local majority rule operating on the Fibonacci (hard-core) constrained state space, a canonical finite-type shift. The individual fiber product explicitly quantifies reconstruction ambiguity, while the rational image and singleton series give zero-error distinguishable-output and unique-decoding counts at every ring length. In particular, the unique-recovery share tends to zero at a sharp exponential rate, despite exponentially many individually recoverable outputs. This exact channel information is not supplied by a mere output-membership test, a generic transfer algorithm, or unrestricted majority counts.
+Under cyclic hard core, a received 1 is exactly the midpoint of the input pattern 101. On the integer periodic extension, split between successive received ones a distance g apart: the two forced inner input ones occur at offsets 1 and g−1. They coincide for g=2; g=1 or 3 is incompatible with hard core and g=4 forces an extra received 1. For g≥5 the intervening input gaps must all be at least 3, and any ordered decomposition of g−2 into such gaps works. The intervening segments and the compulsory gap-2 pairs at the received ones exhaust the source, also for a lone received 1. At n=1 the only legal source is zero; at n=2 the two one-sites give distinct nonzero outputs by the repeated-neighbor convention. The number of decompositions is one only for residual lengths 0, 3, 4 and 5. With no received ones, the unique closed distance-state walk of each admissible word gives tr(T^n); the all-zero path stays in the saturated state and the characteristic polynomial t³−t²−1 gives the listed recurrence. Marking a received one yields n/k times the k-gap composition coefficient with no primitivity assumption. Each gap series is positive with gcd of exponents one, so the only dominant pole is its simple positive root of G=1; the logarithmic derivative has leading coefficient one. Independent bounded enumeration through n=10 checked every fiber and both count series, including n=1,2; the all-n claims rest on the bijection and formal series, not enumeration. The frozen checker was inspected, not executed.
 
-Limitations: only one synchronous majority update, one binary cyclic hard-core constraint and indexed rather than rotation-quotiented rings are treated. The primary historic comparison to Jen uses the inspected full-paper pages on Rule 232; unidentified equivalent older work remains possible. Reproducible finite checks do not prove infinite claims or substitute for independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the product for each hard-core-source fiber and the evaluated restricted image and singleton spectra. The closest singleton and cyclic image papers solve different counting problems over the full binary shift. This is a best-of-knowledge conclusion, not a priority determination.
+
+## value
+
+PASS
+
+This is a natural local decoder with a standard exclusion constraint. The result answers both whether a received cycle is possible and exactly how ambiguous it is, including a nontrivial zero-word exception. It distinguishes exponential growth of singleton outputs from exponential decay of their fraction among attainable outputs, with explicit rates. The constructive factorization is more useful than an unevaluated transfer-matrix method or a table of small cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

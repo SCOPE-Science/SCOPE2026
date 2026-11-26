@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:18:59.569580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dark-state recurrence leaves precisely seeds 0 and 1 modulo four, with the stated normalizers. The factorial moments of b^2 give 16j(j−1)+12j and 16j(j−1)+20j; different residue classes remove interference. An independent 80-term coefficient recurrence at z=0.2 and 0.7 matched direct moments to 7.2e−15; the supplied verifier was only inspected. In the rotating frame write P=|psi><psi| and G(t)=gamma D[L_t], suppressing the irrelevant scalar phase of L_t. Then G_0 P=0 and X=G'_0 P=−gamma (|xi><psi|+|psi><xi|)/2 with xi=L_0^† L'_0 psi. In particular Tr(PX)=Tr(P G_0 X)=0. The trace Taylor polynomial is P+t²X/2+t³(G''_0 P+G_0 X)/6. The trace against P of G''_0 P is −2gamma(||v||²−|<psi,v>|²), with v=L'_0 psi. Squaring the polynomial therefore gives the coefficient 2gamma||v_perp||²/3. Here v=−i Omega cosh(r)b²psi and v_perp=v, giving the formula and strict positivity for Omega nonzero. The rotating-frame kernel equality gives the exact full-profile phase condition, not merely matching the first derivative. For each zero-balanced series its j-th coefficient is c/j+O(j^−2), so F~c log(1/(1−z)), F'~c/(1−z), F''~c/(1−z)^2; using 1−z=sech²r gives the constant 1/12 in the sequential limit. When Omega=0 the cubic coefficient is identically zero, rather than a nonzero asymptotic equivalent.",
+      "status": "PASS",
+      "trace_domain_check": "Finite sections alone do not justify differentiating an unbounded generator. In the rotating frame let f_R(n)=(1+∫_0^n eta(x/R) dx)^k, with nonincreasing smooth eta equal to one up to 1 and zero above 2. This observable is constant plus finite rank, increases to (1+n)^k, has f_R'≥0 and |f_R''|<=C_k f_R/(1+n)^2. The number-diagonal adjoint dissipator has downward and upward rates cosh²(r)n(n−1) and sinh²(r)(n+1)(n+2). Taylor differences leave the first derivative multiplied by 2[sinh²(r)(n+1)(n+2)−cosh²(r)n(n−1)], nonpositive for all sufficiently large n, and errors bounded by C_k f_R. The only off-diagonal terms have shift four and contain the central second difference of f_R times an O((1+n)^2) factor; their quadratic forms are bounded by C_k f_R as well. This bound is uniform in R; it also holds in finite sections (truncating upward jumps only reduces the diagonal contribution). Gronwall and monotone convergence propagate all polynomial moments from the initial tails for conservative weak density solutions. Compression to n<=N then differs from finite-section Lindblad evolution by a trace-norm forcing O(N^(2−k/2)): each missing shift touches n>=N−4, and the weighted tail bound follows by factoring rho through sqrt(rho) and applying Schatten Cauchy–Schwarz. The same estimate yields a conservative trace-norm limit of the finite sections by contractive comparison. The Taylor polynomial above is a sum of finite-rank dyads with exponentially decaying, polynomially weighted vectors. It has trace-norm equation residual O(t³); compressing adds only an exponentially small cutoff defect. Contractivity and integration give O(t^4) error after the section limit at each fixed r. This supplies the analytic control implicit in the frozen proof's finite-section argument, without assuming uniformity as r grows."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Albert et al. treat asymptotic Lindbladian subspaces and their response. The Wu papers give time-dependent decoherence-free subspace conditions and control. The squeezed-vacuum illustration in 1705.01695 is a two-level example."
+        ],
+        "reasoning": "General conditions for invariant transport do account for the mechanism of exact preservation; they do not by themselves evaluate the leading loss of purity outside exact transport in this oscillator.",
+        "searches": [
+          "Albert–Bradlyn–Fraas–Jiang arXiv:1512.08079",
+          "Wu et al. arXiv:1705.01695v3, equations (2)–(5) and example",
+          "Wu arXiv:1502.07967, equations (2)–(4)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_phase_leakage.py",
+        "arXiv:2608.07257v1, 1512.08079, 1705.01695v3 and 1502.07967",
+        "Resultary 2b0f2e430e19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies the generator, states and transport principles. The mismatch takes the states into orthogonal residues, but the prior phase warning does not fix the coefficient or its time order. Standard jump theory supplies a route to the leading term, not the evaluated hypergeometric moments and limit."
+        ],
+        "reasoning": "Exact chirp tracking is a direct specialization of existing mechanisms; the positive cubic leakage for every logical pure state and its strong-squeezing divergence require the generator expansion and explicit dark-state number moments.",
+        "searches": [
+          "Buza–Toroš §5 after equations (35)–(39), phase-reference warning",
+          "Wu et al. time-dependent decoherence-free conditions and effective-Hamiltonian invariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Buza–Toroš identify the same dissipative kernel and warn that number-dependent free evolution fails to preserve it without a phase reference. The closest thematic Resultary record, 2b0f2e430e19, addresses linear purity slopes of a one-excitation fluctuating network."
+        ],
+        "reasoning": "Rotating away H only shifts phi(t) by 4 omega t; it does not alter the observable or the cubic coefficient. The same dark space and the qualitative mismatch are therefore credited, but no evaluated coefficient or squeezing asymptotic appeared in the matching source passage.",
+        "searches": [
+          "Local Resultary comparisons for squeezed two-phonon dressed dark states and short-time purity/leakage",
+          "Buza–Toroš arXiv:2608.07257v1 §5, equations (35)–(39)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula is a continuous coefficient in phase speed and squeezing, not a discrete sequence. The same model's displayed dark-state coefficient data in Buza–Toroš specify the seeds and states, not a table or formula for their purity-loss coefficient; the catalogue match has different states and time order."
+        ],
+        "reasoning": "The dark-state data are legitimate existing inputs to an exact-coefficient calculation; their presence is not an exact match of the evaluated purity invariant.",
+        "searches": [
+          "Local Resultary exact model and short-time purity comparisons, including 2b0f2e430e19",
+          "Buza–Toroš arXiv:2608.07257v1 §5, equations (35)–(39)"
+        ]
+      },
+      "rationale": "Credit is limited to the explicit cubic leakage law for arbitrary encoded pure states, evaluated with the two factorial moments and its sequential strong-squeezing asymptotic. The dressed pair, the qualitative phase-reference problem, and general decoherence-free transport are established background. The full matching chirp follows directly from rotating the known jump; it is not counted as a separate novelty.",
+      "residual_risks": [
+        "Bounded literature/catalogue comparison, not a historical priority certification. A general quantum-trajectory expansion can overlap the abstract cubic lemma; distinct credit is model-specific. No experimental phase-control claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "substantial credited model and qualitative overlap, no evaluated cubic coefficient in passage",
+          "evidence": [
+            "Dressed dark pair and protected superpositions for the dissipator; free H rotates number components at different rates and requires a phase reference."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.07257v1",
+          "material_read": "§5, equations (35)–(39) and discussion, HTML offsets 49100–53034, including about 51946",
+          "method": "OA HTML passage inspection",
+          "title": "The small effect of graviton-induced decoherence",
+          "trigger": "identical oscillator model, states and phase-reference caveat"
+        },
+        {
+          "assessment": "general asymptotic-subspace framework, different quantity",
+          "evidence": [
+            "Asymptotic map and perturbation/adiabatic response of steady subspaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.08079",
+          "material_read": "pp. 1–2, abstract and introduction, offsets 0 and 7313",
+          "method": "OA PDF passage inspection",
+          "title": "Geometry and Response of Lindbladians",
+          "trigger": "potential broader subspace response theorem"
+        },
+        {
+          "assessment": "adjacent transport mechanism, not the oscillator coefficient",
+          "evidence": [
+            "Conditions for preserved purity and effective Hamiltonian invariance; example is a two-level system."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.01695v3",
+          "material_read": "pp. 1–2, equations (2)–(5), offsets 2113 and 10588; p. 7 example, offset 55990",
+          "method": "OA PDF passage inspection",
+          "title": "Adiabatic evolution of decoherence-free subspaces and its shortcuts",
+          "trigger": "time-dependent Lindblad operators and squeezed-reservoir example"
+        },
+        {
+          "assessment": "broader exact-transport background",
+          "evidence": [
+            "Time-dependent Lindblad eigenspace and effective-invariance conditions for unitary engineering."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.07967",
+          "material_read": "pp. 1–2, abstract and equations (2)–(4), offsets 0 and 13117",
+          "method": "OA PDF passage inspection",
+          "title": "Engineering of Quantum State by Time-Dependent Decoherence-Free Subspaces",
+          "trigger": "potential general exact tracking criterion"
+        },
+        {
+          "assessment": "different model, states and order",
+          "evidence": [
+            "Linear slopes for localized and Haar-random one-excitation states in a fluctuating network."
+          ],
+          "identifier_or_url": "Resultary 2b0f2e430e19",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "local Resultary mirror",
+          "title": "Correlation-blind short-time purity laws for fluctuating quantum networks",
+          "trigger": "closest thematic published catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known qualitative failure of protection does not quantify its onset. The coefficient distinguishes full protection from first-order matching, shows why no encoded superposition can remove a nonzero cubic term, and shows how increasing squeezing amplifies mismatched phase in the sequential limit. These are usable predictions within the stipulated generator, not claims about microscopic environmental control.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

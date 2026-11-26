@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The bijection between admissible three-valued Katětov vectors and complete nonalgebraic types follows from the universal homogeneous metric extension property. The proof separately establishes the clique-neighborhood polynomial, the squared-cycle clique list, the preservation of all triangles under the one-pair distance decrement, and the complete list of newly admissible patterns, including the seven-point exceptional pattern. Independent finite brute-force enumeration agrees with the all-order formulas through eleven vertices and with the general clique identity on all connected labeled graphs through five vertices. The finite checks are supporting verification, not the proof of the infinite statement.
+## correctness
 
-**Originality: PASS, provisional.** Sauer (arXiv:1010.4212, arXiv:1107.4794) supplies the underlying Katětov criterion and homogeneous metric construction, not the stated cycle enumeration. The published Widom–Rowlinson one-type polynomial result covers an old metric with only distances one and two, so it has no distance-three pair to modify and no restriction forcing distance-one coordinates into squared-graph cliques. Full-text comparison and searches did not locate the precise all-order cycle polynomial or the one-pair defect factorization. The remaining risk is equivalent work under alternative combinatorial terminology or unindexed sources.
+PASS
 
-**Value: PASS.** The full multivariate spectrum gives exact counts of every one-point distance profile in a natural family of diameter-three homogeneous-metric parameter bases. More importantly, the local defect theorem proves a sharp, factorized response to a one-entry change of the parameter metric, identifies a stable range and its exceptional boundary, and explains the response by the geometry of common radius-two neighborhoods. This is stronger than a single finite count or an unmotivated specialization of the Katětov criterion.
+For old distances 1, 2 and 3 the only forbidden new distance pairs are respectively {1,3}, none, and (1,1). Positive Katětov vectors are realized, determine the full type by homogeneity over the named base, and have arbitrarily many distinct realizations (add copies at mutual distance 2, consistent since all old-to-copy distances are at least 1). With S the set of distance-one sites, the graph case forces S to be a clique in G² and forces precisely its external unit-edge neighborhood to 2. Each other site independently takes 2 or 3; this proves (1) with multiplicities appropriate to named parameters. In a squared cycle n≥7, after putting a clique site at 0, the only compatible pairs among offsets −2,−1,1,2 are (−2,−1),(−1,1),(1,2), even at n=7; no triple of those offsets is compatible. Thus the five clique classes have counts 1,n,n,n,n and neighborhood sizes 0,2,2,3,2, in the displayed order, giving the full polynomial and (n+4)2^(n−2). The one-pair edit preserves triangles because side differences are at most 2 and the other two positive sides sum to at least 2. It removes only the joint-one exclusion on {0,3}. For n≥8 only 1 and 2 can join these two sites in S, and the four choices have respectively 4,3,3,2 forced 2-sites and n−6 free sites. For n=7, site 5 can join {0,3} but is incompatible with both 1 and 2; all four non-S sites are then forced to 2. This proves the exact factorized difference, including 9 additional named types at n=7. The source’s finite-enumeration code and output were inspected as supporting evidence, not executed; the proof is all-order.
 
-**Scope and limitations.** The theorem concerns pointwise named, three-truncated cycle metrics and one old pair of distance three shortened to two. It says nothing about arbitrary metrics or higher-arity types, and definitive historical priority requires independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Katětov admissibility and realization are established tools. Closely related records include a cap-three tree support identity and a different one-pair edit, as well as an exact graph partition function for the no-distance-three slice. None of their inspected statements gives or specializes to the capped-cycle graded defect with its exceptional boundary. This is a bounded best-of-knowledge assessment.
+
+## value
+
+PASS
+
+Measuring the full distance-composition spectrum and its change when exactly one long side is relaxed is a natural sensitivity question for finite bases of the generic metric space. The cycle family provides a complete all-size graded response and a sharp exceptional size explained by wraparound geometry. That local response is useful beyond the scalar type total and is not merely a list of finite computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

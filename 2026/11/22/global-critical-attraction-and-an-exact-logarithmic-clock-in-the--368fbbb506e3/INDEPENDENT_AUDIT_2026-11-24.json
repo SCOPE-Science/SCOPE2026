@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:45:09.614217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27 and 29–72",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent symbolic replay: python3 /workspace/reproductions/3_clock.py (SymPy; ran successfully)"
+      ],
+      "rationale": "For −1≤m<0 the proper quadratic −mx²+y²+z² has derivative 2mx²−2nz². Its zero-dissipation set has no invariant orbit except the origin. For m=0, y²+z² controls y,z and the stable linear equation x'=y−x bounds x. A bounded complete omega-limit orbit in {z=0} obeys xy=0; any interval with y≠0 contradicts x'=y−x, and then x'=−x excludes any nonzero bounded complete orbit. The pair of nonzero equilibria for m>0 disproves universal attraction there. At criticality the stable plane is {y=0}. On the center manifold x=h(y), z=k(y), coefficient matching gives h(y)=y+y³/n+(5n+2)y⁵/n³+O(y⁷), k(y)=y²/n+(n+2)y⁴/n³+O(y⁶); the required finite differentiability is available for each fixed n>0. The reduced flow is y'=−a y³−b y⁵+O(y⁷), a=1/n, b=2(n+1)/n³. Thus w=y^(−2) obeys w'=2a+2b/w+O(w^(−2)); first w~2at, then w=2at+O(log t), after which the remainder in w'−2a−(b/a)/t is O(log t/t²) and integrable. The linear stable rates 1,n give exponential tracking in a sufficiently small neighborhood; alternatively, x−h(y), z−k(y) obey a linear stable system up to coefficients tending to zero and decay exponentially, and the small Lipschitz constant of the center flow gives an exponential shadow by solving the scalar error equation backwards from zero error at infinity in an exponential norm. The zero shadow gives the local strong-stable manifold, whose backwards-flow extensions form the global immersed set. For the other shadows the amplitude is of order t^(−1/2) with fixed sign; the exponentially small tracking error changes its reciprocal square by o(1) and does not change the leading limits of x,y,z. The original RESULT.md line 14 has coefficient b/a=2/n+2/n²; it does not have the extra factor shown in the abbreviated frozen-tool display.",
+      "residual_risks": [
+        "Replay verifies the Taylor jet and logarithmic coefficient only. The convergence and tracking conclusions rest on the analytic argument, not numerical integration.",
+        "The asymptotics are for fixed n>0 and not uniform as n tends to zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Munteanu's introductory attribution of local and global stability points to Van Gorder–Choudhury. In that paper §2 compares eigenvalues at E₀ and reports asymptotic stability when a,b>0 and c<a, in the local-stability section, without covering c=a. §3 constructs periodic orbits about E± and §4 discusses their stability and post-bifurcation dynamics.",
+          "Constantinescu Proposition 2 gives dimensions 2 stable and 1 center at m=0."
+        ],
+        "reasoning": "Neither eigenvalues below the threshold nor a Hopf analysis of the nonzero equilibria controls all trajectories at the nonhyperbolic origin. A center dimension or topological pitchfork is insufficient for the coefficient and finite offset in normalized time.",
+        "searches": [
+          "Munteanu (2024), opening stability literature and reference [4]",
+          "Van Gorder–Choudhury (2011), §§2–4, doi:10.1088/0253-6102/55/4/17"
+        ]
+      },
+      "checked_sources": [
+        "Constantinescu (2023)",
+        "Munteanu (2024)",
+        "Van Gorder–Choudhury (2011) publisher PDF",
+        "arXiv:2408.08140 (equation comparison)",
+        "Resultary 0875d81a18ad, 6e81d619c507 and 2e7a51efdb8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected T-system spectral and local normal-form results do not provide the critical quintic drift in the observed variable y, or global entry/tracking from every initial point.",
+          "The structurally related clocks have different equations; an inverse-square logarithm in another system does not supply the present b/a=2/n+2/n²."
+        ],
+        "reasoning": "A generic local cubic normal form yields an algebraic order, not a time-resolved second coefficient and convergence of the offset. The central implication needed here is a model-specific quintic calculation together with all-orbit entry and tracking.",
+        "searches": [
+          "Constantinescu (2023), Proposition 2 and pitchfork section",
+          "Van Gorder–Choudhury (2011), §2, Eq. (5), and §4 Conclusions",
+          "Resultary 6e81d619c507 and 2e7a51efdb8a, actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the three-parameter T system with a>0, setting normalized time to a times original time and dividing x,y by √a gives m=c/a−1 and n=b/a, the actual frozen equations; Constantinescu states the same parameter reduction.",
+          "The standard Chen–Lee equations in arXiv:2408.08140 have a different displayed vector field; no equivalent reduction supporting coverage was identified."
+        ],
+        "reasoning": "Comparisons are made after normalizing time and variables; the name T alone does not equate a different Lorenz-like vector field or its clock coefficients.",
+        "searches": [
+          "T-system Tigan system Chen-Lee system Lyapunov function global asymptotic stability origin parameter stability",
+          "Constantinescu (2023), normalized system and Proposition 2",
+          "Van Gorder–Choudhury (2011), Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Entry 368fbbb506e3 is the bound Finding itself. Entry 0875d81a18ad uses the same T flow but requires m,n>0 and concerns invariant-measure heights and slab crossing. Entry 6e81d619c507 gives a structurally similar law for a different Lorenz-like flow. Same-day entry 2e7a51efdb8a controls a local discrete sine map, not this flow."
+        ],
+        "reasoning": "The same-system parameter range excludes critical m=0; the other matched clocks concern different vector fields or discrete-time maps. No priority inference is drawn from the same date.",
+        "searches": [
+          "Local Resultary: T-system, critical global attraction and logarithmic inverse-square clock"
+        ]
+      },
+      "rationale": "The system, its spectral split, and subcritical local stability are prior. The new evidence-supported claim is global convergence through the critical boundary paired with the physical-coordinate clock with a finite renormalized offset on every orbit off the strong-stable manifold. The closest same-system stability attribution was checked in the 2011 primary paper: its origin calculation is local and its nonlinear stability analysis concerns periodic orbits after Hopf bifurcation, not this critical law.",
+      "residual_risks": [
+        "The foundational Tigan proceedings and journal papers (2004–2005) were not inspected in full; an earlier global argument or equivalent expansion could be unindexed.",
+        "The earlier local bifurcation theory and analogous clocks are credited; historical priority is limited to inspected mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior local behavior and dimensions, not coverage of all-orbit attraction and physical clock",
+          "evidence": [
+            "Proposition 2 uses the spectrum below zero and gives the stable and center dimensions at zero."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15040923",
+          "material_read": "OA PDF pp. 2–4, normalized equations and Proposition 2; relevant pitchfork comparison",
+          "method": "Read bounded OA passages",
+          "title": "On the Bifurcations of a 3D Symmetric Dynamical System",
+          "trigger": "Same normalized T-system and critical m=0 pitchfork"
+        },
+        {
+          "assessment": "Attribution is not itself a proof of overlap; primary local-stability/Hopf sections were checked",
+          "evidence": [
+            "The sentence about local and global stability points to the 2011 Hopf analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym16010084",
+          "material_read": "Introduction and reference [4] (PDF pp. 1 and 15)",
+          "method": "Read bounded OA passages and follow citation to primary text",
+          "title": "Jacobi Stability for T-System",
+          "trigger": "Same-system stability plus explicit attribution of global stability"
+        },
+        {
+          "assessment": "Covers local E₀ stability for c<a and nonlinear periodic-orbit dynamics, not the stated critical result in inspected sections",
+          "evidence": [
+            "Eq. (5) and adjacent text classify E₀ by eigenvalues, above the heading for Hopf analysis around E±; conclusions emphasize E± periodic orbits and their stability."
+          ],
+          "identifier_or_url": "https://ctp.itp.ac.cn/EN/PDF/12548; doi:10.1088/0253-6102/55/4/17",
+          "material_read": "Publisher OA PDF pp. 609–610 (§2 E₀ stability and §3 opening) and pp. 615–616 (§4 and references), text offsets 3006–9402 and 41970–46609",
+          "method": "Located lawful journal alternate at volume 55, issue 4, page 609 and read targeted PDF offsets",
+          "title": "Analytical Hopf Bifurcation and Stability Analysis of T System",
+          "trigger": "Identified earlier exact-system stability paper"
+        },
+        {
+          "assessment": "Same-system prior results outside the critical regime; analogous clocks on other systems",
+          "evidence": [
+            "The same-system stationary-height result assumes m,n>0; the same-day flip clock is discrete and local; the Nov. 1 clock is on a different flow."
+          ],
+          "identifier_or_url": "Resultary 0875d81a18ad, 6e81d619c507, 2e7a51efdb8a and bound self-record 368fbbb506e3",
+          "material_read": "RESULT.md Findings (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Local relevance query and direct passage comparison",
+          "title": "Relevant Resultary T-system and critical-clock findings",
+          "trigger": "Closest same-system or structurally matching quantitative claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "Constantinescu (2023), critical bifurcation"
+      ],
+      "rationale": "The natural boundary between one globally attracting state and multiple equilibria includes a nonhyperbolic endpoint. The theorem identifies the entire exceptional exponential-decay set and resolves the next-order relaxation in the original observable: the clock differs from every purely linear clock by an unbounded logarithm yet has a finite offset after renormalization. That quantitative statement is not a routine stability classification.",
+      "residual_risks": [
+        "No global dynamics for m>0 beyond failure of universal origin attraction are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

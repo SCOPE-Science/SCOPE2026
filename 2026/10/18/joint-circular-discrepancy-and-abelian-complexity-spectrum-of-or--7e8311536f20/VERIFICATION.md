@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing the code. No third-party packages are needed. The program checks the complete \(2^{16}\)-choice successor-pairing space of the binary order-five de Bruijn graph and independently traverses all edge-simple Euler circuits fixed at the unique zero edge. These procedures give equal sets of \(2048\) cyclic rotation classes. All classes pass the direct check that each length-five circular factor is unique.
+## correctness
 
-For every class, direct circular-window discrepancy is compared with the prefix-walk range; distinct Parikh-vector enumeration is compared with an independent sliding-window min–max calculation. Each of the eight claimed cells is checked exactly, including the absence of other cells. The symmetry-orbit decomposition under reversal and complementation is also checked. The program verifies known cycle counts at binary orders one to five.
+PASS
 
-Recorded successful execution: `VERIFY_OK independent_euler_and_pairing_generators=2048 pairings_tested=65536 independent_discrepancy_algorithms=2 independent_abelian_peak_algorithms=2 rooted_windows_tested=2031616 joint_cells=8 symmetry_orbits=528 histogram=5-6:224,6-6:304,6-7:384,7-6:48,7-7:640,7-8:224,8-8:192,8-9:32`.
+A fresh exact census independently reproduced the eight joint cells, all symmetry orbit columns, both marginals, both means (839/128 and 445/64) and each lexicographically least CSV witness. For replay, run python3 /tmp/opencode/independent_order5_census.py: prescribe 00000 as the first departure from vertex 0000, then assign the order of outgoing edges independently at the 15 other four-bit vertices. Each rooted Euler tour uniquely determines these orders, and a walk consuming the next available prescribed edge is completely determined. Reject early stops; a 32-step walk uses every distinct edge and closes by conservation. The 32768 assignments yield exactly 2048 distinct normalized words, each checked to have all 32 cyclic factors of length five. Count ones with prefix differences on the doubled word for every start and length 1 through 32; then D is the largest |2k-length| and P the largest set size of k. Generate the four reversal/complement candidates and normalize each at its unique zero factor, counting distinct orbits only. This yields 32 size-two and 496 size-four orbits and no other size. Consecutive fixed-length counts differ by at most one, establishing the equivalent max-minus-min formula. The census is exhaustive for binary order five, not a higher-order theorem or an external attestation. The frozen verify.py and spectrum.csv were inspected, not executed as code.
 
-These finite computations, together with the completeness proofs in `RESULT.md`, prove the stated finite claim. They do not prove an analogous formula at larger orders or establish historical priority; no independent external review is represented.
+## originality
+
+PASS
+
+The supported distinct contribution is the complete joint D versus peak circular Parikh-range classification, including how the nonextremal discrepancy layers split and how their symmetry orbits split. The full discrepancy marginal and the minimum-layer orbit counts are already in 2c8828a3eb45; even P=6 on that layer follows from 6<=P<=D+1. Those facts and the least minimum-discrepancy witness are not new. The closest same-day Abelian census counts different words within its superficially identical aggregate row. Inspected catalogue and literature do not cover the remaining joint classification; this is a bounded comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+The pair measures two independently motivated kinds of circular balance: largest absolute excess over all windows, and concentration of symbol counts among windows of the same length. Order five is a complete nontrivial benchmark beyond individual construction examples. In particular identical peak P=6 allows discrepancies 5, 6, and 7, and the D=7 population splits over three peak values. Quantifying these splits and their symmetry decomposition gives exact test data for proposed dependences and population models; the already-known marginal alone would not give this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

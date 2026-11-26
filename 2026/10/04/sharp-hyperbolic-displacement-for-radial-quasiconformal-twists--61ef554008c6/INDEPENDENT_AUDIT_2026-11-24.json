@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:17:30.865136Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–67",
+        "VERIFICATION.md",
+        "verify_radial_twist.py",
+        "verification_output.txt"
+      ],
+      "rationale": "The shear matrix in RESULT.md:24–37 is the a.e. differential in orthonormal polar frames up to a rotation. The regularity step holds even at the origin: for |z|=r≥s=|w|>0, splitting off the change of rotation gives |T(z)−T(w)|≤|z−w|+Ss log(r/s)≤(1+S)|z−w|; the same argument applies to the inverse and the zero-radius case is immediate. Thus the a.e. singular-value ratio of the determinant-one shear gives the exact maximal dilatation, with log K=2 asinh(S/2). In curvature −1, putting u=log(1/r)>0 in the exact equal-radius distance formula gives sinh(d/2)=|sin(φ(r)/2)|/sinh u≤Su/(2 sinh u)≤S/2 by absolute continuity and φ(1)=0. For φ(r)=c log r the ratio tends to c/2 at the boundary, including the trivial c=0 case. For positive S the bound is strict at each interior point, so the finding correctly asserts equality of suprema rather than interior attainment. The bundled checker and its recorded output only sample scalar identities and boundary approach; no fresh execution or formal verification is claimed.",
+      "residual_risks": [
+        "No extension to general boundary-fixing quasiconformal disk maps is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sharp general planar disk formula quoted by Vuorinen–Zhang uses the inverse Grötzsch function evaluated at log sqrt((K+1)/(K−1)).",
+          "Wu includes identity-boundary quasiconformal maps and characterizes the broader kernel qualitatively."
+        ],
+        "reasoning": "Broader map classes are covered, but the sharp bound on that larger class and the qualitative kernel membership do not optimize displacement on this subclass.",
+        "searches": [
+          "arXiv:1203.0427v3, PDF p. 2",
+          "arXiv:2609.32891v1, PDF pp. 19 and 25"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and exact local mirror",
+        "arXiv:2609.32891v1",
+        "arXiv:1203.0427v3",
+        "Krzyż 1968 theorem as quoted by Vuorinen–Zhang"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu's radial extensions act by a fixed boundary angle map on each radius, not by a radius-dependent rotation fixing the boundary pointwise.",
+          "The all-map disk bound does not imply the sharp log K subclass bound; knowing the distortion of a constant-slope logarithmic spiral only gives one candidate and does not bound arbitrary variable profiles."
+        ],
+        "reasoning": "The a.e. variable shear estimate and the sharp global radial envelope are essential to the combined new statement.",
+        "searches": [
+          "Wu Theorems 3.3, 3.18",
+          "Vuorinen–Zhang Theorems 1.1–1.3 and cited Krzyż planar theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu's condition is pseudohyperbolic uniformity, not the sharp quantitative threshold tanh(log K/2).",
+          "Vuorinen–Zhang Theorem 1.3 quotes a different sharp pseudohyperbolic threshold for all boundary-fixing disk maps."
+        ],
+        "reasoning": "Changing from Poincaré to pseudohyperbolic notation or from K to the polar shear bound does not turn either prior result into the same extremal theorem. The spiral map itself is not the claimed novelty.",
+        "searches": [
+          "Resultary: radius-preserving twist, sharp hyperbolic displacement log K, logarithmic twist",
+          "arXiv:2609.32891v1, Theorems 3.3 and 3.18",
+          "arXiv:1203.0427v3, Theorems 1.1–1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched entry and its mirror state the same S, exact K, bound, and logarithmic equality family as the assigned record."
+        ],
+        "reasoning": "This is a self-hit, not distinct priority evidence. A table of radii or dilatations would not establish the uniform variable-twist inequality.",
+        "searches": [
+          "Resultary: sharp hyperbolic displacement for radial quasiconformal twists",
+          "Local mirror: 2026/10/4/SCOPE-sharp-hyperbolic-displacement-for-radial-quasiconformal-twists--61ef554008c6"
+        ]
+      },
+      "rationale": "The matched catalogue entry is the assigned record itself. The strongest inspected primary comparisons establish qualitative bounded displacement or solve a different, larger-class optimization. Neither provides the sharp subclass law or its equivalent pseudohyperbolic bound (K−1)/(K+1) under the radius-preserving twist hypothesis.",
+      "residual_risks": [
+        "An older equivalent formulation using spiral or radial-shear terminology may exist; the original Krzyż text was not retrieved and the classical spiral witness is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Qualitative uniformity and quasiconformal inclusion, rather than an exact curvature −1 displacement optimization for variable angular shears.",
+          "identifier_or_url": "arXiv:2609.32891v1",
+          "material_read": "PDF p. 19, Theorem 3.3 (offset 74812); p. 25, Theorem 3.18 (offset 99217)",
+          "method": "Bounded OA full-text passage inspection",
+          "title": "Characterizations and boundary regularity of continuous preservers of Carleson interpolating sequences",
+          "trigger": "Motivating kernel and radial extension result"
+        },
+        {
+          "assessment": "Broader problem, different extremal answer",
+          "evidence": "Theorem 1.3 quotes the sharp planar bound in terms of μ inverse, not the subclass log K law.",
+          "identifier_or_url": "arXiv:1203.0427v3; DOI 10.1112/jlms/jdu043",
+          "material_read": "PDF p. 2, Theorems 1.1–1.3 (offsets 5179–8102); Krzyż reference, p. 18 (offset 48100)",
+          "method": "Bounded OA full-text passage inspection",
+          "title": "Distortion of quasiconformal mappings with identity boundary values",
+          "trigger": "Sharp general identity-boundary disk displacement problem"
+        },
+        {
+          "assessment": "The quoted result does not cover the exact subclass theorem; other original text unassessed",
+          "evidence": "The quoted bound is for the full identity-boundary class and is not the log K subclass optimum.",
+          "identifier_or_url": "J. Krzyż, Bull. Acad. Polon. Sci. 16 (1968), 99–101",
+          "material_read": "Full text not retrieved; theorem and citation as reproduced by Vuorinen–Zhang, pp. 2, 18",
+          "method": "Bounded retrieval and comparison to explicit secondary quotation",
+          "title": "On an extremal problem of F. W. Gehring",
+          "trigger": "Original source of sharp planar disk displacement"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Same formula, hypotheses, and equality family; not a second scientific source.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-hyperbolic-displacement-for-radial-quasiconformal-twists--61ef554008c6",
+          "material_read": "Indexed statement and matching local mirror",
+          "method": "Local Resultary search and mirror comparison",
+          "title": "Sharp hyperbolic displacement for radial quasiconformal twists",
+          "trigger": "Strongest catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:2–22, 62–78",
+        "Wu Theorem 3.3",
+        "Vuorinen–Zhang Theorem 1.3"
+      ],
+      "rationale": "The displacement is the same invariant used to characterize the identity-boundary preservation kernel and is central to the classical disk distortion problem. For each specified K the result gives the exact optimum over all admissible radial angular profiles, not merely the distortion of a familiar spiral. It provides a sharp benchmark, approached at the boundary, without claiming improvement for the unrestricted class.",
+      "residual_risks": [
+        "This is a subclass result and does not change the optimal unrestricted disk bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

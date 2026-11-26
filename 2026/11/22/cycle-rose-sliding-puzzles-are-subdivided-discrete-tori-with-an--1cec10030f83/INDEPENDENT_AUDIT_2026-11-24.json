@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:28:31.314888Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–62; VERIFICATION.md; verify.py",
+        "Independent replay: python3 -B /workspace/reproductions/2.py; output /workspace/reproductions/2.out"
+      ],
+      "rationale": "Each oriented petal lap rotates exactly its d_i nonhub labels and fixes the others. A closed blank walk based at the hub reduces by backtracks to a concatenation of oriented petal laps and their inverses. Their actions commute, have orders d_i, and act freely on the distinct labels, so there are exactly L hub states in each component. For each nonhub location on a petal, reversing the forward segment from the hub assigns its state a unique initial hub state; thus each oriented lap from a hub state gives a path to the next coordinate state with distinct interior states, and the paths exhaust all nonhub states. Each nonhub blank has just two neighbor choices; at the hub the two directions in each petal are the starts or ends of these paths. In particular a triangle supplies two separate paths between the same two core endpoints. This gives NL vertices, LΣm_i edges and cycle rank 1+(r−1)L. The N! complete labelings split into (N−1)!/L components. A spanning tree omits at most one segment per subdivided edge, since two omissions would strand a nonempty interior section. The full paths give a core spanning tree, and conversely the omitted segment of each remaining path can be chosen in m_i ways. This multiplies the weighted core tree sum by ∏m_i^L. Conductances 1/m_i give mode eigenvalues Σ(4/m_i)sin²(πk_i/d_i), with d_i=2 contributing 4/m_i, not 2/m_i; dividing the nonzero eigenvalue product by L gives the stated ordinary tree count. Binomial multiplicities give the all-triangle specialization. A separate literal-graph exploration suppressed each length-graded chain, compared the exact multigraph to the core, and computed both rational Kirchhoff cofactors. It reproduced all five cited tree counts and checked a mixed (3,4,5) rose as well. The algebraic and graph arguments, not the finite checks, prove the theorem for unrestricted petal parameters.",
+      "residual_risks": [
+        "The graph argument uses a pure rose with no extra board vertices or edges. It does not classify arbitrary cactus puzzles, repeated-label puzzles, or directed spanning trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wilson's non-separable graph classification does not apply across the hub cut vertex; his actual coset count statement applies generally and does determine the rose count once the independent rotations are identified.",
+          "For the rose and star, Proposition 2.6 gives (N−1)!/∏d_i! via its prescribed matrix margins. Equality applies when all petals are triangles because the blocks there are complete. With a longer petal this bound is smaller than (N−1)!/L; e.g. 10 versus 20 at (3,4)."
+        ],
+        "reasoning": "The broad monodromy framework and an exact special-case count are real prior coverage. Neither statement determines which blank-swap edges connect the configurations, or how to count spanning trees in the resulting graph.",
+        "searches": [
+          "Wilson (1974), Theorems 1–2, Propositions 1–2 and proof of Theorem 1",
+          "Defant–Kravitz arXiv:2009.05040v2 Proposition 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Wilson 1974, lawful public copy, pp. 87–89",
+        "Defant–Kravitz arXiv:2009.05040v2 Proposition 2.6 and Theorem 4.1",
+        "Local Resultary search, including identification of the identical record 1cec10030f83"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Disjoint petal rotations inserted into Wilson's index formula yield the component count. Defant–Kravitz Theorem 4.1 uses a cycle board and classifies components via double-flip equivalence of orientations, not the multiply-petalled board here.",
+          "Spanning-tree subdivision and weighted Laplacian modes give the tree formula after the heterogeneous-length product graph is established."
+        ],
+        "reasoning": "Credit the mechanically implied count and standard tree machinery. For the central claim the added work is to recover every nonhub configuration injectively along its unique designated petal lift, check the other endpoint and both incident exchanges, retain both paths when d_i=2, and hence identify the weighted tree problem. No inspected stronger graph classification supplied that problem as an already known specialization.",
+        "searches": [
+          "Wilson, §2 printed pp. 88–89, polygon generator, coset component count",
+          "Defant–Kravitz, Proposition 2.6 and Theorem 4.1, single-cycle orientation classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wilson's puz(G) is the same blank-walk configuration problem. Paths act by adjacent transpositions; closed paths act through the fundamental group, and the polygon generator rotates n−1 tokens.",
+          "The rose leads to an edge-length-graded Cayley core on the direct product of cyclic token rotations. The order-two rotation has two oriented entrances/exits yielding distinct paths over the same core pair. The single-polygon statements do not describe that product adjacency."
+        ],
+        "reasoning": "Reachability and the hub-return permutation group alone do not give an edge- or path-multiplicity description. Extracting and proving the path decomposition is the additional structural part, not a change of names for the polygon case or a re-count of cosets.",
+        "searches": [
+          "Local Resultary: star friends-and-strangers graphs, graph sliding puzzles, cycle roses/bouquets, subdivided Cartesian cycle components and tree counts",
+          "Wilson (1974) §2, Propositions 1–2 and polygon discussion",
+          "Defant–Kravitz arXiv:2009.05040v2 §2 and Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index hit with the full subdivided torus and tree product was the identical assigned record, not a distinct antecedent. A previously determined exact count for the all-triangle case is supplied by Proposition 2.6, but it does not tabulate any spanning-tree counts."
+        ],
+        "reasoning": "No matching prior tree census for even the all-triangle slide component was established in these comparisons. The independent samples support correctness, not the absence of another table.",
+        "searches": [
+          "Local Resultary: exact cycle-rose sliding-puzzle component and spanning-tree formulas",
+          "Defant–Kravitz arXiv:2009.05040v2 Proposition 2.6, equality in complete-block cases"
+        ]
+      },
+      "rationale": "The bound result's distinct contribution is the exact graph of each multi-petal component, including lengths and multiplicity of its paths, and its consequent all-parameter spanning-tree formula. Credit Wilson for the general monodromy/coset method, from which the component count is a short corollary, and Defant–Kravitz for a cut-vertex proposition that already yields the exact count for all-triangle roses. Neither inspected result gives the edge-resolved component nor an equivalent tree census. Weighted matrix-tree enumeration is standard once the particular core is known. This is not a historical priority claim for the component count, the monodromy method, or the enumeration tool.",
+      "residual_risks": [
+        "The historical comparison is bounded to the exact passages and local index inspected. Less visible graph-cover or puzzle literature may have an equivalent multi-petal shape or tree product. Wilson's component-count coverage is affirmative, not an unresolved access issue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the monodromy mechanism and implies the component count by a short specialization. Non-separable graph classification excludes the multi-rose, and the read passages do not give the full component isomorphism or its spanning trees.",
+          "evidence": [
+            "Proposition 1 identifies equivalence with a permutation induced by a blank walk. Proposition 2 gives the subgroup and path-coset relation; the polygon paragraph computes its cyclic order. The proof counts components by subgroup index."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/klutometis/aima/master/papers/wilson-graph-puzzles-homotopy-alternating-group.pdf",
+          "material_read": "§1 Theorem 1 and §2 Propositions 1–2, polygon paragraph, Theorem 2 and the coset argument for Theorem 1; printed pp. 87–89, extracted offsets about 3900–8400",
+          "method": "Publisher landing page inaccessible; bounded inspection of the lawful public PDF copy of the same article",
+          "title": "Graph puzzles, homotopy, and the alternating group",
+          "trigger": "Strongest classical puzzle-group result for the identical blank-swap configuration graph"
+        },
+        {
+          "assessment": "The cut-vertex bound is exact for triangle bouquets but not when there are longer petals. The cycle-board result does not classify the adjacency of multi-petal slide components or count their trees.",
+          "evidence": [
+            "Both graphs have cut vertices, yielding the stated margin count and equality for complete blocks; a larger petal is not complete. Theorem 4.1 has a single cycle board and describes double-flip classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.05040",
+          "material_read": "Proposition 2.6 on PDF p. 7 at extracted offset 25580; Theorem 4.1 on PDF pp. 12–13 at about 46200 (v2)",
+          "method": "Bounded primary PDF statements and hypotheses",
+          "title": "Friends and Strangers Walking on Graphs",
+          "trigger": "Foundational same-graph model, cut-vertex component count and cycle-board classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:11–33,39–62",
+        "Independent literal graph and tree computations /workspace/reproductions/2.out",
+        "Wilson §2 and Defant–Kravitz Proposition 2.6 for scope of earlier counts"
+      ],
+      "rationale": "An explicit component graph determines internal routes and cycle structure, not just which labelings are reachable. The result describes a natural family of cut-vertex puzzles with arbitrarily many unequal petals. Tracking the two genuinely different routes on each triangle is essential to the weighted tree count, which yields exact dependence on the whole vector of petal lengths and serves as an exact structural benchmark for puzzle graphs. The utility does not rely on the component count being new or on an unproved practical claim.",
+      "residual_risks": [
+        "The result describes only pure roses and ordinary undirected trees. No algorithmic or empirical performance advantage is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:16:23.445246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–50",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "/workspace/branches/f73783c0-4d0c-4316-8722-2aaf17b0014f/independent_cycle_check.py (fresh bounded reproduction: python3 on this file)"
+      ],
+      "rationale": "A cycle succeeds in 2 of 16 orientations, giving variance 7/64. Distinct four-cycles cannot share three edges because the three-edge path determines the closing edge. With no common edge, the events depend on disjoint variables. With one common edge, conditioning on it gives independent completions with constant probability 1/8 each. With two adjacent common edges, the distinct closing paths have different intermediate vertices, so the union is exactly a K2,3 edge-subgraph. The common path must orient consistently (probability 1/2), then the two completions have probability 1/4 each, giving 1/32 jointly. If the common edges are opposite, write the cycles as abcd and abdc with shared ab and cd. Matching the direction on ab forces contrary directions on cd. The union is K4, and the joint probability is zero. Each motif has three unordered pairs of constituent four-cycles with that union, and a pair determines its unique edge-subgraph union. Thus the covariance corrections are +6b₂,₃/64 and −6k₄/64; nonzero pair covariance detects either motif, and zero covariance implies independence for Bernoulli variables. In Q3 the graph is bipartite and distinct vertices share at most two neighbors. At any vertex, its three incident squares would require every pair of its three incident edge directions to differ, which is impossible. Independent exact enumeration reproduced the two motif probabilities and, for the cube's 4096 orientations, 512 occurrences per selected face, 64 per pair and none for the triple.",
+      "residual_risks": [
+        "The fresh checker covered K4, K2,3 and Q3, not the frozen verifier's exhaustive four- and five-vertex census. The overlap proof, not the finite checker, establishes the theorem for all finite simple hosts.",
+        "Independence of edge orientations and fairness are used; the result does not characterize arbitrary higher dependence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amini–Griffiths–Huc force oriented subgraphs in a graph satisfying a bias condition; Griffiths studies type-count inequalities. The complete-graph decomposition works with the directed four-cycle indicator of an entire four-vertex tournament and its triangle projections."
+        ],
+        "reasoning": "The forcing results are for oriented graphs but address existence or type-count constraints, not the random-pair law. The tournament decomposition is stronger in some statistics but uses intact complete four-vertex subsets, and does not identify compatibility of individual cycles after deleting host edges.",
+        "searches": [
+          "Amini–Griffiths–Huc arXiv:0911.3969, §2",
+          "Griffiths arXiv:1101.5421, four-cycle types and §3",
+          "Resultary 3b4b1b16fef5 orthogonal decomposition"
+        ]
+      },
+      "checked_sources": [
+        "Resultary db02bd6fe986 (same record), e4a9fc29fb2b and 3b4b1b16fef5",
+        "arXiv:0911.3969 and arXiv:1101.5421",
+        "Targeted primary-literature query",
+        "Andersson (1998) DOI attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof groups outcomes by four-vertex tournaments and conditions on complete intersections. Its sum-of-squares variance aggregates all possible supports and does not separate arbitrary host motifs. The triangle paper scopes its tetrahedral exception to triples of length-three cycles.",
+          "Andersson's full text was not retrieved; only the reference and the submitted abstract-access description support treating this as a historical tournament risk."
+        ],
+        "reasoning": "Direct comparison establishes already-covered complete-graph moments, and shared conditioning techniques, but no implication of the arbitrary-host classification and Q3 witness from the inspected results. Inaccessibility is not evidence of absence or coverage.",
+        "searches": [
+          "Resultary 3b4b1b16fef5, proof Steps 1–5",
+          "Resultary e4a9fc29fb2b, finding",
+          "Andersson 1998 DOI and cited tournament work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary db02bd6fe986 is the assigned record itself. The strongest distinct same-day hit e4a9fc29fb2b concerns triples of directed triangle indicators under the same independent fair model.",
+          "Griffiths gives the oriented four-cycle types and one-cycle baseline, not the joint distribution."
+        ],
+        "reasoning": "Directed quadrilaterals and cyclic orientations of undirected four-cycles are equivalent when the two cyclic directions are counted as disjoint events on the same edge set. Pairwise independence of these indicators is the zero-covariance condition. Neither the triangle-triple theorem nor one-cycle frequencies gives the four-cycle pair law.",
+        "searches": [
+          "Resultary: random orientations of fixed graphs, four-cycle covariance and pairwise independence",
+          "Literature: arbitrary graph random orientations, directed quadrilateral covariance or variance, K4 and K2,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected table gives the 1/8 single-cycle marginal. The tournament record gives 3(4n−11) binom(n,4)/64; this is exactly the host formula at c₄=3 binom(n,4), b₂,₃=10 binom(n,5), k₄=binom(n,4)."
+        ],
+        "reasoning": "An exact known specialization and single-cycle table are both accounted for. They do not give the signed arbitrary-host joint contributions, the forbidden-subgraph iff, or the cube joint law; the target index hit is not independent evidence.",
+        "searches": [
+          "Resultary 3b4b1b16fef5 exact tournament moments; db02bd6fe986 exact hit",
+          "Griffiths arXiv:1101.5421 orientation-type table"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp two-motif classification and covariance/variance law for a fixed arbitrary underlying graph, with the cube as a higher-dependence witness. Neither the single-cycle baseline nor the complete-graph variance is credited as new.",
+      "residual_risks": [
+        "Andersson's full text was inaccessible; the older Moran work named in the record was not inspected. Older implicit random-orientation moment formulas could overlap.",
+        "No closely covering arbitrary-host source surfaced in the bounded search; this does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact complete-graph specialization only",
+          "evidence": "The local variables use intact four-vertex tournaments and projection off triangle counts, and yield Var(Y_n)=3(4n−11) binom(n,4)/64.",
+          "identifier_or_url": "Resultary 3b4b1b16fef5",
+          "material_read": "Finding at offset 0; proof Steps 1–5, offset 2800 through 7021",
+          "method": "Local mirror passage inspection",
+          "title": "Exact orthogonal decomposition of three- and four-cycle counts in random tournaments",
+          "trigger": "Exact four-cycle variance and stronger conditional decomposition"
+        },
+        {
+          "assessment": "Different cycle length and joint order; no priority inference",
+          "evidence": "Cyclic triangles are independent in triples except the tetrahedral configuration; the theorem gives a weighted third cumulant, not the graph's four-cycle pair taxonomy.",
+          "identifier_or_url": "Resultary e4a9fc29fb2b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A tetrahedral third-cumulant law for cyclic triangles under random orientations",
+          "trigger": "Closest distinct arbitrary-host random-orientation dependence theorem"
+        },
+        {
+          "assessment": "Deterministic oriented-graph forcing, not random covariance",
+          "evidence": "Existence of oriented subgraphs under a bias condition is the problem addressed in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.3969",
+          "material_read": "§2, pp. 4–5, offset 12142",
+          "method": "Open-access PDF passage",
+          "title": "Subgraphs of weakly quasi-random oriented graphs",
+          "trigger": "Oriented quadrilateral structural results on arbitrary hosts"
+        },
+        {
+          "assessment": "Single-cycle baseline and type inequalities only in checked material",
+          "evidence": "Lists four types, including the directed Type-I proportion 1/8, and analyzes type-count inequalities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1101.5421",
+          "material_read": "p. 2, offset 7140; §3, pp. 5–6, offsets 14608 and 15175",
+          "method": "Open-access PDF passages",
+          "title": "Quasi-random oriented graphs",
+          "trigger": "Prior four-cycle type counts"
+        },
+        {
+          "assessment": "Unresolved historical access risk, not negative evidence",
+          "evidence": "DOI full-text attempt returned HTTP 403; its title identifies the tournament setting, but the review cannot exclude a more general argument there.",
+          "identifier_or_url": "10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+          "material_read": "Bibliographic citation and submitted account of abstract access only; primary full text not read",
+          "method": "DOI retrieval attempt and frozen bibliographic evidence",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Early tournament subgraph moment results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md motif theorem and cube obstruction",
+        "Resultary 3b4b1b16fef5 for the complete-host baseline"
+      ],
+      "rationale": "For a basic fixed-graph random model, the theorem decides pairwise independence by exact local obstructions and shows how the two obstructions affect variance with opposite signs. This distinguishes positive and negative dependence even where their contributions cancel in the total, and the cube establishes a genuine boundary between pairwise and three-wise independence without a tournament assumption.",
+      "residual_risks": [
+        "No full three-way classification, general concentration bound or new tournament moment is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

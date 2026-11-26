@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:08:46.472383Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exactly one deletion followed by standardization gives a set D(p) of distinct four-permutation outputs; single-deletion correction is exactly pairwise disjointness of these sets, even when a word's own outputs repeat. The increasing-index enumeration visits each admissible set once and cannot discard an admissible branch on the candidate-shortfall test. The independent replay (branches/ef0d61bf-8c7a-4831-a402-809fe629a222/replay_s5.py and replay_output.txt) independently rebuilt outputs, found 1568 eight-sets and zero nine-sets, so no larger code exists either. Position reversal and value complement commute with relabeling the survivors; inversion transposes the matrix and exchanges the omitted row and column, deriving the inverse standardized output. The first two involutions commute and inversion swaps them, giving the eight transformations of the action. The replay recovered 220 orbits with counts 2,1,43,174 at sizes 1,2,4,8, and 36 sets avoid both monotones. It also enumerated the 25 ascent/inverse-ascent weighted residue classes modulo five, finding the displayed eight-word set as the unique largest class. The supplied verifiers were inspected, not executed; this is finite exhaustive evidence, not formal or expert certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The conference and journal upper-bound statements are asymptotic. The journal Theorem 26 requires sufficiently large n with n a power of two, in particular not n=5.",
+          "Both sources give general signature constructions; the general existence and asymptotic optimality reasoning do not upper-bound or characterize every optimal set at n=5."
+        ],
+        "reasoning": "A general exact formula or classification valid for unrestricted S5 would dominate the finding; the relevant inspected theorems do not provide it. A five-symbol multiset channel and a six-letter alternating permutation restriction are different domains, not stronger catalogues at n=5.",
+        "searches": [
+          "ISIT 2014 §III Theorem 1 and §IV-B Construction 1/Corollary 4",
+          "TIT 2016 Theorem 26 and §VII Construction 35/Corollary 36",
+          "Resultary rank deletion across lengths and permutation subclasses"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verification documentation, representative table and supplied verifiers",
+        "Independent exhaustive replay and output",
+        "DOI 10.1109/ISIT.2014.6875337 and DOI 10.1109/TIT.2015.2493147",
+        "Resultary bf84cee375c4 and 18af41f331e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signatures and their inverse signatures modulo five yield the eight-word example by finite specialization; this gives lower bound eight, not a proof that nine is impossible.",
+          "Prior inversion duality supplies symmetry machinery, but no classification of distinct optima or their stabilizers follows from the action alone."
+        ],
+        "reasoning": "Disjoint output-set enumeration is necessary for the upper-bound and census conclusions beyond this construction. The distinct count, orbit inventory, and monotone-avoidance count are not mere evaluations of the prior construction.",
+        "searches": [
+          "Gabrys et al. 2014 Construction 1/Corollary 4",
+          "Gabrys et al. 2016 Theorem 26, Lemma 29 and Construction 35/Corollary 36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deleting a symbol and decrementing all larger survivors is exactly standardization after one deletion. The journal calls this permutation-invariant deletion (PID) and explicitly gives inversion/deletion duality.",
+          "An absolute-symbol deletion or Ulam sphere does not identify outputs with different surviving alphabets; it is not an equivalent conflict graph."
+        ],
+        "reasoning": "A PID packing of all five-letter permutations, or an independence census of its standardized-deletion confusability graph, would cover the same claim regardless of naming. The matched primary papers use the same channel but give general bounds and constructions rather than the inspected finite equality classification.",
+        "searches": [
+          "Resultary standardized deletion and rank deletion permutation-code census, all of S5",
+          "Gabrys et al. ISIT 2014 relative-values model",
+          "Gabrys et al. TIT 2016 §II Definition 1 and Lemma 29"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-channel indexed record bf84cee375c4 counts six optimal size-11 codes among the 61 alternating length-six words; 18af41f331e1 instead counts size-26 five-element multiset codes.",
+          "In the journal's page 145 PID passage, Example 28 uses S5 to illustrate signatures, not to count optima. The inspected theorem/construction passages do not give the 1568 or 220 entries."
+        ],
+        "reasoning": "The exact counts in the nearby catalogue hits are for different objects or restrictions; the primary small example is not an equality-layer table. Failure to see an exact indexed entry is not proof of novelty.",
+        "searches": [
+          "Resultary exact and equivalent S5 census terms",
+          "Resultary bf84cee375c4 and 18af41f331e1 actual Findings",
+          "Gabrys et al. 2014 and 2016 relevant finite examples and PID theorem passages"
+        ]
+      },
+      "rationale": "Credit the rank-standardized channel, its inversion duality, and the double-signature construction (including specialization to the displayed size-eight example) to Gabrys et al. The supported distinct claim is the exact finite upper bound and full unrestricted labeled and orbit census, not a new construction or asymptotic theorem. The later journal text was lawfully accessible at review and its directly relevant PID passages were inspected; the frozen access disclaimer describes its original check, not this one.",
+      "residual_risks": [
+        "Inspection of the relevant journal passages updates the access limitation but cannot exclude an unlocated table, an embedded ancillary enumeration, or unindexed prior work.",
+        "The exact date of first public circulation of the 2014 conference text was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same channel and construction, not exact S5 equality coverage in the relevant passages",
+          "evidence": "Relative-order renumbering and double-signature classes match; the upper-bound and optimality claims are asymptotic.",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+          "material_read": "relative-values definition; §III Theorem 1, p. 2765 near text offset 18446; §IV-B Construction 1 and Corollary 4, pp. 2766–2767, offsets 29642–31634",
+          "method": "lawful author-hosted PDF passage inspection",
+          "title": "Single-Deletion-Correcting Codes over Permutations",
+          "trigger": "original same-channel source and exact construction comparison"
+        },
+        {
+          "assessment": "same PID channel, inversion duality and general construction, no S5 census shown in inspected material",
+          "evidence": "Theorem 26 is for sufficiently large powers of two; Example 28 computes two signatures of one permutation; Lemma 29 transposes the deletion operation; Construction 35 is the prior double signature.",
+          "identifier_or_url": "https://fhfarnoud.github.io/docs/papers/07302598.pdf",
+          "material_read": "§II Definition 1, pp. 137–138, text offsets 7432–19180; p. 145 Theorem 26, Example 28 and Lemma 29 around offset 83175; §VII Construction 35 and Corollary 36 near offsets 91171–92834, pp. 146–147",
+          "method": "lawful open author-hosted full text, bounded relevant passages",
+          "title": "Codes Correcting Erasures and Deletions for Rank Modulation",
+          "trigger": "previously inaccessible extended journal treatment, potentially covering the finite case"
+        },
+        {
+          "assessment": "different length and restricted word domain",
+          "evidence": "61 alternating six-symbol permutations; optimum 11 with six labeled maxima and five reversal-complement classes.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-extremal-rank-deletion-codes-in-the-six-letter-alternating-p--bf84cee375c4",
+          "material_read": "RESULT.md Finding and restricted ambient family",
+          "method": "local Resultary mirror",
+          "title": "Six extremal rank-deletion codes in the six-letter alternating permutations",
+          "trigger": "strongest indexed standardized-rank-deletion census hit"
+        },
+        {
+          "assessment": "different channel and ambient words",
+          "evidence": "Input words are unordered multisets and the reported maximum is 26.",
+          "identifier_or_url": "2026/10/25/SCOPE-six-perfect-maximum-quinary-length-five-multiset-deletion-codes--18af41f331e1",
+          "material_read": "RESULT.md Finding and multiset model",
+          "method": "local Resultary mirror",
+          "title": "Six perfect maximum quinary length-five multiset deletion codes",
+          "trigger": "indexed same length and alphabet size exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact small fixed-length optimum tests the established asymptotic construction in a natural benchmark with 120 possible words and a nontrivial confusability graph. The full equality classification shows that the construction is far from unique even modulo the natural symmetries, and that including a monotone word is not necessary for optimality. The census answers a meaningful structural question not resolved by producing one code.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

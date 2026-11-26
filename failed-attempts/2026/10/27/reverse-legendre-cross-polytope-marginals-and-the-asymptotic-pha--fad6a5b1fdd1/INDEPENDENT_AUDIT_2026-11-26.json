@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:50:39.052542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof (lines 3–72)",
+        "Frozen check.py, check_output.txt, requirements.txt and VERIFICATION.md (inspected, code not run)"
+      ],
+      "rationale": "Orthant simplex moments give d!(2j)! binom(j+d−1,d−1)/(d+2j)! and zero odd moments. In the reverse Legendre recurrence, the ratios of the proposed I_(n−1)(j) and I_(n−2)(j+1) to I_n(j) are (2j+n+1)/(2(j+n)) and (2j+1)/(2(j+n)), respectively, verifying the displayed integral identity with the two flat base cases. Matching all moments on compact support identifies the law. The inverse-root factorization gives the shape and endpoint assertions and the moment series is the stated hypergeometric series. Integration by parts against sin(ts) is positive for 0<t≤π when p' is strictly negative on (0,1). In the complex endpoint expansion the leading oscillation is sin z and the correction is p'(1) cos z/(zp(1)); the ratio is −(d−1)(d−2)/2. The expansion is uniform relative to the sine off fixed disks about nπ at sufficiently large |z|. Rouché gives one simple zero in each disk and conjugation makes it real. The next sine term is of order sin z/z² and the next cosine term is of order cos z/z³, giving precisely the stated O_d(n^−3) displacement after expansion near nπ. The result is diagonal and fixed-dimensional, not a global Fourier zero-free ball or a growing-dimension assertion.",
+      "residual_risks": [
+        "A density is only determined almost everywhere; the endpoint values are the inner polynomial representative. The finite numerical root computations do not establish complex-zero coverage; that claim rests on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "König's arXiv:2312.01321 Proposition 2.1 covers noncentral sections for distinct positive direction coordinates by a divided difference; at interior section parameters the integrand of this divided difference is smooth at the diagonal node.",
+          "Sokal's Theorem 2, attributed to Richards and Kalmykov–Karp, gives LP+ for p≤q and nonnegative integer numerator-minus-matched-denominator differences. Here d−(d+1)/2 is a nonnegative integer for odd d, and d−(d+2)/2 for even d. Substituting −z²/4 yields only real zeros, not just eventual reality.",
+          "Brazitikos–Pandis give a general formula for central sections; the two null-variety papers give broader Fourier frameworks, not the decisive axial calculation."
+        ],
+        "reasoning": "The distinct-coordinate hypothesis in the older section formula does not protect the diagonal claim: weak convergence of projections and locally uniform convergence of the divided differences identify the same density on every compact subinterval of (−1,1). The theorem on the hypergeometric class covers the exact parameter family.",
+        "searches": [
+          "Literature query: cross-polytope parallel hyperplane sections diagonal noncentral slice equal coordinates König",
+          "König arXiv:2312.01321 and arXiv:2002.10743",
+          "Brazitikos–Pandis arXiv:2606.07163 §2.1",
+          "Sokal, doi:10.1016/j.jmaa.2022.126432, Theorem 2",
+          "arXiv:0801.1617 and arXiv:2609.10517"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.01321 §2 (decisive exact results)",
+        "Resultary 9c8fbb36d9b9",
+        "Sokal (2022) Theorem 2",
+        "arXiv:2002.10743 §3",
+        "arXiv:2606.07163 §2.1",
+        "arXiv:0801.1617",
+        "arXiv:2609.10517",
+        "DLMF §16.11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write m=d−1. In (2.1) set x_j=d a_j² and t=|s|/√d. Dividing by √d·vol(B_1^d) gives d/2 times the divided difference of x^((d−2)/2)(√x−|s|)^m at x_j near 1. At coincidence this is the m-th derivative at 1 divided by m!. The coefficient of |s|^j in that derivative quotient is (−1)^j binom(m,j) binom(m−1/2−j/2,m). Odd j terms vanish. At j=2r the coefficient is 2^(−2m)(−1)^r(2m−2r)!/(r!(m−r)!(m−2r)!), exactly the reversed Legendre coefficients with p_d=d·2^(−d) s^m P_m(1/s).",
+          "In (2.3) the corresponding confluent derivative is that of x^((d−2)/2) f(z√x), with f=cos for even d and f=sin for odd d, times d! (−1)^floor(d/2)/(m! z^d) after normalization. Its top two derivative terms are (z/2)^m f^(m)(z) and [m(m−1)/4](z/2)^(m−1) f^(m−1)(z). These give sin z−m(m−1)cos z/(2z) after factoring the leading endpoint amplitude; successive terms alternate sine and cosine and are lower by powers of z. Thus the quoted shift and cubic error are obtained by expanding this existing exact expression at nπ. Alternatively they follow by ordinary endpoint expansion of the already covered density.",
+          "The polynomial shape and the short zero-free interval follow directly from Legendre root locations and one sine-positive integration by parts. Eventual uniqueness and simplicity follow from the leading sine and uniformly lower-order terms of the exact expression."
+        ],
+        "reasoning": "The reverse-Legendre presentation is a recognizable rewriting of an older exact result, and the precise phase coefficient is the immediate next-order term in the older transform, not a new dimension-dependent zero theorem resting on additional structure. This is mathematically established prior implication, not inference from a search hit or an inaccessible article.",
+        "searches": [
+          "König arXiv:2312.01321, Proposition 2.1 and equation (2.3), coefficient-level confluent comparison",
+          "Sokal Theorem 2, parity substitution for the two denominators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Density of the linear projection is parallel-section volume divided by the body volume and by the Euclidean norm √d of the projection vector. Thus the same law corresponds to König's unit normal a=(1,…,1)/√d and section parameter s/√d.",
+          "The local Resultary sparse-diagonal finding 9c8fbb36d9b9 gives the moments and transform for k≤d with numerator k; taking k=d reproduces the frozen hypergeometric expression exactly."
+        ],
+        "reasoning": "The older section formula addresses the same invariant, not just volume of the projected support. The diagonal repeated nodes call for its ordinary confluent limit. The diagonal transform is a literal existing specialization even before taking a limit of the older Fourier formula.",
+        "searches": [
+          "Local Resultary: cross-polytope diagonal projections, reverse Legendre densities and axial Fourier zeros",
+          "Literature query: cross polytope diagonal projection uniform l1 ball density reverse Legendre polynomial distribution sum of coordinates Fourier Bessel",
+          "arXiv:2312.01321 §2, Proposition 2.1 and (2.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact transform is indexed in the earlier sparse-diagonal result. The classical generalized hypergeometric asymptotic expansion and the older exact cross-polytope formula are symbolic formula sources, not finite lists of numerically tabulated roots.",
+          "The frozen check_output.txt is a finite computational record and is not priority evidence."
+        ],
+        "reasoning": "An exact numerical table for the zeros is not needed for overlap: the family's symbolic divided difference gives the coefficients for arbitrary fixed d. No claim of a published numeric zero table is made.",
+        "searches": [
+          "Local Resultary 9c8fbb36d9b9, generic sparse diagonal moment and transform formulas",
+          "DLMF §16.11, equation 16.11.8, generalized hypergeometric asymptotic formula",
+          "König arXiv:2312.01321 §2 exact formulas (2.1), (2.3)"
+        ]
+      },
+      "rationale": "The decisive overlap is not just the earlier catalogue's exact hypergeometric specialization. König's Proposition 2.1, crediting Meyer–Pajor and Brzezinski, already gives the exact parallel-section density by divided differences, and equation (2.3) gives the exact Fourier transform in a broader form. Taking coincident nodes by the standard derivative rule gives precisely the displayed reverse Legendre coefficients and the exact sine–cosine expansion containing the stated zero phase. Richards/Kalmykov–Karp additionally cover the real-zero assertion in stronger form. The record is correct but does not supply a distinct substantive theorem after removing these consequences.",
+      "residual_risks": [
+        "Not a complete historical attribution: the original Meyer–Pajor and Brzezinski works were not read directly. König explicitly states and proves the decisive formulas and attributes them.",
+        "Fields–Ismail's exact positivity scope was not independently verified; the verdict does not rely on unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader exact coverage. The repeated-coordinate specialization was derived explicitly in this review.",
+          "evidence": [
+            "(2.1) is 2^(d−1)/(d−1)! times a sum of a_j^(d−2)(a_j−t)_+^(d−1) over denominators ∏(a_j²−a_k²).",
+            "(2.3) is an exact general transform with cosine or sine of each coordinate and the same product denominators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.01321",
+          "material_read": "§2, Proposition 2.1, equation (2.1), its attribution and Brzezinski Fourier formula (2.3); OA offsets 7050 and 10281",
+          "method": "Lawful OA arXiv PDF, targeted bounded sections",
+          "title": "Non-central sections of the l1-ball",
+          "trigger": "Same density as a parallel section function, potential exact formula with confluent direction coordinates"
+        },
+        {
+          "assessment": "Exact moments and transform already covered at k=d; advertised Wendland density is a different parameter slice.",
+          "evidence": [
+            "The characteristic series is 1F2(k;(d+1)/2,(d+2)/2;−t²/4) for d≥k."
+          ],
+          "identifier_or_url": "SCOPE-wendland-kernels-as-unique-sparse-diagonal-shadows-of-cross-poly--9c8fbb36d9b9",
+          "material_read": "Finding and generic even moments and characteristic function passages, mirror offsets 0, 3400 and 6200",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "Wendland kernels as unique sparse diagonal shadows of cross-polytopes",
+          "trigger": "Identical probability model and all sparse diagonals, including full diagonal"
+        },
+        {
+          "assessment": "Implies all complex Fourier zeros are real, by the parity-specific integer gap. Does not alone give the claimed phase.",
+          "evidence": [
+            "Theorem 2 allows all positive b_j and p numerator parameters b_i+m_i, with nonnegative integer m_i."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10150527/1/Sokal_1-s2.0-S0022247X22004462-main.pdf",
+          "material_read": "p. 2, Theorem 2, OA offset 5490",
+          "method": "Open repository PDF; exact theorem and hypotheses",
+          "title": "When does a hypergeometric function pFq belong to the Laguerre–Pólya class LP+?",
+          "trigger": "General real-zero theorem for the hypergeometric family"
+        },
+        {
+          "assessment": "The one-separated-vertex formula cannot be directly specialized here; the later arXiv:2312.01321 full formula is decisive.",
+          "evidence": [
+            "The section formula in that passage assumes a_1>t>a_j for j≥2, impossible for equal coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.10743",
+          "material_read": "§3, Eq. (3.1) context and separated-vertex hypothesis, and Proposition 3.2",
+          "method": "OA arXiv PDF targeted comparison",
+          "title": "Non-central sections of the simplex, the cross-polytope and the cube",
+          "trigger": "Prior exact noncentral-section formulas"
+        },
+        {
+          "assessment": "General central section integral covers the center but this passage not the full noncentral phase problem.",
+          "evidence": [
+            "(2.3) integrates ∏(1+a_j²t²)^−1 for the central section."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.07163",
+          "material_read": "§2.1, formulas (2.1)–(2.3), OA offset 19950",
+          "method": "OA arXiv PDF",
+          "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+          "trigger": "Same cross-polytope section object"
+        },
+        {
+          "assessment": "Broader frameworks, not the decisive overlap.",
+          "evidence": [
+            "Directional versus global nearest Fourier zeros are different from the fixed-dimension high-frequency phase."
+          ],
+          "identifier_or_url": "arXiv:0801.1617 and arXiv:2609.10517",
+          "material_read": "First paper pp. 2–4 definitions of transform, κ and directional radius; second paper pp. 1 and 5, global functional and bipyramid results",
+          "method": "Bounded OA primary passages",
+          "title": "Fourier transform, null variety, and Laplacian's eigenvalues; An isoperimetric problem for Fourier zeros of centrally symmetric convex bodies",
+          "trigger": "Broader Fourier zero results cited in frozen record"
+        },
+        {
+          "assessment": "Parameter coverage unresolved; no conclusion relies on this source being absent or non-covering.",
+          "evidence": [
+            "Cited in the sparse-diagonal Resultary record as related positivity literature."
+          ],
+          "identifier_or_url": "doi:10.1137/0506050",
+          "material_read": "Bibliographic identification only",
+          "method": "Targeted OA attempt and alternate repository lookup",
+          "title": "On the positivity of some 1F2’s",
+          "trigger": "Possible exact positivity parameter coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "König arXiv:2312.01321 (2.1) and (2.3) with explicit comparison",
+        "Resultary 9c8fbb36d9b9",
+        "Sokal Theorem 2"
+      ],
+      "rationale": "The geometric/Fourier direction is natural, and the Legendre presentation is convenient. But after crediting prior exact coverage it is a standard confluent substitution and coefficient rewrite, followed by ordinary shape and endpoint estimates; even the phase constant comes from the first two terms of the older exact transform. No surviving independently valuable exact invariant or new phenomenon is established within the frozen claim. This is not a rejection of the correctness or expository usefulness of the identification.",
+      "residual_risks": [
+        "No assessment is made of new uniform-in-dimension asymptotics or other stronger questions outside the frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

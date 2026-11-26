@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:58:41.936003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–33, VERIFICATION.md lines 18–22, and verify_book_power.py (inspected, not executed)",
+        "/workspace/branches/35b77d46-0673-450f-9b54-3af720b57fb7/independent_book_power_check.py and independent_book_power_check.out"
+      ],
+      "rationale": "A selected spine vertex observes both spine vertices and at least one nonspine vertex on each page; each missing page vertex is then forced. Without a selected spine vertex, a hit page is fully observed by the initial step and supplies whichever spine vertex is not yet observed. If exactly one page was missed, each spine vertex can force its neighbor there. For two or more missed pages both spine vertices have at least two unobserved neighbors there and no observed nonspine vertex is adjacent to a missed page, so none can be entered. The empty set fails. With q=2x+x², the disjoint cases count as q(1+x)^(2n), q^n and n q^(n−1). At x=1 and in degree one this gives the claimed total and minimum layers. At n=2 the criterion is exactly nonemptiness; at n=1 the formula would add a spurious constant, so the exclusion is necessary and C₄ has all nonempty sets. An independent replay exhausted 349,504 subsets for 2≤n≤8 and matched the classification, all coefficients, total counts and singleton counts. The case analysis, not the finite replay, proves the result for all n.",
+      "residual_risks": [
+        "The replay checks graphs only through order 18; no formal certificate is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brimkov et al.'s generic fort criterion applies: the union of the nonspine vertices on two untouched pages is a fort whose closed neighborhood is missed when S avoids those pages and the spine. The cited decomposition passages concern disjoint union, join and vertex identification, not direct enumeration for pages sharing an edge.",
+          "The Dorbec et al. abstract is about minimum power-domination numbers for product classes, not all-cardinality enumeration for this family. The cited Benson et al. paper was not read in full."
+        ],
+        "reasoning": "The fort criterion explains the obstruction but still requires a graph-specific computation and a sufficiency argument to obtain the frozen classification. The exact prior indexed result, not a generic algorithm, is decisive.",
+        "searches": [
+          "Brimkov et al. arXiv:1805.10984, §3.2, fort criterion, and §4 Proposition 20",
+          "Dorbec et al., Power domination in product graphs, p. 1",
+          "Benson et al., Zero forcing and power domination for graph products, as cited by Brimkov et al."
+        ]
+      },
+      "checked_sources": [
+        "Resultary 646ff77569c3, a728e7eb98e0 and 9ccb7294d11f",
+        "Brimkov et al. arXiv:1805.10984",
+        "Dorbec et al. (2008) abstract",
+        "Kuriachan–Parthiban DOI 10.47836/mjms.19.1.14 landing-page abstract",
+        "Benson et al. cited product work (citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same spine or ≥r−1 touched pages predicate holds over the same range r≥2. The enumerator and the evaluations at x=1 and of the coefficient of x are identical after setting r=n."
+        ],
+        "reasoning": "No new graph family, propagation rule, counting class or boundary result in the frozen Finding survives the renaming.",
+        "searches": [
+          "Compare frozen RESULT.md lines 3–18 against Resultary 646ff77569c3, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In record 646ff77569c3 the r-page book has the same common edge and r page pairs, and 'touches at least r−1 page pairs' is the same condition as 'at most one page pair is disjoint'.",
+          "Resultary records a728e7eb98e0 and 9ccb7294d11f count 2-rainbow and Roman dominating functions on the same graph, not ordinary power-dominating sets."
+        ],
+        "reasoning": "Identifying r=n and the shared edge with the spine gives exact equivalence of the graph and predicate. Matching an object without the same predicate, as in the rainbow and Roman comparisons, is not exact coverage.",
+        "searches": [
+          "Resultary: book-graph power-domination polynomial and structural classification",
+          "Brimkov et al. arXiv:1805.10984, literal book, Cartesian product, prism and parallel paths",
+          "Kuriachan–Parthiban, DOI 10.47836/mjms.19.1.14, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed record gives the same polynomial q(1+x)^(2r)+q^r+r q^(r−1) with q=2x+x² for all r≥2, and the same total and minimum layers.",
+          "Brimkov et al. describe computation on graphs of order less than ten, which would include B₂ and B₃ but not Bₙ for n≥4; the linked repository and OEIS attempt did not provide readable entries for comparison."
+        ],
+        "reasoning": "The confirmed exact index coverage is of a whole family, not isolated values. Unread entries do not count as searches proving absence, and any two matching bounded cases would not alone imply the polynomial for every n.",
+        "searches": [
+          "Local Resultary mirror full Finding for 2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3",
+          "Brimkov et al., p. 10 and linked Power-Domination-Polynomial repository",
+          "OEIS attempt: 63,246,957,3720,14475,56442,220665"
+        ]
+      },
+      "rationale": "A distinct, earlier-dated indexed record, 646ff77569c3, states the exact same all-orders criterion and polynomial, with matching totals and minimum layers. The change of parameter symbol does not distinguish the claims. The comparison shows exact coverage without adjudicating external publication priority or provenance. Incomplete access to literature and finite tables is not the failure reason.",
+      "residual_risks": [
+        "Kuriachan–Parthiban and Benson et al. full-text coverage was not established. The linked finite data repository and OEIS results were not readable in the attempted routes.",
+        "An earlier index date is not a conclusion about external priority or provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact whole-claim coverage in distinct indexed record",
+          "evidence": "Common spine or at least r−1 touched page pairs for r≥2; identical polynomial, total and minimum counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3/RESULT.md",
+          "material_read": "Finding in local mirror, snapshot 36a7204",
+          "method": "Local Resultary mirror",
+          "title": "Power domination polynomial of book graphs",
+          "trigger": "Same title, exact graph and invariant"
+        },
+        {
+          "assessment": "Relevant tools and finite tables described, no exact all-order book result in inspected passages",
+          "evidence": "Fort transversals, disjoint-union/join/vertex-identification decompositions and formulas for several other families; brute-force scope under order ten.",
+          "identifier_or_url": "arXiv:1805.10984",
+          "material_read": "Fort criterion p. 5 (offset 17807); §3.2 (23777–35708); Proposition 20 p. 10 (35708); conclusion p. 20 (69400)",
+          "method": "OA arXiv PDF, localized passages and alias lookups",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Potentially broader enumerator or exact family result"
+        },
+        {
+          "assessment": "Dorbec et al. treat minimum numbers in the inspected abstract; fuller product comparison unresolved for Benson et al.",
+          "evidence": "Products of paths and arbitrary lexicographic products feature in Dorbec et al.; the inspected abstract does not give the target all-set enumeration.",
+          "identifier_or_url": "Dorbec et al. (2008); Benson et al. (2018), cited in arXiv:1805.10984",
+          "material_read": "Dorbec et al. abstract p. 1 (offset 0); Brimkov et al. citation to Benson et al.",
+          "method": "OA PDF for Dorbec et al.; full Benson et al. text not retrieved",
+          "title": "Power domination in product graphs; Zero forcing and power domination for graph products",
+          "trigger": "Cartesian product interpretation of the book graph"
+        },
+        {
+          "assessment": "The abstract alone cannot decide scope",
+          "evidence": "It mentions power-domination entropy and examples without identifying the graph families.",
+          "identifier_or_url": "10.47836/mjms.19.1.14",
+          "material_read": "Journal landing-page abstract only",
+          "method": "Lawful OA retrieval reached landing page, not full text",
+          "title": "On Graph Entropy Measures Based on the Number of Dominating and Power Dominating Sets",
+          "trigger": "Plausible same family and invariant"
+        },
+        {
+          "assessment": "Different predicates and counted objects",
+          "evidence": "Counts labeled dominating functions, not seed sets under propagation.",
+          "identifier_or_url": "Resultary a728e7eb98e0 and 9ccb7294d11f",
+          "material_read": "Findings",
+          "method": "Local Resultary mirror",
+          "title": "2-rainbow and Roman domination polynomials of book graphs",
+          "trigger": "Same graph and nearby polynomial names"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An all-cardinality power-domination enumerator for this natural graph family is a meaningful kind of result. Here that exact enumerator and structural explanation are already covered by a distinct index record; confirmation on more finite orders does not contribute a new theorem or exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

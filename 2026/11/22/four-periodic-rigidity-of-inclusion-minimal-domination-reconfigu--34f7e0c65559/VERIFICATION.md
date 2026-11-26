@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The two accompanying Python 3 programs depend only on the standard library. Execute `python verify_exhaustive.py` and `python verify_structure.py` in the same directory as this file.
+## correctness
 
-`verify_exhaustive.py` independently constructs the labelled cycle, lists every inclusion-minimal dominating set by direct deletion tests for lengths \(3\) through \(18\), enumerates all expansion/contraction moves, and asserts that only the four rotations of the periodic \(1100\) pattern are isolated, at positive multiples of four beginning with eight. Counts of vertices, edges and isolated configurations are printed for every tested length.
+PASS
 
-`verify_structure.py` independently builds an 11-bit neighborhood verifier and the associated finite de Bruijn automaton on 10-bit states. A self-contained Tarjan strongly connected component procedure proves that the only cyclic recurrent component is the four-state directed cycle with states 204, 409, 614 and 819. It covers all frozen words of arbitrary length at least eleven. This is a genuine finite-state proof, separate from bounded-length enumeration; it supplements but does not replace the elementary all-length proof in RESULT.md.
+A cyclic dominating word has no zero run of length >=3; minimality forbids a one run of length >=3 and requires two zeros on each side of every 11 for private witnesses. These conditions are sufficient: a singleton uses itself and each endpoint of 11 uses its exterior adjacent zero. For a mixed word the slide 11001→10101 leaves the exterior gaps unchanged. For all singletons, unequal adjacent gaps can be swapped by a slide; for constant gaps two one can split a token into its two vacant neighbours, and for constant gaps one one can merge a 101, yielding independent dominating words in both cases for n>=6. All-double words are the four 1100 shifts; the only candidate moves are slides, which for n>=8 deprive a distinct intact 11 of its adjacent private witness. C3 singletons and C4 pairs are all mobile; the two alternating C4 pairs each have an adjacent consecutive pair. This proves the full classification, not connectivity beyond the isolated-state obstruction. Independently ran checks/1.py (Python 3 standard library): private-witness/explicit set-move enumeration for 3<=n<=14 and 11-bit-window automaton by source/sink peeling, leaving exactly the periodic directed four-cycle for the n>=11 check. For the automaton, changes occur only within distance one of the move centre and the private-witness predicate reads radius two, so centre offsets -3..3 contain all affected tests. The run proof stands independently of computation.
 
-Both were executed successfully from the final source paths during preparation. Finite execution does not independently validate the modeling assumptions or prove the literature novelty claim. No independent external validation has occurred.
+## originality
+
+PASS
+
+The distinct claim is the all-cycle classification of isolated inclusion-minimal dominating states under the exact expansion/contraction rule. Beaton supplies the move model and other graph-family results, but the checked statements do not yield the classification. Two four-periodic analogues use different feasibility or transitions. The conclusion is bounded by checked sources, not a priority certificate.
+
+## value
+
+PASS
+
+This gives a complete structural classification under a move model that allows changing the number of selected vertices, not just a disconnection example. It provides exact periodic obstructions for a natural connected 2-regular family, explains why C4 is exceptional, and gives an explicit move certificate for the complement of the frozen states. It makes no claim about the component structure of those mobile states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

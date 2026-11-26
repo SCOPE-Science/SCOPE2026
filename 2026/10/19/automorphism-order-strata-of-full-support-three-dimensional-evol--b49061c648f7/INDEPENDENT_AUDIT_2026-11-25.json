@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:04:12.560142Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 34–88; VERIFICATION.md; artifacts/check_automorphism_profile.py (inspected, not run)",
+        "/workspace/branches/replay_frozen_checks.py (argument 2)",
+        "/workspace/branches/b68846bc-a799-4d54-b54a-1a24f26e2167/independent_stabilizer_census.py"
+      ],
+      "rationale": "Independence of the squares forces images of distinct natural basis vectors to have disjoint support, hence the change is monomial in any characteristic. The nonzero diagonal scales uniquely to 1, leaving only permutations. A nonzero ideal contains one basis square, then all three via full support; the argument survives every field extension. For D one can scale in the ambient entrywise-nonzero invertible family to unit diagonal. Distinct first-row/second-row ratio patterns distinguish a plane defined by an equation with two nonzero coefficients (q−1 squared torus solutions) from one with three (choose two nonzero inputs and exclude one ratio, giving (q−1)(q−2)). The fixed transposition factors as (1−x)(1+x−2yz), with x=−1 requiring special treatment in odd characteristic only. The circulant factor is a cube in characteristic 3; for q≡1 mod 3 the three torus lines have distinct pairwise intersections and no triple intersection, and for q≡2 mod 3 the two conjugate lines share only (1,1), not on the remaining line. For all-equal off-diagonals the excluded roots of (1−t)^2(1+2t) coalesce in characteristic 3; the second factor is constant in characteristic 2. Proper nontrivial stabilizer fixed sets intersect exactly on the S3-fixed locus, so subtraction and division by 6/h give the stated formulas. Independent exact orbit enumeration verified q=2,3,4,5,9; a separate seven-field stabilizer census also included q=7,8.",
+      "residual_risks": [
+        "The finite reproductions corroborate the formulas but do not prove the all-prime-power statement. These are ordinary linear groups, not group schemes or semilinear automorphism groups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wei–Zou count total orbits in the entire perfect dimension-three family; Costoya et al. realize prescribed groups via Cayley evolution algebras. Catalogue record 1dd6c2dc31bf is an asymptotic result for fixed dimension at least five."
+        ],
+        "reasoning": "An existence theorem or an ambient total of orbits does not determine the four exact stabilizer-weighted counts on the restricted dimension-three torus. The determinant is excluded differently on each subgroup fixed torus.",
+        "searches": [
+          "Resultary: perfect evolution algebras finite fields isomorphism classes automorphism groups dimension three",
+          "\"Isomorphism Classes of Idempotent Evolution Algebras\" Wei Zou automorphism groups full support stabilizer strata",
+          "arXiv:2310.12368 Theorem 5.1",
+          "DOI 10.1007/s13398-023-01414-w Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1701.07219v2, 2202.01333, 2310.12368; DOI 10.1007/s13398-023-01414-w",
+        "Resultary 19e58d8b203b and 1dd6c2dc31bf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sriwongsa–Zou's S3 full-support parameters are exactly constant nonzero c on the off-diagonal. Excluding c=1 and c=−1/2 when distinct reproduces S. The unit-diagonal form is explicit in Table 24."
+        ],
+        "reasoning": "That first comparison directly implies the S3 count; the new theorem should not claim it in isolation. Neither it nor the 2017 table or overall ambient orbit counts supplies the evaluated identity, transposition and three-cycle fixed counts over the nonzero torus in all characteristics. The refined joint census is not a parameter substitution.",
+        "searches": [
+          "arXiv:2202.01333 Thm. 3.2, pp. 9–10",
+          "arXiv:2310.12368 Cor. 1.1 and Thm. 5.1",
+          "arXiv:1701.07219v2 p. 84 Table 24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Table 24 explicitly displays the same normalized full-support matrix and all five nonidentity permutation images, subject to nonvanishing determinant. Catalogue hit 19e58d8b203b concerns unital squarefree-trace-cubic algebras, not the full-support evolution locus."
+        ],
+        "reasoning": "The finite-field algebra question is the orbit-by-stabilizer census on the torus of six off-diagonal entries with the determinant divisor removed. Describing equivalence classes as permutation orbits does not count those orbits by stabilizer; the table gives representatives with parameter equivalences, not the four finite-field counts.",
+        "searches": [
+          "Resultary: full-support three-dimensional evolution algebras finite fields automorphism group stabilizer strata",
+          "Resultary: normalized invertible structure matrices full support evolution algebra S3 orbit stabilizers",
+          "arXiv:1701.07219v2 Table 24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classification table comes closest to an exact table on the right locus but lists orbit equivalence, not finite-field multiplicities or exceptional field cases. The exact S3-only family is separately established by Theorem 3.2."
+        ],
+        "reasoning": "There is genuine coverage of one stratum and of the orbit presentation; no inspected table lists the all-q four-count distribution. Its derivation still needs all torus fixed-point counts and subgroup inversion.",
+        "searches": [
+          "Resultary: exact enumeration finite field automorphism profile evolution algebras q=2,3,4,5,7,8,9",
+          "\"Classification of three-dimensional evolution algebras\" Cabrera Siles Molina Velasco arXiv PDF perfect arbitrary fields full support",
+          "arXiv:1701.07219v2 Table 24; arXiv:2202.01333 Theorem 3.2"
+        ]
+      },
+      "rationale": "The all-prime-power four-stratum census is the supported distinct claim. Unit-diagonal permutation equivalence on the same full-support locus is already tabulated by Cabrera Casado–Siles Molina–Velasco under field restrictions. The S3 stratum alone, including its count, follows directly from Sriwongsa–Zou and is not a separate novelty. Their theorem and the overall Wei–Zou perfect-algebra census do not give the joint full-support distribution; computing the remaining locus-specific fixed counts is substantive.",
+      "residual_risks": [
+        "An earlier finite-field evaluation of the same orbit parameter space could overlap; the inspected normal forms and ambient count do not themselves establish it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact orbit-description overlap, not a four-stratum all-q census",
+          "evidence": [
+            "All six off-diagonal parameters are nonzero; table lists the normalized matrix and its five permutation images. The stated field hypotheses exclude characteristic two and require roots of specified orders."
+          ],
+          "identifier_or_url": "arXiv:1701.07219v2; https://webapps.math.uci.edu/~brusso/Velasco3dimArXiv.pdf",
+          "material_read": "Abstract; Case 7 and Table 24, PDF p. 84, extraction offset 472300; determinant condition following table",
+          "method": "Lawful university mirror of primary preprint; bounded passage",
+          "title": "Classification of three-dimensional evolution algebras (preprint: Description of three-dimensional evolution algebras)",
+          "trigger": "Same dimension, perfect all-nonzero type, exact orbit table"
+        },
+        {
+          "assessment": "Directly covers the S3 full-support subfamily and implies its multiplicity",
+          "evidence": [
+            "Its S3 full-support form has all equal nonzero off-diagonal entries; its determinant exclusions reproduce S."
+          ],
+          "identifier_or_url": "arXiv:2202.01333",
+          "material_read": "Theorem 3.2, pp. 9–10",
+          "method": "Open primary PDF theorem passage",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Three-dimensional automorphism group S3 classification"
+        },
+        {
+          "assessment": "Monomial action and ambient counts are prior, not the restricted orbit strata",
+          "evidence": [
+            "Counts total classes among all invertible structure matrices; perfect is meant here."
+          ],
+          "identifier_or_url": "arXiv:2310.12368",
+          "material_read": "Eq. (1.5), Cor. 1.1, pp. 3–4; Thm. 5.1, p. 20",
+          "method": "Open primary PDF passages",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Exact finite-field classification and counts in dimension three"
+        },
+        {
+          "assessment": "Realizability, not small-dimensional multiplicities",
+          "evidence": [
+            "Arbitrary finite groups can occur for absolutely simple Cayley evolution algebras under its field-size condition."
+          ],
+          "identifier_or_url": "DOI 10.1007/s13398-023-01414-w",
+          "material_read": "Thm. A, p. 2",
+          "method": "Open primary theorem passage",
+          "title": "Automorphism groups of Cayley evolution algebras",
+          "trigger": "Automorphism groups of absolutely simple evolution algebras"
+        },
+        {
+          "assessment": "Different algebra locus",
+          "evidence": [
+            "Unital commutative algebras with squarefree trace cubic in characteristic greater than three."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-frobenius-splitting-and-automorphism-census-in-the-squarefree-cu--19e58d8b203b",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Frobenius splitting and automorphism census in the squarefree cubic family",
+          "trigger": "Similar dimension and four-group census"
+        },
+        {
+          "assessment": "Different dimension and type of guarantee",
+          "evidence": [
+            "Fixed dimension at least five with large-field asymptotics, not exact dimension-three counts."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-large-field-rigidity-and-transposition-dominance-in-full-s--1dd6c2dc31bf",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Sharp large-field rigidity and transposition dominance in full-support evolution algebras",
+          "trigger": "Full-support evolution-algebra automorphism distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–34, 64–84"
+      ],
+      "rationale": "At dimension three the natural permutation group first distinguishes involutions, three-cycles and full symmetry. Evaluating their multiplicities on the dense full-support family, including small fields and the characteristic-two and characteristic-three jumps, gives exact input for symmetry statistics that the ambient orbit total and the known S3-only classification cannot provide.",
+      "residual_risks": [
+        "No enumeration of supports with vanishing structure entries or other dimensions is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

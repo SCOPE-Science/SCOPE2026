@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:26:57.433717Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–87, VERIFICATION.md, verify_direct.py, verify_transfer.py",
+        "python3 /workspace/branches/reproduce_3.py (graph with all forbidden subwindows, exact quotient determinants and trace/direct counts)",
+        "python3 /workspace/branches/f6f21812-078f-4aab-b9c4-a76c7495e3e4/independent_check.py (full recurrent-graph determinant and direct enumeration through n=16)"
+      ],
+      "rationale": "Closed five-bit overlap paths are in bijection with indexed words tested in their two-sided periodic extensions, even when n<6. Although the frozen rule checks the first two length-four windows of each edge rather than all three, every position is tested along a closed path; it would be misleading to read the prose as a claim about checking the last length-four window of an isolated edge. Independently rebuilding with all three windows gave the same 16-state cyclic component and the same signed quotient determinants by integer Newton identities. The traces match all 18 stated counts and direct word enumeration agrees through n=14. Möbius inversion counts least-period indexed points, divided by n for primitive rotation orbits. Counts exclude 1,2,3,7; distinct least-period-4 and least-period-6 points account for all counted points at 8 (only period 4) and 12 (both). The three displayed 4-, 5- and 6-loops are simple returns to 10001. A smaller period of a concatenation would rotate its marker occurrences and periodically repeat the cyclic itinerary. A single length-5 loop for odd n≥9, a single length-6 loop for n≡2 mod 4 with n≥10, or a single block of two length-6 loops for n≡0 mod 4 with n≥16 gives an itinerary with no nontrivial rotation. These constructions cover the entire positive support. Strong connectivity and the coprime loops of lengths 4 and 5 give primitivity, the Parry measure is unique, and the Perron root lies in the unsigned factor by complement symmetry. Its reproduced decimal is 1.4012683679398549151…, and the trace asymptotic has leading coefficient one.",
+      "residual_risks": [
+        "Finite counts establish the short exceptions, not the unbounded positive spectrum; the marker construction supplies that argument. Squares of half-length one are allowed; no quotient by complementation or reversal is taken."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richard–Grimm use truncated square avoidance in linear ternary words, forbidding all root lengths up to the truncation parameter, including 1. Mousavi–Shallit give RTC(2)=4 in their all-circular-factors threshold problem."
+        ],
+        "reasoning": "These methods and results do not give an all-parameter table for arbitrary binary forbidden-square sets and indexed periodic points. The other alphabet, inclusion of root length 1, and threshold quantification prevent direct specialization to the submitted rule.",
+        "searches": [
+          "Richard–Grimm arXiv:math/0302302 introduction and finite truncation discussion",
+          "Mousavi–Shallit arXiv:1212.0052 definition and binary threshold"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8b85129bcc79",
+        "arXiv:1212.0052",
+        "arXiv:math/0302302",
+        "OEIS A225490"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single-rule zeta determines the cycle counts only before imposing the other rule; its admissible least-period-2 witnesses are explicitly lost by imposing half-length-two avoidance. The OEIS unsigned polynomial says nothing about the complement-odd spectrum or the marker returns."
+        ],
+        "reasoning": "Post-filtering a restriction requires more information than the count sequence: one needs surviving paths under the second rule and their transition structure. In particular the isolated gaps 8 and 12 require the least-period decomposition, and eventual existence needs more than the OEIS growth constant.",
+        "searches": [
+          "Resultary 8b85129bcc79, RESULT.md finding and initial marked counts",
+          "OEIS A225490 generating-function definition",
+          "Primary literature on finite truncations and circular factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day fixed-period-three record 8b85129bcc79 uses periodic extensions and counts marked circles, but imposes only abcabc avoidance. Mousavi–Shallit consider circular interpretations of factors and an exponent threshold, not these literal two fixed root lengths."
+        ],
+        "reasoning": "A change from word-graph to shift language preserves counts only for the same local rule. The half-length-three-only rule even permits least period 2, contrary to the joint rule. The circular factor problem cannot be identified with counting points fixed by a shift power.",
+        "searches": [
+          "Resultary: binary periodic square avoidance, simultaneous half-length 2 and 3 and primitive periods",
+          "Mousavi–Shallit arXiv:1212.0052 pp. I–IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue hit 8b85129bcc79 has first six marked counts 0,2,0,14,20,56, versus 0,0,0,12,10,6 under joint avoidance. OEIS A225490 begins 1,1,2,3,5 and tabulates coefficients of 1/(1−z−z²+z⁵+z⁶−z⁷). Its denominator equals (1−z)(1−z²−z³−z⁴+z⁶), so it does encode the same unsigned factor and limiting ratio, but not the signed factor or periodic-point interpretation."
+        ],
+        "reasoning": "The algebraic match for one factor is exact and should be credited, not confused with a match of periodic-point, primitive orbit or full zeta tables. Neither comparator determines the submitted joint census.",
+        "searches": [
+          "Resultary: binary cyclic square avoidance, exact zeta function and missing primitive lengths",
+          "OEIS A225490, generating function, initial terms and limiting ratio"
+        ]
+      },
+      "rationale": "The distinct supported result is the joint-avoidance zeta function with its exact primitive-period support. The nearest indexed distinct record forbids only half-length-three squares with a different periodic-point sequence. General finite-type tools and the growth algebraic number are not claimed as new.",
+      "residual_risks": [
+        "Searches were bounded; an equivalent unindexed finite automaton presentation could have the same zeta function. No priority inference is drawn from same-day dating."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial related counting result; not the simultaneous restriction.",
+          "evidence": "Only abcabc is forbidden, and its initial counts differ already at n=2.",
+          "identifier_or_url": "Resultary 2026/11/22/8b85129bcc79",
+          "material_read": "RESULT.md finding, restrictions and initial marked counts",
+          "method": "Local Resultary search and mirror statement comparison.",
+          "title": "Exact cyclic fixed-period-three square avoidance: a zeta function and primitive necklace counts",
+          "trigger": "Same binary circle model and fixed-square zeta approach"
+        },
+        {
+          "assessment": "Different object and constraint.",
+          "evidence": "Circular interpretations of factors and binary RTC(2)=4, not fixed-root-length periodic counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.0052",
+          "material_read": "pp. I–IV, around offsets 0 and 5989",
+          "method": "Primary open-access passage inspection.",
+          "title": "Repetition Avoidance in Circular Factors",
+          "trigger": "Plausible alternate formulation of circular square avoidance"
+        },
+        {
+          "assessment": "Methodological overlap, not the binary two-length zeta function.",
+          "evidence": "Linear ternary truncations exclude every root length up to a bound, including 1.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0302302",
+          "material_read": "pp. 1–3, offsets 0 and 4951",
+          "method": "Primary open-access passage inspection.",
+          "title": "On the Entropy and Letter Frequencies of Ternary Square-Free Words",
+          "trigger": "Rational enumerators for finite square-avoidance truncations"
+        },
+        {
+          "assessment": "Shares the unsigned denominator factor, not the full denominator or indexed counts.",
+          "evidence": "The OEIS denominator factors as (1−z)(1−z²−z³−z⁴+z⁶); its numerator and coefficients describe a different generating function.",
+          "identifier_or_url": "https://oeis.org/A225490",
+          "material_read": "Page offset 0, 1,415 characters, including definition, terms and limiting ratio",
+          "method": "OA public-page inspection and exact polynomial factorization.",
+          "title": "OEIS A225490",
+          "trigger": "Identical displayed growth constant and potentially equivalent rational table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact zeta and marker-return proof",
+        "Resultary half-length-three-only comparison; OEIS growth comparison"
+      ],
+      "rationale": "For a natural finite forbidden-pattern shift, the exact zeta function determines every marked count, while the primitive-period theorem distinguishes true orbit gaps from repetitions at circumferences 8 and 12 and closes the unbounded range constructively. The split into complement parities explains how periodic information goes beyond knowing an entropy or a few counts.",
+      "residual_risks": [
+        "No conclusion concerns all bounded square lengths or exponent-threshold avoidance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

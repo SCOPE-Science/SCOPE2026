@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:09:53.880193Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original five-graph numerical classification is confirmed but four substantially overlapping rows are excluded from the final claim. Independent replay /workspace/audit-work/3-replay.py with the frozen power_certificate.json and graph codes H MK P D T rebuilds the five edge sets, exhausts seeds from size zero through the first successful size using queued unmarked-neighbor counts, and constructs all jump adjacencies by bucketing common (k−1)-subsets before filtering slide moves by base adjacency. All minimum masks and transitions matched the certificate after decoding stored indices into masks. Unweighted shortest paths from every source, grouped into batches, agreed with the table and all three connected slide eccentricity histograms. Independent two-coloring verified the opposite-part pair condition in the two frozen cases; the half-label side profile in the supplied Python code is not a substitute for this check in the generalized Petersen labeling. The replay also recovered 16 Tutte–Coxeter placement orbits. The repaired RESULT.md narrows to GP(8,3) and characterizes all minima: the displayed rotations, reflection and u_i↦v_{3i}, v_i↦u_{3i} reduce the empty/singleton/pair check to the stated table and the empty case. Parallel forces have the same saturated set as arbitrary legal forcing, since every enabled force either remains enabled or already has its target marked. No singleton works, and the successful pairs are precisely opposite-color nonedges, so the jump graph is the line graph of a 5-regular bipartite complement on 8+8 vertices. Slides flip one color, so none survive. Any two disjoint complement edges are at distance at most three using a common neighbor of their same-side endpoints. For every complement edge ab, pick an original neighbor c of b and an original neighbor d of a not adjacent to c: such a d exists because b is outside N_G(a) and already uses one of c's three adjacencies. The cross-edges ad and cb are both absent from the complement, so cd is at distance exactly three from ab. A fresh stdlib replay of repairs/3/check_mobius.py passed, checking all 16 singletons and 120 pairs without symmetry reduction, the closure table, all exchanges and all jump eccentricities. Corrected RESULT.md and VERIFICATION.md plus the checker are in /workspace/repairs/3; frozen code was inspected, not executed, and frozen evidence was not modified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The projective-plane theorem provides the two-seed classification only for order two, namely Heawood, and excludes sets of at most two at higher projective-plane orders. GP(8,3) has eight vertices per part, not q²+q+1 for any plane order.",
+          "Bjorkman et al. give the reconfiguration setting and concrete token-jump families including complete bipartite graphs, paths, cycles and wheels; those inspected results do not include GP(8,3). Benson et al. provide scalar lower bound background.",
+          "The exact generalized Petersen scalar papers were not fully accessible. A 2024 project repository lists the Möbius–Kantor scalar parameter in its abstract, with the text restricted; no table, full proof, or reconfiguration statement is inferred from that page."
+        ],
+        "reasoning": "A broader scalar theorem can provide γ_P without determining all optimum configurations. The line graph reasoning is elementary once the correct pairs are known; the repaired claim identifies those pairs on a nonprojective configuration and uses that complete classification for mobility.",
+        "searches": [
+          "Resultary cd43734a0963",
+          "arXiv:2201.01798v1 introduction and §5.1",
+          "arXiv:1510.02421v4 §3",
+          "DOIs 10.1007/s10878-010-9293-y and 10.7151/dmgt.2137"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9228c57633d9, cd43734a0963, 2a18810eefed, 9829d0d5cf3e, 3cd3b1571c72 and focused GP(8,3) results",
+        "arXiv:2201.01798v1",
+        "arXiv:1510.02421v4",
+        "Pappus graph catalogue",
+        "TAR UMT eprint 29750 abstract",
+        "DOIs 10.1007/s10878-010-9293-y and 10.7151/dmgt.2137 (full text not verified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Heawood source uses the same nonincidence-complement-to-line-graph identification, so novelty is not claimed for that abstract construction.",
+          "Neither a scalar γ_P=2 nor a frozen ordinary-zero-forcing slide graph implies that every opposite-color nonedge of GP(8,3) succeeds and every other pair fails. The Heawood theorem's incidence axioms do not apply to GP(8,3)."
+        ],
+        "reasoning": "The scope-specific surviving step is the complete two-seed characterization in GP(8,3); the mobility consequences depend on the characterization, not merely on the input graph having a bipartition or on a scalar minimum. The old four rows are not restored as novel by conjunction.",
+        "searches": [
+          "Resultary 9228c57633d9 RESULT.md offset 0",
+          "Resultary cd43734a0963 RESULT.md offset 0",
+          "arXiv:2201.01798v1 §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9228c57633d9 explicitly treats ordinary zero forcing on the same labeled graph: 1704 minimum six-vertex sets, 16560 jump edges, all jump eccentricities 6, and no slides.",
+          "Same-graph hits de0bfc0e8a82 and 587dd6ac5a63 concern minimum identifying codes and minimum secure dominating sets, respectively. They were weaker leads than the ordinary-zero-forcing comparison.",
+          "The repaired claim starts from N[S] before forcing, classifies two-vertex seeds, and identifies the jump graph as L(Q), not any of those other state spaces."
+        ],
+        "reasoning": "Starting with the two vertices alone is not starting with their closed neighborhood. Even a theorem on all minimum size-six zero-forcing sets and their exchanges does not give the closure and exchange classification for size-two power-dominating seeds.",
+        "searches": [
+          "Resultary: Möbius–Kantor graph GP(8,3) minimum power dominating pairs opposite bipartition nonincident nonedges token jumping line graph token sliding frozen 40 minimum sets 160 diameter 3",
+          "Möbius Kantor graph GP(8,3) power domination power dominating sets nonadjacent pairs sensors generalized Petersen Barrera Ferrero reconfiguration token sliding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct findings cd43734a0963, 2a18810eefed, 9829d0d5cf3e and 3cd3b1571c72 give the matching Heawood, Pappus, Desargues and Tutte–Coxeter configurations and mobility metrics, often with additional orbit or locality results.",
+          "The graph catalogue verifies the Pappus graph model as the affine plane of order three with one line class removed, not a power-domination metric table.",
+          "The targeted GP(8,3) catalogue search gave no inspected exact 40-state power-domination match. The nearest exact GP(8,3) table counts different states (ordinary zero forcing)."
+        ],
+        "reasoning": "The original four matching rows are covered facts, not claimed as new despite their reproduced correctness. The remaining exact count and mobility result is for the power-domination state space and backed by the minimum-pair theorem, not the absence of an indexed number.",
+        "searches": [
+          "Resultary exact metrics for minimum power domination in Heawood, Pappus, Desargues, Tutte–Coxeter and Möbius–Kantor",
+          "Focused Resultary GP(8,3) query in equivalent_formulations",
+          "https://aeb.win.tue.nl/drg/graphs/Pappus.html"
+        ]
+      },
+      "rationale": "Pass only the repaired Möbius–Kantor claim: its complete minimum power-dominating-pair characterization and exact jump and slide structure. The original five-graph table is not passed as a distinct classification: separate indexed claims cover substantially the Heawood, Pappus, Desargues and Tutte–Coxeter results. Their later path dates do not prove scientific priority or provenance. The strongest indexed comparison for GP(8,3) itself treats ordinary zero forcing, not power domination. The structurally analogous Heawood result concerns projective-plane incidence graphs and does not establish this graph's eligible seeds. No novelty is claimed for the scalar minimum or for reconfiguration definitions.",
+      "residual_risks": [
+        "Equivalent placement characterizations could be in restricted generalized Petersen literature; no global priority assertion is made and no originality is credited to the scalar domination number.",
+        "The indexed overlaps on the four dropped rows establish mathematical coverage, not derivation or temporal priority. The repaired single-graph result is not a claim for the original five-graph census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different starting states and optimum size",
+          "evidence": "Directly marks the selected vertices as initially blue; six selected vertices and 1704 minima, despite similarly frozen slides.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offsets 0–2470, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and exact local mirror",
+          "title": "A sharp token-jumping versus token-sliding dichotomy for minimum zero forcing in the Möbius–Kantor graph",
+          "trigger": "Strongest same-graph same-move comparison"
+        },
+        {
+          "assessment": "Covers frozen Heawood row, not Möbius–Kantor",
+          "evidence": "For order two, nonincident point–line pairs are the 28 optima and yield 84 jump edges, radius and diameter 3, and no slides. States the line-graph structure of the Fano nonincidence graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-antiflag-mobility-and-the-two-sensor-boundary-in-projective-plan--cd43734a0963/RESULT.md",
+          "material_read": "Finding and beginning of assumptions, offsets 0–2099",
+          "method": "Resultary index and exact local mirror",
+          "title": "Antiflag mobility and the two-sensor boundary in projective-plane incidence networks",
+          "trigger": "Exact Heawood overlap and closest structural argument for repaired claim"
+        },
+        {
+          "assessment": "Covers frozen row and extends its analysis",
+          "evidence": "486 minima, 7128 jump and 1620 slide edges, jump radius and diameter 3, slide radius 7 and diameter 8, and the 54/432 eccentricity split; also studies pairwise locality penalties.",
+          "identifier_or_url": "Resultary 2a18810eefed",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary index and exact local mirror",
+          "title": "Five symmetry classes and a sharp five-move locality penalty for Pappus power domination",
+          "trigger": "Exact Pappus row comparison"
+        },
+        {
+          "assessment": "Substantial exact overlap with frozen row",
+          "evidence": "240 minima, 1800 jump edges and jump diameter 4, 480 slide edges, slide radius 7 and diameter 8, with a distinguished diametral matching.",
+          "identifier_or_url": "Resultary 9829d0d5cf3e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary index and exact local mirror",
+          "title": "Two symmetry types and a unique antipodal pairing in Desargues power-domination relocation",
+          "trigger": "Exact Desargues row comparison"
+        },
+        {
+          "assessment": "Covers frozen row and extends its analysis",
+          "evidence": "6540 minima, 126240 jump edges with radius and diameter 4, 23040 slide edges with radius 11 and diameter 13 and the same eccentricity counts. Adds a sharp pairwise move penalty.",
+          "identifier_or_url": "Resultary 3cd3b1571c72",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary index and exact local mirror",
+          "title": "Nine-move locality excess in minimum power-domination relocation on the Tutte eight-cage",
+          "trigger": "Exact Tutte–Coxeter row comparison"
+        },
+        {
+          "assessment": "Prior move framework and other exact graph families",
+          "evidence": "Defines token jumping and token sliding; specific inspected token-jump graph families include complete bipartite graphs, paths, cycles and wheels, not the repaired graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.01798",
+          "material_read": "Version 1 introduction and §5.1 (text offsets 2400, 68900)",
+          "method": "OA PDF passage inspection",
+          "title": "Power domination reconfiguration",
+          "trigger": "Prior definitions and possible broader graph-family theorem"
+        },
+        {
+          "assessment": "Matches the original geometry only",
+          "evidence": "Nine points and nine remaining lines of AG(2,3) after deletion of one parallel class; y=mx+b deletes precisely the vertical class.",
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Pappus.html",
+          "material_read": "Public catalogue description, offset 129",
+          "method": "Public graph catalogue inspection",
+          "title": "Pappus graph",
+          "trigger": "Independent identity of the graph in the original numerical table"
+        },
+        {
+          "assessment": "Relevant scalar lead, full text unverified",
+          "evidence": "2024 project lists the Möbius–Kantor graph among cubic graphs investigated. The restricted PDF was not read; abstract does not provide a two-seed or mobility classification.",
+          "identifier_or_url": "https://eprints.tarc.edu.my/29750/",
+          "material_read": "Institutional repository abstract and access marker",
+          "method": "Public landing-page inspection",
+          "title": "Power Domination in Some Cubic Graphs and Its Relations with Other Graph Parameters",
+          "trigger": "Direct literature hit naming the graph and scalar invariant"
+        },
+        {
+          "assessment": "Unresolved exact scalar or seed-form coverage; no whole-document inference",
+          "evidence": "Both explicitly study power domination in generalized Petersen graphs; full definitions and exact case theorems could not be verified through the available routes.",
+          "identifier_or_url": "DOI:10.1007/s10878-010-9293-y; DOI:10.7151/dmgt.2137",
+          "material_read": "Bibliographic entries; no decisive primary passages retrieved",
+          "method": "Lawful DOI/publisher access attempts",
+          "title": "On the power domination number of the generalized Petersen graphs; Power domination in the generalized Petersen graphs",
+          "trigger": "Potential broad scalar and minimum-set prior coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired graph is a standard cubic symmetric configuration, not an arbitrary slice. The classification answers exactly which optimal sensors are admissible and explains why one-token motion along graph edges is totally frozen despite a short, connected unrestricted exchange graph. A researcher comparing local and nonlocal sensor reconfiguration can reuse the bipartite-complement state model and its line-graph distance proof; the value is not the scalar minimum, a bare repeat of four tabulated cases, or a universal inference from one example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

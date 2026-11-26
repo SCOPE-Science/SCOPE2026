@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:53:24.272567Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence and initial values give (a+1)J_n=a^n−(−1)^n. Since the image of a primitive root modulo p^r generates modulo p, it is neither zero nor −1 there for p≥5; thus a+1 is a unit. The even order T is a period, and any period d must return both J_0 and J_1. Those two congruences force a^d=(−1)^d=1 modulo p^r, hence T divides d. Over the least period the even and odd exponent branches run once through square and nonsquare units respectively. Unit squareness is determined by the reduction modulo p, so their translated, invertibly scaled images give exactly the two indicator terms, with zero character contributing neither branch. To count overlap set z=(a+1)y and omit z=±1. The sums of χ_p(z+1) and χ_p(z−1) there are −χ_p(2) and −χ_p(−2). The product sum is −1 by the bijection (z−v,z+v) with reciprocal pairs when z²−v²=1, and the omitted product terms vanish. The overlap is therefore (p−1−χ_p(2)+χ_p(−2))/4 at p, giving the stated mod-8 cases; each class contributes p^{r−1} lifts. Counting targets and occurrences proves the zero-, single- and double-fiber totals. A fresh recurrence-only run tested all 236 primitive roots for p² with p in {5,7,11,13,17}, all 50,732 targets, the histogram and the period state. These finite tests are corroboration, not the proof or coverage of other moduli.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 18 record analyzes completeness and local isometries for even bases, with parity permutations on odd moduli supported on primes dividing a+1. In the p∤a(a+1) case it obtains p−1 as a period modulo p and concludes non-surjectivity.",
+          "The square-correlation record gives ordered counts for all shifts over arbitrary odd moduli, including nonunit squares."
+        ],
+        "reasoning": "The local isometry results are at the opposite prime condition. Their non-surjectivity test at primes in the target regime does not specify which residues are missing or their multiplicities. The broader shift counts recover an aggregate overlap but not the recurrence's pointwise fibers.",
+        "searches": [
+          "Resultary record c296a849b8e0, complete residue moduli for the split-root Jacobsthal recurrence",
+          "Resultary record fe145761546d, square-residue two-point counts",
+          "Griffiths–Bramham Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_jacobsthal.py",
+        "Resultary records fe145761546d, c296a849b8e0, 4c0425f545ea and 132c7da63c13",
+        "Al-Kateeb arXiv:1911.11515",
+        "Griffiths–Bramham (2015)",
+        "Bilgici–Bród DOI 10.2478/amsil-2023-0001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the prime-level correlation A_p(2) allowing zero squares, the branch overlap is c_p=(p−1)/2−A_p(2)+1_{χ_p(−2)=1}. Thus the aggregate residue-correlation component is covered once the sequence is linked to the two parity branches.",
+          "The complete-modulus comparison uses only an upper bound of p−1 on the number of possible residues and does not distinguish missing and doubly attained classes."
+        ],
+        "reasoning": "The character count should be credited as classical and materially overlapping. The catalogue A_p(2) is a single aggregate number, so it gives no individual fiber support; the full generator hypothesis and parity decomposition are needed to identify the two injective images, the least-period normalization and the lifts of each target type.",
+        "searches": [
+          "fe145761546d Finding and Proof §3",
+          "c296a849b8e0 prime obstructions, offsets 3850–4558",
+          "arXiv:1911.11515 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Al-Kateeb gives this exact recurrence and its Binet formula; the target is the split-root sequence for (a,−1).",
+          "Before scaling back by a+1, its two parity images are squares minus one and nonsquares plus one, where squares and nonsquares refer to units."
+        ],
+        "reasoning": "This identifies the proper recurrence despite name collisions and gives the necessary translation to compare with results about residue correlations. The Binet formula does not itself classify the modular fibers.",
+        "searches": [
+          "Resultary: generalized Jacobsthal, split roots a and −1, modular frequencies, primitive-root prime powers",
+          "Published-literature search: Jacobsthal and Lucas residue frequency and distribution modulo prime powers",
+          "arXiv:1911.11515 Definition 1 and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical a=2 comparison classifies complete-residue moduli, not per-target frequencies. The closest catalogue match about exact prime-power fibers is instead for x_{n+2}=a x_{n+1}+x_n at primes dividing a, a different root pair and parameter regime."
+        ],
+        "reasoning": "A completeness classification gives a yes/no test, not zero-, single- and double-fiber counts. The differing recurrence prevents using the other prime-power census as an equivalent table or theorem.",
+        "searches": [
+          "Resultary: exact generalized Jacobsthal modular-fiber histograms and prime-power fibers",
+          "Griffiths–Bramham, Fibonacci Quarterly 53(2), Theorem 3.5",
+          "Record 4c0425f545ea"
+        ]
+      },
+      "rationale": "The exact recurrence, its Binet expression, prior completeness criteria and the character-correlation component are not new. The supported distinct result is the residue-by-residue prime-power multiplicity law under the full generator hypothesis, together with its period normalization and parameter-independent histogram. None of the strongest inspected statements enumerates this sequence's two affine parity images and combines them into that distribution.",
+      "residual_risks": [
+        "The 2022 and 2026 papers named above could not be checked in full; no verdict about their uninspected text.",
+        "An exact prime-power distribution under broader Lucas-sequence terminology remains possible beyond the sources inspected. The same-day square-correlation comparison does not resolve precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the count used in the overlap, but not the recurrence, period or per-target spectrum; no same-day priority inferred",
+          "evidence": [
+            "For unit shifts its N_p(u)=(p−3−χ_p(u)−χ_p(−u))/4 counts two square units at distance u, with separate endpoints if zero is included."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-point-square-residue-correlations-on-odd-residue-rings--fe145761546d/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, local mirror offsets 0–5549",
+          "method": "Local catalogue and mirror passage",
+          "title": "Exact two-point square-residue correlations on odd residue rings and a prime-power reversal",
+          "trigger": "Exact broader character-correlation count, same-day catalogue hit"
+        },
+        {
+          "assessment": "Covers non-surjectivity in the overlapping regime for even a but not the distribution; local isometries concern a disjoint prime condition",
+          "evidence": [
+            "At p∤a(a+1), J_{n+p−1}=J_n modulo p, so the prime is not complete. The parity permutations in its sufficiency proof involve odd moduli supported on primes dividing a+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-residue-moduli-and-local-isometries-for-the-split-root--c296a849b8e0/RESULT.md",
+          "material_read": "Finding, assumptions and prime obstructions, including offsets 3850–4558",
+          "method": "Local Resultary mirror passage",
+          "title": "Complete-residue moduli and local isometries for the split-root Jacobsthal sequence",
+          "trigger": "Same recurrence and modular image question"
+        },
+        {
+          "assessment": "Prior definition and Binet formula; not a distribution statement in the passages checked",
+          "evidence": [
+            "The same closed form uses the roots a and −1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.11515",
+          "material_read": "Definition 1, PDF p. 2 offset 3930; Theorem 2, p. 3 offset 8666",
+          "method": "Primary OA PDF passages",
+          "title": "A Generalization of Jacobsthal and Jacobsthal-Lucas Numbers",
+          "trigger": "Exact recurrence under generalized Jacobsthal terminology"
+        },
+        {
+          "assessment": "Classifies complete-residue moduli without counting sequence frequencies",
+          "evidence": [
+            "The theorem addresses whether all residues occur, not how often each target is attained."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/53-2/GriffithsBramham11172014.pdf",
+          "material_read": "Theorem 3.5, PDF p. 4 around offset 10090",
+          "method": "Primary OA PDF passage",
+          "title": "The Jacobsthal Numbers: Two Results and Two Questions",
+          "trigger": "Modular distribution for classical base a=2"
+        },
+        {
+          "assessment": "Different parameterized recurrence",
+          "evidence": [
+            "The defining recurrence is not the split-root (a,−1) recurrence here."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/amsil-2023-0001",
+          "material_read": "Equation (1.5), PDF p. 3 offset 4649",
+          "method": "Primary OA PDF passage",
+          "title": "On r-Jacobsthal and r-Jacobsthal–Lucas numbers",
+          "trigger": "Possibly equivalent parameterization"
+        },
+        {
+          "assessment": "Unverified scope; no negative conclusion",
+          "evidence": [
+            "The full-text comparison could not be confirmed independently."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/amsil-2022-0011",
+          "material_read": "Bibliographic reference only; no primary passage accessible via the attempted journal PDF and DOI routes",
+          "method": "OA retrieval attempts encountered connection and HTTP 403 failures",
+          "title": "On generalized Jacobsthal and Jacobsthal–Lucas numbers",
+          "trigger": "Same sequence, cited possible general coverage"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": [
+            "No precise modular-frequency statement was available for comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2026.2637721",
+          "material_read": "Search metadata and snippet only, full-text route returned HTTP 403",
+          "method": "Publication lookup and attempted OA retrieval",
+          "title": "Some results of the generalized Jacobsthal sequence and the generalized Jacobsthal–Lucas sequence",
+          "trigger": "Primary search hit with closely related title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completeness of modular Jacobsthal sequences is an established question. In the important generator regime where completeness fails, a count of all targets by multiplicity, or whether a specified residue occurs zero, one or twice without iterating the period, is a substantially stronger exact invariant. Identifying the two translated cosets explains both where repetitions occur and why the prime-level distribution lifts without change in proportions. The value is the modular classification, not a new character sum or standalone Binet or period formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

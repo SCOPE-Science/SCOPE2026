@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:41.452260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 41–79",
+        "Frozen VERIFICATION.md and verify.py",
+        "Corrected /workspace/repairs/2/RESULT.md Finding and Proof §§1–4"
+      ],
+      "rationale": "The corrected RESULT.md uses floor(n^t), giving genuine right-continuous paths in D[0,1] with J1. The frozen ceiling version is not D-valued: for n>=2 the right limit at t=0 uses K_2 instead of K_1, with a positive probability of a different second label because multiple weights are positive. Floor and ceiling counts differ uniformly by at most one, so the target limit and normalization are unchanged; the corrected proof works directly with floors. To check it, weights lie between delta*exp(-S_{j-1}) and exp(-S_{j-1}), and successive S values are separated by d>0. Each early label needs only floor(exp(S_{j-1}+h+1)) observations to have exponentially small nonappearance probability, and outside the early-box cutoff the residual mass is at most exp(-i-h-1) on the unit log grid. Union bounds give a uniform O_P(log log n) count error, summably in n=ceil(exp(k)); the ergodic inverse law and monotonicity yield the all-integer strong law. The finite-state Poisson equation leaves a bounded remainder to a bounded-difference martingale, with limiting bracket equal to the absolute Green–Kubo sum by geometric covariance decay and stationarity. For M the count of S_{j-1}<=Lt, the error S_M-Lt lies between zero and the maximal increment, and M/L tends uniformly to t/mu. Substitution in the partial-sum functional CLT gives -s B(t/mu)/mu, equal in law to the stated s B(t)/mu^(3/2), including the variance-zero case. For two states the centered observable lies in the eigenvalue-lambda eigenspace, so the geometric covariance sum gives (1+lambda)/(1-lambda) times the one-step variance and the example coefficient 51/250. The frozen exact-rational checker was inspected, not executed, and does not test the process topology.",
+      "residual_risks": [
+        "The repaired limit is for finite-state stationary Markov environments with all break values strictly interior. It is a weak limit, not a theorem on convergence of normalized occupancy variances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bernoulli-sieve scalar transfer uses independent residual factors and gives the iid marginal CLT.",
+          "Alsmeyer et al. give random/deterministic-frequency approximation for a box-size cutoff process, with the functional theorem under iid sticks.",
+          "Gnedin and Iksanov's broader transfer starts from a frequency-count process and permits general random fragmentation; Proposition 3.2 explicitly counts boxes with at least ceil(n^(1-t)) out of n draws at fixed n.",
+          "Braganets and Iksanov have independent heavy-tailed factors and vary hierarchy depth for fixed n, rather than drawing additional observations at the first level."
+        ],
+        "reasoning": "A general input frequency-count FCLT plus a fixed-n cutoff approximation cannot simply be applied as a theorem for nested draw counts; the time dependence of the observed occupancy differs. The corrected result proves the needed simultaneous coupling for nested draws.",
+        "searches": [
+          "arXiv:1001.4920v1, Theorem 1.1 and Corollary 1.2",
+          "arXiv:1601.04274v1, Theorem 2.2 and Proposition 4.1",
+          "Targeted primary search for random-frequency occupancy transfer and nested sample sizes; arXiv:1808.00538v1, Theorem 2.1 and Proposition 3.2",
+          "arXiv:2412.03450v2 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.16561v1, 1001.4920v1, 1601.04274v1, 1808.00538v1 and 2412.03450v2",
+        "Resultary 2687169ebdce and self-match ee7071bb744c",
+        "DOI 10.1007/s10463-021-00791-6 (original full text unavailable)",
+        "Corrected /workspace/repairs/2/RESULT.md Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader cutoff results use the same n for all t and count boxes depending on their final occupancies; the repaired process observes all occupied labels within the first floor(n^t) observations.",
+          "The shared random success probability geometric model concerns constant conditional breaks, not a nontrivial irreducible Markov modulation; its original full text was not obtained in the bounded attempt."
+        ],
+        "reasoning": "Classical Markov additive CLTs give the fluctuations of log-residual sums, not sample diversity. A new uniform-in-prefix comparison is required to obtain the strongest corrected conclusion from the inspected results. No claim of priority rests on publisher access failure.",
+        "searches": [
+          "Corrected Finding versus arXiv:2601.16561v1 partition-block passage, arXiv:1601.04274v1 Proposition 4.1 and arXiv:1808.00538v1 §3.2",
+          "DOI 10.1007/s10463-021-00791-6 for geometric shared-break results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Markov-dependent length sticks and finite-sample partition blocks K_n occur in Gil-Leyva et al.; the inspected passage computes finite-sample moments rather than the logarithmic path limit.",
+          "The exact catalogue match ee7071bb744c is the frozen record itself. The distinct 2687169ebdce uses refresh-or-retain dynamics and annealed power sums/collision and entropy statistics."
+        ],
+        "reasoning": "Residual factor W=1-V and occupied-box/partition-block language are equivalent for the observable at a fixed sample size; this does not equate annealed entropy or a set of finite-sample moments with the joint nested-prefix process. Floor versus ceiling is immaterial to the limiting scale but material to paths in D.",
+        "searches": [
+          "Resultary searches for bounded Markov stick-breaking functional occupancy and annealed diversity",
+          "Targeted primary lookup for Markov-modulated Bernoulli sieve and nested-sample occupancy",
+          "arXiv:2601.16561v1 abstract and partition-block passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The apparent exact catalogue formula was a self-match. The persistence-ordering record has a different statistic even for two-state refresh models.",
+          "For iid transitions the earlier scalar variance has the same normalization with only the lag-zero contribution. The repaired Green–Kubo factor allows positive or negative autocorrelation without changing mu."
+        ],
+        "reasoning": "The earlier iid constants are covered as benchmarks; the two-state spectral calculation is elementary and not a separate novelty claim. The relevant difference is the functional theorem with dependent breaks.",
+        "searches": [
+          "Resultary ee7071bb744c and exact mirror 2687169ebdce",
+          "arXiv:1001.4920v1 for scalar normalizing constants",
+          "arXiv:2601.16561v1 p. 8 for block-count statistics"
+        ]
+      },
+      "rationale": "The corrected floor formulation makes a topological repair, not a claim of novelty in the choice of interpolation. The supported distinct contribution is the nested-sample functional and almost-sure limit in a bounded finite-state Markov stick environment, with explicit dependence-sensitive covariance scaling. Model construction, iid scalar limits, and fixed-size occupancy-threshold process transfers are prior work; the strongest inspected statements do not give the needed nested-sample process.",
+      "residual_risks": [
+        "Bibliographic search is bounded; a more general nested-prefix occupancy theorem in a Markov or stationary environment could subsume the result.",
+        "The geometric stick-breaking original full text was unavailable, and no absence conclusion is based on the publisher error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and finite-sample analysis covered; no path limit shown in inspected passages",
+          "evidence": [
+            "The model prescribes Markov-dependent breaks; p. 8 discusses K_n and finite-sample moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.16561v1",
+          "material_read": "OA PDF abstract p. 1 and block-count moment passage p. 8, around offset 40395",
+          "method": "Lawful OA original PDF passage read",
+          "title": "Markov stick-breaking processes",
+          "trigger": "Identical class of random weights and partition block count"
+        },
+        {
+          "assessment": "One-time iid special case, not dependent functional result",
+          "evidence": [
+            "The residual factors are independent copies; the stated transfer is to the scalar number of occupied boxes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.4920v1",
+          "material_read": "OA PDF definitions p. 2, Theorem 1.1 and Corollary 1.2 p. 3",
+          "method": "Lawful OA original PDF passage read",
+          "title": "Limit theorems for the number of occupied boxes in the Bernoulli sieve",
+          "trigger": "Classical transfer to occupied counts and matching iid variance normalization"
+        },
+        {
+          "assessment": "Functional result for a final occupancy threshold, not nested sample size",
+          "evidence": [
+            "The process in Proposition 4.1 counts boxes with between 1 and floor(n^t) occupants using all n balls."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.04274v1",
+          "material_read": "OA PDF abstract, Theorem 2.2 pp. 5–6 and Proposition 4.1 p. 9",
+          "method": "Lawful OA original PDF passage read",
+          "title": "Functional limit theorems for the number of occupied boxes in the Bernoulli sieve",
+          "trigger": "Closest similarly titled functional occupancy result"
+        },
+        {
+          "assessment": "General frequency transfer, different output process",
+          "evidence": [
+            "In §3.2, K-bar_n(s) sums K-bar_n,r over r>=ceil(n^(1-s)), where n draws are fixed.",
+            "Theorem 2.1 uses convergence of N(t), the environment frequency count, to control the cumulative occupancy-cutoff process in a hierarchy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.00538v1",
+          "material_read": "OA PDF model p. 2 (offset 4000 onward), Theorem 2.1 p. 4 (13146 onward), §3.2 and Proposition 3.2 p. 7 (21800 onward)",
+          "method": "Targeted literature lookup, locate and bounded OA original passage read",
+          "title": "On nested infinite occupancy scheme in random environment",
+          "trigger": "Stronger arbitrary-fragmentation frequency-count transfer that could cover Markov environments"
+        },
+        {
+          "assessment": "Different dependence, scaling and process index",
+          "evidence": [
+            "Independent residual factors with infinite mean log decrement; finite-dimensional limits as the box level varies with n balls fixed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.03450",
+          "material_read": "OA PDF v2 abstract p. 1",
+          "method": "Targeted primary lookup and lawful OA passage read",
+          "title": "On intermediate levels of nested occupancy scheme in random environment generated by stick-breaking: the case of heavy tails",
+          "trigger": "Search hit for nested random-environment stick-breaking occupancy"
+        },
+        {
+          "assessment": "Different statistic and conclusion; no priority inferred from date",
+          "evidence": [
+            "Orders power sums/collisions and expected Shannon entropy in a refresh-or-retain model."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-strict-persistence-ordering-of-annealed-diversity-in-stationary--2687169ebdce",
+          "material_read": "Exact local RESULT.md Finding, offset 0 onward",
+          "method": "Configured Resultary search and local mirror passage inspection",
+          "title": "Strict persistence ordering of annealed diversity in stationary Markov stick breaking",
+          "trigger": "Distinct catalogue match on persistence and Markov diversity"
+        },
+        {
+          "assessment": "Exact theorem scope unverified; not evidence of absence",
+          "evidence": [
+            "The frozen account describes geometric sticks with one shared random success probability; no primary theorem is relied upon here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10463-021-00791-6",
+          "material_read": "Bibliographic and frozen related-work description; publisher full text unavailable in bounded retrieval",
+          "method": "Lawful DOI/publisher attempt",
+          "title": "Asymptotic behavior of the number of distinct values in a sample from the geometric stick-breaking process",
+          "trigger": "Adjacent distinct-count asymptotics for dependent breaks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/2/RESULT.md Finding and Proof §§2–4",
+        "arXiv:2601.16561v1 block-count passage",
+        "arXiv:1808.00538v1 §3.2"
+      ],
+      "rationale": "The theorem isolates a concrete statistical effect in a natural dependent extension of stick breaking: the leading logarithmic growth only knows the stationary break law, but the path-scale fluctuations can be changed arbitrarily, at fixed two-state marginals, through correlations. The uniform nested-sample comparison justifies the process statement and the strong law; neither a mere reformulation of a prior iid number nor the change to floors is the contribution.",
+      "residual_risks": [
+        "No posterior inference, universal dependent-stick theorem, or normalized second-moment convergence is demonstrated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

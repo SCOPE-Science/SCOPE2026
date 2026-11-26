@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:13:34.494051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The decisive cylinder identity can be recovered without relying on inaccessible literature. The first pass emits one digit for each input one, marking its original position parity (odd maps to 0, even to 1). The second pass therefore emits one digit for each even-position input one, and that digit is determined by the parity of the rank of the one among all original ones. Condition on any fixed even-length prefix w and then on all even-position bits of the independent fair suffix. Between successive even-position ones of the suffix, and before the first, there is at least one independent fair odd-position bit, with disjoint odd-bit blocks. The odd-bit parities are independent and fair, so the successive rank parities, which are their cumulative parities plus known offsets, are themselves independent and fair. Thus the output has prefix rho^2(w) followed by a fair suffix almost surely, verifying the exact pushforward weight 2^(|rho^2(w)|-|w|), including the empty word and Lebesgue invariance. No exceptional dyadic representation affects this proof. Since |rho^2(w)| counts even-position ones, dyadic resolution falls to ceil(m/2); odd input depth is handled by embedding in the next even depth. Evaluating the four two-bit inputs gives P1=1 and Pr=r/2. On V_m for m>=1 the quotient by V_1 is nilpotent, giving the two simple nonzero modes and no other nonzero eigenvalue. For L-Lipschitz phi, E_(2^n) has L1 error at most L*2^(-2^n), and its nth transfer is the mean plus a_n*r. Contraction of P and Pr=r/2 give |2^(n+1)a_(n+1)-2^n a_n|<=L*2^(n+2-2^n). Summing from n (successive ratios at most 1/2, with strict inequality later) and adding the dyadic error gives 9L*2^(-2^n); stationarity and transfer duality give the covariance statement. Independent exact word-image enumeration recomputed c1=1/4, c2=9/32, c3=1181/4096, c4=38745189/134217728: initialize cell values (2j+1)/2^(2^n+1), push with the cylinder weight on each output prefix, and take 2^n times half the last two cells' difference. At n=4 the tail bound is strictly less than 1/512, yielding the two stated rational endpoints, not an exact value for Lambda(x). The amplitude is positive and integral r*x=1/4. RESULT.md lines 32–82 and the independent word-image procedure allow replay. The supplied VERIFICATION.md and verify.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cambridge metadata frames the work as measurable dynamics and strong mixing of the erasing system. CVGMT no. 6482 is bibliographic; the full-text routes did not yield readable lemma passages.",
+          "The independently proved cylinder identity does imply resolution contraction on dyadic step functions of every finite depth."
+        ],
+        "reasoning": "Qualitative convergence and a finite-cylinder action are broader background but do not by themselves state a uniform regularity-specific convergence error. Unknown quantitative content of the inaccessible paper is a residual risk, not negative evidence.",
+        "searches": [
+          "'Mixing properties of erasing interval maps' 'Lemma 3.8' Corona Della Corte full text pdf arxiv",
+          "10.1017/etds.2023.16 Cambridge publisher, author repository, ResearchGate and CVGMT record"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Corona–Della Corte publisher metadata and CVGMT 6482 plus primary full-text retrieval attempts",
+        "Indexed assigned self-match and distinct local-mirror records dd08e353b4fc and 28206f693cd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Starting with the credited finite-word formula, the refinement chooses resolution 2^n in n steps, stabilizes and compares successive leading-mode coefficients by L1 contraction, then obtains a proved tail estimate and a positive coordinate enclosure.",
+          "Neither neighboring original statement supplies such a bound for the erasing map; no full-paper exclusion is made for Corona–Della Corte."
+        ],
+        "reasoning": "The finite first-bit result and qualitative mixing do not directly give a statement about a smooth coordinate's leading amplitude or about the infinite collection of dyadic scales. Quantitative control of those scales is the precise supported added claim.",
+        "searches": [
+          "Corona–Della Corte DOI 10.1017/etds.2023.16 and frozen attribution at RESULT.md lines 90–98",
+          "Resultary original statements dd08e353b4fc and 28206f693cd5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Transfer duality makes the L1 statement equivalent to a uniform bound on the residual against all g with ||g||_infty<=1; comparison was not restricted to the phrase 'doubly exponential'.",
+          "The frozen result credits the motivating paper with exact even-prefix transfer and first-bit recurrence, not just the same substitution. The accessible metadata establishes the qualitative mixing focus; the cited lemma passages were not independently read."
+        ],
+        "reasoning": "A first-bit contraction identifies the candidate leading eigenmode but is not itself an all-Lipschitz residue and explicit uniform remainder. Neither distinct indexed analogue uses the same erasing map and infinite observable class.",
+        "searches": [
+          "Resultary erasing interval map quantitative mixing, two modes and coordinate covariance",
+          "Corona–Della Corte DOI 10.1017/etds.2023.16, Lemmas 3.6 and 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bound record is a self-match. Distinct dd08e353b4fc is an exact polynomial transfer spectrum and alternating coordinate correlation of a different two-half piecewise-affine map; distinct 28206f693cd5 concerns coordinate memory for quadratic greedy beta maps."
+        ],
+        "reasoning": "These are substantive nearby transfer/correlation results, but not matching catalogued values for this substitution or the Lipschitz expansion. The four rational approximants function as a certificate, not as the main claim of novelty.",
+        "searches": [
+          "Resultary semantic lookup for erasing-map mixing, two-mode transfer spectra, quantitative coordinate correlation"
+        ]
+      },
+      "rationale": "The binary map, cylinder pushforward and first-bit contraction are not credited as original. The supported refinement is a common linear leading residue for every Lipschitz observable with an explicit L1 remainder on a doubly exponential scale, and a rigorous nonzero witness using the smooth coordinate. The indexed comparisons concern other maps and observable classes; the primary strong-mixing paper is closely relevant, but its full quantitative details were not independently accessible. The pass is bounded to the refinement and is not a priority certificate.",
+      "residual_risks": [
+        "Corona–Della Corte full text could not be inspected despite attempts through the publisher, authors' repository and ResearchGate. A quantitatively equivalent statement in their surrounding lemmas or elsewhere remains possible; no novelty inference is made from the access failure. Analysis concerns Lebesgue-almost-everywhere transfer, not exceptional inputs or an infinite-dimensional spectral classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified topical antecedent; credited specific lemmas per frozen attribution and independently established the needed identity, but precise primary quantitative overlap remains an access risk",
+          "evidence": [
+            "Publisher excerpt describes extension from topological to measurable mixing properties. The frozen record locates the exact cylinder identity at Lemma 3.6 and the first-bit recurrence in the proof of Lemma 3.8."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/etds.2023.16",
+          "material_read": "Available publisher metadata/search excerpt and CVGMT no. 6482 bibliographic record; the cited Lemmas 3.6 and 3.8 and surroundings were not read in the primary full text",
+          "method": "Bounded primary lookup; configured direct/VPN attempts at official article, identified author-repository PDF, and ResearchGate author-posted PDF/public page; no readable full text recovered",
+          "title": "Mixing properties of erasing interval maps",
+          "trigger": "Same map and strongest plausible precedent for exact cylinder action and quantitative mixing"
+        },
+        {
+          "assessment": "Different map and function class",
+          "evidence": [
+            "Two-half piecewise-affine map; polynomial-pair transfer spectra and alternating coordinate correlation."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-polynomial-transfer-spectrum-at-the-minimum-entropy-of-int--dd08e353b4fc",
+          "material_read": "Local-mirror RESULT.md opening statement at offset 0",
+          "method": "Semantic index then original statement in mirror",
+          "title": "Exact polynomial transfer spectrum at the minimum entropy of interval maps",
+          "trigger": "Strongest distinct indexed exact transfer spectrum/coordinate correlation match"
+        },
+        {
+          "assessment": "Different dynamics and statistic",
+          "evidence": [
+            "Coordinate covariances for quadratic greedy beta maps, not all-Lipschitz expansion for an erasing substitution."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5",
+          "material_read": "Matched local-mirror RESULT.md finding",
+          "method": "Semantic index then original statement comparison",
+          "title": "Exact two-mode coordinate memory and monotone transport variance",
+          "trigger": "Distinct indexed two-mode coordinate covariance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a previously qualitatively mixing map, this separates the persistent half-bit mode from all other contributions to smooth/bounded correlations, and provides a uniform estimate at a very different scale for the latter. The coordinate certificate shows that removing the 2^(-n) mode is genuinely necessary even for a natural smooth observable, rather than just detecting an eigenmode among discontinuous cylinder functions. The scale separation and sharp leading rate are useful beyond qualitative mixing and beyond the individual finite rational numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

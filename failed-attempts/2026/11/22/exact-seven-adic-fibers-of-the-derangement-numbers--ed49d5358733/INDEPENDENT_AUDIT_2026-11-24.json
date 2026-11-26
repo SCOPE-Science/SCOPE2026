@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:27:48.848569Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 19–46",
+        "Frozen VERIFICATION.md and verify.py (inspected)",
+        "/workspace/branches/audit_arithmetic.py, record 2 (executed)"
+      ],
+      "rationale": "The signed interpolation F is the sum of integral falling-factorial polynomials; the j-th term and its derivative have uniform valuation bounds floor(j/7) and floor(j/7)-1. Passing the polynomial Taylor congruence to uniform limits gives F(x+h)-F(x)-hF'(x) in h^2 Z_7. Direct omitted-factor differentiation gives slopes (1,5,4,1,5,1,3); the signed base values are (1,0,1,5,2,5,6). Each disk is therefore bijective onto its output disk by successive unique digit lifts. Each input modulo 7^k has one even and one odd representative, giving the stated counts and the five-ball closure. The sign excludes a period dividing 7^k, and the isometry on the zero input disk excludes 2*7^(k-1) for k>=2 by comparison at n=0; modulo 7 the proper divisors 1, 2, 7 are excluded by comparing indices (0,1), (1,3), (0,7). Independent replay: python3 /workspace/branches/audit_arithmetic.py 2 verified the slope table and every target and cyclic least period through k=6, including period 235298 and image size 84035 at k=6. The lifting argument, not this finite check, proves the general statement.",
+      "residual_risks": [
+        "The five balls describe the inverse-limit image or closure of integer-index values, not literal equality of a countable set with these balls."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miska gives the basic period 2d for odd moduli d, and places 7 in the set with v_p(D_n)=v_p(n-1). O'Desky–Richman give general p-adic continuity/interpolation of cycle-restricted signed derangements."
+        ],
+        "reasoning": "Miska yields the period and exactly two zero residues per full block. Continuity alone does not give the nonzero fiber law; the distinct Resultary finding does.",
+        "searches": [
+          "Miska arXiv:1508.01987v1, §§4.1.1–4.1.3",
+          "O'Desky–Richman arXiv:2012.04615v4, §§1.2.1–1.2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: assigned self-hit and independent exact duplicate 3be509e9074e",
+        "Miska arXiv:1508.01987v1",
+        "O'Desky–Richman arXiv:2012.04615v4",
+        "Miska DOI 10.4064/cm7510-4-2019 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-modulus theorem specializes with d=7^k, and the valuation equality gives precisely n=1 mod 7^k for the zero target. The indexed companion establishes all nonzero and missing classes as well."
+        ],
+        "reasoning": "The proposed all-level remainder is also covered, so simply removing period and zero-fiber novelty claims cannot save a distinct result.",
+        "searches": [
+          "Miska arXiv:1508.01987v1 offsets 49000, 54100",
+          "3be509e9074e/RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct record 3be509e9074e, Finding: for every k and every r modulo 7^k, the count in 0<=n<2*7^k is c_(r mod 7) with c=(2,3,3,0,0,3,3). Its recurrence and initial value coincide."
+        ],
+        "reasoning": "The different title and the term frequencies denote the identical target-index count. Its proof even gives the same signed interpolation and reduced value and derivative tables by a slightly different evaluation.",
+        "searches": [
+          "Resultary: derangement exact seven-adic fibers, 2*7^k, 2,3,3,0,0,3,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored finding is an exact all-k match, not a finite table or the assigned record's self-hit. Other catalogued primes, including 2,3,5,11, are distinct."
+        ],
+        "reasoning": "Exact all-depth archive coverage is decisive even if external literature does not print the same count vector.",
+        "searches": [
+          "Resultary exact spectrum and broader p-adic derangement searches",
+          "Mirrored 3be509e9074e/RESULT.md, Finding offset 0"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding explicitly contains the entire all-depth theorem for the same recurrence and index block, including each target multiplicity, least period, five-ball closure and measure. It also gives additional density/least-prime statements. The same-day date does not determine order or provenance; the failure is demonstrated equivalent coverage, not a claim of priority or copying. Separately, Miska explicitly supplies the least period and zero fiber, so these are not new components either.",
+      "residual_risks": [
+        "Same-day dates do not establish order or attribution.",
+        "The 2020 Miska full text was not inspected; the literature query did not resolve exhaustive priority. Neither limitation is the reason for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable equivalent coverage, with additional conclusions; ordering unresolved",
+          "evidence": "All targets, all depths, same count vector, period and Haar measure; additional least-prime claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-first-missing-prime-level-derangement-residue-balls-exact-se--3be509e9074e/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; interpolation and derivative table; relationship around offset 5790",
+          "method": "Local mirror",
+          "title": "The first missing prime-level derangement residue balls: exact seven-adic frequencies",
+          "trigger": "Strongest distinct exact Resultary match"
+        },
+        {
+          "assessment": "Covers least period and zero fiber",
+          "evidence": "'2d, when 2 ∤ d'; 'The first numbers in A are 2, 5, 7, 17, 19, 23, 29' after definition of A by valuation equality.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.01987v1",
+          "material_read": "§§4.1.1 and 4.1.3, printed pp. 14–16; offsets 49000 and 54100",
+          "method": "Open primary PDF",
+          "title": "Arithmetic properties of the sequence of derangements and its generalizations",
+          "trigger": "Cited prior exact arithmetic"
+        },
+        {
+          "assessment": "Continuity precedent; inspected passages do not give the evaluated seven-adic count law",
+          "evidence": "Ordinary derangements exclude cycle length 1 and allow 7; the continuity criterion applies to the signed sequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.04615v4",
+          "material_read": "§§1.2.1–1.2.2, especially Thm. 1.5, offsets about 7600–13523",
+          "method": "Open primary PDF",
+          "title": "Derangements and the p-adic incomplete gamma function",
+          "trigger": "Related signed interpolation and broader cycle restrictions"
+        },
+        {
+          "assessment": "Full text not inspected; no coverage inference",
+          "evidence": "No accessible decisive passage obtained.",
+          "identifier_or_url": "https://doi.org/10.4064/cm7510-4-2019",
+          "material_read": "Bibliographic information only",
+          "method": "Lawful open-access retrieval attempted",
+          "title": "On a generalization of the recurrence defining the number of derangements",
+          "trigger": "Cited closely related Miska work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "3be509e9074e mirrored Finding and proof"
+      ],
+      "rationale": "A complete fiber law for classical derangements would be useful as a precise distribution invariant, but this frozen finding adds no new count, image, or period to the distinct indexed all-depth theorem, and its proof uses the same falling-factorial isometry mechanism with the same reduced tables. As a stand-alone additional finding it is recomputation of already covered facts; no valuable distinct remainder is established.",
+      "residual_risks": [
+        "This is an assessment of incremental mathematical value, not of attribution or expository merit."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

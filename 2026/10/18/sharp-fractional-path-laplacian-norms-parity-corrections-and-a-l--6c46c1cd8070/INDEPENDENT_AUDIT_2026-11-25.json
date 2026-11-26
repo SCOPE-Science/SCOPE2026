@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:41:23.258605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:19–58,64–122,124–126",
+        "VERIFICATION.md:1–22",
+        "CHECK.py"
+      ],
+      "rationale": "For 0<α<1 heat subordination makes every off-diagonal strictly negative, so zero row sum gives twice the diagonal and symmetry identifies both endpoint norms. Extending a path vector to a 2n-cycle by reflection across the half-integer endpoints intertwines the two Laplacians and their spectral powers. Periodizing the absolutely summable cycle-symbol coefficients gives the two image terms. In the beta-integral representation, t^d+t^(2n−d) decreases strictly for 1≤d≤n and 0<t<1; the negative prefactor therefore selects exactly the stated central vertex or pair, including n=2. The DCT and the odd half-power sine sum independently give the finite and cotangent formulas. For the gamma ratio the two shifts are a=−α and 1−a; Bernoulli reflection eliminates odd inverse powers in its logarithm, and the first surviving coefficient is −B₃(−α)/3 = α(α+1)(2α+1)/6. For even n the odd multiples of n shift in symmetric pairs by ±1, contributing s(s+1) times the odd-integer zeta sum in the next term, while the even multiples stay unchanged. Compact-shift Stirling gives a uniform leading approximation near α=0 with a remainder summed against k^(−3−2α), bounded uniformly. Thus the pole residue and κ_α/α→1 yield the crossover, including λ=∞. The uploaded checker was inspected, not executed. A bounded independent direct cosine-sum check found the correct signs and unique central set on n=2,…,10 at three orders, and sampled both parity corrections and crossover; those checks do not establish the universal assertions. The package reports 2,775 finite checks and no formal or expert attestation.",
+      "residual_risks": [
+        "Convergence rates in the fixed-order parity expansion need not be uniform up to α=1; only the separate near-zero estimate is uniform as stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Lin–Yang give positive pair weights and spectral powers on finite graphs, which imply the norm reduction, but not the maximizer or its value for paths.",
+          "The ring eigenvalue representation and infinite-lattice coefficients supply the inputs to the path image sum."
+        ],
+        "reasoning": "These results give ingredients; they do not give the d-dependent image-potential comparison or estimates that determine path localization and the finite-size laws.",
+        "searches": [
+          "arXiv:2403.19987 pp. 3–4",
+          "arXiv:1506.06167 Eqs. (11), (14)–(17)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and exact record aeb58b4b6533",
+        "arXiv:1506.06167",
+        "arXiv:2403.19987",
+        "arXiv:1412.3744"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lattice norm cannot by itself locate a maximizing vertex or distinguish path parities. The reflected diagonal contains a distance-dependent term absent from the ring diagonal, and the joint limit needs uniform error control despite the zeta pole."
+        ],
+        "reasoning": "The spectral norm reduction and image formula rely on known machinery; the sharp diagonal choice and matched finite-size and small-order expansion do not follow by substituting parameters in an inspected prior statement.",
+        "searches": [
+          "arXiv:1506.06167 p. 3 Eq. (11) and p. 4 Eqs. (14)–(17)",
+          "arXiv:2403.19987 p. 3",
+          "Resultary aeb58b4b6533 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riascos–Mateos Eq. (11) is periodic on a ring, with translation-invariant diagonal, unlike the reflecting path.",
+          "Grubb studies continuous fractional Neumann realizations and regularity, not the finite counting-measure matrix maximum."
+        ],
+        "reasoning": "A periodic kernel is useful via restriction to a reflection-invariant subspace, but periodic and reflecting diagonal invariants are not equivalent; continuous Neumann problems also do not identify the discrete endpoint norm.",
+        "searches": [
+          "Resultary semantic searches for spectral fractional path endpoint norms and finite-path parity/crossover",
+          "arXiv:1506.06167",
+          "arXiv:1412.3744"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed entry gives the infinite-lattice endpoint norms, coefficient signs and order-zero jump and explicitly excludes finite graphs. No direct path formula or parity table was identified in the ranked entries inspected."
+        ],
+        "reasoning": "The same-day lattice entry is substantive prior-coverage evidence for the input norm and coefficients, not evidence of a date ordering or of coverage of the finite reflecting invariant.",
+        "searches": [
+          "Resultary search for finite-path endpoint norm, parity and crossover",
+          "Resultary 2026/10/18/SCOPE-exact-endpoint-norms-and-integer-order-cusps-of-the-lattice-frac--aeb58b4b6533, RESULT.md at local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The infinite-lattice gamma coefficients and endpoint norm, finite-ring spectral formula, and finite-graph sign identity are prior. The supported distinction is the reflecting finite-path central localization together with its parity-resolved norm asymptotics and the joint order-zero crossover. Neither the inspected whole-lattice result nor the prior ring and finite-graph formulas provide that combination; obtaining it requires proving strict center selection and controlling the image correction as the exponent tends to zero.",
+      "residual_risks": [
+        "Comparison is bounded to Resultary and the primary texts inspected; a broader literature query wave was deferred. Another discrete Neumann or image-kernel treatment could contain equivalent formulas. No priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lattice inputs, not reflecting paths",
+          "evidence": "Translation-invariant operator on ℤ; scope excludes finite and irregular graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-endpoint-norms-and-integer-order-cusps-of-the-lattice-frac--aeb58b4b6533",
+          "material_read": "RESULT.md, offset 0, lattice scope, endpoint formulas and jump",
+          "method": "Local Resultary mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact endpoint norms and integer-order cusps of the lattice fractional operator",
+          "trigger": "Closest indexed exact norm and small-order result"
+        },
+        {
+          "assessment": "Known coefficients and finite-periodic spectral formula",
+          "evidence": "The large-ring integral produces the same gamma coefficient, but the ring diagonal has no dependence on vertex position.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.06167",
+          "material_read": "p. 3 Eq. (11), p. 4 Eqs. (14)–(17), offsets 22600 and 27000",
+          "method": "OA primary PDF",
+          "title": "Fractional dynamics on networks: Emergence of anomalous diffusion and Lévy flights",
+          "trigger": "Finite cycle spectral powers and lattice coefficients"
+        },
+        {
+          "assessment": "Known signs and operator definition",
+          "evidence": "The positive-weight representation proves the absolute-row-sum reduction but does not compare the reflecting path's different diagonals.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.19987",
+          "material_read": "p. 3, offset 8650, positive symmetric pair weights and spectral identity",
+          "method": "OA primary PDF",
+          "title": "Fractional Laplace operator on finite graphs",
+          "trigger": "Broader finite-graph theorem"
+        },
+        {
+          "assessment": "Different continuous invariant",
+          "evidence": "The setting is elliptic realizations in continuous domains and the results concern regularity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.3744",
+          "material_read": "pp. 1–2, offset 6400, operator and scope",
+          "method": "OA primary PDF",
+          "title": "Regularity of spectral fractional Dirichlet and Neumann problems",
+          "trigger": "Neumann formulation as a possible equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:19–58,82–122"
+      ],
+      "rationale": "For the canonical finite discrete domain with reflecting endpoints this identifies the sharp endpoint operator norm and exactly the maximizing vertices, rather than merely bounding the norm by its whole-line limit. The correction distinguishes odd and even paths and isolates an order-versus-length scale invisible in a fixed-order estimate. The exact formulas can be used directly for finite-n norm evaluation.",
+      "residual_risks": [
+        "The contribution is specific to unit-edge unnormalized paths and to the ℓ¹ and ℓ∞ endpoint norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -43,7 +43,7 @@ p=\Pr(\tau_0<\Delta)=\mathbb E[e^{-d\tau_0}]
   =e^{-x_0\sqrt{d/D}},\quad a=1-p\in(0,1),
 \]
 
-where \(\tau_0\) is the Brownian hitting time and \(\Delta\) the independent death time. The proof works, more generally, for independent searchers with the same defective reaction-time law whenever its eventual failure probability is \(a\in(0,1)\) and its remaining eventual-success tail decays at most exponentially.
+where \(\tau_0\) is the Brownian hitting time and \(\Delta\) the independent death time. The proof works, more generally, for independent searchers with the same defective reaction-time law whenever its eventual failure probability is \(a\in(0,1)\) and its remaining eventual-success tail is bounded above by a decaying exponential times a constant.
 
 ## Proof
 
@@ -123,6 +123,8 @@ The endpoints are realized by \((W,J)=(F_W^{-1}(V),F_J^{-1}(V))\) and \((W,J)=(F
 
 This proves the *global*, sharp fixed-marginal interval/cargo coupling envelope, with no assumption of independence between a batch size and its preceding interval.
 
+Each extremum determines a unique joint law, even for atomic marginals. To see this, fix \(s>0\), set \(X=e^{sW}\), \(Y=a^J\), and express \(\mathbb E[XY]\) as the integral of \(\Pr(X>x,Y>y)\) over \(x,y>0\). The common and reversed quantile matchings of \(X,Y\) attain the pointwise upper and lower Fréchet bounds on this joint tail. For equality in the integral, the joint tail must equal its corresponding pointwise bound almost everywhere; right-continuity, taking sequences of thresholds from above, then gives equality everywhere. The transformations from \(W,J\) are injective, so this identifies their joint law. Equality of two rates at either endpoint gives equality in the transform at that endpoint's root \(s=\theta>0\), and hence the same uniqueness. If a marginal is degenerate, the two extrema coincide because there is only one joint law.
+
 **4. Exact two-point demonstration.** Writing \(y=e^\theta\), the three defining equations are, respectively,
 
 \[
@@ -145,7 +147,7 @@ Hauke, Voits and Schwarz (2026) analyze the influence of burst and interval stat
 
 ## Limitations
 
-The proof assumes an initially empty system, independent particles and mortality clocks, iid interval–batch **pairs**, a uniform positive lower/upper bound on waiting times, and a uniform finite batch-size bound. It does not cover feedback from current particle population, unbounded heavy-tailed intervals or batches, or an arbitrary delayed-success law without the exponentially bounded success-delay tail used in (5). The bounds control the exponential tail rate, **not** the finite-time survival ordering, mean first-passage time, or a sharp prefactor. The optimal coupling may be non-unique when a marginal has atoms or is degenerate. Classical dependent renewal–reward literature may contain alternative derivations of the root; one relevant 2024 article could only be inspected at the abstract level and therefore remains an explicit novelty risk. Independent scientific priority assessment has not been performed.
+The proof assumes an initially empty system, independent particles and mortality clocks, iid interval–batch **pairs**, a uniform positive lower/upper bound on waiting times, and a uniform finite batch-size bound. It does not cover feedback from current particle population or unbounded heavy-tailed intervals or batches. For a general delayed-success law the uniform comparison in (5) uses an exponentially bounded remaining success tail. The bounds control the exponential tail rate, **not** the finite-time survival ordering, mean first-passage time, or a sharp prefactor. Classical dependent renewal–reward literature may contain alternative derivations of the root; one relevant article published online in 2024 could only be inspected at the abstract level and therefore remains an explicit novelty risk. These comparisons do not establish historical priority.
 
 ## References
 

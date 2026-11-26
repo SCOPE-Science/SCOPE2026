@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:05:56.843200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the integer-pair lemma in RESULT.md lines 35–103. For u=(x−1)(y−1), v=(x+1)(y+1), S=xy+1 and T=x+y satisfy S>T>0 and uv=S²−T². Let d=gcd(S,T), a=S/d, c=T/d. Integral G forces d|G by prime valuations and b=G/d satisfies a²=b²+c², with gcd(a,b)=1 since gcd(a,c)=1. Integral H=db²/a forces a|d. The integers X=cx−a, Y=cy−a are positive since S/T is strictly less than both x and y. Multiplying gives XY=a²−c²=b² and X+Y≤b²+1. Thus a c²≤d c²=X+Y+2a≤(a+1)²−c², so c²≤a+1. But b=1 would imply (a−c)(a+c)=1, impossible with c≥1; hence c²=(a−b)(a+b)≥a+2, a contradiction. This excludes semiprimes with distinct primes by multiplicativity; for a prime the product p²−1 falls strictly between consecutive squares, and for p² the sum 2p²+1 is odd. Independently counted totatives and summed divisors of 418 and 477, obtaining (φ,σ)=(180,720) and (312,702) and mean triples (450,360,288) and (507,468,432). Both factor with multiplicity exactly 3. The statement excludes n=1. Read VERIFICATION.md and verify.py; no uploaded script was run. The pair and integer censuses are finite corroboration, not a premise of the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broughan–Ford–Luca Theorem 1 gives ω(n)>1 and n≤2a³ in the square-product defect class N_a, and its introduction constructs geometric-only semiprimes.",
+          "A011257 includes 14, whose geometric mean is 12 but harmonic mean is 48/5. A065150 includes 15, whose harmonic mean is 12 but product is 192, not square."
+        ],
+        "reasoning": "Neither condition excludes the relevant distinct-prime case on its own. The prime-power exclusion leaves squarefree semiprimes; a defect-dependent size bound in the geometric-only set neither imposes harmonic integrality nor gives the claimed unrestricted joint obstruction.",
+        "searches": [
+          "Broughan–Ford–Luca DOI 10.4064/cm130-1-11 pp. 127–128",
+          "OEIS geometric-only A011257 and harmonic-only A065150",
+          "Resultary record 581aaf63c0d9 Finding"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A065146, A011257, A065150",
+        "Broughan–Ford–Luca DOI 10.4064/cm130-1-11",
+        "Resultary local catalogue and records 581aaf63c0d9, d5eec5c25140"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary square-product theorem has explicit semiprime examples, so its conclusion does not yield the desired lower bound by specialization alone.",
+          "The joint reduction needs integral H to force a|d; this is precisely the extra condition that creates the Pythagorean contradiction for arbitrary shifted integer pairs."
+        ],
+        "reasoning": "Neither the known witnesses nor the broader geometric-only theory implies the new all-pairs lemma. The catalogue records address a different divisibility or a different arithmetic expression, so the shared φσ product is not a covering result.",
+        "searches": [
+          "Broughan–Ford–Luca Theorem 1 and introduction, pp. 127–128",
+          "OEIS A065146 formula and initial terms",
+          "Resultary Findings 581aaf63c0d9 and d5eec5c25140"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For S=xy+1 and T=x+y, pair success is exactly a square S²−T² together with S|T² (equivalently S|x²+y²−2).",
+          "The adjacent Resultary low-multiplicity record d5eec5c25140 imposes n|φ(n)σ(n), a different divisibility."
+        ],
+        "reasoning": "The square-product alias must retain the second divisibility; testing one or replacing S by n changes the claim. For example n=6 divides φ(6)σ(6)=24 but does not give integral geometric mean.",
+        "searches": [
+          "Resultary: exact A065146 simultaneous-integral-means formulation",
+          "Resultary: shifted-integer-pair (x−1)(y−1), (x+1)(y+1) obstruction and equivalent semiprime formulations",
+          "OEIS A065146 formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact A065146 entry gives all three formulas and begins 1, 248, 264, 418, 477; both sharp examples and the trivial index are already listed.",
+          "The other two entries apply the component conditions individually, not their intersection."
+        ],
+        "reasoning": "Finite sequence values establish that the known examples work but cannot rule out an eligible semiprime anywhere else. No originality is assigned to the table values.",
+        "searches": [
+          "OEIS A065146 definition, formula and initial terms",
+          "OEIS A011257 and A065150 initial terms"
+        ]
+      },
+      "rationale": "The exact sequence and sharp examples were already tabulated; prime-power exclusion for the geometric-only problem is also known. The credited claim is the unconditional joint geometric/harmonic obstruction for the shifted pair, which excludes all distinct-prime semiprimes and makes the support bound sharp.",
+      "residual_risks": [
+        "An equivalent elementary integer-means lemma could appear under a different parameterization or in discussions not indexed in the checked sources. This comparison is bounded, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact database match, not an unrestricted support theorem in the inspected material.",
+          "evidence": "Defines all three means and lists 1, 248, 264, 418, 477 among initial values.",
+          "identifier_or_url": "https://oeis.org/A065146",
+          "material_read": "Definition, formula and initial terms from text offset 0",
+          "method": "Public OEIS sequence page",
+          "title": "A065146: Numbers with all three means of phi(n) and sigma(n) integral",
+          "trigger": "Exact sequence and known witnesses"
+        },
+        {
+          "assessment": "The individual properties admit semiprimes; neither implies simultaneous integrality.",
+          "evidence": "A011257 lists 14 and A065150 lists 15.",
+          "identifier_or_url": "https://oeis.org/A011257 ; https://oeis.org/A065150",
+          "material_read": "Definitions and initial terms from text offset 0 in each entry",
+          "method": "Public OEIS sequence pages",
+          "title": "A011257 and A065150: Geometric-only and harmonic-only sequences",
+          "trigger": "Covering or contradictory component integrality criteria"
+        },
+        {
+          "assessment": "Prime-power exclusion overlaps part of the argument, but the theorem does not require harmonic integrality.",
+          "evidence": "For n in N_a with φσ=(n−a)², ω(n)>1 and n≤2a³. Products p(2p²−1) of two primes can meet the geometric condition; p=2 gives 14.",
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/86919",
+          "material_read": "Journal pp. 127–128 (introduction, N_a and Theorem 1), DOI 10.4064/cm130-1-11",
+          "method": "Publisher OA PDF",
+          "title": "On square values of the product of the Euler totient and sum of divisors functions",
+          "trigger": "Primary theorem on the exact square-product component"
+        },
+        {
+          "assessment": "Different invariant; no priority inference from matching date.",
+          "evidence": "Concerns the low spectrum of H(n)=σ₂(n)+φ(n)σ(n)−2n², with H(12)=34.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-34-barrier-and-low-spectrum-of-sigma-2-n-varphi-n-sigma-n--581aaf63c0d9",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Sharp 34 barrier and low spectrum of σ₂(n)+φ(n)σ(n)−2n²",
+          "trigger": "Nearby φσ arithmetic catalogue finding"
+        },
+        {
+          "assessment": "Different integrality property; not a covering statement.",
+          "evidence": "Classifies n|φ(n)σ(n) for Ω(n)≤3, rather than divisibility by the arithmetic mean and a square product.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-omega-n-le3-classification-for-n-mid-varphi-n-sigma-n--d5eec5c25140",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Exact Ω(n)≤3 classification for n dividing φ(n)σ(n)",
+          "trigger": "Same low-multiplicity range and φσ product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum prime multiplicity in the established simultaneous-means sequence is a natural exact question; the geometric and harmonic restrictions separately allow semiprimes. The new obstruction explains why their intersection does not and holds for all shifted pairs regardless of primality. It is an unrestricted structural result, not a recomputation of the known witnesses and not a density claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

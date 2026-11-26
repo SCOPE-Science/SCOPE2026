@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every positive equilibrium is in one-to-one correspondence with a positive physical root of a degree-four polynomial. Exact rational sign evaluations at five ordered prevalence points force four simple roots; the polynomial degree proves no others exist. The rank-one Jacobian identity and trace estimates determine the alternating saddle–sink–saddle–sink sequence. The disease-free sink and perturbation robustness follow by standard linearization and simplicity. The dependency-free checker evaluates the exact witnesses and algebraic identities.
+## correctness
 
-**Originality — PASS, subject to residual risks.** The general heterogeneous collective-hypergraph SIS dynamics are not new; Landry and Restrepo (2020) already provide a broad class that includes this architecture. The proposed new theorem is strictly the sharp **four endemic equilibrium** multiplicity and explicit **two endemic sinks with no pairwise infection**. The 2025 two-population study by Kiss, Bick and Simon uses a different cross-group interaction. Generic bistability results in prior work do not imply the present four-root configuration. Full-text comparison with a recent higher-order SIS–opinion study was unavailable; obscure equivalent exact special cases remain possible.
+PASS
 
-**Value — PASS.** Homogeneous pure triadic contagion allows no more than two endemic equilibria, whereas heterogeneous susceptibility and fully pooled collective interactions here produce two stable endemic prevalence levels, in addition to a stable extinction state. The distinction reveals a concrete higher-order epidemic multistability mechanism and gives an exact finite-degree equilibrium cap. No global basin conclusion is claimed.
+On the invariant square an endemic equilibrium has 0<M<1. Substituting both equilibrium coordinates into the weighted mean and multiplying positive denominators gives a bijection to physical roots of the stated quartic. I recomputed the five witness signs by evaluating the fixed-point residual directly in exact fractions and reconstructing the polynomial values. The four disjoint sign changes exhaust the quartic and force simple roots. For the diagonal-plus-rank-one Jacobian the determinant is −D1 D2 times the slope of the fixed-point residual. This gives saddles at crossings of positive residual slope, while at negative slope the two nonnegative normalized diagonal corrections sum to less than one, giving negative trace and positive determinant. The disease-free Jacobian is −I. The four interior simple roots and their hyperbolic types persist for nearby positive parameters within the model, and the quartic cap precludes an additional endemic equilibrium. In the equal-susceptibility case the positive fixed-point condition reduces to a quadratic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Heterogeneous high-order SIS incidence and multiple attracting endemic states in other high-order systems are established ideas. The supported distinct result is the sharp census and two endemic sinks in the fully pooled, rank-one, pairwise-free two-class equations. The closest located model overlap and the closest located stability overlap do not imply that census.
+
+## value
+
+PASS
+
+The homogeneous quadratic comparison motivates the minimally heterogeneous case. The result pairs a universal exact cap with an open region attaining it and separates two qualitatively distinct equilibrium scenarios by showing that two local endemic attractors need not rely on simultaneous interaction orders. This is a mathematical result about the specified deterministic equations, with no appeal to numerical simulation or empirical interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:00:42.134924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–47",
+        "Frozen VERIFICATION.md, verify_bfs.py, verify_residue.cpp and the two recorded .out files, inspected, not executed"
+      ],
+      "rationale": "The proof covers q,m≥2, rejects the empty word, accepts the one-letter word 0, counts overlapping directed pairs including loops, and requires the initial/final symbol 0. For a modular edge vector with the boundary of an s-to-t walk, take nonnegative residue representatives c. The integer imbalance (e_s−e_t−∂c)/m sums to zero, so route its positive mass to its negative mass using available directed edges. Add m times these flows and then m copies of every edge. The support is strongly connected and has the exact prescribed Euler-trail imbalance, giving the desired walk even for composite m. Root-star incidences generate the sum-zero module, of order m^(q−1), so each endpoint fiber has size m^(q²−q+1). All its states are reachable. A live state (s,r) can accept a suffix beginning with any letter a because the remaining residue −r−e_sa has boundary e_a−e_0. Equal last letters and distinct residues cannot accept the same suffix; for different last letters s,t, equivalence would force r′−r=e_sa−e_ta for every a, impossible since the vectors are nonzero in distinct columns even modulo two. The initial state and dead state are distinguished from live states by these suffix possibilities, and from one another by the suffix 0. For uniform input the live chain is strongly connected by residual walk realization, with degree q in and out, so the stationary law is uniform. The total edge residue increases by one per step and a loop-letter return of length m exists, so the period is exactly m. Each class contains q m^(d−1) states via translation of one loop coordinate on every endpoint fiber. Along n−1=0 mod m the periodic return probability converges to the reciprocal class size; the independent first-letter requirement contributes 1/q. Other lengths cannot be accepted. This reconstructs both exact formulas without treating finite case outputs as universal evidence.",
+      "residual_risks": [
+        "Density is a residue-class limit, not a claim of finite-length equality; counting-state conclusions do not extend without proof to incomplete alphabets, partial constraints or longer factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Markov types identify integer transition frequency matrices with Eulerian counting. The inspected Parikh automata source describes a general semilinear counter framework, focused on infinite words. Bell et al. study the number of distinct subword frequencies in right-infinite words."
+        ],
+        "reasoning": "The inspected general constructions do not assert minimality or the number of accessible residues for this monitor; their asymptotics do not supply the uniform random finite-word return probabilities on the reachable modular state space.",
+        "searches": [
+          "Jacquet–Knessl–Szpankowski, DOI 10.1109/TIT.2012.2191476, Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "Grobler–Sabellek–Siebertz arXiv:2301.08969",
+          "Bell–Burnett–Schulz arXiv:2607.28273"
+        ]
+      },
+      "checked_sources": [
+        "Resultary relevant exact records 92575a32bd39, 8aeb5d8c6529, 87bc1f36ef2d, 8ada8bf40720",
+        "arXiv:1301.5104, 2603.08492, 2607.28273, 2301.08969",
+        "DOI 10.1109/TIT.2012.2191476, OA PDF opening"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "87bc1f36ef2d uses the exact integer Euler-trail balance plus connectivity condition, and k-abelian theory relates exact factor counts to endpoint data. Periodic finite-state Markov convergence is a standard implication once component, period and class sizes are known."
+        ],
+        "reasoning": "Neither integer type realizability nor exact endpoint data directly establishes simultaneous reachability of all modular affine residues, separation of endpoints using a prescribed first continuation symbol, and a period-m uniform return law. Those language-specific facts are supplied by this proof. A prior theorem proving those facts jointly for a covering family would be material coverage, but was not found in the inspected statements.",
+        "searches": [
+          "Karhumäki et al. arXiv:1301.5104 Lemma 2.3",
+          "Jacquet et al. Markov types opening",
+          "Resultary ternary linear 87bc1f36ef2d, Proof §1",
+          "Frozen RESULT.md Steps 1–4 (modular walk realization, right languages and period)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "92575a32bd39 counts directed scattered factors of distinct letters without endpoint anchors. 8aeb5d8c6529 monitors the difference of the two scattered binary pair counts, not all overlapping contiguous ordered pairs.",
+          "k-abelian equivalence in the inspected lemma uses exact factor counts and endpoint data, not the modular anchored acceptance class. WELLDOC concerns preceding prefix letter-Parikh vectors."
+        ],
+        "reasoning": "Scattered and adjacent pair counts have different update laws: appending a symbol changes one adjacent count but normally many scattered counts. Adding an endpoint anchor and same-symbol loops also changes both reachability and length restrictions. The same-day scattered analogue is a real comparison, not direct coverage or evidence of ordering.",
+        "searches": [
+          "Resultary modular mixed-pair DFA/density hit 92575a32bd39",
+          "Resultary opposite scattered-pair imbalance hit 8aeb5d8c6529",
+          "Karhumäki–Saarela–Zamboni arXiv:1301.5104, definition and Lemma 2.3",
+          "Puzynina–Schavelev arXiv:2603.08492, abstract and opening"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "87bc1f36ef2d gives a rational generating function for the number of distinct integer transition matrices on unanchored ternary linear words, counting each matrix once independent of trail multiplicity. 8ada8bf40720 counts ternary cyclic profiles by support. The Markov-types paper concerns integer types, not the cardinalities of minimum DFA quotients."
+        ],
+        "reasoning": "These exact profile enumerations are the relevant table-like comparisons. They count types, not the number of anchored words in the all-zero residue class. The target ranges over every alphabet size and modulus and is not the evaluation of these exact ternary profiles at a different parameter.",
+        "searches": [
+          "Resultary exact contiguous profiles 87bc1f36ef2d and cyclic profiles 8ada8bf40720",
+          "Jacquet–Knessl–Szpankowski DOI 10.1109/TIT.2012.2191476"
+        ]
+      },
+      "rationale": "The closest available catalogue works separately address modular scattered pairs or exact contiguous profiles; primary literature supplies exact k-abelian or Markov types, modular letter Parikh vectors, general counter automata, or subword frequencies in infinite words. The inspected results do not give the joint anchored adjacent-pair minimum DFA and periodic finite-word density. The standard Euler and Markov tools are not part of the originality claim.",
+      "residual_risks": [
+        "Comparisons are passage-limited; an unindexed earlier finite-group graph lift, automata minimization result, or modular Markov-type theorem could provide equivalent coverage. No absence is inferred beyond the inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Thematic analogue, not coverage",
+          "evidence": "Scattered directed pairs of different letters; no anchored endpoints, unlike the contiguous all-pair test here.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimal-automata-and-residue-periodic-densities-for-modula--92575a32bd39",
+          "material_read": "RESULT.md Finding and Assumptions and scope; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Exact minimal automata and residue-periodic densities for modular mixed-pair words",
+          "trigger": "Strongest same-day modular pair/DFA/density hit"
+        },
+        {
+          "assessment": "Different monitor",
+          "evidence": "Binary difference of scattered 01 and 10 counts, with m³/gcd(m,2) states.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-modular-state-complexity-of-the-opposite-scattered-pair-im--8aeb5d8c6529",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local mirror passage inspection",
+          "title": "Exact modular state complexity of the opposite scattered pair imbalance",
+          "trigger": "Related modular automaton exact state count"
+        },
+        {
+          "assessment": "Partial shared Euler-trail technique, different enumeration",
+          "evidence": "Counts distinct exact ternary integer matrices, without initial or terminal symbol data, once per type regardless of trail multiplicity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ternary-adjacent-pair-spectrum-enumerator-for-linear-words--87bc1f36ef2d/RESULT.md",
+          "material_read": "Finding, assumptions and proof §1, offsets 0–2529; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Exact ternary adjacent-pair spectrum enumerator for linear words",
+          "trigger": "Closest exact linear contiguous-factor enumeration"
+        },
+        {
+          "assessment": "Cyclic ternary support enumeration, not an anchored modular language or minimal DFA",
+          "evidence": "Enumerates ternary cyclic pair profiles by support.",
+          "identifier_or_url": "2026/10/26/SCOPE-support-refined-enumeration-of-ternary-cyclic-dinucleotide-profi--8ada8bf40720",
+          "material_read": "RESULT.md statement and scope",
+          "method": "Local mirror passage inspection",
+          "title": "Support-refined enumeration of ternary cyclic dinucleotide profiles",
+          "trigger": "Exact contiguous-profile analogue"
+        },
+        {
+          "assessment": "Exact factor counts and endpoint information, not modular DFA size or density",
+          "evidence": "The length-k counts with prefix/suffix information characterize k-abelian equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "PDF p. 1 definition and p. 4 Lemma 2.3, offset 14100",
+          "method": "OA passage inspection",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Possible k-abelian equivalence reformulation"
+        },
+        {
+          "assessment": "Different modular statistic and sampling model",
+          "evidence": "Prefix letter-Parikh vectors modulo m before positions of factors in morphic infinite words.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.08492",
+          "material_read": "PDF p. 1, offset 580",
+          "method": "OA passage inspection",
+          "title": "WELLDOC property for words generated by morphisms",
+          "trigger": "Modular count equidistribution comparator"
+        },
+        {
+          "assessment": "Frequency complexity of infinite words; not the modular finite-word problem",
+          "evidence": "Bounds the number of distinct subword frequencies.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.28273",
+          "material_read": "PDF pp. 1 and 5, offsets 0 and 16880",
+          "method": "OA passage inspection",
+          "title": "Frequencies of subwords in words of linear subword complexity",
+          "trigger": "Rauzy and factor-frequency comparator"
+        },
+        {
+          "assessment": "Related general counting framework; opening does not assert either target formula",
+          "evidence": "Studies exact integer Markov frequency matrices and Eulerian graph enumeration/asymptotics.",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA original paper passage",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "General exact adjacent-pair type enumeration"
+        },
+        {
+          "assessment": "General model, not a matching theorem in the passage read",
+          "evidence": "Parikh automata with semilinear acceptance and a focus on infinite-word models.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.08969",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA passage inspection",
+          "title": "Grobler, Sabellek and Siebertz on Parikh automata",
+          "trigger": "General semilinear-counter formalism comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "Resultary contiguous and scattered comparison records",
+        "Primary Markov-types comparator"
+      ],
+      "rationale": "This is a natural complete finite-language test: retain all neighboring-symbol transition statistics modulo m and require return to the anchored symbol. The incidence relations remove q−1 independent coordinates, but discovering the exact complexity requires showing that every surviving residue/endpoint is reachable and distinguishable. The same structure yields a nontrivial period-m acceptance limit with an exact class mass; this quantifies both deterministic memory and typical acceptance for the same monitor, including composite moduli. Neither is a numerical coincidence or merely the existence of a counter automaton.",
+      "residual_risks": [
+        "No general statement is made about other factor graphs or alternate acceptance constraints; the value is the exact resolved complexity and density for this canonical complete case."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

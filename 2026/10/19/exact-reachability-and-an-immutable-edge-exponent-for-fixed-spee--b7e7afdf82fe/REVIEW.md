@@ -1,15 +1,21 @@
-# Scientific assessment: exact reachability and edge-exponent conservation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For bounded continuous positive controls, a variation-of-constants formula isolates the maximal right-support trajectory. The no-flip path contributes a strictly positive edge-tail term of power \(\beta_i+1\). Every alternative switching history contributes one extra power because a trajectory within \(\varepsilon\) of the support edge must spend at most order \(\varepsilon\) time in the negative orientation. A bounded Poisson rate bounds that switching event by order \(\varepsilon\). This argument verifies the quantifiers even when \(-1<\beta_i<0\). The endpoint support obeys \(\dot R=v-\kappa R<v\). Conversely, a smooth radius trajectory with \(\dot R<v\) induces positive endpoint-matching controls; rescaling and time-changing a dimensionless stationary RTP proves exact joint-law preservation. The supplied four-moment and edge-quadrature calculations agree with analytically implied formulas and are not the proof.
+PASS
 
-## Originality — PASS, with limitations
+The normalized stationary position density follows by zero aggregate flux and the orientation equation (polarization (x/R)ρ); the orientation factors then give a leading cumulative edge layer of power β+1 for the plus state and an extra power for the minus state. The pathwise deficit is the sum of the compressed initial deficit and a nonnegative weighted negative-orientation occupation time; the weight is at least s>0. The plus/no-switch event exactly provides the stated coefficient. A switched plus trajectory in the edge layer needs its first switch near T or a close pair; the Poisson intensity and second factorial moment give an O(ε) bound independent of initial position conditional on orientation. Initial minus states are already subleading. This proves the sharp relative O(ε) remainder as well as conservation, including −1<β<0. The frontier is attained as a support supremum by the no-switch trajectories, satisfies R'=v−κR<v, and therefore enforces a strict expansion bound. Under the strict bound a smooth monotone radius path can use a normalized almost-flat derivative on the interior with endpoint values zero; the controls are strictly positive and match the prescribed values. Differentiating X=R(t)Y(q(t)) with q'=v/R, and transforming the independent flips, proves equality of the whole joint law for the constructed path. As a separate algebraic check, `python /workspace/independent_checks_1_4.py 4` verifies the full even-position/odd-polarization moment recurrence for the scaled stationary shape; it is not used in place of the exact path and time-change arguments.
 
-The closest direct source is Baldovin and Manacorda, arXiv:2602.04560 (2026), whose fully inspected zero-noise model and stationary beta density match the current assumptions. Its explicit control treatment is a slow-duration truncated hierarchy with nonzero boundary-matching errors; no sharp exact finite-time leaf-of-reachability theorem is stated. Frim and DeWeese, arXiv:2304.06023 (2023), present exact shortcut controls with varying propulsion speed and different endpoint constraints, not this fixed-speed stiffness/flip-rate controllability classification. *Shortcuts to state transitions for active matter*, arXiv:2604.05585 (2026), treats a different colored-Gaussian propulsion process. The possibility of implicit coverage by broader telegraph-transport theorems is not excluded by negative searches. Searches do not constitute novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a complete exact **yes/no** answer for a natural two-control finite-time active-matter transfer problem, including an unattainable sharp expansion time, constructive protocols on the feasible set, and a rigorous invariant that rules out changing the active/passive boundary-shape class under fixed speed. It shows precisely why low-moment/slow-protocol agreements cannot imply exact endpoint equality for different beta exponents. The proof requires neither closure of an infinite moment hierarchy nor numerical extrapolation. Relevance is restricted to strictly positive regular controls and zero thermal noise.
+The distinct claim is the sharp arbitrary-protocol finite-time edge invariant and complete reachable-state criterion under the stated regular athermal fixed-speed actuators. The stationary beta density, moment equations, and scale-control idea have precedents and are not new here.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The primary model explicitly motivates shortcuts between states with different edge shapes. Determining what is exactly impossible, not just how to match a few moments approximately, resolves a concrete control question. The allowed transfers are constructive and the strict time bound is sharp with no imposed common control-amplitude cap; the tail invariant also applies away from the final stationary family. No claims about thermal, impulsive, or amplitude-constrained controls are needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

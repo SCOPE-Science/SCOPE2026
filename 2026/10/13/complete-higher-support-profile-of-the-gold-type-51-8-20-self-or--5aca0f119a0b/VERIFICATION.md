@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It realizes
-\[
-\mathbb F_{256}
-=
-\mathbb F_2[X]/(X^8+X^4+X^3+X^2+1)
-\]
-and verifies that the residue class \(\alpha=X\) has multiplicative order \(255\).
+# Independent mathematical audit
 
-The defining set is reconstructed as
-\[
-D=
-\{x\ne0:
-\operatorname{Tr}(\alpha x^{17})=
-\operatorname{Tr}(\alpha^2 x^{17})=0\}.
-\]
-The script checks
-\[
-|D|=51
-\]
-and constructs the trace-evaluation generator from the basis
-\[
-1,\alpha,\ldots,\alpha^7.
-\]
-It verifies generator rank \(8\) and the published ordinary weight distribution
-\[
-1+34z^{20}+102z^{24}+102z^{28}+17z^{32}.
-\]
+## correctness
 
-For every
-\[
-1\le r\le8,
-\]
-the verifier generates every \(r\)-dimensional subspace of \(\mathbb F_2^8\) exactly once in reduced-row-echelon form. The dimension counts are
-\[
-255,\ 10795,\ 97155,\ 200787,\ 97155,\ 10795,\ 255,\ 1,
-\]
-for a total of
-\[
-417198.
-\]
+PASS
 
-For each basis, the bitwise union of the corresponding codeword supports is computed and counted. The resulting complete histograms are compared byte-for-value with the certificate, as are the generalized Hamming hierarchy
-\[
-(20,30,38,42,46,48,50,51)
-\]
-and the number of minimizers at every level.
+Independent polynomial multiplication and reduction modulo 0x11d verified the period 255 of alpha, evaluated all trace constraints, and found 51 points, with norm exponents 0,6,13 modulo 15. The explicit trace generator is injective and its binary Gram matrix vanishes. Independent hyperplane/coset generation of all 417,198 positive-dimensional subspaces and support calculation by word-weight sums reproduced each bin, the hierarchy (20,30,38,42,46,48,50,51), and the minimizer counts (34,34,323,17,510,85,51,1). The revised self-orthogonality proof using weight divisibility by four is valid.
 
-Successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+The trace construction and ordinary-weight theory are prior context. The inspected related claims handle other exact codes or different ranks/constructions and do not give the full support census of the specified two-trace code.
+
+## value
+
+PASS
+
+The two-coefficient Gold construction supplies a natural rank-two case distinct from the collapsed rank-one examples. The exact table gives extremal frequencies and all possible intermediate unions, e.g. 17 four-spaces at support 42 out of 200,787. It is a reproducible reference for how this small self-orthogonal code behaves beyond ordinary weights, without implying a rank-two family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

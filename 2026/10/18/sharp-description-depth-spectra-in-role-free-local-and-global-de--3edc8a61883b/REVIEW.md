@@ -1,17 +1,21 @@
-# Scientific review: role-free definite descriptions
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The stated semantics match local singleton naming and global unique-object broadcast. Color-preserving automorphisms force every concept extension to be a union of complete color classes. A structural recursion on descriptions proves that the truncated color-count vector determines every nesting depth. At local nonsingleton points all local descriptions vanish; at a local singleton point depth-one tests detect the presence of other colors and depth-two tests distinguish one occurrence from at least two. In the global language, absent a singleton-color anchor all descriptions vanish, whereas one anchor allows depth-one tests to recover every truncated count. The proof explicitly constructs separating formulas, deduces exact profile counts, and establishes sharp minimal model sizes. Domain nonemptiness and the zero-predicate case are handled. The code directly checks the proposed signatures against original finite set semantics, without treating its finite checks as an unrestricted proof.
+PASS
 
-## Originality (O): PASS, with residual historical-priority risk
+Every concept selects whole unary colors, and all singleton decisions depend only on counts capped at two. At a nonsingleton local point all descriptions are false there; at a singleton point a depth-one description tests absence, and the depth-two test removes a singleton other color before forming the union. Thus each of the T pointed colors has one nonsingleton class, and respectively 2^(T-1) and 3^(T-1) singleton classes. In the global language color-singleton tests either all fail (no singleton anywhere and no deeper description can help), or provide an anchor whose union with each other color detects its absence at depth one. The fixed pointed color then has 1 + 3^(T-1) + (3^(T-1)-2^(T-1)) profiles. The tests isolate every type by a Boolean conjunction, so the concept algebra has 2^N elements at each depth. The largest anchored representative needs precisely one singleton and two points of each other color; in the one-color case the nonsingleton type needs two points. The stated bound is sharp uniformly, not a claim of depth-zero sharpness. Independent exact finite check: place all capped models for k=0,1 in a disjoint union, enumerate Boolean unions of the current truth-partition blocks, generate singleton selections or broadcasts separately inside each model, and refine. Counts reproduced: local (1,2,2) and (2,6,8), global (1,2) and (2,10). This check does not prove the all-k induction. The frozen checker was inspected, not run.
 
-Primary comparison: Sochański, Wałęga and Zawidzki (arXiv:2512.06604; first public version 2025-12-07), especially semantics in Section 2, local/global bisimulation and expressive-power Theorems 6–7, bisimulation procedures in Theorem 10, the role-free example separating the operators, and finite-model Theorem 17. The paper proves general characterizations and role-bearing complexity results; none of the examined statements gives the exact role-free description-depth thresholds, pointed theory counts, concept-class counts, or the optimal predicate-only representative bound. The current theorem is a specialization with an additional explicit quantitative conclusion, not a claim that the general bisimulation results are invalid or incomparable.
+## originality
 
-Second primary comparison: Artale, Mazzullo, Ozaki and Wolter (arXiv:2106.15513), especially its syntax and Section 4 bisimulations for a richer language with nominals and universal role. Its global count-up-to-one tests are a related stronger-language phenomenon; their expressivity results do not state the distinct local-versus-global restricted depth spectra. Additional bibliographic and published mathematical-record searches using aliases such as monadic singleton naming, unary color multiplicity, and role-free local/global descriptions did not reveal the exact statement. Search absence is not novelty proof; older monadic-model-theory or bisimulation literature may imply the theorem after specialization. No independent priority audit was conducted.
+PASS
 
-## Value (V): PASS
+The supported distinction is the exact finite pointed depth filtration for the two separate role-free languages, including the sharp collapse and parameter-only representative bound. The description operators, expressivity separation and general bisimulation machinery are prior. The Boolean algebra cardinality follows from the new depth-specific partition, not independently. No equivalent coverage was established in the sources compared.
 
-The primary paper leaves a natural, semantically smaller question: what definite descriptions actually observe if an ontology consists only of attributes, without relational navigation? The answer is a complete classification with sharply contrasting local depth two versus global depth one; an anchor/no-anchor structural dichotomy; explicit Boolean algebras of definable concepts; doubly exponential formulas for their sizes; and a uniform sharp finite-representative bound. It quantifies the exact expressive loss from the absence of navigation or the universal role. This is a motivated expressivity question in a newly introduced operator pair, not an arbitrary small parameter improvement. The result does not extend to unrestricted description logics and makes no unwarranted complexity claim.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The role-free baseline separates local from global observability without relational navigation. Exact spectra and shortest collapse depths answer which counts a description can test, while the sharp model bound gives a finite universe of representative types for equivalence checks. These are structural results, not merely the powers-of-two count for an already enumerated algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

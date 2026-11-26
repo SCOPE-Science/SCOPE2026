@@ -1,111 +1,77 @@
-# Diffusive universality and girth-delayed chirality in periodically dephased magnetic cycles
+# Flux-independent diffusive mixing on periodically dephased magnetic cycles
 
 ## Finding
-Let \(n\geq 3\), \(J>0\), \(\tau>0\), and \(\phi\in\mathbb R\). On the cyclic site Hilbert space \(\mathbb C^n\), let \(S|j\rangle=|j+1\pmod n\rangle\), and define
+
+Let \(n\ge3\), \(J,\tau>0\), \(\phi\in\mathbb R\), and let \(S|j\rangle=|j+1\pmod n\rangle\) on \(\mathbb C^n\). Set
 \[
 H_{n,\phi}=J(e^{i\phi/n}S+e^{-i\phi/n}S^\dagger),\qquad
-U_{n,\phi}=e^{-i\tau H_{n,\phi}},\qquad
-Q_{n,\phi}(j,k)=|\langle j|U_{n,\phi}|k\rangle|^2.
+Q_{n,\phi}(j,k)=|\langle j|e^{-i\tau H_{n,\phi}}|k\rangle|^2.
 \]
-The stochastic evolution \(Q_{n,\phi}\) is the repeated process of coherent hopping for time \(\tau\), followed by **complete site-basis dephasing**. Let \(\delta_0\) be the point mass at site zero, \(u_n\) the uniform distribution, and \(d_{\mathrm{TV}}(p,q)=\frac12\sum_j|p(j)-q(j)|\).
+Thus \(Q_{n,\phi}\) evolves a site distribution by coherent hopping for time \(\tau\) followed by complete, nonselective position dephasing. Write \(\delta_0\) for unit mass at zero, \(u_n\) for the uniform site distribution, and \(d_{\mathrm{TV}}(p,q)=\tfrac12\sum_j|p(j)-q(j)|\).
 
-**Quantitative flux erasure.** Put \(x=J\tau\), \(m_n=\lceil n/2\rceil\), \(B_x=2e^x-1\), and \(T_n=2e^x x^{m_n}/m_n!\). The flux-independent cyclic distribution
+**Theorem.** Put \(x=J\tau\), \(m_n=\lceil n/2\rceil\), \(B_x=2e^x-1\), \(T_n=2e^x x^{m_n}/m_n!\), and let
 \[
-r_n(d)=\sum_{\substack{k\in\mathbb Z\\k\equiv d\pmod n}}\mathrm J_k(2x)^2
+r_n(d)=\sum_{k\equiv d\pmod n}\mathrm J_k(2x)^2
 \]
-(using the ordinary Bessel function \(\mathrm J_k\)) obeys, for every \(n\ge3\), every real flux \(\phi\), and every integer \(t\ge0\),
+be the periodized Bessel-square probability law. For every \(n,J,\tau,\phi\) as above and integer \(t\ge0\),
 \[
-d_{\mathrm{TV}}(Q_{n,\phi}^{t}\delta_0,r_n^{*t})\le
-\min\{1,\;t(B_x T_n+T_n^2)\}.
+d_{\mathrm{TV}}\bigl(Q_{n,\phi}^{t}\delta_0,r_n^{*t}\bigr)
+\le \min\{1,\ t(B_xT_n+T_n^2)\},\qquad r_n^{*0}=\delta_0.
 \]
-Here the zero-fold convolution is \(\delta_0\). In particular, for fixed \(J\tau>0\), the right side vanishes faster than any inverse power of \(n\) when \(t=O(n^2)\), uniformly over arbitrary flux sequences \(\phi=\phi_n\).
+For fixed \(x>0\) this bound tends to zero faster than every inverse power of \(n\) when \(t=O(n^2)\), uniformly in \(\phi\).
 
-**Exact mixing profile.** Define for \(s>0\)
+For fixed \(x>0\) and \(s>0\), uniformly over \(\phi\in\mathbb R\),
 \[
-F_x(s)=\frac12\int_0^1\left|
-\sum_{\ell\in\mathbb Z}e^{-4\pi^2 x^2s\ell^2}e^{2\pi i\ell y}-1
-\right|\,dy.
+d_{\mathrm{TV}}\bigl(Q_{n,\phi}^{\lfloor sn^2\rfloor}\delta_0,u_n\bigr)
+\ \longrightarrow\ F_x(s):=\frac12\int_0^1\left|K_x(s,y)-1\right|\,dy,
+\qquad
+K_x(s,y)=\sum_{h\in\mathbb Z}e^{-4\pi^2x^2sh^2}e^{2\pi i h y}.
 \]
-Then for any fixed \(s>0\) and every sequence of fluxes \(\phi_n\),
-\[
-\lim_{n\to\infty}d_{\mathrm{TV}}
-\bigl(Q_{n,\phi_n}^{\lfloor s n^2\rfloor}\delta_0,u_n\bigr)=F_x(s).
-\]
-The function \(F_x\) decreases continuously and strictly from \(1\) at \(s\downarrow0\) to \(0\) at \(s\to\infty\). Consequently, for every fixed \(\varepsilon\in(0,1)\), the total-variation mixing time from any initial localized site satisfies \(t_{\mathrm{mix}}(\varepsilon)/n^2\to s_\varepsilon\), with \(F_x(s_\varepsilon)=\varepsilon\). There is **no total-variation cutoff** in this fixed-interval homogeneous-ring family. The profile, the diffusivity \(J^2\tau^2\) per dephasing step, and the leading mixing times are flux-independent.
-
-**Odd-girth onset of chirality.** If \(n\) is even, \(Q_{n,\phi}=Q_{n,\phi}^{\mathsf T}\) for all \(\tau\) and \(\phi\). If \(n=2r+1\) is odd and the flux \(\phi\) is fixed, then, as \(\tau\downarrow0\),
-\[
-Q_{n,\phi}(1,0)-Q_{n,\phi}(0,1)
-=\frac{4(-1)^r J^n\sin\phi}{(n-1)!}\tau^n
-+O_{n,J,\phi}(\tau^{n+2}).
-\]
-Thus the first possible flux-induced forward/backward imbalance occurs at the odd-girth order \(n\), and its coefficient is nonzero whenever \(\sin\phi\ne0\). A uniform bound for any pair of sites is
-\[
-|Q_{n,\phi}(j,k)-Q_{n,\phi}(k,j)|
-\le 2e^{4J\tau}(4J\tau)^n/n!\qquad(n\text{ odd}).
-\]
-The even-cycle transition-symmetry conclusion is established prior knowledge, stated here for completeness and not claimed as a new result.
+The profile is continuous and strictly decreasing from \(1\) to \(0\). For every \(\varepsilon\in(0,1)\), the \(\varepsilon\)-mixing time divided by \(n^2\) tends to the unique \(s_\varepsilon>0\) such that \(F_x(s_\varepsilon)=\varepsilon\), uniformly over the flux. There is no total-variation cutoff along any sequence of fluxes. The limiting diffusivity in the scaled time is \(x^2\).
 
 ## Assumptions and scope
-The coherent Hamiltonian has equal nearest-neighbor hopping magnitudes and no onsite energies. The full gauge flux \(\phi\) is spread evenly over the \(n\) directed edges, a gauge-equivalent choice. The same positive \(J\) and \(\tau\) are fixed as \(n\to\infty\). Complete position dephasing takes place after each coherent interval; it is not local monitoring at one target, and it is not continuous Lindblad dephasing. The Markov chain acts on site occupation probabilities after the first measurement. The flux \(\phi_n\) may vary arbitrarily with size. Mixing is in total variation from a localized state, equivalently from any single site by translation invariance. The time \(t\) counts complete coherent/dephasing cycles, so physical elapsed time is \(t\tau\).
+
+Edges have equal nearest-neighbor hopping magnitudes and there are no onsite terms. The flux \(\phi\) is placed uniformly on the edges; it can vary arbitrarily with \(n\). The asymptotic mixing claims fix \(J,\tau>0\) as \(n\to\infty\). The time \(t\) counts complete coherent/dephasing cycles, of physical duration \(\tau\) each. Mixing is from a localized start; translation invariance makes all such starts equivalent. The uniform distribution is stationary by unitarity. A mixing time is the first step at which the distance is at most the specified threshold, with value infinity if this never occurs; the result only implies finiteness for sufficiently large \(n\) at each fixed threshold. The theorem does not cover a single monitored target, continuous environmental dephasing, inhomogeneous hopping, or coherent intervals that grow with \(n\).
 
 ## Proof
-**1. Exact amplitudes and a factorial tail.** Fourier diagonalization of the cyclic shift, or the Jacobi–Anger expansion, gives the exact winding-number representation
-\[
-\langle d|U_{n,\phi}|0\rangle
-=\sum_{k\equiv d\ (\mathrm{mod}\ n)}(-i)^k e^{ik\phi/n}\mathrm J_k(2J\tau).
-\]
-For real \(z\) and every integer \(k\), the standard integral representation for Bessel functions yields \(|\mathrm J_k(2x)|\le x^{|k|}/|k|!\). Hence
-\[
-\sum_{k\in\mathbb Z}|\mathrm J_k(2x)|\le B_x,
-\qquad
-\sum_{|k|\ge m}|\mathrm J_k(2x)|\le 2e^x x^m/m!.
-\]
-In each residue class modulo \(n\), choose at most one representative \(k_d\) with \(|k_d|<n/2\); for a boundary tie use any one. Split its amplitude into a central term \(a_d\) and the sum \(b_d\) of the other winding terms. The omitted winding terms all satisfy \(|k|\ge\lceil n/2\rceil\), so \(\sum_d |a_d|\le B_x\) and \(\sum_d|b_d|\le T_n\). The reference probability is the sum of individual winding squares, rather than their coherent square. Summing
-\[
-\bigl||a_d+b_d|^2-
- (|a_d|^2+\sum_{k\equiv d,\ k\ne k_d}|\mathrm J_k(2x)|^2)\bigr|
-\le 2|a_d||b_d|+|b_d|^2+
-\sum_{k\equiv d,\ k\ne k_d}|\mathrm J_k(2x)|^2
-\]
-and dividing by two gives \(d_{\mathrm{TV}}(Q\delta_0,r_n)\le B_xT_n+T_n^2\). Both kernels are circulant; convolution and Markov contraction yield the claimed \(t\)-step telescoping bound. The factorial decay beats every power for \(t=O(n^2)\). No small-flux approximation enters.
 
-**2. Characteristic function and local-limit theorem.** The Bessel identity
+**1. Uniform comparison of the kernels.** The Fourier series of \(e^{-i2x\cos\theta}\) gives the exact winding expansion
 \[
-\sum_{k\in\mathbb Z}\mathrm J_k(2x)^2e^{ik\xi}
-=\mathrm J_0(4x\sin(\xi/2))
+\langle d|e^{-i\tau H_{n,\phi}}|0\rangle
+=\sum_{k\equiv d\pmod n}(-i)^k e^{ik\phi/n}\mathrm J_k(2x).
 \]
-implies that the cyclic Fourier multiplier of \(r_n\) at frequency \(h\) is \(\chi_x(2\pi h/n)\), with \(\chi_x(\xi)=\mathrm J_0(4x\sin(\xi/2))\). For fixed \(x>0\),
+By Parseval, \(\sum_k\mathrm J_k(2x)^2=1\), so \(r_n\) is a probability law. The Bessel integral representation gives \(|\mathrm J_k(2x)|\le x^{|k|}/|k|!\) for real \(x>0\). Consequently the total coefficient sum in absolute value is at most \(B_x\), and the sum for \(|k|\ge m_n\) is at most \(T_n\); the latter follows from \((m_n+j)!\ge m_n!j!\).
+
+For each residue \(d\) choose a representative of minimum absolute value, resolving any tie arbitrarily. Let \(a_d\) be its term and \(b_d\) the sum of the remaining terms in the amplitude. Every remaining index has absolute value at least \(m_n\). Thus \(\sum_d|a_d|\le B_x\) and \(\sum_d|b_d|\le T_n\). At site \(d\), the difference between \(|a_d+b_d|^2\) and the sum of the individual squared magnitudes is bounded in absolute value by \(2|a_d||b_d|+|b_d|^2\) plus the sum of squared magnitudes of the omitted terms. The sums over sites of the two tail-square contributions are each at most \(T_n^2\). Dividing the resulting bound by two yields the one-step estimate. Both kernels are circulant, hence act by convolution. Telescoping their powers, and using contraction in total variation under either convolution, gives the announced estimate for \(t\) steps, including \(t=0\). Factorial decay at fixed \(x\) proves the asserted uniformity on the diffusive scale.
+
+**2. The profile for the reference kernel.** The characteristic function of the Bessel-square law on \(\mathbb Z\) is
 \[
-\chi_x(\xi)=1-x^2\xi^2+O_x(\xi^4),
-\qquad |\chi_x(\xi)|<1\quad(\xi\notin2\pi\mathbb Z).
+\chi_x(\xi)=\sum_k\mathrm J_k(2x)^2e^{ik\xi}=\mathrm J_0(4x\sin(\xi/2)).
 \]
-Indeed \(|\mathrm J_0(z)|<1\) for every real \(z\ne0\). Compactness and the quadratic expansion give \(1-|\chi_x(\xi)|\ge c_x\operatorname{dist}(\xi,2\pi\mathbb Z)^2\) for some \(c_x>0\). With \(t_n=\lfloor sn^2\rfloor\), the Fourier coefficient at each fixed integer frequency converges to \(e^{-4\pi^2x^2s h^2}\), and the inequality gives a summable \(e^{-c_{x,s}h^2}\) domination for frequencies represented in \((-n/2,n/2]\). Fourier inversion therefore yields uniform convergence of the scaled site probabilities \(n r_n^{*t_n}(j)\) to the circle heat kernel at \(j/n\). Riemann sums imply the stated total-variation limit; the flux error from part 1 tends to zero uniformly.
+Indeed the sum is the periodic correlation of \(e^{-i2x\cos\theta}\) with its translate by \(\xi\), and the cosine-difference identity reduces the integral to the displayed \(\mathrm J_0\). In particular \(\chi_x(\xi)=1-x^2\xi^2+O_x(\xi^4)\) near zero. The integral averaging phases for \(\mathrm J_0(z)\) has absolute value strictly less than one for real \(z\ne0\) because the phases are not constant. The expansion and compactness on the rest of the circle give a constant \(c_x>0\) such that \(1-|\chi_x(\xi)|\ge c_x\operatorname{dist}(\xi,2\pi\mathbb Z)^2\).
 
-The heat kernel is positive, smooth, and not spatially constant for finite \(s>0\). Its convolution with any positive-time heat kernel strictly contracts the \(L^1\) norm of a nonzero continuous mean-zero function, by strict positivity and sign change. Hence \(F_x(s)\) strictly decreases. Weak convergence to a point mass as \(s\downarrow0\) gives the TV limit \(1\), while exponential decay of nonzero Fourier modes gives limit \(0\). The standard mixing-time consequences and absence of cutoff follow from this non-step-shaped limiting profile. Translation invariance makes the localized-start mixing time independent of the chosen initial vertex.
+At \(t_n=\lfloor sn^2\rfloor\), the cyclic multiplier \(\chi_x(2\pi h/n)^{t_n}\) tends to \(e^{-4\pi^2x^2s h^2}\) for each fixed integer \(h\), by the expansion. For representatives \(-n/2<h\le n/2\) and sufficiently large \(n\), the bound on \(|\chi_x|\) and \(t_n\ge sn^2/2\) dominate those multipliers by \(e^{-c_{x,s}h^2}\) with \(c_{x,s}>0\). The dominance is summable even if some finite-size multipliers are negative. Extending the finite sequence by zero, dominated convergence in the Fourier sum gives
+\[
+\sup_{0\le j<n}|n r_n^{*t_n}(j)-K_x(s,j/n)|\longrightarrow0.
+\]
+The sign convention in inversion does not affect the expression since the coefficients are even. A Riemann sum yields the reference total-variation profile; Step 1 transfers it to \(Q_{n,\phi}\), uniformly in \(\phi\).
 
-**3. Chirality and odd girth.** On an even cycle the alternating-sign unitary \(\Gamma\) obeys \(\Gamma H\Gamma=-H\), so \(\Gamma U(\tau)\Gamma=U(-\tau)=U(\tau)^\dagger\). Consequently \(|U_{jk}|=|U_{kj}|\) for every \(j,k\), proving exact transition symmetry. This well-known bipartite chiral-walk fact is included only to frame the odd-cycle contrast.
-
-For an odd cycle \(n=2r+1\), the series for a transition probability has terms of total degree \(a+b\) in \(\tau\), formed from a forward length-\(a\) path and a reversed length-\(b\) path. Any flux-sensitive antisymmetry between \(j\to k\) and \(k\to j\) requires an odd closed walk in their concatenation. Every odd closed walk has length at least \(n\), so all coefficients of total degree below \(n\) cancel. The coefficient of degree \(n\) for adjacent sites comes from interference between the single forward hop and the unique reverse path of length \(n-1\), and its conjugate pair. Evaluating their phases and powers of \(-i\) yields \(4(-1)^rJ^n\sin\phi/(n-1)!\). Transition-probability antisymmetry is an odd function of real \(\tau\): for Hermitian \(H\), \(|U_{jk}(-\tau)|^2=|U_{kj}(\tau)|^2\), so the next possible term has order \(n+2\).
-
-For the uniform inequality, each coefficient of degree \(q\) in an entry of \(|e^{-i\tau H}|^2\) is bounded by \((4J)^q/q!\), since \(\|H\|\le2J\). The difference of reversed entries has no contributions below order \(n\), hence its absolute value is bounded by \(2\sum_{q\ge n}(4J\tau)^q/q!\le 2e^{4J\tau}(4J\tau)^n/n!\).
+**3. Mixing and no cutoff.** The circle heat kernel \(K_x(s,\cdot)\) is continuous and strictly positive for \(s>0\), as is evident from its periodized Gaussian form. It integrates to one and is nonconstant because the first harmonic is nonzero. For a nonzero continuous mean-zero function, the strict positivity of any positive-time heat kernel makes convolution a strict \(L^1\) contraction: the positive and negative parts both contribute at every point. The heat semigroup identity therefore makes \(F_x\) strictly decreasing. Its continuity on positive times follows from the Fourier series on compact time intervals. As \(s\downarrow0\), the heat law concentrates on any fixed arc around zero; arcs of arbitrarily small uniform mass give \(F_x(s)\to1\). As \(s\to\infty\), all nonconstant Fourier modes tend uniformly to zero, giving \(F_x(s)\to0\). The Markov distance to stationarity is nonincreasing in step count. Evaluating the uniform profile at fixed times just below and just above \(s_\varepsilon\) therefore brackets the rescaled mixing times uniformly. For \(0<\varepsilon<1/2\), the ratio of the \(\varepsilon\)- and \((1-\varepsilon)\)-mixing times tends to \(s_\varepsilon/s_{1-\varepsilon}>1\); this rules out cutoff. \(\square\)
 
 ## Verification
-The standalone file `verify.py` uses NumPy/SciPy to form the full Hamiltonian and matrix exponential directly for eleven cycle sizes, multiple fluxes and dephasing intervals. It checks stochasticity, circulant structure, Bessel periodization, a conservative flux-erasure bound, parity/girth onset, and representative diffusive-time mixing profiles against the circle heat kernel. Running `python verify.py` produced `VERIFY_OK 702 finite identities and mixing comparisons`. These finite computations do not constitute an infinite-size proof, which is given above.
+
+The analytical proof covers all parameters in the theorem. The original `verify.py` (Python with NumPy and SciPy) contains bounded floating-point cross-checks of the matrix exponential, Bessel comparison and representative diffusion-scale distances, along with ancillary symmetry tests outside the theorem above. See `VERIFICATION.md` for the status and scope of these recorded checks.
 
 ## Relationship to prior work
-Longhi, *Dynamical Phase Transitions in Open Quantum Walks* (arXiv:2508.11947, first publicly posted 16 August 2025), derives the periodically dephased Markov matrix and demonstrates spectral dynamical transitions in a three-site gauge-flux model with unequal hopping strengths. The complete homogeneous ring's uniform-in-flux diffusive scaling, exact total-variation heat profile, quantitative factorial error, and odd-girth first chirality coefficient are not stated there.
 
-Zimborás and collaborators (2013) establish gauge-phase invariance and exact transition symmetry on bipartite networks, as well as directional effects on odd cycles; the even-cycle symmetry is **prior work**, not the novelty claimed here. Finocchiaro and collaborators (arXiv:2507.10669) study the same type of magnetic ring under **single-target stroboscopic monitoring**, whose non-unitary first-detection map and nearly cubic first-detection times differ from our full-site dephasing kernel and diffusive total-variation mixing. Levine and collaborators (arXiv:2605.04414) study instantaneous/averaged **unmeasured** chiral quantum-walk uniformity, not repeated complete dephasing. Fedichkin, Solenov, and Tamon (arXiv:quant-ph/0509163) study continuously decohering walks on cycles, a different generator.
+Longhi [1, §2] already obtains the stochastic channel of transition probabilities under complete periodic dephasing and studies a three-site ring with unequal hopping. The channel itself is not new. The present theorem gives a uniform comparison at growing cycle sizes and the exact macroscopic total-variation profile for homogeneous magnetic hopping. The classical local-limit method applies to the reference kernel; the uniform winding-tail estimate is what transfers it to the magnetic quantum channel.
 
-Classical circle heat-kernel mixing, Bessel identities, and Fourier local-limit methods are standard ingredients. The claim is the precise flux-uniform bridge from a periodically **fully dephased magnetic quantum ring** to this diffusion law together with a quantitative odd-girth suppression of its microscopic chirality. Mathematical publication priority remains subject to independent scrutiny.
-
-## Limitations
-The theorem requires homogeneous nearest-neighbor hopping, fixed positive dephasing interval and full site-basis measurement, with no defects or localized sinks. Flux erasure is asymptotic as system size grows at fixed coherent interval; it does not assert exact flux independence at finite odd size, and does not cover intervals growing with size, finite-strength dephasing, multi-particle walks, or target-only detection. The small-time chirality coefficient is an asymptotic at each fixed odd \(n\), with an implicit remainder constant depending on \(n,J,\phi\). The result does not claim experimentally verified or independently certified novelty. Under the full dephasing model the homogeneous circulant kernel is normal, so its spectral behavior need not exhibit the exceptional points found in anisotropic small networks.
+The fixed-total-time Zeno comparison in [2] uses the same fully dephased magnetic cycle but treats directionality as the coherent interval shrinks at fixed size. The microscopic odd-cycle coefficient is not part of the present theorem. Single-target stroboscopic first detection [3], continuous decoherence [4] and instantaneous or time-averaged coherent mixing [5] are different evolutions or observables and are not subsumed by the theorem.
 
 ## References
-1. S. Longhi, *Dynamical Phase Transitions in Open Quantum Walks*, arXiv:2508.11947v1 (16 August 2025), https://arxiv.org/abs/2508.11947 .
-2. Z. Zimborás, M. Faccin, Z. Kádár, J. D. Whitfield, B. P. Lanyon, J. Biamonte, *Quantum Transport Enhancement by Time-Reversal Symmetry Breaking*, Scientific Reports **3**, 2361 (2013), https://doi.org/10.1038/srep02361 .
-3. S. Finocchiaro, G. O. Luilli, G. Benenti, M. G. A. Paris, L. Razzoli, *Optimal quantum transport on a ring via locally monitored chiral quantum walks*, arXiv:2507.10669 (2025), https://arxiv.org/abs/2507.10669 .
-4. L. Levine, J. J. Mesapam, B. Mustico, C. Tamon, G. Tucker, H. Zhan, *Uniform Mixing in Chiral Quantum Walks*, arXiv:2605.04414 (2026), https://arxiv.org/abs/2605.04414 .
-5. L. Fedichkin, D. Solenov, C. Tamon, *Mixing and Decoherence in Continuous-Time Quantum Walks on Cycles*, arXiv:quant-ph/0509163, https://arxiv.org/abs/quant-ph/0509163 .
+
+1. S. Longhi, *Dynamical Phase Transitions in Open Quantum Walks*, arXiv:2508.11947v1, https://arxiv.org/abs/2508.11947.
+2. *Sharp parity-dependent Zeno suppression of magnetic-ring directionality*, SCOPE-20261026-6b103059d648, https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-parity-dependent-zeno-suppression-of-magnetic-ring-directi--6b103059d648/RESULT.md.
+3. S. Finocchiaro et al., *Optimal quantum transport on a ring via locally monitored chiral quantum walks*, arXiv:2507.10669, https://arxiv.org/abs/2507.10669.
+4. L. Fedichkin, D. Solenov and C. Tamon, *Mixing and Decoherence in Continuous-Time Quantum Walks on Cycles*, arXiv:quant-ph/0509163, https://arxiv.org/abs/quant-ph/0509163.
+5. L. Levine et al., *Uniform Mixing in Chiral Quantum Walks*, arXiv:2605.04414, https://arxiv.org/abs/2605.04414.

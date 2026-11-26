@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:49.891263Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–82",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "verify_modular_dihedral.py, lines 9–151",
+        "Independent bounded replay: direct enumeration of all p^p coefficient vectors for p=3 and 5; modular rank of α+β−1 and native-product tests on exponentials of coset vectors for p=17 and 31. The replay file is identified separately in the private review evidence."
+      ],
+      "rationale": "The proof works over any field K of odd characteristic p for R_p. In the associative group ring the native product is α(u)β(w), and augmentation zero implies an idempotent lies in I=(T−1); iterating its equation doubles the minimum filtration degree until I^p=0. Augmentation one instead permits the mutually inverse truncated exp and log, whose identities hold through total degree p−1 in the commutative ring. Hence log takes nonzero idempotents to the kernel of α+β−1. Splitting by the involution α, the +1 summand contributes nothing because β is invertible, and the −1 part requires βv=2v. In group-ring coefficients this says c_(ha)=h^(-1)c_a for h in H, and c_0=0, so the exact kernel has the disjoint-support basis V_C. Its augmentation is zero by αv=−v. Exponentiating gives the asserted native product law and hence the core quandle, with zero excluded from that law. The finite-field count and prime-field rigidity criterion follow; at p=17 and 31 the subgroup orders are 8 and 10, and for p≡1 mod 8 both generators are quadratic residues. Independent small checks found the exhaustive counts 4 and 6 for p=3 and 5 and verified higher-rank witnesses at p=17 and 31. The supplied script was read, not executed.",
+      "residual_risks": [
+        "The finite replay does not certify the all-prime or arbitrary-field theorem; that rests on the algebraic reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang gives the general group-ring transport and integral, not defining-characteristic, idempotent results. Churchill et al. §3 treats Core(D_3), not uniform prime R_p in equal characteristic; the integral cases are also distinct. Sangare–Ta's length-three theorem has an apparent characteristic-three exception as printed: over F_9 with a²=−1, the length-three element (1+2a)e_0+(1+a)e_1+2e_2 squares to itself under the commutative R_3 law despite 3=0."
+        ],
+        "reasoning": "These sources motivate and delimit the setting. In particular the apparent length-three conflict is not a counterexample to the frozen claim: direct multiplication verifies the modular witness. The decisive evidence is the prior exact catalog classification, not a broad inference from integral or characteristic-two work.",
+        "searches": [
+          "Zhang arXiv:2610.08204v1, Proposition 2.1 and Theorem 5.2",
+          "Churchill et al. arXiv:2608.09149v1, §3",
+          "Elhamdadi–Ta–Virgin arXiv:2609.03799v1, introduction",
+          "Sangare–Ta arXiv:2608.01550v2, Theorem 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0818795d4878, 5ff8d9016353, 06aa9c19e539",
+        "arXiv:2610.08204v1, 2608.09149v1, 2609.03799v1, 2608.01550v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In group-ring coefficients the known simultaneous eigenspace is defined by c_(ha)=h^(-1)c_a. One coefficient is free per coset, yielding the displayed V_C immediately. The earlier rank criterion and quadratic-residue containment also give the progression p≡1 mod 8."
+        ],
+        "reasoning": "The new basis follows by coefficient reindexing, and the affine law and all-prime count are already explicit. Applying the standard quadratic-residue test and Dirichlet's theorem adds a routine arithmetic corollary, not a valuable surviving classification.",
+        "searches": [
+          "Resultary 0818795d4878, logarithmic coordinate and affine product passages; earlier 5ff8d9016353, kernel proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 Finding gives idempotents exp(Σ a_j X^j) in X=log T, j=1 mod L, and explicitly gives F_a F_b=F_(−a+2b). October 13 Finding already gives the full truncated-exponential solution and same count."
+        ],
+        "reasoning": "The subgroup H has order L=lcm(2,ord_p(2)). The monomials X^(1+jL) are a basis of the simultaneous eigenspace αv=−v, βv=2v, also with the coset basis V_C. Thus both parametrize the very same idempotents, not just equal cardinalities of different loci.",
+        "searches": [
+          "Resultary: modular prime dihedral quandle idempotents, exponential parametrization, core quandle, order of two",
+          "Resultary 0818795d4878 and 5ff8d9016353"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 18 gives 1+q^κ and explicitly 290 at p=17 and 29792 at p=31; October 13 also gives the all-prime count. October 4 gives q+1 for p=3 only."
+        ],
+        "reasoning": "Since L divides p−1 and L≥2, κ=1+floor((p−2)/L)=(p−1)/L=r. The indexed formula already covers all extension fields, not just the example primes.",
+        "searches": [
+          "Resultary 0818795d4878, 5ff8d9016353 and characteristic-three specialization 06aa9c19e539"
+        ]
+      },
+      "rationale": "Two earlier records cover the full classification. In particular the October 18 record already gives the same exponential kernel, core-quandle product law, count, basis-only condition and arithmetic examples over precisely the same fields. The present coset-coordinate basis is a routine change of basis in that same kernel and does not provide a separate new theorem.",
+      "residual_risks": [
+        "The full histories of the secondary comparisons are not resolved. The overlap decision relies on directly matching earlier Finding text, not on the apparent issue in Sangare–Ta or on later matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier match in a monomial basis.",
+          "evidence": [
+            "Classification theorem gives all idempotents, their affine product, extension-field counts and the p=17 and p=31 examples."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-modular-idempotent-resonance-in-prime-dihedral-quandle-algebras--0818795d4878/RESULT.md",
+          "material_read": "Finding, offsets 0–2146, and relevant proof passages within offsets 3700–7700",
+          "method": "Local mirrored Resultary text",
+          "title": "Modular idempotent resonance in prime dihedral quandle algebras",
+          "trigger": "Complete earlier classification and native product law"
+        },
+        {
+          "assessment": "Same uniform exponential solution set and count.",
+          "evidence": [
+            "Its coefficient exponents are odd with ord_p(2) dividing j−1, yielding the same kernel dimension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-modular-dihedral-quandle-idempotents-and-the-order-of-two-dimens--5ff8d9016353/RESULT.md",
+          "material_read": "Finding from offset 0; coefficient and count proof, offsets 4000–6807",
+          "method": "Local mirrored Resultary text",
+          "title": "Modular dihedral quandle idempotents and the order of two",
+          "trigger": "Independent earlier exact formula hit"
+        },
+        {
+          "assessment": "Covers the p=3 specialization, not by itself the rank formula.",
+          "evidence": [
+            "Affine line of nonzero idempotents and finite-field count q+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-characteristic-three-idempotent-line-in-the-quandle-algebra-of--06aa9c19e539/RESULT.md",
+          "material_read": "Finding from offset 0",
+          "method": "Local mirrored Resultary text",
+          "title": "A characteristic-three idempotent line in the quandle algebra of R_3",
+          "trigger": "Prior exact small case acknowledged by frozen text"
+        },
+        {
+          "assessment": "Transport is prior; integral theorem does not prove the equal-characteristic locus.",
+          "evidence": [
+            "The coefficients in Theorem 5.2 are integral."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08204v1",
+          "material_read": "Proposition 2.1, PDF p. 3, offset 9048; Theorem 5.2, p. 8, offset 25184",
+          "method": "Lawful arXiv PDF passages",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Earlier transport and plausible idempotent classification"
+        },
+        {
+          "assessment": "Computations for Core(D_3) and integral cases do not match the setting.",
+          "evidence": [
+            "§3 uses Core(D_3); the abstract specifies integral R_5 and C_5 examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.09149v1",
+          "material_read": "Abstract and §3, PDF pp. 9–12, offsets 27200 and 31500",
+          "method": "Lawful arXiv PDF passages",
+          "title": "A further study of quandles and quandle rings",
+          "trigger": "Previously uninspected relevant idempotent computation"
+        },
+        {
+          "assessment": "Comparative integer coefficient result, not the present count.",
+          "evidence": [
+            "States integral quandle-ring scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.03799v1",
+          "material_read": "Introduction, offset 0 and offsets 3546–4513",
+          "method": "Lawful arXiv text passages",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "Cited related dihedral rigidity claim"
+        },
+        {
+          "assessment": "Broader related statement with an apparent characteristic-three exception; no uniform odd-prime count here.",
+          "evidence": [
+            "As printed, part (2) requires 3 invertible for a length-three idempotent in an integral domain of characteristic not 2, contrary to the explicit F_9[R_3] witness above."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.01550v2",
+          "material_read": "§3, Definition 3.5 and Theorem 3.6, PDF pp. 5–6, offsets 14000–16181",
+          "method": "Lawful arXiv PDF passages and direct coefficient multiplication for the witness",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Possible broad idempotent theorem for commutative quandles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–32 and 59–82",
+        "Earlier Resultary 0818795d4878 classification and examples"
+      ],
+      "rationale": "The arithmetic rank and quandle classification would be useful as a first result, but both are known. The remaining coset basis is recovered by one free coefficient per orbit of the known eigenspace, and the Dirichlet observation is immediate from quadratic residues. Neither gives an independently substantial surviving theorem here.",
+      "residual_risks": [
+        "The basis may be convenient for future computations, but no further result using that convenience is demonstrated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

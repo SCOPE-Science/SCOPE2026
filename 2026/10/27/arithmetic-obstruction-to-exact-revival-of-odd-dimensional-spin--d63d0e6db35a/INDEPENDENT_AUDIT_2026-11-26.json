@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:00:17.577206Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Wang's Theorem 4.3 supplies a nonzero intertwined harmonic sector of dimension 8C_(m+1) under exactly the four-layer spin condition. From (4.20), only the pairs (0,1), (2,4), (3,5), (3,4), (6,7) contribute to half the second trace; their products give the stated coefficient A_d and agree with the source polynomial. The determinant is 1 (also checked by factoring out the row phases: their product is ω^(4d)=1 and the remaining rational matrix has determinant 1). For α=ζ+ζ⁻¹, A_d=(4−2d+dα)/d² is nonzero, since equality to zero would make α=2−4/d a rational nonintegral algebraic integer. All its conjugates have magnitude less than 1 for odd d≥3. A nonzero integer norm is therefore impossible. A scalar power would have scalar ξ with ξ⁸=1, so the matrix would have finite order and A_d would be an algebraic integer. This contradiction passes through the intertwiner and rules out scalar powers of the full walk. For precision about the entire set of nonreviving states, not just a full-measure open subset: partition the finite spectrum by λ∼μ iff λ/μ is a root of unity. A vector revives projectively exactly when its spectral support lies in one equivalence class (take a common multiple of the finite orders). The reviving states are thus a finite union of proper spectral subspaces, in either restriction or full space, since either spectrum has at least two classes. This also handles repeated eigenvalues without needing simplicity, and does not exclude eigenstate or approximate recurrence. The supplied floating-point tests were inspected, not treated as proof or executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kajiwara et al. determine finite periods for a three-state Grover/Fourier walk on cycles; cyclotomic arithmetic is prior technique."
+        ],
+        "reasoning": "A three-state cycle operator and its period classification do not cover the eight-coordinate harmonic matrix with layer-dependent phases or its scalar powers.",
+        "searches": [
+          "Kajiwara–Konno–Koyama–Saito arXiv:1907.01725, abstract and Thm. 2.1",
+          "Bounded lookup for exact/no-revival results on spin-coupled hypercube walks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.14467v2",
+        "arXiv:1907.01725",
+        "Resultary 1c61184f93c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior coefficient and determinant are exactly the ingredients used, but one must show the coefficient has impossible nonzero norm if integral, uniformly over arbitrary odd d."
+        ],
+        "reasoning": "Neither the unitary reduction nor the parity statement about even fixed states supplies that arithmetic step, and ordinary finite order is weaker than the scalar-power conclusion without the determinant step. Credit all spectral formulas and the even fixed sector to prior work.",
+        "searches": [
+          "Wang §4.4 polynomial and Thm. 4.3; comparison with Kajiwara et al. Thm. 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang proves the central harmonic reduction and describes the odd spectrum explicitly, including its characteristic coefficients and determinant."
+        ],
+        "reasoning": "An explicit simple unit-circle spectrum is not a determination of whether all eigenvalue ratios have finite order. The inspected passages do not state the latter for the odd sector.",
+        "searches": [
+          "Resultary: odd Grover hypercube harmonic revival, finite order and localization",
+          "Wang arXiv:2610.14467v2 §§4.2–4.4, Thm. 4.3 and Eq. (4.20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed comparison inspected, 1c61184f93c6, gives localized eigenvectors including six-vertex-cycle states in the all-positive sector. Wang supplies an exact characteristic polynomial, not a finite-order table."
+        ],
+        "reasoning": "Localized eigenvectors revive projectively and are compatible with the claim; they neither establish nor refute the asserted generic or scalar-power conclusion. No matching indexed result surfaced.",
+        "searches": [
+          "Resultary hypercube spectrum/eigenspaces, exact finite-order and revival comparisons"
+        ]
+      },
+      "rationale": "The invariant sectors and the explicit odd characteristic polynomial are prior. No exact scalar-power obstruction for those odd sectors, or the resulting generic projective nonrevival for this model, was located in the strongest inspected sources. The conclusion is limited to that distinct arithmetic use of the known spectrum.",
+      "residual_risks": [
+        "Bounded search does not exclude other work on eigenvalue ratios or commensurability for the same harmonic operator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the matrix and even/odd harmonic constructions; inspected passages do not characterize scalar finite order",
+          "evidence": "The reduction is an isomorphism of dimension 8C_(m+1); the characteristic polynomial gives the λ⁶ coefficient and determinant used here.",
+          "identifier_or_url": "https://arxiv.org/html/2610.14467v2",
+          "material_read": "§§4.2–4.4, Eq. (4.20), Thm. 4.3 and characteristic polynomial, HTML offsets about 37500–56221",
+          "method": "OA HTML bounded passages",
+          "title": "Harmonic Reduction of Spin-Coupled Grover Walks on Hypercubes via Quantum Bernoulli Noises",
+          "trigger": "Exact walk, harmonic restriction, and known characteristic polynomial"
+        },
+        {
+          "assessment": "Methodological precedent, mathematically different family",
+          "evidence": "The graph is a cycle and the walk has three coin states, not the spin-coupled hypercube harmonic restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.01725",
+          "material_read": "Abstract and Thm. 2.1, HTML offsets 620 and 8088",
+          "method": "OA HTML passages",
+          "title": "Periodicity for the 3-state quantum walk on cycles",
+          "trigger": "Earlier arithmetic obstructions to finite periods in Grover walks"
+        },
+        {
+          "assessment": "Compatible special eigenstates, not an arithmetic revival theorem",
+          "evidence": "Constructs localized eigenvectors for the all-positive sector.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-shell-flow-eigenspaces-and-six-site-localization-in-every-hyperc--1c61184f93c6/RESULT.md",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Shell-flow eigenspaces and six-site localization in every hypercube dimension",
+          "trigger": "Related exact eigenstates for a spin choice covered by the frozen claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known eight-dimensional reduction leaves a qualitative dynamics question open: unit-circle spectral locations permit both exact global revival and nonperiodicity. A single exact obstruction resolves this uniformly in odd dimension and for both allowed signs, with arbitrary exterior spins, rather than checking individual spectra to a time cutoff. The result distinguishes generic projective nonrevival from recurrence of special states; the even comparison is a known fixed sector, not a statement that the full even walk revives.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact Gaussian isometry reduces the risk to an \(L^2\) step approximation of the linear function \(1/2-s\). The precision-allocation Cauchy inequality and monotone rearrangement show it suffices to use positive weights. Truncation and recentering bound their sum by one. A negative-semidefinite Hessian gives the global best sites for fixed positive weights; exact covariance summation yields the cubic cell formula. Strict Jensen and strict one-dimensional convexity give the unique global finite-budget optimizer. Exact rational checks and direct Gaussian regression comparisons corroborate—not replace—the proof. The results include \(n=1\), all integers \(n\ge1\), all \(P>0\), degenerate inactive channels and limiting boundaries.
+PASS
 
-## Originality
+Reconstructed RESULT.md lines 28–75: the Gaussian conditional mean is the minimum-risk linear estimator. The Wiener representation turns its signal error into the L² distance of 1/2−s from a centered step function; the noise penalty minimizes to (sum |w_i|)²/P by Cauchy–Schwarz. After aggregating coincident jumps and ignoring endpoints, decreasing rearrangement uses no additional sites, cannot increase variation, and strictly improves the signal error for any inversion on positive-length cells. If the decreasing range exceeds 1, clipping then recentering strictly improves the error. For W≤1 the sorted-site objective has Hessian −2(diag(w)−wwᵀ), so the stated stationary nodes are global maximizers of variance reduction, strictly for W<1 with positive weights. Independently, with S_k the cumulative weights, the residual on cell k is (1−W)/2+S_k−s; its zero is w_i/2 on either side of jump i and its outer lengths at the endpoints are (1−W)/2. Integrating the squared residual gives [(1−W)³+sum w_i³]/12. Strict Jensen, including zero padding to n effective jumps, forces n distinct positive-weight jumps at any optimum with W>0; this excludes boundary, coincident and inactive original channels. Cauchy–Schwarz then forces p_i=P/n. The scalar objective is strictly convex, its derivative is negative at 0 and positive at n/(n+1), and its stationary equation gives the stated root, including n=1. Evaluating the objective for n+1 at the old positive minimizer gives strict risk improvement; the scalar equation also gives the stated budget limits. The rational example n=3,P=18 gives both sides of the root equation 2/9 and risk 11/432. The frozen numerical verifier was inspected, not rerun.
 
-PASS, qualified. Full arXiv texts of Karvonen–Kanagawa–Särkkä (arXiv:1812.08509), Santin–Karvonen–Haasdonk (arXiv:2004.00556), and Santin (arXiv:2210.15959) were compared by the mathematical criteria they actually optimize. They do not state the globally optimal shared-precision allocation for arbitrary sensor count. A previously recorded fixed-equal-noise two-observation formula is a genuine special case and is not separately claimed new. The Purdue dissertation abstract explicitly includes optimal *noiseless* integral observations for Brownian bridge, but its full text was inaccessible; publication-priority risk remains. No broad claim of literature uniqueness is justified.
+## originality
 
-## Value
+PASS
 
-PASS. A fixed total sensor precision is a natural resource constraint in Gaussian experimental design. The result answers an entire family of finite-budget joint optimization problems rather than just choosing points at fixed noise: it proves no precision should be concentrated or discarded, yields a unique centered shrinkage mesh, and quantifies the tradeoff between site count, noise, and prior uncertainty. The closed-form cell-cubic identity is a reusable structural lemma. It does not assert better generic integration accuracy or general-kernel optimality.
+Credit the known noiseless equally spaced limit and the verified two-site equal-noise overlap. The distinct content established here is the all-n finite-P global result with freely allocated precision, including proof of uniqueness against unequal, inactive and repeated channels. Neither the two-site location result nor the related all-n designs for different covariances gives this joint conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The design problem is a nontrivial joint finite-budget optimization even with a fixed Gaussian prior. Its scalar risk law and rigidity translate limited precision directly into a contracted mesh and equal allocation, and exclude all degenerate or asymmetric alternatives. The exact noise-to-noiseless transition, and strict value of adding a sensor even at unchanged total precision, are useful consequences rather than isolated numerical optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

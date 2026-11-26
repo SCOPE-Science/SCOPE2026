@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:01:00.459456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recovered the two-state rule by complementing subsets. For a positive residual m whose greatest Zeckendorf index is j, set U=R(m), W_t=R(f_t−2−m) with R of negative arguments zero, and V=W_{j+1}. Then W_j=0; for t≥j+2, complement within the terms through f_{t−1} to count f_{t−1}+m, and split by whether f_{t−1} is included. The contribution including it is U; complementing the remaining case within the terms through f_{t−2} gives W_{t−2}. Thus W_t=U+W_{t−2}. Prepending f_i for i−j≥2 changes the pair to (U+W_{i−1},W_{i−1}); on a row (q,A−q) this gives exactly the two gap transitions. At a lone index j the pair is (floor((j+1)/2),floor((j+1)/2)−1), by the same complement split with empty residual. The state starts at (1,1), explaining the terminal formula. The second coordinate never decreases; once A>k, only q=k, any number of gap-2 extensions, and terminal index 1 or 2 can succeed. This tail is z/(1−z); before capping the first coordinate strictly increases and the allowed gap and stopping exponent bounds give the stated k-dependent polynomial degree bound. The cutoff operation adds one summation and the zero contribution when k=1. The gap 2k gives a positive infinite ray, ensuring a positive eventual coefficient, and Fibonacci bracketing gives the logarithmic law. A fresh exact subset-sum DP, `/workspace/branches/c30a8bd4-2ec4-4384-b365-15bf483114c3/check_k12.py`, checked every n<f₂₅=121393 without executing the frozen verifier. Differences of successive band counts give the seven coefficients at exponents 11,12,13,14,15,23,24 as 8,16,8,4,4,2,2, and C₁₂(24)=506. The exact recursion, not that finite check, justifies the infinite tail; the coefficient sum and first moment are 44 and 594.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weinstein Theorem 3.8 generates all solutions through a finite G(k), and Theorem 5.1 gives exact stabilization for i≥2k with count 2Ψ(k) for k>1 or 1 for k=1. Lemma 5.3 exhibits a maximal k-generating number for k≥2.",
+          "Sanna and Zhou treat representation quantities such as moments; Kempton gives a rotation cocycle and local ratio patches. Those inspected statements are not fixed-value enumerations."
+        ],
+        "reasoning": "Weinstein's all-k theorem gives a sharp-enough earlier stabilization guarantee stronger than the submitted quadratic bound, not just a few classifications or a general pointwise invariant. No such inference was made from the accompanying moment or ratio papers.",
+        "searches": [
+          "arXiv:math/0307150v13, Theorem 3.8, Lemma 5.3 and Theorem 5.1",
+          "arXiv:2309.12724, Theorem 1.1",
+          "arXiv:2311.06006v1, Theorems 1.1–1.2",
+          "arXiv:2305.00792, representation functions and moments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (evidence only)",
+        "Weinstein arXiv:math/0307150v13",
+        "Chow–Slattery accepted manuscript, arXiv:2309.12724, arXiv:2311.06006v1 and arXiv:2305.00792",
+        "Resultary 480a482a72b6 and aa2651dbb66a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing B_i for the exact-k positive band count, Theorem 5.1 makes B_i constant and positive for i≥2k. Therefore (1−z)∑_{i≥1}B_i z^i has degree at most 2k and value at 1 equal to that band count.",
+          "Summing the B_i gives the submitted OGF with denominator (1−z)^2, plus the k=1 zero term. Affine cutoff and arbitrary-X logarithmic forms follow immediately."
+        ],
+        "reasoning": "The different calculation combines the known pointwise gap formula with a capped-state recursion, but the asserted function, stabilization and all associated asymptotics are consequences of the prior classification and band theorem. With k=12 the bounded prefix plus the existing table similarly fixes the numerator and tail. No separate improvement in complexity, threshold or enumerative scope is established.",
+        "searches": [
+          "arXiv:math/0307150v13, Theorem 5.1 and its proof, plus Table p. 23",
+          "Chow–Slattery Theorem 1.1 and submitted recursion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weinstein uses exactly f₁=1, f₂=2 and counts partitions into different Fibonacci numbers. His stabilized intervals are [f_i−1,f_{i+1}−1).",
+          "The submitted greatest-index bands are [f_i,f_{i+1}). Both swapped endpoints have R=1: complementing within parts through f_{i−1} reduces R(f_i−1) to R(f_{i−1}−1)."
+        ],
+        "reasoning": "The endpoint exchange preserves all fixed-k band counts, even for k=1 since one R=1 integer is exchanged for another. The separate n=0 term is the frozen OGF convention, not a different representation problem. Chow–Slattery give the pointwise gap formula rather than band stabilization.",
+        "searches": [
+          "Resultary/SCOPE: fixed-value Fibonacci partition fibers, affine cutoffs and Zeckendorf-gap counts",
+          "arXiv:math/0307150v13 abstract and Theorem 5.1",
+          "Chow–Slattery, On Fibonacci Partitions, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table gives Ψ(12)=22, so the stabilized slope 44 is already specified by Theorem 5.1. Enumerating the finite base count C₁₂(24)=506 then gives the exact stated intercept.",
+          "The indexed exact match 480a482a72b6 is the same record; the separate same-day parity record counts odd representation numbers together rather than a fixed exact k."
+        ],
+        "reasoning": "The prior exact table and theorem give the tail, and the remaining k=12 numerator or intercept is the finite prefix of the known fiber. No claim is made that the seven coefficients are printed as a polynomial in the earlier source.",
+        "searches": [
+          "Weinstein arXiv:math/0307150v13, Ψ(k) table p. 23",
+          "Resultary/SCOPE: exact affine fixed-value Fibonacci partition fibers including k=12",
+          "SCOPE-exact-parity-sparsity-law-for-distinct-fibonacci-partitions--aa2651dbb66a"
+        ]
+      },
+      "rationale": "Weinstein's Theorems 3.8 and 5.1 are material prior coverage, omitted by the submitted comparison. They classify each fixed-value fiber and explicitly give stabilization at i≥2k with a computable band count. With the same indexing and the unique-representation endpoints removed/added, this implies the rational denominator, eventual affine and logarithmic laws, positivity, and a strictly better numerator degree bound. Weinstein's table gives the precise k=12 eventual band count. The finite numerator coefficients are a direct enumeration of the already classified fiber, and the alternative gap recursion does not establish a distinct substantive output at this scope.",
+      "residual_risks": [
+        "The reviewed Weinstein source is a time-stamped preprint, not proof of peer-reviewed publication. Its cited Klarner work for k=1,2,3 was not inspected.",
+        "No claim is made about the first publication of the specific seven-term polynomial or the particular capped-state implementation. Neither changes substantive coverage of the frozen claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier fixed-fiber classification and per-band stabilization, implying the core frozen finding and stronger degree bound.",
+          "evidence": "Theorem 5.1: the quantity in [f_i−1,f_{i+1}−1) is independent of i≥2k and equals 2Ψ(k) for k>1, or 1 for k=1. The table gives Ψ(12)=22.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0307150v13",
+          "material_read": "Definitions and abstract p. 1, Theorem 3.8 p. 11, Theorem 5.1 and Lemma 5.3 p. 13, Ψ table p. 23",
+          "method": "Primary OA PDF bounded passages at offsets 0, 45000, 52900–57734 and 96600",
+          "title": "Notes on Fibonacci Partitions",
+          "trigger": "Exact fixed-value equation, stabilization and k=12 counts"
+        },
+        {
+          "assessment": "Pointwise Zeckendorf-gap formula is a known ingredient; the summatory theorems are not fixed-fiber counts.",
+          "evidence": "Theorem 1.1 evaluates R(H) via the Zeckendorf gaps; the subsequent main results concern summatory behavior.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/150069/1/WRAP-on-Fibonacci-partitions-Chow-2021.pdf",
+          "material_read": "Theorems 1.1–1.3, pp. 2–4",
+          "method": "OA accepted manuscript passages at offsets 2520 and 6000",
+          "title": "On Fibonacci Partitions",
+          "trigger": "Same exact pointwise Fibonacci partition rule"
+        },
+        {
+          "assessment": "Moments, not the submitted exact fixed-k cardinalities.",
+          "evidence": "The object is ∑_{n<N}r_F(n)^p, and the theorem gives growth for this sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12724",
+          "material_read": "Power-sum definition and Theorem 1.1, p. 2",
+          "method": "Primary OA PDF passages at offsets 1500–5051",
+          "title": "A Note on the Power Sums of the Number of Fibonacci Partitions",
+          "trigger": "Potential counts from value distribution or automata"
+        },
+        {
+          "assessment": "Pointwise cocycle and ratio patches, not stabilization of fixed-value bands.",
+          "evidence": "Theorems give a rotation-cocycle representation and characterize realizable local ratio patches.",
+          "identifier_or_url": "https://arxiv.org/html/2311.06006v1",
+          "material_read": "Theorems 1.1 and 1.2",
+          "method": "Primary HTML passages around offsets 3090–6625",
+          "title": "The Dynamics of the Fibonacci Partition Function",
+          "trigger": "Potential equivalent description via cocycles and local distribution"
+        },
+        {
+          "assessment": "General representation framework and moments without this exact cutoff conclusion in the inspected material.",
+          "evidence": "Defines representation and cumulative counts and discusses their moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.00792",
+          "material_read": "Definitions p. 1 and §2.3 p. 12",
+          "method": "Primary OA PDF passages including offset 44280",
+          "title": "On the Representation Functions of Certain Numeration Systems",
+          "trigger": "Possibly broader numeration-system result"
+        },
+        {
+          "assessment": "Same representation function, different grouping of values.",
+          "evidence": "Its exact series counts n for which R(n) is odd, not preimages of each prescribed exact k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-parity-sparsity-law-for-distinct-fibonacci-partitions--aa2651dbb66a/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Local mirror of RESULT.md from offset 0",
+          "title": "Exact parity sparsity law for distinct Fibonacci partitions",
+          "trigger": "Closest distinct indexed result on exact value distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A fixed-value census and effective linear-onset guarantee are natural questions, but the submitted mathematical outputs are covered by an earlier stronger stabilization theorem. The residual differences are a re-expression of the known band law, a different evaluation procedure with a weaker stated degree bound and no established computational advantage, and a routine finite prefix computation at k=12. These do not give a sufficiently motivated distinct surviving result for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:05:40.375086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct expansion with u=g/||g|| and v=(-u2,u1) gives the PSD rank-one residual ab vv^T/(a u1²+b u2²), whose Frobenius norm is its sole nonzero eigenvalue. The optimum Frobenius tail is b, so R=κ/[1+(κ−1)T] with T=u1². The Gaussian direction is uniform on the circle, T has the arcsine density, and inversion gives the claimed CDF (at κ=1 the law is a point mass). The first two angular integrals follow from tan θ substitution and differentiation in the two denominator coefficients. For q<1/2, t^(−q) is an integrable majorant against the arcsine law; for q>1/2, scaling t=s/κ on t≤1/2 gives the stated beta constant and the upper half contributes O(1). For q=1/2, the integral is (2/π)K(1−1/κ) in parameter convention, with endpoint log(4√κ)+o(1) for K, giving coefficient 1/π and bounded remainder. For any unit isotropic probe E[T]=1/2; strict Jensen gives equality precisely at constant squared coordinate energies, and the normalized independent signs attain it with zero cross moment. The statement is about a fixed known eigenbasis, not uniform benefit over unknown rotations. Replay: RESULT.md lines 4–64; the frozen VERIFICATION.md and verify.py were inspected without execution, and the finite checks described there are only corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected mainstream expectation bounds require larger target ranks and/or oversampling; finite precision work includes unoversampled settings but does not give this exact angular law. The later universal half-moment record gives a spherical harmonic-mean law and three regimes for sketch size one below the exact rank; setting rank two and dividing by the small eigenvalue recovers the frozen Gaussian law and leading constants, but not the separate isotropic design claim."
+        ],
+        "reasoning": "One-sided oversampled bounds do not cover this law. The broader later result is actual analytical overlap but is not used to infer priority; the same-day pointwise formula is the decisive comparison.",
+        "searches": [
+          "arXiv:2404.00960v2, Theorems 2 and 6",
+          "arXiv:1706.05736v1, Theorem 4.1",
+          "arXiv:2205.13355, §§2 and 4.1",
+          "arXiv:2308.05814, §1",
+          "2026/10/18/SCOPE-a-universal-half-moment-transition-for-unoversampled-gaussian-ny--6a0180b3e23e, Finding (1)–(2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary and the three compared published records",
+        "arXiv:2404.00960v2",
+        "arXiv:1706.05736v1",
+        "arXiv:2205.13355",
+        "arXiv:2308.05814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inverting the explicit same-day Gaussian ratio gives the CDF; its moments are the standard Euler integral for 2F1(q,1/2;1;1−1/κ), whose endpoint exponents are governed by 1/2−q. The first and second moment evaluations are elementary cases. The same pointwise formula is valid by the matrix identity for deterministic g, including coordinate zeros by continuity. For an isotropic unit probe the one angular coordinate has known mean 1/2; strict convexity gives the all-q minimum and equality condition immediately, with fair signs providing the admissible constant-energy direction."
+        ],
+        "reasoning": "Although the same-day result does not print the design optimum and all-q moment expansion, those claims follow by the fixed residual formula, textbook beta endpoint analysis and Jensen with an explicit equality witness. The later record independently confirms overlap for the Gaussian regimes without supplying historical precedence.",
+        "searches": [
+          "FunNyström local-mirror RESULT.md, Proof around offsets 2620–5290",
+          "Frozen RESULT.md lines 47–64",
+          "Later unoversampled Nyström Finding (1)–(2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The FunNyström proof gives its sole approximation eigenvalue τ=κ−(κ−1)/(1+κ^(2j−1)X), with j denoting passes and X=G1²/G2², and error κ^θ+1−τ^θ. With j=1 and θ=1 this is (κ+X)/(1+κX). The residual is rank one, so trace and Frobenius norms agree. Its displayed density for X gives T=X/(1+X) with the arcsine density, and the error is identically κ/[1+(κ−1)T]."
+        ],
+        "reasoning": "The matching statistic is the full normalized error law for all contrasts, including its deterministic directional expression; it is not a coincidence of E[R] or a clash of the two records' meanings of q.",
+        "searches": [
+          "Resultary: one-column Gaussian Nyström angular residual, rank-one trace/Frobenius error, isotropic sign design",
+          "2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0, Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-day record has an exact error formula and moment, not just a table of parameter values. The later half-moment record overlaps the Gaussian component; the later fixed-modulus record treats the squared range-finder residual and iid centered variance-one probes in dimensions at least three, not the two-dimensional Nyström design class."
+        ],
+        "reasoning": "These distinct records were compared at the level of the actual statistic, rank, pass count and probe class. The same day alone does not order the FunNyström and frozen records.",
+        "searches": [
+          "Resultary: one-column FunNyström crossover, half-moment transition and fixed-modulus optimality",
+          "2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0",
+          "2026/10/18/SCOPE-a-universal-half-moment-transition-for-unoversampled-gaussian-ny--6a0180b3e23e",
+          "2026/11/2/SCOPE-fixed-modulus-optimality-and-a-sharp-gaussian-tail-penalty-in-on--163212af3a0e"
+        ]
+      },
+      "rationale": "The decisive same-day FunNyström proof already gives the full unpowered two-eigenvalue residual as a function of the exact squared-normal ratio, not merely the first moment. Its one-pass, matrix-exponent-one specialization is the same random variable, and its deterministic formula applies to each nonzero probe. The additional frozen law and moment statements are evaluations or endpoint expansions of that explicit distribution; the isotropic-energy optimum is a direct Jensen corollary of the same pointwise formula. A materially distinct exact result is not established. This is statement-level overlap and implication, not a finding about which same-day record was first.",
+      "residual_risks": [
+        "Same-day publication order cannot be inferred from the records. The decision is based on the equivalent available law and direct implications, not a claim of historical priority or an exhaustive search for the earliest Jensen comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent error law at one pass and unit exponent; same-day priority unresolved",
+          "evidence": "The pointwise τ, trace error and density of the squared-Gaussian ratio together give exactly the frozen R; the source explicitly disclaims novelty of the unpowered two-eigenvalue law.",
+          "identifier_or_url": "2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0",
+          "material_read": "Finding and Proof near offsets 2620–5290; prior-work discussion near offset 5460",
+          "method": "Local Resultary search and direct published-record mirror read, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "One-column FunNyström has a sharp Gaussian trace-error crossover",
+          "trigger": "Same diagonal spectrum, Gaussian one-column sketch, and exact mean error"
+        },
+        {
+          "assessment": "Broader Gaussian result, later-dated",
+          "evidence": "At positive rank two and sketch size one, g_r² is arcsine, and the harmonic-mean error divided by the small eigenvalue has the frozen law and leading constants.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-half-moment-transition-for-unoversampled-gaussian-ny--6a0180b3e23e",
+          "material_read": "Finding, Eqs. (1)–(2), offset 0 onward",
+          "method": "Local Resultary and published-record mirror",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström error",
+          "trigger": "Exact distribution and same critical moment"
+        },
+        {
+          "assessment": "Distinct optimization problem",
+          "evidence": "Uses a range-finder residual in dimensions at least three and iid centered unit-variance probes, not the frozen directional-isotropy class.",
+          "identifier_or_url": "2026/11/2/SCOPE-fixed-modulus-optimality-and-a-sharp-gaussian-tail-penalty-in-on--163212af3a0e",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Fixed-modulus optimality and a sharp Gaussian tail penalty in one-column range finding",
+          "trigger": "Related fixed-energy minimization"
+        },
+        {
+          "assessment": "Oversampling and rank restrictions exclude the frozen case",
+          "evidence": "Target rank at least two and positive oversampling in the first comparison, with at least four extra columns for the Frobenius theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2404.00960v2",
+          "material_read": "Theorem 2, §2.3.1, and Theorem 6, §2.4.1",
+          "method": "Open-access full-text passages",
+          "title": "Randomized Nyström approximation of non-negative self-adjoint operators",
+          "trigger": "General Gaussian Nyström results including Frobenius expectations"
+        },
+        {
+          "assessment": "Expected bound for larger sketches",
+          "evidence": "The theorem assumes target rank r below sketch size k.",
+          "identifier_or_url": "https://arxiv.org/html/1706.05736v1",
+          "material_read": "§4, Theorem 4.1",
+          "method": "Open-access full-text passage",
+          "title": "Fixed-Rank Approximation of a Positive-Semidefinite Matrix from Streaming Data",
+          "trigger": "Fixed-rank Nyström norm bounds"
+        },
+        {
+          "assessment": "Floating-point and shifted-error analysis, not the exact angular law",
+          "evidence": "No-oversampling is investigated, but the inspected analysis addresses mixed precision and stabilization.",
+          "identifier_or_url": "https://arxiv.org/html/2205.13355",
+          "material_read": "§2 and no-oversampling experiments in §4.1",
+          "method": "Open-access full-text passages",
+          "title": "Single-pass Nyström approximation in mixed precision",
+          "trigger": "No-oversampling Nyström setting"
+        },
+        {
+          "assessment": "Different general probe comparison",
+          "evidence": "Studies families of distributions and sufficient conditions, not this exact all-isotropic-law minimization.",
+          "identifier_or_url": "https://arxiv.org/html/2308.05814",
+          "material_read": "§1, around offset 5720",
+          "method": "Open-access full-text passage",
+          "title": "Randomized Low-Rank Approximations beyond Gaussian Random Matrices",
+          "trigger": "Non-Gaussian sketch design"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Contrast sensitivity and the square-loss comparison are useful benchmarks, but the frozen scope is exactly the previously exhibited two-eigenvalue directional formula. The displayed constants quantify its classical one-variable endpoint behavior, and the optimality statement is a scalar constant-energy Jensen equality in the known basis. This does not establish a nonmechanical additional risk or design result. In particular the sign sketch is not shown to be optimal without the known basis.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

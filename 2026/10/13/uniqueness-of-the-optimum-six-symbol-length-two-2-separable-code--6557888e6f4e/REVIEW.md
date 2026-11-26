@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the code-to-\(C_4\)-free equivalence, obtains the sharp \(16\)-edge bound from pair counting, eliminates the two spurious equality degree sequences, and forces the surviving packing from the three perfect matchings of \(K_4\). The Fano completion, labeled count, orbit size, and stabilizer then follow exactly. The standalone verifier independently exhausts the finite \(6\times6\) search and agrees with every numerical consequence.
+## correctness
 
-## Originality
-**PASS.** The closest primary source, Cheng et al. (DOI 10.1007/s10623-013-9849-9), proves the model equivalence and the known exact value \(M(\overline{2},2,6)=16\), but the inspected full text does not classify all equality cases. Targeted searches across code, packing, \(C_4\)-free, Zarankiewicz, Fano-deletion, count, and symmetry formulations found no implication-equivalent statement. A historically plausible 2000 exact-value paper was not fully accessible, so that is retained as a residual literature risk rather than treated as negative evidence.
+PASS
 
-## Value
-**PASS.** The equality structure of a classical exact short-code benchmark is mathematically motivated. The result upgrades a known maximum-size statement to a complete rigidity theorem, identifies the extremizer with a punctured Fano incidence geometry, and supplies exact labeled and symmetry counts. Those facts can be used without rerunning an extremal search whenever the six-symbol length-two optimum arises as a component or base case.
+A descendant collision between different coalitions of size ≤2 requires the two opposite diagonals of a rectangle: when one coordinate is constant the other coordinate set determines the coalition. Hence the graph is C4-free. Pair nonrepetition bounds the six neighborhood sizes by sum_i binom(d_i,2)≤15; balancing at total 17 already gives 16. At total 16 there are only three profiles meeting the bound. Five triples covering every pair are impossible by parity of the five pairs through a point, and a 4-block forces both triples to repeat the pair outside it. For the remaining profile (3,3,3,3,2,2), the four points outside the leave {a,b} each belong to exactly one 2-block by parity and the two 2-blocks exhaust these incidences. The 2-block matching and the two matchings induced by triples through a and b must be the three distinct matchings of K4. The stated Fano completion and representative follow. The 15·3·2·6!=64800 count labels these data without overcounting; there is already one side-preserving orbit and the full-group stabilizer is 16. Independent pair-mask backtracking checked all degree profiles, found 90 unordered block families with labeled points and verified all their Fano completions. Direct labeled orbit generation with an unsorted transpose verified the full group action (python3 /workspace/branches/independent_checks.py 4). The frozen script's helper sorts transpose rows; the analytic proof and the independent unsorted check verify the labeled transpose action without relying on that implementation detail.
 
-## Closest literature and limitations
-The known numerical result is \(z(6;2)=M(\overline{2},2,6)=16\). This finding does not claim that value as new. It claims the complete equality classification and census. The scope is restricted to the balanced six-symbol length-two case; no extension to larger alphabets or unbalanced graphs is asserted. Full text of the 2000 small-value paper could not be completed in this review, leaving a specific access-related originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The C4-free equivalence, numerical maximum, and Fano-deletion construction are not credited as new. The supported distinct result is that every maximum is such a deletion and the exact labeled census. The strongest accessible related statements give an extremal value or a construction, not rigidity; an important historical source remains uninspected in full.
+
+## value
+
+PASS
+
+The natural six-symbol optimum is already known, but completing every equality case to the same Fano incidence structure explains rigidity rather than recomputing that value. It determines the only maximum-code isomorphism type and its multiplicity for exact classification or code generation. The matching description is a usable structural certificate for the complete finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

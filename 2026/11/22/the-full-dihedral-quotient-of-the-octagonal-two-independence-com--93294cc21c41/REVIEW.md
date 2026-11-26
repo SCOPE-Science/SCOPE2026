@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The orbit chain model explicitly uses strictly nested nonempty faces of the eight-cycle no-three-run complex, and group elements preserve chain ranks. Every orbit cell and signed incidence is regenerated. The delivered verifier checks all integer boundary compositions and 257 unit-pivot integral chain-homotopy cancellations to the two-cell, zero-differential complex. The existing nonequivariant three-sphere wedge supplies a simply connected covering space. Both axis types of reflection have explicitly identified fixed points, so Armstrong kills the full dihedral group. Integral Hurewicz and Whitehead then prove homotopy equivalence to a three-sphere. The finite computation is exhaustive for this eight-vertex complex.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Taylan and Deshpande–Singh give nonequivariant spheres, not integral orbit topology. The closest published exact-object dihedral character determines only rational invariant homology, and the subgroup fixed-space theorem determines isotropy geometry without quotient integral chain calculations. Full texts of both records and the 2015 primary work were compared. An orbit homotopy-three-sphere statement or a stronger result implying it was not found in the inspected material. Equivalent unindexed work remains possible.
+PASS
 
-## Value — PASS
-At the first octagonal, three-sphere-wedge case of the cycle two-independence family, adding every reflection retains exactly one top sphere up to **integral homotopy**, not just rational homology. This determines all integral torsion and the quotient fundamental group, questions unaffected by rational character calculations alone. The finite natural threshold and exact reproducible integral reduction make the classification useful for examining the higher-cycle pattern.
+The claim is about ordinary geometric orbits of the no-cyclic-triple vertex complex under all 16 symmetries, and asserts homotopy type, not homeomorphism. In a subdivision chain the vertices have distinct ranks; two points in one closed simplex identified by a symmetry must have the same support and barycentric coefficients. The orbit cells therefore have the signed face-deletion boundaries used in the computation. An independent exact enumeration reproduced 130 nonempty faces, cell counts (15,81,183,177,60), boundary-square zero, and 257 integral unit-pivot chain cancellations leaving ranks (1,0,0,1,0) with zero differential. Splitting off unit pivots removes contractible chain summands and detects integral torsion; it is not a topological collapse. Simple connectivity of the input also follows directly: its 1-skeleton is complete, every missing triangle {i,i+1,i+2} has its boundary filled by coning it to i+4 modulo 8, and these triangular loops normally generate the relations needed to make the complete graph simply connected. Every even-axis reflection fixes a vertex and every odd-axis reflection fixes an adjacent-edge midpoint. These reflections generate the group, so Armstrong's theorem gives trivial orbit fundamental group. Hurewicz yields a generator represented by a map from S^3, and homological Whitehead upgrades that integral homology isomorphism to a homotopy equivalence of simply connected CW complexes.
 
-## Limitations and closest work
-The 2015/2020 sphere-wedge classification and 2026 rational character/fixed-space classifications are credited rather than reclaimed. No homeomorphism, infinite parameter formula, independent audit, or exhaustive unpublished priority check is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected prior claim on exactly this ordinary quotient gives rational topology only; other same-complex sources classify the unquotiented space or subgroup fixed spaces. A sphere homeomorphism of a superficially similar eight-cycle quotient is for a different face condition. The integral homology and resulting homotopy equivalence are supported distinctions, not claims of exhaustive historical priority.
+
+## value
+
+PASS
+
+A full integral homotopy classification of the ordinary quotient at the natural eight-cycle case resolves information genuinely absent from its known rational quotient and its fixed-set classifications. The computation excludes torsion and gives an orbit-space test case a researcher can reuse; the separate simple-connectivity argument turns that calculation into a complete sphere homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

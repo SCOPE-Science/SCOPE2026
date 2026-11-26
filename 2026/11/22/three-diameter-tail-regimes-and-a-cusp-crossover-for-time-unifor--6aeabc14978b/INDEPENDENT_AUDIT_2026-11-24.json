@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:03:18.290430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and VERIFICATION.md",
+        "Inspected frozen verify.py as evidence only",
+        "Fresh review diagnostics: /workspace/reviews/replay_4.py and /workspace/reviews/replay_4.txt (one-dimensional angular-width quadrature, independent of the frozen mesh)"
+      ],
+      "rationale": "At fixed positive gap Δ<2π, the squared chord length is maximized uniquely at midpoint π. The maximal distance at that gap is F=Δ+2β sin(Δ/2), whose derivative gives the endpoint and interior maximizers in RESULT.md. The diameter excess above 2π is the integral of 2 sqrt(β²−1)/β from 1 to β, giving the stated 3/2-power coefficient. In the endpoint coordinates s,u the subcritical deficit is (1−β)(s+u)+O((s+u)^3), and at β=1 it is (s³+u³)/6+O((s+u)^4); the triangular and cubic sublevel areas give the two constants, including the factor 2/(4π²) for the orders. At a prolate maximum the coefficients of (Δ−Δβ)^2 and (midpoint−π)^2 are qβ/4 and qβΔβ/Dβ, respectively, and the gap-midpoint change of variables has unit Jacobian. In the moving window compactness localizes both orders at the critical endpoints. With w=s+u the chord never exceeds F(2π−w); thus for small w the deficit is bounded below by c w³−|β−1|w uniformly near β=1. This gives bounded rescaled support. The rescaled deficit converges uniformly there to M(λ)+(x³+y³)/6−λ(x+y); the limiting level boundary has measure zero and the sublevel has positive area. The indicator densities converge in L1, and their normalized versions prove the branchwise total-variation claim. The branch probabilities are in fact exactly equal once localization holds. For λ=−L the scale L^−1 gives a unit triangle; for λ>0 set x0=√(2λ) and write the one-coordinate rise as (x−x0)^2(2x0+x)/6, which both confines and proves convergence to the local disk at scale x0^−1/2. This yields both matching constants without needing a uniform-in-λ convergence statement.",
+      "residual_risks": [
+        "Numerical replay corroborates constants only; the limit and its total-variation form follow from the proof. The proof is for independent uniform phase over one closed period and fixed λ in the moving window."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "27c3f17c40ea gives an endpoint-cusp theorem for arclength sampling",
+          "1955f3753f0c gives a quartic-to-quadratic moving window and a TV mark limit on a spherical curve",
+          "Tong–Ahmadi–Pan treats point distances inside triangles and triangle chords"
+        ],
+        "reasoning": "Those results do not specialize to this sampling law and cubic, boundary-to-interior transition. The spherical window is a method analogue, not a theorem for such trochoids.",
+        "searches": [
+          "Resultary cusp diameter normal forms and moving-window results",
+          "arXiv:1312.2498, abstract and §II-B"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 27c3f17c40ea, 1955f3753f0c, 99ddc2fdeba5",
+        "MathWorld Trochoid and Prolate Cycloid",
+        "arXiv:1312.2498",
+        "Lockwood Chapter 9 public entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arclength cusp theorem shares local geometric information with the critical fixed curve",
+          "The spherical theorem has a quartic window with a different scaling and coefficient"
+        ],
+        "reasoning": "One may reuse cusp geometry and ordinary local-area reasoning; neither directly gives the β-dependent maximizer shift, the scaled uniform-phase support Sλ, or its matching limits. No originality is attributed to rolling-circle parametrization or the generic use of local sublevel areas.",
+        "searches": [
+          "27c3f17c40ea Proof §§1–3; 1955f3753f0c Proof §§1–3; MathWorld curve entries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 27c3f17c40ea, Finding and Assumptions: one-arch cycloid with arclength-uniform sampling, ε^(4/3) tail and Dirichlet marks",
+          "MathWorld states the classical rolling-circle family and its parameter classes"
+        ],
+        "reasoning": "The cycloid at β=1 is the same curve, not the same probability law: its arclength weight near a cusp is proportional to phase distance, whereas uniform phase has constant density. The assigned catalogue self-match is not precedent.",
+        "searches": [
+          "Resultary: trochoid and cycloid cusp diameter, phase versus arclength",
+          "MathWorld Trochoid and Prolate Cycloid; targeted trochoid diameter/distance literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue comparison included 99ddc2fdeba5 (arclength-uniform hypocycloids: ε² tails and TV marks), 27c3f17c40ea, and the assigned record itself",
+          "Public classical curve entries give construction/classification, not a table of the three phase-uniform tail constants or the crossover function; the Lockwood web entry did not expose chapter text"
+        ],
+        "reasoning": "The exact thing sought is the constants and phase-window law, not a table of trochoid curve coordinates. No matching independent statement was verified.",
+        "searches": [
+          "Resultary one-period trochoid/cycloid diameter asymptotics and matching coefficients",
+          "MathWorld Trochoid and Prolate Cycloid",
+          "Lockwood, The Cycloid, publisher chapter entry"
+        ]
+      },
+      "rationale": "The classical curve and same-day geometric and asymptotic analogues are credited. The closest result for the same critical curve uses a measure vanishing at the cusp in phase coordinates. The closest moving-window theorem concerns a different curve, degeneracy, and parameter. Neither supplies the stated phase-uniform cubic window and mark law. No equivalent or dominating statement was established in the examined sources; same-day catalogue dates do not settle priority.",
+      "residual_risks": [
+        "Classical exact diameter geometry could be covered in inaccessible or unindexed historical trochoid treatments; no priority claim is made.",
+        "Scope is limited to statement-level comparisons of the inspected material; Brown tutorial and handbook passages were not obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material geometric overlap; distinct sampling and no moving trochoid parameter",
+          "evidence": "Arclength-uniform endpoint-cusp law, ε^(4/3), and Dirichlet limit.",
+          "identifier_or_url": "Resultary 27c3f17c40ea",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof §§1–3",
+          "method": "Local catalogue mirror and statement comparison",
+          "title": "Cuspidal curvature and the four-thirds rare-diameter law for cycloids",
+          "trigger": "Same one-arch critical curve and apparently general cusp theorem"
+        },
+        {
+          "assessment": "Structural analogue, not a covering theorem",
+          "evidence": "Spherical arclength model and quartic scaling, rather than the cubic phase window.",
+          "identifier_or_url": "Resultary 1955f3753f0c",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof §§1–3",
+          "method": "Local catalogue mirror",
+          "title": "A quartic-to-quadratic diameter-tail crossover on spherical hippopedes",
+          "trigger": "Critical-window coefficient and conditional TV law"
+        },
+        {
+          "assessment": "Different family and sampling law",
+          "evidence": "Integer-cusp hypocycloids and arclength-uniform ε² laws.",
+          "identifier_or_url": "Resultary 99ddc2fdeba5",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof §§1–3",
+          "method": "Local catalogue mirror",
+          "title": "Sharp cusp diameter laws and parity-dependent sample extremes of hypocycloids",
+          "trigger": "Cycloidal terminology and marked near-diameter tails"
+        },
+        {
+          "assessment": "Classical curve background only in material inspected",
+          "evidence": "Rolling-circle tracing-point construction and curtate, cycloid, prolate partition.",
+          "identifier_or_url": "https://mathworld.wolfram.com/Trochoid.html ; https://mathworld.wolfram.com/ProlateCycloid.html",
+          "material_read": "Introductions and prolate description; text extraction did not preserve displayed equations",
+          "method": "Open web passages",
+          "title": "Trochoid; Prolate Cycloid",
+          "trigger": "Classical family and possible pre-existing exact diameter"
+        },
+        {
+          "assessment": "Different objects and measures",
+          "evidence": "Interior points and triangle chord lengths, not one-period phase samples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.2498",
+          "material_read": "p. 1 abstract/problem statement and p. 4 §II-B",
+          "method": "Open-access PDF text around offsets 818 and 14043",
+          "title": "Random Distances Associated with Arbitrary Triangles",
+          "trigger": "Related distance-distribution methods"
+        },
+        {
+          "assessment": "Unresolved historical coverage risk; not evidence of noncoverage",
+          "evidence": "Chapter identified at the publisher; summary unavailable.",
+          "identifier_or_url": "https://doi.org/10.1017/CBO9780511569340.012",
+          "material_read": "Publisher chapter metadata, pp. 81–90; chapter text not accessible in the inspected route",
+          "method": "Public publisher page",
+          "title": "Lockwood, A Book of Curves, Chapter 9: The Cycloid",
+          "trigger": "Potential historical coverage of cycloid diameter geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and assumptions; material comparisons 27c3f17c40ea and 1955f3753f0c"
+      ],
+      "rationale": "The tracer-radius threshold cancels the linear endpoint deficits and moves the unique maximizing pair off the parameter boundary. The unified quantitative description gives both the change of exponent and where near-diameter pairs actually occur in the transition, information missing from fixed-parameter or arclength results. The distinction is directly useful for phase-uniform rolling experiments and is not just a rewording of the classical geometry.",
+      "residual_risks": [
+        "Neither other sampling densities nor more than one period are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

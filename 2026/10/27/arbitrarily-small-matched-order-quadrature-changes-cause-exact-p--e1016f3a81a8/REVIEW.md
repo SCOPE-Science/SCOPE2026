@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two unit-cell integrals reduce exactly to the scalars \(2\), \(3\), \(p_\varepsilon=2+\varepsilon^2\), and \(q_\varepsilon=1-2\varepsilon^2\). Every nonresidual iterate reaches the exact alternating pair; the residual version contracts by \(2\varepsilon^2/3\). Smooth cutoff existence, all parameter bounds, tie choices, and finite versus infinite reasoning are treated in the proof. A separate exact-rational checker is supplementary rather than a replacement for analysis.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** Hall–Smears–Süli–Wells (arXiv:2606.24806v1) already demonstrate nonconvergence under nonmatching quadratures and slower residual-form convergence. The distinct contribution is the all-small-perturbations impossibility in a fixed smooth one-unknown finite-element example with two positive affine-exact rules, plus the exact phase criterion, cycle amplitude, biased limit and contraction rate. The earlier exact Howard convergence theory of Bokanowski–Maroso–Zidani (2009) is not applicable to the inconsistent branch-selection/forcing pair. An unindexed exact equivalent remains possible.
+PASS
 
-**Mathematical value — PASS.** The theorem gives a structural no-tolerance boundary, not just a single erratic numerical trajectory, and precisely explains why two superficially similar finite-element assembly variants behave differently. The discrete policy tie is the essential mechanism, so the result is not asserted for all strictly complementary regimes or complete nonlinear PDE solvers.
+Pass on the corrected RESULT.md, not on the frozen universal one-update assertion at a tie. The frozen pointwise policy and distinct LHS/RHS nodes permit control 0 at the midpoint and 1 at both shifted left nodes when a=1; then a'=(3−ε²)/2 is neither cycle point (e.g. 3071/2048 at ε=1/32). The repair proves the sharp entry bound, clarifies matching midpoint assembly, and phrases the general two-fixed-point classification off the switch. For every allowed ε, set t=ε². Direct nodal summation gives p=2+t, q=1−2t; the cutoff construction makes these equalities exact. A tied update is (p+β)/(2+α(1/2)) with 0≤β≤q: midpoint policy 0 makes it >1; policy 1 makes it <1. It enters the exact primitive cycle at the next update, or immediately for either uniform tie. The generic strict branch images are p/2 and (p+q)/3, with neither equal to 1; a cycle cannot include the switch and the sign tests give the announced off-switch basins. In the residual case the t bias is independent of ties; from a≤1 the next value is >1, where the slope is 2t/3 and the fixed point is 1+t/(3−2t). With both sides at the midpoint the two affine residuals vanish at 1 with slopes 2 and 3. The symmetric Taylor bound and positivity give arbitrarily small discrepancies in the specified C² test norm. Independently enumerated all pointwise tie assignments for three exact-rational offsets (python3 /workspace/audit-work/independent_checks.py 2); this supplements the all-parameter inequalities. The frozen checker was inspected, not run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The surviving result is a fixed smooth-coefficient one-hat construction with arbitrarily small positive symmetric rule perturbations of the same affine exactness, exact global period two, exact residual-form bias and rate, and the strict moment criterion. Nonmatching quadrature, the two implementation forms, and qualitative nonconvergence versus slow convergence are already known and are not credited as new. Fixing the pointwise tie handling preserves the distinct result.
+
+## value
+
+PASS
+
+The counterexample gives a concrete zero-tolerance boundary: fixed data, positive rules with identical affine exactness, a strongly monotone midpoint Bellman equation and arbitrarily small discrepancy do not ensure convergence across the policy tie. The exact amplitude, consistent residual floor and alternative biased contraction distinguish genuine cycle dynamics from numerical stagnation. This is worth retaining without a claim that it applies at strictly complementary solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

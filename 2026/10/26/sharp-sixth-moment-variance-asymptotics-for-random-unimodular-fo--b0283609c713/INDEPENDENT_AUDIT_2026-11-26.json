@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:48.087271Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Findings, assumptions and proof; independent equal-sum generating-function check as detailed above",
+        "VERIFICATION.md and check_variance.py, which was read, not executed"
+      ],
+      "rationale": "Circle integration selects equal index sums of ordered triples. Independent Haar phases make the signed multiplicity vectors an orthonormal character basis, so subtracting the constant term makes variance the sum of squared coefficients. The identical-multiset cases (three distinct, one repeated, all equal) give 36 binom(n,3)+9n(n−1)+n. Cancel the common multiset on either side of a nonzero character: residual mass one is impossible by the equal-sum constraint. At mass two, four distinct indices admit a freely chosen common third index; it contributes 36 off that support and 18 on it, hence 36(n−2). Distinct signed pair characters have count (2n³+n)/12+O(n²), since the triangular pair-count energy is (2n³+n)/3, one coincidence costs a degree of freedom, and each character has four orderings. At mass three, the residual triples specify the original multisets; six distinct indices give exactly 36 orderings and coefficient 36. Independently, the ordered equal-sum triple energy equals the coefficient of z^(3n−3) in (1+⋯+z^(n−1))⁶ by reflecting the second triple. Inclusion–exclusion gives binom(3n+2,5)−6 binom(2n+2,5)+15 binom(n+2,5), hence (11/20)n⁵+O(n⁴). Coincidences leave at most five variables subject to a nontrivial linear equation, costing O(n⁴), so the signed character count is (11/720)n⁵+O(n⁴). With repeated residual indices, mass-two support ≤3 gives O(n²) characters with coefficient O(n); mass-three support ≤5 gives O(n⁴) with coefficient ≤36. All bounds use finitely many index patterns, giving absolute constants. Squaring the generic coefficients and summing gives 216+99/5=1179/5. Dividing by n⁶ and adding the O(n⁻²) squared bias gives the stated mean-square relation.",
+      "residual_risks": [
+        "The proof uses Haar phase orthogonality; real signs do not yield the same character classification. No fluctuation limit or full finite-n variance polynomial is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 3 covers all fixed even p and fixed moments of the normalized Lᵖ-power. At p=6,m=2 it implies Var(S_n)=o(n⁶). The proof passes to limiting product moments and, for m=2, also calculates using a limiting density."
+        ],
+        "reasoning": "The general result covers weaker convergence, not the subleading variance scale n⁵, the remainder O(n⁴), or the constant; obtaining those requires controlling correlations beyond the limiting product value.",
+        "searches": [
+          "Resultary: all moments exact variance integrated 2k-th power random unimodular polynomial",
+          "Choi–Mossinghoff Thm. 3 and its proof, printed pp. 5, 15 (OA offsets 13500 and 57252)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches; mirrored records 2ac4e1c327c6, dcec63467712, 77d50fb1fc76, 5657332687c9",
+        "Choi–Mossinghoff author PDF; arXiv:2012.15507; targeted literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fourth generic pair coefficient is 4; at sixth power it becomes 36(n−2), so lower-order pair variance is a precursor of the 216 contribution.",
+          "It does not account for six-distinct residual characters, which contribute an additional 99/5. Concentration gives no asymptotic equivalent for the centered variance."
+        ],
+        "reasoning": "Neither combining the fourth-power collision formula with limiting concentration nor translating the multiplicative model derives the claimed law. The exact mean uses elementary matching and is not credited as the main originality.",
+        "searches": [
+          "2ac4e1c327c6 and dcec63467712, Findings; Choi–Mossinghoff Eq. (1.3), Thm. 3 and proof; arXiv:2012.15507 Thm. 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The integrated L⁶ power equals the squared coefficient norm of P_n³; variance is the squared norm of its nonconstant Fourier coefficients on the phase torus.",
+          "Choi–Mossinghoff treat this same normalized Lᵖ-power on Haar-unimodular polynomials. Benatar–Nishry–Rodgers use a random multiplicative coefficient model and study empirical distributions in the circle variable."
+        ],
+        "reasoning": "Matching 'Steinhaus' or 'Gaussian limit' is insufficient: coefficient independence and variance over phases, rather than circle sampling, define the statistic. The same-statistic result is genuine concentration overlap, not the sharp variance.",
+        "searches": [
+          "Resultary: variance integrated sixth power iid Steinhaus random Fourier polynomial consecutive frequencies six-moment balanced triple characters",
+          "Literature: random unimodular Steinhaus polynomial variance integral |sum U_j e^{ijt}|^6 sixth moment higher Lp norm variance CLT fourth moment all moments formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2ac4e1c327c6 computes exact fourth-moment variance for the same Haar ensemble; dcec63467712 gives a fourth-moment relation count for arbitrary finite supports.",
+          "Same-date 77d50fb1fc76 concerns deterministic sixth moments of torus cross-polytope spectra; 5657332687c9 gives fourth-moment variance and a CLT for a self-normalized complex-Gaussian model."
+        ],
+        "reasoning": "The inspected indexed statements do not list or imply the exact sixth variance coefficient for consecutive Haar phases. An exact count for unweighted equal-sum triples alone does not sum the squared phase multiplicities.",
+        "searches": [
+          "Resultary: 1179/5 variance integral modulus sixth power consecutive iid Haar Steinhaus phases n^5",
+          "Resultary: general formula variance L^{2k} norm powers random Steinhaus polynomials all orders iid unit circle coefficients"
+        ]
+      },
+      "rationale": "Earlier results establish normalized sixth-moment concentration for this ensemble and exact variance at power four. Neither gives the first nonzero sixth variance coefficient or resolves its two contributions. Credit the earlier concentration and the lower-order pair mechanism; the supported distinct claim is the quantitative sixth-power law.",
+      "residual_risks": [
+        "Bounded comparison does not exclude arbitrary-order covariance expansions under older or different terminology; no priority is inferred from record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers the limiting concentration but not the first variance term",
+          "evidence": "Normalized integrated even-p powers have limiting moments Γ(1+p/2)^m; the m=2 argument evaluates a limit, not its first correction.",
+          "identifier_or_url": "https://www.sfu.ca/~schoia/paper/mahlermeasure.pdf",
+          "material_read": "Eq. (1.3) p. 3, Thm. 3 p. 5 and its proof p. 15 (offsets 7400, 13500, 57252)",
+          "method": "OA author PDF",
+          "title": "Average Mahler’s measure and Lᵖ norms of unimodular polynomials",
+          "trigger": "higher powers and same Haar phase ensemble"
+        },
+        {
+          "assessment": "different randomness and statistic",
+          "evidence": "Almost-sure Gaussian empirical law in θ for a random multiplicative Fourier sum.",
+          "identifier_or_url": "arXiv:2012.15507",
+          "material_read": "p. 4, Thm. 1.2 (offset 9700)",
+          "method": "OA primary text",
+          "title": "Moments of polynomials with random multiplicative coefficients",
+          "trigger": "related moment and CLT statement"
+        },
+        {
+          "assessment": "lower moment only",
+          "evidence": "Exact fourth-power variance, asymptotic to (8/3)n³.",
+          "identifier_or_url": "2ac4e1c327c6",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "local mirror",
+          "title": "Exact finite variance of the fourth moment of a random unimodular polynomial",
+          "trigger": "same ensemble and closest sharp variance"
+        },
+        {
+          "assessment": "different moment order",
+          "evidence": "Fourth-power variance 8T(A)+32Q(A), using three-term progressions and four-distinct equal-sum relations.",
+          "identifier_or_url": "dcec63467712",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "local mirror",
+          "title": "Random phase fourth-moment variance detects the non-Sidon relations",
+          "trigger": "more general spectrum and collision counting"
+        },
+        {
+          "assessment": "different support and deterministic objective",
+          "evidence": "Sharp deterministic L⁶ bound for spectrum {±e_j}, no variance for consecutive iid coefficients.",
+          "identifier_or_url": "77d50fb1fc76",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "local mirror",
+          "title": "Sharp sixth Fourier moments and a positive deficit certificate for cross-polytope spectra",
+          "trigger": "same-date indexed sixth Fourier moment hit"
+        },
+        {
+          "assessment": "different model and power",
+          "evidence": "Self-normalized fourth moment under complex Gaussian coefficients.",
+          "identifier_or_url": "5657332687c9",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "local mirror",
+          "title": "Exact finite variance and Gaussian fluctuations of a normalized fourth moment",
+          "trigger": "other exact variance and CLT hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings and both generic variance classes",
+        "Choi–Mossinghoff Thm. 3 and Resultary 2ac4e1c327c6 for comparison baselines"
+      ],
+      "rationale": "This quantifies the fluctuation scale and exact mean-square error of the first integrated even power beyond the fourth for a natural iid unimodular ensemble. The separation between inherited pair collisions and genuinely new triple collisions explains why a fourth-moment formula alone cannot give the constant. The result is a useful benchmark for quantitative concentration or fluctuation theorems without asserting a CLT.",
+      "residual_risks": [
+        "No universality across coefficient distributions or frequency sets is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

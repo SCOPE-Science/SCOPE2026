@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-A direct blue/white forcing argument gives the six permitted minimum-set types. Explicit one-vertex exchanges identify two punctured rook graphs and every cross-copy matching edge. The complete adjacency classification forces the regularity and edge formula, while explicit distance paths and witnesses prove the diameter transition. The exhaustive checker tests every starting set for \(3\le a,b\le8\); finite computations only corroborate the infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The prior exact zero-forcing polynomial for bicliques with a matching removed **already determines all minimum-set counts and the eligible white complements**; neither is claimed as novel. The claimed results are the *token-jumping reconfiguration graph* itself, its two-layer punctured-rook structure, boundary matching, connectedness, regularity, and exact diameter. Geneson–Haas–Hogben define the same token-jumping model but provide different family results. Bong et al. study TAR, a distinct adjacency model. Boyer et al. count zero-forcing sets rather than their exchange distances. Actual literature and mathematical-record searches found no directly covering theorem, subject to potential unindexed equivalent work.
+PASS
 
-## Value — PASS
-This is a natural near-biclique family at the first deletion level where a minimum zero-forcing starting set leaves four white vertices. The new theorem gives a complete model of which optimal placements are one step apart, proves any can be reached from any other, and pinpoints exactly when the worst-case number of changes increases from three to four. It is not merely an increment of a scalar forcing number.
+If three whites are in one part, no opposing vertex can make the first force into that part. A white pair in a part needs a special index, and for two white pairs an initial force exists exactly when the special-index signatures differ. For each of the resulting types the explicit two forces leave a singleton in each part, and there are at least two opposite blue vertices for each singleton, so they can both be forced. Thus the minimum sets leave four whites. A token jump on their complements fixes one pair and changes one member of the other. Within a family this means a rook move; across families the fixed pair must be {1,2} and the changed pair must retain its nonspecial member, yielding exactly the identical-boundary bridges. They restore lost puncture degrees. The punctured rook diameter is at most two and every vertex is within one step of a bridge. Interior points across copies with no shared coordinate have no common bridge label and need four steps; with one nonspecial row or column, all interior points share a bridge label and the cross-copy distances are at most three. Opposite interiors give distance at least three. The vertex and edge formulas follow directly. Independent enumeration of four-white forcing closures and every labelled adjacency confirmed the exact claimed structure and the diameter in all 36 cases 3≤a,b≤8 (1,386 vertices and 5,796 edges total).
 
-## Closest literature and limitations
-See arXiv:2009.00220, arXiv:2205.09668, and arXiv:1801.08910. Exact previously known minimum-set enumeration is a prerequisite. Scope is two independent deleted edges, with both part sizes at least three. No claim is made about token sliding, general matching deletion or publication priority beyond the checked sources. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The roster of minimum sets is already covered by the broader matching-deletion classification and is not credited as novel. The exact token-jump graph, including its cross-copy edge geometry and diameter transition for two deletions, survives the comparison. The frozen record's assertion that the classification was previously known would benefit from a specific citation; within-day priority is not established and is unnecessary for the claimed graph structure.
+
+## value
+
+PASS
+
+The graph structure identifies how a natural perturbation of a biclique changes the entire minimum-set exchange geometry, not just the support count. The identity bridges provide an explicit adjacency model and explain exactly why small part size changes the maximum reconfiguration distance. This is a uniform result on two unrestricted part sizes, including both boundary regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

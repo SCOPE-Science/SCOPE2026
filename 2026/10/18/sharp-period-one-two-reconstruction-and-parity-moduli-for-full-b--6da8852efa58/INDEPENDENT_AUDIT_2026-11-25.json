@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:55:27.266166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inverse branch on each closed lap is a strict contraction, hence has one fixed point; no interior knot is fixed, and sorting recovers the branch indices. The first point is always 0, and the last is 1 exactly in odd parity. For each interior lap, solving its affine fixed-point equation expresses the next knot as an affine function of the previous one with nonzero slope. Starting at t=b1, the final even lap determines b_(m-1) from p_m=1/(2-b_(m-1)), so it determines t, including m=2. The final odd lap instead gives p_m=1 identically; strict ordering cuts the one-dimensional affine fiber into a nonempty open interval. A knot cannot be in an exact two-cycle since it maps to an endpoint and endpoints are fixed or map to the fixed endpoint 0. Compositions of two inverse branches are contractions; distinct-lap ordered pairs yield interior primitive points, same-lap pairs yield fixed points, and each primitive point has a unique ordered itinerary. Thus the minimum lies in lap 1 with successor in lap 2 by ordering of inverse ranges. With u=b2, the two-branch return gives q=tu/(1+t(u-t)); substituting p2=u/(1+u-t) gives the claimed inversion and positive fiber derivative. The open odd fiber proves sharp necessity; no noise or nonaffine claim is needed. Exact forward evaluations confirmed the two three-lap examples in /workspace/branches/audit_witnesses.py; the proof covers all real strict knot vectors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuhrmann–Gröger–Passeggi, PDF page 2, offset 5998: Theorem A assumes equality of PER with the stated density hypothesis; Theorem B asserts equality of second iterates under the other periodic-density hypothesis.",
+          "Resultary f12276008a22, RESULT.md offsets 0–3639, gives finite-period ambiguity in a broader expanding two-branch class."
+        ],
+        "reasoning": "Full-orbit rigidity does not reduce to low periods with only finite data. Conversely finite-data ambiguity in the broader class does not hold inside the fixed affine two-lap class; the admissible perturbations there are not restricted to the same zigzag model.",
+        "searches": [
+          "arXiv:2610.07435v1, Theorems A and B",
+          "Resultary f12276008a22, full tent finite periodic data"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07435v1",
+        "DOI:10.1007/s10883-022-09594-1 (abstract only)",
+        "DOI:10.1155/2021/1965479",
+        "Resultary f12276008a22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full rigidity theorem uses complete periodic orbit data, not just periods one and two.",
+          "The Bernoulli example's period-two formulas imply recovery of its single parameter, although its fixed point set is parameter-independent."
+        ],
+        "reasoning": "These antecedents cover the broad inverse question and a specific analogy; neither yields the endpoint parity equation or the affine fixed-set fibers in the stated class. The least-coordinate rule here needs the order of the alternating inverse branches.",
+        "searches": [
+          "arXiv:2610.07435v1, Theorem A hypotheses",
+          "DOI:10.1155/2021/1965479, Section 5 fixed and period-two coordinates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi–Chen–Liao, §5, PDF p. 4, have the fixed set {0,1} and smallest period-two coordinate a^2/(1-a+a^2) for an asymmetric Bernoulli shift.",
+          "Chen–Shi–Xu abstract states exact expressions for iterates and all fixed points of iterates of skew tent maps."
+        ],
+        "reasoning": "The Bernoulli formula already identifies its parameter from the least period-two coordinate (it is strictly increasing). But its discontinuous non-alternating model has no continuous-affine multibranch parity theorem. Forward itinerary formulas for given skew-tent parameters also do not imply the odd-fiber classification.",
+        "searches": [
+          "DOI:10.1155/2021/1965479, Section 5",
+          "DOI:10.1007/s10883-022-09594-1, periodic-point coordinates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest inspected distinct record: Resultary f12276008a22, 2026-11-08, Finding at offsets 0–3639. It preserves periodic orbit coordinates through N for other expanding maps and gives sharp C^0 ambiguity δ/(2^N+1)."
+        ],
+        "reasoning": "That theorem studies ambiguity beyond the fixed affine model, rather than identifying the parity obstruction among affine zigzags. No finite list of point formulas in the checked sources gives the multibranch fixed-point fiber. Chronology does not substitute for comparison.",
+        "searches": [
+          "Resultary: full-branch affine zigzag inverse periodic coordinates, fixed-point fiber and finite-period cutoff"
+        ]
+      },
+      "rationale": "Pass for the stated continuous, alternating, variable-knot affine class: the explicit parity of fixed-point fibers and a sharp finite cutoff with one least two-periodic coordinate are not furnished by full-period rigidity. A discontinuous Bernoulli model already demonstrates the analogous one-scalar identification pattern; it is not credited as a new general principle here. Comparison is bounded, not a priority certification.",
+      "residual_risks": [
+        "The Chen–Shi–Xu technical text could not be obtained. No whole-document exclusion is made.",
+        "An earlier equivalent inverse result may use different terminology; full priority was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-data theorem with different hypotheses",
+          "evidence": "Equality of full PER with a density hypothesis gives f=g; no finite cutoff or affine parity fiber.",
+          "identifier_or_url": "arXiv:2610.07435v1",
+          "material_read": "PDF page 2, offset 5998, Theorems A and B",
+          "method": "OA PDF",
+          "title": "Period spectrum and rigidity of interval maps",
+          "trigger": "Plausible stronger periodic-coordinate reconstruction"
+        },
+        {
+          "assessment": "Forward formula scope supported; exact full-text coverage unresolved",
+          "evidence": "Abstract claims exact T^n and fixed coordinates of T^n for skew tent maps.",
+          "identifier_or_url": "DOI:10.1007/s10883-022-09594-1",
+          "material_read": "Publisher abstract only",
+          "method": "Publisher page; DOI, PDF and alternate retrieval attempts did not yield technical text",
+          "title": "Periodic Points of Skew Tent Maps",
+          "trigger": "Related affine branch and periodic-point formulas"
+        },
+        {
+          "assessment": "Exact scalar-recovery analogue for a distinct map class",
+          "evidence": "Fixed set {0,1} and two exact period-two coordinates a^2/(1-a+a^2), a/(1-a+a^2).",
+          "identifier_or_url": "DOI:10.1155/2021/1965479",
+          "material_read": "Section 5, PDF p. 4, offset 21000",
+          "method": "OA PDF",
+          "title": "Periodic Points of Asymmetric Bernoulli Shifts",
+          "trigger": "Possible least-coordinate inverse equivalent"
+        },
+        {
+          "assessment": "Broader class with residual ambiguity, not the affine inverse theorem",
+          "evidence": "Other expanding two-branch maps can preserve full finite-period data through N; exact C^0 ambiguity is quantified.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-finite-period-inverse-resolution-for-full-tent-dynamics--f12276008a22",
+          "material_read": "RESULT.md offsets 0–3639",
+          "method": "Published Resultary record, local mirror",
+          "title": "Sharp finite-period inverse resolution for full tent dynamics",
+          "trigger": "Closest indexed finite-period inverse problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Geometric positions carry information that periodic orbit counts cannot distinguish in this full-branch family. The theorem determines the complete fixed-data fiber, gives the minimal maximum period in both parities, and shows how one canonically selected point removes the remaining modulus. This is actionable exact identification in a natural model, not a generic robustness claim or just the enumeration of periodic points.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

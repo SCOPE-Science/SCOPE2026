@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:49:39.715834Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54; VERIFICATION.md; verify_direct.cpp and verify_support.py inspected without execution; recorded CHECKS.txt"
+      ],
+      "rationale": "A set of ground edges dominates its line graph exactly when at most one ground label is unused: an edge on two missing labels is undominated and every other edge meets a selected one. The three distinct edges underlying a path object are connected, so cover at most four labels. To attain the resulting ceiling use disjoint four-label trees, with one final triangle on the last one, two or three required labels padded by old labels as needed, or a tree on the last four. The small orders 3, 4 and 5 admit one such object. At tight orders equality forces pairwise disjoint four-label supports and one hole. Each support gives 4·3 star choices with designated middle and 4!/2 ordinary paths, so the 24 cancels the 4! in the block partition count. With one path removed its replacement must occupy four of the five free labels; the 120 choices include the original exactly once, and neighbors obtained by dropping different paths cannot coincide. Hole swaps permit all ground-label permutations of block memberships and within-block moves select the decorations. Hence the connected graph has degree 119k and the stated edge count. The phrase 'last three-edge tree' in the construction is superseded immediately by the explicit triangle construction for one through three residual labels; that construction is valid under the non-induced convention.",
+      "residual_risks": [
+        "The recorded direct small-order check only samples exchange degrees for n=9. The all-order proof, not the sampled degrees or product enumeration, establishes regularity and connectivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 gives the P3 domination number for path and cycle host graphs, not triangular graphs.",
+          "Total domination on triangular graphs uses open neighborhoods of vertices and counts vertex subsets."
+        ],
+        "reasoning": "The known parameter framework applies, but its inspected exact results for other graph families do not specialize to L(K_n). The triangular-graph total-domination theorems refer to a different invariant.",
+        "searches": [
+          "Ibrahim–Jackson–King, abstract, §1, Theorem 11",
+          "Resultary minimum total domination 089ab809679e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; DOI 10.61091/jcmcc121-10; Resultary records 089ab809679e, 371270f6d358, bb6c3a634e6c and assigned record 8fd6499331da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record bb6c3a634e6c gives connected 6q-regular exchange and 4q-regular slide graphs at n=3q+1.",
+          "Record 371270f6d358 gives a census of two-edge stars with one hole at n=3q+1."
+        ],
+        "reasoning": "The hole-move mechanism is related. The exchange graph here needs four-label blocks decorated by distinct star/path P3 objects and permits one whole path replacement. A one-vertex exchange between earlier three-label blocks cannot supply the five supports times 24 choices or the equality classification behind that count.",
+        "searches": [
+          "Resultary exchange graphs of minimum total/paired domination, especially bb6c3a634e6c and 371270f6d358"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ibrahim–Jackson–King, §1, compatible definition as subgraphs isomorphic to P3",
+          "Resultary paired domination 371270f6d358, Finding and proof; same ground-edge model but two edges per unit"
+        ],
+        "reasoning": "Replace vertices of J(n,2) by ground edges, retaining which ground edge is middle in each P3. Total/paired dominating vertex subsets do not preserve this multiplicity (three choices on a ground star), nor do they count the same units.",
+        "searches": [
+          "Resultary: triangular graph J(n,2)/L(K_n), three-path domination and optimizer exchange",
+          "Primary literature: \"Introducing 3-Path Domination in Graphs\" triangular graph line graph complete graph exact parameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 089ab809679e gives 80 minimum total-dominating sets at n=5, not 120 edge-defined P3 configurations.",
+          "Assigned record 8fd6499331da is the exact indexed hit and not distinct corroboration or priority evidence."
+        ],
+        "reasoning": "A host-graph match or even a scalar domination formula would not tabulate the optimal labelled P3 configurations and adjacency among them. No applicable exact independent table was identified in the checked sources.",
+        "searches": [
+          "Resultary exact minimum/census and exchange search on triangular graphs; DOI 10.61091/jcmcc121-10, Theorem 11"
+        ]
+      },
+      "rationale": "The parameter and the hole-mediated exchange idea have close precedents. The exact matching Resultary entry is the assigned record itself. The closest distinct records count different dominating subsets with three-label blocks or implement a different exchange. The four-label equality classification and resulting edge-defined path census and whole-path exchange law are supported as distinct; elementary line-graph incidence is not claimed original.",
+      "residual_risks": [
+        "The external query was focused; unindexed exact results or stronger classifications on related line graphs are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known framework, exact formulas for different host families",
+          "evidence": "Defines P3-domination through the vertices of path subgraphs; Theorem 11 has ceiling(n/5) on paths and cycles (the proof uses n=5q+r).",
+          "identifier_or_url": "10.61091/jcmcc121-10",
+          "material_read": "Abstract, §1 pp. 97–98 (offsets 0–6921); Theorem 11 and proof on p. 103 (offset 25334 onward)",
+          "method": "OA publisher PDF, bounded passages",
+          "title": "Introducing 3-Path Domination in Graphs",
+          "trigger": "Original definition and exact results for the same parameter"
+        },
+        {
+          "assessment": "Counts different objects",
+          "evidence": "Counts minimum total-dominating vertex subsets; gives 80 at n=5.",
+          "identifier_or_url": "Resultary 2026/10/12/089ab809679e",
+          "material_read": "Finding and proof steps 1–3",
+          "method": "Local mirror",
+          "title": "All minimum total dominating sets of triangular graphs",
+          "trigger": "Same host family and exact labelled optimizer counts"
+        },
+        {
+          "assessment": "Three-label blocks rather than four-label path objects",
+          "evidence": "At n=3q+1 uses q two-edge stars and a hole, with (3q+1)!/(2^q q!) choices.",
+          "identifier_or_url": "Resultary 2026/10/25/371270f6d358",
+          "material_read": "Finding and proof",
+          "method": "Local mirror",
+          "title": "Paired domination slides of triangular graphs as square bouquets",
+          "trigger": "Tight-order block geometry and related moves"
+        },
+        {
+          "assessment": "Different exchange move and optimizers",
+          "evidence": "Single-vertex exchanges have degree 6q; restricted slides have degree 4q, at n=3q+1.",
+          "identifier_or_url": "Resultary 2026/11/2/bb6c3a634e6c",
+          "material_read": "Finding and proof sections 1–3",
+          "method": "Local mirror",
+          "title": "Connected regular exchange and slide graphs on minimum total dominating sets",
+          "trigger": "Closest structural exchange theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof steps 4–7; contrast with Resultary exchange record bb6c3a634e6c"
+      ],
+      "rationale": "Beyond the simple bound on the minimum, this gives a full labelled optimum-space description and its exact connected one-move geometry at every tight order. It supplies an exact reference family for reconfiguration of dominating path objects, distinguishing multiplicities and move rules that are lost when one records only selected vertices.",
+      "residual_risks": [
+        "Connectivity and the labelled optimizer count are established only at the tight orders, not at every n where the minimum formula holds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

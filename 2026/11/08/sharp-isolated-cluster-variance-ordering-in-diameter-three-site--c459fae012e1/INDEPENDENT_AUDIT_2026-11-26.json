@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:52:41.614636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run); reported VERIFY_OK 5263 is finite corroboration, not expert attestation, independent audit, or Lean verification."
+      ],
+      "rationale": "For fair independent vertex retention, condition on the four equiprobable hub states. The two single-hub states are respectively a binomial count of leaves at the absent hub plus the independent indicator that all leaves at the present hub are absent. This gives the claimed generating polynomial, mean (a+b)/4+A+B and second moment ((a+b)^2+a^2+b^2+2(a+b))/16+(b+1)A+(a+1)B, including a=0. Substitution (A,B,d) -> (2A,B/2,d+2) gives the transfer identity in RESULT.md lines 44–48. After subtracting (d+1)/8, the remainder is at least A(2+3d/4-3A)+3B²/4 when d<=4, and at least A(3+d/2-3A) when d>=4; both are positive by 0<B<=A<=1/8. For any d the excess tends to zero along a→infinity, b=a+d. The central edge of a diameter-three tree permits no other non-leaf vertices; diameter two gives the star. The successive transfers order the full list up to interchange, and its extreme quadratic coefficients are 1/32 and 1/16. A fresh integer mask enumeration checked all 18 unordered pairs for n=4–9 using N=2^n and the variance numerator N sum(z²)−sum(z)² over the masks; this corroborates, rather than proves, the formulas and transfers.",
+      "residual_risks": [
+        "No inference beyond fair site retention or beyond diameter-three trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of Diskin–Krivelevich uses d-regular hosts and p=(1−epsilon)/d to bound largest component size with high probability, not exact variance; its small-component analysis is for pseudorandom hosts.",
+          "The Resultary recursive-tree record b7181d40451e averages over a random recursive host and calculates Cov(U_n,S_n) and an annealed Gaussian limit, not finite quenched variance ordering under changes of host."
+        ],
+        "reasoning": "Neither a component-size bound for regular hosts nor the annealed covariance over random trees determines the comparison between two specified nonregular trees.",
+        "searches": [
+          "Diskin–Krivelevich arXiv:2107.13326, Theorem 1 and isolated-component treatment",
+          "Resultary search above, including the recursive-tree singleton covariance hit",
+          "Primary search for site percolation singleton variance and tree extremizers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c459fae012e1 (self-hit), cf951f62ca90, b7181d40451e",
+        "arXiv:2107.13326 and 2610.08261v1",
+        "ScienceDirect S0972860015300207 (snippet only); DOI 10.1214/25-ECP679 (cutset snippet only; full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior inspected bond variance is the sum of a degree-dependent term and positive edge covariances; the site model also has covariance between leaves at a common absent hub. That covariance is quadratic in the hub's leaf count.",
+          "The ordinary indicator-covariance identity gives a way to compute moments, not the uniform strict transfer inequality. The sign proof and exact fixed-size extrema require the comparison across leaf counts."
+        ],
+        "reasoning": "The precise threshold and the extremizers do not follow from any inspected earlier statement without new comparison work.",
+        "searches": [
+          "Statement-level comparison to Resultary cf951f62ca90 and b7181d40451e; Diskin–Krivelevich arXiv:2107.13326"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact matching Resultary hit c459fae012e1 is the record itself. The distinct bond reversal cf951f62ca90 uses a spanning subgraph with all vertices present: neighboring singleton indicators have positive covariance from a shared absent edge, while neighboring retained singletons are mutually exclusive here.",
+          "Isolate domination concerns deterministic induced sets, not the variance of the count sampled by independent fair sites; the publisher full text was not available for that hit."
+        ],
+        "reasoning": "The bond comparison shares a statistic name and the double-star shape but does not give the same law; the bond result already gives the opposite role for the star at small orders. No independent equivalent site rearrangement was identified.",
+        "searches": [
+          "Resultary: site percolation tree isolated vertices variance double stars balancing pendant leaves diameter three number isolated retained vertices exact distribution",
+          "Primary search for isolated-vertex variance and fixed-tree extremal results under site percolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bond record gives an exact graph formula, finite tree census and bond variances (e.g. at n=11); its sample space and covariance signs do not give an exact site table. Frozen verify.py enumerates a finite size range, not an independent prior table."
+        ],
+        "reasoning": "No relevant prior site-variance table or symbolic catalog for the double-star family was identified. Even a list through any fixed n alone would not imply the strict transfer for all a,b.",
+        "searches": [
+          "Resultary search above, including exact distribution and diameter-three terms",
+          "Primary search for a fixed-tree variance formula or stronger extremal result"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-order strict variance rearrangement for fixed double-star hosts under fair site retention, including the uniform sharp additive transfer threshold and full extremal classification. The elementary conditioning, variance expansion and component terminology are not a separate originality claim.",
+      "residual_risks": [
+        "Bounded comparisons do not exclude a prior graph-polynomial specialization giving moments or an older isolated-vertex extremal result. Inaccessible sources were not treated as proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct bond model, not site coverage; no date-based priority inference",
+          "evidence": "All vertices remain; the star minimizes bond variance through n=10; the singleton indicators have positive adjacent covariance.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-the-eleven-vertex-reversal-in-isolated-cluster-variance-under-bo--cf951f62ca90",
+          "material_read": "Finding, scope, proof steps 1–2, equations (1)–(3)",
+          "method": "Local mirror RESULT.md, offset 0–2793",
+          "title": "The eleven-vertex reversal in isolated-cluster variance under bond percolation on trees",
+          "trigger": "Same dates and double-star singleton variance"
+        },
+        {
+          "assessment": "No fixed-host ordering coverage",
+          "evidence": "Uniform random recursive host, annealed mixed covariance and joint Gaussian limit.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-an-exact-closed-singleton-covariance-and-its-critical-sign-trans--b7181d40451e",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror RESULT.md, offset 0–2400",
+          "title": "An exact closed–singleton covariance and its critical sign transition in site-percolated recursive trees",
+          "trigger": "Exact singleton second-order statistics under site retention"
+        },
+        {
+          "assessment": "Related process, noncovering statements",
+          "evidence": "Theorem 1 bounds largest components in d-regular hosts at p=(1−epsilon)/d; Lemma 5.4 concerns high-probability counts of isolated k-vertex trees in its pseudorandom setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.13326",
+          "material_read": "Theorem 1 and start of the supercritical assumptions on PDF p. 3; Lemma 5.4 isolated components passage p. 18",
+          "method": "OA PDF locate and offset read",
+          "title": "Site Percolation on Pseudo-Random Graphs",
+          "trigger": "Closest published comparison identified in the frozen result"
+        },
+        {
+          "assessment": "Abstract concerns cuts/critical probability, not the target comparison",
+          "evidence": "Sufficient conditions for exponential minimal-vertex-cutset bounds, with an infinite vertex-transitive graph consequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08261v1",
+          "material_read": "Abstract, PDF offset 0",
+          "method": "OA PDF",
+          "title": "Counting Minimal Vertex Cutsets and a Gap at 1 for Site Percolation on Vertex-Transitive Graphs",
+          "trigger": "Site percolation on structured graphs from the primary search"
+        },
+        {
+          "assessment": "Definition addresses deterministic dominating sets; whole paper not assessed",
+          "evidence": "The set induces an isolated vertex, rather than measuring a random count's variance.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0972860015300207",
+          "material_read": "Search-result definition only; full text unavailable",
+          "method": "Search and attempted OA access (403)",
+          "title": "Some notes on the isolate domination in graphs",
+          "trigger": "Isolation-related graph parameter in the primary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–21 and 44–57"
+      ],
+      "rationale": "The tree class is structurally natural and exhausts diameter at most three. An explicit positive gap gives the direction and magnitude of a shape transfer all the way to the star, including the case of an empty leaf class, and isolates an asymptotic factor of two between the extremes. This is a fluctuation comparison for fixed hosts, not just the routine enumeration of a moment at one parameter point.",
+      "residual_risks": [
+        "No value claim for classification of all trees or all site probabilities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

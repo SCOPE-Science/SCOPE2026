@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:30:06.547231Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed length the profile is exactly (W,S): the 01 count is S minus binom(W,2), and the other pair counts follow from W and that count. The explicit starts at length four realize all four adjacent-bit choices for either parent parity, giving the stated complete base profiles. For either lift of a start i, the alternating lane contributes L/2 ones and the stated positional offset; every start is lifted, so the recurrence is exact for all factors. At each side weight, an overlap of the two images within one child parity would require the parent sums to differ by the even number L/2, impossible by their opposite parities. The child even and odd output sums in a side layer have opposite parity and therefore the layer has 2L classes at length 2L. In the central layer the two images are step-L progressions with starting values one step apart, and their union agrees in the two child parities. This proves the theorem from k=2. An independent bounded odd-part check counted pairs directly in eight windows; for example length 32 at start 31 gives W=16, S=288 and 168 scattered 01s. The frozen verifier was inspected but not executed; the windows are illustrations, not an exhaustion of the factor set.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Madill–Rampersad's Theorem 1 and recurrences concern ordinary abelian complexity.",
+          "The mirrored spectrum Finding specifies the central 01 progression explicitly; the frozen Finding asserts its size and step."
+        ],
+        "reasoning": "All-length abelian results control weight only, not the number of distinct 01 counts within each weight. The spectrum theorem covers the same dyadic domain and supplies the explicit central progression, so its coverage is not limited to the total complexity.",
+        "searches": [
+          "paperfolding all-length binomial complexity automatic 2-regular",
+          "arXiv:1208.2856",
+          "Resultary 95c30971db21"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_paperfolding_binomial.py",
+        "Resultary 95c30971db21",
+        "arXiv:1208.2856",
+        "ORBi 2268/149313"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror has a separate cyclic-template proof of the dyadic spectrum.",
+          "Rigo–Salimov's inspected abstract gives the general framework and computes Sturmian and Thue–Morse cases, not this paperfolding application."
+        ],
+        "reasoning": "The general equivalence relation and abelian recurrence do not provide the refined values. The mirrored spectrum theorem does so directly after the elementary index and complement conversion.",
+        "searches": [
+          "Resultary 95c30971db21",
+          "ORBi 2268/149313",
+          "arXiv:1208.2856"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored Finding gives the spectrum using scattered 01 and the opposite ordinary paperfolding convention.",
+          "At fixed W, the positional sum differs from scattered 01 by the constant binom(W,2)."
+        ],
+        "reasoning": "Under complementation, W becomes L-W and S becomes L(L-1)/2-S. The side layers swap, and the central progression is reflected but retains length and positive step after reordering. The shift from zero- to one-based word indices does not change factor sets.",
+        "searches": [
+          "paperfolding ordinary 2-binomial complexity weighted sum inversion",
+          "regular paperfolding scattered 01 positional sum classes dyadic",
+          "Resultary 95c30971db21"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror text near offset 4700 gives totals 11,20,37,70,135,264,521,1034,2059 for exponents 2 through 10; the Finding gives their exact law and the three layer sizes."
+        ],
+        "reasoning": "The table agrees term by term, but the decisive evidence is the accompanying theorem for all k>=2 on the same statistic. A match to an unlabeled integer sequence would not establish this interpretation.",
+        "searches": [
+          "ordinary paperfolding dyadic complexity formula prior result exact theorem",
+          "Resultary 95c30971db21"
+        ]
+      },
+      "rationale": "A distinct inspected catalog record states the same theorem, including the three layer counts and the central progression. Its complemented one-based normalization and use of scattered 01 rather than positional sum do not change the claim. It gives a different proof, not a different invariant or result. Its later catalog date does not settle priority; this verdict concerns demonstrated overlap in the statements, not provenance.",
+      "residual_risks": [
+        "The comparison establishes exact catalog coverage, not whether either proof was earlier in development. The primary literature comparison is bounded to the retrieved material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent theorem up to complement and affine change of the positional statistic",
+          "evidence": "Total 2L+k+1, layer sizes L,k+1,L and an explicit central progression of step L/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-dyadic-two-binomial-spectra-of-the-regular-paperfolding-word--95c30971db21/RESULT.md",
+          "material_read": "Finding and normalization near mirror offset 0, cyclic-template proof, verification totals near offset 4700",
+          "method": "Resultary search and bounded original-text inspection in the local mirror",
+          "title": "Dyadic two-binomial spectra of the regular paperfolding word",
+          "trigger": "Strongest indexed match for all parts of the frozen theorem"
+        },
+        {
+          "assessment": "Different complexity level",
+          "evidence": "2-regularity and recurrences for abelian weight complexity, including three weights at the dyadic lengths in question.",
+          "identifier_or_url": "arXiv:1208.2856",
+          "material_read": "PDF p. 1 abstract and p. 4 Theorem 1 and recurrences near offset 8069",
+          "method": "Bounded original PDF text inspection",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Potential broader all-length coverage for the same word"
+        },
+        {
+          "assessment": "Inspected scope gives general definitions and distinct word applications",
+          "evidence": "The stated computations are for Sturmian and Thue–Morse words.",
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "Retrieved PDF p. 1 abstract",
+          "method": "Bounded original PDF text inspection",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Foundational result for binomial equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The theorem resolves how a natural refinement of abelian equivalence splits each of the three dyadic weight layers. The distinction between the two linear-size layers and the logarithmic central layer, with exact spacing there, is not recovered from the usual abelian counts or a routine statistic conversion. This is a structural result on an infinite family even though its statement is covered in the catalog.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

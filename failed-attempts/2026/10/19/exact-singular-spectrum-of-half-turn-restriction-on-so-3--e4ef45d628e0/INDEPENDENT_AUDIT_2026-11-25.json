@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:32.875109Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With Haar probability, degree ℓ contributes (2ℓ+1) times its character to the projection kernel, and the kernel of the data operator TT* is its restriction in both arguments. For half-turns with axes u,v the character is U_{2ℓ}(u·v); the Chebyshev sum/derivative yields C^{(2)}_{2L−2}. Probability-normalized Funk–Hecke on S² contributes the factor 1/2 in the integral, with only even degrees descending to the quotient. Integration by parts gives each successive level difference as a positive constant times ∫sin(2Lθ)P_{2j+1}(cos θ)dθ. The Legendre cosine coefficients are positive by the generating function, and each odd frequency k in its support satisfies |k|<2L and contributes 4L/(4L²−k²)>0. The constant level is L by the U-polynomial boundary values, and the lowest level follows from the leading coefficient and Legendre norm, so all displayed levels are positive, including L=1 where the lone level is 1. The rank, nullity, reconstruction on the orthogonal complement and condition number then follow by spectral decomposition and the central binomial asymptotic. Independent exact rational computation for L=1–8 checked strict order, endpoints, trace and dimensions, e.g. (2,8/5) and (3,96/35,128/63). Replay: generate Gegenbauer and Legendre polynomials by their three-term recurrences and apply the exact moment functional t^(2r)→1/(2r+1), t^(2r+1)→0 to their products. This corroborates finite bandwidths; the analytic argument supplies all bandwidths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai–Xu (2.8) gives the degree-r projection kernel (r+α)C_r^{(α)}(x·y)/α, α=(d−2)/2 on S^{d−1}.",
+          "DLMF 18.18.16 gives the full connection expansion from C_n^{(μ)} to C_{n−2s}^{(α)} with coefficient [(α+n−2s)/α](μ)_{n−s}(μ−α)_s/[(α+1)_{n−s}s!], and cites Andrews et al. (1999), Theorem 7.1.4′."
+        ],
+        "reasoning": "For S³, α=1. Summing the even addition kernels to degree 2L−2 telescopes to C_{2L−2}^{(2)} using C_r^{(2)}−C_{r−2}^{(2)}=(r+1)C_r^{(1)}, which follows directly from the generating functions. On S², the target projectors are (2h+1)P_h. Consequently the coefficients of the restricted kernel in that normalized projector basis are exactly the general connection coefficients with the factor 2h+1 removed.",
+        "searches": [
+          "Dai–Xu arXiv:1304.2585, §2 addition formula",
+          "NIST DLMF §18.18(iv), equation 18.18.16"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2d81ee89510d",
+        "Dai–Xu arXiv:1304.2585 §2",
+        "DLMF 18.18.16",
+        "arXiv:1210.2652",
+        "arXiv:1508.03101v2",
+        "arXiv:2005.11451v5 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put m=L−1, s=m−j, t=m+j. Substituting n=2m, μ=2, α=1/2 into the connection formula and dividing the P_{2j} coefficient by 4j+1 gives λ_{L,j}=(3/2)_s(2)_t/[s!(3/2)_t].",
+          "For j<m, the adjacent ratio is [s/(s+1/2)]·[(t+2)/(t+3/2)]<1 precisely because s<t+3/2. All levels are positive. At j=0 the Pochhammer factors cancel to (2)_m/m!=L; at j=m the level is (2)_{2m}/(3/2)_{2m}=(2m+1)2^{4m}/[(4m+1)binom(4m,2m)]."
+        ],
+        "reasoning": "This classical product formula already gives the full ordered spectrum and both endpoints by cancellation. Summing 4j+1 and subtracting from the band dimension gives rank and kernel dimension. Taking the square root of the endpoint ratio and applying the central binomial asymptotic gives the stated condition law. The minimum-norm inversion is the standard pseudoinverse on those projector spaces. No additional spectral lemma is required to derive the frozen result.",
+        "searches": [
+          "DLMF 18.18.16, μ=2, α=1/2; Dai–Xu arXiv:1304.2585 (2.8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernstein–Pesenson identify SO(3) with S³/{±1}; their Radon operator, however, integrates over subgroup fibers.",
+          "With a unit quaternion written (cos(θ/2),u sin(θ/2)), half-turns have scalar part zero and correspond to the equatorial S² modulo antipodes. The degree-ℓ Wigner projector pulled up to S³ has zonal kernel (2ℓ+1)U_{2ℓ}(q·r), which is exactly the S³ degree-2ℓ addition kernel."
+        ],
+        "reasoning": "Thus the frozen operator is equatorial restriction of the even spherical band with probability norms; Haar probability pushes forward from the uniform sphere and the equatorial probability measure pushes forward to RP². It is not any of the inspected fiber-average operators.",
+        "searches": [
+          "Local Resultary: half-turn restriction on SO(3), Wigner and spherical harmonics, equatorial S³ harmonic trace",
+          "Bernstein–Pesenson arXiv:1210.2652 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue hit 2d81ee89510d treats the equal-radius Clifford torus, with a Fourier diamond and a different least level L/2^{L−1} for its full-degree S³ band.",
+          "DLMF has an exact symbolic coefficient table, not a table of half-turn singular levels in that terminology."
+        ],
+        "reasoning": "The torus and the equator have different target harmonic decompositions, so the catalogue result does not transfer. The classical table does transfer after normalizing the S² addition kernel, as shown below.",
+        "searches": [
+          "Local Resultary: S³ harmonic trace, half-turn class, RP² spectrum",
+          "NIST DLMF §18.18(iv), Gegenbauer connection coefficients"
+        ]
+      },
+      "rationale": "The exact levels, strict order, rank and asymptotic are a mechanical specialization of the spherical harmonic addition and Funk–Hecke formulas and the classical Gegenbauer connection formula. A direct prior article using the half-turn trace terminology was not established; the failure is the explicit broader-formula implication, not an assertion that a cited fiber transform or torus trace has the same spectrum.",
+      "residual_risks": [
+        "The bounded search did not establish whether a prior paper explicitly states the operator under half-turn or equatorial-trace terminology. The mathematical implication from standard formulas does not depend on resolving that bibliographic question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same normalized projectors arise as explicit dimension specializations",
+          "evidence": [
+            "Equation (2.8): degree-r harmonic addition formula with (r+α)/α and α=(d−2)/2; (2.9) gives diagonal dimension"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.2585",
+          "material_read": "Dai–Xu §2, p. 8, equations (2.7)–(2.9), offsets 28500–29898",
+          "method": "Open text with targeted passage",
+          "title": "Spherical Harmonics",
+          "trigger": "Standard projector formula covering the spherical lift and the target sphere"
+        },
+        {
+          "assessment": "Produces the entire claimed spectrum and its strict order by the calculation documented here",
+          "evidence": [
+            "The Gegenbauer-to-Gegenbauer coefficient has a product of two Pochhammer ratios; setting output parameter to 1/2 gives the Legendre expansion",
+            "Attribution to Andrews et al. (1999), Theorem 7.1.4′"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.18#E16",
+          "material_read": "§18.18(iv), equation 18.18.16 and attribution, offsets around 12781 and 14853",
+          "method": "Public mathematical reference, equation and notes",
+          "title": "NIST Digital Library of Mathematical Functions: Connection and Inversion Formulas",
+          "trigger": "Possible exact general formula for all eigenvalue integrals and their ordering"
+        },
+        {
+          "assessment": "Different sampling manifold and input parity scope",
+          "evidence": [
+            "Clifford torus trace gives Fourier-diamond range and least level L/2^{L−1}"
+          ],
+          "identifier_or_url": "Resultary 2d81ee89510d",
+          "material_read": "Finding and assumptions, offset 0 onward",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Clifford torus harmonic trace spectrum and sharp exponential conditioning",
+          "trigger": "Nearest catalogue overlap in S³ trace and conditioning"
+        },
+        {
+          "assessment": "Same underlying group/cover, but it integrates over fibers and uses paired-direction data, not a half-turn trace",
+          "evidence": [
+            "Rf(x,y)=∫_H f(xhy^{-1})dh",
+            "SO(3)≅S³/{±1} and great-circle fiber description"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.2652",
+          "material_read": "Eq. (2.3), p. 3; §§5–6, pp. 9–11, offsets 10250, 27500 and 32000 onward",
+          "method": "Open article, targeted passages",
+          "title": "The Radon transform on SO(3): motivations, generalizations, discretization",
+          "trigger": "Possible equivalent rotational trace or spherical-cover result"
+        },
+        {
+          "assessment": "Full-group sampling, not a restriction to the half-turn conjugacy class",
+          "evidence": [
+            "Finite sets of about 4L³ full-rotation samples enable an exact Wigner transform"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1508.03101v2",
+          "material_read": "§III, offset 11300 onward",
+          "method": "Open article, targeted passage",
+          "title": "A novel sampling theorem on the rotation group",
+          "trigger": "Exact Wigner-band rank/reconstruction with a different observation scheme"
+        },
+        {
+          "assessment": "Inspected statement concerns L^p character/eigenfunction and Strichartz estimates, not an exact finite-band trace spectrum",
+          "evidence": [
+            "Restriction estimates appear as norm inequalities, not a decomposition into the normalized RP² projector levels"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2005.11451v5",
+          "material_read": "Abstract, offset 0 onward",
+          "method": "Open article, scoped comparison to the abstract",
+          "title": "On Fourier restriction type problems on compact Lie groups",
+          "trigger": "General compact-group restriction context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The half-turn data model and visible condition number are natural, but the exact rank, singular ordering, endpoints and exponent all follow by elementary specialization of the existing projector and connection formulas. This record does not establish an additional distinct reconstruction or sampling result beyond that specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

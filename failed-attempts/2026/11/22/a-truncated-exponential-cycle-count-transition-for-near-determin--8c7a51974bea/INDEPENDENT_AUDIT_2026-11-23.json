@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:39:17.923539Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The initial zeros are fixed in stable rank; after the first nonzero, every zero at index i maps to i minus the positive number of earlier nonzeros. Thus every other cycle uses at least one nonzero and the deterministic sandwich holds, including the all-zero word. The initial run has tail (1−ε)^j for 0≤j≤n. For ε>0 it couples to the floor of an exponential of rate −log(1−ε), capped at n; capping and rounding cost at most 1/n after rescaling. The pathwise difference from K/n costs at most E[R]/n=ε. On [0,1] the Wasserstein distance between capped exponentials is the integral of the absolute survival-function difference; |exp(−at)−exp(−bt)|≤t|a−b| gives the exact factor 1/2, also at rate zero. For nε bounded, −n log(1−ε)=nε+O(nε²). For nε→∞ and ε→0, the initial run is o_P(n) and E[R]/n→0. In the finer regime its ε-scaled truncated geometric law tends to Exp(1) because nε→∞, and E[εR]=nε²→0. If ε=0 the word gives K=n exactly. The finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guerder's Propositions 3.1 and 3.11 apply before imposing any bound away from one on the largest atom. Theorem 1.6's Gaussian result does impose such a bound. Fulman gives the full finite-alphabet generating function and primitive-necklace representation."
+        ],
+        "reasoning": "The missing hypothesis in the Gaussian theorem does not put the claimed regime outside the earlier exact structural results. These results can be used at every n and for arbitrary conditional rare-letter proportions.",
+        "searches": [
+          "Guerder arXiv:2603.24127v1, Theorem 1.1 and Propositions 3.1 and 3.11",
+          "Fulman arXiv:math/9712240, Theorems 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Guerder arXiv:2603.24127v1",
+        "Fulman arXiv:math/9712240",
+        "Diaconis–McGrath–Pitman DOI 10.1007/BF01294457 (access attempt and OA cross-references)",
+        "Resultary c540efc050a5 and e59509c51e29 (catalogue comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D_i counts fixed points associated to label i and has law min(Geo_0(1−p_i),n). For the least i, its ranks count only copies of that symbol up to the current index, so D_0 is exactly the initial run. Proposition 3.11 excludes monochromatic cycles of length greater than one since their label words are not primitive."
+        ],
+        "reasoning": "Consequently K−D_0 counts only disjoint cycles each containing a rare position, so 0≤K−D_0≤R deterministically. This is the first-defect sandwich itself. Round a capped exponential of rate −n log(1−ε) on the normalized grid, take expected cost ε for the other cycles, and integrate t|α−λ| for the rate change: this yields the stated W1 bound. The critical and finer windows then come directly from that same geometric law and E[R]=nε, without new distributional analysis.",
+        "searches": [
+          "Guerder arXiv:2603.24127v1, §3.1 Proposition 3.1, Proposition 3.11 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stable ranks give the inverse biased-riffle shuffle in the finite-alphabet setting; reversing the permutation convention does not alter its cycles. The nearest catalogue matches use a different Knuth cycle operator or count Burrows–Wheeler runs."
+        ],
+        "reasoning": "Equivalent biased-shuffle formulations matter, but counts for different word rearrangements do not establish coverage. Inversion leaves the total number of ordinary cycles unchanged.",
+        "searches": [
+          "Resultary stable standardization and near-deterministic total-cycle matches (assigned hit excluded), c540efc050a5 and e59509c51e29",
+          "Fulman arXiv:math/9712240, §3, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue hit is not independent evidence. The inspected sources give exact finite laws by symbolic cycle type, not a printed table of this singular limit or its rate."
+        ],
+        "reasoning": "The failure is not inferred from a hit, a tabulation, or the mere existence of a full finite generating function: it is the direct special-case inference from the fixed-point law and primitive-cycle criterion below.",
+        "searches": [
+          "Resultary near-deterministic standardized permutation cycle-count and rare biased riffle shuffle matches",
+          "Guerder §1.2.1 exact tables/formulas for cycle types; Fulman Theorem 3"
+        ]
+      },
+      "rationale": "The claimed first-defect mechanism and its law are covered by the combination of two directly relevant existing results in Guerder, not merely by the availability of a general exact generating function. Proposition 3.1 identifies the fixed-point count of the least symbol with the exact truncated-geometric law, and Proposition 3.11 identifies all longer cycle labels as primitive, making the deterministic error bound immediate. The explicit near-deterministic theorem is not printed there; the stated error and scales follow by elementary capped-geometric coupling and rescaling of these results.",
+      "residual_risks": [
+        "No claim is made that Guerder prints the exact triangular-array statement, or about the earliest independent derivation. The original 1995 full text was not accessible; the scientific coverage determination rests on the inspected Guerder propositions and explicit inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by direct specialization and inference, though the asymptotic formula is not stated verbatim",
+          "evidence": "Truncated-geometric fixed-point count with parameter 1−p_i and primitive label words for nontrivial cycles jointly give the deterministic error control and the capped-geometric comparison.",
+          "identifier_or_url": "https://arxiv.org/html/2603.24127v1",
+          "material_read": "§1.2.1 Theorem 1.1; §3.1 Proposition 3.1 (OA offsets 23200–25210); Proposition 3.11 (39830–42208); §1.2.4 Theorem 1.6",
+          "method": "OA full-text passages",
+          "title": "Cycle structure of random standardized permutations",
+          "trigger": "Exact fixed-point counts and primitive words under the identical stable convention"
+        },
+        {
+          "assessment": "Earlier primitive-necklace representation and complete finite-alphabet cycle generating function; no target W1 statement in passages inspected",
+          "evidence": "Setting all cycle markers equal yields the total-cycle generating function; the singleton factor for symbol 0 is (1−p_0uz)^−1.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9712240",
+          "material_read": "§3 Theorems 2 and 3, OA offsets 10400–19199, and Corollary 2 comparison",
+          "method": "OA text passages",
+          "title": "The combinatorics of biased riffle shuffles",
+          "trigger": "Equivalent finite-alphabet model and possible exact near-degenerate law"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; not used for the originality decision",
+          "evidence": "Fulman attributes the equal-probability case to this paper; Guerder describes his exact formula as generalizing its treatment.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01294457",
+          "material_read": "Attributions in Fulman §3 and Guerder §1.2.1; no original full-text passage retrieved",
+          "method": "Lawful retrieval attempt; attributed comparison in OA texts",
+          "title": "Riffle shuffles, cycles, and descents",
+          "trigger": "Earlier shuffle cycle structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical description, the singular regime is worth understanding: it gives a macroscopic non-Gaussian fluctuation with an endpoint atom, and gives a uniform estimate independent of the rare alphabet, across more than one scaling. The first-defect interpretation is useful even though it does not supply a scientifically distinct claim from the cited exact structure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

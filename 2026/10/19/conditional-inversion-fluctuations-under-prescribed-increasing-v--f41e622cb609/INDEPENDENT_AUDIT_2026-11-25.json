@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:23:50.820898Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–53 and 55–82",
+        "Frozen VERIFICATION.md lines 19–22 and verify.py lines 10–98",
+        "Independent exact enumeration for n≤6 and triple-covariance derivation"
+      ],
+      "rationale": "Forced adjacent numeric successions make each labeled position block an increasing interval of consecutive values. Every ordering of the blocks on the value axis assigns disjoint intervals uniquely, including permutations with extra unforced successions. Thus the event has probability b!/n!, block ranks are uniform and each reversed pair contributes weight w_ij=ℓ_iℓ_j, giving the full conditional histogram and mean. For independent uniform ranks in continuous representation, subtract (U_i−U_j) from the centered indicator on pair i<j. The residual has variance 1/12 and zero conditional mean given either argument; distinct residuals sharing one argument are orthogonal by conditional independence. Summing the linear coefficients ℓ_i(Σ_{j>i}ℓ_j−Σ_{j<i}ℓ_j) and residual squares gives the general variance. Independently, for a single run at an endpoint the count is an independent sum of the inversion count of h singletons and L times a uniform integer on {0,…,h}. The endpoint variance is h(h−1)(2h+5)/72+L²h(h+2)/12. For i<j<k the three shared-index comparisons have covariances +1/12, −1/12, +1/12 in order (ij,ik),(ij,jk),(ik,jk). Moving the long block between two of the singletons changes the triple contribution by (2L−2L²)/6, leaving all other variances and triple contributions unchanged. Hence placement a reduces the endpoint variance by L(L−1)a(h−a)/3, yielding exactly the stated formula and gap, including h=0,1. The independent endpoint decomposition gives the centered uniform n²-scale limit, as the singleton count has O(n³) variance. At a nearest center the h-scaled polynomial part has a positive cubic coefficient when L/n→λ∈(0,1), and the position term is only O(n²); variance is Θ(n³) and the centered n²-scaled variable vanishes in L². A separate enumeration through n=6 checked all forced sets, conditional histograms, moments and single-run extrema (266 finite checks; no saved script). It can be reconstructed by tabulating permutations satisfying each set and enumerating orders of the labeled blocks for comparison. The supplied script and its reported 505 assertions were inspected, not executed.",
+      "residual_risks": [
+        "The enumeration covers only small sizes. The block proof applies under specified successions, not maximal-run or exact-succession-set conditioning; the asymptotic claim does not identify a center limit on its smaller n^(3/2) scale."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rawlings's accessible abstract concerns inversion refinements of ordinary consecutive order patterns; it does not specify consecutive numerical values or a prescribed-position event. Burstein's inspected results concern descending numeric adjacencies and an equidistribution involving major index and another Mahonian statistic.",
+          "The Ewens result provides an expectation and individual-pair inversion probabilities, not covariance sums under prescribed increasing numeric successions."
+        ],
+        "reasoning": "Pattern-count generating functions, equidistribution of other statistics, and pair marginals under a different law do not give the needed same-event joint pair comparisons or placement-dependent exact variance. Rawlings full text was not available and is not ruled out.",
+        "searches": [
+          "Weighted Kendall variance under uniform permutations; exact numeric-succession positional variance and limit",
+          "Rawlings, DOI 10.1016/j.jcta.2006.03.004",
+          "Burstein, DOI landing record DMTCS article 2846",
+          "arXiv:2510.20654v2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary conditional inversion/succession comparisons above",
+        "Diaconis–Evans–Graham Technical Report 822",
+        "Burstein DMTCS article 2846",
+        "Rawlings DOI 10.1016/j.jcta.2006.03.004 abstract",
+        "Pinsky DOI 10.37236/14250",
+        "arXiv:2510.20654v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known uniform arrangement implies the conditional event count and makes the weighted law immediate. Pinsky's conditional means and inversion pair probabilities are for a prescribed number of fixed points, not this event. The closest inspected weighted-statistic literature did not yield an evaluated same-event pair covariance sum or run law."
+        ],
+        "reasoning": "The remaining result requires determining the nonzero covariance contributions of weighted comparisons sharing one block, and showing the loss per straddling singleton pair when moving the long block. The endpoint uniform limit also separates its random rank from singleton inversions and the n²-scale degeneration at the center uses the cancellation in the positional formula. These conclusions do not follow by parameter substitution in the inspected count or pair-marginal statements.",
+        "searches": [
+          "Diaconis–Evans–Graham Theorem 1.1 and §2",
+          "Pinsky, DOI 10.37236/14250, Theorems 1–2",
+          "Uniform weighted Kendall inversion variance and long forced succession searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their §2 obtains (n−m)! by arranging the forced blocks. Assigning ranks to those blocks makes the frozen inversion count an inversion statistic with pair weights ℓ_iℓ_j. Their §2 does not analyze inversion weights or correlated comparisons."
+        ],
+        "reasoning": "Contraction to a uniform order is shared exact structure. The conditioned statistic is a product-weight Kendall inversion count, not the ordinary inversion count on the blocks. Ignoring block lengths would erase the one-run placement effect.",
+        "searches": [
+          "Prescribed increasing numeric successions, unseparated pairs and weighted inversion/Kendall pair statistics",
+          "Diaconis–Evans–Graham, §2, An enumerative proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest local record gives a conditional inversion mean given a specific labeled two-cycle. The fixed-point/succession record gives indicator covariances. The entropy-shaped inversion regression record (2026/11/2/SCOPE-entropy-shaped-inversion-regression-and-ordered-peak-transitions--0952d5778133) treats recursively inflated separable permutations conditioned on gap descents."
+        ],
+        "reasoning": "These do not use the same conditioning or even the same reported statistic. None of the inspected entries gives the inversion histogram, positional variance, or distinct scaling regimes for prescribed numeric successions. The ranked searches were not exhaustive.",
+        "searches": [
+          "Two local Resultary searches for inversion laws under prescribed successions, position-dependent variance and long-run scales",
+          "2026/11/2/SCOPE-positional-sign-phases-of-inversions-conditioned-on-one-prescrib--864afb1f1ca5",
+          "2026/11/2/SCOPE-fixed-point-and-succession-covariance-boundary-concentration-and--22fd1b3c42ea"
+        ]
+      },
+      "rationale": "The distinct contribution is the inversion refinement and, in particular, the exact placement-dependent variance and differing endpoint and central fluctuation regimes. Prescribed-succession block ordering is known, and the weighted count itself follows directly by recording inversions in that bijection; the review does not credit contraction or the event count as novel. The closest sources inspected do not supply the weighted covariance sum, the quantitative placement law, or the endpoint/center comparison for this conditioning.",
+      "residual_risks": [
+        "Rawlings and Johnson–Fu full passages could not be inspected. A general weighted-ranking variance identity or exact succession refinement outside the inspected results could give additional overlap. The search provides limited evidence, not bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same block arrangement and event count; no inversion refinement in inspected passage",
+          "evidence": [
+            "The number satisfying m prescribed successions is (n−m)! by block arrangement."
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+          "material_read": "Theorem 1.1, PDF p. 2, OA offset 5427; §2, PDF p. 4, offset 10933",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "Exact same prescribed increasing numeric succession event"
+        },
+        {
+          "assessment": "Different adjacency convention and statistics",
+          "evidence": [
+            "Adjacencies are descending consecutive-value pairs on a permutation with 0 appended; the equidistribution exchanges major index and another Mahonian statistic."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2846/download",
+          "material_read": "Definitions pp. 601–602, OA offsets 0–5153; Theorem 2.1 and Corollary 2.2 p. 603, offset 5153 onward",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "On joint distribution of adjacencies, descents and some Mahonian statistics",
+          "trigger": "Adjacency-refined Mahonian statistics"
+        },
+        {
+          "assessment": "Abstract only; full-text coverage not settled",
+          "evidence": [
+            "Gives generating functions for ordinary consecutive pattern counts and inversions, including increasing order patterns."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2006.03.004",
+          "material_read": "Cal Poly repository landing-page abstract, OA offset 0; linked postprint returned HTTP 403, and no OA copy was retrieved in the DOI lookup",
+          "method": "Bounded HTML inspection and lawful OA lookup",
+          "title": "The q-exponential Generating Function for Permutations by Consecutive Patterns and Inversions",
+          "trigger": "Inversions refined by increasing consecutive patterns"
+        },
+        {
+          "assessment": "Possible overlap unassessed; not used to establish absence",
+          "evidence": [
+            "The frozen bibliography identifies the paper; no primary scientific passage was retrievable."
+          ],
+          "identifier_or_url": "Johnson and Fu, Statistics & Probability Letters 49 (2000), 337–344",
+          "material_read": "Bibliographic citation only; linked primary copy inaccessible (HTTP 403)",
+          "method": "Bounded OA lookup",
+          "title": "The distribution of increasing l-sequences in random permutations: a Markov chain approach",
+          "trigger": "Potential same numeric-run family"
+        },
+        {
+          "assessment": "Conditional means and inversion pair probabilities, different events",
+          "evidence": [
+            "The number of fixed points is fixed rather than a set of increasing numeric successions."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/14250",
+          "material_read": "Abstract p. 1, Theorems 1–2 pp. 3–4, OA offset 10281",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "The Inversion Statistic in Derangements and in other Permutations with a Prescribed Number of Fixed Points",
+          "trigger": "Nearby inversion moments under prescribed structure"
+        },
+        {
+          "assessment": "Pair marginals and mean, not the corresponding succession-conditioned variance",
+          "evidence": [
+            "Theorem supplies an expected inversion count and individual-pair probability under Ewens sampling."
+          ],
+          "identifier_or_url": "arXiv:2510.20654v2",
+          "material_read": "Theorem 1.1, p. 3, OA offset 10670",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Inversions in Random Permutations Under the Ewens Sampling Distribution",
+          "trigger": "Broader inversion moment model including uniformity without conditioning"
+        },
+        {
+          "assessment": "Different conditioning and moment",
+          "evidence": [
+            "Prescribes Π(i)=j and Π(j)=i and analyzes a positional shift in the conditional mean."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-positional-sign-phases-of-inversions-conditioned-on-one-prescrib--864afb1f1ca5",
+          "material_read": "RESULT.md offset 0–4015",
+          "method": "Local mirror passage inspection",
+          "title": "Positional sign phases of inversions conditioned on one prescribed labeled two-cycle",
+          "trigger": "Closest local indexed positional conditional inversion result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–50 and 58–79",
+        "Diaconis–Evans–Graham §2",
+        "Independent single-run variance contrast by triple covariances"
+      ],
+      "rationale": "The conditioning event is a standard permutation statistic and total inversions are a natural test of its global effect. A constant conditional mean across positions conceals a sharp and quantifiable dependence in variance: with the same asymptotic forced fraction, only a change of position separates n⁴ variance with a nondegenerate uniform limit from n³ variance and no n²-scale fluctuation. The formula measures that effect exactly and gives a usable benchmark for structured permutation models; proving a full lower-scale central law is not necessary for this comparison.",
+      "residual_risks": [
+        "No extension to multiple macroscopic runs, other conditioning events, or nonuniform measures is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

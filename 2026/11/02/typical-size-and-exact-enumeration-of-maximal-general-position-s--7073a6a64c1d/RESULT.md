@@ -1,17 +1,17 @@
-# Typical size and exact enumeration of maximal general-position sets in triangular graphs
+# Typical size of maximal general-position sets in triangular graphs
 
 ## Finding
-Let \(T_n=L(K_n)\), \(n\ge4\). Write \(M_n(z)\) for the polynomial whose coefficient of \(z^j\) counts inclusion-maximal general-position sets of size \(j\) in \(T_n\). Then
+Let \(T_n=L(K_n)\), \(n\ge4\), and choose \(S_n\) uniformly among its inclusion-maximal general-position sets. Then
+\[
+\frac{(n-|S_n|)\log n}{n}\longrightarrow 1\qquad\text{in probability as }n\to\infty.
+\]
+The deficit from \(n\) is thus typically of order \(n/\log n\), even though the maximum size is \(n\) or \(n-1\). For use in the proof, write \(M_n(z)\) for the size enumerator of maximal sets. The known star–triangle classification gives the auxiliary generating function
 \[
 M_n(z)=n![x^n]\left(\exp B(x,z)+x\exp(x^3z^3/6)\right),
 \qquad
 B(x,z)=\frac{x^2z}{2}+\frac{x^3z^3}{6}+\sum_{s\ge4}\frac{x^s z^{s-1}}{(s-1)!}.
 \]
-If \(S_n\) is chosen uniformly from the inclusion-maximal general-position sets of \(T_n\), then
-\[
-\frac{(n-|S_n|)\log n}{n}\longrightarrow 1\qquad\text{in probability as }n\to\infty.
-\]
-The exact enumerator and this limiting typical-size law form one joint claim; the pre-existing classification of maximal configurations into stars and triangles is credited below.
+The generating function is the exponential-formula translation of that classification, not a separate originality claim.
 
 ## Assumptions and scope
 A vertex of \(T_n\) corresponds to a two-element subset of \([n]\). Distinct vertices are adjacent exactly when the corresponding pairs intersect. A general-position set has no three distinct selected vertices occurring on one shortest path; inclusion-maximal refers to adding a vertex without preserving this property, not maximum cardinality. The graph \(T_n\) has diameter two for \(n\ge4\). All enumerated sets are labeled by the original \([n]\). The limiting probability statement fixes no degree, and is over uniform choices among all inclusion-maximal configurations for each \(n\).
@@ -43,7 +43,7 @@ Thus the deficit is \((1+o_{\Pr}(1))n/r\) in the covered class.
 **Negligibility of the exceptional class.** For \(n=3k+1\), its number is exactly \(n!/(6^k k!)\); otherwise it is zero. The logarithm of this number is at most \((2/3)n\log n+O(n)\). The number \(A_n\) of fully-covered configurations satisfies
 \[
 A_n=n!\,e^{b(r)}r^{-n}\Pr(N=n),\qquad
-\log A_n=n\log n-n\log\log n-O(n),
+\log A_n=n\log n-n\log\log n+O(n),
 \]
 by the local estimate and Stirling's formula. Hence the exceptional class has vanishing probability under uniform sampling. Combining this with \(r\sim\log n\) establishes the asserted limit.
 
@@ -51,13 +51,14 @@ by the local estimate and Stirling's formula. Hence the exceptional class has va
 Run `python verify.py` with Python 3. The script independently constructs the original line graph, computes exact shortest-path distances by breadth-first search, exhaustively checks general position and inclusion-maximality for all \(2^{\binom n2}\) vertex subsets at \(n=4,5,6\), and compares size counts against an independent labeled-block recursion. It reports 33,856 tested subsets and matching polynomials, including \(M_4(z)=3z^2+8z^3\), \(M_5(z)=15z^4\), and \(M_6(z)=15z^3+60z^4+6z^5+10z^6\). For \(n=7,8,9,10,11\), it prints further exact recurrence coefficients. These finite checks are diagnostics and do not substitute for the infinite proof.
 
 ## Relationship to prior work
-Ghorbani et al., arXiv:1903.04286 (2019), determined the maximum general-position cardinality for \(L(K_n)\). Di Stefano et al., arXiv:2306.09965 (2023), proved its minimum inclusion-maximal cardinality and explicitly identified the star/triangle decomposition, which is used here as a premise and checked again. The paper *General position polynomials*, arXiv:2401.05696 (2024), counts **all** general-position sets in various graphs, including the complementary Kneser graph, rather than enumerating inclusion-maximal sets in \(L(K_n)\). The 2022 paper arXiv:2209.12631 concerns the distinct mobile general-position invariant. The contribution here is the explicit maximal-set enumerator and, centrally, the sharp typical deficit scaling. No uniqueness-of-discovery assertion is made.
+Ghorbani et al. determine the maximum general-position cardinality for \(L(K_n)\). Di Stefano et al., in the proof of Theorem 5.2, give the allowable star sizes, the covering requirement when there is a star, and the exceptional triangle class. They also give the identity of the deficit with the number of stars in the fully covered case. The bivariate generating function above simply marks this decomposition by the number of selected edges; it also appears in the equivalent formulation as maximal cluster subgraphs [5]. Iršič et al., Theorem 4.2, enumerate all general-position sets of the Kneser graph \(K(n,2)\) with adjacency by disjointness, whose complement is the triangular graph, not all maximal sets of the triangular graph itself. The question answered here is the first-order scale of the deficit under uniform sampling. The saddle-point argument uses standard methods but estimates the conditioning and exceptional class for this specific distribution.
 
 ## Limitations
-The limit is first-order in probability, not a central limit theorem, large deviation estimate, or coefficientwise asymptotic. The structural classification underlying the enumeration is previously known. The literature search cannot exclude an unindexed prior equivalent enumerator or asymptotic. Self-contained proof and finite verification have not received independent validation.
+The limit is first-order in probability, not a central limit theorem, large deviation estimate, or coefficientwise asymptotic. The structural classification underlying the enumeration is previously known. The comparison does not rule out an earlier asymptotic under different terminology.
 
 ## References
 1. M. Ghorbani et al., *The general position problem on Kneser graphs and on some graph operations*, arXiv:1903.04286 (initial submission 2019-03-11), https://arxiv.org/abs/1903.04286.
 2. G. Di Stefano, S. Klavžar, A. Krishnakumar, J. Tuite, I. Yero, *Lower General Position Sets in Graphs*, arXiv:2306.09965 (initial submission 2023-06-16), https://arxiv.org/abs/2306.09965.
 3. V. Iršič, S. Klavžar, G. Rus, J. Tuite, *General position polynomials*, arXiv:2401.05696 (initial submission 2024-01-11), https://arxiv.org/abs/2401.05696.
 4. A. Krishnakumar et al., *Traversing a graph in general position*, arXiv:2209.12631 (2022), https://arxiv.org/abs/2209.12631.
+5. *Maximal cluster subgraphs of triangular graphs: a partition polynomial* (2026), https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806.

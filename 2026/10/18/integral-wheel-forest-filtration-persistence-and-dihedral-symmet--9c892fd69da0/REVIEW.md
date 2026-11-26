@@ -1,15 +1,21 @@
-# Scientific review: wheel forest-filtration persistence and symmetry
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact simplicial equality \(\mathcal F_d(W)=\partial\Delta^{m-1}\cup(h*\operatorname{sk}_{d-1}\operatorname{Ind}(C_m))\) is checked directly from triangles, cycles, and degree bounds. The natural long exact sequence splits homological degrees since the rim sphere lies above the hub-link dimensions. The known full cycle-independence homotopy classification and elementary skeletal chain identities give the stated free integral homology, Euler-derived top ranks, and primitive inclusion maps. The oriented graph chain trace proves the full dihedral character. Exhaustive checks cover rim lengths 8–12 and independently calculated persistence at 8–10. Finite examples are corroboration, not proof for all lengths.
+## correctness
 
-## Originality
-**PASS with residual risk.** The closest primary work is A. Carnero Bravo, *The Forest Filtration of a Graph*, arXiv:2307.13271, where the wheel proposition explicitly handles degree one and stabilized degrees starting at \(\lfloor m/2\rfloor\); its hub-join lemma supplies a cone model but no explicit integral persistence intervals, intermediate-stage ranks, dihedral representation, or quotient homology. The Kozlov cycle-independence result identifies the homotopy input without giving the wheel persistence maps. Research-record searches for the exact object, parameters, aliases, and equivariant claims did not find an equivalent; nearby wheel discrete-Morse-complex results have different simplices and do not imply this classification. A direct consequence obtainable by combining earlier lemmas with substantial new chain calculations may be regarded as close prior art; an unindexed equivalent remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The degree filtration is a named object of published research, and wheels are a canonical join family. The result identifies all integral births, one-step deaths, and stable classes after degree two for infinitely many wheel graphs, rather than just their eventual homotopy types. The natural dihedral action cancels a quadratic-sized degree-two homology space in the quotient and yields a sharp parity-dependent rational quotient classification. These are natural invariants requested by the filtration and its symmetry, not arbitrary slices or isolated numerical improvements.
+For d≥2 the rim-only faces are the proper rim subsets and the hub link consists exactly of independent rim sets of size ≤d. Relative chains for the rim inclusion identify the complementary reduced homology naturally and equivariantly with the shifted homology of the independence skeleton; the rim sphere is in a disjoint higher degree. In a skeleton top homology is free, lower homology already equals that of the full complex, and counting cyclic gaps gives the stated Euler characteristic. At d=r+1 the only nonzero map out of a top skeletal homology group is the quotient onto the full cycle-independence homology Z^β; it splits because that target is free. This yields the permanent and one-step integral intervals, not just their field barcodes. For m≥8, r+2≤floor(m/2), so the terminal top group vanishes. In the early range cellular approximation gives the required connectivity of the skeleton; the attaching inclusion in the higher rim sphere is null, giving the asserted wedges. On the complement graph of the rim cycle the signed edge trace minus the vertex trace plus 1 gives all six cases: reflection-swapped adjacent pairs are excluded (one for an odd rim, two for an even edge-axis reflection, none for an even vertex-axis reflection). Every complement edge has an endpoint-swapping reflection, so invariant oriented edge chains, hence invariant H_1, vanish. The rim sign is trivial exactly for m≡1 mod 4; subdivision and rational coinvariants then give the quotient formula.
 
-## Limits
-No conclusions are claimed for filtration indices zero and one, full equivariant homotopy, integral quotient torsion, or all intermediate homotopy types. Published cone-attachment input is credited, not claimed as original. The scientific review here is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cone attachment, full cycle-independence type and stabilized wheel homotopy type are known. The supported distinct contribution is the explicit all-stage integral inclusion maps and intervals together with the degree-two dihedral character and rational orbit-space calculation; it is not a claim to the old cone or stabilized types.
+
+## value
+
+PASS
+
+Wheels form a canonical graph family for the existing filtration. The uniform answer distinguishes transient from persistent classes over the integers and resolves a natural invariant-subspace and orbit-space question. These are reusable data beyond endpoint stage ranks or finite field checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

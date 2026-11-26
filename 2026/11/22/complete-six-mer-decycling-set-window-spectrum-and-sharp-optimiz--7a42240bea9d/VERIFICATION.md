@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact finite checks and limitations
+# Independent mathematical audit
 
-The source `verify_fast.cpp` independently constructs all 14 cyclic-rotation orbits, enumerates one deleted word from each, uses Kahn's topological sort and computes maximal vertex-count paths in the survivor DAG. It prints 14 exact length/frequency pairs. Compile with `g++ -std=c++17 -O3 verify_fast.cpp -o check_fast` and run `./check_fast`.
+## correctness
 
-`verify_independent.py` separately enumerates the same mathematical domain by a differently ordered recursion, checks cycles by tri-color DFS rather than Kahn's algorithm, computes path lengths recursively, and groups all 408 optimum sets under bitwise complementation and reversal. Run `python3 verify_independent.py`. Python standard library only.
+PASS
 
-The independent executions returned the same complete length distribution and 68,288 valid minimum sets, with 408 global length-13 minimizers. The second script gave 101 size-four orbits and two size-two orbits, exhausting all 408 objects. Their source code and `SPECTRUM.tsv` are embedded in this package, with byte counts and SHA-256 checksums in the containing manifest.
+The 14 right/left rotation orbits are vertex-disjoint directed cycles, including the two loops. Any minimum set must delete at least one vertex per orbit. Independently tested the given 14-vertex witness, so the minimum cardinality is exactly 14. I enumerated all 181,398,528 labeled one-per-orbit transversals with no partial-graph pruning. In each full survivor set A I iterated A <- A intersect N+(A), with N+ the outgoing-neighbor union. A vertex surviving t rounds is the endpoint of a residual walk of t edges; a nonempty fixed point means a directed cycle, and on a DAG the round giving the empty set is the longest path in vertices. The exact count and all 14 histogram bins agreed. Complement is a digraph automorphism and reversal an orientation-reversing isomorphism; both preserve the vertex length. On the 408 minimizers, exhaustive independent action evaluation gives fixed counts 408,0,0,4 for identity/complement/reversal/reverse-complement. Burnside gives 103 orbits, two of size two (both canonical masks match) and 101 of size four. The 48-at-26 endpoint and optimizer percentage also agree.
 
-The proof is a finite exhaustive classification of all size-14 transversals; it does not claim generality for other word lengths or alphabet sizes. A published total of 68,288 and sharp endpoint range 13–26 independently corroborate the run but do not replace the internal exhaustive proof. External independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The supported contribution is the complete frequency distribution and optimizer count/orbit classification for the labeled binary order-six digraph, not its already-published minimum-set total, extremal path lengths, or generic enumeration methods. The frozen record already makes this distinction expressly in its proof and prior-work section.
+
+## value
+
+PASS
+
+The graph and optimization measure are motivated by the earlier study of exact residual-path guarantees over all minimum decycling sets. The known total and extrema hide how rare either endpoint is. The exact frequency and stabilizer census resolve that gap at a size with tens of thousands of admissible sets, giving reference data for exact graph algorithms and optimizer enumeration; the symmetry result also states which involution accounts for the exceptional smaller orbits. This is not a recomputation offered as new of the known endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

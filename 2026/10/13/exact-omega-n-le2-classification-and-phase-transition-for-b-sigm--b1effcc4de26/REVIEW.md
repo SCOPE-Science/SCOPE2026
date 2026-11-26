@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For \(n\ge2\) with \(\Omega(n)\le2\), the proof exhausts the three multiplicative shapes. The prime and prime-square equations follow by direct substitution. For distinct primes, expansion and refactorization are reversible and give
-\[
-((a-b)p-b)((a-b)q-b)=ab-(a-b)k.
-\]
-When the right-hand side is zero, \(\gcd(a-b,b)=1\) forces \(a-b=1\); primality then forces \(b=r\) prime and \(k=r(r+1)\). In that family the prime and square branches are excluded explicitly. The bundled finite checker agrees with the theorem over its stated regression range; the unbounded proof does not depend on that computation.
+## correctness
 
-## Originality
-**PASS.** The closest source, Kwan--Miller, defines the same equation and proves a global counting dichotomy, but its Proposition 2.7 neither classifies \(\Omega(n)\le2\) nor states the divisor-pair identity or the exact finite/infinite boundary. Pomerance's classical fixed-shift treatment and the checked special-difference literature do not imply the generalized classification. Exact-form, alias, semantic, database, and prior-result comparisons found no covering statement. Residual risk remains because an elementary semiprime refactorization could occur in older unindexed literature.
+PASS
 
-## Value
-**PASS.** The restriction \(\Omega(n)\le2\) is the first natural multiplicative layer of the equation, not an arbitrary numerical slice. The theorem completely resolves that layer for all admissible parameters and identifies precisely when the regular mechanism already creates infinitely many such solutions. This provides a reusable exact boundary complementary to the known global asymptotic estimates.
+Prime factorization gives exactly p, p² and pq with p≠q. Substituting their divisor sums gives cp=b−k, cp²−bp+k−b=0, and cpq−b(p+q)=b−k, respectively. Multiplication by c and addition of b² gives the signed product T; reconstruction by u↦(u+b)/c is injective and reversible, with order removed and equal primes excluded. At T=0, c divides ab and is coprime to both a and b, so c=1 and k=b(b+1). The prime candidate is then −b² and the square discriminant is −3b². One of the two distinct primes must equal b, so there are no solutions when b is composite or 1, and precisely bq with q prime and q≠b when b is prime. Removing q=b gives the exact counting function; the prime number theorem gives the fixed-base asymptotic. Independently enumerated 49,770 coprime triples with 2≤a≤16 and 0<|k|≤315 against 593 eligible n≤1300, using positive-divisor and prime-power sieves for the direct side. No mismatches; both signs of T, all 15 zero-T cases, and six exceptional triples were covered. The frozen verifier and its saved output were inspected, not executed; their original test domain and replay are documented in VERIFICATION.md. Neither finite test establishes the unbounded conclusion, which follows from the algebra.
 
-## Closest literature and limitations
-Kwan--Miller Proposition 2.7 supplies the closest broader counting statement; Pomerance supplies the classical fixed-shift framework. The theorem does not address \(\Omega(n)\ge3\) and does not sharpen global sporadic-solution exponents. The Davis--Klyve--Kraght source was checked through bibliographic/database material only, so no whole-document noncoverage claim is made for it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact all-parameter classification in Ω≤2, including the finite sporadic classes, not for introducing the regular family or its prime-number-theorem asymptotic. Kwan and Miller's regular-solution formula already gives the exceptional family and its exact low-multiplicity count on restricting the regular part. The material additional assertion is exhaustion in that layer and a reversible signed-divisor classification outside it.
+
+## value
+
+PASS
+
+The natural cutoff is the first layer admitting distinct-prime multiplicativity. Solving it exactly closes a gap left by asymptotic counting: it converts the finite search to factoring a specific integer and handles the degenerate boundary without mistaking the older regular-family construction for an exclusion of sporadics. The proof is elementary; the useful result is the complete classification, not the individual linear or quadratic substitutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: strict Mahler-product refinement for almost-polygonal parabolic bodies
+# Independent mathematical audit
 
-**Correctness: PASS.** For an ordered finite knot mesh, direct integration of the parabolic chord errors proves the cubic-gap primal area identity. Consecutive polar constraints meet at explicit rational vertices, and replacing one vertex by two cuts out four congruent polar triangles. Their determinant establishes the exact polar decrement and, on multiplication, the claimed product exchange. The inequalities follow from the unit-ball containment of all generators and the parabolic-lens area bound. Increasing finite approximations converge to each infinite-sequence body and to the full lens, with valid polar-area convergence because each contains the fixed origin-centered diamond. All endpoints and equality cases are addressed. The standalone exact-rational code independently cross-checks polar areas by half-plane clipping and verifies thousands of insertion identities; finite tests are not the proof.
+## correctness
 
-**Originality: PASS (provisional historical priority).** Schütt–Werner (1992) and Thäle–Winter (2026) introduced and developed the same family for floating bodies; the underlying family is explicitly credited. A published symmetric circular-lens result determines the same upper endpoint value as a parabolic-lens limit, which is therefore also credited. A published random-parabolic-hull result has the cubic chord area identity, but not the polar or Mahler exchange. The published rotational-polygon majorization theorem and the general shadow-system / planar vertex-removal theorems concern different transformations; their statements do not imply every-insertion strict growth for this parabolic sample family. Multiple literature and mathematical-record searches found no equivalent exact refinement law or sharp all-mesh envelope. The complete twenty-page Schütt–Werner source was materially inspected; unindexed historical sources remain an originality risk.
+PASS
 
-**Mathematical value: PASS.** The exact dual-primal exchange is structural, rather than a single area computation or a generic consequence of Mahler's inequality: it proves strict monotonicity for every knot insertion although Mahler product is not inclusion-monotone in general. It simultaneously gives a sharp envelope for all finite meshes and the uncountable collection of almost-polygonal fractal-string bodies and identifies geometric sequences approaching both sharp endpoints. It is useful in studying how the combinatorial resolution of boundary samples controls affine-invariant geometry, independently of floating-body cap asymptotics.
+Strict concavity makes consecutive sample chords the upper boundary; each chord omits gap³/6 in one quadrant. The polar constraints indexed by a,b meet at w(a,b), where the slack for t is (t−a)(t−b)/(1+ab), so exactly the adjacent intersections give the quadrant boundary chain. The cut-off triangle at insertion has determinant magnitude (a−b)(a−c)(c−b)/D, reproduced independently (python /workspace/audit_checks/reconstruct.py 4); four triangles with the 1/2 area factor give q/D. The new primal is contained in the full parabolic lens and the old polar contains the disk: hence the claimed positive exchange lower bound. The full lens polar is found by maximizing tu+(1−t²)v on [0,1]; u_max is 1 up to v=1/2 and 2√(v(1−v)) thereafter. Thus the full polar area is 2+π/2. All bodies contain the fixed diamond, which justifies polar continuity for finite refinements and infinite prefixes with 0 adjoined. Strictness at the upper endpoint follows by one additional insertion in a positive gap before passing to the full lens; at the lower endpoint compare to the diamond or a finite three-knot subset. For a_n=r^n the interior knots are confined to [0,r] as r→0 and the maximum gap is 1−r as r→1, proving sharpness within the infinite class. Uploaded clipping code inspected, not executed; finite rational checks are not the proof.
 
-**Scope and risks.** No comparable result is claimed for arbitrary curves, dimensions, or asymmetric samples. Lower and upper endpoint constants are not newly discovered. The 1992 source was inspected in full through extracted text, while historical priority still awaits independent assessment. The analytic proof, not the finite checker, carries all universal quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact coupled area exchange and strict refinement envelope for this parabolic mesh. The underlying bodies, classical lower value and full sample limit's numerical product are prior, not claims to new credit. The strongest overlapping indexed statements do not give every-insertion strict growth or the exact local polar loss.
+
+## value
+
+PASS
+
+A coupled exact exchange for primal and dual areas turns a natural refinement of an established convex-body family into a strict law for a functional not generally monotone under inclusion. The local quantitative sign, the sharp global envelope and the infinite-family endpoint tests are useful structural information independently of the already known endpoint values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

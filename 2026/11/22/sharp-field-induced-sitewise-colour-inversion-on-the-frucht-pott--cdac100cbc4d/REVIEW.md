@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is exactly specified by eighteen integer-labelled edges, three spin values, and the Hamiltonian in `RESULT.md`. Three disjoint triangles and a residual three-vertex path force the unique five-site independent set; its complement induces three disjoint edges. The size-six internal-edge bound and the cubic degree lower bound together prove every positive-field energy comparison, including the two exact crossings and the absence of intermediate sectors. Configuration counts 16, 32, 48 and the independence-polynomial evaluation 1377 are recomputed from explicit finite objects by `verify_frucht.py`, which checks all 531441 states and 4096 vertex sets. No thermodynamic-limit or finite-temperature assertion is made. Risk: implementation transcription, mitigated by direct mathematical decomposition and independent exact enumeration; a separate researcher has not audited the result.
+PASS
 
-## Originality — PASS on available evidence
+The specified edge list is the standard labelled Frucht graph. Three disjoint triangles and the residual three-vertex path bound the independent set size by five; equality forces the two path endpoints and then fixes one vertex of each triangle, giving only A. Its complement B induces a three-edge matching and one isolate. For a favoured set S of size k, m>=e(S)>=3(k−6) by cubic degree counting. At k=6, e(S)<=1 would allow deletion of a vertex to leave A, but every vertex of B has at least two neighbours in A, so m>=2 instead. These bounds exclude every population other than 5 before h=3/2, 7 between 3/2 and 3, and exactly 5 and 7 at their first crossing. At k=5 equality forces A and gives 2^4 labelled completions; at k=7 equality in the degree bound forces the complement to be A and gives 2^5 completions. For h>3 only k=12 can attain the linear lower bound. At h=3, for T=V\S the energy is −18+e(T)+m_T, where m_T counts monochromatic edges inside T. Equality is equivalent to independence of T, with two freely chosen colours at its vertices. Independently enumerating all 4096 subsets gives coefficient vector (1,12,48,73,34,1) and I_G(2)=1377. A separate exhaustive base-three enumeration of all 531441 spin assignments gives population minima (3,2,1,0,0,0,2,3,6,9,12,15,18) and corresponding degeneracies (2,12,24,16,112,16,544,32,544,584,192,24,1). It finds all 16 k=5 minimizers supported on A and all 32 k=7 minimizers supported on B. There are 48 at the first crossing; every site switches between the adjoining strict intervals, not at a unique ground configuration at the crossing itself.
 
-Shrock and Xu, arXiv:1009.1182 (2010), provide a general field-dependent Potts model and graph-partition framework; their exact graph cases concern paths, cycles, trees, complete graphs, joins and related families, not the particular field-induced complementary occupation classes here. Their zero-temperature antiferromagnetic weighted chromatic polynomial enforces proper coloring, whereas the upper intermediate plateau here retains precisely three monochromatic edges. The Frucht graph description covers its asymmetry and independence number, not field-driven sitewise occupation inversion. Publicly indexed field calculations on the truncated tetrahedron, Grötzsch graph and line graphs concern different host graphs and do not contain a universal implication establishing the Frucht reversal. Search failure is not a uniqueness or historical-priority certificate. The original 1949 graph article was not read in full; an unindexed equivalent Frucht spin calculation is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is not merely a ground-state count. An increasing *uniform* field causes the favoured-color indicator to decrease from one to zero **at every vertex in a five-site set**, while increasing at each complementary vertex, in a naturally distinguished cubic graph with no nontrivial graph automorphism. The exact reversal is explained by a unique maximum independent set and its induced matching complement. This gives a rigorously characterized failure of sitewise monotonicity for an antiferromagnetic spin system and two sharp field thresholds, including endpoint degeneracies. The value is finite-system and structural; no broader universality or minimum-graph-size claim follows.
+The supported distinction is the exact positive-field envelope and complete strict-side inversion for this graph. Prior formalism includes the Hamiltonian, and other records specialize the same model to other graphs, but the inspected sources do not establish this ground-state support or these counts for Frucht.
 
-## Closest work and limits
+## value
 
-The closest archived primary source is Shrock and Xu (2010), https://arxiv.org/abs/1009.1182. The Frucht construction is referenced through the 1949 paper DOI https://doi.org/10.4153/CJM-1949-033-6 and MathWorld. Existing exact finite-graph Potts field tables on other twelve-site or nonbipartite graphs are not equivalent. Scope is precisely the graph and coupling conventions written in the theorem; historical priority is subject to further checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a small, natural finite-graph witness that a positive uniform field can increase total occupation of the favoured colour while switching its site indicator at every vertex. The uniqueness of each strict-side favoured set makes the phenomenon stronger than a change in mean occupation or a choice of representatives from degenerate sectors. The exact envelope and multiplicities make the example usable as a reproducible benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

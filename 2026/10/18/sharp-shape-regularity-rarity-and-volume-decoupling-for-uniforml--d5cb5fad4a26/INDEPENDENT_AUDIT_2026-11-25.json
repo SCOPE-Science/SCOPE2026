@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:27:24.617015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact one-step density and both asymptotic laws hold for fixed d and beta, averaged over the query and cuts. On each child branch the inverse map from retained fraction and new normalized position to cut and old normalized position has absolute determinant u; the joint density 2u leaves the new normalized query uniform independently of the path history. The increments of the log sides are thus Exp(2) times a uniformly chosen coordinate vector, and their sum is Gamma(N, rate 2). For the differences against the last coordinate, the covariance is (I+11^T)/(2d), with determinant d/(2d)^(d-1), and the covariance with the total is zero. This proves the ordinary joint CLT with independent Gaussian blocks. For the local limit, the direction vectors span: a convolution contains an absolutely continuous component, the characteristic function has modulus strictly below one away from zero, and at large frequency at least one of the directional projections grows proportionally to the frequency norm, so the modulus is bounded away from one there as well. The fixed-range window in difference coordinates is Jordan measurable and splits into d pieces of volume (log beta)^(d-1) according to its minimum. The local Gaussian density at zero then gives the displayed constant. For the conditional CLT the joint directions (1,v_j) span d dimensions, and the centered total has one-step variance 1/4. Summing the uniform fixed-window local limit over O(sqrt N) unit intervals in the total coordinate gives a Riemann sum of the standard normal density, times the same shape constant; the uniform o(N^(-d/2)) errors sum to o(N^(-(d-1)/2)). Rounding the two endpoints costs only two fixed windows. Dividing by the sharp rarity probability establishes the conditional limit. An independent d=2 check is Fourier inversion of (1+t^2/4)^(-N), which gives f_N(0)=Gamma(N-1/2)/(sqrt(pi) Gamma(N)) and rarity equivalent 2 log(beta)/sqrt(pi N). Read RESULT.md lines 23–65, VERIFICATION.md and verify.py; the packaged script was inspected, not run, and its recorded finite checks prove none of the limits. One nonessential scope sentence about zero-probability ties needs a qualification: for d>=3 there is positive probability of two unsplit directions at every finite depth. Ties are null conditional on all directions having been selected and disappear eventually almost surely; the omitted-coordinate probability decays exponentially, and no tie convention or tie exclusion is needed for the Finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier blind-tree moment bound can specialize to the tagged exponential increments, giving Pr(R_N >= exp(sqrt(N/(2d)))) >= 1/(72d), not precision for a fixed bounded range.",
+          "Stone's nonlattice local limit is general and standard."
+        ],
+        "reasoning": "The broad tree result gives only a lower bound on elongation. The abstract local limit does not supply the uniform-query increment model, the exact range-region volume, or the mixed local/central scaling result without the model analysis.",
+        "searches": [
+          "arXiv:2606.28641v1 Appendix D, Proposition 22",
+          "Stone 1965 DOI:10.1214/aoms/1177700165"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.28641v1 Appendix D",
+        "arXiv:2608.08360v1 §3.3",
+        "Resultary 8038c3e04b68 original and 0a1a4c4bbf35 index summary",
+        "Stone 1965 theorem; original full text not accessed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An elongation event with probability bounded below yields neither the N^(-(d-1)/2) bounded-shape equivalent nor the joint local probability with a volume interval.",
+          "The Poisson result conditions on small volume to obtain a different volume law; it does not reverse to the tagged split-cell experiment."
+        ],
+        "reasoning": "No checked broader tree result fixes the exact local shape density and conditional total-sum law. The prior implications are credited at the component level.",
+        "searches": [
+          "arXiv:2608.08360v1 §3.3 pp. 9ff.",
+          "arXiv:2606.28641v1 Appendix D p. 34",
+          "Resultary 8038c3e04b68 original Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 12 is for a predetermined sequence of child choices, not the size-biased path of an independently drawn uniform point.",
+          "A stationary Poisson cuboid record has Dirichlet log-shape under tiny-volume conditioning, not the tagged annealed law under bounded shape."
+        ],
+        "reasoning": "The apparently similar typical cell, preassigned path and tiny-volume conditional laws are distinct. The target requires the fixed window in the differences of the tagged log sides and a central total-sum fluctuation under that conditioning.",
+        "searches": [
+          "Resultary: independently uniform tagged splits, Beta(2,1) retained fractions, log-side aspect ratio, and conditional Gaussian log-volume",
+          "arXiv:2608.08360v1 §3.3 Proposition 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/17 SCOPE-universal-logarithmic-shape-and-marked-volume-laws-for-tiny-pois--8038c3e04b68 has a different model, event and limit.",
+          "Same-day record 0a1a4c4bbf35 was available only as an index summary on early leaves of recursive trees, not as a table of tagged rectangle laws."
+        ],
+        "reasoning": "This is an analytic fixed-dimension asymptotic, not a lookup of finitely many constants. The strongest available catalogue statement does not supply it; index nonmatches do not establish priority.",
+        "searches": [
+          "Resultary: sharp tagged-cell bounded aspect-ratio probability and conditional volume; random recursive tree / exact local shape laws"
+        ]
+      },
+      "rationale": "The supported distinction is the exact bounded-aspect-ratio probability and prefactor, and the Gaussian log-volume law conditional on that rare event, for an independent uniform tag in the uniform-cut model. Do not credit the elementary size-bias identity, ordinary Gaussian limit machinery, or qualitative shape failure as novel on their own. No checked statement or direct specialization establishes the sharp local and conditional conclusions together or separately for this model.",
+      "residual_risks": [
+        "Bounded searches do not rule out an older tagged-fragmentation or split-tree equivalent.",
+        "The elementary Beta law may have appeared independently and is not the basis of the originality pass.",
+        "The same-day recursive-tree original and the Stone full text were unavailable; no negative whole-document inference is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative elongation, not the target local or conditional limit",
+          "evidence": [
+            "Proposition 22 requires directional independence and moments; the specialization gives a positive lower bound at a growing aspect ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.28641v1",
+          "material_read": "Appendix D, Proposition 22, p. 34",
+          "method": "OA primary passage and substitution of tagged exponential moments",
+          "title": "Revisiting local regression: shape regularity, uniform rates, and the limits of random splits",
+          "trigger": "Blind split trees and coarser elongation bounds"
+        },
+        {
+          "assessment": "Different path law and a coarser result",
+          "evidence": [
+            "The proposition fixes the child path in advance and lower-bounds Pr(R >= exp(sqrt(N/d))) by 1/11; the discussion distinguishes the query-selected path."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.08360v1",
+          "material_read": "§3.3 Proposition 12 and adjacent discussion, p. 9",
+          "method": "OA primary passage",
+          "title": "Pointwise convergence of purely random partition estimators: from random trees to prototype rules",
+          "trigger": "Uniform split tree with the same geometric cuts"
+        },
+        {
+          "assessment": "Related quantities, not covering",
+          "evidence": [
+            "Stationary Poisson cuboids conditioned on tiny volume yield log-side Dirichlet and scaled-volume Beta laws; no bounded-shape conditioning for the fixed-depth uniform-tag split cell."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-universal-logarithmic-shape-and-marked-volume-laws-for-tiny-pois--8038c3e04b68",
+          "material_read": "RESULT.md Finding and proof §§1–2",
+          "method": "Local catalogue mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal logarithmic shape and marked volume laws for tiny Poisson cuboids",
+          "trigger": "Catalogue overlap in joint logarithmic shape and volume"
+        },
+        {
+          "assessment": "Prior mathematical tool; no priority inference from access failure",
+          "evidence": [
+            "For each of the two vector spaces in the proof there is full covariance and a spread-out, strongly nonlattice step distribution."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177700165",
+          "material_read": "Original full text not obtained from the publisher's full and PDF endpoints; used the standard fixed-window theorem, not a claimed full-text comparison",
+          "method": "Lawful OA lookup and explicit verification of the local-limit hypotheses in this model",
+          "title": "A Local Limit Theorem for Nonlattice Multi-Dimensional Distribution Functions",
+          "trigger": "Classical theorem underlying both fixed-window calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The typical query cell is the volume-weighted object relevant to random partition regression. An exact probability and prefactor for acceptable aspect ratio yield more than a coarse elongation bound, and the conditional limit shows that choosing the geometrically rare regular cells does not change the leading log-volume fluctuations. Both results concern all fixed dimensions and fixed admissible thresholds, not a selected finite numerical configuration. They do not extend here to fixed queries, growing dimension, or whole-tree counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

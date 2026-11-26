@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:11:06.906307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All perimeter-short triangles lie within ε/2 of the pinned vertex. In uniformly bounded normal coordinates the squared third side has Euclidean term, quartic term −K(a∧b)²/3, and remainder O((|a|+|b|)³|a−b|²): the smooth squared-distance remainder and its first difference derivative vanish on the diagonal, and its Taylor polynomial through degree four is the stated curvature polynomial. Thus taking square roots is uniform even as a→b. On each four-dimensional ray h is homogeneous of degree one and bounded below on the unit sphere; the curvature correction is of degree three. The uniform perimeter expansion brackets the scaled radial sublevel by intervals with endpoints h⁻¹+K ε²T/(6h⁴)+O(ε³), which justifies the boundary term without differentiating an indicator. The volume-Jacobian term subtracts I1, yielding the local coefficient K(I2−I1)/6. In the independent replay /workspace/reproductions/short_perimeter_ellipse.py, fixing u−v of length c turns the h<1 midpoint region into an ellipse of semiaxes (1−c)/2 and sqrt(1−2c)/2, 0<c<1/2. Integrating its area and second moments gives I0/π²=1/42 and I1/π²=2/495. The boundary integral I2 equals seven times the sublevel integral of c times the squared perpendicular midpoint coordinate by homogeneity, giving I2/π²=1/990. Averaging over normalized area and applying Gauss–Bonnet yields the stated coefficients, for nonorientable surfaces as well. The first coefficient fixes A>0 and the residual sixth-order coefficient fixes χ. The frozen symbolic checker and sphere series are supporting evidence, not the proof for variable curvature.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch–Jones §2.2 is stronger than the expansion for a round sphere only. Philip's DiVA abstract restricts the work to spherical triangles and mentions two polar sampling schemes; PDF formulas were not retrieved.",
+          "Gray's small geodesic-ball paper was identified at metadata level only. Ball volume is a natural comparator for a conditional two-point distance law, not evidence of a three-point perimeter expansion."
+        ],
+        "reasoning": "A distribution on a fixed constant-curvature geometry does not establish the general local domain perturbation with uniform remainder. Broader finite-metric reconstruction via more observables would not directly cover inference from perimeter alone.",
+        "searches": [
+          "Primary literature: small perimeter distributions of random geodesic triangles on general Riemannian surfaces; Johan Philip DiVA 724390; Alfred Gray small geodesic-ball volumes"
+        ]
+      },
+      "checked_sources": [
+        "Finch–Jones, arXiv:1009.5329v3; Philip DiVA 724390 abstract; Gray 1974 metadata",
+        "Resultary d21c03e6fe62 (self), 7951fcdc74c5, e555d2c7e5c4",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspected, frozen program not executed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sixth-order coefficient requires both a Jacobian integral and a moving perimeter-boundary integral. A two-point conditional ball volume has no third-side boundary term. The inspected acute-deficit law supplies curvature for a different experiment."
+        ],
+        "reasoning": "Sphere data can check a universal curvature coefficient after locality and universality have been established, but the inspected spherical law does not establish those hypotheses on variable-curvature metrics. Applying Gauss–Bonnet is routine only after this nontrivial three-point local analysis.",
+        "searches": [
+          "Finch–Jones §2.2; Resultary 7951fcdc74c5 and e555d2c7e5c4 Findings; normal-coordinate and Gauss–Bonnet inputs in the frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch–Jones Introduction and §2.2 use the same area-uniform three-point perimeter on the unit round sphere and give its full density. The matching coefficients there are 1/672 and −1/31680.",
+          "Resultary 7951fcdc74c5 samples by arclength on a shrinking geodesic circle and measures an acute-triangle event; e555d2c7e5c4 samples in a small metric ball and measures a two-point distance moment."
+        ],
+        "reasoning": "Primal spherical triangles give a genuine special case. Neither changing from a given base point and local reference circle to independent area samples, nor replacing a two-point moment with a three-side threshold, preserves the observable.",
+        "searches": [
+          "Resultary and literature: short intrinsic geodesic triangle perimeter, three independent area-uniform vertices, curvature coefficient and Euler characteristic",
+          "Finch–Jones arXiv:1009.5329, primal versus polar sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue entry d21c03e6fe62 is the assigned record, not an independent match. Finch–Jones is an exact formula for one metric family rather than an entry for the variable-metric case."
+        ],
+        "reasoning": "The coefficient comparison was made by observable and sampling assumptions, not by their numerical constants alone. No independent exact arbitrary-surface entry was identified in the bounded check.",
+        "searches": [
+          "Resultary: short-perimeter law, coefficients π²/42 and π³/990, area and Euler characteristic",
+          "Finch–Jones exact spherical perimeter density, §2.2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit perimeter-tail coefficient and Euler recovery for arbitrary fixed smooth compact connected boundaryless Riemannian surfaces with area-uniform vertices. The general coefficient is not covered by the inspected round-sphere perimeter law or the different local sampling laws. No priority is claimed for the sphere, for Gauss–Bonnet recovery once the coefficient is known, or for an exhaustive historical search.",
+      "residual_risks": [
+        "Philip's PDF and Gray's article text were not retrieved. Unindexed integral-geometric work or a more general three-point configuration law could change the priority assessment; the bounded search is not a proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger density law for the round sphere; not for arbitrary surface metrics",
+          "evidence": "The primal model uses three independent uniform points on the unit sphere; the text attributes its perimeter density on (0,2π) to Jones–Benyon-Tinker and presents integral formulas.",
+          "identifier_or_url": "https://arxiv.org/html/1009.5329v3",
+          "material_read": "Abstract and introduction (offset 0), §2.2 perimeter distribution/density (around offset 17000)",
+          "method": "Targeted OA HTML",
+          "title": "Random Spherical Triangles",
+          "trigger": "Full perimeter law under three independent uniform draws"
+        },
+        {
+          "assessment": "Spherical scope verified at abstract level only; no assessment of its exact sampling formulas",
+          "evidence": "The abstract states that it determines distribution functions for the area and perimeter of a random spherical triangle using two polar constructions.",
+          "identifier_or_url": "https://www.diva-portal.org/smash/record.jsf?pid=diva2:724390",
+          "material_read": "Repository abstract; full text not retrieved",
+          "method": "Public repository and OA PDF attempts",
+          "title": "The Area and Perimeter of a Random Spherical Triangle",
+          "trigger": "Independent spherical perimeter-law comparison"
+        },
+        {
+          "assessment": "Different sampling and observable",
+          "evidence": "Three arclength-uniform draws on a prescribed small circle; acute probability 1/4−3K(p)r²/π²+O_p(r³).",
+          "identifier_or_url": "Resultary 7951fcdc74c5",
+          "material_read": "Finding, offset 0",
+          "method": "Published record, local mirror",
+          "title": "Curvature from the acuteness deficit of random geodesic-circle triangles",
+          "trigger": "General smooth-surface three-point curvature law"
+        },
+        {
+          "assessment": "Different two-point conditional statistic",
+          "evidence": "Second distance moment for two points in a shrinking metric ball, not the perimeter of an area-uniform triple.",
+          "identifier_or_url": "Resultary e555d2c7e5c4",
+          "material_read": "Finding, offset 0",
+          "method": "Published record, local mirror",
+          "title": "Scalar curvature from the second moment of random short geodesic distances",
+          "trigger": "A local scalar curvature coefficient from intrinsic distances"
+        },
+        {
+          "assessment": "Text not evaluated; no negative coverage conclusion",
+          "evidence": "Title and metadata identify small geodesic-ball volume, not a verified passage about random perimeter.",
+          "identifier_or_url": "Alfred Gray (1974), Michigan Mathematical Journal 20, 329–344",
+          "material_read": "Citation and repository metadata only",
+          "method": "Project Euclid metadata; OA text attempt",
+          "title": "The volume of a small geodesic ball of a Riemannian manifold",
+          "trigger": "Candidate short-distance curvature comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perimeter of an area-uniform intrinsic triangle is a natural unlabeled scalar statistic. Its leading small-perimeter probability determines area and its first metric correction isolates total curvature, hence Euler characteristic, without observing the vertices or the three sides separately. The exact joint geometric coefficient is needed for the inference, and the variable-metric result is not just a re-evaluation of a sphere formula or a local two-point volume calculation. This is population-law identifiability, not a finite-sample guarantee or a full surface classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

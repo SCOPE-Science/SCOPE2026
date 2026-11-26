@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The frequency reduction is exact; the resident contrast obeys a scalar logistic equation in cumulative resident time, and the resident-to-invader odds obey a linear inhomogeneous equation with a closed integrating factor. Its strictly monotone numerator partitions all positive initial states into recovery, mixed-equilibrium separatrix, and complete extinction. The reciprocal-density identity yields the exact inverse-time decay. The beta-function singularity follows from a convergent dominated-limit integral. Symbolic calculations and independent numerical ODE tests were replayed from the accompanying checker; they are not substitutes for the infinite-time argument.
+## correctness
 
-**Originality: PASS (bounded evidence).** Primary full text for Arthur–Nicholson–Wilkinson (arXiv:2609.34956v1), especially model (2), Section 4, Figure 3, and the appendix, describes invasion-triggered total extinction but neither this exact inoculum/imbalance basin formula nor the beta-power sensitivity. Feng et al. (arXiv:2503.10865) cover perturbative post-invasion ecological equilibria, not this nonperturbative frequency-dynamics basin. Hale–Valdovinos (DOI:10.1002/ece3.8453) review two-taxon mutualism thresholds, not the stated three-taxon system. Relevant mathematical records and targeted scholarly searches showed conceptual similarities but no implication of the exact assertion. Potential independently known equivalent replicator reductions remain a residual risk.
+PASS
 
-**Mathematical value: PASS.** The source identifies whole-community extinction after introductions without giving an analytic boundary. The theorem determines a unique sharp initial-inoculum threshold for every resident asymmetry, proves that a rare-invasion test misses finite-introduction collapse, and gives a meaningful singular sensitivity exponent as a partner is lost. It is an exact structural basin result, not just an arbitrarily chosen numerical parameter slice. No empirical probability of collapse is implied.
+The result holds for the stated exchange-symmetric deterministic ODE on strictly positive initial states. Bounded interaction terms and logistic comparison give positive global solutions. Subtracting resident per-capita growth rates gives y′=−(a/2)p y(1−y²), and differencing invader and mean resident payoffs gives z′=zp[(−k+ar/2)p−dz]. Thus in ds=p dt the squared contrast obeys r_s=−ar(1−r) and the resident odds obey w_s+(−k+ar/2)w=d. Their integrating factor is H(s)=e^{cs}/√(r₀+(1−r₀)e^{as}); its integral is exactly T(r₀) by u=e^(−as). The numerator w₀+d∫H is strictly decreasing, and its limit distinguishes all three cases, with w₀=R/I. If the limit is positive or zero, s goes to infinity in physical time; on equality the tail ratio ∫_s^∞H/H tends to 1/k and yields w→−d/k. On these branches the eventual mean interaction tends respectively to a/2 and c(−d)/(k−d), so scalar logistic comparison gives the claimed positive total limits. When the numerator vanishes first at finite s*, w_s(s*)=d<0 and p has a simple zero there. Physical time diverges logarithmically; equivalently d(log p)/dt→d<0, giving integrability of the mean interaction Φ=O(p). Solving (1/N)′=μ−Φ/N and applying the Cesàro limit to its integrating factor yields μtN→1 and z→1. Differentiation gives T′>0. Substitution u=(1−r)v gives the beta constant by dominated convergence with dominating integrand v^(q−1)/√(1+v/2) for r≥1/2 and 0<q<1/2. The balanced threshold uses T(0)=1/k, and the resident-equilibrium rare-invader exponent is −k.
 
-**Limitations.** Deterministic, exchange-symmetric three-taxon interaction law only. No claim about random interaction prevalence, stochastic survival, or observational ecological dynamics. Independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the explicit all-initial-state boundary, contrast scaling and physical-time treatment jointly, not the interaction model, the existence of total extinction in it, or the representation by replicator and projective Lotka–Volterra equations. The strongest inspected same-model primary passages describe a rare-invasion barrier and simulated outcomes, not the contrast-dependent basin formula. The strongest inspected catalogue matches analyze different dynamics. Classical phase-plane coverage of the projective special case could not be fully checked and is a residual risk, not a priority assertion.
+
+## value
+
+PASS
+
+Within this published deterministic model class the finding quantifies the gap between linear invasion fitness and the actual basin. It provides a benchmark that is uniform over all positive initial triples in the symmetric slice, not a comparison of selected trajectories: the same resident sum can have arbitrarily different critical fractions as the imbalance changes, and asymptotic composition dominance is distinguished from establishment at positive abundance. The motivation and use are mathematical and model-specific.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

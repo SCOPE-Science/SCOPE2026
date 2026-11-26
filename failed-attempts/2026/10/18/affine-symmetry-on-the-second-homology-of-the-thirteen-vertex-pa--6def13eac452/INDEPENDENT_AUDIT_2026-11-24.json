@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:45:20.474463Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36",
+        "Frozen VERIFICATION.md and verification/paley13_affine.py",
+        "Independent replay: python3 /workspace/independent_checks/paley13.py"
+      ],
+      "rationale": "The open neighborhood face test is that the intersection of the vertex neighborhoods is nonempty, using symmetry of adjacency. An independently written bit-mask calculation tested all 2^13 subsets, giving the augmented face vector (1,13,78,221,195,78,13). It checked cone fillings of all 65 absent triangular loops. The one-skeleton is complete so triangular loops generate its fundamental group, and the fillings kill them. The same program reproduced 218 free-face collapses with the published ordering and face vector (13,68,81) in the remaining two-dimensional complex; an alternative legal order gives another two-dimensional complex. Thus simple connectivity, reduced Euler characteristic 25, Hurewicz and the homology version of Whitehead yield a wedge of 25 two-spheres. Independently, augmented boundary ranks over F₁₀₁ were (1,12,66,130,65,13). They are lower bounds on rational ranks, imply zero rational reduced Betti numbers outside degree 2, and rational Euler characteristic forces degree 2 to have dimension 25. All 78 affine maps were then checked by enumerating unions of vertex cycles. A fixed face that is a union of k cycles contributes (−1)^(k−1) including orientation and the augmented empty term. Summing yields −1 for twelve nontrivial translations, 1 for each of the 65 elements with multiplier different from 1, and 25 for the identity, with the displayed signed contributions by dimension reproduced for each multiplier. The Hopf trace formula now gives exactly the stated H₂ character. The proposed rational permutation-plus-augmentation module has that character, and semisimplicity and characteristic-zero character comparison identify the rational modules. No supplied code was executed.",
+      "residual_risks": [
+        "This character check does not identify integral group-module structure or the action of any larger automorphism group. The modular boundary computation alone is not an integral homotopy certificate; the independent collapses and triangular fillings supply that step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 12fa0c9f78c0 supplies integral generation from either of the two individual 39-element affine orbits, stronger than merely counting carriers or giving a Betti number.",
+          "Shukla treats maximum degree at most three and 4-regular circulants; Matsushita treats fundamental groups; Namiq studies two-linear resolutions, not this rational action."
+        ],
+        "reasoning": "An equivariant generator statement constrains the representation through a quotient of a permutation module, unlike a nonequivariant type or a general theorem for a different graph class.",
+        "searches": [
+          "Resultary: Paley-13 affine equivariant results and shortest neighborhood spheres",
+          "arXiv:1802.04526, pp. 1–2",
+          "arXiv:1210.2803, p. 1",
+          "arXiv:2606.03573, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 12fa0c9f78c0 and 3ea66249c61b",
+        "Referenced Resultary 0bd4f768ad7e and 3f8cbbf12bfc (indirect descriptions only)",
+        "arXiv:1802.04526, arXiv:1210.2803 and arXiv:2606.03573"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The orbit of {0,1,3,11} has size 39, and its tetrahedral boundaries generate H₂ integrally. Its stabilizing involution (0 1)(3 11) fixes the boundary orientation.",
+          "The resulting coset-module surjection bounds the translation-invariant dimension by three. Rational C₁₃ dimensions then force the invariant dimension to be one, with trivial multiplier action because the source invariants factor through C₃. On nontrivial translation weights a nonidentity multiplier has no fixed summand."
+        ],
+        "reasoning": "Consequently the same-day record forces the rational action without another face-trace calculation. It need not say so explicitly, and no intra-day priority is inferred.",
+        "searches": [
+          "Resultary 12fa0c9f78c0, Finding and Assumptions, offsets 0–2644",
+          "Resultary 12fa0c9f78c0, Orbits and Integral orbitwise generation, offsets 2644–5444"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later record 3ea66249c61b gives W⊕(W/ℚ1) for the same open complex and the same order-78 affine action, with all three identical character values.",
+          "The permutation module W decomposes as ℚ1⊕(W/ℚ1), so this is the identical rational module, not a related representation on a different complex."
+        ],
+        "reasoning": "The character, augmentation decomposition and later W-based presentation are equivalent in characteristic zero. Neither the Paley clique complex nor the unoriented wedge classification is an equivalent statement.",
+        "searches": [
+          "Resultary: exact Paley-13 affine homology character 25, −1, 1 and rational module",
+          "Resultary: affine orbit generation for Paley neighborhood complex",
+          "Resultary 3ea66249c61b, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 3ea66249c61b explicitly gives the same three character values for the same group and the same complex; it is dated later.",
+          "The two cited records are described as giving the 25-sphere wedge type in the frozen Related work and in 12fa0c9f78c0; their exact primary texts were unavailable through the checked catalogue paths."
+        ],
+        "reasoning": "The later full statement is an exact duplicate of the equivariant result for coverage purposes, not evidence of earlier publication. No independent negative assertion about the inaccessible records is needed; a wedge alone does not fix the action.",
+        "searches": [
+          "Resultary: exact Paley affine character and augmentation module",
+          "Resultary: cited record 0bd4f768ad7e",
+          "Resultary: cited record 3f8cbbf12bfc"
+        ]
+      },
+      "rationale": "The exact claimed rational action is mechanically forced by a distinct same-day theorem that either of two 39-element affine orbits of oriented tetrahedral sphere classes generates H₂, of rank 25. The representative {0,1,3,11} has stabilizer H generated by x↦1−x, an even permutation on its carrier, so its oriented class is fixed by H and yields an equivariant surjection ℚ[A/H]→H₂. The translation subgroup N=C₁₃ acts freely on the 39 cosets with three orbits, so the target has at most three N-invariants. Its dimension is 25 and the only nontrivial rational irreducible of N has dimension 12, so there is exactly one invariant dimension and two copies of that irreducible on restriction. The invariant line is fixed by all of A: the invariants in the source are ℚ[C₆/C₂], on which the action factors through C₃, which has no nontrivial rational one-dimensional representation. Every nonidentity multiplier permutes the nontrivial complex N-weights without a fixed weight, so has trace zero on their sum. This gives 25, −1 and 1, hence the exact module. Same-day ordering is unknown; this is a coverage decision, not a claim of earlier discovery. A distinct later record also explicitly states the identical module and character.",
+      "residual_risks": [
+        "Chronological priority within 2026-10-18 is not established. Unavailable cited texts and irrelevant search results are not negative evidence. Neither limitation changes the explicit same-day implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the module; same-day priority unresolved",
+          "evidence": "Either size-39 orbit independently generates ℤ^25. The stated representative {0,1,3,11} has an orientation-preserving order-two stabilizer, giving the coset-module quotient described in the review.",
+          "identifier_or_url": "Resultary 12fa0c9f78c0",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2644; orbit and dimension/generation proof, offsets 2644–5444",
+          "method": "Published record mirror, targeted primary passage reads",
+          "title": "Two affine orbits of shortest Paley neighborhood spheres generate integral second homology",
+          "trigger": "Same-day equivariant generators for the exact complex and affine group"
+        },
+        {
+          "assessment": "Exact equivariant match, later date",
+          "evidence": "States W⊕(W/ℚ1), character values (25,−1,1), and the one-dimensional invariant space.",
+          "identifier_or_url": "Resultary 3ea66249c61b",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2323; signed-trace proof, offsets 2982–5557",
+          "method": "Published record mirror, targeted primary passage reads",
+          "title": "The Paley-13 neighborhood complex is 25 two-spheres with an explicit affine homology module",
+          "trigger": "Exact match under the permutation-module presentation"
+        },
+        {
+          "assessment": "Stated wedge classification overlaps; full-text equivariant scope unverified",
+          "evidence": "The readable descriptions give the same wedge type. They do not by themselves imply any rational affine character.",
+          "identifier_or_url": "Resultary 0bd4f768ad7e and 3f8cbbf12bfc",
+          "material_read": "Descriptions in the frozen RESULT.md lines 38–48 and in the same-day orbit record's relationship to prior work; exact primary texts not retrieved",
+          "method": "Exact-ID searches and attempted published-record mirror retrieval",
+          "title": "The thirteen-vertex Paley neighborhood complex is a wedge of twenty-five two-spheres; The neighborhood complex of the order-13 Paley graph is a wedge of 25 two-spheres",
+          "trigger": "Earlier nonequivariant calculations cited in the frozen record"
+        },
+        {
+          "assessment": "Inspected results concern other graph degrees",
+          "evidence": "The results cover maximum degree at most three and 4-regular circulants; this Paley graph is six-regular.",
+          "identifier_or_url": "arXiv:1802.04526",
+          "material_read": "pp. 1–2, offsets 129, 4473 and 6260",
+          "method": "Lawful OA PDF, targeted passage read",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Neighborhood-complex homotopy and circulant graph aliases"
+        },
+        {
+          "assessment": "Different invariants in inspected passages",
+          "evidence": "The objects computed are fundamental groups and the two-linear resolution property respectively, not the second homology character.",
+          "identifier_or_url": "arXiv:1210.2803 and arXiv:2606.03573",
+          "material_read": "First-page statements, offsets 0–1413 and 460–2246 respectively",
+          "method": "Lawful OA PDFs, targeted passage reads",
+          "title": "Fundamental groups of neighborhood complexes; A Complete Classification of 2-Linear Neighborhood Complexes",
+          "trigger": "Potential broader neighborhood-complex structure theorems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary 12fa0c9f78c0, affine generator theorem",
+        "Resultary 3ea66249c61b, rational module statement"
+      ],
+      "rationale": "The natural affine action is an informative invariant beyond the nonequivariant wedge type. But the exact invariant claimed by this record is already mechanically determined by the equivariant orbit-generation theorem; the independent trace calculation corroborates it without giving additional structural information. Thus it does not meet the distinct-value standard for a narrow exact invariant. The record does not establish a new integral or larger-group action that would survive as a separate claim.",
+      "residual_risks": [
+        "This does not devalue the affine invariant as a mathematical question or settle who first obtained it; it rejects this claimed amount of additional content."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

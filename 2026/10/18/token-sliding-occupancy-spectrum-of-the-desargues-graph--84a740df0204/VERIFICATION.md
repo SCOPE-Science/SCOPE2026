@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Reproduction instructions
 
-Run `python3 verify.py` under Python 3 with its standard library and no additional input files. The program reconstructs the original 20-vertex graph from the disjoint-pair model and maps it to the canonical generalized Petersen \(GP(10,3)\) adjacency list by a fixed bijection. It generates all independent vertex subsets using two different algorithms, tests sliding edges by two independent definitions, computes connected components with breadth-first search and union–find, checks frozen-star and small-component geometries, and performs exhaustive breadth-first shortest-path searches from each nonisolated state.
-
-The expected completion marker is `ALL_CHECKS_OK`, printed only after all census and distance assertions succeed. The certificate proves exact properties of this one finite graph, not a family-level statement. Published independent-set face counts provide an additional consistency check but do not themselves determine any token-sliding component. No independent external verification is represented in the status front matter.
+Run `python3 verify.py` with the Python 3 standard library. The program checks a vertex bijection from the disjoint-pair presentation to \(GP(10,3)\), enumerates all independent subsets at occupancies one through ten, constructs the slide graph by host-edge toggles and cross-checks the edge count by all unordered state pairs. It checks component orders and small-component shapes. It then computes exact eccentricities by breadth-first search from every state of each nonsingleton component, and asserts all reported radii and diameters, including occupancies one, two, and three. `ALL_CHECKS_OK` is printed after all assertions succeed. This is an exact finite computation for this graph, not a general theorem for other hosts.

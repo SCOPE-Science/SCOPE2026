@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:49:37.660088Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Symmetry and bounded jumps justify the cosh Lévy–Khintchine integral even with infinite Lévy activity: for fixed t its integrand is bounded by a constant times x². Dividing by Vt²/2 gives the r-average M(t) over the variance measure. Rearrangement on t<1/c, and the bound (1−1/M(t))/t≤1/t for the rest, establish the exact supremum formula including c=0. In the non-Gaussian case the objective is positive and goes to zero at both ends, so has a positive finite maximizer. For η≤μ([0,αL]), first maximize r pointwise within the lower and upper regions, then replace the lower region weight by η. Both steps can be equal simultaneously only for (1−η)δ_L+ηδ_(αL); it is the chain, not necessarily each individual inequality, that is strict otherwise. Attainment of the competing objective gives strictness of the scale; Gaussian scale zero is separately strict because η<1. The variance profile is realizable by the stated symmetric jump rates and Gaussian part when α=0. For η>0 the refined objective is pointwise strictly below the universal one, and attains its own maximum. For uniqueness, the derivative has the sign of A−B, where A=zr′ and B=r(r−1). Expansion of 2cosh(2z)−8cosh(z)+6 yields the printed B coefficients. The polynomial 4n(2n+3)(2n+4)−(n+1)(2n+5)(2n+6) is 8+(n−1)(12n²+42n+38), strictly positive for n≥1; it gives the claimed strictly decreasing coefficient ratios. In the derivative of the power-series quotient, pairing terms with exchanged indices makes every unequal-index contribution strictly negative. Therefore A/B decreases from 2 to 0 and crosses 1 once. At α=0 and ε=1−η, below (1−δ)log(1/ε) the normalized objective is negligible by r(z)−1≤z² exp(z)/12; above it the objective is at most 1/z, and at (1+δ)log(1/ε) the exponential growth of r yields the matching lower bound. The frozen checker and output were inspected, not executed. In a separate exact rational test I bounded exp(z) by its degree-68 Taylor sum and that sum plus z^69/(69!(1−z/70)), used the increasing functions (u±1/u)/2 for u≥1, and enclosed z³sinh z−z²(cosh z−1)−2(cosh z−1)² at 3.82237 and 3.82238 with signs + and −. After 60 exact-sign bisections, bounding 1/z−z/[2(cosh z−1)] over the bracket verified rounding to the printed 18 decimal places.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Wang cover directional scales for arbitrary infinitely divisible laws. Proposition 5.1 concerns equality of the MGF with the sub-gamma envelope, not equality of scale values under variance-profile constraints.",
+          "Chen supplies a canonical factorization and exact scale formula in a spectrally positive class, excluding nontrivial symmetric signed jump laws."
+        ],
+        "reasoning": "The general scale functional is prior and, with the increasing symmetric remainder, readily yields the unconstrained endpoint comparison. It does not itself state the sharp constrained profile or its iff equality condition. The inspectable one-sided results are not direct coverage of a two-sided profile theorem.",
+        "searches": [
+          "Chen–Wang arXiv:2609.02590 §§2–3 and Proposition 5.1",
+          "Chen arXiv:2610.00032 §§2,4, spectrally positive canonical remainder"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.02590",
+        "arXiv:2610.00032",
+        "Resultary 14cc4c8da31b",
+        "Resultary 48dc597af751"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Skellam result gives positivity and interior control at p=1/2, not global uniqueness of the maximizing argument.",
+          "The earlier logarithmic result concerns one-sided bounded jumps. The same exponential-growth mechanism carries over to symmetric largest jumps, so the leading-order rate is not a standalone novelty basis."
+        ],
+        "reasoning": "The distinctive additions are simultaneous optimization and rigidity under a short-jump variance constraint over arbitrary symmetric infinite- or finite-activity laws, and a strict global one-crossing proof for the universal optimizer. This pass does not assign novelty to the earlier directional variational formula, the individual Skellam constant, or the general idea of an inverse-log scale under Gaussian smoothing.",
+        "searches": [
+          "arXiv:2609.02590 §6 and closing limitations, p. 22",
+          "Resultary 14cc4c8da31b and 48dc597af751, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Wang equations (6.1), (6.3), (6.6) and Theorem 6.2: setting p=1/2 gives normalized remainder M(t)=2(cosh t−1)/t² and optimal scale max_(t>0)(1−1/M(t))/t. Scaling from unit jumps to jumps of magnitude L multiplies the scale by L.",
+          "Chen–Wang p. 22: 'We do not assert uniqueness of an interior optimizer.'"
+        ],
+        "reasoning": "The endpoint candidate and value are exactly the previously calculated law's variational scale. The new comparison concerns all symmetric Lévy profiles, with the optional variance-share constraint, rather than solving that individual law anew.",
+        "searches": [
+          "Chen–Wang arXiv:2609.02590 §6, centered Skellam p=1/2",
+          "Resultary 48dc597af751, equal-amplitude Skellam specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "14cc4c8da31b has an exact Gaussian-noise transition, a sharper fixed one-sided Poisson expansion, and c_s(Y) log(s/V)→b for bounded spectrally positive laws under Gaussian smoothing.",
+          "48dc597af751 gives an exact phase surface for two potentially asymmetric jump sizes and acknowledges the equal-amplitude Skellam threshold."
+        ],
+        "reasoning": "These are genuine exact formula and mechanism overlaps. The dilution calculation is the symmetric counterpart of the earlier logarithmic transition, and a two-point test-law calculation is not the same as optimizing over all symmetric Lévy profiles with a prescribed variance share. Neither indexed statement gives that full envelope and its equality characterization.",
+        "searches": [
+          "Resultary: sharp optimal sub-gamma scale, Skellam threshold, Gaussian variance dilution, two-jump phase boundary"
+        ]
+      },
+      "rationale": "Credit Chen–Wang with the exact variational scale of the individual symmetric Skellam law and the general directional variational representation; the numerical universal constant is precisely their Skellam variational constant after rescaling. Credit the earlier Gaussian-noise entry with the inverse-log mechanism in the bounded one-sided setting. The distinct supported claim is the sharp class-wide two-location variance-profile envelope with equality characterization and the analytic uniqueness of the universal optimizer. The inspected Chen–Wang work explicitly does not assert interior-optimizer uniqueness, and neither it nor the inspected catalog analogues supplies this joint constrained extremal result. This is not a priority certification.",
+      "residual_risks": [
+        "The bounded comparison does not exclude an earlier sharp variance-profile extremal result or a separate proof of scalar optimizer uniqueness in the wider concentration and moment literature.",
+        "Chen–Wang's text was retrieved and the decisive portions read; the frozen note about full-text unavailability is historical, not a remaining access risk for that comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Skellam overlap and general formula; no interior uniqueness claimed",
+          "evidence": "At p=1/2, d=0 and the remainder is r, giving the same variational γ. The discussion explicitly declines to claim uniqueness of an interior optimizer. The full PDF was accessible in this review.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02590",
+          "material_read": "§§2–3, Proposition 5.1 (pp. 13–14), §6 equations (6.1), (6.3), (6.6), Theorem 6.2 (pp. 15–18), and limitations p. 22 (text offset about 44100)",
+          "method": "Open primary PDF; decisive limitation checked directly",
+          "title": "Directional Optimal Sub-Gamma Scales for Infinitely Divisible Laws",
+          "trigger": "Same symmetric Skellam scale and potential general coverage"
+        },
+        {
+          "assessment": "One-sided framework, not the constrained symmetric class",
+          "evidence": "Canonical factorization with nonnegative spectral support and a variational scale formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00032",
+          "material_read": "§§2 and 4, pp. 2–4 and 8–9 and relevant passages at offsets about 3000, 6900 and 20600",
+          "method": "Open primary PDF",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "Canonical representation and sharp bounded-jump scale precedent"
+        },
+        {
+          "assessment": "Real overlap in mechanism and leading order for a different class",
+          "evidence": "One-sided Poisson with added Gaussian variance has a sharper expansion; the generalized c_s(Y) log(s/V)→b formula assumes bounded spectrally positive Y.",
+          "identifier_or_url": "Resultary 14cc4c8da31b",
+          "material_read": "RESULT.md Finding, assumptions and opening variational proof",
+          "method": "Local Resultary mirror; Finding directly checked",
+          "title": "A sharp Gaussian-noise transition for optimal sub-gamma scales",
+          "trigger": "Inverse-log Gaussian dilution"
+        },
+        {
+          "assessment": "Two-jump phase boundary, not an all-laws constrained envelope",
+          "evidence": "Classifies a potentially asymmetric two-jump family and acknowledges the known equal-amplitude Skellam threshold.",
+          "identifier_or_url": "Resultary 48dc597af751",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp unequal-jump sub-gamma phase surface and quadratic crossover",
+          "trigger": "Exact two-jump scale and crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed actual variance, a jump cap by itself gives a uniform least scale, but the variance-share theorem answers the finer question of how much this guarantee improves when a prescribed fraction of variance comes from smaller jumps or Gaussian noise. It identifies attainable worst cases, not just a smaller valid constant, and distinguishes class-wide equality from the already known variational value for one law. The unique universal optimizer and finite nonzero maximizing argument clarify when strict MGF domination improves the optimal scale. These are substantive sharp concentration statements, not claims of tail-probability optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

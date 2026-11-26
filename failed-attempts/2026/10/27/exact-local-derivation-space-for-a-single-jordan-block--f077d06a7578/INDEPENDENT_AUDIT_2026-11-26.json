@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:59.008218Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let A=lambda I+S. Since A is invertible, N=[L,L] and is preserved by derivations; comparing the identity on [v,x] gives BA-AB=aA with a the x component of d(x). Its trace is ak lambda, so a=0 in characteristic zero. A map commuting with S is determined by its value on the cyclic vector e_1; each such value uniquely equals p(S)e_1 for a polynomial of degree below k. Conversely, arbitrary d(x) in N and B=p(S) give derivations. Locality on e_j forces Delta(e_j) into F_j and on x forces Delta(x) into N. If v in N is nonzero with first nonzero entry j, the columns v,Sv,...,S^(k-j)v have leading coefficient v_j in successive rows, hence span F_j over K. Every flag-preserving B therefore satisfies Bv=p_v(S)v pointwise. For y=alpha x+v with alpha nonzero, use a derivation vanishing on N with value Delta(y)/alpha on x; y=0 is automatic. This proves all three dimensions by counting entries, including k=1 where both spaces have dimension two. The supplied verify.py was inspected, not executed; the finite checks through k=8 are illustrative and unnecessary to the symbolic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 gives local=ordinary exactly for diagonalizable complementary action in the one-dimensional complement case. Its proof treats Jordan blocks of arbitrary size and provides the derivation matrices for the relevant block."
+        ],
+        "reasoning": "The rigidity criterion alone implies no dimension when k>=2, but restricting its proof's displayed derivations to a single block supplies all pointwise attainable vectors. There is no additional eigenvalue or splitting issue in the frozen domain: the given block is already defined over K, and the triangular solve uses division only by the nonzero leading coordinate.",
+        "searches": [
+          "arXiv:1803.06668v1, Theorem 3.2 and its Jordan-block proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1803.06668v1, §3",
+        "Resultary 7881543e4284 and ba6a85ab40e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper gives d(e_i)=alpha_1 e_i+alpha_2 e_{i+1}+... and writes d(v) coefficient by coefficient; it solves for the special target with last entry doubled according to the first nonzero coordinate.",
+          "The ordinary derivation family also permits arbitrary N-valued d(x), which can be used independently of the block coefficients."
+        ],
+        "reasoning": "Keep that displayed coefficient matrix and replace only the right-hand side by arbitrary b in F_j for v with first nonzero coordinate j. The leading square system on F_j has determinant v_j^(k-j+1), so every such b occurs, and no vector outside F_j does. Consequently locality on basis vectors is exactly flag preservation; vectors with nonzero x coefficient are unconstrained beyond the image lying in N. The frozen dimensions then count the entries of this triangular space and the ordinary Toeplitz subspace. This establishes mechanical coverage, not merely precedent for a non-derivation example.",
+        "searches": [
+          "arXiv:1803.06668v1, §3 proof of Theorem 3.2, pp. 5–6; OA offsets 19480 and 22262"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.1 is the frozen k=2, lambda=1 case after reindexing. The general proof writes the ordinary block as a triangular Toeplitz matrix, equivalently p(S) with the basis orientation in the frozen statement.",
+          "The Resultary dimension/normal-form hits concern Heisenberg or free two-step nilpotent Lie algebras, not an abelian nilradical with invertible complementary action."
+        ],
+        "reasoning": "The frozen flag classification asks for pointwise membership in the orbit of the same triangular Toeplitz derivation family. The different nilpotent algebra families are not aliases or parameter choices of this algebra.",
+        "searches": [
+          "arXiv:1803.06668v1, §3, Example 3.1 and proof of Theorem 3.2",
+          "Resultary semantic search for local derivation triangular Jordan-block flag classification; closest hits 7881543e4284 and ba6a85ab40e2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue hits give exact formulas for different algebra families. The paper supplies exact ordinary-derivation block entries but does not tabulate local-space dimensions for this family."
+        ],
+        "reasoning": "No literal exact local-dimension table was found in those sources. This does not establish distinct content when the same dimensions follow by a direct count from the existing matrix form and pointwise test.",
+        "searches": [
+          "Resultary local-derivation semantic search (50 ranked results)",
+          "arXiv:1803.06668v1, §3 matrix display and Example 3.1"
+        ]
+      },
+      "rationale": "The full local space is not printed in the matched paper, but it is a direct corollary of its displayed derivation family for exactly this Jordan action. The published local-derivation example already writes the coefficient system; after its initial zero coordinates the system is triangular with the first nonzero coordinate on the diagonal, and therefore matches any target in the same flag tail. This is an implication finding, not a claim that the paper states the dimension formula verbatim.",
+      "residual_risks": [
+        "The journal-version wording was not verified; the implication uses the inspected primary preprint and does not depend on a claim about the final journal text.",
+        "The catalogue search was bounded and does not establish earlier or exclusive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary forms and mechanical implication for local space; no verbatim full local dimension statement in the inspected passages",
+          "evidence": "The special local example doubles the last basis coordinate; the required solve already has diagonal equal to the first nonzero coordinate of the input, so no new structural ingredient is needed for all local maps.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.06668v1",
+          "material_read": "§3, PDF p. 3 Example 3.1 and Theorem 3.2, OA offsets about 9530–11362; pp. 5–6 derivation matrices and coefficient system, offsets 15763, 19480, 22262",
+          "method": "OA primary arXiv PDF; journal DOI 10.1080/03081087.2019.1626336 inaccessible via attempted OA routes",
+          "title": "Local derivations on solvable Lie algebras",
+          "trigger": "Same one-dimensional complement, exact Jordan proof and rigidity statement"
+        },
+        {
+          "assessment": "Different algebra family",
+          "evidence": "Preservation of the central line in a two-step nilpotent Heisenberg algebra; no invertible Jordan action.",
+          "identifier_or_url": "2026/10/26/SCOPE-local-derivations-of-heisenberg-lie-algebras-over-arbitrary-fiel--7881543e4284",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Local derivations of Heisenberg Lie algebras over arbitrary fields",
+          "trigger": "Related flag-preservation classification and exact dimensions"
+        },
+        {
+          "assessment": "Different algebra family",
+          "evidence": "Classifies free two-step nilpotent Lie algebras in characteristic different from two.",
+          "identifier_or_url": "2026/11/8/SCOPE-local-derivations-of-free-two-step-nilpotent-lie-algebras--ba6a85ab40e2",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Local derivations of free two-step nilpotent Lie algebras",
+          "trigger": "Exact local normal form in another Lie family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantifying how much rigidity fails is a reasonable question, and the note states the answer correctly. In this exact family the flag and dimensions are a direct image calculation in the known triangular Toeplitz derivation matrices: inspecting the leading nonzero coordinate gives each orbit and entry-counting gives the deficit. The restriction to one block removes the interactions that might give a nonroutine classification. No distinct substantive result beyond this mechanical consequence survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

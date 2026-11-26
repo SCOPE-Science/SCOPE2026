@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The general proof inducts on a finite rank threshold and exhausts local extensions into an occupied equivalence component and fresh singleton-component extensions. Its necessity and sufficiency arguments transfer arbitrary local ranks to a sorted staircase of unused-component ranks. The ordered-chain specialization then inducts on the two concrete extension types: insert into a marked chain gap, or create a new chain. Necessity and sufficiency are both established, and the boundary cases of the empty host, no unused chains, and zero-length gaps are stated.
+# Independent mathematical audit
 
-Run `python check_chainrank.py` from the extracted package directory to compare a direct one-point-game recursion with the closed formula on all disjoint-chain hosts of up to ten vertices, over every marked subset and thresholds zero through four. The construction of both computations is visible in the source. Its observed result was `ALL_CHECKS_OK 66963 marked host configurations (each through 4 thresholds)`.
+## correctness
 
-Run `python check_component_rank.py` from the same extracted directory for a separate graph-component test. It recursively tests the actual game for every graph on each component in ten small size profiles and every marked position, versus the general staircase. The observed output was `GENERAL_COMPONENT_CHECK_OK 838 marked graph-component positions`. Both checkers are finite regression tests, not substitutes for the all-size proof. The literature overlap check reviewed the 2026 definition and pure-order theorem, identified distinct first-order invariants in two indexed disjoint-chain results, and retains priority uncertainty from the inaccessible indexed full texts. No independent review is represented.
+PASS
+
+For the corrected full finding in /workspace/repairs/2/RESULT.md. The original scope assertion that all ranks of finite hosts are finite fails for arbitrary local hereditary classes. If the base class has only the empty structure and one singleton type, a marked singleton has no challenge, hence satisfies every finite threshold; so does the empty position of the singleton host. Indeed two singleton components have global rank 2, and capping the local ranks at host order would wrongly reject this. The repair instead takes local values in the extended nonnegative integers. For each finite threshold r, every move is local to one occupied class or starts a fresh singleton class. Necessity: arbitrary occupied-class challenges must admit local replies at threshold r-1; a fresh challenge requires using an unused class with original local rank at least r while the remaining classes meet r-1,...,1. Sufficiency: use the local rank reply or consume the highest unused local rank, respectively; the other requirements survive at the lower threshold. This proves the induction including vacuous terminal local positions. Repeating fresh challenges bounds the global rank by the number of unused classes. Induced embeddings of the principal local kernels must go to distinct named E-classes because these kernels are nonempty and E is reflected. In chains, splitting a gap into two gaps of size at least 2^(r-1)-1 is exactly the recursion giving 2^r-1; incomparability separates chains. Summing the ladder gives N_r=2^(r+1)-r-2. One excess point lengthens one chain or adds a singleton; only the latter has a size-two automorphism group. The resulting count is (r+1/2)(N_r+1)!, and the next threshold needs more than one extra vertex. Independent direct recursion by extension relation signatures agreed with the scalar formula in 8,800 positions (all markings through size 8; empty markings through size 12), and gave minima 1,4,11, next-order type counts 2,3,4 and labelled counts 3,300,1676505600. This was a bounded working check, not a preserved replay script or proof of generality; the frozen checkers and their reported outputs were inspected, not run.
+
+## originality
+
+PASS
+
+Best of knowledge for the repaired claim. The rank recursion, single-chain gap threshold, and the pure-equivalence staircase are antecedents. The surviving new point is the exact transfer for arbitrary compatible local hereditary classes, including possibly infinite local capacities, and its simultaneous application to marked unions of chains. This does not rely on claiming priority for the pure-equivalence special case or for the one-dimensional gap lemma.
+
+## value
+
+PASS
+
+The formula separates local extension capacity from the consumption of independent classes, so it turns a marked game into local rank computations and yields a constructive principal-kernel transfer. This has content even when local ranks are infinite but global ranks are finite. The chain case gives a usable simultaneous test at every marked position and a sharp minimum and next-order classification, not just a re-count of the known single chain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

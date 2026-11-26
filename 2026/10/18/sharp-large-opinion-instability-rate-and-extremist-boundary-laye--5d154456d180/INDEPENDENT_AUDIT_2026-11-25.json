@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:12.287642Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–31 and 33–91; VERIFICATION.md and verification/check.py and requirements.txt inspected, not executed",
+        "Cao–Gong arXiv:2605.28984v1, §2.1, Eq. (2.1), p. 4",
+        "Independent bounded secular root and odd-row residual calculation"
+      ],
+      "rationale": "For the reflecting mean-field ODE in Cao–Gong's time normalization, the only mean-feedback derivative is mₕ(eₖ−e₋ₖ)/[k(2k+1)]. The even mass-zero sector is strictly decaying. On the odd sector let A be minus the reflecting generator with a Dirichlet value at zero. Solving its endpoint forcing gives A⁻¹eₖ=2(1,…,k)ᵀ. Conjugation by A⁻¹/² makes the odd Jacobian a symmetric rank-one perturbation of −A; the inertia criterion is 4Σj²/[k(2k+1)]=2(k+1)/3>1, so there is one positive and no zero tangent eigenvalue. The positive eigenfunction is proportional to sinh(jt), where λ=cosh(t)−1; the reflecting endpoint equation gives precisely the displayed unique strictly positive root. The trivial t=0 of the unnormalized equation is not an eigenmode. At k=1 the direct odd Jacobian is −1/2+2/3=1/6. Multiplying the second difference of sinh(jt) by j and telescoping gives the stated finite-sum identity and λₖ=2(1−Rₖ)/(2k+1). The bound λₖ<2/(2k+1) gives tₖ→0. Bounded ktₖ along a subsequence would make the secular left side O(tₖ) and the right side at least 2(k+1)tₖ/3, a contradiction. Hence coth(ktₖ)→1, Rₖ∼1/(ktₖ), tₖ∼√(2/k), and √k(1−kλₖ)→1/√2, with the correct minus sign in λₖ. The sinh quotient at distance floor(x√k) from k tends to exp(−√2 x) for each fixed x≥0. A fresh bounded bisection/residual check for k=1,8,64 had maximum normalized odd eigenvector residuals below 9×10⁻¹⁶; at k=6400 the scaled eigenvalue correction was −0.710238689 and profile at x=1 was 0.244655614, compared with limits −0.707106781 and 0.243116734.",
+      "residual_risks": [
+        "The bounded numerical tests do not prove the limit. The proof establishes the pointwise profile of the single unstable eigenmode; it does not establish nonlinear or stochastic escape rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Gong analyze symmetric convergence using the reflecting Laplacian and provide sufficient far-mean conditions for extreme consensus. The exploration-regularized work mentioned in the frozen discussion has no identifiable citation there and was not located in the bounded lookup."
+        ],
+        "reasoning": "Symmetric perturbations have zero mean feedback; their gap cannot give the positive rate of the odd rank-one update. Neither the nonlinear consensus sufficient conditions nor the absence of an identified exploration paper settles quantitative priority.",
+        "searches": [
+          "Cao–Gong arXiv:2605.28984v1 Eq. (2.1), §3.2, Theorem 3 and Conclusion",
+          "Targeted primary literature search for reflecting incremental voter spectral asymptotics and exploration-regularized formulations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.28984v1",
+        "Resultary 06fd99a6b6dd and 97cb17dd2e8b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original nonlinear equations determine the Jacobian and the earlier Hessian argument determines the sign count. The new rate and profile follow only after solving the endpoint recurrence, proving ktₖ diverges, and resolving the first correction of the exact secular balance."
+        ],
+        "reasoning": "This is not a renaming of the known unstable direction or an existing Laplacian rate under another time unit. The earlier index is expressly separated from the quantitative new statement; the inspected prior proofs give no shortcut that already yields the second term and endpoint profile.",
+        "searches": [
+          "Resultary 06fd99a6b6dd proof §5 and 97cb17dd2e8b proof §5",
+          "Cao–Gong arXiv:2605.28984v1 Eq. (2.1) and §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 entropy-dissipation result derives the same hyperbolicity index via the Hessian and positive mobility. The later stochastic-order result exhibits the same one-positive-direction index in tail coordinates."
+        ],
+        "reasoning": "These formulations cover the same qualitative spectral index, not merely an analogy. Inertia arguments and coordinate changes do not fix λₖ's magnitude or the boundary-normalized eigenvector. Neither inspected statement includes the secular solution, asymptotic coefficient, or boundary profile.",
+        "searches": [
+          "Resultary: one-dimensional instability, entropy–mobility Hessian and tail-coordinate linearization of the reflecting incremental voter uniform equilibrium",
+          "Resultary 06fd99a6b6dd and 97cb17dd2e8b, Finding and proof §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published reflecting spectrum applies on the stable symmetric sector, while the same-model indexed results establish an instability index rather than tabulating its growth eigenvalue or eigenfunction."
+        ],
+        "reasoning": "No exact matching table was shown by these checks; the main contribution is an all-k characterization and limit, not selected numerical eigenvalues. A Laplacian spectrum is not the spectrum of the rank-one perturbed odd block.",
+        "searches": [
+          "Resultary same-model quantitative increment-voter spectrum and profile; nearest actual matching Resultary findings 06fd99a6b6dd and 97cb17dd2e8b",
+          "Cao–Gong §3.2 reflecting spectral calculation"
+        ]
+      },
+      "rationale": "The one-dimensional instability itself is demonstrably covered in the same model; it gets no originality credit. The frozen result explicitly does not claim that index as new. The supported distinct assertion is the quantitative root and eigenfunction characterization, the explicit second term in k, and localization on the √k endpoint scale. The inspected overlapping statements do not establish those conclusions.",
+      "residual_risks": [
+        "The exploration-regularized formulation mentioned without a reference in the frozen RESULT.md was not identified; zero-exploration work could contain additional overlap. This is not evidence for that overlap or global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same normalization; stable symmetric-sector spectrum and selected basin results, not quantitative odd instability.",
+          "evidence": [
+            "The mean-field drift probabilities are (k±m)/(2k). The reflecting spectral-gap estimate in §3.2 is for symmetric profiles. Theorem 3 uses M(0)<1 or M(0)>2k−1 to imply consensus."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.28984",
+          "material_read": "§2.1, Eq. (2.1), p. 4, extraction offsets 11200–16359; §3.2 and Theorem 3, pp. 15–18, offsets 53200–67531; Conclusion, p. 20, offsets 72400–77100",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The incremental voter model: mean-field analysis and convergence to equilibrium",
+          "trigger": "Identical reflecting mean-field flow and possible spectral rate"
+        },
+        {
+          "assessment": "Covers exactly the qualitative instability count, not the growth-rate expansion or endpoint mode in the inspected proof.",
+          "evidence": [
+            "The uniform equilibrium is hyperbolic with one unstable direction; the index is obtained from the Hessian and positive mobility."
+          ],
+          "identifier_or_url": "Resultary 06fd99a6b6dd",
+          "material_read": "RESULT.md Finding and proof §5, mirror offsets 0 and approximately 5200",
+          "method": "Local Resultary index and mirror",
+          "title": "Entropy dissipation, trichotomy and an explicit basin barrier for incremental voting",
+          "trigger": "Earlier same-model hyperbolicity and possible equivalent spectral proof"
+        },
+        {
+          "assessment": "Equivalent qualitative index plus global basin certificates, not the quantitative spectral conclusions; indexed date is later than this record.",
+          "evidence": [
+            "The unstable direction count is obtained in tail coordinates. The inspected statement does not give the positive eigenvalue asymptotics or normalized endpoint profile."
+          ],
+          "identifier_or_url": "Resultary 97cb17dd2e8b",
+          "material_read": "RESULT.md Finding and proof §5; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary index and mirror",
+          "title": "Stochastic-order basin selection and one-dimensional instability in incremental voting",
+          "trigger": "Same-model alternative tail-coordinate instability calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–21 and 65–89",
+        "Cao–Gong §3.2 and Conclusion; Resultary 06fd99a6b6dd §5 as qualitative baseline"
+      ],
+      "rationale": "For an existing opinion model, knowing that an instability exists does not tell how its linear timescale or the opinions carrying the mode change as the opinion scale grows. The growth law supplies a linear e-folding time of order k with a definite next correction, while the normalized eigenvector confines the growth mode to an endpoint distance of order √k instead of the full O(k) span. These are complementary and structurally useful quantitative answers to a gap left by the index and symmetric-mode results.",
+      "residual_risks": [
+        "No assertion about nonlinear basin selection, generic nonlinear escape time, or finite-agent fluctuations should be inferred from these local spectral data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

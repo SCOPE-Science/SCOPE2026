@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:55:00.845384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–91",
+        "Frozen VERIFICATION.md, requirements.txt and verify.py support as reported and statically inspected",
+        "repairs/5/RESULT.md, SLOGAN.txt and VERIFICATION.md, final content inspection"
+      ],
+      "rationale": "Rechecked the narrowed theorem in repairs/5/RESULT.md. The Fourier series of exp(-i2x cos theta) yields coherent residue-class aliasing and Parseval gives a unit-mass reference law. Keeping a centered representative leaves only indices of modulus at least ceil(n/2), including even boundary ties. The Poisson integral Bessel bound and (m+j)!>=m! j! give the stated tail T_n; the two tail-square sums each cost at most T_n^2 before division by two, and the cross term costs at most 2B_xT_n. Both columns are probability convolution kernels, so the one-step bound telescopes for every integer t, including zero. The periodic Fourier correlation gives the J_0 multiplier, its x^2 quadratic coefficient, and a strict gap away from frequency zero. Summable Gaussian domination of the centered cyclic Fourier modes gives uniform convergence of scaled site probabilities at every positive diffusive time, followed by a Riemann sum and the flux-uniform comparison. The heat semigroup strictly contracts the norm of its mean-zero deviation, yielding a continuous strictly decreasing profile with the stated limits. Monotone distance to stationarity brackets each mixing threshold uniformly, and the limiting threshold ratios rule out cutoff. The original parity and coefficient calculations also check algebraically: only two opposite winding sectors can contribute at total odd degree n, and the direct and opposite (n-1)-hop pair gives 4(-1)^((n-1)/2) sin(phi) in units of (J tau)^n/(n-1)!. Those statements are not adopted in the repaired claim.",
+      "residual_risks": [
+        "No numerical replay was performed. The recorded 702 checks include tests outside the repaired claim; they are not an independent rerun or an infinite certificate.",
+        "The result does not assume mixing at every finite-size parameter choice; the threshold is eventually finite uniformly at each fixed epsilon."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Longhi gives the exact repeated-measurement Markov model and an unequal-hopping three-node ring. Zimborás et al. give exact bipartite transition symmetry. Finocchiaro et al. and the monitored-evolution discussion in Repeated measurements and random scattering concern first detection, while Fedichkin et al. continuously decohere and Levine et al. read out unmeasured coherent evolution."
+        ],
+        "reasoning": "A quantum-to-classical channel formula or classical heat-kernel theorem is not itself an estimate uniform in total magnetic flux. First detection, continuous monitoring and coherent-time averages do not produce this fixed-interval transition law.",
+        "searches": [
+          "arXiv:2508.11947v1 §2",
+          "arXiv:2507.10669v3 §II",
+          "arXiv:quant-ph/0509163 §2 and cycle results",
+          "arXiv:2605.04414v2 §1",
+          "arXiv:2405.20151 §2.2",
+          "DOI:10.1038/srep02361"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Repaired RESULT.md",
+        "Local Resultary Zeno and half-flux findings",
+        "Primary OA papers and reviewed passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-girth result controls an antisymmetric contrast as delta tends to zero at fixed n. The repaired estimate controls the entire one-step probability law at arbitrary fixed interval, uniformly over flux and growing n, and remains negligible after O(n^2) iterations.",
+          "Classical local limits apply once the periodized Bessel-square law is identified; coherent winding terms must first be shown uniformly negligible after repeated dephasing."
+        ],
+        "reasoning": "A fixed-n small-interval expansion, even when valid for every fixed n, does not yield the fixed-interval flux-uniform TV error or the mixing limit. Also the TV error must control all entries, not just their antisymmetric parts. The summable tail estimate provides the additional connection needed for the retained theorem.",
+        "searches": [
+          "Longhi arXiv:2508.11947v1, complete dephasing channel and triangle example",
+          "SCOPE-20261026-6b103059d648 Finding and §3–4 proof",
+          "arXiv:quant-ph/0509163, continuous decoherence on cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete nonselective position measurement is precisely a stochastic matrix of squared unitary amplitudes, as in Longhi. The closest distinct indexed magnetic-cycle record uses that same kernel and computes its odd-cycle leading contrast. An earlier indexed half-flux coherent-time average has no powers of that stochastic kernel."
+        ],
+        "reasoning": "The repair does not assert novelty for either the kernel or its first odd-girth interference. The exact total-variation limit is about powers of the kernel for t proportional to n^2 with x>0 fixed, not about coherent averages, fixed-size directional contrasts, or fixed-total-time Zeno evolution.",
+        "searches": [
+          "Resultary periodically dephased magnetic rings, exact diffusive TV profile and sharp phase-dependent Zeno suppression",
+          "Primary query: quantum walk cycle complete projective position measurement periodically sampled Bessel classical random walk diffusion total variation mixing heat kernel magnetic flux winding",
+          "Primary query: mathematical quantum walk repeated projective measurements position integer lattice central limit theorem fixed deterministic interval diffusion Bessel squared jump distribution stroboscopic Guyon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-sharp-parity-dependent-zeno-suppression-of-magnetic-ring-directi--6b103059d648 has the precise one-step coefficient in its proof at offset 4230 and an all-pair O(delta^n) bound. 2026/10/12/SCOPE-detuning-bottleneck-and-sinc-crossover-for-quantum-mixing-on-hal--10f1e5181e0b gives a coherent-time average near half flux."
+        ],
+        "reasoning": "The coefficient match is exact and is removed from the accepted claim. Its weaker displayed remainder is sharpened formally by the oddness in interval length and does not define a substantively separate coefficient theorem. Neither exact indexed finding gives the retained uniform kernel comparison or heat-profile formula under the same measurement and scaling limits.",
+        "searches": [
+          "Resultary growing-cycle periodic dephasing heat profile, factorial winding-tail estimate, odd-girth chirality and Zeno contrast"
+        ]
+      },
+      "rationale": "PASS for the repaired fixed-interval, growing-cycle total-variation law and its flux-uniform finite-size approximation only. The original composite is not passed as submitted: the one-step odd-girth coefficient and cancellation mechanism have verified direct coverage in SCOPE-20261026-6b103059d648, and the even-cycle symmetry is already a published bipartite result. The matched record gives a fixed-size, shrinking-interval Zeno law, not the retained growing-size heat profile; the complete dephasing channel is also existing work, credited in the repair. Neither the date-labelled overlap nor the bounded literature comparison determines publication priority.",
+      "residual_risks": [
+        "The literature comparison is bounded; a stronger unindexed periodic-measurement approximation might subsume the repaired estimate.",
+        "No priority is assigned to the original odd-girth coefficient. Its coverage is confirmed independently of chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model antecedent, different size and result",
+          "evidence": "Rank-one site dephasing at every step gives |U_nm|^2; the ring example is an anisotropic triangle with weights 1,1,0.5.",
+          "identifier_or_url": "arXiv:2508.11947v1",
+          "material_read": "§2 pp. 2–4, offsets 8200–11934 and 18950–23110",
+          "method": "OA primary passage comparison",
+          "title": "Dynamical Phase Transitions in Open Quantum Walks",
+          "trigger": "Same fully dephased channel and a flux ring"
+        },
+        {
+          "assessment": "Direct coverage of excluded coefficient; different limit for the main Zeno finding; later catalogue label is not a priority verdict",
+          "evidence": "P_delta(1,0)-P_delta(n-1,0) has the identical coefficient; the main result fixes total time and n while the interval shrinks.",
+          "identifier_or_url": "SCOPE-20261026-6b103059d648; 2026/10/26/SCOPE-sharp-parity-dependent-zeno-suppression-of-magnetic-ring-directi--6b103059d648",
+          "material_read": "Finding at offset 0; proof §§3–4 beginning at offset 4230",
+          "method": "Local mirror exact formula and scaling comparison",
+          "title": "Sharp parity-dependent Zeno suppression of magnetic-ring directionality",
+          "trigger": "Same exactly dephased magnetic cycle and coefficient"
+        },
+        {
+          "assessment": "Covers the original even-cycle symmetry, excluded from repair",
+          "evidence": "Bipartite time-reversal transition-probability symmetry includes even cycles.",
+          "identifier_or_url": "DOI:10.1038/srep02361",
+          "material_read": "pp. 4–5, OA offsets 25070–28298 and 28784–30922",
+          "method": "Primary text comparison",
+          "title": "Quantum Transport Enhancement by Time-Reversal Symmetry Breaking",
+          "trigger": "Prior parity-related symmetry and flux effects"
+        },
+        {
+          "assessment": "Different observable and monitoring",
+          "evidence": "Uses first-detection projection onto a single site and survival evolution U[(I-D)U]^(n-1), not complete site dephasing.",
+          "identifier_or_url": "arXiv:2507.10669v3",
+          "material_read": "§II p. 2, offsets 9748–12848",
+          "method": "OA primary evolution formula comparison",
+          "title": "Optimal quantum transport on a ring via locally monitored chiral quantum walks",
+          "trigger": "Magnetic rings and periodic measurements"
+        },
+        {
+          "assessment": "Different continuously decohering process",
+          "evidence": "A Gurvitz continuous-monitoring model sets a decoherence rate; the examined time bounds concern that evolution.",
+          "identifier_or_url": "arXiv:quant-ph/0509163",
+          "material_read": "§2 p. 2, offsets 6272–9650; p. 12, offset 37663",
+          "method": "OA model and mixing passage comparison",
+          "title": "Mixing and Decoherence in Continuous-Time Quantum Walks on Cycles",
+          "trigger": "Dephasing and mixing on cycles"
+        },
+        {
+          "assessment": "Not repeated dephasing",
+          "evidence": "Instantaneous M(t) comes from exp(-iAt) once; the averaged quantity is a Cesàro integral.",
+          "identifier_or_url": "arXiv:2605.04414v2",
+          "material_read": "§1 p. 1, offsets 2386–5385",
+          "method": "OA definitions and scaling comparison",
+          "title": "Uniform Mixing in Chiral Quantum Walks",
+          "trigger": "Cycle quantum mixing from squared amplitudes"
+        },
+        {
+          "assessment": "Inspected monitored-evolution observable differs",
+          "evidence": "Section 2.2 is introduced as discussing first detected transitions between states, not mixing of powers of the fully dephased position kernel.",
+          "identifier_or_url": "arXiv:2405.20151",
+          "material_read": "p. 2 offsets 9520–10530 and location of §2.2, p. 6 offset 28051",
+          "method": "OA summary passage and section locator",
+          "title": "Repeated measurements and random scattering in quantum walks",
+          "trigger": "Targeted primary search for repeated projective measurements on finite graphs"
+        },
+        {
+          "assessment": "Different scaling and evolution",
+          "evidence": "Fixed even cycle, coherent time average near half flux, and an antipodal sinc crossover; no periodic position-dephasing Markov powers.",
+          "identifier_or_url": "2026/10/12/SCOPE-detuning-bottleneck-and-sinc-crossover-for-quantum-mixing-on-hal--10f1e5181e0b",
+          "material_read": "Local mirrored Finding",
+          "method": "Compare observables in RESULT.md",
+          "title": "Detuning bottleneck and sinc crossover for quantum mixing on half-flux cycles",
+          "trigger": "Closest earlier indexed flux-dependent mixing comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/5/RESULT.md, theorem and proof",
+        "Longhi full-dephasing channel and the closest Zeno comparison"
+      ],
+      "rationale": "After removing the covered fixed-size parity/coefficient material, a complete and useful result remains: it identifies the full diffusive TV profile, threshold mixing times and lack of cutoff for a physically distinct measurement law, and it quantifies why even adversarial flux sequences do not alter that limit. The explicit finite-size estimate controls the full stochastic evolution on the relevant growing time horizon, rather than just a moment or a fixed-time coherent transition.",
+      "residual_risks": [
+        "Limited to homogeneous nearest-neighbor hopping, fixed positive coherent interval, complete site dephasing and localized starts. No many-body, partial-monitoring or continuous-decoherence interpretation is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:52:03.557932Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated convention a repeated occurrence is net iff both available one-letter extensions are unique, treating missing boundary extensions as unique. If p is the primitive-root length, equality of two cyclic rotations would give a proper cyclic period dividing p. Hence long factors can occur at only one phase. All occurring strings of length at most p repeat at starts r and r+p for some r<p, within the first 3p positions; this excludes net occurrences of lengths below p. For length at least p an occurrence class at positive phase has at least two identical left extensions whenever repeated. At phase zero with at least three occurrences, all positive starts have repeated left extensions, and the zero start's right extension repeats at p. With just starts 0 and p, the positive start is the only possible source of its left extension. The zero start's right extension then occurs only once precisely when the second occurrence runs to the right boundary; otherwise both right extensions repeat. This gives exactly the two occurrences of v^(e-1), including p=1. Independently, /workspace/audit-replay/2.py used forward and reverse longest common prefixes of suffix pairs to derive net intervals from equal longest-repeat lengths on both sides. Output 2.txt records 9332 primitive-power cases at exponents 3,4,5,7 (binary roots through length 9, ternary through 6, four-symbol through 4) and the four asserted square intervals. The tests corroborate rather than replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen literature inspection reports a dichotomy for period-aligned regular epistandard iterates, a specific family, not a theorem stated for powers of all finite primitive roots.",
+          "The frozen comparison reports Fibonacci/Thue–Morse counts and a run-based general bound, rather than a root/exponent classification."
+        ],
+        "reasoning": "No retrieved statement includes arbitrary primitive roots with the same hypotheses and exact conclusions. The full epistandard preprint remains a genuine coverage risk.",
+        "searches": [
+          "Faro–Pavone arXiv:2610.04298",
+          "Guo–Kishi DOI 10.4230/LIPIcs.CPM.2025.16",
+          "Kimura–I arXiv:2511.11057 and DOI 10.4230/LIPIcs.CPM.2026.10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, self-review and supporting checks",
+        "Resultary 6ab222132847 (self-hit) and 5296dd3f6492 (summary)",
+        "Faro–Pavone arXiv:2610.04298, Guo–Kishi CPM 2025.16, Kimura–I arXiv:2511.11057 (partial access or retrieval attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic enumeration procedure can compute any one instance; it does not force the uniform answer, the two boundary positions, or the sharp square exception. A generic BWT-run upper bound as credited in the frozen source would not identify the only positive-frequency factor."
+        ],
+        "reasoning": "The universal classification depends on the phase/length exclusion and two-start boundary argument, not just applying a generic inequality or a restricted family theorem.",
+        "searches": [
+          "Compare R-Enum Revisited's enumeration statement and the scope of the Guo–Kishi, Faro–Pavone and Resultary 5296dd3f6492 results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kimura–I's official R-Enum Revisited abstract/search excerpt treats enumeration of near-supermaximal repeats and net frequencies; it is a terminology match, not an exact power-family formula.",
+          "The tested statement is about occurrences as well as factor types: a total of two, without their lengths and locations, would not by itself imply the result."
+        ],
+        "reasoning": "A duplicate with two unique extensions was compared under the near-supermaximal-repeat and net-frequency formulations, including the boundary convention. The found general computation describes the invariant but does not give its claimed value on this family.",
+        "searches": [
+          "Resultary: net occurrence, net frequency, primitive powers and related marked-square forms",
+          "Literature query covering periodic texts, net occurrences and near-supermaximal repeats"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Entry 6ab222132847 is the identical frozen source. The distinct linked hit 5296dd3f6492 treats a marked XzXXzX^{-} form and a d-bonacci transition, per its catalog summary."
+        ],
+        "reasoning": "The self-hit is not independent prior coverage. A marked-square transition for selected forms does not give the all-root, all-exponent power-family spectrum; the mirror text was not obtained.",
+        "searches": [
+          "Configured Resultary comparison: primitive-power net-frequency collapse and periodic net occurrences"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the uniform primitive-power law specifying both the unique factor with positive net frequency and both exact positions, together with the exponent-two boundary. Generic net-frequency algorithms and results for restricted morphic families do not furnish that closed classification in the compared statements. External full-text access was limited, in particular for the most plausible adjacent epistandard work.",
+      "residual_risks": [
+        "No independent full-text passages could be obtained for the targeted papers; in particular the full Faro–Pavone scope is unresolved.",
+        "Equivalent observations under older maximal-repeat terminology could be unindexed or missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reported scope is a special morphic family; incomplete access precludes document-wide conclusions",
+          "evidence": [
+            "The frozen notes report a two-versus-three dichotomy on period-aligned finite regular epistandard iterates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04298",
+          "material_read": "Frozen abstract-level scope description (RESULT.md lines 37, 41); no independently retrieved primary passage",
+          "method": "Targeted lawful OA attempts and frozen source comparison",
+          "title": "Exact Net-Occurrence Counts in Purely Morphic Regular Epistandard Words",
+          "trigger": "Closest plausibly periodic exact-count result"
+        },
+        {
+          "assessment": "The cited restricted families do not imply a theorem for arbitrary primitive powers",
+          "evidence": [
+            "The record credits this work for the convention and exact results for two specified families."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2025.16",
+          "material_read": "Frozen comparison of Definition 1 and family results; independent passage retrieval failed",
+          "method": "Targeted lawful OA request and scope comparison against frozen RESULT.md lines 17 and 37",
+          "title": "Net Occurrences in Fibonacci and Thue-Morse Words",
+          "trigger": "Same invariant and boundary convention"
+        },
+        {
+          "assessment": "General algorithm, not an inspected closed-form result for powers",
+          "evidence": [
+            "Excerpt describes enumerating near-supermaximal repeats and their net frequency or occurrences; the bound itself was not exposed by the excerpt."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.11057",
+          "material_read": "Official search excerpt describing enumeration; full passage not retrieved",
+          "method": "Literature search and targeted OA request",
+          "title": "R-Enum Revisited: Speedup and Extension for Context-Sensitive Repeats and Net Frequencies",
+          "trigger": "Near-supermaximal repeats are an equivalent search formulation"
+        },
+        {
+          "assessment": "Adjacent exact result for a different word form in the available statement",
+          "evidence": [
+            "The summary treats the marked form XzXXzX^{-} with three net occurrences, not the spectrum of all primitive powers."
+          ],
+          "identifier_or_url": "5296dd3f6492",
+          "material_read": "Resultary summary; mirrored full text not available during the review",
+          "method": "Configured Resultary query and local mirror request",
+          "title": "Marked-square net-occurrence rigidity and an initial d-bonacci transition",
+          "trigger": "Closest distinct catalog match on exact net occurrences of repetitive words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Periodic powers are a natural canonical test family for context-sensitive repeats. The result removes every other possible occurrence and gives factor and positions uniformly in the period, alphabet and exponent, which is stronger than a bound or a finite catalog. The square witness distinguishes a genuine sharp structural threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

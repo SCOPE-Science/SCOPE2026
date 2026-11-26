@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:31:22.574005Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent proof check of RESULT.md lines 31–67: telescoping the independent avoidance probabilities gives x/N and x(y−1)/(N(N−1)) for x<y. Subtracting the marginal product gives the stated off-diagonal entries; the diagonal check gives Σ=N D/(N−1)−H/[N(N−1)], with H the inverse of the Dirichlet path difference matrix A. On the interior grid, B=A diag(x(N−x)) is self-adjoint in the weighted inner product; its action on the degree-d quotient of the polynomial flag is (d+1)(d+2), including the one-site grid. Inversion and conjugation give the claimed simple spectrum; the Rayleigh quotient gives both extremal weights. The finite normalized kernel and diagonal terms converge by Riemann sums. In the continuous problem −[t(1−t)p]'' preserves the polynomial flag with the same leading coefficient and is symmetric by integration by parts on t(1−t)p; weighted polynomial density gives completeness. The lower bound is attained by constants and the upper bound is sharp by high-degree modes. The supplied verifier was inspected, not rerun; its recorded 2617 assertions cover finite exact checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lemma gives the two-leaf avoidance product for time- and label-dependent independent parent choices."
+        ],
+        "reasoning": "Uniform choices give every needed cross-moment, not just an aggregate variance or an asymptotic approximation. The broader tree theorem does not itself state the eigenvalues.",
+        "searches": [
+          "Lyon–Mahmoud, DOI 10.1017/jpr.2020.49, §5.1 Lemma 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Lyon–Mahmoud, DOI 10.1017/jpr.2020.49",
+        "DLMF §18.22(ii), including https://dlmf.nist.gov/18.22.E11",
+        "Local Resultary/published-SCOPE index and the mirrored plane-oriented tree Finding",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The entrywise comparison with H_xy=min(x,y)[N−max(x,y)]/N recovers the exact covariance factorization. On each Hahn mode, H p = diag(x(N−x)) p/[(d+1)(d+2)]."
+        ],
+        "reasoning": "The transfer to λ, sharp constants, and equality modes needs only this entrywise Green identity and spectral inversion. Sampling the known entries gives the continuum quadratic form; the same inversion for the Dirichlet second derivative gives the standard shifted Jacobi problem.",
+        "searches": [
+          "Lyon–Mahmoud §5.1 Lemma 5.2",
+          "DLMF equations 18.22.10–11",
+          "Frozen RESULT.md lines 40–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the shifted grid z=x−1, M=N−2, Hahn parameters α=β=1 give weight (z+1)(M+1−z), forward coefficient (z+2)(M−z), and backward coefficient z(M+2−z)."
+        ],
+        "reasoning": "These are exactly the weight and coefficients of B−2I in the positive difference-operator convention, with eigenvalues d(d+3). There is no different polynomial family after shifting and rescaling.",
+        "searches": [
+          "Resultary: exact full birth-label leaf generalized covariance spectrum Hahn modes recursive tree variance bounds",
+          "DLMF §18.22(ii), 18.22.10–11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF tabulates the exact Hahn operator used by the claim. The closest inspected published tree record gives a prefix-count kernel for plane-oriented trees; a spanning-tree hit concerns edge indicators."
+        ],
+        "reasoning": "Neither indexed record is the frozen invariant. The known Hahn table is decisive at the operator level, not a database entry asserting historical priority for the tree formulation.",
+        "searches": [
+          "Resultary: recursive tree leaf indicators birth label full covariance spectrum eigenvalues polynomial modes sharp variance bounds",
+          "Resultary: Hahn difference equation covariance leaf birth labels spectrum",
+          "DLMF §18.22(ii)"
+        ]
+      },
+      "rationale": "No earlier verbatim tree-spectrum statement was established. Nevertheless the claimed invariant is mechanically determined by the published leaf cross-moment and classical Hahn spectrum: the covariance entries are the Dirichlet inverse plus a multiple of the diagonal weight, and the weighted Dirichlet difference operator is exactly the Hahn operator plus 2I. The variance bounds are then Rayleigh quotients and the continuum claims direct Riemann-sum and Jacobi consequences. The result is correct, but the frozen claim does not establish a distinct result beyond these direct implications.",
+      "residual_risks": [
+        "The bounded local and literature searches do not establish priority for the first explicit statement of the tree spectrum; irrelevant web results are not negative evidence. The originality decision rests on an exact mathematical implication, not on a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the covariance input, not a stated spectrum",
+          "evidence": [
+            "The joint leaf event has single-avoidance factors through birth j and double-avoidance factors thereafter."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2020.49",
+          "material_read": "§5.1 Lemma 5.2 and neighboring covariance result, pp. 920–921, PDF text offsets 48089–52059",
+          "method": "Lawful primary PDF passage; compared the products with uniform attachment",
+          "title": "Trees grown under young-age preferential attachment",
+          "trigger": "Same birth-labeled leaf cross-moments in a more general model"
+        },
+        {
+          "assessment": "Exact equivalence after adding 2I to the positive Hahn operator",
+          "evidence": [
+            "For α=β=1 the positive difference eigenvalue is d(d+3)."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.22.E10",
+          "material_read": "§18.22(ii), equations 18.22.10–11 and their coefficient table, offsets 6200–8577",
+          "method": "Read primary reference equations and shifted the lattice",
+          "title": "DLMF: Hahn Difference Equations",
+          "trigger": "Exact possible equivalence to the frozen polynomial operator"
+        },
+        {
+          "assessment": "Different growth model and different observable; not coverage",
+          "evidence": [
+            "The object is a limiting prefix-count covariance for a plane-oriented recursive tree."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-birth-rank-covariance-kernel-for-leaves-in-random-plane-recursiv--d0a0acafc19c",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local index lookup and mirror statement comparison",
+          "title": "Birth-rank covariance kernel for leaves in random plane recursive trees",
+          "trigger": "Strongest indexed continuum birth-rank leaf covariance overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Variance by birth-label mode is a natural diagnostic, and the exact comparison with independent indicators is interpretable. But the reported gain is an elementary Green-matrix identification followed by application of the already tabulated Hahn law to known entries, with the bounds and continuum limit immediate from that identification. It does not meet the standard for a useful, previously undetermined exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:43:26.742491Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Haar motion-invariant affine-plane measure is spherical area times offset length; the quotient by orientation reversals cancels. For A=a|u_x|+b|u_y| and B=h|u_z| the directional width is 2A+(B−A)_+, so the integrated width is 4π(a+b)+8J=4Z with J the positive-octant excess integral. For azimuth φ and v=a cosφ+b sinφ, the elevation integral gives [h−v arctan(h/v)]/2. The remaining integration by parts uses v″=−v, v²+(v′)²=a²+b² and the two endpoint terms. With s=tanφ the quadratic denominator completes a square with determinant h²D², giving arctan(hD/ab)/(hD) and the stated J. A planar cut cannot separate the two opposite pairs of base vertices, since the diagonals meet. A 2/2 adjacent base split cuts two base edges and two spokes; a 1/3 split cuts two base edges and either one or three spokes. Thus precisely the lone base vertex sharing its side with the apex can lead to five crossings. The positive-octant height interval gives (B−|au_x−bu_y|)_+−(B−A)_+. Shifting the azimuths of the plus and minus projections and folding their absolute cosines gives J_-+J=2J(S,0,h)=π(D−S)/2, using the continuous b=0 limit of the excess formula. This yields the displayed p₅. For any edge of length ℓ the integrated offset length is 2πℓ, giving the stated mean and fixing p₃,p₄ by normalization. Base-corner clipping, apex clipping and an open interval of five-edge cuts near au_x=bu_y ensure strictly positive masses in all three classes. The two shape parameters really vary independently: write v=S/(a+b) and k=h/(a+b). For a nonsquare base near k=0, p₄=2v−1+O(k³), and EN=2(1+v)+k²/v+O(k³), analytically, so the Jacobian in (v,k) is nonzero for sufficiently small positive k. The limiting flat pyramid is not in scope. Independent replay `python3 /workspace/review_checks.py 3` sweeps every offset interval in each of 360² equal-area orientation cells for each of three shapes; the largest discrepancy is 5.05×10⁻⁶. This is quadrature corroboration, not proof. Frozen verification material and checker were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Voss's 1982 abstract says it derives exact integral-geometric frequencies and presents analytical and numerical results for some families of simple polyhedra; those families are not named there. Full text and tables were not obtained after DOI/repository attempts and checking the identified request-only alternate page.",
+          "Socha treats angle events defined by the edges intersected by a plane, not a table of the pyramid's side-count probabilities in the inspected passages. The Ohser–Mücklich abstract concerns ensembles of prisms and random polyhedra with simulated kernels."
+        ],
+        "reasoning": "An exact side-count stereology treatment is substantive precedent and could contain this family or a special case. The abstract cannot establish that statement. A general integral framework or edge-count mean alone is not the full law; the directly covering source is the separate exact rectangular result, which also goes beyond the frozen finding with monotonicity and triangle dominance.",
+        "searches": [
+          "Voss, DOI 10.1111/j.1365-2818.1982.tb00443.x, lawfully available publisher/DOI and repository routes",
+          "Socha, Random Plane Section of a Polyhedron, pp. 41–43",
+          "Ohser–Mücklich DOI 10.2307/1427832 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_rect_pyramid.py and self-review evidence",
+        "Published catalogue records and inspected primary source material listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rectangular overlap states the exact same five-cut offset length, giving the same I_+−I_− quantity after elevation integration. The identities in the rationale reduce it by phase folding to the normalization formula at the actual shape and at collapsed base width.",
+          "Nov. 1 centroidal findings use uniform plane normals through the volume centroid and obtain a 4/5 law. The Oct. 11 shadow finding instead projects the whole solid and counts 4 or 5 visible shadow vertices. Feldman–Klain address orthogonal projections of simplices."
+        ],
+        "reasoning": "The exact rectangular overlap determines the frozen statement after the angular reparameterization and normalization evaluation; the alternative central and projection laws do not, since they omit the motion-invariant offsets and change the event. Dates do not determine precedence or relation between derivations.",
+        "searches": [
+          "Nov. 8 rectangular result: explicit width normalization and pentagon offset length, proof §§1–2",
+          "Resultary: centroidal pentagonal sections of right rectangular pyramids; five-vertex shadow law of right rectangular pyramids",
+          "Feldman–Klain arXiv:0809.3459v1 pp. 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nov. 8 rectangular result samples the same right rectangular convex hull and conditions Euclidean-motion-invariant affine planes on a nondegenerate hit. Its normalized sphere measure differs by a common factor from the frozen sphere area. It gives the complete three-atom law, an explicit mean, and the same width normalizer.",
+          "The Oct. 18 square record uses the identical affine-plane measure on (±1,±1,0),(0,0,h). With a=b=1, its r=√(1+h²), γ=arccos(1/r²) and δ=arccos(1/r) give γ=arctan(h√(2+h²)) and δ=arctan h, so its closed normalizer and pentagon numerator agree with the frozen specialization."
+        ],
+        "reasoning": "The exact invariant and conditional measure coincide; probabilities do not change with an orientation factor or common scaling. The square case, including the equal-edge regular square pyramid, is a strict overlap, while the Nov. 8 formulation is coextensive. Neither a centroidal slice nor a planar shadow is an equivalent reformulation.",
+        "searches": [
+          "Resultary: exact Crofton three/four/five polygon frequencies for right rectangular and right square pyramids",
+          "Nov. 8 complete Crofton section-type law, Finding/Assumptions and proof §§1–2; compare Oct. 18 square-pyramid Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror 2026/11/8 rectangular Finding, offset 0: p₅=J/D in its notation; it supplies p₃,p₄ and the expectation with no free unspecified function. Mirror 2026/10/18 square Finding, offset 0: explicit F/B and the complete square law, plus the tall limit for p₅."
+        ],
+        "reasoning": "This is exact database coverage rather than a similarity of subject or title. The only difference in the full-family law's representation is how the same elementary azimuth integral is written. Whether Voss has a further exact table is not decidable from its abstract.",
+        "searches": [
+          "Resultary: A complete Crofton section-type law and sharp triangle dominance for right rectangular pyramids",
+          "Resultary: Exact affine-plane section-type probabilities for right square pyramids",
+          "Voss (1982), frequencies of n-polygons and family tables, available abstract"
+        ]
+      },
+      "rationale": "The exact motion-invariant rectangular law on the entire domain a,b,h>0 is separately supplied by the Nov. 8 catalogue result, with the same width and mean and an exact integral for the remaining free probability. Its denominator is the frozen Z. To see that the extra quadrature is a directly reducible presentation, put I_±=∫₀^{π/2}c_± arctan(h/c_±)dφ in the notation of that result. Its pentagon numerator is I_+−I_−. Folding the two azimuth phases around the absolute cosine maximum gives I_++I_−=2I_+(S,0,h); also I_+(a,b,h)=πh/2−2J_frozen from the support-width identity. Substitution of the width formula, also valid in its continuous b→0 limit, reduces the pentagon numerator to π(D−S)−4J_frozen. The same mean then fixes the entire vector. Thus the frozen elementary formulas are an evaluation of the covered law, not a second invariant. The exact square specialization is independently in a distinct same-day record. This is verified equivalent catalogue coverage, not a historical priority determination. Voss is a material historical risk, not the basis of the verdict.",
+      "residual_risks": [
+        "Voss's unspecified family formulas and historical stereological tables remain uninspected and may contain a square or rectangular law.",
+        "Exact duplicate and subfamily coverage do not determine priority or derivation order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coextensive exact probability law, with additional mean monotonicity/dominance",
+          "evidence": "Same explicit width and mean; pentagon probability given by the difference of the same two arctangent integrals divided by the width factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-complete-crofton-section-type-law-and-sharp-triangle-dominance--89bc37cc5121/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–2 through offset 4800",
+          "method": "Published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A complete Crofton section-type law and sharp triangle dominance for right rectangular pyramids",
+          "trigger": "Exact full rectangular family and identical random-plane law"
+        },
+        {
+          "assessment": "Exact subfamily agreement, not a general rectangular law",
+          "evidence": "F/B formula with given inverse-trigonometric expressions; same conditioned plane measure and crossing criterion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-affine-plane-section-type-probabilities-for-right-square-p--e28f8658e364/RESULT.md",
+          "material_read": "Finding, Assumptions and first proof passages, offsets 0–3389",
+          "method": "Published-record mirror, same snapshot",
+          "title": "Exact affine-plane section-type probabilities for right square pyramids",
+          "trigger": "Same square subfamily under invariant affine planes"
+        },
+        {
+          "assessment": "Substantive precedent; family-level equivalence unresolved",
+          "evidence": "Abstract states exact frequency methods and analytic/numerical results for unspecified families of simple polyhedra.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1982.tb00443.x",
+          "material_read": "Indexed abstract; main text and tables not retrieved",
+          "method": "Crossref abstract, lawful publisher/DOI/repository retrieval attempts and identified alternate request-only page",
+          "title": "Frequencies of n-polygons in planar sections of polyhedrons",
+          "trigger": "Exact historical stereological side counts"
+        },
+        {
+          "assessment": "Examined statements characterize section angles, not the exact side census",
+          "evidence": "Defines plane-angle events arising from intersected edges.",
+          "identifier_or_url": "Acta Stereologica 7 (1988), 41–46, P. Socha",
+          "material_read": "Abstract and pp. 42–43, PDF offsets 0–4953",
+          "method": "OA primary PDF passage inspection",
+          "title": "Random Plane Section of a Polyhedron",
+          "trigger": "Same random-plane context"
+        },
+        {
+          "assessment": "Inspected passage is about a different inference problem, no whole-document negative assertion",
+          "evidence": "Ensembles of prisms and random polyhedra with simulated kernels.",
+          "identifier_or_url": "https://doi.org/10.2307/1427832",
+          "material_read": "Abstract only",
+          "method": "Indexed abstract; full text unavailable",
+          "title": "Ohser–Mücklich stereological inference",
+          "trigger": "Possible random polyhedron side-count data"
+        },
+        {
+          "assessment": "Conditional centroidal model, not Crofton",
+          "evidence": "Uniform orientations through a fixed centroid give 4- and 5-sided generic polygons.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-haar-pentagon-law-for-centroidal-sections-of-right-rectang--72de8fd4d48f; 2026/11/1/SCOPE-sharp-pentagonal-section-probability-and-aspect-ratio-rigidity-f--12c6c3062fae",
+          "material_read": "Findings and assumptions, offsets 0–3922 and 0–4158",
+          "method": "Published-record mirror",
+          "title": "Centroidal pentagonal sections and aspect-ratio rigidity for right rectangular pyramids",
+          "trigger": "Exact pentagonal slice probabilities for the same pyramid"
+        },
+        {
+          "assessment": "Distinct projection experiment",
+          "evidence": "A uniformly oriented orthogonal shadow has 4 or 5 visible vertices.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Published-record mirror",
+          "title": "Exact five-vertex shadow law and unique height optimum for right rectangular pyramids",
+          "trigger": "Same solids and five-vertex planar statistic"
+        },
+        {
+          "assessment": "Orthogonal projections of simplices, different sampling and objects",
+          "evidence": "Relates solid angles to vertex loss under projection, not to offset-conditioned affine intersections.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.3459",
+          "material_read": "v1 pp. 1–3, offsets 0–8443",
+          "method": "OA primary PDF passage inspection",
+          "title": "Angles as probabilities",
+          "trigger": "Random planar vertex counts and solid-angle identities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete motion-invariant section-type law is a natural stereological invariant and genuinely depends on shape. The scientific invariant itself is already exactly decided by the covering rectangular law; the elementary version is obtained by phase symmetry and evaluating the already explicit width formula at a boundary. It does not add an independent classification, structural constraint, or an exact invariant beyond the coextensive source.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

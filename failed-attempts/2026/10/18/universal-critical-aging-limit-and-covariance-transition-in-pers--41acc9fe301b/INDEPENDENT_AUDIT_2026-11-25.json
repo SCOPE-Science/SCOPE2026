@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:28:52.488041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical statement is sound. On any macroscopic window bounded away from zero, independent Bernoulli products give Poisson arrivals: the first sum converges to c log(b/a) and the squared-probability sum vanishes, which yields the Laplace functional on compact windows. At the left endpoint the sign mixes since its bias is multiplied by ∏(1−2p_k)→0, including deterministic starting sign and arbitrary finite early edits. The left-end sign is independent of future flips. After logarithmic time change this is a stationary fair rate-c flip chain; integrating the finite-jump approximations gives displacement convergence on truncated windows. The discarded interval contributes at most its length plus a grid error, and all interpolations are deterministically 1-Lipschitz, proving C([0,T]) convergence. The stationary filter invariant density is verified by the identity ((1−z²)f_c)'=−2cz f_c and zero endpoint flux; sign coupling and filter contraction give uniqueness even for endpoint-singular c<1. The sign correlation (min/max)^{2c} gives the covariance by explicit integration; at c=1/2 it really gives a logarithm, with the long lag taken after the functional limit. Compact boundedness permits raw moment convergence despite initial sign bias, and the beta moments give Binder 2/(2c+3). Replayed python3 /workspace/audit_checks.py, check 1: exact finite histories with deterministic initial velocity and two deterministic early flips agreed with a separate two-state recursion and centered correlation product. This does not certify the functional limit; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "EVW Theorem 4(3) treats p_n=c/n after a finite cutoff; Remark 15 gives the same scaling limit when ∑_{k≈a n}^{b n}(kp_k−c)/k→0 for every 0<a<b and explicitly lists lim np_n=c as a sufficient case.",
+          "The later indexed triangular-window record obtains a Beta limiting process with intensity λ=ce^{−β} and the associated covariance and Binder law. β=0 gives the fixed-critical formulas for its array, not coverage of every non-array protocol by itself."
+        ],
+        "reasoning": "The premise kp_k→c implies the earlier block condition by the tail supremum times a bounded harmonic block sum. For a possibly unfair initial orientation, couple the signs at εN by total variation (the product bias tends to zero) and use common future turns; the loss on [0,ε] vanishes. This small convention change does not rescue originality.",
+        "searches": [
+          "arXiv:1904.10953v2 Theorem 4(3), Proposition 3 and Remark 15",
+          "Resultary c7b3e1d0eeb5: nonlinear logarithmic-window Beta crossover persistent random walk"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.10953v2",
+        "arXiv:1606.03281",
+        "arXiv:1411.0648",
+        "arXiv:2605.20116",
+        "Resultary c7b3e1d0eeb5 and 606af9def692"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the prior zigzag process, a Poisson count M of mean c log(v/u) gives E[(−1)^M]=(u/v)^{2c}. The displacement covariance is therefore s²/(2c+1)+s^{2c+1}/(2c+1) times the integral of v^{−2c} from s to t; its three cases are the elementary antiderivative.",
+          "The symmetric Beta(c,c) law under y=2x−1 yields the second and fourth moments 1/(2c+1) and 3/[(2c+1)(2c+3)]. Since the rescaled X_N is bounded, substituting these into the published Binder normalization gives the asserted curve."
+        ],
+        "reasoning": "Both putative remainders require only direct evaluation of the earlier Poisson correlation or Beta moments, not a new approximation valid at simultaneous large lag or any other new probabilistic result.",
+        "searches": [
+          "arXiv:1904.10953v2 §6.1, Remark 11 and Remark 15",
+          "arXiv:1606.03281 Theorem 2",
+          "arXiv:2605.20116 Eq. (32)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "EVW's zigzag is built using Poisson turns with intensity c dx/x and a fair starting sign on a positive-time window. The substitution x=e^v makes it the stationary log-clock chain in the frozen statement, and linear integration of the sign gives the same path.",
+          "EVW Remark 11 gives the rescaled Beta(c,c) one-time law, also obtained for the discrete endpoint in Engländer–Volkov Theorem 2 and for the continuum flight by Garra–Orsingher."
+        ],
+        "reasoning": "The clock change and affine Beta normalization identify the same law; the nomenclature difference is not a claim difference. This is not the run-age-dependent process of Cénac et al.",
+        "searches": [
+          "Independent calendar-time reversal probability c/n, persistent walk, coin-turning zigzag process, Beta(c,c)",
+          "arXiv:1904.10953v2 §6.1 and Remark 11",
+          "arXiv:1411.0648 Eq. (2.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mirrored logarithmic-window Finding lists β-dependent intensity, two-time covariance including λ=1/2, and Binder limits; setting β=0 produces the frozen formulas. It is later, not the decisive priority evidence. The nearby Gaussian record concerns 0<α<1 and a different normalization.",
+          "Pradhan–Roy–Ray give variance scaling and the numerical Binder crossing; the Gamma/Beta distribution itself is known in the earlier primary literature."
+        ],
+        "reasoning": "An exact formula comparison, not a title or table hit, shows which pieces are repeated. The analytic limit is already established by the earlier primary source; the later indexed record independently makes the downstream formula overlap explicit.",
+        "searches": [
+          "Resultary critical calendar-time persistent walk zigzag Beta covariance c=1/2 Binder",
+          "Resultary c7b3e1d0eeb5 and 606af9def692",
+          "arXiv:2605.20116 Eqs. (28)–(32), arXiv:1904.10953v2 Remark 11"
+        ]
+      },
+      "rationale": "The central functional universality claim is directly covered by Engländer–Volkov–Wang's Theorem 4(3), §6.1 and especially Remark 15. The remark explicitly says that convergence of np_n to c suffices for the same zigzag limit, and covers a broader stable-block class. Their zigzag is the same integrated log-time Poisson sign process. An arbitrary independent initial sign, rather than their initial fairness convention, is removed by a tail mixing argument and does not constitute a distinct scaling theorem. The claimed remaining covariance, trichotomy and Binder curve are direct elementary corollaries of this earlier process and marginal. The covariance need not appear verbatim in the earlier paper for that assessment.",
+      "residual_risks": [
+        "The exact covariance expression was not found verbatim in EVW; the failure finding is direct implication, not an assertion of identical wording.",
+        "The indexed dates do not establish dependence or ancestry; the earlier primary EVW result is sufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent including kp_k→c",
+          "evidence": [
+            "Remark 15: the turns tend to a PPP of intensity c dx/x and the same scaling limit holds; examples explicitly include lim A_n=c with A_n=np_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.10953v2",
+          "material_read": "Theorem 4(3), pp. 13–14 around text offset 35000; §6.1 and Remark 11 offsets 52860–56319; Remark 15 pp. 39–40 offsets 115295–120320",
+          "method": "Primary PDF bounded passages; checked hypotheses, limiting process and time change",
+          "title": "The coin-turning walk and its scaling limit",
+          "trigger": "Same independent Bernoulli process and possible covering functional limit"
+        },
+        {
+          "assessment": "Earlier endpoint Beta result",
+          "evidence": [
+            "Theorem 2 gives Beta limit for p_n=a/n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.03281",
+          "material_read": "§4 Theorem 2, PDF-text offsets 19787–23684",
+          "method": "Comparison of critical-case hypotheses and normalized marginals",
+          "title": "Turning a coin over instead of tossing it",
+          "trigger": "Earlier endpoint marginal for the critical walk"
+        },
+        {
+          "assessment": "Known continuum beta density, not by itself the discrete functional limit",
+          "evidence": [
+            "Eq. (2.7) is the same normalized (1−y²)^{c−1} law for the scaled position."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0648",
+          "material_read": "Rate discussion offsets 7500–10451 and Eq. (2.7) offsets 14500–18429",
+          "method": "Primary PDF exact formula comparison",
+          "title": "Random flights related to the Euler–Poisson–Darboux equation",
+          "trigger": "Equivalent continuum rate and one-time density"
+        },
+        {
+          "assessment": "Same variance and Binder normalization, not the decisive prior process theorem",
+          "evidence": [
+            "Eq. (32) defines the Binder observable and is used for the numerical critical crossing."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.20116",
+          "material_read": "Model and Eqs. (28)–(32), especially HTML offset 14500",
+          "method": "Primary full-text bounded passages",
+          "title": "Diffusive-to-Ballistic transition in a Persistent Random Walk",
+          "trigger": "Frozen motivating model and observable normalization"
+        },
+        {
+          "assessment": "Later triangular-array result with exact β=0 formula overlap; credits EVW for fixed-sequence generality",
+          "evidence": [
+            "Effective intensity ce^{−β}; β=0 specializes covariance, threshold and Binder."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-nonlinear-logarithmic-window-beta-crossover-for-persistent-rando--c7b3e1d0eeb5",
+          "material_read": "Mirrored RESULT.md offsets 0–11837, Finding and relationship to prior work",
+          "method": "Local mirror statement and formula comparison",
+          "title": "Nonlinear logarithmic-window beta crossover for persistent random walks",
+          "trigger": "Strong indexed exact formula match"
+        },
+        {
+          "assessment": "Different power interval and Gaussian scaling",
+          "evidence": [
+            "Fixed 0<α<1 does not extend to α=1 in the inspected statement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-functional-gaussian-law-inside-the-superdiffusive-persistent-w--606af9def692",
+          "material_read": "Mirrored RESULT.md offsets 0–4532",
+          "method": "Local mirror Finding comparison",
+          "title": "A functional Gaussian law inside the superdiffusive persistent-walk regime",
+          "trigger": "Adjacent indexed regime, possibly part of a wider walk theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The critical process and observables are scientifically useful, but the only candidate additions here are direct integrations of the known zigzag correlation, beta-moment substitution, and removal of an initial-sign convention by mixing. No nonroutine independent remainder is demonstrated, such as a controlled original-walk growing-lag regime, which is expressly excluded. A repaired novelty claim restricted to these corollaries would not meet the value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

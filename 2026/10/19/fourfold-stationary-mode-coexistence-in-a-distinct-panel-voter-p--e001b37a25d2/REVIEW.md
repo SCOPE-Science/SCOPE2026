@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-state transition kernel is reconstructed from the exact distinct-neighbor sampling rule. All birth–death rates are positive in the interior when each opinion has at least two permanent agents. Consecutive stationary probability ratios follow from detailed balance, and their exact factorization proves every global-maximum case. Negative Pell solutions give an infinite, unbounded four-peak family, and a separate squared-rate calculation establishes the with-replacement two-peak comparison. The included checker verifies the identities symbolically and finite distributions by rational arithmetic. Computation does not substitute for the all-size algebraic proof.
+PASS
 
-## Originality — PASS with residual bibliographic uncertainty
+Given a negative focal susceptible, there are j+z positive eligible peers, giving the upward update probability (2m−j)(j+z)(j+z−1)/[N(N−1)(N−2)]; the downward rate is its reflection. All neighboring count states communicate for z≥2, and the symmetric factorial weights have precisely the adjacent detailed-balance ratios. For a direct sign factorization put x=j+1, y=2m−j and c=z−1. The numerator of the ratio minus one is y(x+c)(x+c−1)−x(y+c)(y+c−1)=(y−x)[c(c−1)−xy]. On the left j=m−1−k, xy=m(m+1)−k(k+1) and y−x=2k+1, giving the stated test. Inward from the endpoint the sign can go from positive to negative only once, with at most one adjacent tie; reflection then gives the full global mode census. At Δ=0 the tie touches the center, yielding three rather than four; at Δ≥m(m−1) the endpoint convention either gives an endpoint tie at equality with k=m−1 or two endpoint peaks. Δ=0 is equivalent to z=m+2 by strict increase of (z−1)(z−2) for integer z≥2. Negative Pell norm of (1+√2)^(2r+1) gives m(m+1)=2a(a+1); multiplication by 3+2√2 preserves odd coordinates, starts at x=7,y=5, and increases them with x>y and a≥2. Thus k=a is in 1,…,m−1. Replacing falling factorials by squares changes c(c−1) to c²; the new Δ_R=a²−1 lies strictly between a(a−1) and a(a+1), leaving the unique peak at m−a on the left and m+a on the right. Separately, `python3 /workspace/branches/frozen_review_checks.py` directly counted labelled update triplets and compared 90 rational stationary laws and the first two Pell families' replacement contrasts, with no tolerances. The finite calculation is corroborative; no claim about microstate modes, peak separation in the scaling limit, or formal certification is made.
 
-Mobilia's 2015 exact stationary model (arXiv:1506.04911) samples influencers with possible repetition, which changes both exact rates and stationary maximizers. The 2015 mapping study (arXiv:1501.05091) and Weron et al.'s 2024 group-composition study (doi:10.3390/e26020132) treat related sampling choices but independence-driven models rather than the present finite symmetric positive-zealot mode census. Searches for equivalent, dominating, tabulated, and alternative formulations did not reveal the claimed classification. The 2024 publisher full text was not fully accessible, and differently indexed identical results remain possible. Absence from a search is not offered as mathematical proof of originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full finite-population stationary-mode classification is a motivated measure of bistability and finite-size coexistence in a standard opinion particle system. It proves the sharp maximum possible number of exactly equal global modes and explains, through a negative Pell family, why fourfold ties recur at arbitrarily large finite populations. The sharp contrast with repeated influencer sampling isolates a physical modeling choice, without claiming that equal point heights are distinct thermodynamic phases.
+Supported for the complete exact finite-size mode census under the distinct-other-agent rule, the infinite four-tie Pell family, and its same-parameter replacement contrast. Detailed balance, the repeated-panel zealot model and the idea of distinct influence groups are not new. The strongest inspected catalogue and primary matches differ in the transition kernel or observable; unresolved access and equivalent chemical/population-model formulations remain risks.
 
-## Limitations and closest prior literature
+## value
 
-The proof covers only complete-graph binary conformity with two independently resampled, distinct influencing agents, exactly equal opposite zealot groups, and no independence or other noise. The claim concerns the lumped susceptible-count stationary distribution, not labelled microstates, mixing rates or large-deviation weights. See Mobilia (2015), Jędrzejewski et al. (2015/2016), and Weron et al. (2024) for the nearest literature and the detailed scientific comparisons in AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mode set of a finite stationary count law is an intrinsic observable in finite-population conformity models. The exact maximum number of equally high states and their positions cannot be recovered from a macroscopic one- versus two-peak phase picture. The unbounded Pell family and disappearance of its ties under a single change of sampling policy demonstrate a concrete finite-size modeling effect. The value does not depend on interpreting adjacent ties as thermodynamic phases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

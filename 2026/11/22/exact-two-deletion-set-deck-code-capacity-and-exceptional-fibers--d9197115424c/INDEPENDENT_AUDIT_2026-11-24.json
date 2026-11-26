@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:32:39.729768Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–42; VERIFICATION.md and verify.py inspected, not executed",
+        "Replay: python3 /workspace/branches/independent_replay.py 5; emits all four fibers with their full decks"
+      ],
+      "rationale": "An independent exhaustive construction started from all 720 permutations and took two successive one-symbol deletions, re-ranking after each by subtracting one from each remaining label greater than the deleted label. This retains only relative order; composing it twice gives precisely the 15 retained-position possibilities with duplicates discarded. Grouping by literal frozensets, not by the source's bitmask or rank sorting, returned 710 singleton fibers and exactly the listed tripletons {132465,132546,213546} and {564231,645231,645312}, and doubletons {241635,315264} and {462513,536142}, with deck sizes five and ten respectively. Reversal and complement swap the two fibers of each size; inversion fixes each fiber setwise. These operations commute with taking subpatterns when applied also to the patterns, and none of the exceptional sources has fewer than two descents. The 58 sources with at most one descent can also be counted as 1+(2^6−7): choose the first increasing run as a nonempty proper subset and exclude the five initial intervals (the splits of the increasing word). A full-deck decoder admits one representative per fiber, hence 714 as the maximum size and 3×2×2×3=36 distinct labeled maximum codebooks.",
+      "residual_risks": [
+        "The census is exhaustive at n=6 only. Deck injectivity does not imply unique decoding from a single arbitrary standardized deletion trace."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raykova reports N′₂=7 using a computer check and Theorem 5.8.",
+          "The sphere-spectrum item gives cardinalities of individual five-pattern sets at length seven; the palindrome item studies ordinary deletion shadows of abccba words."
+        ],
+        "reasoning": "The threshold explains the choice of six but says neither how many decks occur there nor which sources coalesce. Individual deck sizes at another length and an ordinary-trace graph on a different domain do not classify complete set-deck equality.",
+        "searches": [
+          "Raykova, §5 definitions and note after Theorem 5.8 (PDF pp. 8–9 and 11)",
+          "Resultary 2026/11/8 item 5cf589273ff1; 2026/11/22 item 2bb713ab731e"
+        ]
+      },
+      "checked_sources": [
+        "Smith 2006 Props. 3.1–3.2; Raykova 2006 §5; Resultary and the local mirror passages listed above",
+        "Smith 2005 dissertation: retrieval attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Smith's pair and reversal or complement already give collisions in the two symmetric five-pattern decks; these symmetries do not recover the extra members or the distinct ten-pattern fibers. Raykova guarantees ambiguity at six, not its extent."
+        ],
+        "reasoning": "Once all fibers are available the capacity and 36 maximum codebooks are elementary consequences, not separate priority claims. Neither inspected prior theorem supplies the full classification needed for those numbers.",
+        "searches": [
+          "Smith Props. 3.1–3.2, Raykova §5, Resultary records 5cf589273ff1 and 2bb713ab731e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith Prop. 3.1 lists 132465 and 132546 with identical sets {1234,1243,1324,2134,2143}; Prop. 3.2 is about multisets.",
+          "The closest Resultary hit with the exact census is the frozen record itself."
+        ],
+        "reasoning": "A set of (n−2)-minors is exactly the deck here. Smith demonstrates overlap with a strict subset of one tripleton, not the third member or full census. Reconstructibility from multisets does not transfer to the coarsened set channel.",
+        "searches": [
+          "Rebecca Smith Permutation Reconstruction Proposition 3.1 two deletions set multiset; Raykova Permutation Reconstruction from Minors two-deletion threshold; Smith 2005 dissertation UFDC",
+          "Resultary: exact six-permutation two-deletion set-decks: complete sets of standardized four-position patterns, collision fibers, 714 distinguishable decks, and maximum code capacity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match was the same record; neighboring catalog material was read but no independent complete table was found. The accessible primary papers report a pair or a threshold. The Smith dissertation text was not retrievable."
+        ],
+        "reasoning": "An available complete mapping or equivalent collision table would cover the census and derived counts. Neither a pair nor the threshold reports the table; the inaccessible candidate remains a risk, not absence evidence.",
+        "searches": [
+          "Resultary exact six-permutation set-deck/collision query",
+          "Smith 2005 dissertation UFDC item UFE0009783/00001; Smith Prop. 3.1 and Raykova §5"
+        ]
+      },
+      "rationale": "Smith gives a collision in the very same set model and Raykova identifies the last ambiguous length. The supported distinct claim is the complete fiber classification at that length, including the independent choices among all exceptional sources, not the existence of a collision or the reconstruction threshold.",
+      "residual_risks": [
+        "No absolute priority claim; a full dissertation passage or an earlier unindexed computation might already report the complete inverse fibers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial direct coverage",
+          "evidence": [
+            "Exact colliding pair and their five-pattern set; subsequent reconstruction theorem retains multiplicities."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1149",
+          "material_read": "OA PDF p. 5, Props. 3.1 and 3.2",
+          "method": "EJC OA PDF, offset 12023",
+          "title": "Permutation Reconstruction",
+          "trigger": "Explicit same-domain two-deletion counterexample"
+        },
+        {
+          "assessment": "Covers the threshold, not a reported length-six fiber table",
+          "evidence": [
+            "Reports N′₂=7 via Theorem 5.8 and a computer check."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1092",
+          "material_read": "PDF pp. 8–9, §5 definitions, and p. 11, threshold note",
+          "method": "EJC OA PDF, offsets 23897 and 31952",
+          "title": "Permutation Reconstruction from Minors",
+          "trigger": "Stronger candidate two-set-minor reconstruction result with a computer check"
+        },
+        {
+          "assessment": "Unresolved dissertation coverage",
+          "evidence": [
+            "The surfaced alternate PDF was verified to be an unrelated dissertation, not a copy of Smith."
+          ],
+          "identifier_or_url": "https://ufdc.ufl.edu/UFE0009783/00001",
+          "material_read": "Landing material only; no relevant primary passage retrieved",
+          "method": "Direct and alternate lawful OA retrieval attempts",
+          "title": "Combinatorial Algorithms Involving Pattern Containing and Avoiding Permutations",
+          "trigger": "Plausible antecedent of Smith's paper"
+        },
+        {
+          "assessment": "Profiles individual sphere sizes at n=7, not deck equality at n=6",
+          "evidence": [
+            "No sphere of size 20 and two of size 21, not an inverse-fiber classification."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-two-deletion-permutation-pattern-sphere-spectrum-at-the--5cf589273ff1",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete two-deletion permutation-pattern sphere spectrum at the first prolific length",
+          "trigger": "Same set-deletion operation and similar exact census"
+        },
+        {
+          "assessment": "Distinct object and channel",
+          "evidence": [
+            "Ordinary deletion shadows of abccba words and a confusability graph, not rank patterns of six distinct symbols."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-deletion-confusability-of-six-symbol-palindromes-an-exact-ed--2bb713ab731e",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two-deletion confusability of six-symbol palindromes",
+          "trigger": "Same size and deletion count in the catalog"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–42; Raykova §5 threshold and Smith Prop. 3.1"
+      ],
+      "rationale": "Six is the last ambiguous length for this natural observation; it is not an arbitrary small cutoff. Resolving every exceptional labeled source at that threshold quantifies exactly what information the full set loses, gives an optimal decoding dictionary and all its degrees of freedom, and identifies symmetry and descent restrictions on ambiguity. These are useful in reconstruction questions that assume complete access to distinct patterns, not merely as a repeat of a known threshold.",
+      "residual_risks": [
+        "The gain is a finite reconstruction classification, not a guarantee for ordinary single-trace deletion codes or a new asymptotic bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

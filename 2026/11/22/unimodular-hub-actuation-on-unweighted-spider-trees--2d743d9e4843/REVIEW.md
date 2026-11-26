@@ -1,11 +1,21 @@
-# Scientific review: unimodular hub actuation on unweighted spider trees
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly separates the hub in an integer block-arrowhead matrix, reduces the determinant to a block Krylov determinant by unit-triangular operations, and factors that determinant into grounded-path resultants. The cosine-product argument gives exactly zero for overlapping odd arm labels and absolute one otherwise; the integer-control assertion follows through a unimodular binomial power transformation. The finite-time volume corollary uses a standard Vandermonde factorization. The standalone exact checker completed 218 assertions; this supplements rather than replaces the unrestricted proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual search risk.** The 2011 path result and the later path determinant result cover paths but not branched spiders. The 2025 complete starlike-graph paper gives qualitative controllability/node-placement criteria; its implication that the hub can be a controllable leader is not claimed as novel. It does not establish the unit index of the integer Kalman reachability lattice. Classical Chebyshev resultant results are also prior art; the substantive claim is their zero-or-unit determinant consequence for arbitrary branched Laplacian spiders and integer-input reachability. Search cannot exclude every equivalent unindexed theorem.
+PASS
 
-**Value — PASS.** Single-hub actuation on branched trees is a canonical network-control problem. The determinant classification upgrades ordinary real controllability to exact integer-reachable lattice saturation, a strictly stronger property with consequences for quantized input models. Pairwise coprimality yields an explicit all-size design test requiring no eigenvalue calculations. This does not claim bounded control effort or numerical conditioning.
+Deleting the hub gives the direct sum of grounded arms with the original degrees retained. In the lower Krylov columns the leading terms, in order, are u,Bu,…,B^(N−1)u; hub feedback only adds earlier columns with integer coefficients. For each arm the distance support of e₁,−D e₁,… gives a unit triangular basis. In those bases the block matrix is simultaneous remainder by the monic arm characteristic polynomials, with the argument sign changed for −D. To verify the pairwise product determinant, split off a monic factor P by writing f=r+Pq: the coordinate change is unit triangular up to ordering, the P-remainder is r, and the other remainders in q are multiplied by P. Each multiplication has determinant equal to the corresponding resultant, including zero when a factor is shared. The arm recurrence gives eigenangles (2j−1)π/(2ℓ+1). A common gcd g>1 gives the common angle π/g; if the odd labels are coprime, multiplication by the other odd label permutes the odd residues up to sign modulo 2(2ℓ+1), fixing the excluded odd residue 2ℓ+1. Thus the absolute numerator and denominator cosine products agree, giving resultant modulus one. This yields the integer index classification, not just an eigenvector test. The binomial translation to I−L is integral and unit triangular; column reversal is the n-step input map, and Cayley–Hamilton precludes recovery at a longer horizon if rank fails. In the full-rank case the symmetric spectrum is simple and the modal Vandermonde gives the stated finite-horizon determinant; its time kernel is positive definite by independence of distinct exponentials. Independent edge-by-edge Krylov recurrence and elimination modulo 1009 gave residues (1,0,0,1,1) for arms (1,2,3,5,6,8), (1,2,3,5,6,7), (2,7,9), (3,5,7,11), (4,5,6,8,9), unchanged by the shift. These residues are corroboration only; the packaged exact checker was inspected, not run.
 
-**Limitations and closest sources.** Parlangeli–Notarstefano (2011, arXiv:1109.3556) studies paths/cycles. Parlangeli (2025, DOI 10.3390/a18050239) provides comprehensive qualitative starlike controllability. Louboutin (2013, DOI 10.4153/CMB-2012-002-1) gives related Chebyshev resultant technology. Equivalent results under integer control, walk matrices, or unimodular cyclic vectors are the principal publication-priority risk. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative reachability and Chebyshev resultant machinery are precedent, not contributions. The supported distinct claim is the zero-or-unit determinant and full integer column lattice for arbitrary hub-actuated unit spiders. The closest separate indexed tree census mentions this family as related known work but gives neither an independent all-arm theorem/proof nor a demonstrable earlier exact antecedent. The conclusion is not a publication-priority certification.
+
+## value
+
+PASS
+
+A natural infinite family with genuine branching admits a complete exact gcd test for whether unbounded integer controls realize every integer state in n steps. A rank test cannot decide that lattice question, and the nonspider index-two example confirms that unimodularity is not automatic for unit trees. The output is useful without any claims about optimal placement, small input size or numerical conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

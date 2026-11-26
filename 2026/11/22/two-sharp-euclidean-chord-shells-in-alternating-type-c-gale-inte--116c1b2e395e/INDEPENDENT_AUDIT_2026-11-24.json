@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:56:29.542962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the native 0/1 embedding, reversing a vertex and coding 0 as +1 converts every suffix constraint into the lower barrier −1 (parity makes the even-time bound 0). Reflection of the walk started at height 1 telescopes to C(2r,r)+C(2r,r+1)=C(2r+1,r); zero and the unit vectors witness full dimension. Distance squared equals Hamming distance at the vertices. At full distance the heights are opposite and forced to zero at all even times: each block has two orientations, and division by two gives the complementary matching. Any nonvertex is excluded as a diameter endpoint by the strict convexity of squared distance, with the other endpoint fixed. A sole agreement on bit 1 would force both heights to −1, precluding a subsequent step, and the last step cannot be such an agreement from opposite odd heights. An agreement on bit 0 leaves first-coordinate walk states −1 through 3; on states 0,2 the two-step transition has row sum 3. The odd agreement times give 2(3^r−2^r) ordered pairs in total and even times give the same, so the unordered result is 2(3^r−2^r). No claim of a gap between lengths of arbitrary segments in the continuous polytope is made by the vertex-shell result. Fresh exact enumeration at r=1,…,6 reproduced the counts and endpoint patterns; replay `python3 /workspace/branches/independent_certificates.py 1`. The enumeration corroborates, not replaces, the all-r argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. describe all the relevant feasible polytopes by suffix inequalities; the theorem does not enumerate pairs.",
+          "The published full four-state transfer formula is for T=S∪{n}. Here S=∅ and |T|=r≥2, so the required T={n} is not the audited T.",
+          "Eur et al.'s stated scope includes volume and lattice-point theory, not a joint automaton for these shell counts."
+        ],
+        "reasoning": "The general polyhedral setup applies but cannot substitute for the proof that the near-diameter defect produces a width-five transfer and closed form. The stronger-looking transfer enumerator cannot be specialized to this interval.",
+        "searches": [
+          "arXiv:2311.15441, Theorem A and Lemma 2.2",
+          "arXiv:2209.06752",
+          "Resultary: 0acaa0ef9409"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_chords.py (read only)",
+        "arXiv:2311.15441",
+        "arXiv:2209.06752",
+        "arXiv:1708.02399",
+        "arXiv:2007.01008",
+        "Resultary IDs 0acaa0ef9409, a1d709c7411b, 4ffb07614719"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The linked criterion excludes this alternating T for the fixed lower endpoint.",
+          "Signed alternating-matching vertices have different parity of squared distances and a different vertex count.",
+          "The Gale inequalities imply the walk feasibility rule, but the near-diameter enumeration still requires coupling two feasible walks at the position of the defect."
+        ],
+        "reasoning": "Neither a same-distance number for a different object nor a general description of feasible vertices provides the two-shell result as a known specialization. The scientific difference does not depend on which same-day record came first.",
+        "searches": [
+          "arXiv:2311.15441, Corollary 5.4",
+          "arXiv:2007.01008, Proposition 40",
+          "Resultary: 0acaa0ef9409 and a1d709c7411b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A squared Euclidean vertex distance here is Hamming distance between two one-sided ballot walks at barrier −1.",
+          "The Bidirectional Ballot Polytope counts/encodes words with strict constraints at both ends, and its inspected problem is not a joint Hamming-shell count."
+        ],
+        "reasoning": "Considering both geometric and ballot descriptions does not turn the single-vertex count or bidirectional constraint into a formula for the two largest pair shells.",
+        "searches": [
+          "Resultary: Euclidean chord spectra for alternating and linked type-C polytopes",
+          "arXiv:1708.02399",
+          "arXiv:2311.15441"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The linked snake and alternating shard records both can give the number 2^(r−1), but for other vertex families.",
+          "The distinct same-day shard record's second squared shell is 2r−2 with r²2^(r−1) pairs; all its squared vertex distances are even. Its vertex count is Fibonacci, not binomial.",
+          "The run-length shard finding singles out distances from zero, not the two unordered Gale vertex-pair shells."
+        ],
+        "reasoning": "The exact numeric overlap in the first shell and use of transfer methods were checked against actual objects and distances. No checked table or enumerator gave the matching penultimate shell for the matching interval.",
+        "searches": [
+          "Resultary: 0acaa0ef9409",
+          "Resultary: a1d709c7411b",
+          "Resultary: 4ffb07614719"
+        ]
+      },
+      "rationale": "The bounded comparison supports the distinct two-shell enumeration on the specified alternating Gale interval. The reflection-based vertex count and general Gale description are not novel. The closest distinct paired-transfer and alternating-spectrum records have substantive, demonstrated scope differences, not just different titles or publication dates.",
+      "residual_risks": [
+        "Unindexed joint ballot-walk/Hamming distance enumerations might exist. The generalized-ballot paper at PMC9279278 could not be inspected in full; its retrieved search description is not evidence of absence of coverage.",
+        "Only the two stated vertex shells and the native Euclidean realization were audited; no full distance spectrum or arbitrary-interval claim is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same geometric framework; linked specialization is narrower and inapplicable here",
+          "evidence": "Suffix inequalities identify this object; linked snake condition is T=S∪{n}.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.15441",
+          "material_read": "Theorem A (PDF p. 3), Lemma 2.2 (p. 5), Corollary 5.4 (p. 24)",
+          "method": "OA PDF passage lookup and bounded read",
+          "title": "Lattice Path Delta Matroids",
+          "trigger": "Primary source for the same type-C intervals and a possible broader formula"
+        },
+        {
+          "assessment": "Real overlap in method and first count, but no specialization to the audited family",
+          "evidence": "Full pair polynomial for [S,S∪{n}], not [∅,T_r] for r≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409",
+          "material_read": "Finding and Assumptions and scope in RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Four-state Euclidean distance spectrum and antipodal rigidity of linked type-C snake polytopes",
+          "trigger": "Closest type-C transfer spectrum and matching first-shell number"
+        },
+        {
+          "assessment": "Different vertex family and incompatible second shell",
+          "evidence": "Its signed alternating-matching vectors give only even squared distances and second-shell count r²2^(r−1) at 2r−2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-euclidean-chord-spectra-and-gaussian-fluctuations-of-alter--a1d709c7411b",
+          "material_read": "Finding in RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Exact Euclidean chord spectra and Gaussian fluctuations of alternating shard polytopes",
+          "trigger": "Strong same-day alternate spectrum hit"
+        },
+        {
+          "assessment": "Inspected contribution is polyhedral/lattice-point context, not shell coverage; not a whole-document exclusion",
+          "evidence": "Stated results address volumes, lattice-point counts and log-concavity.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.06752",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF excerpt",
+          "title": "Signed permutohedra, delta-matroids, and beyond",
+          "trigger": "Possible general delta-matroid invariant"
+        },
+        {
+          "assessment": "Different walk constraints and no matching shell statement in inspected text",
+          "evidence": "Strict ballot inequalities on both prefixes and suffixes.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.02399",
+          "material_read": "Abstract and section overview, PDF pp. 1,4",
+          "method": "OA PDF passages",
+          "title": "The Bidirectional Ballot Polytope",
+          "trigger": "Ballot-walk rephrasing of the feasible words"
+        },
+        {
+          "assessment": "Distinct configurations",
+          "evidence": "Shard vertices are signed alternating-matching characteristic vectors.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.01008",
+          "material_read": "Proposition 40, PDF pp. 19–21",
+          "method": "OA PDF passage lookup and bounded read",
+          "title": "Shard polytopes",
+          "trigger": "Check whether the same-day shard object is another realization of the same metric vertex family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The alternating pattern gives a uniform natural family with the simplest periodic Gale boundary. The ambient diameter alone would miss the exponentially larger penultimate shell and the complete matching/isolated-vertex structure at the diameter. The explicit shell ratio and classification give useful extremal metric information for this family; it is not just a routine tally of vertices or another presentation of the linked-snake result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

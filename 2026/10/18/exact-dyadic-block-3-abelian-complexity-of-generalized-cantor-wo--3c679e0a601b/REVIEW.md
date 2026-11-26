@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The factor decomposition is exhaustive because all nonzero substitution-scale blocks are separated by at least two all-zero blocks, while the next iterate witnesses both orientations of every boundary factor. The no-\(11\)/no-\(101\) property reduces all eight triple-frequency counts to three elementary functions of the number of ones and the two-letter endpoints; an independent boundary count recovers the endpoints from the 3-Abelian signature. Explicit cuts after the \(K\)-th one attain every claimed class; the trailing zero gap gives the sole width-four exception. The classification is valid at every integer \(q\ge4\), \(k\ge1\), including the depth-one boundary. Direct independent finite checks cover 26 pairs but are not substituted for the proof.
+PASS
 
-## Originality — PASS against inspected sources
+Reconstructed RESULT.md lines 29–66. A length-L window intersects at most one nonzero level-k block W, since these blocks are separated by at least two full zero blocks. All padded prefixes, padded suffixes, W itself and the all-zero word occur within the next iterate. Avoidance of 11 and 101 makes each one supply exactly one candidate instance of each of 001, 010 and 100, with the indicated boundary subtractions. Conversely subtracting the length-three extensions from each length-two count recovers the endpoint indicators. For K<R, cuts just after the K-th one and one place later have at least two leading pad zeros; cutting two places later is possible because one-positions differ by at least three. To have 00 at both ends, that last cut must leave two leading pad zeros. This holds automatically for K<=R−2, and for K=R−1 it leaves exactly q−3 pad zeros. To rule out extra mixed labels, note in particular that a one-symbol left pad requires the cut at L−1, where the last two included symbols of W are 00 by its terminal gap; reversal supplies the analogous one-symbol right pad. This proves the unique q=4 exception, including k=1. Projection onto one-letter endpoints gives the 2-Abelian count. Independent replay branches/6dace631-61f3-45d4-ad54-4faccaed72de/cantor_independent_small_enum.py directly compares all pattern counts through length three with labels for (q,k)=(4,1),(5,1),(4,3),(5,3), giving 6,7,36,37 classes. Frozen verifier and VERIFICATION.md inspected, not executed; the finite replay is not the all-depth argument.
 
-The same generalized Cantor morphism and its **ordinary factor/permutation** complexity occur in Lü, Chen, Guo and Wen (2016; available online 2015-12-29). Its complete accessible article was inspected, including definitions, complexity results and later proofs; none gives an order-three Abelian class classification. Chen, Lü and Wu (2017) study the ordinary width-three Cantor sequence, not the width-at-least-four domain. Lü, Chen and Wen (2022) study order-two Abelian regularity for generalized Cantor sequences; published abstract and available description do not furnish an order-three class formula, although its inaccessible full text remains a residual risk. Previously considered maximum-weight factors at a different length count a proper extremal slice, not this full order-three partition. No inspected equivalent theorem or implication was identified. This is a bounded originality assessment, not a proof of global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem exactly evaluates a natural higher-order complexity statistic across an infinite two-parameter family, fully enumerates every attainable class, and isolates a sharp exceptional width. The third-order information is not fixed by published factor counts or second-order regularity, and the class-by-class result supplies reusable structural information for further automatic-word complexity questions.
+Pass the explicit 3-Abelian label census and its sharp q=4 exception. Do not credit the definition, general endpoint reconstruction, ordinary factor complexity or a 2-Abelian regularity theorem as new. The two inaccessible same-family papers leave a residual access risk, not a determination of coverage.
 
-## Limits and sources
+## value
 
-Only substitution-power factor lengths and widths at least four are classified. A later order-two generalized-Cantor paper was not available for full inspection; equivalent hidden results remain possible. Mathematical verification is direct and reproducible, but independent validation has not been undertaken.
+PASS
 
-Sources: Lü et al., *On the permutation complexity of the Cantor-like sequences* (DOI 10.1016/j.tcs.2015.12.022); Chen–Lü–Wu (arXiv:1703.04063); Lü–Chen–Wen (DOI 10.1016/j.tcs.2022.09.025); Karhumäki–Saarela–Zamboni (arXiv:1301.5104).
+The natural substitution-aligned lengths and the next finer Abelian equivalence order refine a previously studied statistic. The full classification identifies exactly which boundaries split each intermediate class and the single short-gap obstruction at q=4; it supplies more than a regularity assertion or finite table.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

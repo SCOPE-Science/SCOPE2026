@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:00:26.199556Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–49; VERIFICATION.md and VERIFY.py inspected, not run",
+        "/workspace/independent_finite_checks.py, finitefield(): direct root exclusion and independent quartic point counts for all nonsquare c across eight prime fields"
+      ],
+      "rationale": "Let d=4c. No discriminant x²-d vanishes; counting (x-z)(x+z)=d gives the sum of its characters as -1, so exactly (q+1)/2 coefficients are allowed with zero included. χ(-d)=-χ(-1) shows that deleting zero leaves more than half of the group for q≡3 and exactly half for q≡1 mod 4. In the latter case x→(±d)/x flips the discriminant character, excluding ±d. If another t were excluded, the two disjoint half-size sets would partition the group and the quartic F(x)=(x²-d)(t²-dx²) would have nonsquare value everywhere, including zero. Its four roots are distinct for t²≠d²; its squarefree double cover has genus one and its nonsquare leading coefficient excludes rational points at infinity. Hasse–Weil excludes the resulting zero point count over any odd prime power. The sharpened check 4N(t)=#C_t(F_q) for nonsingular t follows by expanding the product of the two nonsquare indicators, summing over x≠0 and accounting for x=0 and infinity. The size sum (q-3)+(q-1)/2 exceeds q-1 precisely when q>5; for q=5 the two allowed coefficients are opposite and all triple products give exactly two values.",
+      "residual_risks": [
+        "Independent checks were finite and prime-field only; the character count and genus-one argument apply to all odd prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior correlation theorem allows all odd q with nonsquare c and square u≠0, with both diagonal u=1 and nonsingular u≠1 branches. That parameter range contains u=t²/(4c)² throughout the frozen theorem.",
+          "It gives C_q(u;c)=(q+1+a_q(E_u))/4 for u≠1, with E_u:y²=x(1-x)(1-ux) and |a_q(E_u)|≤2√q."
+        ],
+        "reasoning": "The exact correlation count is stronger than positivity of the support. The individual coefficient tests motivating the paper need not imply coverage, but the exact joint counts do.",
+        "searches": [
+          "Resultary dfff14d7774e Finding and Assumptions; cited Zhu–Wu arXiv:2608.01327 as weaker fixed-constant comparator"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact earlier record dfff14d7774e via local mirror",
+        "Frozen RESULT.md and AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let N(t)=#{x≠0:x,t/x∈A_c}. For q≡3, zero is not counted in C_q and N(t)=C_q(u;c). For q≡1, zero belongs to both coefficient sets, so cancels in N(t)=(q+1)/2-C_q(u;c).",
+          "If u≠1, both expressions are ≥(q+1-2√q)/4>0. If u=1 (t=±d), the prior diagonal count forces N(t)=0 for q≡1 and N(t)=(q+1)/2 for q≡3."
+        ],
+        "reasoning": "This proves exactly the twofold image under the original quantifiers, including small fields. The same image and elementary coefficient cardinality imply the stated threefold result by pigeonhole for q>5 and the two-element opposite pair for q=5; the earlier record does not literally state the threefold clause.",
+        "searches": [
+          "Exact mirror dfff14d7774e: Finding, Assumptions and scope, Proof §1 eq. (1); frozen AUDIT.json broader-coverage and implication assessments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Proof §1 eq. (1): X⁴+xX²+c is irreducible iff χ(c)=χ(x²-4c)=-1. This agrees with the quadratic criterion at nonsquare c.",
+          "For t≠0 put d=4c and u=t²/d². Then χ((t/x)²-d)=χ(-d)χ(x²-u d) at every x≠0."
+        ],
+        "reasoning": "Counting x for which x and t/x both belong to A_c is a simultaneous character count with constants c and uc. For q≡3 mod 4 the signs match the two-irreducible count; for q≡1 the second sign is reversed, so take its complement inside the allowed first-discriminant set. The different wording does not prevent exact coverage.",
+        "searches": [
+          "Resultary: fixed-norm quadratic coefficient products, simultaneous irreducibility and character correlations; exact mirror RESULT.md dfff14d7774e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior theorem is an exact all-parameter count including the diagonal value (q+1)/2, not just a finite table.",
+          "The frozen finite checker covers stated sample fields only; it is not evidence of novelty for those or for all fields."
+        ],
+        "reasoning": "Although the prior formula is not catalogued as A_c², the representation counts and thus every support entry are obtained by exact substitution and complementation.",
+        "searches": [
+          "Resultary exact multiplicative correlations of irreducible even quartic trinomials, dfff14d7774e, Finding"
+        ]
+      },
+      "rationale": "The earlier exact even-quartic correlation theorem already implies the entire twofold image and the exact representation counts. The frozen assertion that changing constants to products changes the problem enough to prevent implication is incorrect. The threefold clause is a direct size and symmetry corollary and supplies no distinct structural remainder.",
+      "residual_risks": [
+        "Timed-out OA extraction did not affect the decisive comparison: it is based on actual mirrored theorem text, not a search snippet. The judgement concerns demonstrated coverage, not ultimate historical priority of the earlier theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the twofold image, in both congruence classes and at both exceptional products",
+          "evidence": [
+            "The criterion χ(c)=χ(x²-4c)=-1 in Proof §1",
+            "The diagonal and Legendre-curve formulas for C_q and Hasse bound in Finding",
+            "Assumptions count x=0 and allow all nonzero square u with nonsquare c"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-multiplicative-correlations-of-irreducible-even-quartic-tr--dfff14d7774e/RESULT.md",
+          "material_read": "Exact mirrored RESULT.md Finding, Assumptions and scope, and Proof §1 equation (1)",
+          "method": "Local Resultary lookup, exact mirrored source comparison, and independent sign and zero-coefficient reduction",
+          "title": "Exact multiplicative correlations of irreducible even quartic trinomials",
+          "trigger": "Exact joint discriminant count for constants c and uc; plausible direct implication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 29–57; earlier Resultary dfff14d7774e Finding and Proof §1"
+      ],
+      "rationale": "Fixed-norm coefficient products are a natural invariant, and the two exclusions are useful facts. But the older theorem already gives the finer representation count after an elementary change of variables. The only additional wording, the third power, is routine finite-group pigeonhole plus symmetry in the field of order five. As submitted this does not add a worthwhile independent mathematical finding; no viable narrowed repair is established.",
+      "residual_risks": [
+        "This value assessment is for the frozen claim, not for other structural questions on coefficient sets."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

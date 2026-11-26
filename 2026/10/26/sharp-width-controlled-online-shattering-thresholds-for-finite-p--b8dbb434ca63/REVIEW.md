@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof explicitly defines the ideal-membership query class, the quantifiers \(w\ge1\), \(K\ge w\), and the exact integer threshold \(N_w(K)\). Chain-prefix Littlestone ranks and disjoint-domain product additivity give the universal bound after Dilworth decomposition. Convex exchange of integer chain costs gives the sharp balanced threshold. A depth-\(K\) tree needs \(2^K\) distinct ideal hypotheses; equality forces all independent prefix tuples and hence removes every cross-chain comparison, yielding uniqueness. A global minimum establishes the sharp connected threshold and a global-top chain pads the constructions to arbitrary order. An independent finite enumerator checks all naturally labeled posets through six elements, including the rigidity boundary. This is supporting evidence, not a substitute for the universal proof.
+## correctness
 
-## Originality
-PASS, subject to residual historical-priority uncertainty. The closest inspected sources are Liu–Weselcouch (arXiv:1807.02865, width-two ideal-lattice embedding), Ghazi–Golowich–Kumar–Manurangsi (ALT 2021, closure bounds on a common domain), and Guingona–Kolesnikov–Nierwinski–Soucy (arXiv:2109.04805, zero-set dimensions). Their inspected theorems do not state or imply the exact all-width first-onset function together with rigid uniqueness and the connected one-vertex threshold. General Dilworth decomposition and finite-class counting alone do not supply the attained adaptive bounds or the rigidity step without additional argument. An equivalent specialized theorem outside the inspected literature remains possible.
+PASS
 
-## Value
-PASS. This is a complete natural extremal classification: for each prescribed width and adaptive mistake depth, it gives the exact smallest ground-set order and the sole minimal isomorphism type, rather than merely asymptotic bounds. The connected version exhibits an exact structural cost, and the fixed-size maximum quantifies the largest separation from VC dimension in the entire width-\(w\) class. These are reusable limits for online membership prediction of ideal-closed states. The result does not classify nonminimal posets with the same depth or claim algorithmic improvement for arbitrary poset-relation queries.
+Dilworth partitions a finite width-w poset into w nonempty chains. On a chain of length l, prefix hypotheses have dimension floor(log2(l+1)) by leaf counting and recursive bisection. In a product on disjoint domains, a query affects one factor only; a branch of a shattered query must reduce that factor's dimension by at least one, giving the upper bound by summing factor dimensions. Concatenating independent trees gives equality for the product. Every ideal is a prefix tuple, so k_i=floor(log2(l_i+1)) must sum to at least K. Minimizing the sum of 2^k_i-1 first forces sum K, then balancing by discrete strict convexity, giving the stated N_w(K). At equality all l_i=2^k_i-1 and a K-tree needs all 2^K available tuples. A cross-chain comparison would forbid one, so the disjoint union is forced. For w>=2 this excludes connected equality; adjoining a global bottom preserves the antichain and all projected old ideals. Padding above with a chain preserves width and the old tree for the fixed-size formula. An antichain is statically shattered by taking down-closures, and no comparable pair can be shattered. The frozen code and output were read, not executed; the finite enumeration and arithmetic checks are not the unrestricted proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest same-day finding treats the same query model on two-row grids, and the known chain decomposition and threshold facts cover ingredients. The supported distinct claim is the exact minimum over all width-w posets and the equality structure, which also yield the connected and fixed-size statements. No inspected source gives an equivalent or stronger extremal theorem.
+
+## value
+
+PASS
+
+For the natural ideal-membership class, the theorem gives a uniform, sharp element budget for adaptive shattering at prescribed static dimension, rather than a bound or a family example. It forces all extremizers at the onset and determines exactly the extra cost of comparability connectivity. These facts also answer the fixed-size adaptive-minus-static extremum without running an instance algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

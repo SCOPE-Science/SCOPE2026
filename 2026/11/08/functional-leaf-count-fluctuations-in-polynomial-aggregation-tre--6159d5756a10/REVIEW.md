@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim uses the exact probability of selecting a nonleaf under a two-mode attachment rule. The resulting affine leaf-count recurrence has bounded martingale innovations and nonnegative contraction weights. Its deterministic centering tracks a differentiable ODE with an integrable second derivative, yielding a uniform order-one centering error. Maximal martingale concentration proves the uniform law and a bounded-increment martingale functional central limit theorem proves the Gaussian process after the singular initial drift interval is controlled. Orthogonal martingale differences yield the stated variance. The two classical endpoints agree with independent exact tree-counting formulas. The verifier performed 343 assertions, none used as an infinite proof.
+PASS
 
-## Originality
+A new leaf replaces an old one unless a uniform branch selects a nonleaf; hence the increment is Bernoulli with parameter (j/n)^beta(1-L/j). Centering by the exact mean gives damping a_{n,j}=1-n^{-1}(j/n)^{beta-1} and a bounded martingale difference. The ODE has an integrable second derivative at zero for every fixed beta>0, so summed local Euler errors and the one-leaf initial discrepancy give an O_beta(1) unscaled centering bound. Summation by parts against the monotone damping weights bounds the supremum by twice the martingale supremum, giving summable Azuma tails under every cross-row coupling. The martingale brackets converge uniformly by the fluid law away from zero and a bounded initial-interval estimate; the drift measures have vanishing mesh atoms and converge uniformly in cumulative mass to t^beta/beta. Thus the centered recursion converges to the stated linear diffusion, including 0<beta<1. The same bracket and squared product weights give convergence of endpoint variance. The variance is positive since 0<p_beta(s)<1 in the interior. The beta=0 and beta=1 formulas follow from the limiting kernel s/t and x_1(t)=t-1+exp(-t), respectively. The density comparison follows from the positive drift difference (q_1-q_2)(1-x_2/t). The variance bound 1/(beta+1) gives its zero limit, and its beta=1 value exceeds 1/12. Even a literal eventual-decrease interpretation holds: writing e=1/beta and u=s^beta gives x_beta(s)/s=e*u*J(e,u), with J(e,u)=integral_0^1 w^e exp(-e*u*(1-w)) dw. The variance divided by e is the integral of exp(-2e(1-u))*u^e*(1-e*u*J)*(1-u+e*u^2*J); dominated differentiation using integrable logarithms shows a C^1 extension with value 1/2 at e=0. Thus dv_beta/d beta is eventually negative. The frozen finite checker was inspected, not executed, and its reported cases are not the proof.
 
-PASS, provisional. The closest 2026 aggregation-tree source supplies the model and a continuum metric-measure scaling theorem, whereas the present claim gives a discrete leaf-count functional central limit law and its variance. A model-specific normalized Gaussian trajectory does not follow merely from metric-space convergence. General results for uniform random labelled trees and uniform recursive trees cover special endpoint cases, not the nonstationary polynomial family. Search comparisons against the available historical claim records and published literature found no directly equivalent law. The complete 2026 manuscript remained inaccessible, so overlap risk with its uninspected results remains material and the priority assessment is not definitive.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The count of leaves is a natural structural statistic, distinct from metric scaling, in the recently defined family. The full time-indexed Gaussian covariance is useful for comparing tree growth across sampling stages and quantifies the effect of a polynomial branch-intensity profile. The exact \(\beta=0\) and \(\beta=1\) checkpoints recover two classical tree models, yet the variance is demonstrably nonmonotone despite a strictly decreasing limiting leaf density. The theorem is a finite-parameter family, not a cosmetic renaming of one special case.
+The aggregation model and metric scaling are prior work, as are the classical benchmark constants. The supported increment is the specific time-inhomogeneous growing leaf-count law, diffusion and explicit nonmonotone variance profile for the polynomial triangular array. The strongest inspected comparators do not state or mechanically imply that combination.
 
-## Closest sources and limitations
+## value
 
-Donderwinkel--van Haastert (arXiv:2609.13066v1) is the direct model source; abstract and a detailed secondary scientific synopsis were available but the complete manuscript was not retrieved. Isaev--Southwell--Zhukovskii (arXiv:1912.09838) concerns broad pattern fluctuations in uniform labelled trees, and Aldous (1990) treats those classical trees; neither source establishes the full polynomial time-inhomogeneous claim on the available material. No assertion of exhaustive historical priority is made. The theorem excludes nonpolynomial profiles, pathwise random-tree limits, and a unique variance maximizer.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Leaf counts are local statistics uncontrolled by the natural metric-measure scaling theorem. The result identifies the entire Gaussian trajectory, supplies the terminal variance and separates a strictly decreasing density from a genuinely nonmonotone variance across the natural profile family. The integrable singular drift at the initial time and the arbitrary-coupling almost-sure law are useful features, not rephrasings of the benchmark constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

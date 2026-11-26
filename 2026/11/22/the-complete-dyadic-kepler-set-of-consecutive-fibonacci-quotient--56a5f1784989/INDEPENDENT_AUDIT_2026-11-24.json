@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:31:38.082226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–51",
+        "CHECK.py (inspected, not executed)",
+        "VERIFICATION.md",
+        "Independent matrix-period and residue-base calculations"
+      ],
+      "rationale": "The shifts by six and twelve give valuation one on n=3 mod 6 and valuation three on n=6 mod 12, respectively. On multiples of six the Lucas doubling factor has valuation one, so the latter valuation extends to v2(n)+2; other indices have odd Fibonacci terms. Hence the rank for modulus 2^k is z_k=3*2^(k-2), k>=3. The determinant in RESULT.md has sign (-1)^n and numerator F_{m-n}; each comparison uses two unit denominators in its own chart. Thus equal residues in a chart are exactly index congruence modulo z_k. At depth three I checked the quotient classes 1,2,7,0 and the reciprocal classes 6,0 directly. From z_k to 2z_k, the shift changes a quotient in the appropriate chart by valuation exactly k, giving both lifts. For the least period, the Fibonacci matrix A has A^6=I+4C with C=[[3,2],[2,1]] congruent to I mod 2. Squaring I+2^e C (e>=2) raises e by one and preserves this property. Consequently A^(z_k) is a nontrivial scalar modulo 2^k and A^(2z_k)=I there. A recurrence period must be a multiple of z_k by its zero term, and z_k itself is not a period since the initial pair (1,0) is not fixed. Each chart residue therefore occurs twice in the least period. The integer chart gives exactly the four closed mod-8 balls. Inverting the nonzero reciprocal closure maps its 6 mod 8 ball to 3/2+2Z_2 and its punctured 0 mod 8 ball to valuations <=-3. The pole yields no finite limit; zero itself comes from the integer chart. The stated Haar measure and excluded finite valuations follow.",
+      "residual_risks": [
+        "The supplied finite checker does not independently establish the least period or the all-depth claim; the matrix and determinant arguments do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar directly treats Kepler sets over primes p>=3, not p=2.",
+          "Rowland–Yassawi’s Section 5 studies scalar Fibonacci limits/residues, not this two-coordinate orbit.",
+          "The distinct Resultary prime-power fiber record assumes p divides a for x_(n+2)=a*x_(n+1)+x_n; here a=1 and p=2."
+        ],
+        "reasoning": "Neither odd-prime specialization nor the recurrence condition p|a applies, and scalar images do not establish incidence/coupling of adjacent terms. At P=1 the five-shell Lucas set as summarized gives no consecutive-orbit classification.",
+        "searches": [
+          "Kumar arXiv:2406.05890, Introduction and Theorem 2.7",
+          "Rowland–Yassawi arXiv:1602.00176, Section 5",
+          "Resultary 4c0425f545ea and 85c2b90c0307"
+        ]
+      },
+      "checked_sources": [
+        "Kumar, Rowland–Yassawi, and Lang–Lang public text as specified above",
+        "Garcia–Luca theorem through Kumar's quotation",
+        "Resultary 56a5f1784989 (self-match), 85c2b90c0307, 4c0425f545ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted Fibonacci ratios are dense in Q_p, but the consecutive orbit here misses, for example, 4+8Z_2.",
+          "The exact period is already known.",
+          "The Lucas-companion summary gives a union of all five shells j=-2 through 2 and does not state consecutive finite frequency counts."
+        ],
+        "reasoning": "The distinct content is the exact projective image and uniform double fibers in a full scalar period. That is not a substitution into any inspected theorem, even though standard rank, determinant and period facts are ingredients.",
+        "searches": [
+          "Garcia–Luca Theorem 2 as quoted in Kumar’s Introduction",
+          "Lang–Lang Appendix A relative to the rank/separation argument",
+          "Resultary Lucas-companion 85c2b90c0307 actual catalogue summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar arXiv:2406.05890 Introduction defines consecutive-ratio closures and distinguishes Garcia–Luca’s unrestricted R(A).",
+          "Resultary 85c2b90c0307 states a Lucas-companion five-shell quotient-set closure; for consecutive ratios its classical P=1 case would be Möbius equivalent, but the reported five-shell closure is incompatible with the direct mod-8 consecutive test."
+        ],
+        "reasoning": "Density of all independent-index ratios cannot replace density of the consecutive orbit. Using the reciprocal chart is a change of coordinates, not a different problem; its zero is a pole for the original quotient.",
+        "searches": [
+          "Dyadic Kepler sets, consecutive Fibonacci quotient density and projective Fibonacci orbits",
+          "Resultary search for 2-adic quotient closures and dyadic prime-power fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lang–Lang records k(2^e)=3*2^(e-1).",
+          "The exact pair of chart-specific residue sets and multiplicities was located in the self-match, not in a distinct inspected table."
+        ],
+        "reasoning": "A period table alone gives the orbit’s repeat length, not which residues occur in the two charts or how many times each is hit.",
+        "searches": [
+          "Lang–Lang arXiv:1304.2892, Appendix A Lemma A1",
+          "Resultary exact dyadic consecutive Fibonacci closure and finite residue multiplicities (target 56a5f1784989)"
+        ]
+      },
+      "rationale": "Pass for the exact dyadic consecutive-ratio closure and its chart-specific finite residue counts, not for the already-known Pisano period. The closest odd-prime Kepler theorem expressly excludes 2. Scalar residue results and unrestricted ratio-set density solve different problems. I tested a potential hidden equivalence to the earlier odd-parameter Lucas-companion entry, not merely the sequences’ names: at P=1, consecutive Lucas quotients would be the GL_2(Z_2) transform (q+2)/(2q-1) of the consecutive Fibonacci quotients. But the prior summary’s stated union of five full valuation shells cannot be the consecutive Lucas closure. Indeed A^6 is 5I mod 8, so the consecutive Lucas projective residue repeats every six indices. Unit quotients occur only at indices 1 and 4 mod 6, giving 3 and 5 mod 8, excluding the entire 1 mod 8 ball which the reported union includes. The summary’s scalar density mechanism and union thus do not establish the needed consecutive orbit; its inaccessible full text could still have additional statements. No comparison establishes exact priority beyond the inspected claims.",
+      "residual_risks": [
+        "No exact full passage of 85c2b90c0307 was accessible; an additional unreported consecutive-quotient statement remains possible.",
+        "An earlier exact dyadic projective orbit table under different terminology cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest main framework excludes the dyadic prime",
+          "evidence": "Prime assumption p>=3; Introduction quotes the unrestricted Fibonacci result separately.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.05890",
+          "material_read": "Introduction and Theorem 2.7 in lawful public text",
+          "method": "OA reader attempted; public arXiv/HTML copy inspected",
+          "title": "Kepler Sets of Second-Order Linear Recurrence Sequences Over Q_p",
+          "trigger": "Directly studies closures of consecutive ratios"
+        },
+        {
+          "assessment": "Inspected statements concern scalar Fibonacci values; no consecutive-ratio classification found there",
+          "evidence": "Theorem 20 is on scalar Fibonacci residues at 11; the dyadic discussion is on scalar limits.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00176",
+          "material_read": "Abstract, Introduction, and relevant Fibonacci statements in Section 5",
+          "method": "Lawful public arXiv/HTML text",
+          "title": "p-adic Asymptotic Properties of Constant-Recursive Sequences",
+          "trigger": "Fibonacci p-adic residues and p=2"
+        },
+        {
+          "assessment": "Covers the period, not a consecutive-ratio table in the inspected passage",
+          "evidence": "The lemma states the exact least period 3*2^(e-1). The frozen bibliography gives a slightly different title.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.2892",
+          "material_read": "Appendix A Lemma A1",
+          "method": "Lawful public arXiv/HTML text",
+          "title": "Fibonacci Numbers and Residue Completeness",
+          "trigger": "Period and residue classification"
+        },
+        {
+          "assessment": "Unrestricted ratios, not consecutive ratios",
+          "evidence": "R(A) consists of ratios of any two members of A.",
+          "identifier_or_url": "https://doi.org/10.4169/amer.math.monthly.123.10.1039",
+          "material_read": "DOI metadata and Theorem 2 as expressly quoted by Kumar; not the Monthly full text",
+          "method": "Publisher metadata plus accessible quoted theorem",
+          "title": "Quotients of Fibonacci Numbers",
+          "trigger": "Potentially same ratio set"
+        },
+        {
+          "assessment": "The five-shell closure stated in the summary cannot be the consecutive closure for P=1; no finite frequencies stated",
+          "evidence": "Summary states closure union of 2^j Z_2^× for all -2<=j<=2 and a lifting argument for odd terms. Unit consecutive Lucas quotients at P=1 miss 1 mod 8.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-adic-quotient-set-closure-for-every-odd-parameter-luca--85c2b90c0307",
+          "material_read": "Exact catalogue summary; exact mirrored RESULT.md passage attempted but timed out",
+          "method": "Configured Resultary search and mirrored reader",
+          "title": "Exact two-adic quotient-set closure for every odd-parameter Lucas companion",
+          "trigger": "Earlier dyadic quotient closure; a consecutive Lucas classification would cover Fibonacci via conjugacy"
+        },
+        {
+          "assessment": "Stated prime condition excludes the frozen case",
+          "evidence": "p divides the recurrence coefficient a; Fibonacci uses a=1.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-prime-power-fibers-and-a-dyadic-quotient-closure-transitio--4c0425f545ea",
+          "material_read": "Catalogue statement only",
+          "method": "Configured Resultary search",
+          "title": "Exact prime-power fibers and a dyadic quotient closure transition",
+          "trigger": "Same-day dyadic recurrence-quotient coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–12, 35–51",
+        "Kumar arXiv:2406.05890 (odd-prime setting)",
+        "Lang–Lang Appendix A"
+      ],
+      "rationale": "This fills the exceptional dyadic case for the standard Fibonacci recurrence in a directly relevant consecutive-ratio framework. The projective period distinguishes two dyadic charts and identifies both uniform finite multiplicities and the full closure, locating holes that are invisible to the unrestricted quotient density or to the scalar period. These make exact benchmarks for local recurrence dynamics rather than just recovering known scalar facts.",
+      "residual_risks": [
+        "No classification for other dyadic recurrences is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

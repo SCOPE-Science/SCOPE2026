@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-The all-length proof relies on sorting cyclic rotations and a counted successor-pair bijection. The computational cross-checks do **not** prove a statement for unbounded length.
+## correctness
 
-Run from the directory containing the supplied standalone files:
+PASS
 
-```sh
-python3 verify_near_permutation.py
-g++ -std=c++17 -O2 -Wall -Wextra -o verify_last_columns verify_last_columns.cpp
-./verify_last_columns
-```
+A singleton letter forces primitivity, and the two rows with predecessor a are exactly the rows starting at its two successors. These positions are distinct, and their symbols cannot coincide: if both were a, the two a-positions would form the entire two-cycle, contrary to n≥3. The only possible adjacent equal pair in the linear last column is aa. When neither successor is a, their row blocks are singletons, consecutive exactly at neighboring occupied ranks. If the successors are a and c, the two a-rows have prefixes aa and ac; precisely the ac row has predecessor a, and it faces the c block because comparing the second symbols puts it on that side of the a block. These rows are consecutive exactly when a and c are neighboring ranks. For any unordered successor pair, delete both a's; on the remaining circle of r−1 distinct letters, uniquely insert either single copies before the designated distinct non-a letters, or the block aa before c. Hence each pair gives (r−2)! circles for each repeated a, also when r=2. Counting r−1 adjacent pairs among all binomial(r,2) pairs gives r! clustered and (r−2)r!/2 unclustered, with (0,2) at n=3. The ambient-alphabet multiplier uses adjacency in the occupied induced order, not across unused letters or around the ends of the rank order. The two supplied checkers test distinct constructions (source rotations and stable LF cycles) for lengths 3–9; their recorded outputs agree. They were inspected, not run, and are not the basis of the all-n proof.
 
-The source-word verifier independently constructs canonical necklaces of exact content \((2,1,\ldots,1)\), sorts full cyclic rotations, calculates the last column, checks the successor-adjacency theorem, and checks each labeled successor pair is realized \((n-3)!\) times. It covers all necklaces for every \(3\le n\le9\).
+## originality
 
-The last-column verifier instead enumerates each possible ordered fixed-content BWT output, builds the stable LF map from letter occurrence ranks and sorted first-column offsets, retains only single-cycle outputs, and counts linear output runs. This independently covers all candidate last columns over the same lengths and agrees with the first verifier and formula. Its LF one-cycle test is valid because all necklaces of the specified content are primitive.
+PASS
 
-For example, with occupied alphabet \(\{0,1,2,3,4\}\), `002134` has sentinel-free BWT `402013` and six runs; `001234` has sentinel-free BWT `400123` and five runs. Both are length-six examples, not limits.
+The distinct supported contribution is the exact all-length successor-pair criterion and run census for the single-repeat profile. Prior work covers existence of an unclustered necklace in this very profile for n≥4 and gives the unrestricted fixed-Parikh total and standard LF characterization. Those results are credited and are not claimed as new. They do not count the adjacency-constrained fibers, and the closest distinct exact census uses a different content profile except for a small overlap.
 
-Actual reproduced standard output from both programs is in `verification_output.txt`. All tests finished without an assertion failure. Total last-column candidate words and accepted single-cycle words are separately reported, so enumeration completeness is explicit. Only lengths up to nine were computationally checked, and no independent audit or external certification has been performed.
+## value
+
+PASS
+
+The minimal fixed-content departure from an ordinary alphabet permutation is a natural test for whether BWT sorting clusters a repeated letter. The successor-rank criterion identifies exactly what does so, and the uniform successor fibers turn an existence phenomenon into a complete finite count and probability over arbitrary growing support. This is a useful baseline for stronger fixed-Parikh refinements, not a claim about typical clustering over fixed alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

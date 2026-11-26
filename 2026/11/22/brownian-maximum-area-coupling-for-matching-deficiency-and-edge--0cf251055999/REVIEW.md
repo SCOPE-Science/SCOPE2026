@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The independent fair creation sequence is the same random graph distribution as the original uniform-weight threshold model. Ross's exact matching characterization is used with its correct parity rounding; the creation-rule edge statistic is exact. Reversing the bits identifies a common symmetric random walk, where the unmatched count differs from its running maximum by at most one and the centered edge count equals minus one-half the sum of partial sums. Donsker's functional invariance principle gives the joint limit. Fourth-moment maximal and weighted-sum bounds ensure convergence of covariance and correlation. Gaussian integration by parts along the Brownian-area Cameron–Martin shift and the arcsine argmax law give the exact constant \(-5/32\). Monotonicity of maximum matching under edge addition gives the strict finite-order sign. All named assumptions and parity conventions are explicit. Exhaustive exact finite tests agree. Risk: numerical tests cannot certify infinite-size statements; those rest on the analytic proof.
+PASS
 
-## Originality — PASS (qualified)
+The fair creation bits can be recovered by ordering the uniform weights by increasing distance to 1/2; the sign of the newest weight relative to 1/2 dominates all sums with earlier weights, and each sign is fair conditional on the distances. Ross's maximum tail excess is exactly the maximum of the reversed sign walk including time 0; for even n the matching deficiency differs from that maximum by at most one. Centering the weighted bit sum for the edges gives exactly minus one half the sum of the same walk's partial sums. Donsker and the sup/integral continuous mapping give the joint limit with the stated centering and sign. The normalized fourth moments are bounded by Doob and the independent weighted-sign moment formula, giving uniform integrability through second moments. Independently, let h(t)=t-t²/2. Then B−3hA is independent of A (joint Gaussian with zero cross-covariance and Var(A)=1/3); one-dimensional Gaussian integration by parts conditional on this residual identifies Cov(M,A) as E[h(T)]. The supremum derivative is h(T) by a.s. uniqueness of the argmax and is bounded; arcsine moments give 5/16. This gives -5/32 after the edge factor, and division by the two nonzero limiting variances in standard-deviation form gives the stated correlation. Conditional monotonicity in each bit gives nonpositive covariance with each bit; changing the last bit when all earlier bits are 1 gives strictly negative covariance even at n=2. VERIFICATION.md and verify.py were inspected, not executed. The finite graph enumeration does not certify the limit or its moments.
 
-The closest primary work is Ross (2011), which already determines the *marginal* matching-number distribution by the creation-sequence suffix maximum; Reilly–Scheinerman (2009) give the independent-bit representation and edge statistic; Diaconis–Holmes–Janson give threshold-graph limit theory. These results are credited. The joint maximum–area law under one graph sample and the explicitly calculated \(n^2\)-scale covariance are not among the claims found in those primary texts. Searches also compared related reinforced threshold-graph matching probabilities, edge fluctuation results and greedy split-graph matching results; they do not establish the same joint law. The corresponding earlier conditioned-Hamiltonian random threshold graph result concerns a different probability measure and different invariants. Risk: an unlocated general joint-functional or covariance result might supply the conclusion by a stronger theorem; no exhaustive priority guarantee is made. Merely finding no search hit is not treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The question is motivated by a natural pair of competing global resources in the same network: dense edges and feasibility of disjoint pairings. The separate marginals obscure the strong negative dependence, whereas the common-path representation and the exact limiting correlation of roughly \(-0.898\) quantify how edge-rich samples systematically suppress matching deficiency. The result also supplies a non-Gaussian/Gaussian joint benchmark for dense random threshold networks; this is more than a naming exercise, isolated special parameter, or a tiny numerical improvement. Limitation: no generalization beyond the specified uniform model is asserted.
+Pass for the unconditional joint limit for maximum-matching deficiency and the centred edge count in the same graph draw, and the resulting exact asymptotic covariance and correlation. The individual graph representations, matching formula and marginal limits are prior or standard; no standalone priority is assigned to Brownian maximum/area identities as such.
 
-## Closest literature and limits
+## value
 
-- E. Perez Reilly and E. R. Scheinerman (2009), DOI 10.37236/219: independent creation model, perfect matching and edge marginal.
-- C. Ross (2011), arXiv:1111.7157, Section 4: deterministic maximum-matching tail-excess formula and matching marginal; expressly credited.
-- P. Diaconis, S. Holmes and S. Janson (2009 public preprint), arXiv:0908.2448: model and graph-limit setting, not the joint Brownian maximum–area fluctuation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Edge count and unmatched-vertex count are natural graph invariants measured on the same sample. The exact asymptotic dependence is substantial (correlation near -0.898) despite the very different limiting marginal shapes. The common-walk representation explains the effect at the appropriate two scales and the strict finite-order sign connects it to the original model, not just to an abstract Brownian moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

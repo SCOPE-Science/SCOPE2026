@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:05:13.238983Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rankings of labels in each coordinate are independent uniform permutations. A given triple chain is obtained exactly when its orientation in the first coordinate persists in all others, so p=6^(1-d). For two triples with one common label of ranks i,j, interleave below and above it independently: L_ij=C(i+j-2,i-1)C(6-i-j,3-i); there are four labeled orientations for each i,j. With two shared labels, both must agree on their order; each private label chooses one of three slots, and equal slot choices have two total orders while distinct slots have one, giving six two-extension and twelve one-extension prescriptions. Independently, /workspace/reproduce_chains.py counts restriction pairs of all 120 and 24 permutations: extension-size histograms {1:8,3:16,4:4,6:8} and {1:12,2:6}, reproducing q1 and q2. The intersecting ordered-pair counts N1,N2 follow by choosing shared labels then private labels for the second triple; distinct disjoint pairs are independent and the missing diagonal subtracts M p². At n=3,4 the first overlap cannot occur; d=1 is the deterministic check. The intersecting-triple dependency graph makes the third Arratia–Goldstein–Gordon term zero and yields the claimed ordinary-TV upper bound at the exact finite mean. At critical positive limiting mean, d=3 log n/log 6+O(1) along the specified integer-dimensional sequences/subsequences. 20³>6⁵ gives delta>0, (20/12)³<6 makes the two-overlap term smaller, and n⁵6^(-2d) is also lower order. N1~n⁵/4 times q1~8·20^(-d) gives the positive leading constant 2. This is not a sharp TV lower bound, nor a claim of full-integer-sequence mean convergence on the dimensional lattice. The frozen finite script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed Bollobás–Brightwell abstract gives d=(t/log(t!)) log n at fixed t, covering the t=3 threshold scale",
+          "AGG Theorem 1 provides the general bound from b1,b2,b3, as recorded in the frozen comparison",
+          "The frozen arXiv comparison identifies Theorem 2.6 and Theorem 10.2/Corollary 10.3 for the non-Pareto statistic"
+        ],
+        "reasoning": "Fixed-length threshold results encompass the first-order scale but do not, from the available statement, identify an exact finite cumulant or a leading residual term. The general Poisson theorem needs the proof's specialized overlap probabilities and alone gives neither the exact cumulant nor the constant.",
+        "searches": [
+          "DOI 10.2307/1428102 (height thresholds for all fixed lengths)",
+          "DOI 10.1214/aop/1176991491 (general dependency Poisson bound)",
+          "arXiv:2611.01096v1 (critical random-order/non-Pareto counts)"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.2307/1428102 (indexed abstract; lawful full-text attempts)",
+        "DOI 10.1214/aop/1176991491 (standard theorem and frozen comparison)",
+        "arXiv:2611.01096v1 (frozen comparison and attempted OA)",
+        "Resultary c37e0156932e, 309360c39979, 35b4fd4c04c2 (indexed evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bollobás–Brightwell's indexed threshold specializes to 3 log n/log 6",
+          "The strongest catalog analogue has a common-predecessor mechanism for another statistic, not the count of ordered chains and its pair overlaps",
+          "The finite exact formula distinguishes 20, 30, 40, 120 and 12, 24 denominators"
+        ],
+        "reasoning": "The leading term needs shared extrema of two oriented triples and the ordered-pair multiplicity; the threshold and a common-predecessor effect for a non-Pareto count do not imply this pair calculation. Older exact chain-moment or critical Poisson coverage cannot be ruled out without the decisive full text.",
+        "searches": [
+          "Bollobás–Brightwell JSTOR and Cambridge copies",
+          "Bhattacharjee–Ilienko–Jin–Molchanov arXiv:2611.01096v1",
+          "Resultary 309360c39979 (non-Pareto third-moment defect)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DOI 10.2307/1428102 states the fixed-height threshold for the product order",
+          "Resultary 309360c39979 gives a factorial-moment defect for non-Pareto point counts; 35b4fd4c04c2 concerns rare directed stars"
+        ],
+        "reasoning": "The relevant equivalent statistic is the count of concordant oriented restrictions of triples of labels, not the number of nonminimal vertices or a two-leaf directed star. The second factorial cumulant also equals variance minus mean; neither adjacent indexed statistic yields the exact overlap histogram for it.",
+        "searches": [
+          "three-element chains in random high-dimensional partial orders; exact second factorial cumulant, overlap correction, and Poisson approximation at critical dimension (Resultary)",
+          "Bollobás Brightwell 'Random high-dimensional orders' three-element chains critical dimension Poisson chain counts overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit c37e0156932e is the identical record; related records 309360c39979 and 35b4fd4c04c2 concern different statistics",
+          "The 1995 search hit identifies the threshold but available material does not display q1,q2 or the 2 n⁵20^(-d) term"
+        ],
+        "reasoning": "A self-hit is not a prior exact table. Distinct catalogue hits were compared by what is counted and which factorial moment, not by their dates. The available evidence is not a census of permutation-order tables.",
+        "searches": [
+          "Resultary exact three-chain cumulant and critical overlap correction query",
+          "Primary literature query with three-element chains, critical Poisson counts and overlap"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit three-chain second factorial cumulant and its shared-extreme leading term, with the resulting explicit Poisson-approximation bound. The existence threshold and the Poisson approximation method are prior; historic full-text coverage of the refined critical law is unresolved.",
+      "residual_risks": [
+        "The full 1995 article remains inaccessible here; it could contain a sharper critical Poisson statement or parallel moment enumeration.",
+        "Only the indexed summary of the strongest related Resultary record was retrieved. Earlier permutation-pattern or random-order work may contain equivalent overlap counts; no universal priority or matching TV lower bound is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers threshold scale; full article may contain stronger critical count estimates",
+          "evidence": "The indexed fixed-t threshold d=(t/log(t!)) log n agrees at t=3, but the abstract does not state the overlap cumulant.",
+          "identifier_or_url": "https://doi.org/10.2307/1428102; https://www.jstor.org/stable/pdf/1428102.pdf",
+          "material_read": "Indexed abstract and frozen abstract/bibliography description only; targeted JSTOR PDF and Cambridge source attempts timed out",
+          "method": "Primary literature search and identified lawful OA retrieval attempts",
+          "title": "Random high-dimensional orders",
+          "trigger": "Direct predecessor for fixed-length chain thresholds, possible full critical law"
+        },
+        {
+          "assessment": "Cited statistics differ; whole-text priority not independently cleared",
+          "evidence": "A count of vertices affected by two-point comparability does not determine the number of three-chains.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.01096",
+          "material_read": "Frozen comparison and locators Theorem 2.6, Theorem 10.2 and Corollary 10.3; independent full-text lookup timed out",
+          "method": "Frozen evidence and targeted OA attempt",
+          "title": "From Gaussian to stable and back: Non-Pareto points in growing dimension",
+          "trigger": "Adjacent high-dimensional dependence and Poisson law"
+        },
+        {
+          "assessment": "Provides the general bound, credited as prior",
+          "evidence": "With b3=0 the ordinary TV bound is at most min(1,1/λ)(b1+b2), hence the stated weaker inequality.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "Standard Theorem 1 and b1,b2,b3 as located in frozen RESULT lines 49–59 and frozen AUDIT; no claim of a fresh full-text read",
+          "method": "Actual proof reconstruction with the cited dependency graph; frozen source comparison",
+          "title": "Two moments suffice for Poisson approximations: The Chen–Stein method",
+          "trigger": "General method and normalization of TV"
+        },
+        {
+          "assessment": "Indexed claim uses a third factorial moment of a vertex count rather than the second factorial cumulant of chain count",
+          "evidence": "The synopsis associates the effect to shared predecessor vertices in a non-Pareto statistic.",
+          "identifier_or_url": "Resultary 309360c39979",
+          "material_read": "Indexed synopsis; original file not retrieved",
+          "method": "Resultary semantic look-up and attempted local-mirror full-text lookup",
+          "title": "A third-moment defect for non-Pareto point counts at the sparse threshold",
+          "trigger": "Conceptually close factorial-moment correction due to overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three-element chains add a higher-order order statistic beyond simple comparability. At a natural critical scale the second factorial cumulant measures the surplus of chain pairs beyond Poisson; its strikingly small decay exponent and exact leading coefficient isolate the common-extreme mechanism. This exact dependence diagnostic is substantive even though it is not a distributional lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:08:45.898816Z",
+  "axes": {
+    "correctness": {
+      "limitations": "u>v>0 are fixed and walls suppress outward jumps without resetting orientation. Only stationary distributions are considered. The boundary fraction is total macroscopic atomic weight, not the single-wall-site probability, a heat capacity, or a finite-size derivative. No general dynamics or other scaling assertion follows.",
+      "rationale": "Reflection and the zero total current imply rho even, s odd, and w(ρ_{i+1}−ρ_i)=δ(s_i+s_{i+1}) with w=u+v. Subtracting orientation balances and eliminating ρ gives the stated recurrence, so s=A sinh(ki), ρ=B+AH cosh(ki) and 4uv sinh²(k/2)=δ²+αw. At the right wall the plus-current identity becomes j⁺=δB/2−(Aα/2)cosh(k(L−1/2))/sinh(k/2)=αs_L. The half-angle identity yields B/A=(α/δ)cosh(k(L+1/2))/sinh(k/2), the stated boundary coefficient. Normalization is a geometric sum. In the critical window z→u/v and H→1: the normalized constant term gives the bulk Riemann sum and each of the two geometric terms gives an endpoint atom with uniform summable inward decay. The geometric component has zero rescaled interior density for any sequence bounded macroscopically away from the walls. At a fixed inward index j, s and ρ have the same limiting value, so only the outward orientation contributes. This works also at c=0, when the constant component has zero mass. The log derivative on c>0 is y/(1+y)² with y=2c/δ, with unique maximum 1/4 at y=1; its c=0 value is a continuous extension only.",
+      "replay_paths": [
+        "/workspace/reproductions/3.js: direct generator solves including both orientations; representative critical-window evaluations",
+        "Frozen verify.py and VERIFICATION.md: inspected but not executed"
+      ],
+      "reproduction_result": "Six finite parameter sets, including a near-unbiased small-flip case, gave maximum absolute orientation-state discrepancy 3.47e−13 or less. At L=10000, u=2.5, v=1, alpha=1.7/L, Lρ_0≈0.346938200 versus limit 0.346938776. The finite checks do not prove a joint limit or a finite-chain response extremum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra Eq. (16) is exact prior coverage of finite stationarity in the same model; Appendix B.1 describes numerical generator calculations.",
+          "Bressloff's stationary continuum model supplies uniform interior density and wall balances but contains no discrete thermal ratio or fixed-index probabilities."
+        ],
+        "reasoning": "The finite-size characterization encodes the result, but one must perform a size-dependent mode decomposition, matching and uniform tail estimate to obtain the joint asymptotic statement. The continuum result covers the corresponding macro form, not the microstructure.",
+        "searches": [
+          "Primary literature search on run-and-tumble reflecting thermal lattice stationary crossing and geometric boundary layers",
+          "Santra §III.A and Appendix B.1; Bressloff §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.17903v1 §III.A and Appendix B.1",
+        "arXiv:2302.01158v1 §2",
+        "Resultary 7fe426e96818"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Santra writes ρ_i as a normalized matrix power and estimates α* by the drift persistence length 2L; neither orientation-resolved fixed-j limiting coefficients nor uniform convergence of the geometric tails is stated in that passage.",
+          "Bressloff's wall-flux balance already gives the dimensionless W curve and hence its elementary response maximum for the matching macroscopic stationary model."
+        ],
+        "reasoning": "Credit the finite model, critical scale, continuum shape and dimensionless differentiation; accept the separately derived thermal lattice matching, not a claim of a newly discovered universal wall-atom mechanism.",
+        "searches": [
+          "arXiv:2608.17903v1 §III.A Eqs. (11)–(17), pp. 6–7",
+          "arXiv:2302.01158v1 §2 Eqs. (2.2)–(2.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At zero potential Santra's hard-wall current and transfer equations have the same rates and orientations, with δ=2νsinh(βfa/2).",
+          "Bressloff's sticky continuum wall fraction v/(v+γℓ) equals W after matching γℓ/v=2c/δ; the continuum walls are separate bound states rather than a resolved fixed-site thermal layer."
+        ],
+        "reasoning": "The geometric layer and the scale limit with orientation cannot be identified with a bound-state mass or a finite boundary-site occupation just by reparametrizing.",
+        "searches": [
+          "Resultary: reflecting lattice run-and-tumble weak flip stationary matched bulk wall geometric temperature boundary layer",
+          "arXiv:2608.17903v1 §III.A Eqs. (5)–(17)",
+          "arXiv:2302.01158v1 §2 Eqs. (2.2)–(2.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue theorem instead gives endpoint atoms of mass (μ−ν)/(2μ) for a harmonically confined continuous renewal-run model with rare long runs.",
+          "Santra Fig. 2 displays finite-chain distributions and boundary-site response, not the joint lattice limit."
+        ],
+        "reasoning": "The catalogue analogue has different confinement, dynamics and scaling and no fixed-distance thermal layer. A finite profile plot is not a tabulation of this theorem.",
+        "searches": [
+          "Resultary: exact atomic bulk limit and geometric layer of reflecting lattice active walk at inverse-size flip rates",
+          "Resultary 2026/11/8 7fe426e96818, RESULT.md"
+        ]
+      },
+      "rationale": "The exact finite model and its transfer matrix, boundary accumulation, and the scale δ/(2L) are covered by Santra. Continuum sticky-wall balance also covers the form of the macroscopic mixture and the corresponding dimensionless response. The distinct claim is the rigorous two-scale stationary match in this thermal lattice: exact normalization and orientation of a fixed-lattice-spacing geometric profile, simultaneously with the interior and atomic limits and no missing mass. The reference's unexpanded matrix powers require extracting the modes, matching their wall coefficient and controlling normalization in a joint size/flip limit; its finite-site numerical slopes and persistence-length estimate do not perform that analysis.",
+      "residual_risks": [
+        "An earlier expansion of the exact same transfer solution, or a stronger stationary fluid-limit theorem with a lattice boundary-layer estimate, may cover the match. The prior existence of the exact transfer solution is a material overlap, not evidence for novelty of the finite formula.",
+        "No global literature priority claim; the precise result compared is the fixed-site, finite-temperature geometric layer matched to the macroscopic limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-volume law and estimated scale covered; no stated orientation-resolved two-scale lattice theorem in the decisive passages",
+          "evidence": [
+            "Eqs. (11)–(16) express rho via normalized transfer matrix powers and a boundary coefficient; Eq. (17) and Fig. 2 discuss estimated persistence-length scale and response of finite rho_L.",
+            "Appendix B.1 uses the finite Markov generator for numerical stationarity and response."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.17903v1",
+          "material_read": "§III.A pp. 5–7 near offsets 12500, 15804, 20800; Appendix B.1 pp. 17–18 near 54850",
+          "method": "Lawful OA PDF locate and bounded passage reads",
+          "title": "Heat capacity as a marker for shape and jamming transitions in active systems",
+          "trigger": "Exact same finite lattice process and crossover scale"
+        },
+        {
+          "assessment": "Related continuum boundary fraction; no discrete thermal layer",
+          "evidence": [
+            "Uniform stationary interior, wall mass Q∞=v p∞/(2γ), and ℓp∞+2Q∞=1 imply W=v/(v+γℓ)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.01158v1",
+          "material_read": "§2 pp. 5–6 Eqs. (2.2)–(2.7), near offset 16971",
+          "method": "Lawful OA PDF bounded passage read",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "Possible macroscopic bulk plus wall balance coverage"
+        },
+        {
+          "assessment": "Other model and mechanism; no thermal lattice or geometric inward coordinate",
+          "evidence": [
+            "Harmonic continuum confinement and rare long renewal runs, with atom mass (μ−ν)/(2μ) at the force-balance endpoints."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-boundary-atoms-from-vanishingly-rare-long-runs-in-a-ha--7fe426e96818",
+          "material_read": "RESULT.md finding and confinement regime",
+          "method": "Resultary local-mirror statement comparison",
+          "title": "Universal boundary atoms from vanishingly rare long runs in a harmonic trap",
+          "trigger": "Closest thematic catalogue result on wall atoms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between macroscopic wall accumulation and microscopic occupancy of an actual lattice site is motivated by the primary work's finite-site measurements. The exact normalized profile tells how the atom is distributed over sites and which orientation carries it while the size and persistence length compete. Neither the continuum shape nor the crossover scale alone answers how many near-wall sites carry that mass.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

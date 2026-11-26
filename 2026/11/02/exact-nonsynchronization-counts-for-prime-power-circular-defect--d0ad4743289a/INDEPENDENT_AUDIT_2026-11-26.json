@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:41.413721Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof lines 45–61, VERIFICATION.md and the two verification constructions",
+        "/workspace/branches/18ef5a37-b410-4b07-a8d8-43de8e9fb0fb/replay.py"
+      ],
+      "rationale": "The defect-one primitivity step can also be checked directly here. For a nonsynchronizing automaton, form the simple graph with an edge between each pair that no word merges. This graph has an edge because a minimum-rank image is a clique of size at least two; a acts transitively by graph automorphisms, so it is regular, of degree d. The letter b is an endomorphism. Its two colliders u,v are nonadjacent, and b is injective on the union of their neighborhoods. Both neighborhoods of size d map into the same neighborhood of size d, so N(u)=N(v). The only duplicated edges under b are the d pairs of edges incident to u,v and a common neighbor. Hence b maps the edge set onto the edges of the induced graph obtained by deleting the unique omitted state e, since that graph has exactly |E|-d edges. It follows for every x that N(bx) minus e equals b(N(x)), using equality of the two preimage neighborhoods at the duplicate image. Degree d then specifies whether e must be added back. Thus b, like a, preserves the equivalence of identical neighborhoods, a nontrivial proper congruence. Translation-invariant congruences are subgroup coset partitions and the nontrivial ones at p^k are exactly residues modulo p^j. The converse holds because missing even one quotient fiber would mean rank ≤n-2, so every preserved quotient operates by permutations. For selected levels J, each parent fiber contributes an independent child permutation, giving G_p(J); distinct targets at the finest level force just one defective fiber. Choose it in L ways, then choose the missing image, unordered kernel doubleton and bijection from the kernel classes inside it, giving m! binom(m,2) there and m! in every other fiber. Inclusion–exclusion gives the formula without disjointness assumptions. The unrestricted count is n! binom(n,2) by the same kernel argument; any rotational stabilizer fixes the single missing image and is trivial. Independent enumeration over collision pairs and injections plus pair reachability gave 16/144 and 14848/1128960 at n=4 and 8, including matching mod-2 and mod-4 counts at 8. An independent integer calculation checked the five displayed orders and small nested quotient permutation counts. No frozen code was executed.",
+      "residual_risks": [
+        "The finite replay is corroboration, not the unbounded proof. Volkov's cited primary text could not be inspected; the regular graph argument above independently establishes exactly the cyclic case needed here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited defect-one implication covers the reduction to congruences. Araújo–Cameron concerns primitive permutation groups. The random circular and almost-group papers study different random-map distributions and probability statements."
+        ],
+        "reasoning": "The stronger structural condition determines which obstructions to count, but does not compute how many rank-defect-one functions preserve arbitrary selected levels simultaneously. Neither unconditional nor restricted asymptotics give the conditioned finite count.",
+        "searches": [
+          "Volkov DOI 10.1051/ita/2024003, Corollary 2.4",
+          "Araújo–Cameron arXiv:1306.4827, Theorem 1",
+          "Aistleitner et al. arXiv:1906.02602, Theorem 4",
+          "Berlinkov–Nicaud arXiv:1805.02154, §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d2476f0a726f, 4e8e113ef4eb, f8f2884c0bd3",
+        "Volkov 10.1051/ita/2024003 (access attempted)",
+        "arXiv:1306.4827, 1906.02602, 1805.02154"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The eight-state proof already uses inclusion–exclusion at levels 1 and 2 and rotation freeness. It evaluates one specific intersection. At arbitrary prime powers a preserved-level set may omit intermediate levels and have arbitrary depth; the new intersection needs the factorial product over all branching levels and a finest-fiber defect count."
+        ],
+        "reasoning": "This is an extension of the finite counting mechanism and a use of the known obstruction theorem, not a novelty claim for either ingredient. No inspected statement presents a general all-level intersection theorem or evaluated formula from which the count follows by specializing parameters.",
+        "searches": [
+          "Volkov 10.1051/ita/2024003 as cited at frozen RESULT.md lines 47 and 82",
+          "Resultary d2476f0a726f proof §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The n=8 census conditions on the same defect and cyclic permutation, normalizes the missing state and obtains 1856 zero-threshold classes; the labeled count is 14848. The adversarial paper changes the quantifier to a winning strategy against interleaved words and counts all maps at semiprime order."
+        ],
+        "reasoning": "Zero threshold in the finite census is the identical nonsynchronization event there; its missing-state normalization counts free rotation classes. The adversarial property is not an equivalent rephrasing of existence of a reset word.",
+        "searches": [
+          "Resultary: eight-state circular defect-one reset-threshold spectrum (d2476f0a726f)",
+          "Resultary: Modular subgroup hierarchy for unrestricted adversarial synchronization of cyclic automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The eight-state spectrum gives the exact overlapping row, including normalized single-level counts 1728 and 192 and joint count 64. The nine-state table concerns rank seven, not rank eight. No covering all-prime-power rank-(n−1) formula was located in the checked records."
+        ],
+        "reasoning": "Rows for unrelated ranks or rules do not count this sample space. The same-day exact row is credited regardless of unresolved relative timing and does not provide the arbitrary-order correction.",
+        "searches": [
+          "Resultary d2476f0a726f, complete eight-state spectrum",
+          "Resultary 4e8e113ef4eb (semiprime game counts) and f8f2884c0bd3 (nine-state defect two)"
+        ]
+      },
+      "rationale": "Credit the previously established defect-one synchronization theorem and the exact n=8 normalized census, including its two-residue intersection. The distinct contribution is the exact labeled count for every prime power, specifically the arbitrary-depth nested-chain intersection correction and its assembled all-order count, with a free cyclic quotient. The checked structural and finite results do not supply these general intersections.",
+      "residual_risks": [
+        "The primary Volkov text was unavailable, and unindexed finite-transformation enumeration could subsume the exact count. The bounded comparison does not establish historical priority or same-day order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the n=8 row, intersection and rotation comparison, not arbitrary prime powers; same-day date does not establish sequence",
+          "evidence": [
+            "The two residue counts and their overlap give 1728+192−64=1856 under normalization; labeled count is 14848."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-complete-reset-threshold-spectrum-for-eight-state-circular-defec--d2476f0a726f",
+          "material_read": "RESULT.md Finding and proof §§3–4, including local offset 4600–6584",
+          "method": "Indexed match followed by original local mirror passages",
+          "title": "Complete reset-threshold spectrum for eight-state circular defect-one automata",
+          "trigger": "Exact finite overlap on order eight"
+        },
+        {
+          "assessment": "Credited for the structural implication as reported; access does not support any whole-document exclusion",
+          "evidence": [
+            "As cited: primitive automata with a rank-(n−1) letter synchronize."
+          ],
+          "identifier_or_url": "doi:10.1051/ita/2024003",
+          "material_read": "No primary passage retrievable; Corollary 2.4 as quoted in frozen proof and described in exact order-eight source",
+          "method": "Lawful primary retrieval was denied and identified repository copy unreadable; independent cyclic-case proof above",
+          "title": "Synchronization of Primitive Automata",
+          "trigger": "Central cited obstruction theorem"
+        },
+        {
+          "assessment": "Primitive permutation groups, not an exact count for this cyclic group",
+          "evidence": [
+            "The theorem applies to maps adjoined to a primitive group; the full cyclic group of degree p^k at k≥2 is imprimitive."
+          ],
+          "identifier_or_url": "arXiv:1306.4827",
+          "material_read": "Theorem 1, p. 3, reader offset 6100",
+          "method": "Bounded original full-text passage",
+          "title": "Primitive Groups Synchronize Non-uniform Maps of Extreme Ranks",
+          "trigger": "A broader-appearing defect and primitivity theorem"
+        },
+        {
+          "assessment": "An asymptotic unconditioned random-map result, not the exact rank-conditioned enumeration",
+          "evidence": [
+            "The stated high-probability theorem does not condition the second transformation on image size n−1."
+          ],
+          "identifier_or_url": "arXiv:1906.02602",
+          "material_read": "Theorem 4, p. 3, reader offset 12428",
+          "method": "Bounded original full-text passage",
+          "title": "Circular automata synchronize with high probability",
+          "trigger": "Same fixed full cycle in random circular automata"
+        },
+        {
+          "assessment": "Different model and asymptotic conclusion",
+          "evidence": [
+            "The exceptional letter restricts to a permutation on all but one state; this is not the unrestricted rank-defect-one class."
+          ],
+          "identifier_or_url": "arXiv:1805.02154",
+          "material_read": "Model definition in §1, reader offset 1279",
+          "method": "Bounded original full-text passage",
+          "title": "Synchronizing Random Almost-Group Automata",
+          "trigger": "Probability of synchronization with a rank-defect-like exceptional letter"
+        },
+        {
+          "assessment": "Different property and count, even on p²",
+          "evidence": [
+            "Alice must force merging against a player allowed to insert arbitrary words. The semiprime formulas include constant functions and are not restricted to rank n−1."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-modular-subgroup-hierarchy-for-unrestricted-adversarial-synchron--4e8e113ef4eb",
+          "material_read": "RESULT.md Finding and scope, offset 0–2448",
+          "method": "Index then local original mirror",
+          "title": "Modular subgroup hierarchy for unrestricted adversarial synchronization of cyclic automata",
+          "trigger": "Indexed modular counting theorem with a fixed full cycle"
+        },
+        {
+          "assessment": "Different rank, does not cover the nine-state row",
+          "evidence": [
+            "The 36936 obstructed maps out of 83825280 have rank 7 at n=9."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-primitive-synchronization-and-the-unique-modular-obstruction-for--f8f2884c0bd3",
+          "material_read": "RESULT.md Finding and scope, offset 0–1800",
+          "method": "Index then local original mirror",
+          "title": "Primitive synchronization and the unique modular obstruction for nine-state circular defect-two automata",
+          "trigger": "Indexed exact count for a prime-square circular automaton"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and intersection proof",
+        "Exact eight-state spectrum and random circular model comparisons"
+      ],
+      "rationale": "Conditioning on the smallest nonzero rank defect is natural in synchronization theory. The chain of modular obstructions at prime powers produces genuinely overlapping events beyond the two levels of the initial census. The exact probability and class count quantify those overlaps for all levels and give an interpretable benchmark for random circular automata, not just another finite table entry.",
+      "residual_risks": [
+        "No least reset length or distribution for other ranks is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

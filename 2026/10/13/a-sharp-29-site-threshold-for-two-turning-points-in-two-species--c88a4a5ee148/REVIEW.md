@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-subsets zeta formula follows by counting site subsets within each species' occupancy set. The general curvature identity follows by exact conditional binomial weighting and an algebraic variance expansion. The sharp two-species result reduces all nonzero successive differences to the signs of a fully specified positive-denominator-cleared integer polynomial. The exhaustive checker covers 3,654 occupancy pairs through 28 sites and all 406 pairs at 29 sites; it verifies that precisely the pair with occupancies \((22,26)\) has two changes. Equal occupancies are monotone. Direct subset enumeration of 146,595 subsets and rational checks supplement, rather than replace, the analytical derivation.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest primary sources give the zeta definitions, retention-ratio interpretation, broad curve archetypes, and algorithms for calculating zeta diversity. They do not in the inspected relevant full-text sections give the exact two-species 29-site minimality and uniqueness theorem or the general occupancy-variance retention sign identity. Searches considered alternate phrases involving binomial ratios, hypergeometric sampling, shape changes, and occupancy mixtures; absence of a discovered hit is not proof of priority. An unindexed enumeration or a stronger combinatorial binomial-transform theorem remains a risk. This finding is not a disproof of the 2019 descriptive archetypes.
+PASS
 
-**Value — PASS.** Retention-rate curve shape is a published ecological descriptor of multisite compositional change. The result gives a sharp and nontrivial boundary for when a minimum and later maximum can occur even with only two species, and explicitly separates occupancy heterogeneity from finite-site depletion in an all-species sign test. The tiny magnitude of the witness's turns and the absence of measurement-noise guarantees limit immediate empirical application; this is a structural benchmark for interpreting such curves rather than a new field estimator.
+For each species, exactly C(r_i,k) of the C(n,k) samples retain it, independently of overlap with other species. Moving the k-tilted weights to level k+1 tilts by r_i-k; hence mu_(k+1)=mu_k+sigma_k^2/(mu_k-k) and R_k=(mu_k-k)/(n-k). Subtracting ratios gives the stated identity, on adjacent defined ratios (the terminal zero can be handled algebraically but is excluded from the turn count). Equal occupancies give a nonincreasing ratio, constant if the common occupancy is n. Independently rebuilt Pascal rows and exact rational Z_k and R_k, without executing the bundled checker: python3 /workspace/branches/recheck_zeta.py. Among 3654 unequal occupancy pairs across n=2–28, 1548 have zero turns and 2106 have one; at n=29 the counts are 141, 264 and 1 respectively. The only winner is (22,26), with full adjacent-difference sign string -++---------------------. The first five ratios are 139/168, 115/139, 4453/5382, 92114/111325, 27713/33496; the first four differences are -1/23352, 37/748098, 27323/599151150, -300819/3728942200. An independent direct recount of 146595 subsets at depths 1–5 agreed with their occupancy counts. Minimality and uniqueness are for two species, exact all-subsets sampling and the stated positive-ratio convention.
 
-Closest literature: Hui and McGeoch (2014, DOI 10.1086/678125); Latombe et al. (2018, preprint DOI 10.1101/324897); McGeoch et al. (2019, DOI 10.1002/ecy.2832). Scientific verification and novelty comparisons remain same-model only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accessible comparisons already give retention ratios and qualitative shapes, but do not supply or imply the sharp two-species minimum and uniqueness. The elementary size-bias identity is useful for interpreting the result, not the basis for a separate priority claim. This is a bounded judgment about the exact classification.
+
+## value
+
+PASS
+
+Retention ratios are an established observable used to describe compositional change. A strict decrease–increase–decrease witness with only two species shows that multiple turns need not imply a complicated incidence profile; the minimum and uniqueness identify the exact small-design boundary for that observable. The tilted variance identity explains how this can occur despite depletion for each individual species. The magnitudes in the witness are tiny, so the result is about exact possible shapes, not the detectability or prevalence of those shapes in empirical surveys.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

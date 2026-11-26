@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:52:13.197123Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–59",
+        "verify.py, static inspection",
+        "VERIFICATION.md, recorded statuses"
+      ],
+      "rationale": "Let m=2r. The m odd offsets are distinct when n≥2m. Summing the open-neighborhood equations gives m|C|=n, hence n is even. Subtracting equations at positions j and j+2 cancels m−1 terms and gives u_{i+2m}=u_i. If m divides n but 2m does not, translation by 2m and n also gives period m; each of the m/2 odd offsets modulo m occurs twice in each neighborhood sum, so a sum of 1 is impossible. If 2m divides n, all m odd offsets modulo 2m occur once, and the two parity equations require exactly one chosen class of each parity. This proves completeness, distinctness and the counts m² and n/m, including n=2m. Reduction modulo 2m maps the distinct neighbor offsets bijectively to the base's neighbor offsets, so the pullback statement holds.",
+      "residual_risks": [
+        "The frozen script's finite checks were not executed. The proof, not those checks, classifies all permitted lifts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classified prime ratio n/|S| in Cameron–Yap–Zhou can equal 2 at the base; proper admissible lifts have even composite ratio. The coprimality assumptions of Cameron et al., Theorem 5.6, and Koohestani et al., Theorem 3.13, fail since |S| and n/|S| are even at every allowed order.",
+          "The cited prime-power existence results with exact valuation exclude the allowed orders when |S| is a power of 2 and otherwise do not apply to this even valency."
+        ],
+        "reasoning": "A classification for n=2|S| and the cited existence criteria do not entail classification of all code sets at the remaining, admissible lift orders.",
+        "searches": [
+          "Cameron–Yap–Zhou, arXiv:2507.11871, Theorems 5.2–5.6",
+          "Koohestani–Mojdeh–Ghasemi, arXiv:2510.20376, Theorems 3.7, 3.13",
+          "Feng–Huang–Zhou, arXiv:1703.08652, Theorems 1.3–1.4"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md",
+        "arXiv:2507.11871, 2510.20376, 1703.08652",
+        "Local Resultary search and record 4d759c9a495b summary",
+        "Bounded terminology search and cited 2007 DOI attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classifying subgroup codes or coders on the 2|S| order does not classify arbitrary codes on larger graphs. Closed-neighborhood domination uses a different step set including zero.",
+          "In this family an open neighborhood is just a translated consecutive block on the other shore, and elementary interval adjacency already enforces exactly one start class modulo m on each shore."
+        ],
+        "reasoning": "The graph literature inspected does not prove the all-lift graph statement; mathematically it is nevertheless an immediate translation of two equal-interval tilings. No claim of original tiling rigidity or historical first appearance is established.",
+        "searches": [
+          "arXiv:2507.11871, Theorems 5.2–5.3, 5.6",
+          "arXiv:1703.08652, Theorems 1.1–1.4",
+          "DOI:10.1016/j.ipl.2007.02.004",
+          "Primary terminology lookup on efficient domination in circulants; degree-five perfect-code hit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After the edge-count obstruction gives even n, negating the odd shore and fixing the even shore converts adjacency by difference into adjacency by sum for the same symmetric odd step set.",
+          "On identifying each parity class with Z_(n/2), the neighborhood translates on it are all consecutive blocks of length m=2r. A code is exactly two independent cyclic interval complements."
+        ],
+        "reasoning": "The Cayley sum formulation covers the base via Theorem 3.4. In the interval formulation, consecutive tiles have adjacent boundaries so each successive start is exactly m positions apart. The residue classes and all counts coincide with those elementary complements; the graph formulation does not add a tiling theorem.",
+        "searches": [
+          "Koohestani–Mojdeh–Ghasemi, arXiv:2510.20376, Theorems 3.4, 3.7, 3.13",
+          "Resultary lookup of odd-step circulant efficient open domination and lift rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest returned summary describes 16 total perfect codes of Q_4 as antipodal quotient pullbacks; its full result could not be read. The returned results did not supply a table or formula for this odd-step family."
+        ],
+        "reasoning": "An isolated count of 16 and the same quotient graph K_{4,4} are not equivalence. For example, the degree-four odd-step lift on 16 vertices has two same-shore vertices with three common neighbors (two consecutive half-cycle positions); Q_4 has at most two for distinct same-shore vertices.",
+        "searches": [
+          "Resultary: odd-step circulants, total perfect codes and quotient rigidity; nearest returned record 4d759c9a495b"
+        ]
+      },
+      "rationale": "The distinct scope supported by the comparison is the explicit graph-family formulation for all lift factors, not its base case or a new cyclic-tiling phenomenon. The inspected primary results give the base case or impose other conditions on order and valency; no inspected source states the all-lift claim. The exact interval-tiling equivalence below is a strong limit on the distinct contribution and is decisive for value. This is not a historical-priority certification.",
+      "residual_risks": [
+        "The full text of the 2007 paper and of the Q_4 catalogue entry were not available in the inspection. Earlier direct statements under tiling terminology are not ruled out; the failure below does not rely on lack of access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Base-case coverage and conditional results, not all admissible lifts",
+          "evidence": "Theorem 5.3 uses prime n/|S|; Theorem 5.6 assumes coprimality.",
+          "identifier_or_url": "arXiv:2507.11871",
+          "material_read": "Theorems 5.2–5.3, pp. 17–18, and Theorem 5.6, p. 19",
+          "method": "Lawful OA PDF, offsets 76203–77322 and 86167",
+          "title": "Perfect codes in Cayley graphs of abelian groups",
+          "trigger": "Closest all-code classification for abelian Cayley graphs"
+        },
+        {
+          "assessment": "Equivalent base-case coverage; additional hypotheses exclude the remaining lifts",
+          "evidence": "3.4 uses order 2|S|, 3.7 exact prime-power valuation, and 3.13 coprimality.",
+          "identifier_or_url": "arXiv:2510.20376",
+          "material_read": "Theorems 3.4, 3.7 and 3.13, pp. 6–12",
+          "method": "Lawful OA PDF, offsets 13605, 20737, 27343",
+          "title": "Total perfect codes in Cayley sum graphs of cyclic groups",
+          "trigger": "Equivalent graph formulation via sign change on the odd shore"
+        },
+        {
+          "assessment": "Known existence criteria, not all-lift total perfect code classification",
+          "evidence": "1.1–1.2 concern closed neighborhoods; 1.3–1.4 use odd-prime or exact prime-power conditions for total perfect codes.",
+          "identifier_or_url": "arXiv:1703.08652",
+          "material_read": "Theorems 1.1–1.4, pp. 1–2",
+          "method": "Lawful OA PDF, offset 4323",
+          "title": "Perfect codes in circulants",
+          "trigger": "Directly concerns codes in circulants"
+        },
+        {
+          "assessment": "The summarized result is about Q_4 only; no whole-document exclusion",
+          "evidence": "Sixteen codes from the antipodal K_{4,4} quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-antipodal-rigidity-and-two-replacement-mobility-of-total-perfect--4d759c9a495b",
+          "material_read": "Catalogue summary only",
+          "method": "Local Resultary lookup; OA mirror passage request timed out",
+          "title": "Antipodal rigidity and two-replacement mobility of total perfect codes",
+          "trigger": "Code pullbacks from a complete bipartite quotient"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "The frozen record identifies it as ordinary (closed-neighborhood) efficient domination; no stronger exclusion is made here.",
+          "identifier_or_url": "DOI:10.1016/j.ipl.2007.02.004",
+          "material_read": "No primary theorem passage; the frozen record reports consulting the abstract",
+          "method": "Lawful DOI retrieval attempt timed out",
+          "title": "Efficient domination in circulant graphs with two chord lengths",
+          "trigger": "Efficient domination in a potentially related circulant family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Explicit parity-to-interval equivalence",
+        "arXiv:2507.11871, Theorem 5.3 (already covers the base)"
+      ],
+      "rationale": "Once even order is forced by counting incidences, the connection set is exactly an interval in half-cycle coordinates. Tiling a cycle with equal translated runs forces each run to start immediately after the previous one; taking this choice twice gives every code, the period and the full count without further graph constraints. The frozen claim is a correct graph-language corollary, but does not add a structural phenomenon beyond that elementary interval classification or establish a motivated boundary involving genuinely different supports.",
+      "residual_risks": [
+        "The value assessment is confined to the submitted consecutive odd-step family, not to total perfect codes on general circulants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

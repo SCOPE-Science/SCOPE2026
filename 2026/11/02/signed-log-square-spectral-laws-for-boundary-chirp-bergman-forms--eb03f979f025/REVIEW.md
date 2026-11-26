@@ -1,19 +1,21 @@
-# Review: signed log-square spectral laws for boundary-chirp Bergman forms
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** Normalized disk Bergman monomials give the diagonal moments \(s\int_0^\infty e^{-su}u^{-\beta}\sin(1/u)\,du\). The radial-cutoff improper integral converges for precisely \(0\le\beta<2\); the Macdonald integral, approached from its damped half-plane, gives the exact complex-\(K\) formula. The fixed-ray Bessel expansion yields the positive envelope \(\sqrt\pi s^{(2\beta+1)/4}e^{-\sqrt{2s}}\) and a uniform absolute-envelope error \(O_\beta(s^{-1/2})\). Integer-point counting in \(x=\sqrt{2s}\) gives \(O(L)\) exceptions near sine zeros and near the spectral threshold, proving both sharp second coefficients. The special half-integer case is exact. The checker completed 93 finite assertions, including independent oscillatory quadrature; finite checks do not replace the analytical infinite proofs.
+PASS
 
-## Originality
+Normalized area and angular integration give the diagonal Laplace moment with s=n+1. With v=1/u, the cutoff tail is e^(−s/v)v^(β−2)sin(v). Dirichlet convergence holds for β<2, uniformly after multiplying by the Abel factor e^(−ηv) for η≥0, and the absolute threshold is β<1. At β≥2 the constant-polynomial integral already fails, as seen from successive phase half-periods. Taking the imaginary part of the standard Macdonald integral at a=η−i and sending η to zero gives the stated K-Bessel formula. Its asymptotic on the ray arg z=−π/4 gives the stated real envelope and phase; the error is relative to the positive envelope, not to the sine. Summability of every positive power gives bounded extension and all Schatten classes. With x=√(2s) the envelope level is X=L+2a log L+O(1), a=(2β+1)/4. Above it the overcount is confined to a fixed-width shell in x. Below it, sign and threshold ambiguities lie near phase zeros y in windows of width O(1/y+exp(−(X−y)/2)); the integer s count per window is O(1+y exp(−(X−y)/2)), so their total is O(X). Positive and negative half-periods have integer counts X²/4+O(X) each, since x is the density for s; this gives both coefficients and the claimed remainder without assuming the eigenvalues are uniformly away from zero. K_{−1/2} gives the stated exact elementary case, and a zero there would express π as a nonzero rational multiple of an algebraic number. The naive diagonal trace integral leaves a divergent leading tail v^β sin(v) after subtracting an oscillatory integrable error.
 
-**PASS, with historical-priority qualifications.** Taskinen and Virtanen (arXiv:1703.09896, especially Proposition 3.2) already construct a closely related inverse-boundary sine symbol whose generalized Bergman Toeplitz operator is bounded while its absolute-value counterpart is not. Their paper is not cited as evidence that cancellation or generalized boundedness is new. Hagger, Liu, Taskinen and Virtanen (arXiv:2011.04699, Section 6) broaden such examples to arbitrarily large radial oscillation with bounded or compact operators, but the inspected treatment does not give this exact complex-Bessel spectrum or the two-term **sign-resolved** counting asymptotics. Rozenblum (arXiv:1012.3528, Section 5) proves a different radial cancellation effect for Fock-type symbols at infinity, while Rozenblum and Vasilevski (arXiv:1912.05855) develop trace-class form machinery and legitimate Berezin trace formulas, not this divergent naive symbol-diagonal integral. Le (2010, author-hosted PDF) constructs positive unbounded trace-class radial symbols supported on small sets; its trace-diagonal argument explicitly uses positivity and a convergent kernel integral, so does not dominate this sign-changing case. Published mathematical-results searches and an accessible local claims ledger yielded no identical or dominating signed-count theorem. Equivalent earlier formulations under a different radial coordinate remain a residual risk; absence in search results is not proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result supplies a sharp spectral invariant for a canonical boundary-chirp scale: the leading \(L^2\) count is universal, while its explicit \(L\log L\) coefficient determines \(\beta\), even though positive and negative modes have extensive cancellation. The exact half-integer spectrum gives an injective, sign-indefinite, all-Schatten example with a non-\(L^1\) symbol. The naive kernel-diagonal trace integral diverges although the operator is trace class, giving a concrete boundary between formal and justified trace manipulations. These structural properties are stronger than mere boundedness or a generic compactness example.
+There is material antecedent coverage for oscillatory radial forms, cancellation, and a leading balanced signed law for a closely related bounded chirp. Originality is credited to the explicit two-term signed law with O(L) control for the reciprocal-logarithmic amplitude family (including the non-absolutely-integrable regime) and inverse recovery of β. The classical K-transform identity, compactness from cancellation in general, and the leading log-square shape alone are not claimed as distinct contributions.
 
-## Scientific limits
+## value
 
-The classification is for fixed \(0\le\beta<2\), normalized analytic Bergman disk and radial-cutoff regularization. Alternative generalized forms for \(\beta\ge2\) are not excluded. No optimal error below \(O_\beta(L)\) or individual higher-order spectral expansions at sine zeros are claimed. The numerical checks are supplementary; historical priority is qualified; independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The leading signed log-square law does not distinguish singularity orders. At second order the family records β in a spectral counting coefficient, with a remainder smaller than the distinguishing term. The signed result also quantifies two-sided eigenvalue accumulation for examples where the ordinary symbol integral is only conditional. Controlling samples near sine zeros is essential to that distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

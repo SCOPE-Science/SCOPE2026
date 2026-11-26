@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Signed support indicators suffice for the operator norm by an exact layer-cake decomposition. Every proper cyclic support has a computable boundary/interior difference profile, bounded using concavity of cumulative weights and attained by one alternating arc. Full supports have exactly the even/odd alternation obstruction. The power-weight monotonicity and branch comparison follow from concavity and arithmetic-geometric mean. The attached exact rational checks support but do not replace these all-parameter arguments.
+## correctness
 
-**Originality — PASS (self-review, residual bibliographic risk).** Actual published mathematical-result searches returned work on antiperiodic numerical radii, cyclic Riesz transforms, small cyclic convolutions, and two-dimensional Lorentz orthogonality rather than the exact cyclic difference operator norm on every finite decreasing-weight rearrangement norm. The inspected 2018 full primary PDF treats an infinite one-sided difference from \(\ell_p\) to a matrix-domain target, not the finite cyclic same-space norm. The 2014 full-text HTML concerns difference *spaces* and inclusion relations, the 2002 primary author-hosted full text concerns Hilbert/Copson/averaging operator norms, and the 2023 Lorentz primary text examines Hardy-type weight equivalences. Search incompleteness is the remaining risk; a missing identical older theorem would overturn novelty.
+PASS
 
-**Value — PASS.** The finding determines an exact operator norm across a natural whole family of weighted symmetric Banach sequence spaces, not an isolated numerical sample. It pinpoints the sharp graph-theoretic parity obstruction, a necessary-and-sufficient strictness condition on weights, and the precise quadratic odd-cycle defect for canonical power weights. These identify a structurally meaningful boundary between exact norm saturation and strict deficit.
+For sorted absolute magnitudes a_k, the signed top-k indicators give x=sum_k (a_k−a_{k+1})s_k, with the same nonnegative coefficients giving the norm as sum_k (a_k−a_{k+1})W_k. Triangle inequality reduces the supremum exactly to these indicators (ties and zero coefficients are harmless). On a proper support of k coordinates with q runs, b internal sign changes give b twos and 2q ones, so the numerator is W_b+W_{b+2q}; b<=k−q and k+q<=n. Increasing q in W_{k−q}+W_{k+q} changes it by w_{k+q+1}−w_{k−q}<=0 wherever both spreads are feasible. A single alternating run attains the q=1 value. Full supports have even sign-flip count and attain n for even n or n−1 for odd n. This covers n=2, where the two directed differences count the same pair in opposite directions. In odd dimensions each proper-support gap from 2 is (w_k−w_{k+1})/W_k and the full-support gap is 2w_n/W_n. For alpha=1/p, derivative of (1−t)^alpha+(1+t)^alpha is negative on (0,1); k=n−1 therefore maximizes the proper branch. AM–GM beats the full branch since the difference 1−1/(n−1)^2−((n−1)/n)^2 has numerator 2n²(n−3)+4n−1 over n²(n−1)^2, positive for n>=3. Its even Taylor expansion gives defect alpha(1−alpha)/(n−1)^2 plus order (n−1)^−4. Inspected checker.py and its recorded stdout (check_output.txt line 40); the 39 finite cases are not a proof, and the submitted script was not executed.
 
-**Closest literature and limitations.** Roopaei–Foroutannia (2018), Jameson–Lashkaripour (2002), Sağır–Oğur (2014), and Agarwal–Rabie–Saker (2023) study related norms/operators, but their stated results do not directly imply this finite cyclic formula. Not all potentially relevant monographs or indexing records are available; independent originality and correctness checks are not performed. The claim is for real finite norms and the exact stated weight hypotheses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite real cyclic norm and strictness law for arbitrary decreasing positive Lorentz weights, and the resulting closed power-weight specialization, are distinct from the retrieved exact neighboring claims. Standard rearrangement and signed-layer methods are not new contributions. This is a bounded assessment, not a priority certification.
+
+## value
+
+PASS
+
+This computes a natural discrete differentiation norm for a whole class of symmetric norms, identifying precisely when parity produces a strict gain over the triangle bound and giving a sharp asymptotic in a standard power family. The reduction to a single active run or a near-alternating odd cycle is structural, not a numeric coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

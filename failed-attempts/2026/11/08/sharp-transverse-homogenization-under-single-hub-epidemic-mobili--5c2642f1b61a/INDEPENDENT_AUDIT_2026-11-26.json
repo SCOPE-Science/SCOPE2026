@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:45:33.737002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–58; VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: cd /workspace && python3 branches/audit-replay.py 4; 27 exact block-decomposition cases, including negative ordinary-block eigenvalues and the boundary q=1/m."
+      ],
+      "rationale": "For the stipulated symmetric linear model, the subspace of zero-sum ordinary entries with zero hub entry is invariant under Phi, and the middle diagonal operator is the identity there. Hence the restriction is beta_0 B² minus gamma I, and by symmetry the orthogonal projection to that subspace commutes with the generator, giving autonomy for arbitrary initial perturbations. The nonnegative constant-row-sum block has all eigenvalues in [-(1-q),1-q], and symmetry gives the exact Euclidean semigroup norm from the largest squared transverse eigenvalue. The stated interpolation is admissible and spans the full interval. The positive reduced Perron eigenvector lifts to a positive full eigenvector, including at q=1/m; the common-value/hub quotient therefore gives the full reproduction number. The exact frozen example has quotient eigenvalues 0 and 4/3 and contrast exponents 1 and 5/8.",
+      "residual_risks": [
+        "The result concerns the supplied disease-free linear matrix only. No nonlinear homogenization or empirical prediction follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das–Stolerman give repeated star eigenvalue (beta_0/gamma)(1−phi_0)² of multiplicity M−2 and a two-root quadratic for the remaining eigenvalues. Bonaccorsi et al. preserve spectral radius by an equitable quotient in SIS."
+        ],
+        "reasoning": "The star eigenvalue is already the slow sharp endpoint; the equitable quotient mechanism is general linear algebra. Neither alone states the full interval, but the earlier indexed same-model all-block decomposition makes it a direct consequence.",
+        "searches": [
+          "arXiv:2308.01998v1, general star spectrum around equations (18)–(19), Conjecture 3",
+          "arXiv:1412.6157v3, equitable quotients"
+        ]
+      },
+      "checked_sources": [
+        "Resultary finding 3575e4cfa8c0, especially proof parts 1 and 5; Das–Stolerman arXiv:2308.01998v1; Bonaccorsi et al. arXiv:1412.6157v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quotient already dominates the contrast eigenvalues in the earlier record. Its rank-one identity gives K restricted to contrasts = r B², so 0 ≤ every contrast eigenvalue ≤ r(1−q)². A scalar multiple of the identity on contrasts ranging from 0 to 1−q is realized by ordinary-block averaging-to-identity interpolation. The quotient stays constant throughout."
+        ],
+        "reasoning": "The original bound, norm, whole attainable interval and independence from the dominant mode are a direct specialization plus a scalar interpolation, even though the earlier result does not write the time-domain interval in those words.",
+        "searches": [
+          "3575e4cfa8c0, part 1 at offset 4522 and part 5 around offset 7500",
+          "arXiv:2308.01998v1, star eigenspectrum around offset 43670"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In that indexed theorem's notation K=r Phi²+r(zeta−1)vv^T. With constant hub flux, v is in the common-value/hub subspace and Phi restricts to B on its orthogonal complement."
+        ],
+        "reasoning": "Physical-time decay and eigenvalues of the dimensionless next-generation matrix are related by lambda -> gamma(lambda−1); the same modal formula and its lower decay bound are thus immediate.",
+        "searches": [
+          "Resultary match 3575e4cfa8c0, Proof parts 1 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct nearby 3575e4cfa8c0 was read in the local mirror: proof part 5 treats the identical admissible uniform-hub class despite the general finding emphasizing nonuniform hub traffic."
+        ],
+        "reasoning": "This is an operator and parameter-family result, not a table lookup; the decisive overlapping item is a theorem and proof passage rather than a finite numerical example.",
+        "searches": [
+          "Resultary match 3575e4cfa8c0"
+        ]
+      },
+      "rationale": "The distinct indexed finding 3575e4cfa8c0, proof parts 1 and 5, supplies the exact rank-one decomposition of the same matrix and explicitly specializes to every symmetric constant-row-sum ordinary block with uniform hub flux. It states the invariant quotient, background independence of the dominant block and the upper bound on contrast eigenvalues. On the contrast subspace the rank-one term is zero and the mobility restricts to B, giving the complete contrast operator and Euclidean exponent by direct restriction and spectral mapping. The sharpened attainability statement adds the scalar interpolation of the ordinary identity and averaging blocks; it does not require any new spectral bound or structural result. The originality rejection is based on demonstrated implication, not on a title match, date, or source access failure.",
+      "residual_risks": [
+        "Not a claim of global publication priority or that the exact time-domain interval is printed verbatim in the predecessor. The rejection is based on the explicit stronger decomposition in the indexed comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior statements mechanically imply the central claimed structure",
+          "evidence": "Part 1 gives the rank-one decomposition. Part 5 explicitly permits any symmetric nonnegative ordinary block of row sum 1−p and supplies the invariant two-dimensional quotient, contrast upper bound and background-edge independence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-exact-spectral-heterogeneity-budget-for-one-hotspot-metapopul--3575e4cfa8c0/RESULT.md",
+          "material_read": "Finding at offset 0, exact rank-one decomposition around 4522, and proof part 5 starting in passage at 7500",
+          "method": "Resultary search then exact local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exact spectral heterogeneity budget for one-hotspot metapopulation epidemics",
+          "trigger": "Same model, general symmetric matrix and uniform-hub specialization"
+        },
+        {
+          "assessment": "Exact slow endpoint for star; related threshold statements for other structure",
+          "evidence": "The repeated star eigenvalue and quadratic are explicit around (18)–(19); Conjecture 3 addresses a threshold in a specified structured family, not a full attainable contrast interval.",
+          "identifier_or_url": "https://arxiv.org/html/2308.01998v1",
+          "material_read": "General star matrix passage at 34640, star characteristic spectrum at 43670, Conjecture 3 at 78960",
+          "method": "OA HTML literal locators and bounded passages",
+          "title": "Epidemic thresholds and disease dynamics in metapopulations: the role of network geometry and human mobility",
+          "trigger": "Motivating same-model geometry and known transverse star mode"
+        },
+        {
+          "assessment": "Prior quotient mechanism in SIS, not the same contrast generator",
+          "evidence": "The quotient preserves adjacency spectral radius and yields the threshold; the model does not supply the SIR contrast interval by itself.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6157v3",
+          "material_read": "Introductory summary of sections 3–4 at offset 16220",
+          "method": "OA PDF bounded passage after HTML unavailable",
+          "title": "Epidemic Outbreaks in Networks with Equitable or Almost-Equitable Partitions",
+          "trigger": "Broader equitable quotient result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 2–4; matching indexed proof parts 1 and 5 in 3575e4cfa8c0"
+      ],
+      "rationale": "The distinction between a dominant mode and contrast dynamics is useful, but the prior same-class invariant block and contrast bound already establish that distinction. What remains is an immediate scalar interpolation of two standard matrices under that known block decomposition. The frozen record does not establish an independently nonroutine result beyond this specialization; no repair is justified merely by rephrasing the same interval.",
+      "residual_risks": [
+        "This is a value judgment on the frozen increment, not on contrast-relaxation studies in general."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

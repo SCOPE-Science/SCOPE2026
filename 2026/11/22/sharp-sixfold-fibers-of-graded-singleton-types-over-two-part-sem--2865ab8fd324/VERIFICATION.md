@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 VERIFY.py` in the same directory as this document with Python 3.8 or later; no third-party dependencies are needed. The verifier enumerates every parity-valid cross matrix for two positive parts whose combined size is between two and seven, independently generates admissible one-point extension score counts by checking every orientation vector against all required rectangle parity constraints, computes every base's class-preserving and class-exchanging isomorphism orbit by direct relabeling, and checks the residual four-exponent matching inverse.
+## correctness
 
-Recorded result:
+PASS
 
-```
-n= 2 types= 1 polynomials= 1 largest_fiber= 1 max_profiles= 1
-n= 3 types= 3 polynomials= 2 largest_fiber= 2 max_profiles= 1
-n= 4 types= 7 polynomials= 4 largest_fiber= 3 max_profiles= 2
-n= 5 types= 11 polynomials= 5 largest_fiber= 3 max_profiles= 2
-n= 6 types= 18 polynomials= 8 largest_fiber= 6 max_profiles= 3
-sixfold_witness_polynomial= (2, 7, 16, 21, 15, 6, 1)
-n= 7 types= 26 polynomials= 10 largest_fiber= 6 max_profiles= 3
-VERIFY_OK matrices_checked= 342 complete_orders=2..7
-```
+Rectangle parity allows two complementary rows for a point added to the first class and two complementary columns for the second (out-neighbors there use the complement transpose); a new class allows all orientations independently. The degree fixes n, and each perfect matching of the four residual exponents with positive pair sums yields precisely the proposed part sizes and an admissible parameter digraph. Under normalized row and column weights at most one orientation bit remains. Either balanced weight absorbs that bit; exchange of equally sized parts can identify the bits exactly when the normalized weights agree. Repeated exponent occurrences identify two matchings even as paired exponent multisets, ruling out six types before the distinct-exponent sum 0+1+2+3. I independently enumerated rectangle-valid matrices, explicitly appended one-point extensions and quotiented by permutations. The first witnesses occur at orders 3, 4 and 6, including exactly two types for each of (1,5), (2,4), (3,3) at the six-point witness. The all-order proof does not depend on this finite check.
 
-These checks are finite and do not prove the assertions for arbitrary parameter order. The unbounded theorem follows from the rank-one rectangle identity, three-pair matching converse construction, normal-form orbit bound, and distinct-exponent minimality argument in `RESULT.md`. The code does not test bases with three or more nonadjacency classes. No independent mathematical audit is claimed.
+## originality
+
+PASS
+
+The rectangle representation and the homogeneous age are known. The supported contribution is the conversion of the out-neighbor grading into a complete matching inverse and a sharp uniform ambiguity bound, including the first orders for different types and different part profiles.
+
+## value
+
+PASS
+
+The score grading adds orientation information that the total singleton count loses. Recovering every compatible part-size profile and sharply bounding the number of ordinary isomorphism types by a constant independent of base size solves a concrete inverse problem, not just a handful of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

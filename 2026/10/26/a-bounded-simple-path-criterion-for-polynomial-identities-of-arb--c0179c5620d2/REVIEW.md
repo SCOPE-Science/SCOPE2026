@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cycle-overlap obstruction is a free-subalgebra argument. If vertex-simple path lengths are unbounded, the path algebra contains \(UT_n(F)\) for every \(n\), and an explicit matrix-unit evaluation separates every nonzero polynomial. For sufficiency, the support of any path has at most \((L+1)^2\) vertices under the cycle condition; the associated Swan quiver therefore has at least twice as many arrows as vertices. Swan's Eulerian-path balance, together with the induction identifying all trails with the same endpoints with one path, proves that \(S_{2(L+1)^2}\) vanishes. The degree bound is not asserted optimal.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The inspected 2025 paper proves the finite-quiver criterion and supplies the infinite-ray non-PI example, but it does not state a necessary-and-sufficient criterion for arbitrary infinite quivers or the uniform identity bound. Its Open Question 6.9 asks whether quivers whose Leavitt path algebras have finite GK-dimension are PI. Rangaswamy's classification controls cycle overlap and cycle-chain height, not arbitrarily long acyclic paths. Database searches and accessible prior research records returned related but logically distinct work on quiver algebras and path-algebra growth; no exact equivalent statement surfaced. The result generalizes the proof method of the finite-quiver paper, so unindexed prior work remains a risk.
+PASS
 
-## Value — PASS
-This is a natural complete classification for arbitrary quivers, not merely a counterexample. It identifies the additional uniform path-length condition missing from the finite-quiver theorem and provides a uniform polynomial identity degree depending on that path-complexity bound rather than the total number of vertices. It also clarifies why finite GK-dimension of a Leavitt path algebra alone cannot guarantee a PI path algebra.
+Two based simple cycles at the same vertex are prefix-free, giving a free two-generator subalgebra over any field (and a free subalgebra of every finite rank by coding). A vertex-simple path of length d contains the line-quiver subalgebra UT_(d+1); isolating the coefficient of one longest word by superdiagonal matrix units disproves any proposed nonzero degree-d identity when such paths are unbounded. For sufficiency, in the support of any one path each internal edge of a strongly connected component lies on a simple cycle, by taking a shortest return path. Two internal outgoing edges at a vertex would give two such cycles through it. Thus each component is an isolated vertex internally or a simple directed cycle, of size at most L+1. The support path crosses its components in a chain without revisits. Replacing each internal segment by a simple one gives a vertex-simple path crossing the same components, so there are at most L+1 of them and at most N=(L+1)^2 vertices in all. For the standard identity, use basis paths, ignoring the zero case where no product concatenates. The endpoint multigraph has at most N vertices. All its Euler trails with fixed endpoints expand to the same original path: the intercomponent arrows are forced in order because a trail never returns to a component, and inside each strongly connected block the expansion maps to one original component, whose paths are determined by starting vertex and length. An all-length-zero block expands to a stationary path, including the degenerate case omitted by the cycle wording in the record. For each endpoint pair independently, signed cancellation also follows by substituting a matrix unit for each endpoint arrow in M_N(F) and applying Amitsur–Levitzki, which verifies the same cancellation over every field without needing a separate Swan proof. The ray's LPA has GK-dimension zero by the cited acyclic case, and its path algebra is non-PI by the necessity argument. The v1 reference should point to v2 for Lemma 6.7 and Open Question 6.9; this does not change the theorem.
 
-## Limitations
-The stated degree bound may be far from minimal. The original Swan article was not directly accessible; its Eulerian-path theorem was checked in the fully read 2025 paper that states it. No independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the arbitrary-quiver equivalence and bound in terms of vertex-simple length. The finite-quiver result, its path-expansion lemma and cancellation method, and the infinite-ray example are established antecedents. The ray's GK comparison follows directly from the prior ray result plus Rangaswamy and is not separately credited as new.
+
+## value
+
+PASS
+
+A complete classification with a usable uniform identity degree distinguishes genuine infinite path obstructions from mere infinitude of the quiver. The path-support compression supplies a quantitative bridge from local graph structure to a global identity and separates the ordinary path-algebra condition from the previously known Leavitt growth condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

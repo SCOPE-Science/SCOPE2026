@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact edgewise assembly yields \(M=\ell(2D+A)/6\) and \(K=(D-A)/\ell\). Above \(t=\ell^2/6\), the backward Euler system is a Stieltjes matrix, so its inverse times the nonnegative consistent mass is nonnegative. Below that threshold, hypothetical nonnegativity forces the inverse system matrix to be a Stieltjes matrix; its irreducibility forces its own inverse to be strictly positive, contradicting an off-diagonal zero from any missing graph edge. The complete-graph spectral formula proves the exception independently. The proof covers every graph size and real step size. Reproduced code checked all 995 connected graph-atlas cases on two to seven vertices across 11 steps, 330 exact rational tests, and four symbolic complete-graph examples. No finite sweep is treated as an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+The local element matrices assemble to M=(ell/6)(2D+A), K=(D-A)/ell; positive definiteness of M and semidefiniteness of K give invertibility, and K1=0 gives P1=1. With h=t/ell^2 the normalized step matrix has adjacency coefficient 1-6h. At h=1/6 the update is (2I+D^{-1}A)/3. For h>1/6 the step matrix is irreducible Stieltjes, giving a strictly positive inverse by the nonnegative Neumann walk series, hence strictly positive P. For 0<h<1/6, let b=1-6h and S=M+tK. The identity bP=I-3ell h S^{-1}D forces S^{-1} to have nonpositive off-diagonals if P has nonnegative off-diagonals. S^{-1} is positive definite and irreducible (a block split would also split S), so its inverse S would be strictly positive, contradicting a missing graph edge. For K_n, the constant and orthogonal subspaces give eigenvalues 1 and (2n-3)/(2n-3+6nh); this proves the remaining signs. At h=0 P=I. An independent exact check assembled local matrices and performed rational elimination at seven normalized steps for all 771 connected labelled graphs on 2–5 vertices: 5,397 checks agreed, including equality, strict signs and row sums (private replay: /workspace/branches/replay/euler.py and euler.txt). The finite checks do not replace the all-graph proof.
 
-Compared the exact *implication* of the claimed two-branch theorem against the accessible research history, public mathematical-result indexing, and two inspected primary preprints. Li–Huang (2012) supply sufficient mesh/step conditions for planar and higher-dimensional FE settings; Jin–Lazarov–Thomée–Zhou (2015), especially Theorems 4.1–4.3, establish small-step failures under their mesh assumptions and a Stieltjes-based sufficient threshold. Their results explain the sufficient half but do not imply the exact necessity for every noncomplete connected metric network at *all* steps below the boundary, nor the complete-graph exception. Special-family results on chains, trees and complete bipartite graphs concern narrower graph classes, and cannot imply the universal dichotomy. The classical inverse-Stieltjes lemma is acknowledged as known, not claimed new. Residual risk: potential specialized or unindexed full classifications, especially older work by Thomée–Wahlbin (full text unavailable here); independent review could alter originality judgment.
+## originality
 
-## Value — PASS
+PASS
 
-The central question is physically natural: when can a consistent-mass FE update of network heat diffusion create negative nodal temperatures despite nonnegative initial data? The theorem replaces topology-by-topology eigenvalue computations with a universal sharp threshold and an unexpected exact exception determined only by graph completeness. It immediately gives a scheme-selection rule for equilateral branched, cyclic and densely connected metric networks, and exhibits a nontrivial structural obstruction via inverse-positive matrix theory. This is more than a numerical table, a renamed inequality, or a routine isolated specialization; it is a complete classification for a broad natural graph family.
+Supported for the full graph-topology dichotomy and the uniform necessity on every positive subthreshold step of every connected noncomplete graph. The numerical threshold as a sufficient bound, the inverse-positivity lemma, and sharp classifications in prior special families are not independently new.
 
-## Limitations and closest literature
+## value
 
-The proof is specific to equal edge lengths, unit edge diffusivity, nodal continuous piecewise-linear FE, consistent mass and all-Neumann metric coupling. Other graph discretizations and heterogeneous lengths are outside scope. Li–Huang 2012 and Jin et al. 2015 are closest inspected mathematical texts; the 2008 Thomée–Wahlbin work was identified but only its abstract was available. The embedded checker supports, but does not substitute for, the infinite proof. No claim of external certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural space-time discretization, a practitioner can decide exactly when nonnegative input data are preserved from connectivity and completeness alone, with the sharp physical length scaling. The missing-edge obstruction covers every subthreshold step rather than merely asymptotically small steps, and completes the topology classification beyond the bipartite/cycle cases and mesh-dependent sufficient bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

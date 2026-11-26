@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:04.937227Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–55",
+        "VERIFICATION.md:19–23, verify.py:9–172 and verify_output.txt (inspected, not executed)",
+        "/workspace/branches/repro_frozen_review.py: cactus()"
+      ],
+      "rationale": "The cycle–vertex incidence graph is a forest by the cactus block structure. In a nonempty set of selected cycle rows there is a cycle meeting at most one vertex shared by other selected cycles: after deleting degree-one vertex nodes, a nontrivial component has a leaf on the cycle side, and isolated cycles also work. Its at least two private vertices prevent zero and unit sums. Thus the rows have rank c, the quotient has dimension n−c, and all represented vertices are nonzero. Cycle generation is contained in span closure by the relations. For the reverse direction, suppose a cycle-closed T has an outside vertex v in its span. The selected cycle rows witnessing this have mod-2 sum on V\\T supported exactly at v. Retain only these rows and the outside vertices they meet in the incidence forest. Every retained row with edges has degree at least two by closedness, and every variable node but possibly v has even positive degree. An edge-containing forest must have at least two leaves in each nontrivial component; here there can be at most one. This contradiction proves the identity. For an independent set, the intersection of all deletion spans is zero, and spans of disjoint subsets meet only at zero; looplessness converts these to the Helly and Radon conditions. For a dependent set a witness in its own deletion span defeats both conditions. The edge-free one-vertex case has dimension one, and trees have free closure. In the diamond, {0,2} generates 1 then 3, but {2,3} is closed even accounting for the four-cycle. Independent binary elimination against iterated hull checks matched at all subsets of 100 generated cacti of orders 4–10.",
+      "residual_risks": [
+        "The generated graphs are bounded corroboration; the incidence-forest argument establishes the unrestricted result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nair et al. give the forest rank and common n−1 and n−2 cases (the latter includes bicyclic graphs and other families). The same-day cycle bouquet record gives the same maxima and coincident independence sets in a strict subclass, plus a set enumerator.",
+          "The hypergraph paper at arXiv:2410.23932 builds a matroid on hyperedges via a derived hypergraph, not a quotient on the vertex set here."
+        ],
+        "reasoning": "Nair et al. and the bouquet record give overlap in parameters/scope; neither is the decisive whole theorem match. The acyclic-incidence comparison must preserve the ground set.",
+        "searches": [
+          "arXiv:2609.34236, Theorems 2–3",
+          "Resultary --7ea0b792a3ad",
+          "binary matroid representation parity-check matrix acyclic Tanner graph incidence forest closure hypergraph cycle convexity matroid",
+          "arXiv:2410.23932"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --4e6b8727593a and --7ea0b792a3ad",
+        "arXiv:2609.34236",
+        "arXiv:2410.23932",
+        "DOI:10.1007/978-3-032-27732-9_6 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier-indexed catalogue proof uses independence and absence of units in the incidence forest, then proves equality of closures and the independent-set consequences. Matroid basis exchange follows directly from that same closure. The two additional tiny orders are free matroids."
+        ],
+        "reasoning": "A numerical rank statement alone would not imply closure or exchange. The earlier record's actual stronger structural statement implies both, so the frozen theorem is covered.",
+        "searches": [
+          "Local Resultary --4e6b8727593a, Finding and proof",
+          "arXiv:2609.34236, Theorems 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both take the quotient of the vertex coordinate space over F_2 by cycle-block supports, and obtain the entire hull operator (not only equality of ranks). The alternative 2|V|−|E|−1 equals n−c because a connected cactus has |E|=n−1+c."
+        ],
+        "reasoning": "Normalizing c as block count or cyclomatic number, and changing notation for vertex vectors, leaves the theorem unchanged.",
+        "searches": [
+          "Resultary: cycle convexity cactus matroid representation Helly Radon rank",
+          "Resultary --4e6b8727593a, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier-indexed theorem is a distinct record, dated 2026-10-13 in its identifier. It states loopless binary closure and rank n−c on orders at least three, with the same quotient presentation."
+        ],
+        "reasoning": "Statement-level database coverage, not agreement of small graph counts. No priority attribution rests on an identifier date alone.",
+        "searches": [
+          "Resultary: matroid representation binary parity-check incidence acyclic hypergraph forest quotient cycle convexity",
+          "Local Resultary --4e6b8727593a, offsets 0–8597"
+        ]
+      },
+      "rationale": "A distinct earlier-indexed Resultary finding states the same quotient representation, entire closure identity, looplessness and all three maxima on every cactus of order at least three, and uses the same incidence-forest argument. The orders one and two simply have zero cycle relations and free matroid closure; they do not give a new scientific remainder. This is exact substantive coverage, independently of any claim about origin or provenance.",
+      "residual_risks": [
+        "The earlier rank paper was not inspected in full. Historical first discovery or priority is not assigned by this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact substantive coverage at all orders ≥3",
+          "evidence": "States the quotient by characteristic vectors, complete hull equality, looplessness and hel=rad=rk=|V|−k=2|V|−|E|−1; proves them via the same incidence forest.",
+          "identifier_or_url": "Resultary/2026/10/13/SCOPE-cycle-convexity-on-cactus-graphs-is-a-binary-matroid-closure--4e6b8727593a/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–8597",
+          "method": "Local Resultary mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4, original passages",
+          "title": "Cycle convexity on cactus graphs is a binary matroid closure",
+          "trigger": "Exact object, quotient and rank claims"
+        },
+        {
+          "assessment": "Prior parameter levels, not the exact all-cactus representation in these passages",
+          "evidence": "Theorem 2 covers n−1 and unicyclic graphs; forest rank n is noted. Theorem 3 covers n−2 and includes all bicyclic graphs among other families.",
+          "identifier_or_url": "arXiv:2609.34236",
+          "material_read": "Abstract and Theorems 2 and 3, HTML offsets 0, 23802, 27018",
+          "method": "OA arXiv HTML original passages",
+          "title": "Computing the Helly Number, Radon Number and Rank in Cycle Convexity",
+          "trigger": "Potentially covering the claimed parameters"
+        },
+        {
+          "assessment": "Same-day strict-subclass overlap, not a competing general representation",
+          "evidence": "Cycles share one vertex, k≥3, at least one length ≥4, with possible attached trees; three maxima are |V|−k and nonempty independence notions coincide.",
+          "identifier_or_url": "Resultary/2026/10/26/SCOPE-cycle-convexity-independence-systems-of-nonchordal-cycle-bouquet--7ea0b792a3ad/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror original passage",
+          "title": "Cycle-convexity independence systems of nonchordal cycle bouquets",
+          "trigger": "Same parameter coincidence for a cactus family"
+        },
+        {
+          "assessment": "Different ground set in the inspected construction",
+          "evidence": "A derived hypergraph yields a matroid on the hypergraph's edges.",
+          "identifier_or_url": "arXiv:2410.23932",
+          "material_read": "HTML opening and introductory description, offset 0",
+          "method": "OA original HTML",
+          "title": "Matroidal Cycles and Hypergraph Families",
+          "trigger": "Acyclic hypergraph matroid comparison"
+        },
+        {
+          "assessment": "Unresolved access; not used as negative evidence or as a reason for FAIL",
+          "evidence": "Original text retrieval did not succeed; RESULT.md reports rank algorithms including chordal graphs.",
+          "identifier_or_url": "DOI:10.1007/978-3-032-27732-9_6",
+          "material_read": "No original full-text passage obtained; scope of the frozen record's reference inspected",
+          "method": "Publisher OA lookup and identified PDF attempt",
+          "title": "On the Rank and the General Position Number in Cycle Convexity",
+          "trigger": "Cactus rank could occur in a broader algorithmic treatment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:11–21,35–55",
+        "arXiv:2609.34236, Theorems 2–3"
+      ],
+      "rationale": "An explicit representation of an entire graph-convexity closure as a binary matroid, explaining three independence notions simultaneously and exhibiting a sharp neighboring obstruction, carries structural mathematical value. The finding fails because that full contribution is covered, not because it only gives an isolated numerical rank.",
+      "residual_risks": [
+        "Does not classify when cycle-convexity is matroidal outside cacti or settle equality of the three parameters in general graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

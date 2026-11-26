@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of exact three-step displacement law
+# Independent mathematical audit
 
-Execute `python3 check.py` with Python 3 and no third-party packages. The source implements the same fixed map as in RESULT.md from the starting unit square, not a test fitted to a purported density.
+## correctness
 
-The direct program constructs eight, then 56, then 320 nonzero-area polygons for one, two and three full shear steps using exact `Fraction` arithmetic. It checks that each partition has rational area exactly one. It integrates the exponential character on every final affine polygon by Green's theorem and checks the exact grouped phase coefficients: the zero-order and first-order sums vanish, while precisely the twelve stated second-order coefficients remain. Exact algebra over rational pairs representing \(a+b\sqrt5\) checks all sixty residue classes of the Fourier numerator; the unique zero class is zero modulo sixty. Exact Bernoulli-polynomial evaluations at all knots determine the sharp density extrema and positivity.
+PASS
 
-Actual package execution returned:
+Conditional on Y0, X1 is Haar, so the full tent pushes X1 to Haar and Y1 and f(Y1) are conditionally Haar. This proves the second displacement uniform; the first is just f(Y0) modulo 1. For the third lag I used the uniform (X1,Y0) chart and D=f(Y0)+f(Y1)+f(Y2), eliminating the unused last vertical shear. The independent standard-library replay /workspace/record2_replay.py clips 80 rational polygons and fans them into 128 positive-area triangles, of total area 1. The projection of a triangle by an affine map whose ordered vertex values are a≤b≤c has two linear density pieces of peak height 2(area)/(c−a) by similar triangles, with tied values handled by endpoint jumps or an atom. The exact wrapped projection has no atoms and all density jumps cancel; the remaining twelve slope jumps match every stated d_r. A continuous periodic spline is determined by those jumps and unit mass; the stated Bernoulli formula has these properties. Its knot evaluations give the stated unique minimum knot and two maximum knots, and strict positivity. In the spectral numerator the two fifth-turn groups have opposite coefficients and contribute a nonzero irrational part when 5 does not divide k; for k=5j the rational numerator has period 12 in j and is zero only at j=0 mod 12. The first numerator is −646/11025−(250/441)√5; division by −4π²k² gives the stated first harmonic. Fourier uniqueness then proves Haar pushforward exactly for integer multipliers divisible by 60. A separate exact computation in the original chart also recovered 8, 56, 320 cells with unit area throughout and the same coefficients. Frozen checker inspected, not executed. The zero frequency is 1, not zero; this is a marginal under stationary Haar, not a claim about joint independence or longer lags.
 
-```
-PASS: 320 exact rational polygon domains; A=B=0; 12 rational phase coefficients
-PASS: exact Fourier zeros precisely k congruent 0 modulo 60
-PASS: exact density extrema 893/1225 and 352/315
-```
+## originality
 
-The finite algorithm is exhaustive for the threefold rational branch partition. The proof derives the piecewise-affine integral reduction and Fourier inversion for every integer frequency; the code validates the complete finite coefficient table and quadratic-radical residue step without relying on numerical experiments. The statement is specific to stationary Haar initial data and the defined symmetric map. No independent audit or external certification has been performed.
+PASS
+
+The audited identity was retrieved in the index and excluded as the same record. The strongest distinct same-map results give conditional parabolic residence areas or asymptotic correlation estimates. The short-time Fourier result that is closest in question uses a different map. None of these supplies the exact third-lag law or cancellation set. The finding does not claim the map, generic polygon integration, or a new mixing theorem.
+
+## value
+
+PASS
+
+The diagonal Haar transport observable is natural for the canonical symmetric map at the loss of exponential mixing. Locating the first nonuniform lag and giving its full law and exact smallest arithmetic uniformizer supplies a useful benchmark for finite-time transport and harmonic cancellation, not merely a sampled harmonic or a general-purpose mixing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

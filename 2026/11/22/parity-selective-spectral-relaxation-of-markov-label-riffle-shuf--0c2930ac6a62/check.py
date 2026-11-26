@@ -1,69 +1,73 @@
-"""Exact finite verification for Markov binary-label permutation parity."""
-from fractions import Fraction as F
-from itertools import product
+"""Bounded checks for the literal-stay sign formula (standard library only)."""
+from fractions import Fraction
+from itertools import combinations, product
+from math import exp, sqrt
 
 
-def direct(n, p):
-    change = (1-p)/2
-    stay = (1+p)/2
-    total = F(0)
-    for bits in product((0,1), repeat=n):
-        weight = F(1,2)
-        for j in range(1,n):
-            weight *= stay if bits[j]==bits[j-1] else change
-        inversions = sum(bits[i]>bits[j] for i in range(n) for j in range(i+1,n))
-        total += weight * (-1 if inversions%2 else 1)
-    return total
-
-
-def matrix_values(nmax,p):
-    states = [(b,z) for b in (0,1) for z in (0,1)]
-    stay=(1+p)/2
-    flip=(1-p)/2
-    dist=[F(1,2),F(0),F(0),F(1,2)]
-    result=[None]
-    for n in range(1,nmax+1):
-        result.append(sum(dist))
-        temp=[F(0)]*4
-        for i,(prev,one_parity) in enumerate(states):
-            for current in (0,1):
-                next_parity=(one_parity+current)%2
-                pos=states.index((current,next_parity))
-                phase = (-1)**one_parity if current==0 else 1
-                temp[pos]+=dist[i]*(stay if current==prev else flip)*phase
-        dist=temp
+def inversions(bits):
+    ones = result = 0
+    for bit in bits:
+        if bit:
+            ones += 1
+        else:
+            result += ones
     return result
 
 
-checks=0
-for p in [F(0),F(1,6),F(1,3),F(1,2),F(3,4),F(1)]:
-    seq=matrix_values(13,p)
-    for n in range(1,12):
-        assert seq[n]==direct(n,p),(n,p,seq[n],direct(n,p));checks+=1
-    a=(1+p)**2/F(2)
-    for n in range(1,10):
-        assert seq[n+4]==a*seq[n+2]-p*p*seq[n];checks+=1
-    assert seq[1]==1 and seq[2]==(1+p)/2
-    assert seq[3]==(1+2*p-p*p)/2
-    assert seq[4]==(1+3*p-p*p+p**3)/4
-    checks+=4
+def exact_mean(n, stay):
+    total = Fraction(0)
+    for bits in product((0, 1), repeat=n):
+        switches = sum(x != y for x, y in zip(bits, bits[1:]))
+        mass = (1 - stay)**switches * stay**(n - 1 - switches) / 2
+        total += mass * (-1)**inversions(bits)
+    return total
 
-# Independently enumerate 0, 1, 2 switch parity combinatorics.
-for n in range(2,31):
-    cnt1=0; cnt2=0
-    for initial in (0,1):
-        for k in range(1,n):
-            bits=[initial]*k+[1-initial]*(n-k)
-            inv=sum(bits[i]>bits[j] for i in range(n) for j in range(i+1,n))
-            cnt1+= inv%2
-        for k in range(1,n):
-            for l in range(k+1,n):
-                bits=[initial]*k+[1-initial]*(l-k)+[initial]*(n-l)
-                inv=sum(bits[i]>bits[j] for i in range(n) for j in range(i+1,n))
-                cnt2+=inv%2
-    if n%2==0:
-        assert cnt1==n//2
-    else:
-        assert cnt1==0 and cnt2==(n*n-1)//4
-    checks+=1
-print(f"PASS {checks} exact identities / finite enumerations")
+
+def transfer(n, p):
+    q = 1 - p
+    x, y, z, w = Fraction(1, 2), 0, 0, Fraction(1, 2)
+    for _ in range(n - 1):
+        x, y, z, w = p*x + q*z, -p*y - q*w, q*y + p*w, q*x + p*z
+    return x + y + z + w
+
+
+def odd_words(n, number_of_switches):
+    count = 0
+    for locations in combinations(range(1, n), number_of_switches):
+        boundaries = (0,) + locations + (n,)
+        for start in (0, 1):
+            bits = []
+            for run, (a, b) in enumerate(zip(boundaries, boundaries[1:])):
+                bits.extend([(start+run) % 2] * (b-a))
+            count += inversions(bits) % 2
+    return count
+
+
+def main():
+    for p in map(Fraction, ('0', '1/4', '1/2', '2/3', '7/8', '1')):
+        values = [None] + [exact_mean(n, p) for n in range(1, 12)]
+        assert values[1:5] == [1, p, 1 - 2*(1-p)**2, 2*p**3-4*p**2+4*p-1]
+        for n in range(1, 12):
+            assert values[n] == transfer(n, p)
+        for n in range(1, 8):
+            assert values[n+4] == 2*p*p*values[n+2] - (2*p-1)**2*values[n]
+    for n in range(2, 31):
+        m = n // 2
+        assert not odd_words(n, 0)
+        assert odd_words(n, 1) == (0 if n % 2 else m)
+        if n % 2:
+            assert odd_words(n, 2) == m*(m+1)
+    max_error = 0.0
+    for xi in (0.5, 2.0):
+        a, b = 1 - 1/sqrt(2), 1 + 1/sqrt(2)
+        for n in (2000, 2001, 8000, 8001, 32000, 32001):
+            weight = 0.5 + (1 if n % 2 else 0.5)/sqrt(2)
+            expected = weight*exp(-a*xi) + (1-weight)*exp(-b*xi)
+            max_error = max(max_error, abs(transfer(n, 1-xi/n) - expected))
+    assert max_error < 0.001
+    print('PASS: 66 direct exact means, 42 recurrence checks, and rare switches through n=30')
+    print(f'PASS: growing-profile grid; maximum absolute difference {max_error:.3g}')
+
+
+if __name__ == '__main__':
+    main()

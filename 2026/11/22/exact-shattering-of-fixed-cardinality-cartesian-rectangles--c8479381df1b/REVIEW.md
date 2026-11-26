@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The support obstruction is a three-edge path whose two end edges are positive and whose middle edge must be negative; a product cannot realize that pattern. On a star component, positive-count inventories are exact, and the product of their generating polynomials counts all allowed row/column selections. The padded-region equivalence follows by completing selected positive endpoints using vertices entirely outside the queried incidence graph. Standard labeled exponential enumeration then proves the full coefficient formula. The top-support count follows from two opposite-centered stars. Independent C++17 brute-force traces and Python star-inventory and active-vertex enumeration agree on every listed finite check. All statements explicitly restrict their respective domains.
+## correctness
 
-## Originality
-PASS within inspected evidence, with residual priority risk. Full published records for unrestricted Cartesian rectangles and the fixed two-by-two quota case were read. The former establishes the basic star-forest obstruction but does not address simultaneous exact row/column quotas; the latter supplies only the special quota pair and is credited rather than recast as novel. The 2021 Block et al. primary paper's problem is induced-path-free edge partition/cover and permits four-cycles, not the all-patterns uniform-product membership test. The full range of quota-inventory tests, its padded coefficient formula and the three-by-three-and-larger extremal count are not implied by those inspected statements. Unindexed prior work and equivalent reformulations could affect priority.
+PASS
 
-## Value
-PASS. Fixing both factor cardinalities is a natural constraint for sparse combinatorial rectangle hypotheses; it changes trace feasibility even though unrestricted rectangles are completely understood. The theorem resolves every finite support by a compact componentwise inventory, identifies a stable padding regime with a full exact coefficient formula, and classifies all maximum faces for quotas at least three. This provides support-level information not captured by an isolated VC-dimension value, and exact small-grid regimes can be evaluated without enumerating every product hypothesis.
+In a length-three simple path, positive end edges force the middle edge positive. In a bipartite graph absence of such paths makes each nontrivial component a star. For a left star with h>0 positives, its center and exactly the h specified leaves must be selected; for h=0 the disjoint choices are omit the center with any leaf subset or select the center with no leaves. These give the claimed inventory factors, with exchanged sorts on right stars. Components and unused vertices have disjoint coordinates, so coefficient multiplication counts completions for the exact quotas; permuting leaves reduces the labels to their h vector. In the padded region, the all-positive label tests the incident quotas. For any other label choose the positive endpoints (a negative edge has a degree-one endpoint not selected this way), then fill from unused coordinates. The labeled exponential formula counts the two star orientations with isolated edges included once. A nonempty forest has ell+t−number_of_components edges; the one-star and two-or-more-star bounds, and explicit stars attaining them, give the VC formula. For r,s≥3 the maximal edge count forces two nontrivial stars of opposite center sorts on all r+s available incident slots; choosing the two centers gives rs configurations on each active vertex set. Empty supports and quota one are included. My separate trace-fiber replay (`/tmp/opencode/frozen-review-repro.py rectangles`) reproduced the complete polynomials of the (4,6;2,3), (6,6;3,3) and (5,5;3,3) cases and checked aggregate face counts on the 3×3 grid for all nine positive quota pairs. Source code and recorded runs were inspected, not executed. No extrapolation from finite checks or assertion of necessary padding is used.
 
-The result does not claim novelty for the known unrestricted star-forest theorem or the fixed two-by-two dimension classification. Its sufficient padding bound is not proved sharp. Historical priority and independent proof validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The non-induced-path obstruction, unrestricted star-forest classification and its species method are prior; the (2,2) dimensions are prior. The distinct all-grid exact-quota feasibility criterion, and the exact-quota stable enumeration and extremal consequences in their stated ranges, survive the source comparison. The stable count reuses the prior species argument rather than introducing a new unrestricted enumerator.
+
+## value
+
+PASS
+
+Exact quotas are a natural restriction, not a numerical slice: padding fails on small grids even for some star forests whose incident vertices fit. The local inventories solve that obstruction for every support, while the stable polynomial and extremal description separate support-level structure from a scalar VC dimension. The result does not claim a sharp padding boundary or a polynomial-time test in the number of queried cells.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

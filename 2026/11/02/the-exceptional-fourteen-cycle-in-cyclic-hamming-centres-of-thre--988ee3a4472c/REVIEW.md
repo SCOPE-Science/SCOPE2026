@@ -1,19 +1,21 @@
-# Scientific review: cyclic-Hamming three-one necklace centres
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement explicitly confines centres and targets to rotation orbits of binary words of weight exactly three, using minimum-over-shifts Hamming distance. A pairwise-separation lemma reduces distance \(2\) to overlapping cyclic pair-distance profiles; distinct classes with disjoint profiles have distance \(4\). The proof constructs radius-two centres for lengths 5–12 and 14, uses Cauchy–Davenport to rule out a triangle-free allowed-difference circulant at prime length 13, and uses the exact Mantel edge threshold to rule out radius two for all \(n\ge15\). Equality in Mantel at length 14 forces the parity bipartition; direct cyclic-gap classification gives precisely two centres. Burnside counts the universal radius-four centres. Exhaustive independent shifts and symbolic separation profiles agree through length 17, and full finite census runs through length 26. No finite experiment substitutes for the infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For weight-three supports translation always aligns one point, and aligning two is equivalent to a shared undirected separation. Thus, outside a single rotation class, distances are 2 if the profiles meet and 4 otherwise. Consecutive gap bounds give the explicit centres through 11; parity gives centres at 12 and 14. At 13 the allowed signed differences form a symmetric set A of size at least 6; |A+A|≥11 by Cauchy–Davenport, so (A+A) meets A and the allowed graph contains a triangle. For n≥15 at most 3n edges are excluded, so Mantel forces a triangle and hence a distance-four adversary for every centre. At 14 the triangle-free equality case must be K_{7,7}; translation by one swaps its bipartition classes, since otherwise transitivity is impossible. Hence the forbidden separations are precisely 2,4,6. After halving on one parity class, the gaps have distinct absolute separations 1,2,3 and sum to seven, so they are 1,2,4. Their two cyclic orders give the two indicated rotation orbits; x↦2−x interchanges the representatives, but rotation preserves gap order up to cyclic shift. Burnside gives the total number in the radius-four regime, since the only nonidentity stabilizing rotations have order three. The finite census independently checks the additional multiplicities.
 
-The 2020/2023 Adamson–Deligkas–Gusev–Potapov necklace-centre papers use subword-multiset *overlap distance*, not minimum-rotation Hamming distance (see 2023 open-access text, §3.1–3.2, especially overlap definition and its optimization objective). The 2021 multidimensional necklace full text treats fixed-content enumeration and overlaps, but it does not imply the fixed-weight-three Hamming radius theorem. Searches for rotational Hamming, cyclic triangle triples, exact length-13/14 thresholds, and nearest aliases in published mathematical records did not reveal the same theorem. A general graph extremal theorem proves part of this result only after the new reduction; merely citing Mantel does not by itself give the classification. Residual risk: a specialized cyclic-difference-family classification or another indexing of cyclic Hamming centres may already contain an equivalent statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Weight three is the first constrained binary necklace layer where a single centre can have both distance-two and distance-four targets. The all-length phase diagram has a sharp nonmonotone exception (the radius jumps at 13, drops at 14, and then rises permanently), and the two distinct optimal centre orbits at 14 have a natural parity and extremal-graph explanation. The result is a complete, motivated classification of a natural covering invariant, not an arbitrary finite slice or a routine reproduction of a table.
+The distinct claim is the exact radius classification and exceptional-centre classification of the rotation-quotient Hamming metric on the weight-three layer. Existing necklace counting and overlap-distance centre results do not give this. Closely related cyclic triples, repeated gaps and Hamming-distance-two counts occur in distinct Resultary statements; the exact shared and differing properties are specified below.
 
-## Scope, checks and limitations
+## value
 
-The result makes no assertions about multiple centres, other weights, unrestricted binary centres, other quotient groups, or alternate metrics. The small-size multiplicities are checked exhaustively by the packaged verifier. All-length conclusions are analytic. The primary papers were compared at the level of metrics, quantified objects, and implications rather than title similarity. The priority comparison is based on the checked sources and semantic research search, not a universal uniqueness certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weight three is a natural fixed-content layer for cyclic Hamming geometry. The result completely resolves its one-centre radius over all lengths and locates a nonmonotone exception at exactly fourteen, identifying its two reversal-related but rotation-distinct centres. The relation between this exceptional length and equality in the triangle-free extremal bound is structural, not just a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

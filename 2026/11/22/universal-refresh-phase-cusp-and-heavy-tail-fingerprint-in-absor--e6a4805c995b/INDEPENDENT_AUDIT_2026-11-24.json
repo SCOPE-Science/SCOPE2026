@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:25:54.922526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The killed unit-total-rate sine kernel has eigenvalue ℓ=1−cos(πp); summing over live sites gives Aₘ=sin(mπp)cot(πp/2). For example the sum can be Abel-regularized: the geometric sine sum tends to sin(πp)/[2(1−cos(πp))], and its product with sin(mπp) is bounded, giving the stated integral. Independent integrated rates multiply the spectral weight by φ(τℓ)^n φ(θτℓ). Near zero, Aₘ→2m and 1−φ(τℓ)~a p^(2α) with a=cτ^α(π²/2)^α; away from zero φ(τℓ) is bounded strictly below one even if the rate has a zero atom. Rescaling p=(an)^−ν y yields the stated leading constant. Subtracting before rescaling gives the additional factor n[1−φ(θτℓ)]→θ^α y^(2α), dominated by a polynomial times the same integrable stretched exponential; normalizing the integrals gives νθ^α. The normalized decrements are monotone in phase, so their convergence to the continuous limit is uniform by a finite-mesh squeeze, even though Aₘ may change sign. Expanding the time normalization yields ν(θ−θ^α), including both endpoints and the identically zero α=1 case. Direct differentiation verifies the minimum and strict α monotonicity in the interior. At fixed n, the Laplace hypothesis uniformly on 0≤ℓ≤2 gives the fractional cusp coefficient. In its Bernstein representation Fubini is justified by the bounded spectral weight and min(2v,1), and strict positivity follows since the mth jump time has positive density at every positive operational time and all of the first m jumps can be leftward. This gives a strict survival decrease over any positive added operational time and hence an infinite negative right slope. On the preceding block at elapsed time bounded away from zero, s|φ′(s)|≤1 bounds the derivative integrand, including the limit from the left. Rescaling the cusp coefficient uses the same Gamma ratio ν. These are separate limits for fixed model and fixed m, not a joint boundary-layer expansion. Read RESULT.md, VERIFICATION.md and check.py; the 193 numerical assertions are the source's reported finite evidence, not rerun or assumed to prove uniformity or positivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levit–Reuveni express survival for a general time-change clock and give a Mittag–Leffler leading tail; the correlation-invariant Resultary leading law allows Markov-switching environments.",
+          "Arutkin–Reuveni derive survival and first-exit density on a finite interval and identify discontinuities at the period boundaries for exponential rates."
+        ],
+        "reasoning": "Generality of the clock or correlations in a leading theorem does not fix an order-1/n phase difference. A finite-mean, finite-interval exit-density jump is not an infinite negative right derivative for the heavy-tail half-line survivor, and the new α=1 vanishing concerns only the normalized phase ratio.",
+        "searches": [
+          "arXiv:2609.26925 Eqs. (2)–(4)",
+          "arXiv:2302.07041 Eqs. (4), (6)–(7)",
+          "Resultary 646f79744713 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "arXiv:2609.26925 and 2302.07041 main texts",
+        "Resultary 646f79744713, 50200fbcdf63, 19a39864f876"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From h(s)~cs^α the earlier ϑ_n is asymptotic to √2c^−ν n^−ν at τ=1; the Gamma recursion matches both leading prefactors exactly.",
+          "A leading equivalent S∼Cn^−ν only controls a relative o(1) remainder; here the numerator first cancels the common n-period transform and isolates the small residual-period factor.",
+          "The cusp expansion can be extracted from the common finite-time transform, but the sign-changing sine weights require an additional positivity argument and the large-n amplitude requires a scaled spectral moment."
+        ],
+        "reasoning": "The leading law is already covered. The first relative correction is not obtained by taking a ratio of the leading equivalents; and neither prior finite-density-jump statements nor the shared exact clock representation directly give the strict fractional singularity and sharp amplitude across the stated class. The prior transform remains the essential input to both refinements.",
+        "searches": [
+          "arXiv:2609.26925 Eqs. (2)–(4), OA offset 13200",
+          "646f79744713 Finding, around offset 1065",
+          "arXiv:2302.07041 Eqs. (6)–(7), OA offset 19000",
+          "Frozen Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.26925 Eqs. (2)–(4): time-changed killed-walk sine survival, with an explicit full-period times residual-phase factor for periodic Mittag–Leffler rates.",
+          "646f79744713 Finding: on the one-state iid positive-rate subdomain its sharp survivor equivalent gives exactly the completed-period leading coefficient after clock rescaling."
+        ],
+        "reasoning": "The older all-time survival representation is shared, and the leading asymptotic is equivalent after rescaling. A spatial survivor-cloud tail or the large-start distance-scaled curve has a different limiting variable; neither is a reformulation of the fixed-start phase ratio or the one-sided cusp.",
+        "searches": [
+          "Resultary: periodic refresh first passage, survivor-cloud tails, and correlation-invariant survival; 646f79744713, 50200fbcdf63, 19a39864f876",
+          "absorbed random walk fluctuating heavy tailed jump rates first passage refresh phase discontinuities survival derivative cusp deterministic switching rate time change"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier records give exact leading constants and curves: e.g. 646f79744713 gives (2m/π)Γ(1+ν)ϑ_n with n h(1−cos ϑ_n)=1; 19a39864f876 gives a spatial, not a temporal, tail.",
+          "The main papers give exact finite-time integral or series representations but no inspected table or formula for the uniform phase contrast and heavy-tail cusp amplitude."
+        ],
+        "reasoning": "Existing exact leading coefficients are not new. The exact survival formula provides data for the phase calculation but does not directly evaluate its normalized difference or prove the strict sign at finite redraw index.",
+        "searches": [
+          "Resultary 646f79744713, 50200fbcdf63, 19a39864f876",
+          "arXiv:2609.26925 Eq. (3), arXiv:2302.07041 Eqs. (6)–(7)"
+        ]
+      },
+      "rationale": "The strongest exact overlap is the known killed-walk spectral survival law and leading equivalent; the earlier Resultary law covers the latter even for a correlated environment on its stated domain. Finite jumps of first-exit density at redraws were also known. Pass is for the uniform first-relative-order phase law under only the stated Laplace assumption and the strict infinite-mean fractional cusp with its positive and normalized amplitude, not for the leading tail, the refresh model, or the existence of finite density discontinuities.",
+      "residual_risks": [
+        "General subordination or regular-variation results could contain an equivalent phase-sensitive refinement not retrieved in the targeted search.",
+        "The detailed APS supplement cited for the finite-mean discontinuity was inaccessible; the accessible main paper supplies the verified comparison. No verdict rests on the missed supplement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact common transform and leading Mittag–Leffler case, not the stated uniform phase or strict cusp law",
+          "evidence": "Eq. (3) at t=nτ exactly agrees for c=1, and the explicit transform retains the residual phase.",
+          "identifier_or_url": "https://arxiv.org/html/2609.26925",
+          "material_read": "Main Eqs. (2)–(4), around OA offset 13200",
+          "method": "OA HTML offset passage",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Same absorbed periodic-refresh model and leading survival coefficient"
+        },
+        {
+          "assessment": "Main text verifies finite-mean redraw-boundary overlap, not the heavy-tail half-line cusp; unavailable supplement is a residual access risk",
+          "evidence": "Exponential-rate transform and finite absorbing interval; first-exit density jumps at integer multiples of the refresh period.",
+          "identifier_or_url": "https://arxiv.org/html/2302.07041",
+          "material_read": "Main Eqs. (4), (6)–(7) and adjacent discussion, offsets 17000 and 19000; detailed APS supplementary section not retrieved",
+          "method": "OA HTML passages; identified APS supplement returned 403 via available retrieval routes",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "Established first-exit density discontinuities at redraw instants"
+        },
+        {
+          "assessment": "Direct leading-coefficient overlap for positive iid rates with 0<α<1, not phase-resolved error",
+          "evidence": "Sharp equivalent in terms of ϑ_n solving n h(1−cos ϑ_n)=1.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-first-passage-criterion-and-correlation-invariant-tails-fo--646f79744713",
+          "material_read": "Finding, especially the sharp equivalent near offset 1065",
+          "method": "Local Resultary mirror",
+          "title": "Sharp first-passage criterion and correlation-invariant tails for fluctuating rates",
+          "trigger": "Broader exact leading survival law for the half-line"
+        },
+        {
+          "assessment": "Large-start scaling, not fixed-start within-period relative correction",
+          "evidence": "Complete distance-scaled survival curve and its tail constant.",
+          "identifier_or_url": "2026/11/8/SCOPE-universal-distance-scaled-first-passage-law-for-fluctuating-jump--50200fbcdf63",
+          "material_read": "Finding and tail coefficient near offset 1503",
+          "method": "Local Resultary mirror",
+          "title": "Universal distance-scaled first-passage law for fluctuating jump rates",
+          "trigger": "Shared survival kernel and power-law constant"
+        },
+        {
+          "assessment": "Different tail variable, no same-date priority inference",
+          "evidence": "Fixed-observation probability of surviving and exceeding a spatial threshold, with exponent 2α+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-survivor-cloud-tails-under-fluctuating-jump-rates--19a39864f876",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp survivor cloud tails under fluctuating jump rates",
+          "trigger": "Closest same-model spatial-tail hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The refinement isolates a physically meaningful phase effect that a leading power law erases and gives its exact profile without a second-order rate-law hypothesis. The same setting exhibits a qualitative infinite-mean redraw cusp with strictly positive amplitude for every positive redraw instant and a quantitative late-time normalization. These distinguish phase-resolved survival from a smooth power-law interpolation, without promising identification from noisy data or a full second-order survival expansion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

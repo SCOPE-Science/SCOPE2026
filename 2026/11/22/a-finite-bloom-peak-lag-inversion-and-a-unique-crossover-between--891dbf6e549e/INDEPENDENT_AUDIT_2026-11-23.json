@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:44:11.433476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the zero-initial serial linear filters in RESULT.md, the response derivative is positive before and at shutoff. After shutoff it is proportional to (1−exp(−sL))exp(−sτ)−(1−exp(−rL))exp(−rτ); the ratio decreases from greater than one to zero. The equal-term equation gives precisely the stated lag. Differentiating verifies strict decrease since x/(exp(x)−1) strictly decreases; the logarithmic Taylor expansion gives the stated endpoints and direct differentiation at large L gives τ′∼−rτ, justifying the inverse-sensitivity law. The two strict endpoint comparisons imply at least one crossing for an open parameter family, not uniqueness in general. For the displayed pair, independently expanding the polynomial gives z(z³−z−1)(z³+z²−1); its second cubic is strictly increasing on (0,1) and the first is negative there. The unique root is z≈0.754877666246692760 and −log z≈0.2811995743229618465; decreasing z as L increases gives the stated signs. Replay: expand the two degree-eight products in RESULT.md lines 62–72 and bisect the monotone cubic (or compare it at 0 and 1 for exact existence and uniqueness). The frozen checker was read statically; no sampled result is used for a universal claim. The verification note’s description of a root bracket is loose: CHECK.py tests a floating residual, while the proof supplies the exact bracket and monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reijers et al. §§1, 3 and 4 support delayed maxima through adsorption/release, not a general order theorem for two ideal serial filters. Available literature results include standard Bateman and compartmental formulations."
+        ],
+        "reasoning": "A generic solution of the linear equations determines a single response function, but an all-duration comparison requires signs between two such functions. No inspected broader theorem provides that comparison.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s13318-017-0430-1",
+          "https://www.mdpi.com/2072-6651/11/8/468",
+          "Web: two serial first order compartments rectangular infusion peak time duration flip-flop order Bateman formula duration inversion peak-time crossover compared rate pairs"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s13318-017-0430-1",
+        "https://doi.org/10.3390/toxins11080468 (access attempted)",
+        "Resultary delayed unequal Bateman inputs, indexed statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected comparison describes post-infusion delays from a different mechanism; the delayed-input mathematical result uses a single shared kernel and compares modality."
+        ],
+        "reasoning": "Neither implies that two distinct rate pairs exchange their ordering as a common rectangular pulse varies, nor the exact single interior crossing. Knowing each impulse peak individually does not settle that finite-duration claim.",
+        "searches": [
+          "Reijers et al., §4 and Fig. 4",
+          "Resultary: A sharp reentrant two-peak window for delayed unequal Bateman inputs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conventional two-exponential Bateman function is the same isolated impulse kernel. The indexed 2026 delayed unequal Bateman study instead perturbs the spacing of two impulses in a single response and counts its local maxima."
+        ],
+        "reasoning": "A rectangular pulse averages time translates of the impulse kernel; the distinct claim compares the peak locations of two kernels under the same duration, not the number of maxima of one two-impulse sum.",
+        "searches": [
+          "Resultary: Bateman finite rectangular pulse duration peak lag inversion crossover delayed unequal inputs",
+          "Web: two serial first order compartments rectangular infusion peak time duration flip-flop order Bateman formula duration inversion peak-time crossover compared rate pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reijers et al. Table 1 catalogs observed delays, not exact rank-switch thresholds in the abstract model; the related indexed Bateman record gives a different threshold in an input-delay parameter."
+        ],
+        "reasoning": "The cubic boundary belongs to exact constant-coefficient filters, not to an empirical table of delays. Exact priority for the rate-pair example remains qualified.",
+        "searches": [
+          "Resultary: Bateman finite rectangular pulse duration peak lag inversion crossover delayed unequal inputs",
+          "Reijers et al., Table 1 and accompanying introduction"
+        ]
+      },
+      "rationale": "Qualified finding for the open-family two-response rank reversal and the exact one-crossing witness. The impulse response is classical, and single-response lag and inversion are elementary consequences; priority for those ingredients is not established by this review.",
+      "residual_risks": [
+        "Single-kernel timing is a direct Bateman deduction and may be explicitly tabulated in kinetics sources.",
+        "A more general comparison theorem could contain the two-pair phenomenon; the literature search is bounded, and a targeted ancillary query was unavailable, not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related motivation, not the ideal linear-filter ordering result",
+          "evidence": [
+            "§4 treats adsorption, spatial gradients and subsequent release; Fig. 4 is schematic, not a two-rate exact lag or ranking theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13318-017-0430-1",
+          "material_read": "Open full-text introduction, methods/results and discussion through conclusion, especially Fig. 4",
+          "method": "Read publisher HTML and compared mechanisms and quantifiers",
+          "title": "Potential Influence of Endothelial Adsorption on the Delayed Time to Maximum Concentration of Biopharmaceuticals",
+          "trigger": "Possible earlier post-shutoff peak explanation"
+        },
+        {
+          "assessment": "Not independently excluded on full text",
+          "evidence": [
+            "The submitted citation is an empirical uptake/depuration article; full-text comparison was unavailable by the attempted route."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/toxins11080468",
+          "material_read": "Frozen bibliographic and scope evidence only; journal HTML returned 403 in this review",
+          "method": "Direct legitimate journal access attempted",
+          "title": "Paralytic Shellfish Toxin Uptake, Assimilation, Depuration, and Transformation in the Southeast Asian Green-Lipped Mussel",
+          "trigger": "Primary empirical motivation"
+        },
+        {
+          "assessment": "Different input and output question",
+          "evidence": [
+            "The indexed threshold varies the delay and relative magnitude of two impulses within one system."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9",
+          "material_read": "Indexed statement, not full proof",
+          "method": "Resultary and hypothesis comparison",
+          "title": "A sharp reentrant two-peak window for delayed unequal Bateman inputs",
+          "trigger": "Nearby exact comparison in the Bateman model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The robust ordering reversal bears on whether peak timing can give a fixed ordering of even two ideal linear responses. A single exact crossing gives a complete witness rather than an isolated computed example, and the inverse sensitivity states when timing loses resolving power. These are mathematical statements only, without field validation or practical exposure conclusions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

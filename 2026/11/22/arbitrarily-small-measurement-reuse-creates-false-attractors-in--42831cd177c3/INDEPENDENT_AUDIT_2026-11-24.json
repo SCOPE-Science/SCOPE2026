@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:06:06.587513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x>0 the singleton winner is negative only on the all-negative candidate outcome; reflection gives the negative half-line and uniform ties give mean zero at x=0. Conditioning on the common stored winner makes queries independent with means pS and variances 1-p². Thus different queries have unconditional covariance p² Var(S|x), which gives exactly the claimed average variance and the nonzero limiting floor. On x>0 and x<0, the mean update contracts to the respective ±μ without crossing zero for fixed 0<η≤1; zero also remains a mean equilibrium by the tie rule. For the pathwise claim let τ be first entry into the nonpositive half-line. The squared distance from μ, stopped at τ, satisfies the stated conditional drift because (1−η)²≤1−η and the centered bounded response has conditional variance ≤1, including the crossing step. At a crossing the stopped squared distance is ≥μ², whereas its expected value is bounded by the accumulated squares of the steps. This gives P(τ<∞)≤π²/96. Adding the tail sum of squared steps gives a nonnegative supermartingale with summable expected accumulated drift. On no exit the squared error has a limit, and divergence of the step sum forces it to be zero. The same argument without stopping proves the p=0 case. The positive-reuse bound requires the stated start and p-dependent schedule; it is not an all-starts or exact-basin assertion. Read RESULT.md §§1–4 of the proof, VERIFICATION.md, and verify.py as text. The supplied finite rational checks cover moments, not the infinite pathwise conclusion; the latter was checked analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shvaiko–Rebrova explicitly explain the preferential acceptance of noise that reduces residuals; fresh queries decouple update noise from screening.",
+          "Battaglia et al. reserve observation j=0 for the update and use observations j=1,…,D to form the quantile, in sparse corruption models."
+        ],
+        "reasoning": "Qualitative bias and independent querying are not original. The inspected error-horizon and streaming analyses do not apply to per-query partial reuse of one common screened noisy winner in the dense Rademacher oracle.",
+        "searches": [
+          "arXiv:2611.21926v1, introduction and Sample2",
+          "arXiv:2608.27968v1, streaming setup and Algorithm 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary, including 2de8a4971907",
+        "arXiv:2611.21926v1",
+        "arXiv:2608.27968v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint law uses one latent S across all update queries, giving covariance p²(1−κ_m²) for different queries when x≠0. The convergence proof uses a stopped process about μ in a single basin, not unit-step sign persistence."
+        ],
+        "reasoning": "The elementary total-variance and martingale tools are standard, but neither endpoint second moments, sign persistence, nor independent-refresh analyses imply the partial-reuse process or its validated pathwise bound as a specialization.",
+        "searches": [
+          "Direct comparison of 2de8a4971907 h=1, Shvaiko–Rebrova Sample2, and Battaglia et al. Algorithm 1 with frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct same-day scalar record retains h smallest residuals; at h=1 its cached winner is the same observation as this record's p=1 endpoint. Its exact unit-step squared errors at h=1 are 1 (cached) and 1/s (fresh) for its odd-s regime."
+        ],
+        "reasoning": "This is an actual reduction at the endpoints, not merely a similar application. Neither endpoint law represents the intermediate joint-query dependence or the decreasing-step pathwise result.",
+        "searches": [
+          "Local Resultary semantic search: winner-screened scalar Kaczmarz, cached/fresh Rademacher queries, selection floor and wrong limit",
+          "Resultary 2026/11/22/SCOPE-exact-noise-selection-floor-and-exponential-sign-persistence-in--2de8a4971907"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby indexed record gives exact endpoint second moments and a unit-step sign-persistence result for its cached variant; the search also returned the identical assigned entry, which is not distinct coverage."
+        ],
+        "reasoning": "The endpoint identities need to be credited rather than counted as new. This is a parameterized law and an infinite-time convergence bound, not a lookup of numerical constants; the relevant exact indexed formulas do not identify the interior-p law or harmonic-step limit.",
+        "searches": [
+          "Local Resultary search for exact scalar cached/fresh selection floors and sign persistence; same-day overlap checked in RESULT.md, offsets 0–6923"
+        ]
+      },
+      "rationale": "Credit prior qualitative selection bias, independent refresh, and exact scalar cached/fresh endpoints. The supported distinction is the common-winner mixed-reuse conditional law for every stated batch size and the explicit high-probability wrong limit for arbitrarily small positive reuse, neither covered by the compared models or their theorems. No within-day priority or universal novelty is inferred.",
+      "residual_risks": [
+        "The catalogue date does not establish precedence between the two same-day records.",
+        "Earlier citations [12,13] in Shvaiko–Rebrova on the already credited qualitative effect were not independently inspected; unindexed exact or pathwise antecedents remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material endpoint and model overlap, not the mixed-reuse decreasing-step theorem",
+          "evidence": "Unit-step cached E[X²]=1/s+(1−1/s)a_{m,h}; fresh E[X²]=1/s. At h=1 the cached mean square is 1, but the exact formulas are not for Bernoulli partial reuse.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-noise-selection-floor-and-exponential-sign-persistence-in--2de8a4971907",
+          "material_read": "RESULT.md, offsets 0–3748 and 3748–6923; setup, moment identity, and sign-persistence claim",
+          "method": "Local Resultary mirror",
+          "title": "Exact noise selection floor and exponential sign persistence (scalar cached/fresh record)",
+          "trigger": "Strongest exact scalar overlap and distinct same-day entry"
+        },
+        {
+          "assessment": "Covers the mechanism and independent refresh, not the claimed conditional interpolation or false-limit bound",
+          "evidence": "Residual selection favors noise that shrinks the residual; updates are re-queried so repeated rows provide independent observations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.21926",
+          "material_read": "PDF p. 2 introduction and p. 6 Sample2 passage (offsets 3995 and 16621)",
+          "method": "Primary OA PDF, bounded passage reading",
+          "title": "Beyond the error horizon: averaged quantile Kaczmarz methods for corrupted and noisy linear systems",
+          "trigger": "Prior qualitative selection bias and remedy"
+        },
+        {
+          "assessment": "Different oracle and noise hypotheses",
+          "evidence": "Measurement j=0 supplies the update, separately from j=1,…,D quantile observations; sparse Massart/oblivious corruption is not the dense winner-reuse model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.27968",
+          "material_read": "PDF p. 3 setup and pp. 4–5 Algorithm 1 (offsets 7934, 17259, 17813)",
+          "method": "Primary OA PDF, bounded passage reading",
+          "title": "Quantile Randomized Kaczmarz for Streaming Linear Systems with Massart Noise",
+          "trigger": "Motivating streaming quantile method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a useful sharply controlled independence counterexample: a shared screened response gives a residual variance even as the query batch becomes large, and the mean bias yields a wrong stochastic limit with uniformly positive, quantified probability under a valid decreasing-step schedule. It shows a failure of consistency, not just an error bound or a biased single update. The exact frontier is specific to a scalar dense-noise winner oracle and the pathwise statement does not transfer to standard streaming quantile Kaczmarz.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:42:59.391869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–107, 109–231",
+        "AIMS Mathematics 5 (2020) 7548–7561: Eq. (2.1), (2.2), (2.4), statement (i), Thm. 4.1",
+        "VERIFICATION.md and verify.py inspected; script not executed"
+      ],
+      "rationale": "Verified the motivating publisher PDF: Eq. (2.1) is the frozen vector field; Eq. (2.4) prints MB/[μ(B+μ)]; statement (i) on p. 7551 rules out positive equilibria below one; Thm. 4.1 makes a global stability claim for the same regime and system. For the actual vector field the infected linear equation at E0 has coefficient MK-(μ+η), with K=B/η; the other eigenvalues are -η and -(α+η). Away from the threshold the invasion condition is consequently governed by K/a, a=(μ+η)/M, not by the printed expression. At equilibrium N=S+I+R=K, and the last two equations for I>0 give S=a/(1+γI) and R=(c-1)I. Thus the quadratic in the finding is necessary and sufficient for positive endemic equilibria. For a>K its product of roots is positive; positive real roots also require Kγ>c. The discriminant's roots in γ are c(√a±√(a-K))²/K² and lie on opposite sides of c/K, giving exactly the asserted positive-root counts. At the witness, the endemic quadratic is proportional to (6I-1)(5I-2), yielding the two positive states and both ratios 1/2. In (N,I,R) coordinates -η splits off. At an endemic point the remaining block has upper row ((μ+η)γI/(1+γI)-v,-v), with v=MI(1+γI), and lower row (μ,-(α+η)). At I=1/6 its trace/determinant are -43/36 and -42/36; at I=2/5 they are -12/5 and 14/5. Hence the lower endemic point is a saddle and the upper one a sink, coexisting with the sink E0. The positive endemic states are admissible equilibrium initial conditions, refuting both printed subthreshold claims on their stated domain.",
+      "residual_risks": [
+        "Positive-root counts in the full subthreshold regime do not by themselves classify stability for all parameters, or prove a global phase portrait. The stability witness was checked exactly using trace and determinant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited titles and frozen comparison locate earlier convex-incidence SEIR and nonlinear-incidence SEIRS backward bifurcation work; no exact previous coefficient identification for this vector field was verified.",
+          "The former full text was not retrieved on lawful routes; no decisive primary passage was obtained from the latter either."
+        ],
+        "reasoning": "The general phenomenon is antecedent; an existence result for backward bifurcation in another compartmental system does not mechanically determine the positive-root boundary or witness for the printed model. Unavailable text is not evidence of noncoverage.",
+        "searches": [
+          "Buonomo–Lacitignola (2008), DOI 10.1007/s11587-008-0039-4",
+          "Chinviriyasit–Janreung–Chinviriyasit (2018), WSEAS Transactions on Systems 17, 221–227",
+          "Targeted primary search on convex-incidence SIR subthreshold bistability, motivating DOI and earlier nonlinear-incidence models"
+        ]
+      },
+      "checked_sources": [
+        "ud Din et al. (2020), Eqs. (1.2), (2.1)–(2.4), (i), Thm. 4.1",
+        "Resultary 6e8f848e6da8 and 415d6a0fff62",
+        "RESULT.md lines 249–269 and reported access limits for earlier work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Statement (i) says that System (2.1) has no positive equilibrium if R0<1. Thm. 4.1 asserts global asymptotic stability when R0<1.",
+          "The test at equal below-one ratios gives a positive equilibrium and an open local basin of an endemic sink."
+        ],
+        "reasoning": "A conventional local invasion threshold and earlier bistability examples supply tools or precedent, not this source-specific falsification and threshold for positive roots. The published claims do not imply the correction; they are incompatible with the verified witness.",
+        "searches": [
+          "ud Din et al. p. 7551 statement (i) and p. 7556 Thm. 4.1; Resultary 6e8f848e6da8, 415d6a0fff62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The printed ODE, including recovery return and N'=B-ηN, matches the record even when viewed as an SIRS model.",
+          "At the witness the printed and true thresholds coincide; correcting the threshold's denominator does not remove the contradiction."
+        ],
+        "reasoning": "The frozen result addresses the same system, not a variant produced by relabeling parameters or changing the threshold. The original source's equilibrium and stability assertions are not equivalent coverage of the correction.",
+        "searches": [
+          "Resultary semantic lookup: convex-incidence SIR, subcritical endemic equilibria and exact bistability threshold",
+          "ud Din et al., Eqs. (1.2), (2.1)–(2.4) and Thm. 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6e8f848e6da8 proves a sharp subcritical result with stable endemic and disease-free states and an endemic saddle in an eight-compartment model with an intervention mechanism.",
+          "415d6a0fff62 classifies subcritical bistability in a two-variable SIS model with behavioral feedback."
+        ],
+        "reasoning": "They match the type of phase portrait and sharpness, but not the vector field, fold parameter or exact states. The same date of the first match does not determine priority.",
+        "searches": [
+          "Local Resultary: same-day record 6e8f848e6da8 and related record 415d6a0fff62"
+        ]
+      },
+      "rationale": "The local threshold calculation is standard linearization and convex-incidence backward bifurcation is not a new phenomenon. The distinct claim is a correction to the exact published vector field and its below-one theorems, with a sharp positive-root classification and an exact stability witness that does not depend on which threshold expression is used. The motivating article treats the same model but states opposite subthreshold results; the strongest catalog neighbors use different model mechanisms. Older nonlinear-incidence coverage was not exhaustively resolved.",
+      "residual_risks": [
+        "Earlier SIR/SIRS convex-incidence literature could contain implicit overlap; no priority claim for backward bifurcation or standard threshold derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and below-one assertions verified; exact witness contradicts the latter",
+          "evidence": "Equation (2.4) prints MB/[μ(B+μ)]. Theorem 4.1: 'The disease free equilibrium of the system (2.1) is globally asymptotically stable if R0 < 1.'",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2020/6/PDF/math-05-06-483.pdf",
+          "material_read": "pp. 7550–7551, Eqs. (1.2), (2.1)–(2.4) and statement (i); p. 7556, §4 Thm. 4.1",
+          "method": "Publisher full-text PDF passages",
+          "title": "Mathematical study of SIR epidemic model under convex incidence rate",
+          "trigger": "Same vector field, reproduction number and global theorem"
+        },
+        {
+          "assessment": "Different ODE and mechanism, no exact overlap established",
+          "evidence": "Eight compartments and a sharp intervention threshold; its equilibrium reduction does not reproduce this three-compartment convex-incidence quadratic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-recovered-vaccination-threshold-for-subcritical-endemic--6e8f848e6da8",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A sharp recovered-vaccination threshold for subcritical endemic bistability",
+          "trigger": "Same-day analogue with an endemic saddle and sink"
+        },
+        {
+          "assessment": "Structural analogy, not equivalent coverage",
+          "evidence": "A two-variable SIS–logit model with behavior feedback.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-endemic-bistability-frontier-in-an-sis-epidemic-with-preva--415d6a0fff62",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Sharp endemic bistability frontier in an SIS epidemic with prevalence-dependent behavior",
+          "trigger": "Related sharp subcritical frontier"
+        },
+        {
+          "assessment": "Potential antecedent; no negative source inference",
+          "evidence": "The record credits backward-bifurcation precedent in a different compartmental structure.",
+          "identifier_or_url": "https://doi.org/10.1007/s11587-008-0039-4",
+          "material_read": "Bibliographic identification and frozen discussion only",
+          "method": "Lawful DOI/alternate lookup without readable full text",
+          "title": "On the dynamics of an SEIR epidemic model with a convex incidence rate",
+          "trigger": "Cited earlier convex-incidence precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 38–99 and 185–245",
+        "ud Din et al. p. 7551 and Thm. 4.1"
+      ],
+      "rationale": "This corrects a published inference from a below-one threshold to global absence of endemic states. The exact example isolates the inference failure even when the printed and correct ratios agree, while the sharp general boundary explains why the example is not a numerical accident. The result is a specific mathematical correction, not a claim about a real pathogen or intervention.",
+      "residual_risks": [
+        "The witness gives local bistability, not a fully classified basin or phase portrait."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

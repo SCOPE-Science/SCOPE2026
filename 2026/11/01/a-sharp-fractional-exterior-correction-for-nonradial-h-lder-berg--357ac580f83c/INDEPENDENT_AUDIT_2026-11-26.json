@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:10:03.814875Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md equations (4)–(8) and Steps 4–5",
+        "VERIFICATION.md lines 19–31, verify.py and requirements.txt"
+      ],
+      "rationale": "With the inner product linear in its first slot, the conjugate angular mode gives the sole lower off-diagonal moment 2ε B(2n+2,1+α+iτ); all diagonals are unchanged. Projection of z^n onto the lower-degree space is therefore entirely in the q_(n−1) direction. For monic norms the exact recursion t_n=1−n(n+1)|γ_n|²/t_(n−1), t_n=(n+1)h_n, and the lower bound t_n≥1−2|ε| give the quadratic leading-coefficient term with positive sign. The gamma quotient gives a_n=γ_n/h_(n−1)=A n^(−α−iτ)(1+O(n^−1+n^−(2α))). On the full exterior |1/z|≤1 and a_n→0, so the monic ratio recursion is uniformly bounded and one substitution gives the −a_n/z term with O(n^−(2α)) error. The full replacement error in Step 4 is O(n^(−α−1)+n^(−3α)), not in general just O(n^(−α−1)); both terms are absorbed by the proved remainder. Homogeneity and boundedness of (1−t^(α−iτ))/(1−t)^α on [0,1) give the Hölder extension. Gamma has no zeros, and for τ≠0 rounding exp((2πm+θ)/|τ|) gives subsequences approaching every prescribed phase; τ=0 gives the single stated limit.",
+      "residual_risks": [
+        "The frozen mpmath checks were read, not rerun. They test only α=0.6, τ=1.2, ε=0.2 and selected degrees; the independent analytic check, not the recorded numerical output, supports the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hübner Theorem A gives O(N^−β) for β<α on exterior sets separated from the boundary; for regularity index 0 the stated bound on sets meeting the boundary has a half-power loss. Theorem B concerns a truncated collar approximation.",
+          "Hedenmalm–Wennman Theorem 1.2.1 gives all-order expansions with a fixed real-analytic weight; that hypothesis fails at |z|=1 here."
+        ],
+        "reasoning": "The finite-regularity theorem covers the leading factor in its applicable region but not the endpoint coefficients or the oscillatory law. The stronger analytic expansion does not cover the weight.",
+        "searches": [
+          "arXiv:2610.24693v1",
+          "arXiv:2008.02682"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24693v1",
+        "arXiv:2008.02682",
+        "Resultary 621f7dc1f9a4, f1ae47df49e7, df4c40ade7c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An O(n^−β) error for each β<α is compatible with an identically zero error or with nonzero n^−α oscillations and does not give the quadratic coefficient of κ_n.",
+          "The exact gamma phase follows from the conjugate angular Fourier mode and the beta moment of this particular area weight; the circle tridiagonal calculation does not have that moment."
+        ],
+        "reasoning": "Known tools and the leading factor are credited. None of the inspected results already gives the claimed law by specialization.",
+        "searches": [
+          "Hübner Theorems A and B",
+          "Hedenmalm–Wennman Theorem 1.2.1",
+          "Resultary 621f7dc1f9a4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 621f7dc1f9a4 and f1ae47df49e7 concern circle Sobolev inner products, not a fixed disk area measure; df4c40ade7c8 concerns radial Bergman kernel coefficients.",
+          "The first subleading monic coefficient is −γ_n/h_(n−1), with a complex gamma amplitude. Neither Hübner theorem specifies that coefficient."
+        ],
+        "reasoning": "Compared exterior-ratio, near-diagonal moment and leading-coefficient descriptions, rather than just the name of the polynomial family. The related formulas use different inner products or do not resolve the coefficient.",
+        "searches": [
+          "Published Resultary: one-harmonic tridiagonal Gram orthogonalization, exterior correction and oscillatory Bergman disk weights",
+          "Hübner arXiv:2610.24693v1, Theorems A and B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest explicit exterior and normalization records are for circle Sobolev models; the closest oscillatory disk record treats a Bergman kernel rather than the first two coefficients of a planar orthogonal polynomial."
+        ],
+        "reasoning": "There is no parameter-free finite sequence at issue: the exact-data comparison is for the joint complex amplitude and normalization response as functions of continuous parameters. The inspected explicit formulas do not give those data.",
+        "searches": [
+          "Published Resultary: 621f7dc1f9a4, f1ae47df49e7, df4c40ade7c8"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp explicit endpoint correction, quadratic normalization and phase cluster law for a positive one-mode Hölder area weight, not the known leading Bergman asymptotic, the beta integral or the tridiagonal method.",
+      "residual_risks": [
+        "The focused public search returned no results, which is not evidence of absence. Older specialized area-orthogonality or banded-moment calculations could contain an equivalent explicit expansion; the classical Suetin monograph was not independently assessed at statement level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers leading asymptotic, not the explicit correction",
+          "evidence": "For κ=0, β<α, Theorem A distinguishes O(N^−β) off the boundary from O(N^(1/2−β)) at the boundary; the collar theorem does not give A.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24693v1",
+          "material_read": "Theorems A and B, HTML offset 10400",
+          "method": "Compared weight class, uniformity region, boundary loss and stated remainders",
+          "title": "Asymptotics of Weighted Bergman Polynomials under Finite Regularity",
+          "trigger": "Same positive Hölder Bergman class"
+        },
+        {
+          "assessment": "Inapplicable",
+          "evidence": "Real-analytic boundary and real-analytic weight required; a constant trace does not make this weight real analytic.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.02682",
+          "material_read": "Abstract and Theorem 1.2.1, PDF pp. 1–2",
+          "method": "Matched regularity and checked applicability at the circle",
+          "title": "Riemann–Hilbert hierarchies for hard edge planar orthogonal polynomials",
+          "trigger": "Stronger all-order exterior asymptotic"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Circle Sobolev rather than planar area orthogonality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-frequency-linear-boundary-correction-for-balanced-sobolev-orth--621f7dc1f9a4/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Compared the defining inner product and the norm correction",
+          "title": "A frequency-linear boundary correction for balanced Sobolev orthogonal polynomials",
+          "trigger": "Single angular harmonic and tridiagonal Gram calculation"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Degree-dependent circle Sobolev inner product with a 1/n correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-critical-sobolev-circle-polynomials-an-effective-weight-limit-an--f1ae47df49e7/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Compared scaling of weight and correction",
+          "title": "Critical Sobolev circle polynomials: an effective-weight limit and exterior correction",
+          "trigger": "Explicit exterior polynomial correction"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Radial measure and Bergman kernel coefficients, not the exterior polynomial response to a nonradial weight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-order-two-gevrey-smoothing-by-an-oscillatory-positive-radi--df4c40ade7c8/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Compared the coefficients and angular dependence",
+          "title": "Sharp order-two Gevrey smoothing by an oscillatory positive radial weight",
+          "trigger": "Oscillatory disk weight with Bergman coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(3)",
+        "arXiv:2610.24693v1 Theorem A"
+      ],
+      "rationale": "The example gives an actual obstruction to improving the rate to little-o(n^−α) from Hölder regularity and constant boundary trace alone, even at a single fixed exterior point. The separation of the leading-coefficient and exterior scales, and the optional phase oscillation, give a benchmark for endpoint claims that a generic rate estimate cannot supply.",
+      "residual_risks": [
+        "One model weight only: this does not prove an endpoint upper bound for all Hölder weights or all domains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

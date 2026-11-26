@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:14:57.086874Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently eliminate lower rows to normalize the stable age vector by w_1=1. Then lambda=sum_j f_j w_j(lambda); implicit differentiation gives G_j=w_j/(1-sum_i f_i w_i'), a common positive denominator (the weights are nonincreasing functions of lambda>t). The lower-row multipliers are s_j/lambda through class n-1, and s_(n-1)/(lambda-t) at the terminal step, giving strict nonterminal descent in the stated growth regime and exactly the reported tail-product ratio. For terminal-only fertility F=lambda/w_n(lambda) increases strictly. The h_j used to compare ranks increase from 1-t to infinity on [1,infinity); equality P_j=1-t reaches replacement only. Eligible indices form a suffix, and at a crossing with j the terminal value is strictly above j+1, so that next crossing must occur later. This includes t=0 (no growing-regime crossing) and survival entries equal to one (crossings remain distinct). An independent scalar bisection reproduces the three growth and fertility crossings in the four-class example. Inspected but did not execute the frozen checker; the proof is symbolic. Absolute sensitivities and not elasticities are ranked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general matrix perturbation formula yields the pointwise ratio on substitution in the lower-row equations. The inspected elasticity equations have entry-dependent factors and do not announce a pathwise absolute rank classification.",
+          "Bounded lawful retrieval of the 2022 and 1994 texts did not provide their full results sections."
+        ],
+        "reasoning": "Do not credit pointwise computation from general perturbation theory as new. No inspected broader theorem supplies the full terminal crossings on a positive-growth fertility path and the condition for obtaining every rank.",
+        "searches": [
+          "Giaimo–Traulsen 2021, Applying symmetries of elasticities in matrix population models, Eq. (1)–(2)",
+          "Giaimo–Traulsen 2022, Age-specific sensitivity analysis for stage-classified populations",
+          "Kirkland–Neumann 1994, Convexity and concavity of the Perron root and vector of Leslie matrices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Local Resultary/stated exact match 3a4af79a9af0",
+        "Carslake et al. 2009 institutional manuscript, sensitivity section and Tables 2–3",
+        "Giaimo and Traulsen 2021 Eq. (1)–(2)",
+        "Bounded lawful access attempts for Giaimo–Traulsen 2022 and Kirkland–Neumann 1994"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "S2 was reported from simulations and omits terminal class. Strictness under s_i<=1<lambda and the terminal ratio follow directly from known sensitivity theory.",
+          "The further uniform classification compares each h_j at replacement, proves one-way separated crossings on a specified family, and characterizes attainable terminal ranks jointly, including ties and excluded crossings."
+        ],
+        "reasoning": "The ingredients are standard and the deduction is short. The supported contribution is the completed terminal-case classification, not a new sensitivity theory or the basic coordinate calculation.",
+        "searches": [
+          "Carslake 2009, printed p. 7 and Table 2",
+          "Giaimo–Traulsen 2021, Eq. (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fertility-entry sensitivity is recruitment-entry sensitivity at row one. Carslake's S2 is non-strict and restricted to l<n.",
+          "Giaimo–Traulsen Eq. (1) makes absolute ranks exactly the stable age-vector coordinate ranks; Eq. (2) adds f_j/lambda when comparing elasticities."
+        ],
+        "reasoning": "Relabeling fertility as recruitment or converting to right-Perron coordinates does not create novelty. The open comparison in S2 is with the last age, not another name for nonterminal monotonicity. Elasticity rankings are not equivalent.",
+        "searches": [
+          "Carslake–Townley–Hodgson 2009, Constraints on sensitivity and Table 2",
+          "Giaimo–Traulsen 2021, Eq. (1)–(2)",
+          "Resultary semantic lookup: terminal Leslie-plus fertility/recruitment sensitivities and rank crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the identical frozen record 3a4af79a9af0; the local RESULT.md Finding matches it. It is not an independent antecedent.",
+          "Table 2 states S2 as the nonincreasing rule for growing populations with later index l<n; it gives no terminal ranks or crossings. Table 3 tables elasticities instead."
+        ],
+        "reasoning": "The nearest actual table stops just before the terminal comparison. The matching catalogue entry is the same evidence, not a second result or priority evidence.",
+        "searches": [
+          "Local Resultary: terminal fecundity sensitivity staircase; recruitment sensitivity rank Leslie plus",
+          "Carslake 2009 Table 2 (S2), Table 3 (elasticities)"
+        ]
+      },
+      "rationale": "Pass is limited to the explicit complete terminal-rank staircase and its all-ranks criterion, not the left/right Perron formula, the stable-age recurrence, or priority for the nonterminal ordering. The strongest inspected same-model rule stops at the penultimate class. The standard formula immediately gives the pointwise comparison, but the inspected work does not give the complete sequence of eligible and ordered crossings on a fertility path or the criterion for traversing all strict ranks.",
+      "residual_risks": [
+        "Older plus-group or stage-classification treatments may explicitly rank the terminal class or derive the full crossings. Access limits on the 1994 and 2022 works leave that risk open.",
+        "Standard matrix sensitivity and stable-age facts are not novel; the explicit completed classification is the only separately credited advance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage",
+          "evidence": "The discussion explicitly stops at the penultimate age and says S2 had not to their knowledge been proved. Table 2 writes lambda_max>1 and l<n.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/3104/1/WRAP_Carslake_300410-carslake_et_al_2009_post-print.pdf",
+          "material_read": "Constraints on sensitivity (OA offset 16430; PDF p. 8) and Tables 2–3 boundary (offset 50650; PDF p. 17)",
+          "method": "Lawful institutional manuscript; bounded primary passages read",
+          "title": "Patterns and rules for sensitivity and elasticity in population projection matrices",
+          "trigger": "Same growing Leslie-plus model and absolute sensitivity ranking"
+        },
+        {
+          "assessment": "Standard formula covers the pointwise evaluation, not a stated terminal rank staircase",
+          "evidence": "Entry sensitivity is v_i u_j/(v^T u); elasticity multiplies this by the corresponding matrix entry divided by lambda.",
+          "identifier_or_url": "https://doi.org/10.1007/s12080-021-00513-x",
+          "material_read": "Eq. (1)–(2), p. 360 (OA PDF p. 2)",
+          "method": "Primary OA equation passage",
+          "title": "Applying symmetries of elasticities in matrix population models",
+          "trigger": "General sensitivity/elasticity formulas and prior structural rules"
+        },
+        {
+          "assessment": "Identical frozen record; not separate coverage",
+          "evidence": "Same strict nonterminal ordering and P_1>1-t criterion for the terminal-only staircase.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-terminal-fecundity-sensitivity-staircase-in-plus-class-p--3a4af79a9af0",
+          "material_read": "Local mirror RESULT.md Finding, offset 283",
+          "method": "Local catalogue and article mirror",
+          "title": "A sharp terminal-fecundity sensitivity staircase in plus-class population matrices",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; not negative evidence",
+          "evidence": "No statement-level inference based on failure to retrieve.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.9561",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Bounded lawful OA retrieval (HTTP 403)",
+          "title": "Age-specific sensitivity analysis of stable, stochastic and transient growth for stage-classified populations",
+          "trigger": "Potential broader age-specific theory"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; not negative evidence",
+          "evidence": "No statement-level inference based on failure to retrieve.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479893249228",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Bounded lawful OA retrieval (HTTP 403)",
+          "title": "Convexity and concavity of the Perron root and vector of Leslie matrices with applications to a population model",
+          "trigger": "Potential stronger Perron-vector monotonicity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A modest structural contribution: S2 identifies a real missing terminal comparison in a standard demographic model. The criterion distinguishes fixed-survival populations whose adult plus class can pass every absolute-sensitivity rank from those where some ranks are structurally impossible. It gives all threshold and tie conditions rather than only recomputing a sensitivity or naming an example. Its use is to interpret the terminal exception and diagnose crossings in the stated one-parameter family, not to recommend conservation interventions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

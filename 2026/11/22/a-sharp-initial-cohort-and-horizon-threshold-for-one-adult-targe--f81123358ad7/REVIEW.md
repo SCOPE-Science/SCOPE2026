@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The pulse changes only adult survival, so exact integration reduces the objective to maximizing \(A(s)H(T-s)\). The derivative identity and monotonic comparison of \(D(s)\) prove existence, uniqueness and a complete if-and-only-if boundary including equality. The formal zero-depletion comparison establishes the strict half-horizon bound for the positive-depletion model. The standard-library numerical checker corroborated the exact example and tested 300 seeded parameter sets (25,556 assertions). Tests are not substitutes for the proof.
+## correctness
 
-## Originality
-**PASS on inspected evidence; historical priority provisional.** The 2024 Kummer study analyzes adulticide time-of-day and epidemic simulations, not this one-pulse cumulative linear-cohort theorem. The 2018 Barclay study treats repeated spraying and terminal knockdown, not the exact initial-cohort threshold. The 2022 Agusto work develops necessary conditions in a higher-dimensional epidemic impulsive-control system rather than the all-parameter closed timing law. Related mathematical population-control results concern different intervention maps and objectives. Analytic simplification is elementary once the model is posed, and may be implicitly obtainable through general linear impulse-control theory; independent historical verification remains necessary.
+PASS
 
-## Value
-**PASS.** The exact dose-independent transition distinguishes wasting a transient adult-only treatment on the initial adult stock from waiting for protected immatures to emerge. It gives a complete benchmark, a sharp horizon threshold, and a strict pre-midpoint bound for the timing problem that simulation papers typically treat by scenarios. A two-stage idealization cannot replace operational mosquito-control studies or epidemiological optimization.
+After the intervention, the difference from the untreated adult cohort is exactly qA(s) exp[-μ(t-s)]; recruitment is unchanged. Thus the unique optimum is sought by maximizing A(s)H(T-s), with positive q an overall factor, and the derivative has the sign of H(T-s)-D(s), where D=A(s)/(βL_0 exp(-αs)). The explicit D in the result satisfies D'=exp[(α-μ)s][1+(α-μ)a]. In the delayed regime this is positive, including α<μ because a<H(T)<1/μ. The difference starts positive and ends negative, so the unique crossing is the strictly optimal interior time. If a≥H(T) and α≥μ, then D≥a. If α<μ, then D is a convex combination of a and 1/(μ-α)>H(T); in both cases the derivative is negative for s>0, also at threshold equality. At s=T/2 the integral term in D strictly exceeds H(s) for α>0, giving the strict half-horizon bound directly. The sign of the same crossing equation gives the stated strict a, α and T comparisons while interior. At α=0 the equation reduces to exp(2μs)=exp(μT)(1-μa); this is a formal constant-source limit, not the positive-loss cohort theorem. Solving a<H(T) gives all three horizon cases. An independent numerical evaluation of the equal-rate example gave s=0.5624831767 and a benefit ratio of 1.9155763157. VERIFICATION.md and impulse_benchmark.py were inspected; python3 impulse_benchmark.py is the optional frozen calculation path.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The finite declining cohort, sharp initial-cohort and horizon boundary, strict uniqueness and α-dependence are not covered by the inspected simulation, numerical impulse-control, or constant-source timing results. Linear dependence on a fixed fractional impulse is standard linear superposition; it is not new in isolation. Historical priority for the joint classification remains provisional.
+
+## value
+
+PASS
+
+The theorem identifies when protecting a recruiting cohort actually changes the timing choice and gives a strict bound and comparative statics across the entire idealized finite-horizon problem. It is a useful exact benchmark for more complex control models; it neither recommends a field schedule nor identifies an epidemic or operational optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

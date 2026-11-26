@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:25.787038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exterior-to-circle reduction follows by applying maximum modulus to the scalar matrix coefficients of (z−1)(zI−T_q)^−1; its limit at infinity is I, whereas its norm at −1 exceeds 1 for every q<1. Independently, for 0<q<1 put x=(1−q)/|z−q| on the circle and let b=(sqrt(4+x²)+x)/2 be the triangular singular norm. Since x=b−1/b, q times the squared boundary objective is b²(1−x²)=5/4−(b²−3/2)². As x increases through [(1−q)/(1+q),1], b increases, so the optimal point is the endpoint or x=1/sqrt(6), with the stated transition. The endpoint produces the first branch (also directly valid at q=0); the interior produces sqrt(5)/(2sqrt(q)) and |z−1|²=5(1−q)²/q. At the transition this distance squared is 4 and its derivative in q is −5(q_*^−2−1). Since 4−|e^{iθ}−1|² is asymptotic to (π−θ)², this gives both the exponent and the coefficient of angular splitting. Norm convergence T_q→I and the identity resolvent give the stated jump. The exact replay is the completed-square identity above together with the circle relation in RESULT.md lines 64–71; verify_ritt.py was inspected but not run, and its numerical samples are not the continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borichev–Gomilko–Tomilov relate the Ritt property to a Hardy–Sobolev calculus and give power-defect criteria and tangential spectrum obstructions.",
+          "Schwenninger gives functional calculus estimates depending on the Tadmor–Ritt constant."
+        ],
+        "reasoning": "These broader results take finiteness or the magnitude of a resolvent-bound constant as a property or input, and the inspected statements do not yield the optimal constant and boundary angles for the Jordan path.",
+        "searches": [
+          "arXiv:2607.10507v1, abstract and §6",
+          "arXiv:1507.00049"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: affine Jordan pencil 00a25760cd57",
+        "arXiv:2607.10507v1",
+        "arXiv:1507.00049"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard triangular norm and the indexed pencil calculation share algebra with the resolvent problem, but the actual weighted boundary objective must select x in [(1−q)/(1+q),1].",
+          "The inspected general estimates do not select this interval's optimizer or give equality at it."
+        ],
+        "reasoning": "The decisive new comparison is between an interior singular-norm optimizer and a q-dependent boundary constraint. Neither the prior pencil minimum nor the general norm estimates mechanically yield that constrained maximum.",
+        "searches": [
+          "Mirrored RESULT.md of the 00a25760cd57 affine Jordan finding",
+          "arXiv:2607.10507v1, pp. 3 and 47–50",
+          "arXiv:1507.00049, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed pencil uses (1−λ)I+λJ_n; T_q is its n=2 slice λ=1−q. The indexed result minimizes the pencil norm over complex λ, with minimizer (n+1)/(2n+1).",
+          "The arXiv paper defines the same exterior resolvent supremum but treats the qualitative Ritt property."
+        ],
+        "reasoning": "The frozen objective contains the pencil norm at a z-dependent complex argument and an additional scalar factor. Its feasible curve and weighted maximum are different from the prior unrestricted minimum.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57",
+          "arXiv:2607.10507v1, Ritt resolvent definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed finding supplies γ_2=4/5 for the pencil minimization; it does not list a two-branch resolvent value or the angular transition."
+        ],
+        "reasoning": "The indexed exact constant belongs to a different optimization. The target is a continuous parameter-dependent analytic invariant rather than a tabulated finite graph or finite sequence; the bounded index check is not proof of absence.",
+        "searches": [
+          "Local Resultary index for exact Ritt constants, Jordan pencils and angular transition",
+          "Resultary: 2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57"
+        ]
+      },
+      "rationale": "Best of the retrieved evidence: the distinct claim is the optimal Euclidean Ritt constant on this specific path, including the change in boundary maximizers and the limiting jump. The same Jordan pencil and the general Ritt resolvent formalism are prior. The closest statements inspected neither evaluate this optimization nor imply the transition or the jump without a separate extremum calculation.",
+      "residual_risks": [
+        "An equivalent calculation in older 2×2 resolvent or pseudospectral literature may not be indexed under Ritt terminology.",
+        "The literature search is bounded; the general estimates paper was compared at its stated result, not read cover to cover."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same pencil; distinct extremal problem",
+          "evidence": "Unique pencil minimizer (n+1)/(2n+1), γ_2=4/5 and associated scaled numerical spectral-set threshold, not a z-resolvent supremum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search followed by mirror passage inspection",
+          "title": "The sharp affine Jordan norm pencil and its scaled q-spectral-set transition",
+          "trigger": "Same affine Jordan pencil and another exact threshold"
+        },
+        {
+          "assessment": "Defines the invariant; inspected results address general qualitative and sharpness questions, not this exact family calculation",
+          "evidence": "Exterior Ritt supremum on p. 3; §6 involves power-defect criteria and normal-contraction behavior on ℓ².",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10507v1",
+          "material_read": "Abstract p. 1; definition p. 3; §6 pp. 47–50",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Beurling–Kato theory, Hardy–Sobolev calculus and Ritt operators",
+          "trigger": "Primary work cited for the same Ritt invariant"
+        },
+        {
+          "assessment": "Nearby framework but no matching statement in the inspected material",
+          "evidence": "Bounds functional calculus in terms of the operator's Tadmor–Ritt constant rather than computing it for this family.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.00049",
+          "material_read": "p. 1, definition and stated direction of the estimates",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Functional calculus estimates for Tadmor–Ritt operators",
+          "trigger": "Potential sharp dependence on the same invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pencil is the straight norm-convergent path from the two-dimensional nilpotent Jordan contraction to I. Its exact resolvent norm is a meaningful sharpness benchmark, not just a sample value: the computation locates where the worst resolvent direction leaves −1, quantifies its angular motion, and gives an explicit failure of continuity at I within contractions. Useful as a finite-dimensional test for resolvent-constant estimates, without claiming a general higher-dimensional classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

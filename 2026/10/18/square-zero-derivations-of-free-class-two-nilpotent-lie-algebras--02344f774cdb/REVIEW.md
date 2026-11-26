@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every derivation has block form from arbitrary generator maps. Squaring gives three necessary-and-sufficient equations. The induced exterior action satisfies \(T_A^2(u\wedge v)=2Au\wedge Av\) when \(A^2=0\); this proves the precise characteristic restriction. Canonical Jordan bases show \(\operatorname{rank}T_A=r(n-r-1)\), and a dual-number Hom calculation yields the exact fiber dimension \(h_r\). Choosing the image, kernel, and induced isomorphism counts all permitted \(A\). Independent finite-field elimination and exhaustive enumeration of \(A\) at the tested sizes agree. No finite enumeration is treated as proof for arbitrary dimension.
+PASS
 
-## Originality
+The bracket determines the W-block T_A=(A⊗1+1⊗A) on exterior wedges and leaves B:V→W free before imposing the composition equation. From D^2=0 one needs A^2=0, T_A^2=0 and T_AB+BA=0. For square-zero A, T_A^2(u∧v)=2Au∧Av, which proves the characteristic restriction. In a basis of r length-two chains and n-2r singleton chains, the wedge between the vectors of one two-chain contributes rank zero, between two distinct two-chains contributes rank two, and between a two-chain and a singleton contributes rank one. These are disjoint wedge subspaces and give s_r. To count B, choose B(e) arbitrarily on each length-two chain e→Ae; then B(Ae)=-T_AB(e) is forced and consistent since T_A^2=0. The n-2r singleton images lie in ker T_A. Thus the exponent is rm+(n-2r)(m-s_r)=h_r. Selecting the image, then the kernel containing it, then the induced isomorphism yields exactly the Gaussian factors and |GL_r|. The degree difference to the r=0 term is zero at (n,r)=(3,1) and negative for all n>=4 and r>0: m>=2(n-1), 2(n-r)<=2(n-1), and for n=4 either r>1 or the nonnegative product (n-2r)(n-r-1) is positive. The limit follows from the leading coefficient one in each allowed summand. A bounded independent matrix calculation confirmed all stated sample totals, with A-counts (1,21), (1,104), (1,105,210) and fiber dimensions (9,5), (9,5), (24,14,12) for (n,q)=(3,2),(3,3),(4,2) respectively.
 
-**PASS under available literature and record checks; residual coverage risk remains.** Benito–Roldán-López describe the whole derivation algebra over characteristic zero but not square-zero finite-field point counts. Drensky–Fındık study automorphism groups over characteristic zero; La Rosa–Mancini cover selected Heisenberg/Leibniz algebras and exclude characteristic two. The closest identified classification and previous counts concern different endomorphism equations, different Lie algebras, or the two-generator Heisenberg boundary. In particular, counting idempotent derivations does not imply this nilpotent-stratum calculation. Completed semantic searches found no general theorem or table subsuming the rank-stratified all-\(q\) formula. An undiscovered specialization of a broader nilpotent-derivation enumeration is a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Square-zero derivations form a natural nilpotent locus in the derivation algebra of the universal class-two Lie algebra. The theorem is a complete rank distribution for every \(n\ge3\) and every finite field, not an isolated small instance. The sharp characteristic-two admissibility jump and the transition from asymptotic proportion \(1/2\) at three generators to generic central-image behavior in higher generator rank are structural consequences not provided by a generic derivation parametrization.
+The standard parametrization by generator values and the standard square-zero matrix count are ingredients. Neither counts the central fibers satisfying the Lie and square-zero equations jointly. The closest indexed same-day square-zero result treats a different Lie algebra and a different rank statistic. No equivalent earlier count was identified in the bounded searches and statement comparison.
 
-## Limitations
+## value
 
-The count is of labeled derivations, not automorphism conjugacy classes, and does not cover higher nilpotency orders. Characteristic-uniform conclusions rely on the stated exterior algebra calculation. The independent scholarly audit and wider specialized enumeration literature remain unexamined beyond the identified sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a basic free nilpotent algebra the result gives a complete finite-field count stratified by a canonical observable, the action on the abelianization. The difference between characteristic two and odd characteristic, and the exceptional limiting central-image proportion in generator dimension three, are structural consequences not apparent from counting arbitrary maps on generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

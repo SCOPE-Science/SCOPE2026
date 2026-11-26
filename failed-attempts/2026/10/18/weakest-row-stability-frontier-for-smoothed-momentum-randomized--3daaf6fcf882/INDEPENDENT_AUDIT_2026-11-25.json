@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:05:10.516165Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each coordinate the two state matrices use the Bernoulli indicator of that coordinate only; independence across coordinates is unnecessary for the expected squared norm. On symmetric matrices the resulting covariance map has the displayed three-dimensional matrix Q and preserves the PSD cone, so its spectral radius is a nonnegative real eigenvalue. At M=0 it is strictly below one. Direct expansion of det(I-Q) gives p(1-beta)F, and the quadratic has one positive zero. Continuity plus the absence of eigenvalue 1 gives subcritical stability; at the root the radius is one by continuity and singularity of I-Q. Above the root det(I-Q)<0, so the real monic characteristic polynomial has a zero >1, completing the sign argument implicit in the frozen proof. For a nonzero initial coordinate and zero velocity the time-one second-moment matrix is positive definite and dominates a positive multiple of a PSD Perron eigenmatrix. This eigenmatrix has positive error diagonal for M>0, which proves a positive lower bound at equality and exponential growth above it in that coordinate. Differentiation in p yields the weakest-row criterion, and substituting p=0 and M=1 respectively verifies the limiting root and the strict smoothing threshold. The signed-mean 2x2 Jury test is independent of this classification. Nondecay refers to not tending to zero, not monotonicity or a pathwise assertion. The frozen symbolic/path checks were read, not run, and are not needed for the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e894b5e60aeb treats every coordinate probability, not just equal-probability systems, and establishes the critical behavior and signed-mean contrast.",
+          "Alderman–Luikart–Marshall Sections 4.2.1 and 4.2.4 analyze signed means and pose critical-momentum/error questions. Bollapragada–Chen–Ward Theorem 1.3 gives a sufficient large-batch expected-norm condition for a different update. Lorenz–Winkler use adaptive Bregman momentum."
+        ],
+        "reasoning": "The arbitrary-p theorem dominates the equal-probability prior special case and covers the exact regime disputed here. Standard heavy-ball or adaptive-momentum work is not what establishes duplicate coverage.",
+        "searches": [
+          "Resultary KGSM and Kaczmarz second moments, e894b5e60aeb and f56895e7253c",
+          "arXiv:2401.09415v3; arXiv:2206.07553v5; arXiv:2307.15435v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection only)",
+        "Resultary e894b5e60aeb, e15c00248209, f56895e7253c, 8c9561013872",
+        "arXiv:2401.09415v3, arXiv:2206.07553v5, arXiv:2307.15435v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior arbitrary-p root obeys the same p=0 factorization with unique positive root 1/2 and the same M=1 substitution -p beta^2+(p+2)beta+2p-2.",
+          "e894b5e60aeb also establishes boundary nondecay, supercritical exponential growth, and signed-mean convergence distinct from the mean-square condition."
+        ],
+        "reasoning": "The rare-row limit follows by continuity of the simple positive root; the full-momentum cutoff is the quadratic formula after setting M=1. Neither requires a new stability argument or a new parameter regime.",
+        "searches": [
+          "e894b5e60aeb offsets 0–4633 and 4400–7891",
+          "e15c00248209 offsets 0–4890"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e894b5e60aeb Finding and assumptions, offsets 0–4633: independent norm-squared sampling on arbitrary invertible diagonal systems, zero initial velocity, same ranges for M and beta, threshold for each 0<p<1.",
+          "Its polynomial is 2(1-beta)^2 M^2 + (2 beta^2 p-3 beta^2+2 beta-2p+1) M + beta^2(1-p)-beta p-1, exactly -F."
+        ],
+        "reasoning": "Both choose the unique positive root. Full-system stability below the minimum of the earlier coordinate roots is precisely F(p_min,beta,M)>0 since F is nondecreasing in p for M>=0.",
+        "searches": [
+          "Resultary rare-row/worst-row geometric smoothing frontier; e894b5e60aeb",
+          "Resultary e15c00248209"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror of e894b5e60aeb, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, exposes the exact general threshold and initialization in the Finding and assumptions.",
+          "The Oct 4 record e15c00248209 is the I_2 case, f56895e7253c concerns scalar Gaussian blocks with an unnormalized heavy-ball update, and 8c9561013872 is a later specific stability reversal under row mixing."
+        ],
+        "reasoning": "This is an exact claim match in the published catalogue, determined from the displayed polynomial and scope, not from similar titles. Other catalogue hits do not supply the general overlap.",
+        "searches": [
+          "Local Resultary e894b5e60aeb, e15c00248209, f56895e7253c, 8c9561013872"
+        ]
+      },
+      "rationale": "The earlier, distinct Resultary record e894b5e60aeb states the same arbitrary-diagonal mean-square frontier for the same update, initial velocity, and parameter ranges, including failure at equality and growth above the threshold. The present polynomial is exactly the negative of its defining quadratic. The least-probability wording and two limiting formulas follow from that previously stated arbitrary-probability frontier. The equal-probability special case cited in the frozen record is not the strongest available coverage.",
+      "residual_risks": [
+        "Harvard DASH result Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities was not assessable after OA requests returned HTTP 429. No inference about its contents was used; the indexed general KGSM result is independently decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct material prior coverage",
+          "evidence": [
+            "Same arbitrary coordinate probabilities, update and ranges; only sign convention differs for the quadratic; includes convergence, nondecay, growth and signed mean."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-mean-square-stability-frontier-for-geometrically-smoothed--e894b5e60aeb/RESULT.md",
+          "material_read": "Finding, assumptions and proof/contrast passages, offsets 0–4633 and 4400–7891",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Exact mean-square stability frontier for geometrically smoothed momentum",
+          "trigger": "Exact KGSM theorem on diagonal systems"
+        },
+        {
+          "assessment": "Only p=1/2 in the passages read",
+          "evidence": [
+            "A=I_2 with uniform probability; does not limit what the subsequent general e894b5e60aeb covers."
+          ],
+          "identifier_or_url": "e15c00248209",
+          "material_read": "Finding and assumptions, offsets 0–4890",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Exact mean-square stability frontier and a signed-mean blind spot in KGSM",
+          "trigger": "Acknowledged earlier special case"
+        },
+        {
+          "assessment": "Algorithm and signed mean, not the exact second-moment frontier in the passages inspected",
+          "evidence": [
+            "Authors explicitly discuss the missing critical M and ask about absolute error and norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.09415v3",
+          "material_read": "Sections 4.2.1 and 4.2.4, offsets 68440–72019",
+          "method": "Bounded OA HTML passages",
+          "title": "Randomized Kaczmarz with geometrically smoothed momentum",
+          "trigger": "Defining algorithm and sharpness questions"
+        },
+        {
+          "assessment": "Different setup and sufficient condition",
+          "evidence": [
+            "Large minibatches and strongly convex quadratics, not fixed smoothing with single-row KGSM."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2206.07553v5",
+          "material_read": "Theorem 1.3, offsets 10930–14124",
+          "method": "Bounded OA HTML passage",
+          "title": "On the fast convergence of minibatch heavy ball momentum",
+          "trigger": "Possible general random-matrix second-moment coverage"
+        },
+        {
+          "assessment": "Different algorithm",
+          "evidence": [
+            "Adaptive coefficient in a Bregman method, not the fixed beta,M recursion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.15435v1",
+          "material_read": "Description of adaptive momentum and update domain",
+          "method": "OA HTML inspection",
+          "title": "Minimal error momentum Bregman-Kaczmarz",
+          "trigger": "Similar Kaczmarz momentum method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp arbitrary-diagonal stability classification is scientifically motivated, but is already available, including the boundary behavior. The submitted remainder is a monotone reformulation of the same condition and two direct one-parameter evaluations of the existing quadratic, not an independently useful new classification in this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

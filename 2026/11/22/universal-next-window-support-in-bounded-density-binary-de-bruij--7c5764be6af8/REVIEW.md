@@ -1,15 +1,21 @@
-# Scientific review: universal next-window support in bounded-density binary de Bruijn cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs an Eulerian overlap graph, encodes all legal consecutive-window pairings by a necklace-connection multigraph, and characterizes their realizability by whether a selected edge is a bridge. The bridge classification treats parallel edges, primitive periods, the all-zero necklace and the top-weight necklace separately. The explicit detour handles potential interior bridges. Actual independent finite bridge and Euler-transition computations passed. No finite search is asserted to prove the quantified theorem; the all-parameter proof supplies that scope.
+## correctness
 
-## Originality — PASS, qualified
-Sawada, Stevens and Williams (2011) establish existence and generation of bounded-density binary de Bruijn cycles; Sawada, Williams and Wong (2013, 2016) establish broad gluing and necklace-generation methods. A published unrestricted next-order support theorem covers \(k=n\), while a complete weight-at-most-two cycle classification covers the fixed \(k=2\) source and may imply its window support. The all-interior-weight support law and its sharp divisibility criterion were not found in those primary sources or scoped mathematical-result comparisons. Earlier equivalent work in universal-cycle adjacency remains an unresolved priority risk; no absence-of-search-result is treated as a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The theorem answers an exact, natural design question: which locally feasible length-\(n+1\) windows occur in at least one maximal-coverage bounded-weight cyclic source? The answer changes arithmetically precisely when the weight bound divides the window order. The result is an all-length structural classification, not only a small-case count. It does not count individual cycles or prescribe several transitions simultaneously.
+The length-n admissible words label the edges of a strongly connected balanced overlap digraph; append zeros to reach the zero vertex and then append the bits of any target. At a vertex of interior weight k the sole transition is forced and occurs in an Euler circuit. At weight less than k the choice is rotation or cross. All-rotation splits the edge set into necklace cycles. A switch at v transposes successors on the two rotation classes [0v],[1v]. Each tree edge joins two distinct current cycles, so spanning trees with a prescribed included or avoided edge realize respectively the cross or rotation pairing. If the edge is a bridge, switching elsewhere cannot move between the two sides in the decomposition into necklace classes, so the rotation pairing at that edge is impossible. For a weight-m necklace, downward edges are one-position orbits under its rotation stabilizer; there is a unique downward edge exactly when its primitive period contains one 1. Two downward edges give a detour via the connected lower layers, even for parallel edges. A unique downward edge at intermediate 2≤m<k is not a bridge: add a 1 immediately after an old 1 and delete that old 1, changing two cyclic gaps from d,d to d−1,d+1; deleting the new 1 from this modified necklace reaches the same lower neighbor. The all-zero necklace and the evenly spaced top layer when k divides n give exactly the stated bridges, coinciding for k=1. Each bridge forbids two rotation windows. Counting candidates by weight gives the displayed binomial formula. Independent brute enumeration of all binary successor permutations for each of the 15 pairs 1≤k≤n≤5 tested the union directly and matched the forbidden lists, including the two omissions 00 and 11 at n=k=1.
 
-## Literature and limitations
-Original bounded-density cycle construction: https://www.socs.uoguelph.ca/~sawada/papers/max_density.pdf (2011). Weight-range gluing: https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf (2013). Greedy/necklace theorem: https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p24/pdf/ (2016). Known unrestricted endpoint and fixed weight-two enumerations are ceded as antecedents. Independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existence, standard joining machinery, the unrestricted endpoint and the complete cycle parametrization for bound 2 are prior. The distinct claim is the uniform explicit classification of transitions over all weight bounds, in particular the nontrivial k<n divisibility condition in the general bound and the resulting closed support count. Known existence algorithms produce particular cycles; they do not classify which transitions can be forced or avoided over the family.
+
+## value
+
+PASS
+
+It gives a complete local-extension criterion for a standard family of constrained universal cycles: aside from the base forced transitions, precisely an evenly spaced saturated configuration creates extra exclusions and only under a divisibility condition. The bridge certificate also gives a concrete construction of a cycle realizing any one allowed transition, not just a count or an assertion that some cycles exist. This resolves a natural extension question throughout the bounded-density range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

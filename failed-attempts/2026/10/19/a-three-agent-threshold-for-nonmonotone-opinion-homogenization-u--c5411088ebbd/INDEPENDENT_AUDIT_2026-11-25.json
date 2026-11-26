@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:36:38.254016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the triangle, P=(3I+J)/6 where J is all ones. The row sums of PB are at most 5/6 with the third platform susceptibility zero, so the fixed point is attracting even at z=1. Solving the two active equations, then the third, gives y=(1-b)(8-5z,2,2-z)/D, D=12-8b-8z+5bz>=1. The three pairwise squared differences divided by 9 give population variance about its own mean. Its derivative has sign of (12-11b)z-12(1-b), giving the claimed unique interior minimum and strict sign change. Substitution confirms the minimum and both endpoint gaps; for example the frozen increase at b=3/4 is exactly 1/1274. The two-agent centered eigenvalue of P is 1-2alpha; writing y=P u and solving the two anchor equations gives the absolute gap coefficient |1-2alpha|/[1+alpha(b/(1-b)+c/(1-c))]. Squaring and dividing by 4 confirms coordinatewise nonincrease. If one susceptibility is 1 the other anchors a consensus; both 1 allow multiple equilibria, all consensuses, and the variance remains zero. One agent has variance zero. This establishes sharpness in the stated class, not with arbitrary prediction/peer rules. Inspected RESULT.md lines 27–95, verify.py, VERIFICATION.md and requirements.txt; the optional SymPy checker (>=1.12,<2) was not executed, and neither exact symbolic checking nor its finite rational regressions replace the sign and domain arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "10b839c1151d gives an exact rank-one optimum and monotone/constant/interior alternatives for general connected undirected weighted FJ graphs",
+          "1f26affbf64c exhibits ordinary variance increase with three vertices and no such increase with two in an infinite-peer-step, common-platform, heterogeneous-peer setting",
+          "Wu et al.'s variance-contraction result assumes common beta; the Shirzadi–Zehmakan path example is for a combined objective, and Abebe et al. optimize the opinion sum"
+        ],
+        "reasoning": "The different predictive-loop counterexample is conceptual overlap, not a covering theorem for one peer step. The stronger static FJ theorem matters because the parameters, observable and optimizer can all be transferred on this complete graph. The homogeneous-platform result alone could not be used for this.",
+        "searches": [
+          "Resultary 10b839c1151d and 1f26affbf64c",
+          "arXiv:2603.12137 Proposition 3, Appendix A.5 and Appendix C",
+          "arXiv:2410.22577 Section 4 and Theorem 4.3",
+          "arXiv:1801.07863 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, VERIFICATION.md and requirements.txt",
+        "Resultary 1f26affbf64c and 10b839c1151d",
+        "arXiv:2603.12137, arXiv:2410.22577 and arXiv:1801.07863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use k=(1-b)/b, t=(1-z)/z, q=4k+1. As the third stiffness tends to infinity with zero innate opinion, its coordinate vanishes, and the two retained rows give the grounded baseline M=[[k+1/3,-1/6],[-1/6,1/3]], invertible since det(M)=q/12. Thus the indexed baseline solution and resolvent column become u_0=k(4,2,0)/q and v=(2,12k+4,0)/q. All inverse and response coefficients converge by the block inverse formula.",
+          "In the indexed optimizer use g=v_2, d=-(u_0)_2, and drop the inessential common factor 3/2 in H, i.e. let H_0=I-J/3. With B'=v^T H_0 u_0=4k/q^2 and C'=v^T H_0 v, the denominator dC'+gB' is -48k^2/q^2. Hence the indexed formula yields t_*=1/(12k)>0, giving z_*=1/(1+t_*)=12(1-b)/(12-11b)."
+        ],
+        "reasoning": "Positive k ensures invertibility and a nonzero varying response. The strict quadratic in the fractional-linear response coordinate remains strict in the pinning limit since v^T H_0 v>0 and d!=0. Its positive finite optimum is interior, and t decreases with z, giving the same decrease-then-increase in z. The indexed response u(t)=u_0+d*t/(1+gt)*v gives the exact frozen variance and endpoint gaps by substitution. z=0 corresponds to the compactified infinite-t endpoint. This demonstrates full coverage of the central exact optimization, despite different susceptibility conventions.",
+        "searches": [
+          "10b839c1151d RESULT.md offset 0–3647, exact one-vertex response/optimum",
+          "1f26affbf64c RESULT.md Finding, distinct assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem describes the static FJ equation (L+K)u=Ks with variable diagonal resistance and exact minimizer for H=L+I-J/n",
+          "In the frozen triangle P=(3I+J)/6; hence y=P u, L=I-P=(I-J/3)/2 and H=(3/2)(I-J/3)"
+        ],
+        "reasoning": "Multiplying the fixed-point equation for u by B^{-1} where beta_i>0 identifies the static stiffness k_i=(1-beta_i)/beta_i; beta_i=0 pins that coordinate. On the triangle, the combined metric on u is exactly 18 times population variance on y (centering multiplies u by 1/2 before dividing its squared norm by 3). Thus the different titles and objectives do not distinguish the optimizing triangle case.",
+        "searches": [
+          "Resultary: predictive-loop heterogeneous platform variance, minimal counterexample, one-vertex stubbornness optimization",
+          "Local mirror 10b839c1151d, Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No literal z_b formula or finite table covering the continuum appeared in the bounded retrieval",
+          "The exact indexed formula t_*=-B/(dC+gB) is available, so lack of a printed matching rational function is not evidence of a new optimizer"
+        ],
+        "reasoning": "A finite numerical table could not settle all real b. The decisive exact coverage is a parameterized formula, which can be evaluated algebraically even at the grounded boundary.",
+        "searches": [
+          "Resultary searches for the triangle threshold and optimizing one coordinate",
+          "10b839c1151d exact formula for t_* and minimum"
+        ]
+      },
+      "rationale": "The pivotal optimization is a mechanical complete-graph specialization of a distinct indexed one-vertex FJ theorem, not just a similar path example. At a predictive fixed point write y=P u and u=(I-B)x*+BPu. On the frozen triangle L=I-P=(I-J/3)/2 is a symmetric weighted Laplacian, and the equation for u is the static FJ equation (L+K)u=Kx*, where K_ii=(1-beta_i)/beta_i; zero susceptibility pins u_i=x_i^*. The indexed combined objective becomes a positive constant multiple of the frozen pure variance because L is proportional to the centering projector, and P acts as 1/2 on that subspace. The indexed rank-one optimizer applies with the third vertex pinned by the explicit infinite-stubbornness limit and gives exactly z_b and the frozen bowl; details below. The one- and two-agent boundary in this setting is an elementary anchored opinion-gap computation, not a distinct surviving theorem of comparable scope. This decision credits indexed mathematical coverage, not chronological priority or dependence; the dates of the entries alone do not adjudicate those questions.",
+      "residual_risks": [
+        "Bounded catalogue and primary-literature inspection is not a priority determination. In particular, the later catalogue date of the broader result is not used to assert that it was published first or that one record used the other.",
+        "The exact overlap relies on the complete graph, for which adding edge disagreement to polarization rescales the latter. It does not imply equality of these objectives on a general network."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader mathematical coverage after complete-graph and grounding reduction; no chronology finding",
+          "evidence": [
+            "H=L+I-J/n, response u(t)=u_0+dt/(1+gt)v, and optimum t_*=-B/(dC+gB); the other anchors are positive before grounding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-one-vertex-stubbornness-optimization-for-network-polarizat--10b839c1151d/RESULT.md",
+          "material_read": "Finding, exact response/optimizer and assumptions at offsets 0–3647",
+          "method": "Ranked Resultary discovery and local-mirror passage at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact one-vertex stubbornness optimization for network polarization–disagreement",
+          "trigger": "Exact one-coordinate optimizer for an apparently different but reducible objective"
+        },
+        {
+          "assessment": "Material conceptual precedent, not the same theorem",
+          "evidence": [
+            "Infinite peer steps, heterogeneous peer susceptibility, common platform susceptibility and a three-vertex path. The same population threshold is established within those different assumptions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-invariant-weight-polarization-contraction-and-a-minimal-countere--1f26affbf64c/RESULT.md",
+          "material_read": "Finding at offsets 0–2389 and two-vertex boundary comparison",
+          "method": "Ranked Resultary and local mirror",
+          "title": "Invariant-weight polarization contraction and a minimal counterexample in predictive opinion loops",
+          "trigger": "Same conceptual threshold and ordinary variance reversal"
+        },
+        {
+          "assessment": "Model and homogeneous variance comparison are established; different comparative static",
+          "evidence": [
+            "Finite-K variance comparison uses common susceptibilities; the heterogeneous consensus proposition makes different assumptions (infinitely many peer steps and Lambda_alpha=I)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.12137",
+          "material_read": "PDF Proposition 3 and Appendix A.5, Appendix C Theorem 4/Lemma 3, and heterogeneous cases in main text and Appendix B",
+          "method": "Bounded lawful OA full-text inspection",
+          "title": "Opinion Dynamics in Learning Systems",
+          "trigger": "Source of the predictive-loop recurrence"
+        },
+        {
+          "assessment": "Related but the particular path objective cannot be identified with triangle variance",
+          "evidence": [
+            "The example varies resistance on the path and treats the sum of polarization and edge disagreement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.22577",
+          "material_read": "Section 4 path example, p. 7, and Theorem 4.3, p. 8",
+          "method": "Bounded lawful OA PDF inspection",
+          "title": "Do Stubborn Users Always Cause More Polarization and Disagreement?",
+          "trigger": "Three-agent static FJ counterexample for combined polarization and disagreement"
+        },
+        {
+          "assessment": "Different objective; not covering",
+          "evidence": [
+            "Optimizes sum of expressed opinions rather than squared centered opinions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.07863",
+          "material_read": "Introduction and stated objective, pp. 1–2",
+          "method": "Bounded lawful OA PDF inspection",
+          "title": "Opinion Dynamics with Varying Susceptibility to Persuasion",
+          "trigger": "Susceptibility optimization at an FJ equilibrium"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical example the family tests a natural boundary of homogeneous-platform monotonicity, with a minimal network and a robust interval of the reverse behavior rather than an arbitrary numerical anomaly. That counterexample is useful for interpreting the predictive-loop hypothesis even though its exact equilibrium optimization is already covered by the broader indexed result. There is no supported independent originality in the submitted claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

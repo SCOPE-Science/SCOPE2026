@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:08:35.463675Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated C² coefficient, uniform positive diffusivity and absorbing–reflecting assumptions, renewal gives m_r=(1−φ_r)/(rφ_r(x⋆)), with φ_r the unreset hitting-time Laplace profile. The normalization is invertible: φ_r(x)=1−r m_r(x)/(1+r m_r(x⋆)). Integrating (pφ_r′)′=r(p/D)φ_r from x to L using reflection shows φ_r′<0 on x<L, hence m_r′>0. For y>x the ratio φ_r(y)/φ_r(x) is the Laplace transform of the strictly positive time to reach x from y, by path continuity and the strong Markov property. The positive integral expression for 1/H_r, where H_r=rφ_r/(−φ_r′), therefore strictly decreases with r. Subtracting the logarithmic slope equations gives W=m_1′m_2′(H_{r2}−H_{r1})/D>0 in the interior. Cramer's rule yields the stated signs and formulas; the endpoints are determined by continuity, not division at the reflector. The one-rate compactly supported perturbation of D and b is admissible in C² and keeps the same equation for m. For uniqueness of that nonlocal equation, a homogeneous difference a satisfies (r−L)a=r a(x⋆) with zero absorbing and reflecting derivative data, hence a(x)=a(x⋆)(1−φ_r(x)); evaluation at x⋆ forces a=0. Frozen CHECK.py was inspected but not executed; it uses the forward ODE to construct exact-form derivatives, not derivatives of noisy measurements. The proof, replayable from RESULT.md lines 29–95 with the uniqueness calculation above, does not depend on a numerical grid or any external certificate. W vanishes at the reflecting endpoint and no stability to discretization or noise is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The split-channel theorem permits distinct nonnegative rates but uses two absorbing exits",
+          "Bal–Chou §5 discusses insufficiency for independently obtaining both functions from their single-start distribution setup without partial information",
+          "Keidar et al. Eq. (5) takes diffusivity as constant, and Abundo inverts an initial density rather than both coefficients"
+        ],
+        "reasoning": "More permissive rate or regularity hypotheses, or availability of a complete time distribution at one starting point, do not dominate two spatial profiles under the mixed boundary conditions. None of the inspected inverse maps supplies the required strict two-slope order for this measurement.",
+        "searches": [
+          "Newton–Vega Coso arXiv:2611.27853 Theorem 5.2 and Corollary 5.3",
+          "Bal–Chou fixed-start inverse first exit distributions",
+          "Keidar–Reuveni–Sokolov arXiv:2611.03831",
+          "Abundo arXiv:2410.16889"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary bc65c3676333 and 5d128ff35a13",
+        "Newton–Vega Coso, Keidar–Reuveni–Sokolov, Bal–Chou and Abundo at the listed passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The split-channel theorem recovers inverse diffusivity via a difference of Schwartzians of the channel ratios and then solves a boundary problem for drift",
+          "The frozen result uses the rate ordering of normalized Laplace transforms between two spatial points, yielding the sign of a pointwise determinant with at most second derivatives of the observed profiles"
+        ],
+        "reasoning": "Cramer's rule itself is routine and not original. A universal positive determinant requires strict slope ordering, not just the availability of two equations. It is not an immediate special case of Schwarzian inversion for channel ratios or of a two-moment or exchanged-boundary theorem, since the extra observed function in each is different.",
+        "searches": [
+          "Newton–Vega Coso arXiv:2611.27853 Proposition 5.1, Theorem 5.2 and proof",
+          "Resultary bc65c3676333 and 5d128ff35a13 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Renewal is reversible between m_r and φ_r, with φ_r(0)=1 and φ_r′(L)=0",
+          "Newton–Vega Coso Theorem 5.2 assumes the normalized ratio qλ=u−/(u−+u+) of two Laplace exit channels with both endpoints absorbing"
+        ],
+        "reasoning": "Renaming reset means as Laplace profiles is not distinct science. But the reflected profile corresponds at most to the sum of the two exit transforms under a symmetric folding construction; it does not give the channel ratio. The theorem's separate boundary problem recovers that sum from the splitting ratio and other recovered information, not the reverse from the observed sum alone.",
+        "searches": [
+          "Resultary: two reset-rate first-passage profiles and recovery of drift and diffusivity",
+          "Two spatial Laplace hitting profiles with one absorbing and one reflecting boundary",
+          "Newton–Vega Coso arXiv:2611.27853 §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bc65c3676333 uses spatial mean and variance profiles on an absorbing–reflecting interval",
+          "5d128ff35a13 uses two passage means with the absorbing and reflecting endpoints exchanged"
+        ],
+        "reasoning": "This is an analytical identification theorem for function-valued data, not a tabulated invariant. The exact catalogue comparison checks the input profiles as well as the output: these distinct records do not use two means from varying the reset rate while fixing both boundary types. Same calendar date does not establish priority.",
+        "searches": [
+          "Resultary bc65c3676333 and 5d128ff35a13 (exact two-profile inverse theorems)"
+        ]
+      },
+      "rationale": "Credit is limited to two known-rate resetting mean profiles (equivalently, two full spatial one-target Laplace profiles at those rates) with the specified mixed boundary conditions, pointwise strict determinant, and one-rate insufficiency. Prior two-rate identification from two absorbing-exit splitting profiles is a close but distinct observation scheme; the other source comparisons change the moment, boundary orientation, measurement geometry or unknown. No distinct source inspected establishes the assigned same-data result.",
+      "residual_risks": [
+        "A stronger uninspected inverse Sturm–Liouville or diffusion identification theorem for the same spatial Laplace profiles is not ruled out",
+        "The close prior two-rate split-channel formulation limits originality to the specified observable, boundary conditions, strict determinant and one-rate ambiguity; neither chronological priority within a shared date nor novelty of general two-rate inverse identification is claimed"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TWO-RATE RECOVERY FOR DIFFERENT DATA AND BOUNDARIES",
+          "evidence": [
+            "Theorem 5.2 recovers 1/D using S(qλ1)−S(qλ2) and then b using a boundary problem w(0)=w(ℓ)=1 for w=1/(u−+u+)",
+            "The data qλ are conditioned exit splitting profiles, not the one-target reflected Laplace profile"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.27853",
+          "material_read": "Introduction pp. 1–2, OA offsets 3376 and 6349; §5.2 Theorem 5.2, proof and Corollary 5.3, pp. 14–15, offset 65603 and following",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "Exit-Pair Rigidity, Neutral Restart Laws, and Inverse Reconstruction in One Dimension",
+          "trigger": "Closest primary two-rate joint coefficient identification theorem"
+        },
+        {
+          "assessment": "DIFFERENT SECOND OBSERVABLE",
+          "evidence": [
+            "Reconstructs both coefficients from spatial mean and variance on an absorbing–reflecting interval"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-passage-time-profiles-identify-drift-and-diffusivity-and-cha--bc65c3676333",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Two passage time profiles identify drift and diffusivity",
+          "trigger": "Close same-day spatial-profile reconstruction result"
+        },
+        {
+          "assessment": "DIFFERENT CONTROL EXPERIMENT",
+          "evidence": [
+            "The absorbing and reflecting endpoint roles are exchanged between the two profiles, not the reset rates"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-boundary-mean-passage-tomography-a-complete-compatibility-cr--5d128ff35a13",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Two-boundary mean passage tomography: a complete compatibility criterion",
+          "trigger": "Close same-day two-mean inverse problem"
+        },
+        {
+          "assessment": "KNOWN DIFFUSIVITY PRECEDENT",
+          "evidence": [
+            "The unreset mean profile gives the potential when diffusivity is constant"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03831",
+          "material_read": "PDF p. 2 Eq. (5), OA offset 8800",
+          "method": "Lawful OA PDF passage",
+          "title": "The Inverse Mean First-Passage Time Problem",
+          "trigger": "Inverse spatial mean profile precedent"
+        },
+        {
+          "assessment": "DISTINCT FIXED-START DATA",
+          "evidence": [
+            "Observes time distribution at fixed initial condition; §5 discusses inability to extract both coefficient functions independently in that setup"
+          ],
+          "identifier_or_url": "https://www.stat.uchicago.edu/~guillaumebal/PAPERS/FirstExit.pdf",
+          "material_read": "Introduction p. 2 and §5 pp. 8–9, OA offsets 2500 and 24700",
+          "method": "Lawful author-posted PDF passages",
+          "title": "On the reconstruction of diffusions from first-exit time distributions",
+          "trigger": "Classical inverse first-exit problem for both coefficients"
+        },
+        {
+          "assessment": "DESCRIBED INVERSE PROBLEM HAS A DIFFERENT UNKNOWN",
+          "evidence": [
+            "The described objective is an initial-position density at fixed reset parameters, not two spatial generator coefficients"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.16889",
+          "material_read": "Abstract, OA offset 0",
+          "method": "Lawful OA PDF abstract passage",
+          "title": "Inverse first-passage problems of a diffusion with resetting",
+          "trigger": "Resetting inverse problem with plausible title overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rate variation gives a sharp experimental identifiability result with one fixed geometry and reset point: any two distinct positive controls suffice in the exact spatial regime, while one admits a local family of indistinguishable diffusions. The strictly positive determinant is substantive because a formal two-equation inverse would otherwise require a separate nondegeneracy test at every location. The result does not imply a stable numerical inverse from noisy samples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

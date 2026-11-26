@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:27:17.201463Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1<=n<m, let r=n/m. The continuous CDF transformation is lossless almost surely even with flat intervals: the generalized inverse of F applied to F(X_i) is at most X_i almost surely and has the same law, so it equals X_i almost surely. The uniform endpoints U=F(M_n)^n and V=F(M_m)^m have copula min(u v^(1-r),v). Exchangeability and the absence of ties give mass r on u=v^r. Off that curve the mixed derivative is (1-r)v^(-r) for u<v^r and zero on the other side; the density integrates to 1-r. The product law is Lebesgue on the square, so their overlap is the integral of min(v^r,1-r). Splitting at a=(1-r)^(1/r) gives 1-r-r(1-r)a/(1+r), and its complement is exactly the claimed TV under the sup-event normalization. The optimal positive event is the singular curve together with the density-greater-than-one region. To pass from endpoints to fields, future observations after n are independent of the earlier history, so given M_n, the kernel for the earlier history is unaffected by M_m. Given M_m the later path uses independent observations after m. These two kernels attach the histories to either the true or the independent endpoint law. Thus contraction gives an upper bound by endpoint TV and projection gives equality. Threshold events M_n>t imply M_m>t, whose probability can be arbitrarily small positive, giving phi=1. Equality of endpoint maxima has positive joint and zero independent probability, so the full joint law is not absolutely continuous with respect to the product and its KL divergence is infinite. The limits as r goes to 0 or 1 give the claimed relative-age coefficient and fixed-lag supremum. The supplied checker and verification notes were inspected but the executable was not run; the direct overlap computation, not finite checks, establishes the formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Longla gives a sufficient density-lower-bound condition for stationary-chain mixing; Example 9 checks it for Marshall–Olkin parameters a,b both different from one.",
+          "Baz–Pellerey's broader independent-observation formulas are for two-time copulas and dependence ordering. Beare's full theorem text was not recovered."
+        ],
+        "reasoning": "The record copula is at a=r,b=1 in Longla's notation, and the process is nonstationary with changing margins. A sufficient stationary mixing theorem off the boundary gives neither the exact absolute-regularity value nor the fixed-lag nonstationary behavior.",
+        "searches": [
+          "Longla, arXiv:1310.8241, TV normalization, Theorem 3 and Example 9",
+          "Baz–Pellerey, arXiv:2611.22599, independent non-identically distributed case",
+          "Beare, Econometrica 78 (2010), 395–410"
+        ]
+      },
+      "checked_sources": [
+        "Baz–Pellerey arXiv:2611.22599",
+        "Košir–Lazić–Omladič arXiv:2512.12265v1",
+        "Longla arXiv:1310.8241",
+        "Beare 2010, abstract/landing only",
+        "Resultary d3cec9569f5f and self-hit 70a8aceb27ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known copula indeed supplies both the singular curve and the off-curve density by differentiation. The change of integrand at v=(1-r)^(1/r) comes from comparison of the density with independence. None of the inspected result passages optimizes this comparison or lifts that optimum to complete record histories."
+        ],
+        "reasoning": "The exact number is an elementary but separate optimization and integration from a known joint law, not a parameter substitution into a verified earlier mixing formula. The extremes phi=1 and infinite KL follow quickly from monotonicity and singularity and are useful comparisons, but the originality assessment rests on the exact quantitative absolute-regularity law.",
+        "searches": [
+          "Baz–Pellerey Corollary 3.1 against the claimed field-level TV optimum",
+          "Longla Theorem 3 and Example 9 against Marshall–Olkin boundary parameters",
+          "Košir–Lazić–Omladič structural Marshall-model representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 3.1 gives min(u v^(k/(n+k)),v) for iid continuous samples, exactly the endpoint copula after k=m-n.",
+          "The same paper's Marshall–Olkin form has the record law at boundary parameters alpha=1, beta=r. Its Blomqvist beta terminology is a concordance measure, not absolute regularity. The inspected structural Marshall-model representation gives min(u g(v),f(u)v)."
+        ],
+        "reasoning": "The same copula under either description fixes the endpoint law. An overlap calculation with the independent law, including the singular part and the density-one crossing, is required to obtain the displayed TV value; the prior copula formulas are not themselves a formula for that optimized invariant. Full-field equality requires the two endpoint sufficiency kernels.",
+        "searches": [
+          "Baz–Pellerey, arXiv:2611.22599, Proposition 3.1, Proposition 3.2, Corollary 3.1 and Definition 2.2",
+          "Košir–Lazić–Omladič, arXiv:2512.12265v1, Marshall-model representation and TV terminology",
+          "Resultary: iid maxima record dependence, absolute regularity and TV overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact returned record ending 70a8aceb27ed is the same frozen result, not independent evidence. The closest distinct reviewed catalogue formula concerns stationary ratio-polynomial copula chains and optimizes over stationary-chain parameters."
+        ],
+        "reasoning": "No exact independent formula table for the same indexed family was established by the catalogue comparison. Matching coefficient terminology and lag do not equate a stationary ratio-polynomial family to this endpoint boundary copula.",
+        "searches": [
+          "Resultary: exact past-future dependence of record maxima and sharp lagwise absolute regularity",
+          "2026/11/22/SCOPE-sharp-lagwise-absolute-regularity-extrema-for-a-ratio-polynomial--d3cec9569f5f"
+        ]
+      },
+      "rationale": "The exact copula is demonstrably prior and not credited as new; the singular support and the monotone threshold consequences are structural ingredients, not separate priority claims. The distinct substantiated result is the explicitly optimized absolute-regularity coefficient for the complete nonstationary past and future and its sharp relative-age scale. The closest inspected statements do not give this optimum, nor a broader formula that specializes to it. This is a bounded assessment, not a claim of unique priority.",
+      "residual_risks": [
+        "Beare full text was not retrieved. Longla's reference to Longla–Peligrad's phi-mixing comparison was not independently resolved at the boundary.",
+        "An equivalent endpoint-TV/overlap calculation may exist under another terminology; structural-copula locators were bounded and do not rule it out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of endpoint copula, not established for TV or full fields",
+          "evidence": "C_(n,n+k)(u,v)=min(u v^(k/(n+k)),v).",
+          "identifier_or_url": "https://arxiv.org/abs/2611.22599",
+          "material_read": "OA PDF pp. 3–5, Propositions 3.1–3.2, Corollary 3.1 (offsets 12445–26752), Marshall–Olkin definition passage",
+          "method": "Lawful OA PDF result passages",
+          "title": "Dependence properties between marginals of discrete-time maximum processes",
+          "trigger": "Same iid continuous maxima and exact equivalent bivariate formulation"
+        },
+        {
+          "assessment": "Structural copula representation; equivalent optimum not found in inspected passages",
+          "evidence": "Minimum form min(u g(v),f(u)v); no record-process coefficient is stated in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.12265v1",
+          "material_read": "PDF pp. 1–5, abstract, representation and Marshall-model section (offsets 900–8230 and passage at 8000)",
+          "method": "Lawful OA PDF; bounded term locators and result passages",
+          "title": "Marshall–Olkin copulas revisited",
+          "trigger": "Potential general overlap calculation for the Marshall–Olkin boundary form"
+        },
+        {
+          "assessment": "Adjacent stationary criterion with boundary excluded in the example",
+          "evidence": "The TV normalization matches, but the sufficient criterion in Example 9 is for a!=1,b!=1 and is not an exact record-process formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8241",
+          "material_read": "PDF p. 3 coefficient definition at offset 6500, p. 4 Theorem 3 at 11498, p. 10 Example 9 at 39300",
+          "method": "Lawful OA PDF passages",
+          "title": "On mixtures of copulas and mixing coefficients",
+          "trigger": "Mixing coefficients for Marshall–Olkin chains"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "No actual result passage establishing or excluding exact boundary overlap was available.",
+          "identifier_or_url": "https://www.jstor.org/stable/25621357",
+          "material_read": "Landing/abstract only; theorem text not retrieved",
+          "method": "Public JSTOR page and lawful DOI retrieval attempt",
+          "title": "Copulas and temporal dependence",
+          "trigger": "Possible general copula-dependence coefficient result"
+        },
+        {
+          "assessment": "Different model and invariant range",
+          "evidence": "Extrema of lagwise coefficients for a stationary ratio-polynomial copula chain, not the record-maxima boundary law.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-lagwise-absolute-regularity-extrema-for-a-ratio-polynomial--d3cec9569f5f",
+          "material_read": "RESULT.md Finding and stationary model",
+          "method": "Local publication mirror",
+          "title": "Sharp lagwise absolute-regularity extrema for a ratio-polynomial family",
+          "trigger": "Closest distinct same-day catalogue coefficient result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Record maxima are a canonical nonstationary process; dependence at fixed lag and at lag large relative to age are different questions. The formula provides the complete-history absolute-regularity value and the sharp constant 1+e^(-1) when n/m is small. Measuring this quantitative decay despite maximal conditional dependence and infinite information divergence is a use for the exact coefficient, not just a restatement of the endpoint copula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

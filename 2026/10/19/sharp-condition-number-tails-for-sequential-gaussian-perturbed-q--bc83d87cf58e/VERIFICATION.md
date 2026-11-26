@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify_qr_tail.py` in a Python environment containing the versions of NumPy and SciPy described in `requirements.txt`.
+## correctness
 
-The verification script performs 300 reproducible full-rank singular-limit perturbation tests and 255 smallest-singular-value expansion tests at seeded random matrices, and checks two closed exact central-Gaussian two-column tail formulas. It numerically integrates the independent noncentral chi-square ratio distribution for positive signal-to-noise at four settings. All executed checks passed, with maximal relative discrepancy \(6.760	imes10^{-10}\) in the 300 singular-limit tests and tail-rescaled quadrature ratios from \(1.000078\) to \(1.002493\). These finite checks do not prove the theorem; the proof is in `RESULT.md`.
+PASS
 
-The critical mathematical steps are: conditional Gaussian decomposition, uniform chi-square inverse moments up to the codimension; the Gram-kernel perturbation for the **actual** smallest singular value; integrable domination through the previous-column condition moment; and an exact Gaussian density-at-zero times ball-volume calculation. No external independent audit or certification has been performed.
+Condition first on the entire predictable history, then use the fact that the radial perpendicular law depends only on the deterministic signal length to reduce to conditioning on B and the in-span Gaussian V. The perpendicular residual is positive almost surely. To bound each append, factor it as [Q,q] diag(R,1) for B=QR; the unit-column assumption puts 1 between the extreme singular values of R, and the two exceptional Gram eigenvalues of [Q,q] are 1 ± sqrt(1−ρ²). Thus κ is at most 2κ(B)/ρ, and central chi-square inverse moments (dominating the noncentral inverse moments) give Eκ(B)^d<∞ because B has final codimension d+1. At ρ=0 the bordered Gram has simple kernel spanned by (−B†u,1); differentiating in ρ² gives Rayleigh quotient 1/(1+||B†u||²), so the actual κ is asymptotic to D(B,u)/ρ. For fixed B,V with R=||V||>0, the append bound confines the large-κ event to ||W||<4κ(B)R/t for t>4κ(B). The local asymptotic therefore squeezes its conditional probability between Gaussian small balls of radii (1±o(1))RD/t. The bounded density and the complementary t≤4κ(B) case give integrable domination by a constant times κ(B)^d(1+R^d). Multiplying the volume and Gaussian density at zero by the chi moment of R gives the stated gamma-factor constant; integrating the positive tail gives exactly the positive-moment frontier. For two columns B is a single unit vector, so D=2, and the exact central two-column ratio test agrees in m=2 and 3.
+
+## originality
+
+PASS
+
+The distinct contribution is the positive finite limiting coefficient for the actual condition number with normalized columns and predictable perpendicular signals. The closest same-model work supplies the residual distribution and a one-sided conditioning certificate. The exponent and moment cutoff are related to those inputs and are not the strongest originality basis; neither an upper certificate nor the unnormalized Wishart asymptotic computes this history-averaged coefficient.
+
+## value
+
+PASS
+
+The exact rare-event coefficient distinguishes distributions having the same rectangular exponent, shows which history and signal enter the leading risk, and controls the actual spectral condition number rather than a sufficient certificate. The nonzero coefficient and sharp integrability threshold explain the qualitative square-versus-one-extra-row change in the mean even at small nonzero noise. This is a meaningful refinement for an existing model, not a claim about floating-point QR generally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

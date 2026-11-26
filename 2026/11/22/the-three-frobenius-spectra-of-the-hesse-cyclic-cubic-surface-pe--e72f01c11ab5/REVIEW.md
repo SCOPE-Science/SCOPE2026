@@ -1,15 +1,21 @@
-# Scientific review: Hesse cyclic cubic-surface Frobenius spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for every odd prime power with characteristic not three and every smooth coefficient-marked parameter. The branch-gradient condition is equivalent to nonvanishing of the indicated discriminant. Nine explicit flex tangents, each with a cubic splitting condition, produce all twenty-seven geometric lines. The rationality trichotomy follows from Frobenius on the flex parameters and cube roots. Since line classes generate the cubic-surface Picard group, the resulting permutation action determines the complete middle-cohomology factor; the nontrivial deck trace is independently computed by the tame fixed-point formula. In the quadratic-splitting case, the projective-plane bijection and Frobenius-squared identity fix both eigenvalue multiplicities. The exact verifier independently tests prime-field and quadratic-field point counts and tangent identities. The claims hold by proof for all indicated fields; the computations are only cross-checks.
+## correctness
 
-## Originality — PASS, with priority qualifications
-The nearest foundational source, Medrano Martín del Campo, arXiv:1910.09593, Proposition 2.1, proves flex-to-lines geometry and the complex cyclic-family monodromy, not the present character test or the positive-characteristic zeta factors. Brundu–Logar–Polli, arXiv:2207.04493, describe geometric symmetric cubic surfaces; McKean, arXiv:2101.08217, gives general possible rational line counts. The published result *The 45 tritangents of a cyclic cubic surface lie over the Hesse affine plane* analyzes geometric tritangent incidence, not this Frobenius classification. Published Fermat-specific line analyses cover the member at zero parameter, which is an acknowledged special case. Exact statement, implications, and broader parameter coverage were compared. Searches cannot exclude older unindexed Hesse arithmetic treatments: that is the residual priority risk, not an asserted proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The all-fields theorem classifies the arithmetic descent of every geometric line, the entire Frobenius spectrum on the Picard lattice, and the full Hasse–Weil zeta function for a canonical one-dimensional family of highly symmetric cubic surfaces. It also explains a complete line-free versus split parameter dichotomy by one explicit cubic character and shows that this distinction already appears over the small prime fields. This is a natural finite-field refinement of the cyclic-monodromy and geometric-line correspondence, not a recomputation of an arbitrary isolated invariant. The novelty claim excludes the already-known Fermat member considered alone.
+The gradient forces W=0, and any projective critical point has XYZ nonzero, giving t³=−27 by multiplication. Conversely at that parameter the partials vanish at [1:1:−3/t:0], with the equation following by Euler's relation. For every smooth parameter the nine stated points have triple tangent contact: on −tρX+3Y+3ρ²Z=0 the branch polynomial restricts to (1+t³/27)X³ by cancellation of the two cross terms and Z³. Smooth plane cubics in this characteristic have nine flexes, and their tangents are distinct by degree. Pullback of each tangent gives the three distinct line graphs W=ηX (with the coordinate permuted at the other flexes), so the 27 lines are exhausted. Since the deck-root parameter is common to the rational flex tangents when q≡1 mod 3, Frobenius is the identity on all line classes in the split case and a common nontrivial deck power in the nonsplit case. For the latter, independently of the tame Lefschetz computation, the invariant H² of the deck action is the H² of the finite quotient P²: the invariant part of the finite pushforward is the constant sheaf (geometric fibers are single group orbits), and averaging is exact over Q_l. Thus the invariant rank is one, with the other six eigenvalues split equally between primitive cube roots by the rational integral Picard action. For q≡2 mod 3 the unique rational cube root and unique rational root of unity give three fixed lines and twelve pairs, all splitting quadratically; the projection is a bijection on base-field points, so the Picard trace is 1 and multiplicities are 4 and 3. The line classes generate Picard, and H² is its Tate twist, with odd cohomology zero and the other even factors 1−T and 1−q²T, giving the stated point counts over every extension. An independent exhaustive RREF scan of 2-planes tests vanishing at four distinct arguments of the binary cubic on each line, and independent normalized projective representative counts reproduce all smooth parameter results over F5, F7, F11 and F13, including both stated frequency examples.
 
-## Limits and closest literature
-No classification of isomorphism classes or of all cubic surfaces is claimed. The proof does not cover characteristic two or three. Arithmetic priority relative to inaccessible or unindexed classical treatments of the Hesse pencil remains unsettled. Independent mathematical replication is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the flex/deck geometry, general finite-field cubic-surface trace and Weyl-class tables, and the Fermat subcase. The supported distinct result is the arithmetic of each marked equation, with a single coefficientwise cube test controlling the line fields and the Picard factor for every allowed field. The closest broader Weyl reconstruction has a different input and does not supply this map. No distinct covering coefficientwise result was established in the inspected materials.
+
+## value
+
+PASS
+
+A coefficientwise descent criterion is useful for this natural symmetric pencil: it distinguishes the split and line-free fibers without enumerating lines and supplies point counts over every extension, not only a list of possible Weyl classes. Its nonconstant behavior in small fields makes the parameter dependence substantive. The result is an exact arithmetic refinement of the established flex geometry and an explicit test case for the general cubic-surface Frobenius framework.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

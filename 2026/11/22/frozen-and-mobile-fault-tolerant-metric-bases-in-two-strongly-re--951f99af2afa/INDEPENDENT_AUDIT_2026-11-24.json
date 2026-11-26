@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:08:22.926588Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–57",
+        "Frozen VERIFICATION.md, verify_direct.cpp, verify_pair_masks.py, and their recorded outputs (read only)",
+        "Fresh exhaustive replay: python3 /workspace/reviews/evidence/4/fresh_census.py; /workspace/reviews/evidence/4/fresh_census_output.txt"
+      ],
+      "rationale": "Two distinct distance witnesses for every distinct pair are necessary and sufficient for one landmark erasure. Monotonicity excludes all smaller nonempty sets once each of the 4,368 five-sets fails. A fresh enumeration tested all 8,008 six-sets in each graph and got 448 and 1,600. It reproduced the exact exchange edges, singleton and connected component counts, all eccentricities and entire unordered-distance histograms by exhaustive shortest paths, as well as the orbit lists. Pair counts total 100,128 and 1,279,200 in the connected cases. The verified natural group orders are also full: in Shrikhande the stabilizer of 0 acts faithfully on its neighbor cycle C6, since the nine nonneighbors have distinct pairs of neighbors on that cycle. Thus its order is at most 12, and translations give the 192 bound. In rook the local graph is two disjoint triangles, whose automorphism group has order 72; an off-row/off-column vertex is uniquely determined by one neighbor in each triangle. This gives the 1,152 bound, attained by coordinate permutations and interchange. The exact two-replacement assertion is for Shrikhande; it contains all allowed positive moves of budget two there because one-exchange has no edges.",
+      "residual_risks": [
+        "This is a finite proof for named labeled graphs and the specified exchange relation, not a statement about token sliding, general strongly regular graphs or exact two-exchange on rook."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fault-tolerant resolving sets and their general bounds/tree results, as well as general k-generator and truncated-distance theories, are prior."
+        ],
+        "reasoning": "The inspected general statements give admissibility and frameworks, not these exact optimum families or any exchange-graph metrics for them.",
+        "searches": [
+          "Hernando et al. §1 and abstract",
+          "Estrada-Moreno et al. arXiv:1312.6840 §1, arXiv:1605.06709 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 951f99af2afa (same record), 7b3432c6fd0d, 84e917c8da04",
+        "Hernando et al. §1",
+        "arXiv:1312.6840",
+        "arXiv:1312.4973",
+        "arXiv:1605.06709"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier ordinary identifying-code record gives counts 96/2,208 and Shrikhande one-exchange cycles. The same-day false-negative-code record treats size-ten codes with counts 256/720. Neither admissible family is the present 448/1,600 optimum six-sets."
+        ],
+        "reasoning": "The code move graphs have different state spaces, so their connected components do not transport. The shared graph pair and exchange question are material overlap in motivation, not coverage, and the shared date for the latter gives no ordering.",
+        "searches": [
+          "Resultary 2026/10/26 SCOPE record 7b3432c6fd0d and 2026/11/22 SCOPE record 84e917c8da04, Finding statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-erasure resolving is exactly 2-metric generation. The closed-neighborhood symmetric difference used by identifying codes omits both endpoints of an adjacent pair, whereas the distance-witness set includes both."
+        ],
+        "reasoning": "The k=2 synonym is an exact match for the predicate, but neighborhood code predicates are not equivalent even though the original graphs have diameter two.",
+        "searches": [
+          "Hernando et al., Fault-Tolerant Metric Dimension of Graphs §1",
+          "Estrada-Moreno et al. arXiv:1312.6840 §1",
+          "Resultary 84e917c8da04 and 7b3432c6fd0d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 951f99af2afa is the target, not a prior. Bailey lists ordinary dimension 4 for both graphs. Resultary ordinary identifying-code and false-negative-code records have explicitly different families and counts."
+        ],
+        "reasoning": "The exact table must refer to distance with two distinct witnesses and the same optimum exchange graph; equal graph labels or an equal rook diameter alone is insufficient.",
+        "searches": [
+          "Resultary lookup of Shrikhande rook 2-metric fault-tolerant bases and exchanges",
+          "Bailey arXiv:1312.4973 Table 1 p. 6"
+        ]
+      },
+      "rationale": "Two-witness resolution is known as the k=2 metric generator problem, and exchange geometry on this specific canonical pair has been studied for identifying codes. The prior admissible families and distances are demonstrably different; their enumerations do not imply this minimum two-witness census or its exact exchange threshold and metric distinction.",
+      "residual_risks": [
+        "The novelty judgment is for the exact two-witness census and exchange structure, not the notion of fault tolerance or base exchange. Unindexed prior classifications remain possible; a keyword miss is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known predicate, related general bounds and tree results",
+          "evidence": [
+            "Deleting any one selected vertex must leave resolution."
+          ],
+          "identifier_or_url": "https://users.monash.edu/~davidwo/papers/HMSW-FaultTolerant.pdf",
+          "material_read": "Abstract and §1 p. 2 (offset 1354)",
+          "method": "OA author-hosted PDF",
+          "title": "Fault-Tolerant Metric Dimension of Graphs",
+          "trigger": "Uses the same erasure condition"
+        },
+        {
+          "assessment": "Known general framework",
+          "evidence": [
+            "At least k distinct landmarks distinguish each pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.6840",
+          "material_read": "§1 p. 2 (offset 6782)",
+          "method": "OA PDF passages",
+          "title": "The k-metric dimension of a graph",
+          "trigger": "Exact equivalent generator formulation"
+        },
+        {
+          "assessment": "Exact ordinary dimensions but no implication for two-witness exchanges",
+          "evidence": [
+            "Ordinary dimension 4 for H(2,4) and Shrikhande."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4973",
+          "material_read": "Table 1 p. 6 (offset 19057)",
+          "method": "OA arXiv PDF after author-hosted copy timed out",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Explicit table for the same graph pair"
+        },
+        {
+          "assessment": "Framework overlap; inspected passage does not give a target census",
+          "evidence": [
+            "Original metric theory recovered when truncation is at least diameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.06709",
+          "material_read": "Abstract p. 1 (offset 1557)",
+          "method": "OA PDF passage",
+          "title": "The k-metric dimension of graphs: a general approach",
+          "trigger": "Possible broader framework or stronger result"
+        },
+        {
+          "assessment": "Different predicate and accepted state sets",
+          "evidence": [
+            "96 Shrikhande size-five codes in sixteen C6 components; 2,208 rook size-six codes in a connected one-exchange graph of diameter 6."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Optimal identifying-code exchange geometry of the Shrikhande and rook graphs",
+          "trigger": "Same graph pair and optimum exchange geometry"
+        },
+        {
+          "assessment": "Same-day material comparator with different admissibility",
+          "evidence": [
+            "Codes of size ten, 256 Shrikhande and 720 rook, with other exchange geometry."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-false-negative-identifying-code-polynomials-and-exchange-geometr--84e917c8da04",
+          "material_read": "RESULT.md Finding/assumptions at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "False-negative identifying-code polynomials and exchange geometry",
+          "trigger": "Same graph pair, tolerance and exchange language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–29",
+        "Fresh finite census",
+        "Bailey Table 1",
+        "Resultary comparison 7b3432c6fd0d"
+      ],
+      "rationale": "These are the canonical contrasting strongly regular graphs with identical (16,6,2,2) parameters and, here, the same optimum landmark count. The sharp contrast between total one-move arrest and full one-move mobility, followed by restoration of connectivity at budget two, shows that these shared parameters do not fix optimum-landmark reconfiguration. The complete distances and orbit data characterize this concrete benchmark without arbitrary graph or move cutoffs.",
+      "residual_risks": [
+        "The distance histograms characterize these two move graphs, not their entire isomorphism types or a general parameter law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

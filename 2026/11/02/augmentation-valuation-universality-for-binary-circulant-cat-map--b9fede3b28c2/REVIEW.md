@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the cyclic vector space with the local ring \(\mathbb F_2[X]/((X+1)^n)\). In the even augmentation class, \(M-I=cD\) with \(D\) invertible, and characteristic-two Frobenius identifies the exact fixed-space dimensions. In the odd augmentation class, the reduction has exact order three and \(M^3-I=(c+1)^2M(M+I)\), where both remaining matrices are invertible. Scalar multiplication by a power of \(X+1\) has kernel dimension equal to its truncated exponent; fixed-space subtraction gives every primitive cycle count. These steps include zero and identity couplings, loops and disconnected graphs. Reproducible exact rank/power checks passed for all 552 couplings at \(n=4,8,16\) and 128 additional \(n=32\) couplings. Tests are not the infinite proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-The 2026 Manolas–Floratos paper already provides the coupled symplectic matrix model, the Fibonacci-polynomial recursion and numerical finite-torus period tables, so those are not claimed as new. The 2022 Axenides–Floratos–Nicolis paper provides the earlier construction and a general period-finding algorithm. Neither inspected treatment derives the augmentation-valuation dichotomy for every binary circulant on \(2^k\) nodes, the exact all-configuration fixed-space dimensions, nor the complete cycle census. Closely matching earlier individual cases for nearest-neighbor and all-to-all couplings are subordinated to this general statement. Searches for group-ring valuation, binary orbit spectra, symmetry reductions and dominating circulant period classifications did not identify a full equivalent. Unindexed algebraic dynamical-systems literature remains a substantive priority risk; a negative search is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-This is an all-graph structural classification across many distinct circulant connection patterns, not a numeric period table for a selected graph. It shows that the full finite-state orbit structure is determined by only a parity bit and a single root multiplicity, leading to exact counts and a non-obvious invariance between different connectivity degrees. The result provides a diagnostic invariant for comparing coupled-map lattice dynamics at binary resolution and a clean boundary for extensions to odd site counts or higher phase resolution.
+Put T=X+1, so the cyclic module is R=F2[T]/(T^n). The block update has determinant one. For even augmentation M-I=cD with D=[[0,1],[1,c]] invertible; in characteristic two M^(2^j)-I=c^(2^j)D^(2^j). For odd augmentation the reduction has order three, and M^d-I is invertible whenever 3 does not divide d. Cayley–Hamilton gives M^3-I=(c+1)^2 M(M+I), with M and M+I units, so the corresponding scalar valuation doubles before the successive squarings. A scalar T^h has kernel dimension min(n,h) on each of the two copies of R. This proves Q_j, and first saturation determines the 2-part of the order; reduction forces the odd part to be three in the odd case. Subtraction along the divisor chains gives exactly the primitive counts, with the zero orbit separate in the odd case. This covers c=0 and c=1 with the stipulated truncated valuation. The n=16 example has v=2 at both graph degrees: the second-step summand starts at valuation four. Its first fixed counts are 16, 256, and 65536, giving the stated counts. Independently walked all states of the eight n=4 symmetric circulants using two binary shears, corroborating, for example, cycle counts (16 fixed,120 length-two) at c=X+X^3 and (1 fixed,85 length-three) when a loop is added. The frozen verifier was inspected, not run; its small-state walks test admissible lengths, and its rank tests yield the corresponding cycle counts by subtraction. The universal proof, not the diagnostics, establishes the result.
 
-## Closest literature and limits
-Manolas–Floratos, arXiv:2605.00965v1, especially Sections 3–4.1, and Axenides–Floratos–Nicolis, arXiv:2208.03267, especially Section 6. The result is restricted to binary reduction and \(2^k\) sites. No claim of independent certification or worldwide priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The construction and matrix recurrence are prior, and exact binary nearest-neighbor spectra are materially covered by other indexed records. The surviving distinct claim is the uniform exact all-state spectrum for every symmetric binary circulant at dyadic size and its dependence on only augmentation and one valuation, including both parity classes. No retrieved comparison gave or mechanically determined that uniform valuation reduction to the best of current knowledge.
+
+## value
+
+PASS
+
+The result computes the complete temporal spectrum of a natural family of linear dynamical systems from a local invariant, not just the matrix's period or a single small census. It identifies graph couplings of different degrees with provably indistinguishable binary dynamics at the level of cycle counts and separates the even and odd period classes. The use of standard local algebra and divisor-chain subtraction does not remove the benefit of a uniform all-coupling classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

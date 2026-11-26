@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:08:05.101376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the centered coordinate model the projected vector is uniform on the radius-1/sqrt(2) sphere in the zero-sum hyperplane. In any label chamber the inverse difference map has Gram matrix M equal to the inverse path Cartan matrix, with determinant 1/(d+1), positive entries, and row sums a_j. Thus g^T M g >= A_d(min g_j)^2, with equality only at the positive equal-gap point of each chamber. This gives the stated maximum and (d+1)! oriented maximizers. Coarea with the gap Jacobian (d+1)^(-1/2) and the slack change of variables h_j=s q_j/a_j gives the displayed integral: the positive root solves 2ts+s^2H=B_t and its radial derivative is 2(t+sH). Summing chambers and dividing by sphere area gives exactly the stated prefactor. At t=0 the chambers exhaust the sphere up to ties, and at t>=g_d the strict event is empty. Uniformly on the compact q-simplex as t=g_d-epsilon increases, s=A_d epsilon+O_d(epsilon^2) and the inverse denominator is g_d^(-1)+O_d(epsilon). Integrating over simplex coordinate volume 1/(d-1)! gives C_d and the stated error; normalizing the same uniformly expanded density gives total variation convergence. Coordinate permutation leaves that density invariant, giving exact independent uniform label order. An independent 80-by-80 Gauss–Legendre quadrature on the tetrahedral simplex at t=0 gave 1.000000000000; substitution into C_d gives 2*5^(5/2)/(3*pi). These spot checks do not prove the general formula; the supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary papers inspected use projection range, and the catalogue's width landscape uses extremal two-level directions for the minimum of that range.",
+          "The frozen maximum uses arithmetic progressions rather than two levels."
+        ],
+        "reasoning": "An analysis of the range or expected maximum does not specify how the sum of the consecutive gaps is apportioned among those gaps and does not cover their minimum.",
+        "searches": [
+          "Resultary: regular simplex directional width, exact local width, tangent-polytope endpoint law",
+          "arXiv:1511.08479v1",
+          "arXiv:1110.0671v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof, VERIFICATION.md and verify.py (inspection only)",
+        "Resultary assigned exact match ef7e7f9edc6d and distinct records 3cba4b68834c, 5c40f067382e, 10b5ea726908, 566c4532dfea",
+        "arXiv:1511.08479v1",
+        "arXiv:1110.0671v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The near-minimum-width tail has the same sphere-dimension exponent, but in the tetrahedral dimension its coefficient is 12/pi, not 2*5^(5/2)/(3*pi). Its three-part Dirichlet split coincides in distributional form at d=3, but splits block extrema and width slack, not all weighted consecutive gaps."
+        ],
+        "reasoning": "The common exponent and the special-case Dirichlet coincidence do not transfer the conditioning event, constants, or coordinates. The weighted-slack theorem follows from the new gap-coordinate density rather than by specialization of the width split.",
+        "searches": [
+          "Resultary: 5c40f067382e (near-minimum regular-simplex width) and 566c4532dfea (local width landscape)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A Haar direction is a centered iid Gaussian vector divided by its centered norm. The gap statistic is the minimum of the successive Gaussian differences divided by sqrt(2) times that same norm.",
+          "The Gaussian-spacing catalogue record 3cba4b68834c uses range-biasing and a random offset for edge-crossing counts."
+        ],
+        "reasoning": "Neither raw Gaussian spacings nor range-weighted random affine cuts are the same probability law as the direction-only normalized minimum gap.",
+        "searches": [
+          "Resultary: minimum projected simplex gap; Gaussian spacings and simplex cuts",
+          "arXiv:1511.08479v1, §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is ef7e7f9edc6d, the assigned record. The separate tetrahedral high-width survival record 10b5ea726908 and Finch's width statistics have a different argument and observable."
+        ],
+        "reasoning": "A tetrahedral entry is only an exact match if it controls all four ordered coordinates through their minimum adjacent separation, not the range between just the two extremal coordinates. No separate such entry was retrieved.",
+        "searches": [
+          "Resultary: exact regular-simplex minimum spacing and tetrahedron survival laws",
+          "arXiv:1110.0671v1, p. 1"
+        ]
+      },
+      "rationale": "Best of the inspected evidence: the complete statement for minimum adjacent projected spacing, including its finite-threshold and conditional endpoint laws, is distinguishable from both projection-width results and affine-section results. The exact catalogue hit is the assigned item itself, not a separate claim.",
+      "residual_risks": [
+        "Focused catalogue and primary-passage comparisons cannot establish historical priority; general literature lookup was limited, leaving possible unexamined normalized-spacing results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related representation, different statistic",
+          "evidence": "Mean width is represented by an expected Gaussian supremum; the regular-simplex case uses the expected Gaussian maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479v1",
+          "material_read": "§1.2, eq. (3), Proposition 1.1 and eq. (9), pp. 2–3",
+          "method": "OA PDF passage",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Same simplex Gaussian direction representation"
+        },
+        {
+          "assessment": "No matching statement in the passages read",
+          "evidence": "Width is the distance between supporting planes, i.e. the projected range.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671v1",
+          "material_read": "p. 1 definition and tetrahedral width discussion",
+          "method": "OA PDF passage",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Exact tetrahedral projection statistics"
+        },
+        {
+          "assessment": "Partial analogy, not equivalent",
+          "evidence": "The event is near-minimum range, with a three-component Dirichlet(p-1,q-1,1) split and tetrahedral tail coefficient 12/pi.",
+          "identifier_or_url": "Resultary 2026/11/1/5c40f067382e",
+          "material_read": "Finding, endpoint coefficient and splitting law",
+          "method": "Catalogue and local mirror passage",
+          "title": "A tangent-polytope limit for near-minimum widths of regular simplices",
+          "trigger": "Same simplex and endpoint tangent/Dirichlet regime"
+        },
+        {
+          "assessment": "Different event and measure",
+          "evidence": "A Gaussian range bias and an offset selected across that range produce edge-cut probabilities.",
+          "identifier_or_url": "Resultary 2026/11/1/3cba4b68834c",
+          "material_read": "Finding and proof Steps 1–2",
+          "method": "Catalogue and local mirror passage",
+          "title": "Gaussian spacing laws and rare balanced cuts of regular simplices",
+          "trigger": "Same simplex and Gaussian spacings"
+        },
+        {
+          "assessment": "Different objective and equality geometry",
+          "evidence": "Projection-range global minima use balanced two-level coordinate vectors.",
+          "identifier_or_url": "Resultary 2026/11/17/566c4532dfea",
+          "material_read": "Finding",
+          "method": "Catalogue and local mirror passage",
+          "title": "Exact local width landscape and sharp angular profiles of regular simplices",
+          "trigger": "Potential equality-case overlap"
+        },
+        {
+          "assessment": "Different survival observable",
+          "evidence": "The law is for maximum coordinate minus minimum coordinate.",
+          "identifier_or_url": "Resultary 2026/11/1/10b5ea726908",
+          "material_read": "Finding, high-width survival and tetrahedral formula",
+          "method": "Catalogue and local mirror passage",
+          "title": "Two sharp spherical-cap transitions in regular-simplex projection widths",
+          "trigger": "Exact tetrahedral survival-law overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A support-width statistic cannot tell whether every projected vertex is resolvable. The exact survival integral quantifies whole-configuration resolvability at a prescribed tolerance, while the sharp tail and conditional weighted gap law explain how the near-optimal directions share that tolerance. The combined findings go materially beyond the elementary equal-gap optimizer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

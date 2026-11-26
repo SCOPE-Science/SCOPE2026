@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** Equation (3) is a direct weighted-integral identity, and it yields conserved mass and entropy via exact periodic telescoping. When the exponent is nonpositive these invariants force explicit, time-uniform positive lower bounds, excluding finite-time boundary contact and permitting global ODE continuation. For every positive exponent the first component's derivative has the three distinct uniform asymptotic forms (4); a transformed-coordinate hitting-time comparison keeps the other two components positive and yields the sharp constants (2). The three-cell geometric witness is checked by explicit skew-linear evolution and a quadratic tangent-half-angle equation. The included standalone verifier passed 4387 tests. The computations are diagnostic; the infinite assertions follow from analysis.
+## correctness
 
-**Originality — PASS, qualified (self-review).** The entropy-conservative flux identities, standard logarithmic/geometric/harmonic cases, and geometric square-root conjugacy are explicitly attributed to earlier work and excluded from novelty claims. The assessed new statement is the complete threshold at \(p=0\) for global *strict* positivity over the entire real power family and the three sharp small-state touchdown-time regimes. Searches of the relevant published numerical-analysis literature, source full text, and mathematical research records found no theorem that covered that joint statement. The highly relevant Bercik–Zingg 2026 full text was unavailable; unindexed equivalent boundary analyses remain a legitimate priority risk.
+PASS
 
-**Value — PASS (self-review).** The theorem addresses a genuine design distinction between conserving a convex entropy, preserving the closed nonnegative cone, and preserving the *open* positive cone. It pinpoints the exact entropy parameter at which boundary contact becomes possible and quantifies how fast an initially small concentration can reach zero, without relying on mesh-scale numerics or a fabricated claim about the fully discrete source method. This is material for selecting/regularizing entropy-conservative numerical fluxes and interpreting positivity assertions. There is no proposed extension to nonlinear systems, no general fully discrete guarantee, and no claimed practical speedup.
+The ratio-of-integrals flux is a smooth weighted mean on positive arguments (including the diagonal). Mass and entropy telescope, since U''=u^(p−2) and ψ'=uU''. For p<0, the conserved power sum bounds each positive coordinate below; for p=0 the conserved product and the mass bound do so. Thus no finite maximal time is possible in the interior. For p>0 use the three-cell state (ε,a,b) and the flux order of Eq. (1). Uniformly for the two neighbors in small disjoint compact intervals around a<b, differentiating W(x)=x^p, x log(1/x) or x in the respective regimes gives limiting negative slopes with magnitudes (1−p)(z^p−y^p)/h, (z−y)/h, or (p−1)(z−y)/(ph). These are bounded away from zero there. All coordinate speeds are bounded by mass/h, so up to the resulting O(W(ε)) hitting-time bound the neighbors cannot leave those intervals. This proves first touchdown at the small cell and lets the slope converge uniformly to its value at (a,b), giving all three constants. Boundary vanishing of the flux for 0<p≤1 poses no obstruction to finite hitting; it does not justify a claim of unique continuation. The geometric three-cell conjugacy is skew rotation at frequency √3/(2h); the shared coordinate amplitude gives the m>R criterion. The smaller angular root in the explicit example gives the first zero, since conserved Euclidean norm and the speed bound on the square-root coordinates keep the two other coordinates positive up to that time.
 
-**Closest literature and limits.** Izgin–Ranocha–Shu, arXiv:2604.02308, §§ concerning (49)–(56), furnish the method and nonnegative flux motivation, not the power-exponent strict-positivity/touchdown classification. Bercik–Zingg, arXiv:2605.02081, study geometric/logarithmic flux perturbations and near vacuum; their full text remains uninspected. Tadmor 2003 contains the entropy flux framework. Other nearest indexed findings concern fully discrete upwind entropy bounds or Patankar flux modifications rather than the stated three-cell boundary asymptotic. The result is for scalar periodic semidiscretization only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-point entropy identity, named means and square-root conjugacy are credited and not counted as new. The distinct claim supported here is the exact p≤0 criterion for every positive state over the real power family, with sharp finite-time laws and constants in all three positive-p regimes. The strongest plausible prior source on near-vacuum behavior could not be directly compared in full; this decision is restricted to available evidence, not proof of priority.
+
+## value
+
+PASS
+
+A scheme may maintain a nonnegative face and still reach it in finite time from positive states. The result identifies when conserved entropy really supplies a strict positivity barrier and quantifies, not just exhibits, the failure on the other side. The ε log(1/ε) transition and the exact constants make the laws useful for comparing the stiffness and near-vacuum behavior of the family, without suggesting the same outcome for a time-stepped algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

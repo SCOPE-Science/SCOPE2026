@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:16:50.049582Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–86, VERIFICATION.md and verify.py (read, not executed)",
+        "Independent replay: python3 /workspace/reproductions/check_review_math.py, function trinomial"
+      ],
+      "rationale": "Write T_n as the constant term of (x^-1+1+x)^n. In characteristic five the factor for n=5q+d is (x^-1+1+x)^d times the qth power with x replaced by x^5. The first factor's support [-d,d] contains no nonzero multiple of five, so the digit product follows directly, with weights (1,1,3,2,4). Each block of five contributes one of each unit and an extra copy of the parent residue. This gives E_r(5q)=E_r(q), the complete-block counts including L=0, and the stated partial-block weight. Starting in state 1 with score zero, appending a digit reaches every N<5^L, with no inclusion of the endpoint. An independent prefix scan regenerated the seed vectors at L=2,3,4 and checked all twelve one-step vector identities. Translation equivariance yields +3 per step for the upper vectors from L=2 and -5 per two steps for the lower vectors from L=3, with L=2 checked separately. The parity bases give the stated alpha and beta, and finite paths attain both extrema. The proposed upper witness words follow by first reaching r and then taking the digit-1 loop and final digit 2 (for r=1 the initial factor is already 1). The envelopes give density 1/4 and sharp logarithmic excursions in both directions. The attribution to Deutsch–Sagan Theorem 4.7 is a locator error: that theorem concerns modulus three. The general product is explicitly stated in Rampersad–Shallit Theorem 9; the constant-term proof above independently removes any reliance on the erroneous locator. No mathematical claim needs to change.",
+      "residual_risks": [
+        "Only modulus five and prefixes from zero; envelopes exclude 5^L, while the block counts use that endpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Stern result uses base two and a signed 1-versus-4 statistic with twelve-level increments of +4 and -4, not the four base-five indicator-prefix statistics.",
+          "The all-lag result for the identical sequence is broader in lag/correlation, but its arbitrary-cutoff error bound is weaker for the marginal and does not give its attainable finite-scale extrema."
+        ],
+        "reasoning": "General finite-state optimization is antecedent methodology. Knowing that an optimization has a finite-state representation does not supply the attaining values, offsets and parity corrections; the record resolves those for a concrete, different invariant.",
+        "searches": [
+          "Primary literature and Resultary: automatic and max/min-plus residue-discrepancy envelopes for central trinomials modulo five",
+          "SCOPE-20261025-17b06025c42e, RESULT.md offset 240",
+          "SCOPE-20261102-fa9f646a7cb7, RESULT.md offset 0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0407326",
+        "arXiv:2110.06244 / DOI:10.37236/10799",
+        "Resultary SCOPE-20261025-17b06025c42e, SCOPE-20261102-fa9f646a7cb7, SCOPE-20261122-4fe2bd4eb307, SCOPE-20261026-88cd6f9d99bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general product immediately gives the one-extra-copy block identity and hence the complete-block formulas. Uniform recurrence and nonvanishing do not determine extrema of signed cumulative counts.",
+          "Obtaining the new extrema from the known digits requires computing both transfer dynamics, including the transient and two different parity bases for minima."
+        ],
+        "reasoning": "The input sequence is known and its digit product determines the prefix counts in principle; the sharp optimizer formulas are the extra result, not a restatement or parameter substitution in an inspected theorem. The November catalogue overlaps are separated from any assertion of earlier priority.",
+        "searches": [
+          "arXiv:math/0407326, Theorem 4.7; DOI:10.37236/10799, Theorems 8–9; Resultary statement-level comparisons for exact finite-scale extrema"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constant-term Laurent and ordinary coefficient definitions give precisely the same T_n. The automaton in Rampersad–Shallit provides the same residue sequence and a Lucas product, rather than extrema of the four indicator-prefix sums.",
+          "SCOPE-20261122-4fe2bd4eb307 uses the same Laurent sequence but computes a consecutive-triple law and full-block triple counts, with an O((1+log_5 N)^2) arbitrary-cutoff bound."
+        ],
+        "reasoning": "Changing from ordinary to Laurent coefficients, or from counts to 4C_r-N, is not a distinction. For those equivalent codings, no inspected exact cumulative optimizer gives the two extremal envelopes.",
+        "searches": [
+          "Resultary: central trinomial residues mod five, exact prefix extrema and equivalent digit automata/cumulative discrepancies",
+          "arXiv:2110.06244, Theorems 8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact adjacent-pair counts have row sums equal to the record's single-residue complete-block counts. Triple counts are also for complete blocks; neither table gives the extremal behavior inside a block.",
+          "The same-day binom(4n,2n) modulo-five record gives a power-of-five table with a (2+i)^L term for a different sequence, not central trinomials."
+        ],
+        "reasoning": "Credit the full-block marginal as covered independently of the exact search outcome. Exact matches in modulus or cutoff do not identify the sequence or statistic. No inspected table supplies the two claimed offset tuples.",
+        "searches": [
+          "Resultary targeted comparisons for exact central trinomial modulo-five residue-prefix formula; SCOPE-20261102-fa9f646a7cb7; SCOPE-20261122-4fe2bd4eb307; SCOPE-20261026-88cd6f9d99bb"
+        ]
+      },
+      "rationale": "The supported distinct claim is the residue-dependent exact, attained prefix envelopes at every L>=2. The digit rule, nonvanishing, full-block distribution and general finite-state technique are not themselves credited as new. The nearest inspected single-sequence laws and algorithmic analogues do not already solve the four weighted prefix optimizations.",
+      "residual_risks": [
+        "A more general substitution-prefix theorem with an already solved specialization or an unindexed exact residue table could overlap. The bounded search is not proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The cited theorem is a modulo-three trinomials result, not the claimed general Lucas statement",
+          "evidence": [
+            "Theorem 4.7 concerns T_n mod 3; replace the locator in future scholarly use with Rampersad–Shallit Theorem 9 for the general product."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407326",
+          "material_read": "Theorem 4.7, p. 13, PDF text around offset 30051",
+          "method": "Compare the theorem's precise modulus and conclusion",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Frozen attribution for the digit-product input"
+        },
+        {
+          "assessment": "Covers digit product, nonvanishing and recurrence, not the inspected extremal classification",
+          "evidence": [
+            "Theorem 9 states T_n congruent to the product of the T at its digits mod p; Theorem 8 is the modulo-five recurrence/factor analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.06244; DOI:10.37236/10799",
+          "material_read": "Theorems 8–9, pp. 7–8 and adjoining digit/morphism discussion",
+          "method": "Compare factor properties and the general digit product against the weighted-prefix endpoints",
+          "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland–Yassawi–Zeilberger Automaton",
+          "trigger": "Identical numerical sequence, modulus and automaton"
+        },
+        {
+          "assessment": "Analogous technique on a different sequence",
+          "evidence": [
+            "M_{r+12}=M_r+4 and m_{r+12}=m_r-4 describe a signed Stern discrepancy."
+          ],
+          "identifier_or_url": "SCOPE-20261025-17b06025c42e",
+          "material_read": "RESULT.md finding and recurrence, offset 240",
+          "method": "Compare digit base, sequence and scoring",
+          "title": "Sharp logarithmic discrepancy for Stern residues modulo five",
+          "trigger": "Closest logarithmic finite-state envelope analogue"
+        },
+        {
+          "assessment": "Partial overlap in complete-block marginals, not an exact four-residue prefix-envelope theorem",
+          "evidence": [
+            "Summing P_k(u,v) in v counts first symbols at all 0<=n<5^k; the stated arbitrary-cutoff bound is O_h((1+log_5 N)^2)."
+          ],
+          "identifier_or_url": "SCOPE-20261102-fa9f646a7cb7",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Compare arbitrary-cutoff error and sum the complete-block pair formula over the second residue",
+          "title": "All-lag two-point laws and exact logarithmic bias for central trinomial residues",
+          "trigger": "Identical sequence and possible broader exact distribution"
+        },
+        {
+          "assessment": "Exact block/triple distribution and a discrepancy bound, not the four exact extrema",
+          "evidence": [
+            "The exact counts are for triples in full blocks and the arbitrary-cutoff estimate is O((1+log_5 N)^2)."
+          ],
+          "identifier_or_url": "SCOPE-20261122-4fe2bd4eb307",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Identify the object by constant-term equality and compare endpoints and statistic",
+          "title": "Forty-word triple spectrum of central trinomial residues modulo five",
+          "trigger": "Identical sequence in Laurent guise and an exact multiple-symbol count"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "The imbalance uses binom(4n,2n) and Re((1+i)(2+i)^L), with square-root rather than logarithmic scale."
+          ],
+          "identifier_or_url": "SCOPE-20261026-88cd6f9d99bb",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Compare the underlying sequence and the imbalance law",
+          "title": "Sharp square-root imbalance for binom(4n,2n) modulo five",
+          "trigger": "Same-day modulo-five power-cutoff result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and proof",
+        "Rampersad–Shallit Theorems 8–9 and the related Resultary distributions above"
+      ],
+      "rationale": "Uniform recurrence and complete-block equidistribution do not answer how unbalanced prefixes of the canonical modulo-five trinomial sequence can be. Attained extrema for each residue and each cutoff quantify that loss, expose genuinely asymmetric slopes and parity effects, and give sharp benchmarks beyond asymptotic density. This is a motivated exact distributional invariant, not just an evaluation of the already known digit product at a few lengths.",
+      "residual_risks": [
+        "The result is not a general discrepancy theorem for automatic sequences or other primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

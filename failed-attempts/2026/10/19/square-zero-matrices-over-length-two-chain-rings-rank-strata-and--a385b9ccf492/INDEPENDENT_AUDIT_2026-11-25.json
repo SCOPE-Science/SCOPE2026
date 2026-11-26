@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:01:27.476241Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–95; VERIFICATION.md and checker.py (supplied script not executed)",
+        "/workspace/branches/e066bffe-561b-4b75-8ca7-61fad55a13f8/repro_rank_strata.py"
+      ],
+      "rationale": "For reduction rank a, the residue matrix has Jordan type (2ᵃ,1ᵇ), b=d−2a; each is conjugate to a standard 0–1 matrix whose square is zero over the ring. The basis change lifts because its determinant is a unit. Relative to a square-zero lift J, the term added to J² by adding πX is π(NX+XN); all terms quadratic in π vanish. Multiplication by the diagonal sign change on each size-two Jordan block identifies the anticommuting solutions with the commuting space, including characteristic two. The k[t]-homomorphism dimensions for pairs of Jordan blocks give 2a²+2ab+b². Independently, choosing an image, a kernel containing it and an isomorphism from the quotient to the image counts the reductions. Combining these two counts gives |GL_d(k)|/(PₐP_b). The normalized series separates over d=2a+b as two Euler series, including the empty d=0 convention. The reciprocal-product weights have summably bounded deficits from P∞⁻² along both ends of the rank interval, giving the stated total variation and total-count estimates. Independent exhaustive arithmetic over Z/4Z and the dual numbers over F₂ gave residue-rank counts [512,672,0,0] for d=3 in each ring.",
+      "residual_risks": [
+        "The replay is finite: all 4⁹ matrices in each of two rings in dimension three. General validity relies on the lift and tail arguments; the asymptotics fix q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6b8f1c0037a2 has the entire frozen ring range, including mixed characteristic, and gives the finer joint Smith count. The later 150f31c550b3 refines by image shape, and 1ea7432e6983 concerns similarity-orbit classification.",
+          "The checked primary lifting source proves existence, not cardinalities. The square-free matrix-polynomial count excludes t². The inspected jet-scheme and representation papers concern complex geometry or irreducible-representation counts, respectively."
+        ],
+        "reasoning": "Only the earlier Smith-stratification source is needed for decisive broader coverage; the others are related, limited, or later. The all-ring scope does not rescue originality against that source.",
+        "searches": [
+          "6b8f1c0037a2, Finding and Assumptions",
+          "Resultary 150f31c550b3 and 1ea7432e6983",
+          "arXiv:2102.10460, Lemma 2.4 and Theorem 2.6",
+          "arXiv:2209.03626v3, Theorem 1.1 and Remark 1.2",
+          "arXiv:1411.6427v2 and arXiv:1907.09878, abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6b8f1c0037a2, 150f31c550b3, 9ce1162ea15b, 365a20493bf8 and 1ea7432e6983",
+        "arXiv:2102.10460, 2209.03626v3, 1411.6427v2 and 1907.09878",
+        "DOI 10.1137/0603003 (citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing the joint count over t replaces the rank-t factor by q^{s²}, the number of all s×s matrices. Expanding the Gaussian factors then gives the prior fixed-r marginal exactly in frozen notation. Summing over d=2a+s factorizes the normalized series into Euler series evaluated at t and t².",
+          "For the prior marginal write wₐ=1/(PₐP_{d−2a}) and w∞=P∞⁻². The standard product-tail bound gives 0≤w∞−wₐ=O_q(q⁻ᵃ+q^{−(d−2a)}). The sum of these deficits is O_q(1), and W=Σwₐ≥⌊d/2⌋+1. Thus TV≤Σ(w∞−wₐ)/W=O_q(1/d). Also W=(⌊d/2⌋+1)P∞⁻²+O_q(1) and P_d=P∞+O_q(q⁻ᵈ), which give the claimed total asymptotic."
+        ],
+        "reasoning": "This explicitly reproduces all headline conclusions from the already indexed formula by marginalization and standard series and tail manipulations. There is no distinct supported remainder in the frozen finding that requires a new counting or limit theorem.",
+        "searches": [
+          "6b8f1c0037a2, joint formula and Proof §4, mirror offsets 250–2688 and 5620–7960",
+          "Frozen RESULT.md, lines 59–93"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unit Smith multiplicity r of a length-two chain-ring matrix is exactly rank of its reduction. Radical Smith multiplicity t refines this stratum. The earlier record counts the joint pair (r,t) for the same rings and all d≥1, and its proof sums over t at fixed r.",
+          "After setting r=a and s=d−2a, the fixed-r marginal in that proof simplifies to |GL_d(k)|/(PₐP_s)."
+        ],
+        "reasoning": "The descriptions use different coordinates on the same count; no comparison of just small examples or titles is needed. The d=0 empty convention adds no substantive distinction.",
+        "searches": [
+          "Resultary: square-zero length-two finite chain-ring matrices by residue rank, Smith strata, image shape or Bockstein rank",
+          "6b8f1c0037a2, Finding and Proof §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed record gives an exact formula for every feasible (r,t), including the same d=3, q=2 mixed/equal-characteristic counts after marginalization. It explicitly writes the fixed-r total as B_{d,r}(q)q^{2r(d−r)+s²}, with B the finite-field reduction count.",
+          "Indexed dual-number records 9ce1162ea15b and 365a20493bf8 describe asymptotically uniform residue ranks, the latter with the same formula and an O_q(1/d) uniform-law estimate. They are later-dated and restricted to dual numbers; they are not relied on as earlier priority evidence."
+        ],
+        "reasoning": "The older indexed symbolic enumeration, not a match of sampled table entries, already determines every frozen exact stratum. The later limit records establish substantive scope overlap separately from priority.",
+        "searches": [
+          "Resultary: exact square-zero residue-rank laws, square-zero Smith census and uniform residue-rank distribution",
+          "6b8f1c0037a2, Finding and Proof §4",
+          "9ce1162ea15b and 365a20493bf8, findings and limit passages"
+        ]
+      },
+      "rationale": "The central exact rank-stratum law and its all-ring invariance are already covered by the earlier indexed joint Smith census 6b8f1c0037a2, which explicitly gives the fixed-reduction-rank marginal. The generating function is the Euler identity applied to the factorized marginal. The two asymptotic conclusions are direct geometric-tail estimates on the same explicit weights, not an independently established new counting or distribution phenomenon beyond that prior formula. This is demonstrated prior coverage and direct implication, not a judgment based on unavailable literature.",
+      "residual_risks": [
+        "The original scope of Bollman–Ramírez (1969), On the number of nilpotent matrices over Z_m, and Brawley (1982), Counting Matrices by Drazin Index, was not resolved from lawful full texts; neither is needed for the earlier exact indexed overlap.",
+        "The search-index abstract for Cheraghpour–Ghosseiri, DOI 10.1080/03081087.2017.1418826, concerns nilpotent counts but does not resolve the fixed-index rank census; full text was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier coverage",
+          "evidence": "For every such ring, counts by unit and radical Smith multiplicities; Proof §4 gives the fixed-r marginal explicitly by summing the ordinary finite-field rank stratum counts.",
+          "identifier_or_url": "2026/10/13/SCOPE-square-zero-smith-strata-are-universal-across-length-two-chain-r--6b8f1c0037a2",
+          "material_read": "Finding and scope, mirror offsets 250–2688; count and conditional universality, offsets 5620–7960",
+          "method": "Resultary search and local mirrored full-text passages",
+          "title": "Square-zero Smith strata are universal across length-two chain rings",
+          "trigger": "Same rings and a finer exact matrix count"
+        },
+        {
+          "assessment": "Later overlapping refinement",
+          "evidence": "Gives equal secondary-endomorphism fibers and joint counts by residue rank and image type Rʳ⊕kᵗ.",
+          "identifier_or_url": "2026/10/25/SCOPE-bockstein-equidistribution-and-image-shape-counts-for-square-zer--150f31c550b3",
+          "material_read": "Finding around mirror offsets 563–1251",
+          "method": "Resultary search and local mirrored record",
+          "title": "Bockstein equidistribution and image shape counts for square-zero matrices",
+          "trigger": "Finer lift and image-type enumeration"
+        },
+        {
+          "assessment": "Later overlap for dual numbers only",
+          "evidence": "Exact Smith counts and uniform-rank limit with an O_q(1/d) CDF estimate.",
+          "identifier_or_url": "2026/10/26/SCOPE-square-zero-dual-matrices-an-exact-smith-census-and-a-uniform-re--9ce1162ea15b",
+          "material_read": "Finding/limit passages near mirror offsets 308, 1265 and 4935",
+          "method": "Resultary search and local mirrored record",
+          "title": "Square-zero dual matrices: an exact Smith census and a uniform residue-rank law",
+          "trigger": "Exact strata and same type of limit"
+        },
+        {
+          "assessment": "Later partial-scope equivalence",
+          "evidence": "States the same marginal in notation Φ_j=P_j and an O_q(1/d) uniform-law estimate, for finite dual numbers.",
+          "identifier_or_url": "2026/11/2/SCOPE-square-zero-matrices-over-finite-dual-numbers-exhibit-an-asympto--365a20493bf8",
+          "material_read": "Finding near mirror offsets 307–1033",
+          "method": "Resultary search and local mirrored record",
+          "title": "Square-zero matrices over finite dual numbers exhibit an asymptotically uniform rank law",
+          "trigger": "Same rank formula and asymptotic law"
+        },
+        {
+          "assessment": "Later orbit-level result",
+          "evidence": "Classifies orbits by residue rank and homology similarity data. Its generating function counts orbits rather than matrix elements.",
+          "identifier_or_url": "2026/11/22/SCOPE-similarity-classification-of-square-zero-matrices-over-length-tw--1ea7432e6983",
+          "material_read": "Finding and proof near offsets 0–1800 and 4568–5494",
+          "method": "Resultary search and local mirrored record",
+          "title": "Similarity classification of square-zero matrices over length-two chain rings",
+          "trigger": "Same square-zero object and ring range"
+        },
+        {
+          "assessment": "Existence, not count",
+          "evidence": "Square-zero lifting under the lemma's regularity condition and potent-plus-square-zero decomposition, not lift multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.10460",
+          "material_read": "Lemma 2.4 and Theorem 2.6, p. 4, offsets ≈13900 and 16400",
+          "method": "Lawful OA full-text passages",
+          "title": "Decompositions of Matrices into Potent and Square-Zero Matrices",
+          "trigger": "Square-zero lifting precedent"
+        },
+        {
+          "assessment": "Does not cover the target polynomial",
+          "evidence": "Requires square-free residue polynomial, whereas t² has a repeated root.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03626v3",
+          "material_read": "Theorem 1.1 and Remark 1.2, p. 2, offsets ≈6460 and 8800",
+          "method": "Lawful OA full-text passages",
+          "title": "Polynomial equations for matrices over integers modulo a prime power and the cokernel of a random matrix",
+          "trigger": "Finite-ring matrix polynomial enumeration"
+        },
+        {
+          "assessment": "Related complex geometry; no direct count in the inspected abstract",
+          "evidence": "Concerns jet schemes of complex nilpotent orbit closures, not the stated mixed/equal-characteristic finite-ring point census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.6427v2",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA abstract passage",
+          "title": "Jet schemes of the closure of nilpotent orbits",
+          "trigger": "Jet interpretation of dual-number matrix equations"
+        },
+        {
+          "assessment": "Different counting problem in the inspected material",
+          "evidence": "Compares irreducible representations of groups over the two ring types, not the present residue-rank strata.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.09878",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA abstract passage",
+          "title": "Representations of SL_n over finite local rings of length two",
+          "trigger": "Comparison of length-two ring types"
+        },
+        {
+          "assessment": "Coverage unresolved, not used in verdict",
+          "evidence": "Exact square-zero/rank-refined scope could not be determined.",
+          "identifier_or_url": "https://doi.org/10.1137/0603003",
+          "material_read": "Citation; no decisive passage retrieved",
+          "method": "Lawful OA check; no accessible full text located",
+          "title": "Counting Matrices by Drazin Index",
+          "trigger": "Possible prior index-two enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–34 and 72–95",
+        "6b8f1c0037a2, Finding and conditional universality"
+      ],
+      "rationale": "The statistical interpretation is useful, but as a standalone new contribution this is a coarser census than the prior Smith result, with a routine Euler resummation and endpoint-tail bound on its explicit weights. The frozen record supplies no distinct invariant or nonroutine refinement beyond those consequences. The clean centralizer proof and finite replication are valid exposition but do not add a new result of independent research value here.",
+      "residual_risks": [
+        "This judgment does not diminish the value of the finer Smith census or the usefulness of noting the flat-rank consequence in exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

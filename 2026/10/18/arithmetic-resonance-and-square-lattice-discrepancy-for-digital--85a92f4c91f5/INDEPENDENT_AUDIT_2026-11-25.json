@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:42:56.299030Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–74; VERIFICATION.md lines 19–25 and frozen verify.py (inspected, not executed)",
+        "OPENBLAS_NUM_THREADS=1 python3 /workspace/reviews/reproduce.py 3; /workspace/reviews/reproduction-3.txt"
+      ],
+      "rationale": "Two sources in one half-open unit cell are less than √2 apart, so they are lattice neighbors; triangle-freeness rules out triple fibers. The positive horizontal and vertical source edges give phase windows [0,1−a/q)×[0,1−b/q) and [b/q,1)×[0,1−a/q). Because a,b are units modulo q and h²=−1 modulo q, the source phases equidistribute on the q elements (r,[hr]_q), with q sources per phase in one q×q source period. Boundary cells along the inverse target square contribute O_q(M), so the double-fiber density is (H+V)/q. Rotation of phases (r,t)↦(−t,r) takes the horizontal points except zero exactly to the vertical points: t=0 forces r=0 and the potentially unmatched endpoint r'=b is excluded since [hb]_q=q−a. Thus V=H−1. The full source count over target squares differs from the number of target cells by O(M), giving equality of the limiting zero- and double-fiber frequencies. For the discrepancy, with q=u²+v² the modular graph lift has vectors (u,v) or (v,u) according to the leg orientation, and their quarter turns. The determinant q equals the lattice index, so their centered square tiles have covering radius ρ=√(q/2). The tile union from each rectangle's lattice centers lies between its erosion and dilation by ρ; the enclosing-box area error is at most 2ρ(w+z)+4ρ², valid also when an eroded side is empty. Summing both errors and dividing by q² gives exactly the stated bound. The triple (3,4,5) has H=1, and the generic continuous benchmark there is 4/25 rather than 1/5.",
+      "residual_risks": [
+        "Fresh integer-floor enumeration checked 36 complete target quotient histograms up to q=145. The quotient is Z²/(qRθ Z²), of size q², and the histogram labels target classes using the two inverse-rotation numerators modulo q². Finite checks do not prove the universal limit or bound.",
+        "The exact odd numerator uses floor boundaries; there is no claim for centered rounding of resonant rotations or higher iterates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vladimirov gives (β,1−2β,β) with β=(cosθ+sinθ−1)² for nonresonant centered roundoff; Defant–Propp study a finite-map statistic. The 1997 discretization paper could be accessed only at abstract level."
+        ],
+        "reasoning": "Translating a window under Haar equidistribution leaves its area unchanged, but the same translation can alter membership at a finite phase subgroup. A nonresonant theorem for rounding does not specialize to the assigned rational floor case; general finite-map moments are not these densities.",
+        "searches": [
+          "arXiv:1501.04237 Theorem 19(d); DOI:10.1016/S0362-546X(96)00232-5; EJC 27(3) P3.51"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.01828; arXiv:1501.04237; DOI:10.1016/S0362-546X(96)00232-5 (limited); EJC 27(3) P3.51; local Resultary a728ed86ea69; focused websearch"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rational calculation in Hannusch–Pethő encodes the same collision rectangle; Vladimirov defines the benchmark outside resonance."
+        ],
+        "reasoning": "One could mechanically count both windows using the prior phase group, but the parity law for their sum needs exact control of an unmatched boundary point under a quarter turn, and convergence uniformly in q needs the index-q square basis and the associated perimeter-bound computation. The prior positivity and nonresonant formulas do not themselves supply these results.",
+        "searches": [
+          "arXiv:2109.01828 pp. 3–4, 6–8; arXiv:1501.04237 pp. 55–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hannusch–Pethő's phase residues in Euclid parameters are ([2uvd]_q,[(u²−v²)d]_q); the horizontal collision window is exactly the one used in the assigned H count."
+        ],
+        "reasoning": "The first coordinate is invertible as a function of d. Eliminating d gives exactly (r,[ba⁻¹r]_q) after selecting the matching leg orientation. This is prior coverage of the phase inputs, not a different model. The exact 45-degree catalogued return phases do not address rational-coordinate one-step multiplicities.",
+        "searches": [
+          "Primary floor digital rotation Pythagorean exact preimage density; arXiv:2109.01828 v1, Lemma 2.2 Case 3 and Theorem 3.1 proof",
+          "Local Resultary floor-discretized planar rotation and exact return/preimage phases: a728ed86ea69"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogued π/4 record gives axis seed density 3/√2−2 for an eight-step return class, not a one-step rational hole density; the primary paper gives the finite phase group, not a table of odd numerators or a uniform scale comparison."
+        ],
+        "reasoning": "An exact-data match would have to fix the quantizer, rotation regime, phase boundaries and one-step target statistic; a count in a single finite square or an iterate-return table would not certify the all-triple law.",
+        "searches": [
+          "Local Resultary exact planar rotation floor counts and phase laws; a728ed86ea69 Finding; arXiv:2109.01828 rational case"
+        ]
+      },
+      "rationale": "The closest primary paper already has the same floor quantizer, horizontal collision rectangle and finite Pythagorean phase group. Exact raw collision counts by a finite sum can be recovered from those ingredients, so the novelty is not nearest-neighbor reduction, phase parametrization, positivity, or even the idea of a modular count. The supported distinct result is the structural odd-numerator collapse of the two frequencies to one rectangle count, coupled with an explicit uniform comparison to the nonresonant density by the square phase-lattice geometry. The inspected prior work does not give those conclusions; the related Resultary record concerns a different iterate and statistic. Review does not assert exhaustive priority.",
+      "residual_risks": [
+        "The 1997 paper's full text was not recovered, and an unindexed resonant variant remains possible. Empty search results are not evidence of absence.",
+        "Substantial inputs to the raw modular sum are already in the 2021 rational-case proof; priority is not asserted for those inputs or their direct counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior partial coverage; no odd-count involution or discrepancy in inspected rational calculation",
+          "evidence": [
+            "Same [0,1) window; explicit one-parameter phase group; finite proof uses the inequalities 0≤fractional L1<1−cosθ, 0≤fractional L2<1−sinθ. The printed exceptional growth clause appears broader than its own rational case and is not relied on for an exact count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.01828",
+          "material_read": "pp. 3–4 floor definition; pp. 6–7 Lemma 2.2 Case 3; pp. 7–8 Theorem 3.1 and its horizontal collision calculation",
+          "method": "OA PDF passages",
+          "title": "Rotation on the digital plane",
+          "trigger": "Identical floor model and rational Pythagorean case"
+        },
+        {
+          "assessment": "Exact benchmark under nonresonance, with an explicit nonresonance requirement for the one-step assertion",
+          "evidence": [
+            "β=(cosθ+sinθ−1)²; centered half-open cell [−1/2,1/2)²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.04237",
+          "material_read": "Theorem 19(d) and discussion, pp. 55–58",
+          "method": "OA PDF passages",
+          "title": "Quantized linear systems on integer lattices: a frequency-based approach",
+          "trigger": "General formula for preimage frequencies and benchmark"
+        },
+        {
+          "assessment": "Full text unavailable; contextual description is not a proof of scope for all results in this paper",
+          "evidence": [
+            "The later primary paper attributes positive hole density under rational-independence assumptions for roundoff, not an exact Pythagorean floor law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0362-546X(96)00232-5",
+          "material_read": "Landing/abstract only; contextual description in Hannusch–Pethő p. 2",
+          "method": "Lawful OA and bounded alternate retrieval attempt",
+          "title": "Some problems in analysis of discretizations of continuous dynamical systems",
+          "trigger": "Possible prior quantized-rotation result"
+        },
+        {
+          "assessment": "Different finite systems and iterates",
+          "evidence": [
+            "Defines a statistic of maps on finite sets, not planar rational floor-rotation densities."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v27i3p51/pdf",
+          "material_read": "p. 1, definitions and goal",
+          "method": "OA PDF passage",
+          "title": "Quantifying Noninvertibility in Discrete Dynamical Systems",
+          "trigger": "Noninvertibility measured by inverse multiplicities"
+        },
+        {
+          "assessment": "Different density, seeds, iteration and rotation regime",
+          "evidence": [
+            "Eight-step returns and least-period-eight axis seeds for the π/4 floor map; seed density 3/√2−2."
+          ],
+          "identifier_or_url": "a728ed86ea69",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Six exact eight-step return phases for floor-discretized 45-degree rotation",
+          "trigger": "Strongest related Resultary hit on exact orbit phase frequencies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–25, 54–74; arXiv:2109.01828 Theorem 3.1 and arXiv:1501.04237 Theorem 19(d)"
+      ],
+      "rationale": "The one-step multiplicity distribution quantifies how irreversible a standard floor discretization is in the dense rational-coordinate exceptional family. The parity obstruction and the uniform q-dependent discrepancy distinguish actual resonant values from a smooth generic benchmark and quantify how that distinction shrinks uniformly over large primitive hypotenuses. These are substantive geometric and arithmetic conclusions beyond reporting a finite period count.",
+      "residual_risks": [
+        "No optimal error constant, lower bound on worst-case discrepancy order, or dynamical orbit classification is certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

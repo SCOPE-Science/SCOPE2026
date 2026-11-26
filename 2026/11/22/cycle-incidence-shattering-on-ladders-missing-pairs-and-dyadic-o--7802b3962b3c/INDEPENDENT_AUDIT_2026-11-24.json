@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:57:19.578858Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof asserted that the top and bottom portions of a cycle each form a single path; its appeal to revisiting a row does not justify this central step. The complete corrected /workspace/repairs/3/RESULT.md proves the unchanged theorem: take the extreme columns of a simple cycle; every intermediate two-rail cut must be crossed by connectedness and crossed evenly by the cycle degree sum. Both rails therefore occur across every intermediate gap. Degree two excludes interior rungs and forces the two extreme ones. From this representation, any two distinct rung queries admit all traces for n>=4. For tracks in different gaps, two columns in one of the three complementary blocks realize the zero trace (by pigeonhole), and the single-gap and full rectangles realize the other traces. A mixed pair admits both singletons exactly when the selected rung's side of the gap has a second column; removing that rung's column leaves two columns on some side for the zero trace. This excludes the same-gap twins and the four extreme mixed pairs and gives the stated coefficient. With three rungs the all-positive trace fails; two rungs force one rectangle, one rung makes two distinct rail answers nested or exclusive conditional on that rung, and three distinct rail gaps cannot give a 101 trace. The cases n=2 and 3 follow from cycle count and singleton variation. Distinct concepts per adaptive leaf give the information bound; two independent threshold searches on disjoint blocks of m=floor(n/2) endpoints prove the lower bound, which equals the upper bound at dyadic n. The checked depth-three tree at n=5 embeds at all larger n. Reviewer-authored `python3 /workspace/independent_reproduction.py ladder` enumerated graph cycles for n=2..9, checked 6,910 supports through triples, reproduced all ranks through n=12 by finite adaptive recursion, and checked the actual certificate's eight leaves. This corroborates, not replaces, the all-order proof in the repaired file.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Mofidi passages treat cycle-hypergraph VC dimension, wheel examples and cycle-count bounds, not adaptive ladder queries",
+          "The earlier wheel record gives an unbounded planar adaptive gap; the K_{3,b} record gives static and adaptive ranks for that family"
+        ],
+        "reasoning": "The general cycle-hypergraph context and the bare existence of an adaptive separation are not new. None of the read statements supplies the physical-edge polynomial and dyadic law for the open ladder family.",
+        "searches": [
+          "Mofidi DOI:10.22108/TOC.2021.127880.1832, Theorem 3.4(2)",
+          "Mofidi DOI:10.22190/FUMI210301011M, Definition 3.1, Theorems 3.2–3.3, Proposition 3.3",
+          "Resultary:f2f12978d28a and 9c37fd9bf68d"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.22108/TOC.2021.127880.1832",
+        "DOI:10.22190/FUMI210301011M",
+        "Resultary:f2f12978d28a",
+        "Resultary:9c37fd9bf68d",
+        "Resultary:105f31d7b4be",
+        "Resultary:6262182a47f2",
+        "Resultary:8d305f194b4c",
+        "Resultary:f4b168b1a4ef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dyadic lower-bound construction already uses only interval-membership queries on gaps; the upper bound counts all nonempty intervals",
+          "At n=5, a depth-three tree also exists with rails alone: query gap 1; its yes branch is four nested intervals; its no branch on gaps 2–4 splits at gap 3 into four intervals with independently variable outer gaps and two distinct singletons"
+        ],
+        "reasoning": "Online dyadic and first-gap ranks are not intrinsically due to adding rung queries. The analogous learning results, however, do not imply the full physical-edge support census, and the broader wheel separation does not yield the ladder thresholds. The repaired claim does not depend on attributing binary search or interval counting to this result.",
+        "searches": [
+          "Statement comparison with Resultary:105f31d7b4be, 6262182a47f2, 8d305f194b4c and Mofidi's wheel results",
+          "Rail-only restriction and information bound for the audited ladder theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rail restrictions equal membership in a nonempty interval of gaps, with two physical copies per gap; the rung tests identify interval endpoints",
+          "The ladder planar dual realizes simple cycles as bonds but has parallel edges; the inspected 8d305f194b4c theorem assumes a simple graph",
+          "Three-column paths use a middle interval predicate with endpoint thresholds, and the two-row order-ideal queries use row thresholds"
+        ],
+        "reasoning": "The reductions are meaningful. The rail-only subproblem does not distinguish the endpoint-equality and duplicate-coordinate interactions in the full polynomial. Neither the simple-graph bond theorem nor the distinct interval-like query models transport the entire physical-edge class.",
+        "searches": [
+          "Resultary: open ladder simple-cycle incidence, interval endpoint predicates and planar dual bonds",
+          "Resultary:105f31d7b4be, 6262182a47f2, 8d305f194b4c",
+          "Primary literature search: Littlestone dimension of intervals on a finite discrete line"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ladder-cycle hit 7802b3962b3c is the assigned record itself",
+          "The same-day f4b168b1a4ef gives an exact polynomial on the same physical-edge domain, but its concepts are perfect matchings"
+        ],
+        "reasoning": "A polynomial for a different concept family on the same domain does not count shatterable cycle supports. No distinct exact cycle-support table surfaced in the bounded search, and same date does not imply precedence.",
+        "searches": [
+          "Resultary: ladder cycle shattering polynomial, missing pairs, dyadic online rank",
+          "Resultary:f4b168b1a4ef Finding and Assumptions"
+        ]
+      },
+      "rationale": "For the unchanged repaired statement, checked earlier wheel and complete-bipartite results establish analogous edge-cycle rank phenomena, and finite-interval methods already explain the rail-only online lower bounds. The full physical-edge ladder support classification, including endpoints and duplicate gap predicates, was not found as a covered result. The online conclusions are credited as applications of classical threshold and counting arguments; the combined ladder classification is the distinct claim.",
+      "residual_risks": [
+        "No equivalence theorem for the full interval-plus-endpoint query system was located in the bounded search. Unindexed work on interval ranks or dual multigraph bonds remains a genuine priority risk.",
+        "The exact online ranks outside the stated cases are not established by this finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CONCEPT_OTHER_GRAPH_FAMILY",
+          "evidence": "The stated wheel-cycle VC value is 3 for order at least 5; it is not a physical-edge ladder support count or an online rank.",
+          "identifier_or_url": "DOI:10.22108/TOC.2021.127880.1832",
+          "material_read": "Publisher PDF pp. 37–39, Theorem 3.4(2)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On the VC-dimension, covering and separating properties of the cycle and spanning tree hypergraphs of graphs",
+          "trigger": "Primary cycle-incidence VC theorem"
+        },
+        {
+          "assessment": "RELATED_COUNT_BOUNDS_AND_WHEEL_VC",
+          "evidence": "The inspected primary passages define the cycle hypergraph, give upper bounds on cycle counts, and prove a wheel VC result. The frozen access limitation is resolved for those passages; no whole-document claim follows from a keyword miss.",
+          "identifier_or_url": "DOI:10.22190/FUMI210301011M",
+          "material_read": "Publisher PDF p. 122, p. 126 Definition 3.1, pp. 127–130 Theorems 3.2–3.3 and pp. 131–132 Proposition 3.3",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "On the Number of Cycles of Graphs and VC-Dimension",
+          "trigger": "Previously inaccessible potentially relevant cycle-count result"
+        },
+        {
+          "assessment": "PRIOR_ADAPTIVE_GAP_DIFFERENT_FAMILIES",
+          "evidence": "Wheel and complete-bipartite bounds concern different host graphs and do not give the open-ladder classification.",
+          "identifier_or_url": "Resultary:f2f12978d28a; 9c37fd9bf68d",
+          "material_read": "Original Findings and graph-family assumptions",
+          "method": "Resultary search and local mirror comparison",
+          "title": "Cycle incidence in wheels and in K_{3,b}",
+          "trigger": "Prior adaptive/static results for the same incidence concept definition"
+        },
+        {
+          "assessment": "PARTIAL_ENCODING_OVERLAP",
+          "evidence": "The path and ideal query systems differ, and the bond theorem's simple-graph domain does not include the ladder dual multigraph.",
+          "identifier_or_url": "Resultary:105f31d7b4be; 6262182a47f2; 8d305f194b4c",
+          "material_read": "Original Finding, query parameterization and graph assumptions",
+          "method": "Resultary search and local mirror comparison",
+          "title": "Three-column path, two-row order-ideal, and graph bond ranks",
+          "trigger": "Potential equivalence via intervals or planar duality"
+        },
+        {
+          "assessment": "SAME_DOMAIN_DIFFERENT_CONCEPTS",
+          "evidence": "Perfect-matchings traces are not all simple-cycle traces; no same-date priority assumption was used.",
+          "identifier_or_url": "Resultary:f4b168b1a4ef",
+          "material_read": "Original Finding and Assumptions",
+          "method": "Resultary search and local mirror comparison",
+          "title": "The full edge-query shattering polynomial of ladder perfect matchings",
+          "trigger": "Exact same host and invariant from a distinct same-day record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected proof establishes a complete shattering census on distinct physical edges of a standard connected subcubic planar graph, and gives exact infinite dyadic adaptive ranks as well as the first strict-gap boundary. The count detects duplicate and extreme coordinate effects hidden by VC dimension alone. The bounded-degree planar example complements, rather than restates, wheel-based separations and is not a claim about all non-dyadic ranks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The analytical proof gives the two exact barrier arcs, sharp derivative estimates, inverse contraction, all-fiber basin capture and the worst-case boundary counterexamples. The square-root formula follows by expanding an exact hyperbolic-matrix factor. Reproducibility diagnostics passed 39,042 finite tests. Risk: the asserted exponential convergence outside the attracting strip relies on eventual strict contraction near the limiting boundary, which is demonstrated explicitly rather than inferred from computations.
+## correctness
 
-## Originality
-The 2023 original paper (arXiv:2305.18172v1), fully inspected in its accessible HTML form, already contains the model, qualitative separated attractor/repeller picture and autonomous Arnold-tongue threshold; these are prior work. Its text does not give a worst-case all-input graph theorem, exact common trapping intervals, a complete fiberwise basin theorem, or a sharp pathwise rate. The fully accessible 2021 same-author paper concerns relative dimensions and singularity spectra of overlapping measures in related systems. published-finding corpus search found a related published claim on period-two identity resonances of the cat-driven Möbius model (ID a1ced3096486) but its stated conclusion does not imply an all-input synchronization theorem. General graph-transform lemmas are not new; the explicit robust margin and model-specific global quantitative statement is the distinguishing claim. Residual risks include an uncatalogued equivalent estimate and unread supplementary arguments; novelty is not established solely by search silence.
+PASS
 
-## Value
-Robust separation of chaotic attractor and repeller is central to the motivating paper. The sharp quantitative worst-case margin, global exceptional-set theorem and rate collapse turn numerical coexistence pictures into falsifiable, uniform bounds valid without statistical assumptions on forcing. The result is deliberately restricted to the robust region and does not claim a global cat-forcing phase boundary.
+The positive-real-part branch is smooth and the derivative of the lift is (1-epsilon^2)/|1+epsilon exp(2 pi i x)|^2. The odd correction crosses level q at the stated p and r on either side of its unique maximum delta. Monotonicity in x and d gives the two common strip inclusions. For alpha=pi q set T=cos(alpha) and W=sqrt(epsilon^2-sin(alpha)^2). At the level-q roots, rotation by -alpha gives positive moduli T+W and T-W, respectively. Since (T+W)(T-W)=1-epsilon^2, the endpoint multipliers are (T-W)/(T+W) and its reciprocal, reproducing the arcosh formula. Monotonicity of the derivative in distance from 0 proves both lift Lipschitz bounds; d=q fixes both relevant endpoints and achieves the derivative bounds, also for iterates. Nested forward and inverse images of the strips give unique entire trajectories and only b_0 stays forever in J. Outside I and J a lift moves toward I, cannot cross back into J, and either enters I or approaches its endpoint: away from the endpoint and r the displacement is uniformly bounded below in magnitude. A slightly enlarged strip is contracting there, giving exponential convergence. Uniform limits of continuous pullback/forward approximants give the continuous graphs over the invertible cat base. Constant d=delta is parabolic; for q>delta choose delta<d<min(q,1/2). The expansion of T/sqrt(1-epsilon^2) about q=delta gives the stated square-root coefficient. At q=0 the stated number is the local fixed-point multiplier (inverse at the repeller); sharp Lipschitz comparisons on singleton strips are vacuous. The frozen checker gives finite diagnostics only; the infinite-time and sharp statements follow from the reviewed analytic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the cat-driven family, autonomous transition and autonomous multipliers to the established Möbius analysis. The supported distinct claim is a common sharp lift contraction on explicit strips and a single-exception basin for each prescribed bounded bi-infinite input, including the quantitative loss of that common factor. The autonomous obstruction alone does not prove the uniform positive result under switching.
+
+## value
+
+PASS
+
+Constant or periodic analysis need not guarantee contraction under switching. Explicit uniform barriers, an attained robustness margin/rate and an exact exceptional trajectory give a deterministic baseline for arbitrary forcing and an entire-torus basin criterion for the cat map. The result says more than abstract graph existence or an autonomous threshold calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

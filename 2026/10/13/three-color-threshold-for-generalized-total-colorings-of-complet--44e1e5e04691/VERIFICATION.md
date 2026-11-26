@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,7 @@
   "schema_version": 1
 }
 ---
+
 # Verification
 
-The infinite result is proved analytically in `RESULT.md`. Finite computation is used only to stress-test boundary cases and the explicit construction.
-
-`verify.py` performs two checks. First, for every \(K_{m,n}\) with \(1\le m\le n\le6\), it enumerates every proper three-color assignment to the vertices. With three colors, each edge then has a unique color that avoids both endpoint colors; the script constructs those edge classes and tests each for cycles. It confirms that a valid coloring exists exactly when \(m\le2\). Second, it checks the stated four-color construction for every \(K_{3,n}\) with \(3\le n\le100\).
-
-Replay output:
-
-`ALL CHECKS PASSED; three_color_parameter_cases=21; three_color_vertex_assignments=1872; three_color_range=1<=m<=n<=6; four_color_K3n_cases=98; four_color_range=3<=n<=100`
-
-The enumeration does not prove the infinite theorem and is not presented as exhaustive beyond its stated parameter ranges. The proof supplies the all-parameter quantifiers.
+The exact value for every \(K_{3,n}\), \(n\ge3\), follows from the two arguments in `RESULT.md`. The companion `verify.py` checks the four-color star construction for \(3\le n\le100\). It also checks three-colorability on \(1\le m\le n\le6\), rejecting improper vertex colorings and testing the uniquely forced edge assignment for each proper vertex coloring that it considers. The search stops at the first successful assignment on positive instances; a negative instance exhausts all assignments. Neither finite test is used as a proof for all \(n\).

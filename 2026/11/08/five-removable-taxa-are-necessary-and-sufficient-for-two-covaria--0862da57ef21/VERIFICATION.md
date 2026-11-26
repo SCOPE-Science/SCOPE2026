@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification methods and limits
+# Independent mathematical audit
 
-The standalone `check.py` operates solely on exact integers. It enumerates all 32 survival configurations for the five removable species, constructs directed reachability from the source root, and separately evaluates Boolean path formulas. It reports the complete six-row cardinality table, all of whose covariance numerators match the theorem.
+## correctness
 
-It then enumerates all \(65{,}536\) possible truth tables of four-variable Boolean functions. Each is included precisely when it respects the 32 one-coordinate monotonicity relations. Exactly 168 are included, matching an independent antichain enumeration of the same 168 truth tables. For every one of the \(168^2=28{,}224\) ordered pairs, the code computes the three interior fixed-cardinality covariance numerators with exact integer arithmetic; none has two strict sign reversals. The complete search was successfully replayed from the generated package.
+PASS
 
-This is finite exhaustive verification, not a universal numerical extrapolation. No human or independent external audit has been performed. The proof is limited to the specified model and excludes empirical claims.
+Root reachability is increasing in the survivor set. The endpoint slices are deterministic, so n≤3 cannot have three nonzero signs. At n=4 only k=1,2,3 matter. An independent enumeration (/workspace/checks/3.py) fixes the true singletons and true triples; it requires all pairs containing a true singleton, forbids any pair contained in a false triple, and ranges freely over the remaining pairs. These are all the interior monotonicity constraints, and the extreme levels can be extended monotonically. This gives 166 distinct interior profiles (the constants duplicate two profiles) and 27,556 profile pairs, with no alternating triple of exact covariance numerators. Independently traversing the witness DAG on every survivor subset yields marginal counts (0,1,5,9,5,1) for each focal taxon and joint counts (0,0,3,8,5,1). Dividing each N_k j_k−a_k b_k by N_k² gives (0,−1/25,1/20,−1/100,0,0). Thus the witness attains the threshold, counting five removable taxa, not the external root or the two focal taxa. The finite proof covers the stated cutoff, not all possible sign patterns at larger n.
+
+## originality
+
+PASS
+
+The strongest indexed comparisons have the same conditional covariance but restrict each focal persistence function to the OR of its direct partners and establish a one-switch law. The multi-step witness and the sharp obstruction for pairs of arbitrary increasing functions on the small slices are not covered by those results or by the inspected primary literature.
+
+## value
+
+PASS
+
+It marks the first size at which a second reversal is possible and exhibits the failure of the direct-partner one-switch intuition in a small reachability model. The proof rules out two reversals below that size even without the graph restriction. This is a useful exact boundary for fixed-size conditioning, not evidence for ecological frequencies or population dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

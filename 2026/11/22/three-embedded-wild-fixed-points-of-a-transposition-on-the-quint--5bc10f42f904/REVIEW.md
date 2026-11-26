@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The integral blow-up model is a standard stable-marking compactification, and the exchange of the two movable coordinates defines the claimed transposition. Every fixed point descends to the base diagonal; at each exceptional divisor the only fixed directions are the roots of \(r^2=1\). On the chart containing both directions the equalizer ideal is **exactly** \((x(r-1),(r-1)(r+1))\), not merely an ideal with the same set-theoretic zero locus. The intersection formula \((xt,t(t+2))=(t)\cap(x,t+2)\) over \(\mathbb Z\) proves the horizontal decomposition, and \(A=\mathbb Z[x]\oplus\mathbb Zt\) proves local torsion-freeness and flatness. Characteristic-two reduction gives \((xt,t^2)\), making the embedded length-one contribution exact. The derivative calculation independently verifies the formal non-linearizability assertion. The packaged checker executed successfully; finite point counts confirm, but do not replace, the integral proof.
+PASS
 
-## Originality — PASS with residual risk
+The integral blow-up identification follows from the universal stable four-pointed curve: over the cross-ratio line, blowing up the three collisions of the diagonal with the constant sections 0,1,∞ separates the marks and inserts the stable two-mark tail at each special fiber. The universal curve is M̄₀,₅; the action on the dense open is exchange of the free coordinates and agrees with the lift by separatedness. Every fixed point maps to the diagonal, and above each center the fixed directions have both coordinates nonzero, so the invariant unit-slope chart exhausts all exceptional fixed support. The swap is (x,r)↦(rx,r⁻¹); its equalizer is exactly (xt,t(t+2)) for t=r−1. The quotient is also the fiber product Z[x] ×_{F₂} Z, via t=0 and (x,t)=(0,−2), with matching reductions given by evaluation at x=0 mod 2. This proves the claimed scheme union, Spec F₂ intersections and flatness; the strict transform of the diagonal is still P¹ because its center ideal is invertible on it. Flat base change is not needed to get the equalizer equations on fibers: the fixed-scheme formation commutes with base change. At 2 the quotient is k[x,t]/(xt,t²), with the nonzero class t annihilated by (x,t) and a smooth reduced line. This gives exactly three embedded associated points, no others. In the ambient completed characteristic-two chart the derivative is identity but x maps to x+xt, ruling out formal linearization. Counts over finite fields follow from rational reduced support. Independent proof details are in /workspace/calculations/geometric_checks.md; the submitted finite enumeration was inspected, not executed, and is not the universal proof.
 
-Primary full-text comparisons were made against Boitrel's arithmetic automorphism classification, Dolgachev–Martin's characteristic-free degree-five group discussion, Bauer–Catanese's explicit \(S_5\)-equivariant model, and Dolgachev–Farb–Looijenga's symmetry and fixed-curve discussion. These sources establish the ambient surface/action and related geometric fixed loci. Their inspected relevant sections do **not** state the integral fixed equalizer, the embedded characteristic-two points, or non-linearizability at those three collisions. Searches for the factor-exchange blowup, the transposition fixed locus, scheme-theoretic aliases, finite-field wild involutions and neighboring mathematical-record findings did not locate an implication-covering classification. Earlier order-three and order-five fixed schemes on the same surface concern different conjugacy classes and have zero-dimensional fixed loci, so they do not imply the present positive-dimensional embedded degeneration. A hidden published equivalent or unindexed computation remains possible; this review does not certify absolute historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural boundary stratum \(D_{45}\) of stable five-pointed curves acquires three embedded special-fiber defects under the simplest wild marking involution. The result identifies the **entire** integral fixed scheme, rather than a selected point or an arbitrary small-field computation, and provides a sharp distinction between classical fixed-point counts, scheme flatness, infinitesimal fixed geometry and tangent linearization. Embedded associated points occurring in a flat fixed scheme are a structural boundary phenomenon relevant to wild quotients and degeneration of moduli symmetries. The result does not require a downstream quotient classification to make the precise fixed-scheme invariant useful.
+Credit the known split blow-up model and transposition action, including its lifted Cremona description in a different marking model. The distinct supported result is the complete integral fixed equalizer for the single transposition, notably its three characteristic-two collisions and their scheme structure. A close same-day double-transposition theorem exhibits the same kind of degeneration, but it does not state or imply the single-transposition result.
 
-## Sources and limitations
+## value
 
-Main inspected papers: Boitrel (arXiv:2304.05328), Dolgachev–Martin (arXiv:2303.16170), Bauer–Catanese (DOI:10.1007/s12215-020-00483-9), and Dolgachev–Farb–Looijenga (DOI:10.1007/s40879-018-0231-3). Other involution conjugacy classes, non-split forms and quotient singularities are outside scope. Independent mathematical review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed scheme of a basic moduli symmetry is a natural arithmetic invariant. The sharp computation distinguishes a flat reduced total scheme from a nonreduced special fiber with exactly three embedded defects, and detects non-linearizability despite identity tangent action. These are data that a point count or tame fixed-locus study would miss, useful independently of any subsequent quotient classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

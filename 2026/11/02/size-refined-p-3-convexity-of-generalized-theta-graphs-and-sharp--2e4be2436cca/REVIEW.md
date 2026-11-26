@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A convex subset is exactly a binary vertex assignment in which an omitted vertex never has two selected neighbors. On each internal degree-two path, this excludes the local pattern \(101\). Conditioning on both terminal bits gives independent path factors, while capacity-one filters enforce the sole remaining constraints at absent terminals. The resulting four-state product proves the arbitrary-length formula. Specializing to length-three arms yields a disjoint four-case count, an exact binomial expression, and the full support/multiplicity classification. The independently constructed finite verifier returns `VERIFY_OK` and confirms coefficients on eighteen example networks, but the proof of the infinite statement is mathematical.
+## correctness
 
-## Originality — PASS, qualified
-Dourado–Grippo–Lin–Protti (arXiv:2603.04706v1, 2026-03-05) study the identical ordinary \(P_3\)-convexity and count convex sets in trees and threshold graphs; they also present general exponential algorithms. Their inspected main theorems do not supply this two-terminal theta product, closed length-three enumerator, or forbidden-cardinality spectrum. The earlier hull/geodetic and chordal Carathéodory results concern different parameters; their available conclusions do not imply this classification. Related theta-network computations of other invariants are not logical coverage. Searches under generalized-theta, two-neighbor closure, and numerical-sequence terminology found no covering formula, but published-index coverage and historical priority are not complete.
+PASS
 
-## Value — PASS
-The family is a standard cyclic, non-tree series-parallel graph model for testing structural enumeration beyond the tractable trees studied in the motivating 2026 paper. The shared terminals create genuine nonlocal constraints across otherwise independent arms. The result determines every coefficient for all equal-length-three members, exhibits infinitely many missing odd cardinalities, classifies the largest proper convex sets, and provides a finite transfer for every choice of arm lengths. These are motivated invariant and structural results rather than isolated finite computation.
+For fixed membership bits of the two terminals, an internal vertex fails the two-neighbor condition precisely at the center of a 101 word. Path choices therefore factor until the two terminal checks: at an omitted terminal the sum of incident internal bits is at most one, enforced by retaining powers zero and one of its marker, and at a selected terminal no restriction remains. Length two is included: its single internal bit marks both endpoints but contributes only one z. A two-bit transfer rejects only 10→01 and checks the final triple with the prescribed right terminal. At equal length three the cases with neither, one, and both terminals contribute (1+rz)^2, 2z[(1+z)^r+rz²(1+z)^(r−1)], and z²(1+z²)^r. In the single-terminal case the internal neighbor at the excluded terminal can be selected only in one arm and then forces its companion. With both terminals selected each pair is 00 or 11. The first two contributions cover degrees 0 through r+2; the last covers the even degrees from 2 through 2r+2. As 2r>r+2 for r≥3, only the paired case yields a proper set of size 2r, exactly one choice per omitted arm, and degree 2r+1 is absent. The full set is unique and evaluation at one gives the stated total. Independent vertex-mask tests against a separate arm-word calculation returned all matching coefficients: for lengths (2,3,4,5) the total is 410, and for seven length-three arms it is 1344 with seven maximum proper sets.
 
-## Sources and limitations
-Primary inspection: arXiv:2603.04706v1, definitions and main results on trees, threshold graphs, and exact algorithms. Comparators: doi:10.1137/110859014 (abstract); doi:10.1016/j.dam.2014.03.004 (HTML introduction and part of proof). The explicit binomial formula assumes every arm has length three. The all-length theorem applies only to internally disjoint two-terminal path graphs. Competing unindexed results and independent mathematical verification remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the explicit theta-family size polynomial and its sharp cardinality and extremizer information, not the counting problem, the generic finite-state technique, or the ability to compute individual cases. Compared size-enumerator and transfer results concern different graph families, and the inspected general counting method supplies neither this factorization nor its support formula.
+
+## value
+
+PASS
+
+The size distribution is a natural refinement of the established counting problem on a basic graph family with overlapping cycles. The all-length product works with shared terminal capacities; the closed form in the uniform family discriminates attainable sizes and classifies all largest proper sets. The value lies in that exact structural information, not in isolated numbers or in using a transfer alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

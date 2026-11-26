@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses the *bilinear* projective point–plane pairing on the sixty explicitly enumerated Gaussian-integer vectors. Exact arithmetic verifies all 3,600 pair tests, sixty row/column sums of fifteen, connectedness, and a complete annihilating polynomial with enough power traces to determine the graph Laplacian spectrum. Two different vertex deletions give the same full prime-local Smith valuation profiles. The four prime-power products equal the independent matrix–tree determinant, excluding missing prime factors. The included checker supplies the exact calculation.
+PASS
 
-## Originality — PASS (provisional priority)
+The classical sixty points and sixty planes give separate vertex sets and the stated algebraic bilinear zero test. I reconstructed the projectively normalized supports in F_37 with i mapped to 6: each Gaussian dot product is a+bi with |a|,|b|≤4, so a+6b has magnitude at most 28 and vanishes mod 37 exactly when a=b=0. The integer incidence matrix has degree 15 on both sides and 900 edges. Exact characteristic polynomials agree, including simplicity of the zero Laplacian root; the cofactor determinant is 2^235·3^15·5^48·7^30. Direct integer Smith reduction of the 119-by-119 cofactor returned 64 ones and factors 2^×7, 4, 20^×3, 40^×14, 1120^×16, 4480^×3, 13440^×7, 40320^×3, 201600, where × denotes multiplicity. The product and divisibility check, so all primes and multiplicities are accounted for. The frozen verifier's local proof also uses valid equivalences: unit pivots split factors, and reducing precision on division by p of the entire residual block preserves the remaining information. No pivot reaches the cutoff.
 
-The older construction of Klein's configuration, the sixty-point coordinates, and the 120-Klein graph are credited. The checked Dolgachev (2003) and Pokora–Szemberg–Szpond (2020/2022) primary papers describe the geometry and other invariants, not this integral Smith form. MathWorld's graph naming/database entry contains no critical-group table; the closest available published graph critical groups concern other objects. Searches of alternative graph names and more general Smith-group families did not establish equivalent published coverage. A hidden table or unindexed source is a residual risk, so this assessment is not a historical priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full 55-factor decomposition supplies an integral arithmetic fingerprint of a canonical highly symmetric algebraic-geometric incidence structure. Its nontrivial 2-adic filtration and exponent cannot be read from the previously known configuration counts or rational graph spectrum. It can also serve as the complete graph component-group invariant of a stable genus-781 nodal realization with the corresponding dual graph. No stronger geometric degeneration is asserted.
+The geometry, Levi graph and valencies are classical. No distinct inspected statement gives or forces the complete integral reduced-Laplacian Smith decomposition of this graph. The supported contribution is the integral group, not the configuration or its name. This is a bounded best-of-knowledge assessment.
 
-## Limitations
+## value
 
-The object is the sixty-point/sixty-plane Levi graph over the complex numbers, not the 24-Klein graph, the Klein quartic plane-line configuration, or the Picard group of a Kummer surface. Exact Smith factors are verified from the included deterministic program; independent mathematical validation and broader historical-priority audit are not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the complete integer chip-firing invariant of a standard 120-vertex geometric Levi graph. In particular it gives a minimal generator count of 55, exponent 201600, and the precise local structure beyond the tree number. Those data are useful for computations with divisors on this graph and for the component group of a regular split unit-thickness model with this dual graph; the graph is motivated independently of its answer and the invariant is not a repackaging of the spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

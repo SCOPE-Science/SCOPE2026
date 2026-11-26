@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:13:40.636178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, assumptions and equations (1)–(8)",
+        "VERIFICATION.md and verify_fractional_commutator.py, inspected without execution"
+      ],
+      "rationale": "On the common test core the compositions give the positive kernel (y^beta-x^beta)(x-y)^(alpha-1)/Gamma(alpha) on y<x. Squaring and putting y=xz gives x^(2(alpha+beta)-1) times the z integral; its endpoints have orders z^(2beta) and (1-z)^(2alpha). This yields the supercritical Hilbert–Schmidt norm and density gives uniqueness. Below the line, unit-norm dilations supported in a scaled compact subinterval have output norm on a scaled interval to their right bounded below by c epsilon^(alpha+beta), so there is no bounded extension. At alpha+beta=0 the logarithmic unitary conjugates the kernel to the positive right-translation average with density h(s)=(exp(alpha s)-1)exp(-s/2)(1-exp(-s))^(alpha-1)/Gamma(alpha). Its finite mass bounds the norm; normalized long plateaus asymptotically realize the mass by restricting the s integration to [0,R] and then sending the plateau length and R to infinity in that order. Translating the plateaus away from zero makes them weakly null without losing this lower bound, proving essential norm equality. For any nonzero g the translation norm decreases on a positive-measure set of s because of lost mass on [0,s], proving nonattainment under the strictly positive density. Substitution z=exp(-s) evaluates the mass as the stated positive difference of beta integrals divided by Gamma(alpha). Finally, with j(z)=(z^(-alpha)-1)^2(1-z)^(2alpha-2), the exact truncated energy is Gamma(alpha)^(-2) times the integral from epsilon to 1 of j(z) log(z/epsilon). Both j and |log z|j are integrable, giving the stated cutoff coefficient and bounded remainder. The same coefficient arises by dominated convergence of the Hilbert–Schmidt numerator as beta tends to -alpha from above.",
+      "residual_risks": [
+        "Only the specified open parameter rectangle is proved. Recorded numerical checks establish neither infinite-dimensional norm nor compactness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected unweighted theorem addresses boundedness and compactness of I^alpha. The closest weighted-commutator source describes two-weight inequalities in accessible metadata, but full text was unavailable; the analytic-space catalogue result has different domain, codomain and boundary."
+        ],
+        "reasoning": "An unweighted operator bound or compactness theorem cannot be composed freely with the unbounded x^beta multiplier. Weighted estimates may overlap the boundedness part but no inspected stronger theorem yields the exact critical norm and the two regularizations of the same energy divergence.",
+        "searches": [
+          "Carvalho-Neto and Fehlberg Júnior, arXiv:2108.02291, Theorems 11 and 15",
+          "Bernardis–Lorente weighted fractional commutators",
+          "Fernandez–Fahad weighted fractional calculus",
+          "Resultary e4a42b089ada"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.02291",
+        "DOIs 10.1007/s00020-008-1600-y and 10.3390/fractalfract6040208 (limited access)",
+        "Resultary 33677ede3aa1, e4a42b089ada, 9dc7f504b01b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Hardy result proves an exact energy and singular-value decay for a different compact kernel. The Bergman-to-Hardy record's essential norm occurs at its alpha=1 boundary and is not for a real interval commutator."
+        ],
+        "reasoning": "The current exact norm depends on a sharp positive half-line convolution bound and the critical energy law depends on the spatial truncation of its square kernel. The cited results do not transfer either quantity to this operator.",
+        "searches": [
+          "Carvalho-Neto and Fehlberg Júnior, Theorems 11 and 15",
+          "Resultary 33677ede3aa1, exact Hilbert–Schmidt and Weyl laws",
+          "Resultary e4a42b089ada, essential-norm boundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed power-commutator result uses x^(-1) times the ordinary primitive and a positive power multiplier. The current kernel on log coordinates is an L1 right-translation average only at beta=-alpha, with beta-integral mass."
+        ],
+        "reasoning": "Commutator sign reversal leaves the norms unchanged, and log/Mellin coordinates give the equivalent half-line formulation. The Hardy operator with a positive power does not reach this weakly singular Riemann–Liouville kernel and negative-power multiplier by a sign or coordinate relabeling.",
+        "searches": [
+          "Resultary: real-interval Riemann–Liouville power commutator, critical Mellin norm, Hilbert–Schmidt pole/cutoff",
+          "Resultary Hardy power commutators, 33677ede3aa1",
+          "Bernardis–Lorente, DOI 10.1007/s00020-008-1600-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Those distinct results give exact laws for the Hardy average commutator and for different analytic function space operators; none inspected gives the beta-integral coefficient and gamma difference for this kernel."
+        ],
+        "reasoning": "There is no finite tabular invariant here: the corresponding exact-data check concerns the symbolic coefficient formulas and their parameter domains. Classical beta/gamma evaluations are ingredients, not a prior table of these operator invariants.",
+        "searches": [
+          "Resultary targeted comparisons 33677ede3aa1, e4a42b089ada, 9dc7f504b01b"
+        ]
+      },
+      "rationale": "After comparing ordinary and weighted fractional integrals, power commutators and fractional Volterra boundary laws, the supported distinct claim is the concrete singular-power commutator trichotomy with exact operator and essential norms on the critical line and the common Hilbert–Schmidt coefficient. The tools of one-sided convolution, homogeneity, and beta integration are not claimed as new. Older weighted commutator literature is materially relevant but no verified coverage of this exact bundle was found; the named access limitations remain.",
+      "residual_risks": [
+        "The full specialized Bernardis–Lorente paper could not be read; older one-sided weighted fractional commutator estimates remain a priority risk.",
+        "The Fernandez–Fahad full-text comparison was not independently verified; unavailable material is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background on I^alpha, no computation of this commutator in those theorems",
+          "evidence": "L^p boundedness and an unweighted Bochner-space compactness criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.02291",
+          "material_read": "PDF pp. 8–9, Theorem 11; pp. 11–12, Theorem 15",
+          "method": "Bounded open PDF passages",
+          "title": "The Riemann–Liouville fractional integral in Bochner–Lebesgue spaces I",
+          "trigger": "Unweighted boundedness and compactness, same fractional integral"
+        },
+        {
+          "assessment": "Plausible overlap on estimates; precise full-text coverage unresolved",
+          "evidence": "Accessible description concerns two-weight estimates involving one-sided maximal operators; no exact gamma-norm or matching energy conclusion verified.",
+          "identifier_or_url": "https://doi.org/10.1007/s00020-008-1600-y",
+          "material_read": "Publisher metadata/excerpt only; article and PDF unavailable after access attempts; no lawful repository copy recovered",
+          "method": "Literature lookup and OA retrieval attempts",
+          "title": "Sharp Two Weight Inequalities for Commutators of Riemann-Liouville and Weyl Fractional Integral Operators",
+          "trigger": "Older paper on the same type of fractional commutator"
+        },
+        {
+          "assessment": "Related weighted operator definitions; not a full-text exclusion",
+          "evidence": "The abstract addresses weighted fractional calculus, not verified coverage of the two critical equalities.",
+          "identifier_or_url": "https://doi.org/10.3390/fractalfract6040208",
+          "material_read": "Accessible publisher abstract only; PDF request returned 403",
+          "method": "Publisher/OA access attempt",
+          "title": "Weighted Fractional Calculus: A General Class of Operators",
+          "trigger": "Weighted fractional conjugations may specialize to power operators"
+        },
+        {
+          "assessment": "Different kernel and power sign",
+          "evidence": "Hf=x^(-1) times the ordinary primitive, with positive power multiplier; exact Hilbert–Schmidt norm and n^(-2) Weyl law.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-singular-value-weyl-law-for-hardy-power-commutators--33677ede3aa1",
+          "material_read": "Finding, operator definitions and exact norm statement",
+          "method": "Local Resultary mirror",
+          "title": "A universal singular-value Weyl law for Hardy power commutators",
+          "trigger": "Closest indexed real-interval power commutator"
+        },
+        {
+          "assessment": "Related boundary terminology and a different operator setting",
+          "evidence": "Analytic Bergman-to-Hardy monomial operator; essential norm at its alpha=1 boundary.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-angular-weyl-constants-for-monomial-bergman-to-hardy-volte--e4a42b089ada",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp angular Weyl constants for monomial Bergman-to-Hardy Volterra operators",
+          "trigger": "Same-day indexed Volterra boundary and essential norm"
+        },
+        {
+          "assessment": "Different analytic power-map operator, not the real scalar commutator",
+          "evidence": "Calkin Gram operator of a Bergman/Hardy power-map companion.",
+          "identifier_or_url": "2026/11/22/SCOPE-boundary-orbit-aliasing-and-spectral-bulk-for-polynomial-power-m--9dc7f504b01b",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Boundary-orbit aliasing and spectral bulk for polynomial power maps",
+          "trigger": "Related indexed boundary spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, equations (1)–(4), (7) and (8)",
+        "Compared unweighted fractional and Hardy commutator statements"
+      ],
+      "rationale": "The singular power multiplier creates a natural homogeneity boundary where compactness disappears but boundedness survives. The simultaneous sharp norm, nonattainment, and agreement of the energy divergence under parameter approach and spatial cutoff give quantitative information that a weighted boundedness estimate alone would miss. The proof explains the agreement through the same remaining ratio integral, rather than through unrelated numerical fits.",
+      "residual_risks": [
+        "No S_p law beyond S_2, other L^p spaces, or endpoint half-orders are inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

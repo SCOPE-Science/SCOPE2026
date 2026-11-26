@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:58:37.116926Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the all-prime proof on the marked smooth finite coefficient base. Simultaneous vanishing of the partial derivatives implies all projective coordinates are nonzero and λ⁴=1, and at λ⁴=1 such a singular point exists (choose coordinates 1/λ,1,1,1). The coefficient extraction gives H_p=λ^(p-1) times the degree-m truncation at z=λ^(-4), m=floor((p-1)/4); from Wilson or the factorial multiplication formula the ratio in the j-th multinomial coefficient is (1/4)_j(1/2)_j(3/4)_j/(j!)³ modulo p. The chosen Clausen or Euler-transformed Gauss series terminates at k modulo p through degree m because one upper parameter is -k; denominators through that degree are invertible and the alternative squared polynomial with its possible factor 1-z has degree at most 2k+δ=m. Thus reduction of the formal identity yields the asserted polynomial identity, including λ=0 by extension. For the Gauss equation at a putative multiple root z0 outside {0,1}, the lowest nonzero Taylor term of order l≥2 would give a nonzero term of order l-2 multiplied by z0(1-z0)l(l-1), since l≤k<p. Also P(0)=1 and Vandermonde gives P(1)=(1-β)_k/k!, nonzero: the four starting representatives 3k+1,3k+2,3k+2,3k+3 and the next k-1 factors do not reach p. No leading coefficient vanishes (both parameters have no zero factor before k), so the lowest λ exponent d-4k is 0 or 1, as required at the Fermat point. The map λ↦λ^(-4) is étale off λ=0, yielding simple nonzero roots and excluding λ⁴=1. The monic polynomial has degree d, including the constant p=5 case. A smooth residue parameter lifts via an unramified characteristic-zero lift with good reduction. Rank at least 19 on the characteristic-zero pencil specializes injectively, and ρ≤22-2h excludes finite heights h≥2. Thus the Hasse vanishing locus is exactly the infinite-height locus. Read the supplied verifier but did not execute it. In a separate bounded modular replay at p=5,7,11,13,17,41,47,53,59,101,103,109,113,251,257, formed H from the multinomial, divided by the proposed boundary factor, solved top-down for a monic square root by matching the coefficient at λ^(d+j) (subtract the known higher-index products, then divide by 2), checked by squaring, and compared every predicted Gauss coefficient. The all-prime proof, not this replay, establishes squarefreeness and the height conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grabowski gives the coefficient criterion for ordinary Dwork hypersurfaces. Doran et al. compare unit roots and the supersingular loci of dual-weight-matched pencils; their quartic table includes the exact pencil and gives the same period equation. Their later quartic paper gives the finite-field hypergeometric factor and period setup."
+        ],
+        "reasoning": "These results cover important premises and the general way to test the locus. Locus equality between several pencils does not calculate the scheme multiplicity, enumerate the geometric roots, or prove that the proposed root is squarefree. A period or zeta common factor, in particular one with exceptional primes, is not the all-p divisor count claimed here.",
+        "searches": [
+          "arXiv:2401.07945 §§3.1, 3.3–3.4 and Proposition 3.12",
+          "arXiv:1612.09249 §§2.3, 4.5 and 5.1",
+          "arXiv:1810.06254 Theorem 1.4.1 and Proposition 2.5.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1612.09249",
+        "arXiv:2401.07945",
+        "arXiv:1810.06254",
+        "arXiv:2004.00820",
+        "Resultary eda6be9e1019 (self-hit), 4f3d6f035f73, bcd036ddc1d1",
+        "Yu (2009), citation and author bibliography only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hasse vanishing on the nonzero smooth chart and symmetric-square period identities are known. The explicit monic Q requires selecting the terminating Gauss parameters in each residue class, checking truncation in the original coefficient, and proving that the polynomial root has no repeated or omitted boundary factors."
+        ],
+        "reasoning": "The classical identities explain the square, but do not alone establish the distinct all-characteristic reduced divisor: degree control is required for a polynomial identity rather than a truncated formal comparison, and a root analysis is needed at 1 and at the ramified reciprocal endpoint. Likewise the Legendre pullback gives a route to multiplicities, but using it requires passing from characteristic-zero periods to characteristic-p polynomials and distinguishing branch from generic roots. The assessed addition is the explicit characteristic-p divisor calculation, not the symmetric square, the prior ordinarity test, or the rank argument separately.",
+        "searches": [
+          "arXiv:1612.09249 Example 2.3.2 and Proposition 4.5.1; arXiv:2401.07945 Proposition 3.12; Yang arXiv:2004.00820, pp. 3–4 and §5.2; classical Clausen, Euler and Chu–Vandermonde identities used in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grabowski's parameter is reciprocal to this coefficient parameter for nonzero λ. Doran et al. use the same reciprocal hypergeometric argument ψ^(-4). Yang's Legendre coordinate L has r(L)=16(1-L)L²/(L-2)⁴ and the pulled-back period is (1-L/2) times the square of the Legendre period."
+        ],
+        "reasoning": "These are genuine same-pencil comparisons, not distinct merely due to notation. For example, truncating Yang's identity below degree p and clearing denominators yields (1-L/2)^(p-1) times the reciprocal Hasse polynomial evaluated at r(L) equal to the square of the degree-(p-1)/2 Legendre polynomial mod p. This follows since both sides have degree at most p-1, and multiplication by (1-L/2)^p acts as 1 in the truncation. This is substantial equivalent pullback information. To turn it into the audited divisor on the original finite λ-base one still has to descend through ramification over z=0,1,∞ and track the explicit branch and Fermat-point factors; the original monic root and nonzero/boundary analysis are not supplied by the displayed period theorem.",
+        "searches": [
+          "Resultary: Dwork-quartic squarefree Hasse root and supersingular parameter count",
+          "Dwork quartic pencil supersingular parameters all primes Hasse polynomial multiplicity hypergeometric modular parametrization",
+          "Yang, arXiv:2004.00820, (1.13), (1.18) and (5.13)–(5.17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit eda6be9e1019 is the assigned record itself. Mirrored findings 4f3d6f035f73 and bcd036ddc1d1 give exact Hasse/support counts for Ciani genus-three families. The Doran et al. table lists the matching K3 pencil and its period parameters but is not a table of its supersingular geometric coefficients."
+        ],
+        "reasoning": "The genus-three boundary and finite characteristic-11 counts do not determine the marked Dwork K3 divisor. The claimed d counts parameters over the algebraic closure, not isomorphism classes, rational parameters, or supersingular elliptic moduli; the covering and branch points matter when translating any such table.",
+        "searches": [
+          "Resultary: exact Hasse polynomial, squarefree root, geometric supersingular coefficient values",
+          "arXiv:1612.09249 Table 5.1.1, eq. (5.1.2), Theorem 5.1.3"
+        ]
+      },
+      "rationale": "The coefficient Hasse test, the hypergeometric periods, the square-of-period structure after a Legendre change of variable, and the characteristic-zero Picard rank are prior. Credit is limited to the explicit monic characteristic-p square root with its boundary factor, the reduced support in the original marked coefficient coordinate including the capped-off Fermat point, and the all-prime geometric support count. No inspected source is a dominating theorem for that full divisor calculation. This is not a priority certification.",
+      "residual_risks": [
+        "A prior characteristic-p modular or unit-root calculation could include the same descent and exact branch corrections; the older original by Yu and Miyatani's cited broader theorem were not assessed in full.",
+        "The symmetric-square relation and locus criterion are known, so novelty is confined to the explicit marked divisor computation and its reduced count, not period theory or the existence of supersingular fibres."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage for coefficient test, related loci, and this pencil's period, not the computed multiplicity and geometric count",
+          "evidence": "A nonzero Hasse invariant detects a unit root; matching dual weights give the same supersingular locus. The exact F₄ quartic has the period (1/4,1/2,3/4;1,1) in reciprocal fourth power.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.09249",
+          "material_read": "Example 2.3.2 p. 9; Proposition 4.5.1 and Remarks 4.5.2–4.5.3 pp. 22–23; Table 5.1.1, eq. (5.1.2) and Theorem 5.1.3 pp. 23–24",
+          "method": "OA PDF passages",
+          "title": "Zeta Functions of Alternate Mirror Calabi–Yau Families",
+          "trigger": "Direct same-pencil Hasse and supersingularity coverage"
+        },
+        {
+          "assessment": "Prior general coefficient/ordinarity criterion in reciprocal normalization",
+          "evidence": "Uses μ times the sum of fourth powers minus four times the product, so μ=1/λ on the common chart. Nonvanishing detects ordinarity, not an explicit reduced support and multiplicity split.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.07945",
+          "material_read": "§§3.1 and 3.3–3.4, pp. 8–10, especially Proposition 3.12",
+          "method": "OA PDF passages",
+          "title": "Canonical liftings of Calabi–Yau hypersurfaces: Dwork hypersurfaces",
+          "trigger": "Coefficient-normalized Dwork Hasse polynomial and ordinarity"
+        },
+        {
+          "assessment": "Prior motive and period data, different results",
+          "evidence": "A hypergeometric L-factor and period equations for F₄ in the reciprocal fourth power of its coefficient parameter.",
+          "identifier_or_url": "https://arxiv.org/html/1810.06254",
+          "material_read": "§1.4 Theorem 1.4.1 and §2.5 Proposition 2.5.2, text offsets near 9000 and 50000",
+          "method": "OA original text passages",
+          "title": "Hypergeometric decomposition of symmetric K3 quartic pencils",
+          "trigger": "Hypergeometric description of exactly the same pencil"
+        },
+        {
+          "assessment": "Direct prior pulled-back square of periods and characteristic-zero rank bound; not a calculation of the characteristic-p divisor in the finite coefficient coordinate",
+          "evidence": "Under the degree-four rational change, W₀=(1-L/2) times the square of the Legendre period. Both the mirror and the Fermat pencil have geometric Picard rank at least 19 in the characteristic-zero discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.00820",
+          "material_read": "pp. 3–4 (1.13), (1.18)–(1.20); §5.2 (5.11)–(5.17), OA PDF offsets 11300, 12220 and 60780",
+          "method": "OA PDF via identified arXiv copy after DOI landing attempt",
+          "title": "K3 mirror symmetry, Legendre family and Deligne's conjecture for the Fermat quartic",
+          "trigger": "Strongest plausible alternate modular/Legendre formulation, and Picard rank of the actual pencil"
+        },
+        {
+          "assessment": "Different family despite analogous theorem",
+          "evidence": "Symmetric Ciani genus-three curves with a Legendre supersingularity condition, not the Dwork K3 pencil.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-extended-hasse-polynomial-at-the-double-conic-boundary--4f3d6f035f73",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirrored RESULT.md",
+          "title": "The exact extended Hasse polynomial at the double-conic boundary",
+          "trigger": "Same-day analogue with all-prime coefficient and reduced support count"
+        },
+        {
+          "assessment": "Different family, base dimension, and scope",
+          "evidence": "Counts characteristic-11 pairs in a two-parameter Ciani genus-three family.",
+          "identifier_or_url": "2026/11/22/SCOPE-eight-hasse-components-and-25-reduced-superspecial-parameters-in--bcd036ddc1d1",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirrored RESULT.md",
+          "title": "Eight Hasse components and 25 reduced superspecial parameters",
+          "trigger": "Same-day exact Hasse component and support enumeration"
+        },
+        {
+          "assessment": "Older lead, not ruled out and not counted as an inspected theorem",
+          "evidence": "Author list distinguishes this article from the separately accessible similarly named paper on certain families.",
+          "identifier_or_url": "Math. Ann. 343 (2009), 53–78; https://homepage.ntu.edu.tw/~jdyu/math.html",
+          "material_read": "Citation in Doran et al. Example 2.3.2 and author bibliography; no theorem text from this identified paper assessed",
+          "method": "OA citation and author-index inspection",
+          "title": "Variation of the unit root along the Dwork family of Calabi–Yau varieties",
+          "trigger": "Earlier unit-root treatment of the same family, identified in Doran et al."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary/nonordinary test does not answer how its divisor sits in the marked K3 pencil. The explicit all-prime factorization separates the singular boundary, settles multiplicity on the smooth base and gives a reduced defining polynomial and a geometric coefficient count, including the ramified Fermat point. These are useful exact invariants for this standard pencil, independent of any unsupported claim to count isomorphism classes or describe singular fibres.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

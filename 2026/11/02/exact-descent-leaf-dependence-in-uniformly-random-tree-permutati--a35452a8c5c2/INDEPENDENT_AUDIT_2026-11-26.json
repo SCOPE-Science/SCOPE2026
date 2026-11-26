@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:15:22.539865Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59",
+        "Frozen VERIFICATION.md",
+        "Acan–Hitczenko, arXiv:1406.3958, Section 2 and Lemmas 11–12"
+      ],
+      "rationale": "Under the published bijective insertion code, I1 replaces the old last comparison by an ascent and then a descent; I2 leaves earlier comparisons unchanged and appends an ascent. Starting with the descent in (2,1), the extra descents are exactly the 01 transitions for the specified bit convention. Independently, each graph insertion keeps one of the current maximum/last vertices, replaces the other member of that active pair by a new leaf attached to the kept vertex, and leaves the old displaced vertex in the graph. After the first insertion the kept vertex has degree at least two and the new active vertex has degree one. Repeating an operation increases the leaf count by one; switching keeps it unchanged. This gives L=n−1−N01−N10 and agrees with the cited run formula. Hence 2D+L−n−1=b_last−b_first. The first bit and the change indicators form a bijective recoding into uniform independent bits; the first bit remains fair given the count T, giving exactly the displayed even/odd conditional law. The conditional mean is 1+T/2, the conditional variance is 1/4 on odd T and zero otherwise; fair parity for n≥4 gives the stated variance, covariance and correlation. For n=3 both variables are constant. The bounded endpoint error and the binomial CLT give the stated singular limit. The stated descent marginal follows also by adjoining an initial 1 and terminal 0: D=d then corresponds to choosing 2d−1 switch locations among n−1.",
+      "residual_risks": [
+        "The supplied finite verifier was not rerun. The proof, not the recorded finite counts, justifies the all-size law. The endpoint sign is tied to the stated coding convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan–Hitczenko give the full insertion-word bijection and L=n−number of runs.",
+          "The permutation-tree perfect-matchability record gives L=2+number of consecutive equal bits and studies leaf and diameter laws conditional on matching."
+        ],
+        "reasoning": "The leaf law is already covered, in distribution and in its code representation. The different conditional laws do not determine the adjacent-descent coupling.",
+        "searches": [
+          "arXiv:1406.3958 Section 2, Lemmas 5 and 11–12",
+          "Resultary 1fc85bd4a0d0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.3958, 2203.04182 and 2303.15756",
+        "Resultary 1fc85bd4a0d0 and 19bd34709e33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Acan–Hitczenko encode leaves via all switches but do not identify adjacent descents with oriented switches in the inspected passages.",
+          "The frozen proof follows the terminal comparison through both insertion operations to obtain D=1+N01."
+        ],
+        "reasoning": "The prior bijection makes the coupling recoverable, but the known run statistic and classical pattern counts do not give the directed change identity. It is that additional comparison that produces the exact parity support and endpoint defect; the covariance and limit then follow routinely.",
+        "searches": [
+          "Acan–Hitczenko Section 2 and Lemmas 11–12",
+          "Janson Section 2.2",
+          "Selig–Zhu Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson defines classical occurrences by subsequences: 21 counts inversions, not adjacent descents.",
+          "Selig–Zhu Theorem 3.6 relates descents to empty rows in a CNAT bijection, not graph leaves of uniform tree permutations.",
+          "Resultary 19bd34709e33 studies root degree and leaves in rooted plane Catalan trees."
+        ],
+        "reasoning": "The compared order statistics and sample spaces do not carry over the specific two statistics under the specified probability law. No identity of those distributions was established by these sources.",
+        "searches": [
+          "Resultary: adjacent descents, graph leaves, insertion runs, joint law",
+          "Targeted literature search on the adjacent-descent/leaf joint statistic",
+          "arXiv:2203.04182 Section 2.2",
+          "arXiv:2303.15756 Theorem 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact leaf marginal in Lemma 5 agrees, as does the binary equality-count formula in 1fc85bd4a0d0. The same-date Catalan record is not an enumeration of these permutations."
+        ],
+        "reasoning": "The claimed data are a full two-statistic law for every n, not finite sample values or a leaf count table; the compared exact laws match only the known one-statistic marginal.",
+        "searches": [
+          "Resultary searches for exact joint descent/leaf law and dependence in permutation trees",
+          "arXiv:1406.3958 Lemma 5",
+          "Resultary 1fc85bd4a0d0 and 19bd34709e33"
+        ]
+      },
+      "rationale": "The insertion code, run formula for leaves and leaf marginal are established prior results. The inspected matching work does not state or give a formula for the joint law of adjacent descents and graph leaves. The supported distinct claim is the exact coupling, not the binomial leaf law or the code itself.",
+      "residual_risks": [
+        "The known code makes the cross-statistic law readily recoverable once oriented switches are linked to descents. Earlier explicit work of that kind could change the priority assessment.",
+        "The unique-CNAT passage was not resolved; a missed source or empty targeted search is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Code and leaf marginal already covered",
+          "evidence": [
+            "Unique binary insertion word; leaf count from runs; L distributed as 2+Bin(n−3,1/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.3958",
+          "material_read": "Section 2 p. 3, Lemma 5 p. 5, Lemmas 11–12 pp. 7–8",
+          "method": "Primary PDF passage inspection",
+          "title": "On random trees obtained from permutation graphs",
+          "trigger": "Same distribution and coding; principal possible prior coverage"
+        },
+        {
+          "assessment": "Related, different statistic",
+          "evidence": [
+            "A classical occurrence is a subsequence; the pattern 21 counts inversions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.04182",
+          "material_read": "Section 2.2, p. 3, offset 5000",
+          "method": "Primary PDF passage inspection",
+          "title": "The number of occurrences of patterns in a random tree or forest permutation",
+          "trigger": "Same permutations and pattern statistics"
+        },
+        {
+          "assessment": "Inspected theorem is different; unique-CNAT passage not checked",
+          "evidence": [
+            "Theorem 3.6 relates descents to empty rows, not inversion-graph leaves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.15756",
+          "material_read": "Theorem 3.6, p. 11, offsets 39700–43828; attempts at B(n,1)/Definition 4.1 passage timed out",
+          "method": "Primary PDF passage inspection with incomplete access to requested passage",
+          "title": "Complete non-ambiguous trees and associated permutations: new enumerative results",
+          "trigger": "Descents and associated permutations"
+        },
+        {
+          "assessment": "Same marginal representation but different joint question",
+          "evidence": [
+            "Leaf count from equal consecutive bits; conditioning on perfect matching rather than adjacent descents."
+          ],
+          "identifier_or_url": "Resultary 1fc85bd4a0d0",
+          "material_read": "Mirrored Finding and proof, offsets 0–8790",
+          "method": "Local index and statement inspection",
+          "title": "Rare perfect matchability changes the diameter of random permutation trees",
+          "trigger": "Same tree model and exact leaf statistic"
+        },
+        {
+          "assessment": "Different tree class and statistic",
+          "evidence": [
+            "Root degree of rooted plane trees, not permutation descents."
+          ],
+          "identifier_or_url": "Resultary 19bd34709e33",
+          "material_read": "Mirrored RESULT.md, offsets 0–2249",
+          "method": "Local index and statement inspection",
+          "title": "Root-degree ordering of leaf counts in uniform Catalan trees",
+          "trigger": "Distinct same-date leaf-dependence finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 38–56",
+        "Acan–Hitczenko, Lemma 5"
+      ],
+      "rationale": "Adjacent descents are a natural permutation statistic and leaves are a natural graph statistic for the same combinatorial object. The exact coupling relates permutation order to graph structure: for each leaf count, the descent count is fixed or supported on exactly two consecutive integers with equal mass. The bounded deterministic defect and the rank-one joint limit capture dependence that neither a marginal CLT nor the published leaf law provides.",
+      "residual_risks": [
+        "The conclusion is for uniform tree permutations, not weighted codes, general permutations or forests."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

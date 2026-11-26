@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:04:20.295722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distinct-word violations are exactly the forbidden unordered triples; coalitions of size at most one cause no violations. Per coordinate an ordered target and parent pair satisfying descent has 15 assignments. Of the 15^3 ordered triples, 2*27^2-27 have the target equal to a parent; no distinct triple admits two different targets. Division by the two parent orders yields 972. Increasing-index enumeration visits each feasible set once because feasibility is inherited by every prefix. Checking additions from the entire 27-word universe, not just later indices, certifies inclusion-maximality. A separate implementation reproduced all feasible ranks (1,27,351,1953,4455,4482,2439,756,108,12), total 14584; maximal ranks 3,4,5,6,7,9 had counts (27,162,540,27,324,12), total 1092. It checked the full 1296 coordinate and independent symbol permutations and obtained the nine stated orbit sizes; explicitly testing each feasible size-eight code gave exactly one valid addition for each of the 108 codes. Replay: /workspace/branches/ca789421-95bb-4523-a1ac-0e77f1845ec6/independent_census.py and independent_census.log in that directory. The uploaded Python and C++ verifiers were inspected, not executed. As an analytic check of the size-eight extension, if a feasible pair differs in one coordinate, any other word must have the third symbol in that coordinate (else one of the pair can be framed). At this fixed symbol, the two remaining coordinates give a bipartite graph on 3+3 vertices with no three-edge path, hence a star forest with at most four edges. Such a code has size at most six. A feasible size-eight code is therefore a partial Latin square with one hole. The deficient row and column both need the one symbol used only twice; it fills the hole uniquely, yielding a distance-two code and thus a two-frameproof code at length three.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Chee–Zhang opening material treats cardinality rates and constructions; optimizing size does not give the counts of terminal non-maximum codes.",
+          "The Blackburn and Tô–Safavi-Naini full texts were not recovered through the lawful access attempted; the latter concerns 2-IPP, and is not evidence of an enumeration of the weaker condition."
+        ],
+        "reasoning": "No inspected stronger theorem evaluates labelled saturation ranks or orbit sizes. The comparison does not infer contents of an inaccessible paper from its title.",
+        "searches": [
+          "Chee–Zhang, arXiv:1206.5863v1",
+          "Blackburn, DOI 10.1137/S0895480101384633",
+          "Tô–Safavi-Naini, DOI 10.1137/S0895480102400424"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and the Python/C++ verifier sources",
+        "Resultary d9089a638b0a",
+        "Chee–Zhang arXiv:1206.5863v1 (bounded opening passage)",
+        "Blackburn DOI 10.1137/S0895480101384633 and Tô–Safavi-Naini DOI 10.1137/S0895480102400424 (lawful access checks, not full-text inspections)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximum-size classification gives exactly the size-nine term 12t^9 and its single orbit, but cannot count codes that do not extend to that maximum. The size-eight uniqueness may be recovered from the distance-one obstruction and the usual single-hole Latin-square completion, without determining any lower-rank saturation counts.",
+          "The nonmaximum saturation counts 27,162,540,27,324 at sizes 3,4,5,6,7 and their orbit splitting require information about blocked extensions outside the maximum-size family."
+        ],
+        "reasoning": "The prior equality statement does not mechanically imply the whole supported census. A partial overlap or a simple check of the penultimate size does not remove the distinct complete saturation result.",
+        "searches": [
+          "Resultary d9089a638b0a, mirrored RESULT.md, opening and equality discussion",
+          "arXiv:1206.5863v1, opening results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-frameproof means independent in the forbidden-descendant-triple hypergraph. Here saturation means maximal independent under adding any word, not maximum cardinality.",
+          "Two-identifiable-parent is a stronger property. For example, {012,021,100,200} is two-frameproof, but 000 is a descendant of both disjoint pairs {012,100} and {021,200}."
+        ],
+        "reasoning": "An extremal count, an IPP classification, and a saturation census solve different problems, even in the same 27-word universe. The hypergraph reformulation preserves the exact predicate and group action.",
+        "searches": [
+          "Chee–Zhang, arXiv:1206.5863v1; two-frameproof and identifiable-parent formulations",
+          "Resultary d9089a638b0a, offsets 0 and 3965"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual mirrored result identifies all size-nine codes with Latin-square graphs and gives 12 labelled cases in one orbit under exactly the same isometry group.",
+          "Its inspected finding and equality-case discussion do not state the size-3 through size-7 saturation ranks or their orbit sizes."
+        ],
+        "reasoning": "This materially overlaps the top coefficient and orbit. No inspected table gives the whole saturation polynomial; the exact top-rank overlap is credited, not dismissed.",
+        "searches": [
+          "Resultary d9089a638b0a, Equality cases for ternary length-three 2-frameproof codes"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full inclusion-maximal saturation polynomial and orbit census, especially the non-maximum strata. The exact size-nine coefficient and its one orbit already occur in the inspected equality-case record and are not credited as novel. The one-hole extension fact is not needed as an independent novelty claim. The older literature comparison is bounded and the inaccessible sources leave the named residual risks.",
+      "residual_risks": [
+        "Blackburn and Tô–Safavi-Naini full texts were not accessible; related examples or an earlier finite census could remain uninspected.",
+        "An unindexed exact small-parameter saturation or orbit table under different terminology cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact top-rank partial overlap only",
+          "evidence": "12 Latin-square graph codes of size nine; one orbit. Not the rank census of all inclusion-maximal codes.",
+          "identifier_or_url": "Resultary d9089a638b0a",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 3965 (finding and equality-case discussion)",
+          "method": "Local mirror",
+          "title": "Equality cases for ternary length-three 2-frameproof codes",
+          "trigger": "Exact same alphabet, length, property and symmetry action"
+        },
+        {
+          "assessment": "Inspected material is about rates/constructions, not this saturation result; no whole-document exclusion asserted",
+          "evidence": "Cardinality-rate and construction focus; distinguishes frameproof and parent-identification properties.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.5863v1",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "Improved Constructions of Frameproof Codes",
+          "trigger": "General frameproof definitions and bounds"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence for or against overlap",
+          "evidence": "No source theorem from this paper is used to decide the census novelty.",
+          "identifier_or_url": "10.1137/S0895480101384633",
+          "material_read": "No decisive full-text passage recovered",
+          "method": "Lawful full-text attempts failed with HTTP 403 and no repository copy was located",
+          "title": "Frameproof Codes",
+          "trigger": "Potential small case or extremal table in an older source"
+        },
+        {
+          "assessment": "IPP scope is genuinely different; full-text comparison remains incomplete",
+          "evidence": "A direct descendant example separates the two predicates; the title alone does not exclude ancillary frameproof results.",
+          "identifier_or_url": "10.1137/S0895480102400424",
+          "material_read": "Bibliographic scope; no decisive full-text passage recovered",
+          "method": "Lawful full-text attempts failed with HTTP 403 and no repository copy was located",
+          "title": "On the Maximal Codes of Length 3 with the 2-Identifiable Parent Property",
+          "trigger": "Same length and potentially misleading maximal terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural smallest ternary length-three extremal-code setting with known maximum configurations. The counts address a distinct practical and structural question: where greedy codeword addition can stop, and how many symmetry types those terminal codes have. The spread from size three to nine, absence of terminal size eight, and the nonmaximum orbit breakdown supply precise useful data rather than merely recomputing the maximum. The finite scope is complete and transparent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

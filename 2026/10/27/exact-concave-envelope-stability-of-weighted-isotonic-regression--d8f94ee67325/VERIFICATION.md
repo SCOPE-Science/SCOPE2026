@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Scientific verification
+# Independent mathematical audit
 
-The proof of the sharp constant uses finite full-dimensional affine cells of weighted isotonic regression, the exact step-vector basis for path variation, the two-boundary formula for a step crossing one fused block, and a strict local-data construction realizing every maximizing chord. The least concave majorant is the upper hull of the cumulative-mass edge-weight nodes. These steps establish the theorem for all real input vectors and all strictly positive masses and variation weights.
+## correctness
 
-The supplementary `CHECK.py` uses standard-library exact rational arithmetic and can be executed with `python CHECK.py`. Its completed execution reported 45,900 contiguous-block partition norm checks, 17,245 rational two-input inequalities, 571 attaining-pair checks, 720 direct-chord versus concave-hull comparisons, and 11 additional strict-concavity and low-weight boundary checks. Rational tests do not independently certify general real-parameter formulas; the written proof supplies the unrestricted result.
+PASS
 
-Literature comparison: the weighted PAV structure is present in Yeganova and Wilbur (2009); Yang and Barber (2017) already characterize qualitative nonexpansivity for unweighted isotonic projection in general seminorms. The present quantitative weighted modulus is the assessed mathematical contribution, with residual historical-equivalence risk. All scientific review statuses are self-review only; independent audit has not been performed.
+For the repaired RESULT.md the exact formula, criterion, attainment and arithmetic complexity hold. On each linearity cell the projection is the mass-weighted block average. Slicing a segment and using continuity reduces to its largest block operator seminorm. Modulo constants, steps form the weighted l1 basis for variation, so testing each step gives the exact block seminorm. A step inside a block averages to (A_R-A_j)/(A_R-A_L) there; both adjacent weights then give exactly the displayed chord height. Each such block has a stable cell: strictly decreasing block data have strictly positive proper-prefix residuals relative to their weighted mean, and strictly separated singleton fits ensure the cell persists for a sufficiently small step perturbation. A cut between fitted blocks yields factor one, already attained on the identity cell; in particular n=2 poses no exception. The upper hull gives the maximum chord height at each node, and its stack construction plus sweep is linear in arithmetic operations. The frozen worked example omitted the first-cut contribution epsilon/2, so its displayed equality could fail for epsilon>2. The repaired example includes both ratios, verified from the two length-two blocks; the original asymptotic and theorem are unchanged. VERIFICATION.md records limited rational finite checks; CHECK.py was inspected, not executed.
+
+## originality
+
+PASS
+
+The repaired claim retains the sharp all-positive-mass, all-positive-edge-weight quantitative two-input factor, with witness and algorithm. Yang–Barber covers the equal-mass qualitative criterion but not the amplification factor or the general mass envelope. Three inspected Resultary entries are mathematically equivalent but have later catalogue dates than the frozen result. They are material exact overlaps, not evidence of prior coverage on the evidence available. This is not a claim of historical priority over all sources.
+
+## value
+
+PASS
+
+The precise invariant measures perturbation amplification in a seminorm that detects changes between neighboring data, with observation masses and measurement weights serving different roles. A practitioner can decide exactly whether smoothing is nonexpansive and, if not, compute a sharp bound and a realizing input pair rather than relying on a one-input or qualitative estimate. The corrected three-point example makes both possible weight imbalances explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

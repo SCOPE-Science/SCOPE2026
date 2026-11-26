@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Definitions fix *linear* words, labeled alphabets, and ordinary Abelian equality of the two adjacent equal-length blocks. Complete enumeration of five-letter contexts and six-letter transitions yields the twelve-state binary graph with a unique six-cycle and two length-two transient paths. Walk counts force the exact finite sequence, six periodic phases from length eight and sharp onset. The three explicit two-return constructions have been verified by exact directed-edge checks for the relevant forbidden-order sets. Their arbitrary concatenations prove the entropy inequalities and essentiality of both binary constraints. Separate direct enumeration through length 13 agrees; it is not offered as an infinite proof. Risks: possible implementation mistakes in finite enumeration, mitigated by two independently formulated programs and a short explicit graph certificate.
+PASS
 
-## Originality — PASS (qualified)
+Independently enumerated binary words through length eight using base-4 encoded Parikh sums, verified the exact counts, 12 contexts, 10 length-six transitions and six length-eight phases, and checked the unique correct continuation of each length-eight phase. This is a finite certificate for all lengths because appending a bit can only create a forbidden suffix of length 4 or 6; the six distinct phases exhaust length eight and always have the periodic continuation. The two additional length-seven words make the onset sharp. Independently checked both distinct same-length returns for each of the three prescribed constraints (ternary joint and each binary single order), checking every factor in the seed plus each block and exact return of the maximal context. Any future crossing factor is then checked by the next return, so the choices concatenate freely and arbitrary remaining length is obtained by a prefix of one return. Counts are positive and submultiplicative by factoring a word at a fixed index, giving existence of entropy and the stated strict bounds. Replay: python3 /workspace/branches/reproduce_decisive.py; the frozen scripts and verification notes were inspected without execution.
 
-Grant's 2010 long-Abelian-square avoidance threshold applies to a tail of half-lengths rather than precisely half-lengths two and three. Rao–Rosenfeld's 2015 results concern finer \(k\)-Abelian equivalence and long-period restrictions. A targeted published-record search returned related Abelian-square counts in constrained de Bruijn cycles, ordinary tandem-square universal cycles, and unrelated antisquare-good entropy laws, but no result implying the exact six-phase stabilization and three return constructions. The search was not a proof of global priority. Main residual risk: a small-state avoidance calculation may exist in an unindexed older source.
+## originality
 
-## Value — PASS
+PASS
 
-This is not an arbitrary finite enumeration: the first two nontrivial Abelian-square orders jointly force an unexpected eventual periodic language over two symbols, whereas each order alone permits exponentially many words and a third alphabet letter reinstates exponential growth even under both restrictions. The exactly sharp stabilization length eight and minimality witnesses reveal the mechanism of a binary-to-ternary entropy phase transition. The finite-state proof also gives a reusable obstruction classification for constrained synchronization and symbolic-sequence design.
+The supported distinct result is the exact binary rigidity and onset under the two exact orders, joined to a constructive exponential-growth threshold and binary inclusion-minimality. Neither standard overlap graphs nor periodic examples are by themselves the originality basis.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first two nontrivial half-length restrictions constitute a minimal pair that forces binary words into just one periodic orbit after a sharp finite cutoff, while adding a third symbol or removing either restriction permits independent choices forever. This gives an exact rigidity benchmark for bounded Abelian-square avoidance and distinguishes zero capacity from genuine exponential growth; finite counts alone would not establish that distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Review of the generic fixed-point pedal-simplex nonreturn theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-Directly projecting the origin onto every facet plane of an axially symmetric simplex gives the exact rational recurrence in `RESULT.md`. Positive parameters remain positive at every iteration, so all iterates are genuine simplices with interior observation point. Exact differentiation at the regular centred configuration gives determinant one and trace \(-2/d\); the algebraic-integer obstruction proves the multipliers have infinite order in every dimension \(d\ge3\). Cayley–Hamilton gives a nonzero first-coordinate derivative for every positive iterate count. Real analyticity then yields a countable union of discrete exceptional sets. The 411 checks in the reproducible verifier independently support particular algebraic and finite-step identities, but are not substituted for the analytical proof.
+PASS
 
-## Originality (O): PASS, provisional
+Re-derived the side-facet equation using the base vectors' mutual product −1/(d−1), then projected the origin onto that hyperplane and onto the base plane. The side feet have a regular base at positive height with nonzero radius, and the old base foot is the new apex at negative height, so the origin is strictly between the base centroid and the apex and hence interior to a full-dimensional simplex. Central reflection preserves the fixed origin and commutes with projection, so reorienting after each step legitimately gives the stated rational map on q,t>0. The regularity condition is q=(d−1)/(d+1) by equating lateral and base edge squares. Differentiation at (q,t)=((d−1)/(d+1),1/d) gives the displayed entries, trace −2/d, and determinant 1. A root of unity would make the sum of the eigenvalue and its reciprocal a rational algebraic integer, impossible here. Cayley–Hamilton gives (J^N)₁₂=J₁₂ sin(Nθ)/sin θ; a zero would force the multiplier to have finite order dividing 2N. The chain rule thus gives a nonzero centered derivative for every N, and the countable union of isolated zero sets on the connected open altitude yields simultaneous nonreturn. Independently evaluating (q,t)=(1/2,1/9) gives (2,1), (1/8,1/3), (2/9,1/11), (121/50,11/19); the fourth squared lateral/base ratio is (1+1/q)/3=57/121, as in the cited tetrahedral computation.
 
-The most relevant primary paper is Zwierzyński, *When Pedal Shapes Come Back: a Complex Story* (arXiv:2611.01247v1), especially its complete Section 3 and Section 4. It gives a single four-step tetrahedral nonreturn example and special conditional two-step return results, not an all-dimensional, all-iterate generic nonreturn theorem. A previously established tetrahedral local fourth-step nonreturn does not imply the simultaneous infinite-time conclusion. The apparently close Abu-Saris–Hajja 2009 paper concerns feet dropped *from the vertices*, not projections of one fixed point. Retrieved neighboring fixed-point projection results concern other operators or prism shapes. The searches and implication comparisons are documented in `AUDIT.json`.
+## originality
 
-Unindexed historical equivalents remain a priority risk. No assertion of independent expert validation or exhaustive database uniqueness is made.
+PASS
 
-## Mathematical value (V): PASS
+The four-pedal tetrahedral counterexample and the local four-step tetrahedral obstruction are credited as covered cases. Neither those results nor the planar and concentric spatial return theorems give the all-dimensional, all-positive-time co-countable nonreturn statement or its nonresonant linearization.
 
-The new quantifier is a natural geometric one: for every dimension \(d\ge3\), almost every axial observation position (indeed all but countably many) admits **no regular-shape return at any finite positive time**. The exact two-parameter map and non-root-of-unity multipliers reveal why planar return does not extend to this higher-dimensional family. The exceptional set is not classified, and no arbitrary nonaxial statement is made.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural question raised by exact planar and isolated tetrahedral pedal behavior is whether another finite time restores the simplex shape. The theorem gives a strong negative answer for generic points along an altitude in every higher dimension, not a list of nonreturn examples at selected times. The two-variable recurrence and non-torsion spectrum explain the distinction and may be useful in studying exceptional positions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

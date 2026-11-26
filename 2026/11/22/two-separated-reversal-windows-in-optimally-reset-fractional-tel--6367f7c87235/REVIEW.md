@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof begins with the independently published exact homogeneous first-passage formulas, derives their dimensionless normalizations, verifies the two increasing elasticity functions and strictly increasing stationarity residual, and proves existence/uniqueness of each positive global optimum. A unique elasticity crossing, the ordering of the exponent profiles on each side of the reset-scale value one, and strict tests at the optimal arguments yield two nonoverlapping target-distance brackets. All endpoint inequalities have been checked for strictness. The large-distance coefficient is obtained by uniform expansions about the common nondegenerate optimizer; the different powers of the small reset scale justify neglecting the type-II correction. The attached checker passed 225 independent numerical consistency assertions. Boundary \(\mu=1\) is excluded since the two models then coincide; no crossover uniqueness inside the brackets is claimed.
+## correctness
 
-## Originality — PASS with scope and priority limitations
-Górska et al., *Entropy* 26 (2024), DOI 10.3390/e26080665, equations (31),(32),(40),(41), derive both original MFPTs and their optimality conditions and plot optimal resetting as the fractional index varies. Those formulas, the existence of some optimal reset rate, and the fixed-rate crossing at \(r\tau=1\) are prior work. The inspected sections and summary do **not** establish a globally optimized inter-model target-distance preference reversal, a second separated reversal for the two optimal rates, strict analytic brackets for each, or the extreme-target optimized-cost asymptotics. Sandev et al., *Physical Review E* 111 (2025), DOI 10.1103/PhysRevE.111.044105, discuss heterogeneous **spatial** telegrapher operators and a different two-model comparison, not the two different homogeneous **temporal fractional kernels** optimized here. Their generic resetting-renewal formula does not imply the stated separated windows without new analysis. Published research index queries for aliases and both rates and previously published related findings did not identify an equivalent statement. A search is not proof of absolute priority; unindexed papers are a residual risk.
+PASS
 
-## Mathematical value — PASS
-Two fractional temporal kernels can outperform one another in opposite spatial target regimes after each is allowed to choose its own reset rate. More importantly, the preferred optimized *performance* changes in a distance interval strictly before the preferred *control setting*. The two distinct, explicit analytic switching brackets hold for every nonclassical fractional index and thus furnish useful, verifiable phase boundaries in comparative search protocol design; this is not just another evaluation of the known mean formula. They separate two natural experimental choices, best model versus best rate, without a numerical parameter sweep.
+The renewal relation yields (exp(q)−1)/r from the unreset transform (1−exp(−q))/r. For model II, r q′=q(μ+τr+μτr)/(2(1+τr)) verifies the placement of −1 against Eq. (41) and the μ=1 limit. Each derivative changes sign only once because η_j(x)Φ(ah_j(x)) increases strictly from μ/2 to infinity, Φ(z)=z/(1−e^(−z)). The unique root decreases continuously with a. At x=1 the two shapes agree, with strictly ordered elasticities; the fixed-x cost switch and testing the other objective at each optimizer give strict cost inequalities at both endpoints of its bracket. The elasticity-difference numerator g is strictly decreasing with unique zero χ∈(0,1). In the rate proof, the shape inequality is non-strict at x=1 (a minor wording slip), but the elasticity inequality there is strict; at χ the elasticities tie but the shapes are strictly ordered. Thus the derivative comparisons are strict at a=b_I and a=b_χ and yield the stated separate brackets. Short-distance rates and costs follow by substituting the large-x powers into the stationarity equation. For large a the scaled objectives dominate the common coercive base and their minimizers tend to 1. Evaluating the pointwise objective difference at the two respective minimizers bounds the optimum difference on both sides; its uniform expansion gives (1/2)e^{z_0}z_0 x_0^{μ−1}. Neither crossover is proved unique, as the Finding expressly states.
 
-## Closest literature and limitations
-Source [1]: https://www.mdpi.com/1099-4300/26/8/665 (full relevant source HTML reviewed); source [2]: https://journals.aps.org/pre/pdf/10.1103/PhysRevE.111.044105 (sections III–V, figures and model definitions reviewed). Crossover uniqueness inside either bracket and full first-passage distributional ordering are not established. The FTE-II published equation (40) has a parenthesis ambiguity, resolved by its renewal equation and equation (41). Priority should be checked independently before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two homogeneous MFPT formulas, the general renewal law and existence examples for rate optima are prior. The strongest inspected works do not provide a theorem on the two strictly disjoint distance brackets for optimized quantities or the sharp far-distance difference. The finding concerns global optimization of the stated pair, not a new first-passage model.
+
+## value
+
+PASS
+
+The optimal achievable time and the optimizing rate encode different decisions. Their separation is a uniform, testable theorem on the full anomalous-exponent range and not just a claim that either minimum exists. The sharp difference resolves a comparison where the dominant long-distance behavior of the two models agrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

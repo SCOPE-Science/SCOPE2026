@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 checker.py` with Python 3 and no third-party packages. The script checks the BPL parameterization against the original convolution using exact rational arithmetic, compares the three-inequality decision to the sign of sixty consecutive canonical differences on 648 rational parameter pairs, and reproduces the rational creation/destruction witness. On completion it prints `PASS` with the exact fractions.
+# Independent mathematical audit
 
-Finite tests do **not** certify the all-index conclusion. The proof in `RESULT.md` derives the complete canonical sequence, uses an all-index exponential comparison to reduce infinitely many tests to two, and applies Steutel–van Harn's published characterization. No independent audit or external certificate has been performed. Historical priority is not guaranteed by a search.
+## correctness
+
+PASS
+
+The original BPL PGF agrees with the factored PGF. Its log gives v_k as claimed; for b≤q all v_k>0 and the log intensities are summable, while b>q forces negative even v_k eventually. Independently, if all thinning PGF quotients P(z)/P(1−c+cz) are PGFs, expansion at c=1 makes the coefficient at z^k (1−c)(v_k−v_{k+1})+O((1−c)^2), so every adjacent difference must be nonnegative. The even-index normalized difference A−UR^k−VT^k increases when b≤q, and later odd ones strictly exceed A−UR²≥0 if d₂≥0. Conversely, when all differences d_k≥0, their sum is v₁, with exponential tail. Integrating the logarithmic derivative along z↦1−exp(−s)+exp(−s)z represents the thinning quotient as the PGF for Poisson batch arrivals surviving independent unit-rate deaths over s in [0,−log c]. This verifies sufficiency and the stationary process interpretation. Independent rational reproduction at θ=1/10 gave the claimed pairs: (−4490/53361,388100/12326391), (137971/5336100,252509699/12326391000), (19226/53361,−479344/4108797). The b=0 point is explicitly an endpoint comparison, not a violation of the stated strict α range; by continuity failure also holds for small positive b. The frozen checker and verification were inspected, not run. Replay: frozen proof §§1–5 or the quotient and batch argument above; the finite grid alone does not decide infinitely many indices.
+
+## originality
+
+PASS
+
+Credit the BPL law and PGF to its primary authors, the general canonical-sequence criterion to prior discrete self-decomposability, and the exact BPL ordinary compound-Poisson boundary and intensities to the distinct indexed overlap when comparing claims. The supported distinct claim is the exact thinning domain within the CP domain, with the two-comparison theorem and explicit creation/destruction witness, not any of these inputs by itself.
+
+## value
+
+PASS
+
+A uniform-in-retention distributional property reduces to two exact coefficient comparisons in a standard statistical count model. The signs locate a finite restoration interval and show that an extra Bernoulli term can create as well as destroy thinning self-decomposability without crossing the CP boundary. The construction of compatible batch immigration gives an explicit process using the criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

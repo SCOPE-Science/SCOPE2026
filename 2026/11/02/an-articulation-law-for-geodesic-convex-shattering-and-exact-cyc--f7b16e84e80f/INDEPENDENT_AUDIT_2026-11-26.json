@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:44:39.092529Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 4–45 and 48–71; VERIFICATION.md and verify_gluing.py inspected, not executed."
+      ],
+      "rationale": "A shortest path between vertices of one factor never leaves it, since leaving and returning would repeat the articulation. Between factors every shortest path goes through the root and consists of two factor geodesics. Thus rooted convex sets glue freely, and any nonempty unrooted convex set lies in one factor. For a root-free support meeting two or more factors, each nonempty local trace can be tested together with a positive vertex of another factor, forcing a rooted hypothesis; the empty local trace is realized by the root alone. Conversely the rooted factor witnesses glue to realize every trace. A support containing the root and meeting two factors elsewhere fails the trace with two cross-factor positives and the root negative. Single-factor supports are shattered exactly in their factor. Hence the product counts exactly the root-free supports coming from the rooted factors, the differences add the remaining single-factor supports, and the only duplicate is the singleton root, counted t times. Taking the maximum of the achievable product and single-factor sizes proves the dimension law, including trivial factors. On a cycle a rooted shattered pair chooses one nonantipodal vertex per side; same-side or antipodal pairs cannot be shattered. An unrooted triple is shattered precisely when each gap is strictly less than half the circumference; a gap at least half gives a shortest path through the third point, including the equality case. Among four cyclic points some pair of consecutive gaps totals at most half, ruling out every four-point support. Inclusion-exclusion of the upper gap bounds yields the two stated T_m formulas. All single-factor cycle corrections have degree at most three, so only the product contributes at degree 2t when t>=2, with coefficient the product of h_i^2.",
+      "reproduction": "Run python3 /workspace/branches/0343ecef-5dad-470a-bdb4-e7b951696ca4/independent_geodesic_check.py. It derives geodesic intervals from BFS distances, enumerates convex masks, then enumerates traces for rooted and full families. The bounded checks covered C_3 through C_7, two noncycle wedges, and six cycle bouquets. In particular two pentagons gave (1,9,36,42,16) and three gave (1,13,78,175,240,192,64).",
+      "residual_risks": [
+        "The finite checks do not exhaust larger graphs. The proof uses the one-common-vertex overlap and the every-shortest-path notion of geodesic convexity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 11 states VC equals the maximum hull number over convex induced subgraphs and credits Horváth–Turán. Proposition 15 gives a shortest-path-cover upper bound. Chepoi treats S3 separation by halfspaces, not the family of all convex sets."
+        ],
+        "reasoning": "The broad hull-number formula expresses a maximum, without an evaluation across a cut vertex in terms of the separate rooted profiles. The upper bound or restricted halfspace family likewise does not give the exact dimension law and all-coefficient factorization.",
+        "searches": [
+          "Focused literature search for geodesic convexity shattering at cut vertices and hull-number characterizations",
+          "Thiessen–Gärtner DOI 10.1007/978-3-031-26412-2_22, Propositions 11 and 15",
+          "Chepoi arXiv:2405.07512, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md; Resultary 6aa81ebed916, 5b44ac7110ee and eeb9c033ac3d; Thiessen–Gärtner 2022; Chornomaz 2022; Chepoi arXiv:2405.07512 abstract."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available unrooted cycle formula directly gives the single-cycle correction's unrooted input, but it counts neither mandatory-root profiles in general nor compatibility of independently prescribed rooted traces across factors. For two pentagons, the geodetic-set family yields nine minimal full-graph generators; the claimed trace census has sixteen size-four shattered supports."
+        ],
+        "reasoning": "The interval description can be used for the local rooted cycle calculation and is not itself new; neither it nor the general dimension characterization includes the multi-factor classification that produces the product, subtractive corrections, and heterogeneous highest coefficient. Equality of the numerical 2t bound for a geodetic invariant does not imply the same support classification.",
+        "searches": [
+          "Resultary 6aa81ebed916, Finding and cycle-interval result",
+          "Resultary 5b44ac7110ee, Finding",
+          "Thiessen–Gärtner Proposition 11, pp. 362–363"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a closure system, S is shattered iff no x in S belongs to the closure of S without x: apply the necessary traces omitting one point and realize every desired trace by its closure. In the rooted version add r to each generating set. Chornomaz's characterization of shattering-extremal closure systems concerns convex geometries, not every graph-geodesic closure."
+        ],
+        "reasoning": "The polynomials count irredundant hull generators of arbitrary convex subsets, with or without a mandatory root, rather than generators of just the whole graph. The formulation via closure does not count them. For example C_4 has 10 convex sets but 11 shattered supports, so a shattering-extremal count cannot simply replace the asserted trace enumeration.",
+        "searches": [
+          "Resultary: rooted trace, shattered supports, cut vertex, articulation and one-vertex union",
+          "Thiessen–Gärtner, Online Learning of Convex Sets on Graphs, Prop. 11",
+          "Chornomaz, What Convex Geometries Tell About Shattering-Extremal Systems, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 6aa81ebed916 gives the identical unrooted cycle gap test and 1+mz+binom(m,2)z^2+T_m z^3. Record 5b44ac7110ee counts minimal geodetic sets, giving nine at two pentagons, not sixteen maximum shattered supports. Record eeb9c033ac3d concerns shortest-path vertex sets."
+        ],
+        "reasoning": "Exact overlap is established for the unrooted single-cycle term, which is not credited as distinct; it is not an indexed rooted or multi-cycle census. Same bouquet parameters do not turn minimal geodetic sets into the supports shattered by all convex sets.",
+        "searches": [
+          "Resultary: cycle shattering polynomial and cycle bouquet geodesic sets; records 6aa81ebed916, 5b44ac7110ee, eeb9c033ac3d"
+        ]
+      },
+      "rationale": "Pass is for the rooted articulation polynomial, the associated dimension law, and the heterogeneous cycle-bouquet polynomial and maximum-support counts. A distinct same-date indexed record covers the unrooted cycle profile exactly; that ingredient receives no originality credit, and the indexed date alone does not order the results. The strongest inspected hull and bouquet results do not give the rooted identity or the bouquet census.",
+      "residual_risks": [
+        "Targeted search cannot exclude an unindexed vertex-sum rule under hull or convex-independence terminology. Horváth–Turán's full text was not available; the relevant characterization was read as attributed in Thiessen–Gärtner. Exact single-cycle coverage is known, but the same indexed date does not settle temporal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for single-cycle ingredient, not general gluing",
+          "evidence": "Same geodesic convex sets and empty/full concepts; same gap criterion, parity formula, and degree bound. It also classifies proper convex arcs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-sensitive-shattering-polynomial-for-cycle-geodesic-convex--6aa81ebed916/RESULT.md",
+          "material_read": "Finding, offset 0–1521",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity-sensitive shattering polynomial for cycle geodesic convexity",
+          "trigger": "Exact cycle and same hypothesis family"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Inclusion-minimal geodetic sets, not shattered supports; at two pentagons the counts are nine versus sixteen maximum shattered supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimal-geodetic-sets-of-cycle-bouquets-a-product-formula-and-re--5b44ac7110ee/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Minimal geodetic sets of cycle bouquets: a product formula and realization",
+          "trigger": "Same bouquet family and product enumeration"
+        },
+        {
+          "assessment": "Different hypothesis family",
+          "evidence": "It uses shortest-path vertex sets and gives a criterion involving antipodal triples on even cycles, rather than the short-gap criterion for all convex sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-classification-and-topology-of-geodesic-shattering-on-fin--eeb9c033ac3d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Parity classification and topology of geodesic shattering on finite cycles",
+          "trigger": "Similar cycle shattering terminology and parity"
+        },
+        {
+          "assessment": "General hull characterization and upper bound, not an articulation enumeration",
+          "evidence": "VC equals max of h(G[C]) over convex C; the geodesic upper bound uses a shortest-path cover.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "material_read": "Propositions 11 and 15, pp. 362–363, around PDF text offset 24400",
+          "method": "Open full-text passages",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "General graph convexity VC characterization plausibly implying scalar claim"
+        },
+        {
+          "assessment": "Shattering extremality for convex geometries is not assumed here",
+          "evidence": "Convex geometries are precisely the shattering-extremal closure systems; arbitrary geodesic convexity need not satisfy that condition.",
+          "identifier_or_url": "https://doi.org/10.37236/10750",
+          "material_read": "§1, PDF offset 0",
+          "method": "Open full-text passage",
+          "title": "What Convex Geometries Tell About Shattering-Extremal Systems",
+          "trigger": "More general closure-system characterization of shattering"
+        },
+        {
+          "assessment": "Difference of scope in the material inspected",
+          "evidence": "The separation setting concerns semispaces and halfspaces in S3 graphs, not all geodesically convex concepts on arbitrary graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.07512",
+          "material_read": "Abstract, offset 0",
+          "method": "Open abstract statement",
+          "title": "Separation axiom S3 for geodesic convexity in graphs",
+          "trigger": "Similar geodesic convexity and shattering terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned articulation and cycle-bouquet Finding; Thiessen–Gärtner Prop. 11; Resultary 6aa81ebed916 and 5b44ac7110ee."
+      ],
+      "rationale": "Cut vertices give a natural decomposition for geodesic convexity, but a scalar VC bound alone does not determine how supports spanning factors are counted. The rooted law locates that missing constraint and gives an exact computation from strictly smaller graphs. For heterogeneous cycle bouquets it explains why dimension is independent of cycle length while extremal multiplicities depend sharply on the lengths. The useful new content is the gluing structure and the resulting bouquet census, not a repeat of the unrooted single-cycle numbers.",
+      "residual_risks": [
+        "The one-root factorization is not a claim for multi-vertex separators or an online learning dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

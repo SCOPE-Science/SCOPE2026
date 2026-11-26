@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex-link proof gives both cross-edge formulas for nonadjacent reversals and both formulas for adjacent reversals. Each link is the clique complex of a two-clique graph with cross adjacency determined by transitive triples; the displayed folds delete dominated vertices and leave a simplex. This yields actual elementary collapses to smaller tournaments, not merely numerical homology equalities. Three base complexes have exact exhaustive free-pair certificates; the seven-vertex base has a complete trivial fundamental-group presentation and Euler characteristic two. The standalone verifier replays these mechanisms, including interval and fold checks up to order 67. Risk: a computer check of bounded parameters is not a proof of the unbounded claim; that part depends on the written interval-inequality argument.
+## correctness
 
-## Originality — PASS against inspected evidence
-The 2020 tournament census covers arbitrary tournaments only through ten vertices and so subsumes individual low-order instances, but not a uniform all-order chord-reversal classification. The 2021 tournaplex paper describes definitions and filtrations without an all-order edge-reversal theorem. The closest indexed published adjacent reversal is a proper special case \(d=1\); the separate two-adjacent-reversal theorem involves two modified arcs and implies no single long-chord result. Searches of the indexed record and primary literature returned no all-order implication. Risk: an unindexed treatment of reversed cyclic tournaments could be equivalent; no novelty claim is made for previously tabulated low-order cases.
+PASS
 
-## Value — PASS
-One faulty arc in a highly symmetric tournament has a surprisingly discontinuous topological effect that is determined solely by chord distance: all short chords destroy the original circle, the next-to-longest chord generates a two-dimensional sphere, and the longest chord preserves a circle. The complete classification works for every odd order and the proof supplies a reusable link-dismantling reduction. This is not a mere finite census or arbitrary sample-size slice.
+For each deleted vertex the two orientation classes are transitive, and any admissible cross pair points from incoming to outgoing. Thus a clique in the link graph orders as incoming, vertex, outgoing and gives a simplex. Directly applying the modular arc inequality verifies the four cross-neighborhood formulas in RESULT.md. The nested neighborhoods justify the displayed folds: in the first nonadjacent link fold onto column 2 except when d=2, when column 3 is used until row 0 has been removed; in the second link remove column 0 before using the nested rows. In the adjacent case the first fold leaves one column and the second removes columns 1 and 0 before using nested rows. A closed-neighborhood inclusion in a clique complex permits a simplicial collapse (pair simplices containing the removed vertex by adding the dominant vertex), and a collapsible link yields the relative star collapse. The two removed labels in each reduction are separated by m steps; every surviving vertex has exactly one removed label among its next m positions, so after relabeling its unreversed out-neighbors are the next m−1 survivors. The reversed arc becomes 0→d−1 for d≥2 and stays 0→1 for d=1. The base d=1 at m=2 collapses to a point and d=2 to a 3-edge circle. An independent score-based enumeration and free-face check for (3,2) leaves a two-dimensional core with face vector (7,21,16); a star spanning tree and successive triangle relations kill every remaining edge generator in four rounds. Its Euler characteristic 2 and simple connectivity give S² by Hurewicz and Whitehead. The reductions reach exactly these bases, including (3,3)→(2,2).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The adjacent-reversal contractibility branch is known and explicitly credited. The distinct result is the uniform stabilization under deleting a pair of vertices and the resulting sharp chord-distance trichotomy beyond d=1. A same-day S² result for two disjoint adjacent reversals does not classify the one-fault family; same-day ordering is not inferred.
+
+## value
+
+PASS
+
+A single arc perturbation of a highly symmetric graph gives three distinct homotopy types with a sharp rule in the arc length. The two-vertex reduction gives structural control at every order and explains why the penultimate reversal can create a sphere, not just a homology count in a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

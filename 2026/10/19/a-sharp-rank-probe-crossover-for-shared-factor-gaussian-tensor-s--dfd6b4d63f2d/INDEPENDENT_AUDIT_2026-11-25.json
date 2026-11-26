@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:17:38.470962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the single random u gives independent N(0,S) probes, where S=||Mᵀu||²=Σs_i²G_i²>0 almost surely. The standardized probes have a law independent of u, so the squared denominator is SW with independent W~χ²_ℓ. Integrating the smooth anisotropic Gaussian density over the radius-√x ball gives F_S(x)=a_S x^{r/2}(1+O(x)), with a_S=1/[2^{r/2}Γ(1+r/2)∏s_i]; the radial density gives the matching relative error. The χ² coefficient a_W is the same without ∏s_i and with ℓ in place of r. Conditioning on the factor with the larger exponent gives dominated convergence via its finite negative moment. At equality, splitting at x/ε and ε leaves two O(x^{r/2}) ends and a middle integral (r/2)a_S a_W x^{r/2}∫dy/y with O(x^{r/2}) error. Substituting x=ℓF²/τ² gives the factor two in front of log τ and the stated constants, including the gamma negative moment and the Laplace integral by Tonelli. Integrating the tail proves the sharp inverse-moment cutoff, with divergence also at equality. Conditional SLLN proves the limit F/√S (Var(S)=2Σs_i⁴>0). These are fixed nonzero spectra, not a uniform varying-rank claim. Frozen verification notes and supplied checker were inspected but not executed. Independent isotropic quadrature integrating the product CDF gave exact/leading ratios 0.9996264, 0.9860243, 0.9934920 and 0.9934920 at (r,ℓ,τ)=(1,3,80),(2,2,250),(2,3,250),(3,2,250).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 10/12 Resultary record uses the known K₀ logarithmic singularity for products of two normal variables. Its independent-row coefficient error has a power (log t)^R, not an anisotropic shared-factor product at r=ℓ.",
+          "arXiv:2411.03942v2, p. 1 describes upper-tail expansions for products of correlated nonzero-mean normals, not this independent weighted-square times chi-square small-ball problem."
+        ],
+        "reasoning": "An elementary product-tail lemma explains the mechanism. The mathematical content under review is its explicit joint use with the shared-probe model, including which exponent is left after arbitrarily many right draws; no novelty attributed to the generic lemma, dominated convergence or SLLN.",
+        "searches": [
+          "Primary literature asymptotic lower-tail product of independent positive random variables small ball powers logarithmic correction equal exponents Gaussian chi-square product",
+          "Resultary: product of independent Gaussian variables or chi-square small ball logarithmic lower-tail equal exponents",
+          "arXiv:2211.12175 §3.3; arXiv:2309.04952v2 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks.py (inspection only)",
+        "arXiv:2405.11962; arXiv:2004.06433; arXiv:2211.12175; arXiv:2309.04952v2; arXiv:2411.03942v2 (opening scope)",
+        "Distinct Resultary material and NIST formula listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the 10/12 regression theorem the shared factor is used to estimate a scalar coefficient with random noise projection; the dependence on rank and anisotropic spectrum is not part of its theorem. The 11/22 indexed result concerns a tangent-projection force and moment cutoffs ℓ or ℓ/2 depending on coupling, not the rank crossover.",
+          "Güttel et al.'s explicit rank-one probe result is for ℓ=1; the independent Khatri–Rao results cannot be specialized to identical random columns while retaining their assumptions."
+        ],
+        "reasoning": "Known special cases and reusable probability methods are credited. No covering statement was found from which to specialize the complete result without analyzing the different dependent sketch and spectrum.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-sharp-inverse-moment-thresholds-and-logarithmic-tails-for-two-ga--d93c1b8eb1d0 RESULT.md, offsets 0–10796",
+          "Resultary 2026/11/22/SCOPE-a-sharp-sketch-coupling-singularity-for-symmetric-oblique-low-ra--359d8df14ce8 RESULT.md, offsets 0–5481",
+          "Bujanović et al. Theorems 3/5; Güttel et al. §3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorems 3/5 of arXiv:2405.11962 use two Gaussian matrices with independent factor columns. Holding the same random left column changes the distribution even though a single row agrees.",
+          "Distinct Resultary 2026/10/12/SCOPE-sharp-inverse-moment-thresholds-and-logarithmic-tails-for-two-ga--d93c1b8eb1d0 treats P⊗Q and a least-squares coefficient error. Setting one factor size to one realizes the same pattern of row sharing, but not the arbitrary deterministic-matrix norm observable. A rank-one design denominator uses chi-square factors, not a general anisotropic quadratic form."
+        ],
+        "reasoning": "Equality of one probe's law or of dependence at one factor size does not identify the random variable in the theorem. The earlier reused-factor model has a regression numerator and rank-one design, whereas here the only denominator factor from the shared draw includes the entire spectrum.",
+        "searches": [
+          "Resultary: Gaussian bilinear or tensor sketch repeated probes common factor shared factor lower tail chi-square product",
+          "Resultary: one shared random left Gaussian vector fixed across infinitely many independent right Gaussian probes strong law nonconcentrating inverse norm limit",
+          "arXiv:2405.11962 Theorems 3 and 5; arXiv:2004.06433 §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF 10.32.10 gives the gamma-product integral: for U,V independent unit-rate Gammas of shapes a,b, UV has density 2 x^{(a+b)/2−1} K_{a−b}(2√x)/[Γ(a)Γ(b)]. With equal nonzero singular values, SW is a scaling of this known law, so the isotropic trichotomy is already encoded by that formula.",
+          "The earlier catalog entry gives inverse moments and a different coefficient-error tail; ranked searches yielded no other exact statement for unequal s_i with this sampling model."
+        ],
+        "reasoning": "The formula check is real coverage of the equal-spectrum special case, not of an anisotropic Gaussian quadratic form times χ². No historical priority inference is made from the catalog.",
+        "searches": [
+          "Resultary exact-title query: A sharp rank–probe crossover for shared-factor Gaussian tensor sketches",
+          "Resultary: sharp inverse-moment thresholds logarithmic tails two Gaussian tensor sketches",
+          "NIST DLMF 10.32.10 (Bessel K integral)"
+        ]
+      },
+      "rationale": "The closest distinct Resultary work concerns least-squares coefficient errors for reused tensor factors and independent tensor rows; earlier embedding work assumes independent factor columns. Product normal logarithms, gamma product laws, and the general conditioning method are prior inputs, not themselves new. The supported distinct result is the arbitrary fixed singular-spectrum rank-versus-probe trichotomy with its constants for this shared-left norm sketch, combined with the exact residual randomness as the right sample size goes to infinity. No examined exact or stronger result supplies that full model-specific classification.",
+      "residual_risks": [
+        "Search was bounded, and a broader weighted-products paper or another name for repeated-factor norm sketches could give additional exact coverage.",
+        "One product-normal paper link returned 403; absence of access is not negative evidence. Isotropic gamma-product and generic small-ball methods are already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different sampling dependence",
+          "evidence": "Two independent Gaussian matrices with independent Gaussian columns; embedding guarantees, not shared-left inverse tails.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.11962",
+          "material_read": "Theorems 3 and 5, pp. 4–5, offsets 15458 and 18564",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Subspace embedding with random Khatri–Rao products and its application to eigensolvers",
+          "trigger": "Gaussian tensor factor probe framework"
+        },
+        {
+          "assessment": "Rank-one estimator precedent, not the reuse model",
+          "evidence": "Independent factors of rank-one samples; no stated arbitrary-rank, many-right shared-left tail in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.06433",
+          "material_read": "§§2–3 including p. 3 around offset 8300",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Norm and trace estimation with random rank-one vectors",
+          "trigger": "Closest norm-estimation literature"
+        },
+        {
+          "assessment": "Related single probe only",
+          "evidence": "The tensorized-probe partial result there is for ℓ=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.12175",
+          "material_read": "§3.3 p. 7, offsets 33300–36645",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Randomized sketching of nonlinear eigenvalue problems",
+          "trigger": "Bilinear Gaussian probe small-ball bound"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Trace estimation variance and probe complexity, not the inverse Frobenius-norm estimator.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04952v2",
+          "material_read": "p. 1, statement of setting and scope",
+          "method": "Bounded OA primary text inspection",
+          "title": "Hutchinson's estimator is bad at Kronecker-trace-estimation",
+          "trigger": "Kronecker Gaussian estimator performance"
+        },
+        {
+          "assessment": "Substantial conceptual overlap, different statistic and parameterization",
+          "evidence": "Moment exponent min(r₁,r₂) for product-factor regression, logarithmic tails for independently resampled rows. Does not give the general singular-spectrum shared-left inverse-norm limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-inverse-moment-thresholds-and-logarithmic-tails-for-two-ga--d93c1b8eb1d0/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–10796",
+          "method": "Resultary and local-mirror inspection",
+          "title": "Sharp inverse-moment thresholds and logarithmic tails for two Gaussian tensor sketches",
+          "trigger": "Shared factors, inverse moments and exact logarithmic tails"
+        },
+        {
+          "assessment": "Different estimator",
+          "evidence": "Oblique tangent-projection force and a coupling-dependent inverse-moment threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-sketch-coupling-singularity-for-symmetric-oblique-low-ra--359d8df14ce8",
+          "material_read": "Local-mirror RESULT.md offsets 0–5481",
+          "method": "Resultary lookup and bounded source inspection",
+          "title": "A sharp sketch-coupling singularity for symmetric oblique low-rank estimation",
+          "trigger": "Perfect versus imperfect sketch sharing"
+        },
+        {
+          "assessment": "Explicit table covers the isotropic subclass",
+          "evidence": "Kν(z)=(1/2)(z/2)^ν∫exp(−t−z²/(4t))dt/t^{ν+1}.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.32#E10",
+          "material_read": "Eq. 10.32.10, referenced integral around offset 6470",
+          "method": "Bounded primary formula inspection and substitution into gamma product density",
+          "title": "NIST Digital Library of Mathematical Functions, Integral Representations of Modified Bessel Functions",
+          "trigger": "Exact product law for the equal-singular-value subclass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reusing a random left probe is a natural reduction in sampling/storage that leaves all right draws conditionally independent. The theorem gives a precise reliability cost: a rank-controlled failure exponent, a calibrated logarithmic penalty exactly at matching rank and probe count, and a nonvanishing random error even with unlimited right draws. Both the inverse-moment frontier and anisotropic leading constants can be needed when using such probes for norm validation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

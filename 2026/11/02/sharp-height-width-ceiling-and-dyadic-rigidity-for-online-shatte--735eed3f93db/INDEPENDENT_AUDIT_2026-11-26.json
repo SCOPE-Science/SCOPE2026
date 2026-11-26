@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:51:30.201178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof steps 1–5",
+        "VERIFICATION.md, lines 19–25",
+        "verify.py, natural-label enumeration and version-space recursion"
+      ],
+      "rationale": "A static shattered set must be an antichain (accepting its upper element while rejecting a comparable lower one is impossible); down-closures realize every labeling of an antichain. For online shattering, a chain of length l has l+1 possible prefixes: counting leaves gives the upper rank and balanced membership queries give the matching rank floor(log2(l+1)). On disjoint domains a query can lower the rank of only the queried factor, and one nonempty branch must strictly lower it for any query that splits; induction gives the additive upper bound and concatenating trees gives equality. Dilworth's w chains therefore bound the rank by the sum of the separate floors, attained by w disjoint h-chains. At h+1=2^r, 2^(rw) distinct leaves saturate both the product count of ideals and the bound on each factor length. Every prefix tuple must be allowed, which rules out even one cross-chain comparison. This includes h=1; h=2 has rank w, and h=3 is the first possible gap.",
+      "residual_risks": [
+        "The frozen verifier was inspected, not executed. The recorded 5,231-case check is finite. An independently written ideal-enumeration and query-splitting check on two 3-chains with the extra relation A_1 < B_2 (positions numbered from the bottom, and taking transitive closure) gave h=3, w=2, 14 ideals and rank 3, below 4. The general result rests on the proof, not those computations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bounded-width online ranks record covers arbitrary finite poset ideals algorithmically and gives rank 2k on [2] × [2^(k+1)−2].",
+          "Ghazi et al. study closure under Boolean aggregation on a common domain. Elizalde et al. analyze rowmotion and homomesy, not online shattering."
+        ],
+        "reasoning": "A rank algorithm can evaluate examples but does not by itself optimize over all h,w or characterize equality. Boolean aggregation does not supply the exact product rank on disjoint query domains plus the structural conditions for saturating it.",
+        "searches": [
+          "Resultary: 68248a42b6fd",
+          "https://proceedings.mlr.press/v132/ghazi21a.html",
+          "arXiv:2108.12443"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e81fb3128ebc and 68248a42b6fd",
+        "arXiv:2009.07348",
+        "PMLR 132: ghazi21a",
+        "arXiv:2108.12443",
+        "Dilworth (1950), standard chain partition statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dilworth permits at most (h+1)^w ideals. Its leaf-count consequence is floor(w log2(h+1)), not w floor(log2(h+1)); e.g. these bounds are 3 and 2 at h=w=2.",
+          "The general rank algorithm and the special-family formula do not identify what makes all prefix tuples realizable in an equality case."
+        ],
+        "reasoning": "The additive rank calculation supplies the sharper all-height ceiling. At dyadic h+1 the counting argument gives rigidity, but only after identifying the independent prefixes and showing their simultaneous attainability. No equivalent earlier theorem or stronger theorem yielding the full package was established by the sources read.",
+        "searches": [
+          "Dilworth, A Decomposition Theorem for Partially Ordered Sets (1950); RESULT.md steps 2–4",
+          "Ghazi et al., PMLR 132",
+          "Resultary 68248a42b6fd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Membership queries to downsets are precisely threshold queries on each covering chain; dualizing to upsets and complementing labels preserve shattering rank.",
+          "Iams–Johnston–Muth §1.2 minimize the total worst-case identification cost with a constraint on positive replies, not the depth of a complete all-labels tree."
+        ],
+        "reasoning": "The query objects match the identification paper, but its minimax objective is different. Neither swapping ideals for filters nor translating into chain thresholds turns the retrieved identification results into the claimed extremum.",
+        "searches": [
+          "Resultary order-ideal online rank and shattering catalogue matches: e81fb3128ebc; 68248a42b6fd",
+          "arXiv:2009.07348"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rooted two-edge arms finding gives VC=t+s and rank t+1 if s=0, otherwise t+s, for its rooted family.",
+          "The grid formula gives exact ranks for a width-two family, not maxima indexed by arbitrary width and height."
+        ],
+        "reasoning": "These are actual overlapping exact results, not merely similar titles. Their objects are narrower than the quantified extremum and they give no equivalent iff criterion. Catalogue dates do not settle priority.",
+        "searches": [
+          "Resultary e81fb3128ebc (same date in catalogue)",
+          "Resultary 68248a42b6fd (grid formula)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact width–height extremum with the integer logarithm taken separately for each chain, and the equality characterization at dyadic h+1. Antichain VC shattering, threshold search, Dilworth, disjoint-domain rank additivity and the counting argument are not priority claims. The closest retrieved catalogue results concern a special rooted family or exact rank computation and grid examples; neither comparison showed equivalent structural coverage.",
+      "residual_risks": [
+        "The same-day record's full-file read timed out, so comparison is to its retrieved finding and scope; relative priority is unresolved.",
+        "Three of four attempted external search queries were deferred; a broad returned lookup did not identify an equivalent theorem. A formulation under thicket rank or monotone online learning may have been missed. This is a best-of-knowledge comparison, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special-family overlap; the retrieved statement does not cover the height–width extremum or dyadic iff. No whole-document exclusion.",
+          "evidence": "Rooted t two-step and s one-step arms; VC=t+s; online rank t+1 if s=0, t+s otherwise.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-leaf-erases-the-online-shattering-excess-of-rooted-two-edge-ar--e81fb3128ebc",
+          "material_read": "Finding and scope, offsets 217 and 628",
+          "method": "Local Resultary mirror, bounded excerpts",
+          "title": "A leaf erases the online shattering excess of rooted two-edge arms",
+          "trigger": "Same-day, same ideal concept class and low-height adaptive gap"
+        },
+        {
+          "assessment": "Strong family/algorithm overlap but no equivalent structural theorem in the compared claims.",
+          "evidence": "Exact bounded-width computation and the width-two grid formula rank([2] × [2^(k+1)−2])=2k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-online-ranks-of-finite-order-ideal-classes-bounded-width-exact-c--68248a42b6fd",
+          "material_read": "RESULT.md, offsets 0–2645 and 4500–6003",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Online ranks of finite order-ideal classes: bounded-width exact computation",
+          "trigger": "Exact same order-ideal Littlestone dimension"
+        },
+        {
+          "assessment": "Direct object overlap; different objective.",
+          "evidence": "Optimizes number of queries for exact identification subject to a limit on positives.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.07348",
+          "material_read": "§1.2, PDF pp. 1–2, offset 1900",
+          "method": "Lawful OA paper passages",
+          "title": "Searching for Quicksand Ideals in Partially Ordered Sets",
+          "trigger": "Sequential membership queries to unknown ideals"
+        },
+        {
+          "assessment": "Different operation; no coverage shown by compared statements.",
+          "evidence": "Boolean aggregation for hypotheses on a common domain.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+          "material_read": "PDF pp. 1–2, offsets 1564 and 3500",
+          "method": "Lawful OA paper passages",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "General Littlestone dimension closure results"
+        },
+        {
+          "assessment": "Different invariant in the passage read.",
+          "evidence": "Orbit structure and homomesy under rowmotion.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.12443",
+          "material_read": "Opening scope/results, p. 1, offset 0",
+          "method": "Lawful OA paper passage",
+          "title": "Rowmotion on Fences",
+          "trigger": "Order-ideal structure in finite posets"
+        },
+        {
+          "assessment": "Used as a known ingredient; not a full-text originality exclusion.",
+          "evidence": "A finite width-w poset admits a partition into w chains.",
+          "identifier_or_url": "Dilworth, Annals of Mathematics 51 (1950), 161–166",
+          "material_read": "Citation and standard chain partition statement as used in RESULT.md; external attempt reached a landing page only",
+          "method": "Frozen citation and lawful landing-page retrieval",
+          "title": "A Decomposition Theorem for Partially Ordered Sets",
+          "trigger": "Chain partition underlying the estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, proof steps 3–5",
+        "Bounded strictness example: two 3-chains with a cross-comparability"
+      ],
+      "rationale": "Height and width are intrinsic poset parameters, and the sharp bound pinpoints when adaptivity can first outperform static shattering. The per-chain floor makes a quantitative difference from counting concepts, already at height two. The dyadic equality statement determines the order structure from extremal online performance rather than just giving an example.",
+      "residual_risks": [
+        "No characterization of every non-dyadic equality case or formula for the dimension of each arbitrary poset is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

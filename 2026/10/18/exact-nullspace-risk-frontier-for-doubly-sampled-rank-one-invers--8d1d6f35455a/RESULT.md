@@ -2,113 +2,79 @@
 
 ## Finding
 
-Consider the doubly stochastic block gradient descent (DSBGD) rule that independently samples one data row and one signal coordinate. On rank-one, exactly consistent inverse problems, its mean-square residual can tend to zero while the solution-reconstruction error converges to a strictly positive, explicitly computable floor. This report gives an exact finite-horizon risk identity, a limiting covariance matrix, and a sharp step-size frontier separating decreasing from increasing reconstruction error.
+For the rank-one row-coordinate update specified below, let
+\[
+ U_j=r^{-1}\sum_{i=1}^r u_i^j,\qquad V_j=\sum_{i=1}^c v_i^j\qquad(j=2,4),\qquad x^\dagger=v/V_2.
+\]
+For a constant step \(0<\eta<\eta_c=2U_2V_2/(U_4V_4)\), put
+\[
+ q=1-2\eta U_2V_2/c+\eta^2 U_4V_4/c,\qquad
+ F=\frac{\eta U_4(V_2-V_4/V_2)}{2U_2V_2-\eta U_4V_4}.
+\]
+Then for every integer \(k\ge0\), with \(q^0=1\) also when \(q=0\),
+\[
+ \mathbb E|1-v^\top x_k|^2=q^k,\qquad
+ \mathbb E\|x_k-x^\dagger\|_2^2=F(1-q^k)+q^k/V_2.
+\]
+The iterates converge almost surely and in \(L^2\) to a feasible random limit \(X_\infty\) with mean \(x^\dagger\) and covariance
+\[
+ \operatorname{Cov}(X_\infty)=\frac{\eta U_4}{2U_2V_2-\eta U_4V_4}
+ \sum_{j=1}^c v_j^2(e_j-v_jx^\dagger)(e_j-v_jx^\dagger)^\top.
+\]
+Its selection risk is \(F>0\), so the limit differs from the minimum-norm solution with positive probability, **not necessarily almost surely**.
 
-For the precise assumptions below, put
-\[
-U_2=\frac{1}{r}\sum_{i=1}^r u_i^2,\qquad U_4=\frac{1}{r}\sum_{i=1}^r u_i^4,\qquad
-V_2=\sum_{j=1}^c v_j^2,\qquad V_4=\sum_{j=1}^c v_j^4.
-\]
-For \(0<\eta<\eta_c:=2U_2V_2/(U_4V_4)\), define
-\[
-q=1-\frac{2\eta U_2V_2}{c}+\frac{\eta^2U_4V_4}{c},\qquad
-F=\frac{\eta U_4(V_2-V_4/V_2)}{2U_2V_2-\eta U_4V_4}.
-\]
-With \(x^\dagger=v/V_2\), the following identities hold for every integer \(k\ge0\):
-\[
-\mathbb E|1-v^\top x_k|^2=q^k,\qquad
-\mathbb E\|x_k-x^\dagger\|_2^2=F(1-q^k)+\frac{q^k}{V_2}.
-\]
-The iterates converge almost surely and in mean square to an exactly feasible but non-minimum-norm random limit \(X_\infty\), with \(\mathbb E X_\infty=x^\dagger\) and
-\[
-\operatorname{Cov}(X_\infty)=
-\frac{\eta U_4}{2U_2V_2-\eta U_4V_4}
-\sum_{j=1}^c v_j^2(e_j-v_jx^\dagger)(e_j-v_jx^\dagger)^\top.
-\]
-The reconstruction error decreases, stays constant, or increases with iteration according as
-\[
-\eta\lessgtr\eta_{\mathrm{risk}}:=\frac{2U_2}{U_4V_2},
-\]
-with equality giving constant risk. Because at least two entries of \(v\) are nonzero, \(0<\eta_{\mathrm{risk}}<\eta_c\). Thus a nonempty interval has contracting residual and strictly *increasing* expected squared solution error. The unique residual-optimal step is \(\eta_{\mathrm{res}}=U_2V_2/(U_4V_4)\). At this step the limiting error is \((V_2^2-V_4)/(V_2V_4)\), larger than the starting risk exactly when \(V_2^2>2V_4\). As \(\eta\uparrow\eta_c\), the reconstruction-error floor diverges even though each smaller step gives \(q<1\).
-
-A counterexample respecting a conservative original-source step bound is
-\[
-u=(1,2)^\top,\qquad v=(1,1)^\top,\qquad \eta=\tfrac18,
-\quad A=\begin{pmatrix}1&1\\2&2\end{pmatrix},\quad y=(1,2)^\top.
-\]
-Here \(\|A_2\|_2^2=8\), so the constant normalized step is \(\mu_k=\eta\max_i\|A_i\|^2=1<2\). Nevertheless \(q=65/128\) and \(F=17/126>0\). Hence a hypothesis consisting solely of the paper's Assumption 2.1(i) does not force mean-square convergence to the minimum-norm solution. Moreover, for aligned data noise \(y^\delta=(1+\delta/\sqrt5)y\) and stopping index \(k(\delta)=\lceil\delta^{-1}\rceil\), the advertised conditions \(k(\delta)\to\infty\) and \(\delta^2\sum_{t=1}^{k(\delta)}\mu_t\to0\) hold, yet the limiting mean-square reconstruction error is again \(17/126\).
+Write \(\eta_{\rm risk}=2U_2/(U_4V_2)\), which is strictly between 0 and \(\eta_c\). For \(0<q<1\), the expected squared reconstruction error strictly decreases below \(\eta_{\rm risk}\), is constant at that step, and strictly increases above it. At \(q=0\) the same sign rule compares step 1 with step 0, after which the risk is constant. Thus the stable interval contains a nonempty open subinterval with geometric residual contraction and strictly increasing reconstruction risk. The residual-optimal step (minimizing \(q\)) is \(\eta_{\rm res}=U_2V_2/(U_4V_4)\). Its floor is \((V_2^2-V_4)/(V_2V_4)\), larger than the initial risk precisely when \(V_2^2>2V_4\). As \(\eta\uparrow\eta_c\), \(F\) diverges.
 
 ## Assumptions and scope
 
-Let \(r,c\ge2\) be finite integers, let \(u\in\mathbb R^r\setminus\{0\}\), and let \(v\in\mathbb R^c\) have at least two nonzero entries. Take the rank-one forward operator \(A=uv^\top\), exact observations \(y=u\), initial iterate \(x_0=0\), and constant step \(\eta>0\). At each integer step sample \(I_k\) uniformly from \(\{1,\ldots,r\}\) and \(J_k\) uniformly from \(\{1,\ldots,c\}\), independently of one another and all past samples, and update
+Take finite \(r,c\ge2\), \(u\in\mathbb R^r\setminus\{0\}\), and \(v\in\mathbb R^c\) with at least two nonzero entries. Use \(A=uv^\top\), \(y=u\), \(x_0=0\), and independent uniform row and coordinate indices \(I_k,J_k\), drawn independently at every step. The exact-arithmetic update is
 \[
-x_{k+1}=x_k+\eta u_{I_k}^2v_{J_k}(1-v^\top x_k)e_{J_k}.
+ x_{k+1}=x_k+\eta u_{I_k}^2v_{J_k}(1-v^\top x_k)e_{J_k}.
 \]
-All operations are exact real arithmetic. The inequality \(0<\eta<\eta_c\) is necessary and sufficient for strict second-moment contraction of the scalar residual in this family; it is not assumed to be the admissible interval of a different algorithm or of arbitrary matrices. The minimum Euclidean-norm solution of \(Ax=y\) relative to \(x_0=0\) is \(x^\dagger=v/V_2\). The forward residual is \(Ax_k-y=-u(1-v^\top x_k)\), so its expected squared norm is \(\|u\|_2^2q^k\).
+Feasibility means \(v^\top x=1\); the squared forward residual has expectation \(\|u\|_2^2q^k\). The upper threshold \(\eta_c\) characterizes strict scalar second-moment residual contraction under these assumptions, not stability of a general DSBGD problem or convergence on the threshold.
 
 ## Proof
 
-Set \(s_k=1-v^\top x_k\) and \(z_k=x_k-(1-s_k)x^\dagger\). Then \(s_0=1\), \(z_0=0\), and \(v^\top z_k=0\) identically. Direct substitution gives
-\[
-s_{k+1}=(1-\eta u_{I_k}^2v_{J_k}^2)s_k,
-\]
-and, conditional on the history before step \(k\),
-\[
-\mathbb E[s_{k+1}^2\mid\mathcal F_k]
-=s_k^2\left(1-\frac{2\eta U_2V_2}{c}+\frac{\eta^2U_4V_4}{c}\right)
-=q s_k^2.
-\]
-Here \(q=\mathbb E(1-\eta u_I^2v_J^2)^2\ge0\). For positive \(\eta\), the strict inequality \(q<1\) is equivalent to \(\eta<\eta_c\), and induction yields \(\mathbb E s_k^2=q^k\).
+Put \(s_k=1-v^\top x_k\), let \(P=I-vv^\top/V_2\) be the nullspace projector, and write \(z_k=Px_k\). The residual is multiplied at each step by \(1-\eta u_{I_k}^2v_{J_k}^2\). The square of that multiplier has mean \(q\ge0\); \(q<1\) for positive steps exactly when \(\eta<\eta_c\). Independence yields \(\mathbb E s_k^2=q^k\).
 
-The orthogonal component has increments
+The projected increment is \(\Delta z_k=\eta u_{I_k}^2v_{J_k}s_kPe_{J_k}\). Given the past, its mean is zero since \(\sum_jv_jPe_j=Pv=0\). Its conditional second-moment matrix is \(\eta^2 U_4s_k^2 H/c\), where \(H=\sum_j v_j^2(Pe_j)(Pe_j)^\top\). Orthogonality of martingale increments gives
 \[
-z_{k+1}-z_k=\eta u_{I_k}^2v_{J_k}s_k(e_{J_k}-v_{J_k}x^\dagger).
+ \mathbb E z_kz_k^\top=\frac{\eta^2U_4}{c}\frac{1-q^k}{1-q}H.
 \]
-Because \(\sum_j v_j(e_j-v_jx^\dagger)=v-V_2x^\dagger=0\), the process \((z_k)\) is a square-integrable martingale. In particular its increments are pairwise orthogonal in \(L^2\), and their conditional matrix second moment is
-\[
-\mathbb E[(z_{k+1}-z_k)(z_{k+1}-z_k)^\top\mid\mathcal F_k]
-=\frac{\eta^2U_4s_k^2}{c}\sum_j v_j^2(e_j-v_jx^\dagger)(e_j-v_jx^\dagger)^\top.
-\]
-Summing this martingale identity from \(0\) to \(k-1\) gives
-\[
-\operatorname{Cov}(z_k)=\frac{\eta^2U_4}{c}\frac{1-q^k}{1-q}
-\sum_jv_j^2(e_j-v_jx^\dagger)(e_j-v_jx^\dagger)^\top.
-\]
-Since \(1-q=\eta(2U_2V_2-\eta U_4V_4)/c\), this is the claimed covariance coefficient times \(1-q^k\). The trace of the fixed matrix is \(\sum_jv_j^2(1-v_j^2/V_2)=V_2-V_4/V_2\), which is strictly positive when \(v\) has at least two nonzero coordinates. Finally \(x_k-x^\dagger=z_k-s_kx^\dagger\), and the two terms are orthogonal pointwise; \(\|x^\dagger\|^2=1/V_2\). This yields the finite-horizon risk identity.
+The trace of \(H\) is \(V_2-V_4/V_2>0\), since at least two entries of \(v\) are nonzero. The decomposition \(x_k-x^\dagger=z_k-s_k x^\dagger\) is orthogonal; taking expected squares gives the risk identity.
 
-For convergence, the exact conditional increment second moment is \(\eta^2U_4V_2s_k^2/c\). Thus
-\[
-\sum_{k=0}^\infty\mathbb E\|x_{k+1}-x_k\|_2
-\le\eta\sqrt{U_4V_2/c}\sum_{k=0}^\infty q^{k/2}<\infty.
-\]
-Tonelli's theorem implies the increments are absolutely summable almost surely. Moreover the orthogonal martingale has bounded second moments and converges in \(L^2\), while \(s_k\to0\) in \(L^2\). Hence \(x_k\to X_\infty\) almost surely and in \(L^2\); \(v^\top X_\infty=1\) almost surely. Since \(\mathbb E z_k=0\) and \(\mathbb E s_k\to0\), the limiting mean is \(x^\dagger\); passage to the limit gives its displayed covariance and positive risk floor.
+For convergence, \(\|x_{k+1}-x_k\|_{L^2}=\eta\sqrt{U_4V_2/c}\,q^{k/2}\). Summability gives an \(L^2\) limit by completeness and almost-sure absolute summability by Tonelli. The residual tends to zero in \(L^2\), so the limit is feasible almost surely. Its mean and covariance follow from the martingale mean and the covariance identity by \(L^2\) convergence. In particular, a positive trace shows only that the limit is not identically the minimum-norm solution.
 
-Subtracting the starting risk gives
+For \(R_k=\mathbb E\|x_k-x^\dagger\|_2^2\),
 \[
-F-\frac1{V_2}=
-\frac{\eta U_4V_2^2-2U_2V_2}{V_2(2U_2V_2-\eta U_4V_4)}.
+ R_{k+1}-R_k=(1-q)q^k(F-1/V_2),\qquad
+ F-1/V_2=\frac{\eta U_4V_2^2-2U_2V_2}{V_2(2U_2V_2-\eta U_4V_4)}.
 \]
-The denominator is strictly positive throughout the stable interval. Therefore the sign is that of \(\eta-\eta_{\mathrm{risk}}\), and because \(\mathbb E\|x_k-x^\dagger\|^2=F+(1/V_2-F)q^k\), the indicated monotonicity is exact. The strict inequality \(V_4<V_2^2\) proves \(\eta_{\mathrm{risk}}<\eta_c\). Completing the square in \(q(\eta)\) shows that its unique minimum is at \(\eta_{\mathrm{res}}=U_2V_2/(U_4V_4)\). Substitution supplies the stated floor; its divergence at \(\eta_c\) follows from the positive numerator and the vanishing denominator.
+The monotonicity rule follows, including \(q=0\). That degeneracy requires every sampled multiplier to be zero and so can occur at only one step size for fixed \(u,v\). Since \(V_4<V_2^2\), the interval \((\eta_{\rm risk},\eta_c)\) is nonempty even after excluding that point. Minimizing the strictly convex quadratic \(q\) and substituting its minimizer into \(F\) proves the residual-optimal comparison. The floor diverges at the upper threshold because the numerator is positive there and the denominator approaches zero from above.
 
-For the explicit two-row example, \(U_2=5/2\), \(U_4=17/2\), \(V_2=V_4=2\), and \(c=2\), yielding exactly \(q=65/128\) and \(F=17/126\). For the noisy example, by linearity of the update with respect to the observations and with zero initial iterate, every noisy path equals \(x_k^\delta=(1+\delta/\sqrt5)x_k\). Consequently the noisy terminal error tends to \(F\) in mean square along the given stopping rule; the additional deterministic bias tends to zero. This example uses two *distinct* sampled row values and two coordinates.
+## Exact examples and boundary cases
+
+* For \(u=(1,2)^\top\), \(v=(1,1)^\top\), and \(\eta=1/8\), one has \(q=65/128\), \(F=17/126\), and the normalized step \(\mu_k=\eta\max_i\|A_i\|_2^2=1<2\) for singleton rows. With data \(y^\delta=(1+\delta/\sqrt5)y\) the noise has norm \(\delta\), and the coupled iterates obey \(x_k^\delta=(1+\delta/\sqrt5)x_k\) by linearity and zero initialization. For \(k(\delta)=\lceil\delta^{-1}\rceil\), \(\delta^2\sum_{t=1}^{k(\delta)}\mu_t\to0\) and \(k(\delta)\to\infty\); hence \(x_{k(\delta)}^\delta\to X_\infty\) in \(L^2\) and \(\mathbb E\|x_{k(\delta)}^\delta-x^\dagger\|_2^2\to17/126\).
+* For \(u=(1,1)^\top\), \(v=(1,1,1)^\top\), and \(\eta=1\), every first update lands at a coordinate vector and eliminates the residual: \(q=0\) and the risk is \(1/3\) at step 0 and \(2/3\) at every later step.
+* For \(u=(4,5)^\top\), \(v=(3,4)^\top\), and \(\eta=1/400\), each weighted squared entry \(\eta u_i^2v_j^2\) lies in \((0,1]\), so \(0<q<1\). First choosing row 1 and coordinate 1 gives \(x_1=(3/25,0)^\top\) and residual \(16/25\). Next choosing row 2 and coordinate 2 gives \(x_2=(3/25,4/25)^\top=x^\dagger\), and the state is then absorbed. The specified two-step event has probability \(1/16\), even though the overall limiting risk is positive.
 
 ## Verification
 
-Run `python3 verify.py` in a standard Python environment. It propagates exact-rational first and second moments by independent direct enumeration of the affine transition matrices, not by calling the claimed martingale formula to generate states. It additionally enumerates every sampled path through six steps for the displayed two-row example and checks both three-coordinate risk-increase and residual-optimal examples. The packaged program completes **5,579 exact comparison checks**. Finite tests support the algebra but cannot certify the universal theorem; the analytical arguments above establish its quantifiers.
+`python3 verify.py` in the source package reproduces its finite exact-rational checks: direct affine iteration of first and second moments, path enumeration through six updates in the two-row example, and cases of risk increase and residual-optimal steps. The script includes the one-step-absorption risk example. The displayed two-step event is checked directly by its exact updates above. Finite checks are not the proof of convergence or of the general risk law.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Xia and Zhou (2026, arXiv:2610.15399v1) define the identical doubly sampled row-coordinate update and state minimum-norm convergence under Assumption 2.1(i) in Theorem 3.1 and a noisy-data regularizing property in Theorem 2.1. Their proof of Theorem 3.1 identifies an arbitrary feasible solution with the minimum-norm solution without the additional nullspace-invariance justification. The source's more restrictive Assumption 2.3 is introduced for different later rate claims; it is not part of those two theorems. The exact counterexample above is within Assumption 2.1(i), but the full covariance and sharp residual-versus-reconstruction frontier are the principal quantitative results here.
-
-The *qualitative* phenomenon that randomized Gauss–Seidel may fail to reach the minimum-norm solution on underdetermined systems is already known: Ma, Needell and Ramdas (2015, arXiv:1503.08235) explicitly explain it and motivate randomized extended methods. Jin and Liu (2024, arXiv:2405.13340) prove weak convergence to a random feasible solution for randomized block coordinate descent and impose additional conditions to identify the minimum-norm solution. Han and Xie (2022, arXiv:2208.05437) give broad convergence bounds for pseudoinverse-free randomized schemes. These results are acknowledged; they do not directly state the displayed rank-one exact finite-time solution-risk law, full limiting covariance and sharp step thresholds for the independently *doubly sampled* update. No claim is made that failure of minimum-norm convergence itself is a new observation.
-
-## Limitations
-
-The exact formulas require a finite-dimensional rank-one forward matrix, independent uniform row and coordinate sampling, exact consistent data, zero initialization, and constant step. The true exact-data theorem does not establish any identical formula for general matrices, nonuniform or dependent sampling, noisy data beyond the explicit aligned-noise construction, finite precision, or time-varying steps. The bound \(\eta<\eta_c\) is a mean-square-residual threshold, not a general stability guarantee for the full iterate at the endpoint. The three-coordinate example of increasing reconstruction risk at \(\eta=1/4\) lies outside the source's conservative bound \(\eta\max_i\|A_i\|^2<2\); it is used only for the exact rank-one mean-square-stable family. The two-coordinate counterexample, separately, satisfies that conservative bound. Exact formulas do not imply bibliographic uniqueness; equivalent classical random-projection formulations remain a possible overlap risk.
+Xia and Zhou [1] use the same DSBGD update. The first example satisfies their conservative Assumption 2.1(i) and tests the minimum-norm conclusions of their Theorems 2.1 (noisy data) and 3.1 (exact data). The exact-data failure of minimum-norm selection is already known qualitatively for other randomized Gauss–Seidel and coordinate-descent rules [2,3]. General convergence bounds for pseudoinverse-free methods [4] are not the rank-one finite-horizon covariance and upper-versus-lower step threshold derived here. Under the conservative normalized bound \(\eta\max_i\|A_i\|^2<2\), one has \(\eta<\eta_{\rm risk}\) since \(U_4/U_2\le\max_i u_i^2\). The interval with strictly increasing risk is a result for the broader rank-one residual-stable family; the counterexample to minimum-norm selection uses a step within the conservative bound. No claims are made for arbitrary matrices, nonuniform sampling, general noise, or variable steps.
 
 ## References
 
-1. Y. Xia and Z. Zhou, *On the convergence of doubly stochastic block gradient descent method for linear inverse problems*, arXiv:2610.15399v1 (first public 2026-10-11). https://arxiv.org/html/2610.15399v1
-2. A. Ma, D. Needell and A. Ramdas, *Convergence properties of randomized extended Gauss-Seidel and Kaczmarz methods*, arXiv:1503.08235 (2015). https://arxiv.org/abs/1503.08235
-3. Q. Jin and D. Liu, *Randomized block coordinate descent method for linear ill-posed problems*, arXiv:2405.13340 (2024). https://arxiv.org/abs/2405.13340
-4. D. Han and J. Xie, *On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration*, arXiv:2208.05437 (2022). https://arxiv.org/abs/2208.05437
+The divergent sum of normalized steps in Xia and Zhou's Assumption 2.1(i) holds since \(\mu_k=1\). Their one-based indexing shifts the stopping index by one without changing either limit. Neither of the two cited theorems requires the later Assumption 2.3. The explicit examples therefore contradict the stated exact-data and noisy-data minimum-norm conclusions as written in v1.
+
+The public reports [5,6] give risk formulas in all-ones signal-coordinate subfamilies. In particular [5] includes this same two-row example and floor and treats variable step schedules in that subfamily. Those special cases are not claimed as distinct contributions here. The result here concerns arbitrary \(v\), the full covariance, and the risk frontier in the larger residual-stable constant-step interval.
+
+1. Y. Xia and Z. Zhou, *On the convergence of doubly stochastic block gradient descent method for linear inverse problems*, arXiv:2610.15399v1, https://arxiv.org/html/2610.15399v1.
+2. A. Ma, D. Needell and A. Ramdas, *Convergence properties of randomized extended Gauss-Seidel and Kaczmarz methods*, arXiv:1503.08235, https://arxiv.org/abs/1503.08235.
+3. Q. Jin and D. Liu, *Randomized block coordinate descent method for linear ill-posed problems*, arXiv:2405.13340, https://arxiv.org/abs/2405.13340.
+4. D. Han and J. Xie, *Pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration*, arXiv:2208.05437, https://arxiv.org/abs/2208.05437.
+5. *Exact nullspace-variance law for doubly randomized coordinate descent on rank-one inverse problems*, https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-nullspace-variance-law-for-doubly-randomized-coordinate-de--28e88f145876/RESULT.md.
+6. *Finite-budget reconstruction-optimal steps in rank-one randomized coordinate descent*, https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-finite-budget-reconstruction-optimal-steps-in-rank-one-randomize--13ced3d5640d/RESULT.md.

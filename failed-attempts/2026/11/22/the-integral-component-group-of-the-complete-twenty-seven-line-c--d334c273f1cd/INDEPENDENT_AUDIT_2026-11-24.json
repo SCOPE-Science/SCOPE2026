@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:42:41.073488Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof 1–4; VERIFICATION.md; VERIFY.py local clearing routine inspected, not executed",
+        "Independent replay: python /workspace/branches/independent_exact.py 1; exact results in /workspace/branches/exact-1.txt"
+      ],
+      "rationale": "The six exceptional, fifteen line-transform and six conic-transform classes have pairwise intersection zero or one. Each line has ten neighbors in the double-six presentation; distinct lines through the same point have distinct tangent directions, and Eckardt-freeness excludes triple concurrence, so the 135 intersections give distinct transverse nodes. The connected rational-component divisor has genus 109. The class sum is 27H−9∑E_i=−9K. A separately built double-six graph gives exact Laplacian spectrum 0^1,9^20,15^6 and rooted Smith diagonal 1^7,9^13,45,135^5 at two deletions, with the exact determinant 5129015115539641837921875. The frozen local algorithm correctly clears a minimum-valuation pivot by dividing out its p-power and inverting the unit part; the precision-five runs described by the record resolve all nonzero pivots, and sorting the local valuations aligns the integral invariant factors. Since −K is very ample, the second pencil member can be smooth and avoid the finite node set. In the formal neighborhood of a node the family is given by xy+t·u=0 with u a unit; away from nodes the special fiber is smooth and so is the family there. The pencil is proper and flat over the formal DVR, with smooth geometrically connected generic fiber (Bertini and connectedness for an ample divisor). Thus the regular split thickness-one graph description applies.",
+      "residual_risks": [
+        "Neither Eckardt surfaces nor unequal node thicknesses are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 determines the p-primary group when one nonzero Laplacian eigenvalue is a p-unit; at p=5 the multiplicity of the divisible eigenvalue 15 is six, its valuation is one, and v5(27)=0. This gives (C5)^6. Theorem 3.3 covers valuations one and two at p=3, with r=15, f=6, s=9, g=20, gamma=v3(27)=3. Its two formulas depend on the 3-rank e0.",
+          "For the line intersection Gram matrix G, whose diagonal is −1, L=9I−G. The Gram rank over F3 is seven, since the pairing factors through the seven-dimensional Picard lattice and the six E_i together with H−E_1−E_2 form a unimodular basis and hence give an invertible Gram minor modulo three."
+        ],
+        "reasoning": "With e0=7, the first Theorem 3.3 option asks for f−e0=−1 factors of order three and is impossible, so the second gives f+1−e0=0 factors of order three, g+gamma−2−e0=14 of order nine and e0−gamma+1=5 of order 27. The tree count rules out all other primes. Aligning these with the six order-five factors gives exactly 9^13,45,135^5. No new Smith reduction is needed.",
+        "searches": [
+          "Literature: Ducey critical group of a strongly regular graph, Schläfli/GQ(2,4), Laplacian elementary divisors",
+          "Ducey et al., arXiv:1910.07686, Theorems 3.1 and 3.3, and Example 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Ducey et al., arXiv:1910.07686 §§2–3, relevant theorem and example passages",
+        "Brouwer–Van Maldeghem §§9.4 and 10.10; Güven §6.3.1",
+        "Resultary exact and adjacent-record searches; local mirror records 25fb4f3d0330, 616774bc1c5b and 9c4f5e6d8186"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known double-six marking forces the one local rank needed by the prior general theorem. The exact group, exponent, order and tree count then follow. The genus and anticanonical class follow directly from the same marking. Smoothness and thickness one at the special fiber of the chosen pencil follow from the local equation and basepoint freeness."
+        ],
+        "reasoning": "The result is not implied by the rational spectrum alone; it is mechanically implied by the previously available stronger Smith theorems and the standard geometry of this matrix. Changing to a nodal cubic-surface presentation adds a direct semistable interpretation, not a separate new integral calculation or model theorem.",
+        "searches": [
+          "Compare frozen Finding and Proof 1–4 with Ducey et al. Theorems 3.1 and 3.3 and the classical line marking",
+          "Brouwer–Van Maldeghem, §10.10 for GQ(2,4) identification and spectrum; standard regular semistable graph-component-group interpretation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the GQ(2,4) point-collinearity graph with parameters (27,10,1,5), not its (27,16,10,8) complement. If B is the adjacency of the latter, the target full Laplacian is 11I+B−J. Güven computes Smith factors of B, not those of 11I+B−J. Ducey et al. Example 3.6 gives the 2-primary critical group of the 16-regular graph, not the target."
+        ],
+        "reasoning": "The graph terminology matters. These near matches do not alone give the target, but the general Ducey et al. theorems apply when their parameters are those of the 10-regular graph.",
+        "searches": [
+          "Resultary: 27-line collinearity, GQ(2,4), Schläfli complement and exact critical group",
+          "Brouwer–Van Maldeghem, Strongly Regular Graphs, §10.10",
+          "Ç. Güven, Buildings and Kneser Graphs, Example 6.3.1.1",
+          "Ducey et al., arXiv:1910.07686, Example 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit d334c273f1cd is the frozen record itself. The distinct 25fb4f3d0330 hit computes a wedge of 71 four-spheres for the open-neighborhood complex of the same graph. The two same-day Levi records concern 27-by-45 line–tritangent and 27-by-36 line–double-six incidences, not this 27-vertex graph. The inspected literature example explicitly treats the complement."
+        ],
+        "reasoning": "No distinct verbatim table for the target was identified in these bounded returns. That does not undo the demonstrated consequence of the earlier broader theorem, and does not settle priority of a written-out table.",
+        "searches": [
+          "Resultary exact group and 27-line point-graph query",
+          "arXiv:1910.07686, Example 3.6 and lookups for Schläfli, (27,10), and quadrangle",
+          "Resultary same-graph neighborhood complex 25fb4f3d0330 and closely related incidence groups 616774bc1c5b and 9c4f5e6d8186"
+        ]
+      },
+      "rationale": "The exact group is a straightforward specialization of Ducey et al., Critical group structure from the parameters of a strongly regular graph, Theorems 3.1 and 3.3, with a rank forced by the classical line-class marking. That is implication by a relevant prior theorem, not a claim that its Example 3.6 gives the target factors verbatim. The example there is the 16-regular nonintersection graph, whereas both the specialization and the frozen claim concern its 10-regular complement. The divisor and smoothing interpretation use classical geometry and the general component-group theorem.",
+      "residual_risks": [
+        "An earlier written-out table for the target may exist; the conclusion depends on a demonstrated implication, not on locating that table or on assigning same-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems specialize to the exact target; Example 3.6 on its own does not",
+          "evidence": "Theorem 3.1 gives a forced p-primary type when the first eigenvalue is a unit. Theorem 3.3 gives two types in terms of p-rank for valuations one and two. Example 3.6 computes the Schläfli graph at p=2, with parameters (27,16,10,8).",
+          "identifier_or_url": "https://arxiv.org/abs/1910.07686; doi:10.1016/j.jcta.2021.105424",
+          "material_read": "Theorem 3.1, PDF pp. 7–8, text offsets 16525–20697; Theorem 3.3 and proof, pp. 11–12, offsets 29300–33495; Example 3.6, p. 13, starting at offset 35080",
+          "method": "Lawful OA arXiv PDF passage extraction; publisher route was unavailable, so the open copy of the same work was used",
+          "title": "Critical group structure from the parameters of a strongly regular graph",
+          "trigger": "General Laplacian Smith theorems at the exact valuation regimes of the target"
+        },
+        {
+          "assessment": "Adjacency on the noncollinearity graph, not target Laplacian",
+          "evidence": "The Smith factors 1^6,2^14,8^6,16 are for the adjacency of the noncollinearity graph.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/3689733/721532.pdf; doi:10.6100/IR721532",
+          "material_read": "§6.3.1, Example 6.3.1.1, OA PDF p. 107, offset 268850",
+          "method": "Lawful OA thesis PDF passage",
+          "title": "Buildings and Kneser Graphs",
+          "trigger": "Explicit Smith form for a graph in the GQ(2,4) pair"
+        },
+        {
+          "assessment": "Classical geometry and background; decisive implication is via Ducey et al.",
+          "evidence": "Identifies the cubic line-intersection graph with the GQ(2,4) collinearity graph; gives its parameters and spectrum.",
+          "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/srg/rk3/srgw.pdf",
+          "material_read": "§9.4, printed p. 242, OA offset 803519, and §10.10, printed p. 256, OA offset 840000",
+          "method": "Lawful OA monograph passages",
+          "title": "Strongly Regular Graphs",
+          "trigger": "Primary graph identification, parameters and discussion of critical groups"
+        },
+        {
+          "assessment": "Same graph, different invariant",
+          "evidence": "The open-neighborhood complex is a wedge of 71 four-spheres, not a Smith table.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-open-neighborhood-complex-of-the-27-line-collinearity-graph--25fb4f3d0330",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The open-neighborhood complex of the 27-line collinearity graph is a wedge of 71 four-spheres",
+          "trigger": "Exact same graph under the collinearity alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof 1–4",
+        "Ducey et al., Theorems 3.1 and 3.3, applied to the 10-regular intersection graph"
+      ],
+      "rationale": "This is a natural degeneration and the exact invariant is potentially useful. But the central numerical result is mechanically implied by earlier strongly regular graph theorems, with the required 3-rank an immediate unimodular-minor fact from the classical double-six marking. The genus, pencil regularity and component-group application here are standard deductions from this same configuration, not a distinct conclusion that sustains the frozen finding on its own.",
+      "residual_risks": [
+        "This assesses the proposed standalone finding, not the utility of compiling known component groups or using the degeneration in another theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

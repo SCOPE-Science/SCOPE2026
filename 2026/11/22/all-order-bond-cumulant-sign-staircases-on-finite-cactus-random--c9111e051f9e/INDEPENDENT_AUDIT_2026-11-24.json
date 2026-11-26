@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:26:50.518712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In any occupied subgraph, deleting one edge from each fully occupied host cycle removes precisely the independent cycle-space generators. Substitution into k(A)=|V|-|A|+cycle rank gives independent bridge/cycle blocks even when cycles meet at cut vertices. A mixed cumulant across blocks vanishes by additivity of the log MGF. On a common cycle, dividing the MGF numerator by the product of single-edge MGFs leaves log(1+b times a product of one-variable factors), with each factor equal to 1 and derivative 1-u_e at zero. Distinct derivatives therefore give the stated prefactor times (b d/db)^r log(1+b). The denominator is positive for every q>0, including -1<b<0; no probability-mixture argument with a negative weight is used. Starting with Q_2=1 and Q_3=1-b, the recurrence yields alternating derivative signs at the roots, a positive value at 0, and a leading sign opposite the value at the last root; degree then forces one simple root per complementary interval. For q<1 the positive Eulerian coefficients at -b>0 give a negative cumulant, and q=1 gives zero. For q>1 the derivative of b(t) is strictly positive at every finite t and its range is (0,q-1), so each root below q-1 is crossed once and the endpoint equality is not a finite zero. The stated order-four and order-five thresholds follow by factoring the displayed polynomials. An independent exact enumeration on C4 at q=6, all u=1/2, gives kappa_4=-65/64827; it is positive at all u=99/100. The supplied finite checker was inspected, not run, and does not replace the all-order argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "40f119d1bafa proves all-q cycle/bridge factorization and deals with covariance of two vertex-connectivity events.",
+          "Çiçeksiz–Ravichandran address pairwise negative edge correlations in specified forest/random-cluster settings."
+        ],
+        "reasoning": "The all-q block factorization covers the structural input but not the signs of higher derivatives. Pair correlation and positive association likewise do not determine higher mixed cumulant signs.",
+        "searches": [
+          "Resultary 40f119d1bafa all-weight cactus connectivity covariance",
+          "arXiv:2610.00549v1 random-cluster edge correlations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3f0dfb35e019",
+        "Resultary 40f119d1bafa",
+        "Resultary f72dc63cf87e",
+        "Grimmett arXiv:math/0205237v2",
+        "Çiçeksiz–Ravichandran arXiv:2610.00549v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An all-q cycle law is explicit prior input. For q>1 one can also derive the formula by conditioning on a single Bernoulli variable marking the full-open component, but this interpretation is unavailable for q<1."
+        ],
+        "reasoning": "The sign classification uses more than knowing the joint law or a pair derivative: it isolates the distinct-derivative prefactor, identifies the Eulerian numerator, and matches its simple zeros to the attainable open interval (0,q-1) for any heterogeneous scale weights. Classical Bernoulli cumulants and Eulerian root theory are not claimed as new.",
+        "searches": [
+          "Resultary 40f119d1bafa block factorization and f72dc63cf87e log-normalizer derivation",
+          "arXiv:math/0205237v2 Sec. 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The precursor 3f0dfb35e019 gives the same r=2 expression for q<=1 after identifying b=-(1-q)rho_C.",
+          "The biclique result f72dc63cf87e concerns r marked vertices on one shore plus one on the other, and r-1 roots, not same-cycle bond occupation."
+        ],
+        "reasoning": "Occupation covariance is exactly the second cumulant but neither vertex connectivity nor the hard-core occupation formula is the asserted all-order random-cluster bond classification. No priority was inferred from the same-day date.",
+        "searches": [
+          "Resultary 3f0dfb35e019, 40f119d1bafa and f72dc63cf87e",
+          "Grimmett arXiv:math/0205237v2 Sec. 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected exact formula in the same model is the q<=1 pair covariance. The higher-order Eulerian example with explicit roots is on bicliques in the hard-core model."
+        ],
+        "reasoning": "No distinct covering catalogue statement or threshold table was identified in the bounded comparison. Low-order exact agreement is credited, not treated as independent novelty.",
+        "searches": [
+          "Resultary cactus higher bond cumulants / Eulerian sign staircases; neighboring IDs 3f0dfb35e019, 40f119d1bafa, f72dc63cf87e"
+        ]
+      },
+      "rationale": "The finite cactus block law and low-order negative correlations are prior. The distinct claim is the all-order distinct-bond sign and sharp shared scale threshold classification, including the signed q<1 case and all r-2 possible reversals at q>1. The same-day hard-core Eulerian staircase is a genuine analog but does not supply this result.",
+      "residual_risks": [
+        "An earlier all-order cycle calculation or a general result specifically covering the single-cycle tilt and its attainable-root thresholds could affect priority; the law itself is demonstrably prior.",
+        "The related biclique result shows a parallel Eulerian mechanism; chronology within the publication date was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers q<=1 pair formula and block factorization; not the higher-order claim",
+          "evidence": [
+            "Cycle covariance is -(1-q)rho_C(1-u_e)(1-u_f)/[1-(1-q)rho_C]^2."
+          ],
+          "identifier_or_url": "3f0dfb35e019",
+          "material_read": "Mirrored RESULT.md offsets 0–2359",
+          "method": "Read local Resultary statement and compare exact normalizer and covariance",
+          "title": "Conditional negative association without real stability in random-cluster and forest measures on cactus graphs",
+          "trigger": "Same graph, cycle law and pair formula"
+        },
+        {
+          "assessment": "Stronger than the older block-law scope, with different observables and no higher-cumulant classification stated in inspected passages",
+          "evidence": [
+            "All-q representation of independent cycle/bridge blocks; result concerns nonnegative covariance of two vertex-connectivity events."
+          ],
+          "identifier_or_url": "40f119d1bafa",
+          "material_read": "Mirrored RESULT.md offsets 0–2988 and 3800–6049",
+          "method": "Read local Resultary theorem and factorization proof passages",
+          "title": "All-weight connectivity covariance on cactus graphs for random-cluster models",
+          "trigger": "All-positive-q cactus block law"
+        },
+        {
+          "assessment": "Shared Eulerian mechanism but not a reduction covering the random-cluster theorem",
+          "evidence": [
+            "Hard-core K_{m,n} has an r+1 vertex cumulant with r-1 simple roots, not the r-bond sign law on cacti."
+          ],
+          "identifier_or_url": "f72dc63cf87e",
+          "material_read": "Mirrored RESULT.md offsets 0–3499 and 3000–6185",
+          "method": "Read local Resultary claim and cumulant derivation and compare variables and roots",
+          "title": "Eulerian cumulant sign staircases and reentrance in the biclique hard-core model",
+          "trigger": "Distinct same-day all-order sign-staircase claim"
+        },
+        {
+          "assessment": "Covers model and independent q=1 boundary; no higher cactus threshold statement in passages read",
+          "evidence": [
+            "Finite random-cluster weights and the product-measure case q=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0205237v2",
+          "material_read": "Sec. 2.1 p. 5 and continuation",
+          "method": "Read located primary PDF passages",
+          "title": "The Random-Cluster Model",
+          "trigger": "Primary definition and correlation baseline"
+        },
+        {
+          "assessment": "Pairwise scope differs from all-order sign law",
+          "evidence": [
+            "Discusses negative edge-pair correlation and random-cluster models with q<=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00549v1",
+          "material_read": "Introduction, text offsets 3000–6499",
+          "method": "Read primary introduction passages",
+          "title": "Negative Correlations for Forests and the q<1 Random Cluster Model",
+          "trigger": "Closest pair-correlation literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural finite spin-system representation this identifies which distinct-bond nonlinear responses are identically zero and gives the exact number and common locations of their reversals, independent of the choice of marked bonds on the cycle. Orders with arbitrarily many reversals are realized. This goes beyond pair association and numerical sign examples without suggesting a thermodynamic phase transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

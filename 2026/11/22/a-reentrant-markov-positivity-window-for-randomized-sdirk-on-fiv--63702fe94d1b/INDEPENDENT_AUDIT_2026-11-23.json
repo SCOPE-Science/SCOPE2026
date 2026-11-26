@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:11:13.971507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I solved the stages with a common x and checked the full row update symbolically (`python3 /workspace/checks/sdirk_birth.py`, SymPy 1.14). With U=(I−hxB)^−1 the two stage operators are U and (I+h(1−2x)UB)U. The completed update is I+h(U+stage2)B/2; every entry matches, row sums are one, and the two relevant discriminants and −1/16 coefficient agree. The transient block has shift distance at most three and only its diagonal r_0 and the four-jump absorbing corner a_4 can be negative. For 0<h<1/3 the numerator 3−4x+hx(4x−1) strictly decreases in x and crosses exactly once between 3/4 and 1; from h=1/3 on it is nonnegative everywhere since at h=1/3 the sign is that of (x−1)(4x−9). The diagonal is nonnegative for h≤2. For h>2 its numerator is negative at x=1/2 and its larger root determines the successful upper interval, which collapses at 1+sqrt(3) to the singleton x=1 and is empty above it. This singleton is correctly assigned probability zero, although the short open-interval phrasing about nonemptiness in Proof Step 4 should be read with its following endpoint clarification. Uniform interval lengths give both nonconstant branches; at h=0 the update is the identity. Row lumping or the same transient calculation for n≤4 eliminates a_4, giving minimality in the stated family. The h^4 corner expansion is uniform on the parameter interval and integrating its leading coefficient gives −1/16, so expectation cannot restore stochasticity for all sufficiently small positive h. I inspected but did not run the frozen checker; exact stage algebra plus sign analysis, not binning, establishes the continuous law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary stability result covers the method, not an entrywise probability law at fixed size. The examined birth-chain findings use different rational updates: implicit Taylor has five-state recovery near 0.496606, and the cited Radau IIA example first loses positivity at six states."
+        ],
+        "reasoning": "General absolute-monotonicity criteria concern broad worst-case classes and are not exact branch probabilities for this fixed generator and random x; the older specialist literature was not exhaustively inspected. A general finite Jordan/absorption criterion is a method for calculating the sign but must still be evaluated for the designated rational function. Other RK stability functions are not dominating parameter cases.",
+        "searches": [
+          "arXiv:2607.18928 §5 Proposition 5.8",
+          "Resultary: five-state absorbing pure-birth chain randomized SDIRK one-step stochasticity probability small-step opposite-corner mean -h^4/16",
+          "Resultary implicit Taylor and two-stage Radau IIA absorbing-birth comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.18928 Eq. (Rand), Assumption 3.2 and Proposition 5.8",
+        "Resultary scalar, two-state, implicit Taylor and Radau IIA originals (local mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h>2 the corner sign cannot obstruct stochasticity and the prior scalar multiplier result determines the probability exactly. For 0<h<1/3 the same scalar probability of negativity is zero while the corner fails when x>α(h). The two-state projector lacks the successive Jordan-shift and absorbing-tail structure."
+        ],
+        "reasoning": "Partial coverage is substantive and explicit. To get the remaining claim one needs to rule out other matrix entries, compute and analyze the fourth-order absorption contribution, and integrate over x. Neither same-tableau result yields these steps as a specialization of its statement.",
+        "searches": [
+          "Local mirror scalar sign loss, two-state balance, implicit Taylor, and Radau IIA RESULT.md comparison",
+          "arXiv:2607.18928 §3 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the same x twice and its uniform law on [1/2,1], and proves algebraic, B- and A-stability in its setting. In the five-state chain the stochasticity question is exactly the pair of inequalities on r_0 and a_4.",
+          "The prior scalar law is the complement of the high-step success probability. The prior two-state statement is r_x≥−m/(1−m) via a spectral projector."
+        ],
+        "reasoning": "Algebraic/A-stability is a decay or norm condition, not entrywise nonnegativity. Scalar positivity and two-state projector positivity cannot detect the absorption-tail sign: universally nonnegative scalar r_0 in the small-step regime coexists with a negative a_4 on a positive-measure set.",
+        "searches": [
+          "Primary literature: \"2607.18928\" randomized SDIRK Markov positivity pure birth chain five-state transition matrix",
+          "arXiv:2607.18928 §3 Eq. (Rand), Assumption 3.2, §5 Proposition 5.8",
+          "Resultary scalar sign-loss and two-state balance records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target ranked first (0.6132), and is a self-match. The closest matching tableau material provides an exact scalar sign law and an exact two-state balance law, and the closest chain material provides method-dependent exact boundaries for different updates."
+        ],
+        "reasoning": "The scalar publication covers the high-step evaluation exactly, not the complete table. None of the compared independent results gives the four-jump corner probability or mean negativity for this chain and tableau. Ranked retrieval is not exhaustive.",
+        "searches": [
+          "Resultary: five-state absorbing pure-birth chain randomized SDIRK one-step stochasticity probability small-step opposite-corner mean -h^4/16"
+        ]
+      },
+      "rationale": "Qualified for the low-step absorbing-chain obstruction, its sharp probability and mean coefficient, and the complete noninterval safe set assembled with the already-covered high-step law. Neither the randomized method itself nor the high-step scalar sign criterion is credited as new.",
+      "residual_risks": [
+        "A bounded literature and index search does not certify historical priority; a general positivity theorem with this exact specialization or an unindexed same-tableau calculation might be missed.",
+        "The older specialist Horváth reference (DOI 10.1016/S0168-9274(98)00050-6) was not independently compared in full. The high-step scalar branch is already covered and is not what earns the originality assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method; algebraic and B-/A-stability not equivalent to this stochasticity claim",
+          "evidence": [
+            "The common uniform stage parameter and correct tableau precede the target. Proposition 5.8 concerns algebraic stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.18928",
+          "material_read": "§3 Eq. (Rand) and Assumption 3.2, §5 Proposition 5.8 (text offsets 24800,29450,52716)",
+          "method": "Bounded OA original preprint passages",
+          "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+          "trigger": "Same randomized tableau and primary stability statements"
+        },
+        {
+          "assessment": "Covers the high-step branch exactly by complementation; does not give the low-step matrix obstruction",
+          "evidence": [
+            "Scalar failure law 0 through 2, 1−2/h+sqrt(2−4/h) through 1+sqrt(3), then 1."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/2/SCOPE-sharp-sign-loss-probability-and-poisson-critical-window-for-rand--119cb032c3ba/RESULT.md",
+          "material_read": "Statement and comparison passages, text offsets 0 and 3992",
+          "method": "Local mirror of original result",
+          "title": "Sharp sign-loss probability and Poisson critical window for randomized SDIRK",
+          "trigger": "Same method with exact scalar sign probability"
+        },
+        {
+          "assessment": "Irreducible two-state spectral mechanism, not five-state absorbing birth",
+          "evidence": [
+            "M=Π+r_x(I−Π) and condition r_x≥−m/(1−m) on the two-state generator."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/2/SCOPE-a-sharp-one-third-balance-frontier-for-positivity-of-randomized--873db862d3d5/RESULT.md",
+          "material_read": "Statement and comparison passages, text offsets 0 and 3978",
+          "method": "Local mirror of original result",
+          "title": "A sharp one-third balance frontier for positivity of randomized SDIRK Markov steps",
+          "trigger": "Same tableau and same notion of entrywise stochasticity"
+        },
+        {
+          "assessment": "Different rational method and threshold, no random x",
+          "evidence": [
+            "Update (I−hQ+h²Q²/2)^−1; positive at zero or from a distinct threshold near 0.496606."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/8/SCOPE-sharp-five-state-positivity-onset-and-topology-dependent-recover--b9cdeb14effb/RESULT.md",
+          "material_read": "Original statement at text offset 0",
+          "method": "Local mirror of original result",
+          "title": "Sharp five-state positivity onset and topology-dependent recovery for the implicit Taylor method",
+          "trigger": "Same five-state generator and a low-step positivity failure with recovery"
+        },
+        {
+          "assessment": "Different rational method and first failure dimension",
+          "evidence": [
+            "Radau IIA has its first small-step failure at six birth states in that result."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+          "material_read": "Original statement at text offset 0",
+          "method": "Local mirror of original result",
+          "title": "A six-state re-entrant positivity threshold for two-stage Radau IIA",
+          "trigger": "Nearby exact failure and recovery phenomenon in the same family of generators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stochasticity of a numerical transition matrix is a natural preservation property not guaranteed by scalar norm stability. With just five absorbing-birth states, almost half the draws fail at arbitrarily small positive steps, the ensemble mean also fails, yet a finite interval recovers stochasticity for every draw. The minimal dimension and complete probability law make this a usable test of positivity claims for stiff solvers. The scope is one step, this generator family and this parameter law, not nonlinear positivity or arbitrary Markov matrices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:45:04.046143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repair at repairs/2/RESULT.md corrects Step 6: if D is the minimum of the q-norm (not its q-th power), the energy is D^(-p), not D^(1-p). For example at p=2,r=1/2 the jet norm D=1/sqrt(15) gives energy 15, not sqrt(15). Both constraints follow for a_n=-|w_n|^(q-2)w_n/D^q from stationarity against the second constraint vector and pairing against w; sharp Hölder gives optimality. The perturbed constraint vectors converge in ell^q, remain independent by their first two coordinates, and the trial t=0 and reverse triangle inequality uniformly bound the minimizing multipliers. Their positive minimum norms thus converge and the corrected power proves confluence. For the rest: sharp Hölder and the even-coordinate projection give the single/antipodal formulas and the endpoint limits of the explicit crossing. For Y_s=(1-s)N_s, conditioning on N_s>floor(u/(1-s)) gives the claimed stop-loss formula. Its derivative is nonnegative on each floor interval and positive above the smallest atom except at isolated thresholds. Integration against the positive-a.e. second derivative of |1+by|^q gives strict convex expectation growth at every nonzero b; the minimizing b is nonzero because the derivative at zero is q. Comparing at the larger-s minimizer yields strict growth of F_q. The exact quadratic minimum s/(1+s), monotonicity of probability L^q norms, and F_q(s)~s as s tends to zero prove the interaction inequalities and uniqueness. The normalized geometric tails are uniformly exponentially bounded near s=1, so uniform integrability and bounded minimizers give the exponential limit. The independent finite KKT witness and collision checks are evidence/2/reproduce.py and replay.txt; proof, not truncation, covers all p and r in the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharp moment duality gives min ||f-1||_p = 1/delta_q(W) for the general zero-constraint problem; §4 also treats regular polygons.",
+          "The older p-inner-function formulation includes repeated entries, and its derivative equations describe the resultant minimizers."
+        ],
+        "reasoning": "These cover the abstract extremal problems and enable direct textbook benchmark calculations. They do not give the ordering of the normalized geometric affine-loss minima over all radii, which is what rules out multiple jet crossings.",
+        "searches": [
+          "arXiv:2611.02159v1 Theorem 3.1 and §4",
+          "arXiv:1802.04646v2 Theorem 2.2 and Proposition 5.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.02159v1",
+        "arXiv:1802.04646v2",
+        "arXiv:2104.08014v1",
+        "2026/11/16/SCOPE-exact-analytic-wiener-interpolation-on-two-concentric-regular-po--6bb4a5c56494"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hölder or moment duality directly gives the two benchmark costs by reducing the antipodal problem to even coordinates.",
+          "The proof of the jet crossing needs the strict change of the normalized geometric law in convex order and the comparison with the quadratic optimum; the explicit stop-loss differentiation supplies these steps beyond the duality identity."
+        ],
+        "reasoning": "Prior existence and duality imply neither the sign near the boundary nor that the one-parameter jet ratio crosses only once. Confluence is a stability consequence of the dual formulation, not by itself an asserted novelty.",
+        "searches": [
+          "arXiv:2611.02159v1 §3.1 and §4",
+          "arXiv:1802.04646v2 §5–6",
+          "strict convex order stop loss normalized geometric random variables scaled mean one exponential"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite prescribed zero constraints and p-inner extremals with multiplicities are studied in arXiv:1802.04646v2, including the derivative constraints and a unique normalized extremal.",
+          "The boundary radius here concerns the excess energy relative to twice the one-zero cost, not the locations of zeros of optimal polynomial approximants in arXiv:2104.08014v1."
+        ],
+        "reasoning": "Changing from a p-inner-extremal formulation to coefficient minimization is not new. The strict geometric-loss comparison in the jet radius, rather than the existence or representation of a finite extremal, identifies a different quantitative property.",
+        "searches": [
+          "ell_A^p coefficient norm prescribed zero pair antipodal exact energy ratio phase transition",
+          "two zeros in analytic coefficient l_p spaces finite constraints interpolation repeated zeros extremal energy",
+          "arXiv:1802.04646v2 Propositions 5.9, 6.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct same-date catalog result gives trinomial minimizers and a discrete coefficient-index transition at the endpoint p=1 for two aligned polygons (two positive nodes at n=1).",
+          "The direct all-p jet result returned by the search is the frozen record itself."
+        ],
+        "reasoning": "The endpoint polygon problem neither tabulates the jet loss nor includes any 1<p<infinity derivative constraint. The result here is a full-radius implicit root with a strict uniqueness proof, not a finite radius table.",
+        "searches": [
+          "double zero derivative jet energy ell_A^p repeated constraint geometric probability unique radius threshold",
+          "strict convex order stop loss normalized geometric random variables scaled mean one exponential",
+          "2026/11/16/SCOPE-exact-analytic-wiener-interpolation-on-two-concentric-regular-po--6bb4a5c56494"
+        ]
+      },
+      "rationale": "The corrected package presents one-zero and antipodal formulas as benchmarks, not as a new duality theorem or a priority claim for elementary substitutions. The supported contribution is the normalized geometric monotonicity argument yielding an all-radius repeated-zero interaction classification, a boundary variational constant, and transfer of strict signs to nearby distinct zeros. The examined prior finite-zero and multiplicity frameworks do not supply that quantitative classification.",
+      "residual_risks": [
+        "An earlier normalized-geometric convex-order theorem or two-point Banach interpolation calculation may exist under different terminology.",
+        "The searches and examined passages are bounded and do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad duality and polygon inputs, not the jet interaction classification",
+          "evidence": [
+            "Theorem 3.1 and its exact moment norm; regular polygon criteria in §4"
+          ],
+          "identifier_or_url": "arXiv:2611.02159v1",
+          "material_read": "§3.1 Theorem 3.1 and §4, pp. 11, 13",
+          "method": "OA PDF passages around offsets 49900 and 59141",
+          "title": "Zero sets in spaces of analytic functions with p-summable Taylor coefficients",
+          "trigger": "Same coefficient spaces, sharp finite-constraint duality and polygons"
+        },
+        {
+          "assessment": "Substantial existing repeated-zero framework, but no strict loss ordering or jet threshold in these statements",
+          "evidence": [
+            "Proposition 5.9 imposes derivative conditions for polynomial zeros; Proposition 6.6 gives the normalized extremal"
+          ],
+          "identifier_or_url": "arXiv:1802.04646v2",
+          "material_read": "Multiplicity definition; Theorem 2.2, Propositions 5.9 and 6.6, pp. 2, 6, 17–18, 21",
+          "method": "OA PDF passages",
+          "title": "Inner functions and zero sets for ell_A^p",
+          "trigger": "Prior extremals allowing repeated zero constraints"
+        },
+        {
+          "assessment": "Approximant zeros are not prescribed zero energies",
+          "evidence": [
+            "Theorem 1.2 radius tau_p describes zeros of approximating polynomials"
+          ],
+          "identifier_or_url": "arXiv:2104.08014v1",
+          "material_read": "Introductory setup and Theorem 1.2, pp. 3–4",
+          "method": "OA PDF offsets 7699–9908",
+          "title": "Zeros of Optimal Polynomial Approximants in ell_A^p",
+          "trigger": "Same spaces and an implicit radius threshold"
+        },
+        {
+          "assessment": "Different norm exponent and geometry; does not cover the repaired result",
+          "evidence": [
+            "Coefficient ell^1, concentric polygons, trinomial witnesses and an index transition"
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-analytic-wiener-interpolation-on-two-concentric-regular-po--6bb4a5c56494",
+          "material_read": "Finding and proof of discrete optimal index, mirror offsets 0–9555",
+          "method": "Direct local mirror passages after Resultary search",
+          "title": "Exact analytic Wiener interpolation on two concentric regular polygons",
+          "trigger": "Same-date exact coefficient interpolation, including two nodes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Repeated zero constraints arise naturally from colliding prescribed zeros. A unique sign boundary against the twice-single benchmark, with a rigorous boundary constant and openness for genuinely distinct pairs, addresses a motivated quantitative question beyond sharp interpolation duality. The strict monotonicity argument controls a continuum of radii; leaving the crossing implicit does not weaken its uniqueness or sign characterization. The repair is not accepted merely for correcting a normalization typo.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

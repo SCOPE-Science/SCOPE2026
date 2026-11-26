@@ -1,15 +1,21 @@
-# Scientific review: Clebsch hyperplane-section spectra
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four-coordinate cubic equation after eliminating a coordinate is exactly the original five-coordinate surface. Each projective point and each dual hyperplane is represented exactly once by the first-nonzero-one normalization. Exact exhaustive loops give all stated counts, independently verifying surface points by a quadratic equation in the fourth coordinate and both universal incidence moments. Geometric factorization of the ten Eckardt planes, exhaustive rational-line containment, and 120-permutation orbit checks agree. The claim is only for two prime fields; no finite sample is used to infer an infinite statement.
+## correctness
 
-## Originality
-**PASS, with explicit priority limits.** The nearest published Clebsch incidence calculation completely concerns *point-to-line* multiplicities and the empty complement, not point-to-hyperplane cut multiplicities. Bergvall–Gounelas study singular anticanonical *types* over moduli, Brundu–Logar–Polli the geometric symmetry/lines, and Boguslavskii the extrema and generalized weights. Little's survey confirms that the Eckardt minimum-distance principle is known. The 400-/1464-hyperplane complete distributions and the 13-/30-orbit certificates are not implied by those narrower statements. An old numerical table not accessible through these searches, especially in Hirschfeld's complete 1981 article, is a residual priority risk, not a novelty certificate.
+PASS
 
-## Value
-**PASS.** These are the two exceptional ground fields, within the smooth odd-characteristic Clebsch family, for which every rational point lies on the geometric exceptional lines. For this naturally singled-out pair, the complete anticanonical section-size distribution refines point-count and line-incidence data, determines the entire 4-dimensional evaluation-code Hamming spectrum (not merely its first generalized weight), and distinguishes exactly how concurrent and triangular tritangent sections contribute at its largest sizes. It is a self-contained finite classification, not an arbitrary subfamily of codewords or a routine restatement of the known Eckardt bound.
+Independently enumerated normalized five-coordinate points with both sums zero (85 and 199), and all rational dual forms modulo constants and scalars (400 and 1464). The exact sizes and multiplicities agree at every bin, and the two point/pair incidence moments agree. Enumerating every two-dimensional subspace by unique reduced echelon bases and testing all four binary cubic coefficients gave 15 and 27 rational lines. Section line profiles (none, one, three nonconcurrent, three concurrent) are (310,75,5,10) and (1230,189,35,10); no two-line case. The geometric residual-line argument also uses smoothness: if a plane restriction had a repeated line, on that line the gradient of the surface would be controlled by a single quadratic (the normal derivative), which vanishes somewhere on the geometric line. The ten maximizing equations are exactly X_i+X_j=0; on each, the other coordinates A+B+C=0 have cubic sum 3ABC, yielding three concurrent lines and 3q+1 points. Triangles give 3q. The same census independently recovered all 43 frozen S5 orbit rows (13+30). A nonzero form never vanishes on the whole surface point set, so the four-coordinate evaluation is injective. Each projective dual row contributes q-1 different words of weight N_q-z, giving the full stated weight enumerator and distances 63 and 165. Replay: python3 /workspace/audit-replay/5.py; output /workspace/audit-replay/5.txt. Exhaustion is for the specified model and fields only.
 
-## Evidence and limitations
-Exact standard-library verifier, reproducible complete orbit table, and source comparisons are in the accompanying files. No unproved generalization beyond the two fields is claimed. An older equivalent finite-field enumeration could exist, especially in incompletely accessible historical literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass on the complete section-size distributions and their orbit and line profiles for this fixed Clebsch model. Classical geometry, point–line incidence, and maximal-section or minimum-distance results are credited, not claimed as new. Full code weights are an equivalent presentation of the census, not a second independent novelty claim.
+
+## value
+
+PASS
+
+These fields are singled out by the known empty line complement for the model, not by an arbitrary sample. The complete distribution gives the frequency of each rational section size rather than just the maximum, distinguishes concurrency and triangle contributions to large cuts, and supplies the ordinary weight distribution of the corresponding natural evaluation codes. Exact multiplicities are useful finite invariants even without a general-q theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

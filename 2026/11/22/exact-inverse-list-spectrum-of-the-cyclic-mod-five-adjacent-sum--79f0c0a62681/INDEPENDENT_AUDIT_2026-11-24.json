@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:11:57.197162Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The kernel recurrence h[i+1]=−h[i] gives zero kernel at odd length; the proper-coloring transfer matrix has trace 4^n−4 then. At even length the unrestricted image is the alternating-sum hyperplane. In an affine fiber with a proper source, the shift t makes edge i improper precisely at t=z_i, so a support of size r leaves 5−r valid shifts. Alternating-sum closure of z is both necessary and sufficient, with five choices of starting symbol. At each two-letter support, the nontrivial squared Fourier magnitudes of 1+ζ^(a d), d≠0, are (3±√5)/2 twice each. A three-letter support omits one nonzero letter and has the same nontrivial magnitudes. The one- and four-letter cases give E₁=1 and E₄=(16^m+4)/5. Subset inversion gives T₁=4, T₂=6E₂−12, T₃=4E₃−12E₂+12, T₄=E₄−4E₃+6E₂−4; source incidence (5−r)A_(2m,5−r)=5T_r then reproduces all four counts. Constant outputs are precisely the degree-four fibers. The image sizes for n=2,4,6 are 5,125,2765, with the first deficit 3125−2765=360. The leading nonsingleton term is 2·9^m, while the image is asymptotic to 16^m. Direct exact enumeration in /workspace/branches/8afd4b80-ce2a-40f7-b17b-af00d46900be/check_inverse_spectrum.py reproduced the histograms for n=2–8, including (1620,960,180,5,0) at n=6. This is finite corroboration. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3dd4b884b257 allows arbitrary integer window length, but not a residue observation and proper inputs.",
+          "Mariot–Leporati p. 1 addresses periods of preimages for linear bipermutive automata.",
+          "Yehezkeally et al. address partial substring overlap and code rates."
+        ],
+        "reasoning": "An unrestricted preimage-period distribution does not count the proper-coloring intersections with affine fibers. Widening the integer window length does not include the modular observation or this source constraint.",
+        "searches": [
+          "Resultary: adjacent-sum inverse-list distribution and cyclic window inverse spectra",
+          "doi:10.1007/978-3-662-47221-7_14",
+          "arXiv:2205.03933v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 79f0c0a62681",
+        "Resultary 3dd4b884b257",
+        "Resultary 3ce1ea5e167b",
+        "arXiv:2208.14963",
+        "arXiv:2205.03933v1",
+        "doi:10.1007/978-3-662-47221-7_14",
+        "arXiv:2012.13536v1",
+        "doi:10.3390/e24030433 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted even-length kernel has five members; the constrained degrees depend on the number of distinct signed differences, not just on kernel dimension.",
+          "Integer window-sum histograms lack the restricted multiplicity and output-merging information needed for the congruence problem."
+        ],
+        "reasoning": "The closed spectrum requires an additional constrained equal-sum/full-support count that yields the Lucas term. The read comparable claims do not supply it.",
+        "searches": [
+          "Resultary: 3dd4b884b257 and 3ce1ea5e167b Findings",
+          "doi:10.1007/978-3-662-47221-7_14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3dd4b884b257 observes indexed integer window sums over ordinary digits with no proper-coloring condition.",
+          "Ye–Elishco p. 1 observes composition multisets, with uniqueness considered up to reversal."
+        ],
+        "reasoning": "Reducing integer sums modulo five merges distinct integer outputs, and restricting inputs changes the multiplicity. Neither step is a renaming of the observations. The ordered outputs here are also not composition multisets.",
+        "searches": [
+          "Resultary: cyclic additive-word spectra with proper cyclic colorings",
+          "Literature: \"inverse-list\" cyclic adjacent-sum proper coloring F_5 Lucas exact distribution; \"16^m\" \"9^m\" cyclic sum",
+          "arXiv:2208.14963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror result containing these formulas at offset 240 is 79f0c0a62681, the assigned record itself. The strongest read distinct hits 3dd4b884b257 and 3ce1ea5e167b use different observations and do not supply these counts in their Findings."
+        ],
+        "reasoning": "The identical record counts once. Exact formula and invariant searches did not yield a second same-domain count in the passages inspected. The single literature query returned no results, which cannot establish priority.",
+        "searches": [
+          "Resultary: exact inverse-list distribution",
+          "Resultary: Lucas term in A_(2m,1)",
+          "Resultary: image size 16^m−2·9^m+2·4^m−1"
+        ]
+      },
+      "rationale": "Best of current knowledge, the complete indexed, proper-source F₅ list spectrum and first exact loss of feasible outputs are distinct. The exact mirror match is the assigned record, not corroboration. The closest indexed cyclic sums are ordinary integer sums with unrestricted input, and the accessible literature uses other observation models or counts unrestricted preimage periods. The novelty assessment concerns exact counts, not the standard shift kernel or Fourier tools.",
+      "residual_risks": [
+        "Sporring–Darkner full text was not recovered; the exact literature comparison remains limited.",
+        "The bounded search does not exclude a differently formulated group-coloring or constrained-channel theorem that already evaluates the same counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical frozen record, not a second source",
+          "evidence": "Same A_(2m,j) and image size.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inverse-list-spectrum-of-the-cyclic-mod-five-adjacent-sum--79f0c0a62681",
+          "material_read": "RESULT.md, Finding, offset 240",
+          "method": "Resultary and local mirror",
+          "title": "Exact inverse-list spectrum of the cyclic mod-five adjacent-sum sensor on proper colorings",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Different summation and source model",
+          "evidence": "Ordinary integer window sums, arbitrary window length and no proper-coloring constraint.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-multilevel-inverse-fiber-spectrum-of-indexed-cyclic-window--3dd4b884b257",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact multilevel inverse-fiber spectrum of indexed cyclic window sums",
+          "trigger": "Indexed cyclic sum spectrum"
+        },
+        {
+          "assessment": "Different channel",
+          "evidence": "Linear ternary adjacent maxima, not cyclic F₅ sums.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inverse-list-spectrum-of-ternary-adjacent-maximum-reads-on--3ce1ea5e167b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact inverse-list spectrum of ternary adjacent maximum reads",
+          "trigger": "Adjacent-read inverse-list spectrum"
+        },
+        {
+          "assessment": "Different observation and equivalence notion in the read statement",
+          "evidence": "Composition multisets including prefix-suffix compositions, ambiguity up to reversal.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.14963",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "Local observations for string reconstruction"
+        },
+        {
+          "assessment": "Different stated problem",
+          "evidence": "Selected consecutive substrings, minimum overlap and achievable code-rate bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2205.03933v1",
+          "material_read": "HTML abstract, offset 0",
+          "method": "OA HTML",
+          "title": "Reconstruction from Substrings with Partial Overlap",
+          "trigger": "Overlapping read constraints"
+        },
+        {
+          "assessment": "Period statistics in the read passage, not a proper-source list count",
+          "evidence": "Periods of periodic preimages of linear bipermutive automata.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-662-47221-7_14",
+          "material_read": "Springer PDF p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "On the Periods of Spatially Periodic Preimages in Linear Bipermutive Cellular Automata",
+          "trigger": "Unrestricted additive preimage analysis"
+        },
+        {
+          "assessment": "Different observation and objective in the read statement",
+          "evidence": "Run-length-limited single insertion/deletion correction.",
+          "identifier_or_url": "https://arxiv.org/html/2012.13536v1",
+          "material_read": "HTML abstract, offset 0",
+          "method": "OA HTML",
+          "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+          "trigger": "Adjacent-symbol restrictions in coding"
+        },
+        {
+          "assessment": "Exact comparison remains limited",
+          "evidence": "No full-text noncoverage assertion; the frozen record identifies it as binary local histograms.",
+          "identifier_or_url": "https://doi.org/10.3390/e24030433",
+          "material_read": "Landing/abstract material only; no full-text passage recovered",
+          "method": "DOI, publisher and PDF endpoint retrieval attempts",
+          "title": "Reconstructing Binary Signals from Local Histograms",
+          "trigger": "Plausible analogue with overlapping local observations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural recovery question is not answered by the even-length kernel size: actual fibers range from empty to four and most attainable outputs are asymptotically unique. The complete exact distribution determines ambiguity at each length and identifies both a concrete feasibility boundary and the five most ambiguous observations. The support constraint and its Lucas contribution make this more than a rank or small-case computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: sharp adaptation-speed tuning for damped endemic fluctuations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed point is derived by eliminating the link density from both equilibrium equations. The actual two-variable vector field yields trace \(-A-B\xi\) and determinant \((\tau-1)\xi\), with a strict positive off-diagonal coupling when \(\omega>0\). The characteristic discriminant has two explicitly positive, distinct roots. Its sign determines node versus focus and the smaller real decay root gives a differentiable spectral exponent away from the boundary. The derivative sign proves the unique optimal speed; the fast-limit ratio follows without asymptotic approximations. A polar-coordinate perturbation argument proves infinitely many damped prevalence-level crossings in a sufficiently small neighborhood of each focus. The parameter restrictions and spectral, rather than finite-time, meaning of optimality are explicit. Symbolic algebra, the exact defective example and 180 exact-rational comparisons were run from `verify.py`.
+PASS
 
-## Originality — PASS, with priority risks
+Solving the positive equilibrium conditions and differentiating at it gives trace -(A+B xi), determinant K xi and nonzero off-diagonals. With AB/K=1-eta^2 in (0,1), the discriminant has the two reported positive zeros; the trace/determinant give stability everywhere, and the off-diagonals make the endpoints defective. In the real-root regions set g=B gamma/K and u=B^2 xi/K. The slower root satisfies g^2-(AB/K+u)g+u=0 and cannot equal 1 because substitution gives eta^2>0. It lies below 1 on the lower-speed branch and above 1 on the upper-speed branch, by continuity from zero and from the upper endpoint respectively. Implicit differentiation gives the sign of 1-g for its slope; in the focus region the rate is half the negative trace and increases. Rationalizing the slow root gives its fast-speed limit K/B. Near a focus, a real change of coordinates gives inward radial velocity proportional to radius and a nonzero limiting angular velocity, which forces infinitely many crossings of the line y=y_*. For the no-cycle clause, omitted from the frozen local proof, the field multiplied by 1/y has divergence -tau z-xi(1+omega y)/y<0 on the interior. No nonconstant periodic orbit can lie on or touch the boundary: y=0 is invariant with scalar linear z dynamics and the other boundary edges point strictly inward for y>0. The stated optimum is only a spectral exponent; the Jordan factor matters for norm estimates.
 
-The closest initiating article is Achterberg and Sensi, *A minimal model for adaptive SIS epidemics* (arXiv:2209.01224, first publicly posted 2022-09-02; journal 2023), especially equations (12), the Jacobian displayed in Section 4.2, and slow-network Section 5. The fully accessible primary text analyzes stable endemicity and shows a spiral example, but does not state or imply a uniquely fastest common response speed, its sharp node–focus interval, or the fast-limit quantitative penalty without additional new optimization. The full accessible multigroup extension arXiv:2407.17639 discusses equilibria and two-community cycles rather than the single-community spectral optimum. The earlier 2020 generalized adaptive SIS article addresses link-update classes and epidemic thresholds; its full text was not accessible in this review. Targeted literature and mathematical-record comparisons found no exact covering statement. Priority uncertainty remains for inaccessible or unindexed treatments, and novelty is not inferred from keyword nonmatches alone.
+## originality
 
-## Value — PASS
+PASS
 
-Holding the ratio of contact-breaking and contact-creation responses fixed keeps the endemic state unchanged, isolating the practically meaningful question of **how quickly** the contact network should react. The precise answer is not “as fast as possible”: a uniquely optimal finite speed has an exact decay-rate advantage over the infinite-speed limit, up to a factor approaching two. The theorem simultaneously identifies a nonempty interval of damped endemic fluctuations at every positive risk-response intensity, despite the absence of cycles. These are sharp, continuous-parameter phenomena useful for comparing response timescales and interpreting numerical transients, not isolated numeric table entries or a relabeling of existing equilibrium formulas.
+The exact model, endemic equilibrium and stability, examples of spirals, and the general single-community no-cycle theorem precede this record. The supported distinct contribution is the complete common-speed sweep and its exact spectral optimum and speed-up at fixed breaking/creation ratio, not existence of spirals or the definition of the model.
 
-## Closest literature and limitations
+## value
 
-The initiating paper already proves stability and provides the equilibrium and Jacobian; these are not presented as new. The multigroup model considers a larger dynamical system but does not supply a result dominating the fixed-ratio single-group optimization. Neither linearized spectral speed nor its optimum directly controls peak prevalence or finite-time recovery. The optimal Jacobian has a defective double eigenvalue, with potential polynomial transient prefactors. No assertion is made about stochastic finite-population models, sustained periodic epidemic waves, or independent validation. Full-text priority review of the restricted-access 2020 model was not possible; only its public abstract was used.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Scaling both response rates at fixed ratio isolates a natural tuning variable without moving the endemic equilibrium. The finite optimum is not what the slow/fast limits or an isolated spiral example show: the rate eventually decreases, and the exact optimum improves on the fast limit by a parameter-dependent factor that can approach two. This quantifies when a finite response speed is preferable for the stated local objective and separates damped crossings from recurrent outbreaks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

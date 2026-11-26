@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:23.352556Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof; VERIFICATION.md and verify_depth3.py (read, not executed)",
+        "/workspace/branches/frozen_replay.py 5 (independent exhaustive pair-relation replay)"
+      ],
+      "rationale": "R∪Id is transitive by weak transitivity, so the generated part of any pointed model is {w}∪R(w), of size at most three even in an infinite ambient frame. Loops are counted; restriction to the generated model preserves modal truth. Atomic truth vectors are needed only up to their equality partition on the at most six worlds of two such models. Independently generated admissible adjacency lists and their orbits under all permutations (2,10,37 orbit counts), generated the joint color partitions by peeling off the block of the first remaining world, and used direct back-and-forth on pair relations rather than the supplied signature checker. In all 163990 unordered frame-pair × partition cases, depth-three equality was already stable. Testing ordered pairs adds only swapped copies, explaining the supplied 320315 count. Stability gives a bisimulation because atom agreement persists and the fixed relation already matches successors in both directions. For a finite propositional vocabulary every type at depth three has a characteristic formula using exactly that vocabulary or a subset, obtained by atomic literals, diamonds for realized successor types and a box excluding the others; the finite disjunction of the satisfying types normalizes an arbitrary formula. For the sharpness pair, both roots see a non-dead successor and a dead successor, hence have identical depth-two types with constant atom valuations. In Q the two-cycle permits a length-three path; in P all paths have length at most two. Both are weakly transitive with the stated loop-counted cap, so Diamond³ top is a valid proposition-free lower bound.",
+      "residual_risks": [
+        "No formula-length bound; no claim about counting modalities, extra modalities, or caps that exclude loops."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source gives finite-model selection and finite-width completeness for extensions of wK4; its finite width is finiteness of individual antichains, not a uniform bound on successor number."
+        ],
+        "reasoning": "These theorems apply to broader logics but make a different assertion; neither a finite model property nor local tabularity gives the uniform sharp depth-three cutoff. Weak transitivity without a degree cap even permits chains of arbitrary height.",
+        "searches": [
+          "Santschi–Vooijs arXiv:2606.31920 Theorems A–C and §2; weakly transitive / pretransitive / finite-width frame results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 24fe4ca0d82d, bbd831b7c106, 605708d2ff72",
+        "Santschi–Vooijs arXiv:2606.31920; Bolander–Burigana arXiv:2405.00480; Lemal repository eprint 2280"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Selection and generic k-bisimulation tools supply methods, and the deterministic result provides a proper subclass threshold. None of the inspected conclusions identifies depth three for the combined weak-transitivity/degree cap."
+        ],
+        "reasoning": "Even the elementary generated-size-three reduction alone gives only a finite comparison bound: a disjoint union can have six worlds and the generic refinement count need not stop by round three. The class-specific stabilization check and witnessed failure at depth two supply the non-automatic step.",
+        "searches": [
+          "arXiv:2606.31920, Theorems A–C and §2",
+          "arXiv:2405.00480v1, abstract and introduction",
+          "Resultary 24fe4ca0d82d, bounded RESULT.md inspection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed depth-two result concerns weak transitivity with at most one successor; neighboring stabilization records concern iterating non-contingency. Bolander–Burigana analyzes rooted k-bisimulation contraction generally."
+        ],
+        "reasoning": "Ordinary modal-depth normalization is equivalent here to stabilization of colored pointed bisimulation at depth three. The deterministic cap is strictly smaller, and iterated non-contingency is a different operator.",
+        "searches": [
+          "Resultary: depth normalization, bounded bisimulation, weak K4 and binary branching; 24fe4ca0d82d, bbd831b7c106, 605708d2ff72",
+          "arXiv:2405.00480v1, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed deterministic result counts 3·4^k types for its own subclass. No retrieved comparison gives the exact equivalence-refinement table or sharp cutoff for cap two; the thesis landing page was accessible but not its full text in the bounded retrieval."
+        ],
+        "reasoning": "Exact type counts for the cap-one subclass do not determine stability of cap-two colored types; frame counts alone would not determine stability either.",
+        "searches": [
+          "Resultary 24fe4ca0d82d, bbd831b7c106, 605708d2ff72",
+          "arXiv:2606.31920 §2 and selection theorems",
+          "Lemal 2023 thesis repository eprint 2280"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact uniform modal-depth threshold for genuine two-successor weakly transitive frames, including the proposition-free sharpness witness. The closest indexed deterministic subcase gives depth two, not the branching result. Local tabularity and finite-model/finite-width selection results do not determine this fixed-depth bound, and standard bisimulation machinery does not supply the class-specific finite lemma. This is a bounded best-of-knowledge assessment, not a priority certification.",
+      "residual_risks": [
+        "The 2023 Lemal thesis full text was not retrieved. Bounded-morphism, filtration or tabulation results in older literature not located by the bounded search could give an equivalent cutoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proper subclass and different exact cutoff",
+          "evidence": [
+            "At most one successor including loops, depth two, 3·4^k pointed types"
+          ],
+          "identifier_or_url": "Resultary 24fe4ca0d82d",
+          "material_read": "Matching mirrored RESULT.md passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary lookup and bounded mirror read",
+          "title": "Depth-two normal form and exact free-algebra size for deterministic weakly transitive frames",
+          "trigger": "Closest indexed sharp normalization under a successor cap"
+        },
+        {
+          "assessment": "Different operator and questions",
+          "evidence": [
+            "Iteration of non-contingency, not ordinary depth equivalence"
+          ],
+          "identifier_or_url": "Resultary bbd831b7c106 and 605708d2ff72",
+          "material_read": "Relevant mirror statement passages",
+          "method": "Bounded mirror read",
+          "title": "Sharp stabilization index for iterated non-contingency on finite transitive frames; Affine threshold and unbounded non-contingency cycles on binary branching frames",
+          "trigger": "Same-day stabilization and binary branching terminology"
+        },
+        {
+          "assessment": "Related selection and completeness results, not the stated exact threshold",
+          "evidence": [
+            "Finite width is specified by finiteness of antichains without a uniform size bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31920",
+          "material_read": "Theorems A–C, printed pp. 674–675; §2 printed p. 676, PDF offsets 0 and 9900",
+          "method": "Open primary PDF passage inspection",
+          "title": "Logics Containing wK4: Selection à la Fine",
+          "trigger": "Weakly transitive logic, finite-width selection"
+        },
+        {
+          "assessment": "General bounded contraction tools",
+          "evidence": [
+            "Rooted k-contractions, not an exact depth stabilization theorem for this restricted class"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.00480",
+          "material_read": "Abstract and introduction, PDF pp. 1–2, offset 0",
+          "method": "Open primary PDF passage inspection",
+          "title": "Better Bounded Bisimulation Contractions",
+          "trigger": "Equivalent bounded-bisimulation formulation"
+        },
+        {
+          "assessment": "Full-text coverage not determined",
+          "evidence": [],
+          "identifier_or_url": "https://eprints.illc.uva.nl/id/eprint/2280/",
+          "material_read": "Repository landing page only",
+          "method": "Bounded repository retrieval",
+          "title": "Hereditary structural completeness of weakly transitive modal logics",
+          "trigger": "Plausible overlapping thesis on weakly transitive logics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially the normalization proof and sharpness witness",
+        "Resultary 24fe4ca0d82d, cap-one comparison"
+      ],
+      "rationale": "The first branching case beyond deterministic weakly transitive frames is a natural boundary. The exact depth quantifies how much branching raises distinguishability in the ordinary modal language, uniformly in the number of propositional variables, and the proposition-free witness shows this is structural rather than an atom-encoding artifact. The result is strictly more informative than local tabularity or an uncolored frame count.",
+      "residual_risks": [
+        "Neither an asymptotic classification for larger caps nor a bound on normal-form length is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

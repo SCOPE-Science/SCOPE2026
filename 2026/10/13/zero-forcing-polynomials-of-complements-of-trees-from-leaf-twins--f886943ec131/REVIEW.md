@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The counting formula is proved by a complete partition according to the number of initially white vertices. Four or more white vertices cannot be forced, using the prohibition of four-cycles in a tree; two-white failures are exactly sibling leaves; and three-white successful sets correspond to one or two valid witness centers. The unique double-counts are the unoriented five-vertex paths, so their correction is exact. A separate direct zero-forcing implementation checks each coefficient in 20,110 labeled or seeded trees, covering 3,134,704 candidate initial-white subsets. The executable is included and rerunnable. Bounds: graph order at least five and ordinary forcing only.
+## correctness
 
-## Originality — PASS, with residual risk
-Boyer et al. (arXiv:1801.08910, 2018) define the polynomial and enumerate other graph classes. Curl et al. (arXiv:2206.03932, 2022) establish the minimum zero-forcing number for complements of nonstar trees and stars, but do not provide the complete polynomial or the five-vertex-path correction. A separately retrieved published study of zero-forcing polynomials compares nonpath trees **themselves**, not their complements, and does not imply this formula. Searches for complement-tree enumerators, leaf-twin correction formulas, minimum-set multiplicities and equivalent five-vertex-path expressions uncovered no dominating result. This is not a proof of global bibliographic uniqueness; unindexed equivalent formulas remain a risk.
+PASS
 
-## Value — PASS
-The result refines a known extremal invariant for the unrestricted class of tree complements to a complete polynomial, counts all minimum sets exactly, gives a linear-time method, and detects branching structure not fixed by degree sequence. The correction by the number of five-vertex paths is essential; omitting it systematically double-counts minimum sets. This is neither a single parameter instance nor a generic substitution into an existing polynomial.
+Independent proof reconstruction: for at least four white vertices, a first forcer v in the complement must have all the remaining whites in its tree neighborhood. Any other blue vertex has at most one tree neighbor in that remaining set (otherwise there is a four-cycle), so no second force is possible. For a nonstar there are no complement isolates; two whites fail precisely when their external tree neighborhoods coincide, which in a connected tree of this order means sibling leaves. A three-white set succeeds exactly if an external vertex sees two of the whites in the tree that are not both sibling leaves, and misses the third. Its witness count is the stated degree/leaf sum. Distinct witness centers use distinct pairs and form a five-vertex path with the white triple in alternating positions; three witnesses would form a subdivided triangle. Each unoriented four-edge path thus removes exactly one duplicate. A nonstar has adjacent internal vertices, giving a valid witness by choosing one more neighbor at one center and a third white outside its closed neighborhood, so a_T is positive. The isolated vertex of the star complement must be blue, and at most one clique vertex can be white. The path count uses a difference of squares over adjacency-list sums, giving O(n) arithmetic operations, not a bit bound. An independent bit-mask enumeration tested every white set for all 125 order-five and 1296 order-six labeled trees (4,000 and 82,944 trials); every coefficient agreed. The accompanying verify.py and verify_output.txt were inspected, not executed; the finite checks do not prove the all-orders assertion.
 
-## References and limitations
-Boyer et al., *The zero forcing polynomial of a graph*, arXiv:1801.08910 (2018). Curl et al., *On the zero forcing number of the complement of graphs with forbidden subgraphs*, arXiv:2206.03932 (2022). Scope: simple trees of order at least five; no independence verification or claim of an exhaustive novelty certificate. Finite tests complement, but do not replace, the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-tree three-white classification and exact coefficient a_T (including its linear-arithmetic evaluation), not the already known minimum size, the upper coefficients implied by general formulas, the star formula, or the path specialization.
+
+## value
+
+PASS
+
+The minimum-set count distinguishes tree complements that have identical order, degree multiset and minimum forcing size. The witness/overcount description gives a linear-arithmetic computation for the whole natural family, replacing subset enumeration and explaining why the four-edge path count appears.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

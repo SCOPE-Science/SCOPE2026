@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:28:25.222053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed the frozen gray_paths_u16le.bin with the fresh verifier /workspace/branches/0376a469-53f7-424c-b1d9-a017debe03a4/independent_verify.py (python3, certificate path as its argument). I inspected the decisive code. The recursion tries every unused value subject exactly to the next alternating inequality, so its leaves are precisely all admissible permutations and in lexicographic order. Each fixed-size little-endian block has its entire index range as its index set, hence no omissions or duplicates, and each consecutive pair agrees outside two positions and has the two entries exchanged. All 103944 bytes were consumed: 5, 61, 1385, 50521 states and 4, 60, 1384, 50520 transitions (51968 total). SHA-256 a9fc613421c0eea64144092a959a85754da4fa1d16ceeba607f0611a17657b62 identifies the replayed input; legitimacy comes from the checked moves and exhaustive coverage, not the hash. The supplied two verifiers were read as evidence, not executed. The signs alternate at every edge, so odd vertex counts exclude a Hamilton cycle, not a path. This checks exactly the four stated sizes, not an all-even theorem or a generation algorithm.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Survey section 5.1 attributes the odd-n transposition construction to Ruskey and records his even-n question.",
+          "The ranked-poset criterion summarized on p. 47 does not cover the even fence F_10: one terminal extremal element in each rank has only one cover in the relevant direction.",
+          "The p. 48 broader construction allows products of two adjacent transpositions."
+        ],
+        "reasoning": "Neither the odd construction nor the ranked-poset sufficient criterion supplies the finite even result. A double transposition may preserve sign, unlike every single transposition, and the allowed double moves cannot just be read as edges of the claimed graph.",
+        "searches": [
+          "Mütze DS26 pp. 41 and 47–48; Ruskey DOI 10.1007/BF00563523; Pruesse–Ruskey DOI 10.1137/0404037"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both supplied verifier sources and certificate",
+        "Mütze DS26 (2023)",
+        "Resultary 54fe743aae41",
+        "Ruskey and Pruesse–Ruskey bibliographic records and survey summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited balanced-poset conjectural construction does not give a theorem for this unbalanced fence; sign counts at n=10 are 25261 versus 25260.",
+          "The indexed adjacent-swap result gives mobility and distance, not Hamiltonicity for either move relation."
+        ],
+        "reasoning": "Parity balance up to one is a necessary path condition in this bipartite graph, not a sufficient condition. A prism result or a path in a graph augmented with two-swap edges does not project to the frozen path.",
+        "searches": [
+          "Mütze DS26, section 7.2; local mirror SCOPE-a-parity-law-for-least-mobile-fence-linear-extensions--54fe743aae41"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mütze p. 47 identifies fence linear extensions with inverses of alternating permutations. Inversion sends a single transposition to a single transposition, but arbitrary allowed swaps need not be adjacent in the extension order.",
+          "Resultary record 54fe743aae41 is about minimum degree, least-mobile vertices and diameter in the adjacent-swap fence graph."
+        ],
+        "reasoning": "The inverse formulation is genuinely the same for the full transposition graph. A degree or diameter theorem in the adjacent-swap subgraph does not give the required spanning path.",
+        "searches": [
+          "Local Resultary/SCOPE comparison: alternating permutations, fence linear extensions, single arbitrary transposition and Hamilton paths",
+          "Mütze DS26, sections 5.1 and 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching ordering or certificate was returned in the bounded lookup. The survey provides status and methods, not an exact table of even paths.",
+          "The Euler zigzag count 50521 gives only the vertex total, not an ordering."
+        ],
+        "reasoning": "A comparison table would have to give a spanning ordering or independently assert existence at these parameters in the same graph. No such source was inspected; an unsuccessful lookup is not an absence proof.",
+        "searches": [
+          "Focused web and local Resultary exact-size lookup for the n=10 alternating-permutation transposition Gray path and 50521-state certificate"
+        ]
+      },
+      "rationale": "No inspected source establishes the exact single-transposition paths through the four even sizes. The strongest related literature and indexed result differ in parity class, move set, hypotheses, or invariant. The finite n=10 witness is distinct from the classical vertex count and does not purport to resolve the open general question. This is a bounded best-of-knowledge decision, not a priority claim.",
+      "residual_risks": [
+        "Ruskey 1989 and Pruesse–Ruskey 1991 original full texts were not obtained through available lawful routes.",
+        "A later, unindexed or unpublished exact finite certificate could exist; the 2023 survey cannot exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Odd result and even question; broader constructions do not prove the claimed even paths",
+          "evidence": [
+            "Single-transposition generation cited for odd n; inverse fence equivalence; broader one-or-two-swap construction uses different moves."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/11023",
+          "material_read": "OA PDF p. 41 section 5.1 and pp. 47–48 section 7.2, text offsets 123246, 138294 and 140996",
+          "method": "Matched original OA PDF passages",
+          "title": "Combinatorial Gray Codes—an Updated Survey",
+          "trigger": "Closest synthesis of the original transposition question and broader fence constructions"
+        },
+        {
+          "assessment": "Different graph convention and invariant, not a spanning-path result",
+          "evidence": [
+            "Adjacent swaps in a linear extension; minimum mobility, extremal vertices and diameter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-parity-law-for-least-mobile-fence-linear-extensions--54fe743aae41",
+          "material_read": "RESULT.md claim, assumptions and invariant in local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and matching mirror full text",
+          "title": "A parity law for least-mobile fence linear extensions",
+          "trigger": "Closest distinct indexed result on the inverse fence object"
+        },
+        {
+          "assessment": "Direct coverage not independently determined from the originals; decisions use exact survey passages and hypothesis comparison",
+          "evidence": [
+            "The survey states odd-n coverage and records the even question; its ranked-poset criterion does not cover F_10."
+          ],
+          "identifier_or_url": "10.1007/BF00563523; 10.1137/0404037",
+          "material_read": "Full articles unavailable; relevant results inspected in Mütze sections 5.1 and 7.2",
+          "method": "OA retrieval and lawful alternate-copy checks; redirect/access failure; survey comparison",
+          "title": "Transposition generation of alternating permutations; Generating the Linear Extensions of Certain Posets by Transpositions",
+          "trigger": "Original results most likely to settle the same or dominating parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff gives explicit positive cases for a documented even-size Gray-code question, including the full 50521-vertex n=10 graph. This is not a re-enumeration of zigzag numbers: the certificate witnesses a global ordering subject to a sharp single-move constraint and can be independently checked in full. The value is a reusable, meaningful finite benchmark, not a uniform construction or resolution of the general problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact residue-class block identity, a trace-norm convergent rank-one integral for each shifted Hilbert block, and the explicitly diagonalizable rank-two variance matrix. All spectral conclusions use the selfadjoint trace-class perturbation versions of the Weyl and Kato–Rosenblum theorems. The signed counting law uses the published, correctly normalized positive Hilbert finite-section density and a uniform trace-norm counting comparison; extra incomplete residue blocks contribute only bounded rank. The exact rational decomposition and finite eigenvalue sign-pairing are checked in the accompanying reproducibility script. No finite experiment is used in place of an infinite-dimensional argument.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+Frozen Finding 4 fails as stated: take q=2, p=(1,1), d=p. All assumptions hold, σ=0, D_p=I and K_p=0, so 0 is an eigenvalue of infinite multiplicity, not a purely a.c. spectrum without eigenvalues. The corrected RESULT.md and SLOGAN.txt in /workspace/repairs/3 treat that case explicitly and say the residue coefficient has rank two only when σ>0. Re-audit: the exact block entry is i(p_r−p_s)H_a/q with a=(r+s+1)/q; H_a−H is a rank-one integral whose trace-norm majorant behaves as O(x^(a−1)+1) near 0 and O(1) near 1. The coefficient maps the normalized constant and centered vectors by ±iσ as stated and kills their orthogonal complement. The tail summability implies trace-class difference by the bound on each Hilbert column, and Weyl and Kato–Rosenblum give the essential and a.c. claims. At N=qM, the correct residue projection is I⊗P_M; interlacing changes counts by fewer than q for other N. The scalar law applies at t/(πσ) in the normalized Hilbert model: each sign has coefficient π⁻² arcosh(πσ/t) below the edge, zero at or above it. The min–max count sandwich at t±δ has error at most ∥Q_M∥₁/δ; threshold continuity includes the edge. For σ=0 the entire perturbed commutator is trace class (not necessarily zero), so its finite counts are bounded. Complex conjugation gives exact sign pairing. The q=2 shifted block has a=1 and no remainder; nonzero scale preserves pure a.c. spectrum, while zero scale gives the zero operator. These analytic checks, not finite diagnostics, verify the corrected claim.
 
-The closest mathematical literature consists of the classical Hilbert spectral theorem; the Hilbert-section logarithmic law in Widom/Fedele; and general scattering results for selfadjoint Hankel symbols (Pushnitski–Yafaev). Those are cited as inputs and do not explicitly give the variance-only two-channel classification or the weighted-perturbation finite-section law for periodic diagonal Hilbert commutators. Other available operator records concern log-periodically modulated Hilbert rows, decaying power-diagonal Hilbert commutators, or periodic Cesàro/Rhaly operators: their hypotheses and conclusions do not imply the present formulas. An unindexed equivalent under matrix-Hankel or periodic scattering language is a genuine remaining risk; lack of a search hit is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The single numerical invariant \(\sigma\) controls, for an infinite natural family of noncompact selfadjoint commutators, the exact essential spectral band, two absolutely continuous channels, and both signed logarithmic eigenvalue densities. This extends the useful Hilbert spectral picture to periodic diagonal modulations and quantifies how stable these laws remain under a nontrivial weighted summability class. The rank-two mechanism explains period/order universality, rather than being an isolated parameter calculation.
+For the repaired claim, the genuinely distinct content is the periodic diagonal commutator's variance-only channel and signed counting classification, with a trace-class weighted-tail criterion. Neither the scalar Hilbert input nor broader scalar Hankel theorems state that operator identification. The corrected constant case is a boundary clarification, not claimed as a new scientific result.
 
-## Limits and scope of evidence
+## value
 
-General-period singular spectral components, outliers and sharper finite-section remainders are outside the claim. The exact first publication priority has not been independently established. Full accessible primary text was compared for Fedele (2019), Montes-Rodríguez–Virtanen (2024), and Pushnitski–Yafaev (2014). Supplementary finite verification cannot replace spectral perturbation theorems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired theorem identifies one scalar statistic of arbitrary periodic patterns that fixes three nontrivial infinite-dimensional and finite-section spectral invariants, with an explicit stability class and mechanism. It does not claim to classify singular spectrum or general-period outliers. The degenerate-case correction does not remove the substantive nonconstant family or its stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

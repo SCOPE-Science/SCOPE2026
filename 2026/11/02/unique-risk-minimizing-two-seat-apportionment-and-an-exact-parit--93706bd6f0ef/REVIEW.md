@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact two-selected-party inversion count and mean directly from fixed marginals; the variance becomes a squared pair-label-sum deviation. Mirror pairs attain zero for even populations, and zero cost permits no other support. For odd populations the central party's fixed inclusion probability yields the pointwise dual bound \(2/n\); equality pins the support to outer mirror pairs and the central triangle, whose weights are forced. The all-population anonymity benchmark follows from exact covariance of two draws without replacement. Finite tests (exact rational, \(3\le n\le100\), plus independent numerical linear programs for \(3\le n\le18\)) corroborate rather than substitute for the proof.
+PASS
 
-## Originality — PASS, qualified
+For selected labels a<b, there are n-a-1 and n-b unselected labels above them, respectively. Their combined expected label sum is n+1, fixed by the 2/n marginals, so the variance is the expectation of (a+b-n-1)^2. For even n the zero-cost edges form a disjoint perfect matching and each row forces mass 2/n. For odd n, subtract a dual weight of 1 on edges incident to the center (n+1)/2; all resulting costs are nonnegative, and the tight edges are the outer mirror edges and the central triangle. Their marginal equations force 2/n on isolated edges and 1/n on each triangle edge, attaining 2/n and giving the stated envy masses. The triangle-only n=3 case is feasible and unique. Permutation invariance forces the uniform law; order its two labels at random so they are draws without replacement. Their covariance is minus the population variance divided by n-1, giving (n+1)(n-2)/6. This equals the unrestricted value only at n=3; the stated ratio for odd n follows. Replay: `cd /workspace && python audit_checks.py 1` confirms tight supports, exact marginals, direct inversion counts and uniform variances for n=3 through 40; the proof handles all n.
 
-The closest primary work is La Commare, Tucker-Foltz, and Verdugo, *Envy-Free Randomized Apportionment*, arXiv:2610.24217v1, Sections 2–4. It already proves the fixed mean and polynomial-time variance optimization. The present contribution is a uniform closed-form parity value, **unique** optimizing distribution and exact anonymous benchmark in the two-residual-seat equal-entitlement case; neither these statements nor an implication establishing them directly was identified in the inspected material. Other known multi-floor apportionment results address different feasibility and expectation objectives. General balanced-sampling sources are closely related, but full access was incomplete and an unindexed equivalent classification remains a priority risk. These are scientific priority qualifications, not claims of exhaustive novelty verification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact risk classification for the smallest nontrivial correlated two-seat apportionment problem, motivated by the variance objective explicitly proposed in the source. The parity obstruction is structural, not an arbitrary finite census. The all-population uniqueness and the enormous difference between anonymous and unrestricted variance quantify a genuine cost of requiring party-symmetric tie-breaking under an otherwise arbitrary fixed order.
+The exact parity optimum, forced support and risk law are supported as a distinct evaluation of a previously defined and algorithmically solved optimization problem. The statistic, rule-independent mean, generic linear program and ordinary sampling-variance identity are not new.
 
-## Scope and limitations
+## value
 
-The theorem is about a fixed arbitrary index-based convention for equal-residue ties. The risk-optimal mechanism is not anonymous for \(n\ge4\). Different definitions of envy at exact ties, nonuniform residues, additional residual seats and inter-house-size consistency are outside the claim. Numerical LP checks use floating point but the algebraic lower bound and support argument are exact; no external independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The concrete obstruction to exact balancing for odd n and the unique optimal law are useful benchmarks for dependent rounding with prescribed marginals. The solution distinguishes representational fairness (the same inclusion probability) from permutation invariance, and quantifies a natural variance tradeoff that a per-instance LP output would not explain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

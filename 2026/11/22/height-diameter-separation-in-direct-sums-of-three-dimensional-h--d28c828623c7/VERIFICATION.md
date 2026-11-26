@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` gives a field-independent construction of the second neighborhood, an exact no-common-neighbor criterion, and a three-step path for every pair outside the common-neighbor case. The ordered finite-field count is a direct product of independent ordered-pair choices.
+## correctness
 
-Reproduction: run `python3 check_rcg.py` with a standard Python 3 interpreter. The checker enumerates reduced graphs over \(\mathbb F_2\) and \(\mathbb F_3\), computes distances by breadth-first search and closure-rank iterations by modular Gaussian elimination, and tests the required numeric identities. The expected terminal marker is `HEISENBERG_RCG_HEIGHT_DIAMETER_OK`.
+PASS
 
-Limits: explicit finite enumeration cannot establish the infinite family by itself; it corroborates the proof. Literature comparison is not a formal certificate of novelty. No independent mathematical audit has been performed.
+Independence of the central lines gives coordinatewise alternating determinants, also in characteristic two. The first closed-neighborhood subspace is the direct sum of a line in each nonzero coordinate and the full plane in each zero coordinate. Its dimension is at least t, but it is proper, so it strictly enlarges the starting line for t≥2. It contains nonzero vectors supported in two different coordinate planes. Their commuting subspaces together span the quotient, so the next iterate is full, proving uniform height two and, by monotonicity, that only zero and the full space are fixed. A dependent coordinate pair has a common nonzero commuting vector there; if it equals an endpoint the endpoints already commute. For coordinatewise independent pairs no nonzero common perpendicular exists, but the two chosen projections in different factors give a three-edge path. Such pairs exist in every field. Counting an ordered basis independently in each plane gives the stated ordered quotient-vector count. For t=1 the components really are the nonzero parts of lines. Read RESULT.md, VERIFICATION.md and check_rcg.py; reported finite calculations are supplementary, not an all-field proof, and the uploaded script was not rerun.
+
+## originality
+
+PASS
+
+The two-summand diameter-three graph is already known under an equivalent algebra presentation, and the general diameter upper bound is prior. The supported distinct result is the explicit height/closure separation and full distance-three locus and count for the family, not discovery of the product graph or its t=2 diameter. Open Problem 3 concerns equality; the finding illustrates strictness and does not solve that classification.
+
+## value
+
+PASS
+
+The useful feature is an exact separation between the graph metric and the linear-neighborhood iteration on a natural direct-sum family. It identifies which pairs need a third step even when every nonzero starting line already spans the quotient after two iterations, and classifies the closed subspaces in all characteristics. The pair census makes the distinction quantitative over finite fields. The prior diameter-three example, by itself, is not the asserted value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

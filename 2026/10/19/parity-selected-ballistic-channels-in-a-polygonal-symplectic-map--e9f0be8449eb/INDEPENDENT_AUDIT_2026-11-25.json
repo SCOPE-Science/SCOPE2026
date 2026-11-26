@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:03:03.078811Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inverse and force preserve each rational denominator grid modulo 2, so the quotient orbit returns. The lifted block displacement is the geometric sum of the R^n rotations of the first displacement; for 4 not dividing n this sum vanishes over the order of R^n, and for 4 dividing n it grows linearly unless v=0. This gives exactly the phase formula and radial, not vector, speed. Independently set m=N/2 and e2=(0,1). During the first B-run the homogeneous reference inputs B^j A(t+h,t-h) have vertical coordinates strictly in (-1,0); during the second B-run the homogeneous reference inputs -B^j B^m A(t+h,t-h) have vertical coordinates strictly in (1,2), for 0<=j<m. At the two intermediate A steps and the last one the residue is strictly in (0,1). In units of the lattice spacing 2, the first B-run accumulates u=sum_{j=0}^{m-1}R^j e2; the second run starts at shift -u and adds -e2 each step after lattice rotation. The total shift after the last A is -R(I+R^m)u. The homogeneous product M_N=-AB^N A sends each input on S_N to z+(2,-2) and is the derivative there. The correction is zero for m even and (-2,2) in planar units for m odd, so the exact parity return holds for all real h in the open segment. Lattice covariance repeats the accelerating block (R^(N+4)=I), and the period in the segment claim need not be least. The force jumps at even seams in the plane; only its quotient is asserted continuous. The supplied rational checker was inspected, not executed; the independent derivation covers the infinite claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2311.17616 §III.C, p. 7: an invariant-level orbit hops between tiles, with finite tracking illustrated in Fig. 5.",
+          "arXiv:2201.13133 pp. 5–6 develops the broader piecewise-linear McMillan-map context."
+        ],
+        "reasoning": "Piecewise polygonal integrability and a sample escape orbit give neither a general statement about rational lifts nor the exact displacements of the open segments; bounded quotient dynamics in particular need not mean a bounded lift.",
+        "searches": [
+          "arXiv:2311.17616 §§II–III; arXiv:2201.13133 McMillan piecewise-linear systems"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_transport.py",
+        "arXiv:2311.17616",
+        "arXiv:2201.13133",
+        "Resultary 34292c20d9a2 and 8854e9d220a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier force model and unwrapping are explicit; qualitative finite transport is illustrated.",
+          "A return in the quotient forgets the integer displacement v, which must be computed in the particular lift."
+        ],
+        "reasoning": "Finite rational return and the order-four covariance mechanism are immediate once the model is given and are not treated as a deep standalone novelty. The uniform strict itinerary on each segment, cancellation for one parity and nonzero (2,-2) displacement for the other require the lifted branch calculation, not just quotient return, area preservation or qualitative diffusion.",
+        "searches": [
+          "arXiv:2311.17616 Eq. (4), §§III.A, III.C; Resultary torus spectrum 8854e9d220a4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2311.17616 §§II.B and III.A use the periodic-force and quotient map conventions.",
+          "Resultary 34292c20d9a2, Finding and Assumptions: a homogeneous two-half-plane map with a single ray and global translation chart."
+        ],
+        "reasoning": "Writing the lift as a lattice cocycle over a toral recurrence translates the terminology, not the transport data. The homogeneous normal form has no nontrivial periodic orbit and gives a vector limit in both time directions, unlike the phase oscillation and the coexistence of periodic and ballistic lifts here. It does not describe the period-two cell system.",
+        "searches": [
+          "Resultary: rational lift transport, polygon-tessellation McMillan–Hénon map, parabolic translation coordinates; arXiv:2311.17616 and 2201.13133"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror 8854e9d220a4, Finding/Assumptions offset 0: period spectrum {1,2,3,5,7,10} for the quotient force with upper branch 1-v, not 2(v-1).",
+          "Mirror 34292c20d9a2, offset 0: two homogeneous maps, not the specified periodically forced lift."
+        ],
+        "reasoning": "The candidate exact toral-period entry uses slope -1 rather than +2 and reports Haar weights, not winds; the exact escape-rate entry is on a different plane model. No exact matching speed table or trajectory catalogue was verified.",
+        "searches": [
+          "Resultary: polygonal torus complete periods, ballistic channels, exact global translation coordinates; mirror 8854e9d220a4 and 34292c20d9a2"
+        ]
+      },
+      "rationale": "The motivating map and qualitative unbounded motion are covered, and the general finite-grid argument is elementary. The distinct supported contribution is the exact lift-specific parity and speed classification with an explicit whole-segment family, not the discovery of the map or of qualitative integrable diffusion. No inspected statement supplies that family or implies its winding calculation. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "Alternate formulations of lift transport may be indexed under winding numbers or renormalization not located in the bounded search. No priority over uninspected material is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and qualitative transport are prior; inspected passages do not settle arithmetic winding and segment parity",
+          "evidence": "The unwrapping definition, tile-hopping invariant level and finite tracking at 10^4 and 10^5 iterations are explicit.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.17616",
+          "material_read": "§II.B p. 4, including Eq. (4); §III.A pp. 6–7; §III.C p. 7 and Fig. 5 discussion (OA offsets 22200–27657, 38272–44615 and 47000–49301)",
+          "method": "Bounded OA full-text passages",
+          "title": "Integrable symplectic maps with a polygon tessellation",
+          "trigger": "Same periodically forced example and asserted integrable diffusion"
+        },
+        {
+          "assessment": "Relevant background, not the claimed lifted classification in the material read",
+          "evidence": "McMillan/piecewise-linear maps, not this parity-indexed family of translating returns.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.13133",
+          "material_read": "pp. 5–6, OA offsets about 19500–24227",
+          "method": "Bounded OA full-text passages",
+          "title": "Machine-assisted discovery of integrable symplectic mappings",
+          "trigger": "Broader framework and potential piecewise-linear transport antecedent"
+        },
+        {
+          "assessment": "Different map, no matching theorem",
+          "evidence": "F_b(x,y)=(2x-y,x) or (bx-y,x) according to the sign of x, with b=0 or 1 and no periodic forcing.",
+          "identifier_or_url": "34292c20d9a2",
+          "material_read": "Finding and map equations, mirrored RESULT.md offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact global translation coordinates at two parabolic boundaries of a piecewise symplectic plane map",
+          "trigger": "Strong local catalogue match on exact parabolic velocities"
+        },
+        {
+          "assessment": "Different force, quotient periods rather than lift velocities",
+          "evidence": "On [1,2) the force is 1-v; the map is on the quotient by 2Z².",
+          "identifier_or_url": "8854e9d220a4",
+          "material_read": "Finding and Assumptions, mirrored RESULT.md offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Complete boundary-inclusive periods and Haar law in a polygonal symplectic torus map",
+          "trigger": "Same family name, two force branches, possible exact period coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact segment calculation distinguishes true linear transport from bounded motion in an existing example where finite tracking alone could not do so. It gives an infinite family of nonzero speeds accumulating at zero, including irrational starts on the specified segments, and a neutral derivative explaining the parabolic geometry. It asserts neither positive area nor typical diffusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

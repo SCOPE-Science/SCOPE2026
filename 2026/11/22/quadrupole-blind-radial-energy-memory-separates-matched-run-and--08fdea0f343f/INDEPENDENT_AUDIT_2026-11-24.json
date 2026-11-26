@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:47:05.127066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–70; VERIFICATION.md lines 19–28; inspected check.py without executing it. Its finite path check uses approximated headings and time steps; all lags and rates come from the exact conditional dynamics."
+      ],
+      "rationale": "Use the stationary bounded convolution |Y|≤1 in dimensionless time, P=Y·n and Q=|Y|². The first-harmonic semigroup and orientation autonomy give E[P_τ|Y₀,n₀]=M+e^(−(1+α)τ)(P₀−M): in the convolution each n_s·n_τ has conditional mean e^(−α(τ−s)). Since Q'=−2Q+2P and stationarity gives E(QP)=E(Q²) from the time derivative of Q², the two covariance initial conditions both equal V. Solving C'+2C=2V e^(−(1+α)τ) gives H_α, including the resonance (1+2τ)e^(−2τ); its curvature at zero is −2(1+α). For amplitude, the angular action on P² at fixed Y is −θ(P²−Q/3); the position drift supplies −2P²+2P. The drift and the dipolar action on QP give −(3+α)QP+Q+2P². Their stationary balances yield M=(1+α)^−1, E P²=(2+θ/3)M/(2+θ), and E Q²=(M+2E P²)/(3+α). Subtracting M² gives the stated V and differentiating gives the strict negative θ derivative. Solving S=(18+5θ)/(2+θ) gives exactly the stated inverse for 5<S<9. Substituting θ=α and θ=3α gives the ratio, positive gap and limits; in particular V_RTP=5/72 and V_ABP=1/40 at α=1, while the common lag-0.96 kernel is 0.4280923294. These are conclusions about stationary radial squared displacement, not the full position process.",
+      "residual_risks": [
+        "Normalization is only asserted with V>0. The stationary, isotropic, ergodic Markov orientation has the stipulated eigenrelations, and arbitrary positive pairs are not asserted realizable.",
+        "The inverse for α assumes calibrated trap time; neither formula asserts a stable finite-sample estimation procedure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chaudhuri–Dhar treat arbitrary initial conditions for ABP and also calculate its stationary fourth moment, but with rotational diffusion and thus fixed link β=3γ in 3D.",
+          "Caraglio–Franosch give a full propagator in 2D, with positional autocorrelations; Solon et al. compare steady-state spatial profiles and effective-equilibrium regimes in a trap."
+        ],
+        "reasoning": "The ABP specialization can be recovered using an applicable 3D ABP conditional moment; the 2D propagator has different angular eigenvalues and is not a general 3D theorem. Different confined distributions are known and do not determine the normalized two-time squared-radius law or its two-rate inverse.",
+        "searches": [
+          "Chaudhuri–Dhar arXiv:2005.14234 §§3.3–3.4",
+          "Caraglio–Franosch arXiv:2210.04205 abstract and Eq. 22",
+          "Solon–Cates–Tailleur arXiv:1504.07391 §2.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and published 7c4a421ce1bc mirror",
+        "arXiv:2309.12537v1",
+        "arXiv:2005.14234",
+        "arXiv:1504.07391",
+        "arXiv:2210.04205"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At zero translational diffusivity the ABP conditional second moment with arbitrary initial state can be multiplied by Q₀ and averaged; stationarity enforces E(QP)=E(Q²), reproducing the ABP kernel. The same-day redraw result's proof of H_α only needs the first-harmonic closure and stationarity; that part of the argument transfers directly.",
+          "Neither source's amplitude calculation treats θ independently at fixed α. In the redraw paper angular effects are controlled by the second-moment tensor of the fixed redraw law and its inverse concerns trap versus tumble rates, not the relaxation eigenvalue of a quadrupolar mode."
+        ],
+        "reasoning": "Combining the specializations reproduces the canonical comparison by substitution and subtraction, so that comparison alone is not the basis for an originality pass. The submitted general mode-selective law includes an exact interpolation and inverse whose parameter is an eigenvalue of the evolving orientation generator, not static heading anisotropy; neither the compared statements nor their model-restricted moment formulas determine it. The proof uses the non-redraw, independently specified second-harmonic action on P² to connect amplitude to that rate.",
+        "searches": [
+          "SCOPE-universal-radial-energy-memory-and-twofold-rate-aliasing-in-harm--7c4a421ce1bc proof §§1–3, especially the two-time covariance system",
+          "Chaudhuri–Dhar Eq. 12 and Eq. 28; Solon et al. §2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact general-two-rate hit 08fdea0f343f is the audited record itself.",
+          "The distinct same-day 7c4a421ce1bc uses R=|μr/v|², τ=μt, α=γ/μ; its centered normalized squared-radius covariance is exactly H_α in all dimensions for independent Poisson heading redraws. The variance with s=tr(Σ²)=1/3 equals V(α,α)."
+        ],
+        "reasoning": "This is literal equality of the kernel and the 3D isotropic RTP variance after restoring common units, not merely a matching title. The compared theorem allows anisotropic headings but fixes the conditional law to Poisson redraws; even for centered isotropic headings it cannot vary β independently of γ or cover active Brownian diffusion.",
+        "searches": [
+          "Resultary: athermal harmonic trap stationary squared radius radial energy covariance first two angular eigenvalues dipolar quadrupolar matched run tumble active Brownian",
+          "Published mirror: SCOPE-universal-radial-energy-memory-and-twofold-rate-aliasing-in-harm--7c4a421ce1bc, stationary covariance proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared analytic stationary RTP moment tables and ABP fourth-moment formula overlap specific equal-time amplitudes. The exact-formula Resultary query also returned the audited result, with no distinct entry for the general θ-dependent amplitude and inverse."
+        ],
+        "reasoning": "There is no discrete numerical census claimed here. The exact-entry targets are the time kernel, stationary amplitudes, and continuous two-rate law. A table for RTP and a formula for ABP give two rays in the admissible parameter domain, not the independent dependence on θ or recovery of its value for other orientation processes.",
+        "searches": [
+          "Resultary: (1+alpha) exp(-2 tau) - 2 exp(-(1+alpha) tau) divided by alpha-1 normalized squared radius harmonic trap variance RTP ABP",
+          "Frydel arXiv:2309.12537v1 Tables I–II and Eqs. 24–27",
+          "Chaudhuri–Dhar arXiv:2005.14234 Eq. 28"
+        ]
+      },
+      "rationale": "The same-day Poisson-redraw paper exactly covers the normalized kernel and variance in the audited theorem's isotropic RTP subset, with the same closure proof. The ABP kernel also follows from previously published arbitrary-initial second moments and stationarity, and separate stationary fourth moments are known. The distinct submitted result is the general two-eigenrate theorem for non-redraw as well as redraw orientations: the exact quadrupolar amplitude dependence with its inverse together with the common dipolar all-lag curve and the resulting matched comparison. No novelty credit is assigned to either named model's standalone formulas, the closure method, or the RTP kernel. The exact partial equivalence is not dismissed based on its date.",
+      "residual_risks": [
+        "Priority/order between the same-day published records is not inferred. An earlier arbitrary angular-generator hierarchy may subsume the general moment comparison; the inspected hierarchies were model-specific.",
+        "The bounded broader literature lookup was unproductive, which is not evidence of no additional prior art."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact subset overlap, no general two-mode amplitude theorem",
+          "evidence": "Proof §2 solves the same two-dimensional covariance system; §1 at d=3 and s=1/3 gives V_RTP. Assumptions require independent rate-γ redraw from a fixed centered law; the inverse concerns μ and γ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-radial-energy-memory-and-twofold-rate-aliasing-in-harm--7c4a421ce1bc/RESULT.md",
+          "material_read": "Finding and assumptions; proof §§1–3, especially offsets 3200–7213",
+          "method": "Local published mirror",
+          "title": "Universal radial-energy memory and twofold rate aliasing in harmonic active transport",
+          "trigger": "Exact all-lag kernel and same harmonic trapping observable"
+        },
+        {
+          "assessment": "Stationary RTP overlap",
+          "evidence": "The passages compute stationary isotropic RTP moments and distributions rather than the comparison of normalized two-time energy across generators.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12537v1",
+          "material_read": "3D stationary recurrence, Eqs. 24–27 and Tables I–II pp. 5–6, text offsets about 36500–45869",
+          "method": "Lawful OA full-text inspection",
+          "title": "Run-and-tumble oscillator: moment analysis of stationary distributions",
+          "trigger": "Exact RTP stationary moments"
+        },
+        {
+          "assessment": "ABP-specific implication and known stationary moments",
+          "evidence": "The initial-position/orientation dependence of the time-dependent second moment suffices to transfer to the ABP covariance at zero translational diffusion; stationary fourth moment is also given, but with the diffusion-set angular eigenvalue relation.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.14234",
+          "material_read": "§3.3 Eq. 12 p. 6 (~16000), §3.4 Eqs. 22–24 p. 9 (~27500), Eq. 28 p. 10 (~36000)",
+          "method": "Lawful OA full-text inspection",
+          "title": "Active Brownian particle in harmonic trap: exact computation of moments, and re-entrant transition",
+          "trigger": "Arbitrary-initial conditional moments can imply two-time correlations"
+        },
+        {
+          "assessment": "Related steady-state trap comparison, no equivalent two-mode law in the relevant passages",
+          "evidence": "Discusses regime-dependent steady-state densities and sample trajectories, with strong persistence changing the ABP and RTP bulk occupancies differently; does not identify the same normalized squared-energy kernel or its amplitude inverse.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.07391",
+          "material_read": "§2.4, p. 9 onward, text offsets 37455–43914 and 45400–50667; Figs. 2–3 and Eqs. 29–34 in the inspected passages",
+          "method": "Lawful OA preprint of DOI 10.1140/epjst/e2015-02457-0, after cited PDF routes failed",
+          "title": "Active brownian particles and run-and-tumble particles: A comparative study",
+          "trigger": "Cited direct ABP/RTP comparison in harmonic confinement"
+        },
+        {
+          "assessment": "Propagator implication in a different dimension; no general 3D coverage",
+          "evidence": "The 2D ABP propagator and ordinary positional autocorrelation do not give the 3D RTP/general orientation comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.04205",
+          "material_read": "Abstract p. 1, and text around Eq. 22 p. 4, offsets 0 and about 32400",
+          "method": "Lawful OA full-text inspection",
+          "title": "Analytic Solution of an Active Brownian Particle in a Harmonic Well",
+          "trigger": "Full propagator can imply lagged observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, normalized lag proof and inverse equations; compared redraw and ABP specializations"
+      ],
+      "rationale": "Radial energy is a natural directly defined observable in an isotropic harmonic trap. The result pinpoints which angular information its normalized curve necessarily loses, and identifies a calibrated fourth moment that recovers it when two eigenrates are present. Equal measured all-lag shape can coexist with parametrically different variances, with an exact quantified gap under matched orientation persistence. This supports model discrimination and inverse interpretation beyond computing a familiar moment in a single propulsion model.",
+      "residual_risks": [
+        "This is identifiability from exact stationary observables at known trap rate, not a robustness or estimation result, nor a conclusion with translational thermal noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

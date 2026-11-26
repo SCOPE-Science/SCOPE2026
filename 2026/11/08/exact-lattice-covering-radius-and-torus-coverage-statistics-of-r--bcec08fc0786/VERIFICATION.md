@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,4 @@
 }
 ---
 
-Exact derivation: parameterize a point in an integer translate of a dilated Reeve simplex by three nonnegative barycentric coefficients, minimize over the first two integer coordinates, then reduce the third integer coordinate to a finite cycle of length \(q\). The optimization yields the exact fractional-part formula. Taking the supremum gives the covering radius. Integrating the formula over the fundamental torus gives the unit-scale uncovered volume and the mean. A deterministic coupling gives the distributional limit.
-
-Supplementary independently executed check: `python verify_reeve.py`, using the Python standard library. Output reports 19,773 independent exact-rational comparisons of cyclic minimization against the claimed closed formula for \(q=1,\ldots,9\), exact rational polygon integrations \(J_1=5/12\), \(J_2=11/12\), \(J_h=1\) for \(3\leq h\leq11\), and corresponding exact arithmetic identity checks. No floating-point tolerance is used.
-
-Finite-grid calculations do not prove the arbitrary-parameter theorem; the argument in RESULT.md does. No exhaustive search of all historical literature is claimed. The complete text of a plausible related 2026 Reeve-construction paper was not available for inspection, and there has been no independent mathematical audit.
+The exact proof is in `RESULT.md`. For a finite replay, take heights 1, 2, 3, 6 and each coordinate of the test point from {-1,0,1,2,3,4}/6. At height q, visit third coordinates of the integer translate from floor(z) down to floor(z)-(3q-1); visit the first and second integer coordinates from floor(x) down to floor(x)-2 and floor(y) down to floor(y)-2 respectively. Reject any translate with a negative vertex coefficient, using apical coefficient (z-n_3)/q and transverse coefficients x-n_1-(z-n_3)/q and y-n_2-(z-n_3)/q. The box contains all shifts admitting scale less than 3, because each vertex has horizontal coordinates at most one and height at most q. Initialize the minimum at 3 and compare each final minimum to equation (1) in exact arithmetic. The 864 comparisons agree. The analytic proof, not this replay, establishes the all-points claim and the integrated mean and limit.

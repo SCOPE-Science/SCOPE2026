@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification scope
+# Independent mathematical audit
 
-Run `python3 verify_local.py` with Python 3 to reconstruct the four possible interior deletion changes, the six possible adjacent changes, all sixteen boundary-envelope counts, the seventeen indexed witness pairs, and the sixty-four limiting boundary cases. The supplied `verify_local.out` records the actual passing output.
+## correctness
 
-Run `c++ -std=c++17 -O2 direct_histogram.cpp -o direct_histogram && ./direct_histogram` to enumerate all input words of lengths two through thirteen and all pairs of deleted positions, using literal reconstructed words and freshly computed adjacent-pair histograms. `direct_histogram.out` records the actual output. The executable checks each computed maximum against the declared sequence, exits nonzero upon disagreement, and reports witness counts as well as one representative word.
+PASS
 
-The upper bound for arbitrary length is **not** inferred from the finite word enumeration. It follows from the finite exhaustive set of local changes, with the fixed-boundary table as a checkable short certificate. The explicit length-thirteen family preserves the stated seventeen local changes under arbitrary run extension, proving all-length sharpness. The limiting probabilities follow from the count of all sixty-four fixed boundary triples and from the elementary disjoint-block occurrence bound. Finite source-length enumeration is used only to establish the first-attainment threshold and smaller-length values.
+Two removed sites are either separated, an internal adjacent pair, or a boundary adjacent pair. For separated sites the changed edges add even with exactly one intervening survivor; for an internal adjacent pair the three edges are replaced by the edge joining its flanks. This establishes the local envelope for linear words of length at least four; at lengths two and three the received profile is always zero. Independently enumerating two successive run-deduplicated single-deletion descendant sets reproduced every finite maximum through 13 and all reported counts of extremizers. For each of the 64 exact boundary triples, direct deletion on a constructed interior containing two separated copies of all sixteen four-bit patterns reproduces the limiting cardinality; taking unions of the change sets over free third bits reproduces the 4-by-4 envelope, including maximum 17. The listed sharpness witnesses retain their local contexts when the displayed zero run is extended, hence 17 is attained at all lengths at least 13. For the probability proof, split disjoint interior four-blocks into two batches of floor((n-6)/8) blocks each. Conditional on the six boundary bits, the probability that any pattern is missing from either batch is at most 32(15/16)^floor((n-6)/8). On the complementary event all required changes are realized, including sums of two identical interior types, and the boundary triples are exactly uniform. The reproduced limiting multiplicities are (4,8,4,24,16,8) in the stated order. Replay: python3 /workspace/reproductions/3.py. The finite checks establish the finite tables, not the unbounded extension or limit by extrapolation. The frozen prose calls the C++ loop ordered, but it correctly uses i<j as required.
 
-The programs require a C++17 compiler and Python 3 standard library. No external software, network, or private paths are needed. Historical priority assessment of one inaccessible motivating preprint and independent scientific audit remain open.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact two-deletion profile-image capacity and boundary-conditioned limiting law, not for overlapping substring profiles or deletion-code hashing generally. The strongest indexed alternatives change either the allowed edits or the output equivalence relation; the two-deletion hashing comparison remains access-limited.
+
+## value
+
+PASS
+
+The measured object is the image of a fixed word's two-deletion ball under a standard loss-of-order profile, not a tuned finite instance. A uniform all-length bound, a first-saturation length and a distribution controlled solely by random boundary bits after interior saturation are useful distinct facts: they quantify the actual ambiguity of adjacent-pair observations. The result does not establish a deletion-correcting code size or code rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

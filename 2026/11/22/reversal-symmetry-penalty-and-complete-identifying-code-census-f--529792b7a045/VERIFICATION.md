@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The closed-neighborhood and symmetric-difference reduction is proved in `RESULT.md`; it is sufficient and necessary for identification, not an approximation. The exact primary checker computes every detector subset for dimensions two through six and both a complete lower-bound search and the entire equality layer in dimension seven. In the latter, branching on every element of an unmet requirement is exhaustive. Pruning by a family of pairwise disjoint unmet requirements only discards branches that need more additional detectors than the allowed budget. The complete twelve-detector equality layer consists of thirteen distinct sets.
+## correctness
 
-Reproduction:
+PASS
 
-```sh
-g++ -std=c++17 -O3 fib_identifying_verify.cpp -o verify
-./verify
-g++ -std=c++17 -O3 fib_identifying_alternate.cpp -o alternate
-./alternate OPTIMA_N7.tsv
-```
+Independent computation built the closed balls from pairwise Hamming distances. It eliminated only redundant supersets among the hitting requirements and split an unmet requirement by the first chosen element (forbidding earlier choices in each branch), so no completion is lost or counted twice. For reversal the same construction uses one decision per orbit weighted by 1 or 2. Stopping at the first feasible budget counts the entire minimum layer: stopping at a proper subset cannot hide a minimum solution. Direct signature tests were applied to all returned codes. The n=1 neighborhoods coincide. The independently reproduced (ordinary minimum, count; invariant minimum, count) for n=2–7 are (2,1;2,1), (3,6;3,2), (4,14;4,2), (5,2;6,8), (8,18;8,2), (12,13;12,5). For n=7 there are 595 distinct nonempty requirements and 21 reversal blocks; the ordinary budgets 11 and 12 gave 0 and 13, and the entire 13-set layer matches the TSV. Fixed counts among unrestricted optima are 1,2,2,0,2,5; the involution gives 1,4,8,1,10,9 classes. The packaged secondary checker alone does not certify completeness of the unrestricted n=7 layer; the independent search does.
 
-The expected stdout markers are `VERIFY_OK` and `ALTERNATE_OK`. The main verifier reports 1,345,072 recursive calls for the impossible eleven-detector threshold and 14,117,207 for the twelve-detector equality search; the second checker independently examines every reflection-orbit selection at dimension seven and the complete subset space in dimensions two through six. All thirteen listed twelve-word sets are directly checked for unique nonempty signatures. These exact finite computations were replayed directly from the embedded package sources, without floating-point solvers.
+## originality
 
-Limitations: exact computations only certify the explicitly stated finite dimensions, and they do not establish historical priority. The included checkers constitute mathematical reproducibility evidence, not independent external expert verification.
+PASS
+
+Best-of-knowledge pass for the full labeled and reversal-invariant census and the n=5 penalty. The exact Resultary hit is the identical record. The closest distinct record studies Lucas cubes through the same cutoff with full dihedral invariance; it changes both the admissible words and the observing neighborhoods, as well as the acting group. It reports a different boundary and does not determine these numbers. No relative priority is inferred from the catalogue date. The standard detector-signature criterion and the reduction to transversals are not claimed as discoveries.
+
+## value
+
+PASS
+
+This is a complete census across the stated consecutive initial dimensions of a standard graph family under its natural coordinate involution. It gives a sharp, nonmonotone symmetry obstruction: the first penalty occurs at five and is absent again at six and seven. The exact n=7 list and orbit counts distinguish abundance of minimum placements from abundance of symmetric ones and provide a reference for structural or algorithmic work. There is no claimed trend beyond seven.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

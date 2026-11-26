@@ -1,15 +1,21 @@
-# Self-review: exact three-cell Fourier observability
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact circle partition and Fourier normalization are specified. For exact cell occupancy, the restriction matrix is a two-by-two Hermitian Toeplitz matrix, so the minimum energy is the cell occupancy minus the normalized modulus of the first Fourier moment. The modulus maximization is identical, by directional duality, to choosing the largest cosine values separately within each of three fixed cells. Complementation removes high occupancies. Threefold dihedral symmetry reduces the phase to one sixth-circle sector, where the two formula branches are integrated explicitly and are nondecreasing (strictly except at the half-occupancy transition). This provides an all-phase, all-density proof, including every measurable observation mask, equality sets and the positive lower frame constant. Exact and numerical checks are supplementary; they do not establish the continuum claim.
+## correctness
 
-## Originality — PASS relative to compared statements
-The recent lacunary-spectra Logvinenko–Sereda paper supplies a qualitative thick-set inequality on the real line, not a sharp partition-constrained circle bound. The 2026 Paley–Wiener concentration paper proves that one circle arc maximizes concentration at fixed total mass, without requiring separate occupancy in each fixed cell. Two close published concentration and balanced-circle-arc results were inspected in full. The former supplies sharp stability in terms of mass exchanged from one phase-centred interval; the latter supplies exact isometric multiarc configurations and the Jacobian of their inverse moment map. Neither statement covers the worst-case restricted energy under three independent cellwise occupancy constraints, nor the all-equality half-occupancy transition. Searches also considered aliases under first Fourier moment, rearrangement, Toeplitz Gram spectrum, local thickness and complement duality. An unindexed classical stratified bathtub identity or a prior equivalent exact three-cell computation remains a specific bibliographic risk; a failed search does not certify worldwide novelty.
+PASS
 
-## Value — PASS
-Fixed-cell observability is the elementary finite periodic model of a local-thickness sampling condition. Determining the exact least-observed energy for all positive densities, and classifying every worst-case observation mask, is a natural invariant that qualitative observability theorems do not provide. The phase selection changes from three isolated geometries to an entire continuous family at half occupancy, before returning to three complementary geometries; this supplies a structural design boundary, not just a small numerical improvement. The statement remains deliberately confined to two adjacent frequencies and three equal cells.
+For exact masses the diagonal Gram entries equal γ and the off-diagonal modulus is |Z|/(2π); the cross term is 2 Re(conj(a)b Z)/(2π). Trimming surplus mass by nonatomicity lowers the integral strictly for nonzero coefficients if positive mass was removed. For the moment problem use independent upper level sets of cos(t−φ); cosine level sets have measure zero, giving uniqueness at fixed phase. Complementation negates Z. For l≤L/2 reduce by grid symmetry to 0≤φ≤L/2. The last cell is optimized at its right endpoint; in the second cell the two endpoint caps for φ≤l/2 have lengths l/2+φ and l/2−φ because their interior boundaries have equal cosine, and the first cell then takes [0,l]. For φ≥l/2 only the left cap survives and the first interval is centered. The sine boundary terms give 2sin(L+l/2)+2(sin l−sin L)cos φ in the first branch, and 2sin(l/2)[1+2cos((L+l)/2)cos(φ−L/2)] in the second. These increase strictly toward L/2 below half occupancy and are identically 1 at half occupancy. In the flat case each phase realizes the global modulus bound with that exact phase, so the masks are distinct up to null sets; their intervals vary continuously in measure. The explicit maximizer gives attainment; its Gram matrix is positive definite because a nonzero two-mode polynomial cannot vanish on positive measure. The eigenvector in the Finding has the correct phase. A separate cosine-sorting midpoint grid reproduced 427 bounded support tests (`python3 /workspace/frozen_review_replay.py 5`); this is numerical corroboration only. The frozen checker was read, not run.
 
-## Evidence and limits
-Source texts and compared statements are given in RESULT.md and AUDIT.json. `check_threecell.py`, executed as a standalone standard-library script from the package, prints `PASS 4145 supplementary assertions`; the analytic proof, not the finite tests, establishes all quantifiers. No separate expert review or independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact three-fixed-cell first-moment envelope and the full change in its maximizing masks at half occupancy, together with the equivalent sharp two-frequency lower bound. The Gram reduction, one-phase bathtub principle and total-mass concentration are established tools, not claimed original. The strongest inspected related statements change the constraints or the modes and do not give the three-cell support computation or equality set.
+
+## value
+
+PASS
+
+Independent local occupancy rather than just total occupancy is a natural observation constraint. The exact worst conditioning and the nontrivial transition from three masks to a full circle of optimal masks are useful features of the smallest odd three-cell case, not just a numerical example or a qualitative rearrangement bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

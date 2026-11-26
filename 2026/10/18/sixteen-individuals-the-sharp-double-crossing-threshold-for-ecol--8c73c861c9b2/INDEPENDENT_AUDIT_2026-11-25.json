@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:41:39.269712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The absence count of a species of size a is binomial(N−a,k) among the binomial(N,k) equally likely samples. Thus scaling expected richness by the positive binomial(N,k) preserves all comparison signs, including zeros. The largest-part recursion in the frozen proof is exhaustive by induction. Independently, python3 /workspace/branches/independent_checks.py 5 generates every composition of N by cutting internal gaps, sorts and deduplicates to obtain the partitions, then counts samples containing a species by the first selected individual from it when its a individuals are placed first: sum over j=0,…,a−1 of binomial(N−j−1,k−1). It checks every unordered pair for each N from 1 to 16 and discards ties before counting sign switches, equivalent to testing for an alternating nonzero subsequence of length three. The partition counts are 1,2,3,5,7,11,15,22,30,42,56,77,101,135,176,231. Counts of qualifying pairs are zero through 15 and exactly two among 26,565 at 16. The recomputation returns the two displayed numerator vectors entry for entry. The first has positive signs at k=2,3 and 11–16, negative signs at 4–10; the second is positive at 2–4 and 11–16, negative at 5–10. Both tie at k=1. The finite cutoff concerns equal total integer census and uniform sampling without replacement at integer k, with no restriction that species counts be equal within a pair.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The N=10 catalogue result is based on the same hypergeometric experiment but only requires a single strict crossing and requires equal species richness.",
+          "The four-species threshold result has unrestricted population probabilities under replacement rather than equal finite integer census, and concerns a bound by species richness, not total individual count."
+        ],
+        "reasoning": "The single-reversal classification neither rules out two reversals up to 15 nor determines witnesses with unequal species counts. The replacement-sampling theorem does not specialize to the fixed-size uniform subsets here. The identified Lande article could not be independently read, so no broader noncoverage inference relies on it.",
+        "searches": [
+          "SCOPE-20261108-4a0966e867d7 Finding and Assumptions",
+          "SCOPE-20261013-4d8e8efaca3b Finding and Assumptions",
+          "Lande–DeVries–Walla 10.1034/j.1600-0706.2000.890320.x"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261013-4d8e8efaca3b",
+        "SCOPE-20261108-4a0966e867d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier catalogue record establishes a different boundary in the same model; the later one establishes a double reversal in a different model. The frozen write-up expressly credits older work for the existence phenomenon and the expectation calculation."
+        ],
+        "reasoning": "Even general existence of a double crossing and a closed expectation formula do not give the least census or exhaust the profile pairs there. The frozen census makes that distinct finite implication. This comparison does not infer that the inaccessible texts lack other results.",
+        "searches": [
+          "SCOPE-20261013-4d8e8efaca3b and SCOPE-20261108-4a0966e867d7",
+          "Gotelli–Colwell DOI 10.1046/j.1461-0248.2001.00230.x",
+          "Lande–DeVries–Walla, author-shared article and DOI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In this model the statistic is the without-replacement mean of occupied species labels. SCOPE-20261108-4a0966e867d7 is on two reversals of expected species accumulation for independent draws with replacement, equal true species richness, and a real-size interpolation. The frozen literature notes credit Gotelli–Colwell with discussing double crossings; that exact original passage was not independently recovered."
+        ],
+        "reasoning": "The names species accumulation and rarefaction may apply to different experiments. The two inspected sampling assumptions give different expected values and parameter domains; the later catalogue theorem on number of species and replacement draws is not the same as an integer census cutoff. An equal-census exact double-reversal theorem using hypergeometric occupancy would be equivalent regardless of name.",
+        "searches": [
+          "Resultary individual-based rarefaction and expected species-accumulation curves with two ranking reversals",
+          "Gotelli Colwell 2001 Quantifying biodiversity rarefaction cross twice equal census sample size 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant retrieved catalogue tabulations give either an N=10 first single crossover under fixed richness or a threshold on the number of species for the different replacement model. Neither inspected catalogue finding gives the 231 partitions and two qualifying pairs at 16."
+        ],
+        "reasoning": "A table of exact signs across sample sizes and all equal-census partition pairs could provide the claim even without 'rarefaction' terminology. The two strongest surfaced comparable records do not supply such a table; other finite tabulations remain possible.",
+        "searches": [
+          "Resultary rarefaction/species-accumulation boundary classifications, including census 16 and two strict reversals",
+          "Rarefaction cross twice minimum equal census sample size 16"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass only for the sharp finite equal-census cutoff and the complete classification of its first-attaining pairs. Neither the hypergeometric expectation nor the possibility of multiple richness crossings is claimed new. Statement-level comparison of the strongest accessible catalogue matches gives distinct results; access to the closest older primary texts was incomplete, so this is not an unconditional priority finding.",
+      "residual_risks": [
+        "Independent full-text access failed for Gotelli–Colwell and Lande–DeVries–Walla, including the identified alternate copy for Lande and colleagues. Direct OA attempts for Heck et al. (DOI 10.2307/1934716) and Chao et al. (DOI 10.1890/13-0133.1) also did not yield text. These failures carry no evidence of scientific noncoverage.",
+        "A prior equal-census partition enumeration may exist under ecological or occupancy terminology; no global bibliographic absence has been established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for a single reversal under a different richness constraint, not the two-reversal classification",
+          "evidence": [
+            "N=10 for a single crossing at equal richness."
+          ],
+          "identifier_or_url": "SCOPE-20261013-4d8e8efaca3b",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Ten individuals are the sharp fixed-richness rarefaction crossing threshold",
+          "trigger": "Same finite equal-census hypergeometric criterion with a sharp partition boundary"
+        },
+        {
+          "assessment": "Conceptual overlap, not the same mathematical model or boundary",
+          "evidence": [
+            "Independent sampling with replacement, equal species richness, at least four species and a continuous interpolation; no equal finite census premise."
+          ],
+          "identifier_or_url": "SCOPE-20261108-4a0966e867d7",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Four species are necessary and sufficient for two reversals in expected species accumulation",
+          "trigger": "Closest catalogue theorem on two strict reversals"
+        },
+        {
+          "assessment": "Credit the earlier crossing phenomenon as reported by the frozen record, but no claim to an independent whole-paper noncoverage check",
+          "evidence": [
+            "The frozen source attributes the observation that curves may cross twice to this paper."
+          ],
+          "identifier_or_url": "DOI:10.1046/j.1461-0248.2001.00230.x",
+          "material_read": "Frozen RESULT.md prior-work description and AUDIT.json locator Comparing assemblages / Computing rarefaction; no directly verified primary passage",
+          "method": "Lawful DOI and publisher article/PDF retrieval attempts failed; targeted alternate-copy search did not identify an accessible original",
+          "title": "Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness",
+          "trigger": "The closest cited double-crossing discussion in individual-based rarefaction"
+        },
+        {
+          "assessment": "Frozen record describes a population-frequency sampling model and a Simpson-diversity criterion; this assessment does not rely on independently verifying the claim about the whole paper",
+          "evidence": [
+            "The frozen comparison says the population-frequency analysis is different from exact finite hypergeometric sampling."
+          ],
+          "identifier_or_url": "DOI:10.1034/j.1600-0706.2000.890320.x",
+          "material_read": "Frozen RESULT.md description and AUDIT.json equations (1)–(2) locator; no directly verified primary passage",
+          "method": "Lawful DOI, publisher and identified ResearchGate author-copy access attempts did not retrieve text",
+          "title": "When species accumulation curves intersect: implications for ranking diversity using small samples",
+          "trigger": "Possible prior crossing criterion strong enough to imply the cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Richness ranking at a standardized sampling effort is a natural comparison. The calculation identifies precisely the first equal census for which agreement at small sample sizes and at the full census can conceal an opposing intermediate ranking, and the two complete extremal pairs make the mechanism concrete (four doubletons against four singletons, with different large-species counts). That is a meaningful sharp boundary for a known warning, not a claim about frequency or statistical significance in field data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

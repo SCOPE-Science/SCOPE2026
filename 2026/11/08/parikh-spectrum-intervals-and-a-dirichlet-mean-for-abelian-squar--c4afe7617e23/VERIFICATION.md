@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Execute \(\texttt{python3 reproduce.py}\) with Python 3 standard library, from the artifact directory. The file performs exact direct enumeration of the half-Parikh classes of Abelian squares in every binary word containing three ones through length \(32\), a total of \(40920\) words. The observed output on the included file was:
+## correctness
 
-```text
-DIRECT_HALF_PARIKH_OK 40920
-EHRHART_VERTEX_VOLUME_OK 7 10 15552 7488
-DIRICHLET_EXPECTATION_OK 157/288
-ALL_CHECKS_PASSED
-```
+PASS
 
-The two polytope vertex sets are recovered by exact rational Gaussian elimination through all four-hyperplane intersections, verifying cardinalities seven and ten and that every coordinate denominator divides twelve. Exact integer lattice counts at dilations \(0,12,24,36,48\) are compared against the values in RESULT.md; fourth differences give four-volumes \(1/32\) and \(13/864\). The theorem that these finite differences compute the volume is Ehrhart's theorem and is an analytic premise, not an empirical inference. The proof of the all-length wordwise formula is the interval lemma in RESULT.md. Neither direct enumeration nor lattice checks are independent mathematical audits.
+A factor containing a pair of adjacent ones with gap g has outer runs L,R with L+R=2r-g-2; the halves each contain one one exactly when L,R<=r-1. An integer with that sum is attainable from the two capped intervals exactly when the sum is nonnegative and no greater than the sum of the caps. Resolving the minima yields the stated three upper bounds and the lower bound, including zero gaps and empty intervals. Two adjacent pairs give a union by half-length, not a sum; pure-zero classes are floor(M/2). Uniform indexed words correspond to uniform integer compositions. Their normalized gaps converge by simplex Riemann sums to the Dirichlet law; the rounded interval endpoints give uniform O(1/n) error in the normalized count, and the length of the union is continuous even at an interval's collapse. Boundedness gives first-moment convergence. Independent bounded replay enumerated active four-constraint systems by exact rational solves, triangulated hull boundaries (SciPy ConvexHull; only triangulation topology used floating point), and summed rational simplex determinants: 7 vertices and 12 boundary simplices for P1, 10 vertices and 26 for P12, volumes 1/32 and 13/864. This independently corroborates the original Ehrhart volumes without executing reproduce.py. In simplex coordinates the density is 6; it gives union contribution 41/144, while the simplex maximum gives H4/8=25/96, totaling 157/288. Both cited interior examples for the limit are consistent. The source's finite word checks are recorded evidence rather than an all-length proof.
 
-Limitations: the complete limiting cumulative-distribution formula and convergence rate are not supplied, and publication priority remains subject to unindexed literature. No external validation has been performed.
+## originality
+
+PASS
+
+The same class statistic is established terminology. A same-day exact factor classification supplies the feasible literal factors and materially overlaps the local interval argument. The supported distinct contribution is the exact deduplicated linear spectrum with its conditional limit law and exact mean: the earlier/comparable literal cardinality and circular spectrum statements do not supply the overlap measure for the two projected linear intervals. No within-day priority is inferred.
+
+## value
+
+PASS
+
+This measures diversity in a natural, established equivalence, not a relabeling of literal diversity. The union resolves precisely which half-Parikh vectors are realized in the sparse regime; its nonconstant conditional law and exact mean quantify the scale-n effect and its nontrivial two-pair overlap, which the scale-n^2 literal-square law does not measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

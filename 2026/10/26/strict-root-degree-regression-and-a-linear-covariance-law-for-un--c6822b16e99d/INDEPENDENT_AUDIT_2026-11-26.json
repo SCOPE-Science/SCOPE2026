@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:03:48.316402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim is for total vertex path length P_n on uniform ordered rooted trees with n edges. In the Dyck contour each edge to depth d contributes 2d-1 to all-step area, so A_n=2P_n-n. Returns count the primitive factors. B=zC marks one primitive factor and Lagrange inversion gives c_{m,r}=[z^m]B^r. Additivity and the lift of a primitive interior give F=W/(1-B)^2 and W=zF+2zB'-B, hence W=z/(1-4z). Thus Q_r=rWB^(r-1)=(z/sqrt(1-4z))(B^r)' gives the stated convolution formula. For r>=2 the ratio c_{m,r+1}/c_{m,r} increases strictly with m, so normalizing at m=n lowers the intermediate positive terms when r increases, and the positive m=r term is lost even if there are no intermediate terms. For r=1, c_{m,1}=c_{m,2} for m>=2, and the extra m=1 term gives the area gap n, i.e. the path-length gap n/2. Full support and the independent-copy identity then give negative covariance with every nonconstant nondecreasing test. Setting S=sqrt(1-4z), Q_r has leading terms r 2^(-r-1)[S^(-2)-(r-1)S^(-1)], and B^r has leading nonpolynomial term -r 2^(-r) S; coefficient transfer gives the fixed-r expansion. For the sums of Q_r and rQ_r the two leading singular terms are respectively S^(-2)-2S^(-1) and 3S^(-2)-10S^(-1). With E[R_n]=3n/(n+2), the n^(3/2) terms cancel and the area covariance is -4n+O(sqrt n), hence the path-length covariance is -2n+O(sqrt n). A separate enumeration through n=8 corroborated counts, area sums, strictness and the first gap: enumerate length-2n balanced parentheses with no negative prefix, sum heights before steps, and group by positive-time returns. It is not proof of the unbounded or asymptotic conclusions. The uploaded verifier was inspected, not executed. No inference of conditional stochastic dominance or uniformity in a growing r is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson provides the ordered-tree setup, generation-one identification and root-degree limit theory. Dershowitz–Rinderknecht treats root-degree counts and unconditioned depth/path-length quantities separately. Wagner's abstract describes central limit results with bounded or small-on-average tolls; full text not available in the inspected lawful routes."
+        ],
+        "reasoning": "Separate marginal information does not give the mixed covariance or regression. The additive toll for path length has the order of subtree size, so the inspected small-toll abstract does not supply a covering theorem.",
+        "searches": [
+          "Janson arXiv:1112.0510 ordered trees and root degree",
+          "Wagner DOI 10.1017/S0963548314000443 additive parameters",
+          "Dershowitz–Rinderknecht Catalan tree path length and root degree"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 468c8e041277 and cafac1f20e17",
+        "arXiv:1112.0510 and 1206.0803v2",
+        "Dershowitz–Rinderknecht, A136439 PDF",
+        "Wagner DOI 10.1017/S0963548314000443 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 468c8e041277 text explicitly disclaims all-size monotonicity. Its stronger unconditional covariance implies the frozen leading covariance, but a negative covariance alone allows nonmonotone conditional means. The conditional coefficient identities are compatible with the frozen proof; obtaining strictness requires the normalized Catalan-coefficient ratio comparison and the boundary contribution."
+        ],
+        "reasoning": "A standard generating-function representation or the existing exact moment formula can be a starting point, but is not the all-degree sign argument. Credit sufficient earlier mathematics where applicable; neither the inspected published marginal laws nor the later exact moment statements cover the normalized ratio inequality as an immediate stated specialization.",
+        "searches": [
+          "468c8e041277 RESULT.md offsets 0 and 4380; cafac1f20e17 RESULT.md offsets 0 and 4277; arXiv:1112.0510 root-degree discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "468c8e041277 uses up-step area, which equals P_n-n: an up-step to depth d begins at height d-1. Its conditional mean at each r<n is therefore an equivalent exact coefficient description, and r=n is the deterministic star. cafac1f20e17 uses all-step integrated height, giving the same one-return versus two-return gap n in area.",
+          "Blanco–Petersen's noncrossing-lattice rank is n minus the number of blocks, not the number of Dyck factors."
+        ],
+        "reasoning": "Compare area definitions before comparing constants: multiplying all-step area by one half and adding n/2 gives path length. Peaks, leaves and lattice rank are not interchangeable with root degree or number of returns. Neither later matching area formulation states regression monotonicity at all r.",
+        "searches": [
+          "Resultary: root outdegree and total depth in Catalan plane trees; Dyck area conditioned on number of returns",
+          "arXiv:1206.0803v2 abstract and first-return decomposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later 468c8e041277 gives an exact covariance and the stronger expansion -2n+3 sqrt(pi n)-3+O(n^(-1/2)) for P_n and R_n. The later cafac1f20e17 gives exact area/return covariance and the first-step gap. The inspected literature's Catalan marginal counts, and the finite counts produced by enumeration, are not exact tables of the ordered regression."
+        ],
+        "reasoning": "There is substantial coverage of exact invariants in these catalogue entries, not just shared labels. The residual comparison is the chain of strict inequalities across all feasible degrees, and is not implied by the covariance sign or by a single exact gap.",
+        "searches": [
+          "Resultary: negative root-degree depth covariance, exact area-return dependence law, Catalan trees"
+        ]
+      },
+      "rationale": "The supported distinct result is the strict all-degree regression (and consequently the sign for every nonconstant increasing degree test), with its fixed-degree correction. Standard Catalan counts and primitive decompositions are not new. Later indexed records cover equivalent conditional moment formulas, the first-step gap and stronger covariance formulas, but the inspected statements do not establish all-degree strictness. No historical priority is inferred merely from catalogue dates.",
+      "residual_risks": [
+        "Wagner full text was not obtained; searches were targeted rather than exhaustive. Older multivariate Catalan generating functions might hide equivalent conditional coefficient formulas. The all-degree strict sign and its fixed-degree scale were compared separately from already matched moment formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later stronger unconditional result and equivalent conditional coefficient formula; no strict all-degree monotonicity",
+          "evidence": [
+            "Same P_n and R_n; up-step area P_n-n; stronger covariance expansion and explicit disclaimer of monotonicity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-negative-root-degree-depth-covariance-in-uniform-catalan-trees--468c8e041277",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 4380",
+          "method": "Local mirror passage inspection",
+          "title": "Negative root-degree depth covariance in uniform Catalan trees",
+          "trigger": "Same model and exact conditional depth and covariance"
+        },
+        {
+          "assessment": "Later exact overlap in mixed covariance and boundary gap",
+          "evidence": [
+            "Area gap n from one versus two returns converts to path-length gap n/2; does not state full monotonicity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-area-return-dependence-law-for-conditioned-nonnegative--cafac1f20e17",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 4277",
+          "method": "Local mirror passage inspection",
+          "title": "An exact area-return dependence law for conditioned nonnegative walks",
+          "trigger": "Equivalent integrated height and return count"
+        },
+        {
+          "assessment": "Relevant structural and marginal results, not joint path-length regression in inspected passages",
+          "evidence": [
+            "Root degree equals generation-one size; conditioned-tree and root-degree limit laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1112.0510",
+          "material_read": "Abstract, §2.1 pp. 4–5, Remark 5.6 p. 15 and root-degree limit pp. 22 onward, offsets 0, 11950, 46128, 65000",
+          "method": "Open-access PDF passage inspection",
+          "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+          "trigger": "General theorem for the same uniform plane-tree setting"
+        },
+        {
+          "assessment": "Different statistic; related counting technique",
+          "evidence": [
+            "Area jointly with rank of the noncrossing partition, not number of returns."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.0803v2",
+          "material_read": "Abstract/introduction p. 1 and first-return decomposition p. 12, offsets 0, 2300, 39410",
+          "method": "Open-access PDF passage inspection",
+          "title": "Counting Dyck paths by area and rank",
+          "trigger": "Joint Catalan area statistic and decomposition"
+        },
+        {
+          "assessment": "Inspected abstract does not cover joint conditional law; full text risk remains",
+          "evidence": [
+            "CLTs for additive tree parameters with tolls described as bounded and small on average."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548314000443",
+          "material_read": "Publisher-supplied abstract, no full text read",
+          "method": "Crossref abstract and lawful OA retrieval attempts at DOI and Cambridge content URL",
+          "title": "Central Limit Theorems for Additive Tree Parameters with Small Toll Functions",
+          "trigger": "Possible general theorem for tree path-length functionals"
+        },
+        {
+          "assessment": "Marginal quantities in inspected passages",
+          "evidence": [
+            "Average path-length and root-degree counts separately; node-level and degree counts do not furnish the stated conditional regression in the passages inspected."
+          ],
+          "identifier_or_url": "https://oeis.org/A136439/a136439.pdf",
+          "material_read": "pp. 11–12, offsets 26000 and 28800",
+          "method": "Open-access PDF passage inspection",
+          "title": "The Average Height of Catalan Trees by Counting Lattice Paths",
+          "trigger": "Same Catalan model, both root degree and path length studied"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Root branching is a natural local statistic and total depth a natural global one. The exact regression shows, for every size, that their negative association is not just an average covariance or a comparison of extremes. It gives the sign for any nonconstant increasing root test, a sharp first-step gap and a degree-dependent next-order shift even though the leading path-length scale is unchanged. This is a useful structural fact without requiring dominance of full conditional distributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

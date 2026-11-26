@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:23:23.203721Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54; VERIFICATION.md; verify_hamming_geodesic.py, inspected not executed",
+        "Independent replay: python3 -B /workspace/review_reproduction.py hamming; BFS and shortest-path reconstruction followed by exhaustive target-cardinality enumeration on seven factor tuples, including (2,2,3), where exactly two of the size-six sets hit all 72 maximal paths"
+      ],
+      "rationale": "A shortest path changes just the differing coordinates, once each; an unused coordinate can always be changed at an end, so maximal paths change all d coordinates. Independent alphabet permutations are transitive on each E_i. Each maximal path uses one edge from E_i, giving each edge marginal 1/|E_i| under uniform choice of path. Thus any hitting set has size at least min_i |E_i|, achieved by a smallest class; equality forces exactly one hit on every path. For any coordinate square, the two different pairs of opposing corners give two independent path comparisons, with common suffixes changing every other coordinate. Subtract the two path-sum equations to equate one pair of parallel indicators; substitute to equate the other. The indicator for a fixed letter pair in a fixed coordinate is therefore independent of background coordinates. Now the sum across any independently chosen letter pairs is one, so varying a single pair makes its indicator independent of that pair as well. The binary constants therefore select exactly one whole class. This also covers d=1, with no square needed. Comparing class sizes gives the labelled optimizer census.",
+      "residual_risks": [
+        "Finite enumeration is ancillary; the proof relies on complete factors of order at least two and the standard unweighted undirected paths. No claim about analogous products of incomplete graphs follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary cut criterion uses an exact-one edge cut and a matching-size packing of edge-disjoint maximal geodesics to certify the value.",
+          "The multipartite record describes omitted edges by matchings within bipartite blocks; it includes individual clique factors and Q₂≅K₂,₂, not general Cartesian products."
+        ],
+        "reasoning": "The cut criterion, even when applicable, only certifies size. When q_i>2 the full E_i contains triangles and cannot be the two-side cut in that criterion. The multipartite classification's express graph class is different.",
+        "searches": [
+          "arXiv:2610.36821v1, Theorem 5 and binary applications",
+          "2026/11/22/SCOPE-complete-edge-geodesic-transversal-polynomials-and-unmixedness-o--624506a8e19c"
+        ]
+      },
+      "checked_sources": [
+        "Four focused Resultary searches and the indexed Finding/proof passages cited above",
+        "Prabha–Sandhiya–Manuel preprint v1, pp. 3–5",
+        "Frozen RESULT.md, proof and prior-work citations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hypercube proof constructs 2^(r−1) mutually edge-disjoint maximal paths and one coordinate cut meeting all maximal paths.",
+          "The related binary packing proof uses square exchanges but does not state mixed-letter comparisons."
+        ],
+        "reasoning": "A value witness does not imply all minimizing hitting sets are coordinate classes. Mixed orders require both the unequal class-size lower bound and the independent letter-pair comparison for exact-one sets. These are not implications of the inspected prior statements.",
+        "searches": [
+          "Prabha–Sandhiya–Manuel arXiv:2610.36821v1, Theorem 5 and Corollary 1",
+          "Indexed ...--561626102a80, fractional optimal-face and square exchange passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 1 of arXiv:2610.36821v1 gives the binary value with a coordinate-cut example.",
+          "The indexed binary packing record classifies maximum sets with at most t selected edges on each shortest path for 2≤t≤d, with a related square exchange."
+        ],
+        "reasoning": "Exact-one on all maximal paths is simultaneously a lower and an upper condition; the packing record omits t=1 and does not state a mixed-alphabet theorem. Even if its binary proof specializes to t=1, it would not cover general mixed products. Vertex hitting sets are not an equivalent parameter.",
+        "searches": [
+          "Resultary mixed Hamming edge-geodesic transversals and exact-one rigidity searches",
+          "Prabha–Sandhiya–Manuel, arXiv:2610.36821v1",
+          "2026/11/22/SCOPE-hypersimplex-rigidity-of-maximum-edge-geodesic-packings-in-boole--561626102a80"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mixed-claim hit is this frozen record itself. The distinct strongest indexed hits are ...--561626102a80 and ...--624506a8e19c, with statements delimited above."
+        ],
+        "reasoning": "No distinct inspected exact record gives this census for arbitrary mixed orders. The known power of two for Q_d is just one specialization of the value, not the enumeration of optimizers.",
+        "searches": [
+          "Resultary binary optimum, mixed products and exact-one rigidity searches",
+          "2026/11/22/SCOPE-rigidity-of-minimum-edge-geodesic-transversals-in-mixed-hamming--e91cfec80747"
+        ]
+      },
+      "rationale": "The known binary optimum and coordinate-cut example are not treated as novel. The distinct claim supported by the comparison is the full mixed-factor theorem, especially the exact-one classification without a size restriction. Neither the retrieved two-side-cut criterion nor the indexed binary packing and multipartite theorems cover this scope.",
+      "residual_risks": [
+        "This is a best-of-knowledge judgment, not exhaustive historical priority. The related indexed packing proof makes the binary boundary case closely related; the supported distinction is mixed orders and the unrestricted exact-one theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers binary numerical value and a construction, not the mixed theorem or all optimizers",
+          "evidence": [
+            "Corollary 1: gt_e(Q_r)=2^(r−1); proof uses a coordinate cut and an equally large edge-disjoint family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.36821",
+          "material_read": "Abstract; edge-cut criterion; Theorem 5 and Corollary 1, printed pp. 3–5",
+          "method": "OA primary PDF text, offsets 8426–13083 and abstract",
+          "title": "The Edge Geodesic Transversal Problem",
+          "trigger": "Primary prior work defining the same parameter and computing the hypercube value"
+        },
+        {
+          "assessment": "Binary packing with a different parameter range and constraint, not mixed-factor coverage",
+          "evidence": [
+            "For 2≤t≤d, maximum t-packings are unions of t coordinate classes, of size t·2^(d−1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-hypersimplex-rigidity-of-maximum-edge-geodesic-packings-in-boole--561626102a80",
+          "material_read": "Finding, fractional optimal face and square exchange",
+          "method": "Local-mirror RESULT.md at offsets 0 and 3000",
+          "title": "Hypersimplex rigidity of maximum edge-geodesic packings in Boolean cubes",
+          "trigger": "Closest indexed related square-exchange rigidity"
+        },
+        {
+          "assessment": "Partial graph overlap but no general Cartesian-product scope",
+          "evidence": [
+            "For complete multipartite graphs the complement of a transversal is described by matchings in bipartite blocks, with singleton–singleton edges compulsory."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-edge-geodesic-transversal-polynomials-and-unmixedness-o--624506a8e19c",
+          "material_read": "Finding, maximal geodesics and block characterization",
+          "method": "Local-mirror RESULT.md at offsets 0 and 2497",
+          "title": "Complete edge-geodesic transversal polynomials and unmixedness",
+          "trigger": "Indexed full characterization for the same edge-transversal parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof Steps 1–3; The Edge Geodesic Transversal Problem, Corollary 1"
+      ],
+      "rationale": "It identifies every labelled minimizer of a natural path-hitting invariant for unequal complete factors, where an optimum value alone gives no description of the hitting sets. The stronger exact-one result is a structural characterization independent of cardinality and explains why the minimum lies in one direction.",
+      "residual_risks": [
+        "The result does not classify nonminimum hitting sets with some multiply hit paths, or suggest the same structure for arbitrary Cartesian factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

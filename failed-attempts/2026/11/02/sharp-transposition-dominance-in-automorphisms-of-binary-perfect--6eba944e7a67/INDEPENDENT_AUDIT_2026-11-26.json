@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:42.021347Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–54; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent enumeration of the transposition's fixed-entry locus in the original basis, testing binary invertibility: counts 2, 8, 192, 21504 for n=2,3,4,5 respectively (section 4 of /workspace/independent_checks.py)."
+      ],
+      "rationale": "The independent squares force pairwise disjoint coordinate supports for images of distinct basis elements; invertibility and the unit group of F2 give exactly simultaneous permutation stabilizers. For a transposition the rank-one square-zero part yields a commuting block matrix with determinant a^2 det(D). Its free entries give 2^(2n−3) times |GL_(n−2)| invertible centralizers, also at n=2 with |GL_0|=1. For support s and k moved cycles the ordered-pair orbit dimension is (n−s)^2+2(n−s)k+sum gcd(lambda_i,lambda_j), at most n^2−s(n−s/2). Summing over 3≤s≤n/2 gives O(n^3 2^(−9n/4)); the tail is 2^(−Omega(n^2)). Products of two distinct transpositions have codimension 4n−6 or 4n−8, giving a negligible Bonferroni error. The conditional event is therefore a unique transposition, not just an abstract group of order two.",
+      "residual_risks": [
+        "Finite checks do not certify the asymptotic; the support and overlap estimates supply the proof. No Lean or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed law states P(nontrivial)=binom(n,2)p_n+O(n^4 2^(−3n)) and adds an orbit-count estimate. Its Step 4 identifies the unique-transposition case and bounds the exceptions. Wei–Zou gives a general orbit-count framework."
+        ],
+        "reasoning": "The indexed error is o(n²2^(−2n)), so the stronger covered law implies the audited asymptotic and conditional claim. Burnside alone gives a mean stabilizer size, not the conditional law.",
+        "searches": [
+          "Indexed rare-symmetry RESULT c0b936280b48, Finding and Steps 3–5",
+          "arXiv:2310.12368, Burnside and fixed-point sections"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary search and distinct c0b936280b48 RESULT",
+        "Sriwongsa–Zou 2202.01333",
+        "Wei–Zou 2310.12368",
+        "Costoya–Mayorga–Viruel 2401.05924",
+        "General primary-literature search yielded no usable additional comparison."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 4 of the indexed record treats all nontranspositions and configurations with more than one transposition, not just the abstract C2 count. Costoya et al. treats realizable permutation representations rather than relative frequencies."
+        ],
+        "reasoning": "The exact fixed-point probability, leading rare-event asymptotic and typical exception type are all covered by one indexed comparator. A different proof of the support estimate does not produce a new statement here.",
+        "searches": [
+          "Indexed rare-symmetry RESULT c0b936280b48, Steps 1–4",
+          "arXiv:2401.05924, permutation representations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed rare-symmetry RESULT, Finding, Assumptions and Step 1: uniform GL_n(F2), permutation similarity. Its column convention M=A^T preserves uniformity and the same commuting permutations."
+        ],
+        "reasoning": "The two records use the same event, not a different orbit weighting, matrix field, or unlabeled model.",
+        "searches": [
+          "Resultary: binary perfect evolution algebra automorphism, rare symmetry and simultaneous permutation stabilizer",
+          "arXiv:2202.01333; arXiv:2310.12368"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding displays 2^(1−2n)/[(1−2^(−(n−1)))(1−2^(−n))] for every n≥2."
+        ],
+        "reasoning": "This is the identical exact quantity, not a small-order table or numerical approximation.",
+        "searches": [
+          "Published Resultary rare-symmetry law, c0b936280b48",
+          "Exact fixed-point count for a specified transposition in the same indexed Finding"
+        ]
+      },
+      "rationale": "A distinct indexed rare-symmetry record covers all three quantitative claims under the same labeled invertible binary matrix law, including that the unique generator is a natural-basis transposition. Its displayed bound is stronger. This is an overlap judgment, not a judgment that the audited mathematics is false or that the indexed record has earlier historical priority.",
+      "residual_risks": [
+        "The comparator's path date is later than the frozen path date; public path dates do not determine research provenance or priority. Demonstrated equivalent coverage suffices for this disposition.",
+        "The examined literature passages are not an exhaustive historical survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen finding, including its conditional natural-basis interpretation",
+          "evidence": "Same labeled uniform law and p_n; Step 4 singles out precisely one transposition outside the error event. Transposing the input conventions does not alter commutation with a given permutation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-rare-symmetry-law-for-perfect-binary-evolution-algebras--c0b936280b48/RESULT.md",
+          "material_read": "Finding, assumptions and Steps 1–2; dimension bounds and Steps 4–5 (offsets 0 and 4200)",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp rare-symmetry law for perfect binary evolution algebras",
+          "trigger": "Direct semantic and quantitative Resultary match"
+        },
+        {
+          "assessment": "Covers structural reduction",
+          "evidence": "Automorphisms are scaled permutations in a natural basis; F2 leaves no nontrivial scalars.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01333",
+          "material_read": "p. 3, automorphism reduction (offset 7400)",
+          "method": "Lawful OA PDF passage",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Prior monomial-automorphism reduction"
+        },
+        {
+          "assessment": "Establishes overlap in the orbit-count background; inspected passages do not establish the rare-event claim",
+          "evidence": "Ordered orbits via a fixed-point sum do not alone count matrices with exactly one transposition.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+          "material_read": "pp. 4, 6, Burnside setup and fixed-point equations (offsets 9486 and 13803)",
+          "method": "Lawful OA arXiv PDF available",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "General finite-field fixed-point and enumeration formulas"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Realization of permutation representations, rather than their probabilities under uniform GL_n(F2).",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05924",
+          "material_read": "Opening page (offset 0)",
+          "method": "Lawful OA PDF passage",
+          "title": "Permutation representations and automorphisms of evolution algebras",
+          "trigger": "Automorphism types as concrete permutation groups"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of single-transposition dominance; indexed c0b936280b48 Finding and Step 4"
+      ],
+      "rationale": "The underlying rare-event asymptotic and type law answer a natural labeled rigidity question. Conditioning on invertibility changes the leading transposition probability by a factor approaching one half relative to an iid binary matrix, and the type statement is stronger than an orbit-mean estimate. The mathematical interest of the asymptotic and type law is distinct from acceptance of a redundant record; no distinct surviving contribution was established.",
+      "residual_risks": [
+        "The result concerns uniform labeled structure matrices over F2, not uniform isomorphism classes or other fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

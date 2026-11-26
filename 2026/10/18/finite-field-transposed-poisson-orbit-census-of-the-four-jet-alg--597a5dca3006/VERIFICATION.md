@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.8 or newer. The code implements truncated polynomial arithmetic, compositional inversion, derivations and Lie brackets directly, and does not use the closed orbit formulas to compute the group action. Its independent direct conjugation is compared with the candidate coefficient formula for every derivation and automorphism at prime-field orders \(3,5,7\). It then independently constructs the full conjugacy orbit of each normal-form stratum and verifies all claimed sizes.
+## correctness
 
-Observed output: \(q=3\) gives \(27\) brackets, \(18\) automorphisms and \(8\) classes; \(q=5\) gives \(125\), \(100\) and \(12\); \(q=7\) gives \(343\), \(294\) and \(16\). The class-size multisets are respectively: zero size one; linear size \(q^2\) repeated \(q-1\) times; quadratic size \(q-1\) repeated \(q\) times; cubic size \((q-1)/2\) repeated twice. The program verifies Jacobi and the transposed Leibniz identity on the basis for all \(q=3,5\) parameter choices and sample \(q=7\) parameters. Final marker: `ALL_TRANSPOSED_POISSON_JET_CHECKS_PASSED`.
+PASS
 
-The check does not enumerate nonprime fields or all odd prime powers, and does not claim to: its purpose is to stress-test the stated general algebraic proof. Isomorphism completeness rests on the exhaustive symbolic action calculation. Independent scientific audit has not been performed.
+Setting D(y)=[1,y] in the compatibility identity gives [x,y]=2xD(y)−D(xy). Adding the swapped formula yields the Leibniz rule since 2 is invertible. Conversely, in the cyclic Jacobi sum for xD(y)−yD(x), the second-derivative terms cancel in pairs and so do the products of first derivatives; the extra derivative-of-multiplier terms cancel in transposed Leibniz. The derivation condition on t^4 is 4t³D(t)=0, imposing precisely zero constant coefficient also in characteristic 3. Surjectivity of a multiplication-preserving isomorphism forces it to preserve 1; t maps to ut+vt²+wt³ with u≠0, and these are all the automorphisms. The chain rule gives the conjugate coefficient f(φ(t))/φ′(t). Multiplying out to degree three gives the stated action, with the b-dependent terms cancelling in the cubic coefficient. For a≠0, v,w remove b,c, leaving q² points per fixed a; for a=0,b≠0 the complete invariant is c/b² with q−1 points per orbit; for a=b=0,c≠0 the square action has two equally sized orbits. Orbit-stabilizer with (q−1)q² automorphisms yields every stabilizer size and the mass sums to q³. This proof applies to all stated odd prime powers independent of finite regression examples.
+
+## originality
+
+PASS
+
+The unital derivation correspondence is prior work; the claim evaluated is the finite-field conjugacy and stabilizer census for the specified multiplication. The strongest matching indexed entries classify distinct brackets, element conjugacy, composition centralizers or linear-operator equivalence. The complex dimension-four source could overlap on normal forms but its full text was unavailable and its cited field does not establish the finite-field orbit masses.
+
+## value
+
+PASS
+
+This is an exact classification for a natural low-dimensional local algebra, not just a count of derivations or a complex normal-form list. It determines the finite-field distinction between algebraically closed and rational conjugacy in the cubic-leading stratum, identifies the quadratic-leading parameter, and gives the stabilizers needed for using the census as weighted isomorphism data, including in characteristic three.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

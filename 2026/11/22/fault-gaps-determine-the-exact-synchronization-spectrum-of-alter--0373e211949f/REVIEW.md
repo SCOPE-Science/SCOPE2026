@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-stage NOR update factors exactly into opposite nonbranching Boolean shifts with hard resets to one. Each cyclic fault gap contributes \((g-t)_+\) independent surviving bits per stream after \(t\) return steps; multiplying the two free-bit counts gives the exact first-entry spectrum, and a divisor-lattice argument gives the entire no-fault orbit census. Standard disjoint-block and union-bound arguments prove the random-fault asymptotic. The supplied graph-based exhaustive check and a separate source-transport check agree. Scientific limits: the computation covers finite sizes, and the unbounded claims rest on the algebraic and probabilistic proof, not extrapolation.
+PASS
 
-## Originality — PASS with remaining historical risk
+Composing the two complement swaps gives a_j'=a_{j-1} except at j in J and b_j'=b_{j+1} except at j+1 in J, where the output is one. With no faults, reverse the indexing of the b stream to obtain rotation of an m-letter word on four symbols; the fixed point count of its d-th power is 4^gcd(m,d), yielding the primitive census. With faults, each stream is a disjoint union of directed copy chains of lengths g_i with forced-one heads. At round t each chain retains max(g_i-t,0) distinct original bits. All ones is reached iff every surviving bit is one, giving the stated cumulative and first-entry counts. This proves sharpness, the maximum-depth fraction and the phase-resolved cycle, including one fault (g=m), every edge faulty (g=1), and m=2. The longest intact Bernoulli run is L-1 on the conditioning event. The cyclic union bound and disjoint blocks at (1±epsilon) log_{1/(1-p)} m prove the claimed convergence for fixed p. As a check separate from the general proof, /workspace/nor_review_check.py (output /workspace/nor_review_check.txt) rebuilt the NOR tables for every fault pattern and every even-phase initial state at m=2 through 7: 246 nonempty fault patterns, 2374896 faulted initial states, and the complete fault-free orbit censuses. None of the frozen checkers was executed.
 
-Searches for matching switching, NOR, reset dynamics, periodic Boolean networks, alternate lower approximations and fault gap first-entry formulas found no equivalent complete result. The closest alternating rough-approximation finding uses the lower AND operator and random initial-state cutoff, not a NOR network with random fixed deletions; its conclusions do not imply the present individual faulty-map basins. The temporal matching-infection finding uses monotone OR reachability, not complement-and-reset. Fixed-network NOR matchings on a biclique/rook graph do not cover a time-switched cycle. Veliz-Cuba et al.'s AND-NOT universality and steady-state results, and Melliti et al.'s asynchronous two-cycle attractor results, neither assert this exact stroboscopic mapping and distributions. Novelty is best-knowledge, not an exhaustive guarantee. The inaccessible full text of a plausible later NOR dynamics survey is an explicit residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-A single edge outage causes a genuine phase change from a permutation on all \(4^m\) phase-zero states to an attracting unique two-phase orbit. The location-dependent and size-dependent exact basin-depth formula is not merely a small enumeration; it determines sharp finite synchronization for every fault pattern and exhibits a meaningful fixed-one-fault linear versus independent-density logarithmic timescale. The use of canonical alternating perfect matchings makes the boundary natural and serves as an exact benchmark for time-dependent inhibitory Boolean networks.
+The supported distinct contribution is the exact fault-layout-dependent first-entry spectrum of alternating matching NOR and its sharp depth. The intact orbit count after rotation reduction is the standard primitive necklace count; the random-fault limit after the gap reduction is the classical longest-run scale, not an independent novelty claim. Neither the closest earlier alternating lower-approximation finding nor the same-day NOR synchronization result supplies the deterministic matching-fault spectrum. This is a statement-level comparison, not a priority guarantee.
 
-## Closest literature and limits
+## value
 
-Veliz-Cuba et al. (2012) describes AND-NOT networks; Melliti et al. (2013) studies asynchronous intersecting Boolean cycles. Related alternating matching lower-approximation, temporal infection and fixed NOR findings are compared by update semantics and implication. The result is confined to alternating matchings, with no independent outside validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact robustness invariant for a natural switched cycle: a single deletion destroys a full recurrent permutation, and the complete synchronization-time population depends on the fault gap profile, not simply the number of deletions. The whole first-entry distribution, including the exact fraction at the sharp depth, adds information needed to distinguish layouts. The standard necklace and longest-run consequences are useful baselines rather than the main contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

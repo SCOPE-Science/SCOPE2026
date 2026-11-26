@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:06:50.724732Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–121",
+        "VERIFICATION.md and checker.py inspected as evidence, not executed"
+      ],
+      "rationale": "In the normalized Bergman basis the shift weights are sqrt((n+1)/(n+2)), the radial diagonal is (n+1)/(n+1+s/2), and the shift commutator diagonal is 1/((n+1)(n+2)). Taking the diagonal difference in the cross term and congruence by the inverse square root of the diagonal on finite vectors gives exactly the stated b_n. Phase removal and alternating-sign symmetry yield the norm condition. The bonds tend to a=s/2, giving the essential band by compact perturbation. At s=1/2 the difference of the squared denominator and numerator of b_n/a is (224n^2+688n+489)/256, positive for all n>=0; the denominator increases with s and the form norm is at most twice the supremum of the bonds. The relative expansion has coefficient c=1/2-s, so on the subcritical tail the exact shifted difference form has kinetic coefficient b_n tending to a and positive potential V_n=2ac/n+O(n^-2). For its constant-kinetic Coulomb comparator, bond decoupling and changing block endpoints to Dirichlet conditions cost O(log(1/epsilon)) ranks. Holding the geometric ratio 1+eta fixed, the upper and lower step potentials on a block can be compared pointwise to (1+eta)g/x and g/((1+eta)x), respectively, where g=2ac, up to bounded initial/rounded endpoint choices. The constant block cosine eigenvalues give the square-root integral with uniform relative error tending to zero as the initial index grows; the tail beyond the turning point contributes no count. The substitution x=(g/epsilon)sin^2(theta) gives g/(2sqrt(a)) after multiplication by sqrt(epsilon). The two min–max tail comparisons with a and g changed by arbitrarily small relative factors then squeeze the count for J_s. Jacobi recurrence gives simplicity, alternating signs give the negative edge, and inversion squares the count constant. This independently checks the endpoint, all s>0 and the fixed-parameter asymptotic without extrapolating finite sections.",
+      "residual_risks": [
+        "No joint limit as s approaches either endpoint of the subcritical interval is implied. No closed form for the top subcritical eigenvalue or spectral-type assertion in the essential band is tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luef–Teschl gives oscillation criteria with an inverse-square threshold, not the Coulomb coefficient. 15d9b643524f proves the exact count limit p/2 at the upper edge 2 for the family with bonds h_n(p)=((n+2)/(n+1))^(p/2), for every fixed p>0."
+        ],
+        "reasoning": "The negative Dirichlet operators are not identical to the normalized Bergman operator. But the full positive exponent range lets one bracket the Bergman tail's kinetic and potential coefficients by scaled shifted negative Dirichlet operators on sufficiently remote tails. Only the leading 1/n coefficient and limiting bond enter this comparison.",
+        "searches": [
+          "Luef–Teschl arXiv:math/0109213 Theorem 2.1",
+          "Resultary 15d9b643524f, negative Dirichlet half-line Jacobi edge law, all exponents p>0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0752f3718434 and 15d9b643524f full-text selected passages; 75acaa6ce26b and 06a7f853640c for neighboring spectral statistics",
+        "Primary OA passages from arXiv:1807.00356, arXiv:2001.07823, arXiv:2003.07330 and arXiv:math/0109213"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write a=s/2 and c=1/2-s>0. Subtract edge 2 from J_s/a; on a sufficiently remote tail its difference form has kinetic coefficient tending to 1 and potential 2c/n+O(n^-2). Write K_p for the negative Dirichlet model with edge 2 subtracted. Its exact difference form has kinetic coefficient h_n(p) tending to 1 and potential h_{n-1}(p)+h_n(p)-2=p/n+O(n^-2). For 0<delta<1, set p_-=2c(1-delta)/(1+delta) and p_+=2c(1+delta)/(1-delta). On a remote tail, (1+delta)K_{p_-} is below J_s/a-2 and (1-delta)K_{p_+} is above it in form order: the lower operator has the larger kinetic coefficient and the smaller potential, and the upper has the opposite, by the strict asymptotic margins. Compression changes each count by at most the fixed discarded dimension. The existing p/2 limit and scalar energy scaling give lower and upper normalized count coefficients sqrt(1+delta)p_-/2 and sqrt(1-delta)p_+/2. Sending delta to zero gives c; returning to J_s multiplies by sqrt(a), exactly the frozen counting constant."
+        ],
+        "reasoning": "This is a direct min–max corollary of the all-parameter model law, not an inference from similar numerical parameters or from a mere finiteness theorem. Monotone inversion, alternating symmetry and the identical-operator cutoff give the rest of the asserted conclusions.",
+        "searches": [
+          "Full statements of Resultary 0752f3718434 and 15d9b643524f, including latter Finding and exact limit proof; compare frozen RESULT.md lines 49–121"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0752f3718434 gives the same normalized bond formula, no-outlier threshold s=1/2 and infinitely many simple exterior eigenvalues on both sides below it. Simanek's original power-symbol result already gives the necessary |C|<=1/s when n=1; the later papers give the exact implicit Jacobi norm criterion. 06a7f853640c instead studies singular values of the compact correction; 75acaa6ce26b concerns lower bounds for a different Bergman Gram operator."
+        ],
+        "reasoning": "The identical norm and spectral phase in 0752f3718434 are equivalent to the asserted phase for the frozen Toeplitz operator by the known reduction. The singular-value and different Gram results are not equivalent to an exact J_s eigenvalue count.",
+        "searches": [
+          "Resultary exact Bergman half-power cutoff and Coulomb edge law, 0752f3718434, 15d9b643524f, 75acaa6ce26b and 06a7f853640c",
+          "Simanek arXiv:1807.00356 Theorem 2.1; Simanek arXiv:2001.07823 and Le–Simanek arXiv:2003.07330"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact band/cutoff and simple exterior sequences are stated for these very bonds in 0752f3718434, leaving their rate open there. 15d9b643524f gives the exact asymptotic constant for each member of the comparison family, not a tabulated value of the Bergman norm."
+        ],
+        "reasoning": "This is an operator classification rather than a numerical table; the exact same-operator phase is already recorded. The rate is not a literal exact-other-entry Bergman match, but is determined by the theorem-level comparison below.",
+        "searches": [
+          "Resultary 0752f3718434 exact same operator and threshold; 15d9b643524f exact comparison family"
+        ]
+      },
+      "rationale": "The identical-operator cutoff and subcritical infinitude are explicitly covered by distinct record 0752f3718434. It does not give the edge constant, but that remainder is directly implied by the independently indexed all-parameter Dirichlet Jacobi edge law in 15d9b643524f via standard tail min–max comparison, as detailed below. Thus the exact phase is stated elsewhere and the claimed asymptotic is already determined by applicable existing coverage. This comparison does not adjudicate chronological priority among the same-day records. The supplied block proof is correct but the finding does not claim a distinct result beyond these implications.",
+      "residual_risks": [
+        "The relative order or research relationship of the same-day records was not established. The disposition rests on demonstrated equivalent and corollary coverage, not a historical priority finding. The bounded primary comparison does not rule out other treatments of the discrete Coulomb law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct phase coverage; count and gaps not asserted there",
+          "evidence": "Same J_s coefficient, s>=1/2 no-outlier result and infinitely many simple two-sided outliers for 0<s<1/2; leaves their rate undetermined.",
+          "identifier_or_url": "Resultary 2026/11/22/0752f3718434",
+          "material_read": "RESULT.md offsets 0–5916 and 5850–8384",
+          "method": "Bounded GitHub local-mirror passages",
+          "title": "The sharp half-power cutoff for a Bergman coefficient coupling",
+          "trigger": "Exact Bergman symbol, normalized bonds, and half-power threshold"
+        },
+        {
+          "assessment": "Different exact coefficients, but all positive exponents and the precise count law imply the Bergman rate by tail form comparison",
+          "evidence": "For h_n(p)=((n+2)/(n+1))^(p/2), every fixed p>0 has limit sqrt(epsilon)N_p(epsilon)=p/2 at edge 2.",
+          "identifier_or_url": "Resultary 2026/11/22/15d9b643524f",
+          "material_read": "RESULT.md Finding and assumptions offsets 0–2357; interior sum, limit and inversion offsets 4000–8200",
+          "method": "Bounded GitHub local-mirror passages, including direct inspection of the model's assumptions and coefficient",
+          "title": "Coulomb edge law for the negative Dirichlet Jacobi matrices",
+          "trigger": "Exact edge law for an asymptotically comparable half-line Jacobi family"
+        },
+        {
+          "assessment": "Partial earlier phase information",
+          "evidence": "For z^n+C|z|^s gives the necessary bound |C|<=n/s and sufficiency for s>=2n; n=1 does not yield s=1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.00356v1",
+          "material_read": "Theorem 2.1, PDF p. 3 offset 7800",
+          "method": "Bounded open-access source passage",
+          "title": "Hyponormal Toeplitz Operators with Non-Harmonic Algebraic Symbol",
+          "trigger": "Same radial monomial and analytic perturbation"
+        },
+        {
+          "assessment": "Established reduction and compactness framework, not the exact numeric threshold or count in these passages",
+          "evidence": "Explicit Jacobi norm and shift-plus-diagonal criterion; compact perturbation result for regular radial symbols.",
+          "identifier_or_url": "arXiv:2001.07823; arXiv:2003.07330",
+          "material_read": "Simanek Theorems 2.1–2.2, PDF p. 3 offset 9200; Le–Simanek Theorems 2.1 and 3.1 PDF pp. 2 and 4, offsets 6100 and 8846",
+          "method": "Bounded open-access source passages",
+          "title": "Hyponormal Toeplitz Operators on Weighted Bergman Spaces (Simanek; Le–Simanek)",
+          "trigger": "Implicit exact Jacobi criterion and spectral band"
+        },
+        {
+          "assessment": "Oscillation and finiteness background rather than the claimed counting coefficient",
+          "evidence": "Constant off-diagonal application uses an inverse-square critical threshold, not the exact positive 1/n count law.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0109213",
+          "material_read": "Theorem 2.1, PDF p. 4 offset 8050",
+          "method": "Bounded open-access source passage",
+          "title": "On the Finiteness of the Number of Eigenvalues of Jacobi Operators Below the Essential Spectrum",
+          "trigger": "Potential broader Jacobi outlier theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–34 and 83–121",
+        "Resultary 0752f3718434 and 15d9b643524f, exact statements and scope"
+      ],
+      "rationale": "The exact Toeplitz phase and accumulation profile concern a natural operator and would be meaningful unknown invariants. Here the cutoff is already given for the identical operator and the fixed-s edge coefficient follows by ordinary min–max comparison from the exact Dirichlet edge profile. The different stand-alone derivation is useful corroboration, but the frozen contribution is not a distinct theorem about a new regime, the top eigenvalue, or an independent substantive method claim.",
+      "residual_risks": [
+        "This decision concerns the submitted exact profile, not the importance of sharper top-eigenvalue or uniform near-critical questions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

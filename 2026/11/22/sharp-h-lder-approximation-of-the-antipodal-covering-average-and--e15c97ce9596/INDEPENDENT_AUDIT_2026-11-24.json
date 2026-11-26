@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:02:52.640509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–55",
+        "VERIFICATION.md:19–25",
+        "CHECK.py:11–86 (inspected, not executed)"
+      ],
+      "rationale": "Kantorovich–Rubinstein duality and interchange of two suprema give exactly the worst fiberwise W1 distance. Each label's distance to the first tracked sheet has complementary endpoint values, so it hits the midpoint and contributes at least φ(1/2)/m in any plan. For m=2k, a minimizing assignment can be taken integral because two fractional entries in the capacity-k polytope can be perturbed. Distinct k-subsets have sums of costs adding to at least two by the antipodal triangle inequality. If every minimal cost in unnormalized units were below one, the unique minimizing subset would be constant by continuity, but it changes to its complement at the glued endpoints. The alternating single-label flips glue correctly: for odd m the stationary labels are balanced and the moving atom is split, with concavity bounding the cost by φ(1/2)/m; for even m the moving atom can fill the single vacancy for at most 1/m. This includes m=1,2. Substitution of s^α and comparison of the two exact constants give the stated threshold and the three-versus-four example.",
+      "residual_risks": [
+        "The checker uses finite floating-point diagnostics despite exact combinatorial enumeration of transport vertices. The theorem for arbitrary continuous map families and metrics follows from the proof, not from the mesh."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md:60–61 describes the cited covering-graph theorem in the supremum-norm/total-variation topology.",
+          "Kantorovich–Rubinstein duality converts the present norm to a transport objective but supplies neither the continuity obstruction nor its sharp metric-dependent value."
+        ],
+        "reasoning": "A broader class of graph covers in a different operator norm need not determine the transport optimum on this cover. Full-text access limits the comparison to available statements.",
+        "searches": [
+          "Duru–İlter–Bilgin, Sharp Norm Approximation of Covering Markov Operators; arXiv:2610.35575v1",
+          "Resultary queries on covering-operator approximation and concave metrics"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6c9dc6cb1bf9 (catalogue statement)",
+        "RESULT.md:28–55, 60–68",
+        "arXiv:2610.35575v1 (identified; full-text attempts unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Concavity and the normalized endpoints give ρ≤φ∘ρ, so the arclength even bound transfers as a lower bound. The one-vacancy construction yields equality using the unchanged antipodal diameter.",
+          "For odd m this comparison yields only 1/(2m), strictly below φ(1/2)/m. The moving atom's equal distances and the two-sink split yield the new exact constant. In the linear case there is no increasing odd-to-even transition at the stated counts."
+        ],
+        "reasoning": "The prior endpoint plus metric domination does not establish the sharp odd cost or the reversal. The known matching obstruction and standard duality are ingredients, not credited as new results.",
+        "searches": [
+          "Resultary 6c9dc6cb1bf9 (arclength endpoint)",
+          "arXiv:2610.35575v1 (covering operators)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6c9dc6cb1bf9 states the odd 1/(2m), even 1/m arclength endpoint with a matching/section obstruction.",
+          "For φ(s)=s^α, the norm in the finding is exactly the intrinsic α-Hölder seminorm on observables and its dual is W1 for the transformed metric, not the total variation norm."
+        ],
+        "reasoning": "The arclength theorem is exact overlap with the linear endpoint, not a restatement of the strictly concave result. A Lipschitz-seminorm unit ball does not coincide with the supremum-norm ball.",
+        "searches": [
+          "Resultary: intrinsic-arclength circle cover; concave/Hölder metric; twofold circle approximation",
+          "arXiv:2610.35575v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed exact numbers are the arclength odd and even sequences; the even sequence coincides for all transforms in the finding."
+        ],
+        "reasoning": "Matching even values are credited. A finite numerical table of map families or regularity exponents cannot give the infimum for all continuous maps and arbitrary concave transforms.",
+        "searches": [
+          "Resultary 6c9dc6cb1bf9 and searches for exact concave/Hölder errors and count reversal"
+        ]
+      },
+      "rationale": "Credit the exact linear-cost parity law and the sheet-interchange obstruction as antecedents. The supported addition is sharp dependence on the concave metric, in particular the odd constant φ(1/2) and the resulting Hölder term-count reversal. The available strongest matching statement is for arclength; it does not give the transformed odd formula. The unchanged even constant is not credited as independent novelty.",
+      "residual_risks": [
+        "No passage-level access to the two strongest comparators; possible stronger cost-general statements in the uninspected text are not excluded. No publication order is inferred for same-day catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap at the arclength endpoint; priority not inferred from the same date",
+          "evidence": [
+            "The indexed statement gives odd 1/(2m) and even 1/m for the intrinsic arclength cost. Frozen RESULT.md:61 already credits this endpoint."
+          ],
+          "identifier_or_url": "Resultary 6c9dc6cb1bf9",
+          "material_read": "Indexed exact statement; matching full text not recovered",
+          "method": "Local Resultary comparison and targeted mirror lookup",
+          "title": "A sharp parity law for Lipschitz approximation of a twofold circle cover",
+          "trigger": "Same cover, equal weights, same parity split, and matching obstruction"
+        },
+        {
+          "assessment": "Available comparison concerns supremum-norm/total-variation error, not the transformed-metric transport cost",
+          "evidence": [
+            "RESULT.md:61 distinguishes the two operator topologies; no broader implication was established by the available source evidence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.35575",
+          "material_read": "Frozen RESULT.md:60–67 characterization; no independent full-text passage recovered",
+          "method": "Primary literature search and bounded HTML/PDF/mirror passage retrieval attempts",
+          "title": "Sharp Norm Approximation of Covering Markov Operators",
+          "trigger": "General fiber-average approximation on covers could imply an exact special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–24, 36–55",
+        "Resultary 6c9dc6cb1bf9 (comparison with arclength)"
+      ],
+      "rationale": "For a natural nontrivial double cover, this gives exact performance of continuous equal-weight approximants in a metric-sensitive norm. It identifies a qualitative reversal that the linear metric does not exhibit: even one additional sample can worsen the best approximation, with an exact exponent threshold. That effect is meaningful only with the fixed Equal-weight constraint, and is not a claim about approximation by arbitrary convex mixtures.",
+      "residual_risks": [
+        "No conclusion for unequal weights or other covering degrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

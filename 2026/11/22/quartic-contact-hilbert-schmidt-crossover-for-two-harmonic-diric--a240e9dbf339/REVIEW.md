@@ -1,15 +1,21 @@
-# Review: quartic-contact Hilbert–Schmidt crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact one-prime Parseval identity determines the squared Hilbert–Schmidt norm as a single angular zeta integral, not an independent-prime Bessel product. A completed-square identity determines all minimizing angles. The zeta pole has bounded remainder, and rigorous quadratic/quartic rescaling proves three fixed-parameter constants and the critical two-parameter unfolding integral. Integrable quartic tail bounds justify the passage to the limit. The accompanying extracted checker passed 83 finite assertions; this corroborates but does not prove the asymptotic limits.
+## correctness
 
-## Originality — PASS (qualified)
-The 2015 Bayart–Brevig paper already treats quartic contact for degree-two one-prime symbols, so the mere fourth-order contact and compactness are **not** claimed as novel. The 2023 Bayart–Kouroupis Schatten criteria provide the motivating context, not the specific sharp Hilbert–Schmidt boundary-layer coefficient. Two more recent published independent-prime Bessel and Schatten-four results were read in full for statement-level comparison; their coefficient and Gram structures are different. No exact matching crossover was found in searched sources and the accessible prior claim ledger. Historical priority remains uncertain; search failure is not a proof of novelty. The 2019 composition-norm paper was abstract-checked only, and its full text is an explicit remaining risk.
+PASS
 
-## Mathematical value — PASS
-The square-root detuning of the second harmonic is the natural perturbation scale at which a quartic boundary minimum splits into two quadratic minima. Its exact transition function quantifies a nontrivial spectral-energy instability of a fundamental operator family. The sharply different exponent at the coalescence is not a routine rewrite of a previously published quartic-contact statement.
+The disk polynomial in w=2^(−s) has its real-part infimum on the unit circle and the stated boundary minimum. Writing x=1+cosθ and η=a/4−b gives the exact completed gap 4ηx+2bx²+2η_-²/b. The disk interior is mapped strictly into Re>1/2 even at δ=0, by nonconstancy and the harmonic minimum principle. Applying Parseval to each n^(−φ(s)) in the single prime variable and Tonelli to the basis sum gives the ζ integral for δ>0. Removing the ζ pole leaves an O(1) remainder uniform over b near a/4. The well coefficients are (a−4b)/2 (one well), a/8 (one quartic well), and 2b(1−a²/(16b²)) (two wells); a circle neighborhood at π includes both sides of the representative endpoint. Quadratic and quartic rescaling with these multiplicities gives each constant in (2). Tonelli also allows divergence of the ζ integral at δ=0, where the local reciprocal gap is not integrable. For b=a/4−κ√δ, θ=π+δ^(1/4)z, the rescaled gap yields the stated polynomial including the energy shift 8κ_-²/a on the two-well side. On any bounded z-interval positivity holds since the full denominator is at least 1; for large z inside a fixed angular neighborhood, x≍δ^(1/2)z², so the quartic term dominates the detuning and dominates the integrand by O(|z|^(-4)). The complement has a uniform positive gap. This proves the fixed-κ limit and justifies integrating on the whole line. Scaling the even quartic integral to x⁴+βx²+1 and averaging the integrals related by x↦1/x reduces it via x−1/x to the elementary quadratic integral; this verifies (4) including its critical value.
 
-## Limitations and primary comparisons
-The result is restricted to one-prime quadratic symbols with positive amplitudes and pointwise critical detuning; it is not a theorem about all Dirichlet-series composition operators. Comparison sources: Bayart–Kouroupis (arXiv:2306.05733), Bayart–Brevig (arXiv:1505.02944), and the published Bessel Hilbert–Schmidt Abel law and two-prime Schatten-four cusp cited in RESULT.md. Independent historical-priority and mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the sharp same-prime transition, particularly the positively translated two-parameter profile through merger of the contact points. Quartic contact for the critical symbol itself is already known; Parseval, the Schatten trace method and divergence at the contact are not the originality basis. The retrieved membership and norm papers and indexed distinct-prime asymptotics do not supply the double-scaling profile.
+
+## value
+
+PASS
+
+In the simplest correlated two-harmonic model one contact minimum changes into two. The exact square-root detuning scale and its normalized Hilbert–Schmidt profile resolve behavior not visible in pointwise contact orders or membership criteria. The correction for the shifted minimum on one side is essential and permits a meaningful comparison of the two regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

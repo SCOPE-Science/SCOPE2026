@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The homogeneous partial derivative calculation excludes the line \(x=0\). For \(x=1\), the entire Jacobian ideal is \((A^2,B^2)\), with \(A=1+ts^{q/2}\) and \(B=t^{(q+2)/2}+s+\kappa\). The support is in bijection with simple roots of a polynomial of degree \(1+q(q+2)/4\), and the Jacobian determinant of \((A,B)\) is nonzero there. Consequently the completed local algebra is \(K[[A,B]]/(A^2,B^2)\) of length four. The argument is symbolic for all \(q=2^m\).
+PASS
 
-## Originality
+The frozen proof and verification omit a required inclusion: Euler identifies the chart ideal with (f,f_t,f_s), not (f_t,f_s). The frozen theorem is not false; the replacement result and verification prove f=(t+t^q)f_t+(s+s^q)f_s directly, closing the gap. The ideal is then (A²,B²). The homogeneous partials exclude x=0. Elimination gives H(s)=s^(r+1)+κs^r+1 with r=q(q+2)/4 even, H'=s^r and H(0)=1, hence r+1 simple roots. At each root the Jacobian of (A,B) has nonzero determinant s^(q/2), yielding the claimed completed local algebra. As a separate length check the full quotient is free of rank two over K[s,s^{-1}]/(H²). This applies also at q=2 and k=0.
 
-PASS, with the residual general-literature risk stated below. Asgarli–Ghioca already note that all even-characteristic \(C_k\) are singular, but their inspected paper does not enumerate the geometric singular points or determine the uniform Jacobian singular-scheme thickening. published-finding corpus exact/alias queries returned no matching claim. Accessible previous claims involving the same source concern the distinct odd-characteristic case or smooth finite-field plane quintics.
+## originality
 
-## Value
+PASS
 
-PASS. The parameter-uniform unbounded geometric singular count and complete local-ring description refine an unexplained degeneration that prompted the source authors to replace the even-characteristic construction. These are natural singular-locus invariants and not isolated small finite-field calculations.
+The repaired claim retains the full geometric count and uniform completed Jacobian algebra. The inspected earlier statements cover qualitative singularity and the rational-point part of a related classification, but not the non-rational support or the lengths and algebras on that support. The family equation is not new.
 
-## Closest literature and limitations
+## value
 
-Asgarli–Ghioca, arXiv:2307.03072v1, equation (1), Theorem 1.2, and the note after Conjecture 1.5. Analytic branch types, delta invariants, normalization and finite-extension rationality of each support point are not claimed. Wider literature may contain equivalent calculations despite the completed comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the singular Jacobian scheme of the specific family whose even-characteristic failure motivated a change of construction. The result determines both the number of distinct geometric singularities and the same four-dimensional nilpotent algebra at each, for every parameter even without irreducibility. These answer different questions about the degeneration from existence or rational smoothness alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

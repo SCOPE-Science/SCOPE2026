@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:06.334409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The identities a_n=a_(n−1)(1+b_n), b_n | n, and b_n=n/gcd(n,a_(n−1)) are exact. The initial values a_3=6, a_4=18, a_5=108, a_6=216 give persistence of 2 past index 3 and 4 past index 6. Thus at 2p the gcd is 2 or 2p. If p divides a_(2p−1), one factor 1+b_k in its product must be p or 2p, since 2≤1+b_k≤2p. For b_k=p−1, divisibility forces k=p−1 or 2p−2. The former would require gcd(p−1,a_(p−2))=1 despite both being even; the latter would require gcd(2p−2,a_(2p−3))=2 despite both being multiples of 4 (p≥5). The other possibility b_k=2p−1 forces k=2p−1, and gives the reverse implication by inserting the factor 2p. Independently, for prime q≥5, q cannot divide a_(q−1): the only possible factor would be 1+b_(q−1)=q, again excluded by evenness. Hence b_q=q. This proves the unconditional direction when 2p−1 is prime, and only the local prime-or-one assumption forces primality in reverse. The standalone private replay `python3 /workspace/checks/finite.py 4` uses actual unbounded integers and gcds through n=6000 (428 tested primes p), corroborating both equivalences on that range. The bundled exponent-based run through 200000 is recorded evidence, not the basis for the infinite proof or the unproved converse.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cloitre’s K=2 theorem concludes that for a prime q≥5 with c_q=1, q−2 is prime under C1. The later catalogue phase diagram describes only the even-increment support across weights K."
+        ],
+        "reasoning": "The K=2 result is a different recurrence and different index test. Being odd is common to the values 1 and p and cannot distinguish them. The later catalogue date is not the basis for this mathematical distinction.",
+        "searches": [
+          "Cloitre arXiv:2510.18891, §6.1 Theorem 6.2",
+          "Resultary: weighted LCM recurrences and parity of increments; 2026/11/8/SCOPE-a-complete-binary-phase-diagram-for-weighted-lcm-recurrences--7a475b8bc3cb"
+        ]
+      },
+      "checked_sources": [
+        "Cloitre arXiv:2510.18891",
+        "Ruiz-Cabello arXiv:1504.05041",
+        "OEIS A135504/A135506/A135508",
+        "Resultary weighted LCM phase diagram",
+        "Frozen proof, verification notes, checker and recorded output (inspected only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior evenness and b_n | n give the immediate two-value restriction by applying the gcd at n=2p. The prior prime-step result gives the unconditional implication from primality of 2p−1."
+        ],
+        "reasoning": "Neither decides whether p could already enter through 1+b_k=p. Excluding both possible indices k=p−1 and 2p−2 using persistent powers of two is the additional argument, yielding a criterion in terms of b_(2p−1) even at a composite preceding index. The globally conjectural prime-or-one assertion is not a proved stronger source.",
+        "searches": [
+          "Cloitre arXiv:2510.18891, Lemmas 2.1 and 3.1",
+          "Ruiz-Cabello arXiv:1504.05041, Proposition 5 and Conjecture 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the K=1 setting the equivalence can be written as p | a_(2p−1) iff gcd(2p−1,a_(2p−2))=1. The inspected lemmas about prime steps give b_q=q at prime q, not the equivalence between divisibility at 2p−1 and that gcd.",
+          "Adjacent catalogue findings about prime detection by parity-twisted cranks or divisor-sum forms use different sequences and different tests."
+        ],
+        "reasoning": "The formulation as entry of p into the multiplicative stock, or as coprimality at the preceding odd step, exposes the same claim; neither the prior prime-step lemma nor independent prime tests determine it.",
+        "searches": [
+          "Resultary: LCM recurrence prime increment doubling at 2p and maximal increment at 2p−1",
+          "Cloitre arXiv:2510.18891, §§2.2 and 3.1",
+          "Ruiz-Cabello arXiv:1504.05041, Propositions 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A135504 defines the K=1 sequence; A135506 indexes its increments and notes a(p−1)=p for primes p>3, translating to b_p=p. A135508 is the weighted K=2 sequence with twin-prime-related comments."
+        ],
+        "reasoning": "The entries confirm objects, shift, and known prime-index behavior. No inspected entry states the unconditional doubling biconditional. Finite entries can corroborate examples but do not compare the two symbolic conditions for every p.",
+        "searches": [
+          "OEIS A135504, A135506 and A135508",
+          "Resultary: original LCM recurrence forced ones at twice a prime"
+        ]
+      },
+      "rationale": "The supported distinct content is the unconditional dependence of b_(2p) on the maximal increment at its preceding index, and hence the conditional composite-index detector in the original K=1 recurrence. The two-value restriction and prime-step facts are background, not novelty. The closest prime-detection theorem inspected changes the recurrence to K=2 and uses prime indices and a different adjacent argument; it does not imply this biconditional.",
+      "residual_risks": [
+        "This is scoped best-of-knowledge clearance based on inspected statements, not an exhaustive priority claim; an uninspected source about first entry of primes into this recurrence could contain the same argument. Public-search misses are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives elementary K=1 inputs and a different K=2 detector, not the exact K=1 composite-index criterion",
+          "evidence": [
+            "Lemma 2.1 includes b_n | n and a_n even for n≥3.",
+            "Lemma 3.1 gives b_q=q for primes q≥5.",
+            "Theorem 6.2 treats c_q=1 in K=2, with q prime, and q−2 under C1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.18891",
+          "material_read": "§1.1, §2.2 Lemma 2.1, §3.1 Lemma 3.1, §6.1 Theorem 6.2",
+          "method": "Bounded OA text passages (including offsets 7212, 11839 and 27612)",
+          "title": "Primes in LCM recurrences: a density theorem via companion sieves",
+          "trigger": "Initiating paper and plausible prior detection theorem"
+        },
+        {
+          "assessment": "Prime-step theorem and global conjecture, not the doubling equivalence",
+          "evidence": [
+            "Proposition 5 states b_p=p for prime p other than 3.",
+            "Proposition 4 derives the global conjecture from a prime-distribution condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.05041",
+          "material_read": "Conjecture 1 and Propositions 4–5, pp. 2–3",
+          "method": "Bounded OA text around offset 4140",
+          "title": "On the use of the least common multiple to build a prime-generating recurrence",
+          "trigger": "Earlier analysis of the exact K=1 recurrence"
+        },
+        {
+          "assessment": "Known recurrence and prime-step comment; no exact doubling criterion in the inspected comments",
+          "evidence": [
+            "A135506's shifted prime-index comment corresponds to b_p=p."
+          ],
+          "identifier_or_url": "https://oeis.org/A135506",
+          "material_read": "A135504 and A135506 formula and comments; K=2 cross-check A135508",
+          "method": "Public entry passage comparison",
+          "title": "OEIS entries for the LCM recurrences and increments",
+          "trigger": "Exact sequence database and possible recognition by shifts"
+        },
+        {
+          "assessment": "Even-increment support is insufficient for the exact test between two odd outcomes",
+          "evidence": [
+            "For odd K even increments are confined to n=2 and possibly n=4."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-complete-binary-phase-diagram-for-weighted-lcm-recurrences--7a475b8bc3cb",
+          "material_read": "Finding at beginning of RESULT.md",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A complete binary phase diagram for weighted LCM recurrences",
+          "trigger": "Strongest related catalogue match for a general weight K"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result determines exactly which mechanism can supply a missing prime factor by the even semiprime index 2p, an infinite structurally defined family in the original recurrence. It replaces the naive global prime-or-one premise for the detector with the exact local statement needed and gives an unconditional adjacent-increment test. This is more than the two-value restriction and it neither assumes nor claims a proof of infinitely many prime pairs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

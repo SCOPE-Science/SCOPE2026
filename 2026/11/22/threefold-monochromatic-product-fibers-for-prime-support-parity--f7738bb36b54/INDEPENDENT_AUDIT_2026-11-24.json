@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:03:15.064396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three signs, the equality indicator (1+uv+uw+vw)/4 is exact. Summing over all ordered triples including units gives (d_3+3f*f*1)/4, with f=(-1)^omega and * Dirichlet convolution. A given unit position leaves the two positive-colored factors, counted by (d_2+2f*1+f*f)/4; a given pair of unit positions contributes (1+f(n))/2; their common intersection is the n=1 triple. Inclusion–exclusion therefore has the stated signs and coefficients, including zero at n=1. Multiplicativity only across coprime arguments gives the Euler products. At p^e, e>=1, the f*f coefficient is (e-1)-2=e-3, its partial sum including the unit term is (e^2-5e+2)/2, and f*1=1-e. For squarefree n>1 all local exponents equal one and direct substitution gives both parity cases. For odd support at least three, support sizes 1,1,r-2 give an odd triple; for even support at least six use 2,2,r-4. At support four with repetition, split a repeated prime into two positive powers and allocate the other three primes to the third factor; at support two with repetition use two powers of the repeated prime and one of the other; at support one use three positive powers whenever the exponent is at least three. The excluded cases have total multiplicity <3 or have four squarefree primes, for which three positive supports cannot be all odd or all even and sum to four. Fixed-order Landau produces the stated leading term. Even using Landau only for omega, the nonsquarefree omega=4 count is lower order: extract an exact repeated prime power p^e, e>=2, leaving omega=3. For p^e<=sqrt(X) sum the Landau upper bound O((X/p^e)(log log X)^2/log X) using convergence of the reciprocal-power sum. For p^e>sqrt(X) use the trivial X/p^e bound and the dyadic tail from O(sqrt(Y) log Y) powers through Y, giving O(X^(3/4) log X). All other exceptional families are lower order by the cases k=1,2 and the trivial square bound. Independent replay: python3 /workspace/branches/independent_checks.py 5, using a sieve for omega and a product-loop accumulation of all ordered nonunit triples of product at most 2500. The frozen verifier was inspected, not run; this bounded comparison supplements rather than proves the all-n claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general multi-input multiplicative equation still requires monochromatic output and gives collection-level bounds rather than factor counts at prescribed n.",
+          "The uncolored factorization theory covers all lengths, and on squarefree n has c_j(n)=j! S(omega(n),j). This includes both parity-consistent and inconsistent allocations.",
+          "Landau's classical fixed-order estimate only supplies the counting input after a characterization of the set to be counted."
+        ],
+        "reasoning": "The broad results either use a different color predicate or aggregate without resolving it. Their claims do not supply the prime-power parity-twisted factors or rule out exactly the squarefree four-prime family beyond the trivial exceptions.",
+        "searches": [
+          "Aragão et al. Theorems 1.1–1.2 and Section 1.1",
+          "Huxley–Lettington–Schmidt arXiv:2610.13864v1 Sections 2–4",
+          "Belton arXiv:1401.2694 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01480v1",
+        "DOI:10.1007/s00493-025-00183-x",
+        "arXiv:2610.13864v1",
+        "arXiv:1401.2694 (ar5iv text)",
+        "OEIS A050328, A074206, A037915",
+        "Local Resultary f7738bb36b54, b7d42340c3a6, 3fb220c5c852"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Campbell's theorem varies the two-coloring to make a density small; it does not select or analyze the fixed prime-support coloring at triple order.",
+          "A squarefree uncolored partition count includes, for r=4, choices of sizes (1,1,2), precisely the sort excluded by the equal-parity condition.",
+          "Fixed-order Landau estimates how many integers have four prime factors of the specified kind; they do not show that those, rather than all integers with omega=4, are unrepresentable."
+        ],
+        "reasoning": "There is no mechanical implication of the equal-color support classification and exact fiber coefficients from these inspected aggregate or uncolored results. The leading asymptotic is, expressly, a corollary once the new zero set is proved, and is not separately credited as original.",
+        "searches": [
+          "Campbell arXiv:2611.01480v1 PDF pp. 1–3",
+          "Huxley–Lettington–Schmidt §3 Remark 3.6 and §4 Theorem 4.2",
+          "Belton arXiv:1401.2694 abstract via ar5iv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count is equivalently the sum of two triple Dirichlet convolutions, each supported on one color of nonunits, evaluated at the given n.",
+          "Campbell's objects are distinct products of two same-colored factors, while the present objects are ordered triples over one fixed n.",
+          "Aragão et al. use x,y,z>1 and require even the output z to have the same color in xy=z; the same issue persists in their multi-input formulation."
+        ],
+        "reasoning": "Allowing shared primes and leaving the product uncolored significantly changes the counting predicate. At a fixed n, imposing its color would remove one input-color class; counting distinct products instead of fibers discards the multiplicities entirely.",
+        "searches": [
+          "Local Resultary: ordered nonunit three-factor counts, monochromatic product fibers and prime-support parity",
+          "Literature: (-1)^omega coloring, equal prime-support parity ordered triple factorization",
+          "Campbell arXiv:2611.01480v1 pp. 1–3; Aragão et al. DOI 10.1007/s00493-025-00183-x pp. 2–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit f7738bb36b54 is the assigned record itself; b7d42340c3a6 and 3fb220c5c852 concern exponent recovery from uncolored factorization or divisor counts.",
+          "A050328 counts ordered squarefree-factor factorizations; A074206 counts ordered nonunit factorizations across lengths; A037915 is the sequence used in Campbell's shifted two-factor distinct-product example."
+        ],
+        "reasoning": "The count fixed at length three with equal prime-support parity is not any of these tables. No distinct exact match was found in the inspected comparisons; the restricted search does not assert historical uniqueness.",
+        "searches": [
+          "Local Resultary factorization-count fingerprint and divisor count reconstruction",
+          "OEIS A050328, A074206 and A037915, public HTML definitions"
+        ]
+      },
+      "rationale": "The exact fixed-color ordered three-nonunit fibers and their zero classification are distinct on inspected evidence, unlike the classical almost-prime asymptotic used to count the already characterized exceptions. The general convolution and sign-projector methods are standard. A minor bibliographic correction: the Belton title says 'for', not 'of'.",
+      "residual_risks": [
+        "An older unindexed parity-refined factorization formula, or a more general multivariate divisor-convolution result outside the inspected passages, could overlap.",
+        "A focused exact-formulation search without a direct match does not establish priority; the decision is based on actual statement comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-factor distinct-product density across colorings, not the fixed-color triple fiber",
+          "evidence": [
+            "Two factors of the same color and each resulting positive integer counted once; p. 3 uses the A037915-related two-factor example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.01480v1",
+          "material_read": "Lawful OA PDF pp. 1–3, abstract/notational definition and example",
+          "method": "Compare factor length, output, multiplicity and coloring quantifier",
+          "title": "A solution to the Erdős–Sárközy product-density problem",
+          "trigger": "Closest same-colored product terminology and cited motivation"
+        },
+        {
+          "assessment": "Counts monochromatic equations including the output, not per-product equal-colored input fibers",
+          "evidence": [
+            "The extension to x_1^{a_1}...x_k^{a_k}=y still includes y in the monochromatic condition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00493-025-00183-x",
+          "material_read": "Publisher OA PDF Theorems 1.1–1.2 and Section 1.1, pp. 2–6 (extracted offsets 0 onward through Section 1.1 at 7986)",
+          "method": "Compare the variable color constraints and aggregation level",
+          "title": "On the number of monochromatic solutions to multiplicative equations",
+          "trigger": "Primary work on more general multiplicative monochromatic equations"
+        },
+        {
+          "assessment": "The squarefree partition count is uncolored, not restricted to blocks of equal parity",
+          "evidence": [
+            "d_j and c_j enumerate unit-allowed and nonunit ordered counts, respectively; squarefree c_j is j! times a Stirling number."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13864v1",
+          "material_read": "OA HTML Sections 2–4, definitions around offset 4000 and Remark 3.6/Theorem 4.2 around offset 20000",
+          "method": "Check definition and stated squarefree factor-length count",
+          "title": "On Divisor Function Polynomials and Dirichlet Series",
+          "trigger": "Exact ordered nonunit and squarefree factorization formulae"
+        },
+        {
+          "assessment": "Classical counting input, not zero-set or fiber classification",
+          "evidence": [
+            "Landau leading term X(log log X)^(k-1)/((k-1)! log X) for omega=k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.2694",
+          "material_read": "Lawful ar5iv text beginning at offset 0, abstract; arXiv PDF route unavailable",
+          "method": "Compare Landau statement for fixed omega=k; squarefree reduction independently justified in correctness rationale",
+          "title": "Asymptotic density for k-almost primes",
+          "trigger": "Exact asymptotic constant in exception counting"
+        },
+        {
+          "assessment": "None is the fixed-length parity-constrained fiber table",
+          "evidence": [
+            "A050328 imposes squarefree factors rather than equal colors; A074206 varies factor length; A037915 has an elementary floor formula and is used in Campbell's two-factor example."
+          ],
+          "identifier_or_url": "https://oeis.org/A050328 ; https://oeis.org/A074206 ; https://oeis.org/A037915",
+          "material_read": "Public HTML sequence definitions at offset 0",
+          "method": "Compare predicates and indices to R(n)",
+          "title": "Ordered factorization and two-factor example sequences",
+          "trigger": "Exact database comparison"
+        },
+        {
+          "assessment": "Matching copy of assigned record, not earlier independent evidence",
+          "evidence": [
+            "Same ordered nonunit equal-color triple predicate, formulas, and zero classification."
+          ],
+          "identifier_or_url": "SCOPE-threefold-monochromatic-product-fibers-for-prime-support-parity--f7738bb36b54",
+          "material_read": "Local Resultary statement of exact formula, zero set and asymptotic",
+          "method": "Compare exact identity and claim content to assigned evidence",
+          "title": "Threefold monochromatic product fibers for prime-support parity",
+          "trigger": "Exact indexed result"
+        },
+        {
+          "assessment": "Inverse uncolored counting, without the equal-color fiber constraint",
+          "evidence": [
+            "The first has known support size r and uses r+1 ordered-nontrivial counts; the second uses d_2,d_3 with exponent cutoff 12."
+          ],
+          "identifier_or_url": "SCOPE-b7d42340c3a6 ; SCOPE-3fb220c5c852",
+          "material_read": "Both local-mirror RESULT.md Findings",
+          "method": "Compare reconstructed object, observation map and scope",
+          "title": "Finite ordered factorization fingerprints and sharp exponent reconstruction from divisor counts",
+          "trigger": "Nearest distinct catalogue matches on factorization/exponent counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing the canonical prime-support coloring and asking for triple-product multiplicities is a motivated arithmetic refinement of the monochromatic product question. The classification identifies a distinctive obstruction: every squarefree four-prime target fails, but splitting any repeated prime in a four-support target suffices, and every support beyond four works. The exact coefficient product lets a researcher evaluate every multiplicity rather than only density or existence. The value is this complete parity-specific boundary and fiber count, not standard convolution alone or a claim about arbitrary colorings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

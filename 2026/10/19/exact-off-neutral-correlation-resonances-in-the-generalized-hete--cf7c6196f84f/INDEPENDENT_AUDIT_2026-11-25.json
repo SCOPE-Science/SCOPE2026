@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:58.350386Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–104",
+        "VERIFICATION.md",
+        "verify.py (inspected, not executed)"
+      ],
+      "rationale": "Independently, set p=2a and let W_n be the walk whose up steps are bit pushes and down steps bit pops, with probabilities p,q. Under Lebesgue measure the branch itinerary is independent of the initial binary digits; inserted bits are independent fair bits conditional on the push/pop itinerary. If m_n=min(0,W_1,...,W_n), the number of original bits removed is K=-m_n and the number of inserted bits still on top is L=W_n-m_n. For each surviving original bit i counted from 1, its contribution is (1/4)2^{-(K+i)}2^{-(L+i)}; all other cross terms vanish. Thus c_n=E[2^{-K-L}]>0, including c_0=1. The nonnegative excursion series B satisfies B=1+pq z^2 B^2. Decompose a walk at first descents to new minima (each block qzB), then decompose the remaining meander ending at L by last exits from lower heights (weight B(pzB)^L). Summing with 2^{-K-L} gives B/((1-qzB/2)(1-pzB/2)). Substitution r=pzB gives precisely H_a(r). At the positive branch endpoint r=sqrt(p/q); the two denominator factors first vanish before the edge exactly when q>4p or p>4q, giving the two pole rates. Using z=r/(p+qr^2), the coefficients of (1-z/z_p)^{-1} are (1-10a)/(1-4a) and 2(5a-2)/(4a-1), respectively. At equality the remaining denominator factor is 3/4 and the vanishing factor has leading sqrt(2(1-4z/5)); B=2 there, giving the stated collision coefficient. In between, only the two branch points contribute at the radius: a positive denominator root could only have a positive real z, and neither root is attained on the principal branch before or at that edge. The signed square-root expansions give the two stated parity constants; the derivative numerators at r=±sqrt(p/q) are 48aqr, and the positive-root denominator is smaller, so neither parity cancels. Stationarity follows from the inverse-strip densities. The normalized sum converges even at neutrality by n^{-3/2}; evaluating the smaller root at z=1 gives G=2/(1-3a) or 4/(6a-1). The variance limit is (2G-1)/12, with the unique maximum 5/4 and derivatives +16 and -16 at a=1/4.",
+      "residual_risks": [
+        "The asymptotics hold at fixed a, not uniformly as a tends to a collision. The theorem concerns one observable and gives neither a transfer-operator spectrum nor a central-limit theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier results give the model, off-neutral exponential bounds and the neutral n^{-3/2} decay order, with a close absorbing-wall random-walk method. The later broader m-branch result includes the precise M=2 law."
+        ],
+        "reasoning": "A neutral symmetric recursion or bound is not the biased exact law of this observable across parameters. The later all-m result does imply the frozen series, transition and parity cases, but its ordering in the catalog is not evidence of earlier priority.",
+        "searches": [
+          "arXiv:2307.08119 Theorem B and Proposition 3.1",
+          "arXiv:2408.16618 Main Theorem and §2.4",
+          "arXiv:2209.04905 map and Dyck-system comparison",
+          "Resultary b6a965701cb7 for all m>=2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.04905, 2307.08119, 2401.00836, 2408.16618",
+        "Resultary b6a965701cb7, 98c2bc77d377, 34e0287008bc, c7317966467d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier neutral walk explains polynomial order at zero drift but does not evaluate the off-neutral single-observable Green function. The later exact algebraic series gives the frozen cusp by evaluating at z=1 and taking (2G-1)/12, even though its Finding does not state that variance formula."
+        ],
+        "reasoning": "The biased excursion boundary weights and pole/square-root comparisons are extra work beyond the earlier mixing theorem. The variance is not independent of the later exact covariance series; it is distinct only relative to the earlier sources checked.",
+        "searches": [
+          "arXiv:2408.16618 §2.4, PDF pp. 9–11",
+          "arXiv:2307.08119 Theorem B",
+          "Resultary b6a965701cb7 exact covariance formula and m=2 specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The broader indexed formula uses t=z(q+2at^2); the frozen root is r=(2a/q)t, and the indexed covariance specializes to H_a(r)/12. Thresholds 1/[m(m^2+1)] and m/(m^2+1) specialize to 1/10 and 2/5 at m=2.",
+          "The primary time-reversal law relates a and 1/m-a with transformed observables, supporting symmetry but not specifying the rates."
+        ],
+        "reasoning": "The algebraic and normalization conversion establishes exact later overlap, not just common decay exponents. Symmetry alone does not determine the variance, singularity positions, or parity terms.",
+        "searches": [
+          "Resultary search for heterochaos stationary center-coordinate correlations, exact resolvent and spectral-edge transitions",
+          "arXiv:2307.08119 Proposition 3.1",
+          "Resultary b6a965701cb7 mirrored RESULT.md offsets 0–5675"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed match gives exact full-series coverage; the next two give exact neutral overlap including parity or the M=2 critical variance 5/4. All postdate the frozen catalog path. The fourth gives a Fourier-observable cusp with different variance and derivatives. Earlier Figure 5 is numerical on the same coordinate, not an exact table."
+        ],
+        "reasoning": "The neutral and full-series matches are real exact overlaps. The Fourier cusp uses a different observable, and sampled numerical decay does not determine the exact off-neutral law. No earlier equivalent exact table was established.",
+        "searches": [
+          "Resultary b6a965701cb7 (2026/11/8), 98c2bc77d377 (2026/10/26), 34e0287008bc (2026/11/1), c7317966467d (2026/11/2)",
+          "arXiv:2401.00836 §2.7, Figure 5 and Conjecture 2.12"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact off-neutral covariance and pole–branch transition law, with its integrated variance cusp, not the known symmetry, general off-neutral exponential mixing or neutral exponent. The strongest indexed comparator exactly subsumes the covariance series and transitions, and mechanically implies the cusp, but it is cataloged after the frozen result. Earlier primary passages read do not supply that off-neutral exact law. This is a bounded assessment of prior coverage, not certification of independent discovery or firstness.",
+      "residual_risks": [
+        "An earlier exact equivalent under a transfer or first-passage formulation may exist outside the inspected passages. Later exact overlaps do not establish provenance, independent discovery or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent; exact series not established by what was inspected",
+          "evidence": "Generalized baker map and Dyck system are prior framework.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.04905",
+          "material_read": "Bounded generalized-map/Dyck-system comparison; no decisive exact-covariance passage located",
+          "method": "Bounded OA inspection; no whole-paper exclusion",
+          "title": "Heterochaos baker maps and the Dyck system: maximal entropy measures and a mechanism for the breakdown of entropy approachability",
+          "trigger": "Original model and possible transfer/stack mechanism"
+        },
+        {
+          "assessment": "Earlier mixing and time reversal, not exact single-coordinate resolvent in those passages",
+          "evidence": "Off-neutral exponential mixing and a-to-1/M-a time-reversal correlation identity with transformed observables.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.08119",
+          "material_read": "PDF p. 5 Theorem B at offset 16450; p. 18 Proposition 3.1 offsets 58700–61663",
+          "method": "Primary OA PDF bounded passage reading",
+          "title": "Exponential mixing for heterochaos baker maps and the Dyck system",
+          "trigger": "Potential off-neutral rates and parameter duality"
+        },
+        {
+          "assessment": "Earlier same observable; no exact transition or amplitude in inspected passages",
+          "evidence": "Numerical central-coordinate correlation at a=1/3 and a=1/4, polynomial order conjectured at neutrality.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.00836",
+          "material_read": "§2.7, Fig. 5 and Conjecture 2.12, PDF pp. 14–15 offsets 43000–45397",
+          "method": "Primary OA PDF bounded passage reading",
+          "title": "The dynamics of the heterochaos baker maps",
+          "trigger": "Same exact observable and parameter range in numerical study"
+        },
+        {
+          "assessment": "Neutral optimal order and closely related walk, not exact biased-law evaluations in inspected passages",
+          "evidence": "Hölder mixing of order n^{-3/2} at neutrality and symmetric killed-walk recursion/reflection argument.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.16618",
+          "material_read": "Main Theorem, PDF pp. 4–5 offsets 10700–14884; §2.4 pp. 9–11 offsets 25150–31834",
+          "method": "Primary OA PDF theorem and proof passage reading",
+          "title": "Polynomial rate of mixing for the heterochaos baker maps with mostly neutral center",
+          "trigger": "Closest earlier first-passage and critical-decay method"
+        },
+        {
+          "assessment": "Exact stronger covariance theorem and implied variance at m=2, in a later catalog record",
+          "evidence": "Covariance series in the dual root t, the two edge thresholds and parity regime for all m>=2.",
+          "identifier_or_url": "Resultary b6a965701cb7",
+          "material_read": "Mirrored RESULT.md Finding and proof, offsets 0–5675",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Two spectral-edge transitions in stationary correlations of generalized heterochaos baker maps",
+          "trigger": "Strongest exact indexed overlap at general branch count"
+        },
+        {
+          "assessment": "Neutral-only exact overlap in later record",
+          "evidence": "Exact critical generating series and parity amplitudes at M=2.",
+          "identifier_or_url": "Resultary 98c2bc77d377",
+          "material_read": "Mirrored RESULT.md Finding offsets 0–3482",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Exact autocorrelation and parity amplitudes in a neutral heterochaos baker map",
+          "trigger": "Exact neutral special-case overlap"
+        },
+        {
+          "assessment": "Neutral-only overlap in later record",
+          "evidence": "Critical formulas for general m, with Green–Kubo variance specializing to 5/4.",
+          "identifier_or_url": "Resultary 34e0287008bc",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Exact center-coordinate correlations and parity-split critical asymptotics",
+          "trigger": "Broader neutral formula including integrated variance"
+        },
+        {
+          "assessment": "Related cusp in later record but not the same exact invariant",
+          "evidence": "Odd Fourier harmonics yield critical variance 3/2 and one-sided derivatives +8,-8, rather than 5/4 and +16,-16.",
+          "identifier_or_url": "Resultary c7317966467d",
+          "material_read": "Mirrored RESULT.md Finding offsets 0–4448",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Fourier-mode memory cusp and exact critical variance in a heterochaos baker map",
+          "trigger": "Plausible cusp overlap under change of observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–41 and 88–104",
+        "arXiv:2401.00836 §2.7",
+        "arXiv:2307.08119 Theorem B",
+        "arXiv:2408.16618 Main Theorem"
+      ],
+      "rationale": "The center coordinate is the observable already singled out numerically in the heterochaos literature. Its exact series exposes two thresholds away from zero drift that qualitative mixing and the neutral exponent cannot distinguish. The parity amplitudes and explicit variance cusp quantify the observable's memory in ways an upper bound cannot; the series offers a reproducible benchmark for other observables, parameter scaling and generalized branch counts. The distinct value is this parameter-dependent exact result, not the already known change from neutral to off-neutral mixing.",
+      "residual_risks": [
+        "The result does not establish uniform crossover scaling, an operator-level resonance theorem, or probabilistic limiting distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

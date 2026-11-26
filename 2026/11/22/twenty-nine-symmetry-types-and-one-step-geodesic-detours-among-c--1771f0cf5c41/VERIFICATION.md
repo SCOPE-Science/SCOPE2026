@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact metric-basis classification
+# Independent mathematical audit
 
-The two attached standalone programs use different graph constructions. The complete details of the mathematics, hypotheses and finite validity range appear in `RESULT.md`.
+## correctness
 
-Run the first from the artifact directory with `c++ -O3 -std=c++17 cox_metric_a.cpp -o metric_a && ./metric_a`. It constructs 28 vertices and 42 edges of diameter four, checks that no resolving triple exists, enumerates exactly 7,728 minimum resolving quadruples, and constructs every possible one-for-one replacement. Breadth-first search from each of the 7,728 base configurations checks that every target is reached and certifies the full distance histogram: 155904, 2210880, 11718084, 15762852, 9408 unordered pairs at graph distances one through five. Its reported eccentricities have multiplicities 1680 (four) and 6048 (five); exactly 449820 unordered pairs require one more step than the Johnson lower bound. The graph has 155904 exchange edges.
+PASS
 
-Run the second with `python3 cox_metric_b.py`. It constructs the 28 triples that are not Fano-plane lines, with disjointness adjacency, checks an explicit isomorphism to the layered graph, enumerates the same 7,728 bases and 155,904 exchange edges, verifies 336 graph automorphisms and their 29 base orbits, and checks all exchange distances from orbit representatives with multiplicity. It terminates with `ALL_CHECKS_PASS` on success.
+I checked the Fano-nonline and three-layer graph descriptions by finding an isometry of their distance matrices, without using the supplied isomorphism. A resolving set must meet the separator set for each unordered vertex pair; independent bitset enumeration found zero resolving triples and 7,728 resolving quadruples, and monotonicity excludes smaller sets. Grouping bases by their three-subsets constructs each exchange edge exactly once; the independent count is 155,904 with the entire stated degree histogram. Full distance-preserving backtracking found all 336 graph automorphisms: every surviving branch respects pairwise equality of distances and injectivity, and all choices are exhausted. The 29 resulting base orbits have multiplicities 18×336, 9×168, 2×84. One exact BFS per orbit, weighted by the orbit size and halved for off-diagonal unordered pairs, reproduces the five distance counts, radius, diameter, eccentricity frequencies and all 449,820 detours, including the breakdown by distance. Each exchange can increase intersection with a target by at most one, so the Johnson term is a true lower bound. The explicit bases sharing two landmarks violate the matroid basis-exchange axiom: none of the four target-directed intermediate candidates resolves, and independent BFS gives distance three. The independent group search removes reliance on the cited group order for this census.
 
-Both programs were executed successfully as supplied and their output compared. No random sampling was used for any asserted finite count. The complete automorphism-group size 336 is a known mathematical fact used as an explicitly cited premise; 336 concrete automorphisms are checked within the second program. The separate implementation does not constitute an independent scholarly audit. No assertion is made for larger graphs or other graph families.
+## originality
+
+PASS
+
+The supported addition is the full minimum-basis and exchange-geometry classification of the 28-vertex Coxeter graph, rather than its known metric dimension or the symmetry-reduced search method. The most similar identified catalog statements differ in the underlying graph or basis predicate, and the inspected prior same-graph metric-dimension tables do not provide the census or exchange distances. This is a best-of-knowledge decision, with a specifically identified thesis access risk.
+
+## value
+
+PASS
+
+The exchange graph describes how optimal resolving sets on a canonical cubic graph can be reconfigured without using extra landmarks. Among more than 29 million pairs it gives a uniform sharp one-step detour bound, classifies exactly where lengthening occurs by distance, and certifies a non-matroid obstruction. This distinguishes structural behavior not implied by the known dimension or abstract Johnson adjacency, and supplies an exact reference for comparing other graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

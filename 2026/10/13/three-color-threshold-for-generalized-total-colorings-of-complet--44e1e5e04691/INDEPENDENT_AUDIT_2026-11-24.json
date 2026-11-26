@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:22:01.607905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–45; VERIFICATION.md; verify.py lines 18–60 (read only)",
+        "/workspace/repairs/4/RESULT.md and /workspace/repairs/4/VERIFICATION.md"
+      ],
+      "rationale": "Both the frozen coloring arguments and the narrowed theorem are mathematically correct. In K_{3,n} with n>=3, the shores have disjoint vertex palettes. With three colors, if both shores are monochromatic then all edges receive the remaining color and contain a four-cycle. Otherwise one shore uses two colors, of which one repeats, and the other uses one color; edges from two equally colored vertices to two vertices of the other shore are forced to the same third color, again a four-cycle. Fewer than three colors are impossible at an incident edge and its endpoints. With four colors, the opposite shore is colored 4, the smaller shore gets 1,2,3, and the respective full incident stars get 2,3,1. Every nonempty edge class is one star and every edge avoids both endpoint colors. For n>=5, two forests on n+3 vertices can cover at most 2(n+2)<3n edges, so a four-color construction cannot use disjoint edge and vertex palettes. The repaired result and verification notes state these scopes accurately.",
+      "residual_risks": [
+        "The frozen source described the positive three-color checks as exhaustively testing every vertex assignment, but verify.py stops at the first witness. This is sufficient for the finite decision and does not affect the infinite proof; the repaired notes specify the stopping rule. The frozen verifier was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 results give a planar bipartite four-color bound and a parity-dependent bound using acyclic colorings. Schreib extends every proper four-coloring of a planar graph to this total coloring. The 2011 foundational full text was not obtained."
+        ],
+        "reasoning": "K_{3,n} contains K_{3,3} and is nonplanar for n>=3. With four acyclic vertex colors the 2016 general theorem yields five total colors, not the upper bound in the repaired claim. Inaccessibility of the 2011 text does not count against or in favor of originality.",
+        "searches": [
+          "Borowiecki–Broere (2016), Theorems 1, 2, 6",
+          "Schreib arXiv:2610.00091v1, Theorem 1.1",
+          "Generalized total colorings of graphs 2011, DOI 10.7151/dmgt.1540"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.7151/dmgt.1874, pp. 244–246",
+        "arXiv:2610.00091v1, Theorem 1.1",
+        "DOI 10.7151/dmgt.1540 (limited access)",
+        "Resultary d5134b64355f, 45e5ee98b751, 3fb93c858f69",
+        "/workspace/repairs/4/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 establishes exact four for K_{3,3}-e. Theorem 1 establishes a three-color upper bound for any acyclic three-vertex-coloring. K_{2,n} has such a coloring by splitting its size-two shore. Restriction preserves a generalized total coloring, so K_{3,3}-e forbids three throughout the larger-shore regimes. The 2016 planar-bipartite construction uses disjoint edge and vertex palettes; that method cannot give four colors on K_{3,n} when n>=5 by the elementary forest capacity bound."
+        ],
+        "reasoning": "The older results directly imply the entire frozen three-color threshold, so it was removed as a novel result. They imply the lower bound on the repaired family but not the four-color upper bound, which requires the shared-palette construction.",
+        "searches": [
+          "Borowiecki–Broere DOI 10.7151/dmgt.1874, PDF pp. 244–246, Theorems 1 and 6 with proof",
+          "Schreib arXiv:2610.00091v1, abstract and Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With a proper vertex coloring and only three colors, edges between any pair of vertex color classes are forced to the complementary color; the forest tests are exactly those of an acyclic vertex three-coloring. Resultary d5134b64355f instead permits forests on the vertices as well as the edges and has a different, tripartite family."
+        ],
+        "reasoning": "The three-color equivalence provides another direct route to the old threshold. There is no such forced edge assignment for four colors: the repaired result constructs a compatible assignment on the size-three-shore family, not just an acyclic vertex coloring. Proper-vertex and forest-vertex variants are not interchangeable.",
+        "searches": [
+          "Resultary: exact three color threshold K_m,n generalized total coloring independent vertices forest edge color classes",
+          "Resultary: vertex arboricity complete bipartite graphs generalized total coloring forest edge classes",
+          "Borowiecki–Broere (2016), pp. 244–246, definition and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first result gives a forest-forest phase diagram for K_{1,a,b}; the latter two treat forcing partial proper vertex colorings for complete bipartite graphs, not forest edge colorings. The exact K_{3,3}-e value in the 2016 paper establishes a lower bound by containment, not an upper-bound table for the full family."
+        ],
+        "reasoning": "The repaired claim is an exact family formula for all n rather than a table entry for an individual graph, and none of the closest inspected classifications supplies that formula.",
+        "searches": [
+          "Resultary: three color generalized total coloring K_2,n and K_3,n forest monochromatic edge classes",
+          "Resultary records d5134b64355f, 45e5ee98b751, 3fb93c858f69"
+        ]
+      },
+      "rationale": "PASS for the repaired claim only. The frozen finding's headline three-color threshold fails originality: the actual 2016 Theorem 6 sharpness example K_{3,3}-e forces failure for all m,n>=3 by subgraph inheritance, while Theorem 1 covers K_{2,n} from an acyclic three-coloring and stars are immediate. The narrowed exact value four for K_{3,n} retains the original nonplanar upper-bound contribution and explicitly credits prior support for the lower bound. The checked general acyclic-coloring theorem gives five from four acyclic vertex colors; the four-color upper bounds in the checked papers are for planar graphs. They do not give the uniform four-color upper bound for the nonplanar family.",
+      "residual_risks": [
+        "The 2011 paper remains a plausible source of an earlier related construction, but its full text was not accessible. The bounded search does not certify priority for the surviving formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Threshold covered by direct implication; the repaired family's upper bound not supplied by the checked results",
+          "evidence": "Theorem 1 uses k colors for odd acyclic k and k+1 for even k. Theorem 6 proves exact four for K_{3,3}-e via an obstruction to three and gives four for planar bipartite graphs via disjoint palettes.",
+          "identifier_or_url": "10.7151/dmgt.1874; https://repository.up.ac.za/server/api/core/bitstreams/3244c42e-2a6a-47d0-8efa-72ff302d3234/content",
+          "material_read": "pp. 244–246; Theorems 1, 2, 6 and the sharpness example; OA text offset 2650 onward",
+          "method": "Lawful repository OA PDF inspection",
+          "title": "Hamiltonicity and Generalised Total Colourings of Planar Graphs",
+          "trigger": "Same invariant, possible direct implication of the frozen threshold and repaired formula"
+        },
+        {
+          "assessment": "Planar theorem only, not coverage of the nonplanar family",
+          "evidence": "Theorem 1.1 assumes a finite simple planar graph; all K_{3,n} for n>=3 contain K_{3,3}.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00091v1",
+          "material_read": "Abstract, definition and Theorem 1.1, OA offset 0–4169",
+          "method": "OA PDF passage inspection",
+          "title": "The Borowiecki–Broere Generalized Total Coloring Conjecture for Planar Graphs",
+          "trigger": "Same forest edge and proper vertex requirements, four-color extension theorem"
+        },
+        {
+          "assessment": "Unresolved scope, not negative coverage evidence",
+          "evidence": "Indexed scope reports paths, cycles and complete graphs for some pairs of graph properties; no full-text basis to exclude a relevant additional construction.",
+          "identifier_or_url": "10.7151/dmgt.1540",
+          "material_read": "Bibliographic scope and indexed abstract; full text not retrieved",
+          "method": "DOI OA retrieval attempt and targeted alternate-copy lookup",
+          "title": "Generalized total colorings of graphs",
+          "trigger": "Foundational source; might contain an earlier explicit family or useful general upper bound"
+        },
+        {
+          "assessment": "Different vertex condition and graph family",
+          "evidence": "Uses K_{1,a,b} and permits vertex color classes to induce forests; it does not establish the proper-vertex four-color upper bound for K_{3,n}.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-width-three-boundary-for-forest-forest-total-colourings--d5134b64355f",
+          "material_read": "RESULT.md offsets 0–4673",
+          "method": "Local mirror inspection",
+          "title": "A sharp width-three boundary for forest–forest total colourings",
+          "trigger": "Closest in forest total-coloring terminology"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "Counts forced vertex colorings under partial assignments, without a forest edge-class requirement.",
+          "identifier_or_url": "2026/10/13/SCOPE-forced-colouring-functions-of-complete-bipartite-graphs-for-lamb--45e5ee98b751",
+          "material_read": "RESULT.md offsets 0–2685",
+          "method": "Local mirror inspection",
+          "title": "Forced colouring functions of complete bipartite graphs for lambda at least three",
+          "trigger": "Same graph family and palette size"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "Counts partial assignments that force proper three-colorings, not generalized total colorability.",
+          "identifier_or_url": "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "material_read": "RESULT.md offsets 0–3307",
+          "method": "Local mirror inspection",
+          "title": "Forced three-colouring polynomial of complete bipartite graphs",
+          "trigger": "Complete bipartite exact three-color study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/4/RESULT.md, Finding, Proof and Relationship to prior work",
+        "Borowiecki–Broere (2016), Theorems 1 and 6",
+        "Schreib arXiv:2610.00091v1"
+      ],
+      "rationale": "The repaired theorem computes the sharp invariant on the first complete-bipartite shore size excluded by the old three-color criterion. This is a natural nonplanar test family for the same four-color invariant studied in the planar literature. For n>=5, simply putting the vertex and edge colors in disjoint palettes cannot attain four; the explicit rotation of the three star colors solves that obstruction for every n. Thus the exact family value is useful independently of the already implied three-color threshold.",
+      "residual_risks": [
+        "No exact formula is claimed for smaller shore size at least four, nor is it asserted that every proper four-vertex-coloring of K_{3,n} extends."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:22:01.695055Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–62",
+        "VERIFICATION.md, lines 19–40",
+        "verify_direct.cpp and verify_direct_output.txt",
+        "verify_linear.py and verify_linear_output.txt"
+      ],
+      "rationale": "For the binary base incidence matrix D, the closed-neighbourhood matrix of the line graph is I+D^T D: its diagonal is 1, and its off-diagonal entries mark shared endpoints. Thus x=1+D^T p, p=Dx, and substitution gives the equivalent vertex system (I+DD^T)p=D1. This proves sufficiency and injectivity as well as necessity; swapping the labels does not introduce duplicate solutions. In a part of degree parity zero, all labels equal the sum of the other parts' label totals; in a part of degree parity one, that sum must equal one. All-even sizes force all labels to zero, and all-odd sizes give the four constant triples of even parity. In each mixed case the two parts of the same parity have freely chosen odd subsets and the other part is all zero (substitute first the two forced part-total equations, then the constant equation for the remaining part). The weight formulas count edges separately inside the two label classes. Each class with an edge has a connected line graph, so the connected selections are exactly those with edges in just one class: all selections in the unmixed cases, just the bipartite set between the odd parts in the two-odd case, and none in the one-odd case since neither even part can be exhausted by an odd subset. For K_(1,2m,2m), the line degrees are 4m and 6m-1, so the minimum is 4m even at m=1. The edge and solution counts then give the announced family.",
+      "residual_risks": [
+        "The supplied finite programs and logs are corroboration and were not rerun here; the independent incidence-matrix argument proves the full quantified statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 8 gives connected odd-domination existence for complete multipartite host graphs themselves, including any with a singleton part.",
+          "The other two records classify line graphs from complete and complete bipartite bases."
+        ],
+        "reasoning": "Applying Proposition 8 to K_(1,2m,2m) gives existence on the base, not on its line graph; the latter has no connected solution. The broader number of parts in the host theorem does not overcome this distinction.",
+        "searches": [
+          "Caro, Klostermeyer and Yuster (2005), section 3.3, Proposition 8",
+          "Resultary 4ceee51a3626 and 9d5d63966d08"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 64–74",
+        "2005 DOI 10.7151/DMGT.1276, primary text",
+        "Resultary 4ceee51a3626 and 9d5d63966d08",
+        "2003 JCMCC 44 article and Giffen–Parker (2013) lead, limited OA attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general edge/vertex relation leaves a system to solve on the base graph. The triangular record has a single total-parity condition on a complete base; a rook graph has only two part totals."
+        ],
+        "reasoning": "Neither prior specialization implies the mixed-parity case analysis for three nonempty parts or its disconnection criterion. The extra part changes both the equations and whether each parity class spans edges.",
+        "searches": [
+          "Connected odd dominating sets in graphs, section 3.3",
+          "Resultary 4ceee51a3626 and 9d5d63966d08, Findings; RESULT.md equations (1) and (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2005 definition is exactly the closed-neighbourhood parity and induced-connectivity predicate.",
+          "The triangular-graph record 4ceee51a3626 uses the same within-class edge formulation (complement of a cut); its base is K_n."
+        ],
+        "reasoning": "The odd-domination notion and the general parity reduction are not new. The new content is the solution and connectivity profile for the tripartite base, not a renaming of the known graph class.",
+        "searches": [
+          "Resultary: closed-neighbourhood odd domination, weighted edge-cut/within-class formulation, line graphs of complete multipartite bases",
+          "Caro, Klostermeyer and Yuster (2005), introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search found the bound record itself and exact triangular and rectangular-rook censuses. K_(1,1,1)=K_3 yields the shared polynomial 3z+z^3 and four connected sets."
+        ],
+        "reasoning": "Credit the exact common instance. The complete bipartite tables concern two nonempty parts and do not cover the three-part weighted cases.",
+        "searches": [
+          "Resultary search for tripartite line-graph odd-domination weight and connectivity tables; 4ceee51a3626 and 9d5d63966d08, Findings"
+        ]
+      },
+      "rationale": "The parity method has substantial precedent and K_(1,1,1) is an exact prior instance. The distinct claim is the full weighted and connected four-regime classification for three-part bases, including the explicit claw-free line-graph obstruction with unbounded minimum degree. The closest host-graph theorem applies to a different graph. No exact broader covering statement was identified in the compared material.",
+      "residual_risks": [
+        "The 2003 scan and the Giffen–Parker primary lead were not text-extractable in the bounded attempts. The focused external query did not supply useful evidence; unseen or inaccessible prior work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Host-graph existence result, not the line-graph classification",
+          "evidence": "All parts even, at least three odd, or a singleton part meet the host existence criterion.",
+          "identifier_or_url": "https://bibliotekanauki.pl/articles/744351.pdf (DOI 10.7151/DMGT.1276)",
+          "material_read": "p. 1 introduction; section 3.3 Proposition 8, p. 13 near text offset 30000",
+          "method": "OA primary PDF passages",
+          "title": "Connected odd dominating sets in graphs",
+          "trigger": "Same predicate and plausible general multipartite graph theorem"
+        },
+        {
+          "assessment": "Prior method and exact common K_3 instance, not general tripartite bases",
+          "evidence": "For odd n, within-class edges for an even subset of K_n and its complement; for even n only the full set.",
+          "identifier_or_url": "Resultary 4ceee51a3626",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Odd-dominating edge cuts and the exact connectivity premium on triangular graphs",
+          "trigger": "Same parity/cut mechanism and exact all-set and connected census on line graphs"
+        },
+        {
+          "assessment": "Two-part analogue, not a covering result",
+          "evidence": "Row/column unions and odd-by-odd rectangle unions in L(K_(m,n)).",
+          "identifier_or_url": "Resultary 9d5d63966d08",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Parity-rectangle classification and odd-domination weight enumerator of rectangular rook graphs",
+          "trigger": "Exact weight census of line graphs of complete bipartite graphs"
+        },
+        {
+          "assessment": "Unresolved full-text risk; no claim of noncoverage based on access",
+          "evidence": "The stronger accessible 2005 comparison was made on its exact Proposition 8 statement.",
+          "identifier_or_url": "Caro and Klostermeyer, JCMCC 44 (2003), 65–83",
+          "material_read": "Bibliographic information; no extractable primary mathematical passage obtained",
+          "method": "Bounded lawful OA attempt",
+          "title": "The odd domination number of a graph",
+          "trigger": "Foundational odd domination and multipartite examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 8–27 and 49–55",
+        "Caro, Klostermeyer and Yuster (2005), section 3.3",
+        "Resultary 9d5d63966d08, Finding"
+      ],
+      "rationale": "The tripartite base is the next natural setting beyond complete-bipartite line graphs. The result separates abundant odd-dominating sets from the existence of a connected one, even at arbitrarily large minimum degree within a connected claw-free family. It also gives the exact weight distribution and singles out the only connected set in the two-odd case. The permanent split into two edge-bearing label classes explains the obstruction rather than merely supplying small examples.",
+      "residual_risks": [
+        "No universal claim about all claw-free graphs, all line graphs, or more than three parts is supported by this classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

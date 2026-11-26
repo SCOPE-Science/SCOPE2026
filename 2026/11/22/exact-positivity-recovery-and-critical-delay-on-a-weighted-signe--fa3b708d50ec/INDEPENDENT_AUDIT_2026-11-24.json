@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:26:25.077670Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–124, including all q regimes and the example",
+        "Frozen VERIFICATION.md and check_signed_triangle.py"
+      ],
+      "rationale": "The trace and principal minors give the stated pair of eigenvalues on the mean-zero plane. On that plane the two Lagrange spectral projectors give K12=1/3-A exp(-lambda_- t)+B exp(-lambda_+ t), also at q=q_c provided the zero eigenspace is split into the constants and the zero mode on the plane. In the stable region each nonconstant entry is a sum of three exponentials with distinct rates. Its derivative has at most one zero, giving at most two entry zeros counting multiplicity. The initial slopes (-q,a,b) and common positive limit then give the simple recovery on edge 12 and exclude all later zeros on edges 13 and 23. Diagonals are positive by the spectral representation. At the boundary the formula is -B(1-exp(-lambda_+ t)); above it lambda_- >= -2q from the single rank-one negative perturbation, so B>0 and K12 is strictly decreasing. Row sums one give the exact absolute row norm and differentiation gives the unique stable peak. At weak repulsion the expansion of K12/t has linear terms -q+ab t/2, and the derivative has -q+ab t; these and the small positive roots give both time expansions and the quadratic norm excess. At the critical edge lambda_-/epsilon tends to 3(a+b)/(2S_c). Negativity of the critical entry at every fixed finite t>0 forces T to diverge; the crossing equation then gives lambda_- T -> log(3 A_c). The explicit peak gives logarithmic divergence, vanishing lambda_- t_peak, and the asserted peak height. Independent scalar bisection for the stated symmetric example reproduced T=0.687767925034 and the peak norm 1.058792136080. The uploaded script was inspected, not executed.",
+      "residual_risks": [
+        "The zero count is used only for nontrivial polynomials with distinct rates in the stable regime; the critical case is checked separately. The audit is analytic, not a formal certificate or a larger-graph result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reciprocal effective resistance gives the PSD threshold; corank one with PSD gives eventual exponential positivity in the symmetric row-sum-zero setting. The signed-digraph consensus theory likewise addresses eventual positivity."
+        ],
+        "reasoning": "The positive subgraph has terminal effective resistance 1/a+1/b, giving q_c, and its corank changes at equality. These comparisons establish the static threshold and existence of a horizon below it, not the signs at every time or the divergence rates of the last sign-change time and the norm-peak time.",
+        "searches": [
+          "arXiv:1408.2187, Theorem III.3",
+          "arXiv:2009.03581, Section VI, Theorem 6",
+          "arXiv:2203.04215, Section III.B, Lemma 4"
+        ]
+      },
+      "checked_sources": [
+        "The five primary or indexed sources in source_inspections",
+        "Local Resultary comparisons by sign recovery, weighted triangle and boundary law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the frozen family the slow eigenvalue vanishes linearly in q_c-q while the fast one stays positive and the slow spectral coefficient tends to more than 1/3. The fractional record's reciprocal and logarithmic laws concern alpha_* when the positive conductances vary; they do not concern either of these times."
+        ],
+        "reasoning": "Pointwise formulas serve as machinery but are not the endpoint analysis. The inverse-distance recovery law requires control of T and survival of the slow mode at that time; solving the derivative equation instead yields a logarithmic peak and a nonvanishing limiting gain. Also, lack of eventual positivity does not by itself assert persistent negativity of the specified entry at each t>0.",
+        "searches": [
+          "Effective-resistance and eventual-positivity theorems above",
+          "Fractional weighted triangle, Finding, equations for T_alpha and t_peak and the two displayed conductance families",
+          "Biclique record, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fractional triangle theorem permits every strictly positive conductance triple and every positive power. It gives exceptional-edge signs, unique recovery, the exact norm, and the peak of exp(-t M^alpha)."
+        ],
+        "reasoning": "This covers the stable frozen triangle pointwise, not just by analogy: for its stable signed Laplacian L, form M=L^delta on the mean-zero plane and set it to zero on constants. As delta tends to zero through positive values, M tends to I-J/3, so all its off-diagonal entries are strictly negative for sufficiently small delta. M is then a positive-conductance triangle Laplacian, and with alpha=1/delta, M^alpha=L. The sign of the initial derivative identifies its uniquely offending edge; matching the two projectors and rates gives the same kernel and hence recovery/norm/peak. At or above q_c the rank drops or a negative mode appears, so this representation by a positive-conductance triangle fails. The theorem's displayed critical-order limits do not give timing or amplification along the frozen q-family.",
+        "searches": [
+          "Resultary: weighted triangle signed heat recovery and fractional-order positivity",
+          "2026/11/22/SCOPE-sharp-fractional-order-and-time-positivity-frontier-on-weighted--9ff3837d18bf, Finding and equation (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The biclique record gives one exceptional repulsive entry and its recovery and norm in K_{m,m}, m>=2, including a critical inverse-distance delay. The fractional triangle record gives explicit recovery and peak formulas and sharp asymptotics for a different varying quantity, its critical order."
+        ],
+        "reasoning": "The biclique is not the weighted triangle and gives a square-root weak-repulsion time, not the frozen triangle's linear law. The fractional triangle has the pointwise stable coverage above, but neither indexed comparison supplies the frozen q-family's weak-repulsion laws or its paired near-critical timing and norm limits. The shared publication date is not priority evidence.",
+        "searches": [
+          "Local Resultary, single repulsive edge and sharp heat-positivity recovery",
+          "2026/11/22/SCOPE-a-single-repulsive-edge-has-one-sharp-heat-positivity-recovery-t--4c07f0409143",
+          "2026/11/22/SCOPE-sharp-fractional-order-and-time-positivity-frontier-on-weighted--9ff3837d18bf"
+        ]
+      },
+      "rationale": "Credit the effective-resistance threshold, eventual strict positivity in the stable regime, and independently indexed coverage of the pointwise stable kernel, recovery and norm peak, as detailed below. The distinct contribution of the frozen theorem is the fixed-positive-conductance repulsion family through its stability boundary: endpoint quantitative laws, including the two different critical time scales with sharp constants and a finite peak excess, and the persistent repulsive-edge sign at and beyond the boundary. These are not the order-frontier asymptotics in the inspected fractional result. This assessment assigns no historical priority between the same-day records.",
+      "residual_risks": [
+        "Specialized three-state repulsion-family time laws might appear under other terminology. The comparison does not establish historical priority and credits demonstrated pointwise coverage regardless of same-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the PSD threshold",
+          "evidence": [
+            "For one negative link and connected positive subgraph, its magnitude must be at most the reciprocal effective resistance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.2187",
+          "material_read": "Section III, Theorem III.3, PDF text offset approximately 17000",
+          "method": "OA primary-text passage",
+          "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+          "trigger": "One negative link threshold"
+        },
+        {
+          "assessment": "Covers existence, not timing",
+          "evidence": [
+            "PSD with corank one is equivalent to eventual exponential positivity for the symmetric signed setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.03581",
+          "material_read": "Section VI, Theorem 6, PDF pp. 13–14",
+          "method": "OA primary-text passage",
+          "title": "On Spectral Properties of Signed Laplacians with Connections to Eventual Positivity",
+          "trigger": "Potential implication of exact recovery from eventual positivity"
+        },
+        {
+          "assessment": "General signed consensus criterion, not entrywise time classification",
+          "evidence": [
+            "The lemma concerns consensus conditions and does not give the triangle's last zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.04215",
+          "material_read": "Section III.B, Lemma 4, PDF text offset approximately 31500",
+          "method": "OA primary-text passage",
+          "title": "Multi-agent consensus over time-invariant and time-varying signed digraphs via eventual positivity",
+          "trigger": "Broader convergence and positivity criterion"
+        },
+        {
+          "assessment": "Pointwise coverage of the stable kernel via a positive fractional root; distinct q-family boundary laws",
+          "evidence": [
+            "All positive conductances and all alpha>0; one weakest-edge recovery, exact max row norm and logarithm of derivative-amplitude ratio for peak time; conductance asymptotics concern alpha_*."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-fractional-order-and-time-positivity-frontier-on-weighted--9ff3837d18bf/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, spectral projectors and equation (1), offset 0",
+          "method": "Local mirror bounded original passage",
+          "title": "Sharp fractional-order and time positivity frontier on weighted triangles",
+          "trigger": "Potential exact representation of the stable signed kernel by a fractional positive Laplacian"
+        },
+        {
+          "assessment": "Related but distinct square biclique family",
+          "evidence": [
+            "K_{m,m}, m>=2; one exceptional-entry recovery; inverse-distance critical delay but square-root weak-repulsion recovery."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-repulsive-edge-has-one-sharp-heat-positivity-recovery-t--4c07f0409143",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror bounded passage",
+          "title": "A single repulsive edge has one sharp heat-positivity recovery time",
+          "trigger": "Close repulsive-edge sign-recovery and delay theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md endpoint laws and proof",
+        "Compared effective-resistance, eventual-positivity and fractional triangle results"
+      ],
+      "rationale": "The one-repulsive-edge triangle is the smallest loop in which positive alternative paths can recover entrywise positivity. The useful new benchmark is not another PSD threshold: the time of most severe transient amplification becomes negligible relative to the recovery time at criticality, while the maximum gain remains bounded away from one. Sharp coefficients and the change from recovery to persistent negativity quantify the difference between initial gain and positivity delay in physical time.",
+      "residual_risks": [
+        "No transfer of the two time scales to larger signed networks is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

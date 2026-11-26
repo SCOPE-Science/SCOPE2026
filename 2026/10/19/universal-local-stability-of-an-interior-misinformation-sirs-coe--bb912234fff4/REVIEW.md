@@ -1,24 +1,21 @@
-# Scientific review: universal local stability of interior information–SIRS coexistence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the strictly positive, nondegenerate regime \(0<K<1\), \(b_1>b_2\), the steady-state balances uniquely determine all six positive coordinates when the three sharp feasibility inequalities hold. The four-dimensional tangent Jacobian is reconstructed directly from the exact nonlinear vector field, and the two transverse population-total modes have strictly negative eigenvalues. The eigenvalue elimination is valid in the closed right half-plane away from zero; the determinant excludes zero. A strict positive-real bound excludes the remainder, uniformly for every \(\varepsilon>0\). The included exact checker verifies equilibrium identities, tangent and full Jacobians, the Schur-complement identity, and positive-coefficient Hurwitz tests for admissible rational examples.
+PASS
 
-## Originality — PASS, with publication-priority qualification
+The two positive information-class balances force U=u and I=i. The population totals and R balance force q, s and R, and the remaining equation is p(1+M)=1+Z with M+Z=q, hence the stated strict feasibility interval and uniqueness. For stability, in independent M,Z,I,R coordinates write Q for the linearized perturbation of M+Z. An eigenvalue in the closed right half-plane with λ≠0 gives Q=dI/(λ+a), M=−(a−c)Q/λ, Z=Q−M and R=εγI/(λ+εt); if the infected perturbation I were zero, the whole eigenvector would vanish. The resulting scalar equation has the terms λ+εf+ε²fγ/(λ+εt)+εdB(a−c)/(aλ)+εd(cB−aA)/(a(λ+a)). If the last residue is negative, the maximum fractional loss of the positive constant f is [Ks/(1−Ki)]·[uz(m−z)/(q²(1+z)(1+m))]<1/8, using z(m−z)=z(q−2z)≤q²/8 and Ks<1−Ki. Thus the real part is strictly positive even on the imaginary axis. Zero is excluded directly: the M row forces Q=0, the Z row forces I=0, the R row forces R=0 and the infected row fixes M=Z=0. The normal rates follow from the two scalar population-total equations. This establishes exponential stability for fixed ε>0 without assuming a uniform rate as ε tends to zero or any global result. The supplied exact-rational verifier and notes were inspected, not executed; the algebraic obstruction, not the finite examples, is the replay path for the universal conclusion.
 
-Bulai, Sensi and Sottile, arXiv:2311.06351 (2023), establish the model, its fast and slow subsystems, and the interior equilibrium. Appendix A(vii) says that the four nontrivial eigenvalues obey an unprinted quartic and refers to one stable numerical example; this is not an all-parameter local-stability theorem. The current statement adds a uniform theorem for every positive time-scale ratio and an explicit interior existence criterion. Related SIRWS immunity-boosting analyses have different state equations and cannot imply this information-feedback result directly. There remains a nonzero risk of a stronger unexamined theorem in general coupled-feedback spectral theory or later literature. No independent priority audit has been performed.
+## originality
 
-## Value — PASS
+PASS
 
-The omitted quartic leaves open whether the model permits an interior time-scale-induced Hopf instability. The positive-real argument resolves that concrete structural question on the entire nondegenerate positive-interior regime without assuming singular scale separation. This distinguishes equilibrium-local damping from global mixed-mode behavior, which the conclusion does not exclude. The classification is parametrically robust and gives explicit viability conditions.
+The precise universal local stability statement is distinct from the cited preprint's stable example and slow–fast framework. The exact iff interior feasibility interval also corrects a material difference in the inspected preprint's printed formula. The model and most equilibrium coordinates are not new.
 
-## Limitations
+## value
 
-The theorem excludes \(K=0\) and boundary equilibria, does not establish global attraction or nonlinear periodic-orbit absence, and does not transfer to delayed or heterogeneous variants. In particular, \(K=0\) together with equal information transmission rates can produce neutral, nonisolated equilibria. Priority beyond the compared works is not independently certified.
+PASS
 
-## Primary sources
+For a published coupled ODE with a coexistence example but no general quartic classification in the inspected source, excluding local instability throughout its entire feasible time-scale family resolves a concrete mathematical gap. The feedback positivity argument also explains why a time-scale sweep alone cannot change local stability. This has value independently of the concise feasibility correction, without claiming global convergence.
 
-1. Bulai, Sensi, Sottile, *A geometric analysis of the SIRS compartmental model with fast information and misinformation spreading*, arXiv:2311.06351, Appendix A(vii), 2023-11-10 initial version, later Chaos, Solitons & Fractals 185 (2024), 115104.
-2. Opoku-Sarkodie, Bartha, Polner, Röst, *Dynamics of an SIRWS model with waning of immunity and varying immune boosting period*, Journal of Biological Dynamics 16 (2022), 596–618.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

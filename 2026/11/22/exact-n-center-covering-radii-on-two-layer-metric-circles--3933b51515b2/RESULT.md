@@ -23,7 +23,7 @@ R_N(L,s)=\begin{cases}
 \dfrac{L}{2k},&s\ge L/(2k).
 \end{cases}
 \]
-The first regime is realized by alternating the centers between the two sheets, with one necessary repeated sheet adjacency when \(N\) is odd. The second regime is realized by separate equal-spacing covers of the two sheets. Thus both the threshold and the parity-dependent slopes are sharp.
+For \(N\ge2\) below the transition, an optimal placement alternates between the two sheets, with one same-sheet adjacency when \(N\) is odd. At and above the transition separate equal-spacing covers on the two sheets are optimal. Both the threshold and the parity-dependent slopes are sharp.
 
 ## Assumptions and scope
 
@@ -31,9 +31,9 @@ The circle is the *intrinsic* length-metric circle, not a Euclidean chord circle
 
 ## Proof
 
-**1. The lower bound.** Fix a covering by at most \(N\) closed balls of radius \(r>0\). Let \(n_0,n_1\) denote the numbers of centers in sheets 0 and 1, padding with repeated centers if needed, so \(n_0+n_1=N\). For an ordinary radius-\(t\) arc on \(C_L\), its arclength is at most \(2t\). If \(r<s\), no ball reaches the opposite sheet; every sheet consequently requires at least \(\lceil L/(2r)\rceil\) centers. If \(k=\lfloor N/2\rfloor\) and \(r<L/(2k)\), then each sheet would require at least \(k+1\) centers, more than \(N\) in total. If \(k=0\), there is only one center and at least one sheet has none, so \(r<s\) is impossible. This counting argument for the numerical bound \(r<L/(2k)\) is needed only when \(k\ge1\).
+**1. Lower bound.** Fix a covering by at most \(N\) closed balls of radius \(r>0\). Let \(n_0,n_1\) denote the numbers of centers in sheets 0 and 1, padding with repeated centers if needed, so \(n_0+n_1=N\). A ball of radius \(t\ge0\) on \(C_L\) has arclength at most \(2t\). If \(r<s\), no ball reaches the opposite sheet, so each sheet requires at least \(\lceil L/(2r)\rceil\) centers. For \(k\ge1\), a radius \(r<L/(2k)\) would require at least \(k+1\) centers in each sheet, more than \(N\) in total. If \(k=0\), a single center cannot cover both sheets at radius \(r<s\).
 
-If \(r\ge s\), a center in sheet \(i\) projects to an arc of radius \(r\) in its own sheet and radius \(r-s\) in the opposite sheet. Comparing arclengths in both target sheets gives
+If \(r\ge s\), a center in sheet \(i\) covers an arc of radius \(r\) in its own sheet and an arc of radius \(r-s\) in the opposite sheet. Comparing arclengths in both target sheets gives
 \[
 L\le2rn_0+2(r-s)n_1,
 \qquad L\le2rn_1+2(r-s)n_0.
@@ -44,37 +44,39 @@ L\le2rN-2s\max(n_0,n_1)\le2rN-2sh,
 \]
 so \(r\ge (L+2sh)/(2N)\). Therefore no radius below both proposed candidates can cover \(X\).
 
-**2. Separate-sheet construction.** If \(N\ge2\), put \(k\) equally spaced centers in each sheet. Every point of either circle lies within circular distance \(L/(2k)\) of a center on its own sheet. Thus \(R_N\le L/(2k)\) without any condition on \(s\). An unused extra center is permitted for odd \(N\).
+**2. Separate-sheet construction.** If \(N\ge2\), put \(k\) equally spaced centers in each sheet. Every point of either circle lies within circular distance \(L/(2k)\) of a center on its own sheet. An unused extra center is permitted for odd \(N\).
 
 **3. Mixed-sheet construction.** Set
 \[
 b=\frac{L+2sh}{2N},\qquad a=\frac{L}{2k}\quad(k\ge1).
 \]
-For \(k\ge1\), direct subtraction shows \(b<a\) exactly when \(s<a\), and then \(b>s\). It suffices to construct a radius-\(b\) cover in that regime. For \(N=1\), one center in sheet 0 covers its own circle within \(L/2\) and the opposite circle within \(L/2+s=b\).
+For \(k\ge1\), \(b<a\) exactly when \(s<a\), and then \(b>s\). It suffices to construct a radius-\(b\) cover in that regime. For \(N=1\), one center in sheet 0 covers its own circle within \(L/2\) and the opposite circle within \(L/2+s=b\).
 
-For even \(N\ge2\), put \(N\) cyclically equally spaced centers on \(C_L\), with sheet labels \(0,1,0,1,\ldots\). Consecutive points are separated by \(L/N=2b-s\). On each sheet the corresponding covering arcs have consecutive radii \(b\) and \(b-s\), whose sum is exactly this gap. They therefore cover that sheet, including endpoints.
+For a directed gap of length \(g\) between consecutive projected centers, suppose the center at its start covers an arc of radius \(u\) in the target sheet, and the center at its end covers an arc of radius \(v\). A point at length \(x\) along the gap has circular distances at most \(x\) and \(g-x\) from the two projections. Thus \(u+v\ge g\) ensures the entire gap is covered. When \(u+v=g\), the two covered segments of that gap meet at distance \(u\) from its start, not necessarily at the midpoint.
+
+For even \(N\ge2\), put \(N\) cyclically equally spaced centers on \(C_L\), with sheet labels \(0,1,0,1,\ldots\). Consecutive points are separated by \(L/N=2b-s\). In either target sheet the two radii for each gap are \(b\) and \(b-s\), with sum \(2b-s\). The gaps are all covered.
 
 For odd \(N\ge3\), place sheet labels \(0,1,0,1,\ldots,0\) cyclically. Give each gap between unlike labels length \(2b-s\), and the sole gap between two 0 labels length \(2(b-s)\). These numbers are positive in the strict mixed regime and their sum is
 \[
 (N-1)(2b-s)+2(b-s)=2Nb-(N+1)s=L,
 \]
-so these gaps define a legitimate placement around the circle. In sheet 1, the coverage radii in cyclic order are alternately \(b-s\) and \(b\), with two consecutive \(b-s\) arcs at the special gap. Every adjacent pair of arcs therefore touches exactly at the midpoint of its gap, and covers the circle. In sheet 0, radii are exchanged; the ordinary gaps are still exactly covered and the special gap has two radius-\(b\) arcs which overlap. Hence both sheets are covered. At \(b=a\) the separate-sheet construction already proves the required bound.
+so these gaps define a placement around the circle. In both sheets, the two radii across an unlike-label gap sum to its length. Across the special gap, the radii sum to \(2(b-s)\) in sheet 1 and to \(2b\) in sheet 0. In each sheet and for each gap the gap criterion applies. At \(s=a\) the two candidate radii coincide, and the separate-sheet construction attains that radius.
 
-Combining the lower bound and both constructions proves the asserted formula. The inequality \(b\le a\iff s\le a\) also gives the sharp parameter transition and the claimed parity-dependent slopes. \(\square\)
+Combining the lower bound and both constructions proves the formula and the transition. \(\square\)
 
 ## Verification
 
-The attached standalone \(\texttt{checker.py}\) uses exact rational arithmetic. It constructed covers for 7,200 rational parameter triples \((L,s,N)\) with \(1\le N\le15\); checked both sheet arcs cover the entire circle without sampling individual points; and checked strict lower-bound certificates for two slightly smaller radii in each case. Run with `python checker.py`; it uses only Python's standard library. These tests are finite consistency checks; the universal real-parameter theorem is proved by the preceding arc-length argument and explicit constructions, not by the tests.
+The attached standalone `checker.py` uses exact rational arithmetic. It constructed covers for 7,200 rational parameter triples \((L,s,N)\) with \(1\le N\le15\); checked both sheet arcs cover the entire circle without sampling individual points; and checked strict lower-bound certificates for two slightly smaller radii in each case. Run with `python checker.py`; it uses only Python's standard library. These tests are finite consistency checks; the universal real-parameter theorem is proved by the arc-length argument and explicit constructions above.
 
 ## Relationship to prior work
 
-Cieliebak and Cieliebak (arXiv:2611.15599v1, 11 November 2026) formulate a sum-product covering-number conjecture, prove tree-factor special cases, and analyze graph cycles and Finsler limits. Their results neither state nor imply this complete continuous-circle-by-two-point \(N\)-center radius formula: their graph-circle argument covers discrete vertices with a fixed graph-ball radius, whereas this theorem covers every point of the intrinsic metric circle, for every real separation and every \(N\). Their conjecture is a motivation, not claimed as solved generally. Allagan (arXiv:2601.03488v1, 7 January 2026) treats the domination number and minimum-dominating-set enumeration of *finite* prism graphs, not the continuous two-sheet product metric or its arbitrary-radius spectrum. The classical one-circle radius \(L/(2N)\) and elementary arc-length bounds are standard ingredients, not claimed as new.
+Cieliebak and Cieliebak formulate a sum-product covering-number conjecture and prove a tree-factor bound. The latter applies to the two-point factor, which embeds isometrically in a segment. It recovers the separated-sheet counting obstruction for \(r<s\); for \(r\ge s\) the covering number of \(D_s\) is one and that product bound does not give the sharper sheet-balance bound above. Their graph-cycle and continuous Finsler results do not give the all-radius spectrum for this circle with a discrete fiber. Allagan studies the domination number and minimum-dominating-set enumeration of finite unit-edge prism graphs, not the continuous circle with arbitrary radius and separation. The classical one-circle radius and elementary arc-length bounds are standard ingredients.
 
 ## Limitations
 
-The product has a *discrete* two-point fiber; replacing it by a geometric cylinder or metric ladder changes the location of allowed centers and does not preserve the theorem. The result is deterministic and exact, but does not characterize *all* minimizing placements; it supplies explicit optimal placements. Originality is assessed against identified sources rather than independently certified exhaustively; unnoticed published priority remains possible. No claim is made about the general product-covering conjecture.
+The product has a discrete two-point fiber. Permitting intermediate centers in a geometric cylinder or metric ladder changes the problem. The formula gives explicit optimal placements but does not characterize all minimizing placements or resolve the general product-covering conjecture. The prior-work comparison is limited to the sources inspected and does not certify publication priority.
 
 ## References
 
-1. K. Cieliebak and M. Cieliebak, *Covering numbers of metric spaces*, arXiv:2611.15599v1 (first public version 2026-11-11), https://arxiv.org/abs/2611.15599.
-2. J. Allagan, *Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words*, arXiv:2601.03488v1 (2026-01-07), https://arxiv.org/abs/2601.03488.
+1. K. Cieliebak and M. Cieliebak, *Covering numbers of metric spaces*, arXiv:2611.15599v1, first public version 2026-11-11. https://arxiv.org/abs/2611.15599
+2. J. Allagan, *Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words*, arXiv:2601.03488v1, first public version 2026-01-07. https://arxiv.org/abs/2601.03488

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:40:30.335297Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–96; VERIFICATION.md and verify.py inspected as evidence only",
+        "Independent direct integer-Catalan verifier: /workspace/branches/094735fa-8290-4b15-b15c-a043b7ae43c0/own_exact_check.py; recorded output: /workspace/branches/094735fa-8290-4b15-b15c-a043b7ae43c0/own_exact_check.out (15 cases, 2403 indices)"
+      ],
+      "rationale": "The all-odd-prime formula, sign, zero exception, and limits hold for the actual successor. If Y is the successor valuation, replacing C_0 by C_(p^k) leaves the marginal unchanged: both valuations are zero by Kummer and the unit denominator p^k+1. Therefore Cov(X,Delta) = -E[Delta^2]/2. The increment is v_p(2n+1)-v_p(n+2). For p>=5 the root classes are disjoint and P(|Delta|>=j)=2p^(-j) for 1<=j<=k. For p=3 the increment vanishes off n=3t+1, where it equals v_3(2t+1)-v_3(t+1); the tail is 2*3^(-j-1) for 1<=j<k. The finite sums of these tails weighted by 2j-1 give both claimed formulas, including the empty k=1 sum at p=3. The frozen carry calculation agrees, but its assertion that further joint digit information is needed for this comparison is not correct.",
+      "residual_risks": [
+        "The bounded computation corroborates the proof only; no formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The adjacent central-binomial record covers every odd prime and positive block depth. Barat–Grabner §3 and Sobolewski’s abstract provide carry/digital and valuation-regularity context, not the target formula in the inspected passages."
+        ],
+        "reasoning": "Coverage comes from the exact law plus explicit transfer, not the mere availability of a broadly applicable framework.",
+        "searches": [
+          "Resultary: adjacent central-binomial law",
+          "Barat–Grabner, DOI 10.1112/S0024610701002630",
+          "Sobolewski, DOI 10.1007/s11139-023-00710-8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a6bbb4c7d618, c99e090ba83a, 19d62501d861",
+        "Barat–Grabner (2001), relevant passages",
+        "Sobolewski (2023), abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source law has P(|Delta_B|>=j)=2p^(-j) for 1<=j<=k. Catalan's two roots are disjoint for p>=5, giving the same law; at p=3 the Catalan law is the depth-(k-1) binomial drift with weight 1/3 plus mass at zero, with k=1 giving identically zero drift."
+        ],
+        "reasoning": "The elementary Catalan ratio and endpoint identity give the entire asserted result. The distinct same-date index establishes overlap by implication, not publication order.",
+        "searches": [
+          "a6bbb4c7d618, local-mirror offset 3898 and following, Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§4 computes the squared increment via its tail and uses identical shifted marginals to obtain the adjacent covariance. For the Catalan variables this is exactly Cov(X,Delta)=-E[Delta^2]/2."
+        ],
+        "reasoning": "The stated regression statistic is equivalent to the marginal second moment of the increment, not an additional joint statistic in this block setting.",
+        "searches": [
+          "Resultary: consecutive central-binomial valuation drift",
+          "a6bbb4c7d618, RESULT.md Proof §§2, 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "19d62501d861 gives a single-index Catalan histogram; c99e090ba83a gives a same-index joint law between two different sequences. Neither alone supplies the relevant increment moment. a6bbb4c7d618 supplies the exact signed increment counts that do transfer."
+        ],
+        "reasoning": "The first two indexed tables do not cover the target statistic; the third is decisive despite its different sequence.",
+        "searches": [
+          "Resultary: ternary Catalan marginal and Catalan/central-binomial joint laws; adjacent central-binomial exact law"
+        ]
+      },
+      "rationale": "The distinct indexed adjacent central-binomial record contains the exact increment law and explicitly uses the identical-endpoint/equal-marginal second-moment reduction. Its law gives the whole Catalan covariance by the elementary root-class equivalence and, at p=3, restriction to one residue class at depth k-1. This is demonstrable coverage by direct implication, not a claim that the source prints the Catalan formula or has established chronological priority.",
+      "residual_risks": [
+        "The common calendar date does not establish relative priority; no exhaustive literature-wide judgment is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by direct implication",
+          "evidence": [
+            "Exact signed counts, squared increment tail sum and equal-marginal identity for odd primes"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-adjacent-central-binomial-valuation-law-and-its-covariance--a6bbb4c7d618/RESULT.md",
+          "material_read": "Finding; Proof §§2 and 4, including local-mirror offset 3898–6280",
+          "method": "Resultary search and bounded local-mirror statement/proof read",
+          "title": "Exact adjacent central-binomial valuation law and its covariance",
+          "trigger": "Exact successor drift on the same prime-power block"
+        },
+        {
+          "assessment": "Different index pairing",
+          "evidence": [
+            "Pairs Catalan and binomial valuations at the same index"
+          ],
+          "identifier_or_url": "c99e090ba83a",
+          "material_read": "Finding equations (1)–(5)",
+          "method": "Local-mirror statement read",
+          "title": "Exact joint ternary valuation law for Catalan and central binomial coefficients",
+          "trigger": "Catalan covariance and prime-three overlap"
+        },
+        {
+          "assessment": "Marginal only",
+          "evidence": [
+            "Does not supply the increment second moment by itself"
+          ],
+          "identifier_or_url": "19d62501d861",
+          "material_read": "Finding equations (1)–(3)",
+          "method": "Local-mirror statement read",
+          "title": "Exact ternary-block distribution and Gaussian law for three-adic Catalan valuations",
+          "trigger": "Exact Catalan distribution on matching blocks"
+        },
+        {
+          "assessment": "Methodological overlap in consulted passages",
+          "evidence": [
+            "Binomial distributions and Kummer carries"
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Abstract and §3 opening, OA offsets 195 and 36632",
+          "method": "Author-copy bounded PDF read",
+          "title": "Distribution of binomial coefficients and digital functions",
+          "trigger": "Closest cited carry-based framework"
+        },
+        {
+          "assessment": "Framework, not an exact formula in material read",
+          "evidence": [
+            "Regularity of valuations of p-adic analytic functions and Lucas applications"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11139-023-00710-8",
+          "material_read": "Abstract, OA offset 121",
+          "method": "Bounded OA read",
+          "title": "On k-regularity of sequences of valuations and last non-zero digits",
+          "trigger": "Cited valuation framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen novelty and scope statements, RESULT.md lines 107–111",
+        "Exact implication in the originality assessment"
+      ],
+      "rationale": "As a standalone result the covariance is a direct re-expression of the available increment second moment. The ternary split is a simple rescaling of one residue class and does not supply a new two-index phenomenon. The record expressly does not claim a new full adjacent Catalan law, so no distinct substantive remainder is established.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

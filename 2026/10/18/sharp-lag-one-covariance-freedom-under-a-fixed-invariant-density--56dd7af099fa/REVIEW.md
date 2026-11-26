@@ -1,15 +1,21 @@
-# Scientific review: stationary quadratic-map covariance freedom
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The stationarity CDF equation for a general measurable control reduces, after subtraction of the known balanced solution, to a homogeneous composition equation. Because the ordered quadratic branches give a self-map strictly below the identity, continuity forces its only solution to vanish. The resulting half-branch probability-sum identity is sufficient by change of variables. Both bounding control functions attain the sharp covariance endpoints; their convex combinations attain the full interval. Conditional transfer densities yield the stated IID map-choice law. Exact rational polynomial integration independently checks the canonical endpoints and interior symmetric point. Numerical evaluations are not the source of the all-parameter proof.
+## correctness
 
-## Originality
-**PASS, subject to historical-priority risk.** The primary 2014 article derives the inverse-branch balance equation and a special half-symmetric weight. An earlier result for the same model establishes IID four-symbol labels for that half-symmetric case, but not a full asymmetric control classification or its sharp lag-one covariance range. The novel claim expressly excludes the previously known equation, symmetric existence, and IID symmetric coding. The 2006 attainable-density paper treats density construction rather than this optimized temporal statistic. Searches found no coverage but cannot establish uniqueness of historical priority.
+PASS
 
-## Mathematical value
-**PASS.** Full classification of admissible stationary weighting protocols and an exact, strictly positive two-time covariance corridor answer a natural nonidentifiability question in random dynamics. The fixed one-time Lebesgue law and fixed IID map-choice distribution still allow a continuum of different temporal state correlations. The source's natural rational parameter example has explicit attained endpoints \(223/15360\) and \(913/15360\), with substantial width \(23/512\).
+For r=(b₂−2)/(b₂−b₁), the affine derivative identity r f₁′+(1−r)f₂′=2 proves balance and admissibility, with 0<S<2. From the two branch CDFs the difference of the candidate primitives satisfies H(u)=H(f₂⁻¹f₁(u)). Because f₂>f₁ strictly inside the half interval, the iterate tends to zero, where H vanishes. Absolute continuity thus forces p(u)+p(u+1/2)=S(u) almost everywhere. Each map-specific pushforward of the uniform input has constant density r or 1−r. Conditional on any previous label history the next input remains uniform by induction with fresh choices, which is the required iid assertion. Conditioning on the original half gives covariance C₀−(1/2)∫hΔ; Δ>0 inside, so the pointwise extremizers are feasible and interpolation attains every intermediate value. Exact independent integration gives C₀=131/1920, ∫h₊Δ=55/512 and ∫h₋Δ=9/512, hence endpoints 223/15360 and 913/15360, width 23/512 and symmetric value 71/1920. No uniqueness of other invariant laws or coordinate independence is needed. In the proof, the displayed transfer density is understood almost everywhere or as a choice of version, consistently with measurable controls.
 
-## Limitations and closest literature
-The statement concerns the specific quadratic pair and measurable one-step controls, not arbitrary random interval maps, higher-lag correlations, unique stationary processes or ergodicity. The closest source is Góra--Li--Boyarsky--Proppe (2014, arXiv:1404.7455v1), Section 5, followed by the attainable-density framework of Góra--Boyarsky (2006). A previous same-model result (opaque identifier cdcfd704-70b1-43e9-8fec-4d60550d39f6) establishes a stronger four-symbol IID property only for the symmetric protocol. Unindexed prior implicit derivations remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating paper sets up the same transfer equation and gives the half-symmetric solution. The distinct result is the unrestricted fixed-density fiber and the attained positive-width covariance range within it at fixed iid label statistics. Neither the closest inspected literature nor the distinct indexed analogues were shown to cover this combined or sharp range assertion.
+
+## value
+
+PASS
+
+This is a sharp answer to an identifiable inverse question on the published map pair: even identical uniform marginals and identical entire iid switching laws leave a positive, exactly quantified freedom in a basic two-time statistic. The complete extremal and attainability statements are more informative than a single computed covariance or a demonstration of nonuniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

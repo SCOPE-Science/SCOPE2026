@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:48.222601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–35",
+        "Frozen VERIFICATION.md and checker.py (read only)",
+        "Replay: python3 /workspace/reviews/evidence/2/check_words.py; output /workspace/reviews/evidence/2/output.txt"
+      ],
+      "rationale": "In Z/3, consecutive proper differences are ±1; abab is exactly an alternating triple of differences. An interior swap across difference b sends a,b,c to a+b,-b,b+c, nonzero precisely when a=b=c. The analogous endpoint test flips two equal signs. Endpoint runs of length 2 or 3 can be flipped in full, and length at least 4 leaves at least two unflipped signs after an endpoint flip. Interior runs of length 3 can be flipped in full and those of length at least 5 admit the first-three flip, leaving at least two signs. With singleton endpoint runs, a length-2 interior run has no candidate, and each length-4 candidate leaves a singleton between two opposite runs and produces abab. This covers one-run and shortest-length cases. Halving the even interior lengths gives ordered compositions into 1 and 2, with 3 initial symbols and 2 signs; the stated Fibonacci count and series follow. All lengths 3–17 matched a fresh direct literal-word and swap enumeration, not a substitute for the proof.",
+      "residual_risks": [
+        "No claim of even-length connectivity, formal verification, or a result for arbitrary alphabet sizes or circular words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-Parikh transposition results use arbitrary sites and the full fixed-content word set. Proper-coloring path statements and the same-day degree spectrum operate before length-four squares are forbidden."
+        ],
+        "reasoning": "Neither a result on the unrestricted move relation nor a degree formula in a supergraph implies degrees after the specified vertex restriction.",
+        "searches": [
+          "Adamson et al. arXiv:2307.01648",
+          "Fuchs et al. DOI:10.4230/LIPIcs.ISAAC.2025.33",
+          "Resultary path record 4d7ccc34519c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 350f349099ec (same record), 4d7ccc34519c, a6393332ba3a",
+        "arXiv:1801.02310",
+        "arXiv:2307.01648",
+        "DOI:10.4230/LIPIcs.ISAAC.2025.33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 0102101, the proper moves to 0120101 and 0101201 create a forbidden four-letter square. Its sign runs are 1,4,1; it is frozen by the restricted criterion but is not frozen as a proper coloring."
+        ],
+        "reasoning": "The proper-swap lemma is a shared starting point. Which proper moves are lost requires the new boundary/run analysis; the same-day date establishes no priority.",
+        "searches": [
+          "Fuchs et al. Observation 9",
+          "Same-day proper-path Resultary record 4d7ccc34519c Finding and Proof §§1,4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Length-at-most-two irreducibility is exactly aa/abab avoidance. Proper path coloring under a swap enforces only aa avoidance. A distinct skip-transposition record a6393332ba3a exchanges sites at distance two."
+        ],
+        "reasoning": "Translate the language and path definitions before comparison; the extra state condition and the exact move distance cannot be removed by relabeling.",
+        "searches": [
+          "Resultary record 2026/11/22/SCOPE-exact-swap-degree-spectrum-and-frozen-proper-colorings-of-a-path--4d7ccc34519c",
+          "Chee et al. arXiv:1801.02310 §I-B Definition 2",
+          "Fuchs et al. DOI:10.4230/LIPIcs.ISAAC.2025.33 §4.1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "350f349099ec is the identical record, not separate evidence. The distinct proper-path record gives 6F_(n−2) for n≥4 at q=3; Chee et al. enumerate all 6F_n admissible words, not ones of degree zero."
+        ],
+        "reasoning": "Neither table gives this exact invariant, even where some small counts coincide.",
+        "searches": [
+          "Resultary frozen adjacent-swap / ternary short tandem irreducible lookup",
+          "Chee et al. arXiv:1801.02310 Corollary 1"
+        ]
+      },
+      "rationale": "The same-day proper-path result is materially close and the published swap lemma supplies properness of a candidate, but neither tests whether the swapped word newly contains a length-four square. The known Fibonacci language count tests the states, not their swap neighbors. The parity-specific run classification of isolated vertices in the induced graph is not covered by these statements.",
+      "residual_risks": [
+        "The comparison does not assign ordering to same-day findings or establish absolute historical priority. An equivalent restriction under other terminology could remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially related, not shown to cover the extra avoidance constraint",
+          "evidence": [
+            "Its ternary census is 6F_(n−2) at n≥4 for proper path colorings without abab avoidance."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-swap-degree-spectrum-and-frozen-proper-colorings-of-a-path--4d7ccc34519c",
+          "material_read": "RESULT.md Finding and Proof §§1,4, offsets 0 and 4300",
+          "method": "Resultary lookup and local mirror read, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact swap-degree spectrum and frozen proper colorings of a path",
+          "trigger": "Independent same-day freeze census with the same swap positions"
+        },
+        {
+          "assessment": "Covers the underlying language census, not isolation",
+          "evidence": [
+            "Initial conditions and recurrence count every short-tandem-irreducible word."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.02310",
+          "material_read": "§I-B Definition 2 and §II Corollary 1, OA text offsets 6500 and 11988",
+          "method": "OA PDF passages",
+          "title": "Efficient Encoding/Decoding of Irreducible Words for Codes Correcting Tandem Duplications",
+          "trigger": "Same irreducible language and Fibonacci recurrence"
+        },
+        {
+          "assessment": "Different move space and state predicate",
+          "evidence": [
+            "Transpositions may use arbitrary indices; membership is fixed Parikh vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.01648",
+          "material_read": "Abstract and introduction, PDF pp. 1–2, offsets 1100 and 4750",
+          "method": "OA PDF passages",
+          "title": "Structural and Combinatorial Properties of 2-swap Word Permutation Graphs",
+          "trigger": "Swap word graph characterization"
+        },
+        {
+          "assessment": "Covers proper-swap candidate testing, not square-preserving legality",
+          "evidence": [
+            "The criterion specifies neighboring colors for moves remaining proper and imposes no abab test."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ISAAC.2025.33",
+          "material_read": "Abstract and §4.1.1 Observation 9, pp. 15–16, offset 55864",
+          "method": "OA PDF passages",
+          "title": "Coloring Reconfiguration Under Color Swapping",
+          "trigger": "Actual adjacent-swap criterion on a path"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Chee et al. arXiv:1801.02310 Definition 2 and Corollary 1",
+        "Fuchs et al. Observation 9"
+      ],
+      "rationale": "The minimal duplicate-avoidance language and adjacent swap are independently natural. The all-length run criterion identifies exactly when local reconfiguration is impossible, including nontrivial new obstructions from forbidding abab. An exact isolated-state census and parity dichotomy are useful even without a connectivity theorem; the no-Hamiltonian observation alone would be weak since swaps also preserve content.",
+      "residual_risks": [
+        "This does not determine nontrivial components or connectivity within a fixed content class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

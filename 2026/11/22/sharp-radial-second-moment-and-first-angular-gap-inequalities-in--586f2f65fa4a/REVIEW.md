@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Finite angular-mode decomposition, Jacobi compression, strict covariance monotonicity, and Christoffel interlacing jointly prove the two globally lowest simple eigenvalues. Orthogonal projection then proves the sharp stability inequality. Fixed-weight Mehler–Heine limits supply the Bessel gap. The standard-library exact-moment checker replayed successfully (316 finite assertions). Finite tests are not an infinite proof.
+## correctness
 
-## Originality — PASS (best knowledge)
-The full 2020 primary source (arXiv:2009.14301, Sections 2, 3, 7, 8) gives general radial Toeplitz matrices. The 2023 related source (arXiv:2306.06231, Sections 2, 3, 10) addresses radial operator algebras. Neither inspected statement provides these two globally ranked simple eigenvalues, full-space sharp first-mode gap, or Bessel gap limit. Classical Gaussian-quadrature antecedents remain a possible historical-priority risk; the result is not presented as independently audited.
+PASS
 
-## Value — PASS
-Mean squared radius is a natural localization quantity. The first angular gap gives sharp stability against departure from the radial minimizer, uniformly in every integer order and every fixed admissible Bergman weight, and the limiting constants have a universal Bessel description. This is a structural inequality rather than an isolated Jacobi evaluation.
+The nonnegative frequency m has q radial polynomial coordinates with weight t^m(1-t)^alpha; the negative frequency -r has q-r with exponent r. Compression of multiplication by t has simple Jacobi-zero eigenvalues: dividing the degree-n orthogonal polynomial by t minus a zero gives the eigenpolynomial by orthogonality. Strict covariance with log t raises the Rayleigh quotient with the exponent (test the minimizer for the larger exponent). Strict consecutive-degree interlacing at exponent 1 handles even frequency -1, where monotonicity in the exponent alone would not give strictness; larger negative frequencies follow by the degree/exponent comparisons. The Christoffel numerator Q_(q+1)+Q_q changes sign between consecutive radial zeros. All ordered eigenvalues increase strictly with the exponent by min-max (strictness is uniform on the compact unit sphere at fixed block dimension). Thus the lowest exponent-one root lies before the second radial zero. For q=1 there are no negative blocks or higher radial roots. This puts exactly one simple ground state and one simple first excited state at the bottom. Testing these two eigenstates respectively proves sharpness and the spectral decomposition gives equality. Jacobi reflection and fixed-parameter Mehler-Heine place each smallest shifted zero at j_(beta,1)^2/(4 q^2) to leading order; their difference has the stated limit. An independent SciPy quadrature/compression diagnostic (/workspace/reproductions/frozen_diagnostics.py 1) passed 50 angular-block scenarios and ten hard-edge spot checks at q=256. Numerical checks are not the all-order argument. The frozen checker was inspected, not run. RESULT.md line 51 contains a malformed beta glyph; context and equations make the exponent unambiguous.
 
-## Scope and limitations
-The result concerns the full order-at-most-q weighted disk space, with a fixed weight parameter in the asymptotic. No higher-eigenvalue ordering or general radial weight extension is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge for the combined globally ordered first two simple levels and sharp stability theorem. The block representation, Gaussian-quadrature spectral identification, classical Jacobi comparisons and separate hard-edge formulas are antecedents or standard tools, not independently novel claims.
+
+## value
+
+PASS
+
+The square-radius moment directly measures radial localization. The theorem distinguishes the radial minimizer from the unique first angular competitor on the full function space, supplying the exact coercivity and equality data that a per-frequency spectrum does not itself provide. The leading ground and stability scales hold for every fixed admissible weight; neither a uniform-in-alpha limit nor the ordering of the higher spectrum is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

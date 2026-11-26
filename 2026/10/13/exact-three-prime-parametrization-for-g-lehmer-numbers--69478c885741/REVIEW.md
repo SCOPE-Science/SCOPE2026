@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Odd \(G\)-Lehmer numbers are squarefree because a repeated prime would divide \(\Phi(n)\) but cannot divide \(\mathcal F(n)=n\pm1\). With three prime factors, every local ratio \((p-\beta(p))/p\) is at least \(4/5\), so \(\Phi(n)\ge64n/125\); since \(n\ge105\), one has \(\mathcal F(n)\le n+1<2\Phi(n)\). Divisibility therefore forces equality. Expanding equality after signing each prime by \(\beta(p)\) gives \(xy+xz+yz=x+y+z\). The all-equal sign patterns are impossible, and the two mixed sign patterns rearrange exactly to the displayed quadratic factorizations. A sign-size argument proves the factors are positive, and reversing the algebra proves each converse. The packaged exact verifier agrees with the classification on every three-prime product through \(5\,000\,000\).
+## correctness
 
-## Originality
-PASS. The primary full text completely treats the two-prime case, then explicitly notes examples with more than two prime factors and asks whether proper divisibility can occur; it does not state a three-prime classification. OEIS A235864 tabulates the full divisibility sequence, while A182140 and A182221 tabulate equality cases, but none gives the factor-pair theorem or proves that divisibility collapses to equality at three primes. Exact-formula, sequence-ID, alias, and semantic searches found no covering result. The closest semantic records concern other Carmichael-type three-prime parametrizations and do not imply this Gaussian-totient statement.
+PASS
 
-## Value
-PASS. The result closes the first multiplicative-complexity layer beyond the published semiprime theorem and gives a finite divisor search for every possible three-prime solution. More importantly, it establishes a structural barrier for the paper's proper-divisor problem: an odd counterexample cannot occur with fewer than four distinct prime factors. This is a natural and reusable refinement of the original question rather than a bounded numerical extension.
+Odd G-Lehmer numbers are squarefree: a repeated prime divides Φ(n) but not n±1. For each distinct odd prime u, the ratio (u−β(u))/u is at least 4/5; for three primes this gives Φ≥64n/125. Since n≥105, F≤n+1<128n/125≤2Φ, so a positive integer quotient is necessarily 1. Multiplying the equality by the product of the signs and putting x_i=β(p_i)p_i gives ∏(x_i−1)=∏x_i−1; expansion gives the pairwise sum equal to the single sum. With all positive x_i≥5 the pairwise sum is larger, and with all negative x_i it is positive while the single sum is negative. For the two mixed cases, completing the product gives the displayed (q−t−1)(r−t−1)=t²+t+1 and (p−s+1)(q−s+1)=s²−s+1. The right sides are positive. If both factors were negative, the lower bounds 5 on the positive-residue primes and 3 on the negative-residue primes bound the product by (t−4)² or (s−4)² respectively; in the first case such a negative-factor pair already requires t>4. These bounds are strictly less than the right sides. Ordering the positive distinct factors accounts for uniqueness; substitution back gives both converses, and the residue classes make the distinguished prime distinct. The published semiprime result covers two primes (also the same ratio bound with exponent two works for n≥15); no composite odd one-prime case survives squarefreeness. My smallest-prime-factor sieve factored odd n rather than looping over the frozen three-prime tuples. Among 635,805 integers with three distinct prime factors and no multiplicities up to 5,000,000, precisely the seven reported values passed the direct divisibility test and each had quotient 1. The proof, not the finite sweep, proves the parametrization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Gaussian Euler product law, the odd two-prime classification and the known equality examples are prior. On the inspected evidence the distinct contribution is the exact odd three-prime classification, including the necessary equality, exclusion of two same-sign patterns, and two reversible divisor parametrizations. The brief support bound is a corollary, not a sharp general sieve barrier.
+
+## value
+
+PASS
+
+This is the first support layer beyond the published twin-prime case in the inspected classification, directly tied to the explicit proper-divisor question. Its main value is not the easy quotient bound alone (counting distinct positive-residue primes strengthens that coarse bound even at four primes). The two reversible families turn a global divisibility search in three primes into a divisor enumeration of one quadratic integer for each distinguished prime, and identify the exact admissible residue patterns. A researcher studying this equality sequence or attempting a higher-support search can use that structural description and recover every low-support member, not just a bounded list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

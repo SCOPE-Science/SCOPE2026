@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's quantifiers restrict to finite connected simple unweighted \(d\)-regular bipartite graphs with \(d\ge2\), \(0<\mu<d\), and integer \(r\ge3\). The spectral reflection property identifies both decisive eigenmodes and confines every remaining eigenvalue to \([\mu,2d-\mu]\). The exact pair-compression identity proves the all-round endpoint lower bound; endpoint balancing and a separate interior-spectrum bound prove matching attainment. Strictness in compression and endpoint balancing yields uniqueness up to step permutation. Four small graph characteristic polynomials and exact rational matrix products independently check representative computations. The verifier passed 326741 assertions, which supplement but do not replace the proof.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+In the frozen proof the small-gain replacement strictly improves the slow factor but may leave the maximum norm unchanged; that observation alone does not exclude a minimizer. The delivered RESULT closes the gap: any tⱼ<1/(2d) implies R≥∏(1−μtⱼ)>ρ^(r−1)(1−h)>Bᵣ, because all the other slow factors are at least ρ>0. For remaining gains set bⱼ=2dtⱼ−1 in [0,1]. The exact pair-compression identity fixes B=∏bⱼ and lowers the positive slow-mode product, strictly if two b's are below one. The maximum of the increasing 2d-endpoint magnitude B and the decreasing compressed slow-mode bound has its unique minimum at Bᵣ. For the candidate schedule all interior eigenvalues lie in [μ,2d−μ], so full rounds contribute at most ρ^(r−1); a nonnegative correction factor is at most its μ-value and a negative one has magnitude at most Bᵣ. This gives global attainment and, by the strict lower bounds, a unique gain multiset. The one-round intersection and the asymptotic root limit follow directly. The proof covers the stated graph class and does not infer it from the frozen finite-grid checks.
 
-The closest indexed mathematical overlap is the published stagewise-safe Richardson theorem (two-stage exact minimax and arbitrary-stage asymptotic sandwich). Its result does not determine the exact \(r\ge3\) finite-horizon optimum or a unique gain multiset on a bipartite finite graph. Apers–Sarlette (arXiv:1503.01269v1, Sections 1–4) optimize unconstrained second-order polynomial filtering and graph weights, not every nonnegative stage in arbitrary horizons. Hendrickx–Shi–Johansson (arXiv:1302.6668, full five pages) prove finite-time consensus existence with much more general stochastic matrices and no such spectral-rate optimizer. All results concerning only one or two rounds, or the balanced-complete-bipartite exact-consensus boundary, are treated as prior context rather than new claims. Specialist historical root-constrained polynomial work may contain an unindexed equivalent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed-horizon distribution of communication gains is a natural implementable consensus-design variable; requiring each round to be stochastic prevents negative intermediate states and preserves the average. The result turns an \(r\)-variable nonsmooth spectral minimax into one closed formula, proves a one-correction structural law for every \(r\ge3\), and gives a sharp finite-horizon benefit over repetition of the best single gain for infinitely many network families, including even cycles, bipartite expanders and hypercubes. This is not a routine fixed-dimension or one-parameter numerical table.
+The supported contribution is the exact all-r≥3 factor and unique admissible multiset under one shared Laplacian and stagewise nonnegativity. The published interval-robust Richardson record has a sharp two-stage law and nonsharp arbitrary-stage bounds. A same-day odd-cycle theorem does not satisfy bipartiteness or the horizon, and the overlapping indexed bipartite exact law is only two-round. The inspected primary filters, reachability and stationary-mixing works ask different optimization questions.
 
-## Limits
+## value
 
-This is a same mathematical model proof review, not an independent audit. It does not cover unrestricted Markov kernels, nonregular networks, nonbipartite networks, floating-point robustness, or optimization of one fixed infinite schedule. Literature coverage is not logically exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stagewise stochasticity is a substantive restriction: it preserves averages and nonnegative probability weights at every intermediate round. At any fixed horizon the theorem replaces a genuine multi-round nonsmooth minimax by an implementable unique schedule and factor depending only on degree and gap. It also proves strict improvement over repeating the optimal single-round scalar gain. These conclusions are useful across the natural bipartite regular network class, not merely a sample calculation or asymptotic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

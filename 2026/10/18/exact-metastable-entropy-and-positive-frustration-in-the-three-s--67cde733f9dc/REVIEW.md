@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact local multiplicity criterion is equivalent to absence of decreasing single-site recolorings, and the closed-walk transfer counts labeled periodic assignments once. The factorization of the explicit \(81\)-state integer matrix is reproduced by exact symbolic computation, and independent physical-configuration enumeration matches the transfer trace and total energy for every \(n\) from three through six. Rouché's theorem separates the unique sextic root beyond radius three, validating entropy asymptotics. The proper-coloring and strict-ground-state traces follow from separately constructed six- and eighteen-state transfers. The positive typical excess energy follows from an irreducible primitive \(48\)-state component, spectral perturbation, and a variance bound. The finite checks do not replace the analytic infinite-family argument.
+PASS
 
-## Originality — PASS, with a stated residual risk
+On the simple cubic prism, a recoloring changes the energy in units of J by the difference of two neighbor-color multiplicities. Checking the middle rung of a compatible pair transition tests exactly this condition. The trace fixes the column labels, checks each rung once and counts each transverse and horizontal edge once even for n=3. Independent sparse integer construction reproduced all three characteristic polynomials and nontrivial SCC sizes 48,3,3, and confirmed length-4 and length-5 returns in the 48-state SCC. The stated strict Rouché bounds check exactly, so the only root outside radius 3 is simple and real in (3,4); the smaller components cannot contain it (row sums at most 3). The proper-rung eigenvalues give the stated positive ground count. For strict proper colorings, at each rung the missing third color must appear in both rows among the two neighboring rungs. A swapped rung provides it in neither row; the two cyclically color-shifted rungs provide it in opposite rows. The neighbors must therefore be opposite cyclic shifts, forcing a constant shift around the ring and giving 6 times 2 solutions precisely when 3 divides n. Weighting each transition by z to its edge contribution gives the energy enumerator. The positive-energy edge in the primitive block makes the Perron derivative strictly positive; the simple eigenvalue and spectral separation control the remaining trace uniformly near t=0, yielding linear mean and O(n) variance, hence the claimed probability limit for the uniform ensemble, not a quench distribution. The independent calculation gave alpha 3.6730996940923, entropy per spin 0.65051795444237, energy/J per rung 0.21744173751868. Edge-based enumeration for n=3,4,5 gave weak counts 36,294,660 and summed weak energies 36,360,930; these are cross-checks, not the all-n proof.
 
-Primary text of Shrock's cyclic Potts-ladder equilibrium treatment was compared with the present one-spin optimality constraint; his Boltzmann and chromatic transfers do not count weak local minima, so neither his equilibrium entropy nor proper-coloring formulas imply the new sextic. Shrock–Tsai explicitly supplies cyclic-ladder chromatic ground-state formulae; these cannot cover weak positive-energy minima. Olejarz–Krapivsky–Redner concern two-dimensional Potts coarsening with different coupling and sampling questions; Silva's fall-coloring treatment is relevant to strict proper colorings but not to positive-energy weak minima. Search queries for the graph, exact root, spin-flip synonyms, transfer representation and energy law produced no recognized equivalent among inspected records. This is not a proof of uniqueness, and an unindexed specialized finite-width metastability table remains a genuine bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The prism is a natural canonical finite-width lattice, and the count is a complete all-length ensemble rather than an arbitrary short cutoff. The exact entropy base exceeds the equilibrium proper-coloring base, proving an exponential separation between one-spin local minima and ground states. The energy law shows that this extra ensemble remains macroscopically frustrated rather than merely a low-energy boundary layer, a quantitative distinction relevant to kinetic metastability and interpretations of local stability. This does not claim a universal law for other widths or an outcome probability for any dynamics.
+The supported distinct claim is the exact weak-minima census and entropy, and the positive typical excess energy on the labeled ternary antiferromagnetic prism. The proper-coloring formula is already covered by the cyclic-ladder chromatic polynomial, and the strict proper constraint is the classical fall-coloring condition; neither is credited as the novel phenomenon. Closest indexed local-stability transfers and prior thermodynamic or dynamical results count different ensembles or graphs.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is an exact solvable local-optimality ensemble on a natural bounded-width graph, rather than a tabulation of tiny sizes. The entropy distinguishes it from the classical proper-coloring ensemble; the energy law proves an extensive excess even though the ground energy is zero. The energy statement is about uniformly weighted weak minima, not geometric frustration of the ground state or quench behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

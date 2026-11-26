@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:36:15.847777Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both projectors agree on the tangent space. On the normal space write the complementary oblique maps on each side as graphs [-C;I], [-D;I] in orthonormal coordinates. Their tensor product has squared norm (1+γ_L²)(1+γ_R²); its orthogonal normal component is the identity, so Pythagoras subtracts one to give the squared defect. A product of top right singular vectors gives equality, including when one defect vanishes. For a combined trial/normal compression K with ||K−I||≤e, the normal-to-trial coefficient A⁻¹B has norm at most e/√(1−e²). Indeed for unit normal y with w=A⁻¹By≠0 and x=w/||w||, write a=xᵀAx, b=xᵀBy. Then b=a||w|| and (a−1)²+b²≤e², with maximal b²/a² at a=1−e². Applying this to the two residual-specific compressed spaces gives the stated sharp universal coefficient, not an exact coefficient for every realized input. The 2×2 Gram examples have spectrum 1±e, yield equality for all permitted distortions and can be embedded in 2×3 sketches. For e_L=3/5, e_R=4/5 the three nonzero leakage entries are −1, 3/4, 4/3, with squared norm 481/144. N=0 gives zero without additional embedding; zero distortions and the tolerance frontier follow by substitution. The supplied script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix A describes oblique spectra for general range/nullspace pairs, not specific to matrix dynamics. Carrel–Grigori §4.2 treats Galerkin pairings and a different 2ε+ε² error bound."
+        ],
+        "reasoning": "The operator argument works for arbitrary one-sided idempotents fixing the trial spaces, even without sketch Grams. For the realized residual estimate compress each Gram K to its trial-plus-residual space as in the frozen hypotheses. If W is the trial space, then for each unit x∈W, dist(x,KW)≤||x−Kx||≤e. The largest principal angle between W and KW therefore has sine at most e; the one-sided complementary projector has norm at most 1/√(1−e²), since the kernel of the trial projector is (KW)⊥. Applying the complementary tensor norm gives (2). This argument uses the combined spaces and does not follow from Carrel–Grigori's Galerkin pairing bound.",
+        "searches": [
+          "DOI:10.1137/19M1288115, oblique projectors and principal-angle spectra",
+          "arXiv:2607.03402v1 Proposition 4.4 and §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–136, VERIFICATION.md and verify.py (inspection)",
+        "arXiv:2607.03402v1",
+        "DOI:10.1137/19M1288115 submitted-version PDF",
+        "Resultary 359d8df14ce8 and b18d78935fc2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier projector formula has the complementary product (I−R)⊗(I−L). The general principal-angle norm law applies independently on both sides and to the product projector."
+        ],
+        "reasoning": "The norm theorem is an immediate application of these identities, not an extension of their range or norm hypotheses. The sharp embedding corollary uses the same complementary norm and the sharp near-identity angle bound, realized by the ordinary two-dimensional extremizer: send the trial unit vector to (1−e²,e√(1−e²)) with a symmetric norm-e perturbation, then tensor the two extremizers. The equal-distortion and tolerance formulas merely solve the resulting scalar product inequality.",
+        "searches": [
+          "Carrel–Grigori arXiv:2607.03402v1, offset 44192",
+          "Brust–Marcia–Petra Appendix A, pp. 15–16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carrel–Grigori Lemma 4.2 explicitly gives LZ+ZRᵀ−LZRᵀ. Brust–Marcia–Petra Appendix A gives the singular values of an oblique projector from its range–kernel principal angles."
+        ],
+        "reasoning": "For any projector E with kernel S, E kills S and has compression equal to I on S⊥, so ||E||²=1+||E−P_{S⊥}||² whenever S⊥ is nonzero. Apply this once to each factor I−L and I−R and once to E=(I−R)⊗(I−L), whose kernel is the tangent space. Norm multiplicativity gives (1+γ_L²)(1+γ_R²)−1 without an additional sketch-specific result. In angle variables this is sec²φ_L sec²φ_R−1, with tanφ_i the graph norm.",
+        "searches": [
+          "arXiv:2607.03402v1 Lemma 4.2",
+          "DOI:10.1137/19M1288115 Appendix A",
+          "sharp perturbation oblique projection onto subspace norm difference orthogonal projection same range norm sin largest principal angle operator antieigenvalue Gustafson SPD Kantorovich"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "359d8df14ce8, rank-one proof, computes the same E₂₂ leakage entries (−ab,a,b), but the conclusion concerns Gaussian moment thresholds after symmetrization. b18d78935fc2 gives a rank-one derivative sensitivity law for a fixed-increment update."
+        ],
+        "reasoning": "The indexed matches share ingredients but do not claim the deterministic exact general norm or distortion law. A finite table of sketches cannot settle these continuous operator and embedding parameters. The decision instead uses the exact operator reduction to the prior projector and general geometry.",
+        "searches": [
+          "Resultary: oblique low-rank tangent leakage and exact rank-one sensitivity, 359d8df14ce8 and b18d78935fc2"
+        ]
+      },
+      "rationale": "Equation (1), the central exact norm, is a direct consequence of the previously given two-sided projector and general oblique-projector geometry on its product complement. The reviewed literature did not explicitly print this residual bound; the sharp residual-specific specialization uses the same norm identity after restriction and the elementary sharp subspace angle bound for a near-identity positive operator. The related indexed Gaussian and sensitivity records are not exact duplicates and are not the basis for the failure. This assessment concerns coverage by implication, not chronology or authorship.",
+      "residual_risks": [
+        "No explicit earlier two-sided formula in the exact frozen notation was identified; the coverage judgment is based on the displayed norm reduction, not failure to find a text.",
+        "The targeted literature search did not surface a stronger direct two-sided statement and is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact product structure; distinct pairing estimates are not cited as coverage",
+          "evidence": "Lemma 4.2 writes the stated oblique projector in one-sided factors. Equations (14)–(15) and discussion bound a Galerkin pairing perturbation.",
+          "identifier_or_url": "https://arxiv.org/html/2607.03402v1",
+          "material_read": "Lemma 4.2 offset 44192; Proposition 4.4 and §4.2 offsets 49350–57326",
+          "method": "OA HTML passages",
+          "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+          "trigger": "Source of the exact projector and related embedding estimates"
+        },
+        {
+          "assessment": "General angle-to-norm law covers the complementary projectors used in the exact norm computation",
+          "evidence": "Defines principal angles via singular values between range and nullspace bases and gives σ_i=1/sin α_i for the oblique projector.",
+          "identifier_or_url": "DOI:10.1137/19M1288115",
+          "material_read": "Appendix A, pp. 15–16, offsets 55700–60673",
+          "method": "Lawful OA OSTI submitted-version PDF, Appendix A passages",
+          "title": "Computationally Efficient Decompositions of Oblique Projection Matrices",
+          "trigger": "Prior general oblique projector singular-value formulas"
+        },
+        {
+          "assessment": "Shared rank-one algebra; different conclusion",
+          "evidence": "Normal E₂₂ produces the same unsymmetrized entries, but finding concerns tails and moments of the symmetric part under correlated Gaussian draws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-sketch-coupling-singularity-for-symmetric-oblique-low-ra--359d8df14ce8/RESULT.md",
+          "material_read": "Finding and rank-one proof, offsets 0–7153",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp sketch-coupling singularity for symmetric oblique low-rank tangent projection",
+          "trigger": "Same one-normal-input leakage mechanism"
+        },
+        {
+          "assessment": "Not the same map or invariant",
+          "evidence": "The differentiated fixed-increment rank-one update has a √(1+α²+β²) derivative coefficient.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-first-order-sensitivity-spectrum-of-rank-one-two-sided-sam--b18d78935fc2",
+          "material_read": "Finding, offsets 0–6691",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact first-order sensitivity spectrum of rank-one two-sided sampled Galerkin updates",
+          "trigger": "Exact sensitivity law for a related two-sided map"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Leakage control is a natural question, but this particular norm and sharp tolerance are obtained by multiplying two complementary projector norms, subtracting the unit normal component and applying the elementary sharp bound on the angle between a subspace and its near-identity image. Independent two-dimensional equality on each side already realizes the product. No distinct scientific remainder beyond those exact consequences is established; this is not a judgment against sketch-error bounds in general.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

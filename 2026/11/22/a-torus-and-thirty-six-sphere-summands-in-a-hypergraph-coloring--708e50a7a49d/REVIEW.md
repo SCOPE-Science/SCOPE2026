@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the published homotopy-level intersection-poset wedge theorem, independently enumerates all 511 nonempty subfamilies of the nine hyperedges and their unique equality partitions, identifies the 9/18/9 sphere intersections, and verifies their strict lower intervals. The 90-face nerve (9 vertices, 36 edges, 36 triangles, 9 tetrahedra) admits the supplied 18 elementary collapses to a closed, orientable, connected surface with Euler characteristic zero. The finite checker verifies links, incidences and an orientation rather than inferring a torus from Euler characteristic alone. The wedge theorem then yields the exact claimed homotopy type. There is no infinite assertion or reliance on an unchecked partial enumeration.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The exact same hypergraph was introduced in Example 23 of Breuer--Dall--Kubitzke. That full text establishes nontrivial cup product and integral cohomology ranks but does not identify the integral homotopy type or the 18-collapse torus nerve and 27 additional sphere contributions. The general wedge lemma is explicitly attributed to that publication. Indexed search of hypergraph coloring complexes, the exact nine hyperedges and alternative torus/sphere formulations produced related results on different complexes but no direct stronger result. Search is not a proof of universal priority.
+PASS
 
-## Value — PASS
-Example 23 is a historically defining counterexample to the hypothesis that connected hypergraph coloring complexes are sphere wedges. Naming its exact torus and all 36 sphere summands determines the fundamental group, the cohomology multiplication and the attaching-map homotopy information beyond the already published Betti numbers. The exact finite classification is valuable without a larger-family theorem.
+Independent geometric reconstruction: the nine edges are the row-union-column crosses of the 3×3 array of vertices. All chosen crosses lie in one connected component, and the isolated cells are exactly the product of the unused rows and columns. The nonempty intersection poset in reverse inclusion is therefore the product of two nonempty face posets of a triangle boundary, ordered by used row and column supports. This is the cell face poset of ∂Δ²×∂Δ² and realizes to T². The 9 supports of shape 1×1 give S³ and empty lower intervals, the 18 of shape 1×2 or 2×1 give S¹ and two-point lower intervals, and the 9 of shape 2×2 give S⁰ and lower intervals that are subdivided square boundaries. Proposition 19 gives the base T² and the joins S¹*S⁰ and S⁰*S¹, hence precisely 27 S² and 9 S³. Equivalently, for the wedge lemma the nonempty intersection diagram can be made constant on all proper inclusion maps by homotopy equivalences: for each sphere choose a point missing all its strictly smaller subcomplexes, contract their union in the punctured sphere, and extend the homotopy to the sphere. The top term is the order-complex base, not a contraction of an actual empty set. A separate reproduction built the nerve from rectangle supports, checked its (9,36,36,9) counts and validated all 18 uploaded collapse pairs as data; the resulting (9,27,18) complex has cycle links, closed connected manifold incidences and rational H₂ of rank one, consistent with the direct torus proof. The integral homology, fundamental group and cohomology ring follow from the homotopy splitting, not the reverse.
 
-## Closest literature and limitations
-Breuer, Dall, Kubitzke, *Hypergraph Coloring Complexes* (arXiv:1104.0483v3, 2012), especially Lemma 17, Proposition 19 and Example 23. Its published general wedge lemma is used rather than reproved, and equivalent unindexed later work is a residual originality risk. The theorem applies only to the displayed hypergraph.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact hypergraph, torus design intuition, integral cohomology ranks and non-wedge-of-spheres observation are prior. The narrow supported increment is evaluating the full homotopy wedge for this example. The original's general join formula and suggested geometry do not identify the base homotopy type or evaluate the relevant intervals for the example; that requires the independent topological and poset computations.
+
+## value
+
+PASS
+
+Example 23 is a motivated uniform-hypergraph counterexample, not an arbitrary small arrangement. Its full integral homotopy type distinguishes a torus obstruction with explicitly quantified sphere contributions from the many complexes sharing its published additive invariants. It provides an exact homotopy benchmark, including the fundamental group and the origin of the nonzero product. No value is assigned to recomputing the already published ranks by themselves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

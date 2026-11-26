@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:33.101658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 28–42 handle the protected depths without an independence assumption: at 1 and N richness is constant; at 2 the distinct-species indicator changes PD from the fixed one-tip height H to at least H; at N-1 the singleton-omission indicator supports a nonnegative PD loss. In the remaining range the singleton clade is always hit. For the unique doubleton let X be its sample count, p_i=P(X=i). Conditioning on X=2 gives E[P_m|X=2]-E[P_m]=Hp_0-2ε(1-m/N); multiplying by -p_2 gives the covariance, since K_m=m-1_{X=2}. The hypergeometric p_0 and p_2 give the displayed formula, strict cutoff, common length ratio and N=5 witness -3/200. Binary refinement with positive, sufficiently short internal edges works by linearity/continuity and finitely many inequalities. Inspected the frozen verifier without executing it. Independently enumerated combinations(range(N),m) for N=5,6,8, every interior m and ε=1/32,1/8,3/4 at H=1: map labels 0 and 1 to the doubleton tip and each other label to its own tip, union the detected root paths, and compare exact rational E[KP]-E[K]E[P] with the formula. The sums agreed; this is only a finite cross-check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nipperess–Matsen work on arbitrary marked trees and give a general weighted variance formula at fixed sample depth.",
+          "SCOPE-20261108-167aef14ccb7 treats rooted Faith PD versus mean pairwise distance for uniform leaf samples, not rooted PD versus richness in individual rarefaction."
+        ],
+        "reasoning": "Broader tree sampling moment machinery covers the computation of the covariance in examples, not its sign classification; changing the second statistic from richness to mean pairwise distance is not a specialization that recovers the claim.",
+        "searches": [
+          "arXiv:1208.6552 PDF pp. 5–6",
+          "Resultary semantic comparison: root-path union length, species count and other rarefied diversity measures"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1208.6552",
+        "SCOPE-20261018-755f790ed3d5",
+        "SCOPE-20261108-167aef14ccb7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rao's mean pairwise diversity counts how many pairs use an edge, whereas rooted PD counts the edge once when detected. The near-census criterion for Rao covariance therefore does not imply rooted-PD nonnegativity at N-1.",
+          "PD variance under arbitrary edge weights permits exact mixed covariance evaluation by polarization; it supplies no classification without further universal arguments and a strict construction at every remaining depth."
+        ],
+        "reasoning": "The bound 1/[2(N-1)] that makes one positive ultrametric tree work over the whole unprotected depth range and the universal four-depth protection are not substitutions into an existing sign theorem.",
+        "searches": [
+          "arXiv:1208.6552, rooted-PD variance equations (1)–(3)",
+          "SCOPE-20261018-755f790ed3d5 RESULT.md, finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Richness is the sum of terminal detection indicators, or PD with all pendant weights one and other weights zero. Nipperess–Matsen give the occupancy covariance q_m(A∪B)-q_m(A)q_m(B) for clade sets A,B.",
+          "This gives mixed moments by weighting one index with the pendant indicators, or by polarization of the PD variance, but gives neither the universal sign boundary nor the common witness."
+        ],
+        "reasoning": "The weighted covariance formula covers the moment calculation and is not new here. Its individual terms can have opposing signs; the endpoint proofs and common negative interior interval are additional sign conclusions.",
+        "searches": [
+          "Resultary semantic comparison: negative rarefaction covariance of observed species richness with rooted ultrametric phylogenetic diversity",
+          "arXiv:1208.6552, Definition 2 and equations (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261018-755f790ed3d5 gives a five-individual one-doubleton Rao example with depth-2-through-5 signs +,+,-,0. The frozen rooted-PD witness instead is negative at 3 and cannot be negative at 4.",
+          "The later five-taxon Faith PD/mean-pairwise-distance record 167aef14ccb7 has a four-of-five covariance of -7/1000 for different statistics; it is not a table for this pair."
+        ],
+        "reasoning": "The closest indexed witness/sampling-depth sign patterns are incompatible as statements about this same statistic pair. A bounded search does not establish that no direct tabulation exists elsewhere.",
+        "searches": [
+          "Resultary semantic comparison: five-individual negative richness/diversity covariance, doubleton with singletons, exact sampling-depth signs and branch-length threshold"
+        ]
+      },
+      "rationale": "Pass the all-depth universal-versus-attainable sign boundary and common counterexample with its exact length threshold, not the generic calculation of occupancy moments or the broader observation that some diversity indices can anticorrelate. The closest indexed result has a different diversity functional and opposite behavior at the two relevant depths of its five-individual witness. The contemporaneous publication dates do not determine priority.",
+      "residual_risks": [
+        "A separate prior sign theorem in occupancy or phylogenetic rarefaction terminology might have been missed; the comparisons are bounded and not a priority certificate.",
+        "The contemporaneous Rao result has an overlapping construction strategy, without equating the statistic or establishing either study's priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the occupancy covariance and implies numeric mixed moments, not the asserted sign classification in the inspected results",
+          "evidence": [
+            "q_m(D_i∪D_j)-q_m(D_i)q_m(D_j) is the covariance of two root-path edge detections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.6552",
+          "material_read": "PDF pp. 5–6, Definition 2 and equations (1)–(3)",
+          "method": "Lawful open-access primary PDF, relevant passages",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Same finite sampling law and rooted-PD moment calculus"
+        },
+        {
+          "assessment": "Close structural overlap, different diversity functional and inequivalent depth signs",
+          "evidence": [
+            "Rao diversity against richness is negative at m=4 in its five-individual witness; rooted-PD covariance is universally nonnegative at that depth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-five-individual-reversal-of-richness-rao-covariance-unde--755f790ed3d5",
+          "material_read": "RESULT.md finding at offset 0, witness depth signs and near-census criterion",
+          "method": "Local mirror",
+          "title": "A sharp five-individual reversal of richness–Rao covariance",
+          "trigger": "Same day, same general abundance profile and five-individual threshold"
+        },
+        {
+          "assessment": "Different statistic pair and uniform leaf population, not taxonomic richness on an abundance profile",
+          "evidence": [
+            "With leaf sampling at fixed depth taxonomic richness is deterministic; the reported covariance concerns mean pairwise distance instead."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-taxa-are-the-sharp-threshold-for-negative-covariance-of-phy--167aef14ccb7",
+          "material_read": "RESULT.md finding at offset 0 and the four-of-five witness statement",
+          "method": "Local mirror",
+          "title": "Five taxa are the sharp threshold for negative covariance of phylogenetic diversity and mean pairwise distance",
+          "trigger": "Same rooted PD and threshold number five"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Richness and rooted diversity are natural joint statistics on the same rarefied set. The theorem identifies every protected depth, including the near-census depth, and uses a single abundance profile and tree to separate all other depths simultaneously. The sharp onset at N=5 and the positive-edge phase boundary give genuine constraints on when fixed-depth co-fluctuation can reverse; they are not claims about across-community correlations or a most-negative possible covariance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

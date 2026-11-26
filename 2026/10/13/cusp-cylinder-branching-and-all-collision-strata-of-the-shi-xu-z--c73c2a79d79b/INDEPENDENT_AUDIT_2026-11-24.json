@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:56.835535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, branch, contact and fiber sections",
+        "Frozen VERIFICATION.md and branch_strata_verify.py (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/branches/audit_branch_identities.py"
+      ],
+      "rationale": "The fiber relations can be made monic with leading terms x²,z² in graded lexicographic order with z>x: they are x²−uz+v and z²+uxz+2u²z−vx−uv−w. Their relatively prime leading monomials give a free degree-four quotient with basis 1,x,z,xz. For u!=0, simple substitution into the quartic identifies geometric multiplicities with root multiplicities. Writing A=u² and C=2(v+u³), the derivative is x(4x²+3Ax+2C); the discriminant of the quadratic in parentheses is S. A nonzero triple root requires S=0 and p(−3A/8)=0, the latter equivalent to T=0 on S=0. The source's phrase 'cubic derivative factor' is imprecise: it is the quadratic after factoring x, and S=0 alone does not make a triple root. Two nonzero double roots would force their sum zero by the missing linear term, incompatible with A!=0; on B=0 the remaining polynomial is x² times a quadratic and gives the two stated intersection cases. The independent exact resultant and restriction check confirmed Q and the factors with orders 3 and 1. The triangular target changes give the two irreducible surfaces and singular lines. On u=0, the equations x²=−v and z²=w−x³ give two doubled points at v=0,w!=0, a double and two simple points on w²=−v³ with v!=0, and the single length-four algebra C[x,z]/(x²,z²) at the origin. These arguments cover the branch divisor on and off u=0 and exhaust the partitions.",
+      "residual_risks": [
+        "The independent script checks exact eliminant, resultant, triple-root and intersection identities, not general flatness or classification by itself.",
+        "The decision concerns reduced branch components and fiber lengths, not the full discriminant scheme, conductor or local inertia."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi–Xu–Zuo's conclusion is about the Bernstein–Sato ideal of the exact tuple. Wu constructs different tuples.",
+          "The earlier quartic-cover entry gives both normalizations and S_4 monodromy and excludes full classification of the second branch surface from scope."
+        ],
+        "reasoning": "A normalization by A² and global monodromy S_4 do not characterize the cuspidal embedding or determine where and how exceptional roots collide. The Bernstein–Sato counterexample itself provides the natural test map, not a more general evaluated collision theorem.",
+        "searches": [
+          "arXiv:2610.04408v1, Introduction and §2",
+          "Resultary 032e59859f8b, Finding, Proof §§1–4 and Limitations",
+          "Wu, Bernstein–Sato ideals might not be linear, arXiv v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.04408v1",
+        "Resultary 032e59859f8b",
+        "Resultary e7a62692b128",
+        "Wu, Bernstein–Sato ideals might not be linear, arXiv v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old quartic is a starting point for the calculation. Separate evaluations of the derivative quadratic, the cusp coordinate transformation and the restriction of Q along B=0 recover the distinct strata and local intersection lengths."
+        ],
+        "reasoning": "This is additional analysis of known equations, not priority for those equations or for general quartic discriminant methods. The earlier normalizations and generic branch result do not already give an evaluated full map-specific incidence and fiber table.",
+        "searches": [
+          "Resultary 032e59859f8b, proof of the quartic and its branch factors",
+          "arXiv:2610.04408v1, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi–Xu–Zuo Theorem 1.2 uses precisely (y,zy−x²,z²+x²y+zy²+x³).",
+          "The same quartic in 032e59859f8b has B_1=B and second branch factor H=−Q/256 by comparing discriminants; e7a62692b128 instead denotes Q by R."
+        ],
+        "reasoning": "The changed branch names and scalar factors do not change the components: the prior degree, factorization and Whitney umbrella must be credited. Equivalent equations do not supply the additional contact orders and exceptional strata without a further calculation.",
+        "searches": [
+          "arXiv:2610.04408v1, Theorem 1.2",
+          "Resultary: quartic cover, normalized branch surfaces and monodromy of the Shi–Xu–Zuo map, 032e59859f8b and e7a62692b128"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives generic simple branching (2,1,1), not the exceptional rows or incidence multiplicities. The later record explicitly leaves V(B,R), singularities of V(R), and complete local inertia unclassified in its Limitations."
+        ],
+        "reasoning": "The exact relevant catalogue material has partial overlap. Its generic root partition and branch equations are known entries, but the exceptional partitions (3,1), (2,2), (4) tied to all the explicit strata are not furnished. The later-dated entry is not prior chronology evidence.",
+        "searches": [
+          "Resultary: exact branch geometry and fiber collision strata for the Shi–Xu–Zuo map",
+          "Resultary 032e59859f8b and e7a62692b128"
+        ]
+      },
+      "rationale": "The exact map, degree four, reduced branch equations, Whitney umbrella, and generic simple branch fiber are prior. The distinct claim is the explicit polynomial cusp-cylinder model and singular line, together with the two-curve incidence with unequal contact orders and complete exceptional fiber-length classification for this map. The closest earlier record normalizes the second surface but does not classify these singularities and strata.",
+      "residual_risks": [
+        "Primary literature and catalogue coverage is bounded; a treatment of these explicit quartic strata under different coordinates could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Specific map known; checked result is of different kind",
+          "evidence": "Theorem 1.2 states the precise tuple and concludes the Bernstein–Sato ideal inclusion/noninclusion.",
+          "identifier_or_url": "arXiv:2610.04408v1",
+          "material_read": "Theorem 1.2, Introduction and §2, offsets 0 and 4876",
+          "method": "OA arXiv passage inspection",
+          "title": "Zero loci of Bernstein–Sato ideals are not necessarily linear",
+          "trigger": "Original counterexample with the exact map"
+        },
+        {
+          "assessment": "Material prior coverage of the exact branch equations; not the complete collision classification",
+          "evidence": "Finite flat degree four, branch factors B_1 and H, two A² normalizations, Whitney umbrella, generic simple branching and S_4 monodromy.",
+          "identifier_or_url": "Resultary 032e59859f8b",
+          "material_read": "RESULT.md, Finding and Proof §§1–4, and Limitations at offset 5704",
+          "method": "Catalogue search and local mirror",
+          "title": "A quartic cover with two normalized branch surfaces and full symmetric monodromy",
+          "trigger": "Closest earlier same-map geometry"
+        },
+        {
+          "assessment": "Later catalogue overlap; explicit limits on strata",
+          "evidence": "Same branch factors and Whitney umbrella; leaves the singularities of the other component and their intersection unclassified.",
+          "identifier_or_url": "Resultary e7a62692b128",
+          "material_read": "RESULT.md, Finding and Proof §3, Limitations at offset 4842",
+          "method": "Catalogue search and local mirror",
+          "title": "Branch geometry and full symmetric monodromy of the Shi–Xu–Zuo polynomial map",
+          "trigger": "Another exact-map branch computation"
+        },
+        {
+          "assessment": "Different polynomial tuples",
+          "evidence": "An eight-polynomial tuple on C² and a different construction on C³, not the stated map.",
+          "identifier_or_url": "Wu, arXiv v1",
+          "material_read": "Passages at offsets 0 and 4989",
+          "method": "OA passage inspection",
+          "title": "Bernstein–Sato ideals might not be linear",
+          "trigger": "Related nonlinearity counterexamples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, intersection and partition table",
+        "arXiv:2610.04408v1, Theorem 1.2",
+        "Resultary 032e59859f8b and e7a62692b128"
+      ],
+      "rationale": "For a motivated published test map, the exact two branch models, two contact orders and exhaustive scheme-length partitions distinguish genuine local degeneracies left open by knowing the branch support and monodromy. These data locate all exceptional fibers and can be used directly in further local branch calculations. The value lies in that complete incidence and collision classification, not in routine verification of the degree or re-expansion of its discriminant.",
+      "residual_risks": [
+        "No Bernstein–Sato ideal consequence or full local equisingularity classification follows from the decision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

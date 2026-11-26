@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:53:18.412794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ranking independent chord endpoints generates each perfect matching with the same multiplicity. The crossing counts within disjoint groups are independent and their sum is pointwise bounded by the full count. On isolation the two arcs have independent uniform submatchings. Their crossing-count sum is bounded by the (n−1)-chord law, itself strictly smaller in increasing-test expectation because the extra chord crosses a specified existing chord with probability 1/3. Summing positive isolation-event weights gives the result, including n=2 and empty arcs. This is size bias, not conditioning on I_n>0. The replacement checker ran successfully for every designated pair and every relevant threshold at n=2..6 (python /workspace/repairs/2/verify.py); it is finite corroboration. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two residual arcs of a one-chord component appear in the general component decomposition."
+        ],
+        "reasoning": "The decomposition covers the split law but does not supply domination of a sum of independent crossing counts by the crossing count at their combined size.",
+        "searches": [
+          "Acan–Pittel arXiv:1406.2867 §4, equations (4.1), (4.2), (4.9)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0f60fb4dde2a, 6cd88475e150, 65daaf749589, c2a530e05e03",
+        "Acan–Pittel arXiv:1406.2867",
+        "Flajolet–Noy, Analytic Combinatorics of Chord Diagrams, pp.5–6 (marginal crossing moments)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The singleton specialization determines E[I_n | C_n=m] and hence the weighted pmf by Bayes weighting. The simple-chord theorem treats the empty-arc split."
+        ],
+        "reasoning": "Knowing the pmf or the order of the empty-arc split does not directly supply the sign of every tail difference for nonempty splits. The repaired coupling supplies the additional inequality and hence the order of the full mixture.",
+        "searches": [
+          "Acan–Pittel equation (4.9), singleton specialization",
+          "Resultary simple-chord Palm law equations (1)–(6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former gives suppression when weighting by consecutive-endpoint chords alone; the latter gives independent arcs and the mixed covariance for all isolated chords."
+        ],
+        "reasoning": "The repaired size bias includes non-consecutive isolated chords; its joint order is not just the earlier Palm law with a relabeling.",
+        "searches": [
+          "2026/10/13 marked simple-chord Palm law (6cd88475e150)",
+          "2026/10/12 isolated-chord crossing penalty (0f60fb4dde2a)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two records give the exact covariance; the later November 8 record gives the full expansion. The primary formulas encode finite crossing frequencies and crossing-conditioned isolate means."
+        ],
+        "reasoning": "Finite probability formulas and the exact covariance are covered/encoded, but no inspected formula or table establishes the repaired order uniformly in n and the threshold.",
+        "searches": [
+          "Resultary isolated-chord covariance records 0f60fb4dde2a, 65daaf749589, c2a530e05e03",
+          "Acan–Pittel equation (2.7) and equation (4.9)"
+        ]
+      },
+      "rationale": "For the corrected claim the substantive step is stochastic domination at every split, not the arc formula, crossing pmf, mixed moment, or simple-chord case. No inspected antecedent gives this stochastic comparison for all isolated chords.",
+      "residual_risks": [
+        "Earlier bivariate enumerations or an earlier colored diagram coupling might imply or state the ordering; no such statement was located in the compared material.",
+        "The distinct October 26 record's relative order is not inferred from its date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the frozen exact moment and arc decomposition, not the repaired order",
+          "evidence": "The same negative double-factorial split sum and leading expansion through the constant term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+          "material_read": "Finding, offsets around 473–1163; Proof §2",
+          "method": "Resultary local mirror full text",
+          "title": "Isolated chords impose an exact crossing-count penalty with a nonvanishing rare-event correction",
+          "trigger": "Exact isolated-chord mixed moment"
+        },
+        {
+          "assessment": "Covers only the consecutive-endpoint bias",
+          "evidence": "The biased law is exactly C_(n−1); deletion compares it with C_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-marked-simple-chord-gives-an-exact-crossing-palm-law--6cd88475e150/RESULT.md",
+          "material_read": "Finding equations (1)–(6); proof near offset 3368",
+          "method": "Resultary local mirror full text",
+          "title": "A marked simple chord gives an exact crossing Palm law",
+          "trigger": "Same stochastic-order wording"
+        },
+        {
+          "assessment": "Encodes the joint isolate/crossing observable but no asserted stochastic order in these passages",
+          "evidence": "Specializing to component size 1 and zero crossings gives the isolate expectation conditional on crossing count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2867",
+          "material_read": "§2 p.5 equation (2.7); §4 pp.24,26 equations (4.1), (4.2), (4.9)",
+          "method": "Lawful OA PDF text",
+          "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+          "trigger": "Crossing-conditioned component counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stochastic order controls all crossing thresholds at once and identifies a uniform upper bound even at each nontrivial arc split. Neither a negative covariance nor a simple-chord Palm identity answers this dependence question for the full isolate count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

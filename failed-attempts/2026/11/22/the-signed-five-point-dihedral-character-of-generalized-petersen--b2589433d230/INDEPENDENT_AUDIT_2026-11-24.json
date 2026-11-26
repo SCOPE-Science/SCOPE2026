@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:06:16.989314Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5",
+        "Frozen VERIFICATION.md and check_gp_dihedral.py (inspected)",
+        "Kim, arXiv:2611.22021, Theorem 4.6, p. 13 near offset 47663",
+        "audit-checks/petersen.py (written and run)"
+      ],
+      "rationale": "Kim's Theorem 4.6 gives the asserted rank four concentrated in degree 3q-1 for n=5q, and the exact sphere types for other d>=5. A setwise fixed independent face is a union of j compatible vertex cycles; for m original vertices its orientation sign is (-1)^(m-j), so including the empty face the reduced Lefschetz number is -I_Q(-1). For a rotation the residue classes modulo d=gcd(n,s) give the two-layer quotient, discarding internal loops. The d=1,2,3,4 evaluations are 1,-1,1,-1; in d=4 the empty outer choice contributes +1, singletons 0, and both opposite pairs -1 each. An independent exact eight-state transfer calculation (audit-checks/petersen.py) finds the characteristic polynomial z^4(z^4-z^3+z^2-z+1) and gives the same orbit evaluations in every period; its four nonzero eigenvalues are -zeta_5^j. For larger d the parity of Kim's sphere dimension gives the same formula. Multiplying by (-1)^q to pass from -I_Q(-1) to the lone homology trace gives the signed rotation law: 5 divides d precisely if 5 divides s, and d and s have the same parity when n is even. The four rotation eigenvalues on homology are epsilon_n(r) times the nontrivial fifth roots; inverses are distinct, so a reflection interchanges the paired eigenspaces and has zero trace. Rational semisimplicity and character equality give the stated isomorphism. None of the rotation eigenvalues is 1. After equivariant barycentric subdivision there are no inversions, and rational orbit chains give coinvariants, canonically isomorphic to invariants by averaging; this proves the quotient conclusion even for a nonfree action.",
+      "residual_risks": [
+        "No claim about integral representations, torsion in the quotient, or the full automorphism group at exceptional indices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6056ae77d731 includes every residue class and both even reflection types. Its ordinary quotient cohomology can be nonzero only for n congruent to 1,7,13,19 mod 20, never at multiples of five.",
+          "The earlier dodecahedral records give stronger full-group and integral information for n=10 only. Kim gives the underlying sphere or wedge types, not the group action. Pandey concerns independence polynomials, and Agarwal–Basak use other ladder families."
+        ],
+        "reasoning": "A same-day general result covers the entire target range; this judgment does not extrapolate from small n or from nonequivariant homotopy types.",
+        "searches": [
+          "Resultary 6056ae77d731, all n>=5; 3830dae8300c and 6135c3416108, the dodecahedral case",
+          "Kim, arXiv:2611.22021, Theorem 4.6; Agarwal–Basak arXiv:2608.30601, p. 3; Pandey arXiv:2601.03293, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6056ae77d731, 3830dae8300c, 6135c3416108, 9cd4a2926fbd",
+        "Kim Theorem 4.6",
+        "arXiv:2608.30601 and arXiv:2601.03293",
+        "Primary literature lookup stated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put d_n=3q-1. If n is odd, q and d are odd so the prior prefactor is -1; if n is even q is even and d has the parity of s, so the prefactor is -(-1)^s. This yields exactly the claimed two rotation values with their twist.",
+          "Each parity class of reflections has prior trace zero. The trace determines the rational representation, and rational cohomology of the finite quotient is dual to rational homology."
+        ],
+        "reasoning": "The proposed isomorphism, fixed-space vanishing and quotient statement are covered by direct specialization and elementary representation theory, with no otherwise uncovered substantive conclusion.",
+        "searches": [
+          "6056ae77d731, Finding rotation/reflection formulas and cohomology box",
+          "Frozen RESULT.md, Finding module and quotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6056ae77d731 uses the same vertices, edges and action; its rotation formula is (-1)^(d_n+d)(1-5*1_{5|d}) for d=gcd(n,s), and all reflections have trace zero when 5 divides n.",
+          "The five-point augmentation character is 4 or -1 on rotations according as 5 divides the exponent or not; a reflection on five vertices fixes one point and gives augmentation trace zero."
+        ],
+        "reasoning": "Inflation and the parity twist are the rational module description of the specialized character, not an extra invariant. The group's transposition of the two letters used to name a reflection in the sources is only notation.",
+        "searches": [
+          "Resultary: dihedral homology of generalized Petersen independence complexes and rational quotient",
+          "Primary literature: generalized Petersen GP(n,2) independence complex dihedral character homology rotations reflection Youngsoo Kim five augmentation quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6056ae77d731, RESULT.md at offsets 0–5189, Finding and §§1–2: exact symbolic answer for all rotations and reflections and the rational orbit-space law, not just numerical sample cases.",
+          "9cd4a2926fbd is an earlier related dihedral character for the distinct forbidden-word complex. The all-n GP record, not the unrelated graph definition alone, gives the coverage."
+        ],
+        "reasoning": "The match is distinct from the assigned record, and remains mathematically exact regardless of unresolved same-date priority.",
+        "searches": [
+          "Resultary: exact generalized Petersen dihedral character, dodecahedral augmentation lattice, rotation fixed space",
+          "6056ae77d731; 3830dae8300c; 6135c3416108; 9cd4a2926fbd"
+        ]
+      },
+      "rationale": "Resultary 6056ae77d731 is a distinct same-day catalog record with demonstrated mathematical coverage: it gives the complete rational character for the same canonical dihedral action on the same graph family for all n>=5 and explicitly gives rational quotient cohomology. The n=5q restriction specializes without additional hypotheses to every claimed trace and the acyclic quotient. Stating this character as the signed inflated augmentation of the five-point action is a direct character calculation, and the rotational invariant assertion follows immediately by averaging the specialized character or reading its roots. The date does not settle within-day priority, but it does not negate equivalent coverage.",
+      "residual_risks": [
+        "Within-day priority between the two uniform GP character records is unresolved; no judgment about chronological precedence follows. The exact broader mathematical coverage is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete specified character and quotient",
+          "evidence": [
+            "Explicit all-n formula, same action, zero at both reflection types for 5|n, and quotient cohomology classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-dihedral-homology-of-generalized-petersen-independence-complexes--6056ae77d731/RESULT.md",
+          "material_read": "Finding and proof §§1–2, offsets 0–5189",
+          "method": "Read bounded local mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Dihedral homology of generalized Petersen independence complexes and a mod-twenty quotient law",
+          "trigger": "Exact broader same-object result"
+        },
+        {
+          "assessment": "Confirms required degree and rank, not dihedral trace",
+          "evidence": [
+            "Four spheres in degree 3q-1 for n=5q; one sphere in degree 3q-2+r for n=5q+r with 1<=r<=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.22021",
+          "material_read": "PDF p. 13, Theorem 4.6 near offset 47663 including initial cases",
+          "method": "Locate and read bounded original theorem passage",
+          "title": "Perfect matching complexes of antiprism graphs and independence complexes of generalized Petersen graphs GP(n,2)",
+          "trigger": "Exact family and required homotopy input; primary search strongest hit"
+        },
+        {
+          "assessment": "Special-case coverage, not the full parameter range",
+          "evidence": [
+            "Antipodal twist of the four-dimensional augmentation under A5 times C2, and integral permutation-quotient refinement."
+          ],
+          "identifier_or_url": "Resultary 3830dae8300c and 6135c3416108",
+          "material_read": "Findings of the October 18 and November 8 records",
+          "method": "Bounded local mirror read",
+          "title": "Dodecahedral symmetry and integral lattice comparisons",
+          "trigger": "Same n=10 slice with larger group"
+        },
+        {
+          "assessment": "Other graph family or polynomial question",
+          "evidence": [
+            "Agarwal–Basak treat Möbius/circular ladder graphs; the Pandey passage concerns independence-polynomial root behavior and transfer computations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30601; https://arxiv.org/pdf/2601.03293",
+          "material_read": "Agarwal–Basak p. 3; Pandey p. 1 abstract",
+          "method": "Read bounded OA passages",
+          "title": "Primary comparisons on related independence complexes and GP polynomials",
+          "trigger": "Nearby topology and exact graph-family transfer methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§3–5",
+        "6056ae77d731, Finding"
+      ],
+      "rationale": "The uniform character is a natural worthwhile invariant, but the reviewed version restricts an already available all-n solution to the easiest nontrivial homology-rank family. The signed augmentation description and reflection eigenpair argument are useful exposition; the representation, invariant-space consequence and rational quotient are all mechanical consequences of the broader character. No standalone material gain is established.",
+      "residual_risks": [
+        "This decision does not assess the value of the broader character theorem or any integral or geometric refinement."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

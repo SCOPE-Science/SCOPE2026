@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:07:25.269829Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Li–Tang all-index bound and recurrence use the same vectors, weights, signs and nonnegative m as the frozen theorem. In the coefficient identity theta(0)=1 and xi=q+O(q²), so at q and q² the coordinates are a=y_{m,1} and b=12y_{m,1}+y_{m,2}. The h=12 term cancels, giving D_m=−Lambda^m_{2,1}. I recomputed both relevant columns via coefficients of theta xi^i at q³ and q⁶, and the fifteen exterior-square weights: the leading pair (2,1) has value 3 with Delta=395433=9·43937 and unit −1; every other pair has weight at least 4, with three zero minors. The next exterior-square iteration therefore has its unique least valuation 2m+9, while other terms have valuation at least 2m+10 by the all-index bound. The positive base minor 698368·3⁷ has unit 1; this gives the claimed alternating negative-sign determinant law and exact valuations. Li–Tang Theorem 1.2(ii) supplies existence at m+5 for all n, with n=0 trivial. Eliminating any integer multiplier from n=1 and n=2 at modulus 3^(m+6), and using Theorem 1.1 on the lower-level coefficients, would force D_m divisible by 3^(2m+8), a contradiction. In my own bounded reproduction (`/tmp/opencode/frozen-review-repro.py partition`), counting directly by odd part multiplicities and k choices of tag for multiplicity k replicated determinant valuations 7,9,11,13 and units 2,1,2,1 at depths 0–3, as well as both claimed congruence instances at each depth. I inspected but did not run the frozen checker. RESULT.md line 51 has a harmless u_3(0) typo for nu_3(0), already defined on line 21. Infinite-depth validation relies on the cited all-index bound and the exact induction, not on these examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Tang prove all-index bounds and an all-depth internal congruence, not uniform optimality or exact all-depth valuation.",
+          "Singh–Barman treat exact named finite progressions 12·3n and 12·3²n and conjecture a broader congruence pattern; their results do not give this invariant."
+        ],
+        "reasoning": "Better bounds (or failure of a stronger congruence for one fixed multiplier) are not the same as proving that every integer multiplier fails the stronger congruence.",
+        "searches": [
+          "arXiv:2611.15164v1, Theorems 1.1, 1.2(ii), 3.2; Lemma 5.2(ii)",
+          "arXiv:2307.04687v1, Theorems 1.6 and 1.7, Conjecture 1.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15164v1, arXiv:2307.04687v1, DOI:10.1016/j.jnt.2017.08.020 (limited)",
+        "Resultary ...afc553741c0c, ...d9e665e1666e, ...81fe31674a4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Tang already compute the exact m=0 minor, and publish the recurrence and columns. Their bound does not distinguish leading terms of its sum or rule out cancellation.",
+          "The weight gap 3 versus at least 4 plus the signed leading coefficient provides the new persistence argument."
+        ],
+        "reasoning": "The exact base case and an induction of lower bounds do not specialize to an equality or a unit theorem. Exact weighted exterior-square arithmetic and a different induction are required; with them the two-index multiplier argument establishes the requested optimality.",
+        "searches": [
+          "Li–Tang §5, (5.5), (5.9), (5.12) and proof of Theorem 1.2(ii)",
+          "Li–Tang Appendix A.5–A.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The neighboring record gives the sharpness support for the valuation of individual T(12·3^m n) and the normalized residue T(12·3^m n)/3^(m+2) mod 3, for the same progression.",
+          "The two normalized product terms of the determinant agree modulo 3 from that law; their difference divided by 27 modulo 3 is not determined by the mod-3 identity."
+        ],
+        "reasoning": "Coefficientwise leading units do not yield the deeper alternating unit of the cross-level determinant. This is material mathematical overlap, not an equivalent theorem.",
+        "searches": [
+          "Resultary: tagged odd partitions, internal ternary sharpness, progression and determinant aliases",
+          "Resultary ...d9e665e1666e, Finding and proof §1, offsets 0–6414"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit for the exact determinant law is the assigned record itself.",
+          "The closest distinct same-date ...d9e665e1666e entry is coefficientwise mod 3; ...81fe31674a4c treats prime witnesses in the 8 rather than 12 progression."
+        ],
+        "reasoning": "Neither is an independent table of the determinant valuation and unit. No ordering is inferred from their shared date or snapshot.",
+        "searches": [
+          "Resultary: exact claim and progression valuation variants",
+          "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, records ...afc553741c0c, ...d9e665e1666e and ...81fe31674a4c"
+        ]
+      },
+      "rationale": "The first two matrix columns, exact base minor, minor inequalities and achievable modulus are prior. The result that persists at every positive depth is exact sharpness and its leading unit, obtained by separating the leading exterior-square term from all other contributions and transferring this to arbitrary integer multipliers. The strongest closely related results inspected do not give that equality or its equivalent.",
+      "residual_risks": [
+        "The originality decision is bounded to inspected statements. Lin full text was not retrievable; broader or alternate terminology and same-date priority ordering remain unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms cited theorem inputs, not all-depth exactness",
+          "evidence": "Same y recurrence, Lambda definition, all m≥0,s,t≥1 bound, exact initial minor and achievable exponent m+5 with the stated multiplier.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15164v1",
+          "material_read": "Theorems 1.1 and 1.2(ii) (OA offsets 6107, 6800); Theorem 3.2, (3.5)–(3.7) and (4.4) (offsets 28150–36147); §5 definition (5.5), Lemma 5.2(ii), (5.9), (5.12) and its proof (51000–61797); columns and Appendix A.5–A.8 around 61797",
+          "method": "OA HTML paper, text and formula passages",
+          "title": "Congruence properties modulo powers of 3 for designated summands in partitions into odd parts",
+          "trigger": "Decisive prior recurrence, bound, congruence and possible sharpness theorem"
+        },
+        {
+          "assessment": "Earlier congruences, not exact determinant equality",
+          "evidence": "Two finite-depth 12·3^j progressions and a broader congruence conjecture.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.04687v1",
+          "material_read": "Theorems 1.6–1.7, equations (1.34), (1.36), Conjecture 1.8 (OA offsets 13733–18716)",
+          "method": "OA full text, bounded passages",
+          "title": "Congruences for the partition function PDO_t(n) modulo powers of 2 and 3",
+          "trigger": "Earlier same statistic and progression"
+        },
+        {
+          "assessment": "Substantial coefficientwise overlap; not the higher-precision determinant law",
+          "evidence": "T(12·3^m n)/3^(m+2) ≡ (−1)^m a(n) mod 3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharpness-spectrum-and-asymptotic-count-for-tagged-odd-part-part--d9e665e1666e",
+          "material_read": "RESULT.md Finding and proof §1, offsets 0–6414",
+          "method": "Resultary local mirror",
+          "title": "Sharpness spectrum and asymptotic count for tagged odd-part partitions",
+          "trigger": "Same progression, depth-uniform sharpness and leading residues"
+        },
+        {
+          "assessment": "Full-text priority comparison unavailable; no negative inference",
+          "evidence": "Identified cited originating paper; no retrievable full-text theorem passage in this lookup.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2017.08.020",
+          "material_read": "Bibliographic landing page and abstract only",
+          "method": "OA lookup, direct and configured alternate route",
+          "title": "The number of tagged parts over the partitions with designated summands",
+          "trigger": "Foundational statistic and generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the sharp modulus of a named infinite-family congruence, not an arbitrary slice or numerical base check. A precise determinant obstruction handles every possible multiplier and explains the signed noncancellation throughout the progression. The separate 8 progression and other extracted families are not covered.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

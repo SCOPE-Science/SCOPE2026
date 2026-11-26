@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:53:31.571537Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–70; frozen VERIFICATION.md, verify.py and verification_output.txt inspected as recorded evidence, not executed",
+        "Independent decimal replay: bisect F on [0,1] for positive η and compute the reduction and posterior risk from C_n,V_n. At n=8, η=0.1 this gives t*=0.820239797639964…, ρ=0.4565840413… and risk 0.02525680563…; a scan with mesh 10^−5 agrees to a reduction gap of about 4.1×10^−13.",
+        "Independent decimal root evaluation gives c=1.25643120862616967698… and noiseless fraction 0.8145287551781475003…. At α=2 it gives u=2.2516362031… and fraction 0.3766168329…. At fixed η=0.2,n=10000 it gives u_n≈7.95929 and nρ≈9.9381, versus leading predictions 7.95758 and 10."
+      ],
+      "rationale": "For the deterministic one-point design, the Beta(n,1) weight is in the target, not in the sampling law. The bridge Green equation −C_n''=nt^{n−1} with zero boundary values gives C_n=t(1−t^n)/(n+1); integrating against nt^{n−1} gives V_n=n²/[(n+1)²(2n+1)]. Gaussian projection gives risk V_n−C_n²/[t(1−t)+η] with zero reduction at endpoints. Differentiating the reduction on (0,1) gives the sign of the stated F. For η>0 there are at most two Descartes sign changes, including after combining powers at n=1; F(0)>0, F(1)<0 and the positive leading term force one simple interior root and one root above 1. At zero noise, F/t has at most two positive roots, the simple root 1 and a sign-changing root below it. Thus the interior root is the unique global maximum. At n=1 it is identically 1/2. For n>1, r_n=(n+1)^(−1/n)>1/2 and F(r_n)=r_n n(2r_n−1)/(n+1)>0, so t_n>r_n. At the optimizer F_η<0 and F_t<0, giving strict leftward motion. The bound t_n>r_n gives u_n=n(1−t_n)=O(log n). In the balance identity on lines 55–59, bounded nη_n implies t_n^n≥a/(1+u_n) for a fixed a>0; t_n^n≤exp(−u_n) then forces u_n bounded. In the noiseless case u_n→0 along a subsequence would give explained fraction at most (2+1/n)u_n there, using 1−t_n^n≤n(1−t_n), but the trial t=1−c/n gives positive limiting gain. Noise monotonicity excludes the small branch for scaled noise and identifies the limit u_α on [c,∞). For fixed positive noise the same balance gives t_n^n∼(1+2η)/(2ηn); n log t_n=−u_n+O((log n)²/n) gives the additive logarithmic shift. Substitution into the exact explained fraction yields all three risk limits.",
+      "residual_risks": [
+        "Independent computations check representative cases and constants only. Uniqueness and asymptotics follow from the proof, not the mesh scan. The record does not claim the full intermediate regime η_n→0 with nη_n→∞. No formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Average-case quadrature bounds treat broader kernel families without an exact one-point Beta location law; bridge interpolation optimizes a power function rather than the projection of the specified integral",
+          "The integrated-Wiener design changes the estimand and takes high noise at fixed order; the Brownian-sheet design uses tensor dimension, not Beta weight order"
+        ],
+        "reasoning": "Neither broad error-rate bounds nor local kernel interpolation determine a sharp argmax for a particular weighted linear functional. High noise at fixed integration order and large tensor dimension do not dominate the one-dimensional large-weight-order problem.",
+        "searches": [
+          "arXiv:2202.10615, abstract and §1.1; arXiv:2210.15959, abstract and interpolation result",
+          "Resultary integrated-Wiener and Brownian-sheet boundary-layer records"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work section and references",
+        "Local Resultary entries and matching mirror passages listed above",
+        "arXiv:1904.06998; arXiv:2202.10615; arXiv:2210.15959; DOI 10.1007/s11222-019-09901-0",
+        "Focused public search stated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected weight-stability result controls quadrature weights, not the stationarity equation or its optimum. The nearest high-noise and phase results use a different target, role of order, or sensor."
+        ],
+        "reasoning": "The useful distinct content is the globally unique solution and the singular asymptotic balance: excluding the zero-layer root, resolving an additive fixed-noise log shift, and obtaining a nontrivial nη limit are not consequences of the inspected generic projection identities or quadrature estimates.",
+        "searches": [
+          "arXiv:1904.06998; arXiv:2202.10615; arXiv:2210.15959; DOI 10.1007/s11222-019-09901-0; neighboring Resultary designs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary reproduces the exact claim in its self-hit; the nearest bridge records instead use two joint targets or a fixed-width interval-average sensor",
+          "Foster–Lyons–Oberhauser use bridge polynomial coordinates for path approximation"
+        ],
+        "reasoning": "A monomial integral can be written as a linear combination of polynomial-coordinate functionals, but coefficient availability for path reconstruction is not a noisy point evaluation. Such a change of basis supplies neither the optimizer of the scalar risk nor a high-order limit. The exact self-hit is not independent evidence.",
+        "searches": [
+          "Local Resultary searches for one-point bridge moment design and order/noise boundary layers",
+          "optimal noisy single point design beta weighted polynomial moment Brownian bridge quadrature large order location \"Brownian bridge\"",
+          "arXiv:1904.06998, abstract and bridge polynomial KL theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the frozen entry itself; neighboring indexed phase and layer constants are for different sensors, weights or estimands.",
+          "The targeted public search returned the already inspected polynomial bridge approximation as its relevant polynomial-bridge hit; it did not surface an independent table of these designs."
+        ],
+        "reasoning": "An exact kernel-moment formula, an optimizer for a different loss, or an isolated match at n=1 would not tabulate the all-n and all-η optimizer with its distinct asymptotic regimes. No independent exact table surfaced in the bounded search.",
+        "searches": [
+          "Resultary exact and neighboring optimizer searches and local mirror findings",
+          "optimal noisy single point design beta weighted polynomial moment Brownian bridge quadrature large order location \"Brownian bridge\""
+        ]
+      },
+      "rationale": "The inspected literature and indexed designs do not give or imply this finite optimizer and risk together with the high-order noise crossover for the normalized Beta-weighted scalar bridge integral. Gaussian conditioning and bridge covariance are standard ingredients; they are not the distinct claim.",
+      "residual_risks": [
+        "The bounded searches and targeted comparisons do not establish historical priority and do not exclude an older equivalent optimal-recovery specialization.",
+        "Santin's title should be cited as verified above; the correct identifier and scientific distinction are unchanged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not independent coverage",
+          "evidence": "Identical Beta-weighted target, finite argmax and noise/order limits.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-noise-order-boundary-layer-for-beta-weighted-brownian-brid--4854c484cc2c",
+          "material_read": "Mirrored RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp noise-order boundary layer for Beta-weighted Brownian-bridge one-point quadrature",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Different target and loss",
+          "evidence": "Joint mean and antisymmetric moment with a weighted sum of risks, rather than a single positive Beta-weighted moment.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-noise-induced-restoration-of-midpoint-sampling-for-two-bro--89a9092c8f3a",
+          "material_read": "Mirrored RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp noise-induced restoration of midpoint sampling for two Brownian-bridge moments",
+          "trigger": "Closest one-noisy-point bridge comparator"
+        },
+        {
+          "assessment": "Different sensor and target",
+          "evidence": "Signed first bridge moment and a fixed-width noisy interval average.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-noise-driven-footprint-transition-for-brownian-bridge-m--f8539d0767e8",
+          "material_read": "Mirrored RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "An exact noise-driven footprint transition for Brownian-bridge moment estimation",
+          "trigger": "Related noisy scalar bridge moment design"
+        },
+        {
+          "assessment": "Different estimand and asymptotic regime",
+          "evidence": "Noisy Brownian-motion observation aimed at an iterated-integral path under integrated conditional-variance loss. High noise at fixed order; no joint large-order uniformity asserted.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-observation-noise-boundary-layer-for-integrated-wien--2fe7f897a316",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions and scope",
+          "method": "Resultary search and local mirror",
+          "title": "A universal observation-noise boundary layer for integrated Wiener processes",
+          "trigger": "Possible broader order/noise asymptotics"
+        },
+        {
+          "assessment": "Different kernel and asymptotic parameter",
+          "evidence": "Brownian sheet and tensor dimension/noise scaling, rather than high-order Beta weight on a one-dimensional bridge.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-dimension-induced-noise-boundary-layer-for-one-point-brownian--01edc3da2ab6",
+          "material_read": "Mirrored RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "A dimension-induced noise boundary layer for one-point Brownian-sheet quadrature",
+          "trigger": "Similar one-point quadrature layer"
+        },
+        {
+          "assessment": "Related coordinates, not noisy point design",
+          "evidence": "Polynomial path reconstruction with random polynomial coefficients and weighted approximation loss.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06998",
+          "material_read": "p. 1, Abstract, and bridge KL theorem in §2",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "An Optimal Polynomial Approximation of Brownian Motion",
+          "trigger": "Polynomial moments for Brownian paths"
+        },
+        {
+          "assessment": "Different level of guarantee",
+          "evidence": "Average-case bounds in kernel quadrature do not state a one-point optimizer or a Beta-weight boundary layer.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615",
+          "material_read": "p. 1 abstract and §1.1 around offset 3200",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy quadrature error bounds"
+        },
+        {
+          "assessment": "Different objective; bibliographic title correction",
+          "evidence": "The identifier resolves to this Santin paper, rather than the title in the frozen bibliography. It studies power-function-optimal interpolation, not weighted Bayes quadrature.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15959",
+          "material_read": "p. 1 abstract and p. 5 around offset 24000",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Same kernel and an optimal placement theorem"
+        },
+        {
+          "assessment": "Weight bounds, not this time/ordering law",
+          "evidence": "Positivity and magnitude of quadrature weights do not specify this noisy one-point optimum.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-019-09901-0",
+          "material_read": "Primary article abstract, p. 1",
+          "method": "Lawful OA full-text copy, targeted passage",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Quadrature weights and exact design implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 43–70",
+        "Inspected related polynomial approximation, kernel interpolation, and quadrature results above"
+      ],
+      "rationale": "The normalized Beta family is a natural sequence of positive weights concentrating near a pinned endpoint. The exact Bayes design distinguishes zero noise, noise comparable to order-reciprocal, and fixed positive noise: the best location moves from 1−O(1/n) with a positive limiting explained fraction to a log-over-order layer with asymptotically vanishing explained fraction. The finite unique optimizer and noise ordering make the singular comparison usable when placing a single sensor, and the explicit crossover constant gives more than a generic error bound.",
+      "residual_risks": [
+        "This value is specific to one predetermined point and this bridge and target family. It does not require a general result for arbitrary weights, multiple readings, or all joint noise scalings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:48:58.580829Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The zero-initial-state ODE gives H times the exponential convolution, with the factor T^(k+1) and the stated kernel for terminal heat and each integral order. Independently, u=yv makes g_k(y) the mean of u under density proportional to exp(-u)(1-u/y)^k on (0,y). For y2>y1 the density ratio on the old support is increasing for k>0 (its log derivative is k[1/(y1-u)-1/(y2-u)]), and there is additional mass beyond y1. This gives strict stochastic increase, also for k=0 when the ratio is constant on the old support. The limits of the mean are 0 by support and 1 by dominated convergence. Thus ∂x log E_k=-α+βg_k(λ₀Te^(−βx)) strictly decreases in x, proving strict log-concavity and excluding interior minimizers. The log derivative of the endpoint risk ratio in log T is g_k(y)−g_k(e^(−βL)y)>0; its limits are e^(−αL) and e^((β−α)L). This covers α=β (only a tie at infinite horizon) as well as both strict cases. The interior maximum applies in the explicitly defined α<β regime; at either outer threshold the derivative vanishes only at an endpoint, so the endpoint tie is strictly between them. Independent roots for k=0 and 1 give switch horizons 2.43751145374402 and 4.24857018426497, agreeing with the text. Replay: RESULT.md proof §§1–4 and the density-ratio check above. The frozen verify.py was inspected, not executed, and is finite regression only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walter et al. use coupled urban ecohydrology and eight-parameter Bayesian optimization with three thermal criteria.",
+          "Zhao et al. vary artificial foliage and thermal regime in wind-tunnel experiments; the setup does not implement the two stipulated canopy attenuation laws."
+        ],
+        "reasoning": "The applied models cover richer physics or measured ventilation and trapping. Neither establishes the scalar exponential parameterization together with a result that implies its single exposure-horizon crossing or classification for all k.",
+        "searches": [
+          "Primary search: urban street canyon tree shade ventilation optimal canopy transient heat cumulative horizon exponential one zone trade off heat interception retention Zhao Bayesian optimization 2609.25953",
+          "arXiv:2609.25953v1 §§2–4",
+          "arXiv:2301.05766 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results for canopy attenuation and horizon crossover",
+        "Zhao et al., arXiv:2301.05766",
+        "Walter et al., arXiv:2609.25953v1",
+        "Schmidt–Schwabe, DOI 10.5705/ss.202015.0385",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt, METADATA.json and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Prékopa implication is ordinary marginal log-concavity; the application identifies strictly increasing elasticity, its two limiting slopes, and the resulting switch and interior maximum.",
+          "The newer computation reports day/night trade-offs across urban shapes, not an all-horizons sharp endpoint optimum.",
+          "Zhao et al.'s reported ventilation-dependent warming is an experimental finding, not an implication for these modeled integrals."
+        ],
+        "reasoning": "The known concavity method and the observed trade-off are prior. The exact comparison of endpoint risks and the regime between the two monotonicity thresholds are conclusions for the stipulated dynamics, not a restatement of those sources.",
+        "searches": [
+          "Schmidt–Schwabe Appendix Lemma 4 and Theorem 5",
+          "Walter et al., arXiv:2609.25953v1 §§3.2–4",
+          "Zhao et al., arXiv:2301.05766 §§3.2, 3.4–3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The kernel is (k+1)^−1 times 1F1(1;k+2;−y); the relevant curvature is in log y, not the usual Laplace-transform curvature in y.",
+          "Schmidt–Schwabe Appendix Lemma 4 concerns a marginal information intensity under censoring."
+        ],
+        "reasoning": "Monotone elasticity, strict log-concavity in intensity, and the monotonicity argument for the endpoint risk ratio are equivalent or closely linked mathematical routes to the model's phase diagram. The classical marginal theorem supplies concavity after transformation; neither the Kummer representation nor the inspected statistical-design application furnishes the exposure classification and its equality regimes.",
+        "searches": [
+          "Primary search: log concavity log scale confluent hypergeometric 1F1(1;b;-x) Kummer beta Laplace transform increasing elasticity geometric concavity monotone likelihood ratio",
+          "Schmidt–Schwabe Appendix Lemma 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact match is the assigned record itself. Other returned records concern the timing of a shade window under thermal memory, an indoor fresh-air purge, or sensing heat modes, not a fixed canopy source/loss trade-off."
+        ],
+        "reasoning": "The indexed neighbors optimize different variables and objectives. Their thresholds cannot be identified with a crossing of the two fixed-intensity endpoint risks; the search is not an exhaustive historical table.",
+        "searches": [
+          "Resultary: canopy shade ventilation exponential attenuation first order heat balance optimal exposure horizon endpoint crossover incomplete gamma elasticity log concavity"
+        ]
+      },
+      "rationale": "The contribution is the complete fixed-intensity, all-horizon classification for this specific heat balance, not marginal log-concavity or the qualitative observation that shade and ventilation compete. No inspected statement gives the same classification or a governing theorem that already establishes it for this model.",
+      "residual_risks": [
+        "An unindexed scalar heat-balance or geometric-concavity application could overlap; the search does not certify priority.",
+        "The underlying marginal concavity tool is classical. No new general inequality or independent empirical validation is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates the conflict but does not test this scalar model or imply its theorem.",
+          "evidence": [
+            "Methods use artificial trees without shade/transpiration mechanisms; results discuss roof-level exchange and pedestrian-level warming."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05766",
+          "material_read": "Abstract; §§2.1–2.3 (pp. 4–8); §§3.2, 3.4–3.5 (pp. 11–18).",
+          "method": "Open primary manuscript, relevant PDF passages.",
+          "title": "The time-evolving impact of tree size on nighttime street canyon microclimate: Wind tunnel modeling of aerodynamic effects and heat removal",
+          "trigger": "Closest physical mechanism: foliage alters ventilation and heat trapping."
+        },
+        {
+          "assessment": "The studied daytime/nighttime trade-offs do not determine fixed-intensity scalar horizon optima.",
+          "evidence": [
+            "UT&C plus Bayesian optimization; tree radius can lower peak daytime temperature and UTCI while slightly raising the nighttime minimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.25953v1",
+          "material_read": "Methods §§2.1–2.3, Eqs. 1–21; results §§3.2–3.4 and conclusions §4.",
+          "method": "Open primary full text, relevant HTML passages.",
+          "title": "Analysis of trade-offs in urban heat mitigation using a Bayesian Optimization framework for an urban canopy layer model",
+          "trigger": "Plausible recent broader optimization result; only abstract-level in the frozen assessment."
+        },
+        {
+          "assessment": "Related tool; different objective and different implication.",
+          "evidence": [
+            "Prékopa is applied to an information intensity with censoring; the design-support conclusion is not minimization of a thermal convolution."
+          ],
+          "identifier_or_url": "https://www3.stat.sinica.edu.tw/preprint/SS-2015-0385_Preprint.pdf",
+          "material_read": "Conditions (A1)–(A4), Lemma 2, Theorem 5 (pp. 10–12), Appendix Lemma 4 and proof (pp. 17, 21).",
+          "method": "Open preprint PDF, theorem and proof passages.",
+          "title": "Optimal Design for Multiple Regression with Information Driven by the Linear Predictor",
+          "trigger": "Potential mathematical precedent for using marginal log-concavity and boundary optima."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a useful exact benchmark for a concrete conflict between source suppression and slower removal. It distinguishes the best boundary choices from the moving worst interior choice, identifies when the best boundary reverses, and shows how the cutoff differs for terminal versus cumulative exposure. Its value is conditional on zero initial excess, constant source, fixed intensity and exponential attenuation; it neither fits urban observations nor recommends actual canopy policy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

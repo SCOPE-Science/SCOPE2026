@@ -1,93 +1,62 @@
-# Sharp finite-time herding error and polarization penalty in the complete-mixing random-actions model
+# Sharp finite-time herding error and polarization penalty under complete mixing
 
 ## Finding
 
-In a synchronous random-actions opinion system with uniform complete interaction (including self-actions), the exact mean-squared distance to eventual binary consensus is a two-exponential expression. The result also determines the finite-time covariance matrix and the *sharp* effect of initial opinion dispersion at a fixed population mean. Specifically, for every integer \(n\ge2\), learning weight \(0<\alpha\le1\), deterministic initial vector \(x(0)\in[0,1]^n\), and integer \(t\ge0\), let
+In the synchronous random-actions model with complete interaction including self-actions and fresh conditional action draws, let \(n\ge2\), \(0<\alpha\le1\), and \(x(0)\in[0,1]^n\) be deterministic. Set
 \[
- p_0=\frac1n\sum_{i=1}^{n}x_i(0),\quad
- D_0=\sum_{i=1}^{n}(x_i(0)-p_0)^2,\quad
- r=1-\frac{\alpha^2}{n},\quad s=(1-\alpha)^2.
+p_t=n^{-1}\sum_i x_i(t),\qquad D_0=\sum_i(x_i(0)-p_0)^2,\qquad
+r=1-\alpha^2/n,\quad s=(1-\alpha)^2.
 \]
-Then \(0\le s<r<1\), the dynamics converges almost surely to a common binary opinion \(B\in\{0,1\}\) with \(\Pr(B=1)=p_0\), and
+Then \(0\le s<r<1\) and all opinions converge almost surely to a common bit \(B\) with \(\Pr(B=1)=p_0\). For every integer \(t\ge0\), the exact mean-squared error to that bit is
 \[
-\boxed{\mathbb E[(p_t-B)^2]=p_0(1-p_0)r^t+\frac{\alpha^2D_0}{n^2}\frac{r^t-s^t}{r-s}},\qquad p_t=\frac1n\sum_i x_i(t).
+E_t:=\mathbb E[(p_t-B)^2]=p_0(1-p_0)r^t+\frac{\alpha^2D_0}{n^2}\frac{r^t-s^t}{r-s}.
 \]
-The individual errors and all unconditional covariances are also exact:
+The individual errors and unconditional covariances are
 \[
-\mathbb E[(x_i(t)-B)^2]=\mathbb E[(p_t-B)^2]+s^t(x_i(0)-p_0)^2,
+\mathbb E[(x_i(t)-B)^2]=E_t+s^t(x_i(0)-p_0)^2,\qquad
+\operatorname{Cov}(x_i(t),x_j(t))=p_0(1-p_0)-E_t.
 \]
-\[
-\operatorname{Cov}(x_i(t),x_j(t))=p_0(1-p_0)-\mathbb E[(p_t-B)^2]\quad(1\le i,j\le n).
-\]
-Consequently the finite-time opinion covariance matrix is a nonnegative multiple of the all-ones matrix, even when the initial opinions are heterogeneous.
+The covariance matrix is a nonnegative multiple of the all-ones matrix (thus of rank at most one).
 
-For fixed \(n\), \(\alpha\), \(p_0\), and every integer \(t\ge1\), the mean-squared consensus error is **strictly increasing** in \(D_0\). This comparison is sharp across *all* initial opinion vectors with that mean. Writing \(m=\lfloor np_0\rfloor\) and \(\theta=np_0-m\), the precise feasible interval of dispersion is
+At fixed \(n,\alpha,p_0\), the error \(E_t\) is strictly increasing in the feasible dispersion \(D_0\) for every \(t\ge1\). Write \(m=\lfloor np_0\rfloor\) and \(\theta=np_0-m\). Its full feasible interval is \([0,m+\theta^2-np_0^2]\). A homogeneous profile attains the lower endpoint. A profile with \(m\) ones, one entry \(\theta\) if \(\theta>0\), and all remaining entries zero attains the upper endpoint. For \(0<p_0<1\), the leading rate is exactly \(r\), with
 \[
- 0\le D_0\le D_{\max}=m+\theta^2-np_0^2.
+\lim_{t\to\infty}\frac{E_t}{p_0(1-p_0)r^t}
+=1+\frac{\alpha^2D_0}{n^2(r-s)p_0(1-p_0)}.
 \]
-The lower endpoint is attained at the homogeneous initial opinion \(x_i(0)=p_0\). The upper endpoint is attained by \(m\) opinions equal to one, one opinion equal to \(\theta\) if \(\theta>0\), and all remaining opinions equal to zero. Both endpoints yield equality in the corresponding error bounds. If \(0<p_0<1\), the asymptotic geometric factor is exactly \(r\), and the diversity penalty persists in its leading multiplicative constant: 
-\[
-\lim_{t\to\infty}\frac{\mathbb E[(p_t-B)^2]}{p_0(1-p_0)r^t}=
-1+\frac{\alpha^2D_0}{n^2(r-s)p_0(1-p_0)}.
-\]
-In particular, increasing initial polarization at fixed mean does not alter the eventual probability of consensus on one, but increases the expected squared error at *every positive finite time*.
+At \(t=0\) the formula uses \(s^0=1\), including when \(\alpha=1\). The means \(p_0=0,1\) give constant paths, with no nontrivial dispersion comparison.
 
 ## Assumptions and scope
 
-There are \(n\ge2\) agents, and \(x_i(t)\in[0,1]\) is agent \(i\)'s action-one probability at discrete time \(t\). Given the entire belief vector at time \(t\), the simultaneous actions \(A_i(t)\in\{0,1\}\) are mutually independent with \(A_i(t)\sim\operatorname{Bernoulli}(x_i(t))\). The synchronous update is
+Let \(\mathcal F_t=\sigma(x(0), A(0),\ldots,A(t-1))\) be the entire history just before the time-\(t\) action draw. **Conditional on \(\mathcal F_t\)**, the actions \(A_i(t)\in\{0,1\}\) are mutually independent Bernoulli variables with success probabilities \(x_i(t)\). In particular the product-Bernoulli law at each step does not depend on earlier actions except through the current state; prescribing only the law conditional on the current state without this transition assumption is not sufficient. The synchronous update is
 \[
- x_i(t+1)=(1-\alpha)x_i(t)+\frac\alpha n\sum_{j=1}^{n}A_j(t),
- \qquad i=1,\ldots,n,
+x_i(t+1)=(1-\alpha)x_i(t)+\frac\alpha n\sum_{j=1}^n A_j(t).
 \]
-with the same \(0<\alpha\le1\) for all agents. Every agent observes the *same* average of all \(n\) actions, including their own, so the trust matrix is \(J_n/n\), not the loopless complete-graph matrix. Initial opinions are deterministic. The initial vectors are not assumed exchangeable, interior, or equal. No claim is made about arbitrary trust matrices, delayed observations, asynchronous updates, or dependent actions.
+The interaction matrix is \(J_n/n\), not the loopless complete-graph matrix. The result does not apply as stated to arbitrary interactions, other update protocols, dependent actions conditional on the history, or random initial beliefs.
 
 ## Proof
 
-Put \(p_t=n^{-1}\sum_i x_i(t)\) and \(d_i=x_i(0)-p_0\). Subtracting the population mean from each simultaneous update gives the **pathwise identity**
+Subtract the population mean from each update to get \(x_i(t)-p_t=(1-\alpha)^t(x_i(0)-p_0)\) pathwise. The deviations sum to zero, and their squares sum to \(s^t D_0\). By the conditional product law,
 \[
- x_i(t)-p_t=(1-\alpha)^t d_i.
+\mathbb E[p_{t+1}\mid\mathcal F_t]=p_t,\qquad
+\operatorname{Var}(p_{t+1}\mid\mathcal F_t)=\frac{\alpha^2}{n^2}\sum_i x_i(t)(1-x_i(t))
+=\frac{\alpha^2}{n^2}(np_t(1-p_t)-s^tD_0).
 \]
-In particular, \(\sum_i d_i=0\) and \(\sum_i(x_i(t)-p_t)^2=s^tD_0\). Conditional on the opinions at time \(t\), independence of Bernoulli actions gives
-\[
-\mathbb E[p_{t+1}\mid\mathcal F_t]=p_t,
-\quad
-\operatorname{Var}(p_{t+1}\mid\mathcal F_t)=\frac{\alpha^2}{n^2}\sum_{i=1}^{n}x_i(t)(1-x_i(t)).
-\]
-By expanding the squares about \(p_t\),
-\[
-\sum_i x_i(t)(1-x_i(t))=np_t(1-p_t)-s^tD_0.
-\]
-Define \(h_t=\mathbb E[p_t(1-p_t)]\). Taking conditional expectations of \(p_{t+1}(1-p_{t+1})\) yields the exact linear inhomogeneous recurrence
-\[
- h_{t+1}=\left(1-\frac{\alpha^2}{n}\right)h_t+\frac{\alpha^2D_0}{n^2}s^t,
-\quad h_0=p_0(1-p_0).
-\]
-Since \(r-s=\alpha(2-\alpha-\alpha/n)>0\) for \(n\ge2\) and \(0<\alpha\le1\), solving the recurrence proves
-\[
- h_t=p_0(1-p_0)r^t+\frac{\alpha^2D_0}{n^2}\frac{r^t-s^t}{r-s}.
-\]
-The mean \(p_t\) is a bounded martingale, so \(p_t\to B\) almost surely and in every finite \(L^q\). The displayed formula shows \(h_t\to0\). Consequently \(\mathbb E[B(1-B)]=0\), and since \(B\in[0,1]\) almost surely, \(B\in\{0,1\}\) almost surely. The pathwise deviation identity implies \(x_i(t)\to B\) for every agent. Since \(\mathbb E[B]=p_0\), its success probability is \(p_0\).
+Consequently \(h_t=\mathbb E[p_t(1-p_t)]\) satisfies \(h_{t+1}=rh_t+(\alpha^2/n^2)D_0s^t\) with \(h_0=p_0(1-p_0)\). Here \(r-s=\alpha(2-\alpha-\alpha/n)>0\). Summing the geometric convolution solves the recurrence and gives the displayed formula for \(E_t\) with \(h_t\) in its place.
 
-The martingale convergence property gives \(\mathbb E[B\mid\mathcal F_t]=p_t\). Therefore \(\mathbb E[(p_t-B)^2\mid\mathcal F_t]=p_t(1-p_t)\), so the previously computed \(h_t\) is exactly the future-consensus mean-squared error, not merely an uncertainty proxy. Expanding \(x_i(t)-B=(p_t-B)+(1-\alpha)^td_i\), then using \(\mathbb E[p_t-B]=0\), proves each individual error formula. Since all centered differences \(x_i(t)-p_t\) are deterministic, \(\operatorname{Cov}(x_i(t),x_j(t))=\operatorname{Var}(p_t)\); and \(\mathbb E[p_t]=p_0\) implies \(\operatorname{Var}(p_t)=p_0(1-p_0)-h_t\). This proves the rank-one covariance identity.
+Bounded martingale convergence gives \(p_t\to B\) almost surely and in every finite \(L^u\), \(u\ge1\). The explicit formula implies \(h_t\to0\), so \(\mathbb E[B(1-B)]=0\) and \(B\in\{0,1\}\) almost surely. The deviations vanish, giving convergence of every opinion, and \(\mathbb E[B]=p_0\). Because the mean is the conditional expectation \(p_t=\mathbb E[B\mid\mathcal F_t]\), its squared error conditional on the history is \(p_t(1-p_t)\). Thus \(E_t=h_t\). Expanding the squared error of \(x_i(t)\) about \(p_t\), the cross term vanishes by conditional centering. The deterministic deviations also give \(\operatorname{Cov}(x_i(t),x_j(t))=\operatorname{Var}(p_t)=p_0(1-p_0)-h_t\).
 
-For any \(t\ge1\), \((r^t-s^t)/(r-s)>0\). Hence the error varies strictly and affinely with dispersion \(D_0\) at fixed \(p_0\). Jensen's inequality gives its minimum \(D_0=0\). For the maximum, note \(D_0=\sum_i x_i(0)^2-np_0^2\). With fixed sum \(\sum_i x_i(0)=np_0\), moving mass between two strictly interior coordinates until one hits zero or one does not decrease the sum of squares, since a convex quadratic achieves its maximum at an interval endpoint. Iteration leaves at most one strictly interior coordinate, giving \(D_{\max}=m+\theta^2-np_0^2\). Both extremal profiles are admissible. Every intermediate dispersion is also attainable by interpolating between the homogeneous and maximizing profiles: \(x_i^{(\lambda)}=p_0+\lambda(x_i^{\max}-p_0)\) for \(0\le\lambda\le1\) has dispersion \(\lambda^2D_{\max}\). Finally \(s<r\) makes the second exponential negligible relative to \(r^t\), yielding the stated asymptotic ratio when \(p_0(1-p_0)>0\). The boundary \(p_0\in\{0,1\}\) is deterministic and covered by the exact formula, but not by that ratio.
+The coefficient of \(D_0\) in \(E_t\) is positive for every positive \(t\). Its minimum feasible value is zero by nonnegativity, attained at equal opinions. To maximize \(D_0=\sum_i x_i(0)^2-np_0^2\), if two coordinates are strictly interior, vary them at fixed sum until one reaches an endpoint of \([0,1]\); by convexity one endpoint of the variation interval does not decrease the objective. Iteration leaves at most one interior coordinate, giving exactly the stated maximal profile. Interpolating between the homogeneous profile and a maximizing profile with weight \(\lambda\in[0,1]\) on the latter gives dispersion \(\lambda^2D_{\max}\), filling the interval. Finally \((s/r)^t\to0\) proves the leading factor for interior \(p_0\).
 
-## Verification
+## Verification and limits
 
-A standard-library Python exact-rational verifier (`verify.py`) recursively enumerates the entire finite-time distribution of \(p_t\), using the conditional Poisson-binomial distribution of the independent actions and the deterministic disagreement identity. It compares the resulting moment against the closed form, checks individual squared errors and covariance identities, and separately checks strict dispersion comparisons and sharp boundary profiles. Its executed output was: `PASS 80 exact finite-state configurations, 380 time slices; 117 dispersion-boundary grid profiles; individual/covariance/strict comparisons PASS`. Run `python3 verify.py` from the package directory. This is a finite rational check and **not** the proof for arbitrary \(n\), arbitrary real \(\alpha\), or unbounded time; the preceding argument supplies those universal steps.
+The unchanged companion `verify.py` propagates finite rational laws under the product-Bernoulli transition. The frozen package records 80 exact configurations, 380 time slices and 117 dispersion-grid profiles. Its terminal-error check uses the conditional law of \(B\) established by the proof. These checks are corroborative only, not an unbounded-time convergence proof or an exhaustive test of real profiles. For example, at \(n=2,\alpha=1/2,p_0=1/2,t=1\), the profiles \((1/2,1/2)\) and \((0,1)\) give errors \(7/32\) and \(1/4\), respectively: the first mean has variance \(1/32\), whereas the second is deterministic at this step.
 
 ## Relationship to prior work
 
-Leshem and Scaglione's 2017 public preprint establishes the random-actions synchronous update, conditional independence and martingale-based binary-herding conclusion for irreducible networks. It also studies rates numerically and gives a late-stage pathwise exponential heuristic. Those facts are credited; the present claim instead gives a uniform complete-interaction *finite-horizon exact \(L^2\) error*, the rank-one covariance law, and sharp dependence on arbitrary initial dispersion. Its factor \(1-\alpha^2/n\) measures ensemble mean-square error, not the same quantity as a pathwise late-stage exponential slope.
-
-Abrahamsson, Danev and Larsson's 2020 public preprint analyzes random-actions consensus with stubborn and drifting agents and critically discusses the original convergence proof. Their January 2024 work establishes strong convergence and convergence in moments under broader hypotheses. The 2020 full public text and 2024 abstract were examined. The 2024 full text could not be accessed, so possible previously published finite-time identities in that source remain a priority risk; no novelty follows merely from a search not finding them. This proof of convergence in the present complete-mixing case is independent of the disputed general argument.
-
-## Limitations
-
-The rank-one structure relies on every agent receiving the same average of all actions. It does not describe general sparse or heterogeneous networks. The target variable \(B\) is the *limiting binary consensus*, not a deterministic social truth. All expectations are over random actions conditional on the fixed initial vector; a random initial-vector distribution would require an additional expectation. Finite tests are corroborative and not exhaustive. Research novelty and correctness have not been independently audited; the material-access residual risk for the related 2024 paper remains.
+Leshem and Scaglione introduce the model and analyze convergence and martingale variance in general networks [1]. Abrahamsson, Danev and Larsson study related extensions and convergence [2, 3]; [3] establishes almost-sure convergence and convergence in moments under broader network hypotheses and discusses the conditioning needed in the variance argument. Binary herding, the weighted-mean martingale, and conditional variance are not claimed as new. The exact finite-horizon error here comes from closing and solving the two-mode moment recurrence using pathwise deterministic disagreement in complete mixing, and yields the sharp effect of fixed-mean dispersion. Its rate concerns ensemble mean-square error to the limiting bit, not a late-path slope or error to a deterministic truth.
 
 ## References
 
-1. A. Leshem and A. Scaglione, “The impact of random actions on opinion dynamics,” first public arXiv posting 2017-04-05, https://arxiv.org/abs/1704.01660 . Full online text and model/appendix were inspected.
-2. O. Abrahamsson, D. Danev and E. G. Larsson, “On the Impact of Random Actions on Opinion Dynamics,” first public arXiv posting 2020-12-30, https://arxiv.org/abs/2012.15154 .
-3. O. Abrahamsson, D. Danev and E. G. Larsson, “Strong Convergence of a Random Actions Model in Opinion Dynamics,” first public arXiv posting 2024-01-29, https://arxiv.org/abs/2401.16574 . Full text was not accessible; abstract was inspected.
+1. A. Leshem and A. Scaglione, *The Impact of Random Actions on Opinion Dynamics*, [arXiv:1704.01660](https://arxiv.org/abs/1704.01660).
+2. O. Abrahamsson, D. Danev and E. G. Larsson, *On the Impact of Random Actions on Opinion Dynamics*, [arXiv:2012.15154](https://arxiv.org/abs/2012.15154).
+3. O. Abrahamsson, D. Danev and E. G. Larsson, *Strong Convergence of a Random Actions Model in Opinion Dynamics*, [arXiv:2401.16574](https://arxiv.org/abs/2401.16574).

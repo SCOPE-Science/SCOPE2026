@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:42:49.885049Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59; VERIFICATION.md and verify_joint_ranks.py/.out as read-only evidence",
+        "Independent replay: filter all n^n maps for idempotence, compare the two compositions and accumulate their rank triples; compare with the block recurrence weighting a block of size m containing label 1 by binomial(n-1,m-1), then recurse on n-m labels"
+      ],
+      "rationale": "For commuting retractions, p=ef=fe is idempotent and its fixed set is the intersection of the two fixed sets. Since pe=pf=p, each fiber of p stays invariant. A fiber contains one common root, a points fixed only by e, c fixed only by f, and d fixed by neither. Each single-fixed point is sent to the root by the other map. For each of the d points there are independently (a+1)(c+1) nonrestricting choices of images; these give idempotence and send both composites to the root. On m=1+a+c+d fixed labels the resulting count is m!((a+1)(c+1))^d/(a!c!d!). Rank weights multiply over the unordered set of these rooted blocks, giving exactly the EGF. The support inequalities are inclusion-exclusion and nonemptiness; to realize an allowed triple, place the required r-t and s-t singly fixed points and any surplus at one root and use the other t-1 roots as singleton fibers. The empty pair gives the unit term. Independent direct map enumeration through n=5 matched a least-label block recurrence; recurrence output through n=8 reproduced all listed totals and the rank support and symmetry.",
+      "residual_risks": [
+        "Independent direct enumeration stops at n=5; the frozen direct enumeration stops at n=6. Neither exhausts all map pairs at n=7,8; those totals are recurrence evaluations. The frozen script is the packaged replay path for its own test and was inspected, not run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 10/25 finding counts idempotent pairs with idempotent product without requiring commutation. Dolinka–East count idempotents individually by rank."
+        ],
+        "reasoning": "The larger pair class aggregates commuting and noncommuting pairs at the same rank triple, without extracting the commuting subset; the one-map count has no product statistic.",
+        "searches": [
+          "Resultary: commuting idempotents full transformation monoid joint ranks product rank",
+          "2026/10/25/SCOPE-exact-one-sided-idempotence-rank-spectrum-in-the-full-transforma--0e04e0804e5b",
+          "arXiv:1407.3312v2 Proposition 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Three indexed mathematical findings listed above",
+        "Dolinka–East Proposition 2.1",
+        "Fleischer–Jack Corollary 5.2",
+        "Konieczny citation and the frozen description of its abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 11/22 match is later and ranks maps, including idempotents, centralizing a fixed retraction. Fleischer–Jack's Corollary 5.2 is a decision algorithm. The frozen notes describe Konieczny's abstract as treating Green relations and regularity in partial-map centralizers; the full paper could not be independently compared."
+        ],
+        "reasoning": "A product rank must additionally track fixed points of the induced retraction on the image of the fixed map, and the result then sums over every possible first map. Neither a decision theorem nor the available fixed-centralizer rank statements provide that joint count as stated.",
+        "searches": [
+          "Resultary: finite transformation idempotent centralizer ranked enumeration commuting idempotents",
+          "2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1",
+          "arXiv:1811.00060 Corollary 5.2",
+          "Konieczny, Algebra Colloquium 9 (2002), 121–134"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The regressive finding has the same three statistics and a product-fiber description but every map must obey f(i)≤i on the given order. Its fiber choices depend on the label order."
+        ],
+        "reasoning": "The result counts pairs on a prescribed order. A given unrestricted pair can be made regressive by a suitable order, but the number of compatible orderings depends on its fiber assignments and is not constant on rank triples. The order-specific count therefore cannot simply be multiplied by a common relabeling factor and supplies neither the unrestricted block factors nor the unrestricted identity.",
+        "searches": [
+          "Resultary: product-fiber encoding commuting idempotent retractions three rank generating function",
+          "2026/10/26/SCOPE-joint-image-rank-census-of-commuting-idempotents-in-the-regressi--862679beafc6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact full-monoid sequence or trivariate coefficient table surfaced in these bounded returns. arXiv:2308.11544 surfaced as a topical match on monoid varieties rather than the ranked count."
+        ],
+        "reasoning": "A returned topic match is not a table of these counts, and even matching unweighted totals would not establish joint coefficient coverage.",
+        "searches": [
+          "Resultary: ordered commuting idempotent transformations sequence 1 1 7 58 601 7616",
+          "Literature: \"commuting idempotents\" transformation monoid rank enumeration commuting pairs exact sequence"
+        ]
+      },
+      "rationale": "Credit the unrestricted labeled three-rank EGF and rank support, not the general idea of decomposing into product fibers. The strongest available prior records either count the analogous ordered problem with regressive restrictions or count a different pair condition on the full monoid. The plausible older centralizer paper remains an access-limited priority risk, not evidence of prior coverage.",
+      "residual_risks": [
+        "Konieczny (2002) may contain an equivalent enumeration not visible in the available evidence. The searches do not establish priority. Product-fiber organization itself has close earlier methodological overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method overlap; different constrained domain and enumeration",
+          "evidence": "Both maps regress in the prescribed order and its EGF uses an order-dependent block recurrence.",
+          "identifier_or_url": "2026/10/26/SCOPE-joint-image-rank-census-of-commuting-idempotents-in-the-regressi--862679beafc6",
+          "material_read": "Local RESULT.md Finding and block description, offset 0",
+          "method": "Local mirror",
+          "title": "Joint image-rank census of commuting idempotents in the regressive transformation monoid",
+          "trigger": "Closest same-statistic and same-method indexed result"
+        },
+        {
+          "assessment": "No separate commuting-pair rank enumerator in inspected statement",
+          "evidence": "Its product-idempotence condition includes pairs that do not commute.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-one-sided-idempotence-rank-spectrum-in-the-full-transforma--0e04e0804e5b",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact one-sided idempotence rank spectrum in the full transformation monoid",
+          "trigger": "Same ambient monoid and potentially dominating pair class"
+        },
+        {
+          "assessment": "Later and different statistic",
+          "evidence": "Treats image ranks of maps centralizing a fixed idempotent at specified kernel-block sizes.",
+          "identifier_or_url": "2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Rank spectra of centralizers of finite transformation retractions",
+          "trigger": "Fixed-centralizer enumeration"
+        },
+        {
+          "assessment": "One-map enumeration",
+          "evidence": "Rank k idempotents of the full transformation monoid contribute binomial(n,k) k^(n-k).",
+          "identifier_or_url": "https://arxiv.org/html/1407.3312v2",
+          "material_read": "Proposition 2.1, HTML offset 9394",
+          "method": "OA primary source",
+          "title": "Idempotent generation in the endomorphism monoid of a uniform partition",
+          "trigger": "Classical rank enumeration"
+        },
+        {
+          "assessment": "Decision, not enumeration",
+          "evidence": "Decides whether all idempotents in the generated semigroup commute.",
+          "identifier_or_url": "https://arxiv.org/html/1811.00060",
+          "material_read": "Section 5, Corollary 5.2, HTML offset 50128",
+          "method": "OA primary source",
+          "title": "On the Complexity of Properties of Transformation Semigroups",
+          "trigger": "Commuting-idempotent topic match"
+        },
+        {
+          "assessment": "Undetermined, not evidence of absence",
+          "evidence": "The available record describes Green relations and regular elements in partial transformation semigroups; theorems could not be checked.",
+          "identifier_or_url": "https://www.researchgate.net/publication/266434306_Semigroups_of_transformations_commuting_with_idempotents",
+          "material_read": "Frozen related-work account of abstract only; no independent primary text access",
+          "method": "Cited OA attempt returned 403; attempted publisher route did not resolve the text",
+          "title": "Semigroups of transformations commuting with idempotents",
+          "trigger": "Plausible centralizer enumeration overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and product-fiber proof",
+        "Inspected regressive and one-sided product-idempotence findings"
+      ],
+      "rationale": "The statistics measure each retraction's range and their common range simultaneously. The coefficient formula gives exact counts and feasible triples for every labeled size, including their correlations, rather than just a single total or a finite table. The unrestricted rank census remains a useful result despite the related constrained encodings.",
+      "residual_risks": [
+        "No conclusion about commuting triples, partial maps, asymptotics, or conjugacy classes follows from the enumerator as stated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

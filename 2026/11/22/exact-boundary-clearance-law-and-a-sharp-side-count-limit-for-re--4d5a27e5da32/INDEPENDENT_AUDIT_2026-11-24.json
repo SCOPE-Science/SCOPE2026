@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:53:34.148492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each radial sector |theta|<=alpha, the side with largest cosine in the signed-distance formula is nearest. Along each ray sqrt-space is not needed: sinh(delta)=cot(alpha)cosh(r)-csc(alpha)cos(theta)sinh(r) decreases strictly to the geodesic boundary or ideal endpoint. On the sector edge it equals cot(alpha)e^(-r), giving the corner radius and ruling out clearance above the inradius. The Fermi relation cosh(t)sinh(s)=sinh(r)sin(theta) then yields the side half-span log(cos(alpha)coth(t)), so coarea gives the density and the antiderivative and endpoint values normalize it. Differentiating the continuous angular-parameter formula gives the strictly positive W(t)-W(rho) factor on common support; the remainder of the order follows from the support endpoints. The pointwise limit is proper, with tail asymptotic 2e^(-t)/pi. The density difference has exactly one sign change at tanh(t)=cos(alpha)^(n/2), interior for n>2; the CDF gap there is total variation, and the logarithmic terms cancel. Expanding log cos and arcsin gives the stated two-term expansion. The square endpoint coefficient also follows from the derivative of the density at the inradius. Replay: python3 /workspace/independent_checks.py 1 checked twenty direct polar-area comparisons and independently maximized five CDF gaps. The frozen verification and checker were inspected, not executed; finite quadrature is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-polygon boundary law covers nonregular polygons as well but is a t-down-to-zero expansion; it only states the global CDF for triangles.",
+          "Gallego–Solanes address diameter/perimeter and area/perimeter for expanding convex sets; Parlier's result concerns orthogeodesic decompositions."
+        ],
+        "reasoning": "Greater geometric generality does not give the missing complete inward-area function or an expansion uniform in growing side count.",
+        "searches": [
+          "Resultary 1d7379fbdbb6 RESULT.md, fixed ideal polygons",
+          "10.1112/S002461070100223X pp. 1, 3",
+          "Parlier, Near ideal decompositions of ideal polygons, PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1d7379fbdbb6",
+        "Resultary d1cc535bff44",
+        "10.1112/S002461070100223X",
+        "arXiv:1410.4052",
+        "Parlier, Near ideal decompositions of ideal polygons (2025)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-polygon small clearance controls only the lower endpoint; the square pinch concerns the opposite endpoint and a shape crossover. Neither controls the whole CDF or the density crossing moving with n.",
+          "The generic equidistant geometry supplies local ingredients, not the truncated side-span and normalized angular dependence."
+        ],
+        "reasoning": "Known triangle/endpoint results follow as special pieces of the frozen formula and are credited. They cannot be substituted to obtain the regular family or the exact global discrepancy; even pointwise convergence alone would not give that discrepancy.",
+        "searches": [
+          "Resultary 1d7379fbdbb6 and d1cc535bff44 Findings",
+          "10.1112/S002461070100223X equidistant discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Area-normalized inward parallel area is exactly survival, so an exact inner-area formula would cover the CDF. Resultary 1d7379fbdbb6 gives this exact law at n=3: cos(pi/3)=1/2 and the two formulas coincide.",
+          "Xu's chord-length law weights geodesics by Liouville measure, not polygon points by area, and measures whole chords rather than nearest-side distances."
+        ],
+        "reasoning": "The triangle is demonstrable equivalent coverage; the geodesic-chord reformulation changes both the measure and the observable, and the equidistant discussion inspected does not give the needed inner area.",
+        "searches": [
+          "Resultary 1d7379fbdbb6 and d1cc535bff44",
+          "arXiv:1410.4052 Corollary 3",
+          "10.1112/S002461070100223X equidistants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual exact clearance entries found were the complete triangle law and the leading square endpoint term 2h^2/pi+o(h^2), not a table or closed family for all regular n.",
+          "The ideal-triangle chord formula is tabulation of a different distribution."
+        ],
+        "reasoning": "The partial instances and local coefficients do not supply a catalogue of the regular-n clearance law or its TV gaps.",
+        "searches": [
+          "Resultary ranked clearance records, especially 1d7379fbdbb6 and d1cc535bff44 RESULT.md",
+          "arXiv:1410.4052 Corollary 3"
+        ]
+      },
+      "rationale": "Best of current knowledge: support is for the complete regular-n family beyond the known triangle, the strict all-side-count comparison, and the quantitative limit. Credit the known fixed-polygon small-clearance law and triangle CDF, and the matching square endpoint result in a distinct same-day record; do not infer priority from the shared date.",
+      "residual_risks": [
+        "A general equidistant inner-area identity under other terminology could imply the regular CDF; the bounded lookup does not exclude it. An unrelated literature-search response supplies no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact triangle match and broader but local overlap",
+          "evidence": [
+            "Full triangle CDF 6/pi times [arctan(sinh t)-sinh(t)log(2 tanh t)]; fixed-polygon small-clearance expansion."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-logarithmic-boundary-distance-law-and-a-renormalized-shape-i--1d7379fbdbb6",
+          "material_read": "RESULT.md, Finding around offset 300",
+          "method": "Local published mirror",
+          "title": "The logarithmic boundary-distance law and a renormalized shape invariant for ideal hyperbolic polygons",
+          "trigger": "Same area-uniform nearest-boundary statistic"
+        },
+        {
+          "assessment": "Leading endpoint coefficient only for square, not the full regular family",
+          "evidence": [
+            "P(D>rho-h)=2h^2/pi+o(h^2) in the ideal square; separate shape–clearance crossover."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-scale-boundary-clearance-law-and-parabolic-pinch-for-ideal--d1cc535bff44",
+          "material_read": "RESULT.md, Finding around offset 138",
+          "method": "Local published mirror",
+          "title": "A two-scale boundary-clearance law and parabolic pinch for ideal quadrilaterals",
+          "trigger": "Same-day direct overlap in n=4 case"
+        },
+        {
+          "assessment": "Inspected results study different asymptotic ratios",
+          "evidence": [
+            "Asymptotic perimeter-normalized area and diameter of expanding convex sets."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S002461070100223X",
+          "material_read": "Author PDF pp. 1 and 3, equidistant discussion around offset 9662",
+          "method": "Lawful OA full-text passages",
+          "title": "Perimeter, Diameter and Area of Convex Sets in the Hyperbolic Plane",
+          "trigger": "Broader parallel-area geometry"
+        },
+        {
+          "assessment": "Different measure and statistic",
+          "evidence": [
+            "Ideal-triangle Liouville-geodesic chord-length measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.4052",
+          "material_read": "Corollary 3 around offset 6487",
+          "method": "Lawful OA full-text passages",
+          "title": "On the Ambartzumian-Pleijel identity in hyperbolic geometry",
+          "trigger": "Exact distribution for an ideal polygon"
+        },
+        {
+          "assessment": "Examined scope is orthogeodesic decomposition, not a clearance law",
+          "evidence": [
+            "Orthogeodesic decompositions rather than area-uniform distance distribution."
+          ],
+          "identifier_or_url": "https://homeweb.unifr.ch/parlierh/pub/Papers/Ideal2025-10-29.pdf",
+          "material_read": "PDF p. 1, statement of scope around offset 205",
+          "method": "Lawful OA PDF passage",
+          "title": "Near ideal decompositions of ideal polygons",
+          "trigger": "Close ideal-polygon geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nearest-side distance is a canonical observable for finite-area ideal polygons. A diverging inradius might misleadingly suggest that typical samples have diverging clearance; the complete, strictly ordered family instead has a tight nondegenerate limit, and exact total variation quantifies its approach. The contribution goes beyond tabulating one special polygon or evaluating a known endpoint coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

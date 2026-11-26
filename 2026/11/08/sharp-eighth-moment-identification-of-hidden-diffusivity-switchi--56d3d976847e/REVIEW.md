@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary Gaussian-mixture representation follows from the stable stochastic convolution. The exponentially weighted occupation fraction has the normalized \(\operatorname{Beta}(q,q)\) law with \(q=k/(2\gamma)\), obtained by solving the joint stationary transport equations, not assumed from numerical evidence. The second, fourth, sixth and eighth position moments follow from conditional Gaussianity, and the exact inversion and strict feasible region follow from a strictly monotone beta kurtosis and the lower-diffusivity positivity boundary. Both necessity and sufficiency, including the exceptional equal-diffusivity case, are explicit. A continuum of indistinguishable models proves minimality. The separate standard-library checker compared the transport hierarchy, Gaussian mixture and coupled diffusion moment generator at rational parameter points and passed 114 exact assertions. Those calculations are diagnostics, not substitutes for the general proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest direct source is Alston, Cocconi and Bertrand, *Non-equilibrium thermodynamics of diffusion in fluctuating potentials* (arXiv:2202.02630), particularly Section 4.2.3 and its established entropy-production equation (45). The new inverse theorem does not claim the model, stationary second-moment equation or forward entropy-production formula as discoveries. Zhang and Wang, *The stationary distribution of Ornstein--Uhlenbeck process with a two-state Markov switching* (DOI:10.1080/03610918.2015.1132321), give a wider class of stationary densities and mention parameter estimation in Remark 3.1, but the inspected result does not supply the sharp minimal order-eight snapshot-moment inverse map, exact admissible-data region or explicit dissipation reconstruction. Frydel (arXiv:2407.12213) treats switching stiffness and fixed diffusivity, so his Gaussian-mixture construction is not an identical inverse theorem. Targeted searches for equivalent moment-order claims, their aliases, and stronger identifiability results did not reveal covering prior statements. This is a qualified originality assessment; full indexing and publication priority cannot be proved from absence of matches.
+PASS
 
-## Mathematical value — PASS
-A physically hidden environmental switching rate and nonequilibrium entropy production can be reconstructed from stationary position data alone despite unknown diffusion contrast. The exact feasible region gives a falsifiable consistency test, the closed-form inverse avoids numerical parameter-fitting ambiguity, and the minimality theorem identifies the first accessible single-time moment order that resolves the ambiguity. Two strictly positive exact-rational physical models exhibit identical position moments through degree six yet distinct dissipation. These are motivated properties of the source's natural stochastic-thermodynamic model rather than an arbitrary parameter slice or a generic moment-table recomputation.
+The stationary solution is conditionally centered Gaussian with variance M+δU, where U is the exponential filter of a symmetric sign Z. Its stationary generator gives E[U^r]=E[ZU^(r−1)] and E[ZU^(r−1)]=[(r−1)γ/((r−1)γ+k)]E[U^(r−2)] for r≥2, independently of the density calculation. Thus E[U²]=γ/(γ+k), E[U⁴]=3γ E[U²]/(3γ+k), and odd moments vanish by symmetry. This verifies the exact moment map. The standardized ratio R strictly increases from 1 to 3 and physical positivity gives exactly M>δ, with δ²=2RB/(3−R). At fixed feasible M,B the interval 0<k/(2γ)<(M²/B−1)/2 preserves all moments through degree seven; the displayed dissipation is strictly increasing across that interval. The independent stationary diffusion-current calculation agrees with published Eq. (45) and fixes its factor-of-two convention. Both explicit ambiguity witnesses and their separation were reproduced by exact rational arithmetic: python3 /workspace/evidence/bounded_checks.py 3. The bundled checker was read, not executed. No finite-sample stability, unknown-γ recovery, or asymmetric-switching theorem is established.
 
-## Remaining scientific limitations
-The result assumes exact ensemble moments, symmetric switching, independent Brownian forcing, distinct positive diffusivities and known trap relaxation. No finite-sample stability or asymmetric-switching analogue is claimed. An unindexed parameter-identifiability theorem or a more general statistical inverse result might affect priority; this is an unresolved literature risk rather than mathematical evidence of prior coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known forward dissipation formula and standard variance-mixture tools. The supported distinct claim is the exact and sharp stationary-position inverse, including the feasible image and unavoidable ambiguity through sixth order with unequal dissipation. The closest indexed inverse uses a different observable and variance kernel. Zhang–Wang is a named access risk, not evidence for or against priority.
+
+## value
+
+PASS
+
+Identifying a hidden switching clock and dissipation from a stationary position snapshot is a natural inference question. The exact cutoff rules out all lower-order summaries even with ideal ensemble data, while the constructive inverse and strict feasibility conditions say when eighth-order data work. This is useful independently of practical high-moment estimation, which is not addressed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

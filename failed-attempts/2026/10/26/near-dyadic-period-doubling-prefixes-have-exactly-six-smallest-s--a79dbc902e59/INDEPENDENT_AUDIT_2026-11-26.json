@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:07:16.412699Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The base and finite parity certificate reproduced using a separately written check, not the frozen verifier. On P4 it exhausted 105 candidate pairs against all 75 distinct factors and returned exactly (4,8),(4,10),(5,10),(6,11),(6,12),(8,12). It found all six test factors in P5 and six odd/eight even signature types from the aligned two-block contexts, with the first four one-sided centers checked separately. No odd signature and second signature cover the required factors. Length-nine windows fit inside at most two aligned length-sixteen blocks; finite right truncation can only remove crossing occurrences. The infinite induction is sound: P_n=φ(P_(n−1))0; each factor with even positions lifts from a consecutive source interval, and the appended zero handles a trailing odd zero. The singletons lift because the source contains both letters. Conversely every source factor of length at least two contains a zero, so its image has a one at a relative even position and must begin at an odd absolute position wherever it occurs. An even marked position therefore projects to a marked source occurrence. Target 1 and target 00 check the source singleton 0 and 1 respectively. The local exclusion and projection force halving at every level n≥5, and the two distinct singleton factors rule out cardinality one. Replay: /workspace/branches/0ea0c230-e2c0-4dd9-935e-0b3f4e0e5065/independent_check.py and independent_check.out.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaeffer–Shallit establish minimum size two for all prefixes of length at least two and publish the pair predicate. Banbara et al. classify full dyadic words explicitly and Appendix A gives a recognizer for all smallest attractors of arbitrary prefixes."
+        ],
+        "reasoning": "The general recognizer covers the relation, not merely isolated prefixes; specialization to the penultimate lengths and interpretation can extract a formula. No explicit six-pair formula was found in the examined primary literature, and the full-dyadic theorem concerns a different prefix. Neither observation removes the separately verified exact catalogue coverage.",
+        "searches": [
+          "arXiv:2012.06840 §3, Theorems 3–4 and pdsa2",
+          "arXiv:2602.16152 Theorem 30, Corollary 32 and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Exact Resultary match SCOPE-six-smallest-string-attractors-immediately-before-dyadic-period--7c177e5db151",
+        "Schaeffer–Shallit arXiv:2012.06840",
+        "Banbara et al. arXiv:2602.16152"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue match gives the same base enumeration and bijection by doubling. Its obstruction checks all 24 short factors rather than the frozen six-factor test; both use centered length-nine windows in the same aligned contexts. The published recognizer also determines all valid pairs, but no separate Walnut extraction was run."
+        ],
+        "reasoning": "No inference from only a size bound or automated samples is needed: the matched result explicitly supplies the identical finding. A variant of the finite obstruction inside the same induction is not a distinct theorem or a supported separate contribution here.",
+        "searches": [
+          "Local mirror exact-match RESULT.md, proof Steps 1–4, offsets 0–7052",
+          "Banbara et al., arXiv:2602.16152 Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In SCOPE-six-smallest-string-attractors-immediately-before-dyadic-period--7c177e5db151, T_k=D∞[1..2^k−1] is P_k because φ is prolongable on 0. The same one-based six pairs are multiplied by 2^(k−4) for every k≥4.",
+          "The complemented morphism and zero-based positions in Schaeffer–Shallit encode the same attractor relation after letter exchange and index shift."
+        ],
+        "reasoning": "Prefix notation is not a different word family; complementing the letters preserves occurrence intervals. The later-path Resultary theorem is identical on the entire frozen domain, not just on sample lengths.",
+        "searches": [
+          "Resultary semantic lookup for the six-pair just-before-dyadic classification",
+          "arXiv:2012.06840 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-six-smallest-string-attractors-immediately-before-dyadic-period--7c177e5db151, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, RESULT.md Finding and assumptions at offset 0: the same six listed pairs, multiplier, lengths, and minimum cardinality.",
+          "A greedy-attractor hit uses a different rule and is not the basis for the verdict."
+        ],
+        "reasoning": "The exact match is a separate indexed result, not the frozen record itself or a match on a title alone. The date is provenance, not a priority determination.",
+        "searches": [
+          "Four targeted Resultary looks on the six-pair claim, arbitrary-prefix structure, full dyadic words and automatic recognizers"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives exactly the same complete six-pair classification, with the same domain and essentially the same lifting/parity/projection strategy (using a different finite signature test). It even states the six-to-two contrast with the full dyadic word. The frozen claim has no supported distinct mathematical remainder. This is a finding of exact catalogue coverage, not a finding about which author obtained the result first; the duplicate's path date is later than the frozen source's, and no derivation or priority relation was established.",
+      "residual_risks": [
+        "No priority or dependency between the two records is inferred from the dates or parallel proof structure.",
+        "The pre-existing recognizer was inspected, not run to extract the specialized family; that does not affect the exact-comparison verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact distinct indexed coverage",
+          "evidence": "Identical six scaled pairs for all k≥4; its proof uses a 24-factor parity signature test within the same lifting and reverse-projection argument.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-six-smallest-string-attractors-immediately-before-dyadic-period--7c177e5db151/RESULT.md",
+          "material_read": "Finding, assumptions, proof Steps 1–4, offsets 0–7052 at mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror reading and comparison of prefix and position conventions",
+          "title": "Six smallest string attractors immediately before dyadic period-doubling lengths",
+          "trigger": "Exact six-pair semantic hit"
+        },
+        {
+          "assessment": "Broader minimum-size result and pair recognizer, not a printed six-pair formula",
+          "evidence": "Theorem 3 gives minimum size two; pdsa2 tests the relation, and Theorem 4 gives a witness pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.06840",
+          "material_read": "§3, pp. 4–5, extracted offsets 8800–14345",
+          "method": "Bounded primary PDF reading",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Prior classification and recognizer for period-doubling prefixes"
+        },
+        {
+          "assessment": "Full-word classification is different; Appendix A already encodes the broader relation",
+          "evidence": "Two attractors at full dyadic lengths; Appendix A characterizes the arbitrary-prefix relation by Walnut and notes difficulty interpreting it structurally.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "Theorem 30 p. 10 near offset 47500; future question p. 17 near 75500; Appendix A p. 21 offsets 84200–87346",
+          "method": "Bounded primary PDF reading",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue-Morse Words",
+          "trigger": "Full dyadic classification and possible arbitrary-prefix coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical result is a natural infinite structural classification, not just another computation of a known minimum size: it locates all optimal pairs and gives the scaling at the boundary immediately before dyadic length. That intrinsic value does not turn a duplicate classification into a distinct contribution; acceptance fails on originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

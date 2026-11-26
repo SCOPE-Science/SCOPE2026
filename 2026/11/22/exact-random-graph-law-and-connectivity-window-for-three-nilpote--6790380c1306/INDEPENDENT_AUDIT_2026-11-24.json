@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:50.615632Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–53",
+        "VERIFICATION.md, CHECK_OUTPUT.txt and check_graph_law.py (inspected, not executed)",
+        "/workspace/audit_work/check_semigroups.py (replay: python3 -B /workspace/audit_work/check_semigroups.py)"
+      ],
+      "rationale": "Every element of S² annihilates S on either side since S³={0}; conversely any table on A×A with entries in B extends associatively by zero. The requirement S²=B is exactly occurrence of each nonzero label in the table; zero is already produced by products involving B. The size bound gives positive covered mass. With t available labels the diagonals contribute t^r, and equality and inequality pairs contribute t and t(t-1), respectively; inclusion–exclusion gives both displayed counts, including t=1. The unconditioned equality events concern disjoint pairs of entries, giving independent Bernoulli(1/b) variables. The distance to conditioning on coverage is its failure probability, bounded by the union bound; passing to graphs cannot increase distance. Products with B commute, so central generators are exactly the universal vertices. The union bound r b^(-(r-1)) applies before conditioning, with the stated extra TV error. For b=floor(r/(log r+c)), r/b=log r+c+O((log r)^2/r), and both errors vanish. The h-th factorial moment of isolated vertices uses precisely h(r-h)+h(h-1)/2 absent edges and tends to exp(-hc). Components with size k≤r/(log r)^2 have summed tree-and-cross-edge bound O(p) because (1-p)^(r-k)≤C/r; for larger k≤r/2 the cross-edge event alone has bound r^(-k/3). This proves the transfer to the ordinary noncentral graph. Adjoining B preserves closure and commutativity, giving the maximal clique correspondence. Independent small-table enumeration checked six parameter pairs, including the coverage boundary (2,5), the actual multiplication center, and direct commutative subsemigroup enumeration for the two-generator cases.",
+      "residual_risks": [
+        "The supplied checker computes b+clique number rather than independently enumerating maximal commutative subsemigroups, a narrower check than the prose suggests. The all-parameter conclusion follows from the algebraic proof, and the separate two-generator check directly enumerates subsemigroups. No verification for the uniform unlabeled model is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Giudici–Kuzma constructs realizations of graphs without universal vertices at order |V|+2. Bauer–Greenfeld gives star-free realizations.",
+          "The classical independent-edge connectivity theorem applies once the conditioned, potentially vertex-deleted graph is proved asymptotically equivalent."
+        ],
+        "reasoning": "Realizability establishes existence, not sampling frequencies or closeness of laws. The random-graph limit is background, not a novelty claim in isolation.",
+        "searches": [
+          "Bauer–Greenfeld arXiv:1710.05250 Proposition 3",
+          "Giudici–Kuzma arXiv:1505.05397 Theorem 2.2",
+          "Standard Erdős–Rényi connectivity window, focused primary lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.00466, 1201.3529, 1003.2809, 1505.05397, 1710.05250",
+        "Resultary fb59feceba40",
+        "Grillet DOI 10.1080/00927872.2013.790036 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting all covered functions gives the denominator but not the equality/inequality-constrained numerator. For b>2, eliminating different absent labels changes the equality and inequality factors t and t(t-1); the b=2 regularity under the extra no-universal condition cannot establish this sequence of terms.",
+          "The surviving transfer estimates both the missing-label error and the probability of any generator being central. Grillet's full-text scope could not be checked."
+        ],
+        "reasoning": "The prior representation enables the calculation, but the explicit graph pushforward and the vanishing two-error transfer in the stated scaling are the distinct inferences.",
+        "searches": [
+          "arXiv:2411.00466 p. 3",
+          "Resultary fb59feceba40 Finding and proof",
+          "Grillet DOI 10.1080/00927872.2013.790036"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dolinka–FitzGerald–Mitchell p. 3 presents maps X×X→K∪{0} whose image contains K; identifying X=A and K=B minus zero is exact.",
+          "Araújo–Kinyon–Konieczny p. 1 places the vertices on noncentral elements, whereas the finite F/D count uses the graph on all generators."
+        ],
+        "reasoning": "The underlying tables are known. Replacing S by a raw product map does not remove coverage conditioning; replacing the noncentral graph by the generator graph requires tracking universal vertices. The inspected background does not give the weighted adjacency law.",
+        "searches": [
+          "arXiv:2411.00466 and arXiv:1201.3529 (three-nilpotent canonical tables)",
+          "arXiv:1003.2809 (standard commuting graph)",
+          "Resultary fb59feceba40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed same-day finding counts 2^(r(r+1)/2) tables per fixed labeling of a graph with no universal vertex, from the minimum-order b=2 case. It gives the G(r,1/2) law conditioned on no universal vertices.",
+          "For b=2 and any such graph the all-equal excluded table cannot realize it and F_(r,2)(k)=2^(r+binom(r,2)), which matches that count exactly."
+        ],
+        "reasoning": "This is verified same-day special-case coverage without a priority inference. The order-minimal law does not provide the varying-b per-graph counts or the sparse window.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-graph-conditioned-isomorphism-fibers-of-minimal-cubic-nilpotent--fb59feceba40",
+          "arXiv:1201.3529 total semigroup enumeration"
+        ]
+      },
+      "rationale": "Credit the standard nilpotent table representation, commuting-graph definition, classical connectivity limit for independent edges, and an indexed special case of the conditional graph count. The surviving claim specifies the graph distribution for arbitrary admissible b and transfers the connectivity window to the noncentral graph in the growing-b semigroup ensemble. The strongest same-day match only treats b=2 without universal vertices. No inspected source contains or determines the general conditioned law and sparse transfer as stated.",
+      "residual_risks": [
+        "The same-day priority relationship for the b=2 special case is unresolved. Grillet's full text and an unindexed equivalent probabilistic formulation remain possible coverage; an unsuccessful focused search is not absence evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Canonical table background; not a graph distribution in the inspected statement",
+          "evidence": "Image of m:X×X→K∪{0} contains K.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.00466",
+          "material_read": "Canonical map statement, p. 3, near PDF offset 9200",
+          "method": "Lawful OA paper passage",
+          "title": "Semirigidity and the Enumeration of Nilpotent Semigroups of Index Three",
+          "trigger": "Same nilpotent sampling space via partial partitions"
+        },
+        {
+          "assessment": "Total counts by equality and isomorphism are known; no graph frequencies in inspected statement",
+          "evidence": "Distinguishes equality and isomorphism enumeration of degree-three nilpotent semigroups.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.3529",
+          "material_read": "Opening counting scope, p. 1",
+          "method": "Lawful OA paper passage",
+          "title": "The number of nilpotent semigroups of degree 3",
+          "trigger": "Exact enumeration might imply normalization or graph-conditioned counts"
+        },
+        {
+          "assessment": "Standard definition, no matching probability law in inspected passage",
+          "evidence": "Commuting graph is defined on the noncentral elements.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.2809",
+          "material_read": "Definition, p. 1, PDF offset 1762",
+          "method": "Lawful OA paper passage",
+          "title": "Minimal paths in the commuting graphs of semigroups",
+          "trigger": "Same graph definition"
+        },
+        {
+          "assessment": "Existential realization, not random graph law",
+          "evidence": "For a graph with at least two vertices and no universal vertex, constructs a semigroup of order |V|+2.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.05397",
+          "material_read": "Theorem 2.2, p. 4, PDF offset 10280",
+          "method": "Lawful OA paper passage",
+          "title": "Realizability Problem for Commuting Graphs",
+          "trigger": "Realizations with the minimum product ideal"
+        },
+        {
+          "assessment": "Realizability, not the labeled ensemble",
+          "evidence": "Star-free graph realization by a monomial semigroup.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.05250",
+          "material_read": "Proposition 3, p. 2, PDF offset 4300",
+          "method": "Lawful OA paper passage",
+          "title": "Commuting graphs of boundedly generated semigroups",
+          "trigger": "Nilpotent realizability of prescribed graphs"
+        },
+        {
+          "assessment": "Material b=2, no-universal special-case overlap; not full law or limit",
+          "evidence": "Two central elements, 2^(r(r+1)/2) tables per fixed labeling, and G(r,1/2) conditional on no universal vertex.",
+          "identifier_or_url": "2026/11/22/SCOPE-graph-conditioned-isomorphism-fibers-of-minimal-cubic-nilpotent--fb59feceba40",
+          "material_read": "Finding and construction, mirrored RESULT.md offsets 0–4713",
+          "method": "Local Resultary and mirrored passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Graph-conditioned isomorphism fibers of minimal cubic nilpotent semigroups",
+          "trigger": "Same-day exact conditional graph count"
+        },
+        {
+          "assessment": "Possible implications from the full text were not assessed",
+          "evidence": "No full-text passage obtained; absence cannot be inferred.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2013.790036",
+          "material_read": "Bibliographic data; the frozen record reports access to the abstract only",
+          "method": "Lawful OA access attempt; publisher PDF inaccessible",
+          "title": "Counting Semigroups",
+          "trigger": "Potential broader enumeration antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–29 and 34–53",
+        "Resultary fb59feceba40 restricted regime"
+      ],
+      "rationale": "Uniform labeled three-nilpotent multiplication is a natural finite algebraic ensemble in which conditioning can distort commutation. The exact graph-frequency invariant quantifies that distortion and handles regimes in which it is not small. The distance estimate then identifies an actual sparse connectivity window for the ordinary noncentral graph, not merely an analogy to independent edges; the clique correspondence connects the law to maximal commutative subsemigroups.",
+      "residual_risks": [
+        "Asymptotic conclusion pertains to fixed labeled sets at each r with the specified growing b, not uniform isomorphism classes or arbitrary size mixtures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:08:24.053552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Bencs–Csikvári arXiv:2105.06798v1, p. 1, abstract and displayed t_d formula",
+        "/workspace/review-checks/analytic_sanity.py, record 2 spot checks"
+      ],
+      "rationale": "At a positive integer k, the chromatic expansion changes rising factorials into falling ones with no remaining signs; Q_G(k)=kT_G(k+1,0) follows from connectedness and chromatic–Tutte duality. Bencs–Csikvári's published range x≥1, 0≤y≤1 and explicit two branches on the first page match exactly the required x=k+1, y=0; 1+1/(x−1)=x/(x−1). Since N must tend to infinity with girth and the bases are strictly increasing for x≥2, every lower positive-k term of the jth difference divided by Q_G(j) is exponentially small, Q_G(0)=0, and c_j is eventually positive with the asserted exponential rate. Multiplying coefficients by factorials multiplies the curvature ratio by j/(j+1), invisible at the Nth-root scale. For f=log t_d, the left derivative increases up to h=1/[2(d−1)]; the right derivative differs from h by (x−d+1)(d−x)/(2(d−1)x(x−1)), hence exceeds h on (d−1,d) and is below h for x>d. It is strictly decreasing for x≥d. Comparing the consecutive unit-interval integrals of f′ proves both strict signs including j=d−2 and j=d−1, with d=3 handled by the latter seam. A sequence of counterexamples of increasing girth would contradict the strict limit, giving the stated uniform existential threshold for fixed (d,j). Both rational boundary examples were spot-checked.",
+      "residual_risks": [
+        "The published high-girth Tutte theorem is a required established input, not proved or numerically revalidated here.",
+        "The girth threshold is existential for fixed d,j and gives no control when j grows with N."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bencs–Csikvári give the precise limiting Tutte evaluation for all x≥1 and 0≤y≤1 on high-girth d-regular sequences; they do not in that statement extract tau coefficients.",
+          "Zhang–Dong's abstract states the d≥4 sufficiently-large-girth counterexamples for both versions and the nonreal roots consequence, a fully covered negative slice."
+        ],
+        "reasoning": "A uniform formula in x makes a new coefficient argument possible, but does not itself assert dominance in a signed finite difference or a discrete curvature sign, especially across its two branches.",
+        "searches": [
+          "Bencs–Csikvári arXiv:2105.06798v1, exact formula and hypotheses",
+          "Focused web search for high-girth regular-graph Tutte evaluations and coefficient curvature"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fd479d4042b7 (same record)",
+        "arXiv:2105.06798v1 and 2611.11056v1, inspected first-page passages",
+        "Frozen RESULT.md lines 94–112; focused external searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general evaluation theorem is used directly to recover each fixed coefficient's growth, but classifying the signs requires comparisons of unit intervals below, straddling and above d−1 and d. Pointwise values or a j=2 failure cannot establish the return to positive curvature for every fixed j≥d−1."
+        ],
+        "reasoning": "There is a new structural consequence of the evaluation theorem; no covering statement for the full all-index sign was verified. The special case j=2,d≥4 remains known.",
+        "searches": [
+          "arXiv:2105.06798v1 p. 1; arXiv:2611.11056v1 abstract and OA log-concavity passage; frozen proof lines 41–92"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang–Dong use the identical rising-factorial expansion and its factorial augmentation. The located log-concavity passage places the failure at j=2, and their published abstract specifies d≥4.",
+          "In the Tutte formulation the target is the second discrete difference of the log growth base after reducing coefficient extraction to evaluations; it is not itself a single evaluation theorem."
+        ],
+        "reasoning": "For the two versions of tau, the factorial changes the ordinary ratio by a constant but not the exponential rate. The prior failure covers the first index for d≥4, not the new positive or later negative regimes.",
+        "searches": [
+          "Resultary: tau/augmented tau polynomial, chromatic rising factorial coefficients, regular high-girth log concavity",
+          "arXiv:2611.11056v1 (Zhang–Dong) and arXiv:2105.06798v1 (Bencs–Csikvári)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary statement fd479d4042b7 is the same assigned record, not independent coverage. No distinct exact hit for the full frontier was retrieved in the bounded search."
+        ],
+        "reasoning": "The strongest exact overlap from a distinct source is the known j=2 slice. Neither a self-hit nor finite rational examples give originality of the theorem.",
+        "searches": [
+          "Resultary: fixed-index coefficient curvature for high-girth regular graph tau polynomials"
+        ]
+      },
+      "rationale": "The j=2 non-log-concavity for d≥4 is prior coverage and the Tutte-evaluation bases are established input. The supported distinct contribution is the exact exponential curvature formula across fixed indices together with the all-fixed-index sign frontier, including the return to strict log-concavity and the cubic conclusion. These require coefficient extraction with domination and a separate comparison across the piecewise seam, not a relabeling of the prior negative case.",
+      "residual_risks": [
+        "Full-body overlap with other fixed-index consequences or alternate chromatic-polynomial terminology was not ruled out; the strongest passages, not entire publications, were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit input verified, not an independent tau sign theorem at the inspected passage",
+          "evidence": "d-regular sequence with girth tending to infinity, x≥1 and 0≤y≤1; low branch denominator (d−1)²−x, high branch x(1+1/(x−1))^(d/2−1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.06798v1",
+          "material_read": "p. 1 abstract, explicit t_d(x,y) case formula, and opening definition of T_G",
+          "method": "OA literal query, then identified public v1 PDF passage",
+          "title": "Evaluations of Tutte polynomials of regular graphs",
+          "trigger": "required external limit theorem; also strongest broader theorem"
+        },
+        {
+          "assessment": "Verified negative overlap for d≥4, with j=2 in the located passage; no full-body exclusion",
+          "evidence": "The abstract uses the same factorial expansion and says both coefficient sequences fail log-concavity for d≥4 and sufficiently large girth. Its located statement specifies the j=2 failure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11056v1",
+          "material_read": "p. 1 abstract with degree restriction and conventions; OA p. 1 phrase located by log-concavity at offset 2642",
+          "method": "OA literal query and identified public v1 PDF passage; expanded OA offset read timed out",
+          "title": "Non-log-concave τ-polynomials of regular graphs",
+          "trigger": "identical high-girth tau curves and prior log-concavity obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18, 69–104; Zhang–Dong arXiv:2611.11056v1 p. 1"
+      ],
+      "rationale": "The frontier determines where the known low-index failure stops and strict local log-concavity returns, with an exact exponential rate. In particular it clarifies what can and cannot follow from the cubic case, rather than just supplying another isolated negative index. Both ordinary and factorial-augmented coefficients exhibit the same boundary.",
+      "residual_risks": [
+        "Positive curvature at every fixed index is not global log-concavity or unimodality. No effective girth estimate is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

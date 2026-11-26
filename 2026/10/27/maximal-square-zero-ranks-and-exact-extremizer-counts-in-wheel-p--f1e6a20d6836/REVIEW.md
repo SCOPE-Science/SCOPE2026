@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For partial injections, square zero is precisely disjoint domain and image. The hub degree bound limits hub-using maps to element rank three; a separate five-rim-vertex argument closes the only smaller possible larger rank. The two cyclic-run counts follow from explicit component-length multisets, component permutations and internal path automorphisms. Short-wheel hub corrections are derived combinatorially. Direct finite enumeration tests all stated exceptional cases and the general formula through twelve rim vertices. A possible confusion between element rank and monoid generating rank is explicitly excluded.
+## correctness
 
-**Originality — PASS within examined coverage.** Fernandes's publicly accessible wheel monoid paper [1] studies generating ranks, Green relations and structural classes but not maximal square-zero element-rank enumeration. Jajcay et al. [2] analyze partial graph-automorphism inverse monoids and their induced-subgraph structure, but their characterization does not provide the exact present cyclic-run and short-hub correction count. Fernandes–Paulista [3] study the distinct intrinsic cycle metric. A wheel self-inverse rank enumerator and a cycle nilpotency-index enumeration are mathematically distinct: apart from the empty map, nonempty square-zero partial injections cannot be self-inverse, and the intrinsic cycle metric differs from the wheel metric. Targeted scholarly searches have not revealed a covering formula, but absence of a search hit does not prove global novelty.
+PASS
 
-**Mathematical value — PASS.** Maximum-rank square-zero elements measure the largest disjoint metric-substructure self-equivalences in a natural inverse monoid. The theorem establishes a sharp parity-dependent loss relative to the symmetric inverse monoid and counts all extremizers in every wheel via a natural path-component automorphism weight. The exceptional hub contributions are classified exactly and cause nonmonotonicity (for example, \(M_7=308>M_8=224\)). This is a complete infinite-family extremal invariant rather than a single small computation.
+A partial injection is square-zero exactly when domain and image are disjoint. If the hub belongs to the domain and maps to v, at most two other images can be rim neighbors of v, giving rank at most three; inversion handles the image-hub case. The disjointness bound already gives floor(n/2) for even n. For odd n≥7 a larger rank uses the hub but would exceed three. For n=5 a hypothetical rank three has image {v−1,v,v+1}; the two other domain vertices v−2 and v+2 are adjacent, but v−1 and v+1 are not. Two disjoint alternating independent rim sets give the claimed attainable rank, and restriction gives all lower ranks. On the rim, adjacency determines the metric. Red domain and blue image therefore must have identical multisets of path-component orders. For a fixed red composition of k, blue orders contribute r!/∏ m_j!, isomorphisms contribute ∏ m_j!·∏ b_j^(m_j), and b_j is one for singletons and two otherwise. For even n a marked red start has n labels and represents a pair with its map r times, yielding n(r−1)! times the coefficient in B^r. For odd n deleting the unique unused vertex cuts a line, and equal run counts force unlike end colors, yielding 2n r! times that coefficient. With a hub, rank two counts directed rim edges avoiding the other domain vertex (2(n−2) choices); rank three counts the nonedges in the path remaining after deleting v and its neighbors, namely binom(n−3,2)−(n−4), and has two bijections for each. Multiplying by n and by two for inversion gives exactly the listed hub corrections; there are none at rank at least four.
 
-**Principal residual risk.** A general specialized result on nilpotent elements in wheel partial-isometry monoids, not indexed by the searches, could duplicate the extremizer formula. The result does not determine the full square-zero rank polynomial or broader nilpotency-index distribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## References
-[1] V. H. Fernandes, *On the monoid of partial isometries of a wheel graph*, arXiv:2307.16257 (2023). https://arxiv.org/abs/2307.16257
+The supported distinct claim is the uniform extremal enumeration in the inherited wheel metric, with disjointness built into the cyclic or linear run counts and explicit hub exceptions. The disjointness criterion, induced-subgraph model, earlier general-type enumerations, and the n=4 complete multipartite special case are not credited as distinct contributions.
 
-[2] R. Jajcay et al., *Inverse monoids of partial graph automorphisms*, arXiv:1809.04422 (2018). https://arxiv.org/abs/1809.04422
+## value
 
-[3] V. H. Fernandes and T. Paulista, *On the monoid of partial isometries of a cycle graph*, Turkish Journal of Mathematics 47 (2023), 1746–1760. https://journals.tubitak.gov.tr/math/vol47/iss6/10/
+PASS
+
+Square-zero elements expose a genuine difference from the ambient symmetric inverse monoid in odd wheels. The count at the largest attainable rank is a natural semigroup invariant: the parity distinction and hub exceptions give an exact count of the maps with the tightest possible disjointness constraint. The useful contribution is the exact uniform rim/hub enumeration, not the elementary rank upper bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:09:19.914239Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–67",
+        "VERIFICATION.md lines 19–25 and verify_finite_chain.py, inspected only",
+        "/workspace/reproductions/frozen-check-3.txt"
+      ],
+      "rationale": "The common return cancels in the payoff comparison; a defector copying cooperator j uses p_j, while cooperator i copying a defector uses q_i. A reset contributes u to any specified flip. This gives the stated hypercube kernel; every flip and self-loop has positive probability. On the square missing only i and j at its bottom, the common first addition, the removals from the full set, and common factors cancel to give the stated ratio. Its two factors have the same strict comparison sign because q=1-p, so Kolmogorov's criterion rules out reversibility for any unequal pair. For equal p, the reciprocal edge weights depend only on level and the stated product recursion satisfies detailed balance on every edge. At fixed mutation rate with N=2, influx to each singleton equals u times the mass of the two consensus states and outflux is (2u+v) times the singleton mass, whence the common singleton probability u/(4u+v). The two consensus balances give the displayed probabilities and J=uv(p_1-p_2)/(2(4u+v)). Conservation fixes the same signed flux on all four edges; the stationary probabilities cancel around the cycle in the log ratio for entropy production. The homogeneous model at the mean p is admissible and has that same snapshot law with zero current. An independent exact solve that builds transitions directly from focal and model payoff comparisons tested 12 kernels for N=2,3,4, including the stated pair of examples; see /workspace/reproductions/frozen-check-3.txt and replay with python3 /workspace/reproductions/frozen_checks.py 3.",
+      "residual_risks": [
+        "The frozen verification notes say Python 3.8 or later, but the supplied script uses int.bit_count(), introduced in Python 3.10; this does not affect the proof or the independent reproduction.",
+        "Strictly positive mutation and nonzero imitation and selection are essential to the stated regime. Snapshot equivalence uses a fixed fair mutation rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 verifies pure extrinsicness of Eq. (4), and section 3.3 sets up the cooperation ceiling by payoff dominance and label swap at neutrality. The indexed hybrid threshold concerns mean cooperation with mixed imitation and introspection. No independently inspected full text was available for the introspection DOI."
+        ],
+        "reasoning": "Payoff or mean-cooperation comparisons do not settle detailed balance on the labeled-state chain. A larger model class or different update rule without a matching theorem does not by itself supply the all-N criterion.",
+        "searches": [
+          "arXiv:2606.31740 Theorem 2 and section 3.3; reversibility keyword locator",
+          "DOI:10.1007/s13235-026-00715-0, introspection with mutation",
+          "Resultary hybrid weak-selection threshold, 991947cc5377"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31740 sections 2.2, 3.2, 3.3 and public-goods setup",
+        "Resultary 3b110288d56a (self-match), f9e8f72a316e and 991947cc5377",
+        "DOI:10.1007/s13235-026-00715-0 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary work supplies rates, including mutation; the standard square criterion requires identifying a square on which omitted costs separate monotonically. The two-player formulas identify two different combinations of the parameters: a sum governs stationarity and a difference governs flux."
+        ],
+        "reasoning": "A generic test for detailed balance, or a result about stationary cooperation averages, does not give the sign of that square ratio or prove exact equality of all labeled snapshot probabilities. The rate derivation itself is not new.",
+        "searches": [
+          "arXiv:2606.31740 Eqs. (2), (4), Theorem 2 and public-goods setup; Resultary f9e8f72a316e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (4) of the primary source takes a uniform ordered pair of distinct players and sums the Fermi copy probability over players of the destination action, multiplied by 1-sum_j mu_ij; the additive mutation term is mu_i,dest/N. Taking two actions and mu_i,C=mu_i,D=eta/2 gives exactly the frozen transition rule for the linear case.",
+          "The indexed reversal result uses payoff-based aspiration rather than comparisons with a sampled role model."
+        ],
+        "reasoning": "Identifying the full known kernel narrows the distinct claim to its reversibility and hidden-current properties. Aspiration and introspection change transition probabilities and are not aliases of the kernel with symmetric resets.",
+        "searches": [
+          "Foster–Knight–Krapohl, arXiv:2606.31740 sections 2.2, 3.2 and 4; Fermi/logistic pairwise comparison under action-invariant mutation",
+          "Resultary stationary circulation, homogeneous-cost reversibility and snapshot equivalence; f9e8f72a316e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit 3b110288d56a is the same entry. The distinct aspiration record describes four-state current reversal and a unique reversibility threshold, while the same-day hybrid record deals with weak-selection mean cooperation."
+        ],
+        "reasoning": "The distinct indexed records were compared by statement; neither provides the same iff or exact indistinguishable stationary vectors for the Fermi kernel.",
+        "searches": [
+          "Resultary Fermi public-goods reversibility and stationary current; 3b110288d56a, f9e8f72a316e, 991947cc5377"
+        ]
+      },
+      "rationale": "The linear public-goods instance is already in Foster–Knight–Krapohl with the same Fermi-plus-fair-reset probability law, not merely an absorbing imitation antecedent. The source gives the transition formula, payoff domination and a bound on mean cooperation. The checked results do not establish the exact reversibility threshold or the equality of the full labeled stationary distribution across models with different time reversal. Neither the standard finite-chain cycle criterion nor the prior mean bound substitutes for the chosen square and the two-player contrast calculation.",
+      "residual_risks": [
+        "The separate introspection paper could not be independently read. A focused literature search returned no results and is not evidence of absence. The conclusion is limited to the prior results compared, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same full rate law at the symmetric binary specialization; different conclusions",
+          "evidence": [
+            "Section 2.2 calls unmutated Fermi absorbing and separately defines the action-invariant mutation operator. Equation (4) applies that operator to Fermi imitation. Theorem 2 proves extrinsicness; the ceiling discussion bounds cooperation. The public-goods experiment uses heterogeneous contributions and a homogeneous return."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31740",
+          "material_read": "PDF p. 3 section 2.2 Eq. (2), offset 14990; p. 7 section 3.2 Eq. (4), offset 30210; p. 8 Theorem 2 and section 3.3, offset 33275; p. 11 public-goods setup, offset 49920",
+          "method": "OA PDF passage inspection; mutation and reversibility locators followed by bounded section reads",
+          "title": "The Cooperation Ceiling: Extrinsic Population Dynamics and the Intrinsic Escape",
+          "trigger": "Direct source for heterogeneous public-goods Fermi imitation"
+        },
+        {
+          "assessment": "Different kernel and conclusion",
+          "evidence": [
+            "Payoff-based aspiration reversal and a unique threshold, not Fermi copy-plus-reset and not the sum/difference snapshot equivalence."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-unique-reversal-of-stationary-circulation-under-heterogeneous-as--f9e8f72a316e",
+          "material_read": "Resultary finding summary",
+          "method": "Resultary comparison",
+          "title": "Unique reversal of stationary circulation under heterogeneous aspiration",
+          "trigger": "Closest indexed four-state circulation and reversibility match"
+        },
+        {
+          "assessment": "Mean and threshold, not labeled-state reversibility",
+          "evidence": [
+            "Hybrid dynamics mix imitators and introspectors and study a mean-cooperation threshold."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-weak-selection-threshold-for-hybrid-imitation-introspectio--991947cc5377",
+          "material_read": "Resultary finding summary",
+          "method": "Resultary comparison",
+          "title": "Sharp weak-selection threshold for hybrid imitation–introspection",
+          "trigger": "Same-day heterogeneous public-goods model with Fermi imitation"
+        },
+        {
+          "assessment": "No whole-document exclusion claimed",
+          "evidence": [
+            "The cited object is introspection rather than pairwise copying; no inspected statement independently settled its exact stationary formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13235-026-00715-0",
+          "material_read": "Bibliographic identification only; no independent full-text passage",
+          "method": "OA access attempt timed out",
+          "title": "Introspection dynamics with mutation in additive games",
+          "trigger": "Neighboring update rule and claimed stationary result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 25–67",
+        "arXiv:2606.31740 Theorem 2 and section 3.3"
+      ],
+      "rationale": "An exact necessary-and-sufficient criterion over all finite population sizes is stronger than inferring reversibility from a stationary average. The two-player formula supplies an explicit identifiability obstruction even when snapshots resolve every labeled state: matching the acceptance sum hides heterogeneity, but the signed trajectory current exposes it. The example is structural across the admissible two-player parameters, not a lone numerical coincidence.",
+      "residual_risks": [
+        "The observational interpretation concerns this exact finite update law; it does not assert identification results under intervention, general networks, or noncommon returns."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

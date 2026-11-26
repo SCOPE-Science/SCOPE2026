@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:10:39.335462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In v=u−αx mod 1 the cocycle is α⌊2x⌋. The first n digits are independent fair bits independent of uniform v, so the circle character multiplier is ((1+exp(2πikα))/2)^n. Orthogonality and Cauchy–Schwarz give the claimed bilinear norm; each of the two normalized observables contributes a factor exp(−ρ|k|), and a single frequency attains the maximum. At n=0 the multiplier is 1 even at a frequency whose positive-time multiplier is zero. For rational p/q only the multiples of q survive asymptotically; for irrational α every fixed mode decays, and the analytic weight makes the tail uniformly small. If δ_k=dist(kα,Z), then −log|cos(πkα)| is bounded below by a positive constant times δ_k² and above by another such multiple for δ_k≤1/4. The variational formula balances k with nδ_k²: Dirichlet supplies the universal n^(1/3) ceiling; kδ_k bounded below gives its matching lower bound, and kδ_k→0 along a subsequence with n=floor(k/δ_k²) disproves that lower bound otherwise. For finite ν the eventual lower bound δ_k≥k^(−ν−ε) gives the exponent lower bound and a subsequence with δ_k≤k^(−ν+ε) gives the reverse as ε→0. For ν=∞ arbitrarily strong subsequences give 0, which is also a lower bound because A≥2ρ.",
+      "status": "PASS",
+      "verification_limits": "The analytic proof was reconstructed. CHECKER.py was inspected, not run. It has 168 finite word-average checks and 124 exact rational conjugacy checks; its final 15 finite-frequency assertions only bound a maximum by −2ρ, not an independent computation of the norm or a test of the asymptotic rates."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berkes–Borda allow general lattice-step circle walks, not just Bernoulli; their covariance multiplier covers the Fourier dynamics used here. Butterley's exponential-mixing theorem excludes the relevant locally constant cohomology class in its induced hypothesis."
+        ],
+        "reasoning": "The broader stationary-walk result gives the spectral input; discrepancy results are not a substitute for the precise rate. Butterley's theorem is not coverage of this rate and does not contradict the slow analytic-fiber decay.",
+        "searches": [
+          "Berkes–Borda, equation (22) and preceding stationary covariance setup",
+          "Butterley arXiv:2308.13618, Definition 2.6 and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "Local Resultary self-match, fractional smoothing and linearized Steiner findings",
+        "Berkes–Borda arXiv:2204.00274 §3",
+        "Butterley arXiv:2308.13618 Definition 2.6 and Theorems 1 and 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write F(t)=inf_k(tk+dist(kα,Z)^2) and G_β(t)=inf_k(tk+dist(kβ,1/2+Z)^2), k≥1. Then F(t)/4≤min(G_(α/2)(t),G_(α+1/2)(t))≤F(t). For the first inequality use dist(kα,Z)≤2dist(kα/2,1/2+Z) and dist(2kα,Z)≤2dist(k(α+1/2),1/2+Z). For the second, take a nearest integer p to kα and reduce p/k to p'/k'. If p' is odd, k'α/2 approaches a half-integer with error at most dist(kα,Z)/2. Otherwise k' is odd and k'(α+1/2) approaches a half-integer with error at most dist(kα,Z). In both cases k'≤k. The same argument on approximating subsequences gives ν(α)=max(τ_(1/2)(α/2), τ_(1/2)(α+1/2)); reduced denominators grow along any sequence with errors tending to zero, and the reverse exponent bounds use the displayed doubling inequalities.",
+          "The earlier smoothing result yields limsup_(t→0) log F(t)/log t = 2ν/(1+2ν) because the log of the minimum, divided by the negative log t, is the maximum of the two log ratios up to a vanishing error. The audited A(n) is comparable to nF(2ρ/n) by the quadratic cosine bounds (F→0 for irrational α, so a minimizing candidate is near resonance). Monotonicity of F and adjacent mesh points 2ρ/n having ratio tending to one permit the same limsup on that mesh. Subtracting the earlier exponent from one gives exactly 1/(1+2ν), including ν=∞."
+        ],
+        "reasoning": "The apparent homogeneous-versus-antipodal distinction does not protect the headline claim. The earlier bounded-type estimate also transfers: if α is badly approximable, both transformed angles are by the same doubling inequalities, so both G are of order t^(2/3). Conversely if kδ_k→0, taking t=δ_k²/k gives F(t)/t^(2/3)≤2(kδ_k)^(2/3)→0. The remaining universal upper bound is the direct Dirichlet estimate and the rational plateau is the immediate surviving-frequency count.",
+        "searches": [
+          "Fractional circle smoothing, proof §§1–3: variational comparison, all-exponent law and bounded-type result",
+          "Frozen RESULT.md proof Steps 4–5: homogeneous variational problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (22), p. 16 of the accessible preprint, expresses stationary covariance as the Fourier sum with multiplier φ(2πkα)^n. With Bernoulli steps this is precisely the multiplier of the conjugated skew product; diagonal weighting costs exp(−2ρ|k|). The earlier linearized Kronecker Steiner record, proof §2, already obtains the scalar supremum exp(−σm)|cos(πmβ)|^(N−1) at the golden angle and then resolves its finer oscillatory envelope."
+        ],
+        "reasoning": "The change v=u−αx mod 1 produces the Bernoulli walk directly. Passing from prior stationary covariance to the bilinear analytic norm is polarization and a diagonal norm, not a distinct spectral result. The Steiner record alone only treats a fixed angle and is not used as evidence of all-angle coverage.",
+        "searches": [
+          "Resultary: analytic circle operator norm, cosine powers, arithmetic stretched-exponential rates",
+          "Berkes–Borda arXiv:2204.00274, equation (22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit 2026/11/22/SCOPE-sharp-analytic-fiber-memory-detects-the-diophantine-exponent-in--65e156a36327 is the same record. The distinct earlier smoothing record gives, for s=1, an exact log exponent 2τ/(1+2τ) for the multiplier deficit, with the proof reducing to inf_k(tk+dist(kβ,1/2+Z)^2)."
+        ],
+        "reasoning": "There is no finite table here; the comparable exact entries are norm and exponent identities. Exact coverage does not require an identical title or displayed exponent: the smoothing identity yields the audited exponent after the reduction below.",
+        "searches": [
+          "Resultary: analytic fiber memory Diophantine exponent exact norm",
+          "Resultary: fractional circle smoothing antipodal Diophantine exponent and linearized Kronecker Steiner convergence"
+        ]
+      },
+      "rationale": "The exact norm is an immediate weighted diagonal specialization of the published stationary covariance identity, and the main claimed new all-irrational exponent is a corollary of the earlier Resultary antipodal smoothing theorem by a two-angle parity reduction and t=2ρ/n. Thus the issue is demonstrable implication, not merely similar exponents or uncertain priority. The remaining distinctions are a direct coordinate substitution and elementary endpoint and uniform-bound consequences.",
+      "residual_risks": [
+        "The bounded search does not establish first historical occurrence of these variational laws. The negative decision uses the explicit implication from a distinct inspected earlier record, not a failed lookup, a self-match, or a claim about uninspected literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the audited all-irrational exponent via parity and rescaling; also supplies the matching bounded-type rate",
+          "evidence": [
+            "For s=1, (1) compares the deficit to inf_k(tk+dist(kβ,1/2+Z)^2). Theorem gives exact limsup 2τ/(1+2τ) for every irrational β, including infinite τ."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fractional-circle-smoothing-detects-the-antipodal-diophantine-ex--52fe03f6d75b/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–3 (local-mirror offsets 0–6182)",
+          "method": "Exact Resultary mirror passage and explicit comparison of variational functions",
+          "title": "Fractional circle smoothing detects the antipodal Diophantine exponent",
+          "trigger": "Closely matching operator norm and exponent recovery after rescaling"
+        },
+        {
+          "assessment": "Prior covariance law, not by itself the arithmetic analytic norm classification",
+          "evidence": [
+            "For independent uniform U and a lattice-step sum S_n the covariance is the sum of |f-hat(k)|² φ(2πkα)^n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.00274",
+          "material_read": "Abstract and §3 equation (22) and surrounding proof, p. 16 (offsets 46600–49475)",
+          "method": "Lawful arXiv copy after publisher access failed; full-text passage by offset",
+          "title": "Random walks on the circle and Diophantine approximation",
+          "trigger": "Closest primary stationary circle-walk covariance result"
+        },
+        {
+          "assessment": "Closely matching numerical norm profile at one fixed angle, not all-irrational coverage by itself",
+          "evidence": [
+            "At β=1/φ the weights exp(−σm)|cos(πmβ)|^(N−1) have a log-periodic limiting n^(1/3) envelope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-log-periodic-fibonacci-convergence-law-for-the-linearized-kron--4b02728f499b/RESULT.md",
+          "material_read": "Finding and proof §§2–4 (local mirror offsets 0–6845)",
+          "method": "Exact Resultary mirror passage",
+          "title": "A log-periodic Fibonacci convergence law for the linearized Kronecker Steiner process",
+          "trigger": "Prior exact cosine-power extremum and n^(1/3) law"
+        },
+        {
+          "assessment": "Different cohomology hypothesis and observable class; no implication of audited rate",
+          "evidence": [
+            "Non-cohomology to a locally constant function is required in the induced condition; the worked doubling example uses a different cocycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.13618",
+          "material_read": "Definition 2.6 and Theorem 1, p. 5 (offsets 13280–13900); doubling example in Theorem 3, p. 7 (near 20240)",
+          "method": "Open primary PDF passages",
+          "title": "Exponential mixing for singular skew-products",
+          "trigger": "Potential broader skew-product mixing coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Arithmetic control of an optimal correlation norm is a meaningful question, but the claimed exact invariant and rate classification recover existing variational results after two elementary transformations. What remains for this particular skew product is an elementary coordinate change to the Bernoulli walk, its analytic diagonal norm and direct rational/Dirichlet consequences; the record does not identify a separate nonmechanical finding in that remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

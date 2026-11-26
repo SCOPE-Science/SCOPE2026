@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:36:31.047339Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75; accompanying VERIFICATION.md.",
+        "Independent sign-kernel factorization and Funk–Hecke calculation; Hoeffding variance formula."
+      ],
+      "rationale": "For fixed noncollinear directions x,y, the other pair has opposite normal signs with probability 1/2. Conditional on this, the intersection direction of their segment with span(x,y) is uniform by rotations about the normal. A strictly positive convex dependence exists exactly when the negative intersection direction is in the open cone between x and y, yielding theta/(4 pi). Boundaries are null. The angle density sin(theta)/2 gives mean pi/2, hence depth mean 1/8, zero first projection, and the stated centered second kernel. An independent spectrum check uses the operator H with kernel sign(x·y): its squared kernel is 1-2theta/pi by the area of two spherical lunes, so T=-H²/8. Funk–Hecke gives H zero on even modes and eigenvalue integral_0^1 P_(2m+1)(t) dt=(-1)^m(a_m+a_(m+1))/(4m+3)=(-1)^m a_m/(2m+2) on the odd modes. Squaring gives exactly the stated lambda with multiplicity 4m+3. Canonical Hoeffding components have variance ||h_j||²/binom(n,j); at n-scale only the second term with multiplier 6 remains. On finite harmonic sums the multivariate CLT and the law of large numbers give independent centered chi-squares; the exact canonical variance bounds the omitted Hilbert–Schmidt tail uniformly. Integration of theta against sin(theta)/2 gives variance (pi²-8)/4, so the n² variance limit is 72||h2||² = 9(pi²-8)/(8pi²). The sum of multiplicity times |lambda| telescopes to 1/8, so the nonnegative chi-square series has finite expectation and converges a.s. by monotone convergence (not merely by L1 convergence alone); centered partial sums converge in L² by the squared-eigenvalue sum. Independently small finite prefixes and a sufficiently small independent tail with positive probability give the upper endpoint 3/4; the first chi-square is unbounded, so the lower endpoint is -∞. Positive radial rescaling preserves the sample event by renormalizing its nonnegative dependence coefficients.",
+      "residual_risks": [
+        "The verification directory mentioned in RESULT.md and VERIFICATION.md was not included in the frozen evidence; reported sample outputs were not replayed. The analytic proof does not depend on them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jentsch–Nagy–Wendler give n times the centered depth limit with d(d+1)/2 times a weighted centered chi-square sum and establish degeneracy for angular symmetry under a density hypothesis. Dümbgen's general depth limit paper was identified, but only an abstract/landing record was accessible."
+        ],
+        "reasoning": "The template and degeneracy are not new, and the count multiplier 6 is the d=3 instance. Neither accessible statement proves the explicit containment projection and its evaluated law.",
+        "searches": [
+          "arXiv:2608.11131 §1, Theorem 1 and adjoining remarks",
+          "Dümbgen 1992 DOI 10.1016/0167-7152(92)90075-G"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.11131",
+        "Dümbgen 1992 DOI landing/abstract",
+        "Resultary nearby records above",
+        "Frozen proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior generic results give unspecified operator eigenvalues and the Wendel mean is already known. Standard harmonic tools evaluate the eigenvalues once h2 is identified."
+        ],
+        "reasoning": "Without the dimension-specific angular containment calculation the generic result does not identify the operator in this instance as a multiple of a sign-transform square. That identification and the explicitly grouped law with sharp upper endpoint go beyond direct substitution of d=3 or the circle calculation.",
+        "searches": [
+          "Jentsch–Nagy–Wendler arXiv:2608.11131 §1 pp. 2–3, Theorem 1 p. 5; compare frozen proof §§1–4",
+          "Resultary 3c2cac42aa9f and c1bb34e0d615"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Positive radial rescaling equates sphere samples with the directions of an isotropic Lebesgue-density sample such as normal data; thus the singular sampling assumption is not itself an originality distinction. The canonical kernel may be expressed as minus one eighth of the squared spherical sign transform."
+        ],
+        "reasoning": "The general asymptotic law applies to a radial lift and is equivalent once the projection is known, but gives no evaluation of that projection as a geodesic/sign kernel or resulting explicit law.",
+        "searches": [
+          "Resultary: 3D spherical-uniform central simplicial depth angular kernel odd Legendre eigenvalues exact variance support",
+          "Jentsch–Nagy–Wendler arXiv:2608.11131 §1 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8b0e4810d353 is the frozen self-hit. 3c2cac42aa9f gives circle triangle depth and deletion with odd Fourier eigenvalues -1/(pi² m²); c1bb34e0d615 gives a circle moving-query transition."
+        ],
+        "reasoning": "The circle law is dimension-two, order-three and Fourier on S¹; it is not a reparametrization of the S² Legendre law or a table covering it. Same-day rank/order is not assumed.",
+        "searches": [
+          "Resultary exact tetrahedron S² Legendre spectrum and nearby simplicial-depth fluctuation records"
+        ]
+      },
+      "rationale": "The mean and generic central degenerate-depth asymptotic law are prior theory. The supported distinct content is the explicit tetrahedral projection and its evaluation to a complete spherical spectrum, variance and support endpoint for this law. The strongest accessible depth comparison gives only the operator-eigenvalue template, and nearby indexed explicit laws concern triangles in the plane. Priority against the inaccessible 1992 full text remains a bounded risk, not a negative inference from unavailability.",
+      "residual_risks": [
+        "Dümbgen's full paper was not lawfully accessible in the bounded check, so an older equivalent specialization cannot be excluded. No absolute historical priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic framework and degeneracy; not the evaluated S² law",
+          "evidence": "The n-scaled weighted centered chi-square limit has unspecified eigenvalues; the symmetry-based degeneracy theorem assumes a Lebesgue density. The original full paper is now accessible, unlike the access situation reported in the frozen finding.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.11131",
+          "material_read": "§1 pp. 2–3, offset 6963; §2 Theorem 1 p. 5, offset 14398",
+          "method": "Lawful OA PDF, targeted original passages",
+          "title": "Resampling simplicial depth",
+          "trigger": "Most directly relevant accessible general depth fluctuation result"
+        },
+        {
+          "assessment": "Scope of specialized overlap not determined",
+          "evidence": "Identified genuine earlier general depth-limit reference; no full-text exclusion is drawn.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(92)90075-G",
+          "material_read": "Bibliographic landing/abstract, not full paper",
+          "method": "Lawful OA via DOI and publisher attempt; full text not obtained",
+          "title": "Limit theorems for the simplicial depth",
+          "trigger": "Plausible older specialization"
+        },
+        {
+          "assessment": "Exact self-hit plus different-dimensional comparisons",
+          "evidence": "The independent records concern triangle/circle samples and odd Fourier modes or moving queries, not tetrahedral samples and Legendre modes.",
+          "identifier_or_url": "2026/11/22 3c2cac42aa9f, c1bb34e0d615, 8b0e4810d353",
+          "material_read": "Mirrored RESULT.md Findings and relevant proof passages at offset 0",
+          "method": "Configured local catalogue and mirror",
+          "title": "Local Resultary central and moving-query simplicial depth records",
+          "trigger": "Strongest indexed exact/same-topic matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–4; arXiv:2608.11131 abstract limit mechanism"
+      ],
+      "rationale": "The canonical central three-dimensional sampling model is independently motivated. A fully explicit non-Gaussian law with exact normalizing variance and finite upper endpoint offers interpretability and a reference distribution beyond abstract degeneracy or an unspecified operator. The generic n-scaling and mean are not credited as new.",
+      "residual_risks": [
+        "No finite-sample calibration, convergence bounds, or anisotropic limit asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

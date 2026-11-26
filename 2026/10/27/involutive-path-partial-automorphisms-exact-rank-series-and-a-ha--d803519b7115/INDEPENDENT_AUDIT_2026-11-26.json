@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:00:16.747773Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The square-one equation for a partial bijection forces its image to equal its domain, so the calculation is on automorphism groups of induced subgraphs, not on partial isometries. On r ordered runs, a fixed component admits one orientation at length 1 and two at larger lengths. An exchanged pair must have equal lengths and has one or two choices for the first isomorphism, the second being its inverse. These give A and B with the indicated exponents. Choosing j disjoint exchanged pairs gives the coefficient in J_r; placing the runs after reserving r−1 mandatory gaps gives the binomial factor. The empty map contributes 1. An independent bounded check over 125,672 subset/permutation candidates verified all coefficients for 1≤n≤8; replay: python3 /workspace/branches/fe709d21-dd54-4146-a3d8-e3d9776a4775/check_profiles.py. The asymptotics are proved separately: for m=ceil(n/2), alternating vertices give lower bounds i_m and m! for U_n and T_n, respectively; counting subsets or ordered subset pairs and allowing all component permutations with at most two choices per component gives upper bounds 2^(n+m)i_m and 4^n 2^m m!. Here i_m is the symmetric-group involution count, with log i_m=(m/2)log m+O(m) by its pairing sum. A rank deviation forces r≤(1/2−ε)n+1 via r≤min(k,n−k+1); the same counting bound with this cap proves the domain tail, and the component lower tail follows directly. The component upper tail is eventually empty for each fixed ε because of the deterministic cap; no finer fluctuation law is verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 counts all induced-subgraph partial automorphisms via maximal paths. The later Resultary tail result treats unconditional uniform sampling of the entire monoid."
+        ],
+        "reasoning": "The total count neither distinguishes the square-one elements within a subset type nor gives the distribution conditional on being square-one. The logarithmic growth of T_n alone is not credited as a new count.",
+        "searches": [
+          "arXiv:2101.12468, Theorem 2.1 and proof",
+          "Resultary 2026/11/22 SCOPE-sharp-lower-tail-exponents-for-random-partial-automorphisms-of-a--b3dc8a9f5e5d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.12468",
+        "Resultary 2b5b0d3783a1",
+        "Resultary b3dc8a9f5e5d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior enumeration supplies a close method: involutions on component positions with internal group factors. The path theorem supplies the decomposition of induced subgraphs and counts all isomorphisms between them."
+        ],
+        "reasoning": "Standard component-group counting accounts for the local involution weights once the groups are specified. The evaluated rank sum uses the undirected equal-length orientations and gap counts; the scale and rare-event bounds additionally require control of component counts under the square-one restriction. Neither inspected result gives that aggregate and probability estimate as a specialization.",
+        "searches": [
+          "Resultary 2026/10/18 fence record, RESULT.md enumeration and rank specialization",
+          "arXiv:2101.12468, Theorem 2.1 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph partial automorphisms are induced-subgraph isomorphisms. The indexed fence result likewise concerns square-one partial maps and component runs, but preserves poset order; for the full two-element component it has 1 involution versus 2 for the graph path."
+        ],
+        "reasoning": "The inverse/square-one formulation agrees when the underlying automorphism group agrees. Replacing graph adjacency by alternating order changes that group and therefore changes even a full-rank coefficient.",
+        "searches": [
+          "Resultary local index: self-inverse partial automorphisms, interval runs and rank statistics",
+          "arXiv:2101.12468, definition of partial automorphism",
+          "Resultary 2026/10/18 SCOPE-cycle-type-enumeration-of-self-inverse-partial-automorphisms-of--2b5b0d3783a1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rank specialization in the matching Resultary search is for alternating fences. The same-object reference is an exact formula for the total cardinality T_n, not for the coefficients v_{n,k}."
+        ],
+        "reasoning": "Treat the existing total-count formula as coverage of that count, not as an exact table of the square-one rank profile. No exact matching profile was established in these checks.",
+        "searches": [
+          "Resultary local index: rank enumeration for self-inverse path partial automorphisms",
+          "arXiv:2101.12468, Theorem 2.1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the rank series for square-one partial automorphisms of the undirected path and their logarithmic abundance and domain/component concentration. Total path-monoid enumeration and the component-wreath-product method are not new. The closest prior fixed-point/two-cycle enumeration is for alternating fence posets and does not give these path-graph coefficients or the square-one concentration. This is not an assertion of absolute priority.",
+      "residual_risks": [
+        "Focused comparison with the identified OA same-object paper and related indexed records, not a comprehensive literature search. A more general graph groupoid or cycle-index result not identified here could cover the enumeration; the known run and local involution methods substantially overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers T_n and induced-run structure, not the square-one rank enumerator",
+          "evidence": [
+            "The formula sums over domain subsets and maximal intervals; it has no condition on the square of the partial bijection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.12468",
+          "material_read": "PDF p. 2 definitions (OA offset 5079); p. 7 Theorem 2.1 and proof (offsets 24763–28347)",
+          "method": "OA PDF passage inspection",
+          "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+          "trigger": "Same path monoid and a broad exact formula"
+        },
+        {
+          "assessment": "Material prior method; different automorphism groups and rank profiles",
+          "evidence": [
+            "Fixed-point/two-cycle enumeration is over fence order-automorphisms, using wreath products on run types."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-cycle-type-enumeration-of-self-inverse-partial-automorphisms-of--2b5b0d3783a1",
+          "material_read": "RESULT.md offsets 0–8857, cycle-index construction and specialization",
+          "method": "Local Resultary mirror",
+          "title": "Cycle-type enumeration of self-inverse partial automorphisms of alternating fence posets",
+          "trigger": "Same square-one restriction, run method and rank specialization"
+        },
+        {
+          "assessment": "Later, different sampling measure",
+          "evidence": [
+            "The uniform sample is from all partial automorphisms, not the self-inverse subset."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-lower-tail-exponents-for-random-partial-automorphisms-of-a--b3dc8a9f5e5d",
+          "material_read": "RESULT.md ensemble and main lower-tail results",
+          "method": "Local Resultary mirror",
+          "title": "Sharp lower-tail exponents for random partial automorphisms of an undirected path",
+          "trigger": "Matching rank and component concentration phenomena"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square-one locus is a natural subset of this inverse monoid. The rank profile distinguishes it from ordinary partial automorphisms; the same analysis quantifies the rarity of square-one maps among all maps and shows why their domains must be near half-full and mostly separated into runs. This is more than evaluating a usual involution polynomial on a small graph. The total-monoid scale on its own is not the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

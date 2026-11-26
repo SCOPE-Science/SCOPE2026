@@ -1,19 +1,21 @@
-# Mathematical review: annular Fourier dark-ring trajectories
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transform identity follows from the radial Fourier–Bessel integral. For \(E(x)=x^2(J_0(x)^2+J_1(x)^2)\), the exact identity \(E'(x)=2xJ_0(x)^2\) and the root equation imply \(|J_0(x)|>q|J_0(qx)|\), so every positive root has a nonzero derivative with the sign of \(J_0(x)\). Opposite endpoint signs and the common crossing orientation give exactly one root per \(J_0\) gap and no earlier root. The stronger identity \((qx_n(q))'=x_n(q)J_0(x_n(q))/[J_0(x_n(q))-q^2J_0(qx_n(q))]>0\) makes the inner argument pass through exactly the first \(n-1\) positive \(J_0\) zeros. Differentiation at these crossings gives the claimed nonzero curvatures; implicit-function arguments give the endpoint asymptotics. The finite tests described in VERIFICATION.md are not substituted for the infinite argument.
+PASS
 
-## Originality — PASS, with reservations
+Radial integration gives 2pi G_q(x)/x for G_q(x)=J_1(x)-qJ_1(qx), and area pi(1-q^2)>0 at zero. Put H(x)=xJ_1(x). Then H'=xJ_0 and H''=H'/x-H, so (H^2+H'^2)'=2H'^2/x, strictly increasing in the integrated sense on every positive interval. At a root H(x)=H(qx), this forces |J_0(x)|>q|J_0(qx)|. Consequently G_{q,x}=J_0(x)-q^2J_0(qx) is nonzero there and of the sign of J_0(x). At each J_0 gap endpoint, the same energy comparison gives |J_1(x)|>q|J_1(qx)|; alternating signs force one root per gap, and all simple crossings inside a gap have the same orientation, so there cannot be two. Below the first endpoint the integral has positive integrand almost everywhere. The implicit-function theorem gives analytic roots. The inner argument y=qx has derivative xJ_0(x)/G_{q,x}>0. Its left limit is zero and its right limit is j_{0,n}: the normalized integral G_q/(1-q) extends smoothly to q=1 with value xJ_0(x), and its local branch at j_{0,n} is j_{0,n}[1+(1-q)/2]+O((1-q)^2), entering the correct open gap and hence coinciding with its unique root. This is the decisive endpoint argument, without assuming the right endpoint is not a zero of the limiting function. At q=0 the local J_1 branch and qJ_1(qx)=xq^2/2+O(q^4) give exactly the even disk expansion. Since x_n'=y J_0(y)/G_{q,x}, y's increasing range crosses just j_{0,1},...,j_{0,n-1}. At each crossing y'=x and J_0'(y)=-J_1(y); this gives the stated nonzero curvature and sign (-1)^(n+m). In particular the n=1 derivative is strictly negative, and H is strictly monotone on the gap so the equation for X_{n,m} determines it uniquely. Replay: RESULT.md lines 58–145 and the above argument; python3 /workspace/review_evidence/bounded_checks.py uses Bessel series and bisection to reproduce q_{2,1}=0.315585469056578 and X_{2,1}=7.620203695958628. The provided SciPy script and recorded outputs were inspected, not rerun; the infinite-order result rests on the strict energy and implicit branch argument.
 
-Pálmai–Apagyi (arXiv:1002.0976, 2010) establish interlacing for ordinary Bessel zeros, but do not treat zeros of \(J_1(x)-qJ_1(qx)\) as a moving parameter family. Khonina's 2013 optical analysis identifies filled-disk and thin-ring first-zero limits, without the every-ring turning-point census. Guo–Müller–Wang–Wang (arXiv:1907.03669) analyze the different \(J_\nu Y_\nu-Y_\nu J_\nu\) annulus boundary-eigenvalue determinant. Searches of the mathematical-record database and relevant terminology produced no result proving the \(n-1\) stationary-point law. This supports an originality assessment of the exact trajectory census, but old unindexed optics tables or special-function papers could contain equivalent formulas; no independent priority determination has been made.
+## originality
 
-## Value — PASS
+PASS
 
-The circular-annulus Fourier transform is a basic model of an obstructed aperture. Locating all of its dark rings for every obstruction ratio and proving that the \(n\)-th ring turns exactly \(n-1\) times is a natural complete classification, not an isolated low-order calculation. The result separates the strictly monotone first ring from the increasingly oscillatory higher rings, proves no radial double zeros arise in the family, and gives implicit exact optimization radii and endpoint limits.
+Classical Bessel interlacing and the optical disk and thin-ring profiles are antecedents. The gap census and turning count are mathematically covered by two later-dated all-dimensional records on specializing to d=2. That overlap must be credited, but it is not verified prior coverage relative to the frozen record, and the dated evidence here does not establish provenance or absolute priority. No inspected earlier result supplied the claimed joint gap and stationary-point classification with the endpoint expansions. The assessment concerns that classification, not the known diffraction profile.
 
-## Limitations and closest literature
+## value
 
-The result is limited to real positive radial Fourier zeros of uniform planar annuli. Complex zeros, phase masks, and vector diffraction are outside its scope. Related analytic inputs are Pálmai and Apagyi (2010), NIST DLMF §10.21, Khonina (2013), and Guo et al. (2019). The old optical literature is a residual originality risk even after searching and comparing the accessible related texts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The scalar annular Fourier transform is a natural object. A full radial zero enumeration and exactly n-1 alternating nondegenerate turns resolve the meaningful question of whether dark-ring radii move monotonically as the hole grows: the first does, all higher ones have a prescribed number of reversals. The exact locations and endpoint corrections are useful beyond the known endpoint optical profiles; no Laplacian or complex-zero significance is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

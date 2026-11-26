@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:41:20.517437Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected proof in repairs/4/RESULT.md uses n as the number of edges and k=r−1≥4. The cosine eigenvectors follow from the interior averaging recursion and the reflected boundary; after conjugation by the square root of the degree matrix, the Gramian determinant ratio is the squared product of the vertex-mode ratios, since the nonzero Vandermonde factor cancels. Write H_k(θ) for the product of cos²(ℓθ). It decreases strictly up to π/(2k). Beyond that and up to π/2 the geometric sum has magnitude at most 1/sin θ≤k/√2 by the sine chord bound, giving Σ sin²(ℓθ)≥(1−1/√2)k/2>7k/50 and H_k(θ)<e^(−7k/50). For n≥12k, (ℓπ/n)²≤1/2 and log(1−t²)≥−2t² give H_k(π/n)≥e^(−π²k/72)>e^(−7k/50). Thus the first interior grid angle strictly beats every farther nonreflected interior site. The interior factor 2^r then beats the endpoint ratio 1 (log 2≥1/2). Reflection establishes exactly two maximizers; the proof includes the bound at equality n=12k and requires no finite extrapolation. The frozen result's three-mode transition and cubic bound are mathematically correct: for three modes the secondary lobe has maximum 2/(3√6) and n=2,3,4,5 have interior product maxima 0,1/4,0,1/4; for the cubic bound the one-factor off-lobe estimate is sufficient. Those frozen claims are not being certified as original. The frozen CHECK.py was inspected, not run, and the repaired verification file separates it from the new analytic bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bulai et al. discuss finite-path frame bounds, full rank after repeated sampling, and conditioning comparisons. The exact full-band normalized-path record optimizes all n+1 modes and gives endpoint optimality. Detailed arXiv:1109.3556 passages could not be retrieved for independent comparison."
+        ],
+        "reasoning": "Full rank and frame conditioning are different criteria, while a full-band result has r=n+1 and is outside the repaired regime. None of the inspected broader passages implies the low-pass determinant localization.",
+        "searches": [
+          "arXiv:2609.25472, finite paths in graph Paley–Wiener sampling",
+          "arXiv:1109.3556, reachability and observability of paths and cycles",
+          "Resultary: d0ca7333cb0f, full-band normalized-path endpoint optimality"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py; repaired RESULT.md and VERIFICATION.md",
+        "Resultary semantic index and mirrored e45b195df1c5, d31afb5d0f31 and d0ca7333cb0f",
+        "Bulai et al., arXiv:2609.25472, pp. 4–5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-sensor result gives the endpoint-pair versus inward-pair quotient with the same cosine product for all bandwidths, and expressly limits its comparison to those two pairs. Its favorable-bandwidth threshold can therefore yield a comparison to endpoints for the single sensor as well, via the known one-sensor ratio."
+        ],
+        "reasoning": "Even knowing that the inward site beats the endpoint leaves all other interior sites potentially competitive. The repair adds a uniform estimate on the cosine product away from the first monotone lobe, using a harmonic sum. The estimate and its comparison with the near-end lower bound give a linear threshold for a global maximizer, not a numerical substitution into the earlier endpoint comparison.",
+        "searches": [
+          "Resultary d31afb5d0f31, two symmetric sensor pairs and determinant transition",
+          "Resultary e45b195df1c5, one-site cosine product and higher-mode scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact prior result uses M for the number of edges and K for the number of modes. It compares the same normalized one-site Gramian ratios for injective evolution, and classifies the maximizing sites for K=2,3,4. K=3 switches from endpoints for 2≤M≤5 to their neighbors for M≥6."
+        ],
+        "reasoning": "There is no normalization or indexing difference in the overlapping ratio or transition. The repair treats the ratio as prior and addresses r≥5, not a restatement of an existing phase diagram.",
+        "searches": [
+          "Resultary: normalized-path low-bandwidth one-vertex D-optimal determinant phase diagram, all bandwidths and inward-neighbor global maximum",
+          "2026/11/2/SCOPE-sharp-low-bandwidth-path-sensor-phase-diagram-for-three-temporal--e45b195df1c5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier catalogue classifies all optimizer sites for r=2,3,4, with cutoffs sharper than any sufficiently-long-path rule there. No separate r≥5 global theorem emerged from the targeted Resultary comparison. The primary query returned no results; that is not evidence of absence."
+        ],
+        "reasoning": "An exact finite-band catalogue is relevant overlap and is explicitly excluded from the repaired claim. Neither finite enumeration nor interpolation of the low-mode cutoffs proves a bound for bandwidth increasing with path length.",
+        "searches": [
+          "Resultary one-sensor phase diagram e45b195df1c5; all-mode single-sensor sufficiently long path",
+          "Primary literature query: normalized path, low-pass single-vertex D-optimal determinant maximizer, first r eigenvectors, inward neighbor sufficient length"
+        ]
+      },
+      "rationale": "This PASS is for the repaired r≥5, n≥12(r−1) global one-vertex guarantee only. Originality of the frozen finding as submitted fails: the indexed 2026-11-02 phase diagram explicitly gives the same determinant ratio and the exact same three-mode transition, even with the same calculus proof. The repair credits those results, removes the duplicate claim, and keeps and strengthens the uniform large-bandwidth comparison to a linear sufficient length. The closest inspected prior results provide the factorization, low-mode phase diagrams, or endpoint-versus-inward comparisons, but do not give the uniform all-vertex conclusion at r≥5.",
+      "residual_risks": [
+        "Detailed content of arXiv:1109.3556 was not independently assessed.",
+        "Other all-vertex cosine-product estimates or normalized sensor theorems may exist; the claim is a sufficient length, without sharpness or historical priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive overlap with original ratio and three-mode finding; no classification for r≥5",
+          "evidence": [
+            "Its three-mode proof uses the same secondary-lobe maximum and same small-n checks; exact two- and four-mode results are also prior."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-low-bandwidth-path-sensor-phase-diagram-for-three-temporal--e45b195df1c5",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 and Proof offsets 3400–6082",
+          "method": "Resultary search and bounded local mirrored primary text",
+          "title": "Sharp low-bandwidth path sensor phase diagram for three temporal observations",
+          "trigger": "Exact same one-sensor setting, cosine ratio and maximizing sites"
+        },
+        {
+          "assessment": "Partial implication for endpoint comparison, not the all-vertex maximum",
+          "evidence": [
+            "Compares two simultaneously used symmetric pairs only; transition near bandwidth 0.4096(n) concerns that comparison."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-dynamics-independent-sensor-placement-transition-on-finite-nor--d31afb5d0f31",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–3176, including the explicit pair-only scope near offset 2314",
+          "method": "Resultary search and bounded local mirrored primary text",
+          "title": "A dynamics-independent sensor-placement transition on finite normalized paths",
+          "trigger": "All-bandwidth transition and the same cosine-product factor"
+        },
+        {
+          "assessment": "Relevant framework, different evaluated criterion",
+          "evidence": [
+            "A single vertex reaches full rank with enough times; the example compares conditioning and frame bounds for spatial and temporal designs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "PDF pp. 4–5, finite-path passages at offsets 14845 and 16621",
+          "method": "OA primary PDF text",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Same graph sampling framework and explicit finite-path example"
+        },
+        {
+          "assessment": "Full-band result and contrasting endpoints, not the repaired bandwidth regime",
+          "evidence": [
+            "The criterion uses all n+1 eigenvectors and yields a gcd-dependent formula and endpoint optimality."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirrored primary text",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Exact determinant maximization for another bandwidth regime on the same graph"
+        },
+        {
+          "assessment": "Detailed comparison unresolved; no negative inference from failed access",
+          "evidence": [
+            "The frozen account identifies a combinatorial-Laplacian observability problem, not a comparison of normalized-path Gramian determinants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.3556",
+          "material_read": "Citation and characterization in frozen RESULT.md; no decisive primary passage retrieved",
+          "method": "Targeted OA retrieval attempts",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Potential overlap through algebraic path sensor-placement criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired bound gives a uniform global answer when the number of selected modes is allowed to grow linearly with path length, rather than classifications for two, three and four modes or a comparison of two nominated designs. The all-interior product control is essential to the optimization; beating endpoints alone does not settle it. The improvement from cubic to linear sufficient length changes the guaranteed bandwidth scale from order n^(1/3) to order n, without claiming an exact cutoff. The frozen three-mode result is useful but is not a new contribution of this record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant splitting of the star Laplacian is exact for every allowed \(n\), and the leaf-edge perturbation acts only on the \((n-1)\)-dimensional unit-eigenvalue space. Positive-semidefinite rank and trace, strict Jensen concavity, and the incidence Gram equality conditions prove the global minimum and classify all optimizers. Strong concavity plus the exact squared Gram identity proves the quantitative gap. The accompanying script checked 14,107 instances, including every tested overlap pattern and unequal-weight case. Computation is corroboration only; the infinite claim rests on the analytic proof.
+PASS
 
-## Originality — PASS with stated search limitations
+The star Laplacian has the constants, the hub-against-leaves vector and the leaf-zero-sum space as mutually orthogonal eigenspaces with eigenvalues 0, n+1 and 1. The added Laplacian vanishes on the first two and has trace 2T and rank at most k on the last. Padding with zeros, the improvement is the sum of f(mu)=mu/(1+mu) at k spectral values. Jensen and strict monotonicity in T give the optimum and require T=W and mu_i=2W/k for every i. Thus exactly k edges are positive and the incidence Gram matrix must be (2W/k)I: its diagonals require equal weights and its off-diagonals force disjointness. Such a matching exists by 2k<=n, including n=2. The curvature lower bound for -f on [0,2W] gives an objective deficit at least the spectral squared deviation divided by (1+2W)^3. The latter squared deviation is the squared Frobenius deviation of the Gram matrix even when rank is deficient; its diagonals give 4 times the weight variance sum, and the two orientations of each off-diagonal give twice the stated overlap sum. Multiplying by n+1 gives the stated Kirchhoff index.
 
-The closest inspected classical studies split the two design decisions: fixed-weight link selection for network coherence (Summers et al., arXiv:1411.4884) and continuous conductance allocation on a fixed topology (Ghosh, Boyd and Saberi, SIAM Review 2008). Kooij and Achterberg's 2023 NP-hardness theorem covers general unweighted edge augmentation, but does not imply a closed star solution. Bhoite et al.'s 2026 mixed-integer and semidefinite study directly includes joint-budget graph augmentation in general, yet its inspected theoretical claims and methods do not state the exact star matching rule or overlap penalty. Search and access are not exhaustive; stronger specialized or unstated prior coverage remains a risk. The precise novel candidate is the simultaneous exact value, all-minimizer classification and constructive quantitative penalty, not the well-known objective or problem formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves all admissible resource allocations for an infinite natural family under a nonconvex count constraint, allowing general positive continuous weights. It proves that local reinforcement should be distributed across disjoint leaf pairs and quantifies every deviation from that configuration. Both the exact cost curve and stability inequality are relevant to sparse robustness upgrades of hub-and-spoke networks. The count restriction and fixed original spokes are substantive, explicit boundaries.
+The general joint cardinality-and-budget problem and the unweighted one-added-edge case have documented coverage. The supported distinct finding is the complete uniform-star solution for variable W and all admissible k, including every extremizer and the explicit quantitative gap. The strongest general formulation inspected uses optimization and approximation machinery, not a theorem that can be specialized directly to this closed form.
 
-## Literature and verification limitations
+## value
 
-No independent audit or independent validation has been performed. The finite checker is not an infinite proof. Potential coverage by other specialized Kirchhoff-index star-augmentation papers is not excluded, and the 2026 generic numerical optimization manuscript contains a related model, not an inspected sharp star theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A hub-and-spoke network with sparse new links and fixed conductance resources is a natural instance of a nonconvex design problem. The solution specifies when the continuous budget and the combinatorial optimum can be realized simultaneously, and turns strict inequality into a directly interpretable penalty for support overlap and unequal weights. This is useful beyond the known one-unit-link calculation or restating the general design objective.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

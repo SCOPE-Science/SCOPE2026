@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-mode Laplace transfer identity isolates \(q=S_1-S_2\) and \(h=bS_1-aS_2\). Positivity and strict log-concavity of the causal biexponential response kernel and its primitives prove the unique sign criterion and all strictly ordered integral crossings; an inequality on successive moments proves their divergence. Direct comparison of kernels for symmetric exchange establishes a strictly earlier instantaneous crossing at stronger mixing and its positive asymptotic bound. Symbolic and high-precision checks were executed using the embedded verifier; they confirm, but do not replace, the proofs.
+PASS
 
-## Originality — PASS on inspected literature
+The resolvent of the actual two-compartment loss matrix gives (qs+h)/(s(s+r_-)(s+r_+)), with strictly separated positive relaxation rates by positive trace, determinant and uv. Thus D_j=qF_j+hF_(j+1), where F_j=I^j B and B=(e^(−r_- t)−e^(−r_+ t))/(r_+−r_-). B is strictly log-concave. For each of these positive smooth f with f(0)=0, G=If has G²(log G)''=f'(t)G−f(t)²=f(t)∫_0^t f(s)[(log f)'(t)−(log f)'(s)]ds<0. Consequently F_j/F_(j+1) strictly decreases from infinity to zero: at zero use B∼t; at infinity apply the integral kernels to the integrable positive B by dominated convergence. Positivity gives no crossing if qh≥0, including either one-zero case, and D_j≡0 if q=h=0; otherwise the ratio gives a simple sign crossing from q to h. The phrase 'opposite steady-state loss-weighted source difference' in the introductory prose should be read via the explicit qh<0 and h=bS1−aS2, not as inserting a second minus sign. Integrating before the first zero forces the next zero to be later, and F_(j+1)≤(t/j)F_j implies t_j≥j|q/h|. For u=v=k in the crossing regime, a≠b and both r_-(k) and the rate gap increase. For 0<s<t the quotient B_k(s)/B_k(t) increases strictly, so the inverse kernel-integral ratio falls strictly with k, as does its crossing time. Its fixed-t limit is r/(e^(rt)−1), r=(a+b)/2, by dominated convergence of the kernel quotient; bracketing its strictly decreasing root gives the exact positive limit. Independently evaluated the example exponential zeros, 0.48562329495372988614 and 0.92165190130663244676, and the stated limiting time 0.32437208648653150558. The frozen checker was inspected, not executed; its reported finite checks do not certify all j or arbitrary mixing.
 
-Rodda, Hughes and Craske (2023 public preprint; 2026 published later version) analyze multizone CO₂ dynamics, spectral modes and mixing; Pei et al. (2019) study sensor position and spatial error. These are closely relevant, but the inspected primary full-text model and its expanded version do not present the exact all-time two-source sign criterion or the strictly nested temporal-integral reversal law. Published research-search records on an exchange-rate optimum for a two-box tracer, phase identifiability for a two-layer climate model and ventilation eradication thresholds have different output functionals. The earlier local three-room purifier comparison is not an implication of the present distinct two-zone dual-source theorem, nor vice versa. The analytical transfer-function formalism and log-concavity itself are established prior knowledge, not claimed as new. Pei 2019 full text and older two-zone control literature remain incompletely inspected; independent priority verification is recommended.
+## originality
 
-## Value — PASS
+PASS
 
-The source-versus-loss imbalance criterion and all-order delay hierarchy address a substantive ambiguity in interpreting zonal sensors: short-time and long-time pollutant ordering can oppose, while averaged observations reverse at strictly later horizons. It provides an exact positive limiting delay under arbitrarily strong reciprocal mixing, useful as a benchmark or a counterexample to blanket single-sensor interpretations.
+On inspected evidence the distinct claim is the comparison of early and equilibrium zonal order for two constant simultaneous sources, with exact all-integral horizons and strict symmetric-mixing dependence and limit for the instantaneous zero. The multizone step-response framework, spectral modes and log-concavity/convolution tools are prior knowledge; no general novelty for those tools or for a single zero of a two-mode transient is asserted.
 
-## Limitations
+## value
 
-This is a two-zone positive linear time-invariant *step-source* model with perfectly mixed volumes and fixed outdoor baseline; not a quantitative indoor-exposure forecast. Real sensor dynamics, stratification, changing sources, variable flow, or nonlinear chemistry may violate its premise. The reciprocal-exchange monotonicity claim does not cover independently adjusted unequal exchange coefficients. Historical priority remains provisional where primary full texts were inaccessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The problem distinguishes fast sensor ordering, cumulative exposure ordering, and equilibrium ordering in a motivated compartment model. The exact criterion separates the existence of a reversal from its time, shows why repeated integration postpones the reversal without bound, and establishes a nonzero lower time even for arbitrarily strong symmetric exchange. These give a model benchmark and a limitation on naive extrapolation from early sensor readings, not an empirical building-design prescription or a claim for nonzero initial data or asymmetric mixing changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

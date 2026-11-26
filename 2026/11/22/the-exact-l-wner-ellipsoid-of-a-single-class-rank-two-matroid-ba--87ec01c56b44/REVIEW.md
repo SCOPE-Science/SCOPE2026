@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The candidate probability design is explicitly positive on every base. Its three covariance eigenvalues were derived independently by decomposing the intrinsic affine tangent space into two within-block sum-zero spaces and a one-dimensional between-block space. Strict concavity of the log determinant proves that the scalar optimum is unique. Differentiating covariance in the mixture parameter, and taking its inverse trace, shows that the two orbit gauges coincide at the optimum; covariance normalization makes both equal the intrinsic dimension. The trace/determinant optimality certificate proves global minimal enclosing volume and uniqueness without a symmetry assumption on a competitor. Finite tests of 361 scalar configurations and 49 complete-matrix configurations corroborate the algebra. The standalone proof, rather than finite computation, establishes the assertion for every allowed integer parameter.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The most closely matching primary paper, Ferroni–Schröter's 2023 one-split matroid polytope paper, gives the combinatorial description and face-number formulas, not this Löwner ellipsoid. Other examined statements cover intrinsic Euclidean inballs of rank-two matroid polytopes, Gaussian normal-cone probabilities, or the Löwner ellipsoid of the different second partial permutohedron. These statements neither imply nor subsume the claimed optimal covariance design and complete all-vertex contact classification. The old complete-multipartite edge-polytope article was not read in full, and an unindexed equivalent remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-A one-split hypersimplex is a natural elementary matroid polytope, not a tuned numerical slice. Exact minimum-volume ellipsoid data are sensitive to the Euclidean embedding and not determined by the already-known face enumeration. The result supplies an all-dimension classification—unique center, optimal covariance, three semiaxis classes, volume, every contact point—with a nontrivial unique algebraic mixing parameter. It gives a tractable base case for geometric design questions on more general matroid polytopes, without asserting unproved extensions.
+The vertex set is exactly the cross pairs and B-pairs. To see the clipped-hypersimplex equality, aggregate the A-coordinates to a single coordinate in [0,1]; the projection is the second hypersimplex on b+1 coordinates. Decompose into its pair vertices and distribute each cross-pair mass among the A sites in the proportions x_i/x(A), if x(A)>0. The two within-part contrast spaces are spanned by vertex differences and a cross minus a B-pair adds a between-part direction, giving full intrinsic dimension. In the proposed vertex design, covariance along a zero-sum A contrast is p/a times its squared norm; along a zero-sum B contrast the unordered-pair contribution uses sum_{i<j}(z_i+z_j)^2=(b-2)sum_i z_i^2, giving the stated sigma_B with the singleton contribution. The between-block scores differ by sqrt(kappa), giving sigma_T; the cross covariances vanish from block symmetry and conditional mean zero. All eigenvalues are positive including b=2. The determinant has the stated strictly log-concave scalar factor with vanishing endpoints. Multiplication of its stationary equation by positive denominators gives the stated quadratic, and b=2 or 3 gives the stated fractions. Subtracting the two orbit gauges gives (a-1)/p+(1-2p)/(p(1-p))+(3-b)/(b sigma_B), exactly the log-determinant derivative. Their weighted average is d, so at the optimum each is d. Strict convexity excludes all nonvertex contact. For any competitor (m,R) average the containment inequality over the design: 1>=tr(R^{-1}C)+(c-m)^T R^{-1}(c-m). Trace–determinant AM–GM proves det R>=d^d det C with equality only for m=c and R=dC, establishing global uniqueness and the intrinsic volume/semiaxes. The a=2,b=3 example checks directly with p=2/3 and sigma_T=5/27. The 70-digit checker and its recorded 361 scalar and 49 matrix scopes were inspected, not independently run; those finite tests are not the proof.
 
-## Literature and limits
-The checked relevant textual material includes the rank-two sections and Schubert split representation of arXiv:2310.05487 and mathematical statements and proof segments from published scientific result files on rank-two Euclidean inradii, rank-two Gaussian angles, and second partial permutohedron Löwner ellipsoids. Earlier toric work was only available via abstract; the independent historical-priority risk is retained. No independent external mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit classical covariance/contact and D-optimal design principles, the known underlying matroid and hypersimplex representation, and related metric invariants. In the available statements the supported distinct claim is the exact two-orbit optimal mass, covariance and complete contact geometry throughout the specific rank-two family. The strongest plausible broader panhandle result could subsume this claim, not just share its method. Its available catalogue statement does not certify the needed rank/size domain, and bounded attempts did not recover those assumptions. The decision is from the available statements and is not a historical priority certification or a finding that the broader paper is noncovering.
+
+## value
+
+PASS
+
+For a canonical minimally clipped hypersimplex, determining the intrinsic outer covariance geometry is a natural exact problem distinct from face counts, inradius or normal cones. The closed scalar design, all-vertex contact, global optimality and explicit axis classes give an independently useful complete metric description, including the small-head cases. Its value is in the exact family-specific geometry where not already supplied by a verified encompassing result, not in restating the general D-optimality criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

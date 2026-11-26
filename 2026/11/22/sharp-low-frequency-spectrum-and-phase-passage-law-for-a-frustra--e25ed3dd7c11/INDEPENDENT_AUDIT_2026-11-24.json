@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:29:40.735451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonnegative Hamiltonian identity characterizes exactly the ground configurations: two opposite pure parts and one free part. Interior cube vertices have no inter-cube flip; junctions belong to two cubes. Each allowed edge has conductance 1/2 with counting speed measure. The cube Walsh eigenvalues are |S|, so on the mean-zero space the two antipodal evaluation representers have diagonal 2^{-n} sum_{k>=1} binom(n,k)/k and off-diagonal -2^{-n}H_n. The latter follows by binomial integration, and concentration of a Bin(n,1/2) variable, expanding 1/k around n/2 off the exponentially small tails, yields the diagonal 2/n(1+O(1/n)). Inverting the two-point Gram matrix gives the claimed sharp quadratic cost. Summing it and minimizing over each common endpoint gives n/4 times the cycle difference form to relative o(1); choosing the endpoint averages attains this precision. Cube Poincare bounds the total within-cube variance by the energy, while the six eliminated duplicate junction squares are O(sum m_j^2 + E/n) by the Green bound. The full squared norm is therefore 2^n sum m_j^2 + O(E + sum m_j^2). The six-dimensional trial space and the lower bound on the resulting low eigenspace give the six-mode min–max limit; more directly, any seven-dimensional space meets the zero-cube-mean kernel, on which E >= ||f||^2, proving lambda_6 >= 1 whenever that eigenvalue exists. For passage, the conductance across radial shells k,k+1 is (n-k)binom(n,k)/2. Series/parallel reduction and N=6(2^n-1) times resistance give the commute time; reflection halves it. The exact formula works also at n=1, where the graph is already the six-cycle. The reciprocal-binomial sum tends to 2. Verification files were inspected, not executed. The separate /workspace/branches/review-replay.py checks all distances on the unreduced flip graph at n=1,2,4,8 and its smallest eigenvalues at n=2,4,8; this is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The batch-exchange record glues three cubes pairwise for triangle transversals. The hard-core record treats two cubes glued at one empty state and an exact single gap. The weak-minima record is static."
+        ],
+        "reasoning": "Neither distinct same-day kinetic/geometry result states a general spectral law subsuming six antipodally joined cubes; the same-model static enumeration does not control these modes.",
+        "searches": [
+          "Resultary: glued cube geometry and exact phase-switching spectral gap",
+          "4d16bed72990",
+          "1dd8911342b1",
+          "b9b1601dcfa6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:4639e5e1dc43",
+        "Resultary:b9b1601dcfa6",
+        "Resultary:4d16bed72990",
+        "Resultary:1dd8911342b1",
+        "arXiv:1011.5119"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior lower bound is t_mix(1/4) >= 2^{m-1}. Counting and symmetry of the graph give the resistance corollary once the cube resistance is computed. The normalized form with energy n/4 and mass 2^n requires both the two-corner capacity asymptotic and an independent control of within-cube fluctuations."
+        ],
+        "reasoning": "The verified qualitative bottleneck and classical electrical identities do not fix the sharp spectrum or even its five-mode multiplicity. Credit the known structure and the routine passage corollary separately.",
+        "searches": [
+          "4639e5e1dc43, Finding",
+          "arXiv:1011.5119, asynchronous convention",
+          "frozen RESULT.md, Proof lines 44–55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4639e5e1dc43 gives the same ground graph and stationary count under discrete asynchronous updates; arXiv:1011.5119 describes the discrete update convention."
+        ],
+        "reasoning": "A change of clock on the same graph cannot count as originality. The inspected discrete-time statement, after reparametrizing, still supplies only a lower bound on mixing, not the normalized five eigenvalues.",
+        "searches": [
+          "Resultary: six-cube necklace spectrum / balanced tripartite stochastic minority",
+          "4639e5e1dc43",
+          "arXiv:1011.5119"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct ground-state result has cardinalities and a mixing bound, not a spectrum table; the related exact gap is for another graph."
+        ],
+        "reasoning": "A finite eigenvalue table is not an equivalent exact source for a limit with a uniform remainder gap. The relevant exact comparison here is a family theorem for the same graph, not a lookup of finite moments.",
+        "searches": [
+          "Resultary: sharp low-frequency tripartite ground-state spectrum; full statements of 4639e5e1dc43 and 1dd8911342b1"
+        ]
+      },
+      "rationale": "The previously established six-cube geometry, state count and qualitative bottleneck are not new. The passage computation is an application of classical commute-time reduction on that geometry, not a separate priority claim. The supported distinct result is the sharp scaled spectrum of all five nonconstant slow modes, including multiplicities and exclusion of other slow modes, under the specified clock.",
+      "residual_risks": [
+        "Bounded primary-literature search did not resolve the wider literature on networks of hypercubes or general metastable capacity reductions; absence of a surfaced exact result is not proof of priority.",
+        "Only the relevant opening/convention portions of arXiv:1011.5119 were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "directly covers ground graph and exponential mixing lower bound, not the spectral theorem",
+          "evidence": [
+            "Two opposite monochromatic parts, remaining part free; 6(2^m-1) recurrent states and uniform stationary law; one selected vertex per discrete update."
+          ],
+          "identifier_or_url": "Resultary:4639e5e1dc43",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "One communicating ground-state class and an exponential bottleneck for stochastic minority on balanced tripartite graphs",
+          "trigger": "identical ground geometry and related dynamics"
+        },
+        {
+          "assessment": "background convention in the inspected material; no whole-paper exclusion inferred",
+          "evidence": [
+            "Fully asynchronous rule selects one uniformly chosen vertex per step; the present generator uses rate-one vertex clocks and fair ties."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1011.5119v1",
+          "material_read": "offsets 0–4777 and 4777–8592",
+          "method": "open primary text",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "archival update convention and possible general results"
+        },
+        {
+          "assessment": "static overlap only",
+          "evidence": [
+            "Zero-field weak-minimum count includes an additional term for even n and distinguishes weak minima from dynamics."
+          ],
+          "identifier_or_url": "Resultary:b9b1601dcfa6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "Field-resonant weak minima and parity-alternating complexity on complete tripartite Ising networks",
+          "trigger": "same-model static analysis"
+        },
+        {
+          "assessment": "different state space",
+          "evidence": [
+            "Three Q_n cubes pairwise identified for minimum triangle-edge transversals, with 3*2^n-3 states."
+          ],
+          "identifier_or_url": "Resultary:4d16bed72990",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "Sharp batch-exchange thresholds and glued cube geometry",
+          "trigger": "distinct same-day glued cube geometry"
+        },
+        {
+          "assessment": "parallel two-well result, not broader coverage",
+          "evidence": [
+            "Two cubes joined at the empty state; exact first gap rather than the six-well mode spectrum."
+          ],
+          "identifier_or_url": "Resultary:1dd8911342b1",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "Exact phase-switching spectral gap for the hard-core gas on K_{n,n}",
+          "trigger": "distinct same-day spectral analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies all collective relaxation modes on a frustrated ground-state network, the exact leading scale of the gap, and an order-one separation from internal modes. The effective cycle is on cube means, whereas the exact passage law is between their junctions. Their relation and the clock-specific constants give more kinetic information than a qualitative mixing lower bound or mere resistance calculation. No positive-temperature or excited-state conclusions follow.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

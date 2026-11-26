@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:29:24.589447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two regularly separated endpoints x=cv−su, y=cv+su, the angle tests give |u·z|<s and v·z<c. Uniform projections have constant density 1/2 on [−1,1], and the excluded cap is in the belt except on a null boundary. Coincidence gives zero, agreeing with K, while at antipodes strict acuteness has probability zero rather than K=1/2. With probability normalization the Funk–Hecke eigenvalue is half the Legendre integral. Shifted Rodrigues and integration by parts against u^(1/2) give the displayed gamma ratio; the vanishing factor u^ℓ(1−u)^ℓ makes the boundary terms zero. Alternatively Eq. (27) of Brauchart–Dick gives all coefficients directly after parity rescaling. Each degree contributes 2ℓ+1 modes, and absolute uniform convergence follows by bounding each degree block by (2ℓ+1)|λℓ|. The exact deficit is valid for arbitrary Borel μ; harmonic density separates μ from σ, and only antipodal pairs require a correction. The degree-one Hoeffding projection (order one, not harmonic degree one) vanishes by rotation invariance; the pair sum enters with factor n−2 and the canonical triple remainder has variance O(n³). A finite harmonic CLT plus the canonical pair L² tail bound gives the factor 1/2 in the chaos. The diagonal gives trace 1/2; positive probability of a small finite partial sum and independently small tail gives the sharp upper support endpoint, and an unbounded chi-square term gives no lower bound. Direct integration gives the squared norm (π−3)/8 and thus variance (π−3)/16. Replay: python /workspace/audit_checks/reconstruct.py 5 checks the first ten integrals and the cross-term exactly. The frozen numerical checker was inspected, not executed; the asymptotic and uniqueness conclusions rely on analysis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected chord-power theorem covers general sphere dimension and power, with coefficient formula (27) and asymptotic directly below it. It explicitly calls the Euclidean-distance power expansion well known and credits Hubbert and Baxter.",
+          "The frozen proof's projection/decomposition uses ordinary canonical U-statistics; the prior conditional kernel identifies which known spherical spectrum to insert."
+        ],
+        "reasoning": "Taking dimension two and power one in the earlier general theorem covers the exact spectrum of the only nonconstant input. The standard projection limit then only needs a zero first projection and square summability, which follow from rotation invariance and the known spectrum.",
+        "searches": [
+          "Brauchart–Dick arXiv:1203.5157 (Theorem 8 and formulas following it)",
+          "Brauchart–Dick arXiv:1101.4448 and Stolarsky 1973, spherical distance energy",
+          "Serfling 1980 §5.5, canonical U-statistics (frozen reference)"
+        ]
+      },
+      "checked_sources": [
+        "Brauchart–Dick arXiv:1203.5157v1, especially p. 12 Eqs. (25)–(27) (primary PDF inspected)",
+        "Resultary 662e8b72619a, 04149a4bcc12, 8db816b9ed60, fac150ec6119 (indexed statements)",
+        "Frozen RESULT.md lines 38–96 and 102–110, especially prior conditional-kernel attribution; Serfling citation in frozen bibliography",
+        "Brauchart–Dick arXiv:1101.4448 and Stolarsky 1973 (literature leads, not needed for exact coverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier chord formula's nonconstant eigenvalues are negative. The multiplier 1/2+(-1)^ℓ/4 is strictly positive and the diagonal of h fixes the sum of the weights. The exact variance record is explicitly credited in the frozen text for the conditional kernel.",
+          "The other indexed triangle leads concern a circle with an obtuse threshold or intrinsic spherical angles, not the target theorem."
+        ],
+        "reasoning": "Given the earlier conditional kernel and distance spectrum, the negative sign, mixed-measure rigidity and full count law are direct consequences. At the sole exceptional off-diagonal pairs x=−y the chord diameter forces a right angle; subtracting K(x,−x)=1/2 adds the claimed atom term. Centering the standard chi-square expansion and using the trace gives the endpoint; this is not an independent new spectral phenomenon. The implication, not a verbatim match, is the reason for failure.",
+        "searches": [
+          "Brauchart–Dick arXiv:1203.5157v1 pp. 11–12 equations (23), (25)–(27)",
+          "Resultary:662e8b72619a and frozen RESULT.md lines 102–110",
+          "Resultary 8db816b9ed60 and fac150ec6119 (related circle/ intrinsic-triangle results)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 7 and 104–106 provide the conditional-kernel formula and credit the earlier exact-variance record. Ordinary chord length is twice its first square-root term; reflection gives twice its second unweighted square root.",
+          "Brauchart–Dick arXiv:1203.5157v1 p. 12 (26)–(27) gives the exact chord-power expansion."
+        ],
+        "reasoning": "The acute kernel operator is a linear combination of the known chord-distance operator and that operator composed with the antipodal reflection, plus a constant term. Both operators are diagonal in the same harmonics, and reflection contributes exactly the parity sign. No new eigenvalue integral is needed.",
+        "searches": [
+          "Resultary: exact variance of acute Euclidean chord triangles on a sphere, spherical chord energy, acute harmonic spectrum",
+          "Primary search: Brauchart Dick spherical Euclidean distance kernel Legendre expansion exact coefficients Stolarsky invariance principle sphere chordal distance Pochhammer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected earlier table-free coefficient formula specializes to (4/3)(−1/2)ℓ/(5/2)ℓ, for every degree, not merely a finite check.",
+          "04149a4bcc12 indexes an already-known χ² law for pairwise chord energy; 662e8b72619a indexes earlier variance and shared-pair covariance for the identical triangle count. Those summaries do not state the full triangle chaos."
+        ],
+        "reasoning": "Normalization by probability surface area and Z(2,ℓ)=2ℓ+1 in the earlier expansion identifies the coefficients as operator eigenvalues. The parity multiplier therefore converts exact known data into all the target weights, not just a matching moment or a few degrees.",
+        "searches": [
+          "Brauchart–Dick p. 12 exact distance coefficients (25)–(27)",
+          "Resultary 04149a4bcc12 exact finite-sample cubic moment of random spherical chord energy",
+          "Resultary 662e8b72619a exact variance of acute Euclidean chord triangles"
+        ]
+      },
+      "rationale": "The exact signed spectrum is mechanically implied by an explicit earlier Euclidean chord-distance expansion, not just by a general qualitative negative-type result. Put D(x,y)=||x−y|| and let R act by y↦−y. The previously reported acute conditional kernel (credited in the frozen finding) yields h=(1/2)D+(1/4)DR−1 as kernels. Brauchart–Dick, arXiv:1203.5157v1, p. 12 equations (25)–(27), with d=2, s=3/2, gives the eigenvalues ρℓ=(4/3)(−1/2)ℓ/(5/2)ℓ=−4/[(2ℓ−1)(2ℓ+1)(2ℓ+3)] for ℓ≥1, where the ratios denote rising factorials. Multiplying by (1/2+(-1)^ℓ/4) gives precisely the claimed λℓ. Integrating the known convergent expansion gives rigidity by the positivity of that multiplier, with the direct right-angle observation at antipodes providing the atomic correction. Plugging that same spectrum into the standard order-two canonical limit gives the full displayed law, and its support statement follows immediately from the signs and finite trace. This is a concrete prior-implication finding, not a claim that an older article states the complete acute-triangle result verbatim or that an inaccessible source proves it.",
+      "residual_risks": [
+        "No verbatim preexisting theorem for this complete acute count or mixed-distribution deficit was established. The rejection rests on the demonstrated implication of the explicit earlier coefficients with the credited kernel and standard limit theorem.",
+        "The earlier acute-variance record's exact full-text passage was not independently recovered; the frozen result itself explicitly credits that input. Other source access failures do not support the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact prior expansion covers the full nonconstant spectrum by specialization and the parity multiplier",
+          "evidence": "Eqs. (26)–(27) express the signed distance power in normalized harmonic kernels with eigenvalue factor (d/2−s)ℓ/(d/2+s)ℓ times the signed mean distance power. Eq. (25) gives its mean. Take 2s−d=1, d=2 and remove the stated overall sign.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.5157",
+          "material_read": "normalized measure setup, Theorem 8 parameter relation, and PDF page 12 equations (25)–(27) with the coefficient asymptotic and surrounding attribution",
+          "method": "primary literature search, targeted open-access passage request, then lawful same-paper PDF retrieval after timeout; decisive notation checked against rendered page",
+          "title": "A characterization of Sobolev spaces on the sphere and an extension of Stolarsky’s invariance principle to arbitrary smoothness",
+          "trigger": "possible earlier exact eigenvalue formula for the underlying chord-distance kernel"
+        },
+        {
+          "assessment": "prior conditional kernel is expressly credited and finite variance is indexed; no direct earlier statement of the count limit established",
+          "evidence": "The indexed result gives exact variance and shared-edge covariance for the identical count; the frozen relationship section says it establishes K and the joint probability as well.",
+          "identifier_or_url": "Resultary:662e8b72619a",
+          "material_read": "local indexed finding plus explicit prior-kernel attribution at frozen RESULT.md lines 104–106; exact prior file request timed out",
+          "method": "local Resultary search and local mirror passage request",
+          "title": "Exact variance of acute Euclidean chord triangles on a sphere",
+          "trigger": "same count; possible earlier conditional kernel and limit"
+        },
+        {
+          "assessment": "a pairwise energy, not the triangle count; independently inspected Brauchart–Dick provides the exact coefficients instead",
+          "evidence": "The summary states the exact cubic moment of the sum of chord lengths and refers to its previously known chi-square law.",
+          "identifier_or_url": "Resultary:04149a4bcc12",
+          "material_read": "local finding summary; exact passage request timed out",
+          "method": "local Resultary search and local mirror passage request",
+          "title": "Exact finite-sample cubic moment of random spherical chord energy",
+          "trigger": "potential earlier spectral law for underlying chord kernel"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The triangle statistics are natural and the acute formulation is useful exposition, but the new-looking exact weights are a parity reweighting of prior coefficients, the arbitrary-measure correction is the direct diameter/right-angle exception, and the limit and endpoint are routine consequences with those known inputs. The frozen record does not add a separate substantive estimate, classification, or theorem that survives this reduction and warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

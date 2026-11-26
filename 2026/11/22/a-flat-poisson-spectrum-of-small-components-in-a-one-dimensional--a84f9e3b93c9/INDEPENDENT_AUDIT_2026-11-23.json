@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:03:07.278729Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sorting the iid points yields uniform measure on the simplex of n+1 nonnegative spacings with dimension n. A gap exceeding r disconnects all pairs across it, and otherwise adjacent points are joined; only the n−1 internal spacings matter. Because the gap exceedance indicators are exchangeable, conditional on c−1 cuts each cut subset has probability 1/binom(n−1,c−1), and the ordered sizes are its positive spacings between ranks 0 and n. To count the factorial moments, mark the ordered distinct slots of each required size (a_j at size j); distinct sizes cannot share a slot, so there are (c)_A marked injections, each with J(n−S,c−A) completions. This proves the identity also when c=n, A=c, A=0, or the requested marks are infeasible. At c~a√n the ratio is (c)_A(c−1)_A(n−c)_(S−A)/(n−1)_S→a^(2A). All moments of the total of the K selected counts are bounded at any fixed order, by expansion in the mixed factorial moments; this gives tightness and uniform integrability of each fixed mixed moment along subsequences. The product-Poisson law is moment determinate, giving the conditional joint limit. Translating specified simplex coordinates by r gives P(D_i>r all i in a given t-set)=(1−tr)_+^n. For t=1,2 this gives the claimed mean and negative pair-covariance variance bound, and L² convergence of C_n/√n to e^(−x/2). For every bounded continuous test function the deterministic conditional limit is uniform over feasible c in any shrinking rescaled neighborhood of this limit (otherwise select a violating sequence). Choose a shrinking neighborhood whose probability tends to one to decondition. The mean assertion follows separately: for n>j and c≥2 the conditional mean is c(c−1)/(n−1) times (n−c)_(j−1)/(n−2)_(j−1), at most the first factor and asymptotically equal to it in probability; if c=1 the mean is zero for n>j. The bound in the asymptotic proof is used only for n>j, not for j=n,c=1. L² convergence of the rescaled C_n gives L¹ convergence of its square and uniform integrability of the bound. The packaged check was inspected as finite evidence; all claims above follow by the analytic reconstruction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose explicitly excludes the hard kernel from the two applicable candidate fixed-order theorems: Theorem 2.2(b) requires supremum o(s^(−1/2)); Theorem 2.3 requires it bounded by 1−ε. The hard kernel equals 1 even for distinct points at short distance.",
+          "Han–Makowski Theorem 8.1 is for the total breakpoint count (component count minus one) at all radii, with a quantitative Poisson approximation. Sections VI and X use the same simplex exceedance probabilities, and already yield the concentration of the total count at the half-log window. Their bound does not identify component cardinalities.",
+          "Decreusefond–Ferraz's waiting times, length Laplace transform and total-count transform use unconditioned Poisson input. Individual renewal-cluster sizes for an independent exponential-gap construction can be geometric, but this is not a stated fixed-n vector approximation or radius-free conditional census; applying such a method in the fixed-count model would require additional conditioning/coupling and control of overlap and endpoints."
+        ],
+        "reasoning": "These are real antecedents, but the stronger total-count estimate has the wrong observable, the one-size theorem has the wrong kernel, and the renewal calculations are for a different sampling law.",
+        "searches": [
+          "Penrose, arXiv:1507.07132, Theorems 2.2–2.3",
+          "Han–Makowski, UMD technical report 2008-30, Sections VIII–X",
+          "Decreusefond–Ferraz, arXiv:1008.5140, Sections 2–3"
+        ]
+      },
+      "checked_sources": [
+        "https://hdl.handle.net/1903/8665",
+        "Godehardt–Jaworski, Random Structures & Algorithms 9 (1996), 137–161 (abstract and identified theorem citation only)",
+        "https://arxiv.org/pdf/1507.07132",
+        "https://arxiv.org/pdf/1008.5140",
+        "https://doi.org/10.2307/1427198 (abstract and identified citation)",
+        "Resultary indexed circular-isolation, component-count and nearest-neighbor comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint cut law in Han–Makowski is fully determined by exceedance probabilities depending only on the number of cut positions; hence the conditional cut exchangeability, and then uniform compositions, follow immediately. The factorial-moment identity is ordinary marked-composition counting, not a separate priority claim for an exact counting technique.",
+          "The total-count Poisson theorem cannot substitute for the rare short-separation limit: conditional on the same count c one has many configurations with different size patterns. The singleton Poisson approximation alone likewise does not determine any joint limit for sizes ≥2 or their independence. The crucial extra argument is the square-root fixed-count composition asymptotic across all mixed factorial moments.",
+          "The Barbour–Holst abstract and Han–Makowski's citation cover Poisson approximation for large spacings and occupancy; the specific located prior statement concerns the number of breakpoint gaps. No claim that an inaccessible full text lacks a stronger applicable statement is made."
+        ],
+        "reasoning": "The claim survives on the fixed-K multivariate law, not on standard cut exchangeability or the marginal count concentration. A plausible stronger earlier treatment in the exact model was pursued but the evidence actually obtained is for total-count and isolated-vertex laws, not direct coverage of the joint conclusion.",
+        "searches": [
+          "Han–Makowski Section X, Lemma 10.1 and proof of Theorem 8.1",
+          "Godehardt–Jaworski, On the connectivity of a random interval graph (1996), lawful full-text and manuscript lookup",
+          "Barbour–Holst, Some applications of the Stein-Chen method for proving Poisson convergence, DOI:10.2307/1427198"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuum spacings decide which cut ranks are occupied. Conditional on the number of cuts, the relevant discrete model is a uniformly sampled (c−1)-subset of integer ranks with fixed endpoints. Fixed sizes are small discrete gaps of specified integer lengths, not maxima or minima of the continuous spacings.",
+          "The indexed discrete-spacing lead On uppermost discrete spacing studies large spacing order statistics (accessible abstract). Composition multiplicity literature located includes sampling from unrestricted compositions of n and compositions with bounded part sizes; these are not the c~√n conditional regime described here."
+        ],
+        "reasoning": "An equivalent earlier joint small-gap count law for a fixed-size uniform sparse rank subset would cover the conditional Poisson result, so the comparison must distinguish exact rank gaps from geometric lengths and fixed-c sampling from other composition measures. No matching joint law was verified in the inspected material.",
+        "searches": [
+          "Resultary: one dimensional uniform random geometric graph small components uniform compositions joint Poisson critical isolated component counts spacings",
+          "Primary literature: random uniform composition integer n k parts number of parts size j Poisson k sqrt n fixed small parts multivariate Poisson limiting distribution",
+          "Primary literature: number of k spacings small fixed lag of uniform subset on a discrete interval random compositions spacings sparse sample close pairs Poisson theorem discrete spacing uniform without replacement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed circular-isolation result gives Poisson for size one and an independent Gaussian for total component fluctuations on the circle. Its limiting vector is not a vector of different bounded cardinalities. Other local indexed component-count or nearest-neighbor results change the edge rule.",
+          "Godehardt–Jaworski (1996) explicitly names Poisson approximation of isolated vertices in its abstract, and Han–Makowski identify its Theorem 12 with a component-total limit at the connectivity window. These are earlier exact/limit results on related observables and must not be conflated with the all-fixed-K spectrum."
+        ],
+        "reasoning": "The count formula is not itself a novel enumeration method; a known joint table or generating function for small cardinalities resolving the half-log regime could cover the claim. The checked abstract and accessible theorem passages establish overlapping margins/total counts, not a matching multivariate table or law.",
+        "searches": [
+          "Resultary: one dimensional uniform random geometric graph small components uniform compositions joint Poisson critical isolated component counts spacings",
+          "Primary literature: Godehardt Jaworski random interval graph component sizes conditional number uniform composition Poisson small components isolated vertices 1996 theorem",
+          "Han–Makowski Theorems 8.1 and 9.1, formulas (48)–(53)"
+        ]
+      },
+      "rationale": "Best of knowledge, confined to the joint equal-intensity fixed-cardinality spectrum and its quantitative conditional calibration. Han–Makowski already gives the exact simplex cut machinery and stronger estimates of the number of cuts alone, from which the concentration assertion follows. Godehardt–Jaworski provides same-model precedence at least for Poisson approximation of the isolated count, as indicated by the abstract. The conditional uniform composition is an immediate classical symmetry consequence. None of the comparably relevant accessible statements or broader inspected results establishes or directly specializes to the joint census of every fixed finite set of component cardinalities at the isolation window. Historical priority for that distinction remains qualified by the unavailable full text of Godehardt–Jaworski and older discrete allocation work.",
+      "residual_risks": [
+        "The closest 1996 full text could not be inspected: exact priority beyond the identified singleton and total-count overlap is not guaranteed. An inaccessible comparison and unavailable allocation lookup yield no negative evidence.",
+        "Older discrete spacings, random-composition, or renewal literature might already express the joint law under an equivalent formulation. The PASS is best-of-knowledge on the inspected evidence, not a historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the joint cut machinery and total-count concentration; the cited theorems and derivation are not a census by component cardinality",
+          "evidence": [
+            "The theorem bounds TV distance of the breakpoint count to Poisson with mean (n−1)(1−τ)^n.",
+            "The variation bound comes from negative relation and exactly the one-/two-gap probabilities used here. Section IX cites Godehardt–Jaworski Theorem 12 for the total-count limit at the connectivity scaling."
+          ],
+          "identifier_or_url": "https://hdl.handle.net/1903/8665",
+          "material_read": "OA technical report abstract, model, selected parts of Sections VI–X and references, including Theorems 8.1 and 9.1, Lemma 10.1 and (57)–(61)",
+          "method": "Read University of Maryland repository PDF scientific text and compared cut/count observables",
+          "title": "Connectivity in one-dimensional geometric random graphs: Poisson approximations, zero-one laws and phase transitions",
+          "trigger": "Exact same binomial interval model; could already contain the critical Poisson count and all-cut law"
+        },
+        {
+          "assessment": "Real singleton and total-count overlap, but accessible evidence does not establish direct coverage of the all-fixed-size joint law; other theorems remain a priority risk",
+          "evidence": [
+            "Abstract explicitly describes Poisson approximation of the isolated-vertex count.",
+            "Han–Makowski §IX specifies Theorem 12 as a limit for the number of components at their connectivity scaling."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/%28SICI%291098-2418%28199608/09%299%3A1/2%3C137%3A%3AAID-RSA9%3E3.0.CO%3B2-Y",
+          "material_read": "Indexed abstract; independent citation identifying Theorem 12's total-count result in Han–Makowski §IX; full text unavailable",
+          "method": "Matched publisher bibliographic record, attempted lawful full text and looked for an author copy; no authorized alternate access available",
+          "title": "On the connectivity of a random interval graph",
+          "trigger": "Potentially decisive older same-model study with exact connectivity quantities and isolated-count Poisson approximation"
+        },
+        {
+          "assessment": "Direct specialization fails for the deterministic kernel in the claimed component-count theorems",
+          "evidence": [
+            "Theorem 2.2(b) demands small kernel supremum; Theorem 2.3 demands a supremum uniformly below one.",
+            "Theorem 2.4 counts connected induced subgraphs, not components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.07132",
+          "material_read": "Kernel hypotheses and Theorems 2.2–2.4, including the discussion immediately before them",
+          "method": "Read OA arXiv PDF text for the assumptions and distinction between components and induced connected subgraphs",
+          "title": "Inhomogeneous Random Graphs, Isolated Vertices, and Poisson Approximation",
+          "trigger": "General limit theorem for component counts of fixed orders"
+        },
+        {
+          "assessment": "Precedent for renewal and aggregate count calculations, not a statement of the fixed-n conditional histogram or joint critical size vector",
+          "evidence": [
+            "Theorem 3 addresses the physical span of a cluster. Theorem 5 addresses the transform for the count of clusters.",
+            "The model starts with exponential spacings from a Poisson process, rather than fixed-n Dirichlet simplex spacings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.5140",
+          "material_read": "Abstract, problem formulation and renewal assumptions in Section 2, opening of Section 3 through Theorems 3 and 5 and Corollary 4",
+          "method": "Read relevant OA arXiv PDF sections and compared random variables and vertex sampling laws",
+          "title": "On the One Dimensional Poisson Random Geometric Graph",
+          "trigger": "Closely related Poissonized interval model with cluster transforms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural isolation scale, knowing either that isolated vertices have a Poisson count or that the total number is of order √n leaves the fragment-size profile undetermined. The equal intensity for every fixed size and their joint independence quantify that profile, while exact conditional moments supply finite-radius calibration. The value is the joint structure rather than rederiving the known isolated-node marginal or proving another connectivity threshold; it does not extend to growing K or nonuniform positions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

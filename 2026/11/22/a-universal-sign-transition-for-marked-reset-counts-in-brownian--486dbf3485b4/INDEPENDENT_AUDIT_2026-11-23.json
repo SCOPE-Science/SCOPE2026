@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:54:53.917975Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bounded solution of the Brownian hitting-time Laplace equation Dg''=rg with g(0)=1 is g(x)=exp(−kx), k=√(r/D); by independence this is the probability of hitting before reset. If the initial excursion fails, sampled reset labels run until the first successful excursion. The failed labels have weights p_i(1−g_i) and the one terminal success label has weight p_i g_i. Summing over the number of failed labels gives the PGF, with the separate no-reset term g_0; the reset that starts the successful excursion is indeed counted. G>0 gives almost-sure absorption and a geometric tail. At the all-ones vector the derivatives give E N_i=(1−g_0)p_i/G and mixed moment (1−g_0)p_i p_j(2−g_i−g_j)/G², confirming the covariance and positivity of its prefactor. For a=x_i,b=x_j, the factorization with (1−e^(−ka))(1−e^(−kb)) proves strict positivity for x_0≤a+b. Otherwise δ=x_0−a−b>0, and multiplying by e^(k(a+b)) compares (e^(ka)−1)(e^(kb)−1) with 1−e^(−kδ). Their ratio starts at zero, diverges, and has logarithmic derivative >1/k by 1−e^(−u)<u<e^u−1. This proves the unique change of sign. Negative edges are a strict weight-sum threshold, and can only disappear as r grows. At equality x_0=a+b, the bracket is abk²+O(k³) instead of (a+b−x_0)k+O(k²); multiplied by 1−g_0 this verifies the r^(3/2) versus r asymptotics. Coincident spatial locations of distinct labels do not alter the argument. VERIFICATION.md and check_reset_counts.py were inspected, not executed. The diagnostic counter 3297 includes a fixed increment of 25 from the floating-point sign loop, not 3297 exact comparisons: one_case counts 3272 across its 184 rational instances. This bookkeeping overstatement in the diagnostic description is not relied on for the analytic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Toledo-Marín and Boyer allow a sequence of reset-position distributions and give unmarked cycle survival and total-count calculations. Méndez et al. analyze first-passage statistics under random reset positions. Record 0e5f8bf8a7c7 instead marks an eventual exit edge in a wedge with a threshold reset; 05188208a06b gives a one-site joint law of local time and unmarked count."
+        ],
+        "reasoning": "A broader model can retain fewer observables. These inspected results do not give the cross-destination dependence, and an exit mark or independent cost mark is not the destination that controls the next excursion’s absorption probability.",
+        "searches": [
+          "arXiv:2206.14387 §II, Eqs. (5), (11)–(12)",
+          "arXiv:2401.01125 abstract",
+          "Resultary same-day marked late-survivor Brownian reset and local-time reset count"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_reset_counts.py",
+        "Resultary 486dbf3485b4, 05188208a06b and 0e5f8bf8a7c7",
+        "arXiv:2206.14387, 2311.11897, 2304.09348 and 2401.01125"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known unmarked renewal structure produces geometric counts after aggregating over destinations. The present marked formula uses separate weights for failed excursions and the final successful excursion, and the Brownian exponentials are used explicitly in the crossing argument."
+        ],
+        "reasoning": "General stopped-sequence or Markov-reward identities readily yield a marked PGF and its moments once the weights are specified; they do not assert a unique zero of the Brownian covariance bracket, which requires the geometric sign analysis. A weight-sum representation gives a threshold graph at each rate; the nesting further needs the pairwise single-crossing theorem.",
+        "searches": [
+          "arXiv:2206.14387 §II and arXiv:2304.09348 §2; arXiv:2311.11897 two-site renewal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 486dbf3485b4 is the assigned record. The inspected two-independent-rate Brownian reset model is equivalent to a total Poisson rate with an iid destination choice, but the paper's renewal calculation is for survival and mean first passage. The reset-count transform of Sunil et al. counts an unmarked total at one site, even though it explicitly includes the final reset."
+        ],
+        "reasoning": "A law stated using marked competing Poisson clocks rather than a single marked Poisson process could be equivalent; a survival or all-counts-pooled formula is not, since it cannot resolve off-diagonal covariance between labels.",
+        "searches": [
+          "Resultary: destination-marked reset count covariance, Brownian resetting and threshold graph",
+          "Targeted primary lookup on Brownian reset-destination counts and covariance sign",
+          "arXiv:2311.11897 §§II–III; arXiv:2304.09348 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned catalogue record is the exact match. The closest indexed transform 05188208a06b and the primary fixed-site geometric reset law have one count-generating variable and no pairwise sign table."
+        ],
+        "reasoning": "The equivalent exact object would be the pairwise sign classification or the whole rate-indexed negative-edge graph, not a geometric total-count formula or a marked result for a different random variable. No distinct exact source was established by the bounded comparisons.",
+        "searches": [
+          "Resultary: exact marked-reset covariance geometry x_0 versus x_i+x_j and unique change of sign",
+          "arXiv:2304.09348 Eqs. (10)–(12)"
+        ]
+      },
+      "rationale": "The evidence supports the exact all-rate covariance sign change and the mixture-invariant nested threshold graphs. Excursion renewal, geometric totals and marking a renewal law are not claimed as new methods. The closest two-site Brownian and pre-absorption count statements have different observables.",
+      "residual_risks": [
+        "Bounded comparisons do not exhaust work on occurrence counts in marked killed renewal processes or journal-version additions. The focused literature lookup added no directly relevant statement; that is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record; not distinct coverage",
+          "evidence": [
+            "States the same PGF, geometric crossing and threshold graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-sign-transition-for-marked-reset-counts-in-brownian--486dbf3485b4",
+          "material_read": "Frozen RESULT.md, Finding and proof",
+          "method": "Resultary identification and matching frozen text",
+          "title": "A universal sign transition for marked reset counts in Brownian target search",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Unmarked total-count antecedent",
+          "evidence": [
+            "Survival contributions are summed over the total number of resets; the mean reset count does not resolve destination labels."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.14387",
+          "material_read": "§II, Eq. (5) p. 3 and Eqs. (11)–(12) p. 4 (offsets 14900 and 31550)",
+          "method": "OA arXiv PDF",
+          "title": "First passage time and information of a one-dimensional Brownian particle with stochastic resetting to random positions",
+          "trigger": "Renewal cycles with varying reset-position distributions"
+        },
+        {
+          "assessment": "Compatible two-site model with a different measured observable",
+          "evidence": [
+            "The renewal calculation with rates r_1,r_2 is for survival and mean first passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.11897",
+          "material_read": "§II model and §III Eq. (1), offset about 14750",
+          "method": "OA arXiv PDF",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Same Brownian two-destination setup"
+        },
+        {
+          "assessment": "Total-reset-count/absorption-time/cost law with one fixed reset point",
+          "evidence": [
+            "The geometric count includes the last reset but no destination index; the transform has one total-count variable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.09348",
+          "material_read": "§2 Eq. (3), Fig. 1 p. 4 and Eqs. (10)–(12) p. 5, offsets 9650 and 14700",
+          "method": "OA arXiv PDF",
+          "title": "The cost of stochastic resetting",
+          "trigger": "Closest joint count transform before absorption"
+        },
+        {
+          "assessment": "Inspected statement concerns first-passage statistics, not a count vector",
+          "evidence": [
+            "The reported statistics concern the first-passage density and time fluctuations under random reset positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "Abstract p. 1 at offset 0",
+          "method": "OA arXiv PDF",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Independent reset-position distribution and Brownian fluctuations"
+        },
+        {
+          "assessment": "Exact but unmarked-count analogue",
+          "evidence": [
+            "The joint transform h/[1+sG−(1−h)z] uses local time and the total count at one reset point."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Joint local-time and reset-count conjugacy before absorption",
+          "trigger": "Exact pre-absorption joint reset transform"
+        },
+        {
+          "assessment": "Different reset mechanism, conditioning, and mark",
+          "evidence": [
+            "The mark is the active excursion's eventual exit edge in a wedge, not the destination of each Poisson reset."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-marked-late-survivor-law-for-threshold-reset-brownian-motion-in--0e5f8bf8a7c7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Marked late-survivor law for threshold-reset Brownian motion",
+          "trigger": "Same-day marked Brownian resetting overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign boundary answers a dependence question pooled reset counts cannot answer. It separates the geometry controlling which destinations are negatively correlated from the mixture weights controlling the size of covariance. The proof gives an exact criterion, the direction and uniqueness of every crossing, and an ordering of the resulting dependence graphs over rates. The marked renewal calculation alone would not justify the value assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

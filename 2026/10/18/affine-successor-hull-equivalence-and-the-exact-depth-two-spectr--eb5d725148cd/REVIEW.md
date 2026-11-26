@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the affine vector space of depth-bounded truth functions and supplies a separating-functional characterization of affine successor hulls. It proves necessity and sufficiency for all Kripke frames and arbitrary successor cardinalities; the empty-successor case has its own distinguishing test. The rank lower bound makes the one-step compression optimal, not merely an upper bound. The eight realizable depth-one one-variable signatures and their 256 subsets exhaust every depth-two configuration. The supplied checker computes 96 distinct affine hulls and cross-checks them with a separate existential-affine-test representation, and also evaluates 12,288 concrete rooted model instances. Sampled model evaluation alone is not used as a universal proof.
+## correctness
 
-## Originality — PASS
-The closest primary source is Bezhanishvili, ten Cate, Ganguly and Meier, *Modal Fragments* (arXiv:2603.05055), in particular its open question on basis-sensitive bisimulation. It does not give this fixed affine-basis recursive invariant or the exact 192/96 census. Krebs and Meier's two-agent S5 complexity result (arXiv:2512.17378) is also not a stronger coverage claim. An earlier one-agent S5 affine-hull classification is related but the unrestricted Kripke depth-two configurations do not reduce to S5. Queries for affine/XOR modal bisimulation and exact depth-two spectra did not reveal equivalent indexed results. The possibility of an unindexed older equivalent theorem is a residual risk, and abstract-only sources are not treated as fully excluded.
+PASS
 
-## Value — PASS
-The combination of a bounded-depth back-and-forth replacement invariant, exact one-variable depth-two theory count, and sharp five-successor bound addresses a natural expressivity gap in affine modal fragments. In ordinary S5 single-agent frames, nesting collapses; here the new exact 192-type count detects the genuinely non-S5 bounded-depth phenomenon. No claim of a characterization for all Boolean clones is made.
+At depth zero the atoms and truth constant span the formula space; inductively atoms, the constant, and diamonds of the finitely many preceding-depth truth functions span the next space, since box is NOT-diamond-NOT. Hence the test vector including the constant coordinate 1 is well defined at each finite depth even over infinite frames. For a successor set S in that hyperplane, the false diamond tests are exactly the linear annihilator of span(S). Equality of annihilators is equality of spans; for a nonempty S, slicing the span at constant coordinate 1 recovers its affine hull. The all-zero span is precisely the empty case. This proves both directions with the current atoms also fixed. An affine basis chosen from S uses r+1 distinct successor vectors, and fewer worlds cannot generate a hull of dimension r. Recursive selection in disjoint depth-limited unravelings preserves the selected vectors even when original edges have cycles or shared targets. For the census, the one-variable depth-one configuration is F₂ times the four affinely independent points (u OR v,u,v) in F₂³. If a hull projects onto the affine span of k of these vertices, its projection is either injective (a graph, 2^k choices, dimension k−1), or has the full one-dimensional vertical kernel (one full preimage, dimension k). Each is realized by choosing points over the k vertices and, for the second case, doubling one fiber. Summing over the binomial choices for k=1,2,3,4 and appending the empty case gives (1,8,28,38,20,1); each hull admits both root atom values. Dimension four occurs and needs five successors. Counting all affine flats and the independent root valuation gives 8,48,416 at depth one for n=1,2,3. The supplied checker is not needed for these counts and was not run; its use of int.bit_count requires Python 3.10+, rather than the advertised 3.8+.
 
-## Limitations
-The theorem does not concern unbounded-depth modal equivalence, bases containing conjunction, or a general all-clones bisimulation. Full inspection of every historical source is unavailable; the remaining priority uncertainty is disclosed. Independent external auditing has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-day S5 theorem substantially overlaps the local affine invariant and sharp dimension bound on equivalence-class frames. That fact receives no separate credit here. The arbitrary-relation recursion and its realizable 192 one-variable depth-two theories are not covered by that frame-restricted statement or by the strongest inspected broader literature. Same-day ordering is not established.
+
+## value
+
+PASS
+
+The precise affine hull is a complete replacement invariant with an exact, rather than merely sufficient, branching bound on arbitrary frames. The one-variable census shows how far the second step of the invariant goes and gives a realizable worst-case witness. This distinguishes parity expressivity from both unrestricted Boolean observations and equivalence-class collapse in S5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

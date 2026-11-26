@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:31:50.498290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75 and VERIFICATION.md",
+        "Frozen verify_enumeration.py and verify_independent.py (inspected only); orbit_catalogue.json (compared row by row)",
+        "/tmp/opencode/replay3.py with the frozen orbit_catalogue.json path as argument; /tmp/opencode/replay3.out"
+      ],
+      "rationale": "The objects are 2-spaces in a 7-dimensional coefficient space; the four and only four rational projective members of a basis pair are [F], [G], [F+G], [F−G]. Degree d of F(X,1) leaves multiplicity 6−d at infinity; over the perfect field the affine derivative-gcd condition is exactly absence of repeated geometric roots. With a separately written replay I instead tested divisibility by squares of monic irreducibles of degree at most three and enumerated all 99,463 unique RREF subspaces, recovering 648 reduced projective forms and 10,005 all-smooth pencils. The common branch degree was independently counted from shared irreducibles through degree five and the common infinity flag; two distinct normalized forms cannot share an affine factor of degree six. All five base degrees and all five root profiles matched. Direct binomial substitution by all 24 projective matrices reproduced orbit multiplicities (1,1,43,395) at sizes (3,6,12,24), and independently verified all 440 catalogue rows, including representative members, joint statistics and sizes. The displayed example has common degree zero and orbit 24. Two independent rational sections vanishing at a rational point would have a nonzero combination with vanishing first jet, so no rational common base point occurs and evaluation gives exactly one vanishing pencil member per rational source point. The two jet constraints also prove the higher-dimensional bound for F3-linear systems. With no geometric base point, the map defined by the two sections pulls back O(1) to O(6) and its four rational fibers are the four reduced divisors. Characteristic three is odd, so reduced degree-six branch data give smooth genus-two double covers without any twist choice affecting the pencil census.",
+      "residual_risks": [
+        "The census tests the four rational members, not all members after base extension. Only source-coordinate PGL2 acts on the subspaces; no count of twists or curve isomorphism classes follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli–Ghioca Theorem 1.3 assumes ambient dimension at least two and sufficiently large q. Zobernig Theorem 2 counts p-rank strata of M2 in characteristic three. Entin describes large-q section statistics. The split-quadric net and pencil constructions use F2 and bidegree-(2,3) forms."
+        ],
+        "reasoning": "The existence framework does not count F3 lines in the binary-sextic parameter space; moduli strata and asymptotic section statistics neither dominate the exact count nor yield the PGL2 orbit catalogue. The related split-quadric results are not blanket classifications of finite-field smooth linear systems.",
+        "searches": [
+          "Asgarli–Ghioca arXiv:2203.07169",
+          "Zobernig arXiv:2111.07270",
+          "Entin arXiv:1805.05454",
+          "Resultary a60741c5887f and 330cd95bbc5c"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE mirror and the four inspected related entries",
+        "arXiv:2203.07169, arXiv:2111.07270, arXiv:1805.05454 and DOI 10.1007/978-3-031-66230-0_15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior individual counts classify p-rank and branch-cycle behavior of forms; the frozen count imposes simultaneous reduction on F,G,F+G,F−G and then tracks a common divisor and the source action."
+        ],
+        "reasoning": "Even knowing every individually reduced form gives inputs to a nontrivial additive-incidence calculation with orbit stabilizers, not the pencil counts as a marginal or an immediate corollary. The elementary jet observation is not the basis of the novelty decision.",
+        "searches": [
+          "Compare f438c0014807 Finding and scope, Zobernig Theorem 2 and Asgarli–Ghioca Theorem 1.3 against frozen RESULT.md lines 46–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f438c0014807 has 1,296 smooth equations and 69 individual genus-two curve classes; 330cd95bbc5c counts 44,070 pencils and 1,242 orbits on the F2 split quadric. The primary query returned a chapter on virtual counts of twisted cubics in varieties, unrelated after primary-text inspection."
+        ],
+        "reasoning": "A line disjoint from the rational discriminant points is the same object as a 2-space with all four rational sections reduced. A genus-two equation, curve or branch divisor alone is not such a line; the smooth pencil on a different field and surface is not equivalent to this discriminant incidence problem.",
+        "searches": [
+          "Resultary: exact title; 10005 all-smooth pencils 440 PGL2 orbits binary sextics F3; two-dimensional subspaces H0(P1 F3 O(6)) all four projective sextics reduced",
+          "Primary search: \"F_3\" binary sextic pencil all four members squarefree exact census PGL2(3) 10005 440 \"lines external to the discriminant\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f438c0014807 reports individual branch-cycle, p-rank and point statistics; d161d2d63b4f reports extremal bidegree-(2,3) embedded curves over F3. No inspected nearby table lists these pencil configurations."
+        ],
+        "reasoning": "The same-day equation count overlaps the smooth input layer (two nonzero scalar representatives per projective form), not the data for four collinear projective forms. Equations, models and isomorphism classes counted one at a time are not the 440 pencil orbit representatives. Catalogue date and a ranked miss do not resolve priority.",
+        "searches": [
+          "Resultary exact census/numerals queries above",
+          "f438c0014807 and d161d2d63b4f Findings"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the inspected evidence is the exact finite subspace census with common-divisor, rational-root and symmetry data. The strongest nearby same-day census counts individual genus-two curves and sextic equations; other results treat differently embedded linear systems or sufficient conditions for existence. No inspected finding gives these pencil-level data or implies them as a special case.",
+      "residual_risks": [
+        "The search was bounded. Unindexed exact census data or differently phrased equivalents could change the assessment. The inspected same-day individual census does not settle provenance of input data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-day overlap of individual input objects, not matching pencil classification",
+          "evidence": "69 arithmetic classes, 1,296 smooth equations, 19 strata and 46 rational-point refinements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-branch-cycle-and-jacobian-3-rank-census-for-genus-two-curv--f438c0014807/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–3831",
+          "method": "local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint branch-cycle and Jacobian 3-rank census for genus-two curves",
+          "trigger": "Same field, binary sextics and genus two; strongest census overlap"
+        },
+        {
+          "assessment": "Individual models on a different ambient variety",
+          "evidence": "6,096 eight-point models in 15 orbits, not linear pencils of binary sextics.",
+          "identifier_or_url": "2026/10/18/SCOPE-extremal-genus-two-curves-of-bidegree-2-3-over-mathb-f-3-fiftee--d161d2d63b4f",
+          "material_read": "Finding and scope, offsets 0–3139",
+          "method": "local mirror",
+          "title": "Extremal genus-two curves of bidegree (2,3) over F3",
+          "trigger": "Same field and genus, models with branch data"
+        },
+        {
+          "assessment": "Different field, ambient geometry and linear-system dimension",
+          "evidence": "8,964 nets with seven smooth members each and 249 orbits.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-maximal-smooth-genus-two-nets-on-the-binary-split-quadr--a60741c5887f",
+          "material_read": "Finding and scope, offsets 0–2888",
+          "method": "local mirror",
+          "title": "Complete maximal smooth genus-two nets on the binary split quadric",
+          "trigger": "Closest same-day linear-system analogue"
+        },
+        {
+          "assessment": "Different field and sections",
+          "evidence": "44,070 pencils of bidegree-(2,3) sections on a split quadric over F2, in 1,242 polarized-surface orbits.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-smooth-genus-two-pencils-on-a-binary-split-quadric--330cd95bbc5c",
+          "material_read": "Finding and scope, offsets 0–3317",
+          "method": "local mirror",
+          "title": "Exact smooth genus-two pencils on a binary split quadric",
+          "trigger": "Exact genus-two pencil census in another setting"
+        },
+        {
+          "assessment": "Existence scope excludes P1 here; no corresponding census in these statements",
+          "evidence": "Studies the q+1 rational members; Theorem 1.3 assumes ambient dimension at least two and a field-size bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07169",
+          "material_read": "pp. 1–2 from offset 2048, Questions 1.1–1.2, Theorem 1.3 and examples",
+          "method": "OA primary PDF text",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "General smooth-pencil framework"
+        },
+        {
+          "assessment": "Individual moduli points, not branch-divisor pencils",
+          "evidence": "Ordinary, nonordinary and supersingular strata in characteristic three, with counts depending on q.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.07270",
+          "material_read": "p. 1 abstract and introduction; p. 5, Theorem 2",
+          "method": "OA primary PDF text",
+          "title": "Genus 2 Curves in Small Characteristic",
+          "trigger": "Exact characteristic-three moduli counts"
+        },
+        {
+          "assessment": "Asymptotic rather than exact finite census",
+          "evidence": "q→∞ statistics of random rational hyperplane sections of a projective curve.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.05454",
+          "material_read": "p. 1 abstract and introduction, offset 229",
+          "method": "OA primary PDF text",
+          "title": "Monodromy of Hyperplane Sections of Curves and Decomposition Statistics over Finite Fields",
+          "trigger": "Section statistics as a possible broader input"
+        },
+        {
+          "assessment": "Unrelated object",
+          "evidence": "Levine and Pauli study virtual counts of twisted cubics contained in varieties.",
+          "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-031-66230-0_15",
+          "material_read": "p. 1 at offsets 20 and 1305",
+          "method": "OA primary PDF text",
+          "title": "Quadratic Counts of Twisted Cubics",
+          "trigger": "Result of the primary sextic-pencil alias query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 58–70",
+        "Catalogue and complete independent replay",
+        "Asgarli–Ghioca finite-field pencil questions"
+      ],
+      "rationale": "This is a natural small-field example of avoiding singular rational members, at the standard sextic branch degree for genus two. For families rather than single curves the complete orbit catalogue is usable exact data. Its base-free stratum gives the count of corresponding degree-six maps up to choice of target coordinates before taking source orbits, with all four rational fibers reduced, and the other strata and root profiles distinguish substantive geometric and arithmetic behavior. The value is the exact incidence and symmetry classification, not the small field size, the dimension-bound observation, or computation alone.",
+      "residual_risks": [
+        "The numerical invariant is specific to F3 and degree six and does not classify twists or general-field smooth systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

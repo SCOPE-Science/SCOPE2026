@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model's integer-valued attachment width and root boundary are explicitly accounted for. The exact potential decomposition uses conditional mean-one rescaled ancestry jumps. The nonstandard lemma assigns each positive potential discontinuity to at most one descending jump and bounds its contribution by a reciprocal width, giving a deterministic logarithmic error. Martingale isometry, conditional-variance convergence, bounded-jump Lindeberg and Cauchy–Schwarz then prove the Gaussian limit and exact variance coefficient. The finite checker independently enumerates full trees and backward paths and passed 973 assertions; it does not replace the infinite proof. Remaining mathematical boundary: the exponents are fixed in the open interval \((0,1)\), and no height theorem is claimed.
+PASS
 
-## Originality — PASS under inspected evidence
+The backwards ancestry exposes independent parents at strictly decreasing labels, with a uniform jump on 1,...,b_l. Telescoping the potential gives F(n)=D_n+M+R with a bounded centered martingale increment and nonnegative R. A width boundary m-1 to m has drop 2/[m(m+1)], is charged by at most one jump and is charged at most b_l times. At that crossing v is of order l for large l because b_l=o(l), hence b_l=O_beta(m). The widths increase by at most one, so the total charge is O_beta(1+log n) pathwise, including the finitely many initial labels. The per-step bracket is (b_l-1)/(3(b_l+1)). Martingale isometry and the deterministic remainder give D_n/F(n) -> 1 in probability and in mean; the bracket divided by F(n) tends to 1/3 both in probability and in expectation by removing finitely many small labels. The bounded-increment triangular-array CLT and Cauchy–Schwarz for the variance of M+R give the two distinct limiting assertions. F(n) ~ 2 n^(1-beta)/(1-beta); its exact discrete form, not merely that leading term, is used for centering.
 
-The 2025 primary source arXiv:2510.18856 studies the same recent-window trees and their first-order mesoscopic height/depth. Its inspected statements and ancestor discussion do not supply a second-order newest-vertex Gaussian law with this explicit centering and variance. Devroye–Fawzi–Fraiman concern multiplicative scaled attachment and logarithmic depths, so their central limit setting does not imply this polynomial-window result. Semantic searches of published mathematical findings identified ordinary uniform recursive-tree depth/leaf fluctuations, fixed-width two-predecessor trees and variance envelopes for a different deterministic-weight model, none of which implies the present claim. Noncoverage is based on actual inspected content where accessible, not absence of search hits alone. Residual risk: a more general Markov renewal or first-passage central limit theorem, especially an unindexed one, could cover the particular hitting-time result; independent priority verification remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-Polynomial recency restriction creates a growing but sublinear attachment window, with a polynomial ancestral depth. The first-order power law does not reveal uncertainty size or the exact Gaussian variance. The result gives quantitative second-order risk for a natural observable for all fixed mesoscopic exponents, and supplies a carefully rounded deterministic centering that matters at small exponents. This is a structural limit theorem, rather than a routine recalculation of a known table or an arbitrary parameter value.
+The closest primary work establishes this same tree model and first-order geometry. The inspected literature and distinct indexed records do not give the second-order last-born-depth result, floor-sensitive centering and limiting variance together or imply them from their stated results. The already known model and first-order scale are not credited as new.
 
-## Sources and limitations
+## value
 
-Primary: Angel–Bhamidi–Donderwinkel–Maitra–Sakanaveeti, arXiv:2510.18856 (2025-10-21), inspected accessible full-text theorem and ancestry sections. Comparison: Devroye–Fawzi–Fraiman, *Depth properties of scaled attachment random recursive trees*, DOI 10.1002/rsa.20391 (2011/2012), inspected definitions and main results in an accessible PDF. Related published mathematical records were compared by explicit statement and hypothesis; their record abstracts are not treated as full-text noncoverage evidence. No independent assessment has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This addresses second-order uncertainty in a natural existing model. The explicit centering is accurate on the fluctuation scale with integer-window effects intact, and the variance statement controls actual moments rather than simply naming a Gaussian limit. The pathwise boundary-charge argument is the substantive bridge beyond a first-order law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

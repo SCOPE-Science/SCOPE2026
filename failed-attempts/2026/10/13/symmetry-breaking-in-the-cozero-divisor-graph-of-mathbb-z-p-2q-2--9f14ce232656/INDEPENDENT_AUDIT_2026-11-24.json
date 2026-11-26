@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:17:31.794289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–140 and 188–196",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The principal ideal of x is indexed by gcd(x,p²q²), and containment reverses divisibility, so the cells are independent and joined exactly for incomparable divisors. Their sizes are phi(p²q²/d). Independently checked the seven-vertex quotient: B and D are the only degree-four vertices; between them are the direct edge and internally disjoint paths B–E–D, B–C–A–D, and B–F–G–D. The quotient has distinct open neighborhoods and no true-twin pair; the full graph's false-twin classes are precisely the cells. The quotient automorphisms independently reverse the endpoints (with path reversal) and exchange the length-three paths. B and D have different weights q(q−1) and p(p−1), so endpoints cannot swap in a weight-preserving action. The remaining path exchange would identify A with G, requiring q(p−1)=1. Thus only independent cell permutations remain. Each block requires all but one vertex to be fixed in a determining set and pairwise distinct colors to distinguish, and these conditions suffice, including singleton blocks. The sum of w−1 is N−7; the largest size is max(w_A,w_C), since these dominate the other sizes. The stated generator wording at line 70 is inaccurate (one involution cannot generate four elements); the list of three nonidentity elements and the weight argument are correct. The note about formally equal primes is not a theorem for Z/(p⁴). The packaged checker was inspected, not executed.",
+      "residual_risks": [
+        "The calculation is for distinct primes; formally equal weights on a grid do not represent the divisor classes of a prime-power modulus."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 5.1(ii) gives S_{phi(m)+1} times the product of S_{phi(e)} over proper nontrivial divisors e of any non-prime-power m. Its proof uses Theorem 2.2, which specifies the action on the actual neighborhood classes; the auxiliary factor of subgroup-order permutations is trivial for cyclic groups.",
+          "Rather describes the same weighted gcd-class structure for general cyclic residue rings, as background for a different invariant."
+        ],
+        "reasoning": "The power-graph theorem is strictly broader than this balanced exponent pattern and applies without analyzing the seven-vertex quotient individually. The general gcd blow-up alone would not have guaranteed rigidity, but the broader automorphism theorem does.",
+        "searches": [
+          "Feng–Ma–Wang, arXiv:1406.2788, Theorem 2.2 and Example 5.1(ii)",
+          "Mathil–Baloda–Kumar DOI 10.1080/09728600.2022.2111241; Rather §2"
+        ]
+      },
+      "checked_sources": [
+        "Feng–Ma–Wang Example 5.1 and Theorem 2.2",
+        "Rather §2",
+        "Three Resultary records above",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=p²q² there are (2+1)(2+1)−2=7 proper nontrivial divisor classes. Universal vertices are the identity and the full-order generators, i.e. 0 and the units; the remaining factors act independently on the seven order classes.",
+          "For a disjoint block action by full symmetric groups, each block contributes w−1 to the minimum pointwise base and needs w distinct colors; these independent requirements are sufficient."
+        ],
+        "reasoning": "The theorem's actual permutation action, not just its abstract group type, gives Aut, N−7, and max(phi(e)) over the seven proper nontrivial e. Evaluating this maximum gives (p−1)(q−1)max(p,q). The four unweighted quotient symmetries are compatible with the prior action and do not make any proposed invariant new.",
+        "searches": [
+          "arXiv:1406.2788, pp. 3 and 8, Theorem 2.2 and Example 5.1 proof",
+          "Frozen RESULT.md, determinant and distinguishing calculations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Z/mZ, y is a positive additive multiple of x precisely when y∈Rx. The undirected power-graph relation is the logical complement of cozero adjacency on the nonzero nonunits.",
+          "Feng–Ma–Wang Example 5.1 proof identifies one universal closed-neighborhood class and the remaining proper-order generator classes; Rather's §2 gives the gcd-class incomparability blow-up."
+        ],
+        "reasoning": "The additive order of x is m/gcd(x,m), identifying each proper-order generator class with one gcd class. Complements have the same automorphisms, and arbitrary automorphisms of the remaining power graph extend by the identity on the universal class. Thus this is the identical action after deleting one known direct factor.",
+        "searches": [
+          "Feng Ma Wang The full automorphism group of the power digraph graph finite group cyclic group Aut power graph cyclic corollary Euler phi arxiv",
+          "arXiv:1406.2788, Example 5.1 and Theorem 2.2",
+          "Rather, DOI 10.47443/dml.2023.215, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The maximal-divisor-chains record gives the same architecture but an independent-domination classification.",
+          "The reduced-ring reconstruction record uses support classes for products of fields, a different setting. The same-day annihilating-ideal record has the same ring and seven proper divisor ideals but product-zero adjacency and a different invariant.",
+          "The exact cyclic-group automorphism formula is in Example 5.1(ii), not a table of specialization values."
+        ],
+        "reasoning": "None of these catalogue overlaps is used as an exact equivalent of the theorem: same-day date, same ring and equal number of classes do not imply the same graph or action. Prior coverage is established instead by the primary theorem and graph equivalence.",
+        "searches": [
+          "Resultary: cozero divisor graphs Z/(p²q²), gcd/divisor quotient and symmetry",
+          "2026/10/4/SCOPE-maximal-divisor-chains-determine-independent-domination-in-every--837028ce7fd4",
+          "2026/10/4/SCOPE-cozero-divisor-graphs-determine-finite-reduced-nonfield-rings--f5e524aa0440",
+          "2026/10/13/SCOPE-zero-forcing-polynomial-and-width-of-the-balanced-two-prime-anni--538bbe021c4b"
+        ]
+      },
+      "rationale": "The full symmetry claim is already implied by Feng–Ma–Wang's cyclic power-graph automorphism theorem. In the additive cyclic group of Z/mZ, the subgroup generated by x is precisely Rx. Thus the complement of this cozero graph is the power graph with the universal vertices (0 and the units) removed. Example 5.1(ii), with its proof and Theorem 2.2, gives the actual full action as independent symmetric groups on the universal class and on every proper nontrivial order class for all non-prime-power m. Removing the universal class gives precisely the seven independent permutations at m=p²q². The two symmetry-breaking numbers follow mechanically from that same permutation action, not merely from an accidental equality of group orders. This is verified prior coverage, not a claim of falsity or a conclusion from an inaccessible source.",
+      "residual_risks": [
+        "The unavailable 2022 full text may contain more overlap but is not needed for the verified implication. No claim of exhaustive literature coverage is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader theorem implies the full claimed symmetry action and both invariant formulas",
+          "evidence": [
+            "Non-prime-power cyclic case: S_{phi(m)+1} × product over proper nontrivial divisors of S_{phi(e)}. The proof identifies the acted-on classes and shows P(Z_m) is trivial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2788 (Feng, Ma and Wang; European Journal of Combinatorics 52 (2016), 197–206)",
+          "material_read": "OA preprint p. 8, Example 5.1 including proof, offsets 23270–24819; Theorem 2.2, p. 3, around offset 6480",
+          "method": "OA PDF locate and bounded primary-text inspection",
+          "title": "The full automorphism group of the power (di)graph of a finite group",
+          "trigger": "Complement of cozero graph is a restricted cyclic power graph"
+        },
+        {
+          "assessment": "Directly gives general gcd-class architecture, not the decisive symmetry theorem",
+          "evidence": [
+            "A_d has size phi(n/d), and blocks at incomparable divisor labels are completely joined."
+          ],
+          "identifier_or_url": "DOI 10.47443/dml.2023.215",
+          "material_read": "§2, pp. 37–38, PDF text offsets 4485 and 8971",
+          "method": "OA journal PDF passage inspection",
+          "title": "Independent domination polynomial for the cozero divisor graph of the ring of integers modulo n",
+          "trigger": "Same weighted graph from arbitrary gcd-class data"
+        },
+        {
+          "assessment": "HTTP 403; not used to infer absence of coverage",
+          "evidence": [
+            "The independently accessible Rather text provides the weighted structure and cites this work on further structural properties."
+          ],
+          "identifier_or_url": "DOI 10.1080/09728600.2022.2111241",
+          "material_read": "Relevant full text not recovered",
+          "method": "DOI and publisher full text/PDF routes, with same-work OA recovery attempted",
+          "title": "On the cozero-divisor graphs associated to rings",
+          "trigger": "Cited structural theorem on the same graph family"
+        },
+        {
+          "assessment": "Earlier direct structural overlap, but a different invariant",
+          "evidence": [
+            "Maximal divisor chains index independent dominating sets built from entire gcd cells."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-maximal-divisor-chains-determine-independent-domination-in-every--837028ce7fd4",
+          "material_read": "RESULT.md Finding, assumptions and structural proof passages",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Maximal divisor chains determine independent domination in every cozero-divisor graph",
+          "trigger": "Same graph for every composite modulus"
+        },
+        {
+          "assessment": "Reduced rings exclude the frozen nonreduced setting",
+          "evidence": [
+            "The record uses support cells of products of fields for ring reconstruction."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-cozero-divisor-graphs-determine-finite-reduced-nonfield-rings--f5e524aa0440",
+          "material_read": "RESULT.md Finding and support-class description",
+          "method": "Resultary and local-mirror reading",
+          "title": "Cozero-divisor graphs determine finite reduced nonfield rings",
+          "trigger": "False-twin cells and graph automorphisms potentially related to reconstruction"
+        },
+        {
+          "assessment": "Distinct same-day record on a different graph and invariant",
+          "evidence": [
+            "Vertices are ideals and adjacency is annihilation, not incomparability of principal ideals of element vertices."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-zero-forcing-polynomial-and-width-of-the-balanced-two-prime-anni--538bbe021c4b",
+          "material_read": "RESULT.md Finding and adjacency assumptions",
+          "method": "Resultary and local-mirror reading",
+          "title": "Zero forcing polynomial and width of the balanced two-prime annihilating-ideal graph",
+          "trigger": "Same ring and exponent-pair indexing"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Feng–Ma–Wang Example 5.1(ii), proof and Theorem 2.2"
+      ],
+      "rationale": "The proposed exact invariants for the balanced exponent slice are mechanical consequences of a known full cyclic-group power-graph action. Stating them in cozero terminology or giving an independent seven-vertex check does not address a remaining gap. The small unweighted quotient calculation describes why a weighted action can be rigid but, on its own, is an elementary path symmetry count with no separately motivated unresolved question in this record.",
+      "residual_risks": [
+        "This does not preclude independent value for different cozero graphs not covered by cyclic power-graph results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

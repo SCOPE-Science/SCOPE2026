@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:46:20.497158Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, multiplication table, homomorphism and minimality proof",
+        "VERIFICATION.md and verify.py, inspected but the submitted code was not executed",
+        "Carr, arXiv:2403.00217v2, Definitions 3.12–3.15"
+      ],
+      "rationale": "The order is bottom<a<e<b. The product is associative: bottom absorbs, otherwise b wins over a, and a wins over e; e is the unit. The rows are monotone and start at bottom, so each translation has the residual obtained by taking the largest eligible argument. Under the designated-atomic homomorphism convention, P changes from b to e without losing designatedness and R stays at the undesignated a. The source fusion is b and the target fusion is a. For a source below size four, the unit is either top or, in the only nontrivial nonintegral case, the middle element of a three-element chain. In the integral case x⊗y≤x∧y, so a designated product forces both inputs to be designated; in the three-element nonintegral case the only undesignated value is the absorbing bottom and the same conclusion holds. The trivial source has every atom designated. Induction on the fragment then propagates truth: a true source join on a chain has a true disjunct, a true existential over the finite chain has a witnessing assignment, and source meet and fusion both require true inputs. In a target with a unit-generated filter, meet, join and fusion propagate designatedness as needed, even for a different target algebra. The result does not assert failure for homomorphisms required to preserve atomic grades or value-order inequalities.",
+      "residual_risks": [
+        "The lower bound is for existential-positive formulas generated from predicate atoms in the stated semantics, not fragments with other connectives, arbitrary designated filters, or richer atomic map conditions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carr's finite preservation theorem for lattice conjunction does not decide fusion. Lemma 7.3 makes fusion Boolean on designatedness for integral chains, a proper subclass. Example 5.10 treats a nonintegral infinite chain. The bounded local catalogue search did not surface a finite-size covering result."
+        ],
+        "reasoning": "Neither the positive integral result nor the intended infinite witness addresses the obstruction's sharp finite threshold; the three-element nonintegral case requires separate attention.",
+        "searches": [
+          "Carr, arXiv:2403.00217v2, lattice fragment, Example 5.10 and Lemma 7.3",
+          "Resultary finite nonintegral residuated chain and fusion-preservation variants"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.00217v2",
+        "Configured Resultary catalogue lookup",
+        "RESULT.md prior-work comparison and stated filter/map conventions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the arXiv v2 printed assignments source P=4/6 is designated but target P=1/6 is not; the written products also disagree with assignments. A valid variant in Carr's algebra holds R=1/3 fixed and takes source P=1, target P=1/2, using 1/3*1=1 and 1/3*1/2=1/3. The variant works in its five-element residuated subchain {0,1/3,1/2,2/3,1}; the four-element submonoid becomes residuated with its own residual.",
+          "A source failure requires a designated product with an undesignated input. In a chain this forces four distinct levels: bottom, a nonbottom undesignated input, the unit, and a value above the unit."
+        ],
+        "reasoning": "Acknowledge both the immediate finite variant of the earlier construction and the elementary way to obtain the upper-bound table. The exact minimum additionally requires excluding all smaller finite nonintegral sources; neither the earlier example nor the integral lemma states or supplies that threshold.",
+        "searches": [
+          "Carr, arXiv:2403.00217v2, Example 5.10 and Lemma 7.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carr uses an algebra map together with a domain protomorphism preserving only designated atomic instances. The same formula and singleton domains appear in Example 5.10.",
+          "An order-preserving-on-values semiring homomorphism would not admit the b→e decrease in P with the identity value map, so those formulations cannot identify this map with theirs."
+        ],
+        "reasoning": "Compare the example in the same designated-atom semantics; do not claim novelty for the formula or for a failure under a stronger grade-preserving map.",
+        "searches": [
+          "Primary lookup on homomorphism preservation residuated conjunction nonintegral chain; Carr, arXiv:2403.00217v2, Definitions 3.12–3.15 and Example 5.10",
+          "Resultary fusion-positive designated-filter and residuated-chain counterexample lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located example uses the piecewise min/max UL product on [0,1], not a table of exact minimum carrier sizes. The four-element product is a restriction of that published product but does not inherit its residual: in the ambient UL-chain (1/3)→(1/3)=2/3, which is absent from the four chosen values."
+        ],
+        "reasoning": "Restriction of the monoid table is explicit overlap. It is not an existing classification or minimum, and requires computing the internal residual to obtain the claimed four-element algebra.",
+        "searches": [
+          "Resultary finite chain / fusion counterexample / smallest carrier lookup",
+          "Carr, arXiv:2403.00217v2, pp. 14 and 19"
+        ]
+      },
+      "rationale": "Carr anticipates the formula and nonintegral obstruction, and its standard UL product restricts to the submitted four-element multiplication on {0,1/3,1/2,1}. Thus neither the qualitative failure nor the product rule is the distinct contribution. The supported contribution is the exact minimum source carrier size in the stated finite unit-generated-filter setting; the inspected prior integral lemma and infinite example do not give that sharp threshold. The printed example's listed atomic assignments also do not witness its stated homomorphism; the qualitative construction can be fixed without changing the infinite algebra.",
+      "residual_risks": [
+        "The printed-assignment observation concerns the inspected arXiv v2 text, not an assertion about edits in other versions. A bounded search cannot rule out an earlier separate exact minimum statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct qualitative and product overlap. Finite threshold not established in the compared passages.",
+          "evidence": "The formula is the same; the standard min/max-at-complement product restricts to the four chosen values, though its residuum does not restrict. The literal assignments in v2 fail atomic designatedness, while the one-line variant above is valid. Lemma 7.3 is integral only.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00217v2",
+          "material_read": "PDF pp. 8–9, Definitions 3.12–3.15; p. 14, Example 5.10 at text offset 49529; p. 19, Lemma 7.3",
+          "method": "Lawful open arXiv PDF, bounded passages",
+          "title": "Homomorphism Preservation Theorems for Many-Valued Structures",
+          "trigger": "Same map convention, formula, and nonintegral UL-chain obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact minimum",
+        "Carr, Example 5.10 and Lemma 7.3"
+      ],
+      "rationale": "The exact threshold answers how small a truth algebra can separate lattice-positive from fusion-positive preservation under designated-atomic maps. It identifies the needed order configuration (an undesignated nonbottom value and a designated value strictly above the unit), and supplies a chain attaining it. This is a meaningful finite boundary for an existing preservation problem, not a claim to have discovered the qualitative phenomenon.",
+      "residual_risks": [
+        "No classification of arbitrary filters or of all four-element chain multiplication tables is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

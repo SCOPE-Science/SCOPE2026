@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:24:32.887369Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, Verification, lines 5–61",
+        "Frozen VERIFICATION.md and k8_near_complete_verify.py (inspected, not executed)",
+        "/workspace/reviews/check_mathematics.py, check 1"
+      ],
+      "rationale": "The nine orbits follow by the components of a simple ≤3-edge fault graph: for three edges the connected shapes are triangle, path and star, with the two disconnected possibilities obtained by partitioning the edge count as 2+1 or 1+1+1. Relabeling graph vertices induces a simplicial isomorphism. Inclusion–exclusion in the alternating face sum, including the empty face, gives a term +reduced-chi(M(K_(8−2k))) for each matching of k faulty edges (the signs from exclusion and the shift in simplex size cancel). For k=0,1,2,3 these values are 132, −16, 2, 0, giving the formula and every row. The frozen Morse checker enumerates every Hasse incidence on each representative, not just incidences in its chosen pairs; its augmented orientation, and dropping the empty-face pair, give exactly the required discrete-Morse hypothesis. Independently verified the homotopy type without relying on that matching: each perfect-matching tetrahedron has a free triangular face since a three-edge matching leaves just two graph vertices and at most one extension. Collapse every tetrahedron along one such triangle, contract a maximal tree in the remaining connected 1-skeleton, and read triangle boundary relators. The independent checker verifies that iteratively killing generators appearing as the sole live generator of a triangle relator kills all generators on each of the nine representatives. This proves simple connectivity; a simply connected finite 2-complex has free H_2 of rank reduced χ, and Hurewicz plus homology Whitehead give the wedge of that many 2-spheres. Replay: python3 /workspace/reviews/check_mathematics.py 1. The nine generator counts before elimination are 183,169,155,156,141,141,142,143,144; zero survive in every case, with ranks 132,116,100,102,84,84,86,88,90.",
+      "residual_risks": [
+        "Finite ordinary matching complexes only; no extrapolation beyond eight vertices or three faults. No proof-assistant check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Athanasiadis theorem gives connectivity/shellability results for complete and related matching complexes; the cited n=8 ordinary complete case is intact. The deletion/link cofiber sequence is general, with a wedge splitting conditional on null-homotopy; the cited application is to polygonal line tilings."
+        ],
+        "reasoning": "Complete-case connectivity does not allow arbitrary edge deletions. The general cofiber statement needs extra information on the link's inclusion for a splitting; polygonal-line applications do not supply it here. Knowing the result after attaching the link cone does not on its own show the deletion is simply connected.",
+        "searches": [
+          "Athanasiadis DOI 10.1007/s00454-003-2869-x, Theorem 1.2",
+          "arXiv:2211.12559, Proposition 5 and Theorem 13"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.02973 and 2211.12559",
+        "DOI 10.1007/s00454-003-2869-x",
+        "Resultary d148e7a31082 and 2daa8d1c5fb5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 3.3 uses discrete Morse theory for intact K8. The cofiber formula gives a way to compare successive deletions; the four-disjoint-fault finding gives only the smaller graph's profile."
+        ],
+        "reasoning": "The inclusion–exclusion sphere count is routine once the topology is known. The prior intact and four-disjoint homotopy results do not mechanically give simple connectivity for all low-fault graphs: in particular graphs whose faulty edges intersect are not reached by restoring edges within that four-edge matching. General statements about integral homology alone do not prove the needed fundamental-group claim.",
+        "searches": [
+          "arXiv:2305.02973, Example 3.3",
+          "arXiv:2211.12559, Proposition 5",
+          "Resultary 2daa8d1c5fb5, relationship to prior work at offset 3900"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2305.02973 p. 5 and Example 3.3 establish the intact ordinary complex. Resultary 2daa8d1c5fb5 gives the ordinary complex with a perfect matching of four edges deleted."
+        ],
+        "reasoning": "The ordinary matching complex is also the independence complex of the line graph. Under this translation the comparison still requires removal of up to three line-graph vertices with the specified incidence patterns. Zero deletions are identical known coverage, while a perfect fault matching removes four vertices and compares neither the three-edge incident faults nor the shorter rows directly.",
+        "searches": [
+          "Web: matching complex K8 minus edges deleted edge faults homotopy wedge of spheres edge deletion matching complexes K_8",
+          "Resultary: K8 matching complex deleting up to three edges fault profile wedges of spheres 132 116 100 102"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact nine-type catalogue hit d148e7a31082 is the frozen item. 2daa8d1c5fb5, RESULT.md Finding at offset 0, gives 79 spheres after four disjoint faults."
+        ],
+        "reasoning": "The distinct same-day value is a four-edge orbit, not a table of the nine lower-fault orbits; no priority is inferred from their dates. No distinct exact low-fault table was found in these comparisons.",
+        "searches": [
+          "Resultary: K8 matching complex deleting up to three edges fault profile wedges of spheres 132 116 100 102",
+          "Resultary d148e7a31082 and 2daa8d1c5fb5"
+        ]
+      },
+      "rationale": "The intact wedge of 132 spheres is established prior art. The contribution supported is the full nonempty low-fault homotopy profile; neither the Euler inclusion–exclusion method nor the Morse method is new. The closest distinct same-day perfect-matching deletion is real overlap in setting, but not coverage on these fault graphs.",
+      "residual_risks": [
+        "The frozen split-injectivity comparison is not tied to a precise source in its bibliography and was not relied upon. A stronger unchecked deletion theorem or an unindexed exact table remains possible. No historical priority claim beyond scoped evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact known intact row; not the faulty profiles",
+          "evidence": [
+            "Attributes the intact 132-sphere result to Björner et al. (1994) and supplies a discrete-Morse argument."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.02973",
+          "material_read": "p. 5 offset 15805 and Example 3.3 p. 13 offset 43800",
+          "method": "Open-access paper text",
+          "title": "Topology of matching complexes of complete graphs via discrete Morse theory",
+          "trigger": "Exact eight-point wedge result"
+        },
+        {
+          "assessment": "Does not give the stated connectivity for all low-fault graphs in the inspected theorem",
+          "evidence": [
+            "Complete and related matching complexes with the intact n=8,r=2 specialization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-003-2869-x",
+          "material_read": "Theorem 1.2, p. 2 of OA copy, offset 2800",
+          "method": "Open-access paper text",
+          "title": "Decompositions and Connectivity of Matching and Chessboard Complexes",
+          "trigger": "A stronger matching connectivity result might imply the profile"
+        },
+        {
+          "assessment": "General cofiber, additional hypotheses for splitting; applied graph family differs",
+          "evidence": [
+            "Splitting relies on a null-homotopy; the wedge theorem concerns polygonal-line graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.12559",
+          "material_read": "Proposition 5 p. 4 offset 7550; Theorem 13 p. 6 offset 11735",
+          "method": "Open-access paper text",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Potential general edge-deletion implication"
+        },
+        {
+          "assessment": "Four disjoint faults, outside bound",
+          "evidence": [
+            "One perfect-matching deletion, with a 79-sphere wedge."
+          ],
+          "identifier_or_url": "Resultary 2daa8d1c5fb5",
+          "material_read": "RESULT.md at offsets 0 and 3900, Finding and relationship to prior work",
+          "method": "Local mirror",
+          "title": "A 79-sphere matching complex after a perfect-matching deletion from K8",
+          "trigger": "Distinct same-day, near-identical object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof",
+        "arXiv:2305.02973, Example 3.3",
+        "Independent check 1"
+      ],
+      "rationale": "At the eight-point intact case where the ordinary complex is a known two-sphere bouquet, the low-deletion question tests stability of the integral homotopy type under every small fault shape, through the first cyclic fault. This is a complete natural cutoff rather than chosen sample graphs. The nontrivial topology is uniform, while the sharp rank is incidence-sensitive already for two faults; the resulting benchmark distinguishes equal fault counts and identifies genuinely homotopy-equivalent nonisomorphic examples.",
+      "residual_risks": [
+        "Does not provide a topology classification for higher fault counts or explain asymptotic robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal rank-one reduction is reconstructed from the bilinear operator identity, not inferred from enumeration. Locality forces the image generator to be nilpotent, and the left/right multiplication eigenvalue argument yields the exact condition \(u^2=0\), \(f(uE+Eu)=0\). The three-generator exterior degree decomposition gives ideal dimensions \(4,2,1\). Their projective counts and nonzero annihilator dimensions yield the theorem's polynomial. The characteristic-two generator-change argument uses the surjective endomorphism criterion for a finite local algebra. The dimension formulas use constant-rank annihilator bundles. The packaged checker independently enumerates image lines in four fields and all binary rank-one maps against the defining identity. Finite tests are not used to infer the theorem over arbitrary fields.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-Benito–Gubarev–Pozhidaev (2018, §5.2) and Shakoor–Noor-ul-Ain (2026, §4) treat weight-zero operators on the **four-dimensional** exterior algebra on two generators. A published binary computation finds \(80\) operators of all ranks on that same four-dimensional algebra, including \(25\) of rank one. None of the inspected statements calculates the **eight-dimensional three-generator** rank-one locus, its exact counts over all finite fields, or its characteristic-dependent dimension. Searches addressed pure-tensor rank-one formulations, ideal-annihilator conditions, Grassmann/exterior aliases, and finite-field counts. The elementary rank-one reduction itself is not claimed as novel. Risks include an unindexed equivalent formulation and limited inspection of the 2026 preprint revision and one published four-dimensional proof.
+PASS
 
-## Value — PASS
-The result completely enumerates a naturally defined operator stratum in a higher exterior dimension that is not covered by the existing plane-algebra calculations. The arithmetic effect is structural: in odd characteristic \(v\wedge w=0\) removes one degree of freedom, whereas in characteristic two every radical element is square-zero; the operator variety's dimension consequently jumps from \(9\) to \(10\). It also provides exact reproducible rank stratification and point counts for every finite field. No statement is made about higher operator ranks or arbitrary numbers of exterior generators.
+For R=f(-)u, taking one argument in ker f shows f composed with each of left and right multiplication by u is proportional to f. The identity then gives u²=(α+β)u. A nonzero α+β would give a nonzero idempotent in a local algebra, hence u=(α+β)1; substitution gives α+β=2(α+β), a contradiction in every characteristic. With u²=0 the multiplication maps are square-zero, so α=β=0. These conditions are sufficient and imply R²=0. For u=v+w+z in the radical, u²=2v∧w. With v nonzero in characteristic different from two, w∈v∧V and z∈v∧Λ²V, so u is v times a unit and the left-plus-right span is vE=Ev. In characteristic two any radical element squares to zero and replacing v by u in a basis of generators is an automorphism: it preserves the exterior relations and is invertible on the radical filtration. The degree-two and degree-three leading cases give spans of dimensions two and one, and the degree-one case gives four. Counting projective lines yields q^(3+ε)(q²+q+1), q(q²+q+1), and 1; for each line the nonzero maps into it that vanish on its multiplication span are a punctured (8−r)-dimensional fiber. This proves the count for every prime power. Over an algebraically closed field the strata are affine bundles over projective leading-term lines (and a point for degree three); their base dimensions are (5,3,0) outside characteristic two and (6,3,0) in characteristic two. The annihilator ranks are constant on each stratum; taking the nonzero parts of the corresponding Hom bundles gives dimensions 9 and 10, including characteristic zero in the former case. Independent small prime-field enumeration confirmed the line counts, ideal ranks and totals; the general conclusions use the algebraic argument, not enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the complete rank-exactly-one operator census and the dimension jump. The odd-characteristic degree-one image-line enumeration is already present in equivalent form in the earlier three-generator retraction record and should not be credited as new. Its result does not give the Rota–Baxter functional fibers, the remaining leading degrees, the characteristic-two count or the dimension jump. The two-generator classifications and tables do not cover the full claim.
+
+## value
+
+PASS
+
+This is the full smallest nonzero-rank stratum on the first exterior algebra beyond the plane where v∧w can obstruct square-zero elements. It quantifies the new geometry when 2 vanishes, giving both exact counts for every finite field and the dimensions of the geometric strata. These are useful benchmarks for classification and finite-field computations; the value is in the operator fibers and characteristic comparison, not in re-counting the previously known odd-field image base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

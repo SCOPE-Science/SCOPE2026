@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:53:56.462222Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is connected, not the quandle: each two-point fiber is an inner orbit because every vertex has a neighbor and a right translation preserves the first vertex. Expanding a binary 2-cochain in the basis 1,a,b,ab, the coefficient of the third input bit in the cocycle equation is Aij w_ik, so a neighbor of i kills each mixed coefficient. The remaining equation is Aij p_ik+Aik p_ij+Ajk v_ij=0. Swapping j and k gives equality of v_ij and v_ik on graph edges, so connectedness forces a row constant t_i. The equation with j=i and k adjacent to i gives p_ii=t_i, exactly the remaining diagonal normalization apart from u_ii=0. For a fixed row α of A, the equation is t_i A=αpᵀ+pαᵀ. At t_i=0 evaluating at a coordinate h with α_h=1 makes p a multiple of α. A nonzero solution at t_i=1 requires rank two, since A is nonzero alternating of even rank. Conversely at rank two, take p to be row h: rows i,h are independent, and evaluating an arbitrary row j in their span at h and i forces its two coefficients to be p_j and α_j respectively. This proves the matrix identity, with one independent extra parameter in each row. There are n(n−1) free off-diagonal constants, and each row contributes exactly one coboundary direction d_i Aij because the row is nonzero. The dimensions after subtraction are therefore as stated. A rank-two alternating outer-product representation labels all vertices by nonzero binary vectors of length two; adjacency is distinctness of labels, so there are two or three parts. Conversely two or three nonempty parts can be assigned distinct nonzero labels, producing rank at most two and, by nonzero alternating rank, exactly two. This does not include complete multipartite graphs with more than three parts. Reviewed RESULT.md, VERIFICATION.md and verify_graph_quandle_h2.py as text. The 60 reported cochain systems were not rerun and are not a substitute for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The orbit-count rank formula for racks uses invertibility of the order of the finite quotient acting on the rack. Here the inner group is a binary row span of flips of order 2^rank(A), so that condition fails. Corollary 5.4 does apply to unnormalized rack H² and reduces it to H¹ of the structure group with a function module. The García Iglesias–Vendramin theorem assumes indecomposability, which these n-orbit quandles lack. The weighted graph classification does not evaluate the stated group."
+        ],
+        "reasoning": "An unevaluated structure-group reduction is usable background but does not give the rank-dependent dimension by substituting n; it needs the stabilizer abelianizations and the normalization. The invertible-order formula cannot supply them in characteristic two.",
+        "searches": [
+          "arXiv:math/0201290, Etingof–Graña Theorem 4.2 and Corollaries 4.3 and 5.4",
+          "arXiv:1512.01262, García Iglesias–Vendramin Theorem 1.1",
+          "arXiv:2403.07383, Saito–Sugawara homogeneous quandles with abelian inner groups"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ecee1a2c6b58 (identical) and 1265dab56180",
+        "arXiv:2403.06209",
+        "arXiv:math/0201290",
+        "arXiv:1512.01262",
+        "arXiv:2403.07383"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior base cocycle constructs the quandle but leaves its H² undetermined. Orbit counts are n for every graph here, whereas the dimension already differs for a four-vertex star (rank 2) and four-vertex path (rank 4). The general rack reduction retains the group action data rather than replacing H² with an orbit count in this characteristic."
+        ],
+        "reasoning": "Detecting the jump requires checking when each row-flip character admits one extra cohomology parameter. The cochain equation reducing this obstruction to rank(A)=2, rather than the number or size of orbits, is an additional calculation not supplied by the inspected theorems.",
+        "searches": [
+          "Furuki–Tamaru §4.4 compared with normalized H² on the expanded quandle",
+          "Etingof–Graña §§4–5 and García Iglesias–Vendramin Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published construction is the same graph quandle. The adjacency cocycle in §4.4 is on the underlying trivial vertex quandle, not a description of all normalized cocycles on its doubled extension. The graph-quandle retraction result computes possible image sizes rather than cohomology."
+        ],
+        "reasoning": "Changing to the language of abelian extensions or cocycles on the base does not identify the normalized H² of the total quandle; the extra fiber cochain parameters must be solved separately.",
+        "searches": [
+          "Resultary: graph quandle binary second cohomology, adjacency rank, retractions",
+          "Furuki–Tamaru arXiv:2403.06209, graph quandles and §4.4 cocycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact dimension hit was the identical assigned record ecee1a2c6b58. The closest distinct same-object record 1265dab56180 gives a retraction image-cardinality enumerator, not H² or a table of binary cochain ranks."
+        ],
+        "reasoning": "An enumerator for quandle retractions is not an evaluation of normalized cochain dimensions. The frozen checker is finite and belongs to the same finding, so it is not independent published table coverage.",
+        "searches": [
+          "Resultary semantic lookups for the graph-quandle dimension formula and same-object invariants"
+        ]
+      },
+      "rationale": "The graph-quandle construction and general cohomology frameworks are prior. The inspected results do not give the evaluated normalized mod-two second cohomology dimension on this graph family or its rank-two jump. The judgment is bounded and does not claim discovery of the rank-two graph characterization separately or resolve historical priority.",
+      "residual_risks": [
+        "The exact applicability of Lebed–Mortier, Journal of Pure and Applied Algebra 225 (2021), 106474, was not checked in primary full text. This and other broader results for disconnected abelian quandles leave a priority risk.",
+        "The material distinct claim is the normalized characteristic-two dimension and its jump, not the underlying graph-quandle construction or rank-two graph structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction, but base cocycle is on a different quandle",
+          "evidence": "Adjacency is described as a cocycle on the trivial quandle of vertices, not the normalized second cohomology of Q_G.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.06209",
+          "material_read": "Definition 4.1 and Proposition 4.2, pp. 11–12 near offset 29200; §4.4, p. 14, offsets 35406–36552",
+          "method": "Primary OA passages",
+          "title": "Homogeneous quandles with abelian inner automorphism groups and vertex-transitive graphs",
+          "trigger": "Original graph-quandle construction and cocycle discussion"
+        },
+        {
+          "assessment": "Orbit-tuple dimension rule inapplicable; general degree-two rack reduction does not evaluate this normalized dimension",
+          "evidence": "Corollary 5.4 identifies rack H² with H¹ of the structure group with coefficients in functions on the rack; the orbit-count theorem has an invertibility condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0201290",
+          "material_read": "Theorem 4.2 and Corollary 4.3, p. 4 near offset 11800; Propositions 5.1 and 5.3 and Corollary 5.4, p. 8 near offsets 26300–28838",
+          "method": "Primary OA passages",
+          "title": "On rack cohomology",
+          "trigger": "General finite-rack dimension theorem and structure-group reduction"
+        },
+        {
+          "assessment": "Main theorem assumes indecomposability",
+          "evidence": "It is formulated for a finite indecomposable quandle; Q_G has n inner orbits.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.01262",
+          "material_read": "Theorem 1.1, PDF p. 3 near offset 7418",
+          "method": "Primary OA passage",
+          "title": "An explicit description of the second cohomology group of a quandle",
+          "trigger": "Potential exact second-cohomology theorem"
+        },
+        {
+          "assessment": "Construction and classification framework, not the evaluated dimension",
+          "evidence": "The comparison discusses broader weighted graph and abelian extension constructions; reference [10] identifies the relevant Lebed–Mortier work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07383",
+          "material_read": "pp. 1–3, including filtered-permutation comparison; reference [10] on p. 19 near offset 48775",
+          "method": "Primary OA passages",
+          "title": "Homogeneous quandles with abelian inner automorphism groups",
+          "trigger": "Broader weighted graph construction and abelian quandle literature"
+        },
+        {
+          "assessment": "Same objects, different invariant",
+          "evidence": "The result enumerates image cardinalities of retractions via graph structure, not second cohomology dimensions.",
+          "identifier_or_url": "2026/11/22/SCOPE-independent-sets-and-false-twins-determine-all-graph-quandle-ret--1265dab56180",
+          "material_read": "RESULT.md finding in matching local mirror",
+          "method": "Resultary lookup and local mirror",
+          "title": "Independent sets and false twins determine all graph-quandle retraction ranks",
+          "trigger": "Closest distinct indexed invariant on the same graph quandles"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": "Saito–Sugawara attribute to Lebed–Mortier the filtered-permutation framework for quandles with abelian inner automorphism groups and abelian structure groups; the publisher paper was not accessible on the inspected routes.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2020.106474",
+          "material_read": "Bibliographic entry and filtered-permutation description in Saito–Sugawara only; no primary theorem passage obtained",
+          "method": "Exact DOI/publisher retrieval and search for an open copy",
+          "title": "Abelian quandles and quandles with abelian structure group",
+          "trigger": "Plausible broader structure-group coverage for abelian quandles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a natural cohomological invariant for every graph in a motivated family, in the characteristic in which the orbit-count method fails. The exact jump distinguishes graph quandles with the same cardinality and orbit lengths, for instance the four-vertex star and path. Identifying the jump with complete bi- or tripartite structure gives a transparent graph interpretation beyond a few small cochain computations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

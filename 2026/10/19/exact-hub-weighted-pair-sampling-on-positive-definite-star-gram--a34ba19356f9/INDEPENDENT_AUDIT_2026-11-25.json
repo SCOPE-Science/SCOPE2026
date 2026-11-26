@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:53:14.821065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For e=x−x*, exact pair minimization subtracts the orthogonal projection in the G^{1/2}e coordinates, so the sharp one-step improvement is the smallest eigenvalue of the projector average. Concavity and leaf-permutation symmetry justify optimizing the orbit mixture without assuming all optimizers are symmetric. The contrast eigenspace and the hub/uniform-leaf block give the stated L, trace T and determinant K; the displayed characteristic polynomial is strictly negative at L for θ>0 (the affine bracket is positive at both endpoints), so the two block roots are distinct and the lower root controls. Its endpoint derivatives are nk>0 and tk/(k−1)<0, and concavity and interior analyticity give a unique interior optimum in this family. Substituting the stationary θ into the polynomial preserves the λ derivative at stationarity, which is negative at the lower block root; this selects the smaller eliminated root. Rationalizing gives Λ/k=2/(2/n+t+2u(n−1)/(n√δ)); the limit gives the stated mass and order. The n=3, u=1/2 example also follows by exact substitution. This is a proof check; the frozen numerical script was inspected, not run, and its endpoint-limit examples are printed comparisons, not asserted tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Yang allow joint laws over coordinate batches and rate bounds. The all-but-one record solves an omission-design family and gives a three-coordinate star example."
+        ],
+        "reasoning": "The general batch framework contains the sampling laws but does not determine the sharp optimizing star pair weights in the inspected passages. An all-but-one theorem does not evaluate this rank-two family in dimensions at least four.",
+        "searches": [
+          "arXiv:2610.04685v1, introduction and §2",
+          "Resultary 2026/11/8 e118fcf8fe26"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.04685v1",
+        "Resultary aa6191d1adb5",
+        "Resultary e118fcf8fe26",
+        "Resultary b052331b8c70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single-coordinate projector average is not a pair-projector average; overlapping hub columns are not orthogonal. All-but-one and pair blocks differ when n≥3."
+        ],
+        "reasoning": "Neither rank-one nor omission optima specialize to the audited pair-law optimum. The pair-block quadratic and its stationarity and contrast comparisons are necessary extra work.",
+        "searches": [
+          "arXiv:2610.04685v1 §2",
+          "Resultary b052331b8c70 and e118fcf8fe26 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Expressing the problem as maximizing the least eigenvalue of an averaged rank-two projector preserves the worst-direction objective. The frustrated three-coordinate omission record uses this objective for pair updates."
+        ],
+        "reasoning": "On three coordinates a pair is equivalent to omitting one coordinate. With at least four coordinates this equivalence fails; the frustrated Gram also has a nonzero leaf-pair entry.",
+        "searches": [
+          "arXiv:2610.04685v1, pp. 3, 5",
+          "Resultary 2026/11/8 aa6191d1adb5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "aa6191d1adb5 and e118fcf8fe26 give different exact omission formulas; b052331b8c70 gives fixed-law optimal single-coordinate sampling on stars over a finite horizon."
+        ],
+        "reasoning": "The actual Findings change either matrix family, block size or horizon. None gives the exact interior pair mass or limiting mass for the audited family.",
+        "searches": [
+          "Resultary fixed-law two-coordinate minimax sampling, star Gram and hub bias"
+        ]
+      },
+      "rationale": "The projector formulation and probability-design framework are standard; inspected statements do not cover the star-specific solution of the sharp one-step pair-law problem for n≥3 leaves, including its interior mass and singular-limit scaling.",
+      "residual_risks": [
+        "External keyword search was unproductive; the assessment is bounded by the inspected primary passages and published records, not a proof of priority or a whole-literature exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: arbitrary batch laws, not an established exact star-pair minimax solution",
+          "evidence": [
+            "p. 3 law P and P-dependent rate; p. 5 joint batch distribution and induced effective set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04685",
+          "material_read": "PDF p. 3 and §2 p. 5 (offsets 11509 and 19564)",
+          "method": "Read targeted open full-text passages",
+          "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+          "trigger": "Closest broad coordinate-batch probability law framework"
+        },
+        {
+          "assessment": "Methodological overlap, different family and dimension",
+          "evidence": [
+            "Exact omission law in three coordinates with nonzero leaf-pair coupling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published record text",
+          "title": "Exact minimax omission sampling for a frustrated three-coordinate family",
+          "trigger": "Closest exact two-coordinate minimax optimization"
+        },
+        {
+          "assessment": "Different block size in the audited dimensions",
+          "evidence": [
+            "All-but-one updates; the special star uses three coordinates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published record text",
+          "title": "A sharp volume-versus-uniform reversal for two-coordinate sampling",
+          "trigger": "Exact omission optimum including a star case"
+        },
+        {
+          "assessment": "Different block size and horizon",
+          "evidence": [
+            "One coordinate per step and a finite-horizon objective with horizon-dependent hub bias."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-finite-horizon-optimal-coordinate-sampling-on-weakly-coupled-sta--b052331b8c70",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record text",
+          "title": "Finite-horizon optimal coordinate sampling on weakly coupled stars",
+          "trigger": "Same star-sampling theme and biased hub weight"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family isolates the effect of one correlated hub on an exact optimal pair design. It answers a quantitative question not settled by symmetry alone: how far to bias the hub and how that preference scales at the positive-definiteness boundary. The n^{-1/2} versus n^{-1} comparison shows an order change, without implying runtime or multistep optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

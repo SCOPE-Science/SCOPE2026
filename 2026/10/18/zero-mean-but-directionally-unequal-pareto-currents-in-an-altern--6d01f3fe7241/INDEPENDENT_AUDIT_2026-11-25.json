@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:13:05.148728Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, assumptions and Proof §§1–5",
+        "VERIFICATION.md and verify.py (recorded diagnostic scope)",
+        "/workspace/checks/1_pareto_calibration.py (independent numerical execution)"
+      ],
+      "rationale": "With rate one per undirected bond, the discrete heat equation gives rho_0(t)-rho_1(t)=p_t(0)=exp(-2t)I_0(2t), by convolution with the step and telescoping. That density difference is the mean instantaneous current. Integrating the Bessel recurrence gives m(t)=t exp(-2t)(I_0(2t)+I_1(2t)) and m(t)~sqrt(t/pi). Net current equals occupation of the initially empty half-line: only the central bond can add mass from outside, and its finite-time clock rings are finite. Particle-hole exchange gives the opposite signed law from the other preparation. For distinct sites the product evolution minus the evolving density product is the two-particle exclusion generator applied to the covariance, with extra forcing -(rho_i-rho_{i+1})^2 at adjacency (the two blocked jump terms). Initial covariances vanish, so the positive semigroup/Duhamel formula gives nonpositive covariance. The finite-sum moment bound passes to the full initially empty half-line by monotone convergence for the first and second moments, yielding Var(J_0(t))<=m(t). Stationary renewal reward over a complete plus/minus pair has age weight Psi_s(t)dt/M, M=mu_++mu_-, and gives the integral mean and positive absolute first moment bound for alpha_s>3/2. A positive tail gets contributions only from the plus phase and vice versa. At age t=y^2 u the reset-free scaled current converges in probability to sqrt(u/pi); above any fixed positive u cutoff, the survival kernel is integrable in u and the limit is the indicator u>pi. Below age epsilon y^2, use E[J_0^2]<=m^2+m=O(t) for t>=1 and boundedness on fixed intervals. The discarded contribution is O(y^-2)+O(epsilon^(2-alpha_s) y^(-2(alpha_s-1))), negligible after scaling and letting epsilon decrease to zero. Integrating the limit from pi gives exactly b_s^alpha_s pi^(1-alpha_s)/(M(alpha_s-1)); both exponents are between 1 and 2, so the second moment diverges. Finally F_alpha(b)=E[H(bU)], with H'=m>0 and U standard Pareto, is continuous by local domination with U^(3/2), strictly increasing from zero to infinity. This proves unique cancellation. Independent unbounded-tail quadrature with z=(b/t)^(alpha-3/2) reproduced b_-=1.479346536529261 and coefficients 0.11547182752349883 and 0.15032611782075804; replay with python3 /workspace/checks/1_pareto_calibration.py (mpmath). This numerical comparison is not interval certification, and the infinite theorem replays from the analytic proof. The uploaded finite-state and proxy checker was inspected, not run.",
+      "residual_risks": [
+        "Only the stationary infinite-line within-cycle current is proved. It excludes instantaneous reset relocation and finite-ring circulation, and the tail argument here does not cover the endpoint exponents. The example is approximate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The resetting survey gives the arbitrary renewal-age law at one destination. Mishra–Basu equations (53), (60) and (68) give the single-step current mixture and mean. Section 6.2 addresses the second-moment regime; §6.3 evaluates the stationary distribution from the integral numerically."
+        ],
+        "reasoning": "The general renewal construction gives survival weights, not a regular-variation transfer theorem for this conditional current. The one-step integral and known current moments are a substantial part of the argument, but converting to exact tail constants requires controlling short ages as well as applying large-time concentration, and then combining two separately normalized ages and tuning the signed mean.",
+        "searches": [
+          "Evans–Majumdar–Schehr arXiv:1910.07993 §2.8, equations (2.40)–(2.48)",
+          "Mishra–Basu arXiv:2211.14120v1 §§6.1–6.3 for exact stationary tail or stronger law"
+        ]
+      },
+      "checked_sources": [
+        "Mishra–Basu arXiv:2211.14120v1",
+        "Sadekar–Basu arXiv:2004.00951v1",
+        "Evans–Majumdar–Schehr arXiv:1910.07993",
+        "Resultary 432f025ce48d and 100b5eb65008"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (60) of Mishra–Basu is the same mean integral for a single residence law divided by its own mean duration, while equation (68) represents the stationary current distribution and is used with numerical integration. Sadekar–Basu find vanishing diffusive current for equal Poisson rates rather than a pair of Pareto tail laws."
+        ],
+        "reasoning": "The phase mixture itself is a renewal-reward application and its ingredients should not be claimed new. The exact two-sign assertion goes beyond the earlier results: prove sharp regular variation from the actual step fluctuations (rather than a Gaussian or deterministic-age approximation), replace the one-phase normalization by the paired residence mean, and show the resulting opposing exact mean numerators have a unique balance. The inspected sources do not contain a broader result that supplies these steps as a mere parameter substitution.",
+        "searches": [
+          "Mishra–Basu, arXiv:2211.14120v1, §6, equations (51)–(53), (60), (67)–(68)",
+          "Sadekar–Basu, arXiv:2004.00951v1 §2 (6) and zero-current result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mishra–Basu call their renewal-mixture observable total current: it restarts at zero for a single reset destination, and the mixture is of reset-free excursions. Sadekar–Basu use two complementary reset configurations with Poisson rates and no forced alternation. Closest indexed SSEP results use one Pareto reset clock."
+        ],
+        "reasoning": "The current since the last reset must be distinguished from transport accumulated across cycles or from transport including arbitrary reset relocations. A two-state Poisson reset generator or a one-step Pareto model is not an equivalent law for two prescribed alternating Pareto phases.",
+        "searches": [
+          "Resultary: stationary signed within-cycle current, complementary steps under alternating Pareto renewal, exact directional tails",
+          "Mishra–Basu arXiv:2211.14120v1 §6 and Sadekar–Basu arXiv:2004.00951v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The marginal logarithmic transport record 432f025ce48d uses one iid Pareto clock and computes expected transport at marginal exponents, including a reset-inclusive observable. The correlation law 100b5eb65008 addresses stationary macroscopic density correlations for a one-step Pareto reset."
+        ],
+        "reasoning": "No matching table is needed for the continuum parameter theorem; the closest inspected indexed exact records give different functionals or exponent regimes and not the phase-tail constants or the balance equation. Ranked retrieval is not exhaustive.",
+        "searches": [
+          "Resultary, Pareto-reset SSEP divergent current, stationary direction-specific tails and mean balance",
+          "Resultary 432f025ce48d and 100b5eb65008, Findings"
+        ]
+      },
+      "rationale": "The single-step Pareto renewal law, its stationary mean integral, separate moment thresholds, reset-free asymptotics, and the two-configuration zero-current idea are prior. The supported distinct content is the sharply normalized unequal directional tails for a stationary alternating two-clock system, with exact and unique cancellation of the within-cycle mean. The nearest single-step paper actually gives a survival integral and numerical stationary distribution, not the exact tail limit in its inspected distribution section. A general age-mixture identity enables the argument but does not evaluate either sharp tail.",
+      "residual_risks": [
+        "A not-retrieved semi-Markov or random-age tail theorem with suitable hypotheses may supply a broader route. The comparison establishes distinctness against the inspected statements, not publication priority against all equivalent approaches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial single-reset overlap on renewal distribution, mean and moment regimes; does not give the exact alternating pair-tail and mean-calibration claim",
+          "evidence": [
+            "One fixed step with one Pareto law; equation (53) weights P_0 with survival divided by the mean residence",
+            "Equation (60) is the stationary mean integral; §6.3 equation (68) uses numerical integration for the stationary distribution, not an exact survivor-tail coefficient"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2211.14120v1",
+          "material_read": "Model and §6, including equations (51)–(53), (60), (67) and (68), especially §6.3 stationary distribution (HTML extraction around offsets 57150–63143)",
+          "method": "Targeted primary HTML inspection of definition, limits, and stationary-distribution calculation",
+          "title": "Symmetric Exclusion Process under Stochastic Power-law Resetting",
+          "trigger": "Same step SSEP, Pareto waiting law and stationary current mixture; plausible exact tail precedent"
+        },
+        {
+          "assessment": "Covers a different, Poisson two-configuration cancellation, not forced alternation or two heavy-tailed phases",
+          "evidence": [
+            "Resets use separate rates r_1,r_2, and the stationary diffusive current vanishes at r_1=r_2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2004.00951v1",
+          "material_read": "Abstract, §2 reset definition and equation (6)",
+          "method": "Targeted primary HTML inspection of rates and zero-current statement",
+          "title": "Zero-current Nonequilibrium State in Symmetric Exclusion Process with Dichotomous Stochastic Resetting",
+          "trigger": "Same complementary steps and zero-current motivation"
+        },
+        {
+          "assessment": "Supplies the general single-target survival mixture but no alternating current or exact SSEP tail evaluation",
+          "evidence": [
+            "Age kernel proportional to the residence survival function and normalized by its integral"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.07993",
+          "material_read": "§2.8 equations (2.40)–(2.48)",
+          "method": "Targeted primary HTML inspection of the renewal formulas and reset target",
+          "title": "Stochastic Resetting and Applications",
+          "trigger": "General renewal resetting framework that might imply the phase result"
+        },
+        {
+          "assessment": "Single-step iid resets with different observables; no equivalent directional-tail and cancellation theorem",
+          "evidence": [
+            "432f025ce48d: marginal expected-current logarithmic laws, distinguishing hops from net reset-inclusive transport",
+            "100b5eb65008: stationary macroscopic density correlations"
+          ],
+          "identifier_or_url": "Resultary 432f025ce48d and 100b5eb65008",
+          "material_read": "Findings in the corresponding RESULT.md files",
+          "method": "Semantic lookup and local mirror statement comparison",
+          "title": "Related Pareto-reset exclusion transport and correlation records",
+          "trigger": "Closest indexed same-system and same-clock records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact calibration and tail formulas",
+        "Sadekar–Basu zero-current comparison",
+        "Mishra–Basu Pareto current distribution and moments"
+      ],
+      "rationale": "The dichotomous-reset literature motivates separating mean balance from equilibrium; the power-law literature motivates asking which moments and tails remain observable at stationary time. Here the mean can be tuned to zero without making the directional current tails even comparable in order of decay. The exact coefficients and unique cutoff make that distinction quantitative for a canonical interacting lattice transport process, rather than a proxy example for independent walkers.",
+      "residual_risks": [
+        "No claim that the all-time current or reset-inclusive current has the same observable asymmetry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

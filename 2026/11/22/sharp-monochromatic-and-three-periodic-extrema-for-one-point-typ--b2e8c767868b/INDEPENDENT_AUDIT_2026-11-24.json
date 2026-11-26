@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:09:12.963570Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–79; VERIFICATION.md, verify.py and verify_output.txt inspected but no embedded code executed",
+        "Complete replacements: repairs/5/RESULT.md and repairs/5/SLOGAN.txt",
+        "Independent replay: python3 /tmp/opencode/recheck_frozen_five.py, section 5. Enumerate four-state words against the forbidden pairs for every edge-colour word at n=2 through 5; at n=3 found exactly six distinct-colour minimizers at 49 and three monochromatic maximizers at 50. Independent exact matrix multiplication gives characteristic coefficients [1,-42,-23,1,0]."
+      ],
+      "rationale": "The frozen theorem's consecutive-triple characterization fails literally at n=3: (1,1) satisfies it vacuously but gives 50 types, not the minimum 49 given by (1,2). The complete repaired Finding makes the six periodic prefixes the definition for every n>=3 and restricts the triple test to n>=4. The repaired proof checks the two-edge case explicitly. Free amalgamation and homogeneity identify nonalgebraic types with admissible one-point patterns: triangles with the extra point can involve only consecutive old vertices, and free duplication gives infinitely many realizations. From v'_0=v'_c=S and v'_a=S-v_b, v'_b=S-v_a, the retained sorted deficits a<=b give the componentwise update (2S+a+b; S+a+b,2S+a,2S+b). The choice of the two smallest or largest retained deficits bounds all future states by monotone induction; the coefficient 2 of S makes a strict earlier loss persist. After one edge the smallest deficit belongs uniquely to that colour; repeating chooses it again. For minimizers the second colour differs from the first and the ranks after two edges are (second, first, unused). Selecting the largest deficit rotates the ranks from (1,2,3) to (3,1,2) and preserves strict distinctness and positivity of the colour components, forcing exactly the periodic continuations. The maximum recurrence follows from reducing the monochromatic transfer to a two-by-two matrix; the minimum product and characteristic polynomial reproduce the stated first values and Perron growth. The exact inequalities rho^(1/3)<7/2<(3+sqrt(17))/2 separate the rates. All corrected mathematical statements were reassessed.",
+      "residual_risks": [
+        "Finite counts corroborate but do not prove all-order equality; the repaired monotone-state and strict-rank argument supplies the proof. Induced paths and pointwise names are necessary hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conant is cited for free-amalgamation background; no enumeration follows from that construction alone. The two primary colouring papers are identified by the frozen §Prior work as complete-graph Gallai or fully edge-coloured-host counting, not allowing a freely chosen absent new-to-old edge."
+        ],
+        "reasoning": "A host-graph edge-colouring total is neither a conditioned one-point count over one fixed old word nor a bound against every such word. Simply adding a fourth colour for nonedges changes the triangle rule rather than transferring a standard three-colour theorem.",
+        "searches": [
+          "Conant arXiv:1505.00762",
+          "Bastos–Benevides–Mota–Sau arXiv:1805.06805",
+          "Hoppen–Lefmann–Odermann rainbow-free edge-colourings preprint",
+          "SCOPE-parity-frustrated-coefficientwise-extremality-of-one-point-types--6db160410a0c"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md and SLOGAN.txt; frozen RESULT.md, AUDIT.json and cited sequence comparisons",
+        "Resultary assigned entry and 6db160410a0c indexed summary",
+        "Primary Gallai references and Conant arXiv:1505.00762 identified; passage retrieval attempted",
+        "OEIS A285266, A255256 and A251228 cited matches, independent retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen evidence attributes no all-word optimization to the primary colouring references; their identified counting objects have different host hypotheses. The order-preserving sorted-deficit recurrence with strict propagation is what yields this result over all words, rather than computing one candidate count."
+        ],
+        "reasoning": "For a real implication a source must compare the compatible four-state word products, not merely count three-colourings or extension patterns in a different model. The repaired two-edge condition is covered by exact calculation and is consistent with the same all-order comparison.",
+        "searches": [
+          "Counting Gallai 3-colorings of complete graphs, arXiv:1805.06805 (primary retrieval attempted)",
+          "Frozen RESULT.md lines 35–74 and 81–87; repaired equality proof",
+          "Resultary 6db160410a0c (available summary)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A word determines a product of three permutation-conjugate 4-state matrices, each an all-ones matrix minus the two entries for the forbidden ordered pair. The indexed exact hit is the assigned record. The related distinct 6db160410a0c summary treats oriented cycles and a transitive-triangle prohibition, not these matrices."
+        ],
+        "reasoning": "The model-theoretic statement is exactly an all-length constrained product extremum between all-ones boundary vectors. A generic joint spectral radius result or testing a fixed product would not suffice for the finite-order equality cases. The available analogous cycle summary uses different states and a boundary closure.",
+        "searches": [
+          "Resultary: one-point types over rainbow-free coloured paths, monochromatic and 3-periodic extremizers",
+          "Primary search: rainbow triangle free edge coloured induced path one point extension maximum monochromatic periodic rainbow color word transfer matrix joint lower spectral radius three colours nonedges Gallai"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen AUDIT.json lines 63–75 and 111–118 document the known numerical matches: maximum prefix 4,14,50,178,634 and minimum prefix 14,49,171,597,2084. Independent counts confirm the overlapping values for the reviewed model. Direct independent OEIS body retrieval was unavailable."
+        ],
+        "reasoning": "Treat the tabulated numerical sequences as prior overlap. Even exact agreement of all terms for fixed periodic or monochromatic words would not establish that other words cannot tie or improve those totals.",
+        "searches": [
+          "OEIS A285266, A255256, A251228 (exact identifiers)",
+          "site:oeis.org A251228 \"597\" 2084 OR A285266 \"634\" OR A255256 \"634\""
+        ]
+      },
+      "rationale": "The supported distinct claim is the finite-length comparison over all colour words and the exact equality classification, including the corrected short path. Neither the component counts for fixed words nor the numerical sequences are treated as new. The primary and catalog comparisons are bounded, not a proof of historical priority.",
+      "residual_risks": [
+        "Primary texts and OEIS details were not independently available; no whole-document exclusion is asserted.",
+        "A known product inequality under another terminology, or a stronger interpretation linked from the integer sequences, could cover more than the visible evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Comparably motivated but different stated class, base and parity behavior",
+          "evidence": [
+            "Oriented cycles and transitive-triangle-free graph in the indexed statement; here induced paths with three named symmetric colours and forbidden rainbow triangles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-frustrated-coefficientwise-extremality-of-one-point-types--6db160410a0c",
+          "material_read": "Indexed summary, not full text",
+          "method": "Resultary",
+          "title": "Parity-frustrated coefficientwise extremality of one-point types",
+          "trigger": "Distinct same-day theorem on extremal one-point types"
+        },
+        {
+          "assessment": "Known stated scope differs; full-text implication not independently ruled out",
+          "evidence": [
+            "Complete old graph and colour-only relations in the frozen source comparison, as opposed to a fixed induced path and optional extension edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.06805",
+          "material_read": "Subject and complete-graph scope from citation and frozen AUDIT.json lines 102–109; original passages unavailable",
+          "method": "OA and alternate arXiv HTML attempted",
+          "title": "Counting Gallai 3-colorings of complete graphs",
+          "trigger": "Plausible broad rainbow-free counting source"
+        },
+        {
+          "assessment": "Fully edge-coloured host counts as described do not equal these conditioned one-point types; further coverage unresolved",
+          "evidence": [
+            "The frozen source identifies all edges of the prescribed host as coloured, whereas the new incidence pattern here includes a freely chosen nonedge state."
+          ],
+          "identifier_or_url": "https://www.tu-chemnitz.de/informatik/ThIS/downloads/publications/exact_rainbow_triangle_preprint.pdf",
+          "material_read": "Frozen descriptions at RESULT.md §Relationship to prior work and AUDIT.json lines 93–100; primary PDF passage unavailable",
+          "method": "OA attempted on the open author/institution copy",
+          "title": "On graphs with a large number of edge-colorings avoiding a rainbow triangle",
+          "trigger": "Sharp counting precedent on hosts"
+        },
+        {
+          "assessment": "Credit numerical overlap; equivalence of interpretations not established",
+          "evidence": [
+            "Frozen AUDIT.json lines 63–75 and 111–118; exact values in repaired Finding and bounded direct enumeration."
+          ],
+          "identifier_or_url": "OEIS:A285266; OEIS:A255256; OEIS:A251228",
+          "material_read": "Frozen numerical comparisons and sequence locators; independent page text unavailable",
+          "method": "Frozen documentation plus targeted page/literature lookup; own independent counts",
+          "title": "OEIS A285266, A255256 and A251228",
+          "trigger": "Matching initial numerical values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and sorted-deficit proof; frozen prior-work and sequence comparisons"
+      ],
+      "rationale": "For a natural sparse named base in a standard homogeneous class the repaired theorem determines the structural limits of extension complexity across all colourings and gives every equality case. The sharper contribution is the uniform sorted-state comparison and its rigidity, not enumerating two already-tabulated sequences. The opposite equality patterns lead to genuinely distinct exponential rates.",
+      "residual_risks": [
+        "The reusable comparison is established for the three-colour induced-path model only, not for cycles, other forbidden configurations or automorphism-orbit counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

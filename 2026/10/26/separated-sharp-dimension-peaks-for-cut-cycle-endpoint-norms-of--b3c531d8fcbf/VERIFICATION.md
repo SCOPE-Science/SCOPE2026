@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Exact-rational verification
-Run `python3 verify_rank3_kneser.py` from the directory containing the standalone code. The implementation requires only the Python 3 standard library and uses integer/Fraction calculations throughout.
+# Independent mathematical audit
 
-It verifies the disjoint-triple edge relation, vertex Laplacian residuals, absolute electrical-current totals, and complementary projection trace identity on all full graphs with \(7\le n\le13\). It evaluates all ten antisymmetric orbit equations (where present) across \(8\le n\le25\), all four cut capacities across \(8\le n\le39\), and the exact successive-difference rational identities across \(9\le n\le39\).
+## correctness
 
-The all-dimension identity comparisons use more than \(25\) distinct parameters. Once all explicitly displayed denominators are cleared, their polynomial numerator degrees are bounded by \(25\), so matching at \(31\) distinct integers establishes those identities for every integer input where the denominators are nonzero. The positivity of the numerator coefficient lists after the shift \(t=n-9\) and the strict orbit-potential ordering are verified algebraically in RESULT.md. Finite full-graph calculations are corroborative, not substitutes for the proof.
+PASS
 
-Expected successful result:
+The incidence convention gives a symmetric orthogonal projection, and vertex exchanges establish connectivity for n>=7. Permuting ground-set labels is edge-transitive and only permutes or changes signs of edge coordinates, so the endpoint norms equal the absolute sum in one column. I reconstructed the dipole by solving an independent radial one-pole Laplacian system: for overlap k with the pole, the number of neighbors of overlap j is binom(3-k,j) binom(n-6+k,3-j); subtract the two pole solutions to obtain the dipole. This reproduces all four orbit potentials. Their sign ordering follows from the positive quadratic separation and the positive coefficients after shifting n by 8. Counting disjoint pairs between distinct ordered potential levels gives the displayed cut rational function, including automatically zero multiplicities for absent levels; at n=7 a separate full graph reconstruction gives TV=116/35. The trace makes every diagonal 2(N-1)/(Nd) in (0,1), so the cycle correction is exactly 1-4(N-1)/(Nd). Independent symbolic subtraction and shifting n by 9 give positive coefficients; exact comparisons of n=7,8,9 prove the unique distinct maxima, and expansion confirms both coefficients through order n^-2. Replay: python3 /workspace/review-checks.py (SymPy; section kneser). This is a mathematical and computational review, not proof-assistant validation.
 
-`RANK3_KNESER_EXACT_OK orbit_equations=179 threshold_counts=128 full_graphs=7 vertices=966 edges=34310 rational_identities=PASS peak_certificates=PASS`
+## originality
 
-No external or independent mathematical validation has been performed. Results concern canonical real unit-weight orthogonal projections only.
+PASS
+
+Prior art gives the edge-dipole representation and even the same type of calculation for the pair Kneser graph. Those are precedents, not the present theorem. The supported distinction is the evaluated rank-three absolute-current sum and its sharp dimension behavior, not the projection representation, trace correction, or method alone.
+
+## value
+
+PASS
+
+Rank three is the first subset rank beyond the strongly regular Kneser case, so the graph family and canonical electrical norm have a natural motivation. The absolute-current formula and sharp cutoff show complementary projections peak at different dimensions, quantitatively extending the rank-two comparison, rather than merely listing some graph computations. This is limited to the stated canonical endpoint norms, not arbitrary projection minimality, intermediate p, or general rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

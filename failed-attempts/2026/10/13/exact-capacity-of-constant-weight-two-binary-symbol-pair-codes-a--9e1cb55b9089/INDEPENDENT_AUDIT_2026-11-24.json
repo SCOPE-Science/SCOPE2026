@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:49:08.253712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct supports P and Q, a cyclic read at i differs exactly when i or i+1 is in T=P symmetric difference Q, so the distance is |T union (T-1)|. Disjoint supports have distance at least four. For supports with one common position, distance three occurs exactly when the two other positions are adjacent on the coordinate cycle. Consequently each neighborhood of the support graph must be cycle-independent, giving degree at most floor(n/2) and the claimed upper bound by summing degrees. The even-length parity graph attains the bound. At odd length 2k+1 with even k, the signed odd steps give circular gaps 2 and 3 and k neighbors. For odd k>=3, the smaller signed odd step set has a gap of 5; one displacement plus or minus k splits it into 2 and 3. A size-k matching of the step-k cycle supplies at most one such displacement per vertex (gcd(k,2k+1)=1), with total edge count (nk-1)/2. At k=1 it supplies a singleton code. Independent direct cyclic-read conflict enumeration at n=3 through 8 gave 1, 4, 5, 9, 10, 16, respectively; method and run record at /workspace/branches/0d375549-ae25-4fba-96cf-732b4ac3954e/record4-evidence.md. The symbolic reduction and constructions, not the finite enumeration, prove all lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The token-graph paper proves the sharp cycle value directly and treats broader token-graph families. On supertoken graphs repeats the all-length identity with the strong square of a cycle.",
+          "The unrelated unrestricted symbol-pair Singleton bound, where n>=4, is 2^(n-2) at distance four; it does not itself establish the exact restricted maximum."
+        ],
+        "reasoning": "The primary theorem in graph theory determines the exact coding maximum; the coding bound and fixed symbol-pair-weight layers are not needed for that implication.",
+        "searches": [
+          "AJC 76(3) (2020), Theorem 1.3 and Corollary 5.4",
+          "arXiv:2604.06164, p. 3",
+          "arXiv:1211.1728, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "AJC 76(3), 387–403 (2020)",
+        "arXiv:2604.06164",
+        "arXiv:2611.22830",
+        "OEIS A189889",
+        "arXiv:1211.1728",
+        "DOI 10.1007/s10623-025-01598-9 (scope only)",
+        "DOI 10.1109/TIT.2019.2942283 (bibliographic only)",
+        "Resultary d90c6eb8b504, ccc3dbf8746a, c2c6d9bba0e5 and e22aa432fba2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Theorem 1.3 gives floor(n*floor(n/2)/2), with F_2(C_3) isomorphic to C_3 and constructive cases for even n and both odd classes.",
+          "In the prior proof the layer L_i has linear separation n-i. For even n selecting odd-index layers gives exactly opposite-parity supports. For n=2k+1, the even-k layer selection gives precisely the signed odd steps through k-1. The odd-k selection takes the signed odd steps through k-2 and, additionally, the k disjoint pairs in L_k of cyclic step k. Thus the frozen constructions coincide with or re-express a prior extremizer (the arbitrary choice of maximum step-k matching is a variant, not a claimed classification)."
+        ],
+        "reasoning": "Both the exact scalar formula and the availability of explicit optimal constructions transfer through the support bijection. The prior proof also accounts for the parity split, not just an upper bound. The 2020 theorem and April 2026 corroboration give coverage independently of the later November account.",
+        "searches": [
+          "de Alba et al., Theorem 1.3 (p. 391) and proof (pp. 399–401)",
+          "Reyes et al., arXiv:2604.06164 p. 3",
+          "arXiv:2611.22830 Eq. (1) for cross-identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The vertices of F_2(C_n) are exactly the supports of the audited words. Two vertices are adjacent precisely when their symmetric difference is a single cycle edge, i.e. the two supports share one position and the two remaining positions are consecutive.",
+          "That adjacency is exactly pair-distance less than four for distinct weight-two words, without excluding adjacent supports or treating the two pair-weight layers separately."
+        ],
+        "reasoning": "The support map is a bijection and takes permissible codes to independent sets and back, preserving set size. This is exact equivalence, not a comparison to some denser unconstrained code family.",
+        "searches": [
+          "2-token graph of a cycle independence number alpha F_2(C_n) exact odd cycle two token graph symmetric square independence number",
+          "de Alba et al., Independence and matching numbers of some token graphs, definition and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A189889 lists floor(n*floor(n/2)/2) for n>1 for toroidal nonattacking kings. De Alba et al. and Reyes et al. explicitly identify the same sequence with alpha(F_2(C_n)) for cycle orders n>=3.",
+          "The audited values start 1,4,5,9,10,16. The nearby Resultary studies of distance at least seven, three-symbol reads, and unrestricted length-six codes have different constraints and do not supply this table."
+        ],
+        "reasoning": "The catalogue match is justified by the published cycle-token identity and the conflict equivalence, not merely by agreement of finite initial values.",
+        "searches": [
+          "OEIS A189889, FORMULA and references",
+          "arXiv:2604.06164, p. 3",
+          "Resultary: weight-two pair distances, distance-four six-coordinate MDS census, and three-symbol-read capacity"
+        ]
+      },
+      "rationale": "The entire maximization is exactly the independence number of the two-token graph of a cycle. De Alba, Carballosa, Leaños and Rivera, Theorem 1.3 (2020), gives the identical formula, including n=3 and explicit extremizers in all parity classes. This is established prior coverage, independent of the unresolved coding papers.",
+      "residual_risks": [
+        "Full text of two related coding articles was unavailable; closer repetition within coding literature is not ruled out and is immaterial to the established graph-theoretic equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-length prior result including extremal constructions",
+          "evidence": "Adjacency is symmetric difference a cycle edge. Theorem 1.3 gives floor(n floor(n/2)/2); §5 treats n=3 and gives explicit independent layer unions in each parity case.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/76/ajc_v76_p387.pdf",
+          "material_read": "Theorem 1.3 (p. 391; offset 9534); §5 definition, Observation 5.5 and proof, pp. 399–401 (offsets 34350 and 36520)",
+          "method": "Journal OA PDF text, bounded theorem and proof passages",
+          "title": "Independence and matching numbers of some token graphs",
+          "trigger": "Primary theorem for precisely the graph of incompatible supports"
+        },
+        {
+          "assessment": "Independent corroboration before the audited finding",
+          "evidence": "Identifies a(n)=floor(n floor(n/2)/2) with alpha(F_2(C_n)) and with A189889.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.06164",
+          "material_read": "p. 3 (offset 8190), exact formula, initial sequence and citation to de Alba et al.",
+          "method": "Original OA PDF bounded passage",
+          "title": "On supertoken graphs",
+          "trigger": "Earlier explicit cycle-token and toroidal-king cross-identification"
+        },
+        {
+          "assessment": "Later pointer, not used as prior priority evidence",
+          "evidence": "States the exact equality of the independence numbers with the floor formula and credits de Alba et al.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.22830",
+          "material_read": "p. 1 Eq. (1), n=3 case; reference [4]",
+          "method": "Original OA PDF bounded passages",
+          "title": "Independent sets in the 2-token graph of a cycle and the toroidal king graph",
+          "trigger": "Led to the exact earlier result"
+        },
+        {
+          "assessment": "Exact database entry, correspondence independently proved in primary papers",
+          "evidence": "Formula floor(n*floor(n/2)/2) for n>1; references Reyes et al. p. 3.",
+          "identifier_or_url": "https://oeis.org/A189889",
+          "material_read": "FORMULA and nearby references",
+          "method": "OA public webpage passage",
+          "title": "OEIS A189889",
+          "trigger": "Exact table and equivalent toroidal-packing formula"
+        },
+        {
+          "assessment": "Unrestricted Singleton-type bound, not a fixed-weight extremum",
+          "evidence": "General upper bound q^(n-d+2) with no weight-two hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1728",
+          "material_read": "Abstract and Theorem 2.1 (OA offsets 0 and 10400)",
+          "method": "Original OA PDF bounded passages",
+          "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+          "trigger": "Unrestricted bound for same read metric"
+        },
+        {
+          "assessment": "Full-text comparison unavailable; not needed for established coverage",
+          "evidence": "Constant symbol-pair weight differs from Hamming weight two, which mixes pair-weights three and four.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-025-01598-9",
+          "material_read": "Title/indexed scope only; full text unavailable",
+          "method": "Lawful OA DOI, Springer PDF and alternate copy attempts",
+          "title": "Bounds and constructions of optimal symbol-pair codes with constant pair-weight",
+          "trigger": "Nearby coding restriction; adjacent and nonadjacent supports could meet distinct pair-weight constructions"
+        },
+        {
+          "assessment": "No full-text finding credited",
+          "evidence": "OA returned HTTP 202 without a usable repository copy.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2019.2942283",
+          "material_read": "Bibliographic record only; full text not retrieved",
+          "method": "Lawful OA DOI and repository attempt",
+          "title": "Bounds and Constructions of Codes over Symbol-Pair Read Channels",
+          "trigger": "Possible general coding bound"
+        },
+        {
+          "assessment": "Different threshold, read window or weight class",
+          "evidence": "d90c6eb8b504 and ccc3dbf8746a use pair-distance >=7; c2c6d9bba0e5 uses three-symbol reads; e22aa432fba2 treats unrestricted length-six MDS codes.",
+          "identifier_or_url": "Resultary d90c6eb8b504, ccc3dbf8746a, c2c6d9bba0e5, e22aa432fba2",
+          "material_read": "Local mirrored Findings and scopes at offset 0",
+          "method": "Resultary search and matching mirrored result reads",
+          "title": "Resultary weight-two pair-distance and MDS comparisons",
+          "trigger": "Same support size, code channel or small exact optimum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-weight question is natural, but its audited maximum and all-length attainability are established by an exact relabeling of a known conflict graph, and the parity constructions re-express prior extremizers. No further independently useful unknown invariant or classification is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each sentinel gap, the miss event is exactly the intersection of two subarc-failure events; its hypergeometric inclusion-exclusion probability follows from uniform sampling of a fixed-size failure set. The exact gap cost has nonnegative discrete second differences, strictly positive until the integer boundary \(L=n-m+1\) and zero after it. The pairwise exchange argument proves both directions of the complete global optimizer classification, including equality and the vacuous small-failure cases. A direct, independent graph-component enumeration compared every placement with the formula and optimality criteria for \(3\le n\le9\), making 9,151 exact comparisons. The unrestricted result uses the analytic curvature identity rather than finite extrapolation.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+For an interior source the two disjoint slivers of its sentinel gap must each contain a failed edge for a miss; this remains true with one sentinel because the two approaches lead to the same vertex. Inclusion-exclusion gives the recorded gap cost. Its forward second difference at length l is (l+1) times the probability of l specified survivals followed by two specified failures, positive through l=n-m and zero after. Its increments are strictly below 1 for l<L and exactly 1 for l>=L. When n<kL, an unbalanced vector has a shortest gap below L and exchange from a longest to it is strictly improving. When n>=kL a gap below L implies one above L; the analogous exchange improves, and all feasible vectors with gaps at least L tie by the affine tail. Positive integer gaps summing to n are realizable on the cycle. This covers the boundary n=kL, the all-fail case L=1, k=1 or k=n, and connectedness when m<=1. For k>=2 nonbalance in the affine region requires and is possible with at least two surplus edges. Replay `cd /workspace && python audit_checks/check_frozen.py 1`: independently counts monitored vertex components by union-find over retained edge sets; all 9,151 placements across n=3..9 match both the exact probability and optimum membership; n=10 example reproduced by reachability as 11/45, 127/450 and 13/45 for each of the three optima. Finite checks corroborate, not prove, the general statement.
 
-The closest inspected full sources are Moore–Newman on small-world epidemic bond percolation (arXiv:cond-mat/0001393), Holme on exact small-graph SIR influence, vaccination and time-based surveillance (arXiv:1708.06456), and Bai et al. on empirical temporal-network lead time (doi:10.1038/s41598-017-03868-6). None proves a fixed-count edge-failure gap-placement classification. Accessible published-index findings for fragile power-dominating sensor placement, cycle spectral sensing, and a path's independent-transmission sentinel placement optimize other events or models. The local source ledger includes the last of these, but its path/IID result does not imply the fixed-count cycle theorem. This is a non-exhaustive originality conclusion; unindexed reliability and deployment literature remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives a natural complete, sharp optimization classification simultaneously for every ring size, sentinel budget, and exact disruption count, including the nontrivial flat-plateau threshold where uneven deployments become just as good as uniform ones. The discontinuous change in the *set of optimal placements* under severe damage is operationally interpretable, and the exact deficit formula quantifies changes in detection probability without simulation. At ten vertices and eight failed contacts, the full optimal gap spectrum is \((3,7),(4,6),(5,5)\), which would not follow merely from an informal rule to space sensors evenly. The result neither predicts real epidemic trajectories nor covers other fault distributions.
+The full equality classification under uniform fixed-cardinality cycle failures, including the affine-tail threshold, survives the strongest inspected comparisons. Related cycle and path results address different joint laws or endpoints and do not supply the plateau. Not a general epidemiological or priority claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This determines the whole set of optimizers, not just a balanced solution: under sufficiently many fixed failures even some substantially uneven deployments tie. The sharp onset and exact deficit mechanism test whether an independence-based placement intuition survives a natural finite-budget change of law. The result is a stylized defensive surveillance calculation, not a delay model or a prediction on real networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

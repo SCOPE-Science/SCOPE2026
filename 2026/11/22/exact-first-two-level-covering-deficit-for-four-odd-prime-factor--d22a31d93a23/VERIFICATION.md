@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite symbolic verification
 
-The standalone Python 3 certificate reproduces the complete inclusion-exclusion polynomial for every equality pattern of three labels at each of four vertices. Exactly 625 patterns are checked when all coordinate sizes are at least four, and 500 feasible patterns when the first coordinate size equals two. The checker expands the two universally nonnegative difference polynomials over a monomial basis with exact integer coefficients. Since the shifted variables are nonnegative for every permitted prime tuple, this finite symbolic certificate proves unbounded parameter inequalities. It also verifies explicit equality patterns for both cases.
+# Independent mathematical audit
 
-Command: `python3 crt_four_prime_certificate.py`.
+## correctness
 
-The independently obtained exhaustive pointwise maxima at coordinate sizes (2,4,6,10) and (4,6,10,12) are 157 and 361. Those examples are corroboration only. The code verifies a finite symbolic inequality and is not independent mathematical validation of its interpretation. No independent audit has been performed.
+PASS
+
+Normalize the four single-prime classes to coordinate zeros in the CRT product. In the surviving core, replacing an empty pair cylinder by a nonempty one cannot reduce the union. Let k be the number of active cylinders at a core point. Its contribution to B minus the union size is max(k-1,0). On the six cylinder indices draw a graph joining each pair of complementary edges of K4; this is a matching. If p=3, also join one pair of edges at vertex 0 whose assigned labels agree (such a pair exists because three edges share two available labels). The new edge joins distinct matching components, so the graph is still a forest. Its induced graph on the active cylinders has at most max(k-1,0) edges. Summing gives a deficit of at least 3 (one point for each complementary pair), or at least 3+m1 for p=3 (the forced pair intersection frees the remaining coordinate, of size at least m1). Distinct incidence labels throughout, or the lone repetition on pr and ps at p=3, respectively, realize these bounds: the only simultaneously active pairs are those counted, and they form no triangle, so no triple contributes. This gives 323 and 2519 for the displayed examples. Independently rechecked the finite symbolic certificate via direct core-point unions at a base point and unit shifts of the parameters: B-U is affine because any intersection of two distinct pair cylinders has at most one free coordinate. All coefficients are therefore recovered exactly by differences; all 625 and 500 signatures passed, with example union maxima 361 and 157 respectively. Replay: python3 /workspace/independent_replays.py 4.
+
+## originality
+
+PASS
+
+The checked exact counterpart is the identical assigned record. The closest separate Resultary theorem is on all seven nontrivial divisors of three primes; it does not give the six-cylinder extremum of a four-coordinate core. Quantitative complete-covering restrictions in the inspected primary literature are not sharp partial-union optimizations. No dominating claim was identified in the compared evidence.
+
+## value
+
+PASS
+
+The first two nontrivial divisor levels are a natural fixed family in the squarefree covering problem, and a sharp residual count gives information even when noncoverage is already known. The p=3 threshold detects a specific obstruction from the smaller coordinate alphabet, with an attainable loss increasing with q, rather than a table of isolated tuples. The pointwise collision argument also identifies what drives the optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

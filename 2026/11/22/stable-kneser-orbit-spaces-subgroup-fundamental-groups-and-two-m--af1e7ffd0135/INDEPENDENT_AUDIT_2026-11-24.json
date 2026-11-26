@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:03:02.233374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md lines 5–72, four packaged Python files and VERIFICATION.md (inspected, not executed)",
+        "Braun arXiv:0912.0720, p. 1 and frozen citation to Theorem 1.4",
+        "checks/kneser.py"
+      ],
+      "rationale": "Under k=m-4 Braun's sphere-wedge theorem supplies simple connectivity. A pairwise-intersecting chord family is a star or a three-chord triangle. A nontrivial rotation preserves a singleton chord only at order two, a triangle only at order three, and no star with at least two chords. The order-two antipodal and order-three equally spaced witnesses are stable. For a reflection i↦t-i, at most six choices of i fail t-2i≠0,±1, so there is a fixed chord. Armstrong gives the cyclic quotient by the subgroup of order gcd(d,6); two reflections generate every reflection-containing subgroup, so its quotient is simply connected. The star-union face poset retracts by closing each nonsingleton star to the full star at its common label. The image is the barycentrically subdivided stable-chord graph, with reversed inclusion order. The boundary of a remaining triangle is sent equivariantly and homeomorphically to the six half-edges on its polygon-label triple; attaching these disks gives the stable-label two-skeleton as an equivariant homotopy model. After subdivision, disk and boundary quotients are CW pairs, so passage to each quotient also gives a two-dimensional model. Integral H_2 is free, higher homology vanishes, and rational chains after subdivision are coinvariants, so averaging the covering H_2 character gives the rank. The signed traces can also be counted on the small model: for instance an even reflection at m=2h has chain traces 2, 2-h, -2(h-2), giving H_2 trace 3-h. Independent replay python3 -B /workspace/checks/kneser.py verified all character cases over m=8..20 on that small model; contracted orbit spanning trees and performed relator substitutions tracking every remaining generator. The smaller cyclic CW models (6,17,12) and (8,26,20) in degrees 0,1,2 give final relations u^4 and (trivial,u^-3), respectively. The dihedral models give a point and a point with one trivially attached two-cell. These independently prove the stated four types. The original flag method is also sound: deleting different ranks in a flag gives distinct rank signatures, so incidence-one free faces lie in one coface only; single-occurrence relator elimination preserves the CW homotopy type by removing a generator with its solving 2-cell, not merely preserving the group. Duplicate degree-three relations attach a sphere after the first relation.",
+      "residual_risks": [
+        "The full attaching-map classification is only for the full cyclic and full dihedral actions at m=8,9, not for arbitrary m or arbitrary actions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun gives a nonequivariant wedge of 2-spheres; Schultz treats equivariant Hom complexes. Armstrong supplies the general quotient by point-fixing elements.",
+          "8af1ffc8127a gives the prior stable-complex rational character and the frozen article credits its equivariant reduction. 1bbc57abbe56 gives the same full cyclic pi_1 formula but rank (n^2-6n+5+3ε_2+4ε_3)/6."
+        ],
+        "reasoning": "These inputs matter: the rational component is largely an averaging corollary; the subgroup pi_1 computation requires the stable witnesses. The same-day formula for rank is exactly what the independent reduction gives if all polygon pairs are allowed: the resulting two-skeleton has covering rank C(n-1,3), and averaging with the same nontrivial rotation traces gives precisely the catalog formula. It disagrees with the stable rank at n=8,9 (4,6 versus 0,1), strongly favoring the unrestricted interpretation over a dominating stable theorem. Its full definition remains uninspected.",
+        "searches": [
+          "arXiv:0912.0720, arXiv:1003.5688, DOI:10.1017/S0305004100038974; Resultary:8af1ffc8127a and 1bbc57abbe56"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0912.0720v1 and arXiv:1003.5688v1 (bounded excerpts)",
+        "DOI:10.1017/S0305004100038974 (bibliographic entry; theorem used as classical input)",
+        "Resultary:8af1ffc8127a, 75de5c5113c2, 1bbc57abbe56, b2e6784d3b7a, 75ac6f142af1, af1e7ffd0135 (target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A rational invariant character determines averaged rational Betti numbers, not H_1 torsion or a degree-three attaching word. Covering integral lattice data likewise do not identify those attaching maps.",
+          "The full rotation stabilizer quotient C_(n/gcd(n,6)) is shared with the nearest distinct claim. The stable dimension-two model and relations u^4 and u^-3 (one extra trivial attachment in the latter) are specific to stable-pair cells."
+        ],
+        "reasoning": "Credit the shared rotation theorem pattern rather than claiming a new general isotropy mechanism. The verified distinct target is the all-subgroup stable calculation with the exact small stable quotient types. Even knowing the group's order and the rational Betti numbers does not by itself provide the cyclic Moore-space homotopy equivalences.",
+        "searches": [
+          "Braun §1; Armstrong 1965 DOI entry and frozen theorem statement; Resultary:8af1ffc8127a, 75de5c5113c2, b2e6784d3b7a, 1bbc57abbe56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braun's Definition 1.1, arXiv:0912.0720, distinguishes all pairs from the stable nonconsecutive pairs (Schrijver graph). The target's independence complex is equally the clique complex of the stable-chord line graph.",
+          "Schultz arXiv:1003.5688 p. 1 specifies Hom(K_2,SG_{n,k}), the box complex, not the independent-set realization."
+        ],
+        "reasoning": "Using the Schrijver or chord-family language preserves the object. Removing stability or substituting a Hom complex changes it; geometric quotients cannot be compared just by the dihedral group or by a matching torsion order.",
+        "searches": [
+          "Primary: stable Schrijver graph independence complex stable two subsets dihedral cyclic geometric orbit spaces fundamental group Moore spaces Braun rational character quotient",
+          "Resultary: 1bbc57abbe56 cyclic isotropy integral topology two-subset Kneser independence quotients K(n,2) all two-subsets nonconsecutive stable graph; b2e6784d3b7a cyclic quotients two-subset Kneser Moore-space wedges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "af1e7ffd0135 is the target. 75de5c5113c2 concerns the stable m=8 covering H_2 lattice and reports Z/4 cyclic coinvariants. b2e6784d3b7a gives Moore wedges for widths coprime to 6 with free rank (n-1)(n-5)/6, the unrestricted formula above for those widths. Neither m=8 nor m=9 meets that coprimality condition.",
+          "1bbc57abbe56 reports an exact S^2∨S^2 at width six, with the unrestricted family rank at the widths under comparison."
+        ],
+        "reasoning": "The same-order coinvariant torsion is a close same-object result, but coinvariants of integral H_2 of the covering complex are not an attaching-map table for these orbit spaces. Earlier coprime-width catalog evidence does not specify the two noncoprime stable widths here.",
+        "searches": [
+          "Resultary: stable two-subset Kneser ordinary rotation and dihedral quotient Moore homotopy m=8,9; precise entries 1bbc57abbe56 and b2e6784d3b7a"
+        ]
+      },
+      "rationale": "The supported additions are the stable-complex subgroup calculation including torsion, and the exact stable quotient types in the first two cases. Credit the prior nonequivariant type, dihedral character and star reduction, Armstrong's theorem, and the identical isotropy mechanism for unrestricted two-subset complexes. The strongest distinct catalog records have a different rational invariant, matching the unrestricted model exactly rather than the stable one.",
+      "residual_risks": [
+        "Targeted full-text retrieval of distinct catalog records did not succeed. The exact rank comparison is substantive evidence distinguishing models, not a substitute for inspecting those definitions. An equivalent published stable quotient calculation not exposed by the inspected material remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object; covering wedge result, not a quotient statement in inspected material",
+          "evidence": [
+            "Stable n-subsets omit cyclic neighbors; abstract gives a wedge of two-spheres for SG_{2,k}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0912.0720",
+          "material_read": "v1 p. 1 abstract and Definition 1.1; further theorem locator from frozen citation",
+          "method": "Primary web search and public arXiv PDF excerpt",
+          "title": "Independence Complexes of Stable Kneser Graphs",
+          "trigger": "Exact same covering object and potentially broader classification"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": [
+            "Its equivariant type is for a (C_2 × D)-action on Hom(K_2,SG_{n,k})."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.5688",
+          "material_read": "v1 p. 1 abstract and definitions excerpt (extract lines 11–18,34–38)",
+          "method": "Public arXiv PDF",
+          "title": "The equivariant topology of stable Kneser graphs",
+          "trigger": "Same graph and dihedral symmetry"
+        },
+        {
+          "assessment": "Same full cyclic isotropy pattern, but published summaries' Betti formulas exactly fit the unrestricted pair model and disagree with the stable model; full graph definitions not independently retrieved",
+          "evidence": [
+            "Isotropy record explicitly gives C_(n/gcd(n,6)) and (n^2-6n+5+3ε_2+4ε_3)/6; Moore record concerns n coprime to six and rank (n-1)(n-5)/6."
+          ],
+          "identifier_or_url": "Resultary:1bbc57abbe56; Resultary:b2e6784d3b7a",
+          "material_read": "Exact catalog statements; attempted targeted local-mirror reads timed out",
+          "method": "Resultary semantic and identifier search; compared with stable and unrestricted cell formulas",
+          "title": "Cyclic isotropy and integral topology of two-subset Kneser independence quotients; Cyclic quotients of two-subset Kneser independence complexes are Moore-space wedges",
+          "trigger": "Strongest overlapping cyclic fundamental group and Moore-type claims"
+        },
+        {
+          "assessment": "Existing character and covering lattice coverage, no exact quotient attachments in inspected statements",
+          "evidence": [
+            "The first gives D_m traces on H_2; the second reports cyclic coinvariant Z/4 for the eight-point integral lattice."
+          ],
+          "identifier_or_url": "Resultary:8af1ffc8127a; Resultary:75de5c5113c2",
+          "material_read": "Catalog statements, plus character and attribution in frozen RESULT.md §§5 and 7; full texts not obtained",
+          "method": "Resultary and mathematical cross-check of traces",
+          "title": "The dihedral character of stable Kneser independence-complex homology; The integral dihedral homology lattice of the first eight-point stable Kneser independence complex",
+          "trigger": "Exact stable object, earlier rational and integral representations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md, theorem and exact types, lines 5–33; checks/kneser.py"
+      ],
+      "rationale": "A natural invariant of Schrijver graph symmetries is computed for every acting subgroup, including integral torsion invisible to the prior rational trace calculation. Rotation quotients can have arbitrarily large prime-order fundamental groups even though the source and reflection quotients are simply connected. The exact models at the first two stable widths exhibit this via actual degree-four and degree-three attaching maps and distinguish the reflected quotients.",
+      "residual_risks": [
+        "Only dimension, pi_1 and homology are claimed in general, not all higher homotopy invariants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

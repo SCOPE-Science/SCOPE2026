@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The included `verify.py` was executed with Python 3, NumPy and SciPy. It replays the exact pair-automaton transitions at all \(1736\) branch combinations \((n,d,U,V)\) for \(3\le n\le30\), and solves independent finite pair-state discounted equations for \(n=20,40,80\) at \(p=1/2,2/3\), \(x=1/4,1/2\) and Laplace parameter \(s=3/4\).
+# Independent mathematical audit
 
-Execution summary:
+## correctness
 
-`VERIFY_OK macro_branch_cases=1736 direct_full_pair_Laplace_n=20,40,80 p=1/2,2/3 x=1/4,1/2 s=3/4`
+PASS
 
-The directly computed Laplace values, listed as \(n=20,40,80\) after the theoretical limit, are:
+Keep the state labels fixed and cut into cycles at the times the first label returns to zero. Starting with clockwise gap d, the second label reaches the reset state at first-label phase n-1-d. A reset on the first letter there pushes the gap up by one; once pushed it cannot return to the reset state within that unabsorbed cycle. At the final first-label phase a fresh reset pushes the gap down by one. The two Bernoulli(q) first-letter flags are independent conditional on the past, since their sampled phases are distinct; one may hypothetically complete a truncated terminal cycle. The reflected labeling of coalescence as gap 0 or n is consistent: the only mismatch with macro-increment gambler's ruin is early killing at n-1 if both flags equal 1. The remaining expected lazy-walk lifetime on this mismatch is (n-1)/(2pq), negligible on the n^2 cycle scale. The invariance principle yields the Brownian exit limit because the limiting paths cross the hit boundary immediately. Cycle durations have mean 1+(n-1)/p and variance (n-1)q/p^2; a maximal bound at deterministic O(n^2) horizon and tightness justify the clock despite within-cycle dependence on the gap flags. The terminal-cycle truncation and arbitrary initial partial passage are negligible. The physical-time generator is therefore p^2q times the second derivative. Solving the boundary problems for the Laplace transform and the first two moments reproduces the displays. Since the exit law is a positive time scale times one fixed nondegenerate law with positive mass in every nonempty subinterval of (0,infinity), maximizing p^2(1-p) uniquely minimizes its positive-time tails and interior quantiles. A separately written true pair-state calculation checked representative finite means and discounted transforms; the uploaded script was inspected, not executed.
 
-- \(p=1/2, x=1/4\): 0.6455997; 0.6574284, 0.6514176, 0.6484854.
-- \(p=1/2, x=1/2\): 0.5409601; 0.5625816, 0.5515854, 0.5462279.
-- \(p=2/3, x=1/4\): 0.6827979; 0.6904193, 0.6865483, 0.6846582.
-- \(p=2/3, x=1/2\): 0.5873941; 0.6012165, 0.5941905, 0.5907642.
+## originality
 
-Limits of these checks: no finite array establishes a Brownian weak limit. The mathematical proof supplies the exact cycle reduction, gambler's ruin coupling, Donsker exit-time convergence, and uniform clock estimate. Independent scientific audit has not been performed.
+PASS
+
+The supported distinct claim is the complete first-exit distribution for every fixed bias and macroscopic starting gap, with exact physical-time scale and distribution-wide bias optimality. Credit Gusev's exact finite midpoint-pair means and the corresponding leading optimizer, and credit the independent catalogue's exact second-moment coverage in fair-input cases. Neither comparison gives the full exit law or the reduction needed to pass from pair transitions to it. No priority is asserted for the shared mean or the optimizer regarded as a mean optimizer.
+
+## value
+
+PASS
+
+A mean for a distinguished pair does not predict tail risk, quantiles or dependence on the starting separation. The cycle reduction explains the cubic time scale and isolates the exact bias-dependent constant, yielding a single explicit model for all macroscopic separations and a stochastic-order result. These are substantive additions beyond standard moment or worst-case synchronization calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

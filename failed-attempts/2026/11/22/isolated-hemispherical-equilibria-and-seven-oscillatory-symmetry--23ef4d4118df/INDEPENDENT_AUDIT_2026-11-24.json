@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:19:19.390322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recomputed the whole phase portrait with /workspace/branches/audit_replays/icosahedron.py (run with Python 3). Constructed the standard vertices from cyclic permutations of (0,±1,±φ) and joined pairs at squared distance 4 using exact Z[φ] arithmetic; checked an explicit isomorphism to the frozen ring-labelled graph. Computed the ±1 spin update for every state, peeled the transient vertices of the functional digraph by indegree, and traced the residual cycles, without assuming period ≤2 or any entrance-time bound. This produced the exact 14 fixed states, 156 temporal two-cycles, all basin sizes and the full joint first-entry/period table. The fixed-support set consists of exactly the twelve distinct caps and the two constant states. The cap basins all have size 1; both consensus basins have size 1586. Sharpness follows both from the 240 states of entry time five and from the relabelled trajectory 87→47→23→41→16→0. Every graph automorphism maps an ordered triangle to one of 20×6 possibilities, and the tested distinct triples of distances to the three seed vertices determine every image; all 120 induced maps preserve adjacency. Quotienting unordered temporal cycles by these maps, without an added opinion-complement quotient, reproduced the exact multiset of class sizes and basin attributes; the repeated pairs are not unique class identifiers. The source Python/C++ and captured output agree on the aspects they check; neither frozen script was executed. The result is exact for this graph, not a general polyhedral theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos' general restriction to period one or two is quoted by Benjamini et al.; Kaaser et al. give general voting-time bounds.",
+          "095dfb0decea uses the twenty-vertex cubic dual graph. 6295ce972482 uses the same icosahedron but three-state Greenberg–Hastings excitation. The same-day Bidiakis record a364b0d2169d has a different graph and numbers.",
+          "4b6d7cb731ad covers the complete phase portrait and also reports weight-refined cycle and entry statistics and a symbolic cap non-nucleation proof."
+        ],
+        "reasoning": "General period and time bounds and other exact graph/rule censuses do not supply this graph-specific census. The earlier identical-model phase portrait does, with additional results.",
+        "searches": [
+          "Resultary: dodecahedral graph exact majority dynamics fixed points cycles basin census",
+          "Resultary: icosahedral three-state excitation automaton census",
+          "arXiv:1405.2486, PDF p. 2",
+          "MFCS 2016.55, PDF pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "4b6d7cb731ad RESULT.md, state_orbits.csv, check_finite.out",
+        "095dfb0decea",
+        "6295ce972482",
+        "a364b0d2169d",
+        "b7e089db1d02",
+        "arXiv:1405.2486",
+        "doi:10.4230/LIPIcs.MFCS.2016.55",
+        "Tošić–Agha ACRI 2004 OA PDF",
+        "doi:10.1016/0012-365X(80)90121-1 (abstract and indirect theorem corroboration only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Finding explicitly gives F^7=F^5, sharp time five, 14 fixed points with the same supports, 1586 and singleton basins, 156 two-cycles with identical basin histogram, and the same seven geometric class sizes and three outcome probabilities.",
+          "The earlier Proof supplies symbolic cap isolation and exhaustive spatial classification; its associated orbit table entails the joint and class-by-basin counts, as checked above."
+        ],
+        "reasoning": "No substantive mathematical part of the headline census remains distinct. Another sharpness witness or an independently agreeing implementation corroborates but is not new mathematical content. The overlap is established by the previously published claims and table, not inferred from similarity or date alone.",
+        "searches": [
+          "4b6d7cb731ad RESULT.md Finding and Proof, offsets 0–8130",
+          "SCOPE-20261122-23ef4d4118df, RESULT.md Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4b6d7cb731ad, RESULT.md Finding and Assumptions, offsets 0–5175, defines the same pole-and-ring graph and open-neighbor threshold 3 on binary states.",
+          "It identifies time phases of primitive temporal pairs and takes exactly the full automorphism-group quotient, not a further opinion-complement quotient."
+        ],
+        "reasoning": "Relabelling vertices or using ±1 rather than 0/1 spins gives the same map; in fact the earlier result uses the same ring labeling. The exact recurrent and basin claims concern identical mathematical objects.",
+        "searches": [
+          "Resultary: icosahedral graph synchronous binary majority dynamics exact fixed points cycles basin entry time",
+          "Resultary: icosahedron binary majority 156 two-cycles seven symmetry classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "state_orbits.csv gives representative, orbit size, update representative, first-entry time, attractor period and basin size. Summing orbit sizes by (time, period) gives period-one column 14,386,984,1080,480,240 and period-two column 312,600,0,0,0,0.",
+          "Among recurrent state orbits, pair distinct period-two orbit representatives interchanged by the update; such a pair contributes the full size of either state orbit as temporal cycles. For an orbit mapped to itself, divide its size by two. This aggregation of the prior table yields (6,2),(10,2),(20,14),(30,4) twice,(30,6) twice, and all three fixed classes."
+        ],
+        "reasoning": "These table aggregations mechanically give both apparent display refinements. They require neither a new dynamical computation nor a new implication about this graph.",
+        "searches": [
+          "Resultary: icosahedron binary majority 156 two-cycles seven symmetry classes",
+          "4b6d7cb731ad/state_orbits.csv, all 82 rows",
+          "4b6d7cb731ad/check_finite.out"
+        ]
+      },
+      "rationale": "Verified earlier equivalent coverage in the distinct published November 17 record 4b6d7cb731ad. Its Finding gives the same graph, labeling, majority rule, fixed supports, singleton cap basins, consensus basins, temporal census, basin distribution, automorphism quotient sizes, sharp time and probabilities. Re-aggregation of its published 82-row state_orbits.csv yields exactly the ostensibly more detailed first-entry-by-period table and class-by-basin multiset in the frozen November 22 result. This is not a matching title, identical-record self-hit or inference from a same-day date. The earlier record also has a symbolic proof of cap isolation and additional population-weight counts.",
+      "residual_risks": [
+        "The Goles–Olivos full text was not available and ultimate priority before the November 17 observation is not adjudicated. Neither affects the demonstrably equivalent earlier exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full frozen census including both refined tables by direct aggregation",
+          "evidence": [
+            "Same graph, update and quotients; exact fixed, basin, cycle, time and probability claims.",
+            "CSV aggregates to exact joint entry table and class-basin attributes; prior cap-isolation proof also works symbolically."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-icosahedral-majority-landscape-isolated-caps-and-seven-oscil--4b6d7cb731ad/RESULT.md",
+          "material_read": "Finding, scope and Proof steps 1–4, offsets 0–8130; associated check_finite.out and state_orbits.csv (82 rows)",
+          "method": "Published-record local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, and independent weighted aggregation of orbit table rows",
+          "title": "The icosahedral majority landscape: isolated caps and seven oscillation symmetries",
+          "trigger": "Exact-match older record from same-model Resultary searches"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": [
+            "20 vertices, degree 3, 118 fixed configurations and 9679 temporal two-cycles."
+          ],
+          "identifier_or_url": "095dfb0decea",
+          "material_read": "RESULT.md Finding, offsets 0–4968",
+          "method": "Published-record local mirror",
+          "title": "Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+          "trigger": "Strong analogue on Platonic dual"
+        },
+        {
+          "assessment": "Different alphabet and local map",
+          "evidence": [
+            "Three-state Greenberg–Hastings task with 3^12 inputs and period-three cycles."
+          ],
+          "identifier_or_url": "6295ce972482",
+          "material_read": "RESULT.md Finding, offsets 0–4561",
+          "method": "Published-record local mirror",
+          "title": "Icosahedral excitation: exact three-cycle, geometric-orbit and entrance census",
+          "trigger": "Same graph and exact dynamical census"
+        },
+        {
+          "assessment": "Different cubic graph, not a duplicate of the icosahedral theorem",
+          "evidence": [
+            "20 fixed states and 103 two-cycles."
+          ],
+          "identifier_or_url": "a364b0d2169d",
+          "material_read": "RESULT.md Finding, offsets 0–4883",
+          "method": "Published-record local mirror",
+          "title": "A sharp six-update majority clock and complete basin census on the Bidiakis cube",
+          "trigger": "Distinct same-date twelve-vertex exact majority census"
+        },
+        {
+          "assessment": "Different graphs",
+          "evidence": [
+            "Truncated tetrahedron and cuboctahedron rather than icosahedron."
+          ],
+          "identifier_or_url": "b7e089db1d02",
+          "material_read": "RESULT.md Finding, offsets 0–2989",
+          "method": "Published-record local mirror",
+          "title": "Isolated oscillators versus broad two-cycle basins in two twelve-vertex graphs",
+          "trigger": "Distinct same-date related finite majority census"
+        },
+        {
+          "assessment": "Only the qualitative period restriction credited here",
+          "evidence": [
+            "Finite symmetric binary threshold dynamics eventually have period dividing two."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Landing page/abstract; original full-text request returned 403; theorem corroborated in Benjamini et al. p. 2",
+          "method": "OA access attempt and reading of later primary citation",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Classical general period restriction"
+        },
+        {
+          "assessment": "General period and probabilistic context",
+          "evidence": [
+            "The cited finite-graph period result does not count cycles or basins."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+          "material_read": "PDF pp. 1–2, offsets 805 and 4496",
+          "method": "Primary OA PDF passages",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Potential general majority theorem"
+        },
+        {
+          "assessment": "General bound, not needed for exact coverage decision",
+          "evidence": [
+            "Defines the voting time and derives graph-general upper bounds, not the earlier exact phase portrait."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.55",
+          "material_read": "Primary PDF pp. 1–2, offsets 1423, 3237 and 4149",
+          "method": "Primary OA PDF passages",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Potentially dominating bound for the entrance clock"
+        },
+        {
+          "assessment": "Inspected scope is general parallel/sequential dynamics and one-dimensional characterizations",
+          "evidence": [
+            "Majority is a threshold cellular automaton; this material is not the decisive prior exact table."
+          ],
+          "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "material_read": "PDF p. 1, abstract and one-dimensional computation passage, offsets 0 and 2642",
+          "method": "Primary OA PDF passages",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "Equivalent threshold-network terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural invariant is worth knowing: cap stability differs from basin accessibility, and an exact labeled phase portrait is useful for graph-specific comparison. But the submitted contribution is a recomputation of the existing same-model census and mechanically readable orbit attributes, rather than a new useful fact. The alternate checker gives useful corroboration without constituting a surviving distinct mathematical finding. A sample sharpness trajectory and reformatted tables do not provide a worthwhile repairable remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:50:39.837716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md and verify.py (inspection only)",
+        "/workspace/audit_evidence/analytic_checks.py and analytic_checks.out, POLAR_TURN through AT_EQUAL_LEGS"
+      ],
+      "rationale": "The three target inequalities on each image vertex suffice by convexity. Translating the two lower coordinate bounds to zero leaves a triangle scaled by 1−W, or an empty fiber. The W sublevel areas are r² times the footprint area, so integrating the fiber area (ab/2)(1−W)² gives ab/12 times the footprint area in ordinary Lebesgue coordinates. The gauge is coercive: a placement bounds the distance between the first two image vertices by the target diameter, so its unit sublevel is bounded, and continuity gives interior about zero. With a=t≤1=b, I checked the edge inequalities for the scaled polar normals via the exact minimum of each degree-at-most-two polynomial on [0,1], and checked eight strictly positive consecutive turns for 0<t<1. There are 25 distinct normals from the 27 indexed triples; 200 distinct edge tests therefore suffice. The supporting-line intersections and shoelace sum give the claimed area f(t) and five distinct limiting vertices of a genuine pentagon at t=1. Scaling gives V=t f(t)/12 in the normalized case and the stated formula in m,M; the increasing f(t)/t proves the unique fixed-area maximizer. At fixed b=1 the right branch minus the analytic extension of the left branch is a(a−1)^3(3a²−a+3)/[48(a+1)(a²+1)], so the first two derivatives match and the third jumps by 5/32. Zero-scale maps have measure zero; no reflected placements or Haar weighting are included.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general placement papers formulate or compute containment polyhedra, projected vertices, complexity, or the largest placement. Choi–Choi explicitly considers the triangle/polygon setting and silhouette complexity."
+        ],
+        "reasoning": "Arbitrary convex targets subsume these triangle pairs as inputs, but an algorithm for projected vertices or maximal scale does not state the all-positive-ratio vertex classification or evaluated four-volume. A parameter-uniform specialization requires identifying the active normals and the different degeneracies, not just invoking an existence or complexity bound.",
+        "searches": [
+          "Primary literature search: triangle similarity containment polytope, mixed area, general polygon placement and measure",
+          "Agarwal–Amenta–Sharir Theorem 1; Chan–Hair SoCG 2024 pp. 34:1–2; Choi–Choi arXiv:2611.08556v1 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 0f26f49ae237, e90ef3f72b9c, ce1c89c8273b and exact self-match 28f9ae0f586e",
+        "Agarwal–Amenta–Sharir, Chan–Hair, Choi–Choi passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier gauge law gives A·area(F)/6 for triangle self-containment and an equilateral extremum under its own co-varying shape constraints. Largest-placement methods optimize norm over F, not its area and not the full space of translations."
+        ],
+        "reasoning": "Even taking the shared gauge integration step as known, one must determine f(t) for a fixed source with varying target and compare f(t)/t. The self-containment extremum varies both shapes together and cannot imply the claimed unique isosceles target, let alone the one-sided derivative jump.",
+        "searches": [
+          "Resultary 0f26f49ae237 Finding and mixed-area gauge comparison; Choi–Choi arXiv:2611.08556v1 §1; Chan–Hair largest-placement objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agarwal–Amenta–Sharir and Choi–Choi study the same four-parameter feasible set and its multiplier projection. Resultary 0f26f49ae237 expresses the self-case via mixed area.",
+          "For triangular Q and L_z(x,y)=(ux−vy,vx+uy), the mixed-area formula gives W(z)=MA(Q,L_zT)/area(Q); the gauge integral uses the ordinary multiplier measure, which in polar coordinates is scale times d(scale)d(angle)."
+        ],
+        "reasoning": "These equivalences identify the underlying object and shared mechanism but not the aspect-ratio formula. Ordinary four-volume is not the largest feasible scale, the bare mixed area, or an unweighted angle-scale integral. An anisotropic leg rescaling conjugates a generic rotation to a nonsimilarity and does not reduce this problem to the self-case.",
+        "searches": [
+          "Resultary semantic lookup: exact ordinary similarity containment volume with right-isosceles source and arbitrary right-triangle target",
+          "Agarwal–Amenta–Sharir DOI 10.1007/PL00009337 pp. 96–97",
+          "Choi–Choi arXiv:2611.08556v1 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 28f9ae0f586e is this frozen record. Distinct formulas handle triangle self-containment, right-isosceles source in rectangles (fourth-order transition at ratio 2), and an equilateral source in rectangles (fourth-order transition at ratio 2/√3)."
+        ],
+        "reasoning": "The self-case matches here only at equal legs up to scaling; a rectangle yields product-of-width translation fibers rather than homothetic triangles. Those catalogs of exact formulas do not supply this rational function, octagon-to-pentagon transition, or 5/32 jump.",
+        "searches": [
+          "Resultary exact right-triangle similarity-volume and shape transition search; comparisons 0f26f49ae237, e90ef3f72b9c, ce1c89c8273b"
+        ]
+      },
+      "rationale": "The feasible four-polytope and its projection are known general objects, and the triangle self-containment gauge integral and equal-leg instance are known. The distinct claim is the exact fixed-source, all-right-target volume and multiplier polygon, the resulting fixed-area maximizer and the cubic derivative jump. The strongest inspected prior formulas and algorithms concern either different target/source families or a different invariant of the same polytope.",
+      "residual_risks": [
+        "The negative outcome of a broad search is not evidence of novelty. Unindexed work or uninspected sections could contain an equivalent specialization.",
+        "The related same-day rectangle records do not establish a within-day priority ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General construction and largest placement, not the stated volume law",
+          "evidence": "Defines the polyhedron and projection, and maximizes s²+t²; computes vertices.",
+          "identifier_or_url": "https://doi.org/10.1007/PL00009337",
+          "material_read": "pp. 96–97, OA PDF offsets 3500–7997, including Theorem 1",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Largest Placement of One Convex Polygon Inside Another",
+          "trigger": "Early primary source using same similarity parameterization and projected polygon"
+        },
+        {
+          "assessment": "Geometric algorithm for a different invariant",
+          "evidence": "Describes a four-dimensional polytope and optimizes the largest copy.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SoCG.2024.34",
+          "material_read": "pp. 34:1–2",
+          "method": "Lawful OA proceedings PDF passage",
+          "title": "Convex Polygon Containment: Improving Quadratic to Near Linear Time",
+          "trigger": "Modern general containment algorithms"
+        },
+        {
+          "assessment": "Establishes general object and silhouette complexity; inspected claims not the aspect-ratio volume law",
+          "evidence": "Studies silhouettes and largest placements for a triangle in a convex polygon.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08556v1",
+          "material_read": "Abstract and §1, HTML offsets 0–4997 and 3295–8757",
+          "method": "Lawful OA primary HTML passages",
+          "title": "The Containment Polytope of a Triangle and a Convex Polygon",
+          "trigger": "Same polytope and source-family scope"
+        },
+        {
+          "assessment": "Overlapping integration mechanism and equal-leg point; no asymmetric-target law",
+          "evidence": "The same triangle is both source and target, with volume A·area(F)/6 and a self-case extremum.",
+          "identifier_or_url": "Resultary 2026/11/17 …--0f26f49ae237",
+          "material_read": "Finding and gauge/volume passage",
+          "method": "Configured local mirror",
+          "title": "A sharp equilateral extremum and a universal beta law for triangle self-containment polytopes",
+          "trigger": "Strongest overlap in measure and gauge identity"
+        },
+        {
+          "assessment": "Distinct targets and phase laws; no priority inference from date",
+          "evidence": "Rectangle targets, with jumps in fourth derivatives at different ratios; the latter also changes the source to equilateral.",
+          "identifier_or_url": "Resultary 2026/11/22 …--e90ef3f72b9c; …--ce1c89c8273b",
+          "material_read": "Findings, target hypotheses and phase changes",
+          "method": "Configured local mirror",
+          "title": "A fourth-order containment volume transition for a right triangle; Sharp fourth-order phase transition in equilateral triangle similarity containment",
+          "trigger": "Closest exact fixed-source containment-volume transition records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; inspected general placement and self-containment comparisons"
+      ],
+      "rationale": "Knowing the largest similarity does not quantify the size of the feasible set. The exact ordinary volume over a full one-parameter shape family yields a normalized measure of containment and a sharp area-constrained shape comparison. The loss of footprint vertices exactly at equality and a cubic, rather than first-order, smoothness break give a concrete geometric benchmark for parametric polytope volume calculations.",
+      "residual_risks": [
+        "Does not classify the full four-dimensional face lattice or extend the optimum to all triangle targets or other source shapes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

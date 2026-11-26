@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete-theory recursion is proved from characteristic formulas for root colour and the **set**, rather than multiset, of child modal types. Every specified child type requires a distinct child, and each is forced to contain its own minimal witness, giving a sharp lower bound; attaching the canonical children attains it and equality recursively forces uniqueness. This establishes the exact product enumerator and coefficient interpretation for all finite depths, including \(p=0\). Complementing child choices gives palindrome symmetry and the mean; a subset-sum gap lemma gives the complete interval of attainable minimum orders. The size distribution is literally a sum of independent weighted fair Bernoulli variables; variance, the independent-summand Berry--Esseen inequality and Hoeffding's inequality yield the stated all-depth probability bounds. All use tree-relative minimum, never general-graph minimum. `verify_modal_tree.py` enumerates nonisomorphic small trees independently of the polynomial calculation, checks literal forth/back modal equivalence, and tests exact coefficients and moments. These finite tests are not offered as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+At depth zero only color matters, including the single empty assignment when p=0. Inductively characteristic formulas express the presence of every specified child type and forbid all others, using the stated empty Boolean conventions. Each specified type needs a different child, and tree children cannot share vertices. Equality in the resulting order lower bound requires exactly one child and an inductively unique minimum representative for every member of the chosen child-type set. This yields the product, the type-count recurrence, and the largest exponent from taking all children. Subset complementation gives symmetry about (M_h+1)/2 and the two extreme coefficients, also valid when they coincide at depth zero. Sorted positive weights with no missing order satisfy a_i<=1+sum_{j<i}a_j, so appending a weight gives two overlapping or adjacent integer intervals of subset sums. Uniform types give independent fair selections of the predecessor types, yielding the exact variance recurrence and positive variance at h>=1. The centered summands have second and third absolute moments w^2/4 and w^3/8. With A=sum w=N(M+1)/2 and B=sum w^2, the Berry–Esseen moment ratio is bounded by M/sqrt(B)<=M sqrt(N)/A<=2/sqrt(N). For the Hoeffding bound, B<=MA and the new maximum is 1+A, so 2(1+A)^2/B>=N. The preceding N grows without bound, as does M, proving both limiting assertions. Independent bounded enumeration found, among other cases, all 16 atom-free depth-three types, maximum 11 and successive multiplicities 1,1,1,2,2,2,2,2,1,1,1, with one minimum tree per type.
 
-The full 2026 unravelling-preservation article provides bounded-tree semantic methods and finite minimal-tree reasoning, but not the minimum-order distribution over *all* modal types. The 2024 rooted bounded-contraction article proves minimality in unrestricted Kripke graphs, which permits state sharing and has a different object and counting measure. A published exact 47-world result optimizes one tree realizing every depth-three type **somewhere**, not an independent minimum for each type; its full proof was read. A published graded/ordinary bisimulation compression theorem concerns regular-tree quotient size, not the weighted tree minimum-order distribution; its full proof was also read. Searches for equivalent weighted-set, minimum-witness-spectrum and Gaussian-law statements did not locate a dominating prior theorem. The basic child-type set normal form and generic Berry--Esseen theorem are acknowledged prerequisites, not asserted novelties. Residual risk: unindexed work on weighted hereditarily finite sets or finite-tree automata could have equivalent recurrences; this review does not prove priority.
+## originality
 
-## Value — PASS
+PASS
 
-Minimum witness size is a natural cost attached to every modal equivalence type, relevant when local unravellings or tree certificates must be materialized. The theorem supplies the entire exact size distribution for every depth and propositional vocabulary, proves no minimum sizes are skipped, identifies the unique small/large extremes for each colour, and quantifies the typical cost by a normal approximation with explicit depth-dependent error and exponentially decaying tails. This is an object-motivated classification and asymptotic answer, not an arbitrary finite slice or a restatement of the standard unweighted count of modal types.
+The child-type set normal form and probability inequalities are established tools. The supported distinct result is the joint quantitative description of minimum tree order across complete uniform types, in particular the gap-free all-depth weighted spectrum and normal and concentration laws. The strongest checked sources compare models with different admissible witnesses or optimize a different objective; no earlier statement was found to imply the joint result.
 
-## Limits and closest comparison
+## value
 
-The minimum is among outward trees, not general transition systems. Old weighted-set enumerations or unpublished equivalents could affect priority, and formal independent validation has not been performed. The probabilistic inequalities are standard theorems applied to a newly specified exact witness-size distribution; no originality is claimed for the inequalities in isolation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The whole range and distribution of the smallest useful tree representatives gives information that counting theories or giving only a worst-case upper bound cannot provide. Gap-freeness settles exactly which optimal witness orders can occur. The quantitative limit separates typical size from extremal size across a canonical uniform ensemble, with nonasymptotic errors despite the rapid growth in type count. These are natural questions about bounded modal succinctness, not a census of arbitrary instances or a novelty claim for the generic inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

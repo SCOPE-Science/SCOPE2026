@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:49:12.422228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and assumptions",
+        "VERIFICATION.md and checker.py (inspected, not executed)",
+        "Sun, arXiv:1402.6641 v1 and v12, exact conjecture statements",
+        "Independent replay: python3 /workspace/branches/c349a51d-3e2f-45c5-a31f-7ceef2699f53/independent_audit.py"
+      ],
+      "rationale": "For A=π(kn), B=π((k+1)n), the real-root inequality and the strict integer-power inequality are equivalent because both counts are positive. For n≥300, the Brun–Titchmarsh interval estimate with start kn and length n, and the Rosser–Schoenfeld lower bound at kn, apply within their stated ranges. They give k log(B/A)≤k(B−A)/A<2 log(kn)/log n≤4, where kn≤n²; if B=A the strict upper bound is immediate. Meanwhile log A≥log 62>4, using the elementary exponential series bound e<11/4 and (11/4)^4<62. The independent segmented-sieve exact replay covers every n=5,…,299 and k=1,…,n, confirming all 44,840 inequalities, π(300)=62, and minimum positive margin 4 at (n,k)=(6,1). The threshold and finite range join without a gap.",
+      "residual_risks": [
+        "The classical analytic inequalities are inputs, not reproved by the certificate. The original Montgomery–Vaughan full text and exact Rosser–Schoenfeld passage were not retrieved on the attempted lawful routes. Finite arithmetic does not certify the analytic tail."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected catalogue finding asserts the same inequality for integers n≥2 and k≥1 with only three exceptions at n=2 or 4, and the proof explicitly handles all n≥5 for nk≥17 with an odd-candidate bound plus the Rosser–Schoenfeld bound.",
+          "The later public Lean repository documents the all-k≥1 form for n≥5; its proof file is dated 2026-11-02 UTC and was not executed for this review."
+        ],
+        "reasoning": "Restricting the stronger catalogue finding to n≥5 and then to k≤n requires no new argument. Its proof mechanism and its coverage are distinct from the frozen text's Brun–Titchmarsh proof. The Lean hit is a separate later overlap and is not needed for the verdict.",
+        "searches": [
+          "Local Resultary stronger/all-index root-monotonicity search, record abe6896d468d",
+          "F8Labs-ai/sun_conjectures README and proof file history"
+        ]
+      },
+      "checked_sources": [
+        "Sun arXiv:1402.6641 v1 and v12",
+        "Resultary abe6896d468d",
+        "Sun–Zhao arXiv:2004.01080",
+        "F8Labs-ai/sun_conjectures"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three exceptions in the covering theorem are (2,1), (2,2), and (4,1), all outside n≥5. In its proof ceil(n/2)/n≤3/5 on n≥5, and log log x/log x<2/5 for x≥17; the same finite low-x cases in the claimed domain are also covered by the independent replay.",
+          "The stronger record says a previously established bounded-index proof covers Sun's domain, without a locator establishing priority. Sun–Zhao's value-representation results concern a different question."
+        ],
+        "reasoning": "The stronger indexed theorem literally implies every asserted strict inequality. Distinct indexed coverage is established, but chronology between these same-day records is not. No novelty finding depends on a literature search returning no hits.",
+        "searches": [
+          "Mirrored abe6896d468d RESULT.md, Finding, proof and Relationship to prior work",
+          "Sun–Zhao arXiv:2004.01080, opening statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun's v1 numbers the same assertion as Conjecture 2.6, while v12 labels it 2.7(i); the underlying n>4, 1≤k≤n statement is unchanged.",
+          "For positive prime counts, the sign of A^(k+1)−B^k is precisely the sign of A^(1/k)−B^(1/(k+1)); strict monotonicity on a ray is the adjacent inequality at every k."
+        ],
+        "reasoning": "Neither switching to integer powers nor identifying it by the revised conjecture number changes the proposition; the all-index strict-decrease result already asserts the adjacent inequality.",
+        "searches": [
+          "Sun arXiv:1402.6641v1 PDF p. 3 and v12 PDF p. 4",
+          "Resultary sharp global root monotonicity, abe6896d468d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reviewed finite certificate covers 44,840 pairs, but the stronger local record explicitly asserts their signs as a subset of its unlimited n,k classification. The square-axis lookup only covers the k=n boundary and is not the decisive match."
+        ],
+        "reasoning": "A separate list of the finite positive signs is not a distinct claimed finding when the sign at each pair is forced by the covering theorem, even though the certificates enumerate different ranges.",
+        "searches": [
+          "Local Resultary bounded and unbounded π(kn) root searches, including square-axis comparisons"
+        ]
+      },
+      "rationale": "The entire stated mathematical finding is a direct restriction of the distinct indexed result abe6896d468d, which treats all k≥1 on every n≥5 ray and more. This is demonstrable stronger coverage, not a decision about priority or authorship: both records are catalogued on the same day, and the stronger record acknowledges an unnamed bounded-index proof. The assigned claim is a theorem on the bounded-index domain, not a finding about a distinct proof method or about the companion conjecture. Its proof is valid, but no distinct mathematical conclusion survives this comparison.",
+      "residual_risks": [
+        "Order or attribution between the same-day catalogue records is not established. The direct all-index statement and its implication do not depend on resolving priority or running the later Lean proof. Unindexed earlier proofs are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same proposition; numbering is version-dependent",
+          "evidence": "v1 Conjecture 2.6 and v12 Conjecture 2.7(i) both assert n>4 and 1≤k≤n.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.6641",
+          "material_read": "v1 PDF p. 3, offset 6533, and v12 p. 4, offset 9632",
+          "method": "OA PDF statement/version comparison",
+          "title": "Problems on combinatorial properties of primes",
+          "trigger": "Conjecture claimed as resolved"
+        },
+        {
+          "assessment": "Strictly stronger covering result; priority unresolved",
+          "evidence": "For n≥5 the entire k≥1 ray strictly decreases. n=2,4 are the only rays with exceptional transitions. The record separately acknowledges prior bounded-index coverage and uses odd-candidate counting instead of Brun–Titchmarsh.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-global-root-monotonicity-classification-for-prime-counts-o--abe6896d468d",
+          "material_read": "Mirrored RESULT.md offset 0 through Finding, Proof, Verification and Relationship to prior work; references and limitations at offset 4618",
+          "method": "Local Resultary and exact mirrored record inspection",
+          "title": "Sharp global root-monotonicity classification for prime counts on integer rays",
+          "trigger": "Strongest exact local match, broader exponent range"
+        },
+        {
+          "assessment": "Different result in the inspected passages",
+          "evidence": "Prime and almost-prime representation among π(kn) values, not monotonicity of varying roots.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.01080",
+          "material_read": "Abstract and opening introduction, PDF p. 1, offset 0",
+          "method": "OA PDF bounded scope comparison",
+          "title": "On the set {π(kn): k=1,2,3,…}",
+          "trigger": "Same π(kn) family by Sun and a collaborator"
+        },
+        {
+          "assessment": "Later exact overlap; formal artifact not verified in this review",
+          "evidence": "States n≥5, k≥1 with no upper bound on k; recorded proof commit date 2026-11-02 UTC.",
+          "identifier_or_url": "https://github.com/F8Labs-ai/sun_conjectures",
+          "material_read": "README statement and associated proof history",
+          "method": "Public repository statement and file-history check",
+          "title": "sun_conjectures",
+          "trigger": "Public all-index monotonicity claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Sun, arXiv:1402.6641 v12, Conjecture 2.7(i)",
+        "Frozen RESULT.md",
+        "Resultary abe6896d468d"
+      ],
+      "rationale": "Strict root monotonicity of prime counts across Sun's precise uniform domain is a motivated conjectural question, not a selected list of numerical instances. The bounded-index argument combines established inequalities and a finite exhaustive boundary proof. The value of the question and correctness of this argument do not give the conclusion scientific distinctness relative to the covering record.",
+      "residual_risks": [
+        "The assigned argument neither treats the companion part nor adds a domain beyond the covering statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

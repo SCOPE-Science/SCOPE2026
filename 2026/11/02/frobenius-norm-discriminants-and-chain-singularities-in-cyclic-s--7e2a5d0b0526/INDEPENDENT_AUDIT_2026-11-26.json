@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:59:00.160628Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof lines 33–79",
+        "Frozen VERIFICATION.md and verify_cyclic.py lines 22–72, inspected only",
+        "Asgarli–Ghioca–Reichstein arXiv:2207.00918v2, Lemma 4 and Case 2"
+      ],
+      "rationale": "Let a=d−1≥2. In characteristic p, a=−1, so Y_i∂_iF=t_{i−1}−t_i for t_i=c_iY_i^aY_{i+1}. At a projective singular point all t_i=t, and F=mt=0 with p∤m gives t=0. With all c_i nonzero some Y_j must vanish; ∂_jF then forces its predecessor to vanish and iteration contradicts projectivity. If c_i=0, e_i is singular, even at further coefficient degenerations. Hence the reduced discriminant splits as the coordinate hyperplanes, geometrically SNC; exponent one in the reduced norm product and one transitive Frobenius orbit give irreducibility over the base. Frobenius conjugates c_i=z^{q^i} produce the norm. Over Q=q^s the descended algebra splits into g=gcd(m,s) factors of size Q^ℓ for ℓ=m/g. Exactly k nonzero factors give binomial(g,k)(Q^ℓ−1)^k vectors with free scalar division by Q−1. All factors must be nonzero for smoothness; g=1 is exactly the all-smooth case and the least g>1 occurs at the least prime divisor of m. As a check, q=2,m=3,s=3 gives counts 3,21,49 for k=1,2,3. For only c_0=0 the derivative identities give t_i=0 at any critical point. If Y_i≠0 with i≠0 then Y_{i+1}=0 and ∂_{i+1}F=c_iY_i^a≠0, a contradiction. Thus e_0 is the unique singular point. In its affine chart diagonal rescalings over the algebraic closure, starting from u_{m−1}, normalize the coefficients to the given chain. Its lowest homogeneous degree is a. The critical locus of the affine polynomial is also just the origin: the positive integer weights with degree D=a^{m−1} prime to p imply by Euler that a critical point lies on the affine hypersurface, where the derivative in the missing projective chart coordinate vanishes by ordinary Euler and Y_0=1. Hence the partials form a weighted homogeneous regular sequence in a polynomial ring. With r=m−1 and w_r=1/a, w_j=(1−w_{j+1})/a, its Hilbert-series colength ∏(1−w_j)/w_j telescopes to a^r(1−w_1)=a^r−a^{r−1}+⋯+(−1)^r. The weighted Euler identity also places f in its Jacobian ideal, giving τ=μ as algebraic colengths. This jointly verifies all permitted characteristics without a characteristic-zero topological assumption.",
+      "residual_risks": [
+        "The checker was not run; finite Gröbner examples are not needed for the weighted regular-sequence proof.",
+        "No nonreduced discriminant or higher-codimension fiber singularities are classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aramaki–Takahashi's Eq. (1.5) gives the alternating Milnor number in the complex setting.",
+          "García Barroso–Płoski Theorem 1.7 treats positive-characteristic plane curves, not arbitrary embedding dimension or occurrence in this linear system.",
+          "The field tensor factorization and scalar-orbit count are elementary general facts once the open parameter locus is identified."
+        ],
+        "reasoning": "No priority is claimed for norm tori, weighted complete intersections or a stand-alone dimension formula over C. The local conclusion uses the actual positive-characteristic critical locus and invertibility of the weighted degree, not a transfer from a complex Milnor fiber.",
+        "searches": [
+          "Chain-type weighted homogeneous singularity and Milnor/Tjurina colength; arXiv:1903.02732 and arXiv:1812.06512",
+          "Finite-field norm and restriction-of-scalars block decomposition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.00918v2, 1903.02732v1, 1812.06512",
+        "Resultary IDs 48497f88b377, 1e5b1c60377c and 2ab6e659a06e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-nonzero implication in AGR, combined with the direct singular-coordinate point for a missing coefficient, yields the norm description under descent; the extension counts then follow from norm splitting.",
+          "Neither AGR's rational smoothness nor the complex computation supplies the unique one-zero singular point, its normal form in this family, or the characteristic-p Jacobian and Tjurina computation."
+        ],
+        "reasoning": "The arithmetic part is a natural short consequence after identifying the missing converse, and base-field smoothness is not new. The full statement requires a geometric analysis in coefficient space and of the generic singular fiber; it is not implied by the cited smoothness or chain-type results alone.",
+        "searches": [
+          "AGR Lemma 4 and Case 2",
+          "Aramaki–Takahashi Eqs. (1.1) and (1.5)",
+          "Resultary 48497f88b377 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AGR uses m=n+1 and exactly the cyclic exponents and descent in question; Lemma 4 gives smoothness in the all-coefficients-nonzero case and Case 2 gives the rational smooth family.",
+          "Aramaki–Takahashi's Eq. (1.1) with all exponents a is exactly the affine chain form, but is treated over C."
+        ],
+        "reasoning": "The change in dimension notation hides no difference in the AGR family. The single-zero bound concerns its boundary, not its already smooth rational members. Calling the local model a chain-type invertible polynomial exposes exact prior overlap for the normal form and complex Milnor formula, not for occurrence at this boundary in characteristic p.",
+        "searches": [
+          "Frobenius-descended cyclic hypersurface, norm discriminant, Klein hypersurface",
+          "Asgarli–Ghioca–Reichstein arXiv:2207.00918v2 Lemma 4 and Case 2",
+          "Aramaki–Takahashi chain-type invertible polynomial arXiv:1903.02732v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "48497f88b377 treats the single all-ones cyclic Klein polynomial; its singular scheme with p|m is outside the target hypotheses.",
+          "1e5b1c60377c treats a distinct descended cubic family and base-field strata; no exact every-extension count for this system surfaced.",
+          "2ab6e659a06e has a Singer-action orbit-count summary; detailed source was unavailable."
+        ],
+        "reasoning": "The all-ones hypersurface does not sample the zero-coefficient divisor, and a different cubic family's norm arithmetic is not the target system. The formula counts an infinite extension tower, not a finite table lookup. The unresolved Singer comparison is residual risk rather than negative evidence.",
+        "searches": [
+          "Resultary modular singular schemes of cyclic Klein hypersurfaces",
+          "Resultary exact arithmetic strata Frobenius-twisted cubic",
+          "Resultary Singer orbit rigidity normal-basis systems"
+        ]
+      },
+      "rationale": "The exact construction and its base-field smoothness are prior, as are the complex chain type and its colength formula. The assessed contribution is the coefficient-by-coefficient geometric boundary and arithmetic support census for this particular descended system, together with its generic boundary degeneration and positive-characteristic local algebra. The inspected prior results do not jointly determine these, and not all parts are separately novel.",
+      "residual_risks": [
+        "Unseen treatments of the exact descended norm family or positive-characteristic chain singularities could overlap with individual parts; no catalogue or literature absence is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact construction and base-field smoothness; no boundary classification in these passages",
+          "evidence": [
+            "p|d and p∤(n+1) for cyclic X_i^{d−1}X_{i+1}; Case 2 uses the descended family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.00918v2.pdf",
+          "material_read": "Lemma 4, pp. 3–4, offset 9381; Case 2, p. 5, offset 14500",
+          "method": "Open primary-text passages",
+          "title": "Linear families of smooth hypersurfaces over finitely generated fields",
+          "trigger": "Same family in the exact characteristic regime"
+        },
+        {
+          "assessment": "Same chain and formula over C; not a result about occurrence in this descended system",
+          "evidence": [
+            "Specializing all chain exponents to a reproduces the alternating Milnor number."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.02732.pdf",
+          "material_read": "Eq. (1.1), p. 1, offset 0; Eq. (1.5), p. 3, offset 7350",
+          "method": "Open primary-text passages",
+          "title": "Maximally-graded matrix factorizations for an invertible polynomial of chain type",
+          "trigger": "Exact chain polynomial and alternating colength alias"
+        },
+        {
+          "assessment": "Plane-curve setting, not the multivariable family classification",
+          "evidence": [
+            "The scope is plane-curve Milnor invariants, rather than the discriminant strata of the descended cyclic system."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.06512.pdf",
+          "material_read": "Abstract p. 1 and Theorem 1.7 p. 8, offsets 0 and 23312",
+          "method": "Open primary-text passages",
+          "title": "Milnor number of plane curve singularities in arbitrary characteristic",
+          "trigger": "Positive-characteristic invariants and potential broader coverage"
+        },
+        {
+          "assessment": "Single all-ones member, not the parameter discriminant",
+          "evidence": [
+            "Smooth if p∤m; describes its singular scheme for p|m, excluded here."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-modular-singular-schemes-of-cyclic-klein-hypersurfaces--48497f88b377",
+          "material_read": "Mirror Finding and Proof opening, offset 0",
+          "method": "Bounded Resultary mirror inspection",
+          "title": "Exact modular singular schemes of cyclic Klein hypersurfaces",
+          "trigger": "Same cyclic exponent pattern and modular singularities"
+        },
+        {
+          "assessment": "Different descended plane-cubic system; later related result",
+          "evidence": [
+            "Its counts are base-field member counts for its own family."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-singular-and-arithmetic-strata-in-a-frobenius-twisted-cubi--1e5b1c60377c",
+          "material_read": "Mirror Finding, offset 0",
+          "method": "Bounded Resultary mirror inspection",
+          "title": "Exact singular and arithmetic strata in a Frobenius-twisted cubic system",
+          "trigger": "Similar norm equation and rational strata"
+        },
+        {
+          "assessment": "Unresolved scope, not evidence of noncoverage",
+          "evidence": [
+            "Summary reports a Singer-action orbit count for such systems, not an explicit all-extension norm boundary or local chain analysis."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-singer-orbit-rigidity-finite-projective-incidence-and-thirteen-klein-quartics-over-F3--2ab6e659a06e",
+          "material_read": "Catalogue summary only; exact mirror text unavailable",
+          "method": "Resultary hit and attempted mirror passage retrieval",
+          "title": "Singer-orbit rigidity, finite projective incidence and thirteen Klein quartics over F3",
+          "trigger": "Possible overlap on normal-basis smooth systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "AGR Lemma 4 and Case 2 for the motivating rational smoothness comparison"
+      ],
+      "rationale": "The theorem explains the difference between all-smooth behavior over the ground field and a geometrically nonempty singular boundary in a known finite-field construction. It locates that boundary, tells at exactly which extension degrees it becomes visible and how its coefficient strata are distributed, and identifies the singularity one encounters upon losing the first coefficient. This connects geometric degeneration to extension arithmetic rather than recomputing the already known count at the base field. The positive-characteristic local colength calculation makes the generic boundary fiber usable without any topological interpretation.",
+      "residual_risks": [
+        "The value is a reduced-boundary and generic-degeneration description, not a solution of the scheme-theoretic discriminant or an analysis of all singular fibers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:08.201050Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof steps 1–4",
+        "Frozen VERIFICATION.md and checker.py (read, not executed)",
+        "Menon–dos Santos–Anteneodo arXiv:2311.00818v1 §3.1"
+      ],
+      "rationale": "A reflected Brownian motion with generator f″, killed at 1, has occupation density 1−x when launched at 0. The time change with clock ∫(1/D) ds gives the specified natural-scale diffusion and the frozen objective, including bounded Borel D up to a.e. equality. For t=1−x and μ=1/c², strict convexity of t/d+μd outside the null set t=0 gives the unique box minimizer clip(c√t,ℓ,u). Integrating in t with splits at ℓ²/c² and, if active, u²/c² gives means 2c/3+ℓ³/(3c²) and u−(u³−ℓ³)/(3c²); both are strictly increasing in their active ranges and cover (ℓ,u). The upper layer has zero length at c=u. The same integrals for t/d give 2/(3c)−ℓ³/(6c⁴) and 1/(2u)+(u³−ℓ³)/(6c⁴). The two branches match along with F′=−1/c² and F″=3/(min(c,u)³−ℓ³); differentiating F″ gives the one-sided nonzero jump and shows F‴ does not exist at the threshold. Rescaling the generator on [0,L] supplies precisely the stated factor L² in physical passage time.",
+      "residual_risks": [
+        "Requires the specified drift-free Itô generator, reflection and launch at 0, and strictly positive finite floor and ceiling; the proof does not compare whole passage-time distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source gives the functional for arbitrary heterogeneous D; the second treats heterogeneous escape in a small-target setting.",
+          "The convex-optimization passages give general box or box-plus-equality constraints."
+        ],
+        "reasoning": "These supply the underlying functional or optimization framework, not a theorem giving the value-branch transition for a fixed mean with two prescribed diffusivity bounds.",
+        "searches": [
+          "Menon–dos Santos–Anteneodo arXiv:2311.00818v1 §3.1",
+          "Tung–Lawley arXiv:2512.19646v1 p. 1",
+          "Boyd–Vandenberghe, Convex Optimization Examples 4.2 and 5.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17470v1",
+        "arXiv:2311.00818v1",
+        "arXiv:2512.19646v1",
+        "Boyd–Vandenberghe Convex Optimization",
+        "Two inspected matching Resultary findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the pointwise multiplier to the known functional immediately yields clipping, which is not independently credited as an original variational principle.",
+          "The exact threshold and jump require evaluating the moving integration boundaries and matching derivatives of the two constrained value branches."
+        ],
+        "reasoning": "Neither the unbounded optimum nor a general multiplier characterization asserts the quantitative two-bound transition; the value regularity also does not follow merely from convexity or existence of a multiplier.",
+        "searches": [
+          "Comparison of Menon Eq. (32) and Menon–dos Santos–Anteneodo Eqs. (24)–(26) with standard box KKT",
+          "Inspection of the two exact budgeted-diffusion catalogue statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Menon's Eq. (32) specializes to the Itô square-root profile with only the fixed mean.",
+          "The two matching indexed findings use the same unbounded mean optimizer in distributional or Pareto problems."
+        ],
+        "reasoning": "A change of coordinate matches the unsaturated shape, not the admissible box or its induced cap-activation budget. A numerical floor is not an exact solution for two prescribed bounds. The dates of the indexed entries establish no order of priority between those entries.",
+        "searches": [
+          "Resultary searches on bounded diffusivity, spatial-mean budget and first-passage design",
+          "Menon arXiv:2611.17470v1 §III.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest returned mean-optimal and exact-frontier statements contain the unbounded optimizer; neither gives this two-bound threshold or value law."
+        ],
+        "reasoning": "There is no natural finite exact table for this continuous three-parameter functional identity. Matching indexed analytic statements were inspected rather than treating a table lookup as adequate.",
+        "searches": [
+          "Resultary searches for exact constrained MFPT and budgeted-diffusion findings"
+        ]
+      },
+      "rationale": "Credit the prior weighted reciprocal MFPT functional, unconstrained square-root optimum, and standard multiplier clipping. The distinct supported contribution is the quantitative two-bound active-set and optimal-value classification, including the order and coefficient of the loss of smoothness. No verified source states a stronger bounded-profile result that supplies this classification by substitution.",
+      "residual_risks": [
+        "An unindexed continuous allocation treatment for the bounded reciprocal objective could overlap. The inspected general convex-optimization sources do not establish the bibliographic uniqueness of the branch formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unconstrained profile, not the constrained transition",
+          "evidence": [
+            "At Itô prescription the optimum in the interval is (3D₀/2)√((R−r)/L)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.17470v1",
+          "material_read": "§III.1, Eqs. (29)–(33), especially Eq. (32)",
+          "method": "Primary OA HTML",
+          "title": "Optimal heterogeneous diffusivity profiles for mean first-passage minimization",
+          "trigger": "Same mean budget and square-root Itô design"
+        },
+        {
+          "assessment": "Direct coverage of the input functional only",
+          "evidence": [
+            "Arbitrary heterogeneous D gives the same Itô weighted reciprocal integral up to coordinate orientation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.00818",
+          "material_read": "§3.1, PDF p. 9, Eqs. (24)–(26)",
+          "method": "Primary OA PDF",
+          "title": "Random-search efficiency in a bounded interval with spatially heterogeneous diffusion coefficient",
+          "trigger": "Same reflecting–absorbing MFPT functional"
+        },
+        {
+          "assessment": "Different geometry and objective regime",
+          "evidence": [
+            "The stated setting is heterogeneous diffusion with small targets in three-dimensional domains."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.19646",
+          "material_read": "v1 p. 1",
+          "method": "Primary OA PDF",
+          "title": "Escape from heterogeneous diffusion",
+          "trigger": "Heterogeneous diffusion and first-passage design setting"
+        },
+        {
+          "assessment": "Relevant standard machinery, not the constrained value formulas",
+          "evidence": [
+            "The inspected examples set out box constraints and an equality-coupled box problem; they do not compute a diffusivity-dependent activation threshold or derivative jump."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "material_read": "Examples 4.2 and 5.9, PDF pp. 143 and 271",
+          "method": "Primary OA book PDF",
+          "title": "Convex Optimization",
+          "trigger": "Possible standard stronger resource-allocation theorem"
+        },
+        {
+          "assessment": "Unbounded optimizer used for different observables",
+          "evidence": [
+            "Its stated profile is (3D₀/2)√(1−x/L); there are no imposed positive floor and ceiling in that optimizer."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-mean-optimal-diffusivity-delays-the-earliest-escapes-while-accel--edbbbd41dbc4",
+          "material_read": "Published finding statement",
+          "method": "Local published-file mirror",
+          "title": "Mean-optimal diffusivity delays the earliest escapes while accelerating the late tail",
+          "trigger": "Same-day statement with the square-root mean-optimal profile"
+        },
+        {
+          "assessment": "Does not cover the two-sided hard-box phase threshold",
+          "evidence": [
+            "The frontier includes the unbounded mean optimum and trades off mean and extreme passage statistics."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-mean-extreme-first-passage-pareto-frontier-for-budgeted-di--4a4e062c5d80",
+          "material_read": "Published finding statement",
+          "method": "Local published-file mirror",
+          "title": "Exact mean–extreme first-passage Pareto frontier for budgeted diffusion",
+          "trigger": "Same-day exact design with a mean budget"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen two-bound budget and value branches and their derivative limits",
+        "Menon's unconstrained fixed-mean optimum"
+      ],
+      "rationale": "The clipped shape alone would be a standard multiplier calculation. The complete value law answers a practical design question the unbounded result cannot: when the ceiling binds in the presence of a positive floor, and what time penalty begins to accrue. For example, the proved jump says that relative to the floor-only optimum the cap penalty turns on cubically, with leading coefficient 9u⁵/[4(u³−ℓ³)³]. The threshold and marginal-budget behavior therefore supply concrete information beyond a restatement of the clipping rule.",
+      "residual_risks": [
+        "This is an exact one-dimensional design calculation, not a general optimization method or a thermodynamic phase transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

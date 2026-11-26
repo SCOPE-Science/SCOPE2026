@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:31:14.878636Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A first gap shorter than r between successive support positions gives exactly two terms, with no prior carry, when the translated length-r repunit blocks first intersect. Thus the first constraint gives r-spacing. If h is the first remaining gap shorter than k, then r≤h≤k−1 and all blocks from earlier 1s end strictly before the first of the two 1s bounding h. For B={0,…,k−r−1}∪{k−1}, the two B-translates intersect at the second 1 when h≤k−r−1, and otherwise no later than k−1−h positions after the second 1. In the latter case 0≤k−1−h≤min(r−1,k−r−1). At the first intersection, the next 1 has not yet started a block (r-spacing), so exactly two contributions occur and there is no incoming carry. This prohibits h even for an infinite support because the decisive digit is at a finite index. The converse follows by disjoint translates for all supports of span at most k−1, including that of L_k. A valid prefix extends by zeros; conditioning on its first digit gives the exact recurrence and initial conditions. The associated k-spacing graph has a zero loop and a k-step 1-return cycle, spectral radius satisfying β^k−β^(k−1)=1; the standard path-set dimension is log_3 β. The decisive uniform proof is at RESULT.md lines 28–44. The supporting finite checker and its 75,600 reported comparisons were inspected, not executed, and are not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former constructs path sets for arbitrary fixed multiplier lists and provides the dimension formula. Its proof of Theorem 4.8 identifies a forced spacing phenomenon for consecutive N_j.",
+          "The latter treats P_j=2·3^j+1 and Q_j=3^(2j)−3^j+1; its P-family graph-cover bound explicitly is not a path-set cover with matching labels."
+        ],
+        "reasoning": "These results do not compare the labeled path set of L_r together with 3^(k−1)+L_(k−r) to L_k uniformly in r,k. A method that constructs an automaton separately for each pair is not a theorem identifying all of its accepted languages.",
+        "searches": [
+          "arXiv:1308.3133v1 Theorems 3.3–3.4 and 4.7–4.8",
+          "arXiv:1508.05967v1 Theorem 4.7 and Appendices A–B"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.3133v1 §§3–4",
+        "arXiv:1508.05967v1 Table 2.1, Theorem 4.7 and Appendix B",
+        "Resultary f694f1465473; 649be5327256 is the assigned record itself"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Largest-repunit dominance in the first paper concerns a repunit-only list; the consecutive N-family gap conclusion concerns an excluded two-digit support type.",
+          "The 31 table gives a direct exact precedent for (2,4). The known P_j versus L_(j+1) estimates concern spectral dimension, not equality of arithmetic sets."
+        ],
+        "reasoning": "Aside from covered components and the derived small example, the inspected antecedents do not yield a general implication for the combined interior multipliers. The decisive new comparison is that an earlier short gap must produce a carry-free coefficient exactly two before the third input 1 could contribute.",
+        "searches": [
+          "arXiv:1308.3133v1 Theorem 4.7 and proof of Theorem 4.8",
+          "arXiv:1508.05967v1 Appendix B and Theorem 4.7",
+          "Multiplier-31 transition table f694f1465473"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The right side is the familiar language of 1s at separations at least k. Theorem 4.7 controls intersections of repunits by the largest index.",
+          "The sparse support B has positive differences containing r,…,k−1; Theorem 4.8 is about two-digit multipliers N_j=3^j+1 rather than this block with k−r≥2."
+        ],
+        "reasoning": "Support differences indicate possible collisions but do not, alone, guarantee a digit 2 at the first collision: triple overlap can carry. The bound on the position of the first overlap relative to the next available input 1 supplies the necessary extra step.",
+        "searches": [
+          "Local Resultary lookup for 3-adic Cantor multiplier 31 and sparse-block/repunit intersections",
+          "Abram–Lagarias arXiv:1308.3133v1 Theorems 4.2, 4.7–4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The repunit tables already cover RHS dimension values, including L_4=40 and L_6=364. Other sparse-family dimension rows are not data about the simultaneous constraints.",
+          "The multiplier-31 record gives the ten-state labeled automaton for Σ∩31^(-1)Σ and a different prefix recurrence before adding the L_2 constraint."
+        ],
+        "reasoning": "The prior 31 automaton implies the (2,4) instance: when there can be no consecutive 1s, the path from carry 0 after a 1 is forced through 10→3→1→0 by zeros. The alternative 3→11 on 1 would force a following 1, so is pruned. This gives exact 4-spacing in that instance from earlier tables. It is not a table-based derivation for the full interior family.",
+        "searches": [
+          "arXiv:1308.3133v1 Table 4.1",
+          "arXiv:1508.05967v1 Table 2.1 and Appendix B",
+          "Local multiplier-31 record f694f1465473 (labeled transitions)"
+        ]
+      },
+      "rationale": "The spacing language, prefix growth and dimension on the right are already known. The k=4,r=2 illustration is also implied by the older labeled automaton for multiplier 31 once the L_2 no-adjacent-ones constraint is applied. The contribution supported here is the uniform two-parameter equality with the interior sparse-block multiplier, including the first-carry argument that makes the difference-support observation decisive. Credit the earlier individual points, repunit-only collapses and related sparse-family comparisons separately.",
+      "residual_risks": [
+        "A general no-carry or support-domination theorem in uninspected literature might cover more than the compared statements; this is not an assertion of historical priority.",
+        "The right-hand spacing count and dimension, and the isolated instance derived from the published 31 automaton, should not be counted as independent contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact RHS coverage and related collapse theorems, not this interior sparse-block family",
+          "evidence": "Theorem 4.7 is restricted to repunit lists. Theorem 4.8 concerns N_j=3^j+1; its proof invokes the spacing property for consecutive N_j. General path-set algorithms and dimension formulas are available.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.3133v1",
+          "material_read": "Theorems 3.3–3.4 around offset 51500; Theorem 4.2 and Table 4.1, pp. 21–22, offsets 63000–70974; Theorems 4.7–4.8 and their comparison, pp. 26–27, offsets 84000–90943",
+          "method": "Original OA PDF passages",
+          "title": "Intersections of multiplicative translates of 3-adic Cantor sets",
+          "trigger": "Same repunit languages, classifications and intersections"
+        },
+        {
+          "assessment": "Related dimension and graph results for different parameters",
+          "evidence": "P_j and Q_j are defined differently, and an unlabelled graph cover does not imply equality of accepted ternary words.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.05967v1",
+          "material_read": "Table 2.1 and nearby results, offsets 23000–30482; Theorem 4.7 around 80300; Appendix B, offsets 102000–111072",
+          "method": "Original OA PDF passages",
+          "title": "Intersections of multiplicative translates of 3-adic Cantor sets II: two infinite families",
+          "trigger": "Related sparse multipliers, dimensions and exact tables"
+        },
+        {
+          "assessment": "Prior data imply the isolated (2,4) claim, not the uniform two-parameter family",
+          "evidence": "The 0→10→3→1→0 route has labels 1000 and the only possible departure from this route at 3 would require consecutive 1s. The prior recurrence concerns 31 alone.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-fifth-order-prefix-law-for-the-3-adic-cantor-multiplier-31--f694f1465473/RESULT.md",
+          "material_read": "Finding and ten-state labeled transition table, offsets 66–2897",
+          "method": "Local published-file mirror",
+          "title": "A fifth-order prefix law for the 3-adic Cantor multiplier 31",
+          "trigger": "Exactly the sparse multiplier of the first example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Replacing a simultaneous pair of multiplier constraints by a single canonical spacing constraint identifies the actual arithmetic set, not only its dimension, for an infinite interior parameter family. It gives a direct way to read membership and prefix extension without building multiplier-specific carry graphs, and isolates how one multiplier's imposed minimum spacing prevents problematic carry overlaps in the other.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

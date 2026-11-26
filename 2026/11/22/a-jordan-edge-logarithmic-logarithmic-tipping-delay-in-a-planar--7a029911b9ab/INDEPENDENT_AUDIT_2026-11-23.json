@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:22:00.745959Z",
+  "axes": {
+    "correctness": {
+      "bounded_reproduction": "Independent Fraction replay at α=1/4 and h=1 checked δ=4/25 and δ=1/4, with μ=10^(−5), 10^(−10), 10^(−20), 10^(−40), and 10^(−80). It checked the critical exact formula through the switching index and the actual orbit monotonicity afterwards. The sampled residuals were in [1.221469,1.871441] (strict) and [0.208423,0.983265] (Jordan). Replay: python3 /workspace/branches/3a3537f2-0da4-426b-a9df-619b4af63fe5/independent_replay.py. Only the analytic argument proves the asymptotics for all fixed parameters.",
+      "rationale": "Eliminating y gives x_{−1}=0 and x_{n+1}=τ_±x_n−δx_{n−1}+μ with branch selected by x_n. With q=μ/α the formal incoming deficit is q−x_n=Aλ^n+Bρ^n for distinct roots, with A=(λ(h+q)−δq)/(λ−ρ)>0 and limit hλ/(λ−ρ). At δ=t² the matrix is defective (off-diagonal entry 1), and the two initial values give q−x_n=[h+q+n(h+(1−t)q)]t^n. In either case the formal deficit stays positive, tends to zero, and all fixed indices remain negative in x as q→0. Thus the actual switch agrees with the first crossing N of this formal deficit below q. Adjacent deficit ratios at N are bounded away from zero and converge to the appropriate stable root, even as q varies. They bracket the threshold, making both x_N and x_{N−1} O(q). At the Jordan edge, the bracket in the deficit divided by hN equals 1+(1−t)q/h+(1+q/h)/N, tending to 1. Consequently aN−log N=L+O(1), a=|log t|, which first implies N∼L/a and then N=(L+log L)/a+O(1). The simple-root case instead has N=L/|log λ|+O(1). On the outgoing side, x_{n+1}−x_n=αx_n+δ(x_n−x_{n−1})+μ is positive inductively, including exact x_N=0. With u=x+q, the unstable coefficient is (γu_0−δu_{−1})/(γ−ζ), bounded above and below by positive multiples of q since u_0≥q and u_{−1}<q; the stable coefficient is O(q). The first outgoing crossing therefore takes L/log γ+O(1) steps. This verifies actual discrete passage, not an inadmissible branch extension. The frozen code and supports were inspected but the code was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson proves forward divergence for virtual fixed points in general dimension by a linearly increasing functional.",
+          "The sign-free feedback result allows arbitrary left and right determinants and g(y)=o(|y|), with a fixed-ball exit bound floor(5η/μ)+1."
+        ],
+        "reasoning": "These theorems cover g=0 and equal determinants in the corresponding domains. They concern divergence or upper bounds for ball exit, not the sharply normalized directional passage or the sign and presence of the log-log contribution.",
+        "searches": [
+          "https://arxiv.org/html/2406.04587v2 §3, Theorem 1 and eq. (3.6)",
+          "Resultary: scalar feedback exclusion nonsmooth fold planar border collision finite time exit virtual fixed points Simpson O mu inverse"
+        ]
+      },
+      "checked_sources": [
+        "Simpson, arXiv:2406.04587v2 §3",
+        "Resultary sign-free scalar-feedback record b9cfe10e48ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simpson's functional gives a uniform positive increment, not a rate sharp enough to resolve log L.",
+          "The exact positive generalized-eigenvector coefficient h+(1−t)μ/α for the specified incoming point makes the incoming deficit asymptotic to hN t^N. A separate nonzero outgoing projection puts its flight on the γ log scale."
+        ],
+        "reasoning": "The known Jordan transient identity alone gives neither admissible first crossing nor no return nor an order-μ outgoing amplitude. Likewise the earlier exit estimates cannot imply the two-term passage law without new analysis.",
+        "searches": [
+          "Simpson, arXiv:2406.04587v2, (3.5)–(3.6)",
+          "Sign-free scalar-feedback escape theorem, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Simpson equation (3.6) specializes exactly at δ_L=δ_R=δ; the virtual fixed first coordinates are ±μ/α.",
+          "Resultary returns a different double-logarithmic timing result in a cubic Darboux flow near a separatrix, not a stable defective multiplier of a border-collision map."
+        ],
+        "reasoning": "The same normal form is correctly credited. A continuous-time separatrix crossing law does not give the actual integer crossing at x=h or its two affine-branch coefficients.",
+        "searches": [
+          "Literature: Jordan block log log delay piecewise linear planar nonsmooth fold passage time logarithmic Simpson tipping stable node repeated eigenvalues",
+          "Literature: Simpson border collision nonsmooth fold tipping time log log Jordan block map equal determinant exit time logarithmic transient stable repeated multiplier piecewise linear nonlinear feedback",
+          "Resultary: Jordan defect repeated multiplier logarithmic tipping passage time fixed sections piecewise affine escape"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed identical passage law is the assigned work itself. The retrieved same-map distinct entry gives a coarser bound; other precise clock entries are for different flows or maps."
+        ],
+        "reasoning": "This is an asymptotic of a continuous parameter rather than an integer sequence or finite table. The direct indexed-formula comparison supplies no distinct matching estimate with the same normalization and bounded error; this is not a priority guarantee.",
+        "searches": [
+          "Resultary: Jordan defect repeated multiplier logarithmic tipping passage time fixed sections piecewise affine escape",
+          "Resultary: scalar feedback exclusion nonsmooth fold planar border collision finite time exit virtual fixed points Simpson O mu inverse"
+        ]
+      },
+      "rationale": "The map and virtual-fixed-point divergence are known. The contribution is the actual fixed-section two-flight passage estimate with a bounded remainder and distinct correction at a stable double multiplier, not Jordan matrix algebra by itself or a claim about nonlinear folds generally.",
+      "residual_risks": [
+        "No exhaustive priority claim. Related Lyapunov scaling and repeated-unit-multiplier periodic-orbit papers were not independently compared in full text; an equivalent passage calculation under other terminology could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the affine escape mechanism, not the sharp section-to-section timing in the inspected passages",
+          "evidence": [
+            "Theorem 1 states every forward orbit diverges if both fixed points are virtual. Taking equal determinants in (3.6) gives exactly the assessed map."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.04587v2",
+          "material_read": "Abstract, §3 Theorem 1 and adjacent eqs. (3.5)–(3.6), fixed points and proof opening; start of §4 analogue",
+          "method": "Open arXiv full-text sections",
+          "title": "Nonsmooth folds as tipping points",
+          "trigger": "Same canonical affine map and virtual fixed points"
+        },
+        {
+          "assessment": "Broader feedback hypothesis, coarser and different exit observable",
+          "evidence": [
+            "A nondecreasing gauge with increment at least μ and bounded range yields only an O(1/μ) first departure bound on B_η."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sign-free-scalar-feedback-escape-theorem-at-nonsmooth-folds--b9cfe10e48ed/RESULT.md",
+          "material_read": "Finding, assumptions, Lyapunov proof and relationship to prior work",
+          "method": "Published record via local mirror",
+          "title": "A sign-free scalar-feedback escape theorem at nonsmooth folds",
+          "trigger": "Same family at g=0 with broader feedback and an exit-time estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a meaningful quantitative gap between no bounded invariant set and the residence time starting at a fixed section. The natural discriminant boundary changes that time by a diverging positive log-log term, not just a bounded offset. The bounded remainder and first-passage control make the comparison usable for the specified affine map. This does not assert robustness to nonlinear feedback or uniformity near the discriminant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

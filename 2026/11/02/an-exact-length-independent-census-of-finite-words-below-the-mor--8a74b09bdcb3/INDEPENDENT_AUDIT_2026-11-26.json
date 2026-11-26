@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:13:19.649415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The needed existence theorem is Khrystik arXiv:2605.00141 Theorem 3.3 (also Theorem 4.2 with m=n=k), not the theorem numbers quoted in the frozen text. Its bounded-fringe form uses a periodic prefix of the prescribed central length. Taking the primitive root and extending its phased repetition until the first mismatch or endpoint keeps the fringe-plus-period budget. Any two permitted cores overlap in at least L−2k+p+p′≥p+p′ letters; Fine–Wilf gives period gcd(p,p′) on that overlap. A full cycle in each core would be a proper power if its period exceeded the gcd. Equal primitive periods and at least one cycle of overlap force equal continuation and phase, and the mismatch at each endpoint forbids unequal corresponding cuts. The frozen line 69 repeats the same left-cut inequality in reverse notation; the opposite inequality is excluded by interchanging the two representations. At most a+b factors meet fringes, and at most p distinct factors lie within the core. Counting phased primitive words and the two independently mismatching fringe letters gives the stated convolution; the cumulative fringe series is (1−t)/(1−qt)². Replacing M_q(p) by q^p incurs O_q(kq^k), since p q^(−p/2) is summable, and the explicit main sum has the stated coefficient. The unary case gives exactly one word, and for k≥2 the plateau polynomial has degree k in q, less than 2k−1 at the preceding vacuous length. The incorrect citation numerals and the duplicated inequality are locational/expository slips, not changes to the theorem or its proof mechanism.",
+      "replay": "python3 /workspace/review-evidence/bounded_checks.py 5 checks nine literal word spaces and finds exactly one mismatch-normalized cut/least-period triple per qualifying word. For example q=2,k=3 gives 28 at L=6 and 13; q=3,k=3 gives 117 at L=7 and 9. This is finite corroboration; existence comes from the verified structural theorem, uniqueness from Fine–Wilf. The frozen output reports separately 35 literal and 47 normal-form checks, not independently replayed verbatim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 characterizes existence with fringe lengths plus period at most m for m≤n≤L−m under f_W(n)≤m; its specialization is exactly the existence input.",
+          "The inspected Anisiu–Cassaigne abstract discusses the attainable upper envelope min(q^n,L−n+1), not the cardinality of a low-complexity class."
+        ],
+        "reasoning": "The stronger threshold theorem is credited. It does not assert a primitive root in fixed phase with maximal endpoints, uniqueness among witnesses, or resulting counts. The incomplete De Luca access does not justify inferring noncoverage there.",
+        "searches": [
+          "arXiv:2605.00141 Theorems 3.3, 4.2",
+          "Anisiu–Cassaigne, Properties of the complexity function for finite words",
+          "doi:10.1016/S0304-3975(98)00248-5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.00141 §§3–4",
+        "Fine–Wilf theorem, doi:10.1090/S0002-9939-1965-0174934-9",
+        "Resultary 8f0562dde8b5 and 848d05a8e242",
+        "Anisiu–Cassaigne article abstract",
+        "De Luca doi:10.1016/S0304-3975(98)00248-5 (OA attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence gives overlapping families of candidate representations, e.g. an entirely constant word may be represented by a smaller central interval or a nonprimitive repeated block before normalization.",
+          "Fine–Wilf supplies only a common period on sufficient overlap; the combined fringe budget guarantees that overlap for every competing pair, and the mismatch conditions then force equality of their endpoints."
+        ],
+        "reasoning": "The known decomposition plus primitive-word enumeration does not mechanically count the class because of duplicate representations. The universal overlap and phase-normalization step is additional, and makes its elementary convolution valid.",
+        "searches": [
+          "arXiv:2605.00141 Theorems 3.3 and 4.2",
+          "doi:10.1090/S0002-9939-1965-0174934-9 (Fine–Wilf)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant objects are labeled linear words, or equivalently primitive phased period blocks with mismatch-normalized fringes. Counting necklaces without multiplying by orbit size would be a different enumeration.",
+          "The fixed-content pooled-observation record concerns rotation orbits of observations; the Fourier-support record counts primitive words over finite abelian alphabets without the two fringes or factor threshold."
+        ],
+        "reasoning": "Neither rotation-based comparison is an alternate formulation of the canonical-core census. The known count of primitive words supplies a summand ingredient, not a count of the represented class.",
+        "searches": [
+          "Resultary: finite-word low factor complexity, periodic cores and exact counts; 8f0562dde8b5, 848d05a8e242",
+          "arXiv:2605.00141 Theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first inspected entry counts pooled-observation outcomes; the second gives counts of words of least cyclic period n and structural Fourier results. Neither is the stabilized length-L factor-complexity census."
+        ],
+        "reasoning": "No exact formula or covering count was found in the retrieved catalogue comparison. Matching a finite test sequence alone would not establish the universal canonical representation.",
+        "searches": [
+          "Published Resultary/SCOPE: low-complexity finite-word census, normalized periodic-core count; nearest records 8f0562dde8b5 and 848d05a8e242"
+        ]
+      },
+      "rationale": "Distinct supported content is the canonical boundary-normal primitive representation and its exact all-alphabet, all-length census in the specified range. The existential structural decomposition and primitive-word counts are known inputs; the overlap argument is needed to make the count disjoint.",
+      "residual_risks": [
+        "De Luca's full text was not accessed; other finite-word structural work could include an equivalent boundary normalization or enumeration.",
+        "The bounded retrieval and named comparisons establish no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact existence coverage, not the disjoint census; frozen theorem labels need correction",
+          "evidence": "3.3 assumes 1≤n≤L/2 with f_W(n)≤n; 4.2 uses m≤n≤L−m with f_W(n)≤m. The form is periodic between fringes whose lengths plus p total at most the specified threshold. Neither imposes boundary mismatch or counts eligible words.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00141",
+          "material_read": "Theorem 3.3 PDF p. 3, offset 9250; §4 Theorem 4.2 and Corollary 4.3 PDF p. 6, offset 15250",
+          "method": "OA PDF theorem-statement comparison",
+          "title": "Combinatorics on finite words and the length of a finite-dimensional associative algebra",
+          "trigger": "Exact finite Morse–Hedlund existence input and stronger threshold regimes"
+        },
+        {
+          "assessment": "Different equivalence and counting observable",
+          "evidence": "Counts distinct and uniquely reconstructible outcomes of pooled prefix and suffix observations for fixed-content multisets, not words with f_W(k)≤k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-necklace-parity-factorization-for-fixed-content-pooled-longest-r--8f0562dde8b5/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Necklace parity factorization for fixed-content pooled longest reads",
+          "trigger": "Same-day word census and rotation/primitive aliases"
+        },
+        {
+          "assessment": "Covers a primitive-word ingredient, not the core/fringe census",
+          "evidence": "Least cyclic period, Fourier support and convolution rank for position-labeled words over finite abelian alphabets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-fourier-support-and-sharp-recovery-of-primitive-words-over-finit--848d05a8e242/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Fourier support and sharp recovery of primitive words over finite alphabets",
+          "trigger": "Exact primitive-word counting overlap"
+        },
+        {
+          "assessment": "Profile and upper-envelope evidence; no whole-text noncoverage assertion based on the abstract",
+          "evidence": "The profile upper envelope min(q^n,L−n+1) is a maximum complexity, not a population count under f_W(k)≤k.",
+          "identifier_or_url": "https://ictp.acad.ro/properties-of-the-complexity-function-for-finite-words/",
+          "material_read": "Public article abstract, opening offset",
+          "method": "OA page comparison",
+          "title": "Properties of the complexity function for finite words",
+          "trigger": "Prior finite-word complexity profiles and possible counts"
+        },
+        {
+          "assessment": "Unresolved source; no noncoverage conclusion",
+          "evidence": "DOI delivery provided no usable paper and publisher PDF access was denied.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(98)00248-5",
+          "material_read": "No usable full text in the inspected routes",
+          "method": "Lawful OA DOI resolution and publisher PDF attempt",
+          "title": "On the combinatorics of finite words",
+          "trigger": "Potentially stronger prior treatment of finite-word structure and special factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural finite Morse–Hedlund threshold, the canonical decomposition supplies a uniform bijective description and an exact plateau across all word lengths in the domain, explained by a fixed amount of fringe and primitive-period information. It gives an exact census for all alphabets and the leading growth with k, rather than only a new proof of existential periodicity or a small instance count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

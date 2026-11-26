@@ -6,6 +6,6 @@
 
 **Mathematical value — PASS.** Removing all exceptional curves is a canonical arithmetic open surface; its rational points distinguish the split class's different Eckardt configurations while the ambient surface zeta cannot. The signed correction explains exactly what arithmetic data the Weyl class misses, and the 25-case exact table makes the formula effective for every Frobenius class.
 
-**Limitations.** Not all formal Weyl/Eckardt combinations are claimed realizable over all finite fields; actual applications require the surface's closed Eckardt orbit data. The 25 formal zetas need not be distinct after substitution of each small numerical field size. This is self-review, not independent certification.
+**Limitations.** Not all formal Weyl/Eckardt combinations are claimed realizable over all finite fields; actual applications require the surface's closed Eckardt orbit data. At fixed field size individual counts can agree across classes, but the full baseline zetas are distinct. This is self-review, not independent certification.
 
 Self-review: passed. Independent audit: not yet performed.

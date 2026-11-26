@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:25:09.387689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The zero-current identity yields the stated speed density, integrable for every fixed alpha>0 and epsilon>=0. In log coordinates the diffusion is nondegenerate, with smooth drift pointing inward at both ends; the generator applied to 1+R² is bounded above, giving nonexplosion by stopping. The integrable speed law is the unique invariant probability on the positive state space (not on an enlarged space including the epsilon=0 absorbing state). Scaling gives Y=bX/D and s=b epsilon/D². For normalization loss δ=1-Z, rescaling y=sz gives δ/s^alpha→Gamma(1-alpha)/Gamma(1+alpha) when alpha<1, using integrability at both ends and integration by parts. At alpha=1 the contribution on [s,1] is s log(1/s)+O(s) by Taylor with integrated O(s²/y²) error; the tails are O(s). For alpha>1, 1/y is Gamma-integrable and δ/s→1/(alpha-1). The sign crossing is y*=s/(-log Z). For alpha<=1, the positive difference divided by δ converges pointwise to f0 and is dominated by f0/Z. Thus TV, with the factor 1/2 in L1, is asymptotic to δ. For alpha>1, the L1 signed derivative is f0[(alpha-1)^(-1)-1/y]; integrating it above alpha-1 via the incomplete-Gamma recurrence gives the stated coefficient. For the negative part, dominated convergence after y=sz gives the subcritical TV limit, the L1 derivative gives bulk TV convergence for alpha>1, and integrating to y=s^(1-t) gives critical mass s t log(1/s)+o(s log(1/s)) for each 0<t<1, hence the uniform limit. Independent quadrature in log abundance, using the negative side and direct normalization loss rather than the frozen Bessel/positive-side algorithm, supports the constants and critical CDF (python /workspace/branches/independent_replay.py 4). At log(1/s)=130 the critical TV/leading ratio is 0.95846 and its CDF at .2,.5,.8 is .21242,.52542,.83843; finite quadrature is not proof and the critical convergence is slow. The uploaded script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 upper bounds include the orders n^(-1/2) at p=1/2 and n^(-1) at p=k+1/2, k>=1.",
+          "The 2021 paper describes the 2020 bounds as applying to bounded C_b^3 test functions; readable 2020 full text was not retrieved."
+        ],
+        "reasoning": "A convergence-rate bound does not establish a matching constant, and convergence against smooth tests does not determine the mass and shape of the renormalized negative part in the boundary and critical regimes.",
+        "searches": [
+          "Konzou 2021, §2.2, Theorem 2, Corollary 1 and Remark 3",
+          "Konzou–Koudou–Gneyou 2020, DOI/OA retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Konzou 2021, DOI:10.30538/oms2021.0155",
+        "Konzou–Koudou–Gneyou 2020 (retrieval attempted)",
+        "Resultary 47da9162b900"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known one-crossing comparison identifies where to integrate but does not supply the three asymptotic signed profiles.",
+          "The nearby Resultary law has a different conditioning event and asymptotic variable."
+        ],
+        "reasoning": "To pass from the GIG/Gamma comparison to the asserted result requires controlling normalization versus local deficit, including a logarithmic distribution of deficit at shape one and an L1 signed derivative only above shape one. The inspected predecessor bounds do not give those steps or stronger conclusions.",
+        "searches": [
+          "Konzou 2021, §2.2 proof and comparison bounds",
+          "Resultary 47da9162b900, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Konzou's GIG(p,a,1/n) is exactly the same family along s=1/(2n), with p=alpha and a=2, and has the rate-one Gamma limit.",
+          "The Resultary candidate conditions products of independent Gamma variables on a tail event and studies the common factor, not the negative part of an immigration tilt."
+        ],
+        "reasoning": "The change of parameters identifies the known TV convergence problem, not the new magnitudes and signed localization limits. Tail-conditioned GIG-type laws are not an equivalent reformulation.",
+        "searches": [
+          "Konzou 2021, Eq. (1), §2.2, Theorem 2",
+          "Resultary: Gamma/GIG, total variation and localization; record 47da9162b900"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numerical powers supplied at half-integer shapes are orders of upper bounds, not sharp constant entries.",
+          "The closest catalogue match gives a different exact conditional localization theorem."
+        ],
+        "reasoning": "A database entry or symbolic formula giving the exact normalized signed limits could cover them; a GIG normalization identity, half-integer upper bound or a different conditioning theorem cannot.",
+        "searches": [
+          "Konzou 2021, Theorem 2 and Corollary 1",
+          "Resultary record 47da9162b900"
+        ]
+      },
+      "rationale": "The stationary GIG/Gamma identities, TV convergence, density crossing and prior rate upper bounds are not new. The supported contribution is the joint fixed-shape leading TV coefficients and the three normalized negative-deficit limits. No inspected result implies this conjunction. The signed profiles in particular are not determined by upper bounds on an unsigned distance.",
+      "residual_risks": [
+        "The 2020 paper was not available in readable full text in the bounded retrieval.",
+        "Equivalent distributional or special-function asymptotics may exist outside the inspected material; no priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of the family, convergence and upper bounds, not the signed localization or all-shape sharp leading constants",
+          "evidence": [
+            "Parameter substitution p=alpha, a=2, 1/n=2s.",
+            "The upper-bound orders include n^(-1/2) at p=1/2 and n^(-1) at other reported positive half-integers."
+          ],
+          "identifier_or_url": "https://pisrt.org/psrpress/j/oms/2021/1/rate-of-convergence-in-total-variation-for-the-generalized-inverse-gaussian-and-the-Kummer-distributions.pdf",
+          "material_read": "§1 Eq. (1), offsets 0–5504; §2.2 Theorem 2, Corollary 1 and Remark 3, offsets 11397–17882; bibliography p. 191",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Rate of convergence in total variation for the generalized inverse Gaussian and the Kummer distributions",
+          "trigger": "Same GIG to Gamma degeneration and TV metric"
+        },
+        {
+          "assessment": "Primary-text comparison limited",
+          "evidence": [
+            "The later paper reports Stein bounds on bounded C_b^3 test functions."
+          ],
+          "identifier_or_url": "Statistics & Probability Letters 159 (2020), 108683",
+          "material_read": "No primary full-text passage retrieved; Konzou 2021 §2.2 Remark 3",
+          "method": "Bounded DOI/OA retrieval and secondary comparison",
+          "title": "Rate of convergence of generalized inverse Gaussian and Kummer distributions to the gamma distribution via Stein's method",
+          "trigger": "Earlier GIG-Gamma rate result"
+        },
+        {
+          "assessment": "Different conditioning operation and asymptotic law",
+          "evidence": [
+            "Conditional common factor lies near a GIG-type density in TV and has Gaussian fluctuations."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-simultaneous-extremes-and-latent-localization-for-shared-g--47da9162b900",
+          "material_read": "RESULT.md opening Finding via mirrored source",
+          "method": "Local published-record mirror",
+          "title": "Sharp simultaneous extremes and latent localization for shared Gamma products",
+          "trigger": "Ranked Resultary GIG/TV localization candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shape-one boundary already changes whether the stationary density favors near-zero abundance. The theorem determines both how much an immigration perturbation moves the stationary law and what abundance ranges carry the deficit. The critical log-uniform result is not conveyed by the TV order or by the normalizer and rules out a single narrow layer at that boundary. The conclusions are meaningful for the scalar equilibrium model; they are not evidence about finite-population extinction, inferential efficiency, interacting communities or joint shape-immigration scaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

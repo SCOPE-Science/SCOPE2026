@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:51:27.031333Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–87",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen CHECK.py, lines 10–65 (inspected, not executed; locates a predicted local peak, not a certified global maximum)"
+      ],
+      "rationale": "Splitting over [0,1) gives the three lifts 0,m,m+1 and a unitary Fourier-series reduction up to phase factors. Thus the squared determinant is the product of the three squared chords between 1, exp(2πimτ), exp(2πi(m+1)τ), with no normalization factor. The chord-square sum is 9 minus the squared node sum; AM–GM gives 27 only for an equilateral triple. Two successive nodes have ratio exp(2πiτ), so exactly τ=1/3 or 2/3 can give equality, and they do so exactly for m=1 mod 3. For the other residues I checked localization and the displacement via a centered phase error. Set δ=τ−1/3, M=m+1/2, c in Z+1/3 or Z−1/3 as appropriate, and w=Mδ−c; the phase errors near the equilateral offsets are w−δ/2 and w+δ/2. Analytic expansion of the log of the chord product gives log D=log 27−(4π²/3)(2w²+3δ²/2)+O((|w|+|δ|)³), with first-derivative remainder quadratic. The trial w=0 with |c|=1/3 gives defect O(m^−2). Compactness in the two free node phases followed by the positive definite Taylor bound places every maximizing pair of phases within O(m^−1) of equilateral. Reflection then puts τ near 1/3 with bounded c and |w|=O(m^−1). The loss for each such alias is at least 54π²c²/m²+O(m^−3); only the unique |c|=1/3 can match the trial, giving the coefficient 6π². Differentiating with respect to w along δ=(w+c)/M gives at the maximum 4w+3δ/M=O(m^−2), hence τ=1/3+c/M+O(m^−3). All maxima near 1/3 are therefore in one zero-free neighborhood within this alias, where the displayed log-sine second derivative is strictly negative; symmetry gives exactly one partner near 2/3. A generic shift has positive determinant for every allowed m, and each maximizer therefore has noncolliding frequencies and invertible fiber. The argument is uniform in the two residue classes and needs no numerical threshold.",
+      "residual_risks": [
+        "No explicit finite cutoff for uniqueness is claimed; neither the theorem nor this check classifies smaller nonorthogonal orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frederick–Okoudjou §3 constructs invertible multi-tile fibers and gives singular-value criteria. Shi gives tiling implications and structure for spectral unions of at most three intervals. Zhou arXiv:2610.33987 discusses spectral convolution/product measure and spectra split into cosets."
+        ],
+        "reasoning": "Invertibility, tiling and existence/structure of orthogonal spectra do not quantify the best determinant where the prescribed equal-step spectra are nonorthogonal. The constrained near-equilateral alias comparison and optimization still have to be proved.",
+        "searches": [
+          "Resultary: Vandermonde determinant multi-tiles optimal lattice shifts frequency shifts determinant design",
+          "Frederick–Okoudjou arXiv:1910.09257, lattice shifts and Vandermonde constructions",
+          "Shi arXiv:2607.24005, Theorems 1.1 and 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs c9a6f8a9b1bc, 1e706b439add, e6b7a2d650e7 and self a0b1e6f9ca2a",
+        "DOIs 10.1016/j.acha.2020.10.006 and 10.1007/s44007-023-00078-7",
+        "arXiv:1910.09257, 2610.33987 and 2607.24005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frederick–Yacoubou Djima gives sharp Riesz bounds and dual formulas for two equal-length intervals in §2.",
+          "The indexed two-coset entry 1e706b439add optimizes a ratio of Riesz bounds. The same-day three-coset entry c9a6f8a9b1bc includes variable-fiber determinant design, not m-dependent detuning at an equilateral configuration."
+        ],
+        "reasoning": "Neither optimizing singular-value ratios for two nodes nor the general equilateral equality condition gives the loss and location in the two forbidden residue classes. The residual claim is more than applying a fiber criterion to get the sine product.",
+        "searches": [
+          "Frederick–Yacoubou Djima DOI 10.1007/s44007-023-00078-7 §2, two intervals",
+          "Resultary: three-interval Fourier Riesz basis determinant optimum equally spaced cosets separated integer intervals",
+          "Zhou arXiv:2610.33987, spectrality and convolution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary top hit is the frozen record itself; the distinct c9a6f8a9b1bc finding instead maximizes the minimum determinant over several fibers for three unit intervals.",
+          "The e6b7a2d650e7 finding optimizes freely selectable nodes for sparse modes or characterizes tightness, with no equal-step restriction producing the present coupled phases."
+        ],
+        "reasoning": "Transposing the matrix exchanges nodes and modes, but does not exchange the freely chosen nodes with the constrained set produced by the single variable τ. In the maximin comparator, only an isolated listed fiber such as (0,2,3) has the present form, and its objective is coupled to other fibers; no m-varying family can be recovered. The public query did not furnish a relevant additional comparator and is not negative evidence.",
+        "searches": [
+          "Resultary: three coset Fourier basis determinant arithmetic gap equal-step shifts m modulo 3 sharp asymptotic",
+          "Resultary: three-interval Fourier Riesz basis determinant optimum equally spaced cosets separated integer intervals",
+          "Public literature: \"Finding duality for Riesz bases of exponentials on multi-tiles\" determinant optimization Vandermonde three intervals OR \"three intervals\" Riesz bases determinant Vandermonde shifts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The c9a6f8a9b1bc exact table varies separation δ∈(0,1) for equal unit intervals and gives maxima 16, (9748+1360√10)/729 and (25+5√5)/2, with the shift pairs given there. The exact catalog match a0b1e6f9ca2a is the assignment itself."
+        ],
+        "reasoning": "The table covers a different parameter range, fiber list and objective, not the arithmetic sequence of constant-fiber optima. Frozen CHECK.py supplies examples, not an external table or an exhaustion.",
+        "searches": [
+          "Resultary: equal length three interval determinant design quarter shift irrational fifth shift 16",
+          "Resultary: three coset Fourier basis determinant arithmetic gap equal-step shifts m modulo 3 sharp asymptotic"
+        ]
+      },
+      "rationale": "The Fourier-fiber reduction, Vandermonde factorization and equilateral bound are standard, and some other equal-step three-coset determinant designs have been evaluated. The supported distinct claim is the arithmetic defect with exact leading coefficient, surviving alias and maximizing-shift expansion for the one-parameter constant-fiber {0,m,m+1} family. Neither the strongest same-day comparator nor the inspected general results supply it or a stronger statement that implies it. This judgment is limited to the inspected evidence.",
+      "residual_risks": [
+        "Same-day catalog dates do not establish relative priority; the strongest same-day statement was compared on scope, not dismissed by date.",
+        "Other constrained Vandermonde or extremal trigonometric formulations may remain unlocated; the public query supplies no evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related objective and frequency family but not the constant-fiber integer-gap theorem",
+          "evidence": "Worst-fiber ess inf; 0<δ<1, three equal unit intervals; the table combines fibers such as (0,2,3), (0,1,3), and (0,1,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-three-regime-sharp-determinant-design-for-three-interval-fouri--c9a6f8a9b1bc/RESULT.md",
+          "material_read": "Finding, scope and fiber-type table, offsets 0–3252",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A three-regime sharp determinant design for three-interval Fourier Riesz bases",
+          "trigger": "Strongest indexed three-coset determinant-design match"
+        },
+        {
+          "assessment": "Free node designs with sparse modes differ from the equal-step prescribed family",
+          "evidence": "Unrestricted three-node optimum for modes {0,1,4}; tightness criterion for {0,1,m}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "The sharp three-node Fourier volume gap for the sparse modes 0,1,4",
+          "trigger": "Potential transpose or optimization over a dominating node family"
+        },
+        {
+          "assessment": "Supplies the invertibility framework, not a bound or optimizer for the constrained determinant",
+          "evidence": "Lattice shifts selected for invertibility; Vandermonde matrices with root-of-unity nodes and sufficient singular-value conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.09257",
+          "material_read": "p. 2 offset 8000 and §3 p. 4 offset 20491",
+          "method": "OA arXiv PDF passages",
+          "title": "Finding duality for Riesz bases of exponentials on multi-tiles",
+          "trigger": "General Fourier matrix/Vandermonde construction"
+        },
+        {
+          "assessment": "Two-interval construction there uses equal lengths and a different objective",
+          "evidence": "The relevant section treats 'two intervals of the same length' and computes dual formulas and Riesz bounds.",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-023-00078-7",
+          "material_read": "Abstract p. 1 offset 160 and §2 p. 4 offset 9478",
+          "method": "OA Springer PDF passages",
+          "title": "Examples of Riesz Bases of Exponentials for Multi-tiling Domains and Their Duals",
+          "trigger": "Two-interval examples possibly including the bound geometry"
+        },
+        {
+          "assessment": "Context for orthogonality; inspected passage not a quantitative nonorthogonal theorem",
+          "evidence": "Spectrality of convolution/product measures and decomposition of spectra into cosets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.33987",
+          "material_read": "Abstract, p. 1 offset 0",
+          "method": "OA arXiv PDF passage",
+          "title": "Spectrality of convolution and product measures: a block decomposition approach",
+          "trigger": "Spectral coset decomposition cited in frozen record"
+        },
+        {
+          "assessment": "Applies to spectral configurations; not a quantitative bound for nonorthogonal restricted designs",
+          "evidence": "Spectral unions of at most three intervals tile; structural alternatives for three components.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.24005",
+          "material_read": "Theorems 1.1 and 1.2, p. 2 offset 5824",
+          "method": "OA arXiv PDF passage",
+          "title": "Fuglede's conjecture holds for three intervals",
+          "trigger": "General covering theorem for spectral interval unions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Relationship to prior work and Limitations",
+        "Indexed three-regime maximin comparator",
+        "Frederick–Okoudjou §3"
+      ],
+      "rationale": "An integer-gap domain with only one free shift is a concrete multi-tile design problem in which exact orthogonality becomes unavailable. The result quantifies the unavoidable loss at its sharp scale and specifies the detuning and number of best designs when selecting realizable frequency cosets. A generic construction of some Riesz basis or an upper bound of 27 would not provide that information. The practical and mathematical claim is specific to determinant design, not to the best condition number or arbitrary spectra.",
+      "residual_risks": [
+        "The value does not rely on an unproved improvement in reconstruction error, a sharp smallest singular value, or an explicit uniqueness cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

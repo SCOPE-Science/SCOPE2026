@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:54:13.558278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized weight has positive mass outside every smaller disk and is integrable for b>0 and all real gamma. Panja's Kraus coefficients telescope on the diagonal to rho*delta_n*x_(n+1)+(1-rho*delta_n)*x_n; the coefficients are bounded (log-convexity of the moments gives omega_(n+1)/omega_n >= rho). Writing r_n=omega_(n+1)/omega_n gives the unique nonzero formal solution normalized at x_0=1, with multiplier 1-r_n+exp(i theta)r_n, never zero for the stated angles. For the moment and its first difference rescale t=u/n, with exponents b and b+1 respectively: the integrands up to sqrt(n) are dominated by an exponentially decreasing function times u^(b-1) or u^b and a fixed power of 1+|log u|; the t>=1/sqrt(n) tails are exponentially small even after rescaling. This gives the two claimed Gamma constants and 1-r_n~b/n. The log of the multiplier modulus minus (1-cos theta)log r_n is O((1-r_n)^2); its sum converges and the finite factors are nonzero. Using the exact telescoping product of r_n gives the stated asymptotic with positive constant. The power-log series test includes divergence at gamma=-b on the critical line. Conjugation gives the other angle; real angles and general off-diagonal operators are excluded. Checked RESULT.md, the recorded quadrature notes in VERIFICATION.md, and the primary Kraus formula; no finite quadrature is needed as a proof or claimed as independently rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Panja's arbitrary-admissible-weight theorem supplies the UCP map and harmonic fixed points, not nonreal boundary eigenvalues.",
+          "The beta-weight result treats all finite p and includes the real endpoints and exterior outliers, but is restricted to beta weights. The earlier whole-S_2 eigenarc for ordinary Bergman reproduces precisely b=1, gamma=0, p=2 on this boundary."
+        ],
+        "reasoning": "The broader operator spaces or larger spectral regions of the comparators do not broaden their weight families to the logarithmic densities.",
+        "searches": [
+          "Resultary 55ee9b0deb2a and 0ea8587b2d0c",
+          "Panja arXiv:2611.09731v1, Theorems 1.3 and 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Panja arXiv:2611.09731v1",
+        "Resultary 55ee9b0deb2a",
+        "Resultary 0ea8587b2d0c",
+        "Resultary a10d27515ecc (same record, not a comparator)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With beta=b-1 and mu=exp(i theta) the prior beta test is pb(1-Re mu)>1 and its equality case is not in ell^p. It gives neither gamma dependence nor critical inclusion.",
+          "Laplace moment asymptotics and the power-log test alone do not give the telescoping comparison of the nonreal multiplier product to omega_n^(1-cos theta)."
+        ],
+        "reasoning": "The checked results cover the unperturbed specialization and the map construction. The log-density endpoint needs the product-to-moment step and the moment difference estimate; the closest beta proof uses a different exact product and only yields the power case.",
+        "searches": [
+          "Panja (4.10) and Theorem 4.5 versus the logarithmic eigenvector product",
+          "55ee9b0deb2a RESULT.md, Proof offset 2779, including sharp unit-circle summability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The diagonal restriction is a diagonal multiplier plus a weighted backward shift. Its boundary equation in the circular coordinate mu=(lambda-1+rho)/rho is the scalar product of 1-r_n+mu*r_n.",
+          "The beta-weighted Resultary proof gives an equivalent Gamma product for rational-in-n coefficients, but only for a pure power radial density."
+        ],
+        "reasoning": "Rewriting the eigenvalue problem as a sequence recurrence does not erase the distinction in coefficient sequences. The checked beta Gamma product has no log-weight parameter and does not show summability at the corrected critical angles.",
+        "searches": [
+          "Resultary semantic comparison of logarithmic radial moment ratios, weighted backward shift recurrence and diagonal Schatten boundary arcs",
+          "Panja arXiv:2611.09731v1, (1.9), (4.10)",
+          "Focused literature search for general harmonic-Toeplitz boundary-Schatten and regular-variation criteria"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact logarithmic finding in the index is the assigned record itself (a10d27515ecc). Distinct returned spectral records 55ee9b0deb2a and 0ea8587b2d0c were checked for the boundary condition, not dismissed on title/date."
+        ],
+        "reasoning": "No distinct exact logarithmic endpoint entry was established in the checked material. This is not a claim about all indexed or unindexed results.",
+        "searches": [
+          "Resultary search for logarithmic radial Schatten eigenarc endpoints and beta-weighted Bergman boundary eigenarcs"
+        ]
+      },
+      "rationale": "Pass for the logarithmically corrected asymptotic and sharp inclusion/exclusion at the critical nonreal diagonal Schatten boundary. The strict power arc at gamma=0 is covered; no precedence between distinct same-day records is inferred. Panja's map and classical moment/summability tools are not claimed as new.",
+      "residual_risks": [
+        "A general result for compactly perturbed shifts with this special moment recurrence or an equivalent weighted sequence space could subsume the endpoint. Focused external search did not supply a substantive additional comparator.",
+        "Blaschke, doi:10.1016/j.jmaa.2011.06.044, is cited by the frozen record for log-weight Bergman asymptotics; no independent full-text coverage conclusion is made here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Map, hypotheses and fixed-point coverage; not the nonreal boundary criterion",
+          "evidence": [
+            "Admissibility requires normalization and positive mass outside each disk of radius less than one.",
+            "(1.9) and (4.10) give the Kraus representation with tail projections and prefactor omega_1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09731",
+          "material_read": "v1 Definition 1.1 and (1.1)–(1.2), (1.9) p. 3; (4.10) p. 16 and associated fixed point theorem",
+          "method": "OA paper passage inspection",
+          "title": "Toeplitz operators with bounded harmonic symbols on weighted Bergman spaces are the fixed points of a normal unital completely positive map",
+          "trigger": "Primary map and broader admissible-weight results"
+        },
+        {
+          "assessment": "Covers the pure power specialization only",
+          "evidence": [
+            "The proof uses x_n/x_0=product_(j=1)^n (mu*j+kappa)/(j+kappa) with kappa=beta+1 and derives strict power summability. Equality is weak ell^p, not ell^p."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-schatten-boundary-eigenarcs-for-beta-weighted-bergman-harm--55ee9b0deb2a/RESULT.md",
+          "material_read": "Finding and proof from offset 2779 through the sharp unit-circle criterion and exterior argument",
+          "method": "Local published mirror, bounded passage reads",
+          "title": "Sharp Schatten boundary eigenarcs for beta-weighted Bergman harmonic-Toeplitz dynamics",
+          "trigger": "Closest diagonal Schatten classification, distinct same-day publication"
+        },
+        {
+          "assessment": "Broader operator space for ordinary Bergman only",
+          "evidence": [
+            "On |2lambda-1|=1 it gives Re(2lambda-1)<1/2 for Hilbert–Schmidt point spectrum, matching b=1, p=2, gamma=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-boundary-eigenarc-for-the-hilbert-schmidt-spectrum-of-a-bergma--0ea8587b2d0c/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local published mirror, statement comparison",
+          "title": "A boundary eigenarc for the Hilbert–Schmidt spectrum of a Bergman completely positive map",
+          "trigger": "Earlier exact boundary arc on an operator ideal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perturbation leaves the power decay exponent unchanged but changes actual Schatten membership at the threshold. The exact gamma=-b dividing line and exclusion of equality distinguish admissible weights with the same leading power, for the natural diagonal part of the existing channel. This is a precise spectral boundary effect, not just a new expression for the beta arc. No claim is made about the full Schatten ideal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:47:20.518151Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60",
+        "Frozen VERIFICATION.md lines 18–22; verify.py lines 11–75 and 84–159"
+      ],
+      "rationale": "The equation at vertex w is X_w=sum of the squares of its predecessors. Off-cycle vertices form an acyclic predecessor graph, so taking them in a topological order gives X_w=0 by a monic linear elimination in the full coordinate ring, not just on points. This leaves for each cycle one free parameter and the single relation T^(2^L)-T, so the affine product is scheme-theoretic and has degree the product of the monic degrees. In positive characteristic p, writing 2^L-1=p^a M yields simple zero and multiplicity p^a at each nonzero geometric root, since p does not divide M. Over an algebraic closure the tensor product of the cycle factors is reduced exactly if each factor is, because it is a tensor product of nonzero finite algebras over that field and a nonzero nilpotent in a factor survives. Cyclicity of the multiplicative group gives the finite-field formula. In characteristic two the gcd identity for powers of two gives F(m)=sum gcd(L_i,m); each geometric cycle factor has additive coordinates F_(2^L), and a normal basis gives its cyclic Frobenius action. For d<=n, the totient divisor identity writes F(m) as the divisor sum of phi(d) times the number B_d of lengths divisible by d. Möbius inversion gives B_d from F(a) with a|d, and a second inversion over multiples up to n gives the exact multiplicities. This includes loops and has no assumptions on noncycle depth. The two three-vertex witnesses have the same single loop but different dimensions of the square span, an algebra-isomorphism invariant. The verifier computes finite-field idempotents directly, but its separate reconstruction checks construct observations from cycle lengths, not from independent brute-force counts for all n extensions. The code was inspected, not executed; the inversion and full scheme statement are proven algebraically.",
+      "residual_risks": [
+        "Reconstruction assumes known n and recovers only the recurrent cycle lengths in the given functional presentation; no minimal cutoff is established.",
+        "This is not a classification for weighted or multi-arrow evolution algebras."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1bf8e45adebc treats any binary evolution algebra, not just perfect ones, and gives the finite étale scheme degree, arithmetic Frobenius B^-1 on the stable part, and N_s=2^dim ker(A^s-I). For functional A, its stable image is the span of the cycle vertices and the stable restriction is the cycle permutation.",
+          "The permutation evolution-algebra result gives independent cycle summands; the graph theorem gives a cycle test for nilpotency. The survey passage describes element-idempotents via their equations and discusses existence for perfect complex algebras."
+        ],
+        "reasoning": "The broader binary theorem indeed implies the forward characteristic-two count, reducedness, degree and Frobenius-module structure in this record: each cycle permutation's s-th power has gcd(L,s) orbits. It does not state arbitrary-characteristic nonreduced scheme structure, or inversion from n extension counts to the cycle multiset.",
+        "searches": [
+          "Resultary 1bf8e45adebc, exact extension-field census and Frobenius action",
+          "arXiv:2610.22248 §1.4.3",
+          "arXiv:1307.0993 Proposition 3.3",
+          "arXiv:1312.4685 Definition 2.2 and Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1bf8e45adebc, 1791669aa4e5, 3591a9c3116b, 7b390db600eb and 57cba8b84ace",
+        "arXiv:2201.00954, 1307.0993v1, 1312.4685v1, 1803.11415v1 and 2610.22248v1",
+        "Frozen RESULT.md lines 28–60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general binary result yields counts from powers of the stable matrix; its Möbius formula recovers closed-point degrees of the idempotent scheme, not the length multiset of graph cycles.",
+          "For permutation algebras direct-sum decomposition already accounts for separation by cycles. The reviewed result further eliminates transient coordinates in the full ring even in odd characteristic and proves the finite inverse step from the gcd profile."
+        ],
+        "reasoning": "One must distinguish closed-point/Frobenius orbit counts of idempotents from the original graph cycle lengths. They are different invariants: the inverse proof uses log counts, the totient identity, and divisor and multiple inversion. The all-characteristic ring calculation is not a corollary of the characteristic-two normal-basis argument. Those two distinctions support the pass, not the elementary power-map root count alone.",
+        "searches": [
+          "Resultary 1bf8e45adebc Finding and Proof §§1–2",
+          "arXiv:1307.0993 Proposition 3.3; arXiv:2201.00954 Abstract and Definition 2.2; arXiv:2610.22248 §1.4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Element-idempotents are fixed points of algebra squaring. The fixed-point equation on one cycle is the univariate monomial fixed-point polynomial T^(2^L)-T.",
+          "Oliveira–Brochero Martínez analyze fixed points and other graph statistics of certain polynomial maps on a fixed finite field, including monomial examples. Narkuziev derives the element-idempotent equations for a two-permutation family."
+        ],
+        "reasoning": "Counting roots for an individual power map is not distinct by itself. The checked comparison does not furnish elimination of all tree variables in a scheme over arbitrary fields or the inverse question across different fields for the graph defining the algebra.",
+        "searches": [
+          "Resultary: element-idempotent schemes, characteristic-two field-extension counts, cycle recovery",
+          "Dynamics of monomial polynomial maps, arXiv:2201.00954",
+          "arXiv:1803.11415 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1791669aa4e5 treats cubelike Cayley algebras and an F4-membership jump; 3591a9c3116b gives a count distribution for randomly sampled perfect algebras; 7b390db600eb gives an undirected-cycle count via a polynomial gcd; 57cba8b84ace counts squaring orbits for graphical evolution algebras.",
+          "1bf8e45adebc supplies broad forward binary coverage as above, not a recovery table for recurrent periods."
+        ],
+        "reasoning": "The finite examples in the verifier are not claimed as new exact facts. The closest catalogue formulas concern different graph types or the general binary forward invariant, not the all-field coordinate-ring structure plus the stated inverse invariant.",
+        "searches": [
+          "Resultary 1791669aa4e5, 1bf8e45adebc, 3591a9c3116b, 7b390db600eb and 57cba8b84ace: idempotent extension counts and related dynamical censuses"
+        ]
+      },
+      "rationale": "The cycle decomposition for permutation algebras and the general characteristic-two Frobenius count are covered and do not independently support a pass. The checked distinct result combines an all-characteristic coordinate-ring reduction (including nonperfect algebras and nonreduced factors) with a finite inverse theorem for the underlying recurrent graph and an explicit information-loss witness. No inspected statement gives that remaining claim. This is a bounded assessment, not an assertion of comprehensive priority.",
+      "residual_risks": [
+        "The checked literature comparison does not exhaust monomial or Frobenius-semilinear dynamics or inverse arithmetic spectroscopy. In particular the standard gcd divisor transform is not asserted to be new.",
+        "The survey comparison is to its located element-idempotent section, not a whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominates the forward characteristic-two claims for n>=2, including singular matrices; excludes odd characteristic by assumption",
+          "evidence": [
+            "Stable image im(A^n), N_s=2^dim ker(B^s-I), reduced finite étale scheme, arithmetic Frobenius B^-1 and closed-point Möbius formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-idempotent-splitting-degrees-and-frobenius-zeta-functions--1bf8e45adebc/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–2 through the geometric point enumeration, offsets 0–5296",
+          "method": "Local mirror",
+          "title": "Sharp idempotent splitting degrees and Frobenius zeta functions for binary evolution algebras",
+          "trigger": "General binary idempotent scheme and extension count"
+        },
+        {
+          "assessment": "Different family, materially related invariant",
+          "evidence": [
+            "Unweighted loopless cubelike Cayley algebras; in odd valency the idempotent count depends on F4 inclusion."
+          ],
+          "identifier_or_url": "Resultary 1791669aa4e5",
+          "material_read": "Finding and Assumptions and scope (offsets 0 and about 2013)",
+          "method": "Local mirror",
+          "title": "A square-map parity dichotomy and idempotent field-extension jumps",
+          "trigger": "Prior field-extension counts for an unweighted graphical evolution-algebra family"
+        },
+        {
+          "assessment": "Power-map and fixed-field dynamics overlap, no inverse theorem established by these passages",
+          "evidence": [
+            "A polynomial class including monomial maps, with functional-graph, cycle-length and fixed-point calculations under a regularity condition."
+          ],
+          "identifier_or_url": "arXiv:2201.00954; DOI:10.1007/s10623-023-01332-3",
+          "material_read": "Abstract p. 1, Definition 2.2 p. 3",
+          "method": "OA PDF passage inspection",
+          "title": "Dynamics of Polynomial Maps over Finite Fields",
+          "trigger": "Monomial dynamics as an equivalent formulation of the cycle equations"
+        },
+        {
+          "assessment": "Covers decomposition when the underlying function is a permutation",
+          "evidence": [
+            "Permutation evolution algebras split according to the cycles."
+          ],
+          "identifier_or_url": "arXiv:1307.0993v1",
+          "material_read": "Permutation decomposition p. 2; Proposition 3.3 p. 3",
+          "method": "OA PDF passage inspection",
+          "title": "Few Remarks on Evolution Algebras",
+          "trigger": "Cycle decomposition for permutation evolution algebras"
+        },
+        {
+          "assessment": "Graph definitions and nilpotency criterion, not the same invariant",
+          "evidence": [
+            "Graph depends on the natural basis; nilpotency iff no oriented cycles."
+          ],
+          "identifier_or_url": "arXiv:1312.4685v1",
+          "material_read": "Definition 2.2 and Theorem 3.4 p. 6",
+          "method": "OA PDF passage inspection",
+          "title": "Evolution Algebras and Graphs",
+          "trigger": "General graph-to-algebra implications"
+        },
+        {
+          "assessment": "Relevant equations and small cases; different hypotheses from one-arrow endofunctions",
+          "evidence": [
+            "Two-permutation equations, particular solutions and a two-dimensional case."
+          ],
+          "identifier_or_url": "arXiv:1803.11415v1",
+          "material_read": "§3 p. 7",
+          "method": "OA PDF passage inspection",
+          "title": "On Absolute Nilpotent and Idempotent Elements of an Evolution Algebra Corresponding to Permutations",
+          "trigger": "Element-idempotent equations in a permutation-based family"
+        },
+        {
+          "assessment": "Inspected passage does not give the claimed all-field functional specialization",
+          "evidence": [
+            "Summarizes idempotent equations and existence results including for perfect complex algebras."
+          ],
+          "identifier_or_url": "arXiv:2610.22248v1",
+          "material_read": "§1.4.3 p. 8",
+          "method": "OA PDF passage inspection",
+          "title": "Evolution Algebras: A Survey of Results and a List of Open Problems",
+          "trigger": "Cited potential coverage of element-idempotent schemes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–60",
+        "Resultary 1bf8e45adebc, extension-field census"
+      ],
+      "rationale": "A single-field idempotent count need not reveal the recurrent graph. The full ring factorization explains what the locus retains even in nonreduced characteristics, and a finite extension-field cutoff recovers exactly the recurrent lengths while two nonisomorphic algebras show why no such scheme data recover the attached trees in general. This is a natural reconstruction result and a sharp distinction of invariants, rather than simply recomputing the known binary forward census.",
+      "residual_risks": [
+        "The cutoff is sufficient rather than proven optimal; the result does not recover the entire algebra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

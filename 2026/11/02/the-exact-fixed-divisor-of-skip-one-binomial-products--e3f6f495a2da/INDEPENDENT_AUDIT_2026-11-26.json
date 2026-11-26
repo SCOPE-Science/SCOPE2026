@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:35:47.513166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At n=k and k+1 the values are B_k and B_k(k+1)(k+3)/3. Their gcd is B_k except at k=1 mod 3, when exactly one factor of 3 is lost. For universal divisibility handle each prime power in the coprime factors k+1 and k+2. A prime power p^a dividing k+1 forces valuation at least a minus v_p(n+1) or a minus v_p(n+3) in the respective binomial coefficient; one of these offsets has valuation zero for odd p and at most one for p=2. For p^a dividing k+2, use the two disjoint pairs (m-1,m),(m+1,m+2) with m=n-k, via the exact k-to-k+2 binomial identities. One paired product has valuation zero for p>=5, at most one for p=2 or 3: the evens differ by 2, and if both pairs contain a multiple of 3, the multiples differ by 3. The 2-loss is already in B_k and the 3-loss here is precisely at k=1 mod 3. At m=0,1 the zero product causes no gap: binomials with lower index greater than a nonnegative upper index are zero in the identities, and the other product has the needed bound. This proves universal divisibility, making the two witnesses sharp. The extension to negative n uses the integral Newton coefficients of P_k(k+X)/D_k and integral binomial polynomials on Z. Read VERIFICATION.md and verify.py; the latter was not executed. Its degree-2k difference gcd is a complete check for each individually tested k<=20, whereas its other checks are bounded samples; the proof covers every k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peruginelli gives the general finite gcd characterization using d+1 values at degree d.",
+          "The indexed strong-divisibility binomial arrays article is a row-content result for generalized arrays."
+        ],
+        "reasoning": "The degree-2k finite algorithm can evaluate instances but does not identify which prime losses survive uniformly or show that only two values suffice. Generalized row content has different inputs.",
+        "searches": [
+          "arXiv:1304.7450v3 §1 Lemma 1.1",
+          "Resultary: generalized binomial gcds and fixed-lower-index valuations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1004.4623v4",
+        "arXiv:1510.06696v5",
+        "arXiv:1304.7450v3",
+        "OEIS A000217 and exact prefix lookup",
+        "SCOPE-exact-prime-power-valuations-of-the-fixed-lower-index-binomial-g--2edfe8c68adb",
+        "SCOPE-exact-prime-adic-values-of-consecutive-multiple-binomial-gcds--a6fd10a206f7",
+        "SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjacent catalogue records resolve a gcd of coefficients on the arithmetic subsequence n=qk, not a gcd of shifted products on all integers n>=k.",
+          "The sharp witnesses bound the gcd from above but the prior finite characterization leaves the lower bound unresolved; the four-consecutive-integer valuation argument supplies it."
+        ],
+        "reasoning": "No inspected statement yields both the exact piecewise closed form and the two-witness theorem by parameter substitution.",
+        "searches": [
+          "arXiv:1304.7450v3 §1 Lemma 1.1",
+          "arXiv:1004.4623v4 pp. 1–2",
+          "arXiv:1510.06696v5 pp. 1 and 3",
+          "Resultary consecutive-multiple binomial gcd record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binomial-basis normalization asks for the exact universal denominator of binom(n,k)binom(n+2,k)/binom(k+2,2), which is the same problem.",
+          "Sun compares different factorial ratios involving central binomial coefficients; McTague fixes the upper index and varies the lower one."
+        ],
+        "reasoning": "The equation of notations does not identify these ranges or products. Neither inspected result has both equal lower indices, an upper-index shift of two and gcd over all n>=k.",
+        "searches": [
+          "Resultary: skip-one product, shifted equal-order binomial products, binomial fixed divisors",
+          "arXiv:1004.4623v4",
+          "arXiv:1510.06696v5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lookup returned no exact prefix hit; A000217 describes the unadjusted triangular-number B_k, not the exceptional D_k.",
+          "The nearby indexed valuations both concern gcd over q of single coefficients binom(qk,k), 2<=q<=k+1."
+        ],
+        "reasoning": "The triangular normalization is known; its occasional factor-of-three correction is the invariant in question. The absence of an OEIS match is not positive proof of novelty.",
+        "searches": [
+          "OEIS exact prefix 1,6,10,5,21,28,12,45,55,22 and the k=0 shift",
+          "OEIS A000217",
+          "SCOPE-exact-prime-power-valuations-of-the-fixed-lower-index-binomial-g--2edfe8c68adb",
+          "SCOPE-exact-prime-adic-values-of-consecutive-multiple-binomial-gcds--a6fd10a206f7"
+        ]
+      },
+      "rationale": "The furnished distinct result is the full gap-two equal-lower-index product classification, including the exact loss at 3 and the sharp two-value certificate. The closest inspected indexed binomial gcds, published divisibility results, and general fixed-divisor rules do not give that classification. This is a bounded comparison, not proof of priority.",
+      "residual_risks": [
+        "An unlocated shifted-binomial product theorem could cover this specialization. Catalogue and prefix searches are bounded and do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different product and normalization",
+          "evidence": "Central-binomial divisibility of products and sums, not the fixed divisor of the specified moving-upper-index product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.4623v4",
+          "material_read": "pp. 1–2, offset 0",
+          "method": "Open primary text, statement comparison",
+          "title": "Products and sums divisible by central binomial coefficients",
+          "trigger": "Divisibility of binomial products with explicit normalizations"
+        },
+        {
+          "assessment": "Different index range and no shifted product",
+          "evidence": "Upper index fixed, lower index varies.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06696v5",
+          "material_read": "p. 1 offset 0 and proof p. 3 offset 9500",
+          "method": "Open primary text, formula and index comparison",
+          "title": "On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Exact binomial gcd and valuation theorem"
+        },
+        {
+          "assessment": "General finite characterization but not the proposed closed form",
+          "evidence": "Uses d+1 values for degree d; does not give the uniform exception or two-value certificate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.7450v3",
+          "material_read": "§1 Lemma 1.1, p. 2, offset 4677",
+          "method": "Open primary text, implication comparison",
+          "title": "Primary decomposition of the ideal of polynomials whose fixed divisor is divisible by a prime power",
+          "trigger": "General fixed-divisor theorem"
+        },
+        {
+          "assessment": "No match to the gap-two product",
+          "evidence": "They give valuations of gcd_{2<=q<=k+1} binom(qk,k), with no second shifted factor.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-prime-power-valuations-of-the-fixed-lower-index-binomial-g--2edfe8c68adb; 2026/11/2/SCOPE-exact-prime-adic-values-of-consecutive-multiple-binomial-gcds--a6fd10a206f7",
+          "material_read": "Both RESULT.md Findings, offset 0; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror; compare explicit gcd inputs",
+          "title": "Exact prime-power valuations of the fixed-lower-index binomial gcd; Exact prime-adic values of consecutive-multiple binomial gcds",
+          "trigger": "Apparently close fixed-lower-index gcd records"
+        },
+        {
+          "assessment": "Matches B_k only",
+          "evidence": "For k=1,4,7,... the submitted sequence is one third of the shifted triangular numbers.",
+          "identifier_or_url": "https://oeis.org/A000217",
+          "material_read": "Sequence and identification, offset 429",
+          "method": "Prefix comparison after exact witness calculation",
+          "title": "Triangular numbers",
+          "trigger": "Possible table coverage of the exact gcd sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gap two is the first positive gap after adjacent factors; the natural normalization is fixed by the first nonzero value and not fitted to a table. The uniform result determines exactly when that normalization is integer-valued, including a sharp denominator exception, and replaces a degree-dependent gcd computation by two explicit witnesses for all lower indices. This is a useful exact invariant of an elementary family even without a general gap theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

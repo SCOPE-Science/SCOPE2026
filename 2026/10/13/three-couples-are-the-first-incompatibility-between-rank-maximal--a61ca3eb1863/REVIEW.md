@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every complete strict profile for \(2\times2\) and \(3\times3\) is enumerated. Stability is independently reconstructed by rank-table blocking-pair tests and preference-list scans. Rank profiles and regret are independently computed by precomputed ranks and direct list positions. The two implementations agree throughout. Exact optimizer-set comparison gives \(37716\) equality cases, \(6984\) proper rank-maximal-subset cases, and \(1956\) disjoint cases at \(3\times3\), with no other relation type. Full symmetry canonicalization gives \(29\) incompatible isomorphism classes with orbit sizes summing exactly to \(1956\).
+## correctness
 
-Risk: the theorem stops at the first incompatibility order and makes no larger-market claim.
+PASS
 
-## Originality
-**PASS.** Prior literature owns both objectives and algorithms for them. The 1987 weighted stable-marriage framework underlies rank-profile optimization, later open work states the two-sided rank-maximal criterion explicitly, and minimum-regret stable marriage is classical. The inspected literature and targeted searches did not state the smallest market where the two optimizer sets are disjoint, the full \(3\times3\) relation table, the \(1956\) incompatibility count, or its \(29\)-class quotient.
+For n=1 there is one matching. For n=2 with two stable matchings, the men must both prefer the same one: if they disagreed they would both prefer the same woman, who would need to prefer each of her two partners to the other to prevent blocking in both matchings. When both men prefer one matching, stability of the other forces both women to prefer that other matching. Both profiles are then (2,2), with regret 2. For n=3 I reproduced the exact census by fixing man 0's preference list to the identity, a free normalization under women's label permutations, and weighting each normalized input by 6. For each perfect matching I independently compared the sets of pairs preferred by their male and female endpoints to their assigned partners; disjointness is exactly stability. Both partners' ranks contribute to the lexicographic objective and the maximum rank. Exact set comparisons give 37716 equal, 6984 strict P subsets, 1956 disjoint and no other cases. The stable counts are 34080, 11484, 1092. Among the disjoint profiles the counts by (stable count, |P|, |G|) are (2,1,1): 1728, (3,1,1): 144, (3,2,1): 84. After expanding the disjoint normalized profiles, orbit traversal by adjacent label transpositions on both shores and side-swap gives 26 size-72, 2 size-36 and 1 size-12 orbits. The witness has just the specified two stable matchings with profiles (2,4,0), (4,0,2) and regrets 2, 3; the incidence fraction reduces to 163/3888.
 
-Risk: the full 1987 weighted-optimization article was inaccessible during inspection, and an unindexed small-instance table or thesis appendix could contain the same finite classification.
+## originality
 
-## Value
-**PASS.** Rank-maximality and minimum regret encode two canonical but competing fairness principles: lexicographically maximizing top-choice assignments versus protecting the worst-off participant. Optimizer-set compatibility asks whether those principles can be satisfied simultaneously, which is stronger than comparing objective values. The exact first incompatibility at three couples, together with a complete census and quotient, gives a minimal benchmark for fairness tradeoffs and stable-matching software.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The objectives and underlying profile space are established. Very close Resultary records compute other pairs of fairness objectives, or the objective-free symmetry quotient of the same market. The checked sources do not supply the rank-maximal/minimum-regret optimizer relations or the objective-specific quotient. This is a best-of-knowledge assessment of the specific boundary and census, not priority for the objectives or enumeration technique.
+
+## value
+
+PASS
+
+Lexicographically maximizing the number of high ranks and optimizing the worst individual rank express two natural, established goals. The result determines the smallest market where enforcing one can preclude the other and describes all optimizer-set relations there. Exact counts and symmetry types quantify and classify the first obstruction, rather than presenting a cherry-picked example or recomputing the known unlabelled compatibility-free census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

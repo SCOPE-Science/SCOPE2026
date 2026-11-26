@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:40:37.000053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rotating-frame generator preserves a triangular moment recursion with positive determinants through degree four. An independent bounded SymPy calculation, not a run of the frozen script, reproduced both exact radial moments and the indicated signs. Rotational projection gives the stated factor 3/2 and positive variance. For the replacement, with c=1−4g>0, the sign classification reduces to Q−2√(cS): the constant term is positive and a negative interval on positive u requires a positive vertex and positive discriminant. Above the unique positive zero of Q, dQ_d>2Q and dS_d<3S, so Q/√S increases strictly from zero to infinity and the onset root is simple. At d≥1, S_g/S≤5/6; the lower bound (19/6)√S(d,0)>7d+27 follows at d=1 and from the positive derivative of S(d,0)/(7d+27)². Along with (1−4g)^{-1/2}≥1+2g this shows Φ_g>0 and hence d_c'(g)<0. Implicit differentiation in √(1−4g) at the simple positive Q zero gives the endpoint correction; the double-root formula gives the angular-speed divergence. The discriminant has strictly positive diffusivity derivative at onset, so the roots split on a square-root scale. The original checker covers the moment identity and finite sign cases, not these onset statements; the reported simulation has no supplied replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das–Basu address free angular switching. Santra–Basu–Sabhapandit give an exact stationary kurtosis for propulsion reversal with no ω. Pattanayak et al. give confined reentrance results for fixed angular drift without a flip rate. The indexed exact equivalent includes independent translational Gaussian noise, which preserves the fourth cumulant."
+        ],
+        "reasoning": "The free, propulsion-reversing and fixed-drift results do not contain the same model. Adding independent translational Brownian motion does strictly broaden the model for the sign test, but the resulting source does not further resolve the subcritical diffusivity onset curve.",
+        "searches": [
+          "Primary query: \"chirality-reversing\" \"harmonic trap\" active Brownian kurtosis switching stationary",
+          "arXiv:2301.11194v1; arXiv:2107.12640v1; arXiv:2509.03448; Resultary 7bd960c68958"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 7bd960c68958 and 9a21f4969a84",
+        "arXiv:2301.11194v1, 2107.12640v1, 2509.03448, 2005.14234v2 and 2603.26967v2",
+        "Replacement RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equivalent pointwise test is B>0 and B²+4AC>0 in the later article's notation. It gives the linear boundary at g=1/4 and large u at fixed d, not the uniqueness of a diffusivity crossing for g<1/4, the sign of its g derivative, or the double-root divergence as g approaches 1/4."
+        ],
+        "reasoning": "A pointwise discriminant condition can give multiple disjoint diffusivity windows unless its coefficient dependence is analyzed. The replacement proves uniqueness via Q/√S and a global sign bound for Φ_g; its singular endpoint also requires a separate rescaling to follow the moving double root.",
+        "searches": [
+          "7bd960c68958, proof §§4–5 (classification and large chirality)",
+          "arXiv:2509.03448, §II.B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set the other article's rotational and switching ratios to d and g, respectively, W=u and D_t=0. Its numerator is −(a²S−aQu+cu²) and denominator is L_1² L_2 L_3. Its second radial moment is a/L_1, so division of that fourth cumulant by the squared Cartesian variance gives the exact normalized frozen formula. The signs and zeros coincide."
+        ],
+        "reasoning": "Passing from fourth cumulant to excess kurtosis is conditioning on the same stationary law and dividing by a positive variance squared. It does not support independent novelty for the frozen polynomial or sign diagram. The replacement boundary is a claim about variation in diffusivity of the entire two-root domain.",
+        "searches": [
+          "Resultary: chirality-reversing active Brownian swimmer harmonic trap stationary Cartesian excess kurtosis exact polynomial gamma/kappa threshold one quarter",
+          "Resultary: chirality flipping trapped Brownian swimmer unique rotational diffusion onset threshold reentrant kurtosis critical diffusivity discriminant monotonic switching rate fold scaling",
+          "Resultary 7bd960c68958, Finding and Proof §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later entry contains exact symbolic coverage of the frozen fourth cumulant after normalization, not just overlapping sign examples. The same-day sixth-cumulant entry concerns propulsion reversal and its previously known fourth-cumulant-zero curve. No inspected table gives the replacement onset ordering or endpoint scalings."
+        ],
+        "reasoning": "Catalogue equality of formulas is decisive for coverage but does not settle publication priority. Exact sign examples at selected d likewise cannot establish uniqueness and monotone motion of the onset over all d and g.",
+        "searches": [
+          "Local Resultary 7bd960c68958, 2026/11/22",
+          "Local Resultary 9a21f4969a84, 2026/10/26",
+          "Local onset-focused Resultary query listed above"
+        ]
+      },
+      "rationale": "The central frozen polynomial and quarter-rate sign classification have demonstrable equivalent coverage in a distinct indexed article, dated later than the frozen record. This is not a priority determination. The replacement credits that coverage and instead resolves the unique global onset in rotational diffusivity, the strict direction of motion of its boundary over the entire subcritical switching interval, and its singular endpoint laws. Those statements are not the earlier pointwise test with different notation.",
+      "residual_risks": [
+        "The catalogue dates do not establish the relationship or priority of the directly equivalent entries.",
+        "The searches were bounded and do not rule out a diffusivity-frontier analysis in another formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact sign theorem and a broader noise model; not the global diffusivity onset theorem",
+          "evidence": [
+            "The fourth cumulant uses AW²+BW−C with A=4ℓ−1, and the active radial variance is explicitly given.",
+            "§4 analyzes roots at fixed rotational diffusion; §5 takes large angular speed at fixed ratios."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-one-quarter-chirality-flip-boundary-for-stationary-k--7bd960c68958",
+          "material_read": "Finding and assumptions near offset 0; second moment, sign and large-chirality calculations near offsets 5400–9500, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror inspection",
+          "title": "A universal one-quarter chirality-flip boundary for stationary kurtosis in a trapped swimmer",
+          "trigger": "Exact same angular-switching trap and threshold"
+        },
+        {
+          "assessment": "Identical angular process, but no confining force",
+          "evidence": [
+            "The position equations are those of free propulsion; moments are time dependent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.11194v1",
+          "material_read": "Abstract and §2 equations (1a–c), PDF pp. 1–2",
+          "method": "Bounded OA PDF inspection",
+          "title": "Chirality Reversing Active Brownian Motion in Two Dimensions",
+          "trigger": "Matching telegraph angular drift"
+        },
+        {
+          "assessment": "Exact kurtosis for a different reversal mechanism",
+          "evidence": [
+            "The switching sign multiplies propulsion velocity rather than angular drift.",
+            "Its stationary zero is γ=(7D_R+3μ)/2, with μ the trap rate; no angular-speed parameter occurs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.12640v1",
+          "material_read": "§2 equations (2a–c), p. 2, and Appendix A equation (41), p. 9",
+          "method": "Bounded OA PDF inspection",
+          "title": "Direction reversing active Brownian particle in a harmonic potential",
+          "trigger": "Trapped reversing swimmer with an exact stationary excess formula"
+        },
+        {
+          "assessment": "Exact trapped stationary comparison, but at fixed angular drift",
+          "evidence": [
+            "The model has a constant torque and no telegraph switching parameter; its fourth-moment baseline is radial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.03448",
+          "material_read": "§II equations (1)–(2), p. 3; §II.B equation (5), p. 4",
+          "method": "Bounded OA PDF inspection",
+          "title": "Chirality, confinement and dimensionality govern re-entrant transitions in active matter",
+          "trigger": "Cited source with reentrant stationary kurtosis in a chiral trap"
+        },
+        {
+          "assessment": "Different dynamics and cumulant order; no equivalent onset theorem",
+          "evidence": [
+            "The switched variable reverses propulsion, and the result concerns a sixth cumulant on the prior fourth-cumulant zero set."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-strict-sixth-cumulant-witness-on-the-zero-kurtosis-curve-of-a--9a21f4969a84",
+          "material_read": "Finding, assumptions and proof near offsets 0–8704",
+          "method": "Bounded local mirror inspection",
+          "title": "A strict sixth-cumulant witness on the zero-kurtosis curve of a direction-reversing swimmer",
+          "trigger": "Same-day higher-moment curve for a reversing trapped swimmer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result identifies exactly how much rotational diffusion is necessary for a positive intermediate-kurtosis interval at a given subcritical switching rate. It distinguishes a single fold from multiple disconnected diffusivity windows and quantifies how onset escapes to infinite angular speed even though the critical diffusivity stays finite. Those statements answer phase-diagram questions not settled by evaluating the pointwise sign criterion at a few parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

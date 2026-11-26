@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:23:40.870869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–41, 43–85",
+        "VERIFICATION.md lines 18–23 and verify.py lines 10–79, inspected not run",
+        "Independent literal state construction and integer cofactor replay: /workspace/branches/7b83bc72-88c3-4bd6-b60b-957b0b4d970e/two_token_graph_check.py; (3,3) and (3,4) yield 466560000 and 205437507062464512. Also checked by separate modular elimination on literal cofactors using five primes 100003, 100019, 100043, 100049, 100057; their product exceeds the cofactor bound 6^(|V|-1) from the Laplacian diagonal."
+      ],
+      "rationale": "Any independent cell pair shares a row or column; a third independent cell must lie in that same line. For k >= 3 the unmoved pair forces any replacement into the same line, forbidding an edge of the host. This gives the state count also when one or both binomial terms vanish. For k=2 the horizontal and vertical states are adjacent exactly at a shared incidence, with degrees d_H=2(m-1), d_V=2(n-1) and biadjacency M=B_m tensor B_n^T. The unsigned clique incidences satisfy B_t B_t^T=(t-2)I+J, so their ranks and singular values give all four signed classes and the stated zero multiplicity, including coincident eigenvalues and no zeros at (3,3). The unique top singular value implies one component: each biregular component would otherwise supply an independent top singular vector. In the Laplacian each singular pair contributes d_H d_V-s^2 except for the top pair, which contributes 0 and d_H+d_V. The three nonzero pair products are 2n(m-1), 2m(n-1), and 3mn-2m-2n; the unmatched multiplicities are the two part sizes minus mn. Dividing the nonzero product by the order yields the stated formula and prefactor 4/(mn).",
+      "residual_risks": [
+        "Cofactor computations verify the two displayed examples only; the tensor and Laplacian proofs establish the parameter-uniform formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avis–Hoang give the general token-sliding construction and its inclusion in the unrestricted token graph. Reyes–Dalfó–Fiol use all k-subsets. Hoang studies TS-realizability of target graphs, including Cartesian-product targets."
+        ],
+        "reasoning": "An unrestricted graph's eigenvalues do not give the exact eigendata of its independent-state induced subgraph. Cartesian-product targets do not specialize to spectra of the state graph of these categorical-product hosts. General tensor spectral algebra applies after, not in place of, identifying the state transitions.",
+        "searches": [
+          "arXiv:2203.16861v3",
+          "arXiv:2310.16929v1",
+          "arXiv:2606.03765v1",
+          "Primary-literature lookup for token sliding on categorical clique products and incidence-product spectra"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2203.16861v3",
+        "arXiv:2310.16929v1",
+        "arXiv:2606.03765v1",
+        "Resultary 5ea021dfbc88, 40156451790b and self-match b6e6ba498da2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank and tree computations are immediate applications of standard tools once M=B_m tensor B_n^T is known. The decisive move-specific fact is double incidence, which also makes the distinct cross-parity subdivision-product model exact."
+        ],
+        "reasoning": "Credit all standard spectral and enumeration machinery. The prior statements inspected do not give the token-state identification from which it could mechanically deliver this classification. The elementary independent-line argument supplies freezing but is not the substantive basis for the originality pass.",
+        "searches": [
+          "arXiv:2203.16861v3 general construction",
+          "Resultary 40156451790b and 5ea021dfbc88",
+          "RESULT.md lines 43–85 compared with standard Kronecker spectrum and Kirchhoff theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "TS_k uses independent sets, unlike the all-subsets graph F_k in Reyes–Dalfó–Fiol.",
+          "A direct alternative model is the cross-parity component of the categorical product of the clique subdivision graphs: its two parts are vertex-edge and edge-vertex, and exactly the stated double incidences give edges. The same-host indexed spine instead concerns the topology of the independence complex and describes a subdivision of K_{m,n}."
+        ],
+        "reasoning": "The cross-parity identification follows by matching each horizontal or vertical pair with one vertex and one clique edge. It is not an identification of the state graph with the topological spine. A deformation retraction does not determine adjacency or tree counts of token states. No prior statement of this cross-parity identification was verified.",
+        "searches": [
+          "Resultary searches for categorical clique host token sliding, incidence/tensor formulation and spectrum",
+          "arXiv:2203.16861v3",
+          "arXiv:2310.16929v1",
+          "Resultary 5ea021dfbc88"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed b6e6ba498da2 is the frozen finding itself. Indexed 40156451790b concerns two-token graphs of the different complete bipartite host K_{m,n}; indexed 5ea021dfbc88 concerns independence complexes of the same categorical host."
+        ],
+        "reasoning": "Neither available distinct summary specifies these state graphs, radical multiplicities, or cofactor counts. The exact examples were independently computed as correctness evidence, not used as evidence of novelty.",
+        "searches": [
+          "Resultary exact family/title and two-token spectrum/tree searches",
+          "Resultary b6e6ba498da2, 40156451790b, 5ea021dfbc88"
+        ]
+      },
+      "rationale": "The supported contribution is the identification and exact spectral/tree classification of the independent-pair token-sliding graph for categorical clique hosts. Neither the general incidence algebra nor the elementary freeze alone is a novelty claim. No inspected exact prior statement or stronger result giving this host-to-state-graph identification was established.",
+      "residual_risks": [
+        "The full texts of the two related indexed records were not retrieved; assessments are limited to their available indexed statements.",
+        "An unlocated equivalent token-state identification under subdivision-product or incidence terminology remains possible; an inconclusive search does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the model, not the checked product-host identification",
+          "evidence": [
+            "Vertices are independent k-sets; the state graph is a subgraph of F_k(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2203.16861v3",
+          "material_read": "Introduction, definition and unrestricted-token-graph comparison, offsets 4200–6386",
+          "method": "OA full-text passage inspection",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Closest structural study of this exact move rule"
+        },
+        {
+          "assessment": "Different state space",
+          "evidence": [
+            "F_k(G) has all k-subsets as vertices, with transitions along host edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.16929v1",
+          "material_read": "Definition and scope, offsets 3780–6242",
+          "method": "OA full-text passage inspection",
+          "title": "On the spectra and spectral radii of token graphs",
+          "trigger": "Spectral results for nearby token graph definition"
+        },
+        {
+          "assessment": "Cartesian-product target family, not the present categorical host",
+          "evidence": [
+            "The problem is realization of specified target graphs under token sliding."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.03765v1",
+          "material_read": "Introduction, offsets 1480–4280",
+          "method": "OA full-text passage inspection",
+          "title": "Token-sliding realizability for complements, Cartesian-products, and grid graph families",
+          "trigger": "Potential product/realizability equivalences"
+        },
+        {
+          "assessment": "Available statement is about a different object; exact comparison limited to the summary",
+          "evidence": [
+            "The independence complex of K_m times K_n retracts to a subdivision of K_{m,n}; this statement does not identify the token-sliding graph."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-an-equivariant-graph-spine-and-complete-symmetry-quotients-for-c--5ea021dfbc88",
+          "material_read": "Indexed statement only; bounded mirror retrieval failed",
+          "method": "Local Resultary and attempted source mirror",
+          "title": "An equivariant graph spine and complete symmetry quotients (indexed record)",
+          "trigger": "Same host and a subdivision description"
+        },
+        {
+          "assessment": "Different host in available statement; no exact comparison beyond summary",
+          "evidence": [
+            "The host is K_{m,n}, not K_m times K_n."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b",
+          "material_read": "Indexed statement only; bounded mirror retrieval failed",
+          "method": "Local Resultary and attempted source mirror",
+          "title": "Exact Laplacian spectrum and spanning-tree count of two-token graphs (indexed record)",
+          "trigger": "Exact invariant and two-token terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–41 and 43–85"
+      ],
+      "rationale": "The number of tokens marks a natural mobility boundary: two tokens give a connected state graph, while three or more cannot move at all. The incidence factorization then gives the exact spectral and spanning-tree invariants of the last mobile regime for all m,n, rather than a finite table or a generic eigenvalue bound. These identify both the structure and quantitative complexity of a natural reconfiguration family.",
+      "residual_risks": [
+        "No mixing-time or general host-family claim is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

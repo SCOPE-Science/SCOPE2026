@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:16:50.756941Z",
+  "axes": {
+    "correctness": {
+      "bounded_reproduction": "An independently written exhaustive check enumerated all 3125 transformations at n=5, found 196 idempotents and 3106 permissible pairs, and compared both composites on one input of each of the three classes for all 9647236 ordered pairs. It gave rows (196,2160,1140), (2160,67755,56595), (1140,56595,53925), total 241666. Replay: python3 /workspace/branches/f527f762-6c2b-4cea-a001-95122ec54d91/direct_n5_census.py. This checks the finite census within the normal form; the published classification and analytic proof carry the universal assertion.",
+      "rationale": "For n≥5 Gould–Grau–Johnson Theorem 2.1 and Lemma 2.5 give the unique (t,e) normal form; Corollary 2.6(4) confirms the product rule in right-action notation. Reversing the composition notation does not affect equality of the two products. For fixed e, te=e=et fixes each root and preserves its fiber; t³=t makes the restriction to its image an involution and leaves the remaining arrows freely attached to image points. This gives the stated A,B,C,D weights, including the product of signs across fibers. The image {t,t²,e} collapses to rank one precisely at t=e and to rank two for other idempotent t; t²=e implies t=t³=te=e. Among even permutations only t=id gives rank two, and all odd parameters have rank three. Equating the two product parameters gives all pairs of even types and all pairs of nonpermutation types with the same e, odd diagonal pairs, and mixed pairs at common e only with the designated even (id,e) or nonpermutation (e,e) element. For the constant identity-valued map b₀, the competing constant values are id and u², so precisely the permutation-parameter elements and b₀ itself commute with it. This gives the stated ordered rank polynomial. Evaluating at x=y=1 gives E²+N²+7O+4E per nonidentity e. The all-singleton fiber adds 5 before replacing it by the single b₀ self-pair, hence −4 exp(z) in the exponential formula. The rank-seven exceptions at n=4 and units are excluded as stated. The frozen script and output were inspected as text, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gould–Grau–Johnson Theorem 2.1 covers all endomorphisms and Corollary 2.6 even gives products with units; the classification originates with Schein–Teclezghi."
+        ],
+        "reasoning": "The broader structure theorem fixes the raw set and binary law but does not supply the weighted counts of compatible idempotent fibers for pairs. Its one-object enumeration does not determine the squares and mixed terms in the proposed weighted sum.",
+        "searches": [
+          "https://arxiv.org/html/2307.11596v1 §§2.1–2.2",
+          "https://doi.org/10.1090/S0002-9939-98-04764-9"
+        ]
+      },
+      "checked_sources": [
+        "Gould–Grau–Johnson, arXiv:2307.11596v1",
+        "Resultary commuting retractions record eb9b8639e24b",
+        "Schein–Teclezghi, DOI 10.1090/S0002-9939-98-04764-9 (classification via open restatement)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published multiplication already implies the commutation test by evaluating the products; the retraction graph realizes the corresponding restriction.",
+          "The proposed enumeration additionally groups by e and aggregates all fiber tripotents, rank collapses and signs of involutions over rooted partitions."
+        ],
+        "reasoning": "The extra contribution is the explicit joint enumerator and product-weight generating function; applying the old composition test term by term is not itself either census.",
+        "searches": [
+          "Gould–Grau–Johnson Corollary 2.6(4)",
+          "Resultary commuting-retractions record, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gould–Grau–Johnson §§2.1–2.2 describe exactly the same permissible-pair monoid, with ranks of its elements and products.",
+          "The Resultary commuting-retractions record identifies the commutation graph on composition-idempotents of this same monoid."
+        ],
+        "reasoning": "Counting ordered loops and twice each undirected edge by rank would recover the analogous invariant on retractions, not on all nonautomorphisms. In particular the even nonidentity permutation parameters and the nonconstant nonpermutation parameters are not composition-idempotent.",
+        "searches": [
+          "Resultary: full transformation semigroup End T_n commuting singular endomorphisms joint image rank commuting pairs",
+          "Literature: Gould Grau Johnson End Tn commuting pairs singular endomorphisms joint ranks full transformation semigroup commuting retractions Schein Teclezghi census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed census is the assigned result; the closest distinct same-family hit gives triangles and maximal commuting retraction families, whereas other hits count cliques or pairs in different transformation semigroups."
+        ],
+        "reasoning": "The located retraction counts omit joint image ranks of pairs containing nonidempotent elements and do not give the displayed all-degree bivariate table. The search is not a priority certificate.",
+        "searches": [
+          "Resultary: full transformation semigroup End T_n commuting singular endomorphisms joint image rank commuting pairs"
+        ]
+      },
+      "rationale": "The contribution is a derived two-object invariant, not the known normal form, product, or one-object rank census. The accessible sources support those inputs or give strictly narrower retraction commutation; neither supplies the full parity- and rank-weighted pair census.",
+      "residual_risks": [
+        "The original 1998 full text was not independently accessible; the dissertation was not independently inspected. An earlier exact two-rank enumeration outside the inspected sources is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary support and stronger general structure, not the explicit joint enumeration in the inspected material",
+          "evidence": [
+            "Theorem 2.1(2) classifies the standard family, (3) gives the exceptional family; Lemma 2.5 supplies uniqueness; Corollary 2.6(4) gives exactly the four composition cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.11596v1",
+          "material_read": "Abstract; Theorem 2.1 and image/rank discussion; Lemma 2.5 and Corollary 2.6 including product justification",
+          "method": "Open arXiv full-text sections",
+          "title": "The structure of End(T_n)",
+          "trigger": "Same monoid, rank and product rules"
+        },
+        {
+          "assessment": "Exact retraction restriction, not the proposed joint census",
+          "evidence": [
+            "The vertices exclude the unit and require F²=F; the listed edges are among the two distinguished maps per fiber, odd-parameter retractions, and the constant identity-valued map."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-commuting-retractions-of-finite-full-transformation-semigroups-a--eb9b8639e24b/RESULT.md",
+          "material_read": "Finding, definition of vertices and complete graph edge list",
+          "method": "Published record via local mirror",
+          "title": "Commuting retractions of finite full transformation semigroups: a rooted-fiber graph and exact triangle enumerator",
+          "trigger": "Same rooted-fiber commutation graph restricted by composition-idempotence"
+        },
+        {
+          "assessment": "Classification known; priority comparison with the original text incomplete",
+          "evidence": [
+            "Theorem 2.1 explicitly attributes the normal form to Schein–Teclezghi."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-98-04764-9",
+          "material_read": "The classification as explicitly restated and credited in Theorem 2.1 of Gould–Grau–Johnson; no original full text obtained",
+          "method": "Checked open restatement and attempted exact DOI retrieval",
+          "title": "Endomorphisms of finite full transformation semigroups",
+          "trigger": "Original classification and enumeration of the same monoid"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonunit ideal and image ranks are intrinsic. The all-n enumerator separates the contribution of nonidempotent strata and gives an explicit formula for ordered-pair commutation by two ranks, a usable input for rank-stratified commuting probabilities. This is more than a rank-count restatement or numerical census for a single degree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

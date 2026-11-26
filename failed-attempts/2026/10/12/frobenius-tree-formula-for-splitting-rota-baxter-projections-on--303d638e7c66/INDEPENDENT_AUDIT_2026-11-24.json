@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:20:14.328163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an idempotent projection the weight-minus-one identity is equivalent to closure under multiplication of both image and kernel, in either characteristic. After splitting, each nonunital subalgebra of a coordinate algebra has a basis of indicators of disjoint supported blocks: these are the primitive idempotents on its support. A complementary ordered pair gives a red/blue block incidence graph with one extra root for missing support, n labelled coordinate edges and n+1 vertices. Its indicator matrix, with column signs changed on one color, is the incidence matrix with the root column removed. This is full rank exactly when the graph is connected, hence a tree; for a tree one may see full rank over any characteristic by successively removing leaves. Labelling each non-root vertex by its parent edge is equivariant. Over a finite splitting field, Frobenius descent therefore amounts to invariance of this tree and its colors. A parent of a d-cycle maps to the root or to a distinct e-cycle with e|d, with e equivariant choices in the latter case. A cycle in the quotient cannot reach root, and if the quotient reaches root then so does every coordinate. Alternating colors contributes exactly two choices for each quotient edge into the root. The directed matrix-tree determinant hence has the stated row Laplacian; its degree-ordered diagonal block is (2+s_d+d*r_d)I-dJ, with determinant (2+s_d)(2+s_d+d*r_d)^(r_d-1). This integer argument is independent of the base characteristic and counts operators, not conjugacy classes. A fresh finite check enumerated all linear maps and tested the identities on basis elements, obtaining F2 counts 432, 12, 32 for degrees (1,1,1,1), (2,2), (1,1,2), and F3 counts 50, 6, 2 at (1,1,1), (1,2), (2). Replay with python3 /workspace/branches/independent_checks.py 5. These tests corroborate the proof; the uploaded checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner p. 2 defines the normalized cycle-index coefficient as the number of fixed labelled structures divided by the centralizer factor prod_d d^(c_d)c_d!. Theorem 1 gives that coefficient explicitly, not just its recursion. Multiplying by the centralizer factor, the count of rooted trees fixed by cycle type c with c_1>0 is c_1^(c_1-1) times prod_{d>1,c_d>0} (sum_{e|d,e<d} e*c_e)(sum_{e|d} e*c_e)^(c_d-1)."
+        ],
+        "reasoning": "This supplies exact data for any prescribed permutation cycle type with at least one fixed vertex; it is not restricted to Frobenius or the identity. To use it here, set c_1=r_1+2 to include the two specified fixed roots and c_d=r_d for d>1. This retains all original proper-divisor contributions and increases each d>1 proper-divisor sum by exactly 2.",
+        "searches": [
+          "Stephan G. Wagner, On an identity for the cycle indices of rooted tree automorphism groups, p. 2, Theorem 1 (Labelle's Corollary A2)"
+        ]
+      },
+      "checked_sources": [
+        "Wagner, Electronic Journal of Combinatorics 13 (2006), N14, Theorem 1",
+        "Gubarev arXiv:1811.08219v1",
+        "OEIS A007830",
+        "Resultary indexed records 68608c1caf70 and 8dc86f8c6c1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every invariant unrooted tree has exactly c_1 fixed root choices. The c_1 fixed vertices of an invariant tree induce a connected subtree since the unique path between any two of them is fixed pointwise. Hence there are c_1-1 fixed-vertex edges per tree. The permutations of the c_1 fixed labels commute with the prescribed permutation and act transitively on their unordered pairs, so a prescribed fixed edge occurs in the fraction (c_1-1)/binom(c_1,2)=2/c_1 of the invariant trees."
+        ],
+        "reasoning": "Divide Labelle's rooted count by c_1, then multiply by 2/c_1 to impose the edge br. The leading factor becomes 2*c_1^(c_1-3)=2*(2+r_1)^(r_1-1), with value 1 if r_1=0. Every remaining factor is (2+s_d)(2+s_d+d*r_d)^(r_d-1), exactly the frozen product. This mechanical specialization after descent and the two-root equivalence covers the entire claimed finite étale count; there is no new enumeration left once these prior inputs are applied.",
+        "searches": [
+          "Wagner, published PDF p. 2, Theorem 1 and the preceding normalization",
+          "Gubarev arXiv:1811.08219v1, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gubarev Theorem 2 relates splitting maps to properly two-colored rooted trees. The tree construction is equivariant for coordinate permutations, as follows directly from using indicators of coordinate blocks and parent-edge labels. The Frobenius action therefore gives permutation-fixed colored trees. The Labelle theorem counts permutation-fixed rooted trees by arbitrary cycle type with a fixed vertex."
+        ],
+        "reasoning": "Replace the uncolored root by two labelled fixed vertices b,r joined by an edge, attaching each former root child to the vertex of its own color. Deleting that edge and alternating colors outwards from b and r recovers the colored tree; identifying b and r recovers the original root. The bijection is equivariant. Thus the frozen invariant equals the number of unrooted labelled trees fixed by the extended permutation and containing the prescribed edge br (equivalently invariant forests with these two specified roots).",
+        "searches": [
+          "Gubarev arXiv:1811.08219v1, Theorem 2",
+          "labelled trees fixed by a prescribed permutation with fixed points and invariant rooted forests with prescribed roots",
+          "rooted-tree species cycle index explicit coefficients and Lagrange inversion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A007830 gives a(m)=(m+3)^m, hence 2a(n-1) equals the split count 2(n+2)^(n-1); its interpretation includes rooted forests. Gubarev's Table 1 displays the same split expression with a question marker, not a proof. The Resultary 68608c1caf70 record proves a rank-refined split count and totals to that exact number; 8dc86f8c6c1c treats all nonzero-weight operators on split algebras."
+        ],
+        "reasoning": "The indexed rank-refined split case applies to r_1=n, but does not treat arbitrary nontrivial Frobenius cycle types, and its indexed date is later than the bound record. The exact all-cycle-type prior coverage comes instead from the coefficient table in the published cycle-index theorem, under the equivariant bijection and calculation here.",
+        "searches": [
+          "OEIS A007830",
+          "Gubarev arXiv:1811.08219v1, Table 1",
+          "Resultary searches for finite étale, Frobenius-equivariant trees and splitting projection counts"
+        ]
+      },
+      "rationale": "The full product, not just the split case, follows from the known split colored-tree classification and Labelle's exact fixed-tree cycle-index formula (Wagner 2006, Theorem 1), by Frobenius descent and adjoining two fixed root labels. This is positive prior-coverage evidence for the enumerated invariant, not an inference from a search miss or a later split record. The count is correct, but the frozen record omits the stronger combinatorial antecedent.",
+      "residual_risks": [
+        "The original 1986 Labelle chapter and the 1990 Constantineau–Labelle paper were identified through Wagner's citations rather than independently inspected. The comparison relies on the actual theorem and proof in the available published Wagner text and does not depend on access to those earlier publications or on whether the exact Rota–Baxter wording occurs elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger exact enumeration in combination with equivariant split classification",
+          "evidence": "Theorem 1 explicitly gives the product for the rooted-tree cycle index; the preceding definition identifies its coefficients with fixed-tree counts divided by centralizer factors. The theorem is credited to Labelle's 1986 Corollary A2 and the paper gives a proof.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1n14/pdf",
+          "material_read": "Published PDF p. 2, normalization and Theorem 1, offset 3180–6567; author PDF pp. 2–3 and bibliography entries [3], [8]",
+          "method": "Targeted OA PDF passages; compared coefficient formula and normalized it to fixed-labelled counts",
+          "title": "On an identity for the cycle indices of rooted tree automorphism groups",
+          "trigger": "Potential exact count of permutation-fixed labelled trees underlying the finite étale problem"
+        },
+        {
+          "assessment": "Exact prior colored-tree bijection in the split setting; split count conjectured in this source",
+          "evidence": "Theorem 2 identifies splitting with proper two-coloring of a labelled rooted tree; Table 1 flags 2(n+2)^(n-1) as a count still to be proved there.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.08219v1",
+          "material_read": "PDF p. 6, Theorem 2 (offset 18173), and p. 7, Table 1 and preceding text (offset 21604)",
+          "method": "Targeted OA PDF passages",
+          "title": "Rota–Baxter operators on a sum of fields",
+          "trigger": "Prior split classification for descent and split numerical count"
+        },
+        {
+          "assessment": "Exact split sequence up to offset and factor; not the full cycle-type formula",
+          "evidence": "a(m)=(m+3)^m, so with m=n-1 the split count is 2a(m); nonidentity cycle types are not supplied by this sequence.",
+          "identifier_or_url": "https://oeis.org/A007830",
+          "material_read": "Formula, generating-function and forest interpretation entries",
+          "method": "Targeted OA webpage passages",
+          "title": "OEIS A007830",
+          "trigger": "Exact split expression and forest interpretation"
+        },
+        {
+          "assessment": "Substantive overlap on split forms only, not the basis of the prior-coverage verdict",
+          "evidence": "Gives a rank-refined count and totals it as 2(n+2)^(n-1) for products F^n; it takes the colored-tree correspondence as known.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rank-refined-splitting-rota-baxter-operators-on-products-of-fiel--68608c1caf70",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local record mirror",
+          "title": "Rank-refined splitting Rota–Baxter operators on products of fields",
+          "trigger": "Closest indexed overlap with splitting counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Finite étale Rota–Baxter splitting counts are a natural invariant, and the short matrix-tree proof can be useful exposition. But the asserted contribution is the exact count, which imports no new enumerative data beyond the known fixed-tree formula once the prior equivariant split correspondence is descended. The two fixed root labels and elementary fixed-edge averaging recover every factor. The record does not establish another distinct structural or quantitative result beyond this consequence, so it does not supply an independently valuable new exact invariant as framed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

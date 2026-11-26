@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:58:44.291722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tooth Laplace problem b_0=1 has characteristic resolvent 2cosh θ=2+s and reflecting ghost b_{H+1}=b_H, so b_1 is exactly the half-integer cosh ratio even when H=1. Back-substitution at a backbone vertex gives 2cosh γ=s+3−b_1; on the left half-line only the decaying root is compatible with the bounded hitting transform and f_L=1. No trajectory from the start can pass that backbone coordinate without hitting its target vertex. An attempt has success probability exp(−Lγ) and mean duration (1−exp(−Lγ))/r, giving the renewal MFPT. For s=u/L⁴ the cosh difference gives L²(1−b_1)→√u tanh(κ√u); the direct backbone term L²s vanishes and arcosh then gives the claimed exponent. For u=v/κ the argument of tanh tends to zero and the exponent tends to √v; the large-κ exponent follows by saturation. At fixed κ>0 the profile diverges at both u endpoints, hence has a positive finite interior minimum. Neither convergence of finite-model optimizers nor uniqueness is implied. Inspected the frozen verification code and the recorded 21 tests, not rerun; finite truncation is approximate, and the limit rests on the analytic expansion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Méndez et al. Fig. 2 and Eqs. (2.17)–(2.24) have two branches, jump probabilities 1/4 at the junction, and a shared wait transform; Eq. (3.7) is the finite-tooth diffusion coefficient. Singh et al.'s first-passage Eq. (49) uses Δ_r=√(1+4rD_y/U_0²) for a continuum |y| potential. The 2023 article treats reset mechanisms via transport/MSD."
+        ],
+        "reasoning": "These results supply transport and reset-renewal machinery or endpoint regimes. Replacing the potential by reflection and imposing the stated rates at the backbone and tooth tip changes the Laplace boundary problem. The inspected symmetric CTRW transport formula is not the exact discrete transition model under a single time rescaling (the degrees at the capped tip, tooth interior and junction are different).",
+        "searches": [
+          "Méndez et al. arXiv:1509.01670, finite-branch response §II and diffusivity §III.A",
+          "Singh et al. arXiv:2105.08112, §4",
+          "Entropy 25 (2023) 1529"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Resultary exact-formula and model comparisons including 48ae89892e37 and d68cd16f9ad1",
+        "arXiv:1509.01670",
+        "arXiv:2105.08112",
+        "DOI 10.3390/e25111529",
+        "DOI 10.1103/PhysRevResearch.2.033027 access check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary resetting maps a no-reset hitting transform to (1−φ)/(rφ), already standard. The finite branch resolvent in the two-sided CTRW is for different local dynamics. The continuum confining MFPT exponent goes from r^{1/2} to r^{1/4} across regimes but is not proportional to r^{1/4}√tanh(κ√u) across finite κ."
+        ],
+        "reasoning": "The endpoint exponents and general renewal structure are not claimed as independent novelties. The discrete proof controls the actual tooth return response on the joint L and H scale; taking the fixed-cap or infinite-cap limit first would lose κ. No full prior implication was verified.",
+        "searches": [
+          "Méndez et al. Fig. 2, Eqs. (2.17)–(2.24), (3.7)",
+          "Singh et al. PDF pp. 13–15, Eq. (49)",
+          "48ae89892e37 Proof §1 Eq. (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the frozen target itself as its strongest exact match. Record 48ae89892e37, Proof §1 Eq. (1), independently displays the identical single-tooth cosh ratio in its formula for excursions under local returns; it studies a different observable and bears a later date."
+        ],
+        "reasoning": "The tooth ratio is a local Laplace transform; it is not, on its own, a law for the infinite backbone search under global resetting. Same-day record d68cd16f9ad1 concerns local returns, stationary drift and random branch lengths, not uniform reflecting teeth and target search.",
+        "searches": [
+          "Resultary queries for finite or capped tooth comb, exact reset MFPT and H/L² crossover",
+          "Literature queries on finite capped combs and stochastic resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact title refers to this frozen record. The same local tooth transform is printed in Resultary 48ae89892e37, while the closest independent search MFPT equation uses a square-root potential term rather than a reflecting-cap tanh term."
+        ],
+        "reasoning": "This is a parametric symbolic law rather than a commonly catalogued finite table; the relevant exact searches are formula and model comparisons. A local-factor match or endpoint match does not supply the two-parameter finite-search profile.",
+        "searches": [
+          "Resultary exact formula/parameter regime queries for e58c8db9e71c, capped combs and global reset search",
+          "Primary equation comparison with arXiv:1509.01670 §II and arXiv:2105.08112 Eq. (49)"
+        ]
+      },
+      "rationale": "Credit the standard restart identity, effective waiting-time reduction, and previously studied normal/anomalous endpoints. The distinct result supported here is the normalized single-target crossover for the discrete one-sided, unit-edge-rate, reflecting comb in the simultaneous H/L² limit, with its exact finite-L,H input. The closest finite-tooth transport formulas use a different junction and holding-time model, and the closest explicit reset-search formula uses a different confining impedance. No inspected stronger statement gives the complete frozen law by specialization. This is a bounded assessment, not a priority finding.",
+      "residual_risks": [
+        "Full text was not available for the 2020 three-dimensional comb paper in the attempted retrieval. Finite-cap first-passage asymptotics may also be indexed under effective waiting-time or continuum boundary-kernel formulations. The checked comparisons do not prove historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive finite-branch reduction, different local holding dynamics and no compared reset-target joint law",
+          "evidence": [
+            "Shared φ₀(s), two branches and uniform junction probabilities; derives effective backbone wait transform."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.01670",
+          "material_read": "§II pp.3–4 Fig. 2 and Eqs. (2.17)–(2.24), text offsets 22000 and 25072; §III.A Eq. (3.7)",
+          "method": "OA primary PDF text",
+          "title": "Mesoscopic description of random walks on combs",
+          "trigger": "Closest exact finite-branch transport transform"
+        },
+        {
+          "assessment": "Same renewal form; different geometry and resolvent",
+          "evidence": [
+            "Absorbing boundary for backbone marginal; exponent involves √(U₀(√(1+4rD_y/U₀²)−1)/D_x) times distance, not a reflecting cap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.08112",
+          "material_read": "PDF §4 pp.13–15 and Eq. (49); HTML Eq. (56)",
+          "method": "OA primary PDF/HTML text",
+          "title": "Backbone diffusion and first-passage dynamics in a comb structure with confining branches under stochastic resetting",
+          "trigger": "Closest explicit reset-search law and anomalous/normal endpoints"
+        },
+        {
+          "assessment": "The inspected scope is transport/MSD, not exact target MFPT; no whole-text exclusion claimed",
+          "evidence": [
+            "Studies global and finger-to-backbone resetting via displacement."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e25111529",
+          "material_read": "OA repository PDF p.1 abstract",
+          "method": "Lawful OA PDF text",
+          "title": "Random Walks on Comb-like Structures under Stochastic Resetting",
+          "trigger": "Resetting on comb geometry"
+        },
+        {
+          "assessment": "Later-dated local factor overlap, not prior target-search coverage",
+          "evidence": [
+            "Half-integer cosh ratio is applied to local-return excursion lifetime on a random comb."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-sharp-tail-thresholds-for-transport-restored-by-local-resett--48ae89892e37/RESULT.md",
+          "material_read": "Proof §1 Eq. (1)",
+          "method": "Local mirror primary text",
+          "title": "Two sharp tail thresholds for transport restored by local resetting",
+          "trigger": "Exact same reflecting-tooth factor"
+        },
+        {
+          "assessment": "Different resetting, disorder and stationary drift observable",
+          "evidence": [
+            "Biased comb with geometric branch lengths and weak local returns, not a backbone target search."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-nonanalytic-reset-onset-and-log-periodic-mobility-in-a-disordere--d68cd16f9ad1/RESULT.md",
+          "material_read": "Primary finding comparison on model and transport observable",
+          "method": "Local mirror primary text",
+          "title": "Nonanalytic reset onset and log-periodic mobility in a disordered comb",
+          "trigger": "Distinct same-date comb resetting result"
+        },
+        {
+          "assessment": "Full text unavailable in attempted access; not a basis for excluding coverage",
+          "evidence": [
+            "Indexed description concerns a three-dimensional comb."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.2.033027",
+          "material_read": "Indexed result and access attempts only",
+          "method": "Literature search and bounded OA retrieval attempts",
+          "title": "Stochastic resetting on comblike structures",
+          "trigger": "Potential overlap with reset comb dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nontrivial finite-κ profile resolves the regime in which the reflecting cap is neither negligible nor fully sampled during a reset attempt. It gives a quantitative search-time benchmark at precisely H comparable to L², where choosing either the usual normal or anomalous endpoint alone gives the wrong prediction. The exact lattice boundary response and the controlled simultaneous limit are the useful contribution, not the textbook resetting identity or an unsupported claim about optimizer convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

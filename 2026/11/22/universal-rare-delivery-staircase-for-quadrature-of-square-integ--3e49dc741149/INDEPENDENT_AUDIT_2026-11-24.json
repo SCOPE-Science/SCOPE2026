@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:21:59.983358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an interval between successive delivered times, partition its Lévy increment into equal exchangeable pieces conditional on their total. Summing these conditional means and taking an L² limit gives the interpolating bridge mean. The other observed increments are independent of this segment. The centered integral has variance vd³/3 and covariance vd²/2 with the total of variance vd, giving bridge residual variance vd³/12; on the free terminal gap the independent residual has variance vd³/3. Zero gaps add nothing, and conditioning on the revealed independent delivery subset gives the stated exact mixture. For every p>0 the all-delivered term is strictly convex in the injective gap vector, proving global uniqueness. At p=1 its stationarity equations give standard gaps twice the final gap. At small p the singleton Hessian uniformly supplies curvature of order p, while the gradient at co-location is O(p²); the convexity inequality thus localizes the minimizer to O(p) despite co-location being on the ordered boundary. Expanding uniformly there gives the quadratic with linear coefficient −(2i−n−1)/9 in coordinate i: completing the square proves both the spacing and the n(n²−1)/486 gain. The ordered offsets are admissible, n=1 is exactly the singleton problem, and p=0 is excluded. A separate algebra replay gives p³/81+O(p⁴) improvement at 2/3±p/9 for n=2. Inspected RESULT.md lines 25–76, VERIFICATION.md, check.py and check_output.txt; 102 assertions are the recorded finite check, not a rerun or a proof. The expansion holds for fixed n only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cui–Chronopoulou Eq. (1) integrates the squared pointwise error; the frozen objective squares the integral error.",
+          "Sun–Polyanskiy–Uysal-Biyikoglu use causal tracking over a random-delay queue, not a fixed retrospective batch.",
+          "849744f935dc concerns pinned bridge path reconstruction, not its integrated functional."
+        ],
+        "reasoning": "More general process classes or delivery mechanisms with incompatible targets do not dominate the stated risk theorem. The inspected pinned erasure-integral law does not allow an unpinned right endpoint.",
+        "searches": [
+          "arXiv:1701.06734; arXiv:2304.07661v1; arXiv:2005.07591",
+          "Resultary 849744f935dc"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py, check_output.txt",
+        "Resultary 9fdef871a456, 47f6c01bcecf, 849744f935dc",
+        "arXiv:1701.06734, 2005.07591, 2304.07661v1, math/9304216"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinned expansion: (1/4)Σyᵢ²−(1/16)Σᵢ<ⱼ(yⱼ−yᵢ); free expansion: (1/2)Σyᵢ²−(1/9)Σᵢ<ⱼ(yⱼ−yᵢ), centered at a different physical point.",
+          "The Lévy bridge contribution and free-tail residual must be combined before optimization, and the exact independent-subset loss changes with that boundary."
+        ],
+        "reasoning": "The pinned proof is directly adaptable and limits methodological novelty, but the pinned theorem itself does not imply the changed risk or its sharp optimization. The stated advantage is not a restatement of the p=1 Wiener case.",
+        "searches": [
+          "9fdef871a456 local mirror RESULT.md Proof §4, offset 4600",
+          "arXiv:math/9304216 §3 Theorem 1",
+          "Frozen RESULT.md lines 36–76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9fdef871a456, Proof §§1 and 4: at success probability r the pinned problem clusters about 1/2 with adjacent spacing r/4, from coefficients 1/4 and 1/16 in its limiting quadratic and spread terms.",
+          "47f6c01bcecf, Finding/Assumptions: exact pinned two-sensor integral design with correlated delivery, including the independent specialization."
+        ],
+        "reasoning": "Conditioning on the known terminal endpoint in a bridge is not a reparameterization of an unobserved endpoint in the free problem. Last-gap weight 1/12 versus 1/3 changes the singleton center and the rare-delivery quadratic; independent delivery in the two-sensor pinned law does not cure the distinction.",
+        "searches": [
+          "Resultary: Brownian bridge quadrature, high dropout and erased observations; 9fdef871a456, 47f6c01bcecf",
+          "optimal sampling times numerical integration Wiener process Brownian motion integral random missing observations Bernoulli erasure stochastic quadrature best design path integral subset missing data"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed designs give pinned midpoint 1/2 and r/4 spacing, not free 2/3 and 2p/9 spacing with n(n²−1)/486 gain.",
+          "arXiv:math/9304216 §3 Theorem 1 includes classical one-dimensional Wiener integration complexity but gives no exact rare-erasure design or gain in the inspected result."
+        ],
+        "reasoning": "An exact design table would need the unobserved terminal boundary and Bernoulli mixture. No such table was found; perfect-delivery Wiener quadrature is background, not the priority basis.",
+        "searches": [
+          "Resultary: high-dropout spacing and exact two-sensor Brownian-bridge quadrature",
+          "Wiener measure optimal quadrature Brownian motion average case numerical integration optimal knots sample times Lee Wasilkowski integral Brownian motion"
+        ]
+      },
+      "rationale": "The pinned Brownian-bridge erasure problem is the strongest verified structural overlap, including the very same singleton-curvature/pair-spread mechanism, but it does not cover the free terminal gap or the specified Lévy theorem. Pass is for the free-terminal all-Lévy formulation and its sharp rare-delivery design and gain, not for introducing bridge quadrature, erasure design, or the general staircase proof mechanism.",
+      "residual_risks": [
+        "A general weighted-terminal gap theorem or older stochastic-quadrature/sensor-erasure work could subsume the specialization; the search was targeted, not exhaustive.",
+        "The equally dated pinned bridge result materially overlaps in proof structure; no priority ordering is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong structural overlap, different endpoint information; same-date indexing establishes no chronology",
+          "evidence": "Equal 1/12 gaps, midpoint 1/2, spacing r/4 from the displayed limiting quadratic.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-high-dropout-spacing-law-for-brownian-bridge-quadrature--9fdef871a456",
+          "material_read": "Finding, Assumptions, Proof §§1 and 4, offset 4600 for the expansion",
+          "method": "Local Resultary mirror",
+          "title": "Universal high-dropout spacing law for Brownian bridge quadrature",
+          "trigger": "Same batch, erasures and integral target"
+        },
+        {
+          "assessment": "Pinned two-node case only",
+          "evidence": "Known bridge endpoints; correlated deliveries include the independent case.",
+          "identifier_or_url": "47f6c01bcecf",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-sensor Brownian bridge quadrature under correlated observation losses",
+          "trigger": "Exact erased-observation integrals"
+        },
+        {
+          "assessment": "Different loss",
+          "evidence": "Integral of pointwise reconstruction error, not MSE of a scalar integral.",
+          "identifier_or_url": "849744f935dc",
+          "material_read": "Finding, Assumptions and opening Proof",
+          "method": "Local Resultary mirror",
+          "title": "Exact optimal sampling for Brownian bridge path reconstruction",
+          "trigger": "Nearby erasure-design record"
+        },
+        {
+          "assessment": "Causal tracking, not this objective or design",
+          "evidence": "Queue, sampling-rate constraint and real-time estimation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.06734",
+          "material_read": "Page 1 abstract and introduction",
+          "method": "OA PDF passage",
+          "title": "Remote Estimation of the Wiener Process over a Channel with Random Delay",
+          "trigger": "Cited unreliable Wiener sampling"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Aggregate distortion E∫(Xₛ−X̂ₛ)²ds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.07661v1",
+          "material_read": "Abstract and §2 Eq. (1)",
+          "method": "OA PDF passage",
+          "title": "Optimal Sampling for Estimation of Fractional Brownian Motion",
+          "trigger": "Deterministic finite-budget sampling search hit"
+        },
+        {
+          "assessment": "Prior Wiener integration, not rare independently erased readings",
+          "evidence": "Average-case complexity orders and a randomized information design.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9304216",
+          "material_read": "§3 Theorem 1 and its d=1 comparison",
+          "method": "OA PDF offset passage",
+          "title": "Integration and approximation of multivariate functions: average case complexity",
+          "trigger": "Classical Wiener quadrature search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The free terminal gap is essential when the endpoint is not observed. The result quantitatively distinguishes redundant co-location from diversification for a natural loss: the first-order node offsets and the nonzero third-order risk gain for n≥2 are sharp, and one design works across the square-integrable Lévy class. This is useful even though the optimal-design method is close to the pinned analogue and the result is not a claim about adaptive channels or growing budgets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

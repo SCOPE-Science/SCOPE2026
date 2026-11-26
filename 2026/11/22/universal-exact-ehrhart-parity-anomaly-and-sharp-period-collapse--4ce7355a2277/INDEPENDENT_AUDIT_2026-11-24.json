@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:45:49.534080Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixing one coordinate at zero leaves the bipartite path constraints plus unit rows; signing columns by the bipartition identifies the edge rows with an oriented incidence transpose, so the face vertices are integral. A strictly positive vertex must solve all d independent tight equations. The adjacent-sum matrix has determinant 2 and its integer image is the even-coordinate-sum sublattice, so exactly the strictly positive all-tight point with odd capacity sum can give a fractional vertex. A feasible all-tight point with a zero coordinate belongs to an integral face, not to this exceptional case. In slack coordinates the exceptional cone has integer points precisely at nonnegative integer slacks with total parity q. The two parity characters yield the displayed rational cone series; subtraction of the symbolic even and odd terms leaves a germ regular at zero with value 2^-d. To make the Brion argument precise, restrict the rational exponential functions to a generic one-dimensional line through zero and take the Laurent constant term. At integral vertices the only dilation dependence is exp(q<v,z>), giving a polynomial constant term independent of parity. The same holds for the untwisted exceptional-cone term, so the regular germ determines the global difference. The vertex denominator divides two, so nonzero difference forces minimal period two. The alternating formulas satisfy the cyclic equations, have minimum (s-m+1)/2, and odd capacity sum precisely at s congruent to m mod 2. The frozen checker and verification notes were read, not executed. A fresh integer-count and exact rational interpolation spot check confirmed four capacity regimes in d=3 and the sequence 0,1/32,0,1/32 at alternating d=5, s=1,2,3,4; its script and output were saved under branches/f205b12c-26b5-4ae2-a417-8c1c36c6b69a/ehrhart_spotcheck.py and ehrhart_spotcheck.txt. These finite checks do not replace the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang–Yang–Zhong Eq. (2) and pp. 15–16 establish uniform-capacity odd cyclic denominator two and quasiperiod dividing two",
+          "Zhou Theorem 1.3 counts the alternating cyclic family at one dilation as dimension varies; Theorem 1.4 treats Ehrhart dilations of paths",
+          "Jiang–Wen–Zhong discuss cyclic closure for counts, not the fixed-dimensional exact cyclic parity classification in inspected pp. 1, 4, 19"
+        ],
+        "reasoning": "A denominator bound does not settle period collapse or amplitude. A dimension-generating function at one dilation and a path Ehrhart formula do not give fixed-dimensional cyclic constituents; in Zhou's one-unit alternating pattern dilation multiplies the capacity gap by q.",
+        "searches": [
+          "arXiv:2607.22008, cyclic blocks and quasiperiod",
+          "arXiv:2611.15122v2, alternating cyclical transfer matrices and Ehrhart theorem",
+          "arXiv:2607.14887, closing cyclic constraints"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md and checker.py",
+        "Resultary c9d98c9238ae and 07db4c50a94d",
+        "arXiv:2611.15122v2, 2607.14887, 2607.22008, 1603.09613, inspected passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old unit-bound argument covers the twisted contribution when a fractional all-tight vertex is present; its parameters do not cover whether that corner disappears or becomes integral as the RHS varies",
+          "The new proof establishes the arbitrary-RHS vertex dichotomy and uses it to resolve the precise joint geometric and arithmetic criterion",
+          "The pendant theorem's additional variables and matching-count difference do not imply this dichotomy"
+        ],
+        "reasoning": "The constant follows by adapting the same parity-cone mechanism, not by merely substituting parameters in the older statement. Showing the presence or absence of that cone for variable integral RHS and deriving the alternating collapse threshold are separate mathematical steps. The published transfer matrices give enumeration machinery, not that classification.",
+        "searches": [
+          "Resultary c9d98c9238ae, proof of parity cone and scope",
+          "Zhou arXiv:2611.15122v2 Theorems 1.3–1.4 and §2.3",
+          "Resultary 07db4c50a94d Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For b identically one this is the fractional stable-set polytope of an odd cycle in HHO, and c9d98c9238ae at block size one has exactly the same 2^-d gap",
+          "Reindexing the variables as edge weights makes the general inequalities those of an odd-cycle fractional matching with integral vertex capacities; the inspected pendant-edge theorem instead works with attachments and a fractional-vs-integral matching count difference"
+        ],
+        "reasoning": "The unit-capacity rephrasing is genuinely covered, not a separate contribution. A pendant-edge correction for its own matching polytope and count statistic has not been shown equivalent to even-versus-odd dilations for arbitrary capacities of the original cycle.",
+        "searches": [
+          "Resultary semantic search for exact odd-cycle Ehrhart parity and varying edge capacities",
+          "arXiv:1603.09613, fractional stable-set polytope",
+          "Resultary 07db4c50a94d, odd-cycle fractional matching with pendant edges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c9d98c9238ae gives the exact unit-capacity special case and already isolates a parity cone",
+          "HHO gives an Ehrhart-series theorem for FRAC(G) with unit edge bounds and lists odd-cycle examples in Example 3.3"
+        ],
+        "reasoning": "The relevant exact formula and table coverage is unweighted. A sequence lookup for one fixed capacity vector would not cover the variable-RHS iff classification; no novelty assigned to recomputing those special cases.",
+        "searches": [
+          "Resultary exact parity/quasiperiod catalogue lookup for odd cyclic blocks",
+          "Hamano–Hibi–Ohsugi arXiv:1603.09613 Theorem 3.1 and Example 3.3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the arbitrary-positive-integral-capacity classification on an odd cycle, including exactly when the periodic term vanishes and the alternating threshold. The constant anomaly in the unit example, the parity filter method, and the previously known odd-cycle quasiperiod upper bound are credited, not claimed as new.",
+      "residual_risks": [
+        "The literature comparison does not establish priority for all formulations, especially integer vertex-capacitated fractional matching",
+        "The finite spot checks do not certify universal claims; the proof uses Brion's theorem and standard total unimodularity"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the block-size-one unit-capacity theorem and parity-cone mechanism, not the weighted criterion",
+          "evidence": [
+            "At block size one the constituent difference is precisely 2^-d with unit capacities"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-parity-degree-and-minimal-quasiperiod-of-odd-cyclic-block--c9d98c9238ae",
+          "material_read": "Finding and parity proof, offsets 0–2926 and 6646–9859",
+          "method": "Resultary local mirror",
+          "title": "Exact parity degree and minimal quasiperiod of odd cyclic block polytopes",
+          "trigger": "Strongest exact overlap for odd cyclic bounds"
+        },
+        {
+          "assessment": "Cyclic one-dilation counts and a path Ehrhart theorem; not cyclic parity",
+          "evidence": [
+            "Theorem 1.3 generates cyclic counts in dimension; Theorem 1.4's dilated P_d^(s) uses path constraints i<=d-1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15122",
+          "material_read": "v2 introduction p. 1, Theorems 1.3–1.4 p. 3, §2.3 p. 16",
+          "method": "Primary OA full text",
+          "title": "Ehrhart Series and Transfer Matrices for Period-Two Polytopes with Consecutive Inequalities",
+          "trigger": "Same alternating cyclic family"
+        },
+        {
+          "assessment": "Relevant counting method, no exact cyclic parity classification in the inspected passages",
+          "evidence": [
+            "Cyclic closure is used to enumerate lattice points; the fixed-dilation statements do not give the assessed constituent difference"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.14887",
+          "material_read": "Abstract and cyclic-count passages, pp. 1, 4, 19",
+          "method": "Primary OA full text",
+          "title": "Alternating adjacent-sum polytopes: transfer matrices and Ehrhart series",
+          "trigger": "Transfer matrices with alternating capacities and cyclic closure"
+        },
+        {
+          "assessment": "Known uniform-capacity denominator and period bound, not exact amplitude or varying-capacity phase diagram",
+          "evidence": [
+            "Odd cyclic denominator two and Ehrhart quasiperiod dividing two"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.22008",
+          "material_read": "Eq. (2) p. 3, proof and summary pp. 15–16",
+          "method": "Primary OA full text",
+          "title": "Transfer Matrices and Ehrhart Theory for Path and Cyclic Block Polytopes",
+          "trigger": "Primary source for known odd cyclic period bound"
+        },
+        {
+          "assessment": "The graph class is broader, but capacities are fixed at one",
+          "evidence": [
+            "Unit edge bounds in FRAC(G), general Ehrhart-series formula and odd-cycle entries"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.09613",
+          "material_read": "FRAC(G) definition, Theorem 3.1 p. 7 and Example 3.3 p. 8",
+          "method": "Primary OA full text",
+          "title": "Ehrhart series of fractional stable set polytopes of finite graphs",
+          "trigger": "Graph-polytope alias and exact Ehrhart results for arbitrary graphs"
+        },
+        {
+          "assessment": "Different graph assumptions and different counting statistic; no chronology inferred",
+          "evidence": [
+            "Uses at least one pendant edge and compares lattice-point counts of fractional and ordinary matching polytopes; treats bare cycles as a known base case"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-simplex-and-ehrhart-parity-correction-for-pendant-de--07db4c50a94d",
+          "material_read": "Finding through offset 4881 and further proof/comparison through offset 7881",
+          "method": "Resultary local mirror",
+          "title": "A universal simplex and Ehrhart parity correction for pendant-decorated odd cycles",
+          "trigger": "Same-day parity correction in a related matching polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a complete and directly usable test for polynomial versus exact period-two counting on a natural weighted cyclic family, and the amplitude when period two survives. It distinguishes feasibility of a geometric corner from its arithmetic integrality, resolves the sharp alternating threshold, and requires no interpolation to predict collapse. This goes beyond recomputing a unit example or bounding the period by the denominator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

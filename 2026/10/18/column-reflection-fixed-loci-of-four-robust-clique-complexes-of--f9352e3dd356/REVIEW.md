@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from an explicit PL identification of reflection-fixed barycentric coordinates with the orbit complex. In the odd case, the classification of invariant faces by singleton middle-column vertices and two-vertex reflected pairs proves that the central middle-row singleton is a cone vertex. In the even case, König's equality reduces faces of six original vertices to perfect matchings. Parity of matching edges across the reflection axis gives a complete list of two- and three-orbit faces. This list is the join of three isolated points with a connected smaller grid, plus exactly three new edges and seven triangles. Three edge/triangle pairs collapse; four null-attached remaining triangles each yield a sphere. The join contributes \(4h-8\) more two-spheres for \(n=2h\), for a total of \(2n-4\). Exact independent enumerations and mod-two homology computations for \(3\le n\le40\) agree, but the all-width argument does not rely on enumeration.
+## correctness
 
-## Originality — PASS, with residual risk
-The full accessible text of Filakovský's arXiv:2602.11365v1 was compared at the level of definitions, Theorems 1.1–1.2, Corollary 1.3, Conjecture 1.5, and the proofs. It studies ordinary homotopy for \(\(k=2,3\)\), not these \(\(k=4\)\) geometric reflection fixed sets. The closest indexed symmetry results treat three-robust complexes, or matching complexes, not the four-robust fixed orbit complexes. Targeted searches of the literature and published results found no equivalent or more general implication covering the theorem. Absence from search is not proof of uniqueness; an unindexed equivariant extension remains the main residual risk. Finite nonequivariant classifications for the first few three-row widths do not imply their pointwise reflection-fixed topology.
+PASS
 
-## Mathematical value — PASS
-The newly introduced four-robust clique complexes are the first grid parameter beyond the source's general proved cases. Their ordinary homotopy type is part of an open program; the theorem instead determines their entire geometric reflection-fixed homotopy type in a natural infinite family. It exhibits a sharp odd/even cone-to-two-sphere-wedge transition, gives exact integral fixed-space homology, and supplies a computable nonzero reflection Lefschetz invariant at even widths. The geometric fixed spaces are not determined by ordinary Betti numbers and the computation does not require the outstanding full-complex conjecture.
+Equal barycentric coordinates within reflection orbits identify the geometric fixed locus with the orbit complex, including fixed points inside permuted simplices. A bipartite face uses at most six vertices and its independence number is its size minus its matching number. For odd n, the center singleton in the middle row is a cone point. With zero or one off-axis orbit, sets needing an edge after adjoining it acquire a central vertical edge, and the case of both outer central singletons and one off-axis orbit uses a second edge to that orbit. With two off-axis orbits and zero or one outer central singleton, admissibility requires adjacent off-axis orbits; there is then a matching edge in each half, and a central matching edge if needed. Two off-axis orbits and both outer central singletons cannot be perfectly matched: after matching each central endpoint into its own row the unused vertices are in the nonadjacent outer rows. Three off-axis orbits with no central vertex give two odd halves, so cannot be a face either. For even n=2h, a selected six-vertex set needs a perfect matching with an odd number of axis crossings. One crossing leaves an edge in each folded half; three crossings mean the whole central column of orbit vertices was selected, which also satisfies the one-crossing face test. The resulting complex is the join of three discrete central vertices with the connected off-axis graph, plus three edges and seven triangles. Collapsing three paired edge–triangle additions shows the intermediate space is simply connected; the remaining four disks attach along null loops, adding four S² summands. The join gives two suspensions of a connected graph of cycle rank 2h−4, so the total is 4h−4=2n−4 spheres, including h=2 where that graph is a tree. Barycentric subdivision permits the Lefschetz trace to count fixed simplices, so the reduced Lefschetz number is the fixed Euler characteristic minus one. The all-width proof is integral. Fresh direct orbit-face enumeration and mod-two elimination for 3≤n≤12 found all odd cases to be cones and even beta_2=4,8,12,16,20 with no other reduced Betti numbers, bounded corroboration only. Replay and output: /workspace/branches/109f032f-0243-4981-a430-a9b0c286d4e2/independent_check.py and independent_check_output.txt in the same directory.
 
-## Boundaries
-Only column reversal of \(P_3\square P_n\) with \(n\ge3\) is treated. Finite checks support the proof but are not an infinite certificate. Related papers and indexed results were checked; independent scientific validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the all-width geometric column-reflection fixed-space classification for the three-row four-robust complex. Same-day catalogue work on finite ambient complexes overlaps in object and parameters, not this invariant; nearby fixed-locus work uses the matching complex. At width four an ambient reflection-character entry determines the same reduced Lefschetz number but does not determine the fixed homotopy type. No same-day priority inference is needed.
+
+## value
+
+PASS
+
+Column reversal is a natural involution, and its geometric fixed space is an invariant not recovered from ambient homology. An exact integral homotopy classification for every width, with a parity split and a simple linear sphere count, is useful for equivariant comparisons even without an ambient four-robust classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

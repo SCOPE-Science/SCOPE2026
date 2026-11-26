@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:48:21.623900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kang's Algorithm 1 and §4.1 weight at x_k, linearize at the extrapolate, and use the stated proximal metric. The scalar subproblem derivative yields exactly D(x)Φ(x,y)=(ℓ−a)((1+β)x−βy)+ab, where D(x)=ℓ+2/(1+ρx²)>0. The proximal condition is ℓ>a; the gradient is co-coercive with respect to the scalar metric a in Kang's convention (1/a-cocoercive in the ordinary scalar convention). Fixed points give F′=0. The scaled stationarity map is odd and sign-preserving; its derivative has numerator a w²+(2a−2)w+a+2, w=ρx². Its two positive simple roots for 0<a<1/4 give the stated local maximum and minimum; at a=1/4 the derivative has isolated zeros at w=3 and the map remains strictly increasing, with cusp ordinate 3√3 in absolute value. At equilibrium the characteristic polynomial is λ²−[(1+β)c+s]λ+βc, with c=(ℓ−a)/D in (0,1), s=4ρx²/[D(1+ρx²)²]≥0. Thus 1−βc and P(−1) are positive, and P(1)=1−c−s=F″/D controls the strict Schur test. For F″<0 there is a real multiplier >1, and the other lies in [0,1); β=0 is included. At degeneracy one multiplier is 1 and no nonlinear conclusion is claimed. The witness stationary cubic factors as (x−1)(x²−8x+9); the outer roots have positive curvature. The objective gap 2+5√7/8−log(4(3+√7)) is positive since the first two terms sum to >7/2 and the logarithm is <5log 2<7/2. The local attracting neighborhood at (1,1) contains a nonempty open interval on the prescribed initialization diagonal. The symbolic checker was inspected, not executed; the universal proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kang guarantees convergence to a critical point under its hypotheses, with no root-specific attraction or optimality conclusion in that theorem.",
+          "Bai et al. prove unstable strict saddles and a null attraction set for their damped DIRL2 map, with an extra smoothing state."
+        ],
+        "reasoning": "Neither result identifies attracting branches as a function of every admissible fixed inertia and metric for this two-state update. DIRL2's damped step and smoothing decay are not the inertial predecessor state here.",
+        "searches": [
+          "Kang, Algorithm 1, §3 assumptions, and Theorem 3.1",
+          "arXiv:2401.09274, Algorithm 4.1 and Theorems 4.5–4.7"
+        ]
+      },
+      "checked_sources": [
+        "Kang publisher PDF, DOI 10.3934/math.2026674",
+        "arXiv:2003.04798",
+        "arXiv:2401.09274",
+        "Focused Resultary index comparison",
+        "Frozen RESULT.md, VERIFICATION.md and symbolic-checker code"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kang's convergence theorem allows different limits without telling which are attractors.",
+          "The Cauchy proximal convexity condition yields the matching convexity threshold on substitution, but addresses uniqueness of the proximal minimizer in its imposed regime, not the two-state multipliers or suboptimal attraction."
+        ],
+        "reasoning": "Exact curvature–spectrum equivalence, including stability for all fixed β<1 and ℓ>a and the open diagonal basin at the nonglobal root, requires an additional local analysis. The folds in the equilibrium equation can be derived from the known cubic; their combination with parameter-robust attraction is the substantive conclusion.",
+        "searches": [
+          "Compare Kang Theorem 3.1 and §4.1 with the fixed-point characteristic polynomial",
+          "Compare arXiv:2003.04798 Lemma 2 and Theorems 1–2 with the scaled fold and suboptimal example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kang gives exactly the multivariate log-quadratic family and the coordinate update specialized here.",
+          "The Cauchy proximal cubic u³−xu²+(γ²+2μ)u−xγ²=0 is equivalent to the stationary cubic after γ²=1/ρ and μ=1/(aρ)."
+        ],
+        "reasoning": "The proximal stationarity equation is the equilibrium equation, but the proximal objective and its cubic do not determine the two-state reweighting map's local multipliers. Neither the update alone nor the polynomial is counted as new.",
+        "searches": [
+          "Kang GIRL1E scalar log-quadratic reweighting and fixed points; Resultary",
+          "arXiv:2003.04798, equations (10)–(11) and Lemma 2",
+          "Kang, §4.1, (4.1), (4.5) and the explicit update (printed pp. 16427–16429)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related October 18 Resultary fold record concerns the inverse of a risk-sensitive learning map, not the two-state iteration for a log penalty.",
+          "Kang §4.1 reports numerical compressive-sensing experiments, rather than an exact catalogue of scalar stability regimes or the a=1/8 witness."
+        ],
+        "reasoning": "A fold in another map and experiments with other dimensions and schedules do not match the frozen classification. The focused index search is not exhaustive.",
+        "searches": [
+          "Resultary: exact title, scalar GIRL1E map, Cauchy cubic, reweighted saddle and fold thresholds"
+        ]
+      },
+      "rationale": "The update is already an immediate specialization of Kang's explicit formula, and the Cauchy stationarity cubic and related convexity thresholds are prior. The distinct supported claim is the all-admissible-parameter classification of the local dynamics of that specific update, coupled to its exact multiplicity regime and a robust suboptimal basin under actual diagonal initialization.",
+      "residual_risks": [
+        "An analogous fixed-inertia stability theorem for the same reweighted map under other terminology could exist outside the focused comparison.",
+        "The mathematical priority of the cubic and threshold is not claimed; no field-wide priority conclusion is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the map and model by specialization; cited convergence result does not cover the local classification",
+          "evidence": "Algorithm 1 initializes diagonally and uses ∇h(g(x_k)); §4.1 explicitly gives the weight, extrapolate and inertial update, with γ>λ‖A‖². Theorem 3.1 states convergence to a critical point.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/6/PDF/math-11-06-674.pdf (DOI 10.3934/math.2026674)",
+          "material_read": "§2 metric condition (offset 16807), Algorithm 1 and §3 assumptions (22270), Theorem 3.1 (46379), §4.1 (48040–55286)",
+          "method": "Publisher OA PDF, bounded passages by offset",
+          "title": "An inertial generalized iteratively reweighted ℓ1 algorithm for nonconvex and nonsmooth optimization",
+          "trigger": "Exact method, admissibility and objective"
+        },
+        {
+          "assessment": "Overlapping stationarity and convexity, different iteration",
+          "evidence": "Derives the Cauchy proximal cubic and its convexity condition; the method discussed is forward–backward splitting.",
+          "identifier_or_url": "arXiv:2003.04798",
+          "material_read": "§II (10)–(11), Lemma 2, Theorems 1–2 (PDF offsets about 18000, 33400, 41500)",
+          "method": "Bounded OA PDF passages",
+          "title": "Convergence Guarantees for Non-Convex Optimisation with Cauchy-Based Penalties",
+          "trigger": "Equivalent cubic and convexity threshold"
+        },
+        {
+          "assessment": "Different augmented dynamics",
+          "evidence": "Uses a damped weighted update and multiplicatively decreased smoothing, not a fixed-inertia two-state map.",
+          "identifier_or_url": "arXiv:2401.09274",
+          "material_read": "Algorithm 4.1 and Theorems 4.5–4.7 (printed pp. 18 and 21–23)",
+          "method": "Bounded OA PDF passages",
+          "title": "Avoiding Strict Saddle Points of Nonconvex Regularized Problems",
+          "trigger": "Prior instability and avoidance in reweighting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact two-state spectrum ties a practical failure mode to curvature rather than to the choice of inertia or proximal curvature. The stationary cubic by itself only supplies candidate equilibria; the classification shows both minimizing branches really attract and gives a constructive open set of allowed initializations that stays with the strictly worse branch. No global basin or degenerate stability assertion is needed for that conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

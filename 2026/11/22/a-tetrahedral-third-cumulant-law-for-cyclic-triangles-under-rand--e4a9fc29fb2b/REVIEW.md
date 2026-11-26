@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact Walsh expansions prove pairwise independence and classify nonzero three-way centered moments; the only obstruction consists of three triangular faces of a four-clique. Known four-vertex tournament geometry gives the exceptional all-one probability zero, which combined with Bernoulli one- and two-point laws yields \(-1/64\). The weighted formula follows from expanding the third cumulant with exact diagonal and repeated-index contributions. The independently executable exhaustive verifier passed on 1,098 labelled graphs through five vertices and 1,004 distinct-triangle triples. The proof, not enumeration, covers all finite graphs.
+## correctness
 
-**Originality — PASS with stated priority limits.** Moon's recorded 1947 complete-tournament third-moment formula is explicitly excluded as novelty. The four-vertex prohibition is also known from the tournament-hypergraph construction. Neither inspected primary work establishes the three-way independence criterion on arbitrary underlying graphs or the complete weighted mixed third-cumulant support. Random cyclic-total-order query shattering is an analogous but different stochastic model, not an implication. Earlier equivalent orientation-tensor formulations remain possible.
+PASS
 
-**Value — PASS.** Pairwise cyclic-triangle indicators are indistinguishable from independent Bernoulli indicators, even in graphs with many triangles. The theorem isolates exactly the four-clique as the first three-body dependence, fully classifies when every triple really is independent, and converts weighted fluctuation measurements into a local structural signature. The unweighted third cumulant recovers four-clique count using an orientation-based observable rather than an edge-sign balance count; this is not claimed to supersede other graph-motif tomography methods.
+One triangle has probability 1/4 of being cyclic even conditional on the direction of any one of its edges. Distinct triangles share at most one edge, so all pairs are independent. Among three triangles, if one shares at most one edge with the union of the other two, it is independent of their pair by the same conditioning, giving the full joint law. Otherwise each pair shares a different edge. Starting with abc and abd, the third must contain ac and ad or bc and bd, hence is acd or bcd. The three shared edges are spokes at one vertex. Simultaneous cyclicity would require each pair of spokes to have opposite directions at that vertex, which is impossible. This gives centered mixed moment -1/64 in the exceptional case by pair independence. The all-equal term is 3/32, the two-equal terms vanish, and each exceptional unordered triple contributes six times -1/64. There are exactly four such triples per K4 and they determine the clique uniquely. Mean, variance and inversion for the clique count follow with the stated coefficients. Empty and short families and arbitrary fixed signed weights are covered; no assumption of biased or dependent edge sampling is used. The accompanying finite checker was inspected, not executed.
 
-**Scope and risks.** The special complete-graph numerical moment is classical; the statement is limited to fair independent edge orientations and cumulants through three. Unindexed equivalent arbitrary-graph results remain the main priority risk. The verifier is finite, not a proof for unbounded graph orders. Independent validation has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is limited to the arbitrary-host classification of three cyclic-triangle indicators and its weighted third-cumulant consequence. The complete-tournament moment and the local four-vertex obstruction are prior, and are not credited as originality. Neither supplies the independent law for every nonexceptional triple or the arbitrary-weight formula. Related same-day findings were compared as distinct records without assuming ordering.
+
+## value
+
+PASS
+
+This gives a complete structural explanation of where three-way dependence first appears in a natural family of pairwise independent indicators. The same local obstruction has a quantitative weighted law and recovers K4 count from two scalar cumulants, with no host regularity or asymptotic hypothesis. It is not a claim about inference from a bounded sample or about higher joint laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**C — PASS.** The central-extension model has the correct commutator form; the subgroup dichotomy is complete because the center has prime order. In the center-containing branch, the fixed-space shear construction handles arbitrary degeneracy of the restricted alternating form. In the center-avoiding branch, a multiplier-\(-1\) block matrix has no unwanted fixed vectors, and the linear central term forces precisely the prescribed graph. The proof covers every odd prime and positive rank. Direct enumerations for \(p=3,5\) and explicit rank-two matrix checks are supplementary, not a substitute for proof.
+## correctness
 
-**O — PASS, qualified.** The November 2026 motivating paper establishes the property for finite abelian groups and mentions just the order-27 Heisenberg group among nonabelian examples. Its sections and references were read; it does not imply realization for every subgroup of all higher-order exponent-\(p\) extraspecial groups. Related records on retracts, Reidemeister counts, and fixed-point-free automorphisms concern different invariants. Multiple phrase and equivalence searches found no matching full-rank statement. The 2011 *Automotives* chapter was not accessible in full, so a possible older covering example remains a historical-priority risk, not a demonstrated exclusion.
+PASS
 
-**V — PASS.** The theorem resolves a natural subgroup-realizability problem for an infinite, structurally important nonabelian family instead of extending an isolated numerical count. It supplies an explicit automorphism for every subgroup and explains the need for different central multipliers in the two subgroup strata.
+For an extraspecial group of exponent p, the alternating commutator form gives the stated Heisenberg model. The center has prime order, so its intersection with a subgroup is either the entire center or trivial. In the first case the subgroup is U × F. Splitting U into its nondegenerate part W and its radical R and completing R to a hyperbolic block gives a symplectic map that is the identity on W, a shear fixing exactly R on R ⊕ R*, and minus the identity on the orthogonal complement. Its fixed space is exactly U. In the second case the subgroup is a linear graph over isotropic U. Identity on U, minus identity on U*, and the stated 2-by-2 block B on each remaining plane give a common multiplier −1; det(B−I)=−1, so exactly U is fixed on the quotient. The central equation 2z=2ℓ(u) gives exactly the graph. This includes the smallest prime, the trivial subgroup and all zero-size blocks. A separate bounded replay found all 19 and 39 subgroups at p=3 and p=5 respectively, with an automorphism checked for each by testing multiplication, bijectivity and exact fixed points.
 
-The main limitation is the exponent-\(p\), odd-prime hypothesis; the finding does not claim a classification of all finite groups with the property or an independently established publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is exact realization of each subgroup throughout the odd-prime exponent-p extraspecial family, beyond the previously identified order-27 example. No inspected source states or implies that all-rank, all-subgroups result.
+
+## value
+
+PASS
+
+This resolves the fixed-subgroup-realization question constructively for a natural nonabelian family in every rank. The result shows the entire subgroup lattice is realized, not just subgroup orders or fixed-point-free behavior. The two constructions handle independently the nondegenerate/radical fixed quotient and the central graph condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

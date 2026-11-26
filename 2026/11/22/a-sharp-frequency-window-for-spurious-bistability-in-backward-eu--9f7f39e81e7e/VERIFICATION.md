@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The mathematical proof is self-contained in `RESULT.md`, based on explicit radial inversion, its Jacobian determinant, the two roots of a quadratic equation in squared radius, and a monotone radial comparison argument. Strict boundary cases are checked algebraically. The derivation proves infinitely many parameters; finite numerical tests do not.
+## correctness
 
-Run `python3 check.py` under a Python 3 standard-library environment. This runs exact-rational checks for \((b,c,a)=(3/5,4/5,-9/10)\) and \((4/5,3/5,-1)\), including invariant radii, exact radial multipliers, strict determinant positivity, and the quadratic window threshold. It also computes radial inverse steps by bracketed bisection from representative interior, intermediate, and exterior starting radii. The actual run printed both case tuples followed by `PASS: rational radii, Jacobian, multipliers, phase window and radial iterates`.
+PASS
 
-The checker cannot independently establish the infinite-dimensional range of parameters or literary priority; those require the algebraic proof and literature comparison. Only the isochronous single-oscillator cubic equation and exact fully implicit step are treated. Independent mathematical validation has not been performed.
+Reverse the implicit step: the predecessor of w is (a+h|w|²−ihω)w. The radial map is H(s)=s√((a+hs²)²+b²); its derivative has numerator 3u²+4au+a²+b² with u=hs². This is positive for a≥0, and for a<0 its minimum on u≥0 is b²−a²/3. Positivity, radial properness, and the radius-dependent rotation give smooth global inversion. Equality gives a singular Jacobian, and below equality there is a decreasing radial portion, so smooth invertibility fails at both. Positive fixed radii solve (a+u)²+b²=1: for 0<b<1, both roots −a±√(1−b²) are positive exactly for a<−√(1−b²), and they fit the smooth-inverse condition exactly for b>1/2. At b=1 the possible positive root is double with unit radial multiplier; at b>1 there is none. The origin multiplier has modulus (a²+b²)^(−1/2)<1 in the window. The two reciprocal radial derivatives give inner repulsion and outer attraction. The signs +,−,+ of H(s)−s and monotone inversion give the stated basins and exclude recurrence off the fixed radii; rotations on the two circles have the stated angles. The exact example multipliers check as 25/21 and 25/93. The proof is for the exact step of this isochronous normal form; check.py and VERIFICATION.md were inspected, not executed, and cover only supplementary finite checks.
+
+## originality
+
+PASS
+
+The inspected sources cover local implicit-orbit and evolution-fold theory, not the exact global inverse and bistability intersection, its circle stability, or its basin classification for this oscillator. Credit the classical backward-Euler linear amplification and Stuart–Landau model; the distinct claim is the combined global classification, not either antecedent.
+
+## value
+
+PASS
+
+A standard implicit integrator creates a qualitatively false bistability even where there is no ambiguity or branch choice anywhere in its nonlinear solve. The necessary and sufficient step-frequency restriction and exact separating basin boundary distinguish this artifact from ordinary linear instability or implicit-solver failure. This is a useful benchmark for the natural cubic oscillator, not a claim about arbitrary Hopf systems or discretizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

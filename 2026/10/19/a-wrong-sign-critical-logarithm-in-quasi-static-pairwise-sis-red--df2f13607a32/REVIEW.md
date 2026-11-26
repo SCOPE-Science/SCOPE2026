@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For the source's explicit two-dimensional pair-closed SIS equations, the critical point has one zero and one strictly negative eigenvalue. The quasi-static graph solves a nullcline equation, while the true center graph solves a differential invariance equation. Their order-two coefficients differ by a strictly positive, exactly derived rational expression. Both scalar reductions have the same strictly negative quadratic term; their distinct cubic terms determine the inverse-prevalence logarithmic coefficients. A quantitative exponentially contracting transverse mode extends the full-system expansion to all sufficiently close positive physical solutions. Symbolic checks from the packaged program independently recompute the coefficients, and the proof supplies infinite-time control not obtainable from finite simulation.
+## correctness
 
-**Originality — PASS, with stated residual risks.** The closest primary source derives the same pairwise equations, critical threshold and **first-order** fast-variable reduction, and illustrates its dynamical accuracy, but does not derive an invariant center graph, critical inverse-prevalence logarithms, or the degree-four sign reversal. The inspected 2021 super-compact pairwise study analyzes bifurcation and endemic equilibrium approximations in a different model. A 2026 general-network SIS paper focuses on thresholds and quasistationary infection distributions. Related available mathematical claims concern other epidemic systems or standard logarithmic center-manifold phenomena, not the exact full-versus-quasi-static comparison here. A more general unidentified theorem might subsume the model-specific coefficients; the priority judgment remains conditional on the inspected accessible literature.
+PASS
 
-**Mathematical value — PASS.** This is a sharp structural diagnostic of the approximation used in a current unifying epidemic paper: leading critical scaling and epidemic threshold can be correct while the first observable asymptotic correction is wrong in sign for every network degree at least four. The exact degree-dependent coefficient gap distinguishes a true slow invariant graph from a static nullcline. The phenomenon is not obtained by parameter substitution into a published threshold formula, and the correction is relevant precisely where linear analysis is blind.
+At the critical parameter, use time γt and shift p=p_c+y. With β=n/(n−1) and λ=(2n−1)/(n−1), the two vector-field components are βiy and −λy−βy²−2(p_c+y)²i/(1−i). The common graph slope is a=−2p_c²/λ; solving the nullcline gives b_q=(−βa²−4p_c a−2p_c²)/λ, and solving invariance gives b_h=b_q−βa²/λ. Thus both positive trajectories have leading damping A=−βa, but the cubic coefficients are C=βb with different b. In the full system the transverse error obeys e′=(−λ+O(i)+O(e))e. In a small tube about the center graph this gives exponential decay, and i′≤β|e|i since the graph drift is nonpositive for small i≥0; the integrated bound i≤i(0)exp(const·|e(0)|) closes the small-tube argument for all sufficiently small positive initial states. For u=1/i, the error is O(u⁻²)+O(eu) in u′=A−C/u+error. Grönwall first gives u=O(1+t); positivity, local attraction and transverse decay then yield u∼At, followed by u=At+O(log t). Subtracting both the linear and logarithmic terms leaves an integrable derivative and finite constant. The same argument omits e on the nullcline reduction. Time rescaling alters the linear coefficient and constant, not −C/A. The nullcline and full linearization use the same p-root at i=0, hence the same threshold; the n=3 coefficient does not reverse sign, and the stated cubic numerator is positive and increasing for n≥4. Independent bounded symbolic replay: /workspace/branches/independent_replay.py, log_correction(); this checks coefficients, not the infinite-time limit.
 
-**Limits.** Fixed integer degree \(n\ge3\), deterministic pair closure, local positive critical trajectories, no stochastic finite-graph or global-initial-state assertion. The finite constants in the asymptotic expansions depend on initial data. The scientific assessment does not replace independent examination of originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise pair closure, critical parameter, nullcline and leading coefficient are inherited. The supported contribution is the exact difference between critical reciprocal-prevalence logarithms for the full and quasi-static systems, including the uniform-in-integer-degree sign reversal for n≥4. Neither generic normal-form theory nor the cited reduction supplies the exact comparison without the invariance calculation.
+
+## value
+
+PASS
+
+The full and quasi-static ODEs have the same threshold and leading critical decay, yet for all n≥4 the reduction reverses the first logarithmic correction. The exact coefficient gap isolates a concrete limitation of the fast-nullcline approximation that cannot be seen from threshold or leading-order tests. This is a local benchmark for the deterministic closure, not a claim about stochastic network extinction or real pathogens.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

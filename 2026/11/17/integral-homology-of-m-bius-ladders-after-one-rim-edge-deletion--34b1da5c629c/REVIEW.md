@@ -1,15 +1,21 @@
-# Scientific assessment: rim-edge independence homology
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns precisely \(\operatorname{Ind}(M_{2n}-e)\) for every integer \(n\ge4\), with \(e\) a rim edge and integral coefficients. A graph-fold proof reduces the intact open ladder to a join of independent rung zero-spheres, and the neighbor-deleted link to either a contractible space or one sphere. The relative augmented chain complex is identified explicitly, including its degree-two shift. In the only residue class with potentially nonunit connecting homomorphism, alternating-rung cycles and maximal-face cocycles establish coefficient \(\pm1\) over \(\mathbb Z\). Exactness and splitting over \(\mathbb Z\) prove every stated rank and torsion-freeness. Standalone finite checks agree in dimensions \(4\) through \(10\); these checks are corroborative, not the infinite proof.
+## correctness
 
-## Originality — PASS with qualification
-The most relevant 2026 primary work classifies intact Möbius and circular ladders, not the faulted graph. A separately indexed result for an antipodal *rung* deletion is on a different graph edge orbit; its two-sphere statement for two congruence classes neither supplies this rim-deletion theorem nor implies the other residue classes. Search by graph aliases, periodic parameters, edge orbits and implication to broader graph-product classifications did not locate a stronger published statement implying the integral formula. The introduction, full relevant independence-complex section and primary main theorems were materially inspected in the accessible PDF; no rim-edge deletion theorem is stated there. Unindexed equivalent work remains a bibliographic residual risk. Failed search is not proof of uniqueness. This is a best-supported originality assessment, not an independent literature certificate.
+PASS
 
-## Mathematical value — PASS
-The natural topology sensitivity question asks what happens when a single edge of a highly symmetric cubic graph is lost. The source work classifies the intact complex. The theorem gives all reduced integral homology groups for every rim-fault size and exhibits a sharp four-periodic contrast: one class, two classes, or no class depending on the width. The disappearance in residue three is especially useful as a boundary for attempted fault-stability homotopy theorems. This is a global infinite-family integral classification rather than a small numerical increment or a relabeling of the known rung-fault theorem.
+Rotate the deleted rim edge to (n−1,n) and split the vertices into the two length-n rails: the surviving wrap edge is t0–b(n−1), and the antipodal edges are the rungs. In the open ladder, deleting t1 with witness b0 and then b1 with witness t0 isolates a rung and leaves L(n−2), hence its independence complex is a sphere of degree ceil(n/2)−1. In the relative chains, exactly the faces containing both extra-edge endpoints survive. Ordering these endpoints first gives the augmented link chain complex shifted by two. The link rails are t2,…,t(n−2) and b1,…,b(n−3). Their n=4,5 bases are two isolated vertices and P4 (both complexes contractible); for n=6,7 the indicated folds leave two isolated edges. For n≥8 the four deletions t2,b3,t5,b4 have witnesses b1,b1,t3,t3 and leave the two isolated edges b1–b2,t3–t4 and the link on columns shifted by four. The important n=4k+3 relative map is a unit over Z: the even-rung join cycles both pair to ±1 with the indicator of an alternating maximal face in the appropriate degree. In the link the two terminal vertices b1,t(n−2) are dominated by b2,t(n−3), respectively; each interior odd column is dominated in both rows by its consecutive even-column choices. The quotient selects exactly the terms containing both endpoints. Thus the two rank-one groups cancel integrally. The n=4k+2 short exact sequence splits because its quotient is Z, yielding rank two, and the relative groups vanish in the other two classes. This establishes the unrestricted integral claim; the supplied mod-two output is only corroboration. In the generator argument ‘top-dimensional’ is read as the degree of the cycle, not the maximum face dimension of the ladder.
 
-## Limitations and closest work
-No assertion of contractibility from acyclicity, of complete homotopy type, or of multiple-edge-fault behavior is made. Closest work: Agarwal–Basak, arXiv:2608.30601 (intact Möbius and circular ladders); a published research record on antipodal rung deletion (`2026/11/8/SCOPE-two-sphere-homotopy-after-deleting-a-rung-of-a-m-bius-ladder--354974543b20`). Unindexed equivalent treatments remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the integral homology classification for one deleted rim edge, not the general graph-fold method or the intact-ladder calculation. The strongest located matches cover a different graph or a different simplicial complex; the exact indexed match is the assigned record itself.
+
+## value
+
+PASS
+
+A rim fault is a natural operation on this highly symmetric family but changes its ordinary independence homology in two residue classes, including eliminating all reduced integral homology in an infinite class whose intact counterpart has a sphere. The result resolves an integral cancellation that Betti numbers alone cannot settle and yields a complete classification for this fault, not an isolated recomputation or a claim of contractibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

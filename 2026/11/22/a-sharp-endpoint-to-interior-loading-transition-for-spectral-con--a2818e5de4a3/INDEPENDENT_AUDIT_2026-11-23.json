@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:41:52.704952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to repairs/1/RESULT.md. The frozen proof of uniqueness omitted the feasible interval 1/2<t<1 and asserted a sign at t=1/2 without limiting it to feasible budgets. The latter need not hold off-domain (e.g. μ=q=0.01). The repaired proof restricts all derivative comparisons to |t|≤q; for 1/2≤t<1 it compares t/a(t)≥(1−t)/b(t) and 0<m−a(t)<m+1+b(t) to obtain a strictly positive derivative. For t≥1 both derivative contributions are nonnegative with the first strictly positive; for t≤0 the derivative is strictly negative. Between 0 and 1/2 the two positive terms are respectively increasing and decreasing, which gives the correct feasible zero or the endpoint optimum. The full nonsymmetric uniqueness check uses the strictly positive even minimum eigenvector of the symmetrized matrix: equality in the Rayleigh quotient would require a nonzero diagonal reflection difference to annihilate that vector. The two parity blocks differ by diag(0,2), verifying the extreme eigenvalues and condition number. At t=q the factorizable first term rises strictly on 0<q<1/2 while the other decreases, giving the unique crossing and including equality in the endpoint regime. The ratio of derivative terms strictly decreases in m at fixed t, so the interior root increases with budget and tends to 1/2. At fixed q<1/2 the large-μ boundary difference multiplied by μ tends to a negative value; the small-μ limit of its first term is >1, forcing q_c→0 and q_c/(μ+q_c)→1/[√2(2+√2)]. This gives the two stated threshold asymptotics. Own bisection gave B_c(1)≈0.669854112320272, correcting the last quoted digits, and κ_*(1,1)≈3.681873906750853. Inspected but did not execute CHECKER.py; the finite tests are not the universality proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu–Pong's institutional abstract states a convex formulation over general closed convex sets, SDP when representable, methods, and a separate result for diagonal preconditioners. It does not describe a four-path example; full primary text was not retrieved. Other attempted optimization/diagonal perturbation papers were not available as inspectable original full texts."
+        ],
+        "reasoning": "The simplex image is indeed covered by general convex reducibility. One may homogenize by a scalar s>0 to a problem with I≼sA(d)≼κI and budget ∑s d_i=s B. That gives a solution method, not strict equality analysis of symmetrization or a two-regime formula across all μ,B. Single-dominant-eigenvalue objectives do not preserve the ratio: λ_min=m−a(t) varies with t. Multiplicative preconditioning changes off-diagonal magnitudes and is not the imposed fixed off-diagonal affine family.",
+        "searches": [
+          "Lu–Pong, DOI 10.1137/100795097; author-profile link, publisher and author-copy endpoints; exact title/author preprint search",
+          "Institutional abstract, PolyU research portal (Lu–Pong)",
+          "DOIs 10.1137/080740544, 10.1109/CDC.2015.7402875, 10.1016/0024-3795(94)90415-4 (full-text attempts)",
+          "Scoped primary-literature query for budgeted four-path additive condition-number optimization"
+        ]
+      },
+      "checked_sources": [
+        "Same-day star hub activation and weighted four-path single-pin RESULT.md files",
+        "Lu–Pong institutional abstract and linked author publication listing",
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "Corrected RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier method gives a general reformulation; the star and single-pin results supply independent exact transitions under different objectives' feasible geometries. In the four-path problem both the even and odd 2×2 blocks contribute variable extremes."
+        ],
+        "reasoning": "To get the reviewed result one still needs strict nonsymmetric exclusion and feasible derivative signs for two moving extremes, including the q-dependent boundary. Neither the abstract-level general statement nor a graph/constraint substitution yields that analysis. Full-text inaccessibility is neither evidence of absence nor by itself adverse evidence.",
+        "searches": [
+          "Lu–Pong institutional abstract and bibliographic scope",
+          "Star hub-activation RESULT.md finding",
+          "Weighted four-path single-pin RESULT.md finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The star RESULT.md gives free fixed-budget additive loading with equal leaves and a hub threshold; the same-day weighted four-path RESULT.md fixes conductances (1,25,5) and compares single-pin placements at a fixed gain."
+        ],
+        "reasoning": "At four sites the star has degree sequence (3,1,1,1), while the path has (2,2,1,1); a permutation and scalar shift cannot identify their off-diagonal patterns. The four-path single-pin family omits loadings supported on both endpoints or all four sites and uses different conductances. Neither same-day record is disregarded by date, and neither is an equivalent classification.",
+        "searches": [
+          "Resultary: four-path additive diagonal loading endpoint interior threshold",
+          "Resultary: path graph diagonal loading condition number budget threshold",
+          "2026/11/22/SCOPE-a-sharp-hub-activation-threshold-for-budgeted-diagonal-condition--7eae57d4d0a9",
+          "2026/11/22/SCOPE-reentrant-optimal-single-pin-conditioning-on-a-four-vertex-weigh--cb2cd1385531"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching four-path free-budget catalogue hit is the frozen record itself; the distinct exact graph entries include star activation and the weighted single-pin comparison."
+        ],
+        "reasoning": "A μ-dependent continuous cutoff is not a finite graph invariant read from a table. The relevant exact catalogue checks compare path weights, loading constraints, objective and whether the transition is established globally, rather than matching a numerical budget alone.",
+        "searches": [
+          "Local Resultary exact graph conditioning, four-path threshold and single-pin aliases"
+        ]
+      },
+      "rationale": "The bounded evidence supports the narrow four-path global activation classification, not general condition-number optimization, exact diagonal preconditioning, or the first threshold in any graph design problem. The generic convex framework covers the feasible family, but the reviewed prior statements do not give its explicit optimizer or threshold; bounds on full-text access remain explicit.",
+      "residual_risks": [
+        "The full Lu–Pong, Maréchal–Ye and cited older diagonal-perturbation texts were not independently inspected; an exact instance or stronger trace-budget result could still affect priority.",
+        "Focused search did not settle historical priority for general path-graph allocation formulas; the verdict is limited to the actual compared evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogy, different graph and spectral reduction",
+          "evidence": [
+            "Unrestricted fixed-budget unit-star optimum has equal leaf loads and an activating hub."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-hub-activation-threshold-for-budgeted-diagonal-condition--7eae57d4d0a9",
+          "material_read": "RESULT.md offsets 650–2529 and related-work offsets 5050–7129",
+          "method": "Bounded local mirror reading",
+          "title": "A sharp hub-activation threshold for budgeted diagonal conditioning on stars",
+          "trigger": "Same-day exact activation classification with the same spectral objective and independently feasible loadings"
+        },
+        {
+          "assessment": "Different conductances and choice of a single site, not free allocation",
+          "evidence": [
+            "Weights (1,25,5); compares the locations of a prescribed single pin."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-reentrant-optimal-single-pin-conditioning-on-a-four-vertex-weigh--cb2cd1385531",
+          "material_read": "RESULT.md offsets 0–1778",
+          "method": "Bounded local mirror reading",
+          "title": "Reentrant optimal single-pin conditioning on a four-vertex weighted path",
+          "trigger": "Closest distinct exact conditioning comparison on four vertices of a path"
+        },
+        {
+          "assessment": "Verified convex formulation coverage; exact examples in original full text remain unverified",
+          "evidence": [
+            "Abstract claims convex programming over closed convex sets and SDP under PSD representability, then separately discusses exact diagonal preconditioning. Publisher and identified author-uploaded PDF returned 403 on attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/100795097",
+          "material_read": "Institutional abstract at https://research.polyu.edu.hk/en/publications/minimizing-condition-number-via-convex-programming/, text offsets 450–2634; author profile link examined; original article full text unavailable",
+          "method": "Exact-title lookup and bounded institutional reading; lawful publisher and author PDF attempts",
+          "title": "Minimizing Condition Number via Convex Programming",
+          "trigger": "General convex feasible-set theorem actually encompasses this family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The path is a natural small diffusion network with distinct endpoint and interior costs in spectral effect even when prices are equal. The result determines exactly when a free budget should concentrate only at endpoints, and proves strict global uniqueness against asymmetric candidates, not just a restricted or numerical design. It quantifies the resulting contrast and both asymptotic thresholds and is distinct from routine graph eigenvalue evaluation or a generic optimizer call.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

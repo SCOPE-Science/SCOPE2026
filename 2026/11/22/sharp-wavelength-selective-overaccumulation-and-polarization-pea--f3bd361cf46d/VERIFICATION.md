@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the Fourier-response theorem
+# Independent mathematical audit
 
-The proof is analytic and uses exact invariant-measure generator identities; none of the conclusions below are inferred solely from simulations.
+## correctness
 
-## Independently implemented computations
+PASS
 
-`checker.py` uses symbolic factorization and differentiates the two response multipliers, solves the speed-memory and invariant-position complex resolvent systems without inserting the claimed answers, and independently integrates the telegraph characteristic function using a two-state second-order ODE. It passed all 72 parameter cases, with small numerical tolerances specified in the code. The source may be executed with `python checker.py` and requires numpy, scipy, sympy.
+The invariant compact speed interval gives existence by the Feller time-average argument. For nonzero k, stationarity of the position and signed-position Fourier test functions gives v p_D = -epsilon b_D and ik(v p_T + epsilon b_T) + 2 alpha p_D = 0 exactly. Bounded rescaled speed makes both p coefficients O(epsilon); the zero orientation mode has equal masses, establishing convergence of the position–orientation marginal for any stationary-law selection. The independent time-domain replay integrates the exponential memory against the telegraph characteristic F, solving F''+2 alpha F'+(kv)^2 F=0 with F(0)=1 and F'(0)=0. At eta=1/tau its Laplace transform is (eta+2 alpha)/D, where D=eta(eta+2 alpha)+(kv)^2; the transform for the orientation-weighted characteristic F'/(-ikv) is -ikv/D. These give the two limiting moments and, by the exact stationarity identities, the stated density and polarization responses with the correct factor 2 for symmetric flips. The instantaneous zero-flux solution has density proportional to inverse speed. With Q=1+2 alpha tau+(kv tau)^2, the density enhancement has sign 2 alpha-(kv)^2 tau, the density derivative numerator is strictly decreasing through zero, and the polarization derivative numerator is 1-(kv tau)^2. This verifies the sharp boundary, both unique optima for present harmonics, and the stated ordering, at fixed parameters and only to first order. The frozen checker and simulation were inspected, not executed; their recorded finite comparisons are not needed for the proof.
 
-`simulation.py` uses a midpoint-integrated deterministic flow between random orientation flips to check the small-amplitude regime, not to certify an infinite-time theorem. At a cosine landscape with base speed, flip rate and wavenumber equal to one and amplitude 0.08, the measured and leading-order predicted pairs (density cosine, orientation sine) were:
+## originality
 
-| Memory time | Measured | Leading-order prediction |
-|---|---|---|
-| 0.15 | (-0.046826, -0.004598) | (-0.048393, -0.004537) |
-| 0.5 | (-0.052387, -0.008924) | (-0.053333, -0.008889) |
-| 1.0 | (-0.051735, -0.009940) | (-0.050000, -0.010000) |
-| 2.0 | (-0.042293, -0.008876) | (-0.040000, -0.008889) |
+PASS
 
-These finite trajectories have sampling and discretization errors and finite-amplitude corrections; exact identities and uniqueness of the thresholds follow from the written proof, not from the table. No independent audit is asserted.
+Best-of-knowledge pass for the specific stationary density and polarization susceptibilities and their sharp comparison for exponential scalar speed memory with symmetric two-state flips. No verified equivalent or dominating theorem was identified. Neither the model itself nor qualitative delay-induced localization is credited here. The comparison with the closest same-model paper is limited by full-text access.
+
+## value
+
+PASS
+
+The exact mode-dependent susceptibility distinguishes which wavelengths are enhanced from which are suppressed, and shows that density contrast and polarization optimize at different, explicitly comparable times. This is more informative than a qualitative localization observation or a small-delay expansion. Stationary-law independence and the fixed-parameter first-order scope make the result usable without assuming a smooth invariant density or extrapolating to finite amplitude.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

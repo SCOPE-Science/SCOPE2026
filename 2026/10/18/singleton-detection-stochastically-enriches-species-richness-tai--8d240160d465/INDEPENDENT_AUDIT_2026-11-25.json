@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:02:17.092878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on tag count y, the untagged sample is uniform of size m-y in the untagged census, or iid of that size with probabilities renormalized on the untagged categories. Couple all feasible untagged sample sizes by prefixes. Richness R_l is nondecreasing and increases by at most one per draw. Thus R_m <= 1+R_(m-1) if count zero is feasible, and 1+R_(m-y) <= 1+R_(m-1) for y>=2; the right-hand side is exactly the singleton-conditioned law. This proves every fixed-count comparison, not just comparison to the mixture. Feasibility ensures the needed prefix lengths exist; for one species only length zero is needed and richness is constant. Averaging and applying each monotone score prove the indicator covariance, summing proves the F_1 covariance, and dividing the tail covariance by E[F_1]>0 proves size-bias dominance. Zero singleton-event probability gives zero indicator covariance, not a conditional law. For sample size r+1 with two equal abundances r+1, exactly two out of B=binom(2r+2,r+1) subsets have richness one, while (r+1)^2 subsets have tag count r and richness two. This gives 2(r+1)^2/B^2. In the profile with tag abundance r and r+1 other singletons, K=2 on count r and K>=3 at every smaller feasible count, with both events possible. These signs concern a tagged indicator, not the general total F_r. Separate integer count-vector dynamic programming reproduced 9,666 selected fixed-count inequalities and both finite-census signs for every 2<=r<=20 (workspace checks/frozen_checks.py, argument 3; output checks/3.txt); the unrestricted result is the coupling proof, not the finite calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gnedin–Hansen–Pitman heterogeneous occupancy model is iid (possibly infinitely many boxes) and its inspected moment results do not constitute the claimed conditional law.",
+          "The finite-census Chao–Lin and ecological Coddington et al. articles could not be inspected in primary full text after DOI/publisher attempts and lawful open-copy recovery."
+        ],
+        "reasoning": "A larger number of categories in an iid theorem is not coverage of uniform finite-census sampling. Estimator lower bounds or empirical sampling studies do not establish conditional stochastic order on the evidence available; their unseen technical material remains a risk rather than negative evidence.",
+        "searches": [
+          "arXiv:math/0701718, Section 2",
+          "DOI:10.1111/j.1541-0420.2011.01739.x",
+          "DOI:10.1111/j.1365-2656.2009.01525.x"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and both specified mirrored findings",
+        "arXiv:math/0701718, Section 2",
+        "DOI:10.1111/j.1541-0420.2011.01739.x (access attempt)",
+        "DOI:10.1111/j.1365-2656.2009.01525.x (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem gives a one-switch sign rule for Cov(K,K_r) over uniformly and independently allocated balls; in particular it gives positive Cov(K,K_1). Its scope excludes conditional monotonicity and heterogeneous occupancy.",
+          "The present dominance theorem implies the corresponding nonnegative uniform-iid singleton covariance, but its r>=2 examples are tagged and finite-census."
+        ],
+        "reasoning": "Positivity of a single summed first moment cannot decide all upper tails for one tag against each feasible count. Conversely the new tagged sharpness statement does not imply the old all-r sign-switch formula. The same-day transfer result has different conditioning and response variables, independent of publication order.",
+        "searches": [
+          "Mirrored RESULT.md of the one-switch covariance finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gnedin–Hansen–Pitman Section 2, equations (1)–(4), defines the fixed-size occupancy counts and computes means/variances; equation (7) is for Poissonized frequency-count covariance.",
+          "The closest Resultary one-switch finding states a sign for the total singleton count in uniform iid occupancy, not order of fixed-tag conditional richness laws."
+        ],
+        "reasoning": "Reformulating in urn notation or as inequalities on increasing richness scores does not identify the fixed-count comparisons with unconditional moment formulas. Monotone-score covariance with a singleton indicator is equivalent to dominance over the unconditional mixture, but not by itself to dominance over every other count stratum.",
+        "searches": [
+          "Resultary: tagged count-one conditional stochastic order of observed richness in finite census and heterogeneous iid occupancy",
+          "arXiv:math/0701718, Section 2, pp. 148–151"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest mirrored October 4 match has an exact uniform-box covariance/sign formula, not a tagged conditional table or all-tail law.",
+          "The mirrored October 18 transfer finding is about changes of expected total singleton count under abundance transfers, not conditional richness in a fixed community. No exact duplicate surfaced in the bounded semantic results."
+        ],
+        "reasoning": "Neither the analytic covariance computation nor an abundance-transfer cutoff is a prior tabulation or theorem for the conditional distributions at issue. These comparisons do not certify uniqueness beyond inspected records.",
+        "searches": [
+          "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "2026/10/18/SCOPE-a-one-switch-transfer-law-and-a-sharp-17-individual-triple-rever--7d918366c8e4",
+          "Resultary: exact tagged-singleton conditional richness order"
+        ]
+      },
+      "rationale": "The supported contribution is tagged count-one stochastic maximality among all feasible tag counts in both sampling schemes, its monotone-score consequences, and the tagged higher-frequency contrast at a common finite-census sample size. Uniform-iid positive covariance with total singleton count is known and not novel here. The strongest inspected related results do not establish the two-scheme fixed-tag order; this is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "Uninspected Chao–Lin and Coddington et al. technical text; equivalent classical occupancy formulations may exist outside inspected material.",
+        "The external exact-title lookup did not complete; this supplies no evidence of absence.",
+        "The frozen bibliography is imprecise about Gnedin–Hansen–Pitman equations (1)–(4); they give definitions, means and variances rather than a tagged richness–frequency covariance formula. This does not affect the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified strict overlap for a uniform-iid singleton covariance consequence only.",
+          "evidence": [
+            "Uniform iid boxes; exact switch for Cov(K,K_r); explicit exclusion of conditional monotonicity."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Mirrored RESULT.md, Finding, assumptions and limitations, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary match and local mirrored primary statement",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Closest exact covariance match"
+        },
+        {
+          "assessment": "Distinct sampling invariant.",
+          "evidence": [
+            "Compares expected singleton counts before and after abundance transfers as sample depth varies."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-one-switch-transfer-law-and-a-sharp-17-individual-triple-rever--7d918366c8e4",
+          "material_read": "Mirrored RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirrored primary statement",
+          "title": "A one-switch transfer law and a sharp 17-individual triple reversal",
+          "trigger": "Same-day nearest finite-census singleton result"
+        },
+        {
+          "assessment": "Relevant occupancy background; not the tagged order in inspected passages.",
+          "evidence": [
+            "Fixed-size definitions, means and variances; Poissonized frequency-count covariance in (7)."
+          ],
+          "identifier_or_url": "arXiv:math/0701718; DOI:10.1214/07-PS092",
+          "material_read": "Section 2, pp. 148–151, equations (1)–(4) and (7)",
+          "method": "Open primary PDF passages",
+          "title": "Notes on the occupancy problem with infinitely many boxes: general asymptotics and power laws",
+          "trigger": "Heterogeneous occupancy and exact-frequency moments"
+        },
+        {
+          "assessment": "Unresolved exact technical coverage, not evidence of noncoverage.",
+          "evidence": [
+            "Publisher access unsuccessful; no open repository copy recovered."
+          ],
+          "identifier_or_url": "DOI:10.1111/j.1541-0420.2011.01739.x",
+          "material_read": "Bibliographic identification; no primary technical text accessed",
+          "method": "DOI/publisher attempts and lawful open-copy recovery",
+          "title": "Nonparametric lower bounds for species richness and shared species richness under sampling without replacement",
+          "trigger": "Finite-census rare-species richness estimation"
+        },
+        {
+          "assessment": "Exact technical coverage unresolved.",
+          "evidence": [
+            "Publisher access unsuccessful; no open repository copy recovered."
+          ],
+          "identifier_or_url": "DOI:10.1111/j.1365-2656.2009.01525.x",
+          "material_read": "Bibliographic identification; no primary technical text accessed",
+          "method": "DOI/publisher attempts and lawful open-copy recovery",
+          "title": "Undersampling bias: the null hypothesis for singleton species in tropical arthropod surveys",
+          "trigger": "Ecological use of singleton observations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a sharp, distribution-free conditional tail comparison for a common rarefaction or occupancy statistic. The size-biased richness law and all monotone scores are consequences that a mere covariance sign cannot establish, and the common-depth exact-frequency examples delimit the mechanism. No claim is needed about uncontrolled field sampling, weighted diversity, or estimator quality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

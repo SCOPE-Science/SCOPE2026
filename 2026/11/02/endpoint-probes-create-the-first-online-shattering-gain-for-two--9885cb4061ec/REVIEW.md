@@ -1,11 +1,21 @@
-# Review of two-east-step lattice-path shattering
+# Independent mathematical audit
 
-**Correctness — PASS.** The path-to-endpoint bijection is explicit. The VC upper proof uses monotone ordering and three-case trace obstructions, and the lower support is explicit. Threshold subfamilies prove the stated general online lower bounds, and distinct hypotheses give the upper bound. The finite ranks use a complete version-space recurrence, two distinct representations, and an explicit complete depth-six certificate; the middle-only depth-six impossibility at height ten has an independent counting argument. The computed table is not extrapolated to arbitrary larger heights.
+## correctness
 
-**Originality — PASS under accessible comparisons.** General thicket/tree shattering (Bhaskar; Walker), query-learning (Chase–Freitag–Reyzin), and hidden-directed-graph path queries (Janardhanan–Reyzin) have different scope. Related interval, rooted-comb path, poset-ideal, and consecutive-window claims were compared by implication and do not state the first endpoint-query advantage for this path-incidence language. Literature searches did not identify stronger coverage; historical priority under other terminology is a residual risk, and selected inspected sections cannot certify entire papers absent overlap.
+PASS
 
-**Value — PASS.** This is a natural learning-dimension comparison with unchanged hypotheses: adding endpoint questions raises adaptive complexity for the first time at a sharp finite boundary. The infinite family also exhibits constant VC dimension and logarithmically growing online dimension. The sharp first-boundary statement and complete witness are meaningful beyond a single arbitrary numerical parameter.
+Encoding the two east-step heights by u<=v gives three columns with predicates y<=u, u<=y<=v, v<=y. At b=1 there are three distinct concepts and a nonconstant query. For b>=2 the two middle queries at heights 0 and 1 are shattered using three nonempty intervals meeting those queries and the point interval at height 2. If a triple cannot be visited in increasing coordinate order, all-positive already fails. For comparable triples, repeated outer columns give nested events, three middle points have interval convexity, and for two middle points a negative outer query plus the appropriate positive middle query forces the other middle point. A triple with one vertex per column cannot have three negatives: the middle height lies between u and v when both outer queries are negative. For the uniform online lower bound, restricting to u<=t<=v gives an independent rectangle; binary threshold trees on the two coordinates concatenate, yielding the sum of floored logarithms. The 2^d leaf count gives the upper bound. An independent bounded depth-feasibility recursion on paths enumerated by step positions, for both languages, matched every tabulated rank through b=10. It rejects a split unless both conditioned spaces can realize the remaining depth; cardinality pruning only removes branches with fewer hypotheses than leaves. It separately parsed the frozen tree as data, checked exactly six decisions per leaf against the actual visited-vertex sets, and verified 64 distinct witnesses. The hand upper bound for middle-only b=10 also holds: root heights 4–6 give positive endpoint rectangles with rank 4 (threshold rank is additive by the sum-of-floored-logs potential), 3 and 7 leave blocks of 3 and 7 points, and the sole split there with >=16 positives leaves three 3-point blocks, insufficient for depth 4. All other roots fail the initial 32-per-side test. Replay: python3 /workspace/branches/audit_finite_reproduction.py.
 
-Limits: Exact online values are classified only for heights one to ten; general growth bounds are provided but no general formula. Literature priority is not proven absolutely. The independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two distinct indexed results cover the middle-only ranks and the full-language VC/asymptotic results, respectively, and those components are not credited with separate novelty. Neither establishes the finite full-language ranks or the first gain on adding outer-column queries. That exact query-language comparison, with first gain at b=10 and earlier failure of the full cardinality bound at b=7, is the supported distinct finding. Same-day index dates do not establish record priority.
+
+## value
+
+PASS
+
+The cutoff is the first height at which a natural oracle enrichment increases the realizable online mistake bound without increasing VC dimension, not an arbitrary sampled height. The full class nearly saturates its counting bound there, whereas the interval restrictions cannot; the explicit binary-tree witness and the obstructions supply a usable small benchmark for query-language comparisons. The already-covered restricted table and asymptotic order are context, not the basis for the value judgment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

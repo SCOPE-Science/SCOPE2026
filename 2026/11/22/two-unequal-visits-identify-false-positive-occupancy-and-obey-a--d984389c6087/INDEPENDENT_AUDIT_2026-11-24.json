@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:48:58.718126Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67",
+        "Frozen VERIFICATION.md and verify.py (inspected; the reported run was not repeated)",
+        "Independent bounded check: python /tmp/opencode/frozen_1_5_review_checks.py (record 5 block)"
+      ],
+      "rationale": "Conditional independent increments make the four probabilities an invertible affine encoding of m(u), m(v), m(T) in the unequal case. Subtraction of two survival mixtures gives at most four exponential terms. Division by one term and Rolle induction bound the number of distinct zeros of a nonzero such sum by three. Agreement at 0,u,v,T forces identical mixtures and positive weights and ordered rates resolve labels. For equal visits, the two values m(u),m(T) leave a local curve of solutions at every interior point: the two rate columns after row scaling span 1 and e^(−λt), which are independent across the two distinct times, so the implicit function theorem applies. For distinct times, dividing the survival Jacobian rows by te^(−αt) reduces the third independent column to a multiple of L(z)=∫₀¹ z^s ds alongside 1 and z, with z=e^(−λt); strict concavity excludes collinearity. Multinomial score information for the three independent probabilities has determinant equal to the squared probability-Jacobian determinant divided by all four probabilities. Factoring each time from the rows and then the Vandermonde from the analytic alternant gives u²v²T(v−u) times an analytic factor, whose value at zero is λ⁴ψ(ψ−1)/12 by the first-three-moment determinant. Integration gives p₁₀/u→μ₁, p₀₁/v→μ₁, p₁₁/(uv)→μ₂ with analytic positive extensions. Thus the normalized T⁸ determinant is the stated polynomial shape times a factor converging uniformly with two x-derivatives. In y=x(1−x), y²(1−4y) has its positive maximum at 1/6 with value 1/108; the two x-maxima are nondegenerate. Compactness separates their neighborhoods from the complement, strict curvature gives uniqueness in each, and reflection makes both globally maximizing for small T. A direct score-matrix computation from conditional history probabilities independently corroborated the leading coefficient at six unequal splits across two interior triples.",
+      "residual_risks": [
+        "The endpoints of the uniform expansion use the continuous zero extension of the determinant to zero-length visits. The asymptotics fix the interior parameter triple and establish neither finite-sample estimation performance nor a universally optimal split for all positive budgets. The limited score calculations are numerical corroboration, not proof of uniformity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier false-positive mixture is credited explicitly in frozen RESULT.md line 75; the classical exponential Chebyshev bound gives plug-in identification of ordered mixtures at sufficiently many distinct times.",
+          "The Clement listing describes designing survey combinations under false positives. The 2015 study-design hit's snippet places it in false-positive occurrence models, but no full statement-level exclusion is possible from that snippet; the identified OA retrieval attempt timed out."
+        ],
+        "reasoning": "Existence of the two-class likelihood or general distinct-time mixture identification does not supply the Fisher weighting by the four history cells or the optimal constrained allocation. Broader occupancy-design coverage could not be ruled out from inaccessible full texts.",
+        "searches": [
+          "Royle–Link (2006) DOI 10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+          "Clement (2016) DOI 10.1111/2041-210X.12617 and official USGS publication landing page",
+          "Modeling false positive detections in species occurrence data under different study designs, DOI 10.1890/14-1507.1"
+        ]
+      },
+      "checked_sources": [
+        "Original mirrored Resultary Findings and pertinent proof/assumption passages for b8f26f454426 and a7150a517039",
+        "Royle–Link and Clement bibliographic/limited-access materials as specified",
+        "2015 false-positive study-design hit, snippet and OA access attempt only",
+        "Frozen RESULT.md §§2–4 and relationship section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-count theorem plus the model's survival encoding yields the unequal-duration injectivity component. The earlier no-false-alarm information theorem optimizes a two-by-two determinant. The frozen three-by-three computation uses its own Vandermonde and a rare joint-alarm probability of order uv; the likelihood in the residual-marker result has no matching split-time structure."
+        ],
+        "reasoning": "The general exponential interpolation method is not a new theorem here, and the unverified likelihood mixture is a known construction. The determinant normalization, exact equal-design singularity and sharply asymmetric universal allocation are not corollaries of the checked two-rate or gap-design results.",
+        "searches": [
+          "b8f26f454426 Finding and Proof, a7150a517039 Finding and assumptions, and the Chebyshev reduction of frozen RESULT.md §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three observable survival values give an equivalent encoding as a two-exponential mixture observed at 0,u,v,T. The prior two-visit Resultary experiment b8f26f454426 sets the false-alarm rate to zero and known; a7150a517039 instead varies a gap between instantaneous visits and models residual marker decay."
+        ],
+        "reasoning": "A reparametrization as two ordered rates and one weight is equivalent to the finding. Deleting or fixing one rate changes the parameter dimension, and timing residual-marker decay changes the likelihood, so neither catalogue result is an equivalent formulation of the three-unknown optimum.",
+        "searches": [
+          "Local Resultary comparison of unequal observation budgets, two-visit occupancy and false positives: b8f26f454426 and a7150a517039",
+          "Public search: occupancy false positives unequal survey duration two visits Poisson exponential time to detection identifiability Fisher optimal design two binary repeats"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b8f26f454426 explicitly gives equal visits as the unique optimal short-budget design for two unknowns and no false alarms. a7150a517039 gives an optimal-gap result for an observation model with residual marker decay and known detector quality."
+        ],
+        "reasoning": "The relevant exact repository results give different design optima for different experiments, not the rank loss at equal windows or x₀=(1−1/√3)/2 for this model. An exact numeric table in unspecified units or a survey-count recommendation would not cover this continuous-duration interior-parameter asymptotic theorem.",
+        "searches": [
+          "Local Resultary exact allocations and two-visit likelihood records b8f26f454426 and a7150a517039"
+        ]
+      },
+      "rationale": "The false-positive occupancy mixture and the exponential zero-count method are established, and a related prior two-visit design already analyzes a local Fisher determinant. The distinct supported claim is the unknown-background, two-duration binary experiment's joint rank/identification criterion and universal asymmetric short-budget design law. The strongest verified catalogue methods change a rate assumption or the observation protocol and do not yield that claim. The most relevant inaccessible or partially accessed primary papers remain named risks; missing access is not evidence of novelty.",
+      "residual_risks": [
+        "Foundational and closest false-positive design full texts remained inaccessible in bounded retrieval, and unlocated variable-duration mixture design results may overlap. This decision is not a historical-priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related experiment, different rank and small-budget optimum",
+          "evidence": "Prevalence and detection rate unknown, false alarms absent; equal durations uniquely maximize for small T.",
+          "identifier_or_url": "Resultary 2026/11/8 b8f26f454426",
+          "material_read": "RESULT.md Finding and Proof, local-mirror offsets 0–7327",
+          "method": "Local catalogue and original mirrored text",
+          "title": "A two-visit occupancy experiment breaks equal-effort optimality",
+          "trigger": "Closest prior two-visit Poisson budget and D criterion"
+        },
+        {
+          "assessment": "Model-distinct overlap; no order inferred from date",
+          "evidence": "Instantaneous observations with a variable inter-visit gap, decaying marker and known detector quality, not two Poisson windows with two unknown encounter rates.",
+          "identifier_or_url": "Resultary 2026/11/22 a7150a517039",
+          "material_read": "RESULT.md Finding and assumptions, mirror offsets 0–7390",
+          "method": "Local catalogue and original mirrored text",
+          "title": "Two visits identify residual-marker decay and have a unique optimal gap",
+          "trigger": "Same-day false-positive two-visit identification/design"
+        },
+        {
+          "assessment": "Prior mixture credited, detailed priority unresolved",
+          "evidence": "The frozen comparison credits the two-component observation mixture. Failed full-text access does not establish what the original says about duration-varying designs.",
+          "identifier_or_url": "DOI 10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+          "material_read": "Bibliographic and model comparison in frozen RESULT.md lines 75 and 83; original full text not retrieved",
+          "method": "Bounded lawful OA access attempts; no usable copy retrieved",
+          "title": "Generalized site occupancy models allowing for false positive and false negative errors",
+          "trigger": "Foundational false-positive mixture and possible broader coverage"
+        },
+        {
+          "assessment": "Survey-design precedent; detailed comparison limited by access",
+          "evidence": "Available listing refers to combining survey types under false positives; Wiley full text not retrieved and the USGS OA attempt timed out. Listing alone does not rule out related optimization.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12617",
+          "material_read": "Official publication search listings and frozen RESULT.md discussion, not paper full text",
+          "method": "Primary literature search, bounded OA attempts at publisher and identified USGS landing page",
+          "title": "Designing occupancy studies when false-positive detections occur",
+          "trigger": "Closest primary false-positive design title"
+        },
+        {
+          "assessment": "Scope not determined from full text",
+          "evidence": "Snippet discusses separate binomial true- and false-detection probabilities; insufficient to decide whether a Poisson-duration subdesign is treated.",
+          "identifier_or_url": "https://doi.org/10.1890/14-1507.1",
+          "material_read": "Search snippet only; no primary passages recovered",
+          "method": "Targeted identification and OA DOI request (timeout)",
+          "title": "Modeling false positive detections in species occurrence data under different study designs",
+          "trigger": "Possible broader false-positive design model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and Proof §§2–4",
+        "Resultary b8f26f454426 as the no-false-alarm comparator"
+      ],
+      "rationale": "Dividing a fixed monitoring budget into two cheap binary visits is an independently motivated design. Distinguishing unknown genuine and background rates makes balanced visits singular regardless of the number of independent sites, whereas deliberately unequal visits suffice without another observation type. The sharp 21.13/78.87 percent limiting split and determinant rate quantify this information tradeoff and differ qualitatively from the two-parameter no-false-alarm design. This is a concrete statistical design benchmark beyond generic mixture identifiability.",
+      "residual_risks": [
+        "The optimum is local Fisher design under fixed stationary interior rates, not an ecological validation of mixture labels or a protocol robust to detection heterogeneity, setup costs, and finite-sample error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

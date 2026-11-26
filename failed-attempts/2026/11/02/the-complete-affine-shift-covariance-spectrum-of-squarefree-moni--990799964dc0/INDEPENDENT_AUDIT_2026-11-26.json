@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:36:17.194879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered counts and the frequencies assigned to those counts are correct. The Finding first correctly defines the covariance as Δ_q/q³, but then asserts in its frequency paragraph that the nonzero values −1, 2q, and −q are covariances. They are centered counts; the covariances are −1/q³, 2/q², and −1/q². For example over F₇ every nonzero-slope shift has covariance −1/343, not −1. The same error is in the slogan. For the underlying count, each nonsquarefree cubic determines a unique repeated root r, and two repeated roots r and s for the two translates must differ because a nonzero affine shift cannot have a double root. Write f=(T−r)²(T−s+b) and d=s−r. Vanishing of the value and derivative at s determines b=−h(s)/d² and gives d³=2h(s)−ud=u(s+r)+2v, with a unique inverse for every solution. For odd q, (d,s+r) are independent coordinates: a nonzero slope gives q−1 solutions, and a constant shift gives q times the number of cube roots of 2v. For even q the equation becomes d²=u with d≠0, giving q solutions for u nonzero and none otherwise. This covers characteristic three too. Both marginal nonsquarefree counts are q², so Δ_q is the joint nonsquarefree count minus q. Direct independent cubic-discriminant enumeration of every shift for q=2,3,5,7,13 agreed with the centered-count formulas (replay: /workspace/branches/independent-checks/record4.py); the frozen verifier was read but not executed and tests counts, not the mislabelled covariance. Correcting the numerical labels alone leaves the originality and value failures below, so no repair is delivered.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keating–Rudnick gives the same squared-Möbius pair sum with error O(nq^(2n/3)), too large for the n=3 corrections. The exact quartic result has the wrong polynomial degree. The cubic quadratic-shift record works with a stronger, unspecialized incidence relation in its proof, even though its elliptic formula cannot be specialized by putting the quadratic coefficient to zero."
+        ],
+        "reasoning": "It is the unspecialized proof identity and its reversible value equation, not specialization of an elliptic formula outside its domain, that cover the frozen claim.",
+        "searches": [
+          "arXiv:1504.03444, Appendix A.1, Theorem A.2, Eq. (A.6)",
+          "Resultary 3967e0733c76, exact degree-two shift formulas and Proof §1",
+          "Resultary c13d0ab6935d, degree-four affine shifts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3967e0733c76 (local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4), c13d0ab6935d, aab6d345d5f5, 185061657366, 1be6815597d8 and f4e0692682d7",
+        "arXiv:1205.1599, 1504.03444, 1409.3694 and 1711.05564"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all nonzero affine h, the prior d=0 case cannot occur because h and h′ have no common root. Substituting h(x)=ux+v into the prior equation gives d³+d u−2ux−2v=0. For odd q and u≠0, each d≠0 determines x; for u=0 it is the cube equation d³=2v with x free. In characteristic two the very same two original equations leave d²=u with x free, since 2d(x−s)=0. The prior value equation determines the residual root uniquely, and its inclusion–exclusion uses precisely the two q²-element nonsquarefree loci."
+        ],
+        "reasoning": "The remaining steps are root counts of linear, squaring and cubing maps and the identical baseline. Rewriting them as a shift-frequency table or dividing by q³ adds no mathematical result.",
+        "searches": [
+          "Resultary 3967e0733c76, Proof §1, mirror offset 2415, passage starting 'If d≠0'"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For f=(T−r)²(T−s), shifted repeated root x and d=x−r≠0, the closest record explicitly gives d²(x−s)=−h(x) and 2d(x−s)+d²=−h′(x), then d³+d h′(x)−2h(x)=0 before substituting a quadratic h. The sign-correlation theorems require exponents not all even, so they do not represent this same indicator product."
+        ],
+        "reasoning": "These displayed equations, unlike either sign theorem, are exactly the frozen incidence condition after relabeling roots and coefficients. No hypothesis on the degree being exactly two or on the characteristic enters this elimination; the only denominator is a power of d.",
+        "searches": [
+          "Resultary cubic squarefree affine-shift, simultaneous discriminant vanishing and exact shift-spectrum comparisons",
+          "Resultary 3967e0733c76, Proof §1 (mirror offsets 2415–5168)",
+          "arXiv:1205.1599, Theorem 1.1; arXiv:1409.3694, Theorem 1.1 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The looked-up exact summaries and passages distinguish cubic signed constant correlation, quartic squarefree pairs, cubic discriminant squareclasses conditioned on evaluations, and squarefree single-polynomial marginals. Bary-Soroker–Stix is an exact table/formula for irreducible pairs f,f+1, not squarefree pairs."
+        ],
+        "reasoning": "No separate, identical distribution table was identified in that bounded comparison; this does not counter the direct implication from the cubic incidence source.",
+        "searches": [
+          "Resultary ranked searches for the complete exact covariance/centered count spectrum and constant-shift cube splits",
+          "Resultary aab6d345d5f5, 185061657366, 1be6815597d8 and f4e0692682d7",
+          "arXiv:1711.05564, Theorem 1.2"
+        ]
+      },
+      "rationale": "The closest distinct Resultary record states results for exact quadratic shifts in odd characteristic, but its proof already derives the general repeated-root incidence identity before any quadratic substitution. The entire frozen affine spectrum follows from projecting that identical incidence over the field; the characteristic-two branch is immediate from the same unspecialized equations. This is demonstrable coverage in a distinct indexed record, not a claim of priority inferred from the shared date.",
+      "residual_risks": [
+        "This is a statement-level comparison to a distinct indexed record and does not adjudicate date ordering or earliest historical priority. The broader lookup was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest match; covers the affidavit of counts by immediate specialization of its proof even though the stated elliptic formula assumes exact degree two and odd q",
+          "evidence": [
+            "Proof §1: d²(x−s)=−h(x), 2d(x−s)+d²=−h′(x); d³+d h′(x)−2h(x)=0 before inserting the quadratic shift; inclusion–exclusion of two q² loci."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-elliptic-trace-profiles-and-exact-variance-for-squarefree-cubic--3967e0733c76",
+          "material_read": "Displayed scope and Proof §§1–2, in particular mirror offsets 2415–5168 of RESULT.md",
+          "method": "Original local-mirror passages and algebraic specialization of the unspecialized value/derivative equations",
+          "title": "Elliptic trace profiles and exact variance for squarefree cubic pairs",
+          "trigger": "Same degree and statistic; potential low-degree specialization through the proof"
+        },
+        {
+          "assessment": "Different strength, asymptotic only",
+          "evidence": [
+            "S(J)q^n+O(nq^(2n/3)) for nonzero J of degree less than n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.03444",
+          "material_read": "Appendix A.1, p. 33, Theorem A.2 and equation (A.6); OA offset 89404",
+          "method": "Original PDF passage and specialization of the error order",
+          "title": "Squarefree polynomials and Möbius values in short intervals and arithmetic progressions",
+          "trigger": "Exact same squarefree indicator observable in a general-degree theorem"
+        },
+        {
+          "assessment": "Does not give the exact all-even exponent pair sum",
+          "evidence": [
+            "Not all exponents even; nearby simultaneous squarefreeness estimate is q^n+O(rq^(n−1))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1599",
+          "material_read": "§1, pp. 2–3, Theorem 1.1 and equations (1.2)–(1.5), OA offsets 4800–9038",
+          "method": "Original PDF passage",
+          "title": "The autocorrelation of the Möbius function and Chowla's conjecture for the rational function field",
+          "trigger": "Potential discriminant equivalent and sign theorem"
+        },
+        {
+          "assessment": "Does not give the all-even exponent count",
+          "evidence": [
+            "Not-all-even condition; later generic square-independence uses Berlekamp discriminants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.3694",
+          "material_read": "p. 2 Theorem 1.1 and §6 pp. 12–13, OA offsets 3900 and 35913",
+          "method": "Original PDF passages",
+          "title": "The autocorrelation of the Möbius function and Chowla's conjecture for the rational function field in characteristic 2",
+          "trigger": "Characteristic-two variant"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "π(3,q;(0,1)) counts simultaneously irreducible cubics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.05564",
+          "material_read": "§1 definition and Theorem 1.2, OA offsets 6000 and 10150",
+          "method": "Original PDF passages",
+          "title": "Cubic twin prime polynomials are counted by a modular form",
+          "trigger": "Exact cubic pair count under a constant shift"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact low-degree squarefree-pair benchmarks for asymptotic theory are a natural object. Here the numerical affine spectrum is the routine linear/cube-map/Frobenius case split of a general cubic incidence already explicitly derived in the closest result. The covariance relabeling is only a normalization correction. There is no distinct substantive mathematical remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

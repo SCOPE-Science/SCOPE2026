@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:17:37.802718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an interior target the second phase rho restricts the ordinate to (rho-ax)/(b*pi); exactly the phases in (0,b*pi] persist at small positive x, including the upper endpoint from inside the rectangle. Substitution gives the stated quadratic and two distinct first-phase roots per large integer band; the Jacobian is nonzero and has magnitude 4ab(1+pi^2/x^2) times sqrt(u(1-u)v(1-v)). Summing its reciprocals gives a finite weight with the stated first-order term and O(delta^2) error. Outside null critical curves ordinary local change of variables gives the density, the proposed limit has mass one, and Scheffe gives total variation. Complete monotone half-periods have one inverse per interior level; a nonempty incomplete half-period adds one on a proper interval, proving the iff. Inspected the frozen VERIFICATION.md and checks/check_boundary_law.py without executing the uploaded script; its symbolic and finite annular checks are not a limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact prior theorem counts all preimages with x>=epsilon, as 2a K_b(v)/epsilon+O(1), and supplies an exhaustive quadratic parametrization and the exact determinant.",
+          "The original map article's numerical dynamical analysis and conclusion address bifurcations, Lyapunov exponents and other applications, not this strip law."
+        ],
+        "reasoning": "The quantitative same-map fiber result is stronger data than the particular weighted tail once the weight is known. The original dynamics paper does not supply this stronger data.",
+        "searches": [
+          "Resultary 3aa93a63c727 RESULT.md, §§1–4 and Finding",
+          "Zhu et al., DOI 10.3390/math11143171, §§2 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3aa93a63c727, original RESULT.md",
+        "Zhu et al. (2023), DOI 10.3390/math11143171"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If N(t)=c/t+O(1) counts inverse points with x>=t, c=2aK_b(v), then sum_{x<delta} x^2 = integral_0^delta 2t(N(t)-N(delta)) dt = c*delta+O(delta^2). This uses nonnegative layer integration; inclusion at a given lattice cutoff is accounted for by subtracting N(delta).",
+          "At every inverse point the exact determinant gives w(x)=d x^2(1+O(x^2)), d=1/[4ab*pi^2*sqrt(u(1-u)v(1-v))]. The weighted remainder is bounded by a constant times delta^2 sum_{x<delta}x^2."
+        ],
+        "reasoning": "Thus W_delta=d c delta+O(delta^2) including the endpoint convention, from the existing count and determinant without a new inverse-sheet theorem. The change-of-variables density W_delta/delta converges a.e. to a probability density; Scheffe supplies the TV claim. All substantive quantitative inputs for these steps are in the overlapping record, so distinct terminology or a new observable alone does not establish originality.",
+        "searches": [
+          "Resultary 3aa93a63c727, Finding counting estimate; proof §4 determinant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu et al. Eq. (1) has exactly the two claimed phases, a*pi/x+b*y and b*pi*y+a*x.",
+          "Resultary 3aa93a63c727, Finding and proof §§1–2: the inverse phase staircase K_b(v) is exactly M_b^+(v), with equality at b*pi already included."
+        ],
+        "reasoning": "In the phase description the second marginal is uniform phase pushed forward by sine-square; dividing its Jacobian by the uniform phase length gives the stated staircase density. Removing the endpoint changes only a null output level. The prior count uses a closed transverse interval, but only finitely many transverse-edge inverse points exist at a fixed interior target (at most one x per phase per edge). Removing them does not change the bounded-error counting asymptotic.",
+        "searches": [
+          "Resultary same-map search for reciprocal sine-square inverse bands, phase staircase and weighted thin-strip output",
+          "Zhu et al., DOI 10.3390/math11143171, Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K_b(v)=max(0,1+floor(b-theta/pi))+max(0,floor(b+theta/pi)), theta=arcsin sqrt(v); the existing record supplies the exact function of phase gain and level, not just sampled levels."
+        ],
+        "reasoning": "This exact function is the apparent phase-dependent novelty of the density. Constancy away from the single partial-period cutoff is the elementary complete-half-period test for 2b integral. There is no need for a separate tabulation to establish coverage.",
+        "searches": [
+          "Resultary same-map lookup; exact staircase in 3aa93a63c727 at RESULT.md offset 350"
+        ]
+      },
+      "rationale": "The closest distinct same-day Resultary record supplies both the sharp counting asymptotic with bounded error and the exact determinant for the identical map and all interior targets. Together they mechanically give the entire weighted expansion by partial summation, and then the forward total-variation and resonance conclusions by ordinary change of variables, normalization and the known staircase. The earlier paper defining the map alone would not imply this. The decision is demonstrable coverage, not a claim about intraday priority or verbatim duplication.",
+      "residual_risks": [
+        "No relative publication order was established between the distinct records indexed 2026-11-22. The disposition rests on statement-level implication, not priority.",
+        "The comparison is for exact real one-step outputs and does not assess long-run dynamics or applications. A broad literature query was not probative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact inputs mechanically yield the entire thin-strip claim; indexing on the same date does not assign priority.",
+          "evidence": [
+            "N(epsilon)=2aK_b(v)/epsilon+O(1); K_b retains the upper endpoint; determinant is -ab(1+pi^2/x^2)sin(2Theta)sin(2Phi)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-inverse-sheet-phase-staircase-in-a-reciprocal-sine-square--3aa93a63c727/RESULT.md",
+          "material_read": "Finding and assumptions, proof of exact inverse sheets and determinant (§§1–4); matching offsets near 350 and 5916",
+          "method": "Configured Resultary search and local-mirror original-file passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp inverse-sheet phase staircase in a reciprocal sine-square map",
+          "trigger": "Identical map, interior targets and singular boundary"
+        },
+        {
+          "assessment": "Same exact map; inspected discussion has a materially different observable.",
+          "evidence": [
+            "Eq. (1) matches both phases; §6 summarizes dynamical and application results, not a one-step forward strip limit."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11143171",
+          "material_read": "Open-access PDF p. 3, §2.1 Eq. (1), and p. 22 §6; targeted terms for density and convergence",
+          "method": "Read equation and relevant conclusion in the publisher's open PDF",
+          "title": "Construction of a New 2D Hyperchaotic Map with Application in Efficient Pseudo-Random Number Generator Design and Color Image Encryption",
+          "trigger": "Original definition and possible distribution results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A forward boundary distribution is a natural observable, but in this record its exact coefficient and TV limit reduce to routine partial summation and probability normalization of a matching sharp count and known determinant. There is no separate non-mechanical quantitative advance sufficiently supported here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

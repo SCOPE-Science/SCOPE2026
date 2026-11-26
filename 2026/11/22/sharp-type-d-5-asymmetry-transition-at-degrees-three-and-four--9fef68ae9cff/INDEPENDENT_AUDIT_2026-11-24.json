@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:09:33.348446Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 30–60: group, normalized polynomials, and proof",
+        "VERIFICATION.md and checker.py: inspected reported enumeration and R-polynomial route; frozen code not executed",
+        "Independent replay: python3 /workspace/review-evidence/d5_replay.py 5; a D₄ check using argument 4 also returned the three length-four 1+q cases"
+      ],
+      "rationale": "For P_{e,w}(1)=2, positivity, constant term one, and coefficientwise KL monotonicity give P_{x,w}=1 or 1+q^h for a common h≥1. If S_w records the ranks of the second class, palindromicity of P_w+q^h S_w gives d_k=[q^{k−h}]S_w−[q^{ℓ(w)−k−h}]S_w. For k<ℓ(w)/2 this is at most the full-flag coefficient at k−1, using rank unimodality when k−h≥0, and is at most zero otherwise. In D₅ the ranks (1,5,14,30,54) agree with the flag product with factor sizes 2,4,5,6,8. Independent exact replay via signed inversion length and transitive closure of decreasing reflections (not reduced subwords) lists all 1920 even signed permutations, longest length 20. At ℓ>6 with d₁≤1,d₂≤5, exactly nine have d₃=14 and none exceed it. At ℓ>8 with the additional d₃≤14, exactly 572 qualify, the largest d₄ is 27 and there are seven candidates. Direct KL right-descent recursion with μ corrections (not the bundled R recursion) gives P_{e,w}=1+q only for the given inverse pair among these candidates with evaluation 2; the remaining candidates all evaluate to 3 or 4. The length-16 vectors and d₀,…,d₇ agree entrywise, and direct inversion gives (−1,4,−2,−3,−5) from (−1,−3,−4,2,−5). The check is exhaustive for the equality sets because the filters are necessary, not a sample of KL classes. The supplied bar-identity implementation uses signed reversed R coefficients, equal to the ordinary R coefficients by R-polynomial reciprocity; this is consistent with its written description.",
+      "residual_risks": [
+        "The inequality proof uses k<ℓ(w)/2 and P_{e,w}(1)=2. The replay resolves exact extremality in D₅, not a classification of all KL classes or other ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Available excerpts give the universal coefficient inequality under P_{e,w}(1)=2 and type A/B sharpness, and the earlier simply-laced factoriality criterion concerns b₂ versus the next-to-top Betti number."
+        ],
+        "reasoning": "The universal cap includes D₅ and gives 14 and 30; it neither decides the attained 27 nor classifies equality there. The factoriality criterion addresses another degree and objective.",
+        "searches": [
+          "Burrull–Li–Zeng–Zhang arXiv:2611.24751v1, Corollary 3.3 and §4",
+          "Li–Rietsch–Yang arXiv:2506.18388v1 Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit and distinct F₄ comparison",
+        "Indexed arXiv asymmetry and anticanonical statements; Goresky table index; generic Sage references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying Corollary 3.3 to the full-flag ranks gives d₃≤14,d₄≤30. The independent exact D₅ census reduces degree four to 27 with two qualifying equalizers, and verifies the two degree-three equalizers."
+        ],
+        "reasoning": "Recomputing 14 as a bound is covered; its attainment and uniqueness class are not implied. For degree four the gap is a strict improvement, not a new expression for the universal bound.",
+        "searches": [
+          "Corollary 3.3 and type A/B sharpness of arXiv:2611.24751v1; Li–Rietsch–Yang Theorem A; Goresky indexed types"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same D₅ result is the exact catalogue self-hit, ID ending 9fef68ae9cff; nearby same-date F₄ results are about another Weyl group.",
+          "The indexed general paper expresses the coefficients via the asymmetry polynomial; in the geometric interpretation they are opposite ordinary Betti-rank differences."
+        ],
+        "reasoning": "These are equivalent ways to state the optimized coefficient. Different generator labels or exchanging a signed permutation with its inverse do not count as a different classification. The F₄ domain is not this D₅ domain.",
+        "searches": [
+          "Resultary: D5 Schubert asymmetry and opposite Betti differences, P_e,w(1)=2, maxima 14 and 27",
+          "Burrull–Li–Zeng–Zhang arXiv:2611.24751v1, Corollary 3.3 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Goresky list contains A₃,A₄,A₅,C₃,C₄,D₄,H₃, not D₅. Generic Sage KL functionality surfaced, not an evaluated D₅ extremal table. The exact catalogue match is the frozen entry itself."
+        ],
+        "reasoning": "D₄ tables calibrate conventions but cannot decide an optimum on the distinct rank-five group. Computability is not a previously evaluated exact claim.",
+        "searches": [
+          "Goresky Tables of Kazhdan–Lusztig Polynomials and D4 data; D5 signed permutation KL tables; Sage Iwahori–Hecke and KL functionality",
+          "Resultary exact D5 extremizers and type-F4 comparisons"
+        ]
+      },
+      "rationale": "The general inequality in degrees three and four is prior. The supported new content is the exact degree-four gap and the equality classification for both restricted D₅ maxima. The cited type A/B sharpness statements and available KL tables do not compute this type D₅ optimum. An exact group algorithm without its evaluated classification is not an existing numerical bound or census.",
+      "residual_risks": [
+        "Full primary passages for the recent asymmetry paper and related geometry could not be retrieved; the available statements are not claimed to exhaust those sources.",
+        "An unindexed D₅ table or unpublished identical census was not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Universal cap established prior; available sharpness scope is types A and B, not a whole-document exclusion of D₅",
+          "evidence": [
+            "Universal cap specialized to this input is 14 at degree three and 30 at degree four."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.24751v1",
+          "material_read": "Indexed excerpts referring to Corollary 3.3 and §4; frozen citations lines 42, 68, 77; targeted primary full text not retrieved",
+          "method": "Primary literature search and targeted OA lookup; compare cap by rank polynomial",
+          "title": "On the asymmetry polynomial of Schubert varieties",
+          "trigger": "Exact same invariant and singularity parameter; possible broader coverage or computed D₅ cases"
+        },
+        {
+          "assessment": "Motivation, not a higher-degree numerical optimum",
+          "evidence": [
+            "The factoriality criterion uses equality b₂=b_{2ℓ(w)−2} in simply-laced type."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.18388v1",
+          "material_read": "Indexed abstract and frozen Theorem A citation; full theorem passage not retrieved",
+          "method": "Primary-source listing and statement comparison",
+          "title": "An anticanonical perspective on G/P Schubert varieties",
+          "trigger": "Earlier geometry of opposite Betti numbers in simply-laced type"
+        },
+        {
+          "assessment": "Known listing stops at D₄ in type D",
+          "evidence": [
+            "No D₅ in the available list: A₃,A₄,A₅,C₃,C₄,D₄,H₃."
+          ],
+          "identifier_or_url": "https://www.math.ias.edu/~goresky/tables.html",
+          "material_read": "Indexed coverage list; direct page unavailable; D₄ normalization comparison in frozen package",
+          "method": "Indexed type-list check and targeted retrieval",
+          "title": "Tables of Kazhdan–Lusztig Polynomials",
+          "trigger": "A published exact D₅ table could mechanically imply the extremal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "General bound and prior type A/B sharpness excerpts",
+        "Schubert opposite Betti criterion in simply-laced type",
+        "Exact independent reflection-graph/recurrence census"
+      ],
+      "rationale": "The opposite-degree Betti differences and the constraint P_{e,w}(1)=2 already arise in general Schubert asymmetry theorems, so this is a motivated extremal invariant on the full next simply-laced D rank, not an arbitrary slice of a lookup table. Knowing that the universal estimate is attained at degree three but loses three at degree four in the very same group, with the same unique inverse pair, gives concrete limits to the universal sharpness pattern. A researcher comparing types or investigating the sharpness mechanism can need precisely these exact values and witnesses; no infinite-rank implication is asserted.",
+      "residual_risks": [
+        "The value is that of a complete finite comparison, not a claim of an infinite type-D theory or that this is the first failing rank."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

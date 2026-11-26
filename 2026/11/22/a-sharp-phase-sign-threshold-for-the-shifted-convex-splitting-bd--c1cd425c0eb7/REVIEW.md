@@ -1,15 +1,21 @@
-# Review: sharp phase-sign threshold for a Cahn–Hilliard convex-splitting step
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-cell Neumann antiphase mode reduces the published shifted cubic force to an exact scalar implicit recurrence with a globally positive derivative in the new endpoint. The derived discriminant gives the stated threshold, the Schur inequalities give local exponential attraction, and a uniform cubic-perturbation argument extends positive real-root trajectories to all indices, including the double-root case. Above threshold, summable nonlinear angular deviations force infinitely many signs for every sufficiently small nonzero history. The exact semidiscrete starter is stated explicitly and has the required linear ratio. The symbolic checker verifies the polynomial identities and 20 representative numerical experiments; the proof, not the experiments, establishes infinite-index conclusions.
+## correctness
 
-## Originality — PASS, with residual historical uncertainty
-The primary 2026 Gu–Wang paper has been inspected at the definitions of the shifted cubic force, the fully discrete method, its energy theorem, and its numerical discussions. It establishes energy stability, uniqueness and convergence, not this two-cell all-time phase-sign classification. Classical BDF2 scalar monotonicity and an already published exact delayed-sign-loss result were checked against the actual recurrence, not just by title. Neither implies the shifted nonlinear threshold with exact semidiscrete starting and critical boundary behavior. A broad specialist-history search cannot certify priority; older BDF2 oscillation analyses remain a residual risk.
+PASS
 
-## Value — PASS
-This is a sharp qualitative timestep diagnostic for a newly introduced energy-dissipating method on the smallest mass-conserving mesh with a globally strictly convex antiphase free energy. It exhibits indefinite false phase reversals arbitrarily near equilibrium while the true semidiscrete flow never changes sign. The completed all-time nonlinear classification distinguishes structural energy decay from sign-faithfulness without claiming instability or global full-PDE failure.
+Gu–Wang's (1.10)–(1.12) and (3.1c–d) give the stated antiphase recurrence when transport is suppressed and L has eigenvalue λ on (1,−1). The derivative in the unknown successor is 3+2βt+(3t/4)[2A²+(A+B)²]>0 and the cubic is onto. The exact phase-only ODE preserves positivity and its starter is e^(−kt)a₀+O(a₀³), k=β−1>0. The linearized discriminant is 4(1−2kt−4kt²); the three strict Schur inequalities hold on both sides and at the double root. Below or at threshold, (1−kt)(3+2βt)−2(1+t)=1−kt(1+2t)−2(kt)²>0, so the starter slope exceeds the root midpoint. The positive linear sequence is bounded below by a constant times Rⁿ, or (n+1)Rⁿ at the double root. For R<q<R^(1/3), local contraction in an equivalent norm bounds the cubic forcing by O(a₀³q^(3n)); Duhamel with the correct simple or Jordan power bound transfers positivity uniformly in n, not only at each fixed n. Above threshold the update is conjugate to a contracting rotation plus cubic error, so the nonzero trajectory has summable angular errors; local injectivity prevents hitting zero. Irrational rotations, or the evenly spaced rational orbit for 0<θ<π/2, have infinitely many visits bounded away from the boundary of each sign half-plane, unaffected by the vanishing phase error. This proves convergence with infinitely many signs of each kind for all sufficiently small nonzero histories on that side. The two-cell example has λ=2 and β=2, giving τ_c=(√5−1)/8. Scope is phase only, fixed step, near zero, and the positivity branch uses the stated exact starter, not Gu–Wang's unspecified admissible second-order starter. VERIFICATION.md and verify.py were inspected, not executed; the sampled sign patterns are printed diagnostics, not an all-time or machine-certified sign proof.
 
-## Closest literature and scope
-Gu–Wang, arXiv:2606.04204 (2026), is the method source. Hundsdorfer–Ruuth–Spiteri's standard BDF2 monotonicity theory, the prior standard-BDF2 sign-delay record, and convex-splitting Cahn–Hilliard BDF2 literature establish context, not this exact shifted-scheme threshold. The proved statement is local in initial amplitude and is for the phase-only two-cell reduction; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the sharp nonlinear near-equilibrium classification for the actual shifted-force phase recurrence and the stated starter, including the double-root positivity proof and the all-small-history oscillation result above it. Neither the scheme nor the general possibility of a numerical BDF sign reversal is new.
+
+## value
+
+PASS
+
+This is a fully quantified counterexample to inferring sign fidelity from modified-energy stability, in the smallest nontrivial conserved-mean spatial subsystem of a concrete integrator. It gives a usable timestep boundary, including equality, and proves persistent decaying sign reversals even for arbitrarily small, correctly initialized positive data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

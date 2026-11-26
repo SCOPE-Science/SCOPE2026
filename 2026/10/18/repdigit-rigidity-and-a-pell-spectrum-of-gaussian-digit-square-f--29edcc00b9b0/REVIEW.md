@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The canonical signed-coordinate digit expansion gives \(S_B(a+i tR_m)=(a^2-mt^2)+2at i\). The imaginary equation rules out lengths one and at least three by integer parity and the digit bound; the remaining two-digit equation is exactly \(B^2-8t^2=1\). A strict positive-integer descent establishes that every admissible solution comes from powers of \(3+\sqrt8\). The exact counting law follows from the hyperbolic-cosine representation. The standalone integer checker independently reconstructs the digit map, exhaustively checks a finite domain, and verifies twelve recurrence terms. The finite scan is auxiliary; the proof covers all parameters.
+PASS
 
-## Originality
+The signed coordinate convention places a+it in the units position and it in the next m−1 positions. The fixed-point equations are a(a−1)=mt² and 2a=R_m(B), the latter using t≠0. The imaginary equation is impossible for m=1 by parity and for m≥3 since B²+B+1>2(B−1). At m=2 the two equations are equivalent to a=(B+1)/2 and B²−8t²=1; that equation forces odd B≥3 and ensures both digit bounds. For t>1, multiplication by 3−√8 keeps both integer coefficients positive and gives 0<3t−B<t, preserving norm; t=1 has exactly B=3. This proves all positive solutions are the stated powers, and negative t gives conjugation. The cosh identity then proves the exact count, including equality at a Pell base. An independent exact signed-digit scan over 2≤B≤50, 1≤m≤5 found exactly both signs at B=3 and 17 and no others; replay: python3 /workspace/checks/frozen_review_checks.py gaussian. This is a finite diagnostic, not the proof.
 
-**PASS under accessible-source comparison, with residual risks.** The closest primary article, Baker Swart et al. (2021 open preprint), explicitly includes the known first pair at base \(3\) and computes only bases through \(10\); its general Theorem 7 concerns real fixed points and does not imply this nonreal all-base repdigit classification. The standard Pell parametrization by itself has no implication about Gaussian digit-square fixed points without the new digit-pattern equivalence. Targeted published-result searches found Pell digit extraction and Gaussian cubic parametrizations but no result with the same object or implication. A separately inaccessible 2022 journal version and incompleteness of search indexing are residual risks, not claims of independently certified novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is the complete natural class in which one coordinate is a single digit and the other is a constant signed base-\(B\) repdigit of *unrestricted length*. It proves a sharp length-two rigidity, exhibits nonreal fixed points in infinitely many explicitly characterized bases (well beyond finite published tables), and computes their exact base-counting law. These are motivated structural questions about the dynamics of the originating digit-square map, not an arbitrary finite census or a restatement that Pell equations have solutions. Nothing is asserted about all nonreal fixed points.
+The distinct result supported by the comparison is the necessary-and-sufficient all-base classification of this nonreal digit pattern, not the introductory Gaussian map, its known base-3 pair, or the classical Pell solution. No inspected result establishes that classification or renders it a special case of a complete known fixed-point classification.
 
-## Closest sources and limits
+## value
 
-The originating 2021 preprint was examined beyond its abstract, including its fixed-point tables and general fixed-point theorems. The 2022 journal article is bibliographically the same work, but its distinct complete text was unavailable for direct comparison; the published abstract was checked. A survey record provides context only. The claim is restricted to the stated signed-digit shape, and review does not replace independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-digit real part and constant imaginary digits are a natural low-complexity nonreal test family for the Gaussian map. The result determines exactly when this family occurs and how sparse its bases are, rather than extending a table by a few points. The elementary proof and familiar Pell equation do not reduce the mathematical conclusion to a new name for an existing arithmetic sequence: the length obstruction and iff occurrence answer a fixed-point question. The result is not a spectrum of all nonreal fixed points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

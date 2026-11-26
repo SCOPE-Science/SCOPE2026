@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:10.867136Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75, including hypothesis, positive-time rigidity and peak expansion",
+        "Frozen VERIFICATION.md lines 19–27 and verify_weighted_barbell.py lines 9–110, inspected not executed"
+      ],
+      "rationale": "Subtracting the unnormalized heat equations on a spoke contributes −mg_i+z and the within-periphery generator with rates c_ij−1; the bridge difference receives the sum of the 2(m−1) oriented spoke gradients minus 2z. The gradient system is irreducible with nonnegative off-diagonal entries even when m=2. Its positive exponential bounds spoke and bridge magnitudes by the ordered solutions a(t), b(t) with a(0)=b(0)=1. In particular (b−a)'=(3m−5)a−3(b−a), giving b>a at t>0. Peripheral differences obey the claimed e^(−mt) bound because the periphery forcing is constant and the remaining Markov evolution contracts oscillation. The bridge satisfies b'>−2b, so this bound is strictly below b at positive time. The unit ramp attains b, and equality against the strictly positive bridge row forces all initially oriented tree-edge differences to have the same sign and unit magnitude. The two-dimensional system has characteristic polynomial ξ²−(m+2)ξ+2 for minus its matrix, and b'(0)=2m−4. This gives the printed coefficients, with β<m+2≤3m−2 and hence B>0. The derivative has at most one zero and contracts strictly for m=2 at positive time. For m≥3, the peak ratio is m²/3 times 1+O(1/m); A=3−8/m+O(m^(−2)) and α=O(1/m) give the two stated expansions. Positive heat averaging of the norm-attaining ramp implies strict norm below the diameter bound 3 at finite positive time; t=0 has norm one.",
+      "residual_risks": [
+        "The tested code uses the same seed formula on both sides and hence does not sample independent left/right weight patterns. Its numerical edge assertions are on the tree-edge gradient list for the constant-periphery ramp, not on general inputs or explicit peripheral-pair gradients. Its peak checks do not prove an asymptotic expansion. The analytic proof covers those omitted cases; no broader computational certificate or formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first three are transport, intertwining or curvature/contraction frameworks, not an exact weighted clique profile in the passages read.",
+          "The older exact tree comparison gives the complete norm at all times, strict leaf-edge domination, the central-row positivity and an attaining ramp, which can be transferred under a commuting perturbation."
+        ],
+        "reasoning": "A curvature criterion is not an all-time norm formula; the family-specific exact theorem is the input strong enough to imply this calculation.",
+        "searches": [
+          "arXiv:math/0701886, p. 1",
+          "arXiv:1011.2331, p. 1",
+          "arXiv:1712.00875, Theorem 3.8",
+          "630448cd1a9f tree profile and equality proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue and records 630448cd1a9f, e931be488e26, 75ca1a290ab2",
+        "arXiv:math/0701886",
+        "arXiv:1011.2331",
+        "arXiv:1712.00875"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write L=L_D+P with D the older double star, d=m−1, and P the within-periphery heat Laplacian on both sides, zero at hubs. The tree Laplacian acts as identity on each mean-zero leaf space and preserves the complementary constant-periphery space, on which P is zero. Hence L_D commutes with P and H_t=T_t exp(−tP). The latter averages each leaf block and fixes the hubs, contracting the tree Lipschitz norm, which is bounded by the clique norm. Thus old bridge/spoke bounds transfer with strict spoke dominance.",
+          "For leaf pairs within one side, T_t multiplies differences by e^(−t). Split P into the unit complete-graph Laplacian and a nonnegative extra-rate Laplacian; they commute because the first acts as (m−1)I on contrasts and zero on constants. The extra-rate heat contracts oscillation, so the new metric edges are bounded by e^(−mt). The older bridge norm is strictly greater than e^(−2t), by the positive two-mode bridge system (or its positive return term and positive leaf coupling).",
+          "The older ramp is fixed by exp(−tP); it attains the same norm. Older bridge-row positivity forces a common-sign saturated tree gradient for the smoothed input, hence only the ramp modulo constants and scaling. Invertibility and fixation of the ramp and constants transfer uniqueness to the original input. Peak and asymptotics then follow from the identical explicit profile; its printed peak-time error is a direct expansion of that formula."
+        ],
+        "reasoning": "The existing answer on the tree yields the exact weighted conclusion via commuting smoothing and the elementary extra-edge check, without a new extremal calculation.",
+        "searches": [
+          "630448cd1a9f, exact norm and the central/leaf row comparison",
+          "Frozen RESULT.md assumptions on conductance and metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a finite graph with shortest-path distance, Lipschitz norm is given by the edge inequalities, so the heat norm is the maximum over edges of W1 between the endpoint heat kernels by Kantorovich–Rubinstein duality.",
+          "The barbell W1 record has exactly the same unit-rate clique graph for m≥3, with coefficient (Δ+5m−6)/(2Δ)=(3m−2−α)/Δ. With d=m−1 the older tree has the same two exponents and same A."
+        ],
+        "reasoning": "The unit-rate statements are actual norm equivalences. Equality of scalar laws on two different graphs alone would not settle weighted coverage; the commuting reduction below does.",
+        "searches": [
+          "Resultary: exact heat Lipschitz and all-time Wasserstein amplification for barbell/clique bridge/double-star",
+          "e931be488e26, edge-Wasserstein duality",
+          "630448cd1a9f, finding and tree-edge matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day e931be488e26 is an exact match on the all-unit-rate clique family, with bridge uniqueness and explicit peak.",
+          "630448cd1a9f (October 26) and 75ca1a290ab2 (same-day) give the same sharp scalar law and equality pattern on the sparse tree, rather than featuring weighted cliques in their statements."
+        ],
+        "reasoning": "The date alone orders neither same-day record. There is no need to infer such priority: the earlier tree record and the explicit transfer show substantive prior coverage.",
+        "searches": [
+          "Local Resultary and published records: clique barbells, bridge barbell, both balanced double-star records"
+        ]
+      },
+      "rationale": "The closest same-day barbell record covers the exact unit-rate W1 profile, but there is also demonstrable coverage independent of any same-day ordering. An October 26 result gives the same sharp norm, bridge uniqueness and positive central-row coefficients on the balanced double star. Adding periphery heat is a commuting Markov smoothing for the tree-edge norm, and the extra metric edges follow from an oscillation bound. Thus the unrestricted weight parameters and the purported additional equality classification follow directly as well; this finding is not rejected merely for sharing exponential roots.",
+      "residual_risks": [
+        "The unit-rate W1 record mentions a possible unidentified older equivalent result. No exclusion of other prior literature or within-day priority is claimed; the October 26 coverage is independent of these questions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive together with commuting smoothing",
+          "evidence": "Exact all-time tree norm, unique central edge at t>0, strictly positive central row, eigenvalue one on leaf deviations, and the same asymptotic factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-transient-lipschitz-amplification-on-balanced-double-star--630448cd1a9f/RESULT.md",
+          "material_read": "Finding and incidence reduction, offsets 0–3638; central and leaf row comparison and peak calculation, offsets 3640–6340; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, direct bounded passage",
+          "title": "Sharp transient Lipschitz amplification on balanced double-star trees",
+          "trigger": "Earlier sharp amplification for the underlying tree"
+        },
+        {
+          "assessment": "Exact unit-rate overlap, not proof of within-day priority or weighted scope",
+          "evidence": "Same formula, unique maximizing bridge and peak scale by W1; states endpoint Dirac extremizers, with all heat rates one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-all-time-wasserstein-amplification-and-an-asymptotically-m--e931be488e26",
+          "material_read": "RESULT.md offsets 0–8677, finding, duality and peak/limitations",
+          "method": "Local mirror, bounded source passages",
+          "title": "Exact all-time Wasserstein amplification on bridge-barbell graphs",
+          "trigger": "Same graph and profile under W1 phrasing"
+        },
+        {
+          "assessment": "Profile and rigidity pattern for a different graph, no inferred within-day order",
+          "evidence": "Exact sparse-tree norm and rigidity; no added periphery edges in the statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-heat-gradient-amplification-on-balanced-double-stars--75ca1a290ab2",
+          "material_read": "RESULT.md offsets 0–5204, finding and proof passages",
+          "method": "Local mirror, bounded source passages",
+          "title": "Sharp heat-gradient amplification on balanced double stars",
+          "trigger": "Second tree counterpart"
+        },
+        {
+          "assessment": "General machinery, not an exact family evaluation in the inspected passage",
+          "evidence": "Local Wasserstein contraction coefficient for Markov transitions.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701886",
+          "material_read": "p. 1, offset 438",
+          "method": "OA PDF, bounded passage",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Transport contraction framework"
+        },
+        {
+          "assessment": "Different class and conclusion in the passage inspected",
+          "evidence": "Weighted-gradient intertwining for birth–death processes, with contraction applications.",
+          "identifier_or_url": "https://arxiv.org/pdf/1011.2331",
+          "material_read": "p. 1, offset 971",
+          "method": "OA PDF, bounded passage",
+          "title": "Intertwining and commutation relations for birth-death processes",
+          "trigger": "Comparable semigroup-gradient argument"
+        },
+        {
+          "assessment": "General exponential contraction theorem, not the precise norm or rigidity",
+          "evidence": "Equivalence of a curvature lower bound with heat Lipschitz and heat-kernel W1 contraction estimates.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.00875",
+          "material_read": "p. 19, Theorem 3.8, offset 63848",
+          "method": "OA PDF, bounded passage",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: heat equation, Laplacian comparison, non-explosion",
+          "trigger": "Graph heat-gradient and transport equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30 and 35–75",
+        "Earlier 630448cd1a9f, exact tree norm, central-row positivity and peak"
+      ],
+      "rationale": "An exact conductance-robust heat norm is a natural question. Here, however, the robustness is a direct consequence of a commuting averaging factor acting only on leaf contrasts, with new clique edges automatically subordinate and the old extremizer fixed. The exact profile, rigidity and sharp peak therefore add no independently needed new invariant beyond the known tree result and this elementary transfer.",
+      "residual_risks": [
+        "This assessment concerns the stated family and proof of implication; it does not assess a result for noncommuting changes to the generator, other metrics, or unequal cliques."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The stationary five-orbit distribution follows by multiplication with the explicit irreducible generator. Tilted-generator perturbation identities produce both current cumulants without truncating the time horizon, and symbolic rational elimination gives the advertised variance polynomial. An independent unreduced 35-state exact-rational computation agrees at two positive parameter values. The positivity statement follows from polynomial coefficients; the twofold ratio follows from the leading terms. Scope is limited to the prescribed ring, stationary initialization and signed total-hop counts.
+PASS
 
-## Originality: PASS, with residual priority risk
+I reconstructed the continuous-time jump graph directly on the 35 three-element subsets: particle v may jump to v+1 iff v-1 and v+1 are vacant, and each edge is reversed at unit rate. Exact reachability in this small graph is 35/35, so zero is simple for each q>0. Rotation preserves the signs as well as the rates, hence the tilted problem on functions of a rotation type closes on five seven-element orbits. If f is the orbit matrix counting forward jumps in column-source convention, the reverse count matrix is its transpose because the orbits have equal size. At z=exp(s) the tilted matrix is q*z*f+z^(-1)*f^T minus the original diagonal exit matrix; this retains the same-orbit jumps in the tilt. The derivatives of the simple eigenvalue at s=0 yield total signed-hop cumulants per time by the analytic finite-state semigroup and the spectral gap. Independently of the frozen stationary-vector perturbation calculation, I formed the symbolic determinant of z times (lambda I minus the tilted matrix) and used implicit differentiation at (lambda,z)=(0,1), with d/ds=z*d/dz. It gives 2(q^2-1)/((2q+1)R) and 2(q+1)P/((2q+1)^3 R^3) exactly, with the frozen P and R. Divide both by seven for the stated densities. Coefficients of P are positive, substitution at q=1 gives 8/105 for V, and leading powers give q^2 J -> 1/7, q^2 V -> 2/7. The ratio on q>1 tends to 2 only with the specified count and long-time-then-large-q limits. Replay: python -B branches/independent_reproductions.py 2 from /workspace with SymPy; this is exact symbolic calculation, not parameter sampling or trajectory simulation. The finding does not establish a burst law or a size-uniform limit.
 
-The motivating full text [1] contains the local dynamics and seven-site three-particle mean-current results, which are explicitly treated as prior work. It does not report the second signed-current cumulant or the exact high-drive variance-to-mean ratio in the inspected text and figures. [2] treats the half-filled equilibrium sector, not the seven-site below-half-filled nonequilibrium sector. [3] discusses a related stochastic Fredkin model, mainly its dynamical activity and trajectory-phase structure rather than this local signed-current count. Targeted indexed searches and accessible prior-claim comparisons did not locate a dominating theorem. Although the relevant portions of adjacent original full texts were inspected, generic finite-state tilted-generator theory can imply the calculation once the generator is known; unindexed equivalent calculations remain a publication-priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The smallest below-half-filled ring with three particles is the natural finite setting for the newly observed clustering-induced faster-is-slower transport. Its exact current variance and non-Poisson high-drive Fano limit answer a different, dynamically meaningful question from the already plotted stationary mean: how noisy is this intermittent current? This is a reproducible full-rate benchmark for studying transport intermittency, not an arbitrary parameter slice or an assertion about all chain lengths. It complements rather than restates the established qualitative mean-current effect.
+Pass the evaluated second signed-current cumulant and high-drive ratio for the specified finite active ring. The local model, its faster-is-slower regime and its exact finite-size mean-current computation are prior. Generic finite-state cumulant perturbation is established methodology; the inspected related results do not evaluate this specific second cumulant or its limit.
 
-## Closest literature and limitations
+## value
 
-[1] Großkinsky, Schütz and Zahra, arXiv:2503.12632 (inspected main full text, Figure 2 and discussion): same model and finite-size mean currents, but no identified exact current variance. [2] Schütz and Zahra, arXiv:2509.14467 (full HTML, introduction and sections on invariant area/variance): same dynamics, different half-filled sector. [3] Causer, Garrahan and Lamacraft, arXiv:2202.06989 (full HTML, dynamics and trajectory large-deviation sections): related constrained dynamics and activity, not the same signed-current observable. Generic finite-state Markov cumulant methods are preexisting. Potential independently derived/unindexed second-cumulant formulas remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Seven sites are the first ring below half filling with three particles. This is a motivated benchmark for the same process whose mean transport is suppressed by clustering. The exact full-rate noise separates the small mean at high bias from independent Poisson-like current: only for the prescribed signed total count the limiting variance is twice the mean. This materially supplements the known mean curve, while not identifying a burst-size distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

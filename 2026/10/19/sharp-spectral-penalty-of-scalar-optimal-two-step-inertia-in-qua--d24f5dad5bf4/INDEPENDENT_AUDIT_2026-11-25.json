@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:51:41.022242Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar polynomial is monic with p_q(1)=1−q. If all roots have modulus at most R<1, the reverse triangle inequalities give 1−q≥(1−R)³, and equality requires all three roots at t=1−(1−q)^{1/3}; coefficient matching gives the unique real parameters. Independently, with k=s/q and z=tu, the normalized polynomial equals (1−k)u³+k(u−1)³. For 0<k<1 put α=((1−k)/k)^{1/3}; its roots are 1/(1+αζ), with ζ ranging over the cube roots of unity. The conjugate pair governs the radius, with squared normalized modulus 1/(1−α+α²), uniquely maximized at α=1/2, k=8/9. The endpoint modes give normalized radii zero and one. The resulting envelope gives the stated strict cutoff for the entire finite-dimensional self-adjoint class, not for each spectrum individually; at or above it the maximizing mode obstructs convergence for suitable data. The cited Algorithm (17) reduces to the proximal step with B=C=0 and ρ=1. With η=2 and γ=1, β=4/7; the rational brackets give 0<θ<0.238<3/11 and −0.018<δ<−0.017. The two strict lower bounds on δ in Condition 3.2(iii) are below −0.018, and its remaining comparison has left side below −0.07 and right side above −0.036−0.018²/7. The required relaxation bound is 1<7/4. This verifies the strict sufficient regime for the example, whose modes 1/2 and 4/9 realize the two rates. Frozen support was inspected, not executed. The rate here is a companion spectral radius, not a pure exponential bound at the defective triple root.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The p-SCLI analysis has an abstract polynomial minimax framework and a separate cubic example interpolating polynomials at two Hessian endpoints, with spectrum-dependent performance illustrated numerically. The proximal convergence analysis gives weak convergence and a sublinear bound under sufficient hypotheses."
+        ],
+        "reasoning": "The broad framework and example motivate spectral comparison, but they neither solve this interpolation with the zero-mode triple root and the scalar-optimal triple root, nor give its maximum. Those Hessian-affine coefficients, convergence guarantees, and complexity lower bounds are not the fixed proximal mode envelope in the record.",
+        "searches": [
+          "Arjevani–Shalev-Shwartz–Shamir, arXiv:1503.06833, pp. 20–21 and Appendix B pp. 34–35",
+          "Arjevani–Shamir, PMLR 48 (2016), PDF p. 2 Eq. (3)",
+          "Iyiola–Shehu, arXiv:2207.09668v1, Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–69 and frozen verification/support, inspected without executing",
+        "Arjevani–Shalev-Shwartz–Shamir, Lemma 6 and Appendix B",
+        "Iyiola–Jolaoso–Shehu, Algorithm (17) and Condition 3.2",
+        "Iyiola–Shehu, Algorithm 1 and convergence passages",
+        "Configured Resultary search; other nearby Findings 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 and 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 6 and the modal polynomial identity determine the tuning at s=q. Condition 3.2 supplies sufficient convergence of an admissible parameter region but does not order the sharp modal rates. The p-SCLI example considers a different Hessian interpolation, not a sharp maximization of the modulus here."
+        ],
+        "reasoning": "The distinct claim requires analyzing the other roots as s varies and showing that the conjugate pair first rises above the tuned endpoint and then has a unique exact maximum. Neither equality at q nor a sufficient convergence theorem mechanically determines this behavior or the cutoff where the maximum reaches one.",
+        "searches": [
+          "Arjevani–Shalev-Shwartz–Shamir, arXiv:1503.06833, Lemma 6 and Appendix B",
+          "Iyiola–Jolaoso–Shehu, Condition 3.2 and Algorithm (17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-lag proximal recurrence is already explicit in Algorithm 1. The three-operator algorithm gives exactly the same recurrence when B=C=0 and ρ=1. Lemma 6 fixes the optimum at a repeated root for a monic polynomial with prescribed value at one."
+        ],
+        "reasoning": "In dimension one the cited lemma applies with degree three and p_q(1)=1−q, so the frozen scalar optimum is covered, including uniqueness via coefficient matching. The exact penalty is not the scalar optimum in another notation: it uses the same coefficients frozen across a continuum of smaller s and finds an interior maximizing eigenvalue.",
+        "searches": [
+          "Iyiola–Shehu, arXiv:2207.09668v1, Algorithm 1",
+          "Iyiola–Jolaoso–Shehu, arXiv:2410.01099v1, Algorithm (17) and Condition 3.2",
+          "Arjevani–Shalev-Shwartz–Shamir, arXiv:1503.06833, Lemma 6 and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12 concerns an interior mode and a sharp two-step Euclidean error, for exact-line-search steepest descent. Nearby Richardson and Kaczmarz Findings use different recurrences and finite-time or stagewise metrics."
+        ],
+        "reasoning": "No inspected exact finding states the 8/9 maximizer or its spectral-radius factor for the same proximal parameters. Finite-step Euclidean error and lifted asymptotic radius do not become equivalent by rescaling.",
+        "searches": [
+          "Configured Resultary search for two-step inertia, scalar-optimal triple root, interior spectral penalty and stability threshold"
+        ]
+      },
+      "rationale": "Credit the exact frozen-parameter interior-mode penalty, its unique worst mode, and the resulting sharp stability boundary and admissible witness. Do not credit either the recurrence or the scalar monic-polynomial extremum as new: the former is already in the inertial proximal literature, and the latter follows directly from Arjevani–Shalev-Shwartz–Shamir, Lemma 6. The inspected prior work does not give the claimed envelope for this scalar-optimal proximal tuning.",
+      "residual_risks": [
+        "Suantai–Inkrong–Cholamjiak (2023) full text was not accessible; this was not treated as evidence of noncoverage.",
+        "The conclusion is bounded to compared statements. An older exact cubic interpolation analysis for the same proximal family could alter the coverage assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of scalar polynomial extremum; Appendix B is structurally close but does not give the frozen proximal envelope",
+          "evidence": "For monic degree p and prescribed nonnegative polynomial value at 1, equality in the radius lower bound occurs only at the single repeated real root. Appendix B illustrates a cubic with coefficients affine in the Hessian eigenvalue, using two specified endpoints and a numerical spectral plot.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.06833",
+          "material_read": "Lemma 6, PDF p. 18, offset 55972; schemes pp. 20–21, offset 60500; Appendix B pp. 34–35, offset 104650",
+          "method": "Lawful OA PDF, located and read bounded passages",
+          "title": "On Lower and Upper Bounds in Smooth and Strongly Convex Optimization",
+          "trigger": "Exact polynomial root-radius extremum and possible interior-mode coverage"
+        },
+        {
+          "assessment": "Exact algorithmic and sufficient-hypothesis overlap, not the sharp rate comparison",
+          "evidence": "For this specialization Algorithm (17) becomes a proximal update with the two-step extrapolation; the formula β=2η/(4η−γ) and the strict conditions give the checked bounds in the review.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.01099v1",
+          "material_read": "Section 3.2, Assumption 3.1 and Algorithm (17), offsets 20297–22097; Condition 3.2 and fixed-point form at offset 21358",
+          "method": "Lawful OA HTML, bounded passage inspection",
+          "title": "Three-Operator Splitting Method with Two-Step Inertial Extrapolation",
+          "trigger": "Same iteration and exact admissibility of the explicit witness"
+        },
+        {
+          "assessment": "Same recurrence, different result",
+          "evidence": "Two-lag extrapolation followed by a proximal map; the inspected results give weak convergence and an O(1/n) non-asymptotic rate.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.09668v1",
+          "material_read": "Abstract and section 3.2 Algorithm 1, PDF pp. 1 and 7, offsets 0 and 18401; section 3.3 Theorem 3.2",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Convergence Results of Two-Step Inertial Proximal Point Algorithm",
+          "trigger": "Exact proximal recurrence prior"
+        },
+        {
+          "assessment": "Related complexity scaling, not exact frozen mode envelope",
+          "evidence": "Gives a p-SCLI complexity lower bound scaling as κ^{1/p} up to the stated factors, without the frozen-factor comparison.",
+          "identifier_or_url": "https://proceedings.mlr.press/v48/arjevani16.pdf",
+          "material_read": "PDF p. 2 Eq. (3), offset 8750",
+          "method": "Lawful OA PDF, bounded passage inspection",
+          "title": "On the Iteration Complexity of Oblivious First-Order Optimization Algorithms",
+          "trigger": "Related p-SCLI lower bound and optimal-root design"
+        },
+        {
+          "assessment": "Different algorithm, rate and maximization problem",
+          "evidence": "Interior-mode addition can worsen two-step Euclidean error for exact-line-search steepest descent on a quadratic.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Configured Resultary search and mirror inspection",
+          "title": "A three-mode perturbation threshold for two-step Euclidean steepest descent",
+          "trigger": "Strongest catalogue analogue of a worse interior mode"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "No whole-paper conclusion is drawn from the failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-023-02388-6",
+          "material_read": "No full text read",
+          "method": "Lawful DOI attempt and repository recovery unsuccessful",
+          "title": "Forward–backward–forward algorithms involving two inertial terms for monotone inclusions",
+          "trigger": "Related two-step inertial algorithm, plausible priority risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves a motivated failure mode in tuning two-step inertia for a quadratic: a mode strictly faster before acceleration becomes the slowest after using parameters optimal for the largest proximal eigenvalue. The exact universal worst mode and factor yield a sharp class-wide stability test and a counterexample inside the published sufficient convergence regime, beyond the prior scalar extremum or qualitative observation that spectral tuning can be sensitive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

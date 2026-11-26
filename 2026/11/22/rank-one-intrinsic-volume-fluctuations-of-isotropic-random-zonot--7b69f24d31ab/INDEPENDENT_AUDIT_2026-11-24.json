@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:28:36.332094Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–118; VERIFICATION.md lines 1–23; verify_rankone.py and requirements.txt inspected, not run; corrected RESULT.md compared against frozen text",
+        "/workspace/branches/25c2e236-5433-4c45-b101-536807b3a99e/independent_spectrum_check.py: independent 800-node quadrature, dimensions 3–6 and ten even degrees; b_{d,2} agreed within 8.7e-10"
+      ],
+      "rationale": "The repaired result keeps the fixed-d joint law and exact regressions. The Steiner Gram-determinant sum has constant first projection. The squared height off the j-plane is Beta((d-j)/2,j/2), giving a telescoping conditional mean c_{d,k} times the two-vector area. Summing the canonical pair projection gives the binomial multiplicity and the exact covariance. Higher canonical kernels are orthogonal, including across orders; the variance of the order-j contribution is O(n^{2k-j}), proving the residual and correlation rate. For the negative centered sine-of-angle kernel, the Bernstein representation is positive on mean-zero modes: the tensor kernel of degree 2m has a positive quadratic form on each nonzero harmonic of that degree, since its tensor moment contracted with the harmonic's coefficient tensor is the squared L2 norm. Odd and constant modes vanish. Mercer on the diagonal and the Hilbert–Schmidt identity give the trace s_d and squared trace v_d. The finite harmonic CLT uses the truncated kernel; the tail has variance at most half its squared Hilbert–Schmidt norm uniformly in n. A small finite chi-square prefix and an independent small nonnegative tail give the sharp upper endpoint; the first mode makes the lower tail unbounded. The original line 92 falsely said the correlation equals one when one index is two. For k>2 the continuous residual at coincident inputs is c_{d,k}s_d binom(n,k)(binom(k,2)-1)>0; full support and zero mean imply strictly positive residual variance. The repair replaces the false equality and explicitly restricts the fixed-cutoff display to the truncated statistic. The main asymptotic and exact mean/covariance claims are unchanged.",
+      "residual_risks": [
+        "Quadrature corroborates only low-mode signs and normalization; it cannot certify the infinite spectral assertions. Fixed dimension, independent Haar directions and deterministic unit lengths are essential to this proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schneider Theorem 1 covers homogeneous-valuation means, but Lemma 1 and Theorem 3 use origin-in-support nondegeneracy; the Haar unit sphere excludes the origin and its first projections vanish. November 2 Resultary finding assumes a full-dimensional fixed body, not a unit segment."
+        ],
+        "reasoning": "The broader first-order CLT does not apply, and the rotated-body result does not establish cross-intrinsic-volume dependence even if a thin-body limit gives a separate marginal.",
+        "searches": [
+          "Schneider Random zonotopes and valuations arXiv 2202.06774 iid segment zonotopes intrinsic volume means central limit theorem",
+          "Exact surface-area fluctuations of independently rotated three-dimensional Minkowski sums 2026 intrinsic volume marginal"
+        ]
+      },
+      "checked_sources": [
+        "The four passages above; the frozen relationship-to-prior-work section; bounded semantic Resultary queries and a primary keyword search that produced no relevant result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established three-dimensional projection of the determinant and its scalar limit do not identify the projection of each k-volume in general dimension. Ordinary degenerate U-statistic limits require the pair projection as input."
+        ],
+        "reasoning": "Telescoping the conditional heights for all k identifies a single projection, which is the extra fact needed for the joint collapse, finite exact covariances and common law. The previous scalar theorem and mean identity do not supply that conclusion.",
+        "searches": [
+          "Second-order volume fluctuations of isotropic three-dimensional random zonotopes 2026 pair sine kernel",
+          "arXiv:2202.06774 Theorems 1 and 3, Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 1 Resultary finding and proof §§3–5 use the same centered sine-of-angle pair kernel up to the factor 1/2; for d=k=3, b_{3,2m}=2a_m and the old upper endpoint is pi/16."
+        ],
+        "reasoning": "This is exact equivalence of the single volume marginal, not of the full vector or its regressions. Sine-of-angle is not a random-matrix sine kernel.",
+        "searches": [
+          "rank-one simultaneous intrinsic-volume fluctuations zonotopes common degenerate sine-kernel all dimensions",
+          "Second-order volume fluctuations of isotropic three-dimensional random zonotopes 2026 pair sine kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The dated crossover finding recovers a d=3 volume marginal in the isotropic regime, not a table or formula for all V_k's joint law. The identical frozen record was not counted as prior work."
+        ],
+        "reasoning": "The object is an infinite-dimensional family of laws indexed by fixed ambient dimension, not an isolated constant; the relevant exact catalogue comparisons supply one marginal only.",
+        "searches": [
+          "rank-one simultaneous intrinsic-volume fluctuations zonotopes common degenerate sine-kernel all dimensions",
+          "2026/11/22 Resultary locally anisotropic random zonotopes crossover record"
+        ]
+      },
+      "rationale": "Pass for the common fixed-dimensional joint fluctuation and quantitative cross-intrinsic-volume result. Existing means, the d=3 volume marginal and standard harmonic/U-statistic machinery are not new contributions.",
+      "residual_risks": [
+        "A more general degenerate zonotope valuation theorem or an older equivalent harmonic formulation could be unindexed. Thin-body transfer of the separate surface-area marginal was not established and is not claimed as novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact previously known marginal",
+          "evidence": "Limit pi/16 minus the weighted chi-square series; its coefficients are b_{3,2m}/2 in the present notation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42",
+          "material_read": "RESULT.md finding and proof §§3–5, offsets 0–6186",
+          "method": "Local Resultary mirror",
+          "title": "Second-order volume fluctuations of isotropic three-dimensional random zonotopes",
+          "trigger": "Identical model at d=k=3 and same spectral kernel"
+        },
+        {
+          "assessment": "Covers means; Gaussian theorem hypotheses do not apply",
+          "evidence": "Origin in support is a hypothesis of the nondegenerate CLT; sphere support excludes it.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.06774v1",
+          "material_read": "Theorem 1, p. 2 offset 7600; Lemma 1, pp. 5–6 offsets 17700–22611; Theorem 3, p. 7 offsets 22500–24939",
+          "method": "OA PDF text, bounded passages",
+          "title": "Random zonotopes and valuations",
+          "trigger": "Same iid segment-zonotope model and asymptotic valuations"
+        },
+        {
+          "assessment": "Adjacent model, possible limiting marginal",
+          "evidence": "Independent rotations of a fixed full-dimensional body in dimension three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-surface-area-fluctuations-of-independently-rotated-three-d--d8645944ff61",
+          "material_read": "Finding and assumptions, offsets 0–5367",
+          "method": "Local Resultary mirror",
+          "title": "Exact surface-area fluctuations of independently rotated three-dimensional Minkowski sums",
+          "trigger": "Plausible V2 marginal overlap"
+        },
+        {
+          "assessment": "Shared isotropic marginal, different theorem",
+          "evidence": "Three-dimensional volume under a varying angular density; reuses the old isotropic eigenvalues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-noncentral-chi-square-crossover-for-locally-anisotropic-random--0e670b9e8cf5",
+          "material_read": "Finding at offset 0 and related-work passage at 10500",
+          "method": "Local Resultary mirror",
+          "title": "A noncentral chi-square crossover for locally anisotropic random zonotopes",
+          "trigger": "Same-day chi-square zonotope law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected retrospective comparison and Finding/Proof",
+        "Schneider Theorem 3 and earlier three-dimensional marginal"
+      ],
+      "rationale": "First-order Gaussian theory misses exactly this isotropic fixed-length model. The result explains why all higher intrinsic-volume fluctuations become collinear, supplies the finite-sample coefficient and an error rate, and identifies a common non-Gaussian law with sharp one-sided bound. These are consequences about dependence, not a recomputation of the known means or a single marginal.",
+      "residual_risks": [
+        "No assertion beyond fixed dimension or for random lengths, anisotropy or dependent samples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

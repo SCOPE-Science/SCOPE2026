@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:20:36.751036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With kappa=u+v, Pi=I+A/kappa is a projection and A vanishes on its range and equals −kappa on the complementary range. The Caputo series with zero initial slope is Pi+f(I−Pi), f=E_alpha(−(kappa^(1/alpha)t)^alpha), by scalar Caputo differentiation of the series. Its diagonal numerators are v+uf and u+vf, the off-diagonals have the sign of 1−f, both column sums equal one, and the determinant is f. For 1<alpha<2 the even scalar function is the Fourier transform of the stated density: take twice the real part of z^(alpha−1)/(1+z^alpha) at z=iω, with the standard inversion normalization. With y=|ω|^alpha and theta=πα/2, its mass is 2 sin(theta)/(πα) times the integral of 1/(1+2y cos(theta)+y²) on the positive half-line, hence 2theta/(πα)=1. The independently checked neutral-diffusion Fourier pair also verifies this step. Positivity off zero frequency makes |f(s)|<1 for s>0 by equality in the triangle inequality and integrability of the density gives f(s)→0. Negativity also follows independently of the cited tail expansion: the Laplace transform tends to zero as z decreases to zero, impossible if f is everywhere nonnegative since f(0)=1 and f is continuous; the Laplace identity follows first for z>1 from the series and then by analytic continuation on the right half-plane using |f|<=1. Negativity and decay give an attained global minimum −c_alpha in (−1,0), and the entry conditions give the exact sharp interval including equality at a minimizing time. Scheffé applied to the densities gives uniform convergence of the Fourier transforms to e^(−|s|) as alpha decreases to 1, so c_alpha→0. Near 2 the series at s=π admits a summable majorant on alpha in [3/2,2] and tends to cos(π)=−1, so c_alpha→1; at alpha=2 all times are nonnegative only for u=v. The negative determinant at some finite time rules out any locally integrable generator via Liouville, not arbitrary stochastic processes with the given initial-time marginals.",
+      "replay": "python3 /workspace/review-evidence/replay.py 5: 16 finite comparisons of quadrature for the characteristic function (using the inverse arctangent change of variable) against the fractional power series, plus sign and alpha-near-2 checks. Frozen script inspected but not executed. No numerical global minimization or Markov certification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van Mieghem's abstract gives a broad stochastic-dynamics obstruction; the introduction specifies the Markov semigroup requirement.",
+          "Facciaroni et al. pp. 1072–73 treat Caputo order in (0,1) in a para-Markov construction.",
+          "The web lookup returned an unrelated URL and supplies no conclusion."
+        ],
+        "reasoning": "A general process obstruction does not classify which matrices are nonnegative when only the time-zero marginals are prescribed. A lower-order stochastic equation does not dominate the superlinear result.",
+        "searches": [
+          "OA arXiv:2611.02954v1 abstract, introduction and Theorem 1",
+          "Facciaroni et al. DOI 10.1007/s13540-025-00390-9, Caputo",
+          "Web: Van Mieghem High-order fractional linear differential equations two-state formula Mittag-Leffler stochastic process arXiv 2611.02954"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.02954v1 Theorem 1 and abstract",
+        "arXiv:cond-mat/0702419 Eqs. (4.37)–(4.38)",
+        "Facciaroni et al. pp. 1072–73",
+        "Resultary 8bfb18059ac7 (self-match)",
+        "Frozen RESULT.md and supporting materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older scalar pair yields |f_alpha|<1 and decay for 1<alpha<2; the same passage gives the Cauchy case and the limiting symmetric two-atom law at alpha=2.",
+          "The general matrix formula specializes to the audited matrix, but does not perform the simultaneous all-time entry test."
+        ],
+        "reasoning": "Positivity of the neutral density is positivity of the Fourier measure, not sign-preservation of its transform. Neither the scalar limiting laws nor the matrix formula alone classifies the u/v region. The additional step is to extract the sharp negative scalar minimum and compare it to both stationary diagonal margins, with uniform-in-time endpoint control near alpha=1 (pointwise limits alone would not suffice). The standard determinant argument is supporting interpretation, not a separate novelty claim.",
+        "searches": [
+          "arXiv:cond-mat/0702419 Eq. (4.37)–(4.38), neutral-fractional diffusion",
+          "arXiv:2611.02954v1 Thm. 1 Eq. (12) and abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Van Mieghem Thm. 1 Eq. (12) is precisely the same matrix Mittag–Leffler functional calculus with zero higher initial derivatives.",
+          "Mainardi–Luchko–Pagnini Eq. (4.37) is exactly the scalar characteristic-function pair at skewness zero, including the same density."
+        ],
+        "reasoning": "The neutral-fractional diffusion law is a scalar equivalent, not a matrix rate diagram. Testing all times in the two-state matrix is equivalent to the stationary mass constraint min(u,v)/(u+v)>=c_alpha/(1+c_alpha); neither inspected statement gives this positivity classification.",
+        "searches": [
+          "Resultary: two-state Caputo order 1<alpha<=2 zero initial velocity stochastic positivity all-time rate ratio c_alpha negative minimum Mittag-Leffler determinant",
+          "OA: arXiv:2611.02954v1 query Theorem 1",
+          "OA: arXiv:cond-mat/0702419 query neutral-fractional diffusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 8bfb18059ac7 was verified against its local mirror; it is this record, not an independent precursor.",
+          "The scalar approximation paper was not accessible beyond the landing route; there is no assessment of any exact extrema in it."
+        ],
+        "reasoning": "The theorem specifies a continuous-parameter matrix boundary as an exact variational value, not a numerical table. No independent matching classification was established from accessible indexed statements. No absence of an extrema table is inferred from the failed retrieval.",
+        "searches": [
+          "Resultary: two-state Caputo order 1<alpha<=2 zero initial velocity stochastic positivity all-time rate ratio c_alpha negative minimum Mittag-Leffler determinant",
+          "OA Honain et al. via DOI 10.3390/fractalfract8060319: oscillatory asymptotic expansion E_alpha(-t^alpha) 1<alpha<2; asymptotic expansion"
+        ]
+      },
+      "rationale": "The matrix solution and the scalar characteristic-function law are established prior results, and the generic distinction from a Markov propagator is not itself the originality claim. The supported contribution is the exact all-time two-state positivity boundary for strictly positive rates with zero initial velocity, its order limits, and the explicit separation in the admissible regime. No inspected primary statement gives the two-state rate classification; access limits do not supply negative evidence.",
+      "residual_risks": [
+        "The neutral diffusion scalar representation is prior and must not be presented as novel. A specialist source could have applied it to the same two-state positivity test.",
+        "The Honain and Di Crescenzo–Meoli decisive text was not recovered; the exact scope of related results in those papers remains open here.",
+        "No exhaustive historical priority clearance or computation of the exact universal minimizing times is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the solution form and broad process issue; no rate-dependent one-time positivity criterion in the decisive passages",
+          "evidence": [
+            "The solution is the sum of t^ell E_(alpha,ell+1)(−Qt^alpha) times initial derivatives, so only its ell=0 term survives here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02954v1",
+          "material_read": "Abstract and introduction; Theorem 1 Eq. (12), PDF p. 5 offset 19059",
+          "method": "OA PDF relevant passages",
+          "title": "High-order fractional linear differential equations do not describe stochastic processes with finite state space",
+          "trigger": "Same superlinear fractional generator solution and prior stochasticity objection"
+        },
+        {
+          "assessment": "Exact prior scalar density, with Cauchy and cosine limiting regimes; no two-state rate matrix calculation there",
+          "evidence": [
+            "E_alpha(−|k|^alpha) is paired with |x|^(alpha−1) sin(πα/2)/(π[1+2|x|^alpha cos(πα/2)+|x|^(2alpha)]) for 0<alpha<2.",
+            "The displayed neutral-fractional density at zero skew converges to half the mass at each of ±1 as alpha increases to 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0702419",
+          "material_read": "OA PDF available text at offset 62750, printed pp. 23–24, especially Eqs. (4.37) and (4.38); located the Laplace transform in Eq. (3.9)",
+          "method": "Literal OA location followed by bounded passage read",
+          "title": "The fundamental solution of the space-time fractional diffusion equation",
+          "trigger": "Exact equivalent scalar spectral probability law under neutral diffusion"
+        },
+        {
+          "assessment": "The retrieved construction has sublinear order, not the claimed rate criterion",
+          "evidence": [
+            "The discussion uses nu in (0,1) and relates Mittag–Leffler waiting times to nonlocal equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13540-025-00390-9",
+          "material_read": "Caputo discussion, offset 2916, printed pp. 1072–73",
+          "method": "OA targeted primary passage",
+          "title": "Para-Markov chains and related non-local equations",
+          "trigger": "Fractional finite-state stochastic constructions"
+        },
+        {
+          "assessment": "Unavailable decisive text; no comparison of its technical results beyond the title is asserted",
+          "evidence": [
+            "RESULT.md cites its Theorem 1 for the negative leading tail; the audit has a separate transform argument for the negative witness."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/fractalfract8060319",
+          "material_read": "Landing information only; theorem passage was not retrieved",
+          "method": "Bounded OA publisher article and PDF attempts",
+          "title": "Rational Approximations for the Oscillatory Two-Parameter Mittag–Leffler Function",
+          "trigger": "Cited large-negative-argument asymptotic and potential global extrema overlap"
+        },
+        {
+          "assessment": "No theorem-level assessment from the unavailable text",
+          "evidence": [
+            "The title indicates an alternating fractional process; no overlap or nonoverlap is inferred from it."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/Math.2016.3.212",
+          "material_read": "Title and frozen citation only; no decisive publisher text",
+          "method": "Targeted lawful attempt via DOI and AIMS page",
+          "title": "On a fractional alternating Poisson process",
+          "trigger": "Possible earlier two-state alternating fractional transition model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a sharp boundary for the minimal finite-state example in a genuine fractional-dynamics question: some high-order solutions stay inside the probability simplex for every time even though none of them can be integrable-rate two-state Markov propagators. The cutoff guarantees or rules out nonnegativity for every positive rate pair, includes exact boundary times of vanishing entries, and compares the neighborhoods of the classical orders 1 and 2 without assuming monotonicity in alpha.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:21:31.992351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian regression minimizes the displayed exact quadratic risk since the marginal noise matrix is positive definite. Nonnegative regression cross-covariances and right-hand sides rule out both weights being negative; when both are nonnegative, each positive weight is strictly below 1/2. The site Hessian has positive determinant 4uv(1−u−v) for positive weights, and its feasible minimizer is a=(1−v)/2, b=(1+u)/2. Independently, writing p=u+v and j=uv, the minimized risk is 1/12−p/4+(1/4+η)p²−j[p/4+2η(1−ρ)]; the same formula holds on the axes, where the unused site is irrelevant. At fixed p, equality of weights uniquely maximizes j. The strictly convex diagonal profile has the stated smaller root w and gain (w−w³)/4. For a negative weight, strict site concavity forces collision or a pinned endpoint; collision has equal nonnegative weights and is strictly worse than the symmetric optimum. Conditioning on endpoint noise leaves variance η(1−ρ²), uniquely optimized at the midpoint; the zero-weight cases cannot tie, since unequal nonnegative weights lose strictly and both zero yield no gain. Thus only the stated geometries attain the maximum, including all three at a tie up to label order. The symmetric gain decreases and the reference gain increases with ρ, and at ρ=1/2 the reference equals the repeated-midpoint benchmark and loses strictly. Comparing their limits at ρ↑1 gives η_c and the crossing if and only if η>η_c. For each fixed ρ>1/2 their large-η gain ratio tends to 2(1−ρ)<1, which together with the lower bound ρ_c>1/2 proves the large-noise limit without interchanging a moving critical point with a nonuniform expansion. The low-noise endpoint limit follows by continuity and the strict inequality at every ρ<1 when η=η_c. Independent bisection reproduced the quoted sample crossings. No assertion includes ρ=1, negative correlation, or more queries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal one-half result covers high noise in a wider Gaussian class and gives the bridge's repeated-midpoint and endpoint-reference gains. Correlated-error experimental design gives a general covariance framework; noisy Bayesian quadrature work treats rates or different objectives."
+        ],
+        "reasoning": "Leading asymptotic coefficient maximization and a covariance formula are not finite-noise optimization over all geometries. The proof needs the sign-split reduction and strict equality control, which the broader statements do not provide.",
+        "searches": [
+          "Mirrored dcfad890f289, finding and proof",
+          "arXiv:2007.14476, abstract and §5; arXiv:2202.10615, abstract",
+          "arXiv:2602.16218v2, noisy-quadrature discussion and cited Ma–Garnett–Schneider primary paper"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: f9e14ae9ff03, 15716724ea95, dcfad890f289, 47f6c01bcecf",
+        "arXiv:1812.08509, 2007.14476, 2202.10615, 2210.15959, 2602.16218v2 (identified passages)",
+        "Ma–Garnett–Schneider, PMLR 33 (2014)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-half record gives exact benchmark gains and a finite-noise witness against all symmetric pairs, but does not assert the endpoint-reference design is globally optimal at finite noise. The independent-noise record excludes ρ>0."
+        ],
+        "reasoning": "Showing that a reference beats symmetric pairs at one point does not rule out better asymmetric interior pairs. Even the exact ρ=0 risk plus a high-noise threshold and the two benchmark formulas do not imply finite-η geometry exhaustion, uniqueness of the crossing, or the three-pair equality set.",
+        "searches": [
+          "dcfad890f289 mirrored RESULT.md, finding (offset 0) and proof near offset 3105",
+          "15716724ea95 mirrored RESULT.md, finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ρ=0 substitution is exactly the two-independent-reading optimum 15716724ea95, with the same separation and gain. Santin's Brownian-bridge kernel result instead minimizes an interpolation power function. The quadrature-weight paper supplies positivity context."
+        ],
+        "reasoning": "The independent subcase is credited as covered. Neither interpolation nor analogous positivity conditions for noiseless fixed-site quadrature encode the noisy integral target or the negative regression weight on a noise-only reference.",
+        "searches": [
+          "Resultary and mirror: Brownian-bridge integral, two fixed noisy readings, correlated Gaussian errors and endpoint reference",
+          "arXiv:2210.15959, abstract; arXiv:1812.08509, abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f9e14ae9ff03 is the same finding. The distinct same-day records 15716724ea95 and dcfad890f289 have exact subcase and benchmark overlap, respectively; 47f6c01bcecf concerns correlated erasure indicators, not correlated Gaussian measurement errors."
+        ],
+        "reasoning": "The exact match to the frozen item is not independent coverage. Each other potentially matching record was compared by its observation assumptions and optimized quantity, not excluded by its date.",
+        "searches": [
+          "Local Resultary and mirror: finite-noise frontier, independent-noise bridge, universal 1/2 transition, correlated erasures"
+        ]
+      },
+      "rationale": "The independent-noise optimum, the endpoint benchmark and a limiting high-noise transition at 1/2 are already represented in distinct records. The surviving claim is the finite-η global optimization over all site pairs, including the positive onset η_c, exact critical curve and exhaustive tie geometries. The strongest inspected overlapping statement does not give this finite-parameter characterization. Same-day catalog dates are not used as evidence of priority.",
+      "residual_risks": [
+        "Coverage is bounded by the passages and catalog records inspected. Older correlated-design results using other terminology may exist.",
+        "The same-day matches establish overlap, not who first obtained it. Abstract-level source inspections are not whole-document exclusion evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers high-noise asymptotics, exact benchmark comparison and a finite witness, not the finite-noise global optimum.",
+          "evidence": [
+            "Gives the universal ρ=1/2 high-noise threshold and bridge benchmark gains for duplicated midpoint and endpoint plus midpoint."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-one-half-noise-correlation-transition-in-two-query-g--dcfad890f289",
+          "material_read": "Mirrored RESULT.md finding and proof, offsets 0 and 3105",
+          "method": "Local catalog and mirror",
+          "title": "A universal one-half noise-correlation transition in two-query Gaussian quadrature",
+          "trigger": "Strongest claim with the same paired designs and correlated errors"
+        },
+        {
+          "assessment": "Exact coverage at ρ=0 only.",
+          "evidence": [
+            "Its separation d_η=(2+4η−sqrt(16η²+16η+1))/3 and optimal gain d_η(1−d_η²)/4 equal the ρ=0 formulas."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95",
+          "material_read": "Mirrored RESULT.md finding and assumptions at offset 0",
+          "method": "Local catalog and mirror",
+          "title": "Unique noncolliding optimal locations for two noisy Brownian-bridge quadrature observations",
+          "trigger": "Exact same target and design size, one complete parameter subcase"
+        },
+        {
+          "assessment": "Different data and loss average; no finite Gaussian-error coverage.",
+          "evidence": [
+            "Readings are noiseless when delivered, with correlated delivery indicators."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-sensor-brownian-bridge-quadrature-under-correlated-obs--47f6c01bcecf",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local catalog and mirror",
+          "title": "Exact two-sensor Brownian-bridge quadrature under correlated observation erasures",
+          "trigger": "Same bridge, target, number of readings, and correlated observation mechanism in title"
+        },
+        {
+          "assessment": "General design criterion and numerical inverse-problem experiments; inspected passages do not give the exact scalar bridge design.",
+          "evidence": [
+            "Addresses correlated observation errors in model-constrained Bayesian inverse problems and demonstrates numerical sensor placement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.14476",
+          "material_read": "Abstract and §5, PDF pp. 1 and 29",
+          "method": "OA PDF passage inspection",
+          "title": "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations",
+          "trigger": "General Bayesian design with correlated errors"
+        },
+        {
+          "assessment": "Evidence for broader noisy quadrature, not whole-document noncoverage inferred from the abstract.",
+          "evidence": [
+            "The abstract frames rate bounds for settings including Gaussian-corrupted observations, not an exact finite two-site bridge result."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615",
+          "material_read": "PDF p. 1, abstract (offset 254)",
+          "method": "Bounded OA abstract inspection in paper PDF",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy Bayesian integral estimation"
+        },
+        {
+          "assessment": "Inspected result optimizes interpolation, not this integral risk.",
+          "evidence": [
+            "The criterion in the abstract is the interpolation power function."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15959",
+          "material_read": "PDF abstract (offset 1488)",
+          "method": "Bounded OA abstract inspection in paper PDF",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Possible equivalence via Brownian-bridge kernel optimal design"
+        },
+        {
+          "assessment": "Prior weight-positivity context; no claim about all contents from this passage.",
+          "evidence": [
+            "Discusses a positivity condition involving locally variance-minimizing design points, not the two correlated-noise geometry branches."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "PDF p. 1, abstract and introductory passage (offset 345)",
+          "method": "Bounded OA paper passage inspection",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Prior sign and site-optimization results in Bayesian quadrature"
+        },
+        {
+          "assessment": "Different objective/application; Gaussian-noise experiments do not identify a fixed two-query bridge design.",
+          "evidence": [
+            "The primary objective locates regions of high average signal; experiments simulate additive Gaussian errors."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v33/ma14.pdf",
+          "material_read": "Abstract; §4.1 and §5.1, PDF p. 6 (offset 37885)",
+          "method": "OA primary passages",
+          "title": "Active Area Search via Bayesian Quadrature",
+          "trigger": "Noisy Bayesian quadrature example identified by arXiv:2602.16218v2 discussion (PDF p. 31)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exhaustive finite-parameter optimal-design theorem for a canonical Gaussian integration problem goes beyond a pairwise benchmark or high-noise expansion. It explains when a measurement carrying zero signal is globally preferable as a correlated-noise reference, gives the exact onset and ties, and rules out all intermediate geometries. This is a substantive finite-noise design conclusion even with only two fixed queries.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

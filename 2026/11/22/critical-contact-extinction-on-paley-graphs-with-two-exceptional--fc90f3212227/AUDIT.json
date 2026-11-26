@@ -1,145 +1,104 @@
 {
   "correctness": {
-    "rationale": "The periodic edge-contact budget yields the exact adjacency-time identity under the half-degree hypothesis; temporal Fourier eigenvalue algebraic-integrality rules out every nonzero recurrent mode on Paley(q) for all q>=13, including nonsquare and square prime powers. Orders 5 and 9 are analytically reduced to two five-cycles and four three-cycles. Two independent full-state enumerators exhaustively confirm the stated basin and first-entry counts, with output and code supplied.",
+    "checked_sources": [
+      "RESULT.md, penultimate proof paragraph and grid predecessor proof",
+      "verify_forward.py",
+      "verify_independent.py",
+      "forward.out",
+      "independent.out"
+    ],
+    "rationale": "Complete finite functional-graph enumeration and a direct predecessor argument establish exactly the per-cycle basins and entry table.",
+    "residual_risks": [
+      "No wider-order settling-time claim is inferred from the enumerations."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Gravner–Lyu–Sivakoff uses an existence-of-an-excited-neighbor threshold (one), whereas the present rule needs half the graph degree.",
-        "Doba specifies one-contact activation on arbitrary finite graphs; its general graph-activity theorem does not cover the multi-contact rule.",
-        "A previous general half-degree graph theorem concerns initially three-periodic points only."
+        "Triangle locking identifies recurrent configurations, not transient times or basins; the primary graph papers use threshold one."
       ],
-      "reasoning": "Previous results can explain the threshold-one model or detect some immediate three-cycles but do not cover the complete recurrent-set extinction theorem at critical contact in all Paley orders. General methods are not automatically the claimed all-order classification.",
+      "reasoning": "The one-contact update does apply to the pentagon, but the inspected characterizations do not give its labelled entry-and-basin census and do not cover the threshold-two grid.",
       "searches": [
-        "Published research index query: \"periodic three-state Greenberg Hastings excitation critical half degree adjacency eigenvalues roots of unity Fourier theorem\"",
-        "Published research index query: \"critical regular graph excitation contact count eigenvalue algebraic integer cyclotomic proof\"",
-        "Primary full text: Gravner, Lyu, Sivakoff, §§1–2, https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
-        "Primary full text: Doba, pp. 101–104, https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf"
+        "Triangle-locked critical excitation, Finding",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320, §1",
+        "Doba, doi:10.25088/ComplexSystems.27.2.101, §2"
       ]
     },
     "checked_sources": [
-      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d",
-      "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
-      "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
-      "https://arxiv.org/abs/patt-sol/9303002",
-      "https://mathworld.wolfram.com/PaleyGraph.html",
-      "https://www.nature.com/articles/srep42340"
+      "Sources in the comparison fields; RESULT.md prior-work discussion"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The full published half-degree result: balanced proper three-colorings characterize only immediately primitive-three orbits; no assertion about other periods, transients or Paley all-order extinction.",
-        "The Paley(13) threshold-three finite claim proves exactly one order already covered by the current theorem; no generalization to all Paley orders is asserted in its recoverable claim.",
-        "One-contact generic-graph convergence and circulation characterizations use genuinely different maps."
+        "The balanced-coloring result immediately gives the grid wave criterion and, with the Paley spectrum, the larger-order extinction exclusion."
       ],
-      "reasoning": "The current proof excludes all periods for every prime-power Paley order at least thirteen and resolves the two exceptional orders including complete small basins. Those stronger statements do not follow from the narrow prior claims as stated, though both use related periodic-state concepts.",
+      "reasoning": "Neither theorem specifies how many nonrecurrent configurations enter a particular cycle or when they do. Those are the remaining claims.",
       "searches": [
-        "published-finding corpus hit 2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d, full RESULT.md read",
-        "Previous comparison statement bdfb717b-4ad4-47c7-b4ea-56a5620a5986 (read as deduplication claim)",
-        "Primary full text https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
-        "Primary full text https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf"
+        "Triangle-locked critical excitation, Finding",
+        "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles, Finding"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Paley(9) equals the three-by-three rook graph; the searched formulations explicitly included rook graphs and three-state half-degree excitation.",
-        "Public half-degree rigidity record proves only initial three-periodic equivalence and a squared-cycle census, not every recurrent period in a Paley family."
+        "The graph aliases are the pentagon and the 3×3 rook graph. Results on the pentagonal prism or different update thresholds do not give these counts."
       ],
-      "reasoning": "An exact equivalent would need to rule out every nonzero cycle of the specified thresholded map on all Paley prime powers above nine, and classify the two exceptions. Retrieved similarly named work has different thresholds or narrower periodicity and does not imply that claim.",
+      "reasoning": "Neither comparing different graphs nor comparing a different threshold fixes the same finite transition map.",
       "searches": [
-        "Published research index query: \"Paley graph threshold half degree three-state Greenberg Hastings all trajectories extinction q≥13 q=9 recurrent period three q=5 five waves\"",
-        "Published research index query: \"Paley(q) graph half-degree threshold GH model universal extinction for q larger than nine\"",
-        "web: \"Paley graph Greenberg Hastings critical threshold extinction regular spectral\"",
-        "web: \"excitable threshold Paley graph recurrent waves q 9 q13\""
+        "Paley five P(5) C5 pentagon Greenberg Hastings two five cycles basins 45 153 and Paley nine P(9) 3 by 3 rook threshold two 19671 12 exact first periodic entry"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The known single-order Paley(13) extinction computation coincides with the order-thirteen special case; it does not assert the all-order Paley theorem.",
-        "The previous three-row rook census treats threshold one, not the threshold-two Paley(9) map.",
-        "MathWorld provides standard graph parameters, not a nonlinear dynamical basin table."
+        "The exact order-thirteen census is on a different Paley graph, and other inspected basin tables use different graphs or thresholds."
       ],
-      "reasoning": "The known exact Paley(13) computation is acknowledged as covered; the new item is not credited for that finite case. No retrieved graph-specific table includes the full all-order classification and the q=5/q=9 critical-threshold basins.",
+      "reasoning": "Known exact tables are not for the two finite update maps under discussion.",
       "searches": [
-        "Published research index query: \"Paley graphs excitation q=(n-1)/4 algebraic integer adjacency spectrum dynamical extinction\"",
-        "Published research index query: \"half-degree spectral criterion finite excitable media 4 regular graph Paley\"",
-        "Web: \"Paley graph three state Greenberg Hastings excitation threshold half degree periodic point\"",
-        "Previous comparison statement: Paley-13 threshold three, item bdfb717b-4ad4-47c7-b4ea-56a5620a5986",
-        "Previous comparison statement: three-row rook threshold one, item 7cb5f709-62d4-437c-84c5-3d8684245e04"
+        "Resultary: pentagon and 3 by 3 rook at half-degree exact first periodic entry",
+        "Six affine thirteen-waves and a sharp contact-threshold collapse on the Paley graph of order thirteen, Finding"
       ]
     },
-    "rationale": "Public one-contact arbitrary-graph work, the previous initially-three-periodic half-degree theorem, the earlier individual Paley(13) finite extinction result, and the earlier threshold-one rook computation do not imply the combined all-order Paley extinction/exceptions theorem plus the two exceptional exact basin classifications. The overlap with order 13 is explicitly acknowledged, and historical unindexed equivalents remain a residual priority risk.",
+    "rationale": "Only the period-resolved labelled transient census and individual basin sizes of the two stated graphs are claimed. Qualitative recurrence and all-order exclusion are credited as covered.",
     "residual_risks": [
-      "An unindexed algebraic/spectral no-wave theorem could already imply this Paley corollary; no claim of priority certification is made.",
-      "Some older source full texts were unavailable; Durrett–Griffeath 1993 comparison is abstract-level only.",
-      "The publisher access for the threshold-related Fretter et al. network study did not give complete full text; assessed as a nondecisive historical risk."
+      "The bounded comparisons do not exclude an unindexed equivalent finite census."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING all-period Paley-family classification",
-        "evidence": "Scopes the graph-wide result to initially primitive-three states, and counts three-periodic points only on squared cycles; explicitly disclaims other primitive periods and transient basins.",
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d",
-        "material_read": "Complete public RESULT.md including Finding, Proof and Limitations",
-        "method": "Direct reading of the full publicly available research result",
-        "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
-        "trigger": "Closest exact contact threshold, general regular graphs"
+        "assessment": "Covers recurrent-wave mechanism and larger-order extinction; not the finite basin tables",
+        "evidence": [
+          "All nonzero recurrent states of connected triangle-covered graphs at the stated threshold are balanced proper rotating three-colorings."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-triangle-locked-critical-excitation-and-the-johnson-graph-extinc--76b9562220e5/RESULT.md",
+        "material_read": "Finding, scope and triangle-locking proof passage",
+        "method": "Archived original statement and proof excerpt",
+        "title": "Triangle-locked critical excitation and the Johnson-graph extinction dichotomy",
+        "trigger": "Stronger recurrence characterization"
       },
       {
-        "assessment": "NOT_COVERING multi-contact threshold",
-        "evidence": "The graph GHM formula in the paper triggers at the existence of a single excited neighbor; the present theorem requires half the even degree.",
-        "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
-        "material_read": "Full primary source opening pages 3324–3327, including update definition and scope of §§1–2",
-        "method": "Public open-access full-text PDF reading with page inspection",
+        "assessment": "One-contact update, not the threshold-two grid census",
+        "evidence": [
+          "Activation needs any one excited neighbor."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+        "material_read": "§1, Eq. (1), p. 2",
+        "method": "Open original PDF passage",
         "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
-        "trigger": "General arbitrary-graph theorem for the three-color excitation rule"
-      },
-      {
-        "assessment": "NOT_COVERING thresholded rule",
-        "evidence": "Section 2 defines resting-to-excited transition when at least one adjacent vertex is excited; not the half-degree contact requirement.",
-        "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
-        "material_read": "Full primary PDF pages 101–104, including exact rule and introductory theorem scope",
-        "method": "Public full-text PDF reading and page visual inspection",
-        "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
-        "trigger": "Arbitrary finite graph activity criterion"
-      },
-      {
-        "assessment": "NO_SUPPORT for an exact Paley-family claim in available material; unresolved full-text comparison",
-        "evidence": "Abstract treats lattice models, range shapes and threshold scaling, rather than specifying Paley graph spectra.",
-        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
-        "material_read": "Public abstract, model definition and dated submission metadata; full primary paper not retrieved",
-        "method": "Public arXiv landing metadata and abstract",
-        "title": "Asymptotic Behavior of Excitable Cellular Automata",
-        "trigger": "Earliest day-verified archive source for the contact-threshold model"
-      },
-      {
-        "assessment": "SUPPORTS graph identities, no dynamics",
-        "evidence": "Parameters are exactly (q,(q-1)/2,(q-5)/4,(q-1)/4), leading to the quadratic eigenvalue equation used in the proof.",
-        "identifier_or_url": "https://mathworld.wolfram.com/PaleyGraph.html",
-        "material_read": "Definition, strongly regular parameters, small-order graph specializations and bibliography",
-        "method": "Public reference page",
-        "title": "Paley Graph",
-        "trigger": "Definition and strongly regular parameters for nonprime prime powers"
-      },
-      {
-        "assessment": "MATERIAL INCOMPLETE; no claim of full-text noncoverage",
-        "evidence": "Available abstract concerns single-excitation response in random networks with relative threshold; absence of a Paley theorem cannot be certified from abstract.",
-        "identifier_or_url": "https://www.nature.com/articles/srep42340",
-        "material_read": "Accessible abstract and search-indexed introductory portions; full primary article inaccessible due redirect",
-        "method": "Public indexed abstract; full publisher access attempted",
-        "title": "Topological determinants of self-sustained activity in a simple model of excitable dynamics on graphs",
-        "trigger": "Network excitation relative threshold and sustained activity"
+        "trigger": "General graph result including the pentagon update"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "fc90f321-2227-42d7-aee7-d1475bbcd732",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "A complete natural infinite-family classification of persistent critical-threshold excitation, with sharp exceptional orders 5 and 9, links arithmetic eigenvalue integrality to nonlinear recurrence. Exact exceptional attraction basins reveal that Paley(9) has only isolated wave cycles whereas Paley(5) waves attract nonperiodic configurations; this qualitative boundary is motivated by the critical half-degree dynamics, not an arbitrary slice.",
+    "checked_sources": [
+      "RESULT.md, Finding and proof",
+      "Triangle-locking comparison"
+    ],
+    "rationale": "A complete natural finite boundary classification shows which persistent waves attract nonrecurrent configurations and gives sharp relaxation depths at the two exceptional orders.",
+    "residual_risks": [
+      "The distinction does not assert a general transient law on other graph families."
+    ],
     "status": "PASS"
   }
 }

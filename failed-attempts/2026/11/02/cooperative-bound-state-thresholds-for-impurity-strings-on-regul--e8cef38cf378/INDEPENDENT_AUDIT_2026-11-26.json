@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:19.937279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–109",
+        "Frozen VERIFICATION.md and verify.py, especially lines 34–60, 62–97 and 99–123",
+        "Fikioris arXiv:1804.08140, Theorem 4.1"
+      ],
+      "rationale": "For z above the free band, the decaying branch solution h satisfies (q-1)h^2-zh+1=0, and the path Green kernel is g h^distance with g=1/(z-qh). The restriction to the string is g(z) C_p(h(z)^d), with finite limit c C_p(r) at the edge. Differentiation of the resolvent gives a strictly negative form on the impurity subspace, so the ordered eigenvalues decrease continuously and strictly to zero. They cross 1/kappa exactly once when the limit at the edge is strictly greater than 1/kappa, and never above the edge at equality. The inverse of C_p(s) for 0<s<1 is irreducible tridiagonal (p>1), so it gives simplicity for the entire z-dependent family, not merely at the edge. The sine recurrence with end conditions v_0=r v_1 and v_{p+1}=r v_p gives the frozen phase equation; its strictly increasing phase runs from 0 to (p+1)pi. At p=1 theta=arccos(r) gives 1/c. Extreme principal-block interlacing is strict: equality would make a padded vector with last component zero an extremizing eigenvector of the bigger matrix, impossible by the last row of its tridiagonal inverse and then recurrence. Expansion of the first and last phase equations gives theta_1 and pi-theta_p equal to pi/p+O(p^-2), yielding the displayed shifts and strict finite endpoints. Also |p theta_j-j pi| is uniformly bounded, so angle counting gives the stated fraction. An independent two-by-two even/odd reflection calculation gives the first two cubic-tree p=4 thresholds 0.257100534504 and 0.953022342560 and the limiting fraction 0.135573653451 at kappa=0.3, confirming the example. The supplied checker was inspected, not run: its finite counts compare two calculations on the edge matrix, while its Dirichlet-ball checks are approximate and away from the edge.",
+      "residual_risks": [
+        "The count excludes states at the band edge, and the limiting fraction is not a spectrum of an infinite impurity line."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kollar et al. give the finite-coordination Bethe-lattice local Green function; Glasser derives the finite-rank impurity secular matrix.",
+          "Bourget et al. identify the geometric Toeplitz matrix and give a general spectral-distribution theorem applicable to its symbol."
+        ],
+        "reasoning": "Once the unique-path propagator is inserted into the finite-rank condition, this is precisely the geometric Toeplitz matrix. Its limiting distribution is the known symbol sampled by uniform angles, so the arccosine fraction is its threshold count in the physical variables.",
+        "searches": [
+          "arXiv:cond-mat/0504637 Eq. (6)",
+          "arXiv:1702.05111 Eqs. (3)–(11)",
+          "arXiv:1610.00084 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Fikioris arXiv:1804.08140",
+        "Maximenko KMS eigenvalue page",
+        "Kollar et al. arXiv:cond-mat/0504637",
+        "Glasser arXiv:1702.05111",
+        "Bourget et al. arXiv:1610.00084",
+        "Resultary 72449e47556b and 6579965f42ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The secular matrix is g(z) C_p(h(z)^d) at every z above the band. Its positive Green eigenvalues decrease to zero, so the phase data at r determine every first crossing, while tridiagonal simplicity holds for every positive h(z)^d.",
+          "Taking reciprocals of the symbol extrema gives the two couplings. The arctangent phase correction vanishes at both endpoints and has bounded derivative there, so the endpoint roots are pi/p+O(p^-2) from 0 and pi. A second-order Taylor expansion of the same reciprocal symbol gives the specified coefficients."
+        ],
+        "reasoning": "The exact finite thresholds, strict edge rule, limiting endpoints and fraction, and their shifts introduce no remaining unknown invariant after the standard reduction and exact classical phase formula.",
+        "searches": [
+          "Fikioris Theorem 4.1 and Maximenko exact ordered phase",
+          "Glasser finite-impurity secular equation",
+          "Bourget et al. Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fikioris Theorem 4.1 gives the sine and cosine half-angle conditions and eigenvalue (1-r²)/(1-2r cos(theta)+r²) for this matrix. Multiplying the two half-angle expressions and doubling gives the frozen sine equation.",
+          "Maximenko gives the exact ordered phase (p+1)theta+2 atan(r sin(theta)/(1-r cos(theta)))=j pi. Since arg(exp(i theta)-r)=theta+atan(r sin(theta)/(1-r cos(theta))), the phase in the frozen finding is exactly this one."
+        ],
+        "reasoning": "The matrix, ordered roots and eigenvalues match without approximation. Only the reciprocal and the scalar c translate that data to couplings.",
+        "searches": [
+          "Kac–Murdock–Szegő eigenvalues and phase quantization",
+          "arXiv:1804.08140 Theorem 4.1",
+          "https://www.egormaximenko.com/plots/KMS_eig.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Maximenko's displayed analytic formula produces all finite KMS eigenvalues, not just tabulated examples.",
+          "The closest Resultary results are hypercubic-corner lattice impurities with binomial multiplicities and one-dimensional arrays with weighted Neumann path thresholds, not this regular-tree matrix."
+        ],
+        "reasoning": "No distinct impurity-count table is needed: the more general exact matrix data already generate the entire frozen staircase after the Green matrix is identified. The different geometries in the indexed records are analogues, not the basis of the failure.",
+        "searches": [
+          "Resultary: regular-tree geodesic impurity threshold counts and finite strings",
+          "Resultary 72449e47556b and 6579965f42ff",
+          "Maximenko KMS exact eigenvalue visualization"
+        ]
+      },
+      "rationale": "The physically instantiated result is correct, but its spectrum-dependent assertions are covered by direct composition of existing results. The geometric specialization inserts r=(q-1)^(-d/2) and c into the known Kac–Murdock–Szegő eigensystem; the standard monotone finite-impurity reduction translates the same eigenvalues to threshold reciprocals. I did not find a source printing the exact physical statement, but the equivalence and implication are mathematical and do not depend on a verbatim match.",
+      "residual_risks": [
+        "No historical claim is made about the first appearance of the fully instantiated physics wording; the failure is based on exact prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same matrix eigenvalues and angular equations in parity form",
+          "evidence": "The eigenvalues for both sine and cosine root families are (1-r²)/(1-2r cos(theta)+r²).",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.08140",
+          "material_read": "§4, Theorem 4.1, Eqs. (4.1)–(4.9), pp. 17–18",
+          "method": "OA full-text passage",
+          "title": "Spectral properties of Kac–Murdock–Szegő matrices with a complex parameter",
+          "trigger": "Plausible exact geometric Toeplitz eigensystem coverage"
+        },
+        {
+          "assessment": "Exact phase equivalence",
+          "evidence": "The unique ordered roots satisfy (p+1)theta+2 atan(r sin(theta)/(1-r cos(theta)))=j pi.",
+          "identifier_or_url": "https://www.egormaximenko.com/plots/KMS_eig.html",
+          "material_read": "Generating symbol and ordered eigenvalue equations, OA offsets 330–1586",
+          "method": "Direct OA author page",
+          "title": "Eigenvalues and eigenvectors of Kac–Murdock–Szegő Toeplitz matrices",
+          "trigger": "Exact ordered phase under alternative notation"
+        },
+        {
+          "assessment": "Local free Bethe resolvent antecedent",
+          "evidence": "Finite-coordination nearest-neighbor Green function, not an impurity staircase.",
+          "identifier_or_url": "arXiv:cond-mat/0504637",
+          "material_read": "p. 3, Eq. (6)",
+          "method": "OA full-text passage",
+          "title": "Green functions for nearest- and next-nearest-neighbor hopping on the Bethe lattice",
+          "trigger": "Free-tree Green antecedent"
+        },
+        {
+          "assessment": "Standard finite matrix reduction",
+          "evidence": "Equations reduce the impurity problem to determinant zeros of a matrix of free Green entries.",
+          "identifier_or_url": "arXiv:1702.05111",
+          "material_read": "pp. 2–3, Eqs. (3)–(11)",
+          "method": "OA full-text passage",
+          "title": "A Note on the Exact Green Function for a Quantum System Decorated by Two or More Impurities",
+          "trigger": "General finite impurity coverage"
+        },
+        {
+          "assessment": "Known distribution used in the change of variables",
+          "evidence": "The symbol distribution supplies the limiting count after the strict threshold is mapped into angle space.",
+          "identifier_or_url": "arXiv:1610.00084",
+          "material_read": "Geometric Toeplitz example p. 4 and Theorem 2.1 p. 10",
+          "method": "OA full-text passages",
+          "title": "Spectral Asymptotics for Kac–Murdock–Szegő Matrices",
+          "trigger": "Known spectral distribution for the kernel"
+        },
+        {
+          "assessment": "Different geometry and spectral degeneracies",
+          "evidence": "Hypercube corners in a Euclidean lattice and binomial multiplicities, rather than simple KMS thresholds.",
+          "identifier_or_url": "Resultary 72449e47556b",
+          "material_read": "Published RESULT.md finding",
+          "method": "Local Resultary mirror",
+          "title": "Binomial binding thresholds and band-edge states of hypercubic impurity arrays",
+          "trigger": "Closely related exact impurity staircase"
+        },
+        {
+          "assessment": "Different operator and edge law",
+          "evidence": "A weighted Neumann path Laplacian in the one-dimensional result gives distinct equally spaced thresholds.",
+          "identifier_or_url": "Resultary 6579965f42ff",
+          "material_read": "Published RESULT.md finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp quadratic emergence of localized states from arbitrary multiple impurities",
+          "trigger": "Equal-spaced impurity count and edge behavior"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Fikioris arXiv:1804.08140 Theorem 4.1",
+        "Maximenko exact ordered phase",
+        "Glasser arXiv:1702.05111 Eqs. (3)–(11)"
+      ],
+      "rationale": "Mode counts and the finite-string cooperative window are naturally motivated, and this is a useful worked example. However the precise output is the known finite geometric Toeplitz spectral data in inverse-coupling variables plus standard finite-rank crossing, endpoint expansion and counting. The frozen result has no separate unknown invariant, nonmechanical geometric phenomenon, or stronger conclusion beyond this specialization. The worked example does not meet the threshold for a distinct standalone finding.",
+      "residual_risks": [
+        "This judgment does not dispute the physical interpretation or extend it to other defect geometries or band-edge eigenstates."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

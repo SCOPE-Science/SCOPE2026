@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:56:54.918970Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For standard H=3/4 fBm and independent Gaussian noise, Gaussian projection gives Var(J)=2/7 and information c(t)^2/(t^(3/2)+η), where c(t)=Cov(J,B_t). An independent global check at η=1/2: set g=2c and d=1−t^(3/2). Integration of g′ gives g=1−d/3−e, where e is the integral from t to 1 of (1−s)s^(1/2)+(1−s)^(3/2). Since 1−s≥(2/3)(1−s^(3/2)), e≥2d²/9. The difference 1−d/3−sqrt(1−2d/3) is (d²/9)/(1−d/3+sqrt(1−2d/3))≤d²/6. Thus 0≤g<sqrt(1−2d/3) for t<1, proving strict terminal superiority including at the threshold. Comparing cross-multiplied informations, the endpoint advantage increases with η since c(t)<c(1)=1/2. The endpoint derivative of information has sign η−1/2; below the threshold continuity, including the zero-information limit at t=0 even without noise, gives an interior maximizer. The terminal risk and the general-H necessary condition follow by substitution and differentiation; no interior uniqueness or general-H sufficiency is shown. Frozen replay references: RESULT.md lines 20–52, VERIFICATION.md and verify.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "616cece7259d varies regularity of the Riemann–Liouville process, not its kernel class up to standard fBm; 234c270723d5 uses integrated Wiener path-posterior uncertainty."
+        ],
+        "reasoning": "A general regularity parameter within a different process family is not a broader result containing this covariance and loss. The same-day listings establish overlap of topic, not priority.",
+        "searches": [
+          "Resultary 616cece7259d and 234c270723d5, local RESULT.md passages",
+          "arXiv:2304.07661, sampling criterion and Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.07661",
+        "Resultary 616cece7259d",
+        "Resultary 234c270723d5",
+        "DOI:10.3390/math7100991 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known area moments and Gaussian regression would supply the objective, but the derivative at t=1 gives only necessity. The decisive step is a strict comparison with every t<1 at the critical noise."
+        ],
+        "reasoning": "No inspected prior establishes the required global inequality, or supplies a stronger conclusion from which it follows by specialization.",
+        "searches": [
+          "arXiv:2304.07661 pp. 4–5",
+          "Resultary 616cece7259d",
+          "DOI:10.3390/math7100991 (lawful full text not obtained on the attempted route)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cui–Chronopoulou p. 4 eqs. (1)–(2) integrate causal pointwise prediction errors; Resultary 616cece7259d instead has a scalar area target but a Riemann–Liouville kernel."
+        ],
+        "reasoning": "The area loss involves cross-time error covariances, not just the diagonal; changing the Volterra kernel to standard fBm also changes both the scalar covariance with the reading and its sample-time dependence. Neither formulation is equivalent.",
+        "searches": [
+          "arXiv:2304.07661",
+          "Resultary: scalar-integral Gaussian one-sample endpoint transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed closest distinct thresholds are for different processes or targets. Proposition 1 gives an exact one-sample distortion, but it is for noiseless causal path estimation rather than area risk."
+        ],
+        "reasoning": "This is a continuous-design theorem, not a question answered by a finite sequence table. The closest indexed exact formulas do not tabulate or determine the audited threshold.",
+        "searches": [
+          "Resultary index, tagged one-sample Gaussian quadrature/endpoint findings",
+          "arXiv:2304.07661 p. 5, Proposition 1 and eq. (3)"
+        ]
+      },
+      "rationale": "Distinct on the inspected evidence: the nearest scalar-integral endpoint theorem is for a different Gaussian kernel; the nearest standard-fBm one-site theorem optimizes a different loss with noiseless samples. Credit classical Gaussian conditioning and integrated-fBm moments, not the strict global switch as a consequence of either alone.",
+      "residual_risks": [
+        "Historical priority is not established; earlier equivalent Gaussian quadrature theorems may have been missed.",
+        "The Abundo–Pirozzi full text and older noisy lattice interpolation were not independently excluded. No priority is inferred between records dated the same day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the audited design",
+          "evidence": "Exact observations and aggregate causal path-prediction distortion, not Gaussian observation noise and one scalar area target.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.07661",
+          "material_read": "PDF p. 4 eqs. (1)–(2) and p. 5 Prop. 1/eq. (3)",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Optimal Sampling for Estimation of Fractional Brownian Motion",
+          "trigger": "Standard fBm and optimal one-sample design"
+        },
+        {
+          "assessment": "Closest mechanistic overlap, different covariance",
+          "evidence": "Riemann–Liouville Gaussian Volterra model; no conclusion for the stationary-increment standard fBm covariance follows.",
+          "identifier_or_url": "Resultary 2026/11/22, 616cece7259d",
+          "material_read": "RESULT.md, opening claim and process specification (offset 0–4246)",
+          "method": "Local published-record mirror",
+          "title": "A sharp regularity-dependent endpoint transition in one-sample Gaussian quadrature",
+          "trigger": "Same-day analogue with the same scalar loss and independent noise"
+        },
+        {
+          "assessment": "Different process and objective",
+          "evidence": "Threshold 8/273 concerns integrated path posterior uncertainty.",
+          "identifier_or_url": "Resultary 2026/11/22, 234c270723d5",
+          "material_read": "RESULT.md, opening claim (offset 0–3367)",
+          "method": "Local published-record mirror",
+          "title": "A sharp endpoint activation threshold for one noisy integrated Wiener observation",
+          "trigger": "Same-day noisy terminal threshold"
+        },
+        {
+          "assessment": "Access limitation, no whole-source exclusion",
+          "evidence": "Attributed area moment formulas were checked directly from the frozen covariance; the older paper's full scope was not independently excluded.",
+          "identifier_or_url": "https://doi.org/10.3390/math7100991",
+          "material_read": "Bibliographic citation and frozen source's comparison; no primary full-text passage verified",
+          "method": "Publisher landing/PDF checked; PDF route returned 403",
+          "title": "On the Integral of the Fractional Brownian Motion and Some Pseudo-Fractional Gaussian Processes",
+          "trigger": "Closest cited standard-fBm area-moment source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical scalar-area sensing problem with a single reading has an exact noise level separating interior sensing from strictly terminal sensing. The global comparison at equality goes materially beyond the local derivative barrier and gives a useful calibration case for Gaussian quadrature design. It is not a general classification in H.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

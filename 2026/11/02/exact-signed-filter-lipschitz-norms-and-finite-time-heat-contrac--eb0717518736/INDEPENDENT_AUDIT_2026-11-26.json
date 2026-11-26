@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:13:32.730131Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired signed geometry, row cancellation gives y=−x+sum(V)−sum(U) on a fixed edge. At n≥6 the derangement matches disjoint pairs and bounds |x+y| by 2(n−4); four feasible corners have values in an interval of length one. This also corrects the frozen proof's informal 'full sum of absolute coefficients' wording: sign potentials of magnitude 1/2 take half that sum, exactly the claimed norm. At n=5 symmetrization preserves the pair, and distances imply |z|≤2, |z−x|≤2 for z=q−p, hence |y|+|x|≤4. The three prescribed tests and negatives satisfy the metric conditions on all six support points and extend by the explicit McShane formula. Convex combinations fill the respective regions and their support functions give all signs and zero coefficients. The common-neighbor identity is valid on diagonal, disjoint and intersecting entries and J vanishes on the quotient. An independently constructed edge-potential LP anchoring one vertex agreed exactly numerically on all 49 integer coefficient pairs −3…3 for each of n=5,6; replay with graph disjointness, two inequalities per edge, and fixed edge objective. Independent heat LP checks at t=0,0.001,0.05,0.3,1.4 matched the original formula to 6e−16; its increasing log-rate and t=0 Petersen degeneracy also follow by differentiating the exact two-exponential formula. Those finite checks are not an all-n proof. The frozen verification and both checkers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourne et al.: for a regular graph the p-idleness function is linear on [1/(k+1),1], with slope equal to minus the condensed curvature.",
+          "Bonini et al.: k times condensed curvature is c+2−(m−M), where c is the common-neighbor count, m the size of each exclusive neighbor set and M their maximum bipartite matching size. It is zero for Petersen and c+2 for the derangement matching in n≥6.",
+          "Münch–Wojciechowski relates curvature lower bounds and heat gradient bounds."
+        ],
+        "reasoning": "The first two results together are stronger coverage of the high-idleness heat mechanism, beyond a mere exponential bound. Their normalized measures require nonnegative probabilities and do not address the mixed-sign sector or establish the whole pair region.",
+        "searches": [
+          "arXiv:1704.04398 Theorem 1.1 and p-idleness definition",
+          "arXiv:1907.06733 Theorem 1.2 and Remark 1.3",
+          "arXiv:1712.00875v1 Theorem 3.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 5–82, VERIFICATION.md, verify_kneser_exact.py, check_kneser_lp.py",
+        "arXiv:1704.04398, 1907.06733, 1712.00875, 1807.02384",
+        "Resultary 70db2b993365, 1e74501e0c1c, ea11c2a4f7a6, 1bc11f1870e7",
+        "Focused primary and catalogue searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For β≥0 and α≥β with s=α+kβ>0, set p=α/s≥1/(k+1). Kantorovich duality and high-idleness linearity give the norm s(1−(1−p)κ)=α+(k−kκ)β. Substituting α_t=((n−3)a+b)/(n−2) and β_t=(a−b)/(n−2), a=e^{−(k−1)t}, b=e^{−(k+n−3)t}, gives exactly both frozen heat formulas. The omitted monotonicity and Petersen Taylor term are direct derivatives of those formulas.",
+          "The centrally symmetric hull of (0,±4),(1,3),(−1,−3) has identical support in every nonnegative direction but lacks (1,−3),(−1,3); for (α,β)=(−4,1) the hull gives 4 whereas the proved Petersen region gives 7."
+        ],
+        "reasoning": "The original heat result is mechanically implied even if its specialized formula is not printed elsewhere. The repaired joint region requires signed support information not determined by any restriction to nonnegative walk coefficients. Its Petersen opposite-sign extremes follow from the added exact test potentials rather than the curvature formula.",
+        "searches": [
+          "arXiv:1704.04398 pp. 2,4 at offsets 3196–6699 and 9210–11329",
+          "arXiv:1907.06733 p. 2 at offsets 5000–6942",
+          "Resultary 70db2b993365 Finding and first heat decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG(n,2) is the disjointness graph, the complement of the triangular Johnson graph, with its own metric. The repaired invariant is the support function of the joint edge differences of f and Af.",
+          "Resultary 1e74501e0c1c concerns a Euclidean-domain two-summing norm of a coordinate-difference map with positive amplitudes; 70db2b993365 computes a Petersen heat norm with a complete-pair Gini input/output seminorm."
+        ],
+        "reasoning": "A different input norm, target norm or graph metric changes the invariant. The Gini and Dobrushin coefficients neither coincide with graph-metric Lipschitz nor imply its signed extension. The equivalent probability-walk formulation exists only for coefficients of the appropriate common sign.",
+        "searches": [
+          "Resultary: Petersen graph feasible pairs of edge differences f and Af hexagon mixed signs A minus t I Lipschitz norm Kneser Johnson complement coefficient support function",
+          "Primary: Kneser graph Petersen \"Ollivier\" idleness signed adjacency Lipschitz operator norm affine filter exact Kantorovich coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cushing et al. give strongly regular Petersen parameters (10,3,0,1), spectral and curvature entries and a Johnson J(n,2) row, not a Kneser signed-operator norm row.",
+          "The same-day Kneser entry ea11c2a4f7a6 gives l1 metric distortion 2(n−4)/(n−3) for n≥6, with Petersen distortion 1 identified as a known boundary. Entry 1bc11f1870e7 concerns centered-L2 spread on the Lipschitz ball. Entries 70db2b993365 and 1e74501e0c1c give other exact operator norms."
+        ],
+        "reasoning": "Exact entries on these graphs are relevant but tabulate other invariants. Same-day indexing is not evidence of priority. Standard adjacency spectral data are credited and are insufficient to identify the achievable opposed-sign corners.",
+        "searches": [
+          "arXiv:1807.02384v1 Table 2 p. 29",
+          "Resultary ea11c2a4f7a6, 1bc11f1870e7, 70db2b993365, 1e74501e0c1c"
+        ]
+      },
+      "rationale": "The remaining exact joint feasible regions support arbitrary real signed filters. Positive-walk idleness results cover the removed heat finding and the positive support directions, not the claimed full geometry. The opposite-sign Petersen corners in particular require additional feasible potentials; no matching signed-region statement was found in the inspected sources. The all-signed shape is retained as one invariant, not each sign sector as a separate novelty claim.",
+      "residual_risks": [
+        "The search does not establish historical priority for the joint signed region under another polytope or signed-transport description. Known high-idleness, heat, spectral and matching consequences are not claimed as novel in the repair."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Together with matching curvature determines the original heat norm; no signed probability interpretation",
+          "evidence": "Defines mu_x^p by p at x and (1−p)/k at its neighbors; kappa_p=(1−p)kappa for p≥1/(k+1).",
+          "identifier_or_url": "https://arxiv.org/abs/1704.04398",
+          "material_read": "OA PDF pp. 2 and 4, definitions/linearity offsets 3196–6699 and Theorem 1.1 offsets 9210–11329",
+          "method": "Bounded direct original PDF reads and mathematical specialization",
+          "title": "Ollivier-Ricci idleness functions of graphs",
+          "trigger": "Possible stronger all-idleness theorem covers the heat and positive branches"
+        },
+        {
+          "assessment": "Supplies exact matching curvature for inference of heat branch; not a signed-region theorem",
+          "evidence": "kappa=(c+2−m+M)/k and Petersen has curvature zero. Remark extends matching formula to diameter-two regular graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.06733",
+          "material_read": "OA PDF pp. 2–3, Theorem 1.2, Remark 1.3, Theorem 1.4 and Corollary 1.5, offsets 5000–6942 and 7150–9697",
+          "method": "Literal locate then bounded direct original PDF read",
+          "title": "Condensed Ricci Curvature of Complete and Strongly Regular Graphs",
+          "trigger": "Exact condensed curvature for strongly regular graphs including Petersen"
+        },
+        {
+          "assessment": "General exponential estimates, not itself an exact heat coefficient or signed-filter result",
+          "evidence": "Relates curvature lower bounds to heat Lipschitz decay and corresponding W1 contraction under stochastic completeness.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "OA PDF v1 p. 19, Theorem 3.8 at offset 63800",
+          "method": "Bounded primary text inspection",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Curvature to graph heat Lipschitz and Wasserstein bounds"
+        },
+        {
+          "assessment": "Spectral and curvature antecedents, no signed region",
+          "evidence": "Lists Petersen (10,3,0,1), smallest eigenvalue −2; J(n,2) entry is for the Johnson rather than disjointness edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.02384",
+          "material_read": "OA PDF v1 Table 2, p. 29, offset 87550",
+          "method": "Bounded primary table inspection",
+          "title": "Rigidity of the Bonnet–Myers inequality for graphs with respect to Ollivier Ricci curvature",
+          "trigger": "Exact strongly regular spectra and curvature tables"
+        },
+        {
+          "assessment": "Distinct seminorm and coefficient",
+          "evidence": "G(f) sums all unordered pair differences; its sharp coefficient is (11e^(−2t)−2e^(−5t))/9, not graph-Lipschitz contraction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-complete-pair-gini-heat-contraction-on-the-petersen-graph--70db2b993365/RESULT.md",
+          "material_read": "Local mirror Finding and first spectral formula, offsets 0–2394",
+          "method": "Bounded local mirror read",
+          "title": "Sharp complete-pair Gini heat contraction on the Petersen graph",
+          "trigger": "Same heat generator, related sharp norm"
+        },
+        {
+          "assessment": "Different norm and operator",
+          "evidence": "Absolutely two-summing map from real Euclidean space to coordinate differences in l-infinity, with positive amplitudes on the two orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-two-orbit-two-summing-transition-for-triangular-johnson-gr--1e74501e0c1c/RESULT.md",
+          "material_read": "Local mirror Finding and Assumptions offsets 0–3489",
+          "method": "Bounded local mirror read",
+          "title": "Exact two-orbit two-summing transition for triangular Johnson graphs",
+          "trigger": "Same two-subset edge-difference systems; plausible norm equivalence"
+        },
+        {
+          "assessment": "Not the signed adjacency invariant; no date-based ordering inferred",
+          "evidence": "Computes l1 metric-embedding distortion, with its known Petersen boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ell-1-distortion-of-two-subset-kneser-graph-metrics--ea11c2a4f7a6",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror bounded read",
+          "title": "Exact ell-1 distortion of two-subset Kneser graph metrics",
+          "trigger": "Same-day exact Kneser metric invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact joint region is the finite-dimensional invariant controlling every affine adjacency filter and hence every polynomial filter on this quotient. The opposite-sign directions are needed for shifted adjacency and other non-Markov filters, for which idleness comparisons cannot give the amplification. The Petersen hexagon versus the stable parallelogram for n≥6 gives a genuine change in the optimization, including a flat branch for small positive shifts on Petersen. The positive heat calculations alone would be routine applications of prior theorems and were removed as a contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

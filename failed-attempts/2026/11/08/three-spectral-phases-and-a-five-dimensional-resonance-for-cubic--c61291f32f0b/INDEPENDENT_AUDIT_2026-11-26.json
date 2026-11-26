@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:42:55.400675Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, all spectral assertions and Proof",
+        "VERIFICATION.md and checks/verify.py (inspected, not executed)",
+        "/workspace/reproductions/frozen_checks.py, cubic_caps()"
+      ],
+      "rationale": "Longitude integration makes the four real azimuthal sectors orthogonal for both energies and makes the sine and cosine modes contribute the same scalar at each nonzero order. The cap-to-full ratio is the integral from t to 1 divided by that from 0 to 1 of the even squared associated Legendre density. The four polynomials and trace 7(1−t) check exactly. The first three pairwise gaps change sign or vanish only as shown by the factors 5t²−1 and 5t²−3; all gaps to order 3 are positive on (0,1), including the one with quartic 15(t²−2/5)²+13/5. The signs give every asserted ordering, and evaluation at the two squared cutoffs yields the stated five- and three-dimensional top eigenspaces and eigenvalues. Positivity on the interior makes the restriction injective and yields the stated square root condition number. Independent exact reconstruction from Cartesian harmonic basis polynomials and evaluation at both algebraic cutoffs agreed: python3 /workspace/reproductions/frozen_checks.py 5.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 theorem explicitly covers d≥3, gives squared cutoffs 1/(d+2),3/(d+2), and says the first maximizing space is V₀⊕V₁⊕V₂, multiplicity d(d+1)/2−1.",
+          "Slepian primary texts give the general cap concentration matrices and double-cap parity blocks."
+        ],
+        "reasoning": "The all-dimensional October 26 theorem includes the exact same d=3 pure harmonic space, region and parameters. The older general matrix framework by itself is not the decisive overlap; the exact prior cubic classification is.",
+        "searches": [
+          "Resultary 45d96c049f3f, Proof §§1–4",
+          "Simons–Dahlen, arXiv:math/0603271 §4.2",
+          "Simons–Dahlen–Wieczorek, arXiv:math/0408424 §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 45d96c049f3f Finding and Proof §§1–4",
+        "Resultary 2da0e9736b26 Finding",
+        "arXiv:math/0408424 §5.1",
+        "arXiv:math/0603271 §4.2",
+        "Gilbert–Slepian 1977 abstract and OA attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier normalized beta weight is w_d(s)=s⁻¹ᐟ²(1−s)^((d−3)/2)/B(1/2,(d−1)/2), with densities s((d+2)s−3)², (1−s)((d+2)s−1)², s(1−s)² and (1−s)³.",
+          "It gives four exact gap formulas; at d=3 its prefactor becomes t(1−t²)/2, with s=t²."
+        ],
+        "reasoning": "Substitute d=3 and s=z² in the integrals to obtain precisely the four polynomial densities in z of the frozen proof. Substitute d=3 and s=t² in the gap identities: for example λ₀−λ₁ becomes (7/16)t(1−t²)(5t²−1)(5t²−3), and λ₂−λ₃ becomes (35/16)t(1−t²)³. The remaining gaps follow by adding differences, including λ₀−λ₃ with the strictly positive quartic. Hence the complete ordering and strict minimum follow from the prior formulas, and evaluation and taking the singular-value ratio are mechanical.",
+        "searches": [
+          "Resultary 45d96c049f3f, Proof §§2–4, mirror offsets 2621 and 4300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-26 prior region is x_d²≥s and the pure degree-three projector is the same compression. At d=3 the transverse harmonic spaces V₀,V₁,V₂,V₃ are azimuthal orders 0,1,2,3.",
+          "The 2026-10-25 result treats single-cap adjacent-order gaps; squared pure-degree harmonics are even under the antipodal map, so the double-cap operator is twice the single-cap operator at a given cutoff."
+        ],
+        "reasoning": "The cutoff convention changes by s=t², with no change in the energy quotient. The one-cap reduction preserves order and crossings after multiplication by two.",
+        "searches": [
+          "Resultary: pure cubic spherical harmonics on antipodal caps and exact angular-order crossings",
+          "Resultary 45d96c049f3f RESULT.md Finding",
+          "Resultary 2da0e9736b26 RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed distinct records 45d96c049f3f (2026-10-26) and 2da0e9736b26 (2026-10-25). The former gives the exact general-dimensional formula and the maximizing-space table."
+        ],
+        "reasoning": "The table already has all five maximizing regimes and both degenerate rows, including dimensions after d=3. Exact branches are given as beta integrals; absence of expanded d=3 coefficients is not a gap.",
+        "searches": [
+          "Resultary: cubic spherical harmonic concentration thresholds and triple resonance"
+        ]
+      },
+      "rationale": "The distinct 2026-10-26 Resultary record on cubic spherical harmonics on antipodal caps proves the same normalized spectral problem for every ambient dimension d≥3. Its theorem explicitly gives both transitions and maximizing spaces, including the first top multiplicity d(d+1)/2−1. At d=3 and earlier squared cutoff s=t², these are exactly the fivefold and threefold resonances here. The four spectral branches, full ordering, least branch, crossing values and condition number are determined directly by its exact general spectral formulas; expanding the polynomials is not a new mathematical result.",
+      "residual_risks": [
+        "The 1977 paper's scope was not resolved; this does not affect the demonstrated October 26 coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage",
+          "evidence": "Exact two transition cutoffs, maximizing table and multiplicities; normalized beta integrals and four exact pairwise differences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-sharp-concentration-transitions-for-cubic-spherical-harmonic--45d96c049f3f/RESULT.md",
+          "material_read": "Finding, offsets 0–2621; four branch formulas at 2621–4399; exact gaps and comparison at 4300–8033",
+          "method": "Resultary lookup and paged local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two sharp concentration transitions for cubic spherical harmonics on antipodal caps",
+          "trigger": "Identical pure cubic problem with antipodal caps, all dimensions"
+        },
+        {
+          "assessment": "Additional material overlap after antipodal parity",
+          "evidence": "Exact adjacent-order gap and triple resonance classification for single cap; doubling at an equal opposite cap leaves the crossings unchanged.",
+          "identifier_or_url": "Resultary 2026/10/25, 2da0e9736b26",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and local full-text mirror",
+          "title": "Exact angular-order crossings and triple resonances in single-degree spherical concentration",
+          "trigger": "Single fixed degree and adjacent-order crossing classification"
+        },
+        {
+          "assessment": "Provides cap blocks, not the inspected cubic classification",
+          "evidence": "Cap concentration matrix entries and decomposition by azimuthal order.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408424",
+          "material_read": "§5.1, Eqs. (5.1)–(5.7), PDF pp. 15–16, offset about 54100",
+          "method": "Lawful OA PDF passage",
+          "title": "Spatiospectral concentration on a sphere",
+          "trigger": "Primary spherical Slepian formulation"
+        },
+        {
+          "assessment": "Establishes general double-cap/parity construction",
+          "evidence": "Double-cap localization matrices are split by parity; inspected formulas are a general framework rather than the pure cubic phase statement.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0603271",
+          "material_read": "§4.2, Eqs. (65)–(73), PDF p. 7, offsets about 49250–53500",
+          "method": "Lawful OA PDF passage",
+          "title": "Spherical Slepian functions and the polar gap in geodesy",
+          "trigger": "Spherical concentration on the same double-cap region"
+        },
+        {
+          "assessment": "Unresolved scope; not decisive",
+          "evidence": "Abstract describes polynomial concentration on intervals; no full-text exclusion made.",
+          "identifier_or_url": "https://doi.org/10.1137/0508022",
+          "material_read": "Abstract only; full text unavailable",
+          "method": "Lawful OA lookup and official route",
+          "title": "Doubly Orthogonal Concentrated Polynomials",
+          "trigger": "Related two-interval polynomial concentration reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 45d96c049f3f, exact general-dimensional eigenbranches and gaps"
+      ],
+      "rationale": "An extremal phase diagram for this natural cap problem is useful, but the frozen contribution is a mechanically implied fixed-dimension specialization of the prior phase diagram and exact branches. Expanded coefficients and surd evaluations do not supply an independently useful unknown invariant here; neither does taking the standard singular-value ratio from the known spectrum.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

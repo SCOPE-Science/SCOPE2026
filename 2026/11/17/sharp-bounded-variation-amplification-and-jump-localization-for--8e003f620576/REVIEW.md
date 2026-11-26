@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The arbitrary-input bound is exactly the maximum of one-jump responses because the polynomial projector reproduces constants and adjacent differences give an exact \(\ell^1\) jump decomposition. Orthogonal degree-zero, degree-one and degree-two sampled polynomials yield the exact rational gradient formula for every jump and dimension \(n\ge3\). Direct independent inversion of the original monomial Gram system corroborates all 464 jump cases for \(3\le n\le31\), and the general derivation proves all dimensions. In the continuum limit, integrating the three step moments yields the stated quadratic fit, whose total variation is computed by its unique turning point when present. The stationary quartic has two explicit relevant real roots, and endpoint comparison yields a unique maximizing jump location up to reflection. Uniform convergence of discrete moment matrices and step moments proves convergence of the sharp constants and localization of all maximizing jumps. The finite checker does not substitute for the analytical limit proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The closest full-text published mathematical records inspect the same equispaced quadratic least-squares projector but measure one endpoint's sup-norm response; their Bernoulli-lattice formulas neither state nor imply the operator's sharp adjacent-BV norm. A separate uniform-Jacobi result gives extrema of a fitted polynomial on bounded nondecreasing inputs, but controls only pointwise range and not sum of all absolute output increments; its maxima and theorem do not determine the reported BV norm or interior jump location. Full-text primary approximation papers establish discrete least squares, reconstruction stability, or a specifically constructed TV-diminishing interpolant, not the exact BV coefficient of ordinary quadratic projection. Actual semantic searches included "quadratic least squares total variation", "adjacent BV norm" and the numerical constant. An older unindexed Gram-polynomial or variation-norm calculation remains a possible overlap; no exhaustive novelty certification is claimed.
+PASS
 
-## Mathematical value — PASS
-This quantifies the sharp loss of bounded-variation stability in the simplest global nonlinear-shape-distorting polynomial smoother (degree two) after linear fits, with exact rational constants at every finite dimension and a nontrivial algebraic limiting constant. The interior localization of worst jumps distinguishes the mechanism from the much studied boundary-evaluation and overshoot constants. The result is relevant to stability of global least-squares reconstruction of step/discontinuous data in a variation-sensitive metric, not merely a rephrased pointwise norm.
+Adjacent differences identify the quotient by constants with ℓ¹, with tail steps as the coordinate vectors. The sampled orthogonal basis 1, u, u²−mean(u²) gives the exact signed differences in (1); taking absolute column sums gives the attained norm. Independently formed D X(XᵀX)⁻¹Xᵀ H in rational arithmetic for n=3,…,22 (230 jump columns); all entries and the displayed small norms agreed. Directly from (1), at t=k/n the columns converge uniformly to 6t(1−t) times the integral on [0,1] of |1+5(2t−1)(2x−1)|: the absolute-value integrands are uniformly Lipschitz and the discrete factors differ uniformly by O(1/n). For a=5|2t−1| this integral is 1 if a≤1 and (a+1/a)/2 otherwise. On the latter branch put z=|2t−1|; the stationary equation is 75z⁴−24z²+1=0. The two interior roots, branch endpoints, and the test t=1/4 give the unique maximizing pair. Density and the strict maximum gap away from this pair establish localization of every maximizing index sequence. n=3 is the identity case.
 
-## Closest literature, scope and limitations
-The directly compared records include *Arithmetic second-order boundary amplification in discrete quadratic least squares*, *Arithmetic lattice phases in the boundary sensitivity of quadratic discrete least squares*, and *Sharp two-branch monotone range envelope for quadratic symmetric Jacobi projection*. Primary open-access work by Bos–Calvi–Levenberg–Sommariva–Vianello (arXiv:0902.0215), Cohen–Davenport–Leviatan (arXiv:1111.4422), Kopotun–Leviatan–Prymak–Shevchuk (arXiv:1109.0968), and Nochetto–Salgado (arXiv:1211.1069) was compared. Only unweighted real equally spaced quadratic regression is proved; alternate weights/grids or degrees are excluded. Independent mathematical review and full historical priority certification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the discrete theorem: the exact finite-grid adjacent-variation norm and its convergence and maximizing-index localization. Do not credit the continuous norm as a separate distinct finding. A same-day symmetric Jacobi indexed theorem describes the continuous operator at α=0 (after affine rescaling); that parameter specialization necessarily concerns the same continuous invariant, not the discrete sequence. The available evidence does not settle priority or show that the Jacobi result also treats the finite-grid theorem.
+
+## value
+
+PASS
+
+An exact sharp stability coefficient at every sample size for the usual quadratic smoother quantifies amplification invisible to Euclidean stability. Interior asymptotic maximizing jumps explain how the smoother amplifies variation and distinguish the result from endpoint sensitivity. The finite-grid sequence is itself reusable, even granting the overlapping continuous invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

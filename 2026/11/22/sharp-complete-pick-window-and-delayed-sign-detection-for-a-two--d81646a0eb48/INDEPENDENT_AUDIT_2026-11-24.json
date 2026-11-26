@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:48:21.072420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal monomials give K(t)=1+t/a+t²/[ab(1-t)]=(1-At-Bt²)/(1-t). The reciprocal series has c1=1/a, c2=(a-b)/(a²b), and c_n=A c_(n-1)+B c_(n-2) from n=3. Complete Pick requires nonvanishing (a kernel zero between two disc points would make the scalar values 1 and 0 pass the two-point Pick test, impossible for a contractive analytic multiplier by the maximum principle). Thus negative Taylor coefficients rule it out. The c2 and c3 tests exclude b>a and a<1, and leave only b=1 when a=1. If 1≤b≤a, the recurrence is nonnegative and both root moduli are below one: the positive root is below one by 1-A-B=1/(ab)>0 and dominates the other in modulus. If a>1 and b<1, the discriminant is [b(a+1)²-4a]/(a²b). When it is nonnegative, both roots are between zero and A<1, and c2/c1=A+a(-B)>A ensures nonnegative coefficients by the divided difference of the root powers, with a nonnegative derivative in the double-root case. In both cases the series is analytic on the disc and |F(t)|≤F(|t|)=1-1/K(|t|)<1, giving the normalized complete Pick criterion. Below the threshold, the roots q exp(±i theta) give coefficients proportional to sin((n-1)theta+phi), with positive amplitude and phi,theta in (0,pi/2). Crossing pi strictly gives the stated floor index even when a coefficient vanishes at phase pi, since the next phase is below 3pi/2. Using sin(theta)=sqrt(-Delta)/(2q), q→(a-1)/(2a), and phi=O(theta) from the phase numerator's positive limit gives the claimed scaled delay constant. The line defining u and the subsequent reference to nu are a local notation typo: the displayed expression is the unique sine weight fixed by c1 and c2, used consistently in this check. The frozen script was inspected, not executed; finite coefficient tests cannot replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "43542adbde56 Finding and kernel specialize at zero coupling to squared weights (b_block²,a_block²,1,…), covering all 1≤b≤a in this notation",
+          "Luo–Rydhe Thm. 1.2 covers the concave subregion, a≥1 and 1≤b≤2-1/a; Quiggin Thm. 2.1.1's monotone ratios give 1≤b≤a here"
+        ],
+        "reasoning": "There is actual coverage on the expansive slice, not merely similar titles. The block theorem is restricted to expansive shifts, and each sufficient result misses the sharp nonexpansive branch and the failure below it. Same-day indexing does not resolve priority.",
+        "searches": [
+          "Resultary 43542adbde56, d546840240be and 55f7752cd564",
+          "Luo–Rydhe arXiv:2611.12778v1; Quiggin thesis Chapter 2"
+        ]
+      },
+      "checked_sources": [
+        "Quiggin thesis Theorem 2.1.1",
+        "arXiv:2611.12778v1 and 2403.19377v2",
+        "Resultary 43542adbde56, d546840240be, 55f7752cd564, a614d1883358, c164b16dc0e7, 0098d04d5418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "McCullough–Quiggin–Agler–McCarthy reduces the question to reciprocal-kernel positivity",
+          "Luo–Rydhe give a log-concave expansive non-Pick example of larger defect rank",
+          "43542adbde56 zero coupling proves the above-b=1 slice"
+        ],
+        "reasoning": "The general positivity criterion gives neither the radial coefficients' signs nor where their first failure occurs. The elementary real and complex root machinery is not new; applying it requires controlling the initial data, verifying the double-root boundary and extracting the precise first strict sign crossing and constant. None of the compared sufficient/negative examples mechanically supplies both the missing admissibility interval and the quantitative finite-test obstruction.",
+        "searches": [
+          "Ahmed–Das–Panja Theorem 1.1, eqs. (1.3)–(1.4)",
+          "Quiggin Thm. 2.1.1; Luo–Rydhe Thms. 1.2–1.3",
+          "Resultary two-coordinate Hardy-block and delayed complete Pick records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a614d1883358 concerns one monomial factor (1-s t^m) multiplying a power kernel",
+          "Ahmed–Das–Panja eq. (1.4) uses a contractive scalar multiplier factor (1-phi(z) conj(phi(w)))"
+        ],
+        "reasoning": "A single radial scalar multiplier defect of Hardy has only one nonconstant monomial in its numerator; the frozen family generically has both a linear and a quadratic term. For real positive reciprocal roots the numerator can factor into two linear factors, but that is not the single-defect classification and does not identify the excluded coalescing-root regime or a sign index.",
+        "searches": [
+          "Resultary: two-defect or two-coordinate Hardy shifts, complete Pick window",
+          "Resultary a614d1883358; Ahmed–Das–Panja arXiv:2403.19377v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact title hit is the frozen record itself",
+          "c164b16dc0e7 gives a first-negative-index asymptotic of order b^(-1/a) for kernel (1-t)^(-a)(1-t²)^(-b)",
+          "0098d04d5418 treats first Taylor-sign failure for an elliptic-integral family"
+        ],
+        "reasoning": "The fractional Schur product and elliptic example are genuine delay analogues but different coefficient sequences; neither gives the exact floor law at this rational discriminant boundary. No finite coefficient table alone could certify this unbounded delay.",
+        "searches": [
+          "Resultary: two-defect complete Pick exact phase region, first-negative coefficient",
+          "Resultary c164b16dc0e7 and 0098d04d5418"
+        ]
+      },
+      "rationale": "The b≥1 admissible slice, reciprocal-kernel test and generic recurrence tools are known; the supported distinct result is the full sharp boundary including b<1 and the exact first-failure law with its critical constant. No exhaustive priority is asserted.",
+      "residual_risks": [
+        "Same-day catalogue ordering is unresolved; overlapping subranges are explicitly credited.",
+        "The bounded primary search was not exhaustive; a general-recurrence query was deferred, and other indexed or unindexed sources could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "strict sufficient subregion",
+          "evidence": "zero-free series and nondecreasing successive norm-weight ratios 1/a,1/b,1,… in the frozen family",
+          "identifier_or_url": "https://eprints.lancs.ac.uk/id/eprint/61962/1/Quiggin.pdf",
+          "material_read": "Chapter 2 §2.1 Theorem 2.1.1, PDF p. 31, offset 54200",
+          "method": "OA thesis PDF",
+          "title": "Generalisations of Pick’s Theorem to Reproducing Kernel Hilbert Spaces",
+          "trigger": "weighted Hardy spaces and ratio test"
+        },
+        {
+          "assessment": "concave slice and different counterexample",
+          "evidence": "concavity gives CNP; expansive log-concave rank-three-defect shift can fail CNP",
+          "identifier_or_url": "https://arxiv.org/html/2611.12778v1",
+          "material_read": "§1 Theorems 1.2–1.3, offsets 6400–10700",
+          "method": "OA arXiv full text",
+          "title": "Concave shifts and the complete Nevanlinna–Pick property",
+          "trigger": "strong nearby shift results"
+        },
+        {
+          "assessment": "reciprocal criterion and a distinct scalar-defect framework",
+          "evidence": "nonvanishing normalized K is CNP iff 1-1/K is positive; scalar Hardy defect criterion is expressed by a factorization of the multiplier",
+          "identifier_or_url": "https://arxiv.org/html/2403.19377v2",
+          "material_read": "abstract and Theorems 1.1–1.2, eqs. (1.3)–(1.4), offsets 9500–13791",
+          "method": "OA arXiv full text",
+          "title": "de Branges–Rovnyak spaces which are complete Nevanlinna–Pick spaces",
+          "trigger": "potentially broader defect formulation"
+        },
+        {
+          "assessment": "covers 1≤b≤a upon specialization, not b<1 or delay",
+          "evidence": "a_block≥1, b_block≥a_block and a coupling bound; zero coupling gives this family's weights b_block²,a_block²,1,…",
+          "identifier_or_url": "Resultary 43542adbde56",
+          "material_read": "Finding and kernel, mirror offsets 0–2588",
+          "method": "local mirror",
+          "title": "Complete Pick stability of the two-coordinate logarithmically concave Hardy-block shift",
+          "trigger": "same two initial weights at zero coupling"
+        },
+        {
+          "assessment": "different numerator family",
+          "evidence": "single monomial defect of a power kernel",
+          "identifier_or_url": "Resultary a614d1883358",
+          "material_read": "Finding",
+          "method": "local mirror",
+          "title": "Sharp complete-Pick phase diagram for monomial defects of power kernels",
+          "trigger": "rational-looking monomial defect phase diagram"
+        },
+        {
+          "assessment": "different sequence and asymptotic",
+          "evidence": "(1-t)^(-a)(1-t²)^(-b) with rate b^(-1/a) as b↓0",
+          "identifier_or_url": "Resultary c164b16dc0e7",
+          "material_read": "Finding",
+          "method": "local mirror",
+          "title": "Delayed complete Pick failure in two-root fractional Schur products",
+          "trigger": "closest first-sign-delay analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two altered initial weights on the Hardy shift form a natural test of the gap between shift concavity and complete Pick. The sharp nonexpansive window is not determined by the known sufficient tests. The exact delay establishes that no fixed finite list of reciprocal coefficient signs can recognize the property even for this two-parameter family, and quantifies the divergence in the natural distance to the boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

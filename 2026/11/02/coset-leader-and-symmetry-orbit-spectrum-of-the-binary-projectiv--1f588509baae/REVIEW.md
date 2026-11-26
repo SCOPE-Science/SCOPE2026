@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns all \(8192\) cosets of one explicitly defined binary \([26,13,6]\) code, not an inferred infinite-family law. The independent syndrome-Cayley BFS and exhaustive enumeration of all distinct error subsets of weights \(0\) to \(5\) agree on every distance and shortest-leader multiplicity. The verifier checks the underlying plane difference set, parity-check identity, weight enumerator, the \(5616\)-element collineation closure, the duality, and the complete partition into \(22\) syndrome orbits. The known uniqueness and full-automorphism-order theorems from the cited primary paper justify the transfer of this complete finite census to the unique equivalence class. Reproducible exact code and a complete orbit table are included. Risk: the finite enumeration and the identification of full code symmetries should still receive independent mathematical review.
+PASS
 
-## Originality — PASS, with residual priority risk
+The Singer difference-set incidence yields column weights 9 and pairwise intersection 6 for A, hence A^T A=I and H=[I|A] is a full-rank parity check and generator. The independent replay enumerates the 8,192 codewords, checks minimum distance 6, and xors each of the 83,682 distinct coordinate subsets of weights 0 through 5. They reach all 8,192 syndromes; first-hit weight and number of minimum-weight subsets reproduce all joint counts. In particular the distance counts are (1,26,325,2080,3770,1990), so covering radius is exactly 5, and the weighted sum is 31946, giving 15973/4096. Repeated-coordinate paths are not counted: alternatively each shortest Cayley path uses distinct coordinates and each minimum subset yields precisely d! such paths. The point-preserving permutations act faithfully on the syndromes, preserve the line-column set and generate a group of size 5616. The involution AR exchanges e_i with A_(.,-i) and induces a code automorphism. The two disjoint coordinate-block cosets give at least 11232 elements, which is the full-group order by Höhn. The independent orbit replay verifies all 22 rows, including the five depth-five (size, leader count) pairs (936,18), (702,18), (234,18), (117,10), (1,26), and singleton syndrome 8191. The stored and reproduced CSV SHA-256 is 8d8acd1b504b47d31e62dc0b9b4ebcb62048e9cc845561312ce678ce55279790. Replay with python3 /workspace/branches/df660689-3bb2-49e8-8d07-ffb023b0ed89/independent_check.py. The uploaded verifier was inspected, not run. Uniqueness up to coordinate permutation is imported from the classification, not proved by enumerating this one code.
 
-The June 2026 Höhn preprint derives the code construction, uniqueness and full group, and its odd-Golay deep-hole discussion concerns a different length-\(24\) object. The complete 1991 Glynn plane-code paper gives the weight enumerator and construction, not a coset-distance table. The 1992 Conway–Pless–Sloane paper classifies codes; the 1990 Conway–Sloane coset-orbit paper analyzes lengths \(16\), \(22\), \(23\) and \(24\) rather than this length-\(26\) plane code. Harada–Munemasa's database provides generator/classification data without the claimed orbit-profile table. Focused mathematical-record and literature searches found no equivalent or stronger statement implying the \(22\)-orbit/minimum-leader spectrum. An unindexed prior computation remains an acknowledged priority risk, and search failure alone is not treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The precise quotient-distance and nearest-codeword multiplicities are natural decoding invariants that cannot be read off from the published codeword weight enumerator or from the known group order alone. The full \(22\)-orbit decomposition distinguishes five deep-hole symmetry types and identifies a unique invariant deepest coset with \(26\) nearest codewords. This supplies a complete, reproducible geometric fingerprint of a classical unique code, rather than an arbitrary subcase or a numerical re-evaluation of already-published code parameters. It does not claim a new length-dependent coding bound.
+Prior sources give the code, its uniqueness and full group, and its codeword weight enumerator. The supported increment is the exact length-26 coset minimum-distance and minimum-leader multiplicity census and its full automorphism orbit table, not any of those inputs. Comparable decoding and coset-orbit results for other objects do not state these data.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural, complete nearest-decoding and symmetry invariant of the unique extremal self-dual code at its length, not an arbitrary chosen subset of syndromes. The 1990 deepest cosets split into five different symmetry types, with exact tie sizes including a full-group-fixed exceptional coset. Those distinctions supply data for decoding and comparisons of symmetry classes that the established weight enumerator and group order do not provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

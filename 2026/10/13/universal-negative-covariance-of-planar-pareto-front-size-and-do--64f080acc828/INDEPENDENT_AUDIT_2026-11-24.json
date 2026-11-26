@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:34:58.171292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Decreasing X order turns maxima into successive Y records and the dominated area into the sum of X spacings times Y prefix maxima. Product sampling separates the spacings from the reordered Y values. A record at j≤k depends only on a relative permutation of the first k Y's and is independent of their maximum. For j=k+r>k, the conditional record expectation is (1−F_Y(B_k)^r)/r by exchangeability of the next r values. The joint transform needed for the covariance is valid even for gaps or singular marginals: couple Y_i=Q(U_i) with independent uniforms, so the two arguments for a prefix are Q(max U_i) and max U_i almost surely. The iid-copy identity gives a strictly positive covariance of Q(max U_i) with (max U_i)^r because the quantile is nonconstant under the Beta(k,1) law. All needed spacings have strictly positive expectation and there is at least one term for n≥2. For uniform coordinates the beta moments give −k/[(k+1)j(j+1)] per later record, and summing with the expected gaps 1/(n+1) gives the claimed harmonic numerator and asymptotic. For n=2 this is independently −Var(U)/(3)=−1/36, with n=1 giving zero. The frozen checker was read, not executed; its recorded permutation and harmonic checks are finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first computes marginal maxima-count asymptotics and moments in the simplex; the second studies generalized skyline counts and their expectation thresholds. Neither of the inspected results evaluates a mixed moment against the dominated area."
+        ],
+        "reasoning": "These results do not supply the joint dependence of the count and the prefix heights in the area functional.",
+        "searches": [
+          "arXiv:1003.6119v1 Theorem 1",
+          "arXiv:1111.6224v1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 37e5904090eb and db827d47108a",
+        "Hwang–Tsai arXiv:1003.6119",
+        "Hwang–Tsai–Chen arXiv:1111.6224",
+        "Bai et al., DOI 10.1214/EJP.v6-76 (full text not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The corner-count proof computes a record covariance with one threshold indicator at one position and sums over positions. The uniform-area proof uses the conditional mean of the j-th uniform order statistic, linear in j."
+        ],
+        "reasoning": "The corner-count first moment does not determine a mixed covariance with the nonlinear indicator of nonemptiness. The uniform-area conditional mean is not linear in j for general quantiles. The transfer requires a joint maximum calculation, supplied here by conditioning on the prefix maximum and retaining the actual quantile and mean spacing.",
+        "searches": [
+          "Resultary db827d47108a Proof, offset 1200 onward",
+          "Resultary 37e5904090eb Proof, §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dominated set can be integrated as the event of a nonempty northeast rectangle, not as its point count. The uniform skyline–hypervolume record uses the identical area and count at uniform marginals."
+        ],
+        "reasoning": "Changing from Pareto maxima to skyline cardinality is only a renaming. Transforming each coordinate to ranks preserves those maxima, but changes Lebesgue area: in the nonuniform case the spacings and prefix heights depend on both marginal laws.",
+        "searches": [
+          "Resultary db827d47108a Finding and Proof",
+          "Resultary 37e5904090eb Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same harmonic identity for iid uniform-square samples appears, with an additional area variance and correlation limit. The indexed path date is later; statement overlap does not establish priority."
+        ],
+        "reasoning": "This is exact coverage of the uniform specialization regardless of catalogue date, not exact coverage of the two-marginal beta-quantile kernel.",
+        "searches": [
+          "Resultary 37e5904090eb exact skyline–hypervolume covariance, Finding offset 0"
+        ]
+      },
+      "rationale": "The supported distinct result is the arbitrary atomless product-marginal Lebesgue-area covariance kernel and its strict sign. There is exact indexed overlap for the uniform-square covariance, not an independently distinct uniform formula. The arbitrary-marginal sign and kernel are not covered by the uniform linear-rank calculation, a corner-count covariance, or the inspected marginal record theory.",
+      "residual_risks": [
+        "Classical joint record and prefix-maximum functionals may contain an implicit equivalent. The comparison is bounded, not a historical priority claim; no decisive full-text passage was obtained from Bai et al. or Barbour–Xia."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical uniform result, narrower law class",
+          "evidence": [
+            "Uniform coordinates, origin reference, and identical harmonic covariance for every n≥2; uses expected uniform order-statistic values."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-skyline-hypervolume-anticorrelation-and-a-universal-correl--37e5904090eb/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of mixed-covariance proof, offset 0–3280",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Exact skyline–hypervolume anticorrelation and a universal correlation limit",
+          "trigger": "Exact formula hit and same dominated area"
+        },
+        {
+          "assessment": "Different second statistic; related record conditioning, no area identity implied by the count formula",
+          "evidence": [
+            "K_n counts exceedances at a deterministic threshold pair. Eq. (5) is an individual threshold-indicator covariance, not the covariance with presence of at least one point."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-an-exact-negative-corner-count-covariance-for-planar-pareto-maxi--db827d47108a/RESULT.md",
+          "material_read": "Finding, assumptions and Proof, including eq. (5)",
+          "method": "Bounded local mirror passage inspection",
+          "title": "An exact negative corner-count covariance for planar Pareto maxima",
+          "trigger": "Same sample class and a northeast-corner statistic"
+        },
+        {
+          "assessment": "Inspected results concern record and maxima counts",
+          "evidence": [
+            "The simplex maximum-count theorem gives count moments, not mixed area moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.6119",
+          "material_read": "Abstract, introduction and Theorem 1, pp. 1 and 5",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Multivariate records based on dominance",
+          "trigger": "Classical record/maximum results under planar sampling"
+        },
+        {
+          "assessment": "Thresholds on expected generalized skyline cardinality, not a joint area statistic",
+          "evidence": [
+            "The inspected theorem gives zero/infinity regimes for expected k-dominant counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.6224",
+          "material_read": "Abstract and Theorem 1, pp. 1 and 5",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Threshold phenomena in k-dominant skylines of random samples",
+          "trigger": "Potential broader skyline result"
+        },
+        {
+          "assessment": "Unresolved source-access risk, not negative evidence",
+          "evidence": [
+            "The direct PDF route returned 403 and the alternate configured route yielded only a landing page or abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/EJP.v6-76",
+          "material_read": "No decisive full-text passage; DOI and identified Project Euclid PDF access attempted",
+          "method": "OA retrieval attempts including the journal PDF URL",
+          "title": "Limit Theorems for the Number of Maxima in Random Samples from Planar Regions",
+          "trigger": "Cited planar maximum-count primary paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pareto cardinality and dominated area are separate common summaries of the same point cloud. Their strict antagonism for every finite n≥2 across even singular continuous product marginals answers a natural dependence question. The distribution-sensitive kernel supplies more than a uniform calculation or an observation from finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review of isolated-cluster variance ordering
+# Independent mathematical audit
 
-## Correctness
-The exact conditional law for the two hubs yields an explicit probability generating polynomial and first and second moments. Algebra gives the closed variance formula. A separate exact identity for moving one leaf from the smaller hub to the larger hub is strictly positive beyond \((b-a+1)/8\), by a complete two-case inequality using \(A\le1/8\). Iteration gives global uniqueness within the stated diameter-at-most-three class and proves the quadratic asymptotics. A standalone Python checker passed 5263 exact rational assertions, including exhaustive retention samples for all trees in the class through 12 vertices; the general result rests on the displayed analytic argument.
+## correctness
 
-## Originality
-Relevant site-percolation literature studies component transitions on large regular pseudorandom graphs, not this finite-tree variance arrangement; the accessible full-text introduction, main theorems and component sections were compared. Similar graph-invariant extrema and earlier bond-percolation isolated-count laws concern other observables or independent edge retention, which cannot imply the vertex-retention formula without additional calculation. Searches for inverse imbalance, bistar, singleton-component variance and related terms found no established equivalent. This is qualified originality, not proof of historical uniqueness: general graph moment or extremal formulas may imply the special result implicitly.
+PASS
 
-## Value
-A diameter-at-most-three tree is exactly a two-hub double star (stars included), the first natural nontrivial class in which tree structure varies with fixed order. Fluctuations in the count of surviving singleton clusters are a basic percolation observable. The strict balance-to-star variance ordering supplies all-order minimizers, maximizers, a quantitative structural gap, and an asymptotic factor-two contrast; it is not merely a single computed example. Restrictions to this family and to retention probability \(1/2\) are essential limits.
+For fair independent vertex retention, condition on the four equiprobable hub states. The two single-hub states are respectively a binomial count of leaves at the absent hub plus the independent indicator that all leaves at the present hub are absent. This gives the claimed generating polynomial, mean (a+b)/4+A+B and second moment ((a+b)^2+a^2+b^2+2(a+b))/16+(b+1)A+(a+1)B, including a=0. Substitution (A,B,d) -> (2A,B/2,d+2) gives the transfer identity in RESULT.md lines 44–48. After subtracting (d+1)/8, the remainder is at least A(2+3d/4-3A)+3B²/4 when d<=4, and at least A(3+d/2-3A) when d>=4; both are positive by 0<B<=A<=1/8. For any d the excess tends to zero along a→infinity, b=a+d. The central edge of a diameter-three tree permits no other non-leaf vertices; diameter two gives the star. The successive transfers order the full list up to interchange, and its extreme quadratic coefficients are 1/32 and 1/16. A fresh integer mask enumeration checked all 18 unordered pairs for n=4–9 using N=2^n and the variance numerator N sum(z²)−sum(z)² over the masks; this corroborates, rather than proves, the formulas and transfers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the all-order strict variance rearrangement for fixed double-star hosts under fair site retention, including the uniform sharp additive transfer threshold and full extremal classification. The elementary conditioning, variance expansion and component terminology are not a separate originality claim.
+
+## value
+
+PASS
+
+The tree class is structurally natural and exhausts diameter at most three. An explicit positive gap gives the direction and magnitude of a shape transfer all the way to the star, including the case of an empty leaf class, and isolates an asymptotic factor of two between the extremes. This is a fluctuation comparison for fixed hosts, not just the routine enumeration of a moment at one parameter point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

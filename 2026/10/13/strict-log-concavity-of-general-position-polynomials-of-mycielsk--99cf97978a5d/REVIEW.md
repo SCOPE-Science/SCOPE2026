@@ -1,12 +1,21 @@
-# Scientific review: strict log-concavity of Mycielskian clique general-position polynomials
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph has diameter two for every integer \(n\ge2\); hence a selected subset is in general position exactly when its induced subgraph has no induced three-vertex path. The proof enumerates all subsets by whether the root is selected and by the selected-original and selected-twin index sets, with explicit converse checks in every class. Binomial simplification yields every coefficient. The tail is a product of strictly log-concave binomial coefficients and positive strictly concave quadratic weights; four exact boundary differences are proved positive. Exhaustive shortest-path checks on all vertex subsets for \(2\le n\le8\), and exact arithmetic checks through \(n=250\), agree. These finite checks supplement, rather than replace, the all-\(n\) proof.
+## correctness
 
-## Originality — PASS, with stated risk
-The closest article on general-position sets of Mycielskians (Thomas et al., arXiv:2203.08170, Corollary 2 and Section 3) already determines their maximum cardinality for complete-graph bases and provides a general set-partition characterization. The maximum cardinality and its multiplicity for \(n\ge3\) are not claimed as new. The polynomial introduction paper (Iršič et al., arXiv:2401.05696) proves enumerations and unimodality for other classes, not these Mycielskians; Roy et al. (arXiv:2403.05120) treat extremal graph-operation parameters. The 2025 survey likewise does not list this enumerator. The full polynomial and its strict log-concavity require the specific counting and inequality arguments given here. Residual risks: an unindexed equivalent induced-cluster enumeration and the possibility that the general Mycielskian partition framework makes the counting less independent than a new general theory.
+PASS
 
-## Value — PASS
-This gives every cardinality of a central graph-geodesic invariant on a standard chromatic-number-raising graph construction. The uniform strict log-concavity result is a qualitative regularity theorem, not only an extremal-number calculation or a small finite table. It ties directly to the active study of unimodality of general-position polynomials. Its domain is one application of the construction to complete graphs, not arbitrary Mycielskians, and no real-rootedness result is asserted.
+For n≥2 each nonadjacent pair has distance two (in particular, an original reaches its own twin via another original and the root via another twin). Thus a forbidden triple is exactly an induced three-vertex path, and allowed induced subgraphs are unions of cliques. Without the root, if there are no originals any twins are allowed; with one original, its twin is optional and at most one other twin is allowed; with two or more originals, no paired twin and at most one other twin is allowed. With the root, either there is no twin and originals are arbitrary, or there is one twin and only its paired original is optional. These disjoint choices give the claimed polynomial, including the empty set. For k≥4, direct extraction gives binom(n+1,k)(2+k(n−k)/(n+1)); the weight is positive including at k=n+1 and strictly concave, so the product with the binomial row is strictly log-concave where all three indices are in this range. At k=1,2 the displayed differences are positive directly; at k=3 and 4 the stated translations n−2 and n−3 of the boundary quartics have positive coefficients. The k=4 comparison is only required for n≥4 and n=2 is checked separately by (1,5,10,5). Fresh direct shortest-path subset enumeration by all-pairs distances matched every coefficient for 2≤n≤6; this is finite corroboration only. Replay paths: RESULT.md §§1–4; the inspected verify.py and verify_output.txt describe a separate finite replay (use Python 3.10+ for int.bit_count, despite the 3.9 wording).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the full root-inclusive enumerator across the family together with its strict coefficient inequalities. Do not credit as new the root-free structural classification or its routine count, the known maximum and maximum-set uniqueness, or the n=2 enumerator alone. The strongest prior all-set theorem is specifically root-free, and the general polynomial papers inspected do not establish the claimed family-wide coefficient inequalities.
+
+## value
+
+PASS
+
+For an established graph transformation and a standard invariant previously studied here mainly at its maximum, the full size distribution gives more information than the extremal number. The strict log-concavity theorem governs the whole distribution, including low-degree exceptions to the binomial-weight pattern, and adds a property not given by the general set criterion or maximum-size calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

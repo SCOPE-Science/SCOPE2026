@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:13:59.602100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass for the complete repaired RESULT.md. The frozen inducing formula is not valid as stated for every measure with positive marker mass: a mixture of a renewal measure and the marker-free measure induces only the renewal component. The repair applies it on each ergodic component and uses affinity, and justifies finite marginal entropy and iid equality. Also the frozen derivative equivalent at t=0 had a zero comparison term; the repair uses a scaled limit there. Independently, the rotation partition gives the heavy-factor count by counting endpoints in [1−{nα},1); a mesh argument gives uniform discrepancy for this moving interval. Equidistribution of {nα} makes the two centered counts, with limiting weights 1−q and q, contribute the triangular density 1−|y| on [−1,1]. Its Laplace transform is (2sinh(t/2)/t)², which stays positive at every real t. Abel summation of the weighted Cesàro averages gives the n and n² constants and the fixed-δ color derivative limit, including t=0. The return mean is asymptotic to 2/δ and the centered count mean tends to I'/I, proving both occupation laws. The exact x=4sinh²(P/2) identity and evenness of the color factor verify the zero-field and slope formulas. The theorem's parameters and conclusions are unchanged; the finite verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-sided binary S-gap theorem allows general gap weights and provides a renewal equation and stability/uniqueness framework. It does not compute the distinct decorated-factor sum at each length.",
+          "The earlier Resultary zeta identity holds for arbitrary infinite allowed-length sets but uses only counts, not symbol-color observables."
+        ],
+        "reasoning": "A broader renewal principle does not turn the critical amplitude into an input-free corollary: the weighted n→∞ average and its color derivative must still be established, even if the equilibrium argument is supplied.",
+        "searches": [
+          "Primary-literature lookup on multivariate weighted renewal pressure, Sturmian-decorated gap shifts and equilibrium uniqueness",
+          "arXiv:2606.17031 Eq. (1), Theorem 1.1",
+          "Resultary 0881e8e9b148"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (Eqs. 1–7 and proof), VERIFICATION.md and verify.py; repaired RESULT.md",
+        "arXiv:2501.08438, 1701.00948, 2606.17031",
+        "Local Resultary 0881e8e9b148"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting x=1,t=0 directly recovers the prior unweighted entropy law. Applying rotation discrepancy to Proposition 14 gives the heavy proportion, but the transformed triangular law, critical colored coefficient and its derivative enter only after weighted length averaging.",
+          "The slope-free zeta agrees for different irrational α, while the derivative of the logarithm of the color coefficient is −α/2."
+        ],
+        "reasoning": "The prior results cover identifiable ingredients and special outputs, not an equivalent weighted amplitude or a stronger result evaluating it. The comparison is affirmative about the unweighted overlap, not a claim of exhaustive novelty.",
+        "searches": [
+          "arXiv:2501.08438 Theorem 1.1, arXiv:1701.00948 Proposition 14, arXiv:2606.17031 Eq. (1) and Theorem 1.1",
+          "Resultary decorated-gap zeta record 0881e8e9b148"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The (S,w)-gap entropy root specializes to the all-length Sturmian case at x=1,t=0.",
+          "The heavy/light rotation cells give the same centered counts, but do not evaluate the normalized weighted sums over lengths or the critical pressure shift.",
+          "The repaired expression is equivalently a square root of the triangular count transform times the extra marker-length factor e^(−αt/2)."
+        ],
+        "reasoning": "Encoding the color statistic as a centered-count moment-generating function exposes the new weighted part. Neither the unweighted root nor the fixed-length factor classification supplies it without the two averaging steps and the singular renewal evaluation.",
+        "searches": [
+          "Resultary Sturmian decorated gap zeta, colored renewal pressure and slope fingerprint",
+          "Ramirez–Somers arXiv:2501.08438 Theorem 1.1",
+          "Fici–Mignosi–Shallit arXiv:1701.00948 Proposition 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct matched result gives the exact unweighted zeta denominator 1−Σ_(s∈S)(s+1)z^(s+1) and slope-independent fixed-point counts; it has no coefficient depending on a color field."
+        ],
+        "reasoning": "This exact function of irrational slope and continuous field is not a sequence or parameter table; the applicable exact lookup is the catalogue and displayed formula comparison. Agreement of all unweighted counts cannot identify the slope-sensitive coefficient.",
+        "searches": [
+          "Resultary exact/semantic lookups for Sturmian decorated renewal pressure, symbolic gap zeta and slope recovery",
+          "Local mirror exact formula inspection for 0881e8e9b148"
+        ]
+      },
+      "rationale": "Pass for the evaluated colored small-activity coefficient, associated occupation correction, and its ability to distinguish slopes despite identical marker-only pressure. Not a priority claim for the entropy root, unweighted periodic data, heavy/light Sturmian factors, or general renewal equilibrium arguments.",
+      "residual_risks": [
+        "Older multivariate renewal or weighted Sturmian results may express the same transform or critical coefficient in other notation; searches did not exhaust that literature.",
+        "The uniqueness and uncolored statements should not be presented as independently novel, and the color limit is pointwise in a fixed field and slope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_UNWEIGHTED_ENTROPY",
+          "evidence": "The root is 1=Σ φ_w(n) λ^(−n−1), with no colored weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.08438",
+          "material_read": "Primary PDF p. 2, Theorem 1.1, offset 5322",
+          "method": "Opened theorem and substituted S all lengths and complexity n+1",
+          "title": "(S,w)-Gap Shifts and Their Entropy",
+          "trigger": "Direct unweighted model and entropy antecedent"
+        },
+        {
+          "assessment": "COVERS_COMBINATORIAL_INPUT",
+          "evidence": "The n+1 length-n factors correspond to cells; a cell is heavy exactly in the arc [{−nα},1).",
+          "identifier_or_url": "https://arxiv.org/abs/1701.00948",
+          "material_read": "Primary PDF p. 12, Proposition 14, offset 47250",
+          "method": "Opened combinatorial classification and compared the averaging measures",
+          "title": "Abelian-Square-Rich Words",
+          "trigger": "Potential equivalence through heavy/light factors"
+        },
+        {
+          "assessment": "RELATED_WEIGHTED_FRAMEWORK",
+          "evidence": "Binary one-gap weights e^ψ(n) give the renewal root and equilibrium, not the distinct Sturmian factor average over color counts or the activity-critical pressure coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.17031",
+          "material_read": "Primary renewal Eq. (1), offset 6175, and p. 3 Theorem 1.1, offset 8000",
+          "method": "Read the displayed renewal and uniqueness statements with their hypotheses",
+          "title": "Effective Intrinsic Ergodicity on S-Gap Shifts",
+          "trigger": "Strong weighted renewal uniqueness and square-root stability result"
+        },
+        {
+          "assessment": "COVERS_UNWEIGHTED_PERIODIC_DATA",
+          "evidence": "The exact zeta is independent of α and has denominator determined by the complexity s+1; it does not retain the number of symbols 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-periodic-zeta-rationality-versus-sturmian-nonsoficity-in-decorat--0881e8e9b148",
+          "material_read": "Mirrored RESULT.md offsets 0 and 2730, Finding and proof passages",
+          "method": "Compared allowed lengths, unweighted exact zeta and fixed-point statements",
+          "title": "Periodic zeta rationality versus Sturmian nonsoficity in decorated gap shifts",
+          "trigger": "Closest exact local catalogue overlap on the same decorated shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a singular thermodynamic regime with a genuine identification problem: even the entire marker-only curve cannot separate slopes. The evaluated nonlinear color amplitude separates them and predicts both leading marker density and the associated color redistribution. The distinction between weighting distinct factors and sampling them by invariant occurrence frequencies is essential; the precise amplitude is not a renaming of word complexity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

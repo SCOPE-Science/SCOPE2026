@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:18:02.689148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact reproduction (python3 -B /workspace/reproductions/shrikhande.py) enumerates faces by the edge exclusion rule, obtaining (16,72,96,16), with no 5-vertex face. Boundary ranks modulo 101 are (15,57,16); these give rational lower bounds, and the augmentation, the domain dimension of the third boundary, and boundary composition zero give the matching rational upper bounds. Thus reduced rational homology is concentrated in dimension two with rank 23. Direct vertex-permutation search preserving adjacency gives exactly the same 192 permutations as the affine list, independent of the neighborhood-stabilizer argument. Reduced Hopf trace gives the stated signed-face sum: an invariant independent face with j permutation cycles contributes (-1)^(j+1), with empty face contributing -1. Enumeration by independent unions of vertex cycles gave frequencies {-7:12,-3:4,-1:69,0:32,1:24,2:32,3:18,23:1} and the asserted translation grid; integer Fourier inversion reproduced the displayed multiplicities. The character sums are 32 over T and 0 over G. For these finite simplicial actions, barycentric subdivision removes simplex inversions; rational chains of the orbit space identify with coinvariants. Exactness over Q proves the asserted rational orbit-space homology. This gives no integral assertion and the separate nonequivariant wedge claim was already established in the cited prior calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "25a0863c3d60 includes an irreducible decomposition and the full element table.",
+          "76bf36fe874b proves the translation orbit space is homotopy equivalent to S^2 wedge S^2, stronger than its rational Betti numbers.",
+          "Goyal–Shukla–Singh's family theorem is for Ind(M_r(K_n)), not this equivariant problem."
+        ],
+        "reasoning": "Positive stronger coverage exists in the earlier Resultary records, rather than in the unrelated family theorems.",
+        "searches": [
+          "Resultary 25a0863c3d60",
+          "Resultary 76bf36fe874b",
+          "arXiv:1905.06926v1 Theorem 4.12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and finite verifier",
+        "Resultary 25a0863c3d60 RESULT.md and CHARACTER_TABLE.txt",
+        "Resultary 8980caaada4f, 76bf36fe874b and 41bf4d1d3187",
+        "arXiv:2103.03212v2, 2606.27328 and 1905.06926v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "41bf4d1d3187 alone gives just the nonequivariant wedge; it does not imply the character.",
+          "25a0863c3d60 explicitly gives dim V^T=2 and dim V^G=0 for the sole nonzero reduced rational homology; Q-coinvariants after barycentric subdivision thus force the two orbit-space conclusions. The translation quotient moreover has a prior stronger result in 76bf36fe874b."
+        ],
+        "reasoning": "The absence of the words 'full-group quotient' in the prior character passage does not leave a new homology theorem: exact rational coinvariants applied to that prior calculation give precisely this conclusion.",
+        "searches": [
+          "Resultary 41bf4d1d3187/RESULT.md",
+          "Resultary 25a0863c3d60/RESULT.md",
+          "Resultary 76bf36fe874b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 25a0863c3d60 computes the same H2 representation character for x -> Mx+t; character evaluated at each permutation and signed-face trace are descriptions of the same class function.",
+          "Ind(S)=Cl(complement S). Bodnar et al. Figure 3 and Cioabă–Mim Theorem 2.2 concern Cl(S), not Cl(complement S)."
+        ],
+        "reasoning": "The original-graph clique results do not cover the frozen object. The earlier symmetry character concerns precisely the independence complex, with the same dimension, action and characters.",
+        "searches": [
+          "Resultary: Shrikhande independence complex full symmetry character and translation characters",
+          "arXiv:2103.03212 Figure 3 and clique 3-complex proof",
+          "arXiv:2606.27328 Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "25a0863c3d60/CHARACTER_TABLE.txt gives traces for each of 12 matrices times 16 translations; its frequencies agree exactly, including -7:12, -1:69 and identity trace 23.",
+          "8980caaada4f/RESULT.md gives the identical translation trace grid and Fourier multiplicity matrix."
+        ],
+        "reasoning": "The indexed hits were followed to exact matching mathematical content, not inferred from graph order or titles.",
+        "searches": [
+          "Resultary: full symmetry character of the Shrikhande independence complex",
+          "Resultary: translation characters of the Shrikhande independence complex",
+          "25a0863c3d60/CHARACTER_TABLE.txt"
+        ]
+      },
+      "rationale": "Substantive prior coverage is verified, not merely suggested by a search. Resultary 25a0863c3d60 (2026-10-18) computes the full character of the same 192-element group on the same 23-dimensional H2, in fact including a full element table and irreducible decomposition. It gives both invariant dimensions. Resultary 8980caaada4f explicitly gives the same translation matrices, and 76bf36fe874b gives stronger translation orbit-space topology. The full-group rational acyclicity is a direct consequence of the earlier full-group invariant calculation and the standard rational quotient argument. A general Hopf trace formula with these faces does not provide a distinct new result once the character itself is known.",
+      "residual_risks": [
+        "A bounded read of Bodnar v1 did not succeed; the exact prior character coverage in Resultary is decisive independent of that source.",
+        "The full-group rational orbit-space statement was not read explicitly in the earlier character entry; the implication uses standard rational coinvariants and the already computed invariant dimension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full character and both invariant dimensions.",
+          "evidence": [
+            "H2 has dimension 23, V^T dimension 2 and V^G dimension 0; table of traces for all x -> Mx+t."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-full-symmetry-character-of-the-shrikhande-independence-compl--25a0863c3d60",
+          "material_read": "RESULT.md Finding and CHARACTER_TABLE.txt; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local indexed search and mirrored primary files",
+          "title": "The full symmetry character of the Shrikhande independence complex",
+          "trigger": "Exact earlier same-action character"
+        },
+        {
+          "assessment": "Exact translation overlap.",
+          "evidence": [
+            "Same translation trace and multiplicity matrices and invariant dimension two."
+          ],
+          "identifier_or_url": "Resultary 8980caaada4f (2026-10-25)",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror Finding",
+          "title": "Translation characters of the Shrikhande independence complex",
+          "trigger": "Same translation module"
+        },
+        {
+          "assessment": "Stronger than rational quotient result.",
+          "evidence": [
+            "Translation orbit space has wedge type S^2 wedge S^2 and reduced integral H2=Z^2."
+          ],
+          "identifier_or_url": "Resultary 76bf36fe874b (2026-11-01)",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror Finding",
+          "title": "The translation quotient of the Shrikhande independence complex",
+          "trigger": "Orbit-space claim for T"
+        },
+        {
+          "assessment": "Earlier nonequivariant classification; does not supply an action.",
+          "evidence": [
+            "Ind(S) has the wedge type of 23 two-spheres."
+          ],
+          "identifier_or_url": "Resultary 41bf4d1d3187 (2026-10-11)",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror Finding",
+          "title": "Independence complexes of the Shrikhande and 4x4 rook graphs have different sphere-wedge homotopy types",
+          "trigger": "Exact nonequivariant precursor cited in record"
+        },
+        {
+          "assessment": "Different complex.",
+          "evidence": [
+            "Only the original rook graph has 4-cliques; compared instead to original Shrikhande clique 3-complex."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.03212",
+          "material_read": "v2 PDF p. 4 Figure 3, p. 17 passage, offsets 23020 and 122670; v1 bounded read timed out",
+          "method": "Primary OA PDF text",
+          "title": "Weisfeiler and Lehman Go Topological",
+          "trigger": "Original-versus-complement clique comparison"
+        },
+        {
+          "assessment": "Original graph clique complex and different homological invariant.",
+          "evidence": [
+            "The theorem treats H1(Cl(G);F) and lists the Shrikhande graph among possible cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.27328",
+          "material_read": "Abstract and Theorem 2.2, p. 2 offset 6634",
+          "method": "Primary OA PDF text",
+          "title": "On the homology groups of clique complexes of strongly regular graphs",
+          "trigger": "Strongly regular clique-complex homology"
+        },
+        {
+          "assessment": "Different families.",
+          "evidence": [
+            "Theorem 4.12 concerns generalized Mycielskian M_r(K_n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.06926v1",
+          "material_read": "Abstract, p. 2 offset 4426 and Theorem 4.12 p. 13 offset 39235",
+          "method": "Primary OA PDF text",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs",
+          "trigger": "Possible wider independence-complex theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural equivariant invariant is scientifically meaningful, but the frozen work supplies no distinct unknown exact fact after prior coverage. Re-enumeration of a known character adds corroboration, and the rational orbit-space consequences are weaker than prior topology for translations and mechanically implied for the full group. No original substantive remainder of the frozen claim was found to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

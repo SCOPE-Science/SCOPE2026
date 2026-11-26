@@ -1,19 +1,21 @@
-# Scientific assessment: fractional spherical heat affine-covariance boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim defines the exact spectral power \(\alpha\), dimension \(d\ge2\), positive time \(t\), all real affine parameters, and finite-site positive semidefiniteness. The harmonic quadratic-form identity is reconstructed directly from the kernel and multiplication operator. Every coordinate multiplication connects only neighboring spherical degrees; after normalization the resulting selfadjoint operator has block weights \((c_\ell+c_{\ell+1})/\sqrt{c_\ell c_{\ell+1}}\). Parity makes its bounded spectrum symmetric. Bounded adjacent ratios give a uniform operator bound, while zonal Gegenbauer recurrence supplies a nonvanishing adjacent-degree matrix element that makes unbounded ratios fail by a negative finite-dimensional compression. The signed integral obstruction implies a finite-site obstruction by continuity and quadrature. Concavity for \(\alpha\le1/2\) and the rigorously divergent adjacent spectral gap for \(\alpha>1/2\) establish the sharp endpoint. No finite experiment is used to prove the all-degree result. Reproducible exact-symbolic and finite-configuration tests are supplied.
+PASS
 
-## Originality — PASS under inspected comparisons
+For each strictly positive summable multiplier, the projector bound |Pi_l(x,y)| <= dim H_l gives continuity and justifies the equivalence of finite Gram positivity and integral positivity (Riemann sums and approximation of point masses). Rotation reduces nonzero v to its length times e_d. Congruence by C^(1/2) on finite harmonic sums gives the displayed degree-neighbor quadratic form. Its weights are sqrt(r)+1/sqrt(r) and its degree-parity unitary flips its sign, giving the exact closed threshold when bounded. Cauchy–Schwarz bounds the form by twice the largest weight; in the other direction the zonal recurrence gives neighboring coupling tending to 1/2 (equal to 1/2 on the circle for l>=1), so unbounded weights already give negative two-degree forms and therefore finite Gram witnesses. The function sqrt(x(x+d-2)) is increasing and concave and a power <=1 preserves this, so the maximal spectral gap for alpha<=1/2 is at l=0; above 1/2 the gap is asymptotic to 2 alpha l^(2 alpha-1). The diagonal condition proves the lower bound 2, the weight bound proves the stated upper bound, and v=0 reduces to positivity of aC. This checks the endpoints, all d>=2 and the stated 0<alpha<=1 without relying on finite numerics.
 
-The 2021 publicly posted work of Buhmann and Jäger, *Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres*, gives the relevant general harmonic-block framework, including a matrix positivity characterization. Its inspected theorem statements and proof do not state the bounded-adjacent-ratio iff criterion or the sharp fractional spectral-order boundary. Guella and Jäger (preprint 2022) characterize a distinct diagonal eigenfunction-coefficient class and strict positivity. Existing explicit Poisson affine-cone calculations specialize to geometric coefficients and do not supply the generic bounded-versus-unbounded ratio equivalence, and no such extension is presumed solely from that case. A 2024 paper by Emery, Jäger and Porcu gives an axial space-time spectral framework; the publicly accessible main article is subscription restricted, so that comparison has a residual priority risk, which is neither hidden nor counted as proof of novelty. Related 2023–24 models construct nonstationary spherical covariances via Euclidean-space methods, a different sufficient-design family.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural power \(1/2\) marks the exact divide between strictly positive spherical spectral kernels that tolerate some nonstationary affine modulation and those for which every nonzero such modulation destroys covariance admissibility. In particular, the ordinary heat kernel is rigid despite being strictly positive as an isotropic covariance, while sub-half-Laplacian smoothing is not. The general ratio iff theorem explains the boundary for an entire class of isotropic spectra, and the two-degree negative certificate quantifies the high-harmonic mechanism. This is a structural classification motivated by covariance design, not an arbitrary single-parameter numerical slice; no general downstream application or elementary formula for the finite threshold is claimed.
+The distinct contribution is the two-way adjacent-ratio equivalence for arbitrary positive summable isotropic coefficients and the resulting fractional-Laplacian cutoff, not the geometric Poisson case or the ordinary-heat obstruction on S^2. Published axial coefficient positivity is a framework: it does not state the across-degree comparability or identify the fractional order, for which both the nonvanishing high-degree coupling and the weighted form estimate are needed. The inspected evidence supports this distinction without certifying global priority.
 
-## Limits and risks
+## value
 
-General nonstationary perturbations (including factorizable amplitude modulation) can remain positive definite; only the stated affine sum factor is classified. Equality in the finite-constant cone does not imply an unproved strict-positive-definiteness assertion. The main spectral threshold constant is an exact operator norm rather than a simple closed expression. An older implicit treatment of the same block phenomenon or a specialized result in subscription-only work remains possible. The analytic proof does not assert an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The criterion turns the finite-site validity problem for a natural perturbation of isotropic sphere covariances into a uniform, directly testable condition on spectral weights. It explains why arbitrarily small affine perturbations fail for fast smoothing and why a closed admissibility cone survives at and below the critical order. That distinction is useful beyond checking a single kernel or deriving an inequality for its diagonal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

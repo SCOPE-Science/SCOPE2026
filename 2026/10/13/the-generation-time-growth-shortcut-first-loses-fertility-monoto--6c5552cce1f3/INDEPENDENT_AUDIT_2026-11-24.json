@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:25.217976Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Euler–Lotka has the unique positive factor λ=(a+√(a²+4b))/2, strictly increasing in each positive contribution, and r=log λ preserves that ordering. For S=a+b, the denominators of the shortcut before and after the unit increment are 2S−a and 2S+2−a. Cross-multiplication gives a strict decrease exactly when D(S,a)=S(2S+2−a)log S−(S+1)(2S−a)log(S+1)>0, equivalently the stated integer-power comparison. D is affine and strictly increasing in a, with slope (S+1)log(S+1)−Slog S>0 for S≥2. Thus check a=S−1 for S=2,3,4,5 and a=4,5 for S=6. Independently certified rational log brackets give signs −,−,−,−,−,+, respectively, using the convergent log series at z=(S−1)/(S+1) and a geometric tail bound; see /workspace/audit_evidence/replay.py (demography). This exhausts the stated grid since S=1 has no positive pair. The decrease is from 1.5357938308 to 1.5134856715 while the true rates increase from 1.6472311464 to 1.6812526457; decimal checks agree. Differentiation yields the stated continuous mechanism, and strict Jensen for at least two ages at R₀>1 gives the lower approximation without implying monotonicity. The boundary is for one-unit later-age additions with positive integer contributions and the cohort mean, not a universal biological threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-integer-reproductive-ages-have-sharp-adjacent-to-endpoint-euler--1cf0075910ef gives convex-order bounds and adjacent-age/endpoint extremizers for true growth at fixed R₀ and cohort mean.",
+          "Clavijo-Baquet et al. show distinct empirical responses of reproductive rate, intrinsic rate and mean age to thermal conditions and use the approximation, but the inspected passages give no general fertility-direction result."
+        ],
+        "reasoning": "Neither setting computes the sign of a finite increment with both R₀ and mean age changing. A Jensen lower bound on the level of the approximation likewise supplies no ordering across schedules.",
+        "searches": [
+          "Resultary: monotonicity under changes to late fertility; fixed-mean Euler–Lotka timing bounds",
+          "Direct comparison to Clavijo-Baquet et al. Methods and the related adjacent-to-endpoint Euler–Lotka record"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof and literature comparison; frozen VERIFICATION.md and checker inspected without execution",
+        "Local Resultary searches and matched timing theorem",
+        "Clavijo-Baquet et al. PDF and access attempts for the two related American Naturalist papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-mean theorem concerns mean-preserving redistribution; it does not order the approximation as R₀ changes from S to S+1 and the mean age moves. The empirical-use passage provides the expression being tested, not a theorem that settles its direction under an increment."
+        ],
+        "reasoning": "True-growth monotonicity and the use of the shortcut are ingredients. The sign reversal, its uniqueness at the boundary, and the proof of no earlier strict decrease do not follow from the inspected prior statements; they require the joint comparison of both changing quantities.",
+        "searches": [
+          "Compared the fixed-R₀, fixed-mean extremal theorem in the strongest Resultary match with the two-age increment; compared Clavijo-Baquet et al. Methods with the assigned sign criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clavijo-Baquet et al., p. 5 Methods, define Tg by the survivorship-weighted cohort arithmetic mean and use the log(R₀)/Tg approximation.",
+          "The closest indexed timing result studies true Euler–Lotka λ, not that approximation."
+        ],
+        "reasoning": "A cohort mean time must be distinguished from the identity T=log(R₀)/r after solving for growth. Reversing the shortcut's ranking is not equivalent to shifting reproduction at fixed total output or using a different definition of time.",
+        "searches": [
+          "Resultary: exact formula (a+b)log(a+b)/(a+2b) and cohort mean generation-time shortcut",
+          "Resultary: late fertility increment and growth-approximation monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted exact-key searches did not surface a distinct record tabulating the sign of the shortcut's unit late-fertility moves on the positive two-age grid. The related matched record supplies extremal schedules under fixed total and mean constraints, not this table."
+        ],
+        "reasoning": "The level of a published life-table estimate and the sign of a discrete change in the same approximation are different invariants. A generic table of true growth would not give the shortcut comparison.",
+        "searches": [
+          "Resultary: (5,1)→(5,2) fertility witness, 6^54>7^49 certificate, first reversal at initial R₀=6"
+        ]
+      },
+      "rationale": "Credit the cohort-mean approximation, the exact Euler–Lotka equation and general reproductive-timing effects as known. The distinct claim found here is a direction reversal under added late fertility, with the exact first integer boundary and its unique witness. The closest inspected indexed timing result holds R₀ and the cohort mean fixed, whereas the perturbation here changes both. The inspection establishes no absolute priority.",
+      "residual_risks": [
+        "The fresh public-literature query was deferred; the decision relies on bounded local searches and direct comparison with the retrieved primary and archive passages.",
+        "The two uninspected full texts or other old demographic treatments may discuss analytic sensitivity or an equivalent counterexample; access limitations are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related structural timing theorem, distinct hypotheses and invariant",
+          "evidence": "At fixed R₀ and mean reproductive age, a mean-preserving spread cannot lower the true Euler–Lotka growth factor and the theorem identifies endpoint and adjacent-age extremizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-integer-reproductive-ages-have-sharp-adjacent-to-endpoint-euler--1cf0075910ef",
+          "material_read": "Mirrored RESULT.md offsets 0–4438, snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and exact mirrored result comparison",
+          "title": "Integer reproductive ages have sharp adjacent-to-endpoint Euler–Lotka bounds",
+          "trigger": "Strongest indexed Euler–Lotka timing and integer-age result"
+        },
+        {
+          "assessment": "Establishes the use and cohort-mean definition of the approximation; not the sharp monotonicity result",
+          "evidence": "The Methods use net reproductive rate, its age-weighted cohort mean, and the log-rate-over-mean approximation. No conclusion relies on ambiguous inequality/approximation glyphs in the PDF text extraction.",
+          "identifier_or_url": "https://doi.org/10.1038/srep05349",
+          "material_read": "Original PDF p. 1, offsets about 1132–1770; p. 5 Methods, offsets 40400–43068",
+          "method": "Lawful original PDF, bounded passages",
+          "title": "Differential responses to thermal variation between fitness metrics",
+          "trigger": "Primary example using the same generation-time shortcut"
+        },
+        {
+          "assessment": "Potentially relevant, but no whole-paper conclusion",
+          "evidence": "Publisher access denied; no lawful repository copy recovered in the attempts made.",
+          "identifier_or_url": "https://doi.org/10.1086/588060",
+          "material_read": "Bibliographic identification and frozen literature summary; no primary full-text passage obtained",
+          "method": "Publisher/DOI and repository recovery attempts",
+          "title": "On Net Reproductive Rate and the Timing of Reproductive Output",
+          "trigger": "Analytic relationship between reproductive level and timing"
+        },
+        {
+          "assessment": "Potentially relevant; available evidence cannot exclude coverage",
+          "evidence": "Publisher access denied; the repository retrieval timed out.",
+          "identifier_or_url": "https://doi.org/10.1086/675894",
+          "material_read": "Bibliographic identification and frozen literature summary; no primary full-text passage obtained",
+          "method": "Publisher lookup and repository access attempt",
+          "title": "Generation Time, Net Reproductive Rate, and Growth in Stage-Age-Structured Populations",
+          "trigger": "Potentially broader generation-time growth relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A common lower approximation for growth can misrank a plain increase in fertility, not just miss the size of its effect. Two reproductive ages and a one-unit later-age increase give a minimal transparent test, and the exact cutoff identifies when the failure first becomes possible on that grid. The witness is useful as a stress test of the approximation and does not represent typical conditions, a universal cutoff, or a reason to reject use near replacement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

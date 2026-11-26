@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:34:16.995576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The usual joint fixed-level sample-quantile CLT gives covariance p/(uv) for the two spans, since their nested Brownian bridge increments have lengths 1/2 and 1−2p; their variances are 1/(4u²) and 2p(1−2p)/v². The ratio delta method at (2a,2b) gives (1); substituting the Cauchy quantiles and densities gives tan(πp) and the stated positive V_C. This uses the joint CLT as in the proof, not merely four separate marginal limit laws. In the mixture, the logarithmic derivative of a positive quantile with respect to s is strictly larger at b than at a for s>1; thus a/b strictly decreases. At s=1 the Gaussian ratio is above the target. At infinity a is bounded since w<1/2 while b diverges since w>2p. This yields a unique scale on a continuous ratio-matching curve. The exact certificate was checked by inspection, not executed: Machin's identity and the alternating trig, integrated-Gaussian and exponential tails enclose the reference values and mixture CDF/PDF; the large-x bound follows from Mills and e>2. CDF bisection preserves the quantile brackets, and monotonicity of both quantiles in s and of φ on positive arguments justifies the interval density and variance bounds in certify.py lines 63–121. The variance enclosures have disjoint signs relative to V_C: (0.1915680,0.2001835), (0.0244888,0.0277288), and V_C in (0.1022,0.1024). An independent 60-digit numerical replay, not an exact enclosure, gives scales 17.9343215172 and 10.0401293687 and respective gaps +0.0939032616 and −0.0761551078; these corroborate the signs. Replay locators are RESULT.md lines 28–50, the frozen certify.py and CERTIFICATE.txt, and the independent_numeric.py and independent_numeric_output.txt files in the private record-1 branch. Continuity yields exact simultaneous matching; the displayed mixture parameters are only approximate. Continuity of the limiting normal at the test endpoints gives nominal limiting rejection, not finite-sample equality. The derivative of the mixture density is negative on x>0, its moment-generating function is finite everywhere, and a single centered normal cannot match the ratio.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bahadur/quantile CLT methodology gives the covariance and limiting law once the population quantiles and local densities are known. The primary Ebner–Eid–Klar comparison distinguishes the T_(n,0) condition from its other characterization tests.",
+          "Rublík's indexed title concerns extreme order statistics; no primary passage was available to assess its exact scope."
+        ],
+        "reasoning": "These sources supply tools or show that specific summary tests can be inconsistent, but the evidence read does not give the two-parameter mixture solution. The quantile CLT itself contains no existence claim for simultaneous scale-mixture matching.",
+        "searches": [
+          "Ebner–Eid–Klar DOI 10.1007/s00362-022-01382-0, PDF pp. 7 and 12",
+          "Pekgör DOI 10.1155/2023/9200213 public publisher synopsis and RePEc abstract",
+          "Rublík DML identifier 134472"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1155/2023/9200213 publisher synopsis and RePEc abstract (no full text)",
+        "DOI 10.1007/s00362-022-01382-0 §2 and Remark 3.4(i)",
+        "DML 134472 bibliographic record (no full text)",
+        "Resultary 41aa19e89771; d596d193bae0 is the assigned work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary Gaussian ratio differs from the Cauchy value, and adjusting its location or scale leaves that ratio invariant. The related nonconsistency result uses a different expectation condition.",
+          "The Lévy record does not impose a two-Gaussian scale-mixture parameterization or this fixed set of quantile levels."
+        ],
+        "reasoning": "The explicit matching curve and strict opposite variance signs are necessary to obtain the restricted mixture. Neither choosing p against the normal alternative nor standard asymptotics or previously inspected nonconsistency examples yields those signs.",
+        "searches": [
+          "Pekgör 9200213 publisher/index material, including the reported single-Gaussian separation",
+          "Ebner–Eid–Klar Remark 3.4(i)",
+          "Resultary 41aa19e89771 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pekgör's public synopsis concerns the four-quantile test, its null limit, and optimization against a single normal; it is the same test, not evidence of the two-scale match.",
+          "Ebner–Eid–Klar's condition E[8X²/(1+X²)²]=1 yields a nonconsistency case for their different T_(n,0). The close indexed Lévy result likewise has a different statistic."
+        ],
+        "reasoning": "Replacing the ratio by its reciprocal or using an affine rescaling does not change the essential first-order matching question. The inspected Lévy conditional-mean ratio and Fourier–Stein statistic are not such transformations. A population level match is not a variance match because the latter also uses the density at the quantiles.",
+        "searches": [
+          "Local Resultary search for Cauchy quantile-ratio blindness and smooth alternatives",
+          "DOI 10.1155/2023/9200213 and RePEc:hin:jjmath:9200213",
+          "DOI 10.1007/s00362-022-01382-0 §2 equation (9) and §3 Remark 3.4(i)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d596d193bae0 is the assigned record, not independent evidence. The same-day record 41aa19e89771 gives an exponential statistic-law agreement for a Lévy two-band quantile-conditional-mean ratio, with non-Lévy alternatives.",
+          "The accessible abstract of 9200213 reports a null asymptotic law, simulation critical values and power comparisons but does not give an exact two-normal witness in the material read."
+        ],
+        "reasoning": "No distinct exact entry on the reviewed Cauchy pair of constraints was identified. Finite power comparisons would not constitute an exact equality of limiting mean and variance; the primary article's tables could not be assessed directly.",
+        "searches": [
+          "Local Resultary records d596d193bae0 and 41aa19e89771",
+          "Exact-title and article-number lookup of Pekgör 9200213 and its public bibliographic abstract"
+        ]
+      },
+      "rationale": "Credit the prior Cauchy test and asymptotic calibration, standard quantile theory, and earlier examples of nonconsistency for other Cauchy tests. The supported distinct claim is a fixed two-centered-normal-scale mixture matching both the population index and the scalar first-order distribution at exactly p=0.02217468, yielding limiting rejection equal to size rather than merely low simulated power. The closest primary access gaps are recorded below; they limit historical priority assessment and are not evidence against or for prior coverage.",
+      "residual_risks": [
+        "The full Pekgör and Rublík articles were not available via the inspected lawful routes; a related result in an uninspected passage, supplement or other work is not excluded.",
+        "No historical priority or relative ordering of same-day work is asserted; a self-match is not new priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known test/null-law antecedent; unresolved full-text overlap",
+          "evidence": "Synopsis reports selecting the outer level against a single normal; abstract explicitly reports deriving the asymptotic null distribution and simulation calibration, not enough to assess the full paper's mixture results.",
+          "identifier_or_url": "https://doi.org/10.1155/2023/9200213",
+          "material_read": "Publisher search synopsis and RePEc abstract (https://ideas.repec.org/a/hin/jjmath/9200213.html, offset 0–2240); no article body",
+          "method": "Public indexed material; direct lawful Wiley/Hindawi and publisher PDF routes returned HTTP 403; no open full copy identified",
+          "title": "A Novel Goodness-of-Fit Test for Cauchy Distribution",
+          "trigger": "Exact antecedent for the ratio and outer probabilities"
+        },
+        {
+          "assessment": "Prior different statistic with a blind case; standard quantile asymptotics",
+          "evidence": "Remark 3.4(i) gives nonconsistency for T_(n,0) under an expectation and finite-variance condition on 8X²/(1+X²)²; it does not state this quantile-ratio matching construction.",
+          "identifier_or_url": "https://doi.org/10.1007/s00362-022-01382-0",
+          "material_read": "PDF p. 7 around offset 24365; §2 equation (9); §3 Remark 3.4(i), p. 12 around offset 40170",
+          "method": "OA primary PDF",
+          "title": "Cauchy or not Cauchy? New goodness-of-fit tests for the Cauchy distribution",
+          "trigger": "Prior Cauchy nonconsistency result and use of quantile theory"
+        },
+        {
+          "assessment": "Unresolved access, not evidence of noncoverage",
+          "evidence": "The available title identifies extreme order statistics; no claim about the full text is made.",
+          "identifier_or_url": "https://dml.cz/dmlcz/134472",
+          "material_read": "Indexed title and citation, no primary-text passage",
+          "method": "DML landing and identified AplMat_46-2001-5_2.pdf routes, including configured alternate route, did not yield readable full text",
+          "title": "A quantile goodness-of-fit test for Cauchy distribution, based on extreme order statistics",
+          "trigger": "Earlier Cauchy quantile test; possible related blindness"
+        },
+        {
+          "assessment": "Related test-blindness phenomenon for a different null and statistic",
+          "evidence": "Its non-Lévy smooth alternatives give exponentially close laws for a different statistic, not a Cauchy calibration using two Gaussian scales.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exponentially-invisible-smooth-alternatives-for-the-l-vy-quantil--41aa19e89771",
+          "material_read": "Indexed finding about the two-band Lévy quantile-conditional-mean ratio",
+          "method": "Local Resultary lookup",
+          "title": "Exponentially invisible smooth alternatives for the Lévy quantile-conditional-mean test",
+          "trigger": "Same-day indexed statistically invisible alternatives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The witness addresses a concrete limitation of a published Cauchy test. It is smooth, strictly unimodal and light-tailed with just two scales, yet the usual scalar test has asymptotic power equal to its level. Matching the variance as well as the center matters for that conclusion, and minimality within the specified Gaussian scale-mixture class makes the counterexample interpretable. No general failure of Cauchy testing or indistinguishability of full samples is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

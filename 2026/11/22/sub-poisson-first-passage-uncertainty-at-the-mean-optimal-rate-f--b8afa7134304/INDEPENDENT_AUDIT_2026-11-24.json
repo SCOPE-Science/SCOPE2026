@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:06:36.564577Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–103 (model and analytic replay)",
+        "Frozen VERIFICATION.md lines 19–23 and check.py lines 12–83 (inspected, not executed; finite differences of a supplied transform do not establish the process-level transform)"
+      ],
+      "rationale": "For the specified regulator dX=√(2D)dB+dL and jumps in position only, solve the bounded interior hitting-time ODE with u(0)=1 and set φ=−u′(0). Multiplying u by exp[−(h−ℓ)φ] gives the reset backward equation and the reflection condition F_x+F_ℓ=0. Stopping at the first regulator level h gives the claimed transform: at that level X=0, and for s>0 the bounded terminal term at deterministic time tends to zero. The limit at s=0 is 1; expanding the logarithm at zero gives both finite cumulants. With z=x₀√(r/D), the sign of the derivative is that of z−2+2e^(−z)+λz(z−1). It is negative through z=1 (the λ term is zero at 1, not strictly negative as the proof's prose says), then changes sign exactly once by the strict decrease of Λ from +∞ to 0 on (1,z₀). It is positive for z≥z₀. The expansions follow by inversion at z₀, where Λ′=−1/z₀ and Λ″=(z₀²+2z₀−2)/(z₀²(z₀−1)), and the simple pole at 1 with residue 1−2/e. Subtraction of the first two cumulants in the form V−M² gives −2∂_r M−b², with b=h e^z/√(rD); hence at the optimum V=M_H(M_H+2b)>0 with M_H=(e^z−1)/r, and V<M². If contact is erased, the no-reset passage transform is exp[−(x₀+h)√(s/D)], giving the stated renewal optimizer q=z₀/(1+λ). For q>1 the claimed comparison with Λ(q) reduces to strict convexity of N(q), vanishing with its derivative at z₀; for q≤1 it is immediate. No h=0 claim beyond a limit is needed.",
+      "residual_risks": [
+        "Only a deterministic positive threshold, single strictly positive reset site, and reflected half-line diffusion with the stated regulator normalization are certified by this argument. No formal or experimental verification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-site cusp summary optimizes large-contact throughput √(Dr) E[exp(−R√(r/D))]; the frozen source comparison credits its larger reset-site-mixture class for the exact transform and records finite-threshold optimization as excluded.",
+          "The heavy-tail record concerns quenched random versus refreshed thresholds and survival, not the deterministic-threshold second cumulant at a finite-h mean optimum."
+        ],
+        "reasoning": "Credit direct broader coverage for the transform, not for finite-threshold optimal variance or the comparison with contact-erasing reset.",
+        "searches": [
+          "Resultary: general optimized cumulant identities for retained contact and two-site position-only resetting",
+          "Resultary f0edb8ae038d and f7a7f8b3a2be"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self match b8afa7134304 and distinct records f0edb8ae038d, f7a7f8b3a2be",
+        "Bressloff arXiv:2203.04868 and Reuveni arXiv:1512.01600, with the access limits specified above",
+        "Frozen RESULT.md lines 105–122; AUDIT.json lines 79–136"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-renewal CV=1 theorem applies to resets that erase contact, not to resets retaining L.",
+          "Known mean/transform compared with RESULT.md lines 81–103: strict monotonic invertibility of Λ and the separate strict convexity comparison are not a substitution into those input formulas."
+        ],
+        "reasoning": "The known full law supplies distributional information. The joint claim also uses a stationarity identity and global optimization to locate where that identity applies, plus a nontrivial two-protocol optimizer ordering. No general theorem covering those steps was identified.",
+        "searches": [
+          "arXiv:1512.01600, arXiv:2203.04868 §§2.3, 3, Resultary f0edb8ae038d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen comparison identifies Bressloff eq. (3.17) as the same retained-contact mean; Reuveni's CV=1 claim concerns complete renewal.",
+          "The same-day exact Resultary model/identity hit is the assigned record itself."
+        ],
+        "reasoning": "Restating the result as coefficient of variation below one or a negative-square deficit does not identify it with the complete-renewal equality; position resets alone leave a positive progress variable unchanged.",
+        "searches": [
+          "Resultary: retained-local-time mean-optimal reset rate and variance identity",
+          "Primary literature: retained boundary local time and first-passage fluctuations at optimal resetting",
+          "arXiv:2203.04868; arXiv:1512.01600"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed result has ID suffix b8afa7134304, the same frozen finding. The strongest distinct indexed items were f0edb8ae038d and f7a7f8b3a2be, with objectives as compared above."
+        ],
+        "reasoning": "This is a continuous parameter theorem, not a finite table value. The indexed exact theorem search is relevant; the identity hit is not separate coverage and a bounded search cannot establish priority.",
+        "searches": [
+          "Resultary: exact subunit variance deficit at optimal resetting with positive retained contact; retained-versus-erased optimal rate comparison"
+        ]
+      },
+      "rationale": "Pass is for the finite positive threshold joint optimizer, optimal-dispersion and reset-protocol comparison, not for the already known MFPT, full transform, or complete-renewal benchmark. The known transform permits computation of both cumulants but specializing it to one site does not supply the all-threshold minimizer classification, exact stationary cancellation, or strict comparison. No directly covering optimization theorem was identified in the bounded comparison.",
+      "residual_risks": [
+        "The primary and closest-corpus full texts were not independently recovered; credit known inputs, not a claim that all potentially relevant passages were excluded.",
+        "A general retained-progress optimization theorem or an earlier consequence of the full transform could establish coverage; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit eq. (3.17) and existing optimizer plots; not a whole-document exclusion",
+          "evidence": [
+            "Frozen comparison identifies identical mean and illustrations of optimizer shift; no verified explicit exact optimal-variance formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.04868",
+          "material_read": "Frozen AUDIT.json lines 79–90 identifies §§2.3, 3, eqs. (3.14)–(3.17) and Figs. 4–5; primary full text not independently retrieved",
+          "method": "Read frozen comparisons; lawful OA retrieval including ar5iv alternate timed out",
+          "title": "Threshold surface reactions and local time resetting",
+          "trigger": "Exactly the retained-contact half-line model and optimization of the mean"
+        },
+        {
+          "assessment": "Direct transform overlap credited; actual indexed optimization and finite-threshold problem differ",
+          "evidence": [
+            "The indexed objective uses √(Dr) E[exp(−R√(r/D))]; the frozen comparison credits the point-mass case of the transform and reports a finite-threshold limitation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-two-site-cusp-for-boundary-reaction-throughput-under-pos--f0edb8ae038d/RESULT.md",
+          "material_read": "Indexed statement of throughput and cusp, plus the frozen comparison in RESULT.md line 111 and AUDIT.json lines 92–102",
+          "method": "Local Resultary search; targeted mirror full-text attempt timed out",
+          "title": "A sharp two-site cusp for boundary-reaction throughput under position-only resetting",
+          "trigger": "Broader retained-contact transform on the same diffusion"
+        },
+        {
+          "assessment": "Different reaction-threshold law and statistic",
+          "evidence": [
+            "Heavy-tailed random threshold and refreshed threshold; survival tail rather than fixed-h rate-optimal variance."
+          ],
+          "identifier_or_url": "Resultary f7a7f8b3a2be",
+          "material_read": "Indexed summary and frozen AUDIT.json lines 104–113",
+          "method": "Local Resultary; full-text retrieval timed out",
+          "title": "Power-law survival versus exponential rescue for retained and refreshed surface-reaction thresholds",
+          "trigger": "Contact-threshold resetting comparison"
+        },
+        {
+          "assessment": "Credit renewal benchmark; its renewal premise is false in the retained-progress model",
+          "evidence": [
+            "Mean-optimal Poisson restart of the whole first-passage state gives CV=1; the contact regulator remains part of the state here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.01600",
+          "material_read": "Benchmark statement as given in RESULT.md lines 28 and 111 and frozen AUDIT.json lines 126–135; no primary full text independently retrieved",
+          "method": "Frozen citation/premise comparison and unsuccessful lawful OA attempt",
+          "title": "Optimal stochastic restart renders fluctuations in first passage times universal",
+          "trigger": "Potentially dominating universal optimum-CV result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–39 and 81–103; complete-renewal benchmark attributed to arXiv:1512.01600"
+      ],
+      "rationale": "A physically meaningful change in what a reset erases alters a familiar renewal optimum law. The exact, strictly positive variance deficit and the ordering of optimal rates for every h>0 distinguish the protocols; the second-order separation explains why their small-threshold rates can appear similar. This is more than a new presentation of the known mean.",
+      "residual_risks": [
+        "The theorem does not establish experimental discriminability or analogous optimal dispersion for random thresholds or general reset distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

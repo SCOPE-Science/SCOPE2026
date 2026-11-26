@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original normalized ambiguity integral was expanded independently. The Airy identity is established through the tempered heat semigroup rather than inferred from a symbolic-output table; the sign of the real cube root is essential and tested. Nonvanishing prefactors and simple Airy roots prove exhaustive planar zero curves. The strictly increasing fold derivative proves uniqueness, while a coercive scaled minimization and classical Airy-root asymptotics give exact universal constants and the two different frequency-counting powers. Separate high-precision quadrature, fold and large-index tests passed. Finite checks are auxiliary and not proofs of infinity.
+PASS
 
-## Originality — PASS, qualified
+With the unit-norm amplitude and symmetric 2π-frequency convention, expansion reduces the integral to a Gaussian-damped cubic with a=2π, b=12λτ and c=λτ³−2πν. The Airy Fourier representation evolved by the Gaussian heat semigroup gives a nonvanishing positive prefactor times Ai[(c+a²/b)/(sgn(b)|b|¹ᐟ³)]. In the heat identity the proposed solution is tempered, tends to Ai as heat time decreases to zero, and solves the heat equation by Ai″(x)=xAi(x), so uniqueness applies. At τ=0 the integral is a strictly positive Gaussian. Solving for each simple negative Airy zero gives exactly the displayed signed curves, no zeros on either axis, and a nonzero Doppler derivative. Pointwise strict Airy ordering and divergence at both delay endpoints make the branches disjoint and proper. For each q>0, q²Vⱼ′ is the sum of strictly increasing positive powers q⁴ and q⁴ᐟ³ minus π/(6κ), so it crosses zero once and the second derivative is positive there. This gives the two, one, or zero intersections per branch, and evaluating at the next branch's minimizer proves strict threshold ordering. With κq=uⱼ⁻³ᐟ⁴y, the rescaled objective is π/(6y)+12¹ᐟ³y¹ᐟ³/(2π)+uⱼ⁻³y³/(2πκ²). The first two terms are coercive and uniquely minimized at π³ᐟ²/12¹ᐟ⁴; comparison there bounds all minimizing y in a compact subinterval and gives convergence to that minimizer. The Airy zero law yields both stated leading constants and the inverse threshold count √3 R²/4. At fixed delay instead, the Airy argument is affine in frequency and the Airy count gives the stated R³ᐟ² coefficient. The limits are for fixed κ>0. Two independent 40-digit quadrature cases checked signs and normalization and a computed first-zero residual was approximately 10⁻⁴³; these corroborate the analytic proof. Frozen code and the saved transcript were inspected, not executed.
 
-The Airy Fourier kernel and heat operational calculus are classical and explicitly attributed to Babusci–Dattoli–Sacchetti (2010). The 2011 analysis of STFT zeros concerns another object. The particularly close Moore–Filip (2025) full-text source establishes Gaussian Wigner Airy transforms under quartic gates, not the global Doppler fold-threshold sequence of the self-ambiguity function, nor the chirp-independent quadratic threshold census. Targeted mathematical-record searches and accessible previous related findings did not reveal a covering statement; exact formulae alone are not treated as novelty. Residual risks include unindexed older radar/optics work and priority overlap with other interpretations of the 2025 nonlinear-gate formalism. No independent priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact global nodal classification for a canonical smooth waveform is a natural phase-space invariant. Every level-set fold, equality case, and asymptotic counting coefficient is determined, rather than only isolated zeros. The universal \(\sqrt3/4\) threshold-density coefficient is mathematically informative because the locations of individual curves depend on the chirp strength.
+The supported distinct contribution is the global Doppler-fold census, especially its sharp high-index minimizing-delay and threshold laws and the chirp-independent quadratic counting coefficient. Moore–Filip's Gaussian-input quartic Wigner formula already implies the Airy ambiguity formula and hence the Airy zero graphs by parity and scaling; the transform and those graphs alone receive no novelty credit. The inspected work does not solve the global minimization over each branch or derive the threshold asymptotic.
 
-## Scope and limits
+## value
 
-Only real zeros are classified. The asymptotics are for a fixed nonzero chirp. The familiar Airy formula is a credited tool, and the theorem is not a general statement for arbitrary phase functions or arbitrary windows.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global optimization and sharp counting law quantify how many Airy branches become reachable at a Doppler magnitude and locate the increasingly small delays where they first appear. The universal quadratic law and its contrast to the fixed-delay R³ᐟ² count answer a geometric question not settled by evaluating the Airy transform or listing its roots. No physical detection guarantee is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

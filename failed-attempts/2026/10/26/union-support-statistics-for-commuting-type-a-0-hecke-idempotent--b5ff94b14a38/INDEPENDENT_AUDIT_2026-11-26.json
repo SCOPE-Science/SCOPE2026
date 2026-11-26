@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:14.884218Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Demazure multiplication never decreases length and a word's support is invariant under the presentation relations. For an idempotent, multiplying it on the right by its own reduced word must therefore leave it unchanged at each step. Every generator of its support is a right descent, forcing the full reversal on each support block. If two idempotents commute, their product is thus the longest element of the union. On a union interval with a missing J-edge p and missing K-edge q, the leftmost entry cannot reach the right end in the two stages if p≤q, and the rightmost cannot reach the left end if p>q. Conversely each full component reversal absorbs the smaller factor, and distinct components act on disjoint position blocks. The four membership statuses then give exactly 2^{r+1}−1 admissible labels in a nonzero run of r indices. The run/zero generating function is the one stated, including m=0. Specialization yields the exact totals and commutation probability. For z near 1 the analytic dominant root λ_+(z) has λ_+(1)=2+√2, λ_+'(1)=(3+√2)/2 and λ_+''(1)=−1/(4√2). Differentiating log λ_+(e^s) gives the stated mean and variance slopes, with bounded contributions from the analytic prefactor and the exponentially negligible second root. Chebyshev gives the claimed law of large numbers. The frozen script and notes were inspected, not executed; enumeration through m=7 is corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 4.17 documents earlier study of the noncommuting graph on the same parabolic idempotents; the accessed remark itself states forest universality, not rank enumeration.",
+          "Same-day rooted-tree record SCOPE-a-three-state-recurrence-for-commuting-idempotents-on-rooted-tre--8801c8694dfa has the gap-color chain specialization. No same-day priority assumption is needed for the verdict."
+        ],
+        "reasoning": "The inaccessible 2020 paper poses residual risk about the semigroup criterion, but the rejection rests instead on the inspected earlier full labeled chain transfer. The later exact Hecke criterion match is useful corroboration of equivalence of statements, not priority evidence.",
+        "searches": [
+          "Sentinelli, Special idempotents and projections, arXiv:2008.03065, Remark 4.17 and Proposition 4.15",
+          "Sentinelli's 2020 graph paper DOI 10.1016/j.ejc.2019.103040",
+          "Resultary: rooted-tree commuting idempotents, path restriction, chain specialization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67 and 69–87; VERIFICATION.md; check_hecke.py",
+        "Exact prior records, literature passages and OEIS entries above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier transfer, C (fixed by both) resets and has weight 1, while neutral 0 and each admissible exclusive letter get weight z. The three-state matrix is [[1+z,z,z],[1,2z,0],[1,0,2z]]. The symmetry quotient is [[1+z,2z],[1,2z]]; multiplying its geometric resolvent by initial row (1,0) and final vector (1,1) gives 1/[1−(1+3z)t+2z²t²]."
+        ],
+        "reasoning": "The repackaging transfers uniform sampling bijectively. The earlier labeled matrix yields the exact rank law by direct weight insertion, and its dominant eigenvalue yields the moments and LLN by standard differentiation. No unproved assumption about a relation between monoid multiplications is needed.",
+        "searches": [
+          "2026/10/25 Catalan monoid result, RESULT.md offsets 0–5637, especially Transfer and aggregate enumeration",
+          "Frozen RESULT.md lines 46–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier chain criterion forbids both exclusive colors in a gap between common fixed points, and the labeled transfer marks their occurrences and the reset separately.",
+          "For n=m+1 map J,K to S={1}∪{i+1:i∉K} and T={1}∪{i+1:i∉J}. A Hecke zero becomes a common fixed point; Hecke both becomes Catalan neither; two exclusive statuses are preserved. Then J∪K corresponds exactly to [n] minus S∩T."
+        ],
+        "reasoning": "This is a bijection of the pair supports, including the empty rank case. It identifies the entire admissible word language and the marked statistic, not merely the matrix spectrum at z=1 or a numerical recurrence.",
+        "searches": [
+          "Resultary: commuting idempotent criteria, union-size refinements, Catalan monoid gap and rooted-tree chain transfers",
+          "Local mirror: 2026/10/25/SCOPE-commuting-idempotents-of-catalan-monoids-a-gap-criterion-central--1bd10f020d19/RESULT.md, opening finding and transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007070 gives 1,4,14,48,164,… and the scalar recurrence; Janjić's 2010 comment counts compositions of m+1 with 2^i−1 types for a part i. Append a terminal zero to a Hecke word and read each run plus its terminating zero as a part i, so union size equals m+1 minus part count. A228405 itself is a Pellian array, not a union-support table.",
+          "The later SCOPE-catalan-classification-and-maximal-clique-size-spectrum-of-type--cc1e681db5b3 states precisely the same Hecke pair criterion and product; its main enumerator counts maximal commuting families, not the ordered-pair union polynomial."
+        ],
+        "reasoning": "The scalar OEIS match alone is not decisive. Its composition model does recover the same refinement once parts are marked, and the earlier labeled Catalan transfer independently provides a direct implication.",
+        "searches": [
+          "OEIS A007070 comments and formulas; cross-referenced A228405 diagonal array",
+          "Resultary: Hecke commuting-idempotent supports and maximal commuting families"
+        ]
+      },
+      "rationale": "The claimed refinement, not just the scalar total, follows mechanically from the exact earlier Catalan-monoid gap criterion and explicitly labeled transfer. The Catalan and Hecke monoids are distinct, but their two commuting-pair models are equivalent under a weight-preserving relabeling. The earlier record does not print the Hecke polynomial or its moments; their coverage follows from the transfer calculation below. The frozen finding expressly does not claim priority for the Hecke commutation criterion itself.",
+      "residual_risks": [
+        "The 2020 Sentinelli paper was not accessible in full; it may settle finer historical priority for the Hecke criterion independently of the demonstrated transfer implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by relabeling and direct transition weighting.",
+          "evidence": [
+            "Conditions on exclusive colors within gaps and the reset/neutral/exclusive transition rules are all explicit."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-commuting-idempotents-of-catalan-monoids-a-gap-criterion-central--1bd10f020d19/RESULT.md",
+          "material_read": "Offsets 0–5637: finding, assumptions, Pair criterion, Transfer and aggregate enumeration",
+          "method": "Local published-record mirror",
+          "title": "Commuting idempotents of Catalan monoids: a gap criterion, centralizer transfer, and exact density",
+          "trigger": "Earlier scalar match with a potentially weight-preserving exact gap model"
+        },
+        {
+          "assessment": "Related chain specialization; no priority inferred from the shared date.",
+          "evidence": [
+            "Exclusive labels since last common fixed point; chain totals have the same scalar recurrence."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-three-state-recurrence-for-commuting-idempotents-on-rooted-tre--8801c8694dfa/RESULT.md",
+          "material_read": "Offsets 0–4412 and 4600–5749",
+          "method": "Local published-record mirror",
+          "title": "A three-state recurrence for commuting idempotents on rooted trees",
+          "trigger": "Same-day path/chain analogue"
+        },
+        {
+          "assessment": "Exact overlap on criterion but later dated, with a different main enumerator.",
+          "evidence": [
+            "Each union component lies wholly in one factor, and the commuting product is the union idempotent."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-catalan-classification-and-maximal-clique-size-spectrum-of-type--cc1e681db5b3/RESULT.md",
+          "material_read": "Offsets 0–8827, finding and pair criterion",
+          "method": "Local published-record mirror",
+          "title": "Catalan classification and maximal-clique size spectrum of type-A 0-Hecke idempotents",
+          "trigger": "Exact same-object pair criterion"
+        },
+        {
+          "assessment": "Confirms earlier graph study; not used as exact weighted coverage.",
+          "evidence": [
+            "Remark 4.17 singles out the parabolic family and cites its n-universality for forests."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.03065",
+          "material_read": "p. 13 Proposition 4.15 and Remark 4.17, p. 19 reference [26]",
+          "method": "OA paper passages",
+          "title": "Special idempotents and projections",
+          "trigger": "Primary source tracing earlier study of this noncommuting graph"
+        },
+        {
+          "assessment": "Unresolved detailed content, not grounds for rejection.",
+          "evidence": [
+            "Identified by Remark 4.17 and reference [26] as the graph-universality source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2019.103040",
+          "material_read": "Reference and report of the result in arXiv:2008.03065; primary full text not read",
+          "method": "DOI and lawful repository recovery attempts yielded no readable paper",
+          "title": "Right-angled Coxeter groups, universal graphs, and Eulerian polynomials",
+          "trigger": "Cited earlier paper on the same noncommuting graph"
+        },
+        {
+          "assessment": "Scalar counts known; the colored-composition model is structurally equivalent after marking part count, not an explicit Hecke table.",
+          "evidence": [
+            "2^i−1 colors for each part i in compositions of m+1; A228405 is about Pellian square conditions."
+          ],
+          "identifier_or_url": "https://oeis.org/A007070",
+          "material_read": "A007070 offsets 281–5174, including the Janjić and A228405 comments; A228405 opening definition and comments",
+          "method": "OA website passages",
+          "title": "OEIS A007070 and linked Pellian array A228405",
+          "trigger": "Exact totals and candidate statistic refinements"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Union size is a natural statistic, but its claimed new exact distribution and LLN are a direct marking of the already available chain transfer under a rank-preserving bijection. The distinct Hecke proof is useful exposition, but the finding does not claim independent priority for that criterion and does not demonstrate a separate unknown exact invariant beyond the transported law. The failure is not a finding that the formulas are false.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

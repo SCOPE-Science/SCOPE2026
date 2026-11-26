@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:58:26.346634Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine interpolant takes the signed values 1/u, 1/v and -1/(u+v) at u², v² and (u+v)². These are all three roots of z q(z)^2-1, whose leading coefficient is their inverse product. Under the two spectral-anchor hypothesis, any SPD preconditioned matrix of condition 1 must be I, and its only additional distinct eigenvalue of A is thus (u+v)². The threshold ((u+v)/u)^2>4 is strict, with every larger value attained and dimension 3 minimal. Left Arnoldi on B=I returns q(A)b; it attains relative error 2 on the third mode, despite exact evaluation of the preconditioned action. For the full-support pilot, moment orthogonality gives the stated increasing Ritz trace s1 and determinant s0; s1+sqrt(s0) increases from 7 and crosses 9 once, with the sign restriction 9-s1>0 at the positive quadratic root. In fact q_t(1) and q_t(4) stay positive throughout. At the crossing B_t is singular and there is no Arnoldi initialization on b=e3. Away from the crossing the one-mode output is sign(q_t(9))e3/3. At t=0 the first derivatives of the three preconditioned eigenvalues are -400/27, 400/27 and -400/3, giving the claimed quotient expansion for small positive t. The pilot g_t and application b are separate as specified. Independent bounded symbolic and numerical reproduction (`python3 independent_check.py`) rechecked these identities and the leading slope; the original checker was inspected, not executed. Exact arithmetic and the scoped two-node interpolation class are essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general prior branch-validity condition is violated at the negative third value and is not contradicted by the example.",
+          "The inspected numerical Ritz example discusses convergence/runtime and least-squares alternatives, not the three-point exact identity frontier or the pilot sign transition."
+        ],
+        "reasoning": "A general branch condition identifies the problem but does not characterize spectra having B exactly I while violating that condition, or determine the threshold for the actual two-step Ritz compression. No stronger verified result gives those claims as cases.",
+        "searches": [
+          "Frommer et al., arXiv:2401.06684v1, §§3, 5.2 and §6 numerical Ritz example",
+          "Higham DOI 10.1137/1.9780898717778, principal square root and sign background"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, requirements.txt and verify.py (read only)",
+        "Frommer et al., arXiv:2401.06684v1, §§3, 5.2 and Ritz numerical passage",
+        "Higham matrix functions (background scope)",
+        "Resultary wrong-sign Rademacher Krylov finding named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once the sign at a mode is known, its exact 200% relative error follows immediately from the standard branch identity. Neither the factor 2 alone nor arbitrary nonprincipal roots are the contribution.",
+          "To locate the sign error at exact identity requires restricting zq(z)^2-1 to the two anchored roots and identifying the third; the pilot result additionally balances its Ritz trace and determinant and differentiates the resulting preconditioned eigenvalues."
+        ],
+        "reasoning": "Credit known sign functional calculus; the verified distinct claim gives an exact attainable geometric frontier and an explicit sign-transition/conditioning law for sampling every eigendirection. The compared warning is not an implication-equivalent classification.",
+        "searches": [
+          "Frommer et al. §3 principal-root condition and §5.2 Ritz setup",
+          "Resultary wrong-sign Krylov result and matrix-function queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For SPD A and real nonvanishing q on the spectrum, (Aq(A)^2)^(-1/2)q(A)=A^(-1/2) sign(q(A)) by the spectral calculus.",
+          "The prior transformation requires the principal root of q(A)^2 to equal q(A), and explicitly allows an independent pilot for Ritz interpolation."
+        ],
+        "reasoning": "This equivalent sign-matrix formulation is known in substance. The claimed advance is not detecting the possibility of a branch error but solving the exact spectral and pilot parameter problems in which it occurs.",
+        "searches": [
+          "Frommer et al., arXiv:2401.06684v1, §3 Eqs. (4)–(6) and §5.2",
+          "Resultary: inverse-square-root preconditioning, Ritz polynomial and wrong-sign Krylov comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed wrong-sign record (SCOPE-a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec) studies randomized sketches in a two-mode solve.",
+          "No catalogue entry with the same spectral cubic, critical t or condition slope was identified in the checked comparisons."
+        ],
+        "reasoning": "The invariants are algebraic consequences of a specific interpolation/optimization problem, not tabulated data. The superficially similar wrong-sign indexed result uses a different operation and observable.",
+        "searches": [
+          "Resultary: Ritz inverse-square-root sign alias; exact identity polynomial preconditioning; sharp binomial phase law for wrong-sign Rademacher Krylov step"
+        ]
+      },
+      "rationale": "The branch obstruction and the left-preconditioned method with Ritz interpolation (including a separate pilot) are prior. The distinct result established here is the exact identity-preconditioned three-mode classification and sharp original-condition frontier in the anchored class, plus the precise full-support Lanczos branch transition and near-identity conditioning slope. No inspected theorem or indexed result supplies those facts. The broader web lookup was unavailable, so no claim about exhaustive priority is made.",
+      "residual_risks": [
+        "General primary websearch was unavailable; this does not establish absence of an earlier specialized example or full-support transition.",
+        "No global priority claim extends beyond the inspected material. The threshold 4 is not a general threshold for sign errors under arbitrary interpolating polynomials or approximate identity preconditioning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the branch concern and method but not the exact three-node classification, threshold or pilot law in the relevant passages",
+          "evidence": [
+            "For the principal branch, the transformation needs the spectrum of q(A) in the open right half-plane.",
+            "§5.2 interpolates the positive inverse square root at Arnoldi Ritz values and permits starting the pilot independently of b."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.06684v1",
+          "material_read": "§3 Eqs. (4)–(6), HTML offsets 15600–16898; §5.2 offsets 41855–43515; numerical Ritz example at 69850–71445",
+          "method": "Open primary arXiv HTML passages, located by equation and phrase",
+          "title": "Polynomial Preconditioning for the Action of the Matrix Square Root and Inverse Square Root",
+          "trigger": "Exact prior algorithm, principal-branch requirement and Ritz-node construction"
+        },
+        {
+          "assessment": "Related sign language only; not the same mechanism or spectral problem",
+          "evidence": [
+            "The sign is a random sketched-solve coefficient, not the sign of a spectral polynomial in an inverse-root transformation."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec",
+          "material_read": "Mirrored Finding on the one-step coefficient and random-sign sketch",
+          "method": "Local Resultary and mirrored statement comparison",
+          "title": "A sharp binomial phase law for wrong-sign Rademacher Krylov steps",
+          "trigger": "Closest retrieved indexed sign-failure case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It shows exactly when perfect squared preconditioning fails to certify the target branch in a basic interpolation model, and that even full-support two-step pilots do not remove the issue: the method can give 200% error with conditioning tending to one. The sharp boundary is useful for separating a condition-number certificate from a branch certificate. The pilot construction complements the exact identity example without purporting to measure generic error rates or the performance of globally positive polynomials.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

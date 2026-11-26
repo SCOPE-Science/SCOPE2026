@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result follows from the exact two-bath qubit geometric curvature of arXiv:2610.09062v1. Every superlevel set of the positive density over the positive-gap quadrant is an admissible bounded Jordan domain, and the equal-area exchange inequality proves optimality and uniqueness up to null sets. Polar integration yields the explicit area and heat parametrizations and the derivative relation. At fixed positive gap the density maximum sits on a radial boundary, with linear radial and quadratic angular decrease; evaluating the resulting cusp produces the exact fractional exponent and coefficient. Expanding the outer radius for small threshold, using the two explicit angular logarithmic moments, and integrating the marginal heat yields the large-area sharp asymptotic. The standalone standard-library check passed 114 finite assertions using independent quadratures and three distinct positive gap values. Finite numerics do not substitute for the universal proof.
+## correctness
 
-## Originality — PASS (best knowledge)
-Caselli--Manuel--Arrachea--Cornaglia, arXiv:2610.09062v1, derive the heat curvature and show geometric heating on specified drive contours; their discussed Landauer bound is not a fixed ordinary Euclidean enclosed-field-area optimization. Terren Alonso--Abiuso--Perarnau-Llobet--Arrachea, arXiv:2109.12648, use a thermodynamic-length ratio, rather than this Euclidean-area flux constraint. Caselli--Manuel--Arrachea, arXiv:2511.16591, give general Lindblad heat response and asymptotic quantum machine limits, but not the sharp two-regime envelope. Searches of published mathematical findings and accessible existing claims found no covering result; the superlevel rearrangement method itself is classical and is not claimed as novel. Residual risk remains that existing geometric heat-pump optimization or weighted rearrangement literature may imply the source-specific asymptotics in an unlocated formulation. Independent literature-wide priority certification was not undertaken.
+PASS
 
-## Value — PASS
-The source explicitly discusses finite control loops and the large-loop heat limit. For a fixed, physically interpretable *field-area* budget with a protective nonzero gap, the theorem identifies the unique optimal control region, the complete exact heat-versus-area curve, and two sharp endpoint resource laws. The unusual \(A^{5/3}\) cusp quantifies a gap-boundary penalty, whereas the large-area stretched exponential quantifies how finite field amplitudes approach the gap-restricted available flux. This is a motivated optimization and not merely a standard bathtub-inequality restatement.
+With r=B/T the area element is T^2 r dr dθ. At fixed area subtract the common threshold q/T on the symmetric difference: the loss away from the strict superlevel region is strictly positive except on a null level set. The area of the bounded Jordan superlevel region decreases continuously from infinity to zero; differentiation gives H'(A)=q/T. Near the constrained maximizer the normalized density drop is 2 tanh(ρ)(r−ρ)+2(θ−π/4)^2 to leading order. For threshold q=sech²(ρ)(1−η) the limiting parabolic strip gives A/T² ~ sqrt(2)ρ η^(3/2)/(3 tanh ρ); integrating the marginal deficit gives the stated A^(5/3) coefficient. At the opposite end, the angular log-sine moments give A/T²=(π/16)(log(1/q)+log 2)^2+π³/192−πρ²/4+o(1); the endpoints can be bounded in layers of width O(sqrt(q)), with integrated quadratic logarithmic factors tending to zero. Thus q(A)~2 exp(−4 sqrt(A)/(sqrt(π)T)); integrating the marginal yields exactly the stated sqrt(πA) prefactor. The total flux follows by the radial primitive G with G(∞)=log 2. These limits hold at fixed T and positive ρ, not uniformly in the cutoff. The source Python checker was inspected, not executed; the prose report of 114 assertions has no attached output and is not the basis of the analytic verification.
 
-## Scientific scope and remaining risks
-Fixed positive spectral gap, equal bath temperatures/couplings, first-quadrant controls and quasistatic response. There is no finite-speed efficiency or time-optimal-control theorem, no uniformity if the gap cutoff changes with area, no generalization to interactions, and no independent audit. The source papers are credited for the original curvature and thermal-machine setup.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The curvature, full-quadrant Landauer limit and threshold rearrangement are not new. The distinct claim supported by bounded source comparisons is the sharp fixed-Euclidean-area envelope including the positive-gap cusp coefficient and the gap-independent leading large-area deficit.
+
+## value
+
+PASS
+
+For the specified slow qubit pump, an ordinary control-area budget selects an actual unique contour. The fractional correction quantifies the effect of a positive-gap boundary maximum, and the large-budget law determines how rapidly a finite contour can approach its available flux. These evaluated sharp laws add information beyond the generic rearrangement or an unconstrained cap. They do not predict finite-speed performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

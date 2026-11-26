@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:50:20.798230Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Assumptions and Proof §§1–5",
+        "VERIFICATION.md and verify_cumulants.py (inspected, not executed)",
+        "python3 /workspace/review_checks.py 5 (independent exact rational identities and numerical zero localization)"
+      ],
+      "rationale": "The independent-set weights give Z=x^m+x^n-1, all nonempty same-shore moment blocks on the marked shore have weight a*p^s, and every block mixing shores vanishes. The one opposite mark must therefore occupy a singleton in the moment-cumulant formula. For k remaining blocks the weight is (-1)^k k! times the product of their moments, with Stirling multiplicity, proving b*p^(r+1)*F_r(a). The polynomial is the rth derivative at u=0 of 1/(1-a+a exp(u)); summing the geometric expansion by the Eulerian identity gives -a(1-a)^(r-1) A_r(-a/(1-a)). The Eulerian recurrence alternates signs at the simple negative roots of the preceding polynomial; signs at zero and negative infinity give the two exterior intervals, yielding all r-1 simple interior a-roots by induction. Reciprocity pairs a with 1-a. The sign of da/dx is that of (m-n)x^n-m. This yields the three stated ranges, strictly monotone when n>=m, and a single nondegenerate minimum otherwise. The positive prefactor cannot change a sign; reaching a simple polynomial root at the minimum gives a double zero with no reversal. For K3,2 the larger root is above the minimum and the smaller below; the two cubic roots with x>1 give z=0.21851631751816... and 2.41135460666566..., with signs negative, positive, negative. Independently checked 69 exact cases by extracting the marked square-free coefficient of the partition-function logarithm; the analytic derivation, not that grid, governs every admissible size and positive z.",
+      "residual_risks": [
+        "The equality case at the minimum is conditional, not a claim that an admissible integer triple realizes tangency. The root 1/2 in the balanced even-r case is approached only at infinite activity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galvin gives the explicit biclique independence polynomial in the proof of a graph extremality theorem.",
+          "Davies et al. maximize the hard-core occupancy fraction at K_{d,d} among d-regular graphs. The Kahn and Athanasiadis full-text routes checked were inaccessible."
+        ],
+        "reasoning": "An extremal independence or occupancy theorem on a larger graph class is not stronger for these marked higher cumulants; it does not distinguish a cross-shore marked pattern or give its zero count. Classical real-rootedness of Eulerian polynomials is not asserted as new.",
+        "searches": [
+          "Galvin, arXiv:1206.3206, Theorem 1.8 and its proof",
+          "Davies–Jenssen–Perkins–Roberts, Independent Sets, Matchings, and Occupancy Fractions, Theorem 1",
+          "Athanasiadis, doi:10.1112/jlms.70083; Kahn, doi:10.1017/S0963548301004631"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local mirror of distinct related records",
+        "Galvin, arXiv:1206.3206",
+        "Davies–Jenssen–Perkins–Roberts, Independent Sets, Matchings, and Occupancy Fractions",
+        "Kahn and Athanasiadis (full-text access attempts)",
+        "Focused literature lookup for mixed hard-core cumulants on complete bipartite graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known partition function plus marking supplies the ingredients for moment-cumulant inversion; Eulerian real-rootedness supplies the thresholds once the special polynomial is identified.",
+          "None of the strongest inspected prior statements identifies the positive activity levels that reach those roots once, twice or tangentially."
+        ],
+        "reasoning": "Credit the standard identities and the classical roots. A separate cross-shore moment calculation, polynomial identification, and analysis of the shore weight with its internal minimum give a genuinely different structural conclusion; it is not a specialization of the prior one-point extremality conclusions.",
+        "searches": [
+          "arXiv:1206.3206, proof of Theorem 1.8; Davies et al., Theorem 1 and hard-core definitions",
+          "Classical Eulerian recurrence and Eulerian/Bernoulli change of variables in RESULT.md, Proof §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cumulant can equally be read as the mixed coefficient of the marked log partition function; its polynomial equals -a times the derivative with respect to a of the Bernoulli(a) rth cumulant.",
+          "The most closely related older catalogue result treats inverse covariance for hard-core crown graphs."
+        ],
+        "reasoning": "This is not a derivative in the single uniform activity alone; a homogeneous logarithmic derivative aggregates cumulants with many marked patterns and multiplicities. Bernoulli cumulant identities supply a univariate polynomial, not the full activity-dependent mixed observable. Precision matrix entries are not joint cumulants.",
+        "searches": [
+          "\"hard-core\" \"complete bipartite\" joint cumulant occupation correlation Eulerian Bernoulli cumulant sign reversal",
+          "Resultary: hard-core biclique mixed cross-shore cumulants and Eulerian sign staircase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact biclique catalogue hit 2026/11/22/SCOPE-eulerian-cumulant-sign-staircases-and-reentrance-in-the-biclique--f72dc63cf87e is the frozen record itself.",
+          "Distinct hits include 2026/11/2/SCOPE-a-six-pair-precision-sign-cutoff-in-hard-core-crown-graphs--0b1672d7ae9e, 2026/11/22/SCOPE-all-order-bond-cumulant-sign-staircases-on-finite-cactus-random--c9111e051f9e, and 2026/11/22/SCOPE-exact-third-cumulant-sign-transitions-in-finite-hard-core-paths--138d25c33369."
+        ],
+        "reasoning": "The crown result has a different graph and observable; cactus cumulants mark edges in a random-cluster model; the path result covers a different graph class and a single cumulant order. They do not tabulate biclique cross-shore sign reversals. Same-day metadata alone establishes no priority.",
+        "searches": [
+          "Resultary: biclique hard-core cumulant sign reversals; finite hard-core crown graph precision sign cutoff; all-order Eulerian cumulant staircases"
+        ]
+      },
+      "rationale": "The surviving distinct result is the complete finite cross-shore cumulant sign classification for every stated size and order, with an explicit two-crossing example. The independence polynomial, moment-cumulant inversion and Eulerian real-rootedness are established inputs. The strongest inspected prior results on the biclique concern partition/one-point quantities, and the closest sign-transition work changes the observable or model.",
+      "residual_risks": [
+        "Full texts of Kahn and Athanasiadis were not accessible through the checked routes. The focused lookup does not exclude an unindexed equivalent via marked log partition functions or Bernoulli cumulant derivatives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct background for Z; different claim",
+          "evidence": [
+            "P(K_delta,n-delta,x)=(1+x)^(n-delta)+(1+x)^delta-1 in the proof of Theorem 1.8."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.3206",
+          "material_read": "Abstract p. 1 (offset about 1786), Theorem 1.8 p. 5 (offset about 12800), proof p. 11 (offset 30894)",
+          "method": "OA PDF passages",
+          "title": "Two problems on independent sets in graphs",
+          "trigger": "Exact biclique independence polynomial"
+        },
+        {
+          "assessment": "Extremal mean occupancy, not mixed cumulants",
+          "evidence": [
+            "Occupancy fraction is obtained from the partition function's logarithmic derivative, and K_{d,d} maximizes it among d-regular graphs."
+          ],
+          "identifier_or_url": "Davies, Jenssen, Perkins and Roberts, University of Birmingham OA PDF",
+          "material_read": "pp. 1–2, offsets 2403 and 5446; hard-core occupancy definition and Theorem 1",
+          "method": "OA PDF passages",
+          "title": "Independent Sets, Matchings, and Occupancy Fractions",
+          "trigger": "Closest retrieved primary statement on hard-core biclique occupancy"
+        },
+        {
+          "assessment": "Different graph and observable",
+          "evidence": [
+            "A precision entry for matched nonedges reverses at certain crown sizes, whereas marginal covariance remains negative."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-six-pair-precision-sign-cutoff-in-hard-core-crown-graphs--0b1672d7ae9e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A six-pair precision sign cutoff in hard-core crown graphs",
+          "trigger": "Closest older catalogue overlap on finite hard-core activity sign transitions"
+        },
+        {
+          "assessment": "Related root mechanism but different inputs",
+          "evidence": [
+            "The statement concerns bond/edge cumulants on cacti in the random-cluster model, rather than hard-core vertex occupations on a biclique."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-order-bond-cumulant-sign-staircases-on-finite-cactus-random--c9111e051f9e",
+          "material_read": "Finding in local-mirror RESULT.md",
+          "method": "Resultary and local mirror",
+          "title": "All-order bond cumulant sign staircases on finite cactus random-cluster graphs",
+          "trigger": "Closest distinct catalogue claim using Eulerian all-order sign changes"
+        },
+        {
+          "assessment": "Full text not read; classical Eulerian root property is independently proved and not claimed original",
+          "evidence": [
+            "The ordinary Eulerian recurrence suffices for the simple-root step independently of this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.70083",
+          "material_read": "Bibliographic citation only; DOI access returned 403",
+          "method": "Lawful OA DOI route attempted",
+          "title": "On the real-rootedness of the Eulerian transformation",
+          "trigger": "Classical root theory comparison"
+        },
+        {
+          "assessment": "Known extremal independent-set context; no conclusion about all contents of the inaccessible paper",
+          "evidence": [
+            "The accessible passage summarizes extremality of complete bipartite pieces, not the specified cumulants."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548301004631",
+          "material_read": "Original full text not read; related result summarized at p. 2, offset 3058 of Cohen–Csikvári–Perkins–Tetali, The Widom–Rowlinson Model, the Hard-Core Model and the Extremality of the Complete Graph",
+          "method": "Lawful OA DOI attempt and accessible secondary context",
+          "title": "An Entropy Approach to the Hard-Core Model on Bipartite Graphs",
+          "trigger": "Established bipartite hard-core result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, full activity-case classification and K3,2 example",
+        "Independent root and boundary analysis",
+        "Galvin biclique partition function comparison"
+      ],
+      "rationale": "This is a complete all-order sign classification for a natural connected response which is not encoded by the pair anticorrelation or by mean occupancy. It explains sharp transitions and reentrance in a simple finite geometry rather than presenting a single chosen numerical example. The five-site example is minimal for two reversals in this family: smaller graphs have either r=2, whose sole root is 1/2 and cannot be hit twice, or (m,n,r)=(3,1,3), whose minimum a=27/31 is above both roots. Arbitrary order and the distinction between true and tangential zeros add usable information beyond the elementary moment formula.",
+      "residual_risks": [
+        "This is a finite graph classification only; no bulk phase transition or extension to other marked patterns or arbitrary graph classes is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:46:37.914153Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The relaxation quadratic factors into the zero root and one positive root because the active modes have nonzero increments. Each step is multiplication on mode j by the complex scalar 1-gamma t_j/2+i gamma sqrt(t_j), so the squared multiplier is strictly positive and the initial active set persists. Substitution gives (1), and subtracting the two multipliers factors as (t_*-t_j)(t_*+t_j-Q)/[4(1+Q/4)^2]. For t_j<t_* it has a positive lower bound on the compact admissible Q-interval, giving a uniform lower/top ratio contraction at each fixed h>0. Equal top frequencies retain their initial ratios. Conservation yields (2) and exponential convergence of Q to t_*, so the multiplicative deviations from the positive limiting factor rho_j are summable; their positive convergent product gives (3). The recurrence divided by h^4 is the smooth simplex field in (4) times 1+O(h^2), uniformly on the simplex, and the summed local defect and discrete Gronwall give (5) on bounded slow times. The physical clock uses the actual gamma increments. For distinct initially active frequencies, the top share is strictly increasing in the limit field while the recurrence changes by at most O(n h^4) before that scale; if the active frequencies are all equal, there is no transfer. Separating the two-mode equation gives (6). Independent bounded replay (python -B /workspace/checks/bounded.py) checked the quoted share to 50-digit working precision, and direct complex midpoint increments with two tied top modes and a faster inactive mode at two base steps. These checks are not proofs of the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ketcheson's framework gives the shared positive norm-relaxation root; Bleecke–Ranocha supply the relaxed clock. Multiple relaxation uses distinct directions and can enforce multiple invariants. The nearest indexed feasibility result uses a stage-weight correction in RF-SSPRK(2,2)."
+        ],
+        "reasoning": "A generic formula for the correction does not enforce modal energy separately or classify its evolution. Distinct correction directions and the same-day projection that preserves both modal norms do not imply the drift produced by the single scalar.",
+        "searches": [
+          "arXiv:1905.09847v1, §2, (9)–(11)",
+          "arXiv:2311.14050v1, §1, (1.4)–(1.5)",
+          "arXiv:2302.05235v1, §3, (9)–(11)",
+          "Resultary: conservative RK corrections on uncoupled rotations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.09847v1",
+        "arXiv:2001.04826v2",
+        "arXiv:2311.14050v1",
+        "arXiv:2302.05235v1",
+        "arXiv:2401.14508v1",
+        "Resultary records ending 2b21777e5740, 8aca49edd71e, 49b550d888da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact relaxation root and physical-time convention are direct applications of established theory. A new multiplier sign and contraction argument followed by a discrete-to-ODE estimate is needed to obtain the frozen global and scaled dynamics; the qualitative coupling example does not provide either."
+        ],
+        "reasoning": "The prior results explain why exchange is possible. Neither that statement, RF-SSPRK's real-root feasibility threshold, nor a separate RK4 winner classification supplies this precise universal selection, decay, and time law.",
+        "searches": [
+          "arXiv:1905.09847v1 §2; arXiv:2001.04826v2 §3.4; mirrored midpoint-neighbor and RK4 modal-selection theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's RK4 phase-space-volume experiment explicitly reports numerical coupling of uncoupled oscillators. The indexed globally relaxed RK4 record gives modal selection with a different winner rule and a step threshold."
+        ],
+        "reasoning": "Independent rotations and harmonic oscillators are equivalent in the specified coordinates, but changing the baseline stability polynomial changes the modal multipliers; exact RK4 selection, including reversal, is not the midpoint statement.",
+        "searches": [
+          "Resultary: global norm relaxation, modal selection of independent rotations, spectral energy drift",
+          "arXiv:2001.04826v2, §3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored neighboring exact oscillator records give RF-SSPRK feasibility or RK4 selection, not the common-scalar explicit-midpoint multiplier and limit."
+        ],
+        "reasoning": "There is no canonical finite table to check for the continuum of frequencies and steps, arbitrary active sets and two infinite limits. The corresponding exact theorem records were compared instead.",
+        "searches": [
+          "Resultary: exact all-step globally relaxed oscillator modal dynamics and slow-time bounds"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-positive-step explicit-midpoint selection of the largest initially active frequency, with geometric rates and its sharp, bounded-rescaled-horizon limit. Neither the algebraic framework nor the qualitative observation of numerical coupling under one shared relaxation scalar is novel.",
+      "residual_risks": [
+        "The searched literature and ranked catalogue comparisons are not an exhaustive priority determination; an alternative long-time stability formulation could cover the midpoint special case.",
+        "Generic coupling and the relaxation framework are known and excluded from the originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers correction framework, not modal dynamics",
+          "evidence": "Single relaxed increment with the quadratic norm-conserving root.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.09847v1",
+          "material_read": "§2, equations (9)–(11) and positivity discussion",
+          "method": "Open paper statement and formula comparison",
+          "title": "Relaxation Runge–Kutta Methods: Conservation and Stability for Inner-Product Norms",
+          "trigger": "General norm-relaxation formula"
+        },
+        {
+          "assessment": "Qualitative coupling is prior; not the frozen selection theorem",
+          "evidence": "Total-energy relaxation couples uncoupled harmonic oscillators in a classical RK4 numerical experiment.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.04826v2",
+          "material_read": "§3.4 Phase Space Volume",
+          "method": "Open paper passage comparison",
+          "title": "Relaxation Runge–Kutta Methods for Hamiltonian Problems",
+          "trigger": "Strongest primary same-object overlap"
+        },
+        {
+          "assessment": "Establishes the relaxed clock and shared scalar, not the slow energy limit",
+          "evidence": "The relaxed output time follows the relaxed step length.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.14050v1",
+          "material_read": "§1, equations (1.4)–(1.5)",
+          "method": "Open paper formula comparison",
+          "title": "Step size control for explicit relaxation Runge-Kutta methods preserving invariants",
+          "trigger": "Possible broader time convention and exact drift"
+        },
+        {
+          "assessment": "Uses additional directions and parameters",
+          "evidence": "Method explicitly accommodates multiple invariants rather than keeping only total norm with the frozen update.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05235v1",
+          "material_read": "§3, equations (9)–(11)",
+          "method": "Open paper formula comparison",
+          "title": "Multiple-Relaxation Runge Kutta Methods for Conservative Dynamical Systems",
+          "trigger": "Broader invariant-preserving construction"
+        },
+        {
+          "assessment": "Different correction direction",
+          "evidence": "The stage-weight multipliers [1,-1] do not give the common relaxation scalar on the original midpoint increment.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.14508v1",
+          "material_read": "§§4–4.1, two-stage example",
+          "method": "Open paper formula comparison",
+          "title": "Energy Conservative Relaxation-Free Runge-Kutta Schemes",
+          "trigger": "Same-order conservative variant behind the closest indexed feasibility result"
+        },
+        {
+          "assessment": "Feasibility/breakdown for RF-SSPRK, not shared-scalar dynamics",
+          "evidence": "Shows all-step real-correction feasibility up to r_*=1 and finite-step failure above it.",
+          "identifier_or_url": "2026/10/25/SCOPE-finite-step-loss-of-an-energy-conserving-runge-kutta-correction--2b21777e5740",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Finite-step loss of an energy-conserving Runge–Kutta correction",
+          "trigger": "Same uncoupled rotations and conservative two-stage scheme"
+        },
+        {
+          "assessment": "Distinct method and constraint; no priority inferred from the date",
+          "evidence": "Kutta RK3 projection preserving each modal norm, with a local O(h^3) correction and fixed-interval accuracy claim.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-third-order-loss-under-two-invariant-quasi-orthogonal-rung--8aca49edd71e",
+          "material_read": "Mirrored RESULT.md, Finding and proof setup",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp third-order loss under two-invariant quasi-orthogonal Runge–Kutta correction",
+          "trigger": "Distinct same-day result with modal invariants"
+        },
+        {
+          "assessment": "Genuine method-family overlap, different order and winner, no midpoint time law",
+          "evidence": "Classical RK4 relaxation admits a frequency-dependent winner and two-frequency reversal as the time step changes.",
+          "identifier_or_url": "2026/11/22/SCOPE-modal-selection-and-a-sharp-reversal-threshold-in-globally-relax--49b550d888da",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Modal selection and a sharp reversal threshold in globally relaxed Runge–Kutta integration",
+          "trigger": "Closest indexed qualitative selection theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The premise that exact conservation of total energy protects each uncoupled oscillator is refuted in a natural textbook method/model pairing. The incorrect attracting distribution, sharp per-mode decay, and physical horizon for order-one transfer quantify a structural limitation of using one constraint in a problem with many true invariants; this is not merely an observed drift in a sample simulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

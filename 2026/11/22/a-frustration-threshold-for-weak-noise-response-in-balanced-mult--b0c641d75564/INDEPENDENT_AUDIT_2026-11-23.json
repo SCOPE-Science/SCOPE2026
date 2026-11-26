@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:01:17.599614Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py inspected",
+        "Replay: python /workspace/independent_checks/antivoter.py"
+      ],
+      "rationale": "The fair-refresh clock yields actual spin flips at a/2, so its contribution to the linear spin drift is -a, not -2a. At positive a the finite chain is irreducible and reversal symmetry centers M. An independent spectral reconstruction uses the symmetric neighbor matrix P and J=(1+a)I+P. The spin drift is -J; for the stationary correlation matrix C the off-diagonal entries of JC+CJ are zero because no jump changes two sites. Transitivity makes the diagonal scalar, so positivity of J and C_ii=1 give C=J^(-1)/d, where d=tr(J^(-1))/(rn). The eigenvalues of P are 1, -1/(r-1), 0 with multiplicities 1, r-1, r(n-1); the weights of M form an eigenvector at the second eigenvalue and have squared norm 2/n. This gives Var(M)=2/(n*d*lambda), with lambda=a+(r-2)/(r-1); reducing this expression gives the frozen rational formula. The semigroup on M alone has decay exp(-lambda*t), proving both covariance and integration without any statement about the full chain gap. At a=c/n the denominator is 1+2c+c²/n for r=2 and 2(r-2)n+O(1) otherwise, and lambda is c/n versus a positive constant. These yield the two time scales and all four limiting amplitudes. An exact independent rational occupancy-chain check (not the supplied spin-level script) confirmed the variance and generator equation in three finite examples, including r=4. Susceptibility here is defined as integrated stationary covariance, not a general response-to-field identity.",
+      "residual_risks": [
+        "Stationarity uses a>0 first; the limits fix c and r and do not claim an a=0 stationary choice or a process-level limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kitching et al. allow pure unfaithful copying at the transition-rate level (set the faithful rates to zero and give the two signs equal unfaithful and spontaneous rates). Their stationary analysis overlaps equal-time order; the homogeneous-graph formula (6) is a scalar stationary local-order quantity, not a two-time contrast theorem. The anti-voter parameter choice maps to a negative noise-to-order ratio, so the scope of any positive-ratio interpretation is not taken for granted.",
+          "Carro et al. give faithful-copy dynamics and an annealed approximation for the stationary amplitude; their equations (4)–(5) are general moment machinery. Gantert et al. cover qualitative ergodicity and frustration of signed systems without the present finite refreshing contrast comparison."
+        ],
+        "reasoning": "Overlap at the rate-level model, general closure, topology and some static quantities is credited. No inspected broader positive-noise anti-voter covariance theorem already supplying the all-r contrast crossover was identified.",
+        "searches": [
+          "Kitching Kauhanen Abbott Gopal Bermudez Otero Galla estimating transmission noise networks stationary local order arxiv 2025 unfaithful copying anti voter spectral",
+          "signed noisy voter arbitrary graph covariance matrix autocorrelation matrix exponential anticopy exact two time noisy voter model Carro time lag",
+          "arXiv:2405.12023v1 Model and Eq. (6); arXiv:1602.06935v3 §§2.2,3.1,3.3"
+        ]
+      },
+      "checked_sources": [
+        "10.1016/j.anihpb.2004.03.007",
+        "arXiv:1602.06935v3",
+        "arXiv:2405.12023v1",
+        "Resultary a3796b72e2aa and ede708b0a4b7",
+        "JSTOR 4356335, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After setting Carro's h=1, spontaneous flip rate a/2 and population 2n, the faithful homogeneous annealed formula converted to M has the same leading variance 4/(1+2c) in the weak-noise window, but gives finite variance 4(1+a)/(1+2na), not the exact bipartite 2(1+a)(2+a)/(1+2na+na²). Their first-moment equation does imply the exponential factor for r=2 exactly by summing it on a regular graph.",
+          "For r>=3 one has to identify the signed contrast drift and quantitatively close the stationary amplitudes with refresh; a sign-reversed faithful-copy rate is not a valid substitution into the published stochastic model. The zero-refresh fixed-state criterion gives neither 2(r-1)/(r-2) for the variance coefficient nor the integrated covariance coefficients at a=c/n."
+        ],
+        "reasoning": "The original formula must not be credited with novelty for ingredients already implied by gauge equivalence, but the exact branched quantitative comparison is more than those implications.",
+        "searches": [
+          "arXiv:1602.06935v3 Eqs. (6),(14),(16),(23)–(25)",
+          "arXiv:2405.12023v1 Eqs. (3),(6)",
+          "Gantert–Löwe–Steif pp. 768–771"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flip signs on one shore when r=2. Opposite copying becomes faithful and fair refresh is unchanged; M becomes the sum of the gauge-converted shore means. Thus the known faithful regular-graph total-magnetization exponential transfers to r=2. In spin-flip rather than fair-refresh notation its rate is 2 times the spontaneous flip rate.",
+          "For r>=3 a negative triangle obstructs such a gauge: the product of the edge signs on a cycle is invariant under vertex sign changes."
+        ],
+        "reasoning": "There is an exact equivalence for the bipartite branch and no such equivalence for the frustrated branch. The already known normalized bipartite decay is not independent novelty.",
+        "searches": [
+          "Resultary: signed anti-voter balanced complete multipartite stationary magnetization contrast susceptibility covariance frustration weak refresh bipartite",
+          "anti-voter noisy dissonant voter temporal covariance correlation generator eigenmodes spin network matrix exponential Donnelly Welsh linear anti voter two time correlation complete multipartite",
+          "Gantert–Löwe–Steif, Proposition 1.1; Carro–Toral–San Miguel, arXiv:1602.06935v3 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Möbius-ladder anti-voter result concerns another graph family and stationary total magnetization, not the contrast and positive-refresh window. Synchronous bipartite results are discrete-time with different updates.",
+          "The frozen bibliographic evidence identifies a multipartite section in Huber–Reinert's stationary-distribution chapter. The JSTOR landing and lawful copy attempts did not provide primary full text here. No negative coverage inference is drawn from those attempts."
+        ],
+        "reasoning": "The indexed comparisons are not this finite formula. The particularly relevant multipartite stationary-distribution chapter remains a material priority qualification, not a source ruled out by inspection.",
+        "searches": [
+          "Resultary: anti-voter vs faithful noisy voter balanced complete multipartite susceptibility eigenmode fixed part count",
+          "Huber Reinert stationary distribution antivoter 2004 exact sampling approximations complete multipartite bipartite noisy anti-voter Kitching local order spectral",
+          "The stationary distribution in the Antivoter model; JSTOR 4356335"
+        ]
+      },
+      "rationale": "The balanced-versus-frustrated distinction as a qualitative signed-graph fact, the bipartite equivalence to a faithful voter model, and standard moment closures are prior ingredients. There is definite prior overlap with the bipartite exponential rate and approximate/asymptotic noisy-voter variance formulas, and with general equal-time order theory. The reviewed claim is the joint exact finite contrast law and quantified susceptibility separation across two versus at least three parts. The inspected sources do not dominate that combined statement; this is not a priority claim for either noise-induced ordering or the use of an eigenfunction for a time covariance.",
+      "residual_risks": [
+        "Huber–Reinert full text could settle exact or stronger stationary coverage; inaccessible here. Results for signed graphs or pure anticopying outside the inspected material may yield a general temporal or weak-noise statement. No priority is claimed over the individual bipartite exponential or general equal-time closure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers signed fixed-state topology, not positive-refresh dynamical coefficients",
+          "evidence": [
+            "An unsatisfied cycle has an odd number of negative edges. The partition in the proof of Proposition 1.1 gives the gauge in the unfrustrated case."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.1016/j.anihpb.2004.03.007.pdf",
+          "material_read": "primary pp. 767–771, signed process, Definition and Proposition 1.1, and beginning of graphical duality",
+          "method": "public Numdam PDF text",
+          "title": "The voter model with anti-voter bonds",
+          "trigger": "signed dynamics and bipartite frustration"
+        },
+        {
+          "assessment": "bipartite rate covered via gauge; approximate static amplitude and no frustrated branch",
+          "evidence": [
+            "Eqs. (14),(16),(25) use the annealed adjacency. Eq. (6) directly yields pure global exponential on any regular faithful graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1602.06935v3",
+          "material_read": "§2 equations (1),(4)–(8); §3.1 variance and small-noise scaling; §3.3 lagged covariance and no-heterogeneity specialization",
+          "method": "public arXiv HTML",
+          "title": "The noisy voter model on complex networks",
+          "trigger": "prior temporal correlation and 1/N weak-noise window"
+        },
+        {
+          "assessment": "rate-model and static-order overlap; these sections do not give the joint time-contrast result",
+          "evidence": [
+            "Pure unfaithful copying is representable at the rate level; Eq. (6) is a stationary walk-return expression for H."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.12023",
+          "material_read": "primary pp. 1–3, Model, Eq. (3), and homogeneous graph Eq. (6)",
+          "method": "public arXiv PDF text",
+          "title": "Estimating transmission noise on networks from stationary local order",
+          "trigger": "allows unfaithful copying and exact homogeneous-network spatial statistics"
+        },
+        {
+          "assessment": "unresolved priority risk; not classified as non-covering",
+          "evidence": [
+            "The frozen bibliographic evidence reports a multipartite subsection; the primary chapter was unavailable."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/4356335",
+          "material_read": "frozen record's bibliographic description only; no primary chapter text",
+          "method": "JSTOR landing attempt, OA reader for the same chapter, and lawful author-site lookup; no authorized Oxford download tool exposed",
+          "title": "The stationary distribution in the Antivoter model: exact sampling and approximations",
+          "trigger": "possibly exact stationary multipartite coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact contrast theorem and stationary calculations; Gantert–Löwe–Steif signed topology; Carro–Toral–San Miguel faithful temporal benchmark"
+      ],
+      "rationale": "An opposed shore magnetization is natural for the unfrustrated anti-voter dynamics, and adding a third shore is the canonical first frustrated complete multipartite case. At identical per-shore size and refresh parameter, the corresponding integrated fluctuation scales differ by order n². The explicit amplitudes and lag limits quantify the distinction without annealed-network approximations, and the exact positive-refresh contrast law is a useful finite-graph benchmark. The value is the quantitative frustrated comparison, not the elementary exponential integration in isolation.",
+      "residual_risks": [
+        "Only contrast on balanced, completely negative complete multipartite graphs. The term threshold does not assert a thermodynamic transition of the whole chain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

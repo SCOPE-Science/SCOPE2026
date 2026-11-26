@@ -1,15 +1,21 @@
-# Review of Projective coarse-graining is monotone for superfidelity
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is a direct orthogonal-decomposition argument. After separating each state into its coarse-grained component and Hilbert--Schmidt-orthogonal remainder, every term in the superfidelity difference is accounted for exactly. The final inequality is one application of Cauchy--Schwarz in \(\mathbb R\oplus\mathsf H_{\mathrm{HS}}\). Projective pinching satisfies all stated hypotheses. Equality is exactly the equality case of that single Cauchy--Schwarz step.
+## correctness
 
-## Originality
-PASS. Mendonça et al. explicitly formulate the arbitrary-projective-measurement inequality as Eq. (29), prove only the commuting special case, and state that the noncommutative case remains to be seen while numerical evidence favors it. Targeted searches for superfidelity, projective measurement, pinching, dephasing, conditional expectation, and monotonicity found no implication-equivalent later theorem. The defining superfidelity paper does not state this projective-monotonicity result in the inspected full text. A later preservers paper was available only at abstract level and is retained as a residual risk.
+PASS
 
-## Value
-PASS. The claim resolves a natural open structural question for an experimentally accessible fidelity surrogate and explains the mechanism through orthogonal coarse-graining. The extension from projective pinching to arbitrary state-preserving Hilbert--Schmidt orthogonal projections gives a reusable criterion, while the exact deficit and equality case characterize when coarse-graining changes superfidelity.
+Orthogonality gives ||ρ||²=||Eρ||²+||R||² and <ρ,σ>=<Eρ,Eσ>+<R,S>. The missing purity coordinates therefore become the Euclidean norms of (a,R) and (b,S), and the whole change of G is the product of these norms minus their inner product. Cauchy–Schwarz proves the direction and shows equality precisely for parallel nonzero vectors in the same direction or if either vector is zero (including pure fixed states). Pinching is positive, trace preserving, idempotent and Hilbert–Schmidt self-adjoint by cyclicity and P_i P_j=δ_ij P_i. This proves the claims and handles trivial projections and both pure inputs without a continuity assumption. The frozen VERIFICATION.md contains analytic evidence only, consistent with the proof; no computation or outside certification is needed.
 
-## Closest literature and limitations
-The closest source is arXiv:0806.1150, Section III.D, which asks exactly the projective-measurement question. arXiv:0805.2037 defines superfidelity and establishes its upper-bound and other basic properties. The theorem here does not contradict the known failure of superfidelity monotonicity under arbitrary completely positive trace-preserving maps: orthogonal projections form a special coarse-graining class. Infinite-dimensional and selective-measurement variants are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the old superfidelity sphere representation and the prior formulation of the projective question. The distinct contribution supported here is its analytic resolution including the exact gain and equality classification for every state-preserving Hilbert–Schmidt orthogonal projection. The geometry and Hilbert–Schmidt contraction are known ingredients; the inspected works do not give contractivity in the lifted metric or an equivalent gain/equality statement.
+
+## value
+
+PASS
+
+A standard, computable surrogate fails generic channel monotonicity; the theorem resolves a concrete published question for nonselective projective measurements without either commutativity assumption. The exact deficit and equality rule determine when a coarse-graining changes the result or leaves it unchanged. This is a motivated analytic gap, not an isolated computed case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

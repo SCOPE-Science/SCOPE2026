@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The C++ program `check_total_bondage.cpp` independently builds all edges of \(P_n\square P_4\) for \(n\in\{5,7,8\}\), uses a complete sixteen-mask row transfer for total domination after each deletion, exhausts all deletions of one, two and three edges, and rejects deletion sets leaving any isolated vertex. Its exact output is embedded as `check_output.txt`. It also checks an explicit upper-bound witness for each of the three grids, including the increased total-domination number.
+## correctness
 
-The Python program `check_optimal_sets.py` first enumerates every optimum total dominating set of each intact grid; there are respectively \(256\), \(121\), and \(2916\). It then determines which admissible edge deletions destroy **all** those sets by inspecting selected-neighbor edge clauses at each vertex. This equivalence follows from monotonicity of total domination under edge removal. Its exact output is `check_optimal_sets_output.txt` and matches the C++ census across all nine rows.
+PASS
 
-Both programs were executed. Exhaustiveness is justified by the finite mask state space and the explicit loops over all edge combinations, not by incomplete sampling or elapsed-time cutoffs. The results depend on the included algorithms being implemented correctly; they have not been formally verified in a proof assistant or independently externally audited. No assertion is made for untested grid lengths or four-edge-cut counts.
+The definition requires an open-neighborhood hit at every vertex and excludes any cut that isolates a vertex. For a fixed cut, row i is dominated exactly by the surviving same-row neighbors of its selected mask together with surviving vertical neighbors selected in rows i−1 and i+1. The two-mask transfer, with zero boundary masks, covers every possible selected set and minimizes its cost once each row condition is enforced. I inspected both frozen implementations and the fresh checker's decisive loops. The fresh checker enumerates all intact optima by branching over every optimal row choice, then records for each vertex and pattern of removed incident edges the bitset of optima still supplying a neighbor. For each k=1,2,3 the code visits each k-combination once, excludes zero residual degree, and intersects the bitsets over all vertices. An empty intersection is necessary and sufficient for damage by monotonicity under deletion. In the order n=5,7,8 we reproduced (edge count, γ_t, optimum set count)=(31,8,256),(45,10,121),(52,12,2916). By cut sizes 1,2,3 the admissible/damaging pairs are (31/0,461/0,4369/40), (45/0,986/0,14004/727), and (52/0,1322/0,21884/0). A separate transfer in the fresh script checks that the displayed witnesses are isolate-free and give γ_t=9,11,13 with cut sizes 3,3,4. Hence the exact minima are 3,3,4. No four-edge census or all-length claim is supported or needed.
+
+## originality
+
+PASS
+
+The exact three values and small-cut census close named gaps in the inspected grid theorem. The intact total-domination numbers are known, the three-edge G_7 witness is from the prior construction, and a four-edge upper bound for G_8 was already known. The inspected preprint says G_8 has that upper bound by direct check but does not exhibit its specific cut; it does not confirm the frozen prose attributing this choice of witness to an earlier displayed construction. That attribution caveat is separate from the verified witness and the novelty of the exact lower bound.
+
+## value
+
+PASS
+
+These n were selected before enumeration as the first lengths in the three residue classes left at upper bounds by the published theorem. Their exact values give one strict improvement and two concrete sharpness benchmarks; the latter bear directly on the stated tightness conjecture without claiming it for larger grids. The complete small-cut checks also address precisely why small admissible cuts cannot improve those bounds. This is a motivated finite invariant, not an arbitrary small slice or a recomputation of the intact baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

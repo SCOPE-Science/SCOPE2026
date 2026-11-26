@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:27:17.725895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each cell integral of (I−P)f vanishes, so no contribution propagates between cells. On each cell the constant is killed and normalized nonconstant cosines are mapped into the complete sine basis with coefficients h/(mπ). This gives every positive singular value and its multiplicity, and compactness. For t>0 the number strictly above t on cell j is q_j=ceil(h_j/(πt))−1, including thresholds exactly on a ladder. Taking t=s_k yields 1=Σh_j≤πt(N+Σq_j)≤πt(N+k−1). Equality requires both Σq_j=k−1 and equality on each cell separately; conversely every positive composition of N+k−1 yields exactly k−1 values above the threshold and one value at it from every cell. This proves attainment and rules out any other ordered mesh. The uniform value 1/[πN ceil(k/N)] gives the asserted congruence including N=1, and the k=2 examples increase the operator norm for N≥2. Summation of the complete ladders gives divergence for 0<p≤1 and the stated zeta formula for p>1; strict convexity gives the unique global minimizer. The exact-rational checker was inspected without execution; its finite ranks and grids do not prove the all-rank optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang considers minimizing sums of first component eigenvalues. Tavares–Zilio consider monotone functionals of prescribed lists of component eigenvalues. The Resultary affine-spline record gives derivative-seminorm H/(2π) approximation and width optimality for 2N dimensions."
+        ],
+        "reasoning": "An increasing eigenvalue minimization or fixed width bound is not maximization of a variable-index order statistic on the pooled spectrum. The catalogue Sobolev record also uses a different projector. Those conclusions do not give the present converse at equality.",
+        "searches": [
+          "arXiv:2108.11552v2 abstract",
+          "arXiv:2002.04064v1 introduction",
+          "Resultary: Sobolev widths and sharp mesh law"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_spectrum.py",
+        "Resultary records bb578b0c83b2, 620798593d20, 84dd5742ec0f and ae9a2032d414",
+        "arXiv:1504.02515v1; 2108.11552v2; 2002.04064v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard one-interval Sobolev formula gives each ladder. In the equivalent Dirichlet problem, variational interlacing gives a bound but does not identify which placements realize it; the frozen proof's joint ceiling inequality forces all cells simultaneously to hit the same threshold at equality."
+        ],
+        "reasoning": "The optimization is not a parameter substitution into a prior width or sum/max partition theorem. It needs the discrete allocation of ranks across all component spectra and both directions of the attainment/rigidity statement. The closest accessible prior comparisons establish ingredients and neighboring objectives, not the final combined-spectrum claim.",
+        "searches": [
+          "arXiv:1504.02515v1 first-derivative embedding formula",
+          "arXiv:2002.04064v1 Introduction",
+          "Resultary 620798593d20, 84dd5742ec0f and ae9a2032d414 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edmunds–Lang give the p=2 embedding relation a_k=λ_k^(−1/2) and the one-interval first-derivative ladder. In the frozen claim the equivalent objective is maximizing the kth Dirichlet eigenvalue of the disjoint union with internal Dirichlet nodes; its optimum is the (N+k−1)st whole-interval eigenvalue."
+        ],
+        "reasoning": "The equivalence is exact, not a claim of a novel local spectral calculation. Removing N−1 node constraints restores the whole-interval space and interlacing bounds the optimal value from above; it does not by itself show attainment and characterize all maximizing meshes. The equality analysis identifies the allowable nodes as subsets of the whole-interval nodal grid. No equivalent prior exact equality law was established by the bounded checks.",
+        "searches": [
+          "Resultary: cellwise mean-corrected Volterra integration singular values all indexed singular rank mesh optimization",
+          "Primary search: one-dimensional spectral partition optimize kth eigenvalue of union intervals with point Dirichlet constraints and nodal integer lengths",
+          "arXiv:1504.02515v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index result returned is the frozen record itself. The nearest related mesh hit is the piecewise-affine width result. Two other nearby Volterra findings concern fractional order tending to infinity and a single global polynomial projector."
+        ],
+        "reasoning": "The exact known Dirichlet ladder tabulates one interval, not a solution of the optimization across intervals. The catalogue matches do not independently list the rank-by-rank extrema or equality classes for positive cellwise-constant meshes.",
+        "searches": [
+          "Resultary: all-index singular rank mesh law and equality by compositions",
+          "Resultary: exact ordered Dirichlet interval partitions and indexed optimum",
+          "Resultary records bb578b0c83b2 and 620798593d20"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact optimum and complete ordered equality set for every indexed rank. The cellwise Dirichlet ladder, direct-sum viewpoint and Schatten convexity are classical inputs or immediate consequences, not stand-alone novelty. The decisive combined-spectrum optimization and tie rigidity are not supplied by the inspected sources.",
+      "residual_risks": [
+        "A classical interval-partition source may state the same maximization or its nodal equality law using Dirichlet point constraints. No universal priority conclusion is implied.",
+        "The sum/maximum partition search lead was not accessible in full; no exclusion is based on its snippet."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical one-cell spectral formula, not the mesh design theorem",
+          "evidence": "The Hilbert embedding has approximation numbers λ_k^(−1/2); on the first-derivative interval problem a_k=γ_p h/k with γ₂=1/π.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.02515v1",
+          "material_read": "Introduction pp. 1–2, OA offsets 0 and 3105",
+          "method": "OA original primary passages",
+          "title": "Asymptotic formulae for s-numbers of a Sobolev embedding and a Volterra type operator",
+          "trigger": "Exact equivalent one-cell spectrum"
+        },
+        {
+          "assessment": "Different projector and objective",
+          "evidence": "Sharp H/(2π) bound for discontinuous affine approximation and a uniform-mesh width optimum at dimension 2N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-sobolev-widths-from-discontinuous-affine-splines-and-a-sha--620798593d20",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Original Resultary local mirror",
+          "title": "Exact Sobolev widths from discontinuous affine splines and a sharp mesh law",
+          "trigger": "Closest distinct exact mesh result"
+        },
+        {
+          "assessment": "Defines another partition objective; no whole-paper priority inference",
+          "evidence": "Minimizes the sum of the first Dirichlet eigenvalues of the partition components.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.11552v2",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "OA primary passage",
+          "title": "An Efficient Unconditionally Stable Method for Dirichlet Partitions in Arbitrary Domains",
+          "trigger": "Dirichlet spectral partition literature"
+        },
+        {
+          "assessment": "Minimization setup does not furnish the maximal pooled kth eigenvalue equality set",
+          "evidence": "Component eigenvalue lists are prescribed in a monotone coercive functional to be minimized.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04064v1",
+          "material_read": "Introduction, p. 1, offset 2487",
+          "method": "OA primary passage",
+          "title": "Regularity of All Minimizers of a Class of Spectral Partition Problems",
+          "trigger": "Plausible broader class of spectral partition objectives"
+        },
+        {
+          "assessment": "Different projection and asymptotic parameter; not dismissed by date",
+          "evidence": "Uses one global polynomial-moment projector and fixed-rank asymptotics as the number of moments changes, not exact local mesh design.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-polynomial-annihilator-spectra-for-volterra-integration--ae9a2032d414",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Original Resultary local mirror",
+          "title": "Sharp polynomial-annihilator spectra for Volterra integration",
+          "trigger": "Same-day projected Volterra spectrum"
+        },
+        {
+          "assessment": "Different operator and objective",
+          "evidence": "Studies the large-order limit of normalized fractional Volterra integration without mesh optimization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-complete-fixed-rank-singular-value-hierarchy-for-high-order-vo--84dd5742ec0f",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Original Resultary local mirror",
+          "title": "A complete fixed-rank singular-value hierarchy for high-order Volterra integration",
+          "trigger": "Same-day indexed Volterra singular values"
+        },
+        {
+          "assessment": "Not used as negative evidence",
+          "evidence": "No primary passage was available for this lead.",
+          "identifier_or_url": "https://www.math.ens.psl.eu/~bonnaillie/articles/BBN17Jaca.pdf",
+          "material_read": "Search lead only; original PDF timed out",
+          "method": "Bounded full-text retrieval attempt",
+          "title": "Optimal Partitions for the Sum and the Maximum of Eigenvalues",
+          "trigger": "Plausible spectral partition source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mesh design for a target singular rank is a natural objective distinct from minimizing total error or the worst-case norm. The exact equality set answers which meshes improve a desired index and when a uniform mesh is already optimal. The all-index quantization, attained rigidity and explicit second-rank tradeoff are the useful content, rather than calculating the classical one-cell eigenvalues again.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

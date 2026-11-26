@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:19:18.859630Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof uses r=rank(A+I), not rank(A-I). Coefficient comparison gives AB=I, A²+B=0 and (A+I)c=0. Hence B=A^(-1), A³=-I and A-A^(-1)=A(A+I); for each first input there are q^(n-r) commuting second inputs. The translation multiplicity is independently q^(n-r), and distinct coefficient triples are distinct labelled operations. Off characteristic three the cube polynomial is squarefree with either three linear factors or one linear and one irreducible quadratic factor. In characteristic three, Jordan columns are n-r,c2,c3; c2+c3=r and balancing them is feasible precisely when ceil(r/2)≤n-r. Invertible centralizer weights give the three strata including r=0 and the smallest dimensions. In all regimes the uniform bounded product factors and summable Gaussian imbalance factor yield H(r) comparable to q^(S_n-3(r-r_n)^2/2), including near the characteristic-three rank ceiling. An admissible rank within one of r_n gives the matching normalization lower bound. On |r-r_n|≥t one can factor out q^(-t²) and retain a summable q^(-(r-r_n)^2/2). Completing the square for the extra weight q^(-r) gives the mean order q^(-2n/3), at fixed q. A separate bounded replay matched 13 exhaustive matrix-stratum cases over q=2,3,4,5,7,9, and directly tested every allowed translation and ordered input pair in seven small cases. The replay is finite; the general proof uses the centralizer formula and estimates above.",
+      "replay_paths": [
+        "/workspace/branches/cf25ec26-204e-4561-a354-cab6f2f72207/independent_replay.py",
+        "/workspace/branches/cf25ec26-204e-4561-a354-cab6f2f72207/independent_replay.log"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allsop–Wanless determine which ordered commuting-pair counts occur for quasigroups of a given order. Fulman gives the general cycle-index/class weighting framework. Kozlik's opening statement concerns nuclei of semisymmetric quasigroups and Mendelsohn loops."
+        ],
+        "reasoning": "An existence spectrum for all quasigroups does not give multiplicities for a restricted labelled family. A general class-weighting identity can enumerate the matrices with the required cubic relation but does not identify the commuting-pair statistic or the translation-weighted fixed-q concentration. Nucleus size is a different invariant.",
+        "searches": [
+          "Allsop–Wanless arXiv:2412.08107 p. 1; Fulman Random Matrix Theory over Finite Fields §2.1; Kozlik arXiv:2607.27872 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–98; VERIFICATION.md and verify.py as recorded evidence",
+        "arXiv:1911.08393 §6.3.1",
+        "Fulman §2.1",
+        "arXiv:2412.08107 p. 1",
+        "arXiv:2607.27872 p. 1",
+        "Resultary records 812647fa1915 and 5e4215ffc0b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reciprocal centralizer orders and the rational canonical product formula give the matrix-class components, including the nilpotent case, once the cubic restriction is imposed."
+        ],
+        "reasoning": "The finite matrix factors are direct specializations, not newly discovered identities. The remaining calculation compares two kernel-sized counts (translations and commuting differences) and balances Gaussian weights across changing allowable ranks to prove the conditioned law, including the characteristic-three ceiling. That law is not a parameter substitution into the inspected centralizer or quasigroup spectrum results.",
+        "searches": [
+          "Smith–Wang §6.3.1 linear semisymmetry; Fulman §2.1 centralizer weights; Resultary 812647fa1915 equation (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith–Wang give the linear form xρ+yρ^(-1) and the condition ρ³=-1. The adjacent affine-quandle record fixes a Latin Alexander operation and varies term equations, whereas the affine Lie-algebra record varies an element and takes its Lie adjoint rank."
+        ],
+        "reasoning": "Equivalently the frozen ensemble is pairs (C,c) with C=-A, C³=I and Cc=c, stratified by codimension of the fixed space of C. Uniform matrices C alone, even when stratified by eigenvalues, omit the multiplicity q^(dim Fix C); none of the inspected affine objects is an equivalent sampled family. The additional lookup did not return relevant evidence and was not treated as disproving overlap.",
+        "searches": [
+          "arXiv:1911.08393 §6.3.1; Resultary: affine semisymmetric commuting-pair rank strata, records 812647fa1915 and 5e4215ffc0b3",
+          "Finite-field order-three matrix fixed-vector rank distribution (literature lookup)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 812647fa1915 equations (2), (4)–(6) give an adjoint-rank enumerator, an ordered Lie-commuting total and explicit dimension-three strata. The fixed-quandle record gives attainable equation probabilities. Neither tabulates numbers of labelled semisymmetric operations with each commuting-pair fraction."
+        ],
+        "reasoning": "The Lie count samples pairs of elements of one semidirect Lie algebra; the operation census samples quasigroup structures on a fixed V. Even overlap of small ranks or fractions does not identify the strata. No exact table for this ensemble was found in the compared sources.",
+        "searches": [
+          "Resultary rank-stratum and commuting-pair catalogue comparisons, records 812647fa1915 and 5e4215ffc0b3; arXiv:2412.08107 ordered commuting-pair spectrum"
+        ]
+      },
+      "rationale": "Credit is limited to the commuting-rank distribution of uniformly sampled labelled affine semisymmetric operations and its fixed-field mean and concentration across all three regimes. The semisymmetric linear coefficient identity and matrix-class counts are prior tools. The inspected quasigroup and affine Lie-algebra results do not give this conditioned distribution or the two-thirds law.",
+      "residual_risks": [
+        "An equivalent statement may occur in literature counting finite-field representations of the cyclic group of order three together with a marked fixed vector. The material inspected does not establish such overlap or certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear coefficient criterion covered; not the affine distribution",
+          "evidence": [
+            "xρ+yρ^(-1) is semisymmetric precisely when ρ³=-I."
+          ],
+          "identifier_or_url": "arXiv:1911.08393",
+          "material_read": "§6.3.1, PDF p. 11, text offset 23400",
+          "method": "Open-access PDF passage",
+          "title": "Quasigroup Words and Reversible Automata",
+          "trigger": "Linear semisymmetry may establish the affine constraint"
+        },
+        {
+          "assessment": "Matrix-class enumeration tool covered",
+          "evidence": [
+            "The class weight in the cycle index is the reciprocal of its invertible centralizer order."
+          ],
+          "identifier_or_url": "https://ocw.mit.edu/courses/18-996-random-matrix-theory-and-its-applications-spring-2004/8b95d016309930598ececb496e983f2c_s_0273.pdf",
+          "material_read": "§2.1, printed p. 55 / PDF p. 5, text offset 14200",
+          "method": "Open-access PDF passage",
+          "title": "Random Matrix Theory over Finite Fields",
+          "trigger": "General centralizers dominate the matrix-class weights"
+        },
+        {
+          "assessment": "Existence spectrum, not family multiplicity or concentration",
+          "evidence": [
+            "The main scope is which counts are possible at a given quasigroup order."
+          ],
+          "identifier_or_url": "arXiv:2412.08107; DOI:10.1002/jcd.21994",
+          "material_read": "PDF p. 1, around text offset 1412",
+          "method": "Open-access PDF passage",
+          "title": "Commuting Pairs in Quasigroups",
+          "trigger": "Same ordered commuting-pair statistic"
+        },
+        {
+          "assessment": "Different invariant in the inspected passage",
+          "evidence": [
+            "The stated results concern nuclei and associated Mendelsohn structures."
+          ],
+          "identifier_or_url": "arXiv:2607.27872",
+          "material_read": "PDF p. 1, opening scope",
+          "method": "Open-access PDF passage",
+          "title": "The Nucleus of a Semisymmetric Quasigroup",
+          "trigger": "Same semisymmetric identity"
+        },
+        {
+          "assessment": "Shared centralizer technique for different sampled objects",
+          "evidence": [
+            "The rank is that of the Lie adjoint of (A,u), not of A+I with A³=-I; all matrix similarity classes occur."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-adjoint-rank-distribution-in-finite-affine-transformation-lie-al--812647fa1915/RESULT.md",
+          "material_read": "Finding, equations (1)–(6) and scope, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Adjoint-rank distribution in finite affine-transformation Lie algebras",
+          "trigger": "Closest indexed affine rank and commuting-pair count"
+        },
+        {
+          "assessment": "Measures term equations for a fixed operation, not a population of operations",
+          "evidence": [
+            "The inputs are a fixed invertible T and I-T, and the output is a set of probabilities attained by varying terms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-equational-probability-spectra-of-finite-latin-affine-quandles--5e4215ffc0b3/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Equational probability spectra of finite Latin affine quandles",
+          "trigger": "Similar affine equations and probability spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The labelled distribution answers a different question from which commuting counts are possible. Identity constraints and the translation weights give distinct finite-dimensional strata across the three field regimes, yet the mean and typical rank obey the same exponent law, even where characteristic three truncates the upper tail. This is a quantitative description of a natural structured ensemble rather than an unweighted list of matrix classes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

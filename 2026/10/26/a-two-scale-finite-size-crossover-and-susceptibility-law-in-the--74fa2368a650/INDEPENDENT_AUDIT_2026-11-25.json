@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:12:51.485052Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding/assumptions and Proof, lines 3–71",
+        "Frozen VERIFICATION.md, lines 19–22; CHECK.py as text",
+        "Separate 120,000-panel midpoint quadrature for exp(−x²(x−3)²/12) on [−12,15], splitting left mass at 1.5"
+      ],
+      "rationale": "The binomial entropy subtracts m²/2 and supplies −m⁴/12. At m=N^(−1/4)x all three tilts have the stated coefficients. On a fixed interior m-interval the Stirling prefactor is bounded after removing its common N^(−1/2) factor, and the quartic entropy inequality dominates polynomially weighted Riemann sums; outside the interval the crude binomial entropy bound is exponentially small in N. At eta=0 and j=−2 kappa²/3 the square factor is invariant under x↦2 kappa−x, yielding the stated mean, masses and barrier; at kappa=0 there is only one peak. Independently, at zero field F(m)=(m²/2)(J−g_K(m)), where g_K(m)=2I(m)/m²−2Km/3 extends at zero. The positive even-power entropy coefficients starting with m²/6 make g_K strictly convex, so its unique small positive minimum gives the exact coexistence value and excludes a competing third peak. Expanding g'_K=−2K/3+m/3+4m³/15+O(m⁵) and g_K at its minimizer yields both stated coefficients. For the second regime the exponent on y=m/K is (NK⁴)f_K(y)+ty²/2, with f_K tending to −y²(y−2)²/12 on compacts in derivatives and bounded above by a quartic with negative leading coefficient globally. The well widths on y are (NK⁴)^(−1/2); their ratio to the lattice spacing tends to infinity. The two scaled curvatures tend to −2/3, and the log weight difference is 2t+o(1), because the scaled center displacement costs O(1/(NK⁴)). Compact gaps and quartic tails control all fixed moments, with |m| outside the fixed interior interval again exponentially small in N. The limiting variance is 4p_t(1−p_t)=sech²(t), and the finite identity chi_N=N Var(m_N) gives exactly the stated normalization. An independent midpoint quadrature at kappa=1.5 corroborated mean 1.500000000000018 and left mass 0.500000000000007.",
+      "residual_risks": [
+        "The finite quadrature replays only the representative critical symmetry check; it is not an asymptotic test or an independent replay of the entire bundled checker. The analytic result is two separate limits, not a uniform interpolation for all growing kappa."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cubic paper works at fixed coexistence parameters and gives a curvature-weighted mixture. The Curie–Weiss Potts theorem gives explicit mixture weights for order-n^−1 perturbations about fixed coexistence parameters."
+        ],
+        "reasoning": "Both use related saddle arguments. Neither inspected theorem supplies a uniform triangular-array conclusion as curvatures go to zero and perturbation scale is 1/(NK²), not a bounded fixed coefficient times 1/N.",
+        "searches": [
+          "arXiv:2303.14578, Theorem 2.1",
+          "arXiv:0811.2735, Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.14578, 0811.2735 and 2210.03260",
+        "Resultary 0bc069b7a257 and 247ed2f333e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed cubic mixture gives distinct curvature prefactors at general fixed K; the result here needs their common small-K limit with vanishing absolute curvatures, uniform localization, and log-weight control at the true coexistence branch.",
+          "Given the new two-point law, tanh/sech² are elementary consequences, not independent prior-sensitive discoveries."
+        ],
+        "reasoning": "One cannot apply a fixed-well limit and then let its parameters vary with N without additional estimates. Similarly, substituting only a truncated small-K branch need not center every admissible array; the theorem uses the exact branch.",
+        "searches": [
+          "arXiv:2303.14578, fixed coexistence mixture",
+          "arXiv:0811.2735, Theorem 3.5",
+          "arXiv:2210.03260, Eq. (8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact quartic e^(−x⁴/12) is known for (K,J)=(0,1). The cubic susceptibility identity is also previously stated.",
+          "On the proposed tilted line at zero field the polynomial is exactly invariant about x=kappa, whereas the previous centered law has one peak at zero, and the susceptibility identity alone has no t profile."
+        ],
+        "reasoning": "The unperturbed limit is a literal common special case and not a contribution. Polynomial exponential tilting converts it to the critical family provided integrable tails are controlled; it does not establish the separate shrinking-well limit.",
+        "searches": [
+          "arXiv:2303.14578, Proposition 2.2 and Theorem 2.1",
+          "arXiv:2210.03260, Eq. (8)",
+          "Resultary local critical-window and susceptibility searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bipartite Ising record 0bc069b7a257 has a quartic minority law, and quantum Heisenberg record 247ed2f333e6 has its own susceptibility scaling; neither is this cubic Hamiltonian.",
+          "The prior cubic-model proposition defines the same thermodynamic phase boundary; it is not an indexed finite-size switching law."
+        ],
+        "reasoning": "The catalogue check is for an exact theorem or scaling-curve entry, not for a universal number table. The quartic and susceptibility search matches have different observables/interactions; no exact entry was established.",
+        "searches": [
+          "Resultary local mirror 0bc069b7a257 and 247ed2f333e6",
+          "arXiv:2303.14578, Proposition 2.2"
+        ]
+      },
+      "rationale": "The centered quartic law at the unperturbed critical point, the thermodynamic coexistence branch, fixed-parameter curvature-weighted coexistence, and the susceptibility identity have direct precedents. The critical family is the natural polynomial tilt of the known critical law, with equal masses following algebraically at the indicated parameters. The supported distinction is the explicit two-scale result, especially uniform localization along the shrinking-well triangular array and its normalized equilibrium switching profile tied to the exact coexistence curve. The inspected fixed-parameter theorems do not imply this exchange of scales.",
+      "residual_risks": [
+        "Uniform varying-parameter saddle-point literature may provide other formulations or broader methods; no such coverage of this theorem was established in the bounded search. No priority judgment is made from missed catalogue hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of centered quartic baseline, branch existence and fixed-parameter mixture, not moving coexistence result",
+          "evidence": "At (K,J)=(0,1) the quartic exponent is −x⁴/12. At fixed coexistence the two-phase weights involve Gaussian curvature prefactors.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.14578",
+          "material_read": "Proposition 2.2, PDF pp. 4–5 at offset 7600; §2, Theorem 2.1, pp. 6–7 at offset 12780",
+          "method": "Lawful original PDF, bounded theorem passages",
+          "title": "Limit theorems for the cubic mean-field Ising model",
+          "trigger": "Same Hamiltonian, critical and coexistence laws"
+        },
+        {
+          "assessment": "Methodological analogue, differing Hamiltonian and fixed base parameters",
+          "evidence": "Explicit weights under order-n^−1 perturbations about fixed coexistence.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.2735",
+          "material_read": "Theorem 3.5, PDF p. 5, offset 20229",
+          "method": "Lawful original PDF, bounded theorem passage",
+          "title": "Limit Theorems and Coexistence Probabilities for the Curie-Weiss Potts Model with an external field",
+          "trigger": "Related finite-size perturbation and phase weights"
+        },
+        {
+          "assessment": "Covers susceptibility definition, not stated switching profile in inspected passage",
+          "evidence": "Finite-size susceptibility is N Var(m_N).",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03260",
+          "material_read": "Eq. (8) and surrounding inverse-problem discussion, PDF p. 2, offset 9200",
+          "method": "Lawful original PDF, bounded passage",
+          "title": "The inverse problem beyond two-body interaction: the cubic mean-field Ising model",
+          "trigger": "Same magnetization and susceptibility"
+        },
+        {
+          "assessment": "Different interaction and scaling observable",
+          "evidence": "Minority critical density proportional to exp(lambda x²−x⁴/12), without cubic weld or the claimed coexistence window.",
+          "identifier_or_url": "2026/10/25/SCOPE-minority-controlled-critical-fluctuations-in-an-imbalanced-bipar--0bc069b7a257",
+          "material_read": "Local RESULT.md critical finding",
+          "method": "Resultary local mirror",
+          "title": "Minority-controlled critical fluctuations in an imbalanced bipartite Ising model",
+          "trigger": "Closest indexed quartic-critical law"
+        },
+        {
+          "assessment": "Different Hamiltonian and profile",
+          "evidence": "Quantum Heisenberg critical-window result rather than cubic coexistence with two vanishing-curvature wells.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-critical-window-spin-magnitude-and-magnetization-law-for-the-m--247ed2f333e6",
+          "material_read": "Local RESULT.md finding and susceptibility scaling",
+          "method": "Resultary local mirror",
+          "title": "A critical-window spin magnitude and magnetization law",
+          "trigger": "Indexed critical susceptibility scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–41 and 55–71",
+        "arXiv:2303.14578, Theorem 2.1"
+      ],
+      "rationale": "The small-coupling endpoint is a natural place where the two standard fixed-parameter asymptotics cease to address the same scales. The calculations identify the exact tuning that produces equal mass in the overlapping quartic law and quantify equilibrium response as wells separate while their curvatures vanish. The scale, exact phase centering, and susceptibility normalization are useful for comparing finite-size magnetization and response; value does not rest on the elementary logistic-to-sech² identity by itself.",
+      "residual_risks": [
+        "No uniform rate, general Hamiltonian universality, or dynamical susceptibility is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

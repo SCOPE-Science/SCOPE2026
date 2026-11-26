@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:57:44.174485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof Steps 1–5; VERIFICATION.md; check.py (static inspection)",
+        "Rajagopal et al., Symmetry 15 (2023), Eq. (1), confirms normalization and feedback sign"
+      ],
+      "rationale": "The exact telescoping identity μ^(-n)z_n=z_0+sum_{j<n} μ^(-j-1)c_j has a tail uniformly bounded by μ^(-n)(|α|+B)/(μ-1) for n≥2 because x_n=sin z_(n-2), y_n=sin z_(n-1) there. This proves global continuity, the stated unscaled remainder and H∘F=μH. Compare same-(x,y) orbits with e_0=z'_0-z_0>0: e_1≥(μ-|δ|)e_0, e_2≥(μ-|δ|)e_1-|γ|e_0≥(μ-B)e_1, and for n≥2 the three sine differences are bounded by e_n,e_(n-1),e_(n-2), respectively. Induction gives growth by μ-B>1. The ordered phases cannot coincide: equal H would make their difference bounded by twice the uniform remainder. On each fiber H-z is bounded, locally uniformly over the base, giving surjectivity and joint continuity of the inverse by sequential compactness and uniqueness. H=0 is exactly boundedness; the one-sided backward recurrence on bounded sequences is a contraction of factor (1+B)/μ, and its smooth sine substitution has uniform Fréchet derivatives on bounded sequences, so I-DT is invertible and the implicit function theorem applies; the stated graph Lipschitz bound follows by comparing fixed sequences. The fixed-point equation is strictly increasing in s and tends to opposite infinities. On the graph one can also check exponential convergence directly without invertibility or a stable-manifold theorem: for E_n=sup_{j≥n}|z_j-s| the bounded future series gives E_n≤[B/(μ-1)]E_(n-2) for n≥2, hence geometrical decay (and exact agreement of z after step 2 for B=0). The Jacobian polynomial in the record is correct; on the homotopy a unit root would imply μ≤1+tB by taking absolute values after division by ξ². Fully invariant compact sets admit bounded bilateral trajectories through every point, and the bilateral contraction is unique, hence there is only the equilibrium singleton. Poincaré recurrence for the possibly noninvertible map rules out invariant probabilities on points tending to infinity or tending to a different point. The witness α=β=γ=0, δ=B gives (μ-1)s=B sin s with opposite signs of the difference near 0 and at π, hence at least three equilibria for each 1<μ<1+B. The invariant zero graph is forward-invariant, not in general mapped onto itself, in agreement with Step 3. At equality the witness has unit multiplier, not three distinct equilibria. check.py was read, not executed.",
+      "residual_risks": [
+        "Only the strict large positive feedback region and the exact below-threshold counterexamples are covered; no blanket claim at equality, at negative feedback, or about differentiability of the full escape coordinate.",
+        "The graph invariance is forward invariance. For instance when α=β=γ=δ=0 its entire plane z=0 is not its own image."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Li's abstract explicitly covers a Lipschitz invariant set of bounded forward solutions, unique bounded complete solution and exponential attraction for sufficiently small Lipschitz constant; it also addresses smoothness. These qualitative contributions and the contraction method are prior.",
+          "Castañeda–Jara §2, assumption (d0) and Theorem 2.7, require an invertible linear part; (d5) ensures unique backward continuation. The linear map obtained by removing bounded sine terms here is singular, and F is not backward-unique. The similarity of the Green-series method, see (2.3), is genuine but does not make that theorem applicable.",
+          "Gu–Xia's abstract concerns partially hyperbolic endomorphisms derived from Anosov on the two-torus, not a real sine-delay endomorphism. Battelli–Franca–Palmer's abstract studies noninvertible linear dichotomies, not an all-state nonlinear coordinate."
+        ],
+        "reasoning": "General Lyapunov–Perron and Palmer machinery explains some of the methods and bounded-orbit behavior. An identity plus uniform tail does not by itself ensure ordered injectivity fiberwise; that requires this delay comparison, and the explicit coefficient-uniform worst-case bound needs its own witness.",
+        "searches": [
+          "Chen and Li DOI 10.3934/dcdsb.2022227",
+          "Palmer discrete topological equivalence Castañeda Robledo difference equations noninvertible bounded perturbation exponential dichotomy linearization noninvertible map finite-dimensional singular linear part",
+          "Franks semiconjugacy expanding endomorphism bounded perturbation limit expanding projection skew product partial hyperbolic real maps bounded displacement"
+        ]
+      },
+      "checked_sources": [
+        "Rajagopal et al., DOI 10.3390/sym15040780 (relevant sections of OA publisher PDF)",
+        "Chen–Li DOI 10.3934/dcdsb.2022227 (abstract; full-text limitation)",
+        "Castañeda–Jara arXiv:2104.14592v1 (identified portions)",
+        "Gu–Xia arXiv:2311.12669v3 and Battelli–Franca–Palmer arXiv:2111.04553v1 (abstracts only)",
+        "Resultary same/nearby sine-map records (indexed claims)",
+        "Frozen AUDIT.json (provenance only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A stable-manifold description can establish the bounded graph, but such a description does not supply a continuous phase on its full complement, prove strict vertical order for two escaping solutions, or identify their amplitude via an error bound independent of starting state after two iterates.",
+          "For example F is not injective when β=0, and even with β≠0 distinct z giving the same sine can have the same image by changing x. Thus invertible-system topological equivalence is not a dominating statement. The target is conjugate to a nonlinear skew map whose scalar coordinate is linear, not to a fully linear invertible model.",
+          "The sharpness claim concerns all coefficients with fixed B, not the fixed moderate parameter choices in the originating study or the differentiability of the coordinate at equality."
+        ],
+        "reasoning": "The surviving distinction is the explicit global coordinate and sharp sufficient gain for a full dynamical description of this map. Chen–Li full conditions were not independently available, so no complete theorem-by-theorem exclusion of a more general result is claimed.",
+        "searches": [
+          "Rajagopal et al., Symmetry 15 (2023) 780, §§2–4",
+          "Chen–Li AIMS abstract and publisher full-text availability",
+          "Castañeda–Jara arXiv:2104.14592v1, §2 assumptions and Theorem 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (1) in the initiating paper is the same real recurrence without a normalization change. The same-map numerical feedback scan in §3 uses Lyapunov exponents, not a separating fiber coordinate.",
+          "The indexed hidden-translation comparator concerns neutral feedback and a coordinate advanced additively by α; the critical cubic-drift comparator concerns a local critical boundary. Neither is obtained from the strict μ>1+B expanding coordinate by changing units or passing to a circle."
+        ],
+        "reasoning": "The distinction is exact multiplication of an onto vertical coordinate on the unwrapped space, not the existence of some translation/drift variable or an estimate for small initial data.",
+        "searches": [
+          "Resultary: three dimensional sine map large positive feedback escape coordinate bounded-orbit invariant stable graph semiconjugacy sine recurrence",
+          "Resultary: Rajagopal Kanagaraj Volos Karthikeyan Lyapunov sine map x next y z next alpha beta x gamma y minus delta sin z plus mu z compact recurrence strong feedback sharp threshold (mu-1) z equals B sin z fixed point",
+          "Rajagopal et al. Eq. (1) and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed results include other exact sine-map bifurcation laws for two-cycles, fixed-point staircases and critical relaxation, and the exact all-state escape-coordinate match is this record itself.",
+          "Fig. 3 of the initiating paper plots a numerical feedback scan and corresponding Lyapunov exponents; neither the finite plot nor a fixed-point count gives a global homeomorphism or the uniform remainder."
+        ],
+        "reasoning": "Nearby indexed results may overlap equilibrium examples. They do not constitute a table or theorem of escape dynamics for the entire strong-feedback regime; absence of an exact hit does not prove priority.",
+        "searches": [
+          "Resultary: three dimensional symmetric sine discrete map net gain positive k fixed point staircase Rajagopal sin nonlinear feedback stable gain mu unwrapped exact solution",
+          "Rajagopal et al. §3 Fig. 3"
+        ]
+      },
+      "rationale": "Best of inspected evidence for the concrete strong-feedback all-state coordinate, vertical-fiber conjugacy and sharp uniform threshold for the dynamical collapse, not for the standard scalar variation-of-constants series or a general invariant-manifold theorem. The numerical originating work, earlier stable-manifold theory and the checked global linearization framework do not supply this combination. The elementary sine fixed-point equation is not credited as new in isolation.",
+      "residual_risks": [
+        "General forward/noninvertible skew-linearization results may contain similar coordinate constructions. The inspected general equivalence assumes invertibility and Chen–Li was not accessible in full; priority is qualified accordingly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same map; the inspected feedback results are numerical bifurcation and Lyapunov analyses, not the asserted asymptotic theorem",
+          "evidence": [
+            "§2 Eq. (1) has y'=sin z and z'=α+βx+γy-δ sin z+μz; §3 uses bifurcation plots and Lyapunov exponents as feedback is varied."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15040780",
+          "material_read": "Public publisher PDF, abstract, §§2–3, beginning of §4 and Fig. 3 caption",
+          "method": "Read the open publisher PDF and compare formula and studied feedback diagnostics",
+          "title": "Influence of Parametric Symmetry on the Dynamics of 3D Sinusoidal Discrete Systems",
+          "trigger": "Originating same-map equation and feedback study"
+        },
+        {
+          "assessment": "Qualitative bounded-forward graph, unique bounded complete solution and exponential attraction are prior in broad form; detailed scope and any further coordinate statement not independently verified",
+          "evidence": [
+            "The abstract states those bounded-solution and attraction conclusions explicitly for general difference equations with delay and small Lipschitz constant."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2022227",
+          "material_read": "AIMS abstract and bibliographic introduction; full text not accessible via the public publisher route",
+          "method": "Read publisher abstract and tried the linked full text",
+          "title": "On the stable manifolds of difference equations with infinite delay",
+          "trigger": "Plausibly dominating invariant-manifold theorem"
+        },
+        {
+          "assessment": "Prior summation/Green-series technique, not a covering application of the stated theorem",
+          "evidence": [
+            "Assumption (d0) requires nonsingular A(k), and Remark 2.4 explains (d5) as guaranteeing unique backward continuation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14592v1",
+          "material_read": "Introduction and §2, equations (2.1)–(2.4), assumptions (d0)–(d5), Remark 2.4 and Theorem 2.7",
+          "method": "Read public arXiv PDF and test invertibility and backward-continuation assumptions against F",
+          "title": "A note on the differentiability of Palmer's topological equivalence for discrete systems",
+          "trigger": "Global conjugacy via a related summation formula for perturbed difference systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, global coordinate, uniform remainder, graph and optimality witness",
+        "Rajagopal et al., §§2–3"
+      ],
+      "rationale": "For a published map known from bifurcation plots, a coefficient-uniform threshold that classifies every real orbit and all compact recurrence addresses a natural asymptotic question. The homeomorphic scalar coordinate offers more than a local stability test: it locates the exceptional graph and fixes the sign and amplitude of all other trajectories' escape with a uniform additive error. The scalar witness shows that a uniformly lower threshold cannot give that collapse. This mathematical value is independent of any application of the maps.",
+      "residual_risks": [
+        "The theorem does not equate this sufficient coefficient-uniform bound with the true threshold for each separate coefficient tuple."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

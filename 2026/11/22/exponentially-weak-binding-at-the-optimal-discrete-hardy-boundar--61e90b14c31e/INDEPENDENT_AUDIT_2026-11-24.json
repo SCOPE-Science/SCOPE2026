@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:44:16.221422Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 23–92: ground-state transform, two capacity bounds, finite-defect quotient, spectral inversion and min–max",
+        "VERIFICATION.md and CHECKER.py inspected, not executed; finite sections do not establish the exponential law"
+      ],
+      "rationale": "The Dirichlet ground-state transform with u_n=√n g_n gives conductance √(n(n+1)) and mass n, without an extra boundary edge. For λ↓0 and N=⌊λ^(-1/2)⌋ the resistance from a fixed site to N is log N+O(1). The resistance-linear test has energy 1/(log N+O(1)) and massive cost O((log N)^(-2)), using ∑_{n≤N} n(1+log(N/n))²=O(N²). Conversely, at that energy the mass on [N,2N] forces some |g_k|=O((log N)^(-1/2)); Cauchy–Schwarz along the path supplies the matching lower bound. In the finite-support variational quotient, small energy makes the g-values on the support differ by o(1), giving |g_m|²→1/S_V under unit defect normalization. Thus the reciprocal top Birman–Schwinger eigenvalue is asymptotic to 2/(S_V log(1/λ)); it increases continuously from zero to infinity. Finite-rank perturbation preserves the essential bottom zero, giving a negative isolated eigenvalue for every t>0. On the codimension-one hyperplane g_m=0 the defect is bounded by a fixed multiple of the gradient energy, so small t allows at most one negative eigenvalue counting multiplicity. Inverting the top-eigenvalue equation gives the claimed limit.",
+      "residual_risks": [
+        "Fixed finite support and a nonnegative, nonzero V are required; the argument gives no multiplicative prefactor or strong-coupling eigenvalue count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gerhat–Krejčiřík–Štampach Proposition 4.1 analyzes a point defect for the discrete bilaplacian, giving power-law weak binding. Damanik–Teschl study counting for supercritical tails. Critical discrete Hardy inequalities in L^p specializes to the KPP critical weight at p=2 and α=1/2."
+        ],
+        "reasoning": "Neither a different kinetic operator nor supercritical tail counting includes the KPP critical finite-defect case; criticality in a wider family is qualitative.",
+        "searches": [
+          "Critical discrete Hardy and inverse-square Jacobi weak-coupling literature; arXiv:2307.09919 §4 and arXiv:math/0509110 §1",
+          "Critical discrete Hardy inequalities in L^p, §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparison",
+        "KPP arXiv:1612.04051 Theorem 0.1 and arXiv:1612.05913 Theorem 1",
+        "Krejčiřík–Štampach arXiv:2108.04379 identity (3)",
+        "Gerhat–Krejčiřík–Štampach arXiv:2307.09919 Proposition 4.1",
+        "Damanik–Teschl arXiv:math/0509110 abstract and §1",
+        "Critical discrete Hardy inequalities in L^p §1.1 (bounded passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "KPP criticality forces a negative response to any local nonzero attractive term, but gives no size for that response. A prior fixed-site Green matrix with leading term (√(ij)/2) log(1/λ) would imply the coefficient by Birman–Schwinger, but such a result for this operator was not found in the inspected passages."
+        ],
+        "reasoning": "The new quantitative step is the massive-capacity coefficient, arising from the resistance up to λ^(-1/2) with simultaneous conductance and mass growth. Eventual uniqueness follows separately from codimension-one control.",
+        "searches": [
+          "KPP arXiv:1612.04051 Theorem 0.1 and introduction; Krejčiřík–Štampach arXiv:2108.04379 Theorem 1; comparison with threshold Green-function methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KPP arXiv:1612.04051 Theorem 0.1 specializes via the harmonic function n to w=Δ√n/√n; Krejčiřík–Štampach Theorem 1, identity (3) gives the exact transformed form."
+        ],
+        "reasoning": "The weighted half-line network and the KPP Jacobi operator are equivalent under the ground-state transform. These prior results give that equivalence and criticality, not the λ-dependent capacity asymptotic.",
+        "searches": [
+          "Resultary: optimal discrete Hardy boundary, critical Jacobi weak binding, finite supported defect",
+          "Keller–Pinchover–Pogorzelski arXiv:1612.04051 and arXiv:1612.05913; Krejčiřík–Štampach arXiv:2108.04379"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index suffix 61e90b14c31e is the same theorem. Distinct record 82891d9a3bb9 concerns point defects on a square-lattice half-plane, comparing an edge resonance with a corner threshold."
+        ],
+        "reasoning": "The self-match is not independent earlier evidence. The square-lattice result has a different geometry and operator; no exact entry for the KPP finite-defect coefficient was identified apart from the self-match.",
+        "searches": [
+          "Resultary: logarithmic edge/threshold resonances and discrete weak binding"
+        ]
+      },
+      "rationale": "Prior work establishes the exact Hardy weight, ground-state identity and criticality. The checked literature does not give the finite-defect coefficient 2/∑nV_n and eventual unique weak eigenvalue for this Jacobi operator. The pass is for that quantitative claim, not qualitative binding for every attractive perturbation.",
+      "residual_risks": [
+        "An implicit fixed-site Green-function asymptotic or a more general critical weighted-network theorem could affect coverage. The bounded comparison does not certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior weight and optimality, yielding qualitative binding.",
+          "evidence": [
+            "Positive harmonic function n in the half-line gives the Hardy weight by taking its square root; any strict increase violates the inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.04051",
+          "material_read": "Introduction and Theorem 0.1, OA offsets 3000–6138",
+          "method": "Lawful OA primary text",
+          "title": "Optimal Hardy inequalities for Schrödinger operators on graphs",
+          "trigger": "General graph theorem specializing to exactly this weight"
+        },
+        {
+          "assessment": "Exact form identity, not a finite-defect energy asymptotic.",
+          "evidence": [
+            "Identity (3) supplies the ground-state remainder."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.04379",
+          "material_read": "Theorem 1, OA offsets 500–2673",
+          "method": "Lawful OA primary text",
+          "title": "A sharp form of the discrete Hardy inequality and the Keller–Pinchover–Pogorzelski inequality",
+          "trigger": "Same Jacobi form and ground state"
+        },
+        {
+          "assessment": "Not the same underlying operator or asymptotic regime.",
+          "evidence": [
+            "Weak point defects for the bilaplacian give a fourth-power law, rather than the KPP exponential law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.09919",
+          "material_read": "Abstract and §4 Proposition 4.1, OA offset 53000 for the proposition",
+          "method": "Lawful OA primary text",
+          "title": "Criticality transition for positive powers of the discrete Laplacian on the half line",
+          "trigger": "Weak binding for localized defects on a critical discrete half-line"
+        },
+        {
+          "assessment": "Counts infinitely many levels for a supercritical tail, not the weak finite defect of a fixed critical operator.",
+          "evidence": [
+            "Counting energies near the essential bottom under a supercritical tail hypothesis is the problem treated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0509110",
+          "material_read": "Abstract and §1",
+          "method": "Lawful OA primary text",
+          "title": "Bound states of discrete Schrödinger operators with super-critical inverse square potentials",
+          "trigger": "Inverse-square discrete binding"
+        },
+        {
+          "assessment": "Not a match at the level of model and statement; the comparison is limited to the indexed description.",
+          "evidence": [
+            "Square-lattice half-plane point defects, not the optimal Hardy Jacobi half-line."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, suffix 82891d9a3bb9",
+          "material_read": "Indexed finding description",
+          "method": "Local Resultary comparison",
+          "title": "A logarithmic edge resonance versus a linear corner threshold for square-lattice point defects",
+          "trigger": "Closest distinct indexed logarithmic binding comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–21 and 32–92",
+        "KPP arXiv:1612.04051 and the contrasting discrete bilaplacian result arXiv:2307.09919"
+      ],
+      "rationale": "For the natural critical Hardy operator, qualitative instability leaves the eigenvalue scale undetermined. The exact logarithmic coefficient, depending only on the weighted defect mass across arbitrary fixed finite supports, distinguishes this case from algebraic weak binding and quantifies the instability; the one-state conclusion identifies the weak negative spectrum.",
+      "residual_risks": [
+        "The coefficient does not quantify subexponential factors or predict uniformly moving defect supports."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

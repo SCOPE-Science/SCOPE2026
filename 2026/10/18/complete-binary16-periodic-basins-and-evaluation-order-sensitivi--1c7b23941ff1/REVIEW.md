@@ -1,19 +1,21 @@
-# Review of the binary16 quadratic map census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All states and rounding operations are unambiguously defined. A complete enumeration of every distinct numerical binary16 value in \([-2,2]\) produces \(32{,}769\) vertices, and exact integer comparison constructs the complete two deterministic successor arrays with correct nearest-ties-even selection. The indegree-peeling algorithm finds all cycles and assigns every transient state to its unique basin. The packaged verifier checks every successor with a separately implemented binary16 conversion path, verifies graph labels and depths for all inputs, checks full basin sums, and rederives all exact fractions and displayed orbit invariants. The almost-everywhere real mean is separately justified by standard real conjugacy to the ergodic full logistic map. The finite graph proof does not claim universal arithmetic-format generality.
+PASS
 
-## Originality — PASS, with priority risk
+Independently enumerated all 32,769 numerical binary16 inputs, retaining subnormals and identifying signed zeros. On the 2^24 integer scale, adjacent encoding distances and low-bit parity give exact nearest-even rounding; for G the square is rounded before subtracting from 2. A path-index traversal rather than indegree peeling reproduced every cycle-minimum word, least period, and full basin size for both maps, as well as 1,842 differing transitions, image sizes 2,049 and 1,946, and maximal transient lengths 59 and 69, each with multiplicity two. Exact basin weighting reproduced all four fractions (both initial sets, for both maps). Replay: python3 /workspace/branches/89413691-0878-4f51-83d8-e86b7ed4d105/independent_check.py; full_results.json in the same directory records the data. Inspected the frozen verify.py, not executed. Separately, u=(x+2)/4 conjugates the exact real map to the full logistic map, whose arcsine law is the ergodic pushforward of angle doubling; it is equivalent to Lebesgue measure in the interior and yields the asserted zero almost-sure real mean. Nothing about a physical analogue device is certified.
 
-The 2022 Wu–Fu–He–Wang source introduces this exact quadratic family, gives the \(a=1,b=2\) chaotic regime and discusses numerical and analogue realizations, but its inspected full text does not present these exact binary16 transition, periodic-basin, evaluation-order or mean results. Finite-precision logistic studies [2,3] concern other numerical maps or rounding mechanisms; the affine real conjugacy does not intertwine the discrete alphabets and rounded transitions. Directly related published mathematical-record searches and the accessible prior-census records did not expose the identical claim. Neither failed searches nor the difference in wording proves absolute novelty; an independent reproduction of the same exhaustive table could exist elsewhere.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2022 source's physical motivation is the possibility that digital quantization compromises chaotic dynamics. The complete binary16 global census gives the exact digital long-term alternative: six versus five attractor cycles under a single operation-order choice, an extreme 94-versus-44 period switch, complete basin-size distributions, and explicit nonzero long-run average bias where the underlying real invariant law has mean zero. Unlike a parameter-free exercise or a short simulated orbit, the finite result is a natural, exhaustively evaluated numerical invariant of an explicitly published chaotic dynamical map and exposes a concrete source of reproducibility sensitivity.
+The supported distinct contribution is the exact signed-domain binary16 census for this pair of rounding protocols, not the real quadratic map, low-precision periodicity, or evaluation-order sensitivity as general phenomena. The strongest inspected alternatives give materially different discrete maps and statistics.
 
-## Source inspection and limitations
+## value
 
-The originating 2022 open-access article's complete model, simulations, circuitry and conclusion were compared against the mathematical claim. The 2017 finite-precision logistic article and 2023 low-precision periodic-orbit article were inspected for rounding and periodic-basin coverage. Related mathematical-record entries on Chebyshev two-cycles and quantized affine maps differ in both object and conclusion. An equivalent unindexed finite-state census remains a priority risk. All computations are restricted to the stated format and exact two rounding protocols, not the actual analogue circuit. The verification uses same-project code and a distinct local half-conversion oracle, not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical binary16 format and two common rounding abstractions give a natural, complete cutoff. The exact graph is a benchmark for reproducible low-precision chaotic dynamics: changing where rounding occurs changes the largest nontrivial period from 94 to 44, shifts macroscopic basin weights and changes the exact uniform-stored-state mean. A few simulated paths or the real invariant law cannot answer these questions, and the result does not overclaim transfer to other formats or arithmetic protocols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

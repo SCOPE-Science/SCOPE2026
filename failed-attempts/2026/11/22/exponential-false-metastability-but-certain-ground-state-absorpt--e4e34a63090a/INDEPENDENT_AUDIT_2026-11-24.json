@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:08:58.826044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is mathematically correct, with two sign-wording errors in its written proof. In line 23 weak stability requires nondecreasing, not nonincreasing, energy under a flip. In line 27 after the even-n neutral leaf flip it is the hub parallel to the resulting leaf majority that flips downhill, not the antiparallel hub. Independently, H=J(st+(s+t)L) for hub spins s,t and leaf sum L; for opposite hubs the two costs are 2J(1-sL), 2J(1+sL). This gives the weak census, its central-binomial asymptotics, and the excited energy -J. Aligned hubs require every leaf opposite for weak stability; the two resulting states are strict at energy J(1-2n), including n=2. For even n a neutral leaf flip from L=0 gives |L|=2, and the correct parallel hub costs -2J. For odd n>=3, the hub parallel to L at |L|=1 is neutral; after flipping it there is an aligned leaf that can flip for -4J. No nonground state can belong to a closed class: a nonweak state has a downhill exit and an excited weak state has the verified neutral/downhill path. Finite-state time-homogeneous rates positive on those edges imply almost-sure absorption. Submitted checker was inspected, not executed; the result follows by direct algebra and the allowed-move graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9f3469962f47 proves reachability of a maximum cut and almost-sure entrance from every start on complete split graphs. For b>=a the only recurrent classes are the two polarized singleton cuts.",
+          "Baek et al. discuss zero-energy flippability and later relaxation in a different random-network setting."
+        ],
+        "reasoning": "Setting a=2 and b=n gives the recurrent classes and the absorption conclusion. Switching from the specified discrete update scheme to a finite continuous-time chain with all the same nonincreasing-energy flips at positive rates leaves its closed communicating classes unchanged.",
+        "searches": [
+          "Resultary 9f3469962f47, Finding and proof §§1–3",
+          "Baek–Ha–Jeong arXiv:1112.5927 §II A–B"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 826084cbdeb1, 9f3469962f47, b9b1601dcfa6",
+        "Baek–Ha–Jeong 1112.5927 §II A–B",
+        "Eggarter DOI 10.1103/PhysRevB.12.1933 (bibliographic only)",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With (a,b)=(2,n), the earlier formula gives Q(1,j)=n+1 independent of j and Q=2n in the two optimal cuts. Since |E|=2n+1 this gives the claimed two energy levels and gap.",
+          "At i=1 the earlier inequalities give neutral leaf flips and permit a core-one flip for j>=(n+1)/2 or a core-zero flip for j<=(n-1)/2, neutral only at equality."
+        ],
+        "reasoning": "For even n, j=n/2 is one neutral leaf move from a strict core threshold. For odd n, j=(n±1)/2 is already at equality for a neutral core flip, after which there is a misaligned leaf and hence a downhill leaf flip. This directly supplies the entire short-escape refinement from the prior local rules. The tripartite Ising record is only a related mechanism in a different model, not the basis for this implication.",
+        "searches": [
+          "Resultary 9f3469962f47, cut size Q(i,j) and exact flip inequalities in proof §1",
+          "Resultary b9b1601dcfa6, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For cut size C on any graph, H=J(|E|-2C); the antiferromagnetic weak minima are one-vertex local cut maxima, exactly the fixed configurations of the open-neighborhood, tie-retaining minority rule.",
+          "Here K2 join an independent n-set is the complete split graph with (a,b)=(2,n), including the boundary n=2."
+        ],
+        "reasoning": "The bit relabelling and energy/cut identity preserve every local inequality. Synchronous tie retention is used only for the fixed-point interpretation of the census; asynchronous tie flipping is the separate source of the dynamical result.",
+        "searches": [
+          "Resultary 826084cbdeb1, Finding",
+          "Resultary 9f3469962f47, proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "With a even the fixed states are the two polarized configurations plus balanced cores and balanced peripheries to within one half in their one-count. The exact formula has the factor binom(a,a/2), doubled for odd b."
+        ],
+        "reasoning": "At a=2 this factor is 2. The stated counts become exactly 2+2 binom(n,n/2) or 2+4 binom(n,(n-1)/2), not just matching initial table entries. Stirling gives the stated asymptotic order.",
+        "searches": [
+          "Resultary 826084cbdeb1, exact U_(a,b) formula and configuration classification"
+        ]
+      },
+      "rationale": "The census is an exact specialization of an existing fixed-point theorem on complete split graphs. The absorption claim is a specialization of an existing maximum-cut attractor theorem for the same allowed-move graph. The energy values and the at-most-two-flip escape follow directly from the exact cut formula and update inequalities in the latter proof. Arbitrary positive rates preserve the same closed classes. There is no sufficiently distinct remainder to repair.",
+      "residual_risks": [
+        "Eggarter full text was unavailable; that limitation does not alter the demonstrated direct coverage by earlier complete-split results.",
+        "No time-to-absorption estimate is in the frozen claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly covers the census and configurations at a=2",
+          "evidence": "G_(a,b)=K_a join independent b-set; tie-retaining local minority; balanced-core classification and cardinalities.",
+          "identifier_or_url": "Resultary 826084cbdeb1 (2026/11/8)",
+          "material_read": "RESULT.md Finding and assumptions, offsets 78–1758",
+          "method": "Local mirror, fixed-point and parameter comparison",
+          "title": "A core-parity transition in minority fixed points on complete split graphs",
+          "trigger": "Exact weak-minimum equivalent on a containing graph family"
+        },
+        {
+          "assessment": "Covers absorption and yields energy and escape refinements directly",
+          "evidence": "Q(i,j)=i(N-i)+j(a-2i); exact core/leaf update conditions; for b>=a only the fully polarized cuts are recurrent.",
+          "identifier_or_url": "Resultary 9f3469962f47 (2026/11/8)",
+          "material_read": "RESULT.md Finding and proof §§1–3, especially offsets 2780–6500",
+          "method": "Local mirror, cut/energy equivalence and direct specialization of inequalities",
+          "title": "Parity-controlled attractors and a universal relaxation gap on complete split graphs",
+          "trigger": "Same allowed dynamics on larger family"
+        },
+        {
+          "assessment": "Related mechanism only; different graph and nonzero-field regimes",
+          "evidence": "Exact weak minima counts with a neutral-to-downhill escape in a complete tripartite model.",
+          "identifier_or_url": "Resultary b9b1601dcfa6 (2026/11/8)",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local mirror",
+          "title": "Field-resonant weak minima and parity-alternating complexity on complete tripartite graphs",
+          "trigger": "Comparable metastability and two-flip mechanism"
+        },
+        {
+          "assessment": "Conceptual precedent; no book enumeration in the passages read",
+          "evidence": "Downhill, neutral and uphill updates accepted with probabilities 1, 1/2 and 0; neutral moves may enable later relaxation.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.5927",
+          "material_read": "PDF §II A–B, pp. 2–3",
+          "method": "Open-access primary PDF",
+          "title": "Absorbing states of zero-temperature Glauber dynamics in random networks",
+          "trigger": "Prior neutral-flip and blinker distinction"
+        },
+        {
+          "assessment": "No whole-paper inference; not relied on for failure",
+          "evidence": "Inaccessible identified source; decisive coverage is in the two inspected complete-split records.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.12.1933",
+          "material_read": "Bibliographic identification only; DOI and APS routes inaccessible",
+          "method": "Lawful retrieval attempts",
+          "title": "Triangular antiferromagnetic Ising model",
+          "trigger": "Cited triangular antiferromagnet literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The contrast between exponentially many weak minima and two absorbing states is meaningful, but is already present when the exact complete-split census and attraction results are combined at a=2. The energy translation and one check of the published update thresholds leave no independently valuable new theorem in this record. Fixing the sign error in the proof would not change that conclusion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

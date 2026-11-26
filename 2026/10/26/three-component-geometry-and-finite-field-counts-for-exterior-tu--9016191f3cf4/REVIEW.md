@@ -1,21 +1,21 @@
-# Scientific review — exterior tuples in a four-step flag
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim is about reduced varieties of square-zero, pairwise-anticommuting, strictly upper-triangular four-by-four matrices. Literal multiplication gives three independent coordinate types for every product. The square relations are kept separately, so the argument does not divide by two and includes characteristic two. A nonzero middle superdiagonal vector forces the two neighboring vectors to vanish. The remaining equations say that every matrix in the linear span of the two-by-two auxiliary matrices is singular. A direct rank-one matrix-subspace lemma reduces that locus to the two classical Segre rulings. Projective incidence bundles prove closure, irreducibility, rationality, and dimensions, and explicit rank-two witnesses establish noncontainment. The specified intersections follow from determinantal rank bounds. The finite-field formula counts rank-zero, rank-one, and rank-two singular matrix spans and then applies exact inclusion–exclusion.
+PASS
 
-Twelve exhaustive configurations over fields of orders two, three, four, and five, including triples, agree with the derived formula. Their finite scope is not used as proof of the theorem.
+The square and mixed coefficients are separately imposed; in any characteristic, a nonzero b_h forces all a_i=c_i=0, and for b=0 the coefficients are exactly those of det(sum t_i H_i). For a nonzero rank-one uv^T in the span, every other nonzero member shares its image or row line; members with opposite strict alternatives would sum to a rank-two matrix. This proves the union in all characteristics. The common-line loci are closed by projective incidence (also by stacked-matrix minors). On a chart with a selected nonzero column/row, recovering the common line or kernel by that column/row is rational, so the incidence map is birational, not merely generically injective in positive characteristic. The two rulings are incomparable for r>=2 (take two independent matrices in one ruling); neither lies in L, and L has points with b nonzero. Their dimensions are 3r+1 against 4r for L. The intersections reduce respectively to 2r free entries, rank-at-most-one 2-by-r arrays, and tuples in Hom(k^2/K,I) for a pair of lines; including f gives 3r, 2r+1, 2r+2, with the stated triple intersection. Over F_q, span ranks 0, 1 and 2 have respectively 1, (q+1)^2(q^r-1), and 2(q+1)(q^r-1)(q^r-q) ordered tuples before the q^r factor; L adds q^(4r)-q^(3r). In particular the rank-two term vanishes at r=1. The proof does not address scheme structure.
 
-## Originality (PASS, with historical-priority uncertainty)
+## originality
 
-Ngo–Šivic (arXiv:1308.4438, full text inspected) concerns unrestricted *commuting nilpotent* tuples. Chen–Wang (arXiv:1805.00378, full text inspected) concerns *pairs* of unrestricted anticommuting matrices, with no imposed simultaneous square-zero exterior relations or fixed complete flag. Boos (arXiv:1504.05367, introduction and main statements inspected) treats parabolic orbits of *individual* square-zero matrices; Basili's triangular commuting paper is relevant by ambient algebra but only its abstract was accessible. These statements do not directly imply the all-length three-component fixed-flag exterior classification or its exact field-uniform counts. The two Segre rulings, the rank-one matrix lemma, and standard bundle arguments are classical ingredients, not separate originality claims. Hidden or implicit prior treatment of this precise flagged family remains a priority risk.
+PASS
 
-## Value (PASS)
+The demonstrated overlap is the pair case within a related commuting family, not the uniform anticommuting square-zero tuple theorem. Credit the classical Segre rulings and the overlapping pair results; the supported contribution is the arbitrary-r fixed-flag component, intersection and counting result together, not new rank-one matrix-space theory.
 
-The exterior algebra on an arbitrary number of generators is a natural finite-dimensional algebra, and a representation preserving a complete flag is a standard constrained module problem. The theorem determines **all** reduced irreducible components, their dimensions and intersection pattern for every tuple length, and the full point count over every finite field. The uniform result in characteristic two, where anticommutation becomes commutation but square-zero remains essential, supplies a structural boundary. Neither a selected random numerical instance nor a routine extension of a tabulated count is the advertised claim.
+## value
 
-## Scope and limitations
+PASS
 
-No result is claimed for the unreduced scheme, dimensions larger than four, unrestricted representations, or orbit classifications. The one-generator count is included but the three-component classification starts with two generators. The literature search and same mathematical model proof reconstruction do not establish historical uniqueness or independent validation.
+This is a complete reduced component classification for a natural fixed-flag exterior representation space, not just a rank-one lemma or a few checked field counts. It explains non-equidimensionality and which branches can meet and gives uniform, characteristic-two-inclusive point counts useful as tests of more general fixed-flag analyses.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

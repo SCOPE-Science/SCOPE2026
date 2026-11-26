@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:31:22.509217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–103",
+        "Frozen VERIFICATION.md lines 19–25",
+        "checker.py lines 20–107",
+        "/workspace/repairs/5/RESULT.md",
+        "/workspace/repairs/5/VERIFICATION.md",
+        "/workspace/repairs/5/SLOGAN.txt"
+      ],
+      "rationale": "The frozen claims are mathematically consistent; the repair is not a correction of a false root coefficient. For the final statement the last-reset identity uses a compactly supported directly Riemann integrable one-flight kernel with its hitting endpoint excluded. The nonarithmetic renewal theorem integrates it to the uniform spatial expectation, and each finite-time support is finite. The rational comparison follows from the only unit-circle pole at 1 of the coprime duration generating function and the finite list of allowed ages. For the added quantitative assertion, the locally finite set of renewal times gives a left limit of the mean, and only paths that reset at t=ja+kb contribute a jump of normalized size one. Irrationality makes the representation by j,k unique, so the jump is the probability of the disjoint permutations of those duration draws, binom(j+k,j)p^j q^k. At j=floor(np), k=n−j the time is nμ+O(1) and Stirling gives a jump asymptotic to (2πnpq)^(−1/2). At least one of the right value and left limit differs from 1/2 by half the jump; the latter can be approximated within 1/n at a time less than 1/n earlier. This proves the repaired limsup bound with constant √μ/(2√(2πpq)). Independently, the normalized mean transform is B/D with B=1/z−[p(1−e^(−az))/a+q(1−e^(−bz))/b]/z². At the known quadratic root sequence D′→μ>0, both exponentials tend to one and B=1/z+O(1/|z|²), so no cancellation occurs. A transform analytic across the axis in a fixed strip would violate D(z)(G(z)+1/(2z))=B(z) at these zeros. Frozen code was inspected, not run: its rational phase samples and numerical checks at several approximants to √2 are finite diagnostics, not certification of the new bound or the pole sequence.",
+      "residual_risks": [
+        "The limsup inequality is not a matching upper rate. Only fresh starts with two positive durations and immediate right-continuous resets are covered. Noncancellation is claimed along the specified near-axis sequence, not for all zeros."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer §2 treats near-axis roots and includes equally weighted two-point laws in Lemma 2.14(iii); Proposition 4.7 concerns exponential convergence across a class of smooth tests, not this particular mean kernel.",
+          "Das–Majumdar–Pal Eq. (17) gives uniform equilibrium for finite-mean speed-density settings; Eqs. (47)–(50) treat a single deterministic speed. These are prior context, not the two-atom irrational jump or pole statement."
+        ],
+        "reasoning": "A bound failing for a class does not prove failure for this observable. The repaired assertion identifies a positive jump of a particular height at every attainable positive renewal time and verifies survival of the roots in the actual mean transform.",
+        "searches": [
+          "Boyer, arXiv:1506.07625, two-point laws, zero separation, and renewal convergence",
+          "Das–Majumdar–Pal, arXiv:2611.16733v1, §§III and VII",
+          "Ballistic threshold resetting two fixed speeds irrational flight times mean position renewal jumps binomial nonexponential relaxation"
+        ]
+      },
+      "checked_sources": [
+        "Lapidus–van Frankenhuijsen §3.5.2",
+        "arXiv:1506.07625 §§2–4",
+        "arXiv:2611.16733v1 §§III and VII",
+        "Resultary feed82ff35bb, 3fafd0c137ae, b33291d37acb and 5165ef04c9e4",
+        "/workspace/repairs/5/RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simplicity and the quadratic approach of the selected roots already follow from the two-generator results. Those zeros could be canceled by an observable numerator; they alone give no lower bound on the instantaneous mean.",
+          "The repaired bound instead comes from a model-specific deterministic jump of normalized size one and uniqueness of counts at an irrational renewal time; the local Stirling estimate is classical."
+        ],
+        "reasoning": "The frozen denominator contribution is mechanically covered by specialization. For the repaired claim, the renewal mechanism must be linked to the observable, with two distinct arguments (finite-sequence jump counting and spectral noncancellation). The inspected results do not give those observable-specific consequences.",
+        "searches": [
+          "Lapidus–van Frankenhuijsen, Lemma 3.29 and Theorem 3.30",
+          "Boyer, Proposition 4.7",
+          "Das–Majumdar–Pal §§III and VII; Resultary 3fafd0c137ae and b33291d37acb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Lapidus–van Frankenhuijsen (3.28)–(3.32) set w₁=a,w₂=b, normalize the two coefficients at the real root to p,q, shift that root to zero, and set x=iδ. The derivative f′ at the real root becomes μ. This is exactly the frozen linear and quadratic expansion, including its signs and denominator powers.",
+          "The same-object Resultary entry feed82ff35bb observes stationary two-time binary-detector probabilities, not the instantaneous fresh-start mean. Entries 3fafd0c137ae and b33291d37acb treat time averages and continuous duration laws. The identical frozen self-match is not independent coverage."
+        ],
+        "reasoning": "The exponential-polynomial and renewal descriptions are genuinely equivalent for root locations, so the repair treats the expansion as prior. Neither a stationary detector correlation nor a time-integrated observable is an equivalent formulation of the fresh-start mean's jump sequence.",
+        "searches": [
+          "Lapidus–van Frankenhuijsen: nonlattice two-generator Dirichlet polynomial expansion",
+          "Resultary: two-speed threshold reset, renewal jumps, binomial mass and square-root mean lower bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary text provides an exact analytic coefficient for the denominator, giving stronger overlap than numerical tables of resonances. The Resultary records give exact constants for stationary detector recovery or time-averages, not a table of fresh-reset instantaneous jump sizes."
+        ],
+        "reasoning": "The new invariant is a time-indexed probability law over arbitrary incommensurate durations, not a finite census. Standard binomial probability tables would give numbers once the identification of each individual mean jump with a unique duration count is proved, but they do not state the identification or the ensuing continuous-time lower bound.",
+        "searches": [
+          "Lapidus–van Frankenhuijsen, §3.5.2, Eqs. (3.28)–(3.33)",
+          "Resultary first-passage reset, exact jump and temporal-observable records (feed82ff35bb, 3fafd0c137ae, b33291d37acb)"
+        ]
+      },
+      "rationale": "Originality FAIL as submitted for treating the exact quadratic denominator resonance calculation as part of the distinctive quantitative result: Lapidus–van Frankenhuijsen explicitly give the same expansion, not just a qualitative precedent. The repaired files credit that expansion, its near-axis geometry, and the classical renewal comparisons. The final PASS is for the exact binomial mean jumps and ratio-independent order-t⁻¹/² mean-deviation lower bound (with an explicit constant depending on μ,p,q), together with verifying that the known zeros actually give poles of the mean. The reviewed literature does not give this combined physical-observable result. The added jump argument makes the quantitative contribution independent of claiming priority for the spectral calculation.",
+      "residual_risks": [
+        "Classical renewal-local-limit or piecewise-deterministic process literature may include equivalent observable-specific consequences. The comparisons are bounded; neither search silence nor a same-day date determines priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the frozen denominator expansion and simplicity (broader form). Does not involve a ballistic mean numerator or jumps.",
+          "evidence": "The perturbation parameter is i times the mismatch. The linear coefficient in that parameter is −q/μ and the quadratic coefficient is pqa²/(2μ³) after normalization; squaring iδ makes it negative in the real displacement.",
+          "identifier_or_url": "https://math.ucr.edu/~lapidus/confidential/FGCD1.pdf",
+          "material_read": "§3.5.2, PDF text offset 282350 and following pages; Lemma 3.29, Eqs. (3.28)–(3.32), Theorems 3.30 and 3.32",
+          "method": "Author-hosted full-text PDF, located and read bounded passage",
+          "title": "Fractal Geometry, Complex Dimensions and Zeta Functions",
+          "trigger": "Potential exact prior two-frequency root displacement"
+        },
+        {
+          "assessment": "Substantial prior coverage of the near-axis mechanism and general convergence obstructions, not the explicit ballistic mean lower bound or cancellation test.",
+          "evidence": "Weakly Diophantine two-point examples; Proposition 4.7 imposes zero separation from a uniform exponential assertion over smooth tests.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.07625",
+          "material_read": "§2, Proposition 2.18 and Lemma 2.14(iii), PDF text offsets 9668–14889 and 39200–44145; §§3.4 and 4.3, offsets 72500–76500 and 106800–113487",
+          "method": "Bounded open full-text passages",
+          "title": "The speed of convergence in the renewal theorem",
+          "trigger": "General renewal slow rates and two-point law"
+        },
+        {
+          "assessment": "Provides renewal and equilibrium context and the deterministic-speed law, not this irrational two-atom mean theorem.",
+          "evidence": "Uniform equilibrium for finite-MFPT velocity-density setting; single-speed imaginary-axis poles and periodic delta peak.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16733v1",
+          "material_read": "§III, Eq. (17), HTML offset 23500; §VII, Eqs. (47)–(50), offset 51500",
+          "method": "Bounded open HTML passages",
+          "title": "Freezing transition and shock-like transients in ballistic random walks under threshold resetting",
+          "trigger": "Exact physical model and possible antecedent for mean relaxation"
+        },
+        {
+          "assessment": "Different estimands and hypotheses. The detector result does include atoms, but it is stationary and a binary two-time observation. The other two concern integrated or time-averaged observables, not the instantaneous mean.",
+          "evidence": "Short-lag detector inverse law; endpoint time-integral identity under a continuous duration law; Gamma-duration time-average variances and a fresh-start time-average bias.",
+          "identifier_or_url": "Resultary feed82ff35bb, 3fafd0c137ae, b33291d37acb",
+          "material_read": "Each RESULT.md Finding, offset 0, including hypotheses and displayed estimands",
+          "method": "Exact local Resultary mirror",
+          "title": "A sharp detector-placement threshold for stationary ballistic-reset speed-law identification; Universal boundary fluctuations and negative memory in ballistic threshold resetting; Endpoint laws and quadratic variance suppression for ballistic threshold-reset averages",
+          "trigger": "Strongest same-model local findings for related temporal observables, rates, and atomic laws"
+        },
+        {
+          "assessment": "Different Gaussian-semigroup problem; no demonstrated prior claim for the reset renewal denominator or mean. Same-day date establishes no priority order.",
+          "evidence": "Irrational versus rational rate ratios give different small-time admissibility-density exponents.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix 5165ef04c9e4",
+          "material_read": "Finding on imaginary-time admissibility density",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic phase transitions in complex-time boundedness of a two-rate semigroup",
+          "trigger": "Closest same-day local match for near-axis arithmetic geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/5/RESULT.md, Finding and Proof",
+        "Das–Majumdar–Pal §§III and VII",
+        "Lapidus–van Frankenhuijsen §3.5.2"
+      ],
+      "rationale": "A known near-axis spectral expansion alone is not credited as added value. The freshly reset process distinguishes stationary occupation from transient relaxation of an elementary physical observable. The exact jump law and uniform-in-arithmetic-type-of-irrational lower exponent show that deviations of order at least t⁻¹/² survive along some times for every irrational ratio, without needing fine Diophantine constants. That is stronger information than merely excluding exponentials, while the pole proof separately identifies the spectral obstruction in the actual observable rather than in an arbitrary test. The two-atom model is the simplest genuinely random atomic version of the initiating model, not an arbitrary parameter sample.",
+      "residual_risks": [
+        "No claim of the optimal upper rate, or that the behavior persists after smoothing, averaging in time, or introducing continuous speed noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

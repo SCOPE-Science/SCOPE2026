@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:27:54.050798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–61",
+        "Frozen VERIFICATION.md, verify_height_leaves.cpp and verify_pareto.cpp, inspected as text",
+        "Independent recurrence: /workspace/branches/aa12c853-aa24-403b-957a-5d1f9a5971d2/global_pareto_numpy.py; full replay output: /workspace/branches/aa12c853-aa24-403b-957a-5d1f9a5971d2/global_pareto_full.txt"
+      ],
+      "rationale": "Independent leaf assignments make the set images of compositions exact. The proof as written gives an insufficient reason for the small Pareto rectangle: bounds on the two separate minima do not, by themselves, certify bounds on all nondominated pairs. The census itself is correct. Indeed, from any synchronizing term choose a synchronizing term with no larger height or leaf count and with the fewest nodes subject to those two bounds. It has no proper singleton-image subtree (that subtree could replace the whole term) and no repeated image along a root-to-leaf path (the lower subtree could replace the upper one without changing the image or increasing either cost). Thus on that path there is at most one root singleton and the four nonsingleton images, including Q at the leaf: height at most four and hence at most sixteen leaves. A separate exact recurrence enumerated all 531441 operation tables for exact leaf counts 1 through 16 without bounding height. With one leaf it closes Q under shortest unary paths; with more leaves it combines every ordered split and images at a binary root with height 1 plus the greater child height, then closes under all unary paths. This is exhaustive because stripping the leading unary chain leaves either a leaf or a binary root. Scanning leaves in increasing order and keeping only strict decreases in optimal height gives the true frontier. The run reproduced both full histograms, 242997 synchronizing, 288444 nonsynchronizing, 8712 at min height four (5220 at min leaves three and 3492 at four), and exactly 18 and 180 two-point frontiers of the stated kinds. No additional points occur outside the small rectangle. The two frozen outputs also suffice jointly: bounded and unrestricted feasible-machine counts coincide, and bounded per-machine minima can only increase; equality of the summed height and leaf minima over all machines forces equality individually. Thus a minimizer for each coordinate exists inside the rectangle and dominates any point outside on the corresponding excessive coordinate. For the explicit witness, u(Q)={1,2}, B({1,2},{1,2})={0,2}, B({0,2},{0,2})={0}, and U(B(Q,{0,2}))={2}; at height at most three the first singleton costs four leaves, while with at most two leaves only Q and {1,2},{0,2} are attainable at any height. On two states without a constant basic operation the images all stay equal to Q; a constant unary gives the optimum (1,1), and with only a constant binary there is no one-leaf synchronizer and (1,2) dominates. This verifies the first state-size boundary.",
+      "residual_risks": [
+        "The proof gap in the stated justification of the bounded Pareto calculation is resolved by the independent global check and the joint-histogram argument; the separate numerical caps alone should not be cited as a general principle.",
+        "This is a labeled census, with ordered binary inputs and independent free leaves; it is not an isomorphism-class census or a result for shared variables or other signatures."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Herrmann–Mörbitz passages give lower-bound constructions for two-symbol ranked alphabets, including a one-unary/one-binary family and a reset-height result for n≥5. The indexed four-state result states a height-eleven extremal construction. The cited general 2^n−n−1 height bound is also independently proved at n=3 by the subset-closure argument. The Warwick and DOI access attempts did not yield Blažej–Janoušek–Plachý full text in this audit."
+        ],
+        "reasoning": "General height bounds cover the height-four ceiling but not the exact populations or objective tradeoffs. An extremizer or a lower-bound family at another n does not resolve small-n joint distributions. No full-paper exclusion is made for inaccessible text.",
+        "searches": [
+          "arXiv:2609.01184v1, intro., §5 Lemma 13 and Theorem 17",
+          "DOI 10.1142/S0129054125410096; Warwick eprint 193962",
+          "2026/10/26/SCOPE-sharp-four-state-tree-synchronization-over-two-ranked-symbols--5734bc809a8e"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary index and primary mirrored statements above, including the exact self-match",
+        "Accessible OA passages of Herrmann–Mörbitz as listed; access limits on the other paper noted above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subset closure shows whether a singleton can occur by a given height, but does not by itself report which leaf counts attain that height. Known single-objective bounds and four-state extrema neither force simultaneous minima nor give their incompatibility counts."
+        ],
+        "reasoning": "This census requires tracking height and independent-leaf cost together or an equivalent new combinatorial derivation. The prior height ceiling helps bound computation, but cannot mechanically yield the frontier distribution without that additional optimization and exhaustive counting.",
+        "searches": [
+          "arXiv:2609.01184v1, §5",
+          "Indexed four-state ranked-symbol extremal and cycle-stratification RESULT.md passages",
+          "Frozen explicit Pareto obstruction and computed distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-context model is exactly singleton reachability under unary and Cartesian binary subset images. Counting independent leaves equals counting occurrences of free leaves in this setting, but is not equivalent to minimizing height or total nodes when unary chains are allowed.",
+          "Herrmann–Mörbitz Lemma 13 constructs one-unary/one-binary automata, but tracks reset height. The related indexed four-state examples also track height, not the minimal leaf cost at each height."
+        ],
+        "reasoning": "A rephrasing in terms of weighted subset grammars with independent leaves would be equivalent if it supplied the joint minima or full fronts. The compared height objectives throw away the leaf-cost information and therefore do not do so.",
+        "searches": [
+          "Resultary search for three-state unary/binary strong-reset height and leaf count, Pareto or separate minima",
+          "arXiv:2609.01184v1, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed census hit is the frozen record itself. The distinct same-day cycle-type census concerns four states, a permutation unary and a commutative binary, and stratifies reset heights."
+        ],
+        "reasoning": "The distinct table restricts the transitions differently, uses another state count and omits the leaf objective, so it is not a table from which the claimed counts can be read or obtained by specializing rows. The date does not determine equivalence or priority.",
+        "searches": [
+          "2026/11/22/SCOPE-a-sharp-height-leaf-pareto-tradeoff-in-three-state-unary-binary--bc9735e195f6",
+          "2026/11/22/SCOPE-cycle-type-stratification-of-strong-tree-synchronization-on-four--4573fbef589c",
+          "Resultary searches for exact three-state ordered unary/binary census and Pareto counts"
+        ]
+      },
+      "rationale": "Best of checked evidence for the exact joint leaf/height frontier census and first-size conflict. The known single-objective height upper bound is credited rather than treated as new. In the closest published primary and indexed comparisons, neither minimum leaf count nor incompatibility of the two minima is determined for this class.",
+      "residual_risks": [
+        "Earlier equivalent calculations or a joint-cost theorem outside the inspected passages could exist. The bounded searches are not a priority determination.",
+        "The full Blažej–Janoušek–Plachý source was not accessed independently; no whole-document noncoverage assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant signature and height, but the inspected statements are height lower-bound constructions and not three-state leaf/Pareto results",
+          "evidence": [
+            "Lemma 13 explicitly uses one unary and one binary symbol. Theorem 17 produces a reset-height g(n)+1 family for n≥5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01184v1",
+          "material_read": "Abstract/introduction (offsets 0, 4075); §5 Lemma 13 (around 30000) and Theorem 17 (around 34280)",
+          "method": "Bounded primary OA PDF reading; accessible despite the frozen access note",
+          "title": "On smallest synchronizing terms over constant alphabets",
+          "trigger": "Most relevant named prior article on the same small ranked signature"
+        },
+        {
+          "assessment": "General bound credited and its n=3 instance verified directly; full-document originality comparison remains unresolved",
+          "evidence": [
+            "The access failures are not evidence of noncoverage."
+          ],
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/193962/; DOI 10.1142/S0129054125410096",
+          "material_read": "No primary full-text passages independently read in this audit; attribution is in the frozen record",
+          "method": "Lawful OA access attempts; Warwick timeout and DOI 403",
+          "title": "On the Smallest Synchronizing Terms of Finite Tree Automata",
+          "trigger": "Source credited for general strong-synchronization height ceiling"
+        },
+        {
+          "assessment": "Height-eleven four-state extremizer; no equivalent joint census",
+          "evidence": [
+            "One unary and one ordered binary symbol attain the universal height bound on four states."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-four-state-tree-synchronization-over-two-ranked-symbols--5734bc809a8e/RESULT.md",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Resolved Resultary hit against primary statement",
+          "title": "Sharp four-state tree synchronization over two ranked symbols",
+          "trigger": "Same unary/binary signature and sharp reset-height objective"
+        },
+        {
+          "assessment": "Different population and one objective only",
+          "evidence": [
+            "Four states, permutation unary, commutative binary, and reset-height strata, not a three-state frontier over all ordered binary tables."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-cycle-type-stratification-of-strong-tree-synchronization-on-four--4573fbef589c/RESULT.md",
+          "material_read": "Local-mirror RESULT.md, Finding and scope",
+          "method": "Resolved Resultary hit against primary statement",
+          "title": "Cycle-type stratification of strong tree synchronization on four states",
+          "trigger": "Distinct same-day finite strong tree synchronization classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, two-state boundary, explicit depth/leaf witness and full census",
+        "Independent global frontier output listed under correctness"
+      ],
+      "rationale": "The ranked signature is the smallest natural one that allows both branching and unary compression, and three states are the first size permitting a conflict. The comparison addresses two genuinely different resources of a synchronizing term, depth and number of independent inputs. The nontrivial height-three versus height-four witness and exact frequency of both types determine when a shortest term cannot also use the fewest leaves; a universal height bound or a count of synchronizing machines alone cannot answer that question.",
+      "residual_risks": [
+        "No larger-state trend, optimal-term shape classification or algorithmic complexity claim follows from this census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

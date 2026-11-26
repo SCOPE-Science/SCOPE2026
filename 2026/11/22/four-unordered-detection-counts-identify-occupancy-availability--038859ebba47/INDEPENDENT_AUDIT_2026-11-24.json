@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:19:09.423017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–91",
+        "VERIFICATION.md",
+        "check.py inspected; not executed",
+        "/workspace/branches/frozen_exact_checks.py"
+      ],
+      "rationale": "For a subset of survey times with successive gaps g, the occupied latent moment is π times the product of π+(1−π)r^g. Independent detection and the occupancy mixture therefore multiply each subset moment by ψp^k. The gap multiplicities give the four binomial moments in the stated (t,r,z) coordinates. Independent symbolic differentiation gives ∂t log R>0 and det D(log R,log U)=−3t(1−r)²/[(1+t)BC]. At fixed r, R ranges from 4/9 to the strictly decreasing R∞(r); hence a fixed feasible R gives a single connected interval (0,r*) in r and exactly one t per r. Along that curve log U has derivative J/(∂t log R)<0, proving global, not just local, uniqueness. The endpoints for the outer monotone solve are the r→0 limit at finite t and the r→r* limit with t→∞. The positive-moment, shape and physical-parameter tests are sufficient since inverse substitution reproduces all four moments and their triangular transform determines the histogram. Transfer-matrix generating polynomials for the two stated three-survey tuples agree exactly. The constant-memory boundaries r=0 and r=1 indeed collapse different pairs of probabilities. Replay: python3 /workspace/branches/frozen_exact_checks.py 3.",
+      "residual_risks": [
+        "Reject histograms with nonpositive required moments before forming ratios. The quadratic determinant rate is at fixed interior t (also ordinary fixed interior π as r→1), not a uniform statement over all parameter paths; the inverse is not a finite-sample guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The HMM theorem is generic and uses a joint marginal of consecutive variables; Cole's exhaustive summary uses probabilities of ordered sequences."
+        ],
+        "reasoning": "Injectivity of a more informative ordered observable does not imply injectivity after count aggregation, and generic identification would not establish injectivity throughout the specified interior family.",
+        "searches": [
+          "Allman–Matias–Rhodes arXiv:0809.5032 Theorem 6",
+          "Cole DOI 10.1007/s40300-019-00156-3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 55d56cb549d5",
+        "arXiv:0809.5032",
+        "DOI 10.1007/s40300-019-00156-3",
+        "arXiv:1102.3613"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-count inverse sets m=E[N3]/3 equal to conditional πp. At unknown occupancy the observed m instead equals ψπp. The exact collision in the assigned proof has identical three-count polynomials at two different interior occupancies."
+        ],
+        "reasoning": "Feeding unconditional moments to the known-occupied formulas does not recover the desired parameters. Eliminating ψ using two shape ratios and proving monotonicity on a connected level curve is additional work, not a direct use of the ordered theorem or a relabeling of the three-count inverse.",
+        "searches": [
+          "Resultary 55d56cb549d5, Finding and joint-moment proof",
+          "arXiv:0809.5032, Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count is a structural-zero mixture of a binomial thinning of a Markov-binomial count. Dekking–Kong define the count of ones in the directly observed chain. The catalogue inverse instead uses the thinned count at known-occupied sites."
+        ],
+        "reasoning": "Neither the unthinned distribution nor the known occupied count law is the unknown zero-inflated model. The factor ψ contaminates every nonzero-order count moment, and there is no general ordered-history reconstruction from this coarsening.",
+        "searches": [
+          "Resultary 55d56cb549d5",
+          "Dekking–Kong arXiv:1102.3613",
+          "Count-only Markov availability and thinned Markov-binomial identifiability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior inverse uses three visits for sites known to be occupied and includes nonzero negative memory in its domain."
+        ],
+        "reasoning": "It is close coverage of the count statistic and mathematical method, but not a table or inverse for unknown occupancy. This theorem trades the restricted positive-memory domain for a fourth unknown parameter and proves a different minimum.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-three-count-only-visits-identify-markov-availability-and-detecti--55d56cb549d5"
+        ]
+      },
+      "rationale": "The strongest count-only precedent gives an exact inverse when occupancy is fixed and known, rather than an unknown zero-inflation component. The general ordered-HMM and direct Markov-binomial passages do not supply a globally injective four-count compression for this model. On inspected evidence the additional unknown mixture, global two-shape inverse and sharp ambiguity distinguish the result.",
+      "residual_risks": [
+        "The focused literature query did not surface a relevant additional hit and furnishes no negative evidence. An earlier inverse in zero-inflated or thinned Markov-binomial theory remains possible. Goldstein et al. was not independently read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior inverse for the known-occupied model, not unknown structural occupancy.",
+          "evidence": [
+            "Assumptions specify sites known to be occupied; the explicit inverse uses m=πd without a factor ψ."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-three-count-only-visits-identify-markov-availability-and-detecti--55d56cb549d5",
+          "material_read": "RESULT.md Finding, assumptions and joint-moment proof, local offsets 0–3636; relationship at offset 6751",
+          "method": "Resultary and local mirror",
+          "title": "Three count-only visits identify Markov availability and detection except at zero temporal memory",
+          "trigger": "Nearly identical observables and conditional model"
+        },
+        {
+          "assessment": "Generic ordered-law identification, not count-only identification.",
+          "evidence": [
+            "The statement uses the joint marginal of consecutive variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0809.5032",
+          "material_read": "Theorem 6, PDF p. 15, OA offset 44900",
+          "method": "OA PDF passage",
+          "title": "Identifiability of parameters in latent structure models with many observed variables",
+          "trigger": "General HMM identifiability may imply a special case"
+        },
+        {
+          "assessment": "Observation probabilities are sequence-resolved in the inspected construction.",
+          "evidence": [
+            "The summary uses probabilities for X1,…,XT."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40300-019-00156-3",
+          "material_read": "p. 9, exhaustive summary, offset 25674",
+          "method": "OA paper passage",
+          "title": "Parameter redundancy and identifiability in hidden Markov models",
+          "trigger": "HMM structural identifiability"
+        },
+        {
+          "assessment": "Direct chain count, not a structural-zero mixture with unknown independent thinning.",
+          "evidence": [
+            "The count sums the state indicators themselves."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.3613",
+          "material_read": "PDF p. 1, offset 3300",
+          "method": "OA PDF passage",
+          "title": "Multimodality of the Markov binomial distribution",
+          "trigger": "Alternative Markov-binomial formulation"
+        },
+        {
+          "assessment": "No negative coverage inference from access failure; the frozen record cites it for model context.",
+          "evidence": [
+            "Both attempts returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.14359",
+          "material_read": "Primary full text not independently available via this DOI route",
+          "method": "OA direct/VPN attempts",
+          "title": "Guidelines for estimating occupancy from autocorrelated camera trap detections",
+          "trigger": "Closely related ecological modeling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and lines 29–91",
+        "Prior known-occupied three-visit inverse"
+      ],
+      "rationale": "The four unknowns are distinct sources of observed zeroes and detection dependence, and the available statistic deliberately removes time order. The sharp design threshold quantifies the exact cost of that reduction in this model; the inverse and feasibility conditions diagnose which idealized count laws are compatible without needing sequence-level information.",
+      "residual_risks": [
+        "Does not establish empirical adequacy, stable estimation near excluded regimes, or optimal field scheduling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

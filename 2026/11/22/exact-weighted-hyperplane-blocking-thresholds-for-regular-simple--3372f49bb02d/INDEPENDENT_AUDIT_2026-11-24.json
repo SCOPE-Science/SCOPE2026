@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:39:01.139896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–76",
+        "VERIFICATION.md and check.py inspected; frozen checker not executed"
+      ],
+      "rationale": "The Gram matrix of the normalized simplex vertices is (N/d) times projection onto the sum-zero subspace. Thus unit normals correspond bijectively to sum-zero profiles with squared norm N/d, and an open ball is avoided exactly when the magnitude of its normalized projection is at least lambda*b_i. In each sign partition the magnitudes divided by lambda have equal group totals and their given positive lower bounds. At a fixed feasible total, the water-filled vector y_i=max(b_i,c) uniquely minimizes squares: for any competitor z, sum y_i(z_i-y_i)=sum (y_i-c)(z_i-y_i)>=0, since y_i>c only at active lower bounds, and the remaining difference of squares is sum (z_i-y_i)^2. Both groups' optimum energies strictly increase with the common total (mass above the bounds can be removed to reach a lesser feasible total), so the minimizing total is the larger sum of bounds. Every avoiding normal therefore gives energy at least E_*, and an energy minimizer rescales to a unit normal avoiding exactly at lambda_* and hence also at lower scales. At equality both energy bounds must be equalities; uniqueness in each partition and reversal of the normal give the listed unoriented planes. In the equal-weight case the energy for sizes p>=q is pN/q and is uniquely minimized in size by balance. For (1,1,1,2) the distinct partition types give energies 12, 22 and 19/2. The maximum over unit u of min_i |<u,v_i/R>|/b_i is the same lambda_* and is continuous in positive b by compactness. The center-distance condition gives pairwise separation, and the neighborhood conclusion follows from this projection maximum and the strict bound on displacement; the equal-weight gap follows from floor(N/2)/ceil(N/2)<=1<N/2. Line 71 overstates a strict inequality at lambda_*: critical avoiding normals furnish counterexamples to that strict clause. The proof explicitly allows and uses the non-strict bound in lines 71–74, which follows from the projection maximum (or a limit from scales above lambda_*), so this error does not invalidate or change the finding.",
+      "residual_risks": [
+        "Only the non-strict projection bound is valid at the critical scale; open balls and a strictly smaller neighborhood displacement are essential to the written argument.",
+        "No characterization away from the centroid other than the stated sufficient neighborhood is established; finite samples are not a proof over arbitrary weights and directions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang–Polyanskii establish total zone-width at least pi for a covering; Bezdek–Lángi consider an extremal cell inradius over arrangements.",
+          "Casado et al. cover the simplex body with balls centered at its vertices, via the power function.",
+          "Osipchuk treats topology of nonconvexity-point sets under weak m-convexity conditions."
+        ],
+        "reasoning": "The first bound is necessary rather than an exact fixed-arrangement threshold; the others optimize arrangements, cover points rather than intercept hyperplanes, or supply topological rather than quantitative results. None of these statements gives the water-filled optimizer for every positive weight vector.",
+        "searches": [
+          "arXiv:1703.10550",
+          "arXiv:2201.11234v3, Problem 2 and Theorem 4",
+          "DOI:10.1007/s10898-010-9524-x",
+          "arXiv:2611.18216v1"
+        ]
+      },
+      "checked_sources": [
+        "Primary passages and catalogue results listed above",
+        "RESULT.md lines 5–28 and 82–96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unweighted width supplies the balanced partition direction pattern.",
+          "A total-zone-width inequality does not resolve how individual weight and prescribed normal interact.",
+          "The weighted example has three distinct projection magnitudes, whereas the balanced unweighted optimum has at most two."
+        ],
+        "reasoning": "Neither the prior optimizer set for a different scalar objective nor the global covering lower bound yields the minimizing signed lower-bound energy for arbitrary weights. The new content is the exact reduction with all equality cases, not the standard fixed-total quadratic minimization in isolation.",
+        "searches": [
+          "arXiv:2301.02616v1, Lemma 1.2 and width formulas",
+          "arXiv:1703.10550, Theorem 1",
+          "DOI:10.1007/s10898-010-9524-x, pp. 645–647 and 654–655"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the normal sphere, the ball at v_i produces a zone about the great sphere w_i^perp, of width 2 arcsin(lambda*b_i) while lambda*b_i<1.",
+          "Jiang–Polyanskii give a necessary total zone-width bound and an equality condition.",
+          "The classical minimum-width directions of the regular simplex are balanced bipartitions."
+        ],
+        "reasoning": "The present claim asks for exact coverage by a prescribed weighted family of zones and for all just-uncovered points; simplex width instead optimizes the full projection range, not the minimum of absolute projections divided by weights. Only the equal-weight direction pattern is shared.",
+        "searches": [
+          "regular simplex arbitrary positive vertex weights open balls centroid hyperplane avoidance threshold water filling equality profiles",
+          "arXiv:1703.10550, Theorem 1 and Corollary 3",
+          "arXiv:2301.02616v1, Lemma 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit with ID 3372f49bb02d is the same frozen finding.",
+          "Nearby indexed summaries concern the balanced regular-simplex width landscape (566c4532dfea), weighted simplex-generator zonotope inballs and signed outer radii (76756fb38188), and surface-volume centroid separation (6976d4bee83b)."
+        ],
+        "reasoning": "The catalogue self-match is not prior work. The distinct summaries overlap in simplex geometry or bipartition methods but describe different objective functions and outputs; the comparison is limited by unavailable primary texts for these hits, independent of their dates.",
+        "searches": [
+          "Resultary: exact weighted centroidal hyperplane-blocking thresholds for regular simplex balls",
+          "2026/11/22/SCOPE-exact-weighted-hyperplane-blocking-thresholds-for-regular-simple--3372f49bb02d",
+          "566c4532dfea",
+          "76756fb38188",
+          "6976d4bee83b"
+        ]
+      },
+      "rationale": "The distinct claim is the exact arbitrary-weights threshold for a fixed regular-simplex arrangement and the classification of every critical profile. The balanced directions already present in classical regular-simplex width theory, spherical covering lower bounds, and the definition of nonconvexity points are prior ingredients, not the originality-bearing claim. The verdict is limited to available comparisons.",
+      "residual_risks": [
+        "Full texts of the distinct nearby Resultary records were unavailable; their assessments are summary-level only.",
+        "An unindexed exact formula for prescribed regular-simplex zones or an equivalent signed projection problem remains possible. Search misses are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Necessary covering constraints, not the weighted fixed-arrangement formula.",
+          "evidence": [
+            "Covering zones have total width at least pi; when caps intercept every great sphere their radii sum to at least pi/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.10550",
+          "material_read": "PDF pp. 2–3, Theorem 1 and Corollary 3, offsets 6305 and 8197",
+          "method": "Lawful original OA passage inspection",
+          "title": "Proof of László Fejes Tóth's zone conjecture",
+          "trigger": "Equivalent spherical-zone covering model"
+        },
+        {
+          "assessment": "Extremal arrangements on S^2, not the stated inverse scale.",
+          "evidence": [
+            "Smallest cell inradius is optimized over arrangements of great circles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.11234v3",
+          "material_read": "Problem 2 and Theorem 4, HTML offsets 16672–20599",
+          "method": "Lawful original OA passage inspection",
+          "title": "From the separable Tammes problem to extremal distributions of great circles in the unit sphere",
+          "trigger": "Great-circle inradii and zone arrangements"
+        },
+        {
+          "assessment": "Credits the balanced unweighted direction antecedent but does not imply weighted profiles.",
+          "evidence": [
+            "Classical width optimizer uses the two most balanced sign classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.02616v1",
+          "material_read": "Lemma 1.2 and regular-simplex width formulas, offsets 5800 and 10000",
+          "method": "Lawful original OA passage inspection",
+          "title": "On the Width of the Regular n-Simplex",
+          "trigger": "Balanced direction overlap"
+        },
+        {
+          "assessment": "Covers the simplex body, not hyperplane interception through its centroid.",
+          "evidence": [
+            "The Simplex Cover problem uses vertex-centered balls and an optimization of their power function; the regular case is considered separately."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10898-010-9524-x",
+          "material_read": "PDF pp. 645–647 (offsets 0–5721) and pp. 654–655",
+          "method": "Lawful Springer PDF passage inspection",
+          "title": "On determining the cover of a simplex by spheres centered at its vertices",
+          "trigger": "Vertex ball covering on the same type of simplex"
+        },
+        {
+          "assessment": "Terminology and topology, not radius, equality or positive-weight phase classification.",
+          "evidence": [
+            "Definition requires intersection of all m-planes through the point; the main results address topology under weak m-convexity hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.18216v1",
+          "material_read": "Abstract, definition and main results, HTML offsets 762, 2283 and 6133",
+          "method": "Lawful original OA passage inspection",
+          "title": "On weakly m-convex sets, m=1,...,n-1, in n-dimensional Euclidean spaces",
+          "trigger": "Nonconvexity-point antecedent"
+        },
+        {
+          "assessment": "Limited statement comparison; no full-text exclusion or priority inferred.",
+          "evidence": [
+            "Summaries describe, respectively, directional width minima, weighted projected-cube radii and facet-area/centroid separation."
+          ],
+          "identifier_or_url": "566c4532dfea; 76756fb38188; 6976d4bee83b",
+          "material_read": "Catalogue summaries; local-mirror full text unavailable",
+          "method": "Configured Resultary search and local-mirror lookup",
+          "title": "Nearby indexed regular-simplex width, weighted zonotope and centroid separation records",
+          "trigger": "Strongest distinct Resultary summaries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 20–46 and 65–76",
+        "arXiv:1703.10550 and arXiv:2611.18216v1 for covering and nonconvexity context"
+      ],
+      "rationale": "The prescribed-obstacle incidence threshold is a natural inverse problem in convex geometry. Exact arbitrary-weight profiles give more than the standard balanced direction and show which radii become active; the example verifies that multiple distinct magnitudes really occur. The same threshold certifies an open nonconvexity-point region for a family of pairwise disjoint balls, a geometric use of the exact result.",
+      "residual_risks": [
+        "The finite subset minimum is not claimed to run in polynomial time; the region estimate is sufficient, not optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

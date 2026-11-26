@@ -1,63 +1,63 @@
 # The eight singular genus-three fibers of the Yu–Zhu 85-line quintic pencil
 
 ## Finding
-For every \(t\in\mathbb C\setminus\{0,1\}\), the residual-quartic pencil on the Yu–Zhu quintic \(X_t\) has **exactly eight singular fibers**: five four-line stars and three pairs of smooth conics tangent at two points. The five four-line fibers lie over \(r=0,\infty\) and \(r^3=t\), while the three two-conic fibers lie over \(r^3=1\). Each four-line fiber has one ordinary quadruple point; each conic-pair fiber has two \(A_3\) tacnodes. All other fibers are smooth plane quartics of genus three. Every singular fiber is reduced.
 
-Their topological Euler characteristics are, respectively, \(5\) and \(2\), and the total space has \(e(X_t)=55\). Thus the total singular-fiber defect relative to a smooth genus-three fiber is \(5\cdot9+3\cdot6=63\).
+For every \(t\in\mathbb C\setminus\{0,1\}\), the residual-quartic pencil through \(L=V(a,b)\) on the Yu–Zhu quintic \(X_t\) has exactly eight singular fibers. In the base coordinate \(r=a/b\), five fibers are four-line stars at \(r=0,\infty\) and \(r^3=t^{-1}\). The other three, at \(r^3=1\), are pairs of smooth conics with two tangencies each. The singularities of a star and of a conic pair are respectively one ordinary quadruple point and two \(A_3\) tacnodes. All fibers are reduced; every other fiber is a smooth plane quartic of genus three.
+
+A four-line star has topological Euler characteristic \(5\), and a conic pair has Euler characteristic \(2\). The sum of their defects relative to a smooth fiber is \(5\cdot9+3\cdot6=63\), and \(e(X_t)=55\).
 
 ## Assumptions and scope
-Work over \(\mathbb C\). Write coordinates on \(\mathbb P^3\) as \([u:v:a:b]\) and fix \(t\ne0,1\). Let
+
+In coordinates \([u:v:a:b]\) on \(\mathbb P^3_{\mathbb C}\), set
 \[
-X_t=V\bigl((a-b)(u^4-3v^4)-6(a+b)u^2v^2+ab(b^3-ta^3)\bigr).
+X_t=V\bigl((a-b)(u^4-3v^4)-6(a+b)u^2v^2+ab(b^3-ta^3)\bigr),\qquad t\ne0,1.
 \]
-The source proves \(X_t\) is smooth for these parameters and has exactly \(85\) lines. Let \(L=V(a,b)\subset X_t\). Planes containing \(L\), parametrized by \([a:b]\in\mathbb P^1\), cut the hyperplane divisor as \(L+Q\), with \(Q\) a residual plane quartic. The family of residual divisors is \(|H-L|\), where \(H\) is the hyperplane class. The claim classifies this specified fibration, **not** all genus-three pencils on \(X_t\).
+Yu and Zhu prove that \(X_t\) is smooth and has exactly 85 lines [1, Theorem 1.1 and Lemma 3.1]. Each plane through \(L\) cuts the sum of \(L\) and a residual plane quartic. The claim concerns only the fibration by these residual divisors on \(X_t\), not other pencils or a quotient surface.
 
 ## Proof
-**1. The fibration is defined everywhere.** Off \(L\), the unique plane through \(L\) and a point determines the parameter. On \(L\), the residual quartic in the plane \(a=rb\) restricts to the binary form
+
+**The pencil has no base points.** Removing the common divisor \(L\) from the plane sections gives a pencil in \(|H-L|\), where \(H\) is the hyperplane class. Outside \(L\) every point belongs to exactly one plane of the pencil. For a finite parameter \(r\), substitute \(a=rb\) and remove the factor \(b\). In plane coordinates \([u:v:b]\) the resulting equation is
 \[
-f_r(u,v)=(r-1)(u^4-3v^4)-6(r+1)u^2v^2.
+Q_{r,t}=f_r(u,v)+c b^4=0,\qquad
+f_r=A u^4+B u^2v^2+C v^4,
+\quad (A,B,C,c)=(r-1,-6(r+1),-3(r-1),r(1-tr^3)).
 \]
-If a point of \(L\) belonged to all residual divisors, the coefficients of \(r\) and of the constant term of \(f_r\) would vanish there, forcing simultaneously \(u^2v^2=0\) and \(u^4-3v^4=0\), impossible for \([u:v]\in\mathbb P^1\). Therefore \(|H-L|\) is base-point-free and defines a morphism \(\pi_t:X_t\to\mathbb P^1\). Its generic fiber is a smooth plane quartic, hence has genus \(3\). For completeness, the source's smoothness assertion follows from the partial derivatives: on \(L\) these two coefficients cannot vanish simultaneously; on \(V(u,v)\) the derivatives in \(a,b\) have no common zero for \(t\ne0\); when exactly one of \(u,v\) is zero, a singularity would force \(a=b\) and then \(t=1\); when both are nonzero, the two derivatives in \(u,v\) force \(u^4=-3v^4\) and \(a^2+ab+b^2=0\), where the degree-five equation would again force \(t=1\).
+On \(L\), the coefficient of \(r\) and the constant coefficient of \(f_r\) cannot both vanish: that would force \(u^2v^2=u^4-3v^4=0\) for some \([u:v]\in\mathbb P^1\). Thus the pencil defines a morphism to \(\mathbb P^1\), extending the ratio \([a:b]\). At \(r=\infty\), set \(b=0\) and remove \(a\); the equation in \([u:v:a]\) is \(u^4-6u^2v^2-3v^4=0\).
 
-**2. A single explicit quartic controls every fiber.** On the finite base chart \(b\ne0\), write \(a=rb\). After removing the factor \(b\) defining \(L\), the residual fiber in the plane \([u:v:b]\in\mathbb P^2\) has equation
+**Finite parameters with \(c=0\), and infinity.** The finite zeros are \(r=0\) and the three roots of \(r^3=t^{-1}\). At each, \(A,C\ne0\) and
 \[
-Q_{r,t}=A u^4+B u^2v^2+C v^4+c b^4=0,
-\quad A=r-1,\ B=-6(r+1),\ C=-3(r-1),\ c=r(1-tr^3).
+B^2-4AC=48(r^2+r+1)\ne0,
 \]
-The fiber over \(r=\infty\) is \(u^4-6u^2v^2-3v^4=0\). This is the four-line case described below.
+since none of these parameters is a cube root of unity. Hence the quadratic in \((u/v)^2\) has distinct nonzero roots and \(f_r\) has four distinct projective roots. The binary form at infinity has the same property (its quadratic discriminant is \(48\)). Each binary form therefore cuts four distinct lines through the single vertex \([0:0:1]\) in its plane. Their distinct tangent directions give one ordinary quadruple point, and they have no other intersections.
 
-**3. Exhaustive singular-fiber criterion.** If \(c\ne0\), the derivative \(\partial Q/\partial b=4cb^3\) forces every singular point to have \(b=0\). Such a singular point is exactly a repeated root of the homogeneous binary quartic \(f_r\). Its discriminant on the affine chart \(v=1\) is
+**Finite parameters with \(c\ne0\).** The derivative in \(b\) is \(4cb^3\), so a singular point requires \(b=0\). On this line the quartic is singular exactly at a repeated root of \(f_r\). For \(r\ne1\), the test is \(B^2-4AC=0\) because \(A,C\ne0\); there is no root lost at infinity in \([u:v]\). For \(r=1\) the form is \(-12u^2v^2\) and has two double roots. Equivalently, all and only the parameters with \(r^3=1\) give singular fibers in this case. They have \(c=r(1-t)\ne0\).
+
+At \(r=1\) the polynomial \(f_r\) is a nonzero multiple of \((uv)^2\). At a primitive cube root of unity the identity
 \[
-\operatorname{Disc}_u(f_r(u,1))=-110592(r-1)^2(r^2+r+1)^2.
+(r-1) f_r=\big((r-1)u^2-3(r+1)v^2\big)^2-12(r^2+r+1)v^4
 \]
-The condition therefore is \(r=1\) or \(r^2+r+1=0\), precisely the three roots of \(r^3=1\). Because \(t\ne1\), these parameters do have \(c\ne0\). If \(c=0\), then \(r=0\) or \(r^3=t\). At each of these four values \(f_r\) has four distinct projective roots: its leading and constant coefficients are nonzero and its biquadratic discriminant is \(B^2-4AC=48(r^2+r+1)\ne0\). The fifth value \(r=\infty\) likewise gives a quartic with four distinct roots. No other singular fibers exist. Since \(t\notin\{0,1\}\), the eight base parameters are distinct.
+shows that it is a nonzero multiple of the square of a binary quadratic with two distinct projective roots. In either case the quartic equation splits into two distinct conics \(q(u,v)\pm\gamma b^2=0\), with \(\gamma\ne0\) and \(q\) nondegenerate. Each conic is smooth by nondegeneracy of its ternary quadratic form. They meet only at the two points with \(b=q=0\). At each, in a chart on the plane, the simple zero of the binary quadratic permits \(q\) and \(b\) as local analytic coordinates. The union has equation \(q^2-\gamma^2 b^4=0\), giving one \(A_3\) tacnode at each point.
 
-**4. The five line-star fibers.** Whenever \(c=0\), the equation \(Q_{r,t}=f_r(u,v)\) factors into four distinct linear forms over \(\mathbb C\), independent of \(b\). In its plane these are four distinct lines meeting at \([u:v:b]=[0:0:1]\). This point is their unique singular point and is an ordinary quadruple point, with four distinct tangent directions. The same argument applies at \(r=\infty\).
+The parameters in the two singular cases are disjoint and distinct because \(t\ne0,1\). All remaining fibers are smooth plane quartics and have genus three by the plane genus formula.
 
-**5. The three conic-pair fibers and their analytic types.** At \(r=1\), one has \(f_1=-12u^2v^2\). Consequently \(Q_{1,t}\) is a difference of two squares after choosing square roots of nonzero constants, and it splits into the two smooth conics \(uv=\pm\gamma b^2\), where \(\gamma\ne0\). They meet exactly at \([1:0:0]\) and \([0:1:0]\), with contact order two at each point.
-
-For a primitive cube root \(r\ne1\), the identity
-\[
-(r-1)f_r=\bigl((r-1)u^2-3(r+1)v^2\bigr)^2-12(r^2+r+1)v^4
-\]
-reduces to a square because \(r^2+r+1=0\). Here \(c=r(1-t)\ne0\), so \(Q_{r,t}\) again factors into two conics of the form \(q(u,v)\pm\gamma b^2=0\), with \(q\) a nondegenerate diagonal quadratic form having two distinct zeros on \(\mathbb P^1\). Each conic is smooth and the two intersections lie at those zeros with \(b=0\). Locally \(q\) is a coordinate transverse to the root, and the union has equation \(q^2-\gamma^2 b^4=0\): the \(A_3\) plane-curve tacnode. There are exactly two such points per fiber.
-
-**6. Euler characteristic as a global consistency check.** A smooth genus-three fiber has \(e=-4\). Four rational lines sharing just one point have \(e=4\cdot2-3=5\). Two smooth conics meeting at two distinct points have \(e=2\cdot2-2=2\). Therefore, using additivity of Euler characteristic in a proper fibration with finitely many singular fibers,
+**Euler characteristics.** Four projective lines meeting only at a common point have \(e=4\cdot2-3=5\). Two smooth conics meeting at two distinct points have \(e=2\cdot2-2=2\). The smooth fibers have \(e=2-2\cdot3=-4\), so additivity over the base and local triviality over the smooth-fiber stratum give
 \[
 e(X_t)=2(-4)+5(5+4)+3(2+4)=55.
 \]
-Independently, adjunction for a smooth quintic surface gives \(c_2(TX_t)=11H^2\), and since \(H^2=5\), its Euler characteristic is \(55\).
+Independently \(c_2(TX_t)=11H^2\) by the hypersurface Chern-class formula, with \(\int_{X_t}H^2=5\).
 
 ## Verification
-The accompanying `verify_genus3_fibers.py` performs exact symbolic checks of the binary-quartic discriminant, square identities, limiting binary quartics and independent Euler-characteristic calculation. Its successful output records the 5+3 classification and \(e(X_t)=55\). These calculations verify polynomial identities; the algebraic argument above supplies the exhaustive all-parameter classification, smoothness reasoning and local analytic interpretation.
+
+The argument is uniform in \(t\); in particular the finite line-star parameters follow from the **zero set** of \(r(1-tr^3)\), not from a finite sample. The accompanying symbolic checks cover the binary-quartic identities and the Euler arithmetic. The proof gives the exhaustive singularity criterion and the analytic types.
 
 ## Relationship to prior work
-Yu and Zhu [1] construct the pencil of quintic surfaces with 85 lines, give its equation (3.1), prove smoothness, and count the 20 lines meeting \(L\) by identifying five completely split residual quartic planes. They also compute the singular fibers of a **different elliptic fibration**, obtained from the quotient \(X_{-1/8}/C_4\), as \(5I_0^*+I_4+2I_1\). The present claim instead gives a complete classification of the **unquotiented genus-three residual-quartic fibration for every smooth parameter**, including three conic-pair fibers and all its local plane-curve singularities. The source's elliptic quotient fiber labels do not identify the components or tacnodal singularities of the original plane-quartic fibers. An independently published published-finding corpus computation of the 85-line incidence graph concerns the line-incidence spectrum, not singular plane-quartic fibers. Standard plane-curve discriminant methods and Euler-characteristic formulas are background tools, not claimed as new.
+
+Yu and Zhu [1, §3.2] already determined the five completely split residual quartic sections when counting lines meeting \(L\). Their finite plane parameter \(\lambda\) is defined by \(\lambda a=b\), so their equation \(\lambda^3=t\) agrees with \(r^3=t^{-1}\) in the reciprocal chart used here. The all-parameter classification above adds the three conic pairs, determines their local singularities, and rules out further singular fibers. For \(t=-1/8\), [1, §4] also describes the singular Kodaira fibers \(5I_0^*+I_4+2I_1\) of the elliptic surface obtained from the order-four quotient of **this same pencil** and resolution. That special-member quotient calculation does not describe the conic components and tacnodes of the original plane quartics for the family. These comparisons do not claim publication priority outside the work examined.
 
 ## Limitations
-The conclusion is over \(\mathbb C\) for \(t\ne0,1\). It does not classify stable reductions, monodromy representations, all other fibrations on the surface, or the induced elliptic quotient's singular fibers beyond the cited source. Direct consequences of the explicit source equation may have been independently observed but not found in the searched records; publication priority requires external verification. No independent scientific audit has been performed.
 
-## References
-[1] X. Yu and Z. Zhu, *A smooth quintic surface with 85 lines and Picard number 43*, arXiv:2609.26862v1, submitted 2026-09-22, https://arxiv.org/abs/2609.26862 (Theorem 1.1, §3.1, §3.2, §4).
+This is a classification over \(\mathbb C\) for \(t\ne0,1\) of one pencil on \(X_t\). It does not determine stable reductions, monodromy, or the elliptic quotient fibers in the varying family.
 
-[2] C. Hilario and K.-O. Stöhr, *Fibrations by plane quartic curves with a canonical moving singularity*, arXiv:2306.08579 (characteristic-two rational quartic fibrations, a different setting).
+## Reference
+
+[1] X. Yu and Z. Zhu, *A smooth quintic surface with 85 lines and Picard number 43*, [arXiv:2609.26862v1](https://arxiv.org/abs/2609.26862), Theorem 1.1, Lemma 3.1, §§3.2 and 4.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For length-four binary blocks, exhaustive classification under initial-symbol and ordered-bigram counts gives twelve singleton classes and two doubleton classes. The resulting twenty forbidden eight-bit windows lead to a 128-state transfer representation. The exact integral 33-step vector identity over all 128 coordinates proves the degree-32 rational denominator for every length; the first forty coefficients establish the complete numerator. The graph is strongly connected and aperiodic, establishing the asymptotic by Perron–Frobenius. The machine-readable checking scripts and a fully independent brute-force enumeration corroborate the derivation.
+## correctness
 
-**Originality: PASS, with residual priority risk.** The full texts of Huova–Karhumäki (2011) and Rao–Rosenfeld (2015), together with searches for aliases, forbidden-window variants and entropy formulations, give definitions and global/infinite avoidance results, not this evaluated fixed-period binary enumeration. Closest research-record matches concern antisquares, global repetition avoidance and 2-Abelian squares in a particular automatic word, none of which implies the period-four rational series. An unindexed or differently phrased finite-state enumeration is still possible.
+PASS
 
-**Value: PASS.** This is the first half-length at which literal and \(2\)-Abelian squares cease to coincide for binary blocks; the quantifiable entropy penalty is structural, not an arbitrary isolated numerical coefficient. The result gives an exact finite-state baseline for comparing partial-period constraints in the established study of long repetitions, with a fully reproducible all-length certificate.
+For linear binary words the multiset of bigrams and the initial letter determine total letter multiplicities: the bigram heads count all positions except the initial one. Conversely the letter and head counts determine that initial letter. The equal-length-four classes give 16 literal forbidden windows and four extras, 00100100, 01000010, 10111101 and 11011011. In the seven-bit suffix graph, each legal word of length n>=7 is exactly one labelled walk of n-7 steps with arbitrary endpoints. The independent replay at review-evidence/record1_arithmetic_check.py (output beside it as record1_arithmetic_check.txt) rebuilt all 128 states and 236 edges directly from letter and pair counts, checked all coordinates of the row-vector identity at lag 33, reproduced the numerator and initial counts, and verified strong connectivity, period one and both Perron enclosures by exact integer comparisons. For n>=40, the polynomial convolution vanishes by right multiplication of that vector identity; convolution for n<40 uses the verified initial values, including the empty word. Thus the finite certificate gives an all-n rational series. Primitivity gives the simple Perron rate and positive leading constant; the strict comparison uses strict entrywise containment somewhere in irreducible graphs. Independently, in the literal-only case the first four letters and the subsequent lag-four XOR bits are bijective coordinates, and a forbidden literal square is exactly four consecutive zero XORs. The tetranacci equation for that avoidance rate agrees with the literal enclosure. The literal graph has 240 surviving edges of 256 possible; the awkward wording in the proof does not change the edge set or calculation. Uploaded support was inspected, not executed.
 
-**Limits.** This is not full-period \(2\)-Abelian-square avoidance, and the claim of historic priority remains qualified. The numerical Perron enclosure follows from exact rational inequalities; the all-length identity follows from the vector certificate, not brute force alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact fixed-half-length-four enumerator and its Perron rate are distinct from previously stated equivalence characterizations, global or long-repetition avoidance results, and literal-square counts. No inspected statement or published table was found that covers this exact numerical invariant. This is a bounded conclusion, not a priority guarantee.
+
+## value
+
+PASS
+
+Half-length four is the first possible length of a genuinely nonliteral binary 2-Abelian equivalence class: length two is determined by its sole bigram, and for length three the two bigrams with their fixed initial letter cannot be traversed in two distinct orders producing different words. Thus this slice is selected by a combinatorial threshold, not by an arbitrary enumeration cutoff. Its exact recurrent counts and rate quantify an exponential cost from only four new exclusions and provide a reusable benchmark for fixed-period avoidance, beyond the generic fact of rationality or the qualitative rate inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:50:20.457502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4, VERIFICATION.md, certificate_5x5.json and verify_torus_coloring.py; frozen checker inspected, not executed.",
+        "Abdollahi arXiv:0705.0193, stated theorem; Chen–Jing–Zang arXiv:1901.10316v2, abstract and Introduction.",
+        "Independent geometric replay: python3 branches/b54ded4d-942e-4a86-9eae-db16a5c9b411/independent_certificate_check.py source/2026/11/22/exact-parity-law-for-contact-colorings-of-extremal-triangular-ti--d3fed39986de/certificate_5x5.json. It checks the 150 cells, all 1,575 contact pairs, 21 neighbors per cell, and the six 11-cell and seven 12-cell color classes."
+      ],
+      "rationale": "Each small cell is an incidence of an original edge with one of its two incident faces. A contact is at an old endpoint or in the same large face; in the latter case the original edges also share an endpoint. Hence the graph is L(2T), with a 12-clique at every old vertex. The even-order Cayley graph meets Abdollahi's exact hypotheses: its abelian group splits into a nontrivial 2-group and an odd-order group, and the generators connect it. Six 1-factors color the single edges and can be used with disjoint palettes on the parallel copies. For odd order, the proof's induced-edge bounds check at s=3,5 by simplicity, s=7 by the induced neighbor hexagon or degree at most five, s=9,11 by the nonzero even cut, and s≥13 by six-regularity. The six neighbors induce exactly the ordinary hexagon: differences between local representatives cannot match a generator only by wrapping, as m,n≥5. This gives odd density at most 13 and the full odd vertex set gives density greater than 12. Goldberg–Seymour and the matching lower bound agree. The planar coloring uses the two parities along the lines in each of three directions, with a separate color for each of the two face sides.",
+      "residual_risks": [
+        "The finite replay establishes a witness at 5×5 only. The general result, including all even cases, depends on the analytic argument, and the stated contact identification is restricted to the given tiling and periods."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdollahi covers all generating sets of Q×H with nontrivial finite 2-group Q and odd-order H.",
+          "Mader gives d-edge-connectivity for every finite connected simple vertex-transitive graph of degree d. Goldberg–Seymour bounds the chromatic index of any loopless multigraph by max(Δ+1,ceil Γ)."
+        ],
+        "reasoning": "The even calculation is a direct case of Cayley 1-factorization followed by using a disjoint palette on each copy. The odd calculation is an immediate generic consequence for doubled odd-order connected vertex-transitive graphs; no lattice-specific small odd-set calculations remain necessary.",
+        "searches": [
+          "Abdollahi arXiv:0705.0193; Chen–Jing–Zang arXiv:1901.10316v2; Mader vertex-transitive edge-connectivity, Graphs in Additive Number Theory Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Local planar graph finding 02bb0d0eb47d; Yang–Wang abstract; Abdollahi §1; Chen–Jing–Zang abstract and Introduction; Mader theorem as quoted and proved in Graphs in Additive Number Theory §4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For proper odd S the cut bound gives 4e_T(S)=12|S|−2|δ_T(S)|≤12(|S|−1). All proper odd sets have density at most 12; the full set has density 12N/(N−1). Since N≥25 on the odd branch, its ceiling is 13. For even order the 12-color lower clique and the doubled 1-factorization match."
+        ],
+        "reasoning": "This is a direct application to the same invariant after the known contact reduction. The local case analysis offers an alternate proof of a weaker estimate, not a distinct palette result. The infinite-plane benchmark is the elementary direction-wise alternating edge coloring with doubled palettes.",
+        "searches": [
+          "Frozen odd-set bound against Mader Theorem 4.1 and Chen–Jing–Zang Introduction; even claim against Abdollahi's generating-set theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen d3fed39986de match is a self-match. The distinct 02bb0d0eb47d primary result states the infinite point-contact graph L(T)[K_2]. Its geometric edge/face-incidence identification is compatible with lattice translations.",
+          "The given periods preserve the contact structure without local vertex or edge identifications, so the quotient coloring is exactly ordinary edge coloring of the doubled Cayley graph."
+        ],
+        "reasoning": "The proper statement-level alias is edge coloring of 2T_{m,n}, not face coloring of a torus map or a side-sharing tile coloring. Carrying the known incidence model to the stated quotients requires no new contact mechanism.",
+        "searches": [
+          "Resultary contact-coloring and doubled triangular torus edge-coloring; distinct planar record 02bb0d0eb47d",
+          "Primary web search for toroidal triangular-lattice/doubled-graph edge coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate earlier exact palette table was identified in the bounded index inspection; the exact self-match is not independent. The distinct planar record gives graph balls and edge boundaries rather than a torus palette table.",
+          "The 5×5 witness is an explicit finite certificate, not an external exact table or a replacement for determining the palette of the family."
+        ],
+        "reasoning": "The failure does not rely on a claim that a duplicate table was found. The exact values are covered by the general theorem implications even without a table.",
+        "searches": [
+          "Resultary exact parity/contact-coloring and doubled triangular graph index queries; distinct 02bb0d0eb47d",
+          "Primary query for edge chromatic index of doubled vertex-transitive or triangular toroidal graphs"
+        ]
+      },
+      "rationale": "The exact parity classification is mechanically implied by the already identified contact-graph model and standard theorems. In the odd case Mader's theorem supplies a stronger cut bound than the frozen family-specific density estimate. For any connected simple d-regular vertex-transitive graph G of odd order N, every proper odd S has at least d edges in its cut, so the density of 2G on S is (2d|S|−2|δ_G(S)|)/(|S|−1)≤2d. The full set has density 2dN/(N−1)>2d (for d>0); the matching bound and Goldberg–Seymour give chi'(2G)=ceil(2dN/(N−1)). The quotient in the finding is immediately such a graph with d=6 and N≥25. For even order Abdollahi's theorem already gives the needed 1-factorization from the displayed group and connectivity, and doubling the colors is immediate. The exact named toroidal wording need not have appeared previously for this coverage to hold; no priority chronology is inferred from same-day records.",
+      "residual_risks": [
+        "An earlier publication of this exact toroidal wording was not established. Same-day catalogue chronology remains unresolved; neither issue affects the demonstrated mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the extremal tiling, not the torus palette",
+          "evidence": [
+            "The 21-neighbor equality case is the stated central subdivision with point contacts counted."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.13664v1",
+          "material_read": "Abstract, opening passage",
+          "method": "Primary HTML passage",
+          "title": "Convex monohedral tilings: a sharp neighbor bound and rigidity in the equality case",
+          "trigger": "Extremal geometric object and contact convention"
+        },
+        {
+          "assessment": "Same geometric graph input; not itself an exact torus-coloring statement",
+          "evidence": [
+            "The planar closed-cell contact graph is L(T)[K_2]."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-graph-balls-and-contact-edge-boundaries-in-the-21-neighbor--02bb0d0eb47d",
+          "material_read": "RESULT.md Finding and Proof §1",
+          "method": "Local mirror; opening passage",
+          "title": "Exact graph balls and contact-edge boundaries in the 21-neighbor convex tiling",
+          "trigger": "Strongest distinct indexed contact-graph result"
+        },
+        {
+          "assessment": "Directly covers the even Cayley graph",
+          "evidence": [
+            "For H of odd order and Q of order 2^k, k>0, every Cayley graph on a generating set of Q×H is 1-factorizable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0705.0193",
+          "material_read": "§1 theorem and definitions, text offset 300–2838",
+          "method": "Primary arXiv PDF, lawful open copy",
+          "title": "1-Factorizations of Cayley Graphs",
+          "trigger": "Exact scope for the even case"
+        },
+        {
+          "assessment": "Controls the exact index once Gamma exceeds Delta",
+          "evidence": [
+            "The theorem is chi'≤max(Δ+1,ceil Γ), with Γ the maximum odd-set density."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.10316",
+          "material_read": "Abstract and Introduction, Conjecture 1.1 (offsets 0 and 4418); abstract states it is proved",
+          "method": "Primary preprint passages",
+          "title": "Proof of the Goldberg–Seymour conjecture on edge-colorings of multigraphs",
+          "trigger": "Exact multigraph upper bound on the relevant invariant"
+        },
+        {
+          "assessment": "Directly gives the missing cut bound throughout the graph family",
+          "evidence": [
+            "Every finite connected simple vertex-transitive graph of degree d is d-edge-connected."
+          ],
+          "identifier_or_url": "https://mathsci.kaist.ac.kr/~sangil/seminar/wp-content/uploads/2014/08/lec4.pdf",
+          "material_read": "Theorem 4.1 p. 2, text offset 3140–4115",
+          "method": "Bounded PDF passage",
+          "title": "Graphs in Additive Number Theory, §4 (statement and proof of Mader's theorem)",
+          "trigger": "Stronger prior cover for the supposedly new odd-set estimate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen parity theorem and witness; verified general theorem implications above"
+      ],
+      "rationale": "The coloring problem is natural, and the exact palette is useful to know. But the invariant is a mechanical specialization of the known translated incidence model, Cayley factorization and vertex-transitive cut theorem plus Goldberg–Seymour. The local density argument supplies a weaker substitute for the generic cut calculation. The checked finite certificate confirms this predictable palette on one quotient without establishing an independent unknown extremal parameter or a simpler construction for the family. There is no supported distinct result to retain as a repair.",
+      "residual_risks": [
+        "This judgment is about the submitted classification, not the potential value of a separate explicit all-order coloring construction or of a different contact-coloring problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

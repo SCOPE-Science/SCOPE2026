@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:23:23.506042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48; corrected /workspace/repairs/3/RESULT.md proof and references",
+        "VERIFICATION.md, verify_graphs.py, verify_symbolic.py and recorded .out files inspected; the unknown degree-57 case does not rely on execution or extrapolation."
+      ],
+      "rationale": "The claim is unchanged in /workspace/repairs/3/RESULT.md. The frozen separator proof called (d−1)(d−3) the number of nonneighbors of all three anchors, omitting the d−3 additional neighbors of the star center. The corrected number outside the triple is d(d−3), with the same zero/positive cutoff. The table itself is correct: its last star row cell counts vertices touching neither the anchors nor their center. Rechecking the proof: diameter two gives a common neighbor for any nonedge, four-cycle exclusion gives uniqueness, and triangle exclusion treats edges. The two-anchor profile with a nonedge splits the no-adjacency cell into d−2 star extensions and (d−1)(d−2) nonstar extensions. For three distinct anchors the profile is determined by incidence to them and their pair-centers. A nonstar independent triple forms an induced hexagon with its centers: only opposite pairs can have an external common neighbor and each does, giving three distinct opposite-pair witnesses; the centers themselves give three singleton profiles. Each hexagon vertex has d−3 further private neighbors and (d−3)²+1 outside vertices touch none. For an edge plus isolated anchor the corresponding pentagon permits only private attachments, d−2 per vertex, and (d−2)(d−3) vertices touch none. In the star case the center gives one witness, with d−3 other center neighbors, d−1 private neighbors per original anchor, and the remainder. For a path the middle anchor is the endpoints' center, so the independent-star bit for the endpoints simply records a new neighbor of the middle. Each set of labeled supports, not just its cardinality, is thus independent of degree for d≥4. Relocating a pebble leaves at most three anchors; the strategy restores every pair and triple invariant on every move, also when several pebbles occupy one vertex. The written separators have ranks three and four, and any rank-q sentence can rename bound variables using at most q names. This proves the rank lower bounds and the conditional 50-vertex representative statement inside the Moore family.",
+      "residual_risks": [
+        "Degree 57 remains conditional. No conclusion for counting quantifiers, additional symbols or five or more variables."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reichard's isoregularity and vertex conditions concern common-neighbor or induced-subgraph counts, including constructions in generalized-quadrangle point graphs. Hoffman–Singleton restrict the realizable degrees.",
+          "Grohe–Otto supply the general pebble-game theorem; it does not supply a pair of winning strategies for any specific structures."
+        ],
+        "reasoning": "Strong regularity fixes two-anchor counts but does not equate higher-anchor profiles from these different parameter sets. The current invariant additionally has to handle all triples in the new four-pebble configuration.",
+        "searches": [
+          "arXiv:1401.6816 §§1, 3",
+          "Hoffman–Singleton, On Moore Graphs of Diameter Two and Three",
+          "arXiv:1204.1990 §2"
+        ]
+      },
+      "checked_sources": [
+        "Nov. 2 and Nov. 8 Resultary records named above",
+        "Grohe–Otto, Pikhurko–Verbitsky, Reichard, Hoffman–Singleton"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-round strategy matches the fourth vertex only by its adjacency bits to the current three; the present proof matches the three new star bits as well. Its hexagon opposite-pair and private-neighbor witnesses supply distinctions absent from the smaller bits-only support.",
+          "The lower-width claims do not address the enhanced fourth extension."
+        ],
+        "reasoning": "After the next pebble relocation an unmatched star bit on a surviving triple can be exposed by asking for its common neighbor. Thus preservation only to the fourth move is not an indefinite invariant and the prior proofs inspected do not already give the claimed extension.",
+        "searches": [
+          "Nov. 2 Resultary Moore record, Four-round strategy, offset 4800 onward",
+          "Nov. 8 Resultary low-variable separation record, offsets 0 and 5800 onward",
+          "arXiv:1204.1990 §2, Thm. 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary L_k equivalence corresponds to an all-round k-pebble game; finite rank is a bound on rounds. The bijective game models counting logic.",
+          "The indexed four-round result uses an auxiliary concurrent/separate bit at the third move but only equality and adjacency at the last."
+        ],
+        "reasoning": "Using four variable names does not limit depth to four. Counting logic can separate different degrees by counting neighbors, so a claim about WL/counting cannot be substituted for this ordinary collapse.",
+        "searches": [
+          "arXiv:1204.1990 §2",
+          "Pikhurko–Verbitsky, Logical complexity of graphs: a survey, §3 Thm. 3.3",
+          "Resultary: SCOPE-three-four-round-theories-of-diameter-two-moore-graphs--06adb273d86e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former classifies rank ≤4 by min(d,4), including the same class count and representation size. The latter establishes FO² and FO³ comparisons plus a four-variable separator, but stops short of equivalence among the higher-degree graphs at width four."
+        ],
+        "reasoning": "These records cover meaningful subclaims and are not treated as unrelated. Neither retrieved result states the higher-degree all-round equivalence. The Nov. 2 calendar date establishes no within-day order.",
+        "searches": [
+          "Resultary: SCOPE-three-four-round-theories-of-diameter-two-moore-graphs--06adb273d86e",
+          "Resultary: SCOPE-exact-low-variable-logical-separation-of-diameter-two-moore-grap--13e88fffc243"
+        ]
+      },
+      "rationale": "The supported distinct claim is unrestricted counting-free FO⁴ equivalence in the higher-degree class. The existing four-round proof, lower-width results, and low-rank separators are expressly credited in the corrected result. Their conclusions do not perpetuate the enhanced invariant. This is a scoped distinctness judgment, not publication priority.",
+      "residual_risks": [
+        "Search was focused, not a proof of priority or exhaustiveness. An ordinary-game result in different graph-theoretic terms could have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers bounded-rank partition, separators and rank-four representative size, not all-round equivalence",
+          "evidence": "At the fourth selection the support table only guarantees the equality and adjacency pattern relative to the selected triple.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-four-round-theories-of-diameter-two-moore-graphs--06adb273d86e/RESULT.md",
+          "material_read": "Finding at offset 0; bounded passage from 4800 through Four-round strategy and separation; limitations excerpt around 9000",
+          "method": "Primary local-mirror proof comparison",
+          "title": "Three four-round theories of diameter-two Moore graphs",
+          "trigger": "Identical partition of Moore degrees"
+        },
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "Same low-width statements and a separator for degree three; higher-degree FO⁴ classification not settled there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-low-variable-logical-separation-of-diameter-two-moore-grap--13e88fffc243/RESULT.md",
+          "material_read": "Finding, lower-width and four-variable separation passages, offsets 0–5947 and 5800 onward",
+          "method": "Primary local-mirror statement comparison",
+          "title": "Exact low-variable logical separation of diameter-two Moore graphs",
+          "trigger": "Plausibly overlapping low-variable theorem"
+        },
+        {
+          "assessment": "Semantic tool, not Moore-specific implication",
+          "evidence": "Thms. 2.1 and 2.2 distinguish ordinary and bijective games; Thm. 2.4 connects counting and WL.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1990",
+          "material_read": "§2, pp. 4–5, offsets 10800–14800",
+          "method": "OA primary text",
+          "title": "Pebble Games and Linear Equations",
+          "trigger": "General graph-logic equivalence and counting"
+        },
+        {
+          "assessment": "General semantic theorem only",
+          "evidence": "Width controls the pebble count and rank the number of rounds.",
+          "identifier_or_url": "Pikhurko and Verbitsky, §3, Theorem 3.3",
+          "material_read": "§3, OA offset 38400",
+          "method": "OA primary text",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "Potential identification via general finite-variable logic results"
+        },
+        {
+          "assessment": "Different graph-counting statements",
+          "evidence": "2-isoregularity equals strong regularity, while higher vertex conditions concern induced count statistics, not cross-parameter ordinary four-variable equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.6816",
+          "material_read": "§1, p. 2, offset 5800; §3, p. 4, offset 9200",
+          "method": "OA primary text",
+          "title": "Strongly Regular Graphs With The 7-Vertex Condition",
+          "trigger": "Possible profile invariance from isoregularity"
+        },
+        {
+          "assessment": "Supplies realizable-degree restriction only for this comparison",
+          "evidence": "Possible diameter-two degrees 2, 3, 7 and 57, with existence at 57 unresolved.",
+          "identifier_or_url": "https://doi.org/10.1147/rd.45.0497",
+          "material_read": "Opening page, OA offset 0",
+          "method": "OA primary text",
+          "title": "On Moore Graphs of Diameter Two and Three",
+          "trigger": "Realizability and possible consequences of classical structural classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md enhanced invariant and scope",
+        "Comparable four-round and low-variable studies"
+      ],
+      "rationale": "The stronger fixed-width result closes the nontrivial logical question left by the rank-four comparison. The permanent support invariant explains structurally how the known 50-vertex graph represents the conditional higher-degree theory without the use of transitivity or cardinality information. This matters at every depth, not just in a checked tuple enumeration; the scope clarification preserves that motivation.",
+      "residual_risks": [
+        "The representative bound is only within the specified Moore family and does not resolve graph existence or classify other languages."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

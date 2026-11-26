@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:59:31.984118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63, VERIFICATION.md, both supplied checkers and outputs (read only)",
+        "Repaired /workspace/repairs/2/RESULT.md, including a clarified projection chronology",
+        "Independent replay: python3 /workspace/branches/bdcfde5a-6683-4b2f-b6bb-3d87e50b0864/independent_check.py; independent_check_output.txt in the same directory: P_3 and K_3 at r=2, with 24 and 54 minima, 32 and 48 edges per lifted base edge, and 80 and 279 total reconfiguration edges"
+      ],
+      "rationale": "The frozen mathematics and the repaired reconfiguration theorem both check. Twin clique vertices give the compulsory occupancy bound. For the projection lemma, start the base chronology with all active roots and retain only original-root forces whose targets are outside that set; these remain legal, since the retained target is white and the base has no additional white neighbors. The reverse chronology lifts by filling the last white private vertex from a black clique vertex before an external root force. Equality gives the local choices. Within a fiber each jump stays within a block; across fibers it trades one active root for an inactive one. At each changing block there are 2r nested local pairs, so the product with the unchanged blocks gives the exact crossing multiplicity. The regular-fiber degree and connectedness then yield the edge and component formulas. This argument includes r=2 and retains the fixed-n and classical forcing hypotheses.",
+      "residual_risks": [
+        "The replay is limited to the two checked small cases; proof, not enumeration, supports the parameter range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3 yields Z(G)+n(r-1) in its first corona step; Proposition 2.7 gives the product for a disjoint union."
+        ],
+        "reasoning": "Neither a numerical zero-forcing invariant nor a product over disconnected components describes the edges between fibers in a corona of a connected graph.",
+        "searches": [
+          "Websearch: zero forcing graph corona G odot K_r minimum zero forcing sets classification all minimum sets token-jump reconfiguration graph clique corona Javaid Irshad Batool Raza Geneson Haas Hogben",
+          "Javaid et al. arXiv:1607.04071 Theorem 2.3; Geneson et al. arXiv:2009.00220 Proposition 2.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md prior-work sections",
+        "Indexed and primary sources itemized above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 12 criterion is the same active-root projection for arbitrary feasible sets. Taking its equality case gives precisely the frozen minimum-set classification. The reconfiguration proof further analyzes inclusion of configurations in each losing and gaining block, inducing a uniform, nonzero lift multiplicity."
+        ],
+        "reasoning": "The exact lifted quotient and component invariant are consequences of a structural token-exchange argument using the known criterion, not a direct specialization of an enumerator or the disjoint-union theorem.",
+        "searches": [
+          "October 12 criterion (RESULT.md offsets 749, 1300, 6100), November 2 polynomial transform (offsets 2200–7145), Geneson et al. Proposition 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct clique-corona lift hit was the frozen record itself. 2026/11/8/SCOPE-closed-zero-forcing-polynomials-and-well-forcedness-of-clique-ex--86ad1fa62971 concerns a lexicographic cycle blow-up C_n[K_m], not private cliques attached to roots."
+        ],
+        "reasoning": "Replacing roots with cliques and joining blocks completely is structurally different from joining private clique vertices only to their own root. The matched prior classification is retained only as an input.",
+        "searches": [
+          "Resultary: zero forcing token-jump reconfiguration graph corona product fibers edges components",
+          "Resultary: clique corona zero forcing minimum zero forcing sets classification multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both earlier records contain exact forcing enumerators and minimum counts as specializations, even for nonuniform private clique sizes. No alternative exact corona token-jump quotient/crossing-count entry was found in the stated searches."
+        ],
+        "reasoning": "The polynomial counts configurations by size, not pairs at symmetric difference two. The exact tabulated/formula coverage of the count is credited; finite examples are not independent priority evidence for the lift.",
+        "searches": [
+          "Resultary: private clique corona all zero-forcing sets polynomial transform minimum-set multiplicity",
+          "2026/10/12/SCOPE-zero-forcing-enumerators-of-clique-decorated-graphs--05266193a935; 2026/11/2/SCOPE-clique-corona-fort-classification-and-the-complete-zero-forcing--35539a2ce38d"
+        ]
+      },
+      "rationale": "Pass applies only to the repaired contribution, the structure of the token-jump lift. The frozen claim to novelty of the classification and multiplicity cannot pass: earlier Resultary results already classify all forcing sets under broader assumptions and give the exact minimum counts. The complete repair under /workspace/repairs/2/RESULT.md credits that input explicitly. The inspected comparable statements do not give the corona adjacency lift or its exact crossing formula.",
+      "residual_risks": [
+        "Literature search was bounded. There may be an unindexed equivalent graph-lift result; no global priority is claimed for the repaired theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly covers the frozen classification and multiplicity",
+          "evidence": "At most one white vertex per clique and the active-root set forcing the base is necessary and sufficient, with exact enumerator for mixed clique sizes.",
+          "identifier_or_url": "2026/10/12/SCOPE-zero-forcing-enumerators-of-clique-decorated-graphs--05266193a935",
+          "material_read": "RESULT.md criterion at offset 749, counts at 1300 and proof at 6100",
+          "method": "Local mirror",
+          "title": "Zero-forcing enumerators of clique-decorated graphs",
+          "trigger": "Earlier private-clique classification and counts"
+        },
+        {
+          "assessment": "Covers exact minimum counts; inspected passages do not give reconfiguration adjacency",
+          "evidence": "Exact polynomial transform for arbitrary bases and mixed clique sizes.",
+          "identifier_or_url": "2026/11/2/SCOPE-clique-corona-fort-classification-and-the-complete-zero-forcing--35539a2ce38d",
+          "material_read": "RESULT.md offsets 2200–7145; minimum-count statement about 2438",
+          "method": "Local mirror",
+          "title": "Clique-corona fort classification and the complete zero-forcing polynomial",
+          "trigger": "Potential stronger exact classification/count"
+        },
+        {
+          "assessment": "Covers Z, not the reviewed lift",
+          "evidence": "Recurrence for iterated corona; k=1 and H=K_r yield the formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.04071",
+          "material_read": "Theorem 2.3 and proof, p. 5, offset 17120",
+          "method": "OA PDF",
+          "title": "On the zero forcing number of corona and lexicographic product of graphs",
+          "trigger": "Known zero-forcing number of corona"
+        },
+        {
+          "assessment": "Related product rule, not corona crossings",
+          "evidence": "Cartesian factorization for disjoint union.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+          "material_read": "Proposition 2.7 and proof, p. 4, offset 12180",
+          "method": "OA PDF",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Broader reconfiguration framework"
+        },
+        {
+          "assessment": "Different construction",
+          "evidence": "Uses C_n[K_m], with complete joins of consecutive clique blocks.",
+          "identifier_or_url": "2026/11/8/SCOPE-closed-zero-forcing-polynomials-and-well-forcedness-of-clique-ex--86ad1fa62971",
+          "material_read": "RESULT.md Finding near offset 57",
+          "method": "Local mirror",
+          "title": "Closed zero-forcing polynomials and well-forcedness of clique expansions",
+          "trigger": "Distinct same-day clique expansion result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Reconfiguration proof; Geneson et al. Proposition 2.7 and earlier indexed clique-corona enumerators"
+      ],
+      "rationale": "The repaired theorem answers which components survive a natural graph operation on a standard solution reconfiguration space, and gives exact counts across nonuniform base adjacencies without enumerating corona minima. The connected-fiber quotient and uniform edge multiplicity are useful beyond the known minimum-set count; the repair does not claim independent value from rederiving that count.",
+      "residual_risks": [
+        "The result is a structural statement for clique attachments and token jumping, not an arbitrary corona or reconfiguration theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

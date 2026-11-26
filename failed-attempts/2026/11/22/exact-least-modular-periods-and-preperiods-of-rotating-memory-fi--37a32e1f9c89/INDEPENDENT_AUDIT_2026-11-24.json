@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:12:57.677164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a nonreset index (other than the initial n=2 when n=1 is prescribed rather than computed), subtracting the consecutive recurrence sums shows doubling. A reset adds the last two terms, giving the block multiplier c_k=3·2^(k-2) after the initial block; R_k is 1, 2 or 3·2^(k-4) in the three cases. In the component coprime to 6, all block terms are units and the unique reset in the ratio word has value 3/2, distinct from 2 at any nontrivial modulus. Therefore a period must be ks and is a period exactly when c_k^s=1. For k=2 the unit odd-modulus case is identical, while for an even 3-free modulus the terms at even and odd indices have different parity and the even positions test 3^s=1. The exact 3-adic values by block are q-1 or q as stated. At k=3 the 2-valuation is q+r, including the separate last deficient index n=2 for exponent 1. For k>=4 the last block with any 2-adic deficiency has q=floor((a+1)/(k-2)); if q>=1 the last deficient r is a+1-(k-2)q, while if q=0 the last deficiency is in the initial block at n=a+1. This gives the claimed cutoffs. To check sharpness of the unit start, extrapolate the geometric tail through the initial terms: its predicted preceding term is 1/2 (k>=4), 4/3 (k=3), or 2/3 (k=2, valid even for an even 3-free modulus), not the actual term 1 modulo any nontrivial modulus in its case. On a vanishing component a periodic suffix must be identically zero. CRT gives the maximum of the starts and the least global shift, with T=1 when there is no nontrivial unit component. The frozen script was read, not run, and the proof does not depend on its finite diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdelaidoum, Mehiri and Belbachir give the explicit block formula with its starting value and multiplier, and the exact 2- and 3-adic valuations.",
+          "Brent analyzes maximal periods for general linear recurrences modulo powers of two, not these aperiodically valued yet periodically driven sequences and arbitrary moduli."
+        ],
+        "reasoning": "The decisive stronger input is the same-object exact sequence and valuation theorem, not the different general linear-recursion setting. The block form fixes both the phase pattern and its multiplier even on the 3-free component of k=2.",
+        "searches": [
+          "arXiv:2609.12569v1 §3 Theorem 1 and Corollaries 1–2; §4.1 Proposition 1 and Corollary 4",
+          "arXiv:1004.5439 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.12569v1",
+        "arXiv:1004.5439",
+        "SCOPE 1547924c94d1",
+        "SCOPE cd1a923e0c7f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior expression R_(qk+r)=2^r R_k (3·2^(k-2))^(q-1) for q>=1 makes the consecutive ratio equal to 2 except at one reset, with ratio 3/2. For k=2 at an even modulus, the prior even/odd formulas instead give opposite parities.",
+          "The prior valuation formulas give the last failing index by rounding a linear inequality inside the last failing block. Comparison of the first block with the explicitly given initial values gives the unit component's exact start. The source calls modular periodicity a future direction but does not give the target formulas explicitly."
+        ],
+        "reasoning": "The nonconstant ratio word forces the phase, doubling or the k=2 parity split treats every modulus, and then the prior block multiplier gives the shift by the usual multiplicative order. The start is obtained mechanically by taking the valuation cutoffs and comparing the few initial terms, followed by CRT. No new modular structural input beyond these direct consequences is required.",
+        "searches": [
+          "arXiv:2609.12569v1 §3 Theorem 1 and Corollaries 1–2; §4.1 Proposition 1 and Corollary 4; future-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical indexed hit 37a32e1f9c89 is the frozen target, not independent evidence.",
+          "SCOPE 1547924c94d1 treats intersections of value sets at different memory periods. SCOPE cd1a923e0c7f concerns collapse in permutation-memory patterns."
+        ],
+        "reasoning": "An integer-value coincidence across different k, or a classification of patterns with collapse, is not an equivalent formulation of modular timing for a fixed k. No separately stated equivalent modular theorem was verified; the implication check below is decisive.",
+        "searches": [
+          "Resultary: rotating-memory modular least periods",
+          "Resultary: cyclic variable-memory period/preperiod",
+          "Resultary: scalar block collapse",
+          "Resultary: 2-/3-adic onset for rotating-memory Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent matching table of least modular periods/preperiods was verified. The nearest catalogue results tabulate or characterize different objects (intersections and permutation-memory collapse).",
+          "The primary paper gives exact term and valuation formulas, which are stronger data than finite samples of the modular invariant."
+        ],
+        "reasoning": "A match with the frozen record in the catalogue is not external corroboration, and tables for different invariants do not establish coverage. The prior exact formulas, rather than any table or finite verifier, are the source of the overlap.",
+        "searches": [
+          "Resultary: rotating-memory exact modular periods and preperiods, arbitrary composites",
+          "SCOPE 1547924c94d1 and cd1a923e0c7f, Findings",
+          "arXiv:2609.12569v1 §3 and §4.1 exact formulas"
+        ]
+      },
+      "rationale": "The exact modular classification was not found stated verbatim as a separate theorem, but is a direct arithmetic corollary of the inspected prior block-shape and valuation formulas for these very sequences. This is a stronger-statement implication, not attribution of a separately stated least-period/preperiod theorem or a claim that mere finite-state periodicity gives the exact formulas.",
+      "residual_risks": [
+        "The bounded search cannot date the earliest explicit exposition of the exact modular classification, nor exclude an unindexed one. Failure rests on derivability from inspected prior mathematics, not on the absence of a separate citation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact formulas imply the claim directly; does not state it as a separate modular theorem in the inspected passages",
+          "evidence": "R_(n+k)=c_k R_n in the block regime; explicit initial and k=2,3 terms and exact valuations; modular periodicity named as a direction for study.",
+          "identifier_or_url": "https://arxiv.org/html/2609.12569",
+          "material_read": "v1 §3 Theorem 1 and Corollaries 1–2 (HTML offset 14000 onwards); §4.1 Proposition 1 and Corollary 4 (about 19200); future work (55294)",
+          "method": "OA HTML bounded passage reading",
+          "title": "Rotating-Memory Fibonacci Numbers and Periodic Tilings",
+          "trigger": "Same sequence and exact scalar collapse; potential direct coverage"
+        },
+        {
+          "assessment": "Different modular-period problem",
+          "evidence": "Studies maximal periods of general linear recurrences modulo powers of two.",
+          "identifier_or_url": "arXiv:1004.5439",
+          "material_read": "PDF p. 1 abstract and introduction",
+          "method": "OA PDF bounded passage reading",
+          "title": "On the Periods of Generalized Fibonacci Recurrences",
+          "trigger": "Potential general modular-period theorem"
+        },
+        {
+          "assessment": "Different invariant, shares antecedent block theorem",
+          "evidence": "Studies common values between distinct memory parameters, not periods of residue sequences.",
+          "identifier_or_url": "SCOPE 1547924c94d1",
+          "material_read": "Finding and prior-work discussion",
+          "method": "Local-mirror passage reading",
+          "title": "Finite intersections and quadratic last coincidences of rotating-memory Fibonacci numbers",
+          "trigger": "Closest separate indexed result on the same sequence"
+        },
+        {
+          "assessment": "Collapse classification rather than modular timing",
+          "evidence": "Classifies scalar collapse for permutation-memory patterns of sizes 2–5.",
+          "identifier_or_url": "SCOPE cd1a923e0c7f",
+          "material_read": "Finding",
+          "method": "Local-mirror passage reading",
+          "title": "First nonrotational scalar collapse in permutation-memory Fibonacci sequences",
+          "trigger": "Possible generalization containing the modular case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact periods and starts at arbitrary composite moduli are natural information about this recurrence, and the presentation is convenient. But for this particular sequence the prior exact geometric blocks already make the least shift a reset-phase check and one multiplicative order; the prior valuations already give the vanishing cutoffs by rounding. The exact start left over is a direct initial-value comparison. The classification is therefore a routine extraction from published specialized formulas, with no surviving independently valuable addition under the standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

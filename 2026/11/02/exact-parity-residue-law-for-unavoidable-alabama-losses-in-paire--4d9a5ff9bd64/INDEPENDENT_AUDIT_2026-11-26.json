@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:08:17.203124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the replacement RESULT.md in repairs/4. The frozen count defined E and O only for l≤u but uses them on empty intervals (a=1,b=2 gives l_e=4,u_e=3, and l_o=2,u_o=1). The replacement defines both for all integer endpoints, with the displayed positive parts giving zero on empty intervals. It computes the full set of possible small-pair totals at both parities, including x=0, x=1/2, every cross-pair tie and quota wrap. No individual loss is possible for some allocation pair exactly when the small-pair total can change by 0 or 1: the large-pair total then does not fall, and equal-pair symmetry lets residual recipients nest when base quotas are unchanged; a base-quota increase already protects both members. The two parity comparisons give the stated strict intervals and explain why neither endpoint forces a loss. The orbit count follows from gcd(a,P)=1 for a odd and gcd(a,P)=2, a+b odd for a even. Each parity interval has real length (b−a)/2, and endpoint and parity errors are uniformly bounded. The minimality checks exhaust the primitive pairs with a+b≤5 and rule out h=1,2 analytically. A fresh independent exact-integer enumeration of all Hamilton allocations and both tie resolutions for all primitive 1≤a<b≤20 over one joint period matched the transition and count laws on 127 profiles and 5,232 transitions. The independent finite check does not replace proof; the frozen verify.py was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Linusson Theorem 1.1 assumes rational linear independence; their rational discussion gives periodicity and an example without paradox.",
+          "Saari gives geometric cases; Varshney gives a quota versus population-monotonicity incompatibility across house sizes for four-state apportionment."
+        ],
+        "reasoning": "Rational duplicated populations are outside the probability theorem. Geometric examples and axiomatic impossibility across comparison sizes do not give a classification of every consecutive Hamilton transition with fixed populations and both ties variable.",
+        "searches": [
+          "Janson–Linusson doi:10.1239/jap/1346955333, Theorem 1.1",
+          "Saari doi:10.1007/s11127-026-01480-9, §4.1",
+          "Varshney arXiv:2608.02759, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 494a0538d100",
+        "doi:10.1239/jap/1346955333",
+        "doi:10.1007/s11127-026-01480-9",
+        "arXiv:2608.02759"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rational periodicity observation supports a period reduction; the exact three-state method is a related use of modular comparisons.",
+          "The present proof uses y={h/2−hα}, hence genuinely different odd/even small-pair sets and nesting conditions across each parity switch."
+        ],
+        "reasoning": "Periodicity only bounds the search per profile. The general probability theorem cannot be specialized here, and the neighboring exact result does not yield the pair-total transitions by parameter relabeling. New comparisons are needed to get the two windows and strictness, after which counting is elementary.",
+        "searches": [
+          "Janson–Linusson doi:10.1239/jap/1346955333, rational discussion p. 3 and Theorem 1.1",
+          "Resultary 494a0538d100, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 494a0538d100 gives a residue-interval law for the three-constituency family (a,a,c), a>c, with strict uniquely determined cutoffs.",
+          "Janson–Linusson discuss periodic seat changes for rational populations. Saari gives geometric explanations and examples of the paradox."
+        ],
+        "reasoning": "Here grouping equal quotas reduces the tie problem to possible pair-total changes. Merging equal constituencies is not an equivalent three-state Hamilton problem: floors and fractional-remainder awards are applied separately to both members in the four-state problem. Strict cutoff at each size is also not equivalent to the no-nesting condition for every legal allocation pair.",
+        "searches": [
+          "Resultary: tie-independent Alabama losses, equal-pair rational Hamilton populations",
+          "doi:10.1239/jap/1346955333, pp. 3–4",
+          "doi:10.1007/s11127-026-01480-9, §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed record gives a three-state period count and (3,3,1) witness, not the paired four-state parity count or the (1,1,4,4) minimum.",
+          "Janson–Linusson's inspected rational example is (2/5,2/5,1/5), not a table of the two-pair family."
+        ],
+        "reasoning": "None of the inspected exact entries supplies the infinite two-pair law or its minimum under the present quantifier. A single rational example, even with identical total population, would not cover the period count.",
+        "searches": [
+          "Resultary: exact Alabama paradox residue law and equal-population pairs",
+          "Resultary 2026/10/4/SCOPE-tie-independent-alabama-losses-for-equal-pair-rational-populatio--494a0538d100"
+        ]
+      },
+      "rationale": "For the corrected result, the distinct content is the exact rational four-constituency transition classification with both ties quantified, and its period count. The strongest exact indexed analogue is genuinely three-state and uses a different tie restriction. The standard general probability theorem has a rational-independence hypothesis, and a general periodicity observation alone leaves the two intervals and their sampling by residue orbit undetermined.",
+      "residual_risks": [
+        "Specific rational Alabama examples and other tie conventions occur in the classical literature; an equivalent two-pair classification elsewhere remains possible. The inspected sources do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related exact three-state law, not an equivalent setup",
+          "evidence": "(a,a,c), a>c, one residue window, a period count and (3,3,1) example; strict cutoffs at both sizes.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-tie-independent-alabama-losses-for-equal-pair-rational-populatio--494a0538d100",
+          "material_read": "Mirrored RESULT.md offsets 0–3648 and 3600–6748",
+          "method": "Resultary index and local primary record mirror",
+          "title": "Tie-independent Alabama losses for equal-pair rational populations",
+          "trigger": "Closest exact residue/period classification with equal populations"
+        },
+        {
+          "assessment": "Periodicity observation for rational profiles; exact probability theorem outside paired regime",
+          "evidence": "Rational vectors give periodic seat changes. Theorem 1.1 assumes rational linear independence. The rational example (2/5,2/5,1/5) yields no paradox.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1346955333",
+          "material_read": "OA PDF pp. 3–4, offsets 11600–14884 and 14800–18728",
+          "method": "Open primary PDF, targeted passages",
+          "title": "The Probability of the Alabama Paradox",
+          "trigger": "Main general literature on paradox frequency and rational populations"
+        },
+        {
+          "assessment": "Geometry and examples, not the exact paired all-tie-resolutions theorem",
+          "evidence": "The inspected discussion explains largest-remainder losses geometrically without a two-pair parity-residue count.",
+          "identifier_or_url": "https://doi.org/10.1007/s11127-026-01480-9",
+          "material_read": "§4.1 pp. 10–11, offsets 38200–41198",
+          "method": "Open primary text, targeted section",
+          "title": "Picture book of apportionment and voting difficulties",
+          "trigger": "Potential geometric precursor to strict loss windows"
+        },
+        {
+          "assessment": "Different rule quantifier and different monotonicity question",
+          "evidence": "Incompatibility of quota and population monotonicity for deterministic rules with house-size comparisons, not consecutive Hamilton allocations for one fixed profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02759",
+          "material_read": "Primary abstract, p. 1, offset 0",
+          "method": "Open primary first-page passage; not characterized beyond the inspected statement",
+          "title": "Quota and population monotonicity across house sizes are incompatible for apportionment to four states",
+          "trigger": "Four-state cross-house-size precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-pair family naturally has systematic ties and rational remainders, outside the usual general probability theorem. Exact size-by-size inevitability answers a stronger operational question than showing a selected tie break can lose a seat. The two windows, count and sharp small witness resolve this degeneracy, and the positive limiting frequency shows that the phenomenon is not confined to isolated examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

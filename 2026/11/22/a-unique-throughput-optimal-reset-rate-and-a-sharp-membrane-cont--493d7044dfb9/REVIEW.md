@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for exactly one point reset away from the membrane midpoint, a positive fixed permeability, and strictly positive reset rates. The stationary current is reconstructed from the Neumann resolvent and the prescribed membrane flux convention, including the normalization and interface sign. Factoring the dimensionless flux into a strictly log-concave factor and the reciprocal of a positive log-convex sum proves a unique interior global maximum; positive derivative comparisons prove monotone dependence on source location and permeability. The near-contact asymptotic is proved by uniform convergence of the rescaled logarithmic derivative and strict root bracketing, including the infinite-conductance endpoint. The independent finite diagnostic script executes 313 assertions. No numerical enumeration substitutes for the continuum proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority uncertainty
-Bressloff's original full paper establishes the same stationary ring model, the membrane current formula and nonmonotone *interfacial entropy*; these are credited as prior work. The public results *Unique optimal membrane permeability and sharp universal bounds for resetting diffusion on a ring* and *A universal unique membrane-permeability optimizer for reset diffusion on a circle* optimize permeability for interfacial entropy at fixed reset rate, a different quantity/control pair. *Boundary-current tomography and its reflection-blind subspace in a resetting diffusion ring* explicitly contains the current-versus-reset-rate formula, but proves inverse source identifiability, not a unique optimal reset clock, strict parameter ordering or the contact-layer limit. A screened-resetting target paper studies mean first passage, a different observable and geometry. Searches for the flux-clock theorem, rate aliases and fourfold near-contact scaling did not identify a mathematically covering statement. A readily derivable but unindexed or independently published result remains a genuine priority risk; database absence is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The result identifies the only optimal reset cadence for a physically motivated stationary transport observable, not merely the presence of a nonmonotone response. It establishes robust monotonic control principles and a uniform boundary-layer law separating two experimentally distinct membrane-conductance regimes. The limiting optimal rate changes by a factor of four even though the source remains at vanishing geometric distance from the same interface. The contact conductance is a natural dimensionless matching variable, not an arbitrary parameter slice. The theorem does not assert total entropy or first-passage optimality.
+On coordinates centered at L/2 take the odd half-density w on [0,L/2], with the reset on the positive side at d=|x₀−L/2|. It has source r/2 at d, w(0)=0 and Dw′(L/2)+2κw(L/2)=0, with J=2κw(L/2). Testing against sinh(√(r/D)x) and integrating the Wronskian gives J=κr sinh(√(r/D)d)/(D√(r/D) cosh z+2κ sinh z). The other source side reverses the sign, and the flux boundary conditions imply mass one on integrating the full equation. For the given profile, log of z sinh(uz)/sinh z has second derivative strictly negative by sinh(uz)<u sinh z. The denominator coth z+k/z of the remaining factor is a sum of positive log-convex functions. Thus the log slope H decreases strictly, and the flux tends to zero at both ends for 0<u<1. H_u and H_k are positive by sinh v cosh v>v, so the unique optimizer moves upward in u and k. In the near-membrane scaling δ=2ℓ/L, y=δz, η_ℓ=δk, H/δ tends to 2/y−1−1/(y+η), locally uniformly in y even for η→∞ with the last term tending to zero. The limit is strictly decreasing and changes sign at G(η); bracketing traps the true optimizer, so r_*ℓ²/D→G(η)² with endpoints 1 and 4. All these conclusions use fixed κ when varying r; log-concavity is in z, not asserted in r.
 
-## Scope and residual risk
-There are no conclusions for midpoint sources, arbitrary reset-site mixtures, asymmetric or multiple membranes, or renewal clocks; prior literature supplies the forward law. No independent publication-priority determination, experimental test or independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The forward stationary current is demonstrably covered, including as an exact point-mass specialization of the arbitrary-law tomography formula. The supported distinct claim is the global clock optimization of absolute stationary flux: strict log-concavity, strict parameter shifts and the entire near-contact crossover. The entropy optimizer records vary permeability or concern entropy rather than this current; the related biased-membrane theorem seeks a zero of signed current, not a maximum of its magnitude. No inspected claim or stronger theorem establishes the optimization package.
+
+## value
+
+PASS
+
+For a natural driven stationary model the result identifies the unique throughput-maximizing clock, determines how it moves with two physical controls, and gives an arbitrary-family scaling law when proximity and contact strength compete. In particular the factor-four difference between the limiting clock scales is quantitative information absent from a statement that flux merely vanishes at both extremes. The current objective is distinct from dissipation and first-passage time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

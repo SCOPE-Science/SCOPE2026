@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:05:53.487921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified half-scale quadratic image, linear support is the top eigenvalue of the symmetric hollow matrix with off-diagonal coordinates u_i/2. Rayleigh's principle gives the width as spectral spread. The characteristic polynomial is lambda^3-lambda/4-u_1*u_2*u_3/4; ordering its three trigonometric roots gives cos(arcsin(3 sqrt(3) T)/3). It decreases over the stated T range, so the width CDF is the T survival function at q(w). Haar coordinates give independent uniform azimuth and uniform |U_3|, with T=z(1-z^2)|sin(2 Phi)|/2; azimuthal integration gives the exact formula including endpoints. An alternate endpoint check uses (U_i^2)_i ~ Dirichlet(1/2,1/2,1/2): its Gamma moments, by triplication and moment uniqueness on [0,1], give 27 T^2 as the product of independent Beta(1/2,1/3) and Beta(1/2,2/3). The two-beta convolution reduces by Euler integration to f_T(t)=2 sqrt(3) times 2F1(1/3,2/3;1;1-27t^2). For t near 1/(3 sqrt(3)) the density tends to 2 sqrt(3), and the product cutoff decreases from that endpoint by 2 sqrt(3) epsilon^2+o(epsilon^2), giving 12 epsilon^2. Near t=0 the zero-balanced connection formula gives f_T(t)=(3/pi)[-log(27t^2)+3 log 3]+O(t^2 log(1/t)), since 2 psi(1)-psi(1/3)-psi(2/3)=3 log 3. Thus F_T(q)=(6/pi)q[log(1/q)+1]+o(q), confirming both high-width coefficients under q(1-epsilon)~sqrt(2 epsilon/3). The original endpoint matching can also be justified by substituting the exact monotone endpoint variables 2b(z) near zero and b(z) near one; the Jacobians differ from 1 by quadratic and linear terms, respectively, giving the stated O(q eta^2) and O(q eta) errors. Width minima occur only at the eight signed diagonals, and symmetry equidistributes the conditioned directions there. For high width, outside any fixed neighborhoods of the six axes every zero is regular: one coordinate vanishes and the other two stay bounded away from zero on each local zero segment. A finite tube bound gives O(q) mass there versus q log(1/q) overall, proving the uniform six-axis limit by symmetry. Inspected verify.py and VERIFICATION.md; the reported deterministic tests are not used as proof or claimed as rerun. The result is for directional caliper width, not random points or shadow area.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Dirichlet Theorem 1 treats P=XY under the triangular density with third parameter c, not XYZ with Z=1-X-Y. The general independent beta-product literature does give scalar special-function distributions; via the independent moment reduction it is relevant to scalar coverage, even though the sphere's coordinates themselves are dependent.",
+          "The examined geometry passages identify the dual and disk facets, not the conditioned directional Haar law."
+        ],
+        "reasoning": "Separate the genuine broader precedents for the distribution method and for the convex body from an implication of both angular endpoint laws. No inspected broader result directly supplies the two localization measures on this hull.",
+        "searches": [
+          "Nadarajah–Kotz Kybernetika 40 (2004) 735–744 and Springer–Thompson doi:10.1137/0118065",
+          "Bengtsson–Weis–Życzkowski arXiv:1112.2347 §IV.A; Rodman et al. arXiv:1502.02018 Corollary 8.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0901.1821",
+        "arXiv:1112.2347",
+        "arXiv:1502.02018",
+        "Nadarajah–Kotz Kybernetika 40(6):735–744",
+        "Springer–Thompson doi:10.1137/0118065 (indexed summary only)",
+        "DLMF 15.8.10",
+        "Resultary f1c36680292a",
+        "Resultary 075ee740f4cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-balanced formula yields the two-term upper-tail expansion after the sphere-specific moment reduction and width transform; no unique priority is attributed to the scalar probability law in a differently parameterized product representation.",
+          "Neither the doubled convex-hull semidefinite description nor a scalar CDF implies that the maximizing great circles have almost all conditioned mass near only their six intersections. The proof distinguishes transverse zeros off the intersections, whose O(q) contribution is negligible, and uses symmetry to set the weights. The bicylinder and tricylinder describe other maximizer/minimizer sets."
+        ],
+        "reasoning": "The joint orientation conclusions concern the Haar level sets of the actual support spread and are not determined by a product moment formula alone. With the exact width reduction, the rates and different concentration sets give a distinct geometric conclusion across both ends.",
+        "searches": [
+          "Henrion §5.3 and Resultary Steinmetz width findings versus the frozen Haar direction and two endpoint events",
+          "DLMF 15.8.10 versus the reconstructed beta-product density and the constant 2+log(3/2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Henrion's doubled-coordinate body has a semidefinite representation; linear support evaluates a three-by-three quadratic form, with the two opposed support values giving a spread, not a single radial/support observable.",
+          "An independent equivalence reduces 27 |U_1 U_2 U_3|^2 exactly to the product of independent Beta(1/2,1/3) and Beta(1/2,2/3) variables, by comparison of compactly supported moments. This leads to the same CDF via a hypergeometric density, so the azimuthal quadrature is not the only exact scalar law."
+        ],
+        "reasoning": "The geometry-to-product map is essential. An arbitrary beta product formula can supply the scalar law after that reduction but carries no joint direction information. Scaling the prior quadratic image by one half is necessary but is not by itself a derivation of the random width law.",
+        "searches": [
+          "Roman surface caliper width as spread of hollow three-by-three matrix, via Henrion arXiv:0901.1821 and Cayley-cubic duality",
+          "Product of components of uniform point on sphere / three symmetric Dirichlet components / product of beta variables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Steinmetz bicylinder width is 2r sqrt(1+2|U_x U_z|) and its logarithmic tail is at its lower endpoint. The tricylinder has a log minimum tail but a linear upper interval. These are distinct same-day objects, not exact entries for the Roman surface.",
+          "DLMF 15.8.10 at m=0 includes the log and digamma constant needed to derive the exact two scalar upper-tail terms from the independently reconstructed density. It does not give a table of directions or Roman-surface widths."
+        ],
+        "reasoning": "The explicit scalar expansion is reducible to established special-function formulas, not new table content for those functions. The exact geometric use and conditional angular distributions are not matches to any inspected table or analytic finding.",
+        "searches": [
+          "Resultary exact random directional widths, Roman surface, logarithmic localization, f1c36680292a and 075ee740f4cf",
+          "DLMF 15.8.10, zero-balanced hypergeometric logarithmic series"
+        ]
+      },
+      "rationale": "Pass for the geometric width law and its sharp rare-direction description, in particular how the joint directional measure concentrates at the intersections of the maximizing curves rather than on those curves. The support geometry and standard distribution tools are not new. The scalar tail constants are accessible by classical special-function theory once the normalized width-to-product reduction is made, so do not claim an independent discovery of a generic product tail or logarithmic special-function expansion.",
+      "residual_risks": [
+        "A spherical coordinate-product or hollow-matrix spread treatment may already identify the same law more directly. The lawful full-text attempts at Springer–Thompson did not resolve any exact-specialization examples it may include.",
+        "The exact reduction to standard beta products makes any priority claim for the scalar distribution alone especially limited; the pass concerns the concrete geometric law and angular conclusions, not uniqueness of a scalar formula or of the generic crossing mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior geometric representation, not a random direction theorem in the inspected passage",
+          "evidence": [
+            "The parametrization uses doubled coordinate products and gives a three-by-three semidefinite lift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0901.1821",
+          "material_read": "Section 5.3, PDF p. 6, offset 14970 onward",
+          "method": "OA full-text passage",
+          "title": "Semidefinite Representation of Convex Hulls of Rational Varieties",
+          "trigger": "Same body under different scale"
+        },
+        {
+          "assessment": "Related dual/face description",
+          "evidence": [
+            "Deals with Roman surface and Cayley cubic duality and disk facets, not the random caliper width in that passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.2347",
+          "material_read": "Section IV.A, PDF p. 7, offset 38931 onward",
+          "method": "OA full-text passage",
+          "title": "Geometry of the Set of Mixed Quantum States: An Apophatic Approach",
+          "trigger": "Dual formulation of the body"
+        },
+        {
+          "assessment": "Hull projection and four disk facets",
+          "evidence": [
+            "Identifies the convex hull as a linear image and classifies its disk facets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.02018",
+          "material_read": "Corollary 8.3, p. 23, offset 57184 onward",
+          "method": "OA full-text passage",
+          "title": "Continuity of the Maximum-Entropy Inference: Convex Geometry and Numerical Ranges Approach",
+          "trigger": "Same body as numerical range"
+        },
+        {
+          "assessment": "Different scalar variable despite the close title",
+          "evidence": [
+            "Exact density is for P=XY under a three-parameter Dirichlet triangle, not P=XY(1-X-Y)."
+          ],
+          "identifier_or_url": "https://www.kybernetika.cz/content/2004/6/735/paper.pdf",
+          "material_read": "pp. 735–737, equation (1), Section 2 Theorem 1, offset 0–6185",
+          "method": "OA PDF passage",
+          "title": "Exact and approximate distributions for the product of Dirichlet components",
+          "trigger": "Plausible exact coordinate-product distribution"
+        },
+        {
+          "assessment": "Relevant scalar prior; no full-text exclusion asserted",
+          "evidence": [
+            "The summary identifies Meijer G densities for products of independent beta variables."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0118065",
+          "material_read": "Indexed abstract/summary only; publisher and identified archive PDF not readable in bounded attempts",
+          "method": "Search result and lawful OA attempts",
+          "title": "The Distribution of Products of Beta, Gamma and Gaussian Random Variables",
+          "trigger": "Broader product law after a two-beta reduction"
+        },
+        {
+          "assessment": "Generic log and constant terms, not directional localization",
+          "evidence": [
+            "At m=0, a=1/3, b=2/3, the k=0 term gives -log(1-z)+2 psi(1)-psi(1/3)-psi(2/3) divided by Gamma(1/3)Gamma(2/3)."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/15.8.E10",
+          "material_read": "Equation 15.8.10, offset 10495–11724",
+          "method": "OA page passage",
+          "title": "NIST Digital Library of Mathematical Functions, Hypergeometric Function: Transformations of Variable",
+          "trigger": "Known expansion testing equivalence of exact two-term scalar tail"
+        },
+        {
+          "assessment": "Different Steinmetz bodies and different scalar endpoint laws",
+          "evidence": [
+            "Two-coordinate product for the bicylinder; the tricylinder has a logarithmic minimum and exactly linear upper interval. Neither is an equivalent form of the present Roman-surface law."
+          ],
+          "identifier_or_url": "Resultary f1c36680292a / 075ee740f4cf",
+          "material_read": "Findings, local mirror RESULT.md for each",
+          "method": "Local published mirror",
+          "title": "The elliptic random-width law and logarithmic polar localization / An exact directional-width quadrature and two contrasting tails",
+          "trigger": "Nearest exact random-width and crossing-localization catalogue entries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Directional spread is an intrinsic observable of this classical nontrivial hull. The result separates isolated conical minima, with quadratic event probability, from a positive-dimensional maximizing set whose crossings dominate near-maximal views; it supplies precise probabilities and the limiting directions for both. The latter description is not encoded by a marginal product distribution or a convex-hull representation and answers where equally extreme projections are seen, rather than merely re-expressing an existing scalar table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

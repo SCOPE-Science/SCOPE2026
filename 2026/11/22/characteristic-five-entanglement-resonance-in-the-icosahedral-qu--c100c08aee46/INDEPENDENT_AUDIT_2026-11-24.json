@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:07:09.858782Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Internal-side controlled phases are local unitaries. After removing them, summing characters on the other side gives the reduced matrix p^{-k} times the indicator that two strings differ by an element of ker(M_A^T). Its all-ones coset blocks yield p^r equal nonzero reduced eigenvalues p^{-r}. An independent exact census used the pole-and-pentagon graph and permutation-expansion determinants instead of the supplied golden-ratio graph and Bareiss determinants. It reproduced all Smith entries for all 2,510 subsets. For balanced subsets the absolute determinants have frequencies 0:392, 1:500, 4:20, 5:12. The exact divisors, not sampling primes, show that only 2 and 5 are exceptional, and reduction and summation give the three listed rank histograms. For the northern five neighbours plus the south pole, order the opposite pentagon and then the north pole on the other side. The cross matrix has upper-left I+P for a five-cycle shift P, an all-ones last column and row off the bottom-right zero, and determinant of magnitude 2*(5/2)=5 by the Schur complement over Q. In characteristic five the five-by-five block is invertible, so exactly one rank unit is lost. The independent census verified the entire determinant-five set equals the prescribed N(v) plus antipode sets. The twelve are labelled six-sets, i.e. six unordered cuts; counting both sides at k=6 is part of the hypothesis, and the table does not count 2,510 unordered cuts.",
+      "replay": "Independent bounded reproduction: python3 /workspace/branches/8b8cb4b4-7f4d-4009-b396-57225eda832e/icosahedral_smith_audit.py; see small_run.log and full_run.log alongside the script. The frozen verify_smith.py and verify_modular.py were inspected but not executed. Scope is the pure unit-weight state in prime dimension on this one graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Looi et al. give the qudit graph-state framework",
+          "The generalized-Petersen result treats specified alternating-layer cuts in its own family",
+          "The line-graph result treats partitions of the edges of a simple graph"
+        ],
+        "reasoning": "The general state formulas reduce entanglement to arithmetic, not the graph-specific census. The icosahedral graph has even vertex count 12 but degree five, unlike the cubic generalized Petersen graphs. Its induced C5 neighbourhood is not coverable by the two cliques required for a vertex of a simple line graph. Neither family formula specializes to the icosahedral all-cuts result.",
+        "searches": [
+          "Looi et al. arXiv:0712.1979",
+          "Resultary generalized-Petersen and line-graph qudit results 2bc8f85cb693; d25a6aa6f8d4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both programs",
+        "Local Resultary entries c100c08aee46, a91c712d7f09, 970e77e34ed4, 2bc8f85cb693 and d25a6aa6f8d4",
+        "Cabello et al. arXiv:1011.5464",
+        "Looi et al. arXiv:0712.1979",
+        "Danielsen database coverage page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier RI_i framework counts minimal-side cuts for qubit states",
+          "The parallel exact censuses use different cross matrices and different exceptional odd primes",
+          "No directly equivalent primary coverage was identified in the bounded lookup"
+        ],
+        "reasoning": "A standard algorithm to compute the invariants is available, but prior graph-state formulas and the other graphs' outputs do not determine the icosahedral invariant or the exceptional cuts. The graph-specific enumeration and identification of the antipodal pentagon family are the remaining claim.",
+        "searches": [
+          "Cabello et al. arXiv:1011.5464 p. 3",
+          "Resultary Möbius–Kantor and Heawood near matches, a91c712d7f09 and 970e77e34ed4",
+          "Focused public lookup for an integral icosahedral cut census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A qubit RI_i is exactly a labelled rank histogram modulo two in this setting",
+          "A prime-rank histogram forgets integral valuations and can coexist with different Smith tables",
+          "The independent balanced determinants show a twelve-subset determinant-five class"
+        ],
+        "reasoning": "The integral invariant can be phrased as gcds of square cut minors, and rank losses are precisely diagonal factors killed mod p. Binary cut-rank indices are equivalent to the p=2 portion only. Neither the ordinary graph adjacency spectrum nor a binary table determines these cross-cut determinantal divisors.",
+        "searches": [
+          "Icosahedral cross-cut Smith form, determinantal divisors, prime cut rank and graph-state entanglement",
+          "Cabello et al. arXiv:1011.5464, RI_i"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit c100c08aee46 is the frozen record",
+          "Same-date entries a91c712d7f09 and 970e77e34ed4 give Möbius–Kantor and Heawood balanced-cut arithmetic respectively",
+          "The database page lists RI_i for graphs through 12 qubits; the individual icosahedron entry was not extracted from the compressed file"
+        ],
+        "reasoning": "Neither a self-match nor an exact census for another graph gives this table. Credit the binary coverage described by the database; even an exact binary entry cannot establish the characteristic-five or integral census.",
+        "searches": [
+          "Local Resultary: icosahedral Smith and characteristic-five cut census",
+          "Danielsen Database of Entanglement in Graph States, twelve-qubit rank indices"
+        ]
+      },
+      "rationale": "Pass for the graph-specific integral census and characteristic-five rank loss with its geometric location, not for the general cut-rank mechanism or binary rank indices. The closest finite censuses and family formulas inspected do not evaluate these cut matrices over the integers or at characteristic five.",
+      "residual_risks": [
+        "Individual binary database row was not extracted; the binary component is credited rather than claimed as original.",
+        "A specialized finite-graph integer table, alternative formulation or unindexed qudit reference could contain the odd-prime result; a bounded literature miss does not exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary component only",
+          "evidence": "RI_i is specified for smaller-side qubit splits, not as an integer or odd-prime invariant.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.5464",
+          "material_read": "p. 3, OA offset 20537, rank-index passage",
+          "method": "Original OA full-text passage",
+          "title": "Optimal preparation of graph states",
+          "trigger": "Potential complete cut classification through twelve vertices"
+        },
+        {
+          "assessment": "Broad qubit coverage; exact row not extracted",
+          "evidence": "Lists indexed qubit rank data through 12 vertices, with no claimed Smith or odd-prime cut table in the inspected material.",
+          "identifier_or_url": "https://www.codetables.de/larsed/entanglement/",
+          "material_read": "Coverage and RI_i explanation at page offsets 0 and 2440; not the compressed individual graph listing",
+          "method": "OA public page",
+          "title": "Database of Entanglement in Graph States",
+          "trigger": "Exact graph rank-index tables"
+        },
+        {
+          "assessment": "Framework, not object-specific coverage",
+          "evidence": "Defines the qudit graph-state setting; does not give the icosahedral cut computation in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/0712.1979",
+          "material_read": "p. 1, OA offset 373",
+          "method": "Original OA full-text passage",
+          "title": "Quantum Error Correcting Codes Using Qudit Graph States",
+          "trigger": "General qudit framework"
+        },
+        {
+          "assessment": "Self-match and distinct exact statements",
+          "evidence": "Möbius–Kantor uses 6,435 balanced cuts and 15 Smith classes on 16 vertices; Heawood gives 29 odd-prime defects on 14 vertices. Neither is the icosahedral census.",
+          "identifier_or_url": "c100c08aee46; a91c712d7f09; 970e77e34ed4",
+          "material_read": "Icosahedral finding; Möbius–Kantor finding offset 640; Heawood finding offset 1371",
+          "method": "Local Resultary and mirror passages",
+          "title": "Icosahedral, Möbius–Kantor and Heawood arithmetic censuses",
+          "trigger": "Strongest exact and same-day Resultary comparisons"
+        },
+        {
+          "assessment": "Different graph families and cuts",
+          "evidence": "The first handles an alternating-layer cut and the second line graphs; neither includes the icosahedral all-subset classification.",
+          "identifier_or_url": "2bc8f85cb693; d25a6aa6f8d4",
+          "material_read": "Both mirrored finding passages, offset 0",
+          "method": "Local Resultary and mirror passages",
+          "title": "Cyclotomic entanglement resonances in generalized Petersen qudit graph states; Prime-characteristic entanglement of line-graph qudit states from signed component overlaps",
+          "trigger": "Possible stronger family results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural Platonic graph is a concrete test of how cut entanglement depends on local prime dimension, even with identical unit weights. The table specifies the entire arithmetic cut law for this graph rather than a chosen small slice. It singles out characteristic five and locates every associated defect in a geometric antipodal family, giving a usable benchmark and explicit witnesses without claiming a general protocol or a family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

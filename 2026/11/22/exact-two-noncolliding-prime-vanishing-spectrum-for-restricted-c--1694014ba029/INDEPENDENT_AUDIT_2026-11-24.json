@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:40:15.900850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Salazar arXiv:2611.10059v1, PDF p. 11, Theorem 4.9, has the stated hypotheses and strict inequalities. For k≤2 they imply c≤3 and the four strict thresholds 58,155,387,925. Adding every prime divisor ≥5 of n preserves both zero and k, so these thresholds apply with c=ω of the enriched colliding support. The survivors are precisely the h with gcd(h(2n−h),6n)=1. Each remaining noncolliding prime removes exactly two residue classes and no prime ≥2n can remove a survivor; hence the finite set-union cover test is equivalent in both directions, including zero and one prime. An independent argument and exact replay also certify the spectrum without importing the cutoff: pad to two noncolliding primes, and take one admissible progression mod 6 of length L≥floor(n/6). CRT inclusion–exclusion on this progression gives a survivor count at least Lδ−(9·2^c−1), where δ is the product of 1−1/p over colliding primes and 1−2/p over the other two. Order the c+2 primes with p_i≥2i+3: the density is minimized by assigning the two larger exclusions to the two smallest primes, so δ≥D_c=(3/7) product_{i=3}^{c+2} (2i+2)/(2i+3). A zero has n<F_c=6((9·2^c−1)/D_c+1). For c=4, n≥5·7·9·11>F_4=184425/64; each extra colliding prime increases the product lower bound by at least 13, while F_c grows by a factor less than 6, ruling out all c≥4. For c≤3 the four cutoffs are 118,1095/4,4899/8,214173/160. Independent replay: python3 /workspace/audit_evidence/prime_cover.py /workspace/source/2026/11/22/*1694014ba029/small_support_certificate.csv. It scanned 13,192,162,21 candidates by c, verified all 207 certificate rows (minimum and validity of the stated minimizing pair), and found only 26,28,34,40,46. Their (base size, max one-prime coverage) pairs are (2,1) for the first four and (3,2) for the last. Direct gcd tests verify the five displayed squarefree products and exactly two noncolliding factors each. This proves J(0)=J(1)=0 and J(2)=46 in the n≥13 domain. The frozen verifier was read, not executed. The inspected source for the imported theorem is a public preprint; journal status was not asserted by this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.9 gives strict upper bounds on c,n for zeros but allows many more cases than the five true exceptions.",
+          "The earlier exact formulas count g_P for a fixed P; sufficient positivity e.g. P≤√(2n) or n≥3P does not bound the allowed noncolliding primes in this extremum."
+        ],
+        "reasoning": "A general fixed-support formula can be an enumeration subroutine, not the determination of the varying-support extremum on an infinite domain. The cutoff is an essential general antecedent but not a dominating classification.",
+        "searches": [
+          "Salazar arXiv:2611.10059v1, Theorem 4.9 and stated bounds for J(k)",
+          "Salazar arXiv:2609.22305v1, general exact counting and positivity criteria"
+        ]
+      },
+      "checked_sources": [
+        "Salazar arXiv:2611.10059v1",
+        "Salazar arXiv:2609.22305v1",
+        "Resultary 1694014ba029 and 9bcb3a55d0fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Enrichment and the theorem restrict candidate inputs, but testing all remaining prime covers is a further exact step. Singleton impossibility and the five witnesses require separate checks."
+        ],
+        "reasoning": "The exact answer is a certified finite resolution of a motivated remaining problem, not a parameter substitution in the inequalities or an extraction from the inspected tables.",
+        "searches": [
+          "arXiv:2611.10059v1 Theorem 4.9, Table 1 and §6 compared against RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Salazar defines the same invariant with N=2n and a supremum including zero, agreeing with the maximum here after the finite reduction.",
+          "The exact Resultary hit 1694014ba029 is this record, not separate prior work. The distinct quadratic Jacobsthal spectrum 9bcb3a55d0fe counts runs x+i² mod a modulus with at most two prime divisors, not covers of symmetric coprime summands."
+        ],
+        "reasoning": "Changing N to 2n, or describing admissibility by prime covers, does not reveal a separate known complete spectrum in these sources. Equal numerical support budgets for a Jacobsthal run and this coprime-sum problem are not an equivalence.",
+        "searches": [
+          "Resultary: restricted coprime representations, exact vanishing spectrum and J(2)=46",
+          "Salazar arXiv:2611.10059v1, definition of J(k) and cover example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives positivity thresholds by total support size 1–11, not a table of all zeros at k≤2. Section 6 treats a prime-cover example at N=352 rather than this five-element list.",
+          "The indexed exact occurrence is the assigned record; no distinct matching table was established."
+        ],
+        "reasoning": "Total support is not noncolliding support; a positivity threshold table cannot certify classified zeros below its thresholds.",
+        "searches": [
+          "Salazar arXiv:2611.10059v1 Table 1 and Section 6",
+          "Resultary: five exceptional even integers and exact endpoint"
+        ]
+      },
+      "rationale": "The exact noncolliding-budget-two classification and the first nonzero sharp endpoint extend the inspected statements. The necessary global inequalities and the CRT counting framework are prior, not part of the supported distinct claim. Neither gives the exact endpoint and exceptional set without resolving the finite cover problem, and the inspected prior tables do not do so.",
+      "residual_risks": [
+        "A separate exact prime-cover census could predate this result outside the inspected papers and local index. The comparison does not treat a missing hit as a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match for imported cutoff, not for the sharp classification.",
+          "evidence": [
+            "Theorem 4.9 states k≥1, (c+1)!<5(2k+3)3^k/3 and n<(2(c+k)+3)(2^c3^k−1)+2 without a natural cutoff.",
+            "Table 1 indexes total ω(P); the cover example concerns N=352."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10059v1",
+          "material_read": "p. 2 definition of J(k); pp. 9–10 Table 1; p. 11 Theorem 4.9 (OA offset about 36,355); pp. 19–20 §6 example",
+          "method": "Primary open PDF text and equation comparison",
+          "title": "Prime supports and vanishing in restricted coprime representations",
+          "trigger": "Same definition, cutoff and J(k) invariant"
+        },
+        {
+          "assessment": "Counting and positivity tools, not an exact varying-support vanishing spectrum.",
+          "evidence": [
+            "Positive for P≤√(2n); separate criterion n≥3P."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.22305v1",
+          "material_read": "p. 2 introduction; p. 22 cutoff; pp. 25–26 conclusion",
+          "method": "Primary open PDF text, targeted formulas and hypotheses",
+          "title": "Exact Formulas for Restricted Coprime Representations of Even Integers with Squarefree Modulus 6P",
+          "trigger": "Same count; possible dominating closed formula"
+        },
+        {
+          "assessment": "Self-match and a distinct residue-run problem, respectively.",
+          "evidence": [
+            "The distinct record uses x+i² modulo a fixed modulus rather than symmetric sum representations."
+          ],
+          "identifier_or_url": "Resultary: 1694014ba029; 9bcb3a55d0fe",
+          "material_read": "Matching findings and hypotheses in the local mirror",
+          "method": "Focused configured Resultary queries and statement comparison",
+          "title": "Exact two-noncolliding-prime vanishing spectrum; The exact quadratic Jacobsthal spectrum for moduli with at most two prime factors",
+          "trigger": "Exact and neighboring support-budget matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "J(k) was an existing sharp extremal invariant with noncolliding support as the parameter. The theorem resolves its first budget at which a zero is possible, proves that one noncolliding prime can never suffice in the specified domain, and records all exceptions at budget two, not merely the largest or an isolated witness. An exact finite reduction and census are useful here because neither broad positivity criteria nor upper bounds can answer these sharp first-case questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

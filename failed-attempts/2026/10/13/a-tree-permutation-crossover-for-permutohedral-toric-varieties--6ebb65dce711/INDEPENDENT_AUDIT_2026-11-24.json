@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:40:26.842173Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=1 and the specified regular polarization, the permutohedron is the sum of [e_i,e_j] over i<j on n+1 coordinates: a strict ordering of the objective chooses one endpoint for each edge and yields precisely a permutation of 0,...,n. Differences generate the lattice A_n. A maximal set of edge differences has determinant of magnitude one in A_n when the edges form a spanning tree (integral path differences give a basis) and zero otherwise. Consequently the lattice-covolume volume counts (n+1)^(n-1) trees. The Ehrhart leading coefficient gives degree n! times that volume. By the torus-orbit stratification, positive-dimensional complex tori contribute zero Euler characteristic and the (n+1)! maximal cones contribute one each. The quotient is (n+1)^(n-2), giving 1/2, 1, and >1 respectively at n=1, n=2, n>=3, with both invariants 6 for the hexagonal del Pezzo surface. The comparison is of n! times the tree count with the permutation count, not the two bare counts; in dimension two the latter are 3 and 6. The unique-equality statement is for positive dimensions as in the stated classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Postnikov supplies all connected graphical zonotopes, explicitly including the complete graph and the stated regular permutohedron.",
+          "Henderson–Lehrer supply the Poincare polynomial for complex Coxeter-fan varieties, whose type-A braid fan is precisely the fan in the record."
+        ],
+        "reasoning": "Both general formulas specialize directly under exactly the specified normalization and fan type; no missing case distinction or harder comparison remains.",
+        "searches": [
+          "Resultary: degree of regular permutohedron toric variety n factorial times Cayley tree count",
+          "Postnikov arXiv:math/0507163 §2 Proposition 2.4",
+          "Henderson–Lehrer arXiv:0806.0680v2 §1 Eq. (9)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507163",
+        "arXiv:0806.0680v2",
+        "arXiv:1603.06544",
+        "2026/10/13/SCOPE-complete-degree-euler-crossover-for-segre-products--a78c5e6aceaf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Volume (n+1)^(n-1) times n! from the standard degree formula, divided by (n+1)! from the Coxeter Poincare polynomial at one, equals (n+1)^(n-2).",
+          "Helmer–Sturmfels Theorem 1.1 is about generic Euclidean-distance degree, not the claimed comparison; the ordinary degree-volume implication does not depend on that theorem."
+        ],
+        "reasoning": "The implication recovers the full finding, including all strict regimes, without assuming a source states the quotient verbatim. Distinguishing Euclidean-distance degree avoids spurious coverage.",
+        "searches": [
+          "Postnikov arXiv:math/0507163 §2 Proposition 2.4 pp. 5–6",
+          "Henderson–Lehrer arXiv:0806.0680v2 introduction and §1 Eq. (9)",
+          "Helmer–Sturmfels arXiv:1603.06544 introduction and Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Postnikov, Prop. 2.4, identifies the graphical-zonotope volume with the spanning-tree count; the exact comparison is n! times that volume versus the type-A fixed-point count.",
+          "2026/10/13/SCOPE-complete-degree-euler-crossover-for-segre-products--a78c5e6aceaf, Finding, concerns standard Segre products with different degree and Euler formulas."
+        ],
+        "reasoning": "Recasting as a tree/permutation statement does not supply another geometric theorem. The factorial conversion is essential; the nearby indexed crossover is not the source of coverage.",
+        "searches": [
+          "Resultary: permutohedral toric variety projective degree Euler characteristic permutohedron volume",
+          "Resultary: tree versus permutation count crossover ratio (n+1)^(n-2) permutohedron"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact volume series, not just its first few entries, is supplied by Proposition 2.4; the exact Euler series is supplied by the Weyl-group order specialization.",
+          "The frozen finite arithmetic checker takes both series as inputs and cannot establish coverage beyond arithmetic. The separate review computation reproduced (D,E)=(1,2),(6,6),(96,24),(3000,120)."
+        ],
+        "reasoning": "A separate exhaustive ratio table is unnecessary: the prior all-dimensional formulas dominate any exact table. The low-dimensional equality is a result of these formulas, not an unaccounted data point.",
+        "searches": [
+          "Resultary: permutohedral toric variety equality degree Euler characteristic dimension two del Pezzo",
+          "Resultary: tree versus permutation count crossover ratio (n+1)^(n-2) permutohedron",
+          "Postnikov arXiv:math/0507163, displayed volume of P_m(m-1,...,0)"
+        ]
+      },
+      "rationale": "The entire crossover is mechanically implied by exact established formulas on the very same object, not merely adjacent results for a different fan or polarization. Postnikov's Proposition 2.4 at m=n+1 and the standard degree-volume identification give D exactly; Henderson–Lehrer's Eq. (9) for the type-A Coxeter fan at q=1 gives E exactly. Dividing cancels the factorial and leaves (n+1)^(n-2); only inspection of the sign of the exponent remains. No direct earlier phrasing of the ratio was established, but none is needed for this implication. No unaccounted invariant or new comparison lemma survives.",
+      "residual_risks": [
+        "Whether an older source prints the quotient verbatim is unresolved but immaterial to the established implication.",
+        "Different polarizations or Euclidean-distance degree are outside the claim and the coverage judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact volume input in all dimensions",
+          "evidence": [
+            "Connected graphical-zonotope volume equals spanning-tree count; Vol(P_m(m-1,...,0))=m^(m-2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0507163",
+          "material_read": "§2, Prop. 2.4, PDF p. 5 around offset 16400, and explanation on next page",
+          "method": "OA equation and nearby proof inspection; matched m=n+1 and the lattice normalization",
+          "title": "Permutohedra, Associahedra, and Beyond",
+          "trigger": "Exact regular-permutohedron volume in the specified lattice"
+        },
+        {
+          "assessment": "Supplies all-dimensional Euler input",
+          "evidence": [
+            "The Poincare polynomial is the sum of q^d(w) over W in the cohomological grading used there. At one this is |W|, and type A_n gives |S_(n+1)|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0806.0680v2",
+          "material_read": "Introduction p. 1 and §1 Eq. (9), p. 3 around offset 6100",
+          "method": "OA passage and equation inspection; checked that T_W denotes the complex variety here",
+          "title": "The Equivariant Euler Characteristic of Real Coxeter Toric Varieties",
+          "trigger": "Exact Euler formula for the complex braid-fan variety"
+        },
+        {
+          "assessment": "The inspected theorem concerns generic Euclidean-distance degree, distinct from the ordinary projective degree used here",
+          "evidence": [
+            "Theorem 1.1 computes generic ED degree using Chern–Mather volumes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.06544",
+          "material_read": "Abstract/introduction p. 1 and Theorem 1.1 p. 2 around offset 6200",
+          "method": "OA passage inspection",
+          "title": "Nearest Points on Toric Varieties",
+          "trigger": "Disambiguate different conventions and different kinds of degree"
+        },
+        {
+          "assessment": "Separate family; no direct equivalent coverage from this record",
+          "evidence": [
+            "Degree N! divided by product of a_i!, Euler product of a_i+1; equality for P^2 × P^4 and P^1 × P^1 × P^2."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-degree-euler-crossover-for-segre-products--a78c5e6aceaf",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local indexed-source inspection",
+          "title": "Complete degree–Euler crossover for Segre products",
+          "trigger": "Strongest indexed thematic match, including a complete crossover classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The standard polarization and both invariants are natural, but the proposed finding only divides two established invariant formulas and classifies the elementary exponent. It is useful as an illustration of the factorial normalization, not an independently useful new exact fact. Clarifying the tree-count scaling does not leave a scientifically substantive claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

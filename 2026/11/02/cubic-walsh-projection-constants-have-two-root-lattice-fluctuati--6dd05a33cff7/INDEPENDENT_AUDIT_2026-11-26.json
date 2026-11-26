@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:41:09.322315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–77",
+        "Frozen VERIFICATION.md and verify_cubic.py (inspected, not executed)",
+        "Independent boundary spot-check N=3,4 yields 1 and 3/2 from both direct and telescoped formulas"
+      ],
+      "rationale": "The known projection formula reduces the question to the cubic sign-sum polynomial (S^3-(3N-2)S)/6. Marking negative signs gives the signed generating polynomial binom(N,3)(1-z)^3(1+z)^(N-3); one cumulative sum removes one factor (1-z). Splitting the positive-S half at the strict outer-root threshold and then doubling establishes the finite identity, including on-lattice roots and zero. The normalized first local Stirling correction is -H4/(12N); the central remainder is integrably summable and the tails follow from binomial concentration. Expanding the absolute value in 2t/N leaves a discrepancy only within O(1/N) of the outer roots, contributing O(N^(-3/2)) to the normalized lattice sum; replacing the first-order perturbation by its integral costs the same order by bounded variation. The continuum coefficient is (8 phi_a-4 phi_0) - (144 phi_a-18 phi_0)/12. The derivative jumps are 6 phi_0 at zero and 12 phi_a at each outer root. Integrating against the periodic B2 gives the coefficient -h^2/2 times the jumps, with smooth remainder O(h^3) from the bounded periodic primitive. This gives a uniform O(1) after restoring N^(3/2)/6. The extrema follow from the exact Bernoulli range and are approached on N=12m^2+1 (odd, phase tending to 1/2) and N=12m^2 (even, integral phase), respectively.",
+      "residual_risks": [
+        "No explicit numerical bound for the uniform O(1) constant is asserted. Spot checks do not certify the asymptotics; the analytic estimate does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-degree Hermite theorem gives c N^(3/2) at degree three by evaluating the Gaussian integral, not the bounded-error expansion. The degree-two record has a single phase and an order-one correction, not a theorem for general degree."
+        ],
+        "reasoning": "A general leading limit and a lower-degree analogue leave both cubic cusp contributions and their parity dependence undetermined.",
+        "searches": [
+          "arXiv:2302.00233, fixed-degree limit, Theorem 4.1",
+          "arXiv:2208.06467, Ch. 8, Theorems 8.1.1 and 8.2.5 (comparison cited by the cubic sibling)",
+          "Resultary ec79809353f9, quadratic lattice phase"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.00233",
+        "Resultary 42034a3637a6",
+        "Resultary ec79809353f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known exact Walsh kernel expectation can be specialized to the cubic without producing the finite telescoping identity or absolute-value sum asymptotics without further work. The indexed cubic sibling already gives the phase limits, but its stated o(sqrt(N)) error does not yield the uniform bounded remainder."
+        ],
+        "reasoning": "The Bernoulli cusp summation and controlled remainder are needed at the finer scale; neither a central limit nor a leading Krawtchouk-to-Hermite reduction mechanically gives them.",
+        "searches": [
+          "Defant et al., arXiv:2302.00233, projection formula and normalized limit",
+          "Resultary 42034a3637a6, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The degree-three Hermite form is H3=t^3-3t. The later-indexed cubic record writes the same two Bernoulli phases, with phase arguments differing by the integer (N-(N mod 2))/2.",
+          "Its finite expression is binom(N,3) times [4D_N(K_N)-2D_N(H_N)]/2^N, where D_N is the three-term second difference of binomial coefficients in this record."
+        ],
+        "reasoning": "These are exact equivalences, not mismatches due to notation or normalization. The primary Hermite limit alone does not give a lattice correction.",
+        "searches": [
+          "Degree-three Walsh projection constant in cubic Krawtchouk/Boolean spherical form; arXiv:2302.00233, Theorems 3.1 and 4.1 and eq. (31)",
+          "Resultary 42034a3637a6, Finding and exact reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "42034a3637a6 states the exact cubic phase coefficient, global extrema and equivalent boundary formula and additionally gives parity bands. Its path is listed Nov. 8, while this source is listed Nov. 2. Its prior-work discussion does not establish the relationship between the two records."
+        ],
+        "reasoning": "This is a second indexed source for the same formula, not the frozen record itself or an earlier priority witness on available evidence. The bounded O(1) residual is stronger than the sibling's stated o(sqrt(N)) residual.",
+        "searches": [
+          "Resultary meaning search: cubic Walsh projection constants, two lattice phases; exact hit 42034a3637a6 and related ec79809353f9"
+        ]
+      },
+      "rationale": "Credit the projection-kernel reduction and the leading Gaussian–Hermite limit to Defant et al. The supported increment is the quantitatively uniform cubic lattice-phase expansion and its exact oscillatory limits and finite boundary identity. There is a distinct catalogue record with exactly the same phase coefficient, extrema and boundary identity, plus parity bands; it is listed later and only states an o(sqrt(N)) remainder. This is demonstrable equivalent coverage of the second-order law, not evidence that it preceded the assigned record, and not an independent priority determination. No inspected earlier source establishes the cubic correction.",
+      "residual_risks": [
+        "Catalogue path dates do not alone settle actual priority or the relationship of the two cubic records. Equivalent results may also occur under absolute binomial or Krawtchouk moment terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known reduction and leading coefficient",
+          "evidence": "The normalized degree-d limit is the Gaussian Hermite absolute moment divided by d!, giving exactly c at degree three.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+          "material_read": "Theorems 3.1 and 4.1, pp. 2–3, offsets 3500 and 8400; eq. (31), p. 14, offset 47100",
+          "method": "Lawful OA PDF passages",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "Direct prior formula and fixed-degree limit"
+        },
+        {
+          "assessment": "Equivalent coefficient, extrema and finite formula; later listed record, relationship not established",
+          "evidence": "The record adds subsequential parity intervals and says its remainder is o(sqrt(n)), not O(1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-lattice-phases-and-a-strict-parity-gap-in-cubic-boolean-proj--42034a3637a6/RESULT.md",
+          "material_read": "Finding, exact reduction, prior-work comparison and Limitations (offsets 0 and 8686)",
+          "method": "Local mirror",
+          "title": "Two lattice phases and a strict parity gap in cubic Boolean projection constants",
+          "trigger": "Exact claim-level indexed overlap"
+        },
+        {
+          "assessment": "Related technique and different claim",
+          "evidence": "One phase and order-one fluctuation at degree two do not cover the cubic law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9",
+          "material_read": "Indexed degree-two finding",
+          "method": "Local Resultary comparison",
+          "title": "A lattice-phase second term for second-chaos projection constants on the Boolean cube",
+          "trigger": "Prior same-object lower-degree phase formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 12–27 and 58–77",
+        "arXiv:2302.00233, Theorem 4.1"
+      ],
+      "rationale": "The leading projection-constant scale masks a real, order-sqrt(N) obstruction to a constant second coefficient. Resolving the independent parity and outer-root phases with a bounded error gives sharp dimension-sensitive information about a natural norm invariant; this is not just a more accurate evaluation of its Gaussian limit. The finite identity also treats root-on-lattice dimensions without asymptotic assumptions.",
+      "residual_risks": [
+        "The proof is for exactly degree three; no uniform law over Walsh degrees is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

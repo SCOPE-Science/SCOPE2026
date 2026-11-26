@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with the standard Python 3 library. `verification_output.txt` records an actual successful execution of that script and its final `INTEGRAL_RESULT_OK` marker. The script reconstructs all graph and matching data from the Fano lines, then exhaustively validates codimension-one face pairings and acyclicity for the full complex, all 21 single-edge deletion complexes, and the 21 corresponding relative face sets. It additionally performs direct mod-two boundary reductions as a separate finite consistency check.
+## correctness
 
-The verified exact Morse critical-cell counts are: intact, one vertex and sixteen 2-cells; each deletion, one vertex and seven 2-cells; each relative set, nine 2-cells. The proof uses acyclic unit-incidence relative chain cancellations over the integers, the integral long exact sequence, and the Smith normal form of the primitive inclusion map between two-sphere wedges to identify the quotient homotopy type. Mod-two checks are corroborative, not sufficient for the integral claim.
+PASS
 
-No two-edge deletion result, all-incidence-graph extension, independent validation, or human certification is asserted.
+The Fano incidence labeling and the matching recursion give all 24 perfect matchings; choosing the 16 avoiding a given incidence before taking their downward closure is essential. A fresh bounded reconstruction checked all 21 deletion complexes and their relative sets, including 2,201/1,552/649 nonempty cell counts, 1,092/772/320 matching pairs, and all 43 complete Hasse digraphs. Critical profiles are one vertex and sixteen 2-cells for X, one vertex and seven 2-cells for each X_e, and nine 2-cells only for each relative set. Replay: python3 /workspace/branches/2e31800b-749d-4233-9aca-c63ddbbc7a21/heawood_repro.py. The frozen verifier was inspected, not executed, and its mod-two checks are only corroborative. The absolute acyclic matchings give CW wedges without 1-cells; the relative chain matching cancels integral signed unit incidences and leaves free homology in degree two alone. The long exact sequence gives the split primitive injection with free rank-nine quotient. There is also a direct check of the map deduction: based maps from S² representing a basis for a complement exist by Hurewicz; adjoining them to the actual inclusion extends it to a homology equivalence X_e ∨ (nine S²) → X, hence a homotopy equivalence by simply connected Whitehead. Simplicial cofibration identifies the ordinary quotient with the homotopy cofiber. The finding concerns lost quotient directions, not a canonical choice of nine killed basis elements.
+
+## originality
+
+PASS
+
+The intact extendibility complex and its rational symmetry are covered by earlier results. The faulted space and the primitive integral cofiber statement survive those comparisons. Primary-text and corpus coverage is bounded; the unrelated external search results give no positive evidence of novelty.
+
+## value
+
+PASS
+
+The Fano incidence graph is a canonical symmetric cubic graph and one missing incidence is a natural first perturbation of its matching families. The result identifies the integral type of the surviving subgroup and the homotopy cofiber, information that a count of removed matching facets or a Betti table could not supply. An exact primitive inclusion for all single deletions is a useful benchmark for comparing extendibility complexes and their maps. The already-known sixteen-sphere intact calculation is not counted toward the increment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

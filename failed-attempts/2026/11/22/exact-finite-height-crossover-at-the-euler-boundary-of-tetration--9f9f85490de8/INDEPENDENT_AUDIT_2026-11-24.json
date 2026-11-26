@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:34:40.735615Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent one-step replay: /workspace/branches/0a264051-abd6-4e7e-a956-269d0090a88c/independent_tetration_replay.py and independent_tetration_replay.txt"
+      ],
+      "rationale": "The change z=t y turns one tower step into g_t(z)=t exp(-z). Centering two steps at w=W(t) gives multiplier w^2=1+a/k+O(k^(-2)) and neutral cubic coefficient -1/6. The odd orbit starts at g_t^2(0) and increases below w. At t=e the two-step orbit increases to 1, since exp(v)-1 < -log(1-v) for 0<v<1 by the series coefficients. Continuity of finitely many iterates and subsequent monotonicity give uniform entry into any fixed small negative neighborhood of the centered origin for bounded a. For r_j=u_j^(-2), expansion gives r_(j+1)=(1-2a/k)r_j+1/3+epsilon_j. For small |u_j| a coarse bound is r_(j+1)<=(1+C/k)r_j+C, hence r_j=O(k) after bounded entry. The error sums to o(k): its bound reduces after r_j=O(k) to C|u_j|+O(1/k), with the mean |u_j| going to zero uniformly. The geometric sum then gives r_k/k tending to (1-exp(-2a))/(6a), with continuous value 1/3 and uniformity on compact parameter sets. Recover the negative square root for u_k and divide by t; w/t differs from 1/e by O(1/k). The static branch has no two-cycle for t<=e: for a two-cycle its parameter is log(t)=log(s/sinh(s))+s*coth(s), strictly increasing from 1 as s>0 (derivative 1/s-s/sinh(s)^2). For t>e the interior fixed point cannot attract the increasing odd orbit from below, and expansion of the two-cycle parameter gives log(t/e)=s^2/6+O(s^4). This proves the uniform square-root branch and the subtractions giving the error and probability-window laws. Independent direct one-step numerical replay shows approach from both detuning signs (at k=25000, 0.354721 vs 0.356503 for a=-1 and 0.966138 vs 0.969075 for a=1); those samples are not a proof.",
+      "residual_risks": [
+        "Uniformity is on fixed compact detuning intervals, not the entire line. The computation is finite and floating-point; the mathematical estimates establish the limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corral's derivation allows stable or unstable reference fixed points; on the unstable side the initial point must be in the basin of a nearby attractor between it and the reference. The Taylor condition at p. 10 requires vanishing lower nonlinear coefficients throughout the parameter interval. The tower return itself has an off-critical quadratic, so its literal coefficients must not be plugged directly into this assumption.",
+          "For the tower, write m=w^2 and A=m(w-1)/2 for the quadratic coefficient. Put u=v+c(w)v^2 with c(w)=1/[2(w+1)]. The conjugated quadratic coefficient is A+c m-c m^2=0 for every nearby w, and the critical cubic remains -1/6. The coordinate change is locally invertible and preserves the leading amplitude. Monotone trapping and finite entry put the actual tower initialization on the stable lower side; the entry time is bounded and its displacement is bounded away from zero for that fixed entry time."
+        ],
+        "reasoning": "In this coordinate the hypotheses of the broader cubic formula apply, after discarding a bounded transient. In the supercritical regime the increasing orbit tends to the lower fixed point of the return between its initial value and zero. Neither the parameter-suppressed quadratic nor the original tower initialization produces a different scaling regime. The previously known odd-tower CDF then gives the compact-uniform upgrade by monotonicity, not a distinct limiting function.",
+        "searches": [
+          "Corral, arXiv:2405.19947 / Chaos 35, 013106, pp. 6–10",
+          "Finite-time scaling on low-dimensional map bifurcations, arXiv:2505.24673v1, §II.B, Appendix A.1–A.2",
+          "Thornton, arXiv:2611.03895v1, §§4.1–4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.19947 and arXiv:2505.24673v1",
+        "arXiv:2611.03895v1",
+        "Local Resultary identical assigned hit and distinct earlier ec7e4796f3ca",
+        "Frozen RESULT.md, return-map expansion and CDF construction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quadratic-removing change yields cubic P_*=1/6 and unstable/stable lower-branch conditions for the old finite-time formula. With l=k minus a bounded number of return steps, its pointwise consequence is sqrt(k)(-u_k)->sqrt(3*G(2a)). The CDF offset w/t-1/e=O(k^(-1)) gives exactly (1).",
+          "For each k the scaled CDF deficit is nondecreasing in a because x_(k,a) is decreasing and the odd tower is a CDF. Pointwise convergence to the continuous H is therefore uniform on each compact interval by partition into finitely many subintervals with small variation of H. This does not require that Corral explicitly claim uniformity in this form.",
+          "The prior tetration result identifies the lower attracting cycle and gives its one-sided cusp, with a numerically reported coefficient. Balancing the linear and cubic terms of the return at its nonzero fixed point yields -u_* asymptotic to sqrt(6*(m-1)), also the branch amplitude in Corral Eq. (9). This evaluates Thornton's coefficient in the detuning coordinate; the other side is the smooth fixed point. Formulas (3) and (5) are subtractions, and (4) is the a=0 value."
+        ],
+        "reasoning": "The prior law implies the pointwise finite-height limit with a short analytic coordinate and time substitution; established CDF monotonicity then gives the actual compact-uniform quantifier. The application supplies a clean error-control proof, but that proof and the elementary static-branch conversion do not establish unsupported historical priority for a new exact crossover invariant.",
+        "searches": [
+          "arXiv:2405.19947, Eqs. (5)–(9) with p. 10 assumptions; arXiv:2505.24673v1, Eq. (3), discussion of distance to the nearest attracting cycle; arXiv:2611.03895v1, Theorem 4.2 and Proposition 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corral's Eq. (7) for critical nonlinear order d gives (f^l(x)-p)^(d-1) asymptotic to G((d-1)l(m-1))/[(d-1)P_* l], where G(z)=z/(1-exp(-z)); it includes either sign of l(m-1).",
+          "The period-doubling paper §II.B and Appendix A use a second iterate for even leading nonlinear order and recognize parameter-suppressed quadratic terms. The submitted H is exactly sqrt(3*G(2a))/e."
+        ],
+        "reasoning": "This is the same universal profile and the same cubic return mechanism, not just a superficially similar formula for the static cusp. The multiplier in the submitted return map satisfies k(m-1)->a and the critical cubic P_*=1/6, hence d=3 yields the stated normalization.",
+        "searches": [
+          "Finite-time flip, period doubling, pitchfork and inverse-square detuning formulations; arXiv:2405.19947, Eqs. (4)–(9); arXiv:2505.24673v1, §II and Appendix A",
+          "Resultary inverse-square crossover ec7e4796f3ca"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top tetration hit is the identical frozen record, not independent coverage. Distinct 2026/11/17 record ec7e4796f3ca states for a different sigmoid map x_(N,N)^(-2)=(64/3)N Phi(theta)+(48/5)exp(-theta/2)log N+O(1), compact-uniform, with Phi(theta)=(1-exp(-theta/2))/(theta/2)."
+        ],
+        "reasoning": "This is the strongest distinct indexed exact asymptotic: Phi(4a)^(-1/2) gives the same normalized leading shape, and the comparison also has a next order for its own map. It is not an exact tetration identity or a proof of transfer by itself. Numerical tables of isolated detunings cannot settle the equation-level implication.",
+        "searches": [
+          "Local Resultary exact detuned neutral-point crossover, finite-height Euler boundary and inverse-square profile"
+        ]
+      },
+      "rationale": "The leading moving-parameter profile is already covered by universal cubic finite-time scaling after a regular local change of coordinate and the two-step return. The inspected prior sources do not print a tetration CDF formula; it is the implication, rather than verbatim identity, that is decisive. The frozen result gives a correct map-specific proof but does not retain a distinct leading asymptotic beyond this transfer. The static branch follows from the same local coefficients and established tetration two-cycle geometry, and the remaining formulas are CDF differences.",
+      "residual_risks": [
+        "No claim that the exact CDF formulation appeared verbatim in these sources. The novelty decision is based on demonstrated mathematical coverage, not on absence of another source or solely on resemblance to the different sigmoid map."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior formula covers the leading dynamical law after checking hypotheses in a local coordinate",
+          "evidence": "Inverse-power linearization gives G((d-1)l(m-1)), and the proof allows unstable reference fixed points with a nearby attractor; p. 10 requires lower derivatives to vanish across parameters. The explicit analytic coordinate change verifies the latter condition here.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.19947",
+          "material_read": "pp. 5–8, Eqs. (4)–(9), and p. 10 hypotheses (OA offsets 10700–21705 and 25020–28354)",
+          "method": "OA PDF bounded passage reading",
+          "title": "Universal finite-time scaling in the transcritical, saddle-node, and pitchfork discrete and continuous bifurcations",
+          "trigger": "Stronger prior cubic finite-time scaling statement"
+        },
+        {
+          "assessment": "Substantial dynamical coverage; not an explicit tetration theorem",
+          "evidence": "For even leading exponent the second iterate produces the effective odd nonlinear order, including cubic from quadratic, and yields the same G profile in the finite-time regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.24673v1",
+          "material_read": "§II.A–B Eqs. (1)–(4), pp. 1–2 (OA offsets 6980 and 12105); Appendix A.1–A.2 and Eq. (A1), p. 8 (offset 72500); references [8]–[9]",
+          "method": "OA PDF bounded passage reading",
+          "title": "Finite-time scaling on low-dimensional map bifurcations",
+          "trigger": "Prior period-doubling scaling with the two-step mechanism"
+        },
+        {
+          "assessment": "Prior CDF and branch structure and numerical cusp amplitude; not the moving-height statement",
+          "evidence": "Odd towers give the CDF sequence and the lower two-cycle branch beyond the Euler threshold; Proposition 4.4 states a square-root cusp and reports C numerically.",
+          "identifier_or_url": "https://arxiv.org/html/2611.03895v1",
+          "material_read": "§§4.1–4.2, Lemma 4.1, Theorem 4.2 and Proposition 4.4; direct cusp passage at OA offset 30750",
+          "method": "OA HTML theorem/proof reading",
+          "title": "A Tetration Distribution",
+          "trigger": "Same CDF and Euler boundary"
+        },
+        {
+          "assessment": "Same leading normalized shape and method in a different system, with distinct next-order correction",
+          "evidence": "At a_N=8+theta/N the compact-uniform leading inverse-square term is proportional to N Phi(theta) and a log N correction follows; H(a) is proportional to Phi(4a)^(-1/2).",
+          "identifier_or_url": "2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca",
+          "material_read": "Mirrored RESULT.md Finding, OA offset 220",
+          "method": "Local Resultary and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exponentially weighted logarithmic crossover at the neutral flip",
+          "trigger": "Strongest distinct indexed compact-uniform inverse-square crossover"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, stated conclusions (1)–(5) and limitations",
+        "Corral arXiv:2405.19947, Eqs. (7)–(9)",
+        "Thornton arXiv:2611.03895v1, Proposition 4.4",
+        "Distinct Resultary neutral-flip record ec7e4796f3ca"
+      ],
+      "rationale": "The Euler-window question is natural and the proof is useful as a worked application. For a separate exact finding, however, the asserted finite-height profile and its normalization are mechanically supplied by existing cubic scaling once the tower is written as a second iterate; compact uniformity follows from CDF monotonicity, and the local mass identity is an endpoint difference of that profile. Even the exact static coefficient is fixed by the same cubic branch balance. There is no surviving claim of a new correction term, density scaling or other independent quantitative invariant that would justify treating the routine specialization as a distinct finding.",
+      "residual_risks": [
+        "This is not a rejection of the correctness or pedagogical usefulness of the compact-uniform tower proof. No unsupported mathematical repair or broadened claim is submitted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

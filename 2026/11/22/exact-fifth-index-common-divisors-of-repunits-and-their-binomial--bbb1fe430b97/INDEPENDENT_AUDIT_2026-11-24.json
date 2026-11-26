@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:06:16.069065Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and VERIFY.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py 4, quotient-ring determinant and literal binomial-sum evaluation, complete checks modulo 5, 11, 25, 121 and both residue schedules (passed)"
+      ],
+      "rationale": "The transform numerator telescopes by the binomial theorem to (b+1)^5−32. Exact division by b−1 gives the two displayed monic quartics F,G. An independent support certificate is multiplication by G in Z[X]/(F): in order 1,X,X²,X³ the four columns are (30,25,15,5), (−5,25,20,10), (−10,−15,15,10), (−10,−20,−25,5); the determinant is 378125=5^5·11². If p divides both F(b),G(b), evaluation modulo p gives a nonzero functional annihilating this multiplication map, so p must divide its determinant. Checking complete residue systems gives common roots {1} modulo 5, {5,9} modulo 11, and no common roots modulo 25 or 121 (in particular, the lifts in each row of the frozen table cannot coincide). Hence the valuations are exactly the indicators, not merely upper bounds on support. The CRT gives 36,9,8,2 and minimal base period 55 since both nonconstant indicators have prime moduli. For b=2^k the two orders are 4 and 10 and the 11 classes correspond to k=4,6 mod 10. No nontrivial translation modulo 10 can fix these two classes: a swap would require their difference to be 5. Thus each period is a multiple of 4 and 10, and counting their joint residues gives 13,3,2,2. All arguments apply on the stated positive domains.",
+      "residual_risks": [
+        "This is a fifth-index classification; the finite modular checks are exhaustive at the necessary moduli only because the determinant bounds the prime support."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prasad et al., Thm. 2.23 applies to any index and determines the transform but not the simultaneous gcd.",
+          "The available cyclotomic-resultant abstract treats pairs of cyclotomic polynomials; the G in this problem is not cyclotomic. The Touchard search summary describes fixed divisors of T_p(z)−2z, not gcds of this pair; original text unavailable for that hit."
+        ],
+        "reasoning": "A general exact gcd theorem for repunits and this affine companion would cover index five, but no inspected such theorem was identified. A standard cyclotomic-pair resultant theorem does not apply to G, and even exact resultant support alone would not give the local valuations and classes. Abstract- or summary-only sources are not treated as exhaustive exclusion evidence.",
+        "searches": [
+          "All-prime-index common divisors of repunits and ordinary binomial transforms",
+          "Resultants of Cyclotomic Polynomials, JSTOR 2037387",
+          "Resultary prime-index auxiliary primes / Touchard fixed divisors"
+        ]
+      },
+      "checked_sources": [
+        "Prasad et al. arXiv:2307.08073",
+        "Exact assigned and distinct neighboring-base Resultary entries",
+        "Touchard summary and cyclotomic-resultant abstract/retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general transform gives its closed form, while the neighbor result's exact cases concern m=6 and m=12 with b+h.",
+          "The audited affine fifth-root relation distinguishes j=2,4 at prime 11 from j=3 (which only permits characteristic 5), followed by incompatible lifts at 11²."
+        ],
+        "reasoning": "The term formula fixes the objects, but neither it nor the checked nearby results executes or mechanically implies the joint divisibility analysis, especially the two specific mod-11 classes and the absence of common square factors despite the squared factor in the resultant.",
+        "searches": [
+          "Prasad et al. arXiv:2307.08073, equations (2.2), (2.11), Theorem 2.23",
+          "Same-day neighboring-base GCD Finding; classical cyclotomic-resultant comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prasad et al. arXiv:2307.08073, Def. 2.1 and Thm. 2.23 yield F(2^k), G(2^k) separately.",
+          "SCOPE-neighboring-base-repunit-gcd-growth-and-the-exact-twelve-digit-s--06615625731d compares R_m(b) to R_m(b+h), with exact m=6 and m=12 cases."
+        ],
+        "reasoning": "The affine companion can be written G(b)=16 F((b+1)/2) in characteristic other than 2, not as a unit-translate repunit in standard integer base; the base separation depends on b and requires scaling. The inspected neighboring-base fifth-root-unrelated lengths and their shift constraints do not give this affine fifth-root coincidence and its prime-power lifts. The Mersenne parameterization is genuinely equivalent only for the subfamily b=2^k, and the source gives terms, not the gcd.",
+        "searches": [
+          "Higher-order Mersenne numbers and ordinary binomial transform at n=5",
+          "Repunit/cyclotomic common root at index five: b and (b+1)/2 both fifth roots in characteristic other than 5",
+          "Resultary neighboring-base repunit GCD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-fifth-index-common-divisors-of-repunits-and-their-binomial--bbb1fe430b97 matches the frozen record itself.",
+          "Same-day neighboring-base result 06615625731d concerns different paired repunits, not the same class tables modulo 55 and 20."
+        ],
+        "reasoning": "The exact hit is not distinct coverage. The compared same-day output tabulates different values; date is not used to decide priority. No exact independent table of values or residue classes for the audited pair surfaced in the checked material.",
+        "searches": [
+          "Resultary exact fifth-index repunit/ordinary-binomial-transform gcd and residue periods"
+        ]
+      },
+      "rationale": "The inspected sources give the underlying sequence and transform, and treat nearby common-divisor families, but no distinct inspected statement gives the simultaneous value gcd of this pair at index five or a stronger theorem directly implying its residues and valuations. This is a bounded priority assessment.",
+      "residual_risks": [
+        "A stronger unindexed affine-root or repunit joint-divisibility theorem could overlap. The cyclotomic paper's full text and the Touchard catalogue original could not be inspected; retrieval limits are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides closed forms, not the fifth-index gcd",
+          "evidence": [
+            "Defines M_n^(k)=M_{kn}/M_k and gives the ordinary binomial transform closed form."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.08073",
+          "material_read": "Eq. (1.2) p. 2; Def. 2.1 and eq. (2.2) p. 4; eq. (2.11) p. 10; Theorem 2.23 p. 12",
+          "method": "Targeted OA paper passages",
+          "title": "The sequence of higher order Mersenne numbers and associated binomial transforms",
+          "trigger": "Source of both sequences with any-index transform theorem"
+        },
+        {
+          "assessment": "Different pairing and exact parameter cases",
+          "evidence": [
+            "Compares R_m(b) with R_m(b+h); exact length-six and length-twelve results."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-neighboring-base-repunit-gcd-growth-and-the-exact-twelve-digit-s--06615625731d",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Neighboring-base repunit GCD growth and the exact twelve-digit structure",
+          "trigger": "Closest distinct same-day repunit GCD record"
+        },
+        {
+          "assessment": "Same assigned record",
+          "evidence": [
+            "Same gcd formula and base/exponent schedules."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fifth-index-common-divisors-of-repunits-and-their-binomial--bbb1fe430b97",
+          "material_read": "Finding identified against frozen RESULT.md",
+          "method": "Resultary lookup and frozen-source comparison",
+          "title": "Exact fifth-index common divisors of repunits and their binomial transforms",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Abstract indicates two cyclotomic inputs; residual full-text risk",
+          "evidence": [
+            "The computed G is not a cyclotomic polynomial (its constant coefficient is 31)."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/2037387",
+          "material_read": "Search-visible abstract and JSTOR landing-page scope; no full text",
+          "method": "Lawful OA attempts at JSTOR and AMS PDF; AMS returned HTTP 403",
+          "title": "Resultants of Cyclotomic Polynomials",
+          "trigger": "Potential general resultant formula covering this pair"
+        },
+        {
+          "assessment": "Summary indicates a different family; no full-text priority conclusion",
+          "evidence": [
+            "Reported invariant is a Touchard fixed divisor for T_p(z)−2z."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-unbounded-auxiliary-prime-divisors-in-prime-index-touchard-fixed--8a682fd43e2c",
+          "material_read": "Resultary summary only; original unavailable in local mirror",
+          "method": "Resultary search and local-mirror retrieval attempt",
+          "title": "Unbounded auxiliary prime divisors in prime-index Touchard fixed divisors",
+          "trigger": "Prime-index analogue with auxiliary divisors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, cyclotomic root and valuation proof",
+        "Prasad et al. definitions and transform theorem",
+        "Direct comparison of the same index-two and index-three polynomials"
+      ],
+      "rationale": "The repunit and its ordinary binomial transform provide a natural pair for studying their shared arithmetic, beyond closed forms for each sequence. Fifth index is structurally meaningful: at prime index two the difference of the two polynomials is 2, and at index three it is 3(b+2), while the repunit at b=−2 equals 3. Thus neither smaller prime index permits a common prime away from its index, whereas at five the prime 11 appears and has two distinct residue classes with no simultaneous square lift. Exact shared factors, not just resultant support, are needed to determine the periodic correlations of these sequences and their higher-order Mersenne specialization.",
+      "residual_risks": [
+        "This is a narrow exact invariant, not an all-index theorem or evidence that the same auxiliary-prime behavior persists at later indices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:32:33.112093Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–40; VERIFICATION.md; verify.py; verification_output.txt",
+        "Independent reproduction: python3 /workspace/reproductions/3.py (SymPy); /workspace/reproductions/3.txt"
+      ],
+      "rationale": "For X=f(A+Bz), expansion of (1−X)^2(1−conj(X))^2 and inner boundary values cancel paired powers of f and conj(f). The only nonconstant Taylor coefficient of f that survives integration is f′(0), from the term f q² conj(q), whose only negative mode is −1; the f²q² term uses just its constant coefficient. Independent symbolic Laurent extraction gives the entire frozen quartic. The map q↦fq is injective and isometric on the boundary; coercivity follows from the reverse triangle inequality and equivalence of norms on the two-dimensional polynomial space. Strict convexity of the fourth power of the norm gives uniqueness. If f(0)=0 the mean-value lower bound is attained uniquely at q=0; if f is unimodular constant take q=1/f. Otherwise normalize to real u=f(0) in (0,1) and v=f′(0) in [0,1−u²] by phase and disk rotation. Conjugation invariance forces real minimizing coefficients a,b. When v=0 the phase symmetry in B gives b=0. When v>0, the odd b term favors b≥0; at a=0 the a derivative is negative, forcing a>0 by convexity on that slice, and then the b derivative at zero is negative, so b>0. At a=1 the derivative's verified decomposition is strictly positive for nonnegative b, because the (1−u)² term is positive and 1−u²−v≥0. Thus a<1. The other verified stationarity identity yields b[2(1−u²)+2(a−u)²+b²]=va², hence b<a²/2 strictly, also at the Schwarz–Pick endpoint. Therefore |a/b|>2/a>2. Zero and constant optimizers have no degree-one zero to which the assertion applies.",
+      "residual_risks": [
+        "The finite symbolic run checks algebra, not the analytic minimization; the all-inner conclusion uses the reviewed convexity and Schwarz–Pick argument. No optimal exclusion radius is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier inner theorem gives |w|≥ρ(p)>0. The proof setup assumes roots tend to zero and compares small-root estimates; the even-p theorem for general f is also non-explicit.",
+          "Bénéteau et al. discuss escape with increasing degree and product bounds on roots inside the unit disk, with input-dependent factors."
+        ],
+        "reasoning": "These broader statements give qualitative or different bounds. In particular their small-root regime or inside-disk product estimates do not imply strict exclusion through radius two or exact first-jet rigidity.",
+        "searches": [
+          "arXiv:2305.16068, Theorems 5.13 and 5.16 and the following proof setup, PDF p. 13",
+          "arXiv:2511.08000v2 §4.1, Propositions 4.6, 4.7 and 4.11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.16068 Theorems 5.13, 5.16; arXiv:2310.16010 §3.2; arXiv:2511.08000v2 §4.1; Resultary 3911c0a6fb2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier uniform theorem does not evaluate ρ(4); its next paragraph explicitly sets up a contradiction with w→0.",
+          "The general possible-root examples are not inner-input examples. The root-product bound depends on inner-factor and residual data."
+        ],
+        "reasoning": "An existential positive bound without an explicit evaluation does not yield |w|>2 by specializing p=4. The degree reduction for general inputs does not preserve the desired inner-input conclusion. Exact Fourier extraction using |f|=1 is what yields the frozen full-jet formula and the positive derivative bound.",
+        "searches": [
+          "arXiv:2305.16068, PDF p. 13, offset 31554",
+          "arXiv:2310.16010, §3.2, Propositions 3.2.2–3.2.3",
+          "arXiv:2511.08000v2, Proposition 4.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Degree-one OPA notation q_{1,p}[f] and best norm approximation of 1 by f(A+Bz) describe the same optimizer at p=4.",
+          "The frozen first-jet statement is stronger than a restriction on the possible zero set: it determines the full error functional for every A,B."
+        ],
+        "reasoning": "The inner OPA theorem has the same type of optimizer but a non-explicit lower bound. General OPA root or metric-projection results are compared at fixed degree and fixed exponent, with the inner hypothesis kept.",
+        "searches": [
+          "Local Resultary: degree-one inner H^4 optimal polynomial approximants, first jet and root radius",
+          "Centner–Cheng–Felder arXiv:2305.16068, Theorem 5.13",
+          "Cheng–Felder arXiv:2310.16010, §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest adjacent indexed record computes a p→∞ boundary layer for the root of the degree-one OPA of 1−z.",
+          "The inspected literature theorem does not tabulate an explicit ρ(4)."
+        ],
+        "reasoning": "The fixed generator 1−z is non-inner; varying p for that input gives neither a jet formula nor a uniform bound over inner inputs at p=4. No exact table or stronger indexed formula was located in the focused comparisons.",
+        "searches": [
+          "Focused Resultary lookups: inner H^4 OPA quartic, first-jet rigidity, uniform radius-two zero bound",
+          "Resultary 3911c0a6fb2a, Finding and Assumptions"
+        ]
+      },
+      "rationale": "Uniform positive separation for degree-one inner-input OPA zeros is already established. The exact first-jet determination of the objective and the explicit strict separation beyond radius two were not found in the statements or implications examined. The new bound is not a claim of a new qualitative exclusion theorem or of a sharp constant.",
+      "residual_risks": [
+        "A different unindexed explicit radius or low-degree even-exponent formula could exist. The inspected earlier qualitative theorem does not determine the best uniform constant at p=4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative result already covered; radius two and jet dependence not implied by it",
+          "evidence": "The statement is |w|≥ρ(p)>0; the proof framework assumes w tends to 0 and derives incompatible rates.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.16068",
+          "material_read": "PDF p. 13, Theorems 5.13, 5.16 and following small-root proof setup, offset 31554",
+          "method": "Primary OA PDF text",
+          "title": "Optimal Polynomial Approximants in H^p",
+          "trigger": "Closest previous uniform inner-input root exclusion"
+        },
+        {
+          "assessment": "General inputs, not uniform inner H^4 radius",
+          "evidence": "Higher-degree roots reduce to degree one for general inputs; exterior points are attained by some general inputs.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.16010",
+          "material_read": "§3.2, Propositions 3.2.2–3.2.3, PDF pp. 13–14, offset 34468",
+          "method": "Primary OA PDF text",
+          "title": "More properties of optimal polynomial approximants in Hardy spaces",
+          "trigger": "Possible degree-one root locations and reductions"
+        },
+        {
+          "assessment": "Different bounds, no exterior uniform radius implied",
+          "evidence": "Root escape is in the degree variable; product bounds for interior roots retain function-dependent quantities.",
+          "identifier_or_url": "https://arxiv.org/html/2511.08000v2",
+          "material_read": "§4.1, Propositions 4.6–4.7 and 4.11, offsets 46920, 48941 and 54159–54414",
+          "method": "Primary OA HTML passages",
+          "title": "Metric projections, zeros of optimal polynomial approximants, and some extremal problems in Hardy spaces",
+          "trigger": "Recent OPA estimates addressing inner factors"
+        },
+        {
+          "assessment": "Different generator and varying exponent",
+          "evidence": "For f=1−z the root is −1−log(4p)/p+o(p⁻¹); that generator is not inner.",
+          "identifier_or_url": "Resultary 3911c0a6fb2a",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local indexed record and mirrored statement",
+          "title": "A logarithmic boundary layer for linear optimal polynomial approximants",
+          "trigger": "Adjacent degree-one zero result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations; Centner–Cheng–Felder Theorem 5.13"
+      ],
+      "rationale": "Quantifying the known uniform exclusion for the first non-Hilbert even exponent is a natural gap. The explicit bound places all the degree-one inner-input zeros strictly past the closed disk of radius two, rather than only keeping them away from zero. Separately, exact objective rigidity reduces the infinite inner-input family to two Taylor data and a constrained two-variable real optimization; that reduction can be used to investigate the optimal radius without choosing a concrete generator.",
+      "residual_risks": [
+        "Neither optimality of radius two nor extension beyond the stated degree, exponent, or input class is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: Sharp arbitrary-rate tomography of random reset sites on a Brownian ring
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The killed-diffusion boundary-value problem and renewal formula are derived with all boundary conditions. The strict total positivity lemma uses an absolutely convergent cosh power series and a positive Cauchy–Binet Vandermonde term. This proves arbitrary-rate injectivity for at most \(N\) atoms, including folded distance zero. A Chebyshev/Hankel/Prony extraction, the open-parameter invariance-of-domain lower bound, and compact moment uniqueness close the proof. The supplied executable tests reconstruct up to four atoms exactly, exercise high-precision inverse and PDE checks, and sample cosh-kernel determinants. The theorem remains an exact-noiseless statement, not a stable statistical estimation guarantee.
+PASS
 
-## Originality — PASS (residual uncertainty)
+With one attempt stopped by absorption or exponential reset, its mean duration is (1-a_r)/r and its success probability is a_r. Renewal is valid because initial and reset draws have the same law; the killed interval resolvent gives the stated cosh transform. For the difference of two laws with at most N atoms, normalization adds the q=0 row to the 2N-1 positive rate rows. For K distinct folded nodes in the signed support, choose K rows: Cauchy–Binet for the even power series has nonnegative terms by generalized Vandermonde/Schur positivity, with a strictly positive ordinary Vandermonde term in the squared nodes on both axes. This also handles q=0 or t=0. On the quadratic grid, triangular Chebyshev conversion and Hankel rank find the actual atom count, and the leading positive definite block, annihilator roots and Vandermonde solve give exactly the nodes and masses. An independent rational instance L=4, D=1, q=log 2, t=(0,1), w=(1/4,3/4) gives scaled means (15/19,198/59,3675/422), Hankel determinant 3/256 and annihilator (Z-1)(Z-5/4). The open ordered interior model has dimension 2N-1, so invariance of domain gives the asserted continuous-data lower bound, including the trivial zero-probe obstruction for N=1. Entire transform equality on an open interval gives all even moments, which identify the pushforward by t^2 on the compact closure. Only folded sites are identified; the count uses a known upper bound, and no noisy-data stability or arbitrary-grid algebraic inversion is asserted. Frozen verification notes are not independent certification.
 
-Julián-Salgado et al. (arXiv:2605.08414v1, May 8, 2026) already give the ring reset forward mean first-passage identity and mirror symmetry (section IV, equations 27–28). These are NOT new. Méndez et al. (arXiv:2401.01125) treat random resetting locations; Abundo (arXiv:2410.16889) studies other inverse FPT observations; classical Prony reconstruction is known (Kunis et al., doi:10.5802/smai-jcm.53). No comparison directly yielded the conjunction of unknown multi-site recovery from any \(2N-1\) scalar rate-resolved means, a sharp minimality proof, and complete mirror quotient. The full text of the Abundo source was not established as accessible, and general inverse-transform theory might implicitly cover components; an unlocated dominating result remains possible. The exact comparisons and accessible inspection scopes are recorded in AUDIT.json.
+## originality
 
-## Value — PASS
+PASS
 
-The result establishes a minimum natural experimental observation count for determining unknown reset-site mixtures, with a constructive design and a physical nonidentifiability theorem for orientation. It distinguishes information recoverable from transport measurements from information fundamentally unavailable, and is not merely another forward simulation. The initial/reset distributions must agree, and diffusivity and ring length must be known.
+The forward protocol, renewal identity, reflection symmetry and moment machinery are not new. The supported distinct claim is the exact model-specific finite-rate limit with arbitrary positive distinct rates for the single averaged mean observable, together with identification of its full information content. The strongest inspected comparisons change the observable, initial-law protocol, probe design, or target geometry.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A single accessible scalar response per rate retains exactly the folded law, and a freely chosen finite design attains the information-theoretic count for sparse laws. This separates intrinsic symmetry loss from avoidable experimental design restrictions and provides an exact inversion option; it is not merely an optimized rate computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

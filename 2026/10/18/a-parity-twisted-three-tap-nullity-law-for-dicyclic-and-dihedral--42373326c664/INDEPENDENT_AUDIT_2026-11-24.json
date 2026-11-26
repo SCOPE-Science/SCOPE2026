@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:49:45.394085Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; VERIFICATION.md, check.py, twist_check.py, run.log and twist.log inspected; supplied scripts not executed",
+        "Independent replay: python /workspace/branches/independent_replay.py 1"
+      ],
+      "rationale": "Use the regular Fourier basis e_z=Σ_j z^(−j)[a^j] and b e_z for z^(2m)=1; left multiplication by a acts with eigenvalues z,z⁻¹ and the reflection square gives the factor z^m (or 1 in the split case). This accounts for every dimension, including z=±1. Pure supports factor to 1+a^u+a^v: if ξ=z^g gives a cubic pair, its order is exactly 3 because gcd(q,u/g,v/g)=1, and both primitive choices work precisely for the stated residue pair and 3|q. Each lifts to g characters and kills both block coordinates. Mixed supports translate to 1+a^u+a^v b, preserving the same-coset displacement up to sign. The block is singular exactly at a primitive cubic z^u, restricted to z^m=1 in the dicyclic case, with kernel dimension one since the off-diagonal entries are nonzero. Counting preimages yields both gcd formulas and the shared singularity test; gcd(2m,u)/gcd(m,u)=2 precisely at the stated 2-adic threshold. For the pure census, at each common valuation t<r there are 2(N/3^(t+1))² ordered displacement pairs per anchor; count both cosets and divide by six. For mixed supports, count N choices for the first tap in the pair and N for the singleton, both pair cosets, and divide ordered pairs by two. Of the displacements not divisible by 3^r, the fraction divisible by 2^(s+1) is 2^(−s−1), by coprimality. This verifies all three counts and the r=0 case. An independent exact-QQ sparse regular-matrix checker ranked identity-anchored triples and used left translation in each group to check every labeled support for m=2,3,4,6,9, obtaining (pure,mixed,halved)=(16,144,72),(128,1152,288),(480,5184,2592) in the three divisible cases. Finite checks are corroboration, not the proof for all m.",
+      "residual_risks": [
+        "The twist_check.py docstring says combinatorial enumeration through m=20, but its main loop and recorded log stop at m=12. This does not affect the all-m proof.",
+        "Only distinct coefficient-one supports and characteristic zero are certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The group determinant formulas allow arbitrary coefficients; their applications concern integer determinant values. Dai–Li give the general irreducible representations and character table. Behajaina–Legrand study integral spectra for inverse-closed and identity-excluding connection sets."
+        ],
+        "reasoning": "These general decompositions underlie the algebra but do not evaluate the rank and counts in the frozen support class. The undirected Cayley result has a narrower support hypothesis and a different invariant.",
+        "searches": [
+          "arXiv:2102.04536v1 Eqs. (15),(17)",
+          "arXiv:2205.00435v2 §3.2 and Table 3",
+          "arXiv:2202.11398v1 Thm. 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.04536v1, 2205.00435v2, 2202.11398v1",
+        "Resultary 2bbf4bdce108 and 7d6c365ba4ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct same-day 2bbf4bdce108 gives every split nullity and the divisor-resolved singular census; setting n=2m reproduces the pure/mixed split results. Its compared claim does not involve Q_(4m).",
+          "Using the known central twist changes the mixed determinant at z^m=−1; obtaining the paired theorem requires imposing z^m=1, counting the resulting cubic-root preimages and relating the gcd ratio to the support labels. For example the two ranks cannot agree at {1,a²,b} for m=3: kernel dimensions are 2 and 4."
+        ],
+        "reasoning": "Neither the split census alone nor the group determinant alone is a kernel-dimension theorem for the two groups. The parity condition coupled to exact support multiplicity is the retained distinct result; the existing split and determinant-level coverage is credited.",
+        "searches": [
+          "Resultary 2026/10/18 ...--2bbf4bdce108, RESULT.md offsets 0 and 3406",
+          "Paudel–Pinner Eqs. (15),(17), PDF pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary dihedral finding 2bbf4bdce108 for D_(2n) becomes the frozen split branch by n=2m: the same unweighted support class and complex regular operator.",
+          "Paudel–Pinner use split factor f(x)f(x⁻¹)−g(x)g(x⁻¹) and dicyclic factor f(x)f(x⁻¹)−x^m g(x)g(x⁻¹) in the notation of the frozen record."
+        ],
+        "reasoning": "The dihedral statement is literally shared after renaming, and singularity can also be formulated as vanishing of the prior determinant. The determinants supply singular-mode candidates; deciding the full paired kernel requires the block rank distinction and a comparison of surviving modes.",
+        "searches": [
+          "Resultary three-tap/ternary convolution rank-nullity on dihedral and dicyclic groups; parity halving and central twist",
+          "Paudel–Pinner arXiv:2102.04536v1 Eqs. (15),(17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact dihedral census contains the shared singular totals 160 and 1280 at n=6,12, and gives expressions for the general counts. The elementary-abelian inversion record has a different subgroup. The Dai–Li table lists characters, not support nullities."
+        ],
+        "reasoning": "Credit the exact split outputs, rather than treating them as new checks. No compared exact source catalogues the paired strict-halving stratum and its counts 72 and 288 at those sizes.",
+        "searches": [
+          "Resultary 2bbf4bdce108 exact dihedral nullity table and divisor-resolved support census; 7d6c365ba4ff elementary generalized-dihedral census",
+          "Dai–Li arXiv:2205.00435v2 Table 3"
+        ]
+      },
+      "rationale": "The split dihedral branch and its singular support census already occur in a distinct Resultary record, and the central-twist factors are known. The supported distinct claim is the paired exact comparison on the same labels: identical singular supports, a strict factor-of-two drop on the specified mixed parity stratum, and the closed census of that stratum. The indexed date does not resolve priority for the shared branch.",
+      "residual_risks": [
+        "A prior rank-level specialization of the known factors is possible; the bounded comparison does not certify publication priority. The catalog date does not order the two Oct. 18 records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full coverage of split branch, not the paired twist",
+          "evidence": "At n=2m exact unweighted split nullities and the singularity census agree; S(6)=160 and S(12)=1280. The inspected claim does not include dicyclic ranks.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-ternary-convolution-nullity-laws-on-finite-dihedral-gro--2bbf4bdce108",
+          "material_read": "RESULT.md Finding/assumptions and census, offsets 0 and 3406",
+          "method": "Resultary local mirror",
+          "title": "Complete ternary convolution nullity laws on finite dihedral groups",
+          "trigger": "Distinct same-day exact match to the split branch"
+        },
+        {
+          "assessment": "Determinant formulas cover both group types, not the evaluated paired rank and census",
+          "evidence": "The two factors differ by the central character multiplier on the g term, a known ingredient for identifying mixed singular blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.04536v1",
+          "material_read": "PDF pp. 3–4 Eqs. (15),(17), around offset 6210",
+          "method": "OA PDF",
+          "title": "Minimal Group Determinants for Dicyclic Groups",
+          "trigger": "Closest paired central-twist formula"
+        },
+        {
+          "assessment": "Prior representation data",
+          "evidence": "The decomposition and characters provide blocks but do not tabulate kernel dimensions for three taps or compare their support strata.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.00435v2",
+          "material_read": "PDF pp. 8–9 §3.2/Table 3, offset 29858",
+          "method": "OA PDF",
+          "title": "Primitive decompositions of idempotents of the group algebras of dihedral groups and generalized quaternion groups",
+          "trigger": "Exact character and representation table"
+        },
+        {
+          "assessment": "Different assumptions and spectral question",
+          "evidence": "Inverse-closed supports excluding identity, integral Cayley spectra; not complex kernel dimensions for arbitrary directed/loop-permitting three sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.11398v1",
+          "material_read": "PDF p. 5 Theorem 3.1, offset 19863",
+          "method": "OA PDF",
+          "title": "On Cayley graphs over generalized dicyclic groups",
+          "trigger": "Possible spectral classification for the same group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact formulas and census; comparison with Resultary 2bbf4bdce108 and Paudel–Pinner"
+      ],
+      "rationale": "The full paired law detects a difference in kernel dimension where support singularity alone cannot distinguish the split and central-twisted extensions. It locates and counts exactly when the twist removes half of the kernel directions, beyond the already-covered split census. The support class and coordinate comparison are natural and the result applies at every group order in scope.",
+      "residual_risks": [
+        "No arbitrary-weight or other extension classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

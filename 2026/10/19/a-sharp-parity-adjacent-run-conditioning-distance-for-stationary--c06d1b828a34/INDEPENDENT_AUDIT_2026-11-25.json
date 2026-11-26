@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:08.781154Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim concerns total runs, not 1-runs, at a stationary start with fixed interior a,b and s_n/n tending to an interior rho. For 2s runs the two endpoint orientations have equal weights since pi_0 a = pi_1 b. Adding one zero or one one block gives the two terms of the affine joint-weight ratio T. Both laws have the full interval [s,n-s] as support when n >= 2s+1; the tilt is strictly positive there. Normalizing the affine tilt gives the exact TV identity |slope| times the null law's mean absolute deviation divided by twice its mean tilt. For the even-run law the entropy derivative is the log of q u(1-u-rho)/((u-rho)(1-u)); it decreases from +infinity to -infinity and its negative derivative at the root is sigma^{-2}. Centering at the moving saddle x_n for rho_n=s_n/n is necessary (there is no assumed convergence rate). The log adjacent-weight ratio differs from the corresponding entropy derivative by O(1/n) on a fixed interior neighborhood, with decrement bounded above by -c/n there. Central Stirling expansion, a Gaussian bound in that neighborhood and exponential tails beyond it give the normalized Gaussian limit and uniform integrability of its centered fluctuations. Thus the absolute-deviation coefficient is sigma sqrt(2/pi) and the mean tilt tends to t>0. The slope numerator factors as (a-b)(1-a-b), so the finite laws coincide exactly on the two stated curves; there are at least two support points even at n=2s+1. Independent standard-library replays `python3 record3_exact_check.py` and `python3 record3_asymptotic_check.py` corroborated the proof: 600 exact comparisons for n=3 through 10 across four rational parameter pairs and, for (.2,.4,.2), a scaled TV of 0.136569648 at n=10000 against 0.136568554 predicted. These are finite spot checks, not a limit proof; the supplied checker was inspected rather than run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Savelyev–Balakin abstract describes joint ones/1-run distributions, generating functions and Gaussian approximations; no endpoint-resolved conditional relative precision is established by the abstract.",
+          "The Xia–Zhang Markov-binomial problem concerns the unconditioned occupancy marginal."
+        ],
+        "reasoning": "An unconditioned or non-parity-resolved Gaussian approximation does not by itself control the absolute-deviation moment under the precise even total-run conditioning at moving densities. No stronger theorem was verified to give this conditional coefficient directly.",
+        "searches": [
+          "Savelyev and Balakin, DOI 10.1163/1569392041938802 (publisher and lawful repository check)",
+          "Xia and Zhang, DOI 10.3150/09-BEJ194",
+          "Corzo and Vergara §2.1, Eqs. (2.4)–(2.7)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify_markov_run_tv.py (read only)",
+        "Corzo and Vergara (2016), DOI 10.15672/HJMS.2015559562",
+        "Savelyev and Balakin (2004), DOI 10.1163/1569392041938802 (abstract only)",
+        "Xia and Zhang, DOI 10.3150/09-BEJ194 (scope comparison)",
+        "Resultary singleton-run, occupancy and parity-conditioned findings named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact finite conditional law gives the slope-zero curves by a ratio and the factorization (a-b)(1-a-b).",
+          "The n^{-1/2} coefficient additionally uses a moving conditional saddle, its curvature and absolute-moment convergence, not merely a finite-law rewrite."
+        ],
+        "reasoning": "Count the equality mechanisms as consequences of prior finite data when assessing originality; what survives the implication check is the quantitative leading total variation, not the affine identity or algebraic zero set in isolation.",
+        "searches": [
+          "Corzo and Vergara Eqs. (2.5), (2.7)",
+          "Savelyev and Balakin Monash abstract",
+          "Resultary total-run-conditioned and parity search comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary parameter change p=a/(a+b), theta=1-a-b turns Corzo and Vergara's runs test model into the present one. Dividing their adjacent conditional run-count masses at fixed occupancy cancels the occupancy marginal and yields the affine tilt.",
+          "The inspected Resultary parity record addresses the covariance of opposite singleton runs, not the TV between occupancy laws conditional on adjacent total runs."
+        ],
+        "reasoning": "Interchanging which count is conditioned on makes the finite identity recoverable, not a new law. Counting 1-runs alone is not the same as total runs: endpoint colors determine whether the total is even or one more or one less than twice the 1-run count.",
+        "searches": [
+          "Corzo and Vergara, DOI 10.15672/HJMS.2015559562, §2.1",
+          "Primary literature search on stationary Markov occupancy and adjacent even/odd total runs",
+          "Resultary searches for run-count-conditioned occupancy and adjacent-parity conditional laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact law covers finite cells, not a table of the limiting TV coefficient.",
+          "The strongest indexed results concern singleton-run covariances or fixed-composition ordering, not this asymptotic invariant."
+        ],
+        "reasoning": "Neither inspecting a small finite table nor evaluating already tabulated probabilities is the claimed contribution. No matching indexed statement was identified in the checked results.",
+        "searches": [
+          "Resultary: parity-dependent covariance threshold for opposite singleton runs; opposite conditional and unconditional covariance signs for color-separated singleton runs; likelihood-ratio ordering of singleton success runs under fixed composition",
+          "Corzo and Vergara Eq. (2.5), exact conditional law"
+        ]
+      },
+      "rationale": "Credit the prior exact bivariate law and its immediate affine-ratio and equality consequences. The distinct claim supported here is the sharp adjacent-total-run conditional TV asymptotic, with its explicit rate coefficient. The primary and indexed comparisons did not establish it or a dominating specialization. This is a best-of-knowledge conclusion, not a priority certificate.",
+      "residual_risks": [
+        "Savelyev and Balakin could not be read in full lawfully; an implicit endpoint-resolved local approximation in it or elsewhere may overlap.",
+        "A targeted search and inspected passages do not prove global novelty or exclude an unindexed conditional expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the finite weights and hence their parity-adjacent ratio; does not establish the sharp TV limit in the inspected material",
+          "evidence": [
+            "Their conditional total-run-count law is at fixed number of ones; p and theta map to a/(a+b) and 1-a-b."
+          ],
+          "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/644858",
+          "material_read": "Model parameterization; §2.1, printed p. 524, Eq. (2.5) (text offset 7944), and occupancy generating law Eq. (2.7)",
+          "method": "Open primary PDF, located by equation and read bounded passages",
+          "title": "A data driven runs test to identify first order positive Markovian dependence",
+          "trigger": "Exact joint law for the same stationary chain and run statistic"
+        },
+        {
+          "assessment": "Unresolved possible implicit overlap, not evidence of noncoverage or exact coverage",
+          "evidence": [
+            "The available description names 1-runs, generating functions and Gaussian approximation, not parity-adjacent total-run conditional TV."
+          ],
+          "identifier_or_url": "https://doi.org/10.1163/1569392041938802",
+          "material_read": "Accessible Monash abstract; publisher and lawful alternate full-text availability checked, no full text read",
+          "method": "Abstract comparison and lawful access attempts",
+          "title": "The joint distribution of the number of ones and the number of 1-runs in binary Markov sequences",
+          "trigger": "Plausible stronger asymptotic joint result"
+        },
+        {
+          "assessment": "Different observable and assertion",
+          "evidence": [
+            "Stationary symmetric chain; covariance of opposite singleton-run counts, not adjacent-total-run conditioning of occupancy."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-dependent-covariance-threshold-for-opposite-singleton-r--3f2c2e70699b",
+          "material_read": "Indexed finding on enclosed 010/101 counts",
+          "method": "Local Resultary and mirrored finding comparison",
+          "title": "A parity-dependent covariance threshold for opposite singleton runs in a binary Markov chain",
+          "trigger": "Closest indexed Markov parity result"
+        },
+        {
+          "assessment": "Different random variable and sampling law",
+          "evidence": [
+            "Uniform fixed-composition words with covariance conditioned on total runs, not the occupancy distribution itself."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-opposite-conditional-and-unconditional-covariance-signs-for-colo--10ab2630cc39",
+          "material_read": "Indexed finding on the conditional singleton-count covariance",
+          "method": "Local Resultary and mirrored finding comparison",
+          "title": "Opposite conditional and unconditional covariance signs for color-separated singleton runs",
+          "trigger": "Indexed total-run conditioning comparison"
+        },
+        {
+          "assessment": "Different conditioning and no TV coefficient",
+          "evidence": [
+            "Occupancy is fixed there; it is the varying response here."
+          ],
+          "identifier_or_url": "2026/11/02/SCOPE-likelihood-ratio-ordering-of-singleton-success-runs-under-fixed--3cf268842cf9",
+          "material_read": "Indexed finding on fixed-composition one-run/singleton-run ordering",
+          "method": "Local Resultary and mirrored finding comparison",
+          "title": "Likelihood-ratio ordering of singleton success runs under fixed composition",
+          "trigger": "Indexed conditional tilt and likelihood-ratio overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The adjacent parity classes have the same leading conditional Gaussian shape, so a CLT or TV convergence to zero does not quantify their distinguishability. The sharp coefficient measures that loss and separates exact finite indistinguishability (two distinct mechanisms) from nonzero n^{-1/2} separation. This is a natural conditional comparison across all fixed interior run densities, not just a selected parameter example. It does not assert uniformity toward boundary densities or transition probabilities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:53:11.402900Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–47 (proof reconstructed)",
+        "VERIFICATION.md lines 21–23",
+        "verify_power.cpp lines 19–77, verify_slides.py lines 5–55, verify_polynomials.py lines 6–47 (inspected, not run)"
+      ],
+      "rationale": "The residual graph records exactly the initially unobserved subdivision vertices; a residual cycle prevents the first force onto any of its edges. With an original selected, observed incident subdivision vertices enable observation of all originals and then leaf-edge forcing observes a residual forest. With only subdivision vertices selected, every residual leaf or isolate is initially observed, because it has at least n-2 incident selected subdivisions; when an observed leaf forces its residual subdivision, that subdivision can in turn observe the other original endpoint, preserving the observed-leaf invariant under peeling. The forest criterion thus holds even without a selected original. Inclusion-minimality excludes redundant subdivisions incident to selected originals and requires the residual forest on r>=2 missing originals to be connected (otherwise an inter-component selected edge can be unselected). Conversely, adding an edge to that residual tree creates a cycle, and unselecting an original adds a universal vertex to the tree, creating a triangle. This proves the tree form and size n-2+binomial(r-2,2), minimized only at r=2,3. The triple-edge state can slide its unique subdivision token to either endpoint, and no other optimization-preserving move exists because each slide changes the number of selected originals by one. The missing pair and triple-edge maps therefore identify precisely the vertex–edge incidences of J(n,2). Its degree 2(n-2) yields the stated counts and the n=3 cycle. In the subdivision, distances are doubled endpoint distances plus one per midpoint, minimized over the midpoint's endpoints. A disjoint pair and support triple are possible from n=5, and disjoint support triples from n=6; these give distances five and six, respectively. For n=4 every support triple meets every pair and every other support triple, bounding distances by four, attained by midpoints of (12,13) and (24,34); n=3 gives diameter three. Thus the diameter and degree claims hold for all n>=3.",
+      "residual_risks": [
+        "The C++ propagation test covers n=3,4,5 and the slide test only n=3..8; the labelled-forest script tests finite coefficient checks, not propagation or a published all-order polynomial theorem. The symbolic argument establishes the stated ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family record ending f1009b21833f states the residual-forest criterion for arbitrary S, both optimal types and their counts, and a full power-domination polynomial; its move is token jumping, not sliding. The earlier record ending 43a4c9836292 exhaustively classifies minimal forts; Brimkov et al. identify power domination with closed-neighborhood zero forcing. Bjorkman et al. discuss slides but their inspected family classifications are token-jump graphs."
+        ],
+        "reasoning": "The static results have stronger coverage; the distinct token-jump adjacency does not give the slide graph. The demonstrated slide overlap is with record 4, not with the jump theorem.",
+        "searches": [
+          "Resultary: forest criterion, power-domination polynomial and minimal forts of fully subdivided cliques",
+          "arXiv:1805.10984v1",
+          "DOI:10.1007/s44007-025-00187-5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 4 and 5",
+        "Resultary records ending f1009b21833f and 43a4c9836292",
+        "Brimkov et al. and Bjorkman et al. primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The subdivision of the regular Johnson graph has binomial(n,2) old vertices of degree 2(n-2) and binomial(n,2)(n-2)=3 binomial(n,3) midpoints of degree two; at n=3 the degrees coincide. For nonempty S the closed neighborhood meets the full-original and star-cut forts. It misses a cycle-subdivision fort precisely when that cycle is residual, giving the exact forest criterion, from which inclusion-minimality is the residual-tree characterization by single-vertex deletion."
+        ],
+        "reasoning": "Explicitly stating degree counts and supporting optimizer lemmas does not add an independent all-order slide result to this duplicate. The static proof is independently readable, but supplies consequences of the earlier obstruction theorem.",
+        "searches": [
+          "Frozen record 4 RESULT.md lines 20–33 and 60–76",
+          "Earlier same-family minimal-forts theorem (ID ending 43a4c9836292) with Brimkov et al. Theorem 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair type is Type A, and Q_ij|k is Type B with missing triple {i,j,k} and selected w_ij. Both labelled maps identify it with the midpoint between {i,k} and {j,k}. Record 4 gives Sub(J(n,2)) with diameter min(n,6); the triangular graph is the same J(n,2)=L(K_n)."
+        ],
+        "reasoning": "The identical optimal state sets, local move predicates, and labelled incidence maps give equivalent coverage, not merely the same order or diameter by coincidence.",
+        "searches": [
+          "Resultary: fully subdivided clique / once-subdivided K_n / triangular or Johnson graph of minimum power-domination slides",
+          "Frozen records 5 and 4, exact Findings and proofs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue record ending 58aff7a86fea gives the exact graph and vertex, edge and diameter counts. The jump/poly­nomial record ending f1009b21833f also gives binomial(n,2)+3 binomial(n,3) as the exact optimizer count but gives a different edge set."
+        ],
+        "reasoning": "The other slide record covers the whole graph and determines its full degree profile; the exact same-family static count is separate from slide-graph coverage.",
+        "searches": [
+          "Resultary: minimum power domination n-2 and exact optimum/slide counts for S(K_n) and Sub(J(n,2))"
+        ]
+      },
+      "rationale": "The other frozen slide record, 4, gives the identical labelled all-order graph isomorphism and diameter under precisely the same move restriction; its radius and eccentricity results even go further in describing that same graph. Here the explicit degree counts are immediate from subdivision of the regular Johnson graph. The additional all-set forest characterization has independent same-family coverage and follows from earlier fort theory combined with closed-neighborhood zero forcing. The inclusion-minimal tree form is a short consequence of that criterion; it does not sustain a distinct slide theorem. No priority order is inferred between same-day records.",
+      "residual_risks": [
+        "Same-day priority is unresolved. A focused literature search was unavailable and supplies no negative evidence about external coverage. The distinct indexed record 4 establishes the actual overlap independently of that access issue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent central theorem and diameter with a fuller eccentricity profile",
+          "evidence": "Type A maps to its missing pair, Type B to the midpoint between the two missing pairs obtainable by moving its subdivision token to an endpoint.",
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-power-domination-slides-in-subdivided-cliques-form-a-sub--58aff7a86fea",
+          "material_read": "Frozen RESULT.md lines 5–37 and 60–76",
+          "method": "Frozen original read; compared exact labelled map and metric consequences",
+          "title": "Minimum power-domination slides in subdivided cliques form a subdivided Johnson graph",
+          "trigger": "Distinct record stating the exact slide isomorphism with same quantifiers"
+        },
+        {
+          "assessment": "Same forest criterion and static minimizers; stronger polynomial; distinct reconfiguration question",
+          "evidence": "Its jump metric is (n-2)-|S intersect T|, with no adjacency condition. Its all-set residual criterion is the same as equation (1) in record 5.",
+          "identifier_or_url": "2026/11/22/SCOPE-nonmatroidal-isometric-power-domination-exchanges-in-fully-subdi--f1009b21833f",
+          "material_read": "Finding offset 0 and prior work offset 8500",
+          "method": "Resultary local mirror",
+          "title": "Nonmatroidal isometric power-domination exchanges in fully subdivided cliques",
+          "trigger": "Strong same-family implication for static claims"
+        },
+        {
+          "assessment": "Covers the static mechanism, not the slide identity",
+          "evidence": "Lists exact minimal forts as cycle subdivisions, full original set, and specified star-cut forts; zero-forcing sets meet all forts.",
+          "identifier_or_url": "2026/11/2/SCOPE-minimal-forts-and-the-complete-zero-forcing-polynomial-of-fully--43a4c9836292",
+          "material_read": "Finding and fort/zero-forcing characterization at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Minimal forts and the complete zero-forcing polynomial of fully subdivided cliques",
+          "trigger": "Earlier obstruction classification subsuming the forest test under reduction"
+        },
+        {
+          "assessment": "General framework; inspected family results are not the once-subdivided-clique slide graph",
+          "evidence": "Power domination equivalent to zero forcing from N[S]; family formulas include complete graphs, paths, cycles, wheels, stars and other distinct classes.",
+          "identifier_or_url": "https://arxiv.org/html/1805.10984v1",
+          "material_read": "Theorem 10 at offset 20347, Section 4 / Proposition 20 at offset 39965",
+          "method": "OA full-text passages",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Earlier exact polynomial and predicate reductions"
+        },
+        {
+          "assessment": "Defines adjacency-restricted slides but inspected family results use jumps",
+          "evidence": "Illustrates sliding in a finite example and classifies jump graphs for several other families; not the labelled Johnson subdivision here.",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "Section 1 p. 2; Example 1.2 p. 5; Section 5.1 pp. 21–24",
+          "method": "OA full-text passages",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "Closest published treatment of optimal power-domination moves"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md labelled map, degree counts and distances",
+        "Frozen record 4 and the distinct jump result"
+      ],
+      "rationale": "The shared labelled slide-graph classification, considered as one theorem, is structurally useful: it gives a model for local minimum-sensor moves whose alternation and distances are invisible in the optimizer count or unrestricted-jump graph. The explicit degree and small-order statements are useful consequences but do not justify a separate contribution, and the supporting tree form alone does not provide a distinct motion classification.",
+      "residual_risks": [
+        "Only the shared central theorem carries the value judgment; no independently valuable new remainder is established relative to the overlapping records."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

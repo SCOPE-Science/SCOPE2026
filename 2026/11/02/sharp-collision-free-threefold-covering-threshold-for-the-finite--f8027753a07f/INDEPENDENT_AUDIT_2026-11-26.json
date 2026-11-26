@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:20:16.724348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–73",
+        "Frozen verify_restricted_cubic.py lines 9–105",
+        "Frozen VERIFICATION.md lines 19–22"
+      ],
+      "rationale": "Fixing u=x+y and z=s−u leaves a quadratic for x,y except at u=0; multiplying its discriminant by u² gives precisely P. At u=0 there are q solutions iff w=s³. Each pair-equality condition has h solutions by substitution, with their common triple present iff w=s³/9; inclusion–exclusion gives −3h+2 times the indicated triple indicator. The quartic is squarefree off w=s³ and the repeated-root case w=s³/9 with s≠0 (the other critical point of the cubic factor, 2s, is excluded by the nonzero constant). Its two rational points at infinity yield R=q−2−t_E, while the singular factorization gives q−2−χ(−3) and w=s³ gives 3q−2 or 3q−3. Thus the bound q−2−2sqrt(q)>9 for q≥23 suffices after excluding all collisions, with larger lower bounds in the degenerate cases. The Finding's prose loosely identifies the character sum with the trace; in the proof's convention the sum is −1−t_E for a squarefree quartic, and line 68, the boxed count, and the theorem all use the correct normalization. I independently enumerated sorted distinct triples, adding six to each fiber, and sorted multisets with weights 1,3,6 for the unrestricted count. This recomputes every fiber for p=5,7,11,13,17,19,23,29,31, matches both formulas, confirms the scaling list for each nonzero s, and gives exactly 16,22,20,16,16,6 holes below 23. Reproduction: loop over combinations and combinations_with_replacement of range(p) of size 3, key by (sum of entries mod p, sum of their cubes mod p), and compare against the displayed formula with the quadratic character evaluated from the set of nonzero squares. The source checker was inspected, not executed; the universal characteristic and extension-field claim follows from the analytic proof, not the prime-field computation.",
+      "residual_risks": [
+        "Independent enumeration used prime fields only. The frozen note records extra quadratic-field tests; these are not needed for the all-field proof.",
+        "No formal proof-assistant certification; no result is being certified in characteristic two or three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pérez–Privitelli's Theorem 1.1 requires 1≤d≤n−3 for a hypersurface theorem; §4.3 treats a single equation of the form sum of single-variable powers/polynomials equals a lower-degree expression and counts unrestricted tuples.",
+          "The indexed cubic-graph proof reduces the two simultaneous equations to a plane cubic, determines the singular parameters, and applies Hasse with three points at infinity to get the nonsingular unrestricted bound q−2−2sqrt(q)."
+        ],
+        "reasoning": "The nonsingular quantitative ingredient is not new. The general hypersurface results do not determine exact support for the simultaneous restricted equations, and the same-curve unrestricted theorem does not control collisions or resolve the restricted exceptional fibers.",
+        "searches": [
+          "finite fields Carlitz counting split cubic polynomials prescribed first and last coefficients elementary symmetric sum product rational points",
+          "arXiv:1912.05639 Theorem 1.1 and §4.3",
+          "Resultary --3b811e31ae07 unrestricted coverage proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --3b811e31ae07, --59b7f9f5baba, --d7c0719593b0",
+        "arXiv:1304.1442 §6",
+        "Choudhry DOI 10.46298/hrj.2010.171 pp. 59–60",
+        "arXiv:1912.05639v2 Theorem 1.1 and §4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the indexed cubic proof's exceptional parameters the displayed solutions are (s,0,0) and (s/3,s/3,s/3), which cannot witness distinct coverage.",
+          "The nonsingular q≥23 part does follow from the already-recorded unrestricted lower bound once one performs the degree-three collision bound. The restricted degenerate formulas, complete hole list and iff boundary require further checks not supplied by that record.",
+          "Choudhry's equal sums and cubes are rational/integer parametric solutions, not uniform finite-field coverage; the hyperbola can miss the origin even for q≥23, unlike the cubic."
+        ],
+        "reasoning": "Credit the direct nonsingular implication and the prior choice of geometry. The restricted solution is a distinct extension of the same-day result rather than a disguised assertion of 3C=F² with repeated summands.",
+        "searches": [
+          "Resultary --3b811e31ae07 proof of smoothness and uniform covering",
+          "Moreland–Zieve §6; Choudhry pp. 59–60; Resultary --d7c0719593b0 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moreland–Zieve's variables (u,v,r)=((y+z)/2,(x+z)/2,(x+y)/2) give u+v+r=s and uvr=(s³−w)/24. They preserve distinctness since each coordinate is half of s minus the corresponding entry. Their rational infinitude results do not count all finite-field targets.",
+          "The indexed cubic-graph record uses the same pair of moments but unrestricted triples. The split hyperbola sets a sum and an inverse sum of nonzero parameters; its exceptional origin behavior and smaller-field holes differ."
+        ],
+        "reasoning": "Prescribed sum/product really is an equivalent formulation of this finite-field problem; the known algebraic substitution is credited. The inspected rational theorem and the separate reciprocal-graph theorem do not assert this sharp finite-field restricted classification.",
+        "searches": [
+          "Resultary: cubic graph collision-free triple sums; prescribed paired sum and cubic moment",
+          "finite field three distinct elements prescribed sum and product distinct triples sum cubes finite field elliptic curve all targets q 23",
+          "arXiv:1304.1442 §6 Lemma 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted cubic table has omissions only at 5 and 7, unlike the reviewed restricted table. In particular all 361 targets over F₁₉ are covered unrestricted but exactly six are omitted after restriction, as independently confirmed.",
+          "The distinct hyperbola table has counts 21,36,41,48,49,18 at q=5,7,11,13,17,19, versus 16,22,20,16,16,6 for this cubic.",
+          "The parabola record is for (t,t²) over residue rings and unit differences."
+        ],
+        "reasoning": "Neither table specializes to the reviewed one. A common threshold of 23 for two different restricted graph problems is not evidence of coverage of the cubic table.",
+        "searches": [
+          "Resultary: restricted cubic threefold covering q=19,23, exact missing targets; restricted parabola and hyperbola analogues",
+          "Resultary --3b811e31ae07, --d7c0719593b0, --59b7f9f5baba"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp restricted cutoff together with the exact restricted fibers and full small-field holes, not for the reduction of the moment equations to genus one or the nonsingular unrestricted Hasse bound. The strongest same-day record uses the identical curve pencil, identifies the same singular parameters in different coordinates, and already proves the nonsingular unrestricted lower bound. Its stated coverage permits repetitions, and its two exceptional-fiber assertions use repeated entries. The restricted theorem retains the collision count, genuinely different holes even at fields with unrestricted coverage, and distinct representations at the exceptional fibers. These are not contained in the checked unrestricted record; the matching date establishes neither direction of priority. Moreland–Zieve supplies the general change of variables but not the finite-field exact restricted classification.",
+      "residual_risks": [
+        "No absolute priority claim; a specialized prescribed-sum-and-product or split-cubic count could be unindexed under another formulation.",
+        "The same-day unrestricted result is substantial overlap. Its date does not establish the direction of dependence or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same moment pencil and generic Hasse estimate; different, unrestricted support problem",
+          "evidence": "Hasse applied to (X+Y)(X−sZ)(Y−sZ)=cZ³ after removing three rational points at infinity; coverage q≥11 and exceptions for 5 and 7 only; uses repetitions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-additive-basis-order-of-the-cubic-graph-over-odd-finite-fi--3b811e31ae07/RESULT.md",
+          "material_read": "Finding and assumptions from offset 0; proof offsets 1550–5990, especially Smoothness, Uniform covering and Two small fields",
+          "method": "Local configured mirror, proof passage separately checked",
+          "title": "Sharp additive-basis order of the cubic graph over odd finite fields",
+          "trigger": "Strongest same-day indexed overlap on the same graph"
+        },
+        {
+          "assessment": "Different count and hypotheses despite same field cutoff",
+          "evidence": "Uses nonzero elements from the reciprocal graph, and q≥23 still misses the origin when q≡2 mod 3; counts and quartic differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-distinct-three-sum-coverage-of-the-split-modular-hyperbola--d7c0719593b0/RESULT.md",
+          "material_read": "Finding, assumptions and quartic reduction, offsets 0–2969",
+          "method": "Local configured mirror",
+          "title": "Sharp distinct three-sum coverage of the split modular hyperbola",
+          "trigger": "Strongest indexed threshold and formula analogue"
+        },
+        {
+          "assessment": "Different moment map and base rings",
+          "evidence": "Parabolic second moment and unit pair differences in residue rings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-collision-free-triple-moments-of-the-parabola-over-every-r--59b7f9f5baba",
+          "material_read": "RESULT.md Finding and Assumptions from offset 0",
+          "method": "Local configured mirror",
+          "title": "Exact collision-free triple moments of the parabola over every residue ring",
+          "trigger": "Same-day restriction and ordered multiplicity analogue"
+        },
+        {
+          "assessment": "Exact underlying algebra, but different coverage result",
+          "evidence": "Invertible linear change over char ≠2, cubic-sum identity s³−24uvr, and rational positive-rank applications.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.1442",
+          "material_read": "§6 Lemma 6.1 and following proof, pp. 10–11 offsets 28690–31483",
+          "method": "OA PDF locate then bounded passage read",
+          "title": "Some Diophantine equations related to positive-rank elliptic curves",
+          "trigger": "Equivalent prescribed sum/product and elliptic model"
+        },
+        {
+          "assessment": "Different domain and problem",
+          "evidence": "Simultaneous Diophantine equations (1)–(2); rational scaling and integer parametrizations, not field-order cutoffs.",
+          "identifier_or_url": "https://doi.org/10.46298/hrj.2010.171",
+          "material_read": "Introduction, pp. 59–60, offsets 1280–3926",
+          "method": "Lawfully retrieved OA journal PDF",
+          "title": "Some diophantine problems concerning equal sums of integers and their cubes",
+          "trigger": "Exact same paired power constraints over another domain"
+        },
+        {
+          "assessment": "Inspected general bounds do not subsume the restricted triple result",
+          "evidence": "The general theorem requires d≤n−3; the Carlitz section treats one equation without a distinctness requirement and gives broad estimates rather than this support classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.05639v2",
+          "material_read": "Abstract; Theorem 1.1 offsets 11970–13491; §4.3 Theorems 4.11–4.12 and Remark 4.13, offsets 70400–72842",
+          "method": "OA PDF passages",
+          "title": "Estimates on the number of Fq–rational solutions of variants of diagonal equations over finite fields",
+          "trigger": "Potential general finite-field theorem subsuming the power-sum constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–34 and 50–73",
+        "Indexed unrestricted cubic-graph proof and small-field results, offsets 1550–5990"
+      ],
+      "rationale": "A restricted additive-basis invariant is natural for a finite-field polynomial graph, and the exact cutoff shows when the unrestricted covering guarantee can be realized by three genuinely different summands. In particular q=19 separates the two phenomena although all other unrestricted targets also exist there. The result gives the quantitative restricted fiber formula and identifies every obstruction below the sharp boundary, which is more useful than an unspecified large-q bound and does not depend on claiming the elliptic method itself as new.",
+      "residual_risks": [
+        "No exact closed form for generic elliptic traces is asserted; the representation formula retains a character sum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

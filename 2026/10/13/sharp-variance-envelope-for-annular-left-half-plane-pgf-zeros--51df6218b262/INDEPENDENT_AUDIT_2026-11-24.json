@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:06:49.555976Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay of RESULT.md lines 36–98 and VERIFICATION.md: applying (z d/dz)² to the logarithm of the normalized root product at z=1 gives the variance contribution −ζ/(1−ζ)². For conjugate roots, with u=r+1/r and c=cos(arg ζ), its per-root real part is q=(2−uc)/(u−2c)². The annulus gives 2≤u≤R+1/R. The derivative in u has numerator uc+2c²−4<0 for −1≤c≤0; the derivative in c has numerator 8−u²−2uc over (u−2c)³. This numerator is strictly decreasing in c, so any interior stationary point is a maximum. This proves the endpoint minimum. The endpoint values 1/(u+2) and 2/u² tie at u=1+√5, and the displayed normalized linear and quadratic products have the required nonnegative coefficients and endpoint masses. At R=1 the minimum is 1/4; the large-R branch has order 2/R². This is sharp uniformly in degree; the imaginary-pair optimizer requires even degree, as stated. Exact spot checks at R=1,2,3,4 agreed; the analytic optimization, not the finite checks, establishes the bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 assumes all roots in the annulus and outside an angle δ; at δ=π/2 it yields only cR⁻⁴n. Theorem 24 retains that power for fixed δ=π/2 and fixed ε>0. The sharpness examples in §1.3 use δ=π/k for k≥3."
+        ],
+        "reasoning": "The broader theorem does not establish the half-plane exponent of 2 or either normalized endpoint value; the examples do not provide the requisite dominating half-plane result.",
+        "searches": [
+          "arXiv:2102.07699, Theorems 2 and 24 and §1.3",
+          "Resultary: factorwise root contributions variance probability generating polynomial zero geometry half-plane annulus"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary indexed records; closest identifiers listed above",
+        "Michelen–Sahasrabudhe, arXiv:2102.07699",
+        "Heerten–Sambale–Thäle, arXiv:2207.08469"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known root sum is a reduction to the individual root contributions; the sector lower bound is strictly weaker in large-R order, and the conditional-binomial moment formula pertains to one family."
+        ],
+        "reasoning": "The root identity does not specify the minimizing angle or radius. The new step is the exact optimization, including the nontrivial switch of minimizing endpoints and simultaneous attainment by admissible PGFs. None of these conclusions follows merely by parameter specialization of the inspected results.",
+        "searches": [
+          "arXiv:2102.07699, introduction (root-sum variance identity), Theorems 2 and 24",
+          "arXiv:2207.08469, §4.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In arXiv:2207.08469 §4.2, Hurwitz means the open half-plane; §4.2.1 and Proposition 4.2 analyze the conditional binomial family and its limit law rather than optimizing over an annulus.",
+          "Resultary record 2026/10/11/SCOPE-phase-sensitive-puiseux-stability-of-the-borcea-variance-extremi--6411e7087c7d compares a root-to-critical-point distance and a centered root RMS, not the variance of the random exponent of a PGF."
+        ],
+        "reasoning": "Neither the Hurwitz phrasing nor the variance terminology identifies the same hypothesis and sharp probability invariant in the accessed results.",
+        "searches": [
+          "Resultary: sharp variance lower bound probability generating polynomial roots closed left half-plane annulus R variance crossover imaginary roots",
+          "Resultary: PGF roots in left half plane annular zero-free variance sharp per-root lower bound",
+          "arXiv:2207.08469, §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest compared crossover record, 2026/10/13/SCOPE-exact-two-coordinate-khinchin-phase-transition-for-a-two-radius--aaa15008cc51, concerns a two-coordinate Khintchine minimization for a four-point law."
+        ],
+        "reasoning": "No exact match surfaced among the inspected results. There is no natural finite invariant table to consult for a continuous-radius optimization uniformly over degrees; the exact formula and extremal geometries were used as the indexed fingerprints instead.",
+        "searches": [
+          "Resultary: annular zero-free region variance lower bound min R/(R+1)^2 2R²/(R²+1)²",
+          "Resultary: exact frozen title, Sharp variance envelope for annular left-half-plane PGF zeros"
+        ]
+      },
+      "rationale": "The strongest inspected annular zero-free result uses the same annulus and an angular exclusion but only yields order R⁻⁴ at δ=π/2. The inspected Hurwitz-polynomial analysis gives example-specific moments and limit laws, not this extremal minimum. The inspected indexed results use different notions of variance or different optimization problems. The exact closed-half-plane minimum and the competition between real and imaginary extremizers are supported as a bounded originality conclusion.",
+      "residual_risks": [
+        "Broader bibliographic queries yielded no inspectable search response in this run; the direct primary-text comparison and local indexed searches do not exclude unindexed results or other independently stated half-plane variants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related and weaker for this optimization.",
+          "evidence": "The fixed-half-plane specialization gives R⁻⁴ rather than R⁻²; the paper supplies the root-sum identity but not the two-branch minimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.07699",
+          "material_read": "Introduction and Theorem 2 (PDF p. 2), §1.3 (pp. 4–5), §7 Theorem 24 (p. 19).",
+          "method": "Lawful OA PDF passages.",
+          "title": "Anti-concentration of random variables from zero-free regions",
+          "trigger": "Same endpoint masses, annulus, and root-sector hypothesis; possible stronger general bound."
+        },
+        {
+          "assessment": "Inspected results address example-specific variance and mod-Gaussian convergence.",
+          "evidence": "The roots of the conditional-binomial PGF lie on an explicit vertical line in the open half-plane; the result gives σ²=Np(1−p)+o(1) for its fixed-p family.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08469; DOI 10.1002/mana.202300109",
+          "material_read": "§4.2 heading and definition, §4.2.1 and Proposition 4.2 (PDF pp. 8–9).",
+          "method": "Lawful OA preprint, literal locate and bounded read (text offset 27225).",
+          "title": "Probabilistic limit theorems induced by the zeros of polynomials",
+          "trigger": "Hurwitz PGFs and non-real root configurations."
+        },
+        {
+          "assessment": "Different variance and geometry.",
+          "evidence": "The result concerns perturbations about z^n−1 and a root-to-critical-point distance versus centered RMS, not a PGF cumulant.",
+          "identifier_or_url": "2026/10/11/SCOPE-phase-sensitive-puiseux-stability-of-the-borcea-variance-extremi--6411e7087c7d",
+          "material_read": "Mirrored RESULT.md finding and comparison quantity.",
+          "method": "Local Resultary and source-mirror statement inspection.",
+          "title": "Phase-sensitive Puiseux stability of the Borcea variance extremizers",
+          "trigger": "Indexed polynomial-zero variance terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural geometric strengthening of an established zero-free variance problem: it improves the half-plane large-radius exponent from the available general guarantee of 4 to the exact exponent 2, determines the constant at every radius, and locates the switch in extremal zero geometry. The uniform-over-degree scope and the even-degree sharpness of the large-radius branch are explicit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

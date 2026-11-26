@@ -1,19 +1,21 @@
-# Review: sharp spectral-peak onset in inhibitory delayed telegraph noise
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive stationary spin process is constructed by a Poisson update scheme with strictly positive fresh-sign probability. The compensated-jump martingale has linear delayed drift and orthogonal increments, giving a positive spectral numerator and the exact transfer-function denominator. The uniform bound on \(1-\cos u\) and \(\sin u\) proves the sharp *global* zero-frequency regime, including its equality boundary. A nondegenerate quartic expansion and a compactness argument give precisely two global peaks immediately above the threshold and the square-root coefficient. The accompanying standalone numerical verifier passes 48 selected checks of global peak status, variance normalization, and onset scaling. Numerical testing is corroboration, not the proof.
+PASS
 
-## Originality — PASS, subject to priority risk
+Poisson updates at rate c yield the claimed flip intensity: refreshing causes a flip with probability 1/2, and an inhibitory copy causes a flip precisely for matching signs. Backward ancestry strictly retreats through update times and stops at a refresh almost surely, yielding a stationary sign-symmetric law and uniqueness by coupling from the remote past on any finite set of observation times. A flip changes σ by −2σ, so its compensator gives drift −cσ−hσ_delayed and expected bracket rate A=2(c+hC(T)). The inequality |C(T)|≤1 gives A≥2(c−h)>0; the strict version in the record follows because no updates in an interval of length T has positive probability, so C(T)>−1. Convolving the drift equation with the causal exponential kernel gives the stationary innovation equation. The delayed convolution has norm at most h/c<1; its Neumann series yields G∈L¹∩L² and, by the martingale isometry, the stationary σ representation. Then C is the autocorrelation of the kernel times A and its Fourier transform is A/F_T, with angle ωT and the stated sign of the sine term. On (0,T), the covariance equation and evenness give C''=(c²−h²)C; C(0)=1 and C'(0+)=-c-hC(T) yield the stated C(T). Subtracting F_T(0) and bounding 1−cos u≤u²/2 and sin u≤u for u>0 gives a strict positive difference for every nonzero ω at and below the positive root of b(T)=1−2hT−chT². Above the root b<0, and F_T is coercive uniformly in T for fixed c,h, so a global minimum exists off zero. At criticality a compact annulus away from zero has a positive gap, and uniform coercivity excludes the tail. Hence just above criticality every global minimizer is near zero. The derivative divided by 2ω is analytic in x=ω² and has x-derivative 2a₄(T*)>0 there; the simple positive root satisfies x=−b'(T*)(T−T*)/(2a₄(T*))+O((T−T*)²), with the exact constant in the Finding. Taking the square root gives the asserted pair and error.
 
-The 2024 original article already gives the delta-memory process and exact stationary correlations. The 2025 general-memory article already covers the Fourier spectrum formula through its Eq. (22). The assessed statement is **not** the derived power spectral denominator, but rather the globally sharp threshold \(T_*\), the zero-frequency versus nonzero-frequency classification, and the unique near-critical pair with a computed square-root onset. Neither paper's inspected relevant material supplies this optimization. Searches for spectral-resonance equivalents and comparisons with related delayed-noise and telegraph models found no decisive dominating statement. This does not prove global publication novelty; broader delayed stochastic-feedback literature poses residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The most prominent spectral frequency is a natural observable for a noise source with delay. The theorem provides a sharp if-and-only-if delay threshold and a critical scaling law while the stationary dynamics remain stable. This differentiates fluctuation resonance from dynamical loss of stationarity and is a substantive exact phase boundary rather than a chosen numerical example or mere reexpression of an old formula.
+The delayed telegraph model and its covariance equation are established; the record credits a general Fourier transfer formula and does not claim either ingredient as new. The strongest same-model accessible source establishes the delayed covariance equation, not an exact zero-to-nonzero global peak threshold or the two-peak onset law. Inspected related catalogue records treat different models or observables. The supported distinct claim is the global optimization and local uniqueness and coefficient, not the spectrum formula itself.
 
-## Limits and comparison
+## value
 
-Results apply to symmetric binary signals with one inhibitory discrete delay and \(0<h<c\). An exact global count of high-delay sidelobe peaks, arbitrary memory kernels, asymmetric switching, and independent specialist priority assessment lie outside the claim. Key comparisons: Apostolov et al., arXiv:2402.11038v1 (2024), delta-delay definitions and correlation equations; Melnyk et al., *Physical Review E* 112, 014127 (2025), general Fourier transfer Eq. (22).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The threshold gives an exact criterion for when delay changes the dominant stationary frequency. A curvature test alone cannot rule out a discontinuous relocation of the global peak before the curvature changes. The global envelope rules this out for this natural model and the near-critical uniqueness and coefficient quantify the transition without confusing it with instability of the process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

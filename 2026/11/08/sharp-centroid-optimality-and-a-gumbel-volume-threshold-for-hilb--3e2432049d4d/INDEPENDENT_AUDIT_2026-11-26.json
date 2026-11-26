@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:53:35.718207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired Finding retains the arbitrary-center formula and strict barycentric comparison. The affine reduction gives the unhalved max/min cross-ratio. The exponential direction is uniform by the total-mass Jacobian; the scaled independent exponentials have rates x_i, and the minimum density calculation gives e^{-s}(P+P'/c) for the product P. Both boundary terms vanish in the integration by parts, giving the integral and subset sum. Strict Karamata applies for every positive s and strict majorization comparison. The small-radius coefficient follows by dominated convergence against e^{-s}s^n, with c~r. Independently, for two vertices the odds bounds give the interval length (1+c)x_1/(1+cx_1)-x_1/(1+cx_2), which agrees by expanding the subset sum. The frozen central formula and Gumbel limit are also mathematically consistent: use the beta recurrence and exponential max/log(n)->1 and scaled minimum Exp(1), without assuming their independence. Read the packaged checker and verification notes without executing the uploaded code; the all-dimension check is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foertsch–Karlsson Theorems 1–2 classify normed-space isometries; Nielsen–Shao Lemma 6 gives polygon shape/facet bounds; Vernicos pp. 3–4 and 6–7 of arXiv:1207.1142 defines and studies intrinsic rather than Euclidean volume."
+        ],
+        "reasoning": "Isometry and combinatorics give structural inputs, not a Euclidean center ordering. The intrinsic-volume results do not dominate a normalized Euclidean probability bound.",
+        "searches": [
+          "arXiv:math/0407197",
+          "arXiv:1207.1142",
+          "arXiv:1406.0733",
+          "10.4230/LIPIcs.SoCG.2017.67"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verification notes and check.py",
+        "Repaired RESULT.md and SLOGAN.txt",
+        "Resultary 185776c2c88a",
+        "arXiv:1704.00454, math/0407197, 1207.1142 and 1406.0733",
+        "DOI:10.4230/LIPIcs.SoCG.2017.67"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof uses log-concavity, symmetry and analyticity of a convolution in centered logarithmic coordinates (offsets 3410–5997). The repaired law uses strict concavity of log(1-exp(-csx_i)) in barycentric coordinates x_i."
+        ],
+        "reasoning": "Even strict Schur comparison in centered log coordinates would not directly compare all x that are barycentrically majorized. For example, balancing (0.7,0.15,0.15) to (0.55,0.30,0.15) lowers both the highest and the lowest centered log-coordinate, so the two log vectors are incomparable. Neither prior convexity nor the central product supplies the surviving two statements by substitution.",
+        "searches": [
+          "November 1 exact central balls record, proof of the unique optimal center",
+          "arXiv:1704.00454, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nielsen–Sun §3 and Theorem 1 identify the metric and the polytope with its facets. The November 1 record Finding (offsets 500–2162) gives the central product, equal to (n/c)B(n/c,n) by the beta recurrence."
+        ],
+        "reasoning": "The centroid formula and limit match exactly under c=e^r-1; those claims do not survive as new. For an off-center point, the independent ratio variables have unequal rates, and a facet description or an i.i.d. ratio law does not give the evaluated unequal-rate mass.",
+        "searches": [
+          "Resultary: simplex Hilbert ball Euclidean mass, unequal exponential ratio ranges, barycentric majorization",
+          "arXiv:1704.00454"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 1 Finding (offsets 500–2162) gives exact central mass for all n,r and the same centroid Gumbel centering. The all-center passage at offsets 3410–5997 gives an unevaluated softmax-density convolution rather than the rational function in subset sums."
+        ],
+        "reasoning": "Coverage at all dimensions and radii at one center is exact and is credited. It does not tabulate or evaluate the center dependence away from that center.",
+        "searches": [
+          "Resultary: exact Hilbert ball mass in a simplex, central ball, Gumbel volume threshold, arbitrary barycentric center",
+          "2026/11/1/SCOPE-exact-uniform-hilbert-geometry-of-simplices-central-balls-median--185776c2c88a"
+        ]
+      },
+      "rationale": "PASS applies to the repaired arbitrary-center mass law and strict barycentric majorization, not the frozen presentation as a new centroid optimum and Gumbel threshold. The latter, including the exact central mass, are directly covered by the earlier November 1 Resultary record and are now credited as prior. Its log-coordinate convolution is an implicit volume integral, not the evaluated exponential-product or rational law in x. The inspected primary sources on metric and ball structure or Finsler volume also do not supply the surviving theorem.",
+      "residual_risks": [
+        "This bounded comparison is not a historical first-priority determination. An older unequal-rate extreme-ratio formula or an evaluated simplex ball polytope volume could overlap with the surviving exact functional; the closest inspected results did not supply that functional and its strict barycentric ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact central coverage; different all-center representation and ordering variable",
+          "evidence": [
+            "Offsets 500–2162: central mass, optimum and Gumbel law. Offsets 3410–5997: softmax density and log-concavity in centered logarithmic variables."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-uniform-hilbert-geometry-of-simplices-central-balls-median--185776c2c88a/RESULT.md",
+          "material_read": "Finding and optimal-center proof",
+          "method": "Local mirror passages",
+          "title": "Exact uniform Hilbert geometry of simplices: central balls and distance laws",
+          "trigger": "Direct earlier Euclidean-ball result"
+        },
+        {
+          "assessment": "Metric and facet structure, no evaluated unequal-center mass in the inspected passages",
+          "evidence": [
+            "Theorem 1, extraction offset 43200: the Hilbert ball has d(d+1) facets for a d-simplex."
+          ],
+          "identifier_or_url": "arXiv:1704.00454",
+          "material_read": "§3 and Theorem 1, p. 11",
+          "method": "OA PDF passages",
+          "title": "Clustering in Hilbert simplex geometry",
+          "trigger": "Same metric-ball polytopes"
+        },
+        {
+          "assessment": "Geometric background; the change of variables does not preserve Euclidean sampling",
+          "evidence": [
+            "Extraction offset 3950: simplex isometry and classification."
+          ],
+          "identifier_or_url": "arXiv:math/0407197",
+          "material_read": "p. 2, Theorems 1–2",
+          "method": "OA PDF passages",
+          "title": "Hilbert metrics and Minkowski norms",
+          "trigger": "Simplex distance as a translation-invariant norm"
+        },
+        {
+          "assessment": "Different volume measure and asymptotic question",
+          "evidence": [
+            "Offsets 7000 and 14600: Busemann/Holmes–Thompson measure and asymptotic intrinsic-volume results."
+          ],
+          "identifier_or_url": "arXiv:1207.1142",
+          "material_read": "Volume definitions and asymptotic-volume sections, pp. 3–4 and 6–7",
+          "method": "OA PDF passages",
+          "title": "Asymptotic volume in Hilbert Geometries",
+          "trigger": "Possible broader ball-volume theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arbitrary-center law computes uniform Euclidean coverage for a given intrinsic neighborhood, including off-center candidates and local mass asymptotics. Strict barycentric majorization compares many nonoptimal centers at all radii, which a centroid optimum or its limiting quantile does not do. These are useful in their own right without reclaiming the earlier central results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

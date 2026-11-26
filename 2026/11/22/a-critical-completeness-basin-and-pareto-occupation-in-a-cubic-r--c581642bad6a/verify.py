@@ -54,7 +54,7 @@ def check():
                 exact = true_area(lam, R)
                 actual = quadrature_area(lam, h, R)
                 assert abs(exact - actual) < 2e-4, (lam, h, R, exact, actual)
-            # A complete orbit has positive Delta and exponentially growing exact peaks.
+            # A complete orbit has positive Delta and exact phase-sampled radii.
             theta0 = theta_star + 0.23
             r0 = 0.5 * c / abs(math.sin(theta0 - theta_star))
             delta = r0 ** -2 - H(lam, h, theta0)

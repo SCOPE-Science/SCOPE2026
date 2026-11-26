@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:44:02.157066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 32–80",
+        "VERIFICATION.md line 20 and verify.py inspected, not executed",
+        "Replay: cd /workspace && OPENBLAS_NUM_THREADS=1 python3 -B audit_evidence/recheck_1_3.py; path()"
+      ],
+      "rationale": "Cumulative flow after subtracting the sample mean gives B=H^T H and the discrete bridge covariance K(j,l)=min(j,l)-jl/n. In the trace-square sum, grouping by the larger index l gives (n-l)^2 l(2l^2+1)/(3n^2); summing and subtracting the squared diagonals in the off-diagonal Rademacher variance identity recovers the stated variance and factor 4/5. For k plus signs, double-centered distances give a strictly convex function of the ordered locations, so only the endpoint-block vertices of the location polytope can maximize. Relative to the all-prefix vertex, shifting q plus signs past the r=n-k minus signs increases the row-mean contribution to a^T B a by k p q r/n and increases the subtracted pair-distance sum by p q r. Thus the deficit in Z is 4pqr^2/n. The one-switch energy is 2k(n-k)(2k(n-k)+1)/(3n); maximizing its product yields both parity formulas and exactly the listed patterns. Zero means each centered flow is zero. For the interpolated bridge, the integral of its square differs from the discrete normalized energy by at most 2/(3n), since successive scaled increments have magnitude at most 2/sqrt(n). Donsker and the continuous mapping theorem give the limit; the stated KL eigenvalues are those of the Dirichlet Green operator. Independent exact integer enumeration counted 2044 vectors for n=2 through 10 and also verified the pseudoinverse equation. Independent averaging divides the variance by m.",
+      "residual_risks": [
+        "The replay only tests finite sizes. The all-size statements and weak convergence are analytic; no approximation rate is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen source lines 85–98 identify generic variance, path pseudoinverse and diagonal formulas as prior tools; independent passage access was unsuccessful",
+          "Direct proof reconstruction confirms these formulas together allow the moments, but the extremal proof also requires strict convexity and a strict split deficit"
+        ],
+        "reasoning": "Do not credit a new generic trace-variance theorem or a new Green kernel. None of the inspected statements gives a broader classification implying the sharp binary equality cases.",
+        "searches": [
+          "Hallman–Troester arXiv:2103.10516",
+          "Chen–Hallman arXiv:2205.01736",
+          "Lu–Xu–Zhang arXiv:2310.05527",
+          "van Mieghem–Devriendt–Cetinay DOI 10.1103/PhysRevE.96.032311"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-hit ae4b067d8462 and comparison records 669b93b48149, 3a7efbceeb4d, 42513c3dc5b2, 3a3d1be45dcb (summaries)",
+        "Frozen prior-work account, lines 85–98; cited full texts unavailable in attempted retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighted periodic probes for resolvent/log-determinant and killed inverse traces optimize a design, not the support of the unpinned independent-probe quadratic form",
+          "Path-fibre Lipschitz-variance rigidity concerns signed slopes in a different admissible class"
+        ],
+        "reasoning": "No substitution or specialization in these summary statements supplies both the variance and unique balanced one-switch equality cases for this Green form. The bridge limit alone is a direct classical implication.",
+        "searches": [
+          "Resultary records 669b93b48149, 3a7efbceeb4d, 42513c3dc5b2 and 3a3d1be45dcb",
+          "RESULT.md lines 85–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen supremum is over centered binary increments of a closed discrete bridge",
+          "The 2026/11/17 catalogue statement describes a real-valued zero-moment discrete Sobolev inequality with asymptotic two-lobe rigidity"
+        ],
+        "reasoning": "A real-valued inequality with asymptotic rigidity does not on the available statement supply the finite fixed-count binary extrema or exact equality cases.",
+        "searches": [
+          "Resultary path-Laplacian Rademacher variance / sharp sign extremum",
+          "literature lead search on discrete Sobolev/rearrangement and sign energy",
+          "2026/11/17/SCOPE-sharp-zero-moment-discrete-sobolev-limit-and-two-lobe-rigidity--669b93b48149"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact result hit ae4b067d8462 is the assigned record itself",
+          "Catalogue comparison: related weighted-path probing entries 3a7efbceeb4d and 42513c3dc5b2 have different objects and invariants"
+        ],
+        "reasoning": "No independent exact entry was located. A finite enumeration table would not cover the stated all-n formulas and equality classification unless coupled with a general statement.",
+        "searches": [
+          "Resultary on exact path moments, one-switch maximum and bridge limit"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the exact finite sign-probe risk coupled with the parity-dependent worst-case energy and complete equality cases on the unpinned path. Mean from Kirchhoff index, generic Hutchinson variance, Green identities and bridge convergence are standard ingredients rather than independent novelty claims.",
+      "residual_risks": [
+        "An equivalent older discrete rearrangement or sharp discrete Sobolev inequality may cover the binary extremum; available evidence did not resolve historical priority.",
+        "Several cited sources and comparison records were not inspected in full; this pass is best of current knowledge, not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related real-sequence inequality; no finite sign classification demonstrated by available evidence",
+          "evidence": "Zero-moment sequence problem, finite bounds and asymptotic two-lobe rigidity, versus exact parity-sensitive binary maximizers.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-zero-moment-discrete-sobolev-limit-and-two-lobe-rigidity--669b93b48149",
+          "material_read": "Resultary indexed statement",
+          "method": "Catalogue comparison; full text not retrieved",
+          "title": "Sharp zero-moment discrete Sobolev limit and two-lobe rigidity",
+          "trigger": "Closest alternative formulation of sharp path inequality"
+        },
+        {
+          "assessment": "Kernel overlap credited; coverage of sharp sign theorem not established",
+          "evidence": "Path pseudoinverse formulas are sufficient to start an entrywise trace computation, not by themselves a constrained optimization theorem.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.96.032311",
+          "material_read": "Frozen citation and account at lines 85–98; no direct passages retrieved",
+          "method": "Attempted lawful source retrieval",
+          "title": "Pseudoinverse of the Laplacian and best spreader node in a network",
+          "trigger": "Path formulas cited in Appendix C"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–30 and 40–80",
+        "General trace-estimation context in RESULT.md lines 85–98"
+      ],
+      "rationale": "The unweighted path is a natural benchmark for stochastic Laplacian inverse traces: its exact relative noise remains order one for a single probe. The rigid sharp range identifies the atypical sign geometry that saturates worst-case bounds, while the normalized non-Gaussian limit distinguishes typical fluctuation from that worst case. Neither a generic concentration bound nor an average alone supplies both benchmarks.",
+      "residual_risks": [
+        "No general-graph, Lanczos error, or finite-sample confidence claim; the worst-case signs are not typical probes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

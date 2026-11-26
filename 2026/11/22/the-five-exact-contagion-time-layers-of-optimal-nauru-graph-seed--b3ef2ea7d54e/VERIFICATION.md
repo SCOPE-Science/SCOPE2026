@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-From the same directory, run `python3 verify_nauru_py.py` and compile/run the C++17 verifier using `c++ -O2 -std=c++17 verify_nauru_cpp.cpp -o verify_nauru_cpp && ./verify_nauru_cpp`. Each checker constructs the twenty-four-vertex graph from the three edge families, enumerates all 346,104 seven-vertex subsets and compares its results to fixed integer assertions or printed exact counts. The Python method directly simulates infection; the C++ method first checks induced-forest components and edges, then simulates infection. Both computations were executed successfully and returned 12,384 successes with completion-time counts (120, 3288, 6456, 1584, 936) and matching component-type cells.
+## correctness
 
-The Python checker also checks all 120 fastest residual forests and all 936 slowest residual forests, confirming the asserted order/diameter counts. Finite exhaustive computation is a certificate only for the stated finite graph. Self-review only; independent audit not performed.
+PASS
+
+In a cubic graph, the synchronous inactive-set dynamics remove induced degree 0 or 1, so a cycle survives forever and a forest is removed. A tree of diameter d has stripping time floor(d/2)+1, including a singleton, by peeling both ends of a longest path toward the center. The two counts of residual edges give 2k=12+e(S)+c and k>=7 for any proper seed. An independently written enumeration classifies each of the 346104 seven-subsets by connected-component vertex/edge counts and obtains times from two breadth-first sweeps per residual tree, without simulating infection. It recovers 12384 percolating sets. The one-tree/two-tree rows for rounds 4 to 8 are (0,120), (1872,1416), (4968,1488), (1224,360), (864,72). The extreme order/diameter profiles and multiplicities also match exactly. Existence at k=7 completes the lower-bound argument.
+
+## originality
+
+PASS
+
+The distinct claim credited is the full minimum-seed census by exact synchronous time and residual shape, not the scalar minimum, the decycling reduction, or the elementary peeling formula. The strongest inspected analogues do not give or mechanically imply this joint census for GP(12,5).
+
+## value
+
+PASS
+
+The natural minimum-size stratum on a named symmetric cubic graph exposes a genuine timing/geometry relation: every fastest optimum leaves two trees, whereas the slowest stratum contains both connected and disconnected residual forests with precise extremal diameters. The joint table is usable as an exact benchmark for algorithms that optimize seed size and time concurrently. The value is in the complete natural classification, not simply finding the known optimum or applying a generic graph routine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

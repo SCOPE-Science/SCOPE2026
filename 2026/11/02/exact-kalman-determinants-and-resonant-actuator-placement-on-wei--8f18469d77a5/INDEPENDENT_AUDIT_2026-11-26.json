@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:34:09.864291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claims hold for the n+1 state combinatorial Laplacian, n≥3 and t>0. In RESULT.md 45–83 the constant and hub-against-path modes have eigenvalues 0 and (n+1)t, and the orthonormal cosine modes on the path have eigenvalues t+λ_k. Substitution at the path endpoints as well as the interior gives the ordinary path eigenvalues, and each nonconstant cosine mode sums to zero. The only collision is the double eigenspace at nt=λ_k. A coordinate vanishes when (2j−1)k≡n mod 2n. For d=gcd(2j−1,n) this gives odd multiples of n/d below n, none if d=1; for two sites, writing D=gcd(n,2j−1,2ℓ−1), simultaneous zeros are odd multiples of n/D below n. For d=1 multiplication by 2j−1 permutes the sign-paired residue classes k≠0,n mod 2n, preserving the product of absolute cosines, equal to √n/2^(n−1). In the normalized eigenbasis the Krylov determinant is the product of the modal coordinates times the Vandermonde. The coordinate product is 1/[(n+1)(2n)^((n−1)/2)], while the path-only Vandermonde is 2^((n−1)/2)n^((n−3)/2), by multiplying |q'_n(λ_k)|=n/[2 sin²(kπ/n)] and taking the square root. The remaining eigenvalue differences give (n+1)t, |q_n(−t)| and |q_n(nt)|, yielding the stated t/n. This accounts for hub invisibility and all singular cases. The count is φ(2n) because the coprime sites correspond to the units mod 2n. At resonance a common zero at the colliding k also defeats the two-dimensional PBH restriction, even if no other mode is invisible. For two path sites the two restrictions are independent iff their cosines differ, giving exactly the two divisibility exclusions in RESULT.md 27–33; the hub coordinate separates the hub mode from the colliding path mode. The endpoint alone works off resonance, and its pair with the hub works even at resonance. The derivative of the simple root gives the claimed positive absolute slope. Independent exact rational replay: python3 /workspace/branches/independent_math_checks.py; 110 determinant and 260 pair-rank checks at 20 (n,t) cases, including rational resonances. This does not check irrational resonances or all n; the analytic proof covers them. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parlangeli–Notarstefano's path criterion is n−j≡j−1 mod p for some odd prime p dividing n as an obstruction, equivalent to gcd(2j−1,n)>1. The join-spectrum and general leader-follower articles were targeted but full texts were not independently accessible in this review."
+        ],
+        "reasoning": "The path result supplies visibility; the general spectral/PBH framework does not itself evaluate the site-coordinate product, normalize the path discriminant or resolve the restrictions on the doubled eigenspaces in arithmetic form. An uninspected specialized join application remains a risk.",
+        "searches": [
+          "arXiv:1109.3556v1, Theorem 4.4",
+          "DOI:10.1016/j.disc.2012.10.016 and DOI:10.1109/TAC.2014.2381435"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1109.3556v1",
+        "Resultary f3b2c94da283",
+        "Resultary 5b3d49cda4e9",
+        "Resultary 5f5dcc0ba067",
+        "Resultary 68e9d81bce1e",
+        "Resultary 1ddd581661b4",
+        "Resultary d0ca7333cb0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fan zero forcing implies the two robust pairs {0,1} and {1,2}, among its minimum zero-forcing sets; path reachability already explains the gcd obstruction. A bare-path determinant, if used as an exact input, can simplify the fan determinant derivation by comparing products of modal coordinates and Vandermonde factors, but the inspected exact bare-path record is dated later and does not give fan placements. The slope follows directly once the factorization is known."
+        ],
+        "reasoning": "Known visibility and zero forcing leave both the quantitative one-site factorization and the parameter-specific two-site classification undecided. At resonance the rank of the two-column restriction is a new question beyond simple-mode visibility; the exclusions are sharp, not just sufficient.",
+        "searches": [
+          "Resultary f3b2c94da283 (zero forcing polynomial of fan graphs)",
+          "arXiv:1109.3556v1, bare-path modes and reachability",
+          "Resultary 5f5dcc0ba067 (bare-path exact determinant)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5f5dcc0ba067 gives modulus one at coprime sites on a bare path; 68e9d81bce1e concerns arbitrary weighted paths via resultants. The same-day 5b3d49cda4e9 gives two-rim-leader ranks for a uniformly weighted wheel, with cycle Fourier multiplicities, not an apex plus path. 1ddd581661b4 treats an exceptional edge of a cycle, and d0ca7333cb0f uses normalized path adjacency for sampling."
+        ],
+        "reasoning": "None has the fan's one-dimensional nonconstant path modes plus its t-dependent extra mode. In particular the wheel's resonance criterion cannot be specialized to the fan by choosing a spoke weight. The bare path has similar site ties but no spoke parameter. Neither ordering nor priority is inferred from the wheel's same date.",
+        "searches": [
+          "Resultary: weighted fan, cone over a path, single-vertex Krylov/Kalman determinant, weighted-apex spoke resonance",
+          "Resultary 5f5dcc0ba067, 68e9d81bce1e, 5b3d49cda4e9, 1ddd581661b4, d0ca7333cb0f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exceptional-edge cycle record has a different collapse order, the wheel record has rim-rank formulas, and the unimodular path result reports a constant exact bare-path determinant at visible sites."
+        ],
+        "reasoning": "These are the nearest exact formula records inspected; none tabulates the t/n factorization and its double-mode resonance conditions for a weighted fan. A lack of a catalogue match alone would not establish originality.",
+        "searches": [
+          "Resultary: exact graph reachability determinant factorization and weighted-spoke two-site classification",
+          "Resultary 1ddd581661b4, 5b3d49cda4e9, 5f5dcc0ba067"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact weighted-fan Krylov determinant with its common magnitude across visible sites and the full resonance-specific placement criterion. Bare-path observability, the robust zero-forcing placements, the general join diagonalization and PBH, and simple-root differentiation are not new contributions. No inspected prior statement subsumes the fan-specific determinant and placement classification. This is a best-of-knowledge judgment, not a priority certification.",
+      "residual_risks": [
+        "The Cardoso join-spectrum article and the Aguilar–Gharesifard paper were not independently accessible in full; specialized stronger implications from uninspected literature remain possible.",
+        "The known robust pairs, path visibility test and the simple-root slope calculation are not standalone novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the bare-path visibility mechanism, not the weighted-fan determinant",
+          "evidence": "The prime obstruction n−j≡j−1 mod p is equivalent to p dividing 2j−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556v1",
+          "material_read": "Theorem 4.4, PDF page 16, extracted offset 50500",
+          "method": "OA primary PDF passage",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Path gcd obstruction used in the fan"
+        },
+        {
+          "assessment": "Covers particular robust choices via zero forcing",
+          "evidence": "The listed minimum sets include a hub and endpoint and two adjacent path vertices at one end.",
+          "identifier_or_url": "2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Zero forcing polynomial of fan graphs",
+          "trigger": "Same fan topology and two actuators"
+        },
+        {
+          "assessment": "Non-equivalent geometry and rank formulas",
+          "evidence": "The rim is a cycle with two-dimensional Fourier eigenspaces; the claim covers two rim leaders, not the single-path-site fan determinant.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-leader-controllability-ranks-and-spoke-resonances-on-w--5b3d49cda4e9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-leader controllability ranks and spoke resonances on weighted wheels",
+          "trigger": "Same-day uniform spoke resonance and two-input classification"
+        },
+        {
+          "assessment": "Exact bare-path analogue, not prior coverage of the fan",
+          "evidence": "Bare-path Krylov determinant magnitude is 1 at coprime sites and 0 otherwise; no spoke parameter.",
+          "identifier_or_url": "2026/11/22/SCOPE-unimodular-single-node-controllability-and-universal-d-optimal-t--5f5dcc0ba067",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Unimodular single-node controllability and universal D-optimal ties on paths",
+          "trigger": "Same gcd and identical controllable-site volume"
+        },
+        {
+          "assessment": "General in path weights, not in graph topology",
+          "evidence": "Its path resultant framework concerns weighted paths without a joined apex.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rooted-resultant-d-volumes-for-arbitrary-weighted-diffusio--68e9d81bce1e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact rooted-resultant D-volumes for arbitrary weighted diffusion paths",
+          "trigger": "General exact determinant on arbitrary weighted paths"
+        },
+        {
+          "assessment": "Different graph, parameter and vanishing order",
+          "evidence": "The uniform-edge value is a zero of order floor((n−1)/2).",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact reachability-volume factorization for a cycle with one weighted edge",
+          "trigger": "Parameterized exact Krylov collapse"
+        },
+        {
+          "assessment": "Different operator and sampling determinant",
+          "evidence": "Symmetric degree-normalized adjacency on a path, not a combinatorial Laplacian with a uniform apex.",
+          "identifier_or_url": "2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Path-location determinant comparison"
+        },
+        {
+          "assessment": "No full-text determination",
+          "evidence": "No decisive passage retrieved; not counted as evidence of absence.",
+          "identifier_or_url": "10.1016/j.disc.2012.10.016",
+          "material_read": "Citation only; targeted OA retrieval timed out",
+          "method": "OA retrieval attempt",
+          "title": "Spectra of graphs obtained by a generalization of the join graph operation",
+          "trigger": "Potential general join theorem covering the fan spectrum and possibly further implications"
+        },
+        {
+          "assessment": "No full-text determination",
+          "evidence": "No decisive passage retrieved; the review used PBH directly rather than inferring what the inaccessible paper covers.",
+          "identifier_or_url": "10.1109/TAC.2014.2381435",
+          "material_read": "Citation; identified author PDF returned HTTP 403, DOI recovery did not locate a usable alternate",
+          "method": "Targeted OA retrieval attempt",
+          "title": "Graph Controllability Classes for the Laplacian Leader-Follower Dynamics",
+          "trigger": "General leader-follower controllability framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniformly coupled apex is a natural perturbation of a path consensus model. The exact formula shows both a site-independent Krylov volume at admissible sites and the complete finite set of forced failures; the sharp two-site rule identifies viable replacements rather than only giving a sufficient choice. For example, the two opposite path endpoints at n=4 are individually admissible away from resonance but their pair fails at t=1/2, whereas the hub–endpoint and neighboring-endpoint pairs remain controllable. This is useful for exact parameter and site selection beyond an unevaluated PBH condition. The magnitude is measured in fixed vertex coordinates and is not interpreted as control energy or a Gramian.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:10:35.075449Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the proof for complex symbols: on a cell, with unit constant e and w=(f−mean f)e, the off-diagonal blocks of the commutator are e⟨conjugate(w),·⟩ and −w⟨e,·⟩. Both have singular value ‖w‖ and their input and output spaces are mutually orthogonal. The direct sum over cells proves the exact paired spectrum for all h and p>0, including zero blocks. The phase average converts the cell sum to 2/h times the integral over all starting points x of the centered standard deviation on [x,x+h) to power p. Uniform continuity of the finitely many one-sided derivatives gives σ/h=|f'|/√12+o(1) on smooth cells, uniformly; continuity of t^p on a compact interval is enough even at derivative zero. The omitted continuous breakpoints contribute O(h^p). For h below breakpoint separation, the other cells each have one jump, so in normalized cell L² they differ by O(h) from two constants with fractions θ,1−θ. The centered L² norm is Lipschitz; uniform phase gives the beta integral with multiplicity two. These contributions scale as h^(p−1) versus 1, giving exactly the three limits (including β(3/2,3/2)=π/8). If there are no true jumps, the jump term is zero, not a nonzero leading term. Independently, on a sawtooth crossing cell, writing the symbol as affine slope one minus a unit step gives the cross covariance hθ(1−θ)/2 and the stated variance and F₂. Replay: RESULT.md §§1–4 and the all-starting-points representation above. VERIFICATION.md and verify.py were inspected, not executed. The checker is finite-grid evidence; no claim of a general BV law or a fixed-shift trace law is supported.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chao–Peng gives all-p Schatten/Besov equivalence for paraproducts and Schatten membership for several simple-martingale commutators.",
+          "Wei–Zhang's general semicommutative d-adic setting and singular integral commutator results identify Schatten classes under operator, Besov and kernel hypotheses."
+        ],
+        "reasoning": "Even where a local projection block can be framed as a simple martingale off-diagonal term, membership and equivalent-norm results do not recover exact multiplying constants, the average over all cell offsets, or the balance of jumps and derivatives.",
+        "searches": [
+          "Chao–Peng, Colloquium Mathematicum 71 (1996), §§3.1, 4",
+          "Wei–Zhang arXiv:2407.14988v3, Theorems 1.1–1.2 and 1.6–1.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Chao–Peng 1996 open PDF",
+        "arXiv:2407.14988v3",
+        "Resultary 491d3bae8ceb, 27cb19bb4a60 and d9f30fffe04e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact finite spectrum follows from a standard rank-one projection calculation; uniform phase gives a beta law for a two-level cell. Neither ingredient is new on its own.",
+          "The earlier criteria and projection-pair exact laws do not give the symbol-dependent contribution on all smooth cells, the one-jump-cell asymptotics and their distinct h scales at a common normalization."
+        ],
+        "reasoning": "The proof uses elementary pieces, but scaling and exact simultaneous constants for the whole class do not follow by specializing the compared results.",
+        "searches": [
+          "Chao–Peng §§3.1, 4",
+          "Wei–Zhang arXiv:2407.14988v3, Theorems 1.1–1.2 and 1.6–1.7",
+          "Resultary 491d3bae8ceb, 27cb19bb4a60 and d9f30fffe04e, findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cell variance equals (2h²)^−1 times the cell double integral of |f(x)−f(y)|²; the spectral mass is the p-moment of the local L² oscillation with a uniformly sliding window.",
+          "At p=2 specifically this reduces to (2/h³) times the integral from 0 to h of (h−r)‖f(·+r)−f‖²_2 dr; the squared jump law then follows from the piecewise-smooth increment formula.",
+          "Resultary 491d3bae8ceb treats the endpoint operator norm of a commutator of two histogram projections, not the local oscillation of a symbol."
+        ],
+        "reasoning": "A difference-quotient or martingale rephrasing can recover elemental components (and the squared limit directly), but is equivalent to the whole theorem only if it matches the sliding nonlinear p-moment, the complex symbol class and the derivative/jump contributions with exact constants.",
+        "searches": [
+          "Resultary: shift-averaged Schatten phase law histogram projection multiplication commutator cell variance jumps derivative",
+          "Resultary: operator commutator multiplier histogram projection Schatten local oscillation variance",
+          "Web: \"commutator\" \"conditional expectation\" multiplication operator Schatten class variance martingale paraproduct interval averages piecewise smooth shift averaged",
+          "Web: Bourgain Brezis Mironescu local oscillation squared mean interval oscillation piecewise smooth jump Sobolev BV exact asymptotic L2 mean oscillation sharp constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match d9f4045b83f4 is the frozen item itself. The two distinct same-day analytic spectral-law records study two block averages (staggered projections and heat iteration, or commutator arithmetic and noncompactness), not a projection against multiplication.",
+          "The explicit beta and line-variance entries of the phase law are universal integrals, not novel values of those classical integrals."
+        ],
+        "reasoning": "This analytic continuum family has no finite table to exhaust. An existing formula compilation would need the same operators, mass, shift average, limits and constants to count as exact coverage; no such distinct entry was found in the checked material.",
+        "searches": [
+          "Resultary: shift-averaged Schatten phase law histogram projection multiplication commutator cell variance jumps derivative",
+          "Resultary 491d3bae8ceb, 27cb19bb4a60 and d9f30fffe04e"
+        ]
+      },
+      "rationale": "Pass for the quantitative shift-averaged phase law, not for the elementary rank-one decomposition by itself nor for Schatten/Besov ideas in general. The closest underlying oscillation and martingale formulations were compared; no inspected theorem yields the whole matching law and its exact constants.",
+      "residual_risks": [
+        "Schatten properties of Calderón–Zygmund singular integral commutator on stratified Lie groups (S0021782424000606) could not be inspected in the identified lawful copies (HTTP 403); its title is not evidence of a matching theorem.",
+        "Older oscillation or signal-processing formulations might contain portions or a transferable limit; the local-oscillation lookup provided no comparable primary result, not negative evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Schatten/Besov coverage, not exact sliding-cell asymptotics",
+          "evidence": "Membership and norm equivalence for paraproduct and simple-martingale transform, fractional-integral and singular-integral commutators.",
+          "identifier_or_url": "https://bibliotekanauki.pl/articles/966877.pdf",
+          "material_read": "§3.1 Theorem 3.1 and §4 Theorems 4.1–4.3, PDF pp. 6, 8, offsets 14348, 18399",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Schatten classes and commutators on simple martingales",
+          "trigger": "Closest martingale/Schatten analogue for averaging"
+        },
+        {
+          "assessment": "Relevant membership/estimates under different hypotheses",
+          "evidence": "Semicommutative d-adic Besov characterization and Calderón–Zygmund commutator criteria; no matching constants from these statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.14988",
+          "material_read": "v3 PDF pp. 3, 5–6, Theorems 1.1–1.2, 1.6–1.7; offsets 11312–12930, 20728, 24514",
+          "method": "Open primary PDF, targeted passages",
+          "title": "On the boundedness and Schatten class property of noncommutative martingale paraproducts and operator-valued commutators",
+          "trigger": "General commutator and d-adic approximation results"
+        },
+        {
+          "assessment": "Different operator and norm",
+          "evidence": "K_t=PQ_t−Q_tP for two shifted projections, L¹/L∞ endpoint norms instead of Schatten mass against a scalar multiplier.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-endpoint-commutator-instability-for-translated-histogram-p--491d3bae8ceb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Catalogue local full-text mirror",
+          "title": "Sharp endpoint commutator instability for translated histogram projections",
+          "trigger": "Shifted equal-cell conditional expectations"
+        },
+        {
+          "assessment": "No equivalent multiplier formula; shared date does not establish priority",
+          "evidence": "Studies a staggered pair of projections on ℓ² and heat iteration, not piecewise-smooth scalar multiplication.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-commutator-phase-and-moment-decay-hierarchy-for-staggered--27cb19bb4a60",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Catalogue local full-text mirror",
+          "title": "Sharp commutator phase and moment-decay hierarchy for staggered block averages",
+          "trigger": "Same-day block projection spectrum and phases"
+        },
+        {
+          "assessment": "Different pair and setting",
+          "evidence": "Two integer block averages on ℓ² with arithmetic structure and noncompact cases, not finite rank multiplier commutators.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-spectral-law-for-commutators-of-two-integer-block-ave--d9f30fffe04e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Catalogue local full-text mirror",
+          "title": "Arithmetic spectral law for commutators of two integer block averages",
+          "trigger": "Same-day spectral laws for block commutators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The phase law identifies which regularity features survive in Schatten mass across the trace index and quantifies them without grid alignment. At the critical exponent a finite jump term and the derivative integral coexist with different constants. The result is an exact reusable model calculation; the rank-two cell observation alone would be routine.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

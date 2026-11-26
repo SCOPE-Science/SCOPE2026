@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:24:23.506280Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:12–59",
+        "Frozen VERIFICATION.md:19–25",
+        "Frozen verify.py:12–125",
+        "Independent review_replay.py, proximal()"
+      ],
+      "rationale": "On a strict support/sign cell the Hessian of the active objective is I+alpha vv^T and the derivative is its inverse, with zero rows and columns off support. Choosing positive active outputs and zero inactive inputs realizes every support with strict inequalities. Thus the finite piecewise-affine maximum equals the largest absolute row sum; a small row-sign perturbation attains it. For fixed row i the optimum excess is the unique zero t of -w_i^2-t(alpha^{-1}+w_i^2)+sum_{j≠i}(w_i w_j-t w_j^2)_+, obtained by maximizing numerator minus t times denominator. This is strictly decreasing; for t>0 the included weights are precisely those below w_i/t, with ties optional, and for t≤0 all can be included. Hence one sort plus all row-prefix scans suffice. For the envelope write the active Jacobian as (1-lambda)I+lambda P with P an orthogonal projector and lambda=alpha||w_S||²/(1+alpha||w_S||²). Row i of P has l2 norm squared P_ii=p, so its l1 norm is at most p+sqrt((|S|-1)p(1-p)), maximized at p=(1+1/sqrt(|S|))/2 for |S|≥2. Equality for the global envelope forces full support and equal off-diagonal magnitudes, and substituting p=1-w_i² yields the stated distinguished-to-common ratio sqrt(n)-1. The one-coordinate cell cannot reach the envelope. Uniform rows maximize at full support and match the envelope only at n=4. A smallest weight on full support proves strict expansion except in dimension two with equal weights, and concentration on one weight gives infimum 1 by the finite row formulas. A separate inverse-Hessian enumeration and scalar-prox solve reproduced several attaining pairs, including tied weights (`python3 -B /workspace/review_replay.py`, check 3). No uploaded checker was executed.",
+      "residual_risks": [
+        "Reproduction is finite. The result is for one Euclidean squared weighted l1 prox and the same max norm on input and output; fixed-energy envelope assumes Euclidean unit weight energy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record c92b6dad1bd0: weighted cross-polytope constraint projection in l_p for 1<p<∞ has a maximum over active rank-one projection norms. ArXiv:1902.00151 and its successors already give the general weighted proximal construction and HS-Jacobian."
+        ],
+        "reasoning": "The Euclidean ball-projection block is the alpha→∞ limiting active projection. At finite alpha the active row sum is an interpolation with the identity, with a support-dependent interpolation weight. The constrained result and finite-p norms do not determine the argmax across supports at finite alpha. Generic projection endpoint bounds also do not give the fixed-weight support search.",
+        "searches": [
+          "weighted cross-polytope projection exact Lipschitz stability contractivity threshold rank-one Jacobian",
+          "sharp infinity norm orthogonal projections positive semidefinite contraction (1+sqrt(n))/2 prox exclusive lasso weighted l1 squared Lipschitz max row sum"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c92b6dad1bd0 and a3fe218df88d, Findings",
+        "arXiv:1902.00151, 2009.08719 and 2306.14196 first-page abstracts",
+        "Frozen RESULT.md:64–75 and AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lin et al. arXiv:1902.00151 p. 1 lines 21–24 announces the weighted prox and HS-Jacobian; frozen comparison identifies the precise Jacobian in Proposition 7. The epigraph record gives a structurally similar prefix method for the unsliced norm."
+        ],
+        "reasoning": "Taking row sums of the known matrices is routine, as is the spectral bound once the active projector is identified. The surviving claim evaluates the maximum of those rows at finite regularization without enumerating subsets and resolves which normalized weights attain the global envelope and infimum. The known derivatives or the full epigraph row maxima are ingredients, not that optimization.",
+        "searches": [
+          "arXiv 1902.00151 Proposition 7 proximal mapping squared weighted l1 norm generalized Jacobian exclusive lasso",
+          "arXiv:2009.08719 and arXiv:2306.14196 weighted exclusive-lasso proximal mapping",
+          "sharp endpoint stability and a golden ratio phase transition a3fe218df88d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The record a3fe218df88d gives a sharp full l-infinity modulus for Euclidean projection onto the weighted l1 epigraph with a sorted-prefix reduction. For b=sqrt(alpha) w, the first n coordinates of that projector evaluated at (x,0) equal T, since minimizing over epigraph height forces height b^T|u|."
+        ],
+        "reasoning": "The relation is an exact slice, not merely a resemblance. But full-coordinate projection also varies the height and measures the output height. On an active row its full input row includes b_i/(1+||b_S||²) in that extra column, which is absent here. With n=2 and b=(1,1), the sliced norm is 1 but the full projector has an active first-coordinate row sum 4/3. The full norm does not evaluate the slice. No priority order inferred from the common record date.",
+        "searches": [
+          "sharp normalized weight anisotropy envelope squared weighted l1 proximal map max norm sorted prefix active support",
+          "exclusive lasso proximal operator infinity norm Lipschitz modulus weighted support active set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned record 5772bc742552 matches its own exact formulas; distinct records c92b6dad1bd0 and a3fe218df88d address the constraint and epigraph projectors, respectively."
+        ],
+        "reasoning": "The self-match is not prior art. The located distinct exact formulae have different optimized norms and do not tabulate the finite-alpha weighted penalty slice.",
+        "searches": [
+          "sharp normalized weight anisotropy envelope squared weighted l1 proximal map max norm sorted prefix active support",
+          "exclusive lasso proximal operator infinity norm Lipschitz modulus weighted support active set"
+        ]
+      },
+      "rationale": "Pass for the exact fixed-weight sliced norm optimization and normalized anisotropy classification, not for the proximal map, Jacobian, epigraph representation, or generic projection-norm bound. Closest same-day epigraph comparison is substantively related, but its stated full-coordinate norm differs even on the simplest equal-weight example, and does not already evaluate the claimed slice or optimize its weights.",
+      "residual_risks": [
+        "Pass is limited to the exact stated optimization; an earlier sharp general projector inequality can account for the spectral step. The source's mention of such an earlier identity has no precise citation. Full primary proposition extraction was unavailable, and no absence or priority conclusion is drawn from that failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The proximal formula and HS-Jacobian are prior work, not claimed as new. The abstract alone cannot exclude overlap in uninspected sections.",
+          "evidence": [
+            "Abstract explicitly states a closed-form prox and HS-Jacobian for weighted exclusive lasso."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.00151",
+          "material_read": "Primary first-page abstract, lines 21–24; frozen source comparison to §§4.1–4.3, Proposition 7",
+          "method": "Compare object and stated output; targeted proposition extraction timed out",
+          "title": "A dual Newton based preconditioned proximal point algorithm for exclusive lasso models",
+          "trigger": "Exact same weighted prox and generalized differential"
+        },
+        {
+          "assessment": "The constraint projection modulus is not the finite-alpha penalty modulus.",
+          "evidence": [
+            "Exact finite maximum over matrices I-a_S w_S^T/W_S; no support-dependent finite-alpha identity interpolation in that statement."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+          "material_read": "Finding for weighted l1-ball projection in l_p",
+          "method": "Compare the support matrix and active normalization to the penalized map",
+          "title": "Exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections",
+          "trigger": "Exact induced norm maximum over rank-one support matrices"
+        },
+        {
+          "assessment": "Close shared method but its available claim does not compute the exact modulus of the zero-height slice.",
+          "evidence": [
+            "Full coordinate l-infinity norm, sorted-prefix supports, O(n²); the height derivative contributes to its row objective."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-endpoint-stability-and-a-golden-ratio-phase-transition-for--a3fe218df88d",
+          "material_read": "Finding on full epigraph projector norm and sorted-prefix evaluation; targeted further mirrored passage unavailable",
+          "method": "Calculate the effect of deleting the height direction and output, and compare equality-design questions",
+          "title": "Sharp endpoint stability and a golden-ratio phase transition for weighted epigraph projection",
+          "trigger": "Strongest same-norm, sorted-prefix overlap and exact epigraph-slice reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:12–32 and 43–59",
+        "Exclusive-lasso prox literature and same-day epigraph Finding"
+      ],
+      "rationale": "The coordinate-error modulus is a natural robustness invariant for a widely used Euclidean proximal step, for which the Hilbert norm guarantee is insufficient. The exact prefix law turns support enumeration into a quadratic scan, while the normalized weight design distinguishes bounded uniform sensitivity from worst-case square-root dimension growth and gives the unique dimension where they coincide. These are usable exact decisions rather than a merely reformulated projection bound.",
+      "residual_risks": [
+        "The weight-design recommendation is specifically with fixed quadratic weight energy. There is no claimed extension to overlapping groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

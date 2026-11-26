@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:57:23.656348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–78",
+        "Frozen VERIFICATION.md and verify.py, lines 12–80"
+      ],
+      "rationale": "Independently reconstructed the proof for real SPD K=aI+bvv^T, with unit v and a,b>0. For a k-set I, setting s=sum_{i in I}v_i^2, the residual is zero off the complementary principal block and its trace is a(n-k)+ab(1-s)/(a+bs). This follows by subtracting b^2 s/(a+bs) from the rank-one coefficient b in that block. The trace is strictly decreasing in s. The best subset takes the k largest squared coordinates; their total minus k/n is 1/n times the sum of all top-to-bottom differences. Those differences are nonnegative, and equality forces all coordinates to have the same square because both blocks are nonempty. Flat vectors exist, including with arbitrary signs. The k-DPP residual expectation follows by summing det(K_II) times the individual residual diagonals, which are ratios of bordered principal determinants: each (k+1)-minor is counted k+1 times. Substituting e_j=binom(n,j)a^(j-1)(a+jb/n) reproduces the stated value. The proof covers the entire interior range, not just rational input or sampled orientations. The frozen checker was inspected, not executed; its finite tests are supplementary and not required for the proof.",
+      "residual_risks": [
+        "No arbitrary-spectrum, multiple-spike or finite-precision claim is established; strictness uses b>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Problem 4.7 gives x_{n-1}=y_{n-1} for arbitrary positive spectra, leaving other sizes unclear.",
+          "Proposition 5.1 handles the expected captured trace for general SPSD spectra and sample sizes."
+        ],
+        "reasoning": "Broader spectral scope of the first result does not give interior ranks; broader rank scope of the second covers the expectation but not the deterministic minimax or the optimizer characterization.",
+        "searches": [
+          "Amsel et al., Problem 4.7",
+          "Fornace and Lindsey, arXiv:2407.01698, Proposition 5.1 and Appendix C"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.05394v1, §4.2",
+        "arXiv:2407.01698, §5.2 and App. C",
+        "Configured Resultary search and the screened-cycle primary result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A full-support DPP average gives min E_I <= y_k, not sharpness of that inequality at a real orientation.",
+          "The endpoint proof equalizes diagonal data in an inverse matrix for singleton complements; it does not equalize k-set residuals for larger complements."
+        ],
+        "reasoning": "Substituting a one-spike spectrum into the expectation gives the displayed candidate, not deterministic attainment or necessity of flat coordinates. The independent Schur-complement and top-k analysis supplies both.",
+        "searches": [
+          "Problem 4.7's Schur–Horn proof and Proposition 5.1's spectral expectation",
+          "Local mirror RESULT.md for the screened-cycle catalogue entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Problem 4.7 defines the same max-over-orientations/min-over-subsets criterion and the same orientation-independent expectation.",
+          "The distinct screened-cycle catalogue result compares determinant-optimal and trace-optimal sets at one kernel, not the spectral minimax and expected residual."
+        ],
+        "reasoning": "Matching the problem's definitions or showing the same optimal subsets under two objective functions does not establish equality of the minimax value and a sampling expectation. The latter equality requires all k-sets to tie in a worst orientation.",
+        "searches": [
+          "Primary-literature search on one-spike Nyström minimax and volume sampling / column subset selection",
+          "Amsel et al., arXiv:2602.05394v1, Problem 4.7",
+          "Resultary: fixed-spectrum best-subset Nyström versus determinant sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit SCOPE-exact-minimax-volume-sampling-equality-for-one-spike-spectra-at--29acf5febf22 is the frozen record itself.",
+          "SCOPE-simultaneous-entropy-and-nystr-m-trace-optimal-landmarks-on-scre--7a046323f6e9 concerns screened-cycle kernels and balanced gaps."
+        ],
+        "reasoning": "The identical catalogue entry is not independent prior coverage; the distinct same-day entry was compared by content and does not supply the claimed family. No finite numerical table alone could cover the unrestricted continuous parameters and all equality cases.",
+        "searches": [
+          "Configured Resultary lookup on one-spike spectral minimax, volume sampling, and optimal Nyström subsets"
+        ]
+      },
+      "rationale": "The expectation formula itself and the all-spectra endpoint are prior. The distinct supported finding is exact attainment by the best deterministic subset in the worst orientation at every interior rank of the one-spike class, including its full equality locus. No direct coverage or stronger implication was established by the checked sources.",
+      "residual_risks": [
+        "The targeted search is not a proof of historical priority; an unlocated equicorrelation or CSSP result could cover the same statement under another normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same quantities; exact result for endpoint only",
+          "evidence": "Defines x_k and y_k, proves the n-1 case using Schur–Horn, and asks about other sizes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.05394v1",
+          "material_read": "Section 4.2, Problem 4.7, PDF p. 34 (locator offset 99200)",
+          "method": "Targeted OA PDF passages",
+          "title": "Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop",
+          "trigger": "Exact original problem"
+        },
+        {
+          "assessment": "Covers the expectation, not the minimax equality or its optimizer set",
+          "evidence": "Expected captured trace is Tr K minus (s+1)e_{s+1}/e_s.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.01698",
+          "material_read": "Section 5.2, Proposition 5.1, PDF p. 22 (offset 81000), and Appendix C, PDF p. 55 (offset 198800)",
+          "method": "Targeted OA PDF passages",
+          "title": "Column and row subset selection using nuclear scores",
+          "trigger": "Stronger volume-sampling expectation"
+        },
+        {
+          "assessment": "Different objective comparison and graph kernel",
+          "evidence": "For K=(mu I+L_n)^(-1) the preferred landmarks have balanced cyclic gaps; no worst-orientation sampling identity is asserted.",
+          "identifier_or_url": "2026/11/22/SCOPE-simultaneous-entropy-and-nystr-m-trace-optimal-landmarks-on-scre--7a046323f6e9",
+          "material_read": "RESULT.md, opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Simultaneous entropy and Nyström trace-optimal landmarks on screened cycles",
+          "trigger": "Distinct indexed Nyström/determinant result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Amsel et al., Problem 4.7",
+        "Frozen RESULT.md, Finding and proof"
+      ],
+      "rationale": "The one-spike class is a canonical non-scalar SPD family, not a list of fortuitous numerical examples. Exact sharpness answers an independently posed minimax problem throughout its interior sample-size range on that class. The equality locus identifies precisely when best deterministic landmark choice cannot improve on expected volume sampling in the worst orientation. This supplies a concrete sharp benchmark without claiming to resolve the arbitrary-spectrum problem.",
+      "residual_risks": [
+        "This is a restricted exact case; it does not decide whether equality holds for other spectra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

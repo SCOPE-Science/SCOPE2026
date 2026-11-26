@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The composite radius-two local function gives an exact sixteen-vertex labeled graph for every finite word on the bilateral full shift. Determinization and right-language minimization produce a strongly connected and aperiodic twenty-state right-resolving graph, so its spectral radius is the growth rate of distinct output words. Exact characteristic-polynomial arithmetic and Collatz--Wielandt/Sturm bounds identify the Perron root of the stated degree-seventeen polynomial. An independent Boolean two-pass enumerator reproduces finite-language counts through length twelve. Finite checks are not misrepresented as an infinite proof: exact graph equivalence and Perron--Frobenius supply that step.
+## correctness
 
-## Originality
-PASS relative to examined sources, with residual historical risk. The 2015 de Oliveira--Ruivo--Costa--Miki--Trafaniuc study supplies the composition/graph method and tabulates graph state counts, not the evaluated second-image Perron polynomial or entropy. The 2026 full elementary-rule second-image comparison gives earliest language differences but no second-image entropy evaluation. The full 2026 one-step entropy study evaluates Rule 110 only at time one; its zeta-function and the sequential-sweep studies also concern different quantities. No inspected source implies the exact second-image entropy value, although an inaccessible 2017 follow-up or unindexed prior calculation could affect historical priority.
+PASS
 
-## Value
-PASS. The second synchronous update is the first natural extension after the existing complete one-step entropy classification, and Rule 110 is a canonical computation-universal nonlinear automaton. The result provides a nontrivial algebraic degree-seventeen value and quantitatively proves a strict exponential rate of spatial-language loss, rather than merely observing that one word is removed. The exact rate is a natural invariant for finite-time symbolic images, not a contrived finite-size slice.
+Independently used the three zero triples of Wolfram Rule 110, composed by literal synchronous updates, to construct labeled overlapping-input graphs. Every admissible output block comes from a path, and every such path specifies a finite predecessor block that extends bilaterally, so the language identity holds at all lengths. Determinizing from the full predecessor set and minimizing by inverse-transition splitting reproduces 7/41 nonempty reachable subsets and 5/20 accepting classes. The frozen transition tables and adjacency matrices agree under a state relabeling. Both accepted graphs are strongly connected and have a self-loop, so their Perron roots control the all-length deterministic transfer counts and spatial entropy. Recomputed characteristic polynomials are (x-1) times the frozen quartic and x^2(x-1) times the frozen P17. The A^60 1 integer inequalities, disjoint rational Perron brackets, and exact real-root counts reproduce, including one root in each interval and none above it. Independent full finite input-block enumeration through output length 12 gives equality through length 9 and precisely 0110110110 lost at length 10 (769 versus 768), consistent with Y2 contained in Y1. Replay: python3 /workspace/branches/ca_independent_replay.py 110. The submitted code was inspected without execution. This checks the full-shift synchronous spatial claim, not periodic-ring image counts, temporal entropy, or later images.
 
-## Scope and limits
-The result covers only two synchronous updates of Rule 110 from the full bilateral shift and the induced spatial shift. It does not describe the eventual limit set, all times, or temporal-map entropy. It relies on executable exact integer/rational finite-state calculations; an independent mathematical audit remains outstanding. Historical-source coverage is best knowledge rather than exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded pass is for the evaluated Rule 110 second-image Perron polynomial, certified root, and quantitative first-to-second spatial entropy loss. The first-image quartic and the finite-loss threshold and witness are already covered and are not credited as new. No distinct source retrieved gives the main second-image invariant or implies it from a stronger stated result; inaccessible primary graph work leaves the specific risk recorded below.
+
+## value
+
+PASS
+
+Rule 110 and finite-time spatial image entropy are established natural objects. Exact evaluation at time two resolves whether losing a block is accompanied by a strict exponential growth loss, which proper inclusion alone does not establish; it quantifies that loss with an algebraic root and exact all-length counts. The distinctive value is not the already tabulated detection of a first missing word or the conventional method of determinization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

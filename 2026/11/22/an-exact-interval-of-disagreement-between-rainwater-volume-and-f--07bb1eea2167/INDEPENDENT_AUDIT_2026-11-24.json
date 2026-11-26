@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:05:43.886832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstruct the full range from frozen RESULT.md lines 7–11. End-of-day storage is always at most 3, so a dry day never meets demand and resets storage to zero. Both six-unit days meet demand. The low-rain day can become the third full day only immediately after a six: if that six is preceded by another six it leaves 3, otherwise the first six leaves 2 (the low-rain day is still ahead and the only remaining predecessor is the dry day). Thus the low-day thresholds are respectively z=1 and z=2; a first or post-dry low day is never full. In 1≤z<2 only (0,6,6,z) and (6,6,z,0) meet three full days. Each spills one unit on the second six; the former retains z−1 at the end and supplies 12, the latter drains on the final dry day and supplies 11+z. In particular the one-unit overflow in both is not a one-unit volume deficit in both. Conservation gives V≤12+z, attained for all z by (6,z,6,0), which has 2 full days before z=2 and 3 thereafter. For z<1 that order also attains the maximum of two full days, including the z=0 duplicate-rain case. This proves the exact window and both endpoint decisions without relying on rational sample points. Replays against frozen RESULT.md lines 13–35; VERIFICATION.md and check.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day largest-first result gives a four-pulse counterexample for minimizing overflow under fixed fractional retention; the periodic three-pulse theorem gives exact runoff comparison under periodic linear loss.",
+          "The attempted Mitchell and Liaw–Tsai retrievals did not yield the corresponding recurrence and results in primary full text."
+        ],
+        "reasoning": "The indexed theorems concern different state updates and optimize overflow alone. Neither is a stronger theorem for two objectives with demand withdrawn before the next day. The inaccessible simulation-method papers remain a comparison risk, not evidence that their methods differ or agree.",
+        "searches": [
+          "Resultary retention storage overflow order e27dfe4f22cd",
+          "Resultary periodic saturation runoff d7dd28e86fa3",
+          "Mitchell DOI 10.1002/hyp.6499 and Monash record; Liaw–Tsai DOI 10.1111/j.1752-1688.2004.tb01054.x"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 07bb1eea2167, e27dfe4f22cd and d7dd28e86fa3",
+        "Hanson–Vogel DOI 10.1088/1748-9326/9/7/075007",
+        "Mitchell and Liaw–Tsai records (limited access)",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the audited model, V equals total inflow less overflow and end storage. Even when overflow ties at one unit, distinct final storage separates the two three-full-day orders.",
+          "The pulse-order results compare a runoff objective under fixed or periodic retention, not the indicator of meeting a daily demand."
+        ],
+        "reasoning": "The cited simulation framework can be used for particular sequences, but the exact permutation threshold comes from which antecedent gives storage 2 versus 3 at the low-rain day and from emptying residual storage at the end, neither of which follows from the inspected statistical reliability or pulse-runoff claims.",
+        "searches": [
+          "Hanson–Vogel p. 3 Yield-After-Spillage and p. 8 metric discussion",
+          "Local mirror e27dfe4f22cd RESULT.md offsets 0 and 4427; d7dd28e86fa3 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed demand over four days the criteria are exactly volume fraction V/16 and time fraction F/4; changing to fractional reliability does not change optimizer sets.",
+          "Hanson–Vogel name Yield-After-Spillage and use q_t=1−d_f/n for failing-day count; the retrieved passages distinguish time and volume reliability, but do not optimize over a fixed multiset of daily rain.",
+          "The assigned Resultary match 07bb1eea2167 is a self-hit."
+        ],
+        "reasoning": "The metric aliases are equivalent to the audited objectives; that equivalence does not give the common-optimizer threshold. Dividing all depths by daily demand also leaves the problem unchanged and puts the threshold at z/4∈[1/4,1/2).",
+        "searches": [
+          "Resultary: rainwater volume versus full-demand day reliability and storm-order incompatibility",
+          "Hanson–Vogel DOI 10.1088/1748-9326/9/7/075007, pp. 3 and 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the assigned record matched the exact benchmark. The two strongest nearby findings tabulate or compare runoff under distinct rules.",
+          "Hanson–Vogel's inspected passages concern simulated rain and storage–yield reliability, without an exact optimizer table over the 12 orders."
+        ],
+        "reasoning": "A four-day case table with this rule could constitute coverage, but neither a runoff table in a retention model nor reliability curves for a rainfall time series contain the relevant symbolic joint optimizer data.",
+        "searches": [
+          "Resultary: exact finite rainfall permutation, volume versus fully supplied days; 07bb1eea2167 and ranked distinct results",
+          "Hanson–Vogel pp. 3, 8"
+        ]
+      },
+      "rationale": "Two reliability metrics and the yield/spillage timing issue are established, and permutation sensitivity is also known in related storage models. The supported distinction is the exact optimizer-disjointness interval and penalty under this specified empty-start, fixed-demand update. No inspected primary or indexed statement supplies that benchmark directly or via a stronger applicable theorem.",
+      "residual_risks": [
+        "The broader external permutation-literature query did not return a result in this review; bounded index checks are not historical exhaustion.",
+        "Mitchell and Liaw–Tsai full texts were not available, leaving possible model or prior-example overlap unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Metric context; inspected passages are not a finite permutation comparison and do not verify the exact daily recurrence",
+          "evidence": [
+            "p. 3 names Yield-After-Spillage and defines q_t=1−d_f/n; p. 8 differentiates time and volume reliability under fixed daily demand."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1748-9326/9/7/075007",
+          "material_read": "pp. 3 and 8",
+          "method": "Lawful open Tufts-hosted PDF, OA offsets 15645 and approximately 43850",
+          "title": "Generalized storage–reliability–yield relationships for rainwater harvesting systems",
+          "trigger": "Same reliability objectives and named spillage timing"
+        },
+        {
+          "assessment": "Distinct retention law and overflow objective",
+          "evidence": [
+            "C=14, q=1/4, multiset {1,11,12,13}; unique runoff-minimizing (12,11,1,13) has runoff 1/8 versus at least 1/4 under a largest-first constraint."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-largest-storm-first-rule-holds-through-three-pulses-but-fail--e27dfe4f22cd",
+          "material_read": "Finding and four-pulse example",
+          "method": "Local mirror RESULT.md offsets 0 and 4427",
+          "title": "The largest-storm-first rule holds through three pulses but fails at four",
+          "trigger": "Strongest separate four-pulse ordering result"
+        },
+        {
+          "assessment": "Periodic three-pulse runoff comparison, not fixed demand and two objectives",
+          "evidence": [
+            "Compares repeated pulse orders in a unique periodic linear-loss store over a capacity interval."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md",
+          "title": "A sharp storm-ordering window for saturation runoff in a periodic store",
+          "trigger": "Exact parameter window in an ordering problem"
+        },
+        {
+          "assessment": "No primary recurrence or results inspected",
+          "evidence": [
+            "DOI returned 403 and institutional page provided no full text; update-level overlap remains unresolved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/hyp.6499",
+          "material_read": "Monash landing page/abstract only",
+          "method": "DOI and institutional alternate retrieval",
+          "title": "How important is the selection of computational analysis method to the accuracy of rainwater tank behaviour modelling?",
+          "trigger": "Possible coverage by tank update variants"
+        },
+        {
+          "assessment": "Unavailable, no negative inference",
+          "evidence": [
+            "DOI returned 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1752-1688.2004.tb01054.x",
+          "material_read": "No primary passage recovered",
+          "method": "DOI retrieval attempt",
+          "title": "Optimum Storage Volume of Rooftop Rain Water Harvesting Systems for Domestic Use",
+          "trigger": "Possible tank sizing and timing overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The practical mathematical question is whether optimizing one standard reliability measure can serve as a proxy for optimizing the other on the same inflow data. This small exact counterexample makes that distinction auditable: it isolates how consecutive wet days trade spillage for a third full day, gives a nondegenerate sharp interval with different decisions at its two boundaries, and quantifies the best penalty. This is useful as an analytical benchmark for dual-criterion implementations and timing conventions, not as an instruction to reorder natural rainfall or a general sizing result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

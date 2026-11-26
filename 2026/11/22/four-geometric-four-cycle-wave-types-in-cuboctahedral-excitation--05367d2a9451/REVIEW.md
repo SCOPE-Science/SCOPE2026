@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete finite classification on twelve labelled vertices. The vertex map is explicitly defined by the original graph's edge-incidence structure, with all \(3^{12}\) input states enumerated. The C++ directed-functional-graph decomposition and a separate vectorized Python reconstruction agree on recurrent populations, exact first-entry shells, sharp ten-update bound and spatial orbit classes. The symbolic argument reconstructing the full 48-element automorphism group from eight triangular cliques verifies the symmetry quotient, and exact cycle representatives distinguish all four four-cycle types. The result is not inferred from sampling or a timeout.
+PASS
 
-## Originality — PASS (qualified)
+I independently reconstructed the full map on 531441 labelled states using disjoint excited/refractory masks. Iterated images of the entire state set descend until stabilization at the tenth image. On that image the map is a finite surjection, hence a permutation, and every cycle lies in every image. Traversing this permutation and propagating first-entry layers via the successor array reproduced every cell of the original joint table, including 480 depth-ten states and least witness 3856. The recurrent counts are 1, 40740, and 192 at periods 1, 3, and 4. The eight star triangles recover the underlying cube (there are no cube triangles and all pairwise-intersecting triple edges have a common endpoint). A cube symmetry is fixed by the image of 0 and the permutation of its three incident directions; hence exactly the 48 coordinate permutations/translations are needed. Testing those permutations on all phases of each cycle gives 319 geometric classes at period three. At period four the four (representative, class size) pairs are (14,24), (637,6), (1169,12), and (1358,6), with the middle two giving distinct orbits having three excitable-state-1 sites at every phase. The proof uses exact exhaustion of the fixed finite state space, not tests of sample initial states.
 
-The most directly relevant primary text, Gravner–Lyu–Sivakoff (arXiv:1610.07320v1, 2016-10-24), proves general qualitative cycle-integral statements for excitation, not the present cuboctahedral exact populations or symmetry partition. The graph's edge-of-cube identity and 48 automorphisms are standard. The closest comparable indexed finite excitation censuses concern the icosahedral and truncated-tetrahedral graphs, and the relevant cubic-line-graph result uses a two-contact rule rather than the one-contact rule studied here. Search evidence and comparison limitations are recorded in `AUDIT.json`. An unindexed equivalent numerical or computational result remains possible; no absolute novelty guarantee is implied.
+## originality
 
-## Value — PASS
+PASS
 
-The cuboctahedron is a canonical, highly symmetric quartic Archimedean network and the smallest line graph of a three-dimensional cube. Its coexistence of triangle and square local structures makes the precise balance of period-three and period-four waves geometrically motivated. The four inequivalent four-cycle types, especially the two distinct equal-spike-population types, capture information not seen in period or aggregate activity alone. The complete basin and sharp entrance census provide a reproducible benchmark for symmetry-aware excitable-network analysis. This is a motivated exact finite invariant, not a claim of generality beyond this graph.
+The rule and automorphism group are known, and exact censuses of related graphs are prior art. The closest same-graph catalogue match other than this record uses threshold two instead of one. The strongest inspected general theories classify qualitative behaviour, not the exact basin and symmetry-resolved populations. No independent covering result was identified within the checks below.
 
-## Residual limitations
+## value
 
-The verification is same-model and computationally exhaustive on this fixed finite graph. It has not been externally audited, and archival literature coverage may be incomplete. The general graph-level model, cube representation, and qualitative oscillation criteria remain credited to prior sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact classification of a canonical Archimedean network with both triangular and square faces is a useful benchmark: even fixing the temporal period and per-phase excitation population does not fix the geometry. The two size-distinct geometric classes with a constant population of three are an exact example. The full entrance table and the ten-step cutoff distinguish basin structure from the periodic count and calibrate other state-space or symmetry-quotient methods. No graph-family generality is needed or claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

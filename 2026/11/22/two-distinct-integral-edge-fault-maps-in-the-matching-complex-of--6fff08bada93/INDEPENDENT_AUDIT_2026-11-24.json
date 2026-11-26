@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:21:07.163954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–59",
+        "Frozen VERIFICATION.md, verify_torus_fault.py and verification_output.txt (inspected, not executed)",
+        "Independent replay matching_replay.py: exhaustive face generation, ordinary directed Hasse acyclicity and integral mixed boundary (python3 branches/replay/matching_replay.py from the review workspace)"
+      ],
+      "rationale": "Triangle-parallel edges lie in triangles and square-parallel edges do not; product symmetries act transitively within each class. I independently generated matching faces as edge bitmasks, extracted deletions and links by filtering, and constructed and checked acyclic ordinary face matchings (after unpairing the empty face). In order X, triangle deletion, square deletion, triangle link, square link, the face totals including empty were 2764, 2344, 2308, 420, 456 and the augmented pair counts were 1360, 1154, 1132, 206, 226. The ordinary critical counts besides one vertex were 44, 36, 44 degree-3 cells, then 8 degree-2 cells, then 2 degree-2 and 2 degree-3 cells. Signed integral unit cancellation returned the zero 2-by-2 degree-3 boundary for the mixed link. The Morse 2-skeleton in that case is a wedge of two 2-spheres; Hurewicz identifies its attaching classes in pi_2 with their degree vectors, so both 3-cells attach trivially. The pure cases are wedges directly. The decomposition into deletion plus cone on link gives the suspension of the link as cofiber. The integral exact sequence gives the split rank-36 injection with cokernel Z^8 and, respectively, a rank-42 map of free rank-44 groups with free rank-2 kernel and cokernel, which also fixes the Smith form. No assumption that the link inclusion is null is needed.",
+      "residual_risks": [
+        "Finite exact computation only for C3 square C4 and one deleted edge; no claim on larger tori or equivariant homotopy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The line-graph homotopy recurrence in Matsushita treats a different family.",
+          "The corpus contains a six-edge-orbit classification on P3 square P4, a vertex-deletion classification on P3 square P_n, and a K3,3 edge-fault classification of a rooted-forest orientation complex."
+        ],
+        "reasoning": "None is a larger theorem containing the toroidal matching deletion/link pairs: both the graph/deletion hypotheses and, for K3,3, the simplicial objects differ.",
+        "searches": [
+          "Matsushita, arXiv:1812.11000v2, Introduction and Theorem 1.2",
+          "Goyal–Shukla–Singh, arXiv:2106.09915v1, definitions and Theorem 1.1",
+          "Resultary 374b91241af5, 090b1a3eca9b and f63c8f564cb3, Findings and scopes"
+        ]
+      },
+      "checked_sources": [
+        "Local published mirror: fb0b9d6e31bd, 374b91241af5, 090b1a3eca9b, f63c8f564cb3 and the self-indexed 6fff08bada93",
+        "Primary OA: arXiv:1812.11000v2 and arXiv:2106.09915v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact torus supplies the rank-44 target only. All six natural deletion maps in the rectangular comparator are split injective. The cofibration determines map ranks once the toroidal links and faulted complexes are computed, not before."
+        ],
+        "reasoning": "Neither the target type nor abstract exactness fixes the link ranks, and even the equality of both ranks 44 does not imply injection. The nontrivial kernel and the two link computations are not mechanical consequences of the compared statements.",
+        "searches": [
+          "fb0b9d6e31bd, Finding",
+          "374b91241af5, Finding",
+          "Standard deletion–link cofibration as used in RESULT.md, lines 51–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fb0b9d6e31bd computes the intact torus, including its homotopy type, symmetry character and quotient homology, not the fault maps.",
+          "Matsushita's grids and Goyal–Shukla–Singh's three-row grids are nonperiodic; the latter's Theorem 1.1 concerns intact rectangular matching complexes."
+        ],
+        "reasoning": "The ordinary matching complex can be expressed as the independence complex of the line graph, but the inspected grid theorems do not cover the one-edge-deleted periodic objects under that translation.",
+        "searches": [
+          "Resultary: matching complex of C3 square C4, torus one-edge deletion/link and natural integral map",
+          "arXiv:1812.11000v2",
+          "arXiv:2106.09915v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 6fff08bada93 entry is the identical frozen record. The distinct same-day entries cover a rectangular vertex-deletion census and a different simplicial Morse complex, respectively."
+        ],
+        "reasoning": "Self-indexing is not prior coverage; no different inspected table contains the representatives' deletion, link and natural-map data. Same-day matches were rejected on scope, not date.",
+        "searches": [
+          "Resultary 6fff08bada93, fb0b9d6e31bd, 374b91241af5, 090b1a3eca9b and f63c8f564cb3; inspected matching local RESULT.md passages"
+        ]
+      },
+      "rationale": "Pass is for the distinct one-edge deletion and link profiles and their natural maps, not the already published intact wedge or the standard deletion–link cofibration. The closest fault computation is rectangular and has only injective deletion maps. No compared source states or implies the toroidal square-direction rank-42 map, or gives the two toroidal fault profiles together.",
+      "residual_risks": [
+        "A focused search and inspected sources cannot exclude an unpublished, unindexed or otherwise undiscovered equivalent toroidal calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the credited baseline only",
+          "evidence": "44 three-spheres and intact symmetry/quotient results, no edge-fault maps.",
+          "identifier_or_url": "Resultary 2026/11/17, fb0b9d6e31bd",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "The matching complex of C3 square C4: forty-four three-spheres and its full row-column character",
+          "trigger": "Same intact graph"
+        },
+        {
+          "assessment": "Different graph and map profile",
+          "evidence": "Six orbits on P3 square P4; every deletion inclusion is split injective.",
+          "identifier_or_url": "Resultary 2026/11/17, 374b91241af5",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Six edge-orbit homotopy responses of the 3 by 4 grid matching complex",
+          "trigger": "Closest fault/map computation"
+        },
+        {
+          "assessment": "Does not cover the toroidal edge-fault cases",
+          "evidence": "Nonperiodic two-row grid and related line-graph recurrence.",
+          "identifier_or_url": "https://arxiv.org/html/1812.11000v2",
+          "material_read": "Introduction and Theorem 1.2, offsets 0 and 4724",
+          "method": "Primary OA passage read",
+          "title": "Matching complexes of small grids",
+          "trigger": "Grid/line graph method"
+        },
+        {
+          "assessment": "Intact rectangular wedge theorem only for this comparison",
+          "evidence": "The object in the theorem is P3 square P_n.",
+          "identifier_or_url": "https://arxiv.org/html/2106.09915v1",
+          "material_read": "Definitions and Theorem 1.1, offsets 0 and 3307",
+          "method": "Primary OA passage read",
+          "title": "Matching complexes of 3 × n grid graphs",
+          "trigger": "Matching complexes on three rows"
+        },
+        {
+          "assessment": "Not equivalent coverage",
+          "evidence": "Vertex deletions in P3 square P_n.",
+          "identifier_or_url": "Resultary 2026/11/22, 090b1a3eca9b",
+          "material_read": "RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Local published mirror",
+          "title": "Complete single-site deletion homotopy profiles for three-row grids",
+          "trigger": "Distinct same-day profile"
+        },
+        {
+          "assessment": "Different graph and simplicial complex",
+          "evidence": "Faces come from partial orientations of rooted forests, not ordinary graph matchings.",
+          "identifier_or_url": "Resultary 2026/11/22, f63c8f564cb3",
+          "material_read": "RESULT.md, Assumptions, offset 0",
+          "method": "Local published mirror",
+          "title": "Complete one-, two- and three-edge fault Morse homotopy profile of K3,3",
+          "trigger": "Distinct same-day edge-fault profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, lines 8–28; relative maps, lines 51–59",
+        "Rectangular six-orbit classification, Resultary 374b91241af5"
+      ],
+      "rationale": "The two edge directions are exhaustive natural perturbations of the same small periodic graph. The square-direction fault preserves both endpoint homotopy types yet loses two independent integral classes under the canonical inclusion, with a free cokernel of the same rank; this provides a concrete counterexample to inferring persistence from the endpoint Betti numbers. The link and cofiber data make it a usable exact comparison with rectangular faults, not just another face count.",
+      "residual_risks": [
+        "No general fault criterion, symmetry representation of the maps or larger-torus classification is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

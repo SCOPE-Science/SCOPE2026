@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:56:19.357398Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Singleton factors force q markers and the first full period is an attractor. When m=1, a factor either meets a letter occurring once or is contained in both copies of the short prefix. For m≥2, an unwrapped short factor contains a symbol all of whose copies lie in its occurrence union. A wrapped short factor whose wrapped tail fits the appended prefix hits every q−1; otherwise its occurrence union excludes q−1 only in the last full period, r only in the initial period, and j<r only in the two boundary copies. For length at least q, successive occurrences touch or overlap; the missed markers must lie in two end segments of length <q. The right segment must contain the last q−1, which forces it not to contain r; the same restrictions follow. They are inconsistent when r=q−1 and m≥2. For r≤q−2 the literal factor (q−1)0…r has starts q,2q,…,(m−1)q and misses exactly the stated pattern. Independent literal occurrence-union enumeration (python3 /workspace/branches/reproduce.py 4) reproduced 88 cases, 52,430 candidates and 835 failures; the proof, not the census, handles the unbounded parameters. The common witness need not be the only factor a choice misses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The predecessor allows any ordered list of distinct letters and all legal q,m,r, including r=q−1 and m=1. Kempa et al. treat general verification and optimization, Restivo et al. infinite-word profiles, and Banbara et al. different morphic families."
+        ],
+        "reasoning": "The predecessor covers the whole quantitative range; the general verification/profile literature is not the decisive overlap.",
+        "searches": [
+          "Resultary 0a2ae1aed47f",
+          "arXiv:1803.01695",
+          "arXiv:2206.00376",
+          "arXiv:2602.16152v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0a2ae1aed47f and fe2566e0098c",
+        "Prezza arXiv:1709.05314v2, abstract",
+        "Kempa et al. arXiv:1803.01695, abstract",
+        "Restivo–Romana–Sciortino arXiv:2206.00376, abstract/introduction",
+        "Banbara et al. arXiv:2602.16152v3, abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its statement says meeting F_r=a_(q−1)a_0…a_r is sufficient once the individual letters are hit. It states exactly the same minimum cardinality, permitted and forbidden positions, and count as the frozen finding."
+        ],
+        "reasoning": "Specialize a_j=j and convert to one-based indexing. All scientific parts follow directly with no new argument or range.",
+        "searches": [
+          "Resultary 0a2ae1aed47f, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reference writes p_j=j+qt_j from zero, so adding one gives the frozen position convention. Conditions t_(q−1)=m−1, t_r=0, and t_j∈{0,m} for j<r then give exactly the frozen forbidden choices."
+        ],
+        "reasoning": "Relabel letters and change the position origin; the classification and witness are identical.",
+        "searches": [
+          "Local Resultary: all minimum one-position-per-letter attractors of a repeated permutation plus its proper prefix",
+          "Resultary 0a2ae1aed47f, RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier all-parameter count is 2^r, m(m+1)^(q−1), or (m+1)^r m^(q−r)−2^r m^(q−r−2), in the same three regimes. The separate binary record gives n²−1 for (01)^n."
+        ],
+        "reasoning": "This is exact indexed formula coverage, not numerical agreement in isolated cells.",
+        "searches": [
+          "Resultary 0a2ae1aed47f",
+          "Resultary fe2566e0098c, (01)^n minimum attractors"
+        ]
+      },
+      "rationale": "A distinct earlier-dated Resultary record explicitly gives the same full classification, shared obstruction, and three-case count over the same domain. The disagreement with the frozen originality assessment is not limited to the acknowledged alternating-binary case. The claim is covered; this does not establish authorship, dependence, or historical priority beyond the evidence.",
+      "residual_risks": [
+        "The records' provenance and historical priority beyond demonstrated statement-level coverage were not established.",
+        "The focused literature search did not produce useful additional evidence; the failure rests on the inspected exact predecessor, not on search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full claim; not the assigned record itself",
+          "evidence": [
+            "Finding: failure iff t_(q−1)=m−1, t_r=0, t_j∈{0,m} for j<r; same F_r and all three count branches."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-all-smallest-string-attractors-of-repeated-permutation-prefixes--0a2ae1aed47f/RESULT.md",
+          "material_read": "Finding, Assumptions and proof passages on occurrences and obstruction",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0 and relevant subsequent proof passage",
+          "title": "All smallest string attractors of repeated-permutation prefixes",
+          "trigger": "Exact match on candidate class, obstruction, and formula"
+        },
+        {
+          "assessment": "Covers the q=2,r=0 slice independently of the decisive all-parameter match",
+          "evidence": [
+            "For (01)^n the opposite-parity pairs except the endpoint pair are the minimum sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "All smallest attractors in two exceptional antipalindromic pseudostandard words",
+          "trigger": "Already-acknowledged alternating binary slice"
+        },
+        {
+          "assessment": "Provides generic verification and optimization context; not the explicit placement rule in the inspected passage",
+          "evidence": [
+            "Algorithmic k-attractor verification versus the closed all-parameter placement census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.01695",
+          "material_read": "Abstract, p. 1",
+          "method": "OA primary PDF passage",
+          "title": "String Attractors: Verification and Optimization",
+          "trigger": "Possible general algorithmic subsumption"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A single boundary factor deciding all optimal placements is structurally informative in its original context. The frozen record adds no boundary regime, placement information, or stronger invariant to the already available classification; its bounded computation is corroboration of that known result, not a distinct mathematical contribution. No surviving remainder warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

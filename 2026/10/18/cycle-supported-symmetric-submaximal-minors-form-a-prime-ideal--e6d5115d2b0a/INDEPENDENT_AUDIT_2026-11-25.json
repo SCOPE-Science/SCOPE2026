@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:10:57.093747Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With all edges nonzero the three-term recurrence injects the kernel into each adjacent coordinate pair, so corank >=2 means exactly two and gives a point of U_n. The indicated determinant relation annihilates both kernel columns; all b_i p_{i,i+1} must equal the same scalar. Clearing denominators in the homogeneous Pluecker formulas gives the regular projective inverse, and the constant-rank kernel map is regular. U_n is nonempty (use rows (1,t_i) for distinct t_i) and has dimension 2n-4. A single zero edge gives a path with nullity at most one; multiple zero edges give path blocks, and two cuts separating two singular blocks put every boundary point in some Z_ij. The two connected-path determinant equations have disjoint variables, so each Z_ij is irreducible; the two negative path Laplacians witness its open part with every uncut edge nonzero and both kernels one-dimensional. At such a point the rank condition is given locally by the three entries of the symmetric 2-by-2 Schur complement of an invertible principal (n-2)-block. Its differential is restriction to the kernel. Two diagonal variations make the two independent diagonal coordinates, and each cut produces a nonzero mixed coefficient because path endpoint values cannot vanish. In the smooth local ring neither cut function is identically zero (one tangent vector changes both), so the product is nonzero and the generic cut locus is in the dense-edge closure. This proves irreducibility of the full zero set; verified prior radicality gives primality. A rank-(n-1) symmetric matrix has adjugate czz^T with a nonzero diagonal, so the reduced projective singular support is exactly Y_n. On U_n the adjacent-coordinate isomorphism makes the two diagonals and intervening edge span the three Schur differentials; the determinant is a unit times xy-z^2 in these transverse coordinates (formal over the stated field, analytic over C). The dense-edge formulas were also tested over Q at n=4,5. The two-cut Laplacian cases C4 with opposite cuts and C6 with cuts three steps apart have ranks 2 and 4 respectively, both with kernel dimension two; their block-constant kernel vectors exhibit the three independent restrictions directly. The in-package verify_cycle.py was inspected, not executed; its finite cases are not used as the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 16 asks about primality for all 2-connected supports; Theorem 1 supplies reducedness, not primality. Conca–Welker Lemma 7.10(1) gives the relevant connectivity as necessary, not sufficient.",
+          "The same-day c5d2c304c329 finding treats K_{2,m} with m>=3. These supports have vertices of degree m and are not cycles.",
+          "The forest transfer does not apply to complement(C_n) at n>=5. The general positive matching decomposition bound would need pmd<=n-3; for odd n>=5 the edge count forces more, and for even n>=6 equality would decompose into perfect matchings, none positive while another disjoint perfect matching is still present (the vertex-weight sums would have opposite signs)."
+        ],
+        "reasoning": "Verified broad results supply necessary conditions and ring-theoretic ingredients or other graph families, not the all-cycle boundary-closure step.",
+        "searches": [
+          "arXiv:2211.07020v1 Theorem 1, Corollary 7 and Question 16",
+          "arXiv:1801.07916 Theorems 1.3–1.5, Proposition 7.5, Theorem 7.8 and Lemma 7.10",
+          "Resultary c5d2c304c329"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–60, VERIFICATION.md and verify_cycle.py",
+        "Deng–Kretschmer arXiv:2211.07020v1",
+        "Conca–Welker arXiv:1801.07916",
+        "Resultary c5d2c304c329"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The verified prior results give a reduced ring, height three, degree binomial(n+1,3), and prime full determinant for connected support. They do not establish one irreducible component of the submaximal locus.",
+          "At a transverse corank-two point the node is the usual Schur complement model; the new geometric information is that all nonzero-edge rank-defect points form the stated open kernel chart and that no extra component is supported on the zero edges."
+        ],
+        "reasoning": "Neither generic determinantal local normal form nor prior radicality controls the sparse boundary. The simultaneous deformation of both cuts provides that missing implication.",
+        "searches": [
+          "Deng–Kretschmer Theorem 1, Propositions 12 and 15, Question 16",
+          "Conca–Welker §7.4 and Lemma 7.10",
+          "Resultary c5d2c304c329 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conca–Welker put zeros on edges of their graph G, so the relevant Gram orthogonality ideal has G=complement(C_n) and vector dimension n-2. Proposition 7.5 transfers LSS primality to the symmetric coordinate section in characteristic zero.",
+          "Deng–Kretschmer Proposition 17 concerns principally regular A satisfying A_ij(A^-1)_ij=0. That invertible-locus condition does not identify it with the corank-at-least-two locus."
+        ],
+        "reasoning": "The LSS correspondence is an applicable test for prior implication, whereas the principally regular Gaussian model imposes conditions in a different rank stratum.",
+        "searches": [
+          "Primary sparse symmetric submaximal minor primality / two-connected cycle queries, including Deng–Kretschmer Question 16",
+          "arXiv:1801.07916 §7.4, complementary graph LSS/Gram formulation",
+          "Deng–Kretschmer §5.2 Gaussian models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Question 16 reports characteristic-zero rational computations for n<=6, not an unbounded result. Conca–Welker already give small exact instances: for C4 the missing-edge graph is a matching and d=2; for C5 it is C5 with d=3 and neither a K1,3 nor K2,2, giving prime LSS ideals and transfer via Proposition 7.5.",
+          "The catalogue's closest analogous theorem describes a different support family, not an exact table of the cycle invariant."
+        ],
+        "reasoning": "Finite confirmations and small instances are credited but do not classify the ideal or its dense geometry for the entire family. This is an ideal-theoretic, not sequence-valued, claim.",
+        "searches": [
+          "Deng–Kretschmer Question 16 finite Macaulay2 evidence",
+          "Resultary c5d2c304c329; Conca–Welker fixed d and forest criteria"
+        ]
+      },
+      "rationale": "The supported distinction is the all-cycle primality and explicit open Grassmannian geometry plus the generic transverse node. General radicality, dimension, degree, and connected-support determinant irreducibility are prior. Earlier results also imply primality for the individual cycles C4 and C5; this does not give the uniform theorem for longer cycles. The comparison does not assert an answer for all two-connected supports.",
+      "residual_risks": [
+        "A later theorem on the 2-connected sufficiency question or in equivalent Gram/orthogonal representation terminology could subsume the ideal-theoretic component; no such theorem was established by the bounded checks.",
+        "The returned Coloured Gaussian directed acyclic graphical models PDF was unavailable from the publisher endpoint; no coverage or noncoverage conclusion rests on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct dependencies and finite coverage; not an all-cycle prime theorem in these passages",
+          "evidence": "Reduced quotient, connected Cohen–Macaulay/height/degree results, irreducible connected-support determinant, and explicit open sufficiency question with checks through n=6. Gaussian discussion Proposition 17 assumes principal regularity.",
+          "identifier_or_url": "https://arxiv.org/html/2211.07020v1",
+          "material_read": "Theorem 1 offset 3720; Corollary 7 offset 26600; Proposition 12 offset 49800; Proposition 15 offset 57450; Question 16 and §5.2 around 61200",
+          "method": "OA HTML passages",
+          "title": "Ideals of submaximal minors of sparse symmetric matrices",
+          "trigger": "Exact ideal class and conjectured 2-connected sufficiency"
+        },
+        {
+          "assessment": "Equivalent approach with small cases and a necessary condition, not verified dominating coverage",
+          "evidence": "Zeros correspond to graph edges, Proposition 7.5 transfers LSS primality, forest criteria are on the zero graph, and Lemma 7.10(1) requires (n-d)-connectivity of its complement.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07916",
+          "material_read": "§1 criteria offsets 7795–9700; §7.4 offsets 60450 and 67780; Theorem 7.8 and Lemma 7.10 offsets 73130 and 76200",
+          "method": "OA PDF passages",
+          "title": "Lovasz–Saks–Schrijver ideals and coordinate sections of determinantal varieties",
+          "trigger": "Equivalent coordinate section and possible existing prime criterion"
+        },
+        {
+          "assessment": "Related distinct family, not all cycles",
+          "evidence": "The support is K_{2,m}, m>=3. Date does not decide priority.",
+          "identifier_or_url": "Resultary c5d2c304c329",
+          "material_read": "RESULT.md Finding and support assumptions",
+          "method": "Local mirror",
+          "title": "Primality and nodal geometry for complete bipartite sparse symmetric supports",
+          "trigger": "Same-day primality and nodal theorem for the same class of ideals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycles are the basic minimally 2-connected family, so their submaximal locus is a natural test of the published sufficiency question. The proof turns abstract reducedness into primality by showing how the cut strata deform to nonzero-edge matrices, and the kernel parameterization identifies what the generic rank-defect matrices and singularities look like. This is a substantive infinite-family result independent of the pre-existing small computations and does not rely on speculative generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

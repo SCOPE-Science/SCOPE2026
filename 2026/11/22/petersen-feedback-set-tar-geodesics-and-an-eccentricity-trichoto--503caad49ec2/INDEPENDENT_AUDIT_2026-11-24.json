@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:02:46.501286Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 20–50, structural reasoning and enumeration scope",
+        "VERIFICATION.md, verify_kneser.py and verify_petersen.py: exhaustive designs inspected, frozen scripts not executed",
+        "Independent replay: python3 /workspace/branches/d2db5048-78e2-448d-9960-4ac6bd1a2a80/independent_petersen_fvs.py (standard-library disjointness construction, DFS forest test on all 638 candidates of size at most five, single-bit transitions, BFS from all 400 budget-five states; all 79,800 unordered distances checked; PASS)"
+      ],
+      "rationale": "Deleting s vertices leaves 15−3s+e_P(S) edges, ruling out s≤2 and forcing pairwise intersecting auxiliary edges at s=3. Three intersecting edges are a star or a triangle. The star deletion leaves a tree; the triangle deletion leaves a six-cycle. A four-set with no three-star is a P₅, a C₄ plus an isolate, or K₃ plus K₂: only C₄ works, leaving a double-star. Hence each center supplies a connected budget-four component formed by four minima, their common full star, and 24 one-edge extensions using off-center edges; the 15 squares are isolated. The 20 minima each have seven feasible one-edge extensions. At size five the only no-star sets are the 12 auxiliary five-cycles, all infeasible, giving 240 new states and 840 new edges. At budget five overlaps connect centers, and squares attach via size-five supersets. The only minimum-pair case whose union does not fit the budget is disjoint stars. At least one star omits the edge between centers, and their noncenter neighbor sets share two labels. Adding the two corresponding target spokes and deleting the extra initial spoke reaches a valid square; adding the last target spoke then permits the last two removals. This realizes the six-toggle lower bound. Same-center pairs and distinct-center pairs sharing an edge use their unions. Counting gives 30/90/70 pairs at 2/4/6. A separately written full enumeration confirmed these facts and established 20/140/240 states at eccentricities 8/9/10 respectively, hence radius 8 and diameter 10, attained by 120 unordered pairs.",
+      "residual_risks": [
+        "The all-state eccentricity assertions are certified by exhaustive finite computation only for this graph and budget. The Hamming geodesic equality claimed and checked is for minimum pairs, not all 400-state pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen record reports that the subcubic theorem connects all nonminimum fixed-cardinality FVSs under exchange; relevant full text was not available to inspect independently.",
+          "The Heawood finding gives Hamming geodesics at two spares and size-dependent eccentricities for the Heawood graph, not a subcubic theorem."
+        ],
+        "reasoning": "Even granting the cited exchange theorem at size four, replace each exchange by adding then removing with cap five and attach smaller and larger states by monotonicity. That argument yields connectivity but neither supplies length-optimal paths nor counts eccentricities. The distinct same-day Heawood result does not specialize to Petersen and no same-day priority inference is made.",
+        "searches": [
+          "Bousquet et al., DOI 10.1016/j.tcs.2023.114188, Theorem 4 as cited; DOI, ScienceDirect and lawful full-text lookup",
+          "Resultary 7595f50168ff, related Heawood FVS TAR theorem"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary target 503caad49ec2 and comparison records 5df4a07999b6, 504ba5a15e55, 7595f50168ff",
+        "Primary literature lookup and identification of DOI 10.1016/j.tcs.2023.114188"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-rank optimum result partitions minima by center, but is silent on feasible size-four states not containing any minimum. The face-vector result is numerical/topological. The current shortest-path proof needs the square class as a stepping stone precisely when a union is too large.",
+          "The independently reproduced eccentricities use the full add/delete distances, not the face vector or connectivity alone."
+        ],
+        "reasoning": "An exchange partition or a simplicial homotopy type does not determine the 29-state branches, isolated squares or all-pairs metric. The proof and reproduction supply separate structure not mechanically inferred from the compared results.",
+        "searches": [
+          "Compare 5df4a07999b6 optimum exchange and 504ba5a15e55 face counts with RESULT.md §§2–5",
+          "Compare the reported Bousquet et al. connectivity implication and the Heawood Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation translates minimum deletions to maximum induced forests; 5df4a07999b6 gives 20 optimum sets in five 4-cliques with 30 exchange edges.",
+          "The budget TAR problem is instead a one-toggle graph spanning several ranks; complementing it imposes a lower bound on forest size and reverses additions and deletions."
+        ],
+        "reasoning": "The fixed-rank exchange graph directly covers the credited optimum classification and its exchange components, but does not contain the rank-four isolates or budget-five distances.",
+        "searches": [
+          "Resultary: Petersen FVS/induced forest complement and optimum exchange",
+          "Resultary 5df4a07999b6 and 504ba5a15e55"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target match 503caad49ec2 is a self-match.",
+          "The earlier forest face vector (10,45,120,210,240,140,20) contains 240, 140, 20 at subset sizes 5, 6, 7, respectively."
+        ],
+        "reasoning": "Complementing gives the full stock of feasible rank-five, rank-four and rank-three state counts, and the totals and edge counts then follow by monotonicity. This is actual numeric coverage, not coverage of the component or shortest-path table.",
+        "searches": [
+          "Local Resultary exact Petersen TAR and Petersen forest face table",
+          "Resultary 504ba5a15e55, induced-forest face-vector record"
+        ]
+      },
+      "rationale": "The cardinality-three classification, fixed-size exchange graph, state counts and bare budget-five connectivity are not the distinct contribution. The inspected earlier records supply the first three, and the reported general subcubic theorem would imply the fourth. What survives is the exact budget-four component and obstruction structure, the no-detour distance formula for all optimum pairs at the minimum connecting budget, and the all-state eccentricity and diameter-pair profile. No verified prior result subsumes these claims.",
+      "residual_risks": [
+        "Relevant full sections of the 2023 paper were unavailable; their exact scope beyond the quoted exchange theorem could not be assessed. Other unindexed exact Petersen metric results are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of optimum and fixed-cardinality exchange baseline",
+          "evidence": [
+            "For n=5, the 20 optimum induced forests come in five exchange components of order four with 30 edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-induced-forest-threshold-and-optimum-exchange-components-o--5df4a07999b6",
+          "material_read": "Mirrored RESULT.md, n=5 case around offset 3500",
+          "method": "Local mirror full statement passage",
+          "title": "Sharp induced-forest threshold and optimum-exchange components of two-subset Kneser graphs",
+          "trigger": "Exact optimum sets under complementation and exchange overlap"
+        },
+        {
+          "assessment": "Feasible-state inventory by size and topology, not TAR metric coverage",
+          "evidence": [
+            "At maximum degree 3 the forest complex is the full induced forest complex; numbers of faces of sizes 5 through 7 are 240, 140, 20."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-complete-petersen-vertex-forest-filtration-and-its-simple-co--504ba5a15e55",
+          "material_read": "Local-mirror RESULT.md Finding, scope and induced-forest face-vector passage",
+          "method": "Read filtration and forest-subset counts in the mirror",
+          "title": "The complete Petersen vertex-forest filtration and its simple-collapse plateau",
+          "trigger": "Same graph and forest family, possible hidden exact table"
+        },
+        {
+          "assessment": "Connectivity implication granted conditional on cited scope; no assertion that unread sections lack metric results",
+          "evidence": [
+            "As reported in the original, all nonminimum size-four FVSs lie in one exchange component; a size-four exchange has a cap-five TAR simulation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+          "material_read": "Bibliographic identification and Theorem 4 description in frozen RESULT.md; no readable primary theorem passage obtained",
+          "method": "Attempted DOI/publisher page, direct PDF and primary literature lookup; publisher full text unavailable",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "General subcubic exchange theorem may apply to Petersen"
+        },
+        {
+          "assessment": "Important analogy but different object/parameters",
+          "evidence": [
+            "Its host is the Heawood graph, and its conclusions apply to optimal Heawood FVSs and that graph's TAR state space."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-spare-deletions-restore-hamming-geodesics-for-minimum-feedba--7595f50168ff",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Two spare deletions restore Hamming geodesics for minimum feedback sets of the Heawood graph",
+          "trigger": "Exact analogous TAR threshold and eccentricity type"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§2–5 and independent replay",
+        "Resultary 7595f50168ff for a comparative reconfiguration question on another cubic graph"
+      ],
+      "rationale": "Petersen is a canonical cubic obstruction graph here, not an arbitrary small input. The floor-budget components explain exactly how optimal exchange classes are trapped and identify further trapped feasible states. At the next budget those same square states enable symmetric-difference geodesics even for disjoint optima, whose full union does not fit. The eccentricity trichotomy is an exact benchmark for the natural entire feasible-state metric, not implied by connectivity or by its optimum subgraph. These structural facts and exact distances are useful for comparing minimum-extra-budget and no-detour reconfiguration questions.",
+      "residual_risks": [
+        "No extension to all cubic graphs or a general eccentricity theorem is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

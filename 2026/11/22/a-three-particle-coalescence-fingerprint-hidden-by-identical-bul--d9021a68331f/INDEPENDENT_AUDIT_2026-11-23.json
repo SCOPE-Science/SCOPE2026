@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:20:13.659698Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With r occupied vertices and an individual rate-one clock per vertex, the first holding mean is 1/r and each ordered move has probability 1/(6r). A move to an occupied site decreases r by one. The finite backward system is unique: from every transient state one can force a walk along a path to another occupied site and repeat, giving absorption within a uniformly bounded number of jumps with uniformly positive probability. I reconstructed the graphs and verified the exact integer-scaled means in every one of the 120 pair and 560 triple equations on each graph, without group computation. Classify triples by induced edges and count of common neighbors; the exact total over triples of 112 times the mean is 704960 for each graph. Each has 32 triangles, with respective scaled times 1144 and 1145. The pair values scale to 840 and 1008. This proves the claimed numbers for the finite continuous-time systems; it does not assert equality of laws or extend to synchronous walks. Independent replay: python3 /workspace/check-4.py. Both submitted scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General reversible-chain time bounds, discrete-time worst-case k-start bounds and meeting/coalescence comparisons were inspected."
+        ],
+        "reasoning": "Those bounds and model descriptions do not yield an equality at these initial states, let alone the 1/112 separation. The shared strongly regular parameters do yield the pair figures and are not credited as a new structural principle.",
+        "searches": [
+          "Oliveira arXiv:1009.0664 pp. 1, 4",
+          "Cooper et al. arXiv:1204.4106 pp. 2–3",
+          "Kanade et al. arXiv:1611.02460 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-match d9021a68331f and distinct matched cover-time record 241606c17f9f",
+        "arXiv:1009.0664",
+        "arXiv:1204.4106",
+        "arXiv:1611.02460"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-walker cover measures the exhaustion of unvisited vertices, whereas this chain jumps on two- and three-vertex occupancy sets and absorbs at one particle. The exact backward equations need the resulting triple transition rates."
+        ],
+        "reasoning": "A general backward equation or duality describes how to pose the calculation, not its answer, and a cover-time number cannot be transformed into the triple means by changing time units.",
+        "searches": [
+          "Same-pair exact cover-time Finding/Assumptions and CERTIFICATE.json",
+          "Oliveira full-coalescence model and voter duality, arXiv:1009.0664 pp. 1, 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Voter duality connects genealogical coalescence with consensus, but the inspected full-consensus observables use all vertices. Related same-graph exact records use single-walker cover times."
+        ],
+        "reasoning": "Full consensus, worst-case k-start coalescence and single-walker coverage are not the specific three-site genealogy conditional on a triangle, nor the uniform-triple mean.",
+        "searches": [
+          "Resultary: rook and Shrikhande three-particle continuous-time coalescence, triangle starts, pair means and uniform triple mean",
+          "Oliveira arXiv:1009.0664 voter duality, p. 4; Cooper et al. arXiv:1204.4106 voter duality, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match d9021a68331f is this record itself. In the distinct 241606c17f9f record, the certificate's rationals concern single-walker vertex cover."
+        ],
+        "reasoning": "No independent exact table of the target pair of triple calculations surfaced; the same inputs with a different state space and absorbing event are not duplicate coverage.",
+        "searches": [
+          "Resultary ranked exact graph-pair comparison, including cover-time certificate"
+        ]
+      },
+      "rationale": "The inspected sources supply the general coalescence framework, distinct exact observables on the identical graph pair, and voter duality. None supplies these triangle-conditioned means paired with an exact common uniform-triple mean.",
+      "residual_risks": [
+        "Targeted external search did not surface a relevant exact comparison; this is not proof there is none. A differently phrased voter-genealogy calculation or unindexed exact table could cover it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same pair, different observable",
+          "evidence": "Exact single-walker vertex-cover time separation; no multi-particle coalescence implied.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cover-time-separation-of-two-cospectral-sixteen-site-rando--241606c17f9f",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offset 0, and CERTIFICATE.json",
+          "method": "Local mirror passage comparison",
+          "title": "Exact cover-time separation of two cospectral sixteen-site random walks",
+          "trigger": "Exact comparison of the same two graphs"
+        },
+        {
+          "assessment": "General bounds, not the targeted exact starts",
+          "evidence": "Describes starts one per vertex and voter-model duality.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.0664",
+          "material_read": "OA PDF pp. 1 and 4, offsets 0 and 9295",
+          "method": "Targeted primary-text inspection",
+          "title": "On the coalescence time of reversible random walks",
+          "trigger": "Continuous-time coalescence and voter duality"
+        },
+        {
+          "assessment": "Distinct timing and statistic",
+          "evidence": "Defines worst-case expected time over k distinct starting positions for discrete-time walks.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.4106",
+          "material_read": "OA PDF pp. 2–3, offsets 3966 and 5993",
+          "method": "Targeted primary-text inspection",
+          "title": "Coalescing random walks and voting on connected graphs",
+          "trigger": "k-walker coalescence observables"
+        },
+        {
+          "assessment": "General bounds, no target numerical implication",
+          "evidence": "Discusses meeting/coalescence bounds and voter-model consequences.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.02460",
+          "material_read": "OA PDF p. 1, offset 1271",
+          "method": "Targeted primary-text inspection",
+          "title": "On coalescence time in graphs—When is coalescing as fast as meeting?",
+          "trigger": "Pair versus multi-particle comparison and voting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rook and Shrikhande graphs are natural spectral twins with identical strongly regular parameters. The point of the small difference is not its magnitude: the triangle-conditioned third-particle statistic separates them at an initial shape present 32 times in each, even when the pair means and the entire uniform-triple mean mask the distinction. A precise matched negative control makes the observable comparison useful beyond reporting another pair of numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

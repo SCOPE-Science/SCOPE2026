@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:58.365940Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay (python3 replays/3_schrijver.py; output replays/3_schrijver.txt) generates the 36 lexicographic five-subsets avoiding adjacency including the wrap from 11 to 0, enumerates cliques of their intersection graph, and checks the full directed augmented face poset. All 1,519,600 nodes and 12,264,696 covers were accounted for; 759,796 pairs leave exactly the eight frozen critical masks, with dimensions 6 six times and 8 twice. Removing the empty face and freeing its matched singleton gives an acyclic matching on the nonempty faces: the induced subgraph is unchanged except that the edge to the empty face has been deleted. Forman's theorem then supplies the claimed CW model including one 0-cell. With no positive-dimensional cells below dimension six it is five-connected; the cellular differential vanishes over Z because there are no consecutive occupied degrees. This establishes the full reduced integral homology but makes no determination of the attaching maps S^7 into the six-skeleton.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun classifies the stable-pair family and states that the SG(n,2) independence homotopy problem was unknown in that paper. Braun–Zeckner study neighborhood complexes of the latter family. Feng–Wang's computed independence complexes use ordinary Kneser graphs."
+        ],
+        "reasoning": "Neighborhood-complex results for the very same graph, or independence results without the stability constraint, do not give integral homology of this independence complex.",
+        "searches": [
+          "Braun arXiv:0912.0720, Theorems 1.4–1.5 and Section 1",
+          "Braun–Zeckner arXiv:1102.1984",
+          "Feng–Wang arXiv:2404.10566"
+        ]
+      },
+      "checked_sources": [
+        "Braun arXiv:0912.0720, section 1",
+        "Braun–Zeckner arXiv:1102.1984, section 1",
+        "Feng–Wang arXiv:2404.10566, abstract and section 1",
+        "The four Resultary mirror findings inspected above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-excess indexed result treats stable four-subsets of ten points; the same-family published theorem treats two-subsets. Neither gives a theorem comparing the required homology or cell models along stable-set size at fixed excess two."
+        ],
+        "reasoning": "The frozen CW counts and torsion-freeness are additional exact information, not a corollary of the inspected homotopy statements. The frozen claim stops short of identifying the eight-cell attaching maps.",
+        "searches": [
+          "Braun Theorem 1.4 and immediately following paragraph",
+          "Resultary 4b6155858ecc and 8af1ffc8127a Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braun's indices are subset size and excess; (5,2) means stable 5-subsets of a 12-cycle. In ground-size/subset-size notation this is the strongly 2-stable Kneser graph on (12,5), with independence meaning pairwise intersection of those stable subsets."
+        ],
+        "reasoning": "These aliases preserve the complex. SG(2,k) in Braun's convention has stable pairs, even for the choice k=8 with the same 12-cycle, and is not the target.",
+        "searches": [
+          "Resultary: SG(5,2), SG(12,5), 36-vertex Schrijver independence complex on cyclically stable five-sets",
+          "Braun arXiv:0912.0720, Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed cases give S^3 wedge two S^4 for SG(4,2) (25 vertices), and four S^3 for SG(3,3) (30 vertices). The stable-pair dihedral and higher two-independence records change the parameter or the functor. No exact hit was identified in these bounded lookups."
+        ],
+        "reasoning": "Neither neighboring case specializes to the 36-vertex graph; same-cycle hits on stable pairs use different vertices.",
+        "searches": [
+          "Resultary: 36-vertex Schrijver independence stable five-subsets twelve cycle",
+          "Resultary: Schrijver SG(5,2) H6 Z6 H8 Z2 discrete Morse"
+        ]
+      },
+      "rationale": "The nearest inspected results concern the same stable-disjointness family but other subset sizes, excesses or graph-complex functors. No inspected statement covers the exact integral homology or this sparse homotopy-equivalent CW model at the 36-vertex parameter. This is a bounded comparison, not a priority conclusion.",
+      "residual_risks": [
+        "A broad literature lookup produced no useful source; this is not evidence of absence. Unindexed finite calculations may exist. No conclusion about global publication priority is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Other slice classified; exact family posed, not classified",
+          "evidence": [
+            "Theorem 1.4 is for SG(2,k); following text states the SG(n,2) question at the time."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0912.0720",
+          "material_read": "Definition 1.1; section 1, pp. 1–3, around offsets 6800–10737",
+          "method": "Bounded primary PDF passages",
+          "title": "Independence Complexes of Stable Kneser Graphs",
+          "trigger": "exact stable-graph family and notation"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": [
+            "The stated collapse uses the neighborhood complex N(SG(n,2))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1102.1984",
+          "material_read": "Section 1, p. 1, offsets about 3000–5500",
+          "method": "Bounded primary PDF passage",
+          "title": "Deformation Retracts of Neighborhood Complexes of Stable Kneser Graphs",
+          "trigger": "same SG(n,2) graphs"
+        },
+        {
+          "assessment": "Ordinary Kneser graphs, not this stable induced graph",
+          "evidence": [
+            "Stable graphs appear in the introductory context and citation of Braun's stable-pair theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.10566",
+          "material_read": "Abstract and section 1, p. 1, offsets about 2500–7467",
+          "method": "Bounded primary PDF passage",
+          "title": "Exploring Homological Properties of Independent Complexes of Kneser Graphs",
+          "trigger": "nearby independence-homology results"
+        },
+        {
+          "assessment": "Nearby parameter, not coverage",
+          "evidence": [
+            "It specifies SG(4,2), stable fours on a 10-cycle."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-simple-homotopy-reduction-of-the-twenty-five-vertex-schrijver-in--4b6155858ecc",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2216",
+          "method": "Bounded local-mirror passage",
+          "title": "Simple homotopy reduction of the twenty-five-vertex Schrijver independence complex",
+          "trigger": "same fixed excess two"
+        },
+        {
+          "assessment": "Other parameter",
+          "evidence": [
+            "SG(3,3) uses stable triples on a 9-cycle."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-thirty-vertex-schrijver-independence-complex-is-a-wedge-of-f--2e8af88a1b8c",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2510",
+          "method": "Bounded local-mirror passage",
+          "title": "The thirty-vertex Schrijver independence complex is a wedge of four three-spheres",
+          "trigger": "nearby finite result"
+        },
+        {
+          "assessment": "Stable pairs only",
+          "evidence": [
+            "SG(2,k) on the 12-cycle has 54 stable-pair vertices and does not match the 36-vertex graph."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-the-dihedral-character-of-stable-kneser-independence-complex-hom--8af1ffc8127a",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2807",
+          "method": "Bounded local-mirror passage",
+          "title": "The dihedral character of stable Kneser independence complex homology",
+          "trigger": "notation collision with stable Kneser independence homology"
+        },
+        {
+          "assessment": "Different complex and vertex sets",
+          "evidence": [
+            "Uses the higher Ind_2 construction on stable pairs."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-first-mixed-dimensional-two--b59cf367479e",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2000",
+          "method": "Bounded local-mirror passage",
+          "title": "First mixed-dimensional two-independence topology in stable two-subset Kneser graphs",
+          "trigger": "nearby mixed-dimensional stable-Kneser computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The excess-two stable Kneser sequence is itself motivated by the unresolved topology of its independence complexes in the cited family work. The next parameter after the nearby 25-vertex case has a complete torsion-free two-degree computation and a CW model that isolates the remaining homotopy question to two attaching maps. Those precise data are useful for comparing the family and for a future attaching-map calculation; they are not a routine inference from either the neighborhood complex or the preceding size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

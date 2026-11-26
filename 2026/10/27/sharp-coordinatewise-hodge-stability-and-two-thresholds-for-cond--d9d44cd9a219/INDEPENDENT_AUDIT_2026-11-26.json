@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:32.487952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim, use the known row norms in the square-root conductance normalization. At fixed t, g_0 decreases in n while a(g_0−g_m)=(1−x)(1−y)/(1−xy) with x=r^floor(n/2), y=r^ceil(n/2) increases: one exponent increments and each partial derivative in x,y is strictly negative. This also bounds the latter expression by one, so every spoke row is strictly below two. The rim row strictly increases in n. At five rims multiply R_5<2 by positive quantities and substitute sqrt(t)=(1−u²)/u, u=sqrt(r). The resulting (1−u^4)p(u) is positive: p>=15/64 for u<=1/2 and the cleared polynomial in v=(2u−1)/(1−u) has all coefficients positive on the other half. With n=6,t=1/4 the exact periodic Green recurrence gives g_0=1188/1105 and g_3=512/1105 and rim row 2292/1105>2. Thus this same weight works for every n>=6 and no weight works at sizes 3–5. The repair's exact standard-library verifier ran successfully, checking both coefficient identities and the full rational Green column and witness. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Hodge and transfer-current results supply gradient projection and weighted Green identities. Ipsen–Mallik give explicit unweighted wheel pseudoinverses. The closest earlier wheel results give the full norm as a function of n,t, a fixed-weight branch limit, and large-n optimized behavior."
+        ],
+        "reasoning": "The earlier full wheel formulas are stronger pointwise inputs, not already optimized over t for the small size needed to rule out all counterexamples. Neither an unweighted t=1 computation nor the large-size optimized asymptotic establishes an all-weight bound at n=5.",
+        "searches": [
+          "Jiang–Lim–Yao–Ye arXiv:0811.1067",
+          "Kassel–Wu arXiv:1312.2946",
+          "Ipsen–Mallik arXiv:2201.02579",
+          "Resultary 169e544dd2d8 and 3efd9f463ccd sharp norm and optimizer scale"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_weighted_wheel.py",
+        "Resultary 3efd9f463ccd, 169e544dd2d8, c1aaa10e9030, d57fbcbd9da9 and 39d62ea47ea0",
+        "Jiang–Lim–Yao–Ye arXiv:0811.1067",
+        "Kassel–Wu arXiv:1312.2946",
+        "Ipsen–Mallik arXiv:2201.02579",
+        "Repaired RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known fixed-t limit has a spoke branch always below two and rim branch 2+2(1−sqrt(t))/sqrt(t+4); the exact Green formula gives strict finite deficits. The known optimized asymptotic tends to three. Neither is uniform in the sense needed to locate the smallest size attaining above two after optimizing weight."
+        ],
+        "reasoning": "The t=1 uniform-weight criterion and the supremum three are direct consequences and are not retained. The new finite-size conclusion requires the global sign of a polynomial on (0,1), an exact crossing witness, and a monotone size comparison; it is not a parameter relabeling or a point evaluation of the prior formula.",
+        "searches": [
+          "3efd9f463ccd Finding and Verification",
+          "169e544dd2d8, Finding and fixed-t asymptotic correction, offsets 5100–7950",
+          "c1aaa10e9030, crossover and outer limits; targeted six and 1105 checks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3efd9f463ccd has unit spokes and common rim weight q. Dividing all conductances of the frozen wheel by t gives q=1/t and multiplies its grounded Green matrix by t, leaving the projector unchanged. The formulas and crossover agree, including the reciprocal expansion. 169e544dd2d8 gives the same norm in the same normalization, also for the complementary projection. c1aaa10e9030 gives the same norm and crossover. d57fbcbd9da9 minimizes the projection norm over all projections onto an unweighted circulation space, with level 9/5 at six rims."
+        ],
+        "reasoning": "The energy-normalized gradient and orthogonal cut projector are the same. Symmetry identifies its 1-to-1 and infinity-to-infinity norms, and the published identity covers the orthogonal complement too. In contrast, minimizing over projections changes the invariant and the meaning of six. None of the inspected same-projector Finding passages gives the sharpened finite-size boundary at level two.",
+        "searches": [
+          "Local Resultary: weighted wheel with n rim vertices conductance-normalized orthogonal cut gradient projection endpoint maximum row norm first exceeds two at six rim vertices and t=1/4 2292/1105",
+          "Resultary 3efd9f463ccd, 169e544dd2d8, c1aaa10e9030 and d57fbcbd9da9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-wheel papers describe exact-rational finite parameter checks of known row formulas; no classification of the worst-over-weight small sizes is stated in the inspected checks. The published six-rim rational plateau is 9/5 for a different minimization."
+        ],
+        "reasoning": "A table at sampled rational weights could confirm one witness but cannot rule out all positive weights at five rims. There is no standalone sequence database applicable to the continuous-weight envelope; the exact rational witness itself is a calculation from the known formula, not a separate novelty claim.",
+        "searches": [
+          "Local Resultary for 2292/1105, six-rim size, and the above-two boundary",
+          "Resultary 3efd9f463ccd and 169e544dd2d8 verification passages; d57fbcbd9da9 Finding"
+        ]
+      },
+      "rationale": "Credit is confined to an exact finite-size crossing boundary for level two, with an all-weight sign certificate ruling out the smaller sizes. The known exact two-row norm, crossover asymptotic and global/fixed-weight limits are credited as inputs or omitted. The same-family publications inspected do not give the repaired six-rim cutoff; the different six-rim circulation projection result is not equivalent. This is a bounded assessment, not a historical priority certification.",
+      "residual_risks": [
+        "Bounded public literature search was nondiagnostic; an unindexed statement in electrical-network or projection language remains possible. No conclusion about historical priority follows from matching catalogue paths or snapshot dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "equivalent exact norm, crossover/asymptotic and supremum; different small-size question",
+          "evidence": [
+            "With unit spokes, the rim-to-spoke crossover is 3/4+4·3^(−n)+O(n·9^(−n)); inversion gives the original 64/9 prefactor. Its optimized large-size norm tends to three from below, and sign vectors attain the row norms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-endpoint-hodge-stability-and-logarithmic-contrast-tuning-o--3efd9f463ccd/RESULT.md",
+          "material_read": "Finding and scope at offset 0–3022, and finite verification passage near offset 7167",
+          "method": "local Resultary mirror",
+          "title": "Sharp endpoint Hodge stability and logarithmic contrast tuning on weighted wheel graphs",
+          "trigger": "exact weighted endpoint norm under reciprocal conductance parameter"
+        },
+        {
+          "assessment": "identical pointwise norm, crossover and fixed-weight limit; no five-rim all-weight certificate in inspected passages",
+          "evidence": [
+            "The real 1 and infinity cut and cycle norms agree. The branch limit is exactly the frozen limit and the paper gives the leading finite-size correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-moving-conductance-threshold-for-sharp-cut-cycle-projection-no--169e544dd2d8/RESULT.md",
+          "material_read": "Finding and scope offset 0–3142; row/crossover proof near 3779 and limit/verification at 5100–7950",
+          "method": "local Resultary mirror",
+          "title": "A moving conductance threshold for sharp cut–cycle projection norms on weighted wheels",
+          "trigger": "same parameter and normalized projector, plus fixed-weight limit"
+        },
+        {
+          "assessment": "overlap of norm/crossover, not the repaired cutoff in the Finding",
+          "evidence": [
+            "Explicit spoke and rim row sums, same transition limit 4/3 and noncommuting small-conductance and large-wheel limits."
+          ],
+          "identifier_or_url": "Resultary c1aaa10e9030",
+          "material_read": "RESULT.md Finding at offset 0 and exact-term checks",
+          "method": "local Resultary mirror",
+          "title": "Exact endpoint amplification and spoke–rim transition in weighted wheel networks",
+          "trigger": "same normalization and sharp endpoint norm"
+        },
+        {
+          "assessment": "different mathematical invariant",
+          "evidence": [
+            "Unweighted circulation-space minimum real l_1 projection norm saturates at 9/5 for n>=6; the projector is not the stipulated weighted orthogonal cut projector."
+          ],
+          "identifier_or_url": "Resultary d57fbcbd9da9",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "local Resultary mirror",
+          "title": "Exact cycle-space projection constants of wheels, with a six-rim saturation law",
+          "trigger": "same wheel and six-rim cutoff label"
+        },
+        {
+          "assessment": "general Hodge theory, not the cutoff",
+          "evidence": [
+            "Orthogonal gradient/divergence-free components and least-squares computation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0811.1067",
+          "material_read": "OA PDF p. 1, offset 1397",
+          "method": "OA passage inspection",
+          "title": "Statistical ranking and combinatorial Hodge theory",
+          "trigger": "least-squares weighted Hodge projection"
+        },
+        {
+          "assessment": "general weighted-graph framework",
+          "evidence": [
+            "Transfer currents on embedded weighted graphs are related to their Green functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.2946",
+          "material_read": "OA PDF p. 1, offset 173",
+          "method": "OA passage inspection",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "weighted electrical/Green formula"
+        },
+        {
+          "assessment": "unweighted pseudoinverses, not arbitrary-weight cutoff",
+          "evidence": [
+            "Explicit Moore–Penrose inverses of the incidence and Laplacian matrices of unweighted wheels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.02579",
+          "material_read": "OA PDF §3, p. 10 offset 29489, Theorem 3.1, and p. 17 offset 50037",
+          "method": "OA passage inspection",
+          "title": "Incidence and Laplacian matrices of wheel graphs and their inverses",
+          "trigger": "same graph with unweighted conductances"
+        },
+        {
+          "assessment": "different convex-geometric problem",
+          "evidence": [
+            "Minimum-volume enclosing ellipsoid and a limiting rim-to-spoke ratio of two, not an induced projection norm."
+          ],
+          "identifier_or_url": "Resultary 39d62ea47ea0",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "local Resultary mirror",
+          "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+          "trigger": "same graph and a conductance asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coordinatewise norm is the worst possible amplification of normalized measurement error. Locating the first wheel size where it can exceed a factor of two separates an all-weights guarantee at small sizes from an explicit construction that works at every larger size. The global sign certificate is essential to ruling out smaller counterexamples; the exact rational witness and already known formula, by themselves, would not establish the cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

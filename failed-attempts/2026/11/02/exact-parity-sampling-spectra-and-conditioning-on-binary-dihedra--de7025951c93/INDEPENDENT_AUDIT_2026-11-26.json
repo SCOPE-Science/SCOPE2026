@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:03:31.565160Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual stated spectrum, rank, condition ratios and matrix shift hold. The two within-circle blocks have discrete Fourier eigenvalues Nc_j by character orthogonality; the cross blocks vanish except on the constant modes, where they split the two eigenvalues by ±N in even degree and vanish in odd degree. The physical evaluation Gram multiplies this by ell+1, leaving rank and ratios unchanged. The allowed residues are cyclically consecutive in the step-two ordering; they give the stated ranks after counting the positive constant modes, including ell=0. For even ell<N, the constant eigenvalue is 2N. Counts are at most two, and there is an occupied nonzero singleton for 0<ell<N−2: otherwise there would either be only residue zero, or the block of consecutive weights would have to visit all m residues with all nonzero counts equal to two (length 2m−1). At ell=N−2 every nonzero allowed residue appears twice. The text at RESULT.md line 77 has a false intermediate assertion for ell≥N: e.g. m=4, ell=10 gives c_2=c_6=3 when s=1. The correct bound is 2s≤c_j≤2s+2, from 2ms+1≤ell+1≤2m(s+1)−1 and cyclically consecutive residues. The constant block attains both bounds, proving the claimed ratio without the false assertion. The shift adds four copies of each allowed residue, leaves U_ell(0) fixed, and hence adds 4N times the parity projector, exactly 4m(I+(-1)^ell J). Inspected the frozen verification notes and artifacts/verify.py; no supplied code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed spectrum and eigenbasis apply to independent phases of the two polygons, and are independent of those phases.",
+          "Lehoucq–Uzan–Weeks and Weeks study invariant harmonic modes for prism quotients."
+        ],
+        "reasoning": "The phase-zero dicyclic point set is an immediate special case of the indexed sampling theorem. The quotient-mode papers, by contrast, do not by themselves give all observation sectors; the distinction does not remove the indexed coverage.",
+        "searches": [
+          "Resultary a3a7cd2c786b, mirrored RESULT.md Steps 2–4",
+          "arXiv:math/0202072v2 §10 Theorem 3",
+          "arXiv:math/0502566 prism-mode discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a3a7cd2c786b",
+        "arXiv:math/0202072v2",
+        "arXiv:math/0307121v1",
+        "arXiv:math/0502566"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching result gives the consecutive-residue count and c_0 for even ell, with a degree-independent Fourier decomposition and the same constant symmetric/antisymmetric vectors.",
+          "Its displayed sine form of U_ell also repeats at step 4m on all the non-antipodal distinct within-circle angles and at pi/2 across circles; at ±1 the increment is exactly ±4m with the degree sign at −1."
+        ],
+        "reasoning": "The odd extrema are the two neighboring integer counts, or just one occupied count. The even constant eigenvalues give the extrema at ell≥N because ell+1 consecutive residues have counts between 2s and 2s+2. Below N their comparison with counts 1 and 2 gives the same tightness boundaries. The sine evaluation proves the shift entrywise from the same displayed kernel (or add four residue tours in the fixed basis). Neither auxiliary statement supplies a nonmechanical independent remainder.",
+        "searches": [
+          "Resultary a3a7cd2c786b, RESULT.md Steps 2–4, especially the character sum and rank computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct Resultary record a3a7cd2c786b, RESULT.md proof Steps 2–4, gives n(ell+1)c_j twice for each nonconstant Fourier index and n(ell+1)(c_0±U_ell(0)) for the two constant modes.",
+          "K_ell(g,h)=chi_ell(g^(-1)h) on the dicyclic group; for character restriction multiplicities m_tau, convolution acts on each sector by |G|m_tau/d_tau."
+        ],
+        "reasoning": "Use n=N, zero circle phases, and divide the indexed physical evaluation Gram eigenvalues by ell+1; the spectra coincide including zeros. The representation formulation is another equivalent interpretation, not a new spectrum.",
+        "searches": [
+          "Resultary: exact spherical-harmonic sampling spectra on orthogonal regular circles and binary-dihedral configurations",
+          "arXiv:math/0307121v1, opening character discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-complete-spherical-harmonic-sampling-spectra-on-orthogonal-regul--a3a7cd2c786b, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, RESULT.md offsets 4840–7197, gives exact eigenvalues and rank for every m and ell, not just table entries."
+        ],
+        "reasoning": "This is formula-level coverage of the core invariant by a distinct indexed result. Same displayed date does not supply chronological evidence in either direction.",
+        "searches": [
+          "Resultary: complete spherical-harmonic sampling spectra on orthogonal regular circles"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the complete spectrum, all ranks, and the common Fourier/constant basis for a strictly broader configuration. The added condition-number and matrix-shift statements are mechanical consequences of those available exact formulas. This is a finding of mathematical coverage, not a claim about which same-date record came first.",
+      "residual_risks": [
+        "The review establishes equivalent mathematical coverage and implications, not chronological priority or dependence between the two same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact central coverage and direct implications for residual claims",
+          "evidence": "Two circulant blocks with nonconstant eigenvalues n(ell+1)c_j and a constant 2-by-2 block with diagonal c_0, off-diagonal U_ell(0), both scaled by n(ell+1). Rank cases are explicitly stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-spherical-harmonic-sampling-spectra-on-orthogonal-regul--a3a7cd2c786b/RESULT.md",
+          "material_read": "Finding and proof Steps 2–4, offsets 4840–7197 in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and matching primary record via local mirror",
+          "title": "Complete spherical-harmonic sampling spectra on orthogonal regular circles",
+          "trigger": "Same spectral object and exact-rank claims with phase generality"
+        },
+        {
+          "assessment": "Quotient invariant modes, not the indexed all-point comparison",
+          "evidence": "The prism quotient is S^3/D_n^* and the theorem constructs its invariant Laplace eigenmodes.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0202072v2",
+          "material_read": "§10 and Theorem 3, PDF pp. 13–16",
+          "method": "Targeted open primary PDF passages",
+          "title": "Eigenmodes of Lens and Prism Spaces",
+          "trigger": "Same prism harmonic setting"
+        },
+        {
+          "assessment": "Structural character antecedent",
+          "evidence": "Treats character theory of the finite SU(2) groups in the ADE correspondence.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0307121v1",
+          "material_read": "Opening character discussion, p. 1",
+          "method": "Targeted open primary PDF passage",
+          "title": "McKay's Correspondence and Characters of Finite Subgroups of SU(2)",
+          "trigger": "Character restriction reformulation"
+        },
+        {
+          "assessment": "Concerns a different operator",
+          "evidence": "Explicit invariant polynomial mode bases for prism manifolds, not the discrete observation matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0502566",
+          "material_read": "Introductory prism discussion around p. 3",
+          "method": "Targeted open primary PDF passage",
+          "title": "Exact Polynomial Eigenmodes for Homogeneous Spherical 3-Manifolds",
+          "trigger": "Possible prior prism-harmonic spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact spectra and interpolation cutoffs would be useful in isolation but are already covered in a broader indexed theorem. The surviving explicit conditioning ratio is a comparison of extrema of the known levels, and the shift is a direct evaluation of the known sine kernel at the same sample angles. Neither remaining claim gives a nonmechanically implied invariant warranting a repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:34:44.556725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a simple graph the vertices W incident to no selected edge are independent, and every edge inside the complementary red set must be selected (otherwise two distinct selected edges dominate it). A red vertex must have a red neighbor, and if it has a white neighbor it must have precisely one red neighbor. These rules are sufficient and recover W uniquely from the selected set. On degree-two paths they reduce to white spacing at least three, with a red penultimate vertex next to a leaf. With a red hub either all neighbors are red or exactly one is red; the latter neighbor is on the cycle (two orientations) or in one designated arm. With a white hub, both vertices next to each end of the cycle path and each of the first two arm vertices are red, which rules out length-one arms. The cycle word counts are I_(c-3), I_(c-5), and I_(c-7) for the three red-hub endpoint types, with both-white impossible at c=3,4 and one remaining permitted endpoint pattern at c=5. Both-end two-zero forcing gives I_(c-5) for the white hub, including overlapping prefixes at c=3,4. Splitting arm words by their last bit, a final 1 forces its immediately preceding two positions (where present) to zero, including the already-red penultimate. This gives the displayed I formulas, base triples and recurrence. Thus cases are disjoint and exhaustive, and the length-one and length-two formulas follow by substitution for r>=2. Independently enumerated all edge subsets for 93 small heterogeneous or boundary instances, with c=3..7, r=2 or 3, lengths 1..4 and total order at most 12, directly imposing the outside-edge test; all agreed. Examples: c=3 gives 3 and 5 for arms (1,1) and (2,2), and c=5 with arms (1,2) gives 8. The symbolic proof, not the finite check, establishes the unrestricted result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.4 gives a linear-time counting algorithm for generalized series-parallel graphs, which include the audited graphs. The P6-free paper describes restricted algorithms, and Theorem 5.2 of the counting paper gives the cycle recurrence."
+        ],
+        "reasoning": "A parse-tree algorithm can calculate individual counts but is not itself the explicit joint length formula, root-class decomposition or subdivision asymptotics. The cycle and P6-free restrictions do not state the unrestricted arm-length result.",
+        "searches": [
+          "arXiv:2607.03894 Section 4/Theorem 4.4 and Section 5",
+          "arXiv:2509.04598 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py",
+        "arXiv:2607.03894 and arXiv:2509.04598",
+        "Resultary 381ff49f7243 and 2e80dff19ef1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lollipop theorem also has a strict cycle bound at fixed order; the general paper conjectures the corresponding bound for connected graphs. The bouquet result accounts for hub spokes, but each petal meets the hub in two neighbors and has no leaf boundary."
+        ],
+        "reasoning": "Neither a one-arm extremal comparison nor the cycle recurrence entails a linear-versus-exponential arm-number contrast. The four cases and leaf boundary give an additional exact derivation; the frozen result does not claim the general cycle bound.",
+        "searches": [
+          "381ff49f7243 Finding",
+          "2e80dff19ef1 Finding",
+          "arXiv:2607.03894 Conjecture 5.1 and Theorems 4.4, 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "381ff49f7243 gives the exact bivariate rational enumerator for one tail. 2e80dff19ef1 has a hub-refined product for cycle petals, with no pendant leaves."
+        ],
+        "reasoning": "The red/white degree rule is shared; neither replacing a cycle petal by a path nor multiplying one-tail counts preserves the hub constraints. The new factorization distinguishes a single red neighbor on the cycle from one on an arm, and the length-one obstruction at a white hub is specific to leaves.",
+        "searches": [
+          "Perfect edge dominating sets counting lollipop/tadpole enumeration formula for a cycle with a pendant path",
+          "Resultary searches for perfect-edge-domination, one-hub cycles, lollipops/tadpoles and hub-refined products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact table and rational generating function exist for one arm, and the same order-three recurrence appears for cycles. No full multivariate table or exact product for two or more path arms was identified in the inspected sources."
+        ],
+        "reasoning": "Agreement of a boundary specialization and the recurrence does not determine coupling at a hub with several pendant paths.",
+        "searches": [
+          "Resultary 381ff49f7243 one-arm recurrence and 3-by-3 initial table",
+          "Resultary 2e80dff19ef1 refined product",
+          "arXiv:2607.03894 Theorem 5.2"
+        ]
+      },
+      "rationale": "The new content supported by the inspected sources is the four-class product for one cycle with at least two independently sized pendant paths, and the resulting change of growth under single subdivision of all arms. The one-tail count, hub-refined cycle-bouquet product, and generalized series-parallel counting algorithm are genuine overlaps in method or scope, but none supplies this multiarm statement.",
+      "residual_risks": [
+        "A prior explicit transfer-state specialization on one-hub graphs could subsume the formula; the inspected algorithms were not claimed to exclude every such derivation.",
+        "Bounded literature and index comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHMIC_COVERAGE_NOT_PRODUCT_FORMULA",
+          "evidence": "Theorem 4.4 counts in O(n+m) on generalized series-parallel graphs; Section 5 has a conjecture and an exact recurrence for cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.03894",
+          "material_read": "Abstract p. 1 (offset 1786), Section 4 p. 25 (80200), Conjecture 5.1 p. 27 (89963), Theorem 5.2 p. 28 (90369)",
+          "method": "OA PDF excerpts by locator",
+          "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+          "trigger": "General algorithm and nearest counting theorems"
+        },
+        {
+          "assessment": "ONE_ARM_ONLY",
+          "evidence": "Rational bivariate generating function with denominator (1-X-X^3)(1-Y-Y^3) for exactly one pendant path; strict comparison with C_(c+t).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-perfect-edge-domination-counts-and-a-strict-cycle-bound-fo--381ff49f7243/RESULT.md",
+          "material_read": "Finding, beginning 'For integers c>=3 and t>=1'",
+          "method": "Resultary and original local mirror",
+          "title": "Exact perfect edge domination counts and a strict cycle bound for lollipop graphs",
+          "trigger": "Earlier exact one-cycle pendant-path enumeration"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "Three-term product refined by set size and selected hub spokes for k>=2 cycle petals of lengths >=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-hub-refined-perfect-edge-domination-polynomial-and-efficient-dom--2e80dff19ef1/RESULT.md",
+          "material_read": "Finding beginning 'Let B=B(ell_1,...,ell_k)'",
+          "method": "Resultary and original local mirror",
+          "title": "Hub-refined perfect edge domination polynomial and efficient domination in cycle bouquets",
+          "trigger": "Earlier exact one-hub product and spoke conditions"
+        },
+        {
+          "assessment": "RESTRICTED_ALGORITHMIC_SCOPE",
+          "evidence": "Cubic algorithm for minimum PED in P6-free graphs, adaptable to counting; arbitrary long arms are not P6-free.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.04598",
+          "material_read": "OA v2 abstract, p. 1 (offset 0)",
+          "method": "OA PDF excerpt",
+          "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+          "trigger": "PED counting in a graph class which meets short-arm cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula classifies every feasible edge set with arbitrary heterogeneous arm lengths, including when a length-one arm blocks an entire root class. It also proves an at-most-affine versus exponential dependence on the number of arms for every fixed cycle size. This is a structural benchmark beyond evaluation of a single graph and does not imply the general extremal conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

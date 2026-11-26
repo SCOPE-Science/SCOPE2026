@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:35:01.017978Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive Fourier lines over a full time period are d₁,d₂,d₁+d₂. When distinct they reveal p=b₁ conjugate(b₀), q=b₂ conjugate(b₁) and r=b₂ conjugate(b₀); pq/r=|b₁|² determines a phase-fixed solution since all coefficients are nonzero. At resonance the trace gives the power spectrum of a quadratic P on the unit circle. For each off-circle reciprocal-conjugate root pair represented j times in the roots of P, the possible root multiplicities give j+1 choices; unit-circle multiplicities are fixed. The product is at most four even in repeated-root cases. The four witnesses have Fourier coefficients 62, −35 and 6 at 0,24,48, are inequivalent, and persist as four admissible classes under small perturbations of the two distinct nonreciprocal roots. At the second site the two contributions are multiplied by exp(im₁h), exp(im₂h) with m_j the adjacent spatial gaps. The determinant vanishes exactly at Δh∈2πZ; there the intensity is a time translate with shift m₁h/d, so the ambiguity survives. Otherwise the colliding products demix. The Gram eigenvalues are 2±2|cos(Δh/2)|; expanding the smaller gives inverse norm asymptotic 2/(|Δ||h−h₀|). This verifies product-demixing, not global nonlinear conditioning. CHECK.py was inspected, not executed; the review used Fourier identities and exact witnesses, not the file's finite test count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jaming–Mayeli uses all graph vertices and a B₂ condition, squared eigenvector matrix and support-overlap conditions. Its introduction also distinguishes discrete space-time sampling by frame iterates from its graph observations.",
+          "Pineau–Ramos–Taylor Theorem A requires density for almost every point of a space-time interval times the real line."
+        ],
+        "reasoning": "Neither premise turns into this theorem by restricting to two sites. In particular, a noncolliding spectral criterion cannot settle the resonant case, and continuum-in-space uniqueness does not determine the minimum discrete site count.",
+        "searches": [
+          "arXiv:2607.26705v1 dynamical phase retrieval",
+          "arXiv:2609.30511v1 Theorem A",
+          "Schrodinger dynamical phase retrieval sparse space time samples three modes periodic torus two sensors spectral collisions linear system Aldroubi Krishtal Tang"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67, VERIFICATION.md and CHECK.py (inspection)",
+        "arXiv:2607.26705v1",
+        "arXiv:2609.30511v1",
+        "arXiv:1701.08947v1",
+        "Resultary 4858fb8038b0 and 52ff35f3bc92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Difference-frequency expansion and the classical zero-flip mechanism supply one-site ingredients; earlier moment probes explicitly assume magnitudes known."
+        ],
+        "reasoning": "Recovering a single intrinsic phase is not a stronger result for the unknown-magnitude inverse problem. The additional argument needed here is that the physical second site creates a specific mask through Δh; singular masks yield data redundant by time translation, while invertible masks give exactly the stated singular spectrum. The reviewed broader results do not imply that full if-and-only-if classification.",
+        "searches": [
+          "arXiv:1701.08947 §3.1",
+          "4858fb8038b0, Finding",
+          "arXiv:2607.26705v1, abstract/intro"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beinert–Plonka §3.1 expresses the Fourier intensity in pairwise frequency differences, with distinct differences assumed for its Prony step.",
+          "Resultary 52ff35f3bc92, Finding, treats eight pointwise magnitudes of the same quadratic on two distinct-radius square orbits."
+        ],
+        "reasoning": "At resonance, after a known phase and variable rotation, the two observations are the complete unit-circle spectra of b₀+b₁z+b₂z² and b₀+b₁z+exp(iΔh)b₂z². This second observation changes the relative phase of one coefficient, not the evaluation radius or an ordinary rotation of a fixed polynomial. The distinct-difference method supplies a nonresonant ingredient but does not handle this collision geometry.",
+        "searches": [
+          "Resultary: quadratic polynomial two Fourier intensity masks quadratic phase three coefficients root reflection angular separation temporal gap exact minimal site Schrödinger",
+          "arXiv:1701.08947 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4858fb8038b0, Finding offset 0, gives a quadrature formula for a single intrinsic phase from controlled moment probes with magnitudes known. 52ff35f3bc92 gives an exact geometry criterion and lifted spectrum for point evaluation on distinct radii."
+        ],
+        "reasoning": "The indexed exact criteria and conditioning laws have materially different data models. A table of resonant integer triples, even an exhaustive parametrization of square progressions, would settle only the collision locus and would not give fiber cardinality or separation stability.",
+        "searches": [
+          "Resultary 4858fb8038b0 (first resonant Fourier-phase measurements)",
+          "Resultary 52ff35f3bc92 (minimal quadratic phase retrieval from two rotated square orbits)",
+          "Resultary 7849dda51c79 (even phase moments and three-frequency support)"
+        ]
+      },
+      "rationale": "Distinct frequency differences and reciprocal-conjugate root reflection are established ingredients, not credited separately as new methods. The supported distinct result is the joint universal site-count and exact separation classification for the periodic three-mode quadratic dispersion, including the redundant-site necessity and sharp linear conditioning. The nearest inspected results use different observations or coefficient information; the comparison supports this limited claim, not general priority in dynamical or polynomial phase retrieval.",
+      "residual_risks": [
+        "Resultary 7849dda51c79 was available only as metadata about even moments and normalized three-frequency support; the local full-text path was unavailable. The metadata is not proof that it lacks other results.",
+        "A prior treatment of masked full-circle spectra or sparse dynamical sensors may contain an equivalent specialization; the assessment is bounded to the inspected results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observation set and collision premises",
+          "evidence": "Criterion uses all vertices with a B₂ condition and a squared-eigenvector matrix.",
+          "identifier_or_url": "https://arxiv.org/html/2607.26705v1",
+          "material_read": "Abstract and introduction, offset 0; discrete-frame discussion located near 18091",
+          "method": "OA HTML passages",
+          "title": "Dynamical phase retrieval for Schrödinger evolution on finite graphs",
+          "trigger": "Schrödinger temporal intensity and spectral collision criterion"
+        },
+        {
+          "assessment": "Continuum space-time rather than discrete sensors",
+          "evidence": "The theorem assumes mass density at almost every (t,x) in I₀×ℝ.",
+          "identifier_or_url": "https://arxiv.org/html/2609.30511v1",
+          "material_read": "Theorem A, offset 7200",
+          "method": "OA HTML passage",
+          "title": "Phase retrieval for Schrödinger evolutions",
+          "trigger": "Direct Schrödinger intensity uniqueness comparison"
+        },
+        {
+          "assessment": "Known one-site ingredient, not the resonant sensor theorem",
+          "evidence": "Prony recovery uses distinct differences.",
+          "identifier_or_url": "https://arxiv.org/html/1701.08947v1",
+          "material_read": "§3.1 offset 10000",
+          "method": "OA HTML passage",
+          "title": "Sparse phase retrieval of one-dimensional signals by Prony's method",
+          "trigger": "Equivalent difference-frequency autocorrelation calculation"
+        },
+        {
+          "assessment": "No direct coverage",
+          "evidence": "Integrates higher intensity moments under controlled phase shifts and uses known magnitudes for its two-probe result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-optimal-amplitude-allocation-for-first-resonant-fourier-phase-me--4858fb8038b0/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Optimal amplitude allocation for first resonant Fourier-phase measurements",
+          "trigger": "Three frequencies, resonance and two probes with sharp stability"
+        },
+        {
+          "assessment": "Different measurements",
+          "evidence": "Uses two distinct positive radii and an angular criterion for square orbits of polynomial evaluation points, not physical masking of a single unit-circle spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-quadratic-phase-retrieval-from-two-rotated-square-orbits--52ff35f3bc92/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Minimal quadratic phase retrieval from two rotated square orbits",
+          "trigger": "Analogous quadratic phase retrieval and optimal geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For known three-mode data the result answers the operational question of where a second sensor is necessary, exactly which placements work for all allowed signals, and how ill-conditioned demixing becomes near a failed placement. The quantified ambiguity and open family show the failure is not an isolated exceptional vector. This is a natural exact classification without claiming stability at vanishing amplitudes or finite-time sampling optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

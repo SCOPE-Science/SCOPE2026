@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:10:32.632124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formulas and classifications are correct. In the constrained range, a missed shore forces every vertex of the other shore to be selected, violating capacity. The frozen proof's singleton sentence is incomplete: if S={j} then b_j is undominated when j is not in T; if j is in T, the selected b_j instead has n−1 neighbors outside, also impossible. Thus both sizes are at least two. In the intersecting case a selected matched pair imposes both sizes at least q=n−k, which is sufficient regardless of intersection; in the disjoint case both sizes must be at least max(2,r) for r=q−1, which is sufficient when disjoint supports fit. This gives 2r only for r≥2 and 2r≤n. Otherwise either r=1 or disjoint supports are infeasible, so precisely the arbitrary q-by-q choices minimize. For k≥n−1 no singleton or same-shore pair dominates, and a cross-shore pair dominates exactly when its indices agree. Independent finite profile checks for n=3..50 (1,224 cases), and direct adjacency enumeration for n=3..6 (14 cases, 5,440 distinct subsets), agreed. The independent check and replay are branches/crown-check/verification/verify.py and replay.txt; the original verification/verify.py and verification/replay.txt were inspected, not executed. The frozen profile code shortcuts k=n−1, and its comment about singleton shores is too broad; only the direct small-graph branch tests that endpoint independently. The arbitrary-n argument does not depend on any replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November crown result gives a bivariate enumerator of all feasible pairs of shore supports, which dominates counts of its minimum total degree; the October matching-deletion result treats any number of deleted matching edges but only at k=n−2.",
+          "Proposition 2(iv) gives the balanced biclique baseline, not the matching-deleted theorem. Complete multipartite formulas do not apply: nonadjacency is not transitive on distinct vertices in a crown."
+        ],
+        "reasoning": "Both extensions are relevant but dominate different dimensions: the feasible-set profile resolves the entire constrained capacity range at fixed crown family; the partial-deletion theorem resolves the larger host family at a fixed capacity.",
+        "searches": [
+          "2026/11/8/SCOPE-exact-capacity-limited-domination-profile-of-crown-graphs--c127eb821d6b",
+          "2026/10/13/SCOPE-a-nonmonotone-edge-deletion-dip-for-near-maximal-limited-domination--9922a7fc2aff",
+          "arXiv:2606.22422 Proposition 2(iv)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.22422 Proposition 2(iv) and Corollary 10",
+        "Resultary c127eb821d6b and 9922a7fc2aff, RESULT.md",
+        "Resultary complete multipartite limited-domination records of October 4 and October 13 (Findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the profile, attaining the smallest total size forces each support to be r in the disjoint regime or q=n−k in the intersecting/no-saving regime. At k=n−2 the separate matching-deletion theorem with every matching edge removed yields 4 and binom(n,2)^2.",
+          "The later profile excludes k≥n−1, but this is ordinary domination and the only minimizing pairs are the deleted pairs by one direct adjacency check."
+        ],
+        "reasoning": "The complete-bipartite value alone does not imply any threshold on the crown. The indexed crown profile instead explicitly implies every nontrivial minimum and corresponding classification. No chronology is inferred for the same-day endpoint overlap.",
+        "searches": [
+          "arXiv:2606.22422 Proposition 2(iv) and Corollary 10",
+          "Resultary c127eb821d6b and 9922a7fc2aff, matching formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The crown is (n−1)-regular, hence its constrained k-limited invariant is gamma_{1,n−1−k}. The bridge does not compute crowns.",
+          "The indexed crown capacity profile uses the identical deleted-matching support predicate; its disjoint and intersecting cases coincide, not just its graph and parameters."
+        ],
+        "reasoning": "The regular alias gives equivalent terminology, while the matching profile gives actual equivalent mathematics. Pitchfork nomenclature does not change the coverage comparison.",
+        "searches": [
+          "Resultary crown capacity-limited domination and optimum support counts",
+          "arXiv:2606.22422 §4, Corollary 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed formula gives 2r with binom(n,r)binom(n−r,r) exactly for r≥2 and n≥2r, and 2(n−k) with binom(n,n−k)^2 elsewhere in the constrained range."
+        ],
+        "reasoning": "This is a match of exact formulas and their regimes, not a match inferred from a finite table or from similar titles.",
+        "searches": [
+          "Resultary crown constrained minimum size and count",
+          "2026/11/8/SCOPE-exact-capacity-limited-domination-profile-of-crown-graphs--c127eb821d6b/RESULT.md, offsets 4600–9104"
+        ]
+      },
+      "rationale": "The nontrivial content is covered by a distinct indexed result: the November 8 crown capacity profile states the same constrained minima and counts and moreover enumerates all feasible sets. This is a finding of equivalent/stronger current coverage, not a claim that the November record predates the assigned record or establishes historical priority. The only unmatched regime is the elementary ordinary-domination endpoint, which is not a substantive distinct remainder. The October 13 partial matching-deletion result also covers the k=n−2 slice; same-day dating gives no order. No repair is justified merely by correcting the singleton argument or citation.",
+      "residual_risks": [
+        "Document dates and overlap do not establish historical priority or direction of dependence.",
+        "The bounded search did not resolve every (0,k)-pitchfork or older (1,t)-domination reference. No negative conclusion depends on a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Baseline and reduction only; correct frozen citation from Proposition 1(iv) to 2(iv)",
+          "evidence": [
+            "For 2≤m≤n, branch k<m gives m+n−2k; specialize m=n.",
+            "For d-regular graphs and 1≤k<d, gamma_k^L=gamma_{1,d−k}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+          "material_read": "PDF p. 4, Proposition 2(iv); §4, pp. 8–9, Corollary 10 and preceding bounds",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Introduces invariant; exact host-graph formula and regular alias"
+        },
+        {
+          "assessment": "Exact coverage of constrained theorem, with stronger full profile; dated later, priority not determined",
+          "evidence": [
+            "Bivariate support enumerator splits by disjoint or intersecting matching indices; exact same constrained minima and counts are extracted.",
+            "Limitations explicitly exclude k≥n−1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-capacity-limited-domination-profile-of-crown-graphs--c127eb821d6b/RESULT.md",
+          "material_read": "Finding offsets 0–4363, minimum formulas and proof offsets 4600–9104, relationship and limitations offsets 6500–9299",
+          "method": "Resultary search and local mirror passage inspection at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact capacity-limited domination profile of crown graphs",
+          "trigger": "Strongest same-graph, same-capacity and count match"
+        },
+        {
+          "assessment": "Exact overlap only for the constrained upper endpoint; no priority inferred",
+          "evidence": [
+            "For a full deleted matching at k=n−2, every minimum consists of two vertices per shore and there are binom(n,2)^2 choices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-nonmonotone-edge-deletion-dip-for-near-maximal-limited-dominat--9922a7fc2aff/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–4304",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "A nonmonotone edge-deletion dip for near-maximal limited domination",
+          "trigger": "Matching deletion for k=n−2"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The constrained threshold and optimum classifications are intrinsically useful mathematical information about matching deletion from the standard biclique. The ordinary-domination endpoint on its own is routine and would not justify a narrower finding. The substantive classification does not survive the independent originality comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

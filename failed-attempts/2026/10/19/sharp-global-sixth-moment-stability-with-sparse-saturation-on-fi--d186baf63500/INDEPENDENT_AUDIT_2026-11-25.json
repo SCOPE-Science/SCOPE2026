@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:28:51.156040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–98",
+        "Frozen VERIFICATION.md and verify_sharp_triple_stability.py, inspected without execution; their finite grid and prime-field checks are supplementary"
+      ],
+      "rationale": "I reconstructed the identity with the specified measures. Character orthogonality supplies q³ against q^(−6), and Newton identities determine a multiset of three roots from three power sums since 2 and 3 are invertible, also over nonprime fields. Each surviving second triple is a rearrangement of the first and all coefficient phases cancel. The multiplicity classes have probabilities S₃, 3(S₂−S₃), and 1−3S₂+2S₃, and respective rearrangement counts 1, 3, 6, giving F₃=6−9S₂+4S₃. For unordered pairs, I recover Σ(θ_s−θ_t)²=qS₂−1 and Σ(θ_s−θ_t)²(θ_s+θ_t)=qS₃−S₂ by counting each θ_i square or cube q−1 times and expanding the mixed terms. The difference reproduces (1) on the probability simplex and is termwise nonnegative. The variance in (2) equals qN²||θ−ν||₂². A nonuniform zero remainder requires an unequal pair summing to one; a third, zero coordinate then forces at most one positive mass. Uniform law and point masses indeed saturate, and a point mass has nonzero variance and forces sharpness. The cubic expansion yields 9−12/q as the local quadratic coefficient (not the Hessian eigenvalue, which is twice that). The zero function is covered separately by (2).",
+      "residual_risks": [
+        "No phases can be estimated by this deficit, and the collision reduction used here is restricted to characteristic greater than three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-field papers supply endpoint optimality and rearrangement maximization at the uniform law. Gonçalves Theorem 1 and Corollary 2 give componentwise majorization and qualitative expected-match inequalities.",
+          "e3a60ec2aa94 gives d(d−1)/2, hence 3 in degree three, and disclaims sharpness for d>2. 49b4f93ca348 supplies the isotropic local expansion, which in the cubic case gives 9−12/q."
+        ],
+        "reasoning": "The older weaker global estimate and qualitative comparisons alone do not dominate the submitted sharp constant. The relevant stronger implication comes by applying sharp moment control to the known cubic expression.",
+        "searches": [
+          "arXiv:2508.08377v1",
+          "arXiv:2609.29882v1",
+          "arXiv:2609.31979v1",
+          "Resultary e3a60ec2aa94 and 49b4f93ca348"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.08377v1",
+        "arXiv:2609.29882v1",
+        "arXiv:2609.31979v1",
+        "Wilkins 10.1214/aoms/1177731243 (indexed exact statement)",
+        "Resultary e3a60ec2aa94, 49b4f93ca348 and 3c25c0192069"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed Wilkins statement α₃≤(q−2)/√(q−1) becomes ∑h³≤(q−2)r³/√(q(q−1)) after conversion from empirical standardized moments. The known degree-three expectation expands to D=(9−12/q)r²−4∑h³. Since r²≤1−1/q, the coefficient is at least 9−12/q−4(q−2)/q=5−4/q. If 0<r<√(1−1/q) the comparison is strict, and vertices directly attain the claimed coefficient."
+        ],
+        "reasoning": "This is a direct specialization and one norm bound with its equality condition, not a qualitative argument or an appeal to similar parameters. The result does not require verifying a Wilkins equality theorem because the simplex-radius comparison forces equality at a vertex, which is checked directly. The residual is obtained by subtracting the known optimal quadratic from the known cubic.",
+        "searches": [
+          "Wilkins, A Note on Skewness and Kurtosis, DOI 10.1214/aoms/1177731243 (indexed exact bound)",
+          "arXiv:2609.29882v1 Theorem 3/rearrangement expectation; Resultary 49b4f93ca348"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cubic extension moment is the expectation of the number of distinct rearrangements. In terms of h=θ−ν its deficit is a quadratic minus four times the third central power sum, so the sample skewness theorem is applicable with q observations.",
+          "The later Resultary expression (q−2)e₂−3qe₃ for the remainder equals (q+1)S₂−qS₃−1 by Newton identities and is exactly the same polynomial as the pairwise square sum."
+        ],
+        "reasoning": "Different notation in rearrangement/extension, standardized sample moments, or elementary symmetric polynomials cannot obscure exact implication or algebraic equivalence. The square presentation is distinguishable from the underlying inequality and polynomial.",
+        "searches": [
+          "arXiv:2609.29882v1 Theorem 3 and cubic distinct-rearrangement expectation",
+          "Finite-sample maximum skewness: Wilkins DOI 10.1214/aoms/1177731243",
+          "Resultary 3c25c0192069 exact cubic stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3c25c0192069 states exactly the global coefficient, equality and a polynomial remainder equivalent to the submitted remainder. Its displayed date is November 8, after the assigned record. The two October 4 records treat general weaker stability and the local Hessian respectively."
+        ],
+        "reasoning": "The catalogue contains a substantial exact overlap in a different representation. The later display date does not establish earlier priority; the earlier mathematical implication is separate.",
+        "searches": [
+          "Resultary sharp global quadratic stability cubic moment curve: 3c25c0192069, compared with e3a60ec2aa94 and 49b4f93ca348"
+        ]
+      },
+      "rationale": "The claimed sharp invariant, its equality alternatives and its local/global comparison are mechanically implied by accessible prior results, even without an earlier source restating the exact coefficient in extension notation. The known cubic rearrangement formula gives D=(9−12/q)r²−4∑h_t³, where h=θ−ν and r=||h||₂. Wilkins's classical sharp finite-sample skewness bound gives ∑h_t³≤[(q−2)/√(q(q−1))]r³. The simplex bound r≤√(1−1/q) gives D≥(5−4/q)r² immediately. Every nonuniform equality case must attain the simplex radius, so is a point mass, where direct substitution attains the coefficient. The earlier local result supplies the local comparison, also immediate from the cubic. The explicit pairwise square display was not identified in an earlier inspected source; its left-over cubic polynomial is already determined by the known moment and sharp estimate, and its symmetrization supplies a different proof, not a separate new sharp invariant. The later exact catalogue match is noted as overlap, not used as earlier priority.",
+      "residual_risks": [
+        "Wilkins's primary proof and historical equality discussion were not retrieved. The positive coverage decision uses the explicitly indexed bound and independently deduced equality, not an inference from unavailable text. Earlier publications of the same pairwise display remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior context for endpoint and extremizers, not used as comprehensive exclusion of stability coverage",
+          "evidence": "The abstract reports sharp endpoint results including low dimensions d≤20.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.08377",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Bounded OA primary PDF text",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields",
+          "trigger": "Prior endpoint constant and extremizers"
+        },
+        {
+          "assessment": "Known expectation and qualitative maximizing law; degree three is evaluated directly by the three rearrangement counts",
+          "evidence": "The uniform law uniquely maximizes the expected number of distinct rearrangements.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29882",
+          "material_read": "PDF p. 2, Theorem 3, text offset 7550",
+          "method": "Bounded OA primary PDF text",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields II: an extremal property of the uniform distribution",
+          "trigger": "Prior exact rearrangement functional underlying the deficit"
+        },
+        {
+          "assessment": "Qualitative comparison in inspected statements",
+          "evidence": "Compares componentwise the permutation-match vectors and gives consequences for expectations.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31979",
+          "material_read": "Theorem 1, p. 1, and Corollary 2, p. 2",
+          "method": "Bounded OA primary PDF text",
+          "title": "A component-wise inequality for permutation matches",
+          "trigger": "Potential dominating majorization inequality"
+        },
+        {
+          "assessment": "Positive prior-covered implication, with a separate direct equality check",
+          "evidence": "Standardized empirical third moment is at most (q−2)/√(q−1). Substituting in the cubic formula gives the sharp global coefficient.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177731243",
+          "material_read": "Indexed abstract with the exact numerical inequality; Project Euclid landing page; full proof not retrieved",
+          "method": "Bounded lawful full-text attempts and catalogue abstract for the explicitly stated bound, not for a whole-paper assessment",
+          "title": "A Note on Skewness and Kurtosis",
+          "trigger": "Classical sharp bound implying the submitted cubic coefficient"
+        },
+        {
+          "assessment": "Earlier but weaker coefficient alone",
+          "evidence": "d(d−1)/2 with no claim to optimality above degree two.",
+          "identifier_or_url": "e3a60ec2aa94",
+          "material_read": "Finding offset 0; Limitations offset 5928",
+          "method": "Local published-record mirror",
+          "title": "Quadratic stability for endpoint finite-field moment-curve extension",
+          "trigger": "Closest earlier global stability result"
+        },
+        {
+          "assessment": "Earlier local quadratic law",
+          "evidence": "Isotropic local expansion at the uniform law, not a boundary-saturated global optimum.",
+          "identifier_or_url": "49b4f93ca348",
+          "material_read": "Finding offset 0",
+          "method": "Local published-record mirror",
+          "title": "Isotropic quadratic stability at the uniform finite-field moment-curve extremizer",
+          "trigger": "Same local/global comparison context"
+        },
+        {
+          "assessment": "Equivalent polynomial and stability statement in a later indexed record",
+          "evidence": "Same coefficient/equality and an e₂,e₃ expression for the remainder proved nonnegative by Newton's inequality and Cauchy–Schwarz.",
+          "identifier_or_url": "3c25c0192069",
+          "material_read": "Finding offsets 800–1381; proof offsets 3183–3616",
+          "method": "Local published-record mirror",
+          "title": "Sharp global quadratic stability of cubic moment-curve Fourier extension",
+          "trigger": "Exact coefficient, equality and structural remainder hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–48 and 70–98",
+        "Prior cubic rearrangement, sample-skewness and local stability comparisons above"
+      ],
+      "rationale": "A sharp stability estimate with sparse equality would have substantive value if it were not already a short consequence of known sharp sample-moment control and the cubic collision functional. The pairwise certificate is a clean proof and can be pedagogically useful, but here it symmetrizes the residual already fixed by subtraction and gives no additional quantitative bound, classification, or distinct motivated invariant beyond the mechanically implied result. This fails the value threshold for the submitted purported new exact finding, not the mathematical validity or general interest of stability.",
+      "residual_risks": [
+        "A follow-up could use the weighted-square structure for a genuinely different structural estimate, but none is established in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

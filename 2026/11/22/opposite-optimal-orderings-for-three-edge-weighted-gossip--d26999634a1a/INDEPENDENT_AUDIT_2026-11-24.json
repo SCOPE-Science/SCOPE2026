@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:41:41.339606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The symmetric contact matrices preserve the consensus direction and act as strict contractions along their own edge vectors for all p_i in (0,1). Equality through the entire sweep would require a vector orthogonal to all three edge vectors, hence zero in the centered space. The symbolic Frobenius difference directly checks as 4abc(1-a)(c-b), and reversal transposes the sweep, giving the strict middle-parameter order and all ties. On the centered space S=T^T T has det(S)=U=product(1-2p_i)^2. The telescoped loss I-S is a sum of three outer products with factors 2p_i(1-p_i); their vectors are obtained from the original star vectors by a unit-triangular basis change. The original Gram determinant is four, so det(I-S)=V=32 product p_i(1-p_i), positive and at most 1/2. Thus every largest root lies in (0,1), even with a singular contact. Independently, the centered characteristic polynomial of S is chi_E(s)=s^3-E s^2+(E+V-1+U)s-U. If E2>E1, then at the largest root r2 of chi_E2, chi_E1(r2)=-(E2-E1)r2(1-r2)<0, forcing r2 strictly below the largest root of the monic chi_E1. Equal E yields identical polynomials, covering ties. Separately, the product T has one common characteristic polynomial by cyclic permutation and transpose, including noninvertible factors. Two contacts give only reversals, so no smaller star has an ordering conflict under these hypotheses. Direct symbolic check and rational witness with numerical singular roots: python /workspace/replays/gossip.py. Only one sweep with three fixed contacts is claimed; the heat-edge special case restricts p_i to (0,1/2), not the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi et al. p. 4 gives finite-time consensus lower bounds on the number of updates and constructions, not one-sweep loss orderings.",
+          "The frozen comparisons identify a tree spectral theorem, periodic common-parameter optimization, and strict complete-sequence Euclidean contraction. Publisher and identified author-posted routes did not yield independent passages for those three."
+        ],
+        "reasoning": "Even for this graph, eigenvalue comparisons do not order singular values of nonnormal products, strict contraction does not rank orders, and optimizing a common weight is not selection among fixed heterogeneous weights. Full-text access limits are credited separately.",
+        "searches": [
+          "10.1109/JPROC.2011.2159689",
+          "10.1109/ACC.2013.6580009",
+          "10.1007/978-3-642-11278-2_19",
+          "arXiv:1206.0992"
+        ]
+      },
+      "checked_sources": [
+        "b4e17f3ba20b",
+        "91c25b1a740a (summary only)",
+        "arXiv:1206.0992",
+        "10.1007/978-3-642-11278-2_19 (access attempted)",
+        "10.1109/JPROC.2011.2159689 (access attempted)",
+        "10.1109/ACC.2013.6580009 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted-path Finding establishes the same generic conflict with common spectra on its different graph and different schedule partition.",
+          "Shi et al. p. 4 addresses exact consensus and minimal numbers of node updates. The frozen audit reports that Lu et al. §1.7 poses singular-value optimization; that passage remained inaccessible in this review."
+        ],
+        "reasoning": "The claim is not novelty of each metric, complete-sweep contraction, or spectrum invariance, nor of the generic conflict. Neither the path partition nor the exact-consensus counts imply selection of the largest versus smallest middle weight on the star.",
+        "searches": [
+          "b4e17f3ba20b",
+          "arXiv:1206.0992",
+          "Lu et al.: contraction coefficient of a complete gossip sequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed weighted-path result compares the same centered Frobenius and operator metrics for three sequential contacts.",
+          "The frozen bibliography identifies the second singular value in Lu et al. as the centered contraction coefficient; the independent retrieval could not verify the corresponding section."
+        ],
+        "reasoning": "Squaring the second singular value does not alter its optimizer; its scheduling problem is directly relevant. However the path has disjoint endpoint contacts, whose edge vectors are orthogonal, unlike all three star edge vectors. Relabeling cannot transform that order law into the star law.",
+        "searches": [
+          "Resultary: weighted one-sweep gossip, pairwise averaging, star and two norms",
+          "10.1007/978-3-642-11278-2_19",
+          "b4e17f3ba20b",
+          "91c25b1a740a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact star hit d26999634a1a is this very record, not independent evidence.",
+          "The exact separate path statement gives four Frobenius-minimizing orders and two worst-case-minimizing monotone schedules. A weaker isotropic path-law hit was index-summary only."
+        ],
+        "reasoning": "A finite catalogue calculation could supply the six schedules, but the exact examined distinct statement gives other optimizers on a nonisomorphic graph and does not encode the all-real star rule.",
+        "searches": [
+          "Resultary: three contacts, one-sweep optimizer, weighted star and path",
+          "d26999634a1a",
+          "b4e17f3ba20b",
+          "91c25b1a740a"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact largest-/smallest-parameter middle rule for heterogeneous fixed contacts on the three-leaf star. The separate same-day weighted path statement already shows the broader norm-ordering conflict with equal spectra but gives a different topology and optimizer law. Classical contraction and order-invariant spectral convergence are not claimed as new.",
+      "residual_risks": [
+        "The three closest classic DOI papers were not independently available in full, especially Lu et al. on the singular contraction coefficient.",
+        "Ranked and bibliographic lookups may miss a general heterogeneous schedule theorem or equivalent small-matrix result. The same-day path record does not establish relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap; path law does not cover star law",
+          "evidence": "Four Frobenius-minimizing schedules, two worst-case monotone schedules, and equal characteristic polynomials.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-opposite-one-sweep-orderings-for-weighted-four-site-path-gossip--b4e17f3ba20b",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Opposite one-sweep orderings for weighted four-site path gossip",
+          "trigger": "Strongest distinct overlap on exact dual one-sweep orderings"
+        },
+        {
+          "assessment": "Tentative path analogy, not a full-text coverage verdict",
+          "evidence": "Index summary describes an isotropic one-sweep law on paths.",
+          "identifier_or_url": "91c25b1a740a",
+          "material_read": "Ranked index summary only; local RESULT.md unavailable",
+          "method": "Resultary and local-mirror lookup",
+          "title": "Exact one-sweep ordering law for path Kaczmarz and pairwise averaging",
+          "trigger": "Projection/averaging reformulation"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Lower-bounds and attains numbers of updates for exact finite-time consensus.",
+          "identifier_or_url": "https://arxiv.org/abs/1206.0992",
+          "material_read": "PDF p. 4, offset 11911",
+          "method": "OA text passage",
+          "title": "Finite-time Convergent Gossiping",
+          "trigger": "Possible exact minimal-schedule theorem"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "Frozen AUDIT.json reports second singular value as contraction coefficient and §1.7 as posing its optimization over complete schedules.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-11278-2_19",
+          "material_read": "Frozen comparison citing §§1.5–1.7; no independent full-text passage",
+          "method": "Springer retrieval and identified ResearchGate author-posted page attempted; latter returned 403",
+          "title": "The Contraction Coefficient of a Complete Gossip Sequence",
+          "trigger": "Closest conceptual precursor for optimizing centered singular contraction"
+        },
+        {
+          "assessment": "Spectral ancestry per frozen comparison, full text not independently recovered",
+          "evidence": "The frozen audit describes a tree spectral convergence theorem, not a ranking by singular values.",
+          "identifier_or_url": "https://doi.org/10.1109/JPROC.2011.2159689",
+          "material_read": "Frozen comparison describing Theorem 3; no independent full-text passage",
+          "method": "DOI returned 202; identified author-posted page returned 403",
+          "title": "Deterministic Gossiping",
+          "trigger": "Tree-spectrum order-invariance precedent"
+        },
+        {
+          "assessment": "Relevant inaccessible full text",
+          "evidence": "The frozen audit describes optimizing one shared convex-combination parameter for periodic convergence, rather than fixed independent contact strengths.",
+          "identifier_or_url": "https://doi.org/10.1109/ACC.2013.6580009",
+          "material_read": "Frozen comparison describing §§III and IV.B; no independent full-text passage",
+          "method": "DOI and IEEE attempts unsuccessful; identified author-posted page returned 403",
+          "title": "Towards Optimal Convex Combination Rules for Gossiping",
+          "trigger": "Potential optimal-design statement on stars"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A star with three contacts is the first star where reversal symmetry permits an ordering choice. The exact exhaustive schedule rule for arbitrary fixed strengths and all ties exposes the incompatibility of isotropic and worst-direction design even at equal asymptotic spectra. It is an analytically useful small benchmark, not a rule for long sweeps or arbitrary topologies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

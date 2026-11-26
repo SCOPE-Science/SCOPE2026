@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:07:40.642055Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–48, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Characteristic-independent reconstruction from the displayed multiplication and the two-generator filtration"
+      ],
+      "rationale": "With θ=0 the multiplication is a Lie bracket: the subspace spanned by e2,...,en is abelian and the bracket with e1 acts by a linear shift. The three modifications take values in the center and vanish when either input is in the span of e3,...,en, so they do not change the nested terms in the right Leibniz identity. This check uses no assumption on characteristic. Every right multiplication is therefore a derivation. Normalize an almost-inner D by subtracting a right multiplication so that D'(e1)=0. Its value on e2 must be t e3+s en, with s=0 if θ3=0, and the iterated brackets with e1 force all the other values. The inner R_(e1+θ1 e_(n−1)) fixes e1 in the sense that its value there is zero, and agrees with the shift on e2,...,e_(n−1). Subtracting t times this map leaves sE. The map E kills the derived subspace and has central image, hence is a derivation. When θ3=0, testing at e2 shows E is not almost inner. When θ3≠0, [x,e_(n−1)]=−x1 en works if x1≠0, and [x,e2]=x2θ3 en works if x1=0; these supply pointwise witnesses for E. For a right multiplication equaling E, testing on e2 would force the right coefficient of e1 to vanish and that of e2 to be θ3^−1, which gives a forbidden e3 component on e1. For a right multiplication equaling zero, test at e2 to kill the coefficient of e1, then at e1 to kill the coefficients of e2,...,e_(n−1), leaving just Ken. Thus Inn has dimension n−1 and E contributes exactly one dimension on the open stratum. In n=4, e3 and en are still distinct and e_(n−1)=e3, so the same tests apply; all divisions are by assumed nonzero field elements. The finite counts follow from the vector-space dimensions.",
+      "residual_risks": [
+        "No generalization to β≠0 or to a left Leibniz convention without converting the multiplication and right actions. The finite checks in the frozen package are illustrative, not needed for the arbitrary-field proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The larger F3 family has higher β-dependent brackets. The cited Lie analogue explicitly excludes the standard graded filiform algebra and treats nonstandard metabelian filiform Lie algebras of dimension at least five. The Part II discussion of R_n gives a relevant nonstandard Lie example. The 2023 abstract treats other classes."
+        ],
+        "reasoning": "The Lie result explains why the extra direction can occur even with θ3=0 when higher brackets are allowed; it is not a theorem about the displayed non-Lie central modifications at β=0. The general complex normal form does not establish the pointwise condition or the characteristic-independent classification.",
+        "searches": [
+          "arXiv:2010.01904v2 §3.12 and Propositions/Theorems 3.13–3.14",
+          "arXiv:1704.06159 Proposition 7.4",
+          "arXiv:1905.08145 §4",
+          "Kurbanbaev 2023 journal PDF"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary (closest 227b7e969948, 42644af92aa6 and 610a53a5d9b0)",
+        "arXiv:2010.01904v2",
+        "arXiv:1704.06159",
+        "arXiv:1905.08145",
+        "Kurbanbaev 2023, inspected abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 3.14 unconditionally includes E_(n,2) and cites an analogous Lie proof. But for β=0 and θ3=0 the right multiplication image at e2 is Ke3, even when θ1=1 and the algebra is non-Lie."
+        ],
+        "reasoning": "A false unconditional membership statement cannot imply the correct exclusion, and the Lie analogue has different hypotheses. Establishing the corrected if-and-only-if requires the pointwise witnesses and obstruction. The counts q^(n−1) and q^n follow routinely from that correction and are not a separate novelty claim.",
+        "searches": [
+          "Adashev–Kurbanbaev arXiv:2010.01904v2 Proposition 3.14 and its stated proof reference",
+          "Burde–Dekimpe–Verbeke arXiv:1704.06159 Proposition 7.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting all higher β parameters to zero gives exactly the frozen table, and the prior E_(n,2) is the map from e2 to en. Theorem 3.13 gives a normal form modulo right multiplication over C."
+        ],
+        "reasoning": "The formulations identify the same normalized candidate line but not its almost-inner membership. In the right convention it is necessary to test D(x) in [x,L], rather than [L,x] or the common derived subspace.",
+        "searches": [
+          "arXiv:2010.01904v2 §3.12 and Theorem 3.13",
+          "Local Resultary search for F3 almost-inner derivations and E_(n,2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalog claims concern local/two-local derivations of the null-filiform algebra, idempotent derivations, or almost-inner derivations of a different free class-four Lie algebra over F2. The primary search did not produce a direct correction; its hit was not substantive evidence."
+        ],
+        "reasoning": "None gives the parameter criterion or its equivalent dimension table for the specified brackets. The limited search miss is not evidence that no such source exists.",
+        "searches": [
+          "Local Resultary for F3, β=0 and the θ3 almost-inner jump (closest hits 227b7e969948, 42644af92aa6, 610a53a5d9b0)",
+          "Primary search for Adashev–Kurbanbaev and Proposition 3.14; cited sources then retrieved directly"
+        ]
+      },
+      "rationale": "Adashev–Kurbanbaev already give the broader F3 presentation and a normal form; their unconditional extra-summand assertion does not give the correct classification at θ3=0. Even over C, the β=0, (θ1,θ2,θ3)=(1,0,0) member is non-Lie and has [e2,L]=Ce3, which cannot contain E(e2)=en. The new content supported by the matched primary literature and bounded search is the exact criterion for this subfamily, with its arbitrary-field proof, not the upper bound or the extra direction in known cases.",
+      "residual_risks": [
+        "The searches are bounded and do not rule out an earlier correction, differently named family, or a general pointwise classification outside the inspected sources. The 2023 abstract does not support a whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family after β=0; upper bound overlaps, unconditional extra direction is wrong on θ3=0",
+          "evidence": [
+            "Higher β brackets in the presentation; complex-scalar normal form; unqualified direct-sum statement and its proof reference"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2010.01904v2",
+          "material_read": "§3.12 and Theorem 3.13 through Proposition 3.14, offsets about 30975–35669",
+          "method": "OA arXiv HTML passages",
+          "title": "Almost inner derivations of some nilpotent Leibniz algebras",
+          "trigger": "Exact displayed family and alleged error in Proposition 3.14"
+        },
+        {
+          "assessment": "Related extra direction, but nonstandard metabelian filiform Lie case only",
+          "evidence": [
+            "The standard graded algebra f_n is excluded, and n is at least five"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.06159",
+          "material_read": "Proposition 7.4 and proof, p. 15, offset about 48608",
+          "method": "OA PDF passage",
+          "title": "Almost inner derivations of Lie algebras",
+          "trigger": "Exact proof reference for the extra direction and possible stronger Lie theorem"
+        },
+        {
+          "assessment": "Illustrates why the restricted criterion is not a full F3 result",
+          "evidence": [
+            "Nonstandard R_n definition and its strict AID/Inn difference"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.08145",
+          "material_read": "§4, offset about 28629",
+          "method": "OA arXiv HTML passage",
+          "title": "Almost inner derivations of Lie algebras II",
+          "trigger": "Comparison with the nonstandard Lie R_n family"
+        },
+        {
+          "assessment": "Different classes stated in abstract; rest of the paper not assessed",
+          "evidence": [
+            "The abstract advertises AID=Inn for specified thin and solvable classes, not an F3 correction"
+          ],
+          "identifier_or_url": "https://elib.sfu-kras.ru/bitstream/handle/2311/150181/Kurbanbaev.pdf",
+          "material_read": "Abstract, p. 1 offset about 803",
+          "method": "OA journal PDF passage",
+          "title": "Almost Inner Derivations of Some Leibniz Algebras (2023)",
+          "trigger": "Later work by an author of the unqualified claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "arXiv:2010.01904v2 Proposition 3.14"
+      ],
+      "rationale": "This resolves a wrong universal membership assertion for a natural three-parameter subfamily and gives the exact boundary for every dimension and characteristic in scope. The distinction between a central derivation and a pointwise almost-inner derivation changes the quotient AID/Inn, so a user of the published normal form needs the corrected condition, not just a single counterexample. The finite cardinalities are useful consequences rather than the justification for the result.",
+      "residual_risks": [
+        "No value claim for a wider filiform classification, higher β strata, or for the elementary finite cardinality calculation by itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

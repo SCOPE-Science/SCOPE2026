@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:58:18.573275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof at lines 15–30",
+        "Frozen VERIFICATION.md, CHECK.py and CHECK_OUTPUT.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/review-evidence/1-replay.py (SymPy exact Smith normal form)"
+      ],
+      "rationale": "Independently reconstructed the 12-vertex graph as four triangles joined by six specified matching edges and enumerated all 495 candidate complementary tetrahedra by induced component merges. The resulting face vector is (12,66,204,252); each of the 16 missing triangles has an explicit cone filling in the two-skeleton. With the complete one-skeleton, all triangular edge loops normally generate the fundamental group, so these fillings give simple connectivity. Independent exact Smith computations gave 55 ones for the second boundary and 143 ones for the third, with zero remaining invariant factors and zero boundary composition. The image of the third boundary is primitive in the second chain group and hence in the second cycle lattice. The two-skeleton is equivalent by Hurewicz and Whitehead to 149 two-spheres. The full complex is the homotopy cofiber of a map from a wedge of 252 two-spheres into this wedge; its degree matrix represents the third boundary into the cycle lattice. The integral basis changes are realized by homotopy self-equivalences of the two wedges, and the resulting identity blocks cancel while the zero blocks yield six two-spheres and 109 three-spheres. Purity follows from the equal-size facets, and nonvanishing H2 over every field obstructs Cohen–Macaulayness (and thus pure shellability).",
+      "residual_risks": [
+        "The verification concerns the stated fixed graph, ordinary eight-cut complex and nonequivariant homotopy type only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper's classification table does not list this graph; the sequel's stated classes are disjoint unions, squared paths and grids.",
+          "The broad four-cycle-free theorem in 06da2f0ef7ce gives an ordinary three-cut classification, with 27 eighth-dimensional generators here."
+        ],
+        "reasoning": "The verified application at k=3 and the surveyed graph-family results give no specialization covering this k=8 instance.",
+        "searches": [
+          "Bayer et al., arXiv:2304.13675, Table 1 and Theorem 6.1",
+          "Bayer et al., arXiv:2407.08158, abstract and contents",
+          "Resultary: ordinary k-cut of the truncated tetrahedron and four-cycle-free graphs with triangles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary plus five targeted mirror or OA comparisons and the identical indexed record",
+        "Primary-literature search attempt using eight-cut / truncated tetrahedron terminology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6.1 requires the complete (n−k−2)-skeleton. Here this is the two-skeleton and 16 triangles are absent.",
+          "The nearby mirror claims are respectively the ordinary three-cut, ordinary four-cut (and its dual), and total three-cut types."
+        ],
+        "reasoning": "The closest general criterion cannot be applied, and no implication from the verified different cut complexes to the asserted mixed-dimensional integral homotopy type is supplied by their statements.",
+        "searches": [
+          "arXiv:2304.13675, Theorem 6.1",
+          "Mirror findings 06da2f0ef7ce, 1c1ca2747108 and bb8e16462315"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary construction takes complements of disconnected induced eight-sets; the total construction uses a different facet predicate.",
+          "The exact eight-cut hit has the identical record identity b52eefbe9af5 and the same wedge statement."
+        ],
+        "reasoning": "Neither the total three-cut result nor the ordinary three- or four-cut result determines this ordinary eight-cut type; the exact mirror hit is excluded as self-identity.",
+        "searches": [
+          "Resultary: truncated tetrahedral graph with eight-cut, Delta_8, ordinary k-cut, and sphere counts",
+          "Bayer et al., arXiv:2304.13675, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed entry b52eefbe9af5 is the frozen record itself.",
+          "Table 1 omits this graph; 1c1ca2747108 instead tabulates ordinary Delta_4(T) as 117 seven-spheres."
+        ],
+        "reasoning": "No independently indexed exact entry was located; the graph and invariant must both match, so changing the cut parameter rules out an exact hit.",
+        "searches": [
+          "Resultary: eight-cut, Delta_8 and six two-spheres / 109 three-spheres",
+          "arXiv:2304.13675, Table 1"
+        ]
+      },
+      "rationale": "The inspected closest literature and indexed findings do not state or imply the ordinary eight-cut homotopy type. The identical indexed result is a copy of the assigned finding, not a distinct result; distinct same-graph records concern different cut parameters or the total-cut construction. This is a best-of-knowledge conclusion, not a global priority certification.",
+      "residual_risks": [
+        "The broad external literature search attempt was unavailable; this is not negative evidence. OA comparisons used targeted stated results, not an exhaustive review of historical sources or unindexed computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant; inspected criterion does not apply",
+          "evidence": "Definition in introduction uses complements of disconnected induced sets; Theorem 6.1 requires a complete next-to-top skeleton. The frozen citation to Definition 2.1 is a minor locator error (generic simplicial complex).",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Introduction and Table 1 (PDF p. 2); Theorem 6.1 (PDF p. 17); Definition 2.1 (p. 3)",
+          "method": "Lawful OA PDF, located and read relevant passages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational ordinary cut-complex paper and plausible complete-skeleton shortcut"
+        },
+        {
+          "assessment": "Stated scope does not cover this graph-specific result",
+          "evidence": "Stated treatments concern disjoint unions, squared paths and grids.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "PDF p. 1, abstract and contents",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Sequel with expanded graph families"
+        },
+        {
+          "assessment": "Different k",
+          "evidence": "Reports 27 degree-eight generators for ordinary Delta_3(T).",
+          "identifier_or_url": "2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce",
+          "material_read": "Finding and truncated tetrahedron continuation, offsets 0 and 3000",
+          "method": "Local mirror, RESULT.md",
+          "title": "Three-cut complexes of four-cycle-free graphs with triangles",
+          "trigger": "Same graph as a special case of a broader theorem"
+        },
+        {
+          "assessment": "Different k; not dismissed by date",
+          "evidence": "Computes ordinary Delta_4(T), its Alexander dual and symmetry, not Delta_8(T).",
+          "identifier_or_url": "2026/11/22/SCOPE-the-truncated-tetrahedral-four-cut-complex-117-seven-spheres-and--1c1ca2747108",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, RESULT.md",
+          "title": "The truncated-tetrahedral four-cut complex: 117 seven-spheres",
+          "trigger": "Distinct same-day result on same ordinary cut-complex family and graph"
+        },
+        {
+          "assessment": "Different complex and degree",
+          "evidence": "Computes the total three-cut complex as six six-spheres.",
+          "identifier_or_url": "2026/11/8/SCOPE-six-six-spheres-and-an-orientation-twisted-tetrahedral-edge-repr--bb8e16462315",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, RESULT.md",
+          "title": "Six six-spheres and an orientation-twisted tetrahedral edge representation",
+          "trigger": "Same graph and one coincident sphere multiplicity"
+        },
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Both record identity and wedge claim match the assigned record.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-and-three-sphere-wedges-in-the-eight-cut-complex-of-the-trun--b52eefbe9af5",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, RESULT.md",
+          "title": "Two- and three-sphere wedges in the eight-cut complex of the truncated tetrahedron",
+          "trigger": "Exact indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; exact face and Smith computations",
+        "Related ordinary three- and four-cut findings; arXiv:2304.13675, Theorem 6.1"
+      ],
+      "rationale": "A canonical cubic polyhedral graph gives a natural test of ordinary cut topology beyond the existing three- and four-cut calculations. The precise integral homotopy type in this small-dimensional regime supplies a concrete pure cut complex with homotopy in two different positive dimensions, hence an explicit obstruction to shellability and Cohen–Macaulayness; an Euler characteristic, mod-two rank, or a generic complete-skeleton calculation would not establish that information.",
+      "residual_risks": [
+        "This is one natural instance, not a classification of the filtration or of polyhedral graphs in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

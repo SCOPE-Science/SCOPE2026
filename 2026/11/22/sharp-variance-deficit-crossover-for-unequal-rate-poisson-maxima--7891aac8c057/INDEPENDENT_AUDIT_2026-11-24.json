@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:57:27.888025Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–117",
+        "VERIFICATION.md, lines 3–25",
+        "checker.py, lines 10–96",
+        "verify_asymptotic.py, lines 1–12"
+      ],
+      "rationale": "The Poisson add-one formula shows Cov(M,ΣXᵢ)=Σλᵢ Pr(Xᵢ≥max_{j≠i}Xⱼ); shifting the mass by one in each term makes this the expected maximum on unique-winner events. Thus the gap is the weighted tie term plus Cov(M,R). Both M and R are coordinatewise increasing, so the covariance is nonnegative; a tie at one with other counts zero gives strictness. For two counts, Δ=(Y−X)₊ satisfies Δ(Y−X)=Δ² and direct expansion of Cov(X+Δ,Y−Δ) gives EΔ[(a−b)t+EΔ]. At small t, the tie term is abt²+O(t³) and the overshoot is bt+O(t²), hence the two terms contribute abt² each. For q=√(b/a)<1, after removing the common fixed-order Bessel asymptotic, I_k≤I₀ permits dominated summation against kq^k. The overshoot constant is q/(1−q)², the weighted tie constant is t√(ab), and the two leading contributions combine via √(ab)+(a−b)q/(1−q)²=2a√b/(√a−√b). This yields the printed prefactor; the overshoot square is lower order. At equal rates the CLT with bounded scaled second moments gives EΔ/√t→√(a/π), while the Bessel tie term is O(√t). In both cases the mean is asymptotic to at, giving the claimed Fano limits. Inspection of the two scripts confirms their role as finite corroboration only; they were not executed.",
+      "residual_risks": [
+        "The sentence on unlisted small-intensity configurations should be read at the level of the final deficit: omitted overshoot configurations by themselves can contribute O(t²), not O(t³). The preceding bounds have the correct orders.",
+        "Probability remainder is not itself a rigorous moment-tail bound, and subtraction of rounded moments cannot certify the relative high-intensity error when the gap is tiny. Neither issue is used by the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 123–129 puts Badiella et al. in iid Poisson order statistics and Briggs et al. in large sample size at a fixed common Poisson intensity.",
+          "Poisson Poincaré already gives underdispersion of a maximum by bounding the variance by the add-one Dirichlet form, which here equals the unique-winner contribution."
+        ],
+        "reasoning": "Qualitative underdispersion and a bound by the weighted tie are not counted as new. The cited iid and sample-size regimes do not encompass the exact fixed-two-count, both-means-growing, unequal-rate equivalent on the available evidence.",
+        "searches": [
+          "Badiella–del Castillo–Puig, 10.1016/j.spl.2023.109900",
+          "Puig–Valero–Fernández-Fontelo, 10.1111/sjos.12677",
+          "Briggs–Song–Prellberg, arXiv:0903.4373"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 78–117 and 123–136",
+        "Resultary statements for --7891aac8c057, --918e94e78ac2, --5ac5f98406c1, --066cdb28c97e and --422e6a20a0da",
+        "Focused primary literature search on unequal-rate Poisson maximum moments and dispersion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed exact-moment result gives Fano→1−1/π for the iid maximum, which with E M∼at gives D∼at/π.",
+          "The frozen unequal-rate derivation uses summable domination against kq^k and then a tie/covariance combination. At q=1 this summation argument is unavailable."
+        ],
+        "reasoning": "The equal case is covered. The unequal-rate decay scale alone would not imply the equivalent: the overshoot multiplied by the rate gap contributes at the very same scale as the tie, changing the leading constant.",
+        "searches": [
+          "Resultary --918e94e78ac2, equal-intensity Fano limit",
+          "Skellam (1946) plus the fixed-order Bessel asymptotic for the Poisson difference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Skellam mass expression in RESULT.md lines 78–87 yields the first positive-part moment Σk k Pr(Y−X=k) and the Bessel-weighted tie. The gap is not the positive-part expectation alone.",
+          "The focused literature search surfaced integer-data and underdispersed difference-model leads, not a positive statement of this maximum-gap equivalent."
+        ],
+        "reasoning": "Using a call-payoff/overshoot formulation is an exact re-expression of EΔ, not of Var(max)−E max. The gap requires combining the weighted tie and covariance contribution, both of the same leading order.",
+        "searches": [
+          "maximum two independent unequal mean Poisson variables variance minus mean dispersion Skellam exact moments sharp asymptotic fixed rates large intensity overshoot Bessel underdispersion",
+          "Skellam (1946), The frequency distribution of the difference between two Poisson variates belonging to different populations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching hit --7891aac8c057 is this frozen claim itself.",
+          "Prior records --918e94e78ac2, --5ac5f98406c1 and --066cdb28c97e concern common-intensity extremes. The distinct same-date --422e6a20a0da concerns entropy."
+        ],
+        "reasoning": "The common-intensity statements overlap part of the frozen result, but do not give the unequal-rate equivalent. Entropy comparisons neither assert nor imply this variance deficit.",
+        "searches": [
+          "Resultary: unequal-rate Poisson maxima variance deficit crossover sharp equivalent",
+          "Resultary: exact moments and universal Fano limit for two-sample Poisson extremes; strict dispersion ordering of Poisson extremes; entropy reversal for independent Poisson maxima"
+        ]
+      },
+      "rationale": "Credit is for the exact two-rate gap decomposition and its sharp fixed-unequal-rate equivalent, not qualitative underdispersion or the equal-rate limit. A prior indexed iid result implies the latter. The standard Skellam representation supplies the underlying masses, not the asserted variance cancellation and sharp unequal-rate constant as a compared theorem. There is no demonstrated equivalent prior coverage of that core; this conclusion does not certify historical priority.",
+      "residual_risks": [
+        "The closely related cited papers and catalogue full texts were not available for page-level checks; an uninspected exact unequal-rate moments or asymptotic analysis could contain a stronger implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available descriptions distinguish iid/large-sample regimes; not a full-text exclusion",
+          "evidence": [
+            "Qualitative underdispersion and same-intensity results are expressly not credited as the new asymptotic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900; https://arxiv.org/abs/0903.4373",
+          "material_read": "Frozen literature comparison, RESULT.md lines 123–135; no independent full-text passage obtained",
+          "method": "Lawful retrieval attempts at the cited UAB PDF, UAB repository record and arXiv",
+          "title": "Ultra log-concavity of discrete order statistics; A note on the distribution of the maximum of a set of Poisson random variables",
+          "trigger": "Closest published Poisson order-statistics references"
+        },
+        {
+          "assessment": "Covers the equal-rate leading deficit by multiplying the Fano gap by the asymptotic mean",
+          "evidence": [
+            "Fano→1−1/π under identical rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-moments-and-the-universal-fano-limit-for-two-sample-poisso--918e94e78ac2",
+          "material_read": "Indexed equal-intensity moment and limit statement; full mirror passage not obtained",
+          "method": "Resultary statement comparison and local mirror attempt",
+          "title": "Exact moments and the universal Fano limit for two-sample Poisson extremes",
+          "trigger": "Exact equal-rate limit and Bessel moments"
+        },
+        {
+          "assessment": "Supplies constituent masses, not a statement of the variance deficit",
+          "evidence": [
+            "I_k with geometric tilt q^k describes the upward overshoot probabilities."
+          ],
+          "identifier_or_url": "Skellam (1946), JRSS A 109, p. 296",
+          "material_read": "Standard identity reproduced in RESULT.md lines 78–87 and verified by summing the two Poisson masses; no separate archival passage inspected",
+          "method": "Formula-level mathematical comparison",
+          "title": "The frequency distribution of the difference between two Poisson variates belonging to different populations",
+          "trigger": "Exact unequal-mean difference probabilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–37, 60–117 and 123–129"
+      ],
+      "rationale": "Knowing only underdispersion or that the Fano ratio tends to one does not quantify how fast the maximum becomes indistinguishable from its dominant parent by this statistic. The prefactor captures two effects of the same order (weighted ties and rare overshoots) and reveals the singular contrast with coincident rates. The positive all-scale decomposition provides an interpretable, cancellation-free formula precisely where direct moment subtraction becomes ineffective.",
+      "residual_risks": [
+        "This is a contrast of fixed-rate regimes, not a joint scaling limit as the rates coalesce or a classification of monotonicity in intensity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

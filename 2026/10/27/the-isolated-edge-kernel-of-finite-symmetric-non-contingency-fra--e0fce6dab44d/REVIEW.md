@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all labelled finite simple undirected frames on a common vertex set and under all **shared** valuations, the proof correctly derives the rowwise homogeneity invariant from \(\Delta p\). It shows that any relation discrepancy can occur only inside isolated two-vertex connected components and that the canonical deletion is complete and uniquely determined. The kernel-fiber matching bijection is reversible. The bivariate enumeration follows by choosing isolated labels and applying the standard exponential formula to the remaining graph components. Edge cases \(n=1,2\), singleton and empty neighbour sets, and the formal rather than analytic interpretation of generating functions are explicit. A standalone exhaustive checker tests all graphs through six vertices and reports `ALL_CHECKS_OK 66771`; all-size correctness rests on the mathematical argument.
+PASS
 
-## Originality — PASS within inspected evidence
+For a singleton valuation V(p)={x}, Delta p is false at w exactly when x lies in N(w) and |N(w)|>=2. The singleton queries recover each whole neighborhood of size at least two; all smaller neighborhoods give the same constant truth function on arbitrary truth sets. Hence equality of these signatures is equivalent to equality of the modal truth-set operators, which gives equal truth for arbitrary nesting by induction at the same valuation. Undirectedness means every edge except an isolated K2 edge is incident to a recovered row, so the recovered graph is exactly the kernel. Any lift adds a matching on its s isolates, and conversely; selecting and pairing vertices gives I_s. Choosing the isolate labels and forbidding K1 and K2 on the complement gives the C_(n,s) formula. The formal species of connected components gives the claimed bivariate exponential series and its specialization to the known univariate coefficient. A connected graph exists on each m>=3, but there is no graph without K1 or K2 components on m=1,2, proving the claimed support. The cases n=1,2 and the auxiliary n=0 term agree. At n=6 the listed class totals add to 31883 and their fiber-weighted sum is 32768.
 
-The original component-free graph counting sequence is known: OEIS A093352 already supplies its total-count formula, so that formula is not credited as new. The 2014 and 2015 papers of Fan, Wang and van Ditmarsch supply general non-contingency bisimulation and axiomatics; Ding and Yang (2026) give still broader bundled-modality bisimulations; Sierra Miranda, Wang and Zenger (2026) give the exact source semantics and proof theory. The inspected source material did not state or derive as a displayed result the fixed-domain observational kernel \(\kappa\), its sharp depth-one separator on loop-free symmetric graphs, or the complete modal equivalence-fiber spectrum. The related earlier result on KD45 successor-valuation supports has different frame hypotheses and does not imply the irreflexive symmetric result. General bisimulation methods may provide a route to this specialization, which remains a stated priority risk. The inaccessible full 2014 text and a potentially related 2026 thesis require independent priority examination.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete semantic classification of symmetric, irreflexive finite accessibility networks: it identifies precisely which graph edges are unobservable by the entire non-contingency language even under unrestricted valuations, provides a linear-time canonical normalization, proves that modal depth one captures all available relational information, and describes **all** observational class sizes, not an arbitrary single-parameter example. It quantifies the information loss of a well-studied modality on a natural network family. The underlying bare graph-count sequence is acknowledged as known and is not used alone to justify value.
+The supported contribution is the explicit same-valuation kernel of the finite symmetric loop-free semantics and the exact matching fibers of its quotient. Univariate graph enumeration is prior work and is excluded from that contribution. Bundled and non-contingency bisimulation characterize logical invariance more generally but the inspected results do not supply the concrete graph identification and matching-fiber invariant.
 
-## Sources and limitations
+## value
 
-The closest primary literature is *Proof Theory for Non-Contingency Logic* (arXiv:2609.38975v1), *Almost Necessary* (AiML 2014), *Contingency and Knowing Whether* (2015), and *A General Theory of Propositional Modal Bundled Modalities* (EPTCS 447, 2026); the exact univariate graph count is OEIS A093352. The statement concerns same-labelled-world valuation-uniform truth only, not frame validity or isomorphism. Source priority is conditional on the inspected material, especially because the full 2014 PDF and the full 2026 bundled-fragments thesis were not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a concrete invariant of which adjacencies the non-contingency language can observe even under arbitrary nesting and all assignments, and a complete canonical representative plus depth-one separating test when equivalence fails. The matching fibers then describe all indistinguishable frames and their multiplicities, giving a use for the refined census beyond recomputing the known graph totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

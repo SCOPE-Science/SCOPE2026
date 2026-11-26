@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:43.891389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md eqs. (1)–(15) and proof",
+        "Korotov–Michaud arXiv:2609.18788 §2 eqs. (2.8)–(2.9), Lemma 2.3 and §3 Theorem 3.1",
+        "Frozen artifacts/verify_asymptotics.py and artifacts/verification_output.txt inspected as historical evidence, not executed",
+        "Fresh bounded recurrence reproduction with replay in rationale"
+      ],
+      "rationale": "I derived the geometry directly. With a=tb, the outward normal to PAB can be taken as N=(bs,a−bc,abs), of norm W=bQ. Taking negative dot products with the three other unit outward normals gives cosines (a−bc)/W on PA, (b−ac)/W on PB, abs/W on AB, c on OP, and zero on OA and OB. Hence t<c gives a unique obtuse LAB edge. For a point d(c,s,0) of OB, equal distances to the planes OPA and PAB give ds=(abs−ads)/W, or d=ab/(a+W). The retained child swaps the base rays, giving b′=a and t′=d/a=1/(t+Q). The positive-root fixed-point equation has no squaring ambiguity on (0,1). Its cubic is strictly decreasing on (0,c); it has opposite signs at 1/√2 and c for c>1/√2 and no root in (0,c) below the threshold. At equality the strict t<c margin is lost; this does not classify critical or other LAB branches. At the fixed point Q_*=(1−τ²)/τ and the cubic gives 2τ²(1−cτ)=1−τ², hence f′(τ)=−1/2. Choose a small rectangle with t_max<c and sup|∂_tF|=ρ<1. The perturbation F(t,b)−F(t,0)=O(b²) and b′≤t_max b give invariance on shrinking its height and summable |t_n−τ|. The infinite product for b_n/τ^n then has positive finite limit C. For the second law, split the smooth map in t and u=b²: δ_(n+1)=A_nδ_n+G_nu_n with A_n→−1/2 and G_n→−(1−c²)τ⁴/(2Q_*). Dividing by u_(n+1)=t_n²u_n gives an affine recursion with limiting absolute slope 1/(2τ²)<1; subtracting its limiting fixed point yields convergence to the stated K. The volume is abs/6, face areas are a/2,b/2,abs/2,W/2, and PB is longest (t<c<1 and AB<b). These give the stated diameter, volume, angle, inradius and aspect asymptotics, with r_n/b_n→τ²s/(1+τ). The limiting cosine on PB equals 1/(2τ) and that on PA equals 2/(4τ²)−1, proving angle doubling on the stated angle ranges. The increasing c(τ) gives exactly the open multiplier interval (1,√2). On the published rectangle, A=t−c+s²tb² satisfies t−c<A<0 and |t−c|<Q; hence 0<1+A/Q<1 and invariance gives |∂_tF|<16/25. The summability and asymptotics therefore extend to that rectangle. Fresh, bounded 120-digit recurrence iteration for the published seed independently corroborates the constants: C_400≈0.2398563383657047471865642656963 and the aspect prefactor ≈25.01739754619044555760018; C_300 and C_400 agree to about 85 decimal places, and the normalized t error approaches K≈−0.08048577802046797135566. Replay: with mpmath at 120 decimal digits solve the displayed cubic with starts 0.78 and 0.79, then simultaneously update (t,b)=(1/(t+sqrt(1+t²−2ct+(1−c²)t²b²)),tb) from (3/4,1/4) for 300 and 400 steps at c=7/8; print b/τ^n, (t−τ)/b² and (1+τ)/(τ²√(1−c²)(b/τ^n)). The numerical agreement is corroboration, not a rigorous truncation bound or a proof of the continuum.",
+      "residual_risks": [
+        "The general basin is local within this geometric family, not a full-dimensional basin for arbitrary tetrahedra. No classification at the threshold or finite-precision mesh-generator guarantee is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published related results in arXiv:2609.08846 concern degenerating longest-edge bisection branches. The Nov 17 Resultary result gives an eventual factor 1/2 for an angle-ratio map of 2D triangles."
+        ],
+        "reasoning": "Midpoint longest-edge refinement and planar largest-angle refinement do not yield the spatial LAB bisector on this invariant tetrahedral family. The planar factor is not the aspect multiplier or the transverse linearization of this map.",
+        "searches": [
+          "Adiprasito–Kalmanovich–Solomon arXiv:2609.08846 §1 Theorems 1.1–1.3",
+          "Resultary exact-limit retractions and sharp pure-branch rates for largest-angle bisection"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.18788",
+        "arXiv:2609.08846",
+        "Resultary exact entry and closest distinct planar rate comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's invariant rectangle and bounds (3/4)^n to (4/5)^n for b_n do not determine convergence of t_n or its unique limit. The p. 5 bounds on the dihedrals do not state angle doubling."
+        ],
+        "reasoning": "The fixed-point contraction and summable forcing analysis are additional over the published recurrence and invariant bounds. The lag coefficient uses the comparison τ²>1/2, and the angle identity and continuum are consequences of the new cubic analysis rather than separately claimed methods.",
+        "searches": [
+          "Korotov–Michaud §2 Lemma 2.3, §3 Theorem 3.1 and dihedral-bounds passage p. 5",
+          "Adiprasito–Kalmanovich–Solomon Theorems 1.1–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source evolves the same t,b variables on its c=7/8 rectangle, giving bounds on b_n and a lower bound on h_n/r_n. The identical Resultary title is the frozen record itself."
+        ],
+        "reasoning": "The b-decay base τ and inverse aspect multiplier 1/τ express the same asymptotic scale only after the inradius is shown asymptotically proportional to b. Neither is recovered by naming the source's lower-bound base 5/4 an asymptotic multiplier.",
+        "searches": [
+          "Targeted Resultary search for LAB boundary cubic, exact aspect degeneration and the multiplier interval",
+          "Korotov–Michaud arXiv:2609.18788 §2 eqs. (2.8)–(2.9) and §3 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/9/18/SCOPE-lab-boundary-attractor-degeneration-rates--2604f6e90e43 is the same entry; 2026/11/17/SCOPE-exact-limit-retractions-and-sharp-pure-branch-rates-for-largest--7c74a984e759, RESULT.md opening, is the topical planar comparison."
+        ],
+        "reasoning": "A same-entry hit is not a distinct coverage match. The closest topical comparison uses triangle angles and states neither the tetrahedral cubic nor the exact family of rates; the bounded search is not proof that no other entry exists.",
+        "searches": [
+          "Resultary boundary attractor, exact LAB aspect-ratio multiplier, tetrahedral degeneration"
+        ]
+      },
+      "rationale": "The source already gives the fixed-c recurrence, its invariant rectangle, and degeneration bounds. The contribution is the sharp asymptotic analysis, including the second-order displacement and limiting geometry, and the continuum of rates under the general-c LAB mechanism. The closest inspected longest-edge and planar largest-angle results use different refinement maps and do not imply these quantities.",
+      "residual_risks": [
+        "Bounded best-of-knowledge comparison. Simultaneous analyses of the very recent LAB counterexample or unindexed related work may not have surfaced."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior fixed-c construction and bounds, not sharp dynamics in those passages",
+          "evidence": "The paper fixes c=7/8, obtains the same map, proves the rectangle invariant and bounds h_n/r_n below by a constant times (5/4)^n.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18788",
+          "material_read": "§2 pp. 2–4, eqs. (2.1)–(2.9) and Lemma 2.3 (offsets 7929, 10801, 11799–14347); §3 Theorem 3.1 and p. 5 dihedral discussion (offsets 14347 and 17033)",
+          "method": "bounded OA PDF passages",
+          "title": "Largest-dihedral-angle bisection algorithm does not preserve mesh regularity for tetrahedral partitions",
+          "trigger": "Same branch and recurrence"
+        },
+        {
+          "assessment": "Different edge selection and splitting rule",
+          "evidence": "The statements concern degenerating LEB orbits, not the largest-dihedral-angle spatial bisector map.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.08846",
+          "material_read": "§1 p. 2 Theorems 1.1–1.3 (offset 7900)",
+          "method": "bounded OA PDF passage",
+          "title": "Degenerating orbits of the Longest Edge Bisection process",
+          "trigger": "Plausible broader degeneration theorem"
+        },
+        {
+          "assessment": "Different dimension and map",
+          "evidence": "The statement is for pure branches of triangle angle-ratio maps and an eventual factor 1/2, not tetrahedral LAB degeneration.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-limit-retractions-and-sharp-pure-branch-rates-for-largest--7c74a984e759",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact limit retractions and sharp pure-branch rates for largest-angle bisection",
+          "trigger": "Catalogue match on exact largest-angle bisection rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Theorem and eqs. (3)–(15)",
+        "Korotov–Michaud Theorem 3.1"
+      ],
+      "rationale": "This turns the motivating mesh counterexample's bounding rates into a sharp orbit law, quantifies the diameter-to-inradius growth, and explains the parameter mechanism producing a continuum of exact rates. The second-order lag and limiting dihedral relation describe the degenerate dynamics beyond the fact of mesh failure.",
+      "residual_risks": [
+        "The construction does not classify all poorly conditioned LAB meshes or certify the behavior of an implementation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

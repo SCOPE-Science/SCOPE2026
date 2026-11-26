@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a count-chain theorem with explicit probability normalization, fixed parameter domain, and all nonconsensus initial states. Direct calculation yields both up/down probabilities. The scalar first-step recurrence proves the finite push expectation; monotone birth/death ratios and a Riemann-sum sandwich prove its *uniform* exponential rate, including starting states with only one dissenter. The harmonic potential argument and the required-selection coupon bound prove both nudging inequalities without asymptotic approximations. The standalone checker matches separate exact-rational linear-system calculations for 352 configurations of population size and parameters, direct agent-level transition calculations for 2952 configurations, 1232 harmonic inequalities, and numeric rate trends. No finite enumeration is treated as proof of the all-size result.
+PASS
 
-## Originality — PASS (qualified)
+Van Santen et al. Eqs. (1)–(3) and the uniform one-vertex clock give the displayed kernels exactly on a loopless clique. All p_j>0 for j<N and N is absorbing, so finite blocks give a geometric absorption bound at fixed N. With v=N−j the active nudge down transition exactly cancels the two social terms in p_j−q_j and leaves h; when it is clipped to zero p_j≥hv/N. The conditional drop of H_v is p_j/v−q_j/(v+1)≥h/N. Deterministic-time telescoping followed by the tail-sum formula bounds the mean by NH_v/h. Any successful trajectory must select all initial B vertices, which gives the coupon-collection lower bound; α=1 is pure death at probability Ev/N, giving equality at the upper bound. Rechecked the contextual push proof: the first-step difference products give the full finite formula; all factors above one are precisely those after floor((N−1)E), and they form one summand available for every start. The lower and polynomial-times-upper sandwiches use the same positive-part Riemann sum. The alternative prior-theory comparison changes each fixed-profile positive product term by a bounded factor uniformly (one inverse death rate and at most N−1 ratios), and the Poisson clock changes means by N, so neither changes the log rate per vertex. The endpoint v=N has mean extra wait 1/(Nh) in the comparison chain. All parameter and time-unit hypotheses and the exclusion of initially unanimous A from the logarithmic statement are retained.
 
-A full accessible version of the initiating 2024 paper [1] was inspected, especially its exact update equations and simulation-based sections; it does not give an exact complete-graph absorbing-time formula or the paired exponential-versus-harmonic bound. The 2015 jump-voter work [2] changes multiple voters through an independent jump mechanism. The 2019 news-source model [3] and 2021 two-class majority-rule paper [4] contain relevant consensus-time phenomena but with distinct transition kernels; the latter demonstrates exponential escape in another model. Earlier generic birth-death asymptotic tools [6] are credited explicitly. The precise logarithmic barrier and comparative harmonic bounds for [1] were not located in the accessible record or indexed findings. Residual risk: a specialist reduction or treatment of the exact rates might exist despite the searches; absence in the searched corpus is not proof of global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two media strategies have superficially similar one-agent transitions and both absorb almost surely at the same final consensus, but they differ exponentially in expected convergence time. The positive action integral and all-initial-state uniformity quantify why apparent finite-time mixed plateaus can persist even with a unique absorbing state. The matching-order finite nudging bounds are a direct quantitative benchmark for media-strategy design. This is more than re-expression of a standard hitting-time formula because it isolates a sharp, model-specific dynamical contrast and gives its explicit rate.
+Only the finite harmonic bounds uniformly over starts for the actual nudging rule, which identify the fast side for this pair, are credited in the repair. The verified prior push implication is explicitly excluded from new claims. The work on this exact pair's update rules located in the bounded comparison reports simulation-based prevalence rather than these nudging absorption-time estimates.
 
-## Scope and residual risks
+## value
 
-The classification is complete only for undirected complete networks, fixed positive parameters, and mean hitting times. It does not claim full distributional asymptotics or extension to sparse graphs. Prior work in generic birth-death theory supplies broadly applicable methods and might inspire equivalent derivations; specialized priority uncertainty remains. The calculations do not amount to external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The count kernel includes possible reversions before consensus, so the coupon lower bound alone does not determine their cost. The matching finite upper scale shows that, for this concrete clipped rule and uniform selection, reversions do not change the coupon-collection order from any start, including one dissenter. This supplies a useful quantitative comparison with the known birth–death barrier for the other originally paired rule, in the same time units and for the same field parameters. No independent new value is assigned to the prior push law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

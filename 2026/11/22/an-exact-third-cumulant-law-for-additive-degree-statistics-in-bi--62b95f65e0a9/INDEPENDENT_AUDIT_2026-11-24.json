@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:32:05.490680Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding the centered cube over ordered vertex triples gives multiplicities n, 3n(n−1), and n(n−1)(n−2). For a repeated vertex the shared-edge conditional means of h and h² are affine with increments a and b, yielding v a(b−2μa), v=p(1−p). For distinct vertices the external incident edge sets are independent even when they meet a common external vertex. After conditioning on the three internal edges, the centered means have linear coefficient A=β+pγ and quadratic coefficient γ; only the three two-edge paths and the triangle survive, giving 3A²γv²+γ³v³. This covers n=3 by B₀=0. For isolates an independent derivation uses E[(Z)_r]=(n)_r q^{r(n−1)−r(r−1)/2}, r=1,2,3; the distinct term factors as q^{3n−6}(1−3q²+2q³). Taking p=c/n gives the stated K. The function e^{3c}K(c) is strictly convex on c≥0, vanishes at 0 with slope −4, and tends to +∞, proving the claimed sign and unique positive zero, not a finite-n zero classification. A separate exact finite check enumerated 64 graphs at n=4, p=2/5, h=(-3,7,-2,5), giving −104526000/1953125 by both the formula and the centered cube. Replay with weight 2^m 3^{6−m} for m present edges and the integer cube (25T_h−212)^3, divided by 5^6·25^3. The supplied checker and its declared limits were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Reinert treats inhomogeneous independent edges more generally but the inspected results concern normal approximation and covariance.",
+          "Resultary f539be09c59a treats mixed third cumulants for fixed component types; e8ba49be1fe1 treats three different isolation indicators in a random key graph.",
+          "Ghosh–Goldstein–Raič treats concentration of the isolate count, not its arbitrary-score generalization."
+        ],
+        "reasoning": "The inspected third-order results concern different random variables or models, and the broader independent-edge results address different statistical orders.",
+        "searches": [
+          "Resultary: third-cumulant transitions for component counts and isolated vertices",
+          "arXiv:0912.4812 pp. 7,9",
+          "arXiv:1106.0048 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Matching Resultary mirror; distinct hits f539be09c59a and e8ba49be1fe1",
+        "arXiv:math/0605642",
+        "arXiv:0912.4812",
+        "arXiv:1106.0048",
+        "doi:10.1002/jgt.3190060209 (access limit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conversion κ₃=F₁+3F₂+F₃−3F₁(F₁+F₂)+2F₁³ yields the isolate expression; expanding to order n yields K and strict convexity gives its sign.",
+          "The exact arbitrary-h law uses a third-order centered internal-edge cancellation not furnished by these second-order/limit results."
+        ],
+        "reasoning": "Credit the isolate algebra as a specialization that does not need the new general identity. The arbitrary-score collapse to two averaged finite differences in the distinct-vertex term remains distinct from the inspected prior statements.",
+        "searches": [
+          "Janson arXiv:math/0605642 Thm. 4.1",
+          "Lin–Reinert arXiv:0912.4812 Theorem 3.1 and Remark 3.4",
+          "isolated-vertex factorial-moment conversion up to r=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching frozen mirror is the same result, not independent priority evidence.",
+          "Janson's Thm. 4.1 and Lin–Reinert's covariance calculation give degree-count covariance, while the third-order distinct-label term here has connected path and triangle contributions."
+        ],
+        "reasoning": "A score can be written as a linear combination of degree counts, but second-order covariances and Gaussian limits for these counts do not determine their finite third-order cumulant tensor.",
+        "searches": [
+          "Resultary: additive degree statistic / third cumulant / isolation sign transition",
+          "Janson arXiv:math/0605642 §4",
+          "Lin–Reinert arXiv:0912.4812 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest matching degree-count formulas inspected are covariance formulas; the exact isolate factorial moments follow by counting forbidden edges."
+        ],
+        "reasoning": "This is an all-n symbolic identity rather than a tabulated cutoff; the pertinent exact-data comparison is with joint degree-count moment formulas. Isolate moment data cover the isolate expression by conversion but not arbitrary h.",
+        "searches": [
+          "Resultary: exact third-order degree and isolation identities",
+          "Janson arXiv:math/0605642 §4; Lin–Reinert arXiv:0912.4812 §3"
+        ]
+      },
+      "rationale": "The distinct core is the exact low-order finite-difference reduction for arbitrary real degree scores. The isolate cumulant and its sparse coefficient are obtainable from the first three elementary factorial moments and are not credited as independent moment identities; the sign boundary is an interpretation of that coefficient. The inspected prior results do not already deliver the arbitrary-score third-order reduction.",
+      "residual_risks": [
+        "Historical degree-count moment formulas or an unlocated exact third-order diagram law may already yield the finite-difference reduction.",
+        "Full text of the Wiley degree-count paper was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Second-order and limit coverage",
+          "evidence": "Gaussian joint limit with degree-count covariance, not a finite joint cumulant tensor.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605642",
+          "material_read": "§4, Theorem 4.1, PDF p. 8, text offset 25814",
+          "method": "OA PDF, relevant passage",
+          "title": "Monotonicity, asymptotic normality and vertex degrees in random graphs",
+          "trigger": "Same sparse degree-count statistics"
+        },
+        {
+          "assessment": "Broader model for different claims",
+          "evidence": "Covariance and normal approximation do not determine the third-order expression.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.4812",
+          "material_read": "PDF pp. 7, 9, offsets 19730 and 25300; covariance, Thm. 3.1 and Remark 3.4",
+          "method": "OA PDF, relevant passages",
+          "title": "Joint Vertex Degrees in an Inhomogeneous Random Graph Model",
+          "trigger": "Broader independent-edge degree statistics"
+        },
+        {
+          "assessment": "Concentration background",
+          "evidence": "A tail bound does not supply the exact third cumulant or its sign transition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.0048",
+          "material_read": "Abstract and §1, p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "Concentration of measure for the number of isolated vertices in the Erdős–Rényi random graph by size bias couplings",
+          "trigger": "Same isolate count"
+        },
+        {
+          "assessment": "Different cumulant",
+          "evidence": "Mixed fixed-order component counts, not the third cumulant of the total isolate count or an arbitrary degree score.",
+          "identifier_or_url": "Resultary f539be09c59a",
+          "material_read": "Mirror RESULT, Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Two universal third-cumulant sign transitions for component-type counts",
+          "trigger": "Closest third-order sparse sign transitions indexed"
+        },
+        {
+          "assessment": "Different model and exclusion of repeated labels",
+          "evidence": "Random key graph distinct-indicator cumulants do not determine the G(n,p) total isolate cumulant.",
+          "identifier_or_url": "Resultary e8ba49be1fe1",
+          "material_read": "Mirror RESULT, Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Two sharp third-order isolation cumulant reversals in uniform random key graphs",
+          "trigger": "Isolation cumulants of three vertices"
+        },
+        {
+          "assessment": "Unresolved, not evidence of absence or overlap",
+          "evidence": "The title establishes relevance only.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190060209",
+          "material_read": "Bibliographic title only; full text not read",
+          "method": "Lawful OA retrieval attempt returned HTTP 403",
+          "title": "Vertices of given degree in a random graph",
+          "trigger": "Plausible exact degree-count moment source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arbitrary-score identity supplies an exact third-order statistic using only binomial expectations, with no graph enumeration or separate calculation for each degree-count triple. It identifies explicitly the path and triangle sources of the dependence. In the isolate application the ordinary variance or a Gaussian limit cannot decide even the sign of the leading sparse third cumulant; the two sides of the explicit positive root do. The value does not rely on a finite-n phase-transition claim or on novelty of factorial moment conversion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

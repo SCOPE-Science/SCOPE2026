@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:21:41.136070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–51; verified the support compatibility and connectivity analytically",
+        "Frozen verify_pentagon_simplex.py and VERIFICATION.md: inspected as recorded evidence, not executed"
+      ],
+      "rationale": "Reconstructed the affine determinant and equality argument in RESULT.md:25–48. Nonzero quintuples have a 3+2 split; the determinant magnitude is twice the triangle area times the pair's two-dimensional determinant. Five triangles of each area and five pairs of each type, in either factor order, give multiplicities 52, 50, 100, 50 at the four stated volumes. Independently, the free sum has gauge rho_A(x)+rho_B(y); integrating area(B)(1-u)^2 against 2 area(A)u du gives area(A)area(B)/6 = 25(5+sqrt(5))/192 and hence the stated ratio. At equality, every tuple in the Cartesian product of convex supports must have the same extreme signed determinant. By symmetry use (A0,A1,A3,B0,B1): the three same-sign moves are A0→A4, A1→A2, A3→B3. The first two together give a small triangle; either with the third gives a diagonal A pair. Changing a B vertex within its factor to the other possible adjacent partner flips the sign, while changing it to an A vertex degenerates the simplex. Thus at most one position can move and it has at most two supporting vertices. Each allowed segment is an exposed edge of the body (extend a factor-side functional, or choose a unique maximizing vertex in each factor and normalize the two maxima to agree), so different segment interiors cannot identify unordered simplices. For each fixed adjacent pair the within-composition moves rotate the large triangle by ±2 mod 5, giving a 5-cycle. Each large triangle has exactly one adjacent pair, and the map from the five triangles to these pairs is bijective; the 25 swap-composition edges connect the five cycles on either side with complete bipartite incidence. This proves connectivity, trivalence and all edge counts, including arbitrary points rather than just the 252 vertex subsets.",
+      "residual_risks": [
+        "No numerical hull calculation or formal verification claimed; both are unnecessary for the analytic check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary e4828b36921e classifies the nine-vertex square–pentagon optimizer locus as four disjoint circles; Theorem 7.1 identifies that distinct ambient maximizer."
+        ],
+        "reasoning": "Neither is an all-polygon optimizer classification. In particular the four-circle signed compatibility pattern does not transfer when the square is replaced by a pentagon.",
+        "searches": [
+          "Resultary: square–pentagon and orthogonal-polygon maximizer loci",
+          "Medgyes arXiv:2611.10078v1 Theorem 7.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81f2c10e9065 (self-match), e4828b36921e, 8fd04d9c4b23, cc3d1c18417d",
+        "arXiv:2611.14674v1 and arXiv:2611.10078v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ten-vertex theorem supplies the denominator and coordinates, not a signed determinant equality criterion or simultaneous-move obstructions. The exact four-circle and ambient Hessian results solve different problems."
+        ],
+        "reasoning": "Knowing the vertices permits a new calculation; it does not provide the compatibility classification, specifically the combination of 25 cross-composition moves and forbidden simultaneous moves.",
+        "searches": [
+          "Medgyes arXiv:2611.14674v1 and arXiv:2611.10078v1 decisive theorems",
+          "Resultary e4828b36921e and cc3d1c18417d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching double-pentagon Resultary entry is this same record. Theorem 4.5 maximizes ambient volume over spherical ten-vertex polytopes."
+        ],
+        "reasoning": "Maximizing the affine determinant in the fixed free sum, including equality with moving vertices, is not the ambient ten-vertex volume problem.",
+        "searches": [
+          "Resultary: largest contained simplex in the double pentagon; 50-node/75-family equality graph",
+          "Medgyes arXiv:2611.14674v1 Theorem 4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8fd04d9c4b23 tabulates five volume levels for 126 nine-vertex quintuples; cc3d1c18417d is a Hessian spectrum of body volume, not a table of simplex volumes."
+        ],
+        "reasoning": "Neither table computes the 252 double-pentagon vertex quintuples. The exact self-hit is not independent coverage.",
+        "searches": [
+          "Resultary: ten-vertex double-pentagon vertex-simplex volumes and four-level spectrum",
+          "Resultary 8fd04d9c4b23 and cc3d1c18417d"
+        ]
+      },
+      "rationale": "The examined sources establish the ambient body, a different spectrum for the nine-vertex body, or local variations of ambient volume, not the four-level contained-simplex spectrum and signed equality graph for the double pentagon. The independent contribution is the exact contained-simplex classification, not the underlying ambient extremal theorem or the separately affine bound by itself.",
+      "residual_risks": [
+        "Bounded primary and published-record search, not comprehensive historical priority. The broad web query was uninformative.",
+        "Same-day related records were compared on content; no order within the day was inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ambient volume and body known; not contained-simplex equality or spectrum",
+          "evidence": "Two orthogonal regular pentagons uniquely maximize the ambient ten-vertex problem; body volume 25(5+sqrt(5))/192.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14674v1",
+          "material_read": "Theorem 4.5, HTML text offsets 28318–31317",
+          "method": "OA full-text theorem passage",
+          "title": "The inscribed 4-polytope of maximal volume with ten vertices",
+          "trigger": "Same fixed body; possible stronger volume theorem"
+        },
+        {
+          "assessment": "Different body and ambient objective",
+          "evidence": "The nine-vertex maximizer is the orthogonal square–pentagon.",
+          "identifier_or_url": "https://arxiv.org/html/2611.10078v1",
+          "material_read": "Theorem 7.1, HTML text offsets 59660–62452",
+          "method": "OA full-text theorem passage",
+          "title": "The inscribed 4-polytope of maximal volume with nine vertices",
+          "trigger": "Orthogonal-polygon predecessor"
+        },
+        {
+          "assessment": "Comparable but not equivalent; different body and topology",
+          "evidence": "Twenty vertex-supported nodes and twenty sliding families form four circles.",
+          "identifier_or_url": "Resultary e4828b36921e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published record text",
+          "title": "Four disconnected circles of largest four-simplices in the orthogonal square–pentagon",
+          "trigger": "Analogous full nonvertex optimizer classification"
+        },
+        {
+          "assessment": "Different spectrum; no all-point equality classification there",
+          "evidence": "126 quintuple volumes in five levels and contained fraction sqrt(5)/20.",
+          "identifier_or_url": "Resultary 8fd04d9c4b23",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published record text",
+          "title": "The five-level four-simplex spectrum of the extremal nine-vertex four-polytope",
+          "trigger": "Closest simplex-volume table"
+        },
+        {
+          "assessment": "Hessian of ambient volume, not simplex spectrum",
+          "evidence": "Eigenvalue statement for local deformations of ambient volume.",
+          "identifier_or_url": "Resultary cc3d1c18417d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published record text",
+          "title": "Exact local volume spectrum of the maximal ten-vertex spherical four-polytope",
+          "trigger": "Same body and spectrum terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–23, 25–48",
+        "Medgyes ten-vertex Theorem 4.5 and Resultary e4828b36921e"
+      ],
+      "rationale": "The body is independently canonical as an ambient volume extremizer, and its largest contained simplex is a natural measure of the separation between enclosing and contained volume. The exact equality set distinguishes discrete optimum vertex choices from continuous, but never two-dimensional, families; it supplies a usable benchmark for rigidity and equality mechanisms in free sums. Neither the four levels nor the connected trivalent optimizer graph is dictated by ambient optimality.",
+      "residual_risks": [
+        "No claim about other polytopes or a general extremal ratio."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

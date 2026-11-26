@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:40:27.854046Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pooled number of founders is Poisson with mean nμδ and the marks are Borel sizes. Thinning gives the exact no-exceedance probability with k>nx and includes the no-founder case. At y=k/n, the tilted Borel mass is e^(−ay/2)/(sqrt(2π) k^(3/2)) times [1+δ(1−ay/3)+R]. For y≥x0>0, the exact remaining exponential is e^(−by), b=aδ/3+O(δ²)≥0; |e^(−by)−1+by|≤(by)²/2. This and the factorial error O(1/k) bound the bracket remainder by O(δ²(1+y²)) on the whole upper tail. Riemann sums for both coefficient functions have uniform O(1/n) error, including flooring nx, since their derivatives are integrable away from zero. Changing variables and exponentiating gives c=μa/sqrt(2π) and the stated coefficient −cJ(ax) times the limiting CDF. J starts positive divergent, decreases up to 3 where its tail is negative, and increases thereafter to zero from below. This gives one coefficient zero, not one crossing of the exact lattice CDF. The sign claims apply to fixed positive x. Independent numerical cross-check: starting at p1=e^(−θ), use p_(k+1)/p_k=θe^(−θ)(1+1/k)^(k−1), with a=1.6, μ=1.2, n=1000,4000,16000, summing to ceil(110n/a); quadrature/bisection gives z*≈1.88898594352. The scaled errors approach the predicted signs and coefficients away from the root; bounded n-scaled residuals at the root are consistent with lattice effects. The supplied check_borel_max.py was inspected, not executed; its exact-mass tail is numerically truncated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basrak–Milinčević–Žugec §2 and marked-Hawkes discussion pp. 16–17 use Borel counts but maximize event marks and derive domain-of-attraction limits.",
+          "Eberle p. 60 gives the Lévy intensity proportional to y^(−3/2)e^(−b²y/2). At b=√a and time μ√a, its largest jump has precisely the audited leading CDF."
+        ],
+        "reasoning": "The general cluster-extremes comparison does not give the signed expansion for Borel sizes in the moving critical window. The known Lévy law has no information about the discrete first-order perturbation.",
+        "searches": [
+          "arXiv:2203.13507",
+          "Eberle Stochastic Analysis (2019), inverse-Gaussian Lévy jumps"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ce33623224f",
+        "10.1017/S1748499524000198",
+        "arXiv:2203.13507",
+        "Eberle Stochastic Analysis (2019) p. 60",
+        "arXiv:1912.03219 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pmf plus Poisson thinning gives the exact prelimit tail. The jump kernel independently identifies the no-large-jump leading law.",
+          "The signed term combines the inverse-θ prefactor and the cubic term in log(θe^(1−θ)); an integrable moving-tail expansion and a unique-zero argument are required."
+        ],
+        "reasoning": "The older laws yield the premises, and the limiting CDF is covered, but the inspected results do not supply this uniform bias calculation or an equivalent correction theorem.",
+        "searches": [
+          "10.1017/S1748499524000198 Eq. (4)",
+          "Eberle p. 60",
+          "arXiv:2203.13507 §2 and marked-Hawkes application"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faroughi–Li–Ren pp. 142–143, Eq. (4), give the exact generalized-Poisson compound Borel representation.",
+          "The matching Resultary entry is the assigned record itself; it is not independent evidence of priority. Daly–Shneer p. 1 concerns Borel approximation and concentration."
+        ],
+        "reasoning": "The unconditional Poisson forest maximum is exactly the same statistic as the latent founder maximum; neither the maximum of summed observations nor a forest with conditioned total size is equivalent. The compared Borel background contains no expansion of this statistic.",
+        "searches": [
+          "Resultary: near-critical largest Borel clan, maximum Poisson Galton–Watson tree, signed first correction (0ce33623224f)",
+          "10.1017/S1748499524000198",
+          "arXiv:1912.03219"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only directly matching catalogue entry returned in the bounded check was the frozen record itself.",
+          "The exact Borel pmf and the continuous Lévy kernel are reusable ingredients, not an exact table of the perturbation or its cancellation cutoff."
+        ],
+        "reasoning": "No relevant inspected reference tabulates J or its zero for this lattice approximation. Using a known pmf does not make the result a table recomputation.",
+        "searches": [
+          "Local Resultary search for the fixed-mean Borel-clan maximum and correction",
+          "Faroughi–Li–Ren Eq. (4)",
+          "Eberle p. 60 inverse-Gaussian jump law"
+        ]
+      },
+      "rationale": "Pass for the compact-uniform signed first correction and its unique cancellation point, not for the Borel representation, thinning formula or leading inverse-Gaussian largest-jump law. The inspected exact distributions supply the terms to be expanded but do not supply the moving-tail first correction, its uniform remainder, or its sign law.",
+      "residual_risks": [
+        "Older near-critical Poisson-tree tail estimates or uniform discrete Lévy approximation results were not exhaustively checked.",
+        "The related conditioned-forest literature was not established to cover this claim; the conditioned model is not the unconditional statistic. Historical priority is literature-bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact-law background; not the signed largest-clan expansion",
+          "evidence": [
+            "Poisson-distributed number of independent Borel summands with the stated Borel law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1748499524000198",
+          "material_read": "OA PDF pp. 142–143, offsets 14100–18530, especially Eq. (4)",
+          "method": "Read the exact pmf and compound identity in context",
+          "title": "Generalized Poisson random variable: its distributional properties and actuarial applications",
+          "trigger": "Identical compound Poisson–Borel object"
+        },
+        {
+          "assessment": "Different extremal variable; no matching moving-window correction in those results",
+          "evidence": [
+            "The number of events is Borel in the example; the maximum in the theorem is taken over the event marks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.13507",
+          "material_read": "OA PDF §2 pp. 2–3 and pp. 16–17; offsets 3200 and 39400",
+          "method": "Compared the definitions of cluster count, mark maximum, and Lemma 4.4",
+          "title": "On extremes of random clusters and marked renewal cluster processes",
+          "trigger": "General cluster maximum with Borel clan sizes in the Hawkes example"
+        },
+        {
+          "assessment": "Covers the leading law via Poisson void probabilities, not the first correction",
+          "evidence": [
+            "Density (2π)^(-1/2)y^(-3/2)e^(−b²y/2)."
+          ],
+          "identifier_or_url": "https://wt.iam.uni-bonn.de/fileadmin/WT/Inhalt/people/Andreas_Eberle/StoAn_19/StochasticAnalysis2019.pdf",
+          "material_read": "OA PDF p. 60, offset 219250",
+          "method": "Read the Lévy jump density, then identify the intensity under scaling",
+          "title": "Stochastic Analysis (Eberle, 2019)",
+          "trigger": "Equivalent continuous leading largest-jump formulation"
+        },
+        {
+          "assessment": "Abstract-level related lead, not used for a whole-paper noncoverage claim",
+          "evidence": [
+            "Stein approximation and concentration for the Borel distribution are the advertised results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.03219",
+          "material_read": "OA PDF abstract p. 1, offset 543",
+          "method": "Read the abstract and compared target quantities",
+          "title": "The Borel Distribution: Approximation and Concentration",
+          "trigger": "Targeted literature hit on Borel approximations"
+        },
+        {
+          "assessment": "Identical assigned record, not separate coverage",
+          "evidence": [
+            "Same μδ, 1−δ path, same J and same sign reversal."
+          ],
+          "identifier_or_url": "Resultary 0ce33623224f",
+          "material_read": "Indexed statement and frozen theorem",
+          "method": "Compared exact statistic, parameter path, perturbation and zero",
+          "title": "A universal first-order bias reversal for largest Borel clans in near-critical generalized Poisson samples",
+          "trigger": "Exact local catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The largest founder is the most severe single family in the Poisson–Borel model. The theorem gives a sharp leading error with opposite signs at different thresholds and identifies a parameter-rescaled point where the error drops from order n^(-1/2) to O(n^(-1)). This provides a concrete calibration for when a leading-limit CDF over- or under-estimates fixed-threshold risk, not merely another derivation of the limit. The statistic is latent under the specified founder representation, not an observed total.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:20:23.049095Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42 and 46–124; exact shortest-path and density derivations independently reconstructed.",
+        "Frozen VERIFICATION.md and verify_annulus_stretch.py inspected, not executed. The checker numerically integrates an angular threshold for a finite set of radii and deficits; it does not prove localization or the remainder."
+      ],
+      "rationale": "Replacing just the intercepted subchord of length c by its minor inner-circle arc gives d_K≤d_E−c+(π/2)c. Equality at π/2 requires c=d_E and an inner diameter, and antipodal inner endpoints do attain it. For small d_E the arc excess is O_r(c³), so the ratio extends continuously to the diagonal by 1; the global comparison and triangle inequality also give continuity of d_K in the endpoints. Compactness then confines sufficiently extreme pairs to a neighborhood of inner antipodes. The tangent-plus-arc formula in that neighborhood can be checked by a lower bound on every path: if its minimum radius is q, polar arclength is at least √(1−q²/ρ_path²)|dρ_path|+q|dθ|. Integrating gives at least qφ plus the sum, over endpoint radii b, of √(b²−q²)−q arccos(q/b). This bound is increasing in q≥r when φ exceeds the sum of the two tangent angles at r, and the path with q=r, two tangents and the intervening arc attains it. Thus with u=(ρ−r)/r, v=(σ−r)/r and η=π−φ, the numerator in units of r is π−η+F(u)+F(v), F(z)=(2√2/3)z^{3/2}+O(z^{5/2}); the chord is 2+u+v+O((u+v)²+η²). Dividing gives deficit (π/4)(u+v)+η/2 with a uniformly smaller remainder. Once localized, this confines u,v,η to O(ε). After rescaling as in the marks, the event is sandwiched between positive-octant simplexes of sizes 1±O(√ε). The independent polar density is 4r⁴(1+u)(1+v)/(πH²), and the rescaling Jacobian is 32ε³/π². The volume 1/6 yields 64r⁴/(3π³H²); the boundary layer contributes O_{r,R}(ε^{7/2}). Normalizing the same integrals gives density six on the limiting simplex. Finally s=√(3π³C/64)=r²/(R²−r²), proving the scale-free inversion.",
+      "residual_risks": [
+        "Fixed proper annulus and independent normalized area sampling only. No uniformity in the vanishing-hole or thin-annulus limits, complete ratio distribution, or absolute-scale identification follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The disk-obstacle solution gives tangents and boundary arcs; it does not specify an endpoint-pair sampling law or integrate the quotient tail.",
+          "The random distance-matrix correspondence is a general metric-measure framework, not the law of two coupled distances for the same pair in a given annulus.",
+          "No readable original text was obtained in the two additional DOI checks; no whole-paper noncoverage inference is made."
+        ],
+        "reasoning": "The prior geometry is an input, not a stronger theorem on this stochastic statistic. Even an exact intrinsic-distance or ambient-distance marginal alone does not give their quotient on the same endpoints.",
+        "searches": [
+          "Chang–Choi–Kwon–Park–Yap DOI:10.1145/1064092.1064112 §1.1",
+          "Gadgil–Krishnapur arXiv:1110.6333 abstract and §1",
+          "Lawful OA attempts on Chen–Wang DOI:10.1145/2660771 and Sheng DOI:10.2307/1427086"
+        ]
+      },
+      "checked_sources": [
+        "18a133befff2 RESULT.md; indexed stretch records 4f029a6c5ce8, 681d4e624b00 and f11768ee0021",
+        "Chang et al. §1.1; Gadgil–Krishnapur abstract and §1; two limited-access lookups as specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intrinsic-distance predecessor shares a fixed-hole cubic tail and uniform-simplex marks; its outer-antipodal asymptotic or its vanishing-hole crossover cannot be specialized to inner-antipodal ratio events for any proper fixed annulus.",
+          "The first-order radial terms in the ratio deficit arise from the chord in the denominator; the tangent-plus-arc contribution has radial order 3/2. This is why the correct mark weights and identified shape parameter do not follow by reusing the old intrinsic-distance asymptotic."
+        ],
+        "reasoning": "The simplex integration method is shared, but the quotient maximization and linear defect are new inputs; merely knowing the old endpoint and its cubic tail does not suffice.",
+        "searches": [
+          "18a133befff2, RESULT.md Finding and Proof §3 (mirror offsets 0 and 4900)",
+          "Chang et al., standard disk path solution, PDF §1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing between detour ratio, stretch and geodesic dilation does not change the random variable; dropping its random chord denominator does. The earlier intrinsic-distance theorem has an outer-antipodal limiting locus, in contrast to this ratio's inner-antipodal locus.",
+          "The cylinder, cone and two-dimensional product-circle records use related quotient observables and an ε^{3/2} leading power in distinct geometries. The cylinder also has conditional Dirichlet marks and an inversion, but neither its distances nor its mark scaling coincide with the planar annulus calculation."
+        ],
+        "reasoning": "Compared equivalent ratio vocabulary and materially analogous random metrics, not just annulus titles. A cylindrical or conical sidewall development does not realize the flat circular-hole geodesic/chord ratio.",
+        "searches": [
+          "Focused primary-literature lookup for annulus geodesic-to-Euclidean stretch upper tail, intrinsic/chord ratio, dilation and detour",
+          "Resultary random stretch, annulus, and farthest-pair geodesic statistics; mirror comparisons 18a133befff2, 4f029a6c5ce8, 681d4e624b00, f11768ee0021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest annulus formula inspected is 2R⁴/(3πr(R²−r²)³) for the upper endpoint of the intrinsic distance, not the dimensionless 64r⁴/(3π³(R²−r²)²) for the ratio. The indexed same-day ratio laws are for other geometries and have different leading laws."
+        ],
+        "reasoning": "The indexed exact constants and mark laws were compared as potential equivalent formulae; no earlier or same-date distinct formula subsuming this one was identified in the inspected results. That is not exhaustive absence evidence.",
+        "searches": [
+          "Resultary searches for annulus stretch/distortion coefficients and marked rare events, compared with records 18a133befff2, 4f029a6c5ce8, 681d4e624b00 and f11768ee0021"
+        ]
+      },
+      "rationale": "The distinct result is the upper tail of the ratio for area samples, with a sharp coefficient and error and its marked law and aspect-ratio recovery. The circular-obstacle path geometry and elementary dilation bound are background. The strongest prior annulus result uses essentially related simplex-tail analysis, but for the intrinsic distance marginal, with outer rather than inner extremizers and a different coefficient. A same-day group of geometrically different stretch theorems was also compared, without using the common date as evidence of priority.",
+      "residual_risks": [
+        "A specialist exact detour distribution may be unindexed. The two incompletely accessible papers are not ruled out document-wide, and a bounded lookup is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantively close; does not give the quotient law",
+          "evidence": "The fixed-hole endpoint is attained at outer antipodes. The cubic coefficient is 2R⁴/(3πr(R²−r²)³) for intrinsic distance and the conditioning uses its deficit.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-disk-to-annulus-transition-in-farthest-pair-geodesic-sta--18a133befff2",
+          "material_read": "RESULT.md Finding and fixed-hole proof §3, offsets 0 and 4900",
+          "method": "Local published record mirror",
+          "title": "A sharp disk-to-annulus transition in farthest-pair geodesic statistics",
+          "trigger": "Strongest overlap in geometry, cubic tail and marked law"
+        },
+        {
+          "assessment": "Supports classical path geometry; does not give the random ratio tail in the inspected material",
+          "evidence": "The standard shortest-path solution alternates straight tangent segments and circular obstacle boundary arcs.",
+          "identifier_or_url": "https://cs.nyu.edu/exact/doc/computable.pdf",
+          "material_read": "PDF abstract and §1.1, pp. 1–2, text near offset 7000",
+          "method": "Open original PDF, targeted passage",
+          "title": "Shortest Path amidst Disc Obstacles is Computable",
+          "trigger": "General deterministic route theorem used by the finding"
+        },
+        {
+          "assessment": "Framework, not an exact coupled annulus-ratio asymptotic",
+          "evidence": "The observable is a random distance matrix of a metric-measure space and the paper studies correspondence between spaces and those distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.6333",
+          "material_read": "Abstract and opening of §1, PDF p. 1",
+          "method": "Open original PDF, offset 0",
+          "title": "Lipschitz correspondence between metric measure spaces and random distance matrices",
+          "trigger": "Possible general random-distance framework"
+        },
+        {
+          "assessment": "Related laws with different underlying metrics; no priority inferred from date or broad unseen noncoverage claimed",
+          "evidence": "The cylindrical and conical sidewalls and the two-dimensional product-circle case exhibit ε^{3/2} leading powers; none of the inspected statements is the fixed-hole planar annular law.",
+          "identifier_or_url": "Resultary records 4f029a6c5ce8, 681d4e624b00 and f11768ee0021",
+          "material_read": "Indexed scientific result statements",
+          "method": "Local Resultary comparison",
+          "title": "Exact extreme stretch and a thin-cylinder crossover for random sidewall pairs; Exact stretch distribution and sharp extreme distortion on a circular cone; Stratified extreme metric distortion on products of circles",
+          "trigger": "Same-day analogous ratio endpoints and tails"
+        },
+        {
+          "assessment": "Precise coverage not established from access failure",
+          "evidence": "Access returned HTTP 403; the available citation identifies the shortest-path computation topic only.",
+          "identifier_or_url": "https://doi.org/10.1145/2660771",
+          "material_read": "No readable full text in this review",
+          "method": "Lawful OA lookup",
+          "title": "Computing Shortest Paths among Curved Obstacles in the Plane",
+          "trigger": "Plausible stronger route formula for curved obstacles"
+        },
+        {
+          "assessment": "Precise scope not independently established",
+          "evidence": "The earlier annulus record describes it as a Euclidean chord study, but that record also states that the full manuscript was not inspected.",
+          "identifier_or_url": "https://doi.org/10.2307/1427086",
+          "material_read": "No primary text obtained; indirect description in 18a133befff2 only",
+          "method": "Lawful OA lookup and mirror comparison",
+          "title": "Sheng (1985), annular random-distance study",
+          "trigger": "Possible prior random annulus-pair distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–4",
+        "18a133befff2 intrinsic-distance comparison"
+      ],
+      "rationale": "The ratio measures how much a hole can lengthen a trip relative to the chord, rather than which pair has the longest trip. Quantifying the chance of near-worst distortion, the geometry of the pairs producing it, and the dimensionless shape information encoded by that chance is worthwhile beyond the deterministic upper bound. The inner-rim extremal locus contrasts with the outer-rim distance maximum. The exact coefficient, rather than the cubic exponent alone, makes recovery possible.",
+      "residual_risks": [
+        "The inversion is an asymptotic identifiability statement, not a finite-sample estimator or guarantee of uniform inference near degenerate shapes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

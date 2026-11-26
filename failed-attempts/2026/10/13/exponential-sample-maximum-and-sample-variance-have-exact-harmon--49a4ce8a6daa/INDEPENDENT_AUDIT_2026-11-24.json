@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:54:46.835316Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent all-n check: conditional on the maximum being at most x>0, the n observations are iid from the truncated exponential, so the expected unbiased sample variance is its population variance, lambda^(-2) - x^2 e^(-lambda x)/(1-e^(-lambda x))^2. Integrating the centered sample variance against the survival indicator of the maximum gives the covariance integral of x^2 e^(-lambda x)(1-e^(-lambda x))^(n-2) over x>0. With u=e^(-lambda x), the integral is lambda^(-3) times the second derivative in a of B(a,n-1) at a=1. The product B(a,n-1)=(n-2)!/[a(a+1)...(a+n-2)] yields (H_{n-1}^2+H_{n-1}^{(2)})/(n-1), exactly (1) after restoring the scale. This covers n=2 as well and proves strict positivity. Independent exponential spacings give Var(M_n)=H_n^{(2)}/lambda^2; the unbiased-variance identity with central fourth moment 9/lambda^4 gives (3). The correlation and both asymptotic constants then follow. Decoupling is interpreted as vanishing Pearson correlation, not as a joint-limit assertion. Packaged rational replay was inspected, not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The separate range result includes joint independence, which relates the two statistics without a new joint-moment calculation. Vellaisamy–Zeleke give the general exponential-spacing representation and the maximum marginal variance. Royen treats the marginal variance distribution for gamma samples, not the mixed moment."
+        ],
+        "reasoning": "The prior independence-plus-range result dominates the same covariance question. Marginal distribution results alone are not evidence of a mixed covariance.",
+        "searches": [
+          "Resultary: joint moments and range/variance in exponential sampling",
+          "Primary literature search: exponential order statistics, sample maximum and sample variance mixed moment",
+          "arXiv:1604.02644",
+          "arXiv:0710.5749"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify_exponential_max_variance_covariance.py inspected",
+        "Resultary 90264ed7a2e8",
+        "arXiv:1604.02644",
+        "arXiv:0710.5749"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Var(R)=H_{n-1}^{(2)}/lambda^2 and Var(T)=1/(n^2 lambda^2); independence gives the maximum variance as their sum."
+        ],
+        "reasoning": "Multiply the prior exact range correlation by sqrt(H_{n-1}^{(2)}/H_n^{(2)}) to obtain the frozen exact maximum correlation. This factor tends to 1; covariance asymptotics are identical, and the correlation asymptotic is unchanged.",
+        "searches": [
+          "Resultary 90264ed7a2e8 equations (1)-(4)",
+          "Vellaisamy–Zeleke arXiv:1604.02644 equations (2.7)-(2.11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record 90264ed7a2e8, Finding (1)-(2): the minimum T is independent of (range R, S^2), and Cov(R,S^2)=(H_{n-1}^2+H_{n-1}^{(2)})/((n-1)lambda^3)."
+        ],
+        "reasoning": "M_n=T+R, so Cov(M_n,S^2)=Cov(R,S^2); expanding H_n=H_{n-1}+1/n gives exactly the frozen numerator.",
+        "searches": [
+          "Resultary: exponential range/maximum and sample variance, harmonic covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record gives an all-n analytic identity, not a table of isolated sample sizes. Its equations (2)-(4) cover covariance, exact range correlation, and its leading asymptotic."
+        ],
+        "reasoning": "Exact database coverage is obtained from the indexed theorem and its reduction to M_n, not from numerical agreement.",
+        "searches": [
+          "Resultary index and local full-text mirror: exact harmonic covariance of range and sample variance, record 90264ed7a2e8"
+        ]
+      },
+      "rationale": "A distinct indexed theorem gives the identical covariance by adding an independent sample minimum to the range. It also already gives the asymptotic correlation, and the only finite-n change in the exact correlation is a known marginal-variance factor. This is demonstrated coverage, not inferred merely from title similarity or publication ordering.",
+      "residual_risks": [
+        "An older exponential-sampling mixed moment may exist; the mentioned Lam reference was not identified from its bibliographic description. This does not affect the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen covariance and implies both correlations at their stated precision",
+          "evidence": [
+            "The minimum is independent of the pair (R,S^2).",
+            "Cov(R,S^2) is the H_{n-1} harmonic formula, and the leading correlation constant is sqrt(3)/(2 pi)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8/RESULT.md",
+          "material_read": "Finding (1)-(4), scope and opening spacing proof, offset 0",
+          "method": "Local full-text mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact harmonic covariance of range and sample variance in exponential sampling",
+          "trigger": "Closest mixed-statistic match in Resultary"
+        },
+        {
+          "assessment": "Supplies maximum marginal variance and spacing law; inspected statements do not give the mixed variance covariance",
+          "evidence": [
+            "Independent normalized exponential spacings; marginal harmonic variance of the maximum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.02644",
+          "material_read": "Section 2, equations (2.7)-(2.11), PDF pp. 2-3",
+          "method": "OA PDF, bounded section reading",
+          "title": "Exponential Order Statistics, the Basel problem and Combinatorial Identities",
+          "trigger": "Potential mixed moments and known maximum variance"
+        },
+        {
+          "assessment": "Marginal rather than joint statistic in the inspected formulation",
+          "evidence": [
+            "The distribution in question is the sample variance from gamma parents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0710.5749",
+          "material_read": "PDF pp. 1-2, opening scope and formulation",
+          "method": "OA PDF, bounded reading",
+          "title": "The exact distribution of the sample variance from gamma populations",
+          "trigger": "Potential coverage through sample-variance exact distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact dependence of an extreme and dispersion is a natural invariant, but this record contributes no new invariant beyond the range theorem: adding the independent minimum supplies only the already-known marginal variance correction. The frozen proof repeats essentially the same spacing calculation. There is no surviving substantive remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Research review: sharp recovery of an initially missing receptive tie
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts with the precise strict-inequality confidence rule. It establishes invariance of all initially receptive pairs via the bound \(M_{t+1}\leq M_t/(n-1)\), derives the exact missing-pair disagreement \(d/(n-1)^t\) and confidence \(c_0\delta^t\), then identifies the first strict crossing. In the no-crossing regime a conserved degree-weighted mean proves consensus; in the crossing regime the complete averaging step gives exact finite-time consensus. The two-mean recurrence verifies the final opinion correction. The bundled `verify.py` checked 720 exact-rational trajectories across a range of dimensions and parameters. The proof, not that finite enumeration, establishes the all-size claim.
+## correctness
 
-**Originality — PASS subject to explicit residual risk.** The original Li–Luo–Porter article [1] proves convergence of confidence bounds to zero or one and eventual stabilization of effective graphs; its simulations show missing links within an opinion-consensus cluster. Neither theorem gives the sharp recovery decision \(\delta_c=1/(n-1)\), exact recovery time, or finite-time consensus level. Its §6.2 specifically asks about mediator nodes and parameter effects. Related work on fixed-confidence network bridges [2], heterogeneous adapting thresholds [3], and rewiring opinion networks [4] involves distinct dynamics. Targeted literature and published-finding searches did not identify an equivalent or stronger covering statement. Risk: unindexed specialist literature and full texts not examined for the two less directly related works.
+PASS
 
-**Value — PASS.** The result directly resolves a mathematically identified mechanism question for a natural family at every network size, separating consensus of expressed opinions from actual restoration of receptiveness. The sharp population-dependent boundary, the exact recovery delay and limiting opinion make the distinction testable within the model. The result is not a general classification of multiple inactive ties, nor a claim about actual human attitudes.
+The underlying graph stays K_n. While its one ineffective edge is absent, the update is the self-looped averaging matrix for K_n minus that edge. If M is the maximum other-edge disagreement, opposite endpoints differ by at most 2M via a mediator. To compare an updated endpoint with an updated mediator, subtract the average over n opinions from that over n−1 opinions. The numerator over n(n−1) sums n−1 disagreements with the omitted endpoint: n−2 are at most M and one at most 2M, so the new ordinary-edge gap is at most M/(n−1). Mediators share the same updated opinion. Since receptive bounds do not decrease, this proves invariance until recovery. Meanwhile subtracting endpoint updates divides their positive gap by n−1 each step, and the absent bound scales by δ. Strict receptiveness requires ((n−1)δ)^t>d/c₀, giving no finite recovery at or below threshold (including δ=0) and the asserted first integer T above it, even when the logarithmic ratio is an integer. Endpoint gaps up to and including T remain nonzero, so consensus is first at T+1. Loop-inclusive degrees n−1 at the endpoints and n elsewhere give invariant L for the missing-edge update. Diameter goes to zero if the graph never completes. Endpoint and mediator mean difference contracts with signed eigenvalue λ=−(n−2)/[n(n−1)]; subtracting that degree-weighted mean from the ordinary mean gives coefficient 2(n−2)/[n(n²−2)] times this difference. Since the final consensus opinion is the ordinary mean at T, this proves the closed formula. An exact boundary example with x=(0,1/4,1/3,3/5), c₀=1/2, δ=2/5 has equal gap and confidence 1/5 at t=1 (still absent), recovery at t=2, and common value 17857/60480 at t=3. The divergence of T at the threshold requires d>c₀, as stated.
 
-**Independent validation and limits.** The included script provides reproducibility checks but cannot certify proof completeness, publication priority, or empirical applicability. The 2025 journal article is the same research source as the arXiv preprint, not independent confirmation. Independent external review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature
+The exact same-model literature establishes qualitative stabilization and observes hidden consensus, not the exact stratification and consensus-value formula. Distinct catalogue results overlap the threshold substantially, including one nearly identical K_n theorem and a broader twin-pair threshold. They are documented as actual mathematical coverage of those components, not credited as distinctions and not treated as evidence of earlier priority. The submitted result also determines the exact nonsymmetric finite-time consensus opinion, which none of the compared statements supplies. That is a supported distinction rather than a claim that hidden consensus or even the cutoff is unique across the catalogue.
 
-[1] Li, Luo, Porter, *Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds*, arXiv:2303.07563v3, §§2.2, 3.1, 5, 6.2 (2023/2024); SIAM J. Appl. Dyn. Syst. (2025), DOI:10.1137/23M1558951.
+## value
 
-[2] Schawe, Fontaine, Hernández, *The bridges to consensus*, arXiv:2102.10910 (2021).
+PASS
 
-[3] Vasca, Bernardo, Iervolino, *Practical consensus in bounded confidence opinion dynamics*, Automatica (2021), DOI:10.1016/j.automatica.2021.109683.
+The one-gap clique is the simplest complete-network family that isolates a mediator mechanism rather than merely observing that a simulation converges. Exact timing separates network recovery from opinion agreement. For nonsymmetric initial means the closed finite consensus value quantifies the effect of the switching time and the sign of the pre-switch mode, unlike an assertion of consensus alone. It also identifies the limiting agreement as recovery is delayed arbitrarily near the cutoff.
 
-[4] *adaptive bounded-confidence model of opinion dynamics on networks*, J. Complex Networks (2023), DOI:10.1093/comnet/cnac055.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

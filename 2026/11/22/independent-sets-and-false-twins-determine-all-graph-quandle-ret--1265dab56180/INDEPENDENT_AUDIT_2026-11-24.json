@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:33:56.215506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–60",
+        "VERIFICATION.md and verify_graph_quandle.py (inspection, not execution)",
+        "Independent direct enumeration on Q_{P3}, using indexing 2v+a"
+      ],
+      "rationale": "Every two-point fiber is an inner orbit since each vertex has a neighbor. Equivariance of a homomorphism with point symmetries forces both points of a fiber into one target fiber. Every binary map there has the form epsilon_v*a+b_v, and direct substitution yields epsilon_w*adj(v,w)=adj(h(v),h(w)). Symmetry on each edge and connectivity make the slope global. With slope zero, the vertex image is independent and idempotence makes h fix its image and b constant on each preimage, giving 2^j*j^(n-j) per independent j-set and rank j. With slope one, h preserves the adjacency indicator and is idempotent, and b vanishes on its image. Applying the adjacency identity to (h(v),w) gives N(h(v))=N(v); conversely open-neighborhood equality on each argument gives exactly the preservation required. Thus each twin class chooses its retained r vertices, their fixed points and independent choices of one of those r vertices and a bit per omitted vertex, giving rank 2r in that class and the stated product. The branches are disjoint; only the identity occurs in the second branch for singleton classes. P_n with n>=4 has distinct open neighborhoods and the no-consecutive-positions shift gives binom(n-j+1,j). In a separate operation-table test all 46656 maps on Q_{P3} yielded 19 retractions with polynomial 6T+8T^2+4T^4+T^6. That finite test is not the argument for arbitrary graphs.",
+      "residual_risks": [
+        "Isolated vertices and disconnected graphs are not included; the proof of a single common fiber slope uses connectivity and non-singleton inner orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homogeneous abelian-inner extensions classify homogeneous objects, while many Q_G are not homogeneous. The general medial mesh theorem covers the objects, and mesh homology in Theorem 4.2 requires a permutation and group isomorphisms.",
+          "Singh's endomorphism-monoid results address residual finiteness/profinite properties, not this exact census. The semisimple Alexander family does not have the two-point inner orbits needed here."
+        ],
+        "reasoning": "The general object representation and isomorphism theorems do not supply either branch of the nonbijective idempotent census; the semisimple Alexander hypotheses do not give a dominating case.",
+        "searches": [
+          "arXiv:2403.07383 Theorem B and Theorem 4.1",
+          "arXiv:1409.8396 Theorems 3.14 and 4.2",
+          "arXiv:2311.03708",
+          "2026/10/18/SCOPE-semisimple-alexander-quandle-retractions-a-transformation-affine--117335b68a3e"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary graph-quandle and related rank-census hits",
+        "arXiv:2403.06209",
+        "arXiv:2403.07383",
+        "arXiv:1409.8396",
+        "arXiv:2311.03708",
+        "Distinct Alexander and graph evolution algebra findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-map isomorphism calculation compares adjacency indicators for a restricted lift, and fiber flips furnish automorphisms; neither describes collapsed maps.",
+          "The mesh isomorphism equations have a related form, but their hypotheses exclude collapsed slopes and nonpermuting vertex projections. The additive unipotent normal form relies on its own addition structure and supplies only the K_2 match in the two-point-orbit setting."
+        ],
+        "reasoning": "The prior passages explain structural ingredients, but the connectivity dichotomy, identification of all full-fiber idempotents with false-twin projections, and the independent-set census for collapsed maps are additional to the inspected results.",
+        "searches": [
+          "arXiv:2403.06209 Lemmas 5.1–5.2",
+          "arXiv:1409.8396 Theorem 4.2 and conditions H1–H2",
+          "Rank-one unipotent Alexander record Finding and Proof section 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same graph operation is involutive and is an abelian cocycle extension of a trivial quandle; it also has an affine mesh with orbit groups F_2, zero connecting homomorphisms, and constants given by adjacency.",
+          "The distinct rank-one unipotent Alexander record covers Q_{K_2} exactly: in right-operation convention (v,a) diamond (w,b)=(v,a+v+w), identified by (v,a)->(a,v) with its F_2^2 operation."
+        ],
+        "reasoning": "The extension and mesh descriptions are equivalent formulations of the object, not of its rank census. The K_2 identification is genuine equivalence for that case only: larger fields in the unipotent record have inner-orbit size greater than two.",
+        "searches": [
+          "Resultary: graph quandle retraction-rank polynomials, false twins and independent sets",
+          "quandle homomorphisms of medial quandles affine mesh homomorphism retraction idempotent graph quandle",
+          "arXiv:2403.06209 Proposition 4.9 and section 5.1",
+          "arXiv:2403.07383 Remark 4.9",
+          "arXiv:1409.8396 section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the assigned record itself. The distinct rank-one unipotent record yields the exact K_2 polynomial 4T+T^4 after the identification above.",
+          "The graph evolution algebra result counts linear projection derivations, not quandle endomorphisms, despite the shared graph twin statistic."
+        ],
+        "reasoning": "The K_2 exact entry is credited as shared coverage, not evidence of priority from a common date. The other census is for a different operation and maps. The indexed hits do not establish larger shared graph coverage.",
+        "searches": [
+          "Resultary: graph quandle exact retraction rank, false twins, Alexander rank census",
+          "2026/11/22/SCOPE-retraction-images-and-exact-rank-census-for-rank-one-unipotent-a--b3ec99783ff2",
+          "2026/11/22/SCOPE-twin-partition-universality-of-projection-derivation-ranks-in-ch--5645a714267a"
+        ]
+      },
+      "rationale": "The graph quandle, orbit/extension framework, automorphism lifts, and the exact K_2 census shared with a distinct same-day Alexander result are not counted as separate distinct contributions. The supported difference is the complete idempotent image-rank census for arbitrary connected G with its independent-set and false-twin factors. The inspected general mesh statements classify objects and isomorphisms rather than arbitrary nonbijective idempotents.",
+      "residual_risks": [
+        "Bounded comparisons do not certify priority over all kei, medial-quandle or universal-algebra literature. A search-term miss is not evidence of absence; the assessment is on the exact inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object and restricted isomorphism/flip coverage, not the general retraction count",
+          "evidence": [
+            "Graph quandle is involutive, adjacency is a cocycle, and homogeneity is equivalent to vertex transitivity.",
+            "The restricted lift checks equal adjacency and the flips act by automorphisms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.06209",
+          "material_read": "v1 section 1 p. 3 (offsets 8800–11558), Proposition 4.9 near 35500, section 5.1 pp. 15–16 Lemmas 5.1–5.2 near 37303–40196",
+          "method": "Lawful OA PDF passages",
+          "title": "Homogeneous Quandles with Abelian Inner Automorphism Groups and Vertex-Transitive Graphs",
+          "trigger": "Exact graph-quandle construction and possible graph-map normal form"
+        },
+        {
+          "assessment": "Object and isomorphism classification with homogeneity restrictions, not classification of all projections",
+          "evidence": [
+            "Uses abelian extensions, support graphs and affine meshes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.07383",
+          "material_read": "v2 introduction/Theorem B pp. 2–3; Proposition 3.9 and Corollary 3.10 p. 6; Theorem 4.1 p. 7 and Remark 4.9 pp. 9–10",
+          "method": "Lawful OA PDF passages",
+          "title": "Homogeneous Quandles with Abelian Inner Automorphism Groups",
+          "trigger": "Broader abelian-inner construction and affine-mesh alias"
+        },
+        {
+          "assessment": "The matching equations govern isomorphisms, not all retractions",
+          "evidence": [
+            "Mesh homology uses a permutation of indices and group isomorphisms; the theorem characterizes isomorphic mesh sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.8396",
+          "material_read": "Introduction p. 2 summary of Theorem 3.14; section 4 pp. 9–10, Definition 4.1, Theorem 4.2 and proof start (offsets 31950–35419)",
+          "method": "Lawful OA PDF; locate theorem then read bounded passage",
+          "title": "The structure of medial quandles",
+          "trigger": "General nonhomogeneous affine-mesh coverage"
+        },
+        {
+          "assessment": "General finiteness and topology results, not a rank enumeration in the compared material",
+          "evidence": [
+            "Discusses residual finiteness, profinite cases and Hopficity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.03708",
+          "material_read": "v1 abstract and introduction pp. 1–2, offsets 3300–6078",
+          "method": "Lawful OA PDF passages",
+          "title": "Endomorphism monoid and automorphism group of residually finite and profinite quandles",
+          "trigger": "General endomorphism-monoid literature"
+        },
+        {
+          "assessment": "Semisimple family has incompatible orbit sizes",
+          "evidence": [
+            "A zero moving space gives singleton orbits; otherwise their size is the size of the moving space, which cannot be two under the semisimple hypotheses."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-semisimple-alexander-quandle-retractions-a-transformation-affine--117335b68a3e",
+          "material_read": "Local mirror RESULT.md offsets 0–3718 and relationship passage near 7800",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "Semisimple Alexander-quandle retractions: a transformation–affine factorization and exact image ranks",
+          "trigger": "Nearby exact census of idempotents"
+        },
+        {
+          "assessment": "Exact K_2 coverage with no inferred priority, not arbitrary connected G",
+          "evidence": [
+            "For p=2,f=1 the right operation matches Q_{K_2}, giving 4T+T^4. The ordinary inner orbit over each b consists of all a in F_{p^f}; p^f>2 is therefore incompatible with all the graph fibers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-retraction-images-and-exact-rank-census-for-rank-one-unipotent-a--b3ec99783ff2",
+          "material_read": "Local mirror RESULT.md offsets 0–4162 (finding, scope, normal form and start of idempotence proof)",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "Retraction images and exact rank census for rank-one unipotent Alexander quandles",
+          "trigger": "Distinct same-day exact census with potential isomorphism"
+        },
+        {
+          "assessment": "Different algebraic category and rank statistic",
+          "evidence": [
+            "Counts idempotent linear derivations of a graph evolution algebra, not quandle retractions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-twin-partition-universality-of-projection-derivation-ranks-in-ch--5645a714267a",
+          "material_read": "Local mirror RESULT.md beginning and prior-work passage near 5600",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "Twin-partition universality of projection-derivation ranks in characteristic-two graph evolution algebras",
+          "trigger": "Distinct same-day graph twin and idempotent-rank hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–18 and 27–52",
+        "Graph-quandle isomorphism and exact Alexander special-case comparisons"
+      ],
+      "rationale": "Retraction ranks of a natural graph-associated quandle encode two different structural features of the graph, separated by an exact idempotent classification. In particular, for false-twin-free connected graphs the rank counts recover every nonempty independence coefficient. The general formula is stronger than any single small instance or an automorphism count.",
+      "residual_risks": [
+        "No claim to classify arbitrary non-idempotent endomorphisms or to recover the graph from the rank polynomial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

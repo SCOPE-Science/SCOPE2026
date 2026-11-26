@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument identifies six general-position great circles from six antipodal vertex pairs. The exact checker reconstructs the 30-edge icosahedron, all 20 facets, the 20 nonzero three-vector determinants, and 32 distinct sign chambers. It checks the section side count for each chamber, the nested inner/outer pentagons through exact neighbor signs and Voronoi inequalities, and the polar-cap formula by a separate numerical integration. The spherical right-triangle identity and explicit integration-by-parts formula support the continuous law. No simulation is treated as a proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Independent integer-pair arithmetic in Q(√5) reproduced the 30 edges, 20 triangular faces, no triple concurrence, 32 distinct sign patterns and all relevant midpoint incidences. Six general-position great circles have 32 chambers; their 12 vertex-ray and 20 facet-ray representatives give respectively 10 and 12 crossed edges, one section vertex per crossed edge. About a supporting vertex q the five ring neighbors are equally spaced at dot product 1/√5, and the other vertices are their antipodes and −q. The inner chamber is bounded by the five positive neighbor tests (their sum implies u·q>0); the Voronoi pentagon is bounded by their five bisectors. The other bisectors are at distances at least π/2−b>B(b) and do not clip it. Each normalized q+w gives a distinct inner vertex and outer side midpoint, so convexity gives nesting. In the hemisphere around q, a side at angular distance h removes the azimuth interval of half-length arccos(tan h cot t) at radius t; the five removed intervals first meet at half-length π/5. Integrating against sin t and differentiating the proposed L verifies the lens expression with zero at t=h. This gives the two joint cap areas and the factor 12/(4π); spherical excess of the inner pentagon gives its stated mass. In the overlap cos b<z<cos a, the outer cap has width density 2π in area units, while the positive inner density is 2π−10 arccos(z tan a/√(1−z²)), strictly smaller. The exclusive ends and minimum possible width follow from the respective inradii and circumradii, including B(a)=b and cos B(b)=√((5+2√5)/15). Exceptional section/width ties have zero Haar area.
 
-The 2023 polytope-slicing paper proves a general chamber technique, not these joint values. The published discrete icosahedron section law provides only the marginal section count; the already studied joint silhouette/section law has no continuous width coordinate. The 2026 polyhedral width-density work provides a generic co-area technique and evaluated examples for other solids but no inspected exact conditional icosahedron width law. The new claim is the complete two-component mixed distribution, including sharp exclusive-width intervals; none of those cited results mathematically entails the formula without additional geometric calculation. The 2026 full paper was inspected for its framing and examples, with remaining priority uncertainty for obscure specialized treatments.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant couples two natural measurements on a *single* orientation, not two independent experiments. Its complete exact law distinguishes ten- versus twelve-sided sections by sharp threshold ranges and provides every conditional width probability, substantially more than a marginal section probability or a mean-square width. The nested-pentagon mechanism is a reusable structural bridge between a polyhedron's section arrangement and its Voronoi normal fan.
+The distinctive claim is the elementary same-normal (central-section count, width) law and its type-separated thresholds, not either marginal. Earlier sources already give both marginals and their separate spherical descriptions, including the outer width pentagon and its transition value, but their displayed results do not compare the pentagons by orientation, identify their exact midpoint inclusion, or furnish both type-conditioned survival laws. The same-day joint shadow–section record has a different first observable and does not establish the width coupling. This is a bounded statement-level assessment, not a priority certificate.
 
-## Scope and limitations
+## value
 
-Only generic centered sections of a regular icosahedron are covered. The full conditional distribution is expressed through elementary inverse trigonometric functions; no section-area law or off-center extension is asserted. Historical novelty is best-knowledge, not an exhaustive priority certificate. Exact algebra and geometry are the proof; software and simulation are supporting checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The within-normal coupling gives exact rules for when a continuous width measurement identifies the section polygon and how often both types occur in the overlap. This cannot be recovered by taking independent marginals, and the cap-area difference supplies all joint widths, not an arbitrary cutoff or one sampled probability. The nested pentagons explain the structural source of the separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

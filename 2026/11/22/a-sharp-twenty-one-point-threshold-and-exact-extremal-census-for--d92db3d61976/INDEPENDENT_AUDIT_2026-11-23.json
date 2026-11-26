@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:23:43.889813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite game is over all two-named-strict-linear-order extensions; rigid marked orders make the one-point types exactly pairs of insertion gaps. A rank-one pair fills all nine cells. To witness rank three, an anchor needs such a partner in each quadrant, where that partner plus the four local open cells require five distinct points. At size 21 the anchor is the unique median of both global orders and each partner the median of both local orders. For any partner, the nine cells consist of its four local cells, two cells in each adjacent quadrant (each adjacent group must straddle the local median in the relevant order), and the occupied opposite quadrant. Thus the four shared-side shuffles and four local permutations are independent and reconstruct the host bijectively. Independently enumerating 5! permutations and the 252 shuffles gives 16 and 180, with failure sets of sizes 42, 42 and intersection 12 for the shuffles; the count is 68,797,071,360,000. A partner's extreme outer cell has a unique point; adding it leaves the subcell between the two points empty, preventing the partner from rank two. Every possible rank-three anchor and its witnessing partners are forced, so the host cannot reach rank four. The bundled checker was inspected, not executed; python3 checker.py in the frozen result directory is the advertised supplementary replay and does not enumerate all length-21 hosts. The universal lower bound and census are proved by the cell argument, not by the checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The named-rank paper's §6, Theorem 6.4, computes floor(log2(|Y|+1)) for one strict linear order.",
+          "The strongest distinct indexed overlap gives minimum q(2^t−1) and census (q!)^(2^t−1) for one order with q named unary colours; q=2,t=3 gives 14 and 128. The unary-bijection universal-realizer result studies bounded-depth term equalities in another vocabulary."
+        ],
+        "reasoning": "The general rank framework supplies the recurrence, not the occupancy and gluing laws for independent orders. Named unary colours do not specify the independent comparison of arbitrary pairs in the second order. None of these checked statements dominates the claim.",
+        "searches": [
+          "arXiv:2604.14461v1",
+          "2026/11/22/SCOPE-permutation-block-bases-for-one-point-extension-rank-in-coloured--097b0c0d5178",
+          "2026/11/22/SCOPE-sharp-universal-realizers-for-two-point-bounded-depth-types-of-f--7460f2fe70d1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.14461v1",
+        "arXiv:2404.08775",
+        "2026/11/22/SCOPE-permutation-block-bases-for-one-point-extension-rank-in-coloured--097b0c0d5178",
+        "2026/11/22/SCOPE-sharp-universal-realizers-for-two-point-bounded-depth-types-of-f--7460f2fe70d1",
+        "2026/11/8/SCOPE-sharp-rank-two-stabilization-for-uniformly-random-permutations--6881f13fc4cb",
+        "2026/10/18/SCOPE-exactly-226-rank-two-theories-of-separable-permutations-and-a-sh--7fe7e8086c11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems compared compute rank for a single order, coloured order, or measures on two-order objects; none computes the four independent shuffles of adjacent quadrants."
+        ],
+        "reasoning": "Going from the recurrence or a one-dimensional rank formula to the exact census requires proving forced centers, checking the nine-cell condition across quadrants, and proving a global bijection. The analogous coloured-order count is not this result as a specialization.",
+        "searches": [
+          "arXiv:2604.14461v1",
+          "arXiv:2404.08775",
+          "2026/11/22/SCOPE-permutation-block-bases-for-one-point-extension-rank-in-coloured--097b0c0d5178"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "López-Callejas–Navarro-Castillo §2, Definitions 2.2–2.3, defines the one-point-extension game used here; Snowden §1.2 uses the same permutation structures.",
+          "The indexed rank-two stabilization record concerns first-order quantifier-rank-two equivalence, not the recursive rank of a marked type in a fixed host."
+        ],
+        "reasoning": "Two named orders and normalized permutations are exactly interchangeable representations; translating the extension game to two-dimensional gaps does not turn it into first-order rank or an arbitrary-pattern universality property.",
+        "searches": [
+          "arXiv:2604.14461v1",
+          "arXiv:2404.08775",
+          "2026/11/8/SCOPE-sharp-rank-two-stabilization-for-uniformly-random-permutations--6881f13fc4cb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary hit is the frozen identity, not an independent table. The two other indexed findings count rank-two logical theories or representative sizes (one confined to separable permutations), not minimum rank-three hosts for this game."
+        ],
+        "reasoning": "An exact table for equivalence classes by first-order rank does not enumerate permutations by the extension-game invariant. The 16 and 180 local counts come from the independent occupancy and straddling constraints, with the global count proved bijectively.",
+        "searches": [
+          "2026/11/22/SCOPE-a-sharp-twenty-one-point-threshold-and-exact-extremal-census-for--d92db3d61976",
+          "2026/11/8/SCOPE-sharp-rank-two-stabilization-for-uniformly-random-permutations--6881f13fc4cb",
+          "2026/10/18/SCOPE-exactly-226-rank-two-theories-of-separable-permutations-and-a-sh--7fe7e8086c11"
+        ]
+      },
+      "rationale": "The rank and the permutation class are established. Bounded primary and indexed comparisons support a distinct claim for two named orders: the exact rank-three threshold and minimum-host census, including independent side interleavings. The strongest distinct indexed comparison computes the analogous invariant for a single order with named colours, not two independent orders.",
+      "residual_risks": [
+        "This was a bounded claim-level comparison. Unindexed or differently formulated two-order extension-game calculations are not ruled out; no priority inference is made from same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant; finite formula in different class",
+          "evidence": "The computed finite class is one linear order, with logarithmic rank in the host size.",
+          "identifier_or_url": "https://arxiv.org/html/2604.14461v1",
+          "material_read": "§2 Definitions 2.2–2.3 (offset about 12100); §6 Theorem 6.4 (offsets 6550–8432 in located extracts)",
+          "method": "Localized reading of accessible primary HTML",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Source of the rank and possible general domination"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts 37 integer-valued measures on permutations, not extension ranks or hosts.",
+          "identifier_or_url": "https://arxiv.org/html/2404.08775",
+          "material_read": "§1.2 and Theorem 1.1, near offset 2800",
+          "method": "Localized reading of accessible primary HTML",
+          "title": "The thirty-seven measures on permutations",
+          "trigger": "Same two-order Fraïssé class"
+        },
+        {
+          "assessment": "Same rank and kind of census, different structure class",
+          "evidence": "Threshold and census q(2^t−1) and (q!)^(2^t−1) use one linear order plus colours and do not encode arbitrary second-order shuffles.",
+          "identifier_or_url": "2026/11/22/SCOPE-permutation-block-bases-for-one-point-extension-rank-in-coloured--097b0c0d5178",
+          "material_read": "Local mirror RESULT.md, opening finding at offset 0",
+          "method": "Semantic index and bounded local statement inspection",
+          "title": "Permutation-block bases for one-point extension rank in coloured linear orders",
+          "trigger": "Strongest distinct overlapping Resultary statement"
+        },
+        {
+          "assessment": "First-order quantifier-rank-two invariant",
+          "evidence": "The shortest representative size nine addresses a different equivalence relation.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-rank-two-stabilization-for-uniformly-random-permutations--6881f13fc4cb",
+          "material_read": "Local mirror RESULT.md, opening finding at offset 0",
+          "method": "Semantic index and bounded local statement inspection",
+          "title": "Sharp rank-two stabilization for uniformly random permutations",
+          "trigger": "Same two-order models and potentially confusable rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a natural first nontrivial multi-step realization threshold for a permutation extension game and describes every extremal witness by a small product of forced local patterns and nontrivial shuffles. The exact census and proof that no minimum witness already has rank four give usable structural information beyond the existence of a 21-point example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

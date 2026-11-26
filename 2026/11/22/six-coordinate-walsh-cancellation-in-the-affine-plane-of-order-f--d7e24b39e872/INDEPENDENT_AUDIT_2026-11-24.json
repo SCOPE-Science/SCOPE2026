@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:42:58.619929Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are 20 lines, 480 bases, 90 bases through a point and 12 through a pair. Expanding (1-2) to the intersection size yields W(S)=480-180k+48 binom(k,2)-8 binom(k,3)+8t, where t counts the collinear triples in S. For k<5 the part independent of t is positive, and at k=5 it is not divisible by 8. At k=6 cancellation needs t=5; without a full line, five collinear triples would partition the pairs of six points into triangles, impossible at odd vertex degree. With a full line the only extra collinear triple uses the two exterior points and the intersection of their joining line with the full line. This gives 20 times (66-18)=960. The independent field/coset replay matched the entire absolute Walsh table and complement-sign relation, the zero counts (960,4230,960) at weights (6,8,10), the rank 59386, and the projection-support transform numerator 2232436. Largest and least nonzero magnitudes are 480 and 4, so the nonzero-spectrum condition number is 120. Translation-averaging any projection preserves identity on the prescribed range, keeps the image in that range, and cannot increase its endpoint norm. The unique commuting projection is the support multiplier, with both endpoint norms equal to the absolute kernel sum (real or complex), giving exactly 558109/16384. Replay: /workspace/branches/93fb65a0-4dc7-420f-b86c-2cec86339a46/replay_record2.py and replay_record2.log, with the supplied verify.py and reproducibility notes inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 1a9938b7ebb8, Finding and Proof, works with nonblocks of Steiner triple systems and gives modulo-eight nonvanishing when v is 5 or 7 modulo 8. Resultary 417690500a98, Finding and Proof, works with binary projective bases and has first singular rank five. Zumbrägel's abstract concerns affine designs and matroid/coding constructions."
+        ],
+        "reasoning": "The Steiner theorem assumes three-point lines, not the four-point lines here, and the binary projective matroid has a different ground set and bases. The general affine incidence framework supplies data for the first terms of W, not the distribution of collinear triples or its Fourier-support projection norm.",
+        "searches": [
+          "Local Resultary: uniform dyadic nonvanishing Steiner basis transform",
+          "Local Resultary: sharp dyadic Fourier divisibility binary projective bases",
+          "Zumbrägel arXiv:1605.03789"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary exact, numeric and related matroid-transform searches",
+        "Resultary dbc40e7ecd4a, 270b10657346, 1a9938b7ebb8, 417690500a98",
+        "arXiv:1605.03789 and Schepens thesis abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearby AG(2,3) statement computes a different fixed geometry, not a theorem for all affine plane orders. The simple incidence counts determine the constant/point/pair contributions to W; the remaining signed behavior depends on the collinear-triple count t(S), including its distribution across all S. The norm uses a second transform on the locations, not just on the number, of zero modes."
+        ],
+        "reasoning": "The general Fourier identities and norm averaging alone do not imply these numbers. In particular neither a first-divisibility result for another matroid nor the total nullity determines the endpoint norm. The exact evaluated spectrum and geometry are not specializations of the accessible compared statements.",
+        "searches": [
+          "Local Resultary full statements: 1a9938b7ebb8, 417690500a98, dbc40e7ecd4a",
+          "Zumbrägel arXiv:1605.03789; Schepens thesis figure 35 as cited in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-title match d7e24b39e872 is the assigned record. Same-day dbc40e7ecd4a, Finding and Assumptions and scope, uses the basis-incidence transform and a sharp endpoint range projection but for AG(2,3), with 72 bases, 240 null frequencies and projection constant 97/16."
+        ],
+        "reasoning": "The signed basis sum, Boolean Fourier multiplier and eigenvalues of counting convolution on point masks are equivalent descriptions, but a different plane order changes the basis hypergraph and spectrum. The same-day record is a structural comparator, not an identical claim or evidence of priority in either direction.",
+        "searches": [
+          "Local Resultary: six-coordinate Walsh cancellation AG(2,4) 960 6150",
+          "Local Resultary: exact boolean Fourier spectrum and sharp range projection for the affine plane"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target record returned on the exact numerical lookup. Resultary 270b10657346, Finding and Assumptions and scope, has a sixteen-point ground set but uses 140 four-point affine planes of F2^4, an invertible spectrum, and an inverse norm 3617/840. The close AG(2,3) table in dbc40e7ecd4a reports different parameters and invariants."
+        ],
+        "reasoning": "Sixteen points and the same class of transforms do not match the indicator kernel: quadruples in F2^4 have even size and are not the odd-size basis triples of the F4 plane. No distinct equivalent table was established by these bounded checks.",
+        "searches": [
+          "Local Resultary: AG(2,4) complete Walsh spectrum and endpoint norm 558109/16384",
+          "Local Resultary: sixteen-point affine Walsh multiplier spectrum"
+        ]
+      },
+      "rationale": "Best of knowledge, the supported contribution is the exact first-cancellation geometry, full multiplier data, and the resulting exact endpoint projection constant for the GF(4) affine plane's basis-incidence convolution. The coefficient expansion and the norm-minimizing averaging technique are methods, not original claims. Closely related affine-plane computations at other parameters are credited separately from this case.",
+      "residual_risks": [
+        "The 2016 texts' interiors and the cited figure were not accessed in the bounded attempts.",
+        "An equivalent unindexed calculation is not excluded. Shared catalogue dates do not establish the order of similar distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological match, distinct q=3 case, no general parameter theorem in the compared statement",
+          "evidence": "F3^2, 72 bases, 240 zero modes, endpoint norm 97/16.",
+          "identifier_or_url": "Resultary dbc40e7ecd4a",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local Resultary search and mirror excerpt",
+          "title": "Exact Boolean Fourier spectrum and sharp range projection for the affine plane of order three",
+          "trigger": "Same transform, projection problem and natural affine-plane family"
+        },
+        {
+          "assessment": "Related divisibility theorem on different matroids",
+          "evidence": "Three-point blocks; modulo-eight nonvanishing for v congruent to 5 or 7 modulo 8.",
+          "identifier_or_url": "Resultary 1a9938b7ebb8",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary search and mirror excerpt",
+          "title": "Uniform dyadic nonvanishing for the Walsh transform of Steiner matroid bases",
+          "trigger": "Rank-three basis signed transform with geometric lines"
+        },
+        {
+          "assessment": "Different basis set and parameter",
+          "evidence": "Ground set F2^r minus zero; first singularity in rank five.",
+          "identifier_or_url": "Resultary 417690500a98",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary search and mirror excerpt",
+          "title": "Sharp dyadic Fourier divisibility and the first singular rank of binary projective matroid bases",
+          "trigger": "First singularity for a geometric matroid's basis transform"
+        },
+        {
+          "assessment": "Distinct convolution support and invariant",
+          "evidence": "140 four-point affine planes in F2^4, no zero modes and inverse norm 3617/840.",
+          "identifier_or_url": "Resultary 270b10657346",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local Resultary search and mirror excerpt",
+          "title": "Eight-level zero-free Walsh spectrum for the classical sixteen-point affine geometry",
+          "trigger": "Same ambient number of coordinates and a full exact spectrum"
+        },
+        {
+          "assessment": "Abstract provides incidence and coding context, not an assessment of the whole paper",
+          "evidence": "Describes affine designs and matroid and projective q-analog frameworks.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.03789",
+          "material_read": "PDF abstract excerpt lines 12–25; interior not independently inspected",
+          "method": "OA passage retrieval timed out; read bounded PDF excerpt via webfetch",
+          "title": "Designs and codes in affine geometry",
+          "trigger": "Cited affine matroid/design incidence framework"
+        },
+        {
+          "assessment": "Abstract concerns representation of rank-three matroids, not a full-text finding on spectrum coverage",
+          "evidence": "The abstract describes methods to visualize incidences. Figure 35 locator is from the frozen comparison.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/69852125/Schepens_2016.pdf",
+          "material_read": "PDF abstract excerpt lines 57–65; figure and interior not independently inspected",
+          "method": "OA passage retrieval timed out; read bounded PDF excerpt via webfetch",
+          "title": "Matroid visualization: avoiding false line incidents in geometric visualization methods for matroids of rank 3",
+          "trigger": "Cited same AG(2,4) matroid in figure 35"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "AG(2,4) is a standard small affine plane with four-point lines; its natural basis-incidence operator tests cancellation outside the three-point-line Steiner setting. The nullity measures the precise obstruction to recovery, the minimal supports show that the first lost frequencies have a rigid geometric cause, and the sharp endpoint constants measure the unavoidable cost of projecting onto the recoverable modes even without imposing translation invariance. The full small-instance invariant is useful beyond an unsupported spectrum computation or a routine averaging lemma.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

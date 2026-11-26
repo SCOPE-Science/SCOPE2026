@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:36.566013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The statistic counts distinct nonempty palindrome strings of length at most one circuit, not occurrences or a length-by-length histogram. Partitioning by the number of ones is exhaustive. The zero- and one-marker counts are the largest gap and one plus the median gap, respectively. For two markers, each distinct internal gap gives a disjoint string family; its exterior radius is the maximum, among occurrences of that gap, of the minimum of its two neighbors. For three markers the two internal gaps must coincide and the two exterior zero strings share the unused gap, so their combined length is bounded by that gap. These arguments also work with zero gaps and with n=3. The resulting sums give all three stated formulas. With distinct gaps, n−3<=3γ−3, so γ>=ceil(n/3); solving for the smaller two gaps at equality gives the listed triples, and the difference from the repeated-gap count is positive for n>=14. Rotations and reversal generate all gap orderings of a multiset, yielding the claimed dihedral class counts. Fresh replay at branches/9e59a5c4-bfc7-46df-a136-31839cb7e520/independent_check.py enumerated actual palindrome strings for all 9,880 ordered gap triples through n=40 and reproduced the maximizing triples at every n=14,...,40. This is bounded evidence; the original uploaded verifier was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson's general circular-palindrome bound and Biggles construction are credited by the frozen comparison; the Biggles lemma is identified by A246999. No full-text statement about the general three-gap count was available for comparison.",
+          "The earlier Resultary 0f3724d4b165, RESULT.md Assumptions at offset 0, explicitly excludes cyclic factors."
+        ],
+        "reasoning": "An unrestricted upper bound and a single infinite construction do not yield an exact fixed-weight count for every gap multiset, or identify all maximizers. The linear result has different boundary conditions and is not a broader circular theorem.",
+        "searches": [
+          "Simpson, doi:10.1016/j.tcs.2014.07.012, publisher and Murdoch repository",
+          "Resultary 0f3724d4b165, linear three-marker words"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Simpson (2014), doi:10.1016/j.tcs.2014.07.012 (bibliographic material only)",
+        "OEIS A246999 and A247000",
+        "Resultary 0f3724d4b165, 5a2ce1363ba6, 12882b1330b6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biggles identifies (m−2,m−1,m) at n=3m, but not the other residues or repeated-gap counts.",
+          "The later all-gap formula does imply the extremizers by minimizing the largest distinct gap and comparing with the repeated-gap formulas; the later 12882b1330b6 states them outright."
+        ],
+        "reasoning": "The extremum and deficit are consequences of the all-gap formula, not standalone priority claims. The verified earlier special family does not imply that formula.",
+        "searches": [
+          "A246999 with Simpson Lemma 6 attribution",
+          "Resultary 5a2ce1363ba6 and 12882b1330b6, Finding and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5a2ce1363ba6, RESULT.md at offsets 0 and 6873, gives equivalent formulas for each sorted-gap case, splitting the two-equal case into two orderings.",
+          "Resultary 12882b1330b6, RESULT.md at offsets 0 and 6095, gives the same formulas and extremizer lists.",
+          "A246999 defines s21s211s2, whose circular marker gaps are (k,k+1,k+2) for s=1^k."
+        ],
+        "reasoning": "Relabeling the markers identifies a known sharp construction for n divisible by three. The two later catalog records match much more than that construction; they establish equivalent content, not earlier priority.",
+        "searches": [
+          "Resultary: three-marker circular palindrome counts, three-one binary circles, gap formulas",
+          "OEIS A246999, Biggles words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A247000 gives unrestricted binary circular maxima through n=30 and labels its recurrence conjectural.",
+          "Resultary 12882b1330b6 lists exactly the same maximizing sorted triples and dihedral class counts for n>=14; its catalog path is later-dated."
+        ],
+        "reasoning": "Unrestricted finite data are not a table of restricted maxima or classifications. The later Resultary table is an exact all-length match, with no evidence from the inspected record that it is earlier coverage.",
+        "searches": [
+          "OEIS A247000",
+          "OEIS A246999",
+          "Resultary 12882b1330b6, extremizer table"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-gap count and the complete restricted extremizer classification across the three residue classes; the previously known Biggles construction and its value in the divisible-by-three case are not credited as new. Exact equivalents in later-dated catalog entries are documented below. The accessible evidence does not establish that those entries preceded the frozen finding or that the earlier paper contains the full result. This is a bounded judgment, not a certification of priority.",
+      "residual_risks": [
+        "Simpson's 2014 full text was not available through the attempted lawful routes and could contain an equivalent count or stronger classification.",
+        "The relationship between materially matching later catalog records is unresolved. The comparison is not an exhaustive literature survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap established via the known construction; broader coverage unresolved",
+          "evidence": [
+            "A246999 identifies Simpson's Lemma 6 and defines the construction. No decisive original full-text passage was reached."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Accessible bibliographic/landing material only; Lemma 6 attribution cross-checked in A246999, not read directly",
+          "method": "Lawful DOI/publisher retrieval and identified Murdoch repository checked; ScienceDirect HTTP 403 and repository landing shell",
+          "title": "Palindromes in circular words",
+          "trigger": "Same circular palindrome convention and known near-sharp sparse construction"
+        },
+        {
+          "assessment": "Exact overlap for the previously credited n divisible by three construction",
+          "evidence": [
+            "s21s211s2 gives sorted circular gaps k,k+1,k+2."
+          ],
+          "identifier_or_url": "https://oeis.org/A246999",
+          "material_read": "Definition and reference at offset 0",
+          "method": "Read database entry",
+          "title": "Biggles words",
+          "trigger": "Equivalent three-marker construction"
+        },
+        {
+          "assessment": "Unrestricted finite data, not this theorem",
+          "evidence": [
+            "Terms through n=30 and a conjectural recurrence."
+          ],
+          "identifier_or_url": "https://oeis.org/A247000",
+          "material_read": "Terms and comments at offset 0",
+          "method": "Read database entry",
+          "title": "Maximal number of palindromes in a circular binary word of length n",
+          "trigger": "Potential exact maximum table"
+        },
+        {
+          "assessment": "Exact count overlap, later-dated; no full maximizing-gap list there",
+          "evidence": [
+            "Sorted distinct-gap expression t+2s+2r+4 and equivalent repeated-gap expressions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-palindromic-factor-distribution-for-binary-circles-with--5a2ce1363ba6",
+          "material_read": "RESULT.md offsets 0 and 6873",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Complete palindromic factor distribution for binary circles with three ones",
+          "trigger": "Potential equivalent all-gap formula"
+        },
+        {
+          "assessment": "Equivalent all-gap and extremizer theorem, later-dated; no historical lineage established",
+          "evidence": [
+            "Identical n>=14 maximum, maximizing sorted-gap lists and dihedral counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-palindromic-complexity-and-extremizers-of-three-marker-cir--12882b1330b6",
+          "material_read": "RESULT.md offsets 0 and 6095",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact palindromic complexity and extremizers of three-marker circles",
+          "trigger": "Strongest exact catalog match for full theorem"
+        },
+        {
+          "assessment": "Linear setting excludes the circular problem",
+          "evidence": [
+            "Scope explicitly excludes cyclic factors."
+          ],
+          "identifier_or_url": "Resultary 0f3724d4b165",
+          "material_read": "RESULT.md Assumptions at offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Palindromic defect law and exact spectrum for binary words with three ones",
+          "trigger": "Earlier similar three-marker title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-marker slice is motivated by the known near-extremal circular family, not chosen as an arbitrary small instance. The complete count explains how coincidences between gaps change palindrome production and resolves exactly which three-marker circles attain or fall short of the restricted maximum. None of this is presented as an unrestricted binary-word extremum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

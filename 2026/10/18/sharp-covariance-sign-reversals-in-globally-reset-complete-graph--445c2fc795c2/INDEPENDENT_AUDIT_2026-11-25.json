@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:16:52.338355Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unit-rate exchanges connect all size-k subsets; reset preserves that space, so there is a unique stationary law. Summing the exchange increments at i gives k−Nη_i; adding reset gives the mean m_i=(k+r b_i)/(N+r). For distinct sites apply the Markov generator product rule. The only exchange contributing to the product of increments is {i,j}, contributing −(η_i−η_j)^2, while reset contributes r(b_i−η_i)(b_j−η_j). Stationarity therefore gives [2(N−1)+r]Cov = −m_i−m_j+2m_i m_j+r(b_i−m_i)(b_j−m_j). This checks the second-moment closure and isolates the source of positive same-class covariance. Substituting the means gives the stated three numerators over the common positive denominator. The same-class numerators have intercept −2kℓ and slopes k(k−2) or ℓ(ℓ−2); mixed pairs have a strictly negative quadratic numerator. This verifies uniqueness, strict signs, the existence conditions of each pair class, and the N≥5 interior-filling consequence. The uniform r↓0 limiting covariance and the large-r orders agree. Positive covariance contradicts negative association by testing the increasing single-site occupations, but the converse was not used. Exact unreduced generator checks using python /workspace/branches/independent_checks.py give 00 covariances −3/704, 0 and 3/1300 at (N,k)=(5,3), r=3,4,5, plus both homogeneous zeros and mixed covariance −1/16 at (6,3,6). Independently counted 2,766 cases in the reported finite grid; these are corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strong Rayleigh preservation concerns deterministic times of ordinary symmetric exclusion.",
+          "The Oct. 26 record treats finite-graph fixed-particle global reset and obtains a high-rate coefficient and an exact K_{2,m} cutoff 4/(m−2)."
+        ],
+        "reasoning": "Fixed-time negative dependence does not assert closure under exponential-age mixtures. The later graph-general coefficient and negative weak-reset limit imply reversal existence where the coefficient is positive, but do not fix the complete-graph crossing location or prove uniqueness.",
+        "searches": [
+          "arXiv:0707.2340 §5",
+          "2026/10/26/SCOPE-a-local-neighbor-covariance-reversal-criterion-and-a-sharp-bipar--4811508cf037"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0707.2340",
+        "arXiv:1102.2704",
+        "arXiv:1906.11801",
+        "arXiv:2004.00951",
+        "Resultary 4811508cf037",
+        "Resultary 0788102fd099",
+        "Resultary 63ed21b70fd1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poisson renewal provides a general age mixture, not an explicitly evaluated complete-graph two-site observable.",
+          "A high-rate coefficient only gives a limiting sign, not monotonicity, a unique crossing or a sharp finite crossing formula."
+        ],
+        "reasoning": "Once complete-graph moment closure is derived, the algebra is short, so novelty is not attributed to a new reset method. The compared prior results alone do not imply the evaluated numerator polynomials and exact integer filling/crossing conditions.",
+        "searches": [
+          "arXiv:1102.2704 PDF p. 1",
+          "arXiv:1906.11801 equation (4)",
+          "Resultary 4811508cf037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Bernoulli–Laplace formulation is the same continuous-time fixed-size subset process under unit rate per allowed exchange; stationarity under global resetting can be evaluated by an exponential-age resolvent.",
+          "The one-reset paper has a half-filled nearest-neighbor ring; the two-point paper uses two reset states on a half-filled ring. It gives a covariance renewal expression but not an analytic spatial covariance formula in that setting."
+        ],
+        "reasoning": "These sources establish the stochastic reset method but do not supply complete-graph pair formulas in moment or resolvent notation. Independent sitewise refreshes are not an equivalent reset operator.",
+        "searches": [
+          "arXiv:1906.11801 §II equation (4)",
+          "arXiv:2004.00951 §5.3 equations (53)–(55)",
+          "Resultary: global reset, complete-graph exclusion, Bernoulli–Laplace and stationary correlations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day exact analogue gives an opposite-site cutoff on a coalescing C₄, not conservative exchange.",
+          "The later complete-graph exact covariance record uses sitewise reservoirs and variable particle count."
+        ],
+        "reasoning": "The highest-relevance exact indexed statements with comparable covariance or sign data were checked by model and reset protocol. Neither gives this classification, and no finite table could replace the general result.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-reset-induced-long-range-correlation-reversal-in-finite-coalesci--0788102fd099",
+          "Resultary: 2026/11/2/SCOPE-spectral-fluctuation-and-exact-covariance-laws-for-exclusion-wit--63ed21b70fd1"
+        ]
+      },
+      "rationale": "Global renewal and deterministic-time exclusion dependence are established. The distinct result supported here is the explicit finite-volume, complete-graph, fixed-particle all-pair sign classification and its exact unique cutoffs. The closest graph-general indexed global-reset result partially covers reversal existence but not the exact complete-graph cutoffs.",
+      "residual_risks": [
+        "Bounded search cannot exclude an unlocated exact Bernoulli–Laplace reset or explicit resolvent moment result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic-time symmetric exclusion, not exponential-age mixtures.",
+          "evidence": [
+            "Ordinary symmetric exclusion preserves strong Rayleigh under its semigroup."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.2340",
+          "material_read": "PDF p. 4 introductory statement and §5 context",
+          "method": "Check semigroup and initial-measure hypotheses",
+          "title": "Negative dependence and the geometry of polynomials",
+          "trigger": "Potentially incompatible stronger negative-dependence theorem"
+        },
+        {
+          "assessment": "Relevant resetting mechanism, no interacting covariance result.",
+          "evidence": [
+            "One diffusing particle reset to its initial position."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.2704",
+          "material_read": "PDF p. 1, reset process and stationary position law",
+          "method": "Compare dynamics and statistic",
+          "title": "Diffusion with stochastic resetting",
+          "trigger": "Prior Poisson-reset framework"
+        },
+        {
+          "assessment": "Ring geometry and density/current analysis do not give the complete-graph evaluated pair moments.",
+          "evidence": [
+            "Half-filled periodic nearest-neighbor SEP, one step-profile reset, renewal for configuration probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.11801",
+          "material_read": "PDF pp. 2–3, §II and Eq. (4)",
+          "method": "Check model and renewal expression",
+          "title": "Symmetric exclusion process under stochastic resetting",
+          "trigger": "Same conservative process with a fixed global reset"
+        },
+        {
+          "assessment": "Direct topic overlap but a two-reset nearest-neighbor ring; no evaluated formula covering the claim.",
+          "evidence": [
+            "Two step configurations and two-point renewal formula, followed by qualitative large-rate results rather than an analytic expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.00951",
+          "material_read": "PDF pp. 3–4 and 18–19, §2 and §5.3 Eqs. (53)–(55)",
+          "method": "Read reset model and compare exact quantities and issued conclusions",
+          "title": "Zero-current nonequilibrium state in symmetric exclusion process with dichotomous stochastic resetting",
+          "trigger": "Direct treatment of spatial two-point reset correlations"
+        },
+        {
+          "assessment": "Later dated; partial model-level overlap, not exact cutoff coverage.",
+          "evidence": [
+            "General high-rate and weak-reset sign results; exact cutoff for K_{2,m}, not all K_N."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-local-neighbor-covariance-reversal-criterion-and-a-sharp-bipar--4811508cf037",
+          "material_read": "Mirrored RESULT.md Finding and relevant proof",
+          "method": "Compare general high-rate coefficient to exact root and uniqueness",
+          "title": "A local-neighbor covariance reversal criterion and a sharp bipartite threshold for exclusion with resetting",
+          "trigger": "Stronger underlying global-reset model and sharp thresholds"
+        },
+        {
+          "assessment": "Phenomenon overlap, not an equivalent process or theorem; same-day ordering not inferred.",
+          "evidence": [
+            "Opposite-site cutoff on C₄ for coalescing walkers with changing population."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-reset-induced-long-range-correlation-reversal-in-finite-coalesci--0788102fd099",
+          "material_read": "Mirrored RESULT.md Finding and relevant proof",
+          "method": "Compare state space, exchange mechanism and rates",
+          "title": "Reset-induced long-range correlation reversal in finite coalescing rings",
+          "trigger": "Same-day indexed exact resetting covariance reversal"
+        },
+        {
+          "assessment": "Later sitewise-reset result, not the fixed-k global mixture.",
+          "evidence": [
+            "Independent Bernoulli reservoirs produce a variable-particle-count law."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-spectral-fluctuation-and-exact-covariance-laws-for-exclusion-wit--63ed21b70fd1",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Compare refresh and conserved state space",
+          "title": "Spectral fluctuation and exact covariance laws for exclusion with sitewise reservoirs",
+          "trigger": "Complete-graph exact covariance formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact controlled instance separates negative dependence under ordinary conservative exchange from stationarity under a common reset age. The result identifies when particle conservation permits positive covariance, when reversal is impossible, and where it occurs, for all system sizes and fillings. These provide useful sign and finite-volume benchmarks without overclaiming higher-order negative dependence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

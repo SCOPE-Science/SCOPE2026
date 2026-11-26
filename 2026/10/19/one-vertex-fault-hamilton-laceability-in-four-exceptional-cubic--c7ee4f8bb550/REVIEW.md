@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite claim has a complete constructive certificate, including Hamilton paths for every required admissible endpoint pair at a representative vertex and explicit automorphisms to all other vertices. The standalone standard-library verifier reconstructs each graph, checks each path and automorphism, and proves the sole missing Möbius–Kantor case by exhaustive degree-constrained analysis of fifteen edges and six viable complements. The independent C++ bitmask dynamic program reproduces the exact same admissibility profile, and every positive entry is witnessed by a path. The forbidden pair is verified to have a unique graph-distance signature. The statement makes no claims beyond the four finite graphs.
+## correctness
 
-## Originality — PASS, with limitations
-Araki (2006, DOI 10.1002/net.20126) introduced the fault-tolerant endpoint notion for transposition-generated Cayley graphs, not the four graphs here. Pensaert (2002) gives ordinary Hamilton paths in generalized Petersen graphs, including the Desargues graph, without universal paths after vertex deletion. Kutnar and Marušič (2009, DOI 10.1016/j.jctb.2008.06.001) identify the four as distinguished cubic symmetric girth-six graphs; the accessible abstract does not claim the new path profile. The closest searched mathematical-record items concerned different invariants, and inspected published claims disclosed no covering result. The 2009 paper's full text and possible unindexed equivalent research remain specific priority risks.
+PASS
 
-## Value — PASS
-Universal endpoint reachability after a single failed vertex is a natural sharp strengthening of Hamilton laceability. The exact contrast between three fully tolerant graphs and the single distance-characterized obstruction in the fourth gives a complete, reusable baseline for this distinguished four-graph class, rather than a routine numerical count or unsupported infinite extrapolation.
+Constructed the four exact adjacency models from the formulas and verified the supplied root-to-vertex automorphisms and every spanning path witness against these graphs. Positives only require one root because the automorphisms carry the vertex, its opposite class, and each path together. Independently enumerated simple paths recursively, without the submitted subset DP or transitivity reduction, for every starting vertex in the full graph and every deletion and admissible endpoint pair. In H,M,P,D order this checked 98,128,162,200 ordered full cases, all positive, and 294,448,648,900 punctured pairs, with 0,16,0,0 failures. The 16 failures give one per M deletion, precisely the unique original-graph distance-(3,3,4) pair by BFS. For deletion 0, its ends are 10,14. Each of 1,7,8 must use both remaining incident edges; the unused edges therefore have degrees one at the other ten vertices and two at 10,14 in the 15-edge induced graph. Enumerating seven-edge subsets finds six possible unused-edge sets; the residual components have sizes (5,10) or (6,9), three cases each. This corroborates the source obstruction, including its claim of exactly two components. Replay: python3 /workspace/branches/reproduce_discrete.py.
 
-## Limitations
-Independence, external scientific review and publication-priority certification have not been established. This is a finite, computer-assisted but independently inspectable proof; all claims are restricted to the four named graphs. One potentially relevant full publisher manuscript could not be examined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior ordinary laceability where established, the existing hyper-Hamilton-laceability concept, and the prior structural choice of these four graphs. The distinct claim supported here is the full endpoint-resolved one-vertex-deletion classification, particularly the unique distance-defined defect in Möbius–Kantor. Inspected results do not give that classification or imply it by restricting ordinary endpoints. Relevant unavailable full texts remain a limitation, not positive evidence of novelty.
+
+## value
+
+PASS
+
+A natural complete finite classification on the four already distinguished cubic symmetric girth-six graphs. The result resolves a stronger extension property than ordinary Hamilton laceability and gives an intrinsic, unique, checkable witness explaining why the Möbius–Kantor case differs. The endpoint-level characterization provides useful data for comparing fault tolerance without relying on vertex labels or an unmotivated graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

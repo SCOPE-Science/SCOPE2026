@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:35:10.260753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a regular value w, partial fractions identify the z^{-1} coefficient at infinity of s(z)/(P(z)−w) with the sum of s(ζ)/P′(ζ) over the fiber; the polynomial part contributes nothing. Expanding in w, the term of index j is s(z)/P(z)^{j+1} times w^j. With deg s≤d(m+1)−2, all j≥m are O(z^{-2}); the trace is polynomial of degree <m, identically zero for m=0. The real Jacobian |P′|² leaves precisely this trace when testing against P′ Q_m^E(P)/d. Critical values are a finite null set, and the area formula is valid for Borel targets without boundary hypotheses. It also gives d regular preimages a.e. and the squared norm factor d/d²; boundedness and positive area follow from properness and that same area formula. Positive definiteness proves uniqueness. For the disk the monomial w^{k−1} has squared norm πR^{2k}/k in dx dy, hence the unique monic derivative divided by n=dk is P′P^{k−1}/d. Integration gives exactly P^k+c and the squared derivative minimum πnR^{2k}. The exterior Green function gives cap=R^{1/d}, including disconnected or critical-level lemniscates. The proof includes degree one and m=0 (vacuous testing if the Bergman degree is zero). Inspected but did not run verify.py; an independent check via direct rational simple-fiber sums and reciprocal Taylor coefficients (python3 reproductions/frozen_math_checks.py, pullback) passed 60 finite comparisons, which do not establish the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simanek gives a leading-coefficient ratio limit κ_n/κ_{n+q}→r for area lemniscates, not a finite identity. The mirrored record gives an exact polynomial and norm for shell targets r≤|P|≤R for general P."
+        ],
+        "reasoning": "The shell result includes disk targets and additional radial annular cases, but no arbitrary-Borel target formula. An asymptotic leading-coefficient ratio does not force exact finite-degree orthogonality or an exact norm.",
+        "searches": [
+          "Simanek arXiv:1307.1941, Thm. 1.6 and Cor. 1.7",
+          "Resultary record a3fcfd5feb5a, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.24702v1, 0811.1715 and 1307.1941, passages specified above",
+        "Local Resultary record a3fcfd5feb5a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ransford states the inequality and disk equality. The old exact symmetric orthogonal polynomial and area pullback give the derivative minimum and equality in that symmetric family. Setting the inner radius to zero in the shell record recovers the general disk specialization."
+        ],
+        "reasoning": "The capacity upper bound on an infimum cannot alone show that the exhibited derivative reaches that infimum. Exact orthogonality is what supplies this missing direction. Credit the existing implications where their hypotheses apply, not an extension to all targets.",
+        "searches": [
+          "Ransford arXiv:2610.24702v1, Thm. 1.1, p. 2",
+          "Gustafsson–Putinar–Saff–Stylianopoulos §7, Remark 7.1 and Proposition 7.2",
+          "Resultary a3fcfd5feb5a, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 7.2, (7.5), is exactly the monic formula for P(z)=z^m−1 and a disk of radius r^m with 0<r<1. Remark 7.2 points to Miña-Díaz for a one-island case. The nonresponsive search supplies no evidence of absence."
+        ],
+        "reasoning": "The fiber-trace transfer includes the old formula at precisely the same degrees. The differences are arbitrary polynomial P and, independently, arbitrary planar area target E. A generic Bergman projection pullback would still need to preserve the relevant finite polynomial orthogonality test via a degree bound on the adjoint trace.",
+        "searches": [
+          "Local Resultary polynomial-pullback, orthogonality and lemniscate-norm search",
+          "Gustafsson–Putinar–Saff–Stylianopoulos arXiv:0811.1715, §7",
+          "Primary-literature search on Bergman polynomials under polynomial pullback (nonresponsive)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later indexed shell result includes the r=0 exact norm at every multiple-of-d derivative degree, and Ransford gives equality for disks."
+        ],
+        "reasoning": "The relevant exact catalogue overlap concerns families, not a table of coefficients: the shell record covers the full lemniscate corollary including the minimizers by integration, but not the general transfer. Its postdating is not evidence of earlier priority.",
+        "searches": [
+          "Local Resultary a3fcfd5feb5a",
+          "Ransford arXiv:2610.24702v1, Thm. 1.1"
+        ]
+      },
+      "rationale": "Pass on the arbitrary-positive-area Borel target transfer with its stated degree and norm, together with its general equality application. Credit prior exact rotationally symmetric lemniscates and the prior capacity inequality. The disk-target corollary is not distinct from the filled-disk specialization of a later mirrored annular-lemniscate result. No inspected evidence covers the full arbitrary-target statement.",
+      "residual_risks": [
+        "The nonresponsive literature lookup is not a coverage result. Earlier algebraic trace, polynomial-mapping, or Bergman projection formulations could cover more than the sources inspected.",
+        "Miña-Díaz's one-island antecedent was identified in a remark, not checked in its primary text. The best-of-knowledge originality pass is not a claim of historical priority for the exact lemniscate specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior inequality and disk equality",
+          "evidence": "General capacity bound with factor 1/√(πn), explicitly sharp for disks; the inspected theorem does not assert equality for all polynomial lemniscates.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24702v1",
+          "material_read": "Thm. 1.1, printed p. 2, offset 3800",
+          "method": "OA paper text",
+          "title": "A least-squares lower bound for capacity",
+          "trigger": "Exact normalization and prior equality cases"
+        },
+        {
+          "assessment": "Exact special case with implicit derivative saturation",
+          "evidence": "For G={|z^m−1|<r^m} the monic subsequence is z^{m−1}(z^m−1)^k and cap(G)=r; the cited one-island comparison was not inspected in its primary text.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.1715",
+          "material_read": "§7 pp. 28–30, Remarks 7.1–7.2 and (7.5), offsets 85000, 88900, 92063",
+          "method": "OA paper text",
+          "title": "Bergman polynomials on an Archipelago: Estimates, Zeros and Shape Reconstruction",
+          "trigger": "Exact symmetric lemniscate polynomials"
+        },
+        {
+          "assessment": "Asymptotic result, not an exact transfer",
+          "evidence": "The limit κ_n/κ_{n+q}→r compares normalized leading coefficients across the polynomial degree q.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.1941",
+          "material_read": "Thm. 1.6 and Cor. 1.7, printed pp. 4–5, offset 13000",
+          "method": "OA paper text",
+          "title": "The Bergman Shift Operator on Polynomial Lemniscates",
+          "trigger": "General polynomial lemniscate area measure"
+        },
+        {
+          "assessment": "Exact disk corollary covered by the later shell statement, not the arbitrary-Borel transfer",
+          "evidence": "The orthogonal polynomial on a shell at degree dk−1 is P′P^{k−1}/d and the norm is explicit; r=0 gives the filled case.",
+          "identifier_or_url": "2026/11/2/SCOPE-universal-bergman-norm-and-capacity-defect-on-polynomial-lemnisc--a3fcfd5feb5a",
+          "material_read": "Finding in RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror text",
+          "title": "Universal Bergman norm and capacity defect on polynomial lemniscates",
+          "trigger": "Closest exact general-polynomial catalogue overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The identity transfers a uniquely determined full Bergman minimization, not just orthogonality in a restricted subspace, across arbitrary positive-area targets. It explains sharpness of a motivated capacity bound on a natural infinite-degree equality class, including disconnected and noncircular examples, with explicit equality conditions for the minimizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

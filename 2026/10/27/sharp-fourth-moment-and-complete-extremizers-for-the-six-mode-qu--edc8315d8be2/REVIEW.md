@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is valid for arbitrary complex coefficients, including zeros, and uses probability Haar normalization. Fourier convolution first reduces complex phases to absolute values. The exact identity (2) is a sum of six nonnegative squares controlling the vertex/edge modulus distribution at fixed squared masses; its algebra was independently expanded. AM–GM determines the remaining cubic term, attaining equality simultaneously with the squares. The resulting single-variable derivative factors as in (5), and its cubic has exactly one positive root. Boundary cases and finite-grid aliasing are handled. Equality phase equations force an affine phase and yield every maximizer. The packaged checker passed symbolic identities, rational root isolation, and finite diagnostic tests.
+## correctness
 
-**Originality — PASS within examined material; residual priority risk.** The closest full-text six-mode triangular-aperture result fixes every coefficient's magnitude to one and has sharp normalized maximum \(17/6\), smaller than the new \(2.949235612050375\ldots\). Consequently it cannot imply either the unrestricted sharp constant or the unequal-magnitude equality family. A five-point Ferrers sharp fourth moment instead has a different support and smaller constant, while a four-character interval bound concerns one spatial frequency coordinate. The 2022 arithmetic circle-extension theorem concerns an \(L^6\) norm on the Euclidean plane, not the target torus \(L^4\) quantity. Ganzburg's 2019 theorem establishes asymptotic comparison relations for expanding frequency bodies, not this exact fixed six-mode number. Searches also examined coefficient norms, aliases, optimization polynomial and numerical constants. Search absence is not a novelty proof; equivalent filter-design or quadratic-chaos formulas remain possible.
+PASS
 
-**Value — PASS.** The full total-degree-two triangular frequency set is the first complete genuinely bivariate polynomial aperture beyond degree one. Determining its exact complex-coefficient \(L^2\to L^4\) sharp constant and all equality vectors addresses a natural finite-band Fourier amplification invariant. The theorem strictly separates free amplitudes from phase-only coefficients and provides a non-obvious globally sharp three-vertex/three-edge symmetrization certificate. Its full classification applies on both the torus and all nonaliasing finite product grids. The result is not a mere numerical gain because the SOS equality mechanism and amplitude-phase classification are structural.
+Enumerating the 15 pair-sum frequencies reproduces the nonnegative convolution polynomial. In the fixed-mass SOS, expanding the first three squares and the three weighted difference squares gives sum of all six fourth powers −(U+V)²/3+2UV−4T, exactly the required identity. Cauchy–Schwarz on the three vertices and AM–GM on the three midpoints then yield the attainable two-mass bound with simultaneous equality only at internally equal amplitudes when U,V>0. After dividing by 9(x²+y²)², the displayed R has derivative −4t(2t³+3t²−6t−3)/(3(1+t²)³). Descartes and the endpoint signs give a unique positive maximizer, excluding both pure-mass edges. At these nonzero magnitudes the three triangle equalities from the (2,0), (0,2) and (1,1) coefficients determine exactly affine character phases; these also suffice at every other frequency. No alias occurs on the stated grids because each coordinate of a pair sum lies in [0,4]. Independent algebra gives the stated K-cubic via resultant (factor 100), with the three roots respectively in (1.111,1.112), (1.779,1.780), and (2.949,2.950); the maximizing value is the last, and 102/36=17/6 for the equal-modulus witness. The frozen script was inspected, not run; finite checks are corroboration rather than proof.
 
-Limitations: This is a fixed-support fourth-moment theorem. Broad bibliographic exhaustiveness and independent validation are not established; numerical experiments do not prove the inequality. The proof and source comparisons are reproducible from `RESULT.md` and `CHECK.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest verified exact-support overlap optimizes only phases at equal coefficient modulus. The strictly higher unrestricted optimum and its forced unequal magnitudes are not implied by that result. Other inspected optimizations use different supports or restrictions. This conclusion is bounded to verified comparisons, not a priority certification.
+
+## value
+
+PASS
+
+This is the complete degree-two simplex, equivalently the natural full three-variable homogeneous quadratic packet, rather than an arbitrary six-point sample. Its exact unrestricted constant and complete equality law exhibit a concrete two-orbit amplitude imbalance not predicted by the phase-only result. The sharp fixed-mass SOS explains the imbalance and is useful for checking other proposed symmetrizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

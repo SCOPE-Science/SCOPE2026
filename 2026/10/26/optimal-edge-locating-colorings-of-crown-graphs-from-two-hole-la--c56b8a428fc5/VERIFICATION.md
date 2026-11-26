@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. It executes two logically different finite checks: an arithmetic missing-pair test across every \(n\) from 6 to 5000, and a direct graph-shortest-path test of the original edge-locating definition, including properness and color-class nonemptiness, for \(n=6,\ldots,13\). The current execution produced:
+## correctness
 
-`PASS: 4,995 parameter instances and 8 independent graph-distance checks`
+PASS
 
-The proof for all \(n\ge6\), including untested orders, is in `RESULT.md`. The key inference is the congruence-based enumeration of collisions between unordered missing-color pairs, not empirical extrapolation. The accepted domain excludes \(n=4,5\). No independent audit has been performed.
+The deficiency sum for an n-coloring permits at most one singleton. Except at at most two vertices, the code is therefore determined by its one missing color, giving a contradiction for n>=3. The proposed proper (n+1)-coloring distinguishes the incident-color complements, which are exactly the nonzero coordinates of the locating codes. I checked the terminal-versus-bulk congruences, the complete four-collision list in the divisible-by-three case, and the replacement pairs including k=3 and k=4. The three small permutations work. Unused colors are ruled out by the number of distinct two-element complements.
+
+## originality
+
+PASS
+
+No inspected source covers the sharp edge-locating invariant for this deletion family. The same numerical answer for two vertex-coloring invariants on the same graph is not the theorem being audited.
+
+## value
+
+PASS
+
+This computes a sharp, naturally defined invariant on an infinite family adjacent to the motivating complete bipartite case. The one-color savings under matching deletion is nontrivial because locating constraints need not survive deletion; the explicit modular construction and separate lower bound establish the exact change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

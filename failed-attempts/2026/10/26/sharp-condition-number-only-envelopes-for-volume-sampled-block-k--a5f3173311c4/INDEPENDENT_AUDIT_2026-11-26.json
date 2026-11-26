@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:17:06.674061Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–67",
+        "VERIFICATION.md (recorded exact and floating-point checks)",
+        "verify.py (inspected, not run)",
+        "arXiv:2610.12346 Theorems 1 and 3"
+      ],
+      "rationale": "Verified the projector identity and reconstructed the extrema. The t-derivative of the z^k coefficient of det(I+zA(I+tyyᵀ)Aᵀ) sums w_S yᵀP_Sy over full-rank blocks; singular blocks have identically zero determinant. On the Gram eigenbasis this coefficient is the quadratic form with diagonal λ_i e_{k−1}(λ_{−i}), and the normalizer is e_k(λ). Pairwise subtraction gives p_j−p_i=(λ_j−λ_i)e_{k−1}(λ_{−i,−j})/e_k(λ), strictly reflecting ordering when k<N and the eigenvalues differ. At endpoints 1 and κ, μ=1/(1+e_k(κ,u)/e_{k−1}(κ,u)) decreases in the intermediate entries u. The condition ratio is κ(t+1)/(t+κ), with t=e_{k−1}(u)/e_{k−2}(u) increasing in u. For an exposed coordinate, the derivative of each consecutive symmetric ratio has numerator b²−ac for successive coefficients a,b,c; normalized Newton is strict when both neighbors are positive, and if one is zero the numerator is b²>0 in the interior k range. Evaluating u≡1 or u≡κ gives the four bounds and shows uniqueness of the interior spectral profiles, not of the matrices. For a prescribed rectangular m, pad the attaining diagonal A by zero rows, which have zero sampling weight. At k=1, F=B/tr B; at k=N, F=I; at κ=1, F=(k/N)I. The projection Pythagorean identity yields worst factor 1−μ, with the sharp ceiling threshold obtained by solving the monotone inequality in k, including δ=1.",
+      "residual_risks": [
+        "Checks of integer spectra and rotating numerical examples are supplementary. The claim does not address inconsistent systems, approximate sampling, or adaptive multistep optimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiang et al. give a spectrum-dependent rate with floor σ_min²/(σ_k²+⋯+σ_min²) for a size-k block, and Rodomanov–Kropotov bound their related inverse expectation via a spectrum-dependent coordinate approximation."
+        ],
+        "reasoning": "On (1,κ,…,κ) the Xiang floor is 1/[1+(N−k)κ], strictly below the frozen k/[k+(N−k)κ] when 1<k<N. Although the form can exceed the uniform floor on some individual spectra, it is not a dominating sharp condition-only envelope, and it does not supply either opposite bound.",
+        "searches": [
+          "arXiv:2503.13941 Theorem 3.1",
+          "arXiv:1904.04587 Definition 3.4 and Lemma 3.5",
+          "arXiv:2610.12346 Theorems 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Relationship to prior work",
+        "Resultary b4d8c12466a2",
+        "arXiv:2610.12346",
+        "arXiv:2503.13941",
+        "arXiv:1904.04587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof writes p₁=1/(1+e_k(λ₂,…,λ_N)/e_{k−1}(λ₂,…,λ_N)), proves the derivative sign for every positive coordinate via Newton, and invokes strict positivity for k<N.",
+          "It also writes χ=h(s+1)/(s+h) for h=λ_N and s=e_{k−1}(T)/e_{k−2}(T), with T the intermediate spectrum, and proves s is coordinatewise nondecreasing and the outer function is strictly increasing for h>1.",
+          "Its lower μ already supplies the same worst conditional rate and sharp cutoff."
+        ],
+        "reasoning": "Restrict the indexed condition-at-most setting to h=κ. The proven monotonicities put the maximum p₁ and minimum χ at T=(1,…,1). There s=(N−k)/(k−1) for 2≤k<N; evaluating gives exactly κ(N−1)/(N−k+(k−1)κ) for χ, and e_{k−1}(κ,T)/e_k(1,κ,T) gives the advertised upper μ. The same exposed-coordinate Newton derivative is strictly positive when applicable, so it also forces the claimed unique interior alternate profile. k=1 and k=N use the existing boundary identities. No new optimization step remains.",
+        "searches": [
+          "Resultary b4d8c12466a2 RESULT.md Proof at offsets 2050–4527",
+          "arXiv:2610.12346 Theorems 1 and 3",
+          "arXiv:2503.13941 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Entezari et al. give the exact expected-projector spectrum and its contraction interpretation. Rodomanov–Kropotov give the adjugate-sum elementary-symmetric identity for principal submatrices.",
+          "Applied to the row Gram AAᵀ and sandwiched by Aᵀ and A, the adjugate identity gives the same transformation: zero-weight block adjugate terms vanish in the sandwich."
+        ],
+        "reasoning": "These equivalent spectral formulas fix F for each specified spectrum, rather than optimizing its least eigenvalue and condition ratio over intermediate eigenvalues at fixed κ. The exact spectral identity itself is not credited as original.",
+        "searches": [
+          "Resultary searches for volume-sampled block Kaczmarz, expected-projector conditioning and sharp Gram spectrum extrema",
+          "arXiv:2610.12346 Theorems 1 and 3",
+          "arXiv:1904.04587 Lemma 3.3 and (3.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index directly states the identical sharp lower μ and upper χ bounds, one-small/rest-large profile, and exact block cutoff. Its bound statements do not include the upper μ, lower χ, or their realizing one-large/rest-small profile."
+        ],
+        "reasoning": "This is substantive exact formula coverage, not just a similar title or numerical coincidence. The two opposite formulas are not explicitly tabulated there; their derivation from the indexed proof is recorded in the implication check.",
+        "searches": [
+          "Resultary record b4d8c12466a2, RESULT.md Finding, attainment statements and Proof at offsets 2050–4527"
+        ]
+      },
+      "rationale": "The distinct indexed record b4d8c12466a2 directly states the lower-μ/upper-χ half and the cutoff. Its proof also explicitly establishes the same formulas, strict Newton monotonicity and equality machinery needed for the other half. Holding the largest eigenvalue fixed at κ and plugging the lower endpoints of the proven coordinatewise comparisons gives the claimed upper μ, lower χ and unique alternate profile mechanically. This is demonstrable coverage by a stronger proof step, not an inference of historical priority from catalogue dates, and not a correctness objection.",
+      "residual_risks": [
+        "The mathematical comparison does not establish order, historical priority, or provenance between the frozen and indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the transformation and contraction parameter, not the complete sharp extrema",
+          "evidence": "Theorem 3 gives the expected squared-volume row projector; Theorem 1 relates contraction to the transformed spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.12346",
+          "material_read": "Theorem 1, p. 4, (4); Theorem 3, p. 6, (10)–(11)",
+          "method": "Targeted OA PDF passages",
+          "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+          "trigger": "Same projector and exact Gram spectral transform"
+        },
+        {
+          "assessment": "Spectrum-dependent guarantee does not dominate the sharp condition-only result",
+          "evidence": "The contraction parameter σ_min²/(σ_k²+⋯+σ_min²) is below the claimed uniform lower μ bound on the one-small profile in the interior k range.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.13941",
+          "material_read": "Theorem 3.1, PDF p. 8",
+          "method": "Targeted OA PDF passage",
+          "title": "Randomized block Kaczmarz with volume sampling: Momentum acceleration and efficient implementation",
+          "trigger": "Same exact volume sampling and a potentially stronger convergence guarantee"
+        },
+        {
+          "assessment": "Exact algebraic antecedent and coordinate approximation bound, not the four Gram-condition extrema",
+          "evidence": "The adjugate sum diagonalizes with entries e_{k−1}(λ_{−i}); (3.5) divides these entries by e_k(λ), and Lemma 3.5 bounds the resulting inverse expectation using the coordinate approximation matrix.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.04587",
+          "material_read": "PDF pp. 6–7, Lemma 3.3 (3.4), expectation (3.5), Definition 3.4 and Lemma 3.5; text beginning at offset 22590",
+          "method": "Targeted OA PDF passage by literal locator and offset",
+          "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+          "trigger": "Earlier exact elementary-symmetric expectation and a spectral bound"
+        },
+        {
+          "assessment": "Exact half-envelope and cutoff overlap, with proof that covers the opposite half by endpoint substitution",
+          "evidence": "Besides the one-small/rest-large formulas, the Proof establishes coordinatewise monotonicity of e_j/e_{j−1} and uses it for both p₁ and χ=h(s+1)/(s+h). With h fixed, T=(1,…,1) yields the alternate extrema directly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-condition-number-envelopes-and-block-size-cutoff-for-volum--b4d8c12466a2",
+          "material_read": "RESULT.md Finding and attainment statements; Proof at offsets 2050–4527",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; targeted Proof passage",
+          "title": "Sharp condition-number envelopes and block-size cutoff for volume-sampled projections",
+          "trigger": "Same condition parameters, same sharp guarantees and one extremizer; proof could cover the opposite ends"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–25 and 49–67",
+        "Resultary b4d8c12466a2 RESULT.md Proof, offsets 2050–4527",
+        "arXiv:2503.13941 Theorem 3.1"
+      ],
+      "rationale": "Condition-only one-step geometry is a meaningful design question, but this record does not establish a substantive increment over the matched result. The cutoff already appears there, and the added opposite envelopes and extremizers are just the other endpoint evaluations of its explicit monotone formulas at fixed κ. The worked example and the proof of the known transform do not supply a surviving independent advance.",
+      "residual_risks": [
+        "This does not deny the utility of the envelope formulas themselves; it assesses the scientific increment of the submitted result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

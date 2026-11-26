@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:27:21.948380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–76",
+        "Frozen VERIFICATION.md and CHECK.py"
+      ],
+      "rationale": "For k=-f'/f and v=1-exp(-fu), the chain rule yields q=fu'exp(-fu)=v'+kH(v), where H=-(1-v)log(1-v). The sign k≥0 and H''≤-1 give q at the mixed path at least the mixture of the two nonnegative densities plus the stated quadratic Jensen term. The inverse change of variable is locally absolutely continuous on each compact interval (v stays uniformly below 1 there), starts at zero, and has nonnegative derivative. Integrating q up to T<1 bounds its mass by 1+(1/e)∫k, uniformly as T tends to 1, so square-root integration is finite even for paths diverging at 1. Equality in the integral forces equality of the two densities almost everywhere by square-root strictness; the difference of the transformed paths has zero initial data and obeys the locally Lipschitz difference equation d'=-k(H(v0)-H(v1)), giving d=0 by Gronwall on each compact interval. This works even for constant f and intervals where k vanishes. The frozen numerical checker was inspected, not executed, and is not needed for the proof.",
+      "residual_risks": [
+        "Does not establish existence, regularity, uniqueness among paths with singular variation, or results for profiles with f(1)=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rolla–Teixeira gives a sufficient condition on transverse derivatives of α for concavity of a different fixed-endpoint, slope-constrained action with velocity factor 1+√(1−ẏ²)."
+        ],
+        "reasoning": "Concavity-based LPP uniqueness is prior as a strategy. The published criterion is not a theorem about this entropy-plus-derivative density, this interpolation, or this path class, and no reduction preserving its hypotheses was identified.",
+        "searches": [
+          "arXiv:0804.1810, Theorem 2 and condition (2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results",
+        "Borga–Dubach arXiv:2610.30382v2",
+        "Rolla–Teixeira arXiv:0804.1810v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Borga–Dubach says it could not prove attainment by a unique C¹ curve. The frozen result applies only to positive nonincreasing C¹ profiles on the closed interval, and compares only locally AC paths based at zero."
+        ],
+        "reasoning": "The compatible smooth candidates would in particular be members of the narrower class when based at zero, so the result addresses their conditional at-most-one issue in this regime; it neither identifies the full-class supremum with a realized locally AC value nor solves the whole smooth-optimizer question. Generic Jensen and ODE uniqueness imply the result only after establishing the specific transformation and admissibility.",
+        "searches": [
+          "arXiv:2610.30382v2, Lemma 3.14 and paragraph after Remark 3.15",
+          "arXiv:0804.1810, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borga–Dubach eq. (26) uses u=F⁻¹∘φ for the same action and an optimization over nondecreasing right-continuous paths.",
+          "Indexed record 21b5cf9c960c is the frozen result itself; the indexed geodesic-count and sliding-entropy near-hits concern other objects."
+        ],
+        "reasoning": "The prior coordinate change produces the action, but not v(t)=1-exp(-f(t)u(t)) as an affine interpolation coordinate or its concavity. A matching index entry for the same record is not independent precedent.",
+        "searches": [
+          "Resultary semantic lookup: Luce LIS strict concavity, geodesics and exponential-mixture path interpolation",
+          "arXiv:2610.30382v2 §3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching index hit is the identical record; §§3.4's examples and lower bounds concern special curves, not the all-path comparison."
+        ],
+        "reasoning": "A numerical table could not certify this universal strict inequality. The relevant exact-certificate analogue is a prior symbolic transformed density or strict Jensen bound; neither was established in the matched material.",
+        "searches": [
+          "Resultary Luce path and entropy-interpolation searches",
+          "arXiv:2610.30382v2 §3.4, eqs. (26)–(27)"
+        ]
+      },
+      "rationale": "The Luce action and its use as a variational formula are prior. The inspected closest sources do not give or directly imply this exponential-mixture strict-concavity inequality, including the quantitative Jensen bound and the at-most-one consequence in the specified class. The attribution can be made more precise: Remark 3.15 discusses restricting to continuous paths based at zero; the open smooth optimizer statement is in the paragraph immediately following it.",
+      "residual_risks": [
+        "An unlocated general theorem might imply the transformed concavity via a nonobvious equivalence. Originality is assessed on the statements compared, not certified priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior action and variational interpretation; not the strict interpolation theorem in the inspected section",
+          "evidence": "The supremum in (26) is over nondecreasing right-continuous curves; the proof maps them using F⁻¹. After the continuity remark the authors say they were unable to prove K(f)=A(u*f) for a unique C¹ curve.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.30382v2",
+          "material_read": "§3.4, pp. 23–24, Lemma 3.14, eq. (26), proof, Remark 3.15 and following paragraphs",
+          "method": "OA PDF literal query and bounded offsets 110600 and 113892",
+          "title": "The longest increasing subsequences of Luce permutations and permutons",
+          "trigger": "Identical action and the motivating optimizer question"
+        },
+        {
+          "assessment": "Analogous method with different integrand and endpoint/slope conditions",
+          "evidence": "G(y)=∫α(x,y(x))γ(ẏ)dx on X with fixed endpoints; a sufficient condition is αyy<0 and −ααyy/2≥(αy)².",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.1810",
+          "material_read": "Functional and Theorem 2 with condition (2), journal pp. 132–133",
+          "method": "OA PDF literal query and bounded offset 8160",
+          "title": "Last Passage Percolation in Macroscopically Inhomogeneous Media",
+          "trigger": "Possible general concavity/uniqueness criterion"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": "Same exponential-mixture inequality and conditional uniqueness on the same path class.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-geodesic-concavity-of-the-luce-increasing-subsequence-pat--21b5cf9c960c",
+          "material_read": "Index summary and local frozen Finding and Proof",
+          "method": "Resultary semantic lookup and local source comparison",
+          "title": "Strict geodesic concavity of the Luce increasing-subsequence path functional",
+          "trigger": "Exact semantic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen quantitative Jensen inequality and uniqueness proof",
+        "Borga–Dubach §3.4, pp. 23–24"
+      ],
+      "rationale": "The action is the same variational quantity governing a natural LIS scaling problem. The interpolation gives an explicit, quantitative comparison of arbitrary admissible competitors and rules out competing locally AC optimizers without relying on a stationary-path ansatz or existence. This is a substantive part of the optimizer question in a useful regime including exponential profiles, not a claim to resolve attainment or path concentration.",
+      "residual_risks": [
+        "It does not determine the optimal curve or the optimum value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: two-order singleton disagreement spectra
+# Independent mathematical audit
 
-**Correctness — PASS.** A nonalgebraic type is exactly two insertion gaps in the generic independent-order structure. The disagreement grade is the symmetric difference of their two named initial segments, equivalently \(i+j-2R_\pi(i,j)\). The supplied executable exhaustively visits \(n!\) permutations at every length \(1\le n\le10\), independently calculates all histogram entries using bitmasks and rectangle counts, checks their exact agreement and total, detects every unimodality failure, and checks that exactly five disjoint symmetry orbits exhaust the 32 exceptions at size ten. The infinite extension follows separately from a proved three-case border-strip identity; finite testing is not substituted for this induction. Risks: the finite cutoff relies on a reproducible computational certificate rather than a short hand enumeration, and no independent mathematical audit is claimed.
+## correctness
 
-**Originality — PASS, provisional.** Cameron's 2002 primary text establishes Fraïssé homogeneity and classification, not a grade-distribution theorem. The relevant permutation extension paper of Brignall–Ruškuc–Vatter concerns embedding in simple permutations, not this invariant. Searches for two-order singleton disagreements, symmetric-difference distances between maximal Boolean-lattice chains, permutation gap-grid spectra, unimodality and coefficient histograms, plus available mathematical-results records, produced no theorem asserting the sharp ten-point threshold, 32-element classification, or persistence. Earlier grade-wise bounds and mean disagreement coefficients cannot imply simultaneous unimodality. Residual risk: an unindexed equivalent lattice-chain distance-enumerator classification could exist. Search nonappearance alone is not treated as a proof of priority.
+PASS
 
-**Mathematical value — PASS.** Although every base of length \(n\) has the same \((n+1)^2\) singleton types, the distribution by disagreement grade encodes order interaction. This result identifies the exact first failure of a natural global coefficient-shape property, classifies all smallest counterexamples up to a transparent symmetry group, and proves the obstruction is permanent, not a finite anomaly. It answers a structural question not determined by separate coefficient extremal bounds.
+The generic permutation extension property realizes every ordered pair of insertion gaps, and homogeneity over the named base identifies each pair with one complete nonalgebraic singleton type. Its grade is the Hamming distance between the two corresponding initial sets. Inversion swaps the Boolean chains, and reversal of either order complements one initial set after reindexing the gaps; thus the generators either keep or reverse the coefficient sequence, preserving unimodality with plateaus. An independently written exact census starts with the gap row d(0,j)=j; when first-order position i is added, d(i+1,j)=d(i,j)+1 for j≤π(i) and d(i+1,j)=d(i,j)−1 otherwise. Checking all possible peak positions found no failures at n=1..9 and 32 among the 3,628,800 permutations at n=10 (4,037,913 checked total). Its independent orbit closure checks that the five representatives are lexicographic minima, that the sizes are 8,8,8,4,4, and that the disjoint union is exactly the observed failures. The reproduced witness profile is (3,8,16,20,19,20,15,8,6,4,2). The n=0 sequence is (1). Appending a largest point in both orders leaves the old grid unchanged and adds two strip positions at each grade 1..n+1 and one joint corner at grade zero. This preserves the strict valley at 3,4,5 indefinitely. Replay from /workspace/branches/b96f0ead-5448-426b-b390-6b5ba9188979: python3 independent_census.py --max-n 10 --output full_results.txt.
 
-**Scope of validation.** The full finite census is independently expressed by two computations inside one standalone checker; this is methodological cross-checking, not independent external audit. The published-literature comparison includes full relevant primary material, but hidden equivalences remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest actual overlaps concern the same coefficient spectrum, but optimize one coefficient at a time or describe particular extremizing fibers. Neither gives the simultaneous unimodality property or its exact finite cutoff and orbit census. The identical catalogue hit is not a distinct predecessor. The bounded checks support only the sharp coefficient-shape finding and persistence, not priority of the homogeneous model or the symmetric-difference interpretation.
+
+## value
+
+PASS
+
+The least failure order for a natural shape property of a whole type spectrum is not fixed by the known total count or grade-by-grade bounds. The exact cutoff, sparse complete orbit classification, and elementary embedding of the obstruction at every greater order give a useful benchmark for generic permutation spectra and Boolean-chain distance enumerators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

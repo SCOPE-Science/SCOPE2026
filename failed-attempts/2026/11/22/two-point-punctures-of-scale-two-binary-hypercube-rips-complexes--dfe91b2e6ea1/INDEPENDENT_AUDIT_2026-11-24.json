@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:47:52.408395Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translation and coordinate permutations reduce the original-metric, inclusive-radius-two problem to the 18 canonical pairs with distances 1 through n for n=3..6. I independently generated all surviving cliques with bit-mask neighbor intersections, read the certificate as data, verified all operations and topologically sorted the full Hasse graph with the matched arcs reversed. There were 48,578 face occurrences, with each case covered once and no live faces left. The critical counts are one vertex in every case, plus one two-cell exactly at (3,3), or only three-cells with near/far counts (3,1), (32,29), (173,169) in dimensions 4, 5, 6. Thus the matching theorem gives contractibility or spheres wedged at the sole zero-cell over the integers, not just agreement of Betti ranks. This audit is confined to the stated cases. The frozen verifier documentation says Python 3.9+, but its use of int.bit_count requires Python 3.10+ in standard CPython; this does not change the certificate or the verified theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 gives the full wedge type for integer-initial subsets, including V_(2^n−2) obtained when the last two vertices are removed at d=1. Proposition 5.2 applied with r=2,n=3 gives the antipodal-pair sphere and the nonantipodal contractible cases. The separated-punctures theorem 7c16bdbeadde applies when the deletion set has minimum distance at least four, and gives the wedge rank c_n−|T| binom(n,3), where c_n=sum from j=0 to n−3 of 2^j binom(j+3,3)."
+        ],
+        "reasoning": "For |T|=2, the separated formula gives 1,29,169 in n=4,5,6. Its distance-four hypothesis is not directly true for d=3, but the established graph isomorphism transfers its d=4 case. The initial-interval theorem transfers similarly to d=2.",
+        "searches": [
+          "Adamaszek–Adams arXiv:2103.01040 Theorems 1 and 8",
+          "Bendersky–Elia–Grbić arXiv:2605.00705 Proposition 5.2 and Theorem 5.3",
+          "Resultary 7c16bdbeadde Finding and assumptions: independent three-sphere losses under separated Hamming-code punctures"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_morse.py, EXPECTED.txt and morse_cases.json.gz",
+        "arXiv:2103.01040",
+        "arXiv:2605.00705",
+        "arXiv:2009.12130",
+        "Resultary 7c16bdbeadde, dfe91b2e6ea1, a4d0b41e9d2f and b5dfb711160f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All n=3 rows follow directly from Proposition 5.2. For n=4..6 and d=1,2 the complex is, up to simplicial isomorphism, the scale-two complex of V_(2^n−2). For n=4..6 and d≥3 the punctured complex has a representative with minimum deleted-pair distance at least four in the original Hamming cube, so the separated-puncture wedge theorem applies to that representative."
+        ],
+        "reasoning": "Every row follows at the level of integral homotopy type, not just through a weaker homology result. The line-graph link theorem alone would not give the census, but nothing in the conclusion remains unaccounted for after the parity-lift equivalences and the three decisive prior statements.",
+        "searches": [
+          "Compare the parameter regimes of Adamaszek–Adams Theorem 8, Bendersky–Elia–Grbić Proposition 5.2 and Resultary 7c16bdbeadde with the frozen Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Map x to (x, parity(x)) in the even-weight subset of {0,1}^(n+1). A pair at original distance d has lifted distance d+(d mod 2), and two distinct vertices are Rips-adjacent exactly when their lifted distance is 2. All n+1 coordinate permutations of the lift thus give Rips-graph automorphisms. After translation to a pair (0,b), permuting the support of b to include the last coordinate or to exclude it changes the projected distance from 2k to 2k−1 or vice versa when both are possible."
+        ],
+        "reasoning": "Taking clique complexes and deleting the image pair preserves the entire simplicial type. Therefore d=2 is isomorphic to d=1. For n≥4, d=3 is isomorphic to d=4: the lifted support has size four and there is a coordinate outside that support that can be taken as last. This is not a different definition of puncture or scale.",
+        "searches": [
+          "Resultary: two-vertex-punctured scale-two Hamming/hypercube Rips homotopy, distance two and three",
+          "Goyal–Shukla–Singh arXiv:2009.12130 Section 2.1 for the closely related line-graph formulation",
+          "Independent parity-lift reduction of the bound radius-two graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact whole-table catalogue hit dfe91b2e6ea1 is the assigned record, not independent coverage. Distinct record 7c16bdbeadde (displayed 2026-11-17) contains the formula matching the entire far column by direct substitution and symmetry. Distinct same-day hit a4d0b41e9d2f concerns one puncture; b5dfb711160f concerns doubly punctured open-neighborhood complexes, not these Rips complexes."
+        ],
+        "reasoning": "An independently printed 18-row table is not necessary for coverage. The family formulas with the stated reductions compute every row. The one-puncture and open-neighborhood hits do not enter the implication.",
+        "searches": [
+          "Resultary search for the exact n=3..6 census, pair-distance orbits, and separated puncture formulas"
+        ]
+      },
+      "rationale": "The 18-case census is fully covered by existing statements together with an explicit graph isomorphism, including the two boundary distances not directly named in those statements. The extra symmetry matters: a Rips-graph automorphism need not be an isometry of the original Hamming metric. There is no uncovered frozen case on which to base a repair.",
+      "residual_risks": [
+        "The separated-punctures record mentions an unnamed finite two-vertex classification through n=5. Its identifier and exact scope were not established and are not used in the verdict. Additional sources could change the attribution, but are not needed for the exhibited full coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both near distances after parity lift",
+          "evidence": "V_m={0,...,m−1}; the wedge formula applies to the initial subset V_(2^n−2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.01040",
+          "material_read": "Section 3, pp. 5–6, and Theorem 8, p. 8; primary PDF text offsets about 25972–30902 and 36000",
+          "method": "Targeted OA primary PDF passages plus independent graph equivalence",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "The original explicitly credits initial subsets for distance one; potential transfer to other distances"
+        },
+        {
+          "assessment": "Proposition 5.2 covers n=3; the inspected higher-dimensional theorem is for unpunctured complexes",
+          "evidence": "With n=r+1=3, a two-point complement is S^2 for an antipodal omitted pair and contractible otherwise.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00705",
+          "material_read": "Proposition 5.2, p. 19, offset about 61800; Theorem 5.3, p. 21, offset about 69473",
+          "method": "Targeted OA primary PDF passages",
+          "title": "Cohomological properties of the Vietoris–Rips complex of a hypercube graph",
+          "trigger": "Induced-subcomplex theorem potentially covering the finite classification"
+        },
+        {
+          "assessment": "Directly covers d≥4; covers d=3 in n=4..6 by parity-lift automorphism",
+          "evidence": "For a puncture set T of minimum distance at least four, the scale-two complex has c_n−|T| binom(n,3) three-spheres; each relevant n has a distance-four representative of the lifted distance-four orbit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-independent-three-sphere-losses-under-separated-hamming-code-pun--7c16bdbeadde/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding and assumptions at offset 0, and relationship section near offset 6500",
+          "method": "Local Resultary and targeted mirror comparison",
+          "title": "Independent three-sphere losses under separated Hamming-code punctures",
+          "trigger": "Strongest distinct indexed theorem for the far-distance sphere counts"
+        },
+        {
+          "assessment": "Related single-link result, not a two-puncture classification",
+          "evidence": "The clique complex of the line graph of the complete graph is a wedge of two-spheres; this is the link modeled by weight-two words on the lifted cube.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.12130",
+          "material_read": "Abstract p. 1 and complete-graph case in Section 2.1, p. 3, PDF text offsets about 280 and 8500",
+          "method": "Targeted OA primary PDF passages",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Prior result for the cube vertex link via line graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Integral homotopy under punctures is a natural question and the finite replay gives a useful check. Here every output row is already determined by existing wedge theorems using elementary symmetry, and the frozen contribution asserts neither a new matching method nor a valuable new invariant of the matchings. Recomputing this census with a certificate therefore does not yield a distinct scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

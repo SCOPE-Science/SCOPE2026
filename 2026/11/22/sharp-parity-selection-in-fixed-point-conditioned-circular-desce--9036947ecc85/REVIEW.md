@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A forced-fixed-subset average evaluates the line and wrap-around comparisons, then factorial-moment inclusion–exclusion derives the conditional expectation exactly. The derangement number bound establishes uniqueness of the parity-sensitive maximizing fixed-point class for all permitted sizes. The embedded checker independently enumerates all permutations of orders three through eight (117 assertions). The counting argument covers unbounded sizes; enumeration only verifies examples.
+PASS
 
-## Originality — PASS (qualified)
+For a uniformly chosen forced r-subset let m=n−r be the number of unforced positions. Two unforced endpoints contribute half their probability at each edge. For an ordinary consecutive pair (i,i+1), the cases with exactly one forced position combine to r(m−1)/[n(n−1)]: conditional on an unforced image differing from its own position, the eligible lower and upper ranks in the two orientations sum to (i−1)+(n−i−1)=n−2. Two forced endpoints make no ordinary descent. For the wrap comparison any forced endpoint gives a descent; otherwise its probability is 1/2. Thus the summed mean when r<n is n/2−r(r−1)/[2(n−1)] (r=n−1 gives the identity directly), and for r=n the actual mean is 1. Multiplying by the factorial moment, which has expectation 1, gives the claimed covariances. Fixed-class inclusion–exclusion then yields the quadratic plus alternating derangement correction; the r=n mixed-moment value must be used rather than the quadratic extrapolation of zero. For m≥2, D_m≥m−1 and the correction term h_m=(m−1)(−1)^m/D_m has absolute value at most one. For n≥4 the classes k=1,2 are feasible and the selected positive correction strictly separates them, beats all other nonidentity classes, and yields mean greater than one. The written comparison to h_(n−2) does not apply at n=3, where k=2 is infeasible: direct means of 1,2,1 at k=0,1,3 prove the theorem there. This is a proof boundary clarification, not a change to the claim. Independent exact replay in branches/11d352fe-6a50-4928-bfad-a6c7c0ac07a6/independent_check.py checked 46,230 permutations through n=8 and 279 assertions, including the joint first moments, conditional means, factorial covariances and unique maxima. The all-size argument rests on counting and inclusion–exclusion.
 
-The nearest findings concern zero first-order fixed-point/circular-descent covariance and conditional relationships for **linear** descents. The explicit negative higher factorial covariances and the conditional mean's sharp parity maximizer were not located in the compared records or inspected source material. Foata–Han's broader joint enumerator for linear descents and Eriksen–Freij–Wästlund's prescribed-descent methods could conceivably have an unrecorded endpoint-sensitive specialization; historical priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The exact all-size conditional law gives a new dependence mechanism where a statistic has zero linear covariance with fixed-point count but its conditional expectation is nonlinear. The unique maximizer alternates between exactly one and two fixed points by parity, a structurally motivated sharp boundary with a complete proof.
+Pass for the all-order factorial mixed covariances, exact wrapped conditional first moment and parity selection. Cov(F,C)=0 is established in earlier indexed results, one of which covers all cyclic consecutive patterns, and the usual linear descent/fixed-point enumerator is stronger for the linear part. The linear data omit the conditional wrap event. No inspected prior statement supplies the full new wrapped regression or the corresponding hierarchy; this is not a priority certification. The Foata–Han citation should not be read as identifying its modified descent statistic with ordinary descents.
 
-## Limitations and closest literature
+## value
 
-Only mean regression and factorial covariances are established, not full conditional stochastic orders. The primary compared sources are Eriksen–Freij–Wästlund (arXiv:0811.1925) and Foata–Han (arXiv:math/0703454), both for ordinary descents; related circular first-order orthogonality records are listed in the structured audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The regression quantifies dependence invisible to the known zero covariance and settles, for all sizes, a natural fixed-class extremum. The competing leading conditional means for k=1 and k=2 tie, so the alternating derangement term, though small at large n, is mathematically decisive. The higher factorial moments supply exact testable information about the dependence without purporting to give the full joint law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

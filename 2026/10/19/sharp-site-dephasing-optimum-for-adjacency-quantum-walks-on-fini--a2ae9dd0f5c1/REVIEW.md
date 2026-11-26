@@ -1,15 +1,21 @@
-# Scientific review: exact optimal star dephasing
+# Independent mathematical audit
 
-## Correctness
-PASS. For a star with \(m\ge3\) leaves, hub–leaf block equations decompose into one trace mode, a trivial three-dimensional mode, \(m-1\) copies of two- and three-dimensional standard modes, and a residual off-diagonal leaf sector. Their characteristic polynomials give the full spectrum with the correct total dimension. An exact sign identity on the standard cubic gives a strict upper bound for every nonoptimal dephasing rate; a shifted Routh–Hurwitz test places all competing eigenvalues strictly behind the optimal root. The two-leaf path is handled separately using the quadratic exceptional point and a shifted cubic check. Symbolic cases \(m=2,3,4\) and full-matrix numerical checks through \(m=8\) corroborate the proof. Finite checks are not used as infinite-dimensional proof.
+## correctness
 
-## Originality
-PASS in self-review, with residual risk. The 2022 Bressanini–Benedetti–Paris and 2025 Adithya–Nokkala–Piilo–Meena investigations use the star and site dephasing, but employ the *Laplacian* Hamiltonian and study quantum–classical distance or initial-state-sensitive stability, without the tight-binding adjacency generator's full Liouvillian spectrum or its exact unique noise optimum. Caruso's 2014 optimization involves a quantum stochastic walk with edge-jump noise and a trapping-efficiency objective. A different exact complete-graph calculation does not imply the star's multi-sector spectrum or its opposite size dependence. Relevant research-database, terminology, equivalence, and literature searches found no stronger identified coverage. The remaining risk is an implicit exact computation in older star-network Haken–Strobl spectral literature; search absence is not a proof of uniqueness.
+PASS
 
-## Scientific value
-PASS. The known qualitative inversion of relaxation speed under strong dephasing motivates a quantitative noise-design question. The result uniquely optimizes the full Liouvillian asymptotic rate at every star degree, identifies a genuine low-degree exceptional point, and establishes the opposing \(\sqrt m\) and \(m^{-1/2}\) scaling laws for optimal noise and attainable relaxation rate. This is not a fixed-size numerical table or a replacement of a graph parameter in a universal formula: the proof handles multiple competing invariant spectral sectors. The result does not optimize any particular finite-time observable.
+The frozen equality for the shifted standard cubic in line 92 is false: at m=3, for example, its true quadratic factor is w²+w+2 rather than w²+3w+4. The complete replacement /workspace/repairs/5/RESULT.md gives w[w²+(2s−s^(-1))w+2s²] with s=sqrt(m−2) and retains strict decay of the other two shifted roots. Exact symbolic expansion verified the corrected shift, the sign identity, and the shifted trivial cubic. Independently, apply the determinant lemma to the Hamiltonian commutator plus diagonal projection. The projected commutator resolvent is the Laplace transform of squared transition amplitudes and acts on constant populations, leaf contrasts, and the hub–leaf contrast by three explicit scalar transfer functions. The resulting full characteristic determinant gives the stated multiplicities for all m≥2, including m=2, and simple zero. The standard cubic supplies a real root strictly between the claimed optimum boundary and zero at any other positive rate for m≥3; the repaired quadratic and shifted trivial Hurwitz inequalities establish attainment. For m=2 the discriminant-zero standard pair bounds the gap, and the trivial cubic is strictly Hurwitz after the shift at that point. See reviews/evidence/star_spectrum.md for the determinant and optimizer reconstruction. Only the proof lines in RESULT.md needed replacement; the unchanged characteristic polynomial and theorem agree with the independently verified ones. The frozen finite verifier was read, not executed. This is a spectral-gap result, not a state-specific or uniform finite-time convergence optimum.
 
-## Closest literature and limitations
-Bressanini et al., arXiv:2204.01836; Adithya et al., arXiv:2507.17880; Caruso, DOI:10.1088/1367-2630/16/5/055015. The specific result requires a uniform adjacency Hamiltonian and uniform site-dephasing; it is not a theorem for onsite-detuned, Laplacian, weighted, or non-Markovian quantum walks. Independent originality and correctness assessment remain pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repair preserves the scientifically distinct claim: the full, trace-preserving adjacency-star Liouvillian polynomial and unique optimal positive site-dephasing rate for its spectral gap. The closest indexed adjacency-star result instead assumes a hub sink and minimizes mean absorption time. The closest gap paper treats a Laplacian commutator, with weak/strong dephasing observations rather than the stated full characteristic polynomial and global optimizer. The two Hamiltonians are not related by an irrelevant scalar shift and common scale on an irregular star. The optimum is not taken from a checked table or the indexed integrated-return calculation. This is a bounded comparison, not a claim that no equivalent prior master-equation analysis can exist.
+
+## value
+
+PASS
+
+The result solves the full spectral relaxation design question for a natural family of inhomogeneous graphs. It identifies which sector limits relaxation, distinguishes a two-leaf exceptional point from all higher degrees, and establishes the opposing asymptotic scalings of optimum noise and achievable gap. The corrected factorization supports exactly the same structural theorem, not just a fit or finite-size optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

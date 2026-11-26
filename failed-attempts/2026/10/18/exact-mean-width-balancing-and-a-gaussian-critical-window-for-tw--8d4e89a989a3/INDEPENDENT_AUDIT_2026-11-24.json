@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:07.561685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–84, VERIFICATION.md and checks/mean_width_check.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py mean_width; output /workspace/branches/parent-mean_width.txt"
+      ],
+      "rationale": "The displayed convex combination at t=max x_i lies in the two specified cube faces, and the endpoint cases t=0 and 1 lie in the corresponding faces. This is an exact hull description because both faces lie in the polytope. Their support maximum yields E h(G)=(d mu+E|D|)/2, since the positive and reflected negative parts from the two levels are independent. Gaussian radius is independent of the direction, with the stated expectation, so spherical full mean width is 2 E h(G)/c_d, not the unnormalized Gaussian width. The first-moment Fourier integral follows from the characteristic function of D; its integrand has a finite limit at 0 and is O(t^(-2)) at infinity. For fixed d, moving one element from q to p for p>=q>=2 compares the absolute values S0+T+Y and S0+T−Y with S0 symmetric, T nonnegative and positive with positive probability. The difference averaged over Y is an odd strictly increasing function of S0+T: for nonnegative s it is 2 E min(s,Y), strictly increasing because Y has a positive upper tail at every finite s. Thus every permitted outward transfer is strict; the two middle configurations at odd d are swaps, and d=2,3 have no distinct imbalance classes. The centered signed sum satisfies Lyapunov since the sum of third moments divided by (dv)^(3/2) is O(d^(-1/2)); bounded second moments give first-moment convergence in the critical window. Folded-normal integration and differentiation give the displayed profile, value at zero and strict convexity; the L² limit of D/d gives the macroscopic result even at s=0 or 1. Independent checks covered 474 vertex support computations, the planar width 1.08677793045 equal to (2+sqrt(2))/pi, and 49 strict comparisons through d=16. The sampled critical widths corroborate but do not prove the limit.",
+      "residual_risks": [
+        "The strict increase uses Pr(Y>s)>0 for every finite s, not merely mass in intervals starting at zero. The stated Y has this property. The equality classification assumes both layers are nonempty and uses the inherited Euclidean metric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "34f994ef99fd proves strict transfer for maxima of independent block sums plus an independent nonnegative C with Pr(C=0)>0, and explicitly says to set C=0 if there are no other classes.",
+          "47503e85bfda gives the joint spherical width and exposure-label limit; the mean limit is its folded-normal marginal expectation once uniform integrability is checked."
+        ],
+        "reasoning": "The generic transfer lemma includes p,q with Y=(Z)_+. The mean comparison follows from Gaussian radial normalization. Multiblock novelty scope r>=3 does not remove the proved r=2 lemma application; this is not extrapolation outside the hypotheses.",
+        "searches": [
+          "Resultary: strictly increasing mean width with discrete size imbalance at fixed dimension p+q, ordinary chain polytope of complete bipartite graph K_pq or isometric standard two-level order polytope",
+          "Resultary 34f994ef99fd §2 and 47503e85bfda Finding",
+          "Primary search: mean width complete bipartite chain polytope monotonic balance layer size or signed iid absolute moment"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 47503e85bfda, 34f994ef99fd, ddec02cea24b, 8659155ecca7",
+        "Stanley (1986), pp. 10–12",
+        "arXiv:2001.10706 Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact chain identity plus isometry gives the mean master formula. The chain Gaussian marginal for D/√d has the same mean and variance; second moments are bounded in the critical window, so taking the first absolute moment recovers the folded-normal correction. Outside the window, D/d converges in L² by its mean and variance, giving the macroscopic profile.",
+          "The published transfer lemma at C=0 proves every strict fixed-d outward inequality; exchange of the two levels is an orthogonal symmetry.",
+          "Stanley gives order and chain polytope structure, not the finite strict statistic; the first-absolute-moment integral is the classical characteristic-function identity applied to the covered expectation."
+        ],
+        "reasoning": "All central findings are exact consequences of inspected statements on the same body or of a stronger applicable lemma. The separate quadrature prescription and calculus on the folded-normal profile do not add a distinct surviving theorem.",
+        "searches": [
+          "47503e85bfda eqs. (1)–(3) and Finding",
+          "34f994ef99fd strict transfer lemma (offsets 2548–5539)",
+          "Stanley, Two Poset Polytopes, pp. 10–12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "47503e85bfda defines P_{p,q} by u_i,v_j>=0 and u_i+v_j<=1 for all i,j, exactly the inequalities obtained by reflecting and translating all y coordinates of the frozen polytope.",
+          "The John record uses the balanced original body but computes a maximum-volume inscribed ellipsoid, not width. ddec02cea24b uses signed, enriched bodies, not the ordinary body."
+        ],
+        "reasoning": "An affine isometry preserves the spherical distribution of directional widths, hence the mean. Neither replacing the invariant by the John ellipsoid nor using enriched order/chain bodies effects this equivalence.",
+        "searches": [
+          "Resultary: correlated folded-normal width on the ordinary two-level chain polytope (47503e85bfda)",
+          "Resultary: exact John ellipsoid of balanced two-layer order polytopes (8659155ecca7)",
+          "Primary search: mean width order polytope two antichains John ellipsoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "47503e85bfda eq. (1) gives the exact Gaussian directional numerator (sum |G_i|+|D_+|+|D_-|)/2, before dividing by radius. Its two differences have the same law D.",
+          "ddec02cea24b supplies exact geometric invariants and a width defect for signed enriched bodies, not this numerical invariant; 8659155ecca7 instead tabulates ellipsoid parameters for the balanced case."
+        ],
+        "reasoning": "This is an exact continuous-invariant comparison, not an integer-sequence lookup. Taking the mean of the homogeneous numerator and dividing by E||G|| gives exactly the frozen all-parameter width invariant, not just a few coinciding values.",
+        "searches": [
+          "Resultary exact width identities for two-level order and chain bodies: 47503e85bfda and ddec02cea24b; exact invariant comparator 8659155ecca7"
+        ]
+      },
+      "rationale": "Two distinct indexed findings together cover the claims. The affine map (x,y)→(x,1−y) has orthogonal linear part and maps this order polytope exactly onto the ordinary chain polytope, the stable-set polytope of K_{p,q}. Thus the different polytope name does not separate the width claims. Resultary 47503e85bfda gives the exact directional-width formula and a stronger joint distributional critical-window limit for that body. The fixed-dimension strict law is covered independently by the explicit strict transfer lemma in 34f994ef99fd with C=0; although its multiblock Finding emphasizes r>=3, the proof explicitly includes the no-other-blocks case. The catalogue dates are later path dates; this establishes mathematical coverage, not first-discovery priority or dependence.",
+      "residual_risks": [
+        "Bounded source comparison; the published catalogue coverage is decisive even without an exhaustive historical search. The date-stamped paths and mathematical equivalences do not establish priority or lineage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent body and exact finite invariant; stronger distributional limit",
+          "evidence": [
+            "P_{p,q}={u,v>=0:u_i+v_j<=1}; exact positive-part numerator; limit Y+(|T_+|+|T_-|)/2 with the stated marginal means and variances."
+          ],
+          "identifier_or_url": "Resultary 47503e85bfda",
+          "material_read": "Finding, inequalities, exact directional identity (1), offset 0–4928; marginal CLT and radial fluctuation passages identified around offsets 5552 and 6963",
+          "method": "Local mirror, exact affine isometry and first-moment comparison",
+          "title": "A correlated folded-normal width and antipodal-cone transition for two-level chain polytopes",
+          "trigger": "Same-poset ordinary chain polytope and corresponding width window"
+        },
+        {
+          "assessment": "Direct applicable strict transfer theorem whose proof explicitly discusses the two-part case",
+          "evidence": [
+            "For p>=q>=2, E max(S_{p+1},S_{q−1},C)>E max(S_p,S_q,C); if there are no other classes, set C=0."
+          ],
+          "identifier_or_url": "Resultary 34f994ef99fd",
+          "material_read": "Finding/scope located around 444 and 2054; §2 transfer lemma and §3 extremizers read at offsets 2548–5539",
+          "method": "Local mirror and substitution C=0",
+          "title": "Strict mean-width majorization and multiblock Gaussian crossover for multipartite stable-set polytopes",
+          "trigger": "Could cover finite strict balancing even if chain-direction theorem does not"
+        },
+        {
+          "assessment": "Different bodies and a different width defect",
+          "evidence": [
+            "The cube faces use signed coordinates in [−1,1]; the limiting variable is a positive part of a difference, not the ordinary order mean width."
+          ],
+          "identifier_or_url": "Resultary ddec02cea24b",
+          "material_read": "Finding and signed-coordinate assumptions, offsets 0–4579",
+          "method": "Local mirror",
+          "title": "Two geometric transition scales for Ehrhart-equivalent enriched two-level poset polytopes",
+          "trigger": "Same-poset Gaussian width-window language"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Maximum-volume inscribed ellipsoid, not an angular support integral or strict imbalance comparison."
+          ],
+          "identifier_or_url": "Resultary 8659155ecca7",
+          "material_read": "Finding/Assumptions at offset 0; John contact proof at offset 3900",
+          "method": "Local mirror",
+          "title": "Exact John ellipsoid of balanced two-layer order polytopes",
+          "trigger": "Same ordinary balanced body, exact Euclidean invariant"
+        },
+        {
+          "assessment": "Classical structural input",
+          "evidence": [
+            "The order polytope vertex characterization provides support-optimization data but not the strict finite-width or Gaussian limit statement in the inspected passages."
+          ],
+          "identifier_or_url": "https://math.mit.edu/~rstan/pubs/pubfiles/66.pdf",
+          "material_read": "pp. 10–12, definitions, facets and filter vertices",
+          "method": "OA PDF",
+          "title": "Two Poset Polytopes",
+          "trigger": "Classical order and chain descriptions and vertices"
+        },
+        {
+          "assessment": "John/Löwner-normalized simplex inequalities, not these exact invariants",
+          "evidence": [
+            "Normalization and extremal class differ from the fixed ambient Euclidean metric and layer profiles here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.10706",
+          "material_read": "Abstract p. 1 and Theorem 1.1 p. 2",
+          "method": "OA submitted PDF after DOI route denied access",
+          "title": "Strengthened inequalities for the mean width and the ℓ-norm",
+          "trigger": "General mean-width comparison via extreme ellipsoids"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Resultary 47503e85bfda width identity/window; 34f994ef99fd strict transfer lemma"
+      ],
+      "rationale": "This is a natural geometric family and the balanced extremizers and critical correction would be useful mathematical facts. As a distinct finding in the presence of the verified comparisons, the exact mean and both limits are consequences for the very same isometric body, and the strict balancing remainder is already a proved transfer case. The moved-coordinate derivation and numerical integral are useful expositions but not a distinct valuable claim to repair.",
+      "residual_risks": [
+        "No conclusion about the historically first derivation or the independent interest of distinct distributional or multiblock results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

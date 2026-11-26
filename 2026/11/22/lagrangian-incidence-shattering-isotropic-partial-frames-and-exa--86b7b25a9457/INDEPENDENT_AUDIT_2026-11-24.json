@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:01:44.976614Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, and inspected portions of the three frozen checkers in checks/; supplied scripts not executed",
+        "/workspace/branches/de7b54f5-5157-4a84-a999-6e696d39b7f8/independent_binary_homology.py and binary_homology_output.txt"
+      ],
+      "rationale": "All-positive forces isotropy; a dependent circuit would require one vector to be excluded from a subspace containing the other circuit vectors that span it. Conversely, extend an isotropic independent support to the e-side of a symplectic basis, and in each coordinate select e_i for positive labels and f_i for negative labels. The generators are independent and orthogonal, including for the all-negative pattern and in characteristic two. If i vectors have span U, choices for a next vector lie in U⊥ outside U, giving q^{2n−i}−q^i and the unordered /k! factor. Extension to a Lagrangian gives purity and VC dimension n. At a first online query v the positive subfamily descends to the symplectic quotient v⊥/〈v〉, and constant or duplicate restricted queries add no depth, so induction gives Ldim≤n; using a shattered basis gives equality. Equivalently, on the all-positive path in any shattered tree of fixed-rank subspaces each subsequent query must escape the span of the earlier positives because its negative child is realizable. For n≥2 the singleton {f_1+f_2} cannot be augmented by either vertex of the larger face {e_1,e_2}, and e_1,e_2,e_1+e_2 form a clique but not a face. Independent face enumeration and binary boundary elimination reproduced face counts (1,3), (1,15,45), (1,63,945,3780), with augmented ranks (1), (1,14), (1,62,883), respectively; these give the claimed reduced Betti numbers with the other groups zero.",
+      "residual_risks": [
+        "The bounded replay computes faces from the proven isotropic-independence criterion, not by independently enumerating all Boolean traces. Binary Betti ranks are verified only in the three asserted ranks, not claimed as an integral or general-rank invariant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.7 is a connectivity theorem for the ordered IU poset over rings. For fields, sr=1, its given bound floor((n−3)/2) implies connectivity of the unordered complex at n=3 by the retraction, not vanishing H_1 there by itself. It is not a theorem about Boolean trace patterns.",
+          "The generic fixed-rank subspace upper bound applies online, but sharpness for this class uses simultaneous realizability of the labels. Piterman's vertices are nondegenerate two-planes. Intersecting-family results optimize subspace intersections, not shattering."
+        ],
+        "reasoning": "Give the geometric and generic-learning overlap full credit; neither the ordered complex theorem nor those different concept classes supplies the all-label claim for Lagrangian incidence.",
+        "searches": [
+          "Mirzaii–van der Kallen, arXiv:math/0110163 Theorem 5.7",
+          "Bhaskar arXiv:1702.03956v4 thicket dimension",
+          "Yao–Lv–Wang arXiv:2010.05030v1 polar-space intersection families",
+          "Piterman arXiv:2305.02940v1 frame complex",
+          "Resultary affine-flat, complete-flag and GL point-image shattering"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0110163",
+        "arXiv:2305.02940v1",
+        "arXiv:2010.05030v1",
+        "arXiv:1702.03956v4",
+        "Distinct Resultary Arf-parity, GL point-image, affine-flat, and complete-flag records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The face count is elementary once the face criterion is known, and the online upper bound follows for any family of n-dimensional subspaces. The IU literature supplies symplectic frames, even complementary dual vectors, but the compared statements do not establish both the circuit obstruction and realization of every mixed positive/negative support labeling by this incidence class.",
+          "The small topology has a separate standard geometric route: mapping a face to its span in the symplectic building gives lower fibers that are independence complexes of vector matroids on that span. At span dimension d the lower fiber and upper building interval are respectively (d−2)- and (n−d−2)-connected. The resulting join connectivity in the face-to-building mapping cylinder gives vanishing of lower homology, so Euler characteristic also gives the stated binary top ranks. This further limits the independent novelty attributable to the small calculations."
+        ],
+        "reasoning": "The use of symplectic basis extension is classical; the supported result is the exact identification of the shattering complex, not a discovery of isotropic frames, an improved general connectivity theorem, or a new bound for arbitrary subspace families. The analogue statements do not specialize to that identification.",
+        "searches": [
+          "arXiv:math/0110163 §5 definition, Lemma 5.3 and Theorem 5.7",
+          "arXiv:1702.03956v4 thicket dimension definition and Resultary analogous finite-field shattering statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each independent isotropic set is the support of an IU sequence, and any IU sequence has such a support, since over a field being a basis of a direct summand is just independence. Ordering a finite set by a fixed total order embeds its face poset into the sequence poset with support-forgetting a retraction.",
+          "The distinct Arf-parity entry also uses a symplectic form and has a Lagrangian exception, but its concepts are zero sets of quadratic refinements, not maximal isotropic subspaces."
+        ],
+        "reasoning": "The geometry is equivalent after forgetting order, but this comparison does not identify which supports have every Lagrangian membership label realized. Static shattering is a property of the full incidence class, not simply a name for an isotropic sequence.",
+        "searches": [
+          "arXiv:math/0110163 §4 subsection order and §5 isotropic unimodular sequences",
+          "Resultary finite-field shattering of Lagrangian membership, isotropic supports, and binary Arf parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct inspected entry tabulated this exact shattering polynomial and binary homology. The assigned record is a self-hit. For binary rank three the nearby GL point-image shattering record reports 3870 in degree two for an expressly different complex."
+        ],
+        "reasoning": "The object is already enumerable as a known partial-frame geometry; exact agreement with computed numbers does not establish priority. Those numbers are accepted as verified illustrations, without relying on absence of an exact table for originality.",
+        "searches": [
+          "Resultary exact binary small homology, finite Lagrangian incidence shattering and nearby point-image records",
+          "arXiv:math/0110163 geometric IU complex",
+          "Search for unordered independent isotropic vectors and partial bases"
+        ]
+      },
+      "rationale": "The isotropic partial-frame geometry itself is directly prior: over a field, the sequences of Mirzaii–van der Kallen's IU poset have precisely these sets as supports. Neither prior existence of the complex nor standard dimension bounds are credited as discoveries. The supported distinct claim is the identification of all Boolean traces of Lagrangian membership through the shattering criterion, which also gives the exact face polynomial and static/online dimension for this concept class. The small homology ranks are corroborating invariants of the identified complex, not the basis of the originality decision. No equivalent trace classification was found in the inspected sources.",
+      "residual_risks": [
+        "The literature assessment is bounded. Unindexed earlier incidence shattering statements may exist, and prior geometry/topology should not be conflated with originality of the identification as a shattering complex."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of ordered geometric objects; related connectivity, not the shattering criterion",
+          "evidence": [
+            "IU sequences are bases of isotropic direct summands, with order by order-preserving subsequence. Lemma 5.3 uses isotropic dual frames. Theorem 5.7 is ordered connectivity, with the stated floor bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0110163",
+          "material_read": "§4 subsequence order p.9, §5 definitions pp.15–16, Lemma 5.3 p.17 and Theorem 5.7 p.18; offsets about 27643, 45340–52965, 55040–56224",
+          "method": "OA PDF passage inspection",
+          "title": "Homology stability for symplectic groups",
+          "trigger": "Exact geometric alternative via isotropic unimodular frames"
+        },
+        {
+          "assessment": "Different vertex and face definitions",
+          "evidence": [
+            "Vertices are nondegenerate two-dimensional subspaces; orthogonal collections of such planes are faces."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.02940v1",
+          "material_read": "§1 and §2, offsets 3061 and 10870",
+          "method": "OA HTML passage inspection",
+          "title": "On the frame complex of symplectic spaces",
+          "trigger": "Plausible same frame terminology"
+        },
+        {
+          "assessment": "Different extremal question",
+          "evidence": [
+            "Pairwise dimension-of-intersection conditions and maximum nontrivial families, not Boolean membership traces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.05030v1",
+          "material_read": "pp.1–2, offsets 371 and 4886",
+          "method": "OA PDF passage inspection",
+          "title": "Non-trivial t-intersecting families for symplectic polar spaces",
+          "trigger": "Subspace families on the same ambient symplectic spaces"
+        },
+        {
+          "assessment": "General framework; no exact symplectic incidence conclusion in the compared passages",
+          "evidence": [
+            "Thicket dimension is the online tree parameter used in the finding."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1702.03956v4",
+          "material_read": "Definitions and Littlestone correspondence, offsets 12800 and 13468",
+          "method": "OA HTML passage inspection",
+          "title": "Thicket Density",
+          "trigger": "Online shattering framework"
+        },
+        {
+          "assessment": "Material thematic overlap and Lagrangian exception, but different class",
+          "evidence": [
+            "Binary refinements of a fixed polar form filtered by Arf parity. Criterion involves the orthogonal-complement kernel, not Lagrangian subspace membership. No priority inferred from same-day date."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-arf-parity-shattering-of-binary-quadratic-refinements-an-exact-l--c15b71e4309b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Arf-parity shattering of binary quadratic refinements",
+          "trigger": "Closest same-geometry shattering hit"
+        },
+        {
+          "assessment": "Different concept and query object",
+          "evidence": [
+            "Graph membership (v,Av) for invertible A imposes independence conditions on source and target, with different count and topology."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-point-image-shattering-of-finite-general-linear-groups--9a18c2c0e02d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Point-image shattering of finite general linear groups",
+          "trigger": "Nearby finite-field shattering and binary homology result"
+        },
+        {
+          "assessment": "Non-equivalent class and shattering condition",
+          "evidence": [
+            "Affine k-flats and affine independence of supports of size at most k+1, without isotropy."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-fixed-rank-affine-flat-shattering-complexes-over-finite-fields--6e9f3ce9d85a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Fixed-rank affine-flat shattering complexes over finite fields",
+          "trigger": "Previously published fixed-rank subspace-type shattering"
+        },
+        {
+          "assessment": "Different queries and criterion",
+          "evidence": [
+            "Queries are subspaces and the shattered supports are chains, rather than independent isotropic nonzero vectors."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-complete-flag-shattering-gaussian-multinomial-supports-and-exact--e221fe2ce784",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete-flag shattering: Gaussian multinomial supports and exact dimensions",
+          "trigger": "Previously published subspace-incidence shattering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md shattering classification and obstruction examples",
+        "Comparison to prior geometric frames and nearby finite-field shattering results"
+      ],
+      "rationale": "This is a natural complete classification for the ordinary point-incidence family of a symplectic polar space, over every finite field and rank. It identifies which finite membership observations can vary independently, not only the largest size, and distinguishes the resulting pure complex from matroid and clique models. Exact VC and online dimensions give its learning parameters. The small mod-two examples make the complex concrete but are not independently needed to establish value.",
+      "residual_risks": [
+        "No downstream learning algorithm or new general-rank topology theorem is necessary for, or credited in, this value assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and scope of verification
 
-Install the dependency from `requirements.txt`, then execute `python3 checker.py` alongside this file and `RESULT.md`. A direct replay completed **2,141 assertions**. The checks include symbolic stationarity and norm identities, tangent-Hessian determinants at both parameter endpoints, the resonant positive sum-of-squares equality, the sharp threshold expansion, exact Fourier coefficient convolution for a variety of integer frequency pairs, and numerical simplex tests of the nonresonant branches.
+From the package directory, install the dependency from `requirements.txt`, then execute `python3 checker.py`. The relevant assertions test exact Fourier convolution, the resonant sum-of-squares identity, and the sharp onset expansion. The script also tests nonresonant identities and numerical examples for comparison; the nonresonant activation staircase is not claimed as a new result here.
 
-The proof in `RESULT.md` provides the universal steps: a complete six-pair-sum collision classification, global quadratic concavity in the three-mode regime, exact boundary comparison, a resonant sum-of-squares certificate, and an implicit-function argument. The checker does not exhaust real parameters or infinitely many frequencies; numerical samples do not certify those quantifiers. The precise resonant global optimizer at arbitrary radii is not claimed determined. Independent audit is not performed.
+The proof in `RESULT.md` uses the single midpoint collision, the sum of squares at criticality, a strict first-order gain over every boundary support above criticality, and an implicit-function argument for the unique near-critical profile. Finite checks do not certify all radii or replace the proof. The exact resonant global norm and uniqueness of its amplitude profile away from the onset are not claimed.

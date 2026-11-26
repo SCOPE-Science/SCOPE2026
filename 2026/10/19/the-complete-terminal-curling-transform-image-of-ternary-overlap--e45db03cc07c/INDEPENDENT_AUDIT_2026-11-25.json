@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:23:58.424881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transform uses the curling number of each nonempty prefix, with no extra initial 1. An overlap has length 2p+1 and period p, and a cube always contains one, so in overlap-free words a suffix square exactly detects curling number 2. If an admissible prefix is extended, all newly introduced forbidden factors on either side end at the new position; this establishes the exact prefix induction including termination. Independently enumerated every labeled candidate using integer symbol masks: compare the low p bits for suffix squares and p+1 bits for suffix overlaps against their p-shifts, on both source and transform as appropriate. Replay: python3 /workspace/reproduction/4.py; see 4.txt. The counts at depths 83,84,85 were 5040,6048,0. The only outputs match the exact stated H with tails 1 and 2, with frequencies 4032 and 2016. In letter order 0,1,2, the only nonempty final branching tuples are (1,1,2), (1,2,1), (2,1,1), each at 672 distinct parents; thus all three letters work at every one of the 2016 extendible parents, and exactly one gives curling digit 2. A separate labeled check recomputing factors and curling numbers directly agreed. These are complete finite enumerations, not probability or extrapolation. The frozen computation logs were inspected as recorded evidence, not relied on for independent confirmation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "...4590e1707270 treats ternary sources with relaxed 9/4-power avoidance and overlap-free transforms; its exponent-2 row repeats the two outputs and counts",
+          "Appendix B describes independent enumeration of terminal counts"
+        ],
+        "reasoning": "The later exponent table materially overlaps the image and fibers for the overlap-free regime, but does not state the three-way parent property. An enumeration procedure can be adapted to that question; the prior terminal count does not itself answer it.",
+        "searches": [
+          "Resultary: terminal rigidity by critical exponent or power-free source class",
+          "Caveney–Dong–Shallit Appendix B and Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.15670v1 §2.1, §4.1 Theorem 7, Table 1 and Appendix B",
+        "Resultary ...6f099e4f6a40 and ...4590e1707270"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One displayed source/transform pair realizes H2",
+          "The earlier enumeration tests valid prefixes and reports totals, not a common 83-digit trace or counts by exact transform and parent in the material read"
+        ],
+        "reasoning": "A count of 6048 and one output give no bound of two on the number of transforms and no constraint that every extendible parent has all three children. Recovering the image and local branching requires additional exact enumeration or a structural argument, not merely transforming the displayed example.",
+        "searches": [
+          "Compare arXiv:2608.15670v1 Theorem 7 and Appendix B with the fiber and parent properties"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source paper explicitly omits the extra initial 1, hence uses the same convention",
+          "Indexed ...6f099e4f6a40 Finding: exact same H, two outputs and 4032/2016 counts, and all three final extensions at 2016 parents"
+        ],
+        "reasoning": "The convention is not a distinction from the closest paper; the difference is the exact distribution and parent structure. The later record is genuinely equivalent for the claim, rather than simply a hit on the known length.",
+        "searches": [
+          "Resultary: maximal ternary direct-prefix curling transform image and common 83-prefix",
+          "arXiv:2608.15670v1 §2.1 and §4.1 Theorem 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 summarizes the maximum; Theorem 7 gives the total and an example with output H2",
+          "Exact profile in later ...6f099e4f6a40 and later exponent-2 table in ...4590e1707270"
+        ],
+        "reasoning": "The inspected earlier public table and example do not determine the complete image, weights or branch distribution. The exact later statements are credited as overlapping; no provenance or pre-frozen priority is established by their listings.",
+        "searches": [
+          "Resultary: 4032 and 2016 fibers, three-way terminal branching, common 83-digit prefix",
+          "arXiv:2608.15670v1 Table 1, Theorem 7 and Appendix B"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass only for the complete image, fibers, common-prefix rigidity and final branching of the stated terminal family. The 84 maximum, the 6048 total, exclusion of length 85 and one of the two outputs were already given by Caveney–Dong–Shallit. A later-dated indexed result gives the same profile plus a finer final-symbol criterion; exact overlap is acknowledged without assuming priority from index dates alone.",
+      "residual_risks": [
+        "Unindexed or unexamined supplementary analyses of the original enumeration could report this profile.",
+        "Exact later indexed overlap does not by itself establish the dissemination order or provenance of the two accounts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier endpoint and counts, plus one known output; exact fiber and parent data not supplied in inspected statements",
+          "evidence": "Maximum 84, 6048 examples, none at 85, and one example mapping to H2. The direct-prefix definition omits an extra initial 1. Appendix B checks terminal counts.",
+          "identifier_or_url": "arXiv:2608.15670v1",
+          "material_read": "p.2 Table 1 (offset 3617), p.3 §2.1 (6600), p.6 §4.1 Theorem 7 (14945), p.11 Appendix B (21100)",
+          "method": "OA PDF bounded passages",
+          "title": "Repetition Avoidance in Curling-Number Transforms",
+          "trigger": "Same direct-prefix convention and maximal admissible family"
+        },
+        {
+          "assessment": "Distinct later-dated exact overlap with a finer criterion",
+          "evidence": "Same H, image H1/H2 and counts 4032/2016, 2016 parents with all three extensions, and no length-85 word; final digit 2 is further identified by equality of the last two source symbols.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-image-rigidity-at-the-maximal-ternary-curling-number-boundar--6f099e4f6a40",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two-image rigidity at the maximal ternary curling-number boundary",
+          "trigger": "Exact indexed profile match"
+        },
+        {
+          "assessment": "Later-dated exact row overlap, no matching branching statement in the inspected claim",
+          "evidence": "Exponent-2 row gives the same two outputs and 4032/2016 frequencies in the overlap-free regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-critical-exponent-and-curling-transform-rigidity-at-the-ternary--4590e1707270",
+          "material_read": "RESULT.md power-free claim and exponent-2 row of the transform table",
+          "method": "Local Resultary mirror",
+          "title": "Critical exponent and curling-transform rigidity at the ternary boundary",
+          "trigger": "Broader power-free regime with exact transform-table overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The entire transform image of the natural maximal admissible family is an intrinsic finite invariant: 6048 different inputs yield only two outputs differing at the last position. The fiber sizes and universal three-letter parent branching resolve how terminal square-suffix choices concentrate, information unavailable from a total count. This is useful as a constraint and a benchmark for structural accounts of these rigidity phenomena, without claiming a general theorem at shorter lengths.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

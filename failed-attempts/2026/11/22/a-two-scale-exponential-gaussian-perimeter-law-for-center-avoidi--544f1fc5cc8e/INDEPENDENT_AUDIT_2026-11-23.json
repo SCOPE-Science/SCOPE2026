@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:54:44.476601Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root circular spacings at a specified sampled vertex (not at the first vertex after a fixed coordinate angle); then the uniform simplex density is valid. On the exclusion event the unique long gap is greater than π; disjointness and Dirichlet slicing give probability n/2^(n-1), independent T=δ/π with survival (1-t)^(n-1), and V of dimension m=n-1, uniform on its simplex. The closing chord and its oriented area contribution are 2cos(δ/2) and -sin(δ)/2. For Q=sum V_j³, the Dirichlet moment formula gives mean 6/[(m+1)(m+2)]; its second moment is [720+36(m-1)]/[(m+1)...(m+5)], which yields the frozen variance. With G_j=L V_j, the remainder in the cubic expansions is bounded by a constant times sum G_j⁵, with expectation O(n^-4) uniformly in L. Thus ΔP=δ+δ²/4+L³Q/24 up to O(δ⁴) and the fifth-power error; ΔA=δ+L³Q/12 up to O(δ³) and the fifth-power error. This verifies the shared exponential leading term and the quadratic difference. For W unit-exponential, the delta-method influence for the cube sum normalized by the cubed sample mean is W³-18W+12 of variance 360, giving variance 360π⁶/24²=5π⁶/8. Its normalized spacing vector is exactly independent of the endpoint gap and L tends to π, which proves the joint independence in the limit. The centering in the formula is the exact conditional mean of the cubic proxy, not of the nonlinear D_n; Scope states this correctly and the nonlinear conditional mean differs uniformly by O(n^-4). I inspected VERIFICATION.md and verify.py without running the frozen script. The finite arithmetic and simulation are diagnostic, not a proof or historical attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The marked Wendel model covers centrally symmetric curves and positive π-periodic angular densities, and supplies the exact conditioning mechanism. The unconditioned covariance record gives the normalized cubic sum CLT at variance 360 and fifth-moment Taylor control, not solely its perimeter marginal. Bélisle's accessible abstract concerns uniform-spacing power sums, but no full-text implication is asserted here."
+        ],
+        "reasoning": "The stronger statistical inputs are available in exact matching specializations, despite the previously stated observables being different. An unconditioned theorem in general would not imply a rare conditional one; it applies here specifically after the independent simplex reduction supplied by the other source.",
+        "searches": [
+          "6fc92189d743 Proof §§1–3",
+          "781f4f4936fc Proof §§1–2",
+          "Bélisle DOI:10.1016/j.spl.2010.11.012"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6fc92189d743",
+        "Resultary 781f4f4936fc",
+        "Resultary eb09f8addbe7 and 46f33b2d37f1",
+        "Bélisle DOI:10.1016/j.spl.2010.11.012 (abstract only)",
+        "arXiv:1301.1360 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let Q=sum V_j³ under the independent endpoint/spacing representation above. The earlier circle proof gives m²Q→6 and m^(5/2)(Q-EQ)⇒N(0,360), as well as E Q=6/[(m+1)(m+2)]. The arc and full-circle losses have the same cubic term up to (L/(2π))³, tending to 1/8; this transfers the prior 40π⁶ variance to 40π⁶/64=5π⁶/8 with the same centering up to the stated negligible order. Independence from the endpoint excess is immediate from the exact sampling representation. The only other transformations are ΔP=δ+δ²/4+L³Q/24+o_P(n^-2) and ΔA=δ+L³Q/12+o_P(n^-2), direct Taylor expansions of the chord and shoelace formulas."
+        ],
+        "reasoning": "The two expansions immediately give nΔP,nΔA⇒πE and n²(ΔA-ΔP)⇒(π³-π²E²)/4. This completes the entire vector by rescaling and Slutsky; a different term name or an unstated coefficient in the original prior Findings does not leave a distinct new limit theorem.",
+        "searches": [
+          "6fc92189d743 Proof §§1–2, offsets 2800–5993",
+          "781f4f4936fc Proof §§1–2, offsets 0–4145"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The marked Wendel record conditions on the identical center-avoidance event and gives iid angles on the semicircle given its sampled anchor. Uniform unit-circle sampling specializes its endpoint excess to the same δ with survival (1-δ/π)^(n-1). Conditional on the largest angle, the other n-2 angles are uniform on the occupied arc, so their m=n-1 normalized spacings have exactly the same uniform simplex law as m rooted full-circle spacings, independently of δ."
+        ],
+        "reasoning": "The closed full-circle polygon is a different geometric object but its normalized gap vector, and thus its cubic statistic, is identical in law to the one required here. Calling the loss an inner-arc deficit changes the angle prefactor and closing chord, not the spacing random variable.",
+        "searches": [
+          "Resultary: marked Wendel / center avoidance / center clearance, 6fc92189d743",
+          "Resultary: cyclic polygon perimeter Gaussian and power spacings, 781f4f4936fc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two October 25 entries supply the exact endpoint distribution, cubic-spacings mean and CLT constant. The supersemicircle entry treats center inclusion and the semicircular-hull entry treats a rare acute vertex; neither has the identical event. No distinct entry was inspected whose Finding prints the whole five-coordinate vector together."
+        ],
+        "reasoning": "This is not a finite-table problem. The relevant exact catalogue coverage is the joint implication of exact input laws and CLT constants, rather than a verbatim listing of all coordinates.",
+        "searches": [
+          "Resultary: center-avoiding random cyclic polygon joint area and perimeter deficits",
+          "Resultary 6fc92189d743, 781f4f4936fc, eb09f8addbe7, 46f33b2d37f1"
+        ]
+      },
+      "rationale": "The full vector is not quoted verbatim in the inspected sources, but it is mechanically implied by two specifically matching earlier results, not merely by a generic CLT. The marked Wendel result gives exactly the conditional endpoint and uniform sample representation. The earlier cyclic-polygon result proves exactly the same normalized cubic spacing CLT with the same centering and Taylor control. Applying it to the independent normalized spacings and expanding the area and closing chord gives the entire vector, including its apparently distinct second-order difference and fifth-coordinate variance. This is a concrete coverage finding; it does not rely on inferring anything from an inaccessible paper.",
+      "residual_risks": [
+        "No claim is made about whether Bélisle's full text or older spacing literature presents this particular application. The two inspected October records suffice for the demonstrated implication.",
+        "The finding is mathematical coverage by implication, not an allegation about provenance or copied text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact conditional sampling mechanism and leading endpoint limit",
+          "evidence": "Proof §2 conditions on the unique semicircle anchor and states the other n-1 angles are iid with normalized density 2f, along with the exact endpoint survival.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-i--6fc92189d743/RESULT.md",
+          "material_read": "Finding; Proof §§1–4, in particular mirror offsets 2800–5993",
+          "method": "Bounded original passages through local mirror; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Marked Wendel law and convex-order optimal sampling for random inscribed polygons",
+          "trigger": "Identical center-avoidance event and potentially identical conditional order statistics"
+        },
+        {
+          "assessment": "Its unconditioned cubic fluctuation is precisely the required independent simplex-vector CLT after endpoint conditioning",
+          "evidence": "Proof §2 gives the normalized cubic CLT with variance 360 and exact normalized cubic mean, and §1 bounds the fifth-power remainder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-covariance-law-for-worst-case-and-perimeter-errors-of-ra--781f4f4936fc/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–2, mirror offsets 0–4145",
+          "method": "Bounded original passages through local mirror; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp covariance law for worst-case and perimeter errors of random cyclic polygons",
+          "trigger": "Exact same cubic spacing statistic and potential rescaling of Gaussian variance"
+        },
+        {
+          "assessment": "Abstract corroborates relevance to powers of uniform spacings; scope beyond that is unresolved",
+          "evidence": "The accessible abstract describes limit theory for sums of powers of uniform-interval spacings; no whole-paper negative inference.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2010.11.012",
+          "material_read": "Accessible publisher abstract only; no full text inspected",
+          "method": "Lawful DOI/publisher route; identified alternate ResearchGate copy was inaccessible",
+          "title": "On the polygon generated by n random points on a circle",
+          "trigger": "Older relevant power-spacing limit for random cyclic polygons"
+        },
+        {
+          "assessment": "Different extremal observable, not used for the coverage decision",
+          "evidence": "Selects extrema over subsets of vertices, rather than full hull geometry conditioned on missing the center.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1360",
+          "material_read": "Abstract, p. 1",
+          "method": "Bounded lawful OA PDF reading",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Random-circle perimeter and area limits might involve analogous scaling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditioned geometry and second-order cancellation are natural, and this is a clear exposition of what happens. But for this particular result the rare-event law, normalized spacing fluctuation and independence mechanism are already supplied. The additional coordinates consist of elementary chord/area Taylor conversions of those same two variables, with no new limit mechanism or surviving independent invariant needing separate determination. The notation suggesting exact nonlinear centering would not change that judgment even if clarified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

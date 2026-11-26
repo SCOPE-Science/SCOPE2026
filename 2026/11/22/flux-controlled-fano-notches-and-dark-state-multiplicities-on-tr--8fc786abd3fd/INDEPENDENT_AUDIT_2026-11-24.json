@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:38:15.127329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated wiring and gauge, the pair Schur term is 2(E+c)/(E²−1), so the hub diagonal resolvent is (E²−1)/F_m. Matching left and right plane waves across the wire contact gives transmission (4−E²)/(4−E²+V²) with V this resolvent. F_m(−1,c)>0>F_m(1,c) at generic flux; the two outer roots are separated from the central root by ±1. The signs at ±2 and at infinity then give the three, threshold two/one, and uniform one-notch regimes; an edge root at equality is excluded. Square summability inside the band forces both lead tails, then the contact and hub, to vanish. The sole freedom is in the dimer ±1 eigenspaces, with one linear constraint proportional to 1±e^{iφ}, giving dimensions m−1 (the record's eigenfunction counts are multiplicities) and the stated rank drops. At c=±1 the common factor cancels and the remaining quadratic poles are outside the open band for m≥3. With E=−1+sε the leading cubic term is 2ε[m−(m−1)s] and E²−1=−2sε+O(ε²); this gives the stated reflection profile. The two transverse half-level roots have denominators m−1±1/√3, and the conversion ε=φ²/2+O(φ⁴) gives the claimed full width and ratio. These expansions hold at fixed m, not uniformly in m. The frozen verification and full-system numerical checker were inspected; the reported 345 assertions are supporting samples, not an independently replayed proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ladrón de Guevara–Orellana derive size-dependent BIC counts for a chain molecule coupled in parallel to two leads, including a zero-field larger-molecule model.",
+          "Chakrabarti treats exact transmission with Fibonacci dangling chains. Szafran–Poniedziałek address field dependence of Fano widths in a finite-width continuous side-ring setting."
+        ],
+        "reasoning": "These mechanisms and exact results do not include the specified contact and identical magnetic triangles as a special case of the inspected model statements. Neither chain spectrum nor finite-width ring asymptotics determine the claimed uniform loop threshold.",
+        "searches": [
+          "OA cond-mat/0508727: Hamiltonian; N quantum dots",
+          "OA cond-mat/0609082: transmission; Fibonacci quasiperiodic chain",
+          "OA 1010.1118: Fano"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary closed weighted bouquet and two-arm stub records",
+        "Ladrón de Guevara–Orellana, Bulgakov et al., Chakrabarti, and Szafran–Poniedziałek articles, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closed record explicitly gives the determinant as the product of z²−t_j² times z−Σ_j(2z+2t_j cos φ_j)/(z²−t_j²). Thus the denominator F_m is already recoverable, and the hub cofactor directly gives V in the equal-strength, uniform-flux case. Standard contact matching then gives the rational transmission.",
+          "The checked stub asymptotics are symmetric under reversal of the local Lorentzian coordinate; here E± converge near a moving transparency and the profile is asymmetric in its energy coordinate."
+        ],
+        "reasoning": "Credit the closed determinant and its routine resolvent consequence, rather than just a topical resemblance. The separate classification uses open-band root crossings, cancellation at endpoint flux, the hub-zero dimer constraints, and the coupled pole/zero scaling calculation. The inspected prior statements do not give the resulting thresholds or exact weak-flux profile and unequal half-width laws.",
+        "searches": [
+          "Closed weighted triangle record e33fc30beb13, Proof §1, mirror offset 2600",
+          "Two-arm stub record 9161230b60f6, Finding",
+          "OA 1010.1118, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed weighted triangle record e33fc30beb13 does describe the same finite gadget after gauge change and specializing the strengths and cosines. It has no infinite wire or propagating band.",
+          "Bulgakov et al. study in particular BICs at discrete energy/flux values on open rings, rather than the generic-flux compact eigenspaces provided by repeated pendant pairs in this graph."
+        ],
+        "reasoning": "Gauge transport within the triangle is valid but does not interchange closed spectra with one-contact wire transmission, and the ring with attached channels is not the general bouquet with a common side hub.",
+        "searches": [
+          "Resultary: magnetic triangle bouquet side-coupled wire exact Fano notch census",
+          "Resultary: compact embedded eigenstates dark states multiplicity magnetic triangle bouquet",
+          "OA cond-mat/0610197: Aharonov-Bohm; ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match in one catalog search is the frozen record itself (8fc786abd3fd). The census-like closed spectral record checks a different observable. The related exact two-arm-stub classification 9161230b60f6 gives a detuning-induced quadratic width and a Lorentzian limiting profile, not the same flux-driven profile."
+        ],
+        "reasoning": "The meaningful exact-entry test is the full count as a function of m and c or equivalent root/lead data. The concrete checked entries do not tabulate that open-system classification; a limited literature search is not a catalog of all earlier results.",
+        "searches": [
+          "Resultary: weak-flux asymmetric Fano notch width side-coupled graph",
+          "Resultary: side-coupled finite quantum stub bound states quadratic Fano-notch width",
+          "Literature: \"side-coupled\" magnetic triangle quantum wire common hub Fano resonances bouquet bound states"
+        ]
+      },
+      "rationale": "Pass for the exact open-system classification, particularly its full propagating-band census, endpoint threshold and asymmetric weak-flux scaling. The Schur method, Fano/BIC mechanisms, and even the corresponding closed-device spectral determinant are not distinct claims. No temporal priority is inferred from catalog dates.",
+      "residual_risks": [
+        "Targeted search does not exclude an unindexed or differently named graph scattering result. Same-day catalog matches establish overlap of statements, not temporal order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for the determinant and hub Schur term, not an open-band classification",
+          "evidence": "Removing the hub leaves dimers with determinant product; the closed characteristic polynomial contains precisely the required one-hub denominator.",
+          "identifier_or_url": "2026/11/22/SCOPE-spectral-flux-identifiability-and-local-moment-recovery-on-weigh--e33fc30beb13",
+          "material_read": "Finding, Assumptions, and determinant and evaluation in Proof §§1–2, offsets 2600–4301",
+          "method": "Resultary search and OA local mirror",
+          "title": "Spectral flux identifiability and local moment recovery on weighted triangular bouquets",
+          "trigger": "Same finite bouquet under a gauge change, with more general weights and phases"
+        },
+        {
+          "assessment": "Distinct perturbation and line shape; no priority inferred",
+          "evidence": "Two finite paths with one detuned arm and a Lorentzian rescaled profile, rather than magnetic loops and the asymmetric limits here.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-bound-states-and-quadratic-fano-notch-widths-in-a-two--9161230b60f6",
+          "material_read": "Finding",
+          "method": "Resultary search and OA local mirror",
+          "title": "Arithmetic bound states and quadratic Fano notch widths in a two-arm stub",
+          "trigger": "Exact discrete one-contact BIC and width laws"
+        },
+        {
+          "assessment": "Related mechanism, different molecule and contact geometry",
+          "evidence": "Two-lead parallel coupling of a chain molecule; N-dot zero-field counts N/2 or (N−1)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0508727",
+          "material_read": "Model p. 4, larger molecules p. 15, conclusion p. 17; OA offsets 8382, 34000, 42300",
+          "method": "OA PDF locator and page text",
+          "title": "Electronic transport through a parallel-coupled triple quantum dot molecule: Fano resonances and bound states in the continuum",
+          "trigger": "BIC multiplicity in scalable dot geometries"
+        },
+        {
+          "assessment": "Prior flux-controlled BIC analysis, not the common-hub m-triangle classification",
+          "evidence": "Ring coupled to single-channel leads, discrete flux/energy BIC conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0610197",
+          "material_read": "Abstract and one-dimensional ring section; offsets 1300, 2300, 9000",
+          "method": "OA PDF locator and page text",
+          "title": "Bound states in the continuum in open Aharonov–Bohm rings",
+          "trigger": "Discrete magnetic ring scattering and BICs"
+        },
+        {
+          "assessment": "Shares side coupling, not the magnetic device",
+          "evidence": "Fibonacci chain attached to one or more sites of a linear lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0609082",
+          "material_read": "Abstract and the attachment description at offset 800",
+          "method": "OA PDF locator and page text",
+          "title": "Electronic transmission in a model quantum wire with side coupled quasiperiodic chains",
+          "trigger": "Exact side-coupled tight-binding transmission"
+        },
+        {
+          "assessment": "Qualitative width precedent in a different model and regime",
+          "evidence": "Finite-width two-dimensional wire; width trends at high field depend on current circulation.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.1118",
+          "material_read": "Abstract, offsets 0 and 1100",
+          "method": "OA PDF locator and page text",
+          "title": "Tuning Fano resonances by magnetic forces for electron transport through a quantum wire side-coupled to a quantum ring",
+          "trigger": "Magnetic tuning of side-ring Fano width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural finite magnetic side device provides an exact benchmark for how compact dark-state multiplicity and propagating reflection can coexist without tracking each other. The smallest bouquet with one notch at every generic flux and the explicit asymmetric collapse toward exact transparency are useful parameter boundaries not supplied by a generic Fano ansatz. The contribution is these quantitative distinctions, not the elementary reduction alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:47:03.924398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–70; VERIFICATION.md; VERIFY.py (inspected, not executed)",
+        "/workspace/branches/reproduce-2.py (independent exact projective computation)"
+      ],
+      "rationale": "Both binary updates on the consecutive residues are invertible and start at (0,1), including the zero index. Projectivizing those pairs gives the independent four-letter substitution A→AC, B→CB, C→DD, D→BA, for [0:1], [1:0], [1:1], [1:2]. Three expansions give the claimed zero offsets for each letter, with at least one zero per block. The independent exact adjacent-letter enumeration closes on AC, CD, DD, DB, BA, AB, CB, CC, DC, AD; all ten communicate and AC has a self-loop. Their unique frequencies in that order are (4,2,4,1,7,2,4,1,2,1)/28. Counting internal gaps and the gap to the next block's first zero gives counts per block (4,2,2,4,1,1)/7 at lengths 2,3,4,5,6,8. Positivity and exact closure prove realization and exclusion. Primitivity gives uniform convergence of frequencies over aligned dyadic blocks of increasing size, independently of the starting letter pair. Any prefix is a disjoint union of such blocks, with at most one of each dyadic length, so blocks shorter than a fixed threshold have bounded total size and do not affect the limit. Partial terminal eight-index blocks alter only boundedly many gap counts; dividing by the total asymptotic rate 2 per block gives the claimed relative frequencies, mean 4 and variance 3. The proof covers the gaps from z_0=0 onward and does not infer an infinite conclusion from finite index sampling.",
+      "residual_risks": [
+        "This is an exact finite-state frequency proof, not a statement that successive gaps are independent, and its zero coding is specific to modulus three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick gives limiting pair residues uniformly on admissible classes, and Theorem 5.1 gives the full recursive zero-index set modulo three.",
+          "The related Resultary finding gives the residue law for three consecutive terms for any modulus, including a mod-three specialization."
+        ],
+        "reasoning": "The known uniformity explains the density and hence mean gap. A three-term law can account for a short-gap event such as two, not the full first-return distribution, which involves checking intervening nonzeros through gap eight. The recursive set description does not itself carry a law for adjacent zero indices; deriving that law requires new finite correlation analysis.",
+        "searches": [
+          "Reznick arXiv:math/0610601 §4, Theorem 4.7 and Corollary 4.8; §5, Theorem 5.1",
+          "Resultary record 2ccf8df2e88c, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Reznick arXiv:math/0610601, §§1, 4–5",
+        "OEIS A071911",
+        "Coons–Shallit arXiv:1105.0086 abstract",
+        "Resultary exact hit 2cd4f80ef4e0 and related record 2ccf8df2e88c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reznick uses generation from 0,5,7 by doubling and the specified ±5,±7 eightfold transforms; the published passage establishes membership, not frequencies of adjacency in sorted order.",
+          "Coons–Shallit's stated expansion computes Stern values from binary patterns. Neither that expansion nor the fixed-length triple residue law states the full first-return statistics."
+        ],
+        "reasoning": "These tools provide the underlying zero event or some marginals, but the values 2,3,4,5,6,8 with probabilities (2,1,1,2,1/2,1/2)/7 require a separate recurrence or stationary correlation calculation. The mean 4 is not claimed as an independent novelty over the known density.",
+        "searches": [
+          "Reznick arXiv:math/0610601 §5 pp. 13, 15–16",
+          "Coons–Shallit arXiv:1105.0086 p. 1",
+          "Resultary record 2ccf8df2e88c, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reznick's zero-based recurrence is the same; his rational enumeration t(n)=s(n)/s(n+1) puts the event at the indices where the numerator vanishes modulo three. Dijkstra's binary language recognizes the same indices.",
+          "The OEIS entry is a sequence of zero positions, not a table of the allowed differences or their limiting weights."
+        ],
+        "reasoning": "The invariant is first-return time to a known zero set in its increasing index order, not a difference of Stern values, or a spacing between rationals.",
+        "searches": [
+          "Resultary: Stern's diatomic sequence modulo 3 zero indices consecutive gaps gap frequencies six-gap law",
+          "Literature: Stern's diatomic sequence indices divisible by 3 successive gaps gap distribution exact gap frequencies Reznick Dijkstra",
+          "Reznick arXiv:math/0610601 §§1, 5; OEIS A071911"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact law hit is the assigned record itself. A071911 reproduces the binary recognition rule and indexes the ternary zero locations. The relevant late §5 of Reznick treats counts and limits, not a tabulation of consecutive return lengths."
+        ],
+        "reasoning": "A table of members of the zero set, even if it displays finite examples of all six differences, does not certify exclusion of any further gap or the natural relative frequencies. No distinct matching table was found in the bounded accessible evidence.",
+        "searches": [
+          "OEIS A071911; Resultary: Stern's diatomic sequence modulo 3 zero indices consecutive gaps gap frequencies six-gap law",
+          "Literature: Stern's diatomic sequence indices divisible by 3 successive gaps gap distribution exact gap frequencies Reznick Dijkstra"
+        ]
+      },
+      "rationale": "The zero-index set, an automaton for it, and its one-point density are known. The supported distinct claim is the complete first-return support and relative frequency law. The strongest inspected descriptions recognize the individual zeros and thus determine the entire sequence, but do not give the successive-return analysis; that requires additional adjacency information and an exact weighted count.",
+      "residual_risks": [
+        "A historical derivation from the known zero-language may be unindexed. Dijkstra's original full text was not independently inspected; its characterization was read as quoted by Reznick. The OA retrieval of the survey at https://www.jstor.org/stable/10.4169/000298910X496714 timed out and supplies no supporting or contrary evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent for the zero set and mean-rate input, not the explicit complete return law",
+          "evidence": [
+            "Theorem 5.1 characterizes all n with 3|s(n) and quotes Dijkstra's equivalent binary-language recognizer.",
+            "Theorem 4.7 gives uniform admissible residue-pair frequencies."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610601",
+          "material_read": "§1 pp. 1–3; §4 Theorem 4.7 and Corollary 4.8 pp. 11–12; §5 Theorem 5.1 p. 13 and related discussion pp. 15–16",
+          "method": "OA PDF passage reading",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals",
+          "trigger": "Closest prior: same residue zero set, its recurrence, and pair distribution"
+        },
+        {
+          "assessment": "Known indexed zero set, not a complete gap law",
+          "evidence": [
+            "The entry reproduces Dijkstra's recognition method for the indices."
+          ],
+          "identifier_or_url": "https://oeis.org/A071911",
+          "material_read": "Entry and binary-language description near HTML offset 388",
+          "method": "OA website passage",
+          "title": "Numbers m such that Stern’s diatomic sequence is divisible by 3",
+          "trigger": "Exact database for the input sequence of zero indices"
+        },
+        {
+          "assessment": "Triple residue law, not full consecutive-zero return law",
+          "evidence": [
+            "Its modulus-three specialization gives a triple-law marginal; longer first returns need extra information."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-three-term-congruence-law-for-stern-s-diatomic-sequence--2ccf8df2e88c",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local record mirror",
+          "title": "Exact three-term congruence law for Stern's diatomic sequence",
+          "trigger": "Distinct related published Resultary hit on correlations of the same sequence"
+        },
+        {
+          "assessment": "Statement is a binary-pattern value expansion; not an exact-gap match",
+          "evidence": [
+            "The object classified in the abstract is the representation of s(n) via binary patterns."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1105.0086",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage",
+          "title": "A pattern sequence approach to Stern's sequence",
+          "trigger": "Potentially equivalent binary-pattern approach"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Reznick §§4–5 and independent projective gap computation"
+      ],
+      "rationale": "The first-return law on a natural divisibility set is a local spatial invariant distinct from its known density. A sharp maximum of eight, the exclusion of interior gap length seven, and exact relative weights make a usable arithmetic benchmark for comparing different zero sets or moduli. The variance captures spacing variation missed by the known density and mean.",
+      "residual_risks": [
+        "This does not settle higher return correlations or give a uniform law for all moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

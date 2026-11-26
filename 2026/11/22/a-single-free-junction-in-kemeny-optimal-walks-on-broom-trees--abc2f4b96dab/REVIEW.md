@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the unrestricted minimum among symmetric stochastic edge-supported walks: strict convexity and the pendant-leaf automorphisms eliminate asymmetric candidates. Tree effective-resistance decomposition yields an exact separable reciprocal-weight objective. The root and alternating spine probabilities satisfy every capacity constraint. A strictly positive polynomial identity proves slackness of the first spine junction uniformly over all integer parameters. Exact symbolic coefficient checks establish nonnegative (and interior-positive) KKT multipliers for both parity classes; complementary slackness and strict convexity complete the argument. The attached checker independently compares 216 finite choices and direct spectral traces on smaller instances; these are diagnostics, not an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+N times the zero-target Kemeny sum is the Kirchhoff index by the Laplacian pseudoinverse identity; each tree edge contributes its cut-pair count times its reciprocal weight. Positivity of cut counts makes the objective strictly convex, and the equal-leaf candidate and its multipliers can be lifted to every individually adjustable leaf edge. Let L=2h or 2h+1 as appropriate. The recorded sum polynomials give E/O<h/(h−1) for even L and E/O<(h+1)/h for odd L. These bounds are at most m²(m+L)/(L(m+1)): the latter increases with m and the comparisons at m=2 reduce to h²≥4 in the even case and 2h²+3h−3≥0 in the odd case. Thus the first junction is strictly slack, including L=3 and L=4. For the remaining KKT signs, c_j is a product of two positive linear factors and has strictly decreasing consecutive ratios c_{j+1}/c_j. For an interior odd junction, S_O(k)/S_E(k) is a strict upper prefix average of the decreasing ratios c_{2i+1}/c_{2i} (append zero at the end for even L), so it exceeds O/E. For an interior even junction, S_O(k−1)/S_E(k) is the lower prefix average of increasing ratios c_{2i−1}/c_{2i}, with the first numerator replaced by zero because O excludes c_1. It is strictly below O/E: there is a later ratio or, for the last even junction when L is odd, the unpaired positive final odd term. These prove strict positivity of the displayed interior multipliers without numerical sampling. Full sums give zero at the endpoint, and root stationarity holds since c_1/x²=c_0/a². KKT proves the optimum; strict convexity gives uniqueness; the two square-root allocations give the stated minimum. The terminal path vertex is also a leaf and has positive holding. The fixed-L limit follows from c_1∼Lm, c_0∼m, and positive slopes of E and O.
 
-The 2015 Patel–Agharkar–Bullo primary paper already frames the general uniform-stationary version as a convex semidefinite problem, and the 2026 Durastante–Gnazzo–Meini paper develops related optimization algorithms. Neither inspected primary paper supplies the present exact broom-family optimizer or its one-free-junction activity law. The 2020 Ciardo–Dahl–Kirkland paper treats the degree-normalized simple random walk rather than optimized symmetric stochastic probabilities. Published related network designs for stochastic paths, symmetric spiders and minimax hitting times were compared at the statement/implication level; none determines this all-size broom optimizer. Originality remains qualified by possible unindexed equivalent results and by one inaccessible full text on tree Braess effects.
+## originality
 
-## Value — PASS
+PASS
 
-The path-to-star junction is a mathematically natural boundary condition for optimizing Markov circulation on a branching tree. The theorem resolves every size in this family, determines the complete active holding set and the optimal objective, and proves a nontrivial hub-degree allocation asymptotic. Notably, the first junction keeps strictly positive holding while subsequent interior path vertices are exactly saturated, unlike the all-saturated stochastic path. This is a full structural support classification rather than a numerical table, arbitrary parameter slice or trivial substitution.
+The supported contribution is the exact all-size optimizer and active capacities for the unequal-arm broom. The optimized reversible-chain framework and the tree resistance reduction are not the contribution. Distinct catalogue entries with substantially similar formulas do not cover the unequal-arm broom; their shared index date does not indicate order or priority.
 
-## Residual risks and scope
+## value
 
-The objective has two Kemeny normalizations; the claimed value explicitly excludes the additive recurrence unit. The source literature contains general convex-design algorithms but no inspected closed-form theorem identical to this one. The 2016 Kirkland–Zeng full text was not obtained, so its potential implications were judged from its accessible public abstract only. No priority or independent correctness certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural one-branch departure from a path yields a sharp, size-uniform capacity pattern: root and subsequent interior path budgets are tight, but the first interior budget must be left partly unused. Exact optimizers on all brooms, and the contrasting first-edge versus tail scales, are useful benchmarks for kemeny-minimization methods and do not follow from a preference to saturate every local capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

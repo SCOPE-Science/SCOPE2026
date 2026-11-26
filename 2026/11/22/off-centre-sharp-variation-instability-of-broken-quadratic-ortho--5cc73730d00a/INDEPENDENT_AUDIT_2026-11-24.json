@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:35:12.335011Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen CHECKER.py and VERIFICATION.md, read as evidence, not executed",
+        "Independent symbolic branch, critical-point and adjacent-interface checks"
+      ],
+      "rationale": "A BV and L² input has zero trace at −∞ and equals the superposition of steps against Df. The step itself need not be in L²: apply the local moment equations on each cell, where it is bounded. Fubini on compact test supports and the uniform single-step variation bound give TV(Pi_2 f) ≤ sup F · |Df|(R), including grid-node steps of gain one. Local projection preserves constants, and the shifted Legendre step integrals give the stated p_s. The affine reference-cell variation is |p_s(0)| + integral |p_s'| + |1−p_s(1)|, independent of cell length. On 0<s<2/5 the concave quadratic has an interior turning point; the signed trace terms switch at alpha=(4−√6)/10 and beta=(6−√6)/10. On [2/5,1/2] it is nondecreasing. These facts give exactly the four stated branches. For branch 1 and 3, writing z=1−2s gives F=1+(3/20)(1−z²)(5z−1)²/z and F=−1+(3/20)(1−z²)(5z+1)²/z, respectively; differentiation gives the increasing branches on their specified s-intervals. They and the last branch do not exceed 2. The central derivative has the sign of 500[s(1−s)]²−216s(1−s)+23, and only its smaller root in s(1−s), (54−√41)/250, is attained on that branch. The derivative changes from positive to negative; F(1/4)=331/160>2 and reflection give exactly the two optimal single-jump fractions. Independent symbolic checking gives K_2=2.0698386217193242… . A compact interval with matched jumps in two nonadjacent cells attains twice this gain for input TV=2. Even matched adjacent endpoints at s_* work: p_s(0)<0 and 1−p_s(1)>0, so their two signed interface contributions add rather than cancel. Arbitrary mixed matched/reflected fractions need not attain if their cells are adjacent; that is not a frozen claim about all extremizers.",
+      "residual_risks": [
+        "No claim classifying every multi-jump extremizer or covering higher degrees. Finite checker output is corroborative, not the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cockburn's institutional abstract says that L² projection is continuous in the BV seminorm for a large class of finite element spaces; it states no sharp quadratic constant or location. The accessible record and journal landing are not the paper body.",
+          "Nochetto–Salgado construct a TV-diminishing continuous piecewise-multilinear interpolant by local averaging and nodal interpolation. Herrmann et al. study discrete TV functionals in continuous and discontinuous finite element spaces, not this L² projector norm."
+        ],
+        "reasoning": "Even if a prior general BV continuity bound includes broken quadratics, continuity alone does not yield the sharp branch maximum or its attained location. Full-text coverage of Cockburn remains unresolved; no whole-document negative conclusion follows from its abstract.",
+        "searches": [
+          "Cockburn DOI 10.1090/S0025-5718-1991-1094943-9, official publisher and institutional abstract; JSTOR 2938703",
+          "Nochetto–Salgado arXiv:1211.1069v1, Abstract and Sections 1 and 3",
+          "Herrmann et al. arXiv:1804.07477v2, Abstract and Section 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof and prior-work comparison",
+        "Resultary 0c312599056c, 6e9c47c76f09, d577ba2a2e06",
+        "Cockburn DOI 10.1090/S0025-5718-1991-1094943-9 (institutional abstract and limited publisher access)",
+        "Nochetto–Salgado arXiv:1211.1069v1; Herrmann et al. arXiv:1804.07477v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Broken affine results share the step/measure proof strategy; global quadratic results share the local degree but omit the jump penalty; Cockburn's available abstract states continuity only.",
+          "A quadratic step response introduces an interior turning point and two sign switches in its trace mismatches, giving a new piecewise objective with a distinct interior critical value."
+        ],
+        "reasoning": "The shared tools and overlapping cases do not give the claimed sharp number or rigidity by substituting a parameter into an inspected theorem. The actual branch comparison and attainer construction are needed for the exact gain on every grid.",
+        "searches": [
+          "Resultary d577ba2a2e06 and 6e9c47c76f09, original Findings, mirror offsets 0",
+          "Cockburn institutional abstract under DOI 10.1090/S0025-5718-1991-1094943-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is equivalent to maximizing the reference-cell step response with two additional absolute endpoint mismatch terms. For the same uniform local quadratic projection, the global finite-interval norm in the indexed Jacobi records is about 1.63318 and excludes the broken interface terms.",
+          "The optimal location problem changes with the two trace terms, and the target gives K_2 about 2.06984, not that global norm."
+        ],
+        "reasoning": "Affine cell rescaling preserves total variation, but changing which traces enter the variation changes the operator seminorm and its maximizing locations. The global and broken claims are not normalization variants of one another.",
+        "searches": [
+          "Resultary global quadratic records 0c312599056c and 6e9c47c76f09",
+          "Resultary broken affine record d577ba2a2e06, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed broken-quadratic hit is the reviewed record itself. The two global Jacobi records give the unweighted norm about 1.6331821 in a different domain. The distinct broken affine record gives degree-one gains 3/2, 16/9 and 2 for finite interval meshes."
+        ],
+        "reasoning": "These numeric and structural overlaps were compared to their statements; none is a separate table of this broken quadratic norm. Same-date publication is not evidence of order or absence of material overlap.",
+        "searches": [
+          "Resultary records 5cc73730d00a, 0c312599056c, 6e9c47c76f09, d577ba2a2e06"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact sharp seminorm and its two single-jump maximizing locations for a broken quadratic L² projection with all interface jumps. Indexed global quadratic norms and the broken affine norm overlap substantially in local projection or proof method, but do not compute this extremum. Classical BV stability of projection is an important prior question, not itself the claimed novelty. The best-of-knowledge comparison is limited by lack of Cockburn full text.",
+      "residual_risks": [
+        "Cockburn's full article and potentially relevant older discontinuous finite-element papers could contain sharper or more specialized results; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General seminorm continuity confirmed at abstract level; exact coverage unresolved",
+          "evidence": [
+            "Abstract: continuity in the BV seminorm of L² projection into a large class of finite element spaces.",
+            "The publisher PDF was inaccessible; no identified open full copy of the cited article was retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1991-1094943-9; JSTOR 2938703; University of Minnesota author publication record",
+          "material_read": "Official institutional abstract and citation, offset 190; JSTOR landing only; no article body on attempted routes",
+          "method": "Institutional OA website passage and official AMS/JSTOR retrieval attempts",
+          "title": "On the Continuity in BV(Ω) of the L²-Projection into Finite Element Spaces",
+          "trigger": "Strongest older candidate for a general BV projection theorem"
+        },
+        {
+          "assessment": "Material overlap in local quadratics, different variation and exact answers",
+          "evidence": [
+            "Global projection on a single interval, with uniform-weight norm about 1.6331821, has no cell-interface mismatch contributions."
+          ],
+          "identifier_or_url": "Resultary 0c312599056c and 6e9c47c76f09",
+          "material_read": "Both original RESULT.md Findings, offset 0",
+          "method": "Bounded local mirror comparison",
+          "title": "Exact Jacobi-weighted quadratic projection gain in total variation; Sharp bounded-variation norm and off-centre rigidity of quadratic projection",
+          "trigger": "Closest matching degree, unweighted specialization and off-centre exact invariants"
+        },
+        {
+          "assessment": "Conceptual overlap, not a degree-two result",
+          "evidence": [
+            "Exact broken affine constants 3/2, 16/9 and 2 on finite interval meshes."
+          ],
+          "identifier_or_url": "Resultary d577ba2a2e06",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror comparison",
+          "title": "Mesh-independent sharp BV variation gain of discontinuous affine projection",
+          "trigger": "Closest broken-space variation and step-response method"
+        },
+        {
+          "assessment": "Different continuous local averaging/interpolation operator",
+          "evidence": [
+            "TV diminishing is proved for a continuous multilinear interpolant, not the discontinuous L² orthogonal projector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1069v1",
+          "material_read": "Abstract, Sections 1 and 3 (PDF offsets 0, 4121 and 7797)",
+          "method": "Bounded open-access primary passages",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Potential BV stability predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, branch analysis and exact attainers",
+        "Indexed broken affine and global quadratic comparisons"
+      ],
+      "rationale": "The seminorm is a natural worst-case stability measure for a standard discontinuous reconstruction, and ignoring interelement jumps would underestimate it. The exact grid-independent bound is attained even on arbitrarily graded grids, and the worst single-step location is not the grid midpoint. A sharp estimate and explicit interval attainers give meaningful information beyond generic BV boundedness or finite numerical observations.",
+      "residual_risks": [
+        "No downstream guarantee for a full DG evolution method, continuous or higher-dimensional space, or higher polynomial degree is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

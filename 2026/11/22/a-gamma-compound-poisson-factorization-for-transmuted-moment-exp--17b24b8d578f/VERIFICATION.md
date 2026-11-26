@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` from the same directory as this file with Python 3 and SymPy available. It checks exactly the rational Laplace-transform identity, cubic discriminant and root brackets, boundary factorizations, normalization, first moment, and a six-index exact-rational Poisson-count jump example at \((\alpha,\beta)=(1/9,1)\). Numerical evaluations across eight other parameter points are only illustrative.
+## correctness
 
-For full quantified correctness, independently inspect the analytical inequalities in RESULT.md: for positive transmutation the root bounds \(A>2,B>1\) give two nonnegative terms, and for negative transmutation \(A>1,B>2\) yield \(E(t)\ge e^{-t}-e^{-2t}>0\); these cover every \(t>0\) and every admissible interior parameter. The endpoint kernel is checked separately. Integrability follows from the small-argument and exponential-tail bounds. The factorization gives all count Lévy intensities, not merely those computed by the checker.
+PASS
 
-Independent mathematical audit and exhaustive historical priority verification have not been performed. There is no assertion that a numerical grid proves global positivity.
+After x=βt, the bracket interpolates between 1+α and 1−α as t ranges from zero to infinity: exactly the claimed closed parameter range is nonnegative. Integrals of t exp(−bt) and t² exp(−bt) give the normalized rational transform. Recomputed the cubic discriminant, root brackets and Vieta relation A+2B=6. For 0<α<1, A>2 and B>1 directly dominate each subtracted exponential after bounding the cosine by 1. For −1<α<0, A>1 and B>2 yield Eα(t)≥exp(−t)−exp(−2t)>0. The logarithmic Frullani integral uses the root rates A/β and (B±iC)/β, all with positive real part; conjugate pairing gives the stated real kernel. Gamma subtraction removes exactly 2exp(−2x/β)/x. At interior parameters and at 0,1 the residual numerator vanishes at zero with a finite derivative and decays exponentially at infinity. Its mass follows from the atom at zero as s→∞, with residual transform limit (1+α)/4. At α=−1 the numerator of the transform is 6y+8 and the residual kernel is positive with xρ(x)→2, so it satisfies the Lévy integrability condition but has infinite activity. Also the fixed gamma residual is unique in law by division of Laplace transforms and cannot be finite-activity at this endpoint. Substituting s=1−z in the residual Lévy exponent and expanding exp(zx) gives the integer jump intensities for all α, including −1; the sum is ∫(1−exp(−x))ρ(x)dx<∞ by Lévy integrability. This establishes the endpoint count decomposition even though the proof's direct finite Poisson marking argument is restricted to α>−1. Independent symbolic reproduction by assembling the two elementary gamma integrals, taking the discriminant, and expanding G'(z)/G(z) at z=0 gave 432α²(α−1)(α+1), the three degenerate factorizations, G(0)=64/243, and the first three ν values 31/32, 1453/6144, 69263/884736 at α=1/9,β=1, hence μ_1=29/96. The frozen verification was inspected, not executed; numerical root samples do not establish the uniform kernel bound.
+
+## originality
+
+PASS
+
+Qualified pass for the positive gamma-extracted Lévy kernel, exact activity transition, and count factorization; not for the underlying model, rational transform, or general Poissonization principle.
+
+## value
+
+PASS
+
+The exact independent decomposition of a preexisting count model separates its negative-binomial baseline from positive compound-Poisson jumps. It also distinguishes the sharp loss of finite continuous residual activity from the persistence of a finite integer jump rate. Both conclusions concern the specific fixed gamma factor and full valid parameter interval, not a numerical grid or an identity merely renaming the original mixture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

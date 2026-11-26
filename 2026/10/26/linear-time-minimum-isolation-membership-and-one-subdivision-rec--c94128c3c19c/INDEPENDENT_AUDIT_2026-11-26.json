@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:01:33.271492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On deleting uv, the only external influence on u's component is whether v is selected. After choosing u's bit s, each child sees that bit; u is dominated exactly when p, s, or some child selection is true. If dominated, the child edges pass automatically; if undominated, every child must be unselected and dominated. This gives the four stated finite-entry types including the zero-child base case. The last aggregate tracks the cost of at least one selected child by associative Boolean-OR convolution. Prefix/suffix products on incoming messages exclude precisely the outgoing neighbor, costing O(sum deg) time and space with arc-indexed storage, and applying p=0 at a whole-tree root gives both constrained costs even for n=1. Theorem 3.2 of arXiv:2606.21190 has the stated nonstar scope and closed-neighborhood criterion. Independently, one can combine the two directed messages of any edge with external bit t for the new subdivision vertex: if d_x=t∨s_u∨s_v, require (d_u∨d_x) and (d_v∨d_x) and add t to the sum of the component costs. That verifies the linear-time consequence directly by constant work per edge. A separate component-product DP and subset enumeration agreed on 177 trees including 792 actual subdivisions (python3 /workspace/evidence/review_checks.py 2); finite corroboration only. repairs/2/RESULT.md changes emphasis and prior-work attribution, not the proven algorithm or scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. give bounded-treewidth DP outputting a minimum size and a minimum set. Dettlaff et al. also cite earlier linear-time scalar optimization on trees."
+        ],
+        "reasoning": "An algorithm for one optimum, even on a larger graph class, does not as stated return both forced costs at every vertex in the time for a single run. Reusing the two directed boundary tables requires a reconstruction or an explicit all-minima result.",
+        "searches": [
+          "Resultary: rerooted constrained optima and vertex-edge domination on trees",
+          "arXiv:2605.10487 §3 Thm. 3.5; arXiv:2606.21190 §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.21190",
+        "arXiv:2605.10487",
+        "Kumar–Venkatakrishnan DOI 10.1007/s10013-020-00436-w (index/metadata only)",
+        "Bounded targeted Resultary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dettlaff et al. prove the existential one-subdivision criterion and explicitly defer formal linear-time rerooting, with a quadratic baseline. Known class membership requires only comparisons to the single optimum."
+        ],
+        "reasoning": "The corollary is not a new characterization, and the method was anticipated. The stronger constrained costs and the explicit associative recurrence yielding them in a shared linear-time computation are the retained contribution.",
+        "searches": [
+          "arXiv:2606.21190 Thm. 3.2 and §4",
+          "arXiv:2605.10487 Prop. 2.1 and Thm. 3.5",
+          "vertex-edge domination all/no membership exact DOI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex-edge dominating D means exactly that V\\N[D] is independent; it is not ordinary vertex domination. The indexed Kumar–Venkatakrishnan paper states a characterization of all/no minimum vertex-edge domination membership on trees, which also determines the intermediate class."
+        ],
+        "reasoning": "This is material existing coverage of the membership classification problem, not a different parameter. The metadata and summary do not show the stronger all-vertex numerical profile or its complexity. The repair no longer presents the recurring classification problem as new.",
+        "searches": [
+          "Resultary: minimum isolating-set and vertex-edge domination membership on trees",
+          "arXiv:2605.10487 §2 Prop. 2.1",
+          "DOI 10.1007/s10013-020-00436-w, indexed summary and exact OpenAlex metadata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded targeted searches did not identify a matching distinct Resultary record. The strongest external match is the 2020 same-predicate structural membership characterization, not an inspected table or recurrence for exact forced costs."
+        ],
+        "reasoning": "A record with class labels alone would not recover larger-than-optimal constrained cardinalities. The bounded search does not certify priority, particularly against the unread portions of the 2020 paper.",
+        "searches": [
+          "Resultary: isolation subdivision number one, forbidden optimal membership, and numeric tree isolation rerooting",
+          "DOI 10.1007/s10013-020-00436-w"
+        ]
+      },
+      "rationale": "The repaired claim credits prior classification of vertices in all or no optimum vertex-edge dominating sets on trees. The supported distinct deliverable is a fully specified linear-time simultaneous numerical profile (every J_v and K_v), not the class labels per se, generic rerooting, or the previously proved subdivision criterion. The closest older classification paper is inaccessible in full; complexity, recurrence and numerical outputs there remain an explicit priority risk.",
+      "residual_risks": [
+        "The full 2020 paper could contain a related algorithm or recurrence; no whole-paper noncoverage is asserted.",
+        "Generic finite-state tree optimization may make the asymptotic outcome predictable, and the result does not claim priority for the general technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact criterion and anticipation of rerooting, not the stated explicit all-cost algorithm.",
+          "evidence": [
+            "Nonstar T has sd_ι(T)=1 iff some closed neighborhood is contained in the no-minimum-membership vertex class.",
+            "Section 4 gives quadratic recognition and leaves a formal linear-time rerooting treatment for future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.21190",
+          "material_read": "PDF p. 9 §3.1 Thm. 3.2 and p. 12 §4",
+          "method": "Open primary text, compare exact quantifiers, characterization and algorithmic output",
+          "title": "Isolation subdivision number of a graph",
+          "trigger": "Exact nonstar subdivision criterion and previously requested algorithm"
+        },
+        {
+          "assessment": "Exact equivalent feasibility predicate but only scalar optimum/single optimum set in the inspected algorithm statement.",
+          "evidence": [
+            "Proposition 2.1 tests independence of V\\N[D].",
+            "Theorem 3.5 does not state joint J_v,K_v output."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.10487",
+          "material_read": "PDF introduction, p. 2 §2 Prop. 2.1 and p. 4 §3 Thm. 3.5",
+          "method": "Open primary text, compare definitions and outputs",
+          "title": "Algorithm for finding vertex-edge domination number on graphs with bounded treewidth and related problems on planar graphs",
+          "trigger": "Exact alias and stronger graph domain for optimization"
+        },
+        {
+          "assessment": "Genuine matching class-membership topic and indexed characterization; cannot establish coverage or noncoverage of the numerical profile, recurrence or complexity.",
+          "evidence": [
+            "The indexed characterization concerns all/no minimum vertex-edge domination membership in trees. The exact DOI metadata identifies H. N. Kumar and Y. B. Venkatakrishnan and reports closed access without a repository full-text copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10013-020-00436-w",
+          "material_read": "Indexed title and summary; OpenAlex title, authors and access metadata. No full text.",
+          "method": "Lawful full-text retrieval did not yield an accessible copy; verified the exact DOI metadata separately.",
+          "title": "Vertices Belonging to all or to no Minimum Vertex-Edge Dominating Sets in Trees",
+          "trigger": "Earlier structural membership claim for the identical feasible sets on trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected presentation supplies an explicit input-linear algorithm for the full constrained optimum-size profile, which gives quantitative information beyond membership labels. It also closes the specific algorithmic case identified by Dettlaff et al. without performing a separate optimization for each vertex, and gives the requested linear-time recognition rather than claiming a new general paradigm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

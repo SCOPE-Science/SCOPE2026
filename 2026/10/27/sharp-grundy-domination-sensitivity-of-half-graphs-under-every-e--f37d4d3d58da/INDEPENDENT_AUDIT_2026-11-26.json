@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:06:15.347908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the bipartite half graph with edges x_i y_j iff i<=j, the independent shores and diagonal perfect matching give alpha=n. The chain-graph upper bound alpha+1 and the displayed sequence starting y_1,x_1 give the baseline n+1. I checked the fresh closed-neighborhood footprints of all four nonpendant witness constructions, including the adjacent-index endpoints and n=3: the two initial x-choices (or the interleaved choices in the extreme case), the local reversal of the y-order, and the missing edge supply exactly the additional steps; reflection x_r↔y_(n+1-r) covers the right boundary. All y-vertices are chosen, and every x-vertex retains a neighbor. The atomic deletion upper bound gives n+2; it also follows by restoring the edge and, if necessary, dropping the single step whose only fresh footprint was the opposite endpoint prematurely covered by the first selected endpoint. Deleting x_1 y_1 isolates y_1; Algorithm 1 on the connected remainder with X-class sizes 1,…,1,2 and singleton Y-classes gives n in all its candidates. Additivity gives n+1. At n=2 the middle deletion leaves two disjoint edges and has value 2. The source verifier is present and was inspected, not executed; the separate coverage-mask recurrence in branches/review-exact-small-checks.js corroborated every baseline and all 55 deletions for 2<=n<=6. These finite checks do not replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 of arXiv:2310.10566v1 is the alpha versus alpha+1 dichotomy for chain graphs, with a chain-only algorithm.",
+          "Theorem 2.1 of arXiv:1603.05116v1 bounds the absolute single-edge change by one, without specifying equality for half graphs."
+        ],
+        "reasoning": "The broader atomic theorem leaves equality open; the chain algorithm does not extend across the edge deletions that destroy nested neighborhoods. For instance deleting x_1 y_n with n>=3 makes the neighborhoods of x_1 and x_2 incomparable.",
+        "searches": [
+          "Resultary: Ferrers/chain graphs edge-deletion sensitivity and Grundy sequences",
+          "Brešar–Pandey–Sharma, arXiv:2310.10566v1, §4; Brešar–Gologranc–Kos, arXiv:1603.05116v1, §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_halfgraph.py and verification_output.txt",
+        "Resultary strict half graph, Ferrers/chain graphs, edge-position sensitivity and atomic-change queries",
+        "arXiv:2310.10566v1",
+        "arXiv:1603.05116v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known results give the baseline upper bound, permit the pendant calculation, and give n+2 as an upper bound for the other deletions.",
+          "The inspected proof of the atomic bound repairs a sequence by losing at most one entry; it does not furnish any lower bound of n+2 on these non-chain inputs."
+        ],
+        "reasoning": "The new material is the explicit attainable value at every nonpendant position, proved with witnesses, rather than an assertion that the constituent general results are new.",
+        "searches": [
+          "Resultary: atomic changes of Grundy domination on a strict Ferrers graph",
+          "arXiv:2310.10566v1, Theorem 5 and Algorithm 1",
+          "arXiv:1603.05116v1, Theorem 2.1 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/13/SCOPE-outer-independent-double-italian-domination-of-half-graphs--9764da27b17b concerns a labeling-based domination invariant, not legal closed-neighborhood sequences.",
+          "The exact profile distinguishes the two pendant positions from all other entries of the triangular biadjacency matrix."
+        ],
+        "reasoning": "The indexed half-graph overlap is in the graph family but not the invariant or its perturbation. Reversing labels or the shores does not change the target assertion.",
+        "searches": [
+          "Resultary: strict half graph Grundy domination edge deletion",
+          "Resultary: bipartite graph x_i y_j, i<=j, single-edge Grundy profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Algorithm 1 returns an exact answer for an input chain graph, not a table of all the deleted-edge graphs.",
+          "The nearest indexed chain-graph records concern secure domination (2026/10/4/SCOPE-exact-secure-domination-number-of-connected-chain-graphs--558922dcbbe9) and perfect edge domination (2026/10/18/SCOPE-all-perfect-edge-dominating-sets-of-nontrivial-connected-chain-g--faa93223a29f)."
+        ],
+        "reasoning": "Neither an exact-value table for another invariant nor a chain-only routine covers the claimed unbounded family of cases; no matching table was identified.",
+        "searches": [
+          "Resultary: exact half-graph single-edge Grundy values and atomic edge changes",
+          "arXiv:2310.10566v1, §4 and Algorithm 1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete equality-case profile of the universal deletion bound on strict half graphs, not the previously known bound or the baseline chain-graph theory. The relevant algorithms and bounds were compared at statement level; none of the examined sources supplies the all-nonpendant saturation assertion.",
+      "residual_risks": [
+        "An unindexed or differently formulated prior strict Ferrers equality-case result could exist. The comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers baseline bound and supplies the pendant computation, not the whole sensitivity profile",
+          "evidence": "Theorem 5 states gamma_gr belongs to {alpha,alpha+1}; Algorithm 1 takes a chain graph without isolated vertices and evaluates ordered twin-class candidates.",
+          "identifier_or_url": "https://arxiv.org/html/2310.10566v1",
+          "material_read": "§4, Algorithm 1 and Theorem 5, OA offsets 53500–63849",
+          "method": "Read primary full-text passages",
+          "title": "Computation of Grundy dominating sequences in (co-)bipartite graphs",
+          "trigger": "Closest exact chain-graph result and cited source for pendant calculation"
+        },
+        {
+          "assessment": "General bound, not a half-graph equality classification",
+          "evidence": "Theorem 2.1 gives gamma_gr(G)-1 <= gamma_gr(G-e) <= gamma_gr(G)+1; the restoration argument bounds the loss of legality, not the deleted-graph maximum from below by n+2.",
+          "identifier_or_url": "https://arxiv.org/html/1603.05116v1",
+          "material_read": "§2.1, Theorem 2.1 and proof, OA offsets 9300–15791",
+          "method": "Read primary full-text passages",
+          "title": "Dominating sequences under atomic changes with applications in Sierpiński and interval graphs",
+          "trigger": "Exact prior universal edge-deletion bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete, size-uniform perturbation classification on a canonical nested-neighborhood family. It identifies exactly where a sharp generic bound is attained, including many deletions outside the class handled by the chain-graph algorithm, and locates the smallest-order exception. The constructive witnesses make the classification useful without recomputing the invariant for each deleted graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

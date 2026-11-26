@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:25:45.080745Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a Dyck prefix ending at i and Dyck suffix starting after j with j≤i, their overlapping height constraints force total balance H=0, and the union covers a nonnegative path. Thus non-Dyck words have separated maximal Dyck ends and a nonempty invariant core: extending past a maximal end would require a Dyck end of the core, since appending a balanced nonnegative excursion cannot restore a still-positive height to zero. Each move cuts off complete primitive factors at one end; for a Dyck word this is a single heap, and otherwise the two end counts are independent Nim heaps. The intersection with (ab)*b(ab)* really is the equal-count language, proving nonregularity. The unique decomposition gives q=(1−p)^2/(1−2z)−(1−p); the common high bits in k and k xor g yield the geometric residue-block denominator. At z=1/2, the fixed-count pair has leading pole 2^(−k−l−2)/(1−2z), and these limiting masses sum to one. The loss series expands as 1/[3(1−2z)]+(4√2/9)(1−2z)^(-1/2)+constant+O(√(1−2z)); at −1/2 only a weaker square-root term occurs. Since |p(z)|≤1/2 on the closed convergence disk, there are no competing denominator zeros there. Coefficient transfer gives the stated probability and correction. Read the supplied scripts and saved output without executing: the finite checking report overcounts the tested residue identities, since verify_series.py lines 67–78 skips the assertion for g=8,…,15 (2M=32>N//2=30); only eight reach it. This is nonessential corroboration, not a defect in the all-length proof. Exact replay locators for the mathematical checks are RESULT.md lines 62–95 and the residue loop in verify_series.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source defines generalized two-sided prefix/suffix subtraction but solves other move sets in §5.1.",
+          "Classical End-Nim plays on sequences of positive heap sizes and may expose a new heap; it does not give this core decomposition."
+        ],
+        "reasoning": "The broad framework contains the rules by specialization, but its inspected analyses do not identify the two independent options here. The standard sum theorem supplies xor once the invariant core has been proved.",
+        "searches": [
+          "Inoue–Inazu, arXiv:2611.09157v1 §5.1",
+          "Albert–Nowakowski DOI 10.37236/1600, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 88436493f559",
+        "Resultary 98406dab7d57",
+        "arXiv:2611.09157v1 §5.1",
+        "DOI 10.37236/1600 pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-sided primitive counts and their geometric marginal law are already stated; no joint law or criterion for disjointness of opposite ends is supplied there.",
+          "For a Dyck word the maximal ends coincide, so simply summing one-sided games would predict zero instead of k for k>0."
+        ],
+        "reasoning": "Disjointness off the Dyck language and the invariance of the core under both moves are the substantive independent steps. Joint convergence, the XOR residue series and the correction term cannot be inferred from the marginal geometric law alone.",
+        "searches": [
+          "One-sided result 88436493f559, RESULT.md Finding and canonical factorization",
+          "Inoue–Inazu §5.1 and Albert–Nowakowski pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalog record 88436493f559 gives one-sided Dyck deletion and a primitive-factor nimber; record 98406dab7d57 permits all balanced ends.",
+          "Inoue–Inazu's Timber has Dyck words as losing positions, not legal removals."
+        ],
+        "reasoning": "Reflection with symbol exchange interchanges prefix-only and suffix-only rules, not either one with the two-sided rule. For example, ba is balanced but is a terminal position here and can be removed as a whole in the balanced rule. In Timber and in this game, the status of a nonempty Dyck word differs.",
+        "searches": [
+          "Local Resultary lookup: Dyck suffix subtraction and bilateral balanced-word subtraction",
+          "arXiv:2611.09157v1 §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The suffix-only exact series and counts have limiting loss mass 1/2, not 1/3; e.g. it has six losing words of length three versus four for the audited rule.",
+          "The Narayana–Chebyshev outcome enumeration is for all balanced ends, not a table of these nimbers."
+        ],
+        "reasoning": "The available exact catalog formulas concern different move sets. A table of one-end counts, or general Catalan counts without the end interaction, does not specify the fixed-nimber joint length distribution.",
+        "searches": [
+          "Local Resultary publications 88436493f559 and 98406dab7d57 (fixed-length Dyck/balanced outcome enumeration)",
+          "arXiv:2611.09157v1 §5.1 examples"
+        ]
+      },
+      "rationale": "The strongest same-day material covers the one-sided primitive-count game or a different bilateral language of moves, not the two-sided invariant-core game. Credit the existing one-sided Catalan/geometric result and two-sided word-subtraction framework separately. The two-sided decomposition and ensuing exact xor spectrum and loss asymptotic are distinct on the available evidence; no day-level ordering or definitive historical priority is inferred.",
+      "residual_risks": [
+        "Other published or unindexed language-game specializations may exist; no priority determination for same-day records.",
+        "No full-text comparison of Cairns–Ho DOI 10.1155/2011/824742 was possible.",
+        "The edited verification description would need to distinguish the eight executed residue assertions from the sixteen loop iterations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material one-sided coverage; not this bilateral result",
+          "evidence": "The rule explicitly only deletes suffixes; G is the number of primitive factors of the maximal suffix and has geometric limit with zero mass 1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-catalan-geometric-law-for-dyck-suffix-subtraction-games--88436493f559/RESULT.md",
+          "material_read": "Finding, assumptions, start of canonical factorization (offset 0–2973)",
+          "method": "Local published-file mirror",
+          "title": "A Catalan–geometric law for Dyck-suffix subtraction games",
+          "trigger": "Same-day, same move language and nimber statistics"
+        },
+        {
+          "assessment": "Different bilateral game",
+          "evidence": "Balanced ends need not have nonnegative proper prefixes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-narayana-chebyshev-enumeration-of-losing-positions-in-a-balanced--98406dab7d57",
+          "material_read": "Statement defining balanced end deletions and boundary-itinerary classification",
+          "method": "Local published-file mirror",
+          "title": "Narayana–Chebyshev enumeration of losing positions in a balanced-word game",
+          "trigger": "Same-day two-sided move language and loss enumeration"
+        },
+        {
+          "assessment": "General setting and different examples",
+          "evidence": "Timber permits prefixes ending in a or suffixes beginning in b; its Dyck claim concerns the losing language.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09157v1",
+          "material_read": "§5.1, offsets 164430–170742, including Timber and End-Nim",
+          "method": "Original OA HTML, bounded reading",
+          "title": "Word Subtraction Games",
+          "trigger": "Primary definition of the two-sided language game and a Dyck result"
+        },
+        {
+          "assessment": "Different objects and move dynamics",
+          "evidence": "The game lowers an end heap in a sequence, with complete deletion exposing another heap; the paper does not compute general nimbers.",
+          "identifier_or_url": "https://doi.org/10.37236/1600",
+          "material_read": "Original PDF pp. 1–2",
+          "method": "OA journal PDF",
+          "title": "The Game of End-Nim",
+          "trigger": "Possible equivalent end-game formulation"
+        },
+        {
+          "assessment": "Unresolved access, not negative evidence",
+          "evidence": "No mathematical conclusion is drawn from the retrieval failure.",
+          "identifier_or_url": "https://doi.org/10.1155/2011/824742",
+          "material_read": "Citation only; no article passage obtained",
+          "method": "DOI and identified lawful publisher PDF both returned HTTP 403",
+          "title": "Some Remarks on End-Nim",
+          "trigger": "Related end-game results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural context-free move language on both ends yields a complete normal-play classification. The invariant core provides a structural reason the two ends are independent during play, while the all-length spectrum and one-third loss density quantify the effect of adding the second end. This goes beyond the standard Catalan formula or the ordinary Nim sum rule separately.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

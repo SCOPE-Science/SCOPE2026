@@ -1,21 +1,21 @@
-# Mathematical assessment: complex-activity circle rigidity for a hard-core cycle
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has exact quantifiers: every \(n\ge2\), every strictly positive vector of background activities on one shore of \(C_{2n}\), and one complex fugacity shared by the other shore. The transfer representation is obtained by summing independent odd-site occupancies conditional on even-site occupancies. Its extreme coefficients are \(c_n=1\), \(c_{n-1}=n\), \(c_0=\prod_j(1+b_j)\) and \(c_1=c_0\sum_j[(1+b_{j-1})(1+b_j)]^{-1}\). Circle roots force the reciprocal coefficient identity, and the arithmetic–geometric mean equality case forces two-periodicity of activities. Exact factorizations for odd and even \(n\) prove the converse, with strict quadratic discriminants and distinct cosines proving simplicity. No inference from finite enumeration to all sizes is made. `verify_circle.py` ran successfully on 9,965 exact/numerical cases, independently checking the coefficient derivation and factors.
+PASS
 
-## Originality — PASS on examined evidence
+Condition on even occupations s_j∈{0,1}; the factor for odd site j is w_j=1+b_j if s_j=s_{j+1}=0 and 1 otherwise. Assigning z to the occupied row gives exactly the displayed transfer trace. The extreme coefficients count the corresponding even subsets, including for C₄ where the two adjacent odd vertices are distinct and c₁ coincides with the z^(n−1) coefficient. Nonzero equal-modulus roots have modulus R=c₀^(1/n), and reciprocal and first root sums give c₁/c₀=n/R². The normalized terms R²/(w_{j−1}w_j) have positive geometric mean one; equal arithmetic mean forces all adjacent products equal, which is equivalent to the stated two-periodicity. Failure of periodicity gives a strict coefficient witness; for n=3 and b=(1,2,4), c₀=30 and c₁=10>3·30^(1/3). For sufficiency, if λ,μ are the two transfer eigenvalues, λ^d+μ^d is the monic polynomial in t=λ+μ with roots 2√(λμ)cos((2j+1)π/(2d)); this follows from the recurrence with product λμ, so it also holds polynomially at zero or repeated eigenvalues. For an alternating pair, t=z²+2z+R² and λμ=bc z², giving the claimed even factors with no branch ambiguity. In the homogeneous odd case pair opposite cosines and keep the zero cosine, giving z+R and the stated squared-cosine factors. Distinct cosines (or squared cosines in the first quadrant) and strict |linear coefficient|<2R give simple, disjoint conjugate pairs on the circle. For unequal b,c, R>1+√(bc) uniformly separates the cosines from −1 and 1; in the homogeneous even limit the extreme cosine tends to −1 in the root-angle formula. The supplied script was inspected, not executed; it tests small cases and the all-n conclusion above is algebraic.
 
-The strongest relevant inspected publication is Jerrum–Patel (2026), Section 5.1: its two alternated fugacity transfer product is structurally close and already supports a homogeneous-shore special case, but its examined statement neither allows an arbitrary \(n\)-component positive background vector nor proves the strict **only-if** circle criterion. Lebowitz–Ruelle–Speer (2012), arXiv:1204.0558, treat Ising Lee–Yang zeros and hard-object limits and do not establish this weighted even-cycle circle-rigidity equivalence in the inspected relevant portions. The classical monomer–dimer negative-real-root theorem concerns a different fugacity specialization. Published semantic records for nearby Ising impurity Lee–Yang circle transitions and an irreversible alternating-rate adsorption model concern distinct partition functions or nonequilibrium processes. Current primary-literature and published-record searches did not reveal a stronger statement implying the precise iff theorem. Priority is provisional because an unindexed earlier derivation or a general self-inversive-polynomial characterization might implicitly cover it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A nontrivial **rigidity/exception classification** for complex partition zeros is more informative than reproducing a known transfer identity: arbitrary positive frozen disorder destroys exact circle localization, while every period-two disorder, including unequal alternating weights when permitted by parity, restores it. The proof yields a readily checked global coefficient certificate; complete simple-root location and a persistent angular exclusion interval quantify the zero geometry for an infinite system-size family. This matters directly to robustness of Lee–Yang-style zero localization under spatial inhomogeneity, while not claiming a thermodynamic transition.
+The constant-on-each-shore transfer setup and homogeneous-background route to zero locations are prior or direct from prior transfer formulas. Distinct content supported here is the iff criterion across every positive background vector, the unequal period-two family on one shore, and its exact simple-root and persistent angular-gap description. The inspected sources do not establish that classification. Historical uniqueness is not certified.
 
-## Closest literature and limitations
+## value
 
-- Lebowitz, Ruelle and Speer (2012), arXiv:1204.0558, introductory Lee–Yang and monomer–dimer discussion.
-- Jerrum and Patel (2026), DOI:10.1112/jlms.70458, full HTML, especially §5.1 on cycles with two alternating fugacities.
-- Unindexed work or a hidden implication of an already known general polynomial theorem could diminish priority. No independent audit has been performed; no arbitrary complex background activity or general graph extension is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite hard-core cycle with one common variable shore is a natural test of robustness of Lee–Yang-style circle localization under fixed spatial inhomogeneity. It gives a full and inexpensive test (strict inequality in one coefficient), identifies the nonuniform backgrounds that preserve localization, and provides quantitative angular exclusion and simple roots in that family. This is a structural finite-volume result, not a thermodynamic phase-transition claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

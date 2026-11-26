@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:28:02.025752Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67, independently checked via the scalar avoidance recurrence and its derivative",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 5–71 (inspected, not executed)"
+      ],
+      "rationale": "With v=1-s and r=(1-pi)/pi, the two-state WW-killed kernel has trace 1-v/r and determinant -v^2/r. Thus A_(N+2)=(1-v/r)A_(N+1)+(v^2/r)A_N for A_N=1-F_N, with A_1=1 and A_2=1-pi*s. At s=s0 (v=r), A_(2m)=2*pi*r^m and A_(2m+1)=r^m. Differentiating the recurrence there gives D_(N+2)=r*D_N+A_(N+1)/r-2*A_N for D_N=A'_N, with D_1=0 and D_2=-pi. Solving separately in each parity gives precisely the two claimed derivatives after negation, including m=1. The criterion is conditional, not unconditional sign alternation: the even derivative is negative only for pi>pi_m. The same recurrence gives F_4=pi*s*(3-2s) and the stated cubic factor in F'_5. Its G'_pi is strictly positive on the admissible interval: for pi<=6/7 use s(1-s)<=1/4 (equality in the resulting bound at pi=6/7 could only occur at an inadmissible s=1/2), and for pi>6/7 minimize G'_pi at s0>1/2, where (10*pi^2-15*pi+6)/pi>0. F'_5 has the stated strict opposite signs at the endpoints; clipping the separate four-day parabola and using strict concavity for five days proves both global results.",
+      "residual_risks": [
+        "No global optimizer is established for arbitrary horizons. At pi=pi_m the general derivative formula alone does not decide higher-order behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Oh text gives arbitrary transition-probability waiting-time formulas. Lou's accessible abstract describes finite Markov-chain imbedding for runs; no decisive full-text comparison was possible for Lou or Savelyev et al."
+        ],
+        "reasoning": "Arbitrary transition probabilities give a calculational framework. The boundary derivative here combines simultaneous changes in both transition directions to keep pi fixed, and the even/odd dominance statement and constrained global maxima do not follow by a mere choice of numerical parameters.",
+        "searches": [
+          "Oh, Park and Kim arXiv:2210.08797 §2.2",
+          "Lou DOI 10.1080/01621459.1996.10476727",
+          "Savelyev et al. DOI 10.1163/156939203322109104"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ef8eca4293c6 and 3f2c2e70699b",
+        "Oh et al. arXiv:2210.08797 §2.2",
+        "Lou abstract; Savelyev et al. bibliographic record; Jubb et al. OA p. 9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fair-chain model fixes pi=1/2 (thus s0=0), while the derivative claim requires pi>1/2 (b=1 at s0>0). General waiting-time formulas determine F_N, but the inspected theorem gives neither the direction of its initial derivative across all N nor an extremum under fixed marginal."
+        ],
+        "reasoning": "The global four-day boundary regime pi>=4/5 and five-day concavity on the pi-dependent feasible interval require additional constrained calculations and are not corollaries of the fair-chain interior-optimum result. The common fair subcase is not claimed distinctly.",
+        "searches": [
+          "Resultary ef8eca4293c6 Finding and assumptions",
+          "arXiv:2210.08797 Thm. 2.14 and its Markov trial setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is {V(2)<=N} for the waiting time to two successive successes, and the general Markov run distribution includes it after choosing a stationary initial law."
+        ],
+        "reasoning": "Deriving the avoidance recurrence, or differentiating a general formula at a fixed numeric parameter, is not the novel result; the claim is the all-horizon constrained sign and threshold law.",
+        "searches": [
+          "arXiv:2210.08797 §2.2, Thms. 2.11 and 2.14",
+          "Resultary paired wet-spell risk and stationary two-state success runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier fair-chain record gives, among other things, the four-day optimizer s=3/4 and interior finite-horizon optima at pi=1/2. The separate same-day result studies covariance between counts of 010 and 101 singleton runs."
+        ],
+        "reasoning": "Credit exact fair-chain overlap. Fairness does not reach the unequal-marginal boundary sign flip, and the other statistic is not adjacent-pair occurrence.",
+        "searches": [
+          "Resultary adjacent wet pair risk, parity and stationary persistence",
+          "2026/11/2/SCOPE-a-one-fifth-correlation-limit-for-paired-wet-spell-risk--ef8eca4293c6",
+          "2026/11/22/SCOPE-a-parity-dependent-covariance-threshold-for-opposite-singleton-r--3f2c2e70699b"
+        ]
+      },
+      "rationale": "The probability and fair-chain extrema have identifiable precedents; the distinguishing classification holds at varying persistence under an unequal stationary marginal and is not given by those fair-chain conclusions or by the inspected general run probabilities alone.",
+      "residual_risks": [
+        "Lou and Savelyev et al. were not available in full; older literature could contain a closer result. This bounded comparison is not a historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap limited to fair chain, acknowledged",
+          "evidence": "Fixes pi=1/2, gives four-day optimizer 3/4 and long-horizon optimizer tending to 3/5; does not treat the unequal-marginal claim.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-one-fifth-correlation-limit-for-paired-wet-spell-risk--ef8eca4293c6",
+          "material_read": "RESULT.md Finding and model, starting at offset 0",
+          "method": "Resultary and original GitHub mirror text",
+          "title": "A one-fifth correlation limit for paired-wet-spell risk",
+          "trigger": "Closest same event and optimizer search"
+        },
+        {
+          "assessment": "Different random variable",
+          "evidence": "Covariance of counts of opposite singleton runs in a fair chain, not a probability of any WW.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-dependent-covariance-threshold-for-opposite-singleton-r--3f2c2e70699b",
+          "material_read": "RESULT.md opening and assumptions, starting at offset 0",
+          "method": "Resultary and original GitHub mirror text",
+          "title": "A parity-dependent covariance threshold for opposite singleton runs",
+          "trigger": "Same-day parity/sensitivity near-match"
+        },
+        {
+          "assessment": "Known probability framework",
+          "evidence": "Markov trial parameterization, Thm. 2.11's waiting-time recurrence and Thm. 2.14's closed form.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.08797",
+          "material_read": "PDF §2.2 pp. 12 and 14, text offsets about 33500 and 37300",
+          "method": "OA PDF passages",
+          "title": "Recurrence algorithms of waiting time for the success run of length k in relation to generalized Fibonacci sequences",
+          "trigger": "General Markov-dependent run formulas"
+        },
+        {
+          "assessment": "Full-text overlap unresolved",
+          "evidence": "Abstract treats exact tests and success-run distributions under Markov dependence.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1996.10476727",
+          "material_read": "Abstract/landing only",
+          "method": "Publisher and JSTOR lawful retrieval attempts; article not accessible",
+          "title": "On Runs and Longest Run Tests: A Method of Finite Markov Chain Imbedding",
+          "trigger": "Potential broader exact Markov run treatment"
+        },
+        {
+          "assessment": "Full-text overlap unresolved",
+          "evidence": "Title and bibliographic identification only; no statement-level inference drawn.",
+          "identifier_or_url": "https://doi.org/10.1163/156939203322109104",
+          "material_read": "Identification only; no decisive source passage retrieved",
+          "method": "DOI retrieval and bounded exact-title search",
+          "title": "Covering runs in binary Markov sequences",
+          "trigger": "Potential closely aligned older Markov-run theorem"
+        },
+        {
+          "assessment": "Empirical context, not a model equivalent",
+          "evidence": "Reports effects of elevated flows on passage efficiency at two weirs, not a binary WW model.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jenvman.2023.117488",
+          "material_read": "Open PDF p. 9, text near offset 63750",
+          "method": "OA repository PDF passage",
+          "title": "Understanding the impact of barriers to onward migration; a novel approach using translocated fish",
+          "trigger": "Scientific motivation in the frozen package"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, RESULT.md lines 5–22, and assumptions, lines 24–32",
+        "Fair-chain comparator ef8eca4293c6"
+      ],
+      "rationale": "At fixed frequency, greater wet persistence can initially reduce the chance of any wet pair for sufficiently wet even horizons, despite strictly increasing it for all odd horizons at the same boundary. The explicit threshold sequence and the four-versus-five day change in optimizer status quantify when relying on persistence alone gives the wrong intuition; they give a sharp benchmark for constrained Markov run risk.",
+      "residual_risks": [
+        "Wet pairs are a stipulated proxy: this is not evidence of fish passage conditions, hydrological control, or empirical calibration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

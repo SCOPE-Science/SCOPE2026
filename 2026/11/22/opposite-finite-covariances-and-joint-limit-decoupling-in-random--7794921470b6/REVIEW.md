@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition uses independent uniform send/receive weights and excludes self-arcs. The reciprocal-pair mean and variance follow from a two-index symmetric kernel with explicit first projection. The sink–reciprocity covariance uses an exactly integrated disjoint-pair event. The source–sink covariance uses an exact two-variable integral and a beta identity, with a strict positivity bound. The joint limiting law follows from four asymptotically independent endpoint Poisson processes, vanishing self-exclusion corrections, and a first-projection CLT whose Gaussian component is jointly independent of the endpoint processes. The packaged checker verified 1,221 exact assertions for small sizes and sign ranges. The analytic steps, not the finite checks, establish the infinite claims.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** The closest primary work, Reilly–Scheinerman–Zhang (2014), proves the univariate geometric sink limit (Proposition 22 and Corollary 23), the probability of jointly having no sinks and sources (Proposition 24), and a CLT for total arc count (Theorem 19). Those results do not imply the complete joint sink/source law from their stated statistics, and the arc count differs from reciprocal dyads. Their full-text keyword comparison yielded no reciprocal-pair analysis. Cloteaux et al. treat deterministic structural characterizations. Other random-digraph reciprocal-motif comparisons use distinct fixed-outdegree or independent-arc ensembles. Generic U-statistic and extreme-value theory explains parts of the proof; the exact finite cross-covariances and complete model-specific joint law were not found as published statements. Full historical novelty is not independently guaranteed.
+PASS
 
-**Value — PASS.** Reciprocal dyads quantify bidirectional connectivity, while zero in/out-degree counts quantify one-sided disconnection. The theorem makes their different scales and all three exact pairwise covariance signs explicit. A negative covariance of order \(n\) with bidirectional pairs coexists with a limiting independent Gaussian and geometric triple, illustrating a real distinction between finite dependence and asymptotic decoupling. It extends an established canonical directed-network model with a natural, reproducible joint observable rather than an arbitrary parameter slice.
+Under the all-coordinate independence specified in the assumptions, W=1−V turns the arc rule into U_i>W_j. The reciprocal kernel has mean 1/4, variance 3/16 and one-index projection g=U(1−W), with variance 7/144. Disjoint pairs are independent; the shared-index term in Var(R_n) has multiplier 6 binom(n,3). An incident reciprocal pair is incompatible with a sink, whereas a disjoint pair and a sink coexist with probability ∫(1−t)^(n−3)((1−t)^2/2)^2 dt=1/[4(n+2)]. Arc reversal handles sources. A same-label sink/source pair uses disjoint coordinates; distinct labels share the constraint U_i<W_j, giving the stated beta integral and strict covariance positivity by the central-binomial bound, including n=2. Omitting self-arcs changes the two full-boundary proxy counts only on exceptional rows/columns, with disagreement probability at most 1/(n+1) each from the expected first spacing. The four endpoints have asymptotically independent unit-rate Poisson limits by the one-index rare-event transform. A boundary count before the first point of the opposite process is geometric with parameter 1/2; truncation to compact windows and the absence of ties justify the mapping. In the reciprocal first-projection CLT the degenerate remainder has variance O(n²). Boundedness of g gives an O(n^−3/2) per-index mixed Laplace–Fourier term on endpoint events of probability O(1/n), which vanishes after multiplication by n and proves independence, not merely pairwise zero covariance. The n^(3/2) normalization gives 7/144 as stated.
 
-**Limitations.** Only iid uniform two-coordinate weights and fixed threshold one are covered. No sharp convergence rates or full finite joint distribution are asserted. Search results do not constitute proof of universal novelty. The independent audit channel has not been exercised.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work gives the exact model and its finite graph law, sink marginal distribution/limit, joint zero probability and arc-count CLT. Do not credit these ingredients as new. The compact reciprocity and cross-covariance formulas and the simultaneous limit of the two extremal counts with the reciprocal-pair CLT are a distinct contribution on inspected evidence.
+
+## value
+
+PASS
+
+Zero directed degree and reciprocal connectivity are different natural network statistics. Explicit finite covariances distinguish positive sink/source association from negative sink/reciprocity and source/reciprocity association. Establishing full independence at their disparate fluctuation scales separates a finite dependence effect from the limiting behavior in an established random graph model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

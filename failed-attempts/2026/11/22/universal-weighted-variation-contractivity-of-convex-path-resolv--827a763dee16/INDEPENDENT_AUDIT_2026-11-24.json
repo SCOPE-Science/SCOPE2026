@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:12:07.359685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tridiagonal B=DM⁻¹Dᵀ is positive definite and has nonpositive off-diagonals; its weighted column sums are exactly the stated inequalities, with the two zero boundary weights. An independent direct nonsmooth check is possible: the proximal optimality difference gives d=z+Bη for input differences d, output differences z, and differences η of edge subgradients. By monotonicity choose θ_i in sign(z_i) with θ_iη_i=|η_i|, also when z_i=0. Then wᵀ|d| is at least θᵀdiag(w)d, and θᵀdiag(w)Bη is at least Σ_j (wᵀB)_j|η_j| by the off-diagonal signs. This proves the asserted inequality directly, without imposing a secant at a kink. Apply the same bound to each scaled potential in implicit Euler and pass to the subgradient-flow limit. If a column fails, the unit step across that edge and the single quadratic give edge vector e_j−γBe_j with γ=a/(1+aB_jj) for the resolvent or γ=(1−exp(−a B_jj t))/B_jj for the flow. This vector is nonnegative, so the variation increases strictly, including all positive flow times. With equal masses the criterion is the zero-boundary concavity condition; the identity penalty attains the universal constant one. Independent bounded replay: python /workspace/replay/checks.py 3 checks 15,625 exact subgradient comparisons with asymmetric nonsmooth energies and an admissible weight on the boundary. It supplements the proof rather than establishing the all-energy theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The linear comparator is for arbitrary positive masses, variation weights and conductances, and all finite trees, for all heat times.",
+          "The nonlinear p-heat comparators give vertex ℓ¹ pairwise contraction or one-input edge variation on paths, and weighted Lipschitz seminorm results on trees; these are not pairwise edge ℓ¹ stability statements."
+        ],
+        "reasoning": "Broader tree topology is not enough alone; the decisive feature is all conductances, which include all positive secant coefficients on the path. Different nonlinear metrics or one-input variation decay supply no substitute for this implication.",
+        "searches": [
+          "9fedb9294a7c Finding and Proof, conductance-independent tree heat",
+          "Resultary nonlinear graph heat 9f22d07634ed, Finding and Proof §§2,4; b071a85ca8a3, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9fedb9294a7c, fcea9cd47ab7, c426456313be, 9f22d07634ed, b071a85ca8a3",
+        "arXiv:1502.07770 §4.1",
+        "arXiv:1411.0589, contextual weighted-TV proximal methods"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write L_A=M⁻¹DᵀAD. For every diagonal A>0, the tree heat theorem bounds V_w(e^(−tL_A)h) by V_w(h) if wᵀB≥0. Integrating against e^(−t) on [0,∞) proves the same for (I+L_A)⁻¹ by the triangle inequality; taking a limit covers A≥0.",
+          "For two smooth proximal outputs u,v, take A to be the nonnegative diagonal of coordinatewise secant slopes of the convex derivatives. Then u−v=(I+L_A)⁻¹(f−g) exactly. Smooth convex approximation passes this to every finite convex energy; the scaled proximal inequalities pass to the flow in the implicit-Euler limit.",
+          "Conversely, quadratics give the comparator's linear family and its necessity for flows. For proximal necessity take a single violating edge, or differentiate the resolvent of a positive quadratic family at small step size; the same bad weighted column governs first-order amplification."
+        ],
+        "reasoning": "The all-energy proof is a direct closure of the prior all-conductance assertion with scalar monotonicity; neither a new criterion nor a new nontrivial comparison beyond the prior theorem is left by the explicit one-edge calculation. Algorithmic sources are contextual rather than the basis of the negative verdict.",
+        "searches": [
+          "9fedb9294a7c Finding, positive-conductance contractivity and sharp necessity",
+          "Primary nonlinear diffusion/ℓ¹ accretivity search; targeted comparison of Barbero–Sra and Kolmogorov–Pock–Rolínek optimization scopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the tree heat Finding, the coefficients κ_e=(2w_e−s_u)/m_u+(2w_e−s_v)/m_v become precisely (wᵀB)_j on a path.",
+          "The isotonic projection Finding fcea9cd47ab7 uses concavity of the interpolant of w at cumulative-mass knots: its consecutive slopes are (w_j−w_{j−1})/m_j. It is the same condition but for a different, constrained map."
+        ],
+        "reasoning": "The shared inequality is prior. Identical inequality alone does not prove nonlinear coverage; the all-conductance comparator and reduction below do.",
+        "searches": [
+          "Resultary: weighted path total variation contractivity for all convex penalties and diffusion; mass-weighted concavity and two-input stability",
+          "9fedb9294a7c Finding; fcea9cd47ab7 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the exact local criterion in 9fedb9294a7c and fcea9cd47ab7. Same-date c426456313be uses an equivalent inequality for individual TV jump shrinkage and irreversible fusion, not two-input contraction."
+        ],
+        "reasoning": "The finding is a continuum classification, not a numerical invariant list. The directly relevant exact indexed criterion is meaningful evidence; same-date placement does not establish priority.",
+        "searches": [
+          "Resultary exact path stability in weighted variation with mass concavity, isotonic/TV regression and nonlinear heat aliases"
+        ]
+      },
+      "rationale": "The strongest comparator proves the identical sharp criterion for the whole family of positive-conductance linear path heat semigroups, not just one diffusion. The full nonlinear conclusion follows from that family by the semigroup-resolvent integral, coordinatewise convex secants, smoothing, and implicit Euler. Although the comparator does not state a nonlinear theorem, these standard operations cover the submitted universal claim, not only its quadratic specialization.",
+      "residual_risks": [
+        "The bounded external literature search did not establish historical first occurrence of the nonlinear formulation; that is not evidence of absence.",
+        "The nearby isotonic theorem is one projection and its shared date does not establish ordering; the stated fail rests on mathematical implication from the tree heat theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear-only as stated; the full target is a corollary by the explicit implication check.",
+          "evidence": [
+            "N(t)≤1 for all t≥0 if and only if all κ_e≥0; this is independent of arbitrary positive conductances.",
+            "The theorem includes arbitrary positive masses and a cut-signal violation witness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c/RESULT.md",
+          "material_read": "Finding at mirror offset 0, and proof edge equation and logarithmic column sums",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; statement, reduction and necessity comparison",
+          "title": "A conductance-independent contraction criterion for weighted tree heat flow in total variation",
+          "trigger": "Sharp contractivity of the entire family of linear heat operators and possible extension by convex secants"
+        },
+        {
+          "assessment": "Identical criterion for a specific constrained projection; not the all-finite-energy theorem itself.",
+          "evidence": [
+            "Concavity of w at cumulative-mass knots is equivalent to nonincreasing consecutive slopes."
+          ],
+          "identifier_or_url": "Resultary fcea9cd47ab7",
+          "material_read": "Finding, cumulative mass and sharp isotonic projection criterion",
+          "method": "Matching local RESULT.md mirror at offset 0",
+          "title": "The concave-envelope law for sharp weighted variation sensitivity",
+          "trigger": "Identical local condition and two-input edge TV on paths"
+        },
+        {
+          "assessment": "The inspected theorem concerns computing a minimizer, not classifying pairwise Lipschitz metrics.",
+          "evidence": [
+            "The chain specialization with strictly convex quadratic unaries obtains an O(n) algorithm."
+          ],
+          "identifier_or_url": "arXiv:1502.07770",
+          "material_read": "PDF §4.1 p. 10, quadratic unaries on a chain (offset 34690 vicinity)",
+          "method": "OA primary passage",
+          "title": "Total variation on a tree",
+          "trigger": "Convex edge-TV problems on trees and weighted paths"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Pairwise stability in an independently chosen variation metric is useful, but the exact new-scope claim depends only on the already sharp all-conductance condition by standard secant and resolvent closure. The single-edge strict witness makes that condition concrete but is a rank-one calculation along the same already identified failing column. No independent structural advance remains in the audited scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

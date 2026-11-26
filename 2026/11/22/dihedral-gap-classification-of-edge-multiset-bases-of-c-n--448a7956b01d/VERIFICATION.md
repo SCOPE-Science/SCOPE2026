@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_cycle_edge_multiset.py` with Python 3.10 or later. The checker constructs each cycle by independent adjacency lists, computes all shortest distances by breadth-first search, then exhaustively enumerates all three-vertex subsets and all edge-distance signatures for every order from 3 through 28. It checks the exact gap criterion, the closed count, and the dihedral orbit divisibility for every order at least seven. The captured successful output is in `CHECK_OUTPUT.txt`.
+## correctness
 
-The all-order proof in `RESULT.md` is mathematical: edge-centre isometries, a complete three-element permutation classification, constructive obstructions, integer-composition enumeration, and orbit-stabilizer. The enumerator is corroboration only, not a proof beyond the tested range. The known minimum cardinality three comes from the 2023 cited scalar theorem.
+PASS
 
-Same-model correctness, originality and value reviews passed. Independent scholarly validation has not been performed. Exhaustive publication priority cannot be guaranteed.
+Midpoint distance is the specified nearest-endpoint distance plus 1/2. In a collision the multiplicities allow a bijective landmark matching, and each matched step must be the common translation or common reflection between midpoints. Identity matching is impossible since the nonidentity translation has no fixed point and a reflection has at most two. In a transposition the third point is reflection-fixed; if a swapped step uses reflection, its partner is the reflected point and the triple has two equal gaps. Otherwise translation swaps the pair and has displacement n/2; the fixed-point congruence for the third point is solvable exactly when n/2 is odd. A three-cycle has at most one reflection step since two adjacent reflection steps undo each other. The remaining two consecutive translation steps give an arithmetic progression; reversing its orientation if needed, use a positive step less than n/2, so two clockwise gaps coincide. Both obstructions realize a collision, by the triple's preserving reflection or by the half-turn match for the antipodes and midpoint reflection for the third point. A gap n/2 is equivalent to having an antipodal pair. No one- or two-element set resolves because a reflection preserves it and moves an edge; gaps (1,2,n-3) qualify for every n≥7. The marked-start ordered-composition count subtracts the three equal-gap events with the triple-intersection correction, then 3(n/2-1) triples in the odd half-order case; distinct gaps make the action free. Independent exhaustive check /workspace/evidence/cycle.py 7 30 (output cycle-7-30.txt) tested every triple, its criterion and its actual dihedral orbit when qualifying. This bounded replay is not the all-n proof.
+
+## originality
+
+PASS
+
+Scoped to the all-bases criterion, the parity-dependent antipodal obstruction and resulting counts, not discovery of the scalar edge-multiset dimension or of a particular basis. No independently covering equivalent statement was established in the inspected material.
+
+## value
+
+PASS
+
+This is a structural equality-case refinement for a standard resolving invariant. The half-turn obstruction separates asymmetric triples that otherwise appear equivalent by automorphism criteria, and its mod-four behavior yields an exact census, not merely additional examples of the known minimum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

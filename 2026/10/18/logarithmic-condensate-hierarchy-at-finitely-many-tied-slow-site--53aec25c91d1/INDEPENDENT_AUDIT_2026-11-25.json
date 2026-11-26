@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:22:18.630700Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–79",
+        "Frozen VERIFICATION.md, lines 18–26",
+        "Frozen verify_critical_hierarchy.py, lines 1–98"
+      ],
+      "rationale": "Rate times site weight at positive k equals the site weight at k-1. Incoming stationary flux on edge i→i+1 therefore equals the target configuration weight times the current departure rate at i+1, so the fluxes balance. Positive clockwise moves connect the fixed-particle state space. Multiplying weights by q^N yields a sum of L-m geometric variables tilted by W_m(N-b), and the conditional slow law is the product of reciprocal (k_i+1). The generating series for the latter is [-log(1-z)/z]^m. The Stirling coefficient divided by (s+m-1)! is the (m-1)-st elementary symmetric function of the reciprocals 1 through 1/(s+m-1); repeated-index terms in its comparison with the (m-1)-st harmonic power are lower order by summability of j^-2. This gives W_m(s)~m(log s)^(m-1)/s. On |b-(L-m)rho_c|<=L^(2/3) the tilt relative to its value at the central integer is uniformly 1+o(1); outside this window the geometric-sum Chernoff tail is exp(-c L^(1/3)), negligible even after polynomial reweighting. This proves the unchanged CLT and makes the atypical slow mass negligible even at the 1/log L scale. For each fixed winning index, restricting the other k_i+1 to s^t_i forces its residual mass to be s-o(s), and the subordinate harmonic sums, divided by log s, tend to t_i. The box probabilities tend to (1/m) times the product of those t_i, uniformly on the typical fluid window. Taking interior t_i to one gives uniqueness and uniform index; the uniform box limits factor jointly with the fluid Gaussian. For a selected macroscopic pair, restrict all other sites to at most delta*s and sum their harmonic weights. Writing R for their sum, the pair split is a uniform Riemann sum for s^-1 times the integral of [x(1-R/s-x)]^-1 on [epsilon,1-R/s-epsilon]. As delta tends to zero the integral tends uniformly to 2 log((1-epsilon)/epsilon). Any omitted term has a third macroscopic site: after fixing the other m-3 occupations, at most O(s^2) triple splits each have weight O(s^-3). The omitted or multiply counted terms thus have total weight O((log s)^(m-3)/s) for fixed thresholds. Multiplying by choose(m,2) and dividing by W_m(s) gives the stated coefficient; uniformity on typical s and the exponential fixed-fraction concentration justify averaging at the logarithmic scale. In particular the formally automatic event at s=0 is negligible. The supplied NumPy checker was inspected, not executed; the limits were proved analytically.",
+      "residual_risks": [
+        "The bounds used here fix m, q, density above critical, and a threshold strictly between zero and one half. They are not uniform in growing m or in a vanishing macroscopic threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Angel–Evans–Mukamel's single defect has rate p(1+lambda/k) and gives p^-k/(k+1) at lambda=1.",
+          "The Godrèche–Luck disorder model does not give a finite deterministic tie of m sites; its directly relevant two-site formula can give a two-site sharing analogue. The other inspected multiple-condensate or disorder papers use rising rates at large occupancy or continuous random site fitnesses, respectively.",
+          "The finite-system combinatorial analysis identified as Ferrari–Landim–Sisko is a plausible older lead; its text was not obtained."
+        ],
+        "reasoning": "The distinct mechanism is fixed multiplicity with identically marginal nonsummable critical weights, not a unique defect, a two-site split, a large-occupation cutoff, or continuous non-tied disorder. The inspected broader results do not resolve the competition among m-1 simultaneous harmonic scales.",
+        "searches": [
+          "Angel–Evans–Mukamel arXiv:cond-mat/0401262v1, Sections II.2 and III",
+          "Godrèche–Luck arXiv:1209.4749, Section 4.1 and Appendix A",
+          "Schwarzkopf–Evans–Mukamel arXiv:0801.4501 and Mailler–Mörters–Ueltschi arXiv:1509.07672",
+          "Ferrari–Landim–Sisko J. Stat. Phys. 128 (2007), 1153, reference [18] of Godrèche–Luck"
+        ]
+      },
+      "checked_sources": [
+        "Angel–Evans–Mukamel arXiv:cond-mat/0401262v1",
+        "Godrèche–Luck arXiv:1209.4749",
+        "Ford arXiv:2104.12019",
+        "Schwarzkopf–Evans–Mukamel arXiv:0801.4501",
+        "Mailler–Mörters–Ueltschi arXiv:1509.07672",
+        "Shepp–Lloyd pp. 4–5, unconditioned ordered cycles",
+        "Resultary 700d4371e2f3, 266d4e97dde7 and 9a54cad4773d",
+        "Ferrari–Landim–Sisko citation only; Tavaré DOI 10.1112/blms.12537 access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact equal-site two-site law yields W_2(s)=2H_(s+1)/(s+2) and gives the one-pair analogue log((1-epsilon)/epsilon).",
+          "The conditioned three-cycle catalog result concerns two specified cycle counts rather than the m-1 subordinate random scales or union of all macroscopic-pair events."
+        ],
+        "reasoning": "The m>=3 coefficient is not a direct specialization of the two-site asymptotic: the other sites contribute a growing harmonic weight and overlapping pairs require a lower-order triple-site estimate. Typical unconditioned permutations have a growing number of cycles, so unconditioned ordered-length limits do not transfer to fixed m. Neither an exact finite law nor a covariance identity alone gives the claimed distributional and rare-event limits.",
+        "searches": [
+          "Godrèche–Luck Appendix A.2, Eqs. (A.12)–(A.14)",
+          "Ford Theorem 1.2; Shepp–Lloyd ordered cycle lengths for unconditioned permutations",
+          "Resultary 700d4371e2f3, conditional covariance finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cauchy's cycle-type formula in Ford has factors 1/(j^m_j m_j!). Conditioning on exactly m cycles and labeling them uniformly gives weights proportional to the product of 1/ell_i.",
+          "Godrèche–Luck gives the two-site canonical product profile; at b=1 the factors for equal sites are 1/(k+1)."
+        ],
+        "reasoning": "Set ell_i=k_i+1 and n=s+m to identify exactly the ordered slow-site law given s, including the Stirling normalizer. The threshold changes by a bounded offset, immaterial to the split integral. This translation leaves the conditional harmonic-box and rare-sharing asymptotics to prove, and has no counterpart for the separately fluctuating Gaussian fluid.",
+        "searches": [
+          "Resultary: fixed-number-of-cycles permutations, logarithmic subordinate cycle lengths and macroscopic sharing",
+          "Ford arXiv:2104.12019, Theorem 1.2",
+          "Godrèche–Luck arXiv:1209.4749, Appendix A.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite coefficient m!{s+m bracket m}/(s+m)! is classical via the ordered conditional cycle lengths.",
+          "Resultary 700d4371e2f3 gives covariance of two cycle-length counts conditioned on three cycles, 266d4e97dde7 treats two nearly tied constant-rate slow sites, and same-day 9a54cad4773d concerns cycle count versus one-line permutation records."
+        ],
+        "reasoning": "No novelty is assigned to the exact Stirling sequence for fixed m. The closest exact indexed formulas involve a different observable, different rate regime, or an unconditioned cycle statistic and do not give the rare event coefficient or the complete joint limit.",
+        "searches": [
+          "Resultary: critical tied slow sites, independent log occupations and rare sharing",
+          "Resultary: permutations conditioned on a fixed number of cycles",
+          "Ford Theorem 1.2 and Cauchy/Stirling cycle-count law"
+        ]
+      },
+      "rationale": "The finite stationary product weights, their single-site critical specialization, and the conditional slow partition law are not new: the last is exactly the classical conditional permutation law. The supported distinction is the joint fixed-m limit with independent Gaussian ordinary-site fluctuations, and the explicit sharp two-macroscopic-site coefficient in the tied-site regime. The relevant two-site formula gives a close lower-multiplicity analogue; neither it nor the inspected unconditioned or fixed-three-cycle results states or directly specializes to the complete asymptotics here.",
+      "residual_risks": [
+        "Because the slow law is exactly a conditioned permutation distribution, earlier equivalent fixed-cycle asymptotics may exist under different terminology.",
+        "Ferrari–Landim–Sisko full text was not obtained; Tavaré's Ewens survey was also unavailable through the bounded route. These access limits do not establish absence or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact single-defect precedent, not a multiple tied-site hierarchy",
+          "evidence": "The weight p^-k k!/(1+lambda)_k equals p^-k/(k+1) at lambda=1.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0401262v1",
+          "material_read": "Sections II.2 and III, Eqs. (12)–(15), extracted offsets 8000–13992 and 15000–21956",
+          "method": "Bounded open full-text passage inspection",
+          "title": "Condensation Transitions in a One-Dimensional Zero-Range Process with a Single Defect Site",
+          "trigger": "Same special-site rate and finite product distribution"
+        },
+        {
+          "assessment": "Covers the critical on-site factor and gives the exact two-site precursor; does not establish the m>=3 result",
+          "evidence": "The interaction is u_k=1+b/k, and the equal two-site canonical profile is a product of the two occupation weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.4749",
+          "material_read": "PDF p. 3 Eq. (1.5), Section 4.1 p. 16, and Appendix A.2 pp. 31–32 Eqs. (A.12)–(A.14)",
+          "method": "Bounded open PDF passage inspection",
+          "title": "Condensation in the inhomogeneous zero-range process: an interplay between interaction and diffusion disorder",
+          "trigger": "Same marginal interaction, exact two-site profile, and discussion of condensate uniqueness"
+        },
+        {
+          "assessment": "Covers the exact finite permutation weights, not the targeted fixed-m asymptotic in the inspected passage",
+          "evidence": "Cycle-type probability is the product of 1/(j^m_j m_j!); uniform labeling and conditioning remove the multiplicity factorials up to a global factor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.12019",
+          "material_read": "Theorem 1.2, pp. 2–3, extracted offsets 5883–12303",
+          "method": "Bounded open PDF passage inspection",
+          "title": "Cycle Type of Random Permutations: A Toolkit",
+          "trigger": "Exact fixed-cycle permutation equivalent for slow occupations"
+        },
+        {
+          "assessment": "Different mechanism",
+          "evidence": "The rates rise at large occupation, introducing a soft cutoff rather than finitely many tied critical rates.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.4501",
+          "material_read": "PDF pp. 2–4, Eqs. (3)–(4), extracted offsets 5262–10745",
+          "method": "Bounded open PDF passage inspection",
+          "title": "Zero-Range Processes with Multiple Condensates",
+          "trigger": "Alternative mechanism for several macroscopic occupations"
+        },
+        {
+          "assessment": "Different site-fitness ensemble",
+          "evidence": "There are i.i.d. random fitnesses at growing site count; this is not a fixed finite set of tied rates.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.07672",
+          "material_read": "PDF pp. 1–2, extracted offset around 5000",
+          "method": "Bounded open PDF passage inspection",
+          "title": "Condensation and symmetry-breaking in the zero-range process with weak site disorder",
+          "trigger": "Random-site symmetry breaking and localization of condensates"
+        },
+        {
+          "assessment": "Closest fixed-cycle catalog match, but a different statistic",
+          "evidence": "Computes covariance for two specified cycle-length counts, not the subordinate log law or macroscopic-sharing probability.",
+          "identifier_or_url": "Resultary 700d4371e2f3",
+          "material_read": "RESULT.md finding for the covariance and its parameter condition",
+          "method": "Bounded local catalog mirror inspection",
+          "title": "A square-root covariance transition among three-cycle-conditioned permutations",
+          "trigger": "Same exact conditioned permutation model at m=3"
+        },
+        {
+          "assessment": "Different number of sites and interaction",
+          "evidence": "Two near-tied constant-rate slow sites, not m>=3 tied marginally interacting sites.",
+          "identifier_or_url": "Resultary 266d4e97dde7",
+          "material_read": "RESULT.md finding and rate setup",
+          "method": "Bounded local catalog mirror inspection",
+          "title": "Two scaling windows for competing slow-site condensates in a zero-range ring",
+          "trigger": "Near ties between slow-site condensates"
+        },
+        {
+          "assessment": "Different random variables; date not used to exclude coverage",
+          "evidence": "Cycle count versus one-line records in an unconditioned permutation.",
+          "identifier_or_url": "Resultary 9a54cad4773d",
+          "material_read": "RESULT.md finding's conditioning and observables",
+          "method": "Bounded local catalog mirror inspection",
+          "title": "Exact cycle–record covariance and terminal-position dominance in uniform permutations",
+          "trigger": "Same-day indexed result on permutation cycles"
+        },
+        {
+          "assessment": "Potential overlap unresolved",
+          "evidence": "Section 4.1 points to a rigorous combinatorial analysis but does not specify a marginal fixed-m sharing law in that citation.",
+          "identifier_or_url": "Godrèche–Luck arXiv:1209.4749, reference [18]",
+          "material_read": "Citation and citing context only; full text not retrieved",
+          "method": "Bounded reference and lawful literature retrieval attempts",
+          "title": "Ferrari, Landim and Sisko, J. Stat. Phys. 128 (2007), 1153",
+          "trigger": "Cited for rigorous finite-system combinatorial condensation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–24 and 38–79",
+        "Godrèche–Luck Appendix A.2",
+        "Ford Theorem 1.2"
+      ],
+      "rationale": "The marginal rate is a natural boundary for slow-site condensation. The theorem distinguishes one extensive condensate from several subextensive but widely populated independent log scales; basic uniqueness of the condensate does not quantify this distinction. It also identifies how often the uniqueness picture fails at a fixed macroscopic fraction, with an explicit threshold- and multiplicity-dependent coefficient, and separates these slow scales from Gaussian fluid noise. The value is in these joint and rare-event asymptotics, not in rediscovering the Stirling normalization.",
+      "residual_risks": [
+        "This is a stationary theorem; it says nothing about timescales for formation, switching, or equilibration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

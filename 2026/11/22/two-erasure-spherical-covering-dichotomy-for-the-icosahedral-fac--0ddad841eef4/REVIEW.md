@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single final theorem is the complete 496-case two-erasure spherical covering classification. The proof does not infer an infinite assertion from numerical sampling: it reduces all deletions to four classes by the dual-orbit covering lemma, the cap-separation inequality for nonincidence, and full icosahedral transitivity on incidence pairs. For one incidence representative, the original sixty supporting faces and three replacement polygons are checked against exact-radical coordinates. Their closed connected 54-face polygonal surface exhausts the remaining hull. The least face distance is the displayed Gram-determinant radical, smaller than the other three support distances. The smallest support face is unique. The coplanar equalities follow from the golden-ratio identity and explicit parallel-edge and regular-pentagon relations; the standard-library rational-interval checker proves every required *strict* support and ordering inequality. The coordinate conventions, code execution, counts and displayed closed forms were checked directly from the packaged `verify.py`.
+PASS
 
-## Originality — PASS, provisional
+The individual orbits each have centered inradius u. An untouched orbit suffices for same-orbit removals, and for a nonincident mixed removal the two necessary caps of radius arccos u cannot meet because v<2u²−1. Evaluating support at a removed site gives the matching upper bound u in both cases. For an incident removal, all pairs reduce by symmetry to {0,12}. The frozen certificate checks exact rational interval signs off the candidate faces, and the equality conditions follow from exact geometry: the mixed quadrilateral has parallel paired edges, the other quadrilateral lies on the dual pentagonal face, and the triangles are coplanar by definition. The 51 inherited triangles and three new facets have closed edge incidence, so completeness follows by connectedness of the hull-facet adjacency graph. Equal support on both pair-sums of the mixed quadrilateral gives the stated Gram formula for gamma. Its plane is uniquely closest, since gamma<u<beta<h; a centered inscribed ball touches it in its normal direction only. The hull contains the origin in its interior (three independent intact antipodal pairs suffice). A separate 70-digit triple enumeration of the incident hull agrees on 54 total facets, the two quadrilaterals and the unique nearest facet, and the incidence count is 60, leaving 436 ordinary pairs.
 
-The nearest full-text source is Hoehner, arXiv:2611.10777v1, Theorem 1.4 and Section 7.3, which identifies the volume-optimal 32-vertex configuration and its ordinary sixty facets, not its covering radius after deleting two sites. Known Catalan-solid pentakis-dodecahedron dimension tables have unequal radius shells; they do not give the requested punctured 30-site covering inradius. Public spherical-code tables address minimum pairwise separation, a different optimization functional. A prior complete two-erasure *volume-loss* calculation for the same 32 sites neither bounds nor determines the minimum directional support of the punctured polytope. Semantic-index searches for the exact code, covering, puncture, pair-erasure and equivalent inball terms did not reveal a stronger existing published result. Unindexed classical or thesis treatments remain a residual priority risk: Wimmer's thesis landing page could not be retrieved during inspection, although the directly related new full paper was examined materially.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-site-failure robustness of a uniquely volume-optimal, highly symmetric 32-site spherical configuration is a natural, independently motivated metric invariant. The result solves the *entire* 496-pair failure census, establishes an unexpected exact two-value law, isolates precisely sixty geometrically incident exceptional pairs and proves their deepest directions unique, with a reproducible algebraic geometric certificate. The two distinct erasure radii are not a mere restatement of known polyhedral volume or Platonic inradius data. No optimality over all 32-site codes is claimed.
+The equal-radius geometry and intact facets are known. The closest distinct same-day record studies the same 496 pairs and has exact boundary triangulations as intermediate computation, but its results give five volume-loss levels, not a two-level covering or inradius classification. Its worst volume losses occur in a different deletion class. Its facet generator can be adapted to calculate covering, but the inspected proof and code neither compute least plane distances nor disclose coplanar facet contacts and unique minimizers. No priority ordering is inferred from the shared date.
 
-## Closest sources and residual limitations
+## value
 
-S. Hoehner, *On maximum volume polytopes inscribed in the sphere*, arXiv:2611.10777v1, first public 7 November 2026, Section 7.3, gives the unpunctured configuration and its facial structure. D. McCooey's *Pentakis Dodecahedron* table concerns a different unequal-shell solid. H. Cohn's *Spherical codes* table concerns pairwise separation rather than erasure coverage. The inaccessible L. Wimmer 1998 volume dissertation leaves an uninspected older-source possibility, but the coverage claim is not obtained by implication from its volume statement as summarized in the primary source. All originality conclusions are same-model literature assessments only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical configuration combines two overlapping spherical coverings and is independently distinguished by a sharp volume theorem. Exact loss of covering after two erasures is a separate robustness objective: the special failure occurs precisely when a vertex and its incident normal are missing. The optimal cap size, multiplicity and unique worst direction give a full failure classification and contrast with the volume-optimal deletion criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

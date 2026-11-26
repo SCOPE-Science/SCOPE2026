@@ -1,11 +1,21 @@
-# Review of the Möbius–Kantor edge Roman exchange theorem
+# Independent mathematical audit
 
-**Correctness.** The canonical-completion lemma directly follows from the edge Roman domination definition. The proof's exhaustive domain includes every possible optimal support because six or more edges labeled \(2\) cost at least twelve, whereas a weight-eleven function is explicitly exhibited. Two independently constructed graph models and counting methods give the same 72 optimal functions and 96 exchanges. A supplied explicit bijection proves the collapsed 24-vertex graph is the line graph of the original graph, rather than merely testing its degree sequence. All-source shortest paths prove radius and diameter eight. The exact finite certificate and reproducing programs are included.
+## correctness
 
-**Originality.** The closest inspected primary sources are Chang–Chen–Liu (arXiv:1405.5622, full available text, especially sections 1 and 4) and Samodivkin (arXiv:1709.05052, full available text, especially section 4). General edge Roman upper bounds and generic Roman-function move rules do not imply the specific minimum-weight classification, the 72 optimal functions, or the subdivision of the original line graph. A 2009 foundational article by Pushpam and Mai was identified bibliographically but its original complete article was not obtained. Targeted database, source and historical-claim comparisons yielded no covering result; possible unindexed publications and tables remain risks.
+PASS
 
-**Value.** This is not merely another scalar value of a domination invariant. Its main structural phenomenon is a self-reconstruction: the graph of all optimal double-guard allocations is precisely the one-edge subdivision of the line graph of the **same original graph**. The theorem also proves complete reachability, a sharp maximum relocation length of eight, and the necessity of moving the single guard when the double-guard allocation changes. These are natural configuration-space questions not determined by general upper bounds.
+For a fixed label-2 support T, edges with neither endpoint touched by T must have label 1, and any other edge outside T can have label 0. An extraneous 1 can be lowered; therefore every global minimum is its unique canonical completion, with cost 2|T|+|U(T)|. Supports of size at least 6 have cost at least 12. Independently generated GP(8,3) edges and enumerated all 55,455 smaller supports by their endpoint sets. By sizes 0 through 5 the minimum costs were 24,21,18,15,12,11, with respective multiplicities 1,24,132,184,54,72. All 72 global optima have exactly five 2s, one 1, and eighteen 0s. Pairwise intersection size four on the optimal supports gives exactly 96 exchanges, none preserving the single edge. The 24 degree-four and 48 degree-two vertices form the two parts; the branch-neighbor pairs of the degree-two vertices are distinct. I suppressed them and found a complete adjacency-preserving bijection to the line graph by independent backtracking, not relying on the certificate's proposed bijection. I separately verified the certificate's states, exchanges, GP-to-LCF and branch-to-line-graph maps. Independent flood distances gave eccentricity 8 for all vertices, confirmed connectedness, and put the endpoints of the certified length-eight path exactly eight apart. Thus the claim is of an abstract subdivision, not of a natural indexing by the single edge.
 
-**Limitations.** The statement is limited to \(\operatorname{GP}(8,3)\), the specified optimal-guard exchange rule and the verified finite graph. The structural isomorphism is established by a finite explicit certificate, not a claimed geometric construction for a family of graphs. Missing full text of the 2009 reference leaves a residual overlap risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact optimum-state census and the once-subdivided line-graph structure for this recomputing support-exchange rule. Ordinary Roman domination on the line graph is the known equivalent input optimization, not itself new. The closest ordinary Roman reconfiguration rules and several exact catalogue analogues were checked at the statement level.
+
+## value
+
+PASS
+
+A natural cubic symmetric benchmark supports more than a Roman domination number: the minimum labeling space recovers the original edge-incidence structure after suppressing forced degree-two states. The structure and metric data make it useful for comparing dynamics under different minimum-state exchange rules; here the support-recomputation rule even turns an edgeless local-swap graph on the same functions into a connected graph of diameter eight. The exact census alone would not imply these conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

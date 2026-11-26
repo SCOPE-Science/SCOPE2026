@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:32:40.781776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a stationary time, the independent backward Poisson intervals have rate r. Conditional on their lengths, the reset sum is centered Gaussian with covariance (2D/r) T_q I_d, where q=b² and T_q=Σ_{j≥0} q^j E_j with iid unit-rate exponentials. This proves the sign invariance and gives P_d=(r/(4πD))^(d/2) E[T_q^(−d/2)]. The stationary construction converges in L²; shared-noise coupling shrinks an arbitrary initial displacement by a^{N_t} almost surely, proving uniqueness. The radial Fourier transform Φ_b(u)=Π_{j≥0}(1+b^{2j}u²)^(−1) is bounded at large u by any fixed finite leading product, giving integrability against every polynomial and hence a bounded smooth density. The identity Φ_b(bu)−Φ_b(u)=u²Φ_b(u) gives I_{d+2}=(b^(−d)−1)I_d and C_{d+2}/C_d=1/(2πd). For d=2, integrate [Φ_b(bu)−Φ_b(u)]/u; Tonelli with the decreasing function's derivative integrates over v≤u≤v/b, giving I_2=log(1/b). For the odd anchor the tail of the log product is bounded by u²b²/(1−b²), and Φ_b(u)≤1/(1+u²), so I_1→π/2 by dominated convergence. Iteration gives the exponents n(n−1) and n² and the stated constants, including the finite d=1 limit. At b=0 the conditional variance uses only E_0, whose inverse d/2 moment diverges for d≥2. All contraction limits keep d,D,r fixed. Replay: verify.py lines 16–39 and 59–89, inspected, not run; VERIFICATION.md lines 19–23 records 30 exact-law and 8 endpoint quadrature comparisons, largest relative discrepancy 0.019803931. Finite log-frequency truncation and tolerances corroborate sampled values only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2004 formula E[(I^(q))^s]=Γ(1+s)(q^{1+s};q)_∞/(q;q)_∞ is a Mellin law at general moment orders, not just positive integer dimensions. At apparent poles use the removable limits.",
+          "Chhaibi explicitly identifies the z=0 case as the 2004 variable and gives the larger (q,z) Mellin family.",
+          "The random-multiplier multivariate variance-gamma record uses a different multiplier family; the 3D Bessel record is an acknowledged special case, not the reason for rejection."
+        ],
+        "reasoning": "The published transform applies to all q in (0,1) and to the required negative orders, so it dominates rather than samples the dimensional family. All these negative moments exist: for each m, I^(q)≥q^{m−1}Σ_{j=0}^{m−1} E_j, so choosing m arbitrarily large also justifies analytic continuation through the negative integers.",
+        "searches": [
+          "Bertoin–Biane–Yor Theorem 1.1 and proof",
+          "Chhaibi arXiv:1406.5695v4, pp. 2 and 4",
+          "Resultary local: multivariate scalar contraction and higher-dimensional Bessel resetting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Bertoin–Biane–Yor DOI 10.1007/978-3-0348-7943-9_3 (open author copy)",
+        "Chhaibi arXiv:1406.5695v4",
+        "arXiv:2205.03363, 2204.07215, 2406.08387; different-model comparison arXiv:2205.00549",
+        "Resultary 316a5de1a0b2, 075256654d01, 53ab45fd43ae, dc05fda63195, 7cea38ad1d45 and identical b3cdd2be11df",
+        "Kolb–Wübker cited DOI (access unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set H(p)=E[(I^(q))^(−p)]. In Eq. (1.7) put s=−p to obtain H(p)=Γ(1−p)(q^{1−p};q)_∞/(q;q)_∞. The single vanishing factor at p=1 cancels the gamma pole, giving H(1)=log(1/q); at p=1/2 the q-product tends to one as q↓0, so H(1/2)→√π.",
+          "Dividing adjacent orders in the same formula gives H(p+1)/H(p)=(q^{−p}−1)/p, by the gamma and product cancellation identities. Inserting p=d/2 and q=b² gives the exact dimension ladder and P_2=(r/(2πD)) log(1/b). The finite products yield the even exponent Σ_{j=1}^{n−1}2j and the odd exponent Σ_{j=0}^{n−1}(2j+1), with the stated prefactors."
+        ],
+        "reasoning": "The claimed new formulas need only the standard Gaussian conditioning on the durations and substitution, cancellation and two elementary limits in the prior transform. No new dimension-dependent probabilistic calculation is needed. The one-dimensional and Bessel results do not themselves settle this comparison; in particular a 1D paper recommending higher-dimensional resetting study does not exclude prior coverage of the governing integral.",
+        "searches": [
+          "Bertoin–Biane–Yor Eqs. (1.3) and (1.7), proof of Theorem 1.1",
+          "Tal-Friedman–Roichman–Reuveni arXiv:2205.03363 Eqs. (6)–(8)",
+          "Biroli et al. arXiv:2406.08387, outlook"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bertoin–Biane–Yor identify I^(q) as Σq^j E_j for independent rate-one exponentials; the law of the backward effective diffusion time is I^(b²)/r.",
+          "Taking Laplace transforms shows Φ_b(u)=E exp(−u² I^(b²)). At the origin, Gaussian conditioning (or Tonelli in the radial integral) gives exactly P_d=(r/(4πD))^(d/2) E[(I^(b²))^(−d/2)]."
+        ],
+        "reasoning": "The full scalar reset, including negative a, weights variances by a^{2j}=b^{2j}; synchrony makes the same scalar time apply to every coordinate. Thus this is equality with the prior probabilistic object, not an analogy between two q-products.",
+        "searches": [
+          "Resultary local: Brownian rescaling, reset contact density, dimension ladder and q-product Mellin transform",
+          "Web: Bertoin Biane Yor Poissonian exponential functionals q series q integrals q gamma Mellin transform sum q^n exponential negative moments pdf Patie Chhaibi",
+          "Bertoin–Biane–Yor, Eqs. (1.3), (1.6)–(1.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "316a5de1a0b2 gives the exact 1D central height; 075256654d01 and 53ab45fd43ae treat 1D jets or spectral regularity; dc05fda63195 contains a 3D endpoint specialization at D=1/2, r=b.",
+          "The exact title match b3cdd2be11df is the assigned record itself. The independent exact formula that dominates it is Eq. (1.7) of the 2004 paper, not a numerical table."
+        ],
+        "reasoning": "The catalogue's dimension-specific formulas alone would not rule out the ladder, but the primary exact transform already supplies its entire sampled family in closed form.",
+        "searches": [
+          "Resultary local: exact reset-point constants, one-dimensional central-height q-products, dimension relations and Bessel endpoint laws",
+          "Bertoin–Biane–Yor Eq. (1.7), exact symbolic transform"
+        ]
+      },
+      "rationale": "The full contact law, including the claimed planar anchor, dimension shift and both parity asymptotics, is a direct specialization of a published stronger Mellin transform, not merely similar to a one- or three-dimensional resetting result. The stationary contact is the negative moment at s=−d/2 of the very same weighted-exponential variable in Bertoin–Biane–Yor (2004), Eq. (1.3) and Theorem 1.1(i), Eq. (1.7). The frozen proof's frequency integral is equivalently that same negative moment times Γ(d/2)/2. This is positive prior-coverage evidence, not a priority inference from failed access or a title match.",
+      "residual_risks": [
+        "The cited Kolb–Wübker primary text was not retrieved; it could refine special-case credit, but is not needed for demonstrated coverage.",
+        "No claim is made about who first wrote the Brownian contact law in this terminology, or about the earliest historical q-integral antecedent. The demonstrated stronger 2004 moment result suffices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact prior covering the full family through the effective-time identity",
+          "evidence": "I^(q)=Σq^j E_j; E[(I^(q))^s]=Γ(1+s)(q^{1+s};q)_∞/(q;q)_∞; the proof derives the formula from exponential factorization.",
+          "identifier_or_url": "https://monge.univ-eiffel.fr/~biane/q_poisson.pdf (doi:10.1007/978-3-0348-7943-9_3)",
+          "material_read": "p. 2 Eq. (1.3), p. 2 Theorem 1.1(i) Eqs. (1.6)–(1.7), proof p. 6; offsets 1810–3183, 3000–6962, 14800–16944",
+          "method": "Open author PDF at the current university host",
+          "title": "Poissonian Exponential Functionals, q-Series, q-Integrals, and the Moment Problem for Log-Normal Distributions",
+          "trigger": "Potential exact negative moments of the stationary Gaussian effective time"
+        },
+        {
+          "assessment": "Confirms the 2004 antecedent and its place in a larger family",
+          "evidence": "Explicit z=0 reduction to the same geometric exponential sum, credited to Bertoin–Biane–Yor, and q-Pochhammer Mellin formula for (q,z).",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.5695",
+          "material_read": "p. 2 z=0 identification, offset 5960; p. 4 Theorem 2.1, offset 11150",
+          "method": "OA author preprint PDF",
+          "title": "A note on a Poissonian functional and a q-deformed Dufresne identity",
+          "trigger": "Independently identifiable larger Poissonian Mellin family"
+        },
+        {
+          "assessment": "Matching 1D law; not the all-dimensional transform coverage used for disposition",
+          "evidence": "Sum of independent scaled Laplace variables in 1D.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.03363",
+          "material_read": "Abstract p. 1 and Eqs. (6)–(8) p. 3, offset 15800",
+          "method": "OA primary PDF",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Primary partial-reset Brownian stationary law"
+        },
+        {
+          "assessment": "The inspected passage proposes higher dimensions; it does not give the ladder",
+          "evidence": "Higher-dimensional rescaling is discussed as future work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.08387",
+          "material_read": "Outlook p. 14, offset 80400",
+          "method": "OA primary PDF",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Primary antecedent including negative rescaling"
+        },
+        {
+          "assessment": "3D special case, already acknowledged in substance",
+          "evidence": "The small-radius cubic coefficient is (4π/3)P_3 when D=1/2 and r=b, with the corresponding endpoint law on that curve.",
+          "identifier_or_url": "2026/10/18/SCOPE-endpoint-laws-for-the-stationary-radius-of-partially-reset-three--dc05fda63195",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Endpoint laws for the stationary radius of partially reset three-dimensional Brownian motion",
+          "trigger": "Exact geometric special case and endpoint coefficient"
+        },
+        {
+          "assessment": "Exact 1D contact and derivatives; not alone an all-d result",
+          "evidence": "Central height expressed by the 1D q-product, as also obtained at order −1/2 in the earlier Mellin law.",
+          "identifier_or_url": "2026/11/8/SCOPE-smooth-but-nowhere-gevrey-at-the-reset-point-the-stationary-dens--316a5de1a0b2",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Smooth but nowhere Gevrey at the reset point: the stationary density under proportional resetting",
+          "trigger": "Exact reset-point q-product antecedent"
+        },
+        {
+          "assessment": "Primary-source comparison unresolved; not the cause of the originality failure",
+          "evidence": "Frozen record acknowledges the 3D overlap; the independently inspected indexed Bessel result documents the specialization on the stated parameter curve.",
+          "identifier_or_url": "https://doi.org/10.1111/blms.70314",
+          "material_read": "No primary body retrieved on the cited DOI route",
+          "method": "OA direct and alternate route attempts returned HTTP 403",
+          "title": "Brownian Motion With Partial Resetting Conditioned to Stay Positive",
+          "trigger": "Cited primary 3D Bessel comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The contact density is a naturally motivated diagnostic, and the direct elementary derivation is readable. But the frozen contribution is an exact contact law obtained mechanically from a stronger known invariant of the identical effective-time distribution. The planar anchor, ladder and parity hierarchy are all covered, including fixed-rate prefactors after rescaling; the package supplies no additional nonmechanical conclusion about the resetting process. Re-expressing the Mellin identity or reproducing its values by quadrature does not establish an independent scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

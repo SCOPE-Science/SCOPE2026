@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:56:14.481610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the mean-zero subspace the divided differences of the derivative of x^(-p) are strictly positive, making the trace strictly convex. Off-diagonal Laplacian entries distinguish conductance vectors; blowup near disconnection and compactness give a unique minimizer without assuming orbit-constant input. Symmetry then forces constant rail and rung rates, both positive. Fourier diagonalization gives the two stated spectral blocks and differentiation gives S_p=R_{m,p}(t), with coefficients 4-mu_k nonnegative and the zero mode's coefficient positive, so the scalar root is unique. For p below 1/2, integrability and fixed-point bracketing give convergence to the unique positive integral root. At and above 1/2, S_p/m diverges, forcing t to zero, and the k=0 term implies t >= (4/S_p)^(1/(p+1))/2, hence m sqrt(t) tends to infinity. This makes the monotone Riemann-sum error O(t^(-p-1)/m) relatively negligible versus D_p t^(-p-1/2). The two-end cycle sum gives (m/pi) log m at 1/2 and C_p m^(2p) above it, yielding the claimed coefficient 2 at criticality and (D_p/C_p)^(1/(p+1/2)) beyond. The beta-integral singularity and uniform local rescaling give t_p ~ 2(1-2p) from below; at p=0 the integral root is 2/3 by direct integration. Bounded independent replay at /workspace/branches/379e4427-3307-496b-a917-5b9b9a0b47ae/inverse-laplacian-check.md reproduces the exact m=3,p=1 polynomial 8t^4+24t^3-36t-27 and the m=4,t=1 all-order root, as well as coefficients 18^(1/3) and 540^(2/5)/2 at p=1,2. Finite-sum ratios are corroboration, not proof or a finite-size bound. The uploaded checker was inspected, not executed. Limits in m are for fixed p, not a joint critical crossover.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general effective-resistance design problem already minimizes inverse trace under a linear budget, but with p=1. Periodic-lattice coherence literature is cited for Fourier methods and size scaling, not a variable-order optimized allocation."
+        ],
+        "reasoning": "A general graph class at fixed p does not cover the critical p=1/2 or the p<1/2 limiting allocation. Scaling of a prescribed network also does not supply the moving resolvent scale at its optimizer.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, DOI 10.1137/070703972",
+          "Resultary: half-order allocation transition inverse Laplacian spectral moments cyclic prism"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi, SIAM Review 2008, Eq. (2)",
+        "Resultary cyclic-prism indexed records 58e191d42f66, 5aa5b5174067 and 1c968d5ff6c5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two known power laws are evaluations above criticality; the determinant measures a sum of logs, not a positive inverse moment."
+        ],
+        "reasoning": "Those results do not imply the singularity transition of the cycle sum or justify the resolvent asymptotic evaluated at its moving root. Even a log objective viewed as a p→0 derivative does not establish the fixed-positive-order optimal design or the critical law.",
+        "searches": [
+          "Resultary records 58e191d42f66, 5aa5b5174067, 1c968d5ff6c5; comparison to the positive-real p stationarity equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Effective resistance summed over unordered pairs is the vertex count times the p=1 inverse trace. The second-order coherence problem involves the p=2 trace up to normalization. Budget share t/(2+t) is an invertible reparametrization of the rung-to-rail ratio t."
+        ],
+        "reasoning": "The first two inverse moments on this same graph are exact overlapping cases, not independent evidence for the priority of the fractional-order result. Reparametrizing the budget split does not turn fixed-order results into the continuous-order theorem.",
+        "searches": [
+          "Resultary: resistance-optimal cyclic prisms, inverse Laplacian spectral moments, second inverse moment and determinant optimization",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resistance and second-moment indexed records recover the p=1 and p=2 constants, respectively. The determinant design uses a different loss and price scaling. The same-title result is the target rather than independent priority evidence."
+        ],
+        "reasoning": "No independently inspected exact table supplied the full p-indexed solution. The exact endpoint coefficients should be credited to the overlapping records.",
+        "searches": [
+          "Resultary exact cyclic-prism resistance, second-moment and determinant design records: 58e191d42f66, 5aa5b5174067, 1c968d5ff6c5"
+        ]
+      },
+      "rationale": "The contribution is the real-order trichotomy for the unrestricted cyclic-prism allocation, including the logarithmic critical coefficient and subcritical boundary behavior. Neither the optimization method nor the known p=1,2 examples are novel. The inspected comparisons do not cover the critical-order or full allocation law.",
+      "residual_risks": [
+        "The closest indexed corpus neighbors were compared at statement level, not represented as full-proof inspections. The bounded replay did not access the linked public package; the assigned frozen source was inspected directly.",
+        "An unindexed real-order allocation law could exist. The checked first- and second-moment overlaps do not establish priority for all p."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General prior design and convexity at p=1; no real-order prism transition in the compared result",
+          "evidence": [
+            "Trace of the Laplacian pseudoinverse gives total effective resistance up to vertex count"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Full-text formulation, including Eq. (2)",
+          "method": "Public PDF and mathematical loss comparison",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General conductance design includes exactly the p=1 objective"
+        },
+        {
+          "assessment": "Exact p=1 overlap",
+          "evidence": [
+            "m^(-2/3) ratio law with coefficient 18^(1/3)"
+          ],
+          "identifier_or_url": "58e191d42f66",
+          "material_read": "Indexed mathematical statement only",
+          "method": "Configured Resultary search",
+          "title": "Mesoscopic rung allocation in resistance-optimal prism networks",
+          "trigger": "Same graph, budget and p=1"
+        },
+        {
+          "assessment": "Exact p=2 coefficient overlap",
+          "evidence": [
+            "Coefficient 540^(2/5)/2 at exponent -6/5"
+          ],
+          "identifier_or_url": "5aa5b5174067",
+          "material_read": "Indexed mathematical statement only",
+          "method": "Configured Resultary search",
+          "title": "Second inverse spectral moment cyclic-prism design",
+          "trigger": "Same graph and p=2"
+        },
+        {
+          "assessment": "Related determinant objective, not positive inverse orders",
+          "evidence": [
+            "Distinct price scaling and determinant rather than power-sum objective"
+          ],
+          "identifier_or_url": "1c968d5ff6c5",
+          "material_read": "Indexed mathematical statement only",
+          "method": "Configured Resultary search",
+          "title": "D-optimal cyclic ladders with a linear-price crossover",
+          "trigger": "Same prism family and an optimized rung share"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies precisely when optimal rungs retain positive budget share, when the share decays logarithmically, and when it follows a variable power. This gives a complete asymptotic allocation classification for a natural family of losses and a concrete benchmark for design. The significance rests on the sharp change of allocation across a continuum of orders, not on recomputing the two coherence endpoints or claiming a physical interpretation for every fractional p.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

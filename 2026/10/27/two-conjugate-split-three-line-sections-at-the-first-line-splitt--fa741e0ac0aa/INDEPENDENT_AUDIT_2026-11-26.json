@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:35:11.660681Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_lines.py (inspected, not executed)",
+        "Replay: python3 /workspace/audit_evidence/5/check_cubic.py (341 projective points, 81 cubic points over F4, 9 over F2, eight lines, six incidence edges and four Frobenius transpositions)"
+      ],
+      "rationale": "The partials force x1=0, then x4=x3=x2, then x2=x5=0, even over the algebraic closure. An independent point-pair calculation uses the unique leading-1 representatives of all 341 projective points over F4 and gets 81 points on X. Each pair determines a five-point line; a line occurs in ten pairs of cubic points exactly when all its five points lie on X. A nonzero restricted binary cubic has at most three projective zeros. The eight resulting lines equal the eight explicit equations, with graph 2K3+2K1 and four Frobenius transpositions. Exact subspace enumeration also reproduces the list from 5797 two-spaces. Intersections checked over F4 suffice geometrically since matrix rank does not change after extension. Substitution into the cubic gives the stated three distinct linear factors on each plane. Any three distinct coplanar lines form a graph triangle and any two of its sides span the plane, so no other split section is possible. The two planes meet only at [0:0:1:0:0], outside X, and descent would require a Frobenius-fixed line, of which there are none.",
+      "residual_risks": [
+        "The classification is over F4; the replay is not a classification of geometric lines over all extension fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Galkin–Shinder formula recovers the number eight. The inspected Roulleau method assumes characteristic other than two and a rational line. The local fingerprint classification works over F2 and restricts to a locus excluding equations with squarefree cubic monomials, whereas the source equation contains x1*x2*x3."
+        ],
+        "reasoning": "Neither the wider arithmetic count nor the other restricted classifications adjudicate the exact F4 line configuration.",
+        "searches": [
+          "Galkin–Shinder arXiv:1405.5154, finite-field line formula",
+          "Roulleau arXiv:1304.4076, Introduction and §2.1",
+          "Resultary 2026/10/26/SCOPE-rational-fano-line-fingerprints-of-non-frobenius-split-cubic-thr--62a143310a01"
+        ]
+      },
+      "checked_sources": [
+        "Debarre–Laface–Roulleau §4.5.4",
+        "Galkin–Shinder finite-field formula",
+        "Roulleau introduction and §2.1",
+        "Closest Resultary fingerprint finding and its scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "(81^2 - 2*(1+4^3)*81 + 4225)/(2*4^2)=8. The known absence of F2-lines then also forces four length-two Frobenius orbits and first occurrence over F4."
+        ],
+        "reasoning": "The count permits certifying completeness after verifying eight distinct proposed lines; it does not select the equations, decide which six pairs intersect, or give the two plane factorizations. Those supply the added content.",
+        "searches": [
+          "arXiv:1510.05803 §4.5.4 and arXiv:1405.5154 p. 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary example has exactly the displayed equation and no F2-lines, with listed extension-field point counts and a Fano-surface Weil polynomial. Neither the exact F4 incidence configuration nor the plane sections are specified in that example."
+        ],
+        "reasoning": "The match of the cubic is exact, not merely a similar point count. The configuration is finer than arithmetic counts or Frobenius orbit sizes on the lines.",
+        "searches": [
+          "Resultary: Fano rational-line incidences and split three-line sections of the Debarre–Laface–Roulleau §4.5.4 cubic",
+          "Debarre–Laface–Roulleau, arXiv:1510.05803 §4.5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected local fingerprint finding is for the 13 classes of its restricted F2 locus and distinguishes the Debarre–Laface–Roulleau zero-line examples from that locus. The published example lists N1=9, N2=81, N4=4225, not a table of individual F4-lines or their pairwise incidences."
+        ],
+        "reasoning": "No exact table coverage was substantiated. The two compared data sources record different invariants or are restricted to a different locus.",
+        "searches": [
+          "Resultary Fano-line fingerprints and cubic-threefold line configurations",
+          "arXiv:1510.05803, §4.5.4 explicit example and counts"
+        ]
+      },
+      "rationale": "The line-free example over F2 and the line count eight over F4 are prior or direct implications of prior work, as the source acknowledges. The supported distinction is the complete explicit configuration and its incidence and split sections over the first extension carrying lines. The strongest available comparisons do not establish that configuration.",
+      "residual_risks": [
+        "Specialized or unindexed explicit F4 incidence tables may exist; the comparison is bounded and establishes no publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the F2 example, line nonexistence and arithmetic data, not the explicit F4 configuration in this section",
+          "evidence": [
+            "Same cubic; N1=9, N2=81, N4=4225; Fano-surface Weil polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.05803",
+          "material_read": "§4.5.4, p. 19, OA text offset 72900",
+          "method": "Bounded OA PDF text",
+          "title": "Lines on cubic hypersurfaces over finite fields",
+          "trigger": "Exact cubic and original example"
+        },
+        {
+          "assessment": "Implies cardinality, not adjacency or equations",
+          "evidence": [
+            "Specialization at q=4 using the known cubic point counts gives eight."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5154",
+          "material_read": "Finite-field formula, p. 17, offset 46800",
+          "method": "Bounded OA PDF text",
+          "title": "The Fano variety of lines and rationality problem for a cubic hypersurface",
+          "trigger": "Potential direct implication for the cubic's lines"
+        },
+        {
+          "assessment": "Inspected method has incompatible hypotheses",
+          "evidence": [
+            "Characteristic other than two and existence of a rational line."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.4076",
+          "material_read": "Introduction p. 1, offset 800, and §2.1 p. 2, offset 5600",
+          "method": "Bounded OA PDF text",
+          "title": "The zeta functions of the Fano surfaces of cubic threefolds",
+          "trigger": "Fano surface counting in closely related settings"
+        },
+        {
+          "assessment": "Different locus and F2 invariant",
+          "evidence": [
+            "No squarefree monomials under the stated locus criterion, and lines counted over F2; neither condition yields the F4 diagram here."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-rational-fano-line-fingerprints-of-non-frobenius-split-cubic-thr--62a143310a01",
+          "material_read": "Finding/criterion and relation to the zero-line examples, RESULT.md offsets 2552 and 8272",
+          "method": "Local mirror text",
+          "title": "Rational Fano-line fingerprints of non-Frobenius-split cubic threefolds",
+          "trigger": "Closest exact-configuration index match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Independent eight-line calculation",
+        "Debarre–Laface–Roulleau §4.5.4"
+      ],
+      "rationale": "The field cutoff is motivated intrinsically by the known line-free example. At the first extension carrying lines, the complete incidence diagram and the two particular conjugate split plane sections capture geometry absent from a mere line count. The equations give exact witnesses that can be used to study or compare this example.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

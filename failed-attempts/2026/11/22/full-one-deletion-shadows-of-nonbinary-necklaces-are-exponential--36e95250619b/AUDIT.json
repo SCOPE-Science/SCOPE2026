@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Proved n upper bound; marker construction achieves n at q>=3. A collision between two deletions with equal cyclic outputs induces a site permutation; a fixed site would induce an impossible equality of two different deletions of a rooted proper linear word, so compatible permutations have <=floor(n/2) cycles. Counting assignments on cycles and union bounding over pairs and rotations proves the exact exceptional bound. Chromatic polynomial of C_n yields the denominator and the exponential rate sqrt(q)/(q-1)<1. Direct exhaustive C++ verification matches all ternary words through n=12, quaternary through n=7, and marker construction through n=256. Finite tests are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The binary published-finding corpus theorem has alphabet size two and yields a smaller maximum; it is not a higher-alphabet theorem.",
+        "The repeated-permutation published-finding corpus theorem is restricted to periodic words, a subfamily for which full n shadows fail when k>=2.",
+        "Burudgunte–Valiant–Wang 2025, §§1–2: random deletion traces and recovery sample complexity, not exact one-deletion support degree.",
+        "Luchinin–Puzynina–Rao 2024, main theorem: worst-case reconstruction of binary necklaces, not nonbinary one-step output distinctness."
+      ],
+      "reasoning": "Neither a stronger all-alphabet universal result nor a dominating degree/proportion classification was found in the inspected related literature. The direction and quantifiers differ: individual versus pairwise reconstruction; binary versus q>=3; constrained periodic sources versus generic proper circles.",
+      "searches": [
+        "published-finding corpus: maximal one deletion outdegree ternary necklaces qary cyclic proper exponentially typical",
+        "published-finding corpus: short-deletion necklaces of permutation powers exact orbit count",
+        "Web: \"necklace poset\" deletion \"ternary\" shadows",
+        "arxiv:2412.03289v1",
+        "arxiv:2512.02412v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2412.03289v1 (2024-12-04)",
+      "arxiv:2512.02412v1 (2025-12-02)",
+      "arxiv:2607.05324v1 (2026-07-06)",
+      "2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11 (complete RESULT.md)",
+      "2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda (complete RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The binary theorem: n-2 or n-3 maxima at n>=4, so its construction and parity obstruction do not furnish q>=3 full shadows.",
+        "For periodic permutation powers P^k, k>=2, one-deletion outputs are at most q distinct, whereas the accepted theorem requires n=qk distinct.",
+        "Gabrić–Sawada 2026: colexicographic necklace generation, no deletion-degree theorem.",
+        "Luchinin–Puzynina–Rao 2024: source uniqueness from a family of subword lengths, not collision probability among distinct one-deletion outputs of one source."
+      ],
+      "reasoning": "No known cited theorem implies the same probability bound even after restriction or complement equivalence; related special cases are not claimed as original results. The proof uses a new fixed-point-free alignment observation together with the chromatic polynomial.",
+      "searches": [
+        "published-finding corpus ID 2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11",
+        "published-finding corpus ID 2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+        "arxiv:2607.05324v1",
+        "arxiv:2412.03289v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2412.03289v1, Theorem 1.1: distinguishes binary source necklaces using their sets of shorter scattered subwords, not counting n-1 output necklace classes.",
+        "Public record Sharp one-deletion outdegree of binary necklaces, RESULT.md: its theorem is restricted to q=2 and maximum is strictly below n for n>=4.",
+        "Public record Short-deletion necklaces of permutation powers, RESULT.md: t=1 gives q outputs for P^k with k>=2, so these sources are not full n-shadow maximizers."
+      ],
+      "reasoning": "Searches included orbit-degree, circular deletion shadow and cyclic subword variants; no inspected statement was equivalent to an explicit q>=3 exponentially high conditional proportion of full n-element one-deletion shadows. A matching numerical sequence at small lengths would not alone imply the general theorem.",
+      "searches": [
+        "published-finding corpus: full one deletion descendants circle word all cyclic proper almost surely qary necklaces",
+        "published-finding corpus: cyclic deletion sphere full size n asymptotically almost all properly colored necklaces",
+        "published-finding corpus: proper necklaces n distinct one-deletion traces exponential typicality",
+        "Web: \"one-deletion\" \"necklaces\" \"circular\" ternary",
+        "Web: \"necklaces\" \"deletion\" \"shadows\" \"asymptotic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fresh exhaustive enumeration yields q=3 full-shadow counts 6,12,30,54,126,192,504,930,1914,3876 at lengths 3–12, supplied for checking only.",
+        "No retrieved exact table or sequence supplied a theorem for all q>=3 and n>=3 with exponential conditional typicality."
+      ],
+      "reasoning": "The accepted theorem is not an exact table lookup: the new conclusion is a uniform symbolic upper bound on exceptional words and an infinite asymptotic assertion. Finite computation serves exclusively as corroboration.",
+      "searches": [
+        "Web: \"6, 12, 30, 54, 126, 192, 504\" necklaces deletion",
+        "published-finding corpus: full qary necklace deletion shadow degree n asymptotically all proper words exponential rare collisions",
+        "published-finding corpus: circular proper colorings deletion necklace collision probability q≥3"
+      ]
+    },
+    "rationale": "Full-text implication comparisons distinguish binary maxima, periodic permutation-power special cases, binary cyclic reconstruction, stochastic circular trace sample complexity, and necklace generation from the quantitative all-q>=3 proper-source typicality claim. Searches over alternative terminology found no covering statement; residual possibility of an unindexed equivalent is stated.",
+    "residual_risks": [
+      "An unindexed earlier treatment of necklace deletion shadows or cyclic-deletion graph degrees may contain equivalent results.",
+      "The known specific periodic-word result is a useful boundary but does not establish typicality; no claim is made about every general q-ary necklace.",
+      "A 2026 cyclic DNA operations paper was located but its full text could not be inspected due to a browser challenge; available descriptions concern rule-based insertion/deletion operations rather than one-site rotation-class shadow maxima."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Theorem 1.1 concerns binary input necklaces and subword-based recovery, with lengths near three quarters of n.",
+          "No q>=3 proper-circle shadow-degree bound or full-shadow probability is stated in the inspected central results."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.03289v1",
+        "material_read": "Primary HTML abstract, introduction, definitions, main theorem statement, and overall proof organization in §§3–4.",
+        "method": "Read HTML full-text passages and theorem statement, not just search result snippet.",
+        "title": "Recovery of cyclic words by their subwords",
+        "trigger": "Same circular subword operation and rotation quotient; plausible stronger reconstruction theorem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Random independent bit deletions and shifts produce a distribution of variable-length traces; the main results bound sample complexity for sparse binary sources.",
+          "No exact-one-deletion q-ary distinct-necklace shadow result is asserted."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.02412v1",
+        "material_read": "Primary HTML abstract, §§1–1.2, source model, statistics and stated upper/lower-bound results.",
+        "method": "Read primary HTML explanatory sections and theorems.",
+        "title": "New Bounds for Circular Trace Reconstruction",
+        "trigger": "Recent deletion-channel work on circular words and possible stronger quantitative information."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The main contribution is constant-amortized-time generation of necklaces/Lyndon words in colex order.",
+          "The article does not state rotation-invariant deletion-neighborhood degree or conditional genericity claims in its main results."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.05324v1",
+        "material_read": "Primary HTML abstract, introduction, definitions and overview of main generating results.",
+        "method": "Read primary HTML sections describing the algorithm and stated enumerative goals.",
+        "title": "Necklaces and Lyndon words in colexicographic order",
+        "trigger": "General nonbinary necklace enumeration may potentially subsume a count of a natural subfamily."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "It establishes binary maxima n-2 at even n>=4 and n-3 at odd n>=9, apart from small exceptions.",
+          "Its limitations explicitly restrict to the binary alphabet; the new q>=3 result is disjoint in q and contains an exponential conditional count absent there."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11",
+        "material_read": "Complete public RESULT.md, including exact binary theorem, proof, limitations and references.",
+        "method": "Read primary public scientific text through the repository contents interface.",
+        "title": "Sharp one-deletion outdegree of binary necklaces",
+        "trigger": "Closest directly matching channel; needed implication comparison."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "For W=P^k with k>=2, the t=1 case yields only q output classes, fewer than n=qk.",
+          "Its results concern periodic special sources, not all proper sources, maximal n degrees, or typicality."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+        "material_read": "Complete public RESULT.md, including gap reconstruction, Burnside formula and limitations.",
+        "method": "Read primary public scientific text through repository contents interface.",
+        "title": "Short-deletion necklaces of permutation powers: exact orbit counts and the first phase-wrap collision",
+        "trigger": "Same q-ary circular deletion operation, potentially dominating our single-deletion case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36e95250-619b-4785-be96-0816d8ca4303",
+  "value": {
+    "rationale": "The n maximal output ambiguity is information-theoretically sharp, with a real alphabet-size transition: existing binary maxima are strictly smaller for n>=4, while three colors attain n for all n. Beyond an explicit marker construction, a quantified exponential full-shadow law establishes that global rotational collisions are atypical among cyclically proper nonbinary sources, giving a motivated structural population result for unrooted circular deletion-channel output supports.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:05:11.893275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kitajima's definition and Corollary 4.19 apply to precisely the proper Boolean rank-span complex and concentrate its reduced homology in degree k. A fixed simplex cannot permute vertices of different ranks, so it has trace +1. Its fixed vertices are whole-cycle unions. For a nonempty set J of cycles between the two endpoints the remaining cycles give 2^(c-|J|)-2 valid endpoint assignments, and the alternating sum over ordered nonempty increments is (-1)^|J| by the falling-factorial identity. Together with the reduced augmentation this gives the stated cycle product with the stated sign. Independently, cover by rank-selected windows W_i=[i,i+k], i=1,...,n-k-1. Each new window meets the previous union precisely in the rank-selected complex on [i,i+k-1], since any face in it already has rank at least i and the previous union has upper ranks at most i+k-1. Reduced Mayer–Vietoris and concentration of rank-selected Boolean homology show that the top module is the sum, up to rational isomorphism, of the ribbon modules of the windows (k+1 ranks) and the successive intersections (k ranks, i=2,...,n-k-1). Equivalently the signs in the equivariant reduced Euler characteristic give positive contributions for both. The standard exact-descent-set rule for these ribbons gives one hook per permitted descent set of the prescribed cardinality, since a standard tableau of hook leg r is uniquely specified by its r descents. This yields n-k-1 copies at leg k+1 and n-k-2 at leg k, and none for the trivial hook. This independently checks the endpoint case k=n-2, when only the full-rank sign module remains, and includes k=1. In the quotient, the rank span condition gives a rank complex in which the leftmost vertex link is a cone on its successor, confirming contractibility. The frozen code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 4.19 covers the same complexes among all geometric semilattices but is a nonequivariant wedge statement.",
+          "Proposition 4.1 already gives every fixed Boolean rank selection as a ribbon Specht module, broader than contiguous windows as rank selections."
+        ],
+        "reasoning": "The general statements provide the concentration and rank-selected equivariant data. Neither source passage states the evaluated trace for the rank-span union. Their combined implication substantially limits credit for merely determining the module or observing a hook calculation is possible.",
+        "searches": [
+          "Kitajima filtered order complexes, Corollary 4.19",
+          "Hersh–Sundaram stability and ribbon bases, §4 Proposition 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Kitajima arXiv:2606.15241, Definition 2.11, Proposition 2.14, Corollary 4.19 and Example 4.21",
+        "Hersh–Sundaram arXiv:2604.06479v3, Proposition 4.1",
+        "Resultary a68d321e2fa8 indexed statement and 8ff573fb2efc scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There are n-k-1 windows and n-k-2 successive intersections, giving exact hook multiplicities via the standard hook tableau rule once the equivariant sum is formed.",
+          "The direct fixed-chain calculation additionally collects all traces, for arbitrary cycle lengths, into coefficients of the difference of two products, including the reduced correction."
+        ],
+        "reasoning": "I tested the nearest implied formulation rather than assuming a moving union is outside the reach of old results. The closed trace evaluation is the main distinct contribution, not novelty of the underlying representation data of fixed rank sets. The inspected broader inputs do not give the compact trace evaluation by parameter specialization; the evaluated rank-span-two overlap is already known.",
+        "searches": [
+          "Compare Kitajima Propositions 2.14 and Corollary 4.19 with Hersh–Sundaram Proposition 4.1 on the same rank windows",
+          "Compare indexed Resultary a68d321e2fa8 for k=2 with the interior k>=3 statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shape at rank set s_1<...<s_r is the ribbon with row sizes (s_1,s_2-s_1,...,s_r-s_(r-1),n-s_r).",
+          "Equivariant reduced Euler gluing of successive windows gives a positive sum over windows and their successive intersections; reading exact descent sets in the sum gives the same two hook multiplicities."
+        ],
+        "reasoning": "The moving-window complex is not one rank selection, but its character admits an equivalent ribbon-sum formulation by combining the known decomposition of the complex with rank-selected module characters. The reviewed cycle polynomial evaluates the trace directly in the cycle lengths, rather than leaving this as a general ribbon computation.",
+        "searches": [
+          "Kitajima arXiv:2606.15241, Definition 2.11 and Proposition 2.14",
+          "Hersh–Sundaram arXiv:2604.06479v3, Proposition 4.1; ribbon modules of rank-selected Boolean lattices",
+          "Resultary rank-span Boolean characters and filtered integral persistence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rank-span-two indexed statement covers the exact k=2 characters and quotient. The all-rank integral-persistence record concerns nonequivariant barcodes. The same-day upper-truncated Boolean hit concerns a different poset and degree-zero persistence."
+        ],
+        "reasoning": "Credit k=2 as a directly overlapping evaluated subcase, and distinguish complete nonequivariant rank information from character values on nonidentity permutations. The full span-two file was unavailable, so no assertion beyond its indexed scope is inferred.",
+        "searches": [
+          "Resultary a68d321e2fa8: rank-span-two Boolean characters and quotient; 8ff573fb2efc: complete integral persistence of rank-span filtered proper Boolean lattices",
+          "Resultary same-day upper-truncated Boolean filtration comparison"
+        ]
+      },
+      "rationale": "Credit the previously known span-two character, nonequivariant persistence, Kitajima's window union and concentration, and the rank-selected ribbon representation theorem. Importantly, these last two primary papers together already give a direct route to the representation and the hook numbers via equivariant gluing. The distinct contribution supported here is the evaluated, uniform cycle-type trace formula for the whole range, with an explicit evaluation of the hook spectrum. It is not a new concentration, ribbon, or quotient theorem, and I do not credit the broader assertion that prior equivariant rank-selection theory cannot compute these filtered representations.",
+      "residual_risks": [
+        "The full earlier span-two RESULT.md was unavailable; the exact comparison is limited to its indexed statement.",
+        "The strong prior ribbon formulation and window union make the hook evaluation readily derivable once combined. An earlier explicit evaluated higher-span character is not excluded by this bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact concentration and window antecedents; example gives Betti dimensions, not evaluated equivariant traces",
+          "evidence": "Proper part of a geometric semilattice of rank r gives a wedge of k-spheres for k<=r-2, and the filtration is a union over rank windows.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15241",
+          "material_read": "PDF Definition 2.11 and Proposition 2.14, p. 8, around offset 21800; HTML Corollary 4.19 and Example 4.21 around offset 54730",
+          "method": "Open bounded full-text passages",
+          "title": "Filtered order complexes and magnitude homology of finite graded posets",
+          "trigger": "Exact filtered-complex definition, window cover and prior concentration"
+        },
+        {
+          "assessment": "Every fixed rank set's exact Boolean representation; combines with equivariant window gluing to recover the rank-span representation",
+          "evidence": "Identifies the Boolean rank-selected homology with the ribbon given by successive differences between selected ranks, including endpoint blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.06479v3",
+          "material_read": "§4 Proposition 4.1, PDF p. 22, OA offset 69500",
+          "method": "Open full-text passage",
+          "title": "Stability and ribbon bases for the rank-selected homology of geometric lattices",
+          "trigger": "Strongest plausible existing equivariant rank-selection implication"
+        },
+        {
+          "assessment": "Subcase genuinely covered on the indexed evidence; no broader inference",
+          "evidence": "Identifies the character at k=2 and a quotient result.",
+          "identifier_or_url": "Resultary:a68d321e2fa8",
+          "material_read": "Indexed statement; full mirror file unavailable",
+          "method": "Local catalogue and attempted mirror retrieval",
+          "title": "Symmetric-group characters and contractible quotients of rank-span-two Boolean complexes",
+          "trigger": "Exact evaluated character in one overlapping stage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A short cycle-type formula gives trace values at every permutation in every moving-window stage without decomposing ribbon modules or enumerating fixed chains. It determines the rational action, not just dimensions or persistence. The evaluated two-hook support makes the representation-theoretic effect of the rank-span cutoff explicit, including the unique terminal appearance of sign. The value is in these natural evaluated invariants, not the mere substitution of rank sets into the known ribbon theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

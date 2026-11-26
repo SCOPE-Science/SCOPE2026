@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python verify_rarefaction.py` using Python 3 (standard library only) in the directory containing this file and the script. The program has no network or external dependencies.
+## correctness
 
-The executed program checked all 506 nondecreasing positive integer partitions of total size at most 14; all 1,846 directed unit abundance-balancing transfers; 24,966 transfer/sample-size combinations; 150,643 exact integer upper-tail identities and inequalities; and 280 direct enumerations of binary pair-discovery times. All checks passed. It also verifies the stated example and exact expected gain strictness range. Every comparison is an exact integer equality or inequality, not floating-point sampling.
+PASS
 
-The general claim rests on the analytic coupling, counting, and majorization proofs in `RESULT.md`. Finite enumeration does not certify an infinite theorem, nor does it establish originality. The origin of the first public motivating source and the literature comparisons are documented in the references; independent audit remains unperformed.
+The pair-only word is uniformly distributed and the event of no second discovery through j counts the two monochromatic prefixes (restrict to j>=1). Pascal's identity gives the nonnegative difference in survival numerators C(a-1,j-1)-C(b,j-1). A quantile coupling of the second discovery times followed by the correct conditional words preserves both marginals. A common independent pair/rest interleaving and identical sequence of other individuals then order every prefix at once; uniform labeling within species recovers the full uniform permutations. At fixed m and j only one-to-two pair richness can change, so the event at threshold r changes only when the other-species richness is r-2, giving the displayed W kernel. The exact expectation follows by subtracting the two affected absence probabilities; its numerator is strictly positive precisely when 1<=m-1<=N-b-1. This includes the stated m=0 and full-census conventions. For integral majorization, sort both profiles, transfer from the first surplus to the first subsequent deficit (at least two apart in abundance), and resort. Prefix inequalities persist and the sum of squared abundances decreases, so a finite chain reaches the target. Conditional gluing of the adjacent whole-curve couplings is valid on these finite path spaces. The read-only checker uses exact DP/subset counts and binary words to corroborate finite cases, not to prove the path theorem.
+
+## originality
+
+PASS
+
+One-size hypergeometric richness, mean rarefaction, and majorization under iid sampling are background. The supported distinct result is finite-census ordered whole paths with exact upper-tail gains, not the classical expectation formula or a PMF single-crossing claim.
+
+## value
+
+PASS
+
+Whole-path order controls all richness discovery times in the same joint experiment. The one-transfer construction even confines the simultaneous path difference to 0 or 1, and the exact gain localizes how a one-unit balancing changes threshold probabilities. This is more informative than comparing means or separate one-size samples, while staying within uniform finite-census sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

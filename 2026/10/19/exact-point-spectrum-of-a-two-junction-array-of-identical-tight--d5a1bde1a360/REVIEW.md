@@ -1,19 +1,21 @@
-# Review of the two-junction tight-binding spectral classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every band eigenfunction is forced to vanish on all infinite exterior rays, reducing the point-spectrum problem to finite Dirichlet paths with a single junction-sum constraint; this proves the exact energy set and \(M-1\) multiplicity. For exterior-band states the explicit decaying solutions yield a two-by-two Schur complement with two parity channels. Its derivative is positive definite because the derivative of \((E-K)^{-1}\) is negative definite for \(E>2\). The band-edge limits count all the roots, including the unique exceptional threshold case, and bipartite symmetry supplies negative energies. The assembled standalone checker passed 182 assertions; its finite truncation results do not substitute for the analytical proof.
+PASS
 
-## Originality
+The graph has separate exterior rays at each junction and M finite interior paths of L-1 sites; deleting the incident edges is finite rank and leaves half-line adjacency operators, so the essential band is [-2,2]. The band recurrence has no nonzero square-summable ray solution, including double characteristic roots at +/-2. Thus the junction amplitudes vanish, and each interior amplitude is a Dirichlet sine mode. Its nonzero first-site value and its proportional last-site value reduce the two junction constraints to one copy-amplitude sum, giving exactly M-1 modes at each listed energy and none at the edges. For E>2, square summability forces decay by q per exterior step and uniquely fixes each interior branch from the two hub amplitudes. The resulting self-energy B*(E-K)^{-1}B has negative-semidefinite derivative, since the disconnected K has norm 2; both real parity scalars have derivative at least one. At E down to 2, the even value tends to 2-2M<0, the odd to 2-2M(1-1/L)<=0 with equality only at (2,2); both diverge positively at large E. The positive off-diagonal response magnitude orders the two distinct roots and makes each eigenspace one-dimensional. At the exception the bounded E=2 solution has hubs 1 and -1, middle sites zero, and constant tails of the matching signs. The integer-label bipartition gives the E=-2 solution and the negative eigenvalues. In q coordinates the parity secular equation is 1-(2M-1)q^2-s(M-1)q^L(1+q^2)=0 for 0<q<1; it follows by simplifying the sinh quotient to (q+s q^{L-1})/(1+s q^L). This places the roots on opposite sides of the single-junction value and shows local-uniform convergence in E>2 as L grows, so strict sign bracketing proves convergence. Independent direct L=2 interior elimination and an exact threshold residual check are replayable with python3 /workspace/branches/independent_checks.py 4. The supplied finite-ray eigensolver was read, not executed; it is not evidence of exact threshold or infinite-volume completeness by itself.
 
-PASS on the sources materially inspected, with explicit priority risk. He and Ganesh analyze a single identified junction, not the two-distinct-junction spectrum. Röntgen and collaborators prove general local-symmetry compact localization, and Wang and collaborators and Exner give BIC mechanisms for continuous metric graphs, so neither the existence of compact eigenstates nor the BIC mechanism alone is claimed as new. The combination of an exhaustive discrete two-junction classification, all multiplicities, exterior-band eigenpairs, and the sharp exceptional threshold was not found in the checked material. The potentially relevant Pinto--Molina--Orellana continuous-wave crossbar article was available only in abstract; its full text was inaccessible, leaving a real priority risk. General graph resolvent methods may imply pieces of the result, and absence from searches does not establish priority.
+## originality
 
-## Scientific value
+PASS
 
-PASS. The model is the canonical next geometric step after the studied single kinetic singularity: two shared lattice sites create a finite array of parallel internal paths between asymptotically free rays. It gives a complete answer to the natural spectral question of what is gained and lost by bringing two such junctions to finite distance, rather than an arbitrary numerical example. In particular, both the exact \((M-1)(L-1)\) internal bound-mode count and the exceptional disappearance of the odd exterior bound branch distinguish the physics of interference from that of a single junction. No generalization to nonuniform couplings or metric quantum graphs is asserted.
+The supported contribution is a complete discrete infinite two-junction point-spectrum classification and sharp isolated missing odd bound pair with its threshold resonance. Credit the known single-junction energy, local-symmetry compact localization, ordinary Dirichlet path eigenvalues, and the metric two-junction BIC mechanism. No inspected statement establishes this conjunction for the specified discrete adjacency operator. Full-text access to the crossbar comparator remains limited as documented.
 
-## Closest sources and limitations
+## value
 
-He--Ganesh (arXiv:2302.03065), Röntgen et al. (arXiv:1811.02950), Wang et al. (arXiv:2310.09682), Exner (arXiv:1205.0512, Sec. 7.5.1), and Pinto--Molina--Orellana (DOI:10.1103/PhysRevA.110.013501) were the principal comparisons. The first three were examined in accessible full-text sections; the fourth article could not be examined beyond abstract and bibliographic description. The proof is for the unit-weight discrete infinite graph only; further model families and experimental claims remain outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact point-spectrum census resolves what finite separation of two kinetic junctions changes: an entire compact embedded ladder, a split pair of exterior levels when both exist, and a single minimal geometry where a bound branch instead meets the continuum edge as a resonance. That is a reusable family-wide threshold result, more than an example of a BIC or a finite-matrix approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:20:01.765229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–35 and bibliography line 46",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed; its exact census uses p=1/2)",
+        "Replay: python3 -B /workspace/reproductions/recheck.py 5",
+        "doi:10.3390/info11030135"
+      ],
+      "rationale": "A concept is uniquely determined by its extent and every extent is an intersection of columns, including the empty intersection G. A proper coatom can be obtained only if some chosen supra-coatom column is that coatom; conversely all coatoms meet-generate the full power set. This includes r=1 and m=0. Each of the r disjoint coatom types has per-column probability t and 0<rt≤1, so exclusion of j types has probability (1−jt)^m. Inclusion–exclusion and ordered choices of k missed types give the probability and factorial moments (r)_k(1−kt)^m. In the critical window mt²≤(log r+O(1))/r, so for each fixed k the factorial moment tends to e^(−kc); the Poisson law is moment-determinate, and convergence of the zero mass follows by considering the distribution function at 1/2. Above threshold, the mean number missed is at most exp(log r−mt)→0. Below, the same logarithm expansion for k=1 gives a diverging mean, and (1−2t)^m≤(1−t)^(2m) makes distinct missed indicators negatively correlated or uncorrelated, so variance is at most the mean. This establishes all claimed probabilities for varying p without endpoint bounds. Independent weighted enumeration of exact extent intersections at p=1/3 and p=3/4 agreed with saturation and all factorial moments in four dimensions, including empty and single-object cases (e.g. r=3,m=4,p=1/3 gives 512/59049). Frozen reference 3 misattributes the 2020 paper to Dürrschnabel et al.; its authors are Felde, Hanika, and Stumme. This bibliographic error does not affect correctness of the formulas.",
+      "residual_risks": [
+        "The finite cases are corroboration rather than proof of either asymptotics or arbitrary densities. The result does not address typical concept counts off the saturation event."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erdős–Rényi pp. 215 and 219 cover the normalized uniform coupon completion time and Poisson missing labels in the r log r+cr window. The present nonnull types, conditioned on a type being seen on a draw, are uniform.",
+          "Felde–Hanika–Stumme examine scale frequency under a coin-toss-based generator with random sizes/density; Sakurai's Prop. 4.1 is an expected concept count, not a saturation probability."
+        ],
+        "reasoning": "The formal-context random-model sources are related but not needed to imply the probability law. The uniform-collector result applies directly after thinning, with the binomial concentration stated below.",
+        "searches": [
+          "Erdős–Rényi (1961), On a Classical Problem of Probability Theory, equal-coupon completion and empty-urn Poisson limit",
+          "doi:10.3390/info11030135, coin-toss null model",
+          "arXiv:2101.11023, expected concepts"
+        ]
+      },
+      "checked_sources": [
+        "Albano–Chornomaz 2015 CEUR primary paper",
+        "Erdős–Rényi 1961 pp. 215, 219",
+        "doi:10.3390/info11030135",
+        "arXiv:2101.11023 and arXiv:2309.04115v1",
+        "Resultary 16114e8d0cb0, 0648c1ebe2c7, c6b71ccf82fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed (r,m,p), the number L of nonnull columns is Bin(m,rt). Conditional on L, the nonnull labels are independent uniform coupons. E(L/r)=mt and Var(L/r)≤mt/r. Hence at mt=log r+c+o(1), L/r−log r→c in probability, with no lower bound on rt. Squeezing occupancy at deterministic times r(log r+c±ε) transfers the classical Poisson limit; the zero mass gives the Gumbel completion window.",
+          "For mt−log r→±∞, monotonicity in m and comparison to the fixed-c windows imply the two tails; integer rounding moves mt by at most t≤1/r."
+        ],
+        "reasoning": "Combining the known structural criterion and classical occupancy requires no new lemma about formality, dependence, or rare-event limits. Uniformity in p is a direct consequence of the thinning variance bound, even when rt→0.",
+        "searches": [
+          "CEUR-WS Vol. 1466 paper06, Prop. 1",
+          "Erdős–Rényi 1961, printed pp. 215 and 219",
+          "Frozen RESULT.md exact law and critical-window proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2015 paper proves that a Boolean order embedding of B(k) forces a contranominal scale of dimension k, with the converse in the introductory discussion. For k=r the scale uses every object and its r columns are exactly the coatoms. A context with those columns has all 2^r extents by taking their intersections."
+        ],
+        "reasoning": "All the lattice language reduces to the known contranominal criterion: with r objects, attaining 2^r extents makes the lattice precisely the power set, not merely a lattice of coincident cardinality. The scale criterion is thus not a new implication.",
+        "searches": [
+          "Albano–Chornomaz, CEUR-WS Vol. 1466 paper06, contranominal-scale Boolean embeddings",
+          "doi:10.1080/03081079.2017.1354798",
+          "Resultary: maximal Boolean concept lattice, coatom columns, contranominal scale and coupon collector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded catalogue comparison returned graph-context scale spectra (16114e8d0cb0), Boolean completion with latent Dirichlet row-size randomness (0648c1ebe2c7), and fixed-density logarithmic concept counts (c6b71ccf82fc); none is an exact tabulation of the iid incidence saturation event.",
+          "The probability sum is the exact elementary inclusion–exclusion formula for r equal coupons plus a null atom: avoidance of j specified types in one draw is 1−jt."
+        ],
+        "reasoning": "No exact fixed-(r,m,p) FCA table was relied on. Standard occupancy still supplies the identical exact formula immediately, not just selected matching examples. Catalogue non-hits alone would be insufficient for a verdict.",
+        "searches": [
+          "Resultary: Bernoulli context saturation 2^r exact probability, critical window for arbitrary p, coatom coupon collector",
+          "Resultary 16114e8d0cb0, 0648c1ebe2c7, c6b71ccf82fc",
+          "Erdős–Rényi 1961 pp. 215–220"
+        ]
+      },
+      "rationale": "Boolean saturation is the known full-size contranominal-scale criterion, and the rest is the uniform coupon collector with an independent null draw. The exact formula is direct occupancy inclusion–exclusion, and the whole varying-p critical window is a routine binomial thinning of the classical Poisson empty-urn limit. This is demonstrable implication, not a claim that the complete formula has already appeared with identical notation in formal-concept literature.",
+      "residual_risks": [
+        "The journal version 10.1080/03081079.2017.1354798 was inaccessible and may contain additional overlap; no whole-document conclusion is asserted. The decision rests on positive evidence from the 2015 equivalence and classical coupon collector, not on this or any catalogue non-hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural equivalence",
+          "evidence": "An order embedding of B(k) implies a contranominal scale of size k; conversely such subcontexts embed. At k=r, its columns have each distinct missing singleton.",
+          "identifier_or_url": "https://ceur-ws.org/Vol-1466/paper06.pdf",
+          "material_read": "Introduction and Prop. 1, printed pp. 74–75, PDF pp. 2–3 and offset about 2796",
+          "method": "OA primary conference PDF passages",
+          "title": "Why concept lattices are large: Extremal theory for the number of minimal generators and formal concepts",
+          "trigger": "Exact contranominal equivalence"
+        },
+        {
+          "assessment": "Unresolved whether journal version adds related results; access failure irrelevant to verdict",
+          "evidence": "Publisher requests returned 403 and no lawful alternate of the same journal version was recovered.",
+          "identifier_or_url": "doi:10.1080/03081079.2017.1354798",
+          "material_read": "Citation identified; no usable full-text passage from journal version",
+          "method": "Lawful publisher routes and DOI recovery; decision based instead on separately identified accessible 2015 same-authors primary result",
+          "title": "Why concept lattices are large: extremal theory for generators, concepts, and VC-dimension",
+          "trigger": "Journal version cited for extremal results"
+        },
+        {
+          "assessment": "Classical limit transferring to the target by binomial thinning",
+          "evidence": "Coupon completion distribution and Poisson count of empty urns at the equal-probability critical window.",
+          "identifier_or_url": "https://real.mtak.hu/201134/1/cut_MATKUTINT_6_1_-_2_1961_pp215_-_220.pdf",
+          "material_read": "Printed pp. 215, 219, offsets around 0 and 11120",
+          "method": "OA primary PDF passages at repository",
+          "title": "On a Classical Problem of Probability Theory",
+          "trigger": "Coupon-collector Poisson critical window"
+        },
+        {
+          "assessment": "Related scale criterion and random experiments, different model and result",
+          "evidence": "Felde, Hanika and Stumme state a contranominal criterion in the transposed convention; a coin-toss generator varies size and context-level p and reports 1714/5000 with a scale.",
+          "identifier_or_url": "doi:10.3390/info11030135",
+          "material_read": "PDF pp. 2 and 4, around offsets 6800 and 12650",
+          "method": "OA publisher PDF passages via mdpi-res.com",
+          "title": "Null Models for Formal Contexts",
+          "trigger": "Scale frequencies in random contexts; check cited attribution"
+        },
+        {
+          "assessment": "Extremal contranominal background and expectation, not this full saturation distribution",
+          "evidence": "The expected number of concepts is computed; knowing that expectation does not determine the probability of its maximal value.",
+          "identifier_or_url": "arXiv:2101.11023",
+          "material_read": "p. 1 near offset 2050 and Prop. 4.1 p. 3 near offset 9248",
+          "method": "OA primary PDF passages",
+          "title": "On Formal Concepts of Random Formal Contexts",
+          "trigger": "Exact random concept-count formulas"
+        },
+        {
+          "assessment": "Definitions, not a random saturation theorem in the checked passage",
+          "evidence": "The concept/extent Galois setting supplies standard terminology.",
+          "identifier_or_url": "arXiv:2309.04115v1",
+          "material_read": "§1 near offset 1000",
+          "method": "OA primary HTML passage",
+          "title": "Two-Sorted Modal Logic for Formal and Rough Concepts",
+          "trigger": "Formal concept representation cited by frozen record"
+        },
+        {
+          "assessment": "Deterministic graph contexts, not this random window",
+          "evidence": "Scale counts and Boolean suborders in a graph-derived context.",
+          "identifier_or_url": "2026/10/18/SCOPE-graph-domination-and-the-complete-contranominal-scale-spectrum-o--16114e8d0cb0/RESULT.md",
+          "material_read": "Finding and hypotheses",
+          "method": "Resultary and bounded local mirror read",
+          "title": "Graph domination and the complete contranominal-scale spectrum",
+          "trigger": "Same scale invariant"
+        },
+        {
+          "assessment": "Different latent Dirichlet row-size model",
+          "evidence": "Time to realize all intents, with latent non-iid structure absent from the frozen Bernoulli model.",
+          "identifier_or_url": "2026/10/18/SCOPE-two-dirichlet-precision-regimes-for-boolean-completion-of-random--0648c1ebe2c7/RESULT.md",
+          "material_read": "Finding and model",
+          "method": "Resultary and bounded local mirror read",
+          "title": "Two Dirichlet precision regimes for Boolean completion of random formal contexts",
+          "trigger": "Boolean completion window under a random context"
+        },
+        {
+          "assessment": "Different asymptotic property",
+          "evidence": "Typical logarithmic counts and small intents at fixed p, not the 2^r saturation event at varying p.",
+          "identifier_or_url": "2026/10/18/SCOPE-almost-sure-logarithmic-concept-count-law-for-rectangular-bernou--c6b71ccf82fc/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Resultary and bounded local mirror read",
+          "title": "Almost-sure logarithmic concept count law for rectangular Bernoulli contexts",
+          "trigger": "Same type of iid contexts and concept counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Albano–Chornomaz Prop. 1",
+        "Erdős–Rényi 1961 Poisson occupancy result"
+      ],
+      "rationale": "Boolean saturation is a motivated event for concept enumeration, but the exact threshold here is a routine application of two known facts. The coatom representation, null atom, and time change leave no new occupancy phenomenon, structural difficulty, or novel exact invariant after thinning. It is useful as an explanatory application, not as a separate research finding under the stated standard.",
+      "residual_risks": [
+        "This assessment does not deny the practical relevance of the saturation benchmark or address non-iid context models, where the reduction could break."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:17:07.234090Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen RESULT.md line 46 incorrectly says the matrix units and zero exhaust every local corner; a corner of rank at least two also contains maps with several arrows. The corrected RESULT.md fixes the sufficiency proof: using the explicit path-label convention, an arrow b→c with label x is transported to the corresponding source endpoints and has label gamma_b x gamma_c^(-1). This applies separately to every arrow of an arbitrary partial map and hence determines the whole output. Loops recover central label ratios; units with label 1 identify those ratios across points. The corrected text also handles the direction of conjugation: composing ordinary right-to-left, u mapped to conjugation by u^(-1) reverses multiplication, while indexing the same image by inverse representatives gives the quotient homomorphism. The fibers and all claimed formulas are unchanged. At each positive rank the common central action is free. Self-inversion forces equal supports and an underlying permutation of square one; for each z in the center an ordered pair of transposition labels has |G| solutions to the two product equations with common value z, and each fixed-point label has rho_G(z) solutions. The common value is unique at positive rank and can change when relabelling, so summation precedes division. Rank zero is a singleton. The abelian squaring fibers and the difference-coordinate description of the local rank-two group give the stated torsion separation. The supplied checker and output, not executed in this review, agree with hand checks (C4, C2² and S3 give 6, 8 and 22 self-inverse elements per rank-two support). The corrected proof establishes the all-rank result; there was no change to the checker or its test scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inverse-semigroup theorem identifies the kernel as the central congruence and includes the unlabelled symmetric inverse monoid.",
+          "Kundu–Mondal describe power types and characterize and count conjugacy classes that consist of powers in the unquotiented wreath product."
+        ],
+        "reasoning": "A central-congruence characterization does not compute the rook-specific labeled fibers. A classification or count of classes in the image of a power map does not give the cardinalities of its fibers over diagonal central elements; the latter are the needed inputs before dividing by the center.",
+        "searches": [
+          "arXiv:2605.00041v1 Remark 3.11",
+          "arXiv:2209.13805 Theorem 1.2",
+          "arXiv:2010.04954v1 Lemma 4.2, Proposition 4.3 and Theorem 5.9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_projective_rook.py and verification_output.txt",
+        "Corrected repairs/1/RESULT.md",
+        "arXiv:2605.00041v1, 2209.13805, 2010.04954v1 and 0905.3649",
+        "Hoffman, Projective and Multigraded Representations of Monomial and Multisigned Groups",
+        "Resultary c8ec411081e2, b82db1836ccf and f8537da7465d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Centerless labels recover an ordinary wreath count, but in the stated generality the powers can land at any diagonal central element, and a free orbit of qualifying lifts need not stay over that one square value.",
+          "For rank two the diagonal-label quotient retains A[2] even when rank counts only retain the common order of the abelian label groups."
+        ],
+        "reasoning": "Neither substituting centerless labels nor treating each coordinate as an independently projectivized copy recovers the common-square condition and its moment distribution. The existing wreath power image and twisted projective results studied do not supply the weighted ordinary quotient enumeration.",
+        "searches": [
+          "arXiv:2010.04954v1 Proposition 4.3 and Theorem 5.9",
+          "arXiv:0905.3649 Lemma 4.2",
+          "Resultary b82db1836ccf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The group version is the count in G wr S_r of square roots of elements of the diagonal center, divided by its order. The rook answer multiplies this by the number of supports.",
+          "Caselli's absolute involutions satisfy g times its complex conjugate equal to one in the projective group, rather than g²=1. For C4 labels the class of diag(1,i) has the first property but not the second."
+        ],
+        "reasoning": "The projective reflection group terminology provides a genuine overlapping object for cyclic labels; absolute involutions there are not an equivalent enumeration of ordinary self-inverse elements.",
+        "searches": [
+          "Resultary search for diagonal-center quotient and rook partial conjugations",
+          "Public literature lookup for projective wreath or monomial group involutions",
+          "Caselli arXiv:0905.3649, §4 Lemma 4.2",
+          "Hoffman, Projective and Multigraded Representations of Monomial and Multisigned Groups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c8ec411081e2 is the assigned record itself. The Rees/Brandt entry b82db1836ccf has a local factor G/Z(G), not the multi-coordinate diagonal quotient. The self-inverse cycle index f8537da7465d concerns partial automorphisms of finite crowns."
+        ],
+        "reasoning": "The inspected catalogue matches establish analogous quotients or cycle enumerations, not a table of the central-square-weighted rook strata. The same-day occurrence does not establish priority.",
+        "searches": [
+          "Resultary analogous exact enumeration: c8ec411081e2, b82db1836ccf and f8537da7465d"
+        ]
+      },
+      "rationale": "The supported claim is the explicit rook-wreath fiber together with the ordinary self-inverse spectrum controlled by central square-root moments. The general partial-inner map, its central-congruence mechanism, and ordinary wreath-product cycle bookkeeping are prior ingredients, not themselves claims of novelty. The repaired proof has the same quantitative scope and clarifies a genuinely different projective involution comparator.",
+      "residual_risks": [
+        "An earlier exact fixed-target wreath-root enumerator or ordinary projective-wreath involution calculation could imply the distribution. The unresolved projective-character lead and bounded passage checks do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the construction and abstract kernel, not the computed rook fibers and enumerator",
+          "evidence": "Identifies the central congruence and discusses the unlabelled symmetric inverse monoid.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.00041v1",
+          "material_read": "Remark 3.11, PDF p. 5, offset 18300",
+          "method": "OA primary full text",
+          "title": "The Inverse Monoid of Partial Inner Automorphisms of a Semigroup",
+          "trigger": "General theorem governing the exact kernel"
+        },
+        {
+          "assessment": "Prior general identification",
+          "evidence": "The center congruence equals the kernels of the conjugation maps; the inspected statement does not give the enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.13805",
+          "material_read": "Theorem 1.2, PDF p. 3, offset 8850",
+          "method": "OA primary full text",
+          "title": "Abelianness and centrality in inverse semigroups",
+          "trigger": "Possible earlier computation of conjugation kernels"
+        },
+        {
+          "assessment": "Related power-map image/class result, not fixed-target fiber sizes",
+          "evidence": "Power types, power membership, and counts of conjugacy classes of powers in the ordinary wreath product.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.04954v1",
+          "material_read": "Lemma 4.2 p. 9 offset 27000; Proposition 4.3 pp. 11–12 offset 32950; Theorem 5.9 pp. 18–19 offset 57100",
+          "method": "OA primary full text",
+          "title": "Powers in the Wreath Product of G with S_n",
+          "trigger": "General wreath-product power classification potentially yields central quotient involutions"
+        },
+        {
+          "assessment": "Absolute, not ordinary, involutions in the inspected result",
+          "evidence": "Lemma 4.2 classifies g times its complex conjugate equal to one via symmetric or antisymmetric lifts.",
+          "identifier_or_url": "https://arxiv.org/abs/0905.3649",
+          "material_read": "PDF p. 1 definition at offset 2780, §4 Lemma 4.2 and proof at offsets 36230–39158",
+          "method": "OA primary PDF",
+          "title": "Involutory reflection groups and their models",
+          "trigger": "Exact group overlap for complex cyclic monomial labels modulo common scalars"
+        },
+        {
+          "assessment": "Inspected material about projective representations, not the exact involution enumerator",
+          "evidence": "Wreath products and cyclic covers occur in the representation problem.",
+          "identifier_or_url": "Hoffman, exact title",
+          "material_read": "p. 1, offsets 555 and 1651",
+          "method": "OA passage",
+          "title": "Projective and Multigraded Representations of Monomial and Multisigned Groups",
+          "trigger": "Projective wreath terminology and possible equivalent scalar quotient"
+        },
+        {
+          "assessment": "Unresolved; not evidence of coverage or noncoverage",
+          "evidence": "No readable primary-text passage obtained.",
+          "identifier_or_url": "Literature lead with truncated title; full identifier not resolved",
+          "material_read": "Search lead only, no theorem-level passage",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "Irreducible projective characters of wreath…",
+          "trigger": "Possible character-theoretic route to an equivalent count"
+        },
+        {
+          "assessment": "Different object and quotient",
+          "evidence": "Rees-semigroup partial-inner monoid is identified with a Brandt object over G/Z(G).",
+          "identifier_or_url": "Resultary 2026/11/8 record b82db1836ccf",
+          "material_read": "RESULT.md offsets 574 and 3477",
+          "method": "Resultary local mirror",
+          "title": "The partial inner automorphism monoid of every completely zero-simple semigroup",
+          "trigger": "Closest comparable partial-inner kernel computation"
+        },
+        {
+          "assessment": "Different object and count",
+          "evidence": "Enumerates self-inverse partial automorphisms of finite crowns rather than common-central-label classes.",
+          "identifier_or_url": "Resultary 2026/11/22 record f8537da7465d",
+          "material_read": "RESULT.md comparison of the enumerated objects and cycle invariant",
+          "method": "Resultary local mirror",
+          "title": "Involution cycle indices and quarter-factorial sparsity in finite crowns",
+          "trigger": "Related self-inverse partial-map enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a natural all-support enumeration in the partial-inner monoid for arbitrary finite label groups. Ordinary rank counts forget central square-root data, whereas the self-inverse spectrum detects them through moments. The two order-four abelian groups witness a difference even when every rank cardinality agrees. Counting a diagonal center globally, rather than quotienting labels independently, is essential to the exact formula. The point is the distribution and its separating power, not the abstract central-congruence theorem alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

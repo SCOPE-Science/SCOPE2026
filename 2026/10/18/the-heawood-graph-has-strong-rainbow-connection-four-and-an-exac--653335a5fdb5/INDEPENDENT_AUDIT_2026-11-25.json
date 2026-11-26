@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:57:18.064758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–63",
+        "VERIFICATION.md lines 19–34",
+        "fano_rainbow_1.py and fano_rainbow_2.py (inspected, not executed)",
+        "fano_rainbow_1.out and fano_rainbow_2.out (recorded output only)",
+        "Independent exact reproduction: /tmp/opencode/frozen_review_reproduction.py heawood"
+      ],
+      "rationale": "Any two distinct points are on a unique line and any two lines meet at one point. Thus a pair of adjacent edges is the unique two-step geodesic between its other endpoints; strong rainbow colouring forces propriety, including with the fourth colour. A nonincident point–line pair has precisely three geodesics of length three, one per point on the target line. Consequently only the 28 nonincidences need testing once propriety holds. I independently enumerated colour permutations at each point, discarding line conflicts and normalizing at point 0. There are eight classes, the eight frozen obstruction strings all match, each failed set is a bijection of points to nonincident lines, and every nonincidence occurs twice. A second recursion generated matchings as partial injections of points into incident lines. For each geodesic and input colouring I tested admissible intersections with the matching: zero recoloured edges if the original path is rainbow, one if the two retained colours differ, never two or more. This reproduced the all-matching vector (1,21,168,644,1218,1050,336,24) and the success vector (0,0,0,0,126,84,0,0) for each of the eight classes. The specific frozen four-colour witness passed. Palette renaming multiplies the class count by 6 and preserves successes. Nonmatching recolourings cannot avoid adjacent new-colour conflicts, so the four-edge minimum is exact within the specified model and src(H)=4.",
+      "residual_risks": [
+        "The full census is for one fresh colour and one fixed proper 3-colouring at a time, not for general recolouring or arbitrary four-colourings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives an exact general IP and computational experiments; its inspected p. 16 tables do not identify Heawood by name.",
+          "The latter treats the same invariant, including src(Petersen)=4."
+        ],
+        "reasoning": "An exact algorithm does not give a graph's evaluated invariant until run on it, nor does the stated IP result give the distribution of repairs from each initial palette. A differently labeled Heawood instance among earlier experiments is possible.",
+        "searches": [
+          "arXiv:2006.02988 exact strong rainbow connection integer program",
+          "Chartrand–Johns–McKeon–Zhang 2008, definition and Petersen example"
+        ]
+      },
+      "checked_sources": [
+        "Heawood graph-data page",
+        "DOI:10.21136/MB.2008.133947",
+        "arXiv:2006.02988",
+        "2007, 2018 and 2019 cage-work citations (bibliographic or access-limited only)",
+        "Resultary 4b64a4175adc and 78dac1ccb780"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each perfect matching has an alternating-colour 14-cycle complement; that fixes the number of colourings but not their rainbow endpoint profiles.",
+          "The strong-rainbow IP has the right geodesic objective, not a per-input fresh-colour enumeration theorem."
+        ],
+        "reasoning": "Testing the 28 pairs and exhaustively classifying allowable matching recolourings are additional steps, not direct numerical substitutions into the inspected structural counts. In particular, a single optimal four-colouring would not establish the polynomial or the disappearance of successes at sizes six and seven.",
+        "searches": [
+          "Heawood graph-data page factorization and 14-cycle complement passage",
+          "arXiv:2006.02988 model and experiment tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chartrand et al. require at least one rainbow geodesic for each pair.",
+          "The nearby catalogue records count strong edge-colouring partitions into induced matchings or proper vertex-colourings, respectively.",
+          "Decisive full-text passages in the related cage papers were not accessible."
+        ],
+        "reasoning": "Proper vertex colours, induced-matchings in a strong edge-colouring, and multiple internally disjoint rainbow paths are not the requirement to find one rainbow shortest path per pair. Inaccessible sources were not declared noncovering.",
+        "searches": [
+          "Fano incidence graph / Heawood, rainbow geodesic and antiflag obstruction",
+          "DOI 10.21136/MB.2008.133947",
+          "cages DOIs 10.1016/j.dam.2018.04.020 and 10.1155/2019/4073905",
+          "Resultary 4b64a4175adc and 78dac1ccb780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graph table already records 24 perfect matchings, eight 1-factorizations and the 28 nonincident point–line pairs (antiflags).",
+          "The two nearby Resultary records 4b64a4175adc and 78dac1ccb780 are on different colouring problems."
+        ],
+        "reasoning": "Eight 1-factorizations are exactly the eight normalized proper edge-colouring classes; 48 is their labeled count, not a new result. Neither the tabulated counts nor the nearby records tabulate the obstructions or the matching repair vector.",
+        "searches": [
+          "Heawood graph data at jaanos.github.io/tables/graphs/Heawood.html",
+          "Resultary semantic queries for Heawood strong rainbow connection, Fano obstruction design and 126t^4+84t^5"
+        ]
+      },
+      "rationale": "The factorization counts and Fano incidence facts are known inputs. The supported distinct finding is the rainbow-geodesic obstruction design and its quantitative fresh-colour matching repair census, including an exact witness and minimum. The available comparisons establish the invariant and computational methods but did not yield those counts or an equivalent result. Priority of the bare src value is less well resolved than that of the joint census.",
+      "residual_risks": [
+        "Inaccessible cage papers and differently labeled instances may contain a Heawood strong-rainbow result; the evidence does not certify historical priority.",
+        "The focused catalogue and primary-source comparison is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the base combinatorial counts",
+          "evidence": "24 perfect matchings, complements 14-cycles, eight partitions into three matchings; 28 antiflags.",
+          "identifier_or_url": "https://jaanos.github.io/tables/graphs/Heawood.html",
+          "material_read": "Matching complement/edge partition and antiflag passage, around HTML offset 948",
+          "method": "Public page passage inspection",
+          "title": "Heawood graph data page",
+          "trigger": "Exact matching and factorization counts"
+        },
+        {
+          "assessment": "Definition and other graph values, not Heawood evidence in inspected material",
+          "evidence": "Requires a rainbow geodesic for each pair and determines src(Petersen)=4.",
+          "identifier_or_url": "https://doi.org/10.21136/MB.2008.133947",
+          "material_read": "Definition p. 3 (offset 3290), Petersen example p. 4 (offset 5609)",
+          "method": "OA PDF passage inspection",
+          "title": "Rainbow connection in graphs",
+          "trigger": "Same geodesic invariant"
+        },
+        {
+          "assessment": "Relevant exact computation method; no explicit match established, keyword miss not exclusion",
+          "evidence": "Experiments on instances up to 379 vertices and a general exact src model, not an evaluated fresh-colour repair spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.02988",
+          "material_read": "Model summary pp. 1–2 (offsets 699 and 5116), computational tables p. 16 (offset 54272), literal Heawood search",
+          "method": "OA PDF passage inspection and term lookup",
+          "title": "An integer program and new lower bounds for computing the strong rainbow connection numbers of graphs",
+          "trigger": "Possible already-computed Heawood example"
+        },
+        {
+          "assessment": "Unresolved scope, not evidence of noncoverage",
+          "evidence": "The frozen comparison describes rainbow three-connectivity; that exact statement was not independently confirmed in full text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.04.020",
+          "material_read": "Bibliographic identification only; no primary result passage available",
+          "method": "DOI and lawful repository retrieval attempted; repository returned 403",
+          "title": "Rainbow connectivity of Moore cages of girth 6",
+          "trigger": "Same graph in earlier cage literature"
+        },
+        {
+          "assessment": "Unresolved overlap risk",
+          "evidence": "No theorem-level comparison claimed for the inaccessible paper.",
+          "identifier_or_url": "Congressus Numerantium 184 (2007), 209–222",
+          "material_read": "Bibliographic identification; full text unavailable",
+          "method": "Identified citation and bounded lawful retrieval",
+          "title": "On the rainbow connectivity of cages",
+          "trigger": "Possible earlier cage computation"
+        },
+        {
+          "assessment": "Unresolved overlap risk",
+          "evidence": "No primary comparison passage accessible.",
+          "identifier_or_url": "https://doi.org/10.1155/2019/4073905",
+          "material_read": "Bibliographic identification only",
+          "method": "Publisher request returned 403; no lawful alternate retrieved",
+          "title": "Rainbow Connectivity Using a Rank Genetic Algorithm: Moore Cages with Girth Six",
+          "trigger": "Possible computation on the same graph"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "416 optimum partitions into seven induced matchings and their whole-class trades.",
+          "identifier_or_url": "Resultary 4b64a4175adc",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary semantic search and local mirror read",
+          "title": "A sharp two-to-three-class trade threshold for optimal strong edge-colourings",
+          "trigger": "Similar strong colouring name and Heawood census"
+        },
+        {
+          "assessment": "Different object of colouring",
+          "evidence": "Vertex 3-colourings and single-vertex recolouring; the 126 frozen colourings there have a different meaning.",
+          "identifier_or_url": "Resultary 78dac1ccb780",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary semantic search and local mirror read",
+          "title": "Fano flags and the unique mobile sector of Heawood 3-colourings",
+          "trigger": "Similar Heawood recolouring counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–32, 36–63",
+        "Independent obstruction and repair enumeration",
+        "Heawood graph-data factorization counts"
+      ],
+      "rationale": "The canonical cubic Fano incidence graph is a natural distance-three test case. Beyond the optimal value, the obstruction incidence pattern and full repair polynomial measure how a standard proper colouring can be changed to make all distances work. The loss of all successes again at six or seven recolourings is a meaningful nonmonotone effect, not implied by the existence of one successful repair.",
+      "residual_risks": [
+        "Finite invariant of this graph in a precisely restricted repair model; no extension to other cages or general repair schemes is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof specifies a stationary positive-rate three-state Markov cycle and an independent Brownian displacement process. The temporal contrast is reduced exactly to the cyclic generator's three-time diffusivity moment. Explicit spectral projectors yield the antisymmetric Vandermonde coefficient; conditional independence of nonoverlapping Gaussian increments and elementary finite-interval integration then give the stated formula. The factor controlling all positive blind widths is isolated without numerical root-finding. An independently implemented symbolic/matrix/quadrature script passed 66 checks. Finite checks supplement, not replace, the analytic proof. Degeneracies in rates, diffusivity contrasts and gaps are included and restricted accurately.
+PASS
 
-## Originality
+The asserted statistic is the difference of raw products of three squared increments, not a path-law criterion. Conditional on the independent environment, disjoint Brownian increments are independent with conditional variances equal to twice their integrated diffusivities. To check the three-time sign directly, center the diffusivity vector x and set D=diag(x), R=(P-P^T)/sqrt(3). Centering only removes terms symmetric in the two lags. On the mean-zero subspace the semigroup is exp(-ct)(cos(bt)I+sin(bt)R). The antisymmetric moment has coefficient 2 x^T R D x/3=2V/(3 sqrt(3)) multiplying exp(-c(s+t)) sin(b(s-t)); the cyclic cubic expansion fixes its sign. Reflecting all observation times in the three-window interval exchanges the two gaps and reverses the kernel. For I=(exp(lambda h)-1)/lambda the three window integrals in the complex form are exp(-lambda h)I, exp(ibh) sin(bh)/b, and conjugate(I), respectively, leaving the stated real exponential and the factor 8. The prose in Proof 4 writes the wrong middle exponent (-ibt); the displayed integrand has +2ibt and its evaluation is correct. The two-time centered semigroup calculation gives the even-in-b covariance and stationarity gives the Brownian MSD. Since c>0 the I factor cannot vanish, and for b != 0 there exist nonnegative gaps with sin(b(u-v)) != 0. Thus exactly h=n*pi/abs(b) are blind for all gaps when V != 0; coincident diffusivities and equal rates give vanishing contrast at every width. These are analytic checks; the frozen script was inspected, not executed.
 
-**PASS, with publication-priority risk.** Grebenkov (2019, arXiv:1903.04783) gives a general switching-diffusion propagator and analyzes mainly two-state time-averaged MSD; Slezak, Burnecki and Metzler (2019, arXiv:1904.08737) give broader heterogeneous-diffusion mixtures; Lucente et al. (2023, arXiv:2306.14558) examine high-order time arrows. A separately published stroboscopic-reversibility result for biased finite Markov rings directly anticipates the hidden chain's exceptional sampled widths. None of the material inspected states the present integrated three-window sixth-order identity, its exact Vandermonde directionality, or the if-and-only-if blind-width classification. Nevertheless these are consequences of known propagators plus a nontrivial spectral calculation, and a broader equivalent publication remains possible. The related Markov-ring publication was available as a scientific index summary rather than full text, so an implicit stronger implication has not been ruled out independently.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Heterogeneous transport can show perfectly Brownian MSD yet contain irreversible hidden mobility dynamics. The theorem identifies a concrete experimentally accessible order of measurement that detects the cycle direction relative to calibrated state diffusivities, proves that pairwise squared-increment covariances cannot do so, and gives a sharp infinite lattice of sampling widths where the diagnostic fails. The failure times depend only on the *rate imbalance*, not on the three mobility values; this is a structurally motivated temporal-aliasing boundary, not an arbitrary parameter slice. The result is limited to the stated statistic and model, with no claim about practical sample complexity.
+The same blind lattice is already the sampled hidden-chain resonance. Distinct content is the exact integrated squared-increment contrast and the proof that this particular continuous-window statistic has precisely that lattice of universal zeros, not the lattice as a new property of the hidden chain or higher-order time-reversal diagnostics in general.
 
-## Closest literature and limits
+## value
 
-The general generator/multi-time formalism of Grebenkov (2019) is the strongest primary antecedent; the existing published biased-ring sampling-alias theorem is the strongest exact temporal-boundary antecedent. The proof does not establish any universal minimality of sixth order among all imaginable nonlinear measurements, nor full time reversibility of integrated observations at blind widths. The few relevant inaccessible/full-text-unchecked sources are carried as residual originality risks. Source dates are the verified original public submission dates, not subsequent journal dates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact contrast gives an experimentally meaningful witness in a model whose mean-square displacement and two-time squared-increment covariance do not resolve direction. Its finite-window amplitude explains when even this higher-order observation loses direction information for all gap choices. The contribution is the joint contrast and sharp observational boundary, not a general claim that a higher-order statistic detects irreversibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

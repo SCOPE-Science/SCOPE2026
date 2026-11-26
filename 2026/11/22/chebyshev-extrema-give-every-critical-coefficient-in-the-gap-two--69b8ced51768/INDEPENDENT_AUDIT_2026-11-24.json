@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:38:45.156654Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonzero Jacobian-zero radius is R²=kc/(k+2); the extra singular point at zero for k>1 cannot be a root. Put n=k+2 and let G(θ)=exp(inθ)+(n/k)exp(−ikθ). The imaginary part satisfies k Im G=−2 sin³θ U'_k(cos θ), and the stationary-angle condition (k+1)sinθ cos((k+1)θ)=cosθ sin((k+1)θ) gives Re G=2U_k(cos θ)/k there. At the endpoints 0 and π the values are opposite, with only 0 giving a positive crossing; conjugation accounts for the lower half. The condition R^n G=1 gives exactly the displayed c_j. Rolle interlacing and oddness give (k−1)/2 positive interior heights, and the squared stationary condition gives |U_k(x)|⁻²=1−k(k+2)x²/(k+1)². It strictly separates them and bounds them by the endpoint height. The k=1 case has just the endpoint. The cited 2020 theorem applies since gcd(k,k+2)=1 and establishes the counts only between critical values. As a cross-check, G'(θ)=−2n sin((k+1)θ)exp(iθ); each positive stationary crossing is downward in imaginary part, and the positive cusp at zero crosses downward to third order. Thus as c increases and R^−n decreases, winding of G−R^−n drops by one at the first threshold and two at each later one, measuring the negative of the interior zero count. The signed total is n by the highest degree term, giving the claimed jumps. For odd k≥3 the nearest stationary point sits between the central zero and the adjacent zero at sin(π/(k+1)) in absolute value. The height identity bounds the smallest positive height by 1+O(k⁻²); the largest is k+1. Applying logarithms to the exact threshold formula and exponentiating gives both endpoint expansions and width as stated. The exact k=3 radical is correct; independent decimal evaluation in /workspace/independent_sanity.py gives 1.8946457081379976029… (the frozen display differs at its last shown digit). The supplied checker was inspected, not executed; finite diagnostics are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general counting theorem is Bohl-type. The parameter-space theorems describe root-modulus trochoid loci and repeated moduli.",
+          "The cited 2022 complex-valued-trinomial article could not be fully retrieved; tested PDF candidates on the stated open host had certificate failures."
+        ],
+        "reasoning": "Counting by inequalities and describing general root-modulus loci are related but do not state a Chebyshev critical-level resolution or endpoint expansion. No noncoverage inference is made from the unresolved 2022 paper.",
+        "searches": [
+          "Barrera–Barrera–Navarrete arXiv:2112.06703, Theorem 1.2",
+          "Barrera–Campa–Navarrete arXiv:2602.11296, Theorems 2.1 and 2.11",
+          "Brooks Dorff Hudson Pitts Whiffen Woodall Zeros of a Family of Complex-Valued Harmonic Trinomials 1079 1091 full text PDF doi mirror arxiv 2022"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1090/bproc/51",
+        "arXiv:2112.06703",
+        "arXiv:2602.11296",
+        "Resultary 69b8ced51768 (identical), ec20cd91b615, 8062c5fde0ac, 9ef5e19e5557 (catalogue only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 has floor(k/2)+1 transitions and counts on open intervals; Example 1.2 gives the first k=3 coefficient and the upper bound c₂<1.960.",
+          "For k=3 the checked formula gives the exact second value about 1.894646, not the paper’s bound."
+        ],
+        "reasoning": "The count/order and first coefficient do specialize from the stronger theorem and are credited. Determining the other locations from that theorem needs a further argument; the extreme-height identity and nearest-stationary-point estimate also give a width not implied by the count.",
+        "searches": [
+          "Brilleslyper et al. DOI 10.1090/bproc/51, Theorem 1.1, Example 1.2 and critical-circle passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brilleslyper et al. use the intersection of the image of the critical circle with the origin as the transition condition; Section 3 question 2 asks for the interior parameter values.",
+          "The indexed 9ef5e19e5557 summary refers to unit-circle collisions and a signed disk-zero staircase; full text was not accessible in the mirror."
+        ],
+        "reasoning": "The critical circle here varies with c, unlike a fixed unit circle. A general crossing equation is prior; its special gap-two polynomial derivative identity, height formula and degree asymptotics are the supported distinct claims. The unavailable crossing-jets text was not judged as definitely nonoverlapping.",
+        "searches": [
+          "Resultary: Chebyshev critical values complete critical coefficient list gap-two harmonic trinomial",
+          "harmonic trinomial exact critical parameter values Chebyshev extrema gap-two exponents zero transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "69b8ced51768 is exactly the frozen record. Same-day ec20cd91b615 concerns large-c inner/outer root scales and extreme radii.",
+          "8062c5fde0ac has the positive harmonic-cubic boundary 4(a+2b)²(b−a)−27=0; the formal a=0 limit gives the k=1 threshold, but a>0 is a hypothesis of the recorded theorem."
+        ],
+        "reasoning": "The same-day article treats a different invariant of the same family. The cubic boundary is material overlap at an edge of parameter space, not a list for general odd k; the first threshold is already given in the 2020 framework.",
+        "searches": [
+          "Resultary: harmonic trinomial critical coefficient transitions Chebyshev extrema large degree width",
+          "Resultary: odd gap-two harmonic trinomial F(z)=z^(k+2)+c conjugate(z)^k-1 critical values",
+          "Resultary: Zeros of a one-parameter family of harmonic trinomials exact coefficients Example 1.2 critical parameters"
+        ]
+      },
+      "rationale": "The transition-count theorem, the Jacobian-circle crossing approach, and the first threshold are prior. The comparison supports the gap-two Chebyshev-extrema reduction, explicit and strictly ordered full list, and sharp aggregate width as the distinct contribution; neither an open-interval zero count nor a general geometric crossing criterion alone provides those conclusions.",
+      "residual_risks": [
+        "The unavailable 2022 complex-parameter article and indexed crossing-jets record may have further related reductions. The review credits inspected prior covering results and does not infer absence from retrieval limits or establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the counting component, not the full evaluated list or width",
+          "evidence": "For gcd(n,k)=1 the open-interval counts are n, n+4j−2, n+2k; the displayed n=5, k=3 example only bounds its second coefficient.",
+          "identifier_or_url": "https://doi.org/10.1090/bproc/51",
+          "material_read": "Theorem 1.1 p. 2 offset 5683, Example 1.2 p. 3 offset 6558, critical-circle passage p. 3 offset 9041, and discussion of unknown interior locations",
+          "method": "OA PDF at https://pdfs.semanticscholar.org/e1be/17dcd3e27784b5ba170c14e1ed7de09c5681.pdf",
+          "title": "Zeros of a One-Parameter Family of Harmonic Trinomials",
+          "trigger": "Same normalized family, exact critical values may already be supplied"
+        },
+        {
+          "assessment": "Relevant general counting method; that statement is not an explicit gap-two height list",
+          "evidence": "Bohl-type count for harmonic trinomials and citation of the positive-real parameter counting theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.06703",
+          "material_read": "p. 2, introduction and Theorem 1.2 near offset 6141",
+          "method": "OA primary PDF",
+          "title": "On the Number of Roots for Harmonic Trinomials",
+          "trigger": "Broader exact counting theorem"
+        },
+        {
+          "assessment": "Inspected claims are about modulus loci and equal-modulus roots, not the all-odd-k Chebyshev list and width",
+          "evidence": "Theorem 2.1 addresses root-modulus trochoids; Theorem 2.11 addresses pairs of equal-modulus roots.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.11296",
+          "material_read": "p. 8 Theorem 2.1 offset 25748 and p. 11 Theorem 2.11 offset 33345",
+          "method": "OA primary PDF",
+          "title": "On the Parameter Spaces of Harmonic Trinomial Equations",
+          "trigger": "Broader trochoid parameter geometry and possible critical-locus formula"
+        },
+        {
+          "assessment": "Unresolved scope; no finding of noncoverage based on access failure",
+          "evidence": "No full-text claim used for the decision.",
+          "identifier_or_url": "https://weusemath.org/wp-content/uploads/2023/05/JB-BDHPWW-ZerosofaFamily.pdf",
+          "material_read": "Bibliographic evidence only; full text not retrieved",
+          "method": "OA direct and alternate routes, plus search for alternate open copy; certificate failure on the open host",
+          "title": "Zeros of a Family of Complex-Valued Harmonic Trinomials",
+          "trigger": "Highly relevant extension of the same parameter family"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Large-c scale separation and nearest/farthest radii, not singular-threshold locations.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-scale-harmonic-trinomial-zeros-and-the-parity-sharp-outer-ra--ec20cd91b615",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two-scale harmonic trinomial zeros and the parity-sharp outer radius",
+          "trigger": "Same normalized family in a separate result"
+        },
+        {
+          "assessment": "Related formal boundary, strictly positive a in the stated scope",
+          "evidence": "The curve 4(a+2b)²(b−a)−27=0 reduces at a=0 to 16b³=27; no all-degree assertion.",
+          "identifier_or_url": "2026/10/11/SCOPE-complete-zero-count-phase-diagram-for-positive-harmonic-cubics--8062c5fde0ac",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Complete zero-count phase diagram for positive harmonic cubics",
+          "trigger": "Cubic k=1 endpoint in a nearby phase diagram"
+        },
+        {
+          "assessment": "Available summary describes a different crossing locus; residual overlap not excluded",
+          "evidence": "Summary concerns unit-circle collisions and a signed disk-zero staircase.",
+          "identifier_or_url": "2026/10/26/SCOPE-universal-crossing-jets-and-signed-index-staircase-for-selmer-harmonic-trinomials--9ef5e19e5557",
+          "material_read": "Catalogue summary only; no mirrored full-text file retrieved",
+          "method": "Local search and mirror attempt",
+          "title": "Universal crossing jets and signed index staircase for Selmer harmonic trinomials",
+          "trigger": "Potentially related crossing coefficients under an alternate description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gap two is the smallest gap allowing this nontrivial coprime odd-exponent sequence. The critical parameters locate genuine changes in the number of distinct roots; explicit locations, strict order, and a sharp overall width provide information not given by the number of transitions. The Chebyshev description is usable uniformly in the degree and improves the published worked example. The result does not claim to solve arbitrary gaps, or give the distinct root count at singular coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

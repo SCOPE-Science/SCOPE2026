@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:01.840869Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root the cyclic spacings at the first labeled start and rotate it to 0: the other n-1 starts remain iid uniform, giving Dirichlet(1,...,1) spacings. Isolation is exactly two adjacent spacings greater than a. In the J times uncovered-length product, the two terms sharing an adjacent gap impose two shifts, and the n-2 terms with a distinct gap impose three; simplex volume times the shifted-coordinate mean gives the stated mixed moment. As an independent check, for a tagged arc [0,a] and an uncovered location y in [a,1], other starts must lie in [a,1-a] but not [y-a,y]. Their available measure is (y-2a)_+ + (1-a-y)_+. Integrating its (n-1)st power over y and multiplying by n gives 2b^n+(n-2)c^n directly. Below 1/3, the derivative factor Q has strictly convex log: at n=5 use the first positive term for t<=1/8 and 5(1+2t)^2>=(3-2t)^2 thereafter; for n>=6 use the two fractions with factor 4. The endpoint Q(1)=1 with positive log derivative and Q(0+)=infinity imply one interior crossing, hence one maximum of G; G(0)<0 and G(1)=0 give the single interior root there. The normalized expression above 1/3 decreases then increases through one root, with no boundary zero at 1/3. For a=lambda/n the leading cancellation follows from b^(n-1)(1-a)^n/c^n=(1-2a)^(-1)(1+2a^2/(1-3a))^n=1+2(lambda+lambda^2)/n+O(n^-2); fixed points on either side of the unique positive limit root bracket n*a_{n,-}. The upper-root equation brackets epsilon=1-2a between n/2^(n+1) and twice that value and then gives the stated equivalent since n*epsilon tends to zero. Fresh integer sign checks bracketed each of the six printed decimal roots at plus/minus half a unit in the last place; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moriarty et al. give distributional bounds for the gap count.",
+          "Huffer is a plausible source of gap-count/length moments and the cited Huillet component transform may encode relevant moments; neither full text was available in the checked routes."
+        ],
+        "reasoning": "For this exchangeable spacing law E[J|B,U]=B(B-1)/(n-1): for each cyclic pair of labeled spacings, the conditional probability both are long is B(B-1)/(n(n-1)). A joint (B,U) law or the relevant factorial mixed moments therefore determines the assigned exact covariance. The inspected gap-count results do not state or establish its full sign classification.",
+        "searches": [
+          "Moriarty–Marchesi–Metcalfe (2007) full-text introduction and results opening",
+          "Huffer SOL ONR 392 record, SDR PURL and identified PDF",
+          "Huillet DOI 10.1239/aap/1059486818"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a4255a5666ab",
+        "Resultary 4dc38dc9e77e",
+        "Moriarty–Marchesi–Metcalfe 10.1186/1471-2105-8-70",
+        "Huffer 10.1017/S0021900200041644 and SOL ONR 392 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sparse scaling limit is the gap-count coverage covariance limit times 2 exp(-lambda), so the lower constant is shared.",
+          "The earlier single-gap sign theorem never produces the second switch; the isolated-arc proof needs its own derivative comparison plus a distinct boundary-scale equation."
+        ],
+        "reasoning": "A mixed moment may already be implicit via exchangeability; the distinct two-root statement, global sign result, and upper asymptotic are the supported contribution.",
+        "searches": [
+          "Resultary a4255a5666ab lower-root limit and sign pattern",
+          "Resultary 4dc38dc9e77e Finding",
+          "Huffer DOI 10.1017/S0021900200041644 and Stanford repository identifiers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both catalogue records count single long gaps B; the assigned J counts adjacent pairs of long gaps. C=1-U negates covariance with uncovered length.",
+          "a4255a5666ab has one switch in Cov(B,C), not a return to positivity near 1/2."
+        ],
+        "reasoning": "Complementing covered length changes only the signs. Replacing a long-gap indicator by a pair changes the statistic and phase diagram; the shared lower limiting root does not identify their finite-n covariances.",
+        "searches": [
+          "Resultary semantic search for isolated circular arcs, singleton components, union coverage and covariance sign",
+          "Resultary a4255a5666ab and 4dc38dc9e77e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching entries give equations and asymptotics for the gap-count threshold, including the same e^lambda=1+lambda+lambda^2 equation, but no isolated-arc root table or second threshold."
+        ],
+        "reasoning": "A table or formula for the lower gap-count threshold does not give the finite-n lower isolated-arc threshold or an exponentially close root at 1/2.",
+        "searches": [
+          "Resultary semantic search; entries a4255a5666ab and 4dc38dc9e77e"
+        ]
+      },
+      "rationale": "Pass the adjacency-isolation two-root theorem, particularly the reentrant positive covariance and exponentially thin second threshold, not the Dirichlet spacing method or novelty of the lower-root constant. The dependency on prior gap-count moments is stronger than the related-work prose suggests: the count of isolated arcs is not determined by the gap count pathwise, but exchangeability bridges their joint moments. This does not cover the two-switch analysis in the sources inspected.",
+      "residual_risks": [
+        "The Huffer preprint/full paper was not readable through the checked routes; the factorial mixed moment, hence the exact covariance, may be covered there.",
+        "No full material comparison with Huillet's component-length transform, Holst–Hüsler or Siegel was possible through the checked OA routes. Potential implicit historical coverage is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the gap-count covariance and its unique switch, not the adjacency phase diagram",
+          "evidence": "The statistic is one indicator per long spacing; its covariance with coverage stays negative after its unique root.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-unique-covariance-sign-transition-for-gaps-and-coverage-in-ran--a4255a5666ab/RESULT.md",
+          "material_read": "Finding, proof and comparison, mirror offsets 0–8076",
+          "method": "Resultary search and mirror passage inspection",
+          "title": "A unique covariance sign transition for gaps and coverage in random circular coverage",
+          "trigger": "Closest coverage covariance and identical sparse constant"
+        },
+        {
+          "assessment": "Complementing vacancy gives the covered-length version but does not replace gap count by isolation",
+          "evidence": "One switch for the gap-count statistic and a sharper expansion at the shared lower constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-unique-variance-peak-and-gap-vacancy-sign-switch-in-random-circl--4dc38dc9e77e/RESULT.md",
+          "material_read": "Finding and associated result, mirror offset 0–4134",
+          "method": "Resultary search and mirror passage inspection",
+          "title": "Unique variance peak and gap–vacancy sign switch in random circular coverage",
+          "trigger": "Same gap/coverage setting and asymptotic root"
+        },
+        {
+          "assessment": "Gap-number distribution results, not the assigned switch theorem in these passages",
+          "evidence": "Approximate Poisson law and bounds for the gap count.",
+          "identifier_or_url": "https://doi.org/10.1186/1471-2105-8-70",
+          "material_read": "Abstract and Introduction/Results opening, PDF page 1",
+          "method": "OA full-text passage inspection",
+          "title": "Bounds on the distribution of the number of gaps when circles and lines are covered by fragments",
+          "trigger": "Same fixed-length circular coverage model"
+        },
+        {
+          "assessment": "Full text not read; no negative coverage inference",
+          "evidence": "The repository identifies the report and the PDF in its public manifest; the PDF retrieval did not yield readable text.",
+          "identifier_or_url": "https://purl.stanford.edu/bc131pf3661",
+          "material_read": "Stanford SOL ONR 392 report page and June 1987 repository metadata only",
+          "method": "DOI lookup and lawful identified Stanford preprint PDF retrieval attempt",
+          "title": "Some results concerning random arcs on the circle",
+          "trigger": "Historical gap-count/length joint moments could imply the exact mixed moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Isolation is a natural singleton-component statistic, distinguishing adjacent gaps from the number of gaps. The exact sign reentry absent for gap counts and the coexistence of a sparse 1/n threshold and an exponentially thin near-half threshold are structural information about the dependence of island formation and global coverage, not just substituted parameters or sampled zeros.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

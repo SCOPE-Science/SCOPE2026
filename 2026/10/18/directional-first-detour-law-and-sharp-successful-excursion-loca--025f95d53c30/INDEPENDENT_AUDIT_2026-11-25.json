@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:59:05.891316Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 11–51 are correct in their two separate regimes. Competing reset/jump clocks make event times Exp(r+2d) independently of marks. Repeated trials select the single-trial success law. A route of length L+2 has exactly one extra opposite pair; premature hits are precisely the K minimal routes followed by either two-hop return in the marked coordinate. The subtraction is 2K even when m_j=0; c_j≥L. Parity plus a geometric bound controls both the tail and its first moment at fixed d,m. The duration conditional on N=n is exactly Gamma(n,1) after scaling; the leading signed mixture correction has only Gamma(L+2) minus Gamma(L), whose densities cross at sqrt(L(L+1)). In high dimension the Bessel integral is the unrestricted walk series, and first-hit convolution gives the quotient of Green functions. The remainder bounds follow by factoring I0^p−1−px² (Taylor in I0−1, using 0≤I0−1≤x²e^{2x}, I0≤e^{2x}) and expanding the I2 factor separately; e^{-(1−2c)s} dominates the polynomial remainders uniformly at q=c/d, c=(α+2)^{-1}<1/2. Integration gives the q⁴ terms 12d−8 and 2d in the numerator and denominator, hence 10d−8 in the first-hit series. To justify the hop moment without differentiating big-O, use positivity: choose fixed λ>1 with λc<1/2 and bound n q^n≤C_λ(λq)^n, applying the same tail bound at λq. The resulting mixture and expectation errors are O_α(d^{-2}). At α=2, c=1/4 yields 5/8 and 5/4 as stated. No optimum is inferred. Independent replay: python3 /workspace/review-evidence/reproduce.py 5 (log /workspace/review-evidence/5.txt); 120 signed starting sites, independent interleaving/renewal counts in seven dimensions through order ten, and numerical quadrature of five TV constants. These are bounded corroboration, not uniform-tail certificates. The supplied verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The network resetting result gives leading success probability from the number and rate products of minimal paths.",
+          "Lawley's extreme first-passage formula is geodesic-dependent but treats many searchers and the fastest arrival."
+        ],
+        "reasoning": "These broad results cover the leading geometric mechanism, not the first nonminimal directions, the conditional Gamma TV coefficient, or the uniform dimension-proportional reset correction.",
+        "searches": [
+          "arXiv:2302.05409v1 Eq. 35",
+          "arXiv:2008.04496v1 abstract and p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Hartmann–Majumdar arXiv:2505.19903v1",
+        "Linn–Lawley arXiv:2302.05409v1",
+        "Lawley arXiv:2008.04496v1",
+        "Resultary indexed comparisons 1734fe611d2c, fc90c0f60b27, 22783739513f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Green-function ratio yields the unmarked success probability p(q), so its power series fixes all F_n and its exponential tilt fixes the scalar duration law. Given that information and the two Gamma densities, the TV coefficient follows by further analysis.",
+          "Grouping paths into distinct marked counts F_{L+2}^{(j)} needs information not supplied by the unmarked coefficients, and the joint r=αd statement needs dimension-uniform error control."
+        ],
+        "reasoning": "Credit the exact prior aggregate law and the geodesic observation. The directional refinement is neither supplied nor implied by a scalar coefficient in isolation; the sharp aggregate estimates are concrete consequences worked out here, not claimed as independent new stochastic identities.",
+        "searches": [
+          "arXiv:2505.19903v1 Eqs. 32–33 and §V.3",
+          "arXiv:2302.05409v1 Eq. 35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hartmann–Majumdar define the very same n_final as hops since the last reset, but report shortest-route localization numerically rather than identifying its first coordinate marks.",
+          "Linn–Lawley distinguish the successful search from the full T, to which their exponential limit applies."
+        ],
+        "reasoning": "Renaming n_final is not novel, and a total arrival time is not the final excursion. A zero-reset first-hit transform under exponential tilting is equivalent to the unmarked successful duration, but does not retain the unique coordinate carrying the extra pair.",
+        "searches": [
+          "arXiv:2505.19903v1 Eqs. 32–33 and §V.3",
+          "arXiv:2302.05409v1 Theorem 1 and Eq. 35",
+          "Resultary search for marked successful lattice-reset excursions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 5 plots n_final for the same axial distance-two example, without the marked counts or sharp coefficients.",
+          "Indexed IDs 1734fe611d2c and fc90c0f60b27 refer to a Brownian wedge and stable flights, with exit-side marks rather than lattice-coordinate detours; 22783739513f concerns a deterministic grazing map."
+        ],
+        "reasoning": "The closest exact-observable plot is prior numerical evidence. The indexed marks and clocks in the related records are for different models; the ranked search is not an exhaustive absence claim.",
+        "searches": [
+          "Resultary ranked related-finding search on lattice resetting, marked detours and final excursion Gamma laws",
+          "arXiv:2505.19903v1 Fig. 5"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit coordinate-marked first-detour law and quantitative successful-segment corrections in two limits. The reset model, observation that the last route localizes, exact unmarked transforms, and general geodesic dominance are prior. The scalar transform implicitly determines the unmarked hop and duration laws; their extraction and the uniform/error calculations are refinements, not a new renewal principle. No checked statement covers the combined marked law with the sharp corrections.",
+      "residual_risks": [
+        "An unlocated directionally weighted lattice Green-function or first-hit expansion could cover more of the marked law.",
+        "Indexed near-matches were inspected at summary level only; the broad literature lookup produced no relevant additional comparison, not proof of absence.",
+        "The unmarked distribution is already implicit in prior exact identities and should not be advertised as independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar Green function and observed shortest-route localization, not an explicit marked first detour.",
+          "evidence": [
+            "Bessel-integral Green representation and exact MFPT; n_final measured ‘since the last reset’ and tends to two in the axial example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.19903v1",
+          "material_read": "PDF p. 5 Eqs. 32–33; p. 12 §V.3 and Fig. 5",
+          "method": "Open-access PDF passage comparison",
+          "title": "Diffusion with stochastic resetting on a lattice",
+          "trigger": "Identical walk, starting point and final successful hop observable"
+        },
+        {
+          "assessment": "Covers total arrival time and leading minimal path rates.",
+          "evidence": [
+            "T includes failed searches plus the successful search; leading success probability is governed by the shortest-hop rate products."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05409v1",
+          "material_read": "PDF p. 5 Theorem 1 and preceding definition of T; p. 11 Eq. 35",
+          "method": "Open-access PDF passage comparison",
+          "title": "First-passage times under frequent stochastic resetting",
+          "trigger": "General geodesic asymptotics under resetting"
+        },
+        {
+          "assessment": "Different extreme first-arrival observable in inspected passages.",
+          "evidence": [
+            "Network geodesic parameters control extreme fastest-searcher first passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.04496v1",
+          "material_read": "Abstract p. 1, discussion p. 3",
+          "method": "Open-access PDF passage comparison",
+          "title": "Extreme first-passage times for random walks on networks",
+          "trigger": "Path-level geodesic comparison"
+        },
+        {
+          "assessment": "The identified statements concern Brownian wedges, stable flights, or deterministic maps; no inference beyond the returned statements.",
+          "evidence": [
+            "Exit sides and Gaussian/exponential clocks are distinct from the coordinate of an opposite step pair and a lattice Gamma mixture."
+          ],
+          "identifier_or_url": "1734fe611d2c; fc90c0f60b27; 22783739513f",
+          "material_read": "Indexed titles and scientific summaries only",
+          "method": "Ranked Resultary search; exact mirror files were not retrievable",
+          "title": "Resultary related records on logistic–Gaussian exit fronts, marked reset clocks, and grazing-map excursions",
+          "trigger": "Potential exact match for the new path and clock marks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-hop cutoff is fixed by lattice parity, not chosen to maximize an effect, and the high-dimensional scaling is motivated by a published measurement of exactly this successful segment. The directional split identifies the transverse source of the first localization error, and the explicit TV coefficient measures the accuracy of a usable leading Gamma approximation. These are useful refinements of the known scalar mechanism, not a claim of a general renewal theorem or of optimal resetting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

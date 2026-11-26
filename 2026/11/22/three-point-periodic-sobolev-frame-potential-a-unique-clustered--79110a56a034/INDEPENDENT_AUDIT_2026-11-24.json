@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:24:51.442260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–25 and 28–86",
+        "VERIFICATION.md lines 19–23",
+        "VERIFY.py lines 9–69 (inspected, not executed)"
+      ],
+      "rationale": "The mean-zero periodic kernel K=B2/2 has derivative jump −1 at the origin and solves −K''=δ0−1, yielding the claimed evaluation Gram matrix. For gaps a+b+c=1 the potential is 1/48+2∑K(a)^2. Any boundary point contributes at least K(0)^2=1/144 to the unordered sum, above the candidate's 1/864. At an interior stationary point three distinct gaps would be all the roots of the cubic w'(t)−m, where w=K²; their sum would be 3/2, not 1. With gaps (t,t,1−2t), the stationarity difference is (3t−1)²(6t−1)/6, leaving only the equilateral and clustered candidates, with unordered sums 1/432 and 1/864. All permutations of the clustered gaps describe the same class up to rotation/reflection. At that class, the antisymmetric vector has eigenvalue 1/9 and the symmetric block is (1/72)[[4,√2],[√2,6]], hence (5±√3)/72. Multiplying the two potentials by 144 gives 10/3 and 11/3. The rational grid in VERIFY.py is corroborative; the calculation just given exhausts real candidates.",
+      "residual_risks": [
+        "No inference to different site counts, weights, exponents, or spectral objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ambrus gives the unrestricted orthonormal minimum 3 under unit normalization for three vectors in dimension at least three, not the constrained minimum 10/3.",
+          "Bodmann–Haas treat finite-frame Gram manifolds, particularly Parseval frames.",
+          "The circular minimax-kernel theorem includes Sobolev s=1 but minimizes the largest Gram eigenvalue."
+        ],
+        "reasoning": "Neither broadening the vector domain to all unit vectors nor broadening the kernel family while changing the objective yields this sharp constrained minimizer.",
+        "searches": [
+          "arXiv:1403.7382 p. 2",
+          "arXiv:1407.1663 p. 1",
+          "Resultary universal three-site circular minimax kernels, 724766c6cbf0"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md and VERIFICATION.md",
+        "Resultary bound record and two local-mirror circular minimax Findings",
+        "arXiv:1210.5488",
+        "arXiv:1403.7382",
+        "arXiv:1407.1663",
+        "arXiv:1301.5288"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp trace-design finding minimizes λmax at gaps (t,t,1−2t), t=(9−√21)/30≠1/6; the universal result determines sites by K(d)+K(2d)=0, whereas at d=1/6 the sum is −1/72.",
+          "The mixed-frame potential work concerns pairs of frames; the RKHS connection supplies the kernel Gram construction, not a node classification."
+        ],
+        "reasoning": "The same-setting minimax results do not imply the asserted optimizer, irrespective of order of posting. The generic constructions do not supply the gap inequality or equality cases.",
+        "searches": [
+          "Resultary sharp nonuniform three-point Sobolev trace design, e4c7a6f7a5fa, Finding",
+          "Resultary universal three-site circular minimax kernels, 724766c6cbf0, Finding",
+          "arXiv:1210.5488 p. 1",
+          "arXiv:1301.5288 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound record was returned by the semantic search; it is the same finding, not a separate result.",
+          "With unordered pair energy E3=∑ B2({xi−xj})², F=1/48+E3/2. The identity B2²=B4+B2/3+1/180 gives the equivalent mixed Bernoulli energy; optimizing B2 or B4 alone is not an equivalent criterion."
+        ],
+        "reasoning": "This comparison tracks the squared-kernel objective across frame and pair-energy normalizations, and distinguishes it from the unsquared kernel or operator norm.",
+        "searches": [
+          "Resultary semantic search for the three-point periodic Sobolev frame potential",
+          "Primary literature lookup for three-point periodic Bernoulli B2-squared energy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Results inspected included the bound record and two three-site minimax records; no table with the 5/216 criterion was located.",
+          "The bounded literature lookup provided no primary exact three-point B2² table; one supplementary repository query timed out."
+        ],
+        "reasoning": "No exact enumerative coverage was verified. Timeout and lack of results are not evidence of absence.",
+        "searches": [
+          "Resultary exact/semantic periodic Sobolev three-site lookup",
+          "Primary literature lookup for exact three-point periodic Bernoulli polynomial energy tables"
+        ]
+      },
+      "rationale": "The inspected same-setting records minimize the largest Gram eigenvalue, not the sum of squared eigenvalues, and produce different nodes. General unrestricted frame-potential results do not imply the sharp value on this particular curve of evaluation vectors. No matching finite table or broader implication was found in the comparisons below; this is an evidence-bounded judgment, not a claim to historical priority.",
+      "residual_risks": [
+        "An exact equivalent could be indexed as a mixed Bernoulli energy or under a different Green-kernel normalization; bounded and partly timed-out searches cannot exclude it.",
+        "Same-day record dates do not fix order of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same domain, distinct criterion and optimal sites",
+          "evidence": "Largest Gram eigenvalue (11+√21)/150 at t=(9−√21)/30.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-nonuniform-three-point-sobolev-trace-design-on-a-circle--e4c7a6f7a5fa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local repository mirror",
+          "title": "Sharp nonuniform three-point Sobolev trace design on a circle",
+          "trigger": "Same Sobolev space and sample count"
+        },
+        {
+          "assessment": "Not the squared Gram criterion",
+          "evidence": "Largest-eigenvalue minimizing spacing is specified by K(d)+K(2d)=0.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-three-site-circular-minimax-kernels-and-fractional-sob--724766c6cbf0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local repository mirror",
+          "title": "Universal three-site circular minimax kernels and fractional Sobolev trace designs",
+          "trigger": "Broader family containing the same Green kernel"
+        },
+        {
+          "assessment": "Unrestricted vectors, not sites on a Sobolev evaluation orbit",
+          "evidence": "Orthonormal vectors minimize when the number of vectors is at most the dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.7382",
+          "material_read": "p. 2, offset 4556",
+          "method": "OA PDF passage",
+          "title": "A short proof for the characterisation of tight frames",
+          "trigger": "Classical frame-potential minimization"
+        },
+        {
+          "assessment": "Different constraint set",
+          "evidence": "Focus on finite frames and especially Parseval-frame Gram manifolds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1663",
+          "material_read": "p. 1, offset 280",
+          "method": "OA PDF passage",
+          "title": "Frame potentials and the geometry of frames",
+          "trigger": "Possible broader Gram-manifold treatment"
+        },
+        {
+          "assessment": "No circle-node classification in the inspected formulation",
+          "evidence": "Mixed potential for pairs of frame sequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.5488",
+          "material_read": "p. 1, offset 343",
+          "method": "OA PDF passage",
+          "title": "Critical Pairs of Sequences of a Mixed Frame Potential",
+          "trigger": "Named frame-potential comparator"
+        },
+        {
+          "assessment": "Generic estimation connection, a different result",
+          "evidence": "Kernel Gram setting without the three-site potential objective.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.5288",
+          "material_read": "p. 1, offset 4117",
+          "method": "OA PDF passage",
+          "title": "The connection between Bayesian estimation of a Gaussian random field and RKHS",
+          "trigger": "Named evaluation Gram/RKHS comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and normalizations",
+        "Same-space three-site largest-eigenvalue Findings"
+      ],
+      "rationale": "This is the first three-site case in which competing pair separations are constrained by the geometry of a circle. It gives a sharp and unique clustered design where uniform spacing fails for the standard Gram-squared criterion, with a factor-of-two reduction in unordered off-diagonal energy. The exact comparison is useful as a benchmark for site-constrained frame design and for distinguishing different design criteria, not as a general Sobolev sampling prescription.",
+      "residual_risks": [
+        "No improvement is established for quadrature, noise-aware inference, condition number, or largest eigenvalue."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

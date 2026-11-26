@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:15.688949Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥2 no vertex dominates alone. An independent dominating union must use exactly one endpoint of each private pair. The chosen coalition's two supports partition the base indices; the remaining blocks' nonempty supports partition the same indices a second time. If at least three residual blocks remain, none can partner another residual block, yet at most two can have supports complementary to the original two blocks. A sole residual block would have full support and no partner. Thus there are exactly four blocks with two copies of each complementary support, and their 2-by-2 coalition graph without isolates has a perfect matching. Its unions give a proper 2-coloring, and conversely splitting either side of such a coloring into two nonempty blocks gives coalitions. The 2^(c−1)(2^(n−1)−1)² unordered-coloring presentations double-count exactly the partitions for which switching the matching flips colors on a union of components: a crossing base edge would become monochromatic, while without such an edge the switch works. Each of the 2^(c−1)−1 component splits gives 2^(c−2) doubly presented partitions when c≥2; there is no correction when c=1. The K₂ singleton partition is the only n=1 case. The finite recorded checks are consistent with these arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.8 supplies the structural bipartiteness implication in the four-block case. Proposition 6 of the later paper bounds the coalition graph of a minimum-degree-one graph by K_(2,k−2), for a k-block independent partition; its case results concern extremal numbers, paths and cycles. The catalogue ordinary result proves C(G∘K₁)=4."
+        ],
+        "reasoning": "Every independent coalition partition is an ordinary coalition partition, hence the known ordinary bound already implies at most four blocks. The minimum-degree-one incidence bound alone does not count the valid independent partitions or resolve alternate perfect matchings.",
+        "searches": [
+          "Samadzadeh–Mojdeh arXiv:2306.02079, Proposition 4.8",
+          "Alikhani–Bakhshesh–Golmohammadi–Klavžar DOI 10.7151/dmgt.2543, §§2–3",
+          "Resultary ordinary leaf-corona coalition number"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_corona.py and check_corona.log",
+        "Resultary ordinary leaf-corona Finding",
+        "arXiv:2306.02079",
+        "DOI 10.7151/dmgt.2543, lawful repository copy",
+        "ResearchGate 406982240, attempted; frozen comparison read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary domination needs a hit in each private pair; independence additionally requires exactly one endpoint and forbids simultaneous selection of adjacent roots. The second matching survives precisely across a split with no crossing core edge."
+        ],
+        "reasoning": "The upper bound and the bipartiteness implication overlap structurally with known work. Neither they nor the connected-tree specialization give the component-dependent multiplicity of independent color-and-split presentations, which requires a new constraint on the partner matchings.",
+        "searches": [
+          "Ordinary leaf-corona Finding and private-pair lemma; Proposition 4.8 and the reported tree case; frozen counting proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A four-block independent partition here encodes a split of a two-part idomatic partition, also called a fall 2-coloring. The closest catalogue record on leaf-corona pair incidence instead permits dominating unions regardless of independence."
+        ],
+        "reasoning": "Unlabelled blocks are not orbits under automorphisms of the base. Counting split fall 2-colorings requires taking the image rather than counting presentations, and the ordinary problem omits the root-edge restrictions on that image.",
+        "searches": [
+          "Resultary: one-leaf corona independent coalitions, partition incidence types and disconnected correction",
+          "DOI 10.7151/dmgt.2543, idomatic partitions and independent coalition graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's exact ordinary count 2^(n−3)(4^n−5·2^n+6) is independent of base edges and even applies to nonbipartite bases. The frozen record credits the tree formula in the counting preprint for connected tree bases; direct full-text retrieval of that preprint was not available in this review."
+        ],
+        "reasoning": "The ordinary count does not specialize numerically to the independent count, which distinguishes bipartiteness and component counts. No verified prior formula for the latter's disconnected correction was found in the sources examined.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-coalition-partitions-of-leaf-coronas-and-their-incidence-types--032f995812ec, Finding",
+          "Asadzadeh–Alikhani, Counting the Number of Independent Coalition Partitions, ResearchGate 406982240"
+        ]
+      },
+      "rationale": "Credit is for the exact independent-partition enumerator on arbitrary bases, especially the disconnected presentation correction and coverage beyond trees. An ordinary-coalition upper bound, the broader four-block bipartiteness implication, and the reported connected-tree count are not credited as distinct contributions.",
+      "residual_risks": [
+        "The 2026 counting preprint's broader coverage was not independently checked because its full text was not retrieved; the bounded literature and catalogue search does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper-bound implication and related ordinary enumeration, not independent enumeration",
+          "evidence": [
+            "The theorem gives ordinary C=4, three ordinary incidence types, and a count depending only on n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-coalition-partitions-of-leaf-coronas-and-their-incidence-types--032f995812ec/RESULT.md",
+          "material_read": "Finding, assumptions and private-pair lemma, offsets 0–2504",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Coalition partitions of leaf coronas and their incidence types",
+          "trigger": "Same graph family, all bases, exact unlabelled coalition count"
+        },
+        {
+          "assessment": "Structural overlap, not the leaf-corona partition enumerator",
+          "evidence": [
+            "The four-block proof gives bipartiteness for graphs without isolated or full vertices in the stated case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.02079",
+          "material_read": "Abstract and Proposition 4.8, PDF p. 10, offset about 32300",
+          "method": "Lawful OA text",
+          "title": "Independent coalition in graphs: existence and characterization",
+          "trigger": "Same partition predicate and general four-block theorem"
+        },
+        {
+          "assessment": "Relevant incidence constraints, not the assigned exact correction in inspected results",
+          "evidence": [
+            "Proposition 6 gives a spanning subgraph of K_(2,k−2) for k≥3 at minimum degree 1; its proof uses a single pendant edge, not the component structure of a whole leaf corona."
+          ],
+          "identifier_or_url": "10.7151/dmgt.2543",
+          "material_read": "Introduction, §2 extrema and §3 Propositions 5–6, journal pp. 534–539, including offsets 10600–17872",
+          "method": "Lawful published copy in University of Ljubljana repository, recovered from DOI-associated publisher route",
+          "title": "On independent coalition in graphs and independent coalition graphs",
+          "trigger": "Same partition predicate and general coalition graph results"
+        },
+        {
+          "assessment": "Connected tree overlap reported and excluded from credit; full scope not independently established",
+          "evidence": [
+            "Frozen RESULT.md line 45 credits the connected-tree-case count to this preprint."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/406982240_Counting_the_Number_of_Independent_Coalition_Partitions",
+          "material_read": "Frozen source's prior-work comparison; no primary passage retrieved",
+          "method": "Lawful OA webpage attempts returned HTTP 403",
+          "title": "Counting the Number of Independent Coalition Partitions",
+          "trigger": "Directly relevant counting preprint and reported tree-case coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The partition polynomial distinguishes bipartite from nonbipartite arbitrary bases and reveals an exact edge-independent count within each bipartite (n,c) class, despite independence being edge-sensitive. The correction quantifies exactly when different proper colorings produce the same unlabelled partition; it is needed even for elementary disconnected examples and is not supplied by a maximum-size result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

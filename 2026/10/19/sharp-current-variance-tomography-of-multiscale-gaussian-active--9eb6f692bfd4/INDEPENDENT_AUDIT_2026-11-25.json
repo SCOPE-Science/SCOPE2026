@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:17:28.055846Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–92",
+        "Frozen VERIFICATION.md and verify.py, inspected as evidence",
+        "Independent replay: python3 /workspace/branches/frozen-review-checks.py 4"
+      ],
+      "rationale": "Independent marking and the disjoint starting half-lines make the two crossing counts independent Poisson. Each mean is rho times the expected positive part of a centered Gaussian displacement, giving R=rho*sqrt(2/pi)*sqrt(S), not R proportional to S. Stationarity gives S=2Dt+2∫_0^t(t-u)K(u)du. On the uniform grid the known zero-time value costs no sample; taking second differences erases the constant and linear terms and leaves 2N moments d_k of a positive N-atomic measure on (0,1). The weights are 2a_j(1-q_j)^2/lambda_j^2 and q_j=exp(-lambda_j*h). Hankel positive definiteness follows from Vandermonde invertibility; the annihilating-polynomial solve followed by weight recovery identifies the modes. The first sample identifies D. Positivity and reconstitution of R itself, not just R squared, establish the exact admissibility test. For fewer fixed samples an injection from the open ordered parameter domain into lower dimension would contradict invariance of domain. Over the continuous-covariance class, the right derivative at zero gives 2D and the second derivative at positive times gives 2K(t); continuity and symmetry fill in the rest. For finitely many samples, a nonzero null direction in the cosine masses preserving the sampled integrals and total mass yields inequivalent nonnegative spectra. The high-frequency perturbation leaves a fixed lag-zero gap but changes R by O(1/omega) uniformly. Independent arithmetic checked an exact two-mode moment solve and constructed positive covariance spectra with identical samples at pi and 2pi and equal total mass.",
+      "residual_risks": [
+        "The sharp count concerns exact predetermined scalar measurements with known density and known finite mode count; it is not a noisy recovery guarantee. In the nonparametric ambiguity claim, a prescribed K(0)>0 permits positive baselines scaled to that mass; K(0)=0 is the degenerate zero-covariance case."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Annihilating polynomials, finite exponential moments, Vandermonde solutions and sparse exponential recovery from integer samples are already established."
+        ],
+        "reasoning": "These are the moment inversion after the reduction. Their moment counts are not physical scalar current counts; they do not recover the discarded physical diffusion coefficient, compare admissibility in the stipulated gas, or give its sample lower bound as an observable theorem.",
+        "searches": [
+          "arXiv:1506.00450, Kunis et al., pp. 1–2",
+          "arXiv:1610.02780, Sauer, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.25916v1",
+        "arXiv:1506.00450",
+        "arXiv:1610.02780",
+        "Resultary local mirror d13d753808a7 and dfa7ae68742e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forward one-mode statistics and general inverse moments each cover a step. The analogous reset-gas derivative inverse involves a different kernel and a waiting-time law."
+        ],
+        "reasoning": "The decisive combined reduction uses R squared, the free anchor S(0)=0, and second differences to obtain exactly the required independent moments while preserving one scalar for D. None of the inspected statements gives that package, optimality for any choice of fewer times, or the continuum-vs-finite recovery and instability boundary for this current.",
+        "searches": [
+          "Jangid et al. arXiv:2608.25916v1 Eqs. (3)–(4)",
+          "Kunis et al. arXiv:1506.00450 and Sauer arXiv:1610.02780, introductory inversion results",
+          "Resultary dfa7ae68742e, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jangid et al. Eqs. (1a–c),(3)–(4) give the single-AOUP forward law; equal densities and a Gaussian displacement relate the variance of current to displacement scale. Resultary d13d753808a7 instead uses single-particle displacement statistics of a rethermalized model and a fourth cumulant."
+        ],
+        "reasoning": "The observable change R↔S is invertible for ideal observations, but neither the one-mode forward paper nor the rethermalized inverse supplies the positive N-mode plus unknown Brownian diffusion sample theorem.",
+        "searches": [
+          "arXiv:2608.25916v1, Current fluctuations in a gas of active Ornstein–Uhlenbeck particles, pp. 1–3",
+          "Local Resultary: Gaussian covariance twins, displacement-only identification, and current-variance OU tomography"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d13d753808a7 identifies collision and damping parameters through two displacement variances plus a fourth cumulant. dfa7ae68742e recovers a waiting-time law from positional covariance in a synchronously reset gas."
+        ],
+        "reasoning": "These are adjacent inverse results, not exact matches in data, target, or assumptions. For the frozen theorem an exact catalogue hit would need the indefinite family of N-mode cutoffs or the corresponding unrestricted current covariance inverse, not just a numerical reconstruction.",
+        "searches": [
+          "Local Resultary index, strongest inverse/covariance records d13d753808a7 and dfa7ae68742e; mirrored RESULT.md statements"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact, sharp sampling and identification boundary at this current observable. Gaussian crossing statistics, Green–Kubo integration, Prony inversion and invariance of domain are established inputs. The assessed result identifies precisely what the macroscopic samples determine in the multiscale model with unknown diffusion, including an admissibility test and the contrast with unrestricted covariance.",
+      "residual_risks": [
+        "Targeted rather than exhaustive priority comparison; related exponential-plus-trend inverse results may cover individual mathematical components."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "substantive one-mode forward precedent; no inverse statement in the inspected sections",
+          "evidence": "Gives stationary Gaussian initialization, the current cumulant generator, and the single-mode displacement scale.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.25916v1",
+          "material_read": "pp. 1–3, Eqs. (1a–c), (3)–(4)",
+          "method": "primary web lookup followed by OA PDF passage inspection",
+          "title": "Current fluctuations in a gas of active Ornstein–Uhlenbeck particles",
+          "trigger": "same active-gas current observable in one mode"
+        },
+        {
+          "assessment": "general inversion method, not the measured-data theorem",
+          "evidence": "Recovers support using an annihilating polynomial and weights through Vandermonde inversion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.00450",
+          "material_read": "pp. 1–2, Prony methodology and moments",
+          "method": "primary OA PDF passages",
+          "title": "A multivariate generalization of Prony's method",
+          "trigger": "general positive exponential-moment recovery"
+        },
+        {
+          "assessment": "prior inversion machinery",
+          "evidence": "Studies sparse exponential-polynomial identification from integer samples, not crossing variance plus unknown diffusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.02780",
+          "material_read": "pp. 1–2, sparse exponential reconstruction and Hankel/Vandermonde technique",
+          "method": "primary OA PDF passages",
+          "title": "Reconstructing sparse exponential polynomials from samples: Difference operators, Stirling numbers and Hermite interpolation",
+          "trigger": "general integer sampling and exponential difference methods"
+        },
+        {
+          "assessment": "finite inverse with materially different observable and model",
+          "evidence": "Uses two displacement variances and one fourth cumulant and treats an OU covariance twin of rethermalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md",
+          "material_read": "Finding, Proof §§1,4, Relationship to prior work and Limitations",
+          "method": "local Resultary search and mirror passage",
+          "title": "Gaussian covariance twins and displacement-only identification",
+          "trigger": "closest finite inverse in published catalogue"
+        },
+        {
+          "assessment": "different physical inverse",
+          "evidence": "Uses positional covariance in a shared renewal environment to identify its waiting-time law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-temporal-spectroscopy-and-renewal-law-identifiability-in-a-synch--dfa7ae68742e/RESULT.md",
+          "material_read": "Finding and Proof",
+          "method": "local Resultary search and mirror passage",
+          "title": "Temporal spectroscopy and renewal-law identifiability in a synchronously reset gas",
+          "trigger": "closest analogous continuum covariance inversion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–24 and 41–92",
+        "Jangid et al. arXiv:2608.25916v1, forward current law"
+      ],
+      "rationale": "The count answers a natural inverse question for a collective transport observable: it identifies which microscopic noise parameters can be inferred, gives a matching lower bound on exact acquisition, and distinguishes that finite-dimensional result from the failure of unrestricted finite recovery and uniform stability. The scientific value is this identification boundary, not an alternative implementation of Prony's method.",
+      "residual_risks": [
+        "No stability rate for noisy finite-mode inference is shown, particularly for nearly colliding relaxation rates or very weak modes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

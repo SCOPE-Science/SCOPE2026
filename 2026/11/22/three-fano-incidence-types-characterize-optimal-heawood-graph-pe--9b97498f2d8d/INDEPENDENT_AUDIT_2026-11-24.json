@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:10.124872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dot-product model gives a 3-regular bipartite graph and exactly 14*3*2=84 oriented move triples. The first-move decomposition is exact since a legal move consumes one peg, and a separate sequence is allowed for each target. Monotonicity follows by simulating the moves of a smaller set in a larger one, skipping a move if its landing vertex is already occupied: after that step the larger position still contains the smaller successor. Hence deletion of one peg at a time suffices to test inclusion-minimality. The full automorphism group consists of the Fano collineations GL(3,2) and their compositions with duality: the bipartition is unique and a point map preserving collinear triples preserves addition of distinct nonzero vectors. The frozen recurrence, C++ scan and forward search were inspected, not executed. An independent target-by-target boolean DP over all 16384 masks verified the complete size vector 0,0,0,0,336,1862,2989,3430,3003,2002,1001,364,91,14,1. It checked all four-set patterns and five-set failures, the 336 and 434 inclusion-minimal counts, and all four stated five-set orbits and representatives. Among four-sets the three winning patterns occur 168,84,84 times; for an unordered line pair the point pool has a single common incident point, two incident only to each respective line and two incident to neither, giving 8,4,4 choices per line pair. The failures at sizes six and seven are exactly the independent sets, so the optimum for some distribution is 4 and the threshold for every distribution is 8. Replay: `python3 /workspace/branches/2eb17ad4-ac1c-4d66-b74a-9ce7fe46fa42/heawood_check.py`; `run.txt` there also records target-specific jump sequences for one optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 6.1 gives optimal pegging number at most four for vertex–edge diameter two. Heawood is bipartite of diameter three; distances from a vertex to adjacent endpoints differ by one, and the vertex–edge diameter is two."
+        ],
+        "reasoning": "This dominates the existence half of the four-peg threshold, but it asserts no optimal Heawood incidence-type iff, no enumeration of all universal or inclusion-minimal states, and no exact all-start threshold for this graph.",
+        "searches": [
+          "arXiv:0804.1095 §6 Proposition 6.1",
+          "Resultary same-object and same-rule search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9b97498f2d8d (identical record) and 99c7c303db16",
+        "arXiv:0804.1095 pp. 1–2 and Prop. 6.1",
+        "arXiv:1410.3796 p. 1",
+        "doi:10.1155/2013/605279 bibliographic only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general bound supplies a four-peg witness but not its necessity or the reach count for any given incidence type of four-set.",
+          "Nearby terminal/reversible solitaire and multipebble results start from different state spaces or legal transitions."
+        ],
+        "reasoning": "The known move rule implies the well-founded state recurrence as a method, but the 336 four-sets, the independent-or-quadrangle failure criterion for five, and the four irredundant five-set orbits require determining nontrivial reachability in that graph. They are not a parameter substitution into the broader bound.",
+        "searches": [
+          "arXiv:0804.1095 move definition and §6 Proposition 6.1",
+          "arXiv:1410.3796 p. 1",
+          "Resultary 99c7c303db16 opening statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit ending 9b97498f2d8d is the same record.",
+          "The move and some-versus-every quantifier of Graph pegging numbers match. Engbers–Stocker use a terminal-one-peg game from all but one vertex filled and add reverse moves.",
+          "The reviewed incidence criteria include the point–line dual, not a different graph rule."
+        ],
+        "reasoning": "Checking whether each vertex occurs in a reached state, from the same small start but in separate sequences, is not equivalent to one vacancy followed by a terminal single peg. Swapping point and line labels or using a different name for optimal pegging would not distinguish an exact census; the inspected nearby results use different rules or quantifiers.",
+        "searches": [
+          "Resultary semantic search for Heawood/Fano graph pegging, universal starting sets, optimal pegging and peg solitaire",
+          "arXiv:0804.1095 pp. 1–2",
+          "arXiv:1410.3796 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-record hit does not supply independent coverage. The distinct Resultary hit 99c7c303db16 states a multipebble graph-pebbling transfer threshold, not a subset pegging table.",
+          "The bounded targeted search surfaced general Heawood and Fano background, not a corroborated independent peg-state table."
+        ],
+        "reasoning": "A fixed Heawood reachability database under the same nonreversible rule could cover this work, but an adjacency/automorphism database specifies only the input, and pebbling consumes two pebbles at one vertex. Neither encodes this universe of labelled reach sets. A search miss is not evidence of historical absence.",
+        "searches": [
+          "Resultary labelled Fano/Heawood universal and minimal starts; targeted primary literature query for Heawood pegging census",
+          "Resultary 99c7c303db16 comparison"
+        ]
+      },
+      "rationale": "The labelled census, Fano incidence iff for optimal starts and minimal-orbit classification are distinct in the checked evidence. The guarantee that some four-set reaches everything is already covered by the original pegging paper's vertex-edge diameter bound and is not credited as new in isolation.",
+      "residual_risks": [
+        "Unindexed Heawood-specific peg computations or a table under an alternate name may exist.",
+        "Beeler–Gray full text was not available in bounded lawful retrieval; its unavailability was not used for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material existence overlap; not the labelled classification",
+          "evidence": "Optimal and uniform pegging numbers are different; vertex–edge diameter two implies an optimal number at most four.",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.1095",
+          "material_read": "Abstract p. 1 offsets 2006–2538, move definition p. 2 near 3882, and §6 Prop. 6.1 p. 14 near 43150",
+          "method": "OA PDF passages",
+          "title": "Graph pegging numbers",
+          "trigger": "Foundational exact same moves and potentially dominating optimal-number bound"
+        },
+        {
+          "assessment": "Different terminal goal, initial conditions and reversible rule",
+          "evidence": "All but one vertex initially occupied, one peg terminal, and unjumps permitted in the reversible version.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.3796",
+          "material_read": "p. 1, extracted offsets 850–3289",
+          "method": "OA PDF passage",
+          "title": "Reversible peg solitaire on graphs",
+          "trigger": "Potential alias for Heawood graph peg analysis"
+        },
+        {
+          "assessment": "Unresolved graph-specific access; no negative coverage inference",
+          "evidence": "No decisive full-text passage available; the title/reference concerns freely solvable peg solitaire.",
+          "identifier_or_url": "doi:10.1155/2013/605279",
+          "material_read": "Bibliographic identification only; no full text retrieved",
+          "method": "Bounded DOI and lawful Hindawi/Wiley OA attempts",
+          "title": "Freely Solvable Graphs in Peg Solitaire",
+          "trigger": "Nearby solitaire literature; possible graph-specific example"
+        },
+        {
+          "assessment": "Distinct move rule and state space",
+          "evidence": "Multipebble distributions, two pebbles consumed at one site, and transfer components.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-two-pebble-slack-threshold-for-solvable-pebbling-transfe--99c7c303db16",
+          "material_read": "Opening statement",
+          "method": "Local mirror RESULT.md",
+          "title": "A sharp two-pebble slack threshold for solvable pebbling transfers",
+          "trigger": "Closest exact Resultary state/target threshold in adjacent terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Heawood is the natural small cubic incidence graph of the Fano plane. The result does more than find an optimum already bounded by a general theorem: the three local incidence patterns classify every optimum, and the four irredundant five-set orbits show that not all minimal solutions are supersets of an optimum. The failure geometry and separation between the some-start and every-start thresholds give a reusable exact benchmark for nonreversible pegging, without implying a result for larger planes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

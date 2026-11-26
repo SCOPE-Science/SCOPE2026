@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:48:55.095899Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "repairs/1/RESULT.md, lines 3–53",
+        "Frozen RESULT.md, lines 58–117",
+        "Frozen VERIFICATION.md and verify.py; inspected, not executed"
+      ],
+      "rationale": "Re-audited the repaired statement. Factoring the cyclic resolvent and shifting its diagonal give the positivity criterion t*≤θ+(1−θ)P. The repaired telescoping identity for (1−P)/(1−t*) has a strictly increasing positive product in each summand and a nondecreasing ratio (1+srmax)/(1+sr_j). Its limits are 1 and rmax·Σ_j(1/r_j); hence the reciprocal gives the strictly decreasing limiting return diagonal used for the closed cutoff. For same-sum majorized rates, strict concavity of log(sx/(1+sx)) lowers P for nonpermutations while the maximum rate cannot decrease. At the finite positive crossing for the more balanced vector, the less balanced vector violates admissibility strictly. Permutations and an infinite horizon of the more balanced vector give the stated weak cases. In the new same-maximum example, the common fastest-rate product factor cancels: 3(1+2s)²<4(1+3s)(1+s) at every s>0; both horizons at θ=1/2 are finite because π_min≤1/3. Under a fixed budget, uniformity uniquely minimizes rmax for θ=0, wins strictly in the finite regime, and is the only vector with π_min=1/n at the transition. Above it continuity supplies infinitely many nonuniform optima; at θ=1 every horizon is infinite. The monotone change of variables ensures the correct unique interior uniform root, not the endpoint t=1.",
+      "residual_risks": [
+        "The original exact-rational checker has finite coverage only; no formal verification is claimed. The repair changes RESULT.md only and uses the existing reproducibility support unchanged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e98f7c7419d6 treats every finite irreducible chain and implies the original interval and stationary-mass frontier",
+          "d475df91cd2a includes the Crank–Nicolson resolvent-diagonal test and proves its decreasing-diagonal threshold under reversibility",
+          "arXiv:2105.07403v1 §2 has a signed centered-advection operator, not the strictly positive one-way jump structure",
+          "Horváth paper access was limited to landing-page/abstract material"
+        ],
+        "reasoning": "Neither the broader one-generator horizon theorem nor the inspected signed-advection results establish how the cutoff responds to a mean-preserving spread of directed-cycle rates. The Horváth access limitation is not a whole-document exclusion.",
+        "searches": [
+          "Resultary mirror e98f7c7419d6",
+          "Resultary mirror d475df91cd2a",
+          "arXiv:2105.07403v1",
+          "Horváth DOIs 10.1016/S0168-9274(98)00050-6 and 10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "eb886aea6d4c",
+        "e98f7c7419d6",
+        "d475df91cd2a",
+        "d34a4ad012e9",
+        "6b800a293f32",
+        "36ef126120ad",
+        "arXiv:2105.07403v1",
+        "DOI:10.13001/1081-3810.1086",
+        "DOI:10.1016/S0168-9274(98)00050-6",
+        "DOI:10.1016/j.apnum.2004.08.026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original product criterion follows by rearrangement of eb886aea6d4c",
+          "The onset of an infinite uniform horizon follows from π_min=1/n",
+          "The earlier inspected horizon statements contain no comparison for fixed budgets, in particular when rmax is held fixed"
+        ],
+        "reasoning": "A direct specialization yields the stationary boundary, not strict majorization over the whole positive simplex. The remaining comparison requires showing that both the maximal coordinate and the ordered product move toward a stricter positivity inequality; strictness at the crossing depends on the latter even with equal maxima.",
+        "searches": [
+          "eb886aea6d4c, Finding and Proof",
+          "e98f7c7419d6, Finding and Proof",
+          "36ef126120ad, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "eb886aea6d4c gives the exact fastest resolvent diagonal (1−t*)/(1−P) and threshold; requiring it to be ≥1−θ yields the same criterion",
+          "36ef126120ad gives a strict rate-majorization law for anisotropic Boolean cubes at Crank–Nicolson, with greater anisotropy enlarging rather than shrinking the horizon"
+        ],
+        "reasoning": "The horizon formula is directly equivalent but moved out of the Finding. The cube comparison is not a renamed cycle comparison: the graph is reversible, the theta regime differs and the ordering is reversed. The repaired claim is conditional strict Schur monotonicity of the cycle horizon, not a new one-vector formula.",
+        "searches": [
+          "Resultary mirror eb886aea6d4c",
+          "Resultary mirror 36ef126120ad",
+          "majorization positivity theta-method cyclic Markov generator unequal exit rates fixed sum Schur convex Crank Nicolson positivity step size"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two exact earlier-labeled records cover horizon criteria; d34a4ad012e9 and 6b800a293f32 additionally cover parts of the Crank–Nicolson special case",
+          "The inspected catalogue majorization theorem 36ef126120ad is for a different graph with the opposite effect"
+        ],
+        "reasoning": "Exact cutoff entries for individual profiles or equal rates do not classify the full fixed-sum ordering and its equality conditions. The general interval and exact-cycle entries exactly cover the withdrawn part; no exact catalogue match for the narrowed rate-ordering claim was established.",
+        "searches": [
+          "Resultary exact records eb886aea6d4c, e98f7c7419d6, d34a4ad012e9, 6b800a293f32 and 36ef126120ad"
+        ]
+      },
+      "rationale": "Pass applies only to the repaired strict fixed-sum majorization comparison and its design consequences. The strongest same-object comparator directly covers the cutoff formula, and the broader Markov result covers the interval and stationary-mass transition; these are credited background, not new claims. None of the inspected statements compares all same-sum majorized heterogeneous directed-cycle rate vectors. The strict comparison uses the separate observation that the product factor is strictly Schur-concave while the maximum-rate factor moves in the opposite direction in the inequality; even equal-max vectors can be ordered. The uniform-budget uniqueness classification is its corollary in the finite regime and uses known stationary masses in the infinite regimes. It is not credited as a separate discovery of the stationary threshold.",
+      "residual_risks": [
+        "The Horváth papers could not be inspected in full after lawful retrieval attempts. An equivalent earlier result on rate balancing under other Markov or discretization terminology is not excluded.",
+        "Indexed dates do not establish public release order. The direct overlap of the original criterion and the narrower distinct comparison are based on statements, not dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the original cycle horizon, not the inspected rate comparison",
+          "evidence": "Fastest return diagonal (1−t*)/(1−P) and threshold θ≥1−π_min; no fixed-sum ordering in the inspected statement.",
+          "identifier_or_url": "eb886aea6d4c",
+          "material_read": "Mirrored RESULT.md, Finding and Proof, offsets 0–6224",
+          "method": "Local Resultary search and mirror text",
+          "title": "A stationary-mass threshold for positivity of the theta method on directed cycles",
+          "trigger": "Exact heterogeneous one-way cycle criterion"
+        },
+        {
+          "assessment": "Broader coverage of original interval and transition",
+          "evidence": "Every finite irreducible chain has a unique finite cutoff below 1−min_i π_i and positivity for all finite steps at or above it.",
+          "identifier_or_url": "e98f7c7419d6",
+          "material_read": "Mirrored RESULT.md, Finding and Proof, offsets 0–5637",
+          "method": "Local Resultary search and mirror text",
+          "title": "Stationary-mass positivity frontier for the theta method on finite Markov generators",
+          "trigger": "General Markov generator result"
+        },
+        {
+          "assessment": "Covers θ=1/2 diagonal criterion, not the narrowed fixed-budget claim",
+          "evidence": "C_h=2R_(h/2)−I gives the diagonal test even outside reversibility; its own decreasing-diagonal proof is reversible.",
+          "identifier_or_url": "d475df91cd2a",
+          "material_read": "Mirrored RESULT.md, Finding, offsets 0–5989",
+          "method": "Local Resultary search and mirror text",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Frozen prior-art comparison for the resolvent criterion"
+        },
+        {
+          "assessment": "Later-labeled exact overlap on an original subcase",
+          "evidence": "Fastest vertex controls the heterogeneous cyclic Crank–Nicolson cutoff; not a fixed-sum order.",
+          "identifier_or_url": "d34a4ad012e9",
+          "material_read": "Mirrored RESULT.md, Finding, offsets 0–5082",
+          "method": "Local Resultary search and mirror text",
+          "title": "A fastest-exit positivity frontier for Crank–Nicolson on directed cycles",
+          "trigger": "Exact heterogeneous cycle at θ=1/2"
+        },
+        {
+          "assessment": "Later-labeled partial overlap",
+          "evidence": "All irreducible chains have no reentrance at θ=1/2, with a displayed equal-rate cyclic formula.",
+          "identifier_or_url": "6b800a293f32",
+          "material_read": "Mirrored RESULT.md, Finding, offsets 0–4693",
+          "method": "Local Resultary search and mirror text",
+          "title": "A first-return law makes Crank–Nicolson positivity one-interval",
+          "trigger": "Broader finite-chain result and cyclic specialization"
+        },
+        {
+          "assessment": "Different graph and ordering; no same-setting implication",
+          "evidence": "At fixed rate sum greater anisotropy enlarges the allowable interval for reversible cubes.",
+          "identifier_or_url": "36ef126120ad",
+          "material_read": "Mirrored RESULT.md, Finding, offsets 0–4932",
+          "method": "Local Resultary search and mirror text",
+          "title": "Strict majorization and sharp Crank–Nicolson positivity on anisotropic Boolean cubes",
+          "trigger": "Closest majorization/optimizer analogue"
+        },
+        {
+          "assessment": "Inspected centered-advection results not covering rate majorization here",
+          "evidence": "Periodic signed centered stencil may fail positivity for small steps and recover later; there is a negative off-diagonal.",
+          "identifier_or_url": "arXiv:2105.07403v1",
+          "material_read": "Abstract p. 1 (offset 0), §2 p. 2 (offset 5990)",
+          "method": "Lawful OA primary text",
+          "title": "Positivity Preservation of Implicit Discretizations of the Advection Equation",
+          "trigger": "Prior periodic theta-method positivity"
+        },
+        {
+          "assessment": "Background, not the fixed-sum comparison",
+          "evidence": "Cayley transform identities and positivity-class results, including for M-matrices.",
+          "identifier_or_url": "DOI:10.13001/1081-3810.1086",
+          "material_read": "Def. 1.1 pp. 190–191, Lemmas 2.1–2.2 pp. 191–192, Thm. 4.1 p. 194, OA offsets 0–10460 and following",
+          "method": "Lawful journal OA PDF",
+          "title": "On the Cayley Transform of Positivity Classes of Matrices",
+          "trigger": "Prior transform and positivity theory"
+        },
+        {
+          "assessment": "Full-text coverage not resolved",
+          "evidence": "Identifies the Runge–Kutta positivity topic; cannot resolve an exact cycle ordering from the accessible material.",
+          "identifier_or_url": "DOI:10.1016/S0168-9274(98)00050-6",
+          "material_read": "Landing-page/abstract material only",
+          "method": "Lawful DOI lookup and search for a lawful full-text copy",
+          "title": "Positivity of Runge–Kutta and Diagonally Split Runge–Kutta Methods",
+          "trigger": "Classical positivity bounds cited in the frozen record"
+        },
+        {
+          "assessment": "Full-text coverage not resolved",
+          "evidence": "Establishes the relevance of positivity threshold methods, not the exact content of the inaccessible proof.",
+          "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+          "material_read": "Landing-page/abstract material only",
+          "method": "Lawful DOI lookup and search for a lawful full-text copy",
+          "title": "On the Positivity Step Size Threshold of Runge–Kutta Methods",
+          "trigger": "Classical step-size thresholds cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/1/RESULT.md, Finding and lines 39–49",
+        "Frozen RESULT.md, lines 99–117",
+        "Resultary eb886aea6d4c"
+      ],
+      "rationale": "This is a fixed-budget design result for a natural numerical positivity constraint. It orders whole comparable rate profiles, including profiles with the same maximum rate, for which a fastest-rate-only bound misses the distinction. It identifies the unique allocation through the finite-to-infinite transition and shows exactly where uniformity loses uniqueness. This comparative consequence is useful independently of rederiving the known cyclic horizon.",
+      "residual_risks": [
+        "No rate-majorization claim for general generators, θ outside [0,1], zero rates, or internal-stage positivity is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

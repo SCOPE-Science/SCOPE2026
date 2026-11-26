@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:17:32.663067Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final claim: Algorithm 1 Step 3 is undefined on the given allowed first rapid iterate. Eq. (4) gives G_u=(2023/216)rho^3 and G_v=-G_u/4, while u=4v. Hence the residual along the trial line is R+alpha^2 G_u G_v with R=rho((83521/5184)rho^3-1)<0 and G_u G_v<0. Its absolute value strictly increases for every nonzero real alpha. Algorithm 1 permits these factors and initial alpha_0>epsilon, so the fallback is not reached. RESULT.md and SLOGAN.txt were narrowed: the original assertion that this contradicts Lemma 1 without qualification is not supported under Assumption 1's global Lipschitz reading in factor variables (the diagonal Hessian entries v^2,u^2 are unbounded). The witness defeats the algorithm on its advertised inputs and exposes the omitted zero-derivative case even with Lipschitz gradient on any bounded trial box. The packaged exact checker and its recorded output were inspected, not executed; the symbolic inequality was checked directly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye–Du already identify the smoothness problem under factor imbalance, using true gradients for the same product objective.",
+          "Ma–Li–Chi use true gradients with spectral initialization for matrix sensing, not the rapid approximation."
+        ],
+        "reasoning": "These broader factor-trajectory analyses neither evaluate the particular rapid direction nor imply a deadlock on that direction.",
+        "searches": [
+          "arXiv:2106.14289, pp. 1–3: asymmetric product-factor objective and vanilla gradient",
+          "arXiv:2101.05113, Eq. (3): balancing-free matrix-sensing gradient descent"
+        ]
+      },
+      "checked_sources": [
+        "10.3390/math14020343",
+        "arXiv:2106.14289",
+        "arXiv:2101.05113",
+        "Resultary f56b9f223302",
+        "Resultary 8f0205ba0947",
+        "Resultary 7a86ea802018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A strict sign of the directional derivative permits a small improvement on one side; zero sign alone says nothing about either side. In this formula the quadratic coefficient of the residual is strictly negative at a negative residual.",
+          "Assumption 1 in the convergence analysis is not an initialization restriction of the pseudocode."
+        ],
+        "reasoning": "The positive second variation is a new obstruction specific to the rapid-gradient formula and delayed safeguard, not implied by the generic non-descent observation or the related line searches.",
+        "searches": [
+          "10.3390/math14020343 Algorithm 1 Steps 1–3 and Lemma 1 proof",
+          "Resultary f56b9f223302; 8f0205ba0947; 7a86ea802018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's warning about a non-descent direction does not exclude improvement for the opposite sign of alpha.",
+          "Resultary f56b9f223302 gives an empty positive Wolfe search for an inexact Moreau oracle, not a two-sided monotone search along the rapid factor direction.",
+          "Resultary 8f0205ba0947 has a reachable ascent direction under a different secant update with positive steps only."
+        ],
+        "reasoning": "Both signs fail here, not merely all positive steps or all steps satisfying a curvature test.",
+        "searches": [
+          "Resultary: empty/nonexistent acceptable line search; rapid gradient matrix recovery; tangential direction rejection",
+          "10.3390/math14020343, Eq. (4), Eq. (5), Remark 1 and Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 7a86ea802018 establishes an obstruction due to a discrete Wolfe grid despite continuous admissible steps; the present line has no nonzero admissible real step.",
+          "The source algorithm and lemma contain no such first-iterate witness."
+        ],
+        "reasoning": "The claim is a symbolic counterexample family, not a benchmark value or table recomputation; comparable catalogue entries have different mechanisms and hypotheses.",
+        "searches": [
+          "Resultary: line-search acceptance failures and rapid-gradient low-rank factorization",
+          "Algorithm 1 and Lemma 1, DOI 10.3390/math14020343"
+        ]
+      },
+      "rationale": "For the repaired algorithmic claim no inspected statement establishes this tangential, two-sided all-step failure for the particular quarter-power rapid direction. The known lack of global smoothness is not a new claim.",
+      "residual_risks": [
+        "Bounded searches cannot exclude a poorly indexed or later discussion of the same rapid update.",
+        "No claim of robustness for random initializations or convergence of the safeguarded algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the actual algorithmic deadlock; no formal refutation under global Lipschitz-in-factors assumption",
+          "evidence": "Input allows arbitrary factors and alpha_0 in (epsilon,1); Step 3 demands nonzero alpha of either sign; proof distinguishes strict directional signs.",
+          "identifier_or_url": "https://doi.org/10.3390/math14020343",
+          "material_read": "Publisher PDF pp. 3–6: Eqs. (2)–(5), Algorithm 1, Assumption 1, Lemma 1 and proof",
+          "method": "Lawful publisher full text, located and read at the relevant pages",
+          "title": "Rapid Gradient Descent Method for Low-Rank Matrix Recovery",
+          "trigger": "Defines the exact direction, branch and claimed existence of a step"
+        },
+        {
+          "assessment": "Covers the lack of smoothness, not the rapid-direction obstruction",
+          "evidence": "Study of vanilla gradient descent on the unbalanced product-factor objective.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.14289",
+          "material_read": "Abstract and introduction, pp. 1–3",
+          "method": "Lawful arXiv PDF text",
+          "title": "Global Convergence of Gradient Descent for Asymmetric Low-Rank Matrix Factorization",
+          "trigger": "Identical objective and known factor smoothness issue"
+        },
+        {
+          "assessment": "Different direction and initialization",
+          "evidence": "The update is vanilla gradient descent for a sensing loss.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.05113",
+          "material_read": "Introduction and update discussion around Eq. (3)",
+          "method": "Lawful arXiv PDF text",
+          "title": "Beyond Procrustes: Balancing-Free Gradient Descent for Asymmetric Low-Rank Matrix Sensing",
+          "trigger": "Broader balancing-free product recovery"
+        },
+        {
+          "assessment": "Analogues only",
+          "evidence": "Respectively incompatible Wolfe conditions, different secant direction, and grid exclusion despite continuous solutions.",
+          "identifier_or_url": "Resultary f56b9f223302; 8f0205ba0947; 7a86ea802018",
+          "material_read": "Matching result statements and acceptance conditions",
+          "method": "Local Resultary catalogue and source mirror",
+          "title": "An explicit empty Wolfe step example; Sharp secant safeguard boundary; Exact scale frontier for the one-sided Wolfe grid",
+          "trigger": "Closest catalogue no-step or acceptance obstructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bidirectional no-step phenomenon at the first allowed iterate means shrinking or reversing the step cannot repair this algorithm path. This is a specific well-definedness defect with a precise safeguard implication, not just an example of an ascent direction or a repetition of the global smoothness issue.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

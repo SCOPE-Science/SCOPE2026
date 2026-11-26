@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:19:46.057276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating the top-hat difference on each Fourier mode gives the positive product symbol p_beta(t) with limits 1/3 and 2 beta. To justify the uniform ratio rather than ratios on unrelated grids, approximate each of an arbitrary pair of finite positive frequencies on the same grid of spacing h=2 pi delta/L, then let h tend to zero. Finite frequencies approach both limiting spectral endpoints. For beta>0 the symbol has positive infimum by compactness and the endpoint limits. The inequality p_beta≥1/3 at all frequencies is exactly beta≥sup H. Sine's upper Taylor bound and the negative sine on [pi,2 pi] give H≤1/6 through 2 pi, whereas H(5 pi/2)>1/6 and the limits of H are 1/20 and 1/6. The envelope t/[6(t−1)]−t^-2 bounds H above on the tail and is strictly below 9/50 there (the difference has numerator 2t³−27t²+150t−150 after multiplication by 150 t²(t−1)). At beta_star the symbol's maximum is attained below 2 pi: its value at pi exceeds 8/15, but the tail is at most 1309/2700 and the zero-frequency limit is 1/3. The attained threshold minimum is above 2 pi. Fixing the resulting maximizing and minimizing frequencies u<t, their ratio strictly decreases with beta, excluding every smaller beta. Every larger beta raises the value at u while the infimum cannot exceed 1/3. For beta=1/6 the lower tail estimate reduces to t³−10t²+60t−60≥0 for t≥6; the upper estimate uses the alternating Taylor bound through t^6 for sinc up to 19/5 and the decreasing envelope (1+1/t)(1+6/t²) thereafter. This gives p in [3/10,3/5]. At beta=1/2 the sine Taylor upper bound through degree 13 gives p(4)>4/3. All needed Taylor remainders have the asserted signs by decrease of the terms in the withheld tails over the stated ranges. Independent rational checks and local stationary-point diagnostics (python /workspace/review_checks.py, check 4) reproduce about 0.1747779923813 and 1.700200564562; these diagnostics do not certify global maximizing frequencies, nor are they needed for the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating paper proves mesh- and horizon-robust spectral bounds on volume-constrained finite-element spaces.",
+          "Its introduction describes the other paper as treating a tau-preconditioner for two-level Toeplitz systems."
+        ],
+        "reasoning": "Robustness gives bounded spread, not the least spread as a coefficient varies. A distinct sine-transform preconditioner does not identify an extremal coefficient for the ideal periodic additive operator from the checked statements.",
+        "searches": [
+          "Lu et al. Introduction and Section 2",
+          "Zhang et al. DOI:10.1007/s10915-025-03150-2, two-level Toeplitz spectral preconditioning"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24143v1",
+        "d68a7346e916",
+        "doi:10.1007/s10915-025-03150-2 (secondary description; primary access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One matched and one kernel-mass choice are specified in separate sources; neither presents a competing-frequency argument across beta."
+        ],
+        "reasoning": "Knowing the extremizers at beta=1/6 or spectral equivalence for beta=1/2 does not establish the least uniform condition number or strict suboptimality on either side of beta_star. Conversely the frozen theorem says nothing about optimality on each fixed grid or the finite-element realization.",
+        "searches": [
+          "d68a7346e916, Finding, fixed matching",
+          "arXiv:2609.24143v1, kernel-mass choice"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lu et al. select beta=1/(2 mu_rho), which is 1/2 at the frozen normalization; their finite-element statement is not an optimization.",
+          "Resultary d68a7346e916 uses 3 times the frozen preconditioner at beta=1/6."
+        ],
+        "reasoning": "Condition numbers are invariant under common positive scaling of the symbol, so the matched-sinc result must be credited as exact coverage of the fixed beta=1/6 spread in that continuum model. Scaling does not change the relative mass-to-Poisson coefficient, so it does not convert a fixed coefficient to the all-beta problem.",
+        "searches": [
+          "Resultary and literature: periodic top-hat/boxcar nonlocal diffusion, sinc symbol, inverse Poisson plus mass, minimax condition number",
+          "Lu et al. arXiv:2609.24143v1, Section 2 and eq. (2.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d68a7346e916, Finding, gives K(1/6)≈1.717865311 and exact extremal frequencies for the scaled same symbol at that coefficient, dated 2026-11-08 UTC, after the frozen record's date."
+        ],
+        "reasoning": "A sharper exact evaluation at one fixed coefficient does not locate the transition in the minimum of p_beta, nor give the minimizer among all coefficients. The material difference stands irrespective of the date.",
+        "searches": [
+          "Resultary: sinc lobe conditioning, matched nonlocal Laplacian, top-hat optimal preconditioner"
+        ]
+      },
+      "rationale": "The checked sources supply the preconditioner family and robustness results, or exact spread at one fixed coefficient, but do not imply the unique uniform minimizer over coefficients. Distinct supported contribution: the all-beta minimax characterization and uniqueness, with the quantitative comparison to the kernel-mass prescription. This is a best-of-knowledge statement, not exhaustive priority certification.",
+      "residual_risks": [
+        "The tau-preconditioning paper was not accessible in full; its secondary description is not an exhaustive comparison.",
+        "Older tuned Fourier-symbol preconditioners may be indexed under unrelated terminology; unsuccessful keyword retrieval was not used as proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR FAMILY AND ROBUSTNESS; NOT MINIMAX IN CHECKED PASSAGES",
+          "evidence": [
+            "Equation (2.4) fixes beta=1/(2 mu_rho); uniform spectral estimates concern the finite-element construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24143v1",
+          "material_read": "Abstract, introduction and opening of Section 2, pp. 1–2; eq. (2.4), p. 3",
+          "method": "OA primary PDF",
+          "title": "A mesh- and horizon-robust preconditioner for finite element discretizations of volume-constrained nonlocal diffusion problems",
+          "trigger": "Identical Poisson-plus-mass construction"
+        },
+        {
+          "assessment": "DISTINCT CONSTRUCTION FROM AVAILABLE DESCRIPTION; FULL TEXT UNRESOLVED",
+          "evidence": [
+            "Secondary description concerns uniform spectral bounds for a two-level Toeplitz tau-preconditioner."
+          ],
+          "identifier_or_url": "doi:10.1007/s10915-025-03150-2",
+          "material_read": "Description in Lu et al., Introduction; no primary theorem text obtained",
+          "method": "Lawful publisher and alternate-copy attempts; secondary comparison",
+          "title": "Spectral Analysis of τ-Preconditioners for Two-Level Toeplitz Systems with Applications in Nonlocal Diffusion Models",
+          "trigger": "Related sharp spectral preconditioning"
+        },
+        {
+          "assessment": "EXACT FIXED-COEFFICIENT OVERLAP; DOES NOT IMPLY MINIMAX",
+          "evidence": [
+            "3 times the frozen beta=1/6 preconditioner; norm scaling cancels from the condition number, so the sharp fixed-coefficient result is a genuine comparison."
+          ],
+          "identifier_or_url": "d68a7346e916",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "The second sinc lobe controls sharp conditioning of a matched nonlocal preconditioner",
+          "trigger": "Same top-hat spectral ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mass coefficient is prescribed by a substantive existing construction, so optimizing it for the canonical top-hat symbol is not an arbitrary parameter search. Separation of the active frequencies turns two pointwise comparisons into a unique robust optimum, and the certified greater-than-two improvement is material for the ideal spectral model. It is a useful benchmark, not a PCG iteration or finite-element tuning guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

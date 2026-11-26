@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:13:04.126787Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive edge weights reduce the sampled kernel to edge equations. Their signed cyclic recurrence has one free initial value exactly for an even cycle with equal products of fractions and complements; independent nodal values lift these traces. K plus the sampled penalty is positive definite because no nonzero constant is in the sampling kernel. Uniform boundedness and testing on the sampling kernel give convergence to the unique restricted stiffness solution. With resonance, a nonzero K-orthogonal complement to the zero-trace space gives a load annihilating the Dirichlet space but not that complement. For the unit-conductivity square, independently assembling in the tensor basis (1,1-2x,1-2y,f) gives diagonal stiffness (0,4,4,8/3) and load (0,0,0,1/9). Exact inversion gives the f coefficient as [eps^2 lambda^2+6 eps^2 lambda+2 lambda^2+8 lambda+8]/[6(3 eps^2 lambda^3+28 eps^2 lambda^2+60 eps^2 lambda+8 lambda^2+32 lambda+32)]. Dividing by lambda^2 gives 1/(24+9 tau) for every finite joint-limit sequence, including tau=0; the other three coefficients vanish. In the infinite-product regime the same quotient and transverse terms vanish (also det C=eps/4 and the simple defect yields sigma_min~|eps|/2 near zero). The integrated trace of f squared is 4/3 and reflection symmetry decouples f, giving the stated exact-integration coefficient. The own symbolic replay was /workspace/branches/independent-replays.py 2; frozen verify.py and recorded output claims were inspected, not executed. The numerical constant is for the assembled unit-conductivity, unit-weight square, not arbitrary stiffness or boundary weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Wu Theorem 3.5 gives an H1 mesh-refinement estimate with face precision 2p−1. Chiba–Saito give a Robin/Dirichlet error framework with a different boundary form.",
+          "Oden's reduced integration summary distinguishes underintegrated stiffness hourglass modes and constraint-related checkerboards; its four-node zero-energy example uses one volume centroid."
+        ],
+        "reasoning": "First-degree face precision need not ensure the boundary quadratic form is nondegenerate, and a refinement bound or existence of generic spurious modes supplies neither the fixed-mesh iff nor its quantitative boundary-node regularization.",
+        "searches": [
+          "arXiv:2606.16675 v1, Theorem 3.5",
+          "arXiv:1905.01605 v3, Theorem 1",
+          "NASA CP-2297, pp. 95–103"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7bc94e9d2909 and 919d57b9a89d",
+        "arXiv:2606.16675 v1",
+        "arXiv:1905.01605 v3 / DOI 10.1002/num.23038",
+        "NASA CP-2297, Oden pp. 95–103"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chiba–Saito epsilon is Robin compliance, not a node displacement; equivalently increasing the Robin coefficient does not create an edge-sampling nullspace in their inspected formulation.",
+          "The residue of the displaced row after eliminating the stiff directions fixes an exact limiting scalar penalty; this is not a consequence of a volume hourglass example or an h-convergence estimate."
+        ],
+        "reasoning": "Known penalty and nullspace mechanisms explain why the question arises but do not derive the product criterion applied to every load or the constants and joint-limit window of this square.",
+        "searches": [
+          "arXiv:2606.16675 v1, §2.1 and Theorem 3.5",
+          "arXiv:1905.01605 v3, pp. 2–5",
+          "NASA CP-2297, pp. 95–103"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest Resultary hit is the identical frozen finding 7bc94e9d2909; the asymmetric Robin interval near-hit 919d57b9a89d is an operator on a one-edge quantum graph, not a quadrature kernel.",
+          "The nearest paper using Robin boundary quadrature studies h-refinement error, not the null trace of a sampled boundary mass at fixed h."
+        ],
+        "reasoning": "Expressing the condition as a singular boundary sampling matrix, alternating trace, or product around an even cycle leaves the same finite-element statement; Robin secular resonances and a continuum compliance parameter are not equivalent objects.",
+        "searches": [
+          "Resultary focused comparison of boundary-cycle resonance, one-point Robin quadrature and the square penalty window",
+          "Resultary 919d57b9a89d",
+          "arXiv:2606.16675 v1, §§2–4",
+          "arXiv:1905.01605 v3, introduction and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 24+9 tau profile in Resultary is the same record, not distinct prior evidence.",
+          "Oden's volume stiffness assembly and Han–Wu's one-dimensional mixed-boundary example with underintegrated volume quadrature are not tabulations of the displaced boundary-row square."
+        ],
+        "reasoning": "No independently matching matrix, exact coefficient, or cycle criterion emerged from the checked candidates; this is a bounded comparison, not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary local mirror RESULT.md 7bc94e9d2909, offsets 0–9213",
+          "Resultary 919d57b9a89d",
+          "NASA CP-2297, Q1 example pp. 98–99",
+          "arXiv:2606.16675 v1 §4.1"
+        ]
+      },
+      "rationale": "The supported distinction is the exact all-load fixed-mesh result for independently sampled affine boundary traces together with the quantified one-node crossover of the square assembly, not generic penalty convergence, a cyclic linear recurrence in isolation, or the known possibility of underintegration-induced mechanisms.",
+      "residual_risks": [
+        "Older constraint-underintegration papers cited by Oden (including Oden–Kikuchi–Song 1982 and Oden–Kikuchi 1982) were not retrieved. A specialized earlier boundary-mass treatment could overlap. Neither a search result nor Han–Wu's own survey establishes priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mesh-refinement quadrature precision requirements, not fixed-h penalty nullspace behavior",
+          "evidence": [
+            "Theorem 3.5 requires face precision 2p−1, and §4.1 underintegrates volume terms in a one-dimensional example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.16675",
+          "material_read": "v1 abstract, introduction p. 2, model §2.1 p. 3, Theorem 3.5 p. 8 and §4.1 p. 14",
+          "method": "Lawful OA passage reading, offsets 0, 6900, 10100, 26300 and 46400",
+          "title": "The effect of numerical integration in the FEM for elliptic problems with mixed boundary conditions",
+          "trigger": "Closest affine FEM with Robin face quadrature"
+        },
+        {
+          "assessment": "Compliance and h-dependent error estimates, not one-point boundary-sampling rank",
+          "evidence": [
+            "Robin factor epsilon^{-1} models compliance; theorem balances epsilon and h and distinguishes a separate Nitsche parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.01605",
+          "material_read": "v3 introduction and model pp. 2–3 and Theorem 1 pp. 3–5",
+          "method": "Lawful OA passage reading, offsets 4930, 5900, 7900 and 17300",
+          "title": "Nitsche’s method for a Robin boundary value problem in a smooth domain",
+          "trigger": "Classical Robin-to-Dirichlet penalty limit"
+        },
+        {
+          "assessment": "Generic known phenomena, and a materially different Q1 volume example",
+          "evidence": [
+            "Summary on p. 95 separates hourglass and constraint checkerboard modes; pp. 98–99 use one centroid for volume stiffness."
+          ],
+          "identifier_or_url": "https://ntrs.nasa.gov/api/citations/19840023618/downloads/19840023618.pdf",
+          "material_read": "NASA CP-2297 pp. 95–103, summary, introduction and four-node example",
+          "method": "Lawful OA PDF text offsets 225200–243400",
+          "title": "Stability and Convergence of Underintegrated Finite Element Approximations",
+          "trigger": "Older reduced-integration and penalized constraint mechanisms"
+        },
+        {
+          "assessment": "Identical finding, no separate originality evidence",
+          "evidence": [
+            "Same product condition, same square response denominator."
+          ],
+          "identifier_or_url": "Resultary 7bc94e9d2909",
+          "material_read": "Mirrored RESULT.md offsets 0–9213",
+          "method": "Configured local Resultary discovery and mirror read",
+          "title": "Boundary-cycle resonance and the sharp Robin quadrature penalty window",
+          "trigger": "Exact semantic hit"
+        },
+        {
+          "assessment": "At statement level a spectral problem on a different object",
+          "evidence": [
+            "One-edge quantum graph zero mode and secular multiplicity, not finite-element boundary quadrature."
+          ],
+          "identifier_or_url": "Resultary 919d57b9a89d",
+          "material_read": "Indexed mathematical claim",
+          "method": "Configured Resultary lookup",
+          "title": "Asymmetric Robin interval exact zero-mode resonance and cubic secular behavior",
+          "trigger": "Similar Robin/cycle resonance terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-load iff is a reusable, exact diagnostic: positive definiteness at every finite penalty does not guarantee enforcement of the intended trace at large penalty. The square profile distinguishes load responses below, on, and above a concrete scale rather than merely demonstrating a zero mode. The result neither claims a refinement estimate nor generalizes the single-element coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

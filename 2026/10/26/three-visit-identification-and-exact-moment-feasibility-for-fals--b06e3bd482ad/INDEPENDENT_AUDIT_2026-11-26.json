@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:15.996663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–86",
+        "artifacts/check.py lines 9–95 (inspected)",
+        "artifacts/certificate.json lines 1–73",
+        "VERIFICATION.md lines 19–25"
+      ],
+      "rationale": "Split the latent Poisson population into independent Poisson counts for detection subsets. A joint cumulant on distinct visits is the total rate of subsets containing those visits; singleton cumulants also include false detections. Thus mu_i=lambda*p_i+phi_i, C_ij=lambda*p_i*p_j and T=lambda*p_1*p_2*p_3. The third joint cumulant is the centered cross-moment, not the raw product moment. Dividing gives p_i=T/C_jk and lambda=C_12*C_13*C_23/T^2; subtracting lambda*p_i gives phi_i. The strict inequalities give precisely the positive interior detection and abundance parameters, and the three weak inequalities give precisely phi_i>=0, including zero false counts. Substitution in the Poisson construction realizes every feasible seven-tuple. For the two-visit pair the exact singleton-only and shared Poisson rates are (7/10,5/4,1/2) under both parameter sets, hence the whole joint law coincides. For every finite visit count, s>1 with s*max p_i<1 preserves all means and off-diagonal covariances under the stated scaling; the marginal variances equal the means, so all moments through order two agree. The analytic argument, not the 3456 finite checks recorded in the certificate, proves the full claim.",
+      "residual_risks": [
+        "Does not extend to zero abundance or detection probabilities at their endpoints, or to dependent detection or false counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-visit theorem has an unrestricted abundance law but no independent Poisson false counts (Finding and assumptions).",
+          "Dennis et al. Sections 3 and 6.1 use repeated true detections for their decomposition and moment inversion.",
+          "No lawful full-text copy of Clement et al. was available in the bounded lookup; the characterization as a Poisson encounter and misclassification mechanism is reported in the frozen evidence rather than independently verified."
+        ],
+        "reasoning": "Allowing more general latent abundance does not include unknown additional singleton shock rates in the observation law. Identifiability of the general Poisson subset rates is also not identifiability of this submodel's factorization into abundance, detections and background; the factorization can have a continuum of solutions at two visits.",
+        "searches": [
+          "2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b",
+          "DOI:10.1111/biom.12246",
+          "DOI:10.1111/2041-210X.13895"
+        ]
+      },
+      "checked_sources": [
+        "The five published indexed and primary model comparisons above, plus the two application-paper access assessments",
+        "RESULT.md lines 101–107 for the frozen prior-work distinctions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With no false counts, means are constrained to lambda*p_i, while the target model has unknown additive terms and keeps C_ij=lambda*p_i*p_j. Under the target scaling the same two-visit joint law permits different positive latent intensities and true-detection probabilities."
+        ],
+        "reasoning": "The no-background inversion does not establish recovery with contaminated means. The Beta result has a different cross-visit dependence, and does not furnish the exact seven-number feasibility inequalities or the all-finite-visit second-moment obstruction in the fixed-detection family.",
+        "searches": [
+          "DOI:10.1111/biom.12246, Sections 3 and 6.1",
+          "2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b",
+          "2026/10/12/SCOPE-four-visits-identify-beta-heterogeneous-abundance-despite-poisso--da418b4a23c0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dennis et al. Section 3 gives a multivariate Poisson decomposition for true binomial detections, without the additive nuisance rates.",
+          "The four-visit indexed record's Finding and model use a shared latent Beta detection propensity for each individual and independent Poisson background."
+        ],
+        "reasoning": "Rewriting as Poisson subset counts exposes the classical law representation but not the inverse to fixed Bernoulli detection parameters plus unknown background. Integrating a persistent random propensity produces shared higher moments of that propensity, not products of fixed visit-specific probabilities. Collapsing that mixing to a constant is not an interior specialization of the Beta-heterogeneous theorem, nor does it give the varying-p_i feasibility result.",
+        "searches": [
+          "Resultary: fixed Bernoulli repeated counts with independent Poisson false counts and mixed-cumulant identification",
+          "DOI:10.1111/biom.12246",
+          "2026/10/12/SCOPE-four-visits-identify-beta-heterogeneous-abundance-despite-poisso--da418b4a23c0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest count record has a four-visit boundary for Beta heterogeneity. The two same-date findings use binary Markov occupancy over seasons, not Poisson abundance with unmarked integer counts."
+        ],
+        "reasoning": "The relevant exact indexed objects are identification thresholds and feasible moment regions, not a numerical table. Neither equality of nuisance terminology nor the number of observed seasons makes the indexed feasible-image problems equivalent.",
+        "searches": [
+          "2026/10/12/SCOPE-four-visits-identify-beta-heterogeneous-abundance-despite-poisso--da418b4a23c0",
+          "2026/10/26/SCOPE-three-season-recovery-of-false-positive-occupancy-from-pairwise--a0eacad9db44",
+          "2026/10/26/SCOPE-four-single-visit-seasons-sharply-identify-changing-false-positi--9ba2ce3aa855"
+        ]
+      },
+      "rationale": "Credit the classical Poisson subset decomposition and uncontaminated N-mixture moment analysis. The supported distinction is the parameter and moment-image characterization with unknown visit-specific Poisson backgrounds and fixed independent Bernoulli detection, including the sharp visit and moment-order obstructions. No available source statement compared establishes that combination.",
+      "residual_risks": [
+        "The Clement et al. model could not be checked directly in full text.",
+        "An equivalent parameter inversion or feasibility result under another name in multivariate Poisson or capture-count literature remains possible; no claim of global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying uncontaminated count representation, not the independent additive backgrounds and inverse",
+          "evidence": [
+            "Section 3 has Cov(Y_t,Y_u)=lambda*p^2 for the basic common-p model; Section 6.1 gives moment-based estimation in the absence of the new nuisance terms."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/biom.12246",
+          "material_read": "Author-accepted manuscript, Section 3 (PDF p. 3) and Section 6.1 (PDF p. 7)",
+          "method": "Open-access manuscript passage inspection",
+          "title": "Computational Aspects of N-Mixture Models",
+          "trigger": "Multivariate Poisson decomposition and moment estimators for the parent count model"
+        },
+        {
+          "assessment": "No false-count component",
+          "evidence": [
+            "Two conditionally independent binomial visits identify the detection probabilities and abundance law subject to the stated abundance moment conditions."
+          ],
+          "identifier_or_url": "2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Published record statement inspection",
+          "title": "Two visits identify a nonparametric closed binomial N-mixture",
+          "trigger": "Apparently stronger two-visit identifiability"
+        },
+        {
+          "assessment": "Different dependence mechanism and parameters",
+          "evidence": [
+            "A persistent Beta propensity per animal replaces fixed visit-specific Bernoulli probabilities; the claim is a sharp four-visit result."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-four-visits-identify-beta-heterogeneous-abundance-despite-poisso--da418b4a23c0",
+          "material_read": "RESULT.md Finding and model, offset 0",
+          "method": "Published record statement inspection",
+          "title": "Four visits identify Beta-heterogeneous abundance despite Poisson false detections",
+          "trigger": "Same background family and neighboring visit threshold"
+        },
+        {
+          "assessment": "Binary latent occupancy with Markov dynamics",
+          "evidence": [
+            "Recovery uses first and pair moments for binary seasonal observations with a common false-positive probability."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-three-season-recovery-of-false-positive-occupancy-from-pairwise--a0eacad9db44",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record statement inspection",
+          "title": "Three-season recovery of false-positive occupancy from pairwise information",
+          "trigger": "Same observation-error terminology and paired moment question"
+        },
+        {
+          "assessment": "Binary Markov occupancy and seasonal error channels, not abundance counts",
+          "evidence": [
+            "The visits refer to seasons with a changing binary latent state, not repeated detections of a closed population."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-four-single-visit-seasons-sharply-identify-changing-false-positi--9ba2ce3aa855",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record statement inspection",
+          "title": "Four single-visit seasons sharply identify changing false positives",
+          "trigger": "Related false-positive visit threshold"
+        },
+        {
+          "assessment": "Provides motivation and model-context evidence, not a coverage finding for the mathematical inverse",
+          "evidence": [
+            "Describes duplicate and spurious automated detections and discusses model fitting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ece3.6522",
+          "material_read": "Open manuscript, PDF pp. 2–3",
+          "method": "Open-access passage inspection",
+          "title": "New technologies in the mix: Assessing N-mixture models for abundance estimation using automated detection data from drone surveys",
+          "trigger": "Possible overlap in handling automated spurious counts"
+        },
+        {
+          "assessment": "Unresolved direct full-text comparison; no negative coverage inference from access",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.13895",
+          "material_read": "Bibliographic evidence and frozen comparison only; technical sections independently unavailable",
+          "method": "Publisher and lawful repository copy lookup",
+          "title": "Estimating occupancy from autonomous recording unit data in the presence of misclassifications and detection heterogeneity",
+          "trigger": "Plausible mechanistic false-count overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–31, 49–86 and 109–111",
+        "Corcoran et al., DOI:10.1002/ece3.6522, PDF pp. 2–3"
+      ],
+      "rationale": "The extra Poisson singleton sources create a real latent abundance/background ambiguity. The exact feasible region gives a population-level check of the model and the sharp contrast tells investigators both why adding a third survey works and why collecting only pair summaries of many surveys cannot help. This is a natural complete identification result, not a claim of improved fitting or statistical power.",
+      "residual_risks": [
+        "Inversion may be unstable near vanishing cross-cumulants. Feasibility and identification are population statements, not finite-sample error guarantees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

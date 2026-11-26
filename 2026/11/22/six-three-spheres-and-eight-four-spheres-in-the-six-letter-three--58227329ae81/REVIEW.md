@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The input consists of the complete class of forty three-cycles in six letters. Its generated ordered-word complex has the independently reconstructed degree-by-degree face counts \((6,30,120,247,194,40)\). The embedded 311-pair matching is a unit-incidence partial matching of the 637-cell Hasse diagram; all 637 vertices are visited by a topological sort after matched edges are reversed, proving acyclicity. Only one 0-cell, six 3-cells and eight 4-cells survive. Exact signed gradient recursion gives zero for every one of the forty-eight entries in the critical 4-to-3 differential. Since \(\pi_3(\bigvee^6S^3)\cong H_3(\bigvee^6S^3)\), the attaching maps are nullhomotopic and the full integral homotopy type follows. Independent external mathematical validation is outstanding.
+PASS
 
-## Originality — PASS (provisional publication priority)
+Generating both orientations on each three-element support gives 40 permutations. Their distinct ordered subwords form a regular CW complex with simplex face posets and f-vector (6,30,120,247,194,40). Reconstructing the oriented face incidences and applying a separate topological sort verifies the 311 disjoint reversed Hasse edges are acyclic, with critical counts one vertex, six 3-cells and eight 4-cells. Independently computing integer Smith forms of the unreduced boundaries (including checking their composition) gives ranks (5,25,95,146,40) and Betti numbers (1,0,0,6,8,0). Thus the critical 4-to-3 differential has rank zero over Q, hence is zero over Z; this confirms the needed conclusion without relying on the uploaded signed recurrence. In that Morse CW model the 3-skeleton is a wedge of six S³, and the Hurewicz isomorphism makes each vanishing cellular boundary equivalent to a null attaching map. Purity is dimension five, so nonzero lower-degree homology obstructs pure shellability.
 
-The 8 November 2026 permutation-complex fundamental-group theorem of Govc applies to all such complexes, but addresses \(\pi_1\), not the exact higher-dimensional homotopy type. The 2019/2020 Chachólski–Levi–Meshulam theory treats general realization and the two-permutation case, not the full forty-generator three-cycle conjugacy class. Targeted indexed and literature searches of the conjugacy class, ordered subwords, cyclic words, and equivalent sphere counts did not identify an implication covering the exact result. The closest indexed computational examples instead use all permutations in a different subgroup or a six-point projective linear action, yielding different complexes. An unindexed result, or an uninspected full text, could still duplicate this finite computation; search absence is not uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full three-cycle conjugacy class is a canonical, symmetry-invariant family of generators for the alternating group. Its six-letter ordered-word complex gives an exact, finite, mixed-dimensional homotopy calculation, including integral attaching-map control, and a non-shellability obstruction for a pure five-dimensional complex. This is distinct from a textbook Euler-characteristic deduction or a renamed computation: the matching and its zero boundary are nontrivial facts about the canonical 40-facet complex. The result does not claim an infinite-family formula.
+The supported distinct claim is the specific mixed-dimensional integral wedge and hence nonshellability for this 40-generator ordered-word complex. The strongest same-alphabet examples use different facet sets and give distinct invariants. The indexed general conjugacy-class bound or a theorem on fundamental groups is not a calculation of the two higher-dimensional wedge counts.
 
-## Closest literature and remaining limits
+## value
 
-The exact prior-work comparisons are Govc, arXiv:2611.11362, and Chachólski–Levi–Meshulam, arXiv:1908.03394. The original claim concerns only the 3-cycle conjugacy class in six letters, not all of \(A_6\), all even permutations, or all permutation complexes. The finite certificate is independently replayable but has not been validated by an independent mathematical reviewer.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Using the whole three-cycle class selects a natural generator family, rather than arbitrary permutations. The result gives a pure five-dimensional example with lower homology in two different degrees and an actual two-connected integral wedge type. It distinguishes homology, homotopy and shellability for a specific natural complex beyond the general low-connectivity bounds and Euler-characteristic data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

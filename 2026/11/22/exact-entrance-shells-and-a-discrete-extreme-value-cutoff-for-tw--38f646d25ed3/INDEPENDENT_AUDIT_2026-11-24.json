@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:57:52.382690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–5",
+        "VERIFICATION.md, verify_direct.py and verify_transfer.py by inspection",
+        "Independent exact graph peeling and cyclic inclusion-exclusion"
+      ],
+      "rationale": "Commuting shifts and OR idempotence give offsets t+j(s−1), j=0,...,t, in the t-step dependence. Within the rotated source class the order has period m because (s−1)/g is coprime to m. Every class saturates to its OR at time m−1; thereafter the class-constant states rotate bijectively, so this set is exactly the recurrent locus. For 0<=t<m, a zero class qualifies separately; a nonzero class qualifies precisely when its largest cyclic run of zeros is <=t. Every qualifying nonzero word gives a unique marked closed path in the run-length automaton because ones reset the state; an all-zero word has no closed path. This proves the trace census, and at t=m−2 exactly the m singleton words per class fail, including the m=2 boundary. The saturated map tests one bit of information per source class, so one phase with w active classes has (2^m−1)^w inputs and the orbit basin sums d disjoint phases. At t=h+c−1, any bad nonzero class is exactly an occurrence of 1 followed by h+c zeros. Overlaps are incompatible and disjoint blocks independent; for each fixed factorial moment j only O_j(m^(j−1)(h+c)) ordered start tuples are lost. The moments converge to those of Poisson(2^(−c−1)); applying the zero-count probability and independence across g classes gives the stated limit. The fixed g,c and sufficiently large h ensure admissible offsets and block lengths. Independent functional-graph peeling plus cyclic inclusion-exclusion and direct phase-fiber enumeration agreed across 45 systems and 32776 starts (3<=n<=11, all allowed s). Replay: python3 /workspace/branches/independent_reproduction.py 2.",
+      "residual_risks": [
+        "Finite enumeration does not prove the general formula or the limiting law.",
+        "The stated probabilistic formula is for fair independent input along the dyadic subsequence, with fixed g and c."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gadouleau's Lemma 2, Theorem 5 and Corollary 2 identify periodic configurations as cyclic-class unions and give divisibility of periods by loop number; the present graph's loop number is g. Proposition 1 gives a maximal preimage and union characterization, not the counted fiber.",
+          "The indexed gcd-sensitive transfer law d0c5055727e8 gives weighted basins for a different feed-forward conjunctive two-cycle architecture."
+        ],
+        "reasoning": "The existing general recurrence theorem covers the periodic count/rotation structure. It does not identify the exact first time that every source class becomes constant or count the saturated fibers in this graph.",
+        "searches": [
+          "Gadouleau arXiv:2104.04403 §§3.1.1–3.1.2",
+          "Resultary: phase fiber exact attraction basin Boolean network disjunctive preimage cardinality"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md scope, proof and prior-work comparison",
+        "Four focused Resultary queries on cyclic runs, phase fibers, extreme cutoff and entrance distributions",
+        "Gadouleau, Charalambides and Arratia–Goldstein–Gordon",
+        "Rule 238 Atlas and alias search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Charalambides yields the class word count once entry is identified with absence of a run (all-zero exception). Chen–Stein yields the limit after identifying the leading-one blocks and their overlap structure. The general preimage proposition does not give a cardinality."
+        ],
+        "reasoning": "These are established ingredients, and the dyadic law is a standard Bernoulli run consequence once reduced. The precise moving-window equivalence, the sharp gcd-dependent saturation, and the exact image/fiber description together link the established run results to this dynamical invariant. The comparison does not treat the transfer-matrix or Poisson technique as novel.",
+        "searches": [
+          "Web: circular Bernoulli sequence longest run of zeros Poisson approximation extreme value block occurrences one followed by zeros",
+          "Charalambides §3 Theorem 3.1; Arratia–Goldstein–Gordon Theorem 1; Gadouleau Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the frame removing the unit shift, each residue class is center OR its cyclic neighbor in the step order; this is elementary rule 238 or mirror rule 252, dual to AND under bit complement. The retrieved Rule 238 Atlas page lists equivalent rules and cycle/transition resources but its inspected text does not state the exact entrance census or basins.",
+          "The Resultary majority-three and Rule 184 records analyze different update rules and different run/block statistics."
+        ],
+        "reasoning": "The elementary aliases are genuine for the class dynamics, so a full alias census could cover much of the result. The recorded bounded alias inspection did not establish such overlap; even exact equality in the recurrent necklaces alone does not give the transient.",
+        "searches": [
+          "Resultary: cyclic zero-run length binary circular word trace transfer entrance times exact counts",
+          "Resultary: all-state first periodic entrance time distribution cyclic binary network run lengths",
+          "Web: \"Rule 238\" OR \"Rule 252\" OR \"Rule 136\" OR \"Rule 192\" elementary cellular automaton cyclic ring exact transient first-entry time basin census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Atlas text is an index for Rule 238, not a formula for the all-size shells or phase populations. Charalambides gives the exact circular-run distribution via Lucas-type polynomials, which does cover the one-class run count after the symbol exchange and separate treatment of the all-zero class."
+        ],
+        "reasoning": "The prior probability table/formula is real exact coverage at the run-statistic level. It is not a tabulation of weighted role-by-role phase fibers or of first periodic entry across arbitrary n and s.",
+        "searches": [
+          "Resultary exact-census and phase-fiber queries above",
+          "Wolfram Rule 238 Atlas alias search",
+          "Charalambides Theorem 3.1 for exact circular-run distribution"
+        ]
+      },
+      "rationale": "The distinct contribution is the simultaneous network-specific transient and basin description, based on the exact moving-window reduction for arbitrary offsets. Periodic necklaces, exact Bernoulli circular-run counts considered in isolation, and dependent rare-block Poisson approximation are established and not new. No inspected result covers this full OR-network census by specialization.",
+      "residual_risks": [
+        "An earlier rule-238/252 or complement census, or an unindexed two-jump formula, may exist; the alias page is not a comprehensive literature survey.",
+        "Some run-related and scheduling material was not available in full; no claim of its noncoverage beyond inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cyclic-class recurrence, not the counted fibers and transients",
+          "evidence": "Periodic states are cyclic-class unions; the preimage result concerns a maximal preimage, not the entire fiber cardinality.",
+          "identifier_or_url": "arXiv:2104.04403",
+          "material_read": "§3.1.1 Proposition 1, PDF pp. 5–6, OA offset 21000; §3.1.2 Lemma 2, Theorem 5 and Corollary 2, p. 7, offset 26130",
+          "method": "OA PDF passages",
+          "title": "Dynamical Properties of Disjunctive Boolean Networks",
+          "trigger": "General OR-network recurrence and preimages"
+        },
+        {
+          "assessment": "Exact match at circular-run level",
+          "evidence": "Exact circular Bernoulli run-length law via Lucas-type polynomials, applicable after reversing bits and handling the homogeneous exception.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/29-4/charalambides.pdf",
+          "material_read": "§3 Theorem 3.1 and proof, printed pp. 295–296, OA offset around 21000",
+          "method": "OA PDF",
+          "title": "Lucas Numbers and Polynomials of Order K and the Length of the Longest Circular Success Run",
+          "trigger": "Equivalent random-word run statistic"
+        },
+        {
+          "assessment": "General Poisson ingredient",
+          "evidence": "Zero-occurrence probability follows from the dependence-neighborhood estimate; the circular block correspondence is additional.",
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+          "material_read": "Theorem 1, PDF pp. 10–11, OA offset around 3500",
+          "method": "OA PDF passage",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "Dependent rare-block and zero-count approximation"
+        },
+        {
+          "assessment": "Alias index, no theorem-level comparison beyond retrieved text",
+          "evidence": "Lists equivalent rules, cycle lengths, transition diagrams and backtracking trees; the page passage does not establish all-size census coverage.",
+          "identifier_or_url": "https://atlas.wolfram.com/01/01/238/",
+          "material_read": "Rule page HTML, OA offset 0, 609 characters",
+          "method": "OA public page",
+          "title": "Wolfram Atlas: Rule 238",
+          "trigger": "Exact elementary-CA alias in a moving frame"
+        },
+        {
+          "assessment": "Different map and graph architecture",
+          "evidence": "A feed-forward conjunctive network based on two cycles, not OR-of-two-shifts on one ring.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-gcd-sensitive-transfer-law-for-recurrent-spectra-and-attractio--d0c5055727e8",
+          "material_read": "Finding and model definition",
+          "method": "Local mirror",
+          "title": "A gcd-sensitive transfer law for recurrent spectra and attraction basins",
+          "trigger": "Closest exact phase-fiber analogue"
+        },
+        {
+          "assessment": "Analogous invariant but different dynamics",
+          "evidence": "Majority-three and alternating-edge runs, not OR or empty runs within gcd classes.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265",
+          "material_read": "Finding and update definition",
+          "method": "Local mirror",
+          "title": "Exact first-periodic-entry law and Poisson extremes for majority dynamics",
+          "trigger": "Prior transfer trace plus Poisson entrance window on a ring"
+        },
+        {
+          "assessment": "Different elementary CA",
+          "evidence": "Rule 184 with a Catalan-block encoding, not the OR frame or its complements.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-complete-catalan-logarithm-census-of-relaxation-layers-in-cycl--60e2f7c2a588",
+          "material_read": "Finding and map description",
+          "method": "Local mirror",
+          "title": "A complete Catalan-logarithm census of relaxation layers in cyclic dynamics",
+          "trigger": "Similar all-state first-entry distribution on a ring"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finite census, phase fibers and dyadic limit",
+        "General disjunctive periodic-point and circular-run comparisons"
+      ],
+      "rationale": "For the natural synchronous disjunctive system the result measures more than a known periodic skeleton: one gcd controls the full labelled entry distribution, phase weights, and the separation between sharp worst-case and stochastic clocks. Changing the second jump while keeping n fixed can change the entire distribution. The network-specific link to an exact run statistic makes the basin and transient law useful as benchmarks for disjunctive systems, even though the run formulas themselves are classical.",
+      "residual_risks": [
+        "The complete result treats two incoming OR offsets, not arbitrary circulant dependency sets or heterogeneous updates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

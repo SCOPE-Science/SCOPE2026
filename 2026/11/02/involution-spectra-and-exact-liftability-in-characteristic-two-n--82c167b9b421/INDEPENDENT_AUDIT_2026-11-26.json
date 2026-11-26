@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:45:25.683460Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–94",
+        "VERIFICATION.md lines 19–25; nottingham_checker.py lines 7–74 and nottingham_verification.txt (read only)",
+        "Independent finite check: enumerate coefficient tuples using polynomial-basis fields with moduli z+1, z²+z+1, z³+z+1 respectively; compute the square by truncated Horner substitution first to precision N then for odd depths to N+d; compare integer histograms"
+      ],
+      "rationale": "Work under substitution over characteristic two. At depth d the first possible square-difference term is (d+1)a² t^(2d+1), giving exactly the even-depth obstruction and the high-depth automatic finite involutions. If the square is nontrivial with depth r, comparing f∘f² and f²∘f in degree d+r+1 shows (r-d)ab=0 for their nonzero leading coefficients a,b. Thus at odd d any first square defect has even degree. For each even n≥2d+2 the outer term indexed n-d contributes a a_(n-d); the contribution linear in that coefficient from the inner argument and leading outer term has factor d+1=0, and two insertions involving it would have degree >n. This gives one triangular condition per even degree and no other independent conditions. Changing coefficients at degrees ≥N cannot affect the square below N+d, and thereafter this same recursion imposes all even conditions and, by parity, the entire infinite involution equation. The identity jet has an infinite lift, including at arbitrarily large odd depths by the recursion. For the total finite count let h=floor(N/2), m=floor((N-1)/2). Depths d≥h plus the identity contribute q^(N-h-1); the floor(h/2) odd depths below h contribute (q-1)q^(N-2-m) each. These give all four totals, and the odd lifting exponents descend through consecutive values ending at zero. An independent truncated-Horner exact enumeration matched both depth histograms for F2 at N=3–11, F4 at N=3–7 and F8 at N=3–6. It checks the finite lifting criterion, not infinite existence; the latter is supplied by the recursion.",
+      "residual_risks": [
+        "The exact iff test holds, but 'sharp' should not be read as minimal precision in every stratum: for odd N and odd d, modulus t^(N+d-1) is equivalent by parity, and some strata need no strengthened test. For F2, N=6 and d=3, t+t⁴+t⁵ has first square defect in degree 8, so modulus t^9 really is needed there."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pálfy counts conjugacy classes in bounded natural prime-field quotients and gives the leading commutator method. Lubin's review of order-two torsion gives odd genuine depth and q-1 infinite conjugacy classes at each such depth. Hegedűs full text was not recovered."
+        ],
+        "reasoning": "The number of conjugacy classes does not give the cardinalities of their reductions or the extra finite-only torsion. To obtain those counts from orbit methods one would need the images of stabilizers at every level, not just the infinite class representatives.",
+        "searches": [
+          "Pálfy DOI 10.1017/S0013091500019714, pp. 371–372 and 380",
+          "Lubin DOI 10.1112/blms/bdq120, manuscript pp. 1–3",
+          "Hegedűs DOI 10.1006/jabr.2001.8948 and identified lawful-copy search"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary c2ffbfc6824a and e2982e387cf3",
+        "Pálfy DOI 10.1017/S0013091500019714",
+        "Lubin DOI 10.1112/blms/bdq120 and author manuscript",
+        "Hegedűs DOI 10.1006/jabr.2001.8948, documented lawful access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parity used in the square recursion follows from the known commutator identity, but independent triangular equations at every even degree and their invariance below N+d are needed to recover the formal-reduction test. Finite involutivity at length N, even with depth specified, can differ: the F2 example at N=6,d=3 is involutive but not liftable."
+        ],
+        "reasoning": "The inspected finite-only count and the depth-one criterion do not together give higher-depth membership. Both nearby indexed records postdate the frozen record; scope, not dates alone, distinguishes the all-depth lifting contribution.",
+        "searches": [
+          "Compare Lubin's genuine torsion statement and Pálfy's commutator and class-count passages with RESULT.md Steps 1–5",
+          "Compare RESULT.md N+d criterion with Resultary c2ffbfc6824a and e2982e387cf3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In c2ffbfc6824a, m=N and r=d; the odd finite exponent min(floor((m-2)/2),m-r-2) is algebraically identical, and even depths have the same cutoff. In e2982e387cf3 the level is N-1 and its depth-one liftable and finite counts match that stratum."
+        ],
+        "reasoning": "Reindexing identifies the finite-only census exactly and the depth-one specialization exactly, but neither reindexing nor infinite conjugacy classes identifies all liftable jet fibers and their membership test.",
+        "searches": [
+          "Resultary query for finite Nottingham involutions and exact liftability: c2ffbfc6824a and e2982e387cf3",
+          "Lubin, Torsion in the Nottingham group, pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-22 entry gives the all-q all-depth finite order-dividing-two count and total, exactly matching the I quantities. The 2026-11-08 depth-one entry gives finite and liftable counts in that stratum and includes reduced-variety information. Neither inspected record tabulates the full L spectrum."
+        ],
+        "reasoning": "Exact finite-spectrum coverage and exact depth-one overlap are credited, while an all-depth formal-reduction count cannot be recovered from a single stratum table.",
+        "searches": [
+          "Published Resultary c2ffbfc6824a, Finding and totals at offsets 0 and 3928",
+          "Published Resultary e2982e387cf3, depth-one Finding"
+        ]
+      },
+      "rationale": "Verified coverage is recorded for the finite-only spectrum and total in the later indexed all-depth census and for depth-one lifting in the later specialized record. The supported distinct claim is the full depth-by-depth finite/formal comparison, with the all-odd-depth finite-precision test, lifting fibers and resulting total and ratio. Known genuine-torsion conjugacy and bounded prime-field class counts are prior ingredients but do not give this comparison in the inspected passages. The overlap with later dated records is not evidence of priority in either direction beyond the stated scope comparisons.",
+      "residual_risks": [
+        "Hegedűs full text remains inaccessible, and possible bounded-level overlap with Szechtman's work mentioned in c2ffbfc6824a was not resolved. The bounded source comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact I-spectrum overlap, not L-spectrum; later dated",
+          "evidence": "Identical finite odd exponents, even thresholds and parity-grouped totals after m=N, r=d.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-an-all-depth-involution-census-for-characteristic-two-truncated--c2ffbfc6824a",
+          "material_read": "Mirrored RESULT.md offsets 0 and 3928",
+          "method": "Local Resultary index and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An all-depth involution census for characteristic-two truncated Nottingham groups",
+          "trigger": "Exact overlap under the same depth and truncation"
+        },
+        {
+          "assessment": "Exact restricted overlap at depth one, later dated",
+          "evidence": "The level parameter is N-1 and yields the submitted I and L fibers for d=1, not for all odd d.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-obstructed-lifting-of-depth-one-involutions-in-truncated--e2982e387cf3",
+          "material_read": "Mirrored depth-one Finding and level convention",
+          "method": "Local Resultary index and mirror",
+          "title": "Parity-obstructed lifting of depth-one involutions in truncated Nottingham groups",
+          "trigger": "Same finite-versus-liftable distinction"
+        },
+        {
+          "assessment": "Prior structural ingredient, not the submitted element counts in those passages",
+          "evidence": "Bounded prime-field class counts, centralizers and leading commutator comparison.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091500019714",
+          "material_read": "Cambridge PDF pp. 371–372 and 380, offsets around 7790 and 31520",
+          "method": "OA PDF passages",
+          "title": "The number of conjugacy classes in some quotients of the Nottingham group",
+          "trigger": "Finite natural quotients and leading commutator"
+        },
+        {
+          "assessment": "Prior genuine torsion classification, not truncated shadow counts in inspected passages",
+          "evidence": "Order-two torsion has odd depth with q-1 genuine conjugacy classes at each odd depth.",
+          "identifier_or_url": "https://www.math.brown.edu/~lubinj/TorsInNott.pdf",
+          "material_read": "Author manuscript pp. 1–3, offsets around 1454 and 6201",
+          "method": "OA author manuscript",
+          "title": "Torsion in the Nottingham group",
+          "trigger": "Genuine involutions and their conjugacy classes"
+        },
+        {
+          "assessment": "Unresolved access risk, no inference of noncoverage",
+          "evidence": "The source studies the same characteristic-two group; extent of finite-level torsion overlap unverified.",
+          "identifier_or_url": "https://doi.org/10.1006/jabr.2001.8948",
+          "material_read": "Citation and accessible bibliographic material only; no original theorem passage recovered",
+          "method": "DOI/publisher route and targeted lawful-copy query; article route denied access",
+          "title": "The Nottingham Group for p = 2",
+          "trigger": "Plausible earlier characteristic-two structural analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–46 and 77–94",
+        "Resultary c2ffbfc6824a and e2982e387cf3",
+        "Lubin manuscript pp. 1–3"
+      ],
+      "rationale": "The all-depth comparison answers a natural finite-quotient question that conjugacy of genuine torsion does not settle: which finite solutions are actual truncations, how many exist, and how far above the given precision one must test the square to tell. The exact criterion and quantified O(1/N) scarcity (indeed Theta(1/N)) are useful across all truncation levels and even field sizes. The rationale does not treat the later matched finite census on its own as a new contribution.",
+      "residual_risks": [
+        "This is a result for one involution and characteristic two; it does not classify commuting tuples or finite quotient conjugacy classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:16:51.578771Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–88",
+        "Frozen VERIFICATION.md and checker.py (read, not executed)",
+        "Independent replay: python3 /workspace/branches/82c18e0a-8272-4af7-b167-34628e69e14e/independent_check.py; output independent_check_4x4.txt"
+      ],
+      "rationale": "In a nonempty configuration the integer product is positive somewhere, and every positive normalized value is at least 1/(9HW), strictly beyond the closed selection window. Thus the first image is the union of the full rows and full columns selected by the respective zero masks. Two nonempty masks give a full row and column, so every blurred count is positive in the image and the second image is empty. One nonempty mask gives a stripe with positive occupancy across all orthogonal coordinates. The induced stripe NOR map T obeys T²=ED and T³=T by the erosion–dilation adjunction. If a nonempty stripe maps to empty, the original map's absorbing convention takes over; otherwise its next stripe is on a 2-cycle. The singleton initial state has both masks nonempty for H,W>=4, and reaches the empty fixed point only on the second update. The nonconstant T²-fixed cyclic words are exactly those with no zero-run of length 1 or 2; every longer gap is preserved by ED. Such words have T(A) nonempty and disjoint from A. The stated transfer matrix counts labelled cyclic words uniquely, including both constant words, and has characteristic polynomial (lambda²-lambda-1)(lambda²-lambda+1). Subtracting the constants gives C_n. The two stripe orientations share no nonempty recurrent state, and each primitive orbit accounts for exactly two states. Independent 4x4 and lengths 4–13 enumeration corroborated the argument.",
+      "residual_risks": [
+        "The frozen 4x5 run is reported evidence only; the independent replay is 4x4 and the small cyclic stripe masks. The all-size and all-epsilon conclusions rest on the proof, not the enumeration.",
+        "The bound on epsilon is sufficient, not claimed largest. The all-dead convention is essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Shi–Huang primary work defines the same global normalized field; its outcome classes and transient limits are based on finite simulations. The discussion mentions stripe concentration effects, not a zero-edge all-state classification.",
+          "The earlier stripe sector treats different thresholds with Rules 54 and 18 and extinction, not Rule 1 at the exact zero-field edge."
+        ],
+        "reasoning": "Neither numerical regime classification nor an invariant stripe sector at different thresholds implies that every arbitrary two-dimensional input is recurrent after at most two updates in the zero-field regime.",
+        "searches": [
+          "Shi–Huang arXiv:2606.08983, zero and stripe-like configurations; §§2.1, 2.3 and discussion",
+          "Resultary SCOPE-an-irreversible-rule-54-rule-18-phase-filtration-in-a-normalized--ac12be561c8d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 90–106",
+        "Shi–Huang arXiv PDF",
+        "Resultary near-max and Rule-54/18 records",
+        "Wolfram Atlas Rule 1 and focused rule/attractor search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Near-max yields one-update rectangles with a quadratic settling bound. The earlier stripe record starts in a restricted sector and can realize period 169. The primary numerical paper explicitly distinguishes observed long transients from proved period claims."
+        ],
+        "reasoning": "The shared normalizing denominator and generic eventual periodicity do not imply the union/stripe dichotomy that determines the two-update bound and reduces the full census to two disjoint one-dimensional systems. No novelty is assigned to morphological adjunction or Rule 1 by itself.",
+        "searches": [
+          "Resultary near-max cutoff Finding and proof, offsets 0, 4207, 7127",
+          "Resultary Rules 54/18 stripe filtration Finding/proof, offsets 0 and 3920",
+          "Shi–Huang finite observation protocol and p. 12 discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wolfram Atlas Rule 1 lists the elementary rule and finite-size state-transition/cycle material. The stripe map in the frozen work is precisely this NOR rule on nonempty masks, with an absorbing-empty override in the full system.",
+          "The November 8 near-max comparison acts on rectangles, not zero-field stripe unions. Complementing occupancies makes R=0 and C=0 saturate their respective complemented profiles, but the resulting product-max locus (where both saturate) is the intersection of the two masks, whereas the zero-field locus is their union."
+        ],
+        "reasoning": "Transpose exchanges the stripe orientations, but neither transpose nor the evident complement substitution makes the near-one result an equivalent zero-edge theorem. One-dimensional NOR alone does not address states outside the stripe sector or the override of its constant-state cycle.",
+        "searches": [
+          "elementary cellular automaton Wolfram rule 1 periodic boundary cyclic ring exact attractor count Lucas numbers nor periodic states rule 1 cycles",
+          "Resultary normalized separable field automaton stripe sector and threshold-edge periodic states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Rule 1 index contains finite-size material; the index read does not establish priority for a general exact cyclic-word formula. The closest distinct same-system catalogue entries are cc868950d182 (near-max) and ac12be561c8d (Rules 54/18), with different selections."
+        ],
+        "reasoning": "One-dimensional finite basin data may duplicate small-stripe counts and are not credited as new. The audited invariant is an all-H,W orbit formula for the original map, not another small-board count.",
+        "searches": [
+          "Wolfram Atlas Rule 1 finite-size properties and cycle-length listing",
+          "Local Resultary zero-edge Lucas census, near-max cutoff, and normalized stripe-sector results"
+        ]
+      },
+      "rationale": "Radius-one NOR (elementary cellular automaton Rule 1), closing idempotence, and transfer matrices are existing machinery. Even a prior solution of the NOR stripe sector would not supply the all-state reduction in the normalized two-dimensional model. The inspected same-model work treats numerical regimes or different threshold sectors; it does not account for the zero-edge two-update sharp bound and all-torus recurrent census obtained from both zero masks and the absorbing empty convention.",
+      "residual_risks": [
+        "This is a bounded priority assessment, not exclusion of a matching exact Lucas expression for standalone Rule 1 or an uninspected equivalent theorem. The scoped originality judgment is for the full normalized 2D reduction and census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same update, distinct numerical rather than zero-edge structural result in inspected passages",
+          "evidence": [
+            "Periodic three-neighbor blurs, product normalization and empty-state convention; finite observation windows and discussion of stripe concentration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.08983",
+          "material_read": "Abstract; §2.1 n and q definitions; §2.3 finite scan protocol; discussion p. 12 at offset 52842",
+          "method": "OA PDF bounded passages",
+          "title": "Dynamics in a Low-Rank Separable Field Cellular Automaton",
+          "trigger": "Primary same-model paper"
+        },
+        {
+          "assessment": "Opposite threshold and image structure",
+          "evidence": [
+            "Near-one selection, one-step rectangle compression and a quadratic settling bound."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-near-max-selection-window-and-a-global-two-cycle-cutoff--cc868950d182",
+          "material_read": "Finding and quantitative rectangle-map passages at offsets 0, 4207, 7127",
+          "method": "Local Resultary mirror",
+          "title": "A sharp near-max selection window and a global two-cycle cutoff for a separable-field automaton",
+          "trigger": "Closest previous exact theorem about the same automaton"
+        },
+        {
+          "assessment": "Related one-dimensional reduction for different intervals and starting states",
+          "evidence": [
+            "Rules 54 and 18 with possible extinction; restricted invariant stripe model."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-an-irreversible-rule-54-rule-18-phase-filtration-in-a-normalized--ac12be561c8d",
+          "material_read": "Finding and stripe-sector proof at offsets 0 and 3920",
+          "method": "Local Resultary mirror",
+          "title": "An irreversible Rule 54–Rule 18 phase filtration in a normalized field automaton",
+          "trigger": "Prior stripe formulation of the same field"
+        },
+        {
+          "assessment": "Existing 1D rule and finite-size atlas; not an all-torus 2D census",
+          "evidence": [
+            "Explicit Rule 1 index with state-transition diagram and cycle-length resources."
+          ],
+          "identifier_or_url": "https://atlas.wolfram.com/01/01/1/",
+          "material_read": "Rule index and its finite-size state transition and cycle-length entries (offset 0)",
+          "method": "OA public-page text",
+          "title": "Wolfram Atlas: Rule 1",
+          "trigger": "Equivalent one-dimensional NOR rule and possible prior exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–19, 37–84 and 90–98",
+        "Shi–Huang model and finite-scan discussion"
+      ],
+      "rationale": "For a natural extreme of the originally numerical model, the result classifies every attractor, gives the exact orbit count without an exponential global-state search, and establishes a sharp transient bound valid across a nonzero parameter interval. It distinguishes mixed-mask extinction from genuine persistent stripe oscillations.",
+      "residual_risks": [
+        "The result does not resolve basin sizes, larger thresholds or unequal birth and survival windows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

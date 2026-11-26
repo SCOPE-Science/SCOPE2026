@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:23:54.490137Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen verify.py (inspected for the collapse families; not executed)",
+        "Independent /workspace/reproduction/cycle_check.py and cycle_check.log",
+        "5e7bfbfa5a7e and a2339801b688, intact Findings"
+      ],
+      "rationale": "Independent reproduction: /workspace/reproduction/cycle_check.py and cycle_check.log (Python 3, SymPy) use normalized integer-offset faces, exact relative Smith forms, and simultaneous rounds of disjoint elementary pairs free at the start of each round. Faces of size at least two have a unique lifted arc of span ≤6 for n≥13, because the complementary gap is >6; orient by increasing order in that arc. For d=1,2,3 the ranks of relative boundaries ∂1 through ∂5 are (0,0,8,8,2), (0,0,6,8,2), (0,2,8,8,2) and all nonzero Smith factors are 1. Any removed face was witnessed at 0 or d, hence fits in [−3,d+3]; any competing witness and its offsets are determined locally, with no unintended wrap at n≥25. The exact anchored relative pair is then independent of n; all 13≤n≤24 are checked directly. For the collapse, the state at anchor x after one simultaneous round depends only on anchors within distance 6 of x: if x anchors the upper member, the lower anchor a is in [x,x+6], and all its immediate cofaces have anchors in [a−6,a]; if x anchors the lower member the same bound holds. This also follows by lifting an immediate coface through a witness adjacent to the lower anchor. Thus the difference from the intact schedule after ten rounds is contained in [−63,d+63], and the stated corrections are local there. At n≥200 the entire defect and interface agree with the n=200 check, and outside [−70,70] only the unmodified five periodic templates remain. The exterior anchor interval [71,n−71] has connected dual graph: the 0_i,1_i backbone is connected throughout; 4_i attaches at i, 2_i attaches forward to 0_(i+2) or backward via 3_(i−2) and 1_(i−3), and 3_i attaches to 1_(i−1) or, at the left endpoint, via 2_i. Contract this exterior to one vertex. All incident edges and boundary triangles are determined within a bounded collar of the two ends (shared triangles require anchors within six), so this contracted defect graph is independent of n. The check at 200 proves the uniform exposed-boundary condition; orders 13–199 were checked directly. Boundary-rooted dual spanning forests give a unit triangular maximal minor of ∂3, so H3=H^3=0 for the faulted complex. The cited intact parity groups agree with an independent check: straightening each edge of length k≥2 across the triangle (i,i+1,i+k) reduces H1 to the unit cycle; winding shows it has infinite order. In the intact tetrahedral complex the signed dual graph is connected, closed, and has consistent top-chain coefficients [1,−1,1,1,1] times (−1)^i on the infinite templates (checked modulo 200, which contains every signed local adjacency); the 0_i,1_i backbone forces alternating signs, hence obstruction in odd period. Thus H3 and H^3 are respectively Z,Z for even n and 0,Z/2 for odd n. Euler characteristic zero by translation orbits and universal coefficients give the intact H2 groups. The pair LES now gives H1 isomorphism, H2 of rank two and the primitive-even/index-two-odd comparisons, using H^3(Y)=0 to exclude torsion and dimension three after collapse to exclude higher homology. H0 follows from the same LES and connectedness of the intact complex.",
+      "residual_risks": [
+        "Does not determine a homotopy wedge or simultaneous fault behavior; no assertion for n<13."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stable powers k≥2 and n≥4k+1 are covered by the mapping-torus theorem, but only when intact.",
+          "The all-p flag theorem is not a neighborhood-complex theorem; Shukla's circulant family is four-regular."
+        ],
+        "reasoning": "The broader ambient parameter ranges do not include the required combination of neighborhood complex and single fault in C_n^3.",
+        "searches": [
+          "a2339801b688 Finding",
+          "arXiv:1802.04526 Theorems 2.1–2.6",
+          "9d144ad1399f Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1802.04526",
+        "5e7bfbfa5a7e",
+        "a2339801b688",
+        "beddc9ace2db",
+        "9d144ad1399f",
+        "e29042131dc4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact collapse supplies useful tetrahedra but does not ensure survivors' exposed faces, integral torsion loss or the behavior of the inclusion.",
+          "The squared-cycle outcome is a graph-like wedge, not the degree-two homology conclusion for the cube."
+        ],
+        "reasoning": "The distinct content is the post-fault relative rank and integral boundary analysis uniform across all three edge orbits; the intact theorem is credited as an input.",
+        "searches": [
+          "5e7bfbfa5a7e intact collapse and parity theorem",
+          "a2339801b688 mapping-torus Finding",
+          "beddc9ace2db faulted square Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9d144ad1399f addresses clique/flag complexes; beddc9ace2db addresses open neighborhoods but only the square."
+        ],
+        "reasoning": "The two potentially equivalent-looking edge perturbation formulations change the simplicial functor or the underlying graph family; neither is this chain pair.",
+        "searches": [
+          "Resultary search for single edge fault, cyclic distance, C_n^3/open neighborhood complex, inclusion, integral relative homology and torsion",
+          "9d144ad1399f",
+          "beddc9ace2db"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact-family records give intact homotopy or rational symmetry; the matched exact single-fault record instead treats C_n^2."
+        ],
+        "reasoning": "The inspected result records are not a table of the relative or faulted groups claimed here; no identical prior result was found.",
+        "searches": [
+          "Resultary catalog under intact and faulted third-power cycle neighborhood complexes",
+          "5e7bfbfa5a7e",
+          "e29042131dc4",
+          "beddc9ace2db"
+        ]
+      },
+      "rationale": "The intact parity theorem and its broader stable-cycle-power extension are prior, not novel. The all-distance single fault integral and relative result for the open third-power neighborhood complex is distinct from the materially close intact, squared-cycle and flag-complex statements inspected.",
+      "residual_risks": [
+        "Published and indexed comparisons are not exhaustive; no priority is inferred between same-day related records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact baseline, not faulted",
+          "evidence": "Intact 10n-collapse to a closed sphere bundle, for n≥13.",
+          "identifier_or_url": "2026/10/11/SCOPE-third-power-cycle-neighborhood-complexes-collapse-to-parity-twis--5e7bfbfa5a7e",
+          "material_read": "Finding and relationship/limitations, offsets 0 and 5831",
+          "method": "Local published-record mirror",
+          "title": "Third-power cycle neighborhood complexes collapse to parity-twisted sphere bundles",
+          "trigger": "Identical intact family and collapse"
+        },
+        {
+          "assessment": "Subsumes intact homotopy, not the pair",
+          "evidence": "Mapping torus of degree (−1)^(kn) for intact stable C_n^k.",
+          "identifier_or_url": "2026/10/25/SCOPE-sphere-mapping-tori-in-neighborhood-complexes-of-every-stable-cy--a2339801b688",
+          "material_read": "Finding and relationship, offsets 0 and 5737",
+          "method": "Local published-record mirror",
+          "title": "Sphere mapping-tori in neighborhood complexes of every stable cycle power",
+          "trigger": "Broader stable powers"
+        },
+        {
+          "assessment": "Degree/family does not cover",
+          "evidence": "Classifies max-degree-three graphs and 4-regular circulants; the faulted graph still has degree-six vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.04526",
+          "material_read": "PDF pp. 1–3, abstract, introduction, Theorems 2.1–2.6",
+          "method": "OA primary PDF",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Prior primary circulant classification"
+        },
+        {
+          "assessment": "Squared cycles only",
+          "evidence": "C_n^2, n≥9, has two distance orbits and each yields a three-circle wedge.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-edge-punctures-the-squared-cycle-neighborhood-torus-twi--beddc9ace2db",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A single edge punctures the squared-cycle neighborhood torus twice",
+          "trigger": "Same operation and neighborhood functor"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": "For the flag complexes with p≥3 and n≥4p+2, edge deletion induces a simple-homotopy equivalence.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-edge-fault-simple-homotopy-threshold-in-sparse-cyclic-fl--9d144ad1399f",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp edge-fault simple-homotopy threshold in sparse cyclic flag complexes",
+          "trigger": "Same third-power fault in a general family"
+        },
+        {
+          "assessment": "Intact equivariant calculation",
+          "evidence": "Rational dihedral action and quotient homology, not integral relative homology after edge deletion.",
+          "identifier_or_url": "2026/11/1/SCOPE-dihedral-rational-homology-of-third-power-cycle-neighborhood-com--e29042131dc4",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Dihedral rational homology of third-power cycle neighborhood complexes",
+          "trigger": "Same complex and homology terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Intact sphere-bundle and squared-cycle comparisons",
+        "Independent relative Smith and defect dual-graph checks"
+      ],
+      "rationale": "A natural single-edge perturbation in a canonical cyclic family erases both an even-order fundamental class and the odd-order 2-torsion. The two-generator relative response and primitive/index-two distinction answer stronger questions than parity-independent Betti numbers alone, uniformly for every edge rather than selected examples.",
+      "residual_risks": [
+        "No homotopy-type claim for the faulted complex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

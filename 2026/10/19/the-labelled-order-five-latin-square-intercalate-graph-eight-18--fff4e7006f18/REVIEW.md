@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Independent Python and C++17 enumerations use reduced-square and first-row-fixed expansions, generate the full \(161{,}280\)-square population, reconstruct the same switch edges and component labels, and agree byte-for-byte on the \(4{,}193{,}280\)-byte certificate. The separate orbit-and-distance checker independently verifies transitivity on the mobile isotopy class, exhaustively traverses every mobile component and obtains the same distance distribution. The finite domain, switch quantifier, component endpoints and parity definitions are fixed explicitly in `RESULT.md`.
+## correctness
 
-**Originality: PASS, qualified by accessible evidence.** The 2004 cycle-switch primary study explicitly concerns isotopy/main-class quotient graphs, not an explicitly established complete labelled 161,280-state component and diameter table in its accessible abstract. The accessible full text of the Latin-square counting paper concerns enumeration rather than move connectivity, while the accessible description of the 2006/2007 small-square classification concerns isotopy counts. Targeted keyword, paraphrase, parameter, quotient and related-table searches found no stronger result implying the complete labelled theorem. The directly relevant 2004 full text was unavailable, and that limitation is a genuine residual priority risk, not evidence of noncoverage.
+PASS
 
-**Value: PASS.** A single two-by-two trade is the natural smallest Latin-square-preserving local move. Order five has simultaneously frozen and mobile configurations, so the first nontrivial odd-order reachability geometry is a motivated invariant. The exact eightfold component splitting, parity refinement, vertex transitivity and sharp diameter provide structural information not implied by class counts or total enumeration alone.
+Independently enumerated the 56 reduced squares by cell-level row/column bitmasks. Each labelled square has a unique normalization (symbol-normalize row zero and sort the remaining rows by column zero), so expansion by 24 row orders and 120 symbol bijections is exhaustive and injective. Intercalates are exactly the 2-cycles of the relative symbol permutation for a pair of rows. Using this switch generator, BFS found 17,280 isolated squares and eight 18,000-square components, each of degree four, giving 288,000 edges. The parity triple is invariant because each move transposes two permutations in each coordinate's collection; direct counting gives 4,320 isolates and two mobile components in each of the four listed parity classes. Normalizing all choices of first row and column permutation from one representative of each type gives exactly the 6 and 50 reduced-square orbits. Isotopy acts by graph automorphisms and is transitive on all mobile states, hence the stabilizer of each component is transitive within it. Independent BFS from one root per component gives the claimed 14 coefficients with final nonempty shell 13, establishing both radius and diameter for each such component. Independently reconstructed every certificate byte and matched the frozen SHA-256 ce71d8163426d2c0d139614f33225224948d267553e76aa2ff6cda7bc5c556f6.
 
-This classification is confined to one finite order and one prescribed local operation. It makes no general infinite-order claim or independent-certification claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known square and isotopy counts, parity invariance and parity constraint, and the known four intercalates on the non-group type. The inspected primary switching paper addresses the quotient and does not give the labelled reachability census or sharp metric profile. Two distinct catalogued records reproduce core numerics, but their recorded dates are later; these are genuine equivalences or reuse, not demonstrated earlier coverage. Pass the labelled component structure and distances, not the precursor results.
+
+## value
+
+PASS
+
+This is the first order singled out in the classical switching study where a class can self-switch by an intercalate but the order-five quotient on distinct classes is edgeless. The labelled problem is therefore substantive: even with a single mobile isotopy orbit, the moves split every allowed parity into two distinct mobile components, and the sharp worst-case switch count between reachable mobile states is 13. These are useful reference data for testing proposed reachability invariants and comparing enlarged move sets; the later chamber study uses the intercalate-only census as just such a baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

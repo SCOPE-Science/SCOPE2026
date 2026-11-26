@@ -1,19 +1,21 @@
-# Review of the crown-graph total Roman \(\{2\}\) enumerator
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof starts from the original open-neighborhood defense and total-positive-neighbor requirements. The missing matching forces at least two positive labels on each side. Once this is established, each side falls into one of exactly three support regimes: robust, two unit labels, or one double and one unit label. The two forced-positive generating functions subtract all and only the exceptional regimes. The six resulting pairings are disjoint and exhaustive; their counts yield the asserted polynomial. Evaluation at \(z=1\), the first two nonzero coefficients, and the exponentially small rejection fraction are algebraic consequences. An adjacency-based verifier, independent of the classification, checked all \(597{,}780\) ternary assignments for \(n=3,4,5,6\) and the complete polynomial coefficients. The finite checks corroborate but do not replace the arbitrary-\(n\) proof.
+PASS
 
-## Originality
+At the paired opposite vertex a singleton positive support supplies neither a positive neighbor nor any defensive weight. Thus both side supports have at least two positives, which also suffices for totality. Defense at a zero a_i uses exactly W_B-B_i. The only nonautomatic cases with this support size are two ones (force both paired opposite positions positive) and an ordered 2,1 pair (force only the position paired with the 2). Subtracting these cases and the support sizes 0,1 from the unrestricted product gives R; fixing one or two positive coordinates gives the stated F1 and F2 after the same exclusions. Combining side types gives R squared and the two mixed robust terms, with both orientations; two weight-2 sides must have identical support, a weight-2 and weight-3 side must also have identical support, and for two weight-3 sides the second ordered pair either has the same 2-index and arbitrary different 1-index or reverses the first pair. These give exactly the three low-regime coefficients. In degree 5 the extra robust mixed term is n(n-1)(n-2), adding to 2n(n-1); in degree 4 only matching two-one supports contribute. Substituting z=1 yields the stated total and dividing by 9^n gives the quoted asymptotic. Boundary n=3 is included. `python3 /workspace/reviews/replay_finite.py 4` independently exhausts labeled pairs via the original neighborhood tests for n=3–7 and agrees in every coefficient (totals 328, 4422, 48974, 488266, 4609770). The frozen verification code and recorded output were inspected, not executed.
 
-**PASS, subject to residual priority risk.** The first public source (Cabrera García et al., online 28 November 2019, DOI 10.2989/16073606.2019.1695230; manuscript arXiv:2101.02537) develops general numerical bounds and graph-class results for the parameter, not the complete crown-graph weight distribution. A related paper by Abdollahzadeh Ahangar et al. (DOI 10.7151/dmgt.2316) and indexed literature on Cartesian graph products were compared. A published complete-multipartite all-weight enumerator cannot be specialized to a crown graph because deleting a perfect matching changes local defense and support constraints; perfect Roman crown-graph results use a different condition. Published mathematical record searches for crown, \(K_{n,n}-M\), bipartite double-cover, Italian, and total Roman \(\{2\}\) formulations returned no covering statement. These negative searches do not establish universal uniqueness: equivalent unindexed publications and full texts unavailable during this examination remain risks. In particular, neither the previously known general domination bounds nor their implied scalar minima are advertised as new.
+## originality
 
-## Value
+PASS
 
-**PASS.** Total Roman \(\{2\}\) domination is studied for its minimum weight, but the complete weight profile contains the number of solutions at every budget and distinguishes the two kinds of low-weight local obstructions caused by a deleted matching. The formula is a fixed-length expression of elementary polynomials for an infinite, vertex-transitive bipartite family. It gives exact minimum and next-minimum multiplicities and an explicit total count with exponential asymptotics; those facts are not implied by a bare domination-number bound. The special value at \(n=3\) coincides with an ordinary cycle, but the proof handles every \(n\ge3\).
+Pass applies to the full enumerator and additional counts, not to the already stated minimum 4 or its full minimum-function classification and binomial multiplicity. The closest exact prior catalogue finding covers these minimum claims only. Other full-polynomial hits either count the same constraint on a different graph or impose a different zero constraint on the crown. No inspected finding or primary result covers the full target polynomial.
 
-## Closest sources and limitations
+## value
 
-The principal comparison is the 2019 *Quaestiones Mathematicae* article and its freely available 2021 manuscript. General results on \(\gamma_{t\{R2\}}\) and its relationship to double domination can explain numerical lower bounds but not the displayed all-weight enumeration. The complete-multipartite published record is not a supergraph-enumerator transfer theorem. The theorem does not cover the disconnected crown graph at \(n=2\), other Roman parameters, or automorphism-orbit counts. The indexed abstract of Q. Chen's 2024 Cartesian-product study and part of a 2024 survey were accessible, but their full text was not; this limits any claim about their contents. Independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full weight law on a natural deleted-matching graph is informative beyond the already known minimum and its minimizers: it identifies how missing matched neighbors couple opposite label supports, gives exact next-weight multiplicities and quantifies the exponentially rare excluded assignments. It can serve as an exact comparison with the complete bipartite and neighboring-2 variants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

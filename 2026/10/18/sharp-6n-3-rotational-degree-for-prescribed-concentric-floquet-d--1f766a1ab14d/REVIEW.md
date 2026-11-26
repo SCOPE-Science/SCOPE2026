@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In radial variable \(s=x^2+y^2\), the ODE reduces to \(\dot s=2sQ(s)\) and \(\dot\theta=\Omega(s)\). For an isolated positive root \(s_i\) the transverse return multiplier is exactly \(\exp(2s_iT_iQ'(s_i))\). Positivity of the sum-of-squares interpolation prevents extraneous roots, and its degree gives the upper bound. The lower bound uses a finite-dimensional compactness dichotomy and the even multiplicity of interior zeros of nonnegative polynomials. The exact polynomial script verifies representative algebra without substituting finite tests for the proof. Limitations: this is the rotational class and no global completeness is claimed.
+## correctness
 
-## Originality
-**PASS, provisional to historical priority.** The closest full inspected source is Margalef-Bentabol–Peralta-Salas (arXiv:1507.00698), whose Theorems 1.2, 4.2 and 5.2 prescribe periods, multiplicities, and qualitative stability signs, not quantitative Floquet multipliers or an optimal rotational polynomial degree. Search comparisons against the source, other polynomial realization titles, and indexed related dynamical findings found no stronger theorem covering both the construction and the sharp degree. Interpolation and radial Floquet differentiation are standard ingredients; novelty attaches to the exact inverse-data theorem and minimax sharpness in a restricted dynamical class. Unindexed related realization or positive interpolation arguments remain a priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The deterministic inverse realization question naturally asks what polynomial complexity is needed when quantitative linear stability data, not merely attraction/repulsion signs, are prescribed. The theorem supplies a complete compatibility condition and a sharp uniform degree cost, separating feasible exact period-and-multiplier data from impossible stability patterns without unwanted circles. The optimality mechanism is robust for arbitrary fixed radii and periods and applies to all cycle counts. It does not purport to sharpen general Hilbert-sixteenth-problem bounds or solve arbitrary-geometry realization.
+With s=r², uniqueness for the scalar radial ODE makes every periodic trajectory constant in s; positive angular speed makes every positive root of Q into a circle with physical period 2π/Ω(s_i). In angular time, differentiate ds/dθ=2sQ(s)/Ω(s) at the root and evolve for angle 2π. This gives log μ_i=2s_iT_iQ′(s_i), so hyperbolicity is simple-root multiplicity and the exact absence of extra circles forces Q/A to have one constant nonzero sign on (0,∞). For the converse, squared Lagrange cardinal functions interpolate both the positive signed radial quotient values and the positive angular speeds; their common zero set is empty since the original cardinal functions sum to 1. This proves strict positivity, node values and the upper degrees max(deg Q, deg Ω)≤3N−2. For any fixed radii and periods, choose signed quotient values (1,ε,…,ε). If there were qualifying degree ≤2N−3 positive quotients for arbitrarily small ε, bounded coefficient sequences would have a nonnegative limit with N−1 double interior zeros and value 1 at the first node. Unbounded sequences have a nonzero limit after coefficient normalization, with N double interior zeros, since all original node values remain bounded. Both cases contradict the degree cap. There is no cancellation of radial and angular leading terms (restrict to y=0, where they are separate Cartesian components), so degree is precisely 2 max(deg Q,deg Ω)+1. N=1 requires a nonconstant Q and permits degree 3 for every admissible datum. The two-circle witness independently gives the root 13/3 of the unique affine radial quotient and multiplier exponents −12π and 24π/5. The all-N proof is analytic; the frozen rational checker was inspected, not executed. No claim holds here about unrestricted planar fields or forward completeness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the complete exact compatibility condition and sharp 6N−3 worst-case degree for arbitrary N in the stated rotational class, uniformly for every fixed choice of radii and periods. General polynomial realization of periods and qualitative stabilities is established prior work. One distinct Resultary entry fully covers and refines the N=2 slice, but does not establish the all-N minimum worst-case degree. No covering general statement was identified in the inspected evidence.
+
+## value
+
+PASS
+
+Periods and multipliers are natural independent invariant data of a hyperbolic cycle; the theorem specifies exactly which lists can coexist without spurious invariant circles. Quantitative stability and the sharp degree price at every fixed geometry and period list are substantive, even though the rotational restriction is essential and small N has finer individual degree information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

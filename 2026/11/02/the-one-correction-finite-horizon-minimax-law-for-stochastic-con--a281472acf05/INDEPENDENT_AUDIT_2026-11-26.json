@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:21:42.314636Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the frozen proof the small-gain replacement strictly improves the slow factor but may leave the maximum norm unchanged; that observation alone does not exclude a minimizer. The delivered RESULT closes the gap: any tⱼ<1/(2d) implies R≥∏(1−μtⱼ)>ρ^(r−1)(1−h)>Bᵣ, because all the other slow factors are at least ρ>0. For remaining gains set bⱼ=2dtⱼ−1 in [0,1]. The exact pair-compression identity fixes B=∏bⱼ and lowers the positive slow-mode product, strictly if two b's are below one. The maximum of the increasing 2d-endpoint magnitude B and the decreasing compressed slow-mode bound has its unique minimum at Bᵣ. For the candidate schedule all interior eigenvalues lie in [μ,2d−μ], so full rounds contribute at most ρ^(r−1); a nonnegative correction factor is at most its μ-value and a negative one has magnitude at most Bᵣ. This gives global attainment and, by the strict lower bounds, a unique gain multiset. The one-round intersection and the asymptotic root limit follow directly. The proof covers the stated graph class and does not infer it from the frozen finite-grid checks.",
+      "repair": "repairs/2/RESULT.md replaces the small-gain argument by a strict bound on R and states the stationary comparison and related scopes explicitly. The claim and exact checker are otherwise unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite-time reachability uses arbitrary graph-consistent stochastic matrices with positive diagonals. Fastest mixing minimizes SLEM of one time-homogeneous symmetric stochastic transition kernel. The stagewise-safe result bounds general stage counts over a full interval."
+        ],
+        "reasoning": "More general allowable kernels, without the same objective and exact sequence constraint, do not optimize the stated scalar schedules. Full-interval bounds over spectra that need not have a bipartite reflection gap do not imply the graph-sharp answer.",
+        "searches": [
+          "Hendrickx–Shi–Johansson arXiv:1302.6668, Definitions 1–2 and Theorem 1",
+          "Boyd–Diaconis–Xiao, Fastest Mixing Markov Chain on a Graph, §§1.1.1–1.1.3",
+          "Stagewise-safe Richardson record, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Apers–Sarlette arXiv:1503.01269",
+        "Hendrickx–Shi–Johansson arXiv:1302.6668",
+        "Boyd–Diaconis–Xiao SIAM Review 46",
+        "Resultary ...31fff666d705, ...b2b600a3fbfd, ...276d97e49c41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-stage sandwich uses a slow-mode lower bound but does not balance the exact slow-mode product with the 2d-eigenmode multiplier. Two-stage laws constrain a pair, not all r factors."
+        ],
+        "reasoning": "The new ingredient for this claim is holding the product B fixed while compressing all gains with a strict inequality, and then proving attainability on the remaining reflected eigenmodes. A two-stage optimum does not supply these equality and interior-spectrum facts for arbitrary r.",
+        "searches": [
+          "Stagewise-safe Richardson Theorems 1–2",
+          "Apers–Sarlette Theorem 1",
+          "Indexed bipartite-chain two-round Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With P=I−L/d the lazy-walk parameter is α=dt. The exact bipartite two-round formula s/(2−s) with α∈{1,1/(2−s)} agrees with formally putting r=2 and s=ρ in the gain-factor law, on the indexed result's restricted s interval.",
+          "Apers–Sarlette's factored polynomial language gives the same spectral product but omits intermediate positivity."
+        ],
+        "reasoning": "The objectives coincide only in the appropriate parameterization and admissible domain. The exact bipartite formula checked has only r=2; the general polynomial allowance is not the stagewise constraint here.",
+        "searches": [
+          "Resultary: all-horizon scalar stochastic consensus on regular bipartite graphs, one correction round",
+          "Apers–Sarlette arXiv:1503.01269, p. 2 and Theorem 1",
+          "Resultary 2026/11/22 ...276d97e49c41, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first hit is a unique two-round schedule on odd cycles, not a theorem for the same family. The second is an exact two-round bipartite result for a small spectral-gap parameter interval, not an all-r≥3 indexed law."
+        ],
+        "reasoning": "Exact special-schedule records were compared as mathematical statements; neither tabulates or states the full invariant in the audited domain. No order or priority is inferred from the same-day odd-cycle listing.",
+        "searches": [
+          "Resultary: exact finite-horizon minimax Markov gain schedules",
+          "2026/11/2 ...b2b600a3fbfd, RESULT.md offsets 0 and 6123",
+          "2026/11/22 ...276d97e49c41, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "The supported contribution is the exact all-r≥3 factor and unique admissible multiset under one shared Laplacian and stagewise nonnegativity. The published interval-robust Richardson record has a sharp two-stage law and nonsharp arbitrary-stage bounds. A same-day odd-cycle theorem does not satisfy bipartiteness or the horizon, and the overlapping indexed bipartite exact law is only two-round. The inspected primary filters, reachability and stationary-mixing works ask different optimization questions.",
+      "residual_risks": [
+        "An exact root-constrained filtering or nonstationary Richardson result using other terminology could cover arbitrary r. The targeted literature lookup did not produce decisive evidence beyond the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping method and unconstrained two-stage optimum",
+          "evidence": "The Markov-entry positivity requirement is explicitly dropped; the minimax theorem has only two stages.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.01269",
+          "material_read": "PDF p. 2 near offset 3000; §2, Theorem 1, pp. 3–4 near offset 7400",
+          "method": "Open PDF passage inspection",
+          "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+          "trigger": "Equivalent product-of-gains framework"
+        },
+        {
+          "assessment": "Reachability in a different model",
+          "evidence": "Heterogeneous graph-supported matrices may be chosen and the theorem is exact finite-time feasibility, not a scalar spectral minimax.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.6668",
+          "material_read": "PDF Definitions 1–2 and Theorem 1, pp. 2 onward near offset 8500",
+          "method": "Open PDF passage inspection",
+          "title": "Finite-time consensus using stochastic matrices with positive diagonals",
+          "trigger": "Stronger-looking finite-time stochastic results"
+        },
+        {
+          "assessment": "Single-kernel optimization",
+          "evidence": "The SLEM objective applies to a fixed symmetric stochastic transition matrix.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+          "material_read": "Primary PDF §§1.1.1–1.1.3, pp. 668–669 near offset 2800",
+          "method": "Open primary PDF passage inspection",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Stationary comparator"
+        },
+        {
+          "assessment": "Interval-robust two-stage optimum and general-stage bounds only",
+          "evidence": "Stagewise-safe filtering over an entire spectral interval has no graph-sharp all-stage uniqueness law in those theorems.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+          "material_read": "RESULT.md Theorems 1–2 near offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier",
+          "trigger": "Closest cited admissibility constraint"
+        },
+        {
+          "assessment": "Same schedule concept, different spectral regime and horizon",
+          "evidence": "Odd cycles with two locally homogeneous Markov rounds admit a unique optimized pair; the audited law has bipartite graphs and r≥3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd",
+          "material_read": "RESULT.md Finding/Assumptions at offset 0; relationship at offset 6123",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp two-round stochastic consensus on odd cycles",
+          "trigger": "Same-day exact schedule in closely related model"
+        },
+        {
+          "assessment": "Exact overlap only at r=2 on its stated interval",
+          "evidence": "For s<3−2√2 the two lazy factors are 1 and 1/(2−s), with norm s/(2−s); s=ρ on the audited regular graphs. The catalog date is later and is not used to infer formal priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-spectral-gap-exception-to-interval-optimal-two-round-stochasti--276d97e49c41",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A spectral-gap exception to interval-optimal two-round stochastic consensus on bipartite chains",
+          "trigger": "Closest equivalent bipartite model and formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stagewise stochasticity is a substantive restriction: it preserves averages and nonnegative probability weights at every intermediate round. At any fixed horizon the theorem replaces a genuine multi-round nonsmooth minimax by an implementable unique schedule and factor depending only on degree and gap. It also proves strict improvement over repeating the optimal single-round scalar gain. These conclusions are useful across the natural bipartite regular network class, not merely a sample calculation or asymptotic bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

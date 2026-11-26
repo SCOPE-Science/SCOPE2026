@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification record
 
-Execute `python verify.py` with Python 3.8 or later; no external packages are needed. The script enumerates each relevant diagonal torus \((\mathbb F_q^\times)^m\), computes every edge ratio, and applies the exact two-variable commuting linear equation on each edge. It independently sums the resulting commuting-pair counts to recover conjugacy-class numbers. It tests four graph configurations over \(q=2,3,4,5\), including the quadratic extension field of order four, then constructs and checks the explicit group-level torus map between two nonisomorphic six-vertex examples. Expected termination marker: `VERIFY_OK`.
+The normal form and the algebraic group classification use inverse spanning-tree monomial maps and the primitive relation in the quotient torus character lattice. The recovery of this lattice relation follows from the action on the Lie algebra of the unipotent radical, over an arbitrary field. These are exact proof steps, not consequences of numerical tests.
 
-The general proof uses the spanning-tree monomial coordinate isomorphism, the single cycle-character relation, and a finite combinatorial expansion valid for every prime power. The finite verifier confirms examples and catches normalization mistakes; it is not a proof for arbitrarily large graph sizes. The result is not independently audited.
+The unchanged `verify.py` tests the edge-weight isomorphism between the two nonisomorphic six-vertex examples on finite-field points, and checks the previously covered class-count formula on four graph configurations over fields of sizes 2, 3, 4 and 5. It requires Python 3.8 or later and no third-party packages; the expected termination marker is `VERIFY_OK`. The finite test of the coordinate map is ancillary and does not establish necessity for algebraic group isomorphism.

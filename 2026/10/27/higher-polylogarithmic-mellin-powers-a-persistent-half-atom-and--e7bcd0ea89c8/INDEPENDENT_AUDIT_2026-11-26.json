@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:42.897325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the equal Bernoulli base the order-two transform is uniform. Multiplicative closure and compact support follow from Mergny, Theorem 1.4(ii) and Proposition 3.4. The frozen proof's citation to Lemma 3.1(i) alone omits the compactness step; Proposition 3.4 in the same paper supplies it. Product moments are (n+1)^(-k), so summing the second-order resolvent gives Li_(k-1)(1/z)/z; its negative half logarithmic derivative gives the stated ordinary resolvent. The exact nonzero imaginary part of the cut denominator gives locally uniform analytic boundary values and permits Stieltjes inversion without interior singular mass. On the negative axis the successive-polylog quotient is O(1/log(1/|z|)), yielding the half atom; at 1 the quotient is at most logarithmic, yielding no atom. For p=k-1 and y=log(1/x), the real leading terms -y^s/s! and exact imaginary terms -pi*y^(s-1)/(s-1)! give imaginary quotient asymptotic -pi*p/y^2, including p=2. At y approaching zero the numerator jump dominates the denominator jump by one power (up to a logarithm at p=2), giving the stated zeta coefficient. Expanding the logarithmic derivative also gives both proposed raw moments. RESULT.md lines 37–62 give the replay path. The inspected finite checker is supplemental and was not used as the all-power proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Closure, uniqueness, the generalized Cauchy identity and support control hold for more general inputs. The method provides existence and a transform relation, but does not evaluate the singular decomposition or endpoint constants for these powers."
+        ],
+        "reasoning": "The broad theorem is essential prior input, not an all-power polylogarithmic inversion or edge analysis.",
+        "searches": [
+          "arXiv:2610.18436, Theorem 1.4(ii), Proposition 1.2, Proposition 3.4 and p. 3 discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and requirements.txt",
+        "Resultary ranked title and formulation searches",
+        "arXiv:2610.18436",
+        "arXiv:2204.07744"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the product-uniform moments and the general transform identity, the logarithmic-derivative quotient itself is a direct specialization. The second-power law is already implied. For higher powers, separating the atom and continuous mass and obtaining both leading edge constants uses additional branch and asymptotic analysis."
+        ],
+        "reasoning": "The standalone transform representation is not the basis of the originality pass; the assessed result includes the explicit persistent mass split and changing upper-edge behavior of all higher powers.",
+        "searches": [
+          "arXiv:2610.18436, Proposition 1.2 and Theorem 1.4(ii)",
+          "arXiv:2204.07744, Eq. (12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric additive Bernoulli self-convolution density at c=2, squared and mixed equally with an atom at zero, gives the same k=2 measure by the change of variables x=v^2.",
+          "Resultary record 2026/10/26/SCOPE-bernoulli-convolution-and-logarithmic-collapse-in-order-decreasi--9b3cad5ffea5 uses products in a finite-chain monoid, not Dirichlet-mean convolution."
+        ],
+        "reasoning": "Credit the equivalent second-power benchmark; neither that squared law nor the finite-chain record is an equivalent formulation of the higher hierarchy.",
+        "searches": [
+          "Resultary: higher polylogarithmic Mellin powers; Markov–Krein/polylogarithm",
+          "arXiv:2204.07744, p. 3, Eq. (12)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially matching higher-power catalogue result surfaced; the main source's located Bernoulli example concerns the additive operation."
+        ],
+        "reasoning": "There is no natural finite table for this hierarchy of probability laws; the relevant exact checks are explicit formulas and searchable result records, not standard polylogarithm identities by themselves.",
+        "searches": [
+          "Resultary: title and distinctive Markov–Krein/polylogarithm formulation",
+          "arXiv:2610.18436: polylogarithm and Example locators; p. 3 example context"
+        ]
+      },
+      "rationale": "Pass for the explicit higher-power measure classification, not the closure theorem, the general inversion method, or the second-power benchmark. No inspected source covers the complete k>=3 atom and endpoint hierarchy.",
+      "residual_risks": [
+        "The checked set is not an exhaustive literature search; an equivalent inverse-transform hierarchy or edge analysis under other terminology remains possible.",
+        "This comparison does not claim a random-matrix interpretation of the multiplicative operation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the operation, support and inversion starting point, not the inspected higher-power classification",
+          "evidence": "OA offsets 5128, 6338, 7590, 15830 and 20952; Proposition 3.4 bounds support by the product of the support endpoints.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.18436",
+          "material_read": "p. 2 Proposition 1.2 and Theorem 1.4(ii), p. 3 example context, p. 5 Lemma 3.1(i), p. 6 Proposition 3.4",
+          "method": "Lawful OA PDF, located and read bounded passages",
+          "title": "Stability of the Markov-Krein Transform Under Classical Convolutions",
+          "trigger": "Main cited existence theorem and plausible broad prior coverage"
+        },
+        {
+          "assessment": "Implies the k=2 comparison by pushforward and mixing; does not give the higher powers",
+          "evidence": "The density is even and its expression at square-root arguments yields the logit–Cauchy density after the Jacobian is included.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.07744",
+          "material_read": "p. 3 Eq. (12), c=2 example",
+          "method": "Lawful OA PDF, bounded passage at offset 19400",
+          "title": "An explicit example for the high temperature convolution: crossover between the binomial law B(2,1/2) and the arcsine law",
+          "trigger": "Potentially equivalent Bernoulli example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The symmetric two-point law at order two is the natural seed whose Dirichlet mean is uniform, not an arbitrary numerical slice. Determining exactly how half the mass remains atomic at every finite power, while the positive half has a fixed logarithmic singularity type at zero and a power-dependent vanishing order at one, gives distributional information not available from closure or the first moments. The full edge and mass analysis, rather than the formal series substitution, supplies the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

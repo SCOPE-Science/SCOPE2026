@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is every finite integer chain length at least two and strictly positive drift shear and noise. The covariance map is reconstructed directly from the independent centered increments. A positive-cone rank-one resolvent establishes the exact mean-square criterion, the binomial-square series evaluates it, and the Fourier collision-probability representation proves global strict monotonicity without relying on sampling. The all-dimension continuous limit follows by an exact gamma integral. The attached exact computations check identities and finite spectra but are not treated as infinite proof. Equality cases and the impossible mean-stability region at step at least two are covered.
+## correctness
 
-## Originality — PASS, with residual risks
-The inspected full 2023 primary article discusses continuous-time mean-square stability for two- and three-mode nonnormal systems, not this all-chain discretization. The 2012 Buckwar–Kelly paper is particularly close on nonnormal \(\theta\)-Maruyama methods, and its two-dimensional case may subsume the \(m=2\) specialization. This work does **not** claim \(m=2\) priority; the claimed contribution is a single explicit formula, sharp no-reentry theorem, and continuous/discrete frontier for all \(m\ge2\), especially arbitrarily large \(m\). The 2012 full text was not obtainable and remains a named historical-priority risk. Semantic-result searches located related but not dominating published records in numerical stability and stochastic switching. Independent literature priority remains unverified.
+PASS
 
-## Value — PASS
-Nonnormal drift and multiplicative feedback can make an apparently stable explicit stochastic solver fail in variance. The theorem gives a sharp step-selection criterion for the complete natural higher-dimensional Jordan test family, exhibits stable continuous dynamics destabilized by time discretization, and quantifies the unusual fact that all chain lengths have one monotone step boundary despite alternating signs in the deterministic Euler matrix. The result is not a mere single-parameter recomputation: the dimension-dependent binomial-square gain and strict all-length monotonicity are structural and directly support method testing. It does not imply results for general matrices or practical stochastic PDE discretizations.
+On symmetric second moments the update is Φ(C)=TCTᵀ+hσ²C₁₁e_me_mᵀ. Rank-one initial matrices span the symmetric space, so decay for every deterministic input is equivalent to spectral radius below one. For h≥2 Jensen on the mean with initial state e₁ rules out decay. For 0<h<2 the unforced spectral radius is (1−h)². The resolvent feedback series for real λ above this radius is strictly decreasing from infinity to zero; at h=1 it is a single nonzero inverse-power term. The unique feedback root is an eigenvalue and no larger modulus can satisfy the feedback equation, since the absolute value of the complex series is bounded by the positive series at its modulus. The response coefficient is binom(k,n)(1−h)^(k−n)(κh)^n for k≥n. Euler's identity for the binomial-square series and 1−(1−h)²=h(2−h) give the stated gain at λ=1 and show that equality is not asymptotically stable. For continuous time the rank-one resolvent feedback is G binom(2n,n)/(s+2)^(2n+1) in Re(s)>−2, so its positive-real-axis-side root s=−2+[G binom(2n,n)]^(1/(2n+1)) has maximal real part. With r=1−h, on r≤0 the numerator (1+r)^(2n+1) increases and P_n(r²) decreases. For r>0 the denominator after factoring (1+r)^(2n) is a binomial collision probability whose Fourier integral strictly decreases as r/(1+r) increases. These pieces join continuously and yield strict monotonicity on the whole interval, the stated endpoint limits, and precisely one crossing when G<G_c,n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General covariance spectral criteria and step nesting do not supply the exact family-specific polynomial. The closest accessible paper includes overlapping continuous two- and three-dimensional lateral-noise models, and the 2012 nonnormal numerical article may well cover the two-dimensional member. The inspected comparisons do not give the exact all-length discrete law for a single closing noise. No novelty is assigned to an isolated two-dimensional case or to no reentry alone.
+
+## value
+
+PASS
+
+This is a natural feedback family: a nonnormal deterministic shift transfers the noise injection back to its sensing coordinate, and mean stability can coexist with mean-square numerical instability. The result replaces a dimension-growing covariance spectral test with an explicit one-parameter polynomial threshold that decides every step for any chain length, and supplies the exact continuous/discrete comparison. General Lyapunov step nesting is useful background but is not itself the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

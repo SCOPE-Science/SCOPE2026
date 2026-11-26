@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:59.709569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive conductances and leaf killing make A SPD. Let m_j=|S_j|. Radial invariance and the nonzero coefficient -w_j on the next shell make K_k exactly the span of shell indicators through level k-1. Independently, for 1<=k<=H, set the trial solution x equal to zero from level k onward and prescribe its difference from level j to j+1, j<k, to be (1-B_j/B_k)/(m_{j+1} w_j). The total outward flux at level j is then 1-B_j/B_k. Subtracting the incoming flux gives (Ax)_root=1-1/B_k, (Ax)_v=-1/B_k on levels 1 through k, and zero outside. Killing contributes nothing to this trial vector. Thus the uniform-ball residual is attainable, and its ball indicator is annihilated by A on levels below k, making the residual perpendicular to A K_k by symmetry. Its squared norm is 1/B_k. k=0 is the root point mass; at H+1 invertibility on the full invariant radial subspace gives exact termination, with none earlier. The d>=3 count sums a geometric progression and d=2 has two vertices per nonroot shell. Constant and root coordinate Rayleigh quotients give the stated conditioning bound as killing vanishes. The frozen verify.py is a finite exact-rational check (the package reports 10,602 assertions on 879 trees), inspected but not executed for this review; the independent flux and orthogonality argument handles the universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives generic minimum-residual and spectral weighted least-squares machinery, not a geometric residual vector.",
+          "The latter gives endpoint-forcing GMRES norm formulas for constant-coefficient tridiagonal Toeplitz matrices."
+        ],
+        "reasoning": "The useful stronger numerical machinery does not itself evaluate the radial graph law. The closest exact norm theorem is not stronger: the normalized shell matrix is not required to be Toeplitz, and arbitrary positive layer weights and leaf-only grounding are allowed even for a path.",
+        "searches": [
+          "Titley-Peloquin, Pestana and Wathen, DOI 10.1093/imanum/drt025; accepted manuscript p. 1, Eq. (1.1)",
+          "Li and Zhang, 2007 report 2007-12, section 4, Theorems 4.1–4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1e34f70ca04d, 0277c139a872, ad15fe4b80b2",
+        "Li–Zhang technical report 2007-12, section 4",
+        "Titley-Peloquin–Pestana–Wathen, DOI 10.1093/imanum/drt025"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Zhang's exact quantity is a norm under fixed-diagonal Toeplitz structure. The general GMRES formula does not identify the one-dimensional residual direction. The same-day tree finding instead determines CG iterate signs for a shifted operator."
+        ],
+        "reasoning": "A graph-specific step is needed to turn these methods into the result: local conservation makes the ball indicator harmonic on the trial support, while radiality and the nonzero interlevel couplings give the matching dimension. This yields the normalized vector, conductance invariance and termination, not merely an application of a reported exact table or Toeplitz formula.",
+        "searches": [
+          "Li and Zhang, Theorem 4.1 (endpoint e_1), Theorem 4.2 (endpoint e_N)",
+          "Titley-Peloquin et al., Eq. (1.1)",
+          "Resultary ad15fe4b80b2 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target record itself is the exact matching Resultary hit, not independent prior evidence.",
+          "For SPD matrices MINRES and GMRES have the same minimum-residual objective. The related point-source tree CG record ad15fe4b80b2 concerns the sign of a third CG iterate for a positive uniform shift, not a minimum-residual profile."
+        ],
+        "reasoning": "The radial Jacobi reduction and the MINRES alias retain the same mathematical question. The compared CG result does not become the claimed residual law under either change of formulation.",
+        "searches": [
+          "Resultary: GMRES/MINRES radial weighted leaf-grounded tree root-point-source exact ball residual",
+          "Targeted primary search: MINRES, radial trees, ball residuals and root-source GMRES"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1e34f70ca04d gives residual norm profiles for discrete-affine forcing on a Dirichlet path.",
+          "Resultary 0277c139a872 computes endpoint norms for a centered tree Green operator."
+        ],
+        "reasoning": "Neither the exact path results nor the tree operator norms give the arbitrary-weight vector profile. The exact sphere counts alone are standard and do not certify or newly contribute the GMRES identity.",
+        "searches": [
+          "Resultary: exact GMRES boundary-layer profiles for discrete-affine Poisson data; rooted branching-tree Green operator norms"
+        ]
+      },
+      "rationale": "Credit standard minimum-residual Krylov theory and prior endpoint formulas. The support, uniform amplitudes and weight independence for the full class were not established by the compared prior statements. This is a bounded priority assessment of the structured graph law, not of the underlying Krylov machinery.",
+      "residual_risks": [
+        "Equivalent specializations may occur in older Jacobi, orthogonal-polynomial or MINRES analyses. A focused search is not a historical census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest exact prior norm result, not the arbitrary weighted radial vector theorem",
+          "evidence": "The exact formula in Theorem 4.1 assumes tridiagonal Toeplitz structure and b=e_1; Theorem 4.2 uses b=e_N.",
+          "identifier_or_url": "https://cdn.prod.web.uta.edu/-/media/project/website/science/mathematics/documents/preprint/2007/rep2007_12.pdf",
+          "material_read": "Section 4, Theorems 4.1 and 4.2, pp. 22 and 24; Theorem 4.1 at text offset 97539",
+          "method": "Lawful technical report full-text passage inspection",
+          "title": "The Rate of Convergence of GMRES on a Tridiagonal Toeplitz Linear System",
+          "trigger": "Exact canonical endpoint residual for a tridiagonal matrix"
+        },
+        {
+          "assessment": "General GMRES residual framework; no determination of the graph-ball vector in the checked passage",
+          "evidence": "Eq. (1.1) minimizes over residual polynomials; the abstract describes spectral weights and right-hand-side-sensitive bounds.",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drt025",
+          "material_read": "Accepted manuscript p. 1, abstract and Eq. (1.1)",
+          "method": "Lawful Oxford accepted-manuscript passage inspection",
+          "title": "GMRES convergence bounds that depend on the right-hand-side vector",
+          "trigger": "Exact starting-vector-sensitive GMRES representation"
+        },
+        {
+          "assessment": "Different operator shift, algorithm and observable",
+          "evidence": "Third CG iterate sign for a positively shifted weighted tree Laplacian, not the GMRES residual at every iteration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-local-third-iterate-sign-criterion-for-conjugate-gradients-on--ad15fe4b80b2",
+          "material_read": "Finding",
+          "method": "Indexed Resultary lookup and mirrored finding inspection",
+          "title": "A local third-iterate sign criterion for conjugate gradients on trees",
+          "trigger": "Same-day tree and point-source Krylov result"
+        },
+        {
+          "assessment": "Different forcing and graph geometry",
+          "evidence": "One-dimensional Dirichlet path and affine forcing instead of a root point mass and arbitrary radial branching.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gmres-boundary-layer-profiles-for-discrete-affine-poisson--1e34f70ca04d",
+          "material_read": "Finding",
+          "method": "Indexed Resultary lookup and mirrored finding inspection",
+          "title": "Exact GMRES boundary-layer profiles for discrete-affine Poisson data",
+          "trigger": "Exact graph-structured Euclidean GMRES residuals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The point-source grounded-tree problem gives an exact structured Krylov benchmark for an infinite family: the residual is an entire vector fixed by volume growth, not just an estimate. It identifies precisely when branching changes preterminal norm rates and gives an explicit family with diverging condition number and unchanged exact residuals. It is not a finite-precision or solution-error claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

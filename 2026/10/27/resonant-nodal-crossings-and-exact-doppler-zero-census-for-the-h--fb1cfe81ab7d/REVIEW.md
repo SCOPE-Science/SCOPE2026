@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The piecewise overlap polynomial gives the exact distributional-second-derivative identity, with verified coefficients from the two knot jumps and two support edges. At the balanced delay, elementary identities yield a product of a squared sine factor and \(Q(x)=1+2\cos x+2\sin x/x\). Endpoint signs together with strict signs of \(Q'\) at all its roots prove one and only one simple root per half-period. The squared sine factor gives exactly second-order zeros at each positive Doppler multiple of three. Direct differentiation yields a nondegenerate indefinite two-variable Hessian, establishing real analytic nodal crossings with slopes zero and \(9n\). Root counting and displacement estimates follow analytically. Exact symbolic checks and separate high-precision integral evaluations reproduce the main identities. Finite root checks are not used to prove exhaustive counting.
+## correctness
 
-## Originality — PASS, qualified
-Jaming (2006, arXiv:math/0606397, sections 2–3) proves general zero-free neighborhoods in terms of moments, not a complete high-frequency census for this spline. Kloos–Stöckler (2013, arXiv:1311.7359, Theorem 3.2 and the frame-bound sections) treats Zak-transform zero rigidity and Gabor frames, not the fixed-delay self-ambiguity zeros. Searches of the published mathematical record for the resonant factorization, integer double-zero lattice, and nodal crossings returned no mathematical implication covering the present statement. One related mathematical claim concerns the distinct signed Haar pulse at the same lag: its triple and simple roots do not imply the hat-spline double crossings. Primary source statements and distinctions are recorded in AUDIT.json. Search non-detection does not certify priority; an earlier equivalent radar/spline calculation remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The triangular window is the first continuous, compactly supported cardinal B-spline, and its Doppler ambiguity zeros govern exact time-frequency orthogonality. The special lag is not an arbitrary slice: inner knots and outer edges have commensurate 1:2 distances and exactly balanced jump amplitudes, producing a new factorization. The theorem completely classifies all positive zeros and multiplicities, gives the asymptotic zero lattice with density, and shows that each enhanced-multiplicity zero is a genuine transverse bifurcation of two real nodal curves rather than a tangency. This is structural information beyond routine Fourier-transform calculation or a finite numerical example.
+For 0<T<1 the even overlap is L²−t² on |t|≤h and (1−|t|)²−h² on h≤|t|≤L, with h=T/2, L=1−T/2. Its second derivative has densities −2 and +2 and jumps −2(1−T) at ±h and T at ±L. Fourier transforming gives the stated general formula for F=(2πν)²A. At T=2/3 the two cosine coefficients balance and L=2h; the trig factorization gives the stated sin² factor and Q and the limit 10/27 at zero. The endpoint signs of Q alternate. On a positive-sine half-period, a root has cos x<−1/2, hence Q'<0. On a negative-sine half-period Q'>0 at every root: this is immediate for cos x≥0; otherwise cos x>−1/2 and −sin x>sqrt(3)/2 dominate the possible negative contribution, using x>π. Nonzero derivatives give isolated strict crossings, so there cannot be two roots of the same crossing orientation in one interval. Q=3 at positive sine-square lattice roots, giving exact double zeros there; zero frequency is not a root. The two simple plus one double zero per Doppler period 3 give the two counts. For c=2π/3 or 4π/3 let x_0=2πk+c and ε=1/x_0. The root equation in δ=x−x_0 is 1+2cos(c+δ)+2ε sin(c+δ)/(1+εδ)=0; implicit differentiation at ε=0 gives δ'(0)=1, hence the quoted positive shift after rescaling. For the Hessian, differentiate F in (T,ω) with ω=2πν. At ω=6πn and T=2/3, F and its first derivatives vanish, and (F_TT,F_Tω,F_ωω)=(0,−2ω/3,4/9). Dividing by ω² and applying ∂_ν=2π∂_ω gives the displayed Hessian. Its indefinite nondegenerate quadratic form gives two transverse analytic zero branches by the analytic Morse lemma, with slopes 0 and 9n.
 
-## Closest literature and limitations
-The hat transform, spline differentiation, and general ambiguity formalism are classical. No claim is made for all delays or all B-spline orders. Full-text comparisons were limited to the specific relevant sections and searched terminology; older radar and spline literature may contain an equivalent formula. Numerical checks are supplementary and do not certify global novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the standard piecewise-polynomial Fourier and analytic nodal-set methods. The supported distinction is the complete real-Doppler classification at the geometrically balanced lag together with the nondegenerate two-variable crossings and explicit tangent slopes. The strongest same-window comparisons concern the Zak transform or Gabor frame operator, not this self-ambiguity slice. General local exclusion theorems do not yield remote root counts or Hessians, and the standard Haar step at the same lag has simple zeros on a single regular branch, not these double zeros and crossings. This bounded comparison does not certify first publication.
+
+## value
+
+PASS
+
+The standard hat spline and its self-ambiguity are natural, and the slice is dictated by the overlap geometry: the interior knots lie halfway to the support endpoints precisely where the two boundary-jump weights balance. The consequence is more informative than a transform evaluation: it gives two interlaced simple-root sequences, exact double multiplicity on the lattice, and resolves whether each double trace zero is an isolated degeneracy or a transverse crossing under a delay perturbation. The explicit local geometry is useful even without a nearby-lag global census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

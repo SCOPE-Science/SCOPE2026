@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:21:12.751612Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict concavity makes consecutive sample chords the upper boundary; each chord omits gap³/6 in one quadrant. The polar constraints indexed by a,b meet at w(a,b), where the slack for t is (t−a)(t−b)/(1+ab), so exactly the adjacent intersections give the quadrant boundary chain. The cut-off triangle at insertion has determinant magnitude (a−b)(a−c)(c−b)/D, reproduced independently (python /workspace/audit_checks/reconstruct.py 4); four triangles with the 1/2 area factor give q/D. The new primal is contained in the full parabolic lens and the old polar contains the disk: hence the claimed positive exchange lower bound. The full lens polar is found by maximizing tu+(1−t²)v on [0,1]; u_max is 1 up to v=1/2 and 2√(v(1−v)) thereafter. Thus the full polar area is 2+π/2. All bodies contain the fixed diamond, which justifies polar continuity for finite refinements and infinite prefixes with 0 adjoined. Strictness at the upper endpoint follows by one additional insertion in a positive gap before passing to the full lens; at the lower endpoint compare to the diamond or a finite three-knot subset. For a_n=r^n the interior knots are confined to [0,r] as r→0 and the maximum gap is 1−r as r→1, proving sharpness within the infinite class. Uploaded clipping code inspected, not executed; finite rational checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier rotational-intersection summary states strict balancing of angular gaps for copies of a regular polygon.",
+          "The frozen RESULT.md lines 95–98 compares shadow-system convexity and planar vertex removal; primary passages were not recovered. The literature search also identified ‘On the local minimizers of the Mahler volume’, a lead rather than a checked theorem."
+        ],
+        "reasoning": "A theorem giving strict change under these particular four reflected vertex insertions would cover the new result. A global lower bound, local minimizer restriction, shadow-system convexity, or balancing rotation gaps for a fixed regular angular geometry does not alone yield the required directional sign for each parabolic insertion.",
+        "searches": [
+          "Meyer–Reisner arXiv:math/0606305; Lin–Leng planar Mahler proof",
+          "Primary search for local minimizers and parabolic mesh refinement",
+          "Resultary 073641383518 rotational polygon intersections"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b079d50aa217, 77a979074148, 073641383518 (indexed findings)",
+        "Frozen RESULT.md lines 95–110 and AUDIT.json (recorded comparisons)",
+        "DOI:10.1007/BF00182948, arXiv:2611.16052, arXiv:math/0606305, Lin–Leng 2010 (comparison and attempted access as applicable, not whole-document exclusions)",
+        "Primary search lead: https://cvgmt.sns.it/paper/3064/ (title, not a theorem inspection)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible comparisons distinguish deficit/area asymptotics, a full-lens product, and an angular-gap majorization theorem. Exact external passage retrieval failed.",
+          "Frozen RESULT.md lines 73–84 exhibits the additional information: the local primal increment and polar decrement are linked through D, and π−8/3 gives a uniform positive comparison."
+        ],
+        "reasoning": "Knowing the full lens value does not by inclusion alone imply a product envelope below it. The sign furnished by the exact dual exchange is the needed extra step; a previously proved sign for the same parabolic constraint operation would invalidate that part of the novelty even if phrased in the dual.",
+        "searches": [
+          "Schütt–Werner DOI 10.1007/BF00182948; Thäle–Winter arXiv:2611.16052",
+          "Resultary 77a979074148, b079d50aa217, 073641383518"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Schütt–Werner and Thäle–Winter works, as described in the frozen comparison, study the same sampled bodies via floating-body deficit or asymptotics.",
+          "b079d50aa217 computes the product of the full parabolic lens, expressed after a coordinate swap as {|x|+y²≤1}."
+        ],
+        "reasoning": "The equivalent local operation in the quadrant polar is addition of one linear constraint cutting its adjacent corner; this is not a floating-body operation. Swapping coordinates identifies exactly the same endpoint body, not the entire mesh family.",
+        "searches": [
+          "Resultary: parabolic almost-polygonal hull Mahler product / polar area exchange / parabolic lens",
+          "Primary search: Mahler volume product parabolic almost polygonal bodies strict vertex insertion parabolic lens Schütt Werner refinement local polar area loss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b079d50aa217 explicitly gives 4(π+4)/3 as the exact Mahler product of the limiting full parabolic lens.",
+          "77a979074148 reports exact beta–Dirichlet moments of random hull area; frozen RESULT.md credits the cubic chord deficit to related work. The indexed statement does not give a dual area calculation."
+        ],
+        "reasoning": "Known endpoint constants and primal chord areas do not compute Δarea(K°)=−q/D or establish a product bound for all finite submeshes and infinite sequences.",
+        "searches": [
+          "Resultary b079d50aa217: symmetric planar circular lenses",
+          "Resultary 77a979074148: random parabolic arc hulls"
+        ]
+      },
+      "rationale": "Pass for the exact coupled area exchange and strict refinement envelope for this parabolic mesh. The underlying bodies, classical lower value and full sample limit's numerical product are prior, not claims to new credit. The strongest overlapping indexed statements do not give every-insertion strict growth or the exact local polar loss.",
+      "residual_risks": [
+        "Independently available comparisons were chiefly indexed statements; exact primary passage retrieval failed, especially for the same-family and general vertex-variation literature.",
+        "An earlier result could express the same local direction through dual constraint cuts rather than through primal refinement. No unconditional priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "family is prior; no retrieved theorem on the local product",
+          "evidence": "Frozen comparison credits floating-body deficits and floating-body/random-polygon asymptotics.",
+          "identifier_or_url": "DOI:10.1007/BF00182948; arXiv:2611.16052",
+          "material_read": "frozen comparison lines 95–96 and literature landing result; no independently recovered primary text",
+          "method": "targeted open-access passage requests and literature search",
+          "title": "The convex floating body of almost polygonal bodies; Floating Body Asymptotics via Fractal Strings",
+          "trigger": "same generating family"
+        },
+        {
+          "assessment": "overlap on exact endpoint; stated monotonicity parameter is disk-center offset, not mesh insertion",
+          "evidence": "The summary identifies 4(π+4)/3 as the exact product of the affine-rescaled full parabolic lens.",
+          "identifier_or_url": "Resultary:b079d50aa217",
+          "material_read": "local finding summary",
+          "method": "local Resultary; requested exact record passage not recovered",
+          "title": "Sharp Mahler-product monotonicity of symmetric planar circular lenses",
+          "trigger": "exact full parabolic lens value"
+        },
+        {
+          "assessment": "area statistics are prior; no dual exchange stated in summary",
+          "evidence": "Exact beta–Dirichlet product law for finite-sample area moments and asymptotics with fixed endpoints.",
+          "identifier_or_url": "Resultary:77a979074148",
+          "material_read": "local finding summary; cubic-deficit attribution in frozen comparison",
+          "method": "local Resultary; targeted passage request",
+          "title": "Endpoint-driven Gamma and interior Gaussian fluctuations for random parabolic hulls",
+          "trigger": "exact primal missing area for parabolic samples"
+        },
+        {
+          "assessment": "different bodies and operation",
+          "evidence": "Equal rotation gaps maximize product for intersections of rotated copies of a regular polygon.",
+          "identifier_or_url": "Resultary:073641383518",
+          "material_read": "local finding summary",
+          "method": "local Resultary; targeted passage request",
+          "title": "Strict angular-gap majorization of Mahler products for rotational polygon intersections",
+          "trigger": "structural similarity to refinement and balancing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A coupled exact exchange for primal and dual areas turns a natural refinement of an established convex-body family into a strict law for a functional not generally monotone under inclusion. The local quantitative sign, the sharp global envelope and the infinite-family endpoint tests are useful structural information independently of the already known endpoint values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

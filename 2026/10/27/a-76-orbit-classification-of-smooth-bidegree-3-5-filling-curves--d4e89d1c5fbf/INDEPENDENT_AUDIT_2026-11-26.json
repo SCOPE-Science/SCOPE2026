@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:38:48.534833Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–66; VERIFICATION.md, lines 19–27; verification/*.py and orbit_representatives.csv",
+        "Replay: python /workspace/replay/review3.py (SymPy 1.14.0)"
+      ],
+      "rationale": "Nine evaluations have rank nine: the exponent choices {0,1,3} in X and {0,1,5} in Y give tensor-product interpolation bases, leaving 15 free coefficients. Local first derivatives screen exactly for smoothness at those nine points. I independently interpolated the full space, applied all 36 invertible matrix pairs to each orbit representative, and tested the affine Jacobian ideal for being the unit ideal (lex F5B over F2), together with univariate gcd tests on the two boundary lines and evaluation at their common corner. Over an algebraic closure a proper ideal has a common zero, so this checks geometric smoothness, not just points of small extension degree. Replay obtained 32768 vectors including zero, 5832 rationally smooth vectors, 206 screened orbits, then 2304 geometrically smooth vectors in 76 orbits of sizes 36, 18, 12, 6 with multiplicities 55, 15, 3, 3. The fixed-point sum is 2736, and all representative masks and sizes match the frozen CSV. A reducible smooth divisor would have disjoint components; any nontrivial partition of an effective divisor class of bidegree (3,5) has positive intersection, excluding that possibility. Adjunction gives genus (3-1)(5-1)=8.",
+      "residual_risks": [
+        "Counts are for ordered embedded bidegree-(3,5) divisors over F2 up to the specified coordinate changes; no abstract-isomorphism quotient is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahammed–Campbell–Moon work in bidegree (q+1,q+1) for odd q in Theorem 1.1. Huang–Kedlaya–Lau classify genus-six curves. Campbell et al. treat filling complete intersections in projective three-space."
+        ],
+        "reasoning": "None of these theorems classifies genus-eight filling embeddings in the split binary quadric. Even an abstract genus-eight curve count would need extra embedding and equivalence data to answer this question.",
+        "searches": [
+          "arXiv:2512.02796 Theorem 1.1 and Table 1",
+          "arXiv:2402.00716 Theorem 1.1",
+          "arXiv:2310.09293 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.11595, 2512.02796, 2402.00716, 2310.09293",
+        "Resultary local mirror: two prior binary-quadric orbit censuses listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known ideal implies the linear filling constraints; minimal bidegree existence and the census of another bidegree do not impose the Jacobian unit-ideal outcomes or the 76 group orbits."
+        ],
+        "reasoning": "The contribution is the exact global smoothness/orbit classification, not the known description of the space to be screened.",
+        "searches": [
+          "Homma–Kim arXiv:2203.11595 Lemma 2.1 and Theorem 4.1",
+          "Resultary census of smooth binary filling curves of bidegree (4,4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homma–Kim describe the vanishing ideal and obtain smooth filling examples of bidegree (3,4) and (4,3). The Resultary (4,3) census gives 66 equations and 4 factor-preserving orbits."
+        ],
+        "reasoning": "Swapping the two factors identifies the problem with (5,3), not (4,3), (3,4) or (4,4). The same vanishing ideal or group action does not determine the geometrically smooth locus in the different coefficient space.",
+        "searches": [
+          "Homma–Kim arXiv:2203.11595 Lemma 2.1 and Theorem 4.1",
+          "Resultary binary quadric smooth filling curve orbit censuses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two nearby exact entries give 66 equations/4 ordered orbits for (4,3) and 2328/34 full quadric orbits for (4,4). Table 1 reports samples of size 1000 rather than an exhaustive binary asymmetric census."
+        ],
+        "reasoning": "These are actual nearby counts, not counts for (3,5) or its transpose; the (4,4) record also quotients by swaps.",
+        "searches": [
+          "Resultary 2026/10/18 SCOPE-four-ambient-symmetry-classes-of-minimal-smooth-filling-curves-o--e7a76829ef36 and 2026/10/25 SCOPE-a-complete-orbit-census-of-smooth-binary-filling-curves-of-bideg--38456e0a283d",
+          "arXiv:2512.02796 Table 1"
+        ]
+      },
+      "rationale": "Earlier work supplies the rational-point ideal and nearby smooth filling examples or exact censuses of other bidegrees. The inspected statements do not give or force this binary asymmetric bidegree-(3,5) census and stabilizer distribution.",
+      "residual_risks": [
+        "An earlier differently catalogued or unindexed smooth (3,5)/(5,3) enumeration is not ruled out; no universal priority statement follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps in the vanishing ideal and minimal-degree context",
+          "evidence": "Theorem 4.1 constructs nonsingular irreducible examples of bidegrees (3,4) and (4,3).",
+          "identifier_or_url": "https://arxiv.org/abs/2203.11595",
+          "material_read": "Lemma 2.1, PDF pp. 2–3; Theorem 4.1, p. 8",
+          "method": "OA full-text passage inspection",
+          "title": "Filling curves for P1 × P1",
+          "trigger": "Same ambient variety and rational-point condition"
+        },
+        {
+          "assessment": "Different field range and bidegree; sampling, not the claimed census",
+          "evidence": "Odd q in Theorem 1.1; Table 1 uses 1000 samples.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.02796",
+          "material_read": "Theorem 1.1, p. 2; Table 1, pp. 9–10",
+          "method": "OA full-text passage inspection",
+          "title": "Minimal algebraic space filling curves on the product of projective lines",
+          "trigger": "Smooth filling curves on the same ambient variety; explicit table"
+        },
+        {
+          "assessment": "Different genus and equivalence",
+          "evidence": "Classifies abstract genus-six curves over F2.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.00716",
+          "material_read": "Theorem 1.1, p. 1",
+          "method": "OA full-text passage inspection",
+          "title": "A census of genus 6 curves over F2",
+          "trigger": "Potentially relevant small-genus census"
+        },
+        {
+          "assessment": "Different ambient and classification problem",
+          "evidence": "The theorem concerns complete-intersection filling curves in P3.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.09293",
+          "material_read": "Theorem 1.1, p. 2",
+          "method": "OA full-text passage inspection",
+          "title": "On algebraic space filling curves",
+          "trigger": "Related filling-curve construction"
+        },
+        {
+          "assessment": "Same group, different bidegree",
+          "evidence": "66 equations, 4 factor-preserving orbits, genus six at (4,3).",
+          "identifier_or_url": "2026/10/18/SCOPE-four-ambient-symmetry-classes-of-minimal-smooth-filling-curves-o--e7a76829ef36",
+          "material_read": "Finding, equation count and group",
+          "method": "Resultary and local mirror",
+          "title": "Four ambient symmetry classes of minimal smooth filling curves",
+          "trigger": "Direct nearby binary quadric census"
+        },
+        {
+          "assessment": "Not an equivalent census",
+          "evidence": "2328 equations in 34 full-automorphism orbits, factor swap included, at (4,4).",
+          "identifier_or_url": "2026/10/25/SCOPE-a-complete-orbit-census-of-smooth-binary-filling-curves-of-bideg--38456e0a283d",
+          "material_read": "Finding and symmetry convention",
+          "method": "Resultary and local mirror",
+          "title": "A complete orbit census of smooth binary filling curves of bidegree (4,4)",
+          "trigger": "Direct nearby census at comparable degree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Homma–Kim Theorem 4.1; frozen RESULT.md and orbit_representatives.csv; neighboring (4,3) and (4,4) censuses"
+      ],
+      "rationale": "This is a complete classification at the first asymmetric bidegree beyond the binary minimal (3,4) with first degree fixed at 3. The underlying genus-eight curves fill nine points and carry the two specified projections. The exact census, representatives and stabilizer distribution provide a usable benchmark for binary filling curves and for comparison of embedded families, rather than merely another existence example or a sample.",
+      "residual_risks": [
+        "No inference is made about a genus-eight census up to abstract isomorphism, or counts in other bidegrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

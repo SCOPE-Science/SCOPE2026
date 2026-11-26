@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The resource solution follows from exponential decay and periodic pulse balance. The fixed mean follows from the exact integral. The average-growth formulas integrate Monod responses under the change of variables from time to substrate. A direct positive factorization equates the growth advantage to the sign of an exponential polynomial. Its Taylor coefficient numerator changes signs in the ordered pattern negative (degrees 2–5), positive (6–15), negative (16 onward). Division by the sixth power and a rescaled derivative yield a strictly decreasing one-sign-change series; endpoint asymptotics plus one explicit positive value prove exactly two positive zeros, without relying on finite enumeration. The population exclusion statement follows from a common-crowding log-ratio identity and logistic comparison. The standalone executable reproduces exact identities and numerical brackets. The tie points are stated separately.
+PASS
 
-## Originality — PASS on inspected evidence
+The periodic jump-decay solution has H−L=10T, giving both input flux and mean concentration equal to 10 in the chosen units. Integrating r/(1+r) and 2r/(10+r) with dt=−dr/r gives the two logarithms. The signed numerator of their log-ratio comparison is (H−L)(80−HL−H−L), whose second factor equals 10F(T)/(exp(T)−1)², with positive denominator. For F's Taylor coefficients the degree-0 and degree-1 terms cancel; exact coefficients have signs − in degrees 2–5, + in 6–15 (computed independently), and − in all degrees ≥16 because 16−n≤0. The function J=(TF′−6F)/T¹⁶ is strictly decreasing on (0,∞) by its Laurent series: positive coefficients multiply negative powers; negative nonconstant coefficients have positive powers. It tends to +∞ at zero by F(T)=−4T²+O(T³) and to −∞ by TF′−6F∼−2T²e^(2T). Thus F/T⁶ strictly increases then decreases with one maximum, is negative toward both endpoints, and is positive at T=5: F(5)=e⁵(3e⁵−266)+13 and e⁵>100 from its Taylor terms. Both positive roots are simple, with the claimed signs. Independent high-precision bisection reproduces both decimals, without relying on these numbers for exhaustion. The equal density term cancels in the log ratio; after n periods it differs from its initial value by nTΔ, with uniformly bounded within-period modulation at fixed T. Logistic bounds with positive minimum growth and upper growth bound two, valid between pulses with continuous biomasses, keep total abundance bounded and ultimately away from zero. This makes the ratio result actual extinction of the loser, not just relative decline. At equality there is no strict exclusion. Continuity in the positive parameters preserves alternating strict witness signs at 1, 5, 20, hence at least two reversals locally, not an exact perturbed count.
 
-Letten and Ludington (2023) directly motivate pulse-frequency effects but do not prove the exact two-switch buffered Monod classification; their model addresses endogenously consumed resources and community simulations. Wortel (2023) analyzes serial-transfer invasion fitness with resource depletion and evolutionary trade-offs. Carrero-Colón et al. (2006) investigate nutrient periodicity experimentally. The most relevant searched mathematical records treat seasonal Ricker biomass reversals or timing-invariant shared-crowding pulses, not two Monod growth functions under frequency-dependent exponential substrate profiles. General Monod kinetics and rational/exponential algebra are not claimed as novel. The inaccessible full text of Smith (2011), other older serial-transfer literature, and possible general results on exponential polynomial zeros remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-This self-contained exact phase classification answers a meaningful resource-competition question: changing only the period of an identical-mean resource pulse can cause not one but two competitive selection reversals. Exact roots, a complete no-more-crossings argument, and an open-parameter persistence witness distinguish it from a numerical illustration. The model is an analytical benchmark, not an empirical chemostat prediction; the generality is intentionally limited to the specified rate pair and fixed external resource waveform.
+The supported distinct claim is the exactly-two reversal count for the specified single exponential-decay pulse family with fixed mean and fixed input flux, including its exact threshold equation. The exclusion consequence at each fixed T is an instance of the existing shared-crowding selection theorem. A different same-day analytic Monod result already establishes a two-reversal phenomenon for symmetric two-level forcing with fixed mean; the frozen claim does not establish priority for that general phenomenon. Neither that forcing theorem nor the fixed-T selection theorem implies the frozen count.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Changing only pulse timing at fixed mean and input flux is a natural modeling question. For two simple saturating responses this gives a minimal exact witness against a monotone ranking in the pulse interval, with proof of exhaustion and both thresholds, not just two simulated crossover points. The square-wave analogue does not make this redundant: at the frozen growth constants its symmetric forcing never reverses the ranking. That difference makes the precise exponential-waveform result a useful benchmark for separating forcing shape from mean and arguing about robustness of growth ranking. The shared-crowding extinction step is not the source of distinct value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

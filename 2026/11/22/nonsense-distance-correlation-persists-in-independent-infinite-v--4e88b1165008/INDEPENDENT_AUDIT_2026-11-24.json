@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:20:28.247467Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The replacement RESULT.md removes the original unproved assertion that the limiting distribution actually varies across stable-index pairs. The fixed-index theorem alone establishes a parameterized representation, not nonuniversality. The replacement also specifies weak convergence and the exact conditional permutation convention, and fills in the zero-diagonal step of the strict upper bound. Re-audit: on the product-J1 coupling, boundedness and a.e. convergence give L2 distance-kernel convergence, and replacing index 0 with n affects only one row and column. Nonconstant occupation marginals have positive distance variances. Given the first path, the ordinary occupation covariance is the integral of a continuous nonzero deterministic anti-derivative against the other stable motion; by independence of increments its characteristic function is nondegenerate stable (step sums converge by integration by parts). It therefore vanishes with conditional probability zero, ruling out zero distance covariance. Proportional centered kernels give a separable difference of raw kernels. The a.e. identity extends at simultaneous continuity points, permitting use of the diagonal; the resulting scaled line isometry forces affine dependence, excluded by the joint density of evaluations at two fixed interior times. The trace and off-diagonal sums of the centered matrices yield the exact conditional permutation mean for n>=2; the normalized observed covariance converges to a strictly positive variable and the normalized grand-mean product is tight, proving p_n tends to zero in probability. The frozen CHECK.py was inspected, not replayed; its small-array and seeded samples are diagnostics, not a theorem about stable laws. No cross-index law comparison or finite Monte Carlo calibration is claimed in the corrected files.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Xie require centered finite-positive-variance iid increments; indices in (0,2) are excluded.",
+          "Basrak–Krizmanić–Segers supply stable functional-limit background and a broader dependent-sequence theorem in M1, not a distance-correlation or permutation theorem.",
+          "Xie–Zhu give finite-variance asymptotics for Spearman and Kendall statistics, not the stable distance-correlation functional."
+        ],
+        "reasoning": "A stable path limit establishes the input topology, not strict positivity of the occupation statistic or its calibration failure. No inspected general statement simultaneously supplies the needed stable-path and distance-correlation conclusions.",
+        "searches": [
+          "arXiv:2611.16614v1, assumptions and Sections 2–3",
+          "arXiv:1001.1345v2, abstract and background on iid stable functional limits",
+          "arXiv:2611.20572v1, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK.py and VERIFICATION.md; corrected /workspace/repairs/3/RESULT.md",
+        "Resultary stable-path and common-time permutation comparisons",
+        "arXiv:2611.16614v1, 1001.1345v2, 2611.20572v1",
+        "Dehling et al., OA process-sampling and stable-example passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional permutation identity and its Markov consequence are already in Zhu–Xie; that argument requires a positive observed limit in the respective regime.",
+          "Their Gaussian argument does not establish nondegeneracy of the required stochastic integral on the two stable paths; this follows here from a conditional stable characteristic function and the deterministic kernel not being zero."
+        ],
+        "reasoning": "The weak-convergence transfer uses established machinery, but the strict stable occupation limit and ensuing stable calibration failure do not follow from the finite-variance theorem by substitution; the proof addresses càdlàg paths and never requires unconditional first moments.",
+        "searches": [
+          "arXiv:2611.16614v1, permutation theorem and proof of strict Brownian limit, pp. 3–6",
+          "arXiv:1001.1345v2, p. 1",
+          "Resultary endpoint detrending record, original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu–Xie use the same common-time occupation statistic on two walks, with Brownian limiting paths and the same permutation identity.",
+          "Dehling et al. include stable processes, but sample iid pairs of entire process realizations rather than time-indexed levels from one pair."
+        ],
+        "reasoning": "The first is the analogous functional under different limiting paths; the second has a different sampling experiment and estimand. Product law of two independent processes is not the pathwise occupation law of one pair at common times.",
+        "searches": [
+          "Focused search for distance covariance of paired random-walk levels in stable domains of attraction and unrestricted permutation",
+          "arXiv:2611.16614v1, Sections 2–3",
+          "Distance Covariance for Discretized Stochastic Processes, pp. 1–3 and stable examples pp. 15–16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day catalogue neighbour proves a Brownian-bridge distance-correlation limit, strict bounds, and permutation failure after detrending finite-variance walks. It also gives an exact Brownian-bridge expectation constant; that is not a stable-level law.",
+          "The frozen CHECK.py only evaluates a small permutation identity case and selected stable samples; it provides no exact cross-index law."
+        ],
+        "reasoning": "This is an analytic limit family, not a finite exact table claim. The closest exact catalogue result matches the phenomenon but not the regime, path transformation, or limit. Same-day dates do not decide priority.",
+        "searches": [
+          "Resultary: stable Lévy occupation distance correlation, independent heavy-tail random walks and exact permutation failure",
+          "Resultary endpoint detrending neighbour 1a0e14953b54, Finding and Assumptions"
+        ]
+      },
+      "rationale": "The exact permutation identity, common-time occupation mechanism and finite-variance Brownian conclusions are prior. The repaired target is the strict, fixed-index stable occupation limit for infinite-variance independent levels, with the resulting inconsistency of the exact permutation calibration. The comparison credits the shared algebra and the stable invariance principle; it does not claim a new proof of that principle or a law comparison across indices.",
+      "residual_risks": [
+        "An unindexed or more general occupation-law result may cover the stable regime. The focused searches do not prove historical priority. The repaired theorem gives no demonstrated comparison between distributions at different index pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite-variance Brownian analogue and the permutation identity, not stable levels",
+          "evidence": [
+            "Finite positive variances; R_n converges to Brownian common-time occupation distance correlation, strictly between zero and one; exact conditional mean and p-value collapse are treated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16614v1",
+          "material_read": "pp. 1–2 offsets 639–11046 and Sections 2–3 pp. 3–6 offsets 11046–23821",
+          "method": "OA PDF, bounded passages",
+          "title": "Nonsense nonlinear correlations between independent random walks",
+          "trigger": "Closest same-statistic, same-sampling predecessor"
+        },
+        {
+          "assessment": "Different sampling and estimand",
+          "evidence": [
+            "Observations are iid process pairs discretized more finely, not scalar level pairs along one common time grid."
+          ],
+          "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.coecis.cornell.edu/dist/9/287/files/2019/08/Gena-24-Gena.-Distance-Covariance-for-discretized-Stochastic-Processes.pdf",
+          "material_read": "pp. 1–3 offsets 0–10523 and stable examples pp. 15–16 offsets 73186–75739",
+          "method": "OA PDF, bounded passages",
+          "title": "Distance Covariance for Discretized Stochastic Processes",
+          "trigger": "Stable processes and distance covariance in the title/topic area"
+        },
+        {
+          "assessment": "Input functional limits only, not a correlation theorem",
+          "evidence": [
+            "Dependent sequences can require M1 due to clustered jumps; the iid J1 input pertains to a different hypothesis regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.1345v2",
+          "material_read": "Abstract and background, p. 1 offsets 0–3998",
+          "method": "OA PDF, bounded passage",
+          "title": "A Functional Limit Theorem for Dependent Sequences with Infinite Variance Stable Limits",
+          "trigger": "Stable partial-sum invariance principle and topology"
+        },
+        {
+          "assessment": "Covers finite-variance rank statistics rather than infinite-variance distance correlation",
+          "evidence": [
+            "The two studied statistics are Spearman's rho and Kendall's tau."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.20572v1",
+          "material_read": "pp. 1–3 offsets 0–9309 and passage from offset 11555",
+          "method": "OA PDF, bounded passages",
+          "title": "Nonsense rank correlations between independent random walks",
+          "trigger": "Closely related spurious-correlation generalization"
+        },
+        {
+          "assessment": "Material thematic overlap; bridge and stable-level claims are not equivalent",
+          "evidence": [
+            "Finite-variance increments and endpoint-linear detrending lead to Brownian bridges and an explicit covariance constant."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-endpoint-detrending-preserves-spurious-distance-correlation-an-e--1a0e14953b54",
+          "material_read": "Original Finding and Assumptions, offsets 0–4161",
+          "method": "Local catalogue mirror, bounded original passages",
+          "title": "Endpoint detrending preserves spurious distance correlation: an exact Brownian-bridge covariance law",
+          "trigger": "Same-day common-time distance-correlation and permutation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The main scientific distinction survives the repair: ordinary level-based distance correlation and exhaustive permutation testing can systematically indicate dependence for independent heavy-tail processes even where fixed-time population distance correlation is not defined under its usual moment condition. The occupation-law argument identifies common time as the source of the positive statistic and gives a usable warning about permutation calibration in the infinite-mean regime. No unsupported claim of index-dependent laws is needed for that conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

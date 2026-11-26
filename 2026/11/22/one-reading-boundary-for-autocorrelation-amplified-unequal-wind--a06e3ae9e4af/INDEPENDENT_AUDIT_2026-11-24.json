@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:09:30.701533Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–27 and 31–69",
+        "VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent (2,10) covariance and Gaussian-tail calculation"
+      ],
+      "rationale": "Direct counting of within-window and cross-window pairs reproduces all three disjoint lag-coefficient ranges, including the empty middle range when m=n. With m<=n and m>=2, the first same-window contribution already dominates 1/(mn), the other is positive, and the coefficients are strictly decreasing in the first range and negative thereafter. Descartes' rule bounds the number of positive derivative roots by one, counting multiplicity. Counting each pair's distance by the cuts separating it gives V'(1)/sigma^2=-2 times the sum of squared prefix weights, strictly negative. Thus the root is simple and in (0,1). For m=1 all coefficients are negative. Gaussianity converts the result into the same classification for every strictly positive threshold. Independent direct double summation of w_i w_j rho^|i-j|, bisection on its derivative, and normal density integration give rho=0.638158678162176, variance ratio V/sigma^2=0.889741973037229 and P=0.289075649894 at threshold sigma, versus 0.6 and 0.196705602459 at independence.",
+      "residual_risks": [
+        "The monotonicity is for fixed marginal variance, nonnegative AR(1) correlation and adjacent disjoint uniform averages; the tail transfer requires the Gaussian surrogate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The targeted query returned no material source; the inspected antecedents treat symmetric windows. Keim–Percival vary scale, not autocorrelation for fixed windows."
+        ],
+        "reasoning": "No inspected broader result classifies the positive rho roots for the asymmetric two-step signed filter; the general covariance expression would still require the sign and endpoint analysis.",
+        "searches": [
+          "Independent targeted literature search on adjacent unequal AR(1) averages and Allan or signed-filter variance",
+          "Zhang (2008) and Keim–Percival (2010) full-text passages"
+        ]
+      },
+      "checked_sources": [
+        "Frozen references and relationship-to-prior-work section",
+        "Resultary",
+        "Zhang (2008)",
+        "Keim and Percival (2010)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-width formulas have one scale index, and the published Haar-scale peak fixes rho."
+        ],
+        "reasoning": "Neither result implies a simple maximum in rho for every pair of widths, or captures the change from an interior maximum to monotone decrease at a singleton. The nontrivial addition is the exact coefficient sign pattern and cut identity applied to this family.",
+        "searches": [
+          "Zhang Eq. (30); Keim–Percival Section 3 and AR(1) example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang gives the equal-width Allan variance; Keim–Percival use the equal-width adjacent Haar difference."
+        ],
+        "reasoning": "The aliases reduce to the same contrast on the diagonal m=n only; scaling does not remove two different block supports and weights.",
+        "searches": [
+          "Resultary: adjacent unequal Gaussian AR(1) window contrasts and singleton cutoff",
+          "Zhang (2008), section 2.3, Eq. (30)",
+          "Keim–Percival arXiv:1007.4169v1, pp. 7–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match is the frozen record itself; no distinct returned entry established the all-length phase boundary."
+        ],
+        "reasoning": "The object of comparison is the exact threshold classification, not the illustrative optimizer or a finite list of variances.",
+        "searches": [
+          "Resultary exact-family search, top 50; strongest match 2026/11/22/SCOPE-one-reading-boundary-for-autocorrelation-amplified-unequal-wind--a06e3ae9e4af"
+        ]
+      },
+      "rationale": "Best of current knowledge, the all-length classification with the singleton cutoff is distinct from the inspected earlier AR(1) Allan/Haar formulas and a scale maximization at fixed correlation. The exact Resultary match is the assigned work, not independent prior coverage.",
+      "residual_risks": [
+        "An equivalent signed-filter, total-positivity or weighted-Allan result could remain unlocated.",
+        "The two wind-power papers were not inspected in full; neither invisibility nor search ranking establishes priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equal-width special case",
+          "evidence": "The AR(1) Allan-variance expression has one averaging width.",
+          "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=152041",
+          "material_read": "Section 2.3, Eq. (30), journal p. 553 (PDF p. 5; text offset near 27800)",
+          "method": "Open primary PDF, bounded passage",
+          "title": "Allan variance of time series models for measurement data",
+          "trigger": "Direct AR(1) variance antecedent"
+        },
+        {
+          "assessment": "Different optimization",
+          "evidence": "Scale is varied at fixed AR(1) correlation for equal blocks.",
+          "identifier_or_url": "arXiv:1007.4169v1",
+          "material_read": "pp. 7–8, equal-width Haar variance and the AR(1) scale peak (text offset near 27200)",
+          "method": "Open primary preprint, bounded passage",
+          "title": "Assessing Characteristic Scales Using Wavelets",
+          "trigger": "Haar/Allan and maximizer equivalences"
+        },
+        {
+          "assessment": "Context only; no whole-document claim",
+          "evidence": "The frozen record cites these for physical ramp behavior and attribution, not as the basis of the theorem.",
+          "identifier_or_url": "10.1002/we.1942; 10.1049/iet-rpg.2014.0457",
+          "material_read": "Titles and RESULT.md lines 79–92; full text unavailable on attempted routes",
+          "method": "DOI and publisher lookup",
+          "title": "Variability in large-scale wind power generation; Identifying wind power ramp causes from multivariate datasets",
+          "trigger": "Original's applied antecedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding and proof",
+        "Equal-width Allan and Haar antecedents above"
+      ],
+      "rationale": "The answer to whether persistence can amplify an adjacent reporting-window contrast changes exactly when both windows contain at least two readings. This supplies a sharp boundary and a unique worst persistence for a natural family of filters, not just a larger variance in one example or a recomputation of Allan variance.",
+      "residual_risks": [
+        "Surrogate-level analytical result, not an empirically validated conclusion about wind-power extremes or reliability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

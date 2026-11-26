@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:21:12.745272Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–106",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (read, not executed)",
+        "Fresh replay: python3 /workspace/review_work/check_graph_examples.py, rows beginning '3 crown'"
+      ],
+      "rationale": "For d_i=x_i-y_i, the two closed-neighborhood sums at index i are B+d_i and A-d_i, yielding precisely A>=1+M and B>=1-m. The five pair factors partition all nine label pairs, and inclusion-exclusion extracts the exact two attained extrema before the feasibility truncation; specialization then records total weight. Weight two forces m=M=d, A=1+d, B=1-d, and nd=A-B=2d. Hence for n>=3 the labels are diagonal and the common vector has sum one; the stated multinomial counts all such vectors. A direct labeled-neighborhood enumeration against an independent extrema-state recurrence at n=2,3,4 confirmed the bivariate coefficients, with 6 and 16 diagonal minima at n=3,4 and two extra off-diagonal minima at n=2. The universal conclusion uses the proof, not this finite comparison.",
+      "residual_risks": [
+        "The fresh enumeration is bounded; no formal or expert attestation is inferred from it or the packaged transcript."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang Theorem 3 gives a scalar 1 for a singleton part, 2 otherwise, on complete multipartite graphs.",
+          "The inspected Resultary Finding groups part sums and minimum labels for connected complete multipartite graphs."
+        ],
+        "reasoning": "The crown for n>=3 is not complete multipartite: distinct same-side vertices and the missing partner of one of them violate transitivity of nonadjacency. The published broad regular-graph bound cited by the record supplies the scalar lower bound, not a weight enumerator.",
+        "searches": [
+          "arXiv:1205.0343v1, Theorem 3",
+          "10.1016/0012-365X(94)00329-H (regular graphs)",
+          "DML-CZ:128088 (bipartite graphs)",
+          "Resultary 2026/10/4/SCOPE-weight-enumerator-of-all-minus-dominating-functions-on-complete--b0d37260a765"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–73 and 117–131",
+        "Two Resultary records identified in source_inspections",
+        "Liang arXiv:1205.0343v1 p. 2 and Theorem 3",
+        "Dunbar et al. and Zelinka access attempts as qualified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing all closed-neighborhood inequalities in an (n−1)-regular crown gives n(A+B)>=2n. At equality every local inequality is tight, so the minimum classification is an elementary equality analysis.",
+          "In the multipartite formulas a vertex sees every vertex outside its part; in the crown the additional summand −y_i or −x_i depends on its matched partner."
+        ],
+        "reasoning": "The regular equality argument gives useful overlap for the minimum layer, but neither that constraint nor the multipartite or double-Italian formulas provide the exact-range kernel and coefficient distributions away from equality. The originality decision rests on the full census, not an isolated deduction of weight two.",
+        "searches": [
+          "Liang arXiv:1205.0343v1, Theorem 3 and proof",
+          "Resultary complete-multipartite enumerator Finding and crown double-Italian minimum Finding",
+          "Frozen RESULT.md lines 117–125, regular-graph bound comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liang arXiv:1205.0343v1 p. 2 uses the same closed-neighborhood ternary definition; Theorem 3 treats a different adjacency class.",
+          "Resultary 2026/10/12/SCOPE-minimum-double-italian-functions-of-crown-graphs--126dceeb398a uses labels {0,1,2,3} and double Italian domination, not the ternary closed-neighborhood inequality."
+        ],
+        "reasoning": "The search used both crown terminology and K_{n,n} minus a perfect matching. Changing the double Italian alphabet and rule is not an equivalent formulation of the present feasible functions, even though the optimal labels in both problems are diagonal.",
+        "searches": [
+          "Resultary: minus domination crown graph K_n,n perfect matching enumerator all functions",
+          "Resultary: minus domination ternary labeling crown graph side sums extrema",
+          "Primary search: \"crown graph\" \"minus domination\" enumerator OR functions classification; \"K_{n,n}\" \"minus domination\" perfect matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-multipartite Resultary entry tabulates the wrong adjacency class; the same-graph double Italian entry counts a different object, with weight six and count binom(n+2,3).",
+          "The primary search supplied no relevant exact census; no negative inference is made from that result."
+        ],
+        "reasoning": "The relevant database match would have to give the same labeled ternary distributions by side sums or total weight, or the same minimum label family for all n. Neither inspected catalogue entry does so.",
+        "searches": [
+          "Resultary: minimum minus dominating functions identical labels on matched pairs common sum one crown graph count",
+          "Resultary: minus domination crown graph K_n,n perfect matching enumerator all functions",
+          "Primary exact-census query listed under equivalent_formulations"
+        ]
+      },
+      "rationale": "Best of inspected evidence: the two-extrema feasibility criterion and bivariate/all-weight census apply to the deleted matching, not to intact complete multipartite adjacency. The scalar regular-graph lower bound is already a direct double count and is not credited as original. The closest same-graph diagonal minimum census concerns a different label alphabet and rule, and neither it nor the multipartite census implies the ternary crown enumerator.",
+      "residual_risks": [
+        "An older or differently indexed equivalent crown census could exist. Full primary passages from Dunbar et al. and Zelinka were not obtained; unsuccessful searches and access attempts do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar comparator, not crown output",
+          "evidence": "The exact minimum in Theorem 3 is stated for complete multipartite graphs only and contains no enumerator.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.0343v1",
+          "material_read": "p. 2 definition (offset 3666); p. 9 Theorem 3 and proof (offsets 23100–25564)",
+          "method": "Bounded lawful OA PDF reading",
+          "title": "Signed and Minus Domination in Complete Multipartite Graphs",
+          "trigger": "Same invariant; broader-looking class"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "The all-function criterion uses minimum labels and sums of whole parts, with all interpart edges present.",
+          "identifier_or_url": "2026/10/4/SCOPE-weight-enumerator-of-all-minus-dominating-functions-on-complete--b0d37260a765",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and mirrored record reading",
+          "title": "Weight enumerator of all minus dominating functions on complete multipartite graphs",
+          "trigger": "Strongest exact-enumerator catalogue match"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Its diagonal common vector has entries in {0,1,2,3} and sum three; its claimed count is binom(n+2,3).",
+          "identifier_or_url": "2026/10/12/SCOPE-minimum-double-italian-functions-of-crown-graphs--126dceeb398a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and mirrored record reading",
+          "title": "Minimum double Italian functions of crown graphs",
+          "trigger": "Same graph, same diagonal-shape resemblance"
+        },
+        {
+          "assessment": "Credit the stated scalar bound; further source contents unresolved",
+          "evidence": "Degree n−1 and order 2n already give lower bound two directly.",
+          "identifier_or_url": "10.1016/0012-365X(94)00329-H",
+          "material_read": "Citation and regular-bound comparison in frozen RESULT.md; full primary text not obtained",
+          "method": "Lawful DOI retrieval attempt; independent regular-graph double count",
+          "title": "Minus domination in regular graphs",
+          "trigger": "Possible broad prior implication"
+        },
+        {
+          "assessment": "Unresolved full-text access; not negative evidence",
+          "evidence": "No verified passage-level coverage claim is attributed to this paper in the decision.",
+          "identifier_or_url": "DML-CZ:128088",
+          "material_read": "Frozen citation; no primary theorem passage obtained",
+          "method": "DML and Springer PDF routes attempted",
+          "title": "Signed and minus domination in bipartite graphs",
+          "trigger": "Related bipartite literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md criterion, enumerator and minimum layer",
+        "Fresh n=2,3,4 comparison",
+        "Inspected complete-multipartite and double Italian comparator statements"
+      ],
+      "rationale": "The crown is a natural highly symmetric graph where the missing matching obstructs the intact bipartite formulas. Tracking the two side sums gives a genuine complete distribution (not just an optimum) with a constant-size alphabet of pair extrema and only polynomially many side-sum states. It also identifies which minimizers realize the universal lower bound and why the small matching boundary behaves differently. These outputs are useful for exact enumeration and comparison with other domination rules.",
+      "residual_risks": [
+        "The regular-graph lower bound alone would be routine; the assessment is for the structural census and its scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

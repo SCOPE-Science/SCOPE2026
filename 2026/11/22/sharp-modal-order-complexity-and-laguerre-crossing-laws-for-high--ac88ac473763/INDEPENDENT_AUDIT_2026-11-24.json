@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:10:58.293618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55; VERIFICATION.md; verify_laguerre.py inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/recheck_frozen_five.py, section 1. Build both finite binomial sums afresh, expand the density identity after removing the common factor, and isolate positive roots of the exact product. At 3<=q<=5 and 0<=k<=8 all 27 identities and root counts held with simple positive roots."
+      ],
+      "rationale": "In the stated Gaussian measure, angular integration and the radial substitution t=|z|^2 give the normalized Laguerre densities; for k<q the negative-parameter reduction converts to the ordinary positive-parameter norm with min(q,k)!/max(q,k)!. Writing A=L_q^(k-q), B=L_q^(k+1-q), the finite sums give A'=A-B and xB'=(k+1)A-(k-q+1)B. Differentiating e^(-x)x^(k-q+1)AB gives the negative of the density difference times (k+1)!/q!. The boundary expression is O(x^(k-q+1)) for k>=q and O(x^(q-k)) for k<q, so integration gives the exact formula for all k. Each factor's finite positive roots are simple by Laguerre orthogonality after the negative-parameter reduction; the contiguous first-order system prohibits a common positive zero by uniqueness on x>0. Thus the number of simple sign-changing positive roots is min(q,k)+min(q,k+1). For fixed x, the index polynomial is [t^q](1+t)^y exp(-xt), of degree q and leading coefficient 1/q!. Averaging the product of two generating functions under Poisson(x) gives exp(xst), proving orthogonality to all lower-degree polynomials. If fewer than q roots changed sign in (0,infinity), multiplying by the product of those distinct factors would give an integrand of one sign on the nonnegative support and nonzero on infinitely many atoms, contradicting orthogonality. Thus the q index roots are all positive and simple. A strict ascent uses a disjoint open integer interval containing a root. Each maximal finite local-maximum run except a possible initial one has a preceding strict ascent. The eigenvalues are positive and tend to zero for fixed x (the factorial dominates the radial power times the polynomial-in-k density factor), so the infinite tail supplies no further plateau. With y=x+u sqrt(x), t=v/sqrt(x), expanding the logarithm gives locally uniform generating-function convergence to exp(uv-v^2/2); coefficient and simple-root convergence give the stated Hermite scaling. The gaps between index roots tend to infinity, so use separation >2, not just >1, to ensure an intervening descending step between rising unit intervals. At large x all roots are also away from index zero. Off the countable set of integer index roots the steps have no ties, the ascents are isolated, and there are exactly q+1 strict local maxima including the left endpoint.",
+      "residual_risks": [
+        "The finite symbolic checks are corroboration; the polynomial identities, orthogonality, ODE uniqueness and asymptotic scaling prove the infinite statements. The bound counts Hermite-index extrema, not a ranking of all eigenvalues or the maximizing index for each radius."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preceding indexed disk records give first- and second-excited modal results, including at most three plateaux and triangular resonances in the q=2 summary. The shell-count summary concerns analytic Fock space with multiple annuli. The frozen citations to Maximenko–Tellería-Romero and Mouayn–Mahboubi–El Moize specify radial diagonalization and disk eigenvalues respectively."
+        ],
+        "reasoning": "More radial boundaries in an analytic level do not supply a theorem for fixed one disk at arbitrary pure order. General diagonalization includes this spectral integral and fixes normalization, not its evaluated neighboring crossings or the q-specific uniform sign census. The q=2 result is genuine spectral overlap but not domination of q>=3.",
+        "searches": [
+          "SCOPE-three-mode-disk-localization-and-triangular-spectral-resonances--a2df20aeb429",
+          "SCOPE-sharp-disk-concentration-and-spectral-gap-resonances-in-the-first--60f08a58beae",
+          "SCOPE-a-sharp-shell-count-law-for-angular-momentum-peaks-in-gaussian-f--41fa2b45e61f",
+          "arXiv:1905.00978v2 radial operators; arXiv:2305.04354 Eq. (5.12) and Appendix B"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json and source references",
+        "Resultary exact target and distinct a2df20aeb429, 60f08a58beae and 41fa2b45e61f summaries",
+        "ArXiv primary texts and Charlier reference retrieval attempted; actual Charlier comparison established from the finite generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical contiguous identities and the given density imply the product formula by one integration. Factor zeros give the crossing count only after using the differential system to exclude shared positive zeros and accounting for the k<q multiplicities at the origin. Sharpness at large x requires all index roots to separate and lie between integer indices at nonexceptional areas."
+        ],
+        "reasoning": "Recognize the classical ingredients and the routine part of the factorization. The available stronger general frameworks and lower-order results do not assert the combined colored-by-index sign pattern or its sharp all-level counting; the transfer from Charlier roots to uniform ascents and optimal plateau count is the distinct supported implication.",
+        "searches": [
+          "Abreu–Gröchenig–Romero §4.2, Lemma 4.2 and Remark 4.3; Mouayn–Mahboubi–El Moize Eq. (5.12), Appendix B",
+          "Frozen RESULT.md lines 25–52 and 57–69; Resultary lower-level and annulus results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The generating function identifies the index polynomial as a scalar normalization of a Charlier polynomial. Another lens is that lambda'_q,k(x) is proportional, with common factor q!/x^q, to Poisson(x) mass at k times the square of that index polynomial. The indexed exact census is this same frozen record."
+        ],
+        "reasoning": "Real simple index zeros and Hermite scaling belong to the classical Charlier theory; merely switching from Laguerre to Charlier is not novelty. The neighboring integrated gap, and its sign on integer intervals, are needed to transfer those facts into sharp spectral-complexity bounds.",
+        "searches": [
+          "Resultary: higher Landau disk localization Laguerre crossings and Hermite-mode ascents; Charlier-index modal asymptotics",
+          "DLMF §18.21 (attempted Charlier–Hermite limit text); arXiv:1704.03042v3 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Checked catalog-level special cases cover low orders; the target is the direct higher-order catalog match, not a distinct table. Orthodox Laguerre zero formulas already identify the radii once the expression is factored."
+        ],
+        "reasoning": "Neither a tabulated set of zeros of one factor nor low-order spectra supply the noncoincidence and positive multiplicity census in both regimes of k. This bounded comparison does not rule out an earlier exact crossing table elsewhere.",
+        "searches": [
+          "Resultary exact target ac88ac473763, first-window 60f08a58beae and second-window a2df20aeb429",
+          "Frozen prior-work locators: first-window crossing at arXiv:1704.03042v3 Remark 4.3, Laguerre eigenvalue formulas in arXiv:2305.04354"
+        ]
+      },
+      "rationale": "Pass for the complete sharp higher-order spectral census and its all-index ascent application, not for the disk diagonalization, Laguerre recurrences, Charlier orthogonality, or Charlier–Hermite limit. The exact product follows rather quickly from classical relations once the disk marginal is written in Laguerre variables; the new content supported here is how it yields the all-level crossing and modal bounds together. Earlier q=1 and q=2 laws and exact classical root results are credited. Priority is provisional.",
+      "residual_risks": [
+        "Highly relevant arXiv passages and Charlier reference text were not independently available. Access failures are not negative evidence.",
+        "A difference relation for integrated Laguerre densities, or an equivalent sign-count formulation in the special-function literature, could give stronger previously known coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit known disk integrals and first-window example; independently unverified full extent",
+          "evidence": [
+            "Frozen RESULT.md lines 57–60 identify the result and the limited example, rather than claiming the spectral representation as new."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.03042",
+          "material_read": "Frozen attribution to §4.2, Lemma 4.2 and Remark 4.3; primary passages not retrieved",
+          "method": "Primary lookup, attempted OA arXiv HTML and PDF",
+          "title": "Harmonic Analysis in Phase Space and Finite Weyl-Heisenberg Ensembles",
+          "trigger": "Primary same-object disk spectrum and explicitly discussed crossing"
+        },
+        {
+          "assessment": "Overlaps exact eigenvalue evaluation and statistics; full-text gap and modal coverage unresolved",
+          "evidence": [
+            "Frozen RESULT.md lines 57–60 describe the polyanalytic Ginibre disk eigenvalues and incomplete-gamma formulas; the review uses the shared Laguerre integral as prior input."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.04354",
+          "material_read": "Frozen reference comparison to Eq. (5.12), §6 and Appendix B; primary body unavailable",
+          "method": "Primary lookup and attempted arXiv OA retrieval",
+          "title": "Mean and Variance of the Cardinality of Particles in Polyanalytic Ginibre Processes via a Quantization Method",
+          "trigger": "Same Laguerre disk eigenvalues for general polyanalytic order"
+        },
+        {
+          "assessment": "Exact lower-order modal overlap, not a q>=3 result on the available statement",
+          "evidence": [
+            "Second excited sector; at most three plateaux, with specified triple resonances."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-three-mode-disk-localization-and-triangular-spectral-resonances--a2df20aeb429",
+          "material_read": "Indexed summary with q=2 plateau and resonance claims",
+          "method": "Resultary and frozen reference comparison",
+          "title": "Three-mode disk localization and triangular spectral resonances",
+          "trigger": "Closest indexed modal-count analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; indexed low-order and analytic annulus comparisons"
+      ],
+      "rationale": "Exact crossing counts and a sharp global limit on spectral turns give useful information about disk concentration modes that diagonalizing the operator alone does not reveal. The bound is independent of disk area and the number of modes inspected; the Hermite-scale root locations explain its eventual attainment through a structurally different index variable. This is a natural all-order invariant of the disk-localization problem.",
+      "residual_risks": [
+        "Does not locate the globally best mode at every radius, compare nonneighbors, or cover mixed levels and other masks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

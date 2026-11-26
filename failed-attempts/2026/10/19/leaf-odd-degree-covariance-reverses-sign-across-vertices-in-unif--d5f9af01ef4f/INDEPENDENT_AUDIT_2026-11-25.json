@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:48:10.754635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the uniform Prüfer word of length n−2, a leaf is a missing letter, and odd degree means an even letter count. For distinct i,j one word position contributes 0 on i, −1 on j and 1 otherwise to the joint missing-letter/sign moment, giving w_n. The marginal missing and parity moments are u_n and v_n, so the off-diagonal covariance is (w_n−u_nv_n)/2 and the diagonal is u_n(1−v_n)/2. Summing gives the total. The off-diagonal sign follows from the strict base comparison for n≥3; the same-vertex sign is positive in that same range, and both signs degenerate at n=2. The total vanishes at n=2,3. For n≥4 strict convexity of x↦x^(n−2) on [0,1] gives 1+(n−1)b^(n−2)>n[(1+(n−1)b)/n]^(n−2) for b=(n−3)/(n−1); this is exactly the total sign inequality. Two-letter missing and parity transforms give v_n and z_n and hence the reported variances. Nondegeneracy follows from stars and paths, and the first-order expansion in 1/n gives the stated two variance limits and covariance limit, hence the Pearson limit. This is about uniform labeled Cayley trees. The frozen verifier was inspected, not executed; a separate exact check via acyclic labeled edge sets at n=2..6 reproduced the moments and diagonal/off-diagonal covariances (python /workspace/branches/independent_checks.py 1).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The corpus formula allows general z and returns the exact mixed moment for n≥4.",
+          "Theorem 2.3 of Drmota–Gittenberger gives the joint asymptotic covariance matrix for fixed finite lists of exact degrees. Bartroff–Goldstein and Barbour–Gnedin treat small or fixed occupancy counts in different fluctuation settings."
+        ],
+        "reasoning": "The general-z formula specializes exactly; the fixed-class asymptotic theorem instead supplies formal limiting consistency, but not summation over all odd classes without a tail justification and not the finite-n sign.",
+        "searches": [
+          "841548d3e0e4, Eqs. (1), (12)–(13)",
+          "Drmota–Gittenberger, Theorem 2.3",
+          "arXiv:1202.0909",
+          "arXiv:0809.4387"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 841548d3e0e4 and 505642a3ba95",
+        "Drmota–Gittenberger Theorem 2.3",
+        "arXiv:1202.0909",
+        "arXiv:0809.4387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The z=−1 substitution yields E[L(-1)^N]=u_n+(n−1)w_n; the marginal product is n u_n v_n. Exchangeability gives n/2 times the difference.",
+          "The normalized difference after division by u_n is 1+(n−1)b^m−n[(1+(n−1)b)/n]^m for b=(n−3)/(n−1)."
+        ],
+        "reasoning": "Strict Jensen gives positivity for m>1 and equality for m=1, while the off-diagonal bases differ by 2/n². The exact named sign contrast therefore follows from the existing formulas by elementary comparisons. Formally summing Drmota–Gittenberger's degree entries matches the limiting covariance but is not required for the exact implication.",
+        "searches": [
+          "841548d3e0e4 Eq. (1) at z=−1 and Eq. (13)",
+          "Drmota–Gittenberger Theorem 2.3, covariance entries for degree 1 and odd degrees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "841548d3e0e4 Finding Eq. (1) and Proof Eqs. (12)–(13): mixed generating function and its vertex-pair kernel.",
+          "505642a3ba95 Finding: leaf covariance with the parity class of distance from a root, not of degree."
+        ],
+        "reasoning": "Degree is 1 plus Prüfer count, so the odd-degree indicator is (1+(-1)^N)/2. This identifies z=−1 in the first record; the second record's superficially similar parity is a different tree statistic.",
+        "searches": [
+          "Resultary: Cayley-tree leaf versus degree parity and Prüfer occupancy covariance",
+          "841548d3e0e4",
+          "505642a3ba95"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq. (1) gives E[L z^N]=a^m+(n−1)((n−2+z)/n)^m for a=(n−1)/n, m=n−2; Eq. (13) gives the off-diagonal one-leaf kernel."
+        ],
+        "reasoning": "This is an exact analytic entry on the same distribution and is decisive, unlike an enumeration or a numerical covariance table.",
+        "searches": [
+          "Resultary exact mixed generating moments for leaf count and vertex Prüfer count",
+          "841548d3e0e4 Finding and Proof"
+        ]
+      },
+      "rationale": "The earlier Resultary finding 841548d3e0e4 states the exact mixed generating function for the total leaf count and a fixed vertex's Prüfer count. Substituting z=−1 and using exchangeability gives the exact aggregate covariance, and its Eq. (13) at z=−1 gives the local covariance. The strict sign contrast is then a direct finite corollary: the off-diagonal sign is a base comparison and the total sign is the strict power-mean inequality for two bases (see claim_vs_prior_implication). No new structural sign argument beyond this implication is required. The n=2,3 cases and Pearson limit add routine degenerate cases and marginal-moment evaluations, not a distinct surviving claim. This is mathematical coverage, not a claim about derivation history.",
+      "residual_risks": [
+        "The bounded primary comparison does not determine earliest historical priority; the demonstrated generating-function implication is independent of that priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong exact coverage of the covariance and finite sign comparison after substitution and strict convexity.",
+          "evidence": [
+            "Eq. (1) gives the all-z mixed moment and Eq. (13) its distinct-vertex term."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-cayley-tree-degree-is-leaf-orthogonal-only-at-first-order--841548d3e0e4/RESULT.md",
+          "material_read": "Finding Eq. (1) and Proof Eqs. (12)–(13), local mirror offset 0 onward",
+          "method": "Bounded local public corpus text inspection and specialization",
+          "title": "Cayley-tree degree is leaf-orthogonal only at first order",
+          "trigger": "Exact mixed leaf-count/degree generating function in the same Cayley law"
+        },
+        {
+          "assessment": "Not equivalent; parity denotes root distance.",
+          "evidence": [
+            "Covariance is with the root's even-distance class; its limit is 1/(8e)."
+          ],
+          "identifier_or_url": "Resultary:505642a3ba95",
+          "material_read": "Finding and beginning of leaf-deletion proof, mirror offset 0",
+          "method": "Bounded local public corpus full-text inspection",
+          "title": "A nonvanishing leaf-parity covariance in uniform Cayley trees",
+          "trigger": "Same model and near-identical leaf/parity terminology"
+        },
+        {
+          "assessment": "Covariance matrix for any fixed finite list of exact degrees; does not assert the finite-size parity sign or control the growing collection of all odd classes.",
+          "evidence": [
+            "The formal sum of the degree-1 versus odd-degree entries is (e²−3)/(2e³), consistent with the frozen limit."
+          ],
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/bgitten/preprints/nodedeg.pdf",
+          "material_read": "§2.3, Theorem 2.3, author preprint p. 7 (text offset 28526)",
+          "method": "Lawful author-hosted full text, bounded theorem inspection",
+          "title": "The distribution of nodes of given degree in random trees",
+          "trigger": "Potential broader exact-degree covariance theorem"
+        },
+        {
+          "assessment": "Normal approximation for a fixed occupancy count, not this joint parity/empty-count assertion.",
+          "evidence": [
+            "Uniform allocation of balls to boxes; the statistic counts boxes with a specified occupancy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1202.0909",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "Open PDF, bounded full-text passage",
+          "title": "A Berry–Esseen bound for the uniform multinomial occupancy model",
+          "trigger": "Uniform occurrence counts underlying Prüfer word"
+        },
+        {
+          "assessment": "Different infinite-box scheme and fixed occupancy classes, not the exact finite Cayley claim.",
+          "evidence": [
+            "Small occupancy counts in a model with infinitely many boxes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "Open PDF, bounded full-text passage",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Potential occupancy analogue for marginal variance or covariance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Comparing local and total dependence for canonical tree counts is a meaningful question, but the exact contrast here is a single parity specialization and strict convexity comparison of the existing generating formula. The additional decimals and degenerate small cases do not supply a separate useful exact result beyond that direct implication.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

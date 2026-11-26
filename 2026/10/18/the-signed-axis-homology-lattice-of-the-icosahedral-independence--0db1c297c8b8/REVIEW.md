@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit twelve-vertex edge definition gives a thirty-edge distance-two graph isomorphic to the original icosahedron, and the six antipodal edges are not contained in independent triples. The long exact sequence of the pair consisting of the full independence complex and its spherical subcomplex proves the two claimed integral homology modules, including their natural full-group actions; the sphere and attached-edge construction proves the ordinary wedge type. The standard-library verification program checks every graph automorphism, every induced action on the oriented antipodal edges, and the signed spherical fundamental class. Character values and the rational decomposition are independently justified by the classical \(A_5\) character table.
+## correctness
 
-**Originality — PASS, with residual risk.** Actual semantic searches compared the independence complex, flag complex of the complement, distance-two self-isomorphism, six antipodal chords, equivariant homology, and induced dihedral sign representation. MathWorld records the underlying graph self-isomorphism and full automorphism order; this is credited, not new. Barmak's 2010 primary text supplies general independence-complex theory without the claimed specific representation. Two close published results concern the icosahedral open-neighborhood and distance-neighborhood complexes; their simplices and invariants are different and do not imply the integral signed-axis lattice. Accessible historical claims were checked for overlap. Unindexed calculations and one unavailable successor of the earlier ledger are residual limitations, not evidence of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The claim is a natural complete integral equivariant classification of the homology of a Platonic graph's independence complex, based on its antipodal geometry. The signed lattice, the order-ten inducing subgroup, the Galois-conjugate six-dimensional rational module and the central orientation sign distinguish the answer from ordinary Betti numbers or a routine reconstruction of a published table. It also supplies a concrete comparison case for equivariant graph-complex topology. The result is finite and one-object-specific, without an asserted family theorem.
+The independent sets split into the clique sphere of the distance-two graph and six antipodal edges: every other vertex is adjacent to one endpoint of each antipodal pair. The distance-two graph is icosahedral, whose cliques are its vertices, edges and facial triangles. Attaching the six one-cells to a connected sphere gives the nonequivariant wedge. The only nonzero relative chain group for (X,S) is the integral oriented-axis group in degree one, and the pair sequence gives the claimed canonical H1 and H2 maps (not merely abstract ranks). I reconstructed the graph separately in exact golden-ratio coordinates, enumerated all independent sets and 120 automorphisms, and checked the signs on the six axes and on a coherent integral sphere cycle; replay python3 -B /workspace/audit_math.py 3. The rotation stabilizer is dihedral of order ten: its five involutions reverse the selected axis, giving the induced lattice and two negative fixed-axis contributions per involution; order three fixes none and order five fixes one positively. Odd-order rotations preserve spherical orientation and generate the rotations; the spherical antipode is free, giving degree -1. The two complex 3-dimensional constituents have conjugate character values and are exchanged by rational Galois action, so their rational six-dimensional form is irreducible. The original script was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical graph data and earlier exact neighborhood-complex results do not supply the natural integral signed-axis H1 lattice of the ordinary independence complex. The closest same-day entry permits selected edges and concerns a different complex. A distinct 2026-10-25 record states the exact equivalent integral result, including identification with the oriented-edge lattice; its later catalogue date is not evidence of earlier coverage, nor do these dates alone establish ultimate priority. The pass concerns the audited claim against verified earlier and same-day evidence, not present-day uniqueness.
+
+## value
+
+PASS
+
+The natural symmetry of a standard polyhedral graph motivates its independence homology, and the canonical integral oriented-axis lattice supplies information not recoverable from a Betti count or abstract rational character. The sphere-relative identification gives a useful symmetry-respecting model without claiming an equivariant wedge splitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

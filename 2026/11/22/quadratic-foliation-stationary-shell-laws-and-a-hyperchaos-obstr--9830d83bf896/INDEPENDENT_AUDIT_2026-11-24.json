@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:19.252534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The absolutely continuous chain rule gives d[w−(x²+y²)/2]/dt=0 across both regions, almost everywhere, and the inverse coordinate change adds (x²+y²)/2 to J. Direct differentiation gives the two coboundaries in the frozen proof; the derivative of |x| equals σ(x)y almost everywhere in time, including on any positive-measure switching level set where y=0 almost everywhere. Integrating over time and using invariance and compact support annihilates the coboundaries. If the y² moment vanishes, invariance and continuity give y=z=0 on almost every stationary path, and the third equation forces x=±1, so there is no non-equilibrium exception. For c<0 the required positive average of x²−|x| forces mass outside |x|≤1. For c>0, Cauchy–Schwarz and E|x|>E x² imply E x²<1. The upper activity bound is strict because equality in |x|−x²≤1/4 would confine stationary continuous paths to x=±1/2, impossible for equilibria. The z² bound follows from the first balance. In the product coordinates, the J direction is exactly fixed. At each transverse crossing the base saltation is a rank-one shear with unit determinant because the jump is tangential; smooth trace −a therefore gives the base determinant exp(−aT). The flow direction supplies the other unit multiplier on a periodic orbit. Under the stated regular-cocycle hypotheses it likewise has zero Lyapunov exponent: on a non-equilibrium compact ergodic trajectory recurrence to a positive-speed set and bounded speed give limsup of its growth rate zero, which is the exponent if the limit exists. The two remaining exponents sum to −a. A separate symbolic replay reproduced the local algebra; see /workspace/branches/4f722b5b-9c75-4a46-ad29-eee09055dba5/record4_replay.py. The supplied checker was inspected, not run. Neither check establishes global well-posedness or excludes grazing or irregular cocycles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Sprott-A and Liu examples illustrate the general relation between a passive coordinate and neutral spectrum; the same-day jerk record d08f5f126f77 is a smooth 3D a=0 family. Standard saltation and flow-direction results give variational tools but not the stationary moments of this discontinuous positive-damping system."
+        ],
+        "reasoning": "Applying the general machinery still requires identifying the exact passive coordinate, checking the tangential jump, and deriving the particular stationary identities. No reviewed broader theorem states or supplies the combined shell conclusion for this model.",
+        "searches": [
+          "Resultary 0acf675d0643, db1c572973a6 and d08f5f126f77, structural and bounded-orbit results",
+          "Primary source section 2 and its hyperchaos diagnostics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "E3S Web of Conferences 469, 00051 (2023), retrieved OA PDF",
+        "Resultary 0acf675d0643, db1c572973a6 and d08f5f126f77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original article calls more than one positive exponent hyperchaos and applies that label to the displayed parameter choice. The reviewed analogues prove restrictions in their own systems, not the c-dependent stationary-mass and strict activity bounds for the printed switching jerk."
+        ],
+        "reasoning": "The governing equations are available and the conservation check is elementary, but the combined result also establishes stationarity and neutral directions with precise hypotheses across switches. The reported dimension or generic spectral tools do not establish that result.",
+        "searches": [
+          "Primary source PDF pp. 1–2 and 4; indexed first-integral results 0acf675d0643 and db1c572973a6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary equations use w′=xy+yz, making the fourth coordinate a primitive of a base observable. The closest indexed first-integral corrections, 0acf675d0643 and db1c572973a6, use different vector fields and different invariant coordinates."
+        ],
+        "reasoning": "Read as a skew product, the w equation is not a genuinely independent fourth mode. The indexed analogue results are not claims about the same skew product or its stationary balances.",
+        "searches": [
+          "Primary paper DOI 10.1051/e3sconf/202346900051, definition of hyperchaos and section 2 model",
+          "Resultary searches for the switching jerk equations, quadratic first integral and neutral Lyapunov directions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source reports hyperchaos at (a,b,c)=(0.5,1,−1) and D_KY=3.375; this is a diagnostic for a parameter choice, not a universal invariant-measure law. The local closest distinct records use different equations."
+        ],
+        "reasoning": "Numerical parameter data do not settle the exact shell or Lyapunov statement; no exact matching entry was identified in the bounded index review. D_KY=3.375 alone is compatible with a single positive exponent and is not contradicted by the theorem.",
+        "searches": [
+          "Local Resultary search for the exact switching model and stationary laws",
+          "Primary source PDF p. 2 parameter and spectrum discussion, p. 4 plots"
+        ]
+      },
+      "rationale": "The model and general variational methods are prior. For the exact printed four-dimensional system, the surviving contribution is the explicit global reduction combined with the two stationary shell laws and a proved regular-dynamics restriction, not a general theory of saltation or a claim that first integrals are a new way to find neutral directions.",
+      "residual_risks": [
+        "Bounded literature comparisons cannot exclude an earlier unindexed correction for the same equations. Recognition of the exact primitive and generic spectral mechanisms is straightforward and not itself claimed as a general innovation.",
+        "Neither the analytic result nor the symbolic replay diagnoses why the original numerics produced a hyperchaotic interpretation or certifies that a particular numerical trajectory satisfies the regularity assumptions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_CLAIM",
+          "evidence": "Defines the label via more than one positive exponent and reports it for (0.5,1,−1); reports D_KY=3.375. These passages do not establish the stationary identities or the conditional spectral obstruction.",
+          "identifier_or_url": "https://doi.org/10.1051/e3sconf/202346900051",
+          "material_read": "PDF p. 1 definition (text offset 1653); section 2, PDF p. 2 (offset 3497), model and stated parameters; p. 4 plotted behavior",
+          "method": "Publisher retrieval failed with 403; read the same open-access paper at https://pdfs.semanticscholar.org/224e/9a91702e6b9d507925a0627d1de9861f8b4d.pdf",
+          "title": "A new hyper-chaotic system with equilibrium lines: dynamic analysis and synchronization",
+          "trigger": "Same four-dimensional system and published hyperchaotic label"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Smooth memristive Sprott-A system with an affine integral, not this discontinuous jerk system.",
+          "identifier_or_url": "Resultary 0acf675d0643",
+          "material_read": "Indexed finding and model description",
+          "method": "Local Resultary search",
+          "title": "Affine first integral forces a two-neutral Lyapunov spectrum in a memristive flow",
+          "trigger": "Structurally similar two-neutral conclusion"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Different Liu flow, first integral and spectrum.",
+          "identifier_or_url": "Resultary db1c572973a6",
+          "material_read": "Indexed finding and model description",
+          "method": "Local Resultary search",
+          "title": "Exact fiber slaving and a no-hyperchaos theorem for a reported flow",
+          "trigger": "Similar passive-coordinate correction to a hyperchaos report"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Smooth three-dimensional system at a=0 rather than the four-dimensional switch with a>0.",
+          "identifier_or_url": "Resultary d08f5f126f77",
+          "material_read": "Indexed finding and hypotheses",
+          "method": "Local Resultary search",
+          "title": "Global bounded-orbit convergence on the equilibrium-line boundary",
+          "trigger": "Same-day jerk dynamics and equilibrium-line comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact reduction gives a testable correction to a published hyperchaos interpretation, with no numerical surrogate needed. The two stationary balances apply beyond individual periodic orbits and add quantitative, sign-dependent restrictions on recurrent states. The work is valuable as a model-specific structural correction even without an existence or global switching theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

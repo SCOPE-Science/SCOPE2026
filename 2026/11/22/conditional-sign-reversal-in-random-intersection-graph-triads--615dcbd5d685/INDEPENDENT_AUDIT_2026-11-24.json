@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:06:04.820140Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 5–80",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent exact spot check of the one-attribute example",
+        "Karlin–Rinott, MTP2 marginalization as invoked in the frozen proof"
+      ],
+      "rationale": "For one attribute, an empty triad has probability a, each specified singleton edge probability b=p^2(1-p), and the full triangle probability p^3. Thus u=a+b and v=a+2b give u^2-av=b^2>0, while direct subtraction gives u-v^2=p^3(1-p)>0. Multiplication over the independent attributes gives B^2>AC and B>C^2. Inclusion–exclusion gives the stated per-pattern masses; using joint and marginal zero probabilities in the two conditional rows yields exactly the three displayed covariance formulas. In the present-edge row, put r=B/C. Since A/B and C are both smaller than r<1, (B-A)(1-C)>B(1-r)^2>C^2(1-r)^2=(C-B)^2. Both rows have positive total mass. At p=1/2 and m=1, the per-pattern masses are (1/2,1/8,0,1/8), giving 1/16, -1/36, and 1/4. Increasing maps of the independent membership bits preserve association by Harris's inequality. The absent-edge lattice minor AC-B^2 is strictly negative even when some masses vanish, excluding MTP2 on the triad and hence on the full edge vector by marginalization. Positive product edge activities multiply both terms in each conditional determinant by the same positive factor before row normalization.",
+      "residual_risks": [
+        "The reported 780 rational parameter sequences are finite corroboration, not evidence of the universal quantifier on their own.",
+        "The product tilt is on the selected triad marginal, not on all edges in a larger graph. Parameters can vary by attribute but not across vertices within an attribute."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deijfen–Kets and Bloznelis analyze asymptotic clustering in weighted or active intersection graph models. Harris gives the positive unconditional association, and MTP2 would imply the requisite nonnegative minors but does not follow from association."
+        ],
+        "reasoning": "Unconditional product association does not survive arbitrary edge conditioning. The sign reversal is not a parameter specialization of an asymptotic clustering theorem or a general MTP2 principle.",
+        "searches": [
+          "Deijfen–Kets arXiv:1509.07019, section 1 and clustering theorem",
+          "Bloznelis arXiv:1303.3388, section 2.2",
+          "Harris association and Karlin–Rinott DOI 10.1016/0047-259X(80)90065-2 as cited mathematical inputs"
+        ]
+      },
+      "checked_sources": [
+        "WIAS preprint 1369",
+        "Deijfen–Kets arXiv:1509.07019",
+        "Bloznelis arXiv:1303.3388",
+        "Resultary 8622adbff924 and 48ba741d3aef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A triangle probability and wedge/edge probabilities determine conditional minors when the full triad law is reconstructed. However, the uniform signs require control of the determinants, in particular (B-A)(1-C)>(C-B)^2 even with heterogeneous attributes. The compared closure results do not give that inequality or the negative absent-edge determinant."
+        ],
+        "reasoning": "The two separate strict product inequalities and the lower bound in the present-edge row turn known kinds of triad probability data into a new quantified dependence classification. The tilt and full-graph MTP2 corollaries then follow directly.",
+        "searches": [
+          "WIAS 1369, equation (3) and equations (6)–(8)",
+          "Deijfen–Kets clustering conditional probability",
+          "Resultary 48ba741d3aef, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The usual triangle closure probability P(X=1|Y=Z=1) involves a different comparison from independence of Y,Z within a fixed X row. WIAS equation (3) observes failure of independence in a closure probability; its equations (6)–(8) calculate clustering for homogeneous p.",
+          "The local partial-correlation record concerns full-order linear residuals and an asymptotic sign transition, not a conditional binary row."
+        ],
+        "reasoning": "A closure probability or a linear partial correlation is not equivalent to the signs of both row determinants. The exact determinant characterization makes the distinction checkable.",
+        "searches": [
+          "Deijfen–Kets arXiv:1509.07019 clustering sections",
+          "Bloznelis arXiv:1303.3388, section 2.2",
+          "Yao–Chen–Zhang–Li WIAS preprint 1369, equations (3), (6)–(8)",
+          "Resultary records 8622adbff924 and 48ba741d3aef"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "WIAS gives enough homogeneous triangle information to reconstruct homogeneous triad masses: the expected count of edges among a specified vertex's neighbors determines a triangle probability by symmetry, and its neighbor law determines wedge probability. The same-day Resultary record 8622adbff924 counts triangle witnesses under exactly two sampled keys per vertex and a growing exposure regime."
+        ],
+        "reasoning": "Credit the encoded homogeneous probabilities without requiring an explicit table in that prior work. Neither that calculation nor the different two-key model is a table or theorem classifying both strict signs for all heterogeneous p_j.",
+        "searches": [
+          "Resultary search on intersection-graph triads, conditional dependence and MTP2",
+          "Yao–Chen–Zhang–Li WIAS 1369, equations (5)–(8)"
+        ]
+      },
+      "rationale": "The distinct result is the strict conditional sign classification for every finite sequence of attribute probabilities, including the resulting association/MTP2 separation in this model. Prior clustering calculations contain substantial triad probability information; neither the compared clustering results nor the closest local dependence results establish the two opposite strict conditional covariance signs for the same pair uniformly in heterogeneous probabilities. The determinant tilt rule and MTP2 marginalization are standard and not separately original.",
+      "residual_risks": [
+        "Earlier general exact triad laws or conditional dependence inequalities may exist outside the inspected work. The searches are bounded and do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct homogeneous triad probability precedent; no heterogeneous strict conditional sign theorem in the inspected results",
+          "evidence": [
+            "Equation (3) distinguishes triangle closure from an unconditional edge probability; equations (6)–(8) calculate neighbor-edge probability and local triangle expectation from the root's attribute set."
+          ],
+          "identifier_or_url": "https://www.wias-berlin.de/preprint/1369/wias_preprints_1369.pdf",
+          "material_read": "Title, abstract, and pp. 2–3, equations (3) and (5)–(8) (PDF offsets 6000–11969)",
+          "method": "Identified institutional OA PDF, bounded passages",
+          "title": "On the clustering property of the random intersection graphs",
+          "trigger": "Exact homogeneous clustering in the same Bernoulli-incidence family"
+        },
+        {
+          "assessment": "Triple-event/asymptotic clustering comparison, not both conditional covariance signs",
+          "evidence": [
+            "Studies triangle closure given two incident edges in a weighted intersection graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.07019",
+          "material_read": "Section 1 model and clustering passages, pp. 2, 5–6",
+          "method": "Bounded primary PDF inspection",
+          "title": "Random intersection graphs with tunable degree distribution and clustering",
+          "trigger": "Same base incidence model and adjacent-edge conditioning"
+        },
+        {
+          "assessment": "Asymptotic clustering with different sampling, not exact heterogeneous conditional determinants",
+          "evidence": [
+            "The statistic is triangle closure given an incident wedge in active/fixed-set-size models."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.3388",
+          "material_read": "Section 2.2, pp. 6–8",
+          "method": "Bounded primary PDF inspection",
+          "title": "Degree and clustering coefficient in sparse random intersection graphs",
+          "trigger": "Potential prior clustering coverage"
+        },
+        {
+          "assessment": "Different sampling and statistic; same-day ordering unresolved",
+          "evidence": [
+            "Each vertex chooses exactly two distinct uniform keys; marked triangle-birth processes have a Poisson limit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-marked-poisson-triangle-births-in-two-key-random-intersection-gr--8622adbff924",
+          "material_read": "RESULT.md Finding at local-mirror offset 0",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Marked Poisson triangle births in two-key random intersection graphs",
+          "trigger": "Distinct same-day intersection-graph triad hit"
+        },
+        {
+          "assessment": "Different graph construction and type of conditioning",
+          "evidence": [
+            "Independent random triangles are unioned; full-order linear partial correlation changes sign around m/n=4/3."
+          ],
+          "identifier_or_url": "48ba741d3aef",
+          "material_read": "RESULT.md Finding at local-mirror offset 0",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "A four-thirds linear partial correlation transition in random triangle graphs",
+          "trigger": "Closest local sign-of-dependence analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "WIAS 1369, equations (3) and (6)–(8)",
+        "Resultary 48ba741d3aef"
+      ],
+      "rationale": "Three vertices are the smallest graph on which this contrast in dependence can be posed. The classification is uniform over every finite number of latent attributes and every admissible heterogeneous probability vector; it identifies exactly how fixing a third edge changes the dependence of the same two observables. It also gives a model-wide obstruction to applying stronger MTP2-based conditional conclusions, despite association, and a robust sign under changes of the three edge activities. These are substantive finite-model conclusions, not a one-parameter plug-in or a single enumerated witness.",
+      "residual_risks": [
+        "Does not classify additional types of conditioning, vertex-dependent membership probabilities, or global edge tilts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

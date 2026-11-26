@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:17:39.752379Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (read; output is recorded, not a new run)",
+        "Fresh direct check of the explicit small matrices"
+      ],
+      "rationale": "For two named colours both neighbourhood counts must equal half the degree. In the red indicator matrix this gives r_i+s_j−2x_ij=(m+n−2)/2. The sums over rows and columns force constant rows' and columns' red totals if both sides exceed two, hence a monochromatic contradiction. With two rows and n>2, the equal row totals force each column to be monochromatic; the red columns must be exactly half. In K₂,₂ an edge's two neighbours must have opposite colours, giving four assignments. For three colours the cyclic matrix has at most the sum of the two ceilings for each other colour; for its own colour subtract two. The ceiling inequalities hold on all stated ranges (including 4,6 and 4,n≥8); monochromatic balanced columns work in the remaining degree-two cases. Direct neighbour counting checked the small upper bounds. For K₃,₄ a single colour has at most four cells: a row of size two forces other columns empty and the selected columns to have size at most two; if all rows have size at most one the class has size at most three, and no row can have size three or four. Size four forces a 2×2 rectangle; three such classes could not fill any column of odd height three. For K₄,₅ a degree-three row restricts its colour to three columns of degree at most two. Otherwise any class of size at least seven has at least three degree-two rows and a column of degree at least two, which must hit all those rows and the remaining row to satisfy the outside bound of three. Its degree four then violates the inside bound of five. Both obstructions and all boundary cases are covered.",
+      "residual_risks": [
+        "The finite verifier in the package does not prove the infinite-family construction; that step was checked algebraically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 classification also handles one-vertex parts.",
+          "Theorem 4 covers minimum degree at least five; Observation 9 and Claim 10 give the two exceptions. SCOPE005's k=2 instance proves the six-edge single-colour bound at K₄,₅."
+        ],
+        "reasoning": "Restriction of the October 12 classification to both parts of size at least two is exactly the asserted index. The general threshold and the obstructions alone do not determine every low-degree case.",
+        "searches": [
+          "2026/10/12/SCOPE-strong-majority-index-of-complete-bipartite-graphs--0d70fcb97654",
+          "Pękała–Przybyło arXiv:2608.04122, Theorem 4, Observation 9 and Claim 10",
+          "2026/9/17/SCOPE005, generalized strong-majority bipartite threshold"
+        ]
+      },
+      "checked_sources": [
+        "Both complete-bipartite Resultary records above",
+        "2026/9/17/SCOPE005",
+        "arXiv:2608.04122, pp. 5 and 12",
+        "arXiv:2605.23828, p. 11, general bounds",
+        "arXiv:2607.00212, abstract, general upper bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier rigidity analysis forces balanced monochromatic columns when m=2<n and disallows two colours for m,n≥3.",
+          "For K₂,₂ the requirement that an edge's two neighbours differ gives four named assignments directly."
+        ],
+        "reasoning": "Choosing n/2 columns for the red name is a bijection, not an extra enumeration theorem. The twenty-edge obstruction is also already proved by the more general SCOPE005 result.",
+        "searches": [
+          "Two-colour rigidity arguments in the October 12 and October 25 complete-bipartite findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/25/SCOPE-exact-strong-majority-edge-indices-of-complete-bipartite-graphs--2b64d1d39b3e gives the same 2/3/4 cases for 2≤m≤n, with the degree-two, degree-three and degree-four regimes included."
+        ],
+        "reasoning": "The neighbourhood is that of the corresponding vertex in the line graph, with no properness condition. Both impose the half-neighbourhood bound for every colour. The statements agree after ordering the part sizes.",
+        "searches": [
+          "Local Resultary: strong majority (all colours in each edge-neighbourhood) edge index of complete bipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 and October 25 findings both give the exact piecewise symbolic table, not just finitely many small cases.",
+          "Neither retrieved finding gives the named census as a separately stated formula."
+        ],
+        "reasoning": "The exact classification is already in the catalogue; absence of a separate column for the census does not imply a new counting problem, given the structural characterization.",
+        "searches": [
+          "Local Resultary exact formula for the minimum strong-majority edge index of K_m,n, including K₃,₄, K₄,₅ and the degree-two parity cases"
+        ]
+      },
+      "rationale": "Two distinct earlier-dated Resultary findings state the same minimum-colour classification on the entire frozen domain, one as part of a larger domain. The exact named census is not singled out as a separate finding there, but for n>2 the published characterization by balanced monochromatic columns already gives it by choosing the red columns, and for n=2 there are just the two orientations of the two monochromatic lines with either colour first. This is equivalent coverage of the principal classification plus an immediate count, not just a matching title or matching exceptions.",
+      "residual_risks": [
+        "Catalogue dates are not proof of historical priority. The concrete rejection is based on demonstrable equivalent coverage by distinct records, not authorship or priority attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full minimum-colour result and has strictly broader domain",
+          "evidence": "Same cases on m,n≥2, also includes part size one; balanced monochromatic columns give the named census for even n>2.",
+          "identifier_or_url": "2026/10/12/SCOPE-strong-majority-index-of-complete-bipartite-graphs--0d70fcb97654",
+          "material_read": "Finding and two-colour rigidity argument",
+          "method": "Configured local Resultary mirror",
+          "title": "Strong majority index of complete bipartite graphs",
+          "trigger": "Same full family including parity and exceptions"
+        },
+        {
+          "assessment": "Equivalent index classification",
+          "evidence": "2 for m=2 and even n; 4 exactly at (3,4),(4,5); 3 otherwise, on the same domain.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-strong-majority-edge-indices-of-complete-bipartite-graphs--2b64d1d39b3e",
+          "material_read": "Finding, constructions and two-colour rigidity",
+          "method": "Configured local Resultary mirror",
+          "title": "Exact strong-majority edge indices of complete bipartite graphs",
+          "trigger": "Exact same parameters and invariant"
+        },
+        {
+          "assessment": "Partial coverage; both exact exceptions explicitly identified as obstructions",
+          "evidence": "Theorem 4 supplies three colours at minimum degree five; Observation 9 proves the K₃,₄ obstruction; Claim 10 lists K₄,₅, attributed to McNeil.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04122",
+          "material_read": "Theorem 4 p. 5; Observation 9 and Claim 10 p. 12",
+          "method": "Targeted primary-text passages",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "Cited principal upper bound and finite obstruction"
+        },
+        {
+          "assessment": "Exact obstruction as a special case, not full classification",
+          "evidence": "The threshold is k²+1 with obstruction K_{k²,k²+1}; k=2 gives the single-class maximum of six at K₄,₅.",
+          "identifier_or_url": "2026/9/17/SCOPE005",
+          "material_read": "Finding and generalized obstruction bound",
+          "method": "Configured local Resultary mirror",
+          "title": "Exact bipartite threshold for generalized strong-majority edge colouring",
+          "trigger": "Cited general result specializing to K₄,₅"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Both exact Resultary classifications and their two-colour analysis"
+      ],
+      "rationale": "The family and threshold are mathematically natural, but the full classification is already available. The added named census simply counts the choices of half the columns after the existing rigidity theorem, plus a four-edge check. It supplies no substantive new invariant or lower-bound mechanism beyond those comparisons.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

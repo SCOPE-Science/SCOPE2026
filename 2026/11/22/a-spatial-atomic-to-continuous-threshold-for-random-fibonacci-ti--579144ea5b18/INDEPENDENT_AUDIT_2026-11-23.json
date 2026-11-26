@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:09:23.915515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sampling is over the lattice distances in one coordinate's first-feasible annulus; the placement flips have already been averaged out. There are exactly w[m-1] sampled distances. The absent top bit always fails. With the top bit present, the initial plateau has length w[m-1]-W[m-1], and the plateau at rank t>=1 has length s[t]-s[t-1]=g[v2(t)] by binary carry. This also handles m=1 and the strict inequality at the right endpoint. Averaging the upper-half contribution over lower subset sums yields W[m-1]/(4w[m-1]) above 1/2. Eventual geometric domination gives W[n]/w[n] -> 1/(Q-1); for Q>2 the fixed-rank dyadic masses converge with total limiting mass one, proving TV convergence. At Q=2 the reversed coefficient sequence converges in l1 to the fair binary coefficients; the limiting CDF is continuous so CDF convergence is uniform, and the independent rescaled lattice threshold tends to uniform on [0,1]. This proves the asserted weak limit; TV distance to the continuous limit is one under the event-supremum convention. For Fibonacci weights, F[n+d]=F[n+d-1]+F[n]>2F[n] on the sampled subsequence, and the primitive recurrence has dominant root rho_d. The identity rho_d^d-1=1/(rho_d-1) gives the claimed atom and mean. Independently enumerated the order-two phase w=(2,5,13,34,89): the sixteen plateau lengths start 35,2,3,2,6,2,3,2,14, agree with the carry formula and sum to 89. The packaged check.py was inspected, not executed; its enumeration and finite diagnostics are not proofs of the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 treats a specified target and its geometric delay after first feasibility.",
+          "e2af1a5dfd9a classifies all receding fixed-target subsequential laws and gives dyadic realizations; that is not a distribution of frequencies. 33a7b8670e06 concerns normalized tiling shapes and their occupation measures."
+        ],
+        "reasoning": "The first two results cover the inputs and some attainable values, while the last covers a different random object. None supplies the annular rank pushforward for general ratio-convergent weights or its TV-versus-weak dichotomy.",
+        "searches": [
+          "arXiv:2611.08317v1, Theorems 3.1 and 3.4",
+          "Resultary e2af1a5dfd9a",
+          "Resultary 33a7b8670e06",
+          "arXiv:2204.13929"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.08317v1",
+        "Resultary e2af1a5dfd9a",
+        "Resultary 33a7b8670e06",
+        "arXiv:2204.13929"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary rank and the fixed-target formula are already prior ingredients. One must count the target preimage of each rank via differences of consecutive subset sums, include the initial plateau, and control the complete distribution as the weights change."
+        ],
+        "reasoning": "The standard proofs for geometric weights or particular targets do not by themselves supply the exact inhomogeneous finite law, the total-mass argument for TV on a countable support, and the boundary theorem without additional regularity on the converging ratios.",
+        "searches": [
+          "arXiv:2611.08317v1 §§3.1–3.3 and Theorems 3.1, 3.4",
+          "Resultary e2af1a5dfd9a proof and dyadic-realization passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the frozen law the observable is the pushforward of uniform lattice threshold by the CDF of the ordered fair-bit sum, with an initial plateau from the top-bit split.",
+          "The tiling paper gives the fixed-target rank; the occupation record gives the law of the placement geometry, not the pushforward of uniform thresholds.",
+          "arXiv:2204.13929 uses random inputs and target approximation, not the threshold ranks of deterministic superincreasing integer weights."
+        ],
+        "reasoning": "Shared Cantor or subset-sum language alone would miss the distinction between the law of placement sums and the law of CDF values at independent uniform targets. Standard Cantor staircase gaps explain the geometric limiting model and are not themselves claimed as new.",
+        "searches": [
+          "Resultary: Fibonacci first-feasible failure parameters, superincreasing subset-sum gaps and normalized Cantor tiling limits",
+          "arXiv:2611.08317v1 §§3.1–3.3",
+          "arXiv:2204.13929, abstract/introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e2af1a5dfd9a RESULT offsets 0–3639 and 7100–9299 identify the parameter and exact realizations but assign no relative annular multiplicities.",
+          "33a7b8670e06 RESULT opening identifies occupation of a normalized rectangle, not a histogram on failure probabilities."
+        ],
+        "reasoning": "The exact finite histogram is a formula on all superincreasing input sequences, not a lookup of a recurrence table. The pertinent indexed exact results describe rank attainability or a different geometry rather than the gap multiplicities being audited.",
+        "searches": [
+          "Resultary: complete subsequential covering-time laws for random Fibonacci tilings",
+          "Resultary: Cantor dust occupation and recurrent normalized shapes in random Fibonacci tilings"
+        ]
+      },
+      "rationale": "Pass for the spatially sampled finite rank-frequency law together with the asymptotic ratio classification, not for Fibonacci tiling, binary ranking, fixed-target failure probabilities, or the plateau geometry of classical self-similar Cantor CDFs. The closest fixed-target and occupation results do not average this observable over the feasibility annulus.",
+      "residual_risks": [
+        "Searches do not establish historical priority; equivalent finite gap-pushforward laws may appear under generalized Cantor staircase or superincreasing-knapsack terminology.",
+        "The Cantor gap mechanism and fair binary expansion at exact doubling are classical and excluded from the originality credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers setup, rank order and fixed-target law",
+          "evidence": "Defines the cyclic coordinate weights and proves strict superincreasing order; geometric delay uses failure count for a chosen target.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08317v1",
+          "material_read": "§§3.1–3.3, full-text offsets 21800–33377; Theorems 3.1 and 3.4",
+          "method": "OA HTML passage inspection",
+          "title": "Random Fibonacci Tilings",
+          "trigger": "same model and exact first-feasible distribution"
+        },
+        {
+          "assessment": "material overlap in attainable parameters, not spatial frequencies",
+          "evidence": "Classifies centered covering-time subsequential laws along fixed targets; realizes specified dyadic parameters, without uniform annulus sampling.",
+          "identifier_or_url": "Resultary e2af1a5dfd9a",
+          "material_read": "RESULT.md offsets 0–3639 and 7100–9299",
+          "method": "local published-record mirror",
+          "title": "Complete subsequential covering-time laws for random Fibonacci tilings",
+          "trigger": "same failure parameter, exact dyadic realizations"
+        },
+        {
+          "assessment": "different observable, no publication ordering inferred",
+          "evidence": "Studies normalized rectangles, positions and an occupation measure, not the scalar failure-probability rank at a sampled target.",
+          "identifier_or_url": "Resultary 33a7b8670e06",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "local published-record mirror",
+          "title": "Cantor dust occupation and recurrent normalized shapes in random Fibonacci tilings",
+          "trigger": "same-date related Cantor law"
+        },
+        {
+          "assessment": "different inputs and output statistic",
+          "evidence": "Studies approximation to arbitrary targets for random inputs, not frequencies of distinct threshold ranks for superincreasing weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.13929",
+          "material_read": "abstract/introduction, OA offsets 0–1695",
+          "method": "primary OA passage inspection",
+          "title": "Revisiting the Random Subset Sum Problem",
+          "trigger": "potential general subset-sum theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform annular sampling is a natural way to turn pointwise tiling risk into spatial frequency. The complete finite law plus the sharp ratio boundary identifies when risk is carried by dense atoms with explicit masses and when it is continuously spread; the largest Fibonacci atom gives a direct dimension-dependent frequency. This is more than a list of attainable risks and requires neither a multidimensional coverage interpretation nor a priority claim for Cantor distributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

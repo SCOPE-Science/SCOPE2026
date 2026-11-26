@@ -1,14 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is an exact finite assertion about the Heawood point-line incidence graph. Two independent face predicates agree for every one of the 16384 vertex subsets at each component threshold from two through six. A 2310-pair Morse matching at threshold three is verified acyclic over all 23884 Hasse incidences and has precisely one zero-cell and one six-cell critical, forcing a six-sphere. More decisively for the filtration, a deterministic verifier replays 784 and 840 elementary free-face collapses, retaining the prescribed subcomplex exactly. Direct Euler calculations verify that the plateau cannot extend to the adjacent stages. Python 3.10+ and the delivered checker suffice to reproduce these results.
+## correctness
 
-## Originality — PASS (with stated residual risk)
-The full-text sections of the 2020 and 2021 foundational higher-independence papers concern families that do not imply these natural Heawood inclusions. Public research-result comparisons distinguish the ordinary Heawood independence complex, its two-independence complex, the Heawood bounded-degree induced-forest filtration, and edge-based two-matching complexes. None of those propositions entails a pair of actual collapses between component bounds three, four, and five. The degree-two forest complex and the present higher-independence complexes are different: a four-vertex induced path and a four-vertex induced star provide explicit witnesses. Exact search phrases and comparison details are retained in the structured originality assessment. Unindexed equivalent work remains possible.
+PASS
 
-## Mathematical value — PASS
-A natural filtration of the smallest projective-plane incidence graph retains **the same actual simple-homotopy type through two strict inclusions**, despite introducing 1568 and then 1680 new simplices. The six-sphere isomorphism class, the explicit collapse maps, and the immediately adjacent Euler obstructions give a complete, meaningful account of a sharp three-stage topological plateau. The inclusion information is stronger than computing homology or individual homotopy types. The claim is not presented as a general theorem for other incidence graphs.
+Independent reconstruction of the 14-vertex Fano incidence graph and exhaustion of all vertex subsets compared the component-size predicate to avoiding connected induced (r+1)-sets; a connected component of size larger than r contains such a set by growing a connected subset. For r=2 through 6 this gives respectively 2256, 4622, 6190, 7870, 9683 nonempty faces and Euler values −12, 2, 2, 2, −19. The threshold-three Morse matching has 2310 pairs, critical masks 256 and 10454 of dimensions 0 and 6, and an acyclic orientation of all 23884 cover incidences. One zero-cell and one six-cell attached to it give S^6. The relative certificates were independently replayed on the full current complexes, verifying unique immediate coface and maximal paired upper face, ending at the exact canonical targets: 840 pairs from I_5 to I_4 and 784 from I_4 to I_3. This proves the inclusion statements and integral homology, while the two different Euler values exclude equivalences at the adjacent thresholds. The frozen result, verification note and script were read but the uploaded script was not executed. Independent replay program and output are branches/42a22c83-6bf1-447f-8775-760848055924/audit_heawood.py and audit_heawood.out.
 
-The search-based originality judgment is qualified by the possibility of an unindexed equivalent result. The computation and topological deductions have been assessed within this review only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked records overlap in the exact threshold-two stage and in an S^6 homotopy type in another filtration. The verified pair of canonical higher-independence collapses under a component-size bound is not supplied by those records or the inspected broader work.
+
+## value
+
+PASS
+
+The Fano incidence graph is a natural test case for higher independence outside chordal and tree families. The exact computations identify a maximal consecutive plateau at both boundaries and certify the behavior of the actual threshold maps, beyond equality of ranks or types. The comparison with the different induced-forest filtration makes the invariant and cutoff choice meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

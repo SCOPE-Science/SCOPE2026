@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:26:29.965025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set m=2k-1. The two rows define a rank-two subbundle because they are individually nonzero and occupy complementary coordinate blocks. The first block is a Veronese embedding and can be recovered from the two-plane by intersecting with that coordinate block on the incidence locus where the intersection has dimension one. The map is therefore an embedding, even though the second row factors through a degree-two map. The coefficient vectors in both blocks span their blocks, giving the stated nondegeneracy, and det(S*) has degree m+2k=4k-1. For the two line inclusions the adjacent syzygies (-y,x) and (-y^2,x^2) generate the respective kernels pointwise, including x=0 and y=0 where the truncated matrices retain full rank. Thus Q splits as O(1)^m plus O(2)^k. Tensoring with S* gives precisely the four displayed tangent blocks. In the chart x=1, pairing the derivative of the monomial row with its j-th adjacent syzygy gives -j t^j+(j+1)t^j=t^j for j=0,...,m-1. These are the complete degree-(m-1) sections globally, with the other chart included by homogenization. The resulting O(2) injection into O(m+1)^m has quotient O(m+2)^(m-1), using the split adjacent-syzygy kernel of the dual complete evaluation map. Since the projection is a subbundle injection, the other tangent blocks inject into the full normal bundle, with the displayed quotient. Extension classes vanish because each degree difference of a left summand minus the quotient degree is 0 or 1. The multiplicities are consequently 5k-3 and k. Rank 6k-3 and degree 12k^2+k-3 independently follow from dim Gr and the Plücker tangent degree. Irreducibility of the degree-fixed map space gives genericity: on the open embedded nondegenerate locus the normal sheaf is a family of bundles, and H^1(End N)=0 is open by semicontinuity and equivalent to balancedness on P^1. The exhibited point belongs to the open balanced locus; rank and degree force the same splitting generally. For k=2 this gives O(5)^7 plus O(6)^2. The exact identities were reconstructed analytically; CHECK.py and VERIFICATION.md were inspected, not executed. The result is over C and for general curves only, not arbitrary maps or positive characteristic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coskun–Larson–Vogt prove universal 2-balancedness; their numerical conjecture predicts balance here since q_1+q_2=2k and (2-r_1)(3k-1-r_2)=2k-1. Cao verifies the conjecture in Gr(2,4), Gr(2,5) and Gr(2,6), not in ambient dimension at least seven. Ran's Theorems 20 and 23 retain explicit slope and curve-existence restrictions; Corollary 24 concerns G(j,2j+1) in Ran's projective notation."
+        ],
+        "reasoning": "A 2-balanced normal bundle may have a two-degree gap and the theorem does not force the asserted splitting. The conjecture supplies the numerical boundary, not a proof. The low-dimensional results and Ran's broader constructions cannot be extended just by matching a degree or conjectural inequality.",
+        "searches": [
+          "arXiv:2404.08102v1 §§1, 1.3–1.4, Theorem 1.1 and Conjecture 1.2",
+          "arXiv:2609.19381v1 Theorem 1.2",
+          "arXiv:2111.02466v1 Theorems 20, 23 and Corollary 24"
+        ]
+      },
+      "checked_sources": [
+        "Coskun–Larson–Vogt arXiv:2404.08102v1",
+        "Cao arXiv:2609.19381v1",
+        "Ran arXiv:2111.02466v1 Theorems 13, 20, 23 and Corollaries 15, 24",
+        "Resultary 38b74ee197d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=8, Theorem 13(ii) fits (n,e)=(24,31) via e_+=1 and e_0=9 but explicitly needs a balanced degree-9 curve in Gr(2,8). In that smaller space the odd branch of Theorem 13 has n=7 and lower bound e>=16; Cao's ambient dimension is at most six and the cited smaller minimal example has degree six. The checked standard one-stage Theorem 20 choices fail its slope-floor equality. A checked recursive route at k=36 reaches Gr(2,9), degree 11, where Theorem 13(ii)'s floor equality fails; a Theorem 23 option then assumes a balanced curve in a blow-up meeting the exceptional divisor twice. The available Corollary 15 supplies a one-point transform, not the required two-point one."
+        ],
+        "reasoning": "Neither the checked recurrences plus their named base examples nor the numerical conjecture provide the balanced examples needed to mechanically infer this series. The conditional smaller-space route has not been excluded in all forms, so no universal claim about the impossibility of previous coverage is made.",
+        "searches": [
+          "arXiv:2111.02466v1, conditions (12)–(13), slope conditions (19)–(21), Corollary 15 and Theorem 23",
+          "arXiv:2404.08102v1 numerical obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ran's G(1,n) is Gr(2,n+1), so the target is n=3k, e=4k-1. The odd case needs e_0,e_1>=floor(n/2), e_2>=1, and e=e_0+e_1+(n-2)e_2, hence e>=6k-3>4k-1. For k=2 mod 4 condition (13) excludes k>=6 in this degree, and its denominator t-1 vanishes for k=2. For k divisible by 4, k>=8, condition (12) can fit e_+=1 and e_0=k+1, but requires a balanced degree-(k+1) curve in Gr(2,3k/4+2)."
+        ],
+        "reasoning": "A previously established balanced example in the target Grassmannian would imply generic balance by openness and irreducibility. Comparing existence results is therefore essential, but the exact degree, ambient dimension and lower-curve hypotheses must all be met. The conditional fit in one parity is not an established prior example.",
+        "searches": [
+          "arXiv:2111.02466v1 §§2–3, Theorem 13, conditions (9)–(13)",
+          "Resultary balanced normal bundles rational curves Grassmannian first numerical threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed candidate examined concerns rational quartics and a second normal-bundle jump in a blow-up of a line, a different ambient space and parameter problem.",
+          "The primary dimension-specific case theorem checked is Cao Theorem 1.2, whose dimensions are disjoint from this family."
+        ],
+        "reasoning": "There is no exact finite table from which this generic infinite splitting follows. Rank and degree fix the multiplicities only after balance is proved; numerical consistency or a nearby normal-bundle jump does not classify this family.",
+        "searches": [
+          "Resultary balanced normal bundles in Gr(2,3k+1), degree 4k-1",
+          "2026/10/25/SCOPE-a-codimension-two-planar-stratum-in-a-second-normal-bundle-jump--38b74ee197d7"
+        ]
+      },
+      "rationale": "The supported new claim is the actual balanced splitting of this infinite boundary family, not the numerical obstruction, universal 2-balancedness or low-dimensional cases. Primary statements of Coskun–Larson–Vogt and Cao do not prove this series. Ran's Theorem 13 must be translated before comparing: its odd and 2 mod 4 branches do not establish the target degrees, and its 0 mod 4 branch can meet the numerical conditions but then needs a further balanced curve in lower dimension. The named base results do not discharge that input in the checked cases. That conditional overlap is material but is not evidence of an unconditional prior proof.",
+      "residual_risks": [
+        "An earlier construction of balanced degree-(k+1) curves in the smaller Grassmannians for k divisible by four could turn Ran's conditional branch into prior coverage of a subfamily. An unindexed equivalent monomial construction remains possible. The audited theorem itself does not prove the whole conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known 2-balancedness and prediction, no proof of balance on the target boundary",
+          "evidence": "The obstruction uses the strict inequality q_1+q_2-1<(a-r_1)(b-r_2). At the target it is an equality, outside the obstruction and inside the conjectured balanced range.",
+          "identifier_or_url": "https://arxiv.org/html/2404.08102v1",
+          "material_read": "Theorem 1.1; §§1.3–1.4, obstruction and Conjecture 1.2; HTML offsets 2800–9290",
+          "method": "Lawful OA HTML, exact statement passages",
+          "title": "Normal bundles of rational curves in Grassmannians",
+          "trigger": "Same generic normal bundle problem and numerical threshold"
+        },
+        {
+          "assessment": "Does not include ambient dimensions >=7",
+          "evidence": "G(2,4) and G(2,6) in characteristic zero and G(2,5) in any characteristic are the stated settings.",
+          "identifier_or_url": "https://arxiv.org/html/2609.19381v1",
+          "material_read": "Theorem 1.2 and setup, HTML offsets 2000–6769",
+          "method": "Lawful OA HTML at theorem statement",
+          "title": "Balancedness of Normal Bundles of Rational Curves in Grassmannians",
+          "trigger": "Direct theorem on the conjecture"
+        },
+        {
+          "assessment": "Conditional overlap at k divisible by four; no demonstrated unconditional coverage in the compared constructions",
+          "evidence": "Arithmetic for Theorem 13(ii) can fit after translation but requires an independently balanced smaller curve; Theorems 20 and 23 have additional slope and balanced-curve hypotheses.",
+          "identifier_or_url": "https://arxiv.org/html/2111.02466v1",
+          "material_read": "Theorem 13 and conditions (9)–(13), HTML offsets 27700–39692; Corollary 15 and Theorems 20, 23 plus Corollary 24, relevant passages at 43600–46956 and 47400–62324",
+          "method": "Lawful OA text, statements translated and tested against degrees, parity and needed base curves",
+          "title": "Interpolation of rational scrolls",
+          "trigger": "Previous infinite balanced existence families and possible recursion"
+        },
+        {
+          "assessment": "Different geometric object",
+          "evidence": "It concerns a quartic normal-bundle jump in a blow-up, not the general curve in the audited Grassmannians.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-codimension-two-planar-stratum-in-a-second-normal-bundle-jump--38b74ee197d7",
+          "material_read": "Indexed statement of the rational quartic and ambient blow-up problem",
+          "method": "Resultary local catalogue comparison",
+          "title": "A codimension-two planar stratum in a second normal-bundle jump",
+          "trigger": "Closest indexed normal-bundle splitting candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an infinite family at the first positive side of a sharp numerical obstruction where the prior universal bound leaves a real possibility of a two-degree gap. The explicit construction proves which side the generic splitting takes, beginning beyond the dimensions of Cao's case theorem. The projected Veronese differential and degree-compatible extension splitting are structural inputs; the result is not obtained by merely rounding the average normal degree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

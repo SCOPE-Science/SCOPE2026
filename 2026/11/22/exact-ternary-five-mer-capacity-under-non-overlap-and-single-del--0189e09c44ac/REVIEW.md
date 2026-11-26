@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prefix-suffix condition and deletion-confusability condition are defined for all ordered codeword pairs, including self-overlap checks. The length-five upper bound has a direct integer conflict-clique-cover certificate on the 48 normal-form words: 28 pairwise-incompatible groups, denominator 16, total group numerator 98, and coverage at least 16 for every source. The normal-form reduction applies to *every* ternary non-overlapping code because first- and last-symbol sets are disjoint. An explicit six-word code attains the upper bound. The complete 72-code census and seven-orbit decomposition are reconstructed by a second exact graph enumeration, while an independent longest-common-subsequence-based program counts 12 canonical-orientation optima. Both programs were replayed and passed. No floating-point computation is needed for correctness.
+PASS
 
-## Originality — PASS, qualified
+Length-one overlap exclusion makes the first- and last-symbol sets disjoint. Over three symbols, reversal and relabeling can therefore always place a nonempty code among the 48 unbordered length-five words with starts in {0,2} and end 1. A checked conflict clique can meet a legal code at most once. The 28 weighted groups cover every eligible word with numerator at least 16, and their total numerator is 98, so 16|C|≤98 and |C|≤6. Independently rebuilt compatibility graphs and an exact coloring-bounded clique census confirmed the six-word witness, checked all 954 within-group pairs of the frozen certificate, and found (T_n,E_n)=(1,6),(2,18),(3,60),(6,72) at n=2,3,4,5. Comparing complete sets of codebooks under common alphabet relabeling and global reversal verified all seven listed orbit representatives and sizes 12,12,12,6,12,12,6, not just their total. A separate run without the deletion conflict confirmed 17. At length one the sole deletion descendant of every word is empty, so the first blocklength with at least four messages is indeed five. Deletion may occur at any coordinate of the identified word.
 
-Blackburn (2013/2015) treats non-overlapping codes without the simultaneous deletion correction, the published exact length-five ternary maximum 17 refers to the broader code family, and the published length-five substitution-detection maximum 9 uses a different weaker channel condition. The binary non-overlap deletion-correction census does not dominate a ternary result, and the coincidentally equal unconstrained ternary two-deletion maximum of six cannot upper-bound a one-deletion capacity. The Wang–Fang–Feng (2025) accessible Section 4 studies Hamming spheres and partially restricted overlaps, not the exact one-deletion descendant condition. Searches also examined aliases such as cross-bifix-free, mutually uncorrelated, self-synchronizing, and single insertion correction. No indexed equivalent exact codebook census or stronger implication was located. Full-text gaps in two closely related sources and unindexed historical calculations remain risks; the priority assessment is qualified rather than a proof of absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Non-overlap provides framing while deletion correction resolves an unknown lost symbol. Their joint short-block capacity is a natural coding-design parameter, not an arbitrary selection of words. The ternary five-mer is the first small instance in this census with six messages, and the sharp cost from 17 to 6 is substantial. A short exact upper certificate and the complete seven-class optimizer census make the finite result reusable as a concrete synchronization-code benchmark. No unwarranted asymptotic or streaming reliability claim is made.
+The exact uncorrected maximum 17 is established prior coverage, not the contribution. The inspected primary table and the closest indexed deletion and substitution results do not give the joint single-deletion/non-overlap maxima, labeled counts, or symmetry classes.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The finite cutoff has a concrete coding interpretation: length five is the smallest ternary blocklength carrying four messages with both framing and single-deletion correction. The sharp comparison 17 versus 6 isolates the cost of the added constraint at that length. The upper certificate and complete equality classification identify all optimal designs up to the natural symmetries, rather than reporting a single feasible code or recomputing the known uncorrected table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

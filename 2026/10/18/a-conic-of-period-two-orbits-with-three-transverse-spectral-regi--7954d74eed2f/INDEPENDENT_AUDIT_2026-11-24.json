@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:59:48.468124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent coordinate reduction uses m=x+y/2, d=y, p=z-2y, and Q=a m^2+kappa d^2-epsilon. On the stated locus the map is (m+(p+Q)/2,-d+p+Q,-p-Q). If the second iterate returns, the m equation gives Q'=0 at the intermediate point; the d equation then gives p+Q=0, and the p equation gives Q=0 and hence p=0. Conversely on that ellipse the map reverses d, so only the two d=0 endpoints are fixed, and d>0 gives one representative per primitive cycle. The Jacobian product at d and -d has determinant one, trace 3+a^2 m^2-4 kappa^2 d^2, and a fixed tangent. Its characteristic polynomial is therefore the stated one with Delta=4ac m^2-4 kappa epsilon. The transverse trace 2+Delta crosses 2 inside the ellipse arc and is less than -2 somewhere precisely when kappa epsilon>1; equality at the lower boundary is attained at m=0 only. At Delta=0 the full polynomial is (lambda-1)^3; the double multiplicity is the transverse one. No Jordan or nonlinear claim is needed. Independent symbolic multiplication and five exact cases, including an equality case, passed (python3 /workspace/branches/recompute_frozen.py).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lomelí–Meiss explicitly allow infinitely many or no period-two orbits under exceptional coefficient relations.",
+          "Dullin–Meiss give isolated period-two formulas and stability regions, and a general multiplier-plane classification."
+        ],
+        "reasoning": "The general spectral diagram says how to classify eigenvalues once the invariants are known. It does not assign the missing transverse trace to each primitive orbit on the singular ellipse.",
+        "searches": [
+          "Lomelí–Meiss DOI 10.1088/0951-7715/11/3/009, §5.2",
+          "Dullin–Meiss arXiv:0807.0678, Appendix C pp. 44–45 and multiplier classification"
+        ]
+      },
+      "checked_sources": [
+        "Lomelí–Meiss (1998), §5.2 p. 569",
+        "Dullin–Meiss arXiv:0807.0678, Appendix C",
+        "Resultary 3559b31c9c8b, 13bfd08cdf52 and 9d694fa2e0cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a!=b Dullin–Meiss give rho^2=D/(a-2b+4c) and tau-sigma=4D/(a-b), where D=(a-b)^2 epsilon-a(mu+4)^2.",
+          "Taking mu+4=(a-b)m and approaching a=b can recover ellipse points as limits of isolated cycles, but the published tau-sigma formula limits only to zero and does not give tau itself."
+        ],
+        "reasoning": "Even crediting the limiting orbit locus and unit multiplier, tau=sigma leaves an undetermined coefficient in the return polynomial. The exact m-dependent trace and its range, which separate the three types and set the threshold, require the additional Jacobian calculation.",
+        "searches": [
+          "Dullin–Meiss Appendix C pp. 44–45, Eq. (36) and period-two characteristic polynomial",
+          "Lomelí–Meiss §5.2 p. 569, exceptional line example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1998 shift-map exceptional case with equal first and last quadratic coefficients is related to a=b in the frozen coordinates; its displayed period-two line uses a=c=b/2 in shift-map notation, so that quadratic form is rank deficient.",
+          "The 2008 paper works in the same canonical map but explicitly divides by a-b for its displayed orbit."
+        ],
+        "reasoning": "The exceptional family is not new merely because coordinates or coefficient names change. The cited explicit line is not an affine reparameterization of the positive-definite closed ellipse, and it supplies no varying transverse polynomial on that ellipse.",
+        "searches": [
+          "Resultary queries for nonisolated primitive period-two conics and varying transverse Floquet spectra in quadratic three-dimensional maps",
+          "Lomelí–Meiss (1998) §5.2 p. 569",
+          "Dullin–Meiss arXiv:0807.0678 Appendix C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 3559b31c9c8b gives exceptional lines and a hyperbola for the planar Bogdanov map, with the tangent multiplier.",
+          "Indexed 13bfd08cdf52 gives a varying return polynomial and threshold on a line of another quadratic three-map; 9d694fa2e0cd concerns an isolated cycle in another map."
+        ],
+        "reasoning": "The exact findings are analogous, not tables of the same spectral invariant on these canonical-map orbits. The third-dimensional Floquet polynomial and simultaneous three types are not given by the earlier planar classification.",
+        "searches": [
+          "Resultary searches for period-two manifolds/conics, prime-two classifications and sharp transverse stability windows"
+        ]
+      },
+      "rationale": "Exceptional nonisolated two-cycles, their tangent multiplier and the generic classification of volume-preserving spectra are not the novelty. On inspected evidence, the exact variation of the transverse polynomial along the positive-definite singular ellipse and the sharp coexistence threshold are distinct from the generic isolated-orbit formulas and the earlier line example.",
+      "residual_risks": [
+        "Other work in shift-map or reversibility coordinates could spell out the trace along the same exceptional family. The indexed and literature comparisons are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers possible exceptional continua, with a line example, not the singular positive-definite return spectrum",
+          "evidence": "The exceptional a=c or b=±(a+c) relations are in shift-map notation. The displayed example sets a=c=b/2 and gives a period-two line parameterized using delta.",
+          "identifier_or_url": "https://amath.colorado.edu/faculty/jdm/papers/VPQuadratic.pdf",
+          "material_read": "§5.2, printed p. 569, PDF offsets 35200–37755",
+          "method": "Lawful author-hosted PDF passage",
+          "title": "Quadratic volume-preserving maps",
+          "trigger": "Closest primary source on exceptional infinitely many period-two orbits"
+        },
+        {
+          "assessment": "Generic isolated-cycle formula and spectrum framework; not the singular transverse trace",
+          "evidence": "The displayed orbit is explicitly restricted to a!=b, and the given invariant is the difference of two characteristic-polynomial coefficients, not their common value on the singular locus.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.0678",
+          "material_read": "Appendix C pp. 44–45, orbit formula, rho and tau-sigma; PDF offsets 119498–124365",
+          "method": "OA PDF passages",
+          "title": "Quadratic Volume-Preserving Maps: Invariant Circles and Bifurcations",
+          "trigger": "Same canonical map, exact period-two orbit and stability formulas"
+        },
+        {
+          "assessment": "Different planar map",
+          "evidence": "Gives lines and a hyperbola of primitive cycles and a tangent unit multiplier, without the present three-dimensional spectral trichotomy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-prime-two-orbit-classification-for-the-bogdanov-map--3559b31c9c8b/RESULT.md",
+          "material_read": "Finding, offset 0 onward",
+          "method": "Resultary local-mirror text",
+          "title": "Complete prime-two orbit classification for the Bogdanov map",
+          "trigger": "Closest earlier indexed conic of primitive two-cycles"
+        },
+        {
+          "assessment": "Later structural analogue, in a different map and attraction problem",
+          "evidence": "A line of primitive two-cycles carries a varying polynomial and a sharp normal-attraction interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-resonant-period-two-manifolds-and-sharp-transverse-attraction-in--13bfd08cdf52/RESULT.md",
+          "material_read": "Finding, offsets 376–596",
+          "method": "Resultary local-mirror text",
+          "title": "Resonant period-two manifolds and sharp transverse attraction in a quadratic three-map",
+          "trigger": "Varying return polynomial on a period-two continuum"
+        },
+        {
+          "assessment": "Isolated two-cycle of another map",
+          "evidence": "The sink window does not describe a varying spectrum along a continuum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-parameter-floquet-rigidity-and-a-sharp-two-cycle-sink-window--9d694fa2e0cd/RESULT.md",
+          "material_read": "Finding, offset 0 onward",
+          "method": "Resultary local-mirror text",
+          "title": "Two-parameter Floquet rigidity and a sharp two-cycle sink window",
+          "trigger": "Indexed sharp two-cycle spectral boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold characterizes coexistence of three different linear spectra for the same map along its period-two family, not just how to obtain a desired spectrum by varying the map. This is useful precise information on the singular case excluded by the generic period-two formulas; the conclusion is about normal multipliers, not nonlinear orbital stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

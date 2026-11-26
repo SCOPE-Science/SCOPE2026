@@ -1,19 +1,21 @@
-# Review: sharp one-map exclusion probability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every strictly positive \(n\times n\) row-stochastic matrix, a law on deterministic functions excluding a single specified map exists exactly when the corresponding sum of its \(n\) entries is at most \(n-1\). The proof invokes only the explicitly justified integral-vertex structure of a truncated cube and conditional sampling. Under independent uniform row inputs, the selected-entry deficits are independent ratios of sums of \(n-1\) uniforms to their common row sum. Their density is bounded by a power times \((1-d)^{-n}\), with equality on \(d\le1/2\). The Dirichlet-simplex comparison has precisely normalized coefficient \(1/(n^n[n(n-1)]!)\). Gamma concentration yields \(\log W=n+1/2+o_{\mathbb P}(1)\), a uniform exponential-moment bound controls the bulk expectation, and a beta-tail estimate makes the simplex corners negligible. The \(n=2\) exact boundary is separately checked. An actual standalone finite-check execution passed 259 checks; these are not substitutes for the analytic limit proof.
+PASS
 
-## Originality — PASS, qualified
+Verified the full one-map equivalence and relative asymptotic analytically. The cube cut by sum x_i <= n-1 is integral: at a vertex on the cut, at most one coordinate is not at a cube bound, and the integer right-hand side forces that coordinate to be integral too. Lifting its binary law to row marginals uses the positive 1-x_i denominators. For a=n-1 the uniform-sum density bound and ratio Jacobian give (a/n!) d^(a-1)(1-d)^(-n), with equality up to 1/2; the Dirichlet mass constant is exactly 1/(n^n(na)!). The Gamma representation implies nM and n sum d_i^2 tend to 1 and the n-scaled slack tends to 0, giving log W=n+1/2+o_P(1). For an explicit integrability check, on T>=na/2 bound exp(r nM) by exp(2r max G_i/a) for fixed r>1. On max G_i>2a, the union bound in expectation and a Gamma tilt of 1/4 give at most n exp(-a/2)(3/4-2r/a)^(-a), exponentially small for large a. The lower-Gamma-tail event T<na/2 contributes at most exp(rn+na/2)2^(-na-1). The remaining simplex corners have beta power b-n=(n-1)(n-2) and are exponentially negligible on the n^2 scale. The n=2 case needs no corner bound: continuity and row exchangeability give probability 1/2. The result is exactly for one fixed, not necessarily injective, map and normalized iid uniform rows.
 
-The closest inspected complete source is Grimmett and Holmes, *Coalescence in Markov Chains*, open-access journal full text, Remark 2.4 and Section 7. It formulates the coupling-support probability question under exactly the sampled matrix law and obtains the one-map omission value only for \(n=2\). Its other results are qualitative obstructions or cases of different forbidden-function sets. The proposed statement controls the all-dimensional one-map event with the sharp exponential-factor asymptotic, not supplied by those results. Targeted research-record searches for deleted deterministic maps, marginal-coupling polytope criteria, and normalized-uniform simplex rare events returned no statement implying the asymptotic. These unsuccessful searches do not establish uniqueness. The 2019 *Non-coupling from the past* abstract was inspected; its full text was not, leaving residual implicit-prior-work risk. A general marginal Fréchet restriction is standard and is not asserted to be novel; the rare-probability constant is the substantive claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Question 7.4 of the motivating primary article requests the probability of representability for prescribed sets of deterministic maps. Excluding exactly one function is the minimal nontrivial restriction and a natural higher-dimensional continuation of Proposition 7.5, not an arbitrarily chosen parameter slice. Identifying a necessary and sufficient marginal condition makes that support event explicit; the rare-event simplex analysis shows its obstruction probability is far smaller than any fixed-base exponential and determines a sharp multiplicative factor \(e^{1/2}\) that a logarithmic bound misses. This gives a quantitative benchmark for the random-coupling support problem, without claiming to settle all forbidden sets.
+The supported increment is the sharp general-n nonrepresentability probability for one preassigned map, including the e^(1/2) correction, not the sampling model, the n=2 answer, or a solution for all permitted map sets. The closest inspected full-text prior solves n=2 and gives a sufficient proper-subset obstruction, not the full simplex criterion or the asymptotic under this distribution.
 
-## Sources and limits
+## value
 
-Primary scientific source: G. R. Grimmett and M. Holmes, arXiv:2510.13572 (first public 15 October 2025), *Journal of Theoretical Probability* 39 (2026), article 49, https://doi.org/10.1007/s10959-026-01500-w; full lawful open-access journal HTML inspected. Closest earlier paper: Grimmett and Holmes, *Non-coupling from the past*, arXiv:1907.05605; abstract only examined. Related classical marginal-coupling and multivariate-beta facts can imply pieces of the proof, not the sharp final rare-event expression without the additional analysis. A latent equivalent result in another vocabulary is possible. The asymptotic does not cover alternative row laws, forbidding multiple functions, or time-dependent coupling restrictions. The checks are finite; no independent review has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves a natural and explicitly asked subcase of the published probability question. Separating the integral normalization from the concentrating row-normalization product produces a nontrivial sharp multiplier, not merely an order estimate or recomputation of the two-state case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

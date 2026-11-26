@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:30:09.693388Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For either Laurent polynomial and n=5q+d, its dth power has exponents in [-4,4], so the product with a polynomial in x^5 has constant term only from two zero exponents. Frobenius therefore gives exact digit multiplication modulo five. The direct residues give the increments (0,0),(0,1),(3,1),(1,1),(2,0), so all n have nonzero residues and a padded length-L word is one of 5^L equally counted words. Convolution on (Z/4Z)^2 diagonalizes with the four rows 2+3i^s, i^s, 2−i^s, i^s. Inversion gives the table including L=0. For the differences of opposite rows only odd r contribute: they cancel for rows 1 and 3, and sum to the character delta at f=L mod 4 for rows 0 and 2. At L=3, f=0 requires zero second-coordinate increments, so first coordinates are even; for f=1 and f=2 there is a spare digit giving increment 2 if needed, and for f=3 choosing three first coordinates from {0,1,3} spans all four. At L=4 both missing cells occur, and zero padding preserves all cells. Adding high digit 4 in pairs creates infinitely many distinct indices with each unchanged pair. Projection off the marginals kills modes with r=0 or s=0; the nine remaining squared magnitudes are 9 once, 5 twice and 1 six times. Parseval gives (3); the (2,2) mode yields the 3^L checkerboard, with the remaining absolute amplitudes bounded as in (4). The full-table energy uses additionally 13 twice and 1 four times after removal of the constant, consistent with (8). The (2,0),(0,2),(2,2) modes give 1, (−1)^L, 3^L; dividing by block length and subtracting the product of the means gives the stated covariance. Direct sparse Laurent multiplication, not the digit recurrence, recovered the L=3 missing pair positions and all L=4 cells (minimum count 16, cross sum 81), via python3 /workspace/branches/independent-reproduction/arithmetic_review.py. Frozen checker inspected, not executed; the finite replay is corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beukers' Newton-polytope hypothesis applies to both polynomials with exponent interval [-1,1], implying Lucas factorization.",
+          "Straub constructs p-schemes for constant terms modulo prime powers, enabling more general algorithmic computation."
+        ],
+        "reasoning": "The known theorem supplies the factorization and the scheme yields a computation method. Neither compared statement evaluates the nine cross modes or the special row cancellation for this pair.",
+        "searches": [
+          "Beukers arXiv:2211.15240, §1 Theorem 1.1, p. 1",
+          "Straub arXiv:2205.09902, §2 Theorem 2.4, p. 7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 60b755902f8c, fa9f646a7cb7, 4fe2bd4eb307, 45e3d7d4c052; identical target entry excluded as overlap",
+        "arXiv:1008.3887, 2110.06244, 2211.15240, 2205.09902, 2410.17522, identified passages",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8 gives the one-coordinate digit product and Theorem 7 properties of the trinomial residue word. Neither specifies the Delannoy pairing.",
+          "Self-correlations use T at two indices or quartic characters of D at two indices and do not determine the same-index quadratic product between T and D. Joint spectral evaluation, not just specialization of those correlation formulas, is needed."
+        ],
+        "reasoning": "The evaluated interaction is not a direct case of those formulas. Applying old general arithmetic plus explicit digit/spectral evaluation does account for the result and bounds the scope of the originality claim.",
+        "searches": [
+          "Rampersad–Shallit arXiv:2110.06244, §3 Theorems 7–9, pp. 6–8",
+          "Resultary Delannoy quartic autocorrelation 45e3d7d4c052, Finding offset 94; central-trinomial all-lag fa9f646a7cb7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both primary sources identify the second coordinate as generalized central trinomial T_n(3,2). Sun Theorem 1.2 concerns weighted congruence sums, not the evaluated joint block law for T_n(1,1) and T_n(3,2).",
+          "Reformulation by cross-character sums isolates the (2,2) Fourier mode; the nearby indexed Delannoy correlation is a quartic-character autocorrelation, not this quadratic cross mode."
+        ],
+        "reasoning": "Changing the sequence name to its generalized coefficient or the statistic to a character moment does not reveal a matching evaluated claim in the inspected sources.",
+        "searches": [
+          "Resultary same-index central trinomial–central Delannoy residues mod five; joint residue counts and 3^L quadratic correlation",
+          "Sun arXiv:1008.3887, pp. 4–6; Jia–Huang arXiv:2410.17522v1, introduction p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical target entry 4871e6608db9 is not independent evidence. The Apéry–Domb block table has eight pairs and different coordinates; the 2026/11/2 indexed all-lag result gives adjacent central-trinomial counts, and the same-day triple table is for consecutive T values only."
+        ],
+        "reasoning": "Those exact data are not the 16 counts of (T_n,D_n) for the same n. Same-day catalogue dates establish no ordering.",
+        "searches": [
+          "Resultary exact joint mod-five block fiber search",
+          "Resultary 60b755902f8c, Finding offset 73; fa9f646a7cb7 offset 99; 4fe2bd4eb307 offset 75"
+        ]
+      },
+      "rationale": "The pass is for the evaluated same-index mod-five trinomial–Delannoy interaction and exact block classification, not the generic Lucas congruence, constant-term scheme, existence of a joint automaton, or Fourier inversion. The closest indexed cross-sequence table concerns different sequences, and the closest same-sequence tables and correlations do not supply the Delannoy coordinate or a cross-character law. No inspected statement gives an equivalent evaluated interaction. The synthesis is elementary and the comparison is not exhaustive.",
+      "residual_risks": [
+        "Old general Lucas methods and elementary convolution make an implicit earlier computation plausible; selective literature and catalogue searches cannot exclude it.",
+        "The exact identity concerns complete initial 5^L blocks only; it establishes neither a higher-power modulus law nor arbitrary-cutoff estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family; inspected congruence sums not the joint block law",
+          "evidence": [
+            "D_n=T_n(3,2); weighted generalized-coefficient and Motzkin congruences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.3887",
+          "material_read": "pp. 4–6, PDF offsets 10200–16186, definitions and Theorem 1.2",
+          "method": "Original OA passages",
+          "title": "Congruences involving generalized central trinomial coefficients",
+          "trigger": "Exact aliases for both sequences"
+        },
+        {
+          "assessment": "One marginal and Lucas property, not the mixed law",
+          "evidence": [
+            "Theorem 8 is the trinomial digit-product congruence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.06244",
+          "material_read": "§3 Theorems 7–9, pp. 6–8, PDF offsets 15308–22499",
+          "method": "Original OA statements and scope",
+          "title": "Congruence properties of combinatorial sequences via Walnut and the Rowland–Yassawi–Zeilberger automaton",
+          "trigger": "Same central trinomial mod-five word"
+        },
+        {
+          "assessment": "Covers Lucas factorization but not evaluated cross-interaction",
+          "evidence": [
+            "Unique interior lattice point 0 suffices for the constant-term Lucas property."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.15240",
+          "material_read": "§1 Theorem 1.1, p. 1, PDF offsets 1220–4576",
+          "method": "Original OA statement compared with exponent interval",
+          "title": "p-Linear schemes for sequences modulo p^r",
+          "trigger": "General theorem supplying both digit laws"
+        },
+        {
+          "assessment": "Generic computational framework, not the evaluated statistic",
+          "evidence": [
+            "p-schemes for constant terms of P(x)^n Q(x) modulo p^r."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.09902",
+          "material_read": "§2 Theorem 2.4, p. 7, PDF offsets 23800–27785",
+          "method": "Original OA theorem comparison",
+          "title": "On congruence schemes for constant terms and their applications",
+          "trigger": "Automaton framework for both mod-five coordinates"
+        },
+        {
+          "assessment": "Structural analogue, different sequences and support",
+          "evidence": [
+            "All 5^L-block counts for Apéry–Domb, with eight supported pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-joint-residue-spectrum-of-ap-ry-and-domb-numbers-modulo-fi--60b755902f8c",
+          "material_read": "RESULT.md Finding, offset 73",
+          "method": "Statement comparison in local mirror",
+          "title": "Exact joint residue spectrum of Apéry and Domb numbers modulo five",
+          "trigger": "Strongest distinct matched cross-sequence exact census"
+        },
+        {
+          "assessment": "Lagged self-pairs, not mixed same-index residues",
+          "evidence": [
+            "(T_n,T_{n+1}) block counts and fixed-lag laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-all-lag-two-point-laws-and-exact-logarithmic-bias-for-central-tr--fa9f646a7cb7",
+          "material_read": "RESULT.md Finding offset 99",
+          "method": "Statement comparison in local mirror",
+          "title": "All-lag two-point laws and exact logarithmic bias for central trinomial residues",
+          "trigger": "Exact table using the target first coordinate and the same block scale"
+        },
+        {
+          "assessment": "Different coordinates",
+          "evidence": [
+            "Forty attained triples of consecutive T values."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-forty-word-triple-spectrum-of-central-trinomial-residues-modulo--4fe2bd4eb307",
+          "material_read": "RESULT.md Finding offset 75",
+          "method": "Statement comparison in local mirror",
+          "title": "Forty-word triple spectrum of central trinomial residues modulo five",
+          "trigger": "Candidate same-day indexed joint trinomial table"
+        },
+        {
+          "assessment": "Different character statistic and pairing",
+          "evidence": [
+            "Quartic-character self-correlation in D only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-positive-all-lag-quartic-character-correlations-of-central-delan--45e3d7d4c052",
+          "material_read": "RESULT.md Finding offset 94",
+          "method": "Statement comparison in local mirror",
+          "title": "Positive all-lag quartic character correlations of central Delannoy numbers",
+          "trigger": "Candidate same-day indexed Delannoy character law"
+        },
+        {
+          "assessment": "Inspected passage concerns Delannoy and Schröder, not the target block table",
+          "evidence": [
+            "Identifies D_n=T_n(3,2) and states a different congruence problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.17522",
+          "material_read": "Introduction p. 2, PDF offset 5600",
+          "method": "Original OA passage",
+          "title": "Congruences involving Delannoy numbers and Schröder numbers",
+          "trigger": "Primary search hit for joint Delannoy congruences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two standard generalized-trinomial specializations give a natural test of what the known marginal laws miss. The closed-form interaction after removing both marginals distinguishes dependence from bias: a sharp dominant mixed mode, exact opposite-row cancellations and an exact support threshold are useful explicit data, beyond constructing an automaton or printing a finite table. The result is a narrow evaluated invariant for this pair and prime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

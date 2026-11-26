@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generator acting on two distinct spin products closes on exactly two permutation orbits, with diagonal contributions explicitly included. The displayed stationary linear system gives \(u=D^{-1}\) and \(v=-(1+a)D^{-1}\). The difference of the part means is an exact generator eigenfunction with eigenvalue \(-a-(r-2)/(r-1)\), yielding the full stationary two-time covariance for all \(r,n,a,t\) in the declared domain. Inserting \(a=c/n\) yields the quoted response exponents and amplitudes. The actual standalone script reproduced 62 finite-state moment/semigroup comparisons and three symbolic identities. A finite check is supplementary, not proof of the all-size theorem.
+## correctness
 
-## Originality — PASS, bounded priority
-Historical mathematical priority is not certified. The earliest selected focal public preprint is Masuda (2013-06-19), which develops three conformist/contrarian mean-field models rather than the all-contrarian graph with exact stationary contrast autocovariance. Gantert–Löwe–Steif (2005, online September 2004) studies infinite signed-graph ergodicity, not this finite susceptibility. Kitching et al. (2025) provide general stationary spatial-order formulas and therefore overlap some equal-time pair calculations, which are treated as supporting identities rather than an independent original theorem. The reviewed claim includes the exact time-dependent contrast observable and the singular difference between two and three shores, not supplied by those stationary formulas alone. The especially pertinent Huber–Reinert (2004) chapter treats exact sampling and approximations for the anti-voter model, explicitly including a multipartite section; only abstract and detailed chapter contents could be accessed, not its primary full text, so an equivalent earlier specialization cannot be excluded. Nearby published research-record claims concern anti-voter Möbius ladders, faithful noisy-voter multipartite systems, or signed-graph ergodicity, with different observables, interaction rules or graph classes.
+PASS
 
-## Mathematical value — PASS
-There is a substantive physical distinction between bipartite systems that can maintain an opposed macrostate and triangle-containing multipartite systems whose frustrated anti-alignment erases the soft mode. The result quantifies this exactly at every finite size and every refresh rate, including a weak-noise regime where the stationary susceptibility diverges like \(n\) for two shores yet decays like \(n^{-1}\) for three or more. The exact two-time laws identify the responsible timescales, not just their static variances. These are natural, parameter-uniform dynamical response observables; no arbitrary finite census or textbook normalization test is offered as the contribution.
+The fair-refresh clock yields actual spin flips at a/2, so its contribution to the linear spin drift is -a, not -2a. At positive a the finite chain is irreducible and reversal symmetry centers M. An independent spectral reconstruction uses the symmetric neighbor matrix P and J=(1+a)I+P. The spin drift is -J; for the stationary correlation matrix C the off-diagonal entries of JC+CJ are zero because no jump changes two sites. Transitivity makes the diagonal scalar, so positivity of J and C_ii=1 give C=J^(-1)/d, where d=tr(J^(-1))/(rn). The eigenvalues of P are 1, -1/(r-1), 0 with multiplicities 1, r-1, r(n-1); the weights of M form an eigenvector at the second eigenvalue and have squared norm 2/n. This gives Var(M)=2/(n*d*lambda), with lambda=a+(r-2)/(r-1); reducing this expression gives the frozen rational formula. The semigroup on M alone has decay exp(-lambda*t), proving both covariance and integration without any statement about the full chain gap. At a=c/n the denominator is 1+2c+c²/n for r=2 and 2(r-2)n+O(1) otherwise, and lambda is c/n versus a positive constant. These yield the two time scales and all four limiting amplitudes. An exact independent rational occupancy-chain check (not the supplied spin-level script) confirmed the variance and generator equation in three finite examples, including r=4. Susceptibility here is defined as integrated stationary covariance, not a general response-to-field identity.
 
-## Closest literature and limitations
-Masuda (2013): well-mixed mixtures and approximations; Gantert–Löwe–Steif (2005): signed-graph ergodicity; Huber–Reinert (2004): multipartite anti-voter stationary sampling, full text unavailable; Kitching et al. (2025): broad stationary correlation/active-interface theorem, not a theorem of the time-dependent signed contrast. The boundary of the claim is balanced complete multipartite systems with strict positive independent fair-refresh rate. No claim of priority against all unindexed sources, full stochastic process convergence, or arbitrary signed graph result is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The balanced-versus-frustrated distinction as a qualitative signed-graph fact, the bipartite equivalence to a faithful voter model, and standard moment closures are prior ingredients. There is definite prior overlap with the bipartite exponential rate and approximate/asymptotic noisy-voter variance formulas, and with general equal-time order theory. The reviewed claim is the joint exact finite contrast law and quantified susceptibility separation across two versus at least three parts. The inspected sources do not dominate that combined statement; this is not a priority claim for either noise-induced ordering or the use of an eigenfunction for a time covariance.
+
+## value
+
+PASS
+
+An opposed shore magnetization is natural for the unfrustrated anti-voter dynamics, and adding a third shore is the canonical first frustrated complete multipartite case. At identical per-shore size and refresh parameter, the corresponding integrated fluctuation scales differ by order n². The explicit amplitudes and lag limits quantify the distinction without annealed-network approximations, and the exact positive-refresh contrast law is a useful finite-graph benchmark. The value is the quantitative frustrated comparison, not the elementary exponential integration in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

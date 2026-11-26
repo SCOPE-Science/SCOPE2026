@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:33:48.154207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–80 and 84; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/audit-evidence/reproduce.py 3 (exact rational bounds on constants and independent coordinate recursion and 45-digit checks at d=3,4,16,32,128)"
+      ],
+      "rationale": "The unnormalized cube Laplacian has Walsh eigenvalue 2k on characters of weight k, so the distance-r shell is 2⁻ᵈΣ_k K_k(r)z^{k²}, with z=e⁻⁴ᵗ, K₁=d−2r and |K_k|≤binom(d,k); at r=d this is 2⁻ᵈF_d. For 0≤z≤b=1/d+1/d³≤(9/8)/d, separate k=2 and use k²≥3k for k≥3, obtaining the stated absolute tail <0.81/d². Apply the same term bounds to the derivative at z=b, using k²/k!≤(3/2)/(k−3)!, to bound |F′+d|≤2(9/8)³/d+4.51/d⁵<d. The alternating tail at 1/d has positive sign, while at b the linear part −1/d² dominates. Hence F starts positive and crosses a unique first zero z_d in the bracket, with strict negativity immediately above. For all other shells the lower bound 1−(d−2)b−0.81/d² is positive on 0≤z≤z_d. This proves the persistent horizon and its exact vanishing pattern without an assertion of uniqueness of zeros on the whole time axis. The root identity dz_d−1=binom(d,2)z_d⁴+O(d⁻⁶)=1/(2d²)−1/(2d³)+O(d⁻⁴) gives the claimed logarithmic expansion.",
+      "residual_risks": [
+        "Numerical checks are finite; the explicit inequalities are the proof. They do not classify earlier isolated intervals of positive entries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-loss theorem spans arbitrary alphabets and includes all frozen binary dimensions and a longer expansion. f03089a5a92e bounds the number of temporal zeros by distance in all dimensions and gives the exact four-cube horizon. Qualitative eventual-positivity theory predicts eventual signs, not this cutoff."
+        ],
+        "reasoning": "The general Hamming Gaussian theorem specializes via Walsh duality and therefore fully covers the finding. The same-heat-family four-cube result by itself would only be partial coverage.",
+        "searches": [
+          "11278c25117d, all alphabets r≥2 and dimensions n≥2",
+          "f03089a5a92e, Finding",
+          "Daners–Glück–Kennedy 1511.05294 §9 and 1511.09020 matrix examples"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 11278c25117d, 40e7711b848a and f03089a5a92e; also compared 621e2ef18776 (rook graphs) and d4246db3e6b2 (nonbinary three-cubes); Daners–Glück–Kennedy 1511.05294 and 1511.09020"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 11278c25117d, 0<z<q_d implies all eigenvalues positive; at q_d, F_d=0 and every other eigenvalue is positive; just above q_d, F_d<0. Its −log q_d has respective terms log d, −1/(2d²), +1/(2d³), and an explicit d⁻⁴ term.",
+          "The resolvent multiplier (1+4sk²)⁻¹ differs from e⁻⁴ᵗᵏ²; it is a Laplace average, not the Gaussian-dual identity."
+        ],
+        "reasoning": "Reversing z=e⁻⁴ᵗ turns the exact first loss into the exact persistent restoration time, and multiplying −log q_d by 1/4 gives the frozen asymptotic. No knowledge of later z-zeros is needed. Qualitative semigroup or resolvent results do not give this converse on their own.",
+        "searches": [
+          "11278c25117d, Proof (1)–(4), especially strict non-top-mode positivity and −log q_n",
+          "40e7711b848a, proof of unique parity minimum and strict first loss",
+          "Daners–Glück–Kennedy, accessible OA material on eventual/asymptotic positivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For A_z(x,y)=z^{h(x,y)²} on (Z/2Z)^d, the eigenvalue at Walsh character χ_w is Σ_v z^{|v|²}χ_w(v)=2^d[e⁻ᵗᴸ²]_{0,w} for z=e⁻⁴ᵗ. In 11278c25117d, the highest-weight eigenvalue is F_d and all other modes are strictly positive through the entire bracket; for alphabet size two the top weight represents a single Walsh character."
+        ],
+        "reasoning": "Positive definiteness of this Gaussian Gram matrix is equivalent to strictly positive entries of the heat kernel, by character diagonalization and translation invariance. The unique top-weight zero gives exactly the antipodal entries, with no confusion between positive semidefiniteness of the Gram matrix and positive semidefiniteness of the heat matrix.",
+        "searches": [
+          "Resultary: Boolean hypercube biharmonic heat all dimensions antipodal persistent eventual positivity time exact first alternating binomial polynomial root via squared Hamming Gaussian positive definiteness threshold",
+          "11278c25117d/RESULT.md, Finding and Proof (1), (3)",
+          "40e7711b848a/RESULT.md, Finding and Fourier formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "11278c25117d states the exact same F_d root in the same strict bracket and a stronger inverse-bandwidth expansion; this is a symbolic theorem rather than a tabulation. The resolvent lookup did not identify the uncited cube formula, and the inspected indexed resolvent example is a weighted star."
+        ],
+        "reasoning": "The exact match follows from formulas and sign control in the indexed proof, not from agreement of a few sample cutoffs or an unsuccessful external lookup.",
+        "searches": [
+          "Resultary exact cutoff and dual Gaussian search; local mirrors 11278c25117d, 40e7711b848a and f03089a5a92e",
+          "Primary lookup: Boolean hypercube biharmonic resolvent antipodal positivity exact Laplacian squared"
+        ]
+      },
+      "rationale": "Direct Walsh duality gives full exact coverage in the distinct indexed entry 11278c25117d, An alphabet-independent first positivity threshold for Gaussian kernels on Hamming products. In the binary case its Gaussian Gram eigenvalues are exactly 2^d times the biharmonic heat entries, indexed by the difference of the two heat vertices; the relation is not merely the occurrence of the same polynomial. Its all-dimension first-loss threshold, corank and sharper logarithmic expansion imply the entire frozen Finding. Its November 2 dated path is later than the frozen October 26 path; this is present coverage, not a priority finding. The October 25 entry 40e7711b848a already covers the dual threshold and vanishing pattern for d≥17.",
+      "residual_risks": [
+        "Paths alone do not establish priority or dependence between dated entries.",
+        "Exact provenance of the uncited Boolean-cube resolvent result remains unresolved. Gazzola–Grunau DOI 10.3934/dcdss.2008.1.83 was not available in full text via the attempted lawful route; its continuum setting was identified bibliographically. Neither access limitation is the reason for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full implication, including sharper expansion, for alphabet size two",
+          "evidence": "Exact spectral formula, F_d bracket and first crossing, positivity of all other modes, and expansion of −log q_d.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-an-alphabet-independent-first-positivity-threshold-for-gaussian--11278c25117d",
+          "material_read": "RESULT.md Finding, scope and proof (1)–(4), local offset 0–6333",
+          "method": "Local mirror reading",
+          "title": "An alphabet-independent first positivity threshold for Gaussian kernels on Hamming products",
+          "trigger": "Potential exact Walsh-dual coverage across all dimensions"
+        },
+        {
+          "assessment": "Exact dual threshold and vanishing pattern for d≥17, not the low dimensions",
+          "evidence": "Gaussian classification for q≤1/16, parity mode uniquely minimal near crossing, same alternating binomial root.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-gaussian-positive-definiteness-dimension-cutoff-on-boole--40e7711b848a",
+          "material_read": "RESULT.md Finding and Fourier, parity-minimum and root estimates, local offset 0–4213",
+          "method": "Local mirror reading",
+          "title": "A sharp Gaussian positive-definiteness dimension cutoff on Boolean Hamming cubes",
+          "trigger": "Same scalar polynomial; possible dual equivalence"
+        },
+        {
+          "assessment": "Same exact horizon in d=4 and distinct all-dimension zero-count bounds",
+          "evidence": "The final root of P₄(e⁻⁴ᵗ) gives the four-cube horizon; only antipodal entries vanish there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-distance-controlled-zero-crossings-and-the-first-reentrant-bihar--f03089a5a92e",
+          "material_read": "RESULT.md Finding, scope and spectral reduction, offset 0–4791",
+          "method": "Local mirror reading",
+          "title": "Distance-controlled zero crossings and the first reentrant biharmonic heat kernel on Boolean cubes",
+          "trigger": "Same semigroup and possible full cutoff"
+        },
+        {
+          "assessment": "Qualitative context, not exact cube coverage",
+          "evidence": "Finite-dimensional asymptotic positivity of matrix semigroups; no quantitative Hamming-shell threshold in that material.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "§9, PDF pp. 31–33",
+          "method": "OA PDF passage reading",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "Primary finite-dimensional asymptotic positivity criteria"
+        },
+        {
+          "assessment": "Qualitative results and different fourth-order setting",
+          "evidence": "The squared Laplacian example uses Robin boundary conditions, not a finite cube cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.09020",
+          "material_read": "PDF pp. 2, 4",
+          "method": "OA PDF passage reading",
+          "title": "Eventually Positive Semigroups of Linear Operators",
+          "trigger": "Eventual-positivity theory and squared generator examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Walsh shell formula; Resultary 11278c25117d, Finding and proof (1)–(4)"
+      ],
+      "rationale": "The antipodal cutoff is a natural exact semigroup invariant, and a sharp time is more useful than qualitative eventual positivity. But the frozen new-claim content, including the sharper bracket and third logarithmic term, is mechanically implied by the all-dimension Gaussian threshold. The Fourier identification is immediate from the shell formula and no additional heat-specific regime or consequence beyond this implication is established in the Finding.",
+      "residual_risks": [
+        "This evaluates incremental mathematical content, not utility of the result or precedence of the separate records."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

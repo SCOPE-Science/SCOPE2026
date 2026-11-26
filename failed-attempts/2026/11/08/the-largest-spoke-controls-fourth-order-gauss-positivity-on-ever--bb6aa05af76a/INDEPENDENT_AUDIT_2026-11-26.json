@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:53:58.306297Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4 (lines 31–82)",
+        "Frozen VERIFICATION.md and verify_star_gauss.py (read only)"
+      ],
+      "rationale": "For h>0 take z_j=hw_j and k=3+i sqrt(3). The hub Schur complement in hL+kI is kE with E=1+sum z_j/(k+z_j); E=(U+3V)-i sqrt(3)V in the source notation. Partial fractions give the off-diagonals of T as -12 Im(k(hL+kI)^{-1})/sqrt(3). Multiplying denominators recovers the stated sign factors U-z_j V and (z_i+z_j+6)U+(12-z_i z_j)V. Since V>0, the minimum hub factor is at the largest weight. If it is nonnegative then V<=U/z_*, so the leaf factor is at least (max(z_i,z_j)+6)U+12V>0. Diagonals are positive by scalar spectral positivity and row sums are one. The maximal-weight factor is 1 minus a nonnegative combination of strictly increasing functions x^2/(x^2+6x+12); its limit is 1-Delta, yielding a unique finite zero exactly for Delta>1. Delta=1 gives no finite zero; tied maxima vanish simultaneously at H, no other entries do, and T(0)=I. For N=m+1 and the projection P onto the vector space of zero sums, the independent formula L^+=sum_j (1/w_j)(P e_j)(P e_j)^T follows by multiplication with L. Its hub and leaf off-diagonals agree with the source and give exactly w_* sum_j 1/w_j<=N. The frozen verifier was inspected but not executed; the reported exact-rational tests are finite corroboration only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SSP constraints are not exact star endpoint criteria. The general graph-Laplacian integration passages deal with positivity as a design constraint.",
+          "The prior pure-birth chain result uses this rational map but its chain is directed, not a symmetric weighted star.",
+          "Full text of the two Horváth papers was not obtained in lawful attempts."
+        ],
+        "reasoning": "None of these general or differently scoped sources is needed to infer the duplication. The indexed prior star record gives direct covering statements under the unchanged assumptions.",
+        "searches": [
+          "arXiv:1106.3626, SSP definition",
+          "arXiv:2102.08242v2, abstract and §1.1",
+          "Local mirror of 4aad2a3f58ab, Finding and setup",
+          "Horváth DOI 10.1016/S0168-9274(98)00050-6 and 10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2f77824b8f6c and 4aad2a3f58ab",
+        "arXiv:1106.3626",
+        "arXiv:2102.08242v2",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem gives the whole horizon and tracks all negative max-spoke entries beyond it.",
+          "Writing r_j=1/w_j and S=sum r_j, off-diagonal signs of L^+ reduce immediately to S-Nr_j<=0 on hub entries, which imply all leaf-pair conditions."
+        ],
+        "reasoning": "The main theorem is directly covered. The additional pseudoinverse phrasing comes from the same inequality by a standard star matrix computation and does not furnish a new positivity classification.",
+        "searches": [
+          "2f77824b8f6c, OA offsets 0–4880 and 4600–7465; later comparison section at offsets 7200–9301",
+          "Frozen RESULT.md proof §4 and independent rank-one pseudoinverse calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior cutoff uses numerator h^2 w_j(w_*-w_j), identical to (w_*/w_j-1)(hw_j)^2 in the frozen expression. The denominators and threshold 1 agree.",
+          "The Gauss endpoint and the stated [2/2] Padé update are the same rational map on -hL."
+        ],
+        "reasoning": "The prior sign factor gives exactly the same positive-step interval for all conductances, not just a scalar instance or a comparison after changing the metric or method.",
+        "searches": [
+          "Local Resultary semantic search for arbitrary-weight weighted-star fourth-order Gauss and [2/2] Padé positivity",
+          "2f77824b8f6c, Finding and sign proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior entry gives w_* sum 1/w_i<=m+1, the unique cutoff otherwise, strict positivity below it for h>0, and exactly the hub-to-maximum-spoke zeros at cutoff."
+        ],
+        "reasoning": "This is a distinct indexed theorem on arbitrary weights and arbitrary leaf count m>=2, not the frozen record itself, a numerical table, or a one-spoke slice.",
+        "searches": [
+          "Local Resultary exact-family match 2026/10/25/SCOPE-sharp-fourth-order-gauss-positivity-on-every-positively-weighted--2f77824b8f6c; local mirror statement and cutoff proof"
+        ]
+      },
+      "rationale": "The distinct earlier Resultary record 2f77824b8f6c gives the full arbitrary-positive-weight theorem on the same stars for the same completed fourth-order Gauss endpoint, including the sharp finite cutoff, the first-zero entries, ties and nonreentry. The pseudoinverse equivalence is a correct algebraic reformulation obtained from the elementary pseudoinverse formula on stars and the already available reciprocal-weight criterion. The prior coverage is materially stronger than the one-exceptional-spoke comparison made in the submission.",
+      "residual_risks": [
+        "The Horváth papers were not fully accessible and the mentioned one-exceptional-spoke source was not resolved. Neither limitation changes the demonstrable exact prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of the full main theorem",
+          "evidence": [
+            "Same method and positive star assumptions; identical sign factor after algebra; same sharp cutoff, tie zeros and all-step criterion."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-fourth-order-gauss-positivity-on-every-positively-weighted--2f77824b8f6c",
+          "material_read": "Mirrored RESULT.md, theorem, assumptions and endpoint monotonicity proof, offsets 0–7465; later relationship section at offsets 7200–9301",
+          "method": "Local Resultary lookup and local mirror passage comparison",
+          "title": "Sharp fourth-order Gauss positivity on every positively weighted star",
+          "trigger": "Strongest indexed same-method, same-graph hit"
+        },
+        {
+          "assessment": "General SSP background; inspected condition is not this fixed-network exact horizon",
+          "evidence": [
+            "The definition is based on a method coefficient multiplying a forward-Euler step bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.3626",
+          "material_read": "SSP definition, p. 2, offset 5579",
+          "method": "Open-access passage inspection",
+          "title": "Strong stability preserving two-step Runge–Kutta methods",
+          "trigger": "Potential broader RK positivity conditions"
+        },
+        {
+          "assessment": "General Laplacian ODE positivity framework",
+          "evidence": [
+            "The inspected passages distinguish positivity from linear stability and address broad graph-Laplacian ODE classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2102.08242v2",
+          "material_read": "Abstract and §1.1, offsets 1266–1986 and 5353 onward",
+          "method": "Open-access passage inspection",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Possible broader Laplacian-method coverage"
+        },
+        {
+          "assessment": "Different graph class and obstruction",
+          "evidence": [
+            "The witness is a directed pure-birth chain, not an undirected symmetric star Laplacian."
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Local mirror RESULT.md, offsets 0–4152",
+          "method": "Local mirror passage comparison",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Same endpoint map; possible positivity-window overlap"
+        },
+        {
+          "assessment": "Coverage unassessed; not grounds for rejection",
+          "evidence": [],
+          "identifier_or_url": "DOI 10.1016/S0168-9274(98)00050-6; DOI 10.1016/j.apnum.2004.08.026",
+          "material_read": "No decisive full-text passage obtained",
+          "method": "Lawful open-access DOI and alternate publisher-page retrieval attempts",
+          "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods; On the positivity step size threshold of Runge-Kutta methods",
+          "trigger": "Potential broader RK positivity-threshold theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §4",
+        "Resultary 2f77824b8f6c, exact horizon and endpoint theorem"
+      ],
+      "rationale": "The sharp sign-change horizon, endpoint zero pattern and nonreentry law are meaningful exact data, but this submission already has a covering earlier theorem for all of them. On this family the extra Laplacian-pseudoinverse description is an elementary translation of the same criterion and is not made into a further independently useful result. No genuine substantive remainder warrants repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

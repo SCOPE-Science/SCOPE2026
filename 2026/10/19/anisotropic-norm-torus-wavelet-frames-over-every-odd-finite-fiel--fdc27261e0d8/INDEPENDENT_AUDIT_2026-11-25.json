@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:14:12.428600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–6 and Fourier convention; VERIFICATION.md; verify_wavelet.py and verification_output.json (inspected only)",
+        "Replay: python /workspace/audit-evidence/5.py; output /workspace/audit-evidence/5.txt"
+      ],
+      "rationale": "Counting the nonzero-difference hyperbola by (x−y)(x+y)=a proves the character sum −1 for x²−a and hence ∑χ(1−δc²)=χ(−1); there are no zeros. A graph tiles vertically and the trace characters in the first coordinate form its spectrum (the finite-field trace pairing is nondegenerate, even when Tr(1)=0). Squaring the chosen ± representatives and their negatives gives each square once; the other slope multiplies those norms by a nonsquare. The punctured graph thus has one representative at each nonzero norm, and norm-one field multiplication acts simply transitively on each level, tiling all nonzero frequencies. With determinant one and the stated transpose/shift, the Fourier amplitude is q^(−1/2) times the character in the graph coordinate; disjoint blocks and trace-character orthogonality yield Parseval and the exact simplex Gram. Each nonzero slope and its zero locus recover c and H from the graph, so the count is of distinct graphs for fixed δ, not equivalence classes or all graph transversals. Exact finite arithmetic at q=3,5,9,27 independently confirmed slope counts, orbits and off-diagonal character sums.",
+      "residual_risks": [
+        "No claim for characteristic 2 or full-space orthonormal bases. The general proof, not four sample fields, covers all odd prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.9 gives the spectral set/punctured multiplicative tile implication to Parseval wavelets. The paper asks about q≡1 and prime-power extensions and excludes the split Euclidean rotational tiling in Proposition 4.6. Mayeli treats the general LCA wavelet/Riesz setting. Sinha–Sahoo full text was unavailable in the bounded lawful attempt.",
+          "Theorem 1.3(iv) of arXiv:1505.00883 proves the equivalence between spectrality and additive tiling in the prime-field plane, not multiplication by a norm-one torus."
+        ],
+        "reasoning": "General frame-set theorems take the hard simultaneous tile data as hypotheses. They do not construct the graph transversal. The older negative statement for split Euclidean circles neither supplies nor forbids the present anisotropic construction.",
+        "searches": [
+          "arXiv:1703.06842, Theorem 2.9 and §5 questions",
+          "arXiv:1703.06771, general LCA criterion",
+          "Sinha–Sahoo DOI:10.5666/KMJ.2021.61.2.371 OA lookup",
+          "finite field tight wavelet frame sets anisotropic quadratic form norm-one torus graph prime powers q 1 mod 4 Iosevich Lai Mayeli construction; returned arXiv:1703.06842 and arXiv:1505.00883"
+        ]
+      },
+      "checked_sources": [
+        "Iosevich–Lai–Mayeli arXiv:1703.06842; Rahimi–Seddighi arXiv:1705.11127; Mayeli arXiv:1703.06771; Iosevich–Mayeli–Pakianathan arXiv:1505.00883",
+        "Sinha–Sahoo DOI:10.5666/KMJ.2021.61.2.371 (limited access)",
+        "Resultary local search and mirror: 1651ef6ab8d7, 665d4ad44979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract Parseval inference is prior, and the block Gram follows from deleting the trivial frequency in the character orthogonality identity. The prior prime q≡3 proof uses the squared-norm factor 1+k². The inspected theorem does not provide the nonsplit norm recipe for q≡1 or the character-sum enumeration of its admissible c."
+        ],
+        "reasoning": "The meaningful distinct extension is the graph transversal simultaneously meeting the additive/spectral condition and exactly one point on each nonsplit norm level for all odd q. A prime Euclidean result cannot be instantiated at prime-power q≡1 by parameter substitution; the changed norm and count need proof.",
+        "searches": [
+          "arXiv:1703.06842, Theorems 2.9 and 4.4, Proposition 4.6",
+          "arXiv:1705.11127, Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.4 chooses f(x)=0 for x in the first half of the prime field and f(x)=kx on its negative, with 1+k² nonsquare. For prime q≡3 mod 4 this is precisely δ=−1, c=k and the usual ±-representative set H.",
+          "Rahimi–Seddighi's one-dimensional prime-field DFT construction uses multiplicative subgroups but does not require a two-dimensional norm transversal."
+        ],
+        "reasoning": "Credit the Euclidean anisotropic special case literally, not merely as an analogous tile. In q≡1, −1 is square, so that specialization is split; the frozen group is the non-split norm-one torus from a different quadratic form, with order q+1, and is not a relabeling of the split Euclidean rotation group.",
+        "searches": [
+          "Iosevich–Lai–Mayeli arXiv:1703.06842, Theorem 4.4 and Proposition 4.6",
+          "Rahimi–Seddighi arXiv:1705.11127, Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1651ef6ab8d7 concerns split quadratic graph Gabor-projector spectra and tomography; 665d4ad44979 gives weighted two-tap wavelets on a prime cycle, including 2^((p−1)/2) antipodal designs but no two-dimensional torus. The inspected older theorem states one conventional half-field choice, not the general fixed-δ graph count."
+        ],
+        "reasoning": "The common antipodal counting factor in a different design is not a count of norm-transversal graphs. No exact tabulation of the joint construction and count was identified in the bounded search.",
+        "searches": [
+          "Resultary anisotropic norm torus / finite wavelet graph transversal, nearest inspected 1651ef6ab8d7 and 665d4ad44979",
+          "arXiv:1703.06842, Theorem 4.4 fixed two-slope design"
+        ]
+      },
+      "rationale": "Qualified PASS for the explicit two-slope norm transversal for every odd prime power and exact count of the stated family at fixed nonsquare δ, not for the abstract frame criterion or the previously constructed prime q≡3 (mod 4) graph. Iosevich–Lai–Mayeli’s Theorem 4.4 is an exact special case at δ=−1 with the usual half of the prime field. The anisotropic form, unlike the q≡1 Euclidean form, has a norm-one group acting regularly on each nonzero norm level. The trace-character and deleted-column Gram computations are natural consequences of this explicit construction, not an independent novelty claim.",
+      "residual_risks": [
+        "The Sinha–Sahoo full text was unavailable; its possible finite-field examples remain unresolved.",
+        "A bounded literature and catalogue search can miss a construction indexed under a different norm parametrization or design-theory name; this is not an absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct special-case construction and general frame implication; not the stated all-odd-field extension",
+          "evidence": "Uses Euclidean form with half-field slopes 0,k and 1+k² nonsquare over prime q≡3; the Euclidean obstruction and q≡1/prime-power questions are stated separately.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.06842",
+          "material_read": "Theorem 2.9 pp. 8–9 (offset 24000); Theorem 4.4 pp. 13–14 (39200); Proposition 4.6 and §5 pp. 14–15 (42500 and following)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Tight Wavelet Frame Sets in Finite Vector Spaces",
+          "trigger": "Closest construction, general theorem and named earlier questions"
+        },
+        {
+          "assessment": "One-dimensional prime-field construction, not the bound graph or dilation tiling",
+          "evidence": "Reordered DFT with multiplicative subgroups in C_p, without a two-dimensional anisotropic form.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.11127",
+          "material_read": "Theorem 4.2 pp. 8–9 (offset 24200)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Finite Equal Norm Parseval Wavelet Frames over Prime Fields",
+          "trigger": "Similar frame conclusion and potentially overlapping finite-field design"
+        },
+        {
+          "assessment": "General LCA framework, no specific finite torus design identified in the compared passages",
+          "evidence": "Works with LCA tiling/spectral criteria, not a fixed-nonsquare graph enumeration.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.06771",
+          "material_read": "Abstract p. 1 and general criterion p. 3 (offset 5850)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Riesz Wavelets, Tiling and Spectral Sets in LCA Groups",
+          "trigger": "General two-tiling wavelet construction"
+        },
+        {
+          "assessment": "Covers the additive/spectral equivalence for prime fields, not the extra dilation tiling or nonprime analogue",
+          "evidence": "Part (iv) asserts a set is spectral iff it tiles the two-dimensional prime-field space by translation. There is no multiplicative norm transversal in that theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.00883",
+          "material_read": "Abstract and Theorem 1.3(iv), p. 2, near offset 5840",
+          "method": "Primary literature search and bounded OA PDF passage inspection",
+          "title": "The Fuglede Conjecture holds in Z_p × Z_p",
+          "trigger": "Potential stronger spectral/additive-tiling implication in the prime-field plane"
+        },
+        {
+          "assessment": "Unresolved extent of LCA and finite-field examples",
+          "evidence": "The title and abstract-level scope concern LCA groups; these cannot exclude a relevant example. This access limitation does not alone change the verdict.",
+          "identifier_or_url": "https://doi.org/10.5666/KMJ.2021.61.2.371",
+          "material_read": "Bibliographic/abstract-level material only; full paper not available through bounded lawful retrieval",
+          "method": "OA availability attempt, no full-text coverage inference",
+          "title": "Riesz and Tight Wavelet Frame Sets in Locally Compact Abelian Groups",
+          "trigger": "Related, plausibly broader wavelet-frame-set theorem"
+        },
+        {
+          "assessment": "Distinct one-dimensional construction and invariant",
+          "evidence": "Classifies prime-cycle weighted two-tap constructions and antipodal choices, without the plane norm-one group or graph transversal.",
+          "identifier_or_url": "Resultary 2026/11/16, 665d4ad44979",
+          "material_read": "Local mirror RESULT.md, Finding, offset 0",
+          "method": "Local semantic search and bounded mirror passage",
+          "title": "Weighted two-tap affine wavelets: exact prime-cycle tightness and designs",
+          "trigger": "Nearby Resultary wavelet design with the same antipodal factor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–6"
+      ],
+      "rationale": "The useful step is the explicit graph transversal that is simultaneously compatible with additive tiling, spectrality, and anisotropic cyclic norm dilation in the previously problematic q≡1 regime as well as in nonprime fields. The exact family count makes that construction quantitative; the simplex computation alone would not be a contribution independent of the transversal.",
+      "residual_risks": [
+        "The q≡1 result changes the norm; it does not solve tiling under the split Euclidean norm-one group. The value judgment concerns the specified construction, not any broader general existence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

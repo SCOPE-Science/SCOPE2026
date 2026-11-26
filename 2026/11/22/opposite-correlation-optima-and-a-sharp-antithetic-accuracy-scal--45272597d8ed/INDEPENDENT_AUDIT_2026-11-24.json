@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:10:07.897523Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66 and 76–78; SLOGAN.txt; VERIFICATION.md and sglm_ar1_checker.py (inspected, not run)",
+        "/workspace/repairs/1/RESULT.md, independently rechecked under the corrected exogeneity assumptions",
+        "/workspace/replays/1.py and /workspace/replays/1.log: SymPy 1.14.0 exact filter and DC-gain algebra, counterexample, derivative and asymptotic coefficients"
+      ],
+      "rationale": "The frozen recurrence and formulas are correct for the exogenous colored oracle, but the frozen assumptions' phrase 'additive error independent of state' is false as a statement of statistical independence. In the unique stationary law, Cov(Z_k,ξ_k)=−hρσ²/(1−rρ), which is nonzero for every ρ≠0 (e.g. −3/5 at the finding's positive-correlation example). Taken literally, the independence assumption would rule out the colored regime. The complete replacement specifies no feedback from position to the error dynamics and independent thermal and oracle innovation streams, without imposing joint independence of the current error and position. In the repaired setting, stability of the joint linear recursion gives the unique Gaussian stationary law. Its causal thermal filter has coefficients t and t(1+r)r^(j−1) for j≥1, yielding 1/κ. In the oracle double sum, grouping by lag gives (h²σ²/(1−r²))(1+rρ)/(1−rρ); this is positive throughout the domain. The two independent streams' zero-frequency gains yield 2/(κ²h) and (σ²/κ²)(1+ρ)/(1−ρ), with absolutely summable covariance for each fixed admissible pair. Differentiation yields opposite signs for 1<κh<2, constancy of position accuracy at κh=1, and the claimed upper-end boundary limit. The Gaussian Wasserstein distance strictly increases with excess variance. At small h the variance prefactor is of order h; the remaining ratio is (κh+rδ)/(2−κh−rδ), δ=1+ρ_h. If the ratio is O(h), the denominator is at most 2 and r stays bounded below, so δ=O(h); the converse and leading coefficient follow on substitution. The boundary correlations remain limits only.",
+      "residual_risks": [
+        "No extension to general nonlinear observables, nonstationary starts, arbitrary oracle coupling or actual minibatch-index laws is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The midpoint record varies AR(1) injection side for a constrained implicit method; its accuracy setting uses fixed ρ and amplitude h^(5/2).",
+          "The SGD records optimize finite learning-rate schedules; Vollmer et al. use an Euler SGLD step with independent minibatches."
+        ],
+        "reasoning": "None of these larger or analogous model classes, as stated, specializes to this stationary adjacent-Gaussian, colored-oracle two-criterion classification. General linear-filter theory is sufficient machinery to derive raw moments but does not itself give the paired correlation comparison or step-dependent bias threshold.",
+        "searches": [
+          "Resultary 0e401eb67d48, 3db9e0ceb6be, 7039aaceb5ac; Ye et al. numerical bias (1.4); Vollmer–Zygalakis–Teh JMLR 17(159)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24781v1 and v3; JMLR 17(159)",
+        "Resultary 0e401eb67d48, 3db9e0ceb6be, 7039aaceb5ac and assigned self-hit 45272597d8ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior bias passage uses the one-step covariance C(x) under the independent-error setup; the submitted result holds at fixed one-step σ² while changing all lag covariances.",
+          "The midpoint source compares injection conventions for invariant spread; the SGD sources compare finite-time schedules, not invariant and DC criteria."
+        ],
+        "reasoning": "The iid expansion cannot distinguish oracles with identical marginals and different temporal spectra. Standard filters supply the two gains, but their comparison requires explicit use of r=1−κh, and the quadratic-bias equivalence uses a singular simultaneous limit h→0 and ρ→−1. The checked sources do not directly give these conclusions.",
+        "searches": [
+          "Ye et al. arXiv:2610.24781v1, numerical bias (1.4) and Markovian SGLM form; v3 corresponding passage; JMLR 17(159); Resultary 0e401eb67d48"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit was the assigned record itself; nearest dynamic analogues differ in update and observable.",
+          "Ye et al. supply the adjacent reused-Gaussian SGLM method but specify iid gradient errors in the relevant Markovian form."
+        ],
+        "reasoning": "A moving average or zero-frequency description is equivalent to the submitted augmented recursion for the stated exogenous oracle. An iid error is the isolated ρ=0 case, not a version of the strict comparisons across correlations.",
+        "searches": [
+          "Resultary: SGLM AR(1) gradient noise invariant Wasserstein accuracy versus sample-mean integrated variance",
+          "arXiv:2610.24781v1 and v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold/self-title hit is the frozen assignment only. The earlier exact temporal-color formula concerns a different midpoint recursion and injection conventions."
+        ],
+        "reasoning": "Neither an isolated test case nor an exact formula for a different transfer denominator covers the SGLM comparison for every stable step and admissible correlation sequence.",
+        "searches": [
+          "Resultary: exact SGLM correlation reversal and sharp antithetic accuracy scale; 45272597d8ed; 0e401eb67d48"
+        ]
+      },
+      "rationale": "Credit the prior SGLM update and independent-gradient bias results as well as ordinary stationary linear-filter and integrated covariance identities. The surviving specific result is the fixed-marginal AR(1) classification simultaneously comparing invariant accuracy and mean-estimation variance, plus the necessary and sufficient antithetic scale for the variance error. The corrected assumption matches the exogenous AR(1) model originally used by the proof; it does not convert an iid-gradient result into this one.",
+      "residual_risks": [
+        "Bounded searches do not certify priority. The foundational LM full text and the separately cited early viXra version were not independently inspected; the verified SGLM comparison is against the arXiv versions. An equivalent application of standard colored linear-filter formulas may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same update, different oracle hypothesis",
+          "evidence": "The gradient errors in the inspected versioned passages are iid and independent of Brownian motion; bias expansion uses the one-step covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24781v1; arXiv:2610.24781v3",
+          "material_read": "v1 pp. 3 and 9 (OA offsets 11500 and 43000), numerical bias (1.4) and Markovian SGLM; v3 p. 8 (offset 35446)",
+          "method": "Primary OA PDF passages",
+          "title": "Stochastic Gradient Leimkuhler–Matthews Integrator with Second Order Discretization Error",
+          "trigger": "Exact SGLM method and earliest cited arXiv bias statements"
+        },
+        {
+          "assessment": "Different Euler update and independent minibatches",
+          "evidence": "Gaussian SGLD toy problem with subsets independently drawn at each step; no reused adjacent noise in that update.",
+          "identifier_or_url": "https://jmlr.org/papers/v17/15-494.html",
+          "material_read": "Primary JMLR PDF p. 5, OA offset 16650",
+          "method": "Original OA PDF passage",
+          "title": "Exploration of the (Non-)Asymptotic Bias and Variance of Stochastic Gradient Langevin Dynamics",
+          "trigger": "Bias/variance comparison on a scalar Gaussian toy model"
+        },
+        {
+          "assessment": "AR(1) analogue for a different recurrence and objectives",
+          "evidence": "Constrained implicit-midpoint stationary spread and opposite optimal correlation signs by injection side; fixed ρ for h^(5/2) finite-horizon perturbations.",
+          "identifier_or_url": "Resultary 0e401eb67d48",
+          "material_read": "Mirrored RESULT.md Finding and scope, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp temporal noise-color laws and an injection-side reversal",
+          "trigger": "Closest previous exact colored-noise reversal indexed"
+        },
+        {
+          "assessment": "Finite-horizon schedule designs; same-day date does not determine priority",
+          "evidence": "Optimizes learning-rate orders or schedules, not the SGLM marginal and linear mean variance.",
+          "identifier_or_url": "Resultary 3db9e0ceb6be and 7039aaceb5ac",
+          "material_read": "Mirrored RESULT.md Findings, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Three exact noise-correlation phases for a geometric SGD ladder; Exact two-ended stepsize reversals under autoregressive gradient noise",
+          "trigger": "Distinct same-day AR(1) gradient-noise comparisons"
+        },
+        {
+          "assessment": "Access limitation",
+          "evidence": "Neither retrieval exposed full text. The adjacently reused thermal-noise update is prior, not the originality claim.",
+          "identifier_or_url": "Leimkuhler–Matthews paper cited by Ye et al., Oxford publisher routes",
+          "material_read": "No primary full text retrieved; the update was inspected in Ye et al.",
+          "method": "Two lawful Oxford retrieval routes",
+          "title": "Foundational Leimkuhler–Matthews integrator paper",
+          "trigger": "Possible older formulas for the adjacent-noise update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding, assumptions and limitations"
+      ],
+      "rationale": "Even at fixed marginal oracle variance, changing temporal dependence changes two natural meanings of sampling quality. The exact regime of strict disagreement shows why better invariant fidelity need not improve linear time-average precision, and the sharp antithetic scaling tells how close to alternating errors one must be for second-order stationary variance accuracy. These consequences survive the correction from statistical independence to exogenous generation.",
+      "residual_risks": [
+        "Neither practical realization nor runtime improvement is claimed; the opposite limiting preferences concern an open correlation domain and are not attained at the excluded endpoints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

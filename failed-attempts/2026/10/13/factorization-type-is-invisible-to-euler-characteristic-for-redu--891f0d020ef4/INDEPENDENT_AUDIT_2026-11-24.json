@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:40:33.410796Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–151 and 182–187",
+        "Frozen artifacts/verify.py lines 4–67",
+        "Frozen VERIFICATION.md lines 3–57"
+      ],
+      "rationale": "Multiplication has no base points and takes the product of projective factor spaces to a closed, diagonally invariant image. For B>d the monomial weights have distinct base-B digits, giving only monomial fixed points. Literally divide the d variable occurrences of each monomial into blocks of sizes d_i to see that every one of the binomial(d+m-1,m-1) fixed points is in the image. Localization does not require smoothness. Concretely, stratify by the support of the monomial coordinates. In a support of size at least two, divide by one nonzero coordinate to identify the ambient stratum with a torus. The nonzero vector of weight differences defines a one-dimensional subtorus; an integral torus coordinate change sends its primitive direction to the first coordinate. The corresponding invariant stratum of the image is the product of C* with its slice at first coordinate 1, so it has compactly supported Euler characteristic zero. Singleton supports contribute one each. Additivity and compactness give the ordinary Euler characteristic asserted. Over C the binary case is the entire space. For m>=3 the image is proper: x_0^(d-1)x_1+x_2^d is irreducible by primitivity and degree one in x_1. The conclusion does not concern the exact irreducible-factor stratum.",
+      "residual_risks": [
+        "The unexecuted regression checker inspects finite weight, count and factorization cases only. No formal verification is credited; the proof covers the full range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-partition spaces are projective multiplication images. For any closed invariant subset of projective space under a diagonal C* action of distinct weights, its Euler characteristic is the number of weight-coordinate points present; the support-stratum proof verifies this also for singular sets."
+        ],
+        "reasoning": "Localization covers all such invariant varieties, not just factorization loci. Every prescribed-degree multiplication image is invariant and contains all monomial coordinates.",
+        "searches": [
+          "Catalisano et al., arXiv:1502.00167v2, pp. 1–2",
+          "Standard Euler localization for projective varieties with a C* action, as invoked in frozen RESULT.md lines 130–136"
+        ]
+      },
+      "checked_sources": [
+        "Catalisano et al. arXiv:1502.00167v2",
+        "Arrondo–Bernardi arXiv:0903.2757v2",
+        "Resultary d500538a21e6 and 1005686be01a",
+        "Projective C* Euler localization (application checked directly)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose distinct weights on monomials by base-B powers on variables, and split the variable factors of any monomial into the prescribed sizes. Consequently both the factorization image and its ambient projective space have the identical finite fixed locus."
+        ],
+        "reasoning": "These immediate checks verify the standard localization hypotheses and mechanically give equality for all partitions, even without the split-form record.",
+        "searches": [
+          "Projective torus Euler localization and Catalisano et al. factorization loci, compared with Resultary d500538a21e6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d500538a21e6 gives chi_top(Split_d(P^n))=binomial(n+d,d), exactly this claim when all factors are linear and n=m−1. Catalisano et al. pp. 1–2 define the same projective product image for arbitrary partitions."
+        ],
+        "reasoning": "The split-form and Chow aliases identify a genuine special case, not the whole arbitrary-partition family. A degree formula for the latter is not an Euler computation.",
+        "searches": [
+          "Resultary semantic lookup for Euler characteristics of reducible-form/factorization loci, Chow and split forms",
+          "Catalisano et al., arXiv:1502.00167v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d500538a21e6 has the exact symbolic Euler value for the all-linear partition via the symmetric product. The neighboring 1005686be01a gives projective degree rather than Euler characteristic."
+        ],
+        "reasoning": "There is no finite table to check; the target is symbolic in m and d. The exact catalogue entry partially covers the result, but not the general partition.",
+        "searches": [
+          "Resultary d500538a21e6 (split forms) and 1005686be01a (degree of every factorization type)",
+          "Catalisano et al., arXiv:1502.00167v2"
+        ]
+      },
+      "rationale": "Exact coverage exists on the all-linear subfamily. For arbitrary partitions, the established projective torus Euler localization theorem already determines the answer once one notes that every monomial admits every degree partition. This is a direct corollary, not evidence that an identical arbitrary-partition statement was printed or that a catalogue date establishes priority.",
+      "residual_risks": [
+        "An explicit published all-partition Euler statement was not established by these bounded comparisons. The decision is based on standard implication, not a priority inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same closed loci; passages establish definitions, not an explicit all-partition Euler formula",
+          "evidence": "Arbitrary partitions parameterize projective products of homogeneous forms; split forms are the all-linear specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00167v2",
+          "material_read": "pp. 1–2, definition and split-form discussion",
+          "method": "OA passages at offsets 0 and 8000",
+          "title": "Secant Varieties of the Varieties of Reducible Hypersurfaces in P^n",
+          "trigger": "Primary arbitrary-partition factorization locus"
+        },
+        {
+          "assessment": "Exact overlap for (1,...,1); other partitions not covered by this record itself",
+          "evidence": "Symmetric-product model and Macdonald identity give chi_top(Split_d(P^n))=binomial(n+d,d).",
+          "identifier_or_url": "2026/10/12/SCOPE-a-unique-degree-euler-equality-for-chow-varieties-of-split-forms--d500538a21e6",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Resultary local mirror",
+          "title": "A unique degree–Euler equality for Chow varieties of split forms",
+          "trigger": "Possible exact Euler duplicate"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Computes projective degree rather than Euler characteristic.",
+          "identifier_or_url": "2026/10/12/SCOPE-degree-formula-for-every-factorization-type-variety-of-reducible--1005686be01a",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Resultary local mirror",
+          "title": "Degree formula for every factorization-type variety of reducible forms",
+          "trigger": "Same arbitrary-partition family"
+        },
+        {
+          "assessment": "Identifies the all-linear object, not evidence about the arbitrary-partition Euler statement",
+          "evidence": "Description of the variety of completely decomposable forms.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.2757v2",
+          "material_read": "p. 1",
+          "method": "OA passage at offset 0",
+          "title": "On the variety parameterizing completely decomposable polynomials",
+          "trigger": "Published split-form alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 54–68, 70–151 and 182–187",
+        "Resultary split-form Euler record d500538a21e6"
+      ],
+      "rationale": "The family and invariant are natural, and the equality for proper loci is a useful observation. But it follows mechanically from torus Euler localization plus the fact that monomials can be split into blocks of any sizes. The calculation detects no new structure of the partition-dependent strata, which it expressly does not address.",
+      "residual_risks": [
+        "This decision does not extend to Euler characteristics of exact-factorization strata or refinements such as Betti numbers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:55:05.478246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–45 and repaired RESULT.md Proof",
+        "VERIFICATION.md and verification/check_cycles.py, check_colorings.py and recorded .out files"
+      ],
+      "rationale": "The final theorem is unchanged. On a periodic orbit, excitation events have disjoint predecessor and successor neighbor sets, since a vertex cannot re-excite within two updates. The total required predecessor contacts are at least the sum of the thresholds, and the sum of predecessor plus successor contacts is at most the sum of the degrees. At the rounded half-degree threshold equality holds event by event: all neighbors occur in one of these sets and exactly half in each. Connectedness propagates activity to every vertex and forces every degree even. On a triangle with excitations a(t), b(t−1), c(t+1), independence and the no-repeat rule force c(t−2) and b(t+2), then a(t+3); repeating on the periodic time axis gives exactly the three-step clock. The frozen Step 4 reversed the predecessor and successor phase labels (for an excited vertex of color 1 they are 2 and 0, not 0 and 2). The replacement derives the phase counts at excitation and then shifts the time slice; the symmetric balance condition and its converse are unchanged. A fixed (k−1)-set yields a clique of size n−k+1, at least four except J(4,2). That graph is K_{2,2,2}, with exactly six proper balanced colorings partitioned into two orbits. Finiteness and the unique all-rest fixed point give the extinction equivalence.",
+      "residual_risks": [
+        "Frozen finite checks were inspected, not rerun; they are not necessary for the general proof. No relaxation-time or attraction-basin claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The density criterion needs uniform threshold q strictly above maximum induced edge density and exhibits a four-cycle at equality. Fisch–Gravner treats one-dimensional models, and Gravner–Lyu–Sivakoff's arbitrary-graph GHM excites at one excited neighbor."
+        ],
+        "reasoning": "These regimes do not furnish the equality classification for general vertex-triangle-covered graphs.",
+        "searches": [
+          "Resultary 352367f51e91 (densest-subgraph extinction)",
+          "Fisch–Gravner Complex Systems 9 (1995), 329–348",
+          "arXiv:1610.07320v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work comparison and references",
+        "Resultary 7c3fe196f42d, 352367f51e91, 4fe1eb5b56d1 and c4fb511b080a",
+        "Fisch–Gravner (1995), model definition",
+        "Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, §§1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A balanced proper coloring is a known sufficient condition in the regular setting. Strict extinction and initially period-three results do not imply that the only active recurrent states have a three-step clock."
+        ],
+        "reasoning": "Periodic contact saturation and triangle timing are needed for that bridge, especially at equality and on heterogeneous-degree graphs. Johnson extinction for k≥3 then follows immediately from the clique size, not from a transfer between Johnson levels.",
+        "searches": [
+          "Resultary 7c3fe196f42d, 352367f51e91, 4fe1eb5b56d1, c4fb511b080a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Half-degree rigidity characterizes configurations initially on period-three orbits on even-regular graphs. The cubic-line-graph result translates those period-three configurations to Tait edge-colorings."
+        ],
+        "reasoning": "An initially period-three characterization does not exclude cycles of other lengths or classify variable-degree dynamics. Single-contact GHM is not the rounded half-degree rule in general.",
+        "searches": [
+          "Resultary 7c3fe196f42d (half-degree rigidity)",
+          "Resultary c4fb511b080a (Tait colourings on cubic line graphs)",
+          "arXiv:1610.07320v1 (arbitrary graph three-color excitable media)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date triangular-graph record explicitly gives universal extinction at n−2 for J(n,2), n≥5, and two primitive three-cycles at n=4. The squared-cycle and line-graph records have narrower graph or period scope."
+        ],
+        "reasoning": "The J(n,2) overlap is exact within that slice and acknowledged. No inspected record tabulates or classifies all periods for the stated graph class; ordering within the shared date is unresolved.",
+        "searches": [
+          "Resultary 4fe1eb5b56d1 (universal critical-contact extinction on triangular graphs)",
+          "Resultary 7c3fe196f42d (squared-cycle census)",
+          "Resultary c4fb511b080a (cubic line graph period-three counts)"
+        ]
+      },
+      "rationale": "Pass for the complete recurrence classification at a vertex-dependent rounded half-degree threshold on connected vertex-triangle-covered graphs. The J(n,2) slice is already covered in a distinct same-date record and is not credited; the full Johnson range is an application, not the essential contribution. The repair corrects phase bookkeeping and acknowledges the exact overlap without claiming priority within a date.",
+      "residual_risks": [
+        "The original Greenberg–Hastings DOI and Durrett–Griffeath preprint could not be inspected in the bounded lawful retrieval; no exclusion is inferred therefrom.",
+        "Same-date Johnson slice overlap is established but priority is not. Unindexed threshold-equality classifications remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "partial coverage",
+          "evidence": "Even-regular, initially primitive-three characterization; does not give general recurrent periods.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d",
+          "material_read": "RESULT.md Finding and prior-work section, offsets 0 and 5976",
+          "method": "published-record mirror",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "same threshold and color condition"
+        },
+        {
+          "assessment": "different threshold regime",
+          "evidence": "Strict inequality for extinction; K_{2q,2q} four-cycle at equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91",
+          "material_read": "RESULT.md Finding and prior-work section, offsets 0 and 5476",
+          "method": "published-record mirror",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "general graph extinction criterion"
+        },
+        {
+          "assessment": "exact overlap on J(n,2), not full graph theorem",
+          "evidence": "Extinction for n≥5 and two primitive three-cycles for J(4,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-universal-critical-contact-extinction-on-triangular-graphs--4fe1eb5b56d1",
+          "material_read": "RESULT.md Finding, Proof and prior-work section, offsets 0 and 5801",
+          "method": "published-record mirror",
+          "title": "Universal critical-contact extinction on triangular graphs",
+          "trigger": "same-date exact Johnson subfamily match"
+        },
+        {
+          "assessment": "partial coverage",
+          "evidence": "Equivalence for initially primitive-three states at threshold two only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-tait-colourings-as-primitive-three-excitation-on-cubic-line-grap--c4fb511b080a",
+          "material_read": "RESULT.md Finding and prior-work section, offsets 0 and 6469",
+          "method": "published-record mirror",
+          "title": "Tait colourings as primitive-three excitation on cubic line graphs, with a constant-six seam law",
+          "trigger": "triangle-covered four-regular special family"
+        },
+        {
+          "assessment": "different graph geometry",
+          "evidence": "One-dimensional systems with excitation thresholds and periodic objects.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+          "material_read": "Introduction and model definition, p. 2 and PDF text offsets 2440 and 5643",
+          "method": "lawful OA PDF",
+          "title": "One-dimensional Deterministic Greenberg–Hastings Models",
+          "trigger": "threshold-dependent periodic dynamics"
+        },
+        {
+          "assessment": "different contact rule",
+          "evidence": "Resting vertex excites if there exists a neighbor in state 1.",
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "Sections 1–2, text offsets 0 and 6007",
+          "method": "lawful OA HTML",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "arbitrary-graph three-color recurrence and propagation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md theorem and triangle timing proof",
+        "Frozen VERIFICATION.md and recorded K_{2,2} check",
+        "Resultary 352367f51e91 and 4fe1eb5b56d1"
+      ],
+      "rationale": "The final claim provides an extinction criterion at the critical contact ratio, where strict inequalities give no answer. The structural timing lemma converts arbitrary recurrence to local balance constraints, handles heterogeneous degrees, and gives a natural infinite family application. The boundary is genuine: the triangle-free K_{2,2} at local threshold one permits a rotating four-cycle. The value is the reusable recurrence theorem, not a duplicate count for J(4,2).",
+      "residual_risks": [
+        "No claim on transient lengths or on necessity of vertex-triangle coverage as a hypothesis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

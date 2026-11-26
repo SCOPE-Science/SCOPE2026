@@ -1,10 +1,21 @@
-# Scientific review
-**Correctness — PASS.** The exact Fourier decomposition on the five-cycle yields the local threshold via the fourth-order entropy Taylor expansion and a completed square. Rational square-root and logarithm interval bounds certify the strict nonlocal witness. Compactness of the nonnegative unit sphere then proves genuine nonconstant attainment. The necessary assumptions and normalization are explicitly fixed; the precise optimum and complete extremizers remain unproved.
+# Independent mathematical audit
 
-**Originality — PASS relative to inspected evidence.** Chen–Lam–Lu give universal global lower bounds and a limiting upper test family but do not prove strict global-to-local separation for the five-cycle. The closely matching published local threshold proof explicitly leaves possible nonlocal competition open. The new strict inequality is not implied by the previous upper bound (which is non-strict), nor by a merely local result. Search under synonyms including five-cycle entropy, cyclic log-Sobolev, global quartic remainder and nonlocal optimizer produced no matching statement. Older equivalents remain a residual risk, and search absence is not proof of absolute novelty.
+## correctness
 
-**Value — PASS.** A strict global/local separation at the smallest cycle with two distinct nontrivial Fourier energy levels resolves the qualitative optimizer-attainment question, invalidates restricting optimization to near-constant perturbations, and motivates further exact finite-dimensional study. The gap is small numerically, but the existence and nonlocality conclusion is structural, not presented as a minor numerical gain.
+PASS
 
-Sources: Chen–Lam–Lu, arXiv:2610.05347; published exact-local-threshold result cited in RESULT.md; Xie–Zhang, arXiv:2606.02847; Dovetta–Serra, arXiv:2606.23225. There is no independent validation and no exact characterization of the global optimum.
+The normalized nearest-neighbor energy has nonconstant eigenvalues 1 and 1+q with q=(1+sqrt(5))/2. Write u=(1+v+w)/sqrt(1+s), s=r²+b², where v,w are the first and second real harmonics of norms r,b. Normalized Taylor expansion gives deficit 2q b²-2<v²w>+3r⁴/4+o(b²+r⁴); the quartic terms in first harmonics are s²/2 and <v⁴>/6, with <v⁴>=3r⁴/2 and <v³>=0. The mixed terms are uniformly lower order on the stated error scale, e.g. r³b<=r(r⁴+b²)/2. If b/r² diverges, b² dominates both the other numerator terms and (r²+b²)². Otherwise d(u)^4 equals r⁴(1+o(1)); completing the square subtracts ||P₂(v²)||²/(2q)=r⁴/(4q). The normalized path w=P₂(v²)/(2q) achieves the lower limit, giving (7-sqrt(5))/8. I independently recomputed the witness from integer successive differences and rational enclosures of the logs (a range-reduced series for -log(1-t), rather than the frozen atanh series). The certified ratio lies between 0.594923412098787 and 0.594923412098788, below 119/200 and the exact local threshold. The local separation excludes an entire ball about 1 at any level at or below the witness. Continuity including zero coordinates and compactness on the remaining closed set imply attainment and uniform positive separation of the minimizing set.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the exact local threshold to the earlier local analysis. The supported distinct contribution is the explicit normalized nearest-neighbor witness below that threshold and the resulting nonconstant attainment.
+
+## value
+
+PASS
+
+The strict improvement is small numerically but qualitatively changes the variational problem: the global optimizer cannot be captured by perturbing around the constant. A short exact witness certifies a change from a local asymptotic comparison to nonconstant global attainment for a natural fixed energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

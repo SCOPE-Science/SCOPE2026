@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:32:31.951302Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding (1)–(6) and Proof",
+        "Frozen VERIFICATION.md and sinc_circle_check.py (inspected, not executed)",
+        "Independent geometric overlap and support-edge derivation"
+      ],
+      "rationale": "Absolute summability (p≥2) allows grouping the DFT by residues. The wrapped continuous convolution density has Fourier coefficients s_a(j)^p/(2π), yielding the exact normalization and positivity in (1). For circular monotonicity, let r,s≤π be two arc half-lengths and ℓ(x)=max(0,min(2r,2s,r+s−x)) the corresponding line overlap at displacement x≥0. For 0≤d≤π the circular overlap is ℓ(d)+ℓ(2π−d). The second summand can increase only where d>2π−r−s≥|r−s| and d<r+s, hence its increase is canceled by the first summand. Layer cake iterates that monotonicity for all wrapped uniform convolution powers even past later wraps. The minimum is therefore at a nearest-to-π bin, with no uniqueness claim. Strict support yields the ceiling count (2) and the strict thresholds (3), including bins exactly on endpoints. At the nearest bin θ=π−δ_N, the only possible copies in (5) are at θ and θ−2π: other copies have absolute value at least 3π−δ_N, exceeding 5π/4 since δ_N≤π/3. Their signed edge depths are ε+δ_N and ε−δ_N. Positive depths in [0,2a] give the stated density via the volume of a p-dimensional simplex of deficits. Substituting ε=0 and then ε=πt/N gives (4) and (6), including exact zero at each support threshold. These checks reconstruct the universal argument, independent of the finite checker.",
+      "replay": "Use absolute convergence to evaluate λ_k by the wrapped density at θ_k. The arc overlap ℓ(d)+ℓ(2π−d) proves all-band monotonicity by layer cake. For α≤π enumerate strict inequalities min(k,N−k)<Nα/(2π). Near wrap compute deficits from ±pa at angles π−δ_N and −π−δ_N; use the simplex density u^(p−1)/((p−1)!(2a)^p) for the first 2a from either edge.",
+      "residual_risks": [
+        "The exact crossover identity has its stated local bandwidth hypotheses; the full spectral representation, but not that local formula, holds at arbitrary bandwidth in scope.",
+        "The parity limiting functions are different as functions of t, but can coincide at particular t; no strict universal separation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of Pillai concerns a p−1 symbol-edge exponent for macroscopic Toeplitz quantiles and distinguishes this from fixed-index extremes.",
+          "The Bernstein-circle theorem applies to a different class and its even rank may be N/2 when one Fourier parity is absent, unlike the one-dimensional even nullspace at first wrap here."
+        ],
+        "reasoning": "Neither theorem subsumes this family or its least eigenvalue as the bandwidth changes with N.",
+        "searches": [
+          "Pillai arXiv:2611.08401v1 §§II–III",
+          "Resultary mirrored Bernstein-circle covariance record, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Pillai arXiv:2611.08401v1",
+        "Resultary Bernstein-circle distinct result and exact matching record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical wrapped B-spline representation plus circular unimodality yields the location of the minimizing bin. The rank count additionally uses strict open support, while the crossover requires evaluation and addition of the two distinct edge contributions on the actual finite grid."
+        ],
+        "reasoning": "The result is an elementary synthesis of known ingredients, but a spline edge exponent, a circulant diagonalization theorem, or the separate Bernstein-grid parity law does not give the actual finite-size wrap profile or its strict parity thresholds for this operator.",
+        "searches": [
+          "Pillai arXiv:2611.08401v1 §II, spline symbol, and §III Theorem 1, edge-law scope",
+          "Resultary Bernstein-circle result, sharp large-grid laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pillai treats finite principal Toeplitz blocks and macroscopic quantiles; the proposed matrix sums lags congruent modulo N, so its eigenvalues are actual Fourier-grid samples.",
+          "The Bernstein-circle entry uses polynomial approximation of a distance-dependent kernel, with conditions in terms of two endpoint-displacement masses D_0,D_1."
+        ],
+        "reasoning": "Periodizing the sampled sequence is not a parameter relabeling of Toeplitz truncation, nor is first band-wrap equivalent to a missing parity class of Bernstein coefficients.",
+        "searches": [
+          "Resultary search on sinc-power periodization, exact parity ranks and Nyquist crossover",
+          "Pillai arXiv:2611.08401v1 §II and §III Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 2026/11/22/SCOPE-exact-odd-cycle-nyquist-rescue-and-critical-band-wrap-crossover--6076636d2982 is the assigned source itself.",
+          "Distinct same-day match 2026/11/22/SCOPE-bernstein-circle-covariances-exact-parity-ranks-and-sharp-odd-ev--67624841dddf gives a different rank table and Nλ_min limiting constants."
+        ],
+        "reasoning": "The date is not used to decide priority; the actual formula and kernel definitions exclude equivalent database coverage in the distinct hit.",
+        "searches": [
+          "Resultary exact rank/nullity and parity-dependent sinc-power eigenvalue comparison"
+        ]
+      },
+      "rationale": "The matched Toeplitz primary source gives the spline description and edge exponent in the no-aliasing setting; the finite circular operator has a different spectrum. The closest distinct Resultary record shows a parity effect for Bernstein approximants to circle covariances, not equivalent sinc-power coverage. The supported distinction is the combined exact cyclic classification and two-sided crossover, not the classical DFT, support of a uniform convolution, or B-spline edge formula in isolation.",
+      "residual_risks": [
+        "Classical ingredients make other independent derivations plausible; bounded comparison does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Toeplitz, no-aliasing edge law; not an exact finite circulant theorem",
+          "evidence": [
+            "The source identifies an order-p B-spline symbol in its Toeplitz model and macroscopic p−1 edge scaling, not exact parity-resolved smallest sampled values."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08401",
+          "material_read": "§II p. 4 and §III Theorem 1 p. 6, extraction offsets 10080 and 14080",
+          "method": "OA primary PDF, bounded sections",
+          "title": "Spectral Regimes of Truncated sinc-Power and Pulse-Train Kernels: Edge Exponents, Per-Edge Plunges, and the Landau–Widom Limit",
+          "trigger": "Same sampled sinc powers, spline symbol and edge exponent"
+        },
+        {
+          "assessment": "Similar phenomenon, not equivalent coverage",
+          "evidence": [
+            "The even limit for Nλ_min depends on min(D_0,D_1) and the odd limit on (√D_0+√D_1)² for Bernstein approximants; it is not a bandwidth-offset crossover for wrapped uniform sums."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-bernstein-circle-covariances-exact-parity-ranks-and-sharp-odd-ev--67624841dddf",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Bernstein circle covariances: exact parity ranks and sharp odd–even sampling constants",
+          "trigger": "Distinct indexed parity rank and spectral constants result"
+        },
+        {
+          "assessment": "Same finding, not a distinct report",
+          "evidence": [
+            "Identical kernel, parity and crossover equations."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-cycle-nyquist-rescue-and-critical-band-wrap-crossover--6076636d2982",
+          "material_read": "RESULT.md Finding, offset 900",
+          "method": "Resultary local mirror",
+          "title": "Exact odd-cycle Nyquist rescue and critical band-wrap crossover",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (2)–(6) and monotonicity proof",
+        "Pillai arXiv:2611.08401v1 Theorem 1 for comparison"
+      ],
+      "rationale": "First circular wrap is a natural bandwidth boundary for invertibility and conditioning, and the corresponding question for a cyclic operator is not resolved by the known Toeplitz quantile exponent. Exact finite positive-definiteness thresholds and a parity-sensitive scaled eigenvalue across the boundary are useful spectral information, not arbitrary samples of a spline. The value is the full transition from zero to positive, its finite-grid constants, and the all-band minimum-location guarantee, not novelty of Fourier diagonalization or the classical edge power.",
+      "residual_risks": [
+        "Does not classify irregular sampling, noninteger powers, or smallest eigenvalues of a finite Toeplitz block."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

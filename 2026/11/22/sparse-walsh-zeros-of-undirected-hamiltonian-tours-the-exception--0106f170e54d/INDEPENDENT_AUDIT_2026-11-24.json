@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:45:02.834051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the unnormalized transform, expanding the character into products of forced-edge indicators gives the factorial formula in the record. Every nonempty proper forced subset of at most four edges must be acyclic of maximum degree two. A path forest with j edges and b nontrivial components has 2^b orientations on its contracted blocks, (n-j-1)! orders of directed blocks modulo rotation, and division by two for reversal. This counts actual expanded cycles even in the two-block case, where one should not count simple graph cycles on the contracted vertices. The proof bounds all orders n≥18 by M_n minus twice |S|(n-2)!, which is strictly positive, without using a numerical extrapolation. Independently enumerated the at most four-edge masks on K8, testing admissibility by connected component edge counts and maximum degrees, and evaluated all 17 resulting signatures at all 12 orders 6–17. Exactly (9,(4,9,6,0)) and (10,(3,3,0,0)) canceled. Checking degree sequences within connected components gave precisely triangle or three-star, with one disjoint edge only for the n=9 support. Every support of size ≤4 has at most eight incident vertices, so this enumeration includes all realizable types at each tested order; both cancelling types fit at their indicated orders. Replay: python3 /workspace/independent_checks.py 3. Direct labelling gives 6300 and 960 zero characters, and diagonalization of counting convolution gives the verified band dimensions 66712 and 164221, with ranks 60412 and 163261. The proof concerns unoriented cycles and only the low-degree band, not global invertibility.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binary-order record's summary gives a common two-adic valuation and all-frequency nonvanishing at special binary vertex orders, including 6 and 7; this is genuinely stronger at those orders, and does not decide the low-support exceptions at 9 and 10.",
+          "The frozen discussion additionally credits prior all-frequency nonvanishing at 8 without identifying a precise theorem there; independently, order 8 follows by the factorial expansion modulo 16, since the constant is 8 modulo 16, every j≤3 correction has sufficient factorial powers of 2, and every j≥4 correction is visibly divisible by 16."
+        ],
+        "reasoning": "Exclude every demonstrably covered order from the novelty credit. A family of special binary orders does not classify all orders, and Hamiltonicity, shattering and unrestricted tour counts answer different questions than cancellation.",
+        "searches": [
+          "Resultary: SCOPE-nowhere-zero-walsh-spectra-of-hamiltonian-cycle-orbits-at-binary--ed467419ae0a",
+          "arXiv:1212.4667; DOI:10.11650/twjm/1500403828 (source references)",
+          "Resultary: SCOPE-exact-shattered-edge-supports-of-hamiltonian-tours-in-complete-g--1c07672d4c34 (frozen cross-reference)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary K9 spectrum 4a7bd305f8b5 (catalogue)",
+        "Resultary binary-order orbit spectrum ed467419ae0a (catalogue)",
+        "arXiv:2502.10612 (frozen comparison and attempted primary access)",
+        "Frozen RESULT.md, VERIFICATION.md, verify_signatures.py and verify_tours.cpp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even granting every K9 motif to the prior computation and all known binary-order cases to the two-adic theorem, neither gives n=10 triangle/three-star cancellation and the all-order exclusion of other low-degree masks.",
+          "The forced-edge contraction and large-n union bound are elementary ingredients, but evaluating and separating the complete support-shape cases proves a precise structural fact not implied by the earlier covered cases."
+        ],
+        "reasoning": "The novel part is the uniform classification of sparse cancellation and its order-ten obstruction; neither a histogram at one n nor sign existence implies it.",
+        "searches": [
+          "Resultary: K9 full Walsh magnitude census and binary-order tour orbit spectrum",
+          "arXiv:2502.10612; arXiv:1212.4667"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh vanishing here means equality of the *counts* of tours with even and odd intersection with the signed edge set. The signed-Hamilton-cycle existence comparison cited in frozen RESULT.md line 102 concerns existence of either sign, not their counts; the original article passage could not be recovered independently.",
+          "Walsh band rank and injectivity are reformulations via character diagonalization, not separate novelties."
+        ],
+        "reasoning": "Presence of both signs or realizability of sparse incidence patterns is insufficient for exact equal counts. A full mask-resolved transform would imply the claim at its order, unlike sign existence.",
+        "searches": [
+          "Resultary: low-support Walsh zeros Hamiltonian cycles triangle star n=9 n=10",
+          "arXiv:2502.10612 signed complete graphs Hamiltonian cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/11/16 K9 census catalogue summary reports 13,357,910,016 zero multipliers and a 38-level complete magnitude census. This covers aggregate spectrum at order nine. The available summary does not specify the two degree-four support motifs or 6300 sparse zeros; the full certificate could include them, but it was not recovered.",
+          "The K9 table by its domain cannot establish the order-ten exception or all-order exclusion. The current assigned result is not prior evidence for itself."
+        ],
+        "reasoning": "An exact table indexed by masks would subsume the n=9 subproblem; a magnitude histogram alone does not locate zeros by degree and motif. Treat the K9 comparison as substantial overlap, not as independent credit or a reason to reject the all-order theorem.",
+        "searches": [
+          "Resultary: SCOPE-exact-fourier-nullity-and-sharp-recovery-gap-for-nine-vertex-ham--4a7bd305f8b5",
+          "Resultary: Hamiltonian tour exact Walsh spectrum K10 and small supports"
+        ]
+      },
+      "rationale": "The older all-frequency binary-order result already covers some orders and the K9 full-spectrum census anticipates the order-nine nullity problem. Neither available statement yields the complete degree-four support classification for all n, in particular the two exact order-ten motifs and the absence of every other low-degree zero at every nonexceptional order. The conclusion stands on that uniform motif classification, not on a stand-alone K9 histogram or on nonvanishing at already covered orders.",
+      "residual_risks": [
+        "The exact K9 certificate and complete two-adic theorem were not recovered; more coverage of particular orders or mask details is possible.",
+        "The signed-Hamilton-cycle primary full text was not recovered; unindexed exact counts remain a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact aggregate overlap at K9; indexed text does not determine degree-four masks and cannot address K10.",
+          "evidence": [
+            "Complete K9 magnitude census; 38 levels and 13,357,910,016 zeros in aggregate."
+          ],
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-exact-fourier-nullity-and-sharp-recovery-gap-for-nine-vertex-ham--4a7bd305f8b5",
+          "material_read": "Catalogue finding summary; record/certificate full text not recovered after local mirror/OA attempts.",
+          "method": "Configured local Resultary lookup and attempted precise original retrieval.",
+          "title": "Exact Fourier nullity and sharp recovery gap for nine-vertex Hamiltonian tours",
+          "trigger": "Same exact Walsh transform and an exceptional order."
+        },
+        {
+          "assessment": "All-frequency coverage at qualifying orders, plus examples of vanishing elsewhere; not a sparse-support zero classification across n.",
+          "evidence": [
+            "The summary gives common two-adic valuation at special binary orders and notes zero signings at 5 and 9, without the order-nine motifs."
+          ],
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-nowhere-zero-walsh-spectra-of-hamiltonian-cycle-orbits-at-binary--ed467419ae0a",
+          "material_read": "Catalogue finding summary; original proof not recovered.",
+          "method": "Configured local Resultary lookup and attempted exact record retrieval.",
+          "title": "Nowhere-zero Walsh spectra of Hamiltonian cycle orbits at binary vertex orders",
+          "trigger": "Stronger if the special-order theorem includes one of these parameters."
+        },
+        {
+          "assessment": "The supported comparison is between an existence assertion and the stricter exact parity balance; other full-text contents are unresolved.",
+          "evidence": [
+            "Existence of both signs supplies nonzero positive and negative counts, not equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.10612",
+          "material_read": "Source identifier and characterization in the frozen prior-work discussion (lines 100–113); independently attempted OA retrieval did not yield the original theorem.",
+          "method": "Bounded primary search and original OA attempt.",
+          "title": "Hamiltonian Cycles in Signed and Multisigned Complete Graphs",
+          "trigger": "Equivalent signed-cycle counting formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated exact information-loss classification for low-degree observables on an infinite family of tour incidence cubes. The sign cancellation criterion identifies both the exceptional vertex orders and the precise edge motifs that cannot be recovered, not just a finite census or a one-mask zero. The counts identify the size of the resulting inverse problem. It says nothing about conditioning or higher-degree invertibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

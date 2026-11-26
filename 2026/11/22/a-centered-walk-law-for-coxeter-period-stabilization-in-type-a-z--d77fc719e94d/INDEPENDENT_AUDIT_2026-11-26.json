@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:46:26.782998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the complete corrected RESULT.md in repairs/4. Reduced products that use each generator once give exactly the orientations: all directed paths are acyclic, two extensions of one orientation differ by commuting moves, and different orientations cannot be related by the reduced-word moves without repeats. Lex-first inclusion in c^∞ is precisely the length-increasing greedy rule because each length-increasing reduced prefix can be completed to w₀ by a finite word embedded in the remaining tail. Its last occupied round is the first Demazure absorption round. CLS counts in type A obey φ_i−φ_(i+1)=(ε_i+ε_(n−i−1))/2 and φ_i+φ_(n−i)=n, yielding φ_i=(n+H_(n−i)−H_i)/2; the greatest count is the last occupied block. Independently, thresholding commutes with the descending comparators. In 0^a1^b each zero-one crossing (i,j) uses comparator a−i+j; the two predecessors suffice because these crossings leave the two labels adjacent. A round penalty is (1−ΔH)/2 along each grid edge, so the sum to (a,b) is independent of the path and gives (n+H_a−H_b)/2. Maximizing gives the same formula including parity. Centered sums are formed by adding disjoint sign pairs, producing independent steps −1,0,+1 with weights 1,2,1. The single odd-rank sign shifts the even walk by ±1/2, producing the odd interval [−k−1,k] or its reflection and the factor 2. Both widths and the zero-step n=3 case are included. With m−1∼n/2 steps and variance 1/2, normalized paths converge to B/2, and the supremum is continuous; Brownian exit from [−2x,2x] gives exponent denominator 32x². Independent bounded replay `python /workspace/review_replay.py 4` directly checked all 5912 generator orders for n=3,…,8, including commuting-order agreement and deduplicated counts. The supplied checker and output were inspected, not executed. No finite computation is used as a substitute for the limits or the all-orientation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CLS supplies type-independent deterministic sorting-word machinery covering the frozen pointwise formula. Speyer supplies finite-group reachability and infinite-group reducedness, and the sorting-order sources supply combinatorial structure.",
+          "No compared statement sums the finite thresholds over type-A orientations or supplies the scaling limit. Locating searches for Brownian motion, transfer matrix and probability distribution in CLS returned no matches; the scope comparison rests on the actually inspected §7 statements."
+        ],
+        "reasoning": "The random joint profile is a different analysis of the already-covered deterministic quantities. There is no stochastic averaging in the relevant general sorting-word theorem or its algorithms.",
+        "searches": [
+          "arXiv:1108.1776 §7",
+          "arXiv:0710.3188 Theorems 1–2 and finite-group statement",
+          "arXiv:0712.1047 sorting order and antimatroid",
+          "arXiv:1111.3349 c-sorting and rotation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d77fc719e94d (self-match) and 956f87755c16",
+        "arXiv:1108.1776, 1111.3349, 0710.3188, 0712.1047, 1411.5761",
+        "arXiv:1010.3455 introductory 0-Hecke context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7.2 and Remark 7.6 give neighboring and complementary counts, and Algorithm 7.3 places generator i in the first φ_i blocks. The greedy identification makes K=max_i φ_i, proving that the earlier theorem covers every frozen pointwise value.",
+          "After accounting for that coverage, the corrected result obtains the full absorption-time law by identifying the joint centered profile across all orientations with sums of disjoint sign pairs, treating the odd central sign, then computing the survival law and its normalized supremum limit."
+        ],
+        "reasoning": "The deterministic implication is affirmative, not a similarity judgment. For the retained claim the mathematical contribution is the probabilistic representation and distribution in a natural ensemble, not presenting a direct specialization of a known probability formula or claiming a new invariance principle.",
+        "searches": [
+          "arXiv:1108.1776 pp. 16–17, offsets 69398, 70908 and 73000",
+          "arXiv:1411.5761 pp. 3,5",
+          "Resultary 956f87755c16 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pointwise formula is equivalent to the greatest generator multiplicity in the lex-first reduced sorting subword; CLS explicitly determines the multiplicities and blocks.",
+          "The checked lex-first formulation is deterministic for a fixed c. The corrected law is for uniformly sampled orientation strings, not a uniform word or a shortest sorting-network ensemble."
+        ],
+        "reasoning": "There is exact deterministic coverage once the greedy rule is identified, so it is removed from novelty. No equivalent finite or asymptotic random law for the same ensemble was found in the compared statements.",
+        "searches": [
+          "Resultary: centered Coxeter orientation walk, least type-A Demazure absorption exponent, finite transfer counts and Brownian limit",
+          "arXiv:1108.1776 Theorem 7.2, Algorithm 7.3, Remark 7.6",
+          "arXiv:1111.3349 lex-first sorting word"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit d77fc719e94d is the assigned result. Distinct 956f87755c16 finds the minimum Coxeter length of any 0-Hecke square root of w₀, ⌈n(n−1)/4⌉, not the degree-of-absorption census for Coxeter elements.",
+          "Kosuda covers special fastest-level and ordinary-power results; the corrected file credits these, independently obtaining the two parity minimum counts as checks."
+        ],
+        "reasoning": "An exact table for minimal length among arbitrary square roots or a fastest-case count cannot identify the all-threshold distribution in the distinct Coxeter population. The minimum square-root length is already larger than n−1 at n≥5.",
+        "searches": [
+          "Resultary: exact cumulative distribution of Coxeter stabilization time and centered-walk law",
+          "arXiv:1411.5761 Theorems 1.1 and 2.1"
+        ]
+      },
+      "rationale": "In the actual corrected files the pointwise threshold is derived and explicitly credited as a consequence of Ceballos–Labbé–Stump, not asserted novel. The claim is narrowed to the exact finite all-threshold counts and the centered Brownian limit for the uniform distinct-element ensemble. The comparable primary results give deterministic profiles, ordinary powers or minimum cases. No examined theorem gives the distribution of the full random profile or its finite survival counts and absolute Brownian limit. This is bounded credit, not a priority certification.",
+      "residual_risks": [
+        "Comparison is bounded to the stated source passages. The odd Kosuda primary count and the inspected Hohlweg–Lange–Thomas sorting context were not fully retrieved; the minimum overlap is credited rather than claimed new.",
+        "A distinct prior probabilistic analysis of uniform orientations could cover the remaining laws; no such statement was established by the comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact deterministic threshold; examined statements do not give the uniform finite or limiting law",
+          "evidence": [
+            "Theorem 7.2 compares neighboring multiplicities. Algorithm 7.3 has each block contain the generators whose multiplicity reaches its index. Remark 7.6 supplies complementary multiplicities under longest-element conjugation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.1776",
+          "material_read": "Theorem 7.2 and Algorithm 7.3 p. 16 offsets 69398, 70908; Remark 7.6 p. 17 offset 73000; Theorem 2.7 p. 5 offset 22473",
+          "method": "OA located primary passages; explicit type-A specialization, then greedy Demazure identification",
+          "title": "Subword complexes, cluster complexes, and generalized multi-associahedra",
+          "trigger": "Strong deterministic profile that can determine last block"
+        },
+        {
+          "assessment": "Sorting-word definition and rotations, not a covering random law in the passages read",
+          "evidence": [
+            "The sorting word is the lexicographically first reduced subword; rotation concerns isomorphic subword complexes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.3349",
+          "material_read": "pp. 12, 30–31, offsets 39216 and 99000",
+          "method": "OA located primary passages and hypothesis comparison",
+          "title": "Brick polytopes of spherical subword complexes and generalized associahedra",
+          "trigger": "Sorting words and rotation equivalences"
+        },
+        {
+          "assessment": "General structure and finite reachability; no uniform absorption law in these passages",
+          "evidence": [
+            "Sufficiently many repetitions yield finite w₀; no first-block or ensemble formula in the note."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.3188",
+          "material_read": "Theorems 1 and 2 pp. 1,4 and finite-group note p. 7, offset 21730",
+          "method": "OA located statements and implication comparison",
+          "title": "Powers of Coxeter Elements in Infinite Groups are Reduced",
+          "trigger": "Repeated words, Demazure reachability and reducedness"
+        },
+        {
+          "assessment": "Credited special minimum overlap, not a law for all stabilization thresholds",
+          "evidence": [
+            "Theorem 2.1 characterizes ordinary C^m=w₀ for n=2m by diagram symmetry; the odd minimum-count primary passage was not retrieved independently."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.5761",
+          "material_read": "Theorem 1.1 p. 3 offset 8578 and Theorem 2.1 p. 5 offset 14420",
+          "method": "OA located primary passages; distinguish ordinary and Demazure powers",
+          "title": "Coxeter elements of the symmetric groups whose powers afford the longest",
+          "trigger": "Fastest ordinary group powers"
+        },
+        {
+          "assessment": "Does not cover the random law; different observable and population",
+          "evidence": [
+            "Minimum Coxeter length among arbitrary 0-Hecke square roots is ⌈n(n−1)/4⌉."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-square-root-length-of-the-absorbing-element-in-type-a-0-he--956f87755c16",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary and scope comparison",
+          "title": "Sharp square-root length of the absorbing element in type-A 0-Hecke monoids",
+          "trigger": "Distinct indexed absorbing-power result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The narrowed claim gives a natural probabilistic invariant of periodic sorting under uniform distinct Coxeter elements. It identifies the full nonextremal finite law including parity, and resolves whether the typical excess duration is bounded, linear in rank, or diffusive: the scale is √n with a specific nondegenerate law. This requires analyzing the joint centered profile over the orientation ensemble and is not the restatement of a fixed-word formula, a fastest-case lookup, or novelty attributed to Donsker's theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

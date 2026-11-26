@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:25.001158Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–63",
+        "VERIFICATION.md, verify_duad_syntheme.py, verify_symplectic.py, duad_syntheme_output.txt and symplectic_output.txt",
+        "Independent exact replay: python3 /workspace/independent_checks/5.py"
+      ],
+      "rationale": "The independent-domination definition is equivalent to inclusion-maximal independence. For given chosen duads D, independence forbids each syntheme meeting D, and domination forces every syntheme avoiding D to be chosen. Remaining duads must then be covered by those matchings, exactly the frozen mask criterion. The two recorded programs implement complete finite searches in two explicitly identified graph presentations; inspected them and their outputs without executing them. Independently generated the 15 duads and 15 perfect matchings from six labels and enumerated all maximal cliques in the complement by pivoted Bron–Kerbosch (python3 /workspace/independent_checks/5.py). Its P/X recursion exhausts maximal cliques without duplicates, and the output matches the full feasible/minimum/optimum table by duad count. In particular the exact size histogram is {9:90,10:2352,11:690,12:100,13:30,15:2}. Matched the optimum sets exactly to the 45 cycle pairs and checked all 4005 pairs of optima, obtaining exactly those 45 jumps and the same 45 slides. One may also see the exchange condition directly: a move keeping one bipartition part fixed cannot change the other, by forced completion in either direction. Any other jump from the four-duad to the five-duad class must nest their duad sets. A four-cycle plus its complementary disjoint edge contains just one four-cycle, forcing matching cycle classes. The removed matching contains the added complementary duad, confirming incidence for each slide. The two natural S₆ orbits follow from transitivity on four-cycles and the invariant duad count.",
+      "residual_risks": [
+        "Exhaustion is for this graph and the optimum layer only; it does not claim reconfiguration through larger sets or a family theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 primary abstract states the 2st+1 bound, its sharpness for equal order and complete classification in that case. Its exact specialized templates and theorem numbers are given in the indexed account 4561b0658340.",
+          "The inspected Perarnau–Perkins passage is an occupancy-fraction conjecture for the same graph, not a covering classification. Dorbec et al. full text was not retrieved."
+        ],
+        "reasoning": "A general exact ordinary-domination classification is far stronger evidence than a cubic upper bound or an independent-set count, once the templates are shown to be independent in this specialization.",
+        "searches": [
+          "Dominating sets in finite generalized quadrangles Héger Hernandez Lucas Theorem 4.5 pdf arxiv",
+          "Dominating sets in finite generalized quadrangles Theorem 5.1 Héger PDF full text archive flag",
+          "DOI 10.1002/jgt.21855 and arXiv:1611.01474"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.26493/1855-3974.2106.423 abstract and exact specialized theorem account in 4561b0658340",
+        "arXiv:1404.7166 and arXiv:1611.01474",
+        "Local Resultary ace94fe0e86e",
+        "DOI 10.1002/jgt.21855 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Flags biject with four-cycles by deleting the flag duad and the two diagonal edges of its syntheme from the four-label cycle construction as described above. The distance-two set gives the shared eight vertices in the two optimal sets.",
+          "An independent dominating set is uniquely forced by its subset in either part. Therefore jumps across the two classes require nesting of the duad subsets; a C₄ plus a disjoint edge has exactly one possible nested C₄. Each corresponding pair swaps the flag endpoints, so all jumps are slides."
+        ],
+        "reasoning": "The older classification, in the explicit indexed specialization, gives all optima. The no-cross-pair exchange fact is a short forced consequence of that already complete family, not a further nontrivial classification requiring enumeration.",
+        "searches": [
+          "4561b0658340 template T(P,L)∪{P} or T(P,L)∪{L} versus RESULT.md lines 3–16 and 24–36",
+          "DOI 10.26493/1855-3974.2106.423 and identified dLib/ResearchGate copies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cremona–Richmond gives the GQ(2,2) alias and the model on pairs of six labels; the Levi-graph and (3,8)-cage aliases also occur in the cubic-girth literature.",
+          "In the indexed explicit ordinary-domination flag templates, independence is automatic after the crosswalk above: the two size-nine sets of each flag are exactly the two cycle formulas."
+        ],
+        "reasoning": "Ordinary and independent domination are not equivalent in general. Here the entire ordinary optimum classification specializes to independent sets, and ordinary optimality gives the independent lower bound. This is exact coverage of the layer, not matching a value of 9 alone.",
+        "searches": [
+          "Local Resultary: Tutte–Coxeter, smallest maximal independent sets, optimum domination, flags and token exchange; 4561b0658340 and ace94fe0e86e",
+          "arXiv:1404.7166, Cremona–Richmond and generalized quadrangle of order (2,2)",
+          "DOI 10.26493/1855-3974.2106.423, dominating sets in finite generalized quadrangles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4561b0658340 explicitly gives 90 size-nine optima as two sets per flag, with the distance-two construction and primary refs. Its later display date is not evidence that it predates the frozen claim; it is a source for the specialized statement of the 2020 theorem.",
+          "An independence-complex homotopy type and ordinary independence face counts do not by themselves count the smallest maximal faces or their exchanges."
+        ],
+        "reasoning": "The covering result is a labeled classification attributed to a primary theorem, not a conjectural identification of two identical numerical counts.",
+        "searches": [
+          "Local Resultary 4561b0658340, Proof §1 near offset 3000 and References near offset 10300",
+          "Local Resultary ace94fe0e86e, independence-complex finding"
+        ]
+      },
+      "rationale": "The known minimum ordinary dominating-set classification for equal-order generalized quadrangles covers the independent optimum layer here. Héger–Hernandez Lucas's 2020 abstract explicitly announces sharpness and complete classification; the indexed mathematical account 4561b0658340 identifies Theorems 2.1, 4.5 and 5.1 and gives the specialized flag templates in full. The template crosswalk is exact, not inferred from matching counts. Given a duad–syntheme flag (c,L), take C to be the four-cycle on the four labels outside c whose two diagonals are the other two duads in L. This gives a bijection from flags to cycles. Of the vertices at distance exactly two from the flag endpoints as a set, the duads are precisely D=E(C): they are disjoint from c and exclude the two other duads of L, which are at distance one. The synthemes there share a duad with L but avoid c, hence are precisely F(D) minus L: a matching avoiding D either uses c and both diagonals (then is L), or uses the two remaining labels on cross edges and uses exactly one diagonal. Thus adding L or c to the distance-two set gives exactly I₀(C) or I₁(C), both independent. The new object names do not yield a new classification. Moreover all exits in the putatively distinct exchange layer follow immediately from the classified family: forced completion forbids jumps within either bipartition-count class; across classes the smaller duad set must be the unique four-cycle inside the larger. The flag swap is then necessarily the slide c↔L. The conclusion is based on the primary abstract, explicit indexed theorem account and verified mathematical implication together, not on the inability to retrieve the primary theorem pages.",
+      "residual_risks": [
+        "The decisive template statement is documented in the named indexed secondary account; the primary theorem pages were not directly read. The exact graph correspondence and exchange implication were checked independently.",
+        "External earliest priority for the formulation in duad and reconfiguration language is not resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary confirmation of sharp bound and existence of a complete equal-order classification. Exact templates are read from the indexed theorem account rather than represented as a directly read primary passage.",
+          "evidence": [
+            "The bound 2st+1 is sharp for s=t; smallest dominating sets for s=t are completely classified."
+          ],
+          "identifier_or_url": "https://doi.org/10.26493/1855-3974.2106.423",
+          "material_read": "Journal abstract, p. 61 (PDF p. 1, offsets 1042–1472); no theorem body from the publisher extract",
+          "method": "Lawful DOI/publisher PDF extraction, identified dLib PDF and ResearchGate copy attempted; no readable theorem body from these routes",
+          "title": "Dominating sets in finite generalized quadrangles",
+          "trigger": "Stronger exact minimum ordinary domination classification for this GQ parameter"
+        },
+        {
+          "assessment": "The specialized flag formulas are equivalent to the frozen optimum family; later record is an account of the earlier theorem, not itself an earlier priority claim.",
+          "evidence": [
+            "Cites Theorems 2.1, 4.5 and 5.1; for each flag the eight vertices at distance two from its endpoints are augmented by one or the other endpoint."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-static-and-adaptive-shattering-of-optimal-domination-in-the-tutt--4561b0658340",
+          "material_read": "RESULT.md Proof §1, offsets 3000–6914; References from offset 10300",
+          "method": "Bounded passages from local Resultary mirror",
+          "title": "Static and adaptive shattering of optimal domination in the Tutte–Coxeter graph",
+          "trigger": "Explicit specialized statement of the 2020 theorem on the exact graph"
+        },
+        {
+          "assessment": "Supports graph identification, not the optimum classification",
+          "evidence": [
+            "GQ(2,2) represented using the 2-subsets of a 6-set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.7166",
+          "material_read": "Opening, p. 1, around offset 1850",
+          "method": "Bounded OA PDF passage",
+          "title": "The Cremona–Richmond Configuration revisited and generalized",
+          "trigger": "Graph/coordinatization alias check"
+        },
+        {
+          "assessment": "Occupancy topic, not this optimum layer",
+          "evidence": [
+            "Graph identified as the Levi/Tutte–Coxeter graph in an occupancy-fraction conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.01474",
+          "material_read": "p. 20, offsets 51600–53063",
+          "method": "Bounded OA passage",
+          "title": "Counting independent sets in cubic graphs of given girth",
+          "trigger": "Same (3,8)-cage, possible independent-set coverage"
+        },
+        {
+          "assessment": "Unresolved separate source, not the basis of failure",
+          "evidence": [
+            "The frozen bibliography identifies cubic independent-domination upper bounds as context."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.21855",
+          "material_read": "No decisive primary passage retrieved",
+          "method": "Lawful DOI/publisher and repository availability lookup",
+          "title": "Independent domination in cubic graphs",
+          "trigger": "Same invariant in cubic graphs"
+        },
+        {
+          "assessment": "Distinct topological and face-count claims",
+          "evidence": [
+            "A wedge of nine eight-spheres and independent-face enumeration, not a stated minimum maximal layer exchange graph."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-nine-eight-dimensional-spheres-in-the-tutte-coxeter-independence--ace94fe0e86e",
+          "material_read": "Finding and independent-face scope",
+          "method": "Local Resultary mirror",
+          "title": "Nine eight-dimensional spheres in the Tutte–Coxeter independence complex",
+          "trigger": "Potential smallest-maximal-face and exact graph data overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, classification and exchange proof",
+        "4561b0658340, specialized flag templates",
+        "Independent exact replay: python3 /workspace/independent_checks/5.py"
+      ],
+      "rationale": "The graph and the minimum-layer exchange invariant are natural. Here, however, the finite optimization reproduces the known flag classification in label coordinates, and the apparent reconfiguration remainder is determined by forced completion and the uniqueness of the cycle in a disjoint cycle-plus-edge. Equality of jumps and slides is in fact general for maximal independent sets: after a jump the deleted vertex would be undominated unless the added vertex were its neighbor. The exact exchange answer is therefore mechanically implied in this setting rather than an independently needed computation or a new rigidity argument. No distinct valuable repaired claim is supplied.",
+      "residual_risks": [
+        "This assessment does not address reconfiguration over larger layers or over other generalized quadrangles."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

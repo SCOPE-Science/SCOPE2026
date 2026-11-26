@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:14:57.155536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed target hub color, the only peripheral options are the two orders of the remaining colors. Their minimum Hamming cost is 2 for an edge monochromatic in the hub color, 0 for an edge already using both remaining colors, and 1 otherwise. This gives the three exact D_c. Their sum is at most 4m+2. With hub 0 and t,t-1,m-2t+1 monochromatic blades in colors 0,1,2, t=floor((m+2)/3), the costs are m+t,m+t,2m-2t+2; all blade multiplicities are nonnegative and the third cost is no smaller. This proves the unrestricted value. At m>=2 a same-profile target must place the singleton color 0 at the hub; every blade then costs at most one, and the hub costs at most one. The parity-specific witnesses have feasible profile (1,m,m) and attain D_0=m+1. Their remaining costs are 3k-1,3k for m=2k and 3k,3k+2 for m=2k+1, proving the weak lower bound for m>=4. For m=2 with singleton off-hub there is at most one monochromatic blade, so the sum bound is 8. For m=3 the bound is 10 with at most one monochromatic blade; with two, the singleton blade must use the majority color different from the source hub by parity, and selecting the source hub costs three. Singleton-at-hub cases cost at most m and the supplied witnesses attain the exceptional weak values. At m=1 the feasible words are already proper. On three copies weak costs add, and cyclic relabeling of an unrestricted extremizer gives a globally feasible balanced profile, because the same relabeling applied to any proper word produces that profile. This proves the copy formula and gap. Direct bounded reproduction generated the 12 proper labelled targets of F_2, tested all 243 source words and all 90 sources with feasible profiles, and got B=3, B_w=2, Fix_3=3. The frozen verifier was inspected, not executed; its reported 15,590 feasible cases for m=1..6 use singleton color 0 for m>=2, a valid symmetry normalization for the maxima. Finite enumeration does not replace the all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garnero et al.'s universal upper bound specializes to floor((2m+1)*2/3); exact disjoint-union-of-cliques equality is not an equality theorem for friendship graphs. Jiang et al. treat odd cycles, complete multipartite graphs and global extrema."
+        ],
+        "reasoning": "The upper bound alone does not construct a friendship extremizer. For m>=2, the peripheral complement K_{2m} minus a matching is connected and noncomplete, ruling out complete multipartiteness; the graph-by-graph formulas for the other classes and the global maximum do not determine this family.",
+        "searches": [
+          "Garnero et al. Section 5, Corollary 28 and Theorem 30",
+          "Jiang et al. arXiv:2610.13580v1 introduction and Section 4",
+          "Resultary: cone, windmill, cactus, and fixing-number family formulas"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–112, VERIFICATION.md and verify.py",
+        "arXiv:1607.06911v2, 2610.13580v1 and 2610.13556v1",
+        "Resultary four-color friendship reconfiguration record above",
+        "Clark et al. 2006 bibliographic record only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.5 explicitly proves beta_k(rG)=rF_k(G) when k divides r, by the same cyclic-label balancing. Garnero et al. provide the general upper bound but not the matching friendship construction in the inspected passages."
+        ],
+        "reasoning": "Taking k=r=3 gives the known identity directly; the claimed numerical application and gap require the single-copy sharp count and its weak comparator. The balanced monochromatic-blade construction and feasible-profile parity cases supply matching lower bounds not deducible from the cited general inequalities alone.",
+        "searches": [
+          "Jiang et al. arXiv:2610.13556v1 Theorem 4.5, equations (4.8)–(4.10)",
+          "Garnero et al. Theorem 30 compared with frozen all-m monochromatic blade witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garnero et al. define the same unrestricted fixing-number invariant at palette size three. The nearest same-family Resultary hit concerns proper four-color reconfiguration and the diameter 3m+1 under valid single-vertex moves."
+        ],
+        "reasoning": "The fixing-number alias is genuinely equivalent. The reconfiguration result uses a different palette, only proper source and target states, and path distance in a reconfiguration graph; it does not determine Hamming repair radii of improper three-color words.",
+        "searches": [
+          "Resultary: friendship graph, windmill or cone over a matching, exact chromatic villainy",
+          "Resultary: friendship-family color-fixing number or Hamming repair radius",
+          "Garnero et al. arXiv:1607.06911v2 Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact single-copy table appeared among the examined source passages. The direct F_2 table from the bounded reproduction is (3,2,3), not prior evidence. The older primary text was not retrieved."
+        ],
+        "reasoning": "An exact family statement or table for all three named invariants would materially affect the result. The available family tables and reconfiguration data concern different objects or costs; the bounded search and small reproduction do not establish historical uniqueness.",
+        "searches": [
+          "Resultary: exact B, weak villainy and fixing values for friendship F_m, including m=2,3",
+          "Jiang et al. arXiv:2610.13580v1 exact-family statements",
+          "Clark et al. exact title and Congressus Numerantium volume/pages, with friendship/windmill aliases"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint exact single-copy census for the friendship family, including the two small weak exceptions and sharp attainment of the general fixing upper bound. The record expressly acknowledges the known repeated-copy identity and derives the family-specific unbounded gap from the new single-copy data. Neither that identity nor the universal fixing bound supplies those data. No exact earlier single-copy coverage was established in the available comparisons.",
+      "residual_risks": [
+        "The Clark et al. 2006 full text was inaccessible, so an older family-specific equality remains possible. Searches for windmill, cone and cactus aliases were bounded. No historical uniqueness claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same unrestricted invariant; upper bound covered, equality for this family not supplied",
+          "evidence": "The maximum over all source words at fixed palette is bounded by floor(|V|(chi-1)/chi) at the chromatic palette.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.06911v2",
+          "material_read": "Section 5, pp. 21–23, Corollary 28 and Theorem 30, text offsets 50300–55487",
+          "method": "OA full text, bounded passages",
+          "title": "Fixing improper colorings of graphs",
+          "trigger": "Equivalent fixing-number invariant and potentially exact broader bound"
+        },
+        {
+          "assessment": "Exact families and global extrema have different scope",
+          "evidence": "The exact complete-multipartite analysis relies on colors assigned to parts; friendship graphs with at least two blades fail that hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13580v1",
+          "material_read": "Introduction p. 1 and Section 4 p. 13, offsets about 1000 and 51000",
+          "method": "OA full text, bounded passages",
+          "title": "Exact and extremal values of chromatic villainy",
+          "trigger": "Possible broader exact ordinary and weak formulas"
+        },
+        {
+          "assessment": "The repeated-copy identity and balancing argument are covered; this is acknowledged",
+          "evidence": "Theorem 4.5 states equality with r times the fixing number whenever the fixed palette size divides r.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13556v1",
+          "material_read": "Section 1.1 and Theorem 4.5, Section 4.2 p. 8, offset 29600 onward",
+          "method": "OA full text, bounded passages",
+          "title": "Disjoint unions and fixed-parameter algorithms for chromatic villainy",
+          "trigger": "Exact general repeated-copy claim"
+        },
+        {
+          "assessment": "Different distance and palette",
+          "evidence": "Exact diameter 3m+1 of proper four-color reconfiguration does not measure repair from improper three-color sources.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-one-extra-colour-recolouring-diameter-of-friendship-graphs--db252359e554/RESULT.md",
+          "material_read": "Finding and assumptions around offsets 37, 710 and 949",
+          "method": "Published record, bounded full-text passages",
+          "title": "Sharp one-extra-colour recolouring diameter of friendship graphs",
+          "trigger": "Same graph family and recoloring terminology"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": "No conclusion about coverage in that paper is drawn from the retrieval failure.",
+          "identifier_or_url": "Clark et al., Congressus Numerantium 182 (2006), pp. 171–182",
+          "material_read": "Bibliographic identification and later summaries; no primary full text retrieved",
+          "method": "Identified PDF returned HTTP 403; alternate exact-title and bibliographic search did not identify an accessible copy",
+          "title": "Chromatic villainy in graphs",
+          "trigger": "Original definitions and possible older family-specific exact formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Friendship graphs are a natural connected three-chromatic family. Computing the three distances on the same family isolates the price of preserving named multiplicities from the effect of admitting infeasible profiles, and resolves exactly where weak and ordinary villainy coincide. Combined with the known balancing identity, the comparison gives an explicit growing family where globally feasible disturbances across three identical components impose an unbounded extra repair cost.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

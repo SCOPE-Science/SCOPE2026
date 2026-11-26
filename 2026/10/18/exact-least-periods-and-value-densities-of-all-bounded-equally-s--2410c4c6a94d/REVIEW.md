@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The general theorem is deduced, not inferred from experiments. The Fibonacci quadratic identity bounds the gcd by \(a^4-1\); strong divisibility and the scalar identity \(Q^{z(d)}\equiv F_{z(d)+1}I\pmod d\) give one exact local residue class for every occurring divisor event. Those local classes have sharp periods. Euler's totient divisor identity lifts local periodicity to an exact least global period, and finite Möbius inversion yields rational value densities. Boundary cases \(n=1\), \(d=1\), both signs of \(a\), and order \(h_d=1\) were explicitly checked. The standard-library verifier independently tests all signed shifts \(2\le|a|\le12\), including proper-divisor tests for least periods, exact divisibility predicates, and distribution counts. Its finite results are not substituted for proof.
+## correctness
 
-## Originality — PASS within the inspected record
-The closest full-text source is Rahn and Kreh (2018), which explicitly poses the all-shifts least-period problem as Problem 13 and provides the rank/scalar lemmas used here. The proof credits those lemmas and Spilker's known boundedness and sufficient-period results. Chen–Pan (2020) contains a general boundedness and periodicity theorem, but expressly notes that its period construction may not yield the smallest period. Full texts of Hieu–Spilker–Thang (2022) and Do–Thang (2022) establish only sufficient periods for broader shifted settings; both explicitly note that their periods need not be minimal. Focused searches for period, rank-of-apparition, exact gcd value distributions, and equivalent residue-class statements found no stronger result in the checked indexed literature. The 2025 Taşdemir–Ertaş full text gives only the special cases \(a=\pm4\), not a universal period theorem. The 2016 Spilker chapter was not available in full text among the consulted sources, although its abstract and later restatements were inspected. Unindexed equivalences remain a risk and no independence is asserted.
+PASS
 
-## Mathematical value — PASS
-This supplies a uniform constructive answer to an explicitly formulated natural open problem in Fibonacci gcd sequences, rather than a case-by-case numerical extension. It also characterizes the complete exact gcd-value spectrum and rational frequency distribution for each shift; these are finer invariants than mere boundedness or existence of some period. The result applies to arbitrarily large positive and negative shifts. It does not give a complexity guarantee for factoring \(a^4-1\), and covers neither unequal shifts nor \(|a|\le1\).
+The simultaneous zero gcd case is excluded: the only equal positive-index consecutive Fibonacci values are both 1. The quadratic Fibonacci invariant evaluated at the common shifted residue −a forces G_a(n) to divide a²+(−1)^n and hence a⁴−1. Subtracting the two original arguments replaces one divisibility condition by d|F_(n−1). Strong divisibility gives n−1=j z(d), including j=0. The Fibonacci matrix at z(d) is u_d I mod d, with u_d²=(−1)^z(d), so the remaining condition is u_d^j=−a; eligibility and the unique class follow. Equivalently L_d is the Pisano period modulo d, since the matrix first returns to I at z(d) times the scalar unit order. A nonempty single class forces every period on n≥1 to be a multiple of L_d: take any positive representative and add the proposed period. Recovering the gcd from all its divisor predicates proves the converse and the lcm, while Möbius inversion gives the full exact value law. Independently enumerating the complete modular orbits at a=3,9,−9 (lengths 120,240,240) and checking cyclic periods gives 60,60,120 and the stated a=3 histogram. The uploaded verifier was inspected but not run; the proof supplies all shifts.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the all-shift exact least period through eligible divisor events, and the ensuing value frequencies. Rahn–Kreh explicitly pose the same general least-period question after treating ±3. The closest inspected broader theorems provide sufficient Pisano-type periods, in some examples strictly larger than the true periods. Known rank and scalar identities are inputs, and generic lcm and Möbius steps are not new in themselves. The additional step is using orbit membership for each divisor and recovering sharp global minimality from all occupied local classes; no inspected theorem gives this solution for every eligible a.
+
+## value
+
+PASS
+
+This gives an explicit all-parameter answer to a prior published least-period question, replacing a potentially nonminimal sufficient period with a sharp, locally computable invariant, and supplies an exact frequency law instead of sample histograms. The criterion isolates why sign can change the least period even while the ambient Fibonacci modulus remains unchanged. The motivation is the exact period and value spectrum of the naturally bounded equal-shift family, not invention of the standard algebraic tools used in the proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

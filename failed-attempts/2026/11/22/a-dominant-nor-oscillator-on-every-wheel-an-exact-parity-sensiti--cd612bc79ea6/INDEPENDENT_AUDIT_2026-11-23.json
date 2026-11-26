@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:40:47.821946Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On active vertex sets define F(S)=V\\N(S). By symmetry S⊆F²(S), so applying the antitone F gives F³(S)⊆F(S); the inclusion applied to F(S) gives the reverse. Thus the selected basin is exactly the union of the two one-step inverse fibers. With no isolated vertices these are {empty} (inverse of full) and the total dominating sets (inverse of empty). On K₁∨Cₙ, among the latter those containing the hub can have any nonempty rim subset; those omitting it are precisely the total dominating sets of Cₙ. The latter forbid two zeros at separation two, so the transfer-trace computation gives the Lucas value on each step-two component. For n=4 those components are edges rather than simple length-two cycles, and the cyclic word trace still correctly counts three patterns for each edge. A hub-on, nonempty nonfull rim state reaches empty but is not on its orbit, proving sharpness. Exact tuple-state orbit replay /workspace/replays/2.py covers both graph families at n=3..12; wheel/bare counts are 12/5 at n=3, 25/10 at n=4, and 4420/325 at n=12, with worst transient one. Binet's formula and Bₙ>2ⁿ justify the stated probability asymptotic and dominance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Subramanian and Selvakumar, doi:10.2298/FIL2501267S, Theorem 2.3(1), covers all H-joins; put H=K₂ and constituent graphs K₁,Cₙ.",
+          "Hu et al., arXiv:1607.00400v1, Introduction and Proposition 1(v), provides total domination polynomials for cycles (the introduction identifies Theorem 4 as the general cycle result); also credits Vijayan and Kumar (2012) for work on the cycle polynomials."
+        ],
+        "reasoning": "Evaluating the H-join polynomial at one, the singleton on the K₁ side contributes zero, the singleton on the Cₙ side contributes P_TD(Cₙ;1), and choosing both sides contributes 2ⁿ−1. Thus the entire wheel number is an immediate special case. The step-two reindexing into one cycle or two short cyclic words is a transfer-count closed form of the known cycle evaluation, not a different invariant.",
+        "searches": [
+          "web: total domination polynomial join Chaluvaraju wheel total domination polynomial theorem cone graphs",
+          "web: total domination polynomial cycles Lucas numbers Dod cycle total dominating sets polynomial cycle count wheel graph complement neighborhoods"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.2298/FIL2501267S",
+        "arXiv:1607.00400v1",
+        "Resultary 9b825fd6faf8, 4014de6cfb9f, e75c8d277ab3, cd612bc79ea6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P_TD(K₁∨Cₙ;1)=2ⁿ−1+P_TD(Cₙ;1); the same argument works with every nonempty isolate-free base graph in place of Cₙ.",
+          "The wheel half-space inequality follows from P_TD(Cₙ;1)>0; general one-step recurrence follows from the symmetric relation, and sharpness from an explicit transient. The asymptotic is an immediate Lucas evaluation."
+        ],
+        "reasoning": "Passing to dynamics requires only the universal first-image identity. The finite short-wheel check and asymptotic do not furnish a separate uncovered theorem.",
+        "searches": [
+          "doi:10.2298/FIL2501267S, Proposition 2.1 and Theorem 2.3",
+          "arXiv:1607.00400v1, Introduction and Proposition 1(v)",
+          "Resultary: 9b825fd6faf8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definitional identity B(G)=1+P_TD(G;1), since F³=F on any undirected graph, F⁻¹(full)={empty} if there are no isolates, and F⁻¹(empty) is exactly total domination.",
+          "Filomat 39:1 (2025), Proposition 2.1 and Theorem 2.3, compute the polynomial on the graph join."
+        ],
+        "reasoning": "A total-domination enumeration is an equivalent enumeration up to the single full-preimage state; historical absence of the term NOR would not make the numeric claim unknown.",
+        "searches": [
+          "web: NOR total dominating sets basin synchronous Boolean graph universal hub cone oscillation",
+          "Resultary: general graph open-neighborhood NOR basin empty full total dominating sets universal vertex joins leaf coronas Rule 5 bare cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact assigned-title hit cd612bc79ea6 is the frozen result itself, not an earlier confirmation.",
+          "Earlier 9b825fd6faf8 explicitly gives Lₙ+1 for the odd bare ring; 4014de6cfb9f and e75c8d277ab3 describe NOR basins on leaf coronas and Kneser graphs, respectively, not the labelled wheel.",
+          "Hu et al. Proposition 1(v) gives example cycle totals 4,9,11,16 at n=3,4,5,6 from their displayed polynomials."
+        ],
+        "reasoning": "The exact sequence is fixed by an earlier polynomial enumeration. The corpus abstracts document neighboring coverage; the decision does not require full-text negative inference from those summaries.",
+        "searches": [
+          "Resultary: NOR dynamics wheel graph Lucas exact basin empty full two-cycle odd even total domination",
+          "Resultary: odd-ring Rule 5 Fibonacci fibers uniquely dominant Lucas basin symmetry total domination"
+        ]
+      },
+      "rationale": "The exact wheel-basin law is already covered in equivalent form by the total-domination-polynomial result for joins together with the enumerated cycle case. The conversion from total domination to the specified NOR basin is an immediate identity for all undirected graphs with no isolated vertices; it is not a new wheel-specific classification. The already known odd-ring NOR result gives the odd comparison directly. No assertion is made that the exact wheel-basin wording occurs in the prior literature.",
+      "residual_risks": [
+        "The earliest dynamical statement for a wheel was not established; this does not affect mathematical coverage by the join and total-domination results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the wheel count up to the universal basin conversion",
+          "evidence": "For each chosen factor, the theorem uses its total domination polynomial when its chosen quotient vertex is isolated, and (1+x)^m−1 otherwise.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2501267S",
+          "material_read": "Publisher PDF abstract and §§1–2, especially Proposition 2.1 and Theorem 2.3(1) with proof",
+          "method": "Public PDF text, checked partition by selected sides against the graph definition",
+          "title": "Total domination and minimal total domination polynomial of H-join graphs",
+          "trigger": "Exact invariant of graph joins including the wheel"
+        },
+        {
+          "assessment": "Prior cycle counting; confirms short boundaries, not a dynamical statement",
+          "evidence": "Proposition 1(v) lists the exact size-generating polynomials of C₃ through C₆; the introduction identifies the later general cycle theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.00400v1",
+          "material_read": "Abstract, introduction, Proposition 1 and opening of reduction proofs; cycle-specific Theorem 4 identified through the introduction",
+          "method": "Public preprint PDF text",
+          "title": "Total domination polynomials of graphs",
+          "trigger": "Exact cycle total domination enumeration"
+        },
+        {
+          "assessment": "Positive overlap for the odd bare-rim comparison only",
+          "evidence": "The summary expressly gives f_{n−1}+f_{n+1}+1 for the odd bare-ring orbit.",
+          "identifier_or_url": "Resultary 9b825fd6faf8",
+          "material_read": "Published result summary",
+          "method": "Resultary search",
+          "title": "Fibonacci fibers and the uniquely dominant Lucas basin for odd-ring Rule 5",
+          "trigger": "Identical bare odd-rim observable"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The comparison of basin probabilities is a useful illustration, but the proposed invariant is a direct translation of a known join enumeration; the one-step identity holds on every undirected graph and the sharpness example and parity corrections are elementary consequences. As frozen there is no further nonmechanically implied wheel invariant or classification to justify an independent finding. The exhaustive replay is useful for correctness, not new scientific content.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,51 +1,39 @@
-# Bounded reachability gives a finite Goldblatt–Thomason theorem without the universal modality
+# Sharp depth for frame-validity axiomatizations at bounded reachability
 
 ## Finding
 
-For an integer \(h\geq0\), let \(\mathcal B_h\) be the class of nonempty finite Kripke frames \((W,R)\) such that every reachable ordered pair of points is joined by a directed path of length at most \(h\). A subclass \(\mathcal K\subseteq\mathcal B_h\) is definable relative to \(\mathcal B_h\) by a (possibly infinite) set of **basic** modal formulas, with no universal modality, if and only if it is closed under generated subframes, finite disjoint unions, and surjective bounded-morphic images. Each finite pointed diagram needed to prove the theorem has modal depth at most \(h+1\); no uniform bound of \(h\) suffices for those pointed diagrams.
+For every integer \(h\ge0\), let \(\mathcal B_h\) consist of the nonempty finite Kripke frames satisfying \(R^*=\bigcup_{j=0}^hR^j\), with \(R^0\) the identity relation. The least uniform modal-depth bound for defining, relative to \(\mathcal B_h\), **all basic-modally definable frame classes** is exactly \(h+1\). Definability means validity at all worlds under all valuations of a possibly infinite set of formulas. No universal modality is used.
 
-## Assumptions and scope
+In particular, every class closed under generated subframes, finite disjoint unions and surjective bounded-morphic images admits a relative axiomatization of depth at most \(h+1\); conversely basic modal validity is preserved by these operations. For the lower bound, for each \(h\) two frames in \(\mathcal B_h\) agree on the validity of every basic formula of depth at most \(h\) but differ on an explicit formula of depth \(h+1\). Thus even allowing an arbitrary set of formulas of depth at most \(h\) does not suffice. This bound concerns validity on frames, not just descriptions at a distinguished point.
 
-A frame is a finite nonempty set \(W\) with arbitrary binary relation \(R\). A point \(v\) is reachable from \(w\) if there is an \(R\)-path, allowing length zero. Membership in \(\mathcal B_h\) means \(R^*=\bigcup_{j=0}^{h}R^j\), where \(R^0\) is identity. The basic modal language uses propositional atoms, Boolean connectives, and \(\Box\) (hence \(\Diamond\)). Definability is by **frame validity** of a set of modal formulas, among frames in \(\mathcal B_h\). Closures mean all outcomes of the indicated constructions within this class; the constructions actually preserve \(\mathcal B_h\).
+## Upper bound
 
-A bounded morphism \(f:G\to F\) obeys \(xR_Gy\Rightarrow f(x)R_Ff(y)\) and \(f(x)R_Fz\Rightarrow(\exists y\;xR_Gy\land f(y)=z)\). Surjectivity is specified separately.
+For a frame \(G\) and a point \(g\), write \(G_g\) for the generated subframe of points reachable from \(g\). The three operations preserve \(\mathcal B_h\). This is immediate for generated subframes and disjoint unions. For a surjective bounded morphism, lift a target path from a preimage of its start using the back condition; then a path of length at most \(h\) between the lifted endpoints projects to a target path using forth. Basic frame validity is preserved under generated subframes by extension of valuations, under disjoint unions componentwise, and under surjective bounded morphisms by pullback of valuations and forth/back.
 
-## Proof
-
-**Stability.** Generated subframes and finite disjoint unions retain the bound on shortest directed paths. If \(f:G\twoheadrightarrow F\) is a bounded morphism and \(G\in\mathcal B_h\), then every path in \(F\) starting at \(v\) lifts, from any preimage of \(v\), by the back condition. Its endpoint therefore has an alternative path of length at most \(h\) in \(G\), whose image is a path of length at most \(h\) in \(F\). Thus \(F\in\mathcal B_h\). All three closure conditions are necessary because modal validity is preserved under these constructions.
-
-**A finite-depth rooted diagram.** Fix \(F\in\mathcal B_h\) and \(w\in F\). Introduce one atom \(p_x\) for each point \(x\in F\). Let \(E_F\) be the conjunction: (i) exactly one atom \(p_x\) holds; (ii) for every edge \(xR_Fy\), \(p_x\to\Diamond p_y\); (iii) for each \(x\), \(p_x\to\Box\bigvee_{xR_Fy}p_y\) (the empty disjunction is \(\bot\)). Define
+For \(F\in\mathcal B_h\) and \(w\in F\), introduce one fresh atom \(p_x\) for each \(x\in F\). Let \(E_F\) assert that exactly one label holds and, for each possible label \(p_x\), that the set of successor labels is precisely those indexed by successors of \(x\). The latter requirement consists of \(p_x\to\Diamond p_y\) for each edge \(xRy\), and \(p_x\to\Box\bigvee_{xRy}p_y\), with the empty disjunction interpreted as false. Set
 \[
-\delta_{F,w}=p_w\land\bigwedge_{j=0}^{h}\Box^j E_F.
+\delta_{F,w}=p_w\land\bigwedge_{j=0}^h\Box^jE_F.
 \]
-The canonical singleton-labelling valuation witnesses \(F,w\models\delta_{F,w}\).
+This has depth at most \(h+1\). For \(G\in\mathcal B_h\), it is satisfiable at \(g\) exactly when a rooted surjective bounded morphism \(G_g\to F_w\) exists. Indeed \(E_F\) holds at every reachable point, and the unique labels give a map with forth and back. Forth places its image in \(F_w\), and back puts every point of \(F_w\) in its image by lifting a path from \(w\). Conversely such a map supplies the labels, and labels outside \(G_g\) do not affect truth at \(g\). The identity map shows that the diagram is satisfiable at \(w\) in \(F\).
 
-Suppose \(G\in\mathcal B_h\) and a valuation make \(\delta_{F,w}\) true at \(g\). Every point reachable from \(g\) has distance at most \(h\), so clauses (i)–(iii) hold throughout the generated subframe \(G_g\). Sending each node to its unique label gives a bounded morphism \(G_g\to F_w\), where \(F_w\) is the subframe generated by \(w\). The image is exactly \(F_w\): the root maps to \(w\), the image is closed under successors by (ii), and all image points are reachable from \(w\) by (iii). Conversely, any rooted surjective bounded morphism \(G_g\twoheadrightarrow F_w\) yields a satisfying labelling. Thus the existence of the diagram valuation is equivalent to the existence of this rooted bounded morphism.
+Suppose \(\mathcal K\subseteq\mathcal B_h\) has the three closures. Let \(F\in\mathcal B_h\) satisfy all the depth-at-most-\(h+1\) formulas valid in \(\mathcal K\). For each \(w\in F\), \(F\) does not validate \(\neg\delta_{F,w}\), so this negation is not valid throughout \(\mathcal K\). Some pointed frame in \(\mathcal K\) thus satisfies the diagram. Its generated subframe maps onto \(F_w\), so \(F_w\in\mathcal K\). The finite disjoint union of the \(F_w\)'s maps onto \(F\) by the inclusions on each copy (successors stay in that copy of the generated subframe). Thus \(F\in\mathcal K\). The empty class is defined by false. This gives the upper bound, since every definable class has the closures.
 
-**Sufficiency.** Assume \(\mathcal K\) has the three closures. Let \(F\in\mathcal B_h\) validate every modal formula valid throughout \(\mathcal K\). For each \(w\in F\), the formula \(\neg\delta_{F,w}\) fails at \(F,w\) under its canonical valuation. Hence it cannot be valid throughout \(\mathcal K\). Choose \(G_w\in\mathcal K\) with a point satisfying \(\delta_{F,w}\). The rooted diagram yields a surjective bounded morphism from a generated subframe of \(G_w\) onto \(F_w\). By the first closure, each such generated subframe belongs to \(\mathcal K\). Their finite disjoint union belongs to \(\mathcal K\) and maps onto \(F\) by a surjective bounded morphism (every \(v\in F\) belongs to \(F_v\)). The last closure gives \(F\in\mathcal K\). Therefore \(\mathcal K\) is defined by the set of all its valid basic modal formulas. The argument also handles \(\mathcal K=\varnothing\), defined by \(\bot\).
+## Sharpness for frame validity
 
-**Optimal depth for rooted diagrams.** For each \(h\ge0\), take a directed path \(0\to1\to\cdots\to h\). Let \(F\) add a self-loop at \(h\), and let \(G\) have no such loop. Both lie in \(\mathcal B_h\). Their roots agree on all pointed modal formulas of depth at most \(h\), for any identical assignment of atoms on corresponding vertices, because the unique differing edge is one step beyond radius \(h\). But no rooted bounded morphism \(G_0\twoheadrightarrow F_0\) exists: the edge at the terminal point of \(F\) would require an outgoing edge from a preimage in \(G\). Thus no formula of depth at most \(h\) can serve as a complete positive rooted diagram in this example. The construction above achieves depth \(h+1\).
+Write \(D_j\) for the chain \(0\to1\to\cdots\to j\) ending at a dead end and \(L_j\) for the same chain with a loop at \(j\). Both belong to \(\mathcal B_j\). For \(h\ge1\) take
+\[
+G=D_h\sqcup L_{h-1},\qquad F=G\sqcup L_h.
+\]
+The two frames lie in \(\mathcal B_h\). To compare depth-at-most-\(h\) validity, a failure at an existing world of \(G\) is of course still a failure in \(F\). For the extra component \(L_h\), any pointed failure at a nonroot world transfers identically to the corresponding generated suffix of \(L_{h-1}\). A pointed failure at the root transfers to the root of \(D_h\) by using the same atom values along the two paths. A formula of depth at most \(h\) at the root can inspect atom values at the terminal world but cannot inspect its outgoing edges, since exactly \(h\) steps are needed to reach it. Formally the depth-\(d\) types at index \(i\) agree for \(d\le h-i\), by induction on \(d\) matching the single successor when \(i<h\). This holds for every valuation and any finite set of atoms occurring in a formula. Consequently \(G\) and \(F\) have identical depth-at-most-\(h\) frame theories.
 
-## Verification
+On the other hand, \(G\) validates the depth-\(h+1\) formula
+\[
+\psi_h=\neg\bigl(\Diamond^{h-1}p\land\Diamond^h\neg p\land\Diamond^{h+1}\top\bigr).
+\]
+In the dead-end chain the last conjunct is false everywhere. In the shorter loop-ending chain the walks of lengths \(h-1\) and \(h\) from any world both end at the loop, so the first two conjuncts cannot both hold. In the added \(L_h\), choose \(p\) true at \(h-1\) and false at \(h\). At its root the conjunction is then true, so \(F\) does not validate \(\psi_h\). For \(h=0\) use \(G=D_0\), \(F=G\sqcup L_0\) and \(\psi_0=\Box\bot\); any depth-zero failure in either component transfers to the single world of \(G\). In both cases the subclass of \(\mathcal B_h\) defined by \(\psi_h\) cannot be axiomatized at depth \(h\), because such a theory cannot distinguish \(F\) and \(G\).
 
-The accompanying `verify.py` exhausts all nonempty directed graphs of sizes one and two for bounds \(h=0,1,2\), checks directed reachability, evaluates label diagrams on every possible labelling, and separately enumerates all rooted surjective bounded morphisms. All 2,412 comparisons agree. It also checks the endpoint-loop separation examples. Run `python3 verify.py`; expected last line begins `BOUNDED_MODAL_VERIFY_OK`. The theorem for arbitrary finite sizes is proved symbolically, not inferred from finite replay.
+## Related results and verification
 
-## Relationship to prior work
+The upper-bound construction is a finite relative version of standard diagram methods. Compare Blackburn, de Rijke and Venema, *Modal Logic* (2001), §3.4 on finite transitive frames; Badia, Caicedo and Noguera, [DOI:10.1016/j.apal.2023.103273](https://doi.org/10.1016/j.apal.2023.103273), §4.3 on finite frames with local p-morphic images and the ordinary operation on finite transitive frames; and van Benthem, ten Cate and Yang, [arXiv:2603.12171](https://arxiv.org/abs/2603.12171), §5.1, for a finite theorem with a universal modality. The quantitative claim here concerns the sharp uniform depth for frame validity within \(\mathcal B_h\), with a lower bound that matches all roots up to depth \(h\), not a priority claim for finite diagram methods.
 
-Van Benthem, ten Cate, and Yang (2026), §5.1, prove a finite-frame definability theorem using the **universal modality** and explicitly ask whether one can dispense with that modality. They cite the classical result for finite transitive frames. The present theorem handles every finite frame of a uniformly bounded reachability radius, including many **nontransitive cyclic** frames, using only the basic modal language. Its explicit \(h+1\) finite-depth diagram explains why transitivity is not essential for this subclass.
-
-Sano and Virtema (2015/2016) and Badia, Caicedo, and Noguera (2023, Corollaries 18–19) give related relative finite-frame characterizations; the general finite case uses **local** bounded-morphic images while the finite-transitive case uses ordinary bounded-morphic images. The claim here is only the explicit bounded-reachability subclass, its ordinary three-operation criterion, and the optimal diagram depth. The earlier abstract theory of pointed frame descriptions supplies a general context; no blanket priority claim is made.
-
-## Limitations
-
-The bound \(h\) is fixed uniformly across the entire ambient frame class; the theorem does **not** resolve definability without the universal modality for all finite frames. Modal definability may require an infinite set of formulas. The sharpness is for the uniform modal depth of the **rooted diagram property**, not for the depth of all frame-defining theories. Literature that states an abstract point-generated-diagram criterion may yield this specialization without naming bounded reachability; this remains a priority risk.
-
-## References
-
-[1] J. van Benthem, B. ten Cate, and X. Yang, “When do modal definability and preservation theorems transfer to the finite?”, arXiv:2603.12171v1, publicly posted March 12, 2026, §§5.1 and 6.
-
-[2] K. Sano and J. Virtema, “Characterising Modal Definability of Team-Based Logics via the Universal Modality”, arXiv:1502.07884 (2015); and “Characterizing Relative Frame Definability in Team Semantics via the Universal Modality”, arXiv:1606.05140 (2016).
-
-[3] G. Badia, X. Caicedo, and C. Noguera, “Frame definability in finitely valued modal logics”, *Annals of Pure and Applied Logic* **174** (2023), 103273, Corollaries 18–19, DOI:10.1016/j.apal.2023.103273.
-
-[4] S. Lehtinen, “Generalizing the Goldblatt–Thomason Theorem and Modal Definability” (thesis, 2008), discussion of point-generated frame descriptions.
+Run `python3 CHECK.py` for small-case corroboration of the lower-bound pair: it compares all pointed depth types over one atom under arbitrary valuations of each component and checks the displayed separator at every root. The proof transfers depth-\(h\) validity for arbitrary finite atom sets and handles all \(h\).

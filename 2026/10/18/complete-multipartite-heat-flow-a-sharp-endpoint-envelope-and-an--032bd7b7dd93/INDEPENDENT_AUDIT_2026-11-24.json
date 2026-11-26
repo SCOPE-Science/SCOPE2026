@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:41:34.313233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md line 21 is false where it says intermediate sizes may be skipped. The replacement RESULT.md proves the opposite. The projector calculation gives a positive diagonal, nonpositive other entries and zero row sum, so the symmetric kernel has both endpoint norms equal to twice the maximum diagonal. Maximizing the two weighted exponentials separately gives the sharp bound; different rates make it strict for every nonsingleton row, and finiteness and endpoint decay make it strict for the supremum if no singleton exists. The logarithmic time derivatives of the rescaled rows h_m are in [m−1,m) and zero for m=1, giving the unique directional crossings. For fixed t>0, write h_m=(n−m)e^(mt)(1−g_t(m)), where g_t(m)=∫₀ᵗe^(−mu)du lies in (0,1) and g_t″>0 for real 1≤m<n. This makes log h_m strictly concave in size; at the outer crossing for a<b<c the middle row beats both, so t_ab<t_ac<t_bc. Consequently all adjacent crossings are global, exactly two adjacent sizes tie at each, and every size is uniquely active on an open interval. The last active row recovers n from the larger exponential rate, or the sole rate for an all-singleton graph; distinct positive rates are uniquely extracted from the exact tail. At fixed n, analytic agreement on any single-size interval forces equal zero-time limits 2(n−m), identifying each size. The two graphs have equal n and size sets but unequal multiplicity of eigenvalue 18. The original numerical checker was inspected and not executed, and its pairwise tests cannot adjudicate the frozen skip assertion; the replacement proof establishes the conclusions without it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The blow-up spectral theorem identifies eigenvalues and subspaces that produce the spectral ingredients. The squared-Laplacian record studies positivity recovery and the endpoint norm of e^(−tL²), not the derivative of e^(−tL)."
+        ],
+        "reasoning": "Neither a Laplacian spectrum computation nor the squared-generator positivity result gives the ordinary derivative sign-sensitive row sum and its all-size crossing order.",
+        "searches": [
+          "Oliveira–de Lima–Nikiforov arXiv:1412.0319 §2, Theorem 3",
+          "Resultary squared-Laplacian heat on complete multipartite graphs e4f9c89a420f, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.0319",
+        "arXiv:0904.2985",
+        "Resultary e4f9c89a420f, e221b9a937ef and 4120388eae83"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectral ingredients are prior. Entry signs for L e^(−tL), distinct scalar-rate equality conditions, and strict log-concavity in the size variable yield new deductions. The repaired inverse result depends on the exact visibility of every size and the last row's distinct rates."
+        ],
+        "reasoning": "The transition and recovery information is not a specialization of a located stronger theorem; the inspected sources do not give the ordering of the equality times or visibility of each possible size.",
+        "searches": [
+          "arXiv:1412.0319 §2, Theorem 3",
+          "arXiv:0904.2985 §5, Theorem 10",
+          "Resultary statement comparison for no-skipped-size envelope and inverse recovery"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matrix derivative row norm is twice the total-variation speed of the corresponding transition measure. The cited graph heat equation gives differentiation but not that speed. The metric-star record concerns the analogous time-weighted norm on a continuous Kirchhoff graph."
+        ],
+        "reasoning": "Changing from derivative row sum to total-variation speed does not change the core claim; changing from a discrete multipartite Laplacian to metric edges and Kirchhoff vertex conditions changes the operator and does not give the row-size transitions.",
+        "searches": [
+          "Resultary searches for the ordinary complete multipartite heat derivative norm, exact endpoint analyticity and time-wise vertex-class envelope",
+          "Keller–Lenz arXiv:0904.2985 §5, Theorem 10",
+          "Indexed Kirchhoff metric-star endpoint analyticity record e221b9a937ef"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed amplification comparison uses squared heat. The clique-cone neighbor 4120388eae83 has a singleton extremizer for the norm of e^(−tψ(L)) in another class. Neither gives the same equal-profile/noncospectral witness or an inverse theorem for the ordinary derivative."
+        ],
+        "reasoning": "The located norm and extremizer records concern different operators; their expressions cannot be used as a table of derivative-envelope transitions or equal profiles in this problem.",
+        "searches": [
+          "Resultary comparison for exact ordinary complete-multipartite heat profiles, matching norm curves and distinct part-size identifiability",
+          "Resultary e4f9c89a420f and 4120388eae83, compared with the repaired visibility and recovery statements"
+        ]
+      },
+      "rationale": "For the repaired theorem, the established heat-equation and blow-up spectrum results supply the framework and spectral ingredients. The inspected related claims do not prove the exact ordinary endpoint derivative norm with sharp singleton equality, the complete no-skip transition pattern, or the resulting inverse equivalence. No priority certification is inferred from this bounded comparison.",
+      "residual_risks": [
+        "A prior explicit heat kernel formula may imply the basic row expression after differentiation and entry-sign inspection; the full transition and inverse assertions have stronger content. Related unindexed results cannot be excluded; the bounded general literature search furnished no usable stronger source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct spectral ingredient, not derivative norm or transition and recovery theorem",
+          "evidence": [
+            "Theorem 3 specifies blow-up Laplacian eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.0319",
+          "material_read": "§2 Theorem 3 and surrounding spectral discussion, PDF p. 2",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Spectra of the blow-up graphs",
+          "trigger": "Multipartite graphs as complete-graph blow-ups; possible prior endpoint argument"
+        },
+        {
+          "assessment": "Heat evolution on the endpoint space, not the sharp family norm or its envelope",
+          "evidence": [
+            "The cited theorem treats the heat equation on ℓ∞."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0904.2985",
+          "material_read": "§5 Theorem 10 and relevant heat-equation passage, p. 17, offsets 60847–65998",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Dirichlet forms and stochastic completeness of graphs and subgraphs",
+          "trigger": "General graph heat and endpoint differentiability"
+        },
+        {
+          "assessment": "Different semigroup and no derivative-envelope implication established",
+          "evidence": [
+            "Computes positivity recovery and e^(−tL²) amplification and compares stars and near-cliques."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-positivity-cutoff-for-squared-laplacian-heat-on-every-comp--e4f9c89a420f",
+          "material_read": "RESULT.md, Finding and relevant Proof passage",
+          "method": "Local published-record mirror",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Same graph class and exact endpoint amplification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp time-resolved norm for a natural graph family, with an exact universal-vertex equality criterion. Showing that every size occurs as the worst row class answers a concrete structural question left by pairwise monotonicity. The recovery theorem exactly identifies what the endpoint profile can determine and what spectral information it can lose, rather than merely reproducing a numerical norm at a chosen time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

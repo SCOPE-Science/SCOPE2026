@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The four-branch rooted ultrametric tree has a known independent edge-coverage expectation. The formula is reconstructed by the exact chance that a subsample misses each descendant clade and agrees with exhaustive direct-subset averaging in 130 profile/depth cases. Every strictly positive three-taxon abundance profile through census seven is generated in two independent complete ways, quotienting only the sister-tip interchange. For all 58 unordered pairs, all sample depths and **all real admissible branch-length ratios** are checked with exact affine root cells and endpoints, not a finite parameter grid. The three exceptional pairs and their parameter ranges are reproduced by independent rational-coefficient calculations. Explicit tree \(H=9,h=2\) gives the stated sign sequence and exact fractions.
+## correctness
 
-Risk and limit: the classification is expressly restricted to censuses at most seven, a fixed ultrametric three-tip tree, positive abundance counts, and hypergeometric individual sampling; generalization is unproved.
+PASS
 
-## Originality (O): PASS
-Nipperess and Matsen (arXiv:1208.6552; 2012) establish exact PD rarefaction means and discuss sampling-standardization effects on rankings. Chao and coauthors (DOI: 10.1111/2041-210X.12247; first published 2014) establish PD accumulation/rarefaction/extrapolation in rooted trees and motivate comparisons. The materially inspected full texts, direct search for multiple rarefaction crossings, and scientific database comparisons did not yield the sharp seven-individual double-reversal boundary, its three-pair classification, or the exact branch-length intervals. The finite first-layer claim is not implied by the prior formulas alone, even though those formulas are an essential input.
+The four root-anchored edges have lengths H−h,H−h,H,h and abundance coverages a,b,c,a+b; the edge-miss probability for z covered individuals is C(N−z,m)/C(N,m), with the zero convention. Both profiles therefore have PD H at m=1 and 3H−h at m=N. I inspected the proof, notes and checker, and independently enumerated actual individual subsets. A subset's PD divided by H is its represented-taxon count minus t times the indicator that both sisters occur. Enumerating the sorted-sister profiles via cut positions gave sizes 1,2,4,6,9 and 58 unordered pairs. For every pair I used the subset counts as exact affine coefficients and checked all open root cells and interior roots (116 tests), dropping all zero signs. This confirms absence below N=7 and the three open intervals (1/2,13/23), (1/7,3/17), and (1/5,3/13) for the stated pairs in order, including ties at the excluded endpoints. The H=9,h=2 witness gave differences (1/21,−1/35,−1/35,1/7,2/7). Replay: python3 -I /workspace/review_math.py 1. Minor documentation overstatement: the frozen checker explicitly asserts only the third coefficient list, although it checks the sign cells for all pairs. My independent subset check reproduced all three lists; no change to the theorem is needed.
 
-Residual risk: an inaccessible publisher-hosted supplementary appendix or unindexed example might already contain a witness or its classification; this review does not assert exhaustive coverage of all prior literature. Distinct earlier ecological richness statements do not automatically establish the present phylogenetic weighted-branch phenomenon.
+## originality
 
-## Value (V): PASS
-Expected PD is used to compare phylogenetic diversity at standardized sample depths, so a repeated ranking reversal has direct interpretive meaning. The result isolates the **smallest census** where two reversals are possible under nondegenerate positive branches while all taxa are present in both communities, and gives exact ranges of the one tree-shape parameter that produce the behavior. The simultaneous positive-count, common-tree, common-census controls rule out trivial differences in taxa observed, total sample size, or phylogeny. The finite boundary is a natural, reproducible ecological comparison limit, not an arbitrary numerical slice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the minimum common census and all three profile intervals for two strict depth-order reversals. Exact PD expectation and changes in site rankings under rarefaction were already known. The closest primary and published catalogue comparisons do not settle this specific multiple-crossing boundary.
+
+## value
+
+PASS
+
+A three-tip tree is the first rooted ultrametric shape with a shared internal edge. The result pinpoints when that edge can cause a double reversal even without unequal censuses or missing taxa, contrasting with the closest expected-richness single-crossing result. The sharp finite cutoff, exact windows and endpoint behavior give a sensitive benchmark for sampling-depth comparisons and for any proposed general crossing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

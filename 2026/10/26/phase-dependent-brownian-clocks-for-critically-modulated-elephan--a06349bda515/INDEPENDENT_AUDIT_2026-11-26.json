@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:13:29.972091Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–93; VERIFICATION.md; verify.py"
+      ],
+      "rationale": "Reconstructed the proof for C¹ periodic mean-zero h, with finite critical initialization. The conditional increment mean is a_n S_n/n, so b_n S_n is a martingale and its predictable increment variance is b_(n+1)^2(1−a_n²S_n²/n²). In log b_n, the log-product Taylor remainders are summable and the sum-integral error for h(log log x)/(x log x) converges because the derivative is integrable. The integral is H(log log n) plus a constant, giving the finite positive K and b_n² asymptotic to K²e^(−4H(log log n))/n. Martingale orthogonality gives E[S_n²]≪n log n, hence the nonnegative total random correction to the deterministic bracket has finite expectation (bounded by a sum of log n/n²), and is finite almost surely. For the entire normalized bracket, the deterministically weighted sum can replace these asymptotic coefficients with uniformly o(1) normalized error: split off a fixed prefix and bound the tail error by its supremum times O(log N). The sum-integral discrepancy is bounded, and u=log x/log N yields the phase clock, uniformly on [0,T], including the bounded O(ε) contribution from [0,ε]; floor effects are O(1/log N). On each phase-converging subsequence the clock converges uniformly. Jumps, including the initial normalized value, are O(1/√log N), so the predictable-bracket martingale FCLT identifies the continuous J₁ limit. Integer rounding of exp(exp(2πj+φ)) attains each phase. Differentiating the positive clock density yields the inverse; for h=c sin, equality of clocks would force equality of all translates of the sine. At t=1, inverting b_N gives variance F_h=e^(4H)U where U=∫₀^∞e^(−v)e^(−4H(φ−v))dv and U′=e^(−4H)−U. Differences of periodic ODE solutions are multiplied by e^(−2π) over a period, proving uniqueness. A constant F_h would force constant, thus zero, h. Nonzero h produces an interval of variances and no full-sequence weak limit. The finite checker was inspected, not run; no infinite conclusion relies on it.",
+      "residual_risks": [
+        "The result is weak functional convergence on fixed finite horizons for the specified periodic critical window, not a strong coupling, and equivalent phase labels are possible for a profile of smaller period."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Qi use the same arbitrary full-history time-varying p_n model and give A_n S_n/√V_n ⇒ N(0,1) for V_n=∑A_k²→∞. Tokumitsu and Baur–Bertoin give the logarithmic-time critical constant-memory Brownian law."
+        ],
+        "reasoning": "Fan–Qi cover the scalar Gaussian step after product/sum evaluation; the constant-memory functional theorem covers exactly h=0, not the oscillatory clock. A scalar CLT does not specify multi-time laws or tightness.",
+        "searches": [
+          "Fan–Qi arXiv:2610.16065v1 §2.1 and Theorem 2.2; Tokumitsu arXiv:2603.13690v1 Theorem 1.6; Baur–Bertoin arXiv:1608.01305 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.16065v1, 2603.13690v1, 1608.01305, 2311.15263, 2504.14767",
+        "Resultary 4a36422bfeb5, 54feb5ffa3ee, 2d558ac7f439",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fan–Qi and deterministic normalization evaluation already imply the individual Gaussian marginals; Tokumitsu directly implies the zero-forcing path case. The period-two companion has a different critical scale and limiting covariance. In the frozen argument the oscillating weighted harmonic sums and uniform bracket comparison determine a whole phase-dependent clock."
+        ],
+        "reasoning": "The generic FCLT is applicable only after establishing and evaluating these model-specific bracket limits. The exact nonconstant covariance density, recovery of h from it, and scalar nonconvergence are not mechanical substitutions into the inspected constant-memory or scalar conclusions. No priority inference is made from the companion's same catalogue date.",
+        "searches": [
+          "Fan–Qi Theorem 2.2, Tokumitsu Theorem 1.6 eq. (1.6), Resultary 4a36422bfeb5 Finding, frozen RESULT.md §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For symmetric ±1 increments and a_n=2p_n−1≥0, repetition with probability a_n and otherwise a fresh fair sign has the same conditional law. The checked critical step-reinforced theorem has constant a=1/2. Increasing-memory arXiv:2504.14767 changes the available history, not the repeat/sign probability, and the inspected CLT is scalar."
+        ],
+        "reasoning": "The change to reinforcement/urn vocabulary is real, but the checked alternative formulations do not contain the oscillatory deterministic sequence a_n→1/2 with the displayed family of covariance clocks.",
+        "searches": [
+          "Resultary: elephant walk time-dependent memory, log-log phase clocks, reinforced paths and urns",
+          "arXiv:2311.15263, §1 eq. (1.3); arXiv:2504.14767, Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed same-model result, 4a36422bfeb5, gives ordinary-time Brownian scaling and a logarithmic variance deficit under period-two probability perturbations around 1/2. 54feb5ffa3ee has a constant-rate urn logarithmic clock; 2d558ac7f439 has phase-indexed ballistic telegraph limits."
+        ],
+        "reasoning": "These are meaningful same-model or structural analogues, but none supplies the frozen analytic family. A finite table would not establish a path law over arbitrary phases, h, and horizons; no exact covering analytic entry was established.",
+        "searches": [
+          "Resultary exact title and semantic comparisons: 4a36422bfeb5, 54feb5ffa3ee, 2d558ac7f439"
+        ]
+      },
+      "rationale": "Pass for the explicit time-inhomogeneous phase-indexed logarithmic-time path law, clock inversion, and evaluation of the nonconstant physical-time variance profile. The general scalar martingale CLT, constant-critical path law, and generic predictable-bracket FCLT are prior tools/results, not credited as new.",
+      "residual_risks": [
+        "An uninspected equivalent in time-dependent urns or correlated-Bernoulli processes is not excluded; the comparison is of located statements and decisive passages, not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct scalar overlap, not the phase-resolved path law",
+          "evidence": "When V_n→∞, A_n S_n/√V_n ⇒ N(0,1). A_n and b_n differ at most by a fixed normalization; the frozen product asymptotics imply V_n diverges.",
+          "identifier_or_url": "https://arxiv.org/html/2610.16065v1",
+          "material_read": "§2.1 model and normalizers, HTML offset 5600; Theorem 2.2, offset 8400",
+          "method": "Open-access HTML",
+          "title": "A Generalized Elephant Random Walk with Time-Dependent Memory",
+          "trigger": "Exact general time-dependent model"
+        },
+        {
+          "assessment": "Matches the h=0 limit",
+          "evidence": "At fixed p=3/4, S_floor(n^t)/√(n^t log n) has the Brownian logarithmic-time limit.",
+          "identifier_or_url": "arXiv:2603.13690v1",
+          "material_read": "Theorem 1.6 eq. (1.6), HTML offset 8950",
+          "method": "Open-access HTML",
+          "title": "Stable functional CLTs for scaled elephant random walks",
+          "trigger": "Critical functional limit in same model family"
+        },
+        {
+          "assessment": "Fixed-memory critical baseline",
+          "evidence": "The Brownian critical scaling uses constant p and has no phase parameter.",
+          "identifier_or_url": "arXiv:1608.01305",
+          "material_read": "Theorem 2, PDF p. 7",
+          "method": "Open-access PDF passage",
+          "title": "Elephant random walks and their connection to Pólya-type urns",
+          "trigger": "Prior critical urn/elephant path law"
+        },
+        {
+          "assessment": "Critical p=1/2 step reinforcement is the h=0 baseline only",
+          "evidence": "Records a critical constant-reinforcement logarithmic Brownian FCLT.",
+          "identifier_or_url": "arXiv:2311.15263",
+          "material_read": "§1 eq. (1.3), offset 4200",
+          "method": "Open-access passage",
+          "title": "Step-reinforced walk comparison",
+          "trigger": "Equivalent fixed-reinforcement formulation with Rademacher steps"
+        },
+        {
+          "assessment": "Different time variation and scalar theorem",
+          "evidence": "A varying window/gap m_n with fixed model parameters differs from changing p_n at full history.",
+          "identifier_or_url": "arXiv:2504.14767",
+          "material_read": "Model and Theorem 5, offsets 6000 and 16400",
+          "method": "Open-access passages",
+          "title": "Elephant random walk with gradually increasing memory, comparison",
+          "trigger": "Potentially broader time-inhomogeneous reinforcement regime"
+        },
+        {
+          "assessment": "Material same-model overlap but different perturbations and limiting regime",
+          "evidence": "Period-two perturbations around 1/2 give an ordinary-time J₁ Brownian limit and variance deficit, not a log-time phase clock.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-hidden-logarithmic-variance-deficit-under-alternating-elephant--4a36422bfeb5/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "A hidden logarithmic variance deficit under alternating elephant memory",
+          "trigger": "Closest same-model indexed finding"
+        },
+        {
+          "assessment": "Structural analogues, not covering the ERW law",
+          "evidence": "The mixed urn has constant rate q t; the telegraph modulation has phase-dependent ballistic rather than ERW Brownian laws.",
+          "identifier_or_url": "Resultary 54feb5ffa3ee and 2d558ac7f439",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Logarithmic critical mixed-urn clock and phase-cycled telegraph laws",
+          "trigger": "Indexed clock and phase analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and Proof §§1–5",
+        "Fan–Qi Theorem 2.2 and Tokumitsu Theorem 1.6 for baseline comparison"
+      ],
+      "rationale": "At the critical memory strength the model has a natural fixed Brownian log-time baseline. A vanishing perturbation with a specified, critical logarithmic amplitude changes the entire covariance clock, and the profile can be recovered from that clock. This supplies a concrete boundary for robustness of the standard critical normalization and an explicit mechanism for distinct Gaussian subsequential limits despite p_n→3/4. It exceeds a marginal CLT or a numerical phase comparison.",
+      "residual_risks": [
+        "The phase criterion does not characterize arbitrary critical perturbations, and clock identification is only up to actual phase symmetries of the profile."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

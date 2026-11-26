@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:13:19.726183Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the normal damped rotation, the backward-Euler resolvent is complex multiplication with squared modulus 1/q(h), so the worst-state ratio is independent of the state. On the compact nonnegative simplex maximize product q. Holding z=x+y fixed makes q(x)q(y) a quadratic of xy with strictly positive leading coefficient (a^2+b^2)^2. Every unequal positive pair is interior in the xy interval and can be strictly improved by going to one of its endpoints. Thus every optimum is an equal-positive-support schedule, not merely some optimum. For b<=a, log q is strictly concave (its second derivative is strictly negative for t>0 even at b=a), proving unique uniformity. For b>a, log q changes curvature once; t(log q)'−log q starts at zero, increases and then decreases to minus infinity. Consequently log q(t)/t is uniquely maximized at ell>0 and the only integer candidates are the clamped floor/ceiling bracketing H/ell. The derivative of D_k=(k+1)log q(H/(k+1))−k log q(H/k) has sign of a^2−b^2+a(a^2+b^2)(x+y)+(a^2+b^2)^2xy with x=H/(k+1), y=H/k. This strictly increases through zero with H. D_k starts at zero, decreases then increases, and takes opposite strict signs at k ell and (k+1) ell. The disjoint open brackets give distinct ordered transitions, each with exactly the adjacent tie. If requiring positive lengths instead, attainment holds exactly when all-N support is among the minimizers, including its boundary tie; otherwise approximation by positive schedules gives the unattained infimum. The large-H conclusion follows by bracketing and clamping if liminf N/H>=1/ell. Independently computed all four exact support candidates in the stated four-solve example: 4/25, 256/1681, 46656/274625, 16777216/88529281; independent bisection gives the stated two transition values to the shown precision. Inspected supplied check.py, VERIFICATION.md and saved output, without executing the uploaded script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gander et al. Theorem 1 proves uniform backward-Euler partitioning for real scalar decay with nonnegative lengths. That is the b=0 slice since subtracting the fixed exact endpoint does not change the optimum and the numerical multiplier is positive.",
+          "The allocation-paper DOI was a plausible generic-match hit but full text was not retrieved; no claim about what its theorem covers is made."
+        ],
+        "reasoning": "The b>a objective has a convex region and a concave region. Generic separability and Jensen alone do not exclude unequal positive allocations. A stronger old theorem implying the rigid support and crossings was not identified in inspected material.",
+        "searches": [
+          "maximizing separable sum f(x_i) subject to fixed sum x_i >= 0 global optimum equal positive components unimodal f(x)/x allocation theorem",
+          "S-shaped function fixed sum maximize equal allocation theorem separable optimization",
+          "DOI 10.1287/ijoc.2021.1104",
+          "Gander et al., A direct solver for time parallelization, §2"
+        ]
+      },
+      "checked_sources": [
+        "Gander–Halpern–Ryan–Tran, §2 Theorem 1",
+        "Resultary acc624f09382",
+        "Resultary d4a8e3bbf43d",
+        "Resultary 736f984437ab",
+        "DOI 10.1287/ijoc.2021.1104 (identity only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Real scalar decay has no nonconcave branch here. The Jordan shear shares the two-support type when N=2 but has a different induced-norm objective and a defective generator. The other two analogues optimize different functionals as described above."
+        ],
+        "reasoning": "The theorem requires a product identity particular to the backward-Euler rotation, a continuum efficiency maximizer, and a pairwise threshold derivative sign for every adjacent count. None of the inspected overlapping conclusions yields those jointly for the frozen optimization.",
+        "searches": [
+          "Gander et al., PDF p. 2, Theorem 1",
+          "Resultary acc624f09382 RESULT opening",
+          "Resultary d4a8e3bbf43d RESULT opening and proof offset 5400",
+          "Resultary 736f984437ab RESULT opening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent objective is the homogeneous separable maximum of sum log(1+2a h_i+(a^2+b^2)h_i^2) on a closed simplex.",
+          "Resultary d4a8e3bbf43d uses the same generator and q but optimizes the expectation of one randomized factor under a mean constraint. Resultary 736f984437ab instead uses the Cayley factor."
+        ],
+        "reasoning": "Optimizing the expectation of a random one-step squared multiplier is not the deterministic product of multipliers under a pathwise total, and the Cayley stability function changes the pair product. Neither gives the equal-positive-support equality cases and all-count crossovers.",
+        "searches": [
+          "Resultary: fixed-horizon backward Euler damping equal positive step allocation sparse active steps crossover normal planar oscillator",
+          "Resultary: separable fixed-sum allocation equal positive support backward Euler step partition optimization",
+          "maximize sum log(1+c x_i+d x_i^2) subject to sum x_i=H and x_i>=0 equal positive variables allocation theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed exact phase diagrams concern a two-stage Jordan shear, a one-step randomized policy, and a two-step Cayley scheme, respectively. None tabulates or gives the equal-support transition family for this deterministic backward-Euler normal rotation."
+        ],
+        "reasoning": "A numerical table is not an applicable certificate of this continuous-parameter, arbitrary-N classification. The relevant exact checks are against the indexed closed-form transition and equality-case results; they differ in model, objective or integrator.",
+        "searches": [
+          "Resultary: fixed-horizon backward Euler damping equal positive step allocation sparse active steps crossover normal planar oscillator",
+          "Resultary acc624f09382, d4a8e3bbf43d and 736f984437ab"
+        ]
+      },
+      "rationale": "Pass for the arbitrary-N deterministic oscillatory backward-Euler allocation, including rigid optimal supports and the ordered staircase. The b=0 result is covered, and Jensen applies to the concave portion of the present parameter range. Neither the scalar case nor same-day analogues are credited as novelty; no same-day publication order is inferred.",
+      "residual_risks": [
+        "Historical equivalents under nonlinear separable allocation or stability-function optimization may exist.",
+        "The resource-allocation DOI could not be inspected in full and is not treated as evidence of absence. Same-date indexed analogues establish distinctions, not an order of disclosure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers b=0 optimum; no oscillatory allocation implied",
+          "evidence": "Equidistant steps globally minimize final error for scalar decay over nonnegative partitions; the scalar BE amplification is above the exact endpoint, giving the same optimizer.",
+          "identifier_or_url": "https://www.unige.ch/~gander/Preprints/gander_contrib.pdf",
+          "material_read": "PDF p. 2, §2 Theorem 1 (OA offset 4245)",
+          "method": "primary OA PDF passage inspection",
+          "title": "A direct solver for time parallelization",
+          "trigger": "exact backward-Euler optimal step partition"
+        },
+        {
+          "assessment": "distinct exact two-stage analogue",
+          "evidence": "Nonnormal defective Jordan block and induced operator norm; no normal oscillator or arbitrary-N theorem.",
+          "identifier_or_url": "Resultary acc624f09382",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "local published-record mirror",
+          "title": "A golden-ratio horizon for optimal two-stage backward-Euler damping",
+          "trigger": "same time budget and equal/sparse alternative"
+        },
+        {
+          "assessment": "same basic stability factor, different objective and constraints",
+          "evidence": "One randomized step optimized in expectation at fixed mean, with a two-point law rather than a deterministic product under a fixed duration.",
+          "identifier_or_url": "Resultary d4a8e3bbf43d",
+          "material_read": "RESULT.md offsets 0 and 5400",
+          "method": "local published-record mirror",
+          "title": "Sharp fixed-mean randomized backward-Euler damping on a planar oscillator",
+          "trigger": "same planar generator, integrator and q"
+        },
+        {
+          "assessment": "different stability function and only two steps",
+          "evidence": "Implicit-midpoint/Cayley amplification is not the backward-Euler resolvent product.",
+          "identifier_or_url": "Resultary 736f984437ab",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "local published-record mirror",
+          "title": "Exact phase diagram for fixed-budget two-step Cayley damping",
+          "trigger": "same oscillator with fixed total duration"
+        },
+        {
+          "assessment": "unresolved match; no positive or negative coverage inference",
+          "evidence": "Title and DOI only, not mathematical coverage evidence.",
+          "identifier_or_url": "https://doi.org/10.1287/ijoc.2021.1104",
+          "material_read": "bibliographic identity only; no primary theorem passage read",
+          "method": "publisher PDF and DOI OA attempts via direct/VPN returned HTTP 403; an open-copy lookup did not identify a usable copy",
+          "title": "On a Reduction for a Class of Resource Allocation Problems",
+          "trigger": "possible general separable resource-allocation reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite solve budget and a fixed endpoint time are natural constraints when deliberately optimizing numerical damping rather than fidelity. The classification rules out all unequal optimal steps, finds when unused opportunities are optimal, and reduces arbitrary-N design to a staircase or two scalar candidate evaluations. The four-solve comparison shows a substantial damping difference, not a claim about solution accuracy, physical dissipation or speedup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

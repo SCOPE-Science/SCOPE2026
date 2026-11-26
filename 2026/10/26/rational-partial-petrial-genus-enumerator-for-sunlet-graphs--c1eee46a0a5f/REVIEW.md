@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The leaf Schur complements preserve nullity and give an exact weight \(2^{n-|B|}\) per retained vertex subset. The path determinant recurrence gives the Jacobsthal polynomial, the marked-boundary argument counts each labeled cyclic word exactly once, and the \(S_3\) transfer character gives the exceptional full-cycle term. These contributions are disjoint and exhaustive. Direct matrix enumeration for \(3\le n\le8\) agrees coefficient by coefficient with the rational form, which is proved independently for all orders.
+PASS
 
-## Originality
+For each leaf with bit zero, its 2-by-2 block with the core vertex has inverse with zero core diagonal, so Schur elimination preserves nullity without changing other entries. A leaf with bit one instead flips the retained core diagonal. The retained-set sum thus weights a deleted site by 2 and either diagonal at a retained site by 1. The path kernel recurrence bounds nullity by one; adjacent leading determinants cannot both vanish, giving J_l=2^(l−1)−J_(l−1) with J_0=0 and the stated path series. For proper nonempty retained sets, marking one of k retained/deleted boundaries counts every labeled configuration k times even with rotational periodicity and gives t∂_tH/(1−H). With all core sites retained, the recurrence monodromy is in GL(2,F₂); the three conjugacy types have fixed dimensions 2,1,0. In the real two-dimensional representation the reflection-plus-rotation matrix has trace −1 and determinant zero, so its n-th-power trace is (−1)^n. Together with the sign-parity count this gives the displayed cycle contribution. Empty retention contributes 2^n. There are at most floor(n/2) path runs, and an independent retained set with zero effective diagonal attains that nullity; the all-retained triangle with ones on the diagonal instead has nullity two. Rank is 2n minus nullity and u=1 sums to 4^n. For the topological interpretation a suitable orientable bouquet exists: on 2n cyclic positions, chords with endpoints 2i and 2i+3 modulo 2n interlace precisely their two neighbors; insert the two endpoints of each leaf chord immediately around a distinct core endpoint. Use the established genus/rank identity for this bouquet, not a claim about arbitrary embeddings of the abstract sunlet.
 
-PASS with residual search limitations. Yan--Li's path formula (arXiv:2501.04186), Deng--Zhang's trinomial-tree classification (arXiv:2608.01748), and Feng--Guo--Yan's universal edge recurrence (arXiv:2606.03166) do not state or imply as an already evaluated formula this sunlet bivariate rational enumerator. The related general matrix/ribbon frameworks (arXiv:2604.12433 and arXiv:2604.21942) are credited and do not provide the computed rank profile for the cyclic corona. A general recurrence permits derivation in principle but is not the closed uniform result. Search cannot exclude unindexed or unpublished overlap.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The sunlet is a natural unicyclic corona family not covered by a tree classification. The exact all-coefficient answer resolves the full distribution of a topologically motivated genus statistic in every order and yields a sharp rank threshold. Its proof separates universal leaf elimination, a cycle monodromy correction and rational cyclic-run enumeration, providing reusable structural tools rather than an arbitrary finite coefficient computation.
+The supported contribution is the complete evaluated all-orders distribution for this specified cycle corona. The matrix/genus formulation, basic recurrence, path polynomial, and pivot operations are prior. The tested alternatives do not give a closed formula for the weighted cyclic state sum needed here.
 
-## Limitations
+## value
 
-The theorem applies only to \(n\ge3\) simple sunlets and the binary-field partial Petrial rank polynomial. The direct enumeration is finite; the infinite assertion relies on the written proof. Equivalent results may exist outside the checked primary texts and accessible mathematical record searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sunlets are a natural cycle corona, and the exact diagonal-rank profile supplies every coefficient and the genus or rank support uniformly, rather than computing isolated orders. The separation of the Jacobsthal runs from cyclic monodromy gives a tractable evaluated family beyond the tree cases; it also identifies the exceptional triangle and explains the general minimum rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

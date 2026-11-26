@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-All checks described below were executed from the accompanying standalone files; no external datasets are required.
+# Independent mathematical audit
 
-Compile `enumerate.cpp` as described in `RESULT.md`. Run the binary with each argument from `1` to `10`. The exact output for those ten runs is embedded in `profile.txt`. The code enumerates every fixed-weight position mask and every candidate root, constructs the unique reverse interleaving, deduplicates roots with bitsets, and scans all resulting word indices. For \(n=10\) its exhaustive count is \(189,190,144\) processed root--mask pairs, \(184,756\) admissible position masks, \(1,048,576\) inspected source indices, with maximum \(170\) and exactly eight maximizers.
+## correctness
 
-Run `python verify_small.py` to enumerate every source word and each possible partition **in the opposite direction** for \(n=1,\ldots,6\). It agrees with the independent exhaustive maxima and optimizer counts. Run `python verify_witnesses.py` in the directory containing `witnesses_n10.tsv`; every listed position mask selects the corresponding distinct root and leaves its reversal at the remaining positions. There are exactly \(170\) distinct checked certificates.
+PASS
 
-A separate coverage cross-check uses the known binary abelian-square characterization: the number of words with at least one reverse-shuffle root is exactly \(\binom{2n}{n}\). This independently checks the enumerated nonempty-word count for all ten sizes. The program's source and resulting profile are part of this package; no external proof solver or opaque data source is required.
+Independently exhausted the full range using half-word gluing rather than the frozen enumerator's length-2n position masks. In any interleaving with root r=ab split after k letters, if the first half uses k forward-root letters it uses exactly n-k letters of the reverse root. It is therefore a shuffle of a and reverse(b), while reversing the second half gives another shuffle of those same two strings. Conversely any two such half-shuffles concatenate, reversing the second one, to realize r. The reproduction recursively forms distinct half-shuffles, takes all ordered pairs for each of the n+1 splits of every root, and deduplicates across splits by stamping each word with its last root. Scanning the full labeled universe returns maxima 1,2,3,5,9,16,29,52,94,170 and optimizer counts 2,4,8,8,8,8,8,8,8,8, with all optimizer sets matching profile.txt and the eight length-20 words matching RESULT.md. A direct grid interleaving test agreed on all words through n=5 and on every optimizer through n=10. Both halves of a realizable word have the same letter counts by the split argument; conversely if counts agree, take a and b to be the monochromatic zero and one blocks of those lengths. Thus coverage is binomial(2n,n), agreeing with the run, including 184756 of 1048576 at n=10. The frozen enumerate.cpp and profile.txt are present and were read, not executed; the C++ bitset merges repeats of a root correctly. A separate read-only check verified each of the 170 supplied witness selections for the first listed optimizer. Replay: python3 /workspace/branches/reverse_halves_review.py 1 7 and python3 /workspace/branches/reverse_halves_review.py 8 10 (NumPy); outputs /workspace/branches/reverse_halves_1_7.txt and /workspace/branches/reverse_halves_8_10.txt. The conclusion stops at n=10.
 
-**Limits:** Exhaustive checks prove only the ten stated finite cases. The stand-alone witness list proves the lower bound at \(n=10\), not maximality without `enumerate.cpp`. Direct-word independent enumeration goes through \(n=6\); for \(n=7\) through \(10\), exhaustive maximality comes from the complete C++ search plus the separate coverage and witness checks. No independent audit has been performed.
+## originality
+
+PASS
+
+The exact distinct-reverse-root extremal profile and optimizers through length 20 are the supported distinct claim. The characterization and number of coverable binary words are prior results used only as checks; the analogous ordinary-root table uses a different operation.
+
+## value
+
+PASS
+
+This is the per-word ambiguity of a natural word operation whose binary existence condition is already known. Length 20 is a meaningful matched cutoff with the published ordinary-shuffle profile; 170 versus 19 and the exact optimizer sets give a reusable extremal benchmark and test instances. The result is finite, not evidence of an infinite recurrence or asymptotic law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

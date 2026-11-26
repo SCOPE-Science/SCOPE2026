@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:43:42.981735Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For y=cos(theta) the cost is h(y)=(arccos y)^2. The identity h(1-v)=4 arcsin(sqrt(v/2))^2 gives an analytic power series at v=0; substitution in (1-y^2)h''-yh'=2 yields c_1=2 and c_(j+1)/c_j=j^2/((j+1)(2j+1)). This gives the stated c_N and bounds (-1)^N h^(N) below by N!c_N on the open interval. The monic Hermite nodal product is 2^(1-N)(T_N-s_N), including the single endpoint y=1 for odd N. Multiplying by the derivative sign gives exactly 2^(1-N)(1-s_N T_N). Continuity handles the endpoints. The polynomial integrates identically for the two measures by the degree bound; the centered grid has angles 2π(j-(N-1)/2)/N for j=0,...,N-1 and the stated second moment. A zero deficit forces support on the grid and discrete Fourier inversion forces equal weights. On writing rho for distance to the grid, 1-s_N cos(N theta) >= 2N^2 rho^2/π^2, yielding the claimed second bound. Nearest-node projection costs E[rho], bounds the k-th mode of the projected measure by k E[rho], and discrete inversion gives total variation at most N(N-1)E[rho]/4; moving this unmatched mass costs at most π times that amount. The symmetric small shifts do not cross the cut, have deficit h^2 and W1 exactly h by the generating coupling and the distance-to-grid test. The real-line consequence follows by the pointwise nearest-representative inequality, with equality forcing the canonical representatives. These proofs cover arbitrary admissible Borel probability measures and every N>=3; the reviewed frozen checker is finite diagnostic evidence only and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "An gives Gaussian/Gauss–Radau stability for matching finitely many moments on a support interval whose endpoint is nearly extremal.",
+          "Borda bounds Wasserstein transport by Fourier discrepancy with a smoothing cutoff on compact Lie groups."
+        ],
+        "reasoning": "The stability parameters in both theorems are not the submitted energy deficit; the arbitrary circle law need not have near-extremal interval support, and the vanished block alone does not bound the remaining Fourier discrepancy by a small deficit.",
+        "searches": [
+          "arXiv:2609.02439v1, Theorem 7.2",
+          "arXiv:2005.04925, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2609.02439v1",
+        "arXiv:2005.04925",
+        "Resultary 1639303e1a79"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen parity-sensitive Hermite contact argument uses a lower bound on the Nth derivative of squared arccos and the specific nodal identity before inversion of the projected masses.",
+          "The one-zero research item cited by DOI could not be inspected at theorem level."
+        ],
+        "reasoning": "The quadrature rule and the unquantified minimization mechanism are classical. The explicit coercive remainder, node concentration, and transport for this deficit are not supplied by the inspected statements; they require relating this particular cost and contact set to the first unconstrained mode and controlling the mass imbalance.",
+        "searches": [
+          "arXiv:2609.02439v1, Theorem 7.2",
+          "arXiv:2005.04925, Theorem 1",
+          "DOI:10.13140/RG.2.2.18421.08165"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched Finding is a variance remainder and W1 estimate near a balanced two-point law on the real line from a single nonzero Fourier–Stieltjes zero."
+        ],
+        "reasoning": "Taking residues or translating the center does not supply the different exact N-point minimum, Nth-mode remainder, or transport estimate for N-1 consecutive vanished modes. The same calendar date does not settle priority.",
+        "searches": [
+          "Local Resultary lookup: Fourier–Stieltjes zeros, quadratic moment and Wasserstein stability",
+          "Resultary: 2026/10/18/SCOPE-sharp-quadratic-concentration-at-a-fourier-stieltjes-zero--1639303e1a79"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact quadratic estimate concerns one zero and a real-line two-point law; An's quadrature statement is a support-endpoint estimate."
+        ],
+        "reasoning": "Tabulated Chebyshev nodes and weights recover the candidate discrete law, not the exact deficit coefficient against its Nth Fourier mode or the transport stability of all feasible measures. No matching indexed quantitative statement was found in the inspected evidence.",
+        "searches": [
+          "Local Resultary lookup: consecutive Fourier zeros and arc-cosine-square Hermite certificate",
+          "arXiv:2609.02439v1, Theorem 7.2"
+        ]
+      },
+      "rationale": "Pass for the combined geodesic-energy result, specifically the explicit Nth-mode coercivity and sharp-order transport from that energy deficit for an arbitrary circle measure with a block of vanishing moments. Classical Hermite and Gaussian/Gauss–Radau methods and the existence of square-root stability in different moment problems are not new. No inspected comparison subsumes the distinct contribution.",
+      "residual_risks": [
+        "Limited literature search: the targeted primary-literature query did not return useful mathematical evidence; older sharp quadrature remainders stated in different terminology could have escaped it.",
+        "The cited Huang 2025 primary text was unavailable. No exhaustive priority or optimality of numerical constants is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue, different hypothesis and stability parameter",
+          "evidence": [
+            "Matching polynomial moments with support in [-1,alpha] gives node concentration and W1 of order the square root of endpoint excess."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02439v1",
+          "material_read": "Theorem 7.2, p. 13, text offset 46484",
+          "method": "Lawful open-access theorem passage",
+          "title": "Dual Geometry of Spherical Designs: Polarity, Self-Polar Rigidity, and Quadrature Structure",
+          "trigger": "Closest general quadrature stability citation"
+        },
+        {
+          "assessment": "General Fourier-discrepancy estimate, not a geodesic-energy coercivity theorem",
+          "evidence": [
+            "The estimate employs a frequency cutoff and Fourier-transform discrepancies, not the squared-distance energy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.04925",
+          "material_read": "Theorem 1, p. 3, text offset 8330",
+          "method": "Lawful open-access theorem passage",
+          "title": "Berry–Esseen smoothing inequality for the Wasserstein metric on compact Lie groups",
+          "trigger": "Could imply thermal-free transport on the circle from Fourier information"
+        },
+        {
+          "assessment": "Separate one-zero theorem; no equivalence established",
+          "evidence": [
+            "The target is a balanced two-point law on the real line; the assumptions impose a single characteristic-function zero."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-quadratic-concentration-at-a-fourier-stieltjes-zero--1639303e1a79",
+          "material_read": "RESULT.md, opening Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp quadratic concentration at a Fourier–Stieltjes zero",
+          "trigger": "Strongest related Resultary finding"
+        },
+        {
+          "assessment": "Unassessed beyond scope indicated by citation",
+          "evidence": [
+            "No theorem text was accessible; access failure is not negative evidence."
+          ],
+          "identifier_or_url": "DOI:10.13140/RG.2.2.18421.08165",
+          "material_read": "Citation only; linked copy and DOI access denied",
+          "method": "Attempted lawful public access; no alternate repository copy identified",
+          "title": "Estimating the first zero of the characteristic function: a new approach based on the central moments",
+          "trigger": "Cited related first-zero work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural moment problem of cancelling the first several harmonics while minimizing angular spread, the theorem gives quantitative rigidity for arbitrary measures, not just an exact quadrature rule or discrete extremizer. It controls concentration and the redistribution of mass explicitly, and a feasible shift family verifies that improving the transport power for fixed N is impossible. This is useful despite rapidly growing, non-optimal constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The definition gives \(\log P_3(n)=\sum_{d\mid n}(\log d)^2\). Uniform divisors correspond bijectively to independent uniform exponent variables \(J_i\in\{0,\ldots,a_i\}\), whose means and variances give the stated exact identity. Cauchy--Schwarz gives the fixed-exponent lower coefficient. Its equality condition is equivalent to equality of two powers of distinct primes and is therefore impossible when at least two primes occur. The sharpness construction makes the Cauchy vectors asymptotically proportional by choosing distinct primes in suitable doubling intervals. The bundled computation independently checks the exact identity and the equality/strictness pattern through \(n=20000\).
+## correctness
 
-Risk: the numerical verifier uses floating-point logarithms, so it cannot certify symbolic equality. This does not affect the proof, which is exact.
+PASS
 
-## Originality
-PASS. The focal 2024 paper defines the same \(P_3\) and proves only the universal interval between coefficients \(1/4\) and \(1/2\), plus the upper limsup. The full five-page paper was inspected. A targeted search for an exact prime-factor formula for \(\sum_{d\mid n}(\log d)^2\), a variance formulation for uniform divisors, and a sharp exponent-pattern coefficient did not locate an implication-equivalent statement. The similarly titled 1997 Tóth--Sándor paper was also inspected and concerns different trigonometric/gamma products under regular convolutions.
+Uniform divisors correspond bijectively to the product of the integer intervals 0 through a_i. Their independent coordinates have means a_i/2 and variances a_i(a_i+2)/12; summing the second moment of log D gives the displayed factorization. Put b_i=a_i/(a_i+2), x_i=(a_i+2)log p_i and B=sum b_i. Then the excess of sum b_i x_i^2 over (sum b_i x_i)^2/B is sum_{i<j} b_i b_j (x_i-x_j)^2/B. Equality for two distinct primes would identify two positive prime powers, which is impossible. For fixed exponents choose disjoint intervals [exp((T+c_i)/(a_i+2)), 2 exp((T+c_i)/(a_i+2))] by separating equal-exponent offsets and using eventual separation for unequal exponents. Bertrand's postulate applied at the integer part of each large lower endpoint gives distinct primes with x_i=T+O(1). The normalized excess is O(T^-2); no equality is attained for r>=2. Substitution gives both specializations. Independent replay: python3 -I -B /workspace/audit_replays/frozen_math.py 2, with 2025 exact formal second-moment coefficient checks from trial divisors for 2<=n<=600.
 
-Risk: the second logarithmic moment can be obtained by differentiating generalized divisor sums at the zero parameter, so an equivalent elementary identity may exist under another notation. No located source combined that identity with the sharp fixed-exponent optimization and nonattainment statement.
+## originality
 
-## Value
-PASS. The source's lower bound loses exactly the variance of the logarithm of a uniformly chosen divisor. Recovering that term converts a qualitative strict inequality into an exact factorization formula and gives the best possible lower coefficient on every exponent stratum. The squarefree specialization gives the clean sharp coefficient \((r+1)/(4r)\), while the prime-power case is exact. This is structural information about the new arithmetic product rather than a numerical tightening on a finite range.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinction is the sharp exponent-pattern envelope, including the strict distinct-prime obstruction and limiting attainment, for the established P3 product. Neither the product, its interpretation as a second logarithmic divisor moment, nor the standard finite Dirichlet-polynomial moment machinery is credited as new in isolation. The strongest inspected same-product statement is Sándor's uniform inequality, not the fixed-exponent extremum.
+
+## value
+
+PASS
+
+This determines the best coefficient in an existing named inequality on each natural prime-exponent layer, and says which layers attain it. It separates the uniform 1/4 bound from substantially stronger exact coefficients, for example 3/8 as the unattained two-prime squarefree infimum. The explicit gap pinpoints the prime-scale configurations that nearly minimize it. This is useful refinement of the established divisor product, not value attributed to an elementary variance computation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A squarefull ideal decomposes uniquely as \(A^2B^3\) with \(B\) squarefree. Ideal-counting and Möbius inversion yield (1) and (2), while rigorous partial summation yields (3) and (4). The hyperbola partition at \(x^{1/5}\) is exhaustive, all cross terms are counted once, the leading \(x^{2/5}\) artifacts cancel, and the remaining errors are \(O_K(x^{3/10}\log(2x))\). Five finite Gaussian-ideal coefficient comparisons provide independent spot checks, not the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The October 2026 primary theorem gives only a leading term with an error of order \(x^{1/3}\) in quadratic fields. The classical Bateman--Grosswald and Ivić--Shiu theories establish refined asymptotics for ordinary integers \(K=\mathbb Q\), not the ideal count for all degree-two fields. Searches under squarefull/powerful, ideal/norm, two-term/secondary, and Dedekind-zeta formulations did not identify a field-general result with the same secondary coefficient and smaller remainder. Older general multi-pole summation machinery or incompletely indexed papers could cover the formula; this is a literature-dependent residual risk.
+PASS
 
-## Mathematical value — PASS
-The paper's error \(O_K(x^{1/3})\) cannot resolve the first hidden pole-scale term. Obtaining the signed, arithmetic secondary coefficient and a genuinely lower-order remainder across every quadratic field answers that natural next-order counting problem; in particular the Gaussian count eventually lies below its leading prediction. The result is not presented as a sharp error estimate or an asymptotic uniform over fields.
+For a fixed quadratic K, the all-ideal norm coefficients are 1*chi_D. Splitting the corresponding pair sum at sqrt(y), bounded partial sums of chi_D give O_K(sqrt(y)) on the large-character-index portion and on the tail replacing the partial L(1,chi_D); flooring on the remaining part has the same error. This verifies the stated all-ideal estimate for real as well as imaginary quadratic K. The squarefree count follows by ideal Möbius inversion: the omitted N(J)^-2 tail is O_K(y^-1/2) and the accumulated errors are bounded by sqrt(y) times a harmonic norm sum. Abel summation of the all-ideal main term plus residual gives the claimed constant at sigma=2/3, since the integral of the residual continues zeta_K(s)-rho_K s/(s-1) into Re(s)>1/2; the analogous squarefree tail calculation gives 2 kappa_K Y^-1/2. Splitting exponents at each prime ideal by parity makes I=A²B³ unique with B squarefree and no coprimality condition. For T=x^1/5 all pairs lie in the union of the two strip counts, with a full overlap rectangle. The leading terms of size x^2/5 have coefficients -2,+3,-1 times rho_K*kappa_K and cancel. The remaining error sizes are x^1/2 T^-1 log(2T), x^1/4 T^1/4, x^1/3 T^-1/6, x^1/6 T^2/3 log(2x), and T^3/2 log(2T), all O_K(x^3/10 log(2x)). The Gaussian coefficient sign follows from positive alternating beta and eta at 2/3 and the negative factor 1-2^(1-2/3) converting eta to zeta. The unit ideal is included, real noninteger cutoffs use weak inequalities, and no claim of nonvanishing for general K is needed. The frozen checker was inspected, not executed; its finite Gaussian counts do not prove the asymptotic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The leading coefficient is already in Horikx–Pieropan's general m-full ideal theorem. The distinct supported claim resolves the secondary contribution at exactly the scale of that theorem's quadratic remainder, with an explicit smaller error. No broader prior result resolving that coefficient was identified in the sources checked.
+
+## value
+
+PASS
+
+The previous leading estimate leaves an entire natural secondary scale unresolved. The explicit second term and power-saving remainder distinguish a real arithmetic effect, including a definite negative secondary correction for the Gaussian field, rather than just shortening a remainder at an arbitrary exponent. The proof explains the cancellation that makes this second term measurable, across both real and imaginary quadratic fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

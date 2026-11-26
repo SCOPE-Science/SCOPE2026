@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:23:50.146260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–59; VERIFICATION.md line 19; verify_run_spectra.py (frozen evidence inspected)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py 3"
+      ],
+      "rationale": "For p>=5 the digit rule follows directly from the Laurent constant term under Frobenius: the least-significant digit factor has exponents of magnitude <p, so in taking the constant term only its exponent zero can match the higher factors. The recurrence excludes adjacent zero digits by descent, using invertibility of 3j, and T_0=T_1=1. From the generating function F and F=(1−2x−3x²)^((p−1)/2)F(x^p) modulo p, T_(p−1)=(-3)^((p−1)/2)≠0, so both boundary digits are allowed. With a nonempty forbidden set, consecutive admissible integers in a full block have a shared high prefix, change one digit to its successor in the ordered allowed alphabet, and reset the lower j digits from p−1 to 0. Their distance is 1+(d'−d−1)p^j. Isolated forbidden digits make d'−d either 1 or 2; each of the z single-digit holes occurs with a^(L−j−1) high prefixes, and both block endpoints are allowed. This proves exactly the zero runs of length p^j with the stated counts and global maximality, using the most significant forbidden digit for the equivalent block construction. For nonzero runs, each allowed high prefix gives the interior gaps and the two edge pieces. Each adjacent allowed high-prefix pair joins precisely one right and one left piece. The carry changes one digit across one of p−1−2z adjacent allowed pairs, giving the stated E; distinct mergers cannot span another run inside a length-p block since that block has a zero. The 0,1 pair ensures a join for L>=2, and the largest joined or interior run is strictly below p and attained globally. For z=0 all indices are allowed; no finite uniform nonzero-run bound is asserted. Independent direct modular polynomial convolution verified both histograms on seven (p,L) cases, including zero-free, one-hole, and two-hole alphabets.",
+      "residual_risks": [
+        "All conclusions use the explicit p>=5 domain. The proof's introductory reference to a least significant forbidden digit does not describe its partition; the subsequent construction correctly uses the most significant one. The formula for M_p as a finite maximum requires z>0 and L>=2. Nonzero finite-block endpoint runs may be truncated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noe and Kohen give general settings for the digit law",
+          "Rampersad–Shallit Thm. 8 proves no term vanishes modulo 5 and gives properties of the residue word; Thm. 7 treats modulo 3"
+        ],
+        "reasoning": "A pointwise digit law or congruence automaton can generate individual blocks and the p=5 statement covers an exact special case. The general congruence and density results do not state how maximal consecutive stretches split and merge across the carry boundaries.",
+        "searches": [
+          "Noe §8 Thm. 8.5; Kohen Prop. 7; Rampersad–Shallit §3 Thms. 7–8"
+        ]
+      },
+      "checked_sources": [
+        "Noe JIS 06.2.7; Kohen arXiv:2411.03681; Rampersad–Shallit EJC 29(3) P3.36; Walker–Walker arXiv:1809.02430",
+        "Resultary cf0bbc600bc7, 4fe2bd4eb307, 3bd48a854dec, 2cd4f80ef4e0, e9c9cfbae1e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise product gives allowed indices, and modulo-five absence yields the trivial one-run census for that single prime",
+          "Preserving an allowed leading prefix while carrying across allowed digit pairs is the operative step in the exact multiplicities for z>0"
+        ],
+        "reasoning": "The new portion needs the isolation of forbidden digits, counting at a changeable digit position, and exact edge mergers; it is not a direct substitution into any retrieved census. The underlying digit-block argument could also apply to other isolated-hole alphabets; that does not establish prior coverage of this result.",
+        "searches": [
+          "Compare Noe Thm. 8.5 and Kohen Prop. 7 with Rampersad–Shallit Thm. 8 and Resultary 4fe2bd4eb307"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noe Thm. 8.5 and Kohen Prop. 7 give the equivalent digit-language formulation",
+          "Walker and Walker Prop. 2.2 studies arithmetic progressions in such sets, not adjacent spacing multiplicities",
+          "Resultary 2cd4f80ef4e0 treats gaps between Stern zeros modulo 3"
+        ],
+        "reasoning": "The one-letter and longer forbidden intervals can be formulated as spacings of ordered allowed digit strings. No inspected source supplies the equivalent ordered-spacing histogram together with the unit-spacing cluster counts for the trinomial digit alphabets.",
+        "searches": [
+          "Central trinomial maximal runs modulo prime; missing-digit Kempner consecutive spacings and exact multiplicities; Resultary run/gap spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cf0bbc600bc7 is the bound record",
+          "4fe2bd4eb307 gives the exact mod-5 residue triple spectrum (40 of 64), not run counts at all primes",
+          "3bd48a854dec counts six-term progressions on the modulo-seven support",
+          "e9c9cfbae1e4 concerns the longest nondivisible interval within a fixed Pascal row"
+        ],
+        "reasoning": "Neither the same-day related records nor the neighboring Pascal/Stern tables are the claimed joint histogram. The shared date cannot be used to infer priority.",
+        "searches": [
+          "Resultary exact central-trinomial mod-p run spectra, central trinomial gap statistics and exact nondivisibility stretches"
+        ]
+      },
+      "rationale": "Supported distinct result is the joint exact finite-block length census and sharp global bound when the digit alphabet has a hole, not the digit-product theorem, admissible population, or the known p=5 zero-free case. Related primary and catalog statements inspected do not give these exact multiplicities or the jointly sharp dichotomy.",
+      "residual_risks": [
+        "An implicit or unindexed exact spacing theorem for missing-digit sets may exist. A bounded keyword miss is not evidence of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers pointwise divisibility",
+          "evidence": "A term vanishes modulo p iff a digit term vanishes modulo p.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+          "material_read": "PDF p. 6, Theorem 8.5 and reference to (13)",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+          "trigger": "Exact pointwise divisibility and possible stronger result"
+        },
+        {
+          "assessment": "General digit-product framework, not an evaluated run census in inspected material",
+          "evidence": "Product for Laurent-polynomial power constant terms, including the generalized central trinomial sequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.03681",
+          "material_read": "PDF p. 7 Prop. 7",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Density and Symmetry in the Generalized Motzkin Numbers mod p",
+          "trigger": "Digit characterization and density claims"
+        },
+        {
+          "assessment": "Explicit prior overlap for the p=5 zero-free case",
+          "evidence": "Theorem 8 proves there are no multiples of 5, and gives additional residue-word properties. Thm. 7 concerns p=3.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p36/pdf",
+          "material_read": "PDF pp. 6–7, §3, Thms. 7–8",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland–Yassawi–Zeilberger Automaton",
+          "trigger": "Consecutive structure of the mod-p sequence"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Descent on the common difference proves the length bound p−1 for a proper prime-base Kempner set, not a census of consecutive runs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.02430",
+          "material_read": "PDF p. 3, Prop. 2.2 and proof (offset 8917)",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Arithmetic Progressions with Restricted Digits",
+          "trigger": "Generic restricted-digit-set comparator returned by the spacing search"
+        },
+        {
+          "assessment": "Compatible with zero-free subcase; different statistic",
+          "evidence": "Counts finite and limiting distributions of residue triples at p=5.",
+          "identifier_or_url": "4fe2bd4eb307",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror",
+          "title": "Forty-word triple spectrum of central trinomial residues modulo five",
+          "trigger": "Exact block statistics of related residue words"
+        },
+        {
+          "assessment": "Different sequence and spectrum",
+          "evidence": "The six distances 2,3,4,5,6,8 for consecutive modulo-three zeros of Stern’s sequence are not the central-trinomial run lengths.",
+          "identifier_or_url": "2cd4f80ef4e0",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror",
+          "title": "Exact six-gap law for ternary zeros of Stern’s diatomic sequence",
+          "trigger": "Closest catalog gap census analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof; Noe Thm. 8.5; Kohen Prop. 7"
+      ],
+      "rationale": "Run lengths are intrinsic to the natural ordering of this classical sequence, and complete base-p blocks are matched to the Lucas product. Density alone misses the coexistence of arbitrarily long divisible stretches and a uniformly bounded sharp maximum of nondivisible stretches. Exact multiplicities with endpoint accounting clarify how holes propagate across scales, and give more information than the admissible population or example runs.",
+      "residual_risks": [
+        "Not an exact law for arbitrary cutoffs, higher valuations, or a classification of all primes with nonempty digit holes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

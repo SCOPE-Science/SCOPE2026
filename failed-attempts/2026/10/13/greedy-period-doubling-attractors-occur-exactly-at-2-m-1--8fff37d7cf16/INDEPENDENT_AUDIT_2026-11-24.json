@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:02:05.980274Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prefix-window induction is valid: for length 2^m through 2^(m+1)−1 the word is P_m followed by a prefix of H_m. Occurrences avoiding position 2^m−1 are represented in the leading H_m, which is attracted by the previous positions. For the forcing direction an occurrence of P_r with r≥1 begins 10, so it is aligned at an even index and desubstitutes to one of the positions at the preceding level; the three starts at r=0 are 0,2,3. In the next complete prefix only the occurrence at 3·2^(k−2) has the correct predecessor for the forcing factor, whose start exceeds every previously chosen point. The length-one and length-two cases start the induction. A least-failing endpoint repairs all newly unhit factors, as each must be a suffix of that prefix. Linear recurrence follows also from primitivity of the substitution, and the optimum and ratio follow from the cited published prefix theorem. Independent check `python3 /workspace/branches/independent_examples.py 2` reproduced the first 128 symbols' greedy selections from the independent one-based v2-parity word formula; this finite replay is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 21 of Schaeffer–Shallit gives O(A_w log N) for their greedy rule, not equality or the selected positions. Theorem 3 gives optimum two for every prefix of length at least two.",
+          "Banbara et al. describe the two minimum pairs at complete substitution lengths using one-based positions. A prefix-by-prefix greedy process does not choose such per-word optimizers."
+        ],
+        "reasoning": "The general and finite-optimum work provides essential context but does not by itself give the novel-looking greedy formula; exact coverage comes from the distinct indexed finding.",
+        "searches": [
+          "arXiv:2012.06840v6 Definition 19, Theorems 3 and 21",
+          "arXiv:2602.16152v1 period-doubling minimum pairs"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-344443ea5b69 RESULT.md",
+        "arXiv:2012.06840v6",
+        "arXiv:2602.16152v1",
+        "Frozen proof, VERIFICATION.md, verify.py and certificate.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof covers the same entire dyadic windows and forces the next point using the unique Q_k suffix argument; the assigned proof uses a shorter last(P_r)P_r factor derived from a three-occurrence lemma.",
+          "With equal exact counts and the same optimum two, the indexed result gives the same ratio (1+floor(log₂ N))/2 without any further theorem."
+        ],
+        "reasoning": "The changed intermediate factor does not alter the theorem. No independently motivated new occurrence classification with a distinct application is established by the frozen finding.",
+        "searches": [
+          "SCOPE-344443ea5b69, proof and relationship to prior work, offsets 974 and 3576",
+          "arXiv:2012.06840v6 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-344443ea5b69, Finding and Assumptions, use μ(1)=10, μ(0)=11, zero-based positions and exactly the same least-failing-prefix rule.",
+          "They state G={2^k−1:k≥0} and the same cardinality and logarithmic separation from optimum."
+        ],
+        "reasoning": "Renaming the morphism or substitution-level indices makes the statements identical; no switch from zero-based to one-based indexing is necessary for the competing catalogue claim.",
+        "searches": [
+          "Resultary: exact greedy string attractor, period-doubling",
+          "site:arxiv.org \"period-doubling\" \"string attractor\" greedy 2^m-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The competing catalogue Finding gives the exact infinite set and count for all N≥1, stronger than a table of finite replay positions.",
+          "The Schaeffer–Shallit comparison's explicit optimal pairs concern optimum and not greedy output."
+        ],
+        "reasoning": "The indexed exact formula dominates any finite sequence or binary-power sample. The frozen certificate is internal finite evidence, not a distinct database entry or contribution.",
+        "searches": [
+          "Resultary SCOPE-344443ea5b69, exact formula and counting statement",
+          "arXiv:2012.06840v6 §3, period-doubling prefix optimum"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding states the identical fixed point, greedy rule, exact positions, prefix count, optimum and logarithmic separation. The alternative forcing suffix is a proof device and not a distinct substantive conclusion. This is mathematical coverage, not a claim of dependence or of a particular historical derivation.",
+      "residual_risks": [
+        "This identifies an exact distinct catalogue record, not historical priority or proof dependence. The bounded external search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage, no claim about provenance of either proof",
+          "evidence": "States the same greedy formula, prefix count, optimum and separation; derives the same conclusion using a different forcing factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69/RESULT.md",
+          "material_read": "Finding, scope and proof opening (offsets 0–1745); forcing proof and relationship passages (offsets 974 and 3576)",
+          "method": "Local Resultary mirror and statement-level inspection",
+          "title": "Exact greedy string attractor of the period-doubling word",
+          "trigger": "Exact indexed match returned for the same period-doubling word and greedy rule"
+        },
+        {
+          "assessment": "Exact rule and optimal count, general bound rather than the dyadic greedy formula in the inspected passages",
+          "evidence": "Theorem 3 gives the prefix optimum; Definition 19 and Theorem 21 specify the greedy rule and logarithmic upper bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.06840",
+          "material_read": "v6 §3 pp.4–5 and Definition 19 / Theorem 21 pp.16–17, offsets 8840, 10194 and 40248–42126",
+          "method": "Lawful OA original text and targeted primary literature search",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Original greedy rule and optimum theorem"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "For n≥3 the minima for D_n are the two one-based pairs {3·2^(n−3),6·2^(n−3)} and {4·2^(n−3),6·2^(n−3)}.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "v1 p.2, minimum pairs statement around offset 6953",
+          "method": "Lawful OA original result comparison",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Exact finite dyadic period-doubling classification may look like greedy positions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The objective is scientifically motivated: an exact logarithmic separation on a canonical linearly recurrent automatic word demonstrates tight greedy behavior even with a constant optimum. That fact is substantive, but this record does not contribute a distinct instance or result beyond the identified coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

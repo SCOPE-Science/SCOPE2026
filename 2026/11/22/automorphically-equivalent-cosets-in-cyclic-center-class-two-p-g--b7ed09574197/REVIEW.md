@@ -1,19 +1,21 @@
-# Review of cyclic-center automorphically equivalent pairs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof gives an intrinsic class-two symplectic reduction, distinguishes the two possible exponent types through the \(p\)th-power functional, constructs automorphisms for every coset of the derived subgroup, and proves an explicit orbit-transitivity property for the index-\(p\) subgroup. A normal-subgroup exhaustion eliminates all other cases. All hypotheses, the odd-prime restriction and the center-size boundary are essential to the argument. Exact finite all-subgroup and all-automorphism enumeration corroborates the two classes at order 81; these computations are not used as a substitute for the all-rank proof.
+PASS
 
-## Originality
+Conjugation on the order-p derived group is trivial by coprime orders, and [x^p,y]=1. The pairing on G/Z is nondegenerate alternating, so |G|=p^(2n+k). The pth-power map modulo Z^p is linear because the commutator correction in the pth power vanishes for odd p. Its kernel consists precisely of the classes with order-p lifts (except the zero class can lift to identity), and its complement has order p^(k+1) lifts. The symplectic lift presentations follow by correcting powers in Z^p; the displayed bilinear and carry terms are genuine cocycles and give the specified center and commutator, hence realize both types. Noncentral G' cosets are conjugacy classes; the indicated center-unit automorphisms realize the central external G' cosets. A larger central N changes the order of y_1 in an external coset. Noncentral N must contain Z by the central/noncentral obstruction; a subspace in the central quotient other than ker(lambda) admits an external coset with distinct orders, and no subspace works when lambda is zero. Finally for any generator-order g outside Omega_k, c'=g^p generates Z and [g,y_1]=(c')^(p^(k-1)). In the complementary plane decomposition take the symplectic basis normalized using the commutator generator (c')^(p^(k-1)), i.e. rescale the original pairing by the inverse of the nonzero value lambda(gZ). This makes the lifted generating frame satisfy the same presentation and proves transitivity. The checker.py was inspected, not executed; it enumerates the two order-81, rank-one examples and does not prove the unbounded-rank statement.
 
-**PASS, provisional historical priority.** McCulloch and Tărnăuceanu's 2026 theorem is explicitly for abelian groups, with a request for nonabelian classes. Kumar and Pradhan's 2019 automorphism-orbit theorems require an extraspecial group with center *equal* to the order-\(p\) derived subgroup and do not cover a cyclic center of order at least \(p^2\). The 2025 equal-order literature concerns a strictly weaker relation: Proposition 3.2 handles central equal-order pairs and its subsequent remark gives a sufficient \(\Omega\)-inclusion for noncentral equal-order pairs, but neither establishes an automorphism orbit result. Statement-level and parameter-level searches found no prior theorem assigning exactly these one-versus-two normal-subgroup spectra in the present family. Unindexed specialized literature may still contain an equivalent orbit-theoretic classification.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The theorem addresses a named open extension of automorphic-coset classification, completely identifies all proper nontrivial normal subgroups for an infinite nonabelian class with arbitrary symplectic rank and cyclic-center length, and exhibits a sharp exponent-dependent change in the answer. The required index-\(p\) transitivity is a substantive global orbit property, not merely an element-order argument or a renaming of the known extraspecial case.
+The novelty assessed is the full two-exponent classification of qualifying proper nontrivial normal subgroups for k>=2, not the definition, the order obstruction by itself, or the extraspecial k=1 orbit theorems. No compared source establishes that classification. The distinct sufficiency work is the central lift and generator-order orbit in this class.
 
-## Scientific limitations
+## value
 
-The two-primary case, noncyclic centers, derived groups of order larger than \(p\), and independent mathematical validation remain outside the established conclusions. Older unknown orbit classifications are a residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves the motivating coset question for an unbounded-rank nonabelian class. The answer gives the exact subgroup list, not just necessary orders, with a sharp exponent-controlled appearance of a characteristic maximal subgroup. The higher-center case is not just a smaller or renamed extraspecial instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

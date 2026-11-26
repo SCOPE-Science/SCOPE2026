@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:22:25.813438Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Plancherel with zero extension gives T*T=(1+r²)I+r(S_h+S_h*) for h=2η; neither diagonal term is clipped in the stated codomain. Reindexing the input interval by residue mod h is a unitary map to the sum of L² fiber intervals tensored with finite path spaces. At integral q the only length is q a.e.; at nonintegral q the two listed lengths occur on intervals of the stated positive measures, except the omitted length zero when q<1. Sine diagonalization gives the entire finite spectral list, with each eigenvector tensored with a separable infinite-dimensional L² space. Coprimality of consecutive denominators excludes duplicate cosine fractions, including in the case of only length one. The extrema come from length m and are attained on a set of positive measure. The lower Gram eigenvalue is (1−r)²+2r(1−cos(π/(m+1)))>0. For r=1 the half-angle formulas give the inverse bound, condition number and η↓0 limit, and the ceiling gives the one-sided jump at each exact threshold. The packaged finite checks are not a proof of the fiber or spectral assertions and were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources give multiplier norm comparisons with implicit constants and conditions on Fourier support, respectively. The third gives the exact spectrum of translation composition on a Paley–Wiener space."
+        ],
+        "reasoning": "The broad mapping results do not diagonalize the Gram operator. Translation composition is multiplication by a Fourier-side symbol; here multiplication on the physical side leads instead to off-diagonal Fourier-side shifts.",
+        "searches": [
+          "arXiv:2611.21261 Theorem 3.15",
+          "arXiv:1006.2793 Theorem 2.2(b)",
+          "arXiv:2508.19975v3 Proposition 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and Relationship to prior work; VERIFICATION.md; two_tone_check.py inspected without execution",
+        "Resultary records b73074891f44 and bf78fc92d364",
+        "arXiv:2508.19975v3; 1006.2793; 2611.21261; 2506.18646v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No inspected prior statement supplies the simultaneous two adjacent path spectra for the compressed interval translation; at integer ratios the longer fibers disappear in measure and cannot contribute an eigenvalue."
+        ],
+        "reasoning": "A prior exact continuous interval fiber theorem would immediately imply the Gram result. The verified finite cosine formulas give spectra conditional on length, but leave the essential direct-sum decomposition and endpoint bandwidth phenomenon to be established; the inspected results do not give that implication.",
+        "searches": [
+          "arXiv:2506.18646v2 p. 16",
+          "arXiv:2611.21261 Theorem 3.15",
+          "Resultary: bf78fc92d364 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent claim is the full self-adjoint spectrum of the sum of an interval-compressed translation and its adjoint, not the spectrum of the translation alone (which is {0}). Liang–Partington p. 16 gives a spectrum formula on nearly S*-invariant model subspaces."
+        ],
+        "reasoning": "There is no identification in the inspected overlapping passage that furnishes the two adjacent chain lengths on positive-measure sets. The finite nilpotent shift and its cosine numerical radius alone do not establish all eigenvalues of this continuous compression.",
+        "searches": [
+          "Resultary: two-tone Paley–Wiener multiplier exact Gram spectrum / sharp gains",
+          "Primary search: numerical range and spectrum of a truncated continuous translation or interval Toeplitz compression",
+          "arXiv:2506.18646v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact hit is the same frozen record; the distinct hit optimizes a two-dimensional exponential span sampled on two intervals. The path cosine spectrum is a known exact finite list."
+        ],
+        "reasoning": "The exact hit supplies no independent coverage. The comparable catalogue finding and finite path list do not tabulate the bandwidth-dependent multiplicity, appearance or disappearance of levels in this infinite-dimensional operator.",
+        "searches": [
+          "Resultary: complete spectrum of two-frequency Paley–Wiener multiplication, adjacent path lengths and sharp stability",
+          "SCOPE-quantized-singular-spectra-and-sharp-stability-of-two-tone-paley--b73074891f44",
+          "SCOPE-tight-exterior-energy-resonances-and-parity-switching-for-two-fr--bf78fc92d364"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the full positive-measure fiber spectrum and attained sharp gains of this two-tone multiplier. The known finite path spectra and the Fourier translation identity are ingredients, not separate originality claims. Neither the related catalogue result nor the inspected primary exact spectral or multiplier results cover the adjacent-length compressed translations needed here.",
+      "residual_risks": [
+        "An unlocated exact diagonalization of interval-compressed translations (or the equivalent self-adjoint truncated Toeplitz operator) would cover the main spectral claim even if not stated for Paley–Wiener multipliers.",
+        "The literature check is bounded and does not imply universal historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent prior evidence",
+          "evidence": "Same Gram formula and same positive-measure path decomposition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-quantized-singular-spectra-and-sharp-stability-of-two-tone-paley--b73074891f44",
+          "material_read": "RESULT.md Finding and Proof §§2–4; offsets 0 and 3980",
+          "method": "Local Resultary mirror original text",
+          "title": "Quantized singular spectra and sharp stability of two-tone Paley–Wiener multipliers",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Related invariant, different operator",
+          "evidence": "A two-dimensional span of exponentials is used to measure energy transfer between finite intervals; not multiplication on a whole bandlimited Hilbert space.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-tight-exterior-energy-resonances-and-parity-switching-for-two-fr--bf78fc92d364",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror original text",
+          "title": "Tight exterior energy resonances and parity switching for two frequencies",
+          "trigger": "Distinct two-frequency sharp energy result"
+        },
+        {
+          "assessment": "Exact spectral result for different operator",
+          "evidence": "For physical translation composition with c=1 its spectrum is {exp(idt): t∈[−a,a]}.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.19975v3",
+          "material_read": "Proposition 3.3, pp. 6–7, offset 19480",
+          "method": "OA primary passage",
+          "title": "Expansivity and shadowing for composition operators on Paley–Wiener spaces",
+          "trigger": "Spectrum of Paley–Wiener operators"
+        },
+        {
+          "assessment": "Support result, not covering sharp gains",
+          "evidence": "Conditions control bandwidth and Fourier support, not eigenvalues of a multiplier Gram operator.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.2793",
+          "material_read": "Theorem 2.2(b), pp. 3–4, offset 8604",
+          "method": "OA primary passage",
+          "title": "On the range of composition operators on spaces of entire functions",
+          "trigger": "Weighted composition and bandwidth mapping"
+        },
+        {
+          "assessment": "Boundedness/compactness and norm comparison, not exact Gram spectrum",
+          "evidence": "Norm comparisons have unspecified constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.21261",
+          "material_read": "Theorem 3.15, p. 41, offset 132157",
+          "method": "OA primary passage",
+          "title": "Analytic tools and weighted composition operators on Paley–Wiener spaces",
+          "trigger": "Broader multiplier theory"
+        },
+        {
+          "assessment": "Relevant machinery in a different setting; no interval-chain formula established by the passage",
+          "evidence": "The spectral formula concerns a shift on a nearly S*-invariant subspace.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.18646v2",
+          "material_read": "p. 16, offset 46050, spectral formula for the model subspace setting",
+          "method": "OA primary passage",
+          "title": "Liang–Partington shift spectra on nearly invariant model subspaces",
+          "trigger": "Plausible compressed-shift equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a minimal nonconstant multiplier for which a pointwise zero of the symbol makes a naive lower bound useless. The exact inverse gain specifies the attainable stability and condition number, including discontinuities at bandwidth thresholds, and the full spectral levels distinguish the short and long chains. This is useful beyond a mere norm estimate or the known finite path computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

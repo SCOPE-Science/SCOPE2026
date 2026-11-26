@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:11:53.386419Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–65; VERIFICATION.md and checker.py (inspected, not executed)",
+        "evidence/02_pascal.py and evidence/02_pascal.txt; stand-alone replay with Python 3",
+        "Independent integer-coefficient replay on a separate finite selection of p and r"
+      ],
+      "rationale": "The exact ratio a/(b+1) and unit status force equal valuations j, with j<r since both a and b+1 are below p^r. Below j Lucas's no-carry criterion forces digits (0,p−1,0). At j the positive digits x of a and y of b+1 give quotient x/y and third digit in [0,p−x−y]; above j the digit triples are unchanged and there are Q_p choices per place. These conditions are sufficient too: the two decisive digit sums coincide, and the carry-free digits ensure n<p^r. This gives the geometric factor and, by stars and bars, the total binom(p+1,3)S_r. On replacing y by p−t, the permutation displacement formula gives N_p=p−1+sum(π(t)−t−1)_+. For multiplier −u other than 1, t=1 witnesses strictness if its representative is at least 3; t=2 witnesses it for representative 2 when p>=5. Away from u=−1, reflection pairs opposite nonzero displacements, giving N_p=(p−1)/2+F(π)/2. Summing crossings over all cuts bounds F by 2m² for m=(p−1)/2; saturation at the middle cut forces the halves to exchange, which then saturates every cut. This implies u stabilizes the lower half, whose sum is −1/8 mod p, so u=1. Direct p=3 gives the tie. In the binary restriction c=0, only x+y<=p matters: every y works at u=−1 and exactly one of each reflected pair works otherwise, so the reversal comparison is correct. My independent bounded Pascal recurrence builds the full trinomial rows modulo p and forms quotients from actual nonzero residues. All tested histograms match, including p=5,r=3 and p=11,r=2.",
+      "residual_risks": [
+        "Only the digit and extremum proofs supply the infinite prime/depth quantifiers; the replay is finite and divisions are restricted to units."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lane p. 1 gives the Lucas digital product and studies counts of individual binomial residues",
+          "37b1e7bbed06 gives the all-depth two-coordinate neighboring quotient law, with −1 frequency (p−1)S_r and other values (p−1)S_r/2"
+        ],
+        "reasoning": "Lane's coverage is an individual marginal; the binomial statement covers the c=0 restriction but not the full three-coordinate weighted count. Neither proves the ternary extremum reversal.",
+        "searches": [
+          "arXiv:1409.3820 Lucas generalizations; arXiv:2309.12942 individual residue laws",
+          "Resultary 37b1e7bbed06 adjacent nonzero Pascal quotients"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof and prior-work comparison",
+        "Resultary 37b1e7bbed06",
+        "arXiv:2309.12942 and arXiv:1409.3820, cited passages; attempted Deutsch–Sagan and Garfield–Wilf full texts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary theorem counts surviving (x,y) once; the ternary count weights by the slack plus one",
+          "The extremal conclusion uses the equality condition of the cut bound and the nonzero lower-half sum in F_p"
+        ],
+        "reasoning": "The binary spectrum forgets the distribution of slack within each ratio class. One needs new counting and equality analysis to infer the weighted law and the reversed extremum; these are not substitutions into the binary table or Lucas's theorem.",
+        "searches": [
+          "Compare Meštrović pp. 21–22 and Lane p. 1 with the 37b1e7bbed06 finite-spectrum theorem",
+          "Resultary searches on modular-multiplication permutations and floor sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact three-coordinate hit was the assigned record. Meštrović discusses multinomial/central-trinomial Lucas congruences for individual coefficients or sequences",
+          "Equivalently the target counts lattice pairs on a modular ray in x+y<=p with multiplicity p+1−x−y, or evaluates a multiplication-permutation displacement sum"
+        ],
+        "reasoning": "The individual coefficient digit congruences are background for admissibility, not the specialized joint weighted permutation statistic. No distinct accessed source supplied this statistic under an alias.",
+        "searches": [
+          "Resultary: adjacent unit trinomial quotient spectrum, digital and modular-permutation or floor-sum formulations",
+          "arXiv:1409.3820 pp. 21–22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "37b1e7bbed06 gives the full binary frequency profile, not the ternary histogram; the frozen ternary table for p=5 is [6,5,5,4]",
+          "The cited Garfield–Wilf article was located but its full text could not be read"
+        ],
+        "reasoning": "The only observed exact trinomial profile was the assigned record. A table of individual residues or even the full unweighted binary ratio profile would not determine the weighted ternary rates.",
+        "searches": [
+          "Resultary searches on adjacent three-part quotients and sharp extrema",
+          "Resultary 37b1e7bbed06 finding; Garfield–Wilf DOI 10.1016/0022-314X(92)90078-4"
+        ]
+      },
+      "rationale": "The evidence supports a distinct three-coordinate weighted quotient spectrum and sharp unique reversal; the carry-free criterion, standard cut bound and binomial transfer case are not new. No inspected separate result supplies the ternary weighting and its pair of unique extrema. Identical indexing of the assigned record is not independent evidence; same-day overlap in the two-coordinate case gives no priority conclusion.",
+      "residual_risks": [
+        "An implicit equivalent in unexamined joint digital-arithmetic, modular permutation or floor-sum literature remains possible. Primary text for the two inaccessible cited papers was not inferred from snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest comparison, two coordinates and opposite bias",
+          "evidence": [
+            "Frequency at −1 is twice every other nonzero ratio frequency"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-adjacent-nonzero-pascal-quotients-an-all-prime-exact-spectrum-an--37b1e7bbed06/RESULT.md",
+          "material_read": "Finding at opening offset 0",
+          "method": "Local published-record mirror",
+          "title": "Adjacent nonzero Pascal quotients: an all-prime exact spectrum",
+          "trigger": "Same transfer and digit cutoff on neighboring binomial coefficients"
+        },
+        {
+          "assessment": "Individual residue law, not a joint quotient spectrum",
+          "evidence": [
+            "Digit-product formula and counts of entries of a given residue in Pascal's triangle"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.12942",
+          "material_read": "p. 1, abstract and Lucas setup, offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotic Distribution of Residues in Pascal’s Triangle mod p",
+          "trigger": "Modular Pascal residue spectra"
+        },
+        {
+          "assessment": "Known digit identities, no weighted adjacent law in inspected passages",
+          "evidence": [
+            "Deutsch–Sagan Lucas property for central trinomial sequence and digit formula for central binomial coefficients"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.3820",
+          "material_read": "pp. 21–22, around offset 60200",
+          "method": "OA PDF passage inspection",
+          "title": "Lucas’ theorem: its generalizations, extensions and applications (1878–2014)",
+          "trigger": "Multinomial digit-transfer background"
+        },
+        {
+          "assessment": "Detailed primary coverage unresolved; not used as proof of absence",
+          "evidence": [],
+          "identifier_or_url": "10.1016/j.jnt.2005.06.005; 10.1016/0022-314X(92)90078-4",
+          "material_read": "No decisive primary full-text passage retrieved; Deutsch–Sagan coverage seen through Meštrović pp. 21–22",
+          "method": "Bounded lawful OA attempts including cited author copy for Deutsch–Sagan",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences; The distribution of the binomial coefficients modulo p",
+          "trigger": "Cited primary multinomial and individual-residue distribution work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–28 and 35–60; binomial comparison Resultary 37b1e7bbed06"
+      ],
+      "rationale": "Conditioning on units makes the ratio of neighboring coefficients a natural statistic not fixed by single-entry residue laws. The exact spectrum at every depth and the change from unique most-frequent to unique least-frequent at −1 distinguish adding a third coordinate from merely repeating the binary construction. The weighted finite sum and sharp extrema are useful exact benchmarks for analogous digital transfer laws.",
+      "residual_risks": [
+        "No closed expression faster than the finite sum or general statement for arbitrary coordinate count or nonunit coefficients is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

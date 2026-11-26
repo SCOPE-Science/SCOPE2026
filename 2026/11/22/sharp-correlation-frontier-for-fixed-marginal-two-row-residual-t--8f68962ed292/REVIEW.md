@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update uses the unnormalized sum-gradient estimator and cached residuals from before the iteration. Each sample map is specified, and the second-moment operator is derived by averaging all four possibilities. An exact quadratic form has conditional drift equal to twice \(F(h,u)e^2\). The two-by-two energy block is positive throughout the proposed stable interval; at the all-or-none endpoint the omitted tracker-difference direction still decays through the explicit tracker replacement recursion. At and beyond the threshold, the moment operator has an eigenvalue at least one, so uniform mean-square decay for all initial states is impossible. The full covariance map gives deterministic witnesses above the boundary. Exact arithmetic verifies the critical identities; numerical spectral checks do not replace proof.
+PASS
 
-## Originality — PASS, with priority risk
+The result concerns iid pre-update cached residual tracking on A=(1,1)^T, fixed positive unnormalized h and arbitrary finite deterministic starts. The update gives conditional mean estimator 2e and each tracker is replaced with probability 1/2, independent of the past. A separate symbolic reconstruction from the update verified the four state maps, the moment operator on (E e²,2E et,E t²,E d²), det(I−T)=−hF with F=3h²+3uh+u−1, and the conditional energy drift 2F e². It also checked the (e,t) principal-minor identities: the bracket in the determinant is concave in h and strictly positive at 0 and h_*, and a is positive there in the stated limiting sense. The energy is nonnegative even at u=1/2, when the d coefficient vanishes. Below the root summability forces E e²→0, and E z_i,next²=(E e²+E z_i²)/2 gives joint convergence. At equality det(I−T)=0; above, the monic characteristic polynomial is negative at 1 and positive for sufficiently large argument, giving a real eigenvalue λ>1. A real left eigenvector defines a nonzero quadratic functional on initial states (the four coordinate monomials are linearly independent); choose a deterministic start with nonzero value. Its expectation scales by λ^k while its absolute value in expectation is bounded by a constant times E(e²+t²+d²). This proves failure at λ=1 and a uniform exponential lower bound for the chosen start at λ>1. Implicit differentiation and exact substitutions verify the threshold ordering and three constants, including the fixed-marginal endpoints. Replay: independent_check.py and independent_check.txt under /workspace/branches/8e414a4a-bf90-404e-9757-14a39b7bc5bd/; the frozen verify.py was inspected, not executed. Recorded 709 checks are ancillary and no Lean or expert certification is asserted.
 
-The source algorithm supplies arbitrary subset sampling but not the sharp correlation-dependent threshold. General arbitrary-sampling SAGA prior theory supplies sufficient complexity bounds. The closest published exact calculations concern exactly one selected row per iteration: nonuniform singleton probabilities on two rows and uniform singleton sampling on any number of rows. Those do not imply a sharp ordering for distributions containing empty and two-row subsets at fixed row marginals. Searches by algorithm names, subset correlation, identical-row specializations, variance/covariance and equivalent SAGA/JacSketch formulations did not reveal the same classification. Unindexed equivalent derivations remain possible; this review does not assert exclusive worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-The result isolates a materially important design distinction: sampling frequency and expected minibatch cost alone fail to determine robust stochastic stability. The sharp endpoints differ by a factor above 2.5 on a fully coherent, perfectly conditioned least-squares problem. A complete boundary and exact mathematical certificate provide a reproducible stress test for correlation-aware subset-sampling designs, rather than a routine stepsize example.
+The distinct claim is the exact all-u stability frontier at common marginals and common expected row count, including a witnessed loss of stability, not invention of the arbitrary-sampling tracker, covariance method or the uniform-singleton ceiling.
 
-## Closest literature and limitations
+## value
 
-The primary method is Xie–Qi–Han (arXiv:2610.39537v1). Qian–Qu–Richtárik (arXiv:1901.08669) treat arbitrary-sampling SAGA; Gazagnadou–Gower–Salmon (arXiv:1902.00071) treat minibatch SAGA. Published exact singleton frontiers supply the closest specialized comparisons. This is a two-row rank-one robust all-initialization statement; no optimality for arbitrary systems, computational cost, or practical noise is claimed. No independent mathematical audit or exhaustive priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Holding both per-row marginals and expected batch size fixed isolates the effect of co-inclusion in a minimal cached estimator. The exact decreasing ceiling and existence of unstable starts quantify a failure of marginal information to determine stability; this is useful as a benchmark for arbitrary-sampling stepsize bounds, not as a rate or runtime optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Running `python verify.py` in the extracted package requires only Python's standard library and the supplied `classification.csv`. The program enumerates all 8192 possible radius-two rules on the 13 legal five-blocks and exhaustively checks their 21 preservation constraints. For each of the 229 surviving rules it closes the finite subset predecessor automaton and returns either an exhaustive no-omission certificate or the shortest omitted legal word.
+## correctness
 
-The executable checks the exact distribution of obstruction lengths, the unique mask `4132`, the 11 surjective rules, the five coordinate shifts, all six periodic collisions establishing noninjectivity, and the radius-one baseline. Independently of the subset closure, it directly generates all 196418 valid input words of length 25 and verifies the exact two excluded 21-blocks for the extremal mask.
+PASS
 
-Scope limits: these checks prove only the finite-state statements formulated in the accompanying proof. Completeness at every output length follows from the fully explored finite subset graph, not from extrapolating the direct 21-block enumeration. No independent human audit or external certification has been performed.
+Each admissible input block extends bi-infinitely by zeros, so the 13 local values determine distinct maps and all 21 tests for two adjacent 1 outputs are necessary and sufficient. In the labeled graph on admissible four-blocks, a path corresponds to an overlapping legal input block, and conversely; hence its label appears in the image exactly when the endpoint subset is nonempty. The subset and last bit capture both continuation constraints. Breadth-first closure is exact at all lengths, and equality of finite languages implies equality of the two-sided shifts by compactness and shift invariance. Independent enumeration reproduces the 229 maps, 11 onto codes, 5 shifts, all six periodic collisions, every shortest-omission count and all 229 exact classification.csv rows. The unique mask with shortest omission of length 21 is 4132. Separately generating all 196418 legal length-25 inputs produces 28655 of 28657 legal length-21 words, with precisely the two stated reverse omissions and the complete length-20 prefix language. Radius one gives 7 self-maps and only the three shifts onto; radius zero has only identity onto. Thus both finiteness of the search and the extension to the infinite system are justified.
+
+## originality
+
+PASS
+
+The de Bruijn/predecessor presentation and subset closure are standard methods. The distinct result is the complete constrained-radius census, the first radius with a proper onto map, and the exact shortest-omission maximum with its unique rule and two defects. The nearest indexed claim is materially related but starts at two required zeros between ones; its counts and rigidity statements do not cover the one-required-zero golden-mean shift. None of the inspected general or exact classification results supplies the frozen figures and threshold.
+
+## value
+
+PASS
+
+The golden-mean shift is a canonical constrained binary system. The census resolves the minimum centered radius at which information can be lost by a surjective rule, and gives the exact observation length sufficient to distinguish every strict image by its block language. The unique rule whose language first differs at length 21 is a useful concrete test case for short-neighborhood surjectivity algorithms, not an arbitrary slice of a larger enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

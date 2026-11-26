@@ -1,15 +1,21 @@
-# Scientific review: signed Fano triple-interaction Ising cluster
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for all \(J>0\), \(\lambda\in\mathbb R\), \(h\ge0\), and seven spins on precisely the seven lines of the Fano plane. Its sixteen-entry joint signature census follows from the Steiner incidence equations and the classification of three- and four-point subsets. Every positive-field minimizer is among five explicitly stated affine functions; the remaining sixth maximal-magnetization signature is dominated by one of two listed competitors over the entire field axis. The zero-field coupling crossing, degeneracies, and the partition function follow directly from the census. An independent pair of exhaustive finite calculations in `verify_fano.py` agrees on all \(128\) states, with rational boundary and parameter checks. No infinite-size statement is inferred.
+## correctness
 
-## Originality — PASS on examined evidence; historical priority remains provisional
-Published background covers higher-order Ising interactions, general incidence-matroid partition-function methods, and different regular lattices. The 2026 higher-order-spin framework supplies general tools, but the examined primary text does not evaluate this signed Fano design in a uniform field or imply the five concrete affine branches without an instance-specific computation. The 2018 exact triplet lattice model is a mixed-spin infinite centered-square geometry rather than the Fano Steiner design. The 1974 field/triplet article treats particular two-dimensional lattice systems according to its primary abstract; complete text was unavailable. A 2026 quantum-dot Fano Hamiltonian has different onsite/hopping interactions and only its abstract was accessible. The specific equality of energy signatures, ground-state degeneracies, and sharp \(\lambda=-2\) threshold was not located in examined material. Search failure alone is not novelty proof; full-text access gaps and unindexed equivalents remain risks.
+PASS
 
-## Mathematical value — PASS
-The Fano plane is the unique smallest Steiner triple system and a canonical test case for parity-Ising hypergraph models. The claim goes beyond a bare brute-force count: it proves a structural two-extra-violation cost for a sign-defective triple, a sharp coupling/frustration boundary with a thirty-two-fold degeneracy, and a complete signed-coupling/uniform-field ground-state classification. The exact finite-temperature partition function supplies a compact reproducible benchmark for multi-spin equilibrium calculations. The contribution is finite, not a claimed macroscopic phase transition.
+The Fano incidence equations for positive-spin subsets give B+Q=2k(4−k)+8N₃−7, Q=(−1)^{3−|S∩ℓ*|}, and M=2k−7. An independent census using kernels of the seven nonzero linear forms on F₂³ and binary spin parity reproduced all 16 signatures, all 128 configurations and every multiplicity. At u>0 a sector with fixed (B,Q) contributes only maximal M. Of the six resulting candidates, (0,−1,3) is strictly above A for u<3 and strictly above C₋ for u>1, which exhaust u>0. The retained lines have multiplicities 7,9,4,3,1. For λ<1, C₊ beats C₋, the B–C₊ and C₊–D crossings are 1 and 3, and comparison of A with B and C₊ gives the cuts λ=−2 and −1 and the tabulated fields. For λ>1, C₋ beats C₊, B cannot beat both A and C₋, and the remaining crossings are 2 and 2+λ. At λ=1 the C branches coincide, so all minimizing multiplicities must be added; the named coexistence counts follow. At u=0 the minima of the Q=−1 and Q=+1 sectors are −6−λ and −2+λ with counts 8 and 24, so the tie has count 32 and positive marked product costs at least two other positive line products. Opposite-spin pairing of the fixed-(B,Q) counts yields the three cosh coefficients 16,64,48.
 
-## Scope and residual risks
-Full text of one early field-triplet source and a recent Fano quantum-network preprint was not accessible; their available descriptions indicate different Hamiltonians, but unseen details could affect priority. The general hypergraph parity-Ising framework could generate this example after additional evaluation, so the distinction is the explicit model-specific classification, not a new general method. There is no independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the explicit marked-line Fano joint census and lower-envelope classification, not the known parity Ising formalism or matrix encoding. The strongest examined general framework represents the model but does not supply that specialization.
+
+## value
+
+PASS
+
+The symmetric seven-site design is a natural finite model for the effect of changing the sign of one triple. Full coverage of the two parameters gives a sharp cost of two frustrated ordinary lines, marked-coupling thresholds, magnetization jumps, and all coexistence multiplicities. The joint census is an exact benchmark for parity-model partition calculations, not just a grid of sample energies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact fixed-object statement is evaluated against the 2026 \(\mu\)-extension semantics: implication is top when the antecedent value is below the consequent value, and otherwise takes its syntax-specific fallback. The cited Lemma 4.4 supplies \(\alpha\to\beta\in\mathcal W\iff T(\beta)\subseteq T(\alpha)\). By choosing the finite Boolean universe to contain every non-theorem conjunctive atom in all subformulas, the full recursive evaluation follows from induction; in particular the implication case separates theorem and non-theorem formulas without circularity. Every excluded theorem yields a proper subset of top. General soundness supplies the converse. The 2-point obstruction is proved by two cases and an explicit 3-chain evaluation, independent of search.
+PASS
 
-The executable checker independently recomputes the syntax criterion and the semantic values over 12,882 finite formula cases, exhaustively inspects 576 two-point input/fallback cases, and checks the three-point witness. Computations are supplementary, not an infinite proof.
+The final claim is finite Boolean completeness for theoremhood in the unrestricted formula-indexed mu-extension semantics, with at most 2^s carrier elements for a formula with s distinct variable or implication subformulas. Let U contain the non-theorems among these subformulas and T(psi) be the non-theorem conjunctive blocks of psi. The proposed full valuation and full fallback yield U minus T(psi): conjunction uses union of the T sets, and the inclusion test on complements is exactly T(beta) subset T(alpha), the theoremhood test from Lemma 4.4 and Corollary 4.8. Implication therefore gives top on theorems and the prescribed singleton deletion otherwise. Non-theorem roots omit at least one atom; soundness is Theorem 7.2. For the separating formula every two-element evaluation gives top (split on p). The three required failed order tests hold on the stated chain and on its order-embedded copy in the four-element Boolean algebra. Two scientific notes in the frozen text were incorrect: the constructed U for this separator has five elements, so its canonical model is not the claimed tiny model; and the verifier's 576 cases at lines 100–108 concern three-leaf formulas, while the separator checks 32 assignments at lines 109–117. The two corrected complete Markdown files under /workspace/repairs/4 explicitly give the four-element witness and report the tested cases correctly; the proof and checker are unchanged and the verification front matter is preserved. Independent witness replay: python3 /workspace/review_evidence/4_boundary_witness.py (32 assignments and both refutations). The all-formula result rests on the symbolic induction, not on testing.
 
-## Originality — PASS with a named residual risk
+## originality
 
-Gorbunov–Rybakov's full 2026 paper was inspected in its syntactic criterion (Section 4), syntactic quotient (Section 6), \(\mu\)-matrix definition and soundness/completeness (Section 7), polynomial theoremhood test (Section 8), and conclusion (Section 9). Its Theorem 7.3 proves completeness using the (typically infinite) quotient of *all* formulas and does not state finite Boolean completeness or the formula-specific powerset construction. Its conclusion mentions finite-model property as a question. Searches for finite-model-property, finite Boolean algebra, powerset and matrix aliases located this paper but no equivalent theorem; related published result records concern distinct modal/finite-template objects. The claim could follow from an older less-visible Boolean or semilattice representation theorem, so exhaustive worldwide originality is not certified.
+PASS
 
-## Value — PASS
+The supported distinction is the finite Boolean reduction with its size bound and the two-value boundary in exactly W's semantics, not the earlier syntax test or general completeness. No stronger inspected statement covers it. The repairs correct the evidence and explicitly embed the already-given boundary countermodel, rather than asserting a new priority claim for the embedding.
 
-The result resolves an explicitly motivated finite-model-property question for an unusual non-truth-functional implication semantics, shows that the much smaller and well-behaved class of finite Boolean powersets suffices, supplies a reproducible countermodel bound dependent only on the tested formula, and identifies why the apparently simpler two-valued semantics is insufficient. It is neither a numerical increment nor a restatement of the previously known polynomial decision test.
+## value
 
-## Scope and risk
+PASS
 
-This proves formula validity, not arbitrary strong consequence; the bound is not claimed sharp. The construction relies on the previously published syntactic characterization and does not remove all risk from historic alternative presentations.
+This addresses the finite-model question for a specific recently formulated semantics, giving a reusable formula-dependent Boolean countermodel instead of an unrestricted quotient. The small witness explains why validity in all finite Boolean carriers cannot be replaced by testing the two-element one. Neither sharpness of the general bound nor strong completeness for premise sets is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` in an extracted package containing the accompanying script. The program uses only the Python standard library and exact `fractions.Fraction` arithmetic. It checks the two projector ranks and idempotence and independently calculates \(\Pi_U\)- and \(\Pi_W\)-energies of cut normals in the actual edge coordinates for complete graphs of orders \(4\) through \(8\).
+## correctness
 
-Across \(4\le n\le299\), it verifies every indexed facet orbit inequality, including equality exactly at the claimed contact sizes; it also checks positivity, the analytic squared-semiaxis values, and the John weights on all \(296\) orders. Its successful marker is `EXACT_VERIFICATION_OK` with `facet_orbits= 44252 john_kkt_orders= 296 projection_orders= 5`.
+PASS
 
-These are **finite exact checks**; they neither enumerate all convex bodies nor prove the theorem for unbounded orders. The proof for all orders is the analytical symmetry reduction, universal cut-inequality computation, unimodal distance comparison, and exact full John contact decomposition given in `RESULT.md`. An independent human or external mathematical validation has not been performed.
+In the intrinsic edge-sum hyperplane the incidence identity BBᵀ=(n−2)I+11ᵀ gives the two stated orthogonal components. Coordinate normals have projected energies 2/n and (n−3)/(n−1), and subset normals have U-energy ||Bv−mean(Bv)1||²/(n−2); subtracting from ||v−mean(v)1||² gives the W-energy. Subset slacks are (s−1)(n−s)/n. For the round candidate the squared distances to these hyperplanes are minimized at s=2 or n−1 because their logarithmic derivative strictly decreases; the co-singleton endpoint is the smaller of the two. Its distance exceeds the coordinate radius exactly for integers n≥6 in scope. For n=4,5 the co-singleton cap binds together with the coordinate bound; substituting gives precisely the listed tangencies. The coordinate and subset inequalities in the stated contact list are genuine facets: the coordinate face is the base polytope for K_n with an edge deleted, which has connected cycle matroid for n≥4; a tight subset face factors into base polytopes of the restriction to K_s and the contraction, which has s parallel spokes for each remaining vertex plus its edges to the other remaining vertices. Both factors are matroid-connected (including the one-element restriction), so their dimensions add to m−2. Centered coordinate normals have zero sum and frame operator I; co-singleton normals are the negatives of centered incidence rows, with zero sum and frame operator (n−2)Π_U. After the shape transform and slack normalization, the listed weights give moments 0 and I, including the n=4 certificate using a subset of all contacts; this proves global, not merely symmetric, optimality. Volume follows from the multiplicities, and the n=3 regular triangle has squared inradius 1/6. An independently written rational check (`python3 -B /workspace/branches/bounded_review_checks.py 3`) evaluated actual labeled subset inequalities and matrix moments for n=4 through 10. Neither that finite check nor the supplied, inspected but unexecuted verifier is the all-order proof.
+
+## originality
+
+PASS
+
+Best of inspected evidence for the explicit complete-graph classification including both exceptional anisotropic spectra and the full contact data. The identified results concern facets, reconstruction, a universal optimality criterion, and the ellipsoid of a different body. A sharp inball theorem may help yield the round range via comparison with the containing coordinate simplex, but an inball alone does not determine the anisotropic spectra or their certificate. No specific prior statement covering the full classification was identified.
+
+## value
+
+PASS
+
+The precise intrinsic John geometry of a canonical graphic matroid body is useful beyond a radius calculation. A sharp change occurs at order six, and the full-dimensional certificate explains why exponentially many other facet inequalities do not control the round optimum. For the exceptional orders it certifies unequal principal directions and their exact scales, information an inball cannot provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The most-recent-reset representation gives an exact exponential age independent of orientation. The proof bounds drag and within-age sign changes in \(L^2\), couples stationary scaled velocity to signed exponential age, proves joint separated-time marks, and uses a Poisson-age covariance/grid maximal inequality for the compact-horizon telegraph path limit. The stationary moment and numerical checks in `verify.py` corroborate the formulas but are not substitutes for the proof.
+## correctness
 
-**Originality (O): PASS, residual risk disclosed.** Howlader–Mondal–Das (arXiv:2606.00560, source first posted 2026-05-30), inspected in full accessible HTML, gives this model and qualitative cusp/rate observations, not the precise two-scale stationary and pathwise law. Olsen–Löwen (arXiv:2401.12685) offers a broader partial-resetting propagator/moment framework, but its full text could not be inspected. Some moment consequences may be implicit there; the finite-dimensional mark and uniform functional convergence remain the distinctive assessed result. Claim-directed scientific literature comparisons and previous mathematical claims supplied no closer same-object statement. No source search alone constitutes a novelty proof.
+PASS
 
-**Value (V): PASS.** For a natural physical observable, the theorem explains why a Laplace-law microscopic speed can coexist with persistent-telegraph macroscopic motion and identifies the exact finite-time transport crossover. The covariance split and explicit quantitative convergence are useful beyond already known numerical \(r^{-2}\) scaling.
+The corrected claim was checked on its stated stationary, fixed-parameter domain. The last-reset integral and |V| <= min(b,Sigma A) bound lead to the two squared errors 4r² lambda E[A³]=24 lambda/r and L²r² E[A⁴]/4=6L²/r². Concatenating clipped independent backward windows and exponential tails gives the independent age marks outside a probability m exp(-rd); fourth moments justify the product limits. The standardized covariance is exp(-2 lambda t)/2 for t>0 and 1 at t=0. Age regression and sign independence give the centered integrand covariance exp(-(r+2 lambda)|t-s|); summing squared grid values and interval increment bounds gives 4nT/(r+2 lambda)+2T²/n. Integrating the stationary coupling error then proves the uniform L² limit and the finite-time variance. The linear benchmark follows separately from the generator and covariance ODE; it is not a nonlinear diffusion limit. VERIFICATION.md and verify.py were inspected, not executed; simulations are supplementary. Replay: repaired RESULT.md, Proof and Verification and linear benchmark.
 
-**Limitations and closest literature.** The theory requires independent Poisson velocity resets that preserve propulsion orientation, fixed positive flip rate, and smooth monotone confining drag. The infinite-time diffusivity asymptotic is established separately in the linear-drag example only; no interchange of general nonlinear \(r\to\infty\) and \(T\to\infty\) limits is claimed. The most relevant full-text access gap concerns Olsen–Löwen (2024); broader implicit coverage remains possible. Evans–Majumdar (2018) resets position and is not equivalent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving claim is the simultaneous quantitative stationary Laplace and separated exponential-mark limits and strong finite-horizon integrated-telegraph limit, not the reset protocol, linear formulas, stationary age construction alone, or the diffusion exponent. Checked overlap does not cover that joint claim.
+
+## value
+
+PASS
+
+In a specific persistent active-particle model, the result identifies quantitatively different instantaneous and time-integrated limits. It explains why a non-Gaussian stationary velocity law with a discontinuity in its limiting autocorrelation can coexist with a continuous telegraph-driven displacement. The unified finite-horizon statement is useful independently of a new long-time diffusivity formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

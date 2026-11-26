@@ -1,15 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
-Resilience to removing any one code vertex is equivalent to the 210 explicit intersection inequalities: every closed neighborhood and every symmetric difference of two closed neighborhoods contains at least two code vertices. The cubic degree sum forces at least ten chosen vertices. One verifier enumerates all \(2^{20}\) subsets without a scientifically restrictive cutoff, establishing exactly fifteen minima of size twelve. An independent set-based verifier exhausts all combinations at each possible improving or tied size ten, eleven and twelve. Both agree on the exact bitmasks and all 105 intersections; both verify a concrete bijection realizing the Kneser \(KG(6,2)\) intersection graph. The nonexistence of one-token jumps follows directly from intersections at most eight versus eleven required by token exchange.
+## correctness
 
-## Originality — PASS, with historical-priority limits
-The eight/twelve equitable partitions of the dodecahedral graph and their perfect two-coloring matrices are already known and are excluded from novelty. These are different from twelve-vertex one-erasure-resilient identifying codes: equitable partitions impose regular neighbor counts, not deletion-resistant pairwise closed-signature separation. The classic five-cube compound and ordinary identifying codes are likewise excluded. Relevant general identification and fault-tolerance literature does not supply the finite fifteen-code classification or its Kneser intersection geometry in the inspected accessible materials. The partial accessibility of old equitable-partition classifications and unindexed finite lists remains a documented priority risk; negative searches do not prove global novelty.
+PASS
 
-## Mathematical value — PASS
-Requiring reliable vertex identification after arbitrary loss of a single deployed detector is a natural stronger optimization problem than ordinary identifying codes. The sharp minimum twelve, complete classification of fifteen optimal deployments, and their exact Kneser-type intersection scheme offer a structurally informative finite benchmark. The existence of fifteen globally distinct but locally frozen optimal deployments is meaningful for robust sensor-placement reconfiguration. The intersection geometry provides more information than an isolated minimum-cardinality computation.
+Deleting one selected detector (not a graph vertex) can empty a signature or erase a separator precisely when it is the sole selected member of the corresponding constraint. Thus resilience is exactly twofold covering of each of 20 closed neighborhoods and 190 indexed pairwise symmetric differences. In the cubic graph, summing the 20 covering inequalities gives 4|C|≥40. Independent exhaustive replay constructed GP(10,2) from its three edge families and enumerated 184756, 167960 and 125970 subsets at sizes 10, 11 and 12, respectively, finding 0, 0 and 15; the ascending decimal mask list agrees in full with RESULT.md lines 20–27. Every pair was checked, yielding 60 intersections of size 6 and 45 of size 8. The displayed mapping is a bijection onto the 15 two-subsets of a six-element set; checking all 105 pairs verifies intersection 8 iff disjoint, an exact KG(6,2) isomorphism. A move between size-12 codes would require intersection size 11, so both minimum reconfiguration graphs are 15 isolated vertices. Replay: python3 /workspace/branches/0263a8b2-acf5-438e-8b98-c34d62de1e25/audit_gp102.py; result in adjacent audit_gp102_output.txt. The two frozen implementations and their recorded outputs were inspected without executing the frozen programs. The bounded replay exhausts all sizes that can affect the optimum and census, with the lower sizes excluded analytically.
 
-## Scope and risks
-The result is a complete finite census for \(GP(10,2)\) under one-detector erasure, not a general asymptotic theorem or a guarantee of resistance to mistaken signals. The two included implementations allow full reproducibility but do not constitute independent scholarly certification. Historical-priority comparison is qualified by inaccessible or unindexed literature, especially fully classified equitable-partition resources; no claim of novelty is made for those equitable partitions themselves.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard erasure-to-twofold-cover equivalence is not the credited contribution. The exact optimum family, its intersection geometry and resulting minimum reconfiguration behavior survive the statement-level comparisons below. No distinct equivalent coverage was established in the inspected material; this is a bounded assessment, not a priority certification.
+
+## value
+
+PASS
+
+The dodecahedron is a natural small cubic graph on which one can ask the complete robust detector-placement question, rather than sample arbitrary graph instances. Knowing all 15 minimum choices and the Kneser structure explains exactly how much choices can overlap and why none admits one-detector movement at optimal cardinality. This exact robust design and reconfiguration ground truth is useful independently of any general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

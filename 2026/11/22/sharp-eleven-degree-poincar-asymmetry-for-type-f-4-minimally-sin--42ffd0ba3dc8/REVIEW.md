@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact root-lattice enumeration has 1152 matrices and 48 roots, with each word length independently recovered by root inversion. The Bruhat-subword recursion exhausts 396809 comparable pairs. Left and right Kazhdan–Lusztig recursions agree on all their polynomials. The checker independently reproduces all 217 members, their three polynomial profiles, and the 11 maxima and equality counts. The proof is finite exhaustive; it is not based on sampling.
+## correctness
 
-**Originality — PASS, with residual risk.** Li–Rietsch–Yang link low opposite-degree Betti data to factoriality but do not provide a type-\(F_4\) minimal-Kazhdan–Lusztig sharpness classification. Sentinelli–Zatti classify palindromic intervals and give a method for lower-interval rank polynomials; that does not itself yield the 217 conditioned elements and 11 sharp maxima. Burrull–Li–Zeng–Zhang give a general upper bound, attainability in types \(A\) and \(B\), and no corresponding type-\(F_4\) exact table. Existing complete type-\(F_4\) calculations of total opposite-Betti defect and integral divisor classes do not imply this conditioned coefficientwise theorem. Classical algorithms suffice to reproduce these counts, and independently unindexed or unpublished identical counts cannot be ruled out.
+PASS
 
-**Value — PASS.** The minimal local-intersection-cohomology condition \(P_{e,w}(1)=2\) is a canonical first singularity stratum, not a selected numerical slice. The result determines all eleven natural sharp invariants across an exceptional Weyl group and locates a sharpness transition absent from general upper bounds, including multiplicities of equality cases. Unlike isolated examples, it completely resolves this natural finite extremal problem.
+The cohomology coefficients are counted by the affine Schubert cell decomposition in complex dimensions, and the selection uses the identity Kazhdan–Lusztig polynomial, not ordinary Betti ranks. The reduced-word subword theorem gives the stated interval recurrence; the right-descent KL recurrence uses zero for incomparable lower indices and integral correction exponents only. An original exact replay using permutations of the 48 roots, bitset intervals and integer polynomials covered all 1,152 Weyl elements and 396,809 comparable pairs, checked word lengths by root inversions and matched all three KL profile counts and all eleven triples (maximum, multiplicity, eligibility). It matched the ambient length distribution and [2]_q[6]_q[8]_q[12]_q coefficients; the general coefficient inequality applies in the stated normalization. The selected maximum length is 23, confirming no eligible degree >=12. A supplemental extraction confirms the same four winners of length 14 in degrees 4–5, the same two of length 20 in degrees 6–9, and the same two of length 23 in degrees 10–11. Replay: /workspace/branches/02db693c-f8a8-46fc-8394-7ce127f57885/replay_root_actions.py, output replay_output.txt there. The independent replay uses one direction of the standard recursion; the frozen two-direction checker was inspected rather than run.
 
-**Scientific limits.** This is a complete finite type-\(F_4\) classification; it says nothing about other exceptional Weyl groups or explicit singular-locus equations. A later public comparative source is dated November 18, 2026; the initiating source first appeared June 23, 2025.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary rank calculation and the ambient inequality are credited to prior theory. The inspected results do not give the 217-element KL-conditioned finite spectrum or exact maximizing multiplicities; the closest exact F4 records address different statistics and cohorts.
+
+## value
+
+PASS
+
+The conditioning is intrinsic: evaluate KL at the identity and select the first nontrivial integer value, then measure ordinary duality defect rather than KL itself. The data decide exactly when the known universal inequality is sharp in exceptional type F4 on that stratum, including the first failure and changes in which lengths and KL profiles maximize. An unconditioned table or a single largest defect cannot answer these questions. This is a useful finite exceptional-type benchmark, without implying new general Weyl-group bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

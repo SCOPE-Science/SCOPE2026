@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:16:39.969100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–58",
+        "VERIFICATION.md:19–25",
+        "check_source.py:9–133 (inspected, not executed)",
+        "certificate.json (exact histogram and moments)",
+        "/workspace/review_evidence/3_tree_replay.py (independent replay; run with python3)"
+      ],
+      "rationale": "In a tree each target is reached precisely when its unique source-to-target path is open. Summing the path probabilities including the empty path gives the stated distance-histogram polynomial, even at p=0 and p=1. Polynomial identity on the interval is equivalent to matching all coefficients. Rooted isomorphism of two markings in one tree is exactly membership in one automorphism orbit. The supplied rooted-code construction is exhaustive by the multiset decomposition at the root, and minimizing that code over roots gives a complete free-tree invariant. The independent calculation uses leaf extensions (deleting a leaf gives a predecessor of every nontrivial tree), canonical one- or two-center decompositions, and rooted shapes for the orbits. It reproduces all order totals, no colliding orbit pairs up to nine, and exactly two at ten in different free-tree classes. Independently of the package's mask enumeration, multiplying integer component-size polynomials over child branches reproduces both exact laws and moments: first-moment numerators 1488 and 1920, respectively, and second-moment numerators (6032,6116) and (9120,9088) in the labelled witness order, all over 512. Equal means leave signed variance gaps -21/128 and +1/16 in that order. One variance measurement therefore separates exactly the cases not already separated by the curve.",
+      "residual_risks": [
+        "No statement is established for larger trees, for unknown graphs, or for finite/noisy estimates of the curve and variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary threshold is for equality of a metric one-point-type invariant across two different unrooted shapes, not equality between two roots of one fixed shape.",
+          "The 2018 comparison proposition uses partial-sum dominance to order two decay centralities, without classifying equal-histogram tree orbits.",
+          "Full texts for the Huilgol overview and the two decay-stability articles were not available in the retrieval attempted for this audit."
+        ],
+        "reasoning": "Neither the cross-tree threshold nor general dominance/symmetry facts logically yield the within-tree orbit census. A stronger tree classification could do so, but none was established from the available evidence.",
+        "searches": [
+          "Resultary record d1f097b80665, Finding and proof setup",
+          "Coroničová Hurajová–Gago–Madaras §2 and Proposition 2.2",
+          "Huilgol DOI 10.1155/2014/358792; Rupnik Poklukar–Žerovnik DOIs 10.3390/math13060939 and 10.2140/mscand.2026.132.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary d1f097b80665, RESULT.md offsets 0–3655",
+        "Coroničová Hurajová–Gago–Madaras (2018), p. 42",
+        "Huilgol (2014), available definition excerpt",
+        "Rupnik Poklukar–Žerovnik (2025, 2026), OA retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decay identity transfers the question to distances but supplies neither the first collision nor its two-pair count.",
+          "At half retention, second moments depend on unions of two paths, not just on the individual path lengths stored by the distance histogram; the witnessed unequal second moments demonstrate that distinction."
+        ],
+        "reasoning": "The inspected prior facts have no implication for the exact moment separation or for completeness of the particular two exceptions. Credit is confined to the new finite classification and separation.",
+        "searches": [
+          "Coroničová Hurajová–Gago–Madaras §§2, p. 42",
+          "Resultary d1f097b80665 offsets 0–3655"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2018 text explicitly identifies decay-centrality polynomial coefficients with the distance-degree sequence.",
+          "The 2014 overview search excerpt defines distance-degree injectivity by distinct sequences."
+        ],
+        "reasoning": "Complete curve equality is known as equality of a distance-degree sequence, with the harmless constant self-term added to decay centrality. Strict vertexwise injectivity, unlike injectivity on automorphism orbits, already fails in symmetric trees. The mathematical equivalence reduces the search space rather than constituting the new result.",
+        "searches": [
+          "Local Resultary: first within-tree equal distance-degree sequences of distinct source orbits, order ten and half-bond variance",
+          "Literature: distance degree injective trees classification tree vertices distance-degree sequence injective",
+          "Coroničová Hurajová–Gago–Madaras (2018), §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Resultary order-ten entry counts a different collision; the overview excerpt supplies definitions, not the within-tree order-and-orbit table.",
+          "Totals of rooted and free tree types by order do not give the grouping by distance histogram within each free-tree class."
+        ],
+        "reasoning": "The required exact table would tabulate equal profiles among nonautomorphic marks of the same tree and identify both exceptional classes. No such table was verified in the examined material; the inaccessible overview and historical tabulations remain a specific risk.",
+        "searches": [
+          "Local Resultary tree-distance collision lookup",
+          "Literature query on distance-degree-injective tree classifications"
+        ]
+      },
+      "rationale": "The distance-polynomial identity and exponential attenuation notion are known. The supported distinct contribution is the first within-tree collision order, its complete two-pair classification, and their separation by the single second statistic, not the underlying invariant. The strongest available comparisons establish related but different statements; this is a bounded best-of-knowledge assessment, not historical-priority certification.",
+      "residual_risks": [
+        "An older tree-specific classification of distance-degree twins modulo automorphism could contain the order-ten threshold or exact pairs. The overview and decay-stability full texts were not independently read here.",
+        "No priority claim is made for the mean/distance identity or the standard bond-percolation model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different equivalence relation, not an anticipation of the within-tree claim",
+          "evidence": [
+            "The first order-ten occupied-distance-polynomial collision is between nonisomorphic unrooted shapes; its full reconstruction invariant first collides at twelve."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-9-10-12-reconstruction-thresholds-for-tree-based-metric-on--d1f097b80665",
+          "material_read": "RESULT.md offsets 0–1686 and 1546–3655",
+          "method": "Exact local-mirror passage inspection",
+          "title": "Sharp 9–10–12 reconstruction thresholds for tree-based metric one-point invariants",
+          "trigger": "Closest indexed order-ten collision for a tree distance polynomial"
+        },
+        {
+          "assessment": "Covers the coefficient identity and provides a dominance criterion, not the claimed cutoff or variance",
+          "evidence": [
+            "The decay-centrality coefficients are the counts d_i of vertices at distance i; partial-sum dominance gives a centrality ordering."
+          ],
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-106210",
+          "material_read": "Publisher PDF p. 42, §2 opening and Proposition 2.2, text offsets 7540–9971",
+          "method": "Lawful OA PDF, literal location then bounded offset read",
+          "title": "On decay centrality in graphs",
+          "trigger": "Exact graph-theoretic alias of the mean-curve invariant"
+        },
+        {
+          "assessment": "No exact table established; no claim of whole-paper noncoverage",
+          "evidence": [
+            "Excerpt defines injectivity by distinct distance-degree sequences; publisher and ResearchGate access returned 403, with no repository copy identified by DOI retrieval."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2014/358792",
+          "material_read": "Search excerpt defining distance-degree-injective graphs only",
+          "method": "Literature search; lawful publisher and repository/full-text retrieval attempted, no readable text",
+          "title": "Distance Degree Regular Graphs and Distance Degree Injective Graphs: An Overview",
+          "trigger": "Plausible source for older tree classification or tables"
+        },
+        {
+          "assessment": "Retained as an access risk, not negative evidence",
+          "evidence": [
+            "Publisher routes returned landing material or denied access; repository recovery for the second yielded no readable copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math13060939 ; https://doi.org/10.2140/mscand.2026.132.1",
+          "material_read": "No decisive full-text passage accessed",
+          "method": "Lawful OA publisher attempts including PDF endpoint for the first and identified repository routes for the second",
+          "title": "Generalized Closeness and Decay Stability of Some Graphs; Almost all trees are decay-unstable",
+          "trigger": "Decay-centrality ranking on trees may intersect equal-polynomial questions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–38,42–58",
+        "/workspace/review_evidence/3_tree_replay.py"
+      ],
+      "rationale": "The problem asks what a standard graph invariant can recover up to unavoidable symmetry in a fixed graph. The least failure order, complete list there and exact rescue by one second-moment statistic give reusable minimal obstructions and benchmarks for comparing graph invariants. The coalescence is equality of the whole polynomial, not a single accidental numeric tie or a repeat of tree-count tables.",
+      "residual_risks": [
+        "Exact inference on very small known trees is the value established, not robustness, large-network inference, or any claim about a real pathogen."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review — golden-ratio entropy-optimal resetting on dense bicliques
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete observed-vertex transition probabilities, stationary class masses and KL collision correction are reconstructed in RESULT.md. Their exact identity yields the strict finite root-side ordering. A global positivity-and-cutoff argument traps every optimal reset probability on the relevant scale; compact-uniform limiting entropy and a strictly concave function prove the unique asymptotic optimum. On balanced graphs it is the inverse golden ratio. `verify.py` independently solves finite stationarity systems with rational arithmetic and evaluates row entropies, replaying 2622 assertions. The infinite assertions rely on the proof rather than sampled graph sizes.
+## correctness
 
-## Originality — PASS, qualified
-The 2022 work of Wang and Chen supplies the relevant general entropy-rate framework, and Riascos and collaborators supply broader stationary network-reset theory. Full published result texts concerning stars, regular large-girth networks and complete graphs were compared. The star comparison already covers the center-versus-leaf boundary \(K_{1,m}\), which is not separately claimed as new. The new result is the full arbitrary-part KL ordering together with the **jointly dense** \(K_{a_n,b_n}\) all-maximizer limit and explicit golden-ratio specialization. The regular and clique results do not dominate this different domain and scaling. A broader unindexed equivalent theorem remains a priority risk; publication priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-Two-part networks are a natural structural family for nonequilibrium transport, and observed trajectory entropy is a motivated stochastic observable. A sharp destination-side rule and a universal leading optimal intensity are precise, reusable facts beyond the known star case. The golden-ratio constant emerges from the strict limiting concavity and the optimality equation; it is not a fitted constant or an arbitrary parameter choice.
+Part mass balance gives π(A)=1/(1+q) and π(B)=q/(1+q). A-origin destinations are disjoint between reset and hop, whereas a B-origin hop to the root adds to reset at that destination. The row entropies are H₂(r)+q log b and log a−K_a(r), so their stationary mixture gives (2), including r=0 and r=1 by continuity and the corresponding stationary laws. Differentiating the continuous size extension gives ∂ₓKₓ=(xr−q log(1+xr/q))/x²>0 for 0<r<1. The resulting strict ordering covers all unequal positive integer parts, including singleton parts. For fixed a,b, K_a=O(r²) at zero, so the r log(1/r) term gives a positive gain and excludes both endpoints for every global maximizer. Nonnegativity of KL and −q log q≤r even sharpen the stated cutoff to N/r≤1−log(r√(ab)), hence r√(ab)<e at any global optimum. This is enough to put every nr in a common compact set when both ratios converge to positive constants. With c=nr the log n terms in nH₂−c log √(ab) cancel; nK_a tends uniformly on compacts to −c+(c+1/α)log(1+αc), including c=0. The resulting gain function has derivative −½ log(c√(αβ)(1+αc)) and a strict unique interior maximum. The compactness argument compares maximal values against each fixed c (feasible eventually), so every maximizing sequence converges without finite-size uniqueness; substituting the root equation yields the positive claimed gain and the balanced inverse-golden-ratio case. I inspected, not ran, frozen verify.py; a separate direct construction checked exact stationarity and weighted-row entropy comparisons at 64 small-graph/parameter pairs, not the all-size or limit proof.
 
-## Limitations
-The claim is about stationary observed vertex entropy for uniform discrete-time jumps and a fixed-root independent reset event. It does not establish finite-size optimizer uniqueness, tagged-event entropy, first-passage optimization or weighted-network results. The finite checker corroborates formulas but does not prove the global theorems. Neither independent manuscript review nor a comprehensive priority audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general stationary reset kernel and entropy method are prior, and the strict ordering on the star slice is established in a separate record. The supported distinct claims are the ordering across arbitrary bicliques and the positive-ratio, all-global-optimizer asymptotic with explicit gain. The actual compared results do not cover those assertions.
+
+## value
+
+PASS
+
+The observed entropy measures trajectory uncertainty, rather than the artificial uncertainty of an observed reset flag. Arbitrary-part root choice and the scale and gain of all optima are exact answers to a natural control problem in the prototypical dense bipartite family. The inverse golden ratio identifies the optimum in the natural balanced case and the cutoff excludes competing reset scales; the value is not merely the appearance of a named constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

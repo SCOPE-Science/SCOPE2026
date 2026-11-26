@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:56:25.513126Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the square-zero radical, an off-diagonal coefficient is free exactly when its idempotent's two endpoint diagonal bits differ. Of the four two-bit colors, only opposite colors give a nonconstant commutator coefficient, an onto linear form with q lifts per value even in characteristic two. For ordered bottom colors equal/adjacent/opposite (multiplicities 4/8/4), the zero-column weights are a/b/b and the nonzero-column weights are respectively q^2 everywhere, q^2 on the two axes, and q on the axes. Rank one is the disjoint union over lines of matrices supported in that line other than the all-zero matrix; hence the displayed h/c/d terms and coefficients. The total is the square of the single-idempotent count by independently choosing the two bottom bits. Independent columns are realizable for m >= 2, and the deficient-rank bases are strictly below (1+q^2)^2 for q >= 2. An independent matrix-product/determinant check in /workspace/review_evidence/check_3_5.py confirms m=2 for q=2,3,4, including genuine GF(4) with (N0,N1,N2)=(28804,247296,222336). This finite check corroborates, not replaces, the all-field argument. The frozen verification code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f42cdd1d48ea includes arbitrary finite loopless directed multiquivers and all finite fields.",
+          "42456512d337 and c2210ad45951 are commutator similarity spectra for idempotents with at least one rank-one input in full matrix algebras; arXiv:2009.04243v1 and arXiv:1907.06805v1 concern single potent elements and involutions respectively."
+        ],
+        "reasoning": "The general quiver-fiber formula dominates all q and m in the frozen problem. The restricted full-matrix spectra and single-element papers do not by themselves cover it.",
+        "searches": [
+          "Resultary f42cdd1d48ea; 42456512d337; c2210ad45951",
+          "arXiv:2009.04243v1 and arXiv:1907.06805v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Resultary f42cdd1d48ea, d6c6054e5969, 42456512d337, c2210ad45951, 2737c407b21c",
+        "arXiv:0803.0069v1, 2009.04243v1, 1907.06805v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each coloring the coefficient in a target fiber vanishes unless every nonzero target edge joins opposite bit colors; otherwise it is q to the number of differently colored edges."
+        ],
+        "reasoning": "Sum N_Q(z) over target blocks z of rank j. Conditioning on the two bottom colors factors that sum by columns; for rank one, summing over the unique column line gives the powers of h, c, and d with the all-zero correction. Rank two is the remainder. This recovers the claimed positive-rank information without any extra structural theorem.",
+        "searches": [
+          "Resultary f42cdd1d48ea, Finding and Proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f42cdd1d48ea, Finding: exact ordered-idempotent commutator fiber for arbitrary radical target",
+          "Theorem 3 of arXiv:0803.0069v1 gives single-idempotent diagonal conjugacy, not pair counts."
+        ],
+        "reasoning": "Send the quiver vertex idempotents and arrows of the orientation from the two minima to the m maxima to the diagonal units and corresponding radical matrix units. There are no composable arrows, and this is the stated incidence algebra, up to reversing the path-algebra multiplication convention; reversing signs in a commutator would not change block rank. Thus the prescribed-commutator formulation on this quiver and the frozen problem use the same ordered pairs.",
+        "searches": [
+          "Resultary: idempotent commutator fibers radical square zero quiver incidence algebras",
+          "arXiv:0803.0069v1, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f42cdd1d48ea, Finding formula for N_Q(z), tabulates by exact target via a closed finite sum, rather than printing the three rank rows.",
+          "d6c6054e5969, Finding and joint enumerator, includes the commuting (zero-commutator) stratum; 2737c407b21c tabulates ranks of the two factors and their product in another algebra."
+        ],
+        "reasoning": "No necessary exact printed rank table was identified in these sources: the per-target formula already supplies finer exact data. Product rank and individual ranks should not be mistaken for the commutator-rank statistic.",
+        "searches": [
+          "Resultary f42cdd1d48ea; d6c6054e5969; 2737c407b21c"
+        ]
+      },
+      "rationale": "An earlier-dated distinct catalogued finding already gives the exact count for each prescribed commutator in every radical-square-zero finite-field quiver algebra. The frozen algebra is exactly such a quiver algebra, and the positive-rank census is obtained by grouping those fibers by ordinary block rank. The earlier result also contains the color and edge-weight mechanism. The specific closed expression compresses the same data but does not escape coverage. This establishes mathematical coverage, not independent proof of a historical first-publication date.",
+      "residual_risks": [
+        "Radjavi–Rosenthal, On Commutators of Idempotents, DOI 10.1080/03081080290019540, was not independently accessible in full via lawful routes tried. This is not the basis for failure.",
+        "The catalog dates establish the date labels, not independently verified public priority. The web literature query did not yield further useful evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen rank census by exact-fiber aggregation",
+          "evidence": "The Finding states the q-weighted color sum for every z in the arrow ideal; Proof §2 gives the same edge-lift rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-idempotent-commutator-fibers-and-binary-chromatic-width-in-radic--f42cdd1d48ea/RESULT.md",
+          "material_read": "Finding, offset 0; Proof §2, around offset 3277",
+          "method": "Catalog search and original text via read-only mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Idempotent-commutator fibers and binary chromatic width in radical-square-zero quiver algebras",
+          "trigger": "Same ordered-pair commutator with potentially stronger parameters and a finer invariant"
+        },
+        {
+          "assessment": "Rank zero overlap only",
+          "evidence": "The enumerated tuples commute and the rank variables belong to the individual factors.",
+          "identifier_or_url": "Resultary d6c6054e5969",
+          "material_read": "Finding and joint enumerator around offset 1078",
+          "method": "Catalog search and mirrored original text",
+          "title": "Joint rank and Potts enumerators for commuting incidence algebra idempotents",
+          "trigger": "Same algebra family, pair ranks and commuting language"
+        },
+        {
+          "assessment": "Different universes of pairs",
+          "evidence": "Both use full matrix algebras and at least one rank-one idempotent, not arbitrary idempotents in a height-two incidence algebra.",
+          "identifier_or_url": "Resultary 42456512d337 and c2210ad45951",
+          "material_read": "Both Findings, offset 0",
+          "method": "Catalog search and mirrored original text",
+          "title": "Similarity spectra of commutators of primitive idempotents over finite fields; Mixed-rank projection commutators over finite fields",
+          "trigger": "Exact finite-field commutator spectra"
+        },
+        {
+          "assessment": "Structural antecedent only",
+          "evidence": "Each single idempotent is conjugate to its diagonal part.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.0069v1",
+          "material_read": "PDF p. 4, Theorem 3, around offset 8796",
+          "method": "Open-access original PDF text",
+          "title": "Finitary incidence algebras",
+          "trigger": "Incidence-algebra idempotent classification"
+        },
+        {
+          "assessment": "Only single-element enumeration in the inspected statements",
+          "evidence": "Potent elements at k=1 include idempotents; the involution paper counts solutions g^2=1, not positive-rank pair commutators.",
+          "identifier_or_url": "arXiv:2009.04243v1 and arXiv:1907.06805v1",
+          "material_read": "First paper, PDF p. 2, Theorems 1.1–1.3; second paper, abstract, PDF p. 1",
+          "method": "Open-access original PDF text",
+          "title": "(k+1)-potent Matrices in triangular matrix Groups and Incidence Algebras of Finite Posets; Involutions on Incidence Algebras of Finite Posets",
+          "trigger": "Finite-field incidence-algebra counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Rank of the radical block is a natural and useful statistic, and the powers give a concise evaluation, but the submitted incremental claim is a direct specialization and aggregation of a finer exact invariant, with the same local weighting rule. The three bottom-color cases and line sums do not supply a separate structural finding beyond that specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,135 +1,99 @@
 {
   "correctness": {
-    "rationale": "For x=Σx_i e_i the defining table gives (x²)_i=T−x_i²; det(J_4−I_4)=−3. In characteristic three, its image is exactly H:Σy_i=0, and a target is a square iff all t−y_i are squares for some t. The standard multiplicative-character bound supplies a strictly positive witness count for q≥729 using q−4−17√q−28>0. The standalone Python certificate verifies all q³ targets for q=3,9,27,81,243 with monic-polynomial irreducibility tests and complete field arithmetic; direct enumeration of square coordinates separately confirms q=3,9,27. Remaining characteristics follow from invertibility and the exact finite-field square-set size. Hence no finite experiment substitutes for the large-field proof.",
+    "rationale": "The target equation has one free field parameter in the sum-zero hyperplane. Coverage is exactly containment in a translate of the negative square set including zero. An exhaustive construction of covered supports yields 2,925 triples and 16,146 quartets; each missing quartet has one of its 27 translates with sum zero, and that representative produces 24 ordered targets. The finite certificate was run as documented in VERIFICATION.md.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Full text https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-finite-field-square-zero-geometry-of-complete-multipartite-evolu--555bc289f00b/RESULT.md proves exact zero-target geometry for arbitrary complete multipartite graphs; for K4 in characteristic three it gives 8q−7 roots of zero.",
-        "Full text https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-finite-extension-orbit-census-for-graphical-evolution-alge--57cba8b84ace/RESULT.md explicitly assumes characteristic two and treats periodic/preperiodic state counts.",
-        "Full text https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-arithmetic-cycle-and-basin-spectra-of-weighted-cyclic-evolution--469a88eb67c9/RESULT.md explicitly assumes a weighted directed cycle and treats orbit/basin dynamics."
+        "Elduque–Labra give the graph-algebra construction. The complete-multipartite square-zero finding gives the zero-target fiber in the resonant regime."
       ],
-      "reasoning": "A theorem covering the zero fiber of every complete multipartite graph does not imply which nonzero vectors occur as squares. A characteristic-two iteration theorem cannot imply the 3-primary resonance, and a weighted directed-cycle theorem has a different adjacency and no K4 derived-hyperplane obstruction.",
+      "reasoning": "Rank and one fiber size do not specify which nonzero prescribed targets have preimages.",
       "searches": [
-        "The square image of the complete graph K4 evolution algebra over characteristic three is surjective exactly for q at least 243",
-        "Complete graph K4 finite field evolution algebra rank deficient square map image number of missing target values",
-        "graph evolution algebra prescribed square targets quadratic residue translates elliptic Weil bounds",
-        "site:arxiv.org evolution algebra \"square map\" \"complete graph\" \"finite fields\""
+        "arXiv:1312.4685 §2",
+        "Resultary 555bc289f00b"
       ]
     },
     "checked_sources": [
-      "arxiv:1312.4685v1 full HTML",
-      "published-finding corpus square-zero geometry: https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-finite-field-square-zero-geometry-of-complete-multipartite-evolu--555bc289f00b/RESULT.md",
-      "published-finding corpus binary orbit census: https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-finite-extension-orbit-census-for-graphical-evolution-alge--57cba8b84ace/RESULT.md",
-      "published-finding corpus weighted cycle census: https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-arithmetic-cycle-and-basin-spectra-of-weighted-cyclic-evolution--469a88eb67c9/RESULT.md",
-      "Semantic search for K4 image saturation, residue translate intersections and finite-field tables"
+      "Resultary 04160d23af3c, 981ee7b69845, 555bc289f00b",
+      "arXiv:1312.4685",
+      "arXiv:2210.03789",
+      "Brouwer, Paley graphs"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The Elduque–Labra theorem E=E² iff adjacency is nonsingular identifies linear-square dimension, not Sq(E).",
-        "The multipartite paper computes N(0)=8q−7 at K4, p=3; the new formula recovers it but the new conclusion concerns every prescribed nonzero y in H and a sharp field cutoff.",
-        "The new statement needs both q=243 exhaustive coverage and a uniform bound for q≥729; neither step appears in the inspected prior texts."
+        "The F27 study establishes complete triple shattering and counts four-supports realizing every pattern; the rank-five tournament study supplies existence or failure of a loopless extension property."
       ],
-      "reasoning": "E=E² does not imply every element is an individual square (indeed for p≥5 the present image has size ((q+1)/2)^4). Knowing the zero fiber cannot determine other fiber support, so the earlier result does not logically imply the new image cardinalities.",
+      "reasoning": "Triple coverage is already implied, and is not credited as new. A failure of a loopless property does not count failures for individual squares, which may include zero coordinate differences. The number of closed-pattern quartet failures is not implied by these descriptions.",
       "searches": [
-        "finite field evolution algebra squaring map quadratic character image surjectivity",
-        "The square image of the complete graph K4 evolution algebra over characteristic three is surjective exactly for q at least 243",
-        "Complete graph K4 finite field evolution algebra rank deficient square map image number of missing target values",
-        "Evolution algebras and graphs arxiv:1312.4685 Sections 2–4",
-        "published-finding corpus full RESULT.md for complete-multipartite square-zero geometry"
+        "Resultary 04160d23af3c and 981ee7b69845, Findings"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Elduque–Labra, arxiv:1312.4685v1, Sections 2–4: natural-basis graph construction and E² rank, not set of individual squares.",
-        "The equivalent target statement is common intersections of up to four translated square sets with Σy_i=0; checked the Paley graph/quadratic-residue alias without identifying the exact complete deficiency sequence."
+        "The Paley-27 tournament: nonpure VC shattering and a center-exclusion gap (04160d23af3c) defines ordinary and off-support shattering using nonzero squares."
       ],
-      "reasoning": "Surjectivity here means Sq(E)=E², not E²=E. The alias is nonempty intersection of four quadratic-residue translates for every zero-sum quadruple over 3-power finite fields, with sharp exceptions 3,9,27,81. No equivalent full threshold or deficiency counts were found in the examined sources.",
+      "reasoning": "Failure of full shattering is not failure of the single all-positive pattern with zero allowed. The exact number of the latter failures is the target count up to unique translation normalization and order.",
       "searches": [
-        "evolution algebra complete square-root fiber finite field graph characteristic three K4",
-        "finite field evolution algebra squaring map quadratic character image surjectivity",
-        "square root fibers graph evolution algebra adjacency rank deficiency elliptic curve",
-        "\"evolution algebra\" \"squaring map\" \"surjective\" finite field",
-        "\"evolution algebras\" \"square\" \"finite fields\" graph image"
+        "Resultary: Paley tournament 27 four sets missing all-positive common neighborhood quadratic-residue translations"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The accessible previous ledger contains evolution-algebra studies of automorphisms, retractions, nilpotent multiplication operators, but no claim of this full K4 square image cutoff.",
-        "No source table with the missing-target sequence 12,240,1248,240,0 was identified by the actual semantic and web searches."
+        "Brouwer tabulates domination numbers. McDonald–Sahay–Wyman explicitly restrict the numerical study in §4 to prime fields."
       ],
-      "reasoning": "An indexed title or an unsuccessful query is not proof of novelty. The inspected relevant exact prior count is for the zero target only, which is already acknowledged as known. A more comprehensive unpublished or unindexed finite-field table is a residual historical-priority risk.",
+      "reasoning": "Neither data set supplies counts of missed closed four-supports over the nonprime field of size 27.",
       "searches": [
-        "evolution algebra complete square-root fiber finite field graph characteristic three K4",
-        "Complete graph K4 finite field evolution algebra rank deficient square map image number of missing target values",
-        "graph evolution algebra prescribed square targets quadratic residue translates elliptic Weil bounds",
-        "Own accessible current-week ledger p0001_g000124: claim/title scan for K4 evolution square image and characteristic-three saturation",
-        "Paley graph four common neighbors 81 243 threshold quadratic residues"
+        "Brouwer, Paley graphs, domination-number table",
+        "arXiv:2210.03789, §4 numerical experiments"
       ]
     },
-    "rationale": "A full-text comparison with Elduque–Labra (2013) establishes that its graph construction and rank theory do not give prescribed square-image saturation. The directly inspected published complete-multipartite absolute-nilpotent result covers the K4 zero fiber 8q−7 but not the image of all prescribed nonzero targets; the already-covered zero fiber is expressly excluded. Inspected binary-field orbit and weighted-cycle results have disjoint field/graph and output invariants. Targeted published-finding corpus semantic queries and source/alias searches found no dominating exact 243 cutoff. Priority is best-knowledge and not certified; Paley quadratic-residue intersection literature remains a risk.",
+    "rationale": "The claim is the exact F27 deficit of the individual-square image. Neither a new all-field threshold nor a new result about linear rank, the zero target, or shattering all patterns is claimed.",
     "residual_risks": [
-      "Classical and historical Paley digraph/graph common-neighbor theory may contain an equivalent four-square-translate covering or a stronger all-q statement.",
-      "Earlier unindexed or inaccessible finite-field evolution-algebra literature may tabulate the same small-field image counts.",
-      "A qualified originality assessment is not independent publication-priority certification."
+      "No exhaustive search of unpublished or unindexed Paley neighborhood tables was possible; absence of a matching count in the named passages is not absolute priority."
     ],
     "source_inspections": [
       {
-        "assessment": "Establishes definitions and E² rank, does not supply K4 finite-field nonzero square-image counts",
+        "assessment": "Triple coverage implied; different quartet statistic",
         "evidence": [
-          "Sections 2–4 identify graph adjacency matrix and its determinant criterion for E=E²."
+          "5,967 four-supports realize every ordinary trace; no four-support realizes every off-support trace."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/1312.4685",
-        "material_read": "Sections 1–4 in full HTML text, including Definition 2.1, graph association and Proposition 4.2",
-        "method": "Full primary arXiv HTML text displayed via web",
-        "title": "Evolution algebras and graphs",
-        "trigger": "Foundational archived source for the natural graph evolution algebra and its linear-square rank"
+        "identifier_or_url": "Resultary 04160d23af3c",
+        "material_read": "RESULT.md, Finding, Assumptions and trace criterion at offsets 0–3360",
+        "method": "Read source text",
+        "title": "The Paley-27 tournament: nonpure VC shattering and a center-exclusion gap",
+        "trigger": "Exact same field and quadratic-residue neighborhood supports"
       },
       {
-        "assessment": "Covers the known zero-target square fiber (8q−7), not nonzero image and sharp saturation",
+        "assessment": "Relevant translate symmetry, but prime-field numerical data",
         "evidence": [
-          "Full result explicitly defines X_G={x:x²=0}; in resonant K_{p+1}, count is 1+2^p(q−1)."
+          "The experimental setup explicitly limits q to primes."
         ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-finite-field-square-zero-geometry-of-complete-multipartite-evolu--555bc289f00b/RESULT.md",
-        "material_read": "Full RESULT.md: finding, assumptions, all proof stages, verification and references",
-        "method": "Read public repository file full text through GitHub connector",
-        "title": "Finite-field square-zero geometry of complete multipartite evolution algebras",
-        "trigger": "Exactly same K4 evolution algebra at characteristic three; possible coverage by stronger theorem"
+        "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+        "material_read": "PDF pp. 6–7, §4 overview and Proposition 1.7",
+        "method": "Read OA PDF text at offset 14430",
+        "title": "The VC-dimension of quadratic residues in finite fields",
+        "trigger": "Potential finite-field tables in the translate formulation"
       },
       {
-        "assessment": "Characteristic-two periodic and preperiodic orbit counts; no ternary image theorem",
+        "assessment": "Existence-level parameters, not the target count",
         "evidence": [
-          "Main assumption k=F_(2^f); result concerns Fix(T^m) and preperiod counts."
+          "The table supplies domination numbers, not the number of missed closed four-supports."
         ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-finite-extension-orbit-census-for-graphical-evolution-alge--57cba8b84ace/RESULT.md",
-        "material_read": "Full RESULT.md, including proof assumptions and limitations",
-        "method": "Read public repository file full text through GitHub connector",
-        "title": "Exact finite-extension orbit census for graphical evolution-algebra squaring",
-        "trigger": "Same graph squaring operator and extension-field arithmetic"
-      },
-      {
-        "assessment": "Weighted directed cycles with monomial maps, not complete K4 mixing or image saturation",
-        "evidence": [
-          "Every e_(i−1)²=a_i e_i and every weight nonzero, giving a distinct permutation-like adjacency."
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-arithmetic-cycle-and-basin-spectra-of-weighted-cyclic-evolution--469a88eb67c9/RESULT.md",
-        "material_read": "Full RESULT.md with complete proof and limitations",
-        "method": "Read public repository file full text through GitHub connector",
-        "title": "Arithmetic cycle and basin spectra of weighted cyclic evolution algebras",
-        "trigger": "Potentially dominating all-field squaring dynamics formula"
+        "identifier_or_url": "https://aeb.win.tue.nl/graphs/Paley.html",
+        "material_read": "Domination-number tables, page offsets 4300–4865",
+        "method": "Read public HTML",
+        "title": "Paley graphs",
+        "trigger": "Potential exact tournament table for common neighbors"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "57e06096-aa1f-4838-b6aa-32edf32bc36c",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "The natural algebra squaring image is a genuine nonlinear invariant distinct from the linear derived space. Complete classification in the four-clique graph algebra gives a sharp characteristic-three field-extension transition: failure at q=81 (240 missing targets), complete saturation at q=243 and every larger ternary extension. Exact exceptional counts and a conceptual large-field explanation by four simultaneous residue conditions add mathematical value beyond an arbitrary numerical example or zero-fiber check.",
+    "rationale": "The natural nonlinear image of the standard four-clique algebra is not determined by its linear rank. The field size 27 is a concrete order at which every three-point support is covered but the fourth-point constraint still fails, and the exact count measures that obstruction beyond the binary existence of a counterexample.",
     "status": "PASS"
   }
 }

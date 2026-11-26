@@ -1,19 +1,21 @@
-# Scientific review: Gaussian ambiguity squared-coverage minimax law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Gaussian integration with unit-norm normalization gives the stated squared ambiguity exponential, and radial monotonicity reduces the disk problem to its boundary. The largest circular gap provides a uniform exponential upper bound. At the equispaced construction, a two-term boundary-layer argument supplies the matching sharp prefactor, with all other Gaussian terms exponentially smaller. Combining the two estimates yields global optimizer rigidity and the explicit microscopic perturbation limit. The proof treats fixed \(m\ge3\) and separately resolves \(m\le2\); it never uses finite sampling as a substitute for an infinite or continuum argument. The stand-alone finite checker passed 86 assertions from its delivered path.
+PASS
 
-## Originality
+The repaired statement explicitly sorts the unordered axes in positive cyclic order; a cyclic shift of an arbitrary input tuple is insufficient (reversing the tuple of a maximizing design preserves the objective). The squared sum is the normalized forward information gain, not the squared norm of the inverse. Also corrected which step of the largest-gap bound has strictness. Independently verified the continuum estimate by uniform convexity of exp(-t q) in a fixed distance band around δ, where q' is uniformly positive. Jensen gives the two-endpoint lower bound throughout each midpoint neighborhood, a nearer axis excludes all off-midpoint neighborhoods, and a largest-gap midpoint provides the upper bound with exponential error. AM–GM and compactness locate all optimizers, then the gap/squeeze increments force the two little-o scales. The angular Taylor coefficient is q'_a(δ)/2=cos(π/m), and the squeeze coefficient is cos²(δ)/a_m³. Verified m=1,2 separately. Read the frozen verification note and nested checker; neither its recorded 86 checks nor finite angle sampling is relied on for the continuum theorem. The complete corrected RESULT.md contains the proof.
 
-PASS with qualification. Alaifari and Yang (arXiv:2410.05486, Section 2.1, Remark 2.1) already derive the rotated Gaussian ellipse geometry, and their denominator directly implies the optimal *exponential rate* for threshold-union coverage after elementary minimization. That rate by itself is **not new**. The assessed claim is the global optimization of the **squared ambiguity sum**, including the sharp pre-exponential factor, optimizer rigidity at separate angular and squeeze scales, and the full perturbation penalty. The cited source treats threshold ellipses and positive unsquared sums, not these exact squared least-squares multiplier assertions. Hardin–Kendall–Saff (arXiv:1208.5261) prove circle-polarization equispacing under convex geodesic potentials; this Gaussian potential has negative second derivative at the origin and is outside that hypothesis. Targeted literature searches did not locate a theorem dominating the assessed claim. Historical priority is provisional, with a residual risk from unindexed Gaussian polarization results.
+## originality
 
-## Value
+PASS
 
-PASS. The squared sum is the precise information multiplier for equal-variance linear inversion of jointly measured ambiguity channels. The result answers how many squeezed Gaussian windows are needed to beat isotropic large-disk decay, what the optimal per-channel amplification constant is, and how angular misalignment and squeeze errors degrade that constant on two different asymptotic scales. It therefore supplies a directly motivated spectral-conditioning design law and a sharp robustness profile; it does not claim a complete nonlinear phase-retrieval theorem.
+The supported distinct claim is the global squared-sum prefactor for arbitrary orientations and fixed m, the correctly ordered all-maximizer scales and the fixed-offset penalty. The threshold rate and the leading constant restricted to a fixed equiangular triple are overlapping results, not grounds for priority claims.
 
-## Limits and comparisons
+## value
 
-The original paper's ellipse-intersection expression controls the same exponent in a different coverage objective, and its mathematical implication is expressly excluded from the novelty claim. Other optimization objectives, channel-dependent squeezing, unequal precisions, finite-radius exact optimizer uniqueness for \(m\ge3\), and growing numbers of channels remain unproved. Bibliographic absence does not prove uniqueness of discovery. The numerics only corroborate explicitly proved expressions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp factor controls the best worst-direction linear noise variance, which the exponent alone cannot determine. The all-design rigidity and explicit limiting loss trade off squeeze errors on the t^-1/2 scale against angular gap errors on the t^-1 scale. This distinguishes near-optimal designs even when their exponential rates coincide. No nonlinear recovery significance is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

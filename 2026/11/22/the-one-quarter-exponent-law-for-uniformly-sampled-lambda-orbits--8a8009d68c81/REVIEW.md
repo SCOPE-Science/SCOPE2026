@@ -1,15 +1,21 @@
-# Review: equal-orbit sampling in unitriangular radical braces
+# Independent mathematical audit
 
-## Correctness — PASS
-The actual theorem concerns one orbit uniformly among distinct \(\lambda\)-orbits, with \(q\) fixed and \(n\to\infty\). The proof identifies an orbit-invariant suffix-rank increment set and proves the exact weight \(\prod_i(q^{m_i-i+1}-1)\). Each orbit has exponent \(\binom{k}{2}+\delta\), where \(\delta\) is a partition deficit. The upper partition-generating-function bounds and the lower latest-increment weight together imply uniform expectations of \(|k-n/2|\) and \(\delta\). The resulting \(O_q(n)\) exponent-error bound is a true all-dimension theorem; independent finite enumerations of small orbits were used only as cross-checks. Characteristic and \(n=2\) boundary cases are included.
+## correctness
 
-## Originality — PASS, with residual risk
-The left action, old exact finite transfer, and \(q\)-Stirling total and rank marginals are **not new**. In particular an existing same-family finite size transfer already calculates every orbit-size multiplicity, so merely reproducing that census would be covered. The final claim is instead the uniform-in-dimension \(L^1\) theorem for **equal-orbit sampling**, and the bounded partition-defect mechanism. The earlier uniform-*point* law neither states nor proves this opposite-measure asymptotic. Properzi–Van Antwerpen, Yan, Cai–Ehrenborg–Readdy, and Bevan–Cheon–Kitaev were inspected; no matching uniform-orbit concentration theorem was found in those works or the examined related research records. An unlocated equivalent analytic corollary remains possible, so no independent historical priority is asserted.
+PASS
 
-## Value — PASS
-Uniform sampling of symmetry classes and uniform sampling of labeled objects are two natural, inequivalent ensembles. In this family, the first yields exponent coefficient \(1/8\) and the second \(1/2\), a macroscopic fourfold bias. The tight partition defect and tight half-rank fluctuations supply structural reasons for this difference, beyond a routine finite count. The contrast may guide interpretation of orbit statistics in other finite algebraic actions.
+At each top-row extension of a suffix of rank r, the rows modulo its span are the orbit choices: one coset gives no rank increase, and q^(m-r)-1 increase rank. Equivalently the point transfer divides by q^r in both cases since the new row adds r to the affine orbit dimension. Suffix ranks and exponents are invariant under invertible unitriangular suffix operations. This yields the stated joint weight and exponent, not point-weighted counts. Moving each rank increase left of its latest possible stage gives the rectangle partition and the nonnegative defect. The weight divided by q^{k(n-k)} is at most q^{-defect}; both the partition series and its first moment converge for q>1. The latest centered pattern contributes at least half of q^{floor(n²/4)} by Bernoulli's inequality, including n=2. The centered Gaussian lattice estimates then bound both requested expectations uniformly in n, and the elementary bound on binom(R,2) yields the linear expected exponent error. Independent enumeration via elementary row-addition generators corroborated the joint census at (n,q)=(3,2),(4,3),(5,2),(6,2), and the two reported sample means follow from independent profile weights.
 
-## Limitations and sources
-The constant depends on the fixed field order; no sharp \(n\)-scale limit distribution is proved. Key sources: Properzi–Van Antwerpen (arXiv:2306.12415); Yan (arXiv:1004.2674); Cai–Ehrenborg–Readdy (DOI:10.37236/6829); Bevan–Cheon–Kitaev (arXiv:2311.08023); and OEIS A135922/A139382. Earlier finite enumeration and prior uniform-point asymptotics are explicitly excluded from the novelty claim. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is fixed-q concentration under equal weighting of distinct left-action orbits, including the bounded mean defect and the 1/8 exponent. It does not claim the exact finite transfer, unrefined counts, unitriangular action, or the uniform-point exponent as new.
+
+## value
+
+PASS
+
+The change from point weighting to equal orbit weighting changes the leading exponent by a factor of four. The result also locates the typical rank to bounded mean error and the orbit exponent to bounded mean defect relative to that rank, information beyond an unrefined orbit census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

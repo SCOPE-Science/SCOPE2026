@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:52:25.167860Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and Assumptions",
+        "Frozen VERIFICATION.md, verify.py and check_output.txt inspected; not replayed",
+        "python3 /workspace/branches/independent_reproductions.py 3: 41 parameter cases, 1,028 case-state incidences, 41,314 BFS distances"
+      ],
+      "rationale": "A cut pair identifies a state bijectively and all legal switches are single-cut steps. For n>2s, the strip s≤y−x≤n−s has positive width: if a needed monotone coordinate move exits, a move of the other coordinate toward the target must enter the strip, by feasibility of the endpoint lift. Conversely every path lifts, giving the minimum of the two cyclic-order lift families. For source gaps d and n−d, alternate cuts give complementary admissible path lengths summing to n; targets on one arc can be paired via its exterior gaps, giving at most d on the short arc and n−d−s on the long arc. The T1 witness has distance m=floor(n/2) by two lift pairings (m and n−m), and its two gaps are feasible even at n=2s+1. For T2 write L=n−s−d and α=floor(L/2); the other candidate lengths d+s+2α and 2n−d−s−2α are both at least L. Radius occurs at d=m and diameter at d=s. Each of the n boundary states for n>2s has two moves, all others have four; n=2s gives n/2 isolates and no connected-case metric is claimed. Independently generated partitions as vertex bitmasks modulo complement and toggled a vertex directly; BFS verified counts, connectivity and all eccentricities for n=3 through 13.",
+      "residual_risks": [
+        "Finite computation supplements but does not replace the strip proof; no radius or diameter conclusion for the frozen graph is used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "edbf2b8cafb9 covers all-pairs distances at k=2,a=s,b=n−s; f7b2fcae2dd0 independently covers isometry at k=2,U=n−s. Both hypotheses reduce to n>2s. General 1-switch partition reconfiguration uses no size restriction in the inspected setup; recombination is a different adjacency."
+        ],
+        "reasoning": "The metric and connectivity carry over, but neither theorem evaluates the extremal distance as a function of d in this layer.",
+        "searches": [
+          "edbf2b8cafb9 and f7b2fcae2dd0",
+          "arXiv:1902.10765v3",
+          "arXiv:2011.07378"
+        ]
+      },
+      "checked_sources": [
+        "edbf2b8cafb9, f7b2fcae2dd0, 9e512596be10 and 46606467e152",
+        "arXiv:1902.10765v3, arXiv:0910.4774 p. 4, arXiv:2403.20148 pp. 1–2, arXiv:2011.07378 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing either general distance theorem already gives all individual pair distances. Their statements do not find what target placements attain the eccentricity. The prior special-case matching theorem has n=3s−2, where the maximum reduces to m."
+        ],
+        "reasoning": "The full extremal evaluation needs the relative-order upper bound and separate extremizers, including the long-arc boundary witness. This is not merely a substitution into a previously evaluated extremum.",
+        "searches": [
+          "edbf2b8cafb9 exact transport theorem, f7b2fcae2dd0 exact median-flow theorem, 9e512596be10 exact eccentricity proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the unordered two-token graph on cycle edges with both gaps in [s,n−s]. 46606467e152 has the same states when k=2 and r=s, but its moves are clockwise-only and its eccentricity is directed."
+        ],
+        "reasoning": "Cut-pair encoding is an exact equivalence, but directed distances on the same vertices do not equal the undirected eccentricities.",
+        "searches": [
+          "Resultary bounded-gap cyclic tokens, eccentricity and spaced tokens",
+          "arXiv:0910.4774 Token Graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9e512596be10 explicitly gives eccentricity floor(n/2) in the n=3k+1, s=k+1 subcase via its matching-graph isomorphism. The cycle token-graph primary papers inspected give general diameter bounds or spectral results, not the full extrema."
+        ],
+        "reasoning": "The subfamily is genuine coverage and should be credited; it cannot account for the active n−s−d branch or the complete parameter range. No duplicate all-parameter formula was found in the inspected set.",
+        "searches": [
+          "Resultary matching and bounded-gap eccentricities: 9e512596be10, edbf2b8cafb9, f7b2fcae2dd0, 46606467e152",
+          "Focused cycle partition query yielding arXiv:1902.10765v3",
+          "arXiv:2403.20148"
+        ]
+      },
+      "rationale": "The actual claimed contribution is the extremal evaluation in the size-constrained cycle, not cut-pair encoding, transport-optimality, the all-pairs distance formula, or connectivity. Two general token results already cover the latter exactly, and a prior eccentricity theorem is an actual subfamily overlap. The inspected sources do not evaluate the maximum for every d,n,s or give a stronger extremal theorem implying it.",
+      "residual_risks": [
+        "Unindexed hard-core cycle or partition terminology could contain the full extrema. This pass credits exact prior coverage of pairwise distances and the n=3s−2 special case, not priority for transport."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full metric for connected case, not its extrema",
+          "evidence": "k tokens, gaps in [a,b], ak<n<bk; specialize k=2,a=s,b=n−s.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–2777",
+          "method": "Local mirrored original",
+          "title": "Circular bounded-gap token systems have transport-optimal sliding paths",
+          "trigger": "Exact same graph under cut-pair encoding"
+        },
+        {
+          "assessment": "Covers isometry and distance without the exact eccentricity formula",
+          "evidence": "All gaps at most U, k<n<kU. Set k=2,U=n−s; the lower bounds follow from total gap sum n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gap-slack-isometry-and-exact-token-sliding-distances-for-mutuall--f7b2fcae2dd0/RESULT.md",
+          "material_read": "Finding offsets 0–2990",
+          "method": "Local mirrored original",
+          "title": "Gap-slack isometry and exact token-sliding distances for mutually visible triples on cycles",
+          "trigger": "Possible stronger theorem covering the metric"
+        },
+        {
+          "assessment": "Direct exact overlap on one subfamily only",
+          "evidence": "Identifies matchings with pairs at separation ≥k+1 on C_(3k+1) under one-site moves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-every-minimum-maximal-matching-of-a-cycle-of-order-3k-1-has-ecce--9e512596be10/RESULT.md",
+          "material_read": "Finding and isomorphism/metric proof offsets 3500–5356 and 6700–8349",
+          "method": "Local mirrored original",
+          "title": "Every minimum maximal matching of a cycle of order 3k+1 has eccentricity floor((3k+1)/2)",
+          "trigger": "Exact eccentricity in equivalent cycle graph"
+        },
+        {
+          "assessment": "Non-equivalent move metric",
+          "evidence": "Allows clockwise-only moves and studies directed outgoing distances; k=2,r=s matches the state space only.",
+          "identifier_or_url": "46606467e152",
+          "material_read": "Finding and hypotheses",
+          "method": "Local mirrored original",
+          "title": "Sharp directed diameter and antipodal pairs for spaced tokens on cycles",
+          "trigger": "Same feasible two-token states with an exact diameter claim"
+        },
+        {
+          "assessment": "Relevant general framework but no minimum-size exact cycle extremum in compared result",
+          "evidence": "Single vertex transfer, general connectivity and coarse distance results under different constraints.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.10765v3",
+          "material_read": "pp. 2–3; switch assumptions and general bounds at OA offsets 6929 and 9890",
+          "method": "Original OA PDF text",
+          "title": "Reconfiguration of Connected Graph Partitions",
+          "trigger": "Closest named primary district-switch model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md upper bound and matching witnesses",
+        "General and subfamily prior results above"
+      ],
+      "rationale": "The exact eccentricity describes worst-case reconfiguration effort state by state in a natural constrained districting problem, showing the change between the floor(n/2) regime and a linear long-arc regime. It diagnoses how a minimum-size rule changes global geometry despite leaving transport distances intact for surviving states. Exact radius and diameter are useful consequences; the elementary counts alone would not justify value.",
+      "residual_risks": [
+        "No implications for other hosts, more districts, or mixing times are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

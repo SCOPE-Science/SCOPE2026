@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:44:37.151138Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For v>b each orientation velocity has fixed sign and magnitude at least ε. Over each finite trajectory segment the occupation time of a spatial null set is zero, so any invariant probability has absolutely continuous spatial components. Its integrable total flux is constant and therefore zero. The common orientation flux solves the scalar linear stationary equation with slope L on force +b segments and −R on force −b segments; continuity of flux through the cusps leaves one normalization and proves uniqueness. The normalized solution satisfies the stationary transport equations; both tails are integrable exactly for L,R>0, equivalent to the stated strict bias inequality. With A=1/L+1/R the right and left masses are proportional to Ae^(aL)−1/L and Ae^(aR)−1/R. In the critical window their ratio is logistic up to exponentially small end corrections and a(L−R)=θ(1+ε/(2b+ε)); Taylor expansion gives the stated first correction uniformly on compact θ-sets. For α±→r the rescaled exponents εL,εR both tend to r; translated well densities converge in L¹ by exponential domination while the inner truncations recede, giving total variation and independence. If dimensionless bias diverges while α±→r, both tail exponents still grow and the sign of a(L−R) gives the claimed polarized limit. On each regular segment f=−b·sgn(Yε), so zero flux makes the orientation mismatching Yε have conditional probability ε/(2v) exactly. No claim at v=b is needed. VERIFICATION.md and check.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general stationary formula requires nonzero speeds and finite normalization, both scope features used here. Its illustrated saturating-rate case uses a different force/speed profile and discusses integrability, not near-singular selection of two competing peaks.",
+          "The same-potential paper has a different thermal and bias regime."
+        ],
+        "reasoning": "The stationary law is a direct case of the broader theorem. The credited claim is the analysis of the singular law of both the well label and displacement, including outer polarization and the first-order weight correction, not a new general stationary theorem.",
+        "searches": [
+          "arXiv:2405.13521 equations (7)–(10), Appendix A",
+          "arXiv:2610.08029 equations and steady-state setup pp. 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2405.13521",
+        "arXiv:2610.08029",
+        "Resultary 79c0b2cbcfe4, 91b2e07d37fd and df15c7d7667f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-parameter formula directly gives each piecewise exponent and the exact mismatch ratio after substituting |f|=b; no independent exact-fact credit is assigned to these.",
+          "Comparing integrated masses requires retaining two competing peaks e^(aL) and e^(aR), bounding the center truncation by an exponential error, and identifying the finite limiting tilt and its first correction. The local total-variation result requires the ε spatial rescaling and receding inner truncations."
+        ],
+        "reasoning": "An exact stationary formula makes this analysis short but does not itself give the simultaneous asymptotic classification. The scoped distinction is the weak-bias window and joint law, not the mechanical substitution into the earlier formula.",
+        "searches": [
+          "arXiv:2405.13521 equations (7)–(8) and Appendix A",
+          "Resultary 91b2e07d37fd and df15c7d7667f",
+          "RESULT.md equations for M± and conditional local displacement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the general switching-flow formula the positive and negative speed magnitudes are v+f(x) and v−f(x), and its prefactor 1/(v+f)+1/(v−f) is constant when f²=b². The resulting log-density consists of segments of slopes L and −R.",
+          "The Singh–Aghion paper uses the identical potential, but with symmetric switches and a Gaussian thermal term. Setting the thermal term to zero still leaves the symmetric slice, not the weak orientation-bias scaling.",
+          "In this potential the signed exponent tilt is equivalently a(α−−α+)(1/ε+1/(2b+ε)), not a static spatial tilt of U."
+        ],
+        "reasoning": "The equivalent two-velocity parametrization gives exact coverage of the prelimit density and orientation fractions; equality of potentials alone does not give the biased law or its window.",
+        "searches": [
+          "arXiv:2405.13521 equations (7)–(8), Appendix A",
+          "arXiv:2610.08029 equation (3), pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "79c0b2cbcfe4 is an indexed copy of this result. Distinct record 91b2e07d37fd takes rare symmetric tumbling at positive temperature, with this potential as an example; df15c7d7667f treats a proxy for an optimized barrier in a quartic double well."
+        ],
+        "reasoning": "The closest separate hits change either the noise, tuning and observable or the well geometry and optimization objective. Neither tabulates or proves the competing well probabilities in the stated window.",
+        "searches": [
+          "Resultary 79c0b2cbcfe4, 91b2e07d37fd, df15c7d7667f"
+        ]
+      },
+      "rationale": "Pass for the simultaneous zero-thermal-noise, weak-bias and near-speed-threshold asymptotic: the sharp occupation window, first correction, and joint rescaled location law. The generic zero-current formula and its exact finite-parameter specialization, including the confinement check and flux-ratio identity underlying the orientation mismatch, are not independent novelty. The closest inspected papers do not analyze this singular window or give a limiting theorem that specializes to it.",
+      "residual_risks": [
+        "The exact general stationary law is a strong antecedent, and a prior analysis under other terminology may already have taken this weak-bias limit.",
+        "No priority is asserted for the exact density or the finite orientation mismatch identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the exact finite law and flux relation, rather than a distinct stationary-law contribution here.",
+          "evidence": [
+            "The density is a normalization times the sum of inverse speed magnitudes and the exponential of the integral of γ−/v−−γ+/v+."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.13521",
+          "material_read": "Equations (7)–(10) p. 6–7, offset near 16000; Appendix A equations (A.1)–(A.8) p. 24, offset near 66081",
+          "method": "OA original PDF passage inspection",
+          "title": "Run-and-tumble particle with saturating rates",
+          "trigger": "Stronger two-velocity stationary-current formula"
+        },
+        {
+          "assessment": "Same geometry, not the same biased deterministic switching process.",
+          "evidence": [
+            "The inspected dynamics include Gaussian thermal noise and equal flipping rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08029",
+          "material_read": "Equation (3) p. 4 around offset 6500; p. 5 steady-state equations, offsets 7970–10774",
+          "method": "OA original PDF passage inspection",
+          "title": "Spatial density, first passage times, and entropy of run and tumble particles in a bistable potential",
+          "trigger": "Exact same double-well potential and active-speed regime"
+        },
+        {
+          "assessment": "Rare symmetric flipping at T>0, not fixed r with ε-order bias at T=0.",
+          "evidence": [
+            "Its dissipation limit is (v²−b²)_+/T and it excludes a uniform T→0 or b→v statement."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-universal-rare-tumbling-dissipation-threshold-in-linear-tailed-a--91b2e07d37fd",
+          "material_read": "Finding, original mirrored RESULT.md at offset 0",
+          "method": "Resultary lookup and original record mirror",
+          "title": "Universal rare-tumbling dissipation threshold in linear-tailed active traps",
+          "trigger": "Distinct catalogue record with this well and active-speed threshold"
+        },
+        {
+          "assessment": "Different geometry and limiting observable.",
+          "evidence": [
+            "It optimizes a stationary-density barrier proxy for symmetric flips in a quartic well, not biased well occupation."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-optimal-tumbling-crossover-at-the-double-well-active--df15c7d7667f",
+          "material_read": "Finding in original mirrored RESULT.md",
+          "method": "Resultary lookup and original record mirror",
+          "title": "A universal optimal tumbling crossover at the double-well active threshold",
+          "trigger": "A separate no-thermal-noise crossover near a double-well active threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The vanishing opposing speed makes the order of the symmetry and active-threshold limits consequential. The result identifies the scale of directional bias that still leaves both wells populated, gives each well's asymptotic weight plus its first correction, and resolves the width and shape of the peaks in the same limit. This sharp classification is useful beyond just recomputing a stationary density, without making claims about kinetics or thermal smoothing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

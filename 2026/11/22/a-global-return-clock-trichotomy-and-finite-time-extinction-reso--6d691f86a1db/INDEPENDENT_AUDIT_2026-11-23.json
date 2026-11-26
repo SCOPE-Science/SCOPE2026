@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:41:26.601485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–5; VERIFICATION.md; check_focus_return.py (static inspection)"
+      ],
+      "rationale": "For the prospective linear right orbit with x0>0, write x_j=C rho^j sin(phi+j theta), 0<phi<pi, using the distinct roots rho exp(±i theta). The first crossing of pi happens by ceil(pi/theta), cannot skip the nonpositive half-cycle, and has y_j=-d x_(j-1)<0 including x_j=0. A left iterate lands on the horizontal axis and a negative landing is made positive by the next iterate. For (u,0), the phase is theta and the recurrence gives x_j=u rho^j sin((j+1)theta)/sin(theta); at j=k-1 this gives exactly (-Au,-Bu). Hence the next landing has sign of bA-B; a negative landing adds exactly one step and multiplies its magnitude by b. All intervening right iterates have negative second coordinate, so the positive-ray return is primitive at M=1. At k theta=pi, A=0 but B>0, hence there is no cancellation at any b>0; otherwise b=B/A is the only cancellation and k+2+k bounds full-plane extinction. For 0<M<1 the rate sigma=M^(1/h) works up to a fixed multiplicative constant, by bounded reset time, bounded operator norms on the finite prefix and the finitely many ray phases. The same nonzero ray phases give norm divergence for M>1 unless the orbit reaches zero. Exact examples: (r,d)=(1,3) gives (u,0)→(u,-3u)→(-2u,-3u); neutral gains are 1/2,1,2. The exact-angle test (r,d)=(2,2) gives (0,-4u) at step 3, then (-4u,0), then (4bu,0). Supporting checker read as finite regression only, not executed. The proof gives a sufficient, not claimed sharp, uniform extinction exponent, and does not establish stability under forcing or nonlinear perturbations.",
+      "residual_risks": [
+        "The argument does not apply to the right-node case or to an affine shift off the switching fixed point."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson's earlier angular normalization assumes nonzero inputs never map to zero, which already fails for the left branch along y=bx, x<0. Its general exponential stability criterion does not compute this itinerary.",
+          "The later Farey-return theorems assume the forced map with +1 and a repelling focus d>1; the homogeneous problem permits d<=1 and the focus is at the origin."
+        ],
+        "reasoning": "The published general frameworks give useful methods but do not specialize to the exact reset, clock, or cancellation criterion.",
+        "searches": [
+          "arXiv:1612.02932v1",
+          "arXiv:2606.08901v1 §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.04790v1",
+        "arXiv:2606.08901v1",
+        "arXiv:1612.02932v1 (identified portions)",
+        "Resultary records a2b1d9a86864 and a76c8cea2c0d (indexed claims)",
+        "Frozen AUDIT.json (provenance only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (5.3) in the 2024 paper gives the matrix-product trace that specializes to bA-B if p=k; it does not establish admissibility or the extra -b factor after a negative landing. Section 4.1 explicitly sets aside unforced dynamics.",
+          "The 2026 paper's first component coefficient alpha_j is exactly the sine coefficient used here. Its return is to the full horizontal axis; reaching the negative axis is not reaching this record's positive ray."
+        ],
+        "reasoning": "The prior formulas should be credited. To obtain the result one still needs the bounded all-plane exit and the sign-dependent extra reset on the positive section, including the exact cancellation and primitive periods.",
+        "searches": [
+          "arXiv:2408.04790v1 equations (5.2)–(5.3), §§4.1 and 5.3",
+          "arXiv:2606.08901v1 Lemmas 2.4–2.5 and Theorems 2.3, 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Swapping sides via (x,y)→(-x,-y) swaps the traces and also moves the zero determinant; restoring the zero determinant to the left restores the original signs.",
+          "The indexed homogeneous max-plus result has zero left trace; the five-step extinction result has two negative traces. Neither parameter specialization retains this sign pattern, and the negative-right-trace ray crosses after the first right step, unlike the variable right-focus clock here."
+        ],
+        "reasoning": "The shared homogeneous reduction is real, but neither indexed comparator, scaling, nor the side swap transfers its stated extinction condition to this family.",
+        "searches": [
+          "unforced homogeneous border collision normal form zero determinant negative left trace positive right trace complex eigenvalues Simpson first return stability nilpotent extinction",
+          "homogeneous max-plus border collision sharp extinction positive trace zero left trace and five-step two negative traces nilpotent zero determinant",
+          "Simpson 2024 §3 Remark 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact full conjunction returned is the frozen record itself. The nearby exact extinction and trace-free entries differ in their branch traces or forcing.",
+          "The originating paper includes r=1,d=3 in Fig. 4, but with forcing -1, not the unforced parameter sweep in b."
+        ],
+        "reasoning": "A match of two matrix entries or a nearby neutral period is not a table of the homogeneous return multipliers.",
+        "searches": [
+          "Resultary: border collision normal form zero determinant negative left trace positive right focus global first return positive ray extinction stability",
+          "arXiv:2408.04790v1 §5 and Fig. 4"
+        ]
+      },
+      "rationale": "Best of inspected evidence, for the exact homogeneous mixed-sign family only. The right-branch sine coefficients and rank-one return mechanism are prior ingredients; the contribution is the exact admissible positive-ray clock with the second left reset, its angular obstruction to nilpotence, and the all-orbit conclusion, not a new matrix power formula or a new general theory of first returns.",
+      "residual_risks": [
+        "Possible older unindexed treatment of this exact unforced rank-one family; the indexed neighboring exact results were assessed by their stated hypotheses, not represented as newly read full papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of matrix-power ingredient, not the unforced all-plane theorem",
+          "evidence": [
+            "§4.1: dynamics at mu=0 'will not concern us'; Figure 4 uses mu=-1.",
+            "(5.3) is the one-left-block product trace."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.04790v1",
+          "material_read": "Equation (1.2), Remark 3.1, §§4.1 and 5.3, Fig. 4 and equations (5.2)–(5.3)",
+          "method": "Public arXiv HTML, compare forcing and right-matrix powers",
+          "title": "The two-dimensional border-collision normal form with a zero determinant",
+          "trigger": "Originating normal form and same right matrix"
+        },
+        {
+          "assessment": "Covers the affine focus returns with a different section and forcing; sine coefficient is prior",
+          "evidence": [
+            "Definition 2.1 returns to y=0, not x>0,y=0. Equation (2.10) has a sine coefficient and a separate nonzero forcing correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.08901v1",
+          "material_read": "§1 setup (1.2) and §2 through Lemma 2.5 and Theorem 2.6",
+          "method": "Public arXiv HTML and termwise comparison",
+          "title": "One-dimensional first return maps for the two-dimensional border-collision normal form with a zero determinant",
+          "trigger": "Same normal form and focus return map"
+        },
+        {
+          "assessment": "Related stability framework, nonvanishing condition excludes direct angular reduction here",
+          "evidence": [
+            "At any x<0 and y=bx the frozen map annihilates a nonzero input."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1612.02932v1",
+          "material_read": "Abstract and Introduction including (1)–(4) and its angular-map nonvanishing hypothesis",
+          "method": "Public arXiv OA text and check of nonzero left-kernel points",
+          "title": "The stability of fixed points on switching manifolds of piecewise-smooth continuous maps",
+          "trigger": "Earlier general homogeneous stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact return and integer example",
+        "Simpson 2024 §4.1"
+      ],
+      "rationale": "The unforced switching fixed point is a natural outstanding slice of the originating normal form. The exact return not only tests stability but identifies which periodic clocks can occur, and an extinction resonance which depends on whether the right focus reaches the switching line exactly. The r=1,d=3 example shows how exponential attraction, escape and finite annihilation can occur in one fixed pair of branch entries. These outcomes cannot be read from separate branch eigenvalue stability.",
+      "residual_risks": [
+        "No claim about robustness to nonzero forcing or sharp global nilpotence index."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

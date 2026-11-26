@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:42:34.638366Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For B=D^{-1/2}AD^{-1/2}, the four-cell quotient has spectrum ±1,±c, where c²=pq/((p+1)(q+1)); the complement comprises the two within-side zero-sum spaces at eigenvalue 0 of B. The positive normalized-Laplacian zero mode pins phase to +1 and forces equal degree; projected transfer forces strong cospectrality. At eigenvalue 1 of H the zero-sum leaf projections exclude cross-side pairs unless p=q=1, and sibling pairs unless their side has size two. Equal-degree hubs have p=q=r. The balanced reflection-odd B block is [[0,√(r/(r+1))],[√(r/(r+1)),−1/(r+1)]], with eigenvalues c and −1; both components of its eigenvectors are nonzero. It requires negative phases at 1/(r+1) and 2 under H, incompatible because the latter phase is an even power of the former. This also excludes the P4 end pair. For the remaining size-two leaf pair, the symmetric eigenmodes all have positive sign; the antisymmetric eigenmode at H=1 has negative sign. This is exactly simultaneous odd-π matching for t and ct. Irrational c gives arbitrarily late approximate matches by circle density and no exact ones. Rational c is equivalent to q(q+1)=6h²; the positive Pell equation (2q+1)²−24h²=1 has fundamental unit 5+√24. Its first coordinate is 1 modulo 4 along all positive powers, making q even and c=2h/(q+1) even-over-odd in lowest terms. Even limiting odd-π matching then contradicts equality of the phases raised to the numerator and denominator powers. The symmetric case follows by swapping hubs. An independent bounded Python/NumPy check used the four-cell random-walk quotient (144 cases), a direct square scan through 100000 (2, 24, 242, 2400, 23762), and the symmetric leaf return via its second spectral moment, giving fidelity above 0.99999999 at sampled odd multiples of π for q=1,3,4,5,6. These are checks only; the spectrum, pair exclusions, density and Pell proof establish the full claim. The original replay path is verify.py, inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coutinho–Baptista give general normalized-Laplacian PST criteria and partial tree restrictions; their conclusion conjectures, rather than proves, the stronger all-tree no-PST statement.",
+          "Monterde excludes strong cospectrality with non-twins and within twin classes of size three or greater under the relevant hypotheses; the weighted-twin PGST relation test supplies the phase machinery.",
+          "The indexed even-order tree theorem covers the no-PST claim for p+q even; the fully branched depth-two theorem instead requires diameter four."
+        ],
+        "reasoning": "Credit those covered restrictions and PST instances, not an independent derivation of them as new. Even their combination does not provide the normalized double-star arithmetic and exhaustive PGST statement.",
+        "searches": [
+          "Coutinho–Baptista arXiv:2209.04668v1 §§3–4 and conclusion",
+          "Kirkland–Monterde–Plosker arXiv:2201.02720 §6 Thm. 13",
+          "Monterde ELA 38, Thm. 3.9 and Cor. 3.10",
+          "Resultary even-order trees and fully branched depth-two trees"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2209.04668v1",
+        "arXiv:2201.02720",
+        "arXiv:1206.0082",
+        "arXiv:1409.5840",
+        "Monterde ELA 38, 494–518",
+        "Resultary local mirror: even-order and fully branched trees, double-star adjacency average mixing (3d2ed0be59c4), regular double cones (51d3b84f5e64), and multipartite twin pairs (c99c1ba8fad0)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted-twin criterion mechanically recovers the sibling-pair rational/irrational phase test once the specific spectrum {−1,−c,c,1} and isolated antisymmetric zero mode are computed.",
+          "The test itself does not identify c²=pq/((p+1)(q+1)), convert rationality into the positive Pell equation and rule out all rational matches, or decide the non-twin balanced hubs and P4 end pair."
+        ],
+        "reasoning": "Credit the general machinery. The distinct contribution is the solved parameter arithmetic and all-pairs classification for the degree-normalized Hamiltonian, not a new PGST criterion or the entire PST subclaim independent of prior results.",
+        "searches": [
+          "Kirkland–Monterde–Plosker Thm. 13 compared with frozen RESULT.md §§1–5 of the proof",
+          "Fan–Godsil Thms. 4.6, 5.2–5.3",
+          "Resultary even-order tree theorem compared to p+q parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized adjacency B can be viewed as weighted adjacency; its walk and the normalized-Laplacian walk differ by time reversal and a scalar phase, preserving transfer fidelities.",
+          "Fan–Godsil arXiv:1206.0082 treats ordinary adjacency on the same double stars. Its size-two-side test excludes only q=2, not the infinite Pell set; balanced hub PGST also differs."
+        ],
+        "reasoning": "Degree-normalizing the edge weights is essential: the known adjacency result on the underlying unweighted tree is not an equivalent theorem. Weighted-adjacency methods do carry over and are credited.",
+        "searches": [
+          "Resultary: normalized-Laplacian double stars, diameter-three trees, twin transfer, quantum average mixing",
+          "Primary-literature search: normalized Laplacian double stars diameter three Pell pretty good transfer weighted twins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-family average-mixing record concerns the adjacency time average, not transfer. Indexed regular double-cone and complete multipartite twin-pair records concern distinct graph families.",
+          "The parameter list 2,24,242,… is generated by the classical Pell recurrence, not evidence for novelty of the sequence or a database match for the transfer classification."
+        ],
+        "reasoning": "A Pell table could supply arithmetic terms, but not show their equivalence to failure of PGST for this operator. No inspected exact table or record supplied that interpretation or the full classification.",
+        "searches": [
+          "Resultary: normalized Laplacian transfer and double-star exact parameter families; local mirror statements for closely matching hits",
+          "Primary-literature search: double-star Pell transfer and diameter-three classification"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exhaustive normalized-Laplacian double-star classification, including its explicit Pell obstruction. Published twin and tree criteria cover much of the machinery and a prior indexed result covers the even-order PST subcase. The closely matching adjacency classification has different answers. No inspected statement provides the entire normalized double-star spectrum/transfer analysis or the parameter classification as a direct instance without the family-specific calculations and exclusions.",
+      "residual_risks": [
+        "An explicit equivalent normalized-adjacency parameter application elsewhere could change novelty; the compared weighted-twin literature already covers the underlying transfer test.",
+        "This does not establish any all-tree classification or establish priority solely from record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General PST criterion and partially overlapping tree restrictions",
+          "evidence": [
+            "Cor. 8 restricts same-bipartition candidates to sibling leaves; the all-tree obstruction is conjectural in the conclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.04668v1",
+          "material_read": "§3 Thm. 5, §4 Thm. 7 and Cor. 8–9, conclusion, PDF pp. 7, 9–13",
+          "method": "OA PDF relevant passages",
+          "title": "Quantum Walks in the Normalized Laplacian",
+          "trigger": "Same Hamiltonian; potential stronger all-tree theorem"
+        },
+        {
+          "assessment": "Covers the twin phase method, not an explicit all-pairs double-star classification",
+          "evidence": [
+            "The theorem is a general integer-relation/parity criterion for twin PGST."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.02720",
+          "material_read": "Abstract, §6 Thm. 13 p. 19",
+          "method": "OA PDF relevant passages",
+          "title": "Quantum state transfer between twins in weighted graphs",
+          "trigger": "Weighted adjacency represents normalized adjacency"
+        },
+        {
+          "assessment": "Covers the twin-class strong-cospectral restrictions, not transfer times or exceptions",
+          "evidence": [
+            "Thm. 3.9 bounds twin-class size by two for the negative projector equality, and excludes a vertex outside the twin class via that same projector."
+          ],
+          "identifier_or_url": "https://emis.de/ft/34076",
+          "material_read": "Abstract and Thm. 3.9, PDF p. 13, text offset 55130; Cor. 3.10 locator",
+          "method": "OA PDF text and exact theorem query",
+          "title": "Strong cospectrality and twin vertices in weighted graphs",
+          "trigger": "Possible stronger exclusion for normalized adjacency"
+        },
+        {
+          "assessment": "Same family, different Hamiltonian and PGST locus",
+          "evidence": [
+            "Theorem 5.2 permits q≠2 for adjacency on a size-two sibling pair, unlike the Pell exclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.0082",
+          "material_read": "Thms. 4.6 and 5.2–5.3, pp. 12–14",
+          "method": "OA PDF passages",
+          "title": "Pretty good state transfer on double stars",
+          "trigger": "Same trees, closely matching title and transfer questions"
+        },
+        {
+          "assessment": "The tree obstruction discussed uses the standard Laplacian; normalized results concern other situations",
+          "evidence": [
+            "Normalized results in those passages concern weak products and paths, not the double-star classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.5840",
+          "material_read": "Abstract and introduction, PDF pp. 1, 4",
+          "method": "OA PDF passages",
+          "title": "Perfect State Transfer in Laplacian Quantum Walk",
+          "trigger": "Contains tree and normalized-Laplacian transfer results"
+        },
+        {
+          "assessment": "Covers the exact no-PST conclusion for p+q even",
+          "evidence": [
+            "Order of D_{p,q} is p+q+2; this does not address PGST or odd order."
+          ],
+          "identifier_or_url": "SCOPE-20261012-e185f47a8e90",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "No normalized-Laplacian perfect state transfer on trees of even order",
+          "trigger": "Stronger covering family for half the PST parameter parity classes"
+        },
+        {
+          "assessment": "Different tree class",
+          "evidence": [
+            "Its fully branched hypotheses force diameter four instead of three."
+          ],
+          "identifier_or_url": "SCOPE-20261012-123d35fd4e3d",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "No normalized-Laplacian perfect state transfer on fully branched depth-two trees",
+          "trigger": "Nearby normalized-Laplacian tree class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completely classifies all vertex pairs in a canonical infinite family (all diameter-three trees), with an infinite arithmetic exceptional set and a distinction between approximate and exact transfer. The normalized classification genuinely differs from the studied ordinary adjacency one; the family-specific Pell exclusion and non-twin checks, rather than a restatement of the general twin criterion, provide the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

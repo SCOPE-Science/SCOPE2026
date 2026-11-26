@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:44.277329Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–5; frozen VERIFICATION.md and verify.py read, not executed",
+        "The source reports 2573 finite checks including Bareiss cofactors, quadrature and seeded simulations; replay is python3 verify.py in the source package. The limit proof was assessed analytically, not inferred from these checks."
+      ],
+      "rationale": "At fixed latent p the probability of a red terminal draw is p, giving the beta posterior with first parameter increased by one. One common sequence of iid nonterminal bits given P produces the stated coupling. For 2≤i≤n, direct Laplacian multiplication on the vector with coordinates 1 before i, −(i−1) at i and zero later gives eigenvalue iZ_i plus the later red count. The forced last draw gives eigenvalue n and cancels the matrix-tree cofactor factor 1/n. At i<n the deterministic baseline is at least p(n−i), the later centered count is independent of Z_i, and there is an additional bounded terminal correction. Cutting at k=n−i≥ceil(n^{1/3}), the simultaneous Hoeffding bound O(sqrt(k log n)+1) has summable failure probability. Summing the Taylor remainder gives O(log² n); the omitted logs are bounded in total by O(n^{1/3} log n), since eigenvalues are between 1 and n. Replacing the random reciprocal by its mean produces orthogonal reverse martingale differences with total variance O(sum 1/k)=O(log n). The terminal correction in the remaining linear term is O(log n). The cumulative reciprocal coefficients approximate their integral uniformly to O(1/ceil(n^{1/3})) off the last block, and the tail coefficient errors are O(log n) each, giving o(n) total squared error. Adding the direct bit coefficient to this cumulative integral gives the claimed g_p; its integrable logarithmic-square singularity gives convergence of normalized squared sums, while its maximal coefficient is o(sqrt(n)). This establishes Lindeberg's condition and the variance formula. The deterministic centering integral gives f(p); the Taylor correction is o(n) almost surely, and weighted Hoeffding on the retained direct bits gives the strong law. Integrating conditional bounded test expectations establishes stability relative to P; on the given coupling, removal of any fixed finite set of bits from the weighted sum also gives stable convergence against fixed finite-bit tests and then their bounded measurable limits. At p=1/2 the substitution y=tanh(u) evaluates the variance to π²/3. The weight is positive for 0<y<1; v(p) tends to zero at p→1 and is at least 2(1−p)/p near zero, so the full-support beta mixture is genuinely nondegenerate in variance. Strict monotonicity of f follows from −log p≥1−p and differentiation, with the stated endpoint limits.",
+      "residual_risks": [
+        "All expansion constants are fixed-p; the proof and verdict do not assert a uniform endpoint rate or finite annealed variance. Stable mixing of bounded tests does not require the latter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu et al. give the beta-binomial model and Laplacian spectrum. Diaconis–Holmes–Janson treat the same iid creation model before terminal conditioning; their degree law converges to density (1−p)/p on (0,p) and p/(1−p) on (p,1), and §9 relates normalized spectral and degree weak limits."
+        ],
+        "reasoning": "Integrating log against the known limiting density gives the frozen centering function, but weak convergence alone does not justify that operation on finite spectra, much less its fluctuations at rate sqrt(n). The inspected spectrum results do not give the direct-bit and accumulated tail contributions to the variance.",
+        "searches": [
+          "Yu–Alajaji–Gharesifard arXiv:2603.18452v1 §§2.1, 4 and terminal-universal discussion",
+          "Diaconis–Holmes–Janson arXiv:0908.2448 §6.3 Theorem 6.4 and §9 Theorem 9.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 8db233e29025, f0c3661a1433, 2bd246f774b4, 2604022e91d9",
+        "OA arXiv:2603.18452v1, 0908.2448, 2103.13596v1; Hammer–Kelmans primary full-text limitation noted above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The underlying determinant identity and beta posterior adjustment follow from known finite spectrum and exchangeability. The fluctuation formula, in contrast, needs a weighted linearization at a log singularity and treatment of dependence between overlapping tail counts. The variance has a contribution from the cumulative reciprocals in addition to the local Bernoulli weight."
+        ],
+        "reasoning": "The tested first-order spectrum and degree laws cannot imply this second-order law as a direct substitution. Nor can the edge-count CLT supply the particular logarithmic weights. No claim is made that the beta-updating calculation itself is new.",
+        "searches": [
+          "Theorem 6.4 and §9 of arXiv:0908.2448; Theorem 4 of arXiv:2603.18452v1; Theorem 2.9 of arXiv:2103.13596v1; local edge-count records f0c3661a1433 and 2bd246f774b4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold graph tree count is a product of the nonzero Laplacian eigenvalues divided by n; the first known equivalence is to a log spectral linear statistic with the deterministic zero omitted. Diaconis–Holmes–Janson give the spectrum {0}∪{d(i)+α_i}, equivalent to the needed spectral factor; Go et al. give the deterministic spanning-tree product."
+        ],
+        "reasoning": "Those exact finite formulas are not the fluctuation theorem. The same local record 8db233e29025 returned by the search is the frozen source, not an independent match.",
+        "searches": [
+          "Resultary: quenched Gaussian spanning-tree complexity and conditional threshold-graph Laplacian log count",
+          "Web: \"Pólya threshold graphs\" \"spanning tree\" Gaussian fluctuations logarithmic complexity CLT log determinant random threshold graphs",
+          "arXiv:0908.2448 Eq. (9.1); arXiv:2103.13596v1 Theorem 2.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title/statement match is the frozen self-entry 8db233e29025. The distinct same-day f0c3661a1433 gives finite-memory edge-count CLTs, 2bd246f774b4 concerns edge counts including a forced last bit, and 2604022e91d9 concerns finite-memory motifs/densities."
+        ],
+        "reasoning": "Neither an additive edge statistic nor a motif density is the eigenvalue log product; no checked distinct exact formula or table gives the quenched variance.",
+        "searches": [
+          "Local Resultary searches for conditional spanning-tree complexity/log-determinant fluctuations and finite-memory Pólya threshold fluctuations"
+        ]
+      },
+      "rationale": "Credit the known Pólya threshold model, iid creation limit, Laplacian eigenvalue identity and exact degree-product tree count. The supported distinct claim is the fixed-p second-order log-tree-count limit with the evaluated influence function and stable beta mixing. The closest inspected spectral theorem gives weak first-order convergence, which gives neither the endpoint logarithm control nor fluctuation covariances. The closely related indexed fluctuation results concern different observables or memory regimes.",
+      "residual_risks": [
+        "Search scope is bounded. A separate general theorem for singular log spectral statistics or prior explicit threshold log-tree asymptotics could qualify the novelty. An unproductive search and an unavailable historical paper are not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known model and exact spectrum, no matching fluctuation statement in the inspected material",
+          "evidence": [
+            "Theorem 4 computes the nonzero spectrum using the degrees under its loop convention. The connected-graph discussion sets the final graph vertex to universal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.18452v1",
+          "material_read": "§2.1 (offsets 7100–10287); Theorem 4/eigenbasis (57000–61384); terminal-universal discussion (71600–74558)",
+          "method": "OA HTML article passages",
+          "title": "Pólya Threshold Graphs",
+          "trigger": "Exact model and spectral precursor"
+        },
+        {
+          "assessment": "First-order iid degree and normalized spectrum results; no matching second-order conclusion in these sections",
+          "evidence": [
+            "Theorem 6.4 gives the almost-sure weak limit and its two constant densities. Equation (9.1) gives the deterministic eigenvalue/degree relation. Theorem 9.1 concerns weak convergence of normalized spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0908.2448",
+          "material_read": "§6.3 and Theorem 6.4, pp. 30–31 (offset 88200); §9, pp. 44–45, Eq. (9.1), Eq. (9.2) and Theorem 9.1 (offset 128060)",
+          "method": "Identified OA arXiv PDF alternate, decisive sections read",
+          "title": "Threshold Graph Limits and Random Threshold Graphs",
+          "trigger": "Strongest iid spectral-limit antecedent; PMC full-text route was unavailable"
+        },
+        {
+          "assessment": "Exact finite antecedent, not the CLT",
+          "evidence": [
+            "Theorem 2.9 gives a threshold-graph degree-factor tree-count formula and credits earlier proofs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.13596v1",
+          "material_read": "Abstract/introduction and Theorem 2.9, offsets 0–5641 and 21200–24098",
+          "method": "OA HTML theorem passage",
+          "title": "Spanning tree enumeration via triangular rank-one perturbations of graph Laplacians",
+          "trigger": "Equivalent deterministic tree product"
+        },
+        {
+          "assessment": "Finite formula already credited from accessible theorem; no conclusion about unavailable portions",
+          "evidence": [
+            "Go et al. cite Hammer–Kelmans among earlier proofs of the threshold tree product."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(94)00049-J",
+          "material_read": "Landing page only; its deterministic result is cited in the inspected Go et al. discussion",
+          "method": "OA/identified alternate recovery attempts did not yield primary full text",
+          "title": "Laplacian Spectra and Spanning Trees of Threshold Graphs",
+          "trigger": "Early deterministic precursor"
+        },
+        {
+          "assessment": "Related model family, different observables and finite-memory regimes",
+          "evidence": [
+            "Edge-count Gaussian laws and motif/density fluctuation results; the forced universal vertex in the edge-count record makes the setup close but leaves a different statistic."
+          ],
+          "identifier_or_url": "Resultary f0c3661a1433, 2bd246f774b4, 2604022e91d9",
+          "material_read": "RESULT.md Findings at offset 0, including offsets 0–3600 for f0c3661a1433",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact memory-dependent Gaussian edge fluctuations in finite-memory Pólya threshold graphs; Exact memory amplification of edge-count fluctuations; Joint triangle fluctuations",
+          "trigger": "Closest distinct indexed fluctuation claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Result, Finding and expansion at Steps 3–5; Diaconis–Holmes–Janson §9 for the first-order spectral comparison"
+      ],
+      "rationale": "The logarithm of the tree count is a natural measure of graph complexity, and one cannot infer its fluctuations from the normalized spectrum or latent-proportion law alone. The result separates order-n environmental variation from order-sqrt(n) conditional variation and supplies the nonconstant variance that determines the mixture. It also handles the logarithmic sensitivity to small eigenvalues near the terminal end instead of replacing the observable by a bounded spectral statistic.",
+      "residual_risks": [
+        "The result is specific to positive fixed urn parameters and terminal-red-conditioned ordinary spanning trees. No general random graph or endpoint-uniform theorem follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

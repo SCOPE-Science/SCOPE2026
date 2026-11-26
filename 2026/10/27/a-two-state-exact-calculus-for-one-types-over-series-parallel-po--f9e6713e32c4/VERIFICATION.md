@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The all-size result is proved by decomposition of downset/upset extension profiles; finite computation does not establish its infinite quantifiers.
+# Independent mathematical audit
 
-To reproduce the finite checks, run `python3 verify_series_parallel.py`. This constructs strict order relations for all binary series/parallel expressions on consecutively labelled leaves through six vertices, checks all ternary new-point comparison profiles against transitivity, and counts downsets independently by subsets. It also checks 260 pseudorandom expression trees on 7–10 vertices, with a fixed seed, and the empty and four-element diamond cases.
+## correctness
 
-The attached `verification_output.txt` records the actual run. It reports 1, 2, 6, 22, 90, and 394 distinct strict orders generated at sizes 1–6; 260 sampled larger instances; the diamond pair `(6, 18)` of ideals and types; and `ALL_TESTS_PASS`.
+PASS
 
-Limitations: the exhaustive coverage is over the specified expression convention rather than all relabellings, and higher sizes are sampled, not exhaustive. The proof, not finite enumeration, validates arbitrary decompositions. Independent audit has not been performed.
+An admissible new-point comparison profile is a downset L and an upset U with l<u for every l in L and u in U. These conditions are necessary and suffice for transitivity and disjointness. Universality and homogeneity realize this finite extension over the pointwise named base and identify all realizations of a given profile by automorphisms. A profile isolates the corresponding complete type, and the extension can have arbitrarily many pairwise incomparable copies, so the type is nonalgebraic. Equality types are excluded. Counting one-sided profiles gives 2I−1, with I including the empty ideal, and adding b gives 2a+b+1. Ideals multiply in a parallel composition and have count I(P)+I(Q)−1 in an ordinal sum (proper ideals of P, or all P plus an ideal of Q). A two-sided profile in a parallel composition lives in just one component. In an ordinal sum, a two-sided profile internal to P forces all of Q above the new point, one internal to Q forces all of P below, and the remaining profiles are exactly a nonempty ideal of P paired with a nonempty filter of Q. These disjoint cases give the stated b recurrences. Empty and singleton leaves, arbitrary nesting, and the diamond all agree. Linear arithmetic-operation complexity is in the actual number of leaves, counting empty leaves; counts are bounded by 3 to the power of the number of vertices, which is at most the leaf count.
+
+## originality
+
+PASS
+
+The distinct contribution is the two-integer exact computation on the entire series–parallel closure. The comparison-profile characterization, generic-poset realization, and counting on the intersecting tree-cover domain are prior and not credited as new. The strongest catalogue lead mentions series–parallel recurrences without giving or identifying them; neither it nor the other inspected statements establishes equivalent coverage of the full closure. This is a best-of-knowledge finding, not a priority claim.
+
+## value
+
+PASS
+
+The two intrinsic counts give an exact, decomposition-independent algorithm on an unbounded and natural class of parameter posets for a statistic that is hard without structural restrictions. The mixed-profile state is what closes the calculation under arbitrary alternation of the operations, including posets such as diamonds beyond cover-tree methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:54:46.124713Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson thinning, or the explicitly assumed independent counts, gives a product of two tails. For 0<u<n and y=n−u, Q'_r(y)=e^(−y)y^(r−1)/(r−1)!, and Q_r/Q'_r=B_r−1. Comparing the two positive denominators in the log derivative gives the sign of log B_r(n−u)−u. B_r is the MGF of Beta(1,r−1) (or of the constant one at r=1); strict positivity of its tilted mean gives strictly increasing y+φ_r(y), and the derivative changes sign once from positive to negative. Endpoint success is zero. The strictly positive tilted variance for r≥2 makes φ_r(y)/y strictly increasing from 1/r toward 1, with derivative bound φ'_r<1; the limiting slope also follows directly from φ_r(y)=y−(r−1)log y+log((r−1)!)+o(1). This last argument avoids the imprecise tilting sentence in Step 3. At fixed budget the beta variables decrease in strict stochastic order as r increases, which raises y_* and lowers u_*; r=1 gives parity. The tilted logarithm has quadratic coefficient Var(V_r)/2=(r−1)/(2r²(r+1)); inversion gives r(r−1)/(2(r+1)^4) for the n-term of the share. The large-budget equation has y_*=n/2+O_r(log n), so log y_* can be replaced by log(n/2) with o(1) error. Both one-sex failure terms are then equivalent to e^(−n/2)(n/2)^((r−1)/2)/√((r−1)!), and their product is negligible. The small-budget leading probability follows from u~n/(r+1) and Q_r(y)~y^r/r!. These are fixed-r and initial-quorum statements, not dynamic persistence.",
+      "reproduction": {
+        "command": "python3 /workspace/branches/993623bd-ddae-4802-af71-449f8f025a1c/quorum_scalar_check.py",
+        "evidence": "Independent upper-tail summation or lower-tail complementation with bisection on y+log(1+Q/Q′), then comparison against direct objective values. n=4,r=2 yields u=1.498850985544, share .374712746386, P=.553677309441 and stationarity residual 4.44e−16; derivative signs bracket the optimum and it beats the best 2001-point grid value. Sample monotonicity checks for r=2,3,6 over tested budgets and r=1,…,8 at n=5 passed; the r=7,n=10000 large-budget failure ratio is about 1.0140. Numerical evidence is bounded, not a proof of any asymptotic error bound. Frozen verifier inspected, not executed. The verification note mentions an r=3,n=10 example as quoted in the theorem, but that example is not in the theorem as frozen.",
+        "output": "/workspace/branches/993623bd-ddae-4802-af71-449f8f025a1c/quorum_scalar_check.txt"
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanford report LIE ONR 155, September 1973, has the matching authors/title; the publisher response was 403 and the Stanford manifest's PDF could not be retrieved by the OA routes. The source's available abstract comparison (secondary here) describes the shared component-response case.",
+          "Indexed Gamma reversed-hazard hits concern stochastic comparisons of order statistics/parallel systems, not an independently verified allocation theorem for the complementary effort product."
+        ],
+        "reasoning": "Homogeneous k-out-of-n equal-allocation results could cover parity r=1 but do not as described yield the asymmetric r≥2 share. Heterogeneous component responses are the decisive possible broader equivalent; a full-text result on those responses was not established. Unavailability is not evidence that the content is absent.",
+        "searches": [
+          "Derman–Lieberman–Ross DOI 10.1287/mnsc.21.3.241 and exact-title Stanford technical report search",
+          "Gamma reversed hazard, parallel and series reliability allocation searches"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Finite polygynous founder groups exact record and other quorum hits at index-summary level",
+        "arXiv:1204.4920",
+        "Stanford LIE ONR 155 catalog/manifest",
+        "DOI 10.1287/mnsc.21.3.241 and the two Bessa-Gomes et al. DOI/PDF routes (access limitations above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-size expected-mating-output theorem has a log-reserve optimum for unlimited h, not the n/2 minus log correction for a success event. Schneider's model has fixed N, random replacement over successive times, and absorption when one sex disappears.",
+          "The actual proof of the new comparative statics uses the strict convexity of a specific tilted beta log MGF and stochastic ordering in r, beyond identifying a concave objective."
+        ],
+        "reasoning": "Neither a dynamic extinction time law nor a finite-binomial mating optimum implies this response to budget. A global optimizer alone would not imply strict normalized-share changes and the constants in the two limiting regimes. Broader reliability priority is a specific residual risk rather than a negative conclusion.",
+        "searches": [
+          "Resultary Finite polygynous founder groups §§1–5",
+          "Schneider et al. arXiv:1204.4920 initial model",
+          "Exact DOI and public report presentation of Derman–Lieberman–Ross"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q_r(y) is the cdf of the rth arrival of a unit-rate Poisson process, hence a Gamma(r,1) cdf. The objective is equivalently a series system with two independent Gamma threshold variables of shapes 1 and r and budget u+y=n; the stationarity condition equalizes their reversed hazards.",
+          "The close Resultary finite-polygynous theorem uses Bin(n,p) with fixed n, expected min{F,h(n−F)}, and the any-pair event as a separate symmetric objective."
+        ],
+        "reasoning": "Gamma reversed-hazard monotonicity and log-concavity explain the general form of the optimization, but do not by themselves give strict changes in the normalized share or the stated explicit expansions. Fixed-n binomial feasibility cannot be substituted for a Poisson two-threshold product.",
+        "searches": [
+          "Resultary: Poisson female quorum one male founder sex ratio resource allocation optimal gamma arrival threshold monotonic share",
+          "Primary searches: Poisson two-component unequal thresholds series system; Gamma/Erlang reversed hazard and threshold resource allocation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned law is the indexed self-hit. Other matched Poisson-quorum Resultary summaries concern pooled time pulses, alternative habitats, or counting mating-capable sites rather than both unequal thresholds in one group.",
+          "Exact parity at r=1 is elementary by symmetry; the older binomial record's exactly balanced any-pair optimum is established in its proof, but has no r≥2 law in the compared setting."
+        ],
+        "reasoning": "No standalone tabled value is at issue; the check is for exact functions of n and r, including an additive log displacement and the optimized-failure asymptotics. Standard Poisson/Gamma tail tables give the input probabilities, not their budget-optimal shares.",
+        "searches": [
+          "Resultary precise quorum/share query above",
+          "Primary searches for Poisson female quorum and identical/unequal Poisson series thresholds",
+          "Exact mirror of Finite polygynous founder groups, Finding and proof §§1–5"
+        ]
+      },
+      "rationale": "Neither Poisson splitting, the Gamma/Poisson tail identity, the beta MGF, nor the general log-concave resource-allocation first-order condition is original here. The contribution assessed is the all-budget share law for unequal thresholds, the strict order in quorum and the sharp small/large-budget and optimized-failure expansions. Related exact founder and dynamic extinction results solve different optimization or probability problems. No covering statement is established by examined material; the broader reliability comparison is explicitly qualified by access limits.",
+      "residual_risks": [
+        "Inaccessible full reliability paper/report may contain stronger unequal-response results; heterogeneous Gamma/Poisson budget allocation is the strongest equivalent formulation to investigate further.",
+        "The ecological sources' full mathematical arguments were not independently read here. Priority over unindexed demographic and operations-research equivalents is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different ensemble and payoff, not an implication",
+          "evidence": "Uses expected binomial mating-female count with capacity h, and optimizes the separate event 1≤F≤n−1 at parity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-finite-polygynous-founder-groups-a-sharp-sex-allocation-tradeoff--1c8c74fd49b0/RESULT.md",
+          "material_read": "Finding and proof §§1–5, OA offsets 0–7966",
+          "method": "Resultary exact local mirror",
+          "title": "Finite polygynous founder groups: a sharp sex-allocation tradeoff and logarithmic male reserves",
+          "trigger": "Nearest exact founder sex-allocation theorem"
+        },
+        {
+          "assessment": "Different time-dependent problem",
+          "evidence": "First passage to a one-sex state in a fixed-size replacement chain with unbiased sex determination, not a threshold allocation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1204.4920",
+          "material_read": "Abstract and model description, OA offsets 0–7978",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Robustness Against Extinction by Stochastic Sex Determination",
+          "trigger": "Closest accessible primary sex-ratio extinction model"
+        },
+        {
+          "assessment": "Specific unresolved historical-coverage risk",
+          "evidence": "Catalog verifies the September 1973 report, title and authors, not hypotheses or theorem conclusions. The frozen abstract comparison points to common component responses, which cannot settle the heterogeneous case.",
+          "identifier_or_url": "https://doi.org/10.1287/mnsc.21.3.241; Stanford report https://purl.stanford.edu/ss384xm4796",
+          "material_read": "Stanford catalog and public manifest; source review's description of the article abstract, not primary theorem text",
+          "method": "Exact title search and catalog/manifest inspection; OA DOI returned 403, linked Stanford PDF timed out on both OA routes",
+          "title": "Optimal Allocations in the Construction of k-Out-of-n Reliability Systems",
+          "trigger": "Potential exact broader reliability formulation"
+        },
+        {
+          "assessment": "Limited access; no whole-paper exclusion",
+          "evidence": "Frozen descriptions concern fixed-size stochastic sex ratios and alternative mating functions. That secondary evidence does not certify what their full texts imply.",
+          "identifier_or_url": "DOI 10.1111/j.1461-0248.2004.00632.x and DOI 10.1016/j.actao.2010.02.010",
+          "material_read": "Frozen review's descriptions only; no separately accessed primary model passage",
+          "method": "Exact author PDF and publisher access attempts were unsuccessful",
+          "title": "Allee effects, mating systems and the extinction risk in populations with two sexes; Discrete two-sex models of population dynamics: On modelling the mating function",
+          "trigger": "Most directly relevant ecological antecedents cited by the source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an initial two-sex feasibility event there is a meaningful distinction between obtaining any pair and obtaining an asymmetric founding quorum. The entire female-bias response to population budget and to quorum is resolved, not just a numerical optimum or a stationarity equation. The departure from parity and the optimized failure scale quantify a tradeoff not captured by either deterministic proportions or a fixed universal founder share. These are model benchmarks, not release recommendations or persistence predictions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

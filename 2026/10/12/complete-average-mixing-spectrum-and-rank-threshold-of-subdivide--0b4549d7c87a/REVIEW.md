@@ -1,12 +1,21 @@
-# Review of the subdivided-clique average-mixing theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem precisely fixes \(n\ge3\), an unweighted zero-one adjacency Hamiltonian, and the Cesàro average. The incidence identity \(BB^\top=(n-2)I+J\) gives the entire adjacency projector family; the zero eigenspace is not omitted when present. Their Schur squares produce a three-orbit edge block and an incidence-shaped cross block. Orthogonal constant, standard, and incidence-kernel sectors exhaust every coordinate. Symbolic simplification proves the standard-sector determinant \((n-4)(n-3)/(2n(n-2))\); it is strictly positive from \(n=5\), and the two boundary ranks are proved directly. The packaged script verifies four symbolic identities, 2,882 exact matrix entries across six graphs and six independently reconstructed adjacency spectra. Finite checks are corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS with stated residual risk
-Searches of the accessible mathematical literature, mathematical record indexes, and recoverable prior scientific claims found no statement implying the exact spectrum or the sharp rank threshold for the bipartite subdivision of \(K_n\). Godsil (arXiv:1103.2578) supplies the universal projector formula; Coutinho–Godsil–Guo–Zhan (arXiv:1709.03591) supplies a commutant/Gram view; the 2022 exact-algorithm source (arXiv:2208.08971) supplies a general method but not these closed family formulas. Silva–Posner–Portugal (arXiv:2206.03375) treats vertex-edge quantum dynamics and, for the specific complete graph, its *total graph*, a distinct graph. All these works have been distinguished by statements and scope, not titles alone. The main remaining risk is equivalent implicit coverage through design-incidence or association-scheme spectral identities that was not located; negative searches are not proof of originality.
+PASS
 
-## Value — PASS
-The base \(K_n\) with its edges turned into vertices is an intrinsically motivated vertex–edge transport model. The result resolves an exact infinite-family quantum invariant, including the entire indexed spectrum and a sharp transition from rank deficiency at \(n=3,4\) to strict positivity for all \(n\ge5\). It provides structural information beyond a small-graph calculation, while making no claim about arbitrary graph subdivisions.
+For the zero-one adjacency of the once-subdivided K_n, the singular values of the unsigned incidence matrix B follow from BBᵀ=(n−2)I+J. The two nonzero singular-value modes split into opposite adjacency eigenvalues; the remaining projector is supported on the edge kernel of B and has rank n(n−3)/2, zero at n=3. Cesàro averaging pairs only equal adjacency eigenvalues, so the squared projectors are added, without mixing the opposite signs. In the edge block, writing x for intersection size, the standard edge projector has entry (x−4/n)/(n−2), and the kernel projector has entry δ−1/m−(x−4/n)/(n−2). Squaring gives the three edge orbit coefficients in the record. In the cross block, (B_ie−2/n)²=(1−4/n)B_ie+4/n² gives the stated coefficient h_n; on mean-zero modes the cross entry is h_n√(n−2). The constant block has original-vertex row sum 1/2 within that part, and the Schur sum is stochastic, giving its two stated eigenvalues. The triangular graph acts by n−4 on Bᵀ of the mean-zero space and by −2 on ker B. Substitution gives the stated b_n and η_n, and a_n b_n−(n−2)h_n²=(n−4)(n−3)/(2n(n−2)). Together the sectors exhaust n+m. The n=3 constant and standard sectors give rank 3; the n=4 standard block has only one nonzero eigenvalue per pair, giving rank 7 overall. All sectors are positive at n≥5. A separate exact characteristic-polynomial check at n=3,4,5 matched and gave ranks 3,7,15.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest same-observable catalogue matches concern graph blow-ups and primitive strongly regular graphs, neither containing this family. The primary exact-object source puts the subdivision walk in its future-work discussion and evaluates a distinct total graph for K_n. General projector identities and algorithms do not provide the evaluated uniform eigenvalues or the rank cutoffs without the additional incidence and Schur-orbit spectral calculation. No covering statement was established in the sources checked.
+
+## value
+
+PASS
+
+An established graph construction models the natural walk that alternates between vertices and incident edges, explicitly distinguished from the total-graph walk in prior work. The exact spectrum of its long-time mixing operator is informative beyond the ordinary adjacency spectrum, and the 3,7,full rank transition distinguishes the exceptional sizes from all larger complete graphs. The invariant is motivated and the closed decomposition is usable without calculating graph-sized matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

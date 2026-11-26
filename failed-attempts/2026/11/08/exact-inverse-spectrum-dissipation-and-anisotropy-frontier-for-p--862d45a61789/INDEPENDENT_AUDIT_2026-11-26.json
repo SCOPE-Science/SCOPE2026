@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:43:14.114019Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent real-Schur symbolic replay: python3 /workspace/replay/ou.py; /workspace/replay/ou.out"
+      ],
+      "rationale": "In real orthogonal Schur coordinates the drift is A=[[-a-b,h],[0,-a+b]]. The stationary Lyapunov equation forces D=B/2=-(A+A^T)/2 and tr B=4a. The diffusion eigenvalues are a±c with c=sqrt(b^2+h^2/4); strict positivity requires c<a. Every b<=c<a occurs, with spectrum unchanged, and stability and the Lyapunov equation give the same N(0,I). The current matrix W=A+D is skew with magnitude |h|/2, hence Phi=tr(W^T D^(-1) W)=2a(c^2-b^2)/(a^2-c^2). Substitution of c=a(K-1)/(K+1) proves the claimed curve. Phi'=(a^2-b^2)(1-K^(-2))/(2a)>0 on the feasible domain, so a feasible finite cap is attained at its upper endpoint. From C(tau)=exp(A^T tau), the off-diagonal lag difference has magnitude |h|e^(-a tau)sinh(b tau)/b, giving the stated Frobenius norm and its limiting bound. The boundary c=a is not in the model class. For tau>0 the lag supremum is approached and not attained; tau=0 is identically zero. The saturation is not non-identifiability from exact positive-lag norm data at fixed a,b, since that norm is strictly increasing in c.",
+      "residual_risks": [
+        "The classification uses Euclidean conditioning at identity stationary covariance and the physical diffusion tensor B/2. It does not assign EPR to singular noise or establish an estimation error bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Troude–Sornette permit general correlated positive-definite forcing for exactly this stable real-spectrum drift. The forced B=-(A+A^T) is their equal-variance case sigma_i^2=2a, correlation rho=-c/a. Their effective nonnormality K_sigma=(kappa-kappa^(-1))/2=v/b.",
+          "Godrèche–Luck give a general planar EPR identity. Nagayama et al.'s relaxation-speedup lower bound is weaker on this class, 2(c-b)^2/(a+c), and is not itself the exact frontier. The other cited formulas are general linear diffusion identities."
+        ],
+        "reasoning": "The broader correlated-forcing formulas actually evaluate the whole constrained family. It is this direct specialization of an already-solved parametrized problem, not generic availability of OU tools, that gives coverage.",
+        "searches": [
+          "Troude–Sornette general noise and planar formulas, Eqs. (3), (9), (12); Godrèche–Luck arXiv:1807.00694 §2.10",
+          "Nagayama–Kolchinsky–Ito arXiv:2606.07263 Eqs. (13)–(15); Da Costa–Pavliotis arXiv:2212.05125 §5.1; Strang arXiv:2411.07613 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.07206v1, 1807.00694, 2606.07263, 2212.05125 §5.1 and 2411.07613 §3.1",
+        "Resultary 862d45a61789, 6291c62e0ff7 and 68bc5baaf3bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With c=b(kappa+kappa^(-1))/2 and v=b(kappa-kappa^(-1))/2, c ranges from b to a under B>0, with a excluded. Eq. (12) gives exactly 2a(c^2-b^2)/(a^2-c^2). The eigenvalues 2(a±c) of the forced Eq. (9) give K=(a+c)/(a-c); the claimed eliminated Phi(K), feasible K-range and capped maximum follow directly.",
+          "The propagator from Eqs. (50)–(51) and identity covariance give |C12-C21|=(v/b)|e^(-(a-b)tau)-e^(-(a+b)tau)|. This agrees with Eqs. (57)–(58) for the norm of (C-C^T)/2, so the frozen full-difference norm is twice that quantity. Eq. (8) in the main text uses a different factor; the comparison uses the matrix propagator and the consistent supplement convention. The finite lag limit and divergent EPR are the c↑a limit of those formulas."
+        ],
+        "reasoning": "There is no remaining orientation extremization. Attainability follows by varying kappa in the explicit prior family, and the budget result is monotonic reparameterization; no new thermodynamic bound is needed.",
+        "searches": [
+          "Direct specialization of arXiv:2603.07206v1 Eqs. (3), (9), (12), (50)–(51), (57)–(58); compare frozen formulas and positivity conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Subtract the trace and decompose A+aI into symmetric traceless S and skew W. Rotate the ±c eigenbasis of S so S has zero diagonal and off-diagonal c; swapping axes if needed preserves S while choosing W's upper entry v>=0. The resulting drift has off-diagonals c+v and c-v, with (c+v)(c-v)=b^2 and c>v. Thus it is exactly Eq. (3) with alpha=a, beta=b and kappa=(c+v)/b>=1.",
+          "Orthogonal changes preserve identity covariance, diffusion eigenvalues, entropy production and the lag Frobenius norm, so this parametrization does not omit orientations or either circulation sign."
+        ],
+        "reasoning": "The previously solved parametrization exhausts the frozen class after stationarity is imposed; the apparent canonical-vs-all-orientations distinction does not leave a new feasible point. Troude–Sornette's drift nonnormality index is not the noise condition number.",
+        "searches": [
+          "Resultary planar OU inverse spectrum, equal covariance, noise condition number and dissipation; inspected 862d45a61789, 6291c62e0ff7 and 68bc5baaf3bc",
+          "Troude–Sornette arXiv:2603.07206v1 §II Eqs. (3), (9)–(12) and supplement §§VI.2–VI.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "862d45a61789 is the identical target, so supplies no independent priority evidence. 6291c62e0ff7 concerns rotational blindness in branching-population covariance; 68bc5baaf3bc concerns a two-temperature multiplier for bipartite skew OU. Neither states the exact fixed-real-spectrum frontier.",
+          "There is no discrete table to check for this continuous family. The relevant exact-formula coverage is the inspected published analytic parametric curve."
+        ],
+        "reasoning": "No nonidentical catalogue hit was taken as equivalent merely by similarity. Exact coverage follows from the primary formulas and substitution, not a negative catalogue inference.",
+        "searches": [
+          "Resultary fixed-stationary-law inverse planar OU anisotropy and lag asymmetry; exact and neighboring findings from the local mirror"
+        ]
+      },
+      "rationale": "Troude–Sornette's earlier planar canonical drift and EPR/lag formulas already imply the complete frontier by stationary covariance matching and elimination, not just one example or a generic EPR identity. Every orientation of the frozen drift is orthogonally equivalent to their Eq. (3), and the required noise lies in their Eq. (9). Their Eq. (12) gives the exact rate, and the explicit propagator in §VI.2 gives the same finite-lag law. Eliminating the single drift parameter and observing monotonicity is mechanical. This is a claim-level implication, not an assertion that the prior paper expressly labels the eliminated quantity an anisotropy frontier.",
+      "residual_risks": [
+        "The comparison makes no claim about earliest historical priority or that the exact eliminated formula is printed in the prior paper. The lag-normalization discrepancy is resolved by comparing the actual matrix quantity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the full parametric frontier after identity-covariance matching; sharp cap and saturation follow without additional model theory",
+          "evidence": "Eq. (3) is [[-alpha,beta*kappa],[beta/kappa,-alpha]] up to orthogonal coordinates; Eq. (12) is (2 beta^2/alpha)K_sigma^2/(1-rho^2); the supplementary propagator and half-difference convention fix the lag factor.",
+          "identifier_or_url": "https://arxiv.org/html/2603.07206v1",
+          "material_read": "§II Eq. (3) and nearby text (offset 10094), Eqs. (8)–(10) (offset 25200), Eqs. (11)–(12) (offset 29900), supplement §§VI.2–VI.3 Eqs. (48)–(58) (offset 62963 onwards)",
+          "method": "Original OA arXiv HTML and direct substitution",
+          "title": "Pseudo-Coherence and Stochastic Synchronization: A Non-Normal Route to Collective Dynamics without Oscillators",
+          "trigger": "Same reduced planar real-spectrum family, correlated forcing, lag and entropy production formulas"
+        },
+        {
+          "assessment": "General planar antecedent; the inspected equations are not an explicit fixed-spectrum condition-number classification",
+          "evidence": "Gives planar stationary EPR and irreversibility formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.00694",
+          "material_read": "§2.10 p. 12, Eqs. (2.66)–(2.76), OA offset 33700",
+          "method": "Original OA PDF",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes",
+          "trigger": "General planar entropy-production formula"
+        },
+        {
+          "assessment": "The speedup bound is weaker than the given exact curve on this class",
+          "evidence": "Its lower bound specializes to 2(c-b)^2/(a+c), not equality for c>b.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.07263",
+          "material_read": "Application 2, Relaxation speedup by nonnormality, Eqs. (13)–(15), OA offset 25800",
+          "method": "Original OA text",
+          "title": "Oscillatory-nonnormal decomposition of dissipation in Ornstein–Uhlenbeck processes",
+          "trigger": "Potential broader relaxation–dissipation inequality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Troude–Sornette Eqs. (3), (9), (12) and the propagator in §VI.2; exact real-Schur corroboration"
+      ],
+      "rationale": "The model question is motivated and the curve is usable, but the precise frozen statement is a routine covariance match, orthogonal coordinate choice and reparameterization of a previously solved planar model. Neither a finite cap nor the limiting bounded lag adds an independent invariant beyond those formulas. The record proves no separate statistical limitation from noisy lag observations.",
+      "residual_risks": [
+        "A distinct estimation theorem or new regime is not assessed; mathematical interest in the underlying physical problem is not in question."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

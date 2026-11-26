@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:24:33.873592Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–39",
+        "Frozen VERIFICATION.md lines 18–20 and transvection_checker.py lines 7–74",
+        "Independent exact F_4 check via repeated enumeration of the four entries, nonzero and X²=0 filter, and trace/identity classification"
+      ],
+      "rationale": "Fix I+aα and write a second transvection as I+bβ using a single representative b for each image line. The product minus identity is N=aα+bβ+α(b)aβ. With s=α(b), t=β(a), c=st≠0, the active span ⟨a,b⟩ has N-matrix [[c,s],[t,0]] and splits off from the fixed space. The active product is nonscalar, thus cyclic even at a repeated root, and has polynomial X²−(2+c)X+1 with value −c at 1. There are q^(n−1) lines with s≠0 and q^(n−2) forms with prescribed t=c/s. At c=0, N³=0 and N²=XY+YX (X=aα, Y=bβ), with exactly one nonzero rank-one summand when exactly one of s,t is nonzero; rank N≤2 then forces one J_3. Each such stratum has q^(2n−3)−q^(n−1) choices. At s=t=0, N is square-zero. For the common image line there is one cancellation and q^(n−1)−2 rank-one choices; for each of the L−1 other lines in ker α the q−1 nonzero multiples of α give rank one and the remaining q^(n−2)−q forms give rank two. This verifies every class count and omission at n=2,3. Counting projective lines times forms gives H, and conjugation gives the ordered-pair and probability normalizations. The source checker was inspected, not executed. An independent bounded check enumerated nonzero square-zero 2×2 matrices over F_2[x]/(x²+x+1) and multiplied I+X on the left by [[1,1],[0,1]]; it found one identity, two nonidentity unipotents and four products for each nonzero trace (trace equals trace shift in characteristic two). The algebraic count, not enumeration, covers all fields and dimensions.",
+      "residual_risks": [
+        "The supplied checker only uses prime fields. The independent extension-field check only covers (n,q)=(2,4) and does not constitute formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The transvection walk literature describes a Borel-double-coset projection. Phadke's inspected theorem concerns length and rules out nonidentity dilatations as two-transvection products; Preusser's introduction concerns covering numbers for products containing transvections.",
+          "Theorem 6.5 parametrizes all GL_n class constants by polynomials, while Proposition 6.10 describes the filtration. The passages read do not evaluate the transvection-square constants."
+        ],
+        "reasoning": "Neither a length characterization, a projected chain nor polynomial interpolation alone states the fixed-first table. The associated graded can only capture the rank-two rows in this degree-two product, not the identity and transvection rows.",
+        "searches": [
+          "arXiv:2208.10699v1 Theorems 1.4–1.5",
+          "Kannan–Ryba arXiv:2112.01467 Theorem 6.5 and Proposition 6.10",
+          "Phadke DOI 10.4153/CJM-1974-135-0",
+          "Preusser, On Products of Conjugacy Classes in General Linear Groups"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact-convolution Finding",
+        "arXiv:2208.10699v1",
+        "Phadke, DOI 10.4153/CJM-1974-135-0",
+        "Preusser, International Journal of Group Theory 11 (2022)",
+        "arXiv:2112.01467"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed convolution proves the same table directly, and additionally treats per-element multiplicities and limits. The retrieved Kannan–Ryba passage provides general interpolation and filtration rather than that numerical table.",
+          "The targeted Wan–Wang lookup did not return usable primary text; only the bibliography and description in Kannan–Ryba were verified."
+        ],
+        "reasoning": "The indexed calculation already resolves all the strata the frozen finding claims. An arbitrary class-algebra expression or an unevaluated top-degree formula would not by itself settle the original coverage question. Failure rests on exact demonstrated indexed coverage, not on inaccessible older work.",
+        "searches": [
+          "Exact indexed convolution Finding at RESULT.md offset 0",
+          "Wan–Wang, Adv. Math. 349 (2019), 749–780; targeted structure-constant literature lookup",
+          "Kannan–Ryba, arXiv:2112.01467 §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let K_C be a class sum, D_C the fixed-first-factor count, and H the transvection class size. The coefficient of K_C in K_T² is HD_C/|C|, since each target in C has equal multiplicity.",
+          "The indexed convolution uses the same determinant-one two-dimensional companion block with c=tr(C_c)−2; c is a trace shift, not the absolute trace."
+        ],
+        "reasoning": "Prescribed-element multiplicities, class masses, and fixed-first counts convert exactly using the known class sizes. Projected walks on double cosets do not in general encode this full law.",
+        "searches": [
+          "Resultary search: transvection class convolution and two-factor GL_n structure constants",
+          "Kannan–Ryba, arXiv:2112.01467, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding has the same identity and transvection counts, J_3 count 2(q^(n−1)−q)q^(n−2), J_2⊕J_2 count (q^(n−1)−q)(q^(n−2)−q)/(q−1), and q^(2n−3) per c≠0."
+        ],
+        "reasoning": "The J_3 expression expands to the frozen count, and (q^(n−1)−q)/(q−1)=L−1. With the shared companion polynomials, these are exactly the same strata and numbers; class coverage includes low dimension and characteristic two. This is not a lookup of the frozen record itself.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-two-transvection-conjugacy-convolution-in-finite-general-l--99ad8abf2ce2; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "A distinct indexed result supplies the same complete table for every prime power and dimension, with additional prescribed-element counts and limiting masses. The overlap is mathematical (row-by-row identity under the same normalization), not a title match. This finding is already covered by that indexed result. The review does not assert that the indexed result was published first or establish direction of dependence from the catalogue dates.",
+      "residual_risks": [
+        "The exact overlap does not settle historical priority or independence. Older direct evaluations, including specific Wan–Wang coefficients, were not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage with additional results; priority not inferred",
+          "evidence": [
+            "All rows match after expanding the J_3 count and rewriting L−1. Includes prescribed-element multiplicities and limiting masses beyond the frozen table."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-transvection-conjugacy-convolution-in-finite-general-l--99ad8abf2ce2",
+          "material_read": "RESULT.md Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Exact two-transvection conjugacy convolution in finite general linear groups",
+          "trigger": "Identical product and all-parameter class distributions"
+        },
+        {
+          "assessment": "Walk framework and projection, not the required full conjugacy law",
+          "evidence": [
+            "The theorems describe B∖GL_n(F_q)/B and the Hecke-algebra projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.10699v1",
+          "material_read": "Abstract p. 1, introduction p. 5 and Theorems 1.4–1.5 pp. 6–7; OA offsets 0, 11778, 13600, 16246",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Double Coset Markov Chains",
+          "trigger": "Same finite GL_n transvection walk"
+        },
+        {
+          "assessment": "Length obstruction, not multiplicities in the inspected passages",
+          "evidence": [
+            "A nonidentity dilatation is not a product of two transvections."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1974-135-0",
+          "material_read": "pp. 1412–1413, OA offsets 0 and 3987",
+          "method": "Bounded primary passage inspection",
+          "title": "Products of Transvections",
+          "trigger": "Older paper explicitly on products of transvections"
+        },
+        {
+          "assessment": "Coverage questions, not the specific constants in the inspected sections",
+          "evidence": [
+            "Studies how many conjugacy classes must be multiplied to contain elementary transvections."
+          ],
+          "identifier_or_url": "Preusser, International Journal of Group Theory 11 (2022), 229–252",
+          "material_read": "Official PDF abstract and introduction, p. 229, offset 0",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "On Products of Conjugacy Classes in General Linear Groups",
+          "trigger": "Plausible class-product antecedent"
+        },
+        {
+          "assessment": "Class constant interpolation and degree bound; no transvection-square evaluation in passages read",
+          "evidence": [
+            "Gives r^λ_{μν}([n]_q) for uncomputed coefficient polynomials and integral leading coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01467",
+          "material_read": "Theorem 6.5 pp. 18–19 (OA offset 81500), Proposition 6.10 p. 20 (offset 90332), Wan–Wang reference p. 34 (offset 156953)",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Stable Centres II: Finite Classical Groups",
+          "trigger": "Broader filtered GL_n class products"
+        },
+        {
+          "assessment": "Not established whether exact coefficients are available there",
+          "evidence": [
+            "The verified citing passage credits the associated-graded result to their Theorem 3.4."
+          ],
+          "identifier_or_url": "Wan and Wang, Advances in Mathematics 349 (2019), 749–780",
+          "material_read": "Primary text not retrieved; cited description in Kannan–Ryba §6 Proposition 6.10 and its bibliography",
+          "method": "Bounded lookup and indirect citation check only",
+          "title": "Stability of the centers of group algebras of GL_n(q)",
+          "trigger": "Possible explicit top-degree class constants"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–18 and 41–45",
+        "Indexed exact two-transvection conjugacy convolution, Finding offset 0"
+      ],
+      "rationale": "The complete two-step distribution for a natural random walk is a worthwhile target. But the frozen finding contributes only the full table and its class-mass normalization, both of which the distinct indexed convolution already provides. It identifies no further exact invariant or new consequence beyond that coverage.",
+      "residual_risks": [
+        "The verdict is not a judgment on the value of the table itself or on unresolved higher-step laws."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

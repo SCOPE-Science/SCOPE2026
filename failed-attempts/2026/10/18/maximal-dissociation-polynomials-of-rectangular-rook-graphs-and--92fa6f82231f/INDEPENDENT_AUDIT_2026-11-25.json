@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:51:42.447330Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked RESULT.md lines 5–81. A selected edge uv in K_{m,n} has selected line-graph degree d(u)+d(v)−2. Feasibility therefore permits only K2 and two-edge stars as nontrivial components. If a singleton edge exists, an unused vertex on either shore would permit converting that singleton to a star. Conversely, with both shores occupied any omitted edge has two distinct selected neighbours. With no singleton, a new edge meeting a used vertex would add a neighbour to an already paired selected cell (or itself have two neighbours), so the only possible extension joins two unused vertices. This gives the two maximality cases. Each labelled singleton and oriented star contributes respectively xyz and either xy²z²/2 or x²yz²/2; the denominators are the interchangeable leaves. The star-only EGF is e^{y+T}+e^{x+T}−e^T by the union of two full-shore cases. Both shores full with at least one singleton contributes e^{A+T}−e^T. Unused-label factorials and star/singleton multiplicity factorials give the stated sum. Zero-sized boards contribute one. In the wide regime no configuration can occupy more than 2m columns; equality requires every row to contain two selected cells in distinct columns and thus no singleton. Hence the maximal configurations are exactly star-only ones covering all rows, with b=m−2c and n−2m+3c unused columns. All indicated c are feasible; the displayed coefficients and support follow, including the two-row example. The separate bounded check (python3 /workspace/review_checks.py 3) enumerated feasible selections and tested every possible one-cell extension on 27 boards, including the 21 nonempty reported boards and three empty cases, and made 60 additional algebraic wide-coefficient comparisons. The frozen code was inspected, not run. Its own 325-pair sweep checks nonempty positive-size species outputs and the one-row formula; it is not an independent wide-coefficient check for every one of those pairs. Neither finite computation replaces the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3a4eb8e0ebb5 covers all positive m,n (not merely the wide regime) and states the same labelled distribution.",
+          "fc2af413d7b2 allows star sizes beyond two and counts all general-position sets; 6c3197c28686 imposes maximality for that different property. Wang–Xu–Zhang maximize a number of maximal dissociation sets across trees of fixed order."
+        ],
+        "reasoning": "Only the exact maximal-dissociation comparator applies to both the full parameter range and object. Merely bounding degrees in a general-position count would not preserve maximality for the new predicate.",
+        "searches": [
+          "Resultary: 3a4eb8e0ebb5, all-board theorem and rectangular simplification",
+          "Resultary fc2af413d7b2 and 6c3197c28686, general position on rook graphs",
+          "arXiv:2608.16639, objective of the tree extremal theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3a4eb8e0ebb5",
+        "Resultary 58c2e820445f",
+        "Resultary fc2af413d7b2",
+        "Resultary 6c3197c28686",
+        "arXiv:2608.16639",
+        "arXiv:2401.00716",
+        "DOI:10.1016/j.dam.2011.04.023 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expanding e^T and using e^x+e^y−1 for the star-only leftover labels reproduces the comparator's a=0 disjunction. Multiplying e^T by e^A−1 gives precisely its a>0 both-shores-full summands.",
+          "The full-text line-graph passage of Orlovich et al. was unavailable at the DOI and the identified alternate copy; the frozen package credits the general component interpretation."
+        ],
+        "reasoning": "The stated EGF follows mechanically by summing the already determined coefficients, the boundary convention adds no separate claim, and the wide-board refinement is already explicit. The access limit on Orlovich et al. does not drive the verdict.",
+        "searches": [
+          "3a4eb8e0ebb5, complete coefficient sum and wide-board rigidity",
+          "DOI:10.1016/j.dam.2011.04.023, dissociation/line-graph correspondence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 3a4eb8e0ebb5 the integers r=a+b+2c and s=a+2b+c are used row and column counts, so its condition (r=m and s=n) or (a=0 and (r=m or s=n)) is exactly the frozen criterion in unused-coordinate notation.",
+          "The induced-matching comparator packages only two-edge stars; it does not include isolated selected cells and its maximality tests adding a pair rather than a cell."
+        ],
+        "reasoning": "The same rook-to-line-graph identification and equivalent full-shore criterion are present in the first comparator. The induced matching has a different predicate and is not the asserted classification.",
+        "searches": [
+          "Resultary: rook graphs maximal dissociation sets, maximal induced-degree-one sets, and two-star packings in complete bipartite graphs",
+          "3a4eb8e0ebb5, Finding and component classification",
+          "58c2e820445f, maximal induced matchings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "After substituting t=z and replacing the comparator's r,s by m−r,n−s, its factorial coefficient, indexing condition and exponent a+2b+2c are identical. Its wide-board coefficient is m!n!/[2^{m−c}(m−2c)!c!(n−2m+3c)!] at z^{2m−2c}, with the same allowed c.",
+          "Mertens counts dominating placements, not maximal induced-degree-one sets."
+        ],
+        "reasoning": "The exact match is coefficient-by-coefficient on every nonempty board; on an empty board there is only the empty subset. This is not an accidental agreement of a few polynomials.",
+        "searches": [
+          "3a4eb8e0ebb5, Finding's boxed equations and Proof §4",
+          "arXiv:2401.00716, rook domination polynomial definition"
+        ]
+      },
+      "rationale": "The distinct indexed record 3a4eb8e0ebb5 gives the same inclusion-maximal dissociation criterion and every coefficient of the same two-parameter labelled polynomial, including exactly the wide-board coefficients and parity gaps. The frozen exponential generating function is a direct resummation of these already specified coefficients; it provides no additional enumeration. This is demonstrated equivalent coverage, not a determination of historical priority or provenance. The comparator's displayed catalogue path is later than the frozen record's directory date.",
+      "residual_risks": [
+        "Priority is not resolved by the displayed catalogue paths. Full-text access limits for the older dissociation paper and alternate packing terminology leave historical coverage elsewhere uncertain, without affecting the exact indexed match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage",
+          "evidence": [
+            "Both boxed polynomials, full-shore condition and identical parity support are explicit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5/RESULT.md",
+          "material_read": "Finding and component classification, offsets 0–2650; rectangular simplification, offsets 4830–6330",
+          "method": "Original result through local mirror",
+          "title": "Maximal dissociation sets of rook graphs: an exact two-star-packing polynomial",
+          "trigger": "Exact same family, maximality, coefficients and support"
+        },
+        {
+          "assessment": "Different maximality and constituent components",
+          "evidence": [
+            "The EGF is for maximal induced matchings; isolated selected rook vertices are not among its matching endpoints."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Original result through local mirror",
+          "title": "Induced and maximal induced matchings of rectangular rook graphs",
+          "trigger": "Nearby maximal star-packing enumerator in the same incidence model"
+        },
+        {
+          "assessment": "Different property, with arbitrary star degrees and no maximality restriction in the enumerator",
+          "evidence": [
+            "The components are arbitrary stars, not only singleton edges and two-edge stars."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-general-position-polynomials-of-rectangular-rook-graphs-via-bipa--fc2af413d7b2/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Original result through local mirror",
+          "title": "General-position polynomials of rectangular rook graphs via bipartite star forests",
+          "trigger": "Same board and labelled star-forest EGF"
+        },
+        {
+          "assessment": "Different maximality property and size support",
+          "evidence": [
+            "The displayed support is {m} together with {n,…,m+n−2}, not the wide-board dissociation spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-general-position-and-maximal-set-polynomials-of-rectangular-rook--6c3197c28686/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Original result through local mirror",
+          "title": "General position and maximal-set polynomials of rectangular rook graphs",
+          "trigger": "Same boards, maximal general-position star forests"
+        },
+        {
+          "assessment": "Tree extremal total, not labelled rook size census",
+          "evidence": [
+            "The objective maximizes the total number among trees of a given order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.16639",
+          "material_read": "Primary PDF p. 1, objective passage near offset 1302",
+          "method": "OA primary passage inspection",
+          "title": "The maximum number of maximal dissociation sets in trees",
+          "trigger": "Same maximality property; potential exact counting coverage"
+        },
+        {
+          "assessment": "Different counted property",
+          "evidence": [
+            "The polynomial counts dominating placements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.00716",
+          "material_read": "Primary PDF pp. 1–2, counting objective and definition near offsets 2118 and 6848",
+          "method": "OA primary passage inspection",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Exact counting invariants of rook graphs"
+        },
+        {
+          "assessment": "Access limit; no full-text noncoverage conclusion",
+          "evidence": [
+            "The frozen record credits the line-graph correspondence, which the present elementary degree calculation separately confirms."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+          "material_read": "DOI landing page only; the decisive full-text passage was not obtained",
+          "method": "DOI and identified lawful author-hosted alternate checked",
+          "title": "The complexity of dissociation set problems in graphs",
+          "trigger": "Plausible antecedent for the line-graph component interpretation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete labelled census is a useful structural invariant of a natural graph family. The necessary-and-sufficient side-occupation criterion converts an arbitrary maximality test into a precise packing classification. The wide-board family has unbounded size range but only even attainable sizes, and the polynomial distinguishes their exact multiplicities. This is more informative than a maximum size or an all-feasible-set census; the substantive mathematical value does not make the result distinct from the comparator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

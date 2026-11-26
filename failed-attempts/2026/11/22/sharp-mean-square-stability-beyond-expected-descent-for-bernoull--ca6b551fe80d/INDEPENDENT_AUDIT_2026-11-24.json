@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:07:12.299529Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30, 32–80",
+        "Frozen VERIFICATION.md and inspected verify.py (not executed); independent direct enumeration of all Bernoulli masks in selected n=2,3,4 cases"
+      ],
+      "rationale": "The theorem holds for iid Bernoulli masks with common p, simultaneous gradients and 0<c,p<1. In the projector basis (T,U), E[DAD]=p²A+p(1−p)diag(A) reproduces the stated two-mode matrix and det(I−A)=p²η²K(4−2Sη+pKη²). The proof's line 43 has a normalization slip: I=T+U, with coefficients (1,1), not I=(n−1)T+U; (n−1,1) are its trace contributions. Both coefficients are positive, so the Perron argument is unchanged. Line 53 calls −2pH positive definite; the first-order changes of the reduced matrix at zero are −2pa and −2pL, both strictly negative. Cone domination by ||x_0||²I gives sufficiency and the symmetry-equivalent coordinate starts detect nondecay. The determinant factor is negative at 2, positive at zero, and has a second root above 2. A diagonal entry reaches 1 between the roots (the determinant at its crossing is −A_12 A_21<0), precluding reentry. The objective expansion from E[DHD] gives 2/W and F(2/W)=4(n−1)c(1−c)p(1−p)/W²>0. At the first root the displayed partial derivatives in p, c and n are strictly negative and ∂_ηF<0, giving the claimed monotonicities. Full symmetric-covariance enumeration independently corroborated the boundary in dimensions 2–4; the n=3 example has expected objective ratio 57/50. The two proof slips do not change the result or necessitate a substantive repair.",
+      "residual_risks": [
+        "The finite cases corroborate but do not prove the theorem; the argument concerns all deterministic initial states, not almost-sure convergence or universal one-step descent above 2/W."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exchangeable theorem covers every feasible joint-inclusion q and optimizes it over laws with fixed expected batch counts (lines 31–104).",
+          "The da850d87df4f indexed summary concerns balanced four-coordinate, fixed-size-two coupling and state-dependent objective behavior, not Bernoulli masks.",
+          "The frozen bibliography describes ESO sufficient bounds and a modified SDE analysis. Searches did not yield decisive primary passages on the exact Bernoulli claim."
+        ],
+        "reasoning": "All iid equal-p Bernoulli laws are exchangeable. The exchangeable theorem is strictly broader and is the decisive coverage; neither the general covariance-lift technique nor the fixed-size coupling summary alone would settle the exact sharp bound.",
+        "searches": [
+          "Resultary 9551f778b77b and da850d87df4f",
+          "arXiv:1906.07392, 1809.09354 and 2309.02082"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–27, 41–80, 85–94",
+        "Frozen record 3 RESULT.md lines 5–27, 41–104, 119–122",
+        "Resultary 9551f778b77b and da850d87df4f; cited primary arXiv records sought"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general two-mode covariance matrix reduces (with reordered modes) to this Bernoulli matrix at q=p². The exact formulas give both the sharp cutoff and the nonempty gap since 0<p²<p."
+        ],
+        "reasoning": "The all-start exponential criterion follows from the reduced powers with radius <1; symmetry of the coordinate starts and the PSD decomposition of I establish nondecay for them. The extra monotonicities are direct sign checks on the inherited scalar polynomial, not a distinct stability classification.",
+        "searches": [
+          "Frozen 9551f778b77b proof lines 41–104; frozen ca6b551fe80d lines 41–80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 3 lines 7–27 give η_*(p,q), the all-start criterion, η_des and the descent gap for 0<q<p.",
+          "For Bernoulli masks q=p², (p+qG)/p=1+p+p(n−2)c=S, so division by p in its expression gives precisely 4/(S+sqrt(S²−4pK)); the descent ceiling similarly becomes 2/W."
+        ],
+        "reasoning": "These are the exact same observables, masks, endpoints and bounds on the Bernoulli subclass. The independent-sampling case is not a different normalization or condition.",
+        "searches": [
+          "Resultary: exact mean-square stepsize for Bernoulli parallel coordinate descent on an equicorrelated quadratic",
+          "Frozen exchangeable-minibatch RESULT.md, 9551f778b77b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9551f778b77b is an indexed different finding with a locally available exact formula; ca6b551fe80d is the assignment itself.",
+          "9551f778b77b, lines 119–122, explicitly credits the Bernoulli case as already worked out."
+        ],
+        "reasoning": "The exact check is against an indexed theorem rather than a numerical table. The self-match carries no priority evidence; the distinct entry provides coverage regardless of unresolved public ordering.",
+        "searches": [
+          "Resultary: Bernoulli and exchangeable sharp mean-square stability and expected descent"
+        ]
+      },
+      "rationale": "The central claim as a separate finding is covered by the distinct indexed exchangeable-minibatch theorem, not merely by a similar title or general methodology. Its theorem and descent formula give exactly this cutoff, failure at and above it, and the strict descent gap upon setting q=p². The ancillary n and c comparisons follow by differentiating the same specialized root; necessity for each coordinate start follows by the same two-mode reduction and permutation invariance. This is a decision about demonstrable statement-level coverage in the reviewed corpus, not about which record established it first. The exchangeable record explicitly credits the Bernoulli statement as worked out; the shared public date establishes no publication order.",
+      "residual_risks": [
+        "No within-day public order is established; the finding explicitly credited by the broader record may have been the first derivation. Exact earlier external coverage is unresolved. The decision relies on the fully inspected distinct indexed theorem, not on the inaccessible literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Bernoulli coverage and genuine strict generalization; attribution and chronology are separate questions",
+          "evidence": "q=p² specializes both exact ceilings and their strict gap; line 121 disclaims novelty for the Bernoulli case.",
+          "identifier_or_url": "9551f778b77b (assigned record 3)",
+          "material_read": "Frozen Finding, assumptions, proof and relationship to prior work, lines 5–37, 41–104, 119–122",
+          "method": "Resultary followed by frozen local RESULT.md",
+          "title": "Sharp mean-square stepsizes and optimal exchangeable minibatch laws for equicorrelated quadratic descent",
+          "trigger": "Indexed same-day exact threshold on a plausibly stronger class"
+        },
+        {
+          "assessment": "Material coupling overlap; the available statement is about fixed-size batches",
+          "evidence": "The summary contrasts coupling-invariant Euclidean risk and state-dependent objective preferences under balanced size-two masks.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f",
+          "material_read": "Resultary indexed summary only",
+          "method": "Resultary and identification of the local comparison in assigned record 3",
+          "title": "Exact coupling-invariant Euclidean risk and state-dependent batch-optimal objective in four-coordinate descent",
+          "trigger": "Potential earlier exact quadratic coordinate-mask comparison"
+        },
+        {
+          "assessment": "External priority not resolved by these sources; no noncoverage verdict is based on their accessibility",
+          "evidence": "The frozen discussion describes sufficient parallel-coordinate hypotheses and separate SDE mean-square criteria, distinct from the discrete exact Bernoulli claim.",
+          "identifier_or_url": "arXiv:1906.07392, 1809.09354, 2309.02082",
+          "material_read": "Bibliography and comparisons in frozen RESULT.md lines 85–94; no verified decisive primary passage",
+          "method": "Targeted OA passage retrieval and inspection of frozen discussion",
+          "title": "Parallel Random Block-Coordinate Forward-Backward Algorithm; Accelerated Coordinate Descent with Arbitrary Sampling; Backward error analysis and the qualitative behaviour of stochastic optimization algorithms",
+          "trigger": "Relevant parallel coordinate, ESO and mean-square precedents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–27 and 55–80"
+      ],
+      "rationale": "The exact gap between a familiar conservative one-step descent bound and asymptotic mean-square stability identifies a concrete failure of one-step diagnostics for simultaneous updates. Its full parameter range, boundary witness and explicit example are useful for this model. This assesses the mathematical content, not a distinct addition beyond the broader theorem.",
+      "residual_risks": [
+        "The gap is about asymptotic stability, not speed at a fixed budget, robustness to delays, or nonquadratic behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

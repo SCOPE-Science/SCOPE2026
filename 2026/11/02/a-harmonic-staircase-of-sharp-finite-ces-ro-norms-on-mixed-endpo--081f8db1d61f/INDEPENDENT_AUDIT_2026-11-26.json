@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:12.495251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonnegative matrix allows replacement by |x|. Decompose it into nested support indicators with coefficient differences of its decreasing rearrangement. The input norm is exactly the corresponding positive linear combination of 1+ε(k−1), so the triangle inequality reduces the maximum to indicators. A k-support has sup output at most 1 by the row-sum bound and ℓ1 output equal to its sum of columns c_j(t). The latter decrease strictly for all 0≤t≤1 by termwise comparison (including the diagonal at t=0). The prefix {1,…,k} maximizes the sum and attains sup output 1 at row 1, so it is optimal among all k-support indicators. For t=1, summing the harmonic column sums gives k[1+H_n−H_k]. For 1≤k<n, set h=H_n−H_k; subtracting the next quotient gives the sign of (h−1)−ε(h+k−1), for r_{k+1}−r_k. For h≤1 it is strictly negative for ε>0. Otherwise the unique zero lies in (0,1), and the zeros strictly decrease as h decreases and k increases. This yields the asserted single peak or adjacent tie among candidate indicators. It includes rank one for n≤3, the threshold 1/13 at n=4, and the ℓ1 endpoint at ε=1. The ε↓0 first variation is k(H_n−H_k). Along k/n→u, this divided by n tends to u log(1/u), with the endpoint 0 controlled by (k/n)log(n/k), and the unique maximizer is u=1/e; comparing to k=floor(n/e) proves the assertion for every maximizing sequence. The checker and verification notes were inspected, not rerun. Their exact finite support evaluations and threshold comparisons do not substitute for the argument over all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Curbera–Ricker give a broad estimate 1/(1−t) for t<1 and d_p estimates on other spaces; Albanese–Bonet–Ricker also give exact infinite ℓ1 and classical ℓp norms, so their contribution is not only spectral.",
+          "The 2000 introduction explicitly attributes exact d(w,1) norms for some classical operators to Jameson (1999) for weights w_j=1/j or partial sums W_j=j^(1−a); Note 2 states the p=1 supremum formula for the framework discussed. The 1999 indexed abstract refers to conditions for decreasing positive norming inputs."
+        ],
+        "reasoning": "The infinite bounds and endpoint norms do not determine the mixed finite rank profile. The older Lorentz comparison is stronger for the norm representation, but known weight families and the quoted general ratio do not evaluate the finite two-level-weight maximizer. No conjecture about unstated precise 1999 hypotheses is used either way.",
+        "searches": [
+          "arXiv:2302.08750v1 Theorem 3.9, Propositions 4.15 and 4.17",
+          "arXiv:2305.04805v1 Propositions 2.12–2.15",
+          "Jameson (1999), doi:10.1215/ijm/1255985338, cited by Jameson–Lashkaripour (2000) §2 Note 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cesaro.py",
+        "doi:10.1017/S0017089500020061 primary PDF",
+        "doi:10.1215/ijm/1255985338 indexed abstract and its citation in the former source",
+        "arXiv:2302.08750v1 and 2305.04805v1",
+        "Resultary 61d108c51e3e, 039a869ae0d4, f64323950b96 and f3bb63c0274c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p=1 Lorentz principle points directly to a supremum over prefix ratios once decreasing inputs suffice. Substitution gives the candidate sequence; the premise of prefix sufficiency cannot be assumed for an arbitrary positive matrix.",
+          "In this finite family comparison of successive quotients extracts the zeros (h−1)/(h+k−1) and their strict ordering, which determine exactly when each adjacent support switch occurs. The inspected older statements leave the supremum or consider different weights rather than giving this phase diagram."
+        ],
+        "reasoning": "Credit the known reduction and resulting symbolic candidate structure. The result evaluated here is the solved finite support switches on the full ε range, not a mechanically relabelled positive-matrix theorem or the familiar separate endpoint operator norms.",
+        "searches": [
+          "Jameson–Lashkaripour (2000) §1, §2 Lemma 1, Theorem 1 and Note 2",
+          "Jameson (1999) exact title and alternative OA copy search",
+          "Frozen RESULT.md harmonic proof versus the known V_k/W_k representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mixed norm is exactly Σ_j w_j |x|_(j) with w=(1,ε,…,ε). In the p=1 prefix-supremum framework of Note 2, V_k=Σ_i w_i Σ_{j≤k}a_{ij} and W_k=Σ_{j≤k}w_j. For the finite C_t these are exactly 1−ε+εΣ_{j≤k}c_j(t) and 1+ε(k−1).",
+          "The general reduction to indicators plus simultaneous maximization of the largest row and total column sums justifies prefix sufficiency for these weights; it is not a different invariant from the Lorentz formulation."
+        ],
+        "reasoning": "The normalizations and supremum ratios genuinely match, rather than just having similar terminology. The existing architecture materially covers the form of the norm representation; the exact support changes at t=1 go beyond reproducing this representation.",
+        "searches": [
+          "Resultary: finite Cesàro sharp induced norm, finite Lorentz d(w,1) with weights (1,ε,…,ε), harmonic support transitions",
+          "Jameson–Lashkaripour (2000) §2, Theorem 1 and Note 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 61d108c51e3e is the ℓ∞ norm of a two-step Cesàro defect; 039a869ae0d4 is a finite self-commutator norm in ℓ∞; f64323950b96 is Gini/variation amplification; f3bb63c0274c is an infinite generalized Cesàro ℓ2 gap."
+        ],
+        "reasoning": "These findings concern different invariants or spaces and do not tabulate the finite harmonic thresholds or support selection. No matching table appeared among the returned records; that is not proof of absence.",
+        "searches": [
+          "Resultary: exact finite Cesàro mixed-endpoint norm and harmonic optimizing ranks",
+          "Literature search combining weighted Lorentz upper matrix norm and finite Cesàro"
+        ]
+      },
+      "rationale": "The prefix-indicator supremum architecture on d(w,1) is prior, and is not credited as original. The distinct supported result is the evaluated finite harmonic optimization as the endpoint weight changes: exact adjacent transition values, their global order, and the limiting optimal support fraction. The closest prior Lorentz framework supplies the type of supremum, but the inspected statements do not give this staircase or resolve its optimization for plateau weights. The finite formula is treated as an ingredient of that specific result, not a new general Lorentz norm theorem.",
+      "residual_risks": [
+        "Jameson (1999) is a particularly relevant source whose full text could not be read; an exact finite-weight corollary in it or subsequent Lorentz work remains possible. No whole-document noncoverage conclusion is made.",
+        "No priority claim for prefix norm formulas, layer-cake arguments, or harmonic asymptotic methods; the pass is based on the precise staircase evidence rather than an exhaustive search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural coverage of prefix-weight-ratio method; no finite harmonic staircase in inspected statements",
+          "evidence": [
+            "Theorem 1 gives inf V_k/W_k for the lower bound; Note 2 invokes [8] for sup V_k/W_k for the norm at p=1. The introduction names the distinct weight families previously evaluated."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500020061",
+          "material_read": "§1 offsets 1500–4928; §2 offsets 4800–17757 including Lemma 1, Theorem 1 and Note 2, pp. 211–214",
+          "method": "Bounded OA primary PDF",
+          "title": "Lower bounds of operators on weighted ℓ_p spaces and Lorentz sequence spaces",
+          "trigger": "Direct citation of p=1 upper norm formula despite title"
+        },
+        {
+          "assessment": "Material prior method; exact hypotheses and further cases not verified from full text",
+          "evidence": [
+            "Indexed abstract says conditions for decreasing nonnegative norming inputs are found and the norm can be equated to a sequence supremum. Publisher PDF, alternate indexed PDF and CORE retrieval did not yield full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1255985338",
+          "material_read": "Indexed publisher abstract; reference [8] as described in the 2000 §1 and §2 Note 2; full text not retrieved",
+          "method": "Exact bibliographic lookup and lawful publisher and alternate-copy attempts",
+          "title": "Norms and lower bounds of operators on the Lorentz sequence space d(w,1)",
+          "trigger": "Original p=1 norm criterion cited as reference [8] in the 2000 article"
+        },
+        {
+          "assessment": "Broader estimates, not this finite optimization",
+          "evidence": [
+            "The t<1 infinite rearrangement-invariant estimate and d_p estimates neither give the finite mixed norm nor address t=1 rank changes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08750v1",
+          "material_read": "Theorem 3.9 p.10 offset 37896; Propositions 4.15 and 4.17 and adjacent remarks pp.18–20",
+          "method": "Bounded OA primary PDF",
+          "title": "Fine spectra and compactness of generalized Cesàro operators in Banach lattices",
+          "trigger": "Same matrix in a broader sequence-space setting"
+        },
+        {
+          "assessment": "Different infinite norms",
+          "evidence": [
+            "Contains an exact ℓ1 norm for t<1 and the classical ℓp norm, not the finite weighted Lorentz staircase in the inspected propositions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.04805v1",
+          "material_read": "Propositions 2.12–2.15, pp.7–9, offset 23600",
+          "method": "Bounded OA primary PDF",
+          "title": "Spectral properties of generalized Cesàro operators in sequence spaces",
+          "trigger": "Same operator with norm statements as well as spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mixed norm is a natural finite interpolation between two endpoint measurements. Exact optimization shows that even a small positive ℓ1 weight can select a macroscopic prefix, whereas a larger weight selects smaller ranks, all the way to rank one, and gives the precise switching weights instead of an endpoint or operator bound. Knowing which finite supports realize amplification is useful in its own right; the contribution is not the standard indicator reduction or known pure endpoint norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

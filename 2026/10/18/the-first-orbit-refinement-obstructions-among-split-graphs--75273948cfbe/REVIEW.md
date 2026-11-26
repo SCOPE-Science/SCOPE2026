@@ -1,19 +1,21 @@
-# Scientific review of the split-graph first-obstruction classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is finite and explicitly exhaustive. Every split graph of order at most ten has at least one representation by a clique of size \(k\) and a nondecreasing multiset of independent-vertex neighbourhood masks; the enumeration covers every such representation without pruning any potential obstruction. Exact counting-colour refinement is iterated to a stable partition. An exhaustive partial-isomorphism backtracker tests every pair of same-colour vertices for existence of a full adjacency- and nonadjacency-preserving automorphism. The complete ten-vertex failure list contains 71 presentations. Every one has an intrinsic two-degree split partition, enabling complete isomorphism canonicalization by clique row permutations and column sorting. This yields exactly four unlabelled exceptions, each independently rechecked by full automorphism enumeration. Separate code independently verifies all smaller orders. The finite certificate depends on the correctness and complete execution of the supplied code, which has been examined and reproduced; it does not purport to prove anything above order ten.
+PASS
 
-## Originality — PASS, with residual priority risk
+The mask-multiset search covers every split representation up to independent labels, including disconnected graphs and empty parts, and the original pinned automorphism algorithm tests adjacency and nonadjacency exactly. I separately enumerated the mask multisets through ten, retaining clique degrees in sorted order and restoring presentation counts by the multinomial number of row-degree arrangements. I refined the full uncolored graph into equitable classes and computed within-part orbits by enumerating clique permutations preserving the multiset, with free permutations of identical columns. This restriction is exact: cross-part equal-degree vertices are twins (degree k−1 or k, for clique size k). Also, the image of the clique under any automorphism differs in at most one vertex, and the exchanged pair has equal degree and hence is a twin pair. The twin switch can undo that one swap without affecting a designated same-part target, which lies in the intersection of the old and new parts. The run matches all presentation counts, no failures through nine and 71 at ten, and the four exact canonical lists with counts 6,10,10,45. Degree separation makes the two parts intrinsic for the exceptions and the stated biregular degrees make them equitable; every column is nonempty. For k=4 the masks are an alternating doubled/single 4-cycle, giving a transitive size-four clique orbit and independent orbits of sizes four and two, with automorphism order 4·2²=16. The k=6 incidence is its transpose up to labels. For k=5 the size-two columns are a double edge and a disjoint triangle, giving 2+3 in each part and order (2!·3!)·2=24; the size-three column case is its incidence complement. These give the exact reported profiles.
 
-Full texts of arXiv:1502.01255, arXiv:1505.05683 and arXiv:1606.04383 were inspected in relevant portions or throughout their searchable text. They establish general refinability concepts, structural split-graph theory and individualization/fixing questions, respectively, but do not give the claimed sharp split-graph enumeration. Actual searches for split graph 1-WL refinement, orbit partitions, first obstructions, isomorphism reductions and equivalent logical terms were compared against retrieved published research records. Historical claims about unrestricted chordal graphs and other hereditary families do not imply the first-obstruction cutoff within split graphs. Neither failure of the searches nor graph-family separation alone establishes absolute novelty. Residual risk: an unlocated earlier result on regular incidence matrices or coherent split graphs could subsume one or all of the enumerated exceptions.
+## originality
 
-## Value — PASS
+PASS
 
-Split graphs are a natural, extensively studied hereditary family. The smallest order at which 1-WL fails to recover orbits within such a family is a structural threshold, and classifying all isomorphism types at that boundary distinguishes the phenomenon from an isolated counterexample. The four examples share only two stable colour classes but exhibit two different automorphism-orbit profiles. The result is sharply motivated by orbit-refinement behaviour of small chordal and related graphs; it does not claim general graph identification or all-order structural characterization.
+The standard refinability definition is prior work. The closest split-graph theorem inspected concerns distinguishing two different graphs, not recovery of automorphism orbits inside one graph. Related outerplanar obstructions and general colour-refinement rules do not give the exact split-graph census or imply its lower bound.
 
-## Literature limitations
+## value
 
-Arvind–Köbler–Rattan–Verbitsky, arXiv:1502.01255, treats general colour refinement and refinability; Boros–Gurvich–Milanič, arXiv:1505.05683, discusses split-graph structural theory; Arvind–Fuhlbrück–Köbler–Kuhnert–Rattan, arXiv:1606.04383, focuses on individualization and fixing. No inspected source states this exact enumeration. Specialized unpublished or inaccessible covering work is a nonzero priority risk. Independent scientific and publication-priority validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives the sharp threshold for a standard graph-symmetry test in a natural hereditary graph class. The four explicit minimal patterns and their orbit profiles distinguish the first forms of failure, not just the existence of an example. This is also a useful boundary distinct from the earlier between-graph distinguishability failure; regularity of the two stable cells alone is not enough for within-graph orbit recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

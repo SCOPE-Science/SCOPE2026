@@ -1,11 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-**Correctness — PASS.** Four-sample intensity data are exactly equivalent to five explicit Fourier invariants. The proof reconstructs each coefficient triple with a nonzero middle coefficient from common positive roots of two monic quadratics, checks the degenerate case with zero middle coefficient, and examines every possible cross-branch collision. It proves sharp maximum fiber size three without relying on finite experiments. A symbolic polynomial-identity script and a separate direct-sampling script reproduce the critical calculations. The exact two-class and three-class examples are checked.
+## correctness
 
-**Originality — PASS (best-knowledge).** The closest predecessor, Jaming and Rathmair (arXiv:2205.08753v1, Section 3.1), proves the five-node universal threshold and gives an individual collision at four nodes; it does not classify all four-node fibers, prove the maximal threefold ambiguity, or supply the complete explicit inverse. Király and Ehler (arXiv:1402.4053v1) analyze generic frame algebra and cannot by themselves imply the exceptional sets of this particular structured frame. Mathematical-record searches for derivatives, four-root sampling, ambiguous fibers, and equivalent polynomial formulation found no stronger specific census. The primary source's explicit collision is contained in the threefold fiber exhibited here, whereas the full fiber classification is additional. Priority beyond the inspected sources cannot be guaranteed; unusual thesis or specialist results remain a residual risk.
+PASS
 
-**Mathematical value — PASS.** This is a natural finite critical-sampling problem: four nodes are immediately below the already known sharp universal threshold of five, and the prior literature demonstrates failure without quantifying its geometry. The theorem determines the entire ambiguity locus, the exact number of phase classes in every fiber (never greater than three), and explicit reconstruction including degenerate coefficients. It distinguishes full-support algebraic ambiguities from zero-middle-coefficient and cross-branch effects, information unavailable from a generic-uniqueness assertion or a lone counterexample. It does not claim new sampling thresholds, higher-degree theory, or noise stability.
+For a,b,c arbitrary in C, expand on z^4=1: the value Fourier coefficients at frequencies 0,1,2 are S=|a|²+|b|²+|c|², U=b conjugate(a)+c conjugate(b), T=2 Re(c conjugate(a)); the derivative ones are H=|b|²+4|c|² and V=2c conjugate(b) at 0,1, with frequency 2 zero. Conjugate symmetry recovers the rest; the aliased frequency 2 of the value channel retains only the real part. For b≠0, gauge b>0. With x=|b|², A=U−V/2 and C=V/2, each positive common solution of x²−Sx+|A|²+|C|²=0, x²−Hx+4|C|²=0, and Tx=2 Re(AC) reconstructs exactly one class. Two distinct roots force the monic quadratics to be identical and T=Re(AC)=0. For c≠0 the second root is 4|c|², giving exactly the stated partner and a collapse iff |b|=2|c|. With c=0, H fixes x. For b=0 the two moduli and cosine fix the phase difference up to reflection, distinct exactly when its sine is nonzero; zero coefficients leave no relative phase. A crossover requires U=V=0, forcing the b≠0 representative to be a pure middle monomial, and matching H,S,T then gives exactly the two quadrature partners with |a|²=3|c|². At the stated witness all eight intensities are 1 by direct substitution. Zero is uniquely recovered, and the nonuniqueness locus is contained in the proper real-algebraic zero set of |b|²(|a|²−3|c|²). This exhausts the nonempty fibers without any numerical assumption.
 
-**Comparison limitations.** Originality is supported by the inspected arXiv full texts and targeted mathematical-record searches, not by exhaustive indexing of all unpublished literature. The case analysis, rather than the numerical logs, supports the infinite assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four-sample obstruction, the published collision z versus (z²+i√3)/2, and the universal five-sample threshold are prior art. Credit is limited to the sharp three-class bound, complete fixed-design inverse, and classification of all exceptional fibers, including the distinct fully supported scaling mechanism. No inspected stronger or equivalent result supplies that census.
+
+## value
+
+PASS
+
+At the natural sample count where universal recovery first fails for quadratics, identifying exactly when the fixed measurements nonetheless recover a unique polynomial is useful for interpreting noiseless inverses. The sharp size bound, exact partners and distinction between relative-phase reflection and the full-support scaling branch supply substantially more information than a known obstruction or a generic uniqueness statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

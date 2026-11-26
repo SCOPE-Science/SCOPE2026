@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:15:59.504413Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=2n the characters give λ_k=2cos(πk/n)+(−1)^k. Cesàro averaging kills unequal energies, so Fourier orthogonality yields μ_q=N^(−1) times the number of ordered equal-energy pairs with k+l=q modulo N, using invariance of each energy class under changing sign. Diagonal pairs cover every even q. The opposite-parity equation is cos(πo/n)−cos(πe/n)=1. For a=2cos(πo/n), both a and a−2 are cyclotomic integers with conjugates between −2 and 2. Every conjugate of a−1 lies in [−1,1]. If nonzero its integral norm forces every factor to have modulus one, so a−1=±1; the zero case gives a=1. The a=2 case would make the odd index zero. For the remaining values, folding the indices into [0,n] gives o=n/2, e=n at n≡2 mod 4, or o=n/3, e=2n/3 at n≡3 mod 6. Restoring signs and adding modulo N gives respectively {n/2,3n/2} and {n/3,n,5n/3}, both exclusively odd. The congruences are disjoint, n=3 is included, and the complementary Fourier modes span the kernel. A separate exact test (exact_support_check.py) compared energy classes modulo Φ_(2n) and the resulting index sums for all 118 orders n=3,…,120. This is finite corroboration; the norm and Fourier arguments prove the uniform result. The uploaded verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed proof proves that the only folded odd-even collisions are (n/3,2n/3) at n≡3 mod 6 and (n/2,n) at n≡2 mod 4 for all n≥3, with multiplicities (2,2) and (2,1).",
+          "Godsil's lemma applies to every adjacency walk and supplies exactly the relation between projectors and the average."
+        ],
+        "reasoning": "The indexed spectral statement is stronger than a list of exceptional ranks: its labeled classes supply the entire Fourier projector data, and the general formula maps those classes to the frozen invariant. The even-cycle example is not needed for the implication.",
+        "searches": [
+          "Resultary cb5ec968b69e, Fourier spectrum and arithmetic collision lemma, mirror offsets 0 and 2700",
+          "arXiv:1103.2578, Lemma 1.1 and §6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary cb5ec968b69e",
+        "arXiv:1103.2578",
+        "arXiv:2001.10221"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-index pairs yield exactly the baseline of n even indices; same-parity pairs cannot add odd ones.",
+          "In the indexed n≡3 mod 6 case add each of ±n/3 to each of ±2n/3, giving precisely n/3, n, 5n/3 modulo 2n. In the indexed n≡2 mod 4 case add ±n/2 to n, giving n/2 and 3n/2. No other odd support is possible by the earlier exhaustive classification."
+        ],
+        "reasoning": "These two direct signed-sum steps after the standard projector identity give all positive eigenvalue indices, rank, and nullspace, with no new arithmetic obstruction to resolve. The independent algebraic-integer proof reproduces the known collision lemma rather than separating a new final finding.",
+        "searches": [
+          "Resultary cb5ec968b69e, §1 and §2, especially offsets 2700–4429",
+          "arXiv:1103.2578, Lemma 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_(2n)(1,n) in the index is the same unweighted cubic Möbius ladder, not the ordinary prism. Its eigenvalues and Fourier labels are identical to those in the frozen record.",
+          "Ryu et al. give the two parity branches; with the frozen couplings and vanishing onsite terms they agree up to overall sign, which does not change energy equalities.",
+          "Godsil's projector formula writes the time average as the sum of the Schur squares of the energy projectors."
+        ],
+        "reasoning": "For this circulant, applying the Schur product to a pair of Fourier rank-one projectors simply adds the indices. Thus the average-mixing nonzero spectrum can be read directly from the parity-resolved equal-energy classes of the same graph.",
+        "searches": [
+          "Resultary: Möbius-ladder spectrum, parity collision, and quantum average mixing rank; inspected cb5ec968b69e",
+          "arXiv:2001.10221, §II equation (4)",
+          "arXiv:1103.2578, Lemma 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding gives exact bright dimensions and the return-versus-antipode long-time transition asymmetry. Its proof supplies the exact labeled collision list underlying those formulas, including the two congruences and all-order exclusion of other collisions."
+        ],
+        "reasoning": "The inspected record is not literally an average-mixing rank table, but its labeled collision list is exact data sufficient to evaluate every proposed support index; a literal rank-table match is not required for coverage.",
+        "searches": [
+          "Resultary exact spectral and average-mixing quantities for Möbius ladders; strongest match cb5ec968b69e"
+        ]
+      },
+      "rationale": "The exact rank and kernel are mechanically implied by the earlier same-graph, all-order spectral classification in Resultary cb5ec968b69e and the standard average-mixing projector formula. The earlier statement names both colliding Fourier index pairs, not merely the congruence classes or multiplicities. Consequently taking the signed sums of those pairs yields the entire claimed odd support without any new classification. The frozen proof gives a useful elementary alternative to the earlier arithmetic proof, but does not establish distinct theorem-level originality for the stated rank and kernel. This is a concrete implication finding, not an access-based failure or an assertion that the prior finding explicitly printed the rank.",
+      "residual_risks": [
+        "The scientific failure rests on demonstrated implication; it does not determine priority among other sources or exclude that the numerical rank was previously stated verbatim.",
+        "The elementary alternative proof may be pedagogically useful; no distinct new theorem based on it was validated in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior labeled spectrum; target follows with the usual projector identity",
+          "evidence": "Proof identifies (u,v)=(m/3,2m/3) and (m/2,m) in exactly the frozen congruences and excludes any other odd-even collision.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-arithmetic-parity-resonances-in-m-bius-ladder-quantum-transport--cb5ec968b69e",
+          "material_read": "Finding, Fourier spectrum, and arithmetic collision lemma, mirror offsets 0–4429, with decisive classification at 2700–4429",
+          "method": "Local published-record mirror",
+          "title": "Arithmetic parity resonances in Möbius-ladder quantum transport",
+          "trigger": "Same graph, arithmetic exceptions, and long-time transition averages"
+        },
+        {
+          "assessment": "General identity that transfers the indexed spectral data; no need to infer a ladder theorem from the cycle",
+          "evidence": "The average is the sum of the energy-projector Schur squares; the even cycle is treated explicitly, with a caution about general circulants.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "Lemma 1.1, pp. 2–3; §6 Lemma 6.1, pp. 12–13, and circulant remark p. 14",
+          "method": "Bounded OA PDF passages",
+          "title": "Average mixing of continuous quantum walks",
+          "trigger": "General average-mixing identity and cycle comparison"
+        },
+        {
+          "assessment": "Same parity branches at the frozen couplings, but not the decisive all-order collision or rank statement",
+          "evidence": "The even and odd energies have cosine terms at indices 2r and 2r−1 and rung contributions of opposite sign.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.10221",
+          "material_read": "§II, equation (4), PDF p. 2",
+          "method": "Bounded OA PDF passage",
+          "title": "Non-orientability induced PT phase transition in ladder lattices",
+          "trigger": "Same Möbius ladder parity spectrum in a transport model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The unweighted ladder and its mixing nullspace are natural, and the formula is a useful way to summarize the known spectrum. In the frozen scope, however, the exact arithmetic obstruction was already resolved, and the full proposed invariant is obtained by the standard projector identity plus two explicit modular sums from the earlier labeled classes. It is not an independently unresolved exact invariant under the stated value criterion. The simpler argument for an existing collision lemma does not establish a distinct valuable remainder of the frozen rank theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

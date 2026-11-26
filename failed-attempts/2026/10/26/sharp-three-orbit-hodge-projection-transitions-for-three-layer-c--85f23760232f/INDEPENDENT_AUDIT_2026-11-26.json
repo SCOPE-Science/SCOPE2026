@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:48:54.798961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the standard incidence orientation convention, Q=DᵀL⁺D and C=I−Q are symmetric; orientation changes conjugate by a diagonal sign matrix. The clique-constant mode gives the path Laplacian and its orthogonal complement gives S=(nI+L_P3)⁻¹. I checked the displayed 3×3 inverse by multiplication and the three source types by the clique and path symmetries (the endpoint degree pairs separate the types for all n≥2). The clique-edge absolute sum is 2(n−1)/n plus twice the total variation of a column of S. For a path edge, the injection splits into its constant and zero-mean clique components; the first interface carries total absolute current 1 since the shifted-mode voltage difference is in (0,1), and the other interface contributes 2(n−1)|w₂−w₁|/n. The complementary column is 1 plus the cut column minus twice its diagonal. Substitution gives all six stated rational functions. The middle clique column beats the outer one for both projections. The signs of the vertical-minus-middle differences have factors n−3 for cut and n−5 for cycle, with strictly positive remaining factors, proving the stated and distinct ties. The norm comparison is correct, including 9/5>8/5 at n=2 and the reverse for every n≥3. Symmetry identifies row and column maxima. Independently written /workspace/review-evidence/hodge.py used (L+J)⁻¹ between incidence factors, reproducing all 322 columns and both maxima for n=2,…,8; this finite check is not the proof for all n. The theorem concerns canonical projections only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier arbitrary connected base-graph result states exact formulas A_e(m), V_x(m) using the resolvent, not merely limits or a lower bound for the norm difference.",
+          "The Hamming-cube result uses complete factors; the transportation-cost result identifies a quotient, not these column sums."
+        ],
+        "reasoning": "The Hamming and quotient results are background, but the exact clique-factor transfer-current result is a stronger covered class, with no requirement that its base be complete.",
+        "searches": [
+          "Resultary d11ca8ac5f42, proof Steps 1, 2 and 4",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 §2.6, Theorems 43 and 45",
+          "Ostrovska–Ostrovskii arXiv:2112.02689 Proposition 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d11ca8ac5f42, 292556fd10bf and 05695b9bae19",
+        "arXiv:2305.12582 and arXiv:2112.02689",
+        "DOIs 10.1016/S0166-218X(96)00002-9 and 10.1214/aop/1176989113 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Since P₃ is a tree, its base cut matrix T=I₂. Set d=(n+1)(n+3) and S=(nI+L_P₃)⁻¹. For the path-edge dipole b=(-1,1,0), Sb=(-(n+2), n+1, 1)/d; the diagonal h_ee=(2n+3)/d lies between 0 and 1 and the other h_fe is −n/d. The earlier A_e has diagonal terms summing to 1 and evaluates to 1+2(n−1)|h_fe|/n+(n−1)||Sb||₁ = (3n−1)/(n+1).",
+          "For the two clique-edge locations, the earlier V_x equals 2(n−1)/n+2 TV(S e_x); direct inversion gives the variations 1/(n+1) at an end and 2/(n+3) in the middle. These are exactly the frozen h_e,h_m.",
+          "The earlier diagonal formulas give 2S_xx for the clique cases and [1+(n−1)h_ee]/n for the path case. Applying its exact rule for C gives c_e,c_m,c_v as printed. Trivial subtraction then exposes the factors n−3 and n−5. No new control of signs beyond the displayed rational entries, or additional hypothesis or graph argument, is needed."
+        ],
+        "reasoning": "The exact spectra, norm maximizers, and comparison are a routine specialization and rational factorization of the stronger existing formula. The fact that the prior paper emphasized general dominance and limits does not remove the explicit exact formula in its proof.",
+        "searches": [
+          "Resultary d11ca8ac5f42 exact A_e(m), V_x(m), diagonal and complementary-column expressions; direct specialization H=P₃"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_n□P₃ and P₃□K_n are canonically isomorphic; the frozen vertical edge is the earlier formula's horizontal base-edge type, and each frozen horizontal clique edge is the earlier formula's vertical clique-edge type over a base vertex.",
+          "The transfer current b_fᵀL⁺b_e is the entry of the same edge projector; orientations affect signs, not absolute sums."
+        ],
+        "reasoning": "The operative comparison is between the very same unoriented absolute-column invariant on the very same family, with a reversal of the words horizontal and vertical.",
+        "searches": [
+          "Resultary: canonical graph cut/cycle projection endpoint norms, clique factor and three-layer clique path",
+          "Primary literature: transfer current, electrical resistance and graph products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 25 record 292556fd10bf Finding requires clique order at least 3 and path length at least 4, hence does not directly state the P₃ case. The nonbinary Hamming record has complete graph factors only.",
+          "The arbitrary-base record d11ca8ac5f42 provides an exact evaluation formula, not a separately printed P₃ table. An identical numerical table is unnecessary for coverage."
+        ],
+        "reasoning": "Do not reject based on the neighboring clique-path title or assume the long-path theorem extends to length three. The earlier exact formula for arbitrary bases, rather than an exact table hit, is decisive.",
+        "searches": [
+          "Resultary exact clique-path endpoint transition and Hodge column spectra",
+          "Compare 292556fd10bf (longer clique-path strips) and 05695b9bae19 (Hamming graphs)"
+        ]
+      },
+      "rationale": "The earlier Resultary record d11ca8ac5f42 already gives exact absolute cut-column sums of both product-edge types for arbitrary H□K_m, exact diagonals, and the identity giving complementary sums. Its result applies to H=P₃, m=n for every n≥2 (the m≥4 restriction is on dominance, not on the exact formulas). Direct specialization gives all six formulas and their maximizing thresholds; the exact prior implication, not a publication-date inference or a search hit, is decisive.",
+      "residual_risks": [
+        "Electrical-network sources not inspected in full might contain additional overlap; the independently established exact Resultary implication suffices for rejection regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong exact coverage by direct implication",
+          "evidence": [
+            "A_e, V_x and the diagonals determine all six frozen formulas after one 3×3 inversion. The cut and cycle switch sizes follow by simple algebra."
+          ],
+          "identifier_or_url": "Resultary d11ca8ac5f42",
+          "material_read": "RESULT.md proof Step 1, offset 1230–3330; Step 2 complementary identity, around 3535; Step 4 exact absolute sums, offset 4648–7876",
+          "method": "Resultary local mirror; checked explicit specialization and factored differences",
+          "title": "Sharp clique-factor dominance and limiting norms for canonical graph projections",
+          "trigger": "Arbitrary connected base product includes P₃ and may cover exact columns"
+        },
+        {
+          "assessment": "Does not directly cover length three",
+          "evidence": [
+            "Requires path size at least four, and clique order at least three."
+          ],
+          "identifier_or_url": "Resultary 292556fd10bf",
+          "material_read": "RESULT.md Finding and first assumptions, offsets 0–2350",
+          "method": "Resultary local mirror",
+          "title": "Endpoint cut–cycle norms on clique–path strips and a parity reversal",
+          "trigger": "Same graph-family name and explicit maximizing orbit analytical formulas"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": [
+            "K_q factors only; P₃ not complete."
+          ],
+          "identifier_or_url": "Resultary 05695b9bae19",
+          "material_read": "Finding and graph scope",
+          "method": "Resultary local mirror",
+          "title": "Exact minimal cut and cycle projections for nonbinary Hamming graphs",
+          "trigger": "Related exact projection norms on clique products"
+        },
+        {
+          "assessment": "Projection and Hamming-cube background, not this family",
+          "evidence": [
+            "Invariant cycle projector theorem and cube norm do not evaluate P₃ times a clique."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "§2.6, pp. 20–23, Theorems 43 and 45",
+          "method": "OA primary PDF passages",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Canonical projection and known product norms"
+        },
+        {
+          "assessment": "Background, not the exact invariant",
+          "evidence": [
+            "Transportation-cost norm realized as a cycle-space quotient; the canonical projector norm is a different computation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.02689",
+          "material_read": "Proposition 1.5, p. 5, offset 13800",
+          "method": "OA primary PDF passage",
+          "title": "Isometric structure of transportation cost spaces over finite metric spaces",
+          "trigger": "Potential equivalent quotient-norm formulation"
+        },
+        {
+          "assessment": "Unresolved primary overlap; not grounds for failure",
+          "evidence": [
+            "Exact scope of any projection-norm implication was not established."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(96)00002-9",
+          "material_read": "Citation and available scope; no primary full text recovered",
+          "method": "Lawful OA retrieval unsuccessful",
+          "title": "Random walks and electrical resistances in products of graphs",
+          "trigger": "Possible equivalent broader electrical product result"
+        },
+        {
+          "assessment": "Unresolved beyond framework; not grounds for failure",
+          "evidence": [
+            "A landing page does not exclude equivalent statements."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176989113",
+          "material_read": "Landing page only; no primary decisive text recovered",
+          "method": "Lawful OA and Project Euclid retrieval attempts",
+          "title": "Local characteristics, entropy and limit theorems for spanning trees and domino tilings via transfer-impedances",
+          "trigger": "Classical transfer-current formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between cut and cycle maximizers on this smallest nontrivial path factor is illustrative and correct; nevertheless, the whole precise fact is mechanically implied by the extant exact arbitrary-base formula. Computing the three entries and factoring their differences is a useful worked example, not a surviving independent exact invariant under the scientific standard. No narrower independent claim remains after removing this covered specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

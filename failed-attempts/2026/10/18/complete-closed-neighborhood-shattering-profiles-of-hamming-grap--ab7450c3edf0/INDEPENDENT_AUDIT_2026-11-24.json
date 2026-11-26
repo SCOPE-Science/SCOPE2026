@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:48:43.074656Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding and proof Steps 1–5",
+        "VERIFICATION.md and check_shattering.py inspected without executing the frozen script"
+      ],
+      "rationale": "Checked the full all-parameter proof directly. Two distinct ball centers at distance 1 have intersection their common coordinate line; at distance 2 the intersection is the two intermediate corners, and otherwise empty. A noncollinear triple in a ball therefore fixes its center. This excludes a full-minus-one trace on a noncollinear four-set in a ball, while a collinear four-set cannot have a two-point trace. For triples normalized at their center, the three noncollinear types are center plus two arms, three arms, and a double arm plus one other arm. In d≥3 the center-plus-two type uses a fresh coordinate to isolate the center and form the empty trace; for three arms the singletons are their tips, pairs use the two specified changes and the empty trace uses all three changes. For the double-arm type a fresh-coordinate change gives the empty trace, and adding it to each double-arm tip isolates that tip; the other tip isolates itself, the pair on the common arm is seen from one tip on that arm, and mixed pairs use the union of their two changes. For d=2 the center-plus-two type cannot isolate the center. For the double-arm type a center must avoid three first-coordinate symbols and two second-coordinate symbols to realize the empty trace; with q≥4 the same pair witnesses and a spare second-coordinate letter give the other traces. Unique-center counting gives the two cubic formulas. Pairs at distance at most two admit full and singleton traces; a spare coordinate or third symbol supplies the empty trace except in H(2,2), where every ball misses one point. In d=1 every ball is full; in higher dimensions each point can be missed. These are exact combinatorial arguments, not extrapolations from the original 13-case self-check.",
+      "residual_risks": [
+        "The proof is for full Hamming spaces with radius at most one; it is not an open-neighborhood or induced-subgraph theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph VC algorithms do not give the polynomial; fixed-radius Hamming Helly theorems bound minimal empty intersections, not shattered supports. The catalogue result for closed radius two is only a binary VC-dimension result."
+        ],
+        "reasoning": "Those broader frameworks do not establish the coefficient statement. Full coverage instead comes from an exact result on the same parameters.",
+        "searches": [
+          "arXiv:2405.07588",
+          "arXiv:2405.10275",
+          "arXiv:2505.14641",
+          "Resultary a9528fa90607"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6c82fc864f93, 09da1f15171b, c2c444ddd1a2, a9528fa90607",
+        "arXiv:2007.16042",
+        "arXiv:2405.07588",
+        "arXiv:2405.10275",
+        "arXiv:2505.14641"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed closed-neighborhood result contains the uniqueness of the covering center and the two-dimensional double-arm criterion; the open-neighborhood VC dimension theorem alone would not supply either."
+        ],
+        "reasoning": "Both coefficient formulas and the additional geometric assertion are covered by the exact indexed match. This assessment does not attribute precedence to that match.",
+        "searches": [
+          "6c82fc864f93 Finding and proof §3; compared with arXiv:2007.16042 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The center-versus-vertex incidence is symmetric, so using the dual system preserves the polynomial. The closed-radius-one census 6c82fc864f93 counts exactly that system. The open system excludes the diagonal and can change traces."
+        ],
+        "reasoning": "The match is on the same incidence and same counting convention, not an analogy with open neighborhoods or with the number of traces of one fixed set.",
+        "searches": [
+          "Resultary: closed Hamming neighborhoods / Hamming balls of radius one / shattered-support polynomial",
+          "arXiv:2007.16042 and arXiv:2405.07588"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6c82fc864f93 has the same constant, linear and quadratic cases, d=2 cubic cases, degree and VC dimension, and the d≥3 cubic coefficient written as a count of the same three shapes. 09da1f15171b gives the same VC dimensions but does not give the whole polynomial. c2c444ddd1a2 is a polynomial for open neighborhoods."
+        ],
+        "reasoning": "With r=q−1, the expression binom(d,2)r²+binom(d,3)r³+d(d−1)binom(r,2)r enumerates the noncollinear triples in one ball by their three shapes and equals binom(1+dr,3)−d binom(q,3). Thus the different expressions are exactly equal for all q,d in their common range.",
+        "searches": [
+          "Resultary 6c82fc864f93, Finding and proof §3",
+          "Resultary 09da1f15171b",
+          "Resultary c2c444ddd1a2"
+        ]
+      },
+      "rationale": "A distinct indexed finding, 6c82fc864f93, gives the identical polynomial for the same closed radius-one system and all q,d, including the low-parameter cases, unique-center classification and three geometric triple types. This is demonstrable equivalent coverage, not a priority judgment. Its catalogue date is later than the frozen record's date; the evidence does not establish that it predates the frozen result, determine priority or imply copying. No residual mathematical claim in the Finding was identified that is distinct from the compared exact coverage.",
+      "residual_risks": [
+        "The date ordering and provenance of the two equivalent statements are not resolved by this statement-level review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full coverage, chronology does not establish precedence",
+          "evidence": "Full coefficients, thresholds, all three geometric triple shapes and unique common center.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "material_read": "Mirrored RESULT.md Finding (offset 0), proof §3 (offset 5084)",
+          "method": "Local published-record mirror",
+          "title": "Closed-neighborhood shattering polynomials of all Hamming graphs",
+          "trigger": "Exact closed-ball counting problem"
+        },
+        {
+          "assessment": "Partial overlap",
+          "evidence": "Same VC-dimension exceptions; also treats Littlestone dimension, not the full polynomial.",
+          "identifier_or_url": "09da1f15171b",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact static and adaptive shattering of closed Hamming neighborhoods",
+          "trigger": "Exact VC dimension for the same incidence relation"
+        },
+        {
+          "assessment": "Different incidence in the sharp result",
+          "evidence": "The sharp dimension-three theorem uses open neighborhoods; closed ones are mentioned as bounded.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "PDF p. 1 and §4 Thm. 4.7",
+          "method": "Open full-text PDF passages",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Classical Hamming neighborhood shattering result"
+        },
+        {
+          "assessment": "General algorithm, not the closed Hamming coefficient law",
+          "evidence": "Closed-neighborhood traces define the graph VC-dimension in the algorithm.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+          "material_read": "PDF abstract and §2 p. 4",
+          "method": "Open full-text PDF passages",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Computes closed-neighborhood VC dimension"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Helly number 2t+1 and intersection reduction for fixed radius t.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.10275",
+          "material_read": "PDF pp. 1–2 Theorems 1.1–1.2",
+          "method": "Open full-text PDF passages",
+          "title": "The Helly number of Hamming balls and related problems",
+          "trigger": "All-alphabet fixed-radius Hamming-ball set systems"
+        },
+        {
+          "assessment": "Different set system",
+          "evidence": "Neighbors are adjacent vertices; the result studies selected vertex subsets.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.14641",
+          "material_read": "PDF p. 2, adjacency-based neighborhood definition and subset setup",
+          "method": "Open full-text PDF passage",
+          "title": "VC-dimension of subsets of Hamming graphs",
+          "trigger": "Neighborhood shattering in Hamming spaces"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof Steps 1–5",
+        "Compared closed- and open-neighborhood statements"
+      ],
+      "rationale": "As mathematics, the natural all-parameter census shows exactly how the low-dimensional cases differ and supplies geometric data that a dimension bound does not. The unique-center criterion is useful for counting and recognizing shattered subsets in the canonical closed Hamming system. This evaluates the substance of the theorem; it does not make the equivalent record a distinct contribution.",
+      "residual_risks": [
+        "No consequence for higher-radius Hamming balls or induced subgraphs is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

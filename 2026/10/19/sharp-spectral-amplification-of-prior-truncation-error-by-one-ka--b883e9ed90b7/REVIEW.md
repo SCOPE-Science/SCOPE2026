@@ -1,12 +1,21 @@
-# Scientific review: sharp posterior covariance error after spectral prior truncation
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional-variance minimum formula proves Loewner monotonicity of exact Gaussian conditioning, giving \(0\preceq\mathcal K(P)-\mathcal K(P_r)\preceq P\) even though \(P_r\) is singular. A single noisy scalar observation with retained coefficient \(t\) and omitted coefficient \(t^2\) approaches the resulting upper bound in operator norm, at every dimension and admissible truncation rank. Information alignment gives exact blockwise posterior decomposition and non-amplification. The rank-one identity for the two-mode difference establishes its exact amplification threshold. All limits, positivity hypotheses and the spectral normalization are explicit in RESULT.md. The executable local verification passed 385 deterministic assertions, including a nonzero exact-rational witness; finite tests are not substitutes for the analytic proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The reduced-rank Kalman publication (arXiv:2306.07774) distinguishes exact reduced-state correction from the full-versus-reduced covariance error studied here. Spantini et al. (arXiv:1407.3463) had already cautioned that spectral prior reduction ignores the likelihood: that qualitative fact is acknowledged, not claimed. Their main low-rank approximation class instead corrects the full prior by a low-rank update and optimizes different posterior distances, so its results do not supply the exact sharp operator-norm ratio \(\lambda_1/\lambda_{r+1}\), information-commutation distinction, or two-mode threshold. Non-asymptotic ensemble Kalman analysis treats random empirical prior errors and does not imply the deterministic sharp design supremum. Searches for these formulas, equivalent covariance-order formulations, and related source claims did not identify covering published results; this absence alone is not proof of novelty. A 2025 relevant low-rank Gaussian inverse problems paper was available only through abstract/summary material, not full text. The remaining specialized-priority risk is retained explicitly.
+PASS
 
-## Value — PASS
-The exact sharp amplification factor quantifies how a spectrally small discarded prior component can interact with an observation to destroy posterior-covariance accuracy on the scale of the largest prior eigenvalue. The aligned-information theorem gives a precise structural safeguard, while the two-mode threshold measures when an observation actually amplifies the discrepancy. These are motivated, sharp and nontrivial sensitivity facts relevant to low-rank covariance filtering, not just an isolated tiny counterexample. The theorem does not assess mean error, probabilistic typicality, or filter error across multiple steps.
+For each test vector the conditioning quadratic form is the minimum over the observation coefficient of a nonnegative prior quadratic form plus a noise quadratic form. This proves Loewner monotonicity even for singular P_r and the bound 0≤K(P)−K(P_r)≤P. For the scalar row t e₁ᵀ+t² e_{r+1}ᵀ with R=1, the retained-coordinate posterior entries for the truncated and full priors tend to 0 and λ₁ respectively. The first diagonal difference thus proves sharpness by itself, even with eigenvalue multiplicities. The formula K(M)=M^{1/2}(I+M^{1/2}HᵀR^{-1}HM^{1/2})^{-1}M^{1/2} shows that alignment decouples the blocks even for singular M; the retained blocks cancel and the omitted block is bounded by P−P_r. The exact 2D rank-one update in RESULT.md lines 70–83 gives the stated amplification condition, including no amplification when b=0 or κ=1. At x=y=κ=100 it gives the stated rational witness. These checks concern a supremum over unbounded sensor coefficients, not finite attainment, and exact covariance conditioning only. The supplied verifier was inspected, not executed; no finite tests are needed for the universal conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected prior work supplies covariance update formulas, low-rank filtering and a qualitative warning about ignoring likelihood information in prior truncation, but not the sharp norm amplification for the specified order of operations, nor the accompanying alignment and two-dimensional threshold results.
+
+## value
+
+PASS
+
+The exact constant resolves how badly low-rank error can be amplified despite the posterior map being order preserving and covariance reducing. One scalar observation already causes the worst-case loss, whereas block alignment prevents it. The two-mode coefficient threshold gives a usable diagnostic beyond the qualitative warning that truncation ignores the likelihood.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

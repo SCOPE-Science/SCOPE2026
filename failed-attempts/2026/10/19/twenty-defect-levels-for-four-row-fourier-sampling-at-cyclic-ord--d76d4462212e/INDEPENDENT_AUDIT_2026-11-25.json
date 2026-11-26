@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:17:20.389221Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 38–74, VERIFICATION.md, verify_fourier12.py, verification_output.txt",
+        "/workspace/branches/c177f1ed-740d-472a-baa6-f6f108453642/census_replay.py",
+        "/workspace/branches/c177f1ed-740d-472a-baa6-f6f108453642/census_replay.txt (SHA-256 of the stream of comma-separated determinant coordinates terminated by semicolons: 1d8a3371c9b4f5edcd864cf1a1f39c8cf07eaac293f31d468321719942dc6bf2)",
+        "/workspace/branches/c177f1ed-740d-472a-baa6-f6f108453642/census_coordinates.tsv.gz (all row/column labels and coordinates)"
+      ],
+      "rationale": "The claim concerns all ordered pairs of independent four-element row and column sets, not principal minors. Row translation multiplies each column by a nonzero scalar and unit dilation permutes all column sets. An independent Burnside count gives fixed-subset totals 516, 156, 156 and 180 over the twelve translations for units 1, 5, 7 and 11 respectively, hence 1008/48 = 21 row orbits. The frozen cyclotomic test is exact: the determinant reduces to a polynomial of degree at most three modulo x^4−x^2+1, with each coefficient bounded by 24 from the 24 terms. Thus vanishing at all four distinct roots modulo 61 is equivalent to zero over the complex numbers. A separate subset-DP census in the cyclotomic ring, without using orbit reduction or executing the frozen code, checked all 245,025 pairs directly. It reproduced every row-orbit triple, all 20 defect multiplicities, 40,608 singular pairs, fraction 1504/9075, and the two stated defects. The identical sorted occupancy vectors for divisors 1, 2, 3, 4, 6 are respectively (4), (1,3), (1,1,2), (0,1,1,2), (0,0,1,1,1,1). This certifies singularity, not the subdivision of singular minors by rank or their conditioning.",
+      "residual_risks": [
+        "No extrapolation beyond order twelve and four-by-four restrictions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "bb8a5601ae6d is uniform in the modulus but only for R={0,1,2,4}; 81a97859d04e covers all row cardinalities but only full spark.",
+          "Alexeev–Cahill–Mixon give a prime-power iff test and general necessity; 12 is not a prime power. Caragea–Lee address principal minors. Neither result counts arbitrary partners. The later rank-refined census genuinely dominates."
+        ],
+        "reasoning": "A result broader in modulus, cardinality, or rank information only covers the finding if it determines the same arbitrary row/column incidence statistic.",
+        "searches": [
+          "Resultary records bb8a5601ae6d, 81a97859d04e and 2e8e14615690",
+          "arXiv:1110.3548 Theorem 9",
+          "arXiv:2409.09793v4 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror records 2e8e14615690, 81a97859d04e and bb8a5601ae6d",
+        "arXiv:1110.3548",
+        "arXiv:2409.09793v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier claims imply the 24 defect-zero row sets and d({0,1,2,4})=binom(6,2)=15. They give neither d({0,1,3,5})=27 nor the other orbit counts. The known order-ten example of insufficiency of uniformity for full spark does not compare equal sorted occupancies at order twelve."
+        ],
+        "reasoning": "The two earlier corollaries are only partial, but all other orbit counts and the occupancy contrast can be read off the stronger table by adding the two singular ranks and comparing the residue occupancies. There is no remaining uncovered exact fact in the assigned finding.",
+        "searches": [
+          "Resultary findings 81a97859d04e and bb8a5601ae6d, Finding sections; 2e8e14615690, affine profile and proof",
+          "Alexeev–Cahill–Mixon, after Theorem 9 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defect is 495 minus the number of independent four-column sets (bases of the rank-four column matroid), not just the Boolean full-spark property.",
+          "Rank-incidence table 2e8e14615690 recovers the defect profile exactly; full-spark classification 81a97859d04e only detects which profiles have d=0."
+        ],
+        "reasoning": "Changing signs, taking the transpose, or rewriting defects as missing bases does not define a distinct incidence result. An existence or full-spark test cannot substitute for the basis count.",
+        "searches": [
+          "Resultary: order-12 DFT fourth-order rank incidence and four-row harmonic frames",
+          "Public literature lookup for the exact order-12 four-by-four Fourier-minor census",
+          "arXiv:1110.3548, Theorem 9 and proof conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2e8e14615690 gives all 21 partner-rank profiles and global rank counts (0,1224,39384,204417) for ranks 1–4. The earlier Boolean count table is limited to d=0; the broader public lookup did not yield an earlier comparable table."
+        ],
+        "reasoning": "The November table is not merely a parameter match: it contains the entire census. Its date and the date of the assigned package are distinguished from a claim of independently established priority.",
+        "searches": [
+          "Resultary: exact fourth-order rank incidence in the twelve-point cyclic Fourier matrix",
+          "Targeted public-literature query for an order-twelve singular-minor census"
+        ]
+      },
+      "rationale": "The distinct indexed record 2e8e14615690 contains the complete rank-refined table for exactly the same 21 affine orbits. Adding the rank-2 and rank-3 counts gives every defect entry and the aggregate, hence every conclusion of the census. Its two relevant entries also give the same equal-occupancy contrast by elementary residue counting. Coverage is demonstrated without treating this later-dated catalogue entry as antecedent or drawing any conclusion about independent priority. The inspected earlier results give only the defect-zero level and the near-consecutive orbit, not the full census.",
+      "residual_risks": [
+        "Unindexed earlier exact tables, including matroid-base listings, remain possible.",
+        "The relationship or priority beyond the two dated records is not established; the later table is explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger equivalent defect coverage; later-dated record, no demonstrated antecedence",
+          "evidence": "Complete 21-orbit rank-2/3/4 table and 1224+39384=40608 singular restrictions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-fourth-order-rank-incidence-in-the-twelve-point-cyclic-fou--2e8e14615690/RESULT.md",
+          "material_read": "Finding and rank-profile table near offsets 250–3120; exact finite-field reduction, affine profile, prior-work comparison and limitations after offset 3000",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact fourth-order rank incidence in the twelve-point cyclic Fourier matrix",
+          "trigger": "Strongest same-order exact census hit"
+        },
+        {
+          "assessment": "Partial earlier coverage",
+          "evidence": "The row-size-four entry gives 24 full-spark sets, but does not count singular column partners when d>0.",
+          "identifier_or_url": "81a97859d04e",
+          "material_read": "Finding and scope, offsets 0–1554",
+          "method": "Bounded local mirror inspection",
+          "title": "Complete full-spark classification for the order-12 DFT",
+          "trigger": "Earlier classification for the same cyclic matrix"
+        },
+        {
+          "assessment": "Exact earlier coverage of one orbit",
+          "evidence": "Even moduli give precisely two antipodal pairs of columns, hence 15 singular choices at N=12 for R={0,1,2,4}.",
+          "identifier_or_url": "bb8a5601ae6d",
+          "material_read": "Finding, scope and generalized Vandermonde reduction, offsets 0–2110",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact singular minors for the near-consecutive four-row harmonic frame",
+          "trigger": "Exact counting for one of the contrast sets"
+        },
+        {
+          "assessment": "Structural background, not incidence coverage",
+          "evidence": "The iff is for prime powers; general necessity and the N=10 failure of sufficiency concern full spark, not multiplicities of singular partners.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Theorem 9 and the paragraphs following its proof, pp. 12 and 16",
+          "method": "Primary OA PDF, located then read by offset",
+          "title": "Full Spark Frames",
+          "trigger": "Divisor-distribution criteria and possible implication"
+        },
+        {
+          "assessment": "Principal-minor results do not give the arbitrary-pair census",
+          "evidence": "The statements address principal submatrices; they assert existence of zero principal minors in nonsquarefree orders, not any all-pair count.",
+          "identifier_or_url": "https://arxiv.org/html/2409.09793v4",
+          "material_read": "Abstract and opening introduction, offsets 0–2379",
+          "method": "Primary OA HTML passage",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Square Fourier-minor literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Alexeev–Cahill–Mixon Theorem 9",
+        "Independent census"
+      ],
+      "rationale": "Order twelve is the first cyclic order both nonsquarefree and not a prime power, and the number of failing four-frequency supports is a motivated refinement of full spark. However, every entry and the proposed contrast are mechanically determined by the existing stronger partner-rank table. The independent exact replay is valuable for validation but does not turn this projection of a known table into an independently needed unknown invariant.",
+      "residual_risks": [
+        "For current use requiring ranks below four, the November rank-refined table contains strictly more information."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

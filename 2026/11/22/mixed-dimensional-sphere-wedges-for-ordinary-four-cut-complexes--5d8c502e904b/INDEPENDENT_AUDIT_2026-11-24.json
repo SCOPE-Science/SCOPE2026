@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:44:23.774274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–50, VERIFICATION.md, evidence/verify.py and evidence/verification-output.txt",
+        "repairs/5/RESULT.md and repairs/5/VERIFICATION.md",
+        "Independent replay: python3 /workspace/branches/four_cut_and_heawood_reproduction.py 5; directly reconstructed dual faces for n=3..8 and reproduced the rectangular core's critical sets and complete directed Hasse acyclicity; at n=4 the core gives six critical 3-cells and the dual has 24 additional transversal triangles."
+      ],
+      "rationale": "The frozen theorem is true, but the frozen uniform critical-cell calculation (RESULT.md lines 35–46) is not established by its column-extension paragraph: it asserts the surviving configurations and persistence of old terminal statuses without tracking which deletion/insertion pairs are still available when new-column pivots are interleaved with old ones. The finite tests do not fill this gap and no false critical count at any n was found. The replacement proof in repairs/5/RESULT.md proves the same claim without that matching. Edge-component counting in the bipartite row–column incidence graph proves exactly the row/rectangle core and the 6*C(n,3) additional maximal triangles. The closure F -> rows(F)×columns(F) retracts the face poset up to homotopy onto the face poset of a product-of-simplices subcomplex. Keeping a spanning tree of row edges first gives a subcomplex homotopy equivalent to two suspensions of the column simplex's 2-skeleton, each a wedge of C(n-1,3) three-spheres. The third row edge times the column triangles contributes C(n,3) more 3-cells with null attaching maps into this 2-connected subcomplex. Each additional transversal triangle then attaches by a null loop, producing the stated S² summands. Integral Alexander duality on precisely 3n vertices gives degrees 3n-6 and 3n-5 and the nonshellability obstruction. The replacement also gives the explicit disconnected quadruple establishing nonvacuous purity for n>=4.",
+      "residual_risks": [
+        "Finite replication does not establish uniform critical-set claims; the repaired argument does not rely on them. No homotopy equivalence for the original complex or equivariant result is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7.18 concerns K_2 square K_n; II, Theorem 5.14 concerns P_m square P_n; bd50464fc17f covers all rook boards only at threshold three."
+        ],
+        "reasoning": "None of these statements has both the specified graph family and cut threshold, and neither dropping one row nor changing the threshold specializes to the frozen theorem.",
+        "searches": [
+          "arXiv:2304.13675 §7.3",
+          "arXiv:2407.08158 §5",
+          "Resultary bd50464fc17f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675",
+        "arXiv:2407.08158",
+        "Resultary bd50464fc17f",
+        "Resultary de2f98e55b1f",
+        "Resultary dc4e90566a37",
+        "Resultary 9a6c205f7f1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-board-sized path grid has only top-dimensional homology, unlike the two nonzero ranks here. The excluded 3x3 case agrees numerically but supplies no extension argument. The rook three-cut predicate is different even on four-subsets."
+        ],
+        "reasoning": "The repaired all-parameter product model and maximal-triangle attachments establish information absent from the inspected exact cases and distinct graph families.",
+        "searches": [
+          "Resultary dc4e90566a37 Finding and Assumptions",
+          "Resultary bd50464fc17f Finding and Assumptions",
+          "arXiv:2407.08158 Theorem 5.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same dual formulation and wedge at n=3 occurs in dc4e90566a37 only.",
+          "Independent-four-set and path-grid complexes have a different predicate or graph. The rook graph uses clique factors and the dual forbids disconnected induced quadruples."
+        ],
+        "reasoning": "Translating between ordinary cuts and the all-connected-quadruples dual does not extend the known 3x3 case to n>=4; neither replacing connectedness by independence nor paths by cliques is an equivalence.",
+        "searches": [
+          "Resultary dc4e90566a37",
+          "Resultary 9a6c205f7f1e",
+          "arXiv:2407.08158 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dc4e90566a37 gives six 2-spheres and one 3-sphere for K_3 square K_3 only; de2f98e55b1f gives ordinary four-cut homology for Shrikhande and K_4 square K_4."
+        ],
+        "reasoning": "These exact data are not a classification or exact instance at a claimed three-row parameter n>=4.",
+        "searches": [
+          "Resultary three-row ordinary four-cut Alexander-dual and rook-board matches: dc4e90566a37, de2f98e55b1f, bd50464fc17f"
+        ]
+      },
+      "rationale": "The repaired proof leaves the theorem and its n>=4 scope unchanged. No inspected statement implies the uniform ordinary four-cut classification on three-row rook boards. The closest overlap is a same-day record for exactly n=3, which is expressly excluded; the record date alone determines no priority.",
+      "residual_risks": [
+        "Bounded comparison; unindexed equivalent formulations of the connected-quadruple complex remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering",
+          "evidence": "The theorem uses the two-row clique prism K_n square K_2.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Section 7.3, Theorem 7.18, PDF p. 29, text offset 127600",
+          "method": "OA PDF passage",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Ordinary cut foundations and Cartesian clique prism"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Only consecutive grid coordinates are adjacent; ordinary four-cut homotopy is a top-dimensional wedge for the path grid.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Section 5 definition and Proposition 5.13/Theorem 5.14, PDF pp. 16, 18–20, offsets 71375, 79275, 87237",
+          "method": "OA PDF passages",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Four-cut classification of three-row grids"
+        },
+        {
+          "assessment": "Different cut parameter",
+          "evidence": "All rook boards under its size assumptions, but only ordinary three-cut homology.",
+          "identifier_or_url": "Resultary bd50464fc17f",
+          "material_read": "RESULT.md Finding, Assumptions and prior-work discussion, offsets 0 and 6400",
+          "method": "Local mirror",
+          "title": "Integral and equivariant homology of three-cut complexes of rook graphs",
+          "trigger": "General rook-board classification"
+        },
+        {
+          "assessment": "Different graphs",
+          "evidence": "Shrikhande and K_4 square K_4 on 16 vertices only.",
+          "identifier_or_url": "Resultary de2f98e55b1f",
+          "material_read": "RESULT.md Finding and discussion, offsets 0 and 8440",
+          "method": "Local mirror",
+          "title": "Integral four-cut homology separates the Shrikhande and rook graphs",
+          "trigger": "Exact ordinary four-cut rook computation"
+        },
+        {
+          "assessment": "Exact overlap only outside claimed range; no same-date priority inference",
+          "evidence": "The dual of the 3x3 case is a wedge of six 2-spheres and one 3-sphere; no n>=4 assertion.",
+          "identifier_or_url": "Resultary dc4e90566a37",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "A mixed sphere wedge in the four-cut Alexander dual of the 3-by-3 rook graph",
+          "trigger": "Exact same-kind dual classification"
+        },
+        {
+          "assessment": "Different graph and face predicate",
+          "evidence": "Path grid and independent four-sets, not ordinary four-cuts on the rook graph.",
+          "identifier_or_url": "Resultary 9a6c205f7f1e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Dual sphere wedges and reflection modules for the 3-by-4 grid",
+          "trigger": "Same board dimensions as first claimed case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and repaired product-model proof",
+        "Topology of Cut Complexes II, Theorem 5.14",
+        "Resultary dc4e90566a37"
+      ],
+      "rationale": "A natural infinite-family classification explains the two homology degrees by separate mechanisms, the rectangle core and transversal triangles. It gives uniform torsion-free integral homology and a nonshellability obstruction not supplied by published three-cuts or path grids, as well as the dual's full homotopy type. The repaired product model makes the structural reason for the ranks explicit.",
+      "residual_risks": [
+        "Does not identify the original complex's homotopy type or a symmetry-equivariant splitting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

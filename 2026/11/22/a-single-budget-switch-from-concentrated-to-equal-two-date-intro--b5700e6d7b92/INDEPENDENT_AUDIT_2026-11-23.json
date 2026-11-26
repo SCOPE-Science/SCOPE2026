@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:43:33.450456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The thinning proof needs the two Poisson release counts to keep their product law conditional on the environmental pair. This was implicit in the frozen computation, but marginal mutual independence alone does not give it. For example, take independent fair E1,E2 marginally, independent Poisson N1,N2 marginally, and let E2 be independent of everything else while P(E1=G|N1)=1/2+ε(1_{N1≥2}−P(N1≥2)), with 0<ε≤1/2. Keep survival independent given counts and environments. For any B>0, concentration at date 2 receives the fair-survival mixture, whereas concentration at date 1 increases its success strictly: the favorable-minus-unfavorable binomial tail is zero for N1<2, positive for N1≥2, when the favorable probability has been increased. The ensemble has the required marginal environmental symmetry, but even at B=1, ℓ=1/4,h=3/4 the two endpoints no longer tie. The repaired RESULT.md and VERIFICATION.md under /workspace/repairs/1/ specify the exogenous count law and conditional survival. Under this law the four-state mixture reduces to F(m+t)+F(m−t) times a strictly positive discordance weight plus an allocation-independent term. Its derivative for t>0 has the sign of t coth t−m, strictly increasing in t, so a nonzero interior critical point can only be a minimum and only center/endpoints can maximize. The endpoint gap has the sign of H(B)=βB coth(βB/2)−1−αB. The factor coth u−u csch²u lies in (0,1), hence H′<−ℓ, H(0+)=1 and H(∞)=−∞. Using 2<T coth(T/2)<T+2 with T=βB gives the strict threshold bounds. Symmetry and the strict derivative signs establish the three-way tie and exclude others. For a one-survivor threshold the only variable term decreases strictly with |t|; zero discordance or zero contrast instead makes all allocations tie. Own replay python3 /workspace/branches/review_checks.py reproduced B*≈2.09064648697929 and the displayed example probabilities via the original state mixture. Finite replay is only corroboration; the supplied checker was read, not executed. This theorem concerns a pooled census proxy and exactly the ≥2 event, not arbitrary higher quorums or establishment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drolet–Locke Methods uses a fixed total distributed across trial numbers of introduction events, multi-interval stochastic population dynamics, and establishment defined by any positive final population at time 100.",
+          "Grevstad abstract-level material describes simulation and the size/number tradeoff. Haccou–Iwasa full text and cited equations were not independently recovered; two other publisher routes returned 403."
+        ],
+        "reasoning": "A large-vs-small release tradeoff in a stochastic population model does not imply an all-budget optimizer of a fixed one-census Poisson ≥2 tail. The one-lineage framework described in the bound record has a different tail function and cannot be assumed to transfer its ranking after changing curvature.",
+        "searches": [
+          "Grevstad DOI 10.1890/1051-0761(1999)009[1439:FITCOP]2.0.CO;2; Haccou–Iwasa 10.1006/tpbi.1996.0031; Schreiber–Lloyd-Smith 10.1086/605405; Shea–Possingham 10.1046/j.1365-2664.2000.00467.x",
+          "Drolet–Locke DOI 10.3391/ai.2016.11.1.11 and identified REABIC original PDF"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md, VERIFICATION.md and verify.py",
+        "Drolet–Locke original REABIC PDF",
+        "Grevstad and Haccou–Iwasa limited original routes",
+        "Shea–Possingham and Schreiber–Lloyd-Smith DOI retrieval routes (403)",
+        "Resultary target and comparison entries above, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two independent patches requiring two separately each are not two dates whose survivors can jointly fulfill one quorum; 1+1 is success only in the pooled model. The two-patch model even permits strictly unequal optimizers.",
+          "The staircase excludes unequal episode allocation. Drolet–Locke includes births, time-interval dynamics, and a final positivity check rather than pooled counts in a single pre-reproductive census."
+        ],
+        "reasoning": "A prior comparison at selected designs or over the integer episode count neither excludes unequal optima over a continuum nor enforces the stated coth root. The repaired release-law assumption is necessary for reducing all environmental disagreement to a single positive prefactor; it does not expand the claimed novelty.",
+        "searches": [
+          "Two-habitat Resultary Finding offset 224 and introduction-count staircase offset 2161",
+          "Drolet–Locke original, printed pp. 101, 104"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mathematical alias is the sign of the two-point Jensen gap of F(z)=1−(1+z)e^(−z), the Erlang shape-two CDF, at symmetric split means.",
+          "Closest same-day two-habitat record instead maximizes getting a separate two-hit quorum at some patch and reports unequal optima."
+        ],
+        "reasoning": "Changing the language from founders to a Poisson confirmation or Erlang tail preserves the exact event only when the counts are pooled before thresholding. Product-of-failures optimization across separate quorum events is not an equivalent objective.",
+        "searches": [
+          "Local Resultary: pooled Poisson founders two dates, quorum, allocation switch, related confirmation/portfolio thresholds",
+          "Public searches for pooled Poisson tail allocation and release-size/number optima under Allee effects"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-an-exact-introduction-count-staircase-under-two-founder-threshol--9af56973f262 varies the number of equally funded episodes, not a continuous split.",
+          "2026/11/22/SCOPE-asymmetric-optimal-founder-effort-in-two-identical-quorum-limite--ae3e6f6f2f0f gives an exact comparison for separate patch thresholds.",
+          "2026/11/22/SCOPE-the-sharp-universal-budget-for-unequal-two-site-poisson-confirma--9ebfe525ba28 was index-only in this pass; the mirror was not available."
+        ],
+        "reasoning": "These are the relevant exact comparison entries rather than tables of scalar Poisson probabilities (which do not optimize a correlated mixture). No equivalence is claimed or denied for an unread mirror based only on its listing.",
+        "searches": [
+          "Local Resultary: exact two-founder release-count staircase; asymmetric two-habitat quorum; unequal two-site confirmation"
+        ]
+      },
+      "rationale": "The distinct claim is a continuous fixed-expected-budget switch with no strictly unequal interior optimum for the pooled two-date Poisson threshold event, with an explicit unique root unchanged by positive discordance. Other release/Allee results, or one-founder diversification, are not claimed as new. The checked nearest claims do not give this classification; source access and scope limit the historical judgment.",
+      "residual_risks": [
+        "Grevstad full text and some analytic establishment papers could not be read in this pass; possible exact older release or reliability formulations remain unresolved.",
+        "The Poisson confirmation mirror was unavailable. Distinct same-date entries were compared where read; date alone is not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong topical overlap, distinct event and dynamical model",
+          "evidence": "Methods explicitly counts runs with final number above zero at time 100 after 50 introduction intervals plus 50 without introductions.",
+          "identifier_or_url": "https://www.reabic.net/aquaticinvasions/2016/AI_2016_Drolet_Locke.pdf",
+          "material_read": "Original abstract p. 101 and Methods p. 104, offsets 0–3077 and near 17300–20400",
+          "method": "OA original open REABIC PDF; aquaticinvasions.net route had certificate mismatch",
+          "title": "Relative importance of propagule size and propagule number for establishment of non-indigenous species: a stochastic simulation study",
+          "trigger": "Same motivation, Allee effects plus release size/number"
+        },
+        {
+          "assessment": "Historical risk, not a full-text noncoverage finding",
+          "evidence": "Abstract-level text reports stochastic simulation of release size and establishment probability; original article 403 in this pass.",
+          "identifier_or_url": "https://doi.org/10.1890/1051-0761(1999)009%5B1439:FITCOP%5D2.0.CO;2",
+          "material_read": "Publisher abstract-level snippet only; full text not read",
+          "method": "Publisher DOI/landing route, read access limited",
+          "title": "Factors Influencing the Chance of Population Establishment: Implications for Release Strategies in Biocontrol (Grevstad, 1999)",
+          "trigger": "Earlier exploration of optimal release sizes under environmental stochasticity and Allee effects"
+        },
+        {
+          "assessment": "Relevant comparison with an unresolved full-text boundary",
+          "evidence": "The bound record identifies independent-lineage success, not pooled survival; retrieval did not permit an independent original-equation comparison.",
+          "identifier_or_url": "https://doi.org/10.1006/tpbi.1996.0031",
+          "material_read": "Landing/abstract route only; equations 36–43 not independently read",
+          "method": "OA DOI and ScienceDirect, full-text request 403",
+          "title": "Establishment Probability in Fluctuating Environments: A Branching Process Model (Haccou and Iwasa, 1996)",
+          "trigger": "Analytic sequential versus simultaneous success comparison described in the bound record"
+        },
+        {
+          "assessment": "Material overlap in two-unit Poisson thresholds; separate patch success, not pooled counts",
+          "evidence": "The event is at least one suitable two-arrival patch, and the budget 10 example has two strictly unequal interior maximizers.",
+          "identifier_or_url": "2026/11/22/SCOPE-asymmetric-optimal-founder-effort-in-two-identical-quorum-limite--ae3e6f6f2f0f",
+          "material_read": "Finding, mirrored RESULT.md offset 224",
+          "method": "Local Resultary and mirrored original",
+          "title": "Asymmetric optimal founder effort in two identical quorum-limited habitats",
+          "trigger": "Closest exact Resultary analogue; possible conflicting unequal optimum"
+        },
+        {
+          "assessment": "Related exact threshold sequence, different design domain",
+          "evidence": "Varies an integer number of equally funded independent episodes, not arbitrary allocations at two dates.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-introduction-count-staircase-under-two-founder-threshol--9af56973f262",
+          "material_read": "Mirrored RESULT.md passage at offset 2161",
+          "method": "Local Resultary and mirrored original",
+          "title": "An exact introduction-count staircase under two-founder thresholds",
+          "trigger": "Exact change in optimum versus overall budget for an introduction model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed expected-budget allocation problem has natural extreme and symmetric strategies, but nonconcavity leaves open unequal optima and a continuous or abrupt transition. The proved classification gives no intermediate maximizer, a strict three-way tie at a single threshold, and independence of the optimizer from the degree of discordance. The contrast with one-survivor success explains why this threshold choice matters. It is a useful exact benchmark under exogenous releases, not an ecological intervention recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

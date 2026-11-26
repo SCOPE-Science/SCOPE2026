@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:57:58.257327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen witness sentence at RESULT.md lines 74–76 omitted good 1: good 5 plus just one good valued 1 does not give utility 4. The complete corrected RESULT.md is in /workspace/repairs/5/. MNW gives agent 1 exactly {1,5}; leximin gives agent 1 one of {1,2,5}, {1,3,5}, {1,4,5}, with complements going to agent 2. The repaired proof also includes the empty allocation and proves that every Nash tie at product 18 has sorted pair (3,6), since all other positive factor pairs of 18 exceed the utility-sum bound 10. Leximin fixes its sorted pair by definition. An independent labeled exhaustive enumeration retained the full argmax sets at all m=0,…,5. The (equal, leximin proper subset, disjoint) counts are (1,0,0), (4,0,0), (16,0,0), (56,8,0), (240,16,0), (892,32,100), with no other relation type. A second type-count calculation with multinomial weights verifies the eight bad vectors and four swap classes of sizes 10,10,40,40. Optimizer multiplicities on the bad profiles are MNW 1:80 and 4:20; leximin 3:80 and 6:20. These checks verify the full repaired claim, not merely some tie-breaking. Independently, if a Nash optimum with sorted pair (r,R) strictly beats leximin at higher minimum, moving a rich agent's good gives R<=2r+2. If r=1 this cannot strictly beat higher min; if r=2 and R>=5, any good worth 1 to the rich agent gives a strict improvement by transfer, so R=6 with three goods worth 2, and a transfer reaches (at least 3,4), enough to rule out lexicographic conflict. Thus r>=3. A leximin minimum of 5 would maximize product as well by the total bound. Only (3,6) can beat a leximin minimum of 4 with at most five goods; this needs two goods for the poorer agent and three worth 2 for the richer one. Each of the latter must be worth 1 to the poorer agent or a transfer improves the Nash product. The poorer agent's original goods give it 1 and 2, yielding exactly the stated four classes up to swap. Conversely in each class transferring a rich good yields (4,4); comparing products by bundle sizes shows that 18 is optimal. No uploaded verifier was executed. Replay: /workspace/branches/ae7e9d31-6949-42a6-9b8f-b5ddecd1849b/{independent_census.py,small-run.txt,full-census.txt}.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halpern et al. establish optimizer equality for {0,1} additive valuations; Benabbou et al. give a related matroid-rank characterization.",
+          "Lin–Wu–Zhou work with factored bi-valued valuations, but the inspected leximin theorem bounds fairness guarantees, not minimum incompatibility or its census."
+        ],
+        "reasoning": "A common rescaling cannot change zeros to ones; adding a constant per allocated good changes utility by bundle size and need not preserve either objective. Matroid-rank marginal gains cannot model both positive sizes 1 and 2. The broader bi-valued domain in the recent paper does not alone give the specific optimizer statement.",
+        "searches": [
+          "arXiv:2007.06073, p. 3",
+          "arXiv:2003.07060, pp. 4–5",
+          "arXiv:2610.00122, p. 6 and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00122",
+        "arXiv:2007.06073",
+        "arXiv:2003.07060",
+        "Resultary 0ce796e0def3",
+        "Resultary c88e01b1c1a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem A.1 gives 1/k-EFX, 1/k-GMMS and 2/(k+1)-PMMS leximin guarantees, in a different observable than intersection at fixed n.",
+          "The checked equivalence requires binary additive valuations, not positive bivalued ones."
+        ],
+        "reasoning": "A tight fairness bound cannot exclude optimizer intersection for all smaller instances nor classify all profiles of first disjointness. No checked broader theorem gave those consequences by specialization; the repaired allocations agree with the independently derived structural condition.",
+        "searches": [
+          "Lin–Wu–Zhou arXiv:2610.00122, Theorem A.1 and tight examples in Appendix A",
+          "Halpern et al. arXiv:2007.06073, binary equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin–Wu–Zhou contrast MNW and leximin with respect to approximations to EFX, GMMS, and PMMS.",
+          "In the repaired census, proper inclusion at three goods is strictly weaker than disjointness at five goods."
+        ],
+        "reasoning": "Differing objective values, utility guarantees, or the existence of a tie-dependent disagreement do not imply that no allocation optimizes both rules. The finite claim checks the full argmax intersection, not a comparison of selected outputs.",
+        "searches": [
+          "Resultary: MNW versus leximin, first disjoint optimizer sets, positive bivalued goods",
+          "arXiv:2610.00122, introduction and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ce796e0def3 counts MNW multiplicity under random binary approvals, where the objectives coincide.",
+          "c88e01b1c1a7 concerns cumulative envy for identical unit/double valuations, not the independent valuations and joint optimizer census here."
+        ],
+        "reasoning": "Neither table counts pairs of positive valuation vectors with empty optimizer intersection; neither recovers the four symmetry classes or their 100 labeled profiles.",
+        "searches": [
+          "Resultary: exact two-agent Nash welfare leximin bivalued boundary and finite multiplicities",
+          "Resultary 0ce796e0def3 and c88e01b1c1a7"
+        ]
+      },
+      "rationale": "The repaired claim is about first disjointness of the entire optimizer sets and its exact first-layer classification in the positive {1,2} domain. It is not the first example in which the objectives disagree in some sense or a claim to fair-division approximation bounds. The verified nearby primary and catalogue statements do not establish this specific claim.",
+      "residual_risks": [
+        "An unindexed or differently worded small-instance example or census may overlap; the checked passages do not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close comparison in the right domain, different conclusions",
+          "evidence": [
+            "Appendix A Theorem A.1 gives leximin fairness approximation factors and tight examples; introduction contrasts these guarantees with MNW and notes binary equivalence."
+          ],
+          "identifier_or_url": "arXiv:2610.00122",
+          "material_read": "PDF introduction p. 3 (offset 12304), definition p. 6 (23239), Appendix A pp. 25–26 (85385, 90376)",
+          "method": "OA primary PDF located passages",
+          "title": "When Maximum Nash Welfare Becomes Strongly Fair: Bi-valued Goods",
+          "trigger": "Plausible prior exact positive-bivalued comparison of both rules"
+        },
+        {
+          "assessment": "Exact result in a different valuation domain",
+          "evidence": [
+            "Identical MNW/leximin allocation sets for binary additive valuations."
+          ],
+          "identifier_or_url": "arXiv:2007.06073",
+          "material_read": "PDF p. 3, offset 9831",
+          "method": "OA primary PDF located passage",
+          "title": "Fair Division with Binary Valuations: One Rule to Rule Them All",
+          "trigger": "Exact optimizer-set equivalence"
+        },
+        {
+          "assessment": "Matroid rank does not include the positive {1,2} additive domain",
+          "evidence": [
+            "Characterization applies to matroid-rank valuations, whose increments cannot exceed one."
+          ],
+          "identifier_or_url": "arXiv:2003.07060",
+          "material_read": "PDF pp. 4–5, offset 17000",
+          "method": "OA primary PDF located passage",
+          "title": "Finding Fair and Efficient Allocations for Matroid Rank Valuations",
+          "trigger": "Broader related optimizer characterization"
+        },
+        {
+          "assessment": "Binary approvals and MNW multiplicity, not the incompatibility census",
+          "evidence": [
+            "The record uses random {0,1} approvals and states coincidence there."
+          ],
+          "identifier_or_url": "Resultary 0ce796e0def3",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A cube-root transition in the multiplicity of binary Nash welfare",
+          "trigger": "Catalogue overlap on multiplicities and equivalence"
+        },
+        {
+          "assessment": "Other statistic and identical values",
+          "evidence": [
+            "The description concerns cumulative maximum envy for identical unit/double values."
+          ],
+          "identifier_or_url": "Resultary c88e01b1c1a7",
+          "material_read": "Catalogue description",
+          "method": "Local Resultary search",
+          "title": "Exact cumulative maximum envy for two agents and unit/double goods",
+          "trigger": "Nearby exact invariant at the same value ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive two-level domain is a minimal natural change from the binary equivalence setting. The first unavoidable conflict tests whether that equivalence can be salvaged by tie-breaking, and the exact census plus common welfare profiles identify how it fails, beyond an isolated example. The bound at five is forced by the first possible conflict, not an arbitrary stop in a larger computation. The corrected witness explicitly realizes the structural obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

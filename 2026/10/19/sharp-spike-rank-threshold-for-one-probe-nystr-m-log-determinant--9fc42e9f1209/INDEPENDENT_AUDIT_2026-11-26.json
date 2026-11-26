@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:18.521687Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 16–79",
+        "VERIFICATION.md, lines 3–25",
+        "verify.py, lines 11–64 (inspection only)"
+      ],
+      "rationale": "Independently reconstructed the proof. The determinant factorization makes the estimator conditionally unbiased and the Gaussian quadratic-form variance is twice the squared Frobenius norm of log M. Almost surely ker(U^T) in the spike block has dimension (r-ell)_+ and gives exactly that many forced eigenvalues 1+t in a reducing subspace. In its orthogonal complement substituting c=U^+a into the Nyström residual variational formula bounds the residual by (1+||VU^+||^2)I; the inverse congruence is contractive since P>=I and preserves the complement. The remaining eigenvalues lie in [1,2+||VU^+||^2]. The least positive singular value of U dominates that of a square Gaussian subblock by Gram matrix monotonicity. Its inverse norm has a half moment by the adjugate bound, Hölder exponents 3 and 3/2 and the QR chi-product negative determinant moment of order 3/4, including a final chi with one degree of freedom. Independence of U and V and log^2(2+z^2)=O(1+z^(1/2)) give the contrast-uniform expected bound including the square case ell=r. This yields the exact diverging coefficient and both directions of the threshold.",
+      "residual_risks": [
+        "Fixed finite dimensions and exact arithmetic only. The 1,008 seeded checks test finite matrix identities and conditional risk, not probe-frequency statistics or existence of a uniform expected bound. No formal proof certificate is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 requires p>=2 and ell=k+p>=4 for its generic bound; this p is relative to the analysis rank k, not automatically ell-r. The additional search returned irrelevant material and furnishes no evidence of absence."
+        ],
+        "reasoning": "The generic bound does not give the boundary ell=r with k=r and is not an exact missed-spike risk decomposition.",
+        "searches": [
+          "Cortinovis–Toni arXiv:2601.05778 §3.1, Theorem 3.2",
+          "Targeted literature search for sharp zero-oversampling risk in the two-level problem"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact-risk record 25fe26ab4cda",
+        "Cortinovis–Toni arXiv:2601.05778 §2 and §3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ideal rank-ell formula is 2 sum_{i>ell} log^2(1+lambda_i), so already predicts the coefficient for the ideal preconditioner. The mirror proves actual Gaussian risk only in dimension two."
+        ],
+        "reasoning": "Neither replaces the random Gaussian residual by a spectral one with justified equality, controls near-singular Gaussian overlaps at the threshold, or proves the asserted general exact-plus-bounded decomposition.",
+        "searches": [
+          "Cortinovis–Toni arXiv:2601.05778 §2 Eq. (2.4) and §3.1 Theorem 3.2",
+          "Resultary 25fe26ab4cda limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "25fe26ab4cda gives an exact unconditional risk and asymptotic for one Gaussian sketch column and one independent Gaussian probe in dimension two; snapshot offsets 0–4776 and limitations beginning at 8661."
+        ],
+        "reasoning": "Set its eigenvalues to (t,1) to recover r=s=ell=1 with a stronger expansion in that case. It does not cover multiplicities or the below-threshold divergence.",
+        "searches": [
+          "Resultary semantic search for exact two-level Gaussian Nyström log-determinant variance",
+          "Resultary record 25fe26ab4cda, mirrored RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-risk mirror is a dimension-two benchmark rather than a table covering the varying dimensions; the other exact formula is for an ideal spectral sketch."
+        ],
+        "reasoning": "There is a directly matching stored exact special case, not a known exact database or table covering the full dimensional family in the inspected sources.",
+        "searches": [
+          "Local Resultary search and exact-risk record 25fe26ab4cda",
+          "Cortinovis–Toni arXiv:2601.05778 §2, Eq. (2.4)"
+        ]
+      },
+      "rationale": "The exact two-dimensional predecessor is credited as overlapping and stronger in its own case. The supported distinct result is the all-multiplicity Gaussian-sketch threshold, with a bounded remainder and a zero-oversampling boundary. No examined benchmark or broader theorem supplies that result.",
+      "residual_risks": [
+        "A multidimensional equivalent calculation may exist outside the inspected results; the targeted external search did not provide a useful additional comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers r=s=ell=1 only",
+          "evidence": "Exact risk for a 2x2 SPD matrix and one Gaussian sketch column; fixed lower eigenvalue b has limiting risk 2 log^2(1+b) with an explicit next term.",
+          "identifier_or_url": "Resultary 2026/10/12, 25fe26ab4cda; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md offsets 0–4776; scope limitation at 8661",
+          "method": "Local mirror statement and scope inspection",
+          "title": "Exact two-eigenvalue Gaussian Nyström log-determinant variance",
+          "trigger": "Exact estimator and two-level spectrum"
+        },
+        {
+          "assessment": "Related benchmarks and bounds, not general coverage of this threshold",
+          "evidence": "Eq. (2.4) uses the ideal spectral residual; Theorem 3.2 requires p>=2 and ell=k+p>=4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05778",
+          "material_read": "§2 Eq. (2.4), p. 4, OA offset 14900; §3.1 Theorem 3.2, p. 7, offset 35455",
+          "method": "Bounded original OA text inspection",
+          "title": "Detecting When One Probe Vector Is Enough for Preconditioned Log-Determinant Approximation",
+          "trigger": "Same estimator and strongest cited generic error bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Cortinovis–Toni §2 and §3.1",
+        "Resultary 25fe26ab4cda"
+      ],
+      "rationale": "The benchmark isolates exactly how many sketch directions are needed to prevent contrast-driven one-probe variance, even when ordinary square Gaussian inverse moments are too strong to use. The logarithmic observable permits a sharp conclusion at the no-excess-sketch boundary, and the exact coefficient distinguishes failure to capture the spike subspace from bounded error on the remainder. This is more than reproducing the dimension-two example or the ideal spectral benchmark.",
+      "residual_risks": [
+        "Does not provide dimension-uniform constants, cost comparisons, or a guarantee with Lanczos truncation or finite precision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

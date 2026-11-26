@@ -6,14 +6,14 @@
 
 ## Originality
 
-**PASS, with limited historical confidence.** Published general Runge–Kutta positivity-radius theory does not itself assert unconditional positivity on this fixed graph family. Earlier spectral multiplier criteria already explain how scalar monotonicity relates to graph positivity; that general criterion and the two-stage instance are not credited to this theorem. The new substantive step is a uniform, exact coefficient-ratio argument for every diagonal Padé approximant of the exponential, yielding the even/odd stage law. Searches of mathematical research records, related formula terminology, and primary full texts did not find an equivalent all-stage scalar result. This negative search is not proof of priority. Further specialist comparison remains desirable.
+**PASS for the narrowed contribution, with limited historical confidence.** The scalar inequality follows from the classical continued fraction for the hyperbolic tangent, and the exact existing multipartite criterion already supplies the graph implication and its two-stage example. The chosen novelty scope is the uniform large-step witness at a specified entry of the smallest bipartite obstruction: its leading coefficient is evaluated explicitly for every even stage count. General positivity-radius theory does not evaluate that witness.
 
 ## Value
 
-**PASS.** General Runge–Kutta positivity order barriers might suggest that arbitrarily high-order classical implicit schemes cannot remain positive for all timesteps. On the natural complete-multipartite network class, every even-stage Gauss method of order \(2s\) does so for its completed step. The parity obstruction and the \(P_4\) witness delimit the result. The all-order rational monotonicity lemma is useful as a scalable analytic sufficient condition, not merely a finite table entry.
+**PASS.** The four-vertex path is the smallest connected bipartite graph outside the positive class. The same matrix entry exhibits failure uniformly across all even orders, not merely for the fourth-order scheme. The signed large-step coefficient identifies the mechanism and quantitative scale of the obstruction; a general radius restriction asserting failure somewhere would not supply this boundary witness.
 
 ## Scope and related literature
 
-Horváth (1998), Lóczi–Ketcheson (arXiv:1303.6651v1), and Fekete–Ketcheson–Lóczi (arXiv:1610.00228v1) were compared with their actual investigated systems, algorithms, and conclusions. Existing general complete-multipartite multiplier formulas and the known two-stage positivity example limit the originality claim to the all-stage scalar lemma and parity consequences. The theorem does not address stagewise positivity, weighted or directed graphs, nonlinear dynamics, or arbitrary connected networks. An equivalent all-stage result elsewhere cannot be ruled out.
+The exact complete-multipartite criterion (Resultary 690509e7de2b) and the classical continued fraction (DLMF 4.39.1) delimit the contribution to the all-even path witness. The general positivity-radius literature gives context rather than an exact comparison on this path. The claim does not address stagewise positivity, weighted or directed graphs, nonlinear dynamics, or a necessary graph condition. An equivalent all-even path result elsewhere cannot be ruled out.
 
-Self-review: passed. Independent audit: not yet performed.
+The comparison is restricted to completed steps; no stagewise positivity is asserted.

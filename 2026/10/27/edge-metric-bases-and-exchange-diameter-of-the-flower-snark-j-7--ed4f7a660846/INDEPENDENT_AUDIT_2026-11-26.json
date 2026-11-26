@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:53:44.623875Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The explicit graph is a 7-cycle of b vertices, a 14-cycle ordered c0,...,c6,d0,...,d6 with the required twisted closing edges, and seven a hubs with the three prescribed spokes each. Independent replay (python3 /workspace/branches/reproduction/flower.py) numbers the two cycles consecutively, computes each edge distance by the first vertex layer meeting an endpoint, and exhausts all 3276 triples and 20475 quadruples using injectivity of the 42 signatures. No triple resolves, ruling out all smaller sets by upward closure. There are 1932 resolving quadruples, including {a0,b0,c1,c4}. Triple buckets construct exchange cliques, with every pair of distinct bases sharing exactly one bucket if adjacent and none otherwise, giving 17920 edges without double counting. Integer bitset layer search from every basis reaches all 1932 bases and has last nonempty layer at distance 5 from every root. Hence the exchange graph is connected and its radius and diameter are both 5. This is exhaustive for this graph and this unrestricted replacement move, not a statement about other orders or token slides.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Milivojević Danas p. 7: mixed dimension 4 at odd n≥7, with an explicit mixed witness for J7. Pp. 12–13 (OA offset 31200): edge dimension only between 3 and 4 at odd n≥7, and exact determination is proposed as a question.",
+          "Kelenc et al. provide a general set-cover reduction and approximation, not the evaluation or exchange properties at J7."
+        ],
+        "reasoning": "The prior bounds permit a smaller basis at J7 and do not resolve its choice; the generic reduction supplies an algorithmic translation, not an exact determination without an instance-specific computation.",
+        "searches": [
+          "DOI:10.1515/math-2021-0065, submitted OA copy arXiv:2001.09333, Theorem 2 and edge-dimension discussion",
+          "arXiv:1602.00291v1, Theorem 19"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier sources and both captured outputs",
+        "Milivojević Danas arXiv:2001.09333",
+        "Kelenc–Tratnik–Yero arXiv:1602.00291v1",
+        "Resultary b7d281814c53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger observation vocabulary in the mixed theorem gives an upper bound for edge resolution; it does not rule out a three-landmark edge basis.",
+          "The pair-cover reduction does not enumerate optimal sets or determine distances under a one-landmark replacement."
+        ],
+        "reasoning": "The exact lower bound, count, adjacency census and universal eccentricity statement require separate instance-specific work. None follows by merely substituting J7 into the cited results.",
+        "searches": [
+          "Milivojević Danas arXiv:2001.09333, concluding edge-dimension bounds",
+          "Kelenc–Tratnik–Yero arXiv:1602.00291v1, set-cover proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kelenc et al., original HTML offsets 73940–75758, uses all edge pairs as the universe and vertex separation sets as the set-cover instance.",
+          "Milivojević Danas p. 2 distinguishes edge-only distances from resolving both vertices and edges in the mixed invariant."
+        ],
+        "reasoning": "Injective edge signatures and complete coverage of edge pairs describe the same accepted invariant. A mixed resolving set is also edge resolving, not conversely, so its minimum is not automatically the edge minimum. Unrestricted replacement on optimal sets is distinct from a slide on edges of the host graph.",
+        "searches": [
+          "Kelenc–Tratnik–Yero arXiv:1602.00291v1, proof of Theorem 19",
+          "Milivojević Danas arXiv:2001.09333, definitions and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The flower-snark Tables 1–2 (OA pp. 8–9, offsets 20325,22730) tabulate distances for a mixed witness, not the 1932 edge bases or exchange distances.",
+          "The examined Resultary hit b7d281814c53 tabulates minimum edge landmark counts for P(n,3) at n=7..10, not J7. Even the only equal-order case, P(14,3), is bipartite: colour u_i by i parity and v_i by its opposite, whereas J7 contains a 7-cycle."
+        ],
+        "reasoning": "Neither coordinate tables for one mixed witness nor counts for a different cubic graph cover the exact endpoint and exchange invariants. No matching numerical census surfaced in the bounded catalogue searches.",
+        "searches": [
+          "Resultary meaning searches for flower snark J7 edge metric bases and replacement graph",
+          "Milivojević Danas arXiv:2001.09333, Tables 1–2 and conclusion",
+          "Resultary b7d281814c53, Finding and graph definition"
+        ]
+      },
+      "rationale": "The strongest examined flower-snark primary text explicitly leaves the edge dimension undecided at odd orders at least seven; its mixed-dimension theorem is not an edge lower bound. The standard definition and set-cover method are already known. The precise J7 minimum, optimal-basis count and exchange geometry are distinct in the inspected sources; this is not priority certification.",
+      "residual_risks": [
+        "An unindexed computation, alternate naming of the same graph, or an unlocated later treatment of the family may cover the case; no priority certification is made.",
+        "The prior question for odd n≥7 is not resolved beyond J7 by these data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known mixed result and edge bounds 3 to 4; not exact J7 edge dimension or exchange graph",
+          "evidence": [
+            "P. 2: separate definitions; p. 7: mixed theorem and J7 witness; pp. 8–9: coordinate tables; pp. 12–13, offset 31200: bounds and exact-edge question."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.09333 (journal DOI:10.1515/math-2021-0065)",
+          "material_read": "Definitions, Theorem 2, basis tables and concluding edge-dimension passage",
+          "method": "Submitted-version OA PDF of the same work recovered after repository PDF did not return text",
+          "title": "The mixed metric dimension of flower snarks and wheels",
+          "trigger": "Same flower-snark family and exact edge-dimension scope"
+        },
+        {
+          "assessment": "Exact general encoding of resolving sets, not a J7 census",
+          "evidence": [
+            "Offsets 73940–75758 define the vertex separation families and all-edge-pair universe."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1602.00291v1",
+          "material_read": "Theorem 19 proof, set-cover reduction",
+          "method": "Literal location followed by direct OA HTML passage",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Foundational invariant and equivalent method"
+        },
+        {
+          "assessment": "Different nonisomorphic family; no J7 coverage",
+          "evidence": [
+            "RESULT.md offsets 0–2500: P(n,3) vertex/edge description and counts 469,368,18,160 for the four boundary orders."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-four-small-order-edge-metric-boundaries-of-the-generalized-p--b7d281814c53/RESULT.md",
+          "material_read": "Finding, graph definition and census table",
+          "method": "Configured search and bounded local-mirror statement inspection",
+          "title": "The four small-order edge-metric boundaries of the generalized Petersen family P(n,3)",
+          "trigger": "Closest surfaced edge-metric finite-family census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "J7 is the first undecided order in a published family question, not an arbitrary test graph. The exact minimum is useful on its own; the full optimal-state census and constant unrestricted exchange eccentricity further quantify whether and how far apart minimal landmark configurations can be moved. A complete finite benchmark needs no unsupported generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

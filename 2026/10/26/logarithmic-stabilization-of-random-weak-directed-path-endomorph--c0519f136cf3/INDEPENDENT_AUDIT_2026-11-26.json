@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:38.425735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 34–86",
+        "Frozen VERIFICATION.md and check_stabilization.py",
+        "/workspace/branches/2b038314-fe9d-4f23-a9d7-cde2e165f547/independent_enum_record5.py and independent_enum_record5.txt"
+      ],
+      "rationale": "The integer displacement f(i)-i decreases by 0 or 1 and brackets zero, so the fixed points form an interval. Below and above it each orbit moves strictly inward without overshooting the nearest fixed endpoint; monotonicity makes the two chain endpoints slowest. Equality T=n-1 forces one orbit through all n sites in order, which fixes the entire map to one of the two clipped unit shifts (including n=2). Given the exact fixed interval, the adjoining steps are forced flat and the remaining steps on each side are independent fair bits, giving the same nested prefix count H(d) at every iteration, not a resampled binomial. The side-length weights sum to (n-r+3)2^(n-r-2) for fixed interval length r<n, with the identity at r=n, giving the asserted uniform geometric bound. Except on an exponentially small event one side has length at least n/4. A union of prefix Hoeffding bounds gives an exponentially tailed cutoff K; above it the distances contract between factors 1/2-epsilon and 1/2+epsilon, and the remaining time is at most K. Taking a cutoff of sufficiently small positive multiple of log_2 n gives the polynomial relative-deviation bound. The bound using random K with one fixed epsilon, rather than that polynomial probability alone, gives uniform integrability in every positive power and hence the claimed moment limits. The supplied script was inspected, not executed. A separate direct-composition enumeration for n=2 through 11 reproduces map counts, clipping, and the extremizers (6,144 maps at n=11, exactly two at T=10) and the n=4,6,10 histograms; it is not evidence for the asymptotic step.",
+      "residual_risks": [
+        "The proof and finite reproduction are not a formal verification. The asymptotic argument depends on the specified uniform law on full maps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 04f5773be42b gives the same interval clamp and its fibers, not the least stabilization-time law.",
+          "Resultary 477eedb64580 states a uniform conditional convergence-in-probability variant; its inspected passages do not state a polynomial rate or convergence of every positive normalized moment.",
+          "Resultary 3383014bbd25 is a nilpotency-height limit for partial isometries, i.e. a different law on a different class."
+        ],
+        "reasoning": "The clamp and the leading typical scale have close catalogued overlaps; the partial-isometry theorem is not a generalization covering the full-map case, and qualitative convergence alone does not give a rate or uniform integrability.",
+        "searches": [
+          "Focused literature lookup on stabilization/iteration of full order-preserving contraction transformations",
+          "Resultary: eventual-image fibers and logarithmic power stabilization"
+        ]
+      },
+      "checked_sources": [
+        "Adeshola–Umar arXiv:1303.7428v2",
+        "Fernandes–Paulista arXiv:2112.13427v1",
+        "Resultary records 477eedb64580, 04f5773be42b and 3383014bbd25"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The monoid counts control the side lengths, but give no bound on sequential contractions of the iterated prefixes.",
+          "An interval-clamp formula specifies the eventual map, not when it is reached. Convergence in probability by itself supplies neither a polynomial bound nor moment convergence."
+        ],
+        "reasoning": "The prefix-count representation and simultaneous drift control supply the quantitative dynamical results beyond these statements; they do not follow as an immediate specialization of the compared count or idempotent results.",
+        "searches": [
+          "Adeshola–Umar Propositions/Corollaries on ranks and fixed points",
+          "Fernandes–Paulista Theorem 1.6 and nearby structural results",
+          "Resultary 477eedb64580, RESULT.md offsets 0 and 4800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernandes–Paulista's directed-path weak maps have successive increments in {0,1}; these are exactly Adeshola–Umar's order-preserving full contractions.",
+          "The later Resultary record 477eedb64580 concerns this same monoid, uniform law and least stabilizing power, not merely similarly named objects."
+        ],
+        "reasoning": "The aliases and the exact power index agree. The later overlapping convergence statement must be credited as overlap, not mistaken for earlier priority or for the separately asserted tail and moment bounds.",
+        "searches": [
+          "Resultary: logarithmic stabilization of finite-chain order-preserving full contractions and weak directed-path endomorphisms",
+          "Fernandes–Paulista arXiv:2112.13427v1",
+          "Adeshola–Umar arXiv:1303.7428v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published enumerations give the exact total size and fixed-point statistics of the same monoid; the inspected indexed records and formulas contain no earlier exact result for the stated stabilization-index tail and normalized moments."
+        ],
+        "reasoning": "A fixed-point count is not a stabilization-time table: maps with the same fixed interval can iterate quite differently. The small histograms in the frozen record are corroboration, not the originality claim.",
+        "searches": [
+          "Resultary comparisons 477eedb64580, 04f5773be42b and 3383014bbd25",
+          "Adeshola–Umar Proposition 2.3 and Corollaries 2.9–2.10",
+          "Fernandes–Paulista Theorem 1.6"
+        ]
+      },
+      "rationale": "Credit the existing monoid identifications, finite counts, and idempotent/fixed-point structure. The supported distinction is the stabilization index as a dynamical observable, especially the sharp leading log_2 n law with polynomial relative-deviation control and all positive normalized moments for the uniform full-map law. The closest distinct catalogue theorem shares the in-probability law and strengthens the conditioning scope in another direction, but is dated later than the frozen record and does not establish earlier coverage; the inspected statement does not give the two quantitative conclusions above.",
+      "residual_risks": [
+        "The relationship between the closely overlapping later catalogue record and the frozen record is unresolved. Priority is assessed only from the compared material.",
+        "An earlier theorem written in prefix-process or monotone random-map terms may not have been indexed under either monoid name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing enumeration, not the index law.",
+          "evidence": "The number with r fixed points is (n-r+3)2^(n-r-2) for r<n, with one identity at r=n.",
+          "identifier_or_url": "https://arxiv.org/html/1303.7428v2",
+          "material_read": "Definition at offset 0; Proposition 2.3 and Corollaries 2.9–2.10 around offsets 14000 and 17400.",
+          "method": "Primary OA HTML, bounded passage reading.",
+          "title": "Combinatorial results for certain semigroups of order-preserving full contraction mappings of a finite chain",
+          "trigger": "Exact same monoid under an alias; possible fixed-point enumeration and dynamical overlap."
+        },
+        {
+          "assessment": "Same objects and known count; compared structural result does not give the index law.",
+          "evidence": "The count simplifies to (n+1)2^(n-2).",
+          "identifier_or_url": "https://arxiv.org/html/2112.13427v1",
+          "material_read": "Weak-endomorphism definition and Theorem 1.6, offsets 3000 and 17500.",
+          "method": "Primary OA HTML, bounded passage reading.",
+          "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+          "trigger": "Same weak directed-path endomorphisms."
+        },
+        {
+          "assessment": "Later dated catalogue overlap; conditional qualitative result, not established earlier coverage of the reviewed conclusion.",
+          "evidence": "States convergence in probability of the same index divided by log_2 n, plus a uniform conditional fixed-interval version; the compared passages do not state the polynomial rate or moments.",
+          "identifier_or_url": "2026/11/8/SCOPE-logarithmic-power-stabilization-for-finite-chain-order-preservin--477eedb64580",
+          "material_read": "RESULT.md offsets 0 and 4800.",
+          "method": "Local indexed-record mirror, bounded passages.",
+          "title": "Logarithmic power stabilization for finite-chain order-preserving contractions",
+          "trigger": "Strongest exact qualitative overlap on the same probability space."
+        },
+        {
+          "assessment": "Overlap in clipping only for the reviewed dynamical claims.",
+          "evidence": "Describes the same interval clamp and fibers, not the stabilization-time law.",
+          "identifier_or_url": "2026/11/1/SCOPE-eventual-image-fibers-and-independent-geometric-gaussian-limits--04f5773be42b",
+          "material_read": "RESULT.md offset 0, theorem.",
+          "method": "Local indexed-record mirror, bounded passage.",
+          "title": "Eventual image fibers and independent geometric–Gaussian limits",
+          "trigger": "Eventual map and clipping comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 34–82",
+        "Adeshola–Umar fixed-point and rank enumerations",
+        "Resultary 477eedb64580 qualitative comparison"
+      ],
+      "rationale": "The least time to reach the idempotent power is a natural invariant which rank and eventual image do not determine. Its uniform-law behavior differs parametrically from its extremal value (logarithmic with an exact leading constant versus linear), and tail and moment control describe typical and mean behavior rather than just bounding an orbit. The existing counts and clipping formula alone are not the value claim.",
+      "residual_risks": [
+        "No second-order fluctuation law is established, and no extension to other map distributions is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

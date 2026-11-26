@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the two-aperture spectral coefficient
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic. It uses Fourier diagonalization, an elementary threshold-counting lemma, irrational rotation equidistribution, exact rational cosine sums, a one-dimensional integral at \(b=2a\), and monotone inversion of the counting law. Numerical tests are auxiliary and are not an infinite-dimensional proof.
+## correctness
 
-## Reproduction
+PASS
 
-Run `python check.py` with the Python standard library. The checker completed **18,153** finite assertions. Tests compare exact Fourier-integral expressions to the factored multiplier for 150 frequencies in each of six admissible configurations; enumerate rational denominator cosine-sum identities and numerator permutation invariance; verify zero residues and strict rational-parity comparisons; and test six long frequency averages and three thresholds per configuration.
+Fourier integration of the unnormalized boxes gives |K̂(n)|=F_n/|n| with F_n=(2/π)|sin(πna)cos(πnb)|. Both signs of n contribute, so the coefficient is twice the mean of F_n. To justify the threshold limit even with atoms, for B=2/π the finite measures t∑_{1≤n≤B/t}δ_{(tn,F_n)} converge to Lebesgue on [0,B] times the limiting empirical measure: on any fixed block in tn, subtract the two initial-segment averages and then approximate a continuous joint test function by blockwise tests. The diagonal boundary F=tn has product measure zero. The limit is the layer-cake integral, hence the mean. To also check the initial existence claim for any admissible b, not just the three evaluated cases, take the orbit closure H of (a,b) in the torus. Each character averages to zero unless it is trivial on H, by the geometric sum, yielding Haar equidistribution on H. The continuous F is positive at n=1 unless b=1/2, in which case use n=2; its Haar mean on H is therefore positive. Independent coordinates give means 2/π for both factors. Rational residue classes give the same sine mean and a numerator permutation of the absolute cosine values. Summing the positive cosines paired about 0 gives cot(π/(2q)) for q even and csc(π/(2q)) for q odd. The normalized ratios x cot x and x csc x sit strictly below and above 1, respectively, and their monotonicity gives the sharp rational extrema q=2 and q=3. Only even q gives zeros and then exactly n≡q/2 mod q. On b=2a, the change of variable v=cos(πu) gives ∫_{−1}^1|2v²−1|dv=(4√2−2)/3, which gives the stated constant after normalization and doubling. Monotone inversion of the strict count gives ks_k→C, and harmonic comparison gives both Schatten and log-sum results. Inspected check.py and VERIFICATION.md; the frozen finite checks were not executed and are not used to establish a limit.
 
-The printed reference values are:
+## originality
 
-- Rational half-circle shift, \(q=2\): \(0.405284734569\ldots\).
-- Rational third-circle shift, \(q=3\): \(0.540379646092\ldots\).
-- Dependent irrational shift \(b=2a\): \(0.494022401288\ldots\).
-- Rationally independent shift: \(0.516024550931\ldots\).
+PASS
 
-## Mathematical scope of verification
+The distinct content is the coherent two-aperture singular-value count with its exact rational denominator-parity laws, rational extrema, and dependent irrational contrast. The Fourier-zero classification is already covered and is not credited; a distinct one-boxcar spectral result gives a close analogue, not these coherent two-boxcar coefficients.
 
-The finite computations do not prove Weyl equidistribution, the continuity of limiting distributions, or the threshold-counting limit; these are established in the proof. The check does not cover all irrational displacements, arbitrary unequal apertures, phase-weighted apertures or the statistical reconstruction problem. The nonzero Fourier zero-set is already covered by a more general two-interval Fourier-zero theorem; the present spectral statement concerns the reordered singular-value tail and its arithmetic coefficient.
+## value
+
+PASS
+
+This is an exact spectral-resolution invariant of a natural coherent convolution. It distinguishes operators with no missing modes and separates the two rational parities on opposite sides of the generic irrational density; the rational extrema and b=2a show why neither a nullity count nor irrationality alone suffices. The result quantifies the ordered spectrum and is not credited as a stability guarantee or a complete evaluation for all dependent irrationals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

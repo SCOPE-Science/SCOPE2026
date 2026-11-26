@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:13:13.397347Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–38 and 42–91",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/03a166d2-3616-41b4-a675-3102b625a8aa/independent_exact_krylov.py and independent_exact_krylov.log; replay with python3; all sites for odd n=5..19 at 1/2 plus sites 0 and 1 for n=5,7,8,11 at 1/3,1/2,1"
+      ],
+      "rationale": "The endpoint perturbation is zero on the even reflection space and changes only the first diagonal of the odd Jacobi block by 2w. Each block is simple. At w=1 each nonzero even eigenvalue occurs also in the odd block; the odd characteristic polynomial at this fixed eigenvalue is affine in w with nonzero slope, because the eigenvalue at w=1 is simple in that block and its eigenvector has nonzero endpoint coordinate. Thus no such collision persists at any other positive w; zero stays simple by connectedness. The even path cosines vanish at j only when (2j+1)r=(n/2)(2h+1). This is impossible for odd n and equivalent to gcd(2j+1,n/2)>1 for even n. For odd n the center misses every odd mode. For a noncentral odd nodal site j>=1, the last independent coordinate cannot vanish, so a nonempty right tail remains. Its matrix has usual diagonal 2 with a 3 at the last site only for even n; it and its reflection about 2I are positive definite (the latter after alternating signs, with terminal diagonal 1 rather than 3). Hence 0<lambda<4. With lambda=2-2cos(theta), the nodal solution is proportional to sin((i-j)theta) and the reflected tail boundary gives (n-2j-1)theta a multiple of 2pi, with both endpoints of (0,pi) excluded. Matching the left endpoint gives the stated sine ratio with nonzero denominator; conversely the constructed sine wave satisfies both boundaries at that weight. The odd block's first coordinate cannot be zero, so j=0 has no odd resonance. At w=1/2 on odd n the odd block is the size-m Dirichlet matrix and its zeros at j are exactly the positive multiples of (m+1)/gcd(m+1,j+1) through m. For simple spectrum the Krylov rank is the number of visible modes by the Vandermonde rank, giving the exact gcd deficiency and the central loss, and pairing reflected sites gives the totient count. Independent exact fractional Krylov ranks passed 96 half-weight odd-size site tests and 24 endpoint/one-in checks including uniform weights.",
+      "residual_risks": [
+        "Finite rational rank computations corroborate specific cases only. The proof, not a floating-point tolerance, establishes coverage of the full positive real weight range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 8 gives general Chebyshev-coordinate eigenvectors; substitute the four-corner parameters delta=tau=1-w, epsilon=sigma=w. The same-model Theorem 5 gives trigonometric entries on the 0<Re(alpha)<1 strip; Yueh–Cheng gives general characteristic conditions and entries.",
+          "The additional strong-weight search returned unrelated material, not evidence of absence."
+        ],
+        "reasoning": "General eigenpair formulas and PBH can test a supplied weight by finding the spectrum and evaluating its site entries. Unlike the explicit inverse answer, the general eigenpair formulas leave joint eigenvalue and nodal equations to be solved. The nonzero right-tail spectrum bounded in (0,4), reflection-based angular grid, endpoint elimination and compatibility with permanent modes give the explicit complete list. The specialized trigonometric Theorem 5 by itself does not cover w>1.",
+        "searches": [
+          "Grudsky–Maximenko–Soto-González arXiv:2205.12457, Theorem 5, Proposition 8 and Remarks 9–11",
+          "Yueh–Cheng DOI 10.1017/S1446181108000102, §3",
+          "Primary search: Grudsky Maximenko Soto González Laplacian cycles one weighted edge strong weight alpha > 1 eigenvectors resonances observability sites"
+        ]
+      },
+      "checked_sources": [
+        "Frozen relationship-to-prior-work discussion",
+        "Resultary semantic results and exact endpoint/one-in comparison Findings",
+        "Primary spectral and control passages cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parlangeli–Notarstefano's unweighted cyclic-gap gcd test implies singleton failure (the unique gap has length n).",
+          "For odd n with alpha=1/2, Remark 19 gives the weight-dependent angles theta=2l*pi/(n+1). Theorem 5 Eq. (17) at such an angle simplifies for site index k starting at one: sin((n-k)theta)=-sin((k+1)theta), so the eigenvector entry is (1-cos(theta)) sin(k theta). Nodal divisibility at k=j+1 counts gcd((n+1)/2,j+1)-1 modes; the central loss, totient total and growing-loss family follow. Thus the arithmetic specialization is mechanically implied, even though not phrased there in control language.",
+          "For general positive weights the exact closed angle grid for each requested nodal site and its exhaustive inversion into resonant weights are not stated in the inspected spectral claims. The same-geometry general formulas provide necessary ingredients, and the inverse statement also has to treat coincident parity and above-band cases."
+        ],
+        "reasoning": "The novelty distinction is between routine use of a known explicit spectrum (as at half weight) and the arbitrary-site joint elimination of the spectral and nodal equations. The latter turns a forward spectral description into a finite explicit answer in the design parameters, including all positive weights and no eigenvalue root search. Its completeness across parities and the above-band regime is not supplied by the j=0,1 formulas or by a direct parameter substitution in the general forward results.",
+        "searches": [
+          "Grudsky et al. Theorem 5 Eq. (17) and Remark 19 (PDF pp. 7–8, 14)",
+          "Parlangeli–Notarstefano arXiv:1109.3556, Theorem 4.10(i)",
+          "Published Results 1ddd581661b4 (endpoint) and 4620d7539f8a (one-in)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1ddd581661b4 exactly covers endpoints via its Krylov determinant, whose only positive zero is w=1.",
+          "Resultary 4620d7539f8a exactly covers j=1; the ratio there equals 1/2-cos(theta) and the even gcd obstruction is equivalent to 6|n.",
+          "Grudsky et al. arXiv:2205.12457 §1 uses the same undirected weighted model (with alpha=w)."
+        ],
+        "reasoning": "The real symmetric model makes single-coordinate controllability, observability and full PBH rank equivalent. Earlier exact controls handle j=0,1, but do not include the arbitrary-distance resonance grid. Reversing the sign or the labelling of the path is not a distinct result.",
+        "searches": [
+          "Resultary: one-defect weighted cycle single-vertex controllability all sites edge weight resonance classification",
+          "Resultary: singly weighted cycle all sensor positions sine ratio resonance formula",
+          "Primary search: \"one weighted edge\" cycle controllability single sensor observability weighted cycle resonances rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted placement searches returned the assigned record and exact published j=0 and j=1 subcases, not a distinct all-site table or explicit all-site exception formula.",
+          "Grudsky et al. Remark 19 already lists the special half-weight eigenangle formula; it is not a table of site-dependent bad weights."
+        ],
+        "reasoning": "An eigenvalue table for fixed weights or a classification of just the first two reflected distances does not supply the set of weights at which any specified other site loses a mode. The exact overlap on those distances is credited.",
+        "searches": [
+          "Resultary: odd one-defect cycle weight 1/2 sensor Kalman rank deficiency gcd(m+1,j+1)",
+          "Resultary: totient count controllable sensor locations cycle one weighted edge",
+          "Resultary: weighted cycle exceptional edge endpoint and one-in sensor determinant resonance rank"
+        ]
+      },
+      "rationale": "Pass for the explicit inverse placement problem: the finite list of exceptional positive weights and the permanent obstructions at arbitrary reflected distance, without solving for the eigenvalues at each weight. The endpoint and one-in classifications and the uniform baseline are already covered. General spectral formulas cover the eigenproblem and yield a direct fixed-eigenpair PBH calculation. In particular, the half-weight rank/totient law follows directly from the prior explicit half-weight spectrum and eigenvectors plus arithmetic; it is a useful corollary, not a separately original spectral or arithmetic discovery for this assessment. The nontrivial remaining comparison is eliminating the eigenvalue and listing every bad weight for each site, including weights above one.",
+      "residual_risks": [
+        "The placement classification is closely linked to earlier explicit same-graph eigenvectors, not a new spectral theorem. An equivalent explicit nodal inversion in uninspected work could change the originality assessment; the search for the strong-weight regime did not resolve that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the forward spectral formulas and mechanically yields the half-weight nodal arithmetic; not an explicit full positive-weight inverse sensing list",
+          "evidence": [
+            "Theorem 5 is stated for 0<Re(alpha)<1; Remark 19 gives angles j*pi/(n+1) for the even-numbered eigenvalues at alpha=1/2. Proposition 8 is a general corner formula which does not list the site-dependent weight obstructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.12457",
+          "material_read": "§1 at offset 3100 onward; Theorem 5 Eq. (17), pp. 7–8 at 21000; §3 Proposition 8 Eqs. (26)–(27) and Remarks 9–11, pp. 9–10 at 27600; Remark 19 p. 14 at 41950",
+          "method": "OA primary PDF passages",
+          "title": "Eigenvalues of the Laplacian Matrices of the Cycles with One Weighted Edge",
+          "trigger": "Same graph and explicit spectral starting point; potential implications for site zeros"
+        },
+        {
+          "assessment": "Broader matrix spectral result; checked passages do not directly give the inverse sensing list",
+          "evidence": [
+            "The general corner matrix specializes to this Laplacian and the source provides its eigenvalue conditions and eigenvector entries."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1446181108000102",
+          "material_read": "Abstract and §3 Eqs. (3.10)–(3.13), pp. 368–369, text offset about 27200",
+          "method": "OA primary text passage",
+          "title": "Explicit Eigenvalues and Inverses of Tridiagonal Toeplitz Matrices with Four Perturbed Corners",
+          "trigger": "Earlier general formula underlying the same graph's spectrum"
+        },
+        {
+          "assessment": "Covers the unweighted failure, not the conductance-dependent list",
+          "evidence": [
+            "For a single site the only cyclic gap is n, so the gcd condition rules it out."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+          "material_read": "Theorem 4.10(i), pp. 21–22, text offset about 66800",
+          "method": "OA primary PDF passage",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Uniform-weight baseline and related gcd conditions"
+        },
+        {
+          "assessment": "Exact j=0 coverage",
+          "evidence": [
+            "The determinant factors as a sign times (w-1)^floor((n-1)/2) times 1+(n-1)w."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4",
+          "material_read": "Mirrored RESULT.md Finding, endpoint determinant",
+          "method": "Local mirror statement inspection",
+          "title": "Exact reachability-volume factorization for a cycle with one weighted edge",
+          "trigger": "Same graph and exact positive-weight endpoint rank condition"
+        },
+        {
+          "assessment": "Exact j=1 coverage",
+          "evidence": [
+            "Nonpermanent resonances use 1/2-cos(2pi k/(n-3)) in the indicated range; permanent even-size obstruction is 6|n."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-single-sensor-observability-resonances-of-a-singly-weighte--4620d7539f8a",
+          "material_read": "Mirrored RESULT.md Finding, one-in predicate",
+          "method": "Local mirror statement inspection",
+          "title": "Exact single-sensor observability resonances of a singly weighted cycle",
+          "trigger": "Same graph and explicit resonances at one interior site"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–34 and 55–91",
+        "Compared endpoint, one-in, and same-geometry forward spectral results"
+      ],
+      "rationale": "A cycle with one tunable conductance is a natural minimal departure from the repeated modes of uniform consensus. The useful new control-design answer is an explicit list of forbidden weights and permanent locations for any sensor site, separating geometry from exact resonance without requiring a fresh eigensolve. Arbitrary sites and weights above one cannot be designed from the endpoint and one-in results alone. The half-weight arithmetic illustrates the placement issue and the possible rank loss; it is a consequence, not the independent basis of this value pass.",
+      "residual_risks": [
+        "Exact algebraic rank does not quantify noise robustness, nearby weight conditioning, or finite-horizon controllability quality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

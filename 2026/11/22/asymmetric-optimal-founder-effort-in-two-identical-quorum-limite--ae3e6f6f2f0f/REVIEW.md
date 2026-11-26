@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact Poisson-survival objective and its logarithmic derivative are reconstructed. The hyperbolic level function has exactly one maximum by a signed power-series argument. Strict rational inequalities certify exactly two derivative crossings on the half interval, and a further exact global comparison rules out concentration and balanced effort. Reflection symmetry yields precisely two globally maximizing distinct allocations. The conclusion about an open parameter neighborhood follows from nondegenerate crossings and strict dominance away from the minima. The standalone checker validates the rational inequalities and supplementary derivatives; numerical sampling is not used to prove global optimality.
+PASS
 
-## Originality
+Independence gives the joint failure F(x)=f(x)f(10−x), with f(z)=(1+799(1+z)e^(−z))/800. Its logarithmic derivative is H(10−x)−H(x), H(z)=z/(1+z+e^z/799); clearing positive denominators gives sign(799−G(5−x)) for 0<x<5. For u>0 the derivative of G has the sign of 5u cosh(u)−(5+u²)sinh(u); after dividing by u³, its power series is the constant 2/3 minus strictly positive even-power terms beginning at degree four. The quotient strictly decreases to −infinity, so G has just one peak and the certified crossings in (2,3) and (4,5) are simple and unique in their intervals. The corresponding F' signs on (0,5) are +,−,+; the far crossing gives a local maximum, the near crossing gives the only interior minimum. An independently computed rational certificate confirms all the needed G comparisons and F(3)<min(F(0),F(5)), ruling out the two endpoints of the half-interval. Reflection supplies exactly the second global minimum. For varying budget, renormalize the domain by the budget to [0,1]; compactness gives a uniform strict gap outside small disjoint neighborhoods of the two minima at the base point. Nonzero curvature at the minima gives unique nearby stationary points by the implicit-function theorem; compact separation and reflection make both, and only those, global. Replay: `python /workspace/review-evidence/reproduce.py 1` uses direct Taylor enclosures for exp(n) with a geometric bound on the tail, independently of the uploaded script's exp(1) power enclosure. The decimal diagnostic gives x*=2.9374809396609965009… but does not prove uniqueness.
 
-PASS relative to the specifically inspected evidence, subject to residual historical risk. The closest mathematical two-habitat result uses fixed known male/female founder counts and proves concentration or near-equal division; that theorem cannot imply the present Poisson-quorum statement and gives a qualitatively opposite conclusion. Grevstad (1999), Shea and Possingham (2001), Duncan et al. (2014), and Goodsman and Lewis (2016) motivate or analyze release-size effects with materially different stochastic mechanisms or objectives. The general one-of-two resource allocation framework is already studied by Derman, Lieberman and Ross (1974), although their accessible abstract does not prove this precise unequal-optimum Poisson-quorum case. The full texts of both Derman et al. (1974) and Grevstad (1999) were unavailable, so their absence of coverage is **not** certified. Specific result, equivalence, broader-model, and database comparisons are recorded in `AUDIT.json`.
+## originality
 
-## Value
+PASS
 
-PASS. The result is a robust structural counterexample to restricting a symmetric two-habitat introduction decision to either all-in-one or equal allocation, despite patches having identical local laws. It identifies a third, strictly asymmetric strategy class and proves both exact optimizer multiplicity and stability under parameter perturbation. Such a mechanism is pertinent to evaluating simplified biocontrol-introduction and reintroduction allocation heuristics. It does not validate a management prescription.
+The supported claim is the concrete, certified off-center pair and its stability in this two-site Poisson quorum model. The strongest catalogue comparison uses exactly the same optimization, under the name two-encounter confirmation. Its sharp budget theorem covers the existence of some asymmetric regime at budget 10, but its stated witness uses different parameters. Its own public comparison explicitly identifies the pair at B=10 and p=799/800 as the earlier fixed-instance claim and distinguishes its new budget quantifiers from that example. This is evidence of a recognized follow-up, not an inference of priority from the common date and not another earlier independent proof of the current instance. Other inspected catalogue cases have materially different objectives or only optimize equal doses. Historic reliability and S-shaped utility work may provide stronger earlier coverage; no such implication was verified from available passages.
 
-## Limitations
+## value
 
-The fixed mean total is not a fixed realized founder count. Establishment is a one-step two-arrival proxy; environmental suitability and arrival counts are independent; later population dynamics, mating, dispersal, habitat variation and correlated shocks are outside scope. Accessible historical abstracts, rather than the complete 1974 and 1999 papers, leave priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated exact counterexample to a concentration-versus-equal-split dichotomy for identical patches. Both familiar candidates strictly lose, there is precisely one off-center pair, and the pair is robust rather than a degeneracy of a tie. The parameter values realize a structural change in the useful strategy set; their numerical digits are not the value claim. The follow-up's explicit use of this fixed instance as the already-established witness gives a concrete downstream reason to retain it separately from a sharp universal budget theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

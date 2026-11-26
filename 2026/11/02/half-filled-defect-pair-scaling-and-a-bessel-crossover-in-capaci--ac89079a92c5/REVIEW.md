@@ -1,19 +1,21 @@
-# Scientific review of the capacity-two exclusion crossover theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim uses a fixed total particle number on a capacity-two ring. The source's precise site weights are \((t,1+t,1)\), leading to the multinomial double-occupancy law through the invariant ratio \(z=t/(1+t)^2\). The exponential-family derivative proves finite-size strictness, the hypergeometric conditional sampling law gives its exact maximum, and strictly concave Stirling asymptotics prove thermodynamic concentration. The critical quadratic gives the continuous square-root crossover. Fixed integer doping and \(z=a/L^2\) admit a summable dominating sequence, rigorously giving the order-\(|k|\) Bessel distribution and its moment formula. The accompanying code verifies the small-state generator directly and passes 414 checks. Risks: the proof is scoped to these precise stationary and limiting settings; finite-state checks alone do not certify convergence.
+PASS
 
-## Originality: PASS, qualified
+The canonical weight for occupancies 0, 1, 2 is proportional to (t,1+t,1). As an independent check, put A_b=[b]_t and B_b=1+t−A_b; the adjacent weight ratios give incoming clockwise flux divided by the destination weight equal to B_b A_c at a bond (b,c), versus outgoing A_b B_c. Their difference telescopes on the ring, as does the reversed contribution. Positivity and connectivity give the stationary law also at q=0. At fixed mass, the configuration weights vary with M only through z^M. The identity V=n/L+2E[M]/L−(n/L)² gives derivative 2Var(M)/L with respect to log z, strictly positive exactly when 2≤n≤2L−2. At t=1 the two-slot hypergeometric computation gives (2). The strict Stirling-entropy maximum solves (3); expansion at ρ=1+ξ√z+o(√z) gives y(y−ξ)=1 for y=u/√z and hence the stated variance coefficient. For n=L+k, after removing the common L^|k| factor the falling-factorial weight is bounded by a^j/[j!(j+|k|)!], also summable after multiplication by j. This gives the claimed total variation and first-moment convergence, and LV=2E[J]+|k|−k²/L gives (6). The infimum at t→0 or t→∞ discussed in the proof is not attained in nontrivial sectors; the finite-t maximum and the stated limits are unaffected. CHECKER.py was inspected but not executed; no independent replay of its reported 414 tests is claimed.
 
-Ayyer–Misra's original source already establishes the stationary distribution, reciprocal-parameter symmetry and canonical partition function. Those are not claimed as new. Its Section 4 analyzes *most probable occupation*, not the strict variance and Bessel defect scaling asserted here. Evans–Waclaw provide the general misanthrope factorization criterion and condensation framework, with no matched two-capacity finite-size rare-pair formula in the examined paper. The facilitated ASEP literature has different jump constraints and stationary measure. Exact-claim, equivalent-reparameterization and broader-implication searches located no explicit covering finite-size crossover. Risk: special functions and canonical defect-pair distributions occur elsewhere in statistical mechanics; an unlocated equivalence could affect priority. Database and literature searches cannot prove novelty.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-At integer filling, the zero-deformation limit concentrates on exactly one particle per site. There are two physically distinct ways to leave that limit: a continuous doping window of width \(\sqrt z\) and a finite-particle-number window with rare vacancy–double-occupancy pairs. The theorem rigorously identifies both and the complete order-\(|k|\) Bessel count in the latter, including sharp variance coefficients. The finite-site monotonicity locates the unique fluctuation optimum. These exact, naturally matched scale regimes are motivated by the onset of occupancy defects rather than arbitrary parameter slicing. No claim of a finite-parameter phase transition or extension to larger capacity is made.
+Credit the product stationary law, reciprocal parameter symmetry and the Bessel distribution itself as established ingredients. The supported distinct conclusions are the strict finite-ring variance optimization and the two explicitly ordered half-filling limits, in particular the fixed-doping total-variation and moment asymptotics for this canonical ring. The strongest inspected same-process result and the analogous Bessel result in a different model did not supply these conclusions.
 
-## Closest literature and limitations
+## value
 
-A. Ayyer and S. Misra, *An exactly solvable asymmetric K-exclusion process*, arXiv:2310.03343 (2023), Sections 2–4. M. R. Evans and B. Waclaw, *Condensation in stochastic mass transport models: beyond the zero-range process*, arXiv:1312.5642 (2013), Sections 1–3. The theorem is stationary, fixed capacity two, and only covers the two explicitly stated asymptotic limit procedures. Independent publication-priority checking and independent mathematical auditing remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Near one particle per site, the canonical constraint couples vacancies and double occupancies. The ordered limits identify when a deterministic defect density is informative and when only finitely many paired defects remain, and quantify the resulting variance in both regimes. Total variation and moment control matter for that comparison; the scientific content is the ring asymptotics, not merely naming a classical count law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

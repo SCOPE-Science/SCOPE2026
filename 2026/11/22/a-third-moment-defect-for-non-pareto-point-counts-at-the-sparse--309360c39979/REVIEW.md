@@ -1,19 +1,21 @@
-# Scientific review of the non-Pareto third-factorial-moment result
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The random variable is explicitly the count of non-Pareto-minimal vertices, distinguished from the comparable-pair count. Each of the three selected targets contributes an incoming coordinatewise comparison in a witness-weighted count. The 51 possible three-edge directed-constraint types give exactly two leading contributions at critical dimension: three disjoint directed edges, with \(\lambda^3\), and a common external predecessor of all three targets, with \(\lambda^2\). The second, 124-type four-edge enumeration exhausts all repeated-witness corrections and shows the expectation of the correction tends to zero. Both finite poset tables were reproduced exactly by the included standalone checker; the asymptotic powers are strictly negative for every omitted type. Boundary conventions and factorial normalization are explicit. The finite checker is not presented as an infinite proof.
+PASS
 
-## Originality
+For three ordered distinct targets the witness-weighted product D_i D_j D_k sums exactly over one incoming comparison per target. A constraint pattern on v involved points has probability p^d, with p the linear-extension fraction for one uniform coordinate. I independently generated witness identifications by restricted-growth labels and counted extensions by a subset recursion (replay: python3 /workspace/branches/verify4_private.py). The three-edge maxima for v=3,4,5,6 are 0, 1/4, 1/6, 1/8; only the single external common predecessor achieves 1/4 at v=4, and all other v=4 patterns have p≤1/8. The disjoint-pair and common-predecessor terms have exactly (n)_6 and (n)_4 embeddings for ordered targets. They give λ³ and λ². In removing extra choices, D−1_{D≥1}≤binom(D,2), and telescoping the product bounds the difference by the four-edge pattern count with two distinct predecessors at one target. Its maxima are 0, 1/8, 3/20, 1/9, 1/12 at v=3 through 7, all with 2^v p²<1. Thus every error tends to zero when d=2 log₂ n+O(1). The advertised counts 51 and 124 reproduce for the script's relabelled keys; if one takes a full quotient by external relabelling there are 37 and 62 classes instead. This convention does not affect coverage or maxima. Continuous common marginals can be reduced coordinatewise with no ties almost surely. Weak convergence plus the different limit of E(N)_3 establishes failure of uniform integrability of the third factorial powers.
 
-**PASS against the inspected scientific record.** Ilienko–Jin (2026) proves the Poisson limit and convergence of the mean and variance of the non-Pareto count, not its third factorial moment. Bhattacharjee–Ilienko–Jin–Molchanov (2026) treats its broader phase diagram without the claimed third-moment coefficient. The known critical third-moment defect for *comparable pairs* has coefficient \(2\lambda^2\), not the \(\lambda^2\) asserted for the number of non-Pareto *vertices*; one result does not imply the other because third powers are not uniformly integrable. The published Pareto-frontier/comparability mixed-covariance result considers a different joint statistic at fixed sample size. Older random-order full-text coverage was incomplete, and unseen equivalences remain a priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Third factorial moments are a natural test of whether an apparently Poisson sparse count is supported by sufficiently uniform tail estimates. The motivating Pareto papers establish both the Poisson law and variance convergence, so the exact obstruction at the very next factorial moment is a mathematically meaningful boundary. The coefficient distinguishes vertex counting from edge counting and identifies a specific rare three-leaf common-predecessor geometry; it is not a routine corollary of weak convergence or of the comparable-pair calculation.
+The distinct contribution supported by the inspected evidence is the exact third-factorial defect for the unweighted vertex statistic. Its known Poisson law and first two moment limits, and a separate calculation for ordered comparable pairs, do not imply it. No distinct exact indexed record was verified. The old random-order paper was inaccessible and remains a genuine historical-priority limitation, not evidence against coverage or a reason to stop the audit.
 
-## Limitations
+## value
 
-The result does not establish a general higher-moment phase diagram, and older high-dimensional random-order literature remains a historical-priority uncertainty. The finite exact enumeration only certifies two small directed-poset lemmas; the infinite-domain theorem is proved by their exhaustive reduction and strict asymptotic exponents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The defect is at the first higher factorial moment not controlled by the known two-moment Poisson approximation. It identifies a concrete rare three-target configuration and distinguishes the vertex count from the apparently interchangeable edge count. This explains a natural limitation of sparse-limit approximations, rather than adding only a numerical coefficient to a known convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

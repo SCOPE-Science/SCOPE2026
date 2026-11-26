@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The epoch matrices contract by at most \(c\) in the positive-definite Hessian norm, proving uniqueness and geometric approach to an invariant probability law with finite second moment. The proposed two-normal mixture is invariant because every complete sweep replaces both coordinates by linear functions of one input Gaussian marginal and two independent Gaussian innovations; both component covariances retain the same diagonal. Direct fourth-moment and trace identities prove the cumulant and exact stationary objective, including the boundary and equality cases. Exact symbolic assertions and independently generated epoch-chain simulation agree. Risk: this proof covers epoch boundaries under fresh independent noises and orders only.
+PASS
 
-## Originality — PASS, with priority qualification
+For either epoch map, the H-norm squared of a synchronous difference is c²(1−c²) times the square of the retained input coordinate, bounded by c² times the original H-norm squared. Hence the Wasserstein contraction gives existence and convergence within finite second moments; coupling arbitrary finite-valued states and using bounded Lipschitz tests proves unrestricted uniqueness. The equations a=c²d+u and d=c²a+v have the stated positive solution and both second moments are preserved by each individual update, using fresh centered independent noise. Under order 12 the final square (X2′+cX1′)² is ξ2² exactly, so the stationary conditional loss is [(1−c²)a+v]/2. The reverse loss is [(1−c²)d+u]/2; subtraction gives c²(u−v)/(1+c²), yielding the exact risk, penalty and every tie case. Independent arithmetic check at c=1/2,u=9,v=4 gives a=32/3, d=20/3, losses 6 and 7 and uniform-order loss 6.5. Original covariance mixture is consistent with applying the last conditional kernel to its Gaussian marginal, and Isserlis gives the reported cumulant; these are not needed for the repair. The frozen SymPy and simulation code and its verification notes were read, not executed.
 
-Primary full-text reading of the 2018 quadratic coordinate-permutation paper and the 2021 random-shuffling SGD study found noiseless convergence-rate and finite-sum convergence statements, rather than a stationary two-coordinate heteroscedastic Gaussian-oracle law. A 2014 incompatible-Gibbs paper proves a general two-variable mixture phenomenon for random single-coordinate scans; this is an acknowledged antecedent, not a claimed invention of Gaussian mixing. The present *full-permutation epoch* model differs, and the strict noisier-first stationary objective rule, order-independent Gaussian marginals, and explicit mixed cumulant are not established by its stated results. A closely related published noisy randomized-Kaczmarz theorem concerns single-row with-replacement transitions, rather than independent complete epochs. Its full theorem/proof were read and compared. A published scalar finite-sum reshuffling example instead has a different recursion and objective. Priority risk: an older equivalent exact full-sweep noisy-Gauss–Seidel law may exist; mathematical novelty cannot be guaranteed by searches.
+## originality
 
-## Value — PASS
+PASS
 
-Heteroscedastic noisy coordinate oracles and randomly reshuffled epochs are standard algorithmic design ingredients. The exact invariant gives an otherwise hidden distributional distinction: univariate Gaussian diagnostics completely miss the fourth-order joint mismatch, while a simple deterministic order strictly dominates randomized full-sweep ordering in long-run quadratic error under unequal oracle noise. The full classification and exact nonzero penalty offer a rigorous design benchmark rather than an arbitrary finite calculation. Scope does not imply transient or higher-dimensional dominance.
+Only the repaired stationary quadratic loss and exact heteroscedastic order criterion are accepted as distinct on the reviewed evidence. The scan-law precedents and exact two-variable protocol equivalence are credited, not treated as novelty. The earlier scalar stationary-order result does not model fresh coordinate-oracle noise; the Gibbs antecedents work with different criteria, such as recovering a joint or minimizing divergence to prescribed conditionals.
 
-## Closest literature and limits
+## value
 
-Gürbüzbalaban et al. (2018), arXiv:1803.08200, defines the noiseless permutation coordinate method. Safran–Shamir (2021), arXiv:2106.06880, addresses finite-sum SGD. Chen–Ip (2014), DOI:10.1080/00949655.2014.968159, supplies a substantive general incompatible-Gibbs mixture precursor. *Gaussianity is exactly a nonorthogonality-graph compatibility condition for noisy randomized Kaczmarz* (2026) studies different sampling mechanics. An exact pre-existing full-sweep specialization cannot be ruled out; further independent priority review is warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a small but natural benchmark with an order choice available to any method that sweeps coordinates against an oracle of unequal precision. The marginal variances are unchanged by order, so comparing their sizes alone cannot guide the policy. The exact loss decomposes the effects of first and last update noise, yields the operational noisier-first rule, and quantifies precisely the cost of uniform reshuffling or any mixed order. The result is scoped to stationary epoch-boundary objective, not transient convergence or adaptive schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

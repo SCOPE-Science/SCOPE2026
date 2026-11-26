@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is explicitly defined by a 3-by-3 affine incidence model and independently by a standard eighteen-vertex LCF model, with a verified vertex bijection. The complete candidate space is 18 singletons, 153 pairs and 816 triples. Two different closure implementations establish exactly 486 successful triples and no smaller successful sets. Two transition constructions and independent breadth-first searches verify all pairwise distances, all edges, the sharp penalty and the 54-state center orbit. The supplied programs, not prose assertions or logs, implement these full finite certificates. The findings are restricted to a single fixed graph.
+## correctness
 
-## Originality — PASS, with bounded residual risk
-The 2022 *Power domination reconfiguration* preprint establishes the general TJ/TAR framework and treats other named graph families; its relevant full-text sections do not determine the Pappus optimum census or the TS versus TJ metric. The 2023 shortest dominating-set paper uses ordinary domination, not forced-propagation power domination. Indexed Pappus semitotal-domination and identifying-code results use different predicates. Searches for aliases, 486 optimum sets, 216 automorphisms, and the locality penalty did not identify a covering result. An unindexed equivalent or inaccessible source remains possible; a failed search is not a uniqueness proof.
+PASS
 
-## Value — PASS
-Minimum power-domination represents minimal placement of monitoring units while forced propagation observes the remainder of a network. The exact connectivity and travel-cost penalty answer a concrete relocation question on the natural Pappus incidence network. The 54 best-centered configurations form a symmetry orbit and the 486 sharp five-move pairs demonstrate a meaningful optimum-preserving locality cost. The exact count and complete shortest-path spectra are nontrivial finite benchmark data, not a numerical restatement of the optimization parameter.
+Independently enumerated all 24,204 nonempty forts W (every vertex outside W has other than one neighbor in W). Power domination fails iff the initial unobserved set contains a fort: no first force can enter a fort, and any failed forcing process leaves a fort at closure. This gives (0,0,0,486) successes in sizes 0–3. Building exchanges via shared two-subset buckets and doing bitset BFS gives the stated connected TJ and TS metrics and every histogram. In particular, TS eccentricities are 54 of 7 and 432 of 8; the exact gap histogram is (9423,29808,42174,28026,7938,486), and all 162 TJ exceptions have lower bound two and distance three. Both displayed paths realize the 3 versus 8 witness. Direct enumeration of all adjacency-preserving bijections gives order 216 and the five stated orbit profiles, matching the independent check of the frozen generators. The LCF Hamiltonian-cycle-plus-chords presentation and the incidence model have all 27 edges in bijective correspondence under the supplied map.
 
-## Limitations
-Only the fixed Pappus graph and optimal three-sensor sets are covered. The computational exhaustive proof has not received an independent mathematical audit. The closest indexed Pappus semitotal study was accessible only as a summary, and an earlier finite equivalent could be missed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established Pappus graph and power-domination reconfiguration framework. Pass the full metric and symmetry classification for this power-domination instance, particularly the sharp locality loss and its quantified exceptional geometry. The strongest same-graph prior entry is for semitotal domination; the closest same-day metric analogue is for Doyle–Holt, a different graph.
+
+## value
+
+PASS
+
+Pappus is a natural small cubic symmetric incidence graph on which to test whether edge locality disconnects minimum sensor placements or only delays them. Exact metric loss, TS centers in one orbit, and the failure of the naive Johnson distance give distinct structural benchmark facts, not just a state count or a simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

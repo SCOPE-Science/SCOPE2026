@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:09:48.632646Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–77, VERIFICATION.md and verify.py (read only)",
+        "/workspace/reproductions/exact_checks.py 2"
+      ],
+      "rationale": "Modulo two both roots are simple. On each input parity the two valuations are distances to the lifted roots of f(n) and f(n+1), respectively. Writing A for the difference of the two roots of f, the within-parity center separations have valuations of 1+A and 1-A. One is exactly 1, and their product is R/a², giving the other depth d, also when R=0. In a parity of depth e, a distance valuation below e forces the same valuation at the other center; a valuation above e forces the other valuation to be exactly e; (e,e) is impossible since there are only two lifts at the next binary digit. Each listed event is one exact-valuation residue class at the larger exponent plus one. The two parities have disjoint cell supports. The one-center distribution is geometric with mean 2 and second moment 6. Independently, the conditional joint tail at thresholds i,j is 2^(1−max(i,j)) if min(i,j)≤e and zero otherwise. Relative to coincident centers the missing sum over min(i,j)>e is 6·2^(−e), which gives the asserted covariance on averaging depths 1 and d. Root congruence counts bound empirical tails by 2·2^(−k)+2/N and positivity and quadratic growth bound the maximum valuation by O(log N); summation controls the second moments and hence the mixed moment. The sign threshold and realizing triples check directly. The exact check in /workspace/reproductions/exact_checks.py 2 covers five triples, including R<0 and R=0.",
+      "residual_risks": [
+        "Only the stated positive coefficient family is audited; empirical moment convergence is for initial segments, not arbitrary short sliding intervals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quadratic dyadic valuation trees exhibit two unbounded branches in precisely the regime under review; the general polynomial periodicity theorem is one-coordinate. The stronger bivariate root-ball theorem is explicitly only for odd primes."
+        ],
+        "reasoning": "One-coordinate trees or boundedness criteria do not themselves give the overlap of the trees at a shift. This shift forces both parity roots to match modulo two, and the odd-prime two-match sign theorem cannot be specialized.",
+        "searches": [
+          "arXiv:2012.10332, Theorem 1 case 4 and Proposition 8",
+          "arXiv:1505.02302, Theorem 2.1",
+          "Resultary root-collision law, Finding and Proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary root-collision and joint valuation comparisons",
+        "Boultinghouse et al. arXiv:2012.10332",
+        "Medina–Moll–Rowland arXiv:1505.02302",
+        "Snyder arXiv:2308.11718",
+        "Targeted literature search for adjacent p-adic valuation distributions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source has mixed tail counts and Cov=(p+1)Σ(1−p^(−d_a))/(p−1)^2−r_f r_g/(p−1)^2; its domain is odd p, and two shared roots always give positive covariance in that domain."
+        ],
+        "reasoning": "Extending the proof to p=2 and supplying depths 1,d would give 1/2−3·2^(−d); those steps are not covered by the published statement. In particular the coefficient identity (1+A)(1−A)=R/a² and the sharp negative case give genuine additional content, not merely renaming an odd-prime covariance. No priority is inferred from the common date.",
+        "searches": [
+          "2026/11/22/SCOPE-a-root-collision-law-for-joint-polynomial-valuations-and-a-quadr--f6b288710442, Finding, Assumptions, Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The root-collision record gives mixed valuation tails from intersections of root balls for odd p. Snyder's product tree gives the scalar sum of two valuations for products of rational linear factors, with the separation entering the tree."
+        ],
+        "reasoning": "Mixed tails and a bivariate valuation generating series are equivalent to the claimed cells. A scalar product tree generally aggregates rather than distinguishes the two labels; its stated rational factor setup does not cover the full coefficient family.",
+        "searches": [
+          "A root-collision law for joint polynomial valuations and a quadratic covariance trichotomy",
+          "arXiv:2308.11718, Theorem 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close dyadic joint enumerator found concerns v2 of binomial(2n,n) and binomial(3n,n); the quadratic book of cases in arXiv:2012.10332 concerns scalar trees."
+        ],
+        "reasoning": "Neither tabulates the two-coordinate quadratic/shifted-quadratic cells or their covariance. Database search is not exhaustive.",
+        "searches": [
+          "Resultary adjacent quadratic valuations and joint polynomial dyadic valuation law",
+          "2026/10/18/SCOPE-exact-dyadic-joint-valuation-law-for-two-binomial-factors--767a9e2b871f"
+        ]
+      },
+      "rationale": "The same-day odd-prime root-collision record has a nearly identical general mechanism and covariance sum, and its root-ball argument carries over to two. Its theorem as stated excludes two, however, and its sign conclusion for two common residue roots is false at two. The distinct contribution is the dyadic adjacent-quadratic reduction of both depths to a single coefficient invariant, and the resulting exact cells and negative-to-positive phase change. The general method is not original here.",
+      "residual_risks": [
+        "An all-prime statement of the overlap law or a coefficient-specialized joint zeta calculation may exist outside the inspected material. The odd-prime methodology transfers readily; no originality is attributed to the root-ball argument itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "major methodological overlap, excludes dyadic claim",
+          "evidence": "Formula for complete simple-root joint law, finite tail counts and covariance at odd p; both matched roots imply positive covariance there.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-root-collision-law-for-joint-polynomial-valuations-and-a-quadr--f6b288710442",
+          "material_read": "Finding, Assumptions, Proof §§1–4 and Limitations (offsets 0–9237)",
+          "method": "local mirror, bounded passages",
+          "title": "A root-collision law for joint polynomial valuations and a quadratic covariance trichotomy",
+          "trigger": "nearly identical bivariate mechanism"
+        },
+        {
+          "assessment": "single-coordinate coverage",
+          "evidence": "The exact parity regime has two infinite branches; the cited statements do not identify shifted root collisions.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.10332",
+          "material_read": "Theorem 1 case 4, p. 2; Proposition 8, p. 7",
+          "method": "OA PDF passages",
+          "title": "2-Adic Valuations of Quadratic Sequences",
+          "trigger": "same polynomial family"
+        },
+        {
+          "assessment": "single-coordinate coverage",
+          "evidence": "Criterion for periodicity versus unboundedness based on p-adic roots.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.02302",
+          "material_read": "Theorem 2.1, p. 3",
+          "method": "OA PDF passage",
+          "title": "Periodicity in the p-Adic Valuation of a Polynomial",
+          "trigger": "general valuation periodicity/roots"
+        },
+        {
+          "assessment": "related rational linear-factor tree",
+          "evidence": "Describes the scalar valuation tree for two integer linear factors, with splitting determined by the congruence depth of rational roots.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.11718",
+          "material_read": "Theorem 4.3, PDF pp. 9–10, offset 23480",
+          "method": "OA PDF passage",
+          "title": "Products of p-Adic Valuation Trees",
+          "trigger": "closest product/sum-of-valuations formulation"
+        },
+        {
+          "assessment": "different functions",
+          "evidence": "Exact joint enumerator and finite-block covariance for two binomial factors, not adjacent quadratic values.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-dyadic-joint-valuation-law-for-two-binomial-factors--767a9e2b871f",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Exact dyadic joint valuation law for two binomial factors",
+          "trigger": "dyadic joint distribution database hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Odd-prime root-collision record, Finding and Proof §4"
+      ],
+      "rationale": "Neighbouring values introduce a natural dependence question beyond marginal quadratic trees. The classification gives an exact residue modulus for every possible transition, plus a coefficient criterion separating opposite signs even though the two marginal laws never change. It thus expresses a useful invariant of this family and a genuine limitation of the odd-prime sign rule.",
+      "residual_risks": [
+        "No classification for singular reductions or more distant shifts is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

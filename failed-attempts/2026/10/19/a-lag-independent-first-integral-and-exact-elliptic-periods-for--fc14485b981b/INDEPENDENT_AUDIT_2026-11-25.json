@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:51:55.967250Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing opposite-pair means A,B and half-differences u,v gives φ=B−A. Direct addition in the original ODE gives u'=−2 cos v cos(φ+α) sin u, v'=−2 cos u cos(α−φ) sin v and φ'=−4 cos α cos u cos v sin φ. Consequently N=sin u sin v and D=sin φ solve the same multiplicative equation with coefficient −4 cos α cos u cos v cos φ, including N=0. A single 2π lift change flips both signs; D≠0 is invariant and J=N/D is genuinely defined there on the torus. At quadrature φ is fixed and p=N is a Hamiltonian of the shape system up to the constant factor 2 sin φ. On each sign cell, log|sin u|+log|sin v| is strictly concave with a unique maximum, so a regular product level is a smooth compact oval, and the field has no zeros on it. For x=|sin u|, x'²=4 sin²φ (1−x²)(x²−p²), with four monotone arcs per circuit. Substituting x²=p²+(1−p²)sin²η yields the asserted complete elliptic integral and AGM form. The pointwise primitive A−cot φ log|sin u| is constant, as is B−A, so all four real lifts return exactly. A torus return would force the changes in u,v to be integer multiples of π; since each stays within a single open semicircle, both changes must vanish, establishing minimality. Strict monotonicity and the two limits follow from K; |p|=1 is fixed and the zero-product level is singular, not a regular periodic oval. Read the verifier and its archived diagnostics but did not execute it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yan et al. identify the all-N nearest-neighbor quadrature Hamiltonian endpoint; Ahnert–Pikovsky discuss the even-coupling lattice with cosine included. These facts alone do not imply a four-site elliptic clock.",
+          "The exact dispersive four-ring record has a wider classification at quadrature, including the regular orbits of the assigned claim.",
+          "Global identical-oscillator integrability and common-forcing Möbius results do not directly apply: the forcing depends on the opposite pair and is not common to all four vertices."
+        ],
+        "reasoning": "Use exact-instance coverage, not generic Hamiltonian structure or unrelated all-to-all integrability, for the negative originality conclusion.",
+        "searches": [
+          "Yan et al. arXiv:2603.02135 setup and conclusion",
+          "Ahnert–Pikovsky arXiv:0806.1833 §II",
+          "Resultary 5b5fad0ba35a exact quadrature classification; 30032d37ded1 invariant and second integral"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary records 5b5fad0ba35a and 30032d37ded1",
+        "arXiv:2603.02135, 0806.1833, 1603.07937 and 1812.05883"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An open-cell statement that H is conserved implies D N'−N D'=0 on a nonempty open set of lifted phases and α. This numerator, computed with the printed sine-coupled ODE, is real analytic on connected R⁴×R. The identity thus holds everywhere, giving J'=0 wherever D≠0, for all lags. Single-valuedness is the direct lift sign check.",
+          "From the covered period formula, AGM equivalence, monotonicity, the small-amplitude limit, and the logarithmic asymptotic are standard properties of K."
+        ],
+        "reasoning": "The literal widening beyond the lift cell and lag interval is true but does not make a distinct theorem beyond mechanically implied coverage. Neither displayed main result leaves a substantive novel remainder.",
+        "searches": [
+          "Read 30032d37ded1 Finding for the logarithmic integral and its domain; read 5b5fad0ba35a Finding for the exact quadrature clock"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5b5fad0ba35a gives T=2 K(√(1−h²/4))/|sin s| and zero common phase rotation. Its s=φ and h=2p, so this is the same full-phase result despite the coordinate spelling.",
+          "30032d37ded1 has H=log(sin v sin z/sin φ) on an invariant lift cell and 0<α<π/2. Its two opposite-pair half-differences v,z are the present u,v, so exp(H)=J on that cell."
+        ],
+        "reasoning": "The two matching records are distinct from the assigned record. The exact clock and drift are not merely analogous: their parameter change is explicit. The common-lag ratio is not a different invariant in the shared domain.",
+        "searches": [
+          "Resultary: quadrature four-oscillator ring, elliptic period and zero drift; four-site common-lag first integrals and center annuli",
+          "Web: nearest-neighbor Kuramoto ring integral and exact four-oscillator periodic orbits; result included Canale–Monzón 2009"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching closed period function and zero-drift law are given for the same full regular orbit family in 5b5fad0ba35a."
+        ],
+        "reasoning": "There is no finite database claim. The appropriate analogue, a parameter-complete table or formula for the minimal period, is already explicitly available at quadrature.",
+        "searches": [
+          "Resultary: exact elliptic period and critical quadrature classification, hit 5b5fad0ba35a"
+        ]
+      },
+      "rationale": "Both principal contributions are covered by distinct published findings or follow mechanically from their results. Exact quadrature period and zero drift are directly equivalent to 5b5fad0ba35a; the general-lag ratio conservation follows by real-analytic continuation from the exact open-cell integral of 30032d37ded1. The catalogue dates are later than the frozen record's displayed date; this is an equivalent-coverage assessment, not an assertion of earlier discovery or dependence.",
+      "residual_risks": [
+        "Priority and derivation between the dated records were not established and are not a basis for the decision.",
+        "Canale–Monzón coverage remains unknown. This access limitation is not a basis for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalence of the central quadrature claims",
+          "evidence": "T=2 K(√(1−h²/4))/|sin s| and zero net drift at s=φ,h=2p.",
+          "identifier_or_url": "2026/11/8/SCOPE-elliptic-clocks-and-zero-phase-drift-in-a-four-oscillator-disper--5b5fad0ba35a",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Published local mirror",
+          "title": "Elliptic clocks and zero phase drift in a four-oscillator dispersive ring",
+          "trigger": "Close match to quadrature orbit classification"
+        },
+        {
+          "assessment": "Same ratio on an open domain; identities extend analytically after clearing denominators",
+          "evidence": "Exp of the logarithmic first integral is J after the stated opposite-pair coordinate identification.",
+          "identifier_or_url": "2026/11/1/SCOPE-two-exact-integrals-and-nonlinear-center-annuli-in-a-four-site-p--30032d37ded1",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Published local mirror",
+          "title": "Two exact integrals and nonlinear center annuli in a four-site phase-lag ring",
+          "trigger": "Close match to the arbitrary-lag invariant"
+        },
+        {
+          "assessment": "Parent model and endpoint structure; no four-site clock in compared passages",
+          "evidence": "Same nearest-neighbor model; endpoint discussion includes Hamiltonian dynamics and continuum waves.",
+          "identifier_or_url": "https://arxiv.org/html/2603.02135",
+          "material_read": "Setup around offset 4056 and conclusion around 17758",
+          "method": "OA preprint HTML",
+          "title": "Basin Metamorphosis in Coupled Phase Oscillators",
+          "trigger": "Exact parent ring and Hamiltonian endpoint"
+        },
+        {
+          "assessment": "Lattice precedent, not exact finite orbit classification in inspected passage",
+          "evidence": "Even-coupling phase-difference equation includes q(v)=cos v.",
+          "identifier_or_url": "https://arxiv.org/html/0806.1833",
+          "material_read": "§II around offset 5000",
+          "method": "OA preprint HTML",
+          "title": "Traveling waves and Compactons in Phase Oscillator Lattices",
+          "trigger": "Even-coupling Hamiltonian lattice precedent"
+        },
+        {
+          "assessment": "Different adjacency",
+          "evidence": "Model is fully permutation-symmetric and all-to-all.",
+          "identifier_or_url": "https://arxiv.org/html/1603.07937",
+          "material_read": "Abstract and Eq. (1) around offset 2494",
+          "method": "OA preprint HTML",
+          "title": "Identical phase oscillator networks: bifurcations, symmetry and reversibility for generalized coupling",
+          "trigger": "Possible finite four-body or all-to-all integrability implication"
+        },
+        {
+          "assessment": "Hypotheses not supplied by this four-ring for all four phases together",
+          "evidence": "The common first-harmonic forcing hypothesis differs from neighbor-dependent forcing.",
+          "identifier_or_url": "https://arxiv.org/html/1812.05883",
+          "material_read": "Introduction around offset 4386",
+          "method": "OA preprint HTML",
+          "title": "Repulsively Coupled Kuramoto–Sakaguchi Phase Oscillators Ensemble Subject to Common Noise",
+          "trigger": "Possible common-forcing cross-ratio implication"
+        },
+        {
+          "assessment": "Access unresolved, no noncoverage inference",
+          "evidence": "Direct and alternate route did not supply text.",
+          "identifier_or_url": "https://www.colibri.udelar.edu.uy/items/272bb360-d4e2-4d48-89d6-794c6613bb74",
+          "material_read": "Search identification only; no substantive passage read",
+          "method": "Repository OA retrieval attempts",
+          "title": "Global properties of Kuramoto bidirectionally coupled oscillators in a ring structure",
+          "trigger": "Plausibly relevant early ring paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact four-phase clock with no common drift would fill a meaningful gap if not already covered. Here the identical clock, zero drift and analytically implied ratio law leave only routine restatements and standard elliptic-integral consequences. No separately valuable unresolved remainder was established by this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

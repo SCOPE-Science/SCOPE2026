@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-product conditions are equivalent to domain and image restrictions on the second map. Every cyclic component in the second map must lie in the intersection of those two allowed sets, which is precisely the isolated-vertex set of the first nilpotent map. Signed permutation-cycle inclusion–exclusion cancels all selected sets of at least two vertices; the surviving terms are an unrestricted partial-injection rank count and one correction per isolated vertex. Counting chain decompositions by unsigned Lah numbers and singleton-marking supplies the complete rank distribution. Algebraic simplification and every boundary, including the unique \(n=1\) case, are checked. A separately executed enumeration verifies every rank-pair cell through six points. Computational checks are corroborative, not an infinite proof.
+PASS
 
-## Originality — PASS, residual historical risk
+For fixed α, the two zero-product conditions force β's source into the complement of im α and its target into the complement of dom α. Both lists have size m=n−r; their intersection of size c consists exactly of α's isolated vertices. Every β cycle lives in this intersection. In inclusion–exclusion an overlapping selection of distinct cycles is impossible; disjoint selections on j vertices give a permutation there, times a remaining rank-(s−j) matching between lists of size m−j. Their signed sum is (−1)^j times the sum of permutation signs, hence zero for j≥2 by a transposition pairing. This proves the displayed conditional two-term formula, including s=0 when the correction is absent. Summing uses the Lah census for m ordered-internally but unlabeled chains and n L(n−1,m−1) marked singletons. For m≥2, both terms share the stated factorial factor and leave (n−1)m and (m−1)s, respectively; their difference is (n−1)h+rs. For m=1 and n≥2, α is a spanning chain and the unique possible nonempty β is the rank-one link from its initial vertex to its final vertex, so the counts agree at s=0,1. The n=1 case, support restriction and positive boundary formula follow. A separate chain-list generation and direct composition test checks every joint rank cell and every fixed-α conditional rank count for n=1 through 5, giving totals 1,7,55,565,7141.
 
-The full text of the 2005 Ganyushkin–Mazorchuk preprint (notably sections on nilpotents and random products), the 1987 Gomes–Howie nilpotent paper, the 2012 Araújo–Bentz–Konieczny commuting-graph paper, and relevant sections of Laradji–Umar (2022) were read. The full text of the plausibly relevant Ganyushkin–Mazorchuk 2004 predecessor could not be accessed; its abstract addresses nilpotent elements and subsemigroups rather than specifying joint mutual-zero rank counts. They provide chain decompositions, nilpotent counts, unrestricted random products, and commuting-structure results, not this joint two-rank mutual-zero enumeration. The nearest accessible rank-related results concern different relations: a full mutual-zero relation matrix, and nilpotent elements in a commuting centralizer. Neither yields the target's exact rank-pair count as stated. Search terms for nilpotent partial injections, mutually zero products, prescribed ranks, and symmetric inverse monoids produced no directly covering published formula. The inaccessible 2004 paper and some unindexed or implicit prior result remain concrete priority risks; lack of a hit alone is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The simultaneous product-zero condition is a natural incidence relation in inverse semigroup multiplication, and nilpotence defines its fundamental chain-generated subcollection. The result completely determines a canonical two-parameter rank distribution, not an arbitrary specialization. The sharp triangular rank support and symmetric closed formula refine simple existence and total counts. The conditional two-term cycle sieve gives the mechanism and shows that all nontrivial chain lengths of one map disappear from the annihilating nilpotent-fiber count, a structural simplification useful for related enumerations.
+The pair relation and the individual chain census are established ingredients. The strongest exact overlap is a later indexed square-zero centralizer record giving the identical local cycle-free matching polynomial; this overlap is credited, not presented as an exclusive contribution. Neither that theorem, earlier centralizer work, same-day inertia and centralizer records, nor the inspected product-distribution work gives the joint rank census of two nilpotent factors with both products zero. The positive judgment is on that substantive joint result and is bounded by the examined sources.
 
-## Scientific limitations
+## value
 
-No counts of conjugacy orbits, arbitrary transformations, nonnilpotent factors, or nonzero commuting products are claimed. An equivalent formula might be implicit in a source not recovered by the searches, particularly the inaccessible Ganyushkin–Mazorchuk (2004) full text. Finite computations do not establish the full theorem; the combinatorial proof does. No independent mathematical validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full joint census resolves how feasible ranks trade off when each factor is nilpotent and both products vanish. Its support and simple positive boundary (with counts n! times a binomial coefficient) are interpretable without summing an ambient product distribution. The conditional overlap statistic explains why individual chain lengths beyond isolated vertices are irrelevant for this relation. Neither a one-map Lah count nor unrestricted annihilation statistics answer this rank-refined question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

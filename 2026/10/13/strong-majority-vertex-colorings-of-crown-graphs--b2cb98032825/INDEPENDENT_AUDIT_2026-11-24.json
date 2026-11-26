@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:07:43.179680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72 and 74–136",
+        "Frozen VERIFICATION.md and artifacts/verify.py (inspected, not executed)",
+        "Replay: python /workspace/review_evidence/graph_checks.py 1"
+      ],
+      "rationale": "For n≥3 the integer neighborhood bound is h=floor((n−1)/2) and the count of a color on B seen by a_i is its side count minus the indicator for b_i. If the count is between h+1 and n−1, a vertex omitting a different color sees all of it; if it is n, every count is n−1>h. A side count at most h is always sufficient, and the other side is symmetric. Properness is not required. The same palette of ceil(n/h) colors can fill both sides and fewer colors have insufficient capacity. To increase the used-color count, split off one vertex from a class of size at least two into a fresh color; such a class exists until all 2n colors are used. For named palettes sum multinomials on one side and square by independence, then use inclusion–exclusion on absent names. An independent direct check reproduces both kinds of counts and the structural predicate on 672,856 assignments, yielding optimal named counts 36, 576, 8100, 8100 at n=3,4,5,6.",
+      "residual_risks": [
+        "Finite replay exhausts n=3,4 through q=4 and n=5,6 through q=3 only; the neighborhood and counting arguments prove the unrestricted statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Observation 5 covers cycles (hence Cr_3=C6), Observation 6 complete graphs, and Theorem 9 gives a different bipartite large-number construction.",
+          "Resultary e7314efe9837 gives strong-majority results on complete multipartite graphs, not on crowns of n≥3."
+        ],
+        "reasoning": "The multipartite hypothesis does not survive a deleted matching: a_i is nonadjacent to b_i and to a_j but b_i and a_j are adjacent for j≠i. None of these general results gives the full crown profile.",
+        "searches": [
+          "Resultary: strong-majority on crowns and other complete/near-complete bipartite families",
+          "arXiv:2605.23828 Observation 5, Observation 6 and Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Relationship to prior work",
+        "Local Resultary 58fd0a1c9924 and e7314efe9837",
+        "arXiv:2605.23828 and arXiv:2609.37796"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cycle formula directly gives the n=3 scalar value; the initiating paper's bipartite construction is not the crown's system of single omissions."
+        ],
+        "reasoning": "The result requires checking that an excessive side multiplicity cannot be hidden by the single omitted matching partner (including the full-side case), then deriving the resulting product count. The inspected theorems do not provide that reduction.",
+        "searches": [
+          "arXiv:2605.23828, Observation 5 and Theorem 9",
+          "Resultary 58fd0a1c9924 and e7314efe9837 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 58fd0a1c9924 uses majority C: a lower bound on same-color neighbors, not an upper bound for every neighborhood color.",
+          "arXiv:2609.37796 concerns a coloring game rather than the static classification."
+        ],
+        "reasoning": "Neither same-color agreement nor an adversarial game is an equivalent formulation of the all-color static constraint.",
+        "searches": [
+          "Resultary: crown graphs, side capacity and strong-majority vertex coloring",
+          "Primary literature: crown graphs and strong-majority vertex coloring; crown as K_{n,n} minus a perfect matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest crown hit 58fd0a1c9924 counts majority-C optimal two-colorings for n≥6, not the static strong-majority palette or surjective counts."
+        ],
+        "reasoning": "Checked the condition underlying the indexed counts rather than treating the graph-name match as coverage. No equivalent palette table or polynomial surfaced in the bounded search.",
+        "searches": [
+          "Local Resultary: crown strong-majority side capacity, spectrum, palette and counting"
+        ]
+      },
+      "rationale": "The inspected results cover the scalar C6 case but not the general crown capacity criterion, spectrum, or exact named and surjective counts. The closest indexed crown result uses a different majority rule; the closest static same-invariant result uses a different graph family. Pass is for the combined crown result, not the known C6 number.",
+      "residual_risks": [
+        "Bounded primary search and ranked catalogue searches are not exhaustive; equivalent results could be indexed under other terminology. No priority inference from matching dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial scalar coverage only",
+          "evidence": [
+            "Observation 5 (offset 6946) gives 3 for C6; Theorem 9 (offset 9961) uses a distinct bipartite construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23828",
+          "material_read": "PDF p. 3 Observations 5–6; p. 5 Theorem 9",
+          "method": "OA primary-text passage review",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Initiating same-invariant paper and crown cycle boundary"
+        },
+        {
+          "assessment": "Different invariant; no calendar-based priority inference",
+          "evidence": [
+            "For n≥6 its scalar is 2 and the count concerns optimal majority-C colorings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-majority-c-colorings-of-crown-graphs--58fd0a1c9924",
+          "material_read": "Finding and definition at local offsets 0 and 1128",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "Majority C-colorings of crown graphs",
+          "trigger": "Distinct same-day crown result and exact count"
+        },
+        {
+          "assessment": "Different graph domain",
+          "evidence": [
+            "Criterion for even part sizes and four-color exceptions assumes complete multipartite adjacency."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-strong-majority-vertex-colouring-numbers-of-complete-multipartit--e7314efe9837",
+          "material_read": "Finding at local offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Strong majority vertex-colouring numbers of complete multipartite graphs",
+          "trigger": "Same invariant in a plausible broader family"
+        },
+        {
+          "assessment": "Game invariant, with known static observations recalled",
+          "evidence": [
+            "The inspected passage recalls cycle and complete-graph values, not a crown theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.37796",
+          "material_read": "Definition and Theorem 1.1 passage (offset 9232)",
+          "method": "OA HTML passage review",
+          "title": "Strong-majority coloring games (arXiv:2609.37796)",
+          "trigger": "Same neighborhood predicate in a primary search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "arXiv:2605.23828 general bipartite comparison"
+      ],
+      "rationale": "Crowns are a natural near-complete regular bipartite test for a neighborhood coloring invariant. A full classification captures when missing edges affect the constraint; the spectrum and named and onto counts specify all valid colorings, and the order-four exception is not apparent from general bounds. The usable exact profile goes beyond recomputing a known cycle value.",
+      "residual_risks": [
+        "This is a family-specific classification, not a result for arbitrary deleted subgraphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

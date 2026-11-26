@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:00:06.788209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39 and 45–68",
+        "Frozen VERIFICATION.md, verify_quadratic_shattering.py and verify_dim6.cpp"
+      ],
+      "rationale": "Differences of refinements of the fixed polar form are linear and identify uniquely with B(a,-). Translating the Gauss sum of Q_0 gives 2^m times (-1)^Q_0(a), so Q_0(a) is precisely the parity constraint. On a dependent support, the evaluation trace is an affine translate of a proper subspace and cannot be surjective. On an independent support the fibers for all traces are the cosets of K=span(S)^perp. Their intrinsic polar form is B restricted to K; if nonzero, no fiber is constant and both parities occur in every fiber. For isotropic K of dimension r, linearity of Q_0 on K makes the equation B(a,k)=Q_0(k) for all k in K solvable, with solutions an affine translate of K^perp. It yields exactly 2^[2(m-r)] constant fibers. The elementary signed Gauss sum of Q_0 is 2^m, and each nonconstant fiber contributes zero. If r<m and all constant fibers had one parity their sum would have magnitude 2^(2m-r)>2^m, a contradiction; hence both parities miss some trace. If r=m the sole constant fiber must have even parity to give the positive Gauss sum, and the even class shatters. This independently verifies the Lagrangian exception without requiring a quotient-Arf identity. The k-dimensional spans correspond bijectively to the (2m-k)-dimensional kernels; each span gives exactly |GL(k,2)|/k! unordered bases. Counting isotropic frames by choosing each next vector in the current perpendicular outside its span gives the stated product and A_(m,m)=product(2^i+1). At m=3 the parity difference is 28*135=3780 at degree 3 only, as displayed. For m>=2 a symplectic two-plane kernel achieves 2m-2; kernels of dimension zero or one cannot give larger supports, and at m=1 the formula gives dimensions one and zero. The empty support is counted in both classes. Replay: RESULT.md lines 45–68 and the signed-coset calculation above. Both verifier sources were inspected but not run; their finite sample and exhaustive low-dimension tests are supplementary to the general argument.",
+      "residual_risks": [
+        "The theorem needs the binary field, nonzero-vector queries and one fixed nondegenerate polar form. Varying polar form or restricting the query domain can change the enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schmidt treats rank-distance codes and association schemes of quadratic and symmetric forms, with links to rank and weight distributions, rather than simultaneous saturation of coordinate traces in an Arf-filtered subfamily.",
+          "The affine-flat theorem counts shattered supports for all fixed-dimensional affine flats, using affine independence and a rank bound."
+        ],
+        "reasoning": "Cardinality or distance statistics for codes do not determine which particular trace fibers are missing. Nor does a theorem about all affine flats specialize to level sets of quadratic refinements of a fixed alternating form. Older work on exact shortened code/quadric profiles was not exhaustively compared.",
+        "searches": [
+          "Schmidt arXiv:1803.04274v1, abstract and introduction, and cited Reed–Muller literature",
+          "Resultary 6e9f3ce9d85a, exact affine-flat shattering criterion"
+        ]
+      },
+      "checked_sources": [
+        "Ballico DOI:10.3906/mat-1612-20 (limited)",
+        "Schmidt 1803.04274v1",
+        "Fitzpatrick et al. 2108.13231v1",
+        "McDonald et al. 2210.03789v2",
+        "Resultary 86b7b25a9457, 6e9f3ce9d85a, aadf485bbc13 and 477aab4e3535"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day Lagrangian incidence result shatters independent pairwise orthogonal supports. In the frozen setting a nondegenerate two-plane support is shattered by both parity classes for m>=2, since its perpendicular has positive nondegenerate dimension; that support fails the pairwise orthogonality condition. A Lagrangian basis, in contrast, distinguishes the two frozen parities.",
+          "Finite-field norm-sphere and translate-of-residues results concern different concept classes, not fixed-polar refinements."
+        ],
+        "reasoning": "Even in the common binary symplectic setting the two Lagrangian-related shattering criteria are not equivalent or specializations. Neither the abstract VC methods nor the classical counts by themselves imply the unique even exception and its degree-m enumerator.",
+        "searches": [
+          "Resultary 86b7b25a9457, Finding",
+          "Fitzpatrick–Iosevich–McDonald–Wyman 2108.13231v1 and McDonald–Sahay–Wyman 2210.03789v2, introductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For an independent support, shattering is equivalent to surjectivity of Q_0^(-1)(epsilon) onto V/K. A theorem classifying which fibers meet each affine quadric would therefore be a material overlap even without VC language.",
+          "The accessible Ballico description refers to values of a second quadratic form restricted to a nondegenerate affine quadric, not explicitly to arbitrary-rank linear projections. The catalogue polar-graph and Walsh works evaluate logical rank and interpolation spectra, respectively."
+        ],
+        "reasoning": "Scalar quadratic value sets, graph equivalences and Walsh Gram data are not a classification of all quotient images by kernel. An equivalent broader projection theorem remains a legitimate priority risk; unavailable access does not establish noncoverage.",
+        "searches": [
+          "Primary lookup: finite-field affine quadrics, projection/fiber distributions and binary fixed-polar parity shattering; Ballico DOI:10.3906/mat-1612-20",
+          "Resultary: binary orthogonal polar incidence, quadric Walsh sampling and Arf-level affine traces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct same-day hit 86b7b25a9457 counts shattered supports for Lagrangian incidence. The earlier exact affine-flat polynomial 6e9f3ce9d85a counts a different support system. The Gaussian and isotropic subspace counts in the frozen record are classical raw counts, not a prior support enumerator."
+        ],
+        "reasoning": "No previously reported coefficient table for the pair of Arf-parity support polynomials was verified in the indexed comparisons. The meaningful comparison is the counting condition on supports, not whether individual Gaussian numbers coincide or whether publication dates match.",
+        "searches": [
+          "Resultary indexed binary quadratic shattering, polar incidence and exact support polynomial queries"
+        ]
+      },
+      "rationale": "The distinct contribution is the all-support classification, exact enumerator and degree-m parity defect for incidence with Arf-filtered refinements of one polar form. The quadratic-form identities and symplectic frame counts are classical; the VC dimension alone is not the originality basis. The close same-day Lagrangian incidence theorem uses a materially different concept class and gives an inequivalent criterion. No inspected source was found whose actual statements give this support polynomial or classification, including under the affine projection reformulation.",
+      "residual_risks": [
+        "Ballico full text was not accessible on attempted lawful routes; broader affine quadric projection statements remain a possible source of priority overlap.",
+        "The comparison did not include full-text review of the older Berlekamp, Kasami and McEliece second-order Reed–Muller literature. No exhaustive historical priority conclusion or same-day chronological inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reason for concern is relevant affine quadric restriction; no statement covering arbitrary quotient fibers was verified, and no whole-document exclusion is warranted",
+          "evidence": [
+            "Accessible description concerns values of one quadratic form on a nondegenerate affine quadratic level"
+          ],
+          "identifier_or_url": "https://doi.org/10.3906/mat-1612-20",
+          "material_read": "Search-visible description and bibliographic information only; original full text not retrieved",
+          "method": "Lawful journal and alternate repository retrieval attempts",
+          "title": "Restriction of a quadratic form over a finite field to a nondegenerate affine quadric hypersurface",
+          "trigger": "Closest older candidate under the quadric projection/value-set reformulation"
+        },
+        {
+          "assessment": "Read portions concern rank-distance codes, schemes and distributional facts, not an evaluated Arf-level quotient-image criterion",
+          "evidence": [
+            "Rank bounds, Hamming distributions and generalized Reed–Muller connection"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1803.04274v1",
+          "material_read": "Abstract, introduction and relevant Reed–Muller bibliography (near extraction offset 110414)",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Quadratic and symmetric bilinear forms over finite fields and their association schemes",
+          "trigger": "Potential general result on fixed-polar forms, type and binary code traces"
+        },
+        {
+          "assessment": "Concepts are Lagrangian subspaces; its support criterion differs even over the binary field",
+          "evidence": [
+            "Independent pairwise orthogonal supports",
+            "All prime-power fields, no Arf parity filter"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-lagrangian-incidence-shattering-isotropic-partial-frames-and-exa--86b7b25a9457/RESULT.md",
+          "material_read": "Finding, mirror offset 0 onward",
+          "method": "Local mirror original-statement inspection",
+          "title": "Lagrangian incidence shattering: isotropic partial frames and exact finite topology",
+          "trigger": "Strongest distinct same-day overlap in symplectic shattering and exact counts"
+        },
+        {
+          "assessment": "Different concept class with affine independence and size bounds",
+          "evidence": [
+            "Indicators of all fixed-dimensional affine flats"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-rank-affine-flat-shattering-complexes-over-finite-fields--6e9f3ce9d85a/RESULT.md",
+          "material_read": "Finding, mirror offset 0 onward",
+          "method": "Local mirror original-statement inspection",
+          "title": "Fixed-rank affine-flat shattering complexes over finite fields",
+          "trigger": "Exact support polynomial for a potentially related finite-field incidence family"
+        },
+        {
+          "assessment": "Graph logical equivalence classification, not projection surjectivity or trace supports",
+          "evidence": [
+            "Rank-four first-order types of singular-point graphs"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-four-rank-four-theories-of-binary-orthogonal-polar-point-graphs--aadf485bbc13/RESULT.md",
+          "material_read": "Finding, mirror offset 0 onward",
+          "method": "Local mirror original-statement inspection",
+          "title": "Four rank-four theories of binary orthogonal polar point graphs",
+          "trigger": "Same binary orthogonal geometry and parities under a graph formulation"
+        },
+        {
+          "assessment": "Interpolation on one split quadric, not a support/fiber classification over refinements",
+          "evidence": [
+            "Degree-at-most-two Walsh Gram spectrum"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-complete-quadratic-walsh-sampling-spectrum-on-a-split-binary-qua--477aab4e3535/RESULT.md",
+          "material_read": "Finding, mirror offset 0 onward",
+          "method": "Local mirror original-statement inspection",
+          "title": "Complete quadratic Walsh sampling spectrum on a split binary quadric",
+          "trigger": "Possible equivalent Walsh representation of quadric profiles"
+        },
+        {
+          "assessment": "Norm-sphere incidence on a finite-field plane, distinct query and concept geometry",
+          "evidence": [
+            "Finite-field circles and point configurations"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.13231v1",
+          "material_read": "Introduction near extraction offsets 800 and 2017",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "The VC-dimension and point configurations in finite-field planes",
+          "trigger": "Finite-field quadratic incidence VC analysis"
+        },
+        {
+          "assessment": "Additive translates of multiplicative residue sets, not binary quadratic refinements",
+          "evidence": [
+            "Concepts are translates of a residue set"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.03789v2",
+          "material_read": "Abstract and introduction near extraction offset 450",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "The VC-dimension of quadratic residues in finite fields",
+          "trigger": "Quadratic parity VC alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, scope and counting proof",
+        "Resultary Lagrangian incidence and affine-flat support classifications"
+      ],
+      "rationale": "For this fixed symplectic incidence family the two parities have the same VC dimension in all ranks at least two, so dimension alone cannot detect their discrepancy. The exact polynomial and the underlying if-and-only-if geometry identify precisely which query supports are lost: the independent bases with Lagrangian kernel, in one degree only. This is a meaningful complete finite-geometric invariant, not a recomputation of the number of quadratic forms or isotropic subspaces.",
+      "residual_risks": [
+        "No downstream learning-complexity bound is established beyond the stated VC dimensions or for general query restrictions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

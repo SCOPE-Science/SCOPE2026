@@ -1,62 +1,65 @@
-"""Independent finite signed-permutation enumeration and generating-function checks.
+"""Check the Klein-four subgroup-class series against direct conjugacy orbits."""
+from itertools import combinations, permutations, product
 
-Run with Python 3 and SymPy: python verify.py.
-This checks small degrees; the general formulas require the mathematical proof.
-"""
-from itertools import permutations, product
-from math import factorial
-import sympy as s
 
-def comp(g,h):
-    return tuple((1 if z>0 else -1)*h[abs(z)-1] for z in g)
+def denominator_series(degrees, max_degree):
+    a = [1] + [0] * max_degree
+    for d in degrees:
+        for j in range(d, max_degree + 1):
+            a[j] += a[j-d]
+    return a
 
-def inverse(g):
-    a=[0]*len(g)
-    for i,x in enumerate(g):
-        a[abs(x)-1]=(i+1)*(1 if x>0 else -1)
-    return tuple(a)
 
-def brute(n):
-    els=[tuple(sign[i]*(p[i]+1) for i in range(n))
-         for p in permutations(range(n))
-         for sign in product((1,-1), repeat=n)]
-    identity=tuple(range(1,n+1))
-    involutions=[g for g in els if comp(g,g)==identity]
-    subgroups=set()
-    for i,x in enumerate(involutions):
-        if x==identity:continue
-        for y in involutions[i+1:]:
-            if y==identity or comp(x,y)!=comp(y,x):continue
-            z=comp(x,y)
-            subgroups.add(frozenset((identity,x,y,z)))
-    waiting=set(subgroups)
-    classes=0
-    while waiting:
-        H=next(iter(waiting))
-        classes+=1
-        for g in els:
-            gi=inverse(g)
-            conj=frozenset(comp(comp(g,h),gi) for h in H)
-            waiting.discard(conj)
-    return len(subgroups),classes
+def class_series(max_degree):
+    p = denominator_series([1]*4 + [2]*6 + [4], max_degree)
+    t = denominator_series([1]*2 + [2]*3 + [4]*3, max_degree)
+    c = denominator_series([1, 3, 4, 6, 6], max_degree)
+    i = denominator_series([1, 1, 2], max_degree)
+    result = []
+    for a, b, d, e in zip(p, t, c, i):
+        q, r = divmod(a + 3*b + 2*d, 6)
+        assert r == 0
+        result.append(q-e)
+    return result
 
-def formulas(degree):
-    z=s.Symbol('z')
-    P=1/((1-z)**4*(1-z**2)**6*(1-z**4))
-    T=1/((1-z)**2*(1-z**2)**3*(1-z**4)**3)
-    C=1/((1-z)*(1-z**3)*(1-z**4)*(1-z**6)**2)
-    I=1/((1-z)**2*(1-z**2))
-    F=(P+3*T+2*C)/6-I
-    E=(s.exp(4*z+6*z**2+2*z**4)-3*s.exp(2*z+z**2)+2*s.exp(z))/6
-    class_numbers=[int(s.expand(s.series(F,z,0,degree+1).removeO()).coeff(z,n)) for n in range(degree+1)]
-    total_numbers=[int(s.expand(s.series(E,z,0,degree+1).removeO()).coeff(z,n)*factorial(n)) for n in range(degree+1)]
-    return total_numbers,class_numbers
 
-if __name__=='__main__':
-    total,classes=formulas(10)
-    assert classes[:11]==[0,0,2,7,23,51,116,223,431,762,1341]
-    assert total[:8]==[0,0,2,25,277,2895,32631,382963]
-    for n in range(1,5):
-        actual=brute(n)
-        assert actual==(total[n],classes[n]), (n,actual,total[n],classes[n])
-    print('KLEIN_FOUR_SIGNED_PERMUTATION_CENSUS_VERIFIED n<=4; generating functions n<=10')
+def multiply(g, h):
+    return tuple(h[j-1] if j > 0 else -h[-j-1] for j in g)
+
+
+def direct_classes(n):
+    unit = tuple(range(1, n+1))
+    elements = (tuple(s*j for s, j in zip(signs, p)) for p in permutations(unit)
+                for signs in product((1, -1), repeat=n))
+    involutions = [g for g in elements if g != unit and multiply(g, g) == unit]
+    unseen = {tuple(sorted((g, h, k))) for g, h in combinations(involutions, 2)
+              if (k := multiply(g, h)) == multiply(h, g)}
+
+    # The listed generators are involutions, so conjugation uses each twice.
+    generators = [(-1,) + unit[1:]] if n else []
+    for j in range(n-1):
+        g = list(unit)
+        g[j], g[j+1] = g[j+1], g[j]
+        generators.append(tuple(g))
+
+    classes = 0
+    while unseen:
+        todo = [unseen.pop()]
+        classes += 1
+        while todo:
+            H = todo.pop()
+            for g in generators:
+                conjugate = tuple(sorted(multiply(g, multiply(h, g)) for h in H))
+                if conjugate in unseen:
+                    unseen.remove(conjugate)
+                    todo.append(conjugate)
+    return classes
+
+
+if __name__ == '__main__':
+    coeffs = class_series(10)
+    assert coeffs == [0, 0, 2, 7, 23, 51, 116, 223, 431, 762, 1341]
+    direct = [direct_classes(n) for n in range(6)]
+    assert direct == coeffs[:6], (direct, coeffs[:6])
+    print('Ranks 0–5, direct subgroup conjugacy:', direct)
+    print('Ranks 0–10, ordinary generating series:', coeffs)

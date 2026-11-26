@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:46:34.879114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–109",
+        "VERIFICATION.md lines 19–25; verify.py lines 23–141 and verification_output.txt (read only)",
+        "Independent finite check at p=1/2: enumerate 2^(N-1) parent arrays and 2^N length-N renewal increment arrays; compare the path-profile integer histograms after rescaling by two, and test the longest-run bound by tracing each later vertex's parents"
+      ],
+      "rationale": "For a path edge, reroot at the target side and use first-step equations: the expected crossing time from the adjacent root-side endpoint equals one plus the sum over its off-target neighbors of one plus their mean return time. Induction on the root-side component size M gives 2M-1; summing gives the forward identity, and commute gives 2ND_N. Every label below b is on the root side of its path edge. The later descent indicators from b either become constantly one or, before that happens, alternate: two zeros are absorbing and cannot reach c_N=1. Each continuation of alternation needs a consecutive second-predecessor choice, so the excess M_b-b is at most L_N+1 (zero at b=N). A union bound on all starting positions and Borel–Cantelli give L_N=O(log N) almost surely, making H⁺−2A_N negligible at scale N^(3/2). Backwards exploration samples previously unseen iid attachment choices at distinct labels; at label 1 the forced final edge preserves all positive labels, so the same bounded-step renewal sequence gives jointly D_N=K_N and A_N=sum of K_x for x=1,…,N in law. A separate enumeration compared the full positive-path profile law and confirmed the deterministic bound for N=1–11 at p=1/2. For the unbounded proof, set K_0=0; the overshoot 0≤S_(K_x)-x≤1 composes the centered partial-sum Donsker process with K_floor(Nt)/N→t/μ uniformly and multiplies it by -1/μ. Brownian scaling then gives -sqrt(v)/μ^(3/2) times standard Brownian motion. Riemann summation and endpoint evaluation give the pair of Brownian functionals ∫B and B(1)−∫B (with common prefactor -2sqrt(v)/μ^(3/2)); their variances are 1/3 and their covariance is 1/6. For the almost-sure conclusion the overshoot yields uniform deviation of K from x/μ bounded by (1+max_(k≤N)|S_k−μk|)/μ. Hoeffding plus a union bound makes linear deviations summably unlikely. Applying this to the fixed-N joint tree laws and then Borel–Cantelli proves the result in the original environment, without a false common renewal coupling across N.",
+      "residual_risks": [
+        "The recorded simulations are diagnostics, not verification of the limiting distribution. The result concerns environment fluctuations of conditional expectations at fixed 0<p<1, not a limit for random walk paths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 4.2 states H_xy=m d(x,y)+D(y)−D(x), yielding the deterministic commute sum but not its model-specific joint fluctuation with H⁺. Tang–Wang–Wu study one-endedness and infinite collisions. The Oosthuizen–Wagner abstract deals with uniformly labelled/vertex-weighted trees and other random recursive trees, with random rather than newest endpoints and different scales for the two root directions."
+        ],
+        "reasoning": "An identity valid on all trees is not an environment limit; root-to-random-vertex Gaussian behavior on an ensemble with n log n and n mean scales does not cover this finite two-predecessor ensemble with quadratic growth in both directions.",
+        "searches": [
+          "Georgakopoulos–Wagner arXiv:1302.3212v2 Lemma 4.2",
+          "Tang–Wang–Wu arXiv:2607.02916, main statements at offsets around 6128",
+          "Oosthuizen–Wagner DOI 10.1137/1.9781611974775.7, author-hosted open copy"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary d6bc50906ce6",
+        "Tang–Wang–Wu arXiv:2607.02916",
+        "Georgakopoulos–Wagner arXiv:1302.3212v2",
+        "Oosthuizen–Wagner ANALCO 2017 author-hosted PDF p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later indexed proof gives more than a univariate theorem: its cumulative tooth reward C_m has a Brownian FCLT and its infinite forward mean is m²+2 sum_(j≤m) C_j. Those ingredients can be adapted to the finite law: at complete block boundaries σ_m=m+C_m, and within a block the discrepancy is bounded by its size. One must track the inverse birth-label clock jointly with the reward and compare the unfinished-block endpoint and finite mean to the nearest completed ray block. Exponentially tailed blocks have maximal size O(log N), so only O(log N) final edges and at most an O(N log N) mean error need control in that transfer; commute then supplies the reverse coordinate."
+        ],
+        "reasoning": "This is genuine closeness of the mathematical mechanisms, not an exact statement match. The indexed ray proof supports a route after a model-specific random-time and endpoint transfer, rather than a deterministic rescaling of the displayed scalar theorem. Its 2026-11-08 date is later than the frozen finding and does not establish prior coverage. Neither cited earlier primary passage supplies the joint profile and this transfer.",
+        "searches": [
+          "Resultary d6bc50906ce6 proof, offsets 0–4986, regenerative blocks, reward FCLT and hitting-time identity",
+          "Compare Tang–Wang–Wu main theorem passages and the deterministic commute identity with RESULT.md Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang–Wang–Wu and d6bc50906ce6 use the same preceding-or-second-preceding parent choices. The ray result targets birth label σ_m at a fixed ray depth m in the infinite tree, whereas the frozen theorem fixes birth label N and its depth fluctuates; it also compares both directions."
+        ],
+        "reasoning": "Replacing m by N/μ deterministically is not a legitimate normalization equivalence: the O_p(sqrt(N)) random change in depth contributes at scale N^(3/2) because the directional mean grows quadratically. The ray's single integrated-Brownian limit alone is not the pair of opposite hitting means.",
+        "searches": [
+          "Local Resultary search for Bernoulli recursive tree quenched mean first-passage fluctuations: d6bc50906ce6",
+          "Tang–Wang–Wu arXiv:2607.02916, model at offset 2491",
+          "Primary query for finite oldest/newest means and renewal CLT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed result gives the scalar variance 4pq/3 under ray-index centering μm² and an integrated-Brownian process, not the finite-prefix covariance array 4pq/(3μ³) times [[1,1/2],[1/2,1]] or the two-direction half-correlation."
+        ],
+        "reasoning": "A displayed scalar variance under a different index is not an exact table entry for the joint covariance, even though both theorems use the same underlying environment.",
+        "searches": [
+          "Published Resultary d6bc50906ce6, Finding and assumptions at offset 0",
+          "Exact finite-endpoint statement comparison to the cited Bernoulli-recursive-tree and random-tree papers"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint conditional-mean law, covariance and two almost-sure laws at the endpoints of the finite birth-label prefix. Tang–Wang–Wu construct the same tree and supply its infinite geometry, while the same-tree Resultary ray-index result has close regenerative ingredients but a different index and a single hitting direction. The matching sources are compared below rather than dismissed based on title or date.",
+      "residual_risks": [
+        "Historical priority outside the inspected sources is not established. The broader primary query did not yield another material candidate; the Oosthuizen–Wagner comparison is limited to the original abstract. Very close model-specific regenerative formulations could overlap when equipped with a suitable birth-label transfer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior model coverage, not the finite-prefix joint hitting-mean laws in these passages",
+          "evidence": "Last-or-second-last attachment law; the stated main conclusions are one-endedness and infinite collisions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.02916",
+          "material_read": "PDF initial text, p. 2 construction offset 2491 and p. 3 theorems offset 6128",
+          "method": "OA original arXiv PDF passages",
+          "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+          "trigger": "Exact attachment model and infinite geometry"
+        },
+        {
+          "assessment": "General ingredient, not the model-specific fluctuations",
+          "evidence": "The distance term is symmetric and the D difference antisymmetric, so the two mean times sum to 2m d(x,y).",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.3212",
+          "material_read": "v2 Lemma 4.2, p. 7, offset 28698",
+          "method": "OA original arXiv PDF passage",
+          "title": "Hitting Times, Cover Cost, and the Wiener Index of a Tree",
+          "trigger": "General deterministic hitting-time formula"
+        },
+        {
+          "assessment": "The stated ensembles and scales differ; not a whole-paper negative finding",
+          "evidence": "The abstract compares random vertices on uniformly labelled and vertex-weighted trees, and in the recursive model a root-to-random-vertex normal limit at an n log n leading scale and an opposite non-Gaussian limit at linear scale.",
+          "identifier_or_url": "http://math.sun.ac.za/swagner/HittingTimes.pdf",
+          "material_read": "Author-hosted PDF p. 1, abstract, extraction lines 11–35; deeper passages not read",
+          "method": "Lawful public author copy identified by exact-title query and retrieved as PDF after the publisher route was denied",
+          "title": "On the distribution of random walk hitting times in random trees",
+          "trigger": "Earlier directional expected hitting-time limits; SIAM DOI 10.1137/1.9781611974775.7"
+        },
+        {
+          "assessment": "Closely related later result, not the identical fixed-label opposite-direction statement",
+          "evidence": "Integrated-Brownian limit at deterministic ray index, with explicit centered tooth-reward Brownian process that can be used in a random-clock transfer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-integrated-brownian-fluctuations-of-quenched-mean-hitting-times--d6bc50906ce6",
+          "material_read": "Mirrored RESULT.md Finding, proof and Limitations; especially offsets 0–3379 and 3379–4986 for blocks, reward process and exact hitting identity",
+          "method": "Local Resultary search and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Integrated-Brownian fluctuations of quenched mean hitting times in Bernoulli recursive comb trees",
+          "trigger": "Closest indexed finding on the identical environment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 29–109",
+        "Georgakopoulos–Wagner Lemma 4.2",
+        "Resultary d6bc50906ce6 Finding and proof Steps 1–4"
+      ],
+      "rationale": "The deterministic commute identity controls only the sum. A joint area-and-endpoint representation resolves the fluctuation split and gives the exact universal half-correlation of the two conditional means at the same finite endpoints. That covariance is useful for joint prediction and directional asymmetry and is not determined by either a scalar ray limit or the commute law alone. The main mechanism is the uniform pathwise control of discarded branches combined with a common inverse-renewal profile.",
+      "residual_risks": [
+        "The method is specific to the two-predecessor model; no downstream limit for general attachment windows or the walk's own hitting-time noise is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

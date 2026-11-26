@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:03:29.683228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixed identity boundaries leave a freely chosen middle 231-avoider because 231 has no proper direct-sum cut; when the boundaries overlap only the identity is possible. For 1<=a,b and a+b<=n, dividing the Catalan ratio products compares factors C_t/C_(t-1) with strictly smaller-index factors, proving strictness; for overlap the direct-sum injection gives C_(n-a)C_(n-b)<=C_(2n-a-b)<C_n (including n=2). Increment expansions prove the transform statement, and fixed-threshold tail differences give convergence to independent geometrics. For t>=2 the ratio of successive Catalan ratios is exactly 1+3/((t+1)(2t-3)). Thus on a,b<=ceil(10 log_4 n) the log joint-to-product ratio is 3ab/(2n^2)+O(ab(a+b+1)/n^3); expansion and the uniform marginal estimate give a summable error after multiplication by 4^(-a-b). The rest of the covariance tail sum is bounded by O(n(n+1)^(3/2)4^(-ceil(10 log_4 n))) using 0<=Delta_(a,b)<=min(p_a,p_b), so the limit is (3/2)(4/9)^2=8/27. This is a covariance limit, not a claimed total-variation upper bound in the proof. The frozen checker was inspected, not executed; its finite enumeration and rational evaluations are not needed for the all-size proof. Replay: use RESULT.md lines 18–49 and the exact ratio above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Brownian-excursion theorem uses a scaled empirical measure of fixed positions in Av(231); the other paper gives convergence for first-order sentences."
+        ],
+        "reasoning": "Neither measures maximal consecutive fixed identity positions on both edges with the accuracy needed to derive the finite sign and coefficient.",
+        "searches": [
+          "arXiv:1506.04174, Theorem 1.1",
+          "arXiv:2210.05537, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2210.05537",
+        "arXiv:1506.04174",
+        "Resultary record 22fd1b3c42ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical closure and Catalan numbers give the middle count and the fixed-threshold geometric limit; the ratio comparison and uniform covariance tail analysis are separate steps."
+        ],
+        "reasoning": "The known ingredients do not state the second-order joint comparison. The all-size strictness includes the otherwise easy-to-miss overlapping identity atom, and the positive n^-2 constant requires a summable second-order estimate.",
+        "searches": [
+          "arXiv:2210.05537",
+          "arXiv:1506.04174",
+          "Catalan direct-sum closure and ratio log-convexity; frozen RESULT.md lines 18–49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The boundary statistics are the lengths of the initial and terminal runs of singleton direct-sum components. Albert et al., pp. 2–3, distinguishes identity fixed points from the predicates of its two-order logic and states a logical limit law."
+        ],
+        "reasoning": "The equivalent description via sum components is covered as a decomposition, not as a strict finite joint inequality with a second-order rate; even a limiting independence assertion would not imply either.",
+        "searches": [
+          "231 avoiding permutations joint leading trailing fixed points consecutive prefix suffix runs singleton sum components Catalan boundary covariance",
+          "arXiv:2210.05537"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2 record 22fd1b3c42ea, Finding and Assumptions, gives cross-covariance of fixed-point and succession indicators for uniform S_n and a different order-n^-2 aggregate covariance."
+        ],
+        "reasoning": "The same date, endpoint emphasis and decay scale do not imply duplicate coverage: the probability space, pair of statistics and limiting coefficient are different.",
+        "searches": [
+          "Resultary: fixed-point and succession covariance, boundary concentration; fixed positions in 231-avoiders"
+        ]
+      },
+      "rationale": "The count is an elementary Catalan consequence and does not by itself warrant distinct credit. The inspected fixed-point, direct-sum and logical-limit results do not cover the all-threshold strict association or the first nonzero boundary covariance term. Bounded comparison supports that combined claim, not historical priority.",
+      "residual_risks": [
+        "An older result on initial and terminal singleton-component runs or a more general boundary-dependence expansion in Catalan classes may contain an equivalent conclusion; the comparisons do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish the boundary inequality or covariance coefficient",
+          "evidence": "Fixed points are not expressed in the two-orders language; Theorem 1 is a logical limit law.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.05537",
+          "material_read": "pp. 2–3, fixed-point caveat and Theorem 1 (text offsets 6478 and 7930)",
+          "method": "Direct OA passage reading",
+          "title": "A logical limit law for 231-avoiding permutations",
+          "trigger": "Same uniform Catalan class and possible sum-decomposition equivalent"
+        },
+        {
+          "assessment": "Different statistic and scaling",
+          "evidence": "The theorem concerns the scaled empirical measure, not fixed identity runs at the endpoints.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.04174",
+          "material_read": "p. 2, Theorem 1.1 (text offset 4908)",
+          "method": "Direct OA passage reading",
+          "title": "Pattern-avoiding permutations and Brownian excursion, Part II: Fixed points",
+          "trigger": "Same pattern and fixed-point statistics"
+        },
+        {
+          "assessment": "Different law and observables, not an equivalent exact invariant",
+          "evidence": "Uniform on all S_n; indicators A_j and B_i yield aggregate covariance 2/(n(n-1)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-fixed-point-and-succession-covariance-boundary-concentration-and--22fd1b3c42ea/RESULT.md",
+          "material_read": "Finding and Assumptions, characters 0–2168",
+          "method": "Local Resultary mirror",
+          "title": "Fixed-point and succession covariance: boundary concentration and an odd-order null direction",
+          "trigger": "Closest published catalogue hit with boundary covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For two canonical endpoints of a Catalan family, strict association at every admissible nonconstant threshold and the first nonzero covariance term quantify what is lost in the independent limit. The overlap treatment and sharp constant make this useful as a finite-to-limit comparison beyond merely reproducing a Catalan count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

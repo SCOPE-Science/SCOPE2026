@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:42.343142Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A cyclic word with all five-bit windows gives an Euler tour of the directed overlap graph; the first bits of the consecutive edges recover the word. The unique 00000 edge fixes the rotation, so the edge search counts each labelled necklace once and uses no reversal or complement quotient. Each tour also gives a bijection of the two arrivals and two departures at each of the 16 vertices, and conversely a choice of these bijections giving a single 32-edge orbit is a tour. Thus both searches exhaust the intended class. In each linear cut, a partition ends in some nonempty palindromic suffix, so prefix optimum plus one minimized over suffix starts is exact. Center-ordered updates are valid because any palindrome in a partition of the prefix before the one currently being processed ends strictly before the current palindrome starts. Fresh bounded code independently compared both cycle searches and both palindrome calculations on all 65536 roots. It reproduced the seven rooted frequencies 384,3554,18266,29118,12138,2030,46 in order from 4 through 10, the 14 joint min–max cells summing to 2048, and both canonical minimum-nine strings, each with 29 cuts of length nine and 3 of length ten and exchanged by bit complement up to rotation. All joint cells have unequal minimum and maximum; the first table is the histogram of optimal partitions of individual cuts, not the histogram of minima over a cycle. Replay: python3 /workspace/branches/d2257b3c-59e3-428d-9843-dc1da9c0d978/independent_recheck.py, with full.json and smoke.json in that directory. The original verify.py and its reported output were read, not executed. This is an exhaustive result for order five only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ravsky's length-32 maximum over all binary words is 12. It gives no conditional cutoff or distribution on de Bruijn roots. Frid–Puzynina–Zamboni study the same minimum measure on factors of infinite words rather than these necklaces. Anisiu–Anisiu–Kása use de Bruijn constructions in studying palindrome factors, not minimum concatenation partitions."
+        ],
+        "reasoning": "General extremal and algorithmic results are background, not the conditional census. The broad search's general de Bruijn hits rather than a census are not evidence of absence. The affirmative match is a separate actual table.",
+        "searches": [
+          "Ravsky arXiv:1004.1278 Theorem 1",
+          "Frid–Puzynina–Zamboni arXiv:1210.6179",
+          "Anisiu–Anisiu–Kása arXiv:1002.2723",
+          "Bounded primary lookup for order-five de Bruijn palindromic length and minimum palindrome partitions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py as text",
+        "Resultary beadc73c229a, 64bb4c490273 and 1eb61f1d72f3 in the local mirror",
+        "Ravsky arXiv:1004.1278; Anisiu–Anisiu–Kása arXiv:1002.2723; Frid–Puzynina–Zamboni arXiv:1210.6179",
+        "De Bruijn Sequences and Universal Cycles public homepage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record has the same distributions and checks optimal linear PL at every cut of each of the two exact extremal representatives. The no-constant-PL assertion follows from the absence of diagonal cells in that published joint table.",
+          "Adding the 29/3 split only takes a frequency tally at the two known strings, over the already checked 32 cuts per string. Neither BWT runs, LZ76 phrases nor palindrome-subword counts give that PL computation."
+        ],
+        "reasoning": "Main coverage is stronger than mere implication: the rows match. The extra explicit split is not inferred solely from the aggregates, but is a minor extraction from the existing exact per-cut check and does not provide a distinct useful remainder.",
+        "searches": [
+          "Resultary beadc73c229a, Finding and Proof Step 4, offsets 350–4389 and 4389–8066",
+          "Compare linear PL, circular optimum, palindrome-factor counts, LZ76 and BWT runs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both statements count rotations separately but do not quotient cycles by complement or reversal. A circular palindrome partition has a block boundary at which to cut, and a linear partition gives a circular one on rejoining the ends. Hence the circular optimum is exactly the best linear-root optimum.",
+          "In the feedback encoding, incoming state as at suffix s is sent to s(a xor g(s)); this is exactly the choice of the two local arrival-to-departure matchings at vertex s."
+        ],
+        "reasoning": "Graph versus feedback language does not change the search space, and circular versus minimum-over-cuts wording does not change the invariant or the explicitly listed rooted and joint tables.",
+        "searches": [
+          "Local Resultary, order-five binary de Bruijn cycle/necklace palindromic factorization, rooted cuts and circular optimum",
+          "Resultary beadc73c229a, RESULT.md offsets 350–4389"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected beadc73c229a table lists exactly the same 7 rooted counts and all 14 ordered best/worst counts, including the two canonical minimum-nine necklaces. It separately lists the minimum marginal 4:48,5:534,6:942,7:416,8:106,9:2.",
+          "The neighboring LZ76 record counts phrases on the same cuts; the BWT record counts runs of the sentinel-free transform on the necklaces. The public database homepage describes the construction and does not give this precise table on that inspected page."
+        ],
+        "reasoning": "This is an exact positive comparison for the core tables, not a match to a neighboring invariant or a claim of exhaustive database coverage.",
+        "searches": [
+          "Resultary beadc73c229a at Finding offsets 350–4389",
+          "Neighboring Resultary records 64bb4c490273 and 1eb61f1d72f3",
+          "De Bruijn Sequences and Universal Cycles public homepage"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record explicitly gives the same 7 rooted and 14 joint cells and names the same two extremal necklaces on exactly the same input family. Its circular-optimum wording is equivalent to minimizing the linear optimum over all cuts, and its additional circular histogram is the marginal of the joint table. The catalogue path has a later calendar label; this assessment is about demonstrable matching coverage and not an inference about which result came first, provenance, or who discovered it. The two exception-specific 29/3 cut splits were not established as printed in the match, but are immediate tallies at its already identified extremes using its same exhaustive per-cut calculation; they do not make the frozen census distinct.",
+      "residual_risks": [
+        "Bounded search and indexed path labels do not establish any priority or provenance relationship between the two records. The decision rests on actual mathematical agreement.",
+        "The inspected public resource page is not a search of its entire database; no broad negative originality inference is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact material coverage of both core tables, not a finding of priority",
+          "evidence": "Seven rooted frequencies, all 14 min–max cells, the same two exceptional strings, and exhaustive per-cut checking on the same rotation classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cyclic-palindromic-factorization-spectrum-of-binary-order-five-d--beadc73c229a/RESULT.md",
+          "material_read": "Finding, scope and proof at local-mirror offsets 350–4389 and 4389–8066",
+          "method": "Resultary catalogue discovery and local mirror statement comparison",
+          "title": "Cyclic palindromic factorization spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Same order, palindrome partition statistic and rooted versus circular presentation"
+        },
+        {
+          "assessment": "Same measure, larger family but different extremal assertion",
+          "evidence": "K(n) maximizes over all words, with maximum 12 at length 32, and does not give the conditioned de Bruijn table.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1278",
+          "material_read": "Definition p. 1 at offset 0 and Theorem 1 p. 2 around 4488",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On the Palindromic Decomposition of Binary Words",
+          "trigger": "Maximum and average PL of binary words may imply the claimed cutoff"
+        },
+        {
+          "assessment": "Different palindrome statistic",
+          "evidence": "The cited complexity counts palindrome factors; generation of palindromes does not give minimum palindromic partitions of an entire cut.",
+          "identifier_or_url": "https://arxiv.org/pdf/1002.2723",
+          "material_read": "Abstract p. 1 around offset 245 and pp. 2–3 around 4162",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Explicit use of de Bruijn words and palindrome statistics"
+        },
+        {
+          "assessment": "Same invariant, different infinite-word questions",
+          "evidence": "The inspected setup concerns boundedness of PL on factors of infinite words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.6179",
+          "material_read": "Definition and setup p. 1 around offset 2662",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On minimal factorizations of words as products of palindromes",
+          "trigger": "Same minimum-palindromic-length measure"
+        },
+        {
+          "assessment": "Different statistics; not the source of exact matching coverage",
+          "evidence": "They count LZ76 phrases across cuts or BWT runs across cycles, not optimal concatenated palindrome blocks.",
+          "identifier_or_url": "Resultary 64bb4c490273 and 1eb61f1d72f3",
+          "material_read": "Each local mirror RESULT.md Finding at offset 0",
+          "method": "Resultary catalogue discovery and local mirror passage inspection",
+          "title": "Order-five de Bruijn LZ76 and BWT spectra",
+          "trigger": "Same necklace population and other exact spectral tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exhaustive finite benchmark of how palindromic length varies with the cut on de Bruijn cycles is mathematically meaningful in itself. Here the benchmark, cut sensitivity and sharp extremal necklaces are already supplied by the matched record. The residual multiplicity detail on two known necklaces is a small readout of their existing per-cut optimum calculation with no separate mathematical question or demonstrated need. Correct and reproducible does not make this a distinct valuable census.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

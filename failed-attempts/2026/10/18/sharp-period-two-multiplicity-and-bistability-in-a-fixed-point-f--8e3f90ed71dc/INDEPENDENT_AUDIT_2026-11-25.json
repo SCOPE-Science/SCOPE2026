@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:02:06.693529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding's global cycle bound and interior sharpness witness are correct. The displacement F(x)-x is positive on the left by concavity and negative on the right by convexity, using the right extension at b only for the sign argument. Thus each primitive two-cycle has a unique smaller left coordinate x. With t=(b-x)/b, H(t)=0 is equivalent to the return equation exactly when y=1-(1-a)t^2>b. H'' is negative then positive with at most one zero on the nonnegative interval; H' has at most two zeros and Rolle bounds the number of roots even counting admissible endpoints. At the witness a>b, the four stated rational signs force three interior admissible roots. The three sign-changing roots are simple by degree four; the derivative relation to the multiplier classifies the two sinks and the repeller, and the implicit function theorem gives open persistence. Independent rational root and multiplier enclosures were computed in /workspace/branches/audit_witnesses.py. The wording of the proof's multiplier formula is too broad if read for all cycles: t=0 is possible exactly when c=b, giving (b,1); the positive smooth multiplier argument applies to interior witness cycles, not generally at this switch. This does not affect the stated witness or the global census. The failed disposition concerns coverage and value, not a counterexample to the Finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary b9e8fc30adbd, Finding and proof, extends the strict-alternation census to d>=1, including d=2 and this witness.",
+          "The 2023 paper, Lemma 1 pp. 5–6 and Figs. 3–4 pp. 6–7, establishes fixed-point absence and plots exponent-two behavior, not a sharp two-cycle census.",
+          "The 2024 accepted text, pp. 13–15 and conclusion p. 18, discusses period-two windows for different logistic–tent maps.",
+          "The 2007 affine paper's full text was not obtained after publisher and DOI repository attempts."
+        ],
+        "reasoning": "The broader indexed power theorem reinforces the exact overlap in the relevant parameter region. The 2023 antecedent covers the fixed-point-free property. Neither the different 2024 construction nor unavailable material is being used to infer coverage of the quartic census.",
+        "searches": [
+          "Resultary b9e8fc30adbd, same piecewise-power family for d>=1",
+          "DOI:10.3390/sym15071311, Lemma 1 and exponent-two figures",
+          "DOI:10.1007/s11071-024-09349-6, period-two examples",
+          "DOI:10.1098/rspa.2006.1735"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dd9acbf9570b",
+        "Resultary 46dbd0563009",
+        "Resultary b9e8fc30adbd",
+        "DOI:10.3390/sym15071311",
+        "DOI:10.1007/s11071-024-09349-6 (AURA accepted manuscript)",
+        "DOI:10.1098/rspa.2006.1735 (attempted, not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger indexed classification is explicitly restricted to 0<c<b<a<1. Its proof bounds roots using a derivative with one turning point before applying the strict-alternation fold classification.",
+          "The frozen full-cube theorem uses that identical single-turn derivative argument on a polynomial and discards inadmissible roots. The endpoint s=1, allowed at c=b, still counts by Rolle on the closed interval."
+        ],
+        "reasoning": "The strict-domain theorem by itself cannot be invoked outside its hypotheses, but its exact algebraic bound immediately survives the broader parameter range. Thus the wider quantifier does not establish an independent mathematical advance here. No stronger off-domain classification or boundary stability theorem is supplied; the chosen exact witness is a direct substitution in the stronger covered region.",
+        "searches": [
+          "Resultary dd9acbf9570b, theorem hypotheses and proof, offsets 650–4055",
+          "Frozen RESULT.md, Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected proof gives G(s)=k[1-q(1-s)^2]^2, q=(1-a)/(1-b), k=c/b, and analyzes G(s)-s via the unimodality of G'.",
+          "Lawnik–Moysis–Volos, DOI:10.3390/sym15071311, PDF p. 5, Eq. (15), is the identical map at exponent two."
+        ],
+        "reasoning": "For s=x/b=1-t the frozen H(t)/b is exactly G(s)-s. In s coordinates, the derivative of G is proportional to u(1-qu^2) at u=1-s, and its single-turn argument with 1-3qu^2 works for every positive q,k. Outside strict alternation, the very same polynomial gives candidates with the additional branch test 1-q(1-s)^2>0; taking a subset does not increase the root count. The branch displacement argument forcing alternating two-cycles follows already from the strict branch sign calculation.",
+        "searches": [
+          "Resultary: quadratic gap-map two-cycle cusp and bistability",
+          "Resultary dd9acbf9570b, Exact return and Maximum count and folds, offsets 650–4055"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 46dbd0563009 classifies the b=1/2 slice and gives another rational two-sink witness.",
+          "Resultary dd9acbf9570b gives a one/two/three-cycle table with folds K_- and K_+ on 0<c<b<a<1, and classifies the two outer cycles as sinks in the three-cycle region.",
+          "Resultary b9e8fc30adbd gives a power-family extension in the same strict-alternation region."
+        ],
+        "reasoning": "The exact table, not a title match, covers this triple: q=8/9, k=17/20, and (68-5 sqrt(10))/64 < 17/20 < (68+5 sqrt(10))/64. The inequalities are strict, so the open coexistence claim follows too. The distinct records are later dated; that does not establish priority in either direction and does not remove mathematical coverage.",
+        "searches": [
+          "Resultary: sharp multiplicity, two-sink coexistence, fixed-point-free quadratic gap maps"
+        ]
+      },
+      "rationale": "Verified distinct indexed coverage, not a claim about historical priority: Resultary dd9acbf9570b gives the same normalized quartic, the same root-bound mechanism, and a stronger exact census and two-sink criterion throughout the strict-alternation domain containing the submitted witness. The bound on the full cube is a mechanical extension of its algebraic root bound by filtering inadmissible roots; the derivative count does not require the strict-alternation assumptions. The particular witness is inside the already classified three-cycle region. Neither the date nor lack of access to the affine-gap paper decides this result.",
+      "residual_risks": [
+        "The original affine-gap text was not available for statement-level comparison; the adverse decision rests on accessible mathematical evidence instead.",
+        "No determination of historical priority or order of discovery follows from dated records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the witness and stability; same algebraic mechanism bounds the full range",
+          "evidence": "G(s)=k[1-q(1-s)^2]^2; the cubic derivative has one turn; exact folds contain q=8/9, k=17/20.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-cusp-of-coexisting-two-cycles-in-a-fixed-point-free-quadratic--dd9acbf9570b/RESULT.md",
+          "material_read": "RESULT.md offsets 650–4055, Finding, Assumptions, Exact return and Maximum count and folds",
+          "method": "Published Resultary record, local mirror",
+          "title": "A cusp of coexisting two-cycles in a fixed-point-free quadratic map",
+          "trigger": "Same map and stronger three-cycle and stability classification"
+        },
+        {
+          "assessment": "Exact sharpness in a slice; different witness",
+          "evidence": "b=1/2 three-cycle region has two sinks and a repeller; example (a,c)=(9/16,7/16).",
+          "identifier_or_url": "Resultary 46dbd0563009",
+          "material_read": "RESULT.md, Finding and proof",
+          "method": "Published Resultary record, local mirror",
+          "title": "Exact two-cycle cusp, bistability, and global convergence",
+          "trigger": "Exact alternative sharpness witness in a same-family subfamily"
+        },
+        {
+          "assessment": "Generalizes the strict-domain overlap to d>=1",
+          "evidence": "Exact classification in the strict region includes d=2 and the submitted witness.",
+          "identifier_or_url": "Resultary b9e8fc30adbd",
+          "material_read": "RESULT.md, Finding and proof",
+          "method": "Published Resultary record, local mirror",
+          "title": "A variable-exponent cusp and inevitable high-degree bistability",
+          "trigger": "Broader family with same strict-alternation domain"
+        },
+        {
+          "assessment": "Same family and prior absence of fixed points; no census in these passages",
+          "evidence": "Exponent d power map with a,b,c in (0,1); absence of fixed points for d>=1.",
+          "identifier_or_url": "DOI:10.3390/sym15071311",
+          "material_read": "PDF p. 5 Eq. (15); pp. 5–6 Lemma 1; pp. 6–7 Figs. 3–4",
+          "method": "Publisher OA PDF",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Original same-family publication"
+        },
+        {
+          "assessment": "Period-two examples in a different construction",
+          "evidence": "Unit-square projection construction and logistic–tent return examples, rather than the 2023 piecewise-power family.",
+          "identifier_or_url": "DOI:10.1007/s11071-024-09349-6; author-accepted manuscript at AURA handle 2164/23639",
+          "material_read": "Accepted PDF pp. 1, 13–15, 18; Eq. (15), figures and conclusion",
+          "method": "Lawful institutional OA manuscript",
+          "title": "Discrete one-dimensional piecewise chaotic systems without fixed points",
+          "trigger": "Potential same-family periodic behavior coverage"
+        },
+        {
+          "assessment": "Unresolved access; no inference on coverage",
+          "evidence": "No cycle table or technical passage was retrieved.",
+          "identifier_or_url": "DOI:10.1098/rspa.2006.1735",
+          "material_read": "Technical full text unavailable",
+          "method": "Bounded publisher PDF and DOI repository attempts",
+          "title": "Dynamics of a piecewise linear map with a gap",
+          "trigger": "Possible older cycle census or gap-map reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp first-period census and bistability are natural questions, but the substantive coexistence already lies in an exact stronger classification. The new parameter triple is not selected by an independent scientific constraint; it is a point in that classified open region. The remaining all-cube screening observation is a routine restriction of the same polynomial's roots and does not classify dynamics in the extra regimes. There is no distinct valuable remainder for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

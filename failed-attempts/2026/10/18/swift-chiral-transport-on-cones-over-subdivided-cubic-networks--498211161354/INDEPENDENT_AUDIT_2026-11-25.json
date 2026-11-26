@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:06.973707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unit apex bonds can be gauged to 1, so H^2 applied to the apex has components (N,B1) and its squared norm is N^2+||B1||^2. The survival-probability t^4 coefficient is N^2/4+(N^2+||B1||^2)/12, since the first moment vanishes and the cubic term is imaginary. Thus matching cos^2 forces B1=0, and conversely this condition makes the apex and the normalized uniform base vector an invariant two-level system. Its population at t*=pi/(2 sqrt N) is uniform on the base, and Delta H=sqrt N at the apex establishes the speed-limit normalization. At a midpoint the two cubic-end phases are opposite; at each cubic vertex the three phases are a rotated cube-root triple. Their common cube therefore changes sign across each original edge, ruling out odd cycles. In a bipartite cubic graph Hall's theorem gives a perfect matching, and the remaining even cycles admit two alternating colors. These colors yield the phases and all row sums vanish. Connectedness propagates one triple to the whole first part and the negative triple to the second. Fixing one edge to have color 0 chooses exactly one representation of each phase assignment and exhibits the separate circles, indexed by labeled proper colorings modulo cyclic relabeling. In particular uniqueness is modulo the explicit cyclic identification, not uniqueness of unconstrained parameters. The frozen finite verification is corroboration, not a proof of nonexistence in infinitely many graphs; the reconstructed argument handles that obstruction. No extra gauge quotient or non-unit or weighted extension is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frigerio–Paris §3 eqs. (10),(12) and §4 Theorem 5 supply the gauge, zero-row condition and swift profile",
+          "Li et al. Abstract and Theorem 1.2 state the cubic equivalence of nowhere-zero 3-flow and S^1-flow attributed to Thomassen, and their paper extends it to maximum degree four",
+          "The same-date bicyclic result examines bases of cycle rank 2"
+        ],
+        "reasoning": "The Frigerio–Paris perfect-matching theorem for cubic bases does not apply directly to a (2,3)-biregular subdivision. The broader flow theorem instead applies after eliminating its midpoint rows. The connected cubic subdivision has cycle rank |V(G)|/2+1>=3, so a classification of bicyclic bases does not give this one.",
+        "searches": [
+          "Frigerio–Paris arXiv:2207.05168, §§3–4",
+          "Li–Li–Luo–Su arXiv:2608.18725v2",
+          "Resultary searches for swift cone walks and complete phase descriptions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_swift_subdiv.py",
+        "Thomassen JCTB 108 (2014) 81–91, §4 Proposition 1",
+        "Frigerio–Paris arXiv:2207.05168",
+        "Li–Li–Luo–Su arXiv:2608.18725v2",
+        "Same-date Resultary 103d4467f9f2 and the cited unit-gain abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Thomassen's proof states any cubic S^1-flow with one value 1 is an R3-flow up to edge reorientations and that each cubic vertex is a source or a sink in the R3 representation",
+          "The known cone proof supplies uniform base population when the base row sums vanish"
+        ],
+        "reasoning": "For a connected bipartite G, fix orientation from one part to the other. In these coordinates the normalized R3 values are a proper edge-coloring, possibly after an overall sign if the normalized source/sink orientation was reversed. Anchoring a particular edge with value 1 absorbs that sign in the rotation and identifies one unique color-zero labeling per cyclic color orbit. Unnormalizing makes one circle per anchored labeling. Thus even if the topological circle count is not printed verbatim, it is mechanically implied by the known normalized shape plus the apex-gauge identification.",
+        "searches": [
+          "Thomassen §4 Proposition 1 proof, normalized cube-root flows",
+          "Frigerio–Paris §3 two-state dynamics and §4 Theorem 5",
+          "Resultary bicyclic record 103d4467f9f2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Midpoint conservation is exactly z_{v,e}=-z_{u,e}; at original vertices sum of the signed edge values is zero and each value has modulus 1",
+          "Thomassen Proposition 1 defines and classifies cubic S^1-flows: they exist iff the graph is bipartite"
+        ],
+        "reasoning": "Fix any orientation of each original edge and assign z_{u,e} to an edge out of u. Reversing its incidence contributes its negative exactly as required by the midpoint condition. This is a bijection between row-zero assignments in apex gauge and S^1-flows, not merely a numerical or spectral resemblance.",
+        "searches": [
+          "cubic S1-flow bipartite unit vector spherical flow complex flow cubic Kirchhoff",
+          "Thomassen, Group flow, complex flow, unit vector flow, and the (2+epsilon)-flow conjecture, §4 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared bicyclic result lists exact component counts for theta/barbell configurations, not cubic subdivisions",
+          "Thomassen supplies an all-graph proposition, not a catalogue of finite examples"
+        ],
+        "reasoning": "A finite occurrence table would not decide a theorem over arbitrary graph size or a continuous phase family. The exact prior flow normal form is the relevant coverage, rather than example counts for K3,3 or the cube.",
+        "searches": [
+          "Resultary for swift chiral cones and phase component counts",
+          "Resultary mirror 103d4467f9f2, Finding"
+        ]
+      },
+      "rationale": "There is verified equivalent coverage of the central theorem. After the prior apex-gauge row-sum characterization, the midpoint equations are exactly the identification of chiral phases with a unit complex Kirchhoff flow on the unsubdivided graph. Thomassen's 2014 Proposition 1 explicitly states that a cubic graph admits such a flow iff it is bipartite. Its proof already normalizes a nonzero flow on one edge to 1 and forces cube-root values and source/sink orientations. For fixed bipartition this is the labeled proper 3-edge-coloring normal form; putting the common rotation back and fixing an anchor-edge color gives the claimed circles directly. The transport profile and uniform departure are results of the prior two-dimensional cone reduction. The distinct same-day bicyclic record concerns genuinely different base graphs and is not the basis for this decision.",
+      "residual_risks": [
+        "The indexed two-distinct-eigenvalue gain-graph paper at ScienceDirect PII S0012365X22000334 could not be retrieved (403); no inference is drawn from that failure.",
+        "The known flow proposition fixes coverage, not the historical priority of every transport phrasing or of the exact circle wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct flow equivalence and iff bipartite result; proof gives the normalized shape",
+          "evidence": "Proposition 1 states for cubic graphs that a nowhere-zero 3-flow, R3-flow and S^1-flow are equivalent and hold iff bipartite; the proof explains the rotation-normalized cubic flow and source/sink orientation.",
+          "identifier_or_url": "https://backend.orbit.dtu.dk/ws/files/128128802/group_flow.postscript.pdf",
+          "material_read": "§4 Proposition 1 and proof, manuscript pp. 6–7 (PDF pages 7–8), OA offsets 13310–15909",
+          "method": "Lawful primary repository PDF and exact passage inspection",
+          "title": "Group flow, complex flow, unit vector flow, and the (2+epsilon)-flow conjecture",
+          "trigger": "Exact signed unit flow obtained by removing degree-two midpoints"
+        },
+        {
+          "assessment": "Prior general reduction, not its cubic-base theorem applied misdirectedly",
+          "evidence": "In apex gauge the condition is a zero-row-sum base Hamiltonian, yielding the exact return profile; its perfect-matching test for actual cubic bases does not directly apply to subdivided bases.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.05168",
+          "material_read": "§3 pp. 5,7, eqs. (10),(12), Theorems 2–3 (offsets 11700,17400); §4 pp. 8–9, Theorem 5 (offsets 22300–27250)",
+          "method": "Primary OA PDF and application to the cone",
+          "title": "Swift chiral quantum walks",
+          "trigger": "Same swift dynamics and cone gauge"
+        },
+        {
+          "assessment": "Confirms the flow terminology and attributes the cubic equivalence to Thomassen",
+          "evidence": "Abstract explicitly says Thomassen proved the converse in the cubic case; the newer work extends the equivalence to maximum degree at most four.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.18725v2",
+          "material_read": "Abstract and Definition 1.1 pp. 1–2; Theorem 1.2 located on p. 2, offset 5768",
+          "method": "OA PDF",
+          "title": "Reduction Operations and Characterizations of S¹-Flows in Graphs",
+          "trigger": "Broader graph-flow theorem and pointer to exact primary antecedent"
+        },
+        {
+          "assessment": "Genuine methodological overlap but disjoint base class",
+          "evidence": "Gives theta, figure-eight and barbell results, including circle and isolated assignments dependent on path/cycle parity; it concerns only rank-two bases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-swift-chiral-quantum-walks-on-cones-over-bicyclic-graphs--103d4467f9f2/RESULT.md",
+          "material_read": "Finding and scope, offsets 0 and 1100",
+          "method": "Resultary local search and mirror",
+          "title": "Swift chiral quantum walks on cones over bicyclic graphs",
+          "trigger": "Same date, cone classification, and phase spaces"
+        },
+        {
+          "assessment": "Related spectral problems, not used to infer full-document noncoverage",
+          "evidence": "The inspected passages concern least eigenvalues of line graphs and spectrum/polynomial bounds rather than a normalized unit complex Kirchhoff flow.",
+          "identifier_or_url": "DOI 10.13001/ela.2021.5249; arXiv:1812.03747v2",
+          "material_read": "Abstracts, p. 1 of the accessible PDFs",
+          "method": "OA primary abstracts",
+          "title": "Line Graphs of Complex Unit Gain Graphs with Least Eigenvalue -2; On the adjacency matrix of a complex unit gain graph",
+          "trigger": "Possible spectral equivalence for unit-gain graph constraints"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The subdivided-cone design question is natural and the translation can be pedagogically useful. Here the novelty-bearing obstruction and flow shape are already known; the midpoint identity translates the problem into exactly that shape, and the stated component count is the direct normalization bookkeeping. The frozen finding contains no separately developed classification, invariant or obstruction beyond this routine consequence of the cone and flow results.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

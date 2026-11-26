@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:09:07.081797Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–5",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py 2 (exact five-state quotient determinant, generating-function numerator, rational signs, literal binomial and sum histograms at depths 0–11; passed)"
+      ],
+      "rationale": "Kummer reduces oddness to no carry in n+2n, precisely no adjacent 1 bits. Process the quadruple least-significant bit first: disjoint masks impose admissibility, and (old carry + a_bit+b_bit−c_bit−d_bit)/2 must be integral. The carry is bounded by 1 in modulus; at depth r it is the signed integer difference divided by 2^r, so zero terminal carry accepts exactly ordinary equality. As an independent finite certificate, permuting the two inputs on each side and exchanging sides yields the five orbit types empty, singleton, same-side pair, cross pair, and all four. In this order their outgoing multiplicity rows are (1,0,2,4,1), (1,0,1,2,0), (0,2,0,0,0), (1,0,0,1,0), (1,0,0,0,0), with starting empty and terminal selector (1,1,0,1,1). All these types are reachable and return to empty; its self-loop makes the transfer primitive. Its characteristic polynomial and initial vector products yield the stated denominator and numerator by Cayley–Hamilton, without extrapolating finite data. The root bracket and P'(t)>0 on t≥7/2 identify the Perron root (which is at least the positive root in the bracket); nonnegative nonzero endpoints give positive leading coefficient. Counting completions from the last prefix digit yields exactly phi^(-r) or phi^(-r-1) and consistent cylinder probabilities for weak convergence; the limiting law starts with the virtual preceding digit 0 and need not be the stationary initial distribution. The squared prefix-sum mass is comparable to E_r phi^(-4r). Real tails are bounded by 2/3 each, so each prefix sum splits between two adjacent cells; squared masses before and after splitting/combining are comparable by fixed factors. This gives the exact dyadic exponent and the adjacent-cell comparison also gives the distance exponent. A Lebesgue L² density would require the dyadic squared mass multiplied by 2^r to stay bounded, which contradicts lambda>phi^4/2. No singularity conclusion follows from this bound alone.",
+      "residual_risks": [
+        "The proof uses the specific uniform-prefix limit and its comparability constants; it does not resolve absolute continuity, Fourier decay, or arbitrary measures on the same support."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu's abstract gives a finite-type matrix framework and differentiability results for a class of self-similar spectra; Shmerkin's surveyed formulas include the exponential-separation setting and convolution norm techniques.",
+          "Kenyon–Peres–Solomyak distinguish ordinary adjacent-11 exclusion in their introduction from their multiplicative x_k x_(2k)=0 constraint."
+        ],
+        "reasoning": "No inspected specialized spectral table or dominating theorem identifies the collision growth of this subshift. Matrices or norm comparisons supply a framework but do not imply the particular quotient spectrum without the signed-carry calculation; the presence of distinct pairs with the same ordinary integer sum is precisely the overlap that needs accounting for. Support dimensions for a different constraint are not the D₂ of this convolution.",
+        "searches": [
+          "Finite-type/Markov convolution and L^q matrix theory, Wu arXiv:2201.01909 and Shmerkin arXiv:1907.07121",
+          "Kenyon–Peres–Solomyak arXiv:1105.3441, multiplicative vs additive golden mean"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary/SCOPE comparisons listed above, including same-day records",
+        "OEIS A003714 and two exact searches",
+        "Kenyon–Peres–Solomyak, Spiegelhofer–Wallner, Wu and Shmerkin in the stated inspected scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pascal-row record gives ordinary two-sum multiplicities within separate odd-coefficient row supports. The four-adic record uses independent digits {0,1,3} with E_0=1,E_1=15 and E_(n+2)=25E_(n+1)−90E_n to obtain a real-line dimension. Spiegelhofer–Wallner count binomial valuations by digit patterns in Pascal rows."
+        ],
+        "reasoning": "The closest two general methodologies apply to different digit sets: independent four-adic digits have neither this binary carry transition nor the previous-admissibility mask, and certain Pascal-row supports differ from the proportional-binomial-index support. Neither supplies the recurrence nor the exact pressure for this dependent binary measure. The overlap-to-dimension principle itself is not new.",
+        "searches": [
+          "SCOPE odd Pascal-row two-sum spectra fd21e3c6e379 and three-digit four-adic real convolution 0a6383f8b10e",
+          "Spiegelhofer–Wallner arXiv:1604.07089 valuation generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A003714 gives the fibbinary support and its odd-binomial characterization.",
+          "SCOPE-exact-dyadic-valuation-law-for-binom-3n-n--499526ba814d gives the valuation distribution including F_(r+2) zero valuations; same-day SCOPE-exact-maximal-progression-census-for-odd-binom-3n-n--8b2885fb5572 counts positive-difference three-term progressions in exactly that support."
+        ],
+        "reasoning": "These aliases refer to the same support. Its cardinality or valuation histogram does not give multiplicities of equal integer pair sums. An arithmetic progression is an equal-sum quadruple with a repeated middle entry on one side, so that census covers only a subcollection, not all ordered quadruples; the statement inspected gives no reduction of the remaining collisions.",
+        "searches": [
+          "Fibbinary, golden mean no-adjacent-11 binary language, and odd binom(3n,n) ordinary pair-sum energy",
+          "Resultary exact dyadic valuation and maximal progression census for odd binom(3n,n)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A003714 lists the elements, not energies. Both literal OEIS energy searches returned no match.",
+          "Distinct same-day records 682a0f21ef72 (Franel, ordinary energy and 5-adic convolution), 3d01efd560fb (ternary Catalan, modular energy and Z_3 convolution), and 605c8c342956 (Apéry, modular sums and 11-adic convolution) explicitly give other exact invariants."
+        ],
+        "reasoning": "Objects, measures and addition differ in those exact records; they are not tables of these binary real-convolution values. Same-day dating is not evidence of an order. Literal no-match sequence searches are bounded, not evidence that the energy is absent under alternative indexing or encodings.",
+        "searches": [
+          "OEIS A003714; OEIS sequence searches for 1,6,19,69,244 and first ten terms ending in 135129",
+          "Resultary November 22 exact energy / convolution results"
+        ]
+      },
+      "rationale": "Bounded statement-level comparison supports the specific rational ordinary fibbinary energy and the exact real-convolution correlation dimension. Neither the already known support/parity and support size nor generic carry/finite-type machinery is credited as new. The literature assessment is not an exhaustive priority claim.",
+      "residual_risks": [
+        "An unindexed exact sequence or an implicit Markov-convolution evaluation could overlap. Abstract-only reads and keyword misses are not treated as exclusion evidence for entire papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Support statistics or three-term progressions, not all ordered two-sum collisions",
+          "evidence": [
+            "The zero valuation frequency is Fibonacci; the three-term progression count includes only collisions with prescribed repeated midpoint."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-dyadic-valuation-law-for-binom-3n-n--499526ba814d; 2026/11/22/SCOPE-exact-maximal-progression-census-for-odd-binom-3n-n--8b2885fb5572",
+          "material_read": "Both RESULT.md Finding passages, offset 0",
+          "method": "Resultary and targeted local-mirror reading",
+          "title": "Exact dyadic valuation law for binom(3n,n); Exact maximal progression census for odd binom(3n,n)",
+          "trigger": "Same exact underlying binomial-index support"
+        },
+        {
+          "assessment": "Different supports",
+          "evidence": [
+            "Counts within each fixed row, then sums those energies over rows."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-sum-spectra-and-dyadic-additive-energy-of-odd-pascal-r--fd21e3c6e379",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-sum spectra and dyadic additive energy of odd Pascal-row positions",
+          "trigger": "Same ordinary pair-sum statistic on binary binomial sets"
+        },
+        {
+          "assessment": "Different independent-digit measure, base and carry recurrence",
+          "evidence": [
+            "Independent base-four digits {0,1,3}; order-two energy recurrence beginning 1,15."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-correlation-dimension-and-an-l-obstruction-for-a-three-dig--0a6383f8b10e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact correlation dimension and an L² obstruction for a three-digit four-adic convolution",
+          "trigger": "Closest real energy-to-dimension precedent"
+        },
+        {
+          "assessment": "Methodological analogues, not equivalent claims",
+          "evidence": [
+            "Franel condition and 5-adic measure; ternary Catalan and modular 3-adic sums; Apéry nondivisibility and modular 11-adic sums."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-franel-support-additive-energy-and-a-near-critical-five-ad--682a0f21ef72; 2026/11/22/SCOPE-exact-two-sum-representation-and-additive-energy-of-ternary-unit--3d01efd560fb; 2026/11/22/SCOPE-sharp-pair-sum-fibers-and-singular-11-adic-convolution-of-ap-ry--605c8c342956",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Franel support energy; Ternary unit two-sum energy; Apéry paired-sum convolution",
+          "trigger": "Distinct same-day records with exact energy and convolution dimension"
+        },
+        {
+          "assessment": "Support known; no exact match on the two energy queries",
+          "evidence": [
+            "A003714 records integers with no consecutive binary ones and the parity criterion."
+          ],
+          "identifier_or_url": "https://oeis.org/A003714 and OEIS searches for the first five and first ten E_r",
+          "material_read": "A003714 entry and exact sequence query pages",
+          "method": "Public sequence database, page offset 0",
+          "title": "Fibbinary numbers and exact energy term lookups",
+          "trigger": "Potential known support or energy sequence"
+        },
+        {
+          "assessment": "Support context, different main constraint and dimension problem",
+          "evidence": [
+            "Multiplicative constraint x_k x_(2k)=0 is distinguished from adjacency."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.3441",
+          "material_read": "Abstract and additive shift discussion in the introduction (OA offsets 491 and 5644)",
+          "method": "Targeted OA passage inspection",
+          "title": "Hausdorff dimension of the multiplicative golden mean shift",
+          "trigger": "Same terminology and plausible broader dimension result"
+        },
+        {
+          "assessment": "General methods, not checked as exhaustive negative coverage",
+          "evidence": [
+            "Matrix representations and general convolution-norm/exponential-separation results do not themselves specify this transfer matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01909; https://arxiv.org/abs/1907.07121",
+          "material_read": "Wu abstract only; Shmerkin abstract and convolution discussion at OA offset 18376",
+          "method": "Bounded OA inspections",
+          "title": "Finite-type spectra and an L^q dimension survey",
+          "trigger": "Plausible general framework for the limiting convolution"
+        },
+        {
+          "assessment": "Relevant valuation-count context only",
+          "evidence": [
+            "Enumerates valuations of entries in Pascal rows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.07089",
+          "material_read": "Abstract, OA offset 0",
+          "method": "Targeted OA abstract",
+          "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+          "trigger": "Related digit transfer and binomial valuation enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and all-depth energy/dimension bridge",
+        "Kenyon–Peres–Solomyak additive-shift context",
+        "Distinct ordinary energy and four-adic convolution comparisons"
+      ],
+      "rationale": "The adjacent-11 binary shift is a standard dependent-digit model, and the odd-binomial support adds a natural arithmetic realization. Its support has dimension log(phi)/log(2)>1/2, so two summands have enough symbolic degrees of freedom that the sharp L² obstruction is not a support-dimension count. Ordinary sum collisions determine the precise rate of concentration under convolution; the exact growth exponent and D₂ quantify that rate and rule out an L² density in this canonical overlapping example. The rational energy also reports all finite dyadic scales, not an arbitrary finite window.",
+      "residual_risks": [
+        "This dimension computation does not distinguish singularity from absolute continuity with a non-L² density."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

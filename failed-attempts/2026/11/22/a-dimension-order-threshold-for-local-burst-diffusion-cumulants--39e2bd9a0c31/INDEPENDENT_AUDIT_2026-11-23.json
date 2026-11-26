@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:42:32.816705Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact law and asymptotic constants check out. For a burst of age t the count in a detector A is Bin(J,a(t)) with a(t)=e^(−μt)∫_A p_D(t,z)dz. Only finitely many past bursts contribute almost surely, since their expected number is bounded by bm_1/μ. The log pgf of the marked process is the stated age integral for −1<z≤0; its r-th differentiated integrand there is bounded by m_r e^(−rμt) for 1≤r≤k, and finite m_k ensures each such moment is finite. Differentiating from the left gives F_k=bm_k∫a(t)^k dt, also zero when m_k=0. For a source ball substitute u=Dt/ε² and use Q_d(u)^k=c_{d,k}u^(−dk/2)(1+O(1/u)). For dk>2 the integral is dominated by min(1,c_{d,k}u^(−dk/2)); for dk=2 subtract c_{d,k}/u beyond u=1 to get a bounded remainder and c_{d,k}log(D/(μ ε²)), where k only changes the bounded term. For dk<2 the unscaled, volume-normalized integrand is bounded by c_{d,k}(Dt)^(−dk/2)e^(−kμt) and its integral gives the stated gamma factor. Away from the source the normalized integrand has the additional Gaussian bound exp(−k|x|²/(16Dt)) for ε<|x|/2. An independent check of C_{2,2} uses the 4D zero-mortality Green kernel 1/(4π²|z|²) integrated on the unit disk product: radial squared variables give (1/4)∫_0^1∫_0^1(α+β)^−1 dα dβ=(log 2)/2. In 3D the unit ball gives ∫_0^1 r dr=1/2. In 1D the exponential resolvent integrated over [−ε,ε] gives the exact stated mean. Replay: RESULT.md (1) and proof steps 1–4; checker.py was inspected, not executed, and tests scaled source integrals, not the off-source law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kerscher Eq. (18) gives the log generating functional of Poisson clusters as the integral of a single-cluster functional minus one against parent intensity. His Eq. (7) identifies its coefficients with factorial cumulants and integrates them against detector indicators.",
+          "Mercado-Vásquez–Boyer Eq. (20) gives stationary mean density for arbitrary propagators in arbitrary dimension. Eq. (30) gives its Gaussian integral; §6.1 Eq. (64) multiplies the mean by mean burst size."
+        ],
+        "reasoning": "Using age as the parent variable in the cluster formula and binomially thinning a common-age burst yields the exact factorial-moment amplitude. The previously published mean resolvent then applies to the d k coordinates of the simultaneous observation and to every bounded product detector, not just a Euclidean ball in one child's coordinates.",
+        "searches": [
+          "Web: Poisson burst immigration Brownian diffusion point source factorial cumulants local shrinking detector balls critical dimension Poisson clusters mortal molecules",
+          "Kerscher arXiv:astro-ph/0102153v2, §II and §III.B Eq. (18)",
+          "Mercado-Vásquez–Boyer arXiv:2611.04843v1, §§3 and 6.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.04843v1",
+        "arXiv:astro-ph/0102153v2",
+        "2026/11/22/SCOPE-a-universal-square-root-transverse-correlation-ridge-for-burst-b--c46e2d0dd6be",
+        "Resultary Poisson-burst detector queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N=1 the resolvent is continuous at zero with value 1/(2√(Dkμ)); for N=2 it is (1/(2πD))log(1/|z|)+O(1); for N>2 its leading term is Γ(N/2−1)|z|^(2−N)/(4π^(N/2)D). These follow directly from (30), or the standard small-argument Bessel behavior, using (30) for normalization.",
+          "The offset center (x,…,x) has squared radius k|x|² and the kernel is smooth there for x≠0."
+        ],
+        "reasoning": "Scaling z=εw in the integrated kernel gives ε^N for N=1, ε² times the logarithm with coefficient Vol((B_d)^k)/(4πD) for the logarithm of 1/ε² at N=2, and ε² times the integral of the Newtonian singularity for N>2. The singular functions are locally integrable on the product domain. That Newtonian integral equals C_{d,k}/D by Tonelli and the Gaussian product formula. The mean-value limit at a fixed nonzero offset gives the exact off-source coefficient. Thus all exponents, sharp coefficients, and mortality independence follow by standard evaluation of an already specified governing kernel, not a new comparison between factorial orders not encoded in the mean law.",
+        "searches": [
+          "Prior mean resolvent (20), (29)–(33) versus RESULT.md trichotomy and off-source law",
+          "Kerscher log functional (7), (18) applied to ordered children of a common-age burst"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The independent k-child joint Gaussian density is the single Gaussian heat kernel in N=dk dimensions. The joint alive probability e^(−kμt) is the survival function of the minimum of k independent exponential lifetimes.",
+          "For any detector A, F_k(A)/(bm_k)=∫_{A^k}G_{N,kμ,D}(z) dz, where G=∫_0^∞e^(−kμt)p_D^{(N)}(t,z)dt is the older one-particle mean resolvent per unit birth rate."
+        ],
+        "reasoning": "A switch to tensor coordinates (child positions as blocks) is an identity holding before any limit. For a source ball, A^k=ε(B_d)^k; for a fixed offset, A^k is the translate of this set by (x,…,x). The product shape matters to the amplitude but not to the type of singularity. The exact reduction gives both versions from the same old kernel, including orders beyond the older 1D factorial-density record.",
+        "searches": [
+          "Resultary: Poisson burst immigration independent Brownian diffusion factorial cumulants shrinking ball point source threshold local cluster process",
+          "Resultary: local burst diffusion factorial cumulant integrating connected spatial density Poisson point source Brownian gas",
+          "arXiv:2611.04843v1, Eqs. (20), (29)–(33)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed related far-field ridge primary text gives its exact 1D order-j common-age density Φ_j(S), a Bessel resolvent in j dimensions, in addition to a far-field limit.",
+          "The earlier arXiv mean formulas give the exponent and exact normalization at N=1 and N=3 without a separately indexed table of burst-cumulant constants."
+        ],
+        "reasoning": "The ridge claim alone, being a large-distance limit, is not coverage; its exact density already covers the shrinking-interval problem at d=1, k>=3 after integration over a cube. The absence of any separate table entry for log(2)/2 is not evidence of an independent structural result: in the disk product the classical four-dimensional Newtonian integral reduces to the elementary double integral shown under correctness.",
+        "searches": [
+          "Resultary: local burst diffusion factorial cumulant integrating connected spatial density Poisson point source Brownian gas",
+          "arXiv:2611.04843v1, literal check of Eqs. (30)–(33)"
+        ]
+      },
+      "rationale": "The higher-order occupancy has exactly the established one-particle mean resolvent in dimension dk, integrated over a product detector, with source intensity bm_k and mortal rate kμ. This is stronger coverage by explicit product-process reduction, not a claim that a d-dimensional mean by itself specifies higher cumulants. The motivating prior paper and standard factorial-cumulant formula together give the entire local threshold and the off-source law by the standard near-zero behavior of the same radial kernel. The planar numerical constant is an elementary integration of that kernel over two disks, not a separate surviving hierarchy.",
+      "residual_risks": [
+        "An older source may state the detector trichotomy explicitly; the disposition does not depend on locating such a statement or on relative ordering of the same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact arbitrary-propagator stationary mean resolvent; with Poisson cluster differentiation and the product-process reduction it covers the local laws",
+          "evidence": "Eqs. (20), (30), (32), (33), (64).",
+          "identifier_or_url": "https://arxiv.org/html/2611.04843v1",
+          "material_read": "§3.1 Eq. (20); §3.2 Gaussian and stationary resolvent Eqs. (29)–(34); §6.1 and beginning of §6.2",
+          "method": "Primary arXiv full-text HTML",
+          "title": "Stochastic synthesis and degradation of arbitrary diffusive processes",
+          "trigger": "Same Brownian source model and potential kernel in changing dimension"
+        },
+        {
+          "assessment": "Direct source for the standard cluster reduction; no assertion that Kerscher states a Brownian detector theorem",
+          "evidence": "Eqs. (5), (7), and (18).",
+          "identifier_or_url": "https://arxiv.org/pdf/astro-ph/0102153",
+          "material_read": "§II generating-functional and count-in-cells formulas and §III.B Poisson cluster representation through Eq. (18)",
+          "method": "Primary arXiv PDF text",
+          "title": "Constructing, characterizing, and simulating Gaussian and higher-order point distributions",
+          "trigger": "Earlier general Poisson cluster generating functional and its factorial-cumulant interpretation"
+        },
+        {
+          "assessment": "Same-date related evidence giving exact kernels in d=1, not needed to establish priority and not itself an explicit source-ball theorem",
+          "evidence": "Φ_j(S) product heat-kernel identity and Bessel form, j≥3; the asserted limit is R→∞.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-square-root-transverse-correlation-ridge-for-burst-b--c46e2d0dd6be",
+          "material_read": "Public RESULT.md, exact cluster-cumulant and Bessel section, far-field theorem and its limitations",
+          "method": "Primary public GitHub contents API text",
+          "title": "A universal square-root transverse correlation ridge for burst-born mortal Brownian particles",
+          "trigger": "Related exact common-age spatial factorial density in the same model on the line"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The source/off-source contrast and planar pair constant are useful benchmarks. But as a standalone research claim, the hierarchy is the textbook dimension-two Green singularity under an exact dimension substitution, and the two constants are elementary integrations of the already determined kernels. The record resolves no remaining structural comparison or independent detector invariant beyond those deductions. This is not a criticism of its mathematical correctness or usefulness as an explanatory note.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

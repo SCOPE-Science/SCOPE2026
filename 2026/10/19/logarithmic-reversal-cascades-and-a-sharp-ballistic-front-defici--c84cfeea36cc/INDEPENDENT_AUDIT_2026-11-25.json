@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:40:37.747110Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On every compact log-coordinate interval [a,1] with a>0, the Bernoulli mean measures converge by the integral test to c du/u, and the summed quadratic error in the log Laplace functional is bounded by the maximum Bernoulli probability times the bounded sum. Thus the limiting Poisson process gives joint upper order statistics: first work on [a,1] and then send a to zero, using infinitely many atoms at zero's boundary and no ties. The mapping u=exp(-s/c) gives rate-one exponential arrival spacings. Since 0<U_2<U_1<1 almost surely, the previous reversal is o_P(T_N) and T_N is o_P(N). In the actual step convention the opposing block contains steps max(1,L) through T_N-1, and all opposing steps precede T_N. Therefore N-V_N X_N lies between 2(T_N-max(1,L)) and 2T_N, and equals B_N when T_N<N/2. The missing-reversal conventions have vanishing probability by independence and divergence of the reversal mean. This proves both the sharp ratio and the continuous Beta(c,1) threshold limit. Frozen verify_edge.py is a finite exact-product/simulation cross-check, not the proof or an independent replay. RESULT.md's 'six independent comparisons' does not match its four checkpoints at each of three c values (12 checks, with common samples within each c), as correctly tallied in VERIFICATION.md. That reporting discrepancy does not enter the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engländer–Volkov–Wang prove the random ballistic-ray limit for p_n=o(1/n), sum p_n diverging; the record's regime is included.",
+          "Pradhan and coauthors explicitly discuss c/[t(log t)^alpha], including alpha=1 and divergence of the expected number of flips at that boundary."
+        ],
+        "reasoning": "The broad ballistic theorem only resolves an order-N observable. The logarithmic scale of B_N is not determined by convergence of B_N/N to zero; many different deficit scales give the same order-N limit. Divergence of reversals by itself also gives neither their logarithmic hierarchy nor the edge law.",
+        "searches": [
+          "Web: \"coin-turning walk\" time-dependent reversal probabilities slowly varying rates Poisson extremes logarithmic ballistic front deficit",
+          "Engländer–Volkov–Wang arXiv:1904.10953v2, §4.2.3",
+          "Pradhan–Ray–Roy arXiv:2605.20116v1, p. 5"
+        ]
+      },
+      "checked_sources": [
+        "Engländer–Volkov–Wang arXiv:1904.10953v2",
+        "Pradhan et al. arXiv:2605.20116v1",
+        "Arratia–Barbour–Tavaré (1999), §2",
+        "The two mirrored Resultary Findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coin-turning result uses macroscopic time and position scaling; the ranked indexed crossover instead yields a ds/s process in linearly rescaled time for its triangular array.",
+          "Poisson extremes are standard once an intensity-c du/u limit is given; the standard order law does not concern the walker."
+        ],
+        "reasoning": "One still must prove the new regime's Poisson scaling in log k/log N, separate its two latest reversals on the ordinary step scale and bound opposite-terminal-velocity steps to obtain the sharp ratio. These extra links, rather than an alternative parameterization of Poisson atoms, are the supported contribution.",
+        "searches": [
+          "arXiv:1904.10953v2, strongly critical limit",
+          "arXiv:2605.20116v1, logarithmic schedules",
+          "Arratia–Barbour–Tavaré §2",
+          "Mirrored nonlinear logarithmic-window crossover RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arratia–Barbour–Tavaré (1999), §2, gives ordered points (U_1...U_i)^(1/theta) of the intensity-theta dx/x process, with iid uniforms.",
+          "The indexed Nonlinear logarithmic-window beta crossover obtains a ds/s Poisson limit in a triangular-array regime but with coordinate k/N and schedule c k^(-alpha_N)."
+        ],
+        "reasoning": "Exponentiating homogeneous Poisson arrival times and taking products of uniforms are exactly the same atom hierarchy, and the largest atom has the same Beta form at equal intensities. This identity is credited; neither identified occurrence turns the original walk's edge deficit into its last reversal time in the fixed logarithmically corrected schedule.",
+        "searches": [
+          "Resultary: persistent random walk coin-turning walk time-inhomogeneous reversal probability c/(k log k) ballistic front deficit last reversal Poisson cascade",
+          "Resultary: last reversal time persistent random walk N minus absolute position ballistic boundary deficit logarithmic Beta(c,1) reversal probabilities p_k",
+          "Web: \"scale-invariant Poisson process\" \"dx/x\" largest points exponential arrival times Poisson-Dirichlet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-nonlinear-logarithmic-window-beta-crossover-for-persistent-rando--c7b3e1d0eeb5 gives a triangular-array path limit and a symmetric Beta position marginal.",
+          "2026/11/2/SCOPE-phase-cycled-ballistic-laws-for-a-logarithmically-periodic-teleg--2d558ac7f439 gives phase-dependent weak ballistic laws for continuous rates r(log(1+t))/(1+t)."
+        ],
+        "reasoning": "The matched entries are distinct and materially related, but neither ranges over the fixed sequence with k log k p_k→c nor studies the last-turn-normalized deficit. A symmetric Beta law for rescaled position is not the Beta(c,1) exponent of the distance to either edge. Ranked hit sets are not exhaustive.",
+        "searches": [
+          "Resultary: persistent random walk coin-turning walk time-inhomogeneous reversal probability c/(k log k) ballistic front deficit last reversal Poisson cascade",
+          "Resultary: last reversal time persistent random walk N minus absolute position ballistic boundary deficit logarithmic Beta(c,1) reversal probabilities p_k"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint logarithmic reversal aging for the fixed sequence p_k~c/(k log k) as it determines the actual deficit B_N, especially B_N/(2T_N)→1 and the resulting edge law. The schedule, the coarse random ballistic-ray limit, and the ordered scale-invariant Poisson atom law itself are covered and do not count as new. Inspected primary and indexed results did not establish the walk-level sharp law for this regime. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "Unindexed inhomogeneous-renewal or persistent-walk results might have an equivalent sharp deficit or terminal-age theorem.",
+        "The Poisson order law is established prior work in its own right, and the originality pass does not extend to that law or the broad ballistic ray."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the coarse ray, not the asserted fine edge scale",
+          "evidence": "If p_n=o(1/n) and sum p_n diverges, the limit is R(t)=tR with R equally likely ±1 under the paper's fair starting convention.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.10953v2",
+          "material_read": "Turn model pp. 2–3 and §4.2.3, p. 13",
+          "method": "Open PDF passages near characters 4300 and 36000",
+          "title": "The coin-turning walk and its scaling limit",
+          "trigger": "Same independent time-inhomogeneous turn model and a theorem whose hypotheses include the frozen schedule"
+        },
+        {
+          "assessment": "Same schedule family, transition-level statements rather than the edge law",
+          "evidence": "Lists c/[t(log t)^alpha] and the expected-reversal-count threshold at alpha=1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.20116v1",
+          "material_read": "Main-text schedule and transition paragraph, p. 5",
+          "method": "Open PDF passage near offset 39200",
+          "title": "Diffusive-to-Ballistic transition in a Persistent Random Walk",
+          "trigger": "Explicit logarithmically corrected inverse-time reversal schedule"
+        },
+        {
+          "assessment": "The ordered limiting atom formula is directly covered",
+          "evidence": "The intensity theta dx/x process is obtained by exponentiating a homogeneous process and its ordered points are iid-uniform products raised to 1/theta.",
+          "identifier_or_url": "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT99a.pdf",
+          "material_read": "§2, pp. 408–409",
+          "method": "Open PDF passage near offset 4150",
+          "title": "The Poisson–Dirichlet Distribution and the Scale-Invariant Poisson Process",
+          "trigger": "Exact equivalent product form of the ordered logarithmic reversal limit"
+        },
+        {
+          "assessment": "Same kind of limiting point process; different schedule, scaling and observable",
+          "evidence": "p_(N,k)=min(1,c k^(-alpha_N)), alpha_N=1+beta_N/log N; intensity c exp(-beta) ds/s and symmetric Beta position marginal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-nonlinear-logarithmic-window-beta-crossover-for-persistent-rando--c7b3e1d0eeb5/RESULT.md",
+          "material_read": "Finding: precise triangular-array schedule, path limit, Poisson times and position marginal",
+          "method": "Local Resultary search and mirrored full-text passage from offset 0",
+          "title": "Nonlinear logarithmic-window beta crossover for persistent random walks",
+          "trigger": "Strongest indexed logarithmic/Beta/Poisson reversal comparison"
+        },
+        {
+          "assessment": "Different regime and no sharp deficit-identification claim in the compared statement",
+          "evidence": "Uses rate r(log(1+t))/(1+t), rather than an inverse-time rate with a vanishing logarithmic factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-phase-cycled-ballistic-laws-for-a-logarithmically-periodic-teleg--2d558ac7f439/RESULT.md",
+          "material_read": "Finding: continuous rate and phase-dependent ballistic limits",
+          "method": "Local Resultary search and mirrored passage from offset 0",
+          "title": "Phase-cycled ballistic laws for a logarithmically periodic telegraph process",
+          "trigger": "Related indexed ballistic law with a logarithmic time scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The deficit is the natural distance from the endpoint of the finite walk's ballistic support, not an arbitrary rescaling of position. The result quantifies a front profile that the macroscopic ray cannot distinguish and identifies the single reversal that determines the deficit to relative accuracy. This gives threshold probabilities for all interior exponents and retains the full hierarchy of recent turns, despite logarithmically slow convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

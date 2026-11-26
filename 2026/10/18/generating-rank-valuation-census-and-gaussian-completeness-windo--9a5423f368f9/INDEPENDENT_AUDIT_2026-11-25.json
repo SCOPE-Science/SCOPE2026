@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:26:56.188451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Permuting worlds within a signature class fixes the valuation and preserves the order, hence all term values are unions of classes. For a nonempty generator contained in U, adjoining its pseudocomplement gives U. For a proper generator meeting L, intersecting it with the upward closure of its complement gives U. Relative complements are then given by restricting pseudocomplement to the bottom Boolean interval, and adjoining U to co-negation in the top interval. Thus both Boolean intervals realize every signature-class union and share just U; the all-constant tuple instead generates only the extrema. Injectivity forces the two ceiling-log budgets and is achieved at that budget by including a lower all-ones signature (except that the two-singleton chain needs U itself as a generator). Choosing the upper coordinates and then distinct labeled words gives the falling factorial; inclusion–exclusion removes all-zero lower coordinate columns, which would be assigned to the wrong type. The subtraction of the constant 2^k tuples is needed only for two singleton levels and handles k=0. In the balanced random model, conditioning on the coordinate-type set gives independent uniform upper words and lower bits conditioned on nonzero columns; the error from dropping that condition is at most k_t 2^−t. Birthday bounds make either injectivity factor essentially a step at 2 log₂t outside a strip of diverging width o(√log₂t); binomial anti-concentration handles the strips. The type count has mean k_t/2+o(1), variance asymptotic to log₂t, and a normal limit under this scaling. Both sides clear the birthday boundary on the limiting centered interval (−c/2,c/2) for c>0; at c=0 the mass vanishes by continuity, and c<0 cannot give a nonempty interval. This yields the claimed Gaussian formula.",
+      "status": "PASS",
+      "verification": "Independent bit-mask semantic enumeration over 1≤m,n≤3 and 0≤k≤3 closed each ordered tuple under intersection, union and both residuals using down/up closures and compared size and full-generator counts. It matched 8,936 tuples and 36 census cases, including counts 0,1,5 at k=0,1,2 for m=n=1. The frozen CHECKER.py and VERIFICATION.md provide the separate recorded replay, python3 CHECKER.py in the record directory, with the same finite range; the uploaded code was not executed in the review. Neither test establishes the Gaussian limit."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general result identifies which generated subalgebra to consider; it does not evaluate it for a valuation tuple. The chain-power result uses distinct positivity words plus intermediate-level coverage on a product algebra. The same-day two-level frame summary is about isomorphisms and automorphisms."
+        ],
+        "reasoning": "The upset lattice here is an ordinal sum of two Boolean intervals meeting at U, not the direct power used for chains. The general results inspected do not supply the two signature budgets, their count, or their random competition.",
+        "searches": [
+          "arXiv:2607.18956v1 §3.5, Proposition 18",
+          "Resultary 89cf3ed71236 (finite Heyting chain powers) and e897bc8f02b3 (two-level frames)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.18956v1",
+        "Resultary 89cf3ed71236",
+        "Resultary fa9265d0f358 and e897bc8f02b3 (summaries)",
+        "Taylor thesis and Badia 2016 (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chain-power birthday limit is e^−θ when its collision parameter tends to θ, with word length fixed by the number of variables. The two-level model instead gives binomially split coordinate budgets and a simultaneous injectivity constraint."
+        ],
+        "reasoning": "A one-budget birthday estimate is a component of the proof, but does not imply the two-budget normal-window limit. The additional junction and relative-complement argument is needed to connect injectivity to exact generation and enumerate the coordinate types.",
+        "searches": [
+          "arXiv:2607.18956v1 Proposition 18",
+          "Resultary 89cf3ed71236 Finding, offset 0–4000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 18 identifies definability with double-Heyting generation for general bi-intuitionistic models. Resultary fa9265d0f358 describes a closely analogous complete two-level generation problem using Heyting operations, not both residuals; its main file was not available."
+        ],
+        "reasoning": "Definability and algebra generation are already equivalent, but forgetting co-implication does change generation. For two lower worlds and one upper world, a generator comprising U and one lower world generates the full double-Heyting algebra; with Heyting operations alone it generates only the constants and itself. This rules out identifying the two generation problems without additional argument.",
+        "searches": [
+          "Resultary: exact generator census and birthday window for bi-Heyting complete two-level upset algebras",
+          "arXiv:2607.18956v1 Proposition 18",
+          "Primary search: double Heyting height-two poset generated subalgebra upset algebra valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "89cf3ed71236 gives a finite-chain-power generating-tuple census. The fa9265d0f358 summary mentions a signed-Stirling census and singleton-layer phase change for the Heyting version; no local mirror full text was available."
+        ],
+        "reasoning": "The available exact census is for a different algebra, and the close complete-two-level summary uses a different signature of operations. No equivalent exact entry was established; the unavailable full text remains a limitation, not negative evidence.",
+        "searches": [
+          "Resultary: exact generation census, complete two-level poset; hits fa9265d0f358 and 89cf3ed71236"
+        ]
+      },
+      "rationale": "The new content supported by the inspected comparisons is the explicit signature algebra, ordered census and two-budget Gaussian completeness window for complete two-level double-Heyting upset algebras. The general definability-as-generation statement and birthday methods are prior background, not distinct claims.",
+      "residual_risks": [
+        "An equivalent result in older finite double-Heyting algebra literature may have escaped the search. The Taylor thesis and Badia 2016 full texts were not available, and the fa9265d0f358 formula-level comparison is incomplete.",
+        "Unrelated or empty primary search results are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational overlap, not an evaluated census",
+          "evidence": [
+            "Definable upsets are precisely the double-Heyting subalgebra generated by propositional valuations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.18956",
+          "material_read": "v1 p. 16, Proposition 18, PDF-text offset 38495",
+          "method": "Bounded OA PDF passage",
+          "title": "Definable Classes of Models and Frames in Bi-intuitionistic Logic",
+          "trigger": "General characterization of the same definable algebra"
+        },
+        {
+          "assessment": "Different algebra, criterion and probability scaling",
+          "evidence": [
+            "Distinct positivity words plus per-coordinate intermediate-level coverage; Poisson birthday success limit e^−θ."
+          ],
+          "identifier_or_url": "89cf3ed71236",
+          "material_read": "RESULT.md offset 0–4000",
+          "method": "Resultary and local mirror text",
+          "title": "Exact generating-tuple census and birthday law for finite Heyting chain powers",
+          "trigger": "Exact generator counts and birthday law in a related algebra"
+        },
+        {
+          "assessment": "Close Heyting analogue; no exact full-text comparison",
+          "evidence": [
+            "Available synopsis specifies Heyting generation and a singleton-layer exception."
+          ],
+          "identifier_or_url": "fa9265d0f358",
+          "material_read": "Resultary summary; full mirror RESULT.md unavailable",
+          "method": "Resultary lookup and attempted local mirror retrieval",
+          "title": "Exact generator census and a singleton-layer phase change in two-level upset algebras",
+          "trigger": "Same two-level frame family and sharp rank/census claims"
+        },
+        {
+          "assessment": "Unresolved priority background",
+          "evidence": [
+            "Repository retrieval was denied; no claim inferred from that."
+          ],
+          "identifier_or_url": "https://opal.latrobe.edu.au/ndownloader/files/38762820",
+          "material_read": "No full text retrieved",
+          "method": "Lawful OA and alternate-route attempt",
+          "title": "Double Heyting Algebras",
+          "trigger": "Thesis with plausibly relevant finite-algebra background"
+        },
+        {
+          "assessment": "Unresolved priority background",
+          "evidence": [
+            "No repository copy was obtained."
+          ],
+          "identifier_or_url": "10.1007/s11225-016-9664-1",
+          "material_read": "No full text retrieved",
+          "method": "Lawful OA attempt",
+          "title": "Bi-simulating in bi-intuitionistic logic",
+          "trigger": "Potentially related definability via bi-simulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are natural generation invariants of an explicit finite frame family: the signature description identifies the actual definable sets and supplies an exact count for each alphabet size. It also explains why typical uniform generation needs roughly twice the optimum deterministic budget and why the random window is Gaussian rather than a single fixed-budget birthday transition. This gives a useful complete calculation on a nontrivial family without claiming general height-two or nonuniform results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

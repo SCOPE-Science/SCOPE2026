@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For normalized independent Gaussian TT cores, Gaussian isotropy gives the exact conditional squared-projection law \(\mathbb E[(u^{\mathsf T}\omega)^2\mid\mathcal F_k]=S_k\). Conditional Gaussian fourth-moment contraction yields \(\mathbb E S_k^2\le(1+2/r)^k\), with equality for separable unit tensors. Positive-semidefinite spectral decomposition, the centered \(L^2\) triangle inequality, and conditional independence between suffixes establish both terms of the sharp variance envelope simultaneously. For separable rank-one targets the same moments are equalities, and a product of independent chi-square factors gives the strong-law limit. The gamma-ratio expansion proves the proportional-order lognormal limit. The local reproduction program passed 11,529 exact rational / finite asymptotic / supporting Gaussian-contraction checks; finite experiments were not used as proofs.
+PASS
 
-## Originality — PASS (subject to residual indexing risk)
+The partially contracted normalized tensor has squared Frobenius norm S_h. Conditioned on its predecessor and writing lambda_i for the reshaped contraction's squared singular values, S_h has the law sum_i lambda_i chi²_(r,i)/r with sum_i lambda_i=S_(h-1). Its conditional second moment is S_(h-1)^2+(2/r)sum_i lambda_i^2, at most (1+2/r)S_(h-1)^2. Centered Jensen over the PSD spectral decomposition transfers both single-probe and conditional-mean variance bounds to every trace-one target. The last core gives conditional fourth moment 3S_(d-1)^2, and conditioning on the shared cores gives the exact two-term variance decomposition. Every separable direction makes each conditional map rank one, attaining both bounds simultaneously. The ratios then have conditional laws independent of the preceding tensor, so the same shared prefix multiplies independent suffix factors. This verifies the finite law, almost-sure random limit and persistent MSE for the stated coupling, including k=0, k=d-1, L=1 and r=1. The gamma-ratio expansion around zero and log(1+2/r) yield the proportional limits under exactly the stated scalings. Replay of the independent proof: reviews/evidence/tt_moments.md. The frozen checks were inspected but not executed and do not establish generality. No pointwise exact variance formula is claimed for arbitrary PSD targets.
 
-Closest directly relevant source: Bujanović, Kressner and Olić, arXiv:2606.15679v1, Definition 1, Lemma 4, Theorem 5, Theorem 7. It establishes marginal Gaussian TT fourth moments and concentration using independent complete TT vectors; those facts are acknowledged and provide an ingredient, not the exact joint-law variance for samples with shared initial cores. Cazeaux, Dupuy and Figueroa Justiniano, arXiv:2603.11009 (full PDF, §§3–5), analyze TTStack independent row blocks and cross-mode partial sketches but not correlated Hutchinson trace repetitions of the specified kind. Meyer and Avron, arXiv:2309.04952 (full PDF, §§1–3), study independent Kronecker probes rather than shared prefixes at general TT rank. Bujanović and Kressner, arXiv:2004.06433, concern independent rank-one structured probes. Searches for these titles, source IDs, common-core aliases, conditional cross moments and shared-prefix sampling in published mathematical records disclosed no identical or stronger coverage. Search failure alone is not proof of novelty. The largest residual risk is an unindexed treatment of correlated structured trace probes; the theorem has no independent literature audit.
+## originality
 
-## Value — PASS
+PASS
 
-The paper's independent-vector concentration guarantees invite a natural implementation question: can many TT probes reuse already-generated cores while independently completing the remaining tensors? The exact two-term extremal law determines the price of that sharing, including a strictly positive sampling-error floor for every finite bond rank and any nonempty common prefix. Its sharpness over every PSD matrix and the proportional-order phase law yield mathematically precise configuration criteria, not an arbitrary isolated example or a routine sign/normalization check. The phenomenon matters when exploiting tensor structure for stochastic numerical trace estimation; no runtime speedup is claimed.
+Two primary papers already cover the marginal Gaussian TT or rMPS sharp variance, and independent averaging covers k=0. The strongest indexed exact alternatives concern one-probe order dependence and one-vector coordinate covariance with independent probes. None of the inspected results analyzes the joint shared-prefix law, finite-probe random-scale factorization and resulting persistent worst-case floor. That coupled-law contribution is the basis of the pass, not the known marginal moment tools or the independent-probe specialization.
 
-## Scientific boundaries
+## value
 
-The result is restricted to a fully shared prefix of real standard Gaussian TT cores with a common bond rank, a deterministic PSD target and an exact trace estimator. The rank-one witness demonstrates worst-case nonconsistency but does not imply every target has this behavior. The lognormal statement requires simultaneous proportional rank/core limits. No comparison of stochastic runtime costs or finite-precision schemes is attempted. Bibliographic uniqueness has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reusing initial cores is a natural structured-probe design. Knowing its exact worst-case variance, rather than only that some correlation arises, shows when suffix resampling cannot make the estimator consistent, quantifies the rank/order tradeoff, and provides a concrete worst-case family and law. This concerns accuracy under reuse, not a claimed improvement in cost or performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

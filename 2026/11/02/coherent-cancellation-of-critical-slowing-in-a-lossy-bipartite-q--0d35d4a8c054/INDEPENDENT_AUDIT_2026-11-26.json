@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:02:25.360665Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and steps 1–5",
+        "Frozen VERIFICATION.md and check_critical_walk.py, inspected without execution"
+      ],
+      "rationale": "For a Bloch mode with s=|v+w exp(ik)|>0 the loss identity makes every eigenvalue of the evolution generator strictly stable: equality of the real part to zero would force the lower component to vanish, which the coupling forbids for a nonzero eigenvector. As a separate check, write the integrated-survival Gramian as Q solving A*Q+QA=-I with A=-iH after removing the hopping phase. Its off-diagonal entry has imaginary part -1/(2s) and real part Delta/(gamma s). The lower diagonal entry is 2/gamma and its upper entry exceeds that by (Delta^2+gamma^2/4)/(gamma s^2). Parseval and Tonelli therefore give the exact integral with the stated normalization, including possible infinite mean. Complete absorption follows by dominated convergence because the one nondecaying momentum at criticality has measure zero. At v=w=h a finite polynomial must vanish at -1 to make the quadratic singularity integrable; division by (1+z) then reduces the integral to the squared quotient-coefficient norm divided by h^2. Multiplication by (1+z) on length L-1 vectors has Gram matrix with diagonal 2 and adjacent entries 1, whose simple largest eigenvalue is 4 cos^2(pi/(2L)) with the stated sine vector; Rayleigh–Ritz gives the value and uniqueness up to translation and phase, including L=2, while L=1 cannot cancel. Off the critical diagonal the normalized reciprocal denominator is a Poisson kernel centered at pi, of unnormalized mass 1/|v^2-w^2|. In the cancelling case the factored ratio is bounded by 4/(v+w)^2 using the exact denominator (v-w)^2+vw|1+exp(ik)|^2, yielding the finite pathwise limit. The form (2+Delta^2 I)/gamma+gamma I/4 gives the displayed optimized loss rate. The divergence asymptotic is read off the diagonal; exactly on it a noncancelling state's mean is already infinite.",
+      "residual_risks": [
+        "The 231 numerical comparisons are reported in the source, not independently rerun here. They are not required for the analytic theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite uniform path has an exact quadratic lifetime for coherent vectors and one endpoint sink; the dimerized finite path treats localized endpoint input. Thiel et al. give an exact mean for preparation in the decay state. The spin-pumping work discusses a protected dark edge state."
+        ],
+        "reasoning": "None of those scoped statements supplies an infinite-volume Bloch-weighted lifetime with loss on every lower-sublattice site and arbitrary finite upper-sublattice input. The relevant model limits, sink placements, or preparation classes differ.",
+        "searches": [
+          "Resultary exact survival-time operator and sink-rate optimization, 38f306607e7a",
+          "Resultary finite dimerized endpoint absorption, a3167f0249f0",
+          "Thiel–Kessler–Barkai arXiv:1912.08649",
+          "Rudner–Levitov arXiv:1005.4809"
+        ]
+      },
+      "checked_sources": [
+        "Rudner–Levitov arXiv:0807.2048 and arXiv:1005.4809",
+        "Rudner–Levin–Levitov arXiv:1605.07652",
+        "Thiel–Kessler–Barkai arXiv:1912.08649",
+        "Resultary records 21a1671ad092, 38f306607e7a, a3167f0249f0, f5a2406fc87a and 4b28ac603d2b",
+        "Frozen RESULT.md, scope and prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse-square near-node behavior plus a smooth modal weight explains why a first-order zero can suffice; the largest eigenvalue of the finite tridiagonal Gram matrix is a standard sine-mode computation."
+        ],
+        "reasoning": "The shared ingredients would not by themselves give the exact all-parameter Gramian coefficient and finite contiguous-length optimum. The latter depends on factoring the coherent input and converting the correct lifetime normalization to this particular Gram matrix, not on claiming novelty for tridiagonal spectral theory.",
+        "searches": [
+          "arXiv:0807.2048 p. 3 and arXiv:1605.07652 classification passages",
+          "Resultary 21a1671ad092 Finding",
+          "Frozen RESULT.md Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rudner–Levitov use a localized input and Golden Rule modal approximation; the critical dark Bloch mode has k=pi. The later dark-state paper classifies modes decoupled from the environment."
+        ],
+        "reasoning": "The Bloch node is a property of the generator. The frozen Fourier zero instead makes the mean of integrated survival finite for a normalized polynomial input, without removing the node or predicting a surviving norm in infinite volume. Finite-support hypotheses are essential to this stated criterion.",
+        "searches": [
+          "Resultary: coherent packet lifetime, lossy bipartite quantum walk, Fourier-node cancellation and sine envelope",
+          "Rudner–Levitov arXiv:0807.2048 Eqs. (12)–(13)",
+          "Rudner–Levin–Levitov arXiv:1605.07652, dark-state setup and classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest sine-envelope entry 21a1671ad092 optimizes eventual absorption on an endpoint-sink half-line and gives a sharp large-block law. The finite-chain dark-mode entry f5a2406fc87a gives survival plateaux, not a mean lifetime of an absorbed state."
+        ],
+        "reasoning": "A sine-shaped trial packet and an asymptotic preparation scaling for a different functional do not furnish the exact all-L eigenvalue or uniqueness statement. The indexed exact survival results were compared at statement level rather than excluded by their titles.",
+        "searches": [
+          "Resultary indexed critical lifetime and coherent sine-envelope comparisons, including 21a1671ad092, 38f306607e7a, a3167f0249f0 and f5a2406fc87a"
+        ]
+      },
+      "rationale": "The original walk and its dark momentum and localized dwell-time divergence are known. The inspected sources support those mechanisms but do not supply the normalized finite-packet critical mean-lifetime criterion together with the exact finite-block minimum and its uniquely selected preparation. The closest exact survival-operator and sine-envelope comparisons are for finite paths or endpoint-sink half-lines, with different operators or objectives. The pass concerns the combined exact coherent-preparation result in the infinite bulk-loss model and is subject to the stated search limits.",
+      "residual_risks": [
+        "Bounded semantic and primary-source searches are not exhaustive; an earlier coherent-wavepacket treatment or a general finite-support variational result might overlap. An empty external lookup is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known mechanism and localized asymptotic, not the exact finite coherent optimization",
+          "evidence": "Uses p_k(t) approximately exponential near the dark momentum and deduces a localized divergence proportional to 1/|v-v'|.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.2048",
+          "material_read": "p. 1 localized preparation around OA offset 5200; p. 3 Eqs. (12)–(13) at offset 19400 and dark momentum around 24828",
+          "method": "Targeted primary full-text passages",
+          "title": "Topological Transition in a Non-Hermitian Quantum Walk",
+          "trigger": "Same bulk loss model and critical dwell-time divergence"
+        },
+        {
+          "assessment": "General dark-mode mechanism, not this finite-polynomial lifetime theorem",
+          "evidence": "Dark states are nondecaying states decoupled from the environment; the classification concerns those modes.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.07652",
+          "material_read": "Abstract and setup/classification passages around OA offsets 19000–29000",
+          "method": "Targeted primary full-text passages",
+          "title": "Survival, Decay, and Topological Protection in Non-Hermitian Quantum Transport",
+          "trigger": "Dark states and Bloch topology in dissipative transport"
+        },
+        {
+          "assessment": "Different geometry and objective; sine profile reaches asymptotic scaling",
+          "evidence": "The statement concerns far-field absorption on a half-line with a boundary absorber, rather than exact minimum critical mean survival with distributed loss.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-coherence-length-law-for-boundary-absorption-of-quantum--21a1671ad092",
+          "material_read": "Finding at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Indexed search and bounded local-mirror text",
+          "title": "A sharp coherence-length law for boundary absorption of quantum walkers",
+          "trigger": "Sharp contiguous-block law with a sine-envelope preparation"
+        },
+        {
+          "assessment": "Related exact quadratic lifetime method but not equivalent scope",
+          "evidence": "Gives c*Qc on a finite uniform path with an endpoint absorber, not the infinite critical Bloch model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-survival-time-operator-and-sink-rate-optimization-on-finit--38f306607e7a",
+          "material_read": "Finding at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Indexed search and bounded local-mirror text",
+          "title": "Exact survival-time operator and sink-rate optimization on finite quantum paths",
+          "trigger": "Exact coherent-initial-state survival time and sink-rate optimization"
+        },
+        {
+          "assessment": "Distinct edge mechanism",
+          "evidence": "Discusses a dark edge state with no overlap with the decaying singlet and extended lifetime near criticality.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.4809",
+          "material_read": "p. 5 around OA offset 39800",
+          "method": "Targeted primary full-text passage",
+          "title": "Phase Transitions in Dissipative Quantum Transport and Mesoscopic Nuclear Spin Pumping",
+          "trigger": "Possible critical dark-state comparison in the same physics literature"
+        },
+        {
+          "assessment": "Different initial-state regime",
+          "evidence": "The quantized mean w/(2 Gamma) assumes preparation in the decay state.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.08649",
+          "material_read": "p. 1 around OA offset 1200",
+          "method": "Targeted primary full-text passage",
+          "title": "Quantization of the Mean Decay Time for Non-Hermitian Quantum Systems",
+          "trigger": "An exact non-Hermitian decay-time formula that might be broader"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, critical cancellation, optimization and limitations",
+        "Rudner–Levitov arXiv:0807.2048 p. 3, localized divergence"
+      ],
+      "rationale": "The result separates eventual absorption from finite mean survival at a critical coupling in a standard dissipative model. It gives a concrete way to remove the lifetime divergence using only two adjacent sites, and a sharp support-budget law and unique state for every larger contiguous block. This resolves the preparation problem more precisely than identifying a dark mode or estimating the lifetime of a localized input.",
+      "residual_risks": [
+        "A Fourier zero requires coherent, exactly phased preparation. The claims do not extend here to finite boundaries, scattered support, arbitrary square-summable sequences, or nonuniform loss."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

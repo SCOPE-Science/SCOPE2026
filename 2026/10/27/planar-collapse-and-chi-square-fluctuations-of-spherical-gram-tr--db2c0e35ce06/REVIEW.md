@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The conditional expectation of the triangle kernel given a pair is the squared pair inner product divided by \(d\); the first-order projection is constant. Spherical fourth moments give the exact kernel variance, the pair-projection variance, and the canonical remainder variance. Orthogonality yields the all-sample-size variance. The remainder is zero precisely when \(d=2\), also verified by the rank-two Gram-determinant identity. A traceless-symmetric matrix central limit theorem, with explicitly computed covariance eigenvalue \(2/[d(d+2)]\), proves the non-Gaussian centered chi-square limit. Independent exact and quadrature computations cross-check critical steps; finite experiments do not prove the limit.
+## correctness
 
-**Originality: PASS on the inspected evidence, with residual historical-priority risk.** The 2022 Gram-method paper defines the sphere-vector correlation model but does not establish the claimed signed triangle's exact variance or fixed-dimensional fluctuation. The 2015/2016 signed-triangles geometric graph result works with centered adjacency indicators from a distance threshold, not raw three-inner-product cycles. The indexed LKJ triangle result gives a third mixed moment in a full-rank random-correlation model, not the pair/third Hoeffding decomposition, planar dimension classification, or fixed-\(d\), \(n\to\infty\) limit. General degenerate U-statistic theory does not by itself compute the equal eigenvalues or the exact residual. A broader older random-kernel triangle theorem could still overlap; one related full public record was not accessible.
+PASS
 
-**Value: PASS.** The statistic is the signed three-cycle trace contribution of an empirical Gram matrix. Its exact finite-sample fluctuations are pertinent to null calibration of correlation-network cyclic summaries. The vanishing of all genuine third-order variation uniquely at \(d=2\) is a structural boundary, and the explicit non-Gaussian chi-square law prevents applying an inappropriate Gaussian calibration in fixed-dimensional regimes.
+For X_i=U_i U_i^T−I/d, the triangle is tr((I/d+X_i)(I/d+X_j)(I/d+X_k)). Its linear terms vanish by tracelessness, the pair terms equal ((U_i·U_j)^2−1/d)/d, and the cubic term is completely degenerate by independence and E X_i=0. Pair and cubic contributions are orthogonal, even at partial index overlap. Fourth spherical moments yield E h²=(d+8)/(d²(d+2)²), Var(h)=A=(d−1)(d²+8d+4)/(d⁴(d+2)²) and pair-projection variance B=2(d−1)/(d⁴(d+2)); the third-order variance per triple is A−3B=(d−2)(d−1)(d+4)/(d⁴(d+2)²). Distinct triples sharing exactly one edge have covariance B and there are C(n,2)C(n−2,2) unordered such pairs. The planar identity is the vanishing 3-by-3 Gram determinant. The repaired Bingham comparison is exact: B_n−m=d(d+2)P/n, so the pair contribution after n² scaling is (1−2/n)(B_n−m)/(d²(d+2)); Var(Q/n²)=O_d(1/n). This verifies the same fluctuation law, finite variance coefficient and d=2 and n=3 boundaries, with no assumption of full-rank Gram matrices. The frozen Python script was inspected, not executed; actual simulation n=500 differs from a stale n=1000 inline comment, and the icosahedral checks use floating-point tolerance. Neither is used in the proof.
 
-Closest inspected sources: Archakov–Hansen–Luo, arXiv:2210.08147 (model and full major sections); Bubeck–Ding–Eldan–Rácz, arXiv:1411.5713 (PDF model, results and signed-triangle section); indexed LKJ triangle-moment record (scientific summary only). Priority risk remains for older, differently named Gram-cycle or degenerate U-statistic results. Scope is fixed integer sphere dimension and iid uniform vectors. This is not a claim of independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the repaired finite-sample claim: the exact total and degenerate third-order variances and the resulting dimension-specific error in the pair approximation. The repair explicitly credits the exact pointwise Gram identity as elementary and the limiting law as a consequence of the classical Bingham null limit, not independent novelty. The checked moments and broader asymptotics do not give the exact all-n third-order residual.
+
+## value
+
+PASS
+
+The signed triangle sum is the distinct-index part of the cubic Gram trace, and its natural pair approximation is the centered frame potential. The exact residual variance gives the finite-sample mean-square loss incurred by replacing triangles with pairs, with a sharp dimension boundary: loss is zero in the plane and strictly positive elsewhere, though asymptotically lower order at fixed d. This information is useful when distinguishing higher-order terms from a known pair fluctuation; it is not supplied by the limiting distribution alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

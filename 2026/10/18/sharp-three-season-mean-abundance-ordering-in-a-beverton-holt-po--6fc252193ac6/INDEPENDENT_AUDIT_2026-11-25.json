@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:08:47.487300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof lines 13–27; reciprocal return map independently composed",
+        "Frozen VERIFICATION.md and verify.py, read without executing",
+        "Independent exact replay: python3 /workspace/branches/beverton_holt_gap_check.py (SymPy)"
+      ],
+      "rationale": "For order (u,v,w), the map on the reciprocal y over three seasons is y↦(y+1+u+uv)/P. It has a unique positive attracting fixed point exactly for P>1; rotating the formula gives the other phases. For P≤1 the map instead drives y to infinity, and each within-period phase does so as well. For P>1, after canceling the mean's common factor (P−1)/3, the oriented mean difference is (b−a)/A−(c−a)/B+(c−b)/C, where A,B,C are the two-factor products for pairs ab,ac,bc respectively. I checked the expanded identity (b−a)BC−(c−a)AC+(c−b)AB=(b−a)(c−a)(c−b)(P−1)Q as an exact polynomial over the integers. Putting back the common factor gives the claimed formula and strictly positive sign. The example for (1/2,2,8) gives difference 36603/271700 by rational arithmetic. All permutations for periods one or two are phase shifts, and the two classes for three distinct rates have the stated strict inequality. In the unbounded-ratio family (1/t,t,t³), the leading reciprocal denominator for (a,b,c) is 1/(2+1/t) and for (a,c,b) is 1/(2+t), with the remaining terms O(t^−3) and O(t^−2), respectively. Their quotient is asymptotic to t/2.",
+      "residual_risks": [
+        "Deterministic cycle arithmetic mean and three seasons only. The ratio family requires allowing a multiplier below one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Sacker derive exact periodic mean formulas, including (B1) at period three, for x↦uKx/(K+(u−1)x). Substituting K=u−1 gives the bound dynamics where all u>1.",
+          "Allen–Kocic is a plausible nearby source on periodic coefficients; primary text was not recovered from the publisher or a lawful repository."
+        ],
+        "reasoning": "The earlier mean formula covers the phase-mean calculation on that overlap, but its inspected statements compare with environmental carrying capacity, not the two cyclic growth-rate classes against each other. The explicit sign and unbounded gain require a further comparison; the specified unbounded family leaves the all-u>1 subdomain.",
+        "searches": [
+          "Yang–Sacker DOI 10.1080/10236198.2012.726988 Eq. (3), §3, Appendix B",
+          "Allen–Kocic DOI 10.1080/10236198.2013.854779"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic lookups and mirrored records 22d77e67c415, a83ea653873b",
+        "AlSharawi–Ben Haj Rhouma 10.1155/2010/215875",
+        "Yang–Sacker 10.1080/10236198.2012.726988",
+        "Allen–Kocic 10.1080/10236198.2013.854779 retrieval only",
+        "Al-Ghassani–AlSharawi 10.1016/j.amc.2019.124905 accessible abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question 3 explicitly asks for nonconstant intrinsic growth. The two means can be computed using prior formulas in an overlap, but those formulas do not identify which is larger; the gap calculation needs the additional positive Vandermonde factorization.",
+          "The 2020 permutation paper accessible abstract concerns fixed quotas and geometric means, not the arithmetic means of growth order classes."
+        ],
+        "reasoning": "Neither a cyclic mean formula nor order dependence in another parameter proves a uniform orientation sign, especially when an individual season can shrink the population. The singular parameter family proving unbounded gain is not implied by those results.",
+        "searches": [
+          "Yang–Sacker §3 and Appendix B (B1)",
+          "AlSharawi–Ben Haj Rhouma p. 17 Question 3",
+          "Al-Ghassani–AlSharawi DOI 10.1016/j.amc.2019.124905"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.4(ii) already distinguishes two period-three means by reordering capacities at constant intrinsic growth.",
+          "Resultary 22d77e67c415 compares orientations for constant intrinsic growth and varying crowding, including ordinary mean; a83ea653873b concerns two-season quota allocation and persistence."
+        ],
+        "reasoning": "Normalizing varying growth to constant growth by a periodic phase-dependent abundance rescaling makes the target arithmetic mean a weighted mean of the rescaled phases. The crowding sequence and the weights moreover depend on the order, so the constant-growth crowding orientation comparison does not transfer under that rescaling. Quota permutations also do not represent growth-rate permutations.",
+        "searches": [
+          "Bounded Resultary semantic lookups for three-season growth-multiplier ordering and periodic Beverton–Holt orientation",
+          "AlSharawi–Ben Haj Rhouma DOI 10.1155/2010/215875 §3",
+          "Resultary 22d77e67c415 and a83ea653873b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned records concern crowding permutations or quotas. The cited period-three numerical example compares capacity permutations; no exact matching statement appeared in the inspected results."
+        ],
+        "reasoning": "The bound result is uniform on an open domain in three real variables, not a claim about a tabulated triple; a numerical order effect in a different parameter regime is not an exact table match.",
+        "searches": [
+          "Bounded Resultary semantic lookups for three-season order effects, factored mean gap and Beverton–Holt maps permutation",
+          "Resultary 22d77e67c415 and a83ea653873b mirrored findings",
+          "AlSharawi–Ben Haj Rhouma Example 3.4(ii)"
+        ]
+      },
+      "rationale": "Existing work already shows that three-season order can matter, and gives general periodic mean formulas. The supported distinct result is the strict ordering of the two growth-rate permutation classes with a fixed denominator, its exact positive gap and its unbounded relative advantage; neither a bare order effect nor the mean formula alone is new.",
+      "residual_risks": [
+        "Allen–Kocic full text unavailable after lawful retrieval attempts; 2020 permutation paper inspected at abstract level only. Bounded corpus lookup does not establish priority or rule out unindexed equivalents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close related example for a different parameter, not this ordering theorem",
+          "evidence": "At fixed μ=4, ordered capacities (1/2,2,30) and (30,2,1/2) give 2.195 and 1.671; asks to extend to nonconstant intrinsic growth.",
+          "identifier_or_url": "https://link.springer.com/article/10.1155/2010/215875",
+          "material_read": "§3 Example 3.4(ii), print p. 8, offset 22800; Question 3, p. 17, offset 53183",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "The Discrete Beverton-Holt Model with Periodic Harvesting in a Periodically Fluctuating Environment",
+          "trigger": "Same period-three abundance order effect"
+        },
+        {
+          "assessment": "Material formula overlap for all growth multipliers above one; no orientation or unbounded-gain statement in inspected portions",
+          "evidence": "The arbitrary-period state-average formula and period-three expression compare with environmental capacity; K_j=u_j−1 yields the fixed denominator when u_j>1.",
+          "identifier_or_url": "https://dornsife.usc.edu/robert-sacker/wp-content/uploads/sites/256/2023/06/Yang-Sacker-BH.pdf",
+          "material_read": "Abstract offset 4475, Eq. (3) offset 12409, §3 pp. 1181–83, Appendix B (B1) offset 115279",
+          "method": "Bounded OA author-hosted PDF inspection",
+          "title": "Resonance and attenuation in the n-periodic Beverton–Holt equation",
+          "trigger": "Potential stronger result for varying growth and explicit period-three mean"
+        },
+        {
+          "assessment": "Specific unresolved comparison risk, not evidence of either coverage or noncoverage",
+          "evidence": "Publisher route refused access and no lawful repository copy was identified.",
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2013.854779",
+          "material_read": "Bibliographic identification only in this review; no primary passage recovered",
+          "method": "Publisher and lawful OA repository lookup",
+          "title": "Resonance in Beverton–Holt population models with periodic and random coefficients",
+          "trigger": "Periodic population coefficients; possible overlap"
+        },
+        {
+          "assessment": "Accessible statement differs in both intervention and criterion; no whole-paper exclusion inferred",
+          "evidence": "Permutation of periodic harvesting quotas preserves total yield, but may affect the population geometric mean.",
+          "identifier_or_url": "https://ideas.repec.org/a/eee/apmaco/v370y2020ics0096300319308975.html",
+          "material_read": "RePEc abstract, offset 0; publisher full text unavailable",
+          "method": "Bounded accessible abstract and DOI retrieval attempt",
+          "title": "The effect of maps permutation on the global attractor of a periodic Beverton–Holt model",
+          "trigger": "Same model family and permutations"
+        },
+        {
+          "assessment": "Strong analogue for the distinct crowding-permutation problem",
+          "evidence": "Constant intrinsic growth, three distinct seasonal crowding coefficients, strict oriented sign, including ordinary mean at q=0.",
+          "identifier_or_url": "Resultary 22d77e67c415, RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published-record local mirror",
+          "title": "A sharp three-season arrow of time invisible to reciprocal-abundance autocorrelation",
+          "trigger": "Strict orientation ordering at period three for mean abundance"
+        },
+        {
+          "assessment": "Different order, parameters and objective",
+          "evidence": "Two-season quota assignments, switching and initial-abundance persistence thresholds.",
+          "identifier_or_url": "Resultary a83ea653873b, RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published-record local mirror",
+          "title": "A one-switch law for quota ordering in two-season Beverton–Holt persistence",
+          "trigger": "Seasonal ordering in the same model family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "AlSharawi–Ben Haj Rhouma Example 3.4(ii), Question 3"
+      ],
+      "rationale": "At the shortest period permitting a noncyclic reordering, the persistence threshold is order-invariant but the positive arithmetic mean has a universal strict ranking and can change by an unbounded factor. This separates viability from abundance in a naturally parameterized model, rather than merely illustrating order dependence with a chosen numerical example.",
+      "residual_risks": [
+        "No ecological optimization recommendation or claim for more than three seasons follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

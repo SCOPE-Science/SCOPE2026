@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:45:14.964794Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof parts 1–5; VERIFICATION.md; CHECK.py (inspected)",
+        "Independent tail diagnostics: /workspace/branches/analytic_record_diagnostics.py and .txt"
+      ],
+      "rationale": "The compact shift has ||S^m||=1/m!, and the functional coefficients are square summable with zero coefficient at e₀, so F is bounded, rank one and square-zero. The positive-coordinate equations give injectivity. Orthogonality to the range implies y₁=0 and yₙ₊₁=−conj(α)y₀ for all n≥1; square summability forces y=0. Compactness on the infinite-dimensional space implies the dense range is not closed and puts zero in the Fredholm essential spectrum. Summing the resolvent matrix element gives e^(1/λ)−1−1/λ; the rank-one inverse formula supplies precisely its reciprocal level set and one-dimensional eigenspaces. Since R′=−R², the rank-one resolvent difference has trace D′/D; the local Riesz projection has rank equal to the zero order. The critical points of e^z−1−z are 2πik with second derivative one. Only k≠0 can occur at the permitted levels, each level produces just one double zero, and reciprocation gives the claimed sign and coefficient of the square-root splitting. For large roots e^Re(z)=|z+1+β| forces Re(z)=log|z|+O(1/|z|); the argument localizes every large root to the indicated disk indexed by j. The principal-log fixed-point map has derivative O(1/|j|) throughout each large-index disk and maps it into itself; a root there uses that same j because its principal argument stays near sign(j)π/2. Thus all but finitely many roots are exhausted. The two |z_j|=2π|j|+O(1) tails give the bounded counting error; the difference from the reference two-sided p-series is uniformly summable near p=1. The Schatten threshold is unchanged by a finite-rank perturbation, including for 0<p<1. Real positive β gives one positive and one negative real root by convexity; equality in the positive-coefficient power-series triangle inequality forces equal phases for the z² and z³ terms, hence positive real z, proving the unique maximum-modulus eigenvalue. The positive root has e^z=β(1+o(1)) and the negative root is −1−β+o(1) as β→+∞. Independently checked tail roots by the log fixed-point equation; finite diagnostics do not certify infinite exhaustion.",
+      "residual_risks": [
+        "The tail and counting remainders are at fixed nonzero coupling; no uniform estimate near zero coupling or eigenvector basis claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bračič–Kandić's §6 perturbation construction uses summable positive nonincreasing shift weights and an odd characteristic function for its Picard argument.",
+          "Corless et al. provide the broader scalar tools.",
+          "Resultary a7f916e3b699 treats weights n^(−1/m) and e^(az^m)−1 with m≥2."
+        ],
+        "reasoning": "The present weights are nonsummable and the characteristic function is not odd; the degree-at-least-two theorem also does not apply. The scalar part that does follow from the more general Lambert results is explicitly credited.",
+        "searches": [
+          "Bračič–Kandić arXiv:2611.12208v1, §6, Lemma 6.1 and Theorem 6.4",
+          "Corless et al., §4 all-branch and branch-point expansions",
+          "Resultary a7f916e3b699, degree and weight assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Tcaciuc arXiv:1805.03277; Bračič–Kandić arXiv:2611.12208v1; Corless et al. §4",
+        "Resultary 30900d9d4e5c, a7f916e3b699, af46bfb6e14e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-branch expansion gives the two reciprocal-root tails and their bounded-remainder count after relabeling; the branch point −1/e gives β∈2πiℤ before excluding β=0.",
+          "The exact rank-one resolvent reduction and Riesz multiplicity argument are needed to identify this operator's exceptional couplings and its single 2×2 Jordan block at each."
+        ],
+        "reasoning": "The earlier shift result concerns a different operator, and the scalar results alone do not identify the operator. The distinct contribution is the unified exact classification of this natural nilpotent perturbation, not a claim to discover the scalar function's generic ramification or a new general counting method.",
+        "searches": [
+          "Compare Tcaciuc §2, Bračič–Kandić §6 and Corless §4 with frozen equations (1)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tcaciuc uses exactly the same shift but retains the zeroth coefficient of the functional, giving e^z−1 and an idempotent rank-one operator.",
+          "Writing C=1+β, the scalar equation is equivalent as a root set to z=−C−W_j(−e^(−C))."
+        ],
+        "reasoning": "Removing the coefficient changes the secular function by −z and makes F square-zero, not just a reindexing or scalar shift of the untruncated example. The Lambert formulation does recover the scalar collisions and root asymptotic, but it is not a published classification of the specified operator and Jordan structure.",
+        "searches": [
+          "Tcaciuc arXiv:1805.03277, §2 Example, after a one-place index change",
+          "Corless et al., Lambert W, equations (4.18), (4.20), (4.22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "30900d9d4e5c concerns a geometric-weight compact shift and logarithmic count.",
+          "a7f916e3b699 has an explicit power count and boundary coefficient 1/π, but degree m≥2 and a different secular equation.",
+          "af46bfb6e14e uses a noncompact unweighted shift with exterior eigenvalues, not accumulation at zero."
+        ],
+        "reasoning": "The catalog contains substantial related constructions, but none of these exact result statements gives this square-zero factorial-shift defect lattice or multiplicity classification. A shared count constant in the degree-m theory is not equivalent coverage.",
+        "searches": [
+          "Resultary 30900d9d4e5c, a7f916e3b699, af46bfb6e14e; square-zero/nilpotent rank-one spectral counts and exceptional couplings"
+        ]
+      },
+      "rationale": "Pass for the concrete square-zero truncation and its operator spectral classification, particularly the exact coupling lattice with algebraic defect and the resulting contrast with the untruncated shift example. Rank-one resolvents, scalar Lambert W ramification and all-branch asymptotics are antecedents. In particular the scalar two-tail estimate and 1/π counting coefficient are direct corollaries of classical Lambert asymptotics once this specific characteristic function is found, not independent new scalar asymptotic theorems.",
+      "residual_risks": [
+        "Unindexed examples of the same truncated operator are not excluded. No priority asserted for scalar Lambert W consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for untruncated perturbation only",
+          "evidence": "Includes e₁ coefficient equal to one in its indexing; secular function e^(1/λ)−1; special quasinilpotent coupling −1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.03277",
+          "material_read": "§2 Example, PDF p. 6, offset near 14900",
+          "method": "OA full-text passage",
+          "title": "On quasinilpotent operators and the invariant subspace problem",
+          "trigger": "Exact factorial shift and nearly identical functional"
+        },
+        {
+          "assessment": "Qualitative antecedent; sharper operator claim not covered by this theorem",
+          "evidence": "Summable shift weights and odd scalar function in the nilpotent construction yield infinitely many components.",
+          "identifier_or_url": "https://arxiv.org/html/2611.12208v1",
+          "material_read": "§6, Lemma 6.1 through Theorem 6.4, offsets 119500–133881",
+          "method": "OA original HTML passages",
+          "title": "On operators with many spectral components",
+          "trigger": "General square-zero perturbation and spectral component result for shifts"
+        },
+        {
+          "assessment": "All-branch expansion and square-root branch collision directly cover scalar ingredients",
+          "evidence": "W_j(x)=Log x+2πij−log(Log x+2πij)+O(log|j|/|j|) at large |j|; expansion at −1/e.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/research/tr/1993/03/W.pdf",
+          "material_read": "§4, pp. 349–351, eqs. (4.18), (4.20), (4.22)",
+          "method": "Lawful OA full text",
+          "title": "On the Lambert W function",
+          "trigger": "Exact reduction to Lambert W; strongest scalar coverage"
+        },
+        {
+          "assessment": "Different shift and count",
+          "evidence": "Geometric weights and two roots per late annulus give logarithmic growth.",
+          "identifier_or_url": "Resultary 2026/11/17 30900d9d4e5c",
+          "material_read": "RESULT.md statement in local mirror",
+          "method": "Configured local mirror",
+          "title": "A two-ray geometric eigenvalue law for a nilpotent rank-one perturbation",
+          "trigger": "Related compact quasinilpotent shift and square-zero perturbation"
+        },
+        {
+          "assessment": "Distinct operator and degree range",
+          "evidence": "m≥2 and e^(az^m)−1, rather than the degree-one shift with linear term removed from e^z.",
+          "identifier_or_url": "Resultary 2026/11/17 a7f916e3b699",
+          "material_read": "RESULT.md statement in local mirror",
+          "method": "Configured local mirror",
+          "title": "Critical bounded rank-one realization of spectral stars with exact counting",
+          "trigger": "Related power counting with the same coefficient"
+        },
+        {
+          "assessment": "Noncompact shift and exterior counting, not same operator",
+          "evidence": "Unweighted shift, real outliers and a logarithmic count.",
+          "identifier_or_url": "Resultary 2026/11/22 af46bfb6e14e",
+          "material_read": "RESULT.md statement in local mirror",
+          "method": "Configured local mirror",
+          "title": "Countably many exterior spectral components from an arbitrarily small perturbation",
+          "trigger": "Related square-zero perturbation with infinitely many components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations; Tcaciuc §2 Example; Corless et al. §4"
+      ],
+      "rationale": "Imposing square-zero on the classical factorial-shift rank-one example by removing its zeroth coefficient is a motivated structural change, not an arbitrary parameter slice. The exact defective coupling lattice accumulating at zero distinguishes a concrete infinite-dimensional perturbation from the untruncated example, which instead has an exceptional quasinilpotent coupling. This gives a calculable test case for rank-one multiplicity and weak-coupling questions: the same family exhibits isolated defective eigenvalues, a membership/counting threshold and two inequivalent real weak-coupling scales. The value rests on that operator construction and exact classification, not on rederiving Lambert W asymptotics.",
+      "residual_risks": [
+        "One shift and one rank-one direction; no basis or generic-coupling theorem for larger families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:28:45.231704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first component of T²(A,B)=(A,B) forces AB=−B, and the second becomes B−B², so the exact period-two pairs are precisely those with AB=−B, B²=0 and B≠0. The proof uses the stated multiplication order and also works in characteristic two: the first coordinate still changes when B≠0. The next matrix in the second coordinate is −B, so the rank count is a point count and division by two is correct. A rank-r square-zero map is equivalent to a flag im B=U⊆K=ker B together with an isomorphism V/K→U; choices of A extend −I on U and give q^{n(n−r)}. This also shows there is no such pair in dimension one. Expanding the product leaves exponent n²+nr−2r²=9n²/8−2(r−n/4)². For r=m+k and n=4m+s, the sums of the defects of the numerator factors are O_q(q^{r−n}+q^{2r−n})→0, which justifies product convergence despite the growing number of factors. The product multiplier is uniformly bounded by P_q⁻¹, so a summable discrete Gaussian dominates the zero-extended rank counts, proving both normalized limits and the orbit prefactor. The final sentence about a typical square-zero matrix is read in its stated conditional ensemble: B from a uniform two-cycle point. A uniformly sampled square-zero matrix by itself instead has leading rank exponent 2r(n−r), centered near n/2. The frozen script tests T² only after filtering B for square-zero and rank; it does not literally iterate all pairs as described in RESULT.md, and its limit check samples a central mass, not the entire law. As an independent unfiltered computation, /workspace/branches/replay_vieta_gf4.py checked all 65,536 ordered pairs in M₂(F₄) and found 240 exact period-two points, all rank one (120 orbits), in agreement with the formula. No packaged checker was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The associative-ring result applies to matrix rings and same-map catalogue records cover short periods over finite reduced commutative rings, finite fields or binary chain rings. The binary chain ring entry has an exact period-two count at length 10."
+        ],
+        "reasoning": "The broader qualitative existence criterion genuinely covers existence here. Neither the other ring families' counts nor that criterion give the exact all-dimension rank distribution of M_n(F_q). The same publication date of several catalogue records does not establish their order.",
+        "searches": [
+          "arXiv:2611.07521v1 §7",
+          "doi:10.2298/PIM1206035L",
+          "Resultary bea141355804, a8799d46a536, e988f4ba1aa2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py inspected",
+        "Resultary records 8e1923338d93, bcab65bc9423, 55b0cf94c8d7, bea141355804, a8799d46a536 and e988f4ba1aa2",
+        "arXiv:2611.07521v1; DOI 10.2298/PIM1206035L and Bounds official page (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prime-power flag count from the prior record combines with a new rank-dependent extension weight q^{n(n−r)} when sampling period-two points. Completing the resulting exponent gives n/4 and the four residue shifts; theta normalization follows from the uniform product bound."
+        ],
+        "reasoning": "The prior flag formula and nilpotence criterion do not substitute into the prior zero-product rank limit to yield this theorem. One must identify and count the dynamic extension fibers, control their multiplicity as orbits, and normalize the resulting different interior saddle. The elementary method does not make the two probability laws equivalent.",
+        "searches": [
+          "arXiv:2611.07521v1 Statement 4.1 and §7",
+          "Resultary bcab65bc9423 exact rank stratum; 55b0cf94c8d7 summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chernev–Chernev define precisely the same map (a,b)→(a+b,ab) under the terminology of associative-ring structure graphs. Their Statement 4.1 and matrix discussion use the equivalence between existence of a 2-cycle and the presence of a nontrivial nilpotent."
+        ],
+        "reasoning": "The structural equivalence includes the same noncommutative problem, not merely a similarly named Vieta map. Existence of a two-cycle says nothing about how many A extend the prescribed map on the image of B or how those fibers weight its rank.",
+        "searches": [
+          "Resultary: matrix Vieta structure graph exact rank refined two-cycle M_n(F_q) square-zero AB=-B four-phase discrete Gaussian n/4, zero-product matrix pairs rank law",
+          "Primary search: finite associative ring structure graph two-cycle matrix rank census",
+          "arXiv:2611.07521v1 Definition 3.1 and Statement 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8e1923338d93 is the identical frozen result. The older catalogue record bcab65bc9423 explicitly gives the exact Gaussian-binomial square-zero factor. The catalogue summary of 55b0cf94c8d7 gives a discrete-Gaussian imbalance of complementary ranks for zero-product pairs; its original file was not accessible."
+        ],
+        "reasoning": "The exact prior square-zero table is a factor, not the orbit stratum; the old exponent 2r(n−r) is centered at the boundary near n/2. The AB=0 result uses another conditioned ensemble and imbalance, not an exact listing of matrices satisfying both B²=0 and AB=−B or of their cycle points.",
+        "searches": [
+          "Resultary: matrix Vieta structure graph exact rank refined two-cycle M_n(F_q) square-zero AB=-B four-phase discrete Gaussian n/4, zero-product matrix pairs rank law",
+          "Resultary records 8e1923338d93, bcab65bc9423 and 55b0cf94c8d7"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the rank-refined dynamic census and fixed-field four-phase limit, with the orbit normalization. The same ring map, qualitative two-cycle existence criterion and exact square-zero rank stratum are prior content and are not credited as new. The distinction is the conditional orbit weight by rank and resulting quarter-centered limit, not the Gaussian-binomial ingredients in isolation.",
+      "residual_risks": [
+        "The full Lipkovski and Bounds texts and the original zero-product Resultary statement were not available in bounded retrieval; no negative evidence is inferred from access failure.",
+        "An unlocated enumeration of the same matrix structure graph could contain the weighted census. The comparisons establish no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine qualitative overlap; the inspected matrix argument is about existence, not rank counting",
+          "evidence": "Uses (a,b)→(a+b,ab); Statement 4.1 equates existence of some 2-cycle with some nontrivial nilpotent, and §7 applies this to matrix rings.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.07521v1",
+          "material_read": "Definition 3.1 p. 3, Statement 4.1 p. 4, matrix discussion §7 p. 9; PDF offsets 6500–8797 and 17800–20748",
+          "method": "OA original PDF",
+          "title": "On the Connected Components of Structure Graphs of Associative Rings",
+          "trigger": "Identical map and a two-cycle theorem for associative rings"
+        },
+        {
+          "assessment": "Exact prior factor of the census, but different statistic and no dynamic extension weighting",
+          "evidence": "States and proves [n choose r]_q [n−r choose r]_q |GL_r(q)| as the square-zero rank-r multiplicity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-degree-strata-recover-rank-and-square-zero-type-in-matrix-zero-d--bcab65bc9423",
+          "material_read": "RESULT.md exact square-zero rank count and flag argument",
+          "method": "Original Resultary local mirror",
+          "title": "Degree strata recover rank and square-zero type in matrix zero-divisor graphs",
+          "trigger": "Exact rank-stratified count of square-zero matrices"
+        },
+        {
+          "assessment": "Summary documents a different ensemble and statistic; no whole-document exclusion",
+          "evidence": "Reports complementary ranks and a parity-sensitive imbalance law for uniformly sampled AB=0 pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-discrete-gaussian-ranks-and-exponentially-rare-homology-among-ze--55b0cf94c8d7",
+          "material_read": "Catalogue summary only; listed local mirror file was unavailable",
+          "method": "Resultary lookup and bounded local-mirror retrieval attempt",
+          "title": "Discrete-Gaussian ranks and exponentially rare homology among zero-product matrix pairs",
+          "trigger": "Plausible prior fixed-field rank limit"
+        },
+        {
+          "assessment": "Precise original coverage beyond the reported qualitative result was not inspected",
+          "evidence": "The accessible later source cites Lipkovski for the nontrivial nilpotent criterion.",
+          "identifier_or_url": "https://doi.org/10.2298/PIM1206035L",
+          "material_read": "No original result text; Chernev–Chernev pp. 4 and 10 give the attribution",
+          "method": "Bounded original full-text attempt; timed out",
+          "title": "Digraphs associated with finite rings",
+          "trigger": "Earlier source cited for the two-cycle existence criterion"
+        },
+        {
+          "assessment": "Not used to exclude material overlap",
+          "evidence": "The accessible material is not a full theorem passage for any matrix-rank comparison.",
+          "identifier_or_url": "https://scholar.rose-hulman.edu/rhumj/vol21/iss1/4/",
+          "material_read": "Official landing page and abstract, not full text",
+          "method": "Bounded publisher access",
+          "title": "New Theorems for the Digraphs of Commutative Rings",
+          "trigger": "Cited same-map commutative ring cycle results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem quantifies the period-two structure of a natural graph on full matrix algebras, where qualitative existence and the square-zero condition do not indicate the typical cycle rank. The extension multiplicity shifts the center from roughly n/2 to n/4, with order-one fluctuations and an explicit four-phase normalization for the orbit total. That weighting phenomenon and all-rank census provide useful information beyond rederiving the flag table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

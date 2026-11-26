@@ -1,19 +1,21 @@
-# Review of the three-shape transit-response theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized gamma Laplace transform is derived from the assumed rate parameters, and all rates are positive. The three rational difference identities and their strictly negative logarithmic elasticities imply exactly one positive crossing for every pair. A polynomial division with an everywhere-positive remainder at the \(1\)-versus-\(2\) crossover forces the \(2\)-versus-\(3\) crossing to precede it; uniqueness places the remaining crossing in between. The exact response classification is a consequence of these inequalities, not a finite simulation. The supplementary standalone checker passes 438 deterministic assertions.
+PASS
 
-## Originality
+The gamma Laplace transform gives the normalized responses for r>1 and t>0 with equal means. I rederived the three positive rational functions H_ij=f_i-f_j and checked symbolically that each logarithmic elasticity decreases strictly: the negative logarithmic-curvature numerator has positive coefficients after removal of its common factor z. The ratio H_ij(rt)/H_ij(t) goes strictly from r^2 to r^(-i), giving one and only one crossing with the stipulated sign orientation. The cubic for the (1,2) tie and the polynomial division for R=H_23/H_12 both check exactly. At that tie the division remainder is strictly positive, so R(rt)<R(t) and C_3<C_2=C_1. This forces t_23<t_12; the opposite signs for C_3-C_1 at these two points force t_23<t_13<t_12, proving the four rankings and all isolated ties. For the last crossover, the derivatives of F/r are both positive at its root, giving strict decrease; the r-down-to-one limit is the positive root 1+sqrt(5). Its boundedness together with rt^3=8t+4(1+1/r) first implies t tends to zero, then gives the large-r asymptotic. RESULT.md, proof steps 1–4, gives an exact replay path. The supplied checker was inspected, not executed; neither uniqueness nor ordering relies on finite tests.
 
-**PASS under documented literature scope; priority provisional.** Established gamma transit-time distributions, consecutive first-order reaction models, and multi-tank cascade formulas are fully acknowledged. Green et al. (2010), Hrachowitz et al. (2010), van der Velde et al. (2010, 2012), and Frei et al. (2019) do not establish the specified all-positive-rate three-shape universal ordering. Mongelli (2018) studies optimized unequal vessel volumes for a fixed three-vessel cascade rather than comparing the 1-, 2- and 3-stage equal-mean cases. A broader reactor-design text could potentially contain the same ordering; this is an explicit residual risk, not an assertion that no such source exists.
+## originality
 
-## Value
+PASS
 
-**PASS.** The analytical classification supplies a complete change-of-optimum phase diagram and shows that pairwise crossings cannot arrive in arbitrary order. This is a meaningful structural benchmark for the ambiguous effect of residence-time dispersion on an activation-plus-attenuation response, with a distinctive intermediate regime that is not justified by covariance or variance comparisons alone.
+The supported distinct contribution is the universal strict crossover order, with all pairwise ties and rankings, for three mean-matched shapes under the two-rate response. The Laplace transform, consecutive first-order kinetics, tank-cascade equivalence, and use of gamma transit laws are established ingredients. The inspected primary reactor optimization and related catalogue records do not imply the all-rank ordering.
 
-## Limits and closest literature
+## value
 
-The theorem applies to a stylized parcel-scale response and integer gamma shapes \(1\), \(2\), \(3\). It does not calibrate a catchment or prove engineering cost-optimality. Primary sources and comparisons: https://doi.org/10.1029/2009WR008903; https://doi.org/10.1029/2010WR009148; https://doi.org/10.1029/2010WR009105; https://doi.org/10.1029/2011WR011310; https://doi.org/10.1029/2019WR025540; https://doi.org/10.31031/RDMS.2018.05.000621.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even at equal mean transit time, the variance ordering alone does not decide a nonmonotone reactive yield. The exact universal classification shows when each of the three canonical stage counts is best and why the extreme stage counts never exchange first place directly. It gives a useful analytic benchmark for mean-matched transit laws or equal-stage ideal reactor cascades, without asserting that actual catchments follow the model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

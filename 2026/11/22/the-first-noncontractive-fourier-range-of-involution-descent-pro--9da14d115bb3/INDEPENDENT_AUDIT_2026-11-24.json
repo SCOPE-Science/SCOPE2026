@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:29:20.547243Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently filtered all permutations through order eight by the equation pi(pi(i))=i, computed the direct Walsh character sums and inverse support sums, and checked the order-seven spectrum against spectrum_n7.tsv. The ranks are 1,1,1,4,8,16,28,64; the extra even zeros are 43,45,53,63, and the least nonzero magnitude is 8. The integer projection kernel numerator has absolute sum 144 on 64 points at order seven, and absolute sum equal to group order in every other claimed case. Averaging conjugates of an arbitrary projection over translations preserves the range, fixes it pointwise, and cannot increase either endpoint norm. The averaged projection is the unique Fourier indicator of the range. Its endpoint norms are its absolute kernel sum (max absolute row/column sums), also over the reals. Orthogonal Walsh diagonalization independently gives pseudoinverse norm 1/8 with the stated unnormalized convolution. Recovery at eight is contractivity on the rank-64 range, not invertibility on 128 coordinates. The Python 3.9 minimum in the notes is too low for int.bit_count(); this does not affect the integer certificate. Independent replay recipe: /workspace/branches/independent-math.md, section 2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chow covers all orders of the input counts. Barnabei et al. 2007 focus on descent number. Barnabei et al. 2014 address prescribed descents only for 321-avoiding involutions.",
+          "The Fibonacci result explicitly limits its Walsh factorization to uniformly weighted S_n and excludes conditional ensembles."
+        ],
+        "reasoning": "The all-permutation result is not a stronger result for the involution-weighted distribution. The all-order input formula does not itself analyze the endpoint obstruction.",
+        "searches": [
+          "Chow 2008 Theorem 3",
+          "arXiv:0704.3509 pp. 1–2",
+          "arXiv:1401.3011 abstract",
+          "Resultary 2026/11/22/SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f"
+        ]
+      },
+      "checked_sources": [
+        "Chow 2008 DOI:10.37236/795",
+        "arXiv:0704.3509",
+        "arXiv:1401.3011",
+        "arXiv:0803.2126",
+        "Resultary 241a4544ed1f, 7bf298b20571 and 4a2458c730e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 5 forces all odd-weight multipliers to vanish. Theorem 3 gives f_C^lambda by inclusion-exclusion of Kostka numbers and sums it over lambda to count involutions.",
+          "The four exceptional even zeros and the minimum over arbitrary projections require additional exact support analysis and the averaging reduction; parity alone leaves them undetermined."
+        ],
+        "reasoning": "The finite spectra are computable from old input counts; the specific transition, sharp operator norm and recovery are not reported or supplied by the inspected prior conclusions. The general averaging argument is not claimed as new.",
+        "searches": [
+          "Chow 2008 Theorem 3 and Proposition 5",
+          "Resultary Fibonacci Fourier rank Finding and Limitations",
+          "Resultary involution fixed-point Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chow's descent composition uniquely encodes the same descent mask, and his exact counts are for the same involutions.",
+          "Signed Eulerian numbers use permutation sign and rise number, not signs of the intersections with arbitrary position masks.",
+          "Resultary fixed-point incidence and involution permutation-matrix spectra encode different statistics and groups."
+        ],
+        "reasoning": "Equivalent coordinates on descent counts give the published input, but the near-match signed and Fourier statistics do not encode the active descent characters or the minimum projection norm.",
+        "searches": [
+          "Resultary search for involution descent-mask Fourier support and sharp projection norms",
+          "Chow 2008 Theorem 3 and Proposition 5",
+          "arXiv:0803.2126"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chow gives exact formulae, not the four exceptional masks, rank 28, or norm 9/4 in the inspected material.",
+          "Distinct near-matches report Fibonacci ranks for all permutations, fixed-point incidence spectra, or the six-vertex matrix-bit spectrum. The identical frozen finding is excluded as a self-match."
+        ],
+        "reasoning": "No inspected table gives this active-set geometry and optimum for the involution descent-position distribution.",
+        "searches": [
+          "Resultary search for order-seven exceptional Walsh masks, order-eight recovery and norm 9/4",
+          "Chow 2008 pp. 5,7"
+        ]
+      },
+      "rationale": "Chow's prescribed-descent-set formulas give the entire input, so neither descent enumeration nor the Walsh-odd vanishing is new. The supported distinction is the first departure from norm-one endpoint projection, the exceptional spectral geometry and exact optimum 9/4, followed by contractive recovery at eight. The closest distinct same-day entries concern a different weighting or a different feature of involutions. Available evidence does not establish earlier equivalent coverage of the combined obstruction and sharp optimum.",
+      "residual_risks": [
+        "An older operator-theoretic reinterpretation or an unindexed exact computation may exist.",
+        "The date shared by distinct Resultary entries does not determine priority.",
+        "No inference of novelty from a literature search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of input counts and complementary symmetry; not the operator result",
+          "evidence": [
+            "Theorem 3 sums exact-descent tableau counts over partitions; Proposition 5 equates S and its complement."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1r71/pdf/",
+          "material_read": "Abstract, Theorem 3 p. 5, Proposition 5 p. 7",
+          "method": "OA PDF bounded passages",
+          "title": "On the Eulerian Enumeration of Involutions",
+          "trigger": "Exact same all-involution descent statistic"
+        },
+        {
+          "assessment": "Different group ensemble weighting; not equivalent coverage",
+          "evidence": [
+            "Uniformly weighted S_n, with conditional descent ensembles explicitly excluded."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f",
+          "material_read": "Finding, assumptions, limitations",
+          "method": "Resultary and local-mirror passages",
+          "title": "Fibonacci Fourier rank of permutation descent patterns",
+          "trigger": "Closest distinct same-day descent-profile Fourier result"
+        },
+        {
+          "assessment": "Related operator question on a different profile",
+          "evidence": [
+            "Fixed-point incidence is on (F_2)^n, rather than descent-position masks on (F_2)^(n-1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-fourier-sign-rigidity-and-sharp-recovery-gaps-for-involution-fix--7bf298b20571",
+          "material_read": "Finding and encoded statistic",
+          "method": "Resultary and local mirror",
+          "title": "Fourier sign rigidity and sharp recovery gaps for involution fixed-point patterns",
+          "trigger": "Same-day involution Fourier/recovery result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated finite boundary for stable projection onto a combinatorially defined range: the usual contractive even-frequency projection actually breaks at seven, with least possible amplification 9/4, and returns at eight. The sharp cost among all projections, not just a preselected convolution projection or a recomputation of published descent counts, is the useful invariant. The result is finite and does not support an eventual pattern.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

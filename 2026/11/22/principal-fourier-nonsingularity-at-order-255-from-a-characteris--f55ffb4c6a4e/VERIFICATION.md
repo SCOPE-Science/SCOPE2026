@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The complete finite-characteristic calculation consists of exactly \(32767\) nonempty principal determinants for each of the two primitive-root Frobenius orbits. No random sampling, floating-point operation, outside database, or unresolved computational subtask is used by the included checkers.
+## correctness
 
-Compile `verify_255.cpp` with `g++ -std=c++17 -O3 -Wall -Wextra -pedantic verify_255.cpp -o verify_255` and run `./verify_255`. Expected: two `PASS` lines, corresponding to root exponents 1 and 7, each reporting all 32767 nonzero determinants and the fifteen cardinality counts. Compile `verify_255_gauss.cpp` with the analogous command and run; expected: `bad=0` for both exponents and `GAUSSIAN_OK`.
+PASS
 
-The first checker uses division-free Laplace subset recursion; the second uses exact finite-field Gaussian elimination and inverses. Both were compiled and executed from the included source code, with the reported results. All primitive roots are covered because characteristic-17 Frobenius has two orbits on the eight units modulo fifteen.
+Verified that Definition 3.2 and Theorem 1.4 of arXiv:2505.24326 apply to exactly the equality-of-residue-occupancies hypothesis with N=17·15 square-free. Independently checked the required F_15 computation using the two quartic factors X^4+5X^3+15X^2+11X+1 and X^4+11X^3+15X^2+5X+1 of Φ_15 mod 17. All primitive roots have degree ord_15(17)=4, so these irreducible factors cover the two Frobenius orbits. Gaussian rank over each quotient field, using exact multiplication/log tables and coefficientwise subtraction, yielded zero singular cases among all 32,768 subsets in each factor (32,767 nonempty). Replay: python3 /workspace/checks/order255_audit.py 5 for the timed slice or python3 /workspace/checks/order255_audit.py for all sizes; output /workspace/checks/order255_audit.out. The empty determinant is one. This replay checks the finite-field premise, not a direct enumeration at order 255. The two supplied checkers and frozen verification notes were inspected, not run. The record's two-orbit Frobenius argument suffices; a separate second-orbit check is not logically indispensable if one also uses the complementary-minor identity for F_15 inverse.
 
-The order-255 nonvanishing is established by applying Theorem 1.4 of Caragea–Lee–Malikiosis–Pfander, arXiv:2505.24326, to the certified characteristic-17 premise. Neither checker attempts direct determinant enumeration at order 255. Independent mathematical audit has not yet been performed.
+## originality
+
+PASS
+
+The lift is published; credit only the new parameter-specific finite-field premise and resulting 15-principal nonsingularity at order 255. The closest exact indexed statements concern a different characteristic for F_15 or a different order for the lift.
+
+## value
+
+PASS
+
+The instance is a three-prime square-free order outside the inspected unconditional families and spacing estimate, in a conjecture-driven class. A tractable exhaustive premise certifies an all-sizes conclusion at a substantially larger Fourier order, and the residue-balanced result is strictly broader than principal-only nonsingularity. This is a substantive finite instance, not a claim about arbitrary composite Fourier minors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

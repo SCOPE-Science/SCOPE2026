@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:19:01.211425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For T(x)=x(x+1)/2 and H(t)=t^2(4t-1)/3, the first difference of H(T(n)) is n^5 and its value at zero is zero. The two parity restrictions T(2a+e) are isometries in a, hence both permute each finite quotient and are onto Z_2. For t=2^r u with odd u, the normalized H-value has fixed unit residue modulo eight (1 for r=0 and 5 for r>=1). The difference of two normalized values with units in the same class modulo four has valuation v2(u-v)+1. Thus each such unit class maps bijectively onto the requisite unit ball. H has two roots at every supported nonzero value and only t=0 above zero; composing with T gives four and two respectively. The disjoint balls have measure 1/8+sum_(r>=1) 2^(-2r-3)=1/6. For k>=2 the correct intermediate count uses t modulo 2^(k-1), two index residues per t. For a target at valuation 2r>0, units are read modulo 2^(k-r-1); the prescribed class is tested at j=k-2r, yielding multiplicity 2^(r+min(2,j-1)), counting both index parities. The zero condition counts t divisible by 2^ceil(k/2); the odd case has one intermediate t at k=2, two at k>=3. This also gives the stated image count. Since H(t)-H(s) gains at least one valuation for same-parity t,s, an index shift of 2^k is a period. Its half fails at n=0 for k=2,3 and at n=1 for k>=4: with M=2^(k-1), F(M) has valuation 2(k-2) while (M+1)^5-1 has valuation k-1. At k=1 the repeating values 0,1,1,0 have least period four. The source checker was inspected, not executed. Independent direct accumulation and enumeration through k=9 checked every target and tested period divisors (1040 assertions); replay: /workspace/branches/79dd8796-bc7c-4a01-9fd2-7c1c5436667b/replay.py and replay-output.txt in that directory. The all-depth conclusion rests on the proof, not the replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lengyel's theorem covers odd exponents e>=3 but only the special upper summation index 2^m-1 in the compared statement. It gives valuation 2(m-1), not a target-by-target classification. The 2013 Section 4 text could not be lawfully retrieved through the tried routes."
+        ],
+        "reasoning": "Broader exponent coverage is not broader input or target coverage. The inaccessible source is an acknowledged risk, not evidence of noncoverage.",
+        "searches": [
+          "Lengyel, On Divisibility of Some Power Sums, Theorem 1",
+          "A Fast Algorithm for Computing Binomial Coefficients Modulo Powers of Two, Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 931f3cf16632 (self-match), 68ab08bc975b, f539e1fa82a3",
+        "Lengyel, Integers 7 (2007), A41",
+        "DOI 10.1155/2013/751358 (access attempt, not a substantive inspection)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The polynomial identity reduces the problem to H(t), and valuation and unit residues restrict possible images. The proof still needs the normalized difference law on each class modulo four, both parity branches of T at the correct precision, and a period obstruction."
+        ],
+        "reasoning": "Neither the special-index theorem nor the usual necessary square-class test implies exact multiplicity or attainment on these branches. The period and Haar measure are credited as consequences of the new classification and its proof, not as separate priority claims about generic periodicity or Haar sums.",
+        "searches": [
+          "Lengyel, Sections 2–3",
+          "Classical Faulhaber fifth-power identity and odd unit square classes; frozen proof Sections 2–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete match 931f3cf16632 is the bound record itself. 68ab08bc975b covers binomial(n,5), while f539e1fa82a3 is a fifth-power difference over Z_5."
+        ],
+        "reasoning": "Neither nearby result counts the same polynomial under an invertible change of variable. The binomial result is surjective and has period 2^(k+2); the other result changes both map and prime.",
+        "searches": [
+          "Resultary: exact dyadic image, fibers and periods of fifth-power partial sums",
+          "Resultary: two-adic fifth power partial sums, triangular coordinate and measure 1/6",
+          "Public literature: fifth-power sums via triangular/Faulhaber and square classes modulo powers of two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact image-count list 2,3,4,7,12,23,44,87,172 at k=2 through 10 is in the bound finding, not independent evidence of priority. The closest retrieved tables belong to the binomial column and a five-adic difference. Direct replay corroborates this record's finite images and fibers through k=9."
+        ],
+        "reasoning": "No inspected independent exact table is for this same map and precision. Finite agreement in a reproduction cannot establish either priority or the all-depth law.",
+        "searches": [
+          "Resultary: all-target fiber and image-count formulas for dyadic fifth-power sums",
+          "Resultary 931f3cf16632, finite count and reported image values",
+          "Resultary 68ab08bc975b and f539e1fa82a3, exact count statements"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact finite and inverse-limit fiber classification of the fifth-power partial sums, with the period and measure consequences. The strongest available candidate statements give special-index valuations or cover other maps. Neither the classical Faulhaber identity nor the matched special-index valuation states or immediately supplies the surjectivity and multiplicity on both unit branches. The matching catalogue item for the full claim is the frozen record itself. This is a bounded best-of-knowledge judgment, not a claim of historical priority.",
+      "residual_risks": [
+        "The 2013 paper's relevant full text was not independently inspected; an unindexed equivalent or a broader integer-valued-polynomial treatment could still cover part of the classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special-index valuation; does not cover the required all-target result in the inspected theorem",
+          "evidence": "v2(S_e(2^m-1))=2(m-1) for odd e>=3.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/h41/h41.pdf",
+          "material_read": "PDF Sections 2–3, Theorem 1, p. 2; bounded extract at offset 0–4944",
+          "method": "OA text reading",
+          "title": "On Divisibility of Some Power Sums",
+          "trigger": "Same family of power sums and prime"
+        },
+        {
+          "assessment": "Unresolved access; no whole-paper noncoverage claim",
+          "evidence": "The frozen bibliography identifies Section 4 as relevant; access errors provide no evidence as to its coverage.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/751358",
+          "material_read": "No substantive Section 4 text independently obtained",
+          "method": "Publisher and lawful retrieval attempts returned access errors",
+          "title": "A Fast Algorithm for Computing Binomial Coefficients Modulo Powers of Two",
+          "trigger": "Cited computational power-sum methods, Section 4"
+        },
+        {
+          "assessment": "Different polynomial, no overlapping exact classification",
+          "evidence": "F(n)=binomial(n,5), period 2^(k+2); all targets attained.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-level-2-adic-fibers-of-the-fifth-binomial-column--68ab08bc975b/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–1687",
+          "method": "Resultary search then local-mirror text",
+          "title": "Exact three-level 2-adic fibers of the fifth binomial column",
+          "trigger": "Nearby fifth-index exact dyadic fibers"
+        },
+        {
+          "assessment": "Different map and modulus prime",
+          "evidence": "F(x)=(x+1)^5-x^5 over Z_5 and measure 7/150.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-five-adic-image-and-fiber-distribution-of-consecutive-fift--f539e1fa82a3/RESULT.md",
+          "material_read": "Finding, offsets 0–1850",
+          "method": "Resultary search then local-mirror text",
+          "title": "Exact five-adic image and fiber distribution of consecutive fifth-power differences",
+          "trigger": "Near-identical fifth-power image and fiber wording"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural problem of representing a prescribed target by a consecutive fifth-power sum, this classifies all local obstructions at two, gives the exact number of index classes attaining each allowed target, and identifies the least index modulus needed. The inverse-limit four-versus-two law distinguishes actual two-adic roots from the larger modular multiplicities near zero, and the measure quantifies how restrictive local representability is. This is a natural complete classification, not evaluation at an arbitrary cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

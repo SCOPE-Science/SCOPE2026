@@ -1,15 +1,21 @@
-# Review: exact skip-transposition sphere spectrum of proper ternary words
+# Independent mathematical audit
 
-## Correctness — PASS
-A proper ternary word is in bijection with its first symbol and a binary sequence of consecutive modular increments. Checking the four local adjacencies affected by an exchange of positions two apart shows that a legal, nonidentity move is equivalent to a **maximal length-two increment-sign run**. The bijection and maximal-run decomposition prove the exact rational enumerator and all degree counts for every permitted length. Differentiating this enumerator proves the finite means and variances. Four-sign indicator covariances, finite dependence and bounded boundary terms prove the Gaussian limit. The frozen generating function has the stated dominant real pole. Exhaustive direct word-level tests through length thirteen (24,570 words) independently corroborate the finite values but are not substituted for proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The most pertinent fully examined primary sources use different move systems. Adamson et al. (arXiv:2307.01648) permit swapping any two positions of fixed-composition words without requiring a proper output. Fuchs et al. (arXiv:2511.06473) maintain proper colorings but exchange adjacent path vertices, not positions separated by one unchanged vertex. Sawada et al. (arXiv:2105.03556) concern binary leftmost-one flip/swap languages. Searches of published nearby result descriptions include unrestricted three-letter permutation-burst output spectra and proper-word adjacent-swap spectra; neither enumerates the defined restricted skip transpositions. An obscured specialized result or an unindexed equivalent formulation remains possible; the full text of one 2018 colored-token article was unavailable, although its accessible abstract specifies adjacent-vertex exchanges.
+PASS
 
-## Mathematical value — PASS
-One-step move volumes are natural local invariants of constrained-string reconfiguration and single-event noise models. The finding settles the entire degree distribution, not just an arbitrary length or mean; it also gives exact isolated and maximally mobile counts, gap-free degree support, finite moments, and a nondegenerate Gaussian scaling law. Proper-word **adjacent** swaps have a different, non-gap-free spectrum, so the distance-two restriction exposes a genuine structural contrast. The theorem does not claim optimal detection/correction codes, graph connectivity, or a result for larger alphabets.
+A word is specified by its first symbol and its +/-1 differences in Z/3. The endpoints of a candidate triple are distinct exactly when its two signs have a common value e, in which case the triple contains all three symbols. The swap leaves its two internal adjacencies proper; an existing outside neighbor clashes with the new endpoint exactly when its original outside sign was e, since 3e=0. Thus the swap starts at exactly a maximal two-run, including runs at either boundary. Distinct swaps change distinct two-element sets of positions, so counting legal indices counts distinct outputs. Given a composition of m into run lengths, there are six words, and each part of size two contributes one to degree. This proves the series, filling all degrees with ones and twos, and shows the top coefficients by placing the unique leftover one when m is odd. The derivatives at u=1 give E[D]=(m+1)/8 and E[D(D-1)]=(m-2)(m+3)/64 in the specified ranges, hence the variance and the edge count by handshaking. Interior indicators of -++- or +--+ have mean 1/8; joint probabilities at lags 1,2,3 are respectively 0,1/32,1/64, so the positive long-run variance is 7/64. The bounded 3-dependent CLT and at most two boundary contributions yield the normalized limit. At u=0 the reciprocal cubic has one root in (1,2); its two stationary values are negative and the complex roots have modulus lambda^(-1/2). The simple positive dominant pole is not canceled, proving the frozen fraction rate. The attached checker was inspected, not executed.
 
-## Scientific limitations
-The modular-sign method is specific to a three-symbol cyclic alphabet. Only single nonidentity exchanges exactly two positions apart are counted, on linear words. First-published sources are dated individually; no claim of absolute novelty, external certification, or independent audit is made. The checker establishes finite consistency only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact maximal-run distribution is already known, including the two-sign rather than just the success-run version. Credit is specifically for the graph-theoretic characterization of all admissible distance-two swaps as maximal two-runs of ternary differences, and hence for the degree law as a graph invariant. The graph conversion is not provided by the exact run theorem or by the adjacent- and star-swap results. No independent originality is credited to the run enumerator, frozen sequence, or routine deductions from them as binary/composition results.
+
+## value
+
+PASS
+
+The useful content is the local characterization of every one-move output in this natural proper-coloring graph. It directly decides isolation, possible degree, and the set of valid initial swap positions without generating or testing neighbor words, and identifies which classical exact distribution governs that graph. The run counts by themselves, including the database sequence, are not a separate mathematical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

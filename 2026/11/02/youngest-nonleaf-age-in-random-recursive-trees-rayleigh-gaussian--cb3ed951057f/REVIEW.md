@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses specify independent uniform parent choices in a rooted increasing tree, labels and outdegree-zero leaves. The event that the final birth labels are leaves is exactly a product of independent restricted-parent choices, yielding the stated factorial tail law. Conditioning converts those choices to independent uniform throws on the early vertices; the survivor probability and known Eulerian leaf mean give the regression. The tail-sum identity and strict Bernoulli inequality give the sign for every permitted integer. Eulerian recursion and 1-dependence give a Gaussian leaf CLT; an independent early-tree/late-parent decomposition gives the joint limit. Uniform bounds on the tail and regression remainder justify dominated Riemann-sum convergence to the mixed covariance constant. Exhaustive verification through nine vertices passed, and three numerical limit tests passed. No finite computation is used in place of an infinite proof.
+PASS
 
-## Originality — PASS (qualified by historical risk)
+H_n is the trailing block of leaf labels, not a depth statistic. For a=n-m, the event H_n>=m restricts exactly the independent parent draws at times a+1 through n to the first a labels. Multiplying their probabilities gives the factorial tail; conditional on the event these parents are iid uniform on the first a labels and independent of the induced tree. Each old leaf survives all m draws with probability (1-1/a)^m, and the leaf recurrence gives mean a/2 for a>=2. If a=1 the old root is hit with certainty. This proves the threshold regression, not a conditional formula for H_n=m. Subtracting n/2 and summing the indicator representation of H_n gives the covariance formula. The excess is half the expected duplicate draws in m draws on a labels; it is zero at m=1 and positive at every m>=2. Expanding the logarithmic product for m on the sqrt(n) scale gives the Rayleigh tail. The leaf recurrence agrees with the Eulerian descent-count recursion. Uniform permutation descents are 1-dependent when generated from iid continuous ranks and give Var(L_n)=n/12 for n>=3 and the stated normal limit. To check the joint step, write Y_k=L_k-k/2, and Y_(k+1)=(1-1/k)Y_k+D_(k+1) with bounded, orthogonal martingale differences. Thus Y_n-Y_a=-m Y_a/(n-1)+sum from k=a to n-1 of k D_(k+1)/(n-1), which is o_P(sqrt(n)) for m=O(sqrt(n)). The early count is exactly independent of the threshold event, so survival/leaf rectangles factor in the joint limit. The conditional mean excess converges to x²/4 at m near x sqrt(n), uniformly on bounded x ranges; at x=0 use m=1. For m<=n/2 the duplicate-draw bound is m(m-1)/(4a) for the excess, and the product tail is bounded by exp(-m(m-1)/(2(n-1))). For m>n/2 the trivial bound m/2 and the same tail are sufficient. These bounds give dominated Riemann sums and the limit sqrt(pi/2)/4 for the scaled covariance.
 
-The nearest comparable published results concern global counts of prescribed outdegrees (Janson 2004/2005; Najock–Heyde 1982), fringe-subtree counts (Holmgren–Janson 2014), high-degree vertex depths (Eslava 2022), or fixed-label high-degree behavior (Lodewijks 2022). The new claim concerns the **largest birth label with nonzero outdegree**, and proves its exact conditional leaf regression, all-size positive covariance, joint independent Rayleigh–Gaussian limit, and precise smaller-order covariance constant. None of the accessible statements supplies this mixed age-extremal law by direct implication. Eslava's full 2022 paper was searched and inspected as a primary contrast: its random variables concern high-degree depths, not the present statistic. General functional degree-evolution theorems might imply some limit by further specialization; this is an acknowledged residual risk. The Janson, Najock–Heyde, and Lodewijks full texts could not be conclusively inspected, so this is a best-knowledge comparison, not a priority certificate.
+## originality
 
-## Value — PASS
+PASS
 
-A terminal age run is an intrinsic cutoff of the growth process, distinct from root height and maximum degree. Its Rayleigh scale contrasts with the Gaussian aggregate leaf count. The exact survivor regression and mixed covariance constant reveal a nonzero second-order association despite independent principal fluctuations. This resolves a natural joint-structure question at all finite sizes and at two asymptotic scales, rather than merely obtaining a small change to a known expectation.
+The uniform recursive-tree leaf count, Eulerian marginal and its normal limit are not new. The supported distinct contribution is the trailing birth-label extreme jointly with the total leaf count, in particular the exact threshold regression and residual covariance constant despite limiting independence. The strongest same-model age result concerns the earliest surviving leaf, and fixed-set leaf erasure does not supply the mixed claims. Older leaf-run work could not be inspected beyond its abstract and is not treated as ruled out.
 
-## Remaining limitations and prior work
+## value
 
-The theorem is restricted to uniform recursive attachment and birth-label order; the latest-nonleaf event differs from depth and chronological last attachment to a specified old vertex. The actual daily online date of the selected verified baseline, Janson 2004-11-16, is available; older 1982 terminal-vertex work is cited by its printed month/year without inventing a day. An independently established equivalent joint theorem would supersede the originality assessment. No independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The statistic locates the most recently born vertex that has already become a parent, a natural age observable distinct from depth. Its Gaussian/Rayleigh separation by itself would miss the positive mixed effect: the exact threshold regression and nonzero sqrt(n)-scale covariance quantify what the independent leading limit hides. Both pieces are useful in comparing local age extremes to global degree counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

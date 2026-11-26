@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:28:17.255929Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an active isotonic face the connected equality pools are precisely the blocks whose coordinates are averaged; this is orthogonal projection onto the face span. The feasible partitions consist of the discrete and one-block partitions, four single-edge pools, the two disjoint opposite-edge pairings, and the triples omitting either the bottom or the top vertex. A proper connected pool containing both bottom and top forces the remaining point into that pool. On a segment the piecewise affine formulas give a telescoping bound by the largest local operator norm, including boundary segments by continuity from generic segments. The layer-cake identity and graph coarea reduce every local norm exactly to nonconstant Boolean cuts. An independent exact replay (python3 -I -B /workspace/branches/diamond_cut_replay.py) generated the partitions as set partitions rather than by edge contraction, used one representative per complementary pair, and found 140 cases, 22 zero numerators and 118 nonzero numerators with nine distinct rational forms. Cross multiplication in powers of r-1 certifies the upper bound for all r>=1. For (1,1,-1,2) and its perturbation by (0,0,1/4,1/4), the residuals are positive multiples of the sole active normal e_0-e_2 and the output variation is (r+1)/4 versus input variation 1/2; hence equality. Swapping vertices 1 and 2 sends V_r to r V_(1/r) and commutes with Q. The frozen verify.py was read, not run; the independent exact finite enumeration certifies the cut calculation and the analytic reduction covers arbitrary input pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph fused-lasso theorem has no graph-cycle or degree restriction, and its counting-measure averaging agrees with equal-mass projection.",
+          "The exact tree-isotonic cut result excludes cyclic graphs and weighted-edge claims in its limitations; the same-day chain entries 77de1978bb36 and fcea9cd47ab7 concern paths, not the diamond.",
+          "The inspected 2012 passages concern order-isotone projection or iterative univariate regression rather than this graph seminorm."
+        ],
+        "reasoning": "The broader actionable comparison is the all-connected-partition formula combined with the earlier isotonic local structure. Neither a tree law nor coordinate order-isotonicity supplies this upper bound.",
+        "searches": [
+          "Resultary b4b1357d8d1c, Finding and Proof §§1–2",
+          "Resultary 8a180bae4c2f, Finding and Limitations",
+          "arXiv:1201.4677; arXiv:1211.3930"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c6a0693fe803, b4b1357d8d1c, 8a180bae4c2f, 77de1978bb36 and fcea9cd47ab7",
+        "arXiv:1201.4677 and arXiv:1211.3930, bounded passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose a weight-1 pooled edge for r>=1 in the c6a0693fe803 test direction. The input cut uses that edge and its opposite, giving variation 2. The earlier exact difference formula with adjacent weights r gives gain r-1. Realizability of the pool thus already gives ratio (r+1)/2, for sufficiently close nonlinear inputs.",
+          "The all-connected-partition cut formula on the same four-cycle yields at most (r+1)/2. The middle-vertex swap covers 0<r<1. The frozen numerical pair is one explicit realization of the prior two-point-pool mechanism."
+        ],
+        "reasoning": "The exact lower and upper bounds are both mechanically obtained from close earlier results. The lower transfer does not require a new optimizer or searching for a nonlinear witness, and the upper transfer does not mistake the entire fused-lasso map for Q.",
+        "searches": [
+          "Resultary c6a0693fe803, Proof §§3–4, mirror offsets 3840–6216",
+          "Resultary b4b1357d8d1c, Finding and Proof §§1–2, mirror offset 0 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b4b1357d8d1c, Finding and Proof §§1–2: the cut maximum is over all graph-connected arithmetic averaging partitions.",
+          "Resultary c6a0693fe803, Proof §§1,3: the isotonic map has those same averaging linear parts on its active faces, and each individual cover pair is locally realizable."
+        ],
+        "reasoning": "The exact diamond question can be phrased as a norm maximum of averaging maps on a weighted four-cycle. A fused-lasso map is not isotonic projection, but its unrestricted partition maximum is an upper bound for the latter and does not require enumerating isotonic chambers.",
+        "searches": [
+          "Resultary: finite poset isotonic regression graph total variation exact two-input Lipschitz coefficient",
+          "Resultary: weighted graph variation contraction isotonic regression exact active partitions finite Hasse graph cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record's search hit is a self-match. The cyclic-cover record illustrates a different four-cycle profile (1,1,1,2) and gain 5/4, not this slice as a printed table.",
+          "The published cut formula is effectively an exact finite lookup: all twelve connected partitions and fourteen nonconstant cuts for the directional cycle give zero and precisely the nine values in RESULT.md. The two additional triples are equivalent to admissible triples under weight-preserving graph symmetries."
+        ],
+        "reasoning": "There is no need for a precomputed directional table to recover the number; the earlier exact formula reduces it to a small direct evaluation, with no extra active-set theorem needed.",
+        "searches": [
+          "Resultary: finite poset isotonic regression graph total variation exact two-input Lipschitz coefficient",
+          "Resultary b4b1357d8d1c, displayed maximum; c6a0693fe803, exact four-cycle witness"
+        ]
+      },
+      "rationale": "The earlier cycle-rigidity proof provides the exact local gain of the maximizing two-point pool and cut, not merely a qualitative instability theorem. A second earlier connected-block theorem supplies the exact all-partition upper certificate when restricted to the same four-cycle. Its modulus is for a different nonlinear operator; the transfer uses identical connected-block averaging maps and the diamond's smaller set of admissible local derivatives. Evaluating the prior formula on the twelve connected partitions of C4 gives the same maximum, because the two extra partitions are three-point pools with exactly the same norms as the admissible triples. Thus the new displayed coefficient is a routine exact specialization of the prior methods together, not a claim that either prior Finding literally prints it for Q.",
+      "residual_risks": [
+        "The prior fused-lasso theorem applies through its explicit averaging maximum, not as a general equality for isotonic projection on arbitrary graphs. No whole-paper exclusion is claimed for the 2012 papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finding supplies qualitative rigidity; its proof supplies the exact sharp lower bound on this slice by substitution",
+          "evidence": [
+            "Every cover-pair average is locally realized; for the indicated four-site cut, V(E_i h)-V(h)=(a_(i+1)w_(i-1)+a_i w_(i+1))/(a_i+a_(i+1))-w_i."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803/RESULT.md",
+          "material_read": "Finding, Proof §§1,3–4, Verification example and Limitations; decisively §§3–4 at mirror offsets 3840–6216",
+          "method": "Bounded local-mirror reading and direct substitution",
+          "title": "Cyclic-cover rigidity of weighted-variation stability for isotonic regression",
+          "trigger": "Same projection, graph class and two-input quantity"
+        },
+        {
+          "assessment": "Gives the exact ambient upper bound through common local parts, not isotonic projection as an operator identity",
+          "evidence": [
+            "The quotient equals the maximum over connected-block partitions and nonconstant cuts, with arithmetic block averages."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c/RESULT.md",
+          "material_read": "Mirrored Finding and Proof §§1–2, offset 0 onward",
+          "method": "Bounded local-mirror statement and proof comparison; specialized cut evaluation",
+          "title": "Exact graph-variation perturbation modulus of the graph fused-lasso denoiser",
+          "trigger": "Potential stronger exact bound on the same local averaging maps"
+        },
+        {
+          "assessment": "Not a cyclic weighted result",
+          "evidence": [
+            "Its formula is for trees; the limitations distinguish cycles and weighted edges."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f",
+          "material_read": "Mirrored Finding and Limitations, offsets 0 and 12900",
+          "method": "Bounded local-mirror comparison",
+          "title": "Exact tree variation sensitivity of isotonic projection",
+          "trigger": "Same projection and sharp cut formula"
+        },
+        {
+          "assessment": "Order-isotonicity, not the quantitative diamond formula",
+          "evidence": [
+            "The passage asks whether the monotone cone admits an isotonic metric projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.4677",
+          "material_read": "PDF p. 2, offset about 4500",
+          "method": "Bounded OA text",
+          "title": "Isotonicity of the projection onto the monotone cone",
+          "trigger": "Earlier cone-projection theorem"
+        },
+        {
+          "assessment": "Not a sharp two-input weighted cyclic-cover bound at this locator",
+          "evidence": [
+            "Iterative univariate bounded-variation regression based on isotonic regression and additive models."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3930",
+          "material_read": "Abstract, offset about 1700",
+          "method": "Bounded OA text",
+          "title": "A Geometrical Approach to Iterative Isotone Regression",
+          "trigger": "Earlier univariate variation and isotonic regression context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Directional instability on the minimal cyclic cover is natural, but the quantitative benchmark on this particular slice evaluates an already available cut maximum and an already available matching local direction. The explicit pair is useful as an illustration, not a separable unknown exact fact after those transfers.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

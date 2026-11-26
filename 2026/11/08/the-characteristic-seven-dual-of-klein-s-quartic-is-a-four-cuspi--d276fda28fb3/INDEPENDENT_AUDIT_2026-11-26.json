@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:40:11.506264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent exact replay at review-evidence/2-klein-quintic.js used polynomial arithmetic over F_7, not the uploaded script. Substitution of the three quartics annihilates the Klein equation; their common affine gcd is 1, their leading coordinates are nonzero at infinity, and the six conic monomials have restriction rank 6. The product of image degree and generic mapping degree is 4; the rank excludes a line or conic, so the map is the birational normalization. The cross product with the derivative has precisely the three quintic coordinates claimed, no finite basepoint, nonzero leading ratios at infinity and linear restriction rank 3. It annihilates the asserted dual equation. The same degree argument, now with degree 5, proves an integral quintic with a degree-one normalization; generically the cross product gives the tangent on the smooth locus. At each coordinate cusp the local equation has the form a unit times a square plus a nonzero constant times a cube, with the unit absorbed into the square formally in characteristic seven. At the fourth point the leading ratios give [1:2:4], the gcd of B−2A and C−4A is 1, and separate series division gives u=s²+2s⁴+s⁵+… and v−3u−3u²−5u³=3s⁷+O(s⁸). Taking a formal square root so u=t², the even part of the second coordinate can be subtracted as a series in t², leaving t⁷ times a unit in t². Thus the completed branch ring is k[[t²,t⁷]], with gaps 1,3,5. The four delta invariants sum to the quintic arithmetic genus 6, exhausting the singularities. Normalization is defined over F_7 and induces a bijection on finite-extension points because every singular point has exactly one geometric preimage; the count and zeta follow. This is the dual of the reduced equation in the stated plane, not a claim about stable reduction. The frozen SymPy verifier and transcript were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkies' located characteristic-seven text concerns potentially good reduction. The inspected Klein arrangement and Gauss-map passages concern complex geometry. The distinct Resultary characteristic-three quintic 793a52d073bf has four finite (2,3) cusps and a (2,5) infinity cusp."
+        ],
+        "reasoning": "Potentially good reduction of the smooth object does not identify the dual of this singular coefficientwise plane model. A different characteristic or cusp basket is not a general classification containing this dual. The inspected passages do not supply a positive-characteristic theorem covering these exact hypotheses.",
+        "searches": [
+          "Primary literature lookup on Klein reduction in characteristic seven and positive-characteristic four-cuspidal quintics",
+          "Elkies, The Klein Quartic in Number Theory; Bauer et al., arXiv:1609.08648v1; Pokora–Roé, arXiv:1803.06411v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3, VERIFICATION.md and verify_klein7_dual.py, verify_results.txt",
+        "Resultary 7fbac230b14a, 16f689ed56b1 and 793a52d073bf",
+        "Elkies located excerpt; Bauer et al. and Pokora–Roé passages specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous primal result includes normalization P^1 and primal zeta data. The read classical passages concern the smooth complex quartic or the line configuration. No decisive reduction passage was retrieved from the targeted Bauer §9 lookup."
+        ],
+        "reasoning": "The rational parametrization of the original with a nonconstant Gauss map explains why a rational dual should occur, and the cohomological/arithmetic conclusions are routine once the normalization and singularity basket of the dual are known. But the degree and defining equation of the Gauss image, and the special (2,7) transverse valuation in that image, require calculations on that image. The primal normalization and Hessian support alone do not determine them.",
+        "searches": [
+          "Resultary 7fbac230b14a, RESULT.md offset 0",
+          "Pokora–Roé arXiv:1803.06411v2, offsets 195 and 18398",
+          "Bauer et al., arXiv:1609.08648v1 p. 2 and targeted §9 lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d276fda28fb3 is the frozen result itself. The distinct 7fbac230b14a describes the original quartic's only cusp; 16f689ed56b1 describes its scheme-theoretic Hessian intersection."
+        ],
+        "reasoning": "The primal quartic is not projectively equivalent to the dual quintic. A Hessian intersection describes contact on the primal plane and can guide a dual calculation, but its length at one point is not an equation or a branch invariant in the dual plane.",
+        "searches": [
+          "Resultary: characteristic-seven Klein quartic Gauss map, dual four-cuspidal rational quintic",
+          "Resultary 7fbac230b14a and 16f689ed56b1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact basket (2,3),(2,3),(2,3),(2,7) and displayed equation appeared in the self-match; the two substantial distinct neighbouring entries describe the primal quartic and a quintic in characteristic three. The primal-quartic result gives the same expression for the zeta function."
+        ],
+        "reasoning": "Equal zeta functions or a single coincident local semigroup do not identify the models or classify the dual. The quantitative dual statement includes its degree, normalization map and every singularity.",
+        "searches": [
+          "Resultary: rational four-cuspidal quintic, characteristic seven; Klein (2,7) cusp and zeta function"
+        ]
+      },
+      "rationale": "The supported distinct claim is the dual quintic in characteristic seven, its complete cusp basket and the consequences for this dual model. The published characteristic-seven cusp and arithmetic on the original plane quartic are existing work, not credited as novel. The closest original-curve, Hessian, and classical Gauss-map results inspected do not establish the explicit dual and its local singularity calculation. The limited search is not a historical priority certification.",
+      "residual_risks": [
+        "Full comparison with the cited Dolgachev–Martin paper and the relevant Bauer et al. characteristic-seven passage was not possible.",
+        "The bounded positive-characteristic quintic lookup does not exclude an equivalent model in older work on modular dual curves or rational cuspidal classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the primal quartic, not the asserted dual geometry in the statement read",
+          "evidence": "Sole cusp at [1:2:4] with semigroup generated by 2 and 7, normalization P^1 over F_7 and the stated zeta expression, all for the original quartic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-unibranch-2-7-cusp-on-the-characteristic-seven-klein-quartic-a--7fbac230b14a",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror and comparison of the original and dual planes",
+          "title": "A unibranch (2,7) cusp on the characteristic-seven Klein quartic",
+          "trigger": "Strong indexed overlap on the original Klein model and cusp type"
+        },
+        {
+          "assessment": "Related prior result on the Hessian intersection",
+          "evidence": "Four support points with local length 21 at [1:2:4], for the intersection on the quartic rather than the singularity scheme of the dual.",
+          "identifier_or_url": "Resultary 16f689ed56b1",
+          "material_read": "Indexed statement",
+          "method": "Resultary lookup and comparison of schemes",
+          "title": "The length-21 Hessian collision on the characteristic-seven Klein quartic",
+          "trigger": "Same exceptional plane model and characteristic, nearby tangent geometry"
+        },
+        {
+          "assessment": "Relevant context, not used for a whole-document noncoverage claim",
+          "evidence": "Located passage discusses potentially good reduction over a sufficiently large extension.",
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "Located excerpt p. 32, offset around 96893; bounded offset retrieval timed out",
+          "method": "OA literal location and follow-up bounded retrieval attempt",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Characteristic-seven reduction of the Klein quartic"
+        },
+        {
+          "assessment": "Verified only the stated complex configuration passage; the claimed modular comparison in the frozen note was not established by this passage",
+          "evidence": "The Klein 21-line arrangement with 21 quadruple and 28 triple points in the complex setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.08648v1",
+          "material_read": "p. 2, offset 6265; targeted §9 retrieval did not supply the relevant passage",
+          "method": "Bounded original OA passage and targeted retrieval attempt",
+          "title": "Negative curves on symmetric blowups of the projective plane, resurgences and Waldschmidt constants",
+          "trigger": "Klein configuration in a source cited for a characteristic-seven comparison"
+        },
+        {
+          "assessment": "Classical Gauss-map comparison with different hypotheses",
+          "evidence": "The discussion treats the smooth complex Klein quartic, not the singular quartic in characteristic seven.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.06411v2",
+          "material_read": "Introduction and passage at offsets 195 and 18398",
+          "method": "Bounded original OA passages",
+          "title": "The 21 reducible polars of Klein’s quartic",
+          "trigger": "Explicit Gauss-map, gradient and dual discussion"
+        },
+        {
+          "assessment": "Different quintic, not an equivalent formulation or dominating theorem",
+          "evidence": "A characteristic-three quintic with four finite (2,3) cusps and an infinity cusp of type (2,5).",
+          "identifier_or_url": "Resultary 793a52d073bf",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror with comparison of characteristic and local invariants",
+          "title": "Cusp collision trichotomy in the characteristic-three cyclic-trigonal plane quintic",
+          "trigger": "Indexed alternative positive-characteristic cuspidal-quintic result"
+        },
+        {
+          "assessment": "Not used as evidence of coverage or noncoverage",
+          "evidence": "The identified retrieval route failed; the independently read primal result already covers the singularity of the original model.",
+          "identifier_or_url": "Dolgachev–Martin, Journal of the London Mathematical Society (2024)",
+          "material_read": "No decisive passage retrieved",
+          "method": "Attempted original-text retrieval",
+          "title": "Automorphisms of del Pezzo surfaces in odd characteristic",
+          "trigger": "Frozen citation for characteristic dependence of the plane Klein model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Klein quartic is a natural object with bad reduction at seven. In this reduction the explicit dual and the proof of its full singularity basket give more than a computed equation or repetition of the primal cusp. In particular, the wild transverse order seven and three additional ordinary cusps account for the entire genus defect and determine the geometry relevant to arithmetic on the dual model. The zeta function is a useful consequence rather than the sole basis of value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

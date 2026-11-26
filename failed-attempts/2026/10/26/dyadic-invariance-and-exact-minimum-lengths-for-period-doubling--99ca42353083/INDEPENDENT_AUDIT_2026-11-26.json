@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:14:23.696153Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–45; VERIFICATION.md and verify.py, inspected only",
+        "Independent replay: node /workspace/branches/frozen_review_checks.js (cyclic output)",
+        "Parreau–Rigo–Rowland–Vandomme, arXiv:1405.3532, §6 and Proposition 47, for the published route used in the frozen proof"
+      ],
+      "rationale": "Even-start length-2n factors are substitution images; at an odd start the leading zero of an aligned image is moved to the end, because the next block also starts with zero. This proves surjectivity on necklaces represented by factors. An even rotation of images respects blocks, and an odd rotation can match two images only if both are all zero, hence both antecedents are all ones. For an independent check of the minimum, the one-count sets at the even and odd starts of length 2j+1 are j minus the length-j count set and j+1 minus the length-(j+1) count set, respectively, by p_(2i)=0, p_(2i+1)=1-p_i. For length three, 000 and 101 give spread at least two; for any larger odd length one of j and j+1 is a smaller odd number at least three, so induction gives spread at least two. Sliding windows attain the intermediate counts. Thus odd lengths greater than one have at least three classes, and the bijection finishes the minimum characterization. Bounded valuation-generation and literal-rotation counts corroborated the result (e.g. c(3)=c(6)=c(12)=3, c(5)=c(10)=c(40)=4).",
+      "residual_risks": [
+        "The finite check is illustrative; at the tested lengths completeness follows from the length-256 block cover with all three legal adjacent pairs 01, 10, 00 represented in the prefix."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 17 gives a uniform-substitution route to a dyadic-ray upper bound; Example 1 explicitly states the values two at powers of two. The catalogue proof supplies the missing block-parity injectivity at every length."
+        ],
+        "reasoning": "The published ray result alone is weaker than the all-n bijection, whereas the mirror gives the exact stronger conclusion. The apparent switched images in the printed example are not used to identify a different word; its listed word and value identify the instance and the corrected standard morphism gives the same application.",
+        "searches": [
+          "Cassaigne–Fici–Sciortino–Zamboni, arXiv:1402.5843 §5.1, Proposition 17 and Example 1",
+          "Resultary mirror 8148ba3a1211, actual morphism argument"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–14, 26–45 and 50–59",
+        "Resultary 8148ba3a1211, 2678ea387347 and d2b1e5730ed7",
+        "arXiv:1402.5843 and arXiv:1405.3532, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abelian one-count spread is positive in every positive length by aperiodicity. The first recurrence branch adds one whenever the remainder r>0; the other reflects to a smaller non-power-of-two length. Thus the spread is at least two off powers of two. The cyclic paper gives c(2^k)=2."
+        ],
+        "reasoning": "Distinct one-counts cannot share a class. The exact minimum iff power of two follows without the frozen scaling law and was already implied by the older results, even though not stated as a cyclic theorem there.",
+        "searches": [
+          "Parreau–Rigo–Rowland–Vandomme, arXiv:1405.3532, §6 identification and Prop. 47",
+          "Cassaigne–Fici–Sciortino–Zamboni, arXiv:1402.5843, §5.1, Example 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror gives the exact same morphism 0→01,1→00 and the bijection Phi_n for every n≥1, including the odd-part identity."
+        ],
+        "reasoning": "The word, class equivalence, representation by at least one factor, quantifier and mapping agree. The at-most-one all-zero image does not leave a substantive separate lemma for arbitrary binary necklaces.",
+        "searches": [
+          "Resultary semantic lookup of period-doubling cyclic/rotation classes and dyadic scaling",
+          "Resultary mirror 8148ba3a1211, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8148ba3a1211 gives the exact structural identity and examples c(2^k)=2 and c(3·2^k)=3. The other two records study Lie complexity, which counts classes with all rotations present."
+        ],
+        "reasoning": "Only the first is exact coverage; the Lie-complexity spectra are for a different invariant even on the identical binary word.",
+        "searches": [
+          "Resultary mirrors 8148ba3a1211, 2678ea387347 and d2b1e5730ed7"
+        ]
+      },
+      "rationale": "A distinct indexed record states and proves the same all-length substitution-class bijection. The minimum characterization, not stated there verbatim, is sustained by a direct implication of previously published abelian and cyclic complexity results. The comparison establishes coverage, not chronological priority relative to the frozen record.",
+      "residual_risks": [
+        "Overlap does not by itself fix priority or provenance. A bounded query wave is not a complete historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the same class bijection and scaling, not merely a table or the dyadic minimum examples",
+          "evidence": [
+            "Odd-start factors are one-position rotations of images; nonzero images can only be conjugated by an even rotation and the one-letter base is checked."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-dyadic-rigidity-of-cyclic-factor-classes-in-the-period-doubling--8148ba3a1211/RESULT.md",
+          "material_read": "Finding, assumptions, proof, prior comparison; local mirror offset 0–4802",
+          "method": "Resultary search then exact mirror passage; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Dyadic rigidity of cyclic factor classes in the period-doubling word",
+          "trigger": "Exact all-length bijection on the same word"
+        },
+        {
+          "assessment": "Known values at powers of two and liminf two, not all-n injectivity; Example 1 appears to swap the two codeword assignments in its text",
+          "evidence": [
+            "Example 1 explicitly prints the period-doubling conclusion c(2^k)=2; the extracted string 0→00,1→01 cannot generate the specified fixed point and is not the frozen proof's morphism."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5843",
+          "material_read": "Introduction PDF p. 2 and §5.1 Prop. 17 and Example 1, PDF p. 13, OA offsets 8755 and 49983–51942",
+          "method": "Primary OA PDF text passages",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Primary paper on the identical invariant and word"
+        },
+        {
+          "assessment": "Provides the one-count spread recurrence used to derive the negative direction",
+          "evidence": [
+            "Identifies Δ12(n)+1 with period-doubling abelian complexity; gives increment and reflection branches."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3532",
+          "material_read": "§6 introduction and §6.2 Proposition 47, PDF pp. 6 and 32, OA offsets 16402 and 90917",
+          "method": "Primary OA PDF text passages",
+          "title": "A new approach to the 2-regularity of the ℓ-abelian complexity of 2-automatic sequences",
+          "trigger": "Prior exact spread recurrence implies the exclusion from minimum"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": [
+            "All rotations must be factors for Lie complexity; for this review at least one rotation suffices."
+          ],
+          "identifier_or_url": "Resultary 2678ea387347 and d2b1e5730ed7",
+          "material_read": "Resultary comparison of the counted classes",
+          "method": "Resultary mirror",
+          "title": "Exact Lie complexity of the period-doubling word / Exact Lie-complexity spectrum of the period-doubling fixed point",
+          "trigger": "Same word and apparently similar necklace counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 8148ba3a1211",
+        "arXiv:1402.5843 and arXiv:1405.3532, combined implication above"
+      ],
+      "rationale": "A class-level bijection would be a useful exact invariant for computing ordinary necklace complexity at every even length. Here, however, that exact invariant is already supplied independently in the indexed corpus, while the new-looking exclusion from the minimum follows mechanically from the earlier spread recurrence. The frozen record leaves no demonstrated additional mathematical contribution.",
+      "residual_risks": [
+        "This assesses the record's additional value relative to checked coverage, not who first found the bijection."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

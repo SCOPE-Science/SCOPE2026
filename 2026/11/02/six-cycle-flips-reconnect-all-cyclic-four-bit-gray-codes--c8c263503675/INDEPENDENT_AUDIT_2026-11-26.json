@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:34.314279Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact state-space and move definitions are respected. Rooting a Hamilton cycle at 0 and selecting the orientation with second vertex smaller than the last counts it once. Membership after XOR with one simple cycle forces alternating removal and insertion at every affected vertex because both endpoints have degree two; checking each Hamiltonian pair for one connected 2-regular symmetric difference is equivalent. The frozen Python and C++ sources were inspected, not executed. An independent exhaustive replay enumerated all 272 perfect matchings by pairing the least free vertex, then counted connected unions of disjoint matching pairs; each Hamilton cycle has exactly two alternating matchings, giving a unique unordered pair. It scanned unordered state pairs for the specified differences and ran full BFS for the metric. Replay: python3 /workspace/branches/5cb0dcc0-3db2-418e-aad3-5679b2cc8bd4/reproduce.py; saved reproduction.txt in that directory. Results: 1344 Hamilton cycles; 1920 square edges with 240 singleton components and one of size 1104; 9408 hexagon-only edges and 11328 combined edges, each connected and with 432 eccentricities 5 and 912 eccentricities 6. Bipartiteness and simplicity preclude a shorter simple cycle than four, and square-only disconnection shows six is the least allowed sufficient length (including if all shorter moves are allowed). This proves the statement only on the fixed four-cube.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected dimer record b277c93b7e2a gives 272 perfect matchings, 1984 mixed edges and eccentricity 4, and the nearby 8ab7875eea24 treats Hamiltonian paths under face moves. Takaoka considers two-edge switches; Kazazi concerns rectangular grid graphs with a different move."
+        ],
+        "reasoning": "The domain, moves, or both differ. Even though each Hamiltonian state decomposes into two matchings, a sequence of legal matching flips can make their union disconnected or intersect the other matching. Matching connectivity or metric is therefore not a theorem about the Hamiltonian state space.",
+        "searches": [
+          "Resultary: square/hexagon flip dynamics tesseract and Hamiltonian paths",
+          "Takaoka DOI:10.3390/a11090140",
+          "Kazazi arXiv:2601.06731v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_alt.cpp",
+        "Independent reproduce.py and reproduction.txt",
+        "Deza–Shklyar arXiv:1003.4391 and Contassot-Vivier et al. DOI:10.3390/math6060098",
+        "Resultary a9f0a06fc4c6, b277c93b7e2a and 8ab7875eea24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed state census and complete square-only graph leave hexagon adjacencies to be decided. In the frozen result, hexagon-only connectivity supplies combined connectivity and disjoint edge-length classes supply the combined edge count. The equality of eccentricity distributions is a separate metric assertion."
+        ],
+        "reasoning": "Adding square edges cannot increase distance but can in principle decrease some eccentricities; neither the existing count nor the square metric determines the frozen hexagon or mixed metric. The source comparisons found no mechanical implication of the supported distinct claim.",
+        "searches": [
+          "a9f0a06fc4c6/RESULT.md, definitions and exact census",
+          "b277c93b7e2a/RESULT.md, Finding and scope",
+          "Deza–Shklyar arXiv:1003.4391"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contassot-Vivier et al. use Gray-code subsequence reversal bounded by parallel transitions in one square. The four boundary edges are exactly the symmetric difference of a Hamiltonian square switch.",
+          "The indexed exact square-switch record a9f0a06fc4c6 gives the identical square-only graph and statistics."
+        ],
+        "reasoning": "At length four the two formulations are equivalent: after removing the opposite edges, the other pairing rejoins the two paths into a cycle exactly for a valid reversal. This equivalence gives no length-six adjacency.",
+        "searches": [
+          "Resultary: Q4 cyclic Gray code, Hamilton-cycle exchange, single alternating square or hexagon flips",
+          "External: \"Hamiltonian cycles\" \"Q_4\" Gray codes flip graph square hexagon",
+          "DOI:10.3390/math6060098, sub-sequence inversion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Deza–Shklyar distinguish 1344 labeled cycles (up to start and reversal) from nine automorphism types. The inversion paper gives three isolates among nine classes in dimension four, not the weighted labeled count there. The later-dated square-only index lists isolated orbit sizes 48, 96 and 96, the 1104-state component and 1920 edges."
+        ],
+        "reasoning": "The exact square-only data are catalogued and should not be counted as the distinct contribution. The nine-orbit table does not give transitions with a six-edge symmetric difference or mixed eccentricities.",
+        "searches": [
+          "Deza–Shklyar arXiv:1003.4391, enumeration table",
+          "Contassot-Vivier et al., Table 2",
+          "Resultary a9f0a06fc4c6, Finding and symmetry table"
+        ]
+      },
+      "rationale": "The accepted distinct contribution is the hexagon-only and combined Hamilton-cycle reachability and exact metric, including the sharp six-move diameter. The scalar cycle count, square-switch move, and existence of square-isolated cases are already known. A separate indexed record gives the precise square-only census as well. Neither that record nor the inspected matching and grid reconfiguration literature gives or implies the hexagon/mixed Hamilton-cycle claims. No claim of historical priority is made for the square-only data.",
+      "residual_risks": [
+        "Unindexed work on length-six or mixed exchanges could overlap. Chebiryak–Kroening full text was not independently accessible. The bounded external search is not evidence that no exact prior result exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact state count previously reported",
+          "evidence": "The table gives H4=1344 and nine automorphism types, attributed to Parkhomenko.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.4391",
+          "material_read": "p. 2 table, offset about 4168",
+          "method": "OA PDF",
+          "title": "Enumeration of Hamiltonian Cycles in 6-cube",
+          "trigger": "Matching Q4 state count and enumeration conventions"
+        },
+        {
+          "assessment": "Covers the square move, isolation at Q4 under class counting, not the stated hexagon result in the inspected passages",
+          "evidence": "Parallel boundary transitions in one face give the reversal; Table 2 gives 3 isolated of 9 in dimension four.",
+          "identifier_or_url": "https://inria.hal.science/hal-02063965/document",
+          "material_read": "pp. 3–4 reversal definition, offsets 8726–13830; §5.2/Table 2, pp. 11–12, offsets 52400–56178",
+          "method": "Lawful repository copy for DOI:10.3390/math6060098",
+          "title": "Gray Codes Generation Algorithm and Theoretical Evaluation of Random Walks in N-Cubes",
+          "trigger": "Precisely related Gray code transition and Q4 isolates"
+        },
+        {
+          "assessment": "Exact partial overlap, only square moves; later folder date is not a priority claim",
+          "evidence": "1344 states, 1920 edges, 240 isolates, one 1104-state component; it also gives the component's square-only radius and diameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-square-switch-metric-and-symmetry-quotient-of-hamilton-cyc--a9f0a06fc4c6/RESULT.md",
+          "material_read": "Finding, orbit table and assumptions, offset 0 onward",
+          "method": "Local mirror",
+          "title": "Exact square-switch metric and symmetry quotient of Hamilton cycles in Q4",
+          "trigger": "Exact same square graph and labeled census"
+        },
+        {
+          "assessment": "Different state space, not equivalent coverage",
+          "evidence": "272 perfect matchings and radius=diameter=4; no Hamilton-cycle condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-four-step-metric-of-square-and-hexagon-dimer-dynamics-on-t--b277c93b7e2a/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1962",
+          "method": "Local mirror",
+          "title": "Exact four-step metric of square-and-hexagon dimer dynamics on the tesseract",
+          "trigger": "Same cube, move lengths and graph metric"
+        },
+        {
+          "assessment": "Hamiltonian paths and square moves, not the target",
+          "evidence": "The endpoints and underlying path state space differ from undirected cycles.",
+          "identifier_or_url": "2026/11/2/SCOPE-frozen-and-mobile-hamiltonian-paths-under-face-switches-in-the-f--8ab7875eea24",
+          "material_read": "Indexed finding",
+          "method": "Local mirror",
+          "title": "Frozen and mobile Hamiltonian paths under face switches in the four-cube",
+          "trigger": "Related square-flip obstruction"
+        },
+        {
+          "assessment": "Access limitation, not evidence of absence",
+          "evidence": "The independent Deza–Shklyar source establishes prior enumeration of the Q4 state count.",
+          "identifier_or_url": "https://doi.org/10.3233/SAT190038",
+          "material_read": "Bibliographic information only; DOI retrieval timed out and no repository copy was found",
+          "method": "Lawful DOI/OA lookup",
+          "title": "Towards a Classification of Hamiltonian Cycles in the 6-Cube",
+          "trigger": "Prior hypercube Hamilton-cycle classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Square switches are a natural Gray-code generation move with an established obstruction from isolated configurations. The next possible local exchange length is six, so finding that hexagon moves alone reconnect all labeled states resolves a motivated obstruction in this small benchmark, not an arbitrary slice. The exact worst-case of six moves and the fact that admitting squares does not improve any eccentricity (pointwise monotonicity plus the identical distributions) distinguish the two permitted move sets in a way connectivity alone could not. The result is useful at this fixed cube and does not assert a higher-dimensional theorem or mixing bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

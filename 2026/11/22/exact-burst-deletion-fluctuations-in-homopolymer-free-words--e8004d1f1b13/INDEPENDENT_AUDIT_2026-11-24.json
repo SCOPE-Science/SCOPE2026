@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:02:08.721846Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Comparing two outputs with starts i<j, the middle coordinates are W[t] versus W[t+b] for i<=t<j and all others match automatically. Thus equality classes of start sites are intervals and S=1+L-sum(E_i), with L=n-b and E_i the lag-b return. Uniform proper words are exactly a uniform initial symbol with independent uniform nonzero additive increments modulo q, including composite q. For 0<d<b the joint return probability is the sum over a conditioned intermediate symbol a of P^d(x,a)^2 P^(b-d)(a,x), by symmetry of P. With m=q-1, x=r^d and y=r^(b-d), substituting the two eigenmodes into this sum and subtracting p^2 simplifies to m*x^2*(1+(m-1)y-m*y^2)/q^2. Its factors (1-y)(1+m*y) give zero for b-d=1 and positivity for b-d>=2. Disjoint increment windows give independence for d>=b. Counting available pairs gives the stated finite variance, including L=1 and positivity of adjacent covariance whenever such pairs exist for b>=3. At b=2, conditional on all increments up through U_i, exactly one of the q-1 values of U_(i+1) yields a return, making the full sequence of return indicators IID by induction, not merely uncorrelated. The fixed-parameter CLT follows by independent length-floor(L^(1/3)) blocks separated by b indices. The omitted indices including the final remainder have centered variance O_b(L^(2/3)); Cauchy–Schwarz compares retained and full variances, and every centered block is o(sqrt(L)), so Lindeberg applies with the positive displayed variance. Since L/n tends to 1, the normalization is as stated. The uploaded small-strata checker was inspected as text, not executed, and is not used as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The deterministic theorem applies without the source constraint. For uniform unconstrained binary inputs the same paper gives a full binomial histogram; general bounded finite-dependence gives a CLT once the covariance and nonzero variance are established."
+        ],
+        "reasoning": "Neither the deterministic theorem nor standard limit theory evaluates the shifted-window covariance under this source. The published binary distribution is not broader in the input-law parameter.",
+        "searches": [
+          "arXiv:1602.06820v2, §IV and Appendix A",
+          "focused primary search for burst-deletion sphere-size variance/CLT under a uniform homopolymer-free source"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.06820v2",
+        "Resultary e8004d1f1b13 (self-match), aa5a96812855, b1a2bd3da18e, 9aba1877e366 (index only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior deterministic formula reduces the problem to counting unequal pairs b apart; the binary full histogram uses a different uniform measure. In the frozen source, b=2 makes the conditional return probability constant, but an overlap of two or more increments at shorter lags for b>=3 yields strictly positive covariance."
+        ],
+        "reasoning": "Earlier results motivate the stochastic calculation but do not imply its explicit factorization or the different dispersion regimes. The CLT itself is an application of standard theory; credit the evaluated variance and regime rather than a new general CLT.",
+        "searches": [
+          "arXiv:1602.06820v2, §IV deterministic formula and binary histogram",
+          "Resultary aa5a96812855 and b1a2bd3da18e, local-mirror Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known interleaved-array row-run formula sums precisely 1 plus the lag-b mismatch count; it is the same deterministic size as counting b-periodic equality intervals or zero-sum increment windows. The two closest accessible nonbinary indexed fluctuations records use two arbitrary deleted positions and IID inputs."
+        ],
+        "reasoning": "The statistic should not be credited as new merely because it is expressed as a sliding return count. The correlation and law calculations change when the source prohibits adjacent equality, and arbitrary two-position deletions are a different statistic.",
+        "searches": [
+          "Resultary: exact nonbinary two-deletion fluctuations, burst deletion spheres and proper-word return counts",
+          "arXiv:1602.06820v2, §IV p. 4 Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the earlier primary paper N(n,b,i)=2^b*choose(n-b,i-1) over unconstrained binary words. The exact proper-word match e8004d1f1b13 is the frozen item itself. Indexed 9aba1877e366 is an apparently related binary burst-fluctuation record, but its RESULT.md was not available from the local mirror."
+        ],
+        "reasoning": "The accessible binary histogram does not transfer to q>=3 proper words; for b>=3 the local indicators can correlate. No actually inspected indexed table or distribution gives the target law.",
+        "searches": [
+          "Resultary: finite dispersion and Poisson sliding-parity limit for binary burst-deletion spheres; exact burst-deletion fluctuations in homopolymer-free words",
+          "arXiv:1602.06820v2, §IV p. 5"
+        ]
+      },
+      "rationale": "The deterministic burst-size identity and the finite-dependence CLT method are known ingredients. The surviving novelty is the simplified exact covariance and variance for the uniform proper nonbinary source, including the b=2 full law and the exact fixed-b limiting variance. No inspected earlier statement supplies these constrained-source results or covers them as a direct specialization of a stronger evaluated law.",
+      "residual_risks": [
+        "The focused primary lookup did not identify a matching constrained-source result; that is not proof of priority. An earlier evaluation under proper-colouring or finite-state return terminology could change the assessment.",
+        "The indexed sliding-parity result was not available at statement level in the local mirror."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Equation (2) is the sum of row-run counts minus b-1. The exact histogram is for all 2^n binary words, not uniform nonbinary proper words."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06820v2",
+          "material_read": "§IV pp. 4–5, Eq. (2) and statement of the binary histogram (OA offsets 18000 and 22000; proof referred to Appendix A)",
+          "method": "Lawful OA PDF bounded pages",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Identical deterministic sphere statistic and a published exact distribution"
+        },
+        {
+          "assessment": "DIFFERENT_SOURCE_AND_CHANNEL",
+          "evidence": [
+            "Two arbitrary deletion sites under IID input, not a contiguous block under an adjacency constraint."
+          ],
+          "identifier_or_url": "Resultary aa5a96812855 and b1a2bd3da18e",
+          "material_read": "Local-mirror RESULT.md Findings and regimes",
+          "method": "Local Resultary search and local mirror",
+          "title": "Exact nonbinary variance of two-deletion sphere cardinality; Exact fluctuations of two-deletion output counts over finite alphabets",
+          "trigger": "Explicit fluctuation results with nonbinary alphabets and overlapping deletion-output counts"
+        },
+        {
+          "assessment": "POTENTIAL_OVERLAP_UNREAD",
+          "evidence": [
+            "The indexed title describes binary sliding parity; no passage-level additional coverage is inferred."
+          ],
+          "identifier_or_url": "Resultary 9aba1877e366",
+          "material_read": "Index listing only; RESULT.md absent from local mirror",
+          "method": "Local Resultary search and attempted local-mirror open",
+          "title": "Finite dispersion and a Poisson sliding-parity limit for binary burst-deletion spheres",
+          "trigger": "Burst-deletion sphere fluctuations, apparently in a binary regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact uncertainty of the number of distinct outputs is meaningful even when the deterministic collision identity and expected size are known. The covariance calculation shows exactly when the independent-trials variance fails and by how much for every finite length, while the b=2 exception is a genuine full-law simplification. The fixed-b Gaussian variance quantifies the same effect at scale. This is a motivated constrained-input benchmark, not a deletion-code capacity or large-burst claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

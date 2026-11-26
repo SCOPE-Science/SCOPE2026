@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For any three deleted vectors the surviving frame operator is \(pI-V_EV_E^*\). The least eigenvalue equals \(p\) minus the erased three-column Gram norm; the largest eigenvalue stays \(p\) because rank is at most three and \(p\ge5\). The proof treats one, two, and three distinct translation classes separately. In the final case the quadratic Gauss-sum formula provides an exact normalized triangle phase, and an explicit degree-three characteristic polynomial yields the norm. Character arithmetic proves both a universal lower bound on the absolute triangle angle and attainment in every prime residue class. The standalone checker reconstructs the actual vectors and agrees for \(308{,}704\) exhaustively checked triples and \(8{,}580\) direct triangle phases. All quantifiers and normalization factors are fixed in `RESULT.md`. The limits and absence of independent audit are stated.
+PASS
 
-## Originality: PASS relative to inspected evidence
+The fixed-translation orthonormal bases give full frame operator pI; subtracting the deleted synthesis product yields the sharp lower bound p minus the largest erased Gram eigenvalue. Rank at most three leaves the surviving upper eigenvalue exactly p. Distinct translation slopes have overlap magnitude p^(-1/2) by the quadratic Gauss sum; the one-class and two-class cases give erased top eigenvalues 1 and 1+sqrt(2/p). For three classes, complete the square on each directed edge and cancel the constant phases cyclically. The quadratic identity for the cyclic squares can be checked after subtracting from beta the affine function matching the first two values (the sum is invariant and R is unchanged). The resulting normalized product is epsilon_p^3 chi(P) omega^(R²/(4P)); the cycle contributes 2 cos(theta) to the scaled off-diagonal cubic, whose largest root is 2 cos(|theta|/3). In the 1 mod 4 case square P and R=0 attain phase zero. In the 3 mod 4 case the angular units of pi/(2p) are odd; with chi(P)=1 and R²=P, 4^(-1)=(p+1)/4 gives exactly pi/(2p). For slopes 0,1,u the number of u giving a nonzero square P=u(1-u) is (p−2−chi(−1))/2>0, and varying beta realizes every R. Both attained eigenvalues strictly exceed 1+sqrt(2/p), and converting the surviving frame eigenvalue ratio to singular values gives the stated square-root condition number.
 
-The closest source, Salanevich–Strachan (arXiv:2509.01325, September 1, 2025), proves general robustness bounds (Theorems 1.5 and 5.5) and provides a numerical example for three erasures in dimension five (Table 1). The present claimed difference is the exact infinite-prime sharp formula and explicit parity-dependent attaining phase, not the already-observed dimension-five number. Bengtsson–Blanchfield–Campbell–Howard (arXiv:1407.2713) concern Clifford symmetries and modulo-three orbit splitting, while Filippov–Man'ko (arXiv:1008.2675) establish general MUB triple-product relations, not sharp Alltop triple-erasure conditioning. The closest database records on adversarial erasures concern two-character harmonic frames, not the Alltop orbit. Searches for a three-erasure Alltop formula, Bargmann-phase variants, and sparse Gram formulations found no dominating theorem. Residual risk remains from less-indexed mathematical-physics literature or an equivalent general three-Gram-triangle result.
+## originality
 
-## Value: PASS
+PASS
 
-Exact worst-case conditioning under loss of three measurements is a natural deterministic robustness invariant of a widely used structured frame; it directly supplies the optimal reconstruction noise-amplification constant within that measurement design. In contrast to generic coherence-only bounds, this theorem detects a nontrivial quadratic-Gauss phase obstruction that depends on the prime modulo four. The closed formula and constructive extremizers resolve the full infinite family without arbitrary parameter cuts. The numerical dimension-five case already existed and is not the proposed value by itself.
+The inspected general erasure guarantees, coherence bound and known p=5 numerical table do not identify the small but exact parity-sensitive arithmetic obstruction. The contribution credited is the all-prime exact triple extremum and attaining class/phase, not the tight-frame erasure reduction, triple-product formalism or the tabulated small case.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact small-deletion condition number is a natural stability quantity for this canonical orbit. The arithmetic phase minimum separates coherence saturation from strict failure and supplies actual attaining erasures. The numerical size of the gap is small at large p, but the exact distinction and its explanation are the point; a tabulated p=5 result alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

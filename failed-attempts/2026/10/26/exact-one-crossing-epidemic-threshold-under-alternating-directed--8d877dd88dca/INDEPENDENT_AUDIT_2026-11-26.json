@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:40.739777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 5–125",
+        "VERIFICATION.md, lines 19–32 and the associated verify.py diagnostic",
+        "Independent direct-product check: critical half-period 0.8441526499425871, sample multipliers 1.0902442189024495 and 0.9353925203135691"
+      ],
+      "rationale": "The unattenuated monodromy is X^T X for X=exp(τ B), B=[[0,p],[q,0]], with determinant one. Using B²=pq I gives trace 2+4κ²sinh²(aτ); dividing the leading log multiplier by the full period 2τ gives the proposed exponent. H(u)=asinh(κ sinh u) has H''(u)=κ(1−κ²)sinh(u)/(1+κ²sinh²(u))^(3/2), so H(u)/u is strictly decreasing for κ>1. Its distinct endpoint limits give the strict finite-duration sign cases, including equalities at the limiting recovery rates; equal rates instead give a constant exponent. The small-u cubic coefficient is −κ(κ²−1)/6, and H(u)=u+log κ+O(exp(−2u)), giving both claimed root asymptotics at fixed unequal rates. An independent direct matrix-product calculation and bisection reproduced the worked example to floating-point rounding; it did not rerun the source script or independently exhaust its test suite.",
+      "residual_risks": [
+        "This is an equal-phase two-dimensional local stability theorem. The computation is finite and does not establish nonlinear behavior at criticality or outcomes beyond the stated model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matching record also allows β>0, which simply rescales both off-diagonal rates. Valdano et al. use a propagator spectral threshold; Speidel et al. analyze undirected snapshots; the Sejunti–Taylor–Masuda two-node example has symmetric matrices and a reverse sign pattern."
+        ],
+        "reasoning": "General monodromy machinery alone does not give strict duration monotonicity or the coefficients; the exact matched-transpose result in the distinct record does.",
+        "searches": [
+          "Resultary reciprocal directed SIS cutoff with free infection multiplier β",
+          "arXiv:1406.4815, Eqs. (6)–(8)",
+          "arXiv:1602.00859, §§2–3",
+          "arXiv:2406.16787, §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b0a7ea14ed2d",
+        "Valdano et al., arXiv:1406.4815",
+        "Speidel et al., arXiv:1602.00859",
+        "Sejunti, Taylor & Masuda, arXiv:2406.16787"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "It states T_c=√(ε/C₂)[1+O(ε)] and Λ(T)=β√(ab)−μ+2 log Γ/T+O(exp(−β√(ab)T)/T)."
+        ],
+        "reasoning": "With T=2τ the square-root coefficient agrees exactly. As μ approaches β√(ab) from above, monotonicity forces the root to infinity; substituting Λ(T_c)=0 into the displayed long-period correction gives T_c(μ−β√(ab))→2 log Γ. Thus the explicitly inverted law is not an independent remainder.",
+        "searches": [
+          "b0a7ea14ed2d, Finding and Quantitative endpoints, mirror offsets 0 and 4200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record's Λ(T) is −μ+(2/T)asinh(Γ sinh(β√(ab)T/2)), strictly decreasing for unequal a,b with identical finite-zero and endpoint-sign conditions."
+        ],
+        "reasoning": "Set T=2τ, a_prior=p, b_prior=q, β=1 and Γ=κ in the frozen notation. The exponent and classification then coincide, including the symmetric constant case.",
+        "searches": [
+          "Resultary: reciprocal directed alternating half-period Floquet cutoff, matched transpose matrices",
+          "2026/10/26/SCOPE-a-unique-switching-period-invasion-cutoff-for-reciprocal-directe--b0a7ea14ed2d, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index led to a distinct actual symbolic theorem, not merely a matching numerical example."
+        ],
+        "reasoning": "A finite numerical table is not a natural representation of the quantified continuum claim; the symbolic database entry is decisive.",
+        "searches": [
+          "Resultary exact periodic two-layer directed threshold and duration scaling; indexed Finding of b0a7ea14ed2d"
+        ]
+      },
+      "rationale": "A distinct Resultary record covers the exact exponent, strict decrease, entire crossing/sign classification and upper-edge law under a simple reparameterization. Its explicit long-period correction immediately gives the lower-edge law as well. This is demonstrated equivalent coverage, not a claim about which of the two same-UTC-date records appeared first.",
+      "residual_risks": [
+        "No within-day priority or provenance ordering is established.",
+        "Full texts of Gökçek (2004), doi:10.1155/S1024123X04401069, and Lian–Liu (2013), doi:10.1049/iet-cta.2013.0280, were not retrieved by lawful access; their precise coverage is unresolved and is not a basis for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage; within-date order undetermined",
+          "evidence": "Finding gives the free-β exact formula and signs; Quantitative endpoints gives the same cubic Taylor term and logarithmic long-period correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-unique-switching-period-invasion-cutoff-for-reciprocal-directe--b0a7ea14ed2d/RESULT.md",
+          "material_read": "Finding, proof and Quantitative endpoints; decisive offsets 0 and 4200",
+          "method": "Paged Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique switching-period invasion cutoff for reciprocal directed SIS contact layers",
+          "trigger": "Closest distinct result on the same matrix pair"
+        },
+        {
+          "assessment": "General propagator threshold, no strict-duration classification in inspected passages",
+          "evidence": "The criterion uses a propagator spectral radius and includes directed weighted networks.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.4815",
+          "material_read": "PDF pp. 1 and 5, especially Eqs. (6)–(8)",
+          "method": "OA full-text passages",
+          "title": "Analytical computation of the epidemic threshold on temporal networks",
+          "trigger": "General threshold that might imply the specialized result"
+        },
+        {
+          "assessment": "Different snapshot class and duration result",
+          "evidence": "The snapshot matrix product is used for undirected examples, not the mirrored positive off-diagonal pair.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00859",
+          "material_read": "PDF pp. 3–4, §§2–3",
+          "method": "OA full-text passages",
+          "title": "Temporal interactions facilitate endemicity in the susceptible-infected-susceptible epidemic model",
+          "trigger": "Close snapshot-duration Floquet precedent"
+        },
+        {
+          "assessment": "Different matrices and opposite stability effect",
+          "evidence": "A reverse example uses symmetric matrices with unequal phase durations and differing diagonal entries.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.16787",
+          "material_read": "§3.1, PDF text near offset 24200",
+          "method": "OA full-text passage",
+          "title": "A Parrondo paradox in susceptible-infectious-susceptible dynamics over periodic temporal networks",
+          "trigger": "Two-node periodic threshold comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Distinct indexed b0a7ea14ed2d Finding and endpoint expansions"
+      ],
+      "rationale": "The sharp matched-transpose stability classification would be useful as a new exact result. In this frozen submission it has no substantive increment over the distinct indexed theorem: changing full period to half-period and inverting its already explicit endpoint expansion leaves no new mathematical contribution.",
+      "residual_risks": [
+        "The verdict concerns incremental scientific value, not utility of the underlying classification as a reference."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

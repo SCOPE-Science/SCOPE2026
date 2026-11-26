@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The printed zero-quarantine point fails the source's own scaled \(Q\)-equation for \(p>0\). Solving the dimensional disease-free balance gives the true state, and linearizing \(E,I,A\) there yields the stated rank-one next-generation matrix. Direct determinant algebra gives
-\[
-\det(-J_I)=(\sigma+\mu)(\gamma_I+\mu_I+\mu)(\gamma_A+\mu)(1-\mathcal R_0).
-\]
+PASS
 
-## Originality
+The publisher PDF confirms the balances in model (2.1), the p̃S̃ influx in (2.2), and the non-equilibrium point and negative first row attributed to Section 3.1. At disease absence, summing the S,Q balances gives S+Q=Λ/μ and Q=pS/(λ+μ); substituting the printed zero-Q point into (2.2) gives Q̃′=p̃. The incidence derivative at the true equilibrium is βs* times the I+θA derivative; derivatives of the media and susceptible factors multiply a zero infectious term. In infected coordinates E,I,A the single new-infection row yields the stated spectral radius by triangular inversion. For the threshold signs, write a,b,c for the three positive removal rates and P,Q for βs*σρ, βs*θσ(1−ρ). On Re z≥0 the characteristic equation is z+a=P/(z+b)+Q/(z+c). If R₀<1, the right-hand modulus is at most aR₀<a; if R₀>1, the real equation has a positive root by continuity and monotonicity. Equality gives a zero eigenvalue. The uninfected linear block is stable. Independently recomputed from the now-confirmed Table 2 literals: s*=10251/10351, R₀=0.2281211174466805 and 1.6475414037815814, and βc=0.394527262567158. The frozen verify.py was inspected, not executed. This is a local threshold check, not a validation of downstream nonlinear claims or code.
 
-PASS. General next-generation theory is prior art. The source-specific disease-free and reproduction-number correction is not in the primary paper or located correction literature. A separate earlier finding on the same article concerns optimal-control adjoints and does not imply this result.
+## originality
 
-## Value
+PASS
 
-PASS. The corrected scalar governs the source's central extinction/persistence interpretation and materially changes its quantitative reproduction-number values. The correction is therefore structurally relevant rather than a typographical normalization.
+The original paper prints a different point and numbers. The general next-generation construction and the prior same-paper adjoint correction do not provide this corrected equilibrium and threshold of the printed uncontrolled model. No equivalent correction was established in the checked material.
 
-## Closest literature and limitations
+## value
 
-Van den Driessche and Watmough supply the standard framework and require a nonnegative matrix of new-infection derivatives. They do not give this SQEIAR correction. The source's two showcased transmission values remain on the same qualitative sides of one after correction, so no reversal of those two simulations is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The correction replaces a non-equilibrium and an invalid new-infection split with a quantitative local threshold for the actual equations. Both published sample parameters remain on their respective sides of one, but the quantitative values and interpretation around the corrected boundary change. This is a source-specific structural correction, not a new general next-generation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

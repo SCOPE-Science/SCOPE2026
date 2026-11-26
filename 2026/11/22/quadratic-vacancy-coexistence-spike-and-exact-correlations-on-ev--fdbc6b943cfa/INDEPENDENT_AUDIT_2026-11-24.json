@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:41:49.161689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–102 and VERIFICATION.md lines 19–27",
+        "Inspected frozen verify_exhaustive.cpp and verify_walsh.py without executing them; their reported checks have finite scope",
+        "/workspace/branches/independent_finite_checks.js, record 2 block"
+      ],
+      "rationale": "Under the specified coordinate-plus-antipode convention the adjacency eigenvalue at Walsh weight k is n−2k+(−1)^k; for even n its minimum 1−n occurs exactly at n,n−1. The energy bound is (D−D*)K with D*=(n−1)J/2, with equality exactly on this eigenspace, including zero. Full and empty states attain the lower envelope on the two strict sides. Independently, after parity untwisting, a ternary minimizer at D* is an affine function b+Σd_i x_i on the Boolean cube, with b integer and every d_i an integer from a single-coordinate difference. Its range width is Σ|d_i|≤2. Width 0 gives the three constants; one nonzero increment of size 1 gives four half-occupied states per coordinate (two signs and two allowed baselines), one of size 2 gives two full states per coordinate, and two size-1 increments give four half states per pair. This proves that there are no other sectors and yields the displayed counts and ground energy for all even n≥4. In the original character basis the full states are signed single modes, the half states are signed half-sums of distinct modes. Summing over the signs eliminates mixed terms and gives coefficient 2+n for each diagonal character product. The diagonal character sum is (−1)^r(n+1−2r), giving the stated uniform threshold correlation after division by 1+2(n+1)^2. Independent exact enumeration of the bounded increment vectors at n=4,6 gives (empty, half, full)=(1,40,10),(1,84,14), and sums of spin products [30,−18,6,6,−18] and [56,−40,24,−8,−8,24,−40] over the respective state sets, matching the formula at all r. Replay: node /workspace/branches/independent_finite_checks.js (record 2 block).",
+      "residual_risks": [
+        "The exact scan in this review tests the bottom eigenspace at two dimensions, not all spin assignments at all dimensions. The spectral equality and width proof establish exhaustion.",
+        "No positive-temperature, odd-n, unequal-bond or nonzero-field inference is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mosseri's arbitrary-graph Hadamard framework is for ±1 spins.",
+          "SCOPE-six-pure-ground-state-phases-and-a-flat-band-correlation-law-for--732dcef7635a treats K₃ Cartesian powers at positive field; SCOPE-parity-controlled-vacancy-condensation-in-antiferromagnetic-spin--a9d59ac1a17e classifies wheels at zero field."
+        ],
+        "reasoning": "The spectral basis is common groundwork, but neither a theorem for binary spins nor the compared graph-specific ternary classifications implies the exposed layer of half-occupied folded-cube states. The latter requires resolving the finite-valued affine intersection, not just identifying the least eigenvalue.",
+        "searches": [
+          "Mosseri arXiv:1409.0147, OA full-text §§II.A and III.A",
+          "Xu–Meng, folded-hypercube spectrum, Thm. 2.3 (primary PDF attempted)",
+          "Resultary spin-one and binary hits returned by the threshold and correlation queries"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work section; Resultary and resolved published originals above",
+        "arXiv:cond-mat/0703299",
+        "arXiv:1409.0147"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-graph binary theory gives the 2(n+1) character states in the tied band and the binary Hamming-distance law. The weighted theory recovers the same minimum-band mechanism.",
+          "In the audited theorem the half-sums of two modes carry a new diagonal weight n in the unnormalized critical spin products and change the ensemble size from 2(n+1) to 1+2(n+1)^2."
+        ],
+        "reasoning": "The prior work covers the full occupancy sector and supplies the spectral input used to locate the threshold. It does not determine the ternary vacancy states or their multiplicities. The critical correlation is not the binary law under a different name: its amplitude follows from counting the half-occupied supports across all modes and including the empty state.",
+        "searches": [
+          "Resolved Resultary hits SCOPE-coupling-selected-ground-state-rigidity-and-hamming-correlations--649842af5271 and SCOPE-parity-controlled-frustration-relocation-on-weighted-folded-hype--4e33e4bd452a to their primary statements and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top Resultary match fdbc6b943cfa is the audited record itself. The web search surfaced other graph/lattice Blume–Capel studies, not a directly comparable folded-cube theorem.",
+          "Pawłowski arXiv:cond-mat/0703299 p. 1 has a square-lattice zero-field threshold D/|J|=2.",
+          "The published folded-cube binary comparisons below use the same graph convention but omit the zero spin."
+        ],
+        "reasoning": "A square-lattice occupancy transition and a binary coupling crossing are not equivalent to the ternary affine-state coexistence studied here. In particular, absence of a vacancy degree of freedom changes both the minimizer set and the probability measure for the spin-product law.",
+        "searches": [
+          "Resultary: folded hypercube spin-one Blume-Capel vacancy coexistence threshold exact critical ground-state count correlation",
+          "Web: \"folded hypercube\" \"Blume-Capel\" spin-one antiferromagnet vacancy threshold ground states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bound result was returned by these exact-combination searches in the semantic index.",
+          "SCOPE-exact-five-threshold-field-diagram-of-the-three-state-clebsch-po--93c0e462128b is a Clebsch-graph Potts result; its 720 zero-field colorings minimize monochromatic bonds, not the spin-one Hamiltonian."
+        ],
+        "reasoning": "The same 16-vertex graph and a three-state alphabet do not identify the interaction or the ground-state ensemble; the inspected Potts count cannot supply the 51-state Blume–Capel table. No distinct exact table was revealed by the bounded searches.",
+        "searches": [
+          "Resultary: folded hypercube 2n(n+1) half-occupied 2(n+1) full 1 empty 1+2(n+1)^2",
+          "Resultary: folded hypercube critical spin product (n+2)(-1)^r(n+1-2r)/(1+2(n+1)^2)",
+          "Resultary: Clebsch graph folded four-cube spin-one Blume-Capel 51 minimizers D=3J/2 one empty 40 half occupied ten full"
+        ]
+      },
+      "rationale": "The spectrum, spectral bound and same-graph binary rigidity are established premises. The inspected distinct prior claims do not classify the ternary intersection of the minimum eigenspace or give the folded-cube vacancy coexistence ensemble. The spin-one threshold location is a direct spectral consequence and is not independently credited as new; the supported distinct contribution is the exact ternary classification, labeled count and critical spin-product law for this family.",
+      "residual_risks": [
+        "An unindexed spin-one application of the same minimum eigenspace is possible; bounded searches do not certify priority.",
+        "Xu–Meng's cited publisher PDF passage was not extractable on the permitted routes; this is an access limitation, not evidence against overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the closely related binary theory only",
+          "evidence": "The alphabet is ±1 and the parameter crossing is between Ising couplings. No variable occupation, D or half-filled sector occurs.",
+          "identifier_or_url": "2026/11/2/SCOPE-coupling-selected-ground-state-rigidity-and-hamming-correlations--649842af5271",
+          "material_read": "RESULT.md Finding, assumptions, proof and correlation, offsets 0–4849",
+          "method": "Local published mirror",
+          "title": "Coupling-selected ground-state rigidity and Hamming correlations",
+          "trigger": "Same graph, 2(n+1) states and Hamming-distance formula"
+        },
+        {
+          "assessment": "Binary spectral/multiplicity overlap",
+          "evidence": "Gives lowest modes and binary configurations at a weighted coupling threshold, not a ternary vacancy classification.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-controlled-frustration-relocation-on-weighted-folded-hype--4e33e4bd452a",
+          "material_read": "RESULT.md, offsets 0–4599",
+          "method": "Local published mirror",
+          "title": "Parity-controlled frustration relocation on weighted folded hypercubes",
+          "trigger": "Weighted extension on the same graph"
+        },
+        {
+          "assessment": "Different graph and field",
+          "evidence": "Interactions are on K₃ Cartesian powers and the phase classification is at positive field.",
+          "identifier_or_url": "2026/11/2/SCOPE-six-pure-ground-state-phases-and-a-flat-band-correlation-law-for--732dcef7635a",
+          "material_read": "RESULT.md, offsets 0–4797",
+          "method": "Local published mirror",
+          "title": "Six pure ground-state phases and a flat-band correlation law for ternary Hamming Blume–Capel models",
+          "trigger": "Exact spin-one phases and correlations in a Hamming graph family"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Wheel structure and its occupancies do not extend to the folded n-cube; the triangle coincidence n=2 is outside scope.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-controlled-vacancy-condensation-in-antiferromagnetic-spin--a9d59ac1a17e",
+          "material_read": "RESULT.md, offsets 0–4527",
+          "method": "Local published mirror",
+          "title": "Parity-controlled vacancy condensation in antiferromagnetic spin-one wheel graphs",
+          "trigger": "Zero-field exact vacancy classification"
+        },
+        {
+          "assessment": "Different Hamiltonian",
+          "evidence": "Counts Potts colorings; the zero-field minimization is of monochromatic bonds, with no vacancy term.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-five-threshold-field-diagram-of-the-three-state-clebsch-po--93c0e462128b",
+          "material_read": "RESULT.md offsets 0–4916",
+          "method": "Local published mirror",
+          "title": "Exact five-threshold field diagram of the three-state Clebsch Potts model",
+          "trigger": "Exact three-state count on the same Clebsch graph"
+        },
+        {
+          "assessment": "Physics analogue on a different graph",
+          "evidence": "Page 1 gives square-lattice zero-field occupied/empty ground-state change at D/|J|=2. No folded-cube classification in the compared passages.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0703299",
+          "material_read": "PDF pp. 1–2 and p. 4 near offset 9920",
+          "method": "Lawful OA full-text inspection",
+          "title": "Multiphase structure of finite-temperature phase diagram of the Blume-Capel model. Wang-Landau sampling method",
+          "trigger": "Classical antiferromagnetic spin-one vacancy threshold"
+        },
+        {
+          "assessment": "Binary framework, not ternary classification",
+          "evidence": "The chosen ±1 system and Hadamard analysis do not count zero-spin supports.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.0147",
+          "material_read": "Abstract, §II.A and §III.A, offsets 0–9491 and 9000–13169",
+          "method": "Lawful OA full-text inspection",
+          "title": "Ising-like models on arbitrary graphs: The Hadamard way",
+          "trigger": "General spectral Ising method"
+        },
+        {
+          "assessment": "Spectrum credited as background, no primary-text coverage determination from this attempt",
+          "evidence": "The frozen citation identifies Theorem 2.3 as a spectral result; the spectrum used here was independently derived from the Cayley adjacency, rather than inferred from access failure.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20092/volume-92-paper-1.pdf",
+          "material_read": "Publisher citation only; PDF passage not extractable",
+          "method": "Lawful OA direct and configured alternate route attempted",
+          "title": "On the Folded Hypercube and Bi-folded Hypercube",
+          "trigger": "Original cited spectrum, Xu and Meng (2009), Thm. 2.3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and ground-state/correlation classification; compared binary folded-cube and ternary graph-family originals"
+      ],
+      "rationale": "The exact coexistence ensemble tests what ternary vacancies change in a frustrated, symmetric graph whose binary sector is already understood. An energy envelope alone would miss both the isolated half-density sector of quadratic cardinality and its effect on spin observables. This is a natural zero-temperature finite-cluster benchmark over an unbounded even-dimensional family, with a concrete Clebsch-graph check.",
+      "residual_risks": [
+        "Significance is an exact classical ground-state benchmark, not a thermodynamic phase-transition claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

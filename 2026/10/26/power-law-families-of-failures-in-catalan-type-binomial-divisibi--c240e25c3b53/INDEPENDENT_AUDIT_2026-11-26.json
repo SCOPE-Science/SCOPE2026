@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:02:02.287672Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52",
+        "Frozen VERIFICATION.md line 19 and verify.py, inspected not executed"
+      ],
+      "rationale": "Here m=a+b is a unit modulo p, so s exists, q-1=mw>0, w is a p-adic unit, and bw is -1 modulo p. The base-q products mn and an have respectively digits epsilon_j(q-1) and epsilon_j aw, all in [0,q-1], with no cross-block carry. Within every occupied block the top base-p digits are all p-1, so every Lucas factor is a unit; unoccupied blocks are zero on both sides. Since epsilon_0=1, p divides bn+1 and does not divide the binomial. The digit strings of n itself have digits 0 or w, so they are distinct and strictly below q^r. At r=floor(log_q X) this gives the exact stated lower bound, at least X^delta/4. The p-adic witness closure consists exactly of the infinite choices by compactness of binary sequence space and density of finite truncations. Two choices first differing at j have distance p^(-sj); the length-r cylinders are intersections with residue-class balls of radius q^(-r). Cover by the 2^(r-1) cylinders for the dimension upper bound. Their uniform Bernoulli masses are 2^(1-r); for arbitrary small radii between successive q-powers the same cylinder bound gives a constant times radius^delta, proving the reverse bound by mass distribution.",
+      "residual_risks": [
+        "The exponent is a lower-bound exponent for the exception count. The dimension is exact only for the constructed closure, not for all failures. Cylinders are balls in the subspace metric, not entire ambient Z_p balls."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 22 universal branching record counts nonzero binom(mn,n) for odd p with p not dividing m(m-1), not binom(mn,an) with p dividing a and bn+1. Abram–Lagarias cover dimension of p-adic path sets once the digit graph is specified."
+        ],
+        "reasoning": "The dimension follows from established machinery once the witness path set is constructed. Neither that machinery nor a digit theorem for lower argument n supplies the simultaneous arithmetic constraint in the frozen claim.",
+        "searches": [
+          "Resultary: proportional binomial nonzero indices and universal digit branching",
+          "Barat–Grabner and Rowland on digit-block binomial distributions",
+          "Abram–Lagarias, arXiv:1210.2478, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Guo–Krattenthaler 1301.7651, Barat–Grabner author PDF, Rowland 1001.1783, Abram–Lagarias 1210.2478",
+        "Resultary mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4: same-day mod-five result, November 22 digit-branching and fourfold findings, November 2 triple finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known seed can be repeated; the frozen proof verifies that inserting arbitrary zero blocks leaves the low residue and Lucas unit conditions intact. For the resulting subshift there are two choices per s base-p digits, so the dimension is the standard entropy value log_p(2)/s."
+        ],
+        "reasoning": "The novelty supported is the closed-form arithmetic witness family, not the implication from an already constructed separated binary p-adic set to its dimension. The earlier existence and first-failure-scale results do not already give the quantitative family.",
+        "searches": [
+          "Guo–Krattenthaler Section 4 and Section 7 versus the frozen independent-block proof",
+          "Abram–Lagarias Theorem 1.1 versus the frozen witness closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.1's proof gives n=(p^(r phi(m))-1)/m for the same hypothesis, and Section 7 notes the least-order seed w. This is the repeated all-ones pattern at admissible block lengths, not the set with each higher block chosen independently."
+        ],
+        "reasoning": "One repeated-block witness per exponent proves infinitude but not 2^(r-1) witnesses below q^r. The overlap is the seed and an explicit subpattern, not the branching theorem.",
+        "searches": [
+          "Resultary: Catalan-type binomial divisibility failures, Lucas concatenation and p-adic witnesses",
+          "Guo–Krattenthaler, arXiv:1301.7651, Theorem 2.1 proof and Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date 2026/10/26/SCOPE-sharp-square-root-imbalance-for-binom-4n-2n-modulo-five--88cd6f9d99bb gives 3^L nonzero residues below 5^L for binom(4n,2n). The November 2 triple and November 22 fourfold entries concern first-failure indices."
+        ],
+        "reasoning": "The same-date exact count does not include bn+1 and does not even have p dividing a in its displayed parameters. First-failure values, including the overlapping odd-b fourfold instances, are not tables of growing exception counts or dimensions.",
+        "searches": [
+          "Resultary: exact nonzero binomial counts, first nondivisibility indices and power-law exception counts"
+        ]
+      },
+      "rationale": "Guo–Krattenthaler already prove qualitative infinitude under the same prime-factor hypothesis and give the seed. The supported distinct contribution is the arithmetic construction of independently selectable blocks meeting both divisibility constraints, and hence a quantitative lower count and the corresponding explicit p-adic subset. No credit is assigned for Lucas's theorem or general path-set dimension theory.",
+      "residual_risks": [
+        "The search is bounded. An earlier automaton construction for these same simultaneous constraints or an implicit independent-block enlargement of the Guo–Krattenthaler witnesses could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative infinitude and seed covered; independent choices not found in the decisive passages",
+          "evidence": "One prime-power-minus-one witness per exponent and the minimal-order bound f(a,b)<=w.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.7651",
+          "material_read": "Section 4 proof of Theorem 2.1, p. 6 (text offset about 18333); Section 7, p. 14 (offset about 48578)",
+          "method": "OA PDF passage inspection",
+          "title": "Some divisibility properties of binomial and q-binomial coefficients",
+          "trigger": "Same binomial divisor problem, hypothesis and starting witness"
+        },
+        {
+          "assessment": "Methodological precedent; no exact comparison in the opening statement",
+          "evidence": "Distribution of binomial coefficients via digit-block functions.",
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Opening page",
+          "method": "Author-hosted OA PDF passage inspection",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Related digit-block distribution methods"
+        },
+        {
+          "assessment": "Different counting variable and condition in inspected statements",
+          "evidence": "Counts coefficients in each row modulo p^alpha using digit data, rather than witnesses to a variable linear divisor along a fixed ray.",
+          "identifier_or_url": "https://arxiv.org/pdf/1001.1783",
+          "material_read": "Opening page",
+          "method": "OA PDF passage inspection",
+          "title": "Rowland, binomial-coefficient nondivisibility via digital statistics",
+          "trigger": "Prior exact digital binomial nonzero counts"
+        },
+        {
+          "assessment": "General dimension mechanism covers this step once the set is built",
+          "evidence": "Hausdorff dimension is the log to base p of the graph adjacency spectral radius for the appropriate presentation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.2478",
+          "material_read": "Theorem 1.1, p. 3 (text offset about 9366)",
+          "method": "OA PDF passage inspection",
+          "title": "p-adic path-set fractals",
+          "trigger": "General dimension theorem for digit automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29 and 34–52",
+        "Guo–Krattenthaler Theorem 2.1 and its proof"
+      ],
+      "rationale": "The result strengthens a natural qualitative infinitude theorem by replacing isolated witnesses with a uniformly described power-law family, introducing a positive-dimensional geometric substructure. Even a nonoptimal exponent quantifies how often the failures can be guaranteed under the original hypothesis, which the earlier prime-power sequence does not achieve.",
+      "residual_risks": [
+        "No density, optimal exponent, or exact dimension of the complete failure set follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

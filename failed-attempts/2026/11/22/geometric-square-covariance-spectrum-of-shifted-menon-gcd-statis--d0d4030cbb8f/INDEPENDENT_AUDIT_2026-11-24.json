@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:35:29.136405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X_a(u), telescoping p^h=1+sum_{j=1}^h phi(p^j) gives mean k+1 on the units. Let P_j be averaging within reduction classes modulo p^j and P_0 averaging over all units. The centered data matrix is H=M(sum_{j=1}^k P_j-kP_0), symmetric, so the covariance is H^2/M. The orthogonal difference of the j-th and (j-1)-st images sees eigenvalue M(k-j+1)^2 of the covariance, with dimension the difference of the reduction-image dimensions. Constants form the kernel. Counting products with min(i,j)=l in P_i P_j=P_min(i,j) gives the stated entry formula. For the empirical law, masses at j^2 with j<k agree, the deficit at k^2 is 1/(pM), and the missing tail is (p-1)/(pM); their sum is exactly the extra mass 1/M at zero. The empty positive spectrum for p=2,k=1 and the missing first contrast level when p=2 are correctly treated, including the condition number when there is a positive spectrum. The uploaded integer/rational checker was inspected read-only; the all-parameter result follows from the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Dirichlet formula has arbitrary modulus n and arbitrary character; the primitive and principal instances are singled out. Gormany–Lladser give a related contrast diagonalization and explicit perfect-binary-tree spectra."
+        ],
+        "reasoning": "The all-modulus identity covers the frozen prime powers exactly after centering the principal mode and applying the covariance square. The cited tree formulas anticipate the hierarchical spectral mechanism but the binary statement alone is not needed to conclude coverage for arbitrary p.",
+        "searches": [
+          "arXiv:2110.07271 §4.14, all-modulus Dirichlet-character formula",
+          "arXiv:2208.09927 §4: tree covariance spectra and trace-balanced matrices"
+        ]
+      },
+      "checked_sources": [
+        "Tóth arXiv:2110.07271 equation (70), Zhao–Cao identity",
+        "arXiv:2208.09927",
+        "DOI:10.1007/s40065-019-0259-3",
+        "arXiv:1201.3139",
+        "arXiv:1803.02970",
+        "Resultary 20e0e854a01d and assigned-record match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=p^k the conductor p^l gives the data eigenvalue M tau(p^{k-l})=M(k-l+1). An exact-conductor count subtracts successive numbers of characters factoring through reduction. On constants G=M(k+1); mean subtraction deletes this eigenvalue and is zero on other characters."
+        ],
+        "reasoning": "The spectrum follows by squaring and dividing by M; all rank and condition results follow from its extrema. The projectors onto conductors at most p^j are exactly the residue-class averages by character orthogonality. Writing the squared diagonal in their successive differences gives the entry formula by telescoping. The geometric atom masses match through j<k, and TV is the displaced mass at zero. Full-ring additive transforms are not the reason for FAIL.",
+        "searches": [
+          "arXiv:2110.07271 p.35 equation (70), attributing Zhao–Cao (2017)",
+          "arXiv:1803.02970, arXiv:1201.3139, DOI:10.1007/s40065-019-0259-3, to distinguish additive formulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (70) gives sum over units of gcd(x-1,n) chi(x) = phi(n) tau(n/d) for every character chi of conductor d. For units a,u, gcd(a-u,n)=gcd(1-a^{-1}u,n)."
+        ],
+        "reasoning": "The matrix G with those gcd entries is multiplicative group convolution. Substituting u=ax in G chi proves directly that Eq. (70) gives its eigenvalue on every character. These characters form a complete basis.",
+        "searches": [
+          "Tóth arXiv:2110.07271, §4.14, equation (70): unit-restricted Dirichlet-character sums for (a-1,n)",
+          "Resultary: prime-power unit-indexed shifted gcd, covariance spectra and Smith factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned record itself. The distinct same-day 20e0e854a01d gives integer Smith factors of the uncentered gcd-difference matrix at k=2. It is not a real spectral table."
+        ],
+        "reasoning": "No priority/order is inferred from the same-day match. The Smith-form entries do not provide the frozen covariance spectrum; the decisive existing coverage is the published character identity.",
+        "searches": [
+          "Resultary: d0d4030cbb8f and 20e0e854a01d; exact unit-restricted prime-power gcd covariance and gcd-difference matrix spectra"
+        ]
+      },
+      "rationale": "Zhao–Cao's Dirichlet-character Menon identity already gives the full Fourier diagonal of the unit-indexed data kernel for every modulus, not merely the scalar first moment. Centering and squaring make the proposed covariance spectrum a direct corollary. The arithmetic entry formula and the exact total variation are routine consequences of this same diagonal, not a surviving independent claim.",
+      "residual_risks": [
+        "The historical search is bounded; the explicit earlier all-modulus identity is sufficient regardless of whether the precise covariance phrasing appeared elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact prior coverage via multiplicative convolution; comparison relies on the theorem as printed in the survey, not on a claim to have inspected Zhao–Cao's original article.",
+          "evidence": "Equation (70) states sum gcd(a-1,n) chi(a)=phi(n) tau(n/d), n arbitrary and d the conductor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.07271",
+          "material_read": "p. 1 and p. 35, §4.14, equations (70) and (71) and attribution to Zhao and Cao, Another generalization of Menon's identity, IJNT 13 (2017), 2373–2379; offset 121660",
+          "method": "Original survey PDF, targeted passages read",
+          "title": "Proofs, generalizations and analogs of Menon's identity: a survey",
+          "trigger": "Unit-group Fourier eigenvalues possibly encoded in shifted Menon sums"
+        },
+        {
+          "assessment": "Generic structural analogy and exact balanced binary-tree formulas, not independently decisive for all primes.",
+          "evidence": "Haar-like contrasts diagonalize trace-balanced ORB cases; the frozen covariance plus k^2 times the all-ones matrix is a common-prefix covariance.",
+          "identifier_or_url": "arXiv:2208.09927",
+          "material_read": "§4, pp. 13–14, Lemma 4.2 and Corollaries 4.3–4.4",
+          "method": "OA paper text with located passages",
+          "title": "Sparsification of Large Ultrametric Matrices: Insights into the Microbial Tree of Life",
+          "trigger": "Nested-block eigenvectors and multiplicities"
+        },
+        {
+          "assessment": "Relevant but not the multiplicative character identity.",
+          "evidence": "Studies transforms weighted by additive characters of shifted single functions.",
+          "identifier_or_url": "https://doi.org/10.1007/s40065-019-0259-3",
+          "material_read": "pp. 2–3, offset 4500",
+          "method": "OA article passage",
+          "title": "Menon-type identities concerning additive characters",
+          "trigger": "Shifted transforms over the units"
+        },
+        {
+          "assessment": "Additive Fourier transform on the full ring; distinct kernel domain.",
+          "evidence": "DFT of functions of gcd(r,m) summed over all residues r.",
+          "identifier_or_url": "arXiv:1201.3139",
+          "material_read": "pp. 1–2, offset 800",
+          "method": "OA paper text",
+          "title": "On the Fourier transform of the greatest common divisor",
+          "trigger": "DFT of gcd kernels"
+        },
+        {
+          "assessment": "Not the unit-indexed covariance.",
+          "evidence": "The matrices have full residue-ring size and Ramanujan or Kloosterman entries.",
+          "identifier_or_url": "arXiv:1803.02970",
+          "material_read": "p. 1, offset 713",
+          "method": "OA paper text",
+          "title": "Eigenvalues of Matrices whose Elements are Ramanujan Sums or Kloosterman Sums",
+          "trigger": "Exact spectra of related circulants"
+        },
+        {
+          "assessment": "Related integer invariant, not a competing covariance spectrum.",
+          "evidence": "Smith factors are for the uncentered matrix of gcd(a-b,p^2).",
+          "identifier_or_url": "Resultary 2026/11/22 SCOPE-20e0e854a01d",
+          "material_read": "RESULT.md finding including dyadic case",
+          "method": "Configured local mirror",
+          "title": "Integral Smith factors of unit-restricted prime-square gcd differences",
+          "trigger": "Exact same kernel at modulus p^2"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The covariance model and comparison distribution are natural, and the calculation is a useful exposition. But the proposed exact invariant mechanically follows from the known full data-kernel Fourier diagonal, and the finite TV identity just counts the mass transferred to the constant mode. No separate unknown and independently useful exact invariant remains in the frozen contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

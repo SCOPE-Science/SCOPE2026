@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:32.545036Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, scope and proof §§1–5",
+        "VERIFICATION.md and verify_gyrator.py (inspected, not executed)",
+        "Independent Gaussian regression and real-root pairing proof; exact Lyapunov block and discriminant checks"
+      ],
+      "rationale": "Stationarity plus the integral velocity relation gives D+Dᵀ=0 by integrating the derivative of XXᵀ and taking expectations (finite stationary second moments suffice for this interchange). Gaussian regression gives V=DᵀC⁻¹X+ε with independent residual of covariance R>0 and JDᵀ=hI. Whitening and diagonalizing yields L in law as Σ_j(hZ_j²+√λ_j Z_jY_j) with independent standard normals. Conditional Gaussian integration gives exactly the two factors and the moments. The maximal real MGF domain is the intersection of the two strict positivity intervals, i.e. endpoints (−h±√(h²+Λ))/Λ for Λ=max λ_j; the MGF diverges at and beyond the relevant endpoints. Conditioning on the two Z's gives an everywhere positive continuous density: the reciprocal standard deviation is bounded by 1/(√(min λ_j)|Z|), integrable in dimension two. For necessity, a density reflection with slope a makes M(s)=M(−a−s); the finite domain contains 0 and −a, hence has an open neighborhood of the midpoint. Thus the quartic denominator is invariant under the same reflection. For unequal λ_j the factor with larger λ_j has both roots strictly closer to zero on their respective sides, so reflection pairs the outer roots and pairs the inner roots. Their midpoints are −h/λ_j, which cannot coincide for h≠0 and unequal λ_j. At h=0 symmetry is immediate; equal λ produces the quoted asymmetric Laplace density by integration, with slope 2h/λ. The sharpness family satisfies the Lyapunov equation, and a drift root z with Re z≥0 would satisfy z²+z+1+ε=±i, forcing |Im z|≤1 and a positive real part for the left-hand side, a contradiction. Its full covariance is positive for ε>0 and the ratio tends to one. In the conservative example exact block substitution gives E=CK+D and −KD−DᵀK−2E+diag(2,6)=0. Since CJRJᵀ=CJEJᵀ−h²I, the discriminant is that of the latter unshifted matrix, whose numerator over 1089 has entries (2062,−474;−1194,2488); this gives 24700/11979 as stated.",
+      "residual_risks": [
+        "In reading the displayed MGF, both individual factors must be positive; positivity of their product outside the interval does not extend the transform.",
+        "The ratio classification is for a centered nondegenerate jointly Gaussian stationary pair and a continuous-velocity instantaneous observable. It need not hold for the full nonlinear orientation model or for integrated currents."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Imhof reduces a Gaussian quadratic form to a weighted sum of independent chi-squares.",
+          "Inertial effects defines the same instantaneous x×v in a harmonic model and derives its mean; Eq. (14) instead concerns the fluctuation of a current over long time.",
+          "Dutta–Saha report the instantaneous SNR and distribution numerically and study analytic covariance in a small-anisotropy regime.",
+          "Viot et al. use a finite forward difference precisely because the overdamped derivative is ill-defined."
+        ],
+        "reasoning": "The general transform is prior by specialization. The comparison for the remaining criterion must be with an exact finite-state joint law and its exponential reflection, not a time-integrated diffusion or a finite-difference observable with different kinematics.",
+        "searches": [
+          "Imhof doi:10.1093/biomet/48.3-4.419, Eq. (1.1)",
+          "Inertial effects on the Brownian gyrator arXiv:2012.12713, §III.B Eqs. (11)–(16)",
+          "Dutta–Saha arXiv:2606.17554v1, abstract, introduction and Fig. 10(a) discussion",
+          "Viot et al. arXiv:2307.05248, §3 and Supplement §7.2"
+        ]
+      },
+      "checked_sources": [
+        "Imhof doi:10.1093/biomet/48.3-4.419",
+        "arXiv:2012.12713",
+        "arXiv:2606.17554v1",
+        "arXiv:2307.05248",
+        "arXiv:1810.02580",
+        "Resultary 0a8215d48adf and e7ae29c485fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Imhof with the block quadratic form yields the MGF after eigenvalue reduction and gives the usual trace moment identities.",
+          "The exact ratio must reflect the whole transform domain and preserve the four roots with their multiplicity. For this stationary pair there is a common h in both factors, and unequal λ give distinct inner and outer root-pair midpoints −h/λ_j.",
+          "The inertial mean and numerical SNR evidence cannot establish that root obstruction, and position-marginal ratios do not enforce it."
+        ],
+        "reasoning": "Do not credit the MGF or moment identities as new Gaussian theory. Root comparison coupled with stationarity identifies exactly the conditional isotropy alternative for L, unlike invoking the generic transform or citing exponential asymmetry of coordinates; the realizable sharpness and anisotropy examples are separate steps.",
+        "searches": [
+          "Imhof §1, Eq. (1.1)",
+          "Dutta–Saha one-time distribution passages",
+          "Inertial effects §III.B",
+          "Cerasoli et al. Eqs. (19)–(20)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The variable is the indefinite quadratic form on (X,V) with off-diagonal blocks J/2 and Jᵀ/2. The prior Gaussian quadratic-form eigendecomposition fully covers its transform in eigenvalue form.",
+          "Resultary 0a8215d48adf gives a determinant characteristic function for drift-only T=X∧(−BX), explicitly not the full inertial observable. Resultary e7ae29c485fa studies a damping optimum for one-time inertial-gyrator SNR, not the general density symmetry."
+        ],
+        "reasoning": "For equivalence one needs the two common-h quadratic factors and the criterion for reflection of their roots with nonzero residual covariance, not just a determinant for a Gaussian angular quadratic form or an SNR optimization.",
+        "searches": [
+          "Resultary: Gaussian inertial gyrator distribution, stationary angular momentum, fluctuation ratio",
+          "Primary lookup: inertial instantaneous angular momentum characteristic function and asymmetric Laplace fluctuation symmetry",
+          "Imhof 1961, §1, Eq. (1.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-observable inertial paper reports numerical distributions in the inspected passages. One exact formula match for a related observable is the finite-step transform of Viot et al.; another is Cerasoli et al.'s exact coordinate marginal ratios."
+        ],
+        "reasoning": "The claim is a continuum covariance criterion, not a discrete table. These exact formula records and the nearest same-observable numerical figure are the relevant analogues: neither numerical shape overlap nor exact laws for different observables give the criterion.",
+        "searches": [
+          "Resultary lookup for indexed closed angular-momentum and asymmetry laws",
+          "Dutta–Saha Fig. 10(a) discussion",
+          "Viot et al. Supplement §7.2, Eqs. (S9)–(S16)",
+          "Cerasoli et al. arXiv:1810.02580, Eqs. (19)–(20)"
+        ]
+      },
+      "rationale": "Credit the general Gaussian quadratic-form law, and credit the prior inertial-gyrator results for the same observable's mean, numerical distribution or time-integrated fluctuation measures. The supported distinct claim is the complete stationary covariance criterion for an exact one-time angular-momentum density ratio, with physically realizable sharpness and obstruction examples. Neither a general determinant transform, a finite-step overdamped law nor the inspected same-observable inertial passages supplies that criterion or its covariance interpretation as stated.",
+      "residual_risks": [
+        "General quadratic-form and differences-of-gamma literature may contain a differently parameterized reflection criterion. The comparison credits the entire standard transform and is limited to inspected passages and the stationary angular-momentum specialization; it is not a global priority opinion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Gaussian spectral representation and hence the transform; not the stationary covariance obstruction in the inspected section",
+          "evidence": "Q is a sum of independent chi-square variables weighted by the characteristic roots of the matrix product with the covariance.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/48.3-4.419",
+          "material_read": "§1, printed p. 419, Eq. (1.1); repository PDF text offset 1250–4046",
+          "method": "Lawful open University of Geneva repository copy via DOI recovery",
+          "title": "Computing the distribution of quadratic forms in normal variables",
+          "trigger": "General result covering the law by specialization"
+        },
+        {
+          "assessment": "Same observable and mean in a harmonic model; its cited fluctuation is long-time, not the instantaneous ratio",
+          "evidence": "Defines j_θ=x(t)×v(t); Eq. (12) gives its stationary mean, whereas Eq. (14) divides the variance of the accumulated quantity by 2t as t tends to infinity.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.12713",
+          "material_read": "PDF p. 4, §III.B and Eqs. (11)–(16), text offsets 25500–29650",
+          "method": "OA arXiv copy via recovery of doi:10.1103/PhysRevE.103.032148",
+          "title": "Inertial effects on the Brownian gyrator",
+          "trigger": "Earlier model using exactly x×v"
+        },
+        {
+          "assessment": "Prior physical observable and numerical evidence; not a verified statement of an all-covariance symmetry law",
+          "evidence": "Numerical instantaneous mean-to-fluctuation ratio and distribution, with analytic covariance treatment in the small shape-anisotropy regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.17554v1",
+          "material_read": "Abstract, introduction pp. 1–2 and Fig. 10(a) discussion p. 9",
+          "method": "Bounded OA PDF passages",
+          "title": "Brownian gyration of an inertial ellipsoid",
+          "trigger": "Exact observable, motivating inertial model and prior SNR evidence"
+        },
+        {
+          "assessment": "Exact law for a finite-step overdamped estimator",
+          "evidence": "The derivative in the overdamped theory is ill-defined; the characteristic function uses a positive finite step δt.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+          "material_read": "Main p. 2 Eqs. (3)–(8) and Supplement §7.2 Eqs. (S9)–(S16), pp. 7–8",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+          "trigger": "Prior exact angular-momentum PDF and characteristic function"
+        },
+        {
+          "assessment": "Different observable and setup",
+          "evidence": "Ratios of the x and y position marginals at opposite arguments, not the ratio for X∧V.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.02580",
+          "material_read": "PDF p. 5, Eqs. (19)–(20)",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Asymmetry relations and effective temperatures for biased Brownian gyrators",
+          "trigger": "Prior exact exponential asymmetry relation"
+        },
+        {
+          "assessment": "Material technique overlap, missing the independent velocity-noise component of the assigned observable",
+          "evidence": "Determinant law and sign classification for drift-only X∧(−BX) in planar OU flow.",
+          "identifier_or_url": "2026/10/25/SCOPE-universal-drift-orbital-memory-and-the-node-focus-sign-boundary--0a8215d48adf",
+          "material_read": "Original Finding and Assumptions, mirror offset 0",
+          "method": "Local Resultary mirror inspection",
+          "title": "Universal drift, orbital memory and the node–focus sign boundary",
+          "trigger": "Closest earlier Resultary Gaussian angular determinant law"
+        },
+        {
+          "assessment": "Optimal damping for a specific model, not general stationary symmetry",
+          "evidence": "Compares mean rotation and instantaneous SNR as damping is varied, not density reflection.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-damping-offset-between-mean-rotation-and-instantaneous-rot--e7ae29c485fa",
+          "material_read": "Original Finding, mirror offset 0",
+          "method": "Local Resultary mirror inspection",
+          "title": "Exact damping offset between mean rotation and instantaneous rotational signal-to-noise",
+          "trigger": "Indexed precise same-type SNR quantity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen criterion and two Langevin examples",
+        "Dutta–Saha and Inertial effects same-observable passages",
+        "Cerasoli et al. separate observable comparison"
+      ],
+      "rationale": "A nonzero mean current can coexist with or without an exact linear log-density ratio, so inferring a single asymmetry slope from rotation alone is not justified. The criterion isolates the relevant conditional covariance and supplies a conservative two-temperature counterexample and a nondegenerate family approaching the universal SNR bound. These permit interpreting instantaneous rotation laws without mistaking them for integrated fluctuation theorems. The significance is the obstruction and realizations, not rederivation of the Gaussian determinant.",
+      "residual_risks": [
+        "Does not yield a symmetry statement for non-Gaussian state laws, accumulated angular momentum, or entropy production."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

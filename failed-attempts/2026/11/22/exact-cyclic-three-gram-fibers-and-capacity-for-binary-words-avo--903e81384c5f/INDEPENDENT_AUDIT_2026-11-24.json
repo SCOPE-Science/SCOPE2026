@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:57:59.050685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonzero source is a rotation class of positive zero gaps, including periodic repetition and the single-one case. One counts 010 at each one, 101 at each unit gap, 001 and 100 once per longer gap, and 000 by remaining gap excess. This gives (R,t,r,0,t,r−t,0,0), including wrap-around below length three. A rotation of order d fixes precisely lists repeated d times with d dividing r,t,R; the reduced block need not be primitive (the word 'primitive' at RESULT.md line 30 is inapt, but the formula correctly counts all reduced blocks). The singleton distinctions follow from one long gap, one excess zero in equal-length gaps, or a unique short gap with no excess. For at least two long and two short gaps, one versus two cyclic runs of long gaps produces distinct profiles of gap types and thus distinct source necklaces in the same read fiber. For one short gap it anchors distinct excess locations; with no short gap and excess at least two, concentrating versus splitting the excess gives distinct sources. The series, first ambiguity at n=8, and growth constants follow. A new bitmask reproduction checked all oriented signatures and 147 observed fiber sizes over n=1..16, both series, and the ambiguity boundary; /workspace/branches/replay-cyclic.py. The related-work assertion about non-implication from four-gram work is independently false, as explained under originality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-gram result records # length-one gaps E, # length-two gaps G, # gaps at least three B, and excess A above three. It gives exact necklace multiplicities and singleton criteria for every feasible tuple.",
+          "The inspected Markov type work treats cyclic pair-frequency matrices; the inspected DNA profile paper uses linear windows. Those two sources do not drive the coverage verdict."
+        ],
+        "reasoning": "The four-gram result dominates the read information and provides exact reconstruction counts, not merely a higher capacity order. The comparison holds for arbitrary imprimitive necklaces and small n, not only primitive or asymptotic regimes.",
+        "searches": [
+          "Resultary --d7a18695ef7b, RESULT.md §Finding and §§Proof 1–3",
+          "Jacquet–Knessl–Szpankowski, Counting Markov Types",
+          "Kiah–Puleo–Milenkovic, Codes for DNA Sequence Profiles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --d7a18695ef7b, --36dcf2861c14, --1516a959f63f, --9b2754288e6b",
+        "Counting Markov Types (DMTCS)",
+        "Codes for DNA Sequence Profiles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed (r,t,R), E=r−t, G=t−B, A=R−B. If R=0 the only refinement has B=A=0; if R>0 there is exactly one feasible finer profile for each B=1..min(t,R).",
+          "For R>0, in the prior divisor sum d must divide r,t,R,B. Factoring out binom(r/d,t/d), the remaining sum over b=B/d is sum_b binom(t/d,b) binom(R/d−1,b−1) = binom(R/d+t/d−1,t/d−1) by Vandermonde. For R=0 the second prior fiber formula is already the asserted one.",
+          "For R>=2 and t>=2 there are at least two feasible finer profiles. Otherwise a unique finer profile exists for nonalternating sources, and it is singleton exactly for t=1, or R=0 and min(t,r−t)<=1, or R=1 and r=t. These are exactly the frozen singleton cases. The projected feasibility inequalities and these cases give the two geometric-series counts and the first ambiguity at (n,r,t,R)=(8,2,2,2)."
+        ],
+        "reasoning": "The totient-sum formula is a direct Vandermonde collapse of the earlier theorem; the singleton test follows by the number of feasible refinements and the earlier singleton list. The capacity and asymptotics are elementary enumerations of these same projected parameters. This is mechanically implied content even though the finer theorem reports different capacity and first ambiguity for its own observation.",
+        "searches": [
+          "Resultary --d7a18695ef7b RESULT.md offsets 0–6048: exact feasibility, ambiguity fibers, uniqueness, and proof Steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The no-11 four-gram theorem uses the same orientation, rotations, read multiplicities, and short-circle convention.",
+          "Summing four-gram counts over the last symbol gives the three-gram profile. For nonzero sources the prior parameters (A,B,G,E) give r=B+G+E, t=B+G, R=A+B.",
+          "The no-010 three-gram result uses an incomparable source constraint. No-11 three-gram profiles already constrain any matching unrestricted source to be no-11, because a cyclic 11 produces a forbidden-positive triple count."
+        ],
+        "reasoning": "The strongest comparison is the exact marginal of the finer observation, not the superficially similar three-gram theorem on a different source. The map on profiles is explicit and preserves all original fibers as disjoint unions.",
+        "searches": [
+          "Resultary: exact fibers of cyclic four-gram profiles no adjacent ones singleton d7a18695ef7b",
+          "Resultary: exact cyclic three-gram reconstruction for binary words with no isolated ones",
+          "Resultary: unrestricted cyclic binary three-gram profile capacity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted profile records count realizable signatures; --9b2754288e6b explicitly excludes inverse fiber sizes in its limitations.",
+          "An exact all-length per-fiber formula is present in --d7a18695ef7b, not just the reported length-1..12 profile and singleton table."
+        ],
+        "reasoning": "Absence of an identical printed three-gram table does not confer novelty when the stronger fiber table collapses exactly. The ordinary unrestricted profile-count tables alone would not justify this conclusion.",
+        "searches": [
+          "Resultary unrestricted profile records 2026/10/25 --1516a959f63f and 2026/10/26 --9b2754288e6b",
+          "Resultary exact no-11 four-gram fibers --d7a18695ef7b"
+        ]
+      },
+      "rationale": "Verified broader coverage: the 2026-11-02 cyclic four-gram fiber theorem treats the identical source and the finer observation. Its explicit parameterization and exact multiplicities specialize by marginalization and one Vandermonde identity to the precise three-gram formula, and its exact feasibility and singleton cases immediately give the remaining classifications. This is a demonstrated implication, not an inference from similar titles or dates.",
+      "residual_risks": [
+        "Other unrestricted inverse-fiber results could provide further coverage; the negative decision rests only on the explicit earlier no-11 four-gram theorem and its demonstrated specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage by explicit marginalization and Vandermonde; not just a similar-valued capacity statistic.",
+          "evidence": [
+            "A tracks excess above three; B,G,E count gaps >=3, exactly 2, exactly 1; the two Burnside formulas and all singleton cases are given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-fibers-and-uniquely-reconstructible-profiles-for-cyclic-fo--d7a18695ef7b",
+          "material_read": "RESULT.md offsets 0–6048: exact scope, all feasibility and fiber formulas, singleton cases, and gap parameter proof",
+          "method": "Configured Resultary search and local-mirror source, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact fibers and uniquely reconstructible profiles for cyclic four-gram reads under a binary run-length constraint",
+          "trigger": "Same constrained necklace source and a strictly finer complete fiber theorem"
+        },
+        {
+          "assessment": "Broader profile count, not an unrestricted fiber formula in the inspected records.",
+          "evidence": [
+            "Counts all realizable profiles with growth n^4/288+O(n^3); states it does not count necklaces per profile."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25 --1516a959f63f and 2026/10/26 --9b2754288e6b",
+          "material_read": "RESULT.md offset 0, findings and proof; --9b2754288e6b offset 5542, limitations",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Unrestricted cyclic binary three-gram profile enumeration",
+          "trigger": "Potential broader same-read type-count theorem"
+        },
+        {
+          "assessment": "Different source forbidding cyclic 010; not a specialization used in the verdict.",
+          "evidence": [
+            "No-010 permits, for example, all-one circles, whereas no-11 allows isolated ones."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-cyclic-three-gram-reconstruction-for-binary-words-with-no--36dcf2861c14",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact cyclic three-gram reconstruction for binary words with no isolated ones",
+          "trigger": "Same read length, similar exact fiber claim"
+        },
+        {
+          "assessment": "Inspected result counts order-one cyclic frequency matrices; no conclusion about unseen unrestricted per-necklace enumeration.",
+          "evidence": [
+            "Counts pair frequencies rather than necklaces per exact triple-frequency vector."
+          ],
+          "identifier_or_url": "Jacquet, Knessl and Szpankowski, Counting Markov Types (DMTCS version)",
+          "material_read": "p. 389 (OA text offset 6047)",
+          "method": "Lawful OA DMTCS text; IEEE DOI copy unavailable",
+          "title": "Counting Markov Types",
+          "trigger": "Possible unrestricted per-profile necklace count"
+        },
+        {
+          "assessment": "Related linear observation and leading constants; not full cyclic inverse fibers.",
+          "evidence": [
+            "Uses n−ell+1 linear windows; Table III lists c(2,3)=1/288."
+          ],
+          "identifier_or_url": "Kiah, Puleo and Milenkovic, Codes for DNA Sequence Profiles",
+          "material_read": "p. 2 (offset 12417), p. 20 Table III (offset 99778)",
+          "method": "Lawful OA paper passages",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "General profile-count/capacity approach"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The read-length-three reconstruction question is natural and the formulas are convenient, but every asserted invariant is mechanically obtained from the exact prior higher-read description on the same source: project the feasible tuples, collapse the fiber sum by Vandermonde, and apply the singleton test to the one surviving refinement. No independently useful unknown exact fact remains within this claim. A standalone presentation or new finite replay does not repair that lack of a distinct mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite check is implemented in `verify.py` with exact arithmetic modulo \(17\).
+# Independent mathematical audit
 
-It reconstructs the nine projective columns \(P(t)=(1,t^3,t^4)\) for \(t\in\{0,2,3,4,5,7,9,10,16\}\).  First it checks all \(84\) three-column subsets have rank \(3\), independently verifying the MDS premise for the displayed generator.
+## correctness
 
-For each surviving subset \(T\) of size \(5\) through \(9\), it forms the matrix of evaluations of \(X^2,Y^2,Z^2,XY,XZ,YZ\) and computes its rank by exact modular row reduction.  Rank below \(6\) is exactly the existence of a conic through \(T\); because the projective points form an arc and \(|T|\ge5\), such a conic cannot be degenerate.
+PASS
 
-The exhaustive expected census is:
+The generator matches Example 1. An exact independent finite reproduction confirmed all 84 three-column subsets are independent. On each surviving subset, evaluate the six quadratic monomials modulo 17 on (1,t^3,t^4). Rank below six detects a conic; no three points are collinear, so a singular conic (two lines over the algebraic closure, possibly coincident) cannot contain five of them. A smooth conic can be projectively parametrized with an unused rational point at infinity, giving an ordinary GRS code up to monomial equivalence; GRS columns conversely lie on such a conic. The independent enumeration of all 256 surviving sets gave rank-(5,6) counts (0,1),(0,9),(0,36),(6,78),(126,0) in descending size order. The six deletion triples matched exactly: {4,10,16}, {3,7,9}, {3,5,16}, {2,5,9}, {2,4,7}, and {0,2,3}. Hence the least puncturing depth is three. Replay: the frozen verify.py specifies the finite instance; independently, enumerate the subsets of S and row-reduce the rows (1,t^6,t^8,t^3,t^4,t^7) modulo 17.
 
-- size \(9\): one rank-\(6\) set;
-- size \(8\): nine rank-\(6\) sets;
-- size \(7\): thirty-six rank-\(6\) sets;
-- size \(6\): six rank-\(5\) sets and seventy-eight rank-\(6\) sets;
-- size \(5\): one hundred twenty-six rank-\(5\) sets.
+## originality
 
-The verifier also reconstructs one quadratic equation for each exceptional six-set and checks that their complements are exactly the six deletion triples stated in the result.  No probabilistic, numerical, or incomplete search step is used.
+PASS
 
-Unproved limits: this finite verification does not prove a family-wide statement for the source constructions, does not study shortening, and does not establish absolute literature novelty.
+Credit the original construction, the general conic test, and the automatic five-point GRS case. The minimum depth and six successful deletion triples are a distinct unreported profile in the checked sources. The nearest indexed recovery theorem is not a special-case cover even after allowing a projective equivalence of the full arc.
+
+## value
+
+PASS
+
+Puncturing to GRS is a natural recovery invariant of the published explicit non-GRS MDS example. Knowing that three punctures are necessary and sufficient, and which six choices work, tells a reader how robust its non-GRS property is under deletion; neither the general recognition test nor the automatic five-point case gives that information. The contribution is finite and example-specific.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

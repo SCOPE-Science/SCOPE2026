@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:27:44.405122Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact method and proof, lines 35–101",
+        "Frozen verify.py, symbolic identity matrices at lines 58 and 65 and high-precision identity at line 83 (read, not executed)",
+        "Frozen VERIFICATION.md (no recorded expert, independent or formal attestation)",
+        "Corrected repairs/4/RESULT.md, explicit quadratures, determinant expansion, exact recurrence and phase proof"
+      ],
+      "rationale": "The frozen method definition uses I both for the lower cumulative quadrature (first row zero) and for the identity in all three solves, an ambiguity that makes the literal sweep inconsistent for x0≠0. The corrected RESULT separates these matrices and matches the identity in the frozen checker. For the corrected, intended method, the lower block of Q²−Xvv is H. The initial velocity-column error is −c+O(z) and the position-column error is O(z). Propagating and applying the endpoint functional gives the asserted z^(k+1) bottom-right perturbation; the top-right perturbation enters the determinant with a further factor O(z). The exact collocation determinant is one. The Cayley–Hamilton recurrence checks the first four signs exactly; conjugation sqrt(3)↦−sqrt(3) makes the conjugate of qH^k c positive, eliminating the potentially unclassified zero. The other conjugate of 2cos(2θ) is below −2, so the phase is irrational. Schur’s other two inequalities have positive leading terms z and 4, and both signs occur on half the circle, separately also on each parity subsequence. This rechecks the final corrected claim without requiring any numerical extrapolation.",
+      "residual_risks": [
+        "Asymptotics hold at each fixed k, not uniformly over sweep count; the finite tests do not prove the density."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general SDC iteration and endpoint are published; the stability discussion accompanying Table 1 expressly leaves the reason for the sweep-count behavior unexplained.",
+          "The related published Resultary statement is specific to a different preconditioner, nodes and limiting parameter."
+        ],
+        "reasoning": "A general numerical update is not a theorem about the signs of its first nonzero determinant coefficients across sweep counts. No inspected broader result supplies those signs or their density.",
+        "searches": [
+          "Akramov et al., arXiv:2310.08352, eqs. (2.21), (2.23)–(2.25), Remark 2.2, §3",
+          "Resultary 124d0f71bd59, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.08352, §§2–3 and Table 1",
+        "Resultary 124d0f71bd59, Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stable/unstable examples do not distinguish an irrational-rotation sign sequence from many other infinite continuations.",
+          "The repaired proof uses the actual two-node velocity-Verlet block H and the determinant linearization; neither appears in the indexed comparator."
+        ],
+        "reasoning": "Classical Schur and irrational-rotation results become applicable only after deriving the solver-specific H, the phase, and the small-step leading defect. The notation repair and removal of a zero-case ambiguity preserve the same distinct contribution.",
+        "searches": [
+          "arXiv:2310.08352, §§2–3 and Table 1",
+          "Resultary 124d0f71bd59, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed finding is an implicit-Euler-preconditioned three-node Lobatto calculation in the stiff negative-real-axis limit; its multiplier is not the two-node Verlet oscillator’s determinant.",
+          "Published stability-map equations (3.7)–(3.8) use the same constant stage extension."
+        ],
+        "reasoning": "The phase mechanism is analogous, but the symbols refer to different iteration operators, state dimensions, step limits and stability tests; there is no identification of the two claims.",
+        "searches": [
+          "Resultary: half-density stiff instability of convergent three-node deferred correction, 124d0f71bd59",
+          "arXiv:2310.08352, §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives rounded stability limits 6.0, 0.0, 0.0, 11.6 at the first four sweep counts.",
+          "The distinct related entry is the three-node stiff-limit finding, not an all-k table or formula for this method."
+        ],
+        "reasoning": "The four cases overlap with the stated examples, not with the coefficient law or the density across all positive k.",
+        "searches": [
+          "arXiv:2310.08352, Table 1, two-node undamped SDC row",
+          "Resultary search for the Verlet small-step stability and half-density claim"
+        ]
+      },
+      "rationale": "The final repaired claim explains the published finite-sweep examples through a solver-specific exact determinant coefficient and an all-sweep-count small-step stability theorem. Neither the founding scheme and table nor the closest indexed phase-law record gives this result or implies it without the new compression and determinant argument. Distinctness is assessed on the statement, not on a presumed priority based on catalogue dates.",
+      "residual_risks": [
+        "Bounded comparison does not rule out other unpublished or unindexed sweep-error phase derivations; the same-day analogue does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of method and first four numerical examples, not of all-sweep exact local law",
+          "evidence": [
+            "The quadrature-based sweep and constant extension occur in §§2–3; Table 1 reports 6.0/0.0/0.0/11.6 and the discussion does not explain the pattern."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.08352",
+          "material_read": "PDF pp. 6–10: equations (2.21), (2.23)–(2.25), Remark 2.2, equations (3.7)–(3.8), Table 1 and associated discussion",
+          "method": "Lawful open preprint, bounded passage inspection",
+          "title": "Spectral deferred correction methods for second-order problems",
+          "trigger": "Same scheme, oscillator and stability examples"
+        },
+        {
+          "assessment": "Material analogue with different solver and stability problem",
+          "evidence": [
+            "Three-node Lobatto and implicit Euler in a stiff negative-real-axis regime, not the small-step oscillator or its determinant."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-half-density-stiff-instability-of-convergent-three-node-deferred--124d0f71bd59",
+          "material_read": "RESULT.md Finding, offset 655 onward",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Half-density stiff instability of convergent three-node deferred correction",
+          "trigger": "Strong analogous phase-law hit in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2310.08352, §3 and Table 1",
+        "Corrected repairs/4/RESULT.md, coefficient and local stability law"
+      ],
+      "rationale": "In a published oscillator benchmark with unexplained behavior as the correction count varies, the coefficient pinpoints the first loss of symplecticity and explains why neither odd nor even sweep counts reliably inherit local stability. The all-k density and parity conclusion go beyond a small-instance table and concern a commonly used method with precisely specified initialization and output.",
+      "residual_risks": [
+        "Specific to this two-node undamped test problem; no claim about the finite-step stability boundary or other SDC variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

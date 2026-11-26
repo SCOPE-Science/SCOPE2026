@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:44:25.731063Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a maximal matching, no edge can join two unmatched vertices. Since the absent cross-edges form a matching, an unsaturated vertex facing two unmatched opposite vertices would contradict maximality. This forces size m for m<n and size at least n-1 for m=n. With equal shores, any maximal matching of size n-1 must leave a deleted pair unmatched. At t=0 this is impossible; at t=1,2 the present edge a_1 b_2 meets every candidate pair and forces local size n, including the disconnected n=t=2 boundary. At t≥3, an arbitrary present edge a_p b_q meets at most two deleted pairs: reserve one disjoint from it as unmatched. After removing its two vertices and the endpoints of the prescribed edge, the remaining graph is K_{n-2,n-2} with a matching missing. For order at least two on each shore, Hall follows from nonempty singleton neighborhoods and full collective neighborhoods of subsets of size at least two. For n=3=t, the two remaining vertices have swapped distinct indices q,p and their edge is present. Adding the prescribed edge to the residual perfect matching gives the required maximal matching. This proves the local assertions and the global value. The reviewed source checker was not executed. Independent cardinality-organized enumeration, `python3 -I /workspace/checks/5.py`, covered all 65 triples with 2≤m≤n≤6 and 0≤t≤m, 1098 prescribed-edge values and 10722 maximal matchings; see /workspace/checks/5.log. This corroborates the boundary cases, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 states that ordinary edge domination is eis or eis−1.",
+          "In a balanced graph with n≥3 and one or two deletions a maximal matching of size n−1 exists (reserve any deleted pair; the remaining balanced graph has order at least two and a perfect matching), while eis=n by the obstructing edge."
+        ],
+        "reasoning": "The scalar difference bound does not choose which outcome holds. A maximal matching containing a prescribed edge by greedy extension has no guaranteed small size. No inspected stronger matching extension theorem supplies the balanced intermediate threshold.",
+        "searches": [
+          "DOI 10.17654/0974165826003 Theorem 3.6",
+          "Yannakakis–Gavril DOI 10.1137/0138030; matching extension and minimum maximal matching"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.17654/0974165826003 §3",
+        "DOI 10.1137/0138030 access attempt",
+        "Resultary 0548a1db1bd9, b308a4d098cc, 47b9a52e1e5d, 189e5d974ee5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Crown edges form one orbit under simultaneous index permutations, so a minimum maximal matching of size n−1 yields that size through any present edge for n≥3.",
+          "Well-edge-domination is equality of cardinalities of all minimal edge-dominating sets; the frozen record does not identify its mentioned same-family comparison by citation."
+        ],
+        "reasoning": "A positive classification of well-edge-domination for a subfamily can imply equality of local minima there, but absence of that property does not evaluate the prescribed-edge minima. In intermediate balanced deletions the graph need not be edge-transitive; the crown implication cannot be applied. The exact new information is which prescribed edges prevent or permit use of a deleted pair as the unmatched pair.",
+        "searches": [
+          "Resultary 0548a1db1bd9 Finding, crown K_{n,n}−M_n",
+          "Muthulakshmi–Subramanian Observation 3.3(iv) and Theorem 3.6",
+          "Frozen RESULT.md relationship passage: well-edge-dominated matching deletions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition in §3 uses maximal edge-independent sets. Observation 3.3(iv) gives eis(K_{r,s})=min(r,s).",
+          "Edge independence on the original graph is vertex independence on its line graph; specifying an edge corresponds to specifying a vertex."
+        ],
+        "reasoning": "The first source treats the undeleted boundary in exactly this invariant. The line-graph equivalent is exact but provides no value for intermediate deletions in the sources inspected.",
+        "searches": [
+          "edge independent dom-saturation, prescribed-edge minimum maximal matching, line-graph independent dom-saturation",
+          "Muthulakshmi–Subramanian DOI 10.17654/0974165826003 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0548a1db1bd9 Finding gives crown edge domination n−1 and characterizes minimum sets; b308a4d098cc concerns crown edge domination/extremizers.",
+          "Record 47b9a52e1e5d studies perfect edge domination; record 189e5d974ee5 studies dom-forcing under matching deletions."
+        ],
+        "reasoning": "This is a universal formula, not a table claim. The same-family and endpoint catalogue hits are relevant exact comparisons but use different invariants or narrower families; none supplies the full threshold.",
+        "searches": [
+          "Resultary: crown graph minimum edge domination",
+          "Resultary: matching-deleted bicliques, edge independent dom-saturation and same-family invariants"
+        ]
+      },
+      "rationale": "The distinct content is the sharp third-deletion threshold, including intermediate deletions, contrasted against the no-drop result on unbalanced shores. Existing verified coverage includes t=0 and the crown endpoint by ordinary edge domination plus symmetry; neither determines the intermediate prescribed-edge maxima. This is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "The uncited same-family well-edge-domination source mentioned in the frozen record was not independently identified; an earlier prescribed-edge extension result in other terminology may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers t=0 and gives a general one-unit bound, not the threshold",
+          "evidence": "Observation gives the smaller-shore value for complete bipartite graphs; Theorem 3.6 does not specify when the gap is one.",
+          "identifier_or_url": "https://pphmjopenaccess.com/aadm/article/download/3557?v=9047",
+          "material_read": "§3, Observation 3.3(iv), p. 45, and Theorem 3.6, p. 46",
+          "method": "Lawful publisher-hosted PDF passage comparison",
+          "title": "On the Independent Dom-saturation Number of a Graph",
+          "trigger": "Primary definition and closest exact eis calculation"
+        },
+        {
+          "assessment": "Unresolved source access; scalar invariant distinct",
+          "evidence": "The minimum cannot determine the prescribed-edge maximum without an additional comparison, as the balanced sparse-deletion example shows.",
+          "identifier_or_url": "https://doi.org/10.1137/0138030",
+          "material_read": "Bibliographic identification; no original theorem passage obtained",
+          "method": "Lawful DOI access attempt returned 403; no identified OA copy retrieved",
+          "title": "Edge Dominating Sets in Graphs",
+          "trigger": "Classical minimum maximal matching equivalence"
+        },
+        {
+          "assessment": "Related catalogue coverage of crown endpoint via edge-transitivity, not intermediate t",
+          "evidence": "The crown minimum is n−1 and all crown edges are equivalent; the argument cannot recover both threshold regimes.",
+          "identifier_or_url": "Resultary 2026/11/1/0548a1db1bd9",
+          "material_read": "Local mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Minimum edge-domination enumerator of crown graphs via paired states",
+          "trigger": "Strongest endpoint overlap"
+        },
+        {
+          "assessment": "Different optimization over edge dominating sets",
+          "evidence": "Crown graph upper edge-domination and census do not account for prescribed-edge local minima as t varies.",
+          "identifier_or_url": "Resultary 2026/10/18/b308a4d098cc",
+          "material_read": "Local mirrored Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp upper edge domination and extremal census of crown graphs",
+          "trigger": "Crown extremal database match"
+        },
+        {
+          "assessment": "Same family, different invariant; no priority inference from date",
+          "evidence": "Forcing parameters are not maximal matchings containing a specified edge.",
+          "identifier_or_url": "Resultary 2026/10/12/189e5d974ee5",
+          "material_read": "Claim of zero-forcing/dom-forcing formulas",
+          "method": "Resultary statement-level comparison",
+          "title": "Dom-forcing under matching deletions in complete bipartite graphs",
+          "trigger": "Same family and same displayed date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural test family for a new prescribed-edge invariant separates a drop in the smallest maximal matching size from a drop valid through every edge. The strict-imbalance obstruction and the sharp threshold of three deleted pairs distinguish those phenomena uniformly over the full deletion range; the proof explains why the threshold counts pairs touched by the specified edge.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

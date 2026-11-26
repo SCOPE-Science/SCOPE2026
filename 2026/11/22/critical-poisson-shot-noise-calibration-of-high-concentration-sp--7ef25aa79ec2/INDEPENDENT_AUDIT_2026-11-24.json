@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:29:43.491203Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With b=n^(−2/q), the spherical-angle density times the number of pairs gives the limiting measure (a_q/2)s^(q−1) ds. In joint factorial moments, each distinct-edge pattern with v vertices and r components has at most O(n^v) embeddings and probability O(n^(−2(v−r))) by exposing along a spanning forest. A component of at least three vertices forces v>2r, and the surviving disjoint-edge terms give the product Poisson factorial moments. This proves the needed point-process limit, since the counts on bounded intervals are tight with the specified factorial moments. The scaled kernel converges uniformly on compact s-intervals to h_c(s)=4c/(c²+s²)^((q+1)/2). At infinity the first-moment contribution is O(1/L) uniformly for large n by the global angular lower bound on 1−cos θ; near zero one may first truncate below ε and use the bounded kernel and expected count O(ε^q). Truncation and the common close-pair process prove the joint limit, subtracting (n−1)/n. Rotation invariance gives orthogonality of distinct centered edges, and the Poisson semigroup gives the stated exact finite covariance. The corresponding integrals of h_c h_d have the same limit by the common rescaling and domination by a constant times s^(q−1)/(1+s²)^(q+1), rather than by inferring moment convergence from weak convergence alone. Integration of h_c and its powers gives mean one before centering and the beta cumulants; bounded integrable h_c gives finite exponential moments of either sign, and the positive third cumulant excludes a normal marginal. The common Poisson measure has a positive first atom almost surely, and summability of s^(−q−1) away from zero gives the almost-sure small-c endpoint. For c→∞ the normalized jump supremum tends to zero and the variance is one, so the cubic remainder of the Poisson characteristic exponent vanishes. The endpoint assertions are iterated limits, not claims about moving c at finite n.",
+      "replay": "python3 /workspace/branches/frozen_math_replay.py, check 2: separate cross-bandwidth angular-limit integrals in dimensions 1, 2 and 5 agree with 4/(c+d)^q. The frozen check.py was inspected but not executed; its 202 numerical or algebraic checks are recorded evidence, not proof of the point-process or bandwidth limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical short-distance Poisson ingredient is acknowledged; the broader triangular U-statistic work is plausibly relevant but its full theorem could not be accessed. Ding–Markatou–Saraceno inspect the same spherical Poisson kernel, with fixed-parameter U/V-statistic calibration and a convolution identity."
+        ],
+        "reasoning": "Short-distance Poisson convergence on bounded sets supplies much of the input but is insufficient by itself for a sum over all distances. A more general triangular theorem could give the same law if its conditions include the effective Poisson jump measure and overlapping-edge and tail estimates here; its hypotheses and scope were not accessible, so such coverage was not verified.",
+        "searches": [
+          "Silverman–Brown DOI:10.2307/3213436",
+          "Brown–Silverman DOI:10.2307/3212911",
+          "Jammalamadaka–Janson DOI:10.1214/aop/1176992375; Exact title and triangular U-statistic Poisson theorem/full text",
+          "Ding–Markatou–Saraceno preprint SS-2022-0347"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, METADATA.json, SLOGAN.txt, REVIEW.md, VERIFICATION.md and check.py",
+        "Fixed-tuning papers and local Resultary Finding described above; broader triangular-U-statistic and classical close-pair citations with the stated access limits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Poisson kernel convolution identity gives the uncentered mixed kernel moment P_(ρσ)(0); degeneracy gives the finite covariance and elementary passage of its formula to the critical covariance. The distance Poisson process and the Poisson cumulant machinery are likewise prior ingredients."
+        ],
+        "reasoning": "These known moment identities are genuine implications, not novelty. A covariance limit does not establish the non-Gaussian law or shared higher-order dependence; a close-pair limit with bounded distance windows requires the additional kernel-tail argument. The supported distinct result is the full weighted limit for the actual statistic, with explicit common-cloud dependence and distinct bandwidth endpoint laws.",
+        "searches": [
+          "arXiv:2304.04519v1, Proposition 4 and Theorem 1",
+          "Ding–Markatou–Saraceno §§3.2–3.4 and 4",
+          "Silverman–Brown and Jammalamadaka–Janson interpoint-distance limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper identifies its circular q=1 kernel with the fixed-parameter Pycke test, supplies the same test statistic, and gives fixed-kernel weighted chi-square asymptotics."
+        ],
+        "reasoning": "The angular and radial-distance variants of close pairs have the same leading distance normalization on the sphere. The actual distinction from the fixed-kernel test is not a reparametrization but 1−ρ at n^−(2/q), changing the typical contributor and the law. The fixed-kernel theorem cannot simply be substituted at ρ_n.",
+        "searches": [
+          "Local Resultary: spherical Poisson kernel uniformity, critical concentration and close-pair shot noise",
+          "arXiv:2304.04519v1, Table 1 and §3.1",
+          "Pycke DOI:10.1002/cjs.10048"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct local record uses the same kernel and credits the existing finite-dimensional variance, but keeps ρ fixed, sends dimension to infinity and takes exponential sample growth. The result with ID ending 7ef25aa79ec2 is the bound finding itself."
+        ],
+        "reasoning": "There is no relevant table of exact finite invariants for this limiting law. The indexed comparator has the same kernel but a different triangular regime and threshold question; it does not supply the critical shot-noise calibration. The two records' shared date is not used to infer priority.",
+        "searches": [
+          "Local Resultary: spherical Poisson kernel high concentration, shot noise and self-averaging thresholds",
+          "2026/11/22/SCOPE-two-sharp-self-averaging-thresholds-for-a-hyperspherical-poisson--a65d9bd237a4"
+        ]
+      },
+      "rationale": "The bounded comparison supports the fixed-dimension, triangular Poisson-kernel calibration at finitely many bandwidths, with the noncompact kernel carried through the same limiting Poisson measure and its two iterated bandwidth limits. Do not credit novelty for the statistic, fixed-parameter results, the Poisson close-pair process, or covariance in isolation. A broad triangular U-statistic predecessor remains a material specialization risk; lawful retrieval did not yield its full statement, and this is not evidence of noncoverage.",
+      "residual_risks": [
+        "Jammalamadaka–Janson's full theorem was not available through the lawful copies attempted; an exact general implication is unresolved.",
+        "The historical close-pair and circular-test literature was not reviewed in full. No novelty is inferred from unavailable texts or ranked-search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines statistic and fixed-parameter null calibration",
+          "evidence": "Exact variance and fixed-kernel weighted chi-square null law; circular fixed-parameter correspondence to Pycke.",
+          "identifier_or_url": "arXiv:2304.04519v1",
+          "material_read": "Table 1, p. 4; §3.1 p. 5, Proposition 4 Eq. (8), Theorem 1 Eq. (9), near offset 18000",
+          "method": "OA PDF",
+          "title": "On new omnibus tests of uniformity on the hypersphere",
+          "trigger": "Same Poisson-kernel test and variance"
+        },
+        {
+          "assessment": "Covariance ingredients and fixed-tuning U/V statistics",
+          "evidence": "Convolution identity and centered kernel yield the cross-kernel moment and fixed-parameter variance.",
+          "identifier_or_url": "https://www3.stat.sinica.edu.tw/preprint/SS-2022-0347_Preprint.pdf",
+          "material_read": "§§3.2–3.4 and 4, PDF text near offsets 24000 and 35000–45000",
+          "method": "OA preprint",
+          "title": "Poisson Kernel-Based Tests for Uniformity on the d-Dimensional Sphere",
+          "trigger": "Same kernel and exact semigroup moments"
+        },
+        {
+          "assessment": "Unresolved potential implication, not negative evidence",
+          "evidence": "The title establishes the relevant general topic; the repository was inaccessible and the author-hosted extraction did not expose the theorem text.",
+          "identifier_or_url": "doi:10.1214/aop/1176992375",
+          "material_read": "Bibliographic description/landing material only; no full theorem",
+          "method": "OA DOI attempt, UC repository item 24520305 and PDF attempts, and identified author-hosted PDF attempt",
+          "title": "Limit Theorems for a Triangular Scheme of U-Statistics with Applications to Inter-Point Distances",
+          "trigger": "Plausible broader theorem with a triangular kernel and rare interpoint events"
+        },
+        {
+          "assessment": "Credit the classical ingredient, no whole-paper exclusion",
+          "evidence": "The audit's proof reconstructs the close-pair limit directly; priority is not claimed for the limiting unweighted close-pair count or point-process method.",
+          "identifier_or_url": "doi:10.2307/3213436; doi:10.2307/3212911",
+          "material_read": "Frozen source references and credit in its proof and prior-work discussion; no independent full-text reading",
+          "method": "Frozen comparison and citation inspection",
+          "title": "Short distances, flat triangles and Poisson limits; Rates of Poisson convergence for U-statistics",
+          "trigger": "Classical Poisson close-distance antecedents"
+        },
+        {
+          "assessment": "Kernel and finite moment overlap; distinct theorem",
+          "evidence": "Fixed ρ and dimension tending to infinity with sample size exponential in dimension, rather than fixed dimension and ρ→1.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-self-averaging-thresholds-for-a-hyperspherical-poisson--a65d9bd237a4",
+          "material_read": "RESULT.md Finding, Assumptions and Relationship to prior work",
+          "method": "Local published mirror",
+          "title": "Two sharp self-averaging thresholds for a hyperspherical Poisson-kernel statistic",
+          "trigger": "Same named kernel and critical-threshold terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the closest-pair scale the actual test has a strictly non-Gaussian null limit, so applying the fixed-tuning calibration there would miss the operative rare-pair mechanism. The joint law is useful for comparing several bandwidths on the same sample, and the iterated endpoints distinguish sparse near-collision and Gaussian fluctuation regimes. This is a calibration result under a specified null, not an assertion about power or adaptive bandwidth selection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

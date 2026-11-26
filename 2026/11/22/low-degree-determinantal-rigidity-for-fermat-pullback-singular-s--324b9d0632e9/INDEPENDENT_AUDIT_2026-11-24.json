@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:28:25.193020Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each A in coefficient degree r, the chain rule turns its relation into a first syzygy with coefficients q_i=A·∇g_i among g_i^{m−1}. The powers are a regular sequence, so all q_i are in their Koszul ideal of initial degree (m−1)a; the cutoff r≤(m−2)a gives deg q_i≤(m−1)a−1, including the endpoint. Then J A^t=0. Its fraction-field kernel is one-dimensional by the nonzero maximal minors, and the gcd-one hypothesis forces the multiple of the cofactor vector to be a polynomial (a prime of a reduced denominator would divide every minor). The converse is the cofactor identity. This gives the claimed homogeneous dimensions and one-dimensional minimum degree since 3a−3 is in range. Separately, the map to value and three tangent derivatives of a form at a fixed projective point is surjective (the homogeneous derivative matrix is equivalent to that jet by Euler's formula in a local chart). Rank ≤2 in the resulting 3×4 full matrix space has codimension two, so the generic projective rank-drop locus has dimension at most one. At a nonbase singularity the nonzero values lie on the smooth punctured Fermat cone in value space and the three derivatives impose three further independent conditions. The bad incidence has codimension at least one after projection and closure. At the transverse base the three local functions are coordinates, giving a^3 distinct singularities with gradient colength (m−1)^3 and F in its gradient ideal. A repeated component or the intersection of two surface components in P^3 would give a positive-dimensional singular locus. As an independent consistency check, g_i=x_{i−1}^a−x_3^a for i=1,2,3 gives minors proportional to the products of all but one x_j^{a−1}, a transverse base of a^3 points, and no off-base singularity: in the affine chart a critical point has each x_j zero or an a-th root of unity and F is nonzero unless all are roots; at infinity the homogeneous partials in x_0,x_1,x_2 cannot simultaneously vanish. The theorem rests on the proof, not execution of the inspected SymPy/modular illustration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected results relate Betti data to singular scheme dimension/degree, characterize Koszul relations via the singular subscheme, and detect quasihomogeneity, respectively."
+        ],
+        "reasoning": "These general theorems constrain possible syzygies or singularities but do not determine all graded ranks below this cutoff or the primitive free generator in this family.",
+        "searches": [
+          "arXiv:2604.24308 Theorem 1.1",
+          "arXiv:1407.0168 Theorem 1.2 and Corollary 1.3",
+          "arXiv:2502.06290 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md and check.py",
+        "Resultary 324b9d0632e9",
+        "arXiv:1408.2244",
+        "arXiv:2611.25767",
+        "arXiv:2604.24308",
+        "arXiv:1407.0168",
+        "arXiv:2502.06290"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For degree ma in P^3 the generic local Arnold exponent 3/m makes Dimca's essential-relation vanishing threshold 3a−3. Koszul syzygies of F cannot occur in this range; the cofactor gives equality. The two-form result uses a different Jacobian and its own transversality assumptions."
+        ],
+        "reasoning": "Credit the prior implication for generic mdr. It asserts vanishing below the first degree, not dimension one at it or freeness of the full initial segment, nor the assertion for each possibly nongeneric triple with coprime minors.",
+        "searches": [
+          "Dimca arXiv:1408.2244 Eq. (1.5), Theorem 2.4 and Corollary 2.5",
+          "Sticlaru arXiv:2611.25767 Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sticlaru's cross product plays the role of the primitive cofactor at minimum degree in a two-form plane-curve composition, and under transversality generates the plane module together with its Koszul syzygies."
+        ],
+        "reasoning": "Reformulating as a Jacobian-kernel or composed-pencil statement reveals the analogy, but passing from two forms in three variables to three equal-degree forms in four introduces new hypotheses and a different Koszul cutoff. Restriction to planes does not identify the three-form surface Jacobian kernel or its ranks.",
+        "searches": [
+          "Resultary: graded Jacobian syzygies, determinantal/primitive cofactor generator, Fermat pullback",
+          "Sticlaru arXiv:2611.25767, Theorems 3.5 and 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalog hit is the assigned record itself, with identical three-form module and generic singularity census. The ranked comparison did not expose a distinct matching entry or family table."
+        ],
+        "reasoning": "The identical entry is not prior independent evidence. The issue is the exact symbolic Hilbert segment over all scoped triples, not whether one row of the modular example is tabulated.",
+        "searches": [
+          "Resultary: Fermat pullback singular surfaces, graded Hilbert function and determinantal rigidity",
+          "Resultary 324b9d0632e9, original Finding"
+        ]
+      },
+      "rationale": "The distinct finding is the complete initial graded module for regular three-form Fermat pullbacks with primitive minors, not the generic minimum-degree equality, generic first-jet arguments or local weighted-homogeneous colength. The strongest checked analog is a full syzygy theorem for two-form plane pencils; the general Arnold-exponent vanishing already implies the generic lower bound. Neither covers these all-triple componentwise graded spaces.",
+      "residual_risks": [
+        "An equivalent result phrased in the language of gradient pullbacks or graded derivations could be outside the inspected literature. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies generic lower bound, not claimed graded spaces",
+          "evidence": [
+            "ER(f)_q=0 for q<α_V N−n under the stated weighted-homogeneous hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.2244",
+          "material_read": "§1 Eq. (1.5), p. 2; §2 Theorem 2.4 and Corollary 2.5, pp. 5–6",
+          "method": "Primary OA PDF passages",
+          "title": "Jacobian syzygies, stable reflexive sheaves, and Torelli properties for projective hypersurfaces with isolated singularities",
+          "trigger": "Dominating general bound for the generic minimum degree"
+        },
+        {
+          "assessment": "Substantial structural analogy in P², different number of generators and variables",
+          "evidence": [
+            "For f=Φ(g,h), the cross-product syzygy attains the minimum; the full plane module under transversality also uses three Koszul syzygies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.25767",
+          "material_read": "Theorem 3.5 p. 4 (text offset 12000); Theorem 4.2 pp. 5–6 (offset 18500)",
+          "method": "Primary OA PDF passages",
+          "title": "Plane curves attaining the Dimca–Sernesi bound and Jacobian syzygies of pencil-type curves",
+          "trigger": "Closest determinantal syzygy theorem for compositions"
+        },
+        {
+          "assessment": "Gives general relations, not the family-specific graded module",
+          "evidence": [
+            "Connects Jacobian Betti data with singular-scheme dimension and degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.24308",
+          "material_read": "Theorem 1.1 pp. 2–3 (text offset 6000)",
+          "method": "Primary OA PDF passage",
+          "title": "On the degree of the singular subscheme of hypersurfaces in projective space",
+          "trigger": "General relations between Jacobian Betti data and singular schemes"
+        },
+        {
+          "assessment": "Not a classification of the primitive cofactor submodule",
+          "evidence": [
+            "Identifies Koszul relations using vanishing on the singular subscheme under the stated hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.0168",
+          "material_read": "Theorem 1.2 and Corollary 1.3 (text offset 6000)",
+          "method": "Primary OA PDF passage",
+          "title": "Syzygies of Jacobian ideals and weighted homogeneous singularities",
+          "trigger": "General criterion for Koszul relations in the relevant isolated-singularity setting"
+        },
+        {
+          "assessment": "Qualitative singularity criterion, not initial graded ranks",
+          "evidence": [
+            "The theorem tests quasihomogeneity through Jacobian syzygies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.06290",
+          "material_read": "Theorem 1.1 p. 1",
+          "method": "Primary OA PDF passage",
+          "title": "Quasi-homogeneous singularities of projective hypersurfaces and Jacobian syzygies",
+          "trigger": "Potentially stronger syzygy consequences of the Fermat local form"
+        },
+        {
+          "assessment": "Identical assigned record, not independent prior coverage",
+          "evidence": [
+            "Matches the entire module formula and generic a³ Fermat-point census."
+          ],
+          "identifier_or_url": "324b9d0632e9",
+          "material_read": "Finding and scope, proof",
+          "method": "Local indexed comparison and frozen original",
+          "title": "Low-degree determinantal rigidity for Fermat-pullback singular surfaces",
+          "trigger": "Top exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This specifies a whole initial block of graded Jacobian data, of length growing with m, for a naturally composed family with controlled isolated singularities. It shows that these early relations all arise from one derivation tangent to the three inputs, information not given by the generic least-degree bound or local colength. It can serve as concrete input for studying the Jacobian algebra without promising a full resolution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

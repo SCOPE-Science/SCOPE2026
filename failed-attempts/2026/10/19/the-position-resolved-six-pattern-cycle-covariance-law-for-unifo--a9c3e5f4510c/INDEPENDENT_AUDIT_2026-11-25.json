@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:08:56.629929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 33–92",
+        "Frozen verify.py and VERIFICATION.md inspected, not executed",
+        "/workspace/reproductions/review_3.py"
+      ],
+      "rationale": "A prescribed injective partial mapping gives disjoint directed paths and closed cycles. Each prescribed edge reduces the number of path components by one, so in a three-position window there are n-3 paths, including isolated vertices. The remaining arrows match tails to heads uniformly; the completed cycle count has mean H_(n-3) plus the forced closed-cycle count, with H_0=0. There are (n)_3/6 equiprobable triples per pattern. A fixed point at x of rank r contributes binom(x-1,r-1) binom(n-x,3-r); a transposition fixes two ranks and leaves the last rank in the appropriate interval; 231 and 312 each contribute one three-cycle. Adding these counts with multiplicity and subtracting (n)_3(H_n-H_(n-3))=3n²-6n+2 after normalization yields the six claimed affine formulas. The constant nonzero 123 row and nonconstant 132 row give rank two when there are at least two positions; the single column at n=3 is nonzero. The two pooled pairs each have numerator -4. Independent disjoint-set counting of cycles and comparison-based ranks reproduced all 126 cells for n=3..8 with integer arithmetic.",
+      "residual_risks": [
+        "The finite replay corroborates the symbolic proof; it is not a proof for unbounded n by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joint cycle type with peak or descent statistics does not by itself split 132/231 or 213/312. The earlier fixed-injection mean and local cycle contribution formulas preserve the entire three-image rank pattern at a chosen position."
+        ],
+        "reasoning": "The direct cover is the local conditional calculation in the earlier proof, not the higher-level peak/descent joint laws.",
+        "searches": [
+          "arXiv:2001.00654 §7.1",
+          "arXiv:1107.2961 §3.4",
+          "DOI:10.1016/0097-3165(93)90095-p",
+          "Resultary 5a13f0bb8311 proof, §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5a13f0bb8311, b968e2801c74, 600c70231432 and efaa92233051",
+        "arXiv:2001.00654, 1107.2961, math/0610616 and 1809.07465",
+        "DOI:10.1016/0097-3165(93)90095-p scope only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed t the earlier proof gives transposition totals in lexicographic pattern order (0,t,n-t-1,n-t-2,t-1,n-2) by summing at most three already listed terms; three-cycle totals are (0,0,0,1,1,0); its binomial fixed-point formula gives the three summands per row. The harmonic normalization is the same as in its covariance step, now with one window instead of n-2."
+        ],
+        "reasoning": "Stopping before the earlier aggregation and expanding the supplied formulas gives the complete positional table with no new combinatorial count. The position-affine table directly yields the claimed rank and pooled corollaries.",
+        "searches": [
+          "5a13f0bb8311 mirrored RESULT.md, Proof §§1–3, offsets 1770–5464",
+          "Frozen RESULT.md lines 35–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5a13f0bb8311 has a fixed-t image-conditioned mean; 600c70231432 gives the table and rank as a conditional-mean shift, which equals six times the covariance because the event probability is 1/6. Parviainen uses cycle notation and Fu–Li marks one-line peak orientations without cycle count."
+        ],
+        "reasoning": "Conditional means and covariances here are exactly interchangeable. Patterns within standard cycle notation are a different event. The decisive earlier overlap is in the fixed-t proof, not in the choice of notation.",
+        "searches": [
+          "Resultary: cycle count exact six consecutive triple patterns positional covariances",
+          "arXiv:math/0610616",
+          "arXiv:1809.07465"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5a13f0bb8311 prints six aggregate covariances and beneath them the local ingredients. b968e2801c74 prints the same six position-indexed fractions as the frozen table; 600c70231432 prints the six conditional-mean coefficients and rank. efaa92233051 gives individual inversion-gap covariances only."
+        ],
+        "reasoning": "The aggregate and inversion tables considered on their own do not reconstruct all cells. Substitution into the earlier item's local formulas does. The other exact matches establish current duplicate coverage without deciding priority.",
+        "searches": [
+          "Resultary 5a13f0bb8311, b968e2801c74, 600c70231432 and efaa92233051"
+        ]
+      },
+      "rationale": "The earlier indexed Resultary finding 5a13f0bb8311 is an aggregate theorem in its headline, but its actual proof supplies the requisite stronger position-specific ingredients. It explicitly gives the conditional cycle mean for every fixed image triple at t, the fixed-point contribution by position and rank, every nonzero two-cycle contribution already as a function of t for each pair of positions and pattern, and the two exact three-cycle assignments. Keep t fixed instead of summing over it: the normalized local covariance is six times the sum of those supplied counts minus 3n²-6n+2. For example, 132 has the supplied fixed-point sum W1(t)+W3(t+1)+W2(t+2), transposition count t and no three-cycle; expansion gives 9n-14-12t. The same direct substitution works in all six cells and the rank assertion is elementary from those entries. This is coverage by the prior equations and case evaluation, not an inference from the aggregate vector alone or from title similarity. Two other indexed findings explicitly give the same positional table, but no priority or independent authorship is inferred from their catalogue dates.",
+      "residual_risks": [
+        "The complete original Gessel–Reutenauer text was not obtained.",
+        "The relation among equivalent later records and the frozen work is not established; the FAIL is based on the older pre-aggregation formulas, not on inferred provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically entails the claimed positional table, despite headline aggregation",
+          "evidence": "Fixed-t injection expectation, three local transposition cases, ranked fixed-point formula and exact three-cycle assignments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-cycle-count-covariance-with-all-six-consecutive-triple-pat--5a13f0bb8311",
+          "material_read": "Mirrored RESULT.md proof at offsets 1770–5464, including the pre-aggregation formulas",
+          "method": "Local mirror, then direct mathematical specialization and expansion",
+          "title": "Exact cycle-count covariance with all six consecutive triple patterns",
+          "trigger": "Closest earlier aggregate of precisely the six statistics"
+        },
+        {
+          "assessment": "Exact present-day overlap; no dependence or priority inferred from later catalogue paths",
+          "evidence": "Same numerators in the same position convention; multiplying covariance by six gives conditional-mean shift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-positional-sign-laws-for-cycles-and-consecutive-triple-patterns--b968e2801c74; https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-rank-two-positional-dependence-law-for-permutation-cycles-and--600c70231432",
+          "material_read": "Mirrored RESULT.md statements containing the six numerators, their scaling and the rank statement in the second source",
+          "method": "Local mirror statement-level comparison",
+          "title": "Positional sign laws for cycles and consecutive triple patterns; A rank-two positional dependence law for permutation cycles",
+          "trigger": "Possible exact table and equivalent conditional law"
+        },
+        {
+          "assessment": "Aggregated peak/descent quantities, not orientation-resolution at a specified position",
+          "evidence": "The generating functions mark peak or descent counts rather than the two separate orientations.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.00654; https://arxiv.org/abs/1107.2961",
+          "material_read": "Theorem 7.1 pp. 41–42 and introduction p. 3 in the first; §3.4 Corollary 3.8 p. 17 in the second",
+          "method": "Primary OA passages",
+          "title": "Plethystic formulas for permutation enumeration; Analysis of casino shelf shuffling machines",
+          "trigger": "Broader joint cycle-type laws"
+        },
+        {
+          "assessment": "Different pattern convention or no joint cycle-count weight",
+          "evidence": "Parviainen uses standard cycle form; Fu–Li distinguishes 132 and 231 and counts occurrences without a specified window-cycle joint mark.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0610616; https://arxiv.org/abs/1809.07465",
+          "material_read": "Parviainen abstract and §1.2.1; Fu–Li introduction and (1.4)–(1.5)",
+          "method": "Primary OA passages",
+          "title": "Cycles and patterns in permutations; Joint distributions of permutation statistics and the parabolic cylinder functions",
+          "trigger": "Direct terminology or same peak subtypes"
+        },
+        {
+          "assessment": "No whole-document negative assertion",
+          "evidence": "Available account gives joint cycle-type/descent information, which does not resolve the endpoint comparison inside an adjacent peak or valley.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(93)90095-p",
+          "material_read": "Bibliographic and abstract scope; later accessible account in arXiv:2001.00654 p. 3",
+          "method": "Lawful full-text attempts unsuccessful; scope comparison only",
+          "title": "Counting permutations with given cycle structure and descent set",
+          "trigger": "Classical stronger-looking joint law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Earlier Resultary 5a13f0bb8311 fixed-window proof",
+        "Frozen table, rank assertion and pooled covariance corollary"
+      ],
+      "rationale": "The positional contrast is a natural statistic, but the exact invariant here is obtained by retaining the position in an existing explicit local calculation. The rank observation and pooled cancellations are direct algebra on those already computable entries, with no residual substantive gap in the frozen claim. The table can be convenient as exposition, not a separate worthwhile exact result under this standard.",
+      "residual_risks": [
+        "No judgment on longer patterns or higher-order joint laws, which are not asserted here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

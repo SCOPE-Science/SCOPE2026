@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:51:01.108010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–125",
+        "Frozen VERIFICATION.md, lines 19–25; check.py, lines 11–108 (inspected only)",
+        "/workspace/audit_evidence/reproduce.py, ordinal 4"
+      ],
+      "rationale": "For fixed positive occupancy count k, transferring one unit from a larger to a smaller occupancy with gap at least two lowers the collision count, yielding the balanced minimum; transferring to a largest occupancy until all others are singletons gives the maximum. For n=2 through 6 every next-richness collision range lies at or below the preceding one, including ties at n=6. The independent-copy covariance identity then applies to any sample law. For n>=7, a balanced two-cell profile and the three-cell profile (n-2,1,1) are inverted: their collision-count difference is (h-1)(h-3) at n=2h and h^2-3h+1 at n=2h+1, positive in the applicable ranges. Mixing their uniformly permuted words yields exchangeability and -1/84 at n=7. On at most two labels, diversity vanishes at richness one and is nonnegative at richness two, proving immunity under any law, not just infinite exchangeability. For the equal mixture of the two specified iid laws (a valid infinite exchangeable sequence), the displayed fixed-law covariance is obtained by conditioning on absence of a label: the pair collision probability then becomes (s2-p_i^2)/(1-p_i)^2, which yields the stated term after multiplying by the absence probability. Total covariance gives the mixture expression. Independently, exact integer path recursion followed by rational aggregation gave the exact negative n=22 fraction, and finite occupancy comparisons reproduced the n=7 inversion and its absence for n<=6 (`python3 /workspace/audit_evidence/reproduce.py 4`). Counts converge to their conditional frequencies, and eventual richness equals support size almost surely; bounded convergence gives the equal-mixture covariance of (2,1/2) with (3,37/200), namely -63/800.",
+      "residual_risks": [
+        "No claim that n=22 is least among infinitely exchangeable mixtures, or that the fixed-profile finite examples are infinitely extendible. The infinite construction is a witness, not a classification of mixing laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directly matched nonnegative result assumes a fixed iid law; conditional occupancy formulas for Gibbs-type partitions are model-specific. Barbour gives occupancy distribution approximations; the targeted Simpson hit concerns unbiased estimation of sampling variance."
+        ],
+        "reasoning": "Model-specific exchangeable partition conclusions, fixed-iid statements and variance of the Simpson estimator alone do not dominate the unrestricted finite-law comparison or explicit de Finetti counterexample.",
+        "searches": [
+          "Resultary e84114bd4ba0 and cb22e90cc85a",
+          "Favaro–Lijoi–Prünster arXiv:1309.1335",
+          "Barbour arXiv:0902.0879v1",
+          "arXiv:2310.03439v1 abstract/introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e84114bd4ba0, cb22e90cc85a, d3caf6abcfaa, 7707eb3d6c4b, b9a6f1093265",
+        "Lande (1996), sampling formula passages",
+        "arXiv:0902.0879v1 and 1309.1335 opening passages",
+        "arXiv:2310.03439v1 abstract/introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact iid covariance is exactly the within-component term in the mixture calculation. A pair collision statistic is a weighted sum of occupancy frequency counts, not a single F_r. The inspected unbiased-sampling formulas concern separate expectations."
+        ],
+        "reasoning": "Positive within-component covariance does not determine the total covariance; the between-component term is negative here. Nor does one covariance sign pattern across frequency classes under a fixed iid law imply the exact sharp inversion criterion for all finite laws. Binary immunity follows directly from the statistic's zero value on richness one, and is not treated as the sole novelty.",
+        "searches": [
+          "Resultary e84114bd4ba0, Finding equations (4)–(6)",
+          "Resultary d3caf6abcfaa, Finding",
+          "Lande (1996) PDF offsets 8500 and 10800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If C is the same-label pair count then G=1-C/binom(n,2), so the corresponding richness/concentration covariance has reversed sign. The Pitman–Yor record gives negative richness–concentration covariance, hence positive richness–diversity covariance within that model."
+        ],
+        "reasoning": "This matches the observable after complementation, but it neither gives sign robustness to arbitrary dependence nor rules out reversal under the specified finite-alphabet mixture.",
+        "searches": [
+          "Resultary fixed-iid richness/unbiased Gini–Simpson e84114bd4ba0 and Pitman–Yor richness–Simpson cb22e90cc85a",
+          "Primary query for richness covariance with unbiased pairwise Simpson diversity/concentration under exchangeability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day n=16 result concerns Cov(K,F_r) with an occupancy frequency count, the matched-communities result ranks expected richness, and the missing-mass result uses a different second statistic. Lande gives unbiased Simpson sampling formulas, not an exact threshold for this joint sign."
+        ],
+        "reasoning": "A table of integer occupancy profiles can test small-n ordering and is used in the proof, but does not encode for which n arbitrary laws can reverse covariance, or the independent infinite-mixture witness. No exact published threshold/table of the same joint invariant was located in the material inspected.",
+        "searches": [
+          "Resultary searches for the n=7 and three-label boundary, including same-date d3caf6abcfaa",
+          "Resultary Simpson-matched rarefaction 7707eb3d6c4b and missing mass b9a6f1093265",
+          "Lande (1996) PDF, relevant formulas"
+        ]
+      },
+      "rationale": "The fixed-iid covariance and conditional calculation are prior, while the sharp finite-law sample-size boundary and exact sign reversal in a specified infinitely exchangeable ternary mixture are distinct. A model-specific exchangeable partition result concerns the same pair statistic up to complementation but has the opposite sign from the new mixture and does not cover arbitrary exchangeable laws. Same-date frequency-class results were compared at the level of the actual statistics, not excluded by date.",
+      "residual_risks": [
+        "Bounded primary query is not a priority certificate. Kvålseth DOI 10.1002/ece3.70275 could not be inspected in full; an inaccessible search hit on species differences mentioned covariance of abundances only in a snippet and remains unverified. Implicit equivalent occupancy comparisons elsewhere in the literature are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact conditional overlap under fixed iid law; does not cover mixtures or unrestricted finite laws",
+          "evidence": "Strict positivity for nondegenerate fixed iid laws; the same formula is used in the frozen proof for each component.",
+          "identifier_or_url": "Resultary e84114bd4ba0",
+          "material_read": "Finding equations (4)–(6), mirror offset 0",
+          "method": "Local published-record mirror",
+          "title": "Universal positive covariance of sample richness and unbiased Gini–Simpson diversity",
+          "trigger": "Identical statistics and exact covariance formula"
+        },
+        {
+          "assessment": "Exact covariance in a related model, not general exchangeability",
+          "evidence": "Cov(K_n,Q_m)=-b_n r_(n,m) for concentration; complementing gives positive diversity covariance, including at equal times.",
+          "identifier_or_url": "Resultary cb22e90cc85a",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local published-record mirror",
+          "title": "A two-time richness–Simpson covariance kernel for Pitman–Yor partitions",
+          "trigger": "Same pair concentration and an infinitely exchangeable partition model"
+        },
+        {
+          "assessment": "Different second statistic and question",
+          "evidence": "Sign reversals across occupancy classes Cov(K,F_r) under 16 iid draws, not covariance with pairwise diversity under exchangeability.",
+          "identifier_or_url": "Resultary d3caf6abcfaa",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local published-record mirror",
+          "title": "A minimal three-species counterexample to one-switch richness–frequency behavior",
+          "trigger": "Same-date three-species exact counterexample with richness covariance"
+        },
+        {
+          "assessment": "Adjacent definitions and sampling identities, not an exact joint sign boundary in inspected passages",
+          "evidence": "Provides formulas for richness and Simpson concentration/diversity, without the mixture sign mechanism in those passages.",
+          "identifier_or_url": "https://pdodds.w3.uvm.edu/files/papers/others/1996/lande1996a.pdf",
+          "material_read": "Relevant sampling formulas, PDF text offsets 8500 and 10800",
+          "method": "OA PDF passages",
+          "title": "Statistics and partitioning of species diversity, and similarity among multiple communities",
+          "trigger": "Primary diversity statistics and unbiased sample estimator"
+        },
+        {
+          "assessment": "Relevant conditional frequency background, not a whole-document exclusion",
+          "evidence": "Block frequency results under Gibbs-type partition assumptions do not state the unrestricted finite-law boundary in the passage inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.1335",
+          "material_read": "HTML opening/abstract, offset 0",
+          "method": "OA HTML passage",
+          "title": "Conditional formulae for Gibbs-type exchangeable random partitions",
+          "trigger": "Potentially stronger general exchangeable-partition result"
+        },
+        {
+          "assessment": "Sampling variance is a different moment; text miss is not exclusion",
+          "evidence": "The inspected passage concerns unbiased variance estimation for the Simpson index rather than an explicit covariance with observed richness.",
+          "identifier_or_url": "https://arxiv.org/html/2310.03439v1",
+          "material_read": "Abstract/introduction, offset 1146; literal covariance search had no matches",
+          "method": "OA HTML passage and bounded text search",
+          "title": "Unbiased estimation of the sampling variance of Simpson's diversity index",
+          "trigger": "Targeted primary query for richness–pair-diversity covariance"
+        },
+        {
+          "assessment": "Unverified overlap risk, not evidence of coverage or absence",
+          "evidence": "First retrieval returned 403 and alternate timed out; the source citation describes randomly generated abundances, a possibly different statistic/model.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.70275",
+          "material_read": "No full text obtained; frozen citation and summary only",
+          "method": "OA retrieval attempted and an identified alternate tried",
+          "title": "Diversity analysis: Richness versus evenness",
+          "trigger": "Related dependence between diversity components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 12–35 and 43–125",
+        "Resultary e84114bd4ba0 and cb22e90cc85a"
+      ],
+      "rationale": "There is a precise robustness question for two standard sample diversity measures: how many observations and labels are needed before richness can covary negatively with unbiased pairwise diversity when independence is relaxed? The sharp, joint finite-law thresholds and a simple exchangeable witness answer it quantitatively. The exact ternary mixture also isolates why the usual fixed-iid sign can fail even for an infinitely extendible sequence. These are useful constraints and counterexamples, not a claim of infinite-sample-size optimality for the witness.",
+      "residual_risks": [
+        "The global smallest n among infinitely exchangeable three-label laws remains unresolved here; conclusions concern the stated unbiased pair statistic, not arbitrary diversity estimators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

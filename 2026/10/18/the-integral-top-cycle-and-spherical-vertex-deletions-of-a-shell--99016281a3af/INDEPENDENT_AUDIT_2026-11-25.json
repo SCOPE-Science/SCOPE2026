@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:55:02.630779Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–55",
+        "VERIFICATION.md lines 19–23",
+        "verify.py (inspected, not executed)",
+        "deletion_collapse.json (all 106 moves read as data and verified)",
+        "link_spheres.json",
+        "Independent exact reproduction: /tmp/opencode/frozen_review_reproduction.py circulant"
+      ],
+      "rationale": "Independent enumeration of all nonempty 16-vertex subsets found f=(16,80,144,80), no five-vertex independent set and no maximal face below dimension three. Exact elimination gave rank 79 for the third boundary over both Q and F₂. Solving over Q and clearing denominators gave a primitive signed cycle, normalized at (0,2,5,7), with seed weights (1,−1,2,1), the stated four facet-orbit sizes and the six tabulated triangle-orbit boundary rows. Signed rotation and reflection fix the cycle. Its coefficients have gcd one and magnitudes 1 on 64 facets and 2 on 16, so the rank-one integral kernel, ℓ₁=96 and the unique nonzero mod-two cycle with 64 facets follow. Any proper induced subcomplex omits a facet because every vertex belongs to a tetrahedron; its top cycles embed into the ambient kernel, so it has none. Independent replay checked the unique immediate coface at all 106 deletion moves; the remainder is precisely the stated connected closed triangulated surface of Euler characteristic two. The link pieces likewise are spheres and cover the entire link, and their intersection is a connected surface with one boundary cycle and Euler characteristic one, hence a disk. The two inclusions of the disk are cofibrations, so their union has the claimed wedge type. The word ‘partitioned’ in the proof should read ‘covered’: the shared disk has four triangles, as the very next statement and the certificates specify. This slip does not change the defined pieces or the argument. Translation transports both local certificates to every vertex.",
+      "residual_risks": [
+        "The finite certificates apply to this labeled circulant, with translation supplying the universal vertex quantifier, not to other circulants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper identifies the smallest shellable non-vertex-decomposable well-covered circulant and gives its deletion face and h-vectors.",
+          "The two downstream comparisons use the same graph for lexicographic-product or edge-ideal constructions."
+        ],
+        "reasoning": "Pure shellability and Euler characteristic determine the ambient wedge type and link wedge multiplicities, but they do not prescribe a collapse of the deletion to this sphere or the coefficients of a primitive chain in the original facets.",
+        "searches": [
+          "arXiv:1505.02837v1, Theorem 6.1",
+          "arXiv:1505.02838, Theorem 4.4",
+          "arXiv:2201.09925, Theorem 2.4 and Example 2.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1505.02837v1",
+        "arXiv:1505.02838",
+        "arXiv:2201.09925",
+        "Resultary 186f91a3b344, 33259d7b5d08, b77a0e1f0a47 and d54594767309"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original shelling plus χ̃(K)=−1 gives S³; transitivity gives link f=(10,27,20) from the ambient face counts, so shellable links have homotopy S²∨S²."
+        ],
+        "reasoning": "The link's explicit decomposition is a certificate but its homotopy type is not a distinct novelty. The deletion collapse and primitive cycle require further finite arguments: finding and replaying free pairs, and resolving integral boundary constraints. Later deletion homotopy alone is weaker than the asserted elementary collapse.",
+        "searches": [
+          "arXiv:1505.02837v1 shellability and the full facet list",
+          "Resultary 186f91a3b344 and d54594767309"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earl–Vander Meulen–Van Tuyl print the 80 facets in a shelling.",
+          "Later nonorientable-core and all-facet-cycle records state the same 64/16 coefficient pattern, the latter also stating dihedral fixation."
+        ],
+        "reasoning": "Changing the orbit basis or overall sign cannot produce a different primitive generator in a rank-one kernel. These later statements overlap directly; the earlier shelling does not calculate that generator.",
+        "searches": [
+          "C16(1,4,8) independence complex; arXiv:1505.02837v1, Theorem 6.1(iii)",
+          "Resultary 33259d7b5d08 and b77a0e1f0a47"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date 186f91a3b344 supplies shellable rank-two links.",
+          "Later 33259d7b5d08 and b77a0e1f0a47 give the coefficient pattern; later d54594767309 gives deletion homotopy S² and a homology map, not the specified collapse.",
+          "The original facet and deletion-vector tables do not give a collapse sequence or a signed cycle table."
+        ],
+        "reasoning": "Same-day ordering is not established. Explicit combinatorial input makes the invariants calculable, but is not a table of the invariants themselves.",
+        "searches": [
+          "Resultary C16(1,4,8) vertex deletions, local homology and integral top cycle",
+          "arXiv:1505.02837v1 explicit facet order, pp. 12–13"
+        ]
+      },
+      "rationale": "Credit prior work with the shellability, ambient homotopy and homology rank, and the implied link wedge type. The explicit collapse of each deletion to the stated triangulation and the primitive integral cycle with its exact nonuniform coefficients, full support and signed symmetry remain distinct from the earlier evidence. Direct later overlaps are recorded, not counted as earlier priority.",
+      "residual_risks": [
+        "The within-day order of the overlapping local-homology record is unresolved.",
+        "This comparison does not certify historical priority outside the inspected papers and catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers classical status and materially implies ambient and link types; not a collapse or integral cycle computation",
+          "evidence": "The proof gives all 80 facets in a shelling and records deletion face and h-vectors.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.02837v1",
+          "material_read": "Theorem 6.1(iii) and proof, PDF pp. 12–13, extracted offsets 36000–42951",
+          "method": "OA PDF passage inspection",
+          "title": "Independence complexes of well-covered circulant graphs",
+          "trigger": "Same graph and exact prior shelling"
+        },
+        {
+          "assessment": "Different refinement",
+          "evidence": "The circulant serves as the input to a construction of shellable non-vertex-decomposable products.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.02838",
+          "material_read": "Theorem 4.4, PDF p. 5",
+          "method": "OA PDF passage inspection",
+          "title": "Shellability, vertex decomposability, and lexicographical products of graphs",
+          "trigger": "Same graph in a broader family"
+        },
+        {
+          "assessment": "Same shellability example, different invariant",
+          "evidence": "Reuses the circulant and its facets in an edge-ideal example.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.09925",
+          "material_read": "Theorem 2.4 and Example 2.5, PDF pp. 4–5",
+          "method": "OA PDF passage inspection",
+          "title": "Vertex decomposability and regularity of graphs",
+          "trigger": "Reuse of the same example"
+        },
+        {
+          "assessment": "Equivalent implication for link wedge, not deletion collapse or cycle",
+          "evidence": "Every vertex link is shellable and has top rank two.",
+          "identifier_or_url": "Resultary 186f91a3b344",
+          "material_read": "Finding and local rank proof",
+          "method": "Local catalogue search and record inspection",
+          "title": "A torus of rank-two local homology inside a shellable flag homotopy sphere",
+          "trigger": "Same-date overlap in vertex links"
+        },
+        {
+          "assessment": "Direct overlap, later catalogue date",
+          "evidence": "Primitive magnitudes 1 on 64 and 2 on 16 tetrahedra.",
+          "identifier_or_url": "Resultary 33259d7b5d08",
+          "material_read": "Finding on the primitive top cycle",
+          "method": "Local catalogue search and record inspection",
+          "title": "A nonorientable manifold core and index-two orientation cycle",
+          "trigger": "Exact cycle coefficient overlap"
+        },
+        {
+          "assessment": "Direct overlap, later catalogue date",
+          "evidence": "All-facet cycle, 64/16 pattern and signed dihedral invariance.",
+          "identifier_or_url": "Resultary b77a0e1f0a47",
+          "material_read": "Finding and orbit expression",
+          "method": "Local catalogue search and record inspection",
+          "title": "The all-facet primitive three-cycle of an exceptional circulant",
+          "trigger": "Exact support and symmetry overlap"
+        },
+        {
+          "assessment": "Partial overlap, later catalogue date",
+          "evidence": "Every deletion has type S²; the asserted specific collapse is not supplied in the inspected finding.",
+          "identifier_or_url": "Resultary d54594767309",
+          "material_read": "Finding on deletion homotopy and inclusion map",
+          "method": "Local catalogue search and record inspection",
+          "title": "Exact vertex-deletion homotopy of a shellable non-vertex-decomposable circulant",
+          "trigger": "Exact local-topology overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–14, 21–55",
+        "Independent rank, orbit and collapse computations",
+        "arXiv:1505.02837v1, Theorem 6.1(iii)"
+      ],
+      "rationale": "The standard exceptional circulant is a natural test of what shellability does not specify. The exact integral cycle shows that all vertices and all facets are necessary in characteristic zero even though 16 facet coefficients disappear modulo two. In addition, the deletion certificate gives a direct simple-homotopy description on each vertex removal, rather than just a Betti count. Those are useful finite facts about the canonical example, independent of credit for the already implied wedge types.",
+      "residual_risks": [
+        "No extension to a family or classification of all deletion collapses is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

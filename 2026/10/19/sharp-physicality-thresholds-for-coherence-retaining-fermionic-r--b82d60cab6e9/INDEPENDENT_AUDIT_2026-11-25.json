@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:34:14.151479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–38 and 42–67",
+        "Frozen VERIFICATION.md and verification/check.py, read but not executed"
+      ],
+      "rationale": "For any input positive contraction, the distinguished diagonal of Γ−Γ² gives ||z||²≤p(1−p). The two output Schur complements for 0<p<1 are B−η²z*z/p and I−B−η²z*z/(1−p). Both are positive semidefinite under the claimed bound; p=0 or 1 forces z=0. For necessity use the rank-one projection onto (√p,√(1−p)v). Taking expectations in v and sending p toward 0 or 1 recovers the respective lower and upper Rayleigh bounds, without requiring an eigenvector. Schur complementing the bath blocks instead gives the fixed-input formula when both are boundedly invertible. Decreasing thermal functional calculus gives the energy-edge formula; independent substitution at βJ=3, μ=0 gives 0.04972547794274857. In the system-first occupation basis the cross observable has a system parity factor and one bath raising/lowering operator, so the identity-on-system times the stated qubit map scales its expectation by η. The trace-preserving Choi matrix has one nontrivial block with diagonal (1−c,c) and off-diagonal η, giving the distinct local CP threshold.",
+      "residual_risks": [
+        "The local implementation statement is restricted to the indicated one-mode channel and second moments, not general many-body or multimode implementations. The uniform theorem does not classify particular trajectories."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The elementwise reset framework includes the correlation-retaining endpoint; it does not bound a scaled cross block by the two prescribed spectral gaps.",
+          "Eq. (5) completely characterizes CP for the relevant affine qubit maps."
+        ],
+        "reasoning": "Applying the general CP result to a qubit with fixed longitudinal output gives the local corollary exactly, but its hypothesis and conclusion are not the all-input positive-contraction condition for the system–bath covariance.",
+        "searches": [
+          "arXiv:2012.04083v1, Sec. III, elementwise SPDM reset",
+          "arXiv:1911.09468, Eq. (5), phase-covariant Choi criterion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked retrieval",
+        "Kumar, Lazarides and Ala-Nissila, arXiv:2604.17152v1",
+        "Vieira, Lazarides and Ala-Nissila, arXiv:2012.04083v1",
+        "Filippov, Glinov and Leppäjärvi, arXiv:1911.09468"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting (λ,λ_z,t_z)=(η,0,1−2c) in Eq. (5) yields 4η²+(1−2c)²≤1, i.e. η²≤c(1−c); no originality is assigned to this numerical CP bound.",
+          "At c=1/2 the covariance range includes 1/2<η≤1/√2, a range the local CP result excludes."
+        ],
+        "reasoning": "The old CP bound is actually stricter at an interior c and cannot imply sharp covariance admissibility. Standard block positivity supplies ingredients; the new comparison uses a uniform bound and extremizing inputs for both edges of the specific reset.",
+        "searches": [
+          "arXiv:1911.09468, Eqs. (4)–(6)",
+          "arXiv:2604.17152v1, Sec. II.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The SPDM rule in Eqs. (14a–d) is exactly the frozen block operation, with unrestricted nominal η∈[0,1]; the inspected application studies a fixed-point tradeoff."
+        ],
+        "reasoning": "Changing from SPDM entries to an operator covariance does not change the reset. A fixed-point study and a nominal parameter interval do not establish preservation of all positive contractions.",
+        "searches": [
+          "Resultary: fermionic coherence-retaining reset and spectral-edge threshold",
+          "arXiv:2604.17152v1, Sec. II.3 and Eqs. (14a–d), (15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact or materially overlapping indexed finding was identified among the returned ranked hits."
+        ],
+        "reasoning": "The comparison was against a sharp input-uniform statement, not mere use of SPDM resets or of spectral inequalities; ranked retrieval is not exhaustive.",
+        "searches": [
+          "Resultary semantic queries by frozen title, model and η²≤min(inf σ(B),1−sup σ(B))"
+        ]
+      },
+      "rationale": "The reset itself and the phase-covariant qubit CP inequality are prior work. The supported distinct claim is the sharp all-input spectral covariance threshold for this reset, including non-eigenvalue bath edges, and its contrast with the prior local-channel criterion. Neither the exact model passages nor the broader reset or channel results inspected establish that uniform condition. This is a bounded best-of-knowledge conclusion.",
+      "residual_risks": [
+        "Other work on affine covariance maps or on this reset may contain an unlocated equivalent uniform criterion. There is no claim of priority for standard Schur tests, thermal spectral mapping, or the one-mode CP inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the reset rule, not the audited universal threshold in the passages read",
+          "evidence": [
+            "The system block is preserved, the bath replaced with the reference SPDM, and cross blocks multiplied by η.",
+            "The motivating model couples one fermion level to a thermal tight-binding bath."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.17152v1",
+          "material_read": "Motivation near text offset 6175; Sec. II.3 from offset 14848 with Eqs. (14a–d), (15)",
+          "method": "OA primary HTML, bounded text",
+          "title": "Thermodynamics of Coherence-Selective Quantum Reset Protocols",
+          "trigger": "Exact motivating reset"
+        },
+        {
+          "assessment": "Covers correlation retention as a reset choice; inspected material does not give both spectral-edge inequalities",
+          "evidence": [
+            "Selected matrix entries can be reset while system–environment correlations are retained; Hermiticity is the formal constraint described there."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2012.04083v1",
+          "material_read": "Sec. III from text offset 13339",
+          "method": "OA primary HTML, bounded text",
+          "title": "Quadratic Models for Engineered Control of Open Quantum Systems",
+          "trigger": "Broader correlation-preserving SPDM reset framework"
+        },
+        {
+          "assessment": "Directly implies the one-mode local qubit CP inequality; not a covariance threshold",
+          "evidence": [
+            "Eq. (5) gives |λ_z|+|t_z|≤1 and 4λ²+t_z²≤(1+λ_z)²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09468",
+          "material_read": "Page 2, Eqs. (4)–(6), text offset 8520",
+          "method": "OA primary PDF, literal locator then bounded passage",
+          "title": "Phase covariant qubit dynamics and divisibility",
+          "trigger": "Possible implication-equivalent local complete-positivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 10–34",
+        "arXiv:2604.17152v1, Sec. II.3"
+      ],
+      "rationale": "The cutoff addresses a physical admissibility question in a previously proposed, explicitly parameterized reset. The thermal example shows how small a portion of its nominal parameter range can have a universal guarantee. The optimal witnesses and the distinction between statewise, uniform, and local CP conditions materially affect what can be inferred from reset calculations, even though the proof ingredients are standard.",
+      "residual_risks": [
+        "No specific trajectory or fixed point in the prior work is shown nonphysical by the uniform obstruction alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

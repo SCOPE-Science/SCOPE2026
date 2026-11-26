@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:14:44.199817Z",
+  "axes": {
+    "correctness": {
+      "independent_replay": [
+        "/workspace/branches/79d89c2e-d081-4beb-aceb-ac6bd40ea5fa/boundary_reconstruction.py",
+        "/workspace/branches/79d89c2e-d081-4beb-aceb-ac6bd40ea5fa/boundary_reconstruction_output.txt"
+      ],
+      "rationale": "The original seven-base formula and all three limiting statements hold. For a sandwich with image {1,2}, fix the four values at those two domain points and compare f(a(g(x))) and g(a(f(x))). At every other domain point the same four possible fiber choices give the K base in the record; there are no constraints coupling different such points. The independent reconstruction exhausts all 94 equality-code/color assignments and recovers the 18 admissible types and their falling-factorial weights. Direct enumeration in a 3-point (1,2) example gives 133/729 commuting pairs. The supplied executable was inspected, not run; the reported direct enumeration concerns canonical representatives and one alternate placement, not every sandwich map. The corrected RESULT and VERIFICATION files state that scope, clarify the integral critical window as a limit along sizes including subsequences, and give uniform supercritical bounds. In detail, dividing each row by n^(2n-3) normalizes its base by n² and its prefactor by n. At fixed m only the large-block-square row is of order n^(-1) in probability. At m=log n+t+o(1), the all-equal, n times large-block, and large-block-square rows have normalized limits 1, 2e^(-t), and e^(-2t). In the supercritical regime, (1-m/n)^(n-2) ≤ e^(1-m) uniformly for m≤n/2; the three relevant error ratios are O(ne^(-m)), O(ne^(-m)), and O(n²e^(-2m)), and the other normalized bases are at most 1/2. These estimates establish the corrected text for the full regimes. No change to the count or asymptotic claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tsyaputa's classification is for all sandwich ranks. Dolinka–East's structural results and enumeration of idempotent/generated/regular objects are also more general in rank."
+        ],
+        "reasoning": "Knowing isomorphism types or the rank of the regular part does not enumerate all pairs satisfying the pairwise equality. No directly dominating full-map centralizer law was identified.",
+        "searches": [
+          "arXiv:math/0508386, §3 Theorem 2",
+          "arXiv:1410.5253v3, §§1 and 4–7 overview"
+        ]
+      },
+      "checked_sources": [
+        "Tsyaputa arXiv:math/0508386",
+        "Dolinka–East arXiv:1410.5253v3",
+        "Resultary rank-two idempotent commuting graph",
+        "Resultary rank-one multiplication fingerprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kernel partition classification implies invariance of C_n in the fiber sizes. The idempotent graph provides its own diagonal and off-diagonal counts. Neither uses the general boundary-coordinate conditions allowing up to three distinct output labels."
+        ],
+        "reasoning": "Fiber-size dependence is covered; the quantitative seven-row split and competition of nℓ and ℓ² against n² require an additional all-map enumeration and are not supplied by those prior results.",
+        "searches": [
+          "Tsyaputa, Theorem 2 and its proof",
+          "Resultary rank-one product fingerprint, Finding and Proof",
+          "Resultary rank-two idempotent graph, Proof Steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-two idempotent commuting graph compares only star-idempotents and excludes loops; the census here includes loops and all maps, including nonidempotents. The analogous census on singular endomorphisms studies endomorphisms of the semigroup itself, not maps with a sandwich product."
+        ],
+        "reasoning": "The target can also be expressed as a sum of full-variant centralizer sizes or as the number of edges of the full undirected commuting graph counted twice plus its diagonal. None of the inspected comparisons gives that statistic.",
+        "searches": [
+          "Resultary: rank two transformation semigroup variants commuting pairs commutativity counting sandwich maps and kernel partition",
+          "Web: rank two variants full transformation semigroup sandwich commuting pairs counting commutativity kernel fiber graph commuting probability Tsyaputa Dolinka"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search surfaced the frozen claim itself, the rank-one product count n! times the sum of n-th powers of fiber sizes, and the idempotent graph spectrum."
+        ],
+        "reasoning": "The self-hit is not an antecedent. The rank-one table counts products with a permutation outer factor, and the graph spectrum counts a proper subpopulation. These are different enumerations, not alternative tables for the seven bases.",
+        "searches": [
+          "Resultary: rank two transformation semigroup variants commuting pairs commutativity counting sandwich maps and kernel partition"
+        ]
+      },
+      "rationale": "The ambient variant and its dependence on kernel partition are established. The all-map ordered census and its critical profile are distinct from counting or classifying idempotents, structural Green-class data, and the known one-sided product fingerprint. The verification/proof-quantifier repairs leave this comparison unchanged.",
+      "residual_risks": [
+        "Unindexed exact full-variant counts or a more general centralizer enumeration could cover the numerical formula; limited search cannot rule that out.",
+        "Distinctness from existing structural results does not assert historical priority for the ambient kernel-partition classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers isomorphism-type invariance, not the commuting census",
+          "evidence": [
+            "Kernel type is reconstructed from sizes of one-sided equivalence classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0508386",
+          "material_read": "§3, Theorem 2 and proof",
+          "method": "Open preprint full-text extraction",
+          "title": "Transformation Semigroups with the Deformed Multiplication",
+          "trigger": "Same objects for arbitrary rank"
+        },
+        {
+          "assessment": "Nearby general structural program, not a comparable count in inspected material",
+          "evidence": [
+            "Theorem 4.2 covers isomorphism and Green structure; subsequent sections concern regular and idempotent-generated structure and generators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.5253",
+          "material_read": "Abstract, §1 and detailed overview of §§3–7",
+          "method": "Open preprint full-text extraction",
+          "title": "Variants of finite full transformation semigroups",
+          "trigger": "Structural results on precisely the same sandwich variants"
+        },
+        {
+          "assessment": "Idempotent subgraph, not all-map count",
+          "evidence": [
+            "There are n+2^(n-2)kℓ vertices, so the graph counts far fewer than n^n maps in general."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-idempotent-commuting-graph-of-a-rank-two-transformation-vari--a76541095ed1/RESULT.md",
+          "material_read": "Finding, assumptions and proof of idempotent restriction and adjacency",
+          "method": "Local mirror full-text inspection",
+          "title": "The idempotent commuting graph of a rank-two transformation variant is a subdivided biclique multigraph",
+          "trigger": "Exact same sandwich rank and commutation relation"
+        },
+        {
+          "assessment": "Invariant equivalent to kernel partition, but not a commutation formula",
+          "evidence": [
+            "The permutation outer factor makes rank one equivalent to the inner map taking values in just one fiber."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharply-separated-rank-one-multiplication-fingerprint-for-fini--84067f9a2b4a/RESULT.md",
+          "material_read": "Finding, assumptions, exact-count and reconstruction arguments",
+          "method": "Local mirror full-text inspection",
+          "title": "A sharply separated rank-one multiplication fingerprint for finite transformation variants",
+          "trigger": "Exact invariant on the same semigroup variants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Commuting probability measures how the multiplication changes with balance of the fibers even at fixed sandwich rank. The enumeration explains a change from n^(-1) to n^(-3) and resolves a nonconstant critical profile via separate boundary types. It is not just a numerical check or another way to name kernel types.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

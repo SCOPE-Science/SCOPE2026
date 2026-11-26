@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized Caputo–Volterra monomial identity yields the first three incidence coefficients. On the precise critical hypersurface, the second coefficient is strictly negative and the third strictly positive by Gamma log-convexity. The exponent comparison covers both generic and exceptional models, so no alternative fractional order reproduces ideal incidence. The standalone script passed 500 positive critical test cases and exact half-order specialization checks; no finite test is used as a universal proof.
+## correctness
 
-**Originality — PASS (literature-bounded).** Hossain and Alam's 10 November 2026 manuscript studies Caputo SIR reconstruction and forecasting, but not the exceptional coefficient structure. Their 19 November 2026 follow-on paper proves identifiability only assuming a nonzero first coefficient and explicitly excludes the hypersurface addressed here. Zinihi's 2025 SEIRD work demonstrates numerical identification, not the exceptional SIR statement. Published order-recovery techniques for fractional diffusion concern different equations. Actual semantic-record and local-claim searches found no covering result; a missing/unindexed equivalent or an unpublished proof remains possible.
+PASS
 
-**Value — PASS.** This is a mathematically forced exception to a published identifiability criterion, rather than an arbitrarily chosen parameter slice. Without the cubic-order term, the leading \(t^{2\alpha}\) behavior is observationally confusable with a generic order \(2\alpha\); proving a nonvanishing \(t^{3\alpha}\) term resolves the ambiguity and supplies an exact boundary benchmark. The finding also demonstrates initial infectious growth concurrent with falling incidence. No practical identifiability from sparse/noisy data is claimed.
+For the positive-rate constant-parameter Caputo model with R(0)=0, write S and I as local Volterra integral equations. The continuous solution differs from its initial data by O(t^alpha). Polynomial substitution and I^alpha t^(k alpha)=[Gamma(1+k alpha)/Gamma(1+(k+1)alpha)]t^((k+1)alpha) inductively give every finite expansion: a bounded O(t^q) error integrates to O(t^(q+alpha)). This includes the ordinary-order endpoint. In the normalized basis s1=-x0 and i1=x0-gamma B; the leading incidence coefficient is x0[c(A-B)-gamma], with c=beta/N, A=S(0), B=I(0), x0=cAB. At cancellation gamma=c(A-B)>0, i1=cB^2, s2=0 and i2=-gamma i1. Multiplying the two expansions gives x2=-c i1(gamma A+H2 x0) and x3=c gamma i1 x0(H3-H2): the A gamma^2 i1 terms cancel. Strict midpoint log-convexity of Gamma proves H3/H2>1 for all alpha>0. When both candidates are generic, or both critical, the first nonzero exponent alone fixes their common order. In the mixed pairing equality would force generic order 2alpha (only feasible for alpha<=1/2); after the common first term the generic remainder is O(t^(4alpha)), incompatible with the nonzero t^(3alpha) term. This covers alpha=1/2 versus ordinary SIR and the critical order-one case. Independently expanded the raw-power Volterra products symbolically, including the positive exact t^(3/2) coefficient (12*pi-32)/(3*pi^(3/2)) in the frozen example; replay python3 -B /workspace/branches/independent_replay.py 4. This does not test fitting or stability. Frozen check.py and recorded output were inspected, not executed.
 
-The latest closely related source with a direct explicit exception is Hossain–Alam, arXiv:2611.25440v1, §4. Critical limitations: exact initial-time continuous incidence, bilinear constant-rate model, known population size, positive rates, no result on other parameter uniqueness, and incomplete historical-priority coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only the critical-case calculation and exclusion of a different order across the generic/critical comparison as the distinct increment. The same model, first incidence coefficient, cancellation condition, leading-exponent technique and generic inference are already present in prior work. The inspected primary result does not resolve the missing third-power comparison at cancellation.
+
+## value
+
+PASS
+
+The critical surface is forced by a physically admissible cancellation in the observable, and is an explicit exception to a published leading-order criterion. The nonzero next coefficient resolves a real ambiguity in the leading exponent, including apparent ordinary-time behavior at order 1/2, and completes the exact-data identification in the stated class. It is not claimed to recover the other parameters, handle time-varying rates or give a stable statistical method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:59:11.335097Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–107",
+        "Frozen VERIFICATION.md, lines 3–25, and checks.py, lines 9–50",
+        "Independent scalar integral for the continuum ramp profile"
+      ],
+      "rationale": "Reconstructed the full-limit and compactness proof for trace characters (χ_j(e)=j+1) with Haar probability. Clebsch–Gordan applied to the square of the packet and Haar orthogonality give the nonnegative quadruple tensor even for complex input. Opposite parities give zero; otherwise counting common weights agrees with NΔ/2 to within one, including touch/disjoint cases. Since (Σ|a_j|)^4≤N², this gives a uniform O(1/N) normalized error. Replacing Δ by its cell averages costs another O(1/N) by Lipschitz continuity and the same bound. Expansion of the parity indicator gives exactly the two functionals on the ordinary and alternating profiles, with factor 1/4. Each fixed triangular indicator gives a compact Hilbert–Schmidt operator; a strongly convergent kernel image paired against a bounded weakly convergent second factor gives pointwise convergence of B_t, with |B_t| bounded by the squared norm. This alone gives weak continuity of the integral by dominated convergence; the frozen strip/equicontinuity argument also works. Positivity and homogeneity force the ball maximum onto the unit sphere and permit a nonnegative maximizer. The oscillating cell signs are weak-* null, so testing both weak limits against p,q gives total squared norm at most one. The inequality ||f||⁴+||h||⁴≤1 supplies the upper bound; normalized cell averages of a nonnegative maximizer recover it. Replacing near-optimal arrays by moduli does not decrease the fourth moment. Equality in the channel inequality forces one channel to have unit norm, and |⟨E_N,q⟩|≤⟨A_N,|q|⟩ for nonnegative A_N excludes a surviving alternating channel when A_N tends weakly to zero. Therefore along subsequences the moduli converge strongly to maximizers by equality of norms. The ramp triangular integral gives 136/315 before the quarter factor (independently cross-checked by bounded scalar quadrature). The packaged script was read, not executed. Its verification note's 'normalized' characters means orthonormal trace characters, not division by dimension; the frozen theorem's normalization is explicit.",
+      "residual_risks": [
+        "No explicit optimal value beyond the variational formula and lower bound, no uniqueness, and no compactness claim for the original phases or for sparse packets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ganzburg VI includes the univariate Gegenbauer-weight setting, but the sharp constants in the checked weighted limits are point evaluation or L∞ divided by Lp. Ganzburg IV supplies abstract sufficient conditions, including norm convergence and recovery conditions; the inspected statements do not specialize without establishing such conditions for this packet.",
+          "The Dai–Gorbachev–Tikhonov results cover full spherical packets and a full endpoint-target limit, with a lower-limit inequality at finite target exponent in the inspected earlier theorem. The SU(2) conjugacy-class hypergroup coefficient inequalities have a different claim and distinguish the dimension-divided characters."
+        ],
+        "reasoning": "Setting the weight to the Chebyshev-II weight does not change an L∞ target into L⁴; nor does an ambient spherical bound alone provide a matching central-packet recovery bound and coefficient-profile compactness.",
+        "searches": [
+          "Ganzburg arXiv:2103.09368, Eqs. (1.2)–(1.3), Theorems 1.3–1.4",
+          "Ganzburg arXiv:2002.10512, Abstract and §3.2",
+          "Dai–Gorbachev–Tikhonov arXiv:1708.09837, Theorem 1.1; arXiv:1907.03832, Theorem A and §1",
+          "Kumar–Ruzhansky arXiv:2005.08464, §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 00a2a7bedf04 and 8c892feebd1e",
+        "arXiv:1708.09837",
+        "arXiv:1907.03832",
+        "arXiv:2005.08464",
+        "arXiv:2103.09368",
+        "arXiv:2002.10512"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-offset error is O_S(1) for fixed S and cannot be invoked with S expanding in N at the needed scale. Two-character exact solutions cannot handle cross terms from all four indices or their parity-channel competition.",
+          "An endpoint supremum constant or lower-limit inequality does not yield the sharp finite-target upper bound. The frozen proof needs a uniform four-variable approximation and a two-channel norm constraint with a strict mass-splitting loss."
+        ],
+        "reasoning": "The required two-scale compactness and sharp L⁴ limit are not mechanical corollaries of the inspected prior results, while the use of positive fusion and parity itself overlaps and is not credited as a new ingredient.",
+        "searches": [
+          "Resultary 00a2a7bedf04 and 8c892feebd1e, Findings",
+          "Dai–Gorbachev–Tikhonov arXiv:1708.09837, Theorem 1.1",
+          "Ganzburg arXiv:2103.09368, Eqs. (1.2)–(1.3) and Theorems 1.3–1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under x=cos θ the finite problem is the fourth power of the degree-≤N−1 L²→L⁴ polynomial Nikolskii constant with probability density (2/π)sqrt(1−x²); χ_j is the Chebyshev polynomial U_j. Equivalently the fourth integral is (2/π)∫|Σ a_j sin((j+1)θ)|⁴/sin²θ dθ.",
+          "For G(s)=∫₀¹ f(x)sin(sx)dx the sine transform of B_t equals 2G(s)²/s, by integrating sine from |x−y| to x+y. Plancherel gives F(f)/4=(2/π)∫₀^∞|G(s)|⁴/s² ds. The even entire function G(s)/s is of type at most one and has L² natural weight s²; Paley–Wiener for odd s times that entire function gives the reverse representation."
+        ],
+        "reasoning": "This is a finite-target weighted norm problem, including at its bandlimited endpoint scaling. A coincident limit theorem in those variables would count as coverage; the inspected primary statements use different targets or one-sided bounds.",
+        "searches": [
+          "Resultary: growing bandwidth, parity/fusion, sharp central SU(2) fourth moment",
+          "Primary literature: SU(2) character packets and weighted sine bandlimited inequalities",
+          "Primary literature: Ganzburg sharp asymptotic weighted Nikolskii constants Gegenbauer Jacobi algebraic polynomials finite p q entire functions Chebyshev second kind"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed record gives a sharp asymptotic for a translated fixed finite offset set, with leading order proportional to the translate; the second gives the exact optimum for any two characters. Neither computes the growing initial packet.",
+          "The Clebsch–Gordan multiplicities are known exact data, and 34/315 is an evaluated test profile, not an asserted or newly tabulated optimum."
+        ],
+        "reasoning": "Known pair moments or fusion tables supply entries of the tensor, not its optimal growing-bandwidth normalization or the demanded compactness. No general numerical table would establish behavior of every extremizing sequence.",
+        "searches": [
+          "Resultary records 00a2a7bedf04 and 8c892feebd1e, exact central fourth moments and their asymptotics",
+          "Frozen RESULT.md lines 31–68 and 107"
+        ]
+      },
+      "rationale": "The supported distinct result is a sharp full finite-target norm limit for the growing central packet, together with strong L² precompactness of all near-extremizer modulus profiles. The exact weighted Jacobi, sine and bandlimited equivalents were considered. The closest indexed proofs treat fixed-width packets, with a different scale and finite-dimensional profile problem. The inspected primary weighted Nikolskii theorems either concern endpoint evaluation/supremum norms, or give a lower-limit result at finite target exponent, not the stated full central limit and all-sequence compactness.",
+      "residual_risks": [
+        "Additional weighted finite-target polynomial or radial bandlimited results could bear on the sharp constant, especially in differently indexed Jacobi terminology. Checked passages are not full-document exclusions or a proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material related parity result in a different limit",
+          "evidence": "The packet is translated to high weights with a fixed finite offset set; its leading constant and compactness are indexed by finitely many offsets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-high-weight-parity-localization-of-central-fourth-moments-on-su--00a2a7bedf04/RESULT.md",
+          "material_read": "Mirror Finding and assumptions, offset 0",
+          "method": "Local Resultary search and mirror passage comparison",
+          "title": "High-weight parity localization of central fourth moments on SU(2)",
+          "trigger": "Same tensor, parity, and near-maximizing coefficients"
+        },
+        {
+          "assessment": "Exact two-character overlap; different packet",
+          "evidence": "Its equality families concern any fixed pair, not arbitrary growing-bandwidth arrays.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-fourth-moments-for-every-two-character-central-fourier-pac--8c892feebd1e/RESULT.md",
+          "material_read": "Mirror Finding, offset 0",
+          "method": "Local Resultary search and mirror passage comparison",
+          "title": "Sharp fourth moments for every two-character central Fourier packet",
+          "trigger": "Same norm and parity with exact optimizer"
+        },
+        {
+          "assessment": "Partial asymptotic precedent and different norm problem",
+          "evidence": "The full stated endpoint limit is for the supremum target; the earlier finite-target comparison is a lower-limit bound. The inspected statements do not yield the near-extremizer modulus result.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.09837 and https://arxiv.org/abs/1907.03832",
+          "material_read": "First paper Theorem 1.1, p. 4, offset 13500; second paper Theorem A and §1, p. 3, offset 9300",
+          "method": "OA PDF passage comparison",
+          "title": "Nikolskii constants for polynomials on the unit sphere; Estimates of the asymptotic Nikolskii constants for spherical polynomials",
+          "trigger": "Sharp spherical-to-bandlimited limit, relevant because SU(2) is the three-sphere with a zonal packet"
+        },
+        {
+          "assessment": "Weighted asymptotic framework, inspected results are endpoint-target",
+          "evidence": "Defines ratios of point evaluation or L∞ to weighted Lp. The inspected weighted limits relate those ratios, not an L²→L⁴ ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.09368",
+          "material_read": "pp. 3–4, Eqs. (1.2)–(1.3), offsets 10807–12443; pp. 6–7, Theorems 1.3–1.4, offsets 19900–24068",
+          "method": "OA PDF passage comparison",
+          "title": "Sharp Constants of Approximation Theory VI: Weighted Polynomial Inequalities of Different Metrics on the Multidimensional Cube and Ball",
+          "trigger": "Plausible broader weighted Gegenbauer limit in equivalent Jacobi variables"
+        },
+        {
+          "assessment": "Abstract sufficient-condition framework, not direct coverage in inspected passages",
+          "evidence": "Hypotheses require sequence recovery and norm compatibility/compactness data. Those are not supplied for this packet by the inspected abstract conditions alone.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.10512",
+          "material_read": "Abstract and §3.2 conditions, offsets 0–3219 and 28300–32906",
+          "method": "OA PDF passage comparison",
+          "title": "Sharp Constants of Approximation Theory IV: Asymptotic Relations in General Settings",
+          "trigger": "General sharp-constant limit theorem could include bandlimited synthesis"
+        },
+        {
+          "assessment": "Different Fourier inequality",
+          "evidence": "Uses the conjugacy-class hypergroup and distinguishes normalized hypergroup characters from traces, not the asserted sharp growing packet or compactness.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.08464",
+          "material_read": "§5.1, pp. 22–24, offsets 74200 and 76200",
+          "method": "OA PDF passage comparison",
+          "title": "Hardy–Littlewood inequality and Lp–Lq Fourier multipliers on compact hypergroups",
+          "trigger": "Same SU(2) conjugacy-class analysis and norm conventions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–7",
+        "Resultary 00a2a7bedf04, fixed-width Finding",
+        "Dai–Gorbachev–Tikhonov arXiv:1708.09837, Theorem 1.1"
+      ],
+      "rationale": "This resolves a natural sharp synthesis norm for a full increasing sequence of central Fourier spaces. A matching variational limit is more informative than an order estimate, and the proof explains why parity does not permit a gain by splitting mass. Strong subsequential convergence of all near-optimal modulus profiles gives structure not implied by a numerical value of the norm. The claim remains useful without a closed-form maximizer.",
+      "residual_risks": [
+        "Interpret the numerical ramp evaluation as a lower bound, not the limiting optimum. The result is central and does not claim all spherical extremizers or general compact-group synthesis norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

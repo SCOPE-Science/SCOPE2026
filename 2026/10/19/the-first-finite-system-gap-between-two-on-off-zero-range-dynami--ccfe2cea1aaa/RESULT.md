@@ -2,49 +2,69 @@
 
 ## Finding
 
-For the original on–off zero-range process with **three sites and two conserved particles**, and for the neighbor-gated exactly solvable modification of Hirschberg–Mukamel–Schütz, let \(c>0\) be the clock-activation rate in units where the departure rate from an active site containing \(n\) particles is \(n\). Let \(C(c)\) denote the stationary probability that the two particles occupy the same site. Both models hop uniformly to one of the other two sites and reset the destination to OFF upon arrival. The original model activates each OFF clock independently at rate \(c\). The modified model attempts clock activation at rate \(c\), accepting only if a uniformly sampled neighboring site's clock is ON.
-
-The exact laws are
+Initialize every clock ON. For the on–off zero-range process on a three-site ring with two conserved particles, let \(C(c)\) be the stationary probability in the accessible class that the particles occupy the same site. An ON site containing \(n\) particles emits at total rate \(n\); a hop chooses either other site with probability \(1/2\) and makes its destination OFF. In the original process, each OFF clock activates at rate \(c>0\). In the neighbor-gated process, each OFF clock attempts activation at rate \(c\) and succeeds only if a uniformly sampled neighbor is ON. Then
 \[
-C_{\mathrm{original}}(c)=\frac{(c+1)(c+2)}{3c^2+7c+3},\qquad C_{\mathrm{gated}}(c)=\frac{c+2}{3c+4}.
+C_{\rm original}(c)=\frac{(c+1)(c+2)}{3c^2+7c+3},\qquad
+C_{\rm gated}(c)=\frac{c+2}{3c+4},
 \]
-Consequently, for every \(c>0\),
+and the excess clustering is
 \[
-C_{\mathrm{original}}(c)-C_{\mathrm{gated}}(c)
+C_{\rm original}(c)-C_{\rm gated}(c)
 =\frac{c+2}{(3c+4)(3c^2+7c+3)}>0.
 \]
-The difference tends to \(1/6\) as \(c\downarrow0\) and is asymptotic to \(1/(9c^2)\) as \(c\to\infty\). This is the first possible discrepancy in site and particle count: with two sites and any positive conserved particle count, or with a single particle on any connected nearest-neighbor graph, the two dynamics agree on their accessible recurrent states.
+This excess tends to \(1/6\) as \(c\downarrow0\) and is asymptotic to \(1/(9c^2)\) as \(c\to\infty\). With all clocks initially ON, this is the smallest system in which the two rules can differ: they agree for two sites with any positive conserved particle count and for one particle on any connected nearest-neighbor graph with at least two sites.
 
 ## Assumptions and scope
 
-There are three labelled sites on a triangle and exactly two indistinguishable particles. Each occupied ON site of occupation \(n\) emits at total rate \(n\) to a uniformly chosen distinct site. A receiving site becomes OFF, whatever its previous phase. OFF sites do not emit and independently switch ON at rate \(c>0\) in the original process. Empty sites are ON in the recurrent class. For the comparison process, an OFF clock changes to ON at rate \(c\) multiplied by the fraction of its neighboring sites that are ON (the modified clock rule of the cited 2012 work). These are continuous-time finite Markov processes. The statement is not about open reservoirs or many-site condensation in a thermodynamic limit.
+The sites are labeled and the particles indistinguishable. All dynamics are continuous-time and conserve the particle number. The active class used above is the class accessible from all clocks ON. Empty sites stay ON in that class, since a site can become empty only by an ON departure. If all clock assignments are allowed as initial states, the gated dynamics also has absorbing all-OFF configurations, which are not considered in the stationary probabilities or minimality assertion. Indeed no hop from an ON site can remove the last ON clock. With all clocks OFF, even two sites can distinguish the rules: the gated model is frozen whereas the original allows activation. This is a different initial-state comparison.
 
 ## Proof
 
-All eighteen states with occupied sites ON or OFF and empty sites ON communicate for the original model. Activation can reach a state with all clocks ON; particle hops and activations connect all occupancy patterns, and the state with two occupied OFF sites is reachable by successive arrivals at distinct occupied sites. Finite irreducibility proves uniqueness of the invariant probability.
+**Communication.** For three sites and two particles each configuration with empty sites ON has a path to a configuration with all clocks ON via activations. In the gated case there is at least one empty ON site, and every other site is its neighbor. The all-ON configurations communicate by hopping one particle at a time and reactivating the receiver. A double occupation with its clock OFF can be obtained by hopping between two occupied ON sites. A split occupation with one clock OFF can be obtained by hopping from an ON double occupation to an empty site. From a split with one clock OFF, sending the ON particle to the empty site leaves both occupied clocks OFF. Relabeling gives every configuration of each type. The eighteen configurations with empty sites ON therefore form one closed irreducible class in both models.
 
-Write \(Z=3c^2+7c+3\). The following weights are **per labelled configuration**, so that each double-occupation class has three states and each split-occupation clock class has three or six states. If both particles occupy one site, the weight is \(2(c+1)/(3Z)\) when that occupied site is OFF and \(c(c+1)/(3Z)\) when it is ON. If the particles occupy two sites, the weight is \(1/(3Z)\) when both occupied sites are OFF, \(2c/(3Z)\) when exactly one occupied site is ON (for each ordered choice of ON site), and \(2c^2/(3Z)\) when both are ON.
+**Balance.** Aggregate the configurations into five types \(A,B,C,D,E\): double occupation OFF, double occupation ON, split with both occupied sites OFF, split with one occupied site ON, and split with both occupied sites ON. By relabeling, transition rates between types depend only on the starting type. The off-diagonal rates of the resulting Markov chain are
+\[
+\begin{array}{c|l}
+\text{source}&\text{destination and rate}\\\hline
+A&B:c\\
+B&D:2\\
+C&D:\alpha c\\
+D&A:1/2,\quad C:1/2,\quad E:c\\
+E&A:1,\quad D:1 .
+\end{array}
+\]
+Here \(\alpha=2\) for the original rule, while \(\alpha=1\) for the gated rule: in type \(C\) each OFF clock has just one of its two neighbors ON and activates at rate \(c/2\). In type \(D\) an ON hop either creates a double OFF occupation or goes to the empty site, leaving two occupied OFF sites; the lone OFF clock has both neighbors ON and activates at rate \(c\). In type \(E\) the two unit-rate emitters each send half their rate to the other particle and half to the empty site.
 
-These weights sum to one because their combined numerator is \((c+1)(c+2)+(1+4c+2c^2)=Z\). Substitution into the generator balance at each of the eighteen states gives zero. Specifically, ON departures are at rate equal to the occupation, half directed to each other site; an arrival switches its receiver OFF; an OFF clock activates at rate \(c\). The accompanying standalone checker verifies every such equation using rational arithmetic. By uniqueness these are the stationary weights. Summing the six double-occupation states gives the first displayed expression.
+Write \(\pi_X\) for the stationary mass of type \(X\). Balancing the four types other than \(D\) gives
+\[
+\pi_E=\frac{c}{2}\pi_D,\qquad
+\pi_C=\frac{\pi_D}{2\alpha c},\qquad
+\pi_A=\frac{1+c}{2c}\pi_D,\qquad
+\pi_B=\frac{c}{2}\pi_A.
+\]
+The fifth balance follows by summing the balance equations. Thus, by normalization and irreducibility,
+\[
+\pi_A+\pi_B=
+\frac{(c+1)(c+2)}{(c+1)(c+2)+2/\alpha+4c+2c^2}.
+\]
+Substitution of the two values of \(\alpha\) proves the two laws. Their difference has the displayed factorization and its limiting behavior follows from the constant and leading coefficients.
 
-For the neighbor-gated model, the published product-weight formula applies. With \(u(n)=n\), its one-site occupation weights, up to a common fugacity, are \(f(0)=1\), \(f(1)=(c+1)/c\), and \(f(2)=(c+1)(c+2)/(2c^2)\). Conditional on two particles across three sites, the total canonical weights of double and split occupations are respectively \(3f(2)\) and \(3f(1)^2\), giving \(C_{\mathrm{gated}}=(c+2)/(3c+4)\). Algebra yields the strictly positive difference above, with the stated limits.
-
-Finally, in any process with only one particle, an OFF site must contain that particle; every neighboring site is ON, hence neighbor-gated and independent activation coincide. On a two-site system with any positive number of particles, a jump originates from an ON site and makes only its receiver OFF, so at most one OFF site occurs in the recurrent class; the other site is ON. Thus gating again changes no clock rate. Three sites and two particles are the smallest counts permitting simultaneous occupied OFF sites, exactly the mechanism responsible for the difference.
+**Minimality.** With only one particle, any OFF site in the accessible class contains that particle, so all its neighbors are ON. With two sites, a jump comes from an ON site and sets only its receiver OFF, and activations only remove OFF clocks. From all clocks ON there is therefore never more than one OFF site. In both cases every relevant OFF clock activates at rate \(c\) under either rule. Three sites and two particles are the first counts that permit type \(C\) with both occupied clocks OFF and a separate ON neighbor.
 
 ## Verification
 
-Run `python verify_minimal.py` using the Python standard library. It constructs the eighteen-state original generator independently from the transition rules, recomputes the proposed stationary weights, and checks exact normalization and all eighteen master equations for each of 180 positive rational clock rates. It also verifies the closed clustering formula and its strict excess over the neighbor-gated canonical formula for each rate. These exact finite computations check the algebraic certificate; the proof of the all-parameter inequalities is the symbolic factorization displayed above.
+The five-state balance above is an all-parameter algebraic proof for both generators. The accompanying `verify_minimal.py` also checks the original eighteen-state balance and the formula comparisons for positive rational rates; its samples are supplementary and not the proof of the all-rate claim.
 
 ## Relationship to prior work
 
-Hirschberg, Mukamel and Schütz (2009) introduce the original clock-resetting zero-range mechanism and study many-site and mean-field condensation. Hirschberg et al. (2012), Section 5, prove a factorized stationary law for a **modified neighbor-gated clock** process and explicitly distinguish that dynamics from the original. The modified formula is used here as prior work, not claimed as new. Cavallaro, Mondragón and Harris (2015) analyze the open-boundary clocked process, including linear departure rates and exact one-site laws, but that setting does not supply the closed three-site invariant law. The new comparison is the first finite canonical witness and the exact signed all-rate gap between these two prescribed dynamics; a previously published finite-size computation could still cover it.
+Hirschberg, Mukamel and Schütz (2009) introduced the independent clock-resetting mechanism and studied condensation and the mean-field limit. Their 2012 work, §5, gives a different, solvable neighbor-gated rule and its factorized stationary law. Its symmetric ring with three sites has the hopping and activation rules used here. That product law already implies \(C_{\rm gated}\): substituting \(u(n)=n\) gives one-site weights \(f(0)=1\), \(f(1)=(c+1)/c\), \(f(2)=(c+1)(c+2)/(2c^2)\), so the canonical double versus split weights have ratio \(f(2):f(1)^2\). The direct balance independently recovers this value. Cavallaro, Mondragón and Harris (2015) treat open-boundary dynamics, including exact one-site laws. The finite original-model collision law and its signed gap from the gated law on the active class are the contributions here; the gated product law is not new.
 
 ## Limitations
 
-The result is specific to three sites, two particles, equal bidirectional hopping probabilities, and independent exponential clocks. It does not claim a many-site phase transition, a general inequality for more particles, or originality of the neighbor-gated product solution.
+The exact gap is for the three-site ring with uniform hopping, two particles, and total ON departure rate \(n\) at occupation \(n\). It does not assert a larger-system ordering, describe stationary mixtures involving all-OFF absorbing states, or address thermodynamic condensation or reservoirs. A previously published finite-size computation may cover the comparison.
 
 ## References
 
-1. O. Hirschberg, D. Mukamel, G. M. Schütz, *Condensation in Temporally Correlated Zero-Range Dynamics* (2009), arXiv:0906.0709, https://arxiv.org/abs/0906.0709.
-2. O. Hirschberg, D. Mukamel, G. M. Schütz, *Motion of condensates in non-Markovian zero-range dynamics* (2012), arXiv:1207.1006, Section 5, https://arxiv.org/abs/1207.1006.
-3. M. Cavallaro, A. Mondragón, R. J. Harris, *Temporally correlated zero-range process with open boundaries: Steady state and fluctuations* (2015), arXiv:1504.06309, https://arxiv.org/abs/1504.06309.
+1. O. Hirschberg, D. Mukamel and G. M. Schütz, *Condensation in Temporally Correlated Zero-Range Dynamics* (2009), https://arxiv.org/abs/0906.0709.
+2. O. Hirschberg, D. Mukamel and G. M. Schütz, *Motion of condensates in non-Markovian zero-range dynamics* (2012), §5, https://arxiv.org/abs/1207.1006.
+3. M. Cavallaro, A. Mondragón and R. J. Harris, *Temporally correlated zero-range process with open boundaries: Steady state and fluctuations* (2015), https://arxiv.org/abs/1504.06309.

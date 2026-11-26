@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:28:49.984525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–82",
+        "VERIFICATION.md, lines 19–25",
+        "checks/verify.py and checks/output.txt, inspected as recorded evidence, not executed",
+        "Independent bisection using 64-digit Decimal and N=(1-e^(-s))(1-3e^(-s)): bracket H on [2,3], then F-0.4 on [1.1,s_*] and [s_*,6]."
+      ],
+      "rationale": "For q=e^(-ah), r=1-q, v=σ²(1-q²)/(2a), the conditional OU increment has mean -rx and raw second moment v+r²x². Dividing by h gives the generator with drift -rx/h and squared diffusion (v+r²x²)/h; the standard deviation is globally Lipschitz and strictly positive. The finite-horizon moments obey m₂'=λ₂m₂+c and m₄'=λ₄m₄+6c m₂, with c=v/h, λ₂=-(1-q²)/h and λ₄=(-4r+6r²)/h=aF(ah). Linear growth gives the finite moments needed for localized Itô and passage to expectation. Both start at zero. Factoring the time convolution and using Tonelli gives exactly 6c²/[β(β-λ₂)(β-λ₄)] if β>λ₄. The forcing m₂(u) is strictly positive on u>0, so integration over a fixed subinterval in u gives m₄(t)≥C exp(λ₄t) for t≥1. This proves divergence at equality as well as below it. N=(1-q)(1-3q) is positive precisely when s>log 3, and H'=4s q(3q-1)<0 there, with H(log 3)>0 and H(∞)=-1. Thus F rises to one peak and falls to zero, giving the closed, singleton and empty divergence sets for the stated discounts. The invariant density from the speed measure is proportional to (1+r²x²/v)^(-(1+1/r)); the integrable speed measure for this nonexplosive irreducible diffusion gives a unique invariant probability. The beta-integral variance is v/(2r-r²)=σ²/(2a), and the fourth moment exists exactly for r<2/3, including logarithmic divergence at the boundary. Applying the same Laplace calculation to the true OU process replaces (λ₂,λ₄,c) by (-2a,-4a,σ²), giving the finite comparator. Independent 64-digit bisection of H and F-0.4 reproduced the peak and both quoted endpoints to their displayed precision.",
+      "residual_risks": [
+        "The criterion is for β>0, exact uncentered lag moments, initial state zero and quartic nonnegative reward. No comparable divergence is asserted for centered or finite-sample coefficient estimators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pearson diffusion theory supplies a polynomial moment recursion and the Student stationary cutoff; its fixed-parameter stationary law concerns a different limit from the lag-indexed discounted fourth moment.",
+          "The PhiBE general assumptions require globally bounded coefficients and its linear-quadratic example treats a quadratic objective, not this quartic objective."
+        ],
+        "reasoning": "The general moment theory does include this diffusion for each fixed lag; no inspected theorem establishes the shape of the resulting specialization as a function of observation lag. The stationary threshold cannot stand in for a positive-discount threshold.",
+        "searches": [
+          "Forman–Sørensen DOI 10.1111/j.1467-9469.2007.00592.x, author version §§1–2",
+          "Monthus arXiv:2303.09348v3 §§II–III and XIII",
+          "Mean-Field PhiBE arXiv:2606.26498v1 §§4.2 and 5.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0905.4324, 2303.09348v3, 2606.26498v1",
+        "Forman–Sørensen author-submitted manuscript",
+        "Resultary records 7b89a581da28, 6b73e39a7294 and 013cabb14fb4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact coefficients plus the standard moment recursion directly give λ₄=(-4r+6r²)/h and a fixed-lag resolvent after Laplace integration; the Student tail cutoff is a direct Pearson specialization.",
+          "The bounded connected superlevel set requires a further global calculation H'=4s e^(-s)(3e^(-s)-1), the endpoint signs of H, and positive quartic forcing to include β=λ₄."
+        ],
+        "reasoning": "Distinguish known or directly specialized ingredients from optimization in h and the exact topology of the singular set, neither of which is supplied by the inspected stronger fixed-parameter results.",
+        "searches": [
+          "Lade equations (7)–(8) combined with Monthus equations (24)–(28) and (432)–(439), compared against RESULT.md lines 53–78"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With Lade's k=a, τ=h and D=σ²/2, its first coefficient and coefficient multiplying f'' are exactly -rx/h and (v+r²x²)/(2h).",
+          "The PhiBE generator uses the same raw second increment, not the centered conditional variance. The exact OU coefficients are therefore known, not novel under a change of terminology."
+        ],
+        "reasoning": "The earlier formulas describe the same surrogate coefficients, but are not equivalent to solving the discounted-quartic superlevel sets across all lags.",
+        "searches": [
+          "Lade arXiv:0905.4324 §3, equations (7)–(8)",
+          "Bayraktar et al. arXiv:2606.26498v1 §4.1, equations (18)–(22)",
+          "Resultary exact finite-lag OU, discounted quartic, reentrant singularity searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed cutoffs concern a stationary delay Euler recurrence, stationary OU stochastic-θ methods with random steps, or the sign of the fourth cumulant under Gaussian resets. None involves the claimed raw-moment surrogate with quartic discount as a function of deterministic lag."
+        ],
+        "reasoning": "No identified table or indexed phase diagram contains this two-parameter threshold. The nearby reentrant OU result is a same-day distinct object; its date is not evidence of priority, and the search was not exhaustive.",
+        "searches": [
+          "Focused Resultary search for peak, reentry, and fourth-moment thresholds",
+          "Focused public literature search and exact comparison with Resultary records 7b89a581da28, 6b73e39a7294 and 013cabb14fb4"
+        ]
+      },
+      "rationale": "The legitimate distinct claim is the sharp global reentrant lag/discount classification, including the unique interior maximum and closed divergence band. Lade's coefficients match exactly, and Pearson theory provides the stationary family and transient moment hierarchy. These furnish the fixed-lag growth exponent by specialization, but the strongest inspected prior statements do not evaluate the sign and extrema of that exponent over the lag/discount plane. The standard ingredients and their direct consequences are not separately credited as new.",
+      "residual_risks": [
+        "An unindexed analysis may have combined the same known coefficients and moments and optimized the lag. This is a bounded comparison, not an absolute priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coefficient coverage, not the discounted phase diagram",
+          "evidence": "Equation (8) is [x²(1-e^(-kτ))²+(D/k)(1-e^(-2kτ))]/(2τ); the ensuing analysis concerns curvature of effective diffusion and finite sampling effects.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.4324",
+          "material_read": "§3, PDF pp. 4–5, equations (7)–(8), OA text offset 10800",
+          "method": "Read primary OA PDF and identified second Kramers–Moyal coefficient with the coefficient of f''",
+          "title": "Finite sampling interval effects in Kramers-Moyal analysis",
+          "trigger": "Exact OU finite-interval drift and diffusion"
+        },
+        {
+          "assessment": "General ingredients, no optimized lag threshold in compared sections",
+          "evidence": "Linear drift, quadratic squared diffusion and polynomial generator preserve degrees, yielding explicit conditional moments.",
+          "identifier_or_url": "https://repec.econ.au.dk/repec/creates/rp/07/rp07_28.pdf",
+          "material_read": "Author-submitted §§1–2, pp. 2–4, offsets 3000–9136",
+          "method": "Read OA repository manuscript",
+          "title": "The Pearson Diffusions: A Class of Statistically Tractable Diffusion Processes",
+          "trigger": "Polynomial moments and invariant families can cover fixed-lag components"
+        },
+        {
+          "assessment": "General moment recursion and exact stationary specialization, not reentry",
+          "evidence": "The Student invariant 2k-th moment exists for 2k<μ; this gives the static cutoff once μ is specified, not a maximum over observation lag.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.09348v3",
+          "material_read": "§§II–III, equations (14)–(17), (24)–(28) and §XIII, equations (432)–(439), pp. 4–7 and 56–57",
+          "method": "Read primary OA PDF and compared stationary versus discounted/transient moments",
+          "title": "Large deviations for the Pearson family of ergodic diffusion processes involving a quadratic diffusion coefficient and a linear force",
+          "trigger": "Exact moment recursion and Student cutoff"
+        },
+        {
+          "assessment": "Covers generator framework, not this quartic threshold",
+          "evidence": "Raw increments define the estimated generator; the general boundedness assumptions and quadratic reward example do not give the unbounded quartic evaluation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.26498v1",
+          "material_read": "§4.1 equations (18)–(22), §4.2 assumptions, §5.1 LQR, offsets 48850, 54000, 59600",
+          "method": "Read OA PDF definitions and check reward/coefficient hypotheses",
+          "title": "Mean-Field PhiBE: Continuous-Time Mean-Field Reinforcement Learning from Discrete-Time Data",
+          "trigger": "Same generator construction and discounted setting"
+        },
+        {
+          "assessment": "Different objective and mechanism",
+          "evidence": "The sign of a stationary fourth cumulant varies across Gaussian reset parameters, not the finiteness of a discounted quartic cost across lag.",
+          "identifier_or_url": "Resultary 2026/10/25, record 013cabb14fb4",
+          "material_read": "Mirrored Finding",
+          "method": "Read local mirror statement and compare process, objective and varied parameter",
+          "title": "Two reentrant kurtosis regimes under Gaussian-distributed Ornstein–Uhlenbeck resets",
+          "trigger": "Same-day strong thematic overlap: reentry, OU, fourth-order quantity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md sharp trichotomy, unchanged variance, and true OU comparator",
+        "Finite-lag coefficient and PhiBE framework in the cited primary literature"
+      ],
+      "rationale": "The model is the first nontrivial unbounded-reward test of a natural raw-increment reconstruction of a familiar diffusion in this comparison. It isolates a practical mathematical failure of reasoning from exact variance preservation or small-lag consistency: at positive discount there is an exact bounded interval of lags with infinite quartic evaluation, even though the true OU cost is always finite. Large-lag finiteness despite an infinite invariant fourth moment is also not recoverable from the stationary cutoff. The sharp threshold gives a benchmark in a setting where both mechanisms are exactly visible.",
+      "residual_risks": [
+        "No implication for optimal control, finite-data performance, multidimensional systems or algorithms using centered second moments is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:57:10.090871Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–51",
+        "Frozen VERIFICATION.md and check_exact.py (source inspection)",
+        "/workspace/replays/2.py (executed: exact adjoint Lyapunov solution, and full four-site integrated-density cross-check for γ>0)"
+      ],
+      "rationale": "In the orthonormal basis trap a, antipode b, and uniform shell s of the m remaining vertices, the hopping matrix has couplings g=J√m from s to each of a,b, zero a–b coupling, and shell diagonal h=J(m−2). The orthogonal complement is invariant and has no trap component. On the three-dimensional space an undamped eigenvector of the loss generator would have zero trap component by 2 Re(λ)||v||²=−κ|v_a|². Its trap row then forces its shell component to vanish, and its shell row forces its b component to vanish. Thus the restricted generator is Hurwitz and capture is certain from b. An adjacent vertex has bright squared norm 1/m. Independently I solved B†Y+YB=−I for the integrated-survival operator and found Y_bb=3/κ+κ(2+h²/g²)/(4g²). Substituting g,h gives the displayed rational expression, whose strictly positive coefficient of κ gives the unique optimum and whose size limit follows at fixed J,κ. The nearby complete-bipartite catalogue entry does not falsify n=2: an independent four-site integrated-density solve confirmed exactly coherent E[T]=3/κ+κ/(4J²) and, for positive off-diagonal dephasing γ, E[T]=4/κ+3κ/(8J²)+γ/J². The right-hand limit is larger by 1/κ+κ/(8J²); the exact-zero and limiting regimes are not interchangeable. The issue in the other entry is its identification of those regimes, not this frozen formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general strongly regular graph result uses the trap, the uniform neighbor shell, and the uniform nonneighbor shell, and gives capture efficiencies reciprocal to the two shell sizes. General definitions and reduced integrated time equations appear in the transfer-time literature; the fully connected network evaluation has no deleted matching."
+        ],
+        "reasoning": "The SRG formula covers all the efficiency claims, since the cross-polytope is regular and the Laplacian-adjacency difference up to sign is a scalar phase (the sign is immaterial by conjugation for these real site states and loss). It does not evaluate the first time moment. A general prescription to solve equations does not supply their graph-specific evaluation.",
+        "searches": [
+          "arXiv:2011.13794, Section 4.2, equations (22)–(25)",
+          "arXiv:0807.0929, equations (6)–(9); arXiv:2309.00164, Sections II and III.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit and distinct entries above",
+        "arXiv:2011.13794",
+        "arXiv:0807.0929",
+        "arXiv:2309.00164",
+        "ADS 2010IJBC...20..271A (access attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree is m and the nonneighbor shell is a singleton, so the older efficiency result genuinely implies both audited capture fractions. In the bipartite equations for K_{2,2}, the B-shell diagonal q(t) and its off-diagonal v_0(t) coincide at γ=0 since they start at zero and have the same derivative; for γ>0 the integrated off-diagonal is instead zero. The trace integral has a discontinuity at γ=0, as confirmed in the fresh exact solve."
+        ],
+        "reasoning": "The prior projection onto the bright space fixes total eventual absorption, not elapsed time. Stable coherent evolution on the reachable sector does not justify continuity of an integral involving weak dephasing into a dark sector. The conflicting catalogue boundary expression is not a correct consequence for the audited model.",
+        "searches": [
+          "arXiv:2011.13794, equations (11)–(12) and (25)",
+          "Resultary c43b28cfe933, assumptions and Sections 2–4 (coherent boundary)",
+          "/workspace/replays/2.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_{2n} minus a perfect matching is the complete multipartite graph with n parts of size two, and for n=2 is K_{2,2}. The earlier cross-polytope catalogue claim is a coherent unitary transfer maximum with no irreversible loss. The complete-bipartite record studies an irreversible trap with γ>0 and makes a separate claim at γ=0."
+        ],
+        "reasoning": "A maximum of loss-free population on the antipode is not an integrated survival time. In the common four-cycle case the positive-dephasing mean is not equivalent to the exact loss-only mean, even under γ↓0.",
+        "searches": [
+          "Primary query: (cocktail party graph OR complete multipartite graph OR cross-polytope) continuous-time quantum walk trapping time integrated survival single trap mean absorption time",
+          "Resultary cross-polytope/cocktail-party antipodal transfer, including 807100de0f76 and c43b28cfe933"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit was the assigned result. The distinct unitary cross-polytope entry treats N≡2 mod 4 and an untrapped transfer probability; the complete-bipartite catalogue entry overlaps only at n=2 and its positive-dephasing formula describes a different model. The fully connected evaluation does not retain the missing edge from a to b."
+        ],
+        "reasoning": "No compared database entry or table gives the correct all-size exact coherent first moment for this source, trap and graph family.",
+        "searches": [
+          "Resultary exact cross-polytope loss/trapping time and nearby variants",
+          "arXiv:2309.00164, fully connected formulas (13)–(21)"
+        ]
+      },
+      "rationale": "Credit prior coverage of both capture efficiencies, not just the adjacent-source fraction: the strongly regular graph efficiency formula evaluates to 1 from the antipode and 1/m from the adjacent shell. The evidence supports the distinct exact coherent antipodal first-moment formula over all cross-polytope sizes and its consequences, not a claim to the method or capture probabilities. The exact-time complete-bipartite comparison agrees for positive dephasing in the common graph but its stated coherent boundary is a singular-limit error, not valid prior coverage of the coherent first moment.",
+      "residual_risks": [
+        "The search and full-text comparisons are bounded; the 2010 trapping paper could not be read and may contain relevant material. No claim of historical priority over all sources is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Both capture efficiencies implied; these passages do not evaluate the time moment",
+          "evidence": [
+            "Equation (25) gives efficiency 1/k from a neighbor and 1/(N−k−1) from a nonneighbor."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.13794",
+          "material_read": "PDF p. 5, equations (11)–(12); pp. 9–10, Section 4.2, equations (22)–(25), offsets 18800–21234 and 32100–39405",
+          "method": "Targeted OA PDF passages",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "trigger": "General strongly regular graph result including this graph and trap projection"
+        },
+        {
+          "assessment": "Prior moment definition, not the cross-polytope evaluation",
+          "evidence": [
+            "Defines a first moment of trapping flux normalized by efficiency; with unit capture this is the ordinary mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.0929",
+          "material_read": "Energy transfer efficiency and transport time, equations (6)–(9), HTML offsets 11300–14282",
+          "method": "Targeted OA HTML passages",
+          "title": "Environment-Assisted Quantum Transport",
+          "trigger": "Earlier formal definition of trapping transfer times"
+        },
+        {
+          "assessment": "Related observables and reduced superoperator calculations, but complete-graph exact formulas do not cover this deleted matching",
+          "evidence": [
+            "The fully connected network has all pair hoppings rather than an isolated nonneighbor shell of the trap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.00164",
+          "material_read": "Sections II and III.1, equations (6)–(10), (13)–(21), OA text offsets 8650–16000",
+          "method": "Targeted OA text passages",
+          "title": "Optimal Conditions for Environment-Assisted Quantum Transport on the Fully Connected Network",
+          "trigger": "Exact mean and optimization on a nearby homogeneous graph model"
+        },
+        {
+          "assessment": "Unitary transfer probability rather than irreversible trapping time",
+          "evidence": [
+            "Optimizes loss-free antipodal transfer for N=4k+2."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-global-transfer-optimum-on-odd-dimensional-cross-polytopes--807100de0f76",
+          "material_read": "Mirrored Finding and assumptions, offsets 0–4471",
+          "method": "Resultary and OA local mirror",
+          "title": "Exact global transfer optimum on odd-dimensional cross-polytopes",
+          "trigger": "Same graph and antipodal labels"
+        },
+        {
+          "assessment": "Correctly reproduces the positive-dephasing expression for the shared instance, but the identification of its limit with exactly coherent dynamics in that instance is false",
+          "evidence": [
+            "For K_{2,2} and the same-part nontarget source it claims T_A(0)=4/κ+3κ/(8J²) by continuity; the strictly coherent invariant sector gives 3/κ+κ/(4J²)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-source-selective-dephasing-optima-for-complete-bipartite-excitat--c43b28cfe933",
+          "material_read": "Mirrored Finding, assumptions and proof Sections 2–4, offsets 0–9906",
+          "method": "Resultary and bounded OA local mirror, followed by exact mathematical comparison",
+          "title": "Source-selective dephasing optima for complete-bipartite excitation trapping",
+          "trigger": "Same capture-time observable, same loss convention and overlapping four-cycle model at a claimed coherent boundary"
+        },
+        {
+          "assessment": "Unresolved secondary access risk; no statement-level exclusion inferred",
+          "evidence": [
+            "Bibliographic hit: Int. J. Bifurcation Chaos 20 (2010), 271. The full text was not available via the attempted routes."
+          ],
+          "identifier_or_url": "ADS 2010IJBC...20..271A",
+          "material_read": "Search bibliographic listing only, no paper passage",
+          "method": "OA attempt via ADS page (HTTP 202) and its independent PDF route (timed out)",
+          "title": "Continuous-Time Quantum Walks and Trapping",
+          "trigger": "Potentially relevant earlier trapping paper located by literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "arXiv:2011.13794, Section 4.2",
+        "/workspace/replays/2.py"
+      ],
+      "rationale": "Capture of a nonadjacent source is known, but that alone gives no bound on the duration. This exact first moment establishes bounded time with fixed per-edge hopping as the dense graph grows and exhibits the tradeoff between weak loss and slow capture at very strong loss, with an explicit optimal strength for every size. It is a useful solvable benchmark for the coherent trap, not a re-evaluation of known capture efficiencies or evidence for a general bounded-time theorem.",
+      "residual_risks": [
+        "The hopping scale is held fixed per edge; normalization by the degree or adding dephasing can change the time behavior. The coherent value is not justified by extrapolation from dephasing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -22,7 +22,7 @@ The lag-two covariance is negative below \(\alpha=27/20\), vanishes exactly at \
 \[
 \big(\Pr(D_0=i,D_1=j)\big)_{i,j=-1,0,+1}=
 \begin{pmatrix}
-u&\frac16-\nu&0\\
+ \nu&\frac16-\nu&0\\
 \frac16-\nu&\frac13+2\nu&\frac16-\nu\\
 0&\frac16-\nu&\nu\end{pmatrix},\qquad
 \nu=\frac{3-2\alpha}{12\alpha}.

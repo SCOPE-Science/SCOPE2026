@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of stated cross-trace law
+# Independent mathematical audit
 
-The analytic verification uses the normalized coherent-state identity \(\pi^{-2}\iint e^{-|z-w|^2}\), concentration at unique horizontal support points, local boundary curvature graphs, and a dominated-convergence limit under normal \(L^{-1}\) and tangential \(L^{-1/2}\) rescalings. The resulting elementary Gaussian integral gives the full stated constant. This is a paper proof, not a finite certificate.
+## correctness
 
-Independent numerical normalization checks are in `check_disk_asymptotic.py`. The exact disk overlap-area integral with exponentially scaled Bessel \(I_0\) avoids catastrophic underflow and compares its values with the predicted sharp disk constant. Use Python 3 with SciPy to run it. These tests do not certify an arbitrary convex domain or an infinite asymptotic.
+PASS
 
-External independent mathematical audit has not been performed. Historical priority is best-knowledge and the older localization-product literature has not been exhaustively inspected.
+The squared normalized coherent-state overlap is exp(−|z−w|²), giving the factor π⁻² in the double area integral. Outside any fixed neighborhoods of the unique facing support points the horizontal gap increases by a fixed positive amount, so the omitted integral is exponentially smaller than exp(−L²)L⁻³. For an independent check of the coefficient, disintegrate into vertical slices at horizontal deficits r,s. The two slice widths are asymptotic to 2√(2r/κ_A) and 2√(2s/κ_B) by inversion of the nondegenerate local boundary quadratics. On those slices the transverse factor tends uniformly to exp(−η²) as r+s tends to zero. Scale r=x/L, s=y/L. The widths contribute L⁻¹ and the two deficit differentials L⁻²; the remaining exponential is bounded by exp(−2x−2y) and the rescaled widths by constants times √x and √y. Dominated convergence gives π⁻² exp(−η²)·8/(√(κ_Aκ_B))·[Γ(3/2)/2^(3/2)]² = exp(−η²)/(4π√(κ_Aκ_B)). For centered disks the curvatures are 1/R and 1/S, η=0 and L=d−R−S. The proof uses positive facing curvatures, not merely strict convexity.
+
+## originality
+
+PASS
+
+The distinct claim is the normalized far-separation asymptotic for fixed convex bodies, not the Gaussian trace identity, the representation by a covariogram, or the Laplace method. In the strongest inspected related finding the shape itself grows first and the gaps remain bounded in the proved limit. The inspected literature gives an integral starting point, but does not give this fixed-shape asymptotic or cover its conditions and coefficient.
+
+## value
+
+PASS
+
+For two Gaussian localization measurements the mixed trace quantifies cross-interaction and, in the disjoint Ginibre interpretation, determines the small count covariance. The theorem identifies the sharp polynomial correction to the Gaussian decay and the precise dependence on two facing curvatures and fixed transverse offset. A rough distance estimate, the exact Gaussian integral alone, or the related dilation theorem gives none of those data. The result uses a classical method to answer a concrete geometric asymptotic question rather than claiming novelty for Laplace's method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

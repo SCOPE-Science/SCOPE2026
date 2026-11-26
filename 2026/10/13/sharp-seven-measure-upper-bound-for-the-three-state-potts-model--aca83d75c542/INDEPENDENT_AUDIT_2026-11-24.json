@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:54:31.318068Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The count is for normalized positive solutions of Bogachev–Rozikov (2.31), for a homogeneous reduced field (α,0,0), not for arbitrary multi-component fields or all Gibbs measures. In the k=3 normalization write the coordinates (u,v,1), w=θ^α and D=w u³+v³+θ. The equations give u−1=(θ−1)(w u³−1)/D and v−1=(θ−1)(v³−1)/D. The v=1 branch gives w u⁴−θw u³+(θ+1)u−2=0; there are at most three positive roots by the signs, independently confirming the applicable source bound. At θ=1 the normalized solution is unique. For v≠1, division gives D=(θ−1)(1+v+v²), so w u³=L=(v+1)(θv−v²−1) and u=(p+L)/(1+p) for p=v+v². Necessarily L>0, so this branch is empty for θ≤2. For θ>2 put x=v+v⁻¹. Direct reduction gives K_1=(θ−x)(x+1)³/[(x+2)(θ+1−x)³] on 2<x<θ. Logarithmic differentiation has sign given by (θ+2)R_θ(x), confirming the bundled identity by a different route; its denominator is strictly positive. The endpoint values 3(3θ−7) and −(θ+1) and the vertex (θ−3)/2 give no interior zero for θ≤7/3 and one otherwise. Thus at most two x roots per positive level, each with two possible reciprocal v, each fixing u. Any further mixed-branch restrictions only reduce the count. The zero-field equality follows from source Theorem 2.11(b); it can also be checked directly for θ>5/2, when the single-colour polynomial at w=1 has the root 1 and a cubic quotient positive at zero and infinity and negative at 1. The two distinct non-unit roots give six distinct permutations of one distinguished colour after normalization, in addition to the all-ones solution. The packaged verify.py was inspected, not run; an independent exact algebraic expansion corroborated the derivative identity, and the global sign-shape proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's at-most-three theorem covers only the single-colour branch. Its mixed-branch theorem gives existence/nonexistence, and its maximum-count theorem covers zero field for every order and general α for order two.",
+          "Rozikov's survey discusses nonuniqueness for q=3 and k=2,3,4, i.e. a condition for at least two states."
+        ],
+        "reasoning": "The quartic bound in the order-two proof does not apply to the order-three mixed equation. An at-least-two/nonuniqueness criterion does not bound the number of simultaneous solutions above.",
+        "searches": [
+          "1903.11440v2 Theorems 2.8, 2.9, 2.11 and Conjecture 2.2",
+          "2103.07391 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.11440v2",
+        "arXiv:2103.07391",
+        "Resultary 5fb724796467, 1fb1751da5d6, a0032eb31428",
+        "DOI:10.1134/S004057791611009X (bibliographic comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known α=0 sharpness is exactly reused. The closest same-method local result proves a maximum and uniqueness on a curve for a different k, addressing Conjecture 2.1 rather than the all-field Conjecture 2.2 bound."
+        ],
+        "reasoning": "A count at zero field or uniqueness on a different-order boundary cannot determine the number of roots including on both sides of a turning point, over arbitrary positive levels of this order-three map. The newly established at-most-four mixed count is the missing implication.",
+        "searches": [
+          "1903.11440v2 Conjecture 2.2, Theorem 2.11 and §6.3; 2103.07391 §5; Resultary 5fb724796467"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same problem may be stated as counting homogeneous splitting Gibbs measures in the source normalization, or positive roots of the scalar and mixed boundary-law equations at any θ^α level. Mixed roots become a level-set problem on x=v+v⁻¹."
+        ],
+        "reasoning": "The exact reciprocal identification is valid for q=3, m=1. The source's use of it for locating mixed existence thresholds does not count all level crossings; the frozen result proves the specialized derivative shape.",
+        "searches": [
+          "Resultary: q=3 k=3 arbitrary constant field, seven completely homogeneous Potts boundary laws, reciprocal K_1",
+          "1903.11440v2 (2.31), (5.24)–(5.26), Lemma 6.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest comparator 5fb724796467 treats k=5, a specified field boundary α=α_1(θ) and 3/2<θ≤sqrt(11)/2. Comparator 1fb1751da5d6 concerns the scalar fold width; a0032eb31428 counts nine on a different invariant branch for k≥4 and θ>24."
+        ],
+        "reasoning": "None matches the object and quantifier of the assigned k=3 all-field bound. The same-day record's date is not used to infer priority.",
+        "searches": [
+          "Resultary: sharp seven homogeneous solutions; three-state Potts external field; K_1 maximum; uniform low-temperature boundary laws",
+          "Resultary 5fb724796467, 1fb1751da5d6, a0032eb31428"
+        ]
+      },
+      "rationale": "The no-field sharpness is prior, as are the branch reduction and reciprocal symmetry. The distinct claim is the uniform seven-solution upper bound for the single-distinguished-colour field in the q=3, k=3 case left by Conjecture 2.2. The inspected primary results and closest indexed records do not supply or imply that count.",
+      "residual_risks": [
+        "An equivalent order-three count could be published under other recursion or boundary-law terminology; the external search was bounded.",
+        "The Khakimov–Khaidarov full text was not verified in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match for normalization and known subcases; not a prior proof of the arbitrary-α order-three count",
+          "evidence": [
+            "Reduced field (α,0,…,0). Theorem 2.11 gives zero-field sharpness and k=2 arbitrary-field counts; the missing general bound is Conjecture 2.2.",
+            "Theorem 2.9 is an existence criterion. The reciprocal mixed map does not itself impose a two-root bound per half-domain."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.11440v2",
+          "material_read": "(2.31) pp. 17–18; Theorems 2.8–2.9 p. 19; Theorem 2.11 and conjectures p. 21; Lemma 5.1 pp. 32–33; (5.24)–(5.26) p. 37; mixed count proof p. 39; Lemma 6.6 p. 43 and (6.23) p. 46, in v2",
+          "method": "Bounded OA primary PDF passage reads and direct branch reduction",
+          "title": "On the uniqueness of Gibbs measure in the Potts model on a Cayley tree with external field",
+          "trigger": "Exact source system, bounds and conjecture"
+        },
+        {
+          "assessment": "Reiterates the known partial results; neighboring k=3 statement is not a maximum count",
+          "evidence": [
+            "The q=3,k=2,3,4 only-if condition concerns occurrence of nonuniqueness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.07391",
+          "material_read": "§5 pp. 16–18, OA text offsets 43400–54690",
+          "method": "Bounded OA PDF passage read",
+          "title": "Gibbs measures of Potts model on Cayley trees: a survey and applications",
+          "trigger": "Later survey of the exact external-field counting problem"
+        },
+        {
+          "assessment": "Related mechanism or invariant, not equivalent or dominating statements",
+          "evidence": [
+            "Respectively: order-five uniqueness on one field curve, single-colour fold width, and a nine-solution count on a different branch at k≥4."
+          ],
+          "identifier_or_url": "Resultary 5fb724796467, 1fb1751da5d6, a0032eb31428",
+          "material_read": "Original Findings of the three mirror records and the cusp scope exclusion of mixed solutions",
+          "method": "Configured index search and bounded local mirror reads",
+          "title": "Order-five uniqueness on the three-state Potts external-field boundary; Exact three-halves opening of the Potts external-field cusp; Nine invariant-branch Potts boundary laws",
+          "trigger": "Closest local field/degree and boundary-law count matches"
+        },
+        {
+          "assessment": "No noncoverage claim is based on inaccessible text",
+          "evidence": [
+            "The title and bibliographic record identify the paper, not its precise theorems or field scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S004057791611009X",
+          "material_read": "Bibliographic identity only; identified OA route returned no usable full text",
+          "method": "Bounded lawful OA lookup via DOI and redirect",
+          "title": "Translation-invariant and periodic Gibbs measures for the Potts model on a Cayley tree",
+          "trigger": "Cited predecessor on the three-state order-three problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This handles a natural case of a stated counting conjecture, not an arbitrary slice: the smallest nontrivial Potts state count at the first tree order beyond the known arbitrary-field result. Bounding each mixed level uniformly, rather than merely locating existence or nonuniqueness, gives the strongest possible numerical cap for this parameter family. This neither classifies all Gibbs measures nor resolves the universal conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

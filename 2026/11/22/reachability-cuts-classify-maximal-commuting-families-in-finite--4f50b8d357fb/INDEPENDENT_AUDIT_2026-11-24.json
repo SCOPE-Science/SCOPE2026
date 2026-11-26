@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:52:34.114614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the absorbing-zero semigroup, two positive paths commute exactly when neither endpoint match permits concatenation: two nonzero reverse products would give a cycle. A stationary idempotent conflicts exactly with positive paths incident to its vertex. Any maximal commutative subsemigroup has zero; its positive sources S and targets T are disjoint. Saturation adds all positive paths from S to T and every stationary path outside their support, preserving closure (all positive products are zero). Per-vertex support is necessary and sufficient: a missing path either has a neutral endpoint, starts in T or ends in S, or was already included; a missing idempotent conflicts with a path at that vertex. This proves uniqueness and the size polynomial, including isolated vertices and parallel paths. For p:u→v the incompatible paths ending at u and starting at v are disjoint by acyclicity; for e_v remove the stationary path from each endpoint count. On the line, admissibility requires first active letter S and last T; counting words with fixed first and last positions gives (3ⁿ−2n−1)/4 before including the diagonal. The bound on sizes uses floor(m²/4)−m nondecreasing for m≥2, attained by a balanced cut when comparing with the diagonal; n=1 has only the diagonal. If L=n(n+1)/2, summing centralizer deficits on the line gives (L+1)²−n(n−1)−2Σ_i i(n−i)=(L+1)²−n(n−1)(n+4)/3, equivalent to the claimed formula. The remark about reversing words is unnecessary; reversal alone does not preserve admissibility. From /workspace, python3 reproductions/algebra.py semigroup independently reproduced ordered pair totals from multiplication for lines n=1–12 (first five 4,12,35,89,196) and maximal clique counts and sizes for n=1–5. The inspected frozen checker reports 79 cases with explicit paths; it was not executed in this review. Finite tests do not establish the uniform proof or extend it to cyclic quivers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brandt record 4fb43e2cf90b gives the diagonal or full off-diagonal rectangle construction with maximal abelian group choices on unused indices. Graph-inverse record 6d445f39ca74 gives path-count centralizers in the semigroup of path pairs αβ⁻¹."
+        ],
+        "reasoning": "The first contains the complete matrix-unit endpoint pattern, while only reachable pairs exist here and they can have multiple path representatives. The second has a different ambient centralizer even though positive paths are closely related to a subsemigroup of path pairs. Neither inspected statement yields the reachability-admissible weighted classification.",
+        "searches": [
+          "Resultary: maximal commutative subsemigroups, Brandt rectangles and path-count centralizers",
+          "Resultary 4fb43e2cf90b and 6d445f39ca74, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1107.1413 §8.1",
+        "DOI 10.1016/j.jalgebra.2009.02.028, abstract only",
+        "Resultary 4fb43e2cf90b and 6d445f39ca74, RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mazorchuk–Steinberg proves the effective dimension is the vertex count. Restricting a full Brandt rectangle to reachable endpoints may leave unsupported vertices; after restriction, maximality requires deciding which stationary paths can return. The path-pair centralizer totals count elements not present in the positive path semigroup."
+        ],
+        "reasoning": "The previous endpoint mechanism is credited; checking per-vertex support, multiplicity and line counts supplies additional structure not stated by the inspected theorems.",
+        "searches": [
+          "arXiv:1107.1413 §8.1 pp. 22–23",
+          "Resultary 4fb43e2cf90b, RESULT.md Finding and classification",
+          "Resultary 6d445f39ca74, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mazorchuk–Steinberg defines exactly the absorbing-zero path semigroup. Directed-line intervals (i,j) multiply as upper triangular matrix units, since there is a unique path for i≤j. Ma–March's accessible abstract concerns lattice-ordered triangular matrix algebras."
+        ],
+        "reasoning": "These are equivalent ambient formulations on the directed line, not evidence that a result for full rectangles already classifies all path-multiplicity cases. Ma–March full-text scope remains unverified.",
+        "searches": [
+          "Resultary: maximal commuting families of acyclic zero path semigroups, upper triangular matrix units and Brandt semigroups",
+          "arXiv:1107.1413 §8.1",
+          "DOI 10.1016/j.jalgebra.2009.02.028"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two close hits give a finite Brandt size distribution and a graph-inverse centralizer census, respectively, not a table of counts for the upper triangular zero path semigroup or the weighted arbitrary quiver formula."
+        ],
+        "reasoning": "An exact sequence or table for a complete matrix-unit object or all path pairs is not a directed-line table without a justified restriction. The direct reproduction of first values does not prove their novelty.",
+        "searches": [
+          "Resultary: directed-line maximal commuting family census and ordered commuting-pair formulas for finite path semigroups",
+          "Resultary 4fb43e2cf90b and 6d445f39ca74"
+        ]
+      },
+      "rationale": "Pass the supported reachability-admissible classification and multiplicity-sensitive size and centralizer enumeration on arbitrary acyclic zero path semigroups, with the line formulas as specializations. The semigroup, endpoint obstruction and full matrix-unit rectangle mechanism are not new; closely related indexed classifications concern different ambient semigroups. No inspected statement supplies the conjunction claimed here.",
+      "residual_risks": [
+        "Could not verify Ma–March §2 or its possible exact directed-line coverage against the full text.",
+        "The two material same-day records do not establish priority in either direction; an unlocated restriction theorem or prior count may cover part of the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same semigroup, different invariant",
+          "evidence": [
+            "§8.1 includes stationary paths, all directed paths and noncomposable products zero; theorem gives effective dimension n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.1413",
+          "material_read": "§8.1 definition and effective dimension theorem, pp. 22–23 of inspected preprint",
+          "method": "Primary OA mathematical text and statement comparison",
+          "title": "Effective dimension of finite semigroups",
+          "trigger": "Exact absorbing-zero path semigroup"
+        },
+        {
+          "assessment": "Plausible partial overlap; no full-text negative coverage finding",
+          "evidence": [
+            "Abstract characterizes when a lattice-ordered semigroup algebra is isomorphic to a lattice-ordered triangular matrix algebra."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2009.02.028",
+          "material_read": "Publisher-indexed abstract only; §2 unavailable through attempted lawful alternate copies",
+          "method": "DOI and identified lawful alternate copy attempts; abstract comparison only",
+          "title": "Lattice-ordered triangular matrix algebras",
+          "trigger": "Triangular matrix-unit form of the directed line"
+        },
+        {
+          "assessment": "Material overlap in endpoint mechanism but full Brandt rectangles have no reachability restriction",
+          "evidence": [
+            "Diagonal maximal abelian subgroup choices, or a full A×B off-diagonal rectangle and diagonal choices on unused indices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-maximal-commutative-subsemigroups-of-brandt-semigroups-exact-siz--4fb43e2cf90b",
+          "material_read": "RESULT.md, offsets 0 and 1900, mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Maximal commutative subsemigroups of Brandt semigroups",
+          "trigger": "Same-day rectangle classification and exact size enumeration"
+        },
+        {
+          "assessment": "Different semigroup and no stated reachability-cut classification",
+          "evidence": [
+            "Centralizers and ordered commuting-pair total for nonzero elements of the form αβ⁻¹."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-path-matrix-commutation-census-for-finite-graph-inverse-semigrou--6d445f39ca74",
+          "material_read": "RESULT.md, Finding at offset 0, same mirror snapshot",
+          "method": "Local mirror statement comparison",
+          "title": "Path-matrix commutation census for finite graph inverse semigroups",
+          "trigger": "Same-day path-matrix centralizer census on an acyclic graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It classifies maximal commutative subsemigroups of a natural zero semigroup and separates two intrinsic invariants: family counts see only reachability, but family sizes see the number of distinct paths. The complete size distribution and element-centralizer counts answer more than a single small-case size calculation; the line formula demonstrates the resulting count on a standard example. The local mechanism is elementary, but the fully specified cut support and weighted census are useful structural information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

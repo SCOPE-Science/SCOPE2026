@@ -1,11 +1,21 @@
-# Scientific review: sharp wrapped-XLindley likelihood-ratio cutoff
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The cited source density equals the positive, normalized density used in the proof. Its angle-score mixed partial is an explicit rational-exponential expression; reducing its sign to the strictly increasing scalar function \(K\) proves one and only one transition. Strict negativity at the terminal angle and the exact finite-pair log-ratio derivative prove the full classification. A standard-library-only checker uses exact rational bounds for the numerical root and the counterexample, plus 506 passed algebraic/numerical diagnostics. The numerical work supports, but does not replace, the analytic all-parameter proof.
+## correctness
 
-**Originality (O): PASS, qualified.** The closest source, Zinhom et al. (2023), supplies the wrapped distribution and estimators, not a likelihood-ratio-order theorem or a shape-dependent cutoff. Chouia and Zeghdoudi (2021, Theorem 1) give the stronger order for the unwrapped law; this is not an implication for a modulo operation. Bell and Nadarajah (2024, Section 2.45) reproduce the wrapped density and moments, not the cutoff. Searches for the exact distribution, likelihood-ratio orders, stochastic orders, origin and wrap transformations, alternate parametric forms, and the root value yielded no dominating theorem. Mathematical-record similarities involving other wrapped or Lindley-type laws were inspected for implication rather than compared only by title. Residual risk: unindexed or inaccessible earlier results may cover a generic transformation theorem with this special case.
+PASS
 
-**Value (V): PASS.** The original unwrapped family is likelihood-ratio ordered, a particularly strong comparison with direct statistical-testing consequences; whether its wrapped counterpart retains the property is a natural structural question for a separately published model. The theorem establishes the exact positive parameter boundary, not a cheap counterexample: it classifies every two-parameter ratio's shape and the change from initial-arc to interior-arc most-powerful regions in one-observation testing. This distinction is particularly relevant when modeling circular times on a declared fixed origin. No universal claim for rotation-invariant angular inference is made.
+The unwrapped density integrates to one, and summing the geometric series and its first-moment series over positive wrapping shifts gives the stated positive density on the fixed branch. Let F_t(λ)=1/(t+b_λ)−λ. The log-ratio derivative is F_t(λ₂)−F_t(λ₁). The λ-derivative of F_0 has the opposite sign to K(λ), since b²+b′=K/(exp(Lλ)−1). All terms of K′ are positive and K(0)=L(4−L)<0, proving the unique positive root and the sign switch. At the terminal point the numerator controlling ∂_λF_L is strictly negative because (b+L)²+b′=(λ+2)²+1+L exp(Lλ)[2(λ+2)+L]/(exp(Lλ)−1)>0. For λ≥λ*, ∂_λF_t<0 at all interior t: if b′≥0 this is immediate, and if b′<0 the relevant reciprocal-square term strictly decreases with t. For each smaller λ, continuity gives a positive initial log-ratio slope for nearby larger parameters, but the terminal slope is still negative. For any pair the slope is negative everywhere if b₂≥b₁; otherwise it is strictly decreasing in t, so D=0 still gives strict decrease on the open branch, and D>0 gives exactly one maximum. Independent interval arithmetic gave K(0.18008)∈[-700,-545]×10⁻⁶, K(0.18009)∈[652,777]×10⁻⁶ and D(0.10,0.11)∈[1088,1093]×10⁻⁶; numerical bisection gives angle 0.46901006. The test-region consequence is the simple-pair Neyman–Pearson rule; no general UMP statement follows.
 
-**Limitations and residual risk.** Strong likelihood-ratio order depends on choosing \([0,2\pi)\); there is no claim that a circular direction has an intrinsic order, nor a multiple-observation UMP test. The priority search cannot establish global uniqueness, and a separate independent audit remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The wrapped density and the unwrapped likelihood-ratio theorem are prior premises. The best-supported distinct content is the sharp parameter boundary plus the exact pairwise shape classification of likelihood ratios on the fixed angular branch. The literature and catalogue comparisons were bounded; no inspected statement gives this classification by specialization.
+
+## value
+
+PASS
+
+Likelihood-ratio ordering has a concrete interpretation in testing and does not survive wrapping by a straightforward preservation rule. The exact fixed-origin threshold decides whether all higher-parameter alternatives have lower-angle likelihood-ratio regions, and the pair criterion identifies when interior regions replace that geometry. The result is a full boundary and classification for a published model, not a selected numerical example or a reinterpretation of the known density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

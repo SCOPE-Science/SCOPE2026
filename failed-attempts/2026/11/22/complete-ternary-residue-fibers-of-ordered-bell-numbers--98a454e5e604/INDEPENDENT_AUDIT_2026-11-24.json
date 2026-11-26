@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:24:46.775508Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inclusion–exclusion for j!S(n,j) reduces F_n modulo arbitrary 3^K to a finite exponential sum, with nonunit bases disappearing as soon as n>=K. Modulo 81 the even indices have step-two first difference 72 and all higher differences 0; the second difference vanishes on the three even classes modulo 6, and the first is calibrated by F_6-F_4=4608. Odd first differences are 6 mod 9. In expanding a shift 2t, s=v_3(t), the binomial coefficient at order a has valuation at least s-v_3(a), and a unit-base difference has an additional factor 3^a. For even n the a=2,3 terms are handled separately by the mod-81 bound; a>=4 gives valuation at least s+3. For odd n all a>=2 have valuation at least s+2. With n>=max(4,s+3) only the first term determines the claimed exact valuation. The counting argument then gives the parity-wise residue multiplicities, the sharp least period (any eventual period must preserve parity and satisfy the odd-branch condition), densities and closure; F_0 through F_3 add no other residues. I independently reproduced the modulo-81 leading finite data and fibers through 3^8 with the Stirling DP in /workspace/branches/reproduce_4.py. I did not execute the source script; its self-equality assertion is tautological but the proof and the independent check do not use it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poonen gives phi(p^k) as the least period for odd prime powers; Schreyer gives the Carmichael period at odd moduli; Asgari–Jahangiri generalizes to r-Fubini periods.",
+          "Record 91974cd107ef proves both scaled isometries for all 3-adic arguments."
+        ],
+        "reasoning": "The period literature covers the least period, while the indexed interpolation is itself directly broader than the frozen parity valuation statement.",
+        "searches": [
+          "Poonen 1988 Theorems 3, 6",
+          "arXiv:1701.07276 Thm. 3.3",
+          "arXiv:2409.03799 Cor. 11",
+          "Resultary 91974cd107ef"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 91974cd107ef and be3d86aee431",
+        "Poonen 1988",
+        "arXiv:1701.07276",
+        "arXiv:2409.03799 and JIS 2025 article",
+        "arXiv:1308.1637"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonunit error at index n belongs to 3^n Z_3.",
+          "v_3(G_0(x+t)-G_0(x))=s+2 and v_3(G_1(x+t)-G_1(x))=s+1, s=v_3(t)."
+        ],
+        "reasoning": "For n>=max(4,s+3), compare actual and interpolated differences modulo 3^(s+3) at n and n+2t: both errors vanish, so the actual valuation equals the interpolated one. For any block starting at N>=max(4,k+2), both approximation errors vanish mod 3^k and each parity traverses a full half-index period, giving the frozen block statement and densities. Independent finite-exponential verification is not a new finding.",
+        "searches": [
+          "91974cd107ef RESULT.md offsets 0–3020 and 3200–5973"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The other finding explicitly gives the same image, multiplicities 1 and 3, least period, and Haar measure; its branch maps G_e have exact scaled-isometry laws and approximate actual terms mod 3^k whenever n>=k."
+        ],
+        "reasoning": "The interpolation description is stronger than the final finite-index translation and value-fiber description, not a different counting problem.",
+        "searches": [
+          "Resultary: ordered Bell / Fubini ternary image, residue fibers and parity-dependent valuations",
+          "Resultary 2026/11/22 SCOPE-the-complete-ternary-residue-image-and-fibers-of-the-ordered-bel--91974cd107ef"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "91974cd107ef supplies the exact all-k multiplicities, both image classes, k=1 exception, and the closure in its Finding, not only a sample table.",
+          "be3d86aee431 supplies period/onset information rather than the full histogram."
+        ],
+        "reasoning": "The strongest hit is distinct from the frozen record and covers the exact same invariant at every depth, including early terms in the full image.",
+        "searches": [
+          "Resultary: complete ternary residue image and fibers of the ordered Bell numbers",
+          "Resultary: prime-power shift defects and exact ternary preperiods, be3d86aee431"
+        ]
+      },
+      "rationale": "Demonstrable full coverage by the distinct same-day interpolation record 91974cd107ef. Its stronger branch statement recovers the frozen exact translation law at the stated finite-index threshold, not just the eventual image and fibers. The shared date is not evidence for which record came first; this is a failure to establish a distinct mathematical claim, not a claim about historical priority.",
+      "residual_risks": [
+        "Relative chronology of the same-day records is unresolved; failure is based on mathematical coverage, not on who proved it first.",
+        "The periodicity literature comparison reads relevant passages, not a full historical priority survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger claim implies the entire frozen finding; priority unresolved",
+          "evidence": [
+            "F_{2x+e} agrees with G_e(x) modulo 3^k at 2x+e>=k; valuation scales 2 and 1; exact images 3+9Z_3 and 1+3Z_3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-complete-ternary-residue-image-and-fibers-of-the-ordered-bel--91974cd107ef/RESULT.md",
+          "material_read": "Finding and proof of unit approximation, leading certificate, isometries and fibers; offsets 0–3020, 3200–5973",
+          "method": "Local Resultary mirror",
+          "title": "The complete ternary residue image and fibers of the ordered Bell numbers",
+          "trigger": "Strongest same-object same-parameter exact match"
+        },
+        {
+          "assessment": "Previously gives the least ternary period",
+          "evidence": [
+            "Exact period phi(p^m) for odd p."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/26-1/poonen.pdf",
+          "material_read": "Thms. 3 and 6, extracted offsets 8347 and 13159",
+          "method": "OA primary PDF passages",
+          "title": "Periodicity of a Combinatorial Sequence",
+          "trigger": "Known period for ordinary ordered Bell numbers"
+        },
+        {
+          "assessment": "Period results for related sequences; credits Poonen for the ordinary case",
+          "evidence": [
+            "Prime-power period theorem; not an evaluated ordinary-sequence value census in inspected passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.07276",
+          "material_read": "Introduction and Sec. 3 Thm. 3.3",
+          "method": "OA ar5iv full-text passages",
+          "title": "On the periodicity problem of residual r-Fubini sequences",
+          "trigger": "Potential broader Fubini coverage"
+        },
+        {
+          "assessment": "Covers odd-modulus exact eventual period",
+          "evidence": [
+            "The eventual period at odd K is lambda(K)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.03799",
+          "material_read": "Cor. 11 and Secs. 4.1–4.2",
+          "method": "OA ar5iv and JIS PDF passages",
+          "title": "Rigged Horse Numbers and their Modular Periodicity",
+          "trigger": "Related modular treatment"
+        },
+        {
+          "assessment": "Decimal modular periodicity; does not resolve ternary fibers",
+          "evidence": [
+            "F_{n+4}=F_n mod 10 for n>=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.1637",
+          "material_read": "Abstract and Sec. 1",
+          "method": "OA ar5iv passages",
+          "title": "Periodicity of the Last Digits of Some Combinatorial Sequences",
+          "trigger": "Alternative ordinary-sequence congruences"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The actual distribution is a worthwhile invariant when unknown, but no distinct invariant or non-implied improvement survives here. The frozen exact difference law and safe onset follow by one modular comparison with the stronger isometries, and the finite-exponential proof is an alternative route to fully covered conclusions rather than a separately established contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

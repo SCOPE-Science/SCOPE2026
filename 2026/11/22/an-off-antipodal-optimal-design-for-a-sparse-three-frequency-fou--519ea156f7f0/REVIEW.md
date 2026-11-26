@@ -1,19 +1,21 @@
-# Scientific review: sparse Fourier observation on two arcs
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns the precise normalized Haar Gram operator on the three frequencies \(\{0,1,3\}\). Direct Fourier integration gives every matrix entry. The two-point evaluation matrix has rank two for every noncoincident pair, and its unique null polynomial is \((z^2-2cz+1)(z+2c)\), with \(c=\cos(\theta/2)\). Its exact derivative-energy ratio is \(F(u)=8(1+7u-8u^2)/(16u^2-4u+2)\), \(u=c^2\). Symmetric Taylor integration and simple-eigenvalue perturbation give the fixed-angle \(a^3\) expansion, while a uniform trial-vector bound rules out moving-center competitors even at coalescence. The rational function has a unique nondegenerate interior maximum at \(u=(\sqrt{154}-8)/20\). Local \(C^2\)-perturbation and global compactness prove uniqueness for sufficiently small positive arc widths. The exact antipodal block provides an independent normalization check.
+## correctness
 
-The accompanying checker performs symbolic factorization/differentiation and independently integrates matrix entries, then tests high-precision eigenvalues. The execution passed 1,345 assertions. Numerical checks alone would not establish the all-small-width theorem; the mathematical proof supplies the required quantifiers. The unknown explicit width threshold is not claimed.
+PASS
 
-## Originality — PASS (best knowledge)
-The closest publicly accessible record, *Sharp two-arc Fourier observability: a Legendre constant and asymptotic antipodal design*, assumes **consecutive** Fourier frequencies. Its antipodal conclusion is not a statement about the missing-frequency triple \(\{0,1,3\}\), and no affine frequency shift/dilation maps this set to three consecutive integers. *Exact spectral staircases for periodic narrow-arc Fourier observation* covers arbitrary sparse supports but fixes equally spaced centers, and cannot optimize freely movable separation. The three-consecutive-mode exact-antipodal result and its frame-potential companion likewise concern a different support. The previously published four-consecutive-mode and five-consecutive-mode results do not imply an optimal design for their proper three-mode subspace: minimization over the subspace and maximization over placements do not commute with restriction of the frequency space.
+Integration with dt/(2π) gives diagonal 2a/π and off-diagonal (2/π)sin((k-h)a)cos((k-h)θ/2)/(k-h); the endpoint case θ=2a has only a measure-zero intersection. With c=cos(θ/2) the polynomial (z²-2cz+1)(z+2c) has frequencies 0,1,3 and vanishes at both centers. For u=c² its coefficient norm is 16u²-4u+2 and each center derivative squared is 4+28u-32u². The odd term of degree three in the local energy integrates to zero, giving the Rayleigh upper bound a³F(u)/(3π)+O(a⁵) uniformly, including moving or coalescing centers. The normalized Gram matrix πG/a is analytic in a² with limiting rank two away from coalescence (the columns of frequencies 0 and 1 suffice). In the one-dimensional null direction the order-a² entry is F(u)/3, while coupling to the positive two-dimensional block is O(a²) and affects the eigenvalue only at order a⁴. The simple-root implicit function theorem gives this expansion in C² in θ on a neighborhood of the interior maximizer. The derivative F' has the sign of 9-32u-40u² and a simple zero at (√154-8)/20. The uniform upper bound and a matching lower value by evaluating at that fixed angle confine every global maximizer to its neighborhood. Strict concavity there and the critical equation give uniqueness and O(a²) displacement, without requiring a uniform spectral gap at coalescence. At θ=π the odd-odd 2×2 block has off-diagonal -sin(2a)/π and the isolated zero mode is diagonal; since 0<2a<π the reported least eigenvalue and gain follow. Independent evaluation gives θ*=2.164014966851562 and gain 2.2728105208558365. The frozen checker was inspected (symbolic identities, integration and numerical grids), not executed or relied on for global uniqueness. No finite-width threshold or formula for arbitrary a is established.
 
-The full scientific texts/main results of arXiv:2410.01465, arXiv:2301.11685 and arXiv:2211.03821 were inspected at material sections relevant to masks, concentration eigenvalues, Riesz bases, and finite versus infinite Fourier support. None of the inspected statements gives the present sharp sparse triple off-antipodal angle or factor. The available sources establish best-knowledge originality, not exhaustive priority. An unindexed E-optimal experimental-design theorem may already imply this special case, and some general Vandermonde perturbation methods contain the main technical ingredients.
+## originality
 
-## Mathematical value — PASS
-This is the first primitive three-frequency support that is not an arithmetic progression (up to translation, reflection and integer scaling) within a bandwidth of three. It provides a sharp boundary to the seemingly natural antipodal-placement principle for three consecutive Fourier modes. The exact separation of about \(123.989\) degrees and the limiting factor \(2.2728105\ldots\) quantify a substantial worst-case-energy improvement at equal observation budget, and the proof identifies its root-polynomial/derivative mechanism. This is a motivated counterexample and a reproducible sensor-placement law, not an arbitrary coefficient tabulation.
+PASS
 
-## Scope and remaining risks
-Only the fixed support \(\{0,1,3\}\) and equal-width, two-arc, vanishing-width family are treated. No optimum for general sparse supports, all finite widths, or more complex measurement geometry is claimed. Independent historical-priority and mathematical review have not been performed.
+The distinctive claim is the off-antipodal optimized coefficient and limiting separation for the non-arithmetic support, with uniqueness for sufficiently small positive widths. Neither the earlier consecutive-band optimizers nor the arbitrary-support fixed periodic array determine it; the latter already gives the leading antipodal benchmark. This is a bounded statement-level priority comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This minimal non-arithmetic triple supplies an explicit counterexample to transferring antipodal optimality from consecutive bands to sparse ones, at unchanged arc count and total observed measure. The sharp gain exceeds a factor of two, and locating the unique small-width optimizer rather than only exhibiting a better design makes the result useful as a benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

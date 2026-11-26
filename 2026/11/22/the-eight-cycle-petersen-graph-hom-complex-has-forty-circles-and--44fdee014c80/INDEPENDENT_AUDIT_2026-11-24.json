@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:26:15.933681Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–24, VERIFICATION.md and verify.py inspected",
+        "Independent python3 /workspace/reproductions/4.py; /workspace/reproductions/4.out enumerates all cells directly in the outer/inner Petersen presentation",
+        "/workspace/repairs/4/RESULT.md and python3 /workspace/repairs/4/verify_hexagon_triangles.py; /workspace/reproductions/4.repair.out matches repaired expected.txt",
+        "Fujii–Kimura–Nozaki arXiv:2412.19039v1 abstract, lines 10–17 of primary PDF extract"
+      ],
+      "rationale": "The repaired claim identifies the cell complexes themselves. For an oriented simple hexagon (v_j), put a variable spur color in N(v_j) at source site i+1, fix i and i+2 to v_j, and traverse the hexagon on the remaining six steps. These are all single-spur maps and their containing triangles. At any vertex of a triangle the only potential second variable site is i or i+2, and the two cases require distinct spur colors v_(j−1) and v_(j+1). Those vertices glue to the triangles indexed by (i−1,j−1) and (i+1,j+1). Pairs of distinct vertices of the target have at most one common neighbor, so no other site can be recolored. No adjacent sites can both vary in a cell: it would contain a complete bipartite subgraph on two plus two distinct vertices in the square-free target. The incident cells are therefore exactly triangle faces. Translation by (1,1) on Z/8 × Z/6 has two orbits of order 24; it gives two entire connected components with the stated incidence and a private vertex per triangle. Each triangle and one private-vertex edge can be collapsed, and then the private vertex and remaining incident edge, leaving the embedded 24-cycle. Exact rooted walks give 120 hexagon parametrizations, hence 20 orientations modulo rotation and 40 components. The original numerical census also checks out: independent direct enumeration of compatible target masks gives (1)×240, (48,72,24)×40 and the one large component with Euler characteristic −10. The square-free-target wedge-of-circles theorem then gives the large component rank eleven, the same homotopy type as the connected bipartite double cover. The smaller even cases also have exactly one rank-eleven component and no circle components. The repair is for overlap, not numerical error.",
+      "residual_risks": [
+        "Cell structure asserted for the specified hexagon components only; nothing here asserts an explicit collapse of the remaining large polyhedral component or a formula for all source lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fujii–Kimura–Nozaki abstract proves components are wedges of circles for connected source and square-free target.",
+          "The all-length indexed Petersen statement explicitly enumerates rigid points and circles, with one even-length bipartite-double-cover component, using a thirty-state transfer matrix and period rule."
+        ],
+        "reasoning": "These cover the homotopy conclusion or its type constraints. The repaired assertion requires the additional geometry of changing which site is variable, excluding adjacent simultaneous variations and proving the actual incidence graph.",
+        "searches": [
+          "arXiv:2412.19039v1 Theorems 1.1 and 1.2 and arXiv:2412.19144 Theorem 1.2/Proposition 5.10 (targeted attempts)",
+          "Resultary 172d5b46cff5, all source cycle lengths, primitive-period formula"
+        ]
+      },
+      "checked_sources": [
+        "Primary abstract for arXiv:2412.19039v1; frozen prior-work section; Resultary comparisons above; repaired incidence proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primitive-period summary says even-period necklaces contribute two and that the formula applies to every source-cycle length. The high-girth rigidity summary 2a06a7b44214 concerns isolated cycle traversals and an even-source double-cover component."
+        ],
+        "reasoning": "No reduced core of length 2 or 4 can occur in this target; length 6 is simple, and rigid length 8 is simple by girth five. Thus the indexed general formula subsumes the old forty/240 split, regardless of date ordering. It does not logically determine, from homotopy type, the incidence T_(i,j)∩T_(i+1,j+1) or exclusion of extra cofaces. The surviving cell-isomorphism claim is proved directly in the repair.",
+        "searches": [
+          "Resultary exact record 172d5b46cff5 and 2a06a7b44214; targeted local-mirror passage request on the former",
+          "arXiv:2412.19039v1 and 2412.19144"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG(5,2) and the Petersen graph are the same target. One-coordinate recolorings describe the one-skeleton; oriented cyclically reduced walks describe the core indexing in the strongest indexed prior result."
+        ],
+        "reasoning": "The repaired necklace is an intersection graph of actual two-cells, not an alternative name for a reduced-walk necklace or for a homotopy circle. Two-cell intersections are not encoded by a count of reconfiguration components.",
+        "searches": [
+          "Resultary: SCOPE-a-primitive-period-formula-for-all-petersen-cycle-hom-complexes--172d5b46cff5 formula 40 circles 240 points C8 Petersen",
+          "Resultary: Petersen C8 graph Hom circle components cyclic chain of 24 triangular two-cells sharing vertices triangle intersection graph C24 polyhedral cell incidence",
+          "Literature check: Hom(C8,Petersen) square-free graph homomorphism reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact C8 record 44fdee014c80 is this finding. The distinct all-length record 172d5b46cff5 determines the old census by specialization. The general formula and known hexagon and octagon counts do not specify how the triangles attach."
+        ],
+        "reasoning": "Do not claim the actual numerical homotopy census as distinct. The available closest entries do not specify an intersection cycle with distinct attachment vertices and one private vertex per triangle.",
+        "searches": [
+          "Resultary exact C8 KG(5,2) 40 circles 240 rigid maps; focused 24-triangle incidence query",
+          "Brouwer Petersen graph cycle counts (reference in frozen RESULT)"
+        ]
+      },
+      "rationale": "The frozen headline homotopy census fails as a distinct contribution against available stronger coverage: the documented all-length Petersen primitive-period result supplies the point and circle multiplicities and the even double-cover component. In the eight-step case the only nontrivial shorter cyclically reduced cores are simple hexagons, giving two components for each of twenty oriented even-period necklaces. Rigid maps are the fifteen octagons with sixteen rooted directed maps each. This is coverage, not an assertion of publication order on the shared date. The repair instead proves the filled-triangle incidence model and explicit embedded-cycle collapse, not just the number, homotopy type, or 2-dimensional profile. The available stronger statement about reduced-walk necklaces does not supply these cell-level gluings.",
+      "residual_risks": [
+        "The full period-formula record and the detailed primary theorem passages were not retrieved. There may be cell-level statements beyond their available summaries, especially for a single spur. The repair distinguishes verifiable implications from unresolved priority, rather than interpreting retrieval failure as novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coverage of original homotopy census under the stated formula. No affirmative evidence in that statement of the repaired triangle-incidence description.",
+          "evidence": [
+            "For every source cycle length, explicitly counted rigid points and circles; even-period necklaces contribute two. This covers the numerical homotopy specialization even though the C8 numbers are not written in the summary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-primitive-period-formula-for-all-petersen-cycle-hom-complexes--172d5b46cff5",
+          "material_read": "Indexed scientific statement including even-period multiplicity, even double-cover and thirty-state count. Attempted decisive full statement through the local reader.",
+          "method": "Resultary semantic search and exact-ID lookup; targeted OA/local-mirror retrieval timed out",
+          "title": "A primitive-period formula for all Petersen cycle-Hom complexes",
+          "trigger": "Distinct exact-target all-length statement, strongest plausible coverage"
+        },
+        {
+          "assessment": "General homotopy coverage credited; actual polyhedral incidence is not given by the abstract theorem",
+          "evidence": [
+            "Each component is homotopy equivalent to a wedge of circles for connected G and square-free H; component type can be determined algorithmically."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.19039v1",
+          "material_read": "Primary v1 abstract and contents, extract lines 10–30; targeted Theorem 1.2 retrieval timed out",
+          "method": "Bounded OA PDF extract and targeted passage attempt",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "Strong general theorem used in source; possible counting implication"
+        },
+        {
+          "assessment": "Known parallel structural lead, not a basis for an absence claim",
+          "evidence": [
+            "Frozen RESULT lines 26–34 credits the general homotopy types; central cell claim of the repair does not rely on this source."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.19144",
+          "material_read": "Theorem 1.2/Proposition 5.10 citation in frozen record, no independently accessible primary passage",
+          "method": "Targeted OA retrieval attempted",
+          "title": "Hom complexes of graphs whose codomains are square-free",
+          "trigger": "Second exact general square-free result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding, incidence proof and replay; general square-free and all-length coverage comparisons"
+      ],
+      "rationale": "What survives is a cell-level normal form for the first nontrivially flexible even-source components, with every gluing specified and a canonical subcomplex cycle after collapse. A homotopy circle or a matching face vector alone does not give this geometry. The proof explains how backtrack position and core position govern attachment, useful when comparing polyhedral representatives or studying source reindexing, without claiming those further results.",
+      "residual_risks": [
+        "No claim of new homotopy counts, an equivariant model, or extension to arbitrary lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

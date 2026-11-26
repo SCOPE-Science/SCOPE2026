@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:54:35.177100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the isometries and the two-sided block equivalence directly: a coefficient at index k in V_n e_j contributes to output floor(k/m), whereas V_n V_m^* is constant on that output block. This gives (H-J)/sqrt(mn), where J is all ones. For n>=m the row at floor(nr/m) meets column r positively and no later column, proving full column rank for H; transpose for m>n. The common constant is an orthogonal singular direction, and the full shared step-function space has dimension gcd(m,n), so centering removes one unit level and one rank. A unit top right vector of one block copied to successive blocks is weakly null, proving equality of essential and ordinary norms (and noncompactness, since the rank is positive). For n=m+1 the two entries per column give the displayed second-difference operator; binomial expansion cancels degree j+1 and gives coefficient 2j+j(j-1)=j(j+1) at degree j. Polynomial evaluation gives all levels, including the constant mode removed by centering. The levels converge as Riemann sums under t->sqrt(1-t^2), yielding the stated density and beta moments. Checked RESULT.md lines 27–55 and inspected check_adjacent.py without running it; its numerical rank tests are supplementary, not the proof. This includes equal bases and divisibility cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparison covers arbitrary coprime bases by a modular weighted path, with an exact eigenvalue formula when n=±1 mod m, not merely n=m+1.",
+          "For gcd g, an mn-cell is g successive common cells of length lcm(m,n). Each reduced cross-Gram block contributes a unit constant direction; centering once leaves g-1, and the other levels are unchanged."
+        ],
+        "reasoning": "The stronger compression data and common-cell reduction settle the spectral information in the frozen result. The classical Hahn source is background, not the basis of this coverage finding.",
+        "searches": [
+          "2026/11/22/SCOPE-arithmetic-spectral-law-for-commutators-of-two-integer-block-ave--d9f30fffe04e, Proof §§1–4",
+          "arXiv:2106.03284 (Hahn birth–death operators)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d9f30fffe04e full decisive passages",
+        "Resultary 4d9675ff0ea8 indexed description",
+        "arXiv:1809.09577",
+        "arXiv:2111.05398",
+        "arXiv:2106.03284"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Noor's semigroup relation extends to the normalized isometries; Manzur–Noor–Santos give the coefficient-block adjoint and normalization.",
+          "On the normalized n-interval indicator basis U, the comparison source gives U^*E_m U=I-L/n, positive definite. Removing the constant leaves all its nonconstant square-root levels.",
+          "An identical infinite block sum preserves the norm as the essential norm; the limiting density is the Riemann-sum image of the already explicit adjacent list."
+        ],
+        "reasoning": "The Hardy antecedents alone do not state the mixed spectrum; together with the directly verified block-average result, the actual formulas follow without a new spectral calculation.",
+        "searches": [
+          "arXiv:1809.09577 §3 eq. (3.1)",
+          "arXiv:2111.05398 §3 Lemma 3",
+          "2026/11/22/SCOPE-arithmetic-spectral-law-for-commutators-of-two-integer-block-ave--d9f30fffe04e, Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparison record defines E_k=k^{-1}W_kW_k^* on exactly the same coefficient grid starting at zero.",
+          "The frozen K is the cross-Gram map between the two ranges, centered by their constant direction on each mn-cell; the semigroup product gives this identity on H^2."
+        ],
+        "reasoning": "These are different operators, but the relevant squared cosines are the same exact finite matrices. There is no need to invert the noninjective map eta->eta(1-eta) from the projection-commutator spectrum alone.",
+        "searches": [
+          "Resultary: weighted Hardy mixed adjoints, block replication and interval projections",
+          "2026/11/22/SCOPE-arithmetic-spectral-law-for-commutators-of-two-integer-block-ave--d9f30fffe04e, RESULT.md Finding and Proof §§1–3",
+          "arXiv:2111.05398 §3 Lemma 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record returned as an identical catalogue hit; excluded as independent prior coverage.",
+          "The distinct block-average record gives the exact indexed list mu_j=j(j+1)/m and identifies the squared cosines as 1-mu_j/n in its proof.",
+          "The unweighted monomial Bergman comparison is a different operator and space on the indexed description."
+        ],
+        "reasoning": "The exact adjacent list is already encoded in the proven squared-cosine list, not inferred from a title, similarity score or failed search.",
+        "searches": [
+          "Resultary: normalized Hardy weighted-composition isometries arithmetic adjoint commutator singular values",
+          "2026/11/22/SCOPE-arithmetic-spectral-law-for-commutators-of-two-integer-block-ave--d9f30fffe04e, RESULT.md offsets 0 and 5582",
+          "2026/11/8/SCOPE-arithmetic-compactness-and-logarithmic-singular-traces-of-monomi--4d9675ff0ea8"
+        ]
+      },
+      "rationale": "The decisive distinct Resultary record d9f30fffe04e supplies the same finite overlap Gram data, not just a similarly parameterized commutator spectrum. Its Definition and Proof §§1–4 identify E_k=V_k V_k^*, give the principal-cosine matrix I-L/n for the reduced interval pair and diagonalize L when the reduced bases are ±1 modulo the smaller base, including adjacency. In the frozen Hardy semigroup K=V_m^*(I-E_mn)V_n, since V_m^* V_mn=V_n and V_mn^* V_n=V_m^*. The global constants on each mn-cell are the range of E_mn; the only change to the known cross-Gram block is deleting that one shared direction. The adjacent levels, rank, gcd unit multiplicity and norm and the elementary limiting law follow mechanically. Thus the scientific content is already covered by a distinct stronger result in combination with the known semigroup identity; the shared publication date does not establish which result came first.",
+      "residual_risks": [
+        "Same-day publication does not establish priority; this finding is about demonstrable scientific coverage.",
+        "Some wider literature lookups were deferred, so there is no claim of an exhaustive historical search; the inspected direct equivalent suffices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the finite spectral content by implication, without assigning priority",
+          "evidence": [
+            "Explicit E_p=p^{-1}W_pW_p^* and same zero-based partitions",
+            "Exact compression U^*E_mU=I-L/n",
+            "The congruence class formula mu_k=k(k+1)/m"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-arithmetic-spectral-law-for-commutators-of-two-integer-block-ave--d9f30fffe04e/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–4, offsets 0–7295",
+          "method": "Read decisive full-text passages from the published-record mirror and reconstructed the centering identity",
+          "title": "Arithmetic spectral law for commutators of two integer block averages",
+          "trigger": "Same normalized interval grids, modular path and adjacent quadratic levels"
+        },
+        {
+          "assessment": "Supplies the semigroup law but not, by itself, the mixed spectral formulas",
+          "evidence": [
+            "W_mW_n=W_mn; the algebraic intertwining is not a unitary equivalence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.09577",
+          "material_read": "§3 p. 6 eq. (3.1) and §6 p. 9 intertwining passage",
+          "method": "OA primary-text excerpts",
+          "title": "A Hardy space analysis of the Báez-Duarte criterion for the RH",
+          "trigger": "Same weighted-composition semigroup"
+        },
+        {
+          "assessment": "Supplies individual adjoint formulas and the isometry normalization",
+          "evidence": [
+            "Consecutive Taylor-coefficient sums; W_n^*W_n=nI"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.05398",
+          "material_read": "§3 Lemma 3, p. 4",
+          "method": "OA primary-text excerpt",
+          "title": "A weighted composition semigroup related to three open problems",
+          "trigger": "Same block isometries and adjoints"
+        },
+        {
+          "assessment": "Framework only on the inspected excerpts; no specific inference needed",
+          "evidence": [
+            "Hahn terminology located, but exact operator not confirmed from those excerpts"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.03284",
+          "material_read": "Askey-scheme discussion and Hahn-related bibliography passage",
+          "method": "OA bounded primary passages",
+          "title": "Exactly solvable discrete time Birth and Death processes",
+          "trigger": "Hahn spectral equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact invariant is well motivated in the Hardy semigroup, but after the stronger overlap-compression analysis the difference is one known constant projection per cell. Rank, unit-level arithmetic, adjacent hierarchy, and weak limit need only this identity and elementary spectral transfer or Riemann sums. No independently useful unknown exact invariant survives in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

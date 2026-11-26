@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:35:26.118246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, definitions, census, witnesses, and transfer",
+        "VERIFICATION.md; check_total_bondage.cpp; check_optimal_sets.py; both frozen output logs, inspected without running the frozen checkers",
+        "Fresh Python replay: python3 /workspace/branches/cb031d2d-5a6b-42d9-bf8c-d65052b20337/independent_census.py --all",
+        "Fresh output: /workspace/branches/cb031d2d-5a6b-42d9-bf8c-d65052b20337/independent_census_output.txt"
+      ],
+      "rationale": "The definition requires an open-neighborhood hit at every vertex and excludes any cut that isolates a vertex. For a fixed cut, row i is dominated exactly by the surviving same-row neighbors of its selected mask together with surviving vertical neighbors selected in rows i−1 and i+1. The two-mask transfer, with zero boundary masks, covers every possible selected set and minimizes its cost once each row condition is enforced. I inspected both frozen implementations and the fresh checker's decisive loops. The fresh checker enumerates all intact optima by branching over every optimal row choice, then records for each vertex and pattern of removed incident edges the bitset of optima still supplying a neighbor. For each k=1,2,3 the code visits each k-combination once, excludes zero residual degree, and intersects the bitsets over all vertices. An empty intersection is necessary and sufficient for damage by monotonicity under deletion. In the order n=5,7,8 we reproduced (edge count, γ_t, optimum set count)=(31,8,256),(45,10,121),(52,12,2916). By cut sizes 1,2,3 the admissible/damaging pairs are (31/0,461/0,4369/40), (45/0,986/0,14004/727), and (52/0,1322/0,21884/0). A separate transfer in the fresh script checks that the displayed witnesses are isolate-free and give γ_t=9,11,13 with cut sizes 3,3,4. Hence the exact minima are 3,3,4. No four-edge census or all-length claim is supported or needed.",
+      "residual_risks": [
+        "This is bounded exhaustive computation supported by a recurrence proof, not proof-assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.1 gives the intact values 8,10,12. Theorem 5.1 proves equalities in other residue classes and upper bounds here; the conclusion states tightness for n≥7 as a conjecture. The inspected later general bounds are not exact results for these grids."
+        ],
+        "reasoning": "An intact domination formula sets the baseline, not the minimum size of a damaging isolate-free cut: it does not constrain the survival of each optimum over all small admissible cuts. The other residue equalities cannot be specialized to 5,7,8.",
+        "searches": [
+          "Hu–Lu–Xu arXiv:1109.3929, §2 Lemma 2.1 and §§5–6",
+          "Gamlath–Wei arXiv:2401.16615v1, definition, bounds and reference to Hu–Lu–Xu"
+        ]
+      },
+      "checked_sources": [
+        "Hu–Lu–Xu, author manuscript, §§2,5–6",
+        "Gamlath–Wei, selected passages",
+        "Resultary ranked exact grid/census queries and the named related entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 5.3 specializes to the three-edge G_7 witness. Lemma 5.4 states ≤4 by direct checking for G_5,G_8 and displays a split into length n−5 and length 5 only for n≥10. The fresh census gives no admissible damage through size 2 for G_5,G_7 or size 3 for G_8."
+        ],
+        "reasoning": "An upper-bound witness does not prove any of these universal exclusion statements or enumerate damaging three-edge sets. The census fills those gaps and provides a shorter witness for G_5. The n≥10 split construction does not itself give the specific displayed G_8 witness.",
+        "searches": [
+          "Hu–Lu–Xu Lemmas 5.3–5.4 and §6",
+          "RESULT.md small-cut table and fresh independent census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.1 uses G_{n,4} for these same nonperiodic grids and the same isolate-free total-bondage invariant. It gives only ≤3 for n≡2 (mod 5) and ≤4 for n≡0,3 (mod 5).",
+          "The indexed four-by-four grid total four-cut complex is about homotopy/homology, not total domination under edge cuts."
+        ],
+        "reasoning": "The published bounds at n=5,7,8 are 4,3,4, not exact values. The phrase total four-cut complex is not an equivalent definition of total bondage.",
+        "searches": [
+          "Targeted Resultary total-bondage queries for P_5×P_4, P_7×P_4, P_8×P_4 and the small-cut census",
+          "Hu–Lu–Xu arXiv:1109.3929, §5, Lemmas 5.3–5.4 and Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published grid table has upper bounds in the target columns. Closest indexed census and total-bondage entries are about ordinary domination of a truncated octahedron (e61d1dd77f52) or complete bipartite graphs and a two-unit increase (3e58ed934375)."
+        ],
+        "reasoning": "The named graph, open-neighborhood invariant, and admissible edge-deletion rule must all agree; neither indexed entry supplies those data for these grids. Ranked searches do not rule out an unindexed exact computation.",
+        "searches": [
+          "Separate Resultary exact-value/census searches for the three named grids; Hu–Lu–Xu Theorem 5.1 (grid case table)"
+        ]
+      },
+      "rationale": "The exact three values and small-cut census close named gaps in the inspected grid theorem. The intact total-domination numbers are known, the three-edge G_7 witness is from the prior construction, and a four-edge upper bound for G_8 was already known. The inspected preprint says G_8 has that upper bound by direct check but does not exhibit its specific cut; it does not confirm the frozen prose attributing this choice of witness to an earlier displayed construction. That attribution caveat is separate from the verified witness and the novelty of the exact lower bound.",
+      "residual_risks": [
+        "Publisher text was not accessible; the attribution of the particular G_8 cut is not confirmed from the author manuscript. The conclusion's reference to tightness for some small n is not an exact table or proof. The bounded comparison cannot exclude unpublished or unindexed exact computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known baselines and upper bounds, not exact target values or census in the inspected statements",
+          "evidence": "Lemma 5.4 states ≤4 by direct checking for n=5,8; Theorem 5.1 states ≤3 for n≡2 mod 5; §6 conjectures tightness for n≥7.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3929",
+          "material_read": "§2 Lemma 2.1; §5 Lemmas 5.3–5.4 and Theorem 5.1; §6 conclusion (including PDF offsets 39800–47497 for §5–6)",
+          "method": "Targeted lawful author PDF; publisher version unavailable",
+          "title": "The total bondage number of grid graphs",
+          "trigger": "Exact same invariant and grid family; closest primary comparison"
+        },
+        {
+          "assessment": "Same admissibility convention; no exact target conclusion in inspected material",
+          "evidence": "Deletions must leave the graph without isolated vertices; the reference points to Hu–Lu–Xu for grids.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.16615",
+          "material_read": "Definition and general-bounds discussion; p. 11 reference list linking the grid paper",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "On total bondage number of graphs",
+          "trigger": "Later general bounds and possible exact specializations"
+        },
+        {
+          "assessment": "Different object and invariant",
+          "evidence": "The object is a simplicial complex of the 4×4 grid, not the total-bondage number of any target graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-integral-homotopy-and-dihedral-character-of-the-four-by-four-gri--070295c6188b",
+          "material_read": "Surfaced finding on homotopy/homology",
+          "method": "Resultary comparison",
+          "title": "Integral homotopy and dihedral character of the four-by-four grid total four-cut complex",
+          "trigger": "Closest grid/total cut catalogue vocabulary"
+        },
+        {
+          "assessment": "Different graph and definition",
+          "evidence": "Counts ordinary-domination bondage cuts, not the total-domination cuts of an n-by-four grid.",
+          "identifier_or_url": "2026/10/12/SCOPE-complete-census-and-symmetry-classification-of-minimum-bondage-s--e61d1dd77f52",
+          "material_read": "Surfaced finding on ordinary domination of a truncated octahedron",
+          "method": "Resultary comparison",
+          "title": "Complete census and symmetry classification of minimum bondage sets",
+          "trigger": "Exact census of edge cuts affecting domination"
+        },
+        {
+          "assessment": "Different family and required increase",
+          "evidence": "The complete-bipartite formula does not apply to any of the three grid graphs.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-two-total-bondage-and-extremal-deletion-cuts-in-complete-b--3e58ed934375",
+          "material_read": "Surfaced finding for a two-unit change in complete bipartite graphs",
+          "method": "Resultary comparison",
+          "title": "Exact two-total bondage and extremal deletion cuts in complete bipartite graphs",
+          "trigger": "Exact numerical total-bondage comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hu–Lu–Xu Theorem 5.1 and §6",
+        "RESULT.md and fresh bounded census"
+      ],
+      "rationale": "These n were selected before enumeration as the first lengths in the three residue classes left at upper bounds by the published theorem. Their exact values give one strict improvement and two concrete sharpness benchmarks; the latter bear directly on the stated tightness conjecture without claiming it for larger grids. The complete small-cut checks also address precisely why small admissible cuts cannot improve those bounds. This is a motivated finite invariant, not an arbitrary small slice or a recomputation of the intact baseline.",
+      "residual_risks": [
+        "No extrapolation to larger grids or enumeration of all four-edge cuts is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

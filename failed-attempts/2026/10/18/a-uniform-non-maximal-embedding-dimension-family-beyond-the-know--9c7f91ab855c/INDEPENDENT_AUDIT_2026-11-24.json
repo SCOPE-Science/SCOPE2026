@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:35.120419Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 22–71",
+        "Frozen VERIFICATION.md and verify_denumerant.py",
+        "Independent bounded representation enumeration"
+      ],
+      "rationale": "For length t, y+2z=u=n-at and x=t-u+z, so max(0,u-t)<=z<=floor(u/2). At n0=(a+1)(a+2) through n0+a-1 the possible lengths are a+2,a+3 and, at the stated ends, a+1 or a+4. Summing their counts gives (2), at most p in both parities. Adding an a-coin injects representations along each residue class, extending the bound to all smaller positive n. At m=n0+a the three contributions 2,k+2,2 give k+6. For c=m+2, the totals at c and c+2 in the even case are k+6,k+5, and the totals at c-1,c,c+1 in the odd case are k+6,k+6,k+5. The possible lengths there are a+2 through a+4, including at a=7. Cofiniteness follows by adding any representable n-m to each representation of m, and the same injection gives closure. Any generator other than m is in its Apéry set, so e<=m. If equality held, every nonzero Apéry element would be a generator, in contradiction to the decomposable sum u+v whose predecessor u+v-m is a gap. Separately, I enumerated (y,z) and then all admissible n for eight a values of both parities from 7 to 32, and checked full finite generating sets using the conductor bound C=m+a²-1 and the fact that n>=C+m is decomposable. Replay: python3 -I /tmp/opencode/frozen_audit_small_checks.py, denumerant(). The frozen program was read, not run; its bounded initial scan of generators by itself does not bound the final embedding dimension.",
+      "residual_risks": [
+        "No exact all-parameter embedding dimension or sharp first-failure threshold is established; finite spot checks are only corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Ying's closed forms apply only for p<=floor(a/2), not p=floor(a/2)+5.",
+          "The distinct same-day proof gives exact sums of three contributions, all higher contributions zero, for Q=h+p'+1 and every 0<=r<a, with a=2h+b. Its range includes p'=h+b+2 and h+b+3, supplying the entire blocks Q=a+3 and Q=a+4 for every a>=7."
+        ],
+        "reasoning": "The auxiliary census, not the larger range of the largest-gap theorem alone, directly covers both blocks needed. Its p' selects the quotient block, not the target threshold p.",
+        "searches": [
+          "arXiv:2206.13052 Theorem 1",
+          "Resultary 6dc430dbb315, Proof: Second regime (h+1<=p'<=a+1), the displayed F(Q,r;0), F(Q,r;1), F(Q,r;2)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13052",
+        "arXiv:2207.08962",
+        "Local Resultary records 6dc430dbb315, c1e32fc93396 and d6ba501caf95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At Q=a+3 and r=2, the companion formula gives h+5. For 3<=r<a it gives h+4-(r mod 2) if b=0, and h+4 if b=1. At Q=a+4 its totals at r=0 and r=1 are h+5 and h+4+b. These cover every n in [n0,m), since n0=a(a+3)+2 and m=a(a+4)+2.",
+          "At Q=a+4, the exact totals at r=2,3,4,5,6 are h+6, h+5+b, h+6, h+4+b, h+5. All residues are valid for a>=7. Thus r=2 gives m, r=4 gives c, and the parity-appropriate r=3,5,6 give precisely the other members and shifted gaps."
+        ],
+        "reasoning": "Monotonicity along step a, also used by the companion proof, extends the bound below m. The explicit above-threshold witnesses and shifted gaps follow by direct evaluations of the broader census, and the ordinary MED criterion finishes the deduction. This is complete coverage of the mathematical core without assigning chronology within the day.",
+        "searches": [
+          "Resultary 6dc430dbb315, exact residue formulas in the proof under Second regime, local-mirror text from offset 2100",
+          "Frozen RESULT.md, lines 35–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The literature's strict threshold d(n)>p is exactly d(n)>=p+1; the latter paper gives the adjoined-zero semigroup and p-multiplicity and p-embedding dimension.",
+          "The frozen obstruction is a decomposable Apéry element: u+v in S and u+v-m outside S."
+        ],
+        "reasoning": "The aliases compare the same semigroup and multiplicity. Apéry terminology does not create a distinct assertion. The general necessary condition for MED is standard, so the distinctive input would have to be the uniform exact counts.",
+        "searches": [
+          "Local Resultary: p-representation semigroup, consecutive triple, multiplicity and MED / shifted-sum obstruction",
+          "arXiv:2206.13052 §1 and Definition 1",
+          "arXiv:2207.08962 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest match is a distinct same-day record about three Frobenius regimes, with a reusable exact count formula in its proof, not the frozen filing itself.",
+          "Later c1e32fc93396 treats the consecutive case only at p=h+1; later d6ba501caf95 treats that first post-range threshold with progression step at least 3. Neither is the frozen invariant and ray together."
+        ],
+        "reasoning": "There is no need for a literal table of embedding dimensions to establish coverage; the distinct record's exact census is stronger evidence. The later first-post-range cases do not supply that coverage.",
+        "searches": [
+          "Local Resultary strongest match 6dc430dbb315, Finding and exact count formulas",
+          "Local Resultary c1e32fc93396 and d6ba501caf95, Findings"
+        ]
+      },
+      "rationale": "The distinct same-day Resultary record 6dc430dbb315 does not state the MED result, nor does its largest-gap theorem by itself imply it. However, its proof contains an exact, broader residue-block census which covers all decisive counts by direct specialization. This is demonstrable mathematical coverage, not a claim of earlier publication, dependence, or priority between the same-day records. The standard Apéry obstruction turns those covered counts into the frozen conclusion without a separate structural theorem.",
+      "residual_risks": [
+        "No chronological priority inference is made from equal catalogue dates. The checked overlap is a statement of mathematical implication, irrespective of who first obtained it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Threshold convention matches; Theorem 1 does not include the frozen p.",
+          "evidence": [
+            "Theorem 1 assumes 0<=p<=floor(a/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13052",
+          "material_read": "§1, Definition 1 and Theorem 1, printed pp. 2–5; theorem text offset 7944.",
+          "method": "Primary PDF range and invariant comparison.",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Same consecutive triple and representation threshold."
+        },
+        {
+          "assessment": "Covers foundational conventions, not the disqualifying local counts.",
+          "evidence": [
+            "Adjoins 0 and defines the p-multiplicity and p-embedding dimension for the threshold semigroup."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.08962",
+          "material_read": "§2, printed pp. 6–7, text offset 16400.",
+          "method": "Compared definitions and semigroup result.",
+          "title": "p-numerical semigroups with p-symmetric properties",
+          "trigger": "General structure of representation-threshold semigroups."
+        },
+        {
+          "assessment": "Direct technical coverage via the proof's census; as a contemporaneous record it establishes overlap, not priority.",
+          "evidence": [
+            "The proof lists exactly three possible summands on Q=h+p'+1 for all residues and parameters in its second regime.",
+            "The stated largest-gap result alone would not determine the least positive member or the local pattern."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-exact-phases-of-generalized-frobenius-numbers-for-three-co--6dc430dbb315/RESULT.md",
+          "material_read": "Finding, elementary counting formula, and Second regime proof, local-mirror offsets 0 and 2100, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Read the actual scope and specialized the three exact summands to Q=a+3,a+4, including every residue needed for multiplicity.",
+          "title": "Three exact phases of generalized Frobenius numbers for three consecutive denominations",
+          "trigger": "Strongest distinct match: same family with beyond-range exact formulas."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §4",
+        "Komatsu–Ying arXiv:2206.13052"
+      ],
+      "rationale": "The structural question is natural: where can high-threshold representation semigroups cease to have maximal embedding dimension? An infinite family with parity-sensitive explicit local obstructions, beyond the original small-p formulas, makes that failure concrete rather than merely tabulating a few embedding dimensions. As a consequence of the overlapping census it is useful interpretively, but not accepted as a distinct finding.",
+      "residual_risks": [
+        "This does not locate the first failing p, prove an exact embedding dimension, or classify the transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

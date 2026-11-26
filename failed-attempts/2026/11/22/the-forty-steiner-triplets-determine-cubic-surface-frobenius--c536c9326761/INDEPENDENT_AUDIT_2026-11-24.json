@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:48:17.095972Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions, Proof and Limitations",
+        "VERIFICATION.md, verify.py and certificate.csv (read only)",
+        "Elsenhans–Jahnel, arXiv:1006.1474 §2 and arXiv:1110.2086 §3",
+        "Replay: python3 /workspace/branches/independent_steiner.py; /workspace/branches/independent_steiner.out"
+      ],
+      "rationale": "The 45 tritangent planes are the 30 triples (E_i,Q_j,L_ij) with i≠j and the 15 triples of L-lines indexed by perfect matchings of the six blowup indices. I built supports by two disjoint-plane decompositions and verified the six-plane and row/column intersection conditions, obtaining 120 supports with unique complementary partition and 40 triplets in one orbit. Independent Schläfli-label permutations (relabelings and the quadratic Cremona switch) generate all 51840 elements; generator conjugation gives 25 classes. The rederived table matches every frozen CSV entry up to local class relabeling and gives 25 triplet spectra, 20 line spectra, and 25 joint signatures. Fixed-point counts are sums of cycle lengths dividing the extension degree. The number of distinct prefixes is (10,14,20,22,23,24,24,24,25); the unique degree-eight collision is the stated order-12/order-9 pair and degree nine separates 4 versus 40. Finite étale descent of the intrinsic incidence marking and the standard Picard trace formula transfer this calculation to every smooth cubic over a finite field (with q known). The cutoff is sharp over all Weyl types, not necessarily within each small field size. Inverting Frobenius does not change any of the cycle data.",
+      "residual_risks": [
+        "The exact computation rests on the standard identification of the incidence automorphism group with W(E6). This is not a characterization of which Weyl types occur over every small field, nor geometric isomorphism reconstruction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical sources cover complementary decompositions and conjugacy-class background. Das's table is for line Frobenius, not the 40-decomposition action. The decisive supplier of action data is the ATLAS, not a general Weyl character table alone."
+        ],
+        "reasoning": "Neither just the number of types nor the line permutation spectra give the triplet reconstruction. The compatible 40b permutations and class representative words supply the missing stronger information.",
+        "searches": [
+          "Elsenhans–Jahnel arXiv:1006.1474 §2 and arXiv:1110.2086 §3; Das arXiv:2002.11183 Table 1; Carter, Conjugacy classes in the Weyl group; ATLAS U4(2):2"
+        ]
+      },
+      "checked_sources": [
+        "ATLAS U4(2):2 class table and p27B0/p40aB0/p40bB0 explicit permutations",
+        "Elsenhans–Jahnel, Das, Carter",
+        "Resultary 55ac05d63848, 5e55036a6d2f and exact self-hit",
+        "Independent ATLAS-to-Steiner equivariance check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Computing cycle multisets on each published class word yields the spectra; summing cycle lengths dividing k yields the extension-vector columns. The paired signature is obtained by taking the class's 27-cycle spectrum and the number of 40b one-cycles. No new conjugacy enumeration, class fusion, or arithmetic statistic is required once these data are used."
+        ],
+        "reasoning": "Comparing rows and fixed-power columns gives the consecutive cutoff and both injectivity results, even if not verbalized as an inverse-zeta theorem in ATLAS. The surface-zeta corollary is the standard Weyl-to-Picard trace consequence.",
+        "searches": [
+          "Cross-check ATLAS 27 and 40b models, v3 U4(2):2 class words and frozen CSV specifications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elsenhans–Jahnel §3 distinguish 240 ordered triplets from 40 unordered decompositions and give the unordered action's transitivity. With the ATLAS 27-letter generators matched to the geometric line generators, their induced actions on the Steiner decompositions are simultaneously equivariantly isomorphic to ATLAS 40b, not 40a. This was checked by propagating the image of one point under both generators and requiring a bijection.",
+          "Replay: python3 /workspace/branches/compare_atlas_steiner.py; /workspace/branches/compare_atlas_steiner.out."
+        ],
+        "reasoning": "The simultaneous generator equivariance with the 27-line marking identifies the action on the same abstract elements and validates the use of the same class representatives in both actions. The other degree-40 action is not equivalent in that test.",
+        "searches": [
+          "W(E6) / U4(2):2 / S4(3):2; index-40 permutation representation; Steiner triplet vs unordered decomposition",
+          "ATLAS 27, 40a and 40b standard-generator data"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ATLAS lists all 25 conjugacy representatives as words in c,d, and gives the two permutations for those same c,d in both the 27 and 40b models. Raw data URLs and the matched generator check were verified. The published words d (9A) and cdcdcdd (12C) already evaluate to the two stated cutoff witnesses on 40b.",
+          "Resultary 55ac05d63848 concerns 36 double-sixes and supplementary rational-line count. Resultary 5e55036a6d2f uses lines plus tritangent planes through extension degree three. The identical 40-triplet record is the frozen record itself."
+        ],
+        "reasoning": "The neighboring Resultary results do not cover this marking. In contrast the ATLAS provides fully compatible generators and class words, a mechanically evaluable presentation of exactly the underlying classwise permutation tables.",
+        "searches": [
+          "ATLAS U4(2):2 degree-27 and degree-40 permutation models; conjugacy classes and standard-generator representatives; Resultary exact Steiner marking and neighboring reconstruction claims"
+        ]
+      },
+      "rationale": "The online ATLAS already supplies the exact 40-point action (40b), its compatible 27-point action, and one word in the same generators for each of the 25 classes. I verified the geometrical identification of its 40b representation by explicit generator-equivariant bijections, rather than inferring it from the degree or a common character-table label. Evaluating these supplied class words as permutations, tallying cycles and comparing columns mechanically gives all of the frozen reconstruction, cutoff and refinement statements. The equivalence is to a specific available class/representation dataset, not just to the abstract capability to enumerate a known group.",
+      "residual_risks": [
+        "No claim is made about when the inverse-zeta phrasing first appeared. Coverage relies on the identified exact public action and class data, not on inaccessible sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exhaustive class words in the same generators as both relevant permutation files",
+          "evidence": "Class d is 9A, class cdcdcdd is 12C; the table has one designated word for each of 25 classes.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/clas/U42/",
+          "material_read": "Standard generators; U4(2):2 permutation representations; full U4(2):2 conjugacy-class block with class words",
+          "method": "official public ATLAS page, bounded section inspection",
+          "title": "ATLAS of Finite Group Representations: U4(2):2 standard generators and conjugacy classes",
+          "trigger": "exact compatible Weyl class/representation data"
+        },
+        {
+          "assessment": "Direct exact-data coverage of both jointly used actions",
+          "evidence": "The induced action of the matched 27-letter generators on geometric decompositions is equivalent to 40b. The ATLAS verification page lists checks in 2006 UTC year; no priority inference from same-day Resultary records is needed.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/clas/U42/mag/U42d2G1-p40bB0.M",
+          "material_read": "Explicit image arrays for c,d in p40bB0.M, p27B0.M and comparison p40aB0.M (same base URL); 40b v3 representation page",
+          "method": "Read each short public data file as text; tested equivariance with independent code",
+          "title": "ATLAS 27-point and 40b-point permutation generator data",
+          "trigger": "same concrete degree 40 action, not just character-table background"
+        },
+        {
+          "assessment": "Covers 40 unordered decompositions and transitivity, not inverse statement itself",
+          "evidence": "240 ordered objects correspond to 40 unordered decompositions.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.2086",
+          "material_read": "§3.4–3.7, ordered triplets and unordered decompositions",
+          "method": "arXiv full-text passage",
+          "title": "On the order three Brauer classes for cubic surfaces",
+          "trigger": "exact classical marking"
+        },
+        {
+          "assessment": "Classical incidence construction",
+          "evidence": "Unique complementary pair of pairs for each Steiner-trihedral pair.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.1474",
+          "material_read": "§2 including Fact 2.9",
+          "method": "arXiv full-text passage",
+          "title": "Cubic surfaces with a Galois invariant pair of Steiner trihedra",
+          "trigger": "geometry of complementary Steiner pairs"
+        },
+        {
+          "assessment": "Line-Frobenius/class background; not 40-point action by itself",
+          "evidence": "Names the Weyl types and counts surfaces by type using the line setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.11183",
+          "material_read": "§1.1, Table 1",
+          "method": "arXiv full-text passage",
+          "title": "Arithmetic statistics on cubic surfaces",
+          "trigger": "cubic-surface W(E6) Frobenius tables"
+        },
+        {
+          "assessment": "General class background, not the decisive indexed permutation model",
+          "evidence": "Documents prior exceptional Weyl conjugacy and character tables.",
+          "identifier_or_url": "https://www.numdam.org/item/CM_1972__25_1_1_0.pdf",
+          "material_read": "p. 2, discussion of Frame's exceptional-Weyl character tables",
+          "method": "open Numdam PDF passage",
+          "title": "Conjugacy classes in the Weyl group",
+          "trigger": "historical Weyl character/class table coverage"
+        },
+        {
+          "assessment": "Other markings, not direct 40-point duplicates",
+          "evidence": "Double-six action has a collision; the three-extension result combines line and tritangent counts, not Steiner decompositions.",
+          "identifier_or_url": "Resultary 2026/11/22 IDs 55ac05d63848 and 5e55036a6d2f",
+          "material_read": "Both Findings",
+          "method": "Resultary retrieval and local mirror",
+          "title": "Near-rigidity of the double-six zeta function and Three-extension recovery of cubic-surface Frobenius",
+          "trigger": "closest distinct Resultary reconstruction matches"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen reconstruction and cutoff theorem",
+        "Exact ATLAS generator and class data with verified action correspondence"
+      ],
+      "rationale": "The inverse problem on a natural marking and the choice of a minimal observational cutoff are meaningful questions. For this frozen answer, however, all numerical separation facts result from the standard cycle and fixed-power summaries of an already available exact classwise action dataset. The record does not add an explanation of the separation beyond the table or a further independent arithmetic consequence beyond the usual Picard trace formula.",
+      "residual_risks": [
+        "The judgment concerns this mechanically covered calculation, not the general mathematical interest of recovery from smaller markings."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

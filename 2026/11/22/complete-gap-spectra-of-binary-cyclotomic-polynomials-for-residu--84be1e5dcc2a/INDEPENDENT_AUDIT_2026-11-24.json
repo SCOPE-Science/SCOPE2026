@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:29:46.638906Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Bézout rectangle identity follows by clearing denominators; the positive and negative terms are disjoint modulo a and within each rectangle no degrees repeat. For b=as+2 the occupied residues form one interval per a-row; boundary lengths decrease by twos and then increase by twos, each stage of length s. For b=au−2, u=s+1≥2, the early two-component rows each contribute u occurrences of their even interior gap, the central separation contributes a further u at length two, and the late boundary stages give u of each even length from 4 through 2h−2. The outermost boundaries contribute 2(u−1) at 2h. At h=2 the late intermediate stages are empty and the last u−1 boundaries still have length 2h. The rectangle counts minus one minus the nonunit gaps give the two unit counts. This argument uses coprimality, not primality. Independent finite coefficient reconstruction followed by gap measurement (python3 /workspace/branches/f752dabd-f88a-4b0c-8710-5aaa8112414e/gap_spectrum_probe.py) matched all 224 cases a=5,7,…,31, s=1,…,8 and both signs, including (9,20) and (9,25). The uploaded checker was not run; the all-parameter result follows from the row proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 method reconstructs prime-pair coefficient words across residues; the 2025 paper analyzes second gaps across residues and its full-frequency theorem and §4 word construction are for ±1.",
+          "Bachman handles all coprime generator pairs, including composite generators, for the set of gap lengths."
+        ],
+        "reasoning": "Instancewise reconstruction and qualitative gap sets are broader in domain but do not deliver the same invariant at this resolution. In particular the negative-residue row transitions in the frozen theorem are a symbolic calculation, not substitution into the ±1 frequency formula.",
+        "searches": [
+          "arXiv:2109.07544 Theorem 2.1 and BCW",
+          "arXiv:2507.19381 Theorems 1.1, 1.2 and 4.1",
+          "arXiv:2605.17157 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker evidence",
+        "Resultary 584c998005ae",
+        "Resultary 517e2023bbb9",
+        "arXiv:1507.07098",
+        "arXiv:2109.07544",
+        "arXiv:2507.19381",
+        "arXiv:2605.17157",
+        "arXiv:2307.07229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general maximum count is 2 floor(b/a)=2s here; classical sparsity counts give the total number of support gaps, not how the remaining gaps split by length. The best matching closed formulas in the corpus cover specific slices."
+        ],
+        "reasoning": "Neither the largest-gap fact, the total support count, nor the boundary slices imply all interior even multiplicities for arbitrary a. The exact positive/negative asymmetry is the distinct evaluated invariant.",
+        "searches": [
+          "arXiv:1507.07098 Theorem 3.2",
+          "arXiv:2507.19381 Theorems 1.1–1.2",
+          "arXiv:2307.07229 Introduction",
+          "Resultary 584c998005ae and 517e2023bbb9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Support events correspond to membership transitions in the two-generator numerical semigroup. The positive exponent differences are lengths of constant-membership runs, counting both gap and occupied runs as appropriate, not merely maximal missing runs. Bachman counts the number of distinct lengths, not occurrences of a given length."
+        ],
+        "reasoning": "This reduction explains why related binary-semigroup run-length records were relevant. The Euclidean-algorithm theorem already gives the set {1,2,4,…,a−1} at these residues, which does not determine the requested histogram.",
+        "searches": [
+          "Resultary: binary cyclotomic support gap frequencies and binary-semigroup run lengths",
+          "arXiv:1507.07098 Theorem 3.2 and §3.3",
+          "arXiv:2605.17157 equations (32)–(36) and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "584c998005ae gives a spacing polynomial for a=dt+1 and b=a+d. At d=2, t=h it is exactly 2h(h+1)z+2 times the sum of z^(2j) for j=1,…,h.",
+          "517e2023bbb9 recovers the a=5 marginal counts (8s+4,2s,2s) and (8s+4,2s+2,2s) at lengths (1,2,4) from the ordered adjacent-gap counts."
+        ],
+        "reasoning": "These are real formula overlaps, the former earlier and the latter same-day, but neither is a proof of the full ±2 law for variable h and s. The identical frozen record is not counted as a separate antecedent.",
+        "searches": [
+          "Resultary 584c998005ae, RESULT.md offsets 0 and 5000",
+          "Resultary 517e2023bbb9, RESULT.md finding"
+        ]
+      },
+      "rationale": "Pass for the complete, uniform closed-form frequency law at odd a≥5 for both residue classes, not for the individual known maximum-gap count, the set of allowed lengths, the classical support representation, or the earlier b=a+2 slice. The same-day a=5 transition counts overlap that slice in a different direction without covering varying a or establishing priority. The broad coefficient representation gives raw support data but does not give the symbolic row-boundary and within-row frequency evaluation for unbounded a and s. The retrieved prior statements do not eliminate that evaluation as a new contribution.",
+      "residual_risks": [
+        "An unindexed symbolic specialization of the broader word representation or another earlier equivalent may exist.",
+        "The focused broad literature search returned irrelevant results; it is not evidence of absence. The positive decision is based on the inspected close sources and their actual scopes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly covers positive branch s=1, including composite generators; does not cover general s or the negative branch.",
+          "evidence": "Its d=2 spacing polynomial evaluates to the frozen s=1 formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+          "material_read": "RESULT.md finding and spacing conversion, offsets 0 and 5000",
+          "method": "Resultary and local mirror passage reading",
+          "title": "Exact run-length frequencies for binary semigroups with a=dt+1 and b=a+d",
+          "trigger": "Earlier claim on b=a+2 support spacings"
+        },
+        {
+          "assessment": "Recovers both marginals for a=5; same calendar date does not establish priority.",
+          "evidence": "Adjacent-gap transitions for every q>5 coprime to 5, including residues 2 and 3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-adjacent-gap-transitions-in-binary-cyclotomic-polynomials--517e2023bbb9",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror passage reading",
+          "title": "Exact adjacent-gap transitions in binary cyclotomic polynomials",
+          "trigger": "Stronger invariant at a=5"
+        },
+        {
+          "assessment": "Direct coverage of the largest gap and count, not all multiplicities.",
+          "evidence": "Maximum a−1 with 2 floor(b/a) copies; qualitative every-length result for ±1.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.07098",
+          "material_read": "Theorem 3.2 and §3.3/Theorem 3.6, printed pp. 15, 19–20",
+          "method": "OA PDF passages",
+          "title": "Cyclotomic coefficients: gaps and jumps",
+          "trigger": "General binary and semigroup polynomial gap law"
+        },
+        {
+          "assessment": "Can recover prime-pair coefficient words at the tested residues, but does not evaluate the uniform desired closed forms.",
+          "evidence": "Coefficient-word representation and construction algorithm.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.07544",
+          "material_read": "Theorem 2.1 and BCW algorithm, pp. 3–4",
+          "method": "OA PDF passages",
+          "title": "Binary Cyclotomic Polynomials: Representation via Words and Algorithms",
+          "trigger": "Potential all-residue equivalent coefficient encoding"
+        },
+        {
+          "assessment": "The full-frequency theorem is for ±1, including an extension to semigroup polynomials; the general second-gap discussion is not the ±2 histogram.",
+          "evidence": "Theorem 4.1 uses powers of words constructed specifically for residues 1 and p−1.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.19381",
+          "material_read": "Theorems 1.1–1.2, pp. 2–3, and §4 with Theorem 4.1 at p. 16",
+          "method": "OA PDF passages and section verification",
+          "title": "Gaps in binary cyclotomic polynomials",
+          "trigger": "Complete distributions for nearby residue classes"
+        },
+        {
+          "assessment": "Supplies the full allowed set, not its multiset of occurrences.",
+          "evidence": "Theorem 2 forms a union of sets G_i and counts its cardinality.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.17157",
+          "material_read": "Equations (32)–(36), Theorem 2 and its discussion, pp. 13–14",
+          "method": "OA PDF passages, including offset 38800 onward",
+          "title": "Gaps of Binary Semigroups",
+          "trigger": "Euclidean gap classification for all coprime generators"
+        },
+        {
+          "assessment": "Coefficient sparsity/count information does not give gap multiplicities.",
+          "evidence": "Counts of nonzero coefficients rather than spacing histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.07229",
+          "material_read": "Introduction, p. 2",
+          "method": "OA PDF passage",
+          "title": "On Nonzero Coefficients of Binary Cyclotomic Polynomials",
+          "trigger": "Possible sparsity formula equivalent to the target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform full distribution specifies how a natural polynomial support is spaced, including the unit gap mass and how the sign of the residue changes every interior even frequency but leaves the largest unchanged. The ±2 cases are adjacent to the previously fully evaluated ±1 residue classes and form two unbounded families, not an arbitrary finite slice. The multiplicities carry information beyond Bachman’s allowed gap set, total sparsity, and maximum-gap frequency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

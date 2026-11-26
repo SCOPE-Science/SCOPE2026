@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:07:20.904756Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–7 and hypothesis of R-linearity",
+        "Frozen VERIFICATION.md, checker/check_jordan_poset.py, checker/check_rp2_torsion.py, and checks/output.txt; examined as evidence and not executed",
+        "Independent exact witness replay: python /workspace/branches/d55bef08-9f18-4218-9465-ee24ca585e91/verify_rp2_witness.py"
+      ],
+      "rationale": "For e_i=e_ii the square identity kills the diagonal coefficient by r=2r ⇒ r=0 and leaves only strict entries incident to i. Polarization on e_i and e_j forces opposite coefficients on e_ij. Thus h_ij=[D(e_j)]_ij for i<j gives an inner derivation matching every D(e_i), with no torsion hypothesis. After subtraction, polarization of e_ij against each endpoint idempotent confines its image to the corresponding two Peirce supports; their intersection contains e_ij and no reverse e_ji by antisymmetry. Hence the residual map is diagonal on the incidence basis. Polarization on e_ij and e_jk, whose product in the other order vanishes, gives exactly c_ik=c_ij+c_jk. Checking all ordered basis products proves Leibniz, including zero products and products with a diagonal basis element. The strict-inner parameters and cocycles are uniquely recovered. For a finite ring the coboundaries contribute |R|^(n−c), while freeness of integral H_0 removes the Ext term in H^1; applying Hom to the H_1 decomposition yields the exact torsion factors. The stated RP² complex has all vertex links 5-cycles and each edge in two facets, giving a connected closed surface of Euler characteristic 1. The independent chord presentation gives nine unit Smith factors and one factor 2; 31 equal plus 90 proper face inclusions give N=121. This yields |R|^120|R[2]|, so the counts are 4^121 and 2·4^120 as stated.",
+      "residual_risks": [
+        "The independent witness computation verifies the topology, Smith factors and poset sizes, not the universal rigidity theorem; the algebraic proof supplies that theorem. The frozen finite systems are supplementary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khrypchenko works in arbitrary characteristic and a broader finitary setting, but explicitly assumes both the square and triple-product identities. Resultary 24fc61fc7ae2 uses the square identity in characteristic two for radical-square-zero quiver algebras. The focused Benkovič–Širovnik lookup did not supply primary theorem text."
+        ],
+        "reasoning": "Finitary-ring generality does not imply rigidity from a weaker identity. The quiver criterion covers a genuine subclass over fields (posets with no strict three-element chain), not incidence algebras with longer chains or general commutative coefficient rings. The uninspected idempotent-algebra theorem remains a risk, not a noncoverage finding.",
+        "searches": [
+          "Khrypchenko arXiv:1510.00944v2 §1 and Remark 6",
+          "Benkovič–Širovnik, Jordan derivations of unital algebras with idempotents: targeted lawful PDF/theorem lookup",
+          "Resultary 24fc61fc7ae2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.6123v1",
+        "arXiv:1510.00944v2",
+        "arXiv:0706.1942v1",
+        "Resultary SCOPE036, 24fc61fc7ae2 and 445675d1fc6d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xiao already gives the inner-plus-transitive form of ordinary derivations; the finite-field idempotent census also uses the cocycle–inner form. The universal coefficient theorem directly counts cocycle classes from integral homology."
+        ],
+        "reasoning": "The ordinary-derivation count follows from the known decomposition with the standard cohomology calculation. Getting the same count for maps satisfying just the square identity, in the missing 2-torsion cases, requires showing that those maps are all ordinary derivations. The proof does so using only idempotents, polarization and antisymmetry, without invoking the extra triple-product identity.",
+        "searches": [
+          "Xiao arXiv:1411.6123v1 Thm. 2.2 and Prop. 2.5",
+          "Khrypchenko arXiv:1510.00944v2 §1, idempotent lemmas and Remark 6",
+          "Resultary 445675d1fc6d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both papers use the square identity in their definitions, but their rigidity theorems assume 2-torsion-freeness; the triangular result imposes additional assumptions on the bimodule."
+        ],
+        "reasoning": "These are direct comparisons for the same identity but no equivalence of the hypotheses: they leave out characteristic two and commutative rings with nonzero 2-torsion.",
+        "searches": [
+          "Square-only Jordan derivations, characteristic two, finite incidence/triangular algebras",
+          "Xiao arXiv:1411.6123v1 p. 1 and Thm. 3.3",
+          "Cheng–Jing arXiv:0706.1942v1 p. 1 and Thm. 2.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/9/9/SCOPE036 contains exactly the same ten-facet surface after subtracting one from each vertex label and supplies its Smith factors. Resultary 445675d1fc6d gives a finite-field rank census of ordinary derivations restricted by D²=D. Resultary 24fc61fc7ae2 addresses the radical-square-zero rigidity subclass."
+        ],
+        "reasoning": "The homology data are already covered, not an independent new discovery. The idempotent rank census is for a different subset of maps; neither that result nor the homology catalogue proves the new square-only generality or provides the all-finite-ring square-identity census. Same-day dates do not fix priority.",
+        "searches": [
+          "Local Resultary comparisons for the six-vertex torsion complex, square-only rigidity and incidence-derivation censuses"
+        ]
+      },
+      "rationale": "Pass for the finite-poset, arbitrary-commutative-ring rigidity assertion from the square identity alone, together with its counting consequence. The inner/transitive decomposition of ordinary derivations and the topology of the specific torsion witness are already known, and the census for ordinary derivations is a consequence of that known structure and universal coefficients. They are not credited as new stand-alone theorems.",
+      "residual_risks": [
+        "Primary theorem text for Benkovič–Širovnik was not retrieved. The search does not exclude an earlier square-only theorem under other structural-matrix or Peirce terminology.",
+        "Historical priority for an explicitly written general finite-ring census was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structure and torsion-free rigidity covered; arbitrary-ring rigidity not implied",
+          "evidence": "Ordinary derivations split into inner and transitive parts; the Jordan rigidity theorem assumes a 2-torsion-free ring.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.6123v1",
+          "material_read": "p. 1 definition; Thm. 2.2 p. 3; Prop. 2.5 p. 5; Thm. 3.3 p. 7",
+          "method": "Compare exact OA definition, classification and torsion hypothesis",
+          "title": "Jordan Derivations of Incidence Algebras",
+          "trigger": "Same square identity and incidence algebra"
+        },
+        {
+          "assessment": "Uses stronger map assumptions",
+          "evidence": "Both the square and D(aba) triple-product identities are required; the broad rigidity conclusion is for that class.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.00944v2",
+          "material_read": "§1 p. 2 definition; idempotent lemmas; Remark 6 p. 13",
+          "method": "Compare exact defining identities and applicability of conclusion",
+          "title": "Jordan derivations of finitary incidence rings",
+          "trigger": "Broader finitary incidence rings in arbitrary characteristic"
+        },
+        {
+          "assessment": "Does not remove the relevant torsion assumption",
+          "evidence": "The theorem assumes 2-torsion-freeness and bimodule conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/0706.1942v1",
+          "material_read": "p. 1 square-identity definition and Thm. 2.10 p. 5",
+          "method": "Inspect theorem hypotheses in OA text",
+          "title": "On Jordan Derivations of Triangular Algebras",
+          "trigger": "Potential stronger matrix-algebra rigidity theorem"
+        },
+        {
+          "assessment": "Unresolved coverage",
+          "evidence": "No exact hypothesis or theorem from this source was established; not used as evidence of absence.",
+          "identifier_or_url": "Benkovič–Širovnik, Linear Algebra Appl. 437 (2012), 2271–2284",
+          "material_read": "Bibliographic identification only; exact primary text not retrieved",
+          "method": "Targeted lawful literature retrieval lookup",
+          "title": "Jordan derivations of unital algebras with idempotents",
+          "trigger": "Potential general idempotent/Peirce implication"
+        },
+        {
+          "assessment": "Exact homological overlap and partial rigidity overlap; not the all-poset square-only claim",
+          "evidence": "The ten facets and the Smith diagonal match exactly in SCOPE036; the quiver criterion is restricted to radical square zero, and the finite-field count enumerates composition-idempotent ordinary derivations.",
+          "identifier_or_url": "Resultary 2026/9/9/SCOPE036, 24fc61fc7ae2, 445675d1fc6d",
+          "material_read": "Locally mirrored findings on the six-vertex pure 2-complex census, loop/reversal criterion, and D²=D rank counts",
+          "method": "Check relabeling, radical-square-zero reduction, and the operator restriction",
+          "title": "Indexed torsion complex, radical-square-zero rigidity and projection-derivation results",
+          "trigger": "Exact torsion witness, and related square-only and enumeration statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof and RP² example",
+        "Xiao and Khrypchenko on the different Jordan-identity hypotheses",
+        "Independent RP² reconstruction"
+      ],
+      "rationale": "The theorem resolves a meaningful hypothesis gap for a natural algebra class: a weaker nonlinear identity still forces full ordered Leibniz even when the usual torsion assumption fails. The proof isolates the antisymmetric Peirce support responsible for rigidity. Its census gives a concrete consequence of combining rigidity with topology: equal-size coefficient rings can give different numbers of square-identity maps, and the difference is predicted by the integral torsion rather than ring size alone.",
+      "residual_risks": [
+        "No rigidity is inferred for arbitrary preorders, infinite posets, or all additive non-R-linear maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

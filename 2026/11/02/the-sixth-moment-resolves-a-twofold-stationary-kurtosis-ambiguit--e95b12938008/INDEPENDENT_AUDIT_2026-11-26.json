@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:48.256365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary generator on x^p y^q has reset loss only for q>0. Normalizing time by r and position and driver by sqrt(D/r), I recovered the three forward moments by recursive symbolic evaluation (replay: python /workspace/branches/independent_moments.py, SymPy; output /workspace/branches/independent_moments.log). The exact fourth-moment cross difference is -2(b-c)(7bc+3b+3c-27). Its derivative and K-2=b(9-b)/((b+2)(b+3)) give precisely two positive preimages for 2<K<Kmax; the lower endpoint b=0 is excluded, K=2 occurs only at b=9, and the maximum has a single preimage. As an independent sign check, on distinct positive equal-K pairs write t=b+c; then 0<t<9 and both arguments satisfy x^2-t*x+(27-3*t)/7=0. Reduce the numerator and denominator of H to linear residues. The numerator of (H(b)-H(c))/(b-c), with the original positive denominator Q(b)Q(c), is 14256(t+5)^2(307760+63141t-290t^2-51t^3)/2401. Since 290t^2+51t^3<6741t, it is strictly positive. Thus the larger branch strictly increases H. A prescribed positive variance can be matched at either branch by adjusting s, so the ambiguity is real without m6. Once the branch is known, variance gives s; simultaneous rescaling of mu,r,D changes only the clock, not the stationary distribution. Neither statistical accuracy from samples nor separate recovery of all three rates is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Di Bello et al., Eqs. (43)–(47), recover the shot rate or kick-amplitude moments for a direct compound-Poisson impulse bath.",
+          "Olsen, Eqs. (15)–(21), resets position itself, with reset term -rp+rp_R.",
+          "Resultary ae34d732db08 recovers anisotropy and reset parameters using radial and angular moments under joint position/orientation resets."
+        ],
+        "reasoning": "These are not broader classes containing the auxiliary Brownian driver killed and restarted at zero, with a continuous filtered X dynamics and a stationary inverse problem using only even scalar moments.",
+        "searches": [
+          "arXiv:2309.13424 §§2, 3.2",
+          "arXiv:2310.04840, harmonic example",
+          "Resultary comparison: stationary moment tomography under resetting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.09453",
+        "arXiv:2309.13424",
+        "arXiv:2310.04840",
+        "Resultary 432388eb4847, ae34d732db08, 7fc19401bd11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formula and stationary scaling give the exact rational curve and the common-rate invariance; proving nonintersection after adding H requires a global comparison of the two inverse branches.",
+          "7fc19401bd11 includes the same reset-force model at zero added thermal noise, but locates and orders the separate global maxima of cumulants, not their values on equal-kurtosis pairs."
+        ],
+        "reasoning": "The inverse classification is a deduction from known forward formulas with additional algebra, not a direct corollary of a prior inverse theorem or of the locations of maxima of separate functions.",
+        "searches": [
+          "arXiv:2306.09453 Eqs. (59)–(61), (E.2)–(E.4)",
+          "Resultary 7fc19401bd11, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 432388eb4847 uses a three-state run/rest particle; it separates one example by m6 but expressly does not prove global separation on its own two-solution region.",
+          "Appendix E gives the exact same forward moments; the equal-kurtosis preimage involution and order of the sixth-moment ratio are not stated in the inspected model-specific sections."
+        ],
+        "reasoning": "Equal normalized kurtosis is equivalent to equal fourth moment after matching variance, and the inverse ambiguity persists under that formulation. The related run/rest inverse fold uses a different generator and does not supply the global separation, regardless of shared catalogue date.",
+        "searches": [
+          "Resultary comparison: variance/fourth-moment inverse folds and sixth-moment separation for trapped reset particles",
+          "Guéneau–Majumdar–Schehr arXiv:2306.09453 §4.2–4.3 and Appendix E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact forward moment table is already published in Appendix E, including the sixth-order polynomial.",
+          "The close catalogue records 432388eb4847, ae34d732db08 and 7fc19401bd11 give, respectively, a different inverse fold, different measurement/dynamics tomography, and the ordering of maximizing reset rates for separate cumulants, not an equal-K branch-ordering table."
+        ],
+        "reasoning": "Reproducing the table is not new. The accepted assertion concerns the fibers of that forward map and the strict order of H within every ambiguous fiber.",
+        "searches": [
+          "Appendix E, Eqs. (E.1)–(E.4), arXiv:2306.09453",
+          "Resultary catalogue comparison of inverse folds, tomography, and thermal broadening of standardized cumulants"
+        ]
+      },
+      "rationale": "The exact inverse folding and separation classification is distinct from the known model, scaling, and forward moments, which are excluded from the originality claim. No inspected equivalent or dominating result supplies the same classification; this is a bounded comparison, not certification of priority.",
+      "residual_risks": [
+        "An unindexed inverse or rational-moment identifiability theorem may give prior coverage; bounded retrieval does not establish priority.",
+        "The contribution is limited to exact inversion of existing forward expressions, not new moments or the stationary law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward map covered; inverse separation not covered in the material read",
+          "evidence": "The recursion is used to compute stationary moments, explicitly listing m2,m4,m6; the identified passages do not compare inverse branches.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09453",
+          "material_read": "§4.2 Eqs. (59)–(60), §4.3 scaling, and Appendix E Eqs. (E.1)–(E.4), printed pp. 20 and 44 for the recursion and table",
+          "method": "Primary OA PDF passages located by equation and read directly",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Same dynamics and exact forward moments"
+        },
+        {
+          "assessment": "Different generator and inverse problem",
+          "evidence": "Instantaneous independent Poisson displacement kicks rather than resetting an auxiliary Brownian path; inversion concerns kick amplitude moments and shot rate.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.13424",
+          "material_read": "§2 model and §3.2 Eqs. (43)–(47), PDF pp. 2 and 8",
+          "method": "Primary OA PDF passages",
+          "title": "Brownian particle in a Poisson-shot-noise active bath: exact statistics, effective temperature, and inference",
+          "trigger": "Explicitly inverse statistics in a harmonic trap"
+        },
+        {
+          "assessment": "Position resetting, not driving-signal resetting",
+          "evidence": "The reset term is -rp+rp_R with reset position drawn from p_R.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "Harmonic Brownian example Eqs. (15)–(21), PDF pp. 3–4",
+          "method": "Primary OA PDF passages",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Harmonic reset moment hierarchy"
+        },
+        {
+          "assessment": "Different model and global injectivity expressly not claimed",
+          "evidence": "Three-state run/rest model and a single sixth-moment separation example.",
+          "identifier_or_url": "Resultary 432388eb4847",
+          "material_read": "Finding, assumptions and limitations of RESULT.md, offsets 0 and 5295",
+          "method": "Catalogue search and local-mirror text",
+          "title": "An exact two-moment inverse fold in a trapped run-and-tumble particle",
+          "trigger": "Same-day finite moment inverse ambiguity and sixth moment witness"
+        },
+        {
+          "assessment": "Different dynamics, parameters and moment coordinates",
+          "evidence": "Planar anisotropic passive Brownian motion with joint position/orientation resets and angular as well as radial moments.",
+          "identifier_or_url": "Resultary ae34d732db08",
+          "material_read": "Finding and assumptions of RESULT.md, offset 0",
+          "method": "Catalogue search and local-mirror text",
+          "title": "Exact angular moment hierarchy and stationary position tomography",
+          "trigger": "Same-day global inversion by stationary moments under resetting"
+        },
+        {
+          "assessment": "Different mathematical comparison even at zero thermal intensity",
+          "evidence": "Orders maximizing parameter values of two standardized cumulants, not values on inverse fibers of kurtosis.",
+          "identifier_or_url": "Resultary 7fc19401bd11",
+          "material_read": "Finding and Relationship to prior work of RESULT.md, offsets 0 and 8259",
+          "method": "Catalogue search and local-mirror text",
+          "title": "Thermal broadening preserves the strict ordering of two non-Gaussian peaks",
+          "trigger": "Same base reset force and fourth/sixth order information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an established exactly solvable persistent-noise model, the result identifies where variance and kurtosis genuinely fail to distinguish a memory ratio, and which next consecutive even moment resolves it uniformly over admissible positive parameters. The global ordering is usable for choosing between two moment-matched parameter sets, not just a new parametrization of a tabulated moment. The result is about population observability, not practical estimator conditioning or absolute parameter recovery.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

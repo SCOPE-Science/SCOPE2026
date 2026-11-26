@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted matrix-tree theorem gives the intact determinant and both edge-outage counts. Automorphism averaging is justified by concavity of the minimum of failure-specific log determinants, and exact one-variable differentiation yields the two threshold values with equality cases. The nontrivial unrestricted-uniqueness argument uses a strictly concave average over all spoke-failure log determinants; at low prices a positive mixture with hub-failure log determinant supplies a tight supporting objective. The independence of reduced incidence dyads is established for simple graphs by inspecting off-diagonal and root-related diagonal entries. Direct rational determinant checks are included, but are not substituted for the proof.
+PASS
 
-## Originality — PASS with limits
+The budget simplex is compact and a positive surviving tree count is feasible for m≥2, so allocations with any singular outage cofactor cannot maximize the objective. On the positive domain log of the worst tree count is the minimum of concave log determinants of affine reduced Laplacians and is therefore concave. Averaging over page permutations and hub interchange preserves budget and does not decrease it. For symmetric weights, direct tree counting gives the intact count 2^(m−1)a^m(ma+2b): a tree uses the hub edge and one spoke per page, or omits the hub edge and uses exactly one double-spoke connector page. Removing the hub sets b=0; removing one spoke instead forces its page to use the other spoke, giving 2^(m−2)a^m((m−1)a+2b). These outage counts tie at r=(m+1)/2. The budget substitutes a=B/(2m+tr). To the right of the tie the objective strictly decreases; on its left the derivative sign is that of 4m−(m²−1)t−2mtr. Its zero reaches the tie and zero precisely at the stated t1 and t2. This verifies the optimizer, optimum, active failures and both equality cases. For unrestricted uniqueness, the average of the spoke-outage log determinants is strictly concave on its positive domain: a zero log-det curvature direction would vanish on every undeleted-edge dyad sum; in a simple graph those dyads are independent by inspecting off-diagonals and then diagonals, so the different deletions admit no common nonzero null direction. If an optimal allocation were nonsymmetric, group averaging would strictly increase this spoke average. But the average is at least the worst-outage log determinant at the original allocation and equals it at the symmetric optimum, since spoke outage is active there in every regime. That is a contradiction, including at b=0 or either threshold. The intact scalar derivative has sign 4m−m(m+1)t−2mtr, giving the nominal threshold 4/(m+1) by the same concavity and symmetry reasoning. It is strictly below t2; the displayed limits follow directly.
 
-The closest mathematical antecedent is Khosoussi et al., arXiv:1604.01116: weighted spanning-tree log determinants, matrix-tree identities, and edge-selection optimization are known. Full-text sections on tree connectivity and edge selection do not state the minimum over all one-edge-deletion determinants on the priced book network, nor either exact budget threshold. Daoud (2013) treats counts on Cartesian-product stacked books, not the present join graph or its robust allocation. A prior study of single-failure algebraic connectivity on the same book network establishes a different eigenvalue objective, with no implication of the two determinant thresholds. Literature and finding-database searches located no claim implying the exact classified optimizer, but unindexed D-optimal-design/network-reliability specializations remain a residual risk, so independent historical validation remains desirable.
+## originality
 
-## Value — PASS
+PASS
 
-Worst-case single-outage tree connectivity is a natural deterministic network-resilience version of the established weighted-spanning-tree D-optimality measure. The exact theorem classifies all budgets and prices for an infinite graph family, proves global (not just symmetric) uniqueness, and reveals three genuinely different price regimes: a balanced-outage saturation, an interior allocation, and deletion of the backup. Its departure from the nominal deletion price is a precise design-relevant effect rather than an arbitrary parameter improvement. The assumptions intentionally exclude multiple failures and literal probability-of-survival optimization.
+The distinct result is the unrestricted maximin spanning-tree optimizer, its two exact thresholds and equality cases. The strongest exact-topology overlap optimizes the surviving spectral gap, not the product of nonzero eigenvalues. The indexed nominal determinant result covers the intact benchmark, not the worst-outage criterion. General determinant-design and edge-deletion identities do not give the classified optimum without additional analysis. The assessment is bounded by the inspected statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Worst single-outage tree connectivity is a natural robust analogue of an established continuous network-design measure. On an infinite graph family the theorem distinguishes equalized failure scenarios, an interior spoke-limited design and complete abandonment of the hub edge. Its exact price comparison isolates when backup remains worthwhile under the robust criterion but not without outages; proof of unrestricted uniqueness makes that interpretation independent of any symmetric-design restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

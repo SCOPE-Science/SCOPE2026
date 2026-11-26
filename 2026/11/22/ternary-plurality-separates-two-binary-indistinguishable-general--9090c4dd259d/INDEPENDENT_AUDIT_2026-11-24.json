@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:19:36.650564Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently built each neighborhood from the two shore strides and spoke, then used bitmasks of vertices per color to build each labeled transition map. At each vertex at most one color can occur twice; if no color occurs twice the corresponding bit is inherited from the current state. For each of 59049 ternary states per graph, exact iteration found the first x with F^2(x)=x; it was found by depth 5 (prism) or 7 (Petersen) in every case, excluding longer cycles without assuming any general period theorem. F(x)=x separates period one from primitive period two, whose labeled recurrent states are divided by two for orbit counts. The replay independently matches both frozen histograms and least-encoded witnesses. Binary enumeration of 1024 states per graph gives (14 fixed, 55 primitive two-cycles) on both. In order (fixed, primitive two-cycle orbits, fixed basin, two-cycle basin, unanimous basin, maximum preperiod), the ternary rows are (219,1410,17049,42000,12063,5) and (579,2175,37899,21150,33543,7). Fixed palettte counts are (3,36,180) and (3,36,540). Replay: python3 /workspace/branches/plurality_reproduction.py; the certificate is exact and exhaustive for these finite maps only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mossel–Neeman–Tamuz's weighted no-ties plurality recurrence is prior period-bound context, not census data; Becchetti et al. use sampled random-neighbor polling",
+          "158beb498c7e treats the equilibrium comparison of all cyclic prisms against Möbius-twisted ladders under tie retention"
+        ],
+        "reasoning": "The all-prism equilibrium treatment includes the prism in the present study, not a comparison of its synchronous basins to Petersen. The period bound alone cannot distinguish the populations. Even a symmetric infinitesimal incumbent self-weight here would reproduce the local choices and explain the period-two ceiling via a usual symmetric two-step potential; the ceiling is not the distinct claim.",
+        "searches": [
+          "Public literature query for majority/plurality recurrence and exact Petersen dynamics",
+          "arXiv:1207.0893 §6.2; arXiv:1310.2858 §2; Resultary 158beb498c7e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 158beb498c7e; ad7079bf4060; e1d2b1ea8d39; 7d4c1d4df82a",
+        "arXiv:1207.0893 and arXiv:1310.2858 (bounded access as recorded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-state restriction agrees with strict binary majority; it does not determine dynamics on the genuinely three-color part of state space",
+          "Even an exact characterization of all single-vertex energy minima determines only Fix(F), not F^2(x)=x outside Fix(F) or first entry to periodic states"
+        ],
+        "reasoning": "Known baseline and equilibrium overlap do not mechanically yield 2175>1410 together with 21150<42000. No same-day priority inference is needed to credit static overlap and distinguish the dynamic comparison.",
+        "searches": [
+          "Resultary 158beb498c7e, ad7079bf4060, e1d2b1ea8d39, 7d4c1d4df82a compared with frozen RESULT.md lines 5–24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ad7079bf4060 reports 579 absorbing states under strict three-color Potts energy descent on Petersen",
+          "For single-vertex strict descent of the equal-color edge energy, a recolor improves iff its new color has more neighbors than the incumbent"
+        ],
+        "reasoning": "On cubic graphs with this exact three-color palette, all-different neighborhoods give the incumbent an equal vote count, and otherwise the local maximizer must be the repeated color. Absorbing configurations of the unrestricted single-vertex strict descent and synchronous tie-retaining fixed points therefore coincide. This relation gives no correspondence of the two transition maps off equilibrium, or of their basins.",
+        "searches": [
+          "Resultary: three-color tie-retaining plurality generalized Petersen graphs, recurrent states, absorbing states and basin inversion",
+          "Resultary ad7079bf4060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e1d2b1ea8d39 is the binary generalized-Petersen majority comparison credited for the circumference-five baseline",
+          "7d4c1d4df82a is an exact three-state census on the same graphs with a refractory/excitation update and different recurrent periods",
+          "ad7079bf4060 matches the Petersen equilibrium total; prism-family statics in 158beb498c7e also materially overlap"
+        ],
+        "reasoning": "The compared exact statics or tables for different transition rules do not supply the synchronous three-color counts of two-cycle orbits, their basin sizes, or first-entry maxima.",
+        "searches": [
+          "Resultary: GP(5,1) and GP(5,2), binary 14/55, ternary 219/579, primitive periods/basins"
+        ]
+      },
+      "rationale": "Pass is for the joint comparison of the two exact synchronous dynamics, especially the opposition of primitive-cycle count and total oscillatory basin population, not for the known binary baseline, each equilibrium number considered alone, or a general period-two principle. Indexed same-day static overlaps are material and credited; neither accessible statement covers the synchronous basin-period comparison.",
+      "residual_risks": [
+        "Full text of the static catalogue matches and primary literature could not be retrieved. Exact details of the n=5 printed prism count and the permitted Potts moves remain unconfirmed in primary text.",
+        "The stated pass does not certify priority or exclude an unindexed complete census; it credits statics and the known binary context using the available statement-level comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same prism equilibrium regime; exact printed n=5 entry not independently retrieved; no synchronous joint dynamical comparison shown",
+          "evidence": [
+            "Summary concerns equilibria on cyclic prisms and Möbius-twisted ladders for every n>=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-ten-residue-topology-switch-in-three-opinion-plurality-equilib--158beb498c7e",
+          "material_read": "Resultary summary; full Finding retrieval through mirror timed out",
+          "method": "Catalogue search and targeted OA read attempt",
+          "title": "A ten-residue topology switch in three-opinion plurality equilibria",
+          "trigger": "Exact same rule and one graph family"
+        },
+        {
+          "assessment": "Exact static overlap under unrestricted one-vertex strict descent; no equivalence of the time evolution",
+          "evidence": [
+            "A single-site move changes the equal-color edge total only by the difference in the two neighbor vote counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-three-color-potts-trapping-and-geometric-rare-seed-nucleation-on--ad7079bf4060",
+          "material_read": "Resultary summary and its absorbing count; targeted mirror read of strict-descent assumptions timed out",
+          "method": "Catalogue comparison, attempted OA reading, local energy-change argument",
+          "title": "Three-color Potts trapping and geometric rare-seed nucleation",
+          "trigger": "Petersen three-color population 579 and possible static equivalence"
+        },
+        {
+          "assessment": "Binary baseline and different finite-state excitation dynamics",
+          "evidence": [
+            "Excitation rule allows recurrent periods seven and eight, unlike these ternary plurality maps."
+          ],
+          "identifier_or_url": "Resultary e1d2b1ea8d39; 7d4c1d4df82a",
+          "material_read": "Catalogue summaries and frozen RESULT.md §Relationship; exact binary source table not obtained",
+          "method": "Resultary statement comparison and mirror read attempts",
+          "title": "An equilibrium–oscillation entropy reversal on generalized Petersen graphs; Exact recurrence and basins on the two ten-vertex generalized Petersen graphs",
+          "trigger": "All-order binary comparison and same-pair three-state census"
+        },
+        {
+          "assessment": "Rule or scope differences; full-document exclusion not made",
+          "evidence": [
+            "Frozen comparison identifies weighted tie avoidance versus stochastic polling, neither a reported exact synchronous basin census for this pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.0893; https://arxiv.org/abs/1310.2858",
+          "material_read": "Frozen literature comparison with primary references §6.2 and §2; attempted OA retrieval did not return primary passages",
+          "method": "Targeted literature search and attempted primary retrieval",
+          "title": "Majority Dynamics and Aggregation of Information in Social Networks; Simple Dynamics for Plurality Consensus",
+          "trigger": "Broader period theorem and plurality protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These classical cubic ten-vertex graphs are a motivated comparison because the binary recurrent counts match exactly. The ternary census separates the two not just by a different count, but by a reversed ordering between number of oscillatory attractors and fraction of initial states cycling. The exact labeled basin and first-entry counts give a reusable complete benchmark for that distinction; no family-wide generalization or utility of arbitrary small graph enumerations is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

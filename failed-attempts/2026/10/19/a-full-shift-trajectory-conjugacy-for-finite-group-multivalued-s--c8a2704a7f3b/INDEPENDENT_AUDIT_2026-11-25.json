@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:05:21.348818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–42",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Freeness on letters uniquely recovers the branch h_t from x^(t)_1 and x^(t+1)_0. The first letter at time j is (h_(j-1)…h_0) applied to the j-th initial letter. Arbitrary first letters and labels reconstruct the initial word by inverse prefix products, then the whole trajectory by the ordered recurrence. Each input/output coordinate requires only finitely many coordinates, and advancing time shifts the code. The product order needs no commutativity. Repeated words give q^n fixed trajectories, cylinder counts give log q, the formal exponential series gives (1-qt)^(-1), and Möbius inversion followed by division by least period gives the primitive orbit count. The proof includes q=1 and does not confuse fixed full trajectories with multivalued periodic states.",
+      "residual_risks": [
+        "Finite test-code counts are supplementary, not an all-period certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quotient identity F(x)=π^(-1)(Tπx) and unrestricted trajectory lifts hold for finite isometric actions and any continuous equivariant f, even when the action is not free. Oliveira treats involutive-isometry shadowing and explicitly gives the binary map."
+        ],
+        "reasoning": "The usual product shift metric makes the frozen action isometric and the shift is equivariant. The general lift statement applies; free letters provide a continuous product trivialization of the quotient map in this example. Oliveira alone does not give the trajectory invariant.",
+        "searches": [
+          "Resultary 084b862c5ecb, assumptions and Proof §1",
+          "Oliveira, arXiv:2602.12399v1, Lemma 2.7 and Example 2.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 084b862c5ecb and 19779e27b698",
+        "Oliveira arXiv:2602.12399v1",
+        "Kelly–McGoff arXiv:1910.00568v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write a letter as (b_j,g_j) in B×H, with B=A/H and H acting on the left. The quotient of a word is coded by (b_j,g_j^(-1)g_(j+1)) at every j. These coordinates are invariant and arbitrary; the representative with g_0=e is reconstructed by cumulative right multiplication. The induced quotient shift drops the first pair. The inspected lift statement then says each successive initial group coordinate can be chosen independently, yielding the full shift on B×H×H, with |B||H|²=|A||H|."
+        ],
+        "reasoning": "Both coordinate reconstructions are continuous, including at all periodic sequences. Thus the pre-existing general lift relation with this elementary full-shift quotient gives the claimed topological classification and its full-shift invariants; different gauge coordinates do not change the result.",
+        "searches": [
+          "Resultary 084b862c5ecb, RESULT.md offset 1780–4380, Proof §1 equation (1) and following paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "084b862c5ecb, Proof §1 equation (1), identifies the trajectory relation with the inverse image of a single-valued quotient relation and explicitly permits arbitrary lifts. The untwisting record instead concerns group-labelled idempotents on finite sets. Kelly–McGoff have Borel entropy conjugacy for interval Markov multimaps."
+        ],
+        "reasoning": "The quotient relation is an exact reformulation, not just a set-valued factor. An interval SFT presentation or untwisting for idempotents would not by itself give the global topological conjugacy.",
+        "searches": [
+          "Resultary exact shadowing reduction and branching obstruction, 084b862c5ecb",
+          "Resultary simultaneous untwisting of commuting retractions, 19779e27b698",
+          "Kelly–McGoff, arXiv:1910.00568v1, Theorem 1.1 and Definition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No literal matching trajectory-count table was found. The same-map binary example treats shadowing. The quotient record expressly distinguishes its multivalued periodic-point zeta from a zeta of orbit realizations."
+        ],
+        "reasoning": "A periodic multivalued state table would not be a trajectory count table. But absence of a literal table does not matter here: counting arbitrary periodic lifts gives the exact trajectory counts from the broader result.",
+        "searches": [
+          "Resultary semantic lookup for the free group multivalued shift and its trajectory counts",
+          "Oliveira, arXiv:2602.12399v1, Example 2.8",
+          "Resultary 084b862c5ecb, periodic-point convention and zeta"
+        ]
+      },
+      "rationale": "A distinct Resultary record already covers the decisive stronger trajectory-lifting relation. Its proof explicitly says that every lift sequence of a quotient orbit is an actual trajectory, because the next orbit fibre is the full image. The frozen conjugacy follows directly by writing the free alphabet as B×H, coding the quotient shift by orbit letters and successive group differences, and recording one freely chosen fibre coordinate per time. This proves coverage by implication; the other result is not claimed to print the same conjugacy formula or to have priority.",
+      "residual_risks": [
+        "The coverage finding does not settle chronology or priority; in particular the overlapping Resultary record carries a later date label.",
+        "Other skew-product treatments may provide equivalent direct codes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage by elementary quotient specialization, although its printed zeta uses a different invariant",
+          "evidence": "Every sequence of lifts of a true quotient orbit is a true orbit of F because F(x) contains the entire next quotient fibre.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-shadowing-reduction-and-a-branching-obstruction-for-finite--084b862c5ecb/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof §§1–3; decisive equation (1) and lift paragraph at offsets 1780–4380",
+          "method": "Resultary lookup and primary local-mirror passage comparison",
+          "title": "Exact shadowing reduction and a branching obstruction for finite group multivalued maps",
+          "trigger": "Same orbit-valued map and underlying trajectory relation"
+        },
+        {
+          "assessment": "Same example, different stated shadowing result",
+          "evidence": "R flips each bit, commutes with the shift, and yields the two-valued shadowing example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.12399v1",
+          "material_read": "Lemma 2.7 (p. 4, offset 13285), Example 2.8 (p. 5, offset 15973)",
+          "method": "OA primary PDF text",
+          "title": "Periodic Shadowing for Set-Valued Maps",
+          "trigger": "Exact binary complement-and-shift map"
+        },
+        {
+          "assessment": "Different model and weaker conjugacy, not the basis of the coverage decision",
+          "evidence": "Borel entropy conjugacy permits deleting exceptional sets, rather than providing a homeomorphism on the entire trajectory space.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.00568v1",
+          "material_read": "Abstract (p. 1), Theorem 1.1 (p. 2, offset 5544), Definition 2.2 (p. 6, offset 14326)",
+          "method": "OA primary PDF text",
+          "title": "Entropy Conjugacy for Markov Multi-Maps of the Interval",
+          "trigger": "Trajectory-to-SFT coding framework"
+        },
+        {
+          "assessment": "Not a trajectory coding result",
+          "evidence": "Diagonal untwisting is stated for commuting idempotents on finite sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-simultaneous-untwisting-of-commuting-retractions-on-homogeneous--19779e27b698",
+          "material_read": "Finding on group-labelled commuting idempotents",
+          "method": "Resultary lookup and local-mirror comparison",
+          "title": "Simultaneous untwisting of commuting retractions on homogeneous finite group actions",
+          "trigger": "Cocycle untwisting search"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4",
+        "Resultary 084b862c5ecb, Proof §1"
+      ],
+      "rationale": "Distinguishing trajectory invariants from periodic-state invariants is useful and the gauge is a clean exposition. As a distinct mathematical contribution, however, the entire finding is a routine full-shift recoding of the already established unrestricted lift relation. The entropy, zeta and orbit counts are standard consequences and leave no separately needed case or obstruction in the frozen claim.",
+      "residual_risks": [
+        "This is a judgment on the stated contribution, not on the expository usefulness of the code."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

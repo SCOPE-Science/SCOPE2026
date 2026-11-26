@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:40:15.098419Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 4–82",
+        "Assigned VERIFICATION.md and verify.py, inspected",
+        "Independent exact replay: python3 /workspace/review_checks/independent_algebra.py"
+      ],
+      "rationale": "The reset is of Y only. The generator on x^i y^j has diagonal −(i+ρ 1_{j>0}), drift coupling i x^{i−1}y^{j+1} and diffusion coupling j(j−1)x^iy^{j−2}. A separate triangular recurrence for stationary and lagged moments reproduced the exact rational transform symbolically, including all normalizations. Partial fractions give g_1=−(12+32t)e^{−t}; away from 1, h=e^{ρt}g consists of an exponential plus an affine term. Below 1 its initial value, slope and second derivative are negative. At ρ_* the initial value vanishes and the slope is positive (11ρ_*²−9ρ_*−18=(15ρ_*−3)/2); above it all three signs are positive. In the intermediate regime the core starts negative, is strictly convex and diverges to +∞, hence has just one zero. For each of the three exponential filters, the derivative of the exponentially rescaled output has the input's sign, so its initially negative output has at most one positive-time zero, crossing from negative to positive if it occurs. Strict fixed signs persist outside that regime. Inside it, the positive e^{−t} core tail survives all three filters since their rates exceed 1, proving existence as well as uniqueness.",
+      "residual_risks": [
+        "The exact transform and sign proof concern this stationary fourth-order observable, not general time irreversibility or non-Poisson resets. Packaged spot checks are not the basis for uniqueness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The harmonic-reset paper derives stationary laws and two-point quantities. The AOUP paper concerns path-probability irreversibility under OU forcing. The four-time sign record compares connected cumulants separately under positive filtering."
+        ],
+        "reasoning": "These observables or forcing laws differ. Even positive connected cumulants at the two repeated-time configurations do not determine their difference.",
+        "searches": [
+          "Guéneau–Majumdar–Schehr arXiv:2306.09453",
+          "Dabelow–Eichhorn doi:10.3389/fphy.2020.582992",
+          "Resultary four-time sign fingerprints, …--c69dc0d762a5"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Same-model October result",
+        "Guéneau–Majumdar–Schehr",
+        "Dabelow–Eichhorn",
+        "Four-time signs catalog record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three first-order factors of the transform invert to positive kernels, but a positive kernel applied to a general sign-varying input does not by itself give an all-lag sign diagram. The remaining quadratic-numerator core has rate-dependent initial values, slope and curvature that must be checked."
+        ],
+        "reasoning": "The transform determines A, but the claimed zero count is not one of its previously established implications. It requires isolating and proving the core's sign variation, then propagating it and proving persistence of the slow tail. The filter lemma itself is standard.",
+        "searches": [
+          "October result's exact transform and Limitations",
+          "Assigned RESULT.md §§2–4: signed-core and filter steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October record defines the same A_ρ(t) and threshold and proves existence of at least one crossing. It says 'No uniqueness of this zero is asserted.'"
+        ],
+        "reasoning": "Existence and asymptotic signs do not preclude additional crossings or isolated zeros. They are not equivalent to the asserted strict sign diagram.",
+        "searches": [
+          "Resultary: fourth-order arrow of time, lag reversal and harmonic reset bath",
+          "Same-model October result, 2026/10/25/…--2d5b968bafd9, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match states the Laplace transform and reversal existence, expressly not the zero count."
+        ],
+        "reasoning": "The object here is an all-rate/all-lag analytic classification; values or examples cannot establish this coverage. The exact symbolic catalog comparison is decisive as to what the prior record actually claims.",
+        "searches": [
+          "Resultary: reset-bath fourth-order lag-sign classification",
+          "Exact same-model October record and neighboring four-cumulant record"
+        ]
+      },
+      "rationale": "The transform, endpoint signs and existence of a reversal were already established for the same model. The distinct result supported here is the global zero count and strict all-lag signs, including both boundary rates. The exact antecedent explicitly did not assert uniqueness; the checked general and adjacent work does not supply the needed signed-core analysis for this observable.",
+      "residual_risks": [
+        "The broad literature query was uninformative, not evidence of absence. The related Yuvan–Bier Lévy-noise paper could not be read in full after lawful access attempts. An unlocated same-model classification or specialized sign theorem is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the transform, short- and long-lag signs and existence only",
+          "evidence": "The prior result explicitly does not assert uniqueness or classify all zeros.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-fourth-order-arrow-of-time-and-lag-sign-reversal-in-a-harmonic--2d5b968bafd9",
+          "material_read": "RESULT.md Finding and Limitations, local mirror offsets 0 and 7358",
+          "method": "Statement and transform comparison",
+          "title": "A fourth-order arrow of time and lag-sign reversal in a harmonic resetting bath",
+          "trigger": "Same model, transform, observable and two rate thresholds"
+        },
+        {
+          "assessment": "Same model but no matching quartic chronological sign theorem in inspected passages",
+          "evidence": "The inspected temporal sections treat two-point correlation/response and transient variance.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09453",
+          "material_read": "OA PDF pp. 4–6 and 24–25, offsets 11800–17791, 89949 and 94926",
+          "method": "Read model, stationary and lagged results",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Primary source for the exact stochastic model"
+        },
+        {
+          "assessment": "Different observable and bath mechanism",
+          "evidence": "OU colored forcing and path-probability irreversibility, rather than a Poisson-reset Brownian bath and a quartic lag difference.",
+          "identifier_or_url": "https://doi.org/10.3389/fphy.2020.582992",
+          "material_read": "OA p. 1, offset 0",
+          "method": "Compare forcing model and diagnostic",
+          "title": "Irreversibility in Active Matter: General Framework for Active Ornstein–Uhlenbeck Particles",
+          "trigger": "Related harmonic active-bath irreversibility"
+        },
+        {
+          "assessment": "Does not order the two cumulants in the difference",
+          "evidence": "A trichotomy of signs for individual connected cumulants does not decide the sign of their difference.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5",
+          "material_read": "RESULT.md offsets 0 and 3063",
+          "method": "Compare ordered-cumulant claims with the repeated-time difference",
+          "title": "Four-time sign fingerprints of covariance-matched resetting Gaussian alternatives",
+          "trigger": "Related fourth-order signs with positive filters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Finding and global proof",
+        "October record's explicit zero-count limitation",
+        "Harmonic reset-bath model paper"
+      ],
+      "rationale": "The sign of a time-direction statistic can depend on the observation lag; the exact regime and zero count distinguish a unique change of diagnostic direction from spurious additional reversals. This is a complete, nontrivial qualitative classification for a motivated non-Gaussian model. The earlier transform and endpoint checks alone did not give it.",
+      "residual_risks": [
+        "No inference about sample-size requirements or entropy production follows from the sign classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

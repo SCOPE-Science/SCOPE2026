@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:20:11.601557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonconstant square-zero map, the first b values are one and its entire image lies in [1,b]; equivalently a=f(n)≤b. Counting weakly increasing suffixes gives binom(n−2,b−2), whose sum plus the zero map is 2^(n−2). Every type [a,b] is represented by a nonzero map with constant suffix a. For two nonzero maps one composite is always zero, since the smaller b bounds its own a and is at most the other b. Thus commutation means both products vanish, equivalent to overlap of their intervals. The zero map has the full interval type, so removing it preserves all types. Independently, for each interval I take the incidence vector of its points and its interior adjacent pairs, concatenated in that order. Against the diagonal form diag(I_p,−I_(p−1)), the pairing of I,J counts the points of I∩J minus its adjacent pairs and therefore equals the nonempty-intersection indicator. The singleton rows followed by the adjacent-pair rows give a block lower triangular square submatrix with identity diagonal blocks. Consequently the incidence matrix (also when rows are repeated by mapping from transformations, with or without z) has full column rank and the shifted adjacency is congruent to diag(I_p,−I_(p−1)) plus zeros. This independently gives rank 2p−1 and both asserted nullities, including p=1. The frozen checker and its recorded n=3 to 10 output were inspected, not executed; it compares exact incidence factorizations and numerical inertias. The independent congruence proof does not rely on those numerical signs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The described larger zero-divisor graph is not the square-zero commuting graph and its recorded invariants are ordinary graph parameters. The looped interval form factors by point/edge incidences; this extends as a signed form to arbitrary families of subtrees, but full column rank here relies on the family containing point and edge intervals."
+        ],
+        "reasoning": "An interval or subtree representation alone gives neither the exact rank nor the negative count on an arbitrary family. Credit hinges on the exact rank/sign split, not on claiming the signed incidence idea itself is historically novel.",
+        "searches": [
+          "DOI 10.15672/hujms.702478",
+          "\"interval intersection matrix\" inertia rank all intervals discrete intervals eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "Toker (2021), DOI 10.15672/hujms.702478 (landing citation and frozen Lemma 4.1 account)",
+        "Resultary 7082ff1cf8a2, 4699c0491091, cfc701f4a1aa, 494cdd8f9928, 2581ac4ddfd0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The related indexed Catalan results concern commuting idempotent triples or image rank/stabilization, not the real shifted rank of the square-zero commuting graph. Knowing mutual-zero adjacency and the total map count leaves the interval-matrix inertia computation."
+        ],
+        "reasoning": "Given the exact interval inertia, both graph formulas follow simply by full-rank duplication and count; the credited new mathematics is the exact inertia computation, not two unrelated spectrum results.",
+        "searches": [
+          "Toker (2021), Lemma 4.1",
+          "Resultary 494cdd8f9928 and 2581ac4ddfd0 (Catalan commutation and rank/stabilization)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same interval family appears in 7082ff1cf8a2, but the indexed theorem compares first-order quantifier-rank-three theories. Toker's mutual-zero criterion, as reported in the frozen record, supplies the adjacency relation after restricting to square-zero maps."
+        ],
+        "reasoning": "First-order equivalence is not a real matrix rank theorem. The relation comparison identifies the correct matrix but does not give its signature. A prior exact loop-retaining interval-intersection signature would cover the core calculation even without mentioning Catalan monoids.",
+        "searches": [
+          "Resultary 7082ff1cf8a2 (all nonempty discrete interval intersection graphs)",
+          "\"interval intersection matrix\" inertia rank all intervals discrete intervals eigenvalues",
+          "DOI 10.15672/hujms.702478, Lemma 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4699c0491091 concerns generator rank and already counts the same ideal. cfc701f4a1aa is an inertia theorem for the different mutual-inverse relation. The exact same-record hit is not a separate antecedent."
+        ],
+        "reasoning": "Semigroup generation, mutual-inverse spectrum and logical rank do not provide the nullity or the positive and negative counts requested here. The finite checker is correctness support, not a database comparison.",
+        "searches": [
+          "Resultary 4699c0491091, cfc701f4a1aa, 7082ff1cf8a2",
+          "Resultary exact Catalan square-zero shifted adjacency inertia"
+        ]
+      },
+      "rationale": "The exact shifted inertia is the supported contribution. The square-zero cardinality and mutual annihilation comparison have antecedents. The result has a graph-theoretic equivalent as the signed Gram calculation of the full interval family, and the comparison did not establish prior coverage of that exact signature.",
+      "residual_risks": [
+        "An unlocated exact theorem for looped interval-intersection matrices or a theorem giving their signature under independently satisfied clique-tree conditions could cover the core calculation.",
+        "Targeted primary passage and local-mirror retrieval were limited; catalog summaries support the stated distinctions but not whole-text exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the known adjacency criterion; primary full-text spectral coverage not independently cleared",
+          "evidence": [
+            "The frozen passage describes zero-product tests for a larger graph and clique/chordal parameters."
+          ],
+          "identifier_or_url": "https://doi.org/10.15672/hujms.702478",
+          "material_read": "Journal citation and frozen source's description of Lemma 4.1 and graph parameters; OA lemma retrieval did not complete",
+          "method": "DOI landing record, frozen comparison at RESULT.md:73–79, and targeted PDF passage lookup",
+          "title": "Zero-divisor graphs of Catalan monoid",
+          "trigger": "Same semigroup and mutual-zero adjacency"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Classifies first-order rank-three theories, not adjacency inertia."
+          ],
+          "identifier_or_url": "7082ff1cf8a2",
+          "material_read": "Indexed theorem and frozen account; local full-text lookup did not complete",
+          "method": "Resultary comparison",
+          "title": "Six rank-three theories of complete discrete-interval intersection graphs",
+          "trigger": "Identical unduplicated graph family"
+        },
+        {
+          "assessment": "Credit prior cardinality; generating rank is not shifted adjacency rank",
+          "evidence": [
+            "The exact ideal cardinality precedes the audited result; the indexed main result concerns generators and factorization."
+          ],
+          "identifier_or_url": "4699c0491091",
+          "material_read": "Indexed statement and frozen comparison",
+          "method": "Resultary comparison",
+          "title": "Exact generator rank of the square-zero ideal in Catalan transformation monoids",
+          "trigger": "Same square-zero object and count"
+        },
+        {
+          "assessment": "Matrix entries encode a different relation",
+          "evidence": [
+            "Mutual inverse tests products of the form fgf=f and gfg=g, not fg=gf."
+          ],
+          "identifier_or_url": "cfc701f4a1aa",
+          "material_read": "Indexed statement",
+          "method": "Resultary comparison",
+          "title": "Exact inertia and boundary rank spectra of the mutual inverse graph",
+          "trigger": "Possible overlap of signed adjacency invariants on transformation graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise sign split and exponentially large −1 eigenspace describe how an exponentially sized natural commutation graph collapses to 2n−5 nonzero shifted directions. The interval incidence argument identifies these directions without numerical diagonalization and explains why removing the zero map costs exactly one null direction. It does not compute the other eigenvalues individually.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

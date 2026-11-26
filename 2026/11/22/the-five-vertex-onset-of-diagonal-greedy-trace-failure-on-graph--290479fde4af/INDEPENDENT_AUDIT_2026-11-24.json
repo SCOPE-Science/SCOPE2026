@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:39:18.620415Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and Proof",
+        "VERIFICATION.md and green_kernel_checker.py (read only)",
+        "Replay: python3 /workspace/branches/independent_green.py; output: /workspace/branches/independent_green.out"
+      ],
+      "rationale": "For Q=I+L and a selected set S, the nonzero block of the Nyström residual is the Schur complement of K[S,S], namely Q[R,R]^{-1} for R=V\\S by block inversion. I used principal-minor determinant quotients to compute every remaining diagonal and hence every trace, without forming K. Exhausting the labeled connected graphs and both sets of argmax ties gives connected counts (1,4,38,728), and both any-bad and all-bad counts (0,0,0,60). Canonical relabeling puts all 60 in the same class, the specified pendant-on-shared-edge diamond (automorphism group of order two). On the specified labels the first pivot is uniquely 0 and its remaining diagonal is (2/7,13/35,46/105,46/105) on vertices 1–4. Independent comparison of all ten traces uniquely minimizes at {0,2}; the two greedy pairs {0,3},{0,4} both have trace 22/23 versus 37/39, giving exactly 7/897 and 858/851. The n=2 case has empty residual trace 0 and no issue with the second pivot.",
+      "residual_risks": [
+        "No conclusion is implied for weighted or disconnected graphs, other regularization, larger orders or budgets, or marginal-trace greedy selection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. analyze general PSD inputs and worst-case behavior, not enumeration in the class of graph covariances with precision I+L. Liu–Matthies discuss a general kernel approximation algorithm."
+        ],
+        "reasoning": "Generic examples cannot yield the first connected simple unweighted graph order unless their precision has the exact form I+L and the smaller graph domain is also covered.",
+        "searches": [
+          "Ma–Garnett–Schneider arXiv:1209.3694; Liu–Matthies arXiv:1505.06195; Chen et al. arXiv:2207.06503; Harbrecht–Peters–Schneider DOI 10.1016/j.apnum.2011.10.001"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion",
+        "Ma–Garnett–Schneider, Liu–Matthies, Chen et al.; Harbrecht–Peters–Schneider (bibliographic only)",
+        "Exact and adjacent Resultary graph-design and diagonal-greedy results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A marginal-trace gain guarantee or an approximation bound does not imply exact final trace optimality of diagonal greedy at n<=4; neither implies unique topology, exact gap and failure under every tie at n=5."
+        ],
+        "reasoning": "The small-order exhaustive classification, not the familiar distinction between the two criteria or generic failure, is the supported increment.",
+        "searches": [
+          "Ma–Garnett–Schneider Eq. (29), Algorithm 2; Liu–Matthies p. 2; Chen et al. p. 19; Resultary 9e500fe4ae37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma–Garnett–Schneider, Eq. (29) and Algorithm 2, select greatest trace reduction, not greatest conditional variance. Liu–Matthies, p. 2, describe the actual largest-diagonal rule as maximizing a lower bound on gain."
+        ],
+        "reasoning": "The variance diagonal and squared-column-norm divided by that diagonal need not rank vertices the same way. Equivalent residual objectives do not yield equivalent selection algorithms.",
+        "searches": [
+          "Diagonal-pivoted Cholesky / Nyström trace; graph-Gaussian conditional variance, graph V-optimal design",
+          "Resultary graph Green-kernel and two-column trace searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Identical ID 290479fde4af is the assigned record itself. The strongest distinct same-day item (9e500fe4ae37) concerns exponential Toeplitz covariances and asymptotic tie penalties. The K_{2,n} and screened-cycle records study global design optima on restricted families."
+        ],
+        "reasoning": "Those exact or asymptotic data are not a table of all small connected graph Green kernels under the same diagonal-greedy rule.",
+        "searches": [
+          "Resultary exact claim and adjacent two-pivot trace tradeoffs, graph landmark optimization and small graph coverage",
+          "Ma–Garnett–Schneider retrieved paper: exact algorithm and table check"
+        ]
+      },
+      "rationale": "The distinct result is the minimal connected unweighted graph order and complete, tie-independent failure classification at that order, for the unit regularized graph covariance and budget two. Neither general pivoted-Cholesky suboptimality nor the existing theory of greedy graph V-optimality covers this combination of matrix family, rule and quantifiers.",
+      "residual_risks": [
+        "Harbrecht–Peters–Schneider full text and any unindexed exact graph tables remain uninspected. No priority is inferred from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adjacent optimization, different greedy rule",
+          "evidence": "Chooses by marginal posterior trace decrease proportional to squared column norm over posterior diagonal.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.3694",
+          "material_read": "pp. 1–2 and p. 6, Eq. (29) and Algorithm 2",
+          "method": "arXiv PDF text",
+          "title": "Submodularity in Batch Active Learning and Survey Problems on Gaussian Random Fields",
+          "trigger": "same graph conditional-variance objective"
+        },
+        {
+          "assessment": "Broader algorithm, not a finite exact optimum classification",
+          "evidence": "Largest-modulus diagonal maximizes a lower bound on per-step gain.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.06195",
+          "material_read": "p. 2, algorithm and pivot discussion",
+          "method": "arXiv PDF text",
+          "title": "Pivoted Cholesky decomposition by cross approximation for efficient solution of kernel systems",
+          "trigger": "same diagonal pivot rule"
+        },
+        {
+          "assessment": "General PSD approximation; different hypotheses and question",
+          "evidence": "Dimension-scale number of columns for a generic PSD worst case.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "p. 19, worst-case discussion",
+          "method": "arXiv PDF text",
+          "title": "Randomly pivoted Cholesky",
+          "trigger": "generic greedy counterexamples"
+        },
+        {
+          "assessment": "Full text not recovered",
+          "evidence": "No statement-level conclusion about undisclosed examples or tables.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2011.10.001",
+          "material_read": "Bibliographic record only",
+          "method": "DOI access and lawful alternate-copy recovery",
+          "title": "On the Low-rank Approximation by the Pivoted Cholesky Decomposition",
+          "trigger": "pivoted-Cholesky trace analysis"
+        },
+        {
+          "assessment": "Different covariance family and asymptotic parameter",
+          "evidence": "Exponential Toeplitz covariances, limiting best/worst ratios 5/4 and 5/3, rather than screened graph Green-kernel enumeration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-two-pivot-greedy-trace-penalties-for-highly-correlated-exp--9e500fe4ae37",
+          "material_read": "Matched finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp two-pivot greedy trace penalties for highly correlated exponential covariances",
+          "trigger": "same budget, trace objective and tie dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md witness and small-order theorem",
+        "Independent principal-minor enumeration",
+        "Pivoted-Cholesky and graph V-optimality comparison"
+      ],
+      "rationale": "This identifies a sharp boundary and unique minimal obstruction for a common low-cost surrogate for choosing sensor/landmark columns. The small regret is not the reason for acceptance: the noteworthy fact is that exact optimality holds uniformly, including ties, up to a provable smallest example, then fails for every tie-breaking on that topology. The explicit rational witness and complete nearby census form a concrete regression benchmark.",
+      "residual_risks": [
+        "Narrow fixed-unit-shift result; it is not a general performance guarantee or a study of significant practical losses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

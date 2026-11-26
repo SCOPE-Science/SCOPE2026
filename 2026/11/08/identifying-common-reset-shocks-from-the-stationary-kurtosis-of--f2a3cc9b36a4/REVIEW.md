@@ -1,19 +1,21 @@
-# Scientific assessment: common-clock identification in diffusing diffusivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For nonnegative independent position-only, diffusivity-only and common Poisson intensities, with positive marginal intensities \(R,Q\) and independent Brownian drivers, the invariant two-variable Markov process exists and has finite fourth moments. Applied to five monomials, its explicit generator yields the exact triangular moment recurrences, including the **single** loss of the mixed moment under each common reset. Solving gives \(K=6(6R+Q)/(R+Q-c)\). An independently derived Gaussian-mixture/Poisson-survival integral reproduces the fourth moment; \(\partial K/\partial c>0\) proves strict order, sharp endpoints and inverse identification. The separate `checker.py` replayed exact symbolic identities and 680 independent integral and rational checks. Numerical checks supplement, but do not prove, the universal claim. Boundary cases \(r_x=0\), \(r_\omega=0\), \(c=0\), and the fully synchronized case are covered.
+PASS
 
-## Originality — PASS, qualified
+Construct the process from the last resets on a two-sided clock realization. Coupling erases the initial diffusivity at its first reset, then the initial position at the next position reset. Conditional on the clocks and Ω, X is centered Gaussian of variance 2V, with V=∫₀^∞ Ω_{−s}² 1{no position reset in (−s,0]} ds. The absence event at each s is independent of Ω_{−s}; Minkowski and ∫₀^∞e^(−Rs/p)ds<∞ bound every L^p norm of V by the stationary Laplace moments of Ω. For the two ordered times in V², absence of a position reset since the earlier time leaves exclusive internal reset rate q=Q−c. Given the earlier Ω=u, its later mean square is e^(−qd)u²+2Λ²∫₀^d e^(−qv)dv at gap d, valid also for q=0. Integrating the earlier-later product with survival weight gives E[V²]=(2/R)[E[Ω⁴]+(2Λ²/R)E[Ω²]]/(R+q). Thus E[X⁴]=12E[V²], with E[Ω²]=2Λ²/Q, E[Ω⁴]=24Λ⁴/Q² and E[X²]=4Λ²/(RQ). This independently reconstructs the moment-generator calculation in RESULT.md (in particular the common clock removes X²Ω² only once). Future Brownian increments are centered given the reset histories, and survival of the respective marginal clocks gives conditional mean factors e^(−Rt), e^(−Qt). The equal-time cross moment vanishes by W symmetry, proving both lagged cross entries vanish. Strict monotonicity on 0≤c≤min(R,Q) and algebraic inversion give exactly the stated feasibility test, including c=Q or c=R and the equal-rate contrast. Full synchronization in the record's contrast is only when R=Q=c. The supplied checker.py and VERIFICATION.md were read; their reported 680 bounded assertions are not a fresh run. The replayable check is the analytic integral and generator reconstruction against RESULT.md lines 54–96.
 
-Santra, Basu and Sabhapandit (arXiv:2205.00549, public 2022-05-01) give the same Brownian stochastic-diffusivity dynamics with a **single joint-reset clock**, and explicitly suggest separately resetting position or diffusivity in their conclusion. Their special synchronized model determines the \(c=R=Q\) endpoint but does not supply the three-clock coupling interpolation with \(R,Q\) held fixed, the \(21\)-to-\(42\) equal-rate contrast, or the exact inverse feasible range. The 2018/2019 Kuśmierz–Gudowska-Nowak continuous-time-random-walk study investigates complete versus partial resets in a different anomalous-diffusion mechanism and does not imply the Brownian-squared-volatility stationary mixed moment. Relevant open research-record searches returned distinct objects: Jacobi radial dynamics, Brownian covariance modeling, and fourth-order interactions without a three-Poisson-clock theorem. Their statements do not imply the result. The 2023 Olsen general moment construction resets all dynamical memory and therefore does not subsume the state-selective clock result. The 2024 Zhan–Wang ergodicity article was available only at abstract level, so a broad unindexed correlated-reset theorem remains a priority risk; absence of matching search records is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating 2022 paper explicitly leaves the nonjoint reset protocols for future investigation. Determining whether two protocols with **identical** reset rates for each observable but **different common shocks** can be distinguished is a natural identifiability problem, not an arbitrarily sliced invariant. The exact sharp kurtosis interval and invertibility answer that question for the smallest nontrivial moment order in this model; for equal marginal intensities, all stationary second-order two-time covariances are unchanged but fourth moments differ by a factor of two. It gives an exact model-specific feasible-data criterion for distinguishing clock synchronization. No finite-sample performance or universal inference is claimed.
+The synchronized and independent endpoints are documented separately and must not be counted as novel. The distinct result is the stationary three-clock interpolation at fixed marginal rates, with its sharp inverse, despite invariance of the full linear two-time covariance matrix. The compared sources do not cover that variable-overlap statement.
 
-## Limits and priority risks
+## value
 
-All conclusions are restricted to stationary sampling, independent Brownian noises, independent Poisson clocks, strictly positive total marginal rates and known \(\Lambda\) for parameter reconstruction. A broader uncatalogued result on correlated resetting may overlap; a plausible general diffusivity paper was not read in full. Independent assessment is still needed before any publication-priority assertion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact overlap-dependent law answers a motivated identifiability question left open by joint-reset dynamics. Holding fixed both marginal rates and all linear covariance lags, ordinary kurtosis both separates the couplings and gives a sharp model-specific realizability test. This is more informative than recovering a fourth moment at one endpoint; it is not a finite-sample error bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:26:05.278200Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–27",
+        "Frozen VERIFICATION.md and verify_segre_symmetry.py inspected, not executed",
+        "Independent replay: python /workspace/segre_replay.py; rank modulo 101 = 18, augmented rank 19, 192 signed pure permutations"
+      ],
+      "rationale": "The multihomogeneous determinant is squarefree: a repeated nonconstant multihomogeneous factor would force degree at least two in one of the eight factors. Thus preserving the reduced divisor is equivalent to preserving the section line. By independently generating the determinant from the 24 assignments of its columns and reducing the action matrix modulo 101, I obtained rank 18 and augmented rank 19. These are rational lower bounds, and the six independent diagonal kernel vectors give the corresponding upper bounds. The projective stabilizer Lie algebra has dimension six, so the known connected diagonal pair is the identity component over C. The normalizer preserves or interchanges the blocks since these are the supports of the two simple factors; within each block its factorwise conjugations must be the same because PGL2 is centerless. In the tensor support each block selects two positions, thereby specifying a matching. The support rejects precisely the pairs with the same matching, so a block-preserving permutation must induce equal matching actions. Conversely, simultaneous relabelings and individual Klein-four relabelings preserve the cross-multiplied bracket relation. The latter follows since each double transposition fixes the two bracket products defining the cross-ratio with their common sign. Block exchange swaps the tensor coordinates. A separate exhaustive check of all 40320 pure permutations gave exactly 192 signed symmetries. The connected group meets the pure permutations trivially, giving the stated semidirect product.",
+      "residual_risks": [
+        "Only ambient automorphisms over C, not the abstract automorphism group of D or other characteristics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pratt develops the determinant and its relation to Chow–Lam forms",
+          "The distinct catalogue record describes 21 components of the singular locus"
+        ],
+        "reasoning": "General determinant identities are not general stabilizer theorems. A description of Sing(D) might constrain candidate symmetries but does not give, in the available statement, the maximal group preserving D.",
+        "searches": [
+          "Pratt arXiv:2505.09204v1, abstract/introduction and Example 1.1",
+          "Resultary 5e4e20ac50c8, same divisor"
+        ]
+      },
+      "checked_sources": [
+        "Pratt arXiv:2505.09204v1",
+        "Classical anharmonic cross-ratio action",
+        "Resultary e28c02f78cc2 and 5e4e20ac50c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cross-ratio equality supplies a direct lower bound on the stabilizer",
+          "The singular-locus summary supplies a component count, not an ambient normalizer or group action"
+        ],
+        "reasoning": "The full group requires ruling out arbitrary independent Möbius motions and factor permutations, including possible compensations between them. This uses additional maximality arguments and is not mere substitution into the known cross-ratio identity.",
+        "searches": [
+          "Pratt arXiv:2505.09204v1 Example 1.1 and Resultary 5e4e20ac50c8 summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 1.1 displays the cross-multiplied cross-ratio equality, equivalently the incidence of four points on a common (1,1)-curve",
+          "The classical S4 action on the three matchings has V4 kernel"
+        ],
+        "reasoning": "The cross-ratio formulation produces the candidate discrete symmetries but does not assert that all product automorphisms normalize a diagonal identity component or that there are no other components. The literal screen is supporting scope evidence only, not a whole-paper exclusion.",
+        "searches": [
+          "Pratt arXiv:2505.09204v1, Example 1.1; PDF screen for ‘stabilizer’, ‘automorphism group’, ‘permutation’, ‘S4’",
+          "Resultary semantic comparison by four ordered Segre points and ambient cross-ratio equality stabilizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e28c02f78cc2 is the assigned result itself",
+          "5e4e20ac50c8 is a distinct same-object singular-locus record"
+        ],
+        "reasoning": "The identical listing is not independent coverage and the adjacent singular-locus statement computes a different invariant. No other equivalent group result was substantiated.",
+        "searches": [
+          "Resultary full ambient stabilizer, order 192, Segre four-point coplanarity and independent Klein-four actions"
+        ]
+      },
+      "rationale": "Pass specifically for maximality of the ambient stabilizer, including the connected component and split finite quotient. The determinant/cross-ratio interpretation and the classical anharmonic transformations are not new. The strongest retrieved same-object results give the defining cross-ratio relation and a singular-locus description, not the full ambient-group computation.",
+      "residual_risks": [
+        "An equivalent statement elsewhere in the literature under a different name is not excluded. The singular-locus comparison is summary-level and the Pratt full-text assessment is limited to the cited passages and keyword screen."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining equation and geometric equivalence credited; no full ambient-group assertion in inspected passages",
+          "evidence": [
+            "Example 1.1 identifies vanishing with equality of the A- and B-cross-ratios, expressed by a polynomial relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.09204v1",
+          "material_read": "p. 1 abstract/introduction; p. 2 Example 1.1 at offsets 4239–5947; limited keyword screen",
+          "method": "OA exact-version PDF",
+          "title": "The Segre Determinant",
+          "trigger": "Primary source defining the very same four-point divisor"
+        },
+        {
+          "assessment": "Available statement is a singular-stratification result, not the stabilizer",
+          "evidence": [
+            "The summary reports a 21-component classification for the singular locus."
+          ],
+          "identifier_or_url": "Resultary:5e4e20ac50c8",
+          "material_read": "Indexed summary; follow-up local mirror read timed out",
+          "method": "Resultary semantic catalogue and local mirror attempt",
+          "title": "Twenty-one singular components of the four-point Segre determinant",
+          "trigger": "Distinct catalogue result about the same divisor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Pratt arXiv:2505.09204v1, Example 1.1"
+      ],
+      "rationale": "Four-point coplanarity on the Segre quadric is a canonical incidence relation. The exact symmetry classification says which label reductions are valid for the incidence problem: the full finite quotient includes the less evident independent Klein-four relabelings, and maximality guarantees there are no additional factorwise redundancies. This is more than identifying the standard simultaneous PGL2 and relabeling actions.",
+      "residual_risks": [
+        "This supplies the symmetry group of the embedded relation, not a classification of abstract automorphisms or a theorem for higher-point determinants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`: it establishes the two-cell cardinal sign structure, unique maxima, unique optimal node, exact critical equation, and both limiting regimes. The closed-form exponent-dependent sharp constant uses the uniquely defined solution of a scalar equation. No finite grid search is used to assert universal quantifiers.
+## correctness
 
-Execute `python3 checker.py` in the same directory with a standard Python 3 installation. The code performs exact rational comparisons between the source's signed blending expression and the simplified cardinal blend, plus deterministic pseudo-random checks of coefficient signs, numerical extrema, optimal-grid comparisons and asymptotic constants. The original local test run printed `PASS: 496 exact rational and numerical corroboration cases`.
+PASS
 
-Limitations: the checker is an independent computational corroboration of displayed identities and examples, not a formal proof of continuous maximization, strict monotonicity or the infinite-power limit; the analytic proof supplies those steps. No third-party full texts, datasets, or external execution services are required.
+Cancelling the common signed factor makes the blend positive for every allowed parity. On each open cell there is exactly one negative cardinal weight, so the unrestricted norm equals 1+2 max(H_gamma(a),H_gamma(1-a)). For nondecreasing data the left cell lies at or below y_1 and the right at or above it, and the exact lower and upper defects are respectively H_gamma(a) for (0,0,1) and H_gamma(1-a) for (0,1,1); the common worst-sign bound is attained, not necessarily by both signs away from the midpoint. The interior maximum yields strict increase of H_gamma with a, hence unique minimax at 1/2. The midpoint derivative gives the stated unique t_gamma and strict decrease with gamma. Independent bisection at gamma=2 gave t=0.5436890126920764 and norm 1.134884497736246. The outer limit follows by splitting the weight at 1/2 +/- eta. In inner variables compact convergence is uniform; for z<=0, log((1+2z/gamma)/(1-2z/gamma))<=4z/gamma gives an exponential tail, and near z=beta the prefactor vanishes. The limiting maximum at 4(beta-z)=1+exp(4z), followed by reflection, gives the stated Lambert W formula and includes the centered limit.
+
+## originality
+
+PASS
+
+Passed for the exact arbitrary-placement three-site optimization, including odd and even powers and the fixed/off-center and moving-mesh laws. The classical midpoint constant at gamma=1 is background, and the even-power midpoint monotone defect overlaps a distinct same-day Resultary finding; neither is given independent novelty credit. The available comparison does not establish coverage of arbitrary three-site placement or the coupled power/placement limit. No order is inferred from the shared date.
+
+## value
+
+PASS
+
+The smallest grid with extrapolatory local blending is a useful sharp model: the norm exactly measures worst-sign monotone range loss, and the midpoint high-power improvement is unstable at fixed off-center placement. The moving-mesh limit resolves which displacements retain O(1/gamma) amplification and gives its exact crossover coefficient on that scale, beyond the classical constant or the uniform-grid overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

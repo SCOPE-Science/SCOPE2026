@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reduces adjacency to nilpotency of the restriction \((AB)|_{\operatorname{im}A}\). The restriction map from all \(B\) onto \(\operatorname{End}(\operatorname{im}A)\) is explicitly proved surjective, so every nilpotent restriction has the same fiber size. Combining this with the Fine--Herstein count gives exactly \(q^{n^2-r}\) products before deleting zero and a possible loop. The loop correction is exactly the nilpotency indicator because \(A^2\) is nilpotent exactly when \(A\) is nilpotent. Exhaustive checks for \((n,q)=(2,2),(2,3),(3,2)\) agree with every degree profile. Source: the displayed proof and the included exhaustive verifier. Risk: the computation is finite and is not used as evidence for the universal quantifier; the universal step rests on the surjective linear map and the cited nilpotent count.
+PASS
 
-## Originality
+For nonzero A, U=im A has dimension r and AB maps into U. If the restriction to U has a vanishing kth power then (AB)^(k+1)=0, and nilpotency of AB conversely implies nilpotency of the restriction. The restriction map on B is onto End(U): compose a prescribed endomorphism with a linear section of A and extend from U. Every fiber has cardinality q^(n^2-r^2). The Fine–Herstein count used here can also be reconstructed: let N_j count nilpotents and G_j=|GL_j(F_q)|, with N_0=G_0=1. Each endomorphism in dimension r has a unique Fitting decomposition as direct sum of a nilpotent and an invertible part. Counting decompositions with nilpotent dimension j gives G_r N_j/G_j endomorphisms, so q^(r^2)/G_r=sum_{j=0}^r N_j/G_j. Subtract dimension r-1 and use q^(r^2)/G_r=product_{i=1}^r (1-q^(-i))^(-1), giving N_r=q^(r^2-r). Thus there are q^(n^2-r) product partners before deleting zero and the self-partner exactly when A is nilpotent. The symmetric relation follows from (BA)^(k+1)=B(AB)^k A. Residues of the two degree types differ modulo q since n>=2; each type then determines the rank. The gaps of the powers exceed one, so the maximum is precisely rank-one nonnilpotent and the minimum precisely rank n (which is never nilpotent). `python3 /workspace/reviews/reproduce.py 1` independently exhausts the n=2 graph over the non-prime field F4 using trace and determinant; 60 rank-one nonnilpotents have degree 63, 15 rank-one nilpotents degree 62, and 180 invertibles degree 15. The frozen prime-field verifier was inspected, not executed.
 
-PASS. The dedicated matrix-algebra paper was inspected through its substantive Section 2 and lists vertex, connectivity, diameter, girth, independence, planarity and isomorphism results rather than a general local-degree law. The 2015 regular-graph classification explicitly computes \(\deg(e_{11})\) and bounds \(\deg(e_{11}+e_{22})\), while the 2017 Eulerian classification explicitly computes the rank-one degrees of \(e_{11}\) and \(e_{12}\). Those are special cases of the present formula, not a statement implying the all-rank theorem or the inverse recovery of both rank and nilpotency. Semantic database searches using the graph name, full-matrix notation, rank, nilpotency and the proposed degree shape returned no covering finding. Sources: Nikmehr--Khojasteh, Mahmoodi, and Kuzmina--Maltsev (2015, 2017), as listed in RESULT.md. Risk: an older theorem under different terminology could remain unindexed; this is retained as a residual originality risk rather than treated as negative evidence.
+## originality
 
-## Value
+PASS
 
-PASS. Rank and nilpotency are fundamental algebraic strata of a matrix algebra. Recovering both from one intrinsic local graph statistic supplies a structural dictionary between the graph and its matrix algebra, explains earlier ad hoc degree calculations, sharpens a previously used rank-two bound to equality, and gives exact extremal-degree characterizations. This is a natural complete classification of vertex degrees rather than an arbitrary finite slice. Sources: the prior papers show that selected vertex degrees are already useful for global regularity/Eulerian questions, while the present theorem resolves the full local stratification. Risk: the value claim is confined to the full finite-field matrix-algebra family and is not asserted for broader coefficient rings.
+Pass is for the all-rank, loopless-graph degree classification and inverse conclusion. The known total nilpotent-matrix count, the defining graph, and the previously computed rank-one values are not distinct contributions. The nearest catalogued formula is for zero products, with a different graph and type.
 
-## Closest literature and limitations
+## value
 
-The closest direct antecedents are Kuzmina--Maltsev's 2015 and 2017 degree calculations for selected matrix units, Mahmoodi's rank-based global study of matrix-algebra nilpotent graphs, and Fine--Herstein's nilpotent-matrix count. The theorem is limited to finite fields. A differently phrased older all-rank local-degree theorem not surfaced by the inspected sources remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a uniform local invariant of a standard matrix-ring graph. Recovering both rank and nilpotency from the degree, not merely exhibiting unequal degrees, separates all realized vertex types across all field sizes. The compression handles every singular rank and exposes why the only dependence on nilpotency type comes from removing the loop. This is more than recomputing the known rank-one witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

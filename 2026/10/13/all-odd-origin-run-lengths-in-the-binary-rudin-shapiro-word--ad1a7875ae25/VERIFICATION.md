@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification instructions and limitations
+# Independent mathematical audit
 
-The entire mathematical assertion is proved symbolically in `RESULT.md`. The standalone Python 3 script `verify.py` verifies finite consequences using direct binary-digit counting, independently of the key concatenation formula. It has no third-party dependencies.
+## correctness
 
-Run `python3 verify.py` in the directory containing `verify.py`. Its observed output was:
+PASS
 
-`VERIFY_OK double_checks=20001 concatenation_checks=16382 constructed_odd_k=200 small_d=1024 second_witness_k=25`
+With r(0)=0 the length equals the first mismatch index, not one less. Since r(2t)=r(t), a first mismatch cannot be even. Existence for arbitrary d also has a direct check: write d=2^s u with u odd, choose L>=3 with 2^L congruent to 1 modulo u (arbitrary L>=3 if u=1), and form 2^s times the sum of u copies of 3 at shifts 0,L,...,(u-1)L. This is a positive multiple of d with exactly u separated 11 occurrences. For prescribed odd k>=3, padded duplication at width L with 2^L=2Q leaves just the boundary pair, so r((2Q+1)x) is 1 exactly for odd Q<=x<2Q in that width. The largest odd a<=Q/(k-1) satisfies a>Q/(k-1)-2. Thus (k-2)a<Q<=ka<2Q, using Q/(k-1)>=2k; all earlier odd multiples stay below Q and even multiples have parity zero. The least admissible Q is <4k(k-1), giving a<4k and d<32k^3. Larger dyadic Q give strictly increasing differences as a is positive and nondecreasing. k=1 is checked by 3 times powers of two. This proves all quantifiers in RESULT.md:5–53.
 
-The script checks \(r(2n)=r(n)\) for 20,001 inputs; the exact concatenation identity for 16,382 input-width pairs; the explicit first-change construction for all 200 positive odd lengths through 399; first-change parity for 1,024 differences; and further distinct witnesses for 25 prescribed lengths. None of these finite checks is an exhaustive test of the infinite theorem. The proof of the binary duplication identity, multiplier inequalities, complete absence of even indices, and bound \(d<32k^3\) must be read as the infinite certificate.
+## originality
 
-All source dates and comparisons are documented in the accompanying proof and review. No independent audit or independent validation has been performed.
+PASS
+
+The exact all-odd spectrum for 11 and its polynomial witness bound are distinct on the inspected evidence. Sobolewski posed the matching attainment conjecture and already supplied the duplicated-block formula. Here the multiplier is solved for as a function of the target length, with control of the first mismatch and of the difference size, rather than held fixed to bound lengths as the width increases.
+
+## value
+
+PASS
+
+Resolves a concrete published open question for the classical pattern 11 with exact attainable values, not just unboundedness; gives explicit witnesses of cubic size and infinitely many distinct differences per length. The construction for k>=3 in fact supplies infinitely many odd differences, beyond the trivial rescaling by powers of two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

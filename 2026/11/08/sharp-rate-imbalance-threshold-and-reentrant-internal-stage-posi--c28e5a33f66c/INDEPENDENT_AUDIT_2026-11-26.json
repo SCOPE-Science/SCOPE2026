@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:04:21.401079Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the row-vector generator, Q=−(a+b)(I−Π) with each row of Π equal to (b,a)/(a+b). On the stationary component the stages and endpoint are the identity; on the other component solve the two scalar stage equations. Their factors are (1±√3 z/6)/D, D=1+z/2+z²/12, and the endpoint factor is 1−z/D. A map with factor g has nonnegative entries exactly for −1/r≤g≤1, since off-diagonals are π_j(1−g) and the smaller diagonal is π_min+(1−π_min)g when g<1. The endpoint numerator ((z−3)²+3)/12 and both strict bounds for stage 1 settle those claims. Independently put y=z/(2√3): the stage-2 factor is (1−y)/(1+√3 y+y²), with derivative numerator y²−2y−(1+√3). Its unique minimum occurs at y*=1+√(2+√3) and is −1/(2y*+√3); this yields the stated r*. The factor is <1 for y>0 and returns to zero from below; the horizontal line −1/r gives one tangency at r*, two positive crossings for r>r*, and strict positivity outside the closed failure endpoints. At a crossing exactly one diagonal is zero since r*>1. With (a,b,h)=(9,1,1), the endpoint first row is (16,27)/43; the stage-2 first component at (99,1)/100 is (697−445√3)/4300<0. The packaged checker and recorded output were inspected but not executed. Its 50 block solves are exact comparisons for the first basis input; their sampled sign tests use numerical tolerances. The analytic check, not that sample, establishes all claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nüßlein–Ranocha–Ketcheson give the stage equations and discuss stages not guaranteed positive when endpoint weights are adapted. Blanes–Iserles–Macnamara construct different positivity-preserving graph-Laplacian integrators."
+        ],
+        "reasoning": "An endpoint adaptation guarantee or a general warning about negative stages gives neither the quantified positivity of these fixed stage maps nor the exact failure interval.",
+        "searches": [
+          "arXiv:2005.06268 §§2, 5.1",
+          "arXiv:2102.08242v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_gauss_stages.py, verification_output.txt",
+        "Resultary Radau record 68517f1e3738 and Gauss records 6250aee1370d, 50bf05f4d07d, e93fc3196dc7",
+        "arXiv:2005.06268; arXiv:2102.08242v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Radau proof supplies the useful diagonal reduction; endpoint and stage response depend on different scalar rational functions. The adaptive RK passage supplies the phenomenon, not a necessary and sufficient rate condition."
+        ],
+        "reasoning": "One must determine the actual Gauss-stage multiplier and its interior minimum; the comparisons supply methods and analogues, not the applicable inequality with its sharp constants and boundary cases.",
+        "searches": [
+          "2026/10/26/SCOPE-reentrant-markov-positivity-and-the-sharp-rate-imbalance-thresho--68517f1e3738",
+          "arXiv:2005.06268 §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 Radau record, proof offsets 3020–4882, uses the same stationary projection but the factor (6−2s)/(s²+4s+6) and critical ratio 5+3√3."
+        ],
+        "reasoning": "Endpoint negativity for Radau is not stage-2 negativity for Gauss; their rational factors are not transforms of each other by step rescaling (the numerator forces a scale that fails in the denominator). Label reversal merely interchanges the active diagonal and is already included.",
+        "searches": [
+          "Resultary: two-state rate imbalance reentrant Markov positivity; Gauss internal stage positivity",
+          "Primary lookup: two-state Gauss–Legendre internal-stage positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day Gauss results on complete multipartite graphs, Cartesian products, and directed cycles classify endpoints. The first includes the equal-rate two-vertex endpoint. The sole matching internal-stage finding in this inspected set is this record itself."
+        ],
+        "reasoning": "Neither endpoint tables nor the standard Gauss tableau tabulate the critical rate ratio or stage-2 boundaries. Same-day dates do not decide priority or equivalence.",
+        "searches": [
+          "Resultary: Gauss positivity on two-state Markov chains, complete graphs and directed cycles"
+        ]
+      },
+      "rationale": "Credit the standard Gauss tableau, rank-one stochastic-mode criterion, familiar Padé endpoint, and known possibility of negative internal stages. The surviving distinct claim is the sharp weighted two-state classification for the actual Gauss collocation stages, including the isolated zero and exact reentrant stage-2 failure while the endpoint remains positive. None of the statement-level comparisons supplies this stage boundary or covers it by a stronger result.",
+      "residual_risks": [
+        "Bounded search is not historical priority certification; old collocation analyses could contain equivalent scalar bounds. No date ordering is inferred for same-day endpoint work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close analogue, not equivalent",
+          "evidence": "The smaller diagonal is tested by m s²+(6m−2)s+6 for the Radau endpoint; the critical ratio is 5+3√3.",
+          "identifier_or_url": "2026/10/26/SCOPE-reentrant-markov-positivity-and-the-sharp-rate-imbalance-thresho--68517f1e3738",
+          "material_read": "Finding and proof offsets 3020–4882",
+          "method": "Indexed local mirror",
+          "title": "Reentrant Markov positivity and the sharp rate-imbalance threshold (Radau IIA)",
+          "trigger": "Closest earlier two-rate reentrant result"
+        },
+        {
+          "assessment": "Establishes the general issue, not the reviewed classification",
+          "evidence": "Stage values ‘are not guaranteed to be positive’; endpoint adaptation changes weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.06268",
+          "material_read": "§2 stage equations, HTML offset 8585; §5.1, offset 36244",
+          "method": "Primary full-text passages",
+          "title": "Positivity-Preserving Adaptive Runge–Kutta Methods",
+          "trigger": "Prior internal-stage versus endpoint positivity"
+        },
+        {
+          "assessment": "Related methods, no exact overlap in inspected passage",
+          "evidence": "Alternative positive graph-Laplacian integrators, not the fixed two Gauss internal stages.",
+          "identifier_or_url": "https://arxiv.org/html/2102.08242v2",
+          "material_read": "Abstract, HTML offset 960",
+          "method": "Primary full-text abstract",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Graph-Laplacian/Markov integration"
+        },
+        {
+          "assessment": "Endpoint overlap only, priority not inferred",
+          "evidence": "Endpoint positivity for those graph families does not classify stage maps for the two-rate generator.",
+          "identifier_or_url": "2026/11/8 records 6250aee1370d, 50bf05f4d07d, e93fc3196dc7",
+          "material_read": "Findings, mirror offsets 97, 71 and 76 respectively",
+          "method": "Indexed local mirror",
+          "title": "Stage parity classification of Gauss–Legendre positivity on complete multipartite graphs; Exact Padé positivity horizons for finite directed Markov cycles; Sharp all-step Gauss positivity on Cartesian products of complete graphs",
+          "trigger": "Distinct same-day results on Gauss positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two states are the smallest nontrivial Markov setting and a natural controlled test of whether a positivity-preserving update certifies admissible intermediate probabilities. It does not: the exact rate contrast and two scaled step boundaries identify when endpoint monitoring misses failure and when larger steps restore positivity. This is an actionable sharp stage classification and an exact interior-input witness for a standard high-order scheme, not novelty assigned to a projector identity or the usual stability function.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

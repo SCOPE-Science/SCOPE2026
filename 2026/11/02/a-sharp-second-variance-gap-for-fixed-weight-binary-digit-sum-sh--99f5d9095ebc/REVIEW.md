@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The carry process has a geometric tail and finite second moment. The conditional carry covariance is exactly \(2^{-(j-i)}q_i(1-q_i)\); summing it gives the closed second moment. Strict monotonicity of the pair energy in each inter-one gap, followed by exact crossing-pair summation for a single inserted zero, proves the minimum, the second-minimum gap, and equality cases for all \(k\ge2\). Exact recursion and binary-support checks corroborate this proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For an incoming carry C_i the next conditional mean is (b_i+C_i)/2. The output-bit identity Y_i-X_i=b_i+C_i-2C_{i+1} sums to k minus the number of carries. Above the top input position a surviving carry has a geometric tail. Finite-bit cylinder frequencies agree in the limit with independent fair bits; for arbitrary prefix endpoints, an additional run of h carries above the top bit requires h specified consecutive bits all equal to one, and in the prefix starting at zero their frequency is at most 2^(-h) (the all-one block occurs at the end of each controlling binary period). This justifies passage of the quadratic moment. Conditional propagation gives Cov(C_i,C_j)=2^(-(j-i))q_i(1-q_i) and summing gives 3 times the sum of q_i(1-q_i). Each one-bit adds 1 to sum q_i; diagonal terms in sum q_i^2 add 1/3 per one-bit, and each unordered distinct pair adds (2/3)2^(-distance). The energy strictly decreases in every positive integer gap. An outside pattern compresses strictly to a single gap of length 2 unless already in that form. At cut i a gap of length 2 loses exactly (1-2^(-i))(1-2^(-(k-i))) of energy, uniquely minimized at the two edge cuts by strict convexity of 2^(-i)+2^(-(k-i)); they coincide when k=2. This proves both levels, exactly the stated equality shifts and their gap. Sparse supports approach 2k, strictly below it for finite positions when k>=2; k=1 is constant. The supplied finite checker was inspected, not run or substituted for the infinite proof.
 
-The closest direct precursor is Spiegelhofer and Wallner's 2023 second-cumulant recurrence; it gives values for individual shifts but no inspected sharp next-to-minimum fixed-weight variance law. Tarłowski 2026 Theorem 21 gives sharp bounds at **fixed tree-word length or block count**, and its first-minimum specialization covers the familiar consecutive-block minimum. That **known first minimum is not counted as new**. The substantive present result is the entire pair-energy expression together with the precise *second* variance level and its rigid equality patterns, not the existence of a variance or a routine recursion. Cheng 2026 optimizes a different statistic (the sign bias) at fixed Hamming weight. Sobolewski–Spiegelhofer 2025/2026 decomposes measures and discusses few-block shapes. Targeted searches of relevant mathematical literature and mathematical research records found no statement that implies the second-level rigidity without additional argument. An unlocated earlier general extremal theorem remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed-Hamming-weight variance is a natural scale parameter in Gaussian/Edgeworth approximations for digit-sum correlations. At exactly that constraint, separating a single pair of ones by even one zero enforces an explicit positive, order-one variance increment independent of the ambient bit length. This is a uniform arithmetic rigidity statement, distinguishes the two lowest possible variance levels, classifies all equality patterns, and makes the entire variance computable from the positions of the one-bits. It is not a new sign-bias theorem or a mere numerical sample.
+Credit is limited chiefly to the unrestricted fixed-Hamming-weight second level, gap and rigidity. The pair formula evaluates an already published exact recurrence, and Tarłowski already yields the first minimum. His bounds also resolve some low-weight subcases and constrain the possible word-block patterns, but do not give the all-weight fixed-Hamming-weight comparison or its rigidity by substitution. The inspected bias results govern a different statistic.
 
-## Limits
+## value
 
-No new pointwise sign-bias estimate, higher-moment theorem, or independent novelty certification is claimed. The known cumulant recursion is stronger for computing individual values; the new contribution is its exact constrained second-level extremal consequence and proof of rigidity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The variance is the natural fluctuation scale for digit-sum correlations. Knowing its first and distinct next value under a fixed Hamming-weight constraint gives a uniform rigidity margin with equality classifications independent of ambient bit length. The gap approaches 1 as the weight grows; the result is not an empirical shift table, a new sign-bias estimate, or merely an alternative computation of one already-known variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

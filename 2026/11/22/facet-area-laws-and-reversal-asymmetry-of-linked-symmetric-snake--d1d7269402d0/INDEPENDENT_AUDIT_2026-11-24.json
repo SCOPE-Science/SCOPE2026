@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:51:28.085114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–58",
+        "VERIFICATION.md and verify_snake_area.py (inspected, not executed)",
+        "/workspace/audit-evidence/5/check_geometry.py and check_geometry.txt; replay: python3 /workspace/audit-evidence/5/check_geometry.py"
+      ],
+      "rationale": "The suffix transform y_i=sum_(j>=i)x_j−c_i is integral triangular of determinant one and uses x_i=b_i+y_i−y_(i+1) for i<n. Hence precisely the order-polytope cover and extremal-coordinate facets survive. Contraction of the cover or deletion of an extremum gives the indicated (n−1)-element order polytope with its full induced affine lattice. The primitive x-normal is a signed coordinate vector or suffix vector. Its norm is the covolume of the integer direction lattice: adjoining an integer vector pairing to one with the primitive normal gives determinant one and height the reciprocal of the norm. Thus the extension-count volumes acquire exactly the stated norm weights. For S={1}, the chain n≺n−1≺⋯≺2 has the extra element 1 constrained only below 2. There are n−1 insertions; cover contractions have counts 1 for contracting (1,2) and n−2 at each of the n−2 other covers. Deleting extrema 1,2,n gives counts 1,n−1,n−2. Reversal with order duality gives the mirrored data and affine unimodular map to T. The two weighted sums subtract to the claimed gap; its numerator is zero at n=3, positive at 4, and on t≥4 its derivative exceeds sqrt(2)−1−3/(4sqrt(t))>0. Cancellation of the leading radical terms gives (sqrt(2)−1)n+O(sqrt(n)) in the numerator. A fresh original-coordinate hull test checked all 60 profiles for n=3–6, all 474 individual facet hyperplanes and facet areas, and total area and volume, with reversal gaps 0, 0.0077480441, 0.0053745919, and 0.0019933096.",
+      "residual_risks": [
+        "Fresh hull comparisons use SciPy/NumPy and floating-point geometry, with exact permutation counts. They only cover n=3–6 and do not substitute for the general proof. The measure is standard Euclidean in x, not in the transformed y metric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanley classifies order-polytope facets and gives extension-count volumes.",
+          "Chen et al. supply the linked type-C inequalities and unimodular volume theory.",
+          "Resultary ee904a222e0d gives a reverse surface-area pattern across an equal-volume layered chain-order family, not the pair of linked-snake suffix-coordinate polytopes."
+        ],
+        "reasoning": "The general order-polytope work covers the lattice counts, and the linked matroid paper covers the input family and volumes. Neither supplies a comparison of weighted facet measures for these profiles. The layered-chain result is a separate pattern and does not dominate the parameters or metric of this pair.",
+        "searches": [
+          "Stanley, DOI:10.1007/BF02187680, facet discussion and Corollary 4.2",
+          "Chen et al. arXiv:2311.15441v1, Theorem A and Corollary 5.4",
+          "Resultary: equality of volume and reversed boundary-area laws for order polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Four local Resultary comparisons and the retrieved strongest distinct mirror passages",
+        "arXiv:2311.15441v1",
+        "DOI:10.1007/BF02187680",
+        "arXiv:2303.10458v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Facet incidence and lattice volume follow from the order-polytope description. The frozen comparison additionally needs the primitive suffix-normal lengths, the deletion counts at the distinguished positions, and a uniform sign inequality."
+        ],
+        "reasoning": "The metric formula is an application of classical inputs and the lattice-to-Euclidean conversion. Neither a face-lattice identification nor equality of volumes determines the sign or size of the difference, and the reversal requires additional exact profile calculations not contained in the compared results.",
+        "searches": [
+          "Stanley, printed pp. 10 and 15",
+          "arXiv:2311.15441v1, PDF pp. 3–4 and 24–25",
+          "Resultary reversal analogue ee904a222e0d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest same-object record, 0acaa0ef9409, gives a squared-distance enumerator and antipodal classification in the same original coordinates.",
+          "Chen et al. give the suffix inequalities. Theorem 3.3 of arXiv:2303.10458v1 gives affine equivalences for ordinary connected matroid snakes and fence order polytopes."
+        ],
+        "reasoning": "An aggregate vertex-distance enumerator is not a list of facet incidences and areas. Reversal and dualization identify the two order polytopes, but the affine maps in question are not x-isometries. The ordinary snake result neither identifies this specific linked comparison nor gives its metric gap. The identical indexed record is a self-match.",
+        "searches": [
+          "Resultary: linked-snake Euclidean facet area, profile reversal, and metric/distance formulations",
+          "Chen et al. arXiv:2311.15441v1, Corollary 5.4",
+          "Benedetti-Velásquez et al. arXiv:2303.10458v1, Theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e43083b49d94 gives explicit standard-Euclidean facet and total area data for the two-row ladder [2]×[n].",
+          "0acaa0ef9409 records exact linked-snake distances, not linked-snake facet measures. ee904a222e0d gives a layered-chain order-polytope surface-area profile rather than values for the specified linked-snake pair."
+        ],
+        "reasoning": "The indexed exact measures are for a different poset family or a different metric invariant of the same object; no distinct exact table of this boundary measure or reversal was established.",
+        "searches": [
+          "Resultary: exact Euclidean facet and total area of linked and ordinary snake/order polytopes",
+          "Resultary records 0acaa0ef9409, ee904a222e0d and e43083b49d94"
+        ]
+      },
+      "rationale": "The distinct result supported by the inspected statements is the original-coordinate facet measure as applied to linked snakes and, decisively, the exact dimension-uniform signed reversal gap between the specified profiles. The facet description, triangulation and lattice-normalized counts are established machinery; the area formula is a direct specialization of that machinery with the x-normal factors, not a new general facet theorem. No stronger statement covering the actual reversal was found in the primary or indexed passages compared.",
+      "residual_risks": [
+        "The statement-level catalogue and primary comparisons were bounded, not an exhaustive historical-priority search; inaccessible or unindexed treatments of snake-polytope surface area could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the defining model and volume input",
+          "evidence": "Corollary 5.4 gives the suffix inequalities; the triangulation and volume findings do not state the metric reversal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.15441v1",
+          "material_read": "Theorem A and linked-snake triangulation/volume statements (PDF pp. 3–4, offset 8200); Corollary 5.4 (pp. 24–25, offset 61000)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Lattice Path Delta Matroids",
+          "trigger": "Same linked type-C snake family and its inequality/volume results"
+        },
+        {
+          "assessment": "Covers lattice-geometric inputs; not a comparison of original snake-coordinate Euclidean measures",
+          "evidence": "Cover equality facets and the standard facet count; Vol(O(P))=e(P)/n!.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02187680",
+          "material_read": "Facet discussion, printed p. 10; Corollary 4.2, printed p. 15",
+          "method": "Lawful OA primary PDF passages, offsets 4550 and 14600",
+          "title": "Two poset polytopes",
+          "trigger": "Broader facet classification and extension-count volume"
+        },
+        {
+          "assessment": "Affine equivalence in the ordinary matroid setting; different scope and no metric comparison",
+          "evidence": "Connected ordinary snakes correspond to fence order polytopes up to affine equivalence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.10458v1",
+          "material_read": "Theorem 3.3, PDF p. 9, offset 34600",
+          "method": "Lawful OA primary PDF passage",
+          "title": "On lattice path matroid polytopes: alcoved triangulations and snake decompositions",
+          "trigger": "Plausible ordinary-snake order-polytope equivalence"
+        },
+        {
+          "assessment": "Same standard coordinates; different invariant",
+          "evidence": "Squared-distance enumerator, diameter and antipodal-pair classification, not a surface-area statement.",
+          "identifier_or_url": "2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409/RESULT.md",
+          "material_read": "Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror statement read",
+          "title": "Four-state Euclidean distance spectrum and antipodal rigidity",
+          "trigger": "Strongest same-family Euclidean result"
+        },
+        {
+          "assessment": "Conceptual analogue, not the linked-snake pair",
+          "evidence": "Layered chain-order family has S_0=S_1>S_2>⋯>S_(r−1)=S_r for r≥3.",
+          "identifier_or_url": "2026/11/17/SCOPE-reversed-euclidean-boundary-area-monotonicity-across-layered-cha--ee904a222e0d/RESULT.md",
+          "material_read": "Finding, offset 0, same mirror snapshot",
+          "method": "Resultary search and local mirror statement read",
+          "title": "Reversed Euclidean boundary area monotonicity across layered chains",
+          "trigger": "Closest known equal-volume area reversal analogue"
+        },
+        {
+          "assessment": "Facet measures for a different poset and coordinate realization",
+          "evidence": "Exact facet and total boundary areas for the order polytope of [2]×[n].",
+          "identifier_or_url": "2026/11/17/SCOPE-catalan-boundary-area-condensation-for-two-row-ladder-order-poly--e43083b49d94/RESULT.md",
+          "material_read": "Finding, offset 0, same mirror snapshot",
+          "method": "Resultary search and local mirror statement read",
+          "title": "Catalan boundary area condensation for two-row ladder order polytopes",
+          "trigger": "Specific Euclidean facet-area analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Chen et al., linked-snake inequalities and volume",
+        "Resultary 0acaa0ef9409 and ee904a222e0d Findings"
+      ],
+      "rationale": "The useful distinction is not the familiar possibility that a unimodular map changes Euclidean measures. It is the complete usable facet measure for a specified natural family, and a signed, exact, every-dimension separation of two natural reversed profiles that face-lattice and volume data cannot distinguish. The normal weights explain the mechanism and locate the first dimension where it occurs.",
+      "residual_risks": [
+        "This establishes the reversal comparison for one natural pair, not an isoperimetric order of all profiles or any higher intrinsic-volume law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

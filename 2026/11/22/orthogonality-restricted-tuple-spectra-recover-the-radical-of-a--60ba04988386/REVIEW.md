@@ -1,15 +1,21 @@
-# Assessment of orthogonality-restricted symplectic tuple spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The orbit normal form follows from finite-dimensional Witt extension in an infinite nondegenerate alternating space. The kernel of the tuple map modulo a named parameter span, its isotropic image in the span, and pairings of the quotient basis to the span form a complete invariant once all new-new pairings are set to zero. Gaussian frame counts give the all-arity formula. A separate three-stratum count for two new vectors gives the explicit pair formula and shows the coefficient of \(q^\rho\) is \(q^d-q^{d-1}>0\). The two standalone independent enumerators reproduce small fields and arities and are not substitutes for the symbolic proof.
+## correctness
 
-## Originality — PASS, provisional
-Liu's 2013 singular symplectic subspace orbit study provides related Gaussian geometry, and Barbina's thesis provides automorphism and isometry-extension context. The closest published published-finding corpus finding counts *unmarked unrestricted* alternating tuples via a product; that formula cannot distinguish finite named radical dimensions. Actual searches for pointed orthogonal pair types, radical recovery and Gaussian type spectra found no equivalent complete statement. Folklore risk is material because Witt extension and isotropic Gaussian counting are classical, and Thomas's older full article was not accessible.
+PASS
 
-## Mathematical value — PASS
-A scalar pair of natural, complete, logical type invariants recovers the abstract isometry type of every finite named parameter span, while unary type counts fail: a totally isotropic plane and a hyperbolic plane over \(\mathbb F_2\) both have eight unary types but sixty-two versus fifty-six orthogonal ordered-pair types. The closed higher-arity count gives useful quantitative control of the whole pointed orthogonality fragment, not just the first example.
+This verdict is for the corrected RESULT.md. The frozen line 20 incorrectly gives T₂=5 at d=0 for every q; already q=3 is a counterexample. With U=0 an orthogonal pair type is specified only by its linear kernel in F_q², giving 1+(q+1)+1=q+3. The repair corrects that statement without weakening the fixed-prime-power scope. For arbitrary U, equality of the quotient kernel H, the map H→U and the complement-basis pairing functionals gives a linear isometry over U; Witt extension in a finite symplectic envelope gives conjugacy. Conversely, any such map with isotropic image S and any functionals annihilating S are realized by the alternating space U⊕W₀, embedded in the ambient space over U. This works in characteristic two. Finite relation/pairing diagrams determine complete types, not just counts of tuples in a finite sample. Counting the H→S surjections and the q^((r−h)(d−t)) complement pairing choices gives the all-arity sum, with J_t counted by radical intersections and graphs of linear maps over the nondegenerate quotient. Quotient ranks 0, 1, 2 give the binary formula for d≥1; its coefficient of q^ρ is q^d−q^(d−1)>0. The q=2 examples give unary 8 and binary 62 and 56; the empty tuple contributes one.
 
-## Scope and limits
-The field is fixed and finite, the ambient space is nondegenerate and countably infinite-dimensional, and tuples may repeat or lie in the parameter span. The recovered object is the abstract finite alternating span, not its labelled presentation. The work has not received independent mathematical validation or exhaustive historical-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired claim's distinct part is the explicit all-arity orthogonality-restricted spectrum over an individually named base and sharp recovery of its radical from two scalar counts. It does not claim the empty-base kernel count, isotropic-frame formulas, or Witt extension as new. No inspected source states or evaluates the named-base restriction with the radical reconstruction; the verdict is bounded by the inspected evidence.
+
+## value
+
+PASS
+
+The exact profile of a natural named stabilizer on orthogonal tuples identifies a finite geometric invariant that the unary profile completely misses at fixed dimension. The second count sharply recovers the radical and thereby every higher profile without reconstructing the marked basis; q=2 gives a concrete witness to sharpness. The useful contribution is this discrimination and all-arity count, not the empty-base arithmetic correction on its own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

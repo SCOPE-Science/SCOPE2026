@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:45:57.423741Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed domain D the extensions of each restriction form a coset of its pointwise stabilizer. The only nontrivial stabilizers are at the empty set, singletons and, for even n, antipodal pairs: any nontrivial rotation fixes nothing, and 2x=a characterizes reflection fixed points. Representing each restriction with inverse-stabilizer weight and replacing the second domain by its image gives the intersection-rank formula; equivalently, inversion bijects maps of prescribed image with maps of prescribed domain, independently of the first factor. The empty/singleton/antipodal weight defects give total S, incidence v and pair-incidence square sum epsilon*n/8. Expanding t^{|D∩E|} up to degree two on the double-defect terms proves both corrections, and evaluating at t=1 gives the size. Vertex inclusion gives the mean; acceptance coupling with a uniform subset gives marginal TV ≤S/2^n, hence joint/intersection TV ≤2S/2^n and transfers the CLT. In fact the event rank≥3 gives a lower bound [(1-S/2^n)^(-2)-1] Pr(Bin(n,1/4)≥3), so the stated scale is sharp as n tends to infinity. Independent exact replay: python /workspace/branches/independent_math_1_4.py 1, counting distinct image tuples per domain then summing over pairs of masks, verified every coefficient, the size and the rational mean at n=3..8. The frozen script was inspected, not run; its mean comparison uses float tolerance, unlike this replay. Finite counts corroborate but do not prove the all-n result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Malandro gives a general convolution-to-block-multiplication identity, not an evaluated law or a containing formula for weighted intersection ranks.",
+          "The full symmetric inverse monoid result uses factors uniform within specified ranks; the symplectic rook monoid same-day result uses admissible signed subsets at specified singular ranks."
+        ],
+        "reasoning": "Conditioning on rank does not make dihedral domains uniform at even rank two: antipodal pairs have half the weight of other pairs of that size. Signed symplectic intersections have different domain and action hypotheses. None of these containing frameworks directly yields the stated weighted correction.",
+        "searches": [
+          "Resultary: stabilizer-weight convolution",
+          "arXiv:1212.6462 Theorem 2.11",
+          "Resultary 1110b14cea6d",
+          "Resultary 010b48ded83e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.02196",
+        "arXiv:2301.01519",
+        "arXiv:1212.6462",
+        "Resultary 1110b14cea6d",
+        "Resultary 010b48ded83e",
+        "Resultary 849553a20428",
+        "Resultary 8670f30aedd1",
+        "Resultary 32e0cfa664d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle stabilizer input is reused; obtaining composition rank requires a domain/image intersection identity and then the two defect sums.",
+          "The chain partial-translation result uses different restrictions and O(n^(-1/2)) approximation. The same-day symplectic result gives Bin(n,2^(-(k-1))) when all singular ranks are n, not the dihedral mixture over all ranks."
+        ],
+        "reasoning": "The substantial same-day overlap is the intersection method, not an equivalent theorem; date supplies no ordering. The explicit parity-corrected uniform law and its scale constitute the distinct result.",
+        "searches": [
+          "arXiv:2205.02196 Lemma 1.1",
+          "Resultary 849553a20428",
+          "Resultary 1110b14cea6d",
+          "Resultary 010b48ded83e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2205.02196 Lemma 1.1 supplies the exact nonempty extension classes; its cardinality is for one map.",
+          "Resultary 8670f30aedd1 counts fixed points of inversion and 32e0cfa664d8 counts nilpotent maps by rank and index, not ranks over arbitrary ordered pairs."
+        ],
+        "reasoning": "The names cycle partial isometries and dihedral restrictions refer to the same object; the checked rank statistics count different sets. The same frozen record found by semantic search is not corroboration.",
+        "searches": [
+          "Resultary: dihedral restriction product rank",
+          "Resultary: cycle partial-isometry product rank",
+          "Resultary: stabilizer-weight convolution",
+          "arXiv:2205.02196",
+          "arXiv:2301.01519"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The targeted catalog matches the assigned item and nearby cycle-element censuses, not a distinct readout of its ordered-pair coefficients.",
+          "The primary cardinality counts one restriction, not joint domain-image overlap. No tabulation could by itself establish the uniform all-n formulas or TV limit."
+        ],
+        "reasoning": "The exact family is parameterized by n and parity, rather than a finite lookup; the substantive census comparator is the known one-element count.",
+        "searches": [
+          "Resultary: dihedral restriction product rank",
+          "Resultary: cycle partial-isometry product rank",
+          "arXiv:2205.02196 cardinality computation"
+        ]
+      },
+      "rationale": "The representation and stabilizers are known; the supported distinction is the explicit all-ranks uniform-distinct two-factor law with its parity corrections and exponentially accurate binomial comparison. Neither the single-element cycle enumerators nor the closest intersection statements supply this law under its sampling hypotheses.",
+      "residual_risks": [
+        "A more specialized earlier group-action restriction-convolution theorem or equivalent cycle-product formula could exist outside the inspected sources.",
+        "The inspected 2023 submonoid paper passages are a scope check, not a whole-document priority determination; the frozen 2015 reference is a chain antecedent, not a verified first date for the cycle law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structural antecedent; no product-rank law in the inspected sections",
+          "evidence": "Singleton and even antipodal extensions have multiplicity two, and the empty map contributes one to the distinct count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.02196",
+          "material_read": "p. 1 abstract; pp. 4–5 Lemma 1.1 (offset 15600); p. 6 cardinality (offset 22100)",
+          "method": "OA PDF passage inspection",
+          "title": "On the monoid of partial isometries of a cycle graph",
+          "trigger": "Same cycle and all exceptional stabilizers"
+        },
+        {
+          "assessment": "Not shown covering; scope comparison only",
+          "evidence": "Studies three specified submonoids, cardinalities, ranks and Green relations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.01519",
+          "material_read": "Abstract and introduction, pp. 1–2 (offsets 0, 5000)",
+          "method": "OA PDF passage inspection",
+          "title": "On three submonoids of the dihedral inverse monoid on a finite set",
+          "trigger": "Same restriction monoid family"
+        },
+        {
+          "assessment": "General transform, not a direct rank law",
+          "evidence": "Semigroup convolution becomes block-matrix multiplication.",
+          "identifier_or_url": "https://arxiv.org/pdf/1212.6462",
+          "material_read": "Theorem 2.11, p. 6, offset 22315",
+          "method": "OA PDF passage inspection",
+          "title": "Fourier inversion for finite inverse semigroups",
+          "trigger": "Potential general convolution theorem"
+        },
+        {
+          "assessment": "Close intersection law at different hypotheses",
+          "evidence": "Independent uniform fixed-size deleted sets and an independent uniform permutation model the product for fixed-rank factors in the full symmetric inverse monoid.",
+          "identifier_or_url": "Resultary 1110b14cea6d",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 4400",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Rank-uniform convolution and coupon-collector collapse in the symmetric inverse monoid",
+          "trigger": "Explicit rank convolution"
+        },
+        {
+          "assessment": "Different monoid and input law; no priority inferred",
+          "evidence": "Product of fixed-singular-rank factors uses pulled-back signed subsets; all ranks n give the binomial with parameter 2^(-(k-1)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-signed-intersection-convolution-and-dyadic-absorption-in-symplec--010b48ded83e",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 4400",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Signed intersection convolution and dyadic absorption in symplectic rook monoids",
+          "trigger": "Substantial same-day intersection-convolution overlap"
+        },
+        {
+          "assessment": "Different monoid and approximation scale",
+          "evidence": "Finite chain overlap geometry gives O(n^(-1/2)), not the dihedral defect weighting.",
+          "identifier_or_url": "Resultary 849553a20428",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "The product-rank law of finite-chain partial translations",
+          "trigger": "Two uniform partial factors, same statistic"
+        },
+        {
+          "assessment": "Single-element statistic",
+          "evidence": "Counts individual self-inverse restrictions.",
+          "identifier_or_url": "Resultary 8670f30aedd1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "The domain-rank involution polynomial of the dihedral inverse monoid",
+          "trigger": "Same-object rank census"
+        },
+        {
+          "assessment": "Single-element statistic",
+          "evidence": "Counts individual nilpotent restrictions by rank and nilpotency index.",
+          "identifier_or_url": "Resultary 32e0cfa664d8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Rank and nilpotency index enumerators for partial isometries of a finite cycle",
+          "trigger": "Same-object rank census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete product-rank information for the canonical cycle action goes beyond the known one-element counts. It resolves the parity-sensitive way extension duplication affects all small-rank coefficients, and quantifies a precise binomial approximation for the uniform law on actual restrictions rather than on redundant representations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

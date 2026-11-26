@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,4 @@
 
 # Verification
 
-The standalone `gopel_verify.py` uses integer bit masks, no third-party packages, and all 720 permutations of six labels. It reproduces all eleven class spectra and each rational-node profile, checks the 16 node classes and all 15 isotropic subgroups, and independently reconstructs the Göpel family via 16 trope six-node incidence sets among all four-subsets. Successful output ends `GOPEL_FROBENIUS_720_PERMUTATIONS_VERIFIED_OK`.
-
-For a manual check, a transposition fixes three perfect matchings, hence three maximal isotropic planes, and exactly four affine cosets on each, producing twelve rational tetrads. Of these, six contain four rational nodes and six contain none.
-
-Finite enumeration proves the finite permutation reduction exactly, and the separate symplectic two-division argument proves the reduction is uniform over all odd-characteristic genus-two curves. The computations do not count actual curves of each branch type, imply rationality of Cremona automorphisms, verify historical priority exhaustively, or constitute independent validation.
+Run `python3 gopel_verify.py` with Python 3.10 or newer. Compare the script's `fixed-node-profile` entries with the rational-node polynomials in `RESULT.md`. It checks all 720 label permutations and the equality of the affine-isotropic tetrad set with the set defined by trope incidence within the classical finite model. Its auxiliary unweighted orbit spectra recover previously tabulated quantities. The geometric reduction and fixed-mark argument in `RESULT.md` explain why the checks apply in any odd characteristic and why the table works after any finite extension.

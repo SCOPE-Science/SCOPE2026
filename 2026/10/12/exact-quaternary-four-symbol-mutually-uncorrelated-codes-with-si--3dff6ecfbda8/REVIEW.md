@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The first/last alphabet partition lemma is elementary and exact, reducing the complete finite domain to fourteen explicitly built graphs with \(45\) or \(60\) vertices. Clique equivalence handles Hamming distance and *both* overlap directions, including self-borders in eligibility. Complete maximal-clique enumeration gives maximal size \(12\), twenty-four labeled optimizers, and two alphabet-permutation orbits. Independently written threshold-clique enumeration proves no clique of size \(13\) exists and counts all size-twelve cliques. Both packaged verification scripts completed and asserted the stated outputs. This proves only the finite parameters stated, not an asymptotic or infinite classification.
+## correctness
 
-## Originality — PASS (bibliographic uncertainty retained)
-The exact joint parameter is \(A_{MU}(4,4,2,1)\), explicitly defined in Levy--Yaakobi (2018). That paper gives a general bound \(16\) here but not the \(12\) optimum or enumeration of all equality cases. Blackburn (2013) gives \(27\) without the Hamming condition, and Chee et al. (2012) give unconstrained constructions. The more recent literature on overlap-free subfamilies provides bounds for distinct restrictions. Searches covered the exact symbolic parameter, cross-bifix-free/Hamming aliases, finite optimality, overlap reductions, and nearby enumerations. No inspected theorem implies this exact value or the two equality-class orbits. Residual risk remains from unindexed enumeration files and incomplete access to a related 2025 publisher article; the assessment is not a claim of independent bibliographic certification.
+PASS
 
-## Value — PASS
-Joint frame synchronization and substitution-error detection is an intrinsic code-design invariant. Its general theory leaves a nontrivial gap between \(12\) realized words and the existing upper bound \(16\). Closing that gap exactly for the smallest square quaternary design and classifying all optimal design families supplies finite benchmarking and genuinely different equality structures. This is not a reformulation of the unconstrained size \(27\) or an arbitrary selected subfamily. Distance two detects one substitution but does not correct it, and no biochemical sequence suitability is asserted.
+Disjoint initial and final symbol supports follow from the length-one condition. Every nonempty code is in an ordered split A versus its complement, as required; multiple representations do not alter the set union. Unequal word endpoints rule out self-borders of lengths one and three, and remove exactly |A||B| period-two words from the raw 16|A||B| candidates. Pairwise compatibility then encodes all remaining overlaps and the distance condition. The maximal-clique equivalence is within a fixed split, which suffices for maxima. Independent replay /workspace/branches/review_replay_5.py used a different exact search: choose at most one word per three-position prefix group (by distance), branch also on skipping the group, and discard a branch only if chosen size plus the surviving group count is strictly below the incumbent. The three splits up to symbol permutations gave (eligible, optimum, ties)=(45,9,72),(60,12,4),(45,9,72). Applying all symbol permutations and deduplicating produced 24 sets and verified the two displayed representatives have disjoint 12-element orbits exhausting them. This is exhaustive for the specified finite domain, not for other alphabet sizes, lengths, or additional constraints.
 
-## Closest literature and limitations
-See the five references in `RESULT.md`, especially Levy--Yaakobi (2018), Definition 6.1 and Theorem 6.1. The 2025 Wang--Fang--Feng article's available abstract and section excerpts discuss bounds for \((1,k)\)-overlap-free constructions rather than this complete finite classification; its full PDF was not inspected. Exact novelty remains subject to bibliographic coverage, while correctness is checkable from the finite standalone enumerations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected exact code tables count ordinary non-overlapping codebooks, and the inspected theorem for the combined distance and overlap invariant stops at 16. Related indexed finite enumerations either change parameters or impose added symmetry; none supplies the exact unrestricted 12 and its two symbol orbits by known substitution or reduction.
+
+## value
+
+PASS
+
+This is a small natural test of the interaction between all overlap lengths and single-substitution detection. The exact optimum distinguishes the joint constraint from the general bound 16, and the complete two-orbit classification gives all sharp constructions rather than just one feasible lower bound. Such a baseline lets researchers test sharpness and compare finite constructions without conflating non-overlap alone with the combined invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

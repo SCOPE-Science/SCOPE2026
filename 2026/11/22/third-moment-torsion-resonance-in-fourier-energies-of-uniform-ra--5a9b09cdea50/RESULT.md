@@ -1,7 +1,7 @@
 # Third-moment torsion resonance in Fourier energies of uniform rank permutations
 
 ## Finding
-Let \(n\ge 7\) be odd. Under independence of two continuous scalar variables, their paired ranks induce a uniform permutation \(\pi\) of \(\{0,\ldots,n-1\}\). For every pair \(1\le k,\ell\le(n-1)/2\), put
+Let \(n\ge 7\) be odd. For \(n\) i.i.d. observations of a pair of independent continuous scalar variables, the paired ranks induce a uniform permutation \(\pi\) of \(\{0,\ldots,n-1\}\). For every pair \(1\le k,\ell\le(n-1)/2\), put
 \[
 \omega=e^{2\pi\mathrm i/n},\qquad
 A_{k,\ell}=\sum_{j=0}^{n-1}\omega^{kj+\ell\pi(j)},\qquad
@@ -27,10 +27,10 @@ K_2(n)&=\frac{(n-3)(2n^5-21n^4+80n^3-148n^2+135n-36)}{(n-5)(n-4)(n-2)(n-1)^3}.
 For all permitted indices, \(K_1(n)<K_0(n)<K_2(n)\) whenever the three classes can occur (that is, whenever \(3\mid n\), so \(n\ge9\)). For \(3\nmid n\), every positive-frequency pair is in class zero. At \(n=9\), all three classes occur and yield \(K_0(9)=1591/768\), \(K_1(9)=525/256\), and \(K_2(9)=20871/8960\). Each of the three expressions tends to \(2\) as \(n\to\infty\) along allowable orders.
 
 ## Assumptions and scope
-The observations are \(n\) independent pairs with mutually independent **continuous** marginal coordinates; both margins are allowed to be unknown. Almost surely there are no ties, and after sorting by the first-coordinate rank, the second-coordinate ranks give an exactly uniform permutation. The frequencies are positive, at most \((n-1)/2\), and the sample size is odd and at least seven. These restrictions avoid order-two Fourier characters and isolate the order-three resonance without additional exceptional classes. The statistic \(Q_{k,\ell}\) is the squared, scaled, nonzero two-dimensional discrete Fourier coefficient of the rank-pairing permutation matrix. This is a null-moment result for **one** component, not a power theorem for an omnibus independence test.
+The observations are \(n\) i.i.d. copies of a pair whose two marginal coordinates are independent and **continuous**; the common margins are allowed to be unknown. Almost surely there are no ties, and after sorting by the first-coordinate rank, the second-coordinate ranks give an exactly uniform permutation. The moment identities apply directly whenever the pairing permutation is uniform. The frequencies are positive, at most \((n-1)/2\), and the sample size is odd and at least seven. These restrictions avoid order-two Fourier characters and isolate the order-three resonance without additional exceptional classes. The statistic \(Q_{k,\ell}\) is the squared, scaled, nonzero two-dimensional discrete Fourier coefficient of the rank-pairing permutation matrix. This is a null-moment result for **one** component, not a power theorem for an omnibus independence test.
 
 ## Proof
-**1. Rank-null reduction and low moments.** Independence and continuity make the two rank permutations independent and uniform. Ordering by one gives a uniform \(\pi\). For any nontrivial character \(\chi(j)=\omega^{kj}\), \(\sum_j\chi(j)=0\); similarly for \(\omega^{\ell j}\). Standard without-replacement averaging yields
+**1. Rank-null reduction and low moments.** Within each continuous marginal sample, exchangeability makes all rank orders equally likely. The two marginal samples are independent, so ordering by one leaves the rank permutation of the other uniform. For any nontrivial character \(\chi(j)=\omega^{kj}\), \(\sum_j\chi(j)=0\); similarly for \(\omega^{\ell j}\). Standard without-replacement averaging yields
 \[
 \mathbb E|A_{k,\ell}|^2=\frac{n^2}{n-1},\qquad
 \mathbb E|A_{k,\ell}|^4=\frac{n^3(2n-3)}{(n-2)(n-1)}.

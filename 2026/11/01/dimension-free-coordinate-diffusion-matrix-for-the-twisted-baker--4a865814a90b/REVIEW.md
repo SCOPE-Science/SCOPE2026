@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact two-branch Perron action preserves centered affine coordinates. The explicitly displayed matrix \(H\) satisfies \((I-B)H=B\) in every dimension, yielding a bounded reverse martingale-coboundary and a multivariate central limit. Initial Lebesgue covariance and the matrix resolvent give the full four-case Green--Kubo matrix. The final two-by-two spectral reduction verifies positivity and the eigenvalues. The exact-rational checker passes on its stated finite domain; it is supplementary to the all-dimension algebra.
+## correctness
 
-## Originality — PASS within searched evidence
-The original complete Saiki--Takahasi--Yorke preprint establishes the model and Bernoulli measure-theoretic properties but not its joint coordinate diffusion. Earlier first-coordinate scalar variance and degree-two radial-observable results involve only one scalar at a time; these do not determine cross-coordinate Green--Kubo coefficients. Available records about the map's periodic-orbit spectra treat a different invariant. No complete dimension-uniform vector covariance statement was located using the specific formula and the aliases in the audit. Remaining risk: another formulation may already contain the full covariance matrix.
+PASS
 
-## Value — PASS
-The coordinates are canonical physical observables of the stretching-and-twisting model. Their complete long-run transport matrix is a natural invariant needed to quantify simultaneous fluctuations, not a chosen parameter slice. The emergence of permutation-invariant passive fluctuations from a non-permutation-invariant coordinate update is structurally informative. The exact positive eigenvalues separate one collective diffusion mode from \(M-2\) dimension-free difference modes, and the first coordinate is anticorrelated with every other coordinate in the diffusion limit. These properties are not consequences of the known univariate variance alone.
+For the stated fixed dimension and stationary normalized product measure, both inverse branches have weight 1/2. Applying them to the centered coordinates gives the invariant affine span and matrix B. Mixing implies B^n→0 since the coordinate Gram matrix is invertible, and the displayed H satisfies (I−B)H=B (interior rows reduce to successive differences, with the two end rows giving the asymmetric coefficients). As a direct check on the joint limit, the Poisson increment on the left inverse branch at y is ((y₁−1)/2, u₂(y)+(y₁+1)/4, …, u_M(y)+(y₁+1)/4); on the right it is its negative because Pd=0. Product Lebesgue second moments give 1/3, −1/12, 1/6 and 1/12 for the four covariance-entry classes, respectively. Ergodicity gives the averaged conditional variances for the bounded reverse-martingale CLT, applied to every linear projection; the bounded telescoping corrector does not alter the limiting covariance or distribution. The passive correlations are for distinct indices, with no such pair at M=2. The two-dimensional block has trace M+4 and determinant 3M+1 in units of 1/12, giving the eigenvalues and the fixed-order versus large-M limits as claimed. Read the frozen exact-arithmetic verify.py and its recorded replay instructions; the finite range was not rerun and does not establish the all-M argument.
 
-## Scope and risks
-The result is stationary and affine-observable-specific. Standard martingale limit theory is used, not rediscovered. Unindexed prior joint-covariance calculations remain a priority risk. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the evaluated full joint covariance for spatial-coordinate sums, including exchangeability, mixed signs and dimension dependence of the eigenvalues. The dynamics, affine transfer operator, scalar first-coordinate variance, and general martingale method are not distinct contributions.
+
+## value
+
+PASS
+
+The exact matrix quantifies the anisotropic spatial fluctuations of a concrete map despite its deterministic ordering of passive coordinates. A common diffusive passive mode and a negative coupling to the active coordinate cannot be inferred from scalar variance or mixing. The joint invariant is useful without claiming a new martingale theorem or a growing-dimension CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

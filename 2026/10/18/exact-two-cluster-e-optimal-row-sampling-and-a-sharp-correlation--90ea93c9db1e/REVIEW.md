@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional projection identity, concavity-based symmetry reduction, block eigenvalues, scalar stationary ratio and determinant crossover give the theorem over all stated parameters. A numerical verifier checked 4,800 admissible cases against independent scalar optimization and many full asymmetric competitors; this supports but does not replace the proof. Equality and limit cases are separated, including equal-size groups with high cross-correlation.
+## correctness
 
-## Originality — PASS, with residual risk
-Strohmer–Vershynin (2007) supplies the RK method. Gower–Richtárik (2015) gives the general rate-optimal SDP (their section 5.1), not the present exact two-class solution. Accessible pre-existing one-exceptional-row claims do not imply the two-nontrivial-class eigenspace change. The 2014 Agaskar–Wang–Lu paper was identified and its abstract inspected, but full PDF access failed; it and unindexed compound-symmetry optimal design sources remain priority risks.
+PASS
 
-## Value — PASS
-A complete global allocation formula across an infinite heterogeneous correlation family replaces a generic SDP and exposes a dimension-independent phase threshold and an unbounded asymptotic gap from uniform sampling.
+Projection on a unit row reduces squared error by its squared inner product with the error; minimizing the expectation over unit errors gives the stated sharp eigenvalue. The positive definite Gram matrix and the information matrix are related by orthogonal change of coordinates, including zero-probability cases. Smallest eigenvalue is concave in the probabilities, so averaging within the permutation groups loses nothing. The two contrast eigenvalues and the coupled 2×2 block then exhaust the spectrum. For r≤c the coupled block at uniform sampling is at least the contrast value, itself a global upper bound after averaging. For equal sizes, group interchange makes uniform optimal, with rate (a−pr)/(2p) when r>c. Independently, the coupled-mode maximum can be certified without differentiating: let g_A,g_B be the two class-mean directions in row space with Gram [[a,r√(pq)],[r√(pq),b]]. Take a unit test vector x with inner products (√p,−√q) times a positive κ. Its Rayleigh quotient against u g_A g_Aᵀ+v g_B g_Bᵀ is κ² for all feasible u,v. Solving the eigenvector equation with this Gram inverse gives u/v=(b+qr)/(a+pr) and κ²=(ab−pqr²)/(pb+qa+2pqr). The opposite inner-product signs select the lower eigenmode. Equality in the Rayleigh bound forces this ratio, so the concave coupled branch in u has a unique peak and is strictly increasing and then decreasing. For t=u/v≥1 the transverse bound is (1−c)v; after subtracting it from the coupled matrix the determinant is qc v²[tD−(1−c)] and the lower diagonal is qc v>0. This gives exactly the asserted crossing and clipped optimum, with agreement of the values at the boundary; for t≤1 both relevant modes increase. For fixed p,c,r in the specified open asymptotic range, ab−pqr²=a(1−c)+q(ac−pr²)>0, t₀ grows linearly and the optimum is eventually clipped at R. The uniform coupled Gram eigenvalue tends to a−pr²/c by its Schur-complement equation, so the rate ratio tends to R. Independent eigenvalue checks against 2,500 sampled simplex competitors per case covered uniform, equal-size, unclipped and clipped regimes; at q=10,000 the stated asymptotic example approaches 25/9. These are finite diagnostics, not a global proof. The uploaded checker was inspected, not executed.
 
-## Scientific limitations
-No full-simplex uniqueness assertion, no finite-time MSE or runtime guarantee, and no claim of independent verification. The first public source date is the 2007-02-08 arXiv version of the foundational RK paper, not a later journal or revision date.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier work explicitly formulates the identical generic one-step E-optimal problem, including its SDP, so neither the objective nor the optimization formulation is new. The specific evaluated two-block solution, transverse/coupled transition and large-class advantage are not supplied by that generic formulation. A later indexed record is mathematically equivalent in the allocation and stronger in full-simplex uniqueness; no earlier coverage by that record was established. No priority claim is made.
+
+## value
+
+PASS
+
+Two exchangeable groups model clustered unit rows while keeping transverse modes in both groups. An exact solution of the worst-initial-error design problem identifies when the smaller class is oversampled and when an active contrast clips the allocation. The tunable unbounded rate advantage over uniform sampling shows that the regime change is not cosmetic. The precise benefit is a sharp one-step coefficient, not optimal finite-horizon MSE or wall-clock cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

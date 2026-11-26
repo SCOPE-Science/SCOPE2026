@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:51:21.136518Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the independent exponential realization of first arrivals, the minimum arrival time of a suffix is independent of its entire rank order: the minimum is independent of the winner, and the residual race conditional on the winner is independent of the minimum time. Thus the event that clock i beats the minimum over j>i is independent of the later suffix record-value events. This proves the Bernoulli-sum law with the stated hazards; the certain top letter contributes one, exactly canceling removal of the initial record. The coupling agrees once letter d appears, giving the TV bound. Independent exact weighted-word enumeration gives (1182,494,52)/12^3 and (2596,1309,186,5)/8^4, with discriminants −455/746496 and −61127/274877906944. These are not Poisson–binomial; the signs persist in open subsets of the positive simplex. Horizons at most two have at most one new record. The distinct hazards in both examples give simple negative limiting PGF roots. Coefficient convergence implies sign changes at the ends of disjoint negative intervals around all d−1 roots for every sufficiently large n; the degree bound and normalization at one then give the Bernoulli factors. This argument does not cover repeated limiting roots. The uploaded verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The record-value theorem is broader in underlying discrete alphabet scope, but is an eventual-value theorem, without a finite-horizon real-root guarantee.",
+          "The Bernoulli-sum framework applies to general PGFs but supplies the test, not the present examples."
+        ],
+        "reasoning": "Independence of eventual inclusions does not persist under censoring at a fixed sample size. None of these checked general statements dominates the finite-horizon question.",
+        "searches": [
+          "10.3390/math10142442, Lemma 1(a)",
+          "arXiv:2208.06791",
+          "arXiv:1908.10024"
+        ]
+      },
+      "checked_sources": [
+        "Lafuente et al., DOI 10.3390/math10142442",
+        "Li, arXiv:2208.06791",
+        "Tang and Tang, arXiv:1908.10024",
+        "Resultary b4eea7f22b5e, 3626aee77ba9, c2d274b9c3b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The eventual Bernoulli law is known. Simple negative roots persist under small real coefficient changes; repeated roots need not.",
+          "The occupancy count does not determine the record count, even for a single word."
+        ],
+        "reasoning": "The eventual assertion is a short stability consequence once the coupling is established and is not a new independence theorem. The fact that the strict record PGF leaves the real-rooted class already at n=3 and returns eventually for these same laws is not mechanically implied by the known limiting law or the occupancy threshold.",
+        "searches": [
+          "10.3390/math10142442, Lemma 1(a)",
+          "arXiv:1908.10024",
+          "Resultary: b4eea7f22b5e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lafuente et al., Lemma 1(a), gives independent indicators of eventual record values.",
+          "Resultary b4eea7f22b5e studies distinct labels; 3626aee77ba9 studies records destroyed by a new observation; c2d274b9c3b5 studies exponential record-indicator independence.",
+          "Li arXiv:2208.06791 compares an observation to a preceding window."
+        ],
+        "reasoning": "An additive initial-record shift does not turn any of these alternate counts into the fixed-horizon all-past strict count. For example, a strictly decreasing word has all labels distinct but no new records. The window statistic differs whenever the comparison excludes early observations.",
+        "searches": [
+          "discrete iid upper record count finite sample Poisson-binomial real-rooted generating polynomial ties",
+          "10.3390/math10142442",
+          "Resultary: b4eea7f22b5e, 3626aee77ba9, c2d274b9c3b5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed three-draw threshold is a shifted Poisson–binomial statement for distinct labels (at most five labels, with a six-label obstruction).",
+          "No compared record-count source lists the weighted strict-record masses or negative discriminants in the finding."
+        ],
+        "reasoning": "The similarly sized occupancy computation is not an exact table for the statistic under review; indeed its threshold and this five-atom obstruction answer different questions.",
+        "searches": [
+          "discrete iid upper record count finite sample Poisson-binomial real-rooted generating polynomial ties",
+          "Resultary: b4eea7f22b5e; 3626aee77ba9; c2d274b9c3b5"
+        ]
+      },
+      "rationale": "Credit the infinite-record law and PGF criterion to known work and treat generic recovery as a short consequence of known independence plus the top-letter coupling and root stability. The supported distinct finding is the earliest-horizon strict record-count obstruction, its four-draw counterpart, and the precise contrast with eventual recovery for the same laws. The closest indexed three-draw result concerns occupancy, not records.",
+      "residual_risks": [
+        "Serinaldi–Kilsby full text was not accessible; its actual coverage remains unverified.",
+        "The bounded literature and index searches do not rule out equivalent examples under alternate terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the eventual law, not the fixed-horizon examples",
+          "evidence": "Independent Bernoulli indicators indexed by attainable record values.",
+          "identifier_or_url": "10.3390/math10142442",
+          "material_read": "OA PDF pp. 1 and 5–6, Lemma 1(a)",
+          "method": "OA primary PDF",
+          "title": "Near-Record Values in Discrete Random Sequences",
+          "trigger": "Discrete record-value independence"
+        },
+        {
+          "assessment": "Different record criterion",
+          "evidence": "Comparison with the preceding k observations, not the all-past count up to time n.",
+          "identifier_or_url": "arXiv:2208.06791",
+          "material_read": "Opening abstract and definition in introduction",
+          "method": "OA primary PDF",
+          "title": "On the recent-k-record of discrete random variables",
+          "trigger": "Closest discrete finite-record terminology"
+        },
+        {
+          "assessment": "General framework, not the record examples",
+          "evidence": "A sum of independent Bernoulli variables has a product PGF.",
+          "identifier_or_url": "arXiv:1908.10024",
+          "material_read": "Opening distribution definition, p. 1",
+          "method": "OA primary PDF",
+          "title": "The Poisson Binomial Distribution—Old & New",
+          "trigger": "Poisson–binomial criterion"
+        },
+        {
+          "assessment": "Scope unverified; no negative coverage conclusion",
+          "evidence": "No readable related theorem was available from this paper.",
+          "identifier_or_url": "10.1029/2018WR023055",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "OA and public publisher retrieval attempts; HTTP 403",
+          "title": "Unsurprising Surprises: The Frequency of Record-breaking and Overthreshold Hydrological Extremes Under Spatial and Temporal Dependence",
+          "trigger": "Possible related record-event representations"
+        },
+        {
+          "assessment": "Substantive methodological overlap; different statistic; no date-based priority inference",
+          "evidence": "Counts distinct labels, with a shift, not strict upper records.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-five-category-poisson-binomial-threshold-for-three-draw--b4eea7f22b5e",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp five-category Poisson–binomial threshold for three draws",
+          "trigger": "Distinct indexed categorical three-draw real-rootedness result"
+        },
+        {
+          "assessment": "Different law and observable",
+          "evidence": "Continuous iid records destroyed by a new observation, with geometric limit.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-total-variation-convergence-for-the-number-of-records-brok--3626aee77ba9",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp total variation convergence for the number of records broken",
+          "trigger": "Distinct indexed convergence result for a record count"
+        },
+        {
+          "assessment": "Does not cover iid categorical ties or the distribution of their record count",
+          "evidence": "Classifies record-indicator independence for independent exponential observations.",
+          "identifier_or_url": "2026/10/4/SCOPE-finite-prefix-independence-classification-for-heterogeneous-expo--c2d274b9c3b5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Finite-prefix independence classification for heterogeneous exponential observations",
+          "trigger": "Distinct indexed finite-horizon record independence result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two small witnesses answer a natural finite analogue of independent eventual record-value indicators. Failure already at the first horizon where it can occur, stability of the counterexamples in the probability simplex, and exact eventual recovery of the same laws explain why a limiting independence claim cannot be read as a fixed-time one. The contribution does not require a time bound or a classification at repeated hazards.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

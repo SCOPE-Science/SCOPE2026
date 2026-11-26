@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact polynomial-entropy hierarchy
+# Independent mathematical audit
 
-The package contains the complete analytical proof in `RESULT.md`, executable finite combinatorial checker `checker.py`, and the exact output `checker_output.txt` from running the checker under Python 3. The six required documents and two reproducibility artifacts are embedded in full.
+## correctness
 
-The checker verifies for each integer window length from \(1\) through \(14\) that the language with at most two symbol changes has exactly \(L^2-L+2\) words. It then constructs explicit two-interface finite-block configurations with independently selected event times, for \(n=1,2,3,4\), and tests every pair in each finite family. The families contain respectively \(4,16,64,256\) configurations; pair counts are \(6,120,2016,32640\).
+PASS
 
-This test exercises the key interface-separation combinatorics but does not establish the estimates for arbitrary time horizons, arbitrary \(n\), or arbitrary compatible quotient metrics. Those assertions are obtained analytically from uniform continuity, fixed positive separation between the quotient point and the two step configurations, and \(2n\) disjoint linear-size marker windows. The quotient-suspension proof additionally uses that a passing \(n\)-point configuration retains one nontrivial interface state and at least one point near the identified constant point for \(n\ge2\).
+A length-L word is specified by its initial bit and zero, one or two change locations; constant extension realizes each and the count is L²−L+2. At any fixed observation scale, uniform continuity of the quotient gives a word radius R. Equal unordered sets of words on [−R,N−1+R] give small Hausdorff orbit distance in both directions, even if representative multiplicities differ. Thus s_N=O(N^(2n)), and a continuous factor gives the same upper bound after singleton collapse. For a matching lower bound, use 2n successive windows of lengths proportional to N on one coarse grid of spacing larger than the fixed observation radius, pair successive windows for the two transitions of each finite 1-block, and choose one time in each window. At a differing passage time one configuration has a step marker separated from p and the other has only points near p. Every nonpassing point in the first configuration is also near p. For n≥2 the passing configuration is near {p,u} or {p,v}, whose suspension images are distinct from the collapsed singleton point. Uniform continuity supplies a fixed positive separation after collapse. This produces Ω(N^(2n)) choices at a fixed scale and handles n=1 before collapse. Closed inclusion of each F_n in the full hyperspace gives infinite polynomial entropy there; the finite-layer bound gives zero topological entropy at every scale. The recurrent context also checks independently: all nonconstant points are homoclinic to p and admit a transition cylinder that never returns (a specified transition type can occur only once); pseudo-orbits can jump between their two tails near p. Pairs of opposite steps are nonwandering in F_2: approximate each by a long block that first displays the designated step and then, at a common late time, displays the opposite member's step. The unordered pair returns arbitrarily near itself. Varying their locations gives infinitely many such configurations.
 
-No numerical extrapolation is treated as an infinite proof. The claims about nonwandering and chain-recurrent sets are attributed to the cited original construction. Independent external verification and historical-priority audit have not been performed.
+## originality
+
+PASS
+
+Best of current knowledge for exact 2n growth on this identified two-transition system, particularly the fixed-scale lower bound that survives singleton collapse. The construction and its recurrence properties are established. The inspected multiplicative entropy theorem assumes finite chain recurrence, while here every point is chain recurrent. The strongest verified general lower bound under wandering with finite limit sets gives n, not 2n. The closest same-system record instead classifies nonwandering finite configurations.
+
+## value
+
+PASS
+
+The same basic test system lies outside the finite-chain-recurrence multiplicativity theorem. Exact entropy at all finite levels, including survival of 2n independently observable passage times after collapse, settles a natural boundary case. It exhibits unbounded polynomial complexity across zero-topological-entropy finite layers. The key significance is the exact growth and robust collapsed-layer detection, not merely applying a factor inequality or calculating word counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

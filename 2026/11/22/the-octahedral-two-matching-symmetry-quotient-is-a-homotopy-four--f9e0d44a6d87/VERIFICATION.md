@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_octahedral_orbit.py` from a directory containing the provided script. It needs the standard library only; no external data, previously generated state, or downloaded computation files.
+## correctness
 
-The checker verifies all 4,096 edge subsets; exactly 771 nonempty two-matching faces; all 48 octahedral graph automorphisms; the acyclicity of the 377-pair covering-space discrete-Morse matching; generation of the group by three elements with fixed points; construction of 4,670 quotient flag-orbit cells; the integer boundary-squared identities; 1,021 isolated unit cancellations followed by 1,313 exact unit Schur-complement cancellations; and an independent direct rank computation from the original boundaries over characteristic two, three, and five. It ends with `OCTAHEDRAL_TWO_MATCHING_FULL_SYMMETRY_S4_VERIFIED`.
+PASS
 
-The resulting cellular chain complex has one copy of \(\mathbb Z\) in degree zero and one in degree four, and no other cells after reductions. The program proves the stated finite algebraic identities and group facts, not the general Armstrong, Hurewicz, or Whitehead theorems used in the proof. There has been no independent external mathematical audit.
+Independently enumerated the legal faces and all 48 automorphisms. A spanning tree and triangular relations in the covering complex kill every edge generator of pi_1, independently of the submitted Morse calculation. The three specified edge-fixing elements generate the group, so Armstrong's theorem gives a simply connected ordinary orbit space. Barycentric flags have strictly ordered sizes and no inversions; the orbit cells therefore have the signed deletion boundaries. Independent descending-flag enumeration gave (35,316,1101,1718,1200,300); the integral boundaries compose to zero. Separate integer reductions of each boundary using only unit pivots gave ranks (34,282,819,899,300), with all nonzero integral elementary divisors equal to one. Thus each image is saturated and the quotient homology is free with ranks (1,0,0,0,1,0). Hurewicz supplies a sphere map representing a generator in degree four; homological Whitehead makes it a homotopy equivalence. This proves neither homeomorphism nor a Borel quotient claim.
+
+## originality
+
+PASS
+
+The closest verified prior work determines the underlying complex without quotienting. The ordinary full-automorphism quotient, particularly its integral homology and fundamental group, is distinct in the material inspected.
+
+## value
+
+PASS
+
+For a canonical graph where the underlying complex has homology in two positive dimensions, this computes the integral ordinary full-group quotient type and rules out lower-dimensional torsion. The stabilizers and integral orbit boundary calculation address real distinctions from the unquotiented wedge and a rational character computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:30:22.764396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two valuations and continuous 2-adic interpolation statement in RESULT.md lines 3–15 are proved. The binomial-polynomial values are integral on Z₂ by density, so each series term is divisible by 2^k uniformly. The convergent dilogarithm identity at z=2 gives L=0 via log(−1)=0. The cubic coefficient A is a unit: k=4 contributes −11/3 and the lower valuation bound is at least one for all other nonzero summands. At height h≥4, truncate at k=4h≤2^h; the quadratic-and-higher product remainder has total valuation at least 4h−2≥3h+1, and the tails of the original series, x²L and x³A all vanish modulo 2^(3h+1). Separately reconstructed exact polynomials at heights 2 and 3 reduce after division by 2^(3h) to u²+u³+u⁴ and u³ modulo two, respectively; the latter has odd common denominator 99225. Lucas parity, extended by continuity, justifies the omitted k=5,6 or k=9 terms. Euler's generating-function transformation at z=2 and density give d(−x−1)=−d(x), so the second valuation follows without a separate expansion. Index zero is excluded from the first identity. Replay: independent_check.py and independent_check_output.txt in the bounded reproduction accompanying this review; the frozen artifacts were inspected, not executed. The asserted extension is a valuation for the specified 2-adic function, not an independently verified global analytic-regularity claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "70933221cf22 classifies target fibers modulo 2^k and gives the ±1 valuation shells; 5aae90e5b7de describes the full 2-adic image closure.",
+          "b16bdcc10064 proves a weighted-sum defect and a companion valuation for D_(2^r)+D_(2^r−1), not the general identities audited here."
+        ],
+        "reasoning": "Do not infer index-specific valuations from the image shells alone. The explicit complementary theorem and the all-index D_n−1 theorem establish that coverage directly; the additional fibers and image classification are broader information.",
+        "searches": [
+          "Resultary 70933221cf22, Finding and Proof steps 1–3",
+          "Resultary 5aae90e5b7de, Finding",
+          "Resultary b16bdcc10064, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–60; VERIFICATION.md, artifacts/verify.py and artifacts/verification_output.txt inspected",
+        "Lengyel INTEGERS 21 (2021), A86 pp. 4–5",
+        "Resultary originals 2170cbfaeec0, 70933221cf22, 5aae90e5b7de and b16bdcc10064"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2170cbfaeec0 uses the same L=0 identity, product expansion, and −11/3 odd linear summand in the cubic quotient; 70933221cf22 gives the same Euler transformation and continuity argument.",
+          "Lengyel's bound 2h+2 in general does not imply the exact cubic value."
+        ],
+        "reasoning": "The interpolation assertion follows already from the integer exact law: for fixed x of height h, sufficiently close positive integer approximants have height h, and the congruence class of their images modulo 2^(3h+1) persists by continuity. There is no distinct mathematical gap from extending these exact valuations to the specified Z₂ ball. Truncating at 4h and splitting two exceptional heights provides a valid alternative presentation of the same cancellation, not a new proved invariant.",
+        "searches": [
+          "Resultary 2170cbfaeec0, Proof steps 2–5",
+          "Resultary 70933221cf22, Proof steps 1 and 3",
+          "Lengyel A86, Theorem 3 and Conjectures 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2170cbfaeec0 gives the exact D_n−1 valuation in every residue class, including 3ν₂(n) for positive multiples of four.",
+          "70933221cf22 explicitly states the exact D_n+1 formula and proves the same interpolation reflection.",
+          "Lengyel's Conjectures 1–3 formulate the exact statements; Theorem 3 gives a lower bound, not the exact cubic conclusion."
+        ],
+        "reasoning": "Writing n=2^h u with odd u identifies the 4|n valuation with the conjectured positive odd-multiplier law. On n≡3 (mod 4), reflection maps −n−1 into the same dyadic ball and gives the corresponding valuation for D_n+1. The indexed sources give the exact statements, not just compatible congruences.",
+        "searches": [
+          "Resultary: central Delannoy exact cubic dyadic valuations at ±1, Lengyel conjectures",
+          "Resultary 2170cbfaeec0, Finding",
+          "Resultary 70933221cf22, Finding and reflection identity",
+          "Lengyel INTEGERS 21 A86, pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former states an exact table of modular fiber multiplicities for every k≥4, including each shell around ±1; the latter gives the exact pointwise valuation in all three index regimes."
+        ],
+        "reasoning": "Finite tabulation of D_n never proves the uniform cubic law. These indexed comparisons are symbolic formulas at all heights, with the pointwise statements furnishing the coverage rather than numerically matched rows.",
+        "searches": [
+          "Resultary 70933221cf22, Finding, cases 1–4",
+          "Resultary 2170cbfaeec0, all-index exact valuation cases"
+        ]
+      },
+      "rationale": "Both exact valuation arms and their interpolation are covered by distinct indexed exact results, including the proof mechanism of the vanishing dyadic dilogarithm and odd cubic coefficient. Lengyel's original paper only conjectures the exact values; it is not the basis for rejection. Indexed equivalent coverage does not establish historical priority or dependence.",
+      "residual_risks": [
+        "Indexed dates and exact coverage do not determine historical priority or dependence.",
+        "The bounded literature check is not exhaustive and does not classify all later p-adic Delannoy literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same conjectures, not an earlier proof of exactness",
+          "evidence": "The theorem gives a 2h+2 lower bound; the conjectures specify the cubic equalities, including odd multipliers and both index classes.",
+          "identifier_or_url": "https://sites.oxy.edu/lengyel/papers/v86%20ON%20SOME%20p-ADIC%20PROPERTIES%20AND%20SUPERCONGRUENCES%20OF%20DELANNOY%20AND%20SCHRODER%20NUMBERS%2C%20INTEGERS2021.pdf",
+          "material_read": "Printed pp. 4–5, Theorem 3 and Conjectures 1–3; OA offsets around 8500, 10516",
+          "method": "Lawful OA original PDF at alternate author-hosted URL",
+          "title": "On Some p-Adic Properties and Supercongruences of Delannoy and Schröder Numbers",
+          "trigger": "Original conjectures for exact valuations"
+        },
+        {
+          "assessment": "Covers D_n−1 and the central proof mechanism",
+          "evidence": "Gives ν₂(D_n−1)=3ν₂(n) on 4|n and derives the odd cubic quotient using the same vanishing dyadic dilogarithm and linear coefficient calculation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-resolution-of-the-sharp-binary-valuation-conjecture-for-central--2170cbfaeec0/RESULT.md",
+          "material_read": "Finding and Proof steps 1–5, offsets 0–4750",
+          "method": "Original record via local mirror",
+          "title": "Resolution of the sharp binary valuation conjecture for central Delannoy numbers",
+          "trigger": "Exact positive multiples-of-four arm and proof"
+        },
+        {
+          "assessment": "Covers D_n+1, reflection and broader fiber problem",
+          "evidence": "Explicit ν₂(D_n+1)=3ν₂(n+1) on n≡3 (mod 4); uses the same interpolation and reflection; states exact fiber multiplicities and image shells.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-dyadic-fibers-and-one-seventh-image-density-of-central--70933221cf22/RESULT.md",
+          "material_read": "Finding and Proof steps 1–3, offsets 0–5150",
+          "method": "Original record via local mirror",
+          "title": "Complete dyadic fibers and one-seventh image density of central Delannoy numbers",
+          "trigger": "Complementary exact law and stronger p-adic classification"
+        },
+        {
+          "assessment": "Broader image invariant, not alone a pointwise valuation proof",
+          "evidence": "The image closure includes the exact cubic shells around both ±1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-2-adic-image-of-the-central-delannoy-numbers-has-measu--5aae90e5b7de/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Original record via local mirror",
+          "title": "The exact 2-adic image of the central Delannoy numbers has measure one seventh",
+          "trigger": "Potential stronger statement about valuation shells"
+        },
+        {
+          "assessment": "Distinct weighted sum and special pair of indices",
+          "evidence": "The companion valuation is for the sum of D_(2^r) and D_(2^r−1), not the two general laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-fourth-order-defect-in-the-dyadic-delannoy-cubic-sum--b16bdcc10064/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Original record via local mirror",
+          "title": "Sharp fourth-order defect in the dyadic Delannoy cubic sum",
+          "trigger": "Same-day Delannoy dyadic valuation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Resolving Lengyel's conjectures is a worthwhile arithmetic problem, but the exact resolution and central method are already covered by the indexed results, and the claimed extension to 2-adic indices is immediate from continuity. No distinct new valuation, controlled unit invariant or other independently valuable remainder is established here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

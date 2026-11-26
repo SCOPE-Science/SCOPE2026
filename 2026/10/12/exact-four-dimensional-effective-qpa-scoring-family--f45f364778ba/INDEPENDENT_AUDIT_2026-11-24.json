@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:37:54.914372Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual scorer is specified by Eqs. (1)–(10) of arXiv:2605.25365v1; Eq. (7) alone is the entangling unitary. Starting from the encoded product state, apply CNOT(0→1), I⊗RY(t), and CNOT(1→0) in that order. This gives the four displayed real amplitudes. The two X rotations and the parity projector give the stated expectation: mixed ZY and YZ terms vanish on a real state, while YY supplies the two trigonometric terms with the minus sign. The encoder factors through the stated four coordinates, and the linear section θ_s=0, γ_d=ω_d/2, γ_s=ω_s/2 lifts the witness. Independent replay `python3 /workspace/reproductions/rank_certificate.py` multiplies the gate matrices and differentiates the projected amplitudes; it gives the displayed four-by-four Jacobian and positive determinant (222+174√2+180√3+129√6)/1024. Thus evaluations at the four real inputs already have rank four, so the local functional rank is four at the witness, and cannot exceed four anywhere. This is a maximal rank, not uniform pointwise rank (for instance the entangling-angle derivative vanishes when β=0), and not the rank of a single scalar evaluation. Inspected VERIFICATION.md and artifacts/verify.py without running the bundled script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haug et al. define accessible state directions using quantum Fisher rank. The circuit of arXiv:2512.02476 uses quantum-feature-vector similarities and phase-controlled interference. Quantum Adaptive Self-Attention uses a parameterized circuit in a value projection."
+        ],
+        "reasoning": "State rank can upper-bound some measurement sensitivities but cannot by itself prove that this measured parity-score family has four independent variations. The other architectures do not specialize in the inspected passages to the same encoder/entangler/score, or give a theorem forcing its rank.",
+        "searches": [
+          "arXiv:2102.01659 Sec. IV Eq. (8)",
+          "Quantum-attention literature: arXiv:2512.02476 Sec. B; DOI 10.1088/2058-9565/ae8b21"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.25365v1",
+        "arXiv:2102.01659",
+        "arXiv:2512.02476",
+        "doi:10.1088/2058-9565/ae8b21",
+        "SCOPE-20261018-6940b0c7278f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper factors the encoder and proves an upper bound of four but only obtains a lower bound of two."
+        ],
+        "reasoning": "Factorization by four real coordinates does not imply that all four survive readout, much less that their derivatives are jointly independent. The nonsingular four-input witness supplies the missing implication. The exact rank, not the parameter substitution, is credited.",
+        "searches": [
+          "arXiv:2605.25365v1 Theorem 2 p. 6 and appendix pp. 15–16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper has the same encoder, CNOT/RY entangling unitary, paired RX mixer and even-parity probability. Theorem 2 maximizes the rank over the original five parameters and states 2≤d_Q≤4."
+        ],
+        "reasoning": "The displayed d_Q definition does not describe the data stacking of J_full explicitly, but the proof uses the function family over varying inputs. Four evaluation rows certify maximal local functional rank; they do not claim rank four at one scalar evaluation or for a different score.",
+        "searches": [
+          "Resultary: arXiv:2605.25365v1, exact four-dimensional QPA scoring family, quantum parameterized attention score Jacobian rank",
+          "arXiv:2605.25365v1 Eqs. (1)–(10), Theorem 2 and proof appendix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected ranked attention-spectrum hit proves a period-two circle and its normal spectrum for a classical residual attention dynamics."
+        ],
+        "reasoning": "The matching term 'spectrum' refers to stability of the attention map, not rank of a two-qubit parameter-to-score function. No table is at issue beyond the explicit witness; no exact rank or minor for this circuit was located in the indexed comparisons.",
+        "searches": [
+          "Resultary: exact proposed title, QPA score rank and source identifier",
+          "SCOPE-20261018-6940b0c7278f mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The circuit, definition and upper-bound reparameterization are prior. The distinct supported part is attaining that bound with an exact, nonzero Jacobian minor for the same score family.",
+      "residual_risks": [
+        "The inaccessible QNN-SAM article was not ruled out by full-text comparison. Other unindexed calculations or versions could contain an equivalent rank witness. The conclusion refers specifically to the v1 circuit and maximal functional rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same circuit and prior bounds, not attaining the upper bound",
+          "evidence": [
+            "Eq. (7) specifies the entangler only; Eqs. (8)–(10) complete the mixer and probability readout. The rank theorem and appendix establish 2≤d_Q≤4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.25365v1",
+          "material_read": "Eqs. (1)–(10) pp. 4–5, Theorem 2 p. 6, rank proof pp. 15–16",
+          "method": "Version-specific OA PDF passages",
+          "title": "Quantum Parameterized Self-Attention Network for Image Classification",
+          "trigger": "Exact same scorer and d_Q"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "G_C is the rank of the quantum Fisher matrix for the state family."
+          ],
+          "identifier_or_url": "arXiv:2102.01659",
+          "material_read": "Sec. IV Eq. (8), p. 4",
+          "method": "OA PDF passage",
+          "title": "Capacity and Quantum Geometry of Parametrized Quantum Circuits",
+          "trigger": "Related effective-dimension definition"
+        },
+        {
+          "assessment": "Different score construction",
+          "evidence": [
+            "Uses feature-vector similarities and interference, not the specified parity readout."
+          ],
+          "identifier_or_url": "arXiv:2512.02476",
+          "material_read": "Sec. B Eqs. (9)–(11), pp. 5–6",
+          "method": "OA PDF passage",
+          "title": "Quantum feature-vector attention construction",
+          "trigger": "Related quantum attention scoring"
+        },
+        {
+          "assessment": "Different use of the circuit",
+          "evidence": [
+            "The examined circuit is used in a value projection."
+          ],
+          "identifier_or_url": "doi:10.1088/2058-9565/ae8b21",
+          "material_read": "pp. 2–3, offsets 2363 and 6987",
+          "method": "OA article passages",
+          "title": "Quantum Adaptive Self-Attention",
+          "trigger": "Related parameterized attention architecture"
+        },
+        {
+          "assessment": "Different object and invariant",
+          "evidence": [
+            "Classical normalized residual multihead-attention map and its normal spectrum."
+          ],
+          "identifier_or_url": "SCOPE-20261018-6940b0c7278f",
+          "material_read": "Finding and scope of mirrored RESULT.md",
+          "method": "Local mirror",
+          "title": "Resonant attracting period-two circle and exact normal spectrum",
+          "trigger": "Ranked attention result"
+        },
+        {
+          "assessment": "Circuit and rank comparison unresolved",
+          "evidence": [
+            "Search description indicates a circuit for attention scores; no accessible technical statement was used as evidence of noncoverage."
+          ],
+          "identifier_or_url": "QNN-SAM, ScienceDirect",
+          "material_read": "Search description only, no full-text passage",
+          "method": "OA retrieval attempted; access denied",
+          "title": "QNN-SAM quantum attention model (search hit)",
+          "trigger": "Possible use of a parameterized quantum circuit for the attention score"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A four-coordinate circuit decomposition alone cannot tell whether the parity measurement hides further parameter dependencies. Exact maximal score rank settles the source's explicit unresolved interval and tells users of this scorer that all four effective coordinates are locally identifiable from suitable inputs, but only four. This is a concrete capacity statement for the measured family, not evidence for a training or generalization advantage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

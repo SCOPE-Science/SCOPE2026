@@ -1,19 +1,21 @@
-# Scientific assessment: three-way short-period fold ordering
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The base-period census follows exactly from \(|\det(A-I)|=1\) and \(|\det(A^2-I)|=5\). The Möbius SU(1,1) product gives the complete two-iterate traces, and the positive-trace hyperbolic windows contain zero drift throughout the stated parameter strip. Their upper endpoints are nonidentity parabolic folds. Exact derivative inequalities prove that the two relevant threshold differences each cross zero only once, yielding a strict three-phase ordering. Weak-forcing expansion follows from the analytic arcsine and sine series. The standalone verifier independently checked the five base points, complex matrix traces, switching roots and ordering in 519 consistency checks, but the all-parameter claim rests on the written inequalities, not finite sampling.
+PASS
 
-## Originality — PASS, with acknowledged priority risk
+The determinants of A−I and A²−I give one and five fixed points, respectively; substitution of the listed fifth-denominator coordinates exhausts the two primitive base two-cycles. Writing the circle fiber as a rotation composed with (z+ε)/(1+εz), the product's normalized half-trace is [cos(2π(c+μ q_j sin α))+ε² cos(2πμ s_j cos α)]/(1−ε²). Thus the positive-trace component about zero drift is |c+μ q_j sin α|<h_j; the one-step analog uses h_0. The lower bound (2/5)cos(π/10)/π>1/10 puts zero strictly inside all three intervals. At the positive endpoint the trace crosses transversely, with derivative proportional to −sin(2πh_j) for the two-step returns; their off-diagonal term contains cos(πd_+)≠0 in the stated strip, and the one-step off-diagonal is always nonzero. These are genuine nonidentity parabolics, not identity resonances. The bound on h_j′ makes c_2−c_1 strictly increasing across the open strip, with opposite signs at −π/2 and zero. The difference c_1−c_0 is negative on the nonpositive half and strictly increases on the positive half, where its sign changes. The possible c_2=c_0 tie is not an envelope switch: on the positive half c_1<c_2. The uniform expansion h_j=h_0−ε π μ²s_j² cos²α/(2√(1−ε²))+O(μ⁴) gives roots of order μ. Using (s_1²−s_2²)/(q_1−q_2)=1/2 and s_1²/(1−q_1)=1+q_1 yields the stated coefficients and cubic remainders. Independent replay: python3 /workspace/independent_checks_oct19.py (moebius_check), using scalar Möbius composition at parabolic double roots and bisection for four amplitudes; at μ=0.1 it gave approximately −0.03370194797518 and 0.08814153511562. This is corroboration; the analytic bounds supply the full quantifiers. The supplied checker was inspected, not executed.
 
-The closest primary source is Chigarev–Kazakov–Pikovsky (2023), *Attractor-repeller collision and the heterodimensional dynamics*, especially its Section IV.A, Figure 5 and Möbius appendix. The paper supplies the map and general composition mechanism, and numerically plots fold curves up to base period seven; it does not state or prove the exact three-way identity switching, unique crossover phases or their asymptotic slopes. The closest published mathematical record, *Arithmetic isolation of identity resonances in a cat-driven Möbius map*, addresses \(c=\alpha=0\) with isolated two-cycle identity resonances and does not cover variable drift and phase fold-order classification. No equivalent statement was found in the executed comparisons, although the simplicity of Möbius matrix methods leaves the possibility of an unindexed antecedent. The 2021 related authors' work was accessible as abstract/metadata and is about fractal-measure singularities, not this short-period fold competition.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first fold of a periodic driving orbit is a concrete part of the attractor–repeller collision mechanism studied in the original paper. It matters **which** short orbit reaches its boundary first: a fixed base orbit and two inequivalent period-two cat itineraries compete. The proof turns a numerical phase-curve comparison into an exact, unique three-regime classification across a continuous forcing-amplitude interval and supplies small-amplitude sensitivity constants. This is not a recomputation of the symmetric zero-drift two-cycle census; the switching occurs only when phase and positive drift vary. The scope is deliberately limited to base periods one and two and does not purport to characterize the true envelope over all periods.
+Credit the original model, periodic-driver saddle-node mechanism and numerical fold curves, plus the previously worked zero-slice resonances. The defensible distinct claim is the exact first-positive-fold formulas used to resolve the lower envelope of the three short base orbits throughout the variable-phase/amplitude strip, including both switches' uniqueness and weak-forcing constants. None of the compared results gives or mechanically implies that classification.
 
-## Closest literature and limits
+## value
 
-Chigarev–Kazakov–Pikovsky, arXiv:2305.18172v1 (2023), is the original studied model. The published mathematical finding *Arithmetic isolation of identity resonances in a cat-driven Möbius map* (2026) provides the closest special-slice result, including different resonances at \(c=\alpha=0\). Chigarev–Kazakov–Pikovsky (2021), DOI 10.1063/5.0056891, studies statistical attractor/repeller overlap in related models. The phase classification does not examine base periods \(\ge3\), the global collision, or chaotic invariant measures. An unindexed equivalent computation remains a limited priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The plotted fold mechanism motivates asking which low-period itinerary destabilizes first. The minimal three-competitor comparison gives a rigorous phase diagram and leading sensitivities, resolving a competition that a trace computation for one orbit alone would miss. This supplies a usable short-period benchmark without claiming the true all-period or global collision envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

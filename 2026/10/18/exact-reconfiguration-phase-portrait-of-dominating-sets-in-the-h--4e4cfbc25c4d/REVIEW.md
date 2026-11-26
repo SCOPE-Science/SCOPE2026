@@ -1,15 +1,21 @@
-# Scientific review — Heawood dominating-set reconfiguration
+# Independent mathematical audit
 
-## Correctness: PASS
-The domain is exactly the fourteen vertices of the Fano-plane incidence graph, ordinary closed-neighborhood domination, single-vertex token addition/removal, and budgets \(4\) through \(8\). A complete \(2^{14}\)-subset traversal checks every domination and inclusion-minimality predicate by all fourteen closed neighborhoods, constructs all four proposed geometric families, and asserts equality with the entire minimal-set collection. It then constructs every reconfiguration graph by each possible bit flip, computes every component, and performs all-source breadth-first searches. The separate C++ implementation uses a different Fano incidence model, OR-cover domination test, and independent all-source searches. All reported finite counts and distances agree. Breadth-first search is exact because every possible successor is considered; there is no extrapolation from experiments at smaller graph orders. The structural overlap-graph lemma is proved independently in RESULT.md. Execution checked both actual packaged source files successfully.
+## correctness
 
-## Originality: PASS, with residual risk
-The closest direct primary source is Haas–Seyffarth's *The k-Dominating Graph* (arXiv:1209.5138): its bipartite connectivity theorem gives the endpoint \(\Gamma(H)+1=8\), and its general maximal-minimal-set obstruction explains why \(D_7(H)\) is disconnected. Neither statement implies the complete multi-budget Heawood component census, geometric classification, or exact metrics. The full relevant sections of Haas–Seyffarth and Suzuki–Mouawad–Nishimura, the relevant contents of Alikhani–Fatehi–Klavžar, and the later general survey were compared by their actual mathematical objects and hypotheses. Targeted indexed searches for exact Heawood \(D_k\) state counts, alias ``Fano plane incidence'', domination-polynomial interpretations, component sizes, and distance invariants returned no covering published claim. Same-object results on Heawood homomorphism/recoloring and graph domination complexes use different state spaces and are not logically stronger. No uniqueness claim follows solely from a database partition or unsuccessful search; obscure nonindexed Heawood computations are the main unresolved risk.
+PASS
 
-## Mathematical value: PASS
-The Fano incidence graph is the smallest nontrivial symmetric projective-plane incidence graph, and the minimal domination budgets are natural extremal thresholds, not arbitrary slices. The exact geometric classification explains why component obstructions disappear successively; measuring the full radius and diameter directly addresses a problem raised by the founding \(D_k\) paper. The preserved large-component sizes and sharp shortest-path metrics are not recoverable from the known connectivity threshold or a domination polynomial. The result is a natural self-contained finite classification and baseline for future incidence-graph reconfiguration work, without needing a claimed infinite extension.
+The classification and TAR table survive unchanged in /workspace/repairs/5/RESULT.md. A separate bounded computation constructed the lines as additive triples in F₂³, tried every subset, tested closed-neighborhood union and one-deletion minimality, and built all four geometric families independently of the minimality filter. Equality yielded 21,14,28,2 minimal sets and the full domination polynomial coefficients. BFS expanded exact frontiers as bitsets of configurations, with each permissible move a single bit flip. It verified the specific isolated families for k=4,…,7, the 21 stars at k=5, and reproduced the five rows (V,E,largest radius,largest diameter): (21,0,0,0), (245,210,1,2), (1176,2226,10,12), (3138,9674,11,14), (5532,23408,12,14); component sizes also matched. The all-source histogram at k=8 was 42 at eccentricity 12, 2156 at 13 and 3334 at 14. Replay: python3 /workspace/reproductions/heawood.py. Supplied checkers were inspected, not executed. Monotone addition up to the union of two minimal sets and containment for every single move prove the overlap-graph correspondence; every state in any larger budget can delete down to a minimal set of size at most seven, so connectedness at eight persists. No higher-budget metric claim is inferred. The repair also checks the contrary literature assertion directly: with ℓ={1,2,3} and p=4 in XOR coordinates, the three selected lines are {1,4,5},{2,4,6},{3,4,7}. Points 5,6,7 are private neighbors for those lines; for each selected point, its line other than ℓ and the line through 4 is a private neighbor. The six-set dominates and is minimal but not neat.
 
-## Scientific limits
-The distance values are established only through budget \(8\), while higher-budget connectivity follows from general theory. A directly inspectable exhaustive checker is the main finite proof certificate. Unknown exact calculations in uncatalogued publications could reduce originality; independent external auditing has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the surviving full minimal-set census, geometric six-set obstruction and metric/component portrait, with repaired attribution. The earlier projective-plane construction covers the minimum size and first-family construction, and Haas–Seyffarth accounts for the connectivity threshold conditional on the upper domination number. An earlier computer assertion on the same graph is actually false as stated; it does not provide a covering classification.
+
+## value
+
+PASS
+
+The smallest projective-plane incidence graph makes the budget range canonical, from minimum size four through the first connected budget eight. The exact radii, diameters and geometric identities of isolates separate information that a generic connectivity threshold and a domination polynomial lose. The explicit non-neat six-sets also correct a specific published-preprint assertion by a short witness, independently of the computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

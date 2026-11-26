@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:56:32.064788Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An open rich-edge witness requires four distinct neighbor colors and a fifth for the witness itself. I checked all 126 edges in the seven printed base tables directly from modular rim/rung adjacency with python3 /workspace/checks/prism_certificates.py. Counts of rich edges for n=3,...,9 were 3,6,6,8,9,11,12; every edge has an open rich neighbor. Each line-graph step shifts an edge anchor by at most one column, so the required edge and neighbor-of-neighbor data lie in five columns, also for n=5 with cyclic indices. In concatenations of length-5/6/7 blocks no five-column window crosses two seams, and the common four-column prefix makes each seam window exactly a tested window of the preceding cyclic block. The bases of lengths 10,...,14 plus any number of length-five blocks exhaust n≥10. The uploaded checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "105708af762d also gives χ′_rn(M_{2n})=5.",
+          "Kong Thm. 1.1 gives a 3k bound for proper k-edge-colorable graphs; Kong–Lin–Wang Thm. 1.2 requires Δ(G[V_3])≤1; Kashima et al. have linear degree bounds in the abstract."
+        ],
+        "reasoning": "The earlier ladder result contains the target as one of its two families. The general literature bounds cited here do not imply five for cubic prisms; the induced-matching hypothesis fails because every vertex of a prism has degree three.",
+        "searches": [
+          "Resultary 105708af762d",
+          "arXiv:2610.21036v1",
+          "arXiv:2610.21868v1",
+          "arXiv:2610.16446v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification",
+        "Frozen verify.py and VERIFICATION.md",
+        "Resultary 105708af762d",
+        "arXiv:2610.21036v1, 2610.21868v1, 2610.16446v1",
+        "DOI metadata 10.1016/j.disc.2023.113803 and 10.1007/s00373-025-02949-y"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof offsets 2460–3496: all horizontal edges of a glued block construction are rich, rungs have horizontal rich neighbors, and common initial states preserve closure. The earlier Finding already includes the exceptions."
+        ],
+        "reasoning": "Use the untwisted seam in the previous construction. The prior theorem directly states the whole new claim and already uses gluing with tested small cases; no new mathematical consequence follows from different tables here.",
+        "searches": [
+          "Resultary 105708af762d, Proof, horizontal edges and state concatenation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 105708af762d, Finding and Assumptions, chars 0–2864: P_n=C_n □ K_2 and χ′_rn(P_n)=5 for n≥3, with an open rich-edge witness."
+        ],
+        "reasoning": "Circular ladder and cycle prism are identical in the two records, including the triangle case and the adjacency requirement.",
+        "searches": [
+          "Resultary rich-neighbor cycle-prism edge coloring",
+          "Resultary rich-neighbor circular ladder / Möbius ladder five-edge-coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "105708af762d Finding is an exact family-wide entry, with finite certificate tables for exceptional orders and a residue-class construction for the other orders."
+        ],
+        "reasoning": "The exact invariant is already recorded, not merely sampled at isolated n.",
+        "searches": [
+          "Resultary five-edge-colouring of circular and Möbius ladders, 105708af762d"
+        ]
+      },
+      "rationale": "The earlier exact rich-neighbor ladder record states and proves χ′_rn(C_n □ K_2)=5 for every n≥3 under the same open edge-neighborhood definition. It also uses a common-initial-state gluing proof and covers Möbius ladders. The new list of certificates does not give an uncovered classification.",
+      "residual_risks": [
+        "The two journal full texts might contain other examples or classifications; the exact earlier archive overlap is established independently of these access gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier full coverage on the identical definition, plus a broader family",
+          "evidence": [
+            "Both ladder families have index five for every n≥3; the common-state join already gives the infinite construction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d/RESULT.md",
+          "material_read": "Finding and Assumptions (chars 0–2864); horizontal edge richness and state concatenation (2460–3496)",
+          "method": "Resultary index followed by exact local mirror passages",
+          "title": "Exact rich-neighbor five-edge-colourings of circular and Möbius ladders",
+          "trigger": "Exact match under circular-ladder alias"
+        },
+        {
+          "assessment": "The 3k bound is not a five-color classification here",
+          "evidence": [
+            "At most 3k colors on a loopless multigraph admitting a proper k-edge-coloring."
+          ],
+          "identifier_or_url": "arXiv:2610.21036v1",
+          "material_read": "Abstract and Thm. 1.1, p. 2 / offset 4978",
+          "method": "Original OA PDF passages",
+          "title": "Linear bounds for rich-neighbor edge-colorings",
+          "trigger": "Potential general implication"
+        },
+        {
+          "assessment": "The induced degree-three subgraph condition excludes prisms",
+          "evidence": [
+            "Maximum degree at most one on G[V_3], whereas prisms have maximum degree three on G[V_3]."
+          ],
+          "identifier_or_url": "arXiv:2610.21868v1",
+          "material_read": "Abstract and Thm. 1.2, p. 2 / offset 6712",
+          "method": "Original OA PDF passages",
+          "title": "Rich-neighbor 5-edge-colorings of subcubic graphs whose 3-vertices induce a matching",
+          "trigger": "Five-color theorem potentially covering prisms"
+        },
+        {
+          "assessment": "Advertised bounds do not give the five-color prism theorem",
+          "evidence": [
+            "General 6Δ−8 and conditional 5Δ−8."
+          ],
+          "identifier_or_url": "arXiv:2610.16446v1",
+          "material_read": "Abstract, offset 0",
+          "method": "Original OA PDF passage",
+          "title": "The rich-neighbor chromatic index is linear in the maximum degree",
+          "trigger": "Potential stronger degree-based bound"
+        },
+        {
+          "assessment": "No conclusion about uninspected examples; the separate earlier archive result is decisive",
+          "evidence": [
+            "Full text inaccessible; matching-of-3-vertices OA paper describes the Chen–Tan–Zhou earlier case as G[V_3] edgeless."
+          ],
+          "identifier_or_url": "10.1016/j.disc.2023.113803; 10.1007/s00373-025-02949-y",
+          "material_read": "Identification/abstract-level material only; neither full text retrieved",
+          "method": "DOI and publisher endpoints and lawful alternate search",
+          "title": "Proper edge-colorings with a rich neighbor requirement; On the Rich-Neighbor Edge-Colorings of Subcubic Graphs",
+          "trigger": "Foundational and follow-up results could contain prism examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This exact family would be a worthwhile conjecture test if uncovered. Here it repeats the full invariant and a closely related gluing strategy from a stronger earlier result. The alternate finite tables and slightly different block basis do not establish a useful new structural result or an improvement over the earlier construction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

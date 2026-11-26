@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The argument first rules out every singleton by observing that the white graph is connected and the sole blue vertex has two or more white neighbors. It then supplies legal PSD force sequences for each of the three listed pair types. Finally, it proves that any pair of page vertices from distinct pages leaves the white graph connected while each blue vertex has two white neighbors, so no first force exists. These cases exhaust all two-vertex sets. The standalone checker independently implements the componentwise PSD rule and verifies every singleton and pair for \(1\le n\le12\).
+## correctness
 
-## Originality
-**PASS.** The strongest same-object coverage located is Hogben–Lin–Shader, Example 9.53, which states \(Z_+(B_n)=2\) and displays a minimum PSD forcing set. The retained claim does not reassert novelty for that scalar: it classifies all minimum sets and counts them. The foundational arXiv:1003.2028v1 introduces PSD zero forcing but its searchable full text has no occurrence of “book,” \(K_{1,n}\), or the Cartesian-product description. Exact object/invariant searches, including published-finding corpus searches under book, PSD-basis, spine/page, and \(K_{1,n}\mathbin{\square}P_2\) formulations, returned no statement implying the \(5n+1\) classification.
+PASS
 
-The residual risk is bibliographic rather than logical: a basis-classification result could exist in an unindexed source, and the 2022 monograph's example is not an exhaustive bibliography of book-graph PSD forcing. That risk does not create a decisive unresolved implication against the retained statement.
+Removing any single vertex leaves the book connected, and the sole blue vertex has at least two neighbors in that component; no first PSD force is possible. From both spine vertices blue, each white page is a separate edge and can be forced from an endpoint. From a same-page pair, the two blue page vertices can force the spine. From {a,x_i} use x_i→y_i→b, and from {a,y_i} first force the isolated white x_i from a, then force b from y_i. Exchanging sides covers the other spine–page pairs. From two different pages, the white spine edge remains and every residual white page fragment attaches to it; each blue page vertex has both neighbors in that one white component. Thus neither can start a force. The categories are exhaustive and disjoint, giving 1+n+4n minima after excluding both the empty set and singletons. The argument also covers n=1: the four-cycle has all six pairs as minima, and there are no different-page pairs.
 
-## Value
-**PASS.** Book graphs are a standard named family and already serve as a canonical example separating PSD forcing behavior under edge contraction. Knowing only the scalar \(Z_+=2\) leaves the optimal-placement landscape unspecified. The theorem gives the complete family of optimal initial configurations and the exact count \(5n+1\), separating the unique spine pair, \(n\) within-page pairs, and \(4n\) spine-page pairs. This is a natural finite classification attached to a standard invariant and object, rather than an arbitrary parameter slice.
+## originality
 
-## Closest literature and limitations
-The foundational 2010 paper supplies the PSD color-change framework and archive-date/MSC evidence. The 2022 AMS monograph supplies the decisive same-object scalar comparison in Example 9.53. No claim is made about larger PSD forcing sets, PSD propagation time, positive semidefinite minimum rank beyond what follows from established theory, or ordinary zero forcing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass for the classification and 5n+1 count of all minimum PSD forcing sets, not for Z_+(B_n)=2, which follows from a prior theorem about partial 2-trees. The inspected reductions and other graph-family formulas do not give the all-pairs classification. Full-text limitations on two relevant further sources are noted separately.
+
+## value
+
+PASS
+
+The classification resolves a location-sensitive question that the known minimum size cannot answer on a standard graph product: putting both vertices on different pages fails completely, whereas a spine vertex can be partnered with any other vertex. Together the cases give the leading PSD forcing-polynomial coefficient and a labeled census useful for testing structural guesses about minimum sets. This is a natural complete classification with a cone-of-pairs obstruction, not a finite recomputation of the scalar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:29:01.931302Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–79; VERIFICATION.md lines 19–25; verify.py lines 9–66 inspected, not executed"
+      ],
+      "rationale": "On the invariant centered subspace, comparing P_s for all s is equivalent to comparing A_t^{-2} in Loewner order, where A_t=H+tB. Order reversal under positive-definite inversion converts this to ordering A_t² in the opposite direction. For t₂>t₁ its change is (t₂−t₁)[HB+BH+(t₁+t₂)B²], proving sufficiency and necessity by t₁=0, t₂→0. Differentiating gives the stated congruence by A_t^{-2}, so a negative direction y at 0 gives s=H²y with positive initial derivative. Independently, put J=[e₁−e₂,e₂−e₃]; JᵀJ=[[2,−1],[−1,2]]. In Q=JCJᵀ the two diagonal entries of C are (2+4a)u and (2+4b)v; the off-diagonal is −(av+bu). Hence det C=Kuv−b²u²−a²v², and C has the same inertia as Q on the centered subspace. This gives the two positive distinct roots and a negative direction when either update alone is nonzero. Closed endpoints are safe; on a connected update path B² is positive definite on that subspace, which gives strictness for t>0, including relative to t=0. Independent exact evaluation via −2zᵀH⁻¹Bz, z=H⁻¹s, reproduced all three slopes 10/2197 in the example.",
+      "residual_risks": [
+        "Fixed centered innate opinions and a fixed additive undirected Laplacian direction. No monotonicity asserted for trajectories of opinions or for changing directions, nor for directed networks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cinus et al. optimize the same functional over edge weights with constrained graph families and limited access to innate opinions, not uniform-in-s monotonicity along a fixed PSD direction. Their non-matrix-convexity proposition is a different predicate.",
+          "Zhou et al.'s grouped updates and the relevant Bhalla et al. edge-swap bounds address P+D, which uses the inverse first power rather than the inverse square."
+        ],
+        "reasoning": "Neither multi-edge optimization nor monotonicity of the combined functional dominates the fixed-profile polarization-only classification. A non-matrix-convex objective can still have exact monotonicity cones along selected directions.",
+        "searches": [
+          "Resultary: universal all-profile Friedkin Johnsen polarization monotonicity simultaneous multi-edge Laplacian update",
+          "arXiv:2501.16076v1 §2.1 and §3.1; arXiv:2402.10053 §§3–4; arXiv:2111.14020v2 §§1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.08996v1, 2501.16076v1, 2402.10053, 2111.14020v2; Resultary 2813b8ffcfee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior derivative is linear in the direction B, so summing that single-edge derivative readily yields the batch derivative; square expansion then makes general monotonicity routine. The finite single-edge change and sign examples do not establish the weighted-path determinant or that two indefinite single-edge directions have a whole interval of safe combinations."
+        ],
+        "reasoning": "The distinct addition is the exact all-profile, all-intensity range, sharp even at its endpoints and with a verified joint-safety/individual-risk contrast. Strictness at t>0 follows from connectedness and is best treated as part of the classification, not a distinct general theorem.",
+        "searches": [
+          "arXiv:2206.08996v1 §3.2 Lemma 3.3, Proposition 3.5 and §6; RESULT.md lines 48–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cinus et al. Eq. (6) is exactly the same quadratic sᵀ(I+L)⁻²s. Rácz–Rigobon Prop. 3.5 gives the same derivative for the individual edge direction L_ij.",
+          "The all-profile inequality is equivalent by order reversal to (H+t₂B)²≽(H+t₁B)², not to H+t₂B≽H+t₁B alone."
+        ],
+        "reasoning": "The aggregate criterion is elementary after recognizing its equivalent formulation; the exact ratio interval with individually unsafe directions versus jointly safe directions is not the single-edge identity in different notation.",
+        "searches": [
+          "Web: Friedkin–Johnsen expressed polarization simultaneous multi-edge interventions all innate profiles monotonicity matrix order anticommutator grouped updates",
+          "Resultary: Friedkin Johnsen network intervention matrix-order polarization positive semidefinite update anticommutator",
+          "arXiv:2206.08996v1 §3.2; arXiv:2501.16076v1 §2 Eq. (6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected closest substantial non-self hit 2813b8ffcfee: unit-weight connected simple graphs and binary profiles, with no single absent-unit-edge harm through four vertices and 480 of 100480 labeled triples harmful at five vertices."
+        ],
+        "reasoning": "That census does not settle even the adverse witnesses on a weighted three-path with an existing edge strengthened, and has no all-intensity two-edge ratio window. Result relies on continuous weights and centered profiles, not enumerated graph size alone.",
+        "searches": [
+          "Resultary: Five vertices are the sharp binary-opinion edge-insertion polarization threshold exact result",
+          "Resultary: universal all-profile Friedkin Johnsen polarization monotonicity simultaneous multi-edge Laplacian update"
+        ]
+      },
+      "rationale": "Passes for the exact two-edge path window with endpoints and two individually unsafe updates jointly safe for every opinion profile. The general anticommutator criterion is a short application of standard matrix order; the single-edge derivative and adverse individual updates already have prior coverage and are not separate novelty claims.",
+      "residual_risks": [
+        "Targeted comparison, not exhaustive specialist or matrix-analysis priority verification. Do not claim the abstract matrix-order identity is independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers single-edge change and its derivative, not the two-edge interval",
+          "evidence": "Single-edge derivative has profile-dependent sign; §6 distinguishes the open question of more substantial modifications. Section/lemma numbers quoted here are for arXiv v1.",
+          "identifier_or_url": "https://arxiv.org/html/2206.08996v1",
+          "material_read": "§3.2 Lemma 3.3 Eq. (3.3), Prop. 3.5 Eq. (3.5); §6",
+          "method": "Primary OA HTML, offsets 28350–32533 and 62750–65529",
+          "title": "Towards Consensus: Reducing Polarization by Perturbing Social Networks",
+          "trigger": "Same expressed polarization; exact single-edge changes"
+        },
+        {
+          "assessment": "Same objective, different optimization quantifiers and constraints",
+          "evidence": "Undirected P=sᵀ(I+L)⁻²s; fixed support and total weight formulation; non-matrix-convexity result, no stated monotonicity interval in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/html/2501.16076v1",
+          "material_read": "§2 Def. 4 Eq. (6), §2.1 and §3.1 Prop. 1",
+          "method": "Primary OA HTML, offsets 12800–19598 and 20500–22900",
+          "title": "Minimizing Polarization and Disagreement in the Friedkin–Johnsen Model with Unknown Innate Opinions",
+          "trigger": "Broader edge-weight optimization of the exact same objective"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Low-rank timeline edits use combined P+D=sᵀ(I+L)⁻¹s.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.10053",
+          "material_read": "§3 p. 3; §4 Problem 2 pp. 3–4",
+          "method": "Primary OA PDF passages, offsets 20350–24300 and 25300–32517",
+          "title": "Modeling the Impact of Timeline Algorithms on Opinion Dynamics Using Low-rank Updates",
+          "trigger": "Grouped Laplacian interventions"
+        },
+        {
+          "assessment": "Different operation and target of edge-swap bound",
+          "evidence": "Stochastic swaps coevolve opinions and edges; highlighted comparison is for P+D.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.14020v2",
+          "material_read": "§§1.1–1.2, pp. 1–2",
+          "method": "Primary OA PDF passages",
+          "title": "Local Edge Dynamics and Opinion Polarization",
+          "trigger": "Related edge-update bounds"
+        },
+        {
+          "assessment": "Related exact single-edge witness, no equivalent weighted path classification",
+          "evidence": "Single absent unit edge and binary opinions versus strengthening two existing weighted edges and quantifying over all centered opinions.",
+          "identifier_or_url": "Resultary 2813b8ffcfee",
+          "material_read": "RESULT.md Finding, local mirror, offset 0",
+          "method": "Resultary lookup and mirrored statement",
+          "title": "Five vertices are the sharp binary-opinion edge-insertion polarization threshold",
+          "trigger": "Strongest material non-self indexed comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–26, 61–79; arXiv:2206.08996v1 §6; arXiv:2501.16076v1 §2.1"
+      ],
+      "rationale": "All-profile safety is actionable when innate opinions are unknown. The weighted three-path is the smallest natural setting with two distinct connected update edges, not an arbitrarily selected example. The exact interval shows how to balance strengths and proves that combining two individually risky updates can protect every fixed profile, including at the sharp boundaries.",
+      "residual_risks": [
+        "Guarantee depends on the specific variance-only objective and the fixed undirected network/update ray; it is not a polarization-plus-disagreement or worst-case-over-changing-profiles result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

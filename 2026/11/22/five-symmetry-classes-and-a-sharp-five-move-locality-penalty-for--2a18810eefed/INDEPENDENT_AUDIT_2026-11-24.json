@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:19:00.824906Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–40; VERIFICATION.md; verify_affine.py and verify_lcf.py inspected, not run",
+        "Independent replay: python3 /workspace/review_checks/check_3.py (forts, shared-pair transition buckets, bitset BFS, automorphism backtracking and witness checks)",
+        "Separate exhaustive closure and BFS reconstruction and check of the supplied LCF isomorphism and permutation generators"
+      ],
+      "rationale": "Independently enumerated all 24,204 nonempty forts W (every vertex outside W has other than one neighbor in W). Power domination fails iff the initial unobserved set contains a fort: no first force can enter a fort, and any failed forcing process leaves a fort at closure. This gives (0,0,0,486) successes in sizes 0–3. Building exchanges via shared two-subset buckets and doing bitset BFS gives the stated connected TJ and TS metrics and every histogram. In particular, TS eccentricities are 54 of 7 and 432 of 8; the exact gap histogram is (9423,29808,42174,28026,7938,486), and all 162 TJ exceptions have lower bound two and distance three. Both displayed paths realize the 3 versus 8 witness. Direct enumeration of all adjacency-preserving bijections gives order 216 and the five stated orbit profiles, matching the independent check of the frozen generators. The LCF Hamiltonian-cycle-plus-chords presentation and the incidence model have all 27 edges in bijective correspondence under the supplied map.",
+      "residual_risks": [
+        "Exhaustion is for this graph and minimum-cardinality intermediate states only. No statement is made for larger budgets or a family of graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. establish the framework and provide TJ examples including paths, cycles, wheels, complete and complete bipartite graphs. Křišťan–Svoboda solve ordinary domination problems on trees and interval graphs."
+        ],
+        "reasoning": "Neither inspected scope asserts a relevant general theorem giving this cubic graph's minimum family, constrained all-pairs distances, and orbit profiles.",
+        "searches": [
+          "arXiv:2201.01798: power-domination closure, TAR/TJ, §5 examples",
+          "arXiv:2307.10847: token sliding on shortest ordinary domination reconfigurations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01798; arXiv:2307.10847; MathWorld Pappus Graph",
+        "Resultary 2a18810eefed, 229c8647b6e8, a654b0dd27ba and 7446c83c72a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The TJ and TS transitions can be specified abstractly, but changing the feasible family changes induced pathways. The same-graph semitotal case has isolated states; the power-domination census yields two connected graphs."
+        ],
+        "reasoning": "Graph identity, abstract transition rules and the same-graph semitotal geometry do not give the exact power-domination distances or the five-move obstruction.",
+        "searches": [
+          "Compare prior general TJ construction and isolated semitotal states on Pappus with the frozen TS census and Johnson-distance exceptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld identifies the classical cubic symmetric graph on 18 vertices; the explicit checked LCF map proves equivalence to the given incidence presentation. The five-orbit result 229c8647b6e8 uses this same graph, but its states satisfy a different predicate."
+        ],
+        "reasoning": "Aliases of the underlying graph were included. Semitotal domination requires coverage by N[S] and a nearby selected vertex for every selected vertex; it is not iterative forcing from N[S].",
+        "searches": [
+          "Resultary: Pappus/affine-incidence/LCF graph, minimum power-dominating sets, TJ/TS, locality penalty",
+          "MathWorld Pappus Graph; verified LCF [5,7,−7,7,−7,−5]^3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2a18810eefed is the record under review. 229c8647b6e8 has 297 minimum semitotal six-sets and a mobile 288-state component. The same predicate and sharp gap of five appear for Doyle–Holt in a654b0dd27ba, but with 567 triples and 351 maximizing pairs. 7446c83c72a6 treats Nauru with 576 triples and sharp gap 7."
+        ],
+        "reasoning": "The self-match is not prior coverage and the distinct records fail exact equivalence by graph or by feasible family. Same-day placement says nothing about order.",
+        "searches": [
+          "Resultary: exact Pappus locality and orbit counts, inspect 2a18810eefed, 229c8647b6e8, a654b0dd27ba and 7446c83c72a6"
+        ]
+      },
+      "rationale": "Credit the established Pappus graph and power-domination reconfiguration framework. Pass the full metric and symmetry classification for this power-domination instance, particularly the sharp locality loss and its quantified exceptional geometry. The strongest same-graph prior entry is for semitotal domination; the closest same-day metric analogue is for Doyle–Holt, a different graph.",
+      "residual_risks": [
+        "An exact earlier Pappus computation may be unindexed. A McGee graph entry 763cb004ebbc was available only at index-summary level, not as an inspected mirror finding. No priority inference is made from relative dates among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identity of the graph is established background",
+          "evidence": [
+            "18 vertices, cubic, symmetric, Levi graph and LCF representable. The audited edge map, not the extract, checks the specific tuple."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+          "material_read": "Opening description, offset 0",
+          "method": "Bounded public-page read",
+          "title": "Pappus Graph",
+          "trigger": "Established graph aliases"
+        },
+        {
+          "assessment": "Framework and other TJ graph families",
+          "evidence": [
+            "Introduces TAR and TJ for power domination; located TJ examples use different graphs and do not classify the Pappus TS geometry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01798",
+          "material_read": "PDF pp. 1–3 offsets 653, 5899, 12297; §5 p. 14 offset 54423",
+          "method": "OA theorem-scope and definition passages",
+          "title": "Power domination reconfiguration",
+          "trigger": "General framework with same state predicate"
+        },
+        {
+          "assessment": "Different domination predicate and graphs",
+          "evidence": [
+            "Ordinary domination on trees and interval graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.10847",
+          "material_read": "Opening scope, PDF p. 1 offset 0",
+          "method": "OA statement comparison",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "Distance under the same sliding rule"
+        },
+        {
+          "assessment": "Different state set",
+          "evidence": [
+            "Minimum semitotal sets have size six, 297 states, nine isolated and 288 in a connected component under both moves."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-nine-frozen-total-codes-and-a-mobile-semitotal-domination-sector--229c8647b6e8",
+          "material_read": "RESULT.md offsets 39 and 428–2479",
+          "method": "Resultary and local mirror",
+          "title": "Nine frozen total codes and a mobile semitotal domination sector",
+          "trigger": "Same Pappus graph, TJ/TS and five orbits"
+        },
+        {
+          "assessment": "Different connected cubic graph",
+          "evidence": [
+            "27-vertex Doyle–Holt, 567 minimum triples and 351 pairs with gap five."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-power-domination-and-five-step-relocation-obstructions-in--a654b0dd27ba",
+          "material_read": "RESULT.md offset 515",
+          "method": "Resultary and local mirror",
+          "title": "Exact power domination and five-step relocation obstructions",
+          "trigger": "Same sharp penalty under the same moves"
+        },
+        {
+          "assessment": "Different graph and invariants",
+          "evidence": [
+            "24-vertex Nauru graph; TS radius nine and diameter ten; locality gap seven."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-diametral-orbit-in-minimum-sensor-slide-reconfiguration--7446c83c72a6",
+          "material_read": "RESULT.md offsets 16–2243",
+          "method": "Resultary and local mirror",
+          "title": "A single diametral orbit in minimum sensor slide reconfiguration",
+          "trigger": "Same predicate and orbit/metric classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–37; Bjorkman et al. reconfiguration framework; independent fort and metric replay"
+      ],
+      "rationale": "Pappus is a natural small cubic symmetric incidence graph on which to test whether edge locality disconnects minimum sensor placements or only delays them. Exact metric loss, TS centers in one orbit, and the failure of the naive Johnson distance give distinct structural benchmark facts, not just a state count or a simulation.",
+      "residual_risks": [
+        "Graph-specific finite result, not a structural bound for all cubic or symmetric graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

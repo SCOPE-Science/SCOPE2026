@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3.10 or later. The program uses only `fractions.Fraction` and `itertools`; it has no external data dependency.
+## correctness
 
-At \(\beta=\log9\), a node of degree one or two with unit edge weights has rational logistic update probabilities. The checker enumerates every binary configuration and exactly multiplies the transition kernels. It verifies the 16 two-step entries for a one-edge graph and the 256 entries for two disjoint edges against the independent-inertia formula; it also verifies strict positive pair covariance for all 8 starts of the three-vertex path and all 16 starts of the four-cycle. On the path it independently evaluates the closed-form covariance at every start. Expected output begins with `PASS:` and reports exact covariance intervals.
+PASS
 
-These are complete finite checks for the *tested networks*, not an exhaustive enumeration of all finite graphs. The general if-and-only-if result and strict inequalities are established by the analytic proof in `RESULT.md`. Historic novelty is provisional, and independent audit has not been performed.
+Fix any initial configuration. Independence and finite fields give a full-support product law for the intermediate spins. Conditional covariance of distinct outputs reduces to covariance of their intermediate-state mean functions. When they share a neighbor, both mean functions are strictly increasing in its spin, and nondecreasing in every other spin. Conditioning on the shared spin, the first covariance term is nonnegative by induction on the remaining independent coordinates; the second is strictly positive since both conditional means strictly increase and the shared spin is nondegenerate. If there is no such pair, every vertex has degree one under the graph hypotheses. Its partner map is bijective, so the output coordinates use distinct independent intermediate spins and separate second-step noise. Each binary channel has mean tanh(beta/2) times its input; the composition has mean tanh(beta/2)^2 times the initial spin, giving the asserted parameter. Equality of the two-step kernels extends to the even-time path laws, with the same starting law. The path witness reduces to the shared-spin variance, including the stated rational values.
+
+## originality
+
+PASS
+
+The supported distinction is the exact all-initial-state two-step product-kernel boundary and inertia alias for the given model. Closest inspected results concern one-step model specification, stationary sublattice factorization, or stationary one-site time series, not the stated conditional transition-kernel equivalence.
+
+## value
+
+PASS
+
+Exact even-time aliasing limits mechanistic inference even with the complete transition kernel. The graph classification and strict covariance witness identify when the alias breaks, beyond merely giving an example of indistinguishability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

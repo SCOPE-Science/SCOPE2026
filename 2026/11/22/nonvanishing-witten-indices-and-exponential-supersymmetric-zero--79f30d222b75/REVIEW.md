@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Hamiltonian is the hard-neighbor-exclusion supersymmetric fermion model of Fendley, Schoutens and de Boer. Nilpotency of the supercharge implies that only zero modes contribute to the alternating signed count. The 27-state transfer tracks one outer or inner occupation per ring column and forbids exactly the length-one outer and length-three inner conflicts. Its characteristic factorization was checked by exact symbolic determinant, not an inferred recurrence. Rational complex-root isolation establishes the unique dominant negative quintic root; exact initial indices settle the finite residue range. The two independent graph and transfer implementations passed as embedded. The statement is explicitly a lower bound on ground-state count, not equality.
+## correctness
 
-## Originality — PASS on reviewed evidence, with residual priority risk
-The 2002 supersymmetric Hamiltonian and index relation are established prior work. Pandey (arXiv:2601.03293v1) gives a general generalized-Petersen independence-polynomial transfer and finite computations for skip three, so neither generic transfers nor finite indices are claimed. A previously published homotopy computation for GP(9,3) implies the single index value -11. The new narrow statement consists of the factorization at the physical alternating fugacity, an all-size nonvanishing theorem, exact eventual parity sign and positive exponential ground-state lower bound. Accessible primary content and available indexed comparison records were checked for stronger or equivalent statements; an unindexed exact specialization may still exist.
+PASS
 
-## Mathematical value — PASS
-A Witten index can vanish even when supersymmetric ground states exist, so a nonzero index in every finite network is a genuine robust spectral conclusion. Here the graph family is a natural cubic, frustrated, two-ring architecture; the negative dominant root yields exponentially many zero modes without constructing cohomology. The quantitative sharp index-growth base and all-size sign guarantee give physically relevant spectral information that finite tables, generic index identities, or routine basis changes alone do not provide.
+The projected creation operators anticommute on compatible additions and both orders vanish for incompatible additions, so Q²=0. On every E>0 eigenspace the parity-odd operator (Q+Q†)/√E is an involution, hence W_n is the signed independence count and |W_n| lower-bounds the total zero-energy multiplicity. A three-column transfer closes with exactly the outer step-one and inner step-three exclusions, and weights every labelled configuration exactly once in tr(Tⁿ). Independent replay `python /workspace/branches/independent_math.py witten` used only the 22 triples with admissible outer neighbors, obtaining the nonzero factors z²−z+1 and z⁵−z+1 exactly. The omitted states cannot belong to a closed walk. Newton sums reproduced every trace for n=7,…,24, and explicit graph checks summing over top-cycle masks reproduced n=7,…,14. Exact root counts give one root in each claimed complex box and its conjugate, all with modulus <11/10, and a real root in (−6/5,−7/6). This accounts for degree five. The rational inequality (7/6)^25>4(11/10)^25+2 persists after normalizing by (7/6)^n because both error terms then decrease. The strict parity sign follows for n≥25 and the exact list covers n=7,…,24 (parity sign from n=13). Dominance gives the stated index asymptotic and log(ρ)/2 lower rate per vertex. This is not a calculation of the full cohomology or an equality for the ground-state multiplicity.
 
-## Scope and limitations
-All statements require \(n\ge7\), uniform nonzero supercharge amplitudes, hard-neighbor exclusion and the standard cyclic \(\mathrm{GP}(n,3)\) geometry. The exact cohomology, fermion-number-resolved degeneracies, and stability under supersymmetry-breaking perturbations remain open. The 2026 generalized-Petersen transfer computation is an important predecessor and leaves a nonzero residual historical-priority risk for an unindexed physical specialization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general graph Witten-index mechanism, the general Petersen transfer-matrix trace, finite tabulations and the separately known n=9 case. The supported distinct claim is the proof of nonvanishing for every n≥7 with eventual parity sign and explicit exponential base and lower bound. The trace identity is already available as a general specialization; the inspected predecessors do not supply the dominance and finite-exception analysis proving these all-size consequences.
+
+## value
+
+PASS
+
+The parity index in a supersymmetric graph model can vanish despite zero modes. Proving its nonvanishing for every simple step-three size is stronger than an isolated finite count or the existence of an exact transfer prescription. The explicit growth rate additionally certifies exponentially many zero-energy states in a natural infinite family without a ground-state classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

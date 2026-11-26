@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-The attached `verify_square_zero_flags.py` contains all numerical steps used here; run `python verify_square_zero_flags.py` with NumPy available. The program constructs all five-coordinate portions of square-zero strictly upper-triangular matrices over fields of sizes two, three, four and five, derives the anticommutation test directly from elementary matrix products, and forms the finite adjacency matrix of admissible ordered pairs. The missing top-right coordinate is central and contributes exactly one arbitrary scalar per matrix. For every field, it computes the single tuple count from the square-zero list, the pair count by summing adjacency entries, and the triple count by taking the trace of the cubed adjacency matrix. Thus the triple test is exhaustive without constructing every triple explicitly.
+## correctness
 
-Observed counts (tuple length one, two, three respectively): field order two: 28, 448, 6112; field order three: 153, 10449, 657801; field order four: 496, 96256, 19035136; field order five: 1225, 540625, 265065625. Each was compared against the closed formula, with exact integer equality in all twelve comparisons. The characteristic-two extension field of order four uses a polynomial presentation, not arithmetic modulo four.
+PASS
 
-The software tests only these four field sizes and tuple lengths one through three. It neither verifies generic irreducibility nor proves an infinite-field theorem. Those assertions are proved by the component and rank-one subspace arguments in RESULT.md. The unreduced scheme and all higher matrix sizes are outside the claim.
+The square and mixed coefficients are separately imposed; in any characteristic, a nonzero b_h forces all a_i=c_i=0, and for b=0 the coefficients are exactly those of det(sum t_i H_i). For a nonzero rank-one uv^T in the span, every other nonzero member shares its image or row line; members with opposite strict alternatives would sum to a rank-two matrix. This proves the union in all characteristics. The common-line loci are closed by projective incidence (also by stacked-matrix minors). On a chart with a selected nonzero column/row, recovering the common line or kernel by that column/row is rational, so the incidence map is birational, not merely generically injective in positive characteristic. The two rulings are incomparable for r>=2 (take two independent matrices in one ruling); neither lies in L, and L has points with b nonzero. Their dimensions are 3r+1 against 4r for L. The intersections reduce respectively to 2r free entries, rank-at-most-one 2-by-r arrays, and tuples in Hom(k^2/K,I) for a pair of lines; including f gives 3r, 2r+1, 2r+2, with the stated triple intersection. Over F_q, span ranks 0, 1 and 2 have respectively 1, (q+1)^2(q^r-1), and 2(q+1)(q^r-1)(q^r-q) ordered tuples before the q^r factor; L adds q^(4r)-q^(3r). In particular the rank-two term vanishes at r=1. The proof does not address scheme structure.
 
-A second independent enumeration (`python verify_rulings.py`, no third-party packages) checked the exact common-image, common-kernel, and double-ruling counts for pairs over the prime fields of orders two, three and five. All three complete finite comparisons passed with the marker `RULINGS_INTERSECTION_OK`. These experiments support, but do not establish, the generic component assertions.
+## originality
+
+PASS
+
+The demonstrated overlap is the pair case within a related commuting family, not the uniform anticommuting square-zero tuple theorem. Credit the classical Segre rulings and the overlapping pair results; the supported contribution is the arbitrary-r fixed-flag component, intersection and counting result together, not new rank-one matrix-space theory.
+
+## value
+
+PASS
+
+This is a complete reduced component classification for a natural fixed-flag exterior representation space, not just a rank-one lemma or a few checked field counts. It explains non-equidimensionality and which branches can meet and gives uniform, characteristic-two-inclusive point counts useful as tests of more general fixed-flag analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

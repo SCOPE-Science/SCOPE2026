@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:59:36.241640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two strong parts observe every core initially, leaving only private leaves to force. With one strong part, the only unobserved cores are its vacant pairs. Outside cores either face at least two vacant cores, or face one such core and their own unobserved leaf, unless an outside leaf was selected; the latter selection enables the necessary force when there is exactly one vacancy. Local observed cores are nonadjacent to the vacancies. For leaf-only sets, two vacancies in one part cannot be the first of those two cores forced; three or more in distinct parts prevent any first force. One vacancy has an observed core in another part; for two vacancies in different parts, an occupied pair remains in each part because the sizes are at least two, and each can force the other part's vacancy. The polynomial counts labeled pair states of weights 1,x,x,x²: subtract zero/one strong parts from the unrestricted term, then add the admitted leaf-only and one-strong configurations, including a nonempty outside leaf selection in the latter case with one vacancy. No singleton succeeds. Two-sets contribute E₂ across strong parts, 1+2+2(N−2) per size-two sole strong part, and four leaf-only choices only at N=4. Fresh direct adjacency and simultaneous-forcing enumeration checked 266,496 subsets over six profiles, including (2,6), (3,5) and (2,2,4) beyond the frozen test, with exact classifier and coefficient agreement. The finite replay is not the all-orders proof.",
+      "replay": "python3 /workspace/audit-evidence/power.py 1; output /workspace/audit-evidence/1.txt",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general matching-based result gives a sum over both sensor supports with an indicator, not an evaluated expression on multipartite bases; its efficient recursion applies to forests.",
+          "The earlier published corona product formula requires K_k with k>1; Yuliana et al.'s minimum theorem requires the attached order at least three."
+        ],
+        "reasoning": "The stronger general decision theorem supplies a starting point for membership; the exact labeled enumeration without per-set tests is not stated there. Neither result on larger attachments applies by substituting k=1.",
+        "searches": [
+          "Resultary 4258c0d000ee, Finding and Proof §§1–2",
+          "Brimkov et al. Theorem 19, Proposition 20 and Question 3",
+          "Yuliana et al. DOI 10.1088/1742-6596/1211/1/012020, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_power_corona.py and verify_output.txt",
+        "Brimkov et al. arXiv:1805.10984v1",
+        "Bjorkman et al. arXiv:2312.12259v1",
+        "Yuliana et al. DOI 10.1088/1742-6596/1211/1/012020",
+        "Resultary 4258c0d000ee, 0ebaeee9cd00, 215b394cb6b1 and 23cbdb64e7b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the matching formulation, two unseen cores in one part must be matched to two outside agents and these four endpoints then give an alternating 4-cycle. With at least three unseen cores in distinct parts, every agent has at least two unseen neighbors, so the sink required by unique restriction does not exist. Empty U and the disjoint-part two-target cases give the admitted patterns, subject to agent availability.",
+          "The reliability transform takes the power-domination polynomial as input and does not evaluate it on leaf coronas."
+        ],
+        "reasoning": "The multipartite structural reduction of the matching predicate substantially overlaps the classifier and is readily derivable using multipartite adjacency. But obtaining the all-cardinality explicit evaluator still requires resolving the multipartite vacancy and agent patterns and aggregating all labeled choices, not making a parameter substitution in a supplied evaluated invariant. No priority inference follows from the matching record's equal date. The generic reliability transform receives no novelty credit.",
+        "searches": [
+          "Resultary 4258c0d000ee, Proof §§1–2; local-mirror offset 2850",
+          "arXiv:1805.10984v1, Question 3",
+          "arXiv:2312.12259v1, Observation 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4258c0d000ee gives a matching test for the same power domination definition on every leaf corona; its proof reduces forces to agents with selected leaves and initially unseen cores.",
+          "Brimkov et al. Theorems 21–22 use threshold-graph blocks, not the whiskered multipartite family (which includes induced 2K₂)."
+        ],
+        "reasoning": "The general leaf-corona criterion is an equivalent membership formulation on this family, not an equivalent evaluated polynomial. Threshold graph enumeration concerns a different class.",
+        "searches": [
+          "Resultary: leaf corona, private/pendant leaves and uniquely restricted matchings",
+          "ArXiv 1805.10984v1: corona with attached K₁ and threshold graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0ebaeee9cd00 (2026-10-25 UTC) gives the exact two-part specialization, including the count 22 for K₂,₂ and pq when both parts have size at least three.",
+          "Resultary 23cbdb64e7b4 and Bjorkman et al. Section 5.3 use the unwhiskered bases; Resultary 215b394cb6b1 counts minimum sets in a different threshold family."
+        ],
+        "reasoning": "The bipartite explicit enumeration cannot determine the cases with arbitrarily many parts; neither fragility on the base nor a count of threshold singletons supplies the claimed invariant.",
+        "searches": [
+          "Resultary: fully whiskered complete bipartite power domination polynomials",
+          "Resultary: fragile PMU optimal complete multipartite placement and minimum threshold power dominating sets",
+          "arXiv:2312.12259v1, Observation 4.2 and Section 5.3"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit multipartite coefficient formula with no graph-matching/counting subroutine, including the sharp two-set multiplicity. An equally dated general leaf-corona criterion already covers membership at the general theorem level and gives an exact implicit sum; without a priority claim, credit that overlap rather than treating the local forcing model as new. The inspected polynomial literature leaves K₁ out of the general corona product formula, and the later explicit bipartite computation is an exact proper subfamily. Brimkov et al.'s Question 3 is answered only for the stated subclasses, not resolved for arbitrary bases.",
+      "residual_risks": [
+        "The general matching comparison establishes overlap regardless of order, but the date alone does not order the two records.",
+        "The inspected literature and records do not exclude an earlier evaluated multipartite expression not located in the bounded review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not evaluate the leaf-corona subclass",
+          "evidence": "The product formula has k>1; K₁ is explicitly separated as a question; the threshold result is a different class.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.10984v1",
+          "material_read": "Theorem 19 p. 10, Proposition 20 p. 11, Theorems 21–22 pp. 12–13, Question 3 p. 20",
+          "method": "OA PDF, located passages",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Exact attached-clique corona polynomial and question about private leaves"
+        },
+        {
+          "assessment": "Same-date general coverage of membership and an implicit enumerator; no priority assumption",
+          "evidence": "An exactly characterized uniquely restricted matching must saturate U from L minus R; the polynomial sums an indicator over R and L. No evaluated multipartite polynomial is given.",
+          "identifier_or_url": "Resultary 4258c0d000ee",
+          "material_read": "Finding, Proof §§1–2, including local-mirror offsets 2850–5986",
+          "method": "local source mirror",
+          "title": "Power domination of leaf coronas through uniquely restricted matchings",
+          "trigger": "Strongest broad theorem on the exact objects"
+        },
+        {
+          "assessment": "Later exact specialization for two parts",
+          "evidence": "The six classes split the three present cases into the two possible strong-part and leaf choices; the degree-two coefficients agree.",
+          "identifier_or_url": "Resultary 0ebaeee9cd00",
+          "material_read": "Finding and six disjoint support classes",
+          "method": "local source mirror",
+          "title": "Power domination polynomials of fully whiskered complete bipartite graphs",
+          "trigger": "Potential exact computed overlap"
+        },
+        {
+          "assessment": "Known transform and base-graph results",
+          "evidence": "The identified results do not count power-dominating sets in the private-leaf extension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.12259v1",
+          "material_read": "Observation 4.2 p. 12; Section 5.3 Lemma 5.7 and Theorem 5.8 pp. 17–18",
+          "method": "OA PDF, located passages",
+          "title": "Power domination with random sensor failure",
+          "trigger": "Complete multipartite graphs and the same invariant"
+        },
+        {
+          "assessment": "Minimum number only and a different attachment",
+          "evidence": "Its stated order hypothesis on the attached graph is m≥3.",
+          "identifier_or_url": "https://doi.org/10.1088/1742-6596/1211/1/012020",
+          "material_read": "Theorem 5 p. 5",
+          "method": "OA PDF, located passage",
+          "title": "On the power domination number of corona product and join graphs",
+          "trigger": "Possibly earlier corona theorem"
+        },
+        {
+          "assessment": "Different graphs or invariants",
+          "evidence": "One classifies threshold singleton minima; the other optimizes reliability on the unwhiskered complete multipartite base.",
+          "identifier_or_url": "Resultary 215b394cb6b1 and 23cbdb64e7b4",
+          "material_read": "Each record's Finding",
+          "method": "local source mirror",
+          "title": "All minimum power dominating sets of connected threshold graphs; fragile PMU optimal complete multipartite placement",
+          "trigger": "Same family terms or sensor semantics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result turns the known leaf-corona computation question into a closed all-cardinality evaluation for a natural infinite class with arbitrarily many unequal parts. Unlike a general sum over exponentially many candidate sets with a matching test, it uses polynomial products/powers in the part sizes and exposes the sharp minimum multiplicity. This is useful even after crediting known broad membership coverage and the pre-existing reliability transformation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

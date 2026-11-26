@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:05:02.126816Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–34 and VERIFICATION.md",
+        "Corrected /workspace/repairs/1/RESULT.md, symbolic proof including an obstruction to the original strategy",
+        "Independent bounded EF recursion checked adjacent cutoff pairs for q=3,4,5; analytical proof, not the computation, supports all ranks"
+      ],
+      "rationale": "The frozen last paragraph of proof is false as an order-preserving strategy: with four rounds and lengths 12 and 11, choose opposite points in length 12; next choose the midpoint of the length-six gap whose matched gap has length at most five. Unless the diagram already fails, an order-preserving response has a directed subgap of length two where the corresponding length is three. The last move witnesses that two-edge path. Thus the frozen proof does not establish its upper bound, but the theorem survives. The replacement maintains exact clockwise distances up to 2^r with r rounds left. Copy signed offsets within 2^(r−1); comparing two such offsets uses a signed difference of magnitude at most 2^r, so consistency transfers in both directions. For a move remote from all k=q−r previous selections, at most k(2^r+1)<2^(q−1)+3 vertices are forbidden in the response cycle, so a remote response exists. Rank zero then preserves S and equality. The independent lower-bound proof uses two distance balls, of radii a,b ≤2^(q−3), covering the cycle. Contiguous intervals give a length cutoff 2a+2b+2, or 2a+2b+1 when enforcing overlap by a distance bound between the centers. Boolean composition and binary splitting of distances keep the sentence within rank q. These cutoffs fill all lengths through 2^(q−1)+2 and transfer via E(x,y)=S(x,y)∨S(y,x). The small-rank cases and the relational scope are checked separately.",
+      "residual_risks": [
+        "The theorem is only for single cycles of length at least three in the binary relational language."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 9624ad907a63 classifies rank-three finite permutation digraphs including single cycles, but not the higher ranks. Brown–Hoshino's cited theorem is in undirected graph adjacency, not directed successor."
+        ],
+        "reasoning": "Being an undirected reduct only gives directed agreement implying undirected agreement, not the converse. Finite permutation-digraph coverage at rank three does not give arbitrary quantifier rank.",
+        "searches": [
+          "Local Resultary: rank-three permutation digraphs and directed-cycle thresholds",
+          "Brown–Hoshino, The Ehrenfeucht–Fraïssé Game for Paths and Cycles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9d45823d322e, 4ed54b0d16b9, 741c812bf752, 9624ad907a63",
+        "Brown–Hoshino 2007 (precise original PDF passage inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact directed source explicitly limits its classification to ranks one through five and proves a general sufficient directed cutoff 2^q by cyclic gap-order preservation. The order-preserving step at the stronger cutoff fails at lengths 11 and 12.",
+          "The published undirected classification supplies distinguishability in the directed language but not the requisite Duplicator strategy."
+        ],
+        "reasoning": "At q≥6 the interval from 2^(q−1)+3 to 2^q−1 remains outside the general sufficient bound; the signed-offset argument is what fills it, using movable remote responses. This is not a corollary of the compared results.",
+        "searches": [
+          "Resultary 9d45823d322e, general EF tail lemma",
+          "Brown–Hoshino citation and directed reduct comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-two binary-colored directed-cycle classification gives the triangle exception in monochromatic cycles; the rank-two orientation-erasure statement covers at most two named colors and therefore also uncolored cycles."
+        ],
+        "reasoning": "For the monochromatic expansion unary color tests can be replaced without increasing rank by true or false atomic formulas. These are genuine rank-two overlaps, not an all-rank argument.",
+        "searches": [
+          "Local Resultary: directed successor cycles sharp EF quantifier-rank threshold and orientation erasure",
+          "Resultary 741c812bf752 and 4ed54b0d16b9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its exact thresholds for single directed successor cycles at ranks 1–5 are 2,4,7,11,19 (with lengths one and two included there); its finite table covers sizes through 32, and its proof extends that partition to all lengths at those ranks."
+        ],
+        "reasoning": "Restricting lengths to at least three gives exact coverage of the directed partition at those five ranks. The table plus its infinite-tail argument does not give exact cutoffs beyond rank five. The later index date is not used to infer priority.",
+        "searches": [
+          "Resultary 9d45823d322e, theorem and Steps 2–3"
+        ]
+      },
+      "rationale": "The accepted distinct content is the sharp all-rank directed upper bound and, in combination with the known undirected profile, the all-rank equality of partitions. The indexed exact directed profile through five and the rank-two colored comparison cover genuine portions, but neither yields the sharp tail at arbitrary ranks. The replacement supplies a stronger uniform bound than the 2^q general directed bound of the strongest finite-rank source. No novelty is credited for the undirected thresholds, EF characterization, or low-rank overlapping cases.",
+      "residual_risks": [
+        "The all-rank exact directed classification was not found in the bounded comparison; a general theorem about truncated distances in cycles could still imply it. No claim of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap through rank five only; general lemma not sharp",
+          "evidence": [
+            "T=(2,4,7,11,19); larger ranks explicitly excluded from the exact theorem; all-rank sufficient cutoff is 2^q."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-sharp-five-round-logical-threshold-for-directed-successor-cycles--9d45823d322e",
+          "material_read": "RESULT.md offsets 600–5500, theorem, scope and Steps 1–3",
+          "method": "Resultary local mirror primary text",
+          "title": "Sharp five-round logical threshold for directed successor cycles",
+          "trigger": "Exact cutoff for the same directed language and object"
+        },
+        {
+          "assessment": "Treat the undirected classification as existing; its use in the original directed gap-strategy argument is not justified",
+          "evidence": [
+            "Frozen attribution at lines 28 and 38; the directed order-preserving strategy fails by the explicit length-11/12 witness irrespective of the published undirected strategy."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Bibliographic citation and retrieval diagnostics, not the theorem passage; independently rederived undirected lower bound",
+          "method": "OA reader and publisher route attempted; no extractable theorem passage obtained",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Frozen citation of exact undirected cutoff and claimed upper-bound transfer"
+        },
+        {
+          "assessment": "Prior indexed overlap at rank two",
+          "evidence": [
+            "At most two colors admit rank-two orientation erasure; monochromatic directed cycles have precisely the length-three exception."
+          ],
+          "identifier_or_url": "Resultary 4ed54b0d16b9 and 741c812bf752",
+          "material_read": "RESULT.md findings at offset 0 in both",
+          "method": "Resultary local mirror primary text",
+          "title": "Rank-two orientation erasure and rank-two colored directed-cycle theories",
+          "trigger": "Orientation invariance in the matching language at low rank"
+        },
+        {
+          "assessment": "Broader ambient coverage at rank three, no all-rank claim",
+          "evidence": [
+            "All finite bijections in the binary-relation language are included, so in particular the single cycles."
+          ],
+          "identifier_or_url": "Resultary 9624ad907a63",
+          "material_read": "RESULT.md near offsets 514 and 7134",
+          "method": "Resultary local mirror primary text",
+          "title": "The 143 rank-three theories of finite permutation digraphs",
+          "trigger": "Stronger ambient class at rank three"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, exact threshold and strategy obstruction",
+        "Resultary 9d45823d322e, weaker all-rank upper bound"
+      ],
+      "rationale": "The repaired theorem determines the least logical depths separating every pair of sizes in a natural relational signature and shows exactly that orienting the cycle gives no gain in this invariant. The distinction between the optimal directed bound and the usual order-preserving sufficient bound matters at every rank q≥4. The usable signed-offset strategy explains this gap rather than just confirming a list of small sizes.",
+      "residual_risks": [
+        "No claim about additional predicates, permutations with multiple components, or a successor function follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

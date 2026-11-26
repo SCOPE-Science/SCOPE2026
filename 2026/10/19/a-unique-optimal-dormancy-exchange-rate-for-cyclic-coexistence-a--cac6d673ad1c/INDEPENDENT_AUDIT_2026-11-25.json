@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:52:01.226926Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two simplex normal directions are excluded, and the surviving Fourier modes give conjugate blocks with characteristic polynomial λ²+(a+1−i)λ−i. The larger-real-part root is continued from i. Its imaginary part v starts decreasing, cannot hit 0 (which would require d=1=a+1 at positive a) or 1 (which would require d=0 and a=0), and cannot change the smaller d-root of (1−v)(d²+v²)=d because the discriminant is bounded below by 3/4 on [0,1]. The resulting d<1/2 means the companion root is strictly faster. Implicit differentiation gives dv/da<0 and the slow root tends to 0 at infinity. The damping d vanishes at both endpoints (d~a/2 and d~1/a²); its interior stationarity reduces to the strictly increasing quintic in the finding. At the maximum, F_d<0 and F_vv=2−6v<0 for F=(1−v)(d²+v²)−d, giving nondegeneracy. Independently optimized the original block eigenvalue and checked the quintic bracket exactly: v=0.654193472255910175741, a=0.60235493398134220867, d=0.156459729915040441875. Replay: python /workspace/calculations/reproduce_frozen.py (check dormancy). Global uniqueness is analytic, not inferred from the numerical optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chacón et al. allow arbitrary positive exchanges in the local stability assertion.",
+          "Anish–De Baets–Rao explicitly say the convergence rate is not studied and leave the effect of migration rates open (printed p. 24)."
+        ],
+        "reasoning": "Greater generality of the admissible migration rates in convergence/stability theorems does not imply a comparison of their decay exponents.",
+        "searches": [
+          "arXiv:2608.17179v1, pp. 5–6",
+          "DOI:10.1080/17513758.2024.2397404, conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and inspected mirrored 2026/10/18 item",
+        "arXiv:2608.17179v1",
+        "DOI:10.1080/17513758.2024.2397404",
+        "arXiv:2409.14581v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Chacón model directly supplies the linear block by specialization, but the inspected stability claim does not compare real parts between exchange values.",
+          "Anish et al. do not give a rate-optimality theorem in the cited conclusion."
+        ],
+        "reasoning": "The nonmonotone damping and global optimization require the dominant-root locus and its unique stationarity, beyond the stability conclusion. No exact or stronger optimization statement was verified.",
+        "searches": [
+          "arXiv:2608.17179v1, RPS model and local-stability passage, PDF pp. 5–6",
+          "DOI:10.1080/17513758.2024.2397404, p. 24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2608.17179v1, deterministic RPS system, PDF pp. 5–6: same exchange model after normalizing the active angular frequency; asserts local stability for positive rates.",
+          "arXiv:2409.14581v3 studies nonexponential holding times and stochastic fixation, not an active/dormant linear return exponent."
+        ],
+        "reasoning": "Rescaling to match the exit rate to the angular frequency does not convert a positivity-of-damping result into a unique optimizer; optimizing fixation or survival in a different stochastic model also does not supply it.",
+        "searches": [
+          "Resultary: cyclic RPS dormancy exchange spectral decay; constants 0.602354933981 and 0.156459729915",
+          "Primary literature: dormancy and spectral rate of cyclic rock–paper–scissors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected closest catalogue item instead optimizes stochastic long-run growth with beta-distributed patch weather, not a spectral decay rate. No claim-matching indexed result was located in the bounded check."
+        ],
+        "reasoning": "There is no natural tabulation for this optimizer across models; the numerical and semantic catalogue check does not indicate rediscovery of a stored exact rate, and is not exhaustive.",
+        "searches": [
+          "Resultary numerical constants and spectral-dormancy terms",
+          "Resultary/2026 2026/10/18/SCOPE-correlated-patch-weather-creates-a-sharp-dormant-seed-phase-tran--34a17291db4e/RESULT.md"
+        ]
+      },
+      "rationale": "Best of current knowledge: the model and deterministic stabilization are antecedents. The supported distinction is the sharp exchange-rate optimum on the matched-frequency slice and its two endpoint slowdowns, not the existence of damping or stochastic coexistence.",
+      "residual_risks": [
+        "Bounded catalogue and literature searches cannot exclude unindexed equivalent exchange-rate optimizations, including possible more general spectral optimization results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and local stability are prior; inspected rates are not optimized",
+          "evidence": "The displayed deterministic system has active-to-reservoir α and reservoir-to-active β and positive-rate local stability at equal coexistence.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17179v1",
+          "material_read": "Abstract PDF p. 1 and deterministic RPS passages pp. 5–6 (offset 26800)",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Dormancy stabilizes non-transitive competitive dynamics",
+          "trigger": "Same active/dormant RPS dynamics"
+        },
+        {
+          "assessment": "Convergence, no comparable optimum in the relevant conclusion",
+          "evidence": "The effect of migration on the rate of convergence is explicitly left unstudied.",
+          "identifier_or_url": "DOI:10.1080/17513758.2024.2397404",
+          "material_read": "PDF abstract and printed p. 24 conclusion (offset 83611)",
+          "method": "Lawful Ghent repository PDF, bounded passages",
+          "title": "Metapopulation models with anti-symmetric Lotka–Volterra systems",
+          "trigger": "Broader antisymmetric migration system"
+        },
+        {
+          "assessment": "Different stochastic waiting-time model and objective",
+          "evidence": "Nonexponential waiting-time survival/fixation; fixation time for general waiting-time distributions appears as an open question.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.14581v3",
+          "material_read": "Abstract and conclusion, PDF pp. 1 and 8 (offset 61900)",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Non-Markovian Rock-Paper-Scissors games",
+          "trigger": "Alternative RPS return and persistence mechanisms"
+        },
+        {
+          "assessment": "Different model and objective",
+          "evidence": "Dormant seed reserve under shared weather controls stochastic growth, not spectral return to coexistence.",
+          "identifier_or_url": "Resultary/2026: 2026/10/18/SCOPE-correlated-patch-weather-creates-a-sharp-dormant-seed-phase-tran--34a17291db4e",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Correlated patch weather creates a sharp dormant-seed phase transition",
+          "trigger": "Closest retrieved dormancy optimization in catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Comparative recovery speed is scientifically distinct from stability at every positive rate. Matching reactivation to the active oscillation timescale removes an independent physical ratio rather than inserting an arbitrary numeric parameter; the exact unique rate and two slow-decay limits quantify when stronger exchange is counterproductive. The result is useful on this slice without asserting nonlinear global recovery or stochastic persistence optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

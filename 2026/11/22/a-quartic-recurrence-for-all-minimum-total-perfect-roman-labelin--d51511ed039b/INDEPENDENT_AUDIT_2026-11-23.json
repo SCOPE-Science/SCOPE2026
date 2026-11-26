@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:02:13.287670Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a labelled simple cycle of length at least three, the two neighbors are distinct and the centered triple checks are exactly the two feasibility conditions. Summing b−1+h(a,b)−h(b,c) telescopes to w−n; all 20 allowed triples have nonnegative reduced cost and precisely the 16 displayed edges have cost zero. Thus the all-one word attains the minimum and the critical closed walks count all minimizers without quotienting rotations. Independently, merging identical successor rows first gives classes {00,10}, {01}, {02}, {11,21}, {12,22}, {20}; the resulting rows for {01} and {02} then coincide. On the five quotient classes A={00,10}, G={01,02}, D={11,21}, E={12,22}, F={20}, the equations for I−xZ reduce by unit-pivot elimination to A=xG, F=x(A+G), E=xF, D=G+xA and (1−x−2x³−x⁴)G=0. The eliminated directions contribute only zero eigenvalues. The trace identity gives the logarithmic series; the length-one and length-two traces are both 1 and must be removed. A fresh brute force check using the feasibility predicate alone gave weight n and multiplicities 7, 13, 16, 31, 64 at lengths 3–7. The quartic has a primitive nonnegative companion matrix (a loop and a spanning directed 4-cycle), so the unique leading eigenvalue is positive and simple, and its trace contribution has coefficient 1. Replay: reconstruct the zero-edge rows from RESULT.md lines 35–71, then use the quotient equations or the integer determinant recipe. The finite check is corroboration only; the result does not count nonoptimal words or dihedral orbits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Two-row open ladder minimum-function census b1badea27fb1, finding at offset 0.",
+          "Cyclic prism minimum-function census b66a8c065c91, finding at offset 0."
+        ],
+        "reasoning": "Both use the same domination rule but solve for two rails, P₂□Pₙ and Cₙ□K₂, respectively. Their closed formulas are results for those graphs, not counts for a single indexed simple cycle.",
+        "searches": [
+          "Resultary: broader coverage total perfect Roman domination cycle all orders optimal function counts graph family minimum labels"
+        ]
+      },
+      "checked_sources": [
+        "Almulhim, DOI 10.3390/sym15091676",
+        "ca1e0cc36d93",
+        "46324718e498",
+        "b1badea27fb1",
+        "b66a8c065c91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Almulhim PDF p. 6, Theorem 3; p. 3 identifies cycles attaining the upper bound. The theorem classifies attainment of the scalar optimum n."
+        ],
+        "reasoning": "The optimum and feasibility predicate do not supply the number attaining it. The potential and critical trace calculation give the additional all-length invariant; the finite local method is standard, not claimed as new.",
+        "searches": [
+          "Resultary: Almulhim Theorem 3 total perfect Roman domination cycles gamma n count of minimum functions implication",
+          "Almulhim PDF literal queries Theorem 3 and cycles, and some corona graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Almulhim, Definition 1 (PDF p. 2), uses exactly-one defense and no isolated vertex among the positive labels.",
+          "Pointwise-minimal Roman cycle census ca1e0cc36d93 starts 4,9,16,22; independent Roman census 46324718e498 gives 5,3 at n=5,6."
+        ],
+        "reasoning": "Ordinary Roman feasibility only requires at least one 2-neighbor of a 0 and pointwise minimality is not fixed-weight optimality. Independent Roman feasibility prevents positive adjacency rather than requiring positive support. Neither numerator/denominator can be identified with those enumerators.",
+        "searches": [
+          "Resultary: equivalent formulations total perfect Roman dominating functions on cycles exact-one defender positive support optimal labeling enumeration",
+          "Web: \"total perfect Roman\" cycle minimum functions enumeration exact count generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the exact hit; inspected nearby hits were the prism table and the distinct ordinary Roman cycle census."
+        ],
+        "reasoning": "The length-tagged prefix and rule identify the target, not an independent matching census; nearby sequences enumerate different objects. This retrieval is not exhaustive.",
+        "searches": [
+          "Resultary: exact sequence table 7 13 16 31 total perfect Roman domination cycle minimum labelings recurrence"
+        ]
+      },
+      "rationale": "The known minimum n and TPRDF definition are credited; the independently compared advance is the complete multiplicity of indexed minimizers, including the quartic recurrence and generating function. No inspected equivalent, dominating result, or exact independent table covers it. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "Indexed searches and the inspected passages cannot rule out an unindexed equivalent minimum-weight cycle census or hidden specialization of a separate enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the definition and scalar minimum, not the claimed multiplicity in the inspected statements",
+          "evidence": "Exactly one adjacent 2 at each zero; no isolated vertex induced by positive labels; Theorem 3 classifies when the minimum equals the graph order.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-15-01676/article_deploy/symmetry-15-01676.pdf",
+          "material_read": "PDF p. 2 Definition 1 (offset 11940), p. 3 discussion of cycles (12709), p. 6 Theorem 3 (30820)",
+          "method": "OA literal lookup and bounded passage reading",
+          "title": "Total Perfect Roman Domination",
+          "trigger": "Same predicate, graph and known optimum"
+        },
+        {
+          "assessment": "Different feasibility and minimality",
+          "evidence": "Counts pointwise-minimal ordinary Roman functions, beginning 4,9,16,22.",
+          "identifier_or_url": "ca1e0cc36d93",
+          "material_read": "RESULT.md finding and definitions from offset 0",
+          "method": "Published-record mirror passage",
+          "title": "Exact weight census of pointwise-minimal Roman domination on cycles",
+          "trigger": "Same cycles and nearby Roman census"
+        },
+        {
+          "assessment": "Different positive-label restriction and counts",
+          "evidence": "Positives must be independent; minimum is ⌈2n/3⌉.",
+          "identifier_or_url": "46324718e498",
+          "material_read": "RESULT.md finding and definitions from offset 0",
+          "method": "Published-record mirror passage",
+          "title": "Independent Roman weight enumerator of cycles",
+          "trigger": "Same cycles and minimum-label multiplicities"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The open two-row ladder P₂□Pₙ has its own residue-class formulas.",
+          "identifier_or_url": "b1badea27fb1",
+          "material_read": "RESULT.md finding and graph specification from offset 0",
+          "method": "Published-record mirror passage",
+          "title": "Exact total perfect Roman domination and minimum-function multiplicities on ladder graphs",
+          "trigger": "Same predicate and multiplicity invariant"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Cₙ□K₂ has two rails and degree-three neighborhoods.",
+          "identifier_or_url": "b66a8c065c91",
+          "material_read": "RESULT.md finding and graph specification from offset 0",
+          "method": "Published-record mirror passage",
+          "title": "A six-residue minimum-function census for total perfect Roman domination on cyclic prisms",
+          "trigger": "Same rule with cyclic geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known optimum fixes only the cost. This count determines the degeneracy of optimum defensive assignments on the canonical degree-two graph, resolves all lengths, and gives an explicit growth rate and leading constant. The critical transition description is also independently usable to generate or recognize all optimum labelings, not just a list of numerically reproduced counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

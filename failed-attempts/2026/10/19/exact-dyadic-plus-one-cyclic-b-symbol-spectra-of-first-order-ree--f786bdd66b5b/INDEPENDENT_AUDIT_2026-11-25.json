@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:02:54.448145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 13–30 give the correct all-parameter proof. The binary increment edges of each carry length toggle by the corresponding prefix parity; the full carry and wrap toggle by the last prefix parity. Dividing the transition total by two gives an integer in [0,K] as a bijectively encoded integer in [0,K−1] plus one bit. Excluding the constant mask leaves two masks per interior count and one at K, and each mask gives two offsets. If a low bit is active, no zero run contains a whole aligned block; the prefix/suffix lengths across one boundary sum to at most L, including at wraparound. With no active low bit, block expansion of the balanced quotient word gives n/2+LR by counting zero windows, also for s=0 and K=1. The remaining multiplicity is 2^(m+1)−1−4(K−1). Reflected Gray evaluation preserves the entire word set by invertible linear precomposition; no arbitrary-order invariance follows. An independent packed-bit rotation/AND census confirmed every stated window for m=2 through 9 in both orders (python3 /workspace/branches/audit_rm.py); this is supplemental, not the proof. The deposited script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4ba592bdb146, Finding and Assumptions: binary RM(1,m) in the same integer order for all m≥1 and all 1≤b≤2^m",
+          "arXiv:2404.02471 p. 3 deals with spectrum cardinality bounds; arXiv:2107.01717 pp. 1–2 gives MDS distributions, which cover m=2 but not the general family"
+        ],
+        "reasoning": "Earlier Resultary coverage agrees in code, ordered coordinates, cyclic convention and coefficient semantics; the external general metric literature alone does not establish the claim.",
+        "searches": [
+          "Resultary: Exact dyadic-plus-one cyclic b-symbol spectra of first-order Reed-Muller codes",
+          "Resultary: b-symbol transition spectrum zero-run affine binary sequence Reed-Muller",
+          "Literature: \"cyclic b-symbol weight enumerator\" Reed-Muller transition spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_spectrum.py",
+        "Resultary 4ba592bdb146, 42235d3b28b9, 0fd3d918ba43",
+        "arXiv:2109.13764, 2103.16299, 2404.02471, 2107.01717"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier formula F=N−(H−2j)(B−b+1)_+−j(2B−b+1)_+, B=2^(least active bit), H=N/(2B), and multiplicities 2 at j endpoints and 4 inside for H>1 (2 at j=0 for H=1)"
+        ],
+        "reasoning": "Substitute b=L+1. For B<L all contributions have full weight. For B=L, F=N−Lj so r=K−j; for B>L, F=N/2+L(H−j) so r=H−j. These bands range over consecutive dyadic intervals with endpoint multiplicities adding, starting with the H=1 singleton; thus each 1≤r<K occurs four times, and cardinality gives the same full-weight coefficient. For K=1 all nonzero words have full weight. The Gray relabeling adds no new independent coefficients.",
+        "searches": [
+          "4ba592bdb146, Finding and Proof steps 1–4, Resultary local mirror"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi, Zhu and Helleseth, arXiv:2109.13764, §2.2 Thm. 2 gives the cyclic zero-run expression for b-weight",
+          "4ba592bdb146, Proof step 3 uses binary prefix parities for the cyclic transitions",
+          "42235d3b28b9, Finding gives the identical s=0 symbol-pair polynomial"
+        ],
+        "reasoning": "Pairs are precisely b=2; Gray order is precomposition by the invertible binary-linear map i XOR (i shifted right), so equality of histograms is equality of codeword sets. The transition formula measures twice the number of cyclic zero runs.",
+        "searches": [
+          "Resultary: RM(1,m) cyclic b-symbol weight enumerator binary Gray order",
+          "Resultary: Exact cyclic transition-count spectrum of affine Boolean truth tables in binary integer order",
+          "Resultary: first-order Reed-Muller symbol-pair enumerator cyclic pair metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4ba592bdb146, explicit closed enumerator in Finding",
+          "42235d3b28b9, explicit pair polynomial in Finding",
+          "Later 0fd3d918ba43, Finding: explicit general spectrum and multiplicities specialize to these same coefficients"
+        ],
+        "reasoning": "The earlier closed enumerator is exact coverage even without a row written with the present dyadic-plus-one parameter notation. The distinct later overlap is corroboration, not earlier priority evidence.",
+        "searches": [
+          "Resultary: Exact dyadic-plus-one cyclic b-symbol spectra of first-order Reed-Muller codes",
+          "Resultary: RM(1,m) cyclic b-symbol weight enumerator binary Gray order"
+        ]
+      },
+      "rationale": "The distinct 2026-10-13 ordered RM(1,m) all-width result 4ba592bdb146 already entails the full binary-order histogram, not merely its minimum. Reflected Gray order is a routine invertible linear coordinate relabeling that yields exactly the same evaluation word set, not an independent, uncovered spectrum.",
+      "residual_risks": [
+        "Other literature may overlap; that does not change the demonstrated earlier indexed coverage. No claim of absolute priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER COVERAGE",
+          "evidence": "All b, same code and order; F and the multiplicities specialize to the frozen result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-complete-cyclic-window-weight-enumerators-of-ordered-first-order--4ba592bdb146/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof steps 1–4, offset 0",
+          "method": "Resultary search and local mirror statement and formula comparison",
+          "title": "Complete cyclic window-weight enumerators of ordered first-order binary Reed–Muller codes",
+          "trigger": "earlier same-object complete enumerator"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "Exact cyclic pair enumerator agrees at b=2 only.",
+          "identifier_or_url": "42235d3b28b9",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete pair-generation profile of lexicographically ordered first-order Reed–Muller codes",
+          "trigger": "pair metric alias"
+        },
+        {
+          "assessment": "EQUIVALENT ON DOMAIN; LATER",
+          "evidence": "Largest dyadic K with Kb≤n gives the same coefficients at the specified widths.",
+          "identifier_or_url": "0fd3d918ba43",
+          "material_read": "Finding and transition structure",
+          "method": "Resultary local mirror",
+          "title": "Complete b-symbol spectra of lexicographically ordered first-order Reed–Muller codes",
+          "trigger": "same-object spectrum"
+        },
+        {
+          "assessment": "FRAMEWORK",
+          "evidence": "General cyclic run count, not the RM histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.13764",
+          "material_read": "p. 3 §2.2 Thm. 2",
+          "method": "lawful OA PDF text",
+          "title": "Connections among Hamming metric, b-symbol metric, and rth generalized Hamming metric",
+          "trigger": "run-to-window identity"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "MDS hypothesis holds in this RM family only at m=2.",
+          "identifier_or_url": "10.3934/amc.2023028; arXiv:2107.01717",
+          "material_read": "pp. 1–2",
+          "method": "lawful OA PDF text",
+          "title": "The b-weight distribution for MDS codes",
+          "trigger": "exact distributions for a class intersecting RM(1,m)"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Ordered cyclic spectra are useful, but this exact slice is a direct specialization of the existing all-width enumerator and supplies no independently needed invariant beyond it. The Gray case preserves the entire codeword set by a standard linear change of variables, rather than treating a substantively different order. Exact recomputation and a shorter specialized proof do not establish a surviving valuable claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

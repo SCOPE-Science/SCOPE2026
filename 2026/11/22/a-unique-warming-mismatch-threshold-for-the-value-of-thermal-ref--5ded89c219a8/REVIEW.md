@@ -1,21 +1,21 @@
-# Scientific review: unique warming-mismatch threshold under dispersal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is entirely about the dominant eigenvalue of a specified irreducible two-by-two Metzler matrix compared with a homogeneous version. The displayed eigenvalue in RESULT.md follows by exact characteristic-polynomial solution. The small-mismatch case uses entrywise Perron comparison; the large-mismatch case uses the strictly positive spectral contrast above the arithmetic mean. Only the intermediate regime needs a nontrivial argument: its eigenvalue decreases strictly in movement, and its critical movement curve is strictly increasing in climatic mismatch, as established by the explicit derivative identity and the monotonicity of \(\sinh(ax)/x\). The two endpoint limits and both first-order coefficients were derived from the exact formula. Independent numerical tests in `checker.py` are supplementary, not a substitute for these universal arguments.
+PASS
 
-## Originality — PASS on inspected evidence
+After shifting by the homogeneous eigenvalue, let G=R exp(-x^2/2), p=exp(-a^2/2), h=1-p cosh(ax). For x<=a/2 both heterogeneous diagonals before movement are at most the homogeneous one, with one strict, so irreducible Perron comparison is strict. For x>=x2 the mean equals or exceeds the homogeneous gross rate and the nonzero contrast raises the eigenvalue strictly above that mean for finite positive movement. On the intervening interval the shifted matrix has trace -2(Gh+m)<0. Its determinant is G^2(1-2p cosh(ax)+p^2)+2mGh, so the top eigenvalue has the opposite sign and crosses at the exact M_a(x). Differentiating M_a=G[(1-p^2)/(2h)-1] shows M_a'/G=x+(1-p^2)[ap sinh(ax)-xh]/(2h^2)>0: ap sinh(ax)/x increases from 1-p^2 at x=a/2, while h decreases from (1-p^2)/2 there. The derivative in m of the determinant is positive; the negative trace at equality makes the crossing transversal. The lower endpoint derivative Ra exp(-a^2/8) and the upper simple pole from -h'(x2)=a sqrt(1-p^2) reproduce the stated inverse expansions. The loss cancels exactly. Read checker.py and its notes without executing them. Independent 55-digit root computation on the shifted determinant at a=R=1, m=0.1 gives 0.5964895360394114 with negative trace, and x2=1.085038501948388. Only fixed finite positive movement, symmetric Gaussian growth, equal patch sizes and low-density linear dynamics are proved.
 
-The relevant published records and actual primary text do not state this combined Gaussian two-patch heterogeneity-versus-homogeneity classification, unique finite-migration warming threshold, or its sharp migration asymptotics. Backus, Clements and Baskett (2024, DOI 10.1002/ecy.4257) use stochastic density-dependent metapopulation simulations with a skew-normal response, rather than a closed-form spectral phase boundary. Amarasekare (2024, DOI 10.1111/1365-2656.14054) uses mechanistically temperature-dependent dispersal in an array of habitats, not this symmetric migration comparison. Grumbach et al. (2023, DOI 10.1007/s00285-023-01984-8) classify nonlinear equilibrium population-size responses to dispersal. Related published mathematical findings concerning patch variance, season ordering and dispersal-sensitive growth use other objects or objectives. Classical eigenvalue formulas and movement reduction are prior background, not asserted innovations. The exact new claim is the global warming-dependent classification and its proof.
+## originality
 
-Historical priority is provisional because semantic search is incomplete and one potentially relevant continuous-space paper (Terry, O'Sullivan and Rossberg 2023, DOI 10.1086/728002) could not be inspected in full at the accessible publisher/archive endpoints; its abstract and stated equations concern range shifts in a reaction-diffusion model, not the paired fixed thermal patches.
+PASS
 
-## Value — PASS
+The distinct supported result is the global single crossing in mean mismatch against the homogeneous-mean control, with its migration monotonicity and sharp endpoint scales. Ordinary Perron comparison, the two-by-two eigenvalue formula and decreasing growth with mixing at fixed local rates are not novel. Related ecological simulations and nonlinear equilibrium classifications do not support credit for those methods, nor do their inspected results establish this Gaussian sign boundary.
 
-The question is motivated by whether restoring fine-scale spatial thermal heterogeneity aids climate-stressed populations and how movement might change its effectiveness. This result isolates a rigorous, ecologically interpretable three-region mechanism: too small a mean-temperature mismatch makes heterogeneity harmful at every migration rate; an intermediate mismatch allows heterogeneity to help only below a sharply determined migration rate; sufficiently large mismatch makes it beneficial at every finite rate. Its equivalent unique crossing in warming mismatch, migration monotonicity, and asymptotic limits go beyond reporting a single parameter example. The calculation can serve as a transparent comparison benchmark for complex spatial restoration simulations, without claiming direct field applicability.
+## value
 
-## Closest literature and limits
+PASS
 
-The referenced ecological studies analyze different movement rules or population outcomes. This theorem assumes a symmetric Gaussian thermal niche, two equal patches, constant exchange and low-density linearization. It does not establish persistence, long-run stochastic growth, nonlinear equilibrium abundance, skewed thermal performance, or field-level benefit. The positive advantage becomes small far beyond the thermal niche. Same-paper and broader synonym coverage remain imperfect.
+The theorem gives a usable three-region sign diagram under a precise homogenization control, not just the diagonalization of an example. It separates near-optimum harm from far-mismatch benefit and quantifies how increasing movement shifts the boundary and at what rates the two limiting boundaries are approached. This is an analytical benchmark for spatial thermal comparisons, not a calibrated field prescription; relative benefit does not imply either growth exponent is positive.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

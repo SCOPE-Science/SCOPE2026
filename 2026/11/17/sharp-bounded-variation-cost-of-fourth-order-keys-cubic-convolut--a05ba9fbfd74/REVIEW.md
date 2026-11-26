@@ -1,15 +1,21 @@
-# Review: Sharp bounded-variation cost of fourth-order Keys cubic convolution
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel is explicitly specified as three even radial cubics and reproduces constants. For every finite-variation sequence, decomposition into its summable discrete jumps reduces the operator norm to the continuum variation of one step response. That response has five exact cubic pieces; a direct calculation locates the far and near lobes at \(1/81\) and \((260+43\sqrt{43})/5832\), with a strictly increasing central piece. Their variations sum to \((1790+43\sqrt{43})/1458\). The single-step sequence attains equality, and the difference theorem follows from linearity. The accompanying algebra checker reproduced the critical equations and random finite examples. Domain, support, constant component, end behavior and sharpness have been checked.
+## correctness
 
-## Originality — PASS (qualified)
-Keys (1981, pp. 1154 and 1160) supplies the exact four- and six-tap cubic convolution kernels and their approximation orders, not this discrete-BV to continuous-BV sharp norm. Meijering–Unser (2003) proves an equivalence with Karup–King and Henderson osculatory interpolation and does not state this norm. Malgouyres–Guichard (2001) analyzes direction-preserving zooming and total-variation-based nonlinear image restoration, not the present one-dimensional six-tap operator gain. The closest independently recorded cubic-interpolation results concern pointwise overshoot, global cardinal cubic splines or nonlinear Hermite slope choices; these do not imply the exact six-tap gain. Stronger unindexed results on oscillatory kernels remain a residual historical-priority risk.
+PASS
 
-## Value — PASS
-Six-tap fourth-order Keys reconstruction and four-tap third-order Keys reconstruction are classical competing accuracy choices. Edge variation is a natural stability metric that captures oscillatory ringing invisible to polynomial-reproduction order alone. The new exact attained norm resolves the worst-case BV cost of the higher-order choice and shows a strict increase of \((43\sqrt{43}-100)/1458\). This precise invariant supports stability-conscious comparison without assuming a general downstream theorem; it is neither a renaming nor a computation reproduced from a published table.
+Absolute summability of the forward jumps gives a finite left limit and an absolutely convergent sum of translated steps. Cardinal partition of unity removes the constant; the compactly supported step derivative has an absolutely convergent series of translates in L¹, giving the upper bound by its L¹ norm. Finite sums converge also to the interpolant (bounded response), identifying the derivative of the limit. The unit step has variation one and attains this bound, and linearity gives the two-input statement. Independently reconstructed both kernels' cell moments and step polynomials. For the six taps the first two excursions have absolute heights 1/81 at t=2/3 and (260+43√43)/5832 at t=(5+√43)/18; the center is monotone by its positive derivative. Reflection from the even partition-of-unity kernel supplies the other two excursions. Their total is 1+4/81+4(260+43√43)/5832. For the four taps the first outer piece is t²(t−1)/2 with extreme −2/27, the middle t(−2t²+3t+1)/2 is strictly increasing, and reflection gives the same variation on the other side. This proves 35/27 and the strict radical excess. Neither endpoint boundary conventions nor sampled-only output variation enter the argument.
 
-## Limitations
-Applies to real bi-infinite uniformly sampled data of finite discrete variation and exactly the even six-tap support-three Keys cubic-convolution kernel. No result for arbitrary fourth-order interpolation kernels, nonuniform meshes, boundary closures, or two-dimensional image total variation. The printed 1981 Keys paper is known at month precision, while the dated openly released 2001-02-21 source is the earliest independently day-verified public archival lead used in chronology; this is not a claim of 2001 invention. Historical mathematical priority remains qualified pending unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the sharp attained six-tap variation invariant and quantitative comparison, not the interpolation formula, osculatory equivalences, or approximation orders. The specific old formulas are indeed the same operators. An old full variation calculation for their step responses would be substantive coverage; the inspected primary passages and indexed comparisons establish the equivalences and neighboring results, but do not show such coverage of the six-tap invariant.
+
+## value
+
+PASS
+
+This is an exact sharp stability invariant for a widely used accuracy-motivated reconstruction. Measuring full variation exposes both near and far ringing lobes, unlike a pointwise overshoot metric. The unit-step equality and strict four-tap comparison quantify the precise stability cost of this particular classical higher-order choice; the result is useful without a universal comparison across kernels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The levelwise Minkowski and Hölder inequalities give a quantitative upper bound, and the radial geometric input gives a matching lower bound. Both normalize to the same convergent geometric-series constant, with no numerical extrapolation. In the Hilbert case, the parent difference is the inverse operator, and the positive inverse on each root-child branch forces a radial bottom eigenvector; the minimum eigenvalue has multiplicity \(b\) across the full tree. Substitution into the radial recurrence produces an exact secular equation, whose controlled small-root expansion gives the stated relative correction. The standalone finite checker returned 195 assertions, complementing but not replacing the proofs.
+PASS
 
-## Originality — PASS within examined evidence
+The repaired theorem keeps the all-p counting-measure limit. The level j output p-norm is bounded by Minkowski on the ancestor extensions (multiplicity b^(j-i) at level j) and by Hölder on the level masses. For S_j=sum_(i<=j) b^(-i/(p-1)), this bounds the p-th power of the norm above by sum b^j S_j^(p-1). The common radial input g(v)=b^(-|v|/(p-1)) gives the lower bound (sum b^j S_j^p)/S_N. With k=N-j, the normalized weights are b^(-k-1); bounded convergence for this summable sequence gives the same limit S_infinity^(p-1)/(b-1) from both sides, with b and p fixed. The demonstrated b=4,p=3,N=2 bounds are exact. The dropped Hilbert claims are not mathematically false: the inverse grounded branch matrix is strictly positive, giving a simple radial least eigenvalue, hence exact multiplicity b by direct sum. For large N the Rayleigh bound and the roots of the radial equation give t=1-r_+=O_b(q) for q=b^(-N-1), with t((1-t)^(2N+1)+bq)=(b-1)q and lambda=(b-1)t-t^2+O_b(t^3). Expanding gives the stated relative coefficient 2N(b-1)-2 and error O_b(N^2 q^2), and the reciprocal square root gives the claimed norm correction. The frozen line 73 contains a stray character before the large parenthesis, not a substantive mathematical error. Independent branch matrices for b=2,3 at N=5 agree with the secular values, and finite p-bound checks are consistent with the repaired theorem.
 
-Evans–Harris–Lang study continuous metric-tree Hardy operators and approximation-number limits at fixed trees. Wang studies general mixed discrete \(p\)-Laplacian variational estimates and a differently weighted homogeneous-tree example. Neither inspected material states the counting-measure large-height \(\ell^p\) constant together with the explicit Hilbert finite-depth correction. Published mathematical-record searches found no statement implying both. A plausible older birth–death-tree paper was available only at the abstract level; a historical equivalent remains possible, and priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-Finite complete regular trees are a standard benchmark for Hardy inequalities, discrete Poincaré constants and root-Dirichlet spectral problems. The new statement identifies the exact leading constant for every fixed \(p\) and the first nonvanishing boundary correction at the Hilbert exponent. That correction is a depth-enhanced exponentially small term, sharper than a generic two-sided Hardy norm estimate, and quantifies convergence of an extremal tree model.
+Best of current evidence for the narrowed claim: the sharp fixed-p counting-measure norm equivalent survives. Do not count the original Hilbert subclaim as a distinct contribution: the exact binary grounded block and leading correction scale are prior, and the all-b Hilbert correction is a routine expansion of an exact specialization of an earlier tridiagonal spectral theorem. The absolute correction constant is not explicitly stated in the binary bounds alone.
 
-## Scientific limitations
+## value
 
-The correction is established only for \(p=2\), with fixed branching factor. The general \(p\)-norm limit is not uniform in \(p\) or \(b\). Some related historical sources were not available in full text, notably Wang–Zhang (2013). Numerical tests do not establish infinitely many cases. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result identifies the exact branching growth factor for an unweighted discrete Hardy norm over all fixed interior exponents. It links the geometric mass of the last levels to a single radial input that asymptotically saturates all the dominant levels, which goes beyond a nonsharp norm bound or a Hilbert spectral computation. It gives a sharp reference constant in a natural family without counting already-covered spectral deductions as a separate contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

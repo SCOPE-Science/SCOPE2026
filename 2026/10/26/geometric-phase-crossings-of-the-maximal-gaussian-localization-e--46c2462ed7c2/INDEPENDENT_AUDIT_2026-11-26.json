@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:05:01.219810Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 34–84; VERIFICATION.md; triad_checker.py lines 9–62"
+      ],
+      "rationale": "The normalized disk operator is exactly the sum of three centered averages of normalized Fock projectors; the area normalization gives trace 3 for disjoint disks. The coherent-vector power series and its real derivatives converge locally in Fock norm. Hence disk averaging cancels the first moments and gives O(epsilon^2) in operator norm for both the operator and its R derivative. The cyclic orbit of coherent vectors has one positive Gram level in each character, with off-diagonal magnitude rho=exp(-3R^2/2) and phase sqrt(3)R^2/2 up to choice of cyclic sign. At the stated odd-phase radii the levels are 1+rho twice and 1-2rho once. The derivative difference has magnitude 2 rho times sqrt(3) times sqrt(3) R = 6 R rho. On a small closed interval around each fixed radius the two selected sector branches are simple within their own sectors, and jointly separated from all other levels. Sector Riesz projections and the resolvent identity give C^1 branch errors of O(epsilon^2). Opposite endpoint signs and a derivative of fixed nonzero sign give one transverse zero, the mean-value theorem gives the claimed shift, and the spectral gap persists. The interval and the allowed disk radius can be shrunk to ensure disjointness, independently for each m. This also checks m=0 and leaves no claim uniform in m. The finite quadrature in triad_checker.py is supplemental, not an infinite-dimensional certificate; it was inspected, not run.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two theorems give a single-ball extremal principle and its stability; the survey introduction defines the Toeplitz-algebra framework. These read passages give no multiplicity or transversality estimate for the prescribed three-disk family."
+        ],
+        "reasoning": "Shape optimality and stability measure a deficit from a different optimizing mask; they do not constrain the crossing of sector eigenvalues for this family. No whole-document negative is inferred from the survey introduction.",
+        "searches": [
+          "arXiv:2106.03423, Theorem 1.1; arXiv:2307.09304, Theorem 1.1; arXiv:2405.20792, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.03423",
+        "arXiv:2307.09304",
+        "arXiv:2405.20792",
+        "Resultary bb07545a8ae2 and a2df20aeb429"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-width large-distance proof uses continuity and does not require derivative control. Its error tends to zero in separation, not in disk width at each fixed limiting radius.",
+          "The submitted proof controls both the value and the R derivative at each fixed resonance, supplying the uniqueness and transversality not implied by an eigenvalue sign change alone."
+        ],
+        "reasoning": "Neither limit entails the other. The later catalogue date is not used to infer historical priority; the comparison is mathematical.",
+        "searches": [
+          "Resultary bb07545a8ae2, RESULT.md Finding and proof, offsets 0, 4250, 8000",
+          "arXiv:2307.09304, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bargmann and Gaussian-STFT localization refer to the same concentration problem after normalization, but the Faber–Krahn theorem maximizes over masks rather than varying the separation for a prescribed triple.",
+          "A point Gram doublet is only the limit; the frozen theorem gives a transverse coincidence in two distinct character sectors for positive-width masks."
+        ],
+        "reasoning": "Neither equivalence of representations nor the limiting Gram formula provides the claimed finite-disk spectral branches.",
+        "searches": [
+          "Resultary: equilateral triple of Gaussian disks, magnetic flux and localization spectral doublets",
+          "arXiv:2106.03423, Theorem 1.1; arXiv:2405.20792, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bb07545a8ae2, Finding and proof, gives fixed-width large-separation crossings with flux n+1/2+o(1), no asserted uniqueness.",
+          "a2df20aeb429, Finding, concerns a single disk and a true polyanalytic Hermite sector."
+        ],
+        "reasoning": "The first is an important near match, not a list or theorem of per-resonance small-width transverse roots; the second concerns a different operator and symmetry.",
+        "searches": [
+          "Resultary: Gaussian/Fock disk localization, triangular resonances and magnetic-flux doublets; bb07545a8ae2; a2df20aeb429"
+        ]
+      },
+      "rationale": "The supported distinction is the per-resonance small-disk result: local uniqueness, transversality, exact top multiplicity two and quadratic radius shift for the actual disk operator. There is material overlap in coherent Gram phases and qualitative positive-disk doublets with the fixed-disk large-separation Resultary result; neither that statement nor the inspected literature gives the small-disk derivative control or the local crossing law. This is a bounded comparison, not a historical priority certification.",
+      "residual_risks": [
+        "Earlier coherent-state or multiwell work could contain the same finite-disk small-width limit. The scoped literature lookup was not decisive; the inspected primary claims and nearest published records support only a best-of-knowledge decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same functional, different optimization question",
+          "evidence": [
+            "Only a ball attains the concentration maximum at fixed area."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.03423",
+          "material_read": "Theorem 1.1, PDF p. 3",
+          "method": "Open primary text, offset 8000",
+          "title": "The Faber–Krahn inequality for the Short-time Fourier transform",
+          "trigger": "Sharp theorem for the same Gaussian localization maximum"
+        },
+        {
+          "assessment": "Deficit estimates, not the local crossing law",
+          "evidence": [
+            "Stability quantifies proximity to the optimizing ball and signal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.09304",
+          "material_read": "Theorem 1.1 and operator interpretation, PDF pp. 2–3",
+          "method": "Open primary text, offsets 7461 and 9142",
+          "title": "Stability of the Faber–Krahn inequality for the Short-time Fourier Transform",
+          "trigger": "Plausible perturbation theorem for the same top eigenvalue"
+        },
+        {
+          "assessment": "Background in the inspected passages",
+          "evidence": [
+            "The abstract and introduction describe operator classes and the algebra, not the quantitative triple-disk family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.20792",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "Open primary text, offsets 0 and 4585",
+          "title": "Operators in the Fock-Toeplitz algebra",
+          "trigger": "Potential Fock Toeplitz spectral framework"
+        },
+        {
+          "assessment": "Material qualitative overlap, distinct asymptotic and conclusion",
+          "evidence": [
+            "Disk radius is fixed; triangle side grows; flux tends to successive half-integers with o(1) error; no uniqueness or derivative estimate is claimed."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 bb07545a8ae2",
+          "material_read": "Finding and coherent-state reduction and crossing proof",
+          "method": "Local published RESULT.md, offsets 0, 4250 and 8000",
+          "title": "Magnetic-flux spectral doublets for an equilateral triple of Gaussian localization disks",
+          "trigger": "Closest actual equal-disk top-eigenvalue crossings"
+        },
+        {
+          "assessment": "Different mask and Fock sector",
+          "evidence": [
+            "One centered disk in a second-excited true polyanalytic Hermite sector, not a union of three disks in analytic Fock space."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 a2df20aeb429",
+          "material_read": "Finding",
+          "method": "Local published RESULT.md, offset 0",
+          "title": "Three-mode disk localization and triangular spectral resonances",
+          "trigger": "Same-day disk spectral-resonance match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The multiplicity counts the independent optimal signals for a fixed observation mask. The theorem gives an exact, stable-under-radius-tuning nonuniqueness mechanism for natural equal-area disconnected masks, not merely a repeated eigenvalue of a three-point surrogate. The local location, transverse behavior, and strict gap make the specified result stronger and more informative than a numerical coincidence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

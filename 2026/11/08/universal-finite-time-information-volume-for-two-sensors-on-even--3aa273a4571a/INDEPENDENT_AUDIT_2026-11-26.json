@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:17:45.290251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for repairs/4/RESULT.md. The frozen formula under pairwise distinctness is correct, but the frozen scope line 29 explicitly and falsely says the determinant vanishes otherwise. For C_4 with d=1 and (b_0,b_1,b_2)=(0,1,0), B is the projection onto the paired modes: its sensor rows are (1,0,−1,0)/2 and (0,1,0,−1)/2, giving determinant 1/4 after the first two rows e_0^T,e_1^T. The repair gives the exact condition without an injectivity assumption and removes conflation with eventual observability. For each Fourier pair, the antisymmetric combination of sensor multipliers is ζ^(−kd)−ζ^(kd), with the normalization N^−M supplied by all columns. By multilinearity the two paired eigenvectors can be replaced by one time vector in each sensor block after extracting that scalar, even in the zero case. Only the two opposite assignments of the singleton columns survive the block expansion; the products of Vandermondes agree and the block-assignment signs are opposite, resulting in |(−1)^d−1|. Even offsets or a nontrivial gcd(d,M) then give zero; at coprime offsets multiplication by d permutes the residues and the paired product is M by the root-of-unity product. Both Vandermondes contain every pair of indices except {0,M}, proving precisely the stated collision exception. The row count rules out fewer samples. For adjacency at d=1, before time t the seen coordinates are the consecutive interval [1−t,t]; the two walk-count rows add −t and 1+t with unit coefficients and no wraparound collision because the final interval has length N. This gives integer unit triangularity, and the universal determinant transfers |det|=1 to all coprime d. CHECK.py and VERIFICATION.md were inspected, not executed; their recorded exact integer cases only test adjacency and affine evolutions, and neither the general formula nor the collision correction relies on them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank record treats arbitrary injective spectral evolutions and both M and M+1 samples; it does not give the determinant values.",
+          "The raw-volume record has a sine product but its signal dimension is 2r+1, which is never the full even 2M here.",
+          "Bulai et al. introduce graph-bandlimited sampling and path examples rather than the full-space two-sensor cycle invariant in the passage inspected."
+        ],
+        "reasoning": "The rank theorem adds horizons but not volume. The low-pass Gram theorem does not specialize to the even full space, where two singleton frequencies as well as all the paired ones are needed.",
+        "searches": [
+          "Resultary SCOPE-exact-arithmetic-rank-loss-and-one-snapshot-recovery-on-even-cyc--b4ea4f0f2c79",
+          "Resultary SCOPE-raw-trajectory-volume-factorization-and-optimal-two-sensor-gaps--d1a88d067af2",
+          "arXiv:2609.25472"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "repairs/4/RESULT.md",
+        "arXiv:1109.3556",
+        "arXiv:2609.25472",
+        "Resultary b4ea4f0f2c79 and d1a88d067af2 Findings and cited description of b03d8e4c7818"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-space rank result at M can identify where the determinant is nonzero but does not imply equality of its nonzero values or integer unimodularity.",
+          "A square matrix and its low-pass restriction have different volumes in general; the low-pass formula omits the second singleton responsible for the endpoint-deleted Vandermonde product."
+        ],
+        "reasoning": "Even the exact rank classification does not give the two temporal Vandermondes or adjacency lattice index; those require the block expansion and the adjacent-sensor unit triangularity argument. No simple specialization of the checked exact low-pass formula supplies them.",
+        "searches": [
+          "Parlangeli–Notarstefano arXiv:1109.3556 pp. 3 and 8",
+          "Resultary b4ea4f0f2c79 Finding and relationship section",
+          "Resultary d1a88d067af2 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited cycle observability result concerns rank of a stacked Laplacian trajectory matrix, not an absolute determinant of the specified square horizon.",
+          "The closest indexed raw-volume work gives a Gram determinant, which would equal |det O|² only in the same square full-state setting; it instead uses a rectangular low-pass observation matrix."
+        ],
+        "reasoning": "Rewriting the invariant as a square Gram determinant or an integer lattice index does not identify it with a rank or a band-restricted frame determinant.",
+        "searches": [
+          "Resultary even-cycle raw two-sensor information volume and exact rank",
+          "arXiv:1109.3556 cycle observability matrix",
+          "arXiv:2609.25472 graph Paley–Wiener dynamical sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two closest distinct same-day entries inspected give a low-pass Gram determinant and full-space ranks, respectively. The cited earlier demixed-frame record uses a different observation operator and objective."
+        ],
+        "reasoning": "No exact indexed theorem or table matching the full-state determinant was established in the checked evidence. The same-day entries were tested for mathematical coverage, not discarded by date.",
+        "searches": [
+          "Resultary even-cycle exact determinant/unimodularity, raw trajectory volume, and arithmetic rank loss",
+          "Resultary d1a88d067af2, b4ea4f0f2c79, b03d8e4c7818"
+        ]
+      },
+      "rationale": "The repaired exact full-state determinant and adjacency unimodularity remain distinct from the closest checked sources to the best of current knowledge. Coprimality at the minimal horizon is not claimed as the contribution: same-day exact-rank results give rank there and at one longer horizon. Determinant magnitude is additional to rank. The collision exception follows from the corrected exact formula and is not claimed as a separate originality result.",
+      "residual_risks": [
+        "Same-day ordering and the exact antecedent of the rank record's reference to earlier determinant work were not established. These are priority risks, not evidence that the determinant formula is covered.",
+        "Primary text of arXiv:2411.12670 and the closest demixed record's full text were not retrieved. No assertion of whole-document noncoverage is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior rank/observability discussion, not a square determinant law",
+          "evidence": "The passages discuss cycle placements and rank for a stack C, CL,…,CL^(n−1). Its criterion should not be taken as the present finite-horizon determinant result or to rule out the longer-horizon phenomenon.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.3556",
+          "material_read": "PDF p. 3 offsets 9570–11842, p. 8 offsets 21583–23538",
+          "method": "OA primary-text inspection",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "Cited cycle coprimality criterion and observation matrix"
+        },
+        {
+          "assessment": "Inspected passage treats a different signal regime; keyword misses not conclusive",
+          "evidence": "Describes graph-bandlimited spaces and numerical frame bounds and conditioning on finite paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "PDF p. 1 offsets 90–2358, literal searches for determinant and two sensors",
+          "method": "OA primary-text inspection and bounded keyword checks",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Recent potentially related graph dynamical sampling"
+        },
+        {
+          "assessment": "Material overlap in rank, not the determinant value; date does not establish order",
+          "evidence": "Gives exact ranks at M and M+1 for adjacency-based injective spectral evolution and distinguishes transient and permanent loss. Refers to earlier determinant work without identifying an exact equivalent statement.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-arithmetic-rank-loss-and-one-snapshot-recovery-on-even-cyc--b4ea4f0f2c79",
+          "material_read": "Finding offsets 0–2700 and relationship section offsets 6900–8679",
+          "method": "Resultary lookup and local-mirror reading",
+          "title": "Exact arithmetic rank loss and one-snapshot recovery on even cycle graphs",
+          "trigger": "Same full-state cycle, offsets, and minimal horizon"
+        },
+        {
+          "assessment": "Raw Gram volume for a different space and horizon; same-day order unresolved",
+          "evidence": "Has a sin²(2πkd/N) product for a rectangular low-pass operator on a (2r+1)-dimensional signal space at r+1 times, not the square full-state law or adjacency integer inverse.",
+          "identifier_or_url": "2026/11/8/SCOPE-raw-trajectory-volume-factorization-and-optimal-two-sensor-gaps--d1a88d067af2",
+          "material_read": "Finding offsets 0–4088",
+          "method": "Resultary lookup and local-mirror reading",
+          "title": "Raw-trajectory volume factorization and optimal two-sensor gaps on finite cycles",
+          "trigger": "Closest indexed determinant-volume statement"
+        },
+        {
+          "assessment": "Available description concerns low-pass demixed stability, not raw full-state volume; full text not evaluated",
+          "evidence": "Bounds for a demixed frame and conditioning are a different objective from the raw trajectory determinant.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+          "material_read": "Frozen RESULT.md description, lines 70–73; local-mirror reopen timed out",
+          "method": "Cited record identification and access attempt",
+          "title": "Sharp spectral-demixed two-sensor frame bounds on finite cycles",
+          "trigger": "Closest cited demixed sensor-placement record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact full-state square determinant at the minimal conceivable number of samples is a useful invariant beyond observability. It identifies equal volume across every successful placement and reveals unit lattice index for adjacency, so exact integral reconstruction needs no denominators. This provides a genuine additional conclusion, not a stability claim or merely the endpoint-collision counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

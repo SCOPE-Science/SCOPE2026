@@ -1,15 +1,21 @@
-# Review of the sharp triple-covering cutoff
+# Independent mathematical audit
 
-## Correctness
-PASS. The discriminant condition follows from a quadratic whose product of roots is nonzero; varying the normalized parameter \(A=4Na\) is bijective. The genus-one pair and genus-two triple curves are squarefree for distinct nonzero parameters, and have two rational points at infinity, so their character-sum expressions have the stated signs. The four trace terms contribute at worst \(10\sqrt p\), while at most six discriminant-zero inputs contribute at most \(1/2\) each. Thus the uncovered count is bounded below by \((p-23-10\sqrt p)/8>0\) for all primes at least 149. All smaller odd primes are classified by the exhaustive standalone checker, which also compares every character mask to a separately constructed direct image and verifies all 12 extremal triples.
+## correctness
 
-## Originality
-PASS on the accessible comparison, with residual risks. The motivating 2026 image-sieve paper contains the general multi-target estimate and exact two-image formulas, but not the all-prime three-image coverage census. Its general estimate does not determine the last exceptional prime. The 2026 factorization paper studies a primitive-root pair, not the unrestricted three-image cover. A published three-shift *full-field* square-translate cover and published three-summand modular-hyperbola theorem are logically distinct: the former covers the entire field by translates rather than just the square domain, and the latter is a Minkowski sum in two coordinates. Both closest complete result texts were inspected. Searches in public mathematical records and the accessible current collection revealed no equivalent 73-cutoff theorem; earlier historical collection coverage is incomplete. Conceivable unindexed restricted-square-cover results remain a risk.
+PASS
 
-## Mathematical value
-PASS. The exact last possible auxiliary prime, the explicit finite list, and the unique square-orbit pattern at 73 resolve a natural next step after the established two-target image analysis. This is structural information about how three local sieve images can saturate every residue and precisely where that exceptional behavior ends. It is not presented as a new factorization complexity improvement.
+For fixed nonzero N the change A=4Na is bijective; the equation ax²−tx+N=0 has only nonzero roots and solvability is equivalent to t²−A being in Q0. For distinct nonzero A,B,C the degree-four and degree-six products of discriminants are monic and squarefree over the algebraic closure (odd characteristic), giving genera 1 and 2 and two rational points above infinity. The character sums are −1 minus the corresponding trace; the single quadratic sum is −1, since (t−y)(t+y)=A has p−1 solutions. Expanding the product of the three factors 1−χ gives p+1−τAB−τAC−τBC+τABC. Outside the roots its value divided by 8 is the uncovered indicator; at most six roots contribute at most 1/2 each. The resulting bound (p−23−10√p)/8 is strictly positive at 149 and increases thereafter. The separate direct-image enumeration exhausts each odd prime below 149 and each unordered distinct nonzero parameter triple. It matches every count and the entire orbit at 73. Since 8 has order three and is a square modulo 73 (64²=8), the square action gives precisely 36/3=12 unordered triples.
 
-## Sources and limitations
-Primary sources: Stănică–Mulder–Hittmeir, arXiv:2606.13018; Stănică, arXiv:2611.06580. Closest distinct published comparisons: *Complete affine-square orbit spectrum of three-shift quadratic-residue covers*; *Sharp three-sum covering of the split modular hyperbola over finite fields*. The theorem concerns prime fields only; the positive-prime set depends on an exhaustive finite enumeration whose complete code accompanies the proof. Historical novelty and independent mathematical validation remain unconfirmed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The best evidenced matches are whole-field three-shift coverage, three-fold sums, and multi-target hyperbolic-sieve bounds. None of their available statements covers the restricted-squares cutoff, exact census, and square-orbit rigidity. No ordering is inferred from catalogue dates; limited outside full-text access leaves a genuine residual coverage risk.
+
+## value
+
+PASS
+
+Covering by exactly three of these natural quadratic projection images is a first simultaneous case beyond the two-image formulas. The sharp finite cutoff replaces generic large-prime exclusion with an exact decision for every prime and identifies an order-three square orbit as all extremizers. The needed exact census complements the character-sum proof rather than merely repeating a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

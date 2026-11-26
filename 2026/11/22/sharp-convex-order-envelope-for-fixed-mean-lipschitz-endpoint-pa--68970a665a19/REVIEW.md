@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The slope cap and endpoint chain rule impose \(f_{\#}\mathrm{Leb}\ge L^{-1}\mathrm{Leb}\) as a positive-measure inequality. Conversely the generalized inverse of every such law has Lipschitz modulus at most \(L\); this supplies the non-obvious converse and exact law classification. The remaining two sharp inequalities are Jensen and chord bounds for the residual measure, and equality rigidity comes from strict convexity plus the 1D area formula. The \(L=1\), \(r=0\), and \(r=1\) boundaries are explicitly handled. The polynomial identity and sampled loss checker support but do not substitute for these proofs.
+## correctness
 
-## Originality — PASS with residual historical risk
-Source-level comparisons were made with the complete accessible text of Costarelli–Spigler (2015), with the accessible main text of Kleiner–Moldovanu–Strack (2021), and with Jensen-gap and convex-graph research. Published Jensen bounds do give the residual Jensen/chord inequalities, which are *not* asserted as independent discoveries. The target mathematical statement instead completely classifies the attainable pushforward laws under *endpoint and Lipschitz path constraints*, including nonmonotone inputs and fixed mean, and shows equality rigidity. No directly covering published result or accessible prior claim was identified by actual subject and equivalence searches. Walker (2014) was available only as a preview: a lawful OA/arXiv search found no full text, and the institutional access attempt was blocked; its possible coverage remains a limited source-inspection risk, not a demonstrated equivalence. Broad stochastic-order results could contain a formulation not identified by the inspected material.
+PASS
 
-## Value — PASS
-The theorem yields the full sharp envelope simultaneously for arbitrary continuous convex losses, rather than a special estimate for one chosen loss. The forced uniform component and exact quantile-converse are structural: they turn a constrained infinite-dimensional trajectory problem into an unrestricted residual probability problem and show that nonmonotone paths cannot improve either extreme. The exact variance interval \([1/(12L),1/4-1/(6L)]\) at mean one-half provides an immediately usable signal-dispersion benchmark. This is a natural complete classification, not an arbitrary isolated parameter computation.
+The path crosses the full range. For each nonnegative continuous test function, integrating its primitive along the path bounds the output-law integral below by the uniform integral divided by L, without monotonicity. Conversely if a=Q(s)<Q(t)=b at interior quantile levels, F(a)>=s and F(b-)<=t, and the mass of (a,b) is at least (b-a)/L. Thus Q(t)-Q(s)<=L(t-s) even in the presence of atoms. Full support gives endpoint traces 0 and 1. The residual is a probability with the prescribed mean, and Jensen and the endpoint chord give its two sharp bounds. For equality with a strictly convex loss, the residual support is finite and specified by the bounds. A decrease f(x)>f(y) at x<y forces three disjoint traversals of an interior band avoiding that support; applying the primitive inequality on [0,x], [x,y], [y,1] contradicts the prescribed density 1/L on that band. The continuous nondecreasing realization is unique. Endpoint means coalesce, and L=1 forces the identity. Independent bounded symbolic variance check: python3 /workspace/review_replay.py, check 2. Neither that check nor the recorded finite tests certify the general theorem.
 
-## Remaining limits
-No claim of priority certification or extension beyond one-dimensional uniform-slope endpoint paths is made. The literature risk concerns unindexed equivalents and the unavailable Walker full text. The deterministic checker is corroboration, not exhaustive proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general Jensen and chord bounds, quantile realization and one-dimensional crossing arguments as known tools. The supported distinct claim is the exact realizable occupation-law class for the nonmonotone-allowed endpoint/Lipschitz problem, together with strict equality rigidity at the path level. No inspected statement establishes this combination or implies it without the path-law and rigidity arguments; this is not a priority certification.
+
+## value
+
+PASS
+
+The exact feasible laws reduce a constrained trajectory problem to a single residual moment for every continuous convex loss. This supplies sharp universal bounds and a mechanism excluding all nonmonotone equality paths despite allowing oscillations, not just a recomputed Jensen bound. The variance example is a usable benchmark under the stated fixed endpoint, mean and slope constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

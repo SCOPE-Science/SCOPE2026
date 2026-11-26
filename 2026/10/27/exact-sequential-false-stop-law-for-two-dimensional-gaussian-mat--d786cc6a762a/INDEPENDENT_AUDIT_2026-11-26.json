@@ -1,0 +1,191 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:48.395947Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal invariance reduces to diag(a,b). The squared first length is T d(U) with independent chi-square(2) radius T and arcsine first-coordinate square U. Given the first column, the projected second length is an absolute normal with scale R=ab/sqrt(d(U)); this scale depends only on U, so the conditional second-stop probability multiplies the conditional first-gate survival exp(-tau^2/(2d(U))). This supplies p0, p1, and the complementary rank-two probability. Inverting the decreasing angular map and differentiating gives the unconditional CDF and density, with R=b in the isotropic case; it is not the law among first-gate survivors. Eckart–Young makes both early stops false for tau<b; rank-one pruning cannot drop the only coefficient row because its norm is at least b. The large-kappa integral follows by dominated convergence with c=tau/b fixed; the integrand is positive off a null set and has positive integral. The replay python3 /workspace/review_replay.py qb conditions instead on the polar angle of Ag1 and integrates its elliptical angular density at 45 digits; for (4,1,.5) it gives p0=.030243501820034832886, p1=.25978949520339110013 and independently confirms the residual CDF at selected thresholds and J(.5)=.24712605614758927433. The coarse frozen quadrature at kappa=100000 is only a tolerance check: resolving the angular boundary layer gives a summed value .2471272683909951 rather than .247129436449459. This does not affect the theorem or its quoted finite-spectrum or limit illustrations. The exact-arithmetic decision law is not a claim that the original software handles its empty-output pruning branch, or a guarantee for larger blocks, reused probes, or relative tolerance estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smith–Do–Chen gives the process and pruning. Gorman et al. gives a generalized chi-square distribution and concentration for fixed residuals. Pearce et al. uses interpolative-decomposition residual estimation, and Epperly–Webber bounds mean-squared randomized approximation error."
+        ],
+        "reasoning": "Fixed-residual probability describes each conditional gate but does not yield the joint event without integrating the dependent random basis and survival. The consulted broader adaptive algorithms and risk bounds do not supply this specific threshold law.",
+        "searches": [
+          "arXiv:2607.06758v1 Algorithms 2–3",
+          "arXiv:1810.04125v2 Section 2.5 and Appendix A",
+          "arXiv:2310.09417 Section 5.1",
+          "arXiv:2605.19096 Sections 3.3–3.4",
+          "arXiv:2608.28941v1 adaptive randomized range finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not executed)",
+        "Indexed QB Cauchy-law, spectral look-ahead, false pruning and sequential Frobenius records",
+        "arXiv:2607.06758v1",
+        "arXiv:1810.04125v2",
+        "arXiv:2310.09417",
+        "arXiv:2605.19096",
+        "arXiv:2608.28941v1",
+        "doi:10.1016/j.jmva.2004.08.003",
+        "Ermolova–Tirkkonen Wishart diagonals",
+        "Fixed-Precision Low-Rank Matrix Approximation (2018), limited excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier QB pruning result has tau=c epsilon with c>1, allowing a correct rank-one solution; the target has tau<b, ruling out any correct rank-one result. The earlier randomized hazard uses a basis rotation within a full captured range. The new event tests a fresh residual after a first probe selects a rank-one direction and passes its own threshold."
+        ],
+        "reasoning": "An exact fixed-matrix law can be applied conditionally, but it lacks the distribution of the projected scale under first-gate survival. The earlier pruning theorem does not imply this missing weight or the positive limiting risk J(c). General QR distributions could frame the calculation, and precise prior coverage by an unavailable theorem remains unresolved.",
+        "searches": [
+          "Smith–Do–Chen Algorithm 2 offset 26840 and Algorithm 3 offset 41625",
+          "Gorman et al. equations (21)–(27), (31)–(39)",
+          "Earlier Cauchy-law QB record, Finding offsets 54–2226"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the thin positive-diagonal QR of [Ag1,Ag2], the two tested lengths are R11 and R22; p1 is the probability R11>tau and R22<=tau. Equivalently their squares are the first pivot and the Schur-complement pivot of the Gram matrix. The Díaz-García–González-Farías abstract explicitly treats generalized QR laws; no usable full text was found. Ermolova–Tirkkonen treats ordinary diagonal entries of a complex Wishart matrix, not these Schur-complement pivots."
+        ],
+        "reasoning": "Neither a marginal entry distribution nor an isotropic Bartlett factorization captures the induced pivot dependence for unequal singular values. The general QR prior is plausible and is reported as unresolved, not dismissed on the basis of its title or retrieval failure.",
+        "searches": [
+          "2 by 2 anisotropic Gaussian QR joint diagonal distribution independent columns covariance fixed nonidentity Gram Schmidt r11 r22 generalized Wishart joint triangular factor",
+          "doi:10.1016/j.jmva.2004.08.003",
+          "Resultary: sequential Gaussian Frobenius stopping false acceptance two-dimensional matrix-free QB"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest earlier exact formula is a Cauchy-law limit for over-retention with tolerance above the second singular value and a two-column block. A fixed-residual spectral one-probe match gives another exact but differing probability. The flat-spectrum sequential record gives a beta-law in a different, relative-Frobenius regime."
+        ],
+        "reasoning": "This is an exact function of spectrum and tolerance, not a numeric entry. None of the compared indexed exact formulas uses both the thresholds and joint random-residual event of the target.",
+        "searches": [
+          "Resultary: exact false stop Gaussian QB rank two absolute tolerance",
+          "Resultary: Cauchy law nonminimal Frobenius QB rank pruning",
+          "Resultary: one-probe confidence calibration rank-two spectral look-ahead"
+        ]
+      },
+      "rationale": "The distinct joint contribution on the accessed evidence is the adaptive one-column two-gate under-rank probability and its explicit nonzero high-conditioning limit, not the QR algorithm, the single fixed-residual Gaussian small-ball law, or angular Gaussian transformations considered separately. The closest earlier exact QB risk concerns rank over-retention after a two-column block, not premature stopping. General anisotropic Gaussian QR distributions are a meaningful alternate formulation and residual literature risk; no retrieved claim calculates this thresholded joint law with its fixed-c limit.",
+      "residual_risks": [
+        "The plausible generalized QR source was not available in full, and a bounded search cannot rule out older equivalent anisotropic two-pivot relations. The older fixed-precision article was only partially read. This assessment is best of current evidence and is not a historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different failure event and parameter assumptions",
+          "evidence": "Two-column block, diag(1,epsilon,0,0), tau=c epsilon with c>1; rank two over-retained after vanishing residual.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-cauchy-law-probability-of-nonminimal-frobenius-qb-rank-pruning--7804e48298b5/RESULT.md",
+          "material_read": "Finding offsets 54–2226",
+          "method": "Indexed local mirror",
+          "title": "A Cauchy-law probability of nonminimal Frobenius QB rank pruning",
+          "trigger": "Closest earlier exact stochastic QB rank law"
+        },
+        {
+          "assessment": "Fixed residual and one spectral-norm probe, not coupled Frobenius gates",
+          "evidence": "Optimizes a single spectral underestimation event.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-one-probe-confidence-calibration-for-rank-two-spectral-loo--d40241a36153/RESULT.md",
+          "material_read": "Finding offsets 45–1552",
+          "method": "Indexed local mirror",
+          "title": "Sharp one-probe confidence calibration for rank-two spectral look-ahead",
+          "trigger": "Gaussian probe on a rank-two residual"
+        },
+        {
+          "assessment": "Later, fresh-batch relative rule on flat-spectrum matrices",
+          "evidence": "A beta-law and different asymptotic regime, not the anisotropic one-column law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sequential-gaussian-frobenius-stopping-has-a-sharp-premature-ran--8c50fd5eebb7/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–3628",
+          "method": "Indexed local mirror",
+          "title": "Sequential Gaussian Frobenius stopping has a sharp premature-rank law",
+          "trigger": "Direct semantic match for sequential false acceptance"
+        },
+        {
+          "assessment": "Later post-block pruning event, not premature sequential stopping",
+          "evidence": "Exact false-pruning probability with a flat captured range and Gumbel boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-false-pruning-law-and-gumbel-boundary-for-adjoint-free-gau--f45f200de90f/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Indexed local mirror",
+          "title": "Exact false-pruning law and Gumbel boundary for adjoint-free Gaussian QB",
+          "trigger": "Related exact QB tolerance-violation probability"
+        },
+        {
+          "assessment": "Provides the decisions, not the joint rank law in the inspected passages",
+          "evidence": "Fresh normalized Gaussian block is used for a norm test and then a basis update; separate row-norm pruning applies after stopping.",
+          "identifier_or_url": "https://arxiv.org/html/2607.06758v1",
+          "material_read": "Algorithm 2 (offset 26840), Algorithm 3 (41625)",
+          "method": "OA primary text",
+          "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+          "trigger": "Primary source for investigated exact algorithm"
+        },
+        {
+          "assessment": "Generalized chi-square model for fixed matrix, not the joint gate event",
+          "evidence": "Fixed-residual Gaussian distribution, expectation and concentration for averages.",
+          "identifier_or_url": "https://arxiv.org/html/1810.04125v2",
+          "material_read": "Section 2.5 equations (21)–(27), offset 48316; Appendix A equations (31)–(39), offset 78027",
+          "method": "OA primary text",
+          "title": "Matrix-free construction of HSS representation using adaptive randomized sampling",
+          "trigger": "Exact Gaussian sketch distribution and adaptive algorithms"
+        },
+        {
+          "assessment": "Different decomposition and residual indicator",
+          "evidence": "Skeleton selection with block sketches, estimate based on the norm of the sketched ID residual.",
+          "identifier_or_url": "https://arxiv.org/html/2310.09417",
+          "material_read": "Section 1 offset 7675; Section 5.1 offset 89473",
+          "method": "OA primary text",
+          "title": "Adaptive Parallelizable Algorithms for Interpolative Decompositions via Partially Pivoted LU",
+          "trigger": "Adaptive randomized error indicator"
+        },
+        {
+          "assessment": "Mean-squared error analysis in inspected passages, not exact stopping law",
+          "evidence": "Sketch-and-solve/randomized SVD and Frobenius bounds; unversioned text is a later revision than the initial date cited in the frozen record.",
+          "identifier_or_url": "https://arxiv.org/html/2605.19096",
+          "material_read": "Abstract at 175, Sections 3.3–3.4 near 32218",
+          "method": "OA primary text",
+          "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+          "trigger": "Possible stronger sharp low-rank Gaussian risk bounds"
+        },
+        {
+          "assessment": "Possible mathematical coverage unresolved",
+          "evidence": "Abstract states laws associated with QR and related decompositions for elliptical families including normal cases; it does not specify the joint two-dimensional threshold events or the limit.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmva.2004.08.003",
+          "material_read": "Bibliographic abstract, RePEc handle eee:jmvana:v:94:y:2005:i:1:p:109-122 at offsets 550–2246",
+          "method": "Abstract inspected; DOI/repository and separately identified alternate access attempted, no usable full text",
+          "title": "Singular random matrix decompositions: distributions",
+          "trigger": "Plausible joint law of QR factors for nonspherical matrix Gaussian data"
+        },
+        {
+          "assessment": "Different diagonal statistic and complex Gaussian model",
+          "evidence": "Ordinary diagonal elements of the Wishart matrix, not the diagonal of its triangular factor.",
+          "identifier_or_url": "https://users.aalto.fi/~oltirkko/pubs/Ermolova2012_CL_Wishart.pdf",
+          "material_read": "Abstract and introduction opening, offsets 0–2401",
+          "method": "OA primary text",
+          "title": "Distribution of Diagonal Elements of a General Central Complex Wishart Matrix",
+          "trigger": "Search for exact joint Gaussian matrix diagonal distributions"
+        },
+        {
+          "assessment": "Adjacent context, not the exact anisotropic two-gate law in inspected passages",
+          "evidence": "Successive basis construction with probabilistic stopping and separate blocked and Frobenius-residual approaches.",
+          "identifier_or_url": "https://arxiv.org/html/2608.28941v1",
+          "material_read": "Introduction offsets 7061–10448",
+          "method": "OA primary text",
+          "title": "A GPU-Accelerated Blocked Adaptive Randomized Range Finder",
+          "trigger": "Adaptive look-ahead stopping in a related blocked method"
+        },
+        {
+          "assessment": "Unresolved; no whole-document absence claim",
+          "evidence": "Excerpt mentions adaptive randomized range finding but does not settle exact two-gate coverage.",
+          "identifier_or_url": "SIAM J. Matrix Anal. Appl. 39 (2018), 1339–1359",
+          "material_read": "PDF text excerpt near offset 198109, p. 18 in the retrieved copy",
+          "method": "OA partial passage; follow-up retrieval did not return",
+          "title": "Efficient Randomized Algorithms for the Fixed-Precision Low-Rank Matrix Approximation",
+          "trigger": "Older fixed-precision adaptive range finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the smallest nonsingular setting in which an accepted Gaussian sketch can adapt the basis before a second acceptance test. The shared first probe induces dependence that a fixed-residual estimator guarantee misses. Quantifying an exact under-rank error and showing that it persists as conditioning worsens for fixed tau/b gives a concrete diagnostic and calibration benchmark for the one-column method, without extrapolation to its larger-block implementations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

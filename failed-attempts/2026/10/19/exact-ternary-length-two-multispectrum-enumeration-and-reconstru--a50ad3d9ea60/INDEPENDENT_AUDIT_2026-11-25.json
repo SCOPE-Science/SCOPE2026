@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:34:54.187685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73; VERIFICATION.md lines 19–23; verify.py inspected, not executed.",
+        "Independent replay: python3 /workspace/review-evidence/exact_checks.py 34; output /workspace/review-evidence/check-34.txt (reachability through n=15, symbolic numerator and pole tests)."
+      ],
+      "rationale": "The connected active support and Euler imbalance condition are necessary and sufficient with loops and directed multiplicities. For one active vertex the only arcs are loops. For two, the allowed nonempty cross counts have difference 0 or ±1 and give (2z+z²)/(1−z²) per pair before the two loop factors. For three active vertices, the oriented triangle differences are (t,t,t) in the balanced case and (t+1,t,t) for one chosen open endpoint pair. The weight for any given difference f is z^|f|/(1−z²). Summing over t and removing supports with fewer than two active cross pairs gives exactly H₀ and H₁; adding arbitrary loops cannot connect a third isolated vertex. The six imbalance sectors are disjoint, and the zero matrix is counted once. The rational numerator evaluated at 1 is 7, at −1 is −3, and is 4z modulo z²+z+1. Therefore the orders at 1, −1 and the primitive cube roots are respectively seven, two and one, and none cancels. The polynomial part −2 affects only n=1. Partial fractions give a degree-six quasipolynomial for n≥2 with period dividing six; any eventual quasiperiod d allows only d-th roots of unity as poles, so the two nontrivial pole orders as roots of unity force 6|d. The leading constant and capacity follow from the pole at 1 and the fiber argument. An independent reachability replay corroborates all 15 listed counts without the Euler criterion.",
+      "residual_risks": [
+        "The finite reachability check does not prove arbitrary lengths; the support decomposition is the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general noncyclic theory gives exact set decomposition and the asymptotic factor q²−q+1=7 at q=3, accounting for the leading constant. The exact balanced ternary formula has the same denominator but numerator 1−z+z² and different support constraints."
+        ],
+        "reasoning": "The balanced result covers only one component. Neither the older asymptotic equality nor a matching denominator is the full exact linear count; the separate indexed exact series is decisive.",
+        "searches": [
+          "Drmota–Szpankowski, Analytic Information Theory Ch. 11 §11.2.2 and Cor. 11.2.8",
+          "Jacquet–Knessl–Szpankowski DOI 10.46298/dmtcs.2768, balanced ternary section",
+          "arXiv:1502.00517 Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 4 and 3",
+        "Exact Resultary matches 87bc1f36ef2d and f0497779133f",
+        "Primary works and access notes above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The latter indexed record states period dividing six; the identical numerator has P(−1)=−3 and remainder 4z modulo z²+z+1, so its poles force period divisible by both 2 and 3. Subtracting the constant 1 does not change poles. The code capacity is immediately the number of observation fibers."
+        ],
+        "reasoning": "Identity of series plus a direct pole test already implies exact least period six. Explicitly naming that consequence does not provide an independent all-length result or a distinct capacity assertion.",
+        "searches": [
+          "SCOPE-20261019-a521a4b75c0d lines 18–30 and 83",
+          "SCOPE-20261108-87bc1f36ef2d Finding",
+          "SCOPE-20261102-f0497779133f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261019-a521a4b75c0d defines C(w) identically to B(w) and gives the same P(z)/D(z), including the n=1 empty matrix.",
+          "SCOPE-20261108-87bc1f36ef2d gives the full identical series and SCOPE-20261102-f0497779133f gives G(z)−1 for m≥1 observed pairs."
+        ],
+        "reasoning": "Equality of the observation maps and series is exact. The pair-count convention m=n−1 affects only the name of the index, and omitting the unique empty profile is a removable boundary choice. Distinct IDs are compared without inferring date priority.",
+        "searches": [
+          "Resultary: exact ternary adjacent-pair profile generating function distinct linear profiles ternary Markov type rational series period six",
+          "Frozen record 3, RESULT.md lines 4–35"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two indexed linear series and the same-day assigned exact series cover all coefficients; Theorem 3.3 in Chang et al. gives exact 9 and 24 only at n=2,3 for pair reads. The balanced paper's pole table is not about the requested linear series. External web search was unavailable, not proof of absence."
+        ],
+        "reasoning": "Initial coefficient agreement alone is not sufficient; identity of the normalized exact rational functions is.",
+        "searches": [
+          "Resultary query above and the exact returned Finding passages",
+          "Chang et al., arXiv:1607.02279 §3 Theorem 3.3 and Eq. (1)",
+          "Counting Markov Types Table 2",
+          "Web query: \"exact ternary\" \"adjacent-pair profile\" generating function distinct linear profiles ternary Markov types rational generating function 7/8640 period six"
+        ]
+      },
+      "rationale": "Frozen record 3 has the same observation matrix, coefficient indexing, full reduced series, leading coefficient and maximum observation-distinguishable code cardinality. Separate indexed records also give the full or empty-matrix-adjusted series. The additional exact least-period-six statement is true but arises mechanically from the nonremovable poles of that very same rational function; it does not survive as an independent exact result. The different support partition proves the same count. The verdict records demonstrated corpus coverage, not temporal priority, derivation or copying. No reliance on an inaccessible publication is needed.",
+      "residual_risks": [
+        "The provenance relationships and within-day priority are unresolved; the match is about content.",
+        "The final 2012 expanded article was not independently confirmed in the inspected copy; this cannot decide acceptance or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same main claims; no temporal-priority conclusion.",
+          "evidence": "Same matrix counts, rational series, leading term, and code capacity. Its proof mentions a quasipolynomial but does not explicitly give a least-period result.",
+          "identifier_or_url": "SCOPE-20261019-a521a4b75c0d",
+          "material_read": "RESULT.md lines 4–35 and 37–83",
+          "method": "Read exact frozen source",
+          "title": "Exact ternary adjacent-pair profile generating function",
+          "trigger": "Distinct same-day supplied record on identical profiles"
+        },
+        {
+          "assessment": "Full identical series; the exact period follows from it.",
+          "evidence": "Same alphabet, direction, sum m=n−1, and reduced rational expression.",
+          "identifier_or_url": "SCOPE-20261108-87bc1f36ef2d",
+          "material_read": "RESULT.md Finding, offsets 0–3912",
+          "method": "Read local published-corpus mirror",
+          "title": "Exact ternary adjacent-pair spectrum enumerator for linear words",
+          "trigger": "Primary exact Resultary hit"
+        },
+        {
+          "assessment": "Same positive-edge coefficients and quasiperiod dividing six.",
+          "evidence": "The stated series is G(z)−1, so the same least-period argument applies.",
+          "identifier_or_url": "SCOPE-20261102-f0497779133f",
+          "material_read": "RESULT.md Finding, offsets 0–2400",
+          "method": "Read local published-corpus mirror",
+          "title": "Exact ternary ordered bigram multispectrum counts",
+          "trigger": "Matching sequence indexed by pairs"
+        },
+        {
+          "assessment": "Noncyclic decomposition and leading asymptotic coverage.",
+          "evidence": "The exact endpoint-set decomposition precedes an asymptotic comparison to cyclic types; it is not the claimed rational profile series in those passages.",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/temp/ait22.pdf",
+          "material_read": "Ch. 11 §11.2.2, printed pp. 325–326, Eqs. (11.39)–(11.42), Cor. 11.2.8, offsets 839000–844974",
+          "method": "Lawful OA manuscript passages",
+          "title": "Analytic Information Theory",
+          "trigger": "General linear/Markov-type theory could cover the finite count"
+        },
+        {
+          "assessment": "Different balanced/cyclic object, not the full linear enumeration.",
+          "evidence": "Balanced ternary series has numerator 1−z+z² and requires zero imbalance.",
+          "identifier_or_url": "https://dmtcs.episciences.org/2768",
+          "material_read": "PDF pp. 2–3 and 8–9, Eq. (22) and Table 2, offsets 6000–10000 and 28000–30551",
+          "method": "Lawful OA full-text passages",
+          "title": "Counting Markov Types",
+          "trigger": "Exact ternary balanced count and pole table"
+        },
+        {
+          "assessment": "Balanced calculation supported; no whole-paper noncoverage inference.",
+          "evidence": "The passages give the balanced series and asymptotic; they do not substantiate expanded journal version coverage.",
+          "identifier_or_url": "doi:10.1109/TIT.2012.2191476",
+          "material_read": "HAL candidate dmAM0127.pdf, printed pp. 394–395, offsets 24500–30551; final expanded-version identification not confirmed from that copy",
+          "method": "Lawful OA candidate copy inspected at relevant passages",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Expanded journal article plausibly treats the linear case"
+        },
+        {
+          "assessment": "Supports the previously established asymptotic factor, not the all-length formula in this passage.",
+          "evidence": "The ratio factor for linear versus cyclic is q²−q+1.",
+          "identifier_or_url": "arXiv:1502.00517",
+          "material_read": "Theorem 3.5, PDF p. 8, offset 42553",
+          "method": "Lawful OA PDF passage",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Related pair-profile asymptotic"
+        },
+        {
+          "assessment": "Short-length exact coverage only for this comparison.",
+          "evidence": "The theorem applies on ℓ≤n<2ℓ, only n=2,3 for ℓ=2.",
+          "identifier_or_url": "arXiv:1607.02279",
+          "material_read": "§3 Theorem 3.3 and Eq. (1), PDF pp. 5–6, offsets 22200–27426",
+          "method": "Lawful OA PDF passages",
+          "title": "Rates of DNA Sequence Profiles for Practical Values of Read Lengths",
+          "trigger": "Potential finite coefficient table or exact result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof, and comparison to the noncyclic asymptotic literature."
+      ],
+      "rationale": "The whole exact series is a natural finite-length benchmark for the noiseless ternary pair-profile channel; it specifies all finite counts beyond the already known growth constant. This is value of the mathematical object and full classification, not an assertion of added value beyond the equivalent records. The least-period calculation by itself is a routine consequence of the known series and would not justify a narrower replacement finding.",
+      "residual_risks": [
+        "Cardinality does not establish efficient encoding or performance with noisy or incomplete reads."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

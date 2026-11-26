@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:58:03.920423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adjacent valleys are impossible, so exactly the required cylinder is enforced by valleys at 0,2,…,2k. Together these impose a single alternating orientation on 2k+3 iid atomless priorities. Their relative orders are uniform, and dividing its probability by P(0 is a valley)=1/3 gives the Euler-number expression, also for k=0. The tangent partial fractions yield the displayed coefficient 2(2/π)^(2k+4)S_(2k+4) before conditioning. The two sequences in the Cauchy–Schwarz step are square summable and not proportional; this gives strict increase, and S_s→1 by domination gives the limit and tail equivalent. Transport to the next valley preserves the conditioned law because each valley receives mass from its unique predecessor; the bi-infinite existence follows from independent three-site tests. Under an order-m homogeneous gap law, conditioning on k≥m copies of 2 would leave a common one-step transition for all k, while order zero would give r_0=r_1. Both contradict strict increase. The recorded finite checks are consistent but are not the basis of the all-k conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matijasevick covers all one-gap lengths and joint events of specified forms with two and three gaps. The catalogue hit on cyclic roots covers growing rare long gaps jointly with root counts."
+        ],
+        "reasoning": "These broaden the scope in the gap-length or limit-law dimension, but not in conditioning on arbitrarily many successive gaps of length two in the stationary Palm law.",
+        "searches": [
+          "Matijasevick, arXiv:2610.21094v1, Theorems 4.3 and 4.5; Resultary 2026/10/26/SCOPE-joint-gaussian-poisson-independence-for-bulk-roots-and-rare-long--78e599bc494f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_valley_streak.py and verification_output.txt",
+        "arXiv:2610.21094v1 §§3–4",
+        "arXiv:0912.4240 Theorem 1.1",
+        "The two Resultary records specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cylinder bijection and tangent expansion account for the exact coefficients and leading asymptotic using classical tools. Strict log-convexity of the positive odd-denominator sums proves r_k≠r_(k+1) at every k; bounded-order joint laws cannot by themselves prove that."
+        ],
+        "reasoning": "The classical enumerator specialized to odd degrees does not by itself provide the process interpretation, all-history continuation comparison, or the Markov contradiction. No stronger local-extrema Markov-order theorem covering this case was established in the inspected sources.",
+        "searches": [
+          "Stanley's Euler generating-function theorem and Matijasevick's consecutive-gap formulas; comparison against frozen proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shortest gap runs are alternating permutation cylinders. Matijasevick's Remark 4.4 identifies a peak-set enumeration for one gap. Stanley gives the full zigzag coefficient sequence. The catalogue hit on ordinal memory treats the tripling map and all-rise observations."
+        ],
+        "reasoning": "Valleys may be exchanged with peaks by reversing priority ranks; this confirms equivalent enumeration language, but neither the classical count nor the deterministic ordinal-process analogue states the Palm gap transition obstruction.",
+        "searches": [
+          "Resultary: local minima, alternating runs, ordinal memory and random deposition root gaps",
+          "Matijasevick, arXiv:2610.21094v1, §§3–4; Stanley, arXiv:0912.4240, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3a_1=2/5, 3u_1=17/105 and 3v_1=62/945 reproduce p_1,p_2,p_3 exactly; all E_n are already encoded by sec x+tan x."
+        ],
+        "reasoning": "The numerical coefficients are known or derived from known enumeration. Those sources do not give the full continuation behavior as a function of the length of the observed gap history.",
+        "searches": [
+          "Matijasevick, §4, OA HTML offsets 19974 and 23800; Stanley, Theorem 1.1, PDF p. 2"
+        ]
+      },
+      "rationale": "Credit is for the all-k stationary shortest-gap continuation analysis and the resulting exclusion of every finite homogeneous Markov order, not for the zigzag coefficients, their asymptotic in isolation, or the low-order gap laws. The closest inspected results do not supply the stochastic-memory conclusion.",
+      "residual_risks": [
+        "A broader prior theorem on finite Markov order for local-extremum spacings could cover the process conclusion. The targeted catalogue and primary searches do not establish its absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers first three consecutive minimum gaps and one-gap marginals, not the arbitrary streak continuation conclusion in inspected material",
+          "evidence": [
+            "The constants refer to probabilities per site and acquire a factor of 3 when conditioning on the site being a valley."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21094v1",
+          "material_read": "§3 definitions at offset 15000; §4 Theorems 4.3 and 4.5 and Remark 4.4 at offsets 19974, 23800 and 23100",
+          "method": "Lawful OA HTML",
+          "title": "Gaps between roots in ballistic deposition on a strip: linear variance, Gaussian limits and a Poisson regime",
+          "trigger": "Identical iid-local-minimum gap model and explicit joint gap probabilities"
+        },
+        {
+          "assessment": "Covers E_n and the tangent generating function, not the valley-index Markov conclusion",
+          "evidence": [
+            "The generating function is sec x+tan x, with odd part tan x."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.4240",
+          "material_read": "Theorem 1.1, p. 2, OA text offset 4468",
+          "method": "Lawful OA PDF text",
+          "title": "A Survey of Alternating Permutations",
+          "trigger": "Alternating-permutation reformulation and classical enumeration"
+        },
+        {
+          "assessment": "Conceptual analogue with different sequence and process",
+          "evidence": [
+            "The runs concern rise/fall observations of the tripling map, not iid-extremum gap lengths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-algebraic-infinite-ordinal-memory-and-exponential-markov-walk-er--5878a875c093",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Algebraic infinite ordinal memory and exponential Markov-walk error",
+          "trigger": "Run conditioning as a witness of no finite Markov order"
+        },
+        {
+          "assessment": "Different event and conclusion",
+          "evidence": [
+            "It concerns long rare gaps on cycles and the limiting joint count law, not shortest-gap runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-joint-gaussian-poisson-independence-for-bulk-roots-and-rare-long--78e599bc494f",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint Gaussian–Poisson independence for bulk roots and rare long gaps",
+          "trigger": "Related catalogue result for deposition roots and their gaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-orders formula is used to answer a structural modeling question about a natural stationary point-process spacing sequence: no fixed finite history describes its transitions. Testing a single simple cylinder family yields an exact strict obstruction at arbitrarily large orders and a quantitative limiting benchmark, not just a computation of a classical coefficient or a check of the first few joint probabilities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

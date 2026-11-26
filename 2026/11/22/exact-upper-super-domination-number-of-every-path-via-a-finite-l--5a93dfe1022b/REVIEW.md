@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Complementation gives an exact equivalence with maximal open-irredundant sets. The radius-four local predicate checks private witnesses and the failure of all one-vertex additions. The fully generated 233-state, 403-edge automaton represents all admissible path words; its exact Bellman–Ford potentials show \(7|T|-2n\ge0\) for every path length. Seven explicit tails attached to an optimal seven-block produce matching configurations in every residue class, with infinite validity justified by the finite-factor periodicity argument. An independent direct graph-definition census corroborates every subset through 13 vertices. The single-vertex exception is stated.
+## correctness
 
-**Originality — PASS (priority provisional).** Avella-Alaminos–Lemańska–Zuazua (arXiv:2611.23464v1, Theorem 2.8) give two candidate values, not the exact all-order answer. The earlier public cycle classification concerns a different graph; the motivating paper gives only a cycle-to-path inequality. Cockayne–Favaron–Finbow–Mynhardt (2008) give general maximal open-irredundance criteria, without an exact path formula identified in the material read. Keyword/alias/equivalent-formulation comparisons found no stronger identified covering result. Unindexed earlier results under alternate terminology remain a publication-priority risk, not proof of novelty.
+PASS
 
-**Value — PASS.** The theorem resolves a concrete open numerical ambiguity in a newly introduced graph invariant for every path length. The sharp seven-periodic boundary is not merely a single small calculation: it gives exact infinite-family extremality and a transferable local-state proof framework. This is a motivated complete classification of a natural graph invariant, although it does not supply extremal-set counts.
+Complementation exchanges inclusion-minimal super domination with maximal open irredundance, which is hereditary and hence maximal iff all one-vertex additions fail. A flip affects only witness statuses within distance two, all decided in the radius-four window, with nonexistent neighbors excluded. The padded suffix transitions accept exactly those words; the restriction to n>=2 is necessary. I independently built the window truth table from induced graph neighbor intersections and verified exact shortest-distance inequalities for 233 states including the sink, 403 edges including 58 finalizations, and sink distance zero. Along any accepted word those inequalities give 7|T|-2n>=0. The seven explicit tails give the rounded bound exactly. For three or more blocks, an interior nine-window is one of seven phases, and any window touching a boundary or tail is determined by at most eight nearby periodic symbols and that fixed end. Thus the verified finite factor list exhausts the infinite construction. P1 has only the full super dominating set. Replay: `python /workspace/audit-replay.py 4`; the supplementary literal graph check covers n=2..11, not the infinite quantifier.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported contribution is the exact path extremal value for every order, not the invariant, complement duality, or the nine-symbol recognizer. The same-day unweighted path census already contains essentially that recognizer; the cardinality optimization, its weighted all-order bound and the explicit sharp boundary words are distinct. No ordering is inferred from the shared date.
+
+## value
+
+PASS
+
+Resolves the remaining exact-value ambiguity for a natural graph invariant on all paths. The all-order weighted certificate and endpoint-corrected sharp words give a usable result beyond finite tables or the unweighted census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

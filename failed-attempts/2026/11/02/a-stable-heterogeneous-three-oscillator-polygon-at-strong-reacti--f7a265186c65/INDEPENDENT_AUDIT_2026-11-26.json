@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:45:05.151165Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–73; VERIFICATION.md lines 19–23; verify.py; verify-output.txt lines 1–5"
+      ],
+      "rationale": "Sum(w)=0 and the squared radii are (1,3/2,2); the mean-field form then gives frequency ω−3 Im(C)=1 and no radial drift. The strict triangle inequality holds along the ray since the largest squared radius is less than the sum of the two smaller squared radii. At ε=1 the real co-rotating Jacobian is the block diagonal matrix with blocks −2v_j v_j^T plus a rank-two mean term (v_j=(Re w_j, Im w_j)). The determinant lemma reduces its characteristic polynomial to a 2×2 determinant and gives the exact frozen polynomial. The Routh first column is (1, 15/2, 4063/240, 353677/16252, 2996769579/90541312, 3519/64); only common phase is neutral. Along the small-ε branch, the three zero-coupling phase directions are semisimple and split at first order by the projected phase coupling. Its kernel includes collective rotation, its trace is 3/4, and its second elementary symmetric sum is |1/4+i|² times the sum of squared pairwise phase sines, which is strictly positive by noncollinearity. Hence exactly two eigenvalues have positive real parts at sufficiently small ε and the three radial eigenvalues stay negative. Orbital exponential attraction at ε=1 is local in the full state space. Independent bounded replay: python3 /workspace/review-evidence/reproduce.py 5 (SymPy). The uploaded script and saved outputs were inspected, not executed.",
+      "residual_risks": [
+        "No numerical threshold, crossing type or uniqueness along the ray was established; the strong-end witness is checked for the specified orientation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "807118a3b756 gives sharp conditions β>6p and q²>p(2β−9p)²/[3(β−6p)] for the homogeneous triangle.",
+          "568cb1115538 gives normal attraction of all noncollinear heterogeneous polygons at purely reactive coupling and for sufficiently small positive dissipative perturbations. Its bound is not explicit for the frozen parameters.",
+          "Zhao–Uchida give polygon existence and general linearization; their unstable triangular sector is for M=8 with three active sides in a restricted parameter plane."
+        ],
+        "reasoning": "The general reactive theorem covers the qualitative phenomenon nearby but not the stated finite dissipative strength. The exact homogeneous theorem plus hyperbolicity covers qualitative existence with positive dissipation at the frozen coupling.",
+        "searches": [
+          "Resultary 807118a3b756, 568cb1115538",
+          "arXiv:2610.08239v1 §2 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3e86ca58217e, 807118a3b756, 568cb1115538, 6d3b7509813e, a0832bb5dd4e",
+        "Zhao–Uchida arXiv:2610.08239v1 §§2,5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At β=9/4, p=1/4 and q=1 the homogeneous threshold right hand side equals 9/16<1; the stable triangle has a simple phase zero.",
+          "Strict triangle inequalities, smooth dependence of the closed triangle and the spectral gap imply stable examples with rates (9/4−d,9/4,9/4+d) for all sufficiently small d>0. With fixed rates (near this homogeneous example) and C=ε(1/4+i), the trace and positive product of the projected nontrivial phase eigenvalues yield the weak-end instability.",
+          "Neither continuation nor the positive-dissipative perturbation theorem bounds d from below by 1/2."
+        ],
+        "reasoning": "The qualitative existence, weak-versus-finite comparison, and absence of extra neutral polygon modes already follow at the natural three-node scope. Exact stability at d=1/2 remains a distinct numerical specialization, not the headline.",
+        "searches": [
+          "807118a3b756 Finding and Assumptions",
+          "3e86ca58217e Finding",
+          "568cb1115538 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common natural frequency in the earlier heterogeneous example can be shifted by a common rotating frame; the saturation and unnormalized complete diffusive coupling then match.",
+          "3e86ca58217e has three unequal active radii (7,13,17), exact closure, a single neutral rotation, and five stable transverse modes above its reactive threshold."
+        ],
+        "reasoning": "Different rates and a different parameter path do not restore originality to the existence and qualitative stabilization claim. Neither angular speed nor an equilibrium versus periodic presentation changes the co-rotating transverse problem.",
+        "searches": [
+          "Local Resultary three-node heterogeneous Stuart–Landau triangle comparisons",
+          "3e86ca58217e",
+          "Zhao–Uchida arXiv:2610.08239v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3e86ca58217e gives a scalar threshold formula for (52,172,292), real coupling 1.",
+          "6d3b7509813e includes C=1/4+i but at rates (7/4,11/4,15/4) and along a varying-growth family, not this witness.",
+          "No inspected table provides the exact characteristic quintic for the frozen triple."
+        ],
+        "reasoning": "Do not merge neighboring numerical examples or claim an exact match. The missing numerical match does not erase prior phenomenon-level coverage.",
+        "searches": [
+          "Local Resultary stable triangle and reactive stability diagrams",
+          "3e86ca58217e",
+          "807118a3b756",
+          "6d3b7509813e"
+        ]
+      },
+      "rationale": "The headline existence claim that three active oscillators with strictly increasing, linearly spaced growth rates can support an attracting zero-mean triangle, with weak-reactive instability, is already established in the same dynamical model by Resultary 3e86ca58217e, with an exact global transition on a different coupling path. The fixed-ray qualitative claim is also not a new mechanism: the exact three-node homogeneous window of 807118a3b756 applies at the frozen coupling and the mean growth rate, hence ensures attracting heterogeneous triangles on nearby strictly spaced triples by hyperbolic continuation. The elementary small-coupling phase instability persists for these triples by the two nontrivial first-order phase eigenvalues. This comparison does not claim that another record states the exact rates (7/4,9/4,11/4) or certifies the exact same full ray. It credits equivalent qualitative coverage without making a priority inference from same-day dates.",
+      "residual_risks": [
+        "No exact prior match to the given quintic or spacing has been established. The negative assessment relies on verified statement-level overlap and implication, not on an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the existence phenomenon and supplies a sharper spectral transition for another shape/path",
+          "evidence": "Rates (52,172,292), C=1+iγ, rotation mode only on attracting side, |γ|>10.5894…; precisely two unstable modes below.",
+          "identifier_or_url": "Resultary 3e86ca58217e",
+          "material_read": "RESULT.md offset 0 through Finding, Assumptions, start of proof",
+          "method": "Local Resultary mirror",
+          "title": "Sharp reactive-coupling stability transition for a heterogeneous Stuart–Landau triangle",
+          "trigger": "Same model, population size, heterogeneity, and stability phenomenon"
+        },
+        {
+          "assessment": "Via persistence covers attraction at this coupling for some strictly spaced triples, not at the frozen spacing",
+          "evidence": "Sharp homogeneous window; (β,p,q)=(9/4,1/4,1) satisfies both strict inequalities.",
+          "identifier_or_url": "Resultary 807118a3b756",
+          "material_read": "RESULT.md offset 0 through Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp reactive-coupling window for three coexisting Stuart–Landau rotating waves",
+          "trigger": "Potential dominating threshold at the same finite coupling"
+        },
+        {
+          "assessment": "Broader pure-reactive and perturbative existence; no finite bound implying C=1/4+i",
+          "evidence": "All normal exponents negative, exactly M−2 semisimple tangent zeros, and persistence for sufficiently small positive dissipation at fixed nonzero reactive strength.",
+          "identifier_or_url": "Resultary 568cb1115538",
+          "material_read": "RESULT.md offset 0 through Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Universal transverse attraction of noncollinear Stuart–Landau polygons under reactive coupling",
+          "trigger": "General heterogeneous polygon stability"
+        },
+        {
+          "assessment": "Different rate triple with a varying-rate family",
+          "evidence": "C=q+4iq; at q=1/4 growth rates are (7/4,11/4,15/4).",
+          "identifier_or_url": "Resultary 6d3b7509813e",
+          "material_read": "RESULT.md Finding and parameter conditions",
+          "method": "Local Resultary mirror",
+          "title": "A sharp attracting triangle window in a heterogeneous Stuart–Landau network",
+          "trigger": "Same finite coupling on same ray"
+        },
+        {
+          "assessment": "Existence and linearization covered; different numerical sector",
+          "evidence": "The sector described as unstable is calculated with eight total nodes; it does not exclude all-active three-node attraction.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08239v1",
+          "material_read": "§2 Eqs. (1)–(5), offsets 6000–10549; §5 Eqs. (38)–(47), offsets 28550–32549; numerical discussion offsets 37150–39581",
+          "method": "Open HTML",
+          "title": "Heterogeneity-induced chaos in globally coupled Stuart–Landau oscillators",
+          "trigger": "Motivating primary model and polygon analysis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, limitations and comparison; Resultary 3e86ca58217e and 807118a3b756"
+      ],
+      "rationale": "Three-active heterogeneous stabilization and weak-to-strong changes are meaningful but already demonstrated. The surviving exact quintic at one finite parameter tuple supplies no independently motivated spacing, boundary, uniform criterion, or unresolved benchmark: the selected spacing d=1/2 is not identified as structurally distinguished, and ratio four already belongs to an open stable example class. A different parameter tuple plus an exact certificate does not answer a new scientific question of comparable scope. No corrected valuable claim is established here.",
+      "residual_risks": [
+        "A separately motivated finite-heterogeneity boundary or quantitative robustness range could have value but is not supplied by the frozen calculation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

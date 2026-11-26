@@ -1,19 +1,21 @@
-# Scientific review: low mixed-area rigidity and the \(3:5\) width spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central implication uses actual extremal-width segments, the determinant bound \(\operatorname{V}(P,Q)\ge|\det(A,B)|\), and the fact that the determinant is a multiple of \(d\). Below \(d\), the segments align. Their primitive common direction has vertical coordinate dividing \(d\), so their lattice lengths are multiples of \(a\) and \(b\). If the smaller-width polytope were two-dimensional, the segment-mixed-area lower bound would already be at least \(b\); hence it is a segment and the mixed area is divisible by \(a\). Explicit triangle witnesses attain every allowed low multiple. For the complete \(3:5\) family, the semigroup construction, exact unimodular-shear witness at \(7\), and phase-specific determinant/triangle witnesses cover every remaining integer. A direct integer verifier passed 22,200 checks. The universal result is proved symbolically, not inferred from finite tests.
+PASS
 
-## Originality — PASS, with historical-priority risk
+After a unimodular change of direction, every pair of lattice extreme-height chord vectors has determinant divisible by d, and its absolute determinant is at most V(P,Q). For V<d all such chords are parallel. Their integer multiples of a common primitive vector are at and bt, with t a positive integer by coprimality. An off-line lattice vertex of P would give perpendicular integer width at least one, hence V>=bt>=b. Thus P is a segment; positive V forces Q to be two-dimensional and V=at times an integer width. The determinant comparison covers every pair of extreme vertices and thus every extreme-height chord, including endpoints drawn from entire support faces. Parallel segments realize zero and the supplied triangles realize every permitted positive multiple of a. For the 3:5 section, in coordinates (x,y-dx) the semigroup base polygons have mixed area 3r1+5r2 by the lattice edge support formula (also valid in the segment cases by the segment formula). The same shear makes the four-edge P witness for 7 have support contributions 0,5,2,0 from Q. Lattice edge support also ensures integral mixed area. The small 1, 2, and 4 witnesses and the strict low-area exclusion cover all missing semigroup values, including both sides of d=5. Frozen verification reports 22,198 finite checks, not the 22,200 asserted in RESULT.md; this is a nonmaterial reporting discrepancy. The uploaded checker was inspected, not executed, and the proof does not depend on its count.
 
-Gerrity–Soprunov (2026), arXiv:2602.16104v1, prove the gap/semigroup/saturation inclusions and the single exact spectrum \(\Phi_{30,50}\). The accepted claim explicitly excludes this already-known instance as independent novelty. Their stated Theorem 4.5 does not imply that every mixed area below \(\min(d,b)\) is divisible by the smaller reduced width or that the smaller-width polygon is necessarily a segment. Nor does their isolated \((30,50)\) calculation cover the all-parameter family \(\Phi_{3d,5d}\). Soprunov–Soprunova (2024) classify a different diagram without fixed lattice widths; Averkov–Soprunov (2021/2023) concern unconstrained collections of mixed areas. Targeted searches of the primary literature and published mathematical claims found no equivalent result. Search failure is not proof of priority; a stronger unpublished result or differently phrased diagram theorem remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The general statement supplies a sharp, realized, arithmetic description of an initially unknown portion of the fixed-width discrete diagram and a geometric classification of its witnesses. It improves a gap-only result to an exact spectrum for every coprime reduced-width pair within a substantial parameter-dependent range. The resulting complete \(3:5\) classification resolves the natural benchmark ratio used in the motivating paper at every common-width scale, gives the exact onset of a persistent missing value, and replaces a finite small-mixed-volume database argument with a structural proof. It is a natural complete arithmetic/convex-geometric classification rather than a selected numerical example.
+The strongest comparison establishes exact prior coverage at d=10, prior semigroup realizations, and direct derivability of the all-d value-7 witness. It does not establish the generalized strict-window divisibility and rigidity, or the full parameter-dependent spectrum and sharp onset of the hole at 4. Those are the distinct contributions supported here.
 
-## Remaining limits
+## value
 
-The all-parameter part is limited to normalized mixed areas below \(\min(d,b)\). A broader diagram for arbitrary widths remains open. The distinction between a published isolated instance and the full ratio-family assertion is essential. Independent audit and historical-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The strict-window result gives geometry, not just a list of values: it forces dimensional collapse of the smaller-width polygon and explains the divisibility obstruction for arbitrary coprime width ratios. The 3:5 section resolves a natural family extending a published exact case and identifies where the persistent hole at 4 begins, without requiring a catalogue of all area-four pairs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

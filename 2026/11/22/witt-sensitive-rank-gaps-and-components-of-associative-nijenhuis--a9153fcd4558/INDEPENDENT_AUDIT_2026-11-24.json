@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:29:31.268578Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–98, VERIFICATION.md lines 19–25 and verify.py (inspected, not executed)",
+        "/workspace/branches/fcf4e4ba-5a23-4861-bc72-7e95fe5ac84e/finite_check.py (fresh n=4, q=3 check against the finite sum)",
+        "arXiv:2210.09351v3, Theorems 7.12–7.13, pp. 36–37"
+      ],
+      "rationale": "For the nonunital algebra defined by the nondegenerate symmetric form, write N(z)=u+az. The vector part of the identity on (v,z) is B(v,u)u=0 for all v, forcing u=0. On V×V the remaining scalar identity is exactly B((T−aI)v,(T−aI)w)=0; products with z then impose nothing, and the block parameters are unique. Over the algebraic closure the incidence space with a maximal isotropic plane U and a map into U is the bundle Hom(V,U) over the maximal orthogonal Grassmannian. Its image is closed by projectivity, all isotropic images extend to a maximal plane, and the generic full-rank image determines U. The dimensions are the Grassmannian dimension m(m−1)/2 in even or m(m+1)/2 in odd dimension, plus nm+n+1. In the even case an isotropic (m−1)-plane has two extensions through its hyperbolic-plane quotient, in opposite families, so the two component images meet exactly in ranks ≤m−1. Over F_q the Witt sign is invariant in each even-dimensional quotient by an isotropic plane; counting one-step extensions by nonzero isotropic vectors and dividing by the number of hyperplanes gives the stated I_r. For a=0, rank r arises from the q^r functionals vanishing on ker S, and rank r+1 from the remaining ones. For a≠0, ker(aI+S) lies in im S; fixing im S⊆W of dimension h, the shifted matrix has a free h×(n−h) block and a bottom diagonal block aI, so its nullity is the nullity of the h×h block. Choose that kernel and an injection of its quotient to obtain E_(h,j), and invert on subspaces W of the fixed r-plane to obtain H_(r,j) using the stated subspace Möbius factors. Every j≤w is realized by S=−aP_J for an isotropic j-plane J, giving the upper rank interval, while the a=0 construction gives the lower. Only the nonsplit even interval leaves rank m+1 missing. A fresh direct enumeration over all isotropic images and surjections in the n=4, q=3 cases matched both complete sample count vectors, including zero at rank three for the nonsplit form.",
+      "residual_risks": [
+        "The fresh example enumerates the derived normal form, not all 3^25 endomorphisms against the original equation; the equivalence is proved symbolically. The geometry is reduced only. No assertion for degenerate forms, characteristic two, or operator conjugacy classes is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary orthogonal-null-cone theorems treat general rectangular matrices of Gram-zero columns, including the square parameters, with the two even components intersecting on the lower rank locus. The finite spin-factor result counts isotropic-image matrix tuples. The other rank-spectrum record concerns a unital square-zero radical algebra."
+        ],
+        "reasoning": "The broader geometric theorem supplies all of the cone component dimensions and intersection by specializing the row and column counts, then adjoining the free operator parameters. The related counting rules depend on unshifted image rank or distinct multiplication; they do not give the distribution of nullity(aI+S) for the image-isotropic blocks here.",
+        "searches": [
+          "arXiv:2210.09351v3 Theorems 7.12–7.13",
+          "Resultary 2026/10/18 35aa39b14d50",
+          "Resultary 2026/10/13 6619182520d4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.09351v3, arXiv:2308.12121v3, DOI 10.2478/cm-2021-0020",
+        "Resultary a9153fcd4558 (identical), 27bdcf5984cb, b879232760f6, 35aa39b14d50 and 6619182520d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Gram-zero theorem imposes the isotropic-image condition, and its rank strata use rank S. In the frozen rank census the a≠0 histogram instead weights nullity of the affine-shifted block aI+S, and the a=0 lower row distinguishes two ranks at each rank S."
+        ],
+        "reasoning": "An isotropic r-plane and count of surjections onto it are insufficient to count shifted-kernel ranks: for any nonzero isotropic line J, S=−aP_J gives a singular shift, whereas a nonzero S into J that kills J has S²=0 and an invertible shift. Both have the same image rank. The separate Möbius calculation resolves the distribution rather than renaming the known strata. The nonsplit missing operator rank then follows from the two shifted/unshifted intervals and the Witt index, not from a previously tabulated operator spectrum.",
+        "searches": [
+          "Primary low-dimensional Nijenhuis classifications: DOI 10.2478/cm-2021-0020 Thm. 5; arXiv:2308.12121v3 Prop. 2.4 and Thm. 4.1",
+          "arXiv:2210.09351v3 Thms. 7.12–7.13",
+          "Resultary 35aa39b14d50 and b879232760f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normal form is a free n+1-dimensional parameter factor times the orthogonal null cone of n columns. Its reduced matrix geometry is covered by prior null-cone theorems. The closest known operator normal forms classify binary forms over C, or the split binary case over odd finite fields in the catalogue."
+        ],
+        "reasoning": "Changing basis over an algebraic closure reduces the matrix equation SᵀBS=0 to the known Gram-zero locus, so the geometric claims are an application of that theorem. The rank of the labeled Nijenhuis operator is not simply the rank of its matrix-cone coordinate S, and the binary identification does not imply the general operator parameterization or census.",
+        "searches": [
+          "Resultary: quadratic-socle associative Nijenhuis, isotropic image, Witt-sensitive rank census",
+          "Abdujabborov–Karimjanov–Kodirova DOI 10.2478/cm-2021-0020",
+          "Gao et al. arXiv:2308.12121v3",
+          "Hochster–Jeffries–Pandey–Singh arXiv:2210.09351v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The split binary A_1 catalogue record includes an odd-q operator rank distribution for e_1e_2=e_3. The C_3 record treats complex matrices modulo automorphism. The unital record counts operators for a different class, and a9153fcd4558 is this same record."
+        ],
+        "reasoning": "The exact binary rank census does not address n≥3, in particular it misses the four-dimensional nonsplit form with its gap at rank three of N; the complex classification is both the wrong field and binary. No distinct exact table for the frozen n≥3 rank census was found in these comparisons.",
+        "searches": [
+          "Resultary 2026/11/22 a9153fcd4558 (identical hit)",
+          "Resultary 2026/10/13 b879232760f6",
+          "Resultary 2026/10/12 27bdcf5984cb",
+          "Resultary 2026/10/13 6619182520d4"
+        ]
+      },
+      "rationale": "Credit the proven prior Gram-zero geometry and the binary cases. The distinct supported contribution of the frozen theorem is the explicit Nijenhuis classification for the specified higher-dimensional algebra, with the odd-finite-field rank support and full labeled operator rank census. The orthogonal-null-cone component result is not a new theorem in its own right; the original contribution is the operator identification and the rank enumeration, especially the shifted-nullity distribution and nonsplit gap, not the imported geometry.",
+      "residual_risks": [
+        "The bounded primary and catalogue comparisons do not exclude an unindexed higher-dimensional operator count or equivalent finite shifted-nullity table. No priority is inferred from catalogue dates or from an unsuccessful broad lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the reduced matrix component and dimension claims",
+          "evidence": "Odd target size 2t+1 gives a domain with dimension nt+binom(t+1,2) in the relevant range; for even target size 2t the two domains have dimension nt+binom(t,2) and their common locus is cut out by rank<t together with the Gram equations. Set n equal to the number of dimensions of V in the frozen problem (the number of columns).",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.09351v3",
+          "material_read": "Theorems 7.12–7.13 and the proof of P+Q=(YᵀY)+I_t(Y), pp. 36–37, OA offset 130845 onward",
+          "method": "OA primary PDF, bounded passage",
+          "title": "When Are the Natural Embeddings of Classical Invariant Rings Pure?",
+          "trigger": "Broader orthogonal null-cone matrix theorem with the same Gram constraint"
+        },
+        {
+          "assessment": "Direct binary special case only",
+          "evidence": "Gives allowed operators for the three-dimensional A_1 algebra, here n=2 over C.",
+          "identifier_or_url": "https://doi.org/10.2478/cm-2021-0020",
+          "material_read": "Theorem 5, PDF p. 10, offset 23504",
+          "method": "OA primary PDF",
+          "title": "Rota-type operators on 3-dimensional nilpotent associative algebras",
+          "trigger": "Direct associative Nijenhuis classification on the binary hyperbolic special case"
+        },
+        {
+          "assessment": "Direct complex binary special case only",
+          "evidence": "C_3 has products e_2²=e_1, e_3²=e_1; this is the n=2 form over C. Classification ranges over three-dimensional commutative algebras.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.12121v3",
+          "material_read": "Proposition 2.4 p. 5 and Theorem 4.1 p. 10",
+          "method": "OA primary PDF",
+          "title": "Nijenhuis operators on low dimensional algebras (revised preprint)",
+          "trigger": "Matching multiplication in a low-dimensional classification"
+        },
+        {
+          "assessment": "Matches outside n≥3",
+          "evidence": "C_3 includes KᵀJK=0 over C modulo automorphisms; A_1 includes an odd-q rank distribution but only the split binary form.",
+          "identifier_or_url": "Resultary 2026/10/12 27bdcf5984cb and 2026/10/13 b879232760f6",
+          "material_read": "Catalogue findings for the block equations and binary finite rank distribution",
+          "method": "Local Resultary comparison",
+          "title": "Automorphism normal forms for Nijenhuis operators on the C_3 associative algebra; Automorphism normal forms for the A_1 commutative algebra",
+          "trigger": "Closest operator classifications and exact low-rank table"
+        },
+        {
+          "assessment": "Adjacent counts, not the proposed operator census",
+          "evidence": "Spin-factor result concerns isotropic-image matrices without the affine shift; the other begins from unital K1⊕V with V²=0 and gives a rank polynomial there.",
+          "identifier_or_url": "Resultary 2026/10/18 35aa39b14d50 and 2026/10/13 6619182520d4",
+          "material_read": "Catalogue findings specifying matrix tuple count and square-zero operator algebra",
+          "method": "Local Resultary comparison",
+          "title": "Associating tuples of finite spin factors recover Witt type; Complete finite-field Nijenhuis rank spectra of split square-zero algebras",
+          "trigger": "Same isotropic-image technique or same desired finite rank invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–67 and 89–95; fresh sample rank enumeration; primary orthogonal-null-cone comparison"
+      ],
+      "rationale": "This is a natural labeled rank invariant for a two-step commutative algebra whose defining extra structure is its bilinear form. The census distinguishes split and nonsplit forms by the absence of just one operator rank (starting at algebra dimension five); ordinary ranks of bilinear forms do not distinguish these nondegenerate cases. The full distribution resolves exactly how the free scalar shift and annihilator row change operator rank, so it is usable beyond the sample comparison. No independent value is assigned to reobtaining the known cone components as pure geometry.",
+      "residual_risks": [
+        "The rank census is not a complete invariant of all commutative associative algebras or of their Nijenhuis orbits; no such conclusion is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

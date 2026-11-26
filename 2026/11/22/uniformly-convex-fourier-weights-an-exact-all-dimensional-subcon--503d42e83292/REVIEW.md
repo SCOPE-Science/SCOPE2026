@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The argument proves the infinite-dimensional uniform estimate using Clarkson uniform convexity, a dimension-uniform lattice-tube bound, a dyadic summation, and separate sharp axial lower and upper estimates. It handles the origin and axial tails, and proves the supercritical limit by a summable bound and dominated convergence. Finite checks corroborate, but do not replace, these arguments. The theorem explicitly restricts \(q\ge2\) and all quantities are counting-measure normalized.
+## correctness
 
-## Originality (O) — PASS, best-knowledge
-Das–Giannakis's general theorem assumes subconvolutivity rather than computing this cutoff, and Kaleta–Ponikowski's continuous almost-radial convolution-equivalence setting does not settle this discrete all-dimensional uniformly convex family. Previously available results for planar \(q=4\) and the \(q=\infty\) cube are recognized as special cases and are not independently claimed; neither implies the uniform theorem for every finite \(q\ge2\), dimension, and supercritical limit. Actual semantic and primary-source searches were used, but search absence is not proof of novelty.
+PASS
 
-## Value (V) — PASS
-The theorem gives a single necessary-and-sufficient rule, across a natural continuous geometric family, deciding whether exponentially weighted Fourier Hilbert coefficients satisfy the multiplication-algebra subconvolution bound. It quantitatively connects strict convexity, transverse lattice growth, and the sharp singular endpoint. Both necessity and global sufficiency are established, rather than a parameter-specific numerical threshold.
+For fixed d≥2, 2≤q<∞, a>0 and p≥0, take a unit dual functional u with unit norming point v. For a unit x, putting δ=1−u·x in Clarkson gives ||x−v||_q^q/2^q ≤ 1−(1−δ/2)^q ≤ qδ/2. Scaling by r=||k||_q and comparing norms yields the claimed lower bound c r^(1−q)dist₂(k,R₊v)^q. In a shell L≤r<2L the ray tube of radius W intersects a Euclidean ball of radius O(L); the unit cubes centered at the lattice points fit in the thickened tube of length O(L+W+1), giving O((L+W+1)(W+1)^(d−1)) uniformly in direction. With W₀=L^(1−1/q), the innermost tube counts O(L^p_c) and successive annuli are exponentially damped in (W/W₀)^q. This gives uniform summability of the tilted polynomial weight for p>p_c. For n≠0 use its norming functional to minorize the triangle defect by either endpoint's tilt defect; the triangle inequality and (A+B)^p≤2^(p−1)(A^p+B^p) bound the polynomial quotient by the two endpoint weights. The n=0 sum converges directly. Axially, for s>0 the transverse defect is comparable to min(||z||_q^q/s^(q−1),||z||_q), by the mean-value theorem for ||z||_q≤s and rescaling by ||z||_q otherwise; at s=0 it is exactly ||z||_q. Its exponential sum is O((1+s)^α) by lattice balls and annuli, α=(d−1)(1−1/q). For 0≤m≤N/2 this leaves O((1+m)^(α−p)) per layer; beyond [0,N] the additional 2·dist(m,[0,N]) and polynomial quotient ≤1 yield O(1) total. Boxes of transverse radius proportional to m^(1−1/q) give the matching lower sums for 1≤m≤N/4 at criticality, or m comparable to N on a central interval below criticality. Finally, on m≤N/2 the summands converge pointwise to the axial tilt (since ||Ne₁−k||_q−(N−k₁) tends to zero) and are dominated by 2^p times that summable tilt. The reflected half gives the other copy, and a possible midpoint layer tends to zero by domination. This proves the claimed orders, necessity and exact limit.
 
-## Closest literature and limitations
-Sources: Das–Giannakis (arXiv:1912.11664, Theorem 4), Kaleta–Ponikowski (arXiv:2109.06336), and earlier planar quartic/cubical special cases. The primary Kaleta–Ponikowski full text was not inspected; only its public abstract and bibliographic record were available. No claim about explicit exact divergent constants, \(q<2\), or sharp global norm constants. Historical novelty is provisional pending further independent source review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Euclidean critical threshold is derivable from prior continuous results by unit-cube comparison; the planar quartic threshold overlaps exactly with an indexed special-case finding, and the cubical endpoint has a separate result. The supported distinct contribution is the uniform lattice criterion for the full finite-q, all-dimensional family, with both axial orders across that family and an exact anisotropic supercritical lattice limit. No priority is inferred from same-day dates.
+
+## value
+
+PASS
+
+This turns a useful Fourier Hilbert-algebra hypothesis into an exact test across a natural anisotropic family. It identifies the axes as witnesses to failure of the uniform estimate, resolves the borderline logarithm, and gives an exact supercritical normalization beyond the threshold decision. The argument explains why norm equivalence does not preserve the exponent and why the transverse geometry matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

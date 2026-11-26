@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:07:15.235678Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–55",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify_klein_gabor.py and verify_klein_modular.py and their recorded .out files (inspected, not executed)",
+        "Independent bounded replay: /workspace/branches/bb66466b-7780-4589-83e4-c6f3b709ebb7/replay_record5.py and replay_record5.out; executable with Python 3 standard library"
+      ],
+      "rationale": "With distinct four labels the differences a,b,c are all nonzero and distinct, so their only possible dependence is a+b+c=0. Moving the anchor from zero to a sends the three differences to a,a+b,a+c and preserves the all-one pairings and linear independence. For a fixed anchor the nondegenerate symplectic form gives 15 choices of a, 8 of b, and four solutions for c of which the dependent a+b is the only excluded solution. Divide 16·15·8·3 by 24 to obtain 240. The independent fraction-free polynomial Bareiss computation, unlike the submitted signed-permutation expansion, visited every one of the 1820 four-sets and found exactly that geometric zero-polynomial locus. Evaluation at (1,2,3,5) gives 1580 nonzero determinants. Normalizing the first coordinate by a scalar seventh root or, in the lower-bound search, a scalar qth root preserves every rank. Exact cyclotomic remainders exhaust all 441 normalized assignments for orders 1 through 6 and reproduce all six positive minima. At order 7 the exact quartet check gives only the universal failures. For a separate independent rank check, reduction Z[zeta_7] to F_71 via the element 20 of order seven gives rank three on every triple, and 1580 rank-four plus 240 rank-three quartets. Nonzero minors in the field lift to complex nonvanishing; universal determinant identities supply the upper bounds on rank. These together establish all complex ranks and minimal alphabet order. The threshold is the size of the common root alphabet, not use of seven distinct values by a four-entry window.",
+      "residual_risks": [
+        "No floating-point tolerance substitutes for these exact checks. The proof is finite-field/cyclotomic computation specific to this finite object and establishes no condition estimate or other group classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Malikiosis shows a general non-full-spark obstruction for finite abelian groups containing a Klein four subgroup. Lawrence–Pfander–Walnut establish generic Haar/full spark for prime cyclic dimension. Krahmer–Pfander–Rashkov derive STFT-support results and erasure applications; their relevant Theorem 4.5 is in the prime cyclic setting."
+        ],
+        "reasoning": "The obstruction alone gives no exact quartet census. Prime cyclic generic independence does not specialize to the Klein group, and support bounds do not enumerate its exact minors or any finite phase alphabet.",
+        "searches": [
+          "arXiv:1602.09012, Section 3 and Theorem 3.2",
+          "Lawrence–Pfander–Walnut, DOI:10.1007/s00041-005-5017-6, Theorem 1",
+          "arXiv:math/0611493, introduction and Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "The four primary Gabor sources listed above",
+        "Published Resultary exact target, four-point continuous entry, and third-root cyclic entry; neighbouring Walsh summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The example of Theorem 11 is an independent triple of differences with all-one pairings. Translation, symplectic changes of coordinates and relabeling preserve universal dependence. The new exact evidence also excludes every other quartet type, supplies integer and order-seven simultaneous witnesses and rules out every smaller alphabet exactly."
+        ],
+        "reasoning": "The prior example, plus the standard symplectic argument, yields the universal-zero direction and its orbit size; it gives neither nonzero polynomials for every other set nor rank-constrained cyclotomic minima. A pure generic-window theorem would not entail that a specified discrete flat alphabet intersects the good set.",
+        "searches": [
+          "Pfander Theorem 11, exact quartet and matrix at p. 30",
+          "Malikiosis Theorem 3.2, p. 7",
+          "Resultary seven-cycle full-spark phase-alphabet finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pfander's labels relative to the origin are (00,10), (11,00), (11,01) in the target translation/modulation convention. They are independent with pairwise symplectic form one. The identical bound Resultary entry is the target itself."
+        ],
+        "reasoning": "The obstruction is already present in the target's geometric orbit, not a new example under different coordinates. Classification of the zero set still needs the converse.",
+        "searches": [
+          "Resultary semantic searches for Klein group, four-atom Gabor dependence, root-of-unity phase threshold and symplectic classification",
+          "Pfander, Gabor frames in finite dimensions, Theorem 11 p. 30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 240/1580 and alphabet-order-seven catalogue hit is this assigned record. The earlier four-point hit treats a continuous L²(R) independence condition with integral symplectic area. The same-day phase hit treats a minimal third-root full-spark window for the cyclic seven-group. The adjacent Walsh fourth-moment summary concerns another objective; full file was unavailable at its mirror path."
+        ],
+        "reasoning": "Neither other inspected exact result addresses the same finite objects or supplies the q=1,...,6 minima and order-seven witness. Same-day dates were not used to assign priority.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-universal-four-atom-dependencies-and-the-sharp-phase-alphabet-fo--9a7c296b0fef",
+          "Resultary: 2026/10/4/SCOPE-integer-area-mixed-arithmetic-four-point-gabor-independence--c158041f5198",
+          "Resultary: 2026/11/22/SCOPE-a-third-root-fano-window-is-full-spark-on-the-seven-cycle--b9580b199b88",
+          "Resultary: 2026/11/16/SCOPE-exact-phase-alphabet-fourth-moments-of-the-seven-nontrivial-walsh-characters--0c978c66b128"
+        ]
+      },
+      "rationale": "Pfander's explicit dependent quartet is in precisely the binary symplectic type tested here, so the already known obstruction is substantial. With standard symplectic covariance up to column phases and symplectic extension of the isometry between two triples with matching Gram matrices, that example already gives the entire one orbit of dependent quartets in the proposed type. It does not show that this is the only dependent type or give a simultaneous nonsingularity witness for the complement, and none of the inspected statements provides the sharp common-root alphabet census. The distinct contribution is the complete converse/attainable complement and exact phase-constrained classification, not the existence of a universal obstruction.",
+      "residual_risks": [
+        "A previously unindexed exact generic Klein-group matroid or phase alphabet table could give further coverage. The bounded comparison supports the disclosed distinct contribution, not a global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers an explicit representative of the entire dependent orbit; not the converse",
+          "evidence": "Four columns with labels (00,00),(00,10),(11,00),(11,01) have identically zero determinant.",
+          "identifier_or_url": "https://www.mathematik.uni-marburg.de/~pfander/pubs/FiniteGaborFramesChapter.pdf",
+          "material_read": "Theorem 11 and determinant proof, p. 30, offset 82326",
+          "method": "Primary OA chapter passage",
+          "title": "Gabor frames in finite dimensions",
+          "trigger": "Same Klein-group universal dependence"
+        },
+        {
+          "assessment": "General full-spark obstruction",
+          "evidence": "Nonexistence of full spark for a group with Klein four subgroup, and an STFT-support bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.09012",
+          "material_read": "Section 3, Theorem 3.2 p. 7, offset 26174",
+          "method": "Primary OA PDF passage",
+          "title": "Spark deficient Gabor frames",
+          "trigger": "Broader noncyclic theorem"
+        },
+        {
+          "assessment": "Different group hypothesis",
+          "evidence": "Prime cyclic generic-window Haar property.",
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~v1ranick/gabor.pdf",
+          "material_read": "Theorem 1 p. 2, offset 3769",
+          "method": "Primary OA PDF passage",
+          "title": "Linear Independence of Gabor Systems in Finite Dimensional Vector Spaces",
+          "trigger": "Potential generic matroid theorem"
+        },
+        {
+          "assessment": "Related support theory, not Klein-group phase census",
+          "evidence": "Discusses support uncertainty and erasure; the checked theorem concerns prime cyclic groups.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611493",
+          "material_read": "Introduction pp. 1–2 and Theorem 4.5 p. 16, offsets 5404 and 58923",
+          "method": "Primary OA PDF passages",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Support and erasure lower bounds"
+        },
+        {
+          "assessment": "Different continuous problem",
+          "evidence": "Four points in a continuous time-frequency plane with integral symplectic area and a rational-span condition.",
+          "identifier_or_url": "2026/10/4/SCOPE-integer-area-mixed-arithmetic-four-point-gabor-independence--c158041f5198",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Integer-area mixed-arithmetic four-point Gabor independence",
+          "trigger": "Same cardinality and symplectic terminology"
+        },
+        {
+          "assessment": "Distinct cyclic group and minor size",
+          "evidence": "Seven-column subsets of a 49-vector system on Z/7, with minimal alphabet order three for that problem.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-third-root-fano-window-is-full-spark-on-the-seven-cycle--b9580b199b88",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "A third-root Fano window is full spark on the seven-cycle",
+          "trigger": "Root-of-unity Gabor minimal alphabet overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and assumptions",
+        "Pfander Theorem 11",
+        "Krahmer–Pfander–Rashkov, erasure recovery motivation",
+        "Independent exact replay output"
+      ],
+      "rationale": "A four-channel finite frame is invertible or not on a chosen quartet. Knowing exactly which selections must fail, rather than just that full spark is impossible, is a meaningful complete finite invariant of the canonical smallest noncyclic Gabor case. The flat alphabet result adds an exact design cutoff for retaining every attainable quartet under quantization and certifies all triples at that cutoff. Neither component is inferred solely from the motivation or a bare computation count.",
+      "residual_risks": [
+        "Algebraic invertibility does not imply a favorable smallest singular value, numerical noise robustness or a corresponding alphabet threshold for other groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

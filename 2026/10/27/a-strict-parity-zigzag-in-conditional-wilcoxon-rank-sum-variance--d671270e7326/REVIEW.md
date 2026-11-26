@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A uniform-run-composition decomposition and centered bilinear-form identity give both rational conditional variance expressions for every admissible sample size and boundary run count. Three positive-factor difference expressions prove the full strict parity hierarchy. Exact rational enumeration on all binary words with up to eight instances of either symbol supplies 1,340 reproducibility assertions but is not substituted for proof.
+## correctness
 
-**Originality — PASS, with qualified historical priority.** The closest accessible multiset inversion results prove marginal normal approximations, not the fixed-run second moment. Accessible two-sample-test work gives asymptotics; the turn-enumeration source does not include conditional area moments. Relevant control-chart and q-binomial papers were only abstract-accessible, so a previously known equivalent joint enumerator is a specific unresolved risk. No stronger theorem identified in accessible materials logically implies both the displayed formulas and strict alternation without further argument.
+PASS
 
-**Value — PASS.** The shape is mathematically motivated by conditioning one classical distribution-free rank statistic on another: the variance alternates even though covariance vanishes. Strict local minima at every admissible odd run count and a strictly descending even subsequence are substantive structural facts useful when calibrating rank-sum statistics after stratifying by observed runs.
+The frozen unrestricted 'without independence' is false at a=b=1, where R=2 almost surely; the corrected complete RESULT.md is at /workspace/repairs/2/RESULT.md and addresses exactly this case. In all other cases R=2,3 are both attainable, and their strictly different conditional variances prove dependence. Reversal gives the conditional mean for all feasible r and hence zero covariance, including the exception. Given orientation, independent uniform compositions have the stated projected covariance, and the centered linear and bilinear terms are pairwise uncorrelated. In the even case equal orientation weights yield a between-orientation variance (ab/(2k))²; in the odd case the two conditional means agree and the composition counts give weights proportional to a−k and b−k. The variance formulas and positive difference factorizations remain unchanged. /workspace/review_checks/check_2.py independently verified the three rational identities symbolically and checked exact word moments in six cases, including the degenerate independence case. The general proof, not the finite sample, covers every attainable count.
 
-**Limitations.** Only fixed-content uniform binary words and the stated conditional second moments are treated. The complete conditional distributions, ties, and nonuniform nulls are not covered. Older joint area–turn literature remains a possible historical-priority overlap; no independent validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the frozen contribution's finite inversion/run second-moment formulas and the strict adjacent comparisons, retained by the repair. A distinct indexed SCOPE result demonstrably contains essentially the same theorem and proof, including the boundary comparisons, and extends it to the odd subsequence. Its recorded source is later than the bound record; it is not evidence that these formulas were already known when this finding was made, and the comparison does not establish independent discovery or priority between the underlying work. No inspected earlier primary result supplies the area/run variance profile or its ordering. The corrected independence sentence is a consequence, not a new contribution.
+
+## value
+
+PASS
+
+The same two-sample labeling law supports both rank and runs tests. The exact finite conditional variance profile shows that mean independence hides a ubiquitous parity effect, rather than merely exhibiting one small counterexample. Strict comparisons at every feasible interior or boundary pair and the exact degeneracy exception give usable finite-sample information; no value is assigned merely to correcting the a=b=1 sentence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:40:54.487257Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The main non-strict sharp bound and no-overshoot claim are correct. In fact the Aitken residual divided by e_n=x_n-ell is 1-y^2/s, with y=E[a], s=E[a^2], a=1-lambda under weights c_j lambda_j^n/e_n. With m=1-lambda_+>0 and M=1-lambda_-, Cauchy–Schwarz gives the lower bound, s<=(m+M)y-mM gives the upper bound, and (m+M)^2 y^2-4mM((m+M)y-mM)=((m+M)y-2mM)^2 proves the exact constant. For m<M equality requires endpoint support with weights M/(m+M) at m and m/(m+M) at M. The displayed rational witness independently recomputes to 1/4. If lambda_-=0 and n>0, the zero mode is no longer active; the sharp constant is a supremum approached with a small positive lower mode and suitable coefficients. The frozen Finding nevertheless claims the strict comparison (q/(2-q))^2<q^2 under 0<=lambda_j<=q<1, which permits q=0. With one zero mode, c=1, ell=0 and n=0, the three values are (1,0,0), the denominator is 1 and both factors are zero. The proof uses the unstated-in-the-Finding restriction q>0 for strictness. Likewise, a single active mode gives exact extrapolation, but only a collapsed chosen enclosure makes the displayed upper bound zero. These points do not negate the main non-strict inequality.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saad gives the exact-line-search steepest-descent A-norm bound (lambda_max-lambda_min)/(lambda_max+lambda_min) and proves it by the same Kantorovich inequality. The AMS-hosted Greub–Rheinboldt attempt returned HTTP 403; it is not used to infer anything about coverage."
+        ],
+        "reasoning": "With normalized spectral vector u and operator B, minimizing ||u-tBu||^2 over t gives 1-(u^T B u)^2/(u^T B^2 u). This is the exact line-search energy ratio after representing the error in B^(1/2) coordinates. Thus the square of the prior steepest-descent factor bounds the same scalar residual expression, and the prior SPD product inequality directly covers the positive spectral measure version by the same scalar moments.",
+        "searches": [
+          "Saad, §5.3.1, Theorem 5.9, eq. (5.14) and proof",
+          "Greub–Rheinboldt, Kantorovich generalization, AMS primary-source attempt"
+        ]
+      },
+      "checked_sources": [
+        "Saad, §5.3.1",
+        "Weniger arXiv:math/0306302, §5.1",
+        "Greub–Rheinboldt (bibliographic only)",
+        "Resultary 6741f4b1d748, 66a691631a0e and e0c764d6ed12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kantorovich equality holds when the spectral mass of z is split equally between the endpoints m and M. The frozen Aitken moment formula uses weights w on a=1-lambda, and z has spectral mass proportional to a w(a)."
+        ],
+        "reasoning": "Equal z mass means m w(m)=M w(M), exactly the frozen extremal weights. Nonovershoot follows from Cauchy–Schwarz and the q>0 comparison is elementary after the same substitution. An explicit printed Aitken-labeled duplicate is not needed to establish a mechanically implied special case.",
+        "searches": [
+          "Saad, Lemma 5.8 and Theorem 5.9",
+          "Weniger, §5.1, one- and two-mode formulas",
+          "Resultary 6741f4b1d748, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saad states the SPD Kantorovich product inequality with upper constant (M+m)^2/(4Mm). Weniger supplies the transform and its one- and two-mode formulas, including exactness on one mode, but not the frozen finite-index positive-mixture presentation."
+        ],
+        "reasoning": "Take B=diag(1-lambda_j), u_j=sqrt(w_j), and z=B^(1/2)u. Then (z^T B z)(z^T B^(-1) z)/(z^T z)^2=E[a^2]/E[a]^2. Reciprocating and subtracting from one gives exactly the frozen upper bound. The normalized weights can range over arbitrary finite probability weights at n=0, so specializing to this setting loses none of the sharpness.",
+        "searches": [
+          "Saad, Iterative Methods for Sparse Linear Systems, 2nd ed., §5.3.1, Lemma 5.8, eq. (5.13)",
+          "Weniger, arXiv:math/0306302, §5.1, equations (5.1-1), (5.1-4), (5.1-13), (5.1-14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6741f4b1d748 bounds Aitken–Steffensen errors for scalar contractions. 66a691631a0e uses the same squared condition-number factor for an Armijo nonexpansion threshold on SPD quadratics. e0c764d6ed12 studies two-step Euclidean steepest descent and includes the fourth-power factor on an endpoint witness."
+        ],
+        "reasoning": "Neither the scalar-contraction bounds nor numerical agreement of condition-number factors on different observables supplies an exact catalogue duplicate. A numerical table is not decisive for this continuous universal claim. The direct classical inequality is the decisive prior coverage.",
+        "searches": [
+          "Resultary published findings: sharp Aitken Δ² positive exponential mixture residual bound; related findings 6741f4b1d748, 66a691631a0e and e0c764d6ed12"
+        ]
+      },
+      "rationale": "The main sharp bound, including the endpoint constant and extremizers, is an exact change of variables in the classical Kantorovich inequality. The positive-mixture Aitken interpretation is not a distinct inequality. No separate non-mechanical claim survives in the one-sided comparison: the raw factor is bounded by q^2 by averaging lambda^2, and the strict improvement for positive q follows immediately from 2-q>1.",
+      "residual_risks": [
+        "The exact application phrased in Aitken or Hausdorff-moment terminology could have earlier counterparts not checked here. This uncertainty does not affect the demonstrated mechanical implication from Kantorovich. The Greub–Rheinboldt full text was not accessible in the attempted route."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the Aitken bound by a diagonal spectral substitution",
+          "evidence": "Equation (5.13) is the SPD Kantorovich product bound; (5.14) is the exact-line-search steepest-descent A-norm factor with the corresponding endpoint constant.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~saad/IterMethBook_2ndEd.pdf",
+          "material_read": "§5.3.1, printed pp. 143–145, Lemma 5.8 and Theorem 5.9, offsets 408012 and 411650 onward",
+          "method": "Lawful author-hosted PDF",
+          "title": "Iterative Methods for Sparse Linear Systems, 2nd edition (Yousef Saad)",
+          "trigger": "Classical sharp moment inequality and same spectral contraction constant"
+        },
+        {
+          "assessment": "Covers the transform and one- and two-mode behavior, but does not expressly state the frozen endpoint-only ratio in the inspected passages",
+          "evidence": "Aitken is exact for one geometrical mode; for two modes it eliminates the asymptotically dominant term under the given magnitude conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0306302",
+          "material_read": "§5.1, pp. 27–29, equations (5.1-1), (5.1-4), (5.1-13), (5.1-14), offsets 108552 and 113522",
+          "method": "Lawful arXiv PDF",
+          "title": "Nonlinear sequence transformations for the acceleration of convergence and the summation of divergent series (E. J. Weniger)",
+          "trigger": "Prior Aitken formulas specifically for geometric mixtures"
+        },
+        {
+          "assessment": "No primary full text there; Saad supplies the requisite exact theorem",
+          "evidence": "The AMS paper request returned HTTP 403.",
+          "identifier_or_url": "Greub–Rheinboldt, Proc. Amer. Math. Soc. 10 (1959), 407–415",
+          "material_read": "Bibliographic material only",
+          "method": "Bounded lawful AMS-hosted access attempt",
+          "title": "A Generalization of an Inequality of L. V. Kantorovich (Greub and Rheinboldt)",
+          "trigger": "Potential classical antecedent for the reverse Cauchy–Schwarz inequality"
+        },
+        {
+          "assessment": "Different contraction class, no specific positive-mixture bound",
+          "evidence": "Bounds general scalar contractions by 2q^2/((1-q)(1+2q)) and nondecreasing ones by q^2/(1-q^2).",
+          "identifier_or_url": "2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Aitken–Steffensen contraction stability frontier",
+          "trigger": "Closest distinct Aitken finding"
+        },
+        {
+          "assessment": "Distinct gradient-norm nonexpansion invariant",
+          "evidence": "The squared factor is an Armijo parameter threshold, not a finite-index Aitken residual bound.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-gradient-norm-safety-frontier-inside-armijo-sufficient-dec--66a691631a0e",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp gradient norm safety frontier inside Armijo sufficient decrease",
+          "trigger": "Same-date finding with matching condition-number factor"
+        },
+        {
+          "assessment": "Different two-step Euclidean error observable",
+          "evidence": "The endpoint two-mode witness has fourth-power factor, followed by a three-mode analysis.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "A three-mode perturbation threshold for two-step Euclidean steepest descent",
+          "trigger": "Nearby exact line-search and spectral-endpoint analysis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Aitken interpretation is useful exposition, but converting the three inputs to moments immediately puts the only sharp invariant and its equality cases in the classical inequality. The no-overshoot and comparison with advancing twice are direct scalar consequences. The record does not add a separately motivated new extremal regime or a result beyond the one-transform calculation. Correcting q=0 and acknowledging the classical bound would make the exposition accurate but would not leave a worthwhile distinct research claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:28:03.841813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–46",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 10–112, inspected without execution"
+      ],
+      "rationale": "With c leaves before the hub, the prefix crossing counts increase to c, then after the hub decrease from r−c. Thus the allowed hub counts are exactly [r−k,k], empty below the ceiling of r/2, with r! orders per allowed count. At a single count the before-hub subset cannot change, and the two sides independently realize their full adjacent-swap graphs. This gives the binomial component count, the square factorial sizes and diameter 2·binom(r/2,2). For a hub-count interval [L,U] with L<U, rank labels by their target order. At L, if no legal descent existed, all pairs except the possible hub-left pair would be increasing. A nontrivial such order has that exceptional descent, so the immediate left neighbor and all right-hand labels follow the hub in the target. The target then has at most L−1 predecessors, impossible. At U the reflected argument forces at least U+1. At neither boundary can an absent exceptional pair cause a descent. Every remaining case has a legal adjacent descent; each step decreases the pair-disagreement count by exactly one, attaining its universal lower bound. Reversal remains feasible and achieves the full inversion count from every starting vertex. At k<r each internal hub level contributes (r−2)r!/2 within-level edges and each neighboring pair of levels contributes r! hub swaps. At k=r the full graph is r-regular on (r+1)! vertices. This covers the smallest stars, the frozen even budget and the full budget.",
+      "residual_risks": [
+        "The checker compares every connected-case pair via hub-position representatives and leaf-label symmetry; in the frozen case it uses one representative per component, justified by independent relabeling within its two sides. Its finite range is not the proof.",
+        "The formulas are for unweighted stars with labelled leaves and adjacent-position unit-cost swaps, not arbitrary trees or other width metrics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem connects the orders subject to a widened bound cw(ω)+cw(ω′)≤2k. The double-star record treats two hubs and obtains two components at the optimum and polynomial-length connectivity at optimum plus one."
+        ],
+        "reasoning": "A stronger domain class with a weaker width guarantee does not imply the at-budget star connectivity or metric. The double-star structural analogue uses a different invariant, the relative order of its two hubs, and gives no global Kendall geodesic result.",
+        "searches": [
+          "DOI 10.4230/LIPIcs.MFCS.2021.8, Theorem 3",
+          "DOI 10.7155/jgaa.00628, §1",
+          "Resultary SCOPE-a-one-unit-cutwidth-barrier-for-adjacent-swap-reconfiguration-on--9e5fb40bac29"
+        ]
+      },
+      "checked_sources": [
+        "MFCS 2021 Art. 8 and JGAA 2023 paper 628",
+        "Published record IDs 9e5fb40bac29, d4afbc2fcbc9, 79c08e75f702, 7910cdad70d2; exact self match 9f12c29d9ece"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior width allowance and polynomial-length guarantee do not supply a route of length exactly the pair-disagreement count at the original budget. A rank interval can permit some unrestricted shortest paths and forbid others."
+        ],
+        "reasoning": "The missing mechanism is a legal descent at a boundary rank. The common unrestricted inversion metric yields the lower bound only. Neither polynomial reachability under increased width nor weighted facet convexity gives that boundary descent in this state space.",
+        "searches": [
+          "Arrighi et al., MFCS 2021 Theorem 3, p. 5",
+          "Resultary SCOPE-a-one-unit-cutwidth-barrier-for-adjacent-swap-reconfiguration-on--9e5fb40bac29",
+          "Resultary SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fixed hub interval constrains the rank of one distinguished element. Fixed-point avoidance can give a similar invariant subset, while the partial-permutohedron result uses swaps of consecutive values and weighted facet geodesics. The exact catalogue hit is the assigned finding itself."
+        ],
+        "reasoning": "Neither comparison gives the same feasible graph with the same moves. At k<r with h≥2 the allowed set cannot be the linear extensions of one poset on these labels: reversal preserves the set, so no pair is constrained throughout it, yet some orders are absent. The frozen individual products of ordinary permutahedra are straightforward once the subsets are fixed.",
+        "searches": [
+          "Resultary SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702",
+          "Resultary SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2",
+          "Resultary SCOPE-sharp-cutwidth-constrained-order-reconfiguration-on-stars--9f12c29d9ece"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record 9f12c29d9ece is the assigned finding, not a second match. The cycle result gives exact vertex and edge counts and fixed-start geodesics at width two for a different graph family."
+        ],
+        "reasoning": "No independent exact star counts or distance formula was established by the retrieved sources. Cycle counts do not specialize to stars.",
+        "searches": [
+          "Resultary SCOPE-sharp-cutwidth-constrained-order-reconfiguration-on-stars--9f12c29d9ece",
+          "Resultary SCOPE-quadratic-geodesic-detours-in-optimal-cutwidth-orders-of-cycles--d4afbc2fcbc9"
+        ]
+      },
+      "rationale": "Credit the existing cutwidth order-reconfiguration framework and the unrestricted Kendall metric. The supported distinct result is the exact at-budget star classification, especially the interval-restricted geodesics for every pair, the frozen even optimum and exact counts. No examined distinct antecedent establishes this combined claim or the nontrivial interval lemma. This is not a historical-priority determination.",
+      "residual_risks": [
+        "Bounded primary and published-record comparison does not exclude an equivalent lemma under other permutation-window terminology. No claim about priority among the distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for framework, not at-budget star classification",
+          "evidence": "An O(n²)-swap route exists under cw(ω)+cw(ω′), retaining up to twice the endpoint budget.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.8",
+          "material_read": "Introduction p. 1 and Theorem 3 p. 5 (PDF offsets 2400 and 18450)",
+          "method": "Open Dagstuhl PDF passages",
+          "title": "Order Reconfiguration Under Width Constraints",
+          "trigger": "Same order and width-reconfiguration model"
+        },
+        {
+          "assessment": "Same broader problem, weaker budget conclusion",
+          "evidence": "Adjacent swap connectivity with combined endpoint widths, not exact star shortest distances.",
+          "identifier_or_url": "https://doi.org/10.7155/jgaa.00628",
+          "material_read": "§1 p. 2 (PDF offset 3850)",
+          "method": "Open journal PDF passage",
+          "title": "Order Reconfiguration under Width Constraints",
+          "trigger": "Journal version of closest general theorem"
+        },
+        {
+          "assessment": "Different graph, invariant and metric conclusion; no priority inferred from shared date",
+          "evidence": "Two components by hub order at budget t, connectivity at t+1, and O(t²) routes to canonical orders.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-one-unit-cutwidth-barrier-for-adjacent-swap-reconfiguration-on--9e5fb40bac29",
+          "material_read": "Finding: theorem on the two budget regimes",
+          "method": "Published index and local mirror",
+          "title": "A one-unit cutwidth barrier for adjacent-swap reconfiguration on balanced double stars",
+          "trigger": "Closest structural analogue, one additional budget unit"
+        },
+        {
+          "assessment": "Different graph family and geodesic phenomenon",
+          "evidence": "Fixed-start isometry and detours for rotated orders.",
+          "identifier_or_url": "2026/11/22/SCOPE-quadratic-geodesic-detours-in-optimal-cutwidth-orders-of-cycles--d4afbc2fcbc9",
+          "material_read": "Finding: width-two cycle graph",
+          "method": "Published index and local mirror",
+          "title": "Quadratic geodesic detours in optimal cutwidth orders of cycles",
+          "trigger": "Comparable constrained geodesic and enumeration problem"
+        },
+        {
+          "assessment": "Related invariant-subset idea under different constraints",
+          "evidence": "Selected forbidden positions impose side signatures, not a permitted interval for a hub and the associated Kendall geodesics.",
+          "identifier_or_url": "2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702",
+          "material_read": "Finding: side signatures and paths",
+          "method": "Published index and local mirror",
+          "title": "Component signatures for permutations avoiding selected fixed points",
+          "trigger": "Alternative permutation-rank formulation"
+        },
+        {
+          "assessment": "Different adjacency and restriction",
+          "evidence": "Consecutive values and weighted graph paths, not budgeted swaps of adjacent positions.",
+          "identifier_or_url": "2026/11/17/SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2",
+          "material_read": "Finding: weighted facet geodesic property and moves",
+          "method": "Published index and local mirror",
+          "title": "Geodesic rigidity of the permutohedral facet in partial permutohedra",
+          "trigger": "Possible ambient graph geodesic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§ Finding and Proof 2–4",
+        "Arrighi et al., MFCS 2021 Theorem 3 for the motivating width gap"
+      ],
+      "rationale": "This natural test family resolves exact-budget shortest paths, not just reachability with slack. It gives a sharp parity boundary between permanent obstruction and complete preservation of all ambient distances, with a constructive lemma for arbitrary nontrivial intervals on one distinguished label. The diameter and enumeration are useful consequences rather than the sole novelty.",
+      "residual_risks": [
+        "Does not classify constrained geodesics for general trees or count all shortest realizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:31:13.032044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The length-three prefix and suffix sets are disjoint, and their outer length-two end sets A,B are disjoint, including self-comparisons. Each word is uniquely specified by the two triples and one middle block for n≥6. The frozen upper-envelope calculation allocates each common candidate triple to one end and uses all 3^9 assignments of ordered pairs to neither end, A, or B. Independent upper bound without that certificate: for bounding candidate triple sets U_A,V_B enlarge B so that A,B partition all nine pairs. Reverse triples and exchange ends if needed so a=|A|≤|B|. For a≤2 the product is at most (3a)(27−3a)≤126. Otherwise a=3 or 4. Write r_j,c_j for the row and column degrees of A. The number of triples shared by U_A,V_B is h=Σ_j c_j(3−r_j)=3a−Σ_j r_j c_j. For a=3, sorted row sizes (3,0,0), (2,1,0), (1,1,1) give degree-product sums at most 3,5,3 respectively: each c_j is bounded by the number of occupied rows, and Σ c_j=3. For a=4 the row patterns (3,1,0), (2,2,0), (2,1,1) give at most 8,8,7 using the same bounds and Σ c_j=4. Thus h≥4; the disjoint selected end sets have total size at most |U_A∪V_B|=27−h≤23. Their product is at most floor(23²/4)=132. For the lower bound, P has nine triples with middle zero and two with both ends zero and middle nonzero; T has 3·2·2=12. Their relevant ordered pairs and triples are disjoint because the prefix requirements use zeros and the last pair of T does not. Every middle block is free, yielding the claimed optimum. A separate exact check enumerated the 512 complete ordered-pair partitions, built the corresponding triple sets, and maximized x·(|U_A∪V_B|−x) over integers |U_A∖V_B|≤x≤|U_A|; it found 132 with six maximizing partitions. The uploaded verifier was inspected but not executed. The maximum is for restrictions at lengths two and three only, with no conclusion for n<6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanovnik Proposition 3 gives the factor q^(n−2t₂) for n>2t₂. Proposition 4 specializes at (q,n,t₁,t₂)=(3,6,2,3) to S<729/floor(10/3)=243; Proposition 5 concerns t₁=1.",
+          "Blackburn's bounds focus on (1,k) and (k,n−1), and Yang–Ding §5 bounds its (1,t) construction. Neither scope gives a sharp bound for unrestricted (2,3) codes."
+        ],
+        "reasoning": "The broad applicable reduction leaves the unknown base value, and the applicable general numeric bound is too large. A bound for a more strongly restricted class is not an upper bound on the larger class here.",
+        "searches": [
+          "Stanovnik arXiv:2411.02899v1 §3 Propositions 3–5",
+          "Blackburn et al. arXiv:2211.10309v4 §II and boundary constructions",
+          "Yang–Ding §3 construction count and §5 upper bound"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.02899v1",
+        "DOI:10.1587/transfun.2025EAL2050",
+        "arXiv:2211.10309v4",
+        "Resultary ef306ab4a00f",
+        "Resultary c2c6d9bba0e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once 132 at n=6 is supplied, the factor 3^(n−6) is known for n>6; at n=6 scaling is the base identity.",
+          "The cited Yang–Ding bipartition construction with k=1 or 2 reaches at most 108·3^(n−6) here. That is a construction-size comparison, not a universal upper bound. The independent degree argument in correctness closes a gap not closed by the prior general bound."
+        ],
+        "reasoning": "Neither a previously known scaling formula with an unspecified initial value nor the size of one subclass mechanically gives the maximum or its 11-by-12 realization.",
+        "searches": [
+          "Stanovnik Propositions 3 and 4",
+          "Yang–Ding Construction 3.1 and Theorem 3.4 at q=3,t₁=2,t₂=3",
+          "Blackburn et al. stated overlap regimes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen and Yang–Ding interval definitions forbid overlaps of lengths 2 and 3 between all ordered word pairs, including a word with itself. Ordinary cross-bifix-free/non-overlapping refers to excluding all proper overlap lengths; that is a smaller class.",
+          "The closest Resultary single-overlap record ef306ab4a00f treats only length-2 overlaps in length-3 words and gives (q³−q)/3."
+        ],
+        "reasoning": "Shared terminology for forbidden end matches does not make restrictions on different lengths equivalent. The length-three exact invariant is not the ternary base-six double restriction.",
+        "searches": [
+          "Resultary: ternary (2,3)-overlap-free, restricted cross-bifix, length six, S_2^3(3,6)=132",
+          "Blackburn et al. arXiv:2211.10309v4 pp. 1–2",
+          "Yang–Ding DOI:10.1587/transfun.2025EAL2050 Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching 132 entry was identified in the bounded ranked results. The inspected table comparisons concern intervals beginning at 1, not [2,3].",
+          "The same-date catalogue record c2c6d9bba0e5 treats binary weight-two words under cyclic three-symbol read distance; the single-overlap exact size in ef306ab4a00f is for a different invariant."
+        ],
+        "reasoning": "Neither search rank nor date decides coverage. The table and catalogue parameters and underlying code constraints differ, so these entries cannot be read out as the sought ternary length-six optimum.",
+        "searches": [
+          "Resultary: exact ternary length-six restricted overlaps, overlap lengths two and three, 132",
+          "Stanovnik Tables 1–2 and Yang–Ding appendix scope"
+        ]
+      },
+      "rationale": "The distinct content is the sharp ternary base-six value and its attaining end blocks. Stanovnik already gives the arbitrary-length reduction for n>6, and the boundary-set framework is not itself new. Checked general bounds and published construction counts do not fix the optimum at these parameters.",
+      "residual_risks": [
+        "The exact-value catalogue and table comparisons are bounded; an unindexed computation or earlier alternate extremal formulation could exist. The literature judgments apply to the inspected results, not all appendices, code databases or unpublished work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scaling already covered; upper bound not sharp for the frozen claim",
+          "evidence": "Proposition 3 gives scaling for n>2t₂. Proposition 4 yields S<243 at the frozen base size. Proposition 5 is for overlap intervals beginning at one.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.02899v1; DOI:10.1007/s12190-025-02441-z",
+          "material_read": "§3 Propositions 3–5, p. 4 (text offset 15004); comparison to table scopes in the frozen package",
+          "method": "Open primary full-text passage; specialize the displayed formulas",
+          "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+          "trigger": "Potentially dominating general reduction and upper bound"
+        },
+        {
+          "assessment": "Related feasible sizes, not sharp maximum",
+          "evidence": "For the stated partition choices k=1,2 the specialized sizes are at most 108·3^(n−6). The upper-bound section concerns the particular (1,t) family, not unrestricted (2,3).",
+          "identifier_or_url": "DOI:10.1587/transfun.2025EAL2050; https://www.jstage.jst.go.jp/article/transfun/advpub/0/advpub_2025EAL2050/_pdf",
+          "material_read": "Definition, §3 construction and Theorem 3.4, §5 upper-bound scope (advance PDF text offset 27600)",
+          "method": "Open full-text passages and specialize the construction formula; confirm the separate upper bound's scope",
+          "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+          "trigger": "Same alphabet-dependent interval restriction and bipartition constructions"
+        },
+        {
+          "assessment": "Prior methods and other restricted regimes, not the sharp base count",
+          "evidence": "Overlaps include self-comparisons. Stated upper-bound regimes include (1,k) and (k,n−1), not the exact [2,3] restriction at n=6.",
+          "identifier_or_url": "arXiv:2211.10309v4; DOI:10.1109/TIT.2023.3304712",
+          "material_read": "Definitions and stated focus of bounds, pp. 1–2",
+          "method": "Open primary PDF comparison of hypotheses; compare boundary method described in the frozen package",
+          "title": "Constructions and bounds for codes with restricted overlaps",
+          "trigger": "Foundational bounds and cross-bifix interpretation"
+        },
+        {
+          "assessment": "Exact result on another length and overlap class; later dated",
+          "evidence": "Length 3 with only length-2 overlaps forbidden has a different optimum invariant.",
+          "identifier_or_url": "2026/11/2/SCOPE-pell-enumeration-of-maximum-length-three-single-overlap-codes--ef306ab4a00f",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror and statement comparison",
+          "title": "Pell enumeration of maximum length-three single-overlap codes",
+          "trigger": "Closest overlap-code Resultary hit"
+        },
+        {
+          "assessment": "Unrelated metric invariant",
+          "evidence": "Binary weight-two words and cyclic read distance are not ternary prefix/suffix overlap constraints.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-weight-two-capacity-for-binary-three-symbol-read-codes--c2c6d9bba0e5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror and comparison of defining constraints",
+          "title": "Exact weight-two capacity for binary three-symbol read codes",
+          "trigger": "Same-date coding hit with a three-symbol operation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length six is the first stable length from the published reduction, so the finite optimum is not an arbitrary instance: it determines every larger length. The sharp constant 132 and explicit attaining end blocks improve on the cited bipartition sizes and prove optimality over all ternary codes with exactly these overlap restrictions, a useful baseline for restricted-overlap constructions. The scaling itself is prior work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

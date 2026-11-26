@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:43:02.489471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r nonzero with r² not ±1, all four conics are smooth and distinct. Each of the five ordinary pairs has two contacts of multiplicity two: for the four mixed pairs the difference is the square of a line whose restriction to either smooth conic has two distinct zeros, while Q0 and Q1 meet on y=±z at x=0 with the same tangent and multiplicity two at each point. The Q+,Q− difference is 4ryz; at P=[0:0:1] the line y=0 gives multiplicity two, and on z=0 the roots x=±sqrt(−r²−1) with y=1 are distinct with independent gradients. No triple can occur: on Q0∩Q1 the other forms give nonzero (r±1)², while at the three Q+∩Q− points the other forms have nonzero values (−1,−r²) or (−r²,−1). Hence an automorphism preserves the unique nodally intersecting component pair, its tacnode, its node secant and its tacnode tangent. The latter three markers put the matrix in the form [a x+b y:c y:d z]; the symmetric nonzero node pair forces b=0 and a/c=±1. Pulling back Q+ and matching its x² and yz coefficients forces d/c=±1. All four choices work and act on components as claimed. There is no exceptional parameter left inside the hypotheses.",
+      "reproducibility": "Inspected the frozen verify.py and its notes without execution. The checker is a sparse polynomial identity test for pairwise differences, determinants, gradients at the tacnode and substitutions; the exact intersection and stabilizer arguments, not its terminal string, certify the universal result. No claim is made about abstract automorphisms or excluded parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Megyesi characterizes the 11-tacnode configurations up to projective equivalence and defines L and M projectively from the unique tacnode N and the two transverse intersections of the special pair. In the symmetric model Lemma 8 identifies L, M, N with the three coordinate vertices.",
+          "Măcinic–Pokora use the model at r=2 to compute plus-one generated exponents, not its full automorphism group."
+        ],
+        "reasoning": "The older projective normalization is stronger evidence than knowing some examples of symmetries: it canonically recovers all three vertices for every admissible r, so the group is obtained inside a diagonal torus. The syzygy computation does not give that restriction.",
+        "searches": [
+          "Megyesi, §4 Lemma 6 and §5 Proposition 7(b), Lemma 8",
+          "Măcinic–Pokora arXiv:2309.15228, Theorem 3.1 and the four-conic case"
+        ]
+      },
+      "checked_sources": [
+        "Megyesi DOI 10.2748/tmj/1178207755",
+        "arXiv:2309.15228",
+        "Resultary 849decf44190"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pair with two transverse intersections and one tacnode is intrinsic. Lemma 6 takes L from the tangent and secant and M as the harmonic conjugate of L with respect to the unordered transverse pair, while N is the tacnode. Lemma 8 identifies these with the X, Y, Z vertices in Proposition 7(b)'s symmetric model."
+        ],
+        "reasoning": "Each member of the stabilizer fixes L, M, N, so is diagonal, say diag(a,b,c). For Q+ to pull back to one of its pair up to scalar, its X² coefficient fixes the scalar to a², its Y² coefficient gives b²=a² since r²+1≠0, and its YZ coefficient gives bc=±a² since r≠0. Thus after scaling the diagonal entries are signs and there is no jump. Lemma 8 supplies those signs. This deduction doesn't require a new geometric lemma or a parameter census.",
+        "searches": [
+          "Megyesi, p. 560 Lemma 6; pp. 561–562 Proposition 7(b) and Lemma 8, OA PDF offsets 35500, 39826 and 43500"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 7(b) gives the same symmetric four-conic model; Lemma 8 exhibits the sign flips in Y and Z fixing the first two conics and exchanging the latter pair.",
+          "The same-day Resultary four-conic singularity-strata comparison 849decf44190 studies a different family, including a 4A7+8A1 member."
+        ],
+        "reasoning": "Modulo projective scalar, the Y and Z flips generate exactly the proposed X and Z sign group, and their stated component action is the same. The separate catalogue record is not equivalent.",
+        "searches": [
+          "Published Resultary: eleven-tacnode four-conic projective stabilizer",
+          "Megyesi DOI 10.2748/tmj/1178207755, Proposition 7(b) and Lemma 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching stabilizer table was found in the inspected comparisons. The primary paper instead gives a uniform formula model and explicit signs, while the modern example lists numerical syzygy data for a single parameter."
+        ],
+        "reasoning": "A single-parameter exponent value neither computes the group nor rules out jumps. The decisive exact coverage is mathematical implication from the uniform older model, not a table or a search miss.",
+        "searches": [
+          "Published Resultary: eleven-tacnode four-conic stabilizer and parameter jumps",
+          "Megyesi, Proposition 7(b) and Lemma 8; Măcinic–Pokora, four-conic example"
+        ]
+      },
+      "rationale": "Megyesi does not state the full stabilizer verbatim. However, the full text supplies not just its generators but the intrinsically recoverable projective coordinate triangle used for the upper bound, and the exact equations in that triangle. The subgroup exhausts the stabilizer by direct coefficient comparison in that published normal form. The claimed narrow exact invariant is therefore mechanically implied by the primary source, not merely subject to a possible overlap.",
+      "residual_risks": [
+        "No assertion is made that Megyesi literally states full stabilizer equality; the decision rests on the explicit implication above. Full moduli equivalences and the excluded families were outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family, explicit subgroup, and intrinsic triangle yielding the upper bound by substitution",
+          "evidence": "Lemma 6 defines N, L, M from the transverse-pair geometry and the harmonic cross-ratio; Lemma 8 gives their coordinate vertices and writes both involutions. Proposition 7(b) includes the symmetric ±2rYZ forms.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/tmj1949/52/4/52_4_555/_pdf",
+          "material_read": "§2 two-conic invariant (p. 559); §4 Proposition 5 and Lemma 6 (p. 560); §5 Proposition 7(b) and Lemma 8 (pp. 561–562)",
+          "method": "OA full-text passages from J-STAGE; decisive pages at offsets 35500, 39826, 43500",
+          "title": "Configurations of conics with many tacnodes",
+          "trigger": "Original classification and exact symmetry antecedents"
+        },
+        {
+          "assessment": "Same family applied to syzygies; not a stabilizer classification",
+          "evidence": "The example cites Proposition 7(b), uses r=2, and gives Tjurina number 35 and exponents (4,4,5).",
+          "identifier_or_url": "https://arxiv.org/abs/2309.15228",
+          "material_read": "Theorem 3.1 and k=4 example (pp. 5, 7)",
+          "method": "OA PDF passages",
+          "title": "On plus-one generated conic-line arrangements with simple singularities",
+          "trigger": "Modern source for the displayed family"
+        },
+        {
+          "assessment": "Different family and invariant",
+          "evidence": "Studies singularity and freeness strata including a 4A7+8A1 member, not this eleven-tacnode projective stabilizer.",
+          "identifier_or_url": "Resultary 849decf44190",
+          "material_read": "RESULT.md finding",
+          "method": "Local publication index and mirror text",
+          "title": "Singularity strata and the unique nearly-free member of an explicit four-conic family",
+          "trigger": "Same-day catalogue match on four conics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Ambient symmetry for an extremal arrangement is a natural invariant and uniformity would be useful if it were not already forced. Here the published intrinsic coordinate triangle, explicit signs and normal-form coefficients reduce exactness and absence of jumps to a short diagonal comparison, leaving no independently useful unknown precise fact in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(t^5\ne6\), the cyclic cubic presentation has exactly seven simple branch places and genus five by Riemann–Hurwitz. Five explicitly exhibited regular differentials give an exact Cartier matrix. Its rank is four at all nonzero parameters and zero at the central parameter. A twisted two-step determinant detects the \(t^5=2\) drop; the ten-factor matrix over the exact degree-five field has stable rank two. Nonzero parameters away from that divisor have stable rank four. Two independent coefficient-extraction algorithms and exact finite-field arithmetic reproduce the critical coefficients and all claimed ranks. The scope excludes five geometrically singular parameter values.
+## correctness
 
-## Originality — PASS (qualified)
-The 2018 Kudo and Kudo–Harashita papers establish the superspecial central curve and techniques for genus-five trigonal curves, not the complete three-rank stratification of its displayed deformation. Related recorded genus-four cyclic-trigonal classifications are not stronger statements: they concern different genera, ramification data and pencils. Targeted equivalent-form, deformation and rank searches did not identify full prior coverage. This is a best-knowledge originality assessment, not a guarantee of absolute historical uniqueness; equivalent unindexed calculations remain possible.
+PASS
 
-## Mathematical value — PASS
-The deformation is canonically motivated by a known superspecial genus-five trigonal model and preserves the seven-branch cyclic cubic structure. The complete locus of stable Cartier-rank jumps is a single degree-five closed point, while the first Cartier rank remains constant away from the central fiber. This contrast is a substantive arithmetic deformation invariant, not a routine substitution into an isolated formula. The result also gives exact extension-degree parameter counts.
+In the cubic model a repeated root requires u^5=2/3 and t=-5u^3/2, hence t^5=6. For each such t the repeated root is unique (u^3 and u^5 determine u), and N'' is nonzero there, so the normalized genus drops to four. Else the valuations -1, five +1's and -4 give seven tame total branch points, connectedness and genus five. The valuation checks at zero, infinity and the finite roots give the five regular differentials; their distinct monomials within two character spaces give independence. Cartier with exponent e=(11j'-j)/3 swaps the characters and extracts terms of exponent 11(q+1)-1. Replay python3 -B /workspace/checks/cartier.py enumerates trinomial words to recover the matrix and computes actual iterates by applying inverse Frobenius to each matrix action over F_11[t]/(t^5-2). It finds ranks [4,3,2,2,2,2,2,2,2,2], and the rooted tenfold map is idempotent, with Frobenius equal to the displayed P10. For all nonzero t the two blocks have rank two. The upper block selects the last two rows of the twisted lower block, whose determinant before twisting is -4t^3(t^5-2). Away from that zero, the two-step map is invertible on the two-dimensional character space and its transported two-dimensional image; thus stable rank is four, not just rank four at the first step. At t=0 the matrix vanishes. Frobenius on roots of t^5=2 and t^5=6 multiplies by 4 and 3 respectively, each of order five, giving both splitting counts. Fifth-root rescaling of u with a cube-root scaling of v proves the geometric isomorphism-orbit assertion.
 
-## Closest literature and scope
-M. Kudo, *A note on certain superspecial and maximal curves of genus 5*, arXiv:1807.04394 (2018); M. Kudo and S. Harashita, *Superspecial trigonal curves of genus 5*, arXiv:1804.11277 (2018). This review is limited to the proved pencil, and does not establish Newton polygons, generic geometric isomorphism classes, complete Weil spectra or historical priority against unpublished computations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the marked nonzero-parameter stratification through the degree-five rank-drop locus and the resulting coefficient counts. The central superspecial fiber and the general Hasse–Witt/Cartier machinery are known; so is the type of character-space bound, which cannot determine a jump divisor.
+
+## value
+
+PASS
+
+This is a motivated deformation of a known superspecial center preserving the seven-point cubic-cover structure. The a-number stays one on all nonzero genus-five fibers, while the stable Cartier rank drops on exactly one degree-five closed point. Locating that distinction and the excluded points gives a complete, arithmetic family invariant rather than a few finite-field examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete residue DFA, all-state reachability, its right-language equivalence, and the density result are established for all integer parameters and every accepting target. The nonstandard points are the common-length reachability lemma in the odd-modulus group and the exact one-new-class split caused by each of the \(t\) short suffixes; both are proved explicitly. The checkers independently recover the minimization and verify the proposed quotient. Finite checks are cross-checks, not a substitute for the all-parameter proof.
+PASS
 
-## Originality — PASS against inspected evidence
+For odd u>1, positions of exponents 0 and 1 modulo the order of 2 supply (1,1) and (2,1). Their difference gives (1,0), and subtracting that from (1,1) gives (0,1); finite additive orders let one reduce coefficients and realize all pairs at a common sufficiently large length. For u=1 use a sufficiently long fixed block that realizes each weight residue. Fixing the low t bits supplies the modulo-2^t target and leaves a solvable joint condition modulo u and k on the prefix. Thus all mk residue pairs are reachable at one common length, and at all greater lengths by leading zeros. Suffixes of length >=t forget all but (r mod u,p); fixed-length reachability and invertibility modulo u separate different such pairs. For each j<t the only possibly accepting suffix is exactly the j-bit encoding of a mod 2^j (empty for j=0). Its predecessor test fixes r modulo m/2^j and p modulo k. In descending j this test can split at most one block because all earlier tests use coarser numerical congruences and the same specified weight coordinate on that set. Adding m/2^(j+1) to an inside r changes the current test but not the older ones, giving exactly one split. Hence the explicit quotient has ku+t classes for all targets, with modulus one and t=0 included. The two odd-part/weight transitions are permutations; some common power of their average is entrywise positive by the fixed-length argument, so that finite chain converges exponentially to its uniform law. Prescribing the low t bits and applying CRT yields 1/(mk). Independent bounded replay `python3 /tmp/opencode/modular-review.py` checked reachability and minimized by backward pair distinguishability for all 780 targets at 1<=m<=12, 1<=k<=4; the frozen three check scripts and captured output were inspected, not executed. The full replacement leaves theorem and proof intact, but marks the density as a known consequence and credits exact covered state-complexity subcases; the known-consequence derivation was independently checked at X=2^n, with redundant moduli handled by summing. Scope remains MSD-first binary words, leading zeros and epsilon, one joint target, complete one-way DFA.
 
-The nearest 2019 Charlier–Cisternino–Massuir theorem concerns the different numerical set \(m\mathcal T\) and has the same \(2u+t\) numerical state-count shape for parity. The overlapping power-of-two, zero-residue, parity subfamily is expressly acknowledged as known. The present exact all-target, all-weight-modulus intersection classification is not a corollary of a statement about multiplication of \(\mathcal T\); the sets differ already at \(m=3\). The 2026 Geffert–Hlaváč–Královič work considers two-way automata for binary encodings of unary languages rather than the present joint digit-weight monitor. Web, exact-language, related-alias and semantic research-record searches found no decisive covering statement. The 2026 paper's full text was inaccessible in this review, and unindexed equivalent results remain a genuine priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The joint value/digit-weight language is a natural product monitor in automatic numeration and formal-language state complexity. Rather than merely giving the \(mk\)-state product upper bound, the theorem finds the **sharp** minimal size for every target and every modulus, describes every quotient collision, and shows precisely how a two-adic factor creates additive rather than multiplicative state growth. It supplies a complete infinite-family classification with a related limiting-density conclusion. The classification is not predicated on any downstream application.
+Pass the distinct general joint-congruence minimal-state and quotient claim, not the standalone density theorem or covered divisibility and affine Thue–Morse subcases. Gelfond's classical theorem actually implies the entire exponential-density part; the repaired Finding and literature section explicitly credit it and present the direct Markov proof as complementary. The literature section also credits the nonzero-a translated Thue–Morse subcases and updates the two-way-automaton comparison. No inspected broader result implies the general one-way input-popcount/target quotient. This is a best-of-knowledge verdict, not priority certification.
 
-## Boundaries and evidence
+## value
 
-Only most-significant-digit-first binary words with permitted leading zeros are covered. Three executable programs and their outputs accompany the proof. Relevant portions of the original 2019 full-text articles were read and compared by mathematical objects and implications; the 2026 article was inspected via the available abstract and bibliographic record, not its full manuscript. Unreviewed literature may supersede the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two numerical tests form a natural common-input product for one-way binary recognition, but the quotient has ku+t states rather than the separate-minima product k(u+t) in general. The uniformity across every numerical and digit-weight target, and the one-new-class-per-short-suffix mechanism, explain where all but t of the low-bit distinctions disappear. This is a usable exact construction and lower bound for joint recognition, not a parameter substitution into a multiplication theorem. The density appears only as classical context with a direct alternative proof and is not used as the novelty or value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

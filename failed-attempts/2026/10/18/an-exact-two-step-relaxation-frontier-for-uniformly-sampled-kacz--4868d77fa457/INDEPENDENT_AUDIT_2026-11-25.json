@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:52.906648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 32–73, verify.py and verification_output.txt (inspected only)",
+        "Independent replay: python /workspace/reproductions/exact_2_to_5.py (check 4)"
+      ],
+      "rationale": "For the fixed IID uniform rule the independent adjoint-moment recursion gives 4D2=δ²UP_vU+VδUVδ−V0UV0+δ⁴P_v. It reproduces the full matrix, positive trace and claimed determinant. The frontier scalar increases strictly from 0 to 1+3s²; negative, zero, and positive determinant give the exact indefinite, rank-one PSD, and positive-definite regimes. The leading matrix has off-diagonals csδ/4 and zero diagonal, giving the Rayleigh-optimal csδ/4+O(δ²) gain for unit errors at fixed angle. The rational witness and one-step difference check exactly. Nothing follows about uniform acceleration or long-horizon convergence.",
+      "residual_risks": [
+        "The proof assumes independent sampling with replacement, exact arithmetic and the fixed normalization; recorded grid cases are not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact-MSE lifting is available for standard Kaczmarz. Scheduled rates in the noisy analysis use different sampling and objective. The diagonal-relaxation paper was not retrieved in full."
+        ],
+        "reasoning": "General methods are antecedents but the inspected passages do not state this specific Loewner comparison; the indexed formula supplies the actual specialized coverage.",
+        "searches": [
+          "Wang–Agaskar–Lu arXiv:1502.00190v1 Eq. (8) and covariance lift",
+          "Marshall–Mickelin arXiv:2202.12224v4 Theorem 1.1",
+          "Censor et al. DOI 10.1137/050639399"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d0ced93fd424",
+        "arXiv:2610.12346v1, 1502.00190v1, 2202.12224v4",
+        "DOI 10.1137/050639399; DOI 10.1109/GlobalSIP.2014.7032145 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary rule and one-step conditional bound (offsets 13500–17500) and empirical comparisons (§5, offset 46450) are not the sign frontier. The indexed matrix has a linear off-diagonal ±ρsτ/4, trace O(τ²), and the identical determinant zero set."
+        ],
+        "reasoning": "The known matrix immediately implies the unit-norm leading gain and the equality kernel; neither is an independent surviving theorem.",
+        "searches": [
+          "Entezari–Banerjee–Kalantari arXiv:2610.12346v1 Eq. (5), Theorem 2 and §§5.1–5.2",
+          "Resultary d0ced93fd424 matrix formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its rows are (1,0) and sqrt(1−τ²)(ρ,s), with the second relaxed. Here an orthogonal coordinate change maps the ordered pair of unit row directions to that pair preserving inner product ρ=c; set τ=δ. In the relaxed row basis the off-diagonal sign differs by choice of perpendicular vector."
+        ],
+        "reasoning": "The error norm, uniform sampling and eigenvalue sign classification are unchanged by this transformation.",
+        "searches": [
+          "Resultary: volume-normalized relaxed randomized projections two-step crossover",
+          "2026/11/8/SCOPE-a-sharp-two-step-crossover-for-volume-normalized-relaxed-random--d0ced93fd424"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At offsets 0–2831 the exact law is τ⁴+τ(τ+2)s²<1, with one-step excess τ²||Qe||²/2. At 2780–5977 the full matrix, determinant and trace are given."
+        ],
+        "reasoning": "This is an exact algebraic match, not a grid of coincidences. A different rational witness does not add a phase.",
+        "searches": [
+          "Resultary d0ced93fd424, Finding and Proof exact frontier and moment matrix"
+        ]
+      },
+      "rationale": "A distinct indexed two-step crossover theorem gives the same full error-difference operator up to orthogonal reflection/rotation and the same exact frontier. The asymptotic and equality kernel follow immediately from that operator. This is demonstrable coverage, not an adjudication of path dates or attribution.",
+      "residual_risks": [
+        "The inaccessible two projection/MSE texts leave wider historical coverage unresolved; the failure is based on the inspected exact indexed theorem, not access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": [
+            "Offsets 0–2831 and 2780–5977: same moment operator up to an orthogonal change of basis"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-two-step-crossover-for-volume-normalized-relaxed-random--d0ced93fd424/RESULT.md",
+          "material_read": "Finding, assumptions and proof including moment matrix and determinant",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp two-step crossover for volume-normalized relaxed random projections",
+          "trigger": "Matching two-row fixed-horizon theorem"
+        },
+        {
+          "assessment": "Same rule, one-step bounds and experiments, not same theorem",
+          "evidence": [
+            "Offsets 13500–17500 and 46450: conditional geometric bound vs finite comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.12346v1",
+          "material_read": "§3.3 Eq. (5), Theorem 2; §§5.1–5.2",
+          "method": "OA HTML passage reading",
+          "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+          "trigger": "Exact motivating norm rule"
+        },
+        {
+          "assessment": "Methodological antecedent, conventional projector",
+          "evidence": [
+            "Lifts the error covariance, not this norm-based relaxation frontier"
+          ],
+          "identifier_or_url": "arXiv:1502.00190v1",
+          "material_read": "pp. 2–3, Eq. (8) and covariance lifting",
+          "method": "OA PDF around offset 17350",
+          "title": "Randomized Kaczmarz Algorithm for Inconsistent Linear Systems: An Exact MSE Analysis",
+          "trigger": "Potential exact MSE generalization"
+        },
+        {
+          "assessment": "Different sampling and objective",
+          "evidence": [
+            "Scheduled noisy error bound and epoch sampling without replacement"
+          ],
+          "identifier_or_url": "arXiv:2202.12224v4",
+          "material_read": "pp. 4–5, Theorem 1.1, Eqs. (8)–(10)",
+          "method": "OA PDF around offset 13900",
+          "title": "An Optimal Scheduled Learning Rate for a Randomized Kaczmarz Algorithm",
+          "trigger": "Potential broader relaxation optimization"
+        },
+        {
+          "assessment": "Unresolved comparison",
+          "evidence": [],
+          "identifier_or_url": "10.1137/050639399",
+          "material_read": "No full text reached",
+          "method": "OA retrieval returned 403; no lawful repository copy located",
+          "title": "On Diagonally Relaxed Orthogonal Projection Methods",
+          "trigger": "Broader convergence framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 44–83; indexed d0ced93fd424 operator and phase law"
+      ],
+      "rationale": "The sharp reversal is structurally meaningful as a finite-horizon warning, but it is already covered. Neither a different rational witness nor the first-order expansion of the same known 2×2 operator supplies a distinct substantive increment. No supported valuable repair is available within this record.",
+      "residual_risks": [
+        "No claim that a different horizon or sampling law is covered."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

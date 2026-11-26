@@ -1,23 +1,21 @@
-# Scientific assessment: critical two-velocity spatial relaxation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conserved global magnetization obeys the exact cubic-critical ODE of the source. Its asymptotic integrals are derived from the reciprocal-square transform. The Fourier matrix is directly obtained from the PDE, and its eigenvalues are expanded with the branch fixed by the nonzero torus wave number. Asymptotic diagonalization has integrable eigenvector coupling; Riccati invariant graphs distinguish one slow and one fast solution and show that the slow solution has a finite nonzero asymptotic coefficient. Integration of the slow eigenvalue produces the precise square-root term and the logarithmic exponent \(-3/8\). The constant-rate symmetric case follows from diagonalizability at zero magnetization.
+PASS
 
-Finite-precision verification checks the symbolic expansions and numerical renormalized log-amplitude trend. The computation is corroboration and is not an infinite-time proof.
+Integrating the mass-one PDE gives m'=2(sinh m-m cosh m); this is strictly negative for m>0, and uniqueness and the sign imply positive m decreases to zero. The expansion is -(2/3)m^3-(1/15)m^5+O(m^7). Then u=m^(-2) satisfies u'=4/3+2/(15u)+O(u^(-2)); first u~4t/3, then u=4t/3+O(log t), and reinserting yields u=4t/3+(log t)/10+O(1). In particular the integrated m and m^2 terms have finite constant remainders after subtracting sqrt(3t) and (3/4)log t. The Fourier matrix has trace -2 cosh m and half diagonal difference sinh(m)-ik. Since k=2pi n>1, its root taking value i omega at zero is i omega-(k/omega)m+i m^2/(2 omega^3)+O(m^3). Thus the real parts are -1±(k/omega)m-m^2/2+O(m^3), and the gap is positive of order t^(-1/2). In analytic eigenvector coordinates the remainder R=-P^(-1)P_m m' is O(t^(-3/2)). Incorporate R_ii into the diagonal; the real gap retains its bound. The slow and fast graph ratios satisfy Riccati equations with respective negative and positive real linear coefficients and off-diagonal forcing O(t^(-3/2))(1+|ratio|^2). The forward slow integral from a large t0 with zero initial ratio and backward fast integral from infinity are contractions in a small bounded ball. For the forward kernel split at t/2: the early part decays exponentially in sqrt(t), while the near part has width O(sqrt(t)); for the backward kernel substitute v=(sqrt(t)+y)^2. Both yield graph ratios O(t^(-1)). The two independent graph amplitudes have integrable logarithmic-derivative corrections, so their leading constants are finite and nonzero; the fast line pulls back uniquely by invertibility. Integrating the slow real part gives -t+(sqrt(3)k/omega)sqrt(t)-(3/8)log t+C+o(1), and the divergent integrated gap ensures dominance outside the line. At fixed positive means the Fourier map can be perturbed in all four real directions by small sine and cosine waves, so the exceptional condition is real codimension two. At m0=0 a nonzero coefficient has order e^(-t) by bounded diagonalizing oscillations; a zero coefficient remains zero. Exchanging orientations and reflecting x covers negative m0. This is fixed mode and deterministic hydrodynamic time, not a uniform or microscopic asymptotic.
 
-## Originality — PASS, with bounded residual risk
+## originality
 
-Pulvirenti, Redig and van Wiechen, arXiv:2509.22254v1, supply both the nonlinear PDE and mean-field magnetization law, which are accepted as prior. Their fixed-time hydrodynamic convergence and trajectory large deviations do not give long-time decay of each nonzero Fourier component. Redig and van Wiechen, arXiv:2307.02967v2, study stationary fluctuations under constant switching. Van Ginkel, van Gisbergen and Redig, DOI:10.1007/s10955-021-02787-1, derive two-state Fourier–Laplace transforms for fixed switching rates. Neither supplies the new slowly varying Curie–Weiss spectral integral. Searches of semantic research records for the same model, alias telegraph dynamics, critical Fourier relaxation, and spectral asymptotics retrieved other models, including Lorenz and convective Chafee–Infante; those claims cannot imply this theorem.
+PASS
 
-The use of classical asymptotic integration is not itself claimed as original. General kinetic and nonautonomous spectral methods or unlocated specialized literature may implicitly recover the formula; the search cannot prove exhaustive novelty.
+Credit the deterministic PDE, Curie–Weiss flip law, autonomous magnetization and generic techniques of asymptotic integration as prior. The checked literature does not identify the precise critical fixed-spatial-mode norm asymptotic, its logarithmic exponent, or its exceptional fast subspace for that PDE. Diagonalization at m=0, scalar critical magnetization decay, or diffusion in a stationary run-and-tumble model is not this assertion.
 
-## Value — PASS
+## value
 
-The global alignment order parameter has algebraic critical slowing while spatial inhomogeneity relaxes at an exponential rate with a large but subexponential square-root enhancement and a universal logarithmic power. The full explicit dependence on nonzero spatial wave number, plus its exceptional one-dimensional initial-coefficient condition, is a quantitative structural description of a natural physical critical point rather than an arbitrary cutoff computation.
+PASS
 
-## Scientific scope and limitations
+Gives a sharp asymptotic in a physically distinguished critical regime of an existing evolution: the zero mode is only algebraic, whereas a fixed nonzero mode has an exponential law with a frequency-dependent subexponential enhancement and a universal power. The separate exceptional line and the contrast with exactly zero mean prevent mistaking a formal eigenvalue shift for a law of all perturbations. These dynamics are not determined by the spectral abscissa of the limiting matrix alone.
 
-The theorem is only for the deterministic, unit-torus PDE at critical coupling and each fixed nonzero mode; it is generic for fixed strictly positive magnetization. It is not uniform in mode number, not a microscopic finite-particle large-time result, and not a statement about a summed spatial norm. The full list of model comparisons, search evidence and risks is in the associated structured assessment.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

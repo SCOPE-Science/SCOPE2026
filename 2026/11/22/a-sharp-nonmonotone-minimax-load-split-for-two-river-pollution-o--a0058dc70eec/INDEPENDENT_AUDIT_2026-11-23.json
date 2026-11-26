@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:11:42.638338Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving the linear BOD and deficit equations on each reach and imposing continuity of D at the downstream outfall gives the stated delayed kernel with D/L as the normalization. With z=e^(−u), the upstream quadratic is w(z−z²), the downstream one is Az−Bz² with A=w+(1−w)/q and B=w+(1−w)/q². At z=q/(1+q) the two responses agree, giving the bound q/(1+q)² for every allocation. The derivative at this interior point vanishes only for w=1/(1+q), making the bound strict for any other split. At this split the downstream vertex attains the bound and w/4≤q/(1+q)² exactly for q≥1/3. For q<1/3 the upstream vertex is available. Equating its height with the downstream vertex factors the resulting equation as (1−w)(1−2(1−q)w)=0; w=1 is extraneous for that vertex calculation. The candidate w=1/[2(1−q)] puts the downstream vertex at q/[2(1−q)]<q. Any larger w raises the fixed upstream peak; any smaller w raises the deficit at the fixed downstream vertex because the delayed response there exceeds the first by (1−3q)/[4(1−q)]. Hence the two branch formulas and all-strict uniqueness hold including q=1/3 via the derivative certificate. Both open-reach maxima are active at and below the seam and are distinct there; above it only the downstream vertex is global. q=e^(−kd) reverses orientation, giving strict rise then fall with sole maximum 3/4 at log 3 and endpoint limits 1/2; coincident and infinitely separated outfalls are not part of the domain. Frozen verify.py was inspected, not executed; the proof does not use its finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original 1925 deficit balance and integrated single-source response underlie the model. The Resultary predecessor handles general deoxygenation and reaeration parameters for the number of local maxima at specified load ratio, and expressly excludes identifying the global worst deficit.",
+          "The older conviction that critical deficit is convex in loads and the minimum-treatment-cost formulation are described in the frozen abstract comparisons; the independent DOI routes did not give their full papers."
+        ],
+        "reasoning": "Generalizing the rate ratio for local-extremum counting does not generalize the optimized quantity. Convexity can support global optimality once the active constraint(s) are identified, but it does not on its own identify them.",
+        "searches": [
+          "Published Resultary predecessor 92e4f7efeacb, general two-rate double-sag theorem",
+          "Streeter and Phelps 1925, printed pp. 17–19",
+          "Arbabi–Elzinga–ReVelle 1974; Loucks–ReVelle–Lynn 1967; Bhargava 2007/2008"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 92e4f7efeacb and e5e0cf2e8de0",
+        "Streeter and Phelps 1925",
+        "Arbabi et al. 1974; Loucks et al. 1967; Jamal 1986 (access limitations detailed above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the frozen optimum the second-to-first load ratio is q for q≥1/3 and 1−2q for q≤1/3; the predecessor's relevant ratio bound at rate pair (1,2) is q−2q² with spacing requiring q<1/2. Thus there are two strict local maxima for 1/3<q<1/2, but only one global worst location, whereas two tie at q=1/3."
+        ],
+        "reasoning": "The distinct count boundary and tie boundary give a direct counterexample to identifying the two classifications. To infer the minimax split one must compare the actual peak heights while changing w; the fixed-point slope and two-site lower-bound certificates are additional arguments.",
+        "searches": [
+          "Resultary 92e4f7efeacb, original theorem statement and scope at offsets 0 and 3000–5771",
+          "Original kernel and historical critical-deficit convexity comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With positive linear responses and no background deficit, maximizing total BOD under an entire-reach uniform deficit cap is equivalent by scale to minimizing peak deficit at unit total BOD. The frozen comparison describes Jamal's tidal model and constrained numerical goal; the independent DOI route provided a landing page, not a theorem for these kernels.",
+          "Critical-deficit convexity is expected here as the supremum of affine functions of w, and the frozen classical abstract comparison reports it in prior work."
+        ],
+        "reasoning": "The equivalent load-cap formulation must use the same linear profiles, uniform entire-reach constraint and two unrestricted nonnegative loads. A general constrained numerical optimization framework or convexity property alone does not evaluate the sharp split.",
+        "searches": [
+          "Resultary: two delayed Streeter–Phelps kernels, fixed-total BOD, entire-reach peak, exact minimax split",
+          "Jamal DOI 10.14288/1.0096653, permissible-loading thesis",
+          "Arbabi–Elzinga–ReVelle DOI 10.1029/WR010i005p00921, convex critical deficit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed predecessor gives a local-sag threshold in a load ratio, not an exact optimization table. The distinct same-day e5e0cf2e8de0 theorem switches the worst reach for a single outfall as a reaeration interface moves, without an allocation variable."
+        ],
+        "reasoning": "The rate-two, two-outfall explicit result is not a recomputation of a known exact gain or tabulated split in the comparisons made. The similar worst-reach title uses a different physical optimization input.",
+        "searches": [
+          "Resultary: exact optimum upstream fraction switch at kd=log 3 or q=1/3",
+          "Resultary e5e0cf2e8de0 one-outfall worst-reach switch; predecessor 92e4f7efeacb"
+        ]
+      },
+      "rationale": "The classical kernel and the directly related same-kernel local-maxima theorem are credited. The supported distinct result is an exact global fixed-budget minimax classification, including strict uniqueness, nonmonotonicity and the global active set. The local-maxima decision and classical critical-deficit convexity do not imply its two exact branches or active-set threshold. Unavailable historical portions remain explicit risks, not negative evidence.",
+      "residual_risks": [
+        "Full texts of Arbabi et al., Loucks et al., and the settling-focused Bhargava DOI 10.1007/s10669-007-9120-x were not independently read. Older work including Liebman–Lynn could contain an exact specialization.",
+        "This is a bounded statement comparison, not a proof of historical priority or a claim for arbitrary river parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers local-maxima count, not allocation or global tie",
+          "evidence": [
+            "Scope explicitly excludes which peak is the global worst; at the evaluated optimizer the count switches at q=1/2, not q=1/3."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+          "material_read": "RESULT.md finding and scope/proof; offsets 0 and 3000–5771",
+          "method": "Resultary search and local-mirror original text",
+          "title": "Reentrant double-sag regimes for two separated biochemical oxygen-demand sources",
+          "trigger": "Same delayed kernel and sharp phase classification"
+        },
+        {
+          "assessment": "Different geometry and decision variable",
+          "evidence": [
+            "One outfall, two reaeration reaches, moving interface, no fixed-total split."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-oxygen-sags-from-one-outfall-a-unique-worst-reach-switch-und--e5e0cf2e8de0",
+          "material_read": "RESULT.md opening finding",
+          "method": "Resultary and local-mirror original",
+          "title": "Two oxygen sags from one outfall: a unique worst-reach switch",
+          "trigger": "Similar exact global sag transition"
+        },
+        {
+          "assessment": "Model/response prior work",
+          "evidence": [
+            "Deficit balance dD/dt=K₁L−K₂D and integrated single-source response."
+          ],
+          "identifier_or_url": "https://udspace.udel.edu/server/api/core/bitstreams/6f57c427-5f4f-4435-9d8c-87e3c8c02a66/content",
+          "material_read": "Printed pp. 17–19, OCR offsets 48800–52082",
+          "method": "Bounded passages of primary OA scan",
+          "title": "A Study of the Pollution and Natural Purification of the Ohio River, III",
+          "trigger": "Original evolution model and response"
+        },
+        {
+          "assessment": "Reported convexity, residual uncertainty on detailed examples and stronger claims",
+          "evidence": [
+            "Abstract comparison reports convexity and a linear programming approximation for critical deficit."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/WR010i005p00921",
+          "material_read": "No independently obtainable full text; used the frozen record's public abstract comparison",
+          "method": "OA DOI access attempted",
+          "title": "The Oxygen Sag Equation: New properties and a linear equation for the critical deficit",
+          "trigger": "Potential exact specialization of general critical-deficit theory"
+        },
+        {
+          "assessment": "Reported minimum-cost objective, exact coverage beyond it unverified",
+          "evidence": [
+            "Minimizes treatment costs under dissolved-oxygen standards."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/mnsc.14.4.B166",
+          "material_read": "No independently obtainable full text; public abstract objective as quoted in the frozen audit",
+          "method": "OA DOI access attempted",
+          "title": "Linear Programming Models for Water Pollution Control",
+          "trigger": "Historical allocation optimization"
+        },
+        {
+          "assessment": "Reported numerical tidal model; full-text conclusion not independently determined",
+          "evidence": [
+            "Permissible loading with compliance constraints, not an independently verified rate-two all-separation formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.14288/1.0096653",
+          "material_read": "Landing page only independently; frozen audit identifies model and methodology from a transcription",
+          "method": "OA DOI route and frozen text comparison",
+          "title": "Optimal allocation of ‘BOD’ loadings in a tidal river",
+          "trigger": "Equivalent fixed-cap loading optimization possible"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed load split minimizing worst oxygen depletion is a natural global objective distinct from counting local sags. At the tractable ratio 2, the benchmark shows that the optimal upstream fraction can reverse direction as spacing grows and that a second local maximum can precede its becoming globally binding. The exact peak tradeoff and uniqueness supply a useful benchmark for more general models without implying calibrated field guidance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

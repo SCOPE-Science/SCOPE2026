@@ -2,7 +2,7 @@
 
 ## Correctness — PASS
 
-The pairwise-balancing lemma excludes unequal positive supplemental cover at any global optimum, including zero-shelter boundary cases. The exponential-tilting integral formula makes each adjacent support comparison cross exactly once; the derivative-integral representation of the continuous support envelope proves its strict one-peak shape and the absence of skipped global support sizes. The zero-baseline logarithmic thresholds and positive-baseline limit are proved analytically. The packaged standard-library checker replayed 1,315,977 supplementary assertions; finite checks do not replace these proofs.
+The pairwise-balancing lemma excludes unequal positive supplemental cover at any global optimum, including zero-shelter boundary cases. The exponential-tilting integral formula makes each adjacent support comparison cross exactly once; the derivative-integral representation of the continuous support objective gives the strict shape that excludes skipped global support sizes. The zero-baseline logarithmic thresholds and positive-baseline limit are proved analytically. The packaged checker reports 1,315,977 counted diagnostics, with positive baseline tested by a grid (not the randomized group); finite checks do not replace these proofs.
 
 ## Originality — PASS relative to inspected sources; residual risk
 
@@ -14,6 +14,6 @@ The exact no-skipping support staircase and logarithmic zero-baseline thresholds
 
 ## Limits
 
-Identical patches; fixed initial-density hazards rather than dynamic feedback; divisible cover; no per-patch caps or dispersal; historical mathematical texts incompletely accessible; independent verification outstanding.
+Identical patches; fixed initial-density hazards rather than dynamic feedback; divisible cover; no per-patch caps or dispersal; historical mathematical texts incompletely accessible.
 
-Self-review: passed. Independent audit: not yet performed.
+This file records the source self-review; it is not the independent review.

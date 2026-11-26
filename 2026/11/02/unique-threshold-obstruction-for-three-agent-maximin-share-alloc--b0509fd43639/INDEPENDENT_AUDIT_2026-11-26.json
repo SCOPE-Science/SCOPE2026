@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:10:25.805489Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46",
+        "Frozen VERIFICATION.md lines 3–24 and verify.py (inspected, not executed)",
+        "/workspace/audit_checks.py, mms()"
+      ],
+      "rationale": "With a zero share one can give that agent nothing: a positive-share agent's singleton part blocks at most one part of a second positive-share agent's three-part partition. In a failure with all shares positive, two distinct singleton goods in different agents' partitions block at most two parts for the third agent and would give a fair allocation. Thus all singleton parts coincide; the other two parts form a matching, and equal matchings for any two agents likewise give a fair allocation. The decisive all-bundles step is that every 3-subset of the remaining four goods already contains an edge of each matching. A newly accepted singleton admits an edge of a different agent avoiding it; a newly accepted nonmatching pair has a complement in another agent's matching. In both cases the remaining agent takes the common singleton. Conversely distinct matchings cannot supply disjoint edges on four vertices. All accepting partitions must use the common singleton by size, giving uniqueness. The binary realization achieves share 1 and the five choices of singleton and six agent assignments give 30 patterns, one relabeling orbit. For at most two goods all shares are zero; on three goods positive-share agents accept each singleton, and on four goods two different singletons and a third avoiding part always exist when needed. Independent bitmask allocation check: `cd /workspace && python audit_checks.py 5`; 1, 216, 15625 profiles at sizes 3, 4, 5, respectively, with 0, 0, 30 failures and all 720 single-bundle extensions restoring feasibility. The finite checker supplements the proof for arbitrary real-valued monotone utilities.",
+      "residual_risks": [
+        "Classification concerns threshold sets only and uses monotonicity and the possibility of empty bundles for zero-share agents."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 at c=2 has three agents and five goods and realizes exactly the common large singleton and distinct matching edges as threshold generators. The Introduction describes a worst-case reduction, not necessity for unreduced profiles; Appendix B gives the broader extremal matching question."
+        ],
+        "reasoning": "The prior construction proves existence and supplies even the exact threshold pattern for its example. A reduction replacing valuations by smaller acceptance families can preserve impossibility in that direction but cannot show the replacement leaves every originally failing family unchanged.",
+        "searches": [
+          "arXiv:2610.06125v1 Theorem 6 and Appendix B Question 22"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9e9ecb81ec43",
+        "arXiv:2610.06125v1",
+        "Frozen RESULT.md lines 11–18 and 26–54"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior Resultary result every choice of MMS partitions in a failing profile has the same singleton and distinct matchings. Fix two partitions; the third is forced. Thus even uniqueness of the MMS partitions follows from prior results.",
+          "The frozen RESULT.md lines 36–42 goes further: the only possible extra generators are leftover singletons and nonmatching pairs, each of which gives an explicit fair allocation."
+        ],
+        "reasoning": "The previous existence and partition classifications do not by themselves test those new threshold generators; the separate allocation argument makes every failing acceptance family exact, not just representable by a lower envelope.",
+        "searches": [
+          "Resultary 9e9ecb81ec43, RESULT.md offsets 0–4845 and 5000–9785",
+          "arXiv:2610.06125v1 Theorem 6 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feige's colored perfect-matching formulation and upward closure of chosen MMS parts express the reduced partition problem; they do not decide whether the original valuation accepts other bundles.",
+          "The earlier Resultary theorem classifies obstructed triples of partitions, and explicitly distinguishes partition obstruction from valuation-profile failure."
+        ],
+        "reasoning": "A profile can retain the same MMS partitions while gaining an acceptable bundle not used in any such partition. Fixing the three partitions therefore does not identify the acceptance functions; one must rule out additional bundles via the allocation criterion, including the complementary-pair argument.",
+        "searches": [
+          "Resultary: five goods three agents monotone maximin share obstruction / rainbow partition transversal",
+          "arXiv:2610.06125v1 Introduction and Appendix B Question 22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Offsets 0–4845 give 30 labeled partition signatures in one orbit, with binary witnesses at offsets 5000–9785."
+        ],
+        "reasoning": "The 30 and the orbit structure already occur exactly for the same parametrization; the present result identifies them as the complete layer of acceptance profiles rather than a new enumeration of partitions.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-unique-five-good-obstruction-to-maximin-share-allocation-for-thr--9e9ecb81ec43, RESULT.md"
+        ]
+      },
+      "rationale": "The supported contribution is the all-bundles rigidity in every failing profile, equivalently maximality of the obstructing acceptance families: permitting even one formerly unacceptable bundle restores feasibility. The sharp size, the example, the partition-triple necessity and classification, and the resulting count at partition level are already covered and are not independent contributions. The all-bundles claim is explicitly the frozen theorem's main assertion, not a replacement theorem.",
+      "residual_risks": [
+        "This bounded comparison cannot exclude an independently proved maximality theorem in differently phrased matching literature.",
+        "The extension is modest; it should not be advertised as a new minimal counterexample, partition obstruction, or raw labeled count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the partition theorem, its classification/count and by implication unique MMS partitions in failing profiles, not full acceptance-family rigidity.",
+          "evidence": [
+            "Transversal iff criterion; every chosen MMS partition triple in a failure is exceptional; binary realization; partition criterion alone is not sufficient for arbitrary valuations."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-unique-five-good-obstruction-to-maximin-share-allocation-for-thr--9e9ecb81ec43/RESULT.md",
+          "material_read": "Finding and witness/limitations, offsets 0–4845 and 5000–9785",
+          "method": "Resultary search and local mirror reading",
+          "title": "Unique five-good obstruction to maximin-share allocation for three agents",
+          "trigger": "Same agent and good counts, direct claimed partition classification"
+        },
+        {
+          "assessment": "Covers the five-good example with its exact pattern, and not the universal all-bundles necessity.",
+          "evidence": [
+            "Four small goods and one large good at c=2; MMS 4 with unique partition for each constructed agent; general rainbow-matching formulation in Appendix B."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.06125v1",
+          "material_read": "Introduction (3500–5283), Theorem 6 proof (18150–26134), Appendix B Question 22 (around 68350)",
+          "method": "OA primary HTML passage comparison",
+          "title": "On MMS allocations with few items",
+          "trigger": "Exact matching example and potential general extremal classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–46",
+        "Resultary 9e9ecb81ec43",
+        "Feige Theorem 6 and Appendix B"
+      ],
+      "rationale": "At the first possible failure size this classifies the entire acceptance profile, not just partition witnesses. The maximality statement tells a researcher whether a putative counterexample survives an arbitrary additional threshold bundle, and provides an exact base case for extending rainbow MMS obstructions. The short proof adds a distinct diagnostic even though the partition classification and minimal example already exist.",
+      "residual_risks": [
+        "No new bound for more agents, no welfare ordering of numeric utilities, and no claim of paper-sized novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

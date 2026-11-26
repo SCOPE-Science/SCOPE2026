@@ -1,19 +1,21 @@
-# Review of a finite-mode Fourier sign-set theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The function class is specified using the unitary \(2\pi\)-Fourier transform, the real span of odd-index Laguerre modes \(j=1,3,5\), and the pointwise condition \(f(0)=0\). The Laguerre generating function supplies the Fourier eigenvalue \(-1\). Exact rational polynomial identities reduce the constrained space to two dimensions; leading-coefficient analysis eliminates all negative-tail competitors. The remaining one-parameter quartic is covered by six parameter strips and two unbounded tails. Exact rational Bernstein certificates bound all strips, and a direct algebraic Bernstein certificate covers the negative tail. Every alternative is strictly worse; uniqueness of the positive ray follows. The standalone standard-library checker validates all critical finite polynomial identities and interval certificates. Risk: no independent proof replication has been conducted.
+PASS
 
-## Originality — PASS relative to checked evidence
+Multiplying the Laguerre generating series by the Gaussian gives (1−s)^(-1/2) exp(−πx²(1+s)/(1−s)); Fourier transforming near s=0 replaces s by −s, verifying eigenvalue (−1)^j. Eliminating the constant at z=0 gives the two stated polynomials A and B; the negative-leading b>0 and b=0,a>0 cases have infinite negative length. The b=0,a<0 case gives exactly the claimed two symmetric intervals and length ≈1.134785527737, with isolated zeros immaterial. For b<0 the positive rescaling gives zQ_t/480. Exact division gives Q_t=D(4z²−60z+150−80t)−180 with D=(z−r_-)(z−r_+). When t≤−1 and z between the roots, the second factor is at least 4(z−15/2)²+5>0, so Q_t≤−180 there and continuity at both roots gives strict extra length. The displayed algebraic Bernstein coefficients also agree with exact expansion. Independent integer/rational replays verified all 140 strict central-strip signs and 10 strict signs at t=2 for the positive tail, and all printed rational length bounds; the bounds exceed 17/10 whereas the target square-root gap is below that. Affinity in t gives entire central strips; positivity of D on [0,1] and [7,12] gives the full t≥2 tail by monotonicity. Touching endpoints in the first strip do not double-count positive length. Thus no t is an additional minimizer and the degree-six positive ray is unique in the specified three-mode space. Uploaded verify.py was inspected but not executed. The finite exact check certifies the listed inequalities, with uniform parameter coverage following from the analytic argument, not sampling.
 
-Edwin's 2026 paper poses the broader sign-uncertainty context but the reviewed relevant material does not present the exact three-mode negative-eigenvalue optimizer. The nearest published exact sign-length result concerns eigenvalue \(+1\) and Hermite orders \(0,4,8\), and therefore does not imply the negative-eigenvalue result for orders \(2,6,10\). A classical Beurling/Hermite uncertainty treatment and a Wigner-nodal-set paper concern different quantities. Database comparisons included aliases, sign-radius problems, polynomial/annulus formulations, and higher-mode coverage. The full scientific statement and proof of the published nearest record were inspected; its eigenvalue and polynomial family are distinct. Absence of an indexed match is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A recently posed definite-set sign question motivates exact finite-mode benchmarks. The theorem gives a natural first negative-Fourier three-mode classification with a sharp algebraic negative-set length, a unique extremizer, and the substantive rigidity that an extra Hermite order cannot reduce the optimum. It treats an infinite continuous sign set, not a finite sampling experiment. It does not address the unrestricted problem.
+The supported distinction is the exact all-competitor minimum and unique lower-degree ray in the one-dimensional Fourier −1 span of orders 2,6,10. The closest indexed result addresses the +1 space of orders 0,4,8 and is a precedent for the question, not an equivalent theorem. Other nearby work has different dimensions, Fourier signs or an eventual sign-radius objective. The exact −1 catalogue hit was this frozen record itself, and some close full texts could not be freshly inspected; no universal priority claim is made.
 
-## Closest literature and limitations
+## value
 
-R. Edwin, arXiv:2611.08224v1, provides the motivating generalized sign-uncertainty question. The positive-Fourier three-mode benchmark has a different eigenvalue and different Hermite orders, with no statement that transfers to this case. Classical Gaussian-Hermite and Wigner studies do not establish this precise minimum. An older unindexed exact weighted-polynomial calculation remains a bibliographic risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first three negative Hermite modes and the origin condition are canonical restrictions for the definite-set question. It is not obvious that the additional admissible degree-ten component cannot improve the measure; the exact certificate over the full parameter line proves that it never does. The value is an exact benchmark and rigidity statement for that natural finite family, not an unrestricted bound or a handpicked numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

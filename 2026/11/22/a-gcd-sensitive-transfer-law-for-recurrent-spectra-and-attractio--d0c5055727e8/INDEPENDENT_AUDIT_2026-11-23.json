@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:03:35.158014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In L=lcm(a,b) steps into V_j the crossing can be j+1+kb steps back, 0<=k<L/b. Its two upstream starting indices, modulo a, are j+1+kb and j+1+s+kb because L is divisible by a. These run through exactly the claimed cosets mod g, including coincident cosets if g|s. There is one all-downstream ancestor, V_j itself. The resulting idempotent F^L is a projection; on its image the two gates are already one whenever V_(b-1)=1, hence each ring rotates and the image is exactly the recurrent set. The active residue pattern weights each upstream inactive class by w, and each adjacent active pair (r,r+s) by z; the g-residue permutation has h cycles of length m, including m=1, proving the trace power. Given K=k there are beta*k writable recurrent positions and all other initial downstream coordinates are free in a phase preimage. This gives the labeled counts and full orbit basins by disjoint union over phases of the same K. In Fix(F^t), repeat words of lengths a_t and b_t. Projecting the mod-g upstream class of any j+1 or j+1+s to mod a_t yields precisely one coset of gcd(g,a_t)=g_t; reducing j mod b_t preserves those g_t residues since g_t|b_t. This proves the repeated-word support equivalence for every t, also when a_t or b_t is one. Möbius inversion counts primitive orbits and gcd(g_t,s)=gcd(g_t,gcd(g,s)) gives the asserted invariance. Survival conditional on K has non-survival factor 2^(-beta*K); the larger eigenvalue (3+sqrt(17))/4 is below 2 for the equal lengths, while for a=n,b=n+1 survival requires an all-one upstream word and at least one downstream one. The independent python3 -B /workspace/reviews/bridge_check.py uses functional-graph peeling, orbit labeling and binary iterate composition; 94 in-scope small triples (73712 initial states) and all 65536 states in each (8,8,s), s=1,2,4, confirm phase totals 2207,2209,2401, along with fiber/basin sizes, all t through L and the survival formula. No frozen script was executed. Reproducibility caveat: the frozen check_two_bridges.py main loop lists only the trace results for 8-by-8; its defined case function could enumerate those states, but its default command does not. The separate check supplies the claimed full 8-by-8 replay. These finite checks are not an all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 provides a possibly later multiple of component lengths for general reduced weakly connected networks; Remark 3 then gives disjoint-cycle rotation. Lemma 9 explicitly gives the LCM in the two-edge case.",
+          "Jarrah–Laubenbacher–Veliz-Cuba give bounds and exact fixed-point results for broad classes, plus one-arc examples; §7.1 gives an obstruction to sharp counts based only on component cycle polynomials and poset data."
+        ],
+        "reasoning": "Generic projection computes asymptotic dynamics pointwise but does not evaluate the transfer or the fixed-iterate compression. General exact fixed-point counts at t=1 or cycle-length bounds do not supply a full fixed-iterate and phase-preimage census. The generic theorem is stronger on graph class, not a numerical result directly yielding these weighted formulas.",
+        "searches": [
+          "arXiv:1708.01975 §§IV-A–IV-C Lemmas 8–10, Theorem 2 and Remark 3",
+          "arXiv:0805.0275 Example 2.9, Sections 5 and 7 and §7.1"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Gao–Başar arXiv:1708.01975v4 relevant PDF sections",
+        "Jarrah–Laubenbacher–Veliz-Cuba arXiv:0805.0275v1 relevant PDF sections",
+        "Resultary local index and targeted web literature query",
+        "Frozen package and independent finite enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Lemma 9 one can enumerate all initial states and recover these quantities in principle; that is not a closed transfer count. The weighted active-pair statistic follows by organizing compatibility along r ↦ r+s modulo g, while fixed iterates also require the reduced support coset equality involving gcd(g,a_t).",
+          "The component lengths and poset are held fixed when s changes; the 8-by-8 family exhibits varying periodic populations, so bounds using just those data cannot yield the claimed quantitative dependence."
+        ],
+        "reasoning": "The further finite reduction to a two-state weighted cycle law, the multiplicities of fiber sizes and the exact compressed period formulas are a separate quantitative result. The formula's deducibility after these calculations should not be confused with restating the old pointwise projection or claiming priority for it.",
+        "searches": [
+          "Chen–Gao–Başar §IV-B Lemma 9 and §IV-C Theorem 2 versus the phase-fiber and support reduction formulas",
+          "Jarrah et al. Example 2.9 and §7.1 versus population statistics when only s or b changes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§IV-B's type i uses two elementary digraphs sharing both cycles. Eq. (8) in Lemma 9 computes their Hadamard product at the LCM, exactly the projection here (one factor per bridge and idempotence of Boolean AND).",
+          "A closely indexed one-bridge relaxation result concerns transient entry layers, not the weighted two-bridge recurrent fibers; the exact same-record hit was excluded as prior evidence."
+        ],
+        "reasoning": "The equivalent idempotent gate-update and product-of-projections formulations are prior. The weighted recurring-bit census counts the permitted number of sites by the active pairs on residue cycles, and is not the mere existence or pointwise form of projection. The one-bridge spectrum does not encode the second offset or pair constraint.",
+        "searches": [
+          "Resultary: conjunctive Boolean networks two cycles common target two bridges gcd weighted transfer periodic points basin survival",
+          "Web: two directed cycles conjunctive Boolean networks two arcs same target periodic orbit counts basins transfer matrix exact Chen Gao Basar gcd arrangement",
+          "Chen–Gao–Başar arXiv:1708.01975 §IV-B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 2.9 explicitly gives 3 fixed points, one 2-cycle and two 3-cycles, for two rings of lengths 2 and 3 linked by one arc. Section 7.1 supplies more one-edge counts, not the labeled two-offset cases.",
+          "The locally indexed nearby findings include one-bridge transient shells and XOR/majority network counts. Those use different graph/updates or a different statistic."
+        ],
+        "reasoning": "The closest exact published counts have different topology or gate law. Exactness at particular offsets is corroborating only; substantive novelty concerns the full parameterized distribution. No universal inventory of undocumented computations is claimed.",
+        "searches": [
+          "Resultary: conjunctive Boolean networks two cycles common target two bridges gcd weighted transfer periodic points basin survival",
+          "Jarrah–Laubenbacher–Veliz-Cuba Example 2.9 and §7.1 cycle polynomials",
+          "Chen–Gao–Başar §IV-B Eq. (8) and its examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the closed recurrence and attraction census and arithmetic separation/survival consequences, not for the two-bridge projection, rotation dynamics, the transfer-matrix trace as a technique, or Möbius inversion. The published projection has substantial overlap and indeed specifies the eventual orbit from individual initial conditions; its contribution is explicitly excluded in the frozen claim.",
+      "residual_risks": [
+        "The close known projection makes enumeration immediate in principle. An equivalent specialized weighted necklace/adjacency or fiber enumeration could exist outside the inspected material.",
+        "No novelty is attributed to generic graph dynamics or to the trace product identity in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the projection and eventual rotations, not the weighted numerical census in the inspected lemmas/theorems.",
+          "evidence": [
+            "Lemma 8 elementary projection, Lemma 9 Eq. (8) with N_K equal to the cycle LCM, Theorem 2 and Remark 3 following the general Omega-map construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.01975",
+          "material_read": "Open v4 PDF text, abstract and introduction, sections IV-A–IV-C: elementary projection, type-i/ii decomposition, Eq. (8) and its ancestor argument, Lemma 10, Theorem 2 and Remark 3.",
+          "method": "Match cycles and bridge edges one-to-one; compare Hadamard multiplication of elementary projections and the exact scope of the general convergence statement.",
+          "title": "Asymptotic Behavior of Conjunctive Boolean Networks Over Weakly Connected Digraphs",
+          "trigger": "Same two-edge cycle-union case and substantially broader eventual projection and rotation results."
+        },
+        {
+          "assessment": "Strong related context, including exact fixed points and one-bridge examples; these do not determine the two-bridge weighted population formulas.",
+          "evidence": [
+            "Example 2.9 single-bridge cycle polynomial 3C1+C2+2C3; §7.1 obstruction via families with the same component poset."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0805.0275",
+          "material_read": "Open v1 PDF text, abstract, Example 2.9, cycle bound and admissibility passages, §7.1 and discussion.",
+          "method": "Compare number of bridges, component lengths, exact period population, and what is and is not determined by component-level inputs.",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "Earlier exact and bounded cycle-count statements, including linked-cycle examples."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The linked-cycle topology has an established dynamical motivation. Exact weighted counts make a quantitative distinction between offsets with identical component data, determine primitive period multiplicity and individual basin sizes, and identify a sharp change in downstream activity on moving to consecutive lengths. Replacing full-state projection enumeration by residue-sized transfer data answers a natural population question about these networks. This is a structural refinement, not a claim that eventual projection or a single 16-vertex census is new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

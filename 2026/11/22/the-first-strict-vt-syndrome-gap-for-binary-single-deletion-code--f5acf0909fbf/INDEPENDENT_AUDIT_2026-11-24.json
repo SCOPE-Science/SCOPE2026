@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:47:26.552445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–44; verify_exact.py, lines 10–86; verify_milp.py, lines 12–36; VERIFICATION.md, lines 19–55",
+        "Fresh reproduction: python3 /workspace/branches/26fd9404-02da-4119-b297-bc2a178b4c63/independent_check.py --max-n 9; independent_full.log in the same directory"
+      ],
+      "rationale": "For indexed linear words avoiding both 000 and 111, a code is precisely a clique in the graph joining words with disjoint arbitrary one-deletion shadows. The output set must include descendants outside the run-limited source; both exact implementations do so. The branching takes each possible highest remaining vertex and then restricts to its neighbors; a proper coloring of each remaining prefix bounds any extension by its number of colors. This proves the soundness of exhaustion with pruning. A fresh standard-library implementation with a different coloring order reproduces the exact optima (1,2,2,3,3,6,6,10,13) and maximum ordinary VT intersections (1,2,2,3,3,6,6,10,12), with 110 permissible inputs at n=9 and residues (11,10,12,12,10,11,10,12,12,10). It checks the explicit thirteen-word code directly. For the classical VT property, on inserting bit b at slot i of a common descendant y, the checksummed integer increases by i b plus the suffix weight of y starting at i. For b=0 and b=1 these increases lie in the disjoint ranges 0 through wt(y) and wt(y)+1 through n. Within either range repeated increases can only come from moving the inserted bit through a run of identical bits, producing the same word. Thus the residue intersections really are codes, and the first strict gap is at nine.",
+      "residual_risks": [
+        "The exact clique enumeration is the finite upper certificate; the package's numerical MILP result is corroborative only. No longer lengths or other run constraints are asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schoeny et al. give a pigeonhole lower bound for a large VT intersection and choose a logarithmic run limit for their construction.",
+          "Takemoto–Nozaki show a redundancy gap below five for n≥14, not an exact small-length optimum.",
+          "The accessible abstract of the unrestricted MILP paper concerns unrestricted VT optimality through n≤10."
+        ],
+        "reasoning": "A lower bound on a VT intersection supplies no upper bound on the constrained optimum. An unrestricted optimum bounds a restricted one but does not identify it or show that restricting an optimal unrestricted class remains optimal. Neither line of results settles the length-nine comparison.",
+        "searches": [
+          "arXiv:1602.06820 §V-B",
+          "arXiv:2012.13536v1 §IV-E, Theorem 4",
+          "Entropy 21(12), 1202 (2019), unrestricted binary deletion MILP bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1211.3128",
+        "arXiv:1602.06820",
+        "arXiv:2012.13536v1",
+        "Resultary f5acf0909fbf and b6865f2f1099",
+        "Entropy 21(12), 1202 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published VT intersections are valid constrained codes but need not exhaust the packing optimum; their known cardinality bounds do not produce a 13-word witness or rule out 14.",
+          "The distinct exact table has different endpoint and run assumptions."
+        ],
+        "reasoning": "The nontrivial verified increment is the exact comparison 13 versus 12 after equality at all earlier lengths, not construction of VT intersections or a general algorithm for solving the deletion packing.",
+        "searches": [
+          "arXiv:1602.06820 §V-B",
+          "arXiv:2012.13536v1 §IV-E",
+          "Resultary b6865f2f1099, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen clique formulation is exactly a packing of distinct arbitrary-deletion output sets, so novelty does not lie in rewriting the optimization.",
+          "Schoeny et al. already intersect ordinary VT classes with a source that bounds both symbols' run lengths.",
+          "The standard guarded (d,k) source used by Kulkarni–Kiyavash is not the linear source avoiding 000 and 111."
+        ],
+        "reasoning": "The equivalent packing and maximum-run-limited formulations locate genuinely adjacent results. A zero-gap constraint with singleton one-runs and guarded endpoints is not an equivalent source under symbol complementation, and NRZI for a constrained encoder does not itself transfer an exact deletion optimum.",
+        "searches": [
+          "arXiv:1211.3128 §V-A (deletion hypergraph / (d,k)-RLL)",
+          "arXiv:1602.06820 §V-B (two-symbol maximum-run-length VT intersection)",
+          "arXiv:2012.13536v1 §§III-B, IV-E (maximum-run-length and NRZI formulations)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f5acf0909fbf is the catalogue entry for the very claim under review, not independent prior coverage.",
+          "b6865f2f1099 gives exact optima through length 11 and classifies three length-11 maxima, but for the guarded (2,∞)-RLL source."
+        ],
+        "reasoning": "The distinct exact table allows arbitrarily long zero runs and excludes adjacent ones, whereas the frozen source caps both and permits two adjacent ones. It cannot be read as the claimed table. No matching independent exact table was established.",
+        "searches": [
+          "Resultary f5acf0909fbf and b6865f2f1099",
+          "Entropy 21(12), 1202 (2019), unrestricted short-length table lead"
+        ]
+      },
+      "rationale": "The ordinary VT construction and the deletion-shadow packing formulation are established. None of the inspected distinct works gives the exact optimum for the two-symbol run ceiling of two with unrestricted endpoints, or the earliest conventional VT-intersection gap under that constraint. The mirrored copy of the assigned record is not a distinct covering result.",
+      "residual_risks": [
+        "Full text of the unrestricted MILP paper was not obtained; its abstract is not evidence about other material in that paper. An unindexed exact computation of the constrained case could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related optimization, different constraints",
+          "evidence": "The (d,k)-RLL source has no adjacent ones and prescribed zero-gap and endpoint constraints; this is a bounds analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "§V-A, PDF pp.12–13, OA offsets 93391 and 97845",
+          "method": "OA PDF passage comparison",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "General packing bounds and a run-limited source"
+        },
+        {
+          "assessment": "Construction covered; exact gap not implied",
+          "evidence": "Defines f(n)-RLL words, intersects with VT and supplies a lower size bound in the burst-code construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06820",
+          "material_read": "§V-B, PDF pp.7–8, OA offsets 32762 and 37872",
+          "method": "OA PDF passage comparison",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Same VT restriction idea for two-symbol maximum-run sources"
+        },
+        {
+          "assessment": "Relevant efficient encoding and redundancy bounds, not a short optimum table",
+          "evidence": "NRZI yields maximum run length at most r; the compared code redundancy is within five of a bound for n≥14.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.13536",
+          "material_read": "v1 §III-B p.2 (offset 9554), §IV-E and Theorem 4 (offsets 44739 and 48836)",
+          "method": "OA PDF passage comparison",
+          "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+          "trigger": "Same general single-indel and maximum-run problem"
+        },
+        {
+          "assessment": "Exact but different source",
+          "evidence": "Requires zero-runs of length at least two, singleton one-runs, and endpoint zero-runs of length at least two.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-single-deletion-optima-for-the-2-infty-rll-source-through--b6865f2f1099/RESULT.md",
+          "material_read": "Finding and source definition, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact single-deletion optima for the (2,∞)-RLL source",
+          "trigger": "Strongest distinct Resultary hit for an exact deletion table"
+        },
+        {
+          "assessment": "Abstract-level distinction only",
+          "evidence": "The abstract concerns unrestricted optimality of VT through length ten; possible further discussion of restricted sources was not assessed.",
+          "identifier_or_url": "https://www.mdpi.com/1099-4300/21/12/1202",
+          "material_read": "Accessible abstract; no full text obtained in the attempted retrievals",
+          "method": "Publisher and lawful PMC/Europe PMC access attempts",
+          "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+          "trigger": "Exact short unrestricted optima and a potentially reusable solver method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and explicit length-nine code",
+        "Schoeny et al., §V-B",
+        "Takemoto–Nozaki, §IV-E"
+      ],
+      "rationale": "Intersecting a VT class with a maximum-run-limited source is a published, natural construction for constrained deletion channels. The first length at which this method cannot be optimal is an informative boundary: the gain of one codeword changes the optimality verdict, with an explicit alternative code and an exact upper bound. This is a small-length benchmark for constrained-code constructions, not a general asymptotic claim.",
+      "residual_risks": [
+        "No claim about the size or frequency of gaps at larger lengths, or about constrained encoding complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

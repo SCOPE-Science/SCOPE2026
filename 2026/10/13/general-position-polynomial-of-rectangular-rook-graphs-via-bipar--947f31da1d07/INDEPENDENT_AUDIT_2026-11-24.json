@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:31:15.414131Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Verification; VERIFICATION.md; check.py",
+        "Independent replay /workspace/branches/afa33687-71b1-4379-9c6d-76d894938745/independent_rook_check.py and outputs metric-small.txt, metric-expanded.txt"
+      ],
+      "rationale": "The rook graph is the line graph of K_{m,n}. Its distance-two geodesic triples correspond exactly to three selected edges forming a simple three-edge path in that bipartite board graph. A component with an edge joining two degree-at-least-two vertices contains such a path, and absent such an edge each nontrivial component is a star. The edge-set bijection retains isolated row and column labels. The bicolored component series counts the two isolated types, a single-edge component once, and the two center orientations for at least two leaves, giving u exp(zv)+v exp(zu)−zuv; the labeled set formula gives its exponential. An empty side gives polynomial 1, and a side of size 1 gives a complete graph and polynomial (1+z) raised to the size of the other side, both consistent with the series. For m,n≥2 the edge maximum comes from exactly two spanning components. If m,n≥3 neither can be isolated (the other would contain at least two vertices in each part) and the two centers must be on opposite sides, giving mn forests. For 2×n with n>2 a degree-two column forces all other columns isolated, giving just two edges, so at the maximum there is exactly one edge in each column, with independent row choices. The 2×2 maximum consists of all six pairs. An independently written exhaustive metric check matched exact EGF extraction for 2×2, 2×3, 3×3, 3×4 and 4×4 (70,224 subsets), including both displayed examples and top coefficients 6,8,9,12,16. This finite replay supports, but does not replace, the proof. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The proof treats rectangular boards with two factors, and does not extend the polynomial formula to higher Cartesian products. The replay is an exact bounded computation, not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghorbani et al. give n_1+n_2−2 for the largest general-position set and use the diameter-two reduction, not the full count. Iršič et al. enumerate products of paths, not products of general complete factors.",
+          "Stones counts all fixed-edge spanning forests of K_{m,n}; for example his population includes P₄ spanning trees on K_{2,2}, which are excluded here. Aroca–Lladó study the existence of ascending decompositions into stars, not the labeled spanning-subgraph counts by edge weight.",
+          "Later indexed results 6c3197c28686 and 5ac1a3fe8a52 give the same all-set EGF and extend to maximal sets; those exact broader overlaps are marked separately from chronological priority."
+        ],
+        "reasoning": "The degree determines support but not coefficients; the aggregate spanning-forest counts do not distinguish component shapes; the additional later catalogue claims are not credited to this finding.",
+        "searches": [
+          "Ghorbani et al., arXiv:1903.04286v2, §3 Theorem 3.2",
+          "Iršič et al., arXiv:2401.05696v1, §3 Theorem 3.5",
+          "Aroca–Lladó, arXiv:1512.02161v1, abstract",
+          "Stones, DMTCS 16 (2014), pp. 313–326",
+          "Resultary 6c3197c28686 and 5ac1a3fe8a52"
+        ]
+      },
+      "checked_sources": [
+        "Ghorbani et al., Theorems 1.1 and 3.2",
+        "Iršič et al., Theorem 3.5",
+        "Aroca–Lladó, abstract",
+        "Stones, p. 313",
+        "Resultary exact and equivalent matches fc2af413d7b2, 6c3197c28686, 5ac1a3fe8a52 and 41f165ae6da1, and neighboring records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The induced-cluster criterion from diameter two is a prior structural input. Converting all of these subsets to edge-weighted forests and counting bicolored labeled component types, especially avoiding a duplicate count of single edges, gives the two-parameter formula; none of the compared earlier statements directly supplies the result of that subclass enumeration.",
+          "The later exact records are not indirect implications: their formula or identical enumerand expressly covers the claim. They warrant clear overlap credit but do not establish earlier priority."
+        ],
+        "reasoning": "Credit the degree and standard general-purpose enumerative tools. The new enumerative determination is not obtained by substituting sizes into the established degree formula, related path-polynomial result, or aggregate forest enumeration.",
+        "searches": [
+          "Ghorbani et al., Theorem 3.2 and proof",
+          "Iršič et al., Theorem 3.5",
+          "Stones, abstract and enumeration target",
+          "Resultary fc2af413d7b2 and 41f165ae6da1 exact statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a diameter-two rook graph, the enumerand is also induced-P₃-free selected cells, or disjoint row/column cliques, or spanning star forests of K_{m,n}. Equivalently its 0–1 matrices have no 2×2 submatrix with three or four ones. This is not the lonesum avoidance condition: two diagonally placed ones are allowed here but forbidden as a 2×2 permutation matrix there; the 2×2 totals differ, 11 versus 14.",
+          "The indexed shattered-rectangle-supports result 41f165ae6da1 gives this exact same spanning star-forest enumerand and connected-component series using a different interpretation. By contrast 45629ca1d9f3 counts inclusion-maximal induced cluster subsets, a proper restriction not interchangeable with either all or maximum-cardinality subsets."
+        ],
+        "reasoning": "The equivalent count in a different language is explicitly credited; neither lonesum matrices nor a maximal-set-only profile is the same enumerand. The equivalent indexed result is not demonstrably prior on the available evidence.",
+        "searches": [
+          "Resultary comparisons for rook general-position polynomials, induced cluster subsets and bipartite spanning star forests",
+          "Resultary fc2af413d7b2, 6c3197c28686, 5ac1a3fe8a52, 41f165ae6da1 and 45629ca1d9f3",
+          "Ghorbani et al., arXiv:1903.04286v2, Theorems 1.1 and 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/18 indexed result fc2af413d7b2 states the same full EGF and all three leading-coefficient cases, not merely the same numerical samples. The other later indexed results repeat the all-set EGF in rook or rectangle terminology.",
+          "The earlier fixed-edge forest counts of Stones tabulate a different class. The same-day hits 85d0a033a988 and 9b9fdc66bc5e concern outer mutual visibility on rook graphs and the general-position polynomial of triangular graphs, respectively; their statements differ independently of date.",
+          "The independent samples reproduce the exact intended coefficients, e.g. [1,9,36,48,9] for 3×3 and [1,16,120,416,632,240,16] for 4×4; these are checks of the invariant, not evidence of historical priority."
+        ],
+        "reasoning": "Compare the entire labeled board-and-edge table, not the first few terms or another forest table. Exact catalogue duplication is present, but the compared catalogue evidence does not date it before the frozen finding.",
+        "searches": [
+          "Resultary exact-formula and equivalent-class comparisons, including fc2af413d7b2, 6c3197c28686, 5ac1a3fe8a52 and 41f165ae6da1",
+          "Stones, DMTCS 16 (2014), p. 313, counting target",
+          "Independent metric-versus-EGF finite table"
+        ]
+      },
+      "rationale": "The scalar degree and diameter-two cluster criterion are known and not credited. The distinct supported contribution is the full labeled two-parameter weight enumeration with its explicit top-count cases. Earlier inspected primary results on general-position polynomials, extremal size and complete bipartite forests do not supply this weighted subclass enumeration. Several distinct indexed records demonstrably contain the very same formula or enumerand, and the overlap is real; the available records bearing those statements are later than the assigned record and do not establish a distinct earlier source for its finding. This is a bounded comparison, not an absolute first-priority claim.",
+      "residual_risks": [
+        "The external lookup was unavailable and adds no negative evidence. Older enumerations under star-forest, cluster-subset or other matrix/graph terminology are not ruled out. The later matches establish equivalent coverage but not an independently established sequence of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known degree and structural input, no full polynomial",
+          "evidence": [
+            "Formulates equality gp(K_{n1} square K_{n2})=n1+n2−2 and argues via the diameter-two complement-multipartite characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1903.04286v2",
+          "material_read": "§3 Theorem 3.2 and proof around offset 18900, including application of the diameter-two theorem",
+          "method": "Bounded primary OA text by theorem locator and offset",
+          "title": "The general position problem on Kneser graphs and on some graph operations",
+          "trigger": "Exact graph family and potential extremal-classification coverage"
+        },
+        {
+          "assessment": "Path-factor product result, not full complete-factor family",
+          "evidence": [
+            "The displayed formula is for P_r square P_s."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.05696v1",
+          "material_read": "§3 Theorem 3.5, around offset 17400",
+          "method": "Bounded primary OA text",
+          "title": "General Position Polynomials",
+          "trigger": "Prior study of exact GP enumerators for related graph products"
+        },
+        {
+          "assessment": "Decomposition problem, not weighted spanning star-forest enumeration",
+          "evidence": [
+            "The stated objectives concern ascending decompositions and degree-sequence conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1512.02161v1",
+          "material_read": "Abstract, offset 0",
+          "method": "Bounded OA objective and result passage",
+          "title": "On star-forest ascending subgraph decomposition",
+          "trigger": "Prior same class of bipartite star forests"
+        },
+        {
+          "assessment": "Counts a different, larger class and does not classify its stars in the inspected result",
+          "evidence": [
+            "The target is all h-edge spanning forests of a complete bipartite graph, including non-star trees."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/1248/download",
+          "material_read": "PDF p. 313, offset 1000, counting objective",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+          "trigger": "Earlier exact enumeration with same host and edge statistic"
+        },
+        {
+          "assessment": "Exact material overlap in a distinct later indexed record",
+          "evidence": [
+            "Same GP-to-star-forest bijection, bivariate EGF and three leading-coefficient cases; degree labeled as prior."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-general-position-polynomials-of-rectangular-rook-graphs-via-bipa--fc2af413d7b2",
+          "material_read": "RESULT.md, Finding near offset 0 and prior-work/degree discussion near offset 6300",
+          "method": "Local Resultary mirror passages",
+          "title": "General-position polynomials of rectangular rook graphs via bipartite star forests",
+          "trigger": "Strongest exact indexed match"
+        },
+        {
+          "assessment": "Same enumerator together with additional maximal-set results, later than the assigned record",
+          "evidence": [
+            "Both state the all-set EGF, and also cover inclusion-maximal information not in this finding."
+          ],
+          "identifier_or_url": "2026/10/18 record 6c3197c28686; 2026/10/26 record 5ac1a3fe8a52",
+          "material_read": "Indexed RESULT.md findings on all-set polynomial and maximal-set additions",
+          "method": "Local Resultary mirror passages",
+          "title": "General-position and maximal-set polynomials of rectangular rook graphs; General-position polynomials and maximal-set spectra of rectangular rook graphs",
+          "trigger": "Potential dominating results for same graph family"
+        },
+        {
+          "assessment": "Same weighted spanning star-forest count via another bijection; later indexed",
+          "evidence": [
+            "The shattered rectangle supports are exactly these bipartite star forests and are enumerated by the same bicolored component series."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-shattered-edge-supports-of-combinatorial-rectangles-are-star-for--41f165ae6da1",
+          "material_read": "RESULT.md, Finding at offset 0, shattering and component EGF",
+          "method": "Local Resultary mirror passage",
+          "title": "Shattered edge supports of combinatorial rectangles are star forests",
+          "trigger": "Equivalent enumeration under a different name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Iršič et al., general-position polynomial framework",
+        "Ghorbani et al., known extremal degree",
+        "Stones, broader distinct forest count"
+      ],
+      "rationale": "The general-position polynomial is a previously motivated enumerative invariant; complete-graph products are a natural family where the extremal number was already known. The formula determines every coefficient for both labeled board parameters, and distinguishes how many maximum vertex sets realize the common extremal size, including the exceptional two-row and square cases. It is reusable both for GP profiles and edge-weighted complete-bipartite star forests, rather than a table reprint or a tiny isolated coefficient. Neither the known degree nor the finite replay is credited as the substantive result.",
+      "residual_risks": [
+        "No claim of coefficient unimodality, real-rootedness, or general asymptotics is needed or inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

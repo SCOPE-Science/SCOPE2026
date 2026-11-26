@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof begins with exactly the source's iid exponential-step scalar Euler recurrence. The formula \(L(\xi)=-e^{-1/\xi}\operatorname{Ei}(1/\xi)\) follows by split integration by parts and the real principal-value exponential-integral identity. The strict monotonicity of \(\operatorname{Ei}\) establishes exactly one pathwise threshold. The iid logarithmic factors have finite nonzero variance, so the strong law and law of the iterated logarithm cover all three cases, including the critical boundary. The exponential random-clock upper envelope bounds every point of the linear interpolation, and knots attain the physical-time logarithmic limsup. Strict convexity of log absolute moments proves the complete positive-moment classification. The 39 numerical checks were rerun; they support identities but are not substitutes for infinite-time proofs.
+PASS
 
-## Originality: PASS with residual risks
+Split integration by parts about c=1/xi gives the log-integral identity: the two logarithmic boundary terms at c cancel in the limit, and the principal-value primitive for exp(-x)/(x-c) is exp(-c) Ei(c-x). The log multiplier has finite positive variance (the logarithmic singularity is square-integrable), and Ei is strictly increasing from negative to positive on (0,infinity). The strong law gives the knot exponent, and the centered law of the iterated logarithm gives both critical knot extremes. The absolute value of the linear interpolant is bounded by the larger adjacent knot magnitude, while the clock strong law gives the same asymptotic time per step at both ends; evaluating at the knots gives equality for the physical-time limsup. Independent overshoot events have constant positive probability, giving infinitely many zero crossings, not a full logarithmic limit. The knot log-moment function is strictly convex, has right derivative equal to the log exponent at zero, and is unbounded above (the multiplier exceeds some fixed number greater than one with positive probability). Below critical xi it has one positive zero (constant moment there); at and above critical xi all positive absolute moments grow. Direct integration verifies the first absolute and squared moments; growth of the signed mean above xi=2 refers to its magnitude, with alternating sign. No moment result for the interpolant is inferred. Independent 60-digit split quadrature and root finding reproduced xi_c=2.68451035082070765250…, p_*(1.2)=1.45320882793830844306…, and the exponent signs at xi=1.2 and 2.7. These are numerical corroborations, not probability limit proofs.
 
-The first public Latz source, arXiv:2408.01409 (2024-08-02), introduces the model and already establishes signed mean and squared moments. Those are prior art. Its inspected stability statements do not provide the precise \(\operatorname{Ei}\) almost-sure threshold, the critical LIL oscillations, entire spline-path exponent, or real-order absolute-moment phase transition. Abdulle--Garegnani (arXiv:1801.01340) addresses different random-step integrator analysis. A separate scholarly source on stochastic differential-equation almost-sure versus moment stability was assessed from its abstract only; possible rediscovery of the special-function calculation in random-product literature remains a genuine risk. Overlapping mathematical-record results describe related but different time-stepping schemes. Failed searches alone are not taken as priority proof.
+## originality
 
-## Value: PASS
+PASS
 
-The source's published mean-square cutoff \(ah<1\) does not settle whether individual random numerical paths decay, or the almost-sure threshold. The exact, distinct bounds \(1\), \(1/\log2\), \(2\), and \(2.6845103508207\ldots\) expose a quantitatively sharp gap between mean-square, absolute-first-moment, signed-mean and physical-time almost-sure stability. The result is a nontrivial method-specific diagnostic and benchmark for designing probabilistic numerical-integration guarantees, not a generic bounded-step textbook restatement. Its generalizability is limited and no new algorithm is claimed.
+The model, signed mean and second moment are already known. The supported distinct contribution is the evaluated almost-sure boundary, including critical and physical-time behavior, and the all-real-order absolute knot moment frontiers. This is a judgment from scoped statement comparisons, not proof of priority.
 
-## Closest sources and unresolved limitations
+## value
 
-Latz (arXiv:2408.01409, full stability discussion) is the closest paper. Abdulle--Garegnani (arXiv:1801.01340, relevant integration analysis) is an earlier random-timestep comparator. Higham--Mao--Yuan (DOI:10.1137/060658138) is an SDE numerical-stability comparison checked from its abstract, not its whole text. Older random-products or special-function calculations could imply the sharp result but no decisive stronger coverage was identified. Independent scientific validation is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the existing exponential-step integrator, the exact comparison of second-moment, first-absolute-moment, signed-mean and pathwise boundaries distinguishes incompatible numerical guarantees. In particular there is a nonempty range where typical trajectories decay while all positive integer absolute moments grow. The critical and interpolated-path classifications resolve what the exact boundary means. This is a useful scalar benchmark, not a guarantee for nonlinear or vector integrators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

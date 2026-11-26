@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:43.390254Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Computed r(z)=1−z bᵀ(I+zA)^−1 1 from the two-stage Radau IIA tableau, obtaining (6−2z)/(z²+4z+6). On constants, leaf differences, and the hub-versus-leaves vector (m,−1,…,−1), the Laplacian eigenvalues are 0, 1, and m+1. Write p=r(h), q=r((m+1)h). The hub diagonal and hub–leaf entry are (1+mq)/(m+1) and u=(1−q)/(m+1). Mass conservation and the leaf-difference eigenvalue give leaf off-diagonal (1−u−p)/m and leaf diagonal p+(1−u−p)/m. Symbolically clearing positive denominators independently gives all four numerators in RESULT.md; both off-diagonal numerators are strictly positive for h>0. The hub discriminant changes sign between m=10 and m=11, and the two roots for m≥11 lie in (0,2). For the leaf polynomial, coefficient regrouping in m gives strict positivity for h∈[0,3] and concavity in m beyond h=3. The positive endpoint certificates at m=2 and 10 ensure positivity throughout that range. For m≥11, the exact negative evaluation F_m(m) is minus a polynomial with positive coefficients in m−11. Positivity at 3 and infinity forces two distinct roots, which are simple and exhaustive by the two sign variations in Descartes' rule. The two open failure intervals are disjoint and all four endpoints belong to the admissible set; h=0 gives the identity. This is endpoint entrywise positivity, not internal-stage positivity or accuracy. Read verify.py and verification_output.txt without executing the frozen script; replay `python3 /workspace/branches/independent_checks.py` (section 4; SymPy and mpmath) for exact symbolic derivation and the m=11 numerical illustration. The root count is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "657de75ce7c2 covers all complete multipartite graphs, including stars, and yields strict all-step positivity through order 11 and a negative witness h=8/(N−p) for each part of size p at order N≥12. Its uniform diagonal bound uses min_{z≥0}r(z)=(5−3sqrt(3))/2, and it does not give exact interval endpoints.",
+          "The same-day balanced result requires at least three equal parts of size at least two; the same-day square rook result has one forbidden interval for q≥4. K_(2,q) is an informative unequal bipartite comparison but excludes K_(1,m). The same-day two-state rate-imbalance result is not a general n-state theorem.",
+          "The primary invariant-polyhedron threshold is sufficient and maximal parabolic regularity and A-/L-stability do not assert entrywise positivity."
+        ],
+        "reasoning": "The complete multipartite cutoff subsumes a meaningful subclaim, but no cutoff or sufficient step bound supplies the exact two-hole set. Direct star records, rather than those broader partial results, establish full overlap.",
+        "searches": [
+          "Resultary 657de75ce7c2, 8c0d50ef8119, 69d675dac0d5, 68517f1e3738 and ceeaeed369eb",
+          "arXiv:1406.6755 Theorem 3.12; arXiv:1511.07823 Radau passages"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 17146a0a41df, 3d0ba37aabda, 657de75ce7c2, 8c0d50ef8119, 69d675dac0d5, 68517f1e3738, 280b8b0c7f0a, ceeaeed369eb",
+        "arXiv:1406.6755, 1511.07823, 1303.6651",
+        "Zappavigna et al. (2012) public PDF, p. 2 (diagonal Padé)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equivalent star statements already provide the same root pairs and both diagonal sign failures under the same hypotheses, with additional threshold localization at h=8. The frozen localization γ_m<m<δ_m follows by substituting h=m in that same quartic and finding F_m(m)<0; it concerns the same two roots.",
+          "The frozen self-review describes an earlier general reversible-chain diagonal bound. The available primary comparison found the bound in the later complete multipartite proof, not a separately verified earlier statement for general reversible chains."
+        ],
+        "reasoning": "Known bounds and other graph families must be credited only for the components they supply; the distinct exact star statements give direct coverage without relying on the unverified earlier-chain citation. No surviving independent classification is isolated in the frozen result.",
+        "searches": [
+          "Actual star Findings of 17146a0a41df and 3d0ba37aabda; complete multipartite Findings of 657de75ce7c2 and 8c0d50ef8119",
+          "Frozen AUDIT.json reference bc717cab-35cb-4a0c-b3f5-efe9e67ff662"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Completed two-stage Radau IIA at generator −L is the [1/2] Padé filter on hL, with positive-resolvent denominator 6I+4hL+h²L². Replacing P_m by T_m is purely notation.",
+          "17146a0a41df orders the hub pair as h_m^± and the leaf pair as α_m,β_m; 3d0ba37aabda uses α_m^± and β_m^±. Both specify exactly the same endpoints from the same polynomials as the frozen statement."
+        ],
+        "reasoning": "Equality of the rational map for the same unnormalized Laplacian and of both exact root pairs makes these fully equivalent classification claims, not just similarly phrased claims.",
+        "searches": [
+          "Resultary two-stage Radau IIA star / complete bipartite graph positivity and reentry",
+          "Local RESULT.md Findings 17146a0a41df and 3d0ba37aabda",
+          "Horváth–Song–Terlaky arXiv:1406.6755 Theorem 3.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both inspected Findings match all integer m≥2 and real h≥0, with strictly positive off-diagonals for h>0 and identical complete admissible sets. Both give the same explicit leaf quartic; 17146a0a41df also gives the same m=11 numerical interval and further large-m asymptotics."
+        ],
+        "reasoning": "These are full exact matches, not an apparent overlap based on titles or a finite table. The later-dated paths record catalogue overlap, not demonstrated historical precedence.",
+        "searches": [
+          "2026/11/2/SCOPE-three-disjoint-positivity-windows-for-two-stage-radau-iia-on-sta--17146a0a41df",
+          "2026/11/8/SCOPE-three-disconnected-positivity-windows-for-radau-iia-diffusion-on--3d0ba37aabda"
+        ]
+      },
+      "rationale": "The identical full classification is demonstrably covered by distinct indexed results 17146a0a41df and 3d0ba37aabda: same scheme, graph domain, cutoff, quadratic and quartic thresholds, sign mechanisms and safe endpoint set. They are listed under later dates than the frozen record; this establishes exact equivalence and lack of a distinct contribution in the current catalogue, not that either comparator historically preceded the frozen result or that there was copying. The simple root-location bound using h=m is a sign certificate for the same thresholds, not a distinct classification. In contrast, the same-date balanced multipartite and rook results do not imply the star classification. No earlier historical priority is assigned by this review.",
+      "residual_risks": [
+        "Historical order among equivalent statements was not established from the dated catalogue paths.",
+        "The earlier independent provenance of the frozen text's cited reversible-chain bound was not established; the later complete multipartite statement is not evidence of an earlier general-chain source.",
+        "Older Horváth 1998/2005 and relevant Chertock full texts were not available in bounded retrieval; no noncoverage inference was made from that. Their access status is not the reason for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete star classification plus asymptotics; later listing date, no priority inference.",
+          "evidence": [
+            "Same quadratic-root formula, identical leaf quartic, horizon m=11 and two open negativity intervals."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-three-disjoint-positivity-windows-for-two-stage-radau-iia-on-sta--17146a0a41df",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2623; projector proof passages compared",
+          "method": "Local published-file mirror, actual statements and hypotheses",
+          "title": "Three disjoint positivity windows for two-stage Radau IIA on star networks",
+          "trigger": "Strongest exact catalogue match"
+        },
+        {
+          "assessment": "Equivalent exact all-step classification; later listing date, no priority inference.",
+          "evidence": [
+            "Same T_m(h), same diagonal root pairs, theorem [0,α_m^−] ∪ [α_m^+,β_m^−] ∪ [β_m^+,∞), and additional asymptotic thresholds."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-three-disconnected-positivity-windows-for-radau-iia-diffusion-on--3d0ba37aabda",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2486; endpoint derivation passages",
+          "method": "Local published-file mirror, actual statements and hypotheses",
+          "title": "Three disconnected positivity windows for Radau IIA diffusion on star networks",
+          "trigger": "Second exact catalogue match"
+        },
+        {
+          "assessment": "Covers order cutoff and per-part witnesses, not the full interval set in its theorem.",
+          "evidence": [
+            "All positive steps safe for N≤11; diagonal negative at h=8/(N−p) in each size-p part for N≥12; off-diagonals positive."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-twelve-vertices-are-the-exact-radau-iia-positivity-barrier-for-c--657de75ce7c2",
+          "material_read": "RESULT.md Finding (offsets 0–2633), and proof's diagonal bound",
+          "method": "Local published-file mirror",
+          "title": "Twelve vertices are the exact Radau IIA positivity barrier for complete multipartite graph heat flow",
+          "trigger": "Broader exact graph domain including stars"
+        },
+        {
+          "assessment": "Does not specialize to the star.",
+          "evidence": [
+            "Equal parts, at least three of size at least two, with one forbidden diagonal interval in failing cases."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-radau-iia-positivity-and-reentry-on-balanced-multipartite--8c0d50ef8119",
+          "material_read": "RESULT.md Finding and graph hypotheses",
+          "method": "Local published-file mirror",
+          "title": "Sharp Radau IIA positivity and reentry on balanced multipartite graphs",
+          "trigger": "Same-day comparable exact quartic classification"
+        },
+        {
+          "assessment": "Square rook graph, not the two diagonal classes of a star.",
+          "evidence": [
+            "K_q square K_q with one forbidden interval for q≥4."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-reentrant-positivity-window-for-two-stage-radau-iia-diffusion--69d675dac0d5",
+          "material_read": "RESULT.md Finding and graph hypotheses",
+          "method": "Local published-file mirror",
+          "title": "A reentrant positivity window for two-stage Radau IIA diffusion",
+          "trigger": "Same-day exact reentry analogue"
+        },
+        {
+          "assessment": "Sufficient invariant-polyhedron threshold, not the exact fixed-graph endpoint set.",
+          "evidence": [
+            "Theorem 3.12 uses absolute monotonicity to guarantee a sufficient step restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6755",
+          "material_read": "p. 10, Theorem 3.12 (OA offset 35627)",
+          "method": "OA primary PDF passage",
+          "title": "Horváth–Song–Terlaky, invariant-polyhedron discretization step thresholds",
+          "trigger": "Potential general positivity theorem for discretized flows"
+        },
+        {
+          "assessment": "Different stability property; no exact star entrywise sign classification in those passages.",
+          "evidence": [
+            "Radau A-stability and decay at infinity are used for maximal parabolic regularity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.07823",
+          "material_read": "pp. 1–2 and 10 (OA offsets 935, 5997, 35263)",
+          "method": "OA primary PDF passages",
+          "title": "A-stable time discretizations preserve maximal parabolic regularity",
+          "trigger": "Strong general Radau stability result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical classification is useful: it shows that unconditional spectral stability and conservation do not preclude two separated failures of the discrete maximum principle, identifies the first failing star, and specifies exactly when each vertex class needs a smaller or a larger step. This is a structural graph-family result, not a numerical instance check. That usefulness does not make the frozen classification distinct from the exact catalogue matches.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

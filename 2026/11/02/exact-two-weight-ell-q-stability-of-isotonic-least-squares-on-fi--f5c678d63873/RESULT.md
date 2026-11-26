@@ -2,72 +2,51 @@
 
 ## Finding
 
-Let \(P=(V,\preceq)\) be any finite poset. Let fitting masses \(m_i>0\) and monitoring masses \(h_i>0\) be prescribed for every \(i\in V\). Define the **weighted isotonic least-squares map** \(T:\mathbb R^V\to\mathbb R^V\) by
+Let \(P=(V,\preceq)\) be a **nonempty finite poset**, and let \(m_i,h_i>0\) be fixed fitting and monitoring masses, respectively. Define
 \[
-T(x)=\underset{y_i\le y_j\ \mathrm{whenever}\ i\preceq j}{\operatorname{argmin}}
-\sum_{i\in V}m_i(y_i-x_i)^2.
+T(x)=\operatorname*{argmin}_{y_i\le y_j\text{ if }i\preceq j}
+\sum_{i\in V}m_i(y_i-x_i)^2,
+\qquad
+\|z\|_{q,h}=\Big(\sum_{i\in V}h_i|z_i|^q\Big)^{1/q}
 \]
-For \(1\le q<\infty\), put \(\|z\|_{q,h}=(\sum_{i\in V}h_i|z_i|^q)^{1/q}\), and put \(\|z\|_{\infty,h}=\max_i|z_i|\). Let \(q'\) denote the Hölder conjugate, using \(1/\infty=0\).
+for \(1\le q<\infty\), and take \(\|z\|_{\infty,h}=\max_{i\in V}|z_i|\). The minimizer exists and is unique, since the feasible cone is closed and nonempty and the quadratic objective is strictly convex and coercive. Write \(q'\) for the Hölder conjugate of \(q\), with \(1/\infty=0\).
 
-Let \(\mathcal B(P)\) consist of the nonempty subsets \(B\subseteq V\) that are both *order-convex* (whenever \(a,b\in B\) and \(a\preceq v\preceq b\), then \(v\in B\)) and connected in the undirected Hasse graph induced by \(B\). Every singleton belongs to \(\mathcal B(P)\).
-
-**Theorem.** For all finite \(P\), all fitting/monitoring masses, and all \(1\le q\le\infty\), the exact global data-to-fit Lipschitz coefficient is
+Let \(\mathcal B(P)\) be the family of nonempty order-convex subsets \(B\subseteq V\) that induce a connected undirected Hasse graph. Order convexity means that \(a\preceq v\preceq b\) and \(a,b\in B\) imply \(v\in B\); singleton sets qualify. The exact Lipschitz coefficient is
 \[
-\boxed{\operatorname{Lip}_{q,h}(T)
-=\max_{B\in\mathcal B(P)}K_q(B),\qquad
-K_q(B)=\frac{(\sum_{i\in B}h_i)^{1/q}\big\|(m_i h_i^{-1/q})_{i\in B}\big\|_{q'}}{\sum_{i\in B}m_i}.}
+\operatorname{Lip}_{q,h}(T)=\max_{B\in\mathcal B(P)} K_q(B),\qquad
+K_q(B)=\frac{(\sum_{i\in B}h_i)^{1/q}\|(m_i h_i^{-1/q})_{i\in B}\|_{q'}}{\sum_{i\in B}m_i}.
 \]
-The coefficient is **attained by a pair of distinct data vectors**, not merely approached. In particular, \(\operatorname{Lip}_{\infty,h}(T)=1\). For \(1\le q<\infty\), the coefficient is \(1\) if and only if the ratio \(h_i/m_i\) is constant within every weakly connected Hasse component. This includes disconnected posets, where distinct components may have different proportionality constants.
+For each admissible block there exists a pair of distinct data vectors whose distance ratio is \(K_q(B)\); thus the maximum is attained. At \(q=\infty\), the coefficient is always \(1\). For \(1\le q<\infty\), it is \(1\) exactly when \(h_i/m_i\) is constant on each weakly connected Hasse component; different components can have different constants.
 
-For \(q=1\), the block expression is \(K_1(B)=(\sum_B h_i)\max_{j\in B}(m_j/h_j)/(\sum_Bm_i)\). For \(q=2\), its square is \(K_2(B)^2=(\sum_Bh_i)(\sum_Bm_i^2/h_i)/(\sum_Bm_i)^2\). An elementary sharp witness is a two-point chain with \(m=(9,1)\), \(h=(1,1)\): the coefficients are \(9/5\), \(\sqrt{41}/5\), and \(1\) at \(q=1,2,\infty\), respectively.
+For \(q=1\), \(K_1(B)=(\sum_B h_i)\max_{i\in B}(m_i/h_i)/(\sum_B m_i)\). For \(q=2\), \(K_2(B)^2=(\sum_B h_i)(\sum_B m_i^2/h_i)/(\sum_B m_i)^2\). On a two-point chain with \(m=(9,1)\) and \(h=(1,1)\) the coefficients are \(9/5\), \(\sqrt{41}/5\), and \(1\) at \(q=1,2,\infty\), respectively.
 
-## Assumptions and scope
+## Scope
 
-The order is any finite partial order; Hasse edges are the directed cover relations. All fitting and monitoring masses are strictly positive and fixed while the data vary. Inputs, fits, and perturbations are real. The displayed coefficient is the supremum over distinct pairs of inputs of the ratio of their monitored fit distance to their monitored input distance. No restriction is imposed on the number of cover edges, the number of weakly connected components, or whether the poset is a chain.
+The data and fits are real. The coefficient is the supremum of the monitored distance ratio over distinct data vectors. A nonempty ground set allows distinct data and ensures a nonempty maximum over blocks; if one includes the empty order, its domain is a singleton and the smallest nonnegative Lipschitz bound is \(0\), with no distinct pair to attain it. The result permits disconnected and branching orders. It does not address nonquadratic objectives, infinite orders, data-dependent weights, or the computational complexity of finding a maximizing block.
 
 ## Proof
 
-**1. Equality blocks have exactly the relevant geometry.** Fix data \(x\) and write \(y=T(x)\). Retain the Hasse edges \(i\prec j\) for which \(y_i=y_j\), and let their undirected connected components be \(B_1,\ldots,B_s\). Along every directed path between two elements of a component, isotonicity forces all intermediate fitted values to coincide. Hence each \(B_a\) is order-convex. By definition each is Hasse-connected. Edges joining distinct components have strict fitted inequalities.
+**Equality components and linear branches.** For data \(x\) and fit \(y=T(x)\), retain the Hasse edges whose fitted values agree and take their undirected connected components. If \(a,b\) lie in one component and \(a\preceq v\preceq b\), any directed path from \(a\) to \(b\) through \(v\) has constant fitted value, so all its edges are retained and \(v\) is in the same component. Thus every block is in \(\mathcal B(P)\). Edges crossing different blocks are strict. One can perturb the common level of any block \(B\) slightly in either direction and remain feasible. Stationarity yields the fitted value \(\sum_{i\in B}m_ix_i/\sum_{i\in B}m_i\) on \(B\). Thus the projection agrees pointwise with one of finitely many linear maps formed by taking a direct sum of weighted block means.
 
-Varying the common value of any one equality block slightly up and down does not violate inequalities joining different blocks. First-order stationarity therefore gives
-\[
-y_i=\frac{\sum_{j\in B_a}m_jx_j}{\sum_{j\in B_a}m_j}
-\quad (i\in B_a).
-\]
-Consequently, at every input the map \(T\) agrees with one of finitely many block-averaging linear maps corresponding to a partition into blocks from \(\mathcal B(P)\).
+**Norms and global bound.** For the block mean operator \(A_B\), set \(u_i=h_i^{1/q}z_i\) on \(B\). The scalar mean is the functional with coefficients \(m_i h_i^{-1/q}/\sum_{j\in B}m_j\) on \(u\), and its constant output is multiplied in norm by \((\sum_B h_i)^{1/q}\). The endpoint conventions give the same statement at infinity. Hölder duality gives precisely \(\|A_B\|=K_q(B)\); the norm is attained on the unit sphere. A direct sum has norm equal to its largest block norm. The weighted metric projection is continuous. Along any line segment, its finitely many possible branches are affine functions of the segment parameter; two different such functions can coincide at at most one parameter unless identical on the segment. Between these finitely many coincidence points continuity requires a single branch, up to identical restrictions. Summing the norm bounds on the subsegments proves the upper bound.
 
-**2. Norm of a weighted block.** On \(B\), the averaging linear map is \(A_Bz=\mathbf1_B(\sum_Bm_iz_i)/(\sum_Bm_i)\). Weighted Hölder duality gives exactly
-\[
-\|A_B\|_{\ell_q(h|_B)\to\ell_q(h|_B)}
-=\frac{(\sum_B h_i)^{1/q}\|(m_i h_i^{-1/q})_{i\in B}\|_{q'}}{\sum_Bm_i}=K_q(B).
-\]
-For \(q=1\) the maximizing input is supported at an index maximizing \(m_i/h_i\); for \(1<q<\infty\) use equality in Hölder; and for \(q=\infty\) use a constant input. A direct sum over disjoint blocks has operator norm the largest of its block norms. A continuous piecewise-linear map selected from finitely many linear block maps has Lipschitz coefficient no greater than the largest branch norm: restrict to any line segment and subdivide into its finitely many affine pieces, then sum the inequalities. Weighted metric projection onto a polyhedral order cone is continuous and piecewise linear, proving the asserted global upper bound.
+**Local attainability.** Fix \(B\in\mathcal B(P)\). Contract \(B\) to a vertex, discard internal edges, and leave all other vertices separate. Any directed cycle would have to pass through the contracted vertex and yield a directed path from a member of \(B\) to another through an outside vertex, impossible by order convexity (or acyclicity if the endpoints are the same). Assign strictly increasing levels on the quotient by a topological ordering, and lift to \(y\) on \(V\). Write \(M=\operatorname{diag}(m_i)\), and for an internal Hasse edge \(e=(i,j)\) let \(b_e=e_i-e_j\). Choose \(x=y+M^{-1}\sum_e b_e\). This is a projection witness: the weighted residual \(M(x-y)\) is a nonnegative combination of active inequality normals for \(b_e^Ty\le0\).
 
-**3. Every listed block is locally attainable.** Fix an order-convex Hasse-connected \(B\). Contract \(B\) to one vertex in the Hasse diagram, leaving all other vertices separate. The quotient remains acyclic: a new directed cycle would contain a path from one element of \(B\) through a vertex outside \(B\) to another element of \(B\), contradicting order convexity. Assign strictly order-preserving real levels to the quotient vertices, and pull them back to a feasible vector \(y\); the only equality Hasse edges now lie inside \(B\).
+Let \(A\) be the block-mean map for the partition consisting of \(B\) and the remaining singletons. Then \(Ax=y\). For small \(z\), \(A(x+z)\) is still feasible because external inequalities are strict at \(y\). The residual change \(M(z-Az)\) vanishes outside \(B\) and sums to zero on \(B\). Internal edge vectors span that subspace, by Hasse connectivity on \(B\). Choose coefficients for this change by using a fixed basis of edge vectors, so the coefficients tend to zero as \(z\) tends to zero. The original multipliers were all one; hence the new multipliers remain nonnegative and the same projection condition proves \(T(x+z)=A(x+z)\). For a singleton the residual change is simply zero. Taking a nonzero norm-maximizing direction for \(A_B\), extended by zero outside \(B\) and scaled sufficiently small, attains the ratio exactly.
 
-For every Hasse edge \(e=(i,j)\) internal to \(B\), select a positive multiplier \(\lambda_e\), and put \(b_e=e_i-e_j\). Define data by
-\[
-x_i=y_i+\frac{1}{m_i}\sum_{e}\lambda_e(b_e)_i.
-\]
-Then \(\operatorname{diag}(m)(x-y)=\sum_e\lambda_e b_e\), which is precisely the optimality/Karush–Kuhn–Tucker normal-cone condition for the weighted least-squares projection at \(y\). Since all internal multipliers can be chosen strictly positive and the induced undirected Hasse graph on \(B\) is connected, the residual normal lies in the relative interior of the active normal cone on its full \((|B|-1)\)-dimensional span. All external inequalities are strict. Thus in an open neighborhood of this data, the active face remains the one with exactly \(B\) pooled and all outside vertices singleton; the local map is the corresponding weighted block averaging map. Choosing a norm-maximizing perturbation from Step 2 and two nearby inputs attains \(K_q(B)\) exactly. Taking the largest such block proves the formula and attainment.
-
-**4. Nonexpansivity rigidity.** For any \(B\), weighted Hölder applied to \(\sum_B m_i=\sum_B h_i^{1/q}(m_i h_i^{-1/q})\) gives \(K_q(B)\ge1\); equality for finite \(q\) occurs precisely when \(m_i/h_i\) is constant on \(B\) (the same statement follows from the maximum form at \(q=1\)). Every Hasse cover pair is an admissible \(B\), so a monitoring/fitting mass mismatch across any cover produces strict amplification. Conversely, when those ratios agree along each Hasse edge they agree throughout each weak component and hence on every admissible block; every \(K_q(B)=1\). At \(q=\infty\) each block mean is a convex combination, and \(K_\infty(B)=1\) regardless of masses. This proves the classification.
+**Rigidity.** The block operator fixes constants, so \(K_q(B)\ge1\). For \(1<q<\infty\), equality in Hölder applied to \(\sum_B m_i=\sum_B h_i^{1/q}(m_i h_i^{-1/q})\) gives equality precisely when \(m_i/h_i\) is constant on \(B\); at \(q=1\) use the equality case of a weighted mean bounded by its maximum. Every Hasse cover pair is an admissible block, so unequal ratios on a cover force amplification. Ratios agreeing on all covers are constant on each weak component, giving equality on all admissible blocks. At \(q=\infty\) a weighted mean is always a convex combination and has norm one.
 
 ## Verification
 
-The accompanying standard-library script `verify_weighted_isotonic.py` enumerates all nonempty connected order-convex subsets and all feasible equality-face partitions for seven nonisomorphic small directed orders, with three fitting/monitoring profiles each. It compares the exact rational \(\ell_1\) and squared \(\ell_2\) norm formulas and verifies the quotient-face/KKT witnesses. It also tests rigidity and the two-point example. Run `python3 verify_weighted_isotonic.py`. The observed counts are 84 weighted graph cases, 1,164 admissible-block checks, 1,152 feasible-partition comparisons, and 63 further rigidity comparisons. These finite checks are corroboration only; all finite posets and all real positive masses are covered by the proof.
+The accompanying standard-library `verify_weighted_isotonic.py` checks seven nonempty orders, with four fitting profiles and three monitoring profiles per fitting choice, for 84 weighted graph cases. It compares exact rational \(\ell_1\) and squared \(\ell_2\) norms on candidate blocks and feasible partitions, checks normal-cone witnesses, tests rigidity, and includes the two-point witness. These bounded diagnostics do not replace the proof.
 
-## Relationship to prior work
+## Related work
 
-Németh and Németh's 2015 article treats coordinatewise order preservation of metric projections onto weighted isotonic regression cones, not the sharp response-to-data Lipschitz coefficient for an independently chosen monitoring norm. Kyng, Rao, and Sachdeva (2015) give algorithms for isotonic regression on weighted finite directed acyclic graphs rather than a sharp two-weight perturbation norm. Yang and Barber (2017, first posted after the archival source date) prove a necessary-and-sufficient norm criterion for *unweighted* Euclidean least-squares projection onto a **chain**; the current two-weight/branching finite-poset formula and equality criterion are not special cases of their stated theorem. Published stability calculations for \(\ell_p\)-objective metric projections concern a different projection map when \(p\ne2\). These are comparisons of statements and logical implications; absence of a directly matching title does not certify novelty.
-
-## Limitations
-
-The theorem is finite-dimensional, real, and requires strictly positive masses and exact weighted least-squares minimization. It makes no assertion about noisy estimation risk, computational complexity of finding the maximizing block in arbitrary posets, nonquadratic fitting losses, infinite orders, or data-dependent fitting weights. A broader unlocated theorem on polyhedral projection sensitivity could subsume the calculation; no independent scientific audit has been performed. The computational checks only cover the listed finite examples.
+Németh and Németh study coordinatewise order preservation for weighted isotonic regression projections. Kyng, Rao, and Sachdeva provide algorithms for regression on weighted finite directed acyclic graphs. Yang and Barber characterize the norms for which unweighted Euclidean isotonic projection on a chain is nonexpansive. The calculation here identifies all locally realizable single pools and computes their sharp response to a separate weighted monitoring norm. General polyhedral projection theory accounts for the piecewise-linear structure; the stated maximum and rigidity use the order-specific block geometry. These comparisons do not establish publication priority.
 
 ## References
 
-1. A. B. Németh and S. Z. Németh, *Isotonic regression and isotonic projection*, arXiv:1503.08458v1, first posted 2015-03-29; *Linear Algebra and its Applications* **494** (2016), 80–89. https://arxiv.org/abs/1503.08458.
-2. R. Kyng, A. Rao, and S. Sachdeva, *Fast, Provable Algorithms for Isotonic Regression in all \(\ell_p\)-norms*, arXiv:1507.00710v1, first posted 2015-07-02. https://arxiv.org/abs/1507.00710.
-3. F. Yang and R. F. Barber, *Contraction and uniform convergence of isotonic regression*, arXiv:1706.01852v1, first posted 2017-06-06. https://arxiv.org/abs/1706.01852.
-4. J. de Leeuw, K. Hornik, and P. Mair, *Isotone Optimization in R: Pool-Adjacent-Violators Algorithm (PAVA) and Active Set Methods*, *Journal of Statistical Software* **32** (2009), issue 5. https://www.jstatsoft.org/v32/i05/.
+1. A. B. Németh and S. Z. Németh, *Isotonic regression and isotonic projection*, [arXiv:1503.08458](https://arxiv.org/abs/1503.08458), Linear Algebra Appl. **494** (2016), 80–89.
+2. R. Kyng, A. Rao, and S. Sachdeva, *Fast, Provable Algorithms for Isotonic Regression in all \(\ell_p\)-norms*, [arXiv:1507.00710](https://arxiv.org/abs/1507.00710), 2015.
+3. F. Yang and R. F. Barber, *Contraction and uniform convergence of isotonic regression*, [arXiv:1706.01852](https://arxiv.org/abs/1706.01852), 2017.
+4. J. de Leeuw, K. Hornik, and P. Mair, *Isotone Optimization in R: Pool-Adjacent-Violators Algorithm (PAVA) and Active Set Methods*, J. Stat. Softw. **32** (2009), no. 5.

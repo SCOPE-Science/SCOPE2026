@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The four-patch season matrices and all isolated habitat means are explicit. The relation \(H(T)=e^{16T}M(T)\) follows from scalar shifts. Entrywise nonnegative rational matrix exponential truncations provide certified upper/lower bounds because the complete infinite Taylor tail is bounded by a geometric series with ratio at most \(r/82<1\). Positive rational test vectors then give Collatz–Wielandt bounds for the Perron roots. The script evaluates the exact rational expressions and establishes strict integer inequalities which imply \(\Lambda(2/5)<\Lambda(8/5)>\Lambda(16/5)\). The certificate additionally proves each sampled exponent is negative using finite rational lower sums for the scalar exponential. The proof does not extrapolate from finite simulations.
+PASS
 
-## Originality
+The season generators implement exactly the conservative uniform clockwise cycle and the isolated-patch averages are (-1/2,-5,-1/2,-9/2). Each exponential is strictly positive for T>0 by the directed paths in powers of the nonnegative shifted generator. Shifting by 16I gives H(T)=exp(16T)M(T). For each scaled generator the max row sum is at most 144/5; the k=81 scalar Taylor term divided by 1-r/82 therefore bounds each entry of the omitted tail. Positivity permits ordered multiplication of the entrywise bounds. A fresh exact Fraction replay at /workspace/branches/03d20474-ccd7-4f85-a58b-b7be5e0da5f1/independent_certificate.py confirmed the componentwise Perron certificates: rho(H(2/5))<263, 7.5e9<rho(H(8/5))<8e9, and rho(H(16/5))<5.5e19. Since 263^4<7.5e9 and (7.5e9)^2>5.5e19, the period ratios 4 and 2 give the stated strict interior high value. Independent scalar Taylor lower bounds on exp(16T) exceed the corresponding Perron upper thresholds, proving negativity at those three periods only. One constant season has exponent equal to the generator's spectral abscissa independently of T; no patch-minimality claim is tested. The frozen checker and notes were inspected, not executed.
 
-PASS with residual index and specialist-literature risk. The closest prior, Monmarché–Schreiber–Strickler (2024), already shows nonmonotonicity for a *three-season* directed cycle and thereby refutes the older broad conjecture. The contribution is not that already-known phenomenon, but an explicit **two-season** constant homogeneous directed migration construction with all patch-average growth rates negative and a rigorous rational witness. Their Section 4.2 and Proposition 3 are based on three environmental states for their three-patch cyclic example; their general slow/fast asymptotics alone do not supply the two-season example. Benaïm–Lobry–Sari–Strickler's 2024 reducible-migration paper acknowledges the prior counterexample but does not furnish the asserted two-season fixed-four-cycle witness. Results concerning different population recurrences, cocycles, and dispersion spectra do not imply the displayed exact strict inequalities. No covering claim was found among accessible historical records or indexed searches. Absence from an index cannot establish unique priority.
+## originality
 
-## Value
+PASS
 
-PASS. The number of distinct environmental phases is a mathematically natural structural complexity measure, and two is the smallest number at which period response can be nontrivial. Reducing the published three-environment example to two equal-length seasons while preserving constant uniform migration isolates a genuinely leaner ecological mechanism. The all-sink restriction and exact rational proof make the boundary case reproducible and useful for testing monotonicity hypotheses, without requiring a new general theorem or a persistence claim.
+Pass the simultaneous uniform-cycle, two equal seasons, isolated-sinks witness with both directions certified at three periods, not generic failure of monotonicity or the rational Perron technique. A closely matching catalogued two-season failure of nondecreasingness uses nonuniform rates, is not all isolated sinks as stated, and its displayed comparison is in one direction only. Calendar order is not used as a coverage test.
 
-## Closest literature and limits
+## value
 
-The broad nonmonotonicity phenomenon was previously demonstrated in arXiv:2408.11179, Section 4.2/Figure 4, so no priority claim about its discovery is made. The present finding does not prove the least possible patch count, establish persistent growth, characterize the entire curve, or eliminate the possibility of unindexed two-phase constructions. A later journal text and unrelated specialist examples may provide additional comparisons. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a witness at a natural control boundary: minimal number of seasonal states even when the migration rates are forced equal, while all isolated patches are sinks. The exact interior increase and decrease at negative exponents show that period can change the rate of extinction nonmonotonically without any of the three comparisons being a persistence switch. That constrained counterexample is useful independently of a classification or a minimal patch count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

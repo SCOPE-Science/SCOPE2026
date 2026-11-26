@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:29:52.382069Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47 and accompanying verification materials",
+        "/workspace/branches/da04f42f-2617-4a39-a9bc-6a8426b65d01/check_thresholds.py",
+        "/workspace/branches/da04f42f-2617-4a39-a9bc-6a8426b65d01/run-notes.txt"
+      ],
+      "rationale": "Coprimality to 6 means a unit modulo 36, and gcd(s,36)=6 gives precisely the residues 6 and 30. Multiplication by a unit preserves that gcd and subsequence length; after normalization and sorting, any counterexample is a nondecreasing multiset starting with 1. Each recurrence state records sums of exactly j selected positions; the update takes old j−1 sums to account for inclusion of the new position, so repeats of a residue are handled correctly, and a pruned prefix cannot have a bad extension. An independent 36-bit-mask search with no depth cap reproduced all 3944 admissible prefixes, with counts 1,10,47,141,322,560,638,639,633,566,315,72 by length and no length-13 state. For the lower bound, d+13e with −5≤d≤5 and e∈{−1,0,1} cannot equal ±6 modulo 36, even without any length restriction. Thus 13 suffices for the short version and is necessary for the unrestricted version, proving both equalities.",
+      "residual_risks": [
+        "The exhaustion is for modulus 6 only; it does not classify all twelve-term extremizers or settle other moduli."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 gives the cross-invariant equality for prime powers only; Theorem 1.2 concerns the starred invariants with another predicate.",
+          "Li–Ling–Sun–Zhu's abstract uses a vector divisible-by-n/not-divisible-by-n² formulation."
+        ],
+        "reasoning": "Modulus 6 has two distinct prime divisors and falls outside the prime-power theorem. Neither the starred nor the inspected vector predicate forces gcd(σ,36)=6 on the needed subsequence.",
+        "searches": [
+          "arXiv:2607.11313v1 Thms. 1.2, 1.4 and §6",
+          "arXiv:2610.19965v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.11313v1",
+        "arXiv:2606.18234",
+        "arXiv:2610.19965v1 (abstract only)",
+        "Resultary 1cb299b1463f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 6.2 with x≡2 mod 6 gives the same twelve-term obstruction; the nearby positive bounds target a five-residue set, not {6,30}."
+        ],
+        "reasoning": "The obstruction transfers directly and is explicitly credited. The asserted upper bound is the new content: it requires excluding the weaker-target-only behavior at length 13 under the exact-gcd criterion, which is not supplied by those positive bounds.",
+        "searches": [
+          "arXiv:2607.11313v1 Problem 6.1 and Example 6.2",
+          "arXiv:2606.18234 t1(6) theorem",
+          "Resultary 1cb299b1463f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–Jiang–Mu's cross-invariants at k=n=6 have exactly the frozen unit-input and gcd restrictions.",
+          "Sun's t1(6)=11 uses exactly six unit entries but permits any divisible-by-6 sum not divisible by 36."
+        ],
+        "reasoning": "The former is the same problem and gives the lower bound; the latter admits 12, 18 and 24 as additional target residues, and is not an equivalent modular formulation.",
+        "searches": [
+          "arXiv:2607.11313v1 Def. 1.1, Problem 6.1 and Example 6.2",
+          "arXiv:2606.18234 Def. 1.3 and Thms. 1.3–1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day Finding gives s1(6)=13 for arbitrary nonmultiples of 6 and exactly six terms, with a divisible-by-6/not-divisible-by-36 target.",
+          "Example 6.2 supplies the lower bound 13 at n=6, not equality."
+        ],
+        "reasoning": "The identical numerical value in the Resultary Finding is for a different invariant. In particular it is possible to encounter a weak target but no exact target: (1,1,1,1,1,7) has six-term sum 12 but no exact-gcd-6 subsequence.",
+        "searches": [
+          "Resultary 1cb299b1463f",
+          "arXiv:2607.11313v1 Example 6.2"
+        ]
+      },
+      "rationale": "The prior exact-gcd problem and the twelve-term witness are verified in Gao–Jiang–Mu. The supported distinct claim is the matching upper bound at n=6. The strongest numerically similar same-day finding and the published weaker-predicate theorem neither guarantee a sum with gcd exactly 6 nor imply this upper bound.",
+      "residual_risks": [
+        "The bounded review cannot rule out an unindexed solution or another upper-bound result stated under a different formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of definitions and lower bound; upper bound not furnished by these statements",
+          "evidence": [
+            "The cross-invariant composite case is posed as Problem 6.1.",
+            "At n=6 Example 6.2 specializes to the same residue witness.",
+            "Theorem 1.4 is restricted to prime powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.11313v1",
+          "material_read": "Def. 1.1 p. 2 offset 5347; Thms. 1.2 and 1.4 p. 3 offsets 6779 and 8088; §6 Problem 6.1 p. 17 offset 44841; Example 6.2 pp. 17–18 offsets 45157–47573",
+          "method": "Primary arXiv PDF, current unversioned retrieval identifying itself as v1",
+          "title": "Two local zero-sum problems",
+          "trigger": "Exact named problem and matching lower-bound construction"
+        },
+        {
+          "assessment": "Different target set despite the same modulus and unit input",
+          "evidence": [
+            "t1(6)=11 for a six-term sum in {6,12,18,24,30} mod 36."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.18234",
+          "material_read": "Def. 1.3 and Thms. 1.3–1.4, pp. 3–4 offsets 7119–10350",
+          "method": "Primary arXiv text",
+          "title": "On zero-sum problems of two new types",
+          "trigger": "Positive result on length-six unit sums modulo 36"
+        },
+        {
+          "assessment": "Same numerical threshold for different input and target predicates",
+          "evidence": [
+            "Requires nonmultiples of 6, exactly six terms and a sum divisible by 6 but not 36."
+          ],
+          "identifier_or_url": "Resultary 1cb299b1463f",
+          "material_read": "Finding offsets 0–2531",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact six-term zero-sum threshold and extremal profiles modulo 36",
+          "trigger": "Same-day equality 13 with modulus 6 and bounded length"
+        },
+        {
+          "assessment": "Abstract concerns a related vector predicate; no whole-document exclusion inferred",
+          "evidence": [
+            "The condition is divisibility by n without divisibility by n², not the exact gcd criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19965v1",
+          "material_read": "Abstract, p. 1 offset 0",
+          "method": "Primary arXiv text, abstract comparison only",
+          "title": "Proofs and disproofs of some conjectures on zero-sum problems of new types",
+          "trigger": "Potential broader recent zero-sum bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gao–Jiang–Mu, Problem 6.1 and Example 6.2",
+        "Frozen RESULT.md lines 5–11 and 21–47"
+      ],
+      "rationale": "The first modulus with two distinct prime divisors is the natural boundary of the known prime-power theorem and the first instance of the cited problem, not an arbitrary experimental choice. A sharp upper bound for the more restrictive short-subsequence invariant shows that the general lower construction is attained already at this boundary and settles both thresholds there.",
+      "residual_risks": [
+        "The contribution establishes the first case by finite exhaustion; it supplies neither a general composite-modulus method nor all extremizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

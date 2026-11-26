@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The chain is explicitly defined and has the same geometric conventions as the motivating process. For \(p>2/3\), the first-moment drift is eventually negative, and irreducibility and aperiodicity give the unique invariant distribution. Quadratic and cubic drift estimates prove integrability of the first and second stationary moments in their respective parameter ranges. The precise truncation argument in the proof justifies stationary drift integration without presuming integrability. The exact invariant generating-function relation yields necessary identities \((a-3)m=2\) and \((a-4)f=4+10m\); positivity rules out missing moments at and below their boundaries. Substitution and polynomial reduction give the closed rational forms and the pole. The supplementary exact-rational test reports 773 successful identities. Residual mathematical risk: applying Foster's criterion and its truncation lemma requires the stated countable-chain hypotheses; these are verified for this chain. Finite tests do not substitute for the proof.
+## correctness
 
-## Originality — PASS, qualified
-Carper (arXiv:2609.06311v1) is the defining source and already establishes the stationary mean and zero mass. These are prior facts. The present second-moment threshold at \(p=4/5\), rational stationary variance and pole are separate quantitative statements not found in the inspected primary sections. Kosygina–Peterson (arXiv:1504.06280) provides general excited-walk branching theory and excursion-tail results, rather than this model's explicit one-time second stationary moment. Published research-record semantic searches using the precise rational formula, parameter thresholds, geometric emigration and cookie-walk aliases did not return a directly covering statement. An unlocated broad branching-with-migration moment theorem could imply the finiteness threshold, and historical originality remains provisional pending independent review. Absence of a result in a search is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Stationary variance is the first nontrivial dispersion diagnostic beyond the already known stationary mean of this natural population encoding of a self-interacting walk. The exact answer reveals an additional integrability boundary \(p=4/5\), shows that the interval \(3/4<p\le4/5\) has finite speed-related mean but infinite stationary variance, and computes the strength of its divergence. These are natural parameters and statistics, not an arbitrary finite slice. The claim does not assert a general migration-process theorem or a new limit law.
+Set a=p/(1-p). The chain has resets to zero, can reach any state from zero, and has drift 2−a+O(p^x), proving positive recurrence for a>2. The leading cubic drift is 3(4−a)x², with O(x+1) remainder; integrating the drift of min(x³,R), not x³ itself, proves sufficiency without assuming stationarity has a third moment. For necessity, the conditional PGF summed over geometric emigration gives (1−ah)g(h)=(1−h)/(1+h)g(h/(1+h))+(1−a)Bh. Under the respective first- and second-moment hypotheses integrate g′ over [h/(1+h),h] before extracting coefficients; the resulting identities are (a−3)m=2 and (a−4)E[V(V−1)]=4+10m. Their positive right sides exclude equality as well as the subthreshold regimes. The raw second moment is 6a/((a−3)(a−4)), and subtracting the squared mean gives the stated variance; the mean remains bounded at the second-moment boundary, so both pole coefficients are 24/25. Read the frozen Python and output as evidence only. The separate exact conditional-PGF derivative/geometric-sum checks and pole calculation ran with `python3 /workspace/branches/review_reproduction.py 3`; these are finite checks, not the proof. No Lean or expert attestation was performed.
 
-## Closest literature and limitations
-Patrick Carper, *A Branching Process with Geometric Emigration and the "Have Your Cookie and Eat It" Random Walk*, arXiv:2609.06311v1, supplies the exact process and known mean. Elena Kosygina and Jonathon Peterson, *Excited random walks with Markovian cookie stacks*, arXiv:1504.06280, supplies related branching-walk machinery. Thierry E. Huillet, *On the Balance between Emigration and Immigration as Random Walks on Non-Negative Integers* (2024), studies different migration rules. General results about stationary tails could subsume the moment threshold; no exact statement-to-statement implication was located. The scope is independent geometrically distributed inputs and \(2/3<p<1\), not all branching-with-migration laws.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit Carper for the exact model, recurrence and first-moment results, and exact stationary transform. The supported distinct claim is the stationary one-time second-moment boundary (including equality), its exact formula and pole. A finite-moment expansion of the previously available transform alone does not establish the regime where those coefficients exist. No inspected earlier result supplies the combined higher-moment claim; this is a bounded assessment, not historical-priority certification.
+
+## value
+
+PASS
+
+It separates finite-mean and finite-variance behavior of an existing model tied to an excited random walk. The exact pole quantifies variance growth near the second transition, information neither a first-moment solution nor an excursion bound provides. The drift/truncation and equality obstruction make this more than a numerical evaluation of an invariant; the claim remains about the invariant population only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:09:30.122939Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–68",
+        "VERIFICATION.md and verify.py (inspected only)",
+        "/workspace/branches/a87fe63f-33a7-4858-a9b3-500bfa726bef/independent_check.py"
+      ],
+      "rationale": "For the specified commuting pairs, g=ef is idempotent, its image is the common fixed-point set, and ge=gf=g ensures that both maps preserve each product fiber. On one fiber, the exclusive fixed-point sets U and V go to the common root under the opposite map, and a point outside both images has independent choices of one image in U plus the root and one in V plus the root. This is an exact labeled bijection and gives the stated h_m. The SET construction, with one factor y per block, includes n=0 and gives the series and recurrence. An arbitrary central map must fix each point by commuting with the constant maps. Subtracting the E_n diagonal pairs and 2(E_n−1) nondiagonal identity pairs before division by two gives exactly the induced simple-graph edge count. The scope sentence about idempotence is read within the commuting class, not as a converse for arbitrary idempotents: distinct constant maps need not commute even though their product is idempotent. A separately written direct enumeration through n=5 matched the rank rows and graph counts; the recurrence matched the totals through n=8. No uploaded script was executed.",
+      "residual_risks": [
+        "Direct enumeration stops at five points; the bijection is the all-size proof. Product idempotence must not be used as a test for commutation outside the theorem's actual assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published semilattice papers give maximal sizes or structural commuting criteria, not the census",
+          "Centralizers Corollary 5.2 gives the root-preserving component condition for one fixed idempotent",
+          "cabfb16a59f1 refines an exact count by the second idempotent's rank for each fixed first idempotent of arbitrary kernel sizes and gives the summand separately for each idempotent g"
+        ],
+        "reasoning": "The published structural criteria alone are background. The distinct exact catalogue result is substantively stronger in the relevant direction, because the count is obtainable with the first factor fixed and with the actual root restriction g specified; it therefore dominates the global rank count after summing. Restricted regressive and monotone monoids do not give this coverage.",
+        "searches": [
+          "Araújo–Konieczny arXiv:1007.4845v1 Lemma 2.1/Corollary 2.2",
+          "Araújo–Bentz–Konieczny arXiv:1405.7260v1 Theorem 1.1/Corollary 1.3",
+          "Centralizers in the Full Transformation Semigroup, Corollary 5.2",
+          "Resultary cabfb16a59f1 Finding and Steps 1, 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cabfb16a59f1 (decisive)",
+        "Resultary 0e04e0804e5b, 862679beafc6 and 7421eb043379",
+        "Araújo–Konieczny arXiv:1007.4845v1 and Centralizers in the Full Transformation Semigroup",
+        "Araújo–Bentz–Konieczny arXiv:1405.7260v1",
+        "Araújo–Kinyon–Konieczny Minimal Paths",
+        "Konieczny (2002), identification and access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-g summand chooses h nonroot fixed points among b_j−1 in each target kernel block and gives the other M_j(g)−h nonroot points h+1 independent choices",
+          "The idempotent graph has the standard diagonal/identity subtraction once the pair total is known"
+        ],
+        "reasoning": "Explicitly regroup the fixed-g sum by a single fiber of g and the e-blocks over it. On m labels, choose its target root, a other e-roots, b selected nonroot f-fixed points from the target e-block (h=b), and c=m−1−a−b remaining points. In the sum over e, the b selected fixed points must lie in that target e-block and each remaining point chooses its e-block among a+1 roots. The V summand then gives (b+1)^c choices for their f-values, since M_j(g)−h=c. Thus the contribution is m times the multinomial times ((a+1)(b+1))^c, exactly h_m. The grouping of independently chosen fibers and the ordinary labeled SET formula give exp(yH(z)); derivatives give the recurrence and trivial subtraction gives the graph count. The extra product-rank variable and the compact form are consequently mechanical, despite not being stated verbatim in the matched record.",
+        "searches": [
+          "Resultary cabfb16a59f1 Finding offsets 0–2200, Step 1 (root map) and Step 3 (fixed-g V summand) offsets 3380–5827",
+          "Minimal Paths in the Commuting Graphs of Semigroups, idempotent subgraph and diameter results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cabfb16a59f1 Step 1: for x in block B_i, e(f(x))=f(e(x))=rho_{g(i)}, where g is f restricted to the roots of e",
+          "0e04e0804e5b: 94 idempotent products vs 58 commuting pairs at n=3"
+        ],
+        "reasoning": "For fixed e and commuting idempotent f, im(ef)=im(f restricted to im(e)), so the rank is |im(g)| in the prior root-map notation. This is not the rank of f itself, but the exact formula before summing already separates the terms by g. In contrast one-sided product idempotence is a strictly larger class and its rank counts do not determine the commuting subset.",
+        "searches": [
+          "Resultary semantic search: commuting idempotents in the full transformation monoid, retractions and centralizer/idempotent rank spectra",
+          "Resultary cabfb16a59f1 actual proof of the root-map decomposition",
+          "Araújo–Konieczny, Centralizers in the Full Transformation Semigroup, Corollary 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cabfb16a59f1 gives I_e(z)=sum_{g^2=g} product_{j in im(g)} V_{b_j,M_j(g)}(z), with a fixed-g proof",
+          "0e04e0804e5b gives a different exact one-sided idempotent-product census",
+          "862679beafc6 and 7421eb043379 concern regressive and monotone commuting pairs respectively"
+        ],
+        "reasoning": "This comparison uses an exact all-size formula, not the matching finite totals in an example. At z=1, the product in each fixed-g summand counts precisely the compatible idempotents f, all having commuting-product rank |im(g)|. Therefore it can be marked by y^|im(g)| before summing and then summed over all e. No identity with the one-sided or restricted-monoid tables is claimed.",
+        "searches": [
+          "Resultary searches for exact product-rank spectra, fixed retraction centralizers, and related full/restricted transformation monoids"
+        ]
+      },
+      "rationale": "The full rank distribution is mechanically covered by a distinct indexed exact result: Rank spectra of centralizers of finite transformation retractions, Resultary cabfb16a59f1. In its verified proof, the idempotent-fiber count is already a product over the image of the restricted root map. That image size is exactly the rank targeted here. Retaining its size, summing over the first idempotent and regrouping the explicitly given terms yields the very same rooted series, not just numerical ability to enumerate. This is a finding of existing mathematical coverage, not a determination of which result was obtained first or a failure based on inaccessible literature.",
+      "residual_risks": [
+        "The 2002 full text was not obtained and could add historical context. The indexed records have different path dates; these do not establish a historical priority judgment. Rejection rests on the proved exact mathematical implication from a distinct existing statement, not on dates, title similarity or failed retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical coverage of the target rank distribution, without a historical priority determination",
+          "evidence": "Root map g satisfies ef(x)=rho_{g(i)} on B_i; for idempotent g the fixed-g count is the product over j in im(g) of the V factors, whose nonroot choices are explicitly proved.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1",
+          "material_read": "Local RESULT.md Finding offsets 0–2200, Step 1 around 2352–2699 and Step 3 offsets 3380–5827; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Semantic catalogue search and decisive local mirror passage reading",
+          "title": "Rank spectra of centralizers of finite transformation retractions",
+          "trigger": "Exact enumerator for idempotents centralizing any fixed first idempotent, with the root restriction retained in the summands"
+        },
+        {
+          "assessment": "Material overlap but not equivalent; not the reason for rejection",
+          "evidence": "Includes noncommuting pairs and gives the direct n=3 contrast 94 versus 58.",
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-exact-one-sided-idempotence-rank-spectrum-in-the-full-transforma--0e04e0804e5b",
+          "material_read": "Local RESULT.md finding at offset 0 and offsets 7130–7630",
+          "method": "Semantic catalogue search and local mirror reading",
+          "title": "Exact one-sided idempotence rank spectrum in the full transformation monoid",
+          "trigger": "Same factors and ambient set with a nearby idempotent-product condition"
+        },
+        {
+          "assessment": "General structural antecedent; exact fixed-root-map count checked separately in cabfb16a59f1",
+          "evidence": "For an idempotent the centralizing map sends each rooted component into a target component with the corresponding root image.",
+          "identifier_or_url": "https://repositorioaberto.uab.pt/server/api/core/bitstreams/e1505ef6-df71-4791-a964-cd83058b4fc9/content",
+          "material_read": "Primary PDF pp. 1–2 and p. 25, Corollary 5.2, offsets 70400–71672",
+          "method": "Lawful institution-hosted primary PDF, bounded offset reading",
+          "title": "Centralizers in the Full Transformation Semigroup",
+          "trigger": "General centralizer structural result with the same ambient monoid"
+        },
+        {
+          "assessment": "Structure and maximal semilattice size, not the target census",
+          "evidence": "Structural commuting criteria and extremal size 2^(n−1).",
+          "identifier_or_url": "https://arxiv.org/abs/1007.4845v1",
+          "material_read": "PDF pp. 1–2, Lemma 2.1 and Corollary 2.2",
+          "method": "Primary PDF offset reading",
+          "title": "The Largest Subsemilattices of the Semigroup of Transformations on a Finite Set",
+          "trigger": "Commuting idempotents in the full transformation monoid"
+        },
+        {
+          "assessment": "Extremal semilattice problem, not pair enumeration",
+          "evidence": "General maximal-subsemilattice results give the corresponding full-transformation maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.7260v1",
+          "material_read": "PDF p. 3, offsets 9553–9999, Theorem 1.1 and Corollary 1.3",
+          "method": "Primary PDF offset reading",
+          "title": "The Largest Subsemilattices of the Endomorphism Monoid of an Independence Algebra",
+          "trigger": "Potential stronger result on finite endomorphisms"
+        },
+        {
+          "assessment": "Graph object and distances covered; no matched edge formula in inspected passages",
+          "evidence": "Defines the noncentral idempotent subgraph and studies its diameters, including on ideals.",
+          "identifier_or_url": "https://cs.du.edu/~mathfiles/preprints/nsm-math-preprint-1006.pdf",
+          "material_read": "Author-hosted PDF pp. 2–3, offsets around 2000 and 7403",
+          "method": "Primary PDF offset reading",
+          "title": "Minimal Paths in the Commuting Graphs of Semigroups",
+          "trigger": "Identical induced idempotent graph"
+        },
+        {
+          "assessment": "Unresolved older literature; not used as a reason to fail",
+          "evidence": "The centralizer paper cites that work for a structural antecedent; no full-text enumerative claim was verified.",
+          "identifier_or_url": "J. Konieczny, Algebra Colloquium 9 (2002), 121–134",
+          "material_read": "Bibliography and citation in Centralizers in the Full Transformation Semigroup, p. 30; full text not obtained",
+          "method": "Reference check and lawful retrieval attempt",
+          "title": "Semigroups of transformations commuting with idempotents",
+          "trigger": "Potential publication on exact idempotent centralizers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Steps 2–4",
+        "Resultary cabfb16a59f1 Finding and Steps 1 and 3",
+        "Minimal Paths in the Commuting Graphs of Semigroups"
+      ],
+      "rationale": "The pair-rank invariant and graph are natural, and the compact form is useful exposition. But after the exact fixed-retraction, fixed-root-map count, the all-pairs rank series is a routine product regrouping. The recurrence and graph edge count add only coefficient extraction and diagonal/identity subtraction. No distinct nonmechanical exact invariant or boundary remains to accept on the given evidence.",
+      "residual_risks": [
+        "The judgment concerns a distinct contribution under existing exact coverage, not whether the formula is convenient for computation or teaching."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a complete graph, the opinion count is an irreducible birth–death chain whenever \(0<p<1\). The two distinct sampling schemes give the exact two-point unanimity functions; the proof compares their stationary detailed-balance ratios. The key correction \(j(M-j)\) is reflection-symmetric while the distinct-sampling denominator is strictly increasing, giving a one-crossing radial likelihood ratio. Symmetry converts radial stochastic dominance into a convex-order comparison. For \(N=3\), every ratio is equal; for \(N\ge4\), a strict inner step ensures a strictly smaller variance under repeated sampling. For \(q=3,N=4\), direct finite-state ratios reverse the inequality. Packaged independent microscopic tuple enumeration and rational invariant-distribution checks passed 6,492 assertions. Finite experiments are not relied on as the proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+Conditioning on the focal spin leaves M=N−1 other agents, and gives the stated binomial versus without-replacement unanimity probabilities. Since p>0 the count chain is irreducible, with reflection-symmetric stationary law and mean N/2. Writing R_k=π_R(k)/π_D(k), detailed balance gives R_{k+1}/R_k=T(k)/T(M−k). For q=2, T(j)=1+b j(M−j)/[M²(M−1) D(j)], D(j)=a+b j(j−1)/[M(M−1)]. The difference D(M−j)−D(j)=b(M−2j)/M shows that T(j)>T(M−j) for 0<j<M/2, with equality at the endpoints and midpoint. Folding preserves the odds ratio, so R/D decreases with radial distance. The normalized ratio crosses 1 at most once on the ordered radial levels, implying stochastic dominance; if nonconstant, a strict tail difference yields strict variance inequality. For N=3 all ratios are 1 between adjacent states, and for N≥4 k=1 gives a strict step. Any convex test on K has the same expectation as its symmetrized test, which increases radially by convexity. For q=3,N=4 the distinct unanimity probabilities at j=1,2 vanish, whereas the repeated ones are 1/27 and 8/27. This gives T(1)<T(2) and T(0)=T(3)=1, so R is strictly smaller at K=2 than at every other state, reversing the radial order and the strict variance comparison. All arguments hold for real 0<p<1.
 
-The closest primary source, Weron–Nyczka–Szwabiński (2024, DOI 10.3390/e26020132), studies exactly the distinction between repeated and distinct influence selection, but develops simulated concentration curves and deterministic mean-field/pair approximations, not the exact finite-size invariant-law likelihood-ratio comparison. Vieira et al. (2020, arXiv:2002.04715) treat a broader threshold \(q\)-voter mechanism but their inspected introduction, model, mean-field equations, phase diagrams, final discussion, and appendices do not establish this finite \(q=2\) convex-order result or its \(q=3,N=4\) reversal. Searches for finite stationary distributions, sampling replacement, stochastic/convex orders, and exact q-voter polarization found no applicable stronger statement. The general birth–death and stochastic-order tools are established; the exact comparison for the influence models is the assessed contribution. Residual risk: the full 2024 publisher document was available in substantial indexed sections but direct retrieval encountered rate limiting; less-indexed mathematical literature may contain an equivalent comparison.
+## originality
 
-## Value — PASS
+PASS
 
-This gives an all-population and all-noise distributional inequality, rather than merely comparing simulated means or a few variances. It resolves the precise finite-size effect of influencer repetition for \(q=2\), supplies an exact boundary at \(N=3\), and demonstrates a provable reversal at the smallest admissible three-person influence group. The direction change is directly tied to a modeling choice highlighted by the motivating paper and warns against extrapolating pair-influence intuitions to larger groups. It does not assert a statement for sparse networks or transient distributions.
+Neither the known sampling model nor the birth–death stationary formula is claimed as original. The theorem-level gap supported by the comparisons is the exact all-finite-size radial likelihood-ratio ordering between the two sampling rules at q=2, with sharp equality/strictness, and the all-noise reversal in the smallest q=3 case.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Changing whether influence agents may repeat is a real modeling choice at finite size. The result orders every convex polarization statistic at once, not just a moment or a simulated histogram. The smallest q=3 reversal rules out a size-uniform heuristic based on repeated draws increasing unanimity; equality at N=3 pins down the boundary of strictness in the universal q=2 theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

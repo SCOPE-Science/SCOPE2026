@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:59.990961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final file: /workspace/repairs/2/RESULT.md. The frozen prior-work sentence said equality with factor complexity held precisely at powers of two, but its own length-three base case gives b_2(3)=5=P(3). The corrected paragraph credits dyadic equality and finite computations without that false exclusivity. The theorem and scope are unchanged and checked on the corrected file. At fixed length all counts through order two follow from (z,t). By p_(2j)=0 and p_(2j+1)=1−p_j, every factor of doubled length is an even or odd lift of a shorter factor and both lifts occur for each shorter factor. Complementing swaps 01 with 10; the inserted zeros give T_B=binom(z,2)+2[z(m−z)−t] and T_A=T_B+z. There are no adjacent ones, and all five length-three words with no adjacent ones occur in the opening prefix; their signatures give the three claimed base tiers. The injective t maps in an odd tier have opposite parity, so outer sizes double. In the even middle tier the new step is z and the two images differ by one step, growing the progression by one term. This proves all k≥0 for the full factor language. An independent direct test generated the first 32768 letters from the parity recurrence and counted signatures for starts 0 through 32768−3·2^k, checking k=0 through 8. It reproduced 5,8,13,22,39,72,137,266,523 and the tier data. That finite test is corroboration, not a completeness argument about arbitrary starts. The supplied verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lejeune describes a lack of a general exact formula for the period-doubling 2-binomial complexity. The discussed equality at powers of two is distinct from the frozen ray.",
+          "The dyadic catalogue proof uses rotations of two length-2^k blocks. Rigo–Salimov's inspected boundedness result treats Thue–Morse, not this fixed point."
+        ],
+        "reasoning": "Neither the dyadic two-block description nor the other-word boundedness result supplies a theorem whose specialization gives three tiers at length 3·2^k. The elementary signature characterization is a common ingredient, not the count.",
+        "searches": [
+          "Lejeune thesis, §4.5 pp. 115–117",
+          "Rigo and Salimov ORBi 2268/149313, OA p. 7",
+          "Resultary ea4a069f1a17, Finding and complete dyadic factor language"
+        ]
+      },
+      "checked_sources": [
+        "Lejeune thesis, §4.5 including Figure 4.2",
+        "Resultary ea4a069f1a17",
+        "Rigo–Salimov ORBi 2268/149313"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary thesis invokes the uniform substitution and studies comparison with factor complexity, not the exact tier count on the non-dyadic ray.",
+          "The catalogue dyadic invariant has only two weights and all factors separated; the reviewed claim contains an even middle tier whose two translated progressions overlap."
+        ],
+        "reasoning": "Knowing dyadic rigidity, or a strict comparison with factor complexity, cannot determine repeated overlaps and the +1 middle-tier recurrence along the length-three ray. Those follow from the checked parity-and-progression induction, not a dyadic parameter substitution.",
+        "searches": [
+          "Lejeune thesis §4.5, Proposition 4.5.1 and the paragraph below Figure 4.2",
+          "Resultary ea4a069f1a17, Finding and proof steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lejeune §4.5 reduces the same binary 2-binomial problem to zero count and scattered 01 count.",
+          "Resultary ea4a069f1a17 uses ones and their index sum S, with binom(u,01)=S−binom(|u|_1,2)."
+        ],
+        "reasoning": "The two signature parametrizations are equivalent at fixed length, but the dyadic result assumes N=2^k and proves injectivity on all distinct factors there. The 2-abelian formulation counts contiguous subfactors and is not an alias of the scattered statistic.",
+        "searches": [
+          "Resultary: period-doubling word 2-binomial complexity b_2(3·2^k) three tiers signatures",
+          "Primary lookup: period-doubling word 2-binomial complexity exact formula b_2(n) Lejeune thesis section 4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The thesis reports computed and plotted values through length 70, so lengths 3,6,12,24,48 lie in that finite range; this is not a source for all k or for tier data.",
+          "The inspected exact dyadic record tabulates and proves a formula for powers of two, characterized by two rather than three letter-count tiers."
+        ],
+        "reasoning": "Initial computed totals are not distinct discoveries. Matching the model and statistic does not make a disjoint length ray exact table coverage.",
+        "searches": [
+          "Resultary: b2(3·2^k) = 2^(k+1)+k+3 period-doubling three zero count classes",
+          "Lejeune thesis Figure 4.2, p. 116"
+        ]
+      },
+      "rationale": "The repaired prior comparison accurately credits the known dyadic equality, the shared signature invariant and the finite plot. The surviving contribution is the exact non-dyadic ray with complete tier sizes and middle progression for all k≥0, not the finite first values or dyadic rigidity.",
+      "residual_risks": [
+        "The comparison establishes distinguishable claims in the inspected literature, not exhaustive priority. An unindexed computation or equivalent non-dyadic formula could remain.",
+        "The repaired paragraph deliberately avoids extrapolating the thesis's printed strict-inequality ranges; equality at length three is verified directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dyadic equality and finite non-dyadic data, not exact target ray",
+          "evidence": "States dyadic equality, gives first numerical values in Figure 4.2, and says the full 2-binomial function was not precisely computed.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+          "material_read": "§4.5 printed pp. 115–117, especially Proposition 4.5.1 and Figure 4.2, text offsets 347500–353490",
+          "method": "Lawful OA original thesis passage inspection; flattened typography not used to infer detailed strict-inequality index ranges",
+          "title": "On the k-binomial equivalence of finite words and k-binomial complexity of infinite words",
+          "trigger": "Same word, same invariant, plausible exact non-dyadic coverage"
+        },
+        {
+          "assessment": "Material methodological overlap, distinct dyadic domain",
+          "evidence": "N=2^k, two weights, rotations of two aligned blocks, and b_2(N)=3N/2 for k≥1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17/RESULT.md",
+          "material_read": "Finding, scope and proof steps 1–3, offsets 0–4218",
+          "method": "Local mirror statement and signature comparison",
+          "title": "Dyadic two-binomial rigidity of the period-doubling word",
+          "trigger": "Exact same invariant in the local catalogue"
+        },
+        {
+          "assessment": "Different fixed point in the relevant result",
+          "evidence": "The inspected bounded 2-binomial complexity result concerns Thue–Morse.",
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "OA extended preprint p. 7, boundedness result near offset 18823",
+          "method": "OA primary passage inspection",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Foundational exact complexity results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The length-three dyadic ray is the first non-power-of-two core and a natural uniform-substitution family. Known dyadic separation leaves genuine signature collisions unresolved outside it. The exact additive k term and disjointness-versus-overlap mechanism describe how the classes change under doubling; the result supplies more than numerical first values. The literature clarification preserves this content and its significance without overstating dyadic exclusivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the sharp endemic-feasibility window
 
-The scope is the four-equation reduced system (2) of Ouyadri, El Koufi and Belhdid, treated as a stand-alone ODE. The result uses the physical cat constraint \(S+I\leq1\) and \(V=1-S-I\). The unreduced equations (1) are not asserted to conserve cat totals.
+# Independent mathematical audit
 
-**Algebraic verification.** Write \(d=\alpha-\mu t_1\) and \(H=\alpha+\mu(1-t_1-t_2)\). At an equilibrium with \(I>0\), the environmental and infection equations uniquely force \(O=kI/\mu_0\), \(S=d\mu_0/(\beta k)\), and the susceptible-mouse equation forces \(M=0\). The first equation then forces \(I=[\mu-(\mu+\gamma)S]/H\). Substituting these expressions gives four zero residuals. The derived vaccinated/recovered fraction is \(V=[a+(\gamma-a)S]/H\), with \(a=\alpha-\mu(t_1+t_2)\). The strict-infection threshold \(\beta_c\), the upper biological threshold \(\beta_{\max}\), their strict ordering, and endpoint equality are obtained by comparing signs of these two rational expressions under the stated domain assumptions. No root is discarded without checking its positivity.
+## correctness
 
-**Boundary verification.** On the faces of the physical region, \(S'\), \(I'\), \(O'\), and the mouse flow point inward or tangent. The recovered/vaccinated face has outward derivative precisely when \(\gamma S+aI<0\). It is never outward if \(a\geq0\), and it is strictly outward at \((S,I,V)=(0,1,0)\) if \(a<0\). This establishes the if-and-only-if forward-invariance criterion; it is not a claim of global stability.
+PASS
 
-**Reproducible finite checks.** Extract the embedded `verify.py` alongside this file and run `python verify.py` with Python 3. The verifier uses only `fractions.Fraction`, evaluates every printed right-hand side exactly at the rational equilibrium witnesses, checks the vanishing residuals and the physical and unphysical endpoints, and prints `VERIFY_OK` on success. The checker was executed in the package working directory and returned `VERIFY_OK`. Exact rational tests check explicit witnesses but cannot prove the quantified general theorem; the proof above and in RESULT.md supplies the parameter-uniform argument.
+The published equation (2) matches the four equations under review; the fraction bounds specified in the frozen result are its own hypotheses. Adding the two cat equations gives V'=-mu V+gamma S+aI. For a>=0 it is inward or tangent on V=0, as are the other physical faces under the stated positivity and fraction assumptions. The remaining coordinates stay bounded on this region (the environmental coordinate satisfies a linear comparison), so local invariance gives forward invariance for all time. For a<0 the simplex vertex S=V=0,I=1 is strictly outward in V; continuous dependence at a short positive time gives nearby interior starting points that leave too. The endemic stationary equations force O=kI/mu0, M=0, S=d mu0/(beta k), and I=[mu-(mu+gamma)S]/H; substitution proves sufficiency and uniqueness when admissible. H>0, infection is positive precisely above beta_c, and the residual fraction has sign given by a+(gamma-a)S. Hence it is positive automatically when a>=0 in the endemic branch, and when a=-q<0 its nonnegativity is exactly the upper cutoff, with equality allowing V=0. The ordering of the two thresholds is strict because 0<q<mu and gamma>0. These are algebraic and geometric facts about the printed reduced ODE, not the unreduced equations, stability, or an empirical interpretation. The notes and frozen checker were inspected, not executed.
 
-**Limits.** No stability or convergence theorem is tested or claimed. The normalization from the unreduced system (1) is not justified by this theorem. The source article's first public date uses a day-stamped author posting; an earlier undated publisher posting remains possible. No independent scientific audit has been carried out.
+## originality
+
+PASS
+
+The prior zero-vertical-terms models already contain the corresponding reproduction-threshold feasibility case, and inward-face testing and elimination are standard. The distinct claim is the additional active simplex constraint and its exact combined invariance and equilibrium classification in the printed reduced equations. The target paper does not state that constraint and instead gives a different infection coordinate and an insufficient general criterion.
+
+## value
+
+PASS
+
+The result corrects a concrete omission in a published mathematical model: a positive infection coordinate need not give a feasible state, and the face where admissibility is lost is exactly identified. It gives a complete conditional classification for a natural region, rather than an isolated numerical counterexample. It does not establish a real-world threshold, epidemiological calibration, stability, or an intervention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

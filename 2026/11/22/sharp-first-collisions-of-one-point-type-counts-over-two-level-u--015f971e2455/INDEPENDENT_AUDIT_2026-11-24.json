@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:17:32.173863Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–59",
+        "VERIFICATION.md:19–25",
+        "artifacts/verify.py and artifacts/verify_output.txt, inspected rather than executed",
+        "Independent replay: python3 -I /workspace/reviews-evidence/03_partition_audit.py; output reviews-evidence/03.out"
+      ],
+      "rationale": "For pairs of old points at distance 1 the only forbidden new distance pair is {1,3}; at old distance 3 the only forbidden pair is (1,1). Thus all coordinates are in {2,3}, or the unique class with a 1 has only 1s and 2s and all others use 2 and 3. The extension and homogeneity properties realize and separate exactly these labeled types, proving the polynomial. Evaluating y=1,z=0 gives 1+Σ_s m_s((1+x)^s−1); its triangular coefficient transform determines every multiplicity m_s. An independently written exhaustive multiplicity recursion covered all positive partitions through 16. It evaluated the scalar via a geometric sum (case split by the first 1 in an active class) and compared all colliding partition pairs. It confirmed the unique n=10 unrestricted pair at 4864 and the two n=16 same-k pairs at (k,N)=(5,339968),(6,385024); neither grouping produced an earlier collision. Adding one common positive part t sends the scalar to 2^t N+(2^t−1)2^n, keeps the partitions distinct, and preserves equality of k if required, proving the all-larger assertions.",
+      "residual_risks": [
+        "The finite census is bounded at 16 and is not used as a proof of general identities. Types are in the ordinary metric ambient space with all three positive distances, not in the category of ultrametric extensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conant supplies general Urysohn/finite-language type groundwork",
+          "d131516353b2 covers all n for five classes and proves its own graph polynomial inversion",
+          "ec80747a5989 treats graph-metric 1/2 bases and 344f3bda595d distance-one clusters separated by two; 4e36345f61be uses refinement rather than extension counts"
+        ],
+        "reasoning": "General orbit/type machinery does not calculate this scalar census. The metric case adds the independent across-class prohibition (1,1) at old distance 3; the five-class theorem is stronger on that arithmetic slice, but does not cover all k or the 1/3 polynomial itself.",
+        "searches": [
+          "Conant arXiv:1502.05002, generalized Urysohn and quantifier elimination",
+          "Resultary d131516353b2, ec80747a5989, 344f3bda595d and 4e36345f61be"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.05002",
+        "Resultary d131516353b2, ec80747a5989, 344f3bda595d, 4e36345f61be",
+        "Focused primary-literature lookup",
+        "Explicit affine comparison of graph and metric counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=16, 6·2^16−53248=339968 gives the known five-class metric count",
+          "The prior graph setup has exactly q represented classes and its complete fixed-size collision classification stops at q=5",
+          "The 1/3 metric polynomial retains distances 1,2,3 and permits a no-distance-one assignment with independently chosen 2 or 3 at every point"
+        ],
+        "reasoning": "The k≤5 portion follows arithmetically (k=1 is trivial). Nothing in that theorem provides the k=6 census, rules out any earlier collision jointly over higher class counts, or supplies the competing offsets for the different-k comparison. The graph adjacency polynomial is not this three-distance type enumerator.",
+        "searches": [
+          "Resultary d131516353b2 original Finding and assumptions; Conant arXiv:1502.05002",
+          "Resultary graph-metric and clustered metric one-point formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d131516353b2 defines T=Σ_i2^(n−a_i) and exhibits the exact pair (1,3,4,4,4), (2,2,2,5,5) at n=16",
+          "N=(k+1)2^n−T in the metric setting"
+        ],
+        "reasoning": "At fixed (n,k), equality of N is exactly equality of T. Thus k=5 is not merely analogous: the existing statement covers that arithmetic result for the whole five-class family. For comparisons across different k, the offset depends on k, so the metric equality at n=10 is not implied by equal T at fixed class number.",
+        "searches": [
+          "Resultary: five-class binary-carry collisions, dyadic sums, and class-profile recovery",
+          "Primary literature: Katětov type-polynomial and dyadic multiset collision formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "015f971e2455 is the subject itself",
+          "d131516353b2 Finding gives the identical k=5 pair and uniqueness at n=16, with T=53248",
+          "No distinct hit in the bounded search gave the unrestricted n=10 pair or the all-k n=16 layer including k=6"
+        ],
+        "reasoning": "The existing k=5 entry is an exact partial match under affine conversion, not a separate full-table match. A missing search result does not establish priority for the remaining components.",
+        "searches": [
+          "Resultary: exact first scalar and fixed-class-count integer-partition collisions at n=10,16"
+        ]
+      },
+      "rationale": "There is direct equivalent coverage of the k=5 collision subcase: the distinct multipartite Resultary record has the same dyadic sum and even a complete five-class classification. Its n=16 graph count 53248 converts to the identical metric pair at N=339968. No novelty or priority is attributed to that arithmetic subcase. The supported distinct theorem is the distance-refined formula and reconstruction in the 1/3 metric setting and the joint sharp scalar classification allowing all class counts: the cross-class-number cutoff at n=10 and the full fixed-k first layer, which also includes the independent k=6 pair. The same-day date does not establish priority either way.",
+      "residual_risks": [
+        "The distinct five-class result demonstrably covers that subcase; ordering within the shared date is not inferred.",
+        "Bounded searching does not exclude unindexed all-k dyadic partition classifications. The broad type and binomial-recovery methods are standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the five-class arithmetic and exact pair, but not comparisons over all class counts",
+          "evidence": "Bases meet every one of exactly q classes; T=Σ_i2^(n−a_i); the q=5 classification explicitly gives the identical pair and 53248. The graph polynomial grades adjacency, not three distances.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-five-class-binary-carry-collisions-in-homogeneous-multipartite-s--d131516353b2/RESULT.md",
+          "material_read": "Finding and beginning of Assumptions, offsets 0–3200",
+          "method": "Local mirror source passage and explicit scalar conversion",
+          "title": "Five-class binary-carry collisions in homogeneous multipartite singleton-type counts",
+          "trigger": "Same first size and plausible identical dyadic equality"
+        },
+        {
+          "assessment": "Underlying model-theoretic facts, not an exact collision or weighted cluster census in the inspected material",
+          "evidence": "The generalized Urysohn space is defined via the Fraïssé limit; the paper notes quantifier elimination in the finite-distance case.",
+          "identifier_or_url": "https://arxiv.org/html/1502.05002",
+          "material_read": "Introduction and Fraïssé/Urysohn limit passages, including the paragraph on elimination of quantifiers for finite distance monoids",
+          "method": "Targeted arXiv HTML passage comparison",
+          "title": "Distance structures for generalized metric spaces",
+          "trigger": "General Urysohn type and homogeneity premise"
+        },
+        {
+          "assessment": "Different base-distance condition",
+          "evidence": "Old distances 1 and 2 give no across-class old-distance-3 exclusion on two new 1s.",
+          "identifier_or_url": "Resultary 2026/10/4, ec80747a5989",
+          "material_read": "Retrieved model-scope material, compared with the reference description in RESULT.md:65–69",
+          "method": "Local Resultary and frozen reference comparison",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Same ambient metric type-polynomial problem"
+        },
+        {
+          "assessment": "Product scalar from 1/2 cluster bases; its catalog result is not the 1/3 scalar",
+          "evidence": "Between-class distances are two, and the described result has rigidity instead of these collision thresholds.",
+          "identifier_or_url": "Resultary 2026/11/22, 344f3bda595d",
+          "material_read": "Catalog synopsis",
+          "method": "Local Resultary comparison",
+          "title": "Mersenne rigidity of one-point types over clustered diameter-three metric bases",
+          "trigger": "Same clustered bases with a different separation and reconstruction invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–59",
+        "Independent partition census",
+        "Resultary d131516353b2 Finding"
+      ],
+      "rationale": "The scalar-versus-refined comparison answers a reconstruction question for a natural family of homogeneous-metric parameter sets. The result identifies exactly how early scalar information is lost, how much of that loss remains even when the class count is given, and why the refined invariant avoids it. The independent n=10 different-k witness, exact all-k first-layer census and persistence separate its contribution from a fresh computation of the known five-class pair alone.",
+      "residual_risks": [
+        "No all-arity or arbitrary-ultrametric reconstruction statement is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

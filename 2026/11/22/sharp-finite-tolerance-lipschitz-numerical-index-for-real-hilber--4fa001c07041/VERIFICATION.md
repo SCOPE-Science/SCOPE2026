@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is fully contained in `RESULT.md` and uses spherical-cap geometry, a rank-two skew map, and elementary Lipschitz estimates. In particular, the infinite-dimensional and arbitrary-metric quantifiers do **not** rest on numerical enumeration.
+## correctness
 
-Run `python3 checker.py` with a standard Python 3 installation. Its deterministic finite diagnostic checks 20,136 conditions across ten tolerances, 20,000 cap-geometry samples, and several planar skew increments. The expected output is `HILBERT_CAP_FINITE_DIAGNOSTIC_OK 20136`. This program is only a computational cross-check; the analytic argument proves the theorem.
+PASS
 
-The claimed uniform error is a supremum (not necessarily an attained maximizing functional inside the strictly open cap). The skew witness attains the supremum value and the index as defined. In the scalar case the cap includes the unique norming functional and no approximation error occurs. No statement is made for complex targets or for a universal exact index of arbitrary nonisometric references.
+Write c=1-delta and s=sqrt(1-c^2). For unit reference a and nonzero increment b, put x=|<a,b>|/||b||. Maximizing over the closed cap gives ||b|| for x>=c, and ||b||(cx+s sqrt(1-x^2)) for x<c, by aligning the perpendicular component with the signed perpendicular component of b. Boundary values are limits from the open cap, so the suprema coincide. Concavity on [0,c] gives minimum s at x=0. Since each reference increment is unit for an isometry, taking the supremum over pairs gives the lower index bound without any norm-attainment assumption on f. A rank-two skew J has Ja perpendicular to a. Its plane contains one nonzero reference increment, so ||Jg||_Lip is positive and equals one in the isometric case. For a merely norm-one g and admissible u, the orthogonal component of u relative to a/||a|| has norm at most s because <u,a>/||a||>c. Thus normalized Jg gives the upper bound even without an isometry. For unit a the limiting radius equals the supremum of the longitudinal evaluations, by the uniform estimate ||u-a||<=sqrt(2 epsilon). At finite tolerance the perpendicular term adds at most s||f||_Lip. The same skew witness has zero longitudinal evaluation and finite radius exactly s. In real dimension one with isometric g the matching unit sign evaluates the entire increment in absolute value, giving index 1 and error 0.
+
+## originality
+
+PASS
+
+The supported distinction is the exact positive-tolerance profile and best uniform regularization error on all isometric metric domains in real Hilbert targets. Near-norming definitions, skew maps, and a zero limiting relative index are not novel ingredients.
+
+## value
+
+PASS
+
+The finite near-norming relaxation is a preexisting object, and exact control matters because the real Hilbert limiting index is zero. The theorem quantifies the positive floor introduced by tolerance and the worst bias across all normalized test maps, showing that neither square-root scale nor its leading coefficient can be reduced. The construction works on arbitrary metric subsets without needing attainment, differentiability or compactness. This supplies a uniform benchmark, not just a planar cap calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

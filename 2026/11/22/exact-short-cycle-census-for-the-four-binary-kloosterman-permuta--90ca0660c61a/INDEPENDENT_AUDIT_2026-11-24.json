@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:46:03.780879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The identity row has 2^(n−1) fixed points and no primitive two-cycles. For admissible nonzero u, trace is invariant under each Frobenius power and the two inverse-power terms therefore sum to trace zero: both t and F_u(t) are nonzero on the trace-one fiber. Hollmann–Xiang Theorem 4.1 gives bijectivity. Independently composed the rational functions and factored their reduced numerators over GF(2) with SymPy, checking fixed-factor membership, irreducibility and the next-to-leading coefficient. The second-iterate factors and multiplicities match the frozen list exactly. Excluding the fixed roots, the multisets of minimal degrees of irreducible factors are {2}, {2,4}, {5,5,10,10}, for u=3,6,10 respectively; fixed factors are {1}, {1} and {1,2}. Each such degree-d irreducible has simple roots with minimal-field trace one. Its roots occur in E_n iff d divides n and have absolute trace one there iff n/d is odd, by the tower formula (multiplicities in the rational numerator do not count). This gives the fixed counts and, after halving primitive-period-two point counts, exactly the table. The degree-five and degree-ten conditions are disjoint, so the uniform ten-cycle bound and its equality regime follow. The inference is for every admissible n, not extrapolated from an enumeration.",
+      "replay": [
+        "SYMPY_GROUND_TYPES=python python3 /tmp/opencode/audit_kloosterman.py for exact composition, factor and trace checks",
+        "RESULT.md lines 29–78 for trace and denominator proof",
+        "frozen hx_two_cycle_checker.py inspected, not executed; its bounded enumeration is not needed for the all-degree result"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li's theorem exactly classifies admissible u by the trace-one permutation property; the proof of necessity is by moments. Gerike–Kyureghyan's cycle structure families have perturbations x+γf(x) with f valued in a specified subfield, acting on the full field. No available passage identifies the present trace-one permutations as those families."
+        ],
+        "reasoning": "A permutation criterion does not constrain the count of fixed and two-cycles as needed. A theorem about different subfield-valued line motions has not been shown to specialize to the inverse-Frobenius rational maps on these fibers.",
+        "searches": [
+          "arXiv:2611.13848v1 Theorem 1.3",
+          "DOI:10.1007/s10623-020-00721-2",
+          "DOI:10.1090/proc/15483; tried DOI, AMS and targeted arXiv title"
+        ]
+      },
+      "checked_sources": [
+        "Hollmann–Xiang DOI:10.1016/S0012-365X(03)00275-9",
+        "Li arXiv:2611.13848v1",
+        "Gerike–Kyureghyan DOI:10.1007/s10623-020-00721-2 (abstract)",
+        "Bartoli–Li–Zhou DOI:10.1090/proc/15483 (inaccessible full text)",
+        "Resultary 6fe70918d61c, 89be172471e0, 5614a82d36e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hollmann–Xiang prove that the three nonidentity maps are bijections; Li proves the converse for admissible indices. The new resonance calculation needs two irreducible degree-five and two degree-ten factors of the second iterate for u=10 and the parity of the trace in larger fields."
+        ],
+        "reasoning": "The classification supplies the list of maps but no second-iterate factor identities and no trace-filtered primitive orbit counts. The inspected implication is one-way for this audit: known bijectivity supports the setup, not the cycle conclusion.",
+        "searches": [
+          "Hollmann–Xiang Theorem 4.1 and injectivity proof",
+          "Yi Li Theorem 1.3 and focused original-text query for second iterate and two-cycle",
+          "Resultary nearby cycle-census records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A primitive two-cycle can equivalently be counted as half the roots of the second iterate minus fixed roots on the trace-one fiber. The named Kloosterman trinomials in the other records are X+tX^q+X^(2q−1) over the entire quadratic extension and X+X^(2^d−1)+X^(q−2^d+1)+δ over the whole binary field, respectively."
+        ],
+        "reasoning": "Related vocabulary or common use of finite-field trace does not identify the functions, invariant domain or exact period-two root sets. No equivalence or conjugacy furnishing the stated table was established in the inspected passages.",
+        "searches": [
+          "Resultary: trace-one Kloosterman permutations fixed points / second iterate / primitive period two",
+          "Hollmann–Xiang Theorem 4.1",
+          "Resultary 6fe70918d61c and 89be172471e0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6fe70918d61c has q−1 two-cycles for each qualifying t of a different permutation trinomial; 89be172471e0 gives whole-field counts for a translated trinomial. Distinct same-date 5614a82d36e1 has a map on F_q^3 in odd characteristic and treats lengths including 8,12,15."
+        ],
+        "reasoning": "The relevant exact tables do not match the trace-one inverse-power maps or their degree congruences. A search result for the assigned record itself is not independent evidence, and no date ordering was assumed for the distinct same-date item.",
+        "searches": [
+          "Resultary: u=3,6,10 cycle census / short cycles of binary Kloosterman maps",
+          "Resultary 6fe70918d61c, 89be172471e0 and distinct same-date 5614a82d36e1"
+        ]
+      },
+      "rationale": "The four admissible permutation patterns and their sufficiency are already known. The distinct result is the all-degree fixed-point and primitive two-cycle table on the trace-one fibers, under the original admissibility restrictions. The strongest inspected sources classify valid index patterns rather than compute individual orbit lengths, and the closely related short-cycle tables concern different maps and domains.",
+      "residual_risks": [
+        "Bartoli–Li–Zhou full text was not accessible after lawful attempts; actual orbit coverage there remains untested.",
+        "An unindexed period-two factorization under different rational-map terminology may exist. A low-yield indexed lookup and local catalogue search do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known permutation property, not an exact short-cycle theorem in the decisive passage",
+          "evidence": [
+            "Trace-one bijections for u=3,6,10, proved by injectivity."
+          ],
+          "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.udel.edu/dist/a/6387/files/2017/08/Henk_Xiang_Kloos-1w8md32.pdf",
+          "material_read": "PDF p. 5, Theorem 4.1 and proof near offset 11635",
+          "method": "Lawful OA original manuscript passages",
+          "title": "Kloosterman sum identities over F_(2^m)",
+          "trigger": "Original result on the identical nonidentity maps"
+        },
+        {
+          "assessment": "Complete index criterion, no cycle counts in the theorem",
+          "evidence": [
+            "F_u permutes the trace-one set iff u belongs to {0,3,6,10}, when u<2^n; necessity by moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.13848",
+          "material_read": "v1 PDF p. 2, Theorem 1.3 near offset 7254; targeted original-text checks",
+          "method": "Lawful OA primary article",
+          "title": "A Moment Proof of the Hollmann–Xiang Conjectures on Kloosterman Polynomials",
+          "trigger": "Closest same-family classification and possible orbit consequences"
+        },
+        {
+          "assessment": "Unresolved full-text overlap; access does not count against or for novelty",
+          "evidence": [
+            "DOI/AMS access denied and no matching arXiv title identified; the frozen comparison describes an asymptotic index classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/proc/15483",
+          "material_read": "Bibliographic identification only in this review; no primary body read",
+          "method": "Lawful OA DOI and AMS attempt plus targeted arXiv title route",
+          "title": "On the asymptotic classification of Kloosterman polynomials",
+          "trigger": "Plausible close prior paper on same family"
+        },
+        {
+          "assessment": "The described subfield-valued perturbation families do not identify these inverse-Frobenius maps",
+          "evidence": [
+            "Abstract treats x+γf(x) with f taking values in F_q and two families over F_(q^2)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-020-00721-2",
+          "material_read": "PDF p. 1, abstract and map hypotheses",
+          "method": "Lawful OA source passage",
+          "title": "Permutations on finite fields with invariant cycle structure on lines",
+          "trigger": "Potential broad finite-field short-cycle theorem"
+        },
+        {
+          "assessment": "Different map and domain",
+          "evidence": [
+            "X+tX^q+X^(2q−1) over F_(q^2), q−1 two-cycles per qualifying parameter."
+          ],
+          "identifier_or_url": "Resultary 6fe70918d61c",
+          "material_read": "RESULT.md offsets 0 and 908, actual map and census",
+          "method": "Local published-record mirror",
+          "title": "Cycle spectra and a Kloosterman coefficient census for a binary permutation trinomial",
+          "trigger": "Closest catalogue match in cycle and Kloosterman terminology"
+        },
+        {
+          "assessment": "Whole-field translated trinomial, not the four trace-one maps",
+          "evidence": [
+            "Uses X+X^(2^d−1)+X^(q−2^d+1)+δ in odd extension degree."
+          ],
+          "identifier_or_url": "Resultary 89be172471e0",
+          "material_read": "RESULT.md near offset 190",
+          "method": "Local published-record mirror",
+          "title": "A unique involutory translate and trace-rigid two-cycle exclusion for a binary permutation trinomial",
+          "trigger": "Fixed and two-cycle counts for binary trace-defined maps"
+        },
+        {
+          "assessment": "Different characteristic, map, ambient domain, and periods",
+          "evidence": [
+            "Quadratic map on F_q^3 in odd characteristic with nontrivial cycles of lengths 8,12,15."
+          ],
+          "identifier_or_url": "Resultary 5614a82d36e1",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Local published-record mirror",
+          "title": "Short-cycle arithmetic of a quadratic finite-field permutation",
+          "trigger": "Distinct same-date short-cycle result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Short primitive orbits are a natural invariant of these independently characterized permutation patterns across all extensions. The exact congruence conditions, uniform ten-cycle bound with sharp equality, and reason for the degree-five and degree-ten resonances give orbit information absent from mere bijectivity. The value is in the complete all-degree period-one/two profile, not in the elementary identity or fixed-point case alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

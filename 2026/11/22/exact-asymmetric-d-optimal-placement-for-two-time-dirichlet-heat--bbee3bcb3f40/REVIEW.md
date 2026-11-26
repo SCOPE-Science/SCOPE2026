@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each finite \(T>0\), the direct information determinant factors into a nonzero time constant and \((1-s^2)(1-t^2)(s+kt)^2\). The global reduction accounts for signs, reflection, coincident points, and all endpoints. The logarithm is strictly concave in the two positive magnitudes, giving a unique magnitude optimizer. The first-order equations reduce to a quadratic equation with a unique admissible root, yielding the exact location pair and value. The location migrations and endpoint asymptotics follow by differentiation and Taylor expansion. `CHECK.py` independently evaluates the original measurement matrix and passes 149121 finite supplementary assertions. Numerical tests do not substitute for the all-parameter proof.
+PASS
 
-## Originality — PASS, qualified
+The heat observation rows have modal factors (1,1) and (q,q^4); with two rows and independent noise, det I=(det M)^2/σ^4. Taking absolute cosines s,t gives the exact global reduction to (1-s²)(1-t²)(s+kt)², with equality for opposite signs at nonzero s,t. The unit edges and origin cannot maximize; along each remaining zero edge the inward first derivative is positive. Strict concavity of the log in the interior gives unique maximizing magnitudes. The stationarity identities 2s²+kst=1 and st+2kt²=k imply s²=(1-2w)/(2-3w), k²=w/[(1-2w)(2-3w)] with w=t². The increasing branch w∈(0,1/3) gives the stated quadratic root and exactly two reflected designs. Since s²-w=(1-w)(1-3w)/(2-3w)>0, the canonical pair has sum below one and the reflected pair has sum above one. Substitution yields the stated determinant. The sign of dw/dk gives both migration directions, w=2k²-14k⁴+O(k⁶) gives the large-time expansions, and dw/dk=1/6 at k=1 gives the equal short-time site velocities. At k=0 the reduced objective is 1/4 at the limit optimizer and 4/27 at the static equal-time pair, giving ratio 27/16. An independent bounded comparison at k=0.8, 0.2 and 0.001 evaluated the physical rows on the grid (i/160,j/160), 0≤i,j≤160, using q=k^(1/3); no grid value exceeded the formula and reflection agreed to floating-point precision. At q=10^(-4) the independently evaluated ratio was 1.6874999999966254. The frozen checker was inspected, not executed; the grid is only corroboration.
 
-Aldroubi et al. (arXiv:2004.14032, inspected HTML) treat continuous-band space-time sampling and stability bounds; Alexanderian–Saibaba (arXiv:1711.05878, inspected full HTML sections) treat PDE-scale D-optimal design algorithms; Cheng–Paley (arXiv:2111.01343) treat covariance-and-guidance path optimization; Huang–Needell–Tang (arXiv:2109.14079, inspected HTML) treat randomized graph-space-time sampling. Their examined theorems and stated objectives do not imply an explicit D-optimal assignment of one distinct location at each of two prescribed heat times. The closest indexed exact cycle result instead maximizes the smallest singular value of a four-by-three raw sampling matrix with two sensors at both times; a path-graph D-optimal result instead optimizes a single endpoint's temporal spacing. A specialized earlier two-mode regression or thermal inverse-design identity might have escaped the search; publication priority has not been independently established.
+## originality
 
-## Value — PASS
+PASS
 
-The two-dimensional initial-coefficient space is the smallest Dirichlet heat model in which spatial placement must simultaneously resolve differently decaying modes. The theorem completely classifies the two-time D-optimal designs for every positive time separation, including unique reflection equality cases, a nontrivial continuous relocation between geometry regimes, different large-time spatial approach rates, and an exact \(27/16\) limiting information advantage over a fixed geometry. It addresses a motivated finite-information experiment-design problem, rather than an arbitrary table entry. No more general sensor-placement theorem or real-world performance gain is claimed.
+The supported contribution is the specific globally sharp two-time likelihood design: the closed parameter curve, exhaustion of equality cases, strict symmetry breaking, and time-dependent determinant and placement laws. Neither general D-optimality nor the standard two-by-two information identity is new. The closest inspected polynomial-design, heat-sampling and PDE-design results differ in their design spaces or objectives and do not imply the solved pair.
 
-## Closest literature and limits
+## value
 
-The key difference from general dynamical-sampling frame results is the objective: likelihood Fisher determinant for precisely two scalar time-staggered measurements and two independently chosen continuous positions. The exact comparison risks are pre-existing specialized static sine-regression designs and older heat-identification literature, some of which is available only through abstracts. The result is not independently audited, does not optimize Bayesian posterior risk or mobility-constrained paths, and does not extend by assertion beyond two heat modes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One observation at each fixed time underlies a natural minimal identifiable heat-reconstruction design. The precise optimizer tests and rejects the natural reflected-site constraint for every finite separation, gives the migration of both sites, and quantifies the asymptotic information cost of reusing the equal-time design. The value is the complete optimizer and quantitative comparison, not routine computation of the Fisher determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:04:27.070939Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35 and 39–82, including the explicitly displayed channel; VERIFICATION.md; CHECK.py inspected, not executed",
+        "python3 /workspace/branches/frozen_review_reproduction.py bergman: 14 finite triangular resolvent residues with coefficients calculated from beta integrals agree with the infinite closed form to relative 1e−8 at cutoff 2500"
+      ],
+      "rationale": "For the displayed Kraus map, applying it to a diagonal telescopes the holding terms, giving the explicit Markov bidiagonal with forward coefficient a_n=δ_n/d. Strict moment log-convexity follows from Cauchy–Schwarz for a nonconstant squared radius; the ratios have limit 1 because the nth roots of the moments tend to 1 by support near radius one. The operator differs from bI+aB by a norm limit of finite-rank truncations. For the backward shift the open disk has index +1 by explicit bounded recurrence, and the rim has nonclosed range by finite-support tapering approximate eigenvectors at positive distance from its kernel. The eigenvector multiplier has limiting modulus |λ−b|/a; on the rim use |λ−β_n|≤a_n. Outside, a bounded eigenvector must terminate at λ=β_j, which lies outside exactly when δ_j>2. Cutting beyond j gives an invertible tail; the head has distinct diagonal entries, so the isolated eigenvalue is algebraically simple. The same cut and a Neumann series give the resolvent off the displayed spectrum. For beta weights the moments give δ_n=(n+A)/(n+1). The right mode decreases to its last nonzero index j; the left recurrence yields the stated alternating Pochhammer tail with absolute sum 2(1−r_j)^(−A−j−1) by differentiation of the binomial series. Their overlap is exactly one; aligning input signs attains the rank-one norm. At α=j+ε, 1−r_j=ε/(j+1+ε), and ε^(−ε)→1 supplies the sharp constant and exponent 2j+3.",
+      "residual_risks": [
+        "The channel normalization matches the displayed formula; the attribution of that formula to the precise Panja equation could not be independently checked in the primary source.",
+        "Finite residues do not verify the essential spectrum or the merger limit. Indeed at α=6.25, j=6 a shorter cutoff of 801 missed about 0.3% of the projection norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Panja's Kraus formula is reproduced in the frozen proof; its fixed-point focus is reported in the frozen comparison, not independently read",
+          "The web hit arXiv:2210.01510 describes c0 and ℓ^p weighted shifts in accessible search evidence. The cited Trefethen–Contedini–Embree work is on random bidiagonals."
+        ],
+        "reasoning": "A fixed-point characterization treats one spectral parameter, and a weighted shift with no variable diagonal does not identify the terminating eigenvectors at varying holding probabilities. A general bidiagonal formula could cover more, but no such beta-weight evaluation was established from available material.",
+        "searches": [
+          "Panja arXiv:2611.09731v1 Eq. (1.9) and scope; Trefethen–Contedini–Embree 2001; spectrum of deterministic bidiagonal/weighted shift operators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 88–102",
+        "Resultary e674a30ddfed, bacc9e885d1d, e62bfc33e5cd, dd232e9d60f4, 0f00e7031d83",
+        "Panja arXiv:2611.09731v1 and weighted-shift arXiv:2210.01510, retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compact shift perturbation yields the essential circle and index, not the full ordinary spectrum. The external diagonal positions depend on which moments satisfy δ_j>2; their norms require left/right recurrences and the explicit summation."
+        ],
+        "reasoning": "Credit the standard part and the earlier pure-birth description. Neither in available form determines the moment-dependent terminating modes and the distinct conditioning exponents.",
+        "searches": [
+          "Frozen proof §§2–4 compared with the same-channel Resultary bacc9e885d1d and classical shift/Fredholm argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e674a30ddfed is the assigned record itself. Same-channel bacc9e885d1d treats powers on the compact ideal and norms for images of finite-rank projections, with pure-birth propagation and Gaussian fronts",
+          "e62bfc33e5cd reports logarithmic/quadratic Riesz growth for a quadratic harmonic-Bergman Toeplitz outlier"
+        ],
+        "reasoning": "Norms of powers applied to projections are not norms of a Riesz projection of the Markov operator. A harmonic-symbol multiplication/compression operator and a map acting on diagonal sequences are distinct spectral problems.",
+        "searches": [
+          "Resultary: Panja radial Bergman weight diagonal Markov operator with moment ratios beta weights exact eigenprojection norm outlier delta_n > 2, critical exponents 2j+3",
+          "Resultary search for harmonic Bergman eigenprojection blow-up"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dd232e9d60f4 indexes exact binomial norms for compact Cesàro on ℓ² with fixed-coupling exponential growth; 0f00e7031d83 concerns outliers of a Meixner-weighted forward-difference norm problem"
+        ],
+        "reasoning": "Those are different operators and limiting regimes. Neither provides the beta-Bergman Markov-channel norm or threshold as an exact listed case.",
+        "searches": [
+          "Resultary exact δ_j>2 and 2j+3 projection-law search; dd232e9d60f4 and 0f00e7031d83"
+        ]
+      },
+      "rationale": "The strongest supported distinction is the exact external moment threshold on the diagonal channel and, for beta weights, the summed projection norm and sharp merger law. The channel construction, pure-birth interpretation and compact-perturbation shift framework are not the originality claim.",
+      "residual_risks": [
+        "The primary Panja text and exact prior beta/bidiagonal coverage were not available for full comparison; the same-channel catalogue passage does not establish whole-document exclusion.",
+        "A previously evaluated deterministic bidiagonal projection theorem with the same moment specialization could affect the credited distinct claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact primary scope unresolved, not evidence of noncoverage",
+          "evidence": "Frozen source cites Panja for channel and fixed points, then restricts to the diagonal Markov operator on ℓ∞.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09731v1",
+          "material_read": "Frozen RESULT.md lines 39–47 and 88–98, reproducing Eq. (1.9); original equation and surrounding sections not retrieved",
+          "method": "Bounded HTML and PDF primary retrieval attempts; relied on the frozen explicit formula for the proof only",
+          "title": "Toeplitz operators with bounded harmonic symbols on weighted Bergman spaces are the fixed points of a normal unital completely positive map",
+          "trigger": "Same channel, original definition and adjacent results"
+        },
+        {
+          "assessment": "Same-channel overlap in Markov mechanism, no exact projection-law coverage shown by available statement",
+          "evidence": "Finite-rank projections under powers in the index; spectral Riesz projections at isolated eigenvalues in the frozen finding.",
+          "identifier_or_url": "Resultary bacc9e885d1d",
+          "material_read": "Indexed statement of propagation, compact-ideal norms and beta Gaussian window; linked Finding not retrieved",
+          "method": "Local catalogue and bounded local-mirror attempt",
+          "title": "Ballistic and Gaussian survival fronts for the weighted-Bergman completely positive map",
+          "trigger": "Closest indexed same-channel diagonal/pure-birth result"
+        },
+        {
+          "assessment": "Exclusion of general deterministic prior work not established",
+          "evidence": "Random bidiagonal context in the first and weighted shifts on c0 and ℓ^p in available evidence for the second; the claim is deterministic and on ℓ∞.",
+          "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/publication/PDF/2001_96.pdf; arXiv:2210.01510",
+          "material_read": "Frozen citation/scope for the first; search-result scope for the second; no decisive primary passage retrieved",
+          "method": "Bounded literature lookup and primary retrieval attempts",
+          "title": "Spectra, pseudospectra, and localization for random bidiagonal matrices; On the spectrum of weighted shifts",
+          "trigger": "Plausible general operator theory overlap"
+        },
+        {
+          "assessment": "Material analogue, different operator and limit",
+          "evidence": "Compact operator on ℓ² and I_0 crossover, not the beta-weight outlier entering a noncompact essential disk.",
+          "identifier_or_url": "Resultary dd232e9d60f4",
+          "material_read": "Indexed statement",
+          "method": "Local catalogue",
+          "title": "Exponential Riesz-projection conditioning and Bessel crossover for compact generalized Cesàro operators",
+          "trigger": "Exact projection-norm and critical-scaling analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; independent residue and recurrence analysis"
+      ],
+      "rationale": "Even for a canonical invariant commutative subalgebra of a positive channel, isolated spectral modes can have very large projections. The explicit sequence of odd critical exponents gives a differentiated conditioning law rather than a generic statement of divergence, with the all-weight moment threshold locating where the phenomenon can occur.",
+      "residual_risks": [
+        "No conclusion for the full channel or its predual; the norm formula and asymptotics apply to beta weights, not general radial weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:10:46.231294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Scaling the (d−1)-dimensional slice of the power witness and integrating the resulting beta integral gives exponent (3−d)/2+(d−1)/2=1 and constants π/2, π, π²; in d=4 its pth power has an integrable boundary singularity exactly for p<2. For any signed L¹ input the spherical coarea density at t is |S^(d−2)|/|x| times (1−t²/|x|²)^((d−3)/2) for |x|>t. For t near 1 this bounds the angular absolute mean by O((1−t)^((d−3)/2)) times the L¹ mass of the terminal shell. That mass tends to zero; in d=4 for L² it is o((1−t)^(1/2)) by Hölder with the vanishing local L² norm, not just a global O bound. This gives o(1−t) in exactly the excluded cases, initially for a.e. t and then for the convex representatives at all interior t near 1 by Fatou and continuity along good t's. Recover the representatives by local averages. Convexity guarantees endpoint limits and Fatou on endpoint sequences makes them zero for a.e. direction already for any L¹ input when d≥3; reflection gives the left endpoint. Each profile is then nonpositive and its magnitude satisfies the stated chord bound. A nonzero profile must be strictly negative at 0, since an interior equality on its zero-endpoint chord forces affinity. The integrated coefficient is positive for nonzero f by Fourier-slice injectivity. It is in fact finite, since the chord bound can be integrated at a good t with finite angular mean (the finding's 'possibly infinite' is not needed). The inequality contradicts o(1−t), covering all excluded p by finite-measure inclusions. No finite symbolic checks are needed for these quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 involves W^{1,1} regularity of a directional profile; Theorem 6.4 assumes W^{1,1} data and extension and gives weighted Fourier integrability.",
+          "Kindermann–Hubmer treat norm and inverse-stability estimates rather than this cone of convex profiles."
+        ],
+        "reasoning": "Neither a regularity-restricted weighted norm estimate nor a stability inequality rules out a general integrable signed field just from directionwise convexity, or resolves the critical L² shell estimate.",
+        "searches": [
+          "Iosevich–Liflyand, convex Radon transforms of subharmonic functions and Fourier bounds, Theorems 6.1 and 6.4",
+          "Kindermann–Hubmer arXiv:2403.07466v2, sinogram space and stability estimates"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search including a45f1dca96e9",
+        "arXiv:2603.10804v1",
+        "arXiv:2611.22521v1",
+        "arXiv:2403.07466v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exponent rule predicts witness decay in a radial power class and does not give the shell estimate uniformly for arbitrary signed data.",
+          "The prior weighted estimate is a Fourier-side bound assuming convexity and W^{1,1}, not a pointwise-in-t comparison of angular means near the section endpoint."
+        ],
+        "reasoning": "The new implication is obtained by comparing a positive linear chord lower bound to little-o boundary decay, including absolute continuity of the shell L² integral at the critical exponent; it is not a substitution in either located theorem.",
+        "searches": [
+          "Hansen, Theorem 1; Iosevich–Liflyand, §6.2 and Theorem 6.4, compared with frozen RESULT.md proof steps 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 6.2 gives exactly the planar −sqrt(1−|x|²) witness and −(π/2)(1−t²) profile.",
+          "Hansen's shift γ ↦ γ+(n−1)/2 recovers the boundary exponent of the radial power examples under polyhomogeneity."
+        ],
+        "reasoning": "These overlap the construction rather than a necessary range condition on arbitrary signed Lp inputs. Rotational averaging alone is insufficient without proving noncancellation for a nonzero convex sinogram.",
+        "searches": [
+          "Resultary: convex Radon profiles/sections, signed functions supported on a Euclidean ball, critical p=2 dimension four",
+          "Hansen arXiv:2603.10804v1, Theorem 1, for Abel/power-weight aliases",
+          "Iosevich–Liflyand arXiv:2611.22521v1, §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue record a45f1dca96e9 is the assigned finding; no distinct material match surfaced in the reviewed ranked results."
+        ],
+        "reasoning": "The classification is not numerical catalogue data. The exact statement was nevertheless checked in the published finding index; a self-match is not independent coverage.",
+        "searches": [
+          "Resultary: sharp integrability phase boundary for convex Radon sinograms; d=4 L² endpoint and d≥5 L¹ rigidity"
+        ]
+      },
+      "rationale": "No located statement or established implication covers the complete dimension/exponent boundary. The exact planar witness is prior and the boundary exponent shift is classical in the checked polyhomogeneous setting; credit is for the arbitrary signed Lp existence/nonexistence classification and structural mean bound, not the planar witness, basic scaling or Radon injectivity.",
+      "residual_risks": [
+        "The literature discovery query returned no hits; that is not evidence of absence. A different Abel or Radon-range formulation outside the inspected work could give a previously unindexed equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exponent shift for polyhomogeneous data, not the arbitrary Lp obstruction",
+          "evidence": "Input exponent γ with Re γ>−1 gives section exponent γ+(n−1)/2 under the theorem's expansion assumptions.",
+          "identifier_or_url": "https://arxiv.org/html/2603.10804v1",
+          "material_read": "Theorem 1, OA offset 10496",
+          "method": "OA original full-text passage inspection",
+          "title": "Polyhomogeneous mapping properties of the Radon transform and backprojection operator on the unit ball",
+          "trigger": "Radial/Abel boundary mapping may already imply the phase boundary"
+        },
+        {
+          "assessment": "Exact planar witness overlap; no classification-level implication from the inspected theorems",
+          "evidence": "§6.2 supplies the identical planar negative square root and quadratic sinogram; Theorem 6.4 bounds a weighted Fourier integral with boundary-layer mass and gradient terms for W^{1,1} data.",
+          "identifier_or_url": "https://arxiv.org/html/2611.22521v1",
+          "material_read": "Abstract, Theorems 6.1 and 6.4 (offsets 39831, 49491), weighted estimate discussion and §6.2 (offsets 59569, 60070)",
+          "method": "OA original full-text passage inspection",
+          "title": "Subharmonic functions and convexity of the Radon transform, with applications to the Fourier transform",
+          "trigger": "Direct examination of convex Radon profiles and bounded-domain data"
+        },
+        {
+          "assessment": "Related setting, not evidence of convex-profile classification coverage",
+          "evidence": "The abstract states Fourier/Bessel sinogram and stability estimates, not this convexity range result.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07466",
+          "material_read": "Abstract, OA offset 0",
+          "method": "OA PDF opening passage; topic comparison only",
+          "title": "Norms in sinogram space and stability estimates for the Radon transform",
+          "trigger": "Possible stronger norm bounds on sinograms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The boundary distinguishes genuine examples from an empty convexity cone for the natural Euclidean ball, in the full signed nonradial setting. The excluded Hilbert endpoint in four dimensions and the L¹ obstruction in five and higher are substantive limits on which convex profiles are possible, beyond known examples or general smooth range descriptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

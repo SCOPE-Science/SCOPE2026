@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Derive the exact invariant \(Q=(y-g(x))/(1-x)^\beta\) from the differential quotient rather than accepting phase-portrait figures. Invariance and asymptotic arguments establish that the successful initial region is precisely above the quoted separatrix (plus positive advocacy at \(x\ge r\)). Differentiate the provided \(g\) twice to obtain strict convexity; test the endpoint derivatives and recover the unique minimizer. Verify that the minimizing boundary trajectory is unsuccessful, while arbitrarily close more expensive points succeed. Handle \(\beta=1\), \(\beta\ne1\), and the transition \(\lambda=\lambda_c\) separately. The Python script reproduced 48 one-variable optimization comparisons and six outcomes, but the analytical proof, not these tests, covers all parameters.
+## correctness
 
-**Originality — PASS, with residual risk.** The full primary source arXiv:2607.25586 describes the separatrix and basin geometry, so no originality is claimed for these. It does not present a minimum-cost *one-shot initial seeding* problem or its unique optimal mixed/all-vocal phase diagram. The distinct arXiv:2605.11337 optimizes interventions on *thresholds* in a discrete-time network process. Targeted published-record searches, including mathematical aliases and exact source identifiers, gave no directly covering result. The closest implication risk is that differentiating the known separatrix yields this result with limited additional calculus; the value is thus the natural new resource-allocation question and its complete sharp answer, not a new dynamical identity. Additional control literature may exist under different names.
+PASS
 
-**Value — PASS.** A real decision problem is left unspecified by the dynamics-only phase diagram: given two distinct linear prices, which fractions should be made silent versus vocal, and what is the exact campaign budget sufficient to trigger endogenous adoption? The theorem supplies necessary and sufficient budget conditions, changes in optimal seed composition, an exact price threshold, and the crucial nonattainment warning at equality, for *every* physically allowed parameter. These are mathematically interpretable resource frontiers; neither isolated numerical values nor a parameter renaming constitute the claim. The relevance is restricted to the stated model and single-shot interventions.
+For x<1 and y>0, dividing the ODE gives a linear equation with integrating factor (1−x)^(−β). Its solution through (r,0) is g(x)=(1−x)^β ∫_x^r β(r−u)/(1−u)^(β+1) du; evaluating the integral verifies both branches of g and makes the sign of y−g(x) invariant until x reaches r. For x∞<1, the time integral of y is finite and y is uniformly continuous; hence y→0 and x∞≤r, since otherwise the per-capita rate of y would eventually be positive. Below the curve the orbit cannot reach r and its limit lies strictly below r; on it the limit is r; above it no such non-outbreak limit is possible. With x→1, logistic upper and lower comparisons give y→1−r; x=1 follows directly, while y=0 is invariant. On the feasible arc [a,r], g''=β(1−r)^(1−β)(1−x)^(β−2)>0, g'(r)=0 and g(a)=a uniquely. Thus the right endpoint cannot minimize c_s x+c_v g(x), and the sign of λ+g'(a) yields exactly the stated transition, including equality. For β<1 the base of the interior power is positive because it equals ((1−x*)/(1−r))^(β−1) at the unique derivative root. Every successful seed lies strictly above the minimum, but perturbations to larger x at fixed positive y approach it even at (a,a). For β=1, t log t=r/(1−r) yields the claimed principal W, and substitution gives the mixed cost formula. The numerical package evidence is supplemental; the result is established by these analytical checks. The term ‘critical saddle’ is informal: (r,0) has a double-zero linearization and is not a hyperbolic saddle. Success is defined unambiguously elsewhere and no conclusion uses hyperbolicity.
 
-**Closest prior work and risks.** Wang et al., arXiv:2607.25586v1, Sections 2–5 and analytical supplement, already provide the invariant threshold curve and asymptotic outcomes. Cianfanelli et al., arXiv:2605.11337v1, Sections 2–4, study a different linear-threshold intervention. Convex analysis of the first paper gives a short derivation, so novelty depends on whether earlier literature has posed and solved this cost allocation. No independent priority review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the one-time two-cost optimization frontier, not the phase portrait or its exact separation of basins. The closest statement supplies the full feasible separatrix, which makes the new calculation short, but does not pose or solve the weighted price allocation. No equivalent cost theorem was found in the inspected sources; this is not a priority certificate.
+
+## value
+
+PASS
+
+The exact frontier answers whether a hard budget can work and how relatively costly supporter recruitment changes the optimal composition, not just whether a given seed spreads. The mixed-to-corner transition and the distinction between equality and strict budget slack are useful even though strict convexity makes the proof short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

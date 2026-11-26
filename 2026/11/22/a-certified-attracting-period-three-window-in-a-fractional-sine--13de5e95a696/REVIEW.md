@@ -1,19 +1,21 @@
-# Mathematical review of a fractional sine-map period-three window
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source map is normalized exactly by \(r=e/\mu\). The rational intervals \(I_0,I_1,I_2\) and rational parameter interval \(R\) satisfy strict cyclic image inclusions, with derivative signs \(+,+,-\) and combined derivative between \(-0.499\) and \(-0.479\). Banach contraction of the third iterate proves a genuine primitive attracting three-cycle for every parameter in \(R\), not just a numerically observed orbit. The exact-rational checker derives its trigonometric bounds from the Machin arctangent identity and Taylor remainder estimates; it was executed successfully. Its calculations can be reproduced using only Python's standard library.
+PASS
 
-## Originality — PASS within inspected evidence
+The normalized exact-real interval map is an interval self-map. The independent rational replay bounded π using alternating Machin arctangent series and enclosed sine and cosine by Taylor polynomials with explicit remainders. Over the full closed parameter window it obtained derivative enclosures (2.623449645158,2.624057725237), (0.065750227349,0.068277048876), and (−2.781891716893,−2.781791848947). These signs and the strictly negative parameter derivative identify the endpoint combinations for the three cyclic images. Outward image bounds are (0.480731770791,0.480994300024), (0.941586540327,0.941605488212), and (0.163201402426,0.163285132726), strictly in the interiors of I1, I2, I0 respectively. The derivative product is in (−0.498411836327,−0.479837981840), contained in the stated strict interval. Thus f³ is a contraction of I0 into its interior, and the disjoint cycle boxes rule out period one, hence give primitive period three. The trapping intervals give an open neighborhood attracted to the cycle and the orbit exponent is negative. The rational endpoint checks are uniform, not rounded samples. The frozen script was inspected, not executed.
 
-The accessible originating paper's Sections 2.1–2.3 provide fixed-point and numerical studies and claim absence of periodic windows in the specified robust-chaos region; they do not provide an attracting three-cycle certificate. A public 2026 mathematical synopsis concerning the same rational sine map gives the exact period-two threshold, which neither implies nor excludes a primitive attracting period-three orbit. Comparisons to the standard sine-map and rational-logistic three-cycle literature involve different maps or parameters. Exact-phrase and equivalent-form searches found no statement proving this specific interval and multiplier bound. This search cannot exclude unindexed or uninspected equivalent work.
+## originality
 
-## Value — PASS
+PASS
 
-A rigorously certified positive-width attracting periodic window directly tests an explicit, application-relevant assertion about the chaotic behavior of a named published map. The result identifies a concrete dynamical failure mode of a claimed robustly chaotic parameter range; the counterexample is a global-in-time existence theorem, not a short numerical negative check. No cryptographic-security inference is asserted.
+The motivating article explicitly says there are no small periodic windows in the stated chaotic region. The present positive-width trapping and multiplier certificate is not a restatement of that article or of the indexed period-two theorem for the same map. No covering result was identified in the inspected evidence; this is a best-of-knowledge assessment.
 
-## Limits and risks
+## value
 
-This proves a nonempty subwindow but not a sharp window boundary, complete period-three census, or global basin classification. Coexisting chaotic invariant sets are not ruled out. General unimodal-map theory and unindexed studies could contain closely related examples, and the 2026 same-family research comparison was available as a synopsis rather than full mathematical text.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Although the certified interval is narrow and not shown maximal, it is a rigorously established open periodic regime inside a specifically published no-window region for the same mathematical map. Attraction holds on an open interval of initial states, so the counterexample is not a lone repeller or a finite-iteration numerical anomaly. The value is the concrete counterexample to the global dynamical interpretation, without a cryptographic inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

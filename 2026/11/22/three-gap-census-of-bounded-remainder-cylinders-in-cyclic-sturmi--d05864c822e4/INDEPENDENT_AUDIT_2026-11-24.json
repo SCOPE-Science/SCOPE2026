@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:50:50.843577Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–62; VERIFICATION.md; CHECK.py",
+        "Kelly–Sadun arXiv:1404.0455, Theorem 1",
+        "/workspace/reproductions/sturmian1.py"
+      ],
+      "rationale": "The difference coding lifts exactly: a finite difference block occurring in the Sturmian shift is realized at a regular rotation intercept, and an integer translate gives the required initial letter modulo m. On each unit cell the length-n floor vector is componentwise nondecreasing with each coordinate varying by at most one, so distinct intervals give distinct words even modulo m≥2; the first letter separates different cells. The endpoint limits add no words. Uniform irrational-rotation frequencies for these intervals give unique invariant cylinder frequencies. A singular orbit may meet several of the n-block cuts but at most once per cut; the endpoint convention therefore changes counts by a bounded amount. The normalized Kesten condition is length in αZ+mZ; for sufficiency, the half-open indicator minus its mean is a difference of shifted fractional-part functions with shifts separated by an integer rotation iterate, hence its counts telescope uniformly. Reversing orientation and lifting a unit gap whose successor displacement is d gives length {dα}; irrationality makes its membership equivalent to m dividing floor(dα). The three successor candidates follow by comparing to the closest positive and negative returns: a+b≥n (otherwise the return at a+b improves one of the two extremes); in the middle strip n−a≤i<b a shorter positive displacement d<a would give a return at a−d closer on the negative side, and a shorter negative displacement −d with d<b would improve the positive return at b−d. The outer strips give the same exclusions using the respective one-sided minimum; their sizes and the middle size are n−a, n−b, a+b−n. At n=2 the middle is empty, while at n=1 length one cannot satisfy the criterion. For the Fibonacci step, the two pairs (F_{r-1},F_{r-2}) and (F_{r-2},F_{r-3}) form a unimodular basis of integer (index, numerator) pairs, with opposite signed errors by the Fibonacci identity. A closer return at 0<d<F_r cannot take two positive basis coefficients (index at least F_r), two nonpositive ones (nonpositive index), or one positive and one nonpositive (error at least the corresponding extremal error). The signed displacement (−1)^{j−1}F_j has floor (−1)^{j−1}F_{j−1}; Fibonacci parity then gives exactly the three phases and their density limits. I also independently sorted all m n actual lifted cuts using exact integer comparisons of quadratic irrationals, reproducing 3,072 direct counts and 15 Fibonacci cases; replay python3 /workspace/reproductions/sturmian1.py. The uploaded checker was inspected, not executed.",
+      "residual_risks": [
+        "Recorded 640 successor-map tests includes four n=1 no-op calls in CHECK.py, i.e. 636 nontrivial tested maps. This does not affect the exact argument.",
+        "The source's reference to finitely many split codings should be read as boundedly many relevant cut encounters per orbit, not finitely many singular intercepts globally. The boundedness proof uses only the former.",
+        "Finite exact arithmetic examples do not establish the quantified theorem without the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kang–Jäger study finite-to-one permutative lifts and strict ergodicity of a noble-means family that includes Fibonacci. The difference map is permutative; ergodicity gives frequencies, not centered discrepancy bounds.",
+          "Kesten and Oren give a general bounded-remainder test for rotation intervals and its extension to disjoint intervals. The three-gap study identifies the two-gap relabeling times by N=u_1+u_{N−1}, gives the successor permutation there and describes insertion between times."
+        ],
+        "reasoning": "Gap geometry classifies and locates successions, and the interval criterion tests them. Neither stronger-looking statement alone gives the weighted count or parity selection under the cyclic lift; the additional signed arithmetic is needed.",
+        "searches": [
+          "Kang–Jäger arXiv:2609.01140v2 §1.1 and Theorem 1.6",
+          "Kelly–Sadun arXiv:1404.0455 Theorems 1–2",
+          "Dasgupta–Roeder arXiv:2208.01680v1, pp. 1–3, van Ravenstein return-index facts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d05864c822e4",
+        "Kelly–Sadun arXiv:1404.0455",
+        "Medková–Pelantová–Vuillon RAIRO 53 (2019)",
+        "Kang–Jäger arXiv:2609.01140v2",
+        "Dasgupta–Roeder arXiv:2208.01680v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sources supply key ingredients and direct structural precedents: the Rote lift, a complete interval criterion, and efficient index information including the two-gap case. The present count combines these by selecting signed displacements using the divisibility of their integer parts, and the two-step golden return indices and Fibonacci parity yield a phase law even when the number of gap types stays fixed at two."
+        ],
+        "reasoning": "The claimed addition is the explicit colored selection and density behavior, not a new three-gap or bounded-remainder interval theorem. The close sources should not be described as unrelated; their implications stop short of the compared cylinder census and phase law.",
+        "searches": [
+          "Kelly–Sadun Theorem 1 against the all-length formula",
+          "Dasgupta–Roeder pp. 2–3, Facts 1–3 against the Fibonacci and all-length claims",
+          "Medková–Pelantová–Vuillon §2 against the binary specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Medková et al. identify complementary symmetric Rote preimages by the binary successive-sum map; sum equals difference modulo two. This is the binary sequence lift under another name.",
+          "The bounded-remainder observable corresponds to an interval in the rotation, and Kesten provides exactly the orbit-module interval criterion after rescaling."
+        ],
+        "reasoning": "These are genuinely equivalent presentations of the binary lift and of its interval test, respectively, but the cited statements do not classify the number of eligible cylinder intervals by length or give the Fibonacci phases.",
+        "searches": [
+          "Resultary semantic search for cyclic or Rote Sturmian lift, bounded-remainder cylinders and Fibonacci density",
+          "Rote-focused literature search; Medková–Pelantová–Vuillon, §2 (2019)",
+          "Kelly–Sadun arXiv:1404.0455 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit d05864c822e4 is the assigned record. No distinct exact count/phase table surfaced in the bounded search. The broad query was empty and is not negative evidence."
+        ],
+        "reasoning": "A same-record match supplies no evidence of independent exact coverage; gap-size tables without the cyclic orbit criterion would not by themselves tabulate bounded-remainder cylinder counts.",
+        "searches": [
+          "Resultary search for signed-floor three-gap census and golden-slope modulus-two phase law",
+          "Focused literature lookup on Sturmian and Rote bounded-remainder cylinders"
+        ]
+      },
+      "rationale": "The finite lift and interval criterion are anteceded, and the rotation-gap machinery is classical. The exact same Resultary record is not independent evidence. What survives comparison is the mod-m weighted, all-length cylinder count and the explicit zero/positive three-phase law at golden Fibonacci lengths. The latter and the arithmetic count are not stated in the matching accessible formulations; no priority claim is made for either ingredient or for the successor machinery.",
+      "residual_risks": [
+        "Original Rote 1997 text not retrieved from the attempted author page; the checked 2019 source directly confirms the structural alias. An unindexed equivalent census or related specialized calculation is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent antecedent",
+          "evidence": "Same all-length signed-floor census and three Fibonacci phases.",
+          "identifier_or_url": "Resultary d05864c822e4",
+          "material_read": "Indexed claim compared to the bound exact Finding",
+          "method": "Local Resultary search and bound file",
+          "title": "Three-gap census of bounded-remainder cylinders in cyclic Sturmian lifts",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Antecedes the interval test, not its word census",
+          "evidence": "Bounded-remainder interval iff length is a multiple of the irrational rotation angle modulo one; further result for disjoint intervals.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.0455",
+          "material_read": "p. 1 Theorems 1–2, extracted offset ~1500",
+          "method": "Primary PDF passsage",
+          "title": "Pattern Equivariant Cohomology and Theorems of Kesten and Oren",
+          "trigger": "General BRS criterion covering the single-interval condition"
+        },
+        {
+          "assessment": "Direct antecedent for the two-to-one lift relation",
+          "evidence": "The successive-sum map connects Sturmian sequences with two complementary Rote preimages.",
+          "identifier_or_url": "Medková, Pelantová and Vuillon, RAIRO 53 (2019)",
+          "material_read": "§2, journal p. 130 / PDF p. 6, extracted offset ~22350",
+          "method": "Lawfully available primary PDF passage",
+          "title": "Derived Sequences of Complementary Symmetric Rote Sequences",
+          "trigger": "Binary lift alias and prior complexity/sequence construction"
+        },
+        {
+          "assessment": "Strict-ergodicity precedent, not cylinder discrepancy",
+          "evidence": "Finite-to-one permutative preimages and strict ergodicity of the noble-means family.",
+          "identifier_or_url": "https://arxiv.org/html/2609.01140v2",
+          "material_read": "§1.1 around offset 3500 and Theorem 1.6 around offset 18100",
+          "method": "Primary text by section and offset",
+          "title": "Permutative lifts of strictly ergodic subshifts",
+          "trigger": "General class of finite permutative difference lifts"
+        },
+        {
+          "assessment": "Significant gap combinatorics precedent, without the mod-m BRS count",
+          "evidence": "Two-gap times given by sum of the two limiting return indices; modular successor order at those times and splitting of a long gap at other times.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.01680v1",
+          "material_read": "pp. 1–3, especially van Ravenstein Facts 1–3 and first symmetry proposition, offset 7320–9633",
+          "method": "Primary PDF by bounded offset",
+          "title": "Symmetries of the Three Gap Theorem",
+          "trigger": "Possible known gap-return order and multiplicity ingredients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations",
+        "Kesten interval criterion and classical three-gap comparisons"
+      ],
+      "rationale": "Bounded discrepancy is a stronger property than uniform word frequency. An explicit census for the natural finite cyclic extension reduces m n words to three modular tests with known multiplicities, and shows genuine oscillation of the fraction of bounded-remainder cylinders: in the simplest Fibonacci binary lift entire lengths have none while other phases have positive limiting fractions. This supplies quantitative symbolic information not provided by strict ergodicity or the mere existence of at most three gap sizes.",
+      "residual_risks": [
+        "The phase law is specific to the golden slope at modulus two, and is a fraction of words, not the measure of their union."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

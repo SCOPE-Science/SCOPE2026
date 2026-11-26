@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:17:01.150610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–79",
+        "VERIFICATION.md",
+        "clebsch_threshold2_{a,b}.cpp and matching logs; symmetry and cross-check scripts and logs, inspected as evidence",
+        "Independent replay: from /workspace, python3 checks/1_clebsch.py (NumPy); output checks/1_clebsch.log"
+      ],
+      "rationale": "Reconstructed the successor rule from the five XOR generators: the union over pairs of neighbors selects vertices meeting threshold two, and only resting vertices can enter that selection; the next refractory set is the current excited set. An independently written exhaustive ternary-indexed computation checked F^7=F^11 on all 43,046,721 inputs. The first t with F^t=F^(t+4) along each orbit gives its first periodic entry, and the nonzero periodic states were not fixed by F^2. The two columns of shells at t=0 through 7 are (1,65535,3178531,10245950,15448184,10086320,3812880,150400) and (360,5400,53160,0,0,0,0,0). Canonical four-cycles gave 30 basins of 676 and 60 of 644, totaling 58,920 oscillating inputs; the rest basin has 42,987,801. Excited mask 54784 with no refractory vertices reaches rest at step seven and not six, distinguishing F^10 from F^6. Each generator permutation extends linearly by the unique five-term relation; every automorphism fixing zero is determined on the generators because the other ten nonzero vertices are the uniquely identified pair sums. Direct action of all 1,920 maps on cyclic phase tuples recovers the two orbits of sizes 30 and 60 and ties each to its basin size. Four disjoint four-point sets cover the graph in every cycle; XOR zero certifies each affine two-flat, with one common direction or two alternating directions as claimed.",
+      "residual_risks": [
+        "Exact exhaustive computation on this graph and rule only; no formal proof-assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published pp. 3325, 3328: activation by one excited neighbor; Theorem 3 and Corollary 4 concern synchronization and a tree criterion."
+        ],
+        "reasoning": "The theorem for arbitrary graphs is broader in graph choice, not in the local threshold, and does not give the asserted threshold-two basin or geometry data.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff, DOI 10.1214/17-AAP1350, model definition and finite-graph synchronization theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 69af5154ca1f, 316346bac093, ccade4380bb4, and identical hit baa09c19e0b4",
+        "Gravner–Lyu–Sivakoff, DOI 10.1214/17-AAP1350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "69af5154ca1f gives 970 four-cycles, 2,976,617 periodic configurations and periods 1,3,4,7,10,13,16; its symmetry splits treat the longer periods. The icosahedral and Petersen records specify different vertex sets and adjacencies."
+        ],
+        "reasoning": "Neither the one-contact table nor a two-contact census on a different graph determines the 30/60 split, basin sizes, or first-entry census even where the presentation and exact-enumeration method overlap.",
+        "searches": [
+          "Threshold-one Clebsch RESULT.md, Finding, Assumptions and Relationship to prior work; other threshold-two findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-graph Resultary record 69af5154ca1f has the folded five-cube but uses threshold one; the exact threshold-two hit baa09c19e0b4 is the frozen record itself."
+        ],
+        "reasoning": "Relabeling the folded cube preserves each neighbor count and cannot turn a one-contact activation rule into a two-contact one; the differing recurrent period spectra also rule out dynamical conjugacy. The ten-regular complement is not an alias for this graph.",
+        "searches": [
+          "Published-record search: Clebsch / degree-five folded five-cube, Greenberg–Hastings, threshold two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The icosahedral census 316346bac093 gives 200 three-cycles and an eight-update cutoff; the Petersen line-graph census ccade4380bb4 gives only extinction by six at threshold two."
+        ],
+        "reasoning": "These are close exact tables, including same-day results, but neither gives a table for the Clebsch graph; neither is stronger in a way that includes it.",
+        "searches": [
+          "Published-record search: threshold-two exact recurrent cycles, basin-size and entry-depth censuses"
+        ]
+      },
+      "rationale": "The closest same-graph census is for a different activation predicate; the closest threshold-two classified dynamics concern different adjacency graphs. The evidence supports the distinct threshold-two Clebsch classification, not originality of excitation models or folded-cube symmetries.",
+      "residual_risks": [
+        "Published-record search is not exhaustive. A primary-literature query returned no results and is not negative evidence; an unindexed graph-specific census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-graph overlap, not threshold-two coverage",
+          "evidence": "One excited neighbor suffices; seven least periods, with geometry studied at periods 13 and 16.",
+          "identifier_or_url": "2026/11/8/SCOPE-seven-temporal-clocks-and-two-longest-period-symmetry-types-in-t--69af5154ca1f",
+          "material_read": "RESULT.md, Finding and Assumptions (offset 0); Relationship to prior work (offset 5977)",
+          "method": "Published-record mirror passages",
+          "title": "Seven temporal clocks and two longest-period symmetry types in the Clebsch excitation automaton",
+          "trigger": "Closest same-graph classification"
+        },
+        {
+          "assessment": "Different threshold and conclusion",
+          "evidence": "One excited neighbor in the rule and synchronization of all colorings exactly on trees.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Model definition p. 3325, Theorem 3 and Corollary 4 p. 3328",
+          "method": "Bounded original published PDF passages",
+          "title": "Limiting Behavior of 3-Color Excitable Media on Arbitrary Graphs",
+          "trigger": "General graph theorem for the same three-color model family"
+        },
+        {
+          "assessment": "Different graph and dynamics, not equivalent",
+          "evidence": "Icosahedral graph, 200 primitive three-cycles, seven symmetry classes.",
+          "identifier_or_url": "2026/11/22/SCOPE-seven-residual-wave-geometries-and-an-eight-step-extinction-cloc--316346bac093",
+          "material_read": "RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Published-record mirror passages",
+          "title": "Seven residual wave geometries and an eight-step extinction clock",
+          "trigger": "Threshold-two geometric census"
+        },
+        {
+          "assessment": "Different graph and dynamics, not equivalent",
+          "evidence": "On the Petersen line graph threshold two admits no nonconstant attractor.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-excitation-and-extinction-censuses-on-the-petersen-line--ccade4380bb4",
+          "material_read": "RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Published-record mirror passages",
+          "title": "Complete excitation and extinction censuses on the Petersen line graph",
+          "trigger": "Complete census at multiple thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and geometry proof",
+        "Threshold-one same-graph result 69af5154ca1f",
+        "Exhaustive independent census and symmetry check"
+      ],
+      "rationale": "The degree-five Clebsch graph is a natural highly symmetric, triangle-free benchmark for the change from one to two excited contacts. The exact comparison establishes a collapse of recurrent periods with survival of two distinct full-vertex wave geometries; the basin and sharp depth data distinguish not just periodic examples but how often and how quickly they are reached. This is a meaningful complete finite classification, not a benchmark for arbitrary graphs or thresholds.",
+      "residual_risks": [
+        "No asymptotic family or general mechanism for the census is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

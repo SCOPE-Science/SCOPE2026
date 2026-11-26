@@ -1,15 +1,21 @@
-# Scientific review: Exact all-degree harmonic interpolation on fifteen icosidodecahedral root lines
+# Independent mathematical audit
 
-## Correctness — PASS
-The probability-normalized degree-\(\ell\) spherical-harmonic addition theorem gives the Gram matrix \(G_\ell=(2\ell+1)L_\ell\). The coordinates produce exactly fifteen distinct root lines and four absolute inner-product classes, two zero and twelve nonzero neighbors per point. Exact Gaussian elimination over \(\mathbb Q(\sqrt5)\) verifies every rank for degrees \(0\)–\(15\) and the constant-vector kernels in degrees \(8,14\). Nonzero modular determinant residues at a split prime rigorously establish characteristic-zero full rank at each degree \(16\)–\(215\), with every residue independently recomputed from the embedded code and data. Bernstein's Legendre inequality and a rigorous strict-diagonal-dominance estimate cover **all** higher degrees. The permanent recovery threshold is \(15\), not \(16\), because the exact low-degree table already includes full rank at \(15\). Finite checks do not stand in for the infinite tail.
+## correctness
 
-## Originality — PASS (subject to explicit residual risk)
-The most relevant accessible primary full text, Bannai–Okuda–Tagami (arXiv:1308.5101v1, especially pp. 1–4), treats harmonic-index design conditions and the **six** antipodal icosahedral lines at degrees \(8\) and \(14\). It does not state the complete pointwise rank profile on the different **fifteen** icosidodecahedral root lines. Cohan's 1958 paper tabulates symmetry-adapted harmonic bases only up through degree \(14\) in its accessible description; the full text was inaccessible and may implicitly contain low-degree information. The general representation and reproducing-kernel machinery, as well as separate root-system sampling classifications on different root orbits, do not determine this new orbit's Gram ranks without its distinct inner-product arithmetic. Multiple actual mathematical and alias searches yielded no dominating all-degree theorem or exact table; absence of a search hit alone is not novelty proof.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete interpolation classification for the noncrystallographic \(H_3\) root orbit. Full interpolation appears at degree \(7\), is lost in two exceptional later degrees \(8,14\) by precisely one mean constraint, and is permanently recovered at the sharp cutoff \(15\). The degree-\(6\) five-dimensional deficiency and exact reconstruction on every attainable image are also determined. The precise two rank reversals are not a generic consequence of the addition theorem or of harmonic-design mean vanishing. A finite exact classification coupled to an infinite analytic cutoff is meaningful even without new noisy-recovery estimates.
+The probability-measure addition theorem gives E_l E_l*=(2l+1)L_l. Independent exact arithmetic on the stated directions over Q(sqrt(5)) returned ranks (1,3,5,7,9,11,10,15,14,15,15,15,15,15,14,15) through degree 15; the row sums at 8 and 14 are exactly zero, so rank 14 identifies the full obstruction. The independently reconstructed determinants modulo 1009 for degrees 16–215 are all nonzero and agree with the 200 frozen residues; sqrt(5) maps to 244, and all coordinate and recurrence denominators are units there. The infinite range is not extrapolated. Direct dot products give two orthogonal competitors in each row and maximum off-diagonal absolute inner product (1+sqrt(5))/4. The Bernstein bound's angular factor is 1 at zero and strictly below 4/3 at every other competitor, since 1-t^2 >= (5-sqrt(5))/8 > (3/4)^4. Thus the absolute off-diagonal sum is less than 18 sqrt(2/[pi(l+1/2)]), which is below one from degree 216 using pi>3. Strict diagonal dominance proves invertibility there. The Moore–Penrose formula is E_l* (E_l E_l*)^+ y, lying perpendicular to the evaluation kernel, and its squared norm is y* (E_l E_l*)^+ y. The degree-14 defect makes the permanent cutoff sharp.
 
-## Closest literature and limitations
-Bannai–Okuda–Tagami's harmonic-index results and Cohan's icosahedral harmonic expansions are the closest identifiable primary antecedents. The latter full text was not obtained; equivalent implicit low-degree calculations remain a publication-priority risk, as do unindexed icosahedral spectral tables. The result is not asserted to establish publication priority, independent validation, a uniform condition number, or perturbation robustness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded search identified a later catalogue record repeating full-rank support on the exact same orbit, a close earlier result on ten different axes, and primary work on the harmonic mean of six different axes. The later record is evidence of material overlap, not evidence that the exact result predates the frozen record. The supported distinct claim is the complete fifteen-line exact-degree profile and image statements, not the addition theorem, pseudoinverse principle, or eventual invertibility of a fixed separated node set by itself.
+
+## value
+
+PASS
+
+This is an exact classification for the canonical noncrystallographic H3 orbit and a concrete invariant needed to determine which exact harmonic degrees can interpolate arbitrary data. It resolves the genuine rank reversals at degrees 8 and 14, gives the obstruction there, and sharpens a general large-degree existence argument to the precise cutoff 15. The geometry and low-degree table are not arbitrary parameters chosen after computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

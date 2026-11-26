@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof counts the triangular open fiber and the closed fiber over each finite extension, then proves a sharper lifting identity valid over all extensions. The crucial root restriction \(u^q-u=0\) retains exactly \(q\) possibilities after scalar extension, not \(q^r\). The four seed zero loci are computed directly; the parent shifts are multiples of eight and their contributions telescope to the stated formulas. The zeta factorization follows from formal logarithms. A standalone finite-field checker independently enumerates 124 associated families and validates the asserted counts on 172,556 tuples. This finite evidence is corroborative, not the proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Gupta--Kuckian--Sengupta (arXiv:2610.32930v1) prove base-field point counts of polygonal type using their triangular construction, specifically Theorem 3.1, Lemma 4.23, and Theorem 4.27. Its full relevant Sections 3--4 contain no extension-field zeta result. Their earlier paper (arXiv:2605.24821v1, Theorem 7.2) gives four specific base-field point counts and no zeta calculation. The exact new claim covers all extension degrees for all even recursive families, which neither cited base-field theorem implies without a separate computation. Targeted searches for the same family, local zeta functions, equivalent extensions, and broader coverage did not identify a matching statement. An implicit motivic decomposition or unindexed priority precedent remains possible.
+PASS
 
-**Mathematical value — PASS.** A complete local zeta function is a natural arithmetic invariant of a variety, controlling counts over every finite extension and closed points of each degree. These explicit varieties were introduced to realize polygonal counts over one field, and the theorem determines the genuinely different extension-degree behavior of the **entire** even-index construction. Its mod-eight dichotomy detects two different quadratic-leading-term types and shows that substituting the extension-field size into the polygonal formula is generally invalid. This is a motivated infinite-family classification rather than a finite table or a mere renaming of the original base-field result.
+For Q=q^r with coefficient q fixed, each (X,Y0) with X nonzero gives one triangular solution, and the zero fiber contributes Q times the associated zero count. The seed first equation restricts u to F_q, so Omega is 1 for u nonzero and v^(q-1) for u=0. The four seed counts are consequently 1, q, Q+q-1, Q+2(q-1). The actual L and E formulas retain the old zero set at u=0 (with appended coordinates zero) and give the two distinct choices 0,-u for every other coordinate at each nonzero u in F_q, also in characteristic two. Definition 4.25 makes the increment (q-1)(m-Par(m))/2, and parent steps preserve m mod 8. Telescoping, adding the nonzero fiber, and exponentiating the resulting Q and Q^2 terms gives the displayed formulas for every extension and every triangular realization specified. 'Two-pole' means at most the two displayed locations: the q pole is absent at m=4 and at (m,q)=(8,2), as the formula itself shows. The recorded VERIFICATION.md result is 124 finite enumeration cases; verify.py was inspected, not rerun, and no computation is needed for the universal argument.
 
-The statement is restricted to the specified recursively constructed even polygonal associated families. Nothing is claimed for odd or centered index, unrelated families sharing a base-field count, optimality, smoothness, or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the all-extension count (equivalently the zeta function) of a fixed recursive system. The primary construction and its original base-field calculation are not new. The prior seed and recursive case splits are close, but the stated counts and the seed descriptions are of F_q-points; one must determine which seed branches actually acquire new points under extension and which remain F_q-rational. No materially covering theorem was found in the bounded checks.
+
+## value
+
+PASS
+
+The zeta function is a natural invariant of the explicitly motivated polygonal family, which was originally constructed to realize a different invariant (one point count). The extension calculation separates two arithmetic types and explains exactly when an entire new affine-line branch of the associated zero set persists through the recursion, something not inferable from the original count at one field size. It gives all extension counts for the family rather than a selected numerical census or a substitution in the polygonal polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

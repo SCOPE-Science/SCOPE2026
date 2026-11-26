@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:06.446070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md, REVIEW.md, check_su4.py and verification_output.txt",
+        "python3 /workspace/review_evidence/exact_checks.py: signed Vandermonde reconstruction of all 36 Haar Gram entries"
+      ],
+      "rationale": "With Haar probability and ordinary trace characters, Schur orthogonality gives N=|a|²+|b|²+|c|² exactly. I reconstructed the Gram of (χ_V²,χ_V*²,χ_W²,χ_Vχ_V*,χ_Vχ_W,χ_V*χ_W) by Weyl integration: multiply each torus Laurent polynomial by the signed Vandermonde determinant, then take their coefficient dot products in the determinant-one exponent quotient, divided by 24. The diagonal is (2,2,3,2,2,2) and the only nonzero off-diagonal pairs have value 1 between the first two squares and 2 between χ_W² and χ_Vχ_V*. With the factors 2 in mixed expansion terms, this gives precisely the frozen M, including coefficients 2 and 8 in the two phase real parts. Writing x=|a|, y=|b|, z=|c|, S=x²+y² and p=xy, phase alignment gives the upper envelope 2S²+6p²+3z⁴+8z²(S+p). Its increase to p=S/2 is accounted for exactly by (3/2)(x²−y²)²+4z²(x−y)². The final envelope is (51/11)N²−(11/2)(z²−5N/11)². Restoring the two exact phase losses recovers all deficit terms. Equality at N>0 fixes x²=y²=3N/11, z²=5N/11, b/a=±1 and c²/(ab)>0, giving exactly the four projective classes. Each class saturates all losses; the zero function is trivial.",
+      "residual_risks": [
+        "The finite Weyl calculation determines the exact polynomial, not its optimization by itself. No conclusion for dimension-normalized characters or arbitrary matrix coefficients."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dual symmetric-power record 0c2c7765253c contains the SU(4) defining and dual characters at p=1, but its third constituent is 1; its sharp ratio is 7/2 there and maximizers exclude the trivial coefficient.",
+          "The Haar tutorial's §3 moment operator handles general U(d) conjugation moments; the compact-Lie-group multiplier work states boundedness criteria."
+        ],
+        "reasoning": "Neither replacing χ_W by a constant nor computing generic Haar moments is an extremal theorem for χ_W. The latter methods are background for obtaining a quartic tensor; an additional global coefficient optimization and sharp rigidity are necessary.",
+        "searches": [
+          "Resultary sharp rank-three and SU(n) dual symmetric-power packets; arXiv:1705.03711; DOI:10.1007/s13348-021-00330-9; arXiv:2307.08956"
+        ]
+      },
+      "checked_sources": [
+        "The Resultary mirror results and primary source passages enumerated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=1, the dual symmetric-power result covers the shared two-character subspace (optimal ratio 7/2), not the nonzero exterior-square weight 5/11 at the optimum here.",
+          "The SU(4) spectral rigidity result uses Re tr(A*U), not the span including χ_W. The two same-day lower-rank papers use other fusion rules."
+        ],
+        "reasoning": "The optimization exploits both χ_W inside the two symmetric products and overlap of χ_W² with χ_Vχ_V*. The shared two-character theorem lacks the latter interference, and the known tensor rules alone are calculation inputs rather than a general sharp extremal result. Dates on same-day matches do not establish order.",
+        "searches": [
+          "Mirrored Findings 0c2c7765253c, a9d84ae67d4a, 8c892feebd1e and 9fa686dd46b6; A3 primary character formula passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The A3 generating-function paper identifies A3≅D3 and the three fundamental characters. Under Spin(6)≅SU(4), the two half-spin characters are the dual defining traces, and the vector character is the exterior-square trace."
+        ],
+        "reasoning": "This is an actual equivalent packet, not a different group once the simply connected form is used. The retrieved character generating functions supply the character identities, not the exact mixed-packet extremum.",
+        "searches": [
+          "Resultary under SU(4), A3, Spin(6), half-spin and vector character variants",
+          "Primary query: SU(4) Spin(6) three fundamental trace characters Haar sharp fourth moment 51/11 central Fourier character packet L2 L4 spinor vector extremizers; arXiv:1705.03711"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest same-group catalogue statements recovered have 7/2 for the trivial-plus-dual packet or a real linear matrix-coefficient space, not 51/11 for the fundamental span. Same-day central Fourier hits concern SU(2) pairs or an SU(3) dual pair."
+        ],
+        "reasoning": "The three fundamental characters, including χ_W, and arbitrary complex coefficients are decisive to exact matching; pure defining trace moments and real matrix coefficients are not table entries for this norm.",
+        "searches": [
+          "Resultary exact frozen title and 51/11 with SU(4) central Fourier character terms, bounded retrieval up to 100 hits",
+          "Primary query with 51/11, Spin(6), half-spin/vector and L²-to-L⁴ terms"
+        ]
+      },
+      "rationale": "The exact fusion inputs are standard and are not credited as new. The strongest inspected sharp theorem replaces the exterior-square character by the trivial character and has a different extremal profile and value. Neither the fundamental-character generating functions nor Haar moment algorithms give the sharp unrestricted complex packet bound, phase classes and coefficient deficit without solving this separate extremal problem.",
+      "residual_risks": [
+        "Bounded comparison cannot exclude an older equivalent in invariant theory, Spin(6) or central Fourier norms. The journal PDF timeout was resolved by reading the corresponding arXiv copy, not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial subspace overlap, no exterior-square result",
+          "evidence": "Packet (1,χ_Sym^p,conjugate), SU(4) constant (3p+4)/2, trivial coefficient zero at equality.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-dual-symmetric-power-character-moments-and-the-rank-three--0c2c7765253c",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0 (first 4480 characters)",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp dual symmetric-power character moments and the rank-three phenomenon",
+          "trigger": "Closest exact higher-family theorem sharing χ_V and χ_V*"
+        },
+        {
+          "assessment": "Different rank and packet",
+          "evidence": "Two-character SU(3) dual symmetric-power span.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-sided-fourth-moments-and-ternary-phase-resonance-for-p--a9d84ae67d4a",
+          "material_read": "Mirrored Finding, offset 0, first 2415 characters",
+          "method": "Local mirror passage comparison",
+          "title": "Exact two-sided fourth moments and ternary phase resonance for paired characters",
+          "trigger": "Same-day character phase rigidity"
+        },
+        {
+          "assessment": "Different group and packet size",
+          "evidence": "Sharp ratios and equality for two-character SU(2) packets.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-fourth-moments-for-every-two-character-central-fourier-pac--8c892feebd1e",
+          "material_read": "Mirrored Finding, offset 0, first 3374 characters",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp fourth moments for every two-character central Fourier packet of SU(2)",
+          "trigger": "Same-day general character-packet result"
+        },
+        {
+          "assessment": "Different coefficient space",
+          "evidence": "Real functions Re tr(A*U); dimension-four determinant term and 7/2.",
+          "identifier_or_url": "2026/11/8/SCOPE-special-unitary-fourth-moment-resonance-and-traceless-spectral-r--9fa686dd46b6",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror passage comparison",
+          "title": "Special-unitary fourth-moment resonance and traceless spectral rigidity",
+          "trigger": "Another exact fourth moment on SU(4)"
+        },
+        {
+          "assessment": "Gives character variables and identifications, not packet optimality",
+          "evidence": "A3≅D3 and the fundamental characters χ_(1,0,0), χ_(0,1,0), χ_(0,0,1).",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.03711",
+          "material_read": "PDF p. 2 (offset 2770) and p. 3 (offset 6245)",
+          "method": "OA primary text",
+          "title": "Some results on generating functions for characters and weight multiplicities of the Lie algebra A3",
+          "trigger": "Same three fundamental characters and A3/D3 alias"
+        },
+        {
+          "assessment": "No covering extremal theorem in inspected statement",
+          "evidence": "Multiplier boundedness criteria for compact-Lie-group Triebel–Lizorkin spaces.",
+          "identifier_or_url": "https://doi.org/10.1007/s13348-021-00330-9",
+          "material_read": "Abstract and introductory passage p. 1, offset 186",
+          "method": "OA primary text",
+          "title": "Fourier multipliers for Triebel–Lizorkin spaces on compact Lie groups",
+          "trigger": "Possible general boundedness framework"
+        },
+        {
+          "assessment": "Moment methodology, not sharp packet optimization",
+          "evidence": "Balanced U(d) matrix-entry Haar moments via the k-th moment operator and its commutant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.08956",
+          "material_read": "§3, Def. 4 and eqs. (8)–(9), p. 4, offset 17240",
+          "method": "OA arXiv copy after journal PDF timed out",
+          "title": "Introduction to Haar Measure Tools in Quantum Information",
+          "trigger": "Primary-search hit on exact Haar moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the moment polynomial and deficit; comparison with the dual symmetric-power theorem and standard A3 variables"
+      ],
+      "rationale": "The packet consists of all fundamental characters of a natural rank-three compact simple group, not tuned coefficients or an ad hoc character list. The mixed character ratio exceeds that of any pure character and the established two-character subspace, with the sharp deficit pinpointing exactly which fusion couplings enforce a 3:3:5 energy split and four phase classes. This gives an independently useful exact central synthesis estimate, without assuming an all-rank result.",
+      "residual_risks": [
+        "No all-rank application or theorem for other character packets is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

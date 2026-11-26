@@ -1,15 +1,21 @@
-# Scientific review: two-generated conductor-quotient rigidity
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact domain is positive elements of \(\langle a,b\rangle\) below its conductor, with one absorbing zero, for all coprime \(2\le a<b\). Classical symmetry gives cardinality \(c/2\), and the least positive generator gives nilpotency class \(\lceil c/a\rceil\). The key new injectivity inequality compares admissible smaller generators at the same \(c\): \(c\ge a'(a'-1)\ge aa'\) forces a gap of at least one between their unrounded ratios. This recovers the ordered generator pair. The automorphism proof includes the singleton edge case and checks that generator exchange extends precisely in the consecutive family. The independent finite checker corroborates, but does not replace, the proof.
+## correctness
 
-## Originality (PASS, priority conditional)
-The motivating Delgado–Fernandes full text (arXiv:1210.2910, 2012) already contains the nilpotency-class formula (Remark 2.3), the general generator-permutation algorithm (Theorem 4.9 and Corollary 4.10), and small-conductor observations. It states its general symmetric rigidity problem as Conjecture 6.2. These antecedents are credited; the proposed new content is the all-parameter completeness of **two elementary semigroup invariants** for the natural two-generator subclass and the exact automorphism exception. A separate published quotient-by-integer calculation concerns a different object. Web and indexed-record searches did not establish a stronger prior theorem, but failure to find one is not proof of priority. A relevant morphism paper was accessible only at abstract level.
+PASS
 
-## Value (PASS)
-The source explicitly asks whether conductor quotients distinguish different symmetric numerical semigroups. Since every two-generated numerical semigroup is symmetric, resolving the question for that whole natural class has a concrete mathematical target. Stronger than a bare injectivity assertion, the finding specifies two very cheap, intrinsic invariants that reconstruct the generators and precisely identifies the quotients retaining nontrivial symmetry. This is a structural classification rather than an arbitrary parameter calculation; it does not claim to solve the general conjecture.
+Sylvester symmetry gives c/2 elements of the semigroup below c when zero is included; replacing zero by the absorber leaves that size unchanged. The minimal positive summand is a, so the first length at which all words vanish is ceil(c/a); when a=c=2 the quotient is just the absorber and the formula is still correct. For the reconstruction, c >= a(a-1), and if h=ceil(c/a), then c/a <= h < c/a+1 <= c/(a-1), whence a=ceil(c/h) and b=1+c/(a-1). This independently verifies the frozen strict reconstruction. For a=2, b is absent and any nontrivial quotient is monogenic. For a>=3 both generators are present and are precisely the indecomposables; the powers of b first vanish at a-1, whereas the powers of a first vanish at length >=a if b>=a+2. Thus no exchange is then possible. For b=a+1 all nonempty monomials through degree a-2 survive, those of degree >=a-1 vanish, and the small monomials are distinct because a relation between a and a+1 needs exponent changes divisible by a+1 and a, respectively. Exchange is therefore an actual order-two automorphism, not just a candidate permutation. Inspected the frozen finite checker and recorded output without executing the checker; the uniform proof does not depend on either.
 
-## Closest literature and limits
-Delgado–Fernandes (2012), especially §§2.5, 4.3 and 6.3, is the closest source and provides much of the foundational machinery. The new strict-ceiling reconstruction argument is the distinguishing step. Historical literature not indexed or available in full may contain the same special-case deduction. The result assumes coprime two-generator data and cuts at the conductor.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported contribution is uniform recovery of both generators from the two elementary quotient invariants, together with the explicit automorphism classification. The Frobenius/symmetry count, quotient nilpotency formula and general presentation criterion are established ingredients, not independent novelty claims. Neither the inspected finite tables nor the general criterion supplies the uniform inequality and exact exceptional family.
+
+## value
+
+PASS
+
+A natural unbounded class of quotients from the symmetric-semigroup rigidity conjecture is completely classified by two inexpensive intrinsic invariants, and the exact nonrigid automorphism family is identified. This supplies a reusable reconstruction criterion and a sharp structural boundary, without claiming the general conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

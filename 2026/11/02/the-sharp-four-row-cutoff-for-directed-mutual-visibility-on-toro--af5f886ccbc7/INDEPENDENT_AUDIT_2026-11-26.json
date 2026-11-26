@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:07:18.520720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–48; VERIFICATION.md; verify.py (not executed)",
+        "Independent replay: /workspace/branches/f9d9985d-c0ba-4d4b-9c48-30ac30be69d1/independent_record4_check.py and independent_record4_run.log",
+        "Korže–Vesel, Proposition 3.9, p. 17"
+      ],
+      "rationale": "A shortest path takes the two least nonnegative forward displacements, so a same-fibre geodesic stays in that fibre. Three selected vertices in cyclic order obstruct the first-to-third geodesic. This proves the two-per-fibre bound and justifies the candidate reduction. Independent rectangular reachability and shortest-path BFS agree: at width 4 the five-point witness works and every size 6–8 candidate fails (2040, 816, 90 respectively); at width 5 the seven-point witness works and all 2490 eight-point candidates fail; at width 6 the eight-point witness works. The lift is an all-width proof: on a witnessing path, a forward wrap from 5 to 0 occurs precisely if the terminal column is less than the initial column. Inserting empty columns there adds exactly the necessary number of steps to the forward column distance, adds no selected internal vertex, and leaves the other displacement unchanged. The undirected value 12 follows from the (8,4) entry of Korže–Vesel Proposition 3.9.",
+      "residual_risks": [
+        "Replay exhausts the finite upper-bound cases only. The stated family for larger widths is certified by the analytic lift, not by tests at selected widths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cycle-product formula in Proposition 3.9 is for undirected factors; the other product paper likewise works with undirected graphs.",
+          "The directed cycle example gives the factor value 2, not a sharp product product-size criterion."
+        ],
+        "reasoning": "The factor value explains the fibre bound; it supplies neither small-width obstructions nor an attainable witness. The broader undirected results do not cover the directed geodesics.",
+        "searches": [
+          "Korže–Vesel DOI 10.1007/s00025-024-02139-x, Proposition 3.9",
+          "Cicerone–Di Stefano–Klavžar arXiv:2112.13024v2",
+          "Stojanović arXiv:2602.03267v2, directed definition and cycle example"
+        ]
+      },
+      "checked_sources": [
+        "Stojanović arXiv:2602.03267v2",
+        "Korže–Vesel DOI 10.1007/s00025-024-02139-x",
+        "Cicerone–Di Stefano–Klavžar arXiv:2112.13024v2",
+        "Resultary 6d8bf40baa6c and 9297186832e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Directed single-cycle geodesics imply at most eight via the four rows. The independent checks give the strict gaps 5 and 7 and an eight-point witness that lifts.",
+          "The cited undirected proposition, with t=4 and threshold s=8, implies precisely the corollary's undirected half."
+        ],
+        "reasoning": "The four-vertex deficit is a consequence of the new directed half plus the known undirected half. Neither the product theorem for undirected cycles nor the directed single-cycle result forces the exact directed numbers.",
+        "searches": [
+          "Comparison of Stojanović directed-cycle example with frozen RESULT.md lines 23 and 36–48; Korže–Vesel Proposition 3.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stojanović quantifies over every x,y and uses directed distance; it is the same visibility notion, not one-way visibility for an unordered pair.",
+          "The closest archive records inspected use undirected edges and lower mutual visibility or different factors."
+        ],
+        "reasoning": "The digraph notion agrees with the frozen one, whereas undirected shortest paths may use negative coordinate steps and the lower invariant minimizes over maximal sets rather than maximizing cardinality.",
+        "searches": [
+          "Directed mutual visibility of oriented Cartesian products of cycles; Stojanović arXiv:2602.03267v2",
+          "Resultary searches for the four-row torus and mutual visibility in products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matched indexed entry supplied the directed values 5,7,8. The related archive computations concern C4 × Pn and C3 × C8 respectively, with undirected visibility.",
+          "Proposition 3.9 already supplies the undirected value 12 at the stated parameters."
+        ],
+        "reasoning": "Exact numbers cannot be transferred across the different graph or extremal definition. Only the undirected comparator is already in the inspected table.",
+        "searches": [
+          "Resultary directed four-row torus/profile queries; inspected records 6d8bf40baa6c and 9297186832e0",
+          "Korže–Vesel Proposition 3.9, parameter table"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete directed four-row profile, in particular the exact first width saturating the fibre bound. The directed definition and the factor bound are background, and the undirected value is an explicitly credited comparison, not an original invariant. No inspected matching statement covers the directed profile.",
+      "residual_risks": [
+        "The public search yielded no additional usable literature. Bounded archive and primary-source comparisons are not a historical priority guarantee, especially under alternative directed-visibility terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition and factor value; those passages do not assert product values",
+          "evidence": "Universal x,y condition and directed cycle value 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.03267v2",
+          "material_read": "pp. 1–2, including directed visibility, cycle example, and directed paths/distances",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "The Mutual-Visibility Problem In Directed Graphs",
+          "trigger": "Matching directed definition and cycle factors"
+        },
+        {
+          "assessment": "Covers the credited undirected comparator only",
+          "evidence": "mu(C_s × C_t)=3t for s≥s_r, including (s_r,t)=(8,4).",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02139-x",
+          "material_read": "Proposition 3.9, p. 17, PDF-text offset 51800",
+          "method": "Primary Springer PDF passage",
+          "title": "Mutual-Visibility Sets in Cartesian Products of Paths and Cycles",
+          "trigger": "Exact underlying product and apparent general coverage"
+        },
+        {
+          "assessment": "Undirected context, not the directed product under review",
+          "evidence": "Uses graphs G=(V,E) with ordinary undirected geodesics.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024v2",
+          "material_read": "p. 1, definition and scope",
+          "method": "Primary OA PDF passage",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "General Cartesian-product visibility"
+        },
+        {
+          "assessment": "Different factor, geodesics and invariant",
+          "evidence": "Undirected C4 × Pn and smallest inclusion-maximal sets.",
+          "identifier_or_url": "Resultary 6d8bf40baa6c",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions at offset 0",
+          "method": "Configured local mirror",
+          "title": "The eight boundary neighborhoods: lower mutual visibility in four-cycle cylinders",
+          "trigger": "Four-cycle product and visibility cutoff"
+        },
+        {
+          "assessment": "Different torus and undirected definition",
+          "evidence": "Ordinary undirected C3 × C8, lower value 7 with known maximum 9.",
+          "identifier_or_url": "Resultary 9297186832e0",
+          "material_read": "Mirrored RESULT.md, Theorem and Assumptions at offset 0",
+          "method": "Configured local mirror",
+          "title": "Exact mutual-visibility and maximal-set census of the triangular eight-torus",
+          "trigger": "Exact torus visibility and census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Independent replay of finite witnesses and exclusions",
+        "Korže–Vesel Proposition 3.9"
+      ],
+      "rationale": "A four-row directed toroidal grid is a natural fixed-width product, and the sharp width for saturating its row bound is useful for comparing directed and undirected geodesic avoidance. The result classifies the whole width family, isolates two real obstructions, and gives one reusable configuration for the entire stable range, not merely a small table.",
+      "residual_risks": [
+        "It does not classify other heights or orientations, nor all extremizing sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

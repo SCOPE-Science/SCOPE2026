@@ -1,19 +1,21 @@
-# Review of the five-term safe-prime progression theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The multiplicative group of a safe prime is cyclic of order \(2q\), so nonprimitive nonsquares consist only of \(-1\) for \(q\) odd. The fixed-sign five-shift character sum has pair contribution \(-10\) and at most \(39\sqrt p\) absolute higher-order contribution. Zero-root weights total at most \(5/2\), giving the proved lower bound \((p-90-39\sqrt p)/32\) for each sign pattern. This exceeds five for \(p\ge2000\); excluding the five possible \(-1\) collisions proves every-step existence. The separate executable exhausts all 37 safe primes below \(2000\), and the independent displayed \(p=83,d=3\) argument witnesses sharpness. There is no inference from sampling to an infinite statement.
+PASS
 
-## Originality — PASS
+For odd q the cyclic group of order 2q has primitive roots exactly the quadratic nonresidues other than −1. Writing a=dt, fix sign ε=−χ(d) and exclude up to five normalized starts containing −d⁻¹. The weighted sign count has empty contribution p, zero singleton terms and pair contribution −10: each pair sum becomes the sum of χ over the image of (t+i)/(t+j), omitting 1. The distinct-root higher subsets obey the quadratic Weil bound (r−1)√p, with total coefficient 39. Each of five zero-shift starts has weight at most 1/2, so the actual count is at least (p−90−39√p)/32. At p=2000 the strict margin p−250>39√p follows by squaring; the margin is increasing thereafter. Thus both signs have more than five starts in the analytic range. In the complementary finite range a separate sieve and exact multiplicative-order enumeration checked all 37 safe primes, all nonzero steps and all starts, including p=5. The exact exceptions are 5,7,11,23,47,59,83. At 59 the failing steps are 2,19,24,25,26,33,34,35,40,57; at 83 they are 3,20,40,43,63,80. For p=83 and d=3, the only five nonresidue starts 52,53,54 are all among 51–55, the starts forcing one term equal to −1. The two ranges cover every safe prime with no gap.
 
-The adjacent safe-prime result concerns four terms (threshold \(47\)); a length-four progression need not have a fifth primitive root. The 2019 asymptotic configurations paper has no explicit uniform-difference safe-prime threshold. The 2021 four-term theorem explicitly leaves general five consecutive primitive elements open; the 2022 prescribed-step article treats extension fields of degree at least two and gives no prime-field threshold. OEIS A268397 is about existence for step one, not every step. Separate semantic searches for five-term safe-prime progressions, universal common differences, quintuple primitive roots and \(107/83\) obstructions found no matching exact statement. The public full text of the nearest indexed four-term result was unavailable through the current access route, but its stated conclusion is strictly shorter than this theorem.
+## originality
 
-## Value — PASS
+PASS
 
-Prescribed-step primitive-root configurations are a standard question, and length five is an explicit unresolved frontier in the general finite-field literature. Safe-prime multiplicative structure makes a natural, nontrivial complete classification possible: not merely eventual existence, but the sharp prime threshold and a precise six-difference obstruction at the last exception. This sharpens the earlier four-term safe-prime phenomenon by a genuinely additional simultaneous primitive-root condition rather than a parameter renaming.
+Credit exact five-sign counts, the earlier four-term universal-step theorem, and classical character-sum bounds. The supported distinct assertion is the sharp safe-prime threshold for five primitive roots at every nonzero step. The prime-field five-sign counts alone do not decide survival of the exceptional deletion at the sharp boundary.
 
-## Limits and comparison risk
+## value
 
-The unconditional infinite proof uses the classical Weil estimate for squarefree quadratic-character products; the finite threshold depends on the included transparent search over a strictly bounded domain. A broader published result not discoverable by the searches could in principle subsume the theorem; no claim of exhaustive global novelty certification is made. No claim is made for general prime moduli, extension fields, or lengths greater than five.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the exact next progression length for a natural universal-step problem. The safe-prime structure supports a complete classification rather than an isolated search success. The obstruction at 83 distinguishes mere existence of longer runs at step one from universality, and shows why the exceptional nonresidue −1 actually changes the answer even when the basic sign runs exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:40:45.106053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–65",
+        "VERIFICATION.md and verify_boolean.py inspected, not executed"
+      ],
+      "rationale": "The intensity of component starts is λq for q=exp(-λμ), by insertion of a germ and the void event for grains covering its position. Almost surely starts are germs, with no random endpoint coincidences; positive vacancy and stationarity/ergodicity exclude an unbounded occupied component. The Poisson intensity of grains common to test sites at distance s is λh(|s|). Thus conditional vacancy at a test site is q exp(λh(|s|)) on the left and that quantity times the inserted grain's failure probability on the right. Subtracting unconditional occupancy and integrating over two sites in [0,T] gives the triangular kernel weight T-|s|. Its integrability follows from bounds by a constant times h plus the length tail; ∫h=E[L²]/2. Pairing the half-lines gives the claimed expression since ∫Pr(L>s) exp(λh(s)) ds=(exp(λμ)-1)/λ. The covariance of the boundary indicator with V_T is bounded by the integral of the vacancy covariance, q²∫(exp(λh)-1), so clipping does not change the density. To check the zero, expand H=exp(2λμ)κ: the coefficient at m≥2 is μ^m/m! minus 2∫h^(m-1)/(m-1)!. Since h≥(μ-s)_+ and its power integral is at least μ^m/m, all these coefficients are negative. The power series converges for every λ by boundedness and integrability of h; H/λ starts at μ, decreases strictly and is bounded above by (1+2λμ-exp(λμ))/λ. This gives the unique crossing and its orientation, the sharp deterministic upper bound (strict unless the continuous stop-loss transform is the deterministic one), and the second-moment bound from the quadratic coefficient. Strict ordered curves for distinct convex-ordered laws follow from strict increase of the exponential and continuous, distribution-determining stop-loss transforms; evaluating at a zero orders the roots strictly. The two-point positive laws in the proof have fixed mean and unbounded second moments, which yields infimum zero without attainment.",
+      "residual_risks": [
+        "Lines 29–33 use Pr(L>s) as the right survival function for a closed interval. At a positive atom s of L, literal pointwise coverage under insertion uses Pr(L≥s); the stated kernel is the valid almost-everywhere version and the covariance integrals are unchanged.",
+        "Finite diagnostics do not certify the theorem for arbitrary laws; correctness rests on the Poisson and analytic arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The moment condition in dimension one is supplied by E[L²]<∞. Cor. 6.2 relates the mixed intrinsic-volume covariance to the grain covariogram and the mixed moment measure.",
+          "The clump paper's abstract and PDF routes did not produce readable text."
+        ],
+        "reasoning": "Credit the broader theorem for existence and density. Its stated covariance formula does not give the all-law single-zero inequalities. Inability to read the clump paper supplies no evidence of noncoverage.",
+        "searches": [
+          "arXiv:1308.6519, condition (2.5), §6 Cor. 6.2",
+          "Betancort-Rijo (1992), DOI 10.1103/PhysRevA.46.4549"
+        ]
+      },
+      "checked_sources": [
+        "Hug–Last–Schulte, condition (2.5), (2.7), (6.1), Thm. 3.1, Cor. 6.2",
+        "Resultary a4255a5666ab",
+        "Betancort-Rijo DOI, access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strict sign change uses negativity of every coefficient after the first and a deterministic lower bound on the stop-loss transform. The strict ordering uses its injectivity and continuity in addition to the formula."
+        ],
+        "reasoning": "A general covariance expression yields the specialized density but does not mechanically supply the one-crossing and sharpness arguments. A deterministic finite-circle theorem cannot compare the full family of random-length intensities and roots.",
+        "searches": [
+          "Hug–Last–Schulte Thm. 3.1, Cor. 6.2",
+          "Resultary a4255a5666ab"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Recentering intervals gives the same homogeneous marked Poisson law. Its one-dimensional mean covariogram is h(|s|). The component-start count and clipped Euler characteristic differ by one boundary indicator whose covariance is bounded."
+        ],
+        "reasoning": "The two covariance-density formulations really agree; the existing intrinsic-volume theory therefore covers the density in general form. A finite binomial process on a circle is not an equivalent formulation.",
+        "searches": [
+          "Hug–Last–Schulte, arXiv:1308.6519, Eq. (2.7), Thm. 3.1 and Cor. 6.2",
+          "Local Resultary comparison for mixed covariance of coverage versus component/gap count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day circle record treats n uniform points with equal clockwise arcs, and a sign switch in arc length for gap count and covered fraction. Its sparse-limit positive root solves exp(c)=1+c+c²."
+        ],
+        "reasoning": "This is substantive sign-transition precedent, not the fixed-mean intensity boundary exp(c)=1+2c or an exact result on random grain convex order. Shared date implies no priority ordering.",
+        "searches": [
+          "Local Resultary: a4255a5666ab, actual mirrored Finding"
+        ]
+      },
+      "rationale": "Hug–Last–Schulte cover existence and the mixed covariance in general form. Do not credit the density identity as a new general covariance formula. The supported distinct result is the all-grain single-zero theorem and its rigidity: the sign orientation, entire-curve and root ordering, and sharp deterministic equality boundary. The closest same-day result has a different model, parameter, and limiting constant. Priority beyond the comparisons is not determined.",
+      "residual_risks": [
+        "Other clump results might imply special cases; no comprehensive priority claim.",
+        "The full density identity is a specialization of known mixed covariance theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General coverage of density; no one-crossing/rigidity assertion in these results",
+          "evidence": "C_d(x)=E V_d(Z_0∩(Z_0+x)); Cor. 6.2 gives σ_(d-1,d) using this and the mixed moment measure.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.6519",
+          "material_read": "p. 6 condition (2.5) and (2.7); pp. 8–9 Thm. 3.1; pp. 33–35 Eq. (6.1) and Cor. 6.2",
+          "method": "Open PDF, bounded passages",
+          "title": "Second-order properties and central limit theorems for geometric functionals of Boolean models",
+          "trigger": "General mixed Euler-characteristic and volume covariance"
+        },
+        {
+          "assessment": "Related single-switch result, different process and parameter",
+          "evidence": "Fixed n on a circle, deterministic arcs; sparse root exp(c)=1+c+c².",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-unique-covariance-sign-transition-for-gaps-and-coverage-in-ran--a4255a5666ab",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local catalog search and mirror passage",
+          "title": "A unique covariance sign transition for gaps and coverage in random circular arcs",
+          "trigger": "Closest exact sign-switch comparison"
+        },
+        {
+          "assessment": "Unresolved implicit special-case risk",
+          "evidence": "No statement-level exclusion is based on this source.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.46.4549",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful PDF and abstract retrieval attempts, no readable text",
+          "title": "Clusters in one-dimensional Poissonian distributions of points: Exact approach",
+          "trigger": "Plausible clump special-case antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 6–22, 47–68",
+        "Hug–Last–Schulte Cor. 6.2"
+      ],
+      "rationale": "For two natural observables, component starts and covered length, this identifies the full qualitative intensity response even for unbounded grains with finite second moment. It gives an exact deterministic upper extreme and proves that mean alone supplies no positive lower bound; convex order ranks the whole response, not just low-intensity coefficients. This is useful structural information beyond the known general covariance formula.",
+      "residual_risks": [
+        "No finite-window single-switch, variance-only comparison, higher-dimensional extension or infinite-second-moment claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

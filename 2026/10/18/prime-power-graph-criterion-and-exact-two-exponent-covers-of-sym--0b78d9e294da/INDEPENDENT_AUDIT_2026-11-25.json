@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:50:11.817905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Assumptions and Proof",
+        "VERIFICATION.md, verify.py (inspected, not executed), and verification_output.txt",
+        "Replay: python3 /workspace/branches/covers_replay.py; output /workspace/branches/covers_replay.txt"
+      ],
+      "rationale": "Assign each maximal prime power in an order to one cycle length that it divides. The powers assigned to one cycle are coprime, and their sum is at most their product for a nonempty assignment, hence at most that cycle length. The converse uses disjoint cycles. Thus a support of an actual order is a clique, all singleton vertices and edges are realized, and compatibility of all edges and singleton divisibilities is necessary. It is sufficient because pairwise intersecting nonempty subsets of the two covering indices must have a common index; the order 1 is automatic. Intersecting the exponents with E_k by gcd preserves coverage; for each resulting divisor d the least second exponent in divisibility order is the lcm of orders missing from d. This proves the minimax formula; the graph formula for the residual follows by the same iff test. Independent reproduction enumerates integer partitions rather than iterating the order-set recurrence and computes missing-order lcms by incidence bitsets. All 38 rows, including witness pairs and every tabulated count, match. In particular k=40 gives 53,542,288,800, with other witness member 35,959,964,040, over 495 distinct orders and 36,864 candidate divisors.",
+      "residual_risks": [
+        "The recorded table ranges from 3 to 40. The graph theorem and divisor formula are proved for all k≥2; no separate optimality claim for larger k relies on the table. The minimax problem is not a shortest-identity problem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 16 builds particular covering pairs by splitting according to whether there is a long cycle, then analyzes 2(a+b). Xu–Regan build more general covers from prime-power segments and convert an r-entry cover into a word-length bound of 2·3^(r−1) times its largest member.",
+          "The exact Section 3.3 full text of Karpova–Shur could not be retrieved via the paths checked; Xu–Regan link their identities to its numerical-2 class."
+        ],
+        "reasoning": "Existence constructions and upper bounds, even in the general many-entry setting, neither decide feasibility of every two-entry pair using its local edges nor supply minimax lower bounds. The relation to numerical-2 is credited without an unsupported negative conclusion about the inaccessible paper.",
+        "searches": [
+          "arXiv:1609.03199v1, Thm. 16 construction after Prop. 15",
+          "arXiv:2610.11098v1, cover framework and prime-power segment constructions",
+          "Karpova–Shur numerical-2 full text by exact title, journal citation and DOI"
+        ]
+      },
+      "checked_sources": [
+        "Bulatov–Karpova–Shur–Startsev arXiv:1609.03199v1",
+        "Xu–Regan arXiv:2610.11098v1",
+        "Karpova–Shur bibliographic routes and reference [7] in Xu–Regan",
+        "Resultary deadb20253e7 and 3b97e714d02d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior identity constructions use covers as input. Lemma 3.6 bounds word length by 6 max(d,e) for two entries, so optimizing B₂ optimizes that upper bound within the pair framework, not the actual length.",
+          "The reviewed converse uses a two-index intersection property to force a single exponent to cover every compatible support; the cited constructions of feasible covers do not give this converse or enumerate all candidates."
+        ],
+        "reasoning": "There is no minimax lower bound from a construction or from an upper bound on word length. The finite certificate and universal compatibility criterion are distinct from the inspected earlier implications.",
+        "searches": [
+          "Prop. 15 and Theorem 16, arXiv:1609.03199v1, HTML offset 29220",
+          "Lemma 3.6 and numerical-2 remark, arXiv:2610.11098v1",
+          "Mirrored findings deadb20253e7 and 3b97e714d02d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 15 requires verbatim that the order of any element of S_k divide either a or b. Xu–Regan's arbitrary finite cover definition specializes to this for two entries.",
+          "The positive-identity length 2(a+b) in Proposition 15 is not max(a,b); Xu–Regan give a cover-dependent upper bound involving max, not an identity-length equality."
+        ],
+        "reasoning": "The feasibility condition is exactly known. This does not make the graph iff formulation or the exact optimum equivalent to the word identities or to the minimization of their lengths.",
+        "searches": [
+          "Bulatov–Karpova–Shur–Startsev, arXiv:1609.03199v1, Prop. 15 and Thm. 16",
+          "Xu–Regan, arXiv:2610.11098v1, Def. 3.2 and Lemmas 3.4–3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two catalogue hits give exact state complexity for separation of words 0^a1^b and 1^b0^a, not the two-exponent minimax invariant of all element orders. The cited low-degree S₃/S₄ identity results measure word length, not B₂."
+        ],
+        "reasoning": "The inspected exact numbers and formulae in the comparison sources measure different objects. No matching B₂ table was identified in these bounded checks; the reproduced 38-row table is the one under review.",
+        "searches": [
+          "Local Resultary two-exponent order covers, B₂ and prime-power graph; near records deadb20253e7 and 3b97e714d02d",
+          "arXiv:1609.03199v1, small symmetric-group identity examples and table"
+        ]
+      },
+      "rationale": "Two-integer covers of symmetric-group orders are already a hypothesis of Bulatov–Karpova–Shur–Startsev Proposition 15, not introduced by the reviewed record or by Xu–Regan. The supported distinct contribution is the iff local test for arbitrary proposed pairs and the exact minimax invariant and certified finite segment, not the cover concept, prime-power segmentation constructions, or cover-to-identity translation.",
+      "residual_risks": [
+        "The primary Karpova–Shur text remains unavailable on the attempted lawful routes, so a closer numerical-2 comparison is unresolved. The bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for cover feasibility as an identity hypothesis; not an exact criterion or minimax computation",
+          "evidence": "Equation (7) applies when every element order divides a or b; the subsequent construction yields a length 2(a+b) bound.",
+          "identifier_or_url": "https://arxiv.org/html/1609.03199v1",
+          "material_read": "Proposition 15 and Theorem 16 including construction (HTML offsets 29220–32420); low-degree S₃ and S₄ examples (offsets 22767 and 23118)",
+          "method": "OA bounded primary statement and proof inspection",
+          "title": "Lower Bounds on Words Separation: Are There Short Identities in Transformation Semigroups?",
+          "trigger": "Prior two-exponent identity construction"
+        },
+        {
+          "assessment": "Generalizes feasibility and gives an upper bound from a cover, but the inspected constructions do not give the all-pair test or exact finite optima",
+          "evidence": "Lemma 3.6 gives length at most 2·3^(r−1) max C_k; reference [7] identifies Karpova–Shur as JALC 26(1–2), 67–89.",
+          "identifier_or_url": "https://arxiv.org/html/2610.11098v1",
+          "material_read": "Definition 3.2 (offset 11180), Lemmas 3.4–3.6 (12569–16800), numerical-2 remark, prime-power constructions near 19000, reference [7] at 37961",
+          "method": "OA bounded primary statement and bibliography inspection",
+          "title": "An Improved Lower Bound for Separating Words by Permutation Automata",
+          "trigger": "General cover framework and direct downstream application"
+        },
+        {
+          "assessment": "Reference discrepancy identified; further overlap not ruled out",
+          "evidence": "Xu–Regan cite the JALC DOI above. The frozen Algorithmica DOI 10.1007/s00453-020-00777-z did not resolve on the routes tried. The secondary attribution establishes the related class, not equivalence to the graph criterion.",
+          "identifier_or_url": "https://doi.org/10.25596/jalc-2021-067",
+          "material_read": "Bibliography and numerical-2 attribution in Xu–Regan; original Section 3.3 not obtained",
+          "method": "DOI recovery and lawful identified full-text attempts; exact-title/numerical-2 web lookup yielded no useful result",
+          "title": "Words separation and positive identities in symmetric groups",
+          "trigger": "Numerical-2 identity class and discrepant frozen citation"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "Exact automaton separation conditions for a fixed word pair; no minimax over pair covers of all element orders.",
+          "identifier_or_url": "2026/11/2/SCOPE-prime-power-separation-spectrum-for-two-block-conjugate-words-in--deadb20253e7",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary and mirror comparison",
+          "title": "Prime-power separation spectrum for two-block conjugate words in permutation automata",
+          "trigger": "Nearest catalogue hit on prime-power structure and symmetric-group identities"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "An exact state-count formula for two-block word reversals, not the two-integer coverage of every order.",
+          "identifier_or_url": "2026/11/8/SCOPE-prime-power-state-spectrum-for-separating-two-block-reversals--3b97e714d02d",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary and mirror comparison",
+          "title": "Prime-power state spectrum for separating two-block reversals",
+          "trigger": "Nearest catalogue alternative on exact prime-power values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, structural criterion and finite certificate",
+        "Bulatov–Karpova–Shur–Startsev Proposition 15",
+        "Xu–Regan Lemma 3.6"
+      ],
+      "rationale": "The invariant is motivated by an existing two-exponent positive-identity construction, and the iff theorem reduces a coverage condition on every symmetric-group order to explicit compatibility of prime powers. The exact optimization distinguishes sharp achievable bounds from merely feasible input pairs across a substantial range with many competing orders and candidate exponents. The structural result, not just the degree-40 number, makes the finite evidence useful.",
+      "residual_risks": [
+        "Degree 40 is the reported calculation cutoff, not a mathematical transition. B₂ optimizes the stated surrogate and says nothing by itself about shortest positive identities or the best number of exponents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

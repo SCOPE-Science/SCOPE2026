@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:33:39.922044Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43 and 45–104",
+        "Frozen VERIFICATION.md and verify.py, read-only",
+        "Independent replay: python3 /workspace/branches/4e9d2c5d-ee8a-4823-8804-ffaacadded46/check_record4.py (nine exact bounded checks)"
+      ],
+      "rationale": "On monomials T_g is a finite sum of Hilbert–Schmidt weighted shifts. Radial-segment Fubini and the polynomial antiderivative in g give the iterated kernel (g(z)−g(w))^(k−1)/(k−1)! without requiring injectivity. The constant input maps to g^k/k!, so subtracting R_k applies the kernel to f(tz)−f(0), whose Hardy norm is at most t||f||. On the unit circle, coefficient positivity gives |g(z)−g(tz)|≤G−a_1 t, and |zg′(tz)|≤D. Minkowski and extension of the nonnegative integral to t=G/a_1 give the remainder with integral G^(k+1)/[a_1² k(k+1)]. These estimates first hold on polynomials and extend by boundedness. In the Parseval integral for ||g^k||², equality in the triangle inequality occurs at exactly h points modulo 2pi. At each, the normalized squared modulus is |∑p_j exp(iju)|²=1−sigma²u²+O(u⁴); elsewhere on the compact circle it is bounded below its maximum by a fixed gap. Gaussian localization therefore gives h/(2 sqrt(pi sigma² k)) times G^(2k), with relative O_g(k^(−1)). Taking square roots and dividing the remainder by the rank-one norm gives O_g(k^(−3/4)). The second singular value is bounded by the rank-one approximation error; the singular ratio follows. In the binomial case h=m−1 and sigma²=(m−1)²a/(1+a)², so the degree spacing cancels. An independent exact calculation for g=z+z²/2 gives T_g²z=z³/6+5z⁴/24+z⁵/15 by both coefficient recursion and the power kernel, and checks the constant-vector identity for k=1,…,6 and the binomial variance cancellation.",
+      "residual_risks": [
+        "The supplied verify.py and reported finite-matrix singular-value examples were not executed here; the explicit estimates and circle Laplace analysis are the infinite-dimensional check. No sharp s_2 asymptotic or convergence of the changing rank-one targets is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 gives boundedness for multiplier symbols and quasi-nilpotency under a closure condition; this does not determine factorial decay or the leading constant.",
+          "Eveson gives real L^p convolution high-power norm laws and rank-one approximants; the 2003 real L² case includes a classical integration norm asymptotic 1/(2n!). Peláez–Rättyä–Wu study boundedness and compactness for related nonnegative symbols and different domain/range spaces."
+        ],
+        "reasoning": "The qualitative framework and real rank-one proof precedents are established. Neither transfers the weighted shift/Hardy boundary geometry as required for the claimed exact asymptotic.",
+        "searches": [
+          "Chalmoukis–Stylogiannis arXiv:2005.01660 Theorem 1.2",
+          "Eveson real Volterra powers: arXiv:math/0409516 Theorem 4.3 and J. Operator Theory 50 (2003)",
+          "Peláez–Rättyä–Wu DOI 10.1007/s00209-023-03290-x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–43 and 106–116",
+        "Chalmoukis–Stylogiannis arXiv:2005.01660; Eveson arXiv:math/0409516 and 2003 JOT; Peláez–Rättyä–Wu DOI 10.1007/s00209-023-03290-x",
+        "Resultary records 3d47a4b50ac1, 84dd5742ec0f, 3619ccb23ef6 and cb380979a07d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eveson's hypotheses concern a real convolution kernel depending on x−y on an interval, with the smoothing/norm measured in L^p. The Hardy power instead has kernel g′(w)(g(z)−g(w))^(k−1) with Hardy boundary norm and bounded point evaluation. The inspected hierarchy for real fractional integration also does not cover that operator.",
+          "The spectral conclusion r(T_g)=0 only bounds the k-th root of the power norms; it does not imply this factorial scale, lattice multiplicity, or rank-one orientation."
+        ],
+        "reasoning": "Even formal resemblance of Volterra kernels cannot identify the spaces and their operator norms. No inspected statement turns the claimed lattice constant and singular collapse into a special case without the separate Hardy estimate.",
+        "searches": [
+          "Eveson 2004 Theorem 4.3 and Corollary 3.4; Chalmoukis–Stylogiannis Theorem 1.2; Resultary 84dd5742ec0f and cb380979a07d Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Parseval coefficient norm of g^k can also be written as G^(2k) times the probability that two independent k-fold sums of the support law agree. Its span/variance constant is the lattice local-limit constant for the difference law.",
+          "cb380979a07d uses arithmetic/peripheral-root and variance data for fixed-lag differences of powers of a Hardy shift polynomial; multiplication by a symbol is not the Volterra weighted shift T_g, nor is that lag invariant a Volterra norm."
+        ],
+        "reasoning": "Credit the classical scalar identity and the shared arithmetic motif. The actual operator assertion needs a uniform Hardy input estimate that reduces the dominant term to evaluation at zero; the scalar or shift formulation alone does not supply this.",
+        "searches": [
+          "Resultary: factorial iterated analytic Volterra Hardy power norms, positive polynomials, boundary lattice span, rank-one singular collapse",
+          "Resultary cb380979a07d, positive polynomial of the Hardy shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3d47a4b50ac1 is the assigned record. The distinct same-date 84dd5742ec0f gives a fixed-rank hierarchy for normalized fractional integration on L²(0,1); 3619ccb23ef6 gives second singular asymptotics and a rank-two tail in that real setting."
+        ],
+        "reasoning": "Both inspected exact hierarchies are substantive parallels, but neither fixes singular data for the complex Hardy space operators. The same date was not taken to establish priority.",
+        "searches": [
+          "Resultary: exact Hardy Volterra high-power factorial norm constant and singular values",
+          "Resultary: fixed-rank hierarchy and second singular value for high-order Volterra operators"
+        ]
+      },
+      "rationale": "The strongest inspected real-variable results give genuine high-power and rank-one analogues, Hardy mapping/quasi-nilpotency results cover related operators and symbols, and the exact shift-polynomial record already exhibits arithmetic/variance-driven circle maxima. None gives the weighted Hardy Volterra norm law and rank-one bound for the stated nonnegative polynomial class. The norm of g^k alone is a standard lattice/Laplace calculation; the supported distinction is its asymptotic control of the whole Volterra power and the stated operator-norm and singular-ratio estimates.",
+      "residual_risks": [
+        "A focused external search returned an unrelated hit; it is inconclusive. Unindexed equivalent results for generalized Hardy Volterra iterates may exist, and no historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative spectral coverage only",
+          "evidence": "In its closure class ‘T_g is quasi-nilpotent, i.e., sigma(T_g)={0}’; no factorial rate in that conclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.01660",
+          "material_read": "Theorem 1.2, PDF p. 3, near extracted offset 11728",
+          "method": "OA PDF statement-level reading",
+          "title": "Quasi-nilpotency of Generalized Volterra Operators on Sequence Spaces",
+          "trigger": "Closest analytic generalized Volterra spectral theorem"
+        },
+        {
+          "assessment": "Asymptotic rank-one and gamma-law results for real convolution setting, not an implication for Hardy symbols",
+          "evidence": "Theorem 4.3 applies to regular convolution kernels on L^p(0,1) and uses the rank-one sequence of Corollary 3.4.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0409516",
+          "material_read": "PDF p. 1 and Theorem 4.3 on p. 6, extracted offsets 0 and 21400",
+          "method": "OA PDF statement-level reading",
+          "title": "Asymptotic behaviour of iterates of Volterra operators on L-p(0,1)",
+          "trigger": "Strong general rank-one/power-norm analogue"
+        },
+        {
+          "assessment": "Important real-integration precedent in a different norm and model",
+          "evidence": "For classical integration on L²(0,1), ||V^n|| and its Hilbert–Schmidt norm are asymptotic to 1/(2n!).",
+          "identifier_or_url": "https://jot.theta.ro/jot/archive/2003-050-002/2003-050-002-010.pdf",
+          "material_read": "Printed pp. 369–371, PDF opening passage",
+          "method": "OA journal PDF",
+          "title": "Norms of Iterates of Volterra Operators on L2",
+          "trigger": "Exact factorial law and Schatten comparison"
+        },
+        {
+          "assessment": "Inspected statement has different norms and asks mapping rather than powers",
+          "evidence": "Boundedness and compactness of T_g from weighted Dirichlet spaces into H-infinity for nonnegative Maclaurin coefficients.",
+          "identifier_or_url": "https://doi.org/10.1007/s00209-023-03290-x",
+          "material_read": "PDF p. 1, abstract at extracted offset 0",
+          "method": "Available PDF opening passage",
+          "title": "Volterra-type operators mapping weighted Dirichlet spaces into H-infinity",
+          "trigger": "Overlapping nonnegative-coefficient symbol class"
+        },
+        {
+          "assessment": "Different Volterra operator family",
+          "evidence": "For normalized fractional integration T_alpha on real-interval L², alpha^(j−1) s_j(T_alpha)→(j−1)!/2^(2j−1) with fixed j and alpha→infinity.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-complete-fixed-rank-singular-value-hierarchy-for-high-order-vo--84dd5742ec0f",
+          "material_read": "RESULT.md Finding, offset 0 passage",
+          "method": "Bounded local Resultary mirror",
+          "title": "A complete fixed-rank singular-value hierarchy for high-order Volterra operators",
+          "trigger": "Distinct same-day high-order singular-value record"
+        },
+        {
+          "assessment": "Shares the boundary arithmetic but not the operator or quantity",
+          "evidence": "Determines fixed-lag power differences for a polynomial P(S) of the Hardy shift, with gcd and variance-dependent regimes.",
+          "identifier_or_url": "2026/10/18/SCOPE-arithmetic-lag-trichotomy-for-positive-polynomial-hardy-shift-av--cb380979a07d",
+          "material_read": "RESULT.md Finding, offset 0 passage",
+          "method": "Bounded local Resultary mirror",
+          "title": "Arithmetic lag trichotomy for positive polynomial Hardy shift averages",
+          "trigger": "Closest circle arithmetic with Hardy polynomials"
+        },
+        {
+          "assessment": "Fractional integration on L²(0,1), not fixed polynomial Hardy Volterra powers",
+          "evidence": "Second singular value 1/(8 alpha)+O(alpha^(−2)), with a squared tail bound for normalized fractional integration.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6",
+          "material_read": "RESULT.md Finding, offset 0 passage",
+          "method": "Bounded local Resultary mirror",
+          "title": "Sharp second singular asymptotics and rank-two collapse for high-order Volterra operators",
+          "trigger": "Prior exact second-singular-value collapse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–40, 53–101",
+        "Chalmoukis–Stylogiannis Theorem 1.2; Eveson Theorem 4.3"
+      ],
+      "rationale": "The result converts qualitative rapid decay of analytic Volterra powers into an exact norm scale and describes which input functional controls the leading behavior. The arithmetic dependence comes from several boundary maxima rather than a single saddle, and combining it with a uniform error estimate gives information on the singular geometry beyond the scalar coefficient norm.",
+      "residual_risks": [
+        "Value is confined to the class with a positive linear coefficient and at least one further positive coefficient. The rank-one remainder bound is not asserted to be sharp."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

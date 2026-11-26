@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:42:51.018429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audit of the complete corrected RESULT.md in repairs/4: the theorem is unchanged. The frozen proof incorrectly claimed that with bridge triangle {x,y,z}, y in T and z outside T, the two y-layer special triples had Johnson distance at least two. For n=7, x=1, S={2,3,4}, T={5,6,7}, y=5, z=2, the bridge-side {1,2,6} and goal-side {1,6,7} are at distance one. The corrected proof requires only distance at least one: disjoint mandatory pairs {x,z} and T minus {y} cannot fit together in one triple. Since the x-side also needs to insert y into S, at least two Johnson moves in total are still necessary. If z lies in T, both y and z must be inserted on the x-side. Any path of length at most four to A(T) needs a two-edge change of center to a center in T plus its final edge; it can therefore use at most one Johnson move, a contradiction. Between disjoint triangles at most four steps would either use a single common center or an intermediate triangle sharing two elements with each endpoint, both impossible. For the upper bound within a center use Johnson distance at most three; between centers insert one desired center into the starting special triple, bridge through the triangle formed with a retained point, then choose a special triple meeting the target so at most two Johnson moves remain. The triangle-to-triangle and mixed routes give at most five using the exact adjacency rules. Inclusion–exclusion on pairs in a fixed center layer gives the stated same-center and mixed overlaps; direct bounds for distinct centers and triangle pairs are all strict below 2n-4. The equality types from Hilton–Milner exhaust the vertices even at n=7; the two equality overlap cases give degree 3(n-3), and label count plus handshaking give both totals. Independently replayed n=7 from the defining triple families in branches/1f1f1d1b-ae1a-4c4b-89bf-5cf3ec32458b/n7_hilton_milner_exchange_check.py and its .out: minimum exchange 3, 175 vertices, 630 fixed-center edges, 420 mixed edges, no other edges, and all 175 eccentricities 5. This finite replay does not replace the corrected all-n path and overlap proof. Frozen evidence was preserved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives exactly both types and their optimum size for n>=7. It does not give overlap bounds for pairs or shortest paths between optimum families.",
+          "Full text for Bonsma was not retrieved via the DOI or publisher endpoint; no verified lawful alternate copy was found in the audit."
+        ],
+        "reasoning": "A theorem classifying the vertices is an input, not a theorem determining intervertex overlaps or distances. The different transition model gives no known dominating claim.",
+        "searches": [
+          "Polcyn–Ruciński arXiv:1608.06114v1, Theorem 2 and the definitions of H_1(n), H_2(n)",
+          "Bonsma DOI:10.1002/jgt.21992"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, support scripts and recorded outputs",
+        "Corrected repairs/4/RESULT.md",
+        "Polcyn–Ruciński arXiv:1608.06114v1",
+        "Local Resultary 2026/9/8/SCOPE011",
+        "Bonsma DOI:10.1002/jgt.21992 (limited metadata/model comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two classical formulas enable the new pairwise counting but do not compare distinct extremizers. The diversity catalogue result supplies a different invariant of triangle families, not graph paths."
+        ],
+        "reasoning": "The overlap threshold follows after a separate case analysis; the sharp diameter and self-centered property need additional global path bounds. Neither is a parameter substitution into the extremal theorem or into the diversity result.",
+        "searches": [
+          "arXiv:1608.06114v1, H_1 and H_2 and Theorem 2",
+          "Resultary 2026/9/8/SCOPE011 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kneser graph formulation translates intersecting families to independent sets, but this theorem fixes the nontrivial optimum sector at every graph vertex and permits batch replacement. Bonsma's cited model is token addition/removal, not this adjacency."
+        ],
+        "reasoning": "Allowing intermediate suboptimal states changes the state space, and single-token-edge distances do not give the minimum optimum-to-optimum batch size or the diameter under that batch threshold.",
+        "searches": [
+          "Targeted web and local Resultary searches for Hilton–Milner optimum-family exchange and Kneser independent-set reconfiguration",
+          "Bonsma DOI:10.1002/jgt.21992"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE011 includes the two-out-of-three triangle families of size 3n-8 and diversity n-3 for n=9 through 13, but does not describe their optimum-state exchange graph."
+        ],
+        "reasoning": "A table or finite extremizer result for diversity is not the exact edge set and eccentricity classification for every n>=7. No direct indexed match was found; search misses alone are not evidence of priority.",
+        "searches": [
+          "Local Resultary search for the threshold graph; inspected index hit 2026/9/8/SCOPE011"
+        ]
+      },
+      "rationale": "The repaired proof leaves the same exchange-graph finding. The classical extremal classification and triangle examples are not new; the exact batch threshold, adjacency and all-vertex eccentricities of the restricted optimum graph remain distinct from the compared results.",
+      "residual_risks": [
+        "The full Bonsma paper was inaccessible in this review; an unindexed or differently named transition model could contain an equivalent result. No global priority is claimed.",
+        "The finite replay does not address larger uniformities or paths through near-extremizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precisely supplies the classical size and equality types, not the exchange result.",
+          "evidence": [
+            "For n>=7, the two second-order extremizers are H_1,H_2 of size binomial(n-1,2)-binomial(n-4,2)+1=3n-8."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1608.06114v1",
+          "material_read": "Offsets 5374–9773, definitions H_1(n), H_2(n) and Theorem 2",
+          "method": "Targeted lawful arXiv full-text passages",
+          "title": "A hierarchy of maximal intersecting triple systems",
+          "trigger": "Exact equality classification defining all vertices"
+        },
+        {
+          "assessment": "Triangle families overlap, but the exact invariant and parameter regime differ.",
+          "evidence": [
+            "Triangle type realizes size 3n-8 and diversity n-3 in the stated finite n range; exchange moves and distances are not the compared claim."
+          ],
+          "identifier_or_url": "2026/9/8/SCOPE011",
+          "material_read": "Local mirror RESULT.md offsets 776–2631, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local search and targeted mirrored text",
+          "title": "Resultary record on diversity of intersecting triples",
+          "trigger": "Nearest indexed extremizer overlap"
+        },
+        {
+          "assessment": "No whole-paper exclusion; the identified token addition/removal model does not on its face subsume the batch graph.",
+          "evidence": [
+            "Transition description concerns token addition/removal, whereas here every graph vertex is an optimum nontrivial family."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.21992",
+          "material_read": "Bibliographic metadata and model description cited in record only; no full text verified",
+          "method": "Lawful DOI and publisher retrieval attempts returned 403",
+          "title": "Independent Set Reconfiguration in Cographs and their Generalizations",
+          "trigger": "Closest named reconfiguration framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quantitative contrast is substantive: every nontrivial optimal state is isolated until exchanges grow linearly in n, yet the first admissible graph is regular and every vertex has maximum distance exactly five. The Johnson-layer and triangle-incidence rules explain this jump and give explicit transformations, beyond the classification of isolated extremizers. The repaired proof preserves this interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

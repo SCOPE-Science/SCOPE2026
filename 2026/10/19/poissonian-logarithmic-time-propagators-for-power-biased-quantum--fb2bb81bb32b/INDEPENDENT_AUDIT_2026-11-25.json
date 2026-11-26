@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:01:24.799770Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the energy matrix units the history equation is diagonal. Multiplying the scalar equation by t^b and differentiating gives t f''+(b+λt)f'+biωf=0, with f(0)=1 and f'(0)=−iω. Its regular Kummer solution solves the original equation by integration back from t=0. For ω≠0, Re a and Re(b−a) are positive. In Euler's integral for the Kummer solution, expand (1−x)^(b−a−1)=1+(a+1−b)x+O(x²) near x=0, with the rest exponentially suppressed because Re λ>0. Integrating against e^(−λtx)x^(a−1) gives the nonzero leading C=Γ(b)λ^(−a)/Γ(b−a) and the stated coefficient c=a(a+1−b)/λ. It is nonzero since both a and a+1−b=(λ−br)/λ are nonzero for ω≠0. Zero modes are identically one. The finite set of nonzero scalar asymptotics gives eventual invertibility; taking ratios gives a uniform expansion e^(−au)[1+c(e^(−u)−1)/t+O(t^−2)] for u in [0,U]. The diamond norm of a difference of Schur multipliers is bounded by the sum of the absolute coefficient differences, using the individual left/right coordinate projections, and the limiting multiplier equals the compound-Poisson exponential of the rate-r exponential-time averaging channel. In dimension two the exact norm is the magnitude of the off-diagonal scalar: rotation by a diagonal unitary reduces to a nonnegative factor times (Id−Ad Z)/2, and a superposition input attains it. In Hilbert–Schmidt norm the active gaps contribute in quadrature, preventing phase cancellation. The least active gap gives the slow exponent bΔ²/(r²+Δ²), strictly positive leading modulus and the claimed integrability trichotomy. No active gaps means an identically zero integrand. The finite-time normalized ratio is not assumed to be CP. Inspected RESULT.md lines 35–100, VERIFICATION.md, requirements.txt and verify.py; did not execute the frozen verifier. Its finite scalar checks do not substitute for the ancilla norm proof or the infinite-time estimate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical power-kernel formula covers the actual scalar differential equation by replacing a real diffusion eigenvalue by iω. Campos–Méndez give logarithmic mean-square displacement for a jump-indexed uniform relocation kernel, not a physical-time channel or annealed complex ratio."
+        ],
+        "reasoning": "The power-kernel scalar antecedent is direct, not merely a title match. The jump-index formulation is not broad enough to settle the normalized physical-time characteristic ratios. Positivity of the limiting channel and the sharp ancilla norm coefficient are not stated in either passage.",
+        "searches": [
+          "arXiv:2411.00641 §5.1 power memory; arXiv:1611.06743 Eqs. 38–42 uniform memory",
+          "Preferential relocation / monkey process: power memory, exponential runs and logarithmic operational-clock cumulants"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, requirements.txt and verify.py",
+        "arXiv:2411.00641",
+        "arXiv:1611.06743",
+        "arXiv:2608.02297",
+        "arXiv:1808.10673",
+        "Resultary 112ae727b159"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior scalar solution and standard asymptotic apparatus imply the decay exponent, with direct consequences for summability. The normalized theorem also uses cancellation of nonzero complex amplitudes at two different times, the resolvent identification of the logarithmic-time generator, and an exact qubit diamond equality for the first correction."
+        ],
+        "reasoning": "The scalar analytic continuation is not an original result, and eventual invertibility alone adds little. The distinct contribution is the quantitative physical semigroup approximation for a generally nonphysical normalized map and its exact first diamond term, neither an exponent substitution nor a claim about actual increments of the historical clock.",
+        "searches": [
+          "arXiv:2411.00641 Eqs. 43–50 versus frozen RESULT.md lines 66–100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier quantum analysis gives exact scalar modes and algebraically decaying oscillations for continuous uniform past selection b=1 and explicitly leaves nonuniform memory open. Resultary 112ae727b159 is an exact threshold overlap in the same power-bias model, with its exponent β equal to b here; the inspected Finding concerns accumulated coherence, not normalized propagators."
+        ],
+        "reasoning": "A diverging or integrable time integral of coherences is a different observable from Φ_(t e^u) Φ_t^(−1). The catalogue match is important for the threshold but supplies no channel-error formula in the material inspected; its later path date does not determine independent priority.",
+        "searches": [
+          "Resultary: normalized logarithmic-time quantum propagator and accumulated coherence for power-biased historical resetting",
+          "arXiv:2608.02297 Eqs. 14–19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its threshold is b_*=1+(r/Δ)^2 in the frozen record's conventions, exactly β_*=r²/Δ² after subtracting 1."
+        ],
+        "reasoning": "There is no finite table underlying the continuum norm estimate. The exact formula catalogue comparison identifies an overlap in one formula, not an entry for the compound-Poisson normalized propagator and its qubit error coefficient.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-sharp-accumulated-coherence-trichotomy-for-power-biased-quantum--112ae727b159, local RESULT.md Finding"
+        ]
+      },
+      "rationale": "Credit the classical power-kernel Kummer solution and its leading exponent, and the uniform-bias quantum channel. The coherence threshold follows readily from that decay and is not the main originality basis. The supported distinct claim is the compact-log-time normalized quantum channel asymptotic with a CPTP compound-Poisson limit, a uniform diamond error bound, and the exact nonzero sharp qubit coefficient for b>1. No inspected prior statement establishes that combination or the sharp channel-level term.",
+      "residual_risks": [
+        "The scalar asymptotics and threshold have substantial implicit antecedents. The literature check for prior normalized characteristic-ratio results is bounded, not a priority census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct scalar antecedent",
+          "evidence": "I(t)=B t^α yields t f''+[α+(r+λ)t] f'+αλf=0 and its Kummer solution; set α=b and λ=iω.",
+          "identifier_or_url": "arXiv:2411.00641",
+          "material_read": "OA PDF §5.1, pp. 14–15, Eqs. 43–50, offsets 42300–50281",
+          "method": "Primary passage and parameter comparison",
+          "title": "Diffusion with preferential relocation in a confining potential",
+          "trigger": "Classical nonuniform power kernel and exact scalar equation"
+        },
+        {
+          "assessment": "Uniform-memory predecessor",
+          "evidence": "Scalar decay for the uniform kernel K=1/t.",
+          "identifier_or_url": "arXiv:1611.06743",
+          "material_read": "OA PDF p. 7 Eqs. 38–42, offset 31600",
+          "method": "Primary passage inspection",
+          "title": "Long time scaling behaviour for diffusion with resetting and memory",
+          "trigger": "Earlier classical kernel"
+        },
+        {
+          "assessment": "Uniform quantum predecessor only in material read",
+          "evidence": "b=1 exact coherence factors, decay and logarithmic oscillations; nonuniform sampling posed as open.",
+          "identifier_or_url": "arXiv:2608.02297",
+          "material_read": "OA PDF pp. 9–10 Eqs. 14–19, offsets 30000–37155; nonuniform-memory remarks pp. 7 and 20",
+          "method": "Primary passage and parameter comparison",
+          "title": "Quantum resetting with memory",
+          "trigger": "Same quantum state-reset mechanism"
+        },
+        {
+          "assessment": "Exact threshold overlap, not established coverage of normalized channel",
+          "evidence": "Threshold for the accumulated coherence, alongside a more detailed trichotomy; its β parameter equals b here.",
+          "identifier_or_url": "Resultary 112ae727b159",
+          "material_read": "Local-mirror RESULT.md Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Catalogue search followed by Finding and parameter comparison",
+          "title": "Sharp accumulated coherence trichotomy for power-biased quantum resetting",
+          "trigger": "Same model and exact threshold"
+        },
+        {
+          "assessment": "Different memory clock and statistic",
+          "evidence": "Jump-indexed K_m(i)=1/m and logarithmic mean-square displacement in the simplified model.",
+          "identifier_or_url": "arXiv:1808.10673",
+          "material_read": "OA PDF §II.B pp. 3–4 Eqs. 6–8, offsets 9000–16994; p. 5 offset 22322",
+          "method": "Primary passage and kernel comparison",
+          "title": "Recurrence time correlations in random walks with preferential relocation to visited places",
+          "trigger": "Possible log-time operational-clock precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Normalization compares widely separated times without losing the decaying coherence modes. Identifying its limit as a physical exponential-time compound-Poisson channel, with a uniform operational norm estimate and a nonzero sharp error in the simplest nontrivial system, gives information beyond a scalar decay exponent or the long-time pinching channel. The scope is finite dimension, fixed parameters and compact logarithmic-time windows; it implies neither finite-time CP-divisibility nor independent increments of the historical clock.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

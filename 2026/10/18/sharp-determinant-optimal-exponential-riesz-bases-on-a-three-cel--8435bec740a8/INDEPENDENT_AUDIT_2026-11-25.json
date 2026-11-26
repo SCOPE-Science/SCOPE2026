@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:00:56.741922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Repaired repairs/1/RESULT.md corrects frozen RESULT.md line 11: for a regular phase triple based at tau the exponent-three row is e^(6πi tau) times the exponent-zero row, not literally identical at arbitrary tau. The zero determinant and the optimal theorem do not change. Fiber Parseval with raw squared norm 3 identifies VV* as the analysis Gram matrix; synthesis is invertible precisely for det V!=0. Expanding the generalized Vandermonde after rotating z_0 to 1 gives the polynomial F on the whole cosine square. Y=±1 gives zero; at X=1 the nonzero critical values come from 6Y²+4Y−1=0 and the opposite edge is equivalent. Every positive interior maximum has Y!=0 and X=−(1+2Y²)/(6Y). Substitution reduces F to 4(1−s)(1+8s)^3/(27s) at s=Y²>0; its derivative vanishes only when 24s²−16s+1=0. Both branches give the same two candidate values D_± as the edge. D_+ is attained and positive, so restricting to distinct phases or invertible bases does not lose it. At an interior D_+ maximizer X=4Y³−3Y and Y²=cos²(t_*/2), so u=±3v modulo 2π and the nodes are a rotation or permutation of the symmetric edge triple. At unit z the factor 1+z+z³ cannot vanish: 1 and the other two unit terms would have to be the cube roots of unity, incompatible with z³=1 for primitive z. This excludes orthogonality and tightness. Inspected frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt without executing the supplied script; independent numeric evaluation of the four edge/interior critical candidates agrees, but the exact derivative and boundary enumeration establish the maximum. The repair also describes the recorded eigenvalue-product calculation as a reported discrepancy and the fiber test as a pointwise matrix check, not as a rerun or formal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unit-circle weighted Fekete theorem treats a product of one-point external-field weights, unlike the joint factor |z_0+z_1+z_2| here.",
+          "The multittile theorem relates Riesz bases to invertible fiber matrices without solving the determinant maximization."
+        ],
+        "reasoning": "Neither theorem dominates the claimed unit-circle optimization: the weight is not of the specified one-body form and existence of an invertible basis does not identify a global maximizer.",
+        "searches": [
+          "Resultary: Fekete/sparse monomials; multitile finite-fiber Riesz designs",
+          "Dubickas–Pritsker arXiv:1902.08348 §3 Thm. 3.1",
+          "Frederick–Okoudjou arXiv:1910.09257v3 Thm. 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Lundengård–Österberg–Silvestrov arXiv:1312.6193v1",
+        "Dubickas–Pritsker arXiv:1902.08348",
+        "Frederick–Okoudjou arXiv:1910.09257v3",
+        "Resultary records c9a6f8a9b1bc and e6b7a2d650e7",
+        "2013 interpolation public lookup and lawful full-text access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The structured comparator gives cos(2πτ_0)=1−2(8−sqrt(10))/12=(sqrt(10)−2)/6, the same geometric candidate. It considers a minimum across fibers over a constrained phase family.",
+          "The 2013 interpolation search hit concerns (0,1,3)-type unit-circle interpolation, but available snippets do not establish its determinant objective or coverage."
+        ],
+        "reasoning": "A maximin bound on constrained designs cannot furnish an upper bound on every determinant at arbitrary phases. The proof of the full-square maximum and uniqueness is needed. The unread interpolation source remains a genuine unresolved risk, not negative evidence.",
+        "searches": [
+          "c9a6f8a9b1bc RESULT.md offsets 0–869 and 1650–3252",
+          "arXiv:1312.6193v1 factorization and Table 1",
+          "Public query: '0,1,3' generalized Vandermonde determinant unit circle maximum three points sparse monomials Fekete"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fiber Gram determinant equals the squared generalized Vandermonde determinant on unit-circle nodes. The Schur factor z_0+z_1+z_2 and determinant factorization already appear in the generalized Vandermonde literature."
+        ],
+        "reasoning": "The reviewed calculation must be new also as a sparse-monomial determinant maximum, not merely a reinterpretation as a Riesz volume. The source giving the factor uses real nodes with a sphere constraint in its extremization.",
+        "searches": [
+          "Resultary: exact radical/angle; generalized Vandermonde {0,1,3}",
+          "Source arXiv:1312.6193v1, Table 1",
+          "Source arXiv:1910.09257v3, Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first compared record gives the same exact determinant and acute cosine for the restricted maximin design at δ=1/2; that case includes fibers with exponent sets {0,1,3} and {0,2,3}.",
+          "The second catalogued optimization has a different mode set {0,1,4} and different results."
+        ],
+        "reasoning": "Matching the exact value on a structured one-parameter subfamily shows that this value is already realized there, not that no other three phases improve it or give additional equality orbits. The compared records are dated after the frozen one; dates are not a historical priority certification.",
+        "searches": [
+          "Resultary exact radical/angle search",
+          "2026/11/8/SCOPE-a-three-regime-sharp-determinant-design-for-three-interval-fouri--c9a6f8a9b1bc",
+          "2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp unrestricted three-node unit-circle optimization for modes {0,1,3}, with the full rotation/permutation orbit and determinant-optimal fiber interpretation. The factorization and finite Riesz fiber framework are known. The strongest actual catalogue overlap matches the value and geometry for one regime of a related, later maximin design, but has a narrower phase family and a different objective; it does not establish the unrestricted stationary classification.",
+      "residual_risks": [
+        "The 2013 interpolation paper remains unread; the available snippet cannot determine exact coverage.",
+        "Less readily indexed circle-constrained generalized Vandermonde results could contain this optimum. The matching later constrained catalogue value is not absent and is not ignored."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algebraic ingredient; different extremal domain",
+          "evidence": "The {0,1,3} case factors as an ordinary Vandermonde times x_1+x_2+x_3. The sphere extremization uses real nodes, not independent complex circle phases.",
+          "identifier_or_url": "https://arxiv.org/html/1312.6193v1",
+          "material_read": "HTML offsets 9160–10960 and Table 1 at 11780–13139",
+          "method": "Primary OA HTML passages",
+          "title": "Extreme points of the Vandermonde determinant on the sphere and some limits involving the generalized Vandermonde determinant",
+          "trigger": "Exact exponent rows and generalized Vandermonde extremization"
+        },
+        {
+          "assessment": "Different weights",
+          "evidence": "The theorem treats w(z)=1/|z−b| and Möbius images of equally spaced nodes; it does not treat a weight depending jointly on the node sum.",
+          "identifier_or_url": "https://arxiv.org/html/1902.08348",
+          "material_read": "§3 Theorem 3.1, HTML offsets 20000–21654",
+          "method": "Primary OA HTML passages",
+          "title": "Weighted Fekete points on the real line and the unit circle",
+          "trigger": "Unit-circle weighted Vandermonde maximization"
+        },
+        {
+          "assessment": "Framework only",
+          "evidence": "The theorem establishes the uniformly invertible finite matrix framework and not the determinant optimum.",
+          "identifier_or_url": "https://arxiv.org/html/1910.09257v3",
+          "material_read": "Theorem 2.1, HTML offsets 9000–10865",
+          "method": "Primary OA HTML passages",
+          "title": "Finding duality for Riesz bases of exponentials on multi-tiles",
+          "trigger": "Finite-fiber Riesz construction"
+        },
+        {
+          "assessment": "Substantial overlap in constrained optimizer, not equivalent objective or domain",
+          "evidence": "The δ=1/2 maximin result uses a structured phase family and gives the same value and cosine, with fiber modes {0,1,3} and {0,2,3}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-three-regime-sharp-determinant-design-for-three-interval-fouri--c9a6f8a9b1bc",
+          "material_read": "Local-mirror RESULT.md offsets 0–869 and 1650–3252",
+          "method": "Configured Resultary search and local mirror",
+          "title": "A three-regime sharp determinant design for three-interval Fourier systems",
+          "trigger": "Strongest exact radical and optimizer match"
+        },
+        {
+          "assessment": "Unresolved possibility, not a determination of noncoverage",
+          "evidence": "Accessible text identifies a type of interpolation on the circle but does not state an objective, maximum or equality claim establishing overlap.",
+          "identifier_or_url": "https://article.sapub.org/10.5923.j.ajms.20130306.06.html",
+          "material_read": "Search snippet and bibliographic metadata only; full text unavailable in bounded attempts",
+          "method": "Attempted OA publisher page and PDF, and DOI resolution (unsuccessful)",
+          "title": "Weighted (0,1,3)* – Interpolation on Unit Circle",
+          "trigger": "Highly similar apparent index set and unit-circle setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determinant measures the product of the exact squared analysis singular values for a natural minimal nonconsecutive fiber. The complete exact optimizer has two equal short gaps while the usual equidistributed triple is singular, a useful concrete distinction in sparse Fourier basis design. The global unrestricted identification, not just calculation at a candidate or Hadamard's coarse ceiling, supplies the scientifically meaningful result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

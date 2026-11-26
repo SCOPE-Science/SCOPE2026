@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:21:40.613023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The radial eigenvalue (m+1)b can collide only with one b+aμ_j. An interior frequency gives a merged space of dimension three; the even alternating endpoint gives dimension two. PBH requires these dimensions and the proposed adjacent-rim placements attain them: the hub detects the radial coefficient when fused with an interior mode, and an adjacent rim pair separates the alternating and radial columns at the even endpoint. Hub-containing pairs fail on the two-dimensional rim mode. Sine restrictions vanish iff m divides 2jt, giving the stated three gcd conditions and counts by counting eligible ordered differences and dividing by two. At prime rim order, three rim points yield a nonsingular affine circle sample and the hub plus any pair yields a nonzero sine minor; the other eigenspaces restrict injectively as well. Independent exact rational checks of all pairs in seven instances (including m=4 endpoint and m=9 interior) passed; replay: /workspace/independent_checks.py. The supplied finite verification is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "52ce2e4d87c4 covers m≥3 and gives all optimal interior-resonant triple placements for composite as well as prime rim orders. For hub plus two rim sites it requires gcd(q,d)=1; for three rim sites it requires gcd(q,d1,d2)=1 and three distinct resonant residues.",
+          "The inspected Hsu interconnected-graph results use simple spectra or preserve single-input controllability under specified hypotheses; those are not the result used to establish coverage."
+        ],
+        "reasoning": "For prime m, the gcds equal one for distinct sites and multiplication by an interior j is a permutation, so every triple satisfies the stronger classification. Adjacent rim witnesses and hub-plus-adjacent witnesses are also included.",
+        "searches": [
+          "52ce2e4d87c4, Finding and proof step 4",
+          "arXiv:1808.03022 Theorems 3.3–3.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 52ce2e4d87c4 (actual theorem/proof)",
+        "Resultary 5b3d49cda4e9 (indexed rank result)",
+        "arXiv:1109.3556",
+        "arXiv:1808.03022"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive drift scaling multiplies the successive Kalman blocks by nonzero scalars, so the normalized stronger theorem implies the original without any extra eigenspace argument.",
+          "Bare-cycle results supply the gcd ingredient but have no competing radial mode. They are not the basis of the failing verdict."
+        ],
+        "reasoning": "The verified indexed statement implies the full frozen result, including the prime corollary and all counts. There is no remaining claim in the frozen finding to pass separately.",
+        "searches": [
+          "52ce2e4d87c4, Theorem and proof steps 1–5",
+          "arXiv:1109.3556, cycle reachability statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weight transformation t=b/a turns t=ν_j/m into a/b=m/μ_j and t=4/m into a/b=m/4, in the same independent-input Kalman model.",
+          "Its two-site test gcd(q,d)=1 with q=m/gcd(m,2), plus d odd at the alternating collision, is exactly the three-case gcd test in the frozen finding."
+        ],
+        "reasoning": "Different choice of normalized conductance, wheel indexing and gcd notation does not change the result.",
+        "searches": [
+          "Resultary semantic search for weighted wheel minimum coordinate control, spoke/rim resonance, arithmetic rim pairs and prime triples",
+          "52ce2e4d87c4, Finding and proof steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed stronger result gives the explicit totient counts. At the even endpoint, φ(m)=2φ(m/2) for 4|m and φ(m)=φ(m/2) for m≡2 mod 4, making its split expression identical.",
+          "A second indexed record 5b3d49cda4e9 reports exact two-rim-leader reachable-subspace ranks and resonance losses, but not a complete triple classification."
+        ],
+        "reasoning": "No finite table is needed: the indexed theorem already covers the exact counts and placements for all parameters.",
+        "searches": [
+          "Resultary search for weighted wheel gcd ranks, spoke resonances, and optimal-pair counts",
+          "52ce2e4d87c4 proof step 5",
+          "5b3d49cda4e9"
+        ]
+      },
+      "rationale": "The complete finding is covered by the distinct, stronger Resultary theorem 52ce2e4d87c4. Divide the Laplacian by a and set its spoke weight t=b/a; controllability is unchanged by this drift scaling. The stronger theorem gives the same threshold, pair conditions and counts, and a necessary-and-sufficient classification of optimal triples for all rim orders. Primality makes both its gcd and residue tests automatic, giving every prime-order triple and hence its count. This is demonstrated statement-level coverage. The November directory date and frozen October date alone do not settle first discovery, dependence or priority; failure is for distinctness against the verified published coverage, not a claim about who discovered it first.",
+      "residual_risks": [
+        "Relative priority, dependence, and whether the overlapping record extends an earlier unpublished proof are unresolved.",
+        "Independent access to the cited threshold-graph and non-simple-ring articles was unsuccessful; no absence finding is inferred from this. Neither access gap is needed to establish the demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete coverage plus composite-order triples and m=3",
+          "evidence": [
+            "Theorem: three at double-mode resonance, two otherwise; gcd and odd-offset test; full triple iff conditions; exact totient formulas."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimum-coordinate-control-of-weighted-wheel-laplacians-exact-co--52ce2e4d87c4/RESULT.md",
+          "material_read": "Finding, hypotheses and proof steps 1–5; mirror offsets 0–7492",
+          "method": "Direct comparison of the indexed RESULT.md with the frozen theorem",
+          "title": "Minimum coordinate control of weighted wheel Laplacians: exact coupling resonances and placements",
+          "trigger": "Same weighted wheel with reciprocal normalization and apparently stronger placements"
+        },
+        {
+          "assessment": "Bare-cycle pair criterion, not wheel resonance classification",
+          "evidence": [
+            "Coprimality of complementary cyclic distances and universal pair control at prime order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.3556",
+          "material_read": "Cycle pair scope/results on p. 3 (text offset 9530)",
+          "method": "Read primary paper text and compare graph hypotheses",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "Cycle-leader arithmetic"
+        },
+        {
+          "assessment": "The stated simple-spectrum and single-input preservation conditions are not these weighted wheel placement rules",
+          "evidence": [
+            "Theorem 3.3 tests simplicity and nonvanishing composite-vertex entries; Theorem 3.4 preserves specified single-input control."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.03022",
+          "material_read": "Theorems 3.3–3.4, pp. 8–9 (text offset 19950)",
+          "method": "Read primary theorem passages",
+          "title": "Laplacian Controllability of Interconnected Graphs",
+          "trigger": "Potential stronger graph interconnection theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact classification across continuous coupling parameters is mathematically useful as a result type. As a distinct contribution this finding adds no new invariant, case or stronger conclusion beyond the directly matching indexed classification, which also supplies all composite-order triples. Recasting its weights or giving a prime-count corollary has no incremental scientific value sufficient for acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

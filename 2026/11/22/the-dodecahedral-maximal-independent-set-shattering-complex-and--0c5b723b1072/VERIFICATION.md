@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-From this directory, execute:
+## correctness
 
-```sh
-g++ -O2 -std=c++17 verify_dodecahedron.cpp -o check_dodecahedron
-./check_dodecahedron
-python3 verify_dodecahedron.py
-```
+PASS
 
-Both programs run solely from the displayed \(GP(10,2)\) edge formula. The C++ program checks the 295 maximal independent sets by enumeration of all \(2^{20}\) vertex subsets. The Python program builds the same family by an independent complement-clique recursion. Both verify the complete support shattering polynomial, all facet sizes and exact mod-two boundary ranks. The Python program separately counts the ten pairwise-distance-three tetrahedra and checks these are precisely the size-four facets.
+For the specified GP(10,2), an independent support is necessary because the all-positive trace on an adjacent pair is impossible. An independent set is inclusion-maximal exactly when it dominates every unselected vertex. Testing all independent supports against the resulting full concept set via the cardinality of their traces is exact. Single-vertex extensions suffice to find facets by downward closure. The independent replay over all 2^20 masks gave 295 concepts, face counts (1,20,160,660,1470,1572,310,0,0) by cardinality, and facets 10,672,310 at cardinalities 4,5,6. BFS tested all four-sets and verified equality, not just equal count, with the ten sets of pairwise distance three. The exact augmented mod-two boundary ranks (1,19,141,519,941,305) and the chain condition give reduced Betti numbers 10,326,5 in degrees 3,4,5, and zero otherwise. The last consistency check at RESULT.md line 41 uses cardinality signs on both sides: its -311 is the negative of the conventional reduced Euler characteristic, which is +311. This does not change the homology statement.
 
-Expected face vector by support size zero through six: \((1,20,160,660,1470,1572,310)\). Expected facet counts by sizes four through six: \((10,672,310)\). Expected ranks of augmented boundaries in face cardinalities one through six: \((1,19,141,519,941,305)\). Reduced mod-two Betti numbers in simplicial dimensions three, four, five: \((10,326,5)\).
+## originality
 
-Both implementations were compiled or executed on the extracted source content, with exact assertions passing. The verification is a finite mathematical computation, not an independent professional or institutional audit. No integral homology, homotopy equivalence, or absolute novelty is certified.
+PASS
+
+The supported distinct contribution is the exact maximal-independent-set shattering complex census, the distance-three tetrahedra's specific role as the complete class of smaller size-four facets, and the mod-two topology. The prior tetrahedra construction and ordinary independence census are not distinct claims. The catalogue self-match is not independent prior coverage.
+
+## value
+
+PASS
+
+The maximal-extension trace constraint has genuine geometry beyond the independence complex. For this standard symmetric cubic graph the result quantifies the gap, identifies the ten exceptional smallest facets by distance rather than merely by enumeration, and gives nonzero homology in three consecutive degrees. Those are useful exact comparison data for shattering by independent dominating sets on symmetric graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

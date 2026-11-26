@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary generator gives a finite triangular Fourier moment hierarchy; its second- and fourth-order solutions yield the exact factored fourth cumulant. All positive powers in the numerator polynomial have positive coefficients, and its constant is negative, proving exactly one physical zero. Dominant-balance expansions give both clock-limit asymptotics, and explicit moment leading terms prove universal excess kurtosis 57. The standalone exact-rational diagnostic passed 94 tests. Finite testing does not replace the all-parameter proof.
+## correctness
 
-**Originality — PASS, qualified.** The complete source article by Shee (arXiv:2409.06920, sections 2–6, appendices D–E) obtains radial fourth moment and isotropic radial kurtosis, and direction-resolved second moments, but not the stationary transverse fourth moment or its unique crossing and limiting asymptotics. Published published-finding corpus summaries for the transverse mixed third cumulant and transverse two-time covariance do not imply the fourth-cumulant polynomial. These related full texts could not be retrieved; unindexed equivalent general moment theorems are a residual risk, though no decisive covering result was located. This assesses an explicit new theorem, not originality of the generator method.
+PASS
 
-**Value — PASS.** A reset heading introduces physically observable longitudinal/transverse anisotropy. A rigorous all-rate transverse non-Gaussian phase boundary, its collapse in two angular-diffusion regimes, and a large standardized excess of 57 distinguish perpendicular fluctuations from the previously investigated radial statistic. It is a natural observable rather than an arbitrary parameter slice.
+A common reset couples any two initial states, giving uniqueness of the exponential-age stationary law. Bounded stationary displacement and angular reflection justify the stationary moment identities and centering. An independent symbolic real sine/cosine hierarchy reproduced the two moments, entire denominator H and all six coefficients of Q. For each positive delta, H is positive and Q increases strictly from a negative constant to infinity. Variance is strictly positive. The scaled limits Q_delta(c delta)/delta -> 24c-192 and Q_delta(c/delta)/delta^3 -> 576c-4032 trap the unique root between any fixed constants on either side of 8 and 7 in the respective scaled variables. For fixed delta the dimensionless moments are asymptotic to 4 delta rho^(-3) and 960 delta^2 rho^(-6), so the ratio tends to 60 and the excess to 57 even as both moments vanish. This agrees with the independent short-age picture: the angular linearization gives a time-integrated Brownian motion of variance (2 delta/3)t^3 and conditional Gaussian fourth moment, then exponential-age mixing gives the factors 3! and 6!. Physical cumulants scale by (v/kappa)^4. Replay: python /workspace/independent_checks.py 1 (SymPy); original checker.py and VERIFICATION.md inspected, not executed.
 
-**Closest literature and limits.** Shee (2024), arXiv:2409.06920, and published-finding corpus publications concerning the transverse mixed third cumulant, transverse covariance spectroscopy, and stationary angular far-tail behavior. No assertions beyond complete Poisson resetting, positive angular noise and vanishing translational thermal noise.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-system primary paper establishes radial moments and radial kurtosis transitions, while the strongest indexed transverse result concerns a different cumulant. The distinct supported claim is the exact all-diffusivity athermal transverse fourth-cumulant transition and critical-rate laws, not renewal, the harmonic-reset model, or non-Gaussianity under resetting in general.
+
+## value
+
+PASS
+
+A fixed reset heading makes the transverse marginal a natural anisotropic diagnostic that radial data can hide. The all-diffusivity root theorem rules out multiple transverse reversals rather than merely reproducing sampled signs. The two scaling laws locate the reset threshold in opposite physical regimes and the rapid-reset limit distinguishes shrinking fluctuations from standardized shape. A sign of excess alone is not a claim about distribution tails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

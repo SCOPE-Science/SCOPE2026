@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:27:54.318456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The zero-sum subspaces within the two vertex classes and their constant contrast have eigenvalues bα, bp, bn respectively, for α=pt+q and n=p+q; global constants have eigenvalue zero. The positive numerator (z−3)²+3 and positive denominator give positive diagonals by spectral calculus; the constant multiplier is 1. With x=bh and D_s=s²x²+6sx+12, the cross terms are 12x/D_n and the independent-pair terms are 12px²[(q+2p)x+6]/(D_pD_n). For distinct clique vertices the projector expression is (12x/p)(α/D_α−q/D_n), whose common numerator after dividing by p is α(p+2q−qt)x²+6αx+12t. The coefficient of x² changes sign exactly at t=2+p/q. The bracket is positive at every positive x on or below that boundary, even for t=0; above it the quadratic is concave and its roots have opposite signs. Solving for the positive root gives the stated crossing, with only clique-pair entries negative afterward. h=0 gives the identity. The frozen artifacts were read rather than executed; independent exact inversion on a 4×4 test gives −10140/1228339 at (p,q,b,t,h)=(2,2,1,4,10), as recorded, and positive clique entries at t=4,h=1 and at critical t=3,h=10. Replay: python3 /workspace/audit_evidence/02-split-witness.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier theorem proves all-step nonnegativity iff a/b≤(p+2q)/q and c/b≤(q+2p)/p. The same-date multi-block theorem treats uncoupled positivity constraints and explicitly discusses the clique/independent-set specialization."
+        ],
+        "reasoning": "Setting c=0 satisfies the second inequality automatically, leaving exactly the frozen threshold. Complete multipartite results only cover t=0 here; general absolute-monotonicity and Metzler failure results are not the source of the exact threshold.",
+        "searches": [
+          "Resultary prior 5042549f9333; same-date block-homogeneous c547ef29de73; complete multipartite 3b12f25d4b2d and 690509e7de2b",
+          "Zappavigna et al. 2012; Lóczi–Ketcheson arXiv:1303.6651"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, artifacts/verify.py and artifacts/verification.txt",
+        "Resultary 5042549f9333, c547ef29de73, 3b12f25d4b2d, 690509e7de2b, 4aad2a3f58ab",
+        "Zappavigna et al. 2012; Lóczi–Ketcheson arXiv:1303.6651; Das–Liu bibliography"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put U=qt−p−2q>0. Under a/b=t,c=0, the prior A bracket in x=bh is p[t+αx/2−αUx²/12], its positive root is [3+√(9+12tU/α)]/U, and H_B=∞. The B bracket has strictly positive linear term and nonnegative quadratic term, and cross entries are strictly positive."
+        ],
+        "reasoning": "The earlier horizon and entry formulas directly give h_* and exactly the same post-crossing signs; the earlier proof also explicitly gives strict positivity at and below the threshold. No surviving bound or distinct sign assertion remains.",
+        "searches": [
+          "Earlier Resultary 5042549f9333, horizon H_A,H_B and quadratic-bracket proof",
+          "c547ef29de73, block theorem and relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior graph consists of two blocks with arbitrary nonnegative uniform internal weights a,c and positive cross weight b. Its rational update is (I+hL/2+h²L²/12)^−1(I−hL/2+h²L²/12)."
+        ],
+        "reasoning": "Multiplication by 12 yields precisely F(hL); an independent set is the second block with c=0. This is equivalence of the mathematical update, not similarity in terminology.",
+        "searches": [
+          "Resultary: completed Gauss–Legendre diffusion positivity, diagonal [2/2] Padé threshold, weighted complete split/two-community network",
+          "5042549f9333, RESULT.md Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives the three off-diagonal classes as explicit functions, plus positive definiteness for the diagonals. The Das–Liu full text was not retrieved; the bibliographic title concerns spectral determination."
+        ],
+        "reasoning": "The prior rational formulas are stronger than a parameter table and cover every frozen matrix entry type. An isolated negative witness or new numerical replay cannot be a distinct exact invariant.",
+        "searches": [
+          "Resultary exact threshold and rational entry sign formulas, weighted split graphs and positive timestep windows",
+          "5042549f9333, proof formulas for X_A, X_B and cross entries",
+          "Das–Liu DOI 10.1016/j.dam.2016.01.003"
+        ]
+      },
+      "rationale": "The entire claim is explicitly covered by the earlier two-community Padé theorem of 2026-11-02 (5042549f9333). Set its internal conductances to a=tb and c=0; the rational update is identical after multiplying numerator and denominator by 12. Both thresholds, strict positivity, the off-diagonal sign classes and the horizon all specialize at once. The separate same-date block theorem is additional coverage, not evidence about priority between same-date records.",
+      "residual_risks": [
+        "The Das–Liu full text and the precise Lóczi–Ketcheson zero-radius passage were not inspected. These access limits do not affect the direct prior specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive full coverage; earlier dated record",
+          "evidence": "Both internal weights may be zero, the two positivity conditions decouple, and each violated condition produces the unique positive quadratic root with negative within-block entries afterward.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-pad-positivity-horizons-for-two-community-diffusion-networ--5042549f9333/RESULT.md",
+          "material_read": "Finding, assumptions, proof and classification of entries, offsets 0–5856",
+          "method": "Resultary search and matching local mirror passage",
+          "title": "Sharp Padé positivity horizons for two-community diffusion networks",
+          "trigger": "Earlier stronger theorem on identical Padé endpoint and weights"
+        },
+        {
+          "assessment": "Equivalent special-case coverage; no ordering inferred",
+          "evidence": "The theorem applies to two blocks of internal weights tb,0 and its prior-work discussion names the split specialization.",
+          "identifier_or_url": "2026/11/8/SCOPE-independent-sharp-positivity-thresholds-for-fourth-order-diffusi--c547ef29de73",
+          "material_read": "Finding and relationship to prior work in local mirror",
+          "method": "Resultary search and local passage comparison",
+          "title": "Independent sharp positivity thresholds for fourth-order diffusion on block-homogeneous graphs",
+          "trigger": "Distinct same-date match with more blocks"
+        },
+        {
+          "assessment": "Different obstruction",
+          "evidence": "Small-step failure of C_2(hA) for certain Hurwitz-stable Metzler systems does not give this symmetric all-step threshold.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "Lawful preprint passages p. 3 offset 7174 and p. 15 literal match offset 43383",
+          "method": "OA PDF extraction",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "General Padé nonnegativity theory"
+        },
+        {
+          "assessment": "General positivity framework, not the decisive exact comparator",
+          "evidence": "Studies radii of rational approximations, not a verified statement of the two-community sign threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.6651",
+          "material_read": "Abstract and definitions, offsets 625–2665; specific quoted zero-radius passage not recovered",
+          "method": "OA PDF extraction",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "General monotonicity criterion might cover restricted diffusion matrices"
+        },
+        {
+          "assessment": "No whole-text inference",
+          "evidence": "Bibliographic match in graph family and spectrum, no verified passage covering the Padé step.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2016.01.003",
+          "material_read": "Bibliographic record and title only; full paper unavailable",
+          "method": "Lawful publisher/OA route attempts",
+          "title": "Complete split graph determined by its (signless) Laplacian spectrum",
+          "trigger": "Same graph family"
+        },
+        {
+          "assessment": "Non-equivalent directed setting",
+          "evidence": "An eight-state directed pure-birth example addresses small-step CTMC failure, not the symmetric split ratio.",
+          "identifier_or_url": "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Earlier exact positivity claim for same rational map"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The general exact two-community horizon is mathematically useful, but the frozen work adds only a direct parameter substitution with no new mechanism, invariant or boundary statement. The additional sample calculation is not a separate valuable claim. A credit or prose change would not leave a distinct finding, so no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

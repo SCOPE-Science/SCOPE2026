@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:15:07.997764Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each side gives one nested chain on the opposite marks, of at most b or a nonempty levels respectively. Those levels never coincide across the two sides, and empty is counted once. With equality, every size between one and the opposite mark count is mandatory, and empty must occur. Counting witness vertices and marks side by side gives order at least 2 max(a,b); counting all distinct traces gives order at least a+b+1. If a>b, a minimum host has a vertices on each shore and every left vertex is marked. The a nonempty right traces therefore fix the whole staircase after ordering left vertices by the successive new marks. If the right marks have staircase ranks j_1<...<j_b, then left rows give the b nonempty suffixes and also empty exactly if the top rank a is unmarked (also true for b=0). Every rank is fixed under side-preserving isomorphism, so the binomial census follows, and the staircase is connected. Symmetry handles b>a. For a=b=k, at 2k+1 vertices all vertices on the shorter shore must give nonempty traces, including one seeing every opposite mark. Thus the opposite marked vertices also give nonempty traces; only the extra vertex can give empty and is genuinely isolated since the shorter shore is all marked. The marked core is forced to be the staircase, with two possible named shores for the isolated vertex. A new left vertex adjacent to every marked right vertex and a new right vertex adjacent only to that new left vertex preserve nesting, connect every vertex and witness the empty trace at order 2k+2. This includes k=1. The trace supremum and VC dimension follow from sharpness at all splits and the two-point bound. Replay: RESULT.md proof, with checker lines 64–110 for small-order coverage and 113–158 for the constructions. The checker was inspected, not executed; it considers all mark splits with positive total, and its finite checks do not carry the arbitrary-size claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonnet et al. give a general linear open-neighborhood bound in the marked-set size under bounded twin-width; it is not the exact split-specific witness optimization.",
+          "Berthe et al. use closed neighborhoods under width restrictions. Chain graphs have unbounded treewidth, as seen from complete bipartite members."
+        ],
+        "reasoning": "Neither inequality supplies the lower-bound/equality conditions forcing exact side lengths and staircase ranks, nor the excess size required for a connected balanced host. Forest and interval-graph bounds do not cover chain graphs containing a chordless K_(2,2).",
+        "searches": [
+          "arXiv:2301.04217v2 open neighborhood complexity bounded twin-width",
+          "arXiv:2607.16889v1 closed neighborhood complexity bounded treewidth and pathwidth",
+          "Resultary: connected minimum and sharp open-neighborhood profile growth in chain graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md and check_chain_traces.py",
+        "arXiv:1803.00245v1 §3; arXiv:2603.00593v1 §1; arXiv:2301.04217v2 and arXiv:2607.16889v1 p.1",
+        "Resultary e0393b89ea9b, 9d6b84f296e4 and a2e982503dd9 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sauer's VC-dimension-one inequality and the chain bound are consistent with m+1, which does not determine a marked split, least connected order or the count of rank selections.",
+          "In the present proof saturation plus the order lower bound forces all rows or columns to be witnesses. The missing empty trace forbids the top marked staircase rank, or forces a genuine isolated vertex in the balanced minimum. No such conclusion follows from the nearby edge-partition, width, or spectral statements."
+        ],
+        "reasoning": "The distinctive result concerns minimum realizing structures and their equivalences, not the linear order of growth. It is more specific than the ingredients without being an exact-output substitution into the inspected statements.",
+        "searches": [
+          "London arXiv:2603.00593v1 edge partitions; Andjelic et al. arXiv:1803.00245v1 §3",
+          "Resultary e0393b89ea9b, a2e982503dd9 and 9d6b84f296e4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "London §1 identifies Ferrers, induced-2K2-free bipartite and neighborhood nesting formulations. Anđelić et al., arXiv:1803.00245v1 §3 Remark 3.1, give the corresponding nested-cell (double nested graph) normal form.",
+          "Despite its title, Vertex types in threshold and chain graphs asks in §3 Conjecture 3.1 and Theorems 3.4–3.5 about changes in eigenvalue multiplicities after deleting a vertex, not one-point open adjacency profiles on marks."
+        ],
+        "reasoning": "The classical nested matrix form and capacity argument are background. Neither the matrix form nor the spectral meaning of vertex type imposes saturation at a prescribed split or counts the resulting minimum pointed hosts.",
+        "searches": [
+          "Primary search: chain graph neighborhood complexity Ferrers bipartite marked vertices traces extremal minimum order",
+          "London arXiv:2603.00593v1 §1",
+          "10.1016/j.dam.2019.02.040 vertex types in threshold and chain graphs theorem abstract open access preprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact chain-graph catalog hit was the assigned finding. Separate forest record e0393b89ea9b reports maximum 2m, a spanning-tree trace structure and m^(m-2) labeled trace families. Separate forest record a2e982503dd9 concerns closed neighborhoods and individually named marks.",
+          "Interval-graph record 9d6b84f296e4 has an induced-path equality structure and a different minimum-host problem."
+        ],
+        "reasoning": "A labeled trace-family census is not a census of side-preserving marked graph isomorphism classes. No separate retrieved result gives the chain graph binomial census or balanced count under the same equivalence. The comparison does not infer precedence from date.",
+        "searches": [
+          "Resultary: chain-graph open-adjacency capacity, minimum host, connected minimum and marked minimum-host census"
+        ]
+      },
+      "rationale": "Nesting and the elementary linear trace estimate are not credited as novel. The supported contribution is the joint split-sensitive least order, connectedness penalty, and full marked minimum-order census. The strongest neighboring classifications use different graph classes, marked equivalences, or invariants, as compared below.",
+      "residual_risks": [
+        "Older Ferrers matrix enumeration under other naming conventions might contain an equivalent marked minimum-order problem.",
+        "The materially related indexed findings could not be inspected beyond the available mathematical summaries. No whole-document noncoverage or historical priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Types are eigenvalue deletion types. The structural normal form is shared but the paper's chain-graph question is not the marked saturation and order problem.",
+          "evidence": [
+            "Conjecture 3.1 concerns downer vertices for every nonzero eigenvalue; §3 identifies Theorems 3.4 and 3.5 as infinite counterexamples.",
+            "Remark 3.1 presents bipartition cells with opposite initial-segment neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1803.00245v1 (journal DOI 10.1016/j.dam.2019.02.040)",
+          "material_read": "Abstract as indexed by the publisher, and primary preprint §3 around Conjecture 3.1, Remark 3.1, and Theorem 3.1 (offset 32430).",
+          "method": "Focused exact-title and DOI search; read relevant open preprint passage.",
+          "title": "Vertex types in threshold and chain graphs",
+          "trigger": "Older directly matching class and plausible term vertex types."
+        },
+        {
+          "assessment": "Supports the normal form; the addressed extremum is an edge partition number, not the marked-host minimum.",
+          "evidence": [
+            "Section 1 gives containment ordering as equivalent to induced-2K2-freeness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.00593v1",
+          "material_read": "PDF p.1, §1, extracted lines 28–33 and first-page framing.",
+          "method": "Primary PDF passage inspection.",
+          "title": "Edge partitions into induced-2K2-free bipartite graphs",
+          "trigger": "Same graph class under Ferrers and nested-neighborhood aliases."
+        },
+        {
+          "assessment": "Uses closed neighborhoods and bounded treewidth/pathwidth, not the target invariant on unrestricted chain graphs.",
+          "evidence": [
+            "The abstract uses N[v] intersect S and states width-restricted bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.16889v1",
+          "material_read": "Primary p.1 abstract.",
+          "method": "Compare neighborhood and hypothesis definitions.",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Sharp results for neighborhood complexity under width restrictions."
+        },
+        {
+          "assessment": "General linear bound does not give the minimum-order and census theorem.",
+          "evidence": [
+            "The number of distinct restricted neighborhoods is bounded in terms of twin-width and marked-set size; the recorded bound is (d+2)2^(d+1)k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.04217v2",
+          "material_read": "Primary p.1 abstract and frozen report of Theorem 1 bound.",
+          "method": "Check the primary first-page scope and compare the stated bound.",
+          "title": "Neighbourhood complexity of graphs of bounded twin-width",
+          "trigger": "Potential general open-neighborhood bound."
+        },
+        {
+          "assessment": "Forest class, different saturation and census; not a covering theorem for chain-graph hosts.",
+          "evidence": [
+            "Indexed 2m sharp maximum, spanning-tree trace patterns, m^(m-2) labeled trace families and order 3m-1 smallest tree hosts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-cayley-rigidity-of-maximal-open-adjacency-types-in-finite-forest--e0393b89ea9b",
+          "material_read": "Indexed mathematical statement; local-mirror result text not retrieved.",
+          "method": "Resultary search and statement-level comparison.",
+          "title": "Cayley rigidity of maximal open-adjacency types in finite forests",
+          "trigger": "Similar exact open traces, host order and census."
+        },
+        {
+          "assessment": "Interval-graph path rigidity is different from rank-marked Ferrers staircase rigidity.",
+          "evidence": [
+            "Indexed formula for m>=3, induced-path equality structure in endpoint order, and exceptional smallest order for m=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-open-neighborhood-type-growth-and-path-rigidity-in-interva--9d6b84f296e4",
+          "material_read": "Indexed mathematical statement; local-mirror result text not retrieved.",
+          "method": "Resultary comparison of hypotheses and extremizers.",
+          "title": "Sharp open-neighborhood type growth and path rigidity in interval graphs",
+          "trigger": "Closely related host-size and open-trace rigidity theorem."
+        },
+        {
+          "assessment": "Closed trace, tree realization, and individually named parameters do not give this marked host census.",
+          "evidence": [
+            "The indexed result specifies closed neighborhoods and named parameters in forests."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-cayley-tree-census-of-equality-case-unary-neighbourhood-types-in--a2e982503dd9",
+          "material_read": "Indexed mathematical statement; full result not retrieved.",
+          "method": "Resultary comparison of trace and equivalence definitions.",
+          "title": "Cayley-tree census of equality-case unary neighbourhood types in finite forests",
+          "trigger": "Another sharp census of equality cases."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unbalanced and balanced cases differ in how the empty trace can be realized. The sharp connectedness penalty and all minimum-host marked classes answer a natural resource question beyond the elementary capacity bound; they specify exactly which staircase rank choices realize saturation without extra vertices. The census can be used without an exhaustive labeled-matrix search.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

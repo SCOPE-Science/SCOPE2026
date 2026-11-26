@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verified scope
+# Independent mathematical audit
 
-Run `python3 check.py` in the same directory as the embedded files, with a standard Python 3 installation. The checker actually passed 18,131 checks: nine exact rational-polynomial identities, nine groups of optimizer-domain and positivity checks, 18,000 feasible-calendar comparisons, 65 independent direct integrations of the conditional rain-event law, and 21 local threshold perturbations. The reported phase constants were `p1=0.537524704426` and `p2=0.851288471547`; at `p=1` the reproduced optimum was `t1=0, t2=0.1568194231133884, t3=0.7068958511210482`, with success `0.7895887539534517`.
+## correctness
 
-The finite checks do not prove uniqueness, complete parameter coverage or historical originality. The mathematical proof is the existence/compactness and global stationary-point classification in `RESULT.md`. The model excludes correlated establishment conditional on the shared rain, unequal exponential rates, repeat rains and empirical parameter uncertainty. Independent external validation has not been performed.
+PASS
+
+Shifting a delayed first date to zero multiplies its positive success probability by exp(t₁), so every optimizer starts at zero. For u=exp(−t₂), v=exp(−t₃), direct integration over the three intervals of the uniform variable exp(−R) gives the same objective F as inclusion–exclusion. The compactified domain is continuous at its zero corner; that corner is strictly worse than (1,1), and moving off v=0 at u>0 increases F. On v=u<1 the only possible diagonal maximizer has negative F_v and is improved by decreasing v. The u=1 edge has unique optimizer v=min(1,p₁/p). Interior stationarity forces u=Z(y) and p₁<y<3/4 for y=pv/u. The singular value y=8/9 cannot satisfy F_v=0. On the admissible interval the remaining stationarity function is strictly increasing by the stated positive quadratics, and its endpoint signs yield the unique admissible root only for p>p₂. For those p the boundary candidate has F_u<0 (so an inward move decreasing u increases F); at p=p₂ the limiting root is the existing boundary point, not a tie. This exhausts all closure boundaries and interior stationary points and gives the three unique ordered calendars. Independent integration and polynomial root isolation reproduce both constants and, at p=1, dates 0, 0.156819423113, 0.706895851121 and success 0.7895887539535.
+
+## originality
+
+PASS
+
+Rain-dependent sowing and diversified timing are established ideas. The supported distinct finding is the full three-release optimum under one exponential trigger, with three independently decaying establishment opportunities conditional on that trigger and a union-of-successes objective. In that model the two exact thresholds control changes in the active equality constraints. The strongest indexed exponential calendars and the biological timing literature inspected use different feasible timing choices or objectives, and do not give these thresholds or the unique quartic regime.
+
+## value
+
+PASS
+
+The tradeoff between early availability and lifetime decay is inherent in timing several opportunities before one uncertain trigger. Three cohorts are the smallest instance in which simultaneous, partly staggered, and fully staggered schedules can all be distinct. Exact thresholds show when to expect each pattern and include both boundary cases; this gives a structural baseline for timing diversification without inferring distinct rain sources or adaptive decisions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

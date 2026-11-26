@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying standard-library checker can be run with `python verify_examples.py` from the extracted result directory. In the tested environment it reported:
+# Independent mathematical audit
 
-`PASS: 51 exact weighted sums, 200 interval thresholds, mixture normalization and witness radii`
+## correctness
 
-The checker performs finite rational-arithmetic identities: it checks \(S_K=3-2^{1-K}\) for \(0\le K\le50\), the thresholds of 200 uniform-support intervals, countable-mixture partial-sum normalization, and finite witness-radius inequalities. It is not a certificate of Borel–Cantelli, the de Finetti representation, or the all-target all-radius theorem; those are proved mathematically in RESULT.md.
+PASS
 
-In the main proof, the probabilistic step is the second Borel–Cantelli lemma on independent disjoint coordinate blocks with a uniform strictly positive event-probability lower bound. For the mixture converse, only positive mixing mass on components of small enough diameter and a finite covering of their support midpoints are needed. No numerical approximation or external theorem about convergence speed is used.
+The midpoint target bounds each coordinate difference by D/2 on a full-measure product box; the bilateral weight sum 3 proves failure at and above 3D/2 in the iid case, including the Dirac case. For each fixed arbitrary target separately, choose the farther support endpoint in each coordinate. Both endpoint neighborhoods have positive marginal mass, so disjoint translates of a fixed finite block have independent chances bounded below to contribute more than any r<3D/2. This proves nullity by Borel–Cantelli without an uncountable union over targets. De Finetti then integrates null masses below (3/2) ess inf D. Above it, slack permits covering the midpoints of a positive-measure sublevel of D by finitely many neighborhoods; one common constant target captures positive mass from the corresponding components. In the explicit mixture the weights sum to one, the positive Lebesgue-product part gives full support, and all components are atomless and mixing, with positive radii tending to zero. A mixture boundary assertion is not needed for the supremum: at d_*>0 an atomic midpoint among D=d_* components gives failure, whereas if that restricted midpoint law has no atoms then any fixed target can have positive critical-window mass for at most one midpoint: infinitely many coordinates separated from a component midpoint would provide infinitely many disjoint blocks with an extra positive center discrepancy and force escape by the same endpoint argument. This confirms that the frozen statement did not silently assume a boundary convention for mixtures. The frozen finite arithmetic checker was inspected, not run; neither it nor its recorded examples substitutes for the proof.
 
-The review above is an internal consistency assessment only, not independent validation. The classical de Finetti theorem and second Borel–Cantelli lemma are used as established mathematical results. No external audit has been performed.
+## originality
+
+PASS
+
+The product Lebesgue example, qualitative iid criterion, de Finetti representation, and common-radius mixture argument are prior or elementary. The distinct result is the sharp metric-dependent radius, including the Bernoulli equality case and the matching upper bound across dependent exchangeable mixtures, with a nonatomic full-support obstruction to expansivity.
+
+## value
+
+PASS
+
+A natural metric invariant is computed exactly across the full exchangeable class. The example answers a meaningful inheritance question: full support and nonatomicity do not rescue expansivity when individually expansive ergodic components admit no common positive radius. The value is in sharp constants and a structural obstruction, not the existence of an iid expansivity constant alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

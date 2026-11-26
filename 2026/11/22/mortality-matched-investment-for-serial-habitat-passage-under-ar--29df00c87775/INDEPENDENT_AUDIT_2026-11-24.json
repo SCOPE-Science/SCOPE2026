@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:51:24.679276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the abstract serial continuous-time chain, the joint success subdensity has factor uv and exponents a=u+d_1, b=v+d_2. Integrating on x+y=s gives uv·s·exp(−(a+b)s/2)·sinhc((a−b)s/2), continuously at a=b. Swapping u and v keeps uv and a+b fixed. If d_1>d_2 and u>v the squared absolute exit-rate difference strictly increases by 4(u−v)(d_1−d_2) over the swapped value, giving strict improvement for all weights in scope (bounded nonnegative Borel, positive on a positive-measure set). The positive derivative of sinhc at a positive argument also gives J_w'(C/2)>0, so balance cannot be optimal. The other ordering follows by interchanging indices; the objective is continuous on [0,C], positive inside and zero at both endpoints. Equal losses give success probability uv/(uv+dC+d²), strictly maximal at balance. The conditional exponential-sum survival function with fixed mean exit-rate parameter m is e^(−mt)[cosh(ηt)+m sinh(ηt)/η], increasing with rate imbalance η, so a nonincreasing reward and strict success comparison imply unique balance. For small T, integrating the analytic series gives 2J_T/T²=uv[1−KT/3+(K²/16+δ²/48)T²+O(T³)] uniformly through two u derivatives, with K=a+b and δ=a−b. Strict concavity follows. The stationarity equation first gives displacement O(T²) and then C²(d_1−d_2)T²/96+O(T³). For large T the exponentially bounded derivative tails imply uniform C² convergence. The eventual-success log has strictly negative second derivative; at its root the ratio satisfies (u/v)²=d_1(C+d_2)/[d_2(C+d_1)]. Uniform convergence localizes all finite-deadline optimizers to this root and then local strict concavity gives eventual uniqueness. Equality at intermediate deadlines is not asserted either way. I inspected the packaged SciPy checker without running it. A separate decimal evaluation of uv[(1−e^(−bT))/b−(1−e^(−aT))/a]/(a−b) and numerical stationarity for the frozen example gave u≈1.89630479, J≈0.294939543, and J at balance≈0.278364504, supporting the illustration but not certifying intermediate-horizon uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The queue abstract describes a controlled stochastic scheduling problem with customer arrivals, holding and abandonment costs, not a constant sum of two passage rates for one absorbing path.",
+          "Ecological sources inspected describe dispersal/connectivity metrics, stepping-stone effects across generations, or multiobjective least-cost paths. Their abstract statements do not include this rate-budget theorem.",
+          "A close mathematical title covers ordering of exponential convolutions, but lawful full-text attempts on that paper did not supply a theorem passage."
+        ],
+        "reasoning": "Neither the broad habitat-network setting nor tandem queue controls imply this stochastic optimization by parameter restriction on the read material. For convolution-order literature the materially relevant comparison would be a likelihood-ratio or pointwise density inequality with the right rate constraints, not merely a first-order conditional stochastic order.",
+        "searches": [
+          "Bon Păltănea 1999 Ordering Properties Convolutions Exponential Random Variables theorem rate majorization likelihood ratio fixed sum gamma convolution density stochastic order",
+          "Two-stage queue with abandonments and costs",
+          "Oehri DOI:10.1007/s10531-024-02938-2; Saura et al. DOI:10.1111/1365-2664.12179; Gholamialam et al. DOI:10.1007/s10980-023-01656-4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d437ebce6f5e",
+        "Resultary dfcb35b95e14",
+        "DOI:10.1023/A:1009605613222 (metadata/access attempts)",
+        "DOI:10.1007/s10531-024-02938-2",
+        "DOI:10.1111/1365-2664.12179 (abstract)",
+        "DOI:10.1007/s10980-023-01656-4",
+        "Scheduling servers in a two-stage queue with abandonments and costs (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Swapped allocations have the same leading success-density factor at s=0; a sufficiently strong likelihood-ratio ordering of the normalized conditional convolutions could therefore imply the swap comparison after reinstating the success factors.",
+          "A conditional stochastic order alone is not sufficient for arbitrary nonmonotone rewards. The frozen proof directly controls unnormalized densities and excludes the equal split; the competing-loss factors also enter both deadline optimizer asymptotics.",
+          "Neither companion's stated model has the same control and objective as the two-stage absorbing rate split."
+        ],
+        "reasoning": "The equal-loss argument uses a standard conditional stochastic order. For unequal losses, even coverage of one kernel comparison would not by itself furnish the parity derivative, hard-deadline uniqueness in the two regimes, or the short-horizon optimizer coefficient. There is no verified source statement implying the complete result under its specified assumptions.",
+        "searches": [
+          "Resultary dfcb35b95e14 bound Finding and Assumptions",
+          "Resultary d437ebce6f5e bound Finding and Assumptions",
+          "Bon–Păltănea exponential-convolution order (primary-text access attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All bounded nonnegative reward tests amount to comparing the unconditional success subdensities, not just their cumulative deadline probabilities; strict exclusion of balance additionally uses a derivative at parity.",
+          "d437ebce6f5e compares an exponential direct route to a serial equal-rate route with terminal viability factors and obtains a deadline crossing law."
+        ],
+        "reasoning": "Time-inhomogeneous reward windows can test the density, so the universal comparison is not just a restatement of cumulative-arrival or eventual-success ordering. A route-level deadline crossing law is not an alternative formulation of an optimum over rate splits at two stages with fixed local losses.",
+        "searches": [
+          "Resultary on two-stage exponential stopping, mortality matching, fixed rate-budget allocation and arbitrary completion rewards",
+          "Bon–Păltănea DOI:10.1023/A:1009605613222",
+          "Serial stepping-stone deadline crossing Resultary d437ebce6f5e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d437ebce6f5e tabulates or characterizes route-level crossings, not a rate-optimizer curve or its Taylor coefficient.",
+          "dfcb35b95e14 gives an exact balanced allocation for two-patch extinction-time survival even with unequal patch extinction rates; it starts with both patches occupied and allocates bidirectional rescue rates."
+        ],
+        "reasoning": "The closest exact formulas are for different objectives and dynamics. The target is a universal continuous-parameter comparison and endpoint asymptotic, not a finite database invariant; a handful of numerical optima would not establish it.",
+        "searches": [
+          "Resultary d437ebce6f5e exact serial deadline thresholds",
+          "Resultary dfcb35b95e14 exact every-deadline budget split"
+        ]
+      },
+      "rationale": "The distinct mathematical result is the all-reward strict allocation ordering for the two-stage irreversible fixed-rate-budget model, together with the hard-deadline optimizer asymptotics. The convolution formula, the conditional stochastic comparison used at equal losses, and the individual exponential clocks are not credited as new. The closest checked fixed-budget and serial-passage results optimize different quantities or compare different route types. The Bon–Păltănea primary text could not be recovered; potential overlap with a stronger stochastic order is expressly not ruled out by a search miss.",
+      "residual_risks": [
+        "Could not read Bon–Păltănea's theorem; stronger prior convolution-order implications remain possible. The targeted query did not resolve them and is not evidence of absence.",
+        "Several context comparisons are abstract-level and do not establish whole-document absence. The search does not certify priority over all reliability, queueing or stochastic optimization literature.",
+        "No order of discovery is inferred for the same-day catalogue record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material object overlap, different control and conclusion",
+          "evidence": "Compares direct exponential and k-stage equal-rate serial routes using terminal viability and establishes a critical rate-ratio crossing result.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-deadline-reversals-for-serial-stepping-stone-dispersal-exact--d437ebce6f5e",
+          "material_read": "RESULT.md Finding and Assumptions, opening mirror passage",
+          "method": "Local Resultary search and mirror read",
+          "title": "Two deadline reversals for serial stepping-stone dispersal",
+          "trigger": "Same-day exact serial exponential passage and deadline result"
+        },
+        {
+          "assessment": "Different process and objective, not equivalent despite shared phrases",
+          "evidence": "Two-patch occupancy starts with both patches occupied; the rates fund bidirectional rescue, and the objective is survival of the system from extinction.",
+          "identifier_or_url": "2026/11/8/SCOPE-every-deadline-rescue-advantage-of-balanced-colonization-in-a-tw--dfcb35b95e14",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offsets 0 and 3944",
+          "method": "Local Resultary search and mirror read",
+          "title": "Every-deadline rescue advantage of balanced colonization in a two-patch model",
+          "trigger": "Fixed rate budget and every-deadline optimality with unequal losses"
+        },
+        {
+          "assessment": "Plausible ingredient overlap; cannot decide exact order scope from metadata",
+          "evidence": "Lifetime Data Analysis 5(2), 185–192 (1999) addresses exponential convolution order by title; full text was not available from the bounded attempts.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1009605613222",
+          "material_read": "Publisher-deposited title and bibliographic record; no theorem passage retrieved",
+          "method": "Lawful full-text and DOI retrieval attempts, including PDF/HTML paths",
+          "title": "Ordering Properties of Convolutions of Exponential Random Variables",
+          "trigger": "Closest possible general stochastic-order ingredient"
+        },
+        {
+          "assessment": "Context rather than verified rate-allocation coverage",
+          "evidence": "The abstract describes multispecies spatial connectivity indicators and mapping connectivity change across an ecoregion.",
+          "identifier_or_url": "https://doi.org/10.1007/s10531-024-02938-2",
+          "material_read": "OA PDF abstract, p. 1, offset about 258",
+          "method": "Lawful OA primary PDF, targeted comparison",
+          "title": "Rapid evaluation of habitat connectivity change to safeguard multispecies persistence in human-transformed landscapes",
+          "trigger": "Motivating habitat-connectivity paper"
+        },
+        {
+          "assessment": "Different framework on the material read, not a full-paper exclusion",
+          "evidence": "Models habitat networks and long-distance dispersal with stepping-stone effects across generations.",
+          "identifier_or_url": "https://doi.org/10.1111/1365-2664.12179",
+          "material_read": "Publisher-deposited abstract only; full-text attempts denied",
+          "method": "Lawful publisher access attempts and abstract inspection",
+          "title": "Stepping stones are crucial for species' long-distance dispersal and range expansion through habitat networks",
+          "trigger": "Potentially relevant serial passage model"
+        },
+        {
+          "assessment": "Spatial planning objective rather than the displayed stochastic control",
+          "evidence": "Describes multiobjective least-cost paths and planning-period landscape vulnerability analysis.",
+          "identifier_or_url": "https://doi.org/10.1007/s10980-023-01656-4",
+          "material_read": "OA PDF abstract, p. 1, offset about 124",
+          "method": "Lawful OA primary PDF, targeted comparison",
+          "title": "Contextualizing vulnerability of ecological systems to landscape alteration",
+          "trigger": "Landscape intervention and least-cost path comparison"
+        },
+        {
+          "assessment": "Control and cost objective differ on the material read",
+          "evidence": "CTMDP with customer arrivals, assignments, abandonment and holding costs; discusses priority rules and numerical threshold policies.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/probability-in-the-engineering-and-informational-sciences/article/scheduling-servers-in-a-twostage-queue-with-abandonments-and-costs/07872168CE73AAAD817DD1D255268844",
+          "material_read": "PDF abstract p. 1, text offset about 539",
+          "method": "Lawful OA PDF targeted read",
+          "title": "Scheduling servers in a two-stage queue with abandonments and costs",
+          "trigger": "Related stochastic two-stage resource control with loss while waiting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a simple absorbing Markov chain, the sign of the optimal departure from balance is invariant under arbitrary admissible reward windows, and not just under eventual success or monotone deadlines. This is a substantive structural comparison of objectives; the short-horizon bias and explicit limiting split quantify two different deadline regimes rather than merely reparametrizing the clocks. Its significance is as an exact benchmark for independent exponential hazards and a linear rate budget, not empirical or operational guidance. No general uniqueness, calibration, correlated-hazard or larger-network conclusion is supported.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

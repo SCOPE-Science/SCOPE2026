@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:26:08.013837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–87 and 93",
+        "VERIFICATION.md and check_annulus.py, inspected, not executed"
+      ],
+      "rationale": "Polar integration makes u=|z|² uniform on [0,1]; the area normalization cancels in the quotient. In y=u−1/2, the odd mode has eigenvalue q³ and the even characteristic polynomial is z²−T(q)z+q⁶. Since T−2q³=(9q/4)(1−q²)²>0 for 0<q<1, the two roots strictly straddle q³ and the minimum is simple and even. It is nonconstant by the nonzero centered even cross entry. Its constant-test equation gives β=(q³−λ)/(12(q−λ)), in fact 0<β<q²/12. Translating y²−β with the annulus keeps its observed norm unchanged and increases its full norm by (1/2−2β)δ²+δ⁴, strictly positive for all nonzero allowable displacements, including boundary annuli. The Rayleigh quotient proves the claimed upper bound and uniqueness without discretization. The trace and determinant give λ−∼(4/9)q⁵, λ+∼(9/4)q and the squared condition-number ratio. An independent symbolic reproduction using raw monomial moments confirmed the generalized characteristic polynomial, both translated norm identities and the exact q=1/2 example (`python3 /workspace/review_checks.py 2`).",
+      "residual_risks": [
+        "The loss inequality is an upper bound, not an off-center equality. No extension to multiple rings or a larger Zernike space was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boulsane's finite Hankel spectral problem has a bandlimited, infinite-dimensional space.",
+          "The thin outer-annulus record treats a fixed outer location and radial/azimuthal spectral asymptotics."
+        ],
+        "reasoning": "Neither inspected result supplies a stronger optimization over movable annuli whose restriction would prove this theorem. Fixed outer location is a different regime even at radial order four.",
+        "searches": [
+          "Resultary: annular Zernike least-energy observation",
+          "arXiv:2002.00170",
+          "2026/11/8/SCOPE-sharp-thin-annulus-zernike-concentration-and-a-laguerre-crossove--9e6964c89fd3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact record and d0e2a580a655 and 9e6964c89fd3 comparisons",
+        "arXiv:2002.00170 and arXiv:1511.00449 passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-window maximum is asymptotic to ((5+3√5)/2)q³; it explicitly notes O(q⁵) for a single interval.",
+          "The outer-annulus spectrum describes a particular placement, not how the eigenvalue varies across all admissible placements."
+        ],
+        "reasoning": "An order upper bound gives neither the leading constant 4/9 nor equality conditions, and the two-window extremizers do not optimize the strictly smaller one-window class. Shared catalog dates establish no ordering.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-small-aperture-e-observability-with-two-radial-zernike-ban--d0e2a580a655, Finding and passage near offset 4037",
+          "2026/11/8/SCOPE-sharp-thin-annulus-zernike-concentration-and-a-laguerre-crossove--9e6964c89fd3, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the squared-radius reduction the claim is continuum interval restriction on quadratics with uniform outer measure, optimized by least Gram eigenvalue.",
+          "Ramos-López et al. optimize discrete interpolation collocation on concentric circles, not continuum energy restriction."
+        ],
+        "reasoning": "The discrete condition-number objective does not become the fixed-length interval maximin energy under the change of variable. No independent equivalent matched the reduced claim.",
+        "searches": [
+          "Resultary: fixed-area annular restriction of degree-two radial polynomials; Zernike annular observation",
+          "arXiv:1511.00449, p. 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalog match 2026/11/22/SCOPE-sharp-fixed-area-annular-observation-of-the-first-three-radial-z--ff4983abdb10 is this same record, with the same Finding and scope.",
+          "The distinct same-day d0e2a580a655 record was compared at statement level."
+        ],
+        "reasoning": "The self-match is not independent coverage. The distinct match does not tabulate or assert the exact single-window optimizer.",
+        "searches": [
+          "Resultary: fixed-area annular restriction of degree-two radial polynomials; Zernike annular observation"
+        ]
+      },
+      "rationale": "The strongest inspected overlap is the two-annulus record in exactly the same three-mode space. It establishes an asymptotic improvement with two intervals and knows the single-interval O(q⁵) order, but gives neither the all-width unique one-interval placement nor its sharp spectrum and strict displacement bound. No inspected equivalent or stronger result yielding these conclusions was found.",
+      "residual_risks": [
+        "An older equivalent expressed solely as polynomial interval-restriction design may escape the bounded searches. No priority is inferred from shared catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": "Same single-window all-q theorem and hypotheses.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-area-annular-observation-of-the-first-three-radial-z--ff4983abdb10",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Resultary and local mirror comparison",
+          "title": "Sharp fixed-area annular observation of the first three radial Zernike modes",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Close overlap, not equivalent",
+          "evidence": "Two intervals and q→0; includes only the order O(q⁵) for a single interval.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-small-aperture-e-observability-with-two-radial-zernike-ban--d0e2a580a655",
+          "material_read": "Finding and scope; single-interval comparison near offset 4037",
+          "method": "Resultary and local mirrored RESULT.md",
+          "title": "Sharp small-aperture E-observability with two radial Zernike bands",
+          "trigger": "Same field space and objective"
+        },
+        {
+          "assessment": "Related spectrum, different placement problem",
+          "evidence": "The annulus is outer and thin, with fixed azimuthal order and radial degree for the finite-band asymptotics.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-thin-annulus-zernike-concentration-and-a-laguerre-crossove--9e6964c89fd3",
+          "material_read": "Finding and scope",
+          "method": "Resultary and local mirrored RESULT.md",
+          "title": "Sharp thin-annulus Zernike concentration and a Laguerre crossover",
+          "trigger": "Same class of Zernike restriction Grams"
+        },
+        {
+          "assessment": "Different spectral operator in the inspected statement",
+          "evidence": "Finite Hankel spectral estimates and distribution, not placement of finite-degree polynomial intervals.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.00170",
+          "material_read": "PDF page 1, abstract",
+          "method": "Lawful open PDF text",
+          "title": "Non-asymptotic behavior and the distribution of the spectrum of the finite Hankel transform operator",
+          "trigger": "Cited radial concentration literature"
+        },
+        {
+          "assessment": "Different sampling and objective",
+          "evidence": "Optimizes point-node collocation conditioning for interpolation on concentric circles.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.00449",
+          "material_read": "PDF page 1 abstract and p. 7, Interpolation nodes with low condition numbers",
+          "method": "Lawful open PDF text",
+          "title": "Optimal sampling patterns for Zernike polynomials",
+          "trigger": "Cited Zernike-design problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–41 and 74–101",
+        "Two-window comparison d0e2a580a655"
+      ],
+      "rationale": "A single fixed-area detector ring for the first three axisymmetric modes has a natural worst-mode stability objective. The uniqueness and explicit off-center loss answer a design question that computing only the centered moment matrix would not answer. The exact least-energy and conditioning scales quantify the information lost for a narrow detector; they do not imply optimality among arbitrary masks.",
+      "residual_risks": [
+        "This narrow theorem does not establish the condition-number-optimal placement or the design for wider mode families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

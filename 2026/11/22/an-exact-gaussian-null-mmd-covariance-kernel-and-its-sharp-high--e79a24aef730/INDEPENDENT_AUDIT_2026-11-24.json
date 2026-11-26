@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:15:09.368904Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1–3",
+        "VERIFICATION.md and proof_check.py (inspected, not executed)"
+      ],
+      "rationale": "For the two difference vectors X−Y and X−Z their single-coordinate covariance matrix is [[2,1],[1,2]], giving determinant 1+4(a+b)+12ab in the joint Gaussian integral; the same-pair integral gives offset 0, and the product of means offset 16ab. Centering gives coefficients (1,−2,1). Kernel degeneracy kills every different unordered pair, retaining 2/[n(n−1)] exactly. Convex decrease of z^(−d/2) with gap ratio 3 gives strict positivity, and four-point mixed increments rule out proportionality unless a=b. The factored geometric term is (1−16(a−b)²/[1+4(a+b)]²)^(d/4). The centered residual tends to 1 when dab→∞, to g(uv) in the critical scaling, and is asymptotic to 4dab/[1+4(a+b)] when dab→0 (with remainder O(d(d+1)(ab/[1+4(a+b)])²)). This yields all three limits, the sharp subcritical log rate and the fixed unequal-bandwidth limit. For strictness at criticality, the given projected Gaussian exponential has mixed moment exp(4(u+v)²)g(uv), and its random exp(2uV) dependence at fixed S,T rules out proportionality to the v projection. Thus the normalized critical expression, not merely g(uv), is strictly between zero and one for u≠v.",
+      "residual_risks": [
+        "The theorem uses an iid known N_d(0,I_d) reference and fixed scaled u,v. Numerical quadrature and simulation are supplementary; no uniform asymptotics over bandwidth grids or distribution of a maximum follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schrab and Biggs cover two-sample multikernel aggregation/fusion and calibration. Ramdas et al. state a high-dimensional Gaussian-kernel power result under a mean alternative, not joint null correlation.",
+          "Full text of Yan–Zhang was not obtained by the attempted lawful routes."
+        ],
+        "reasoning": "A stronger joint null theorem evaluating two-sample Gaussian-kernel cross moments might cover much of the normalized statement, because a two-sample unbiased null MMD can also be expressed using centered degenerate kernels and bandwidth-independent pair weights. The compared aggregation/calibration and power statements do not evaluate these cross moments or supply the transition.",
+        "searches": [
+          "Schrab et al. arXiv:2110.15073 pp. 3–4",
+          "Biggs–Schrab–Gretton arXiv:2306.08777 §4",
+          "Ramdas et al. arXiv:1508.00655",
+          "Yan–Zhang DOI 10.1093/biomet/asac049"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.03302 §2 and null-limit passage",
+        "arXiv:2110.15073 pp. 3–4",
+        "arXiv:2306.08777 §4",
+        "arXiv:1508.00655 abstract",
+        "Attempted DOI 10.1093/biomet/asac049",
+        "Resultary exact record e79a24aef730"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Li–Yuan variance reproduces the diagonal via Gaussian integration; its single-kernel weighted chi-square limit does not specify different-bandwidth dependence.",
+          "The new critical limit needs both the leading geometric factor and the nontrivial centering ratio g(uv)/√[g(u²)g(v²)]."
+        ],
+        "reasoning": "One-kernel results and polarization cover the statistical setup and general bilinear identity, not the explicit two-bandwidth evaluation or strict limit. Adaptive calibration establishes a different property, and marginal limits or power do not determine pairwise null correlations.",
+        "searches": [
+          "Li–Yuan §2 Eq. (1), PDF p. 10; single-kernel null limit pp. 7–8",
+          "Schrab et al. pp. 3–4",
+          "Biggs et al. §4 p. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Yuan uses the prescribed-reference centered Gaussian-kernel U statistic; Eq. (1) is its exact same-kernel variance.",
+          "The variance can be polarized for arbitrary kernel mixtures, but a mixture of two distinct Gaussian kernels is not a single Gaussian member with a different parameter."
+        ],
+        "reasoning": "A statement of the Gaussian Hilbert-space inner product of two different centered bandwidth kernels, with the parameter-dependent centering and evaluated variances, would be equivalent. The generic polarization yields an unevaluated inner product, not the three determinants and normalized high-dimensional crossover.",
+        "searches": [
+          "Resultary: Gaussian one sample MMD kernel cross bandwidth covariance known normal null high dimensional exact correlation determinants 12ab 16ab",
+          "Li–Yuan arXiv:1909.03302 §2 Eq. (1) and weighted chi-square limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary text is e79a24aef730, the assigned record itself. Nearby Gaussian covariance hits describe trace estimation or other statistics, not the bound statistic.",
+          "The prior same-kernel formula is one diagonal identity, not a table of two distinct bandwidths."
+        ],
+        "reasoning": "An exact source needs to match the two-parameter null covariance or its normalized critical kernel, rather than a diagonal variance or a matching bandwidth exponent for another quantity. The identical record is not independent prior evidence.",
+        "searches": [
+          "Resultary query using the Gaussian one-sample null, cross-bandwidth covariance and determinant offsets 12ab and 16ab",
+          "Li–Yuan arXiv:1909.03302 Eq. (1)"
+        ]
+      },
+      "rationale": "Passes to best current knowledge for the explicit Gaussian mixed determinants and the sharp normalized cross-scale law, not for U-statistic degeneracy, the general covariance polarization, or the existing one-bandwidth variance and adaptive kernel methodology. The closest same-statistic theorem gives the exact variance identity for one kernel, which yields a generic mixed inner product by polarization but not the evaluated mixed-bandwidth determinant or critical correlation. The similar two-sample papers inspected do not state that Gaussian cross-bandwidth law in their compared results.",
+      "residual_risks": [
+        "An exact cross-moment in an uninspected multikernel or two-sample Gaussian null result could imply part or all of the claim. Yan–Zhang full text was unavailable on the attempted paths. This is not an absolute priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-kernel identity and generic polarizable technique, not the claimed evaluated covariance/transition",
+          "evidence": "Variance is the second moment of the centered single-bandwidth kernel, with single-kernel weighted-chi-square limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.03302",
+          "material_read": "§2 Eq. (1), PDF p. 10; null limit pp. 7–8",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "On the Optimality of Gaussian Kernel Based Nonparametric Tests against Smooth Alternatives",
+          "trigger": "Same statistic and null variance, potentially already a cross-kernel result"
+        },
+        {
+          "assessment": "Different test with multibandwidth aggregation; no matching covariance in compared passages",
+          "evidence": "Two-sample aggregation over bandwidths and calibration, not a known-Gaussian-reference moment evaluation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15073",
+          "material_read": "PDF pp. 3–4 around offset 12698",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "MMD Aggregated Two-Sample Test",
+          "trigger": "Multibandwidth joint dependence or adaptive calibration"
+        },
+        {
+          "assessment": "Different aggregation question",
+          "evidence": "Fuses multiple two-sample MMD values; compared statement does not evaluate the specified cross-null Gaussian covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.08777",
+          "material_read": "§4, PDF p. 5 around offset 23820",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "MMD-FUSE: Learning and Combining Kernels for Two-Sample Testing Without Data Splitting",
+          "trigger": "Possible explicit cross-kernel dependence in kernel fusion"
+        },
+        {
+          "assessment": "The compared claim addresses power, not this correlation; not a whole-document exclusion",
+          "evidence": "Reports Gaussian MMD bandwidth-independent power above a heuristic scale for a high-dimensional mean-alternative problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.00655",
+          "material_read": "Abstract of primary paper, PDF p. 1",
+          "method": "Open PDF, bounded abstract passage only",
+          "title": "Adaptivity and Computation-Statistics Tradeoffs for Kernel and Distance based High Dimensional Two Sample Testing",
+          "trigger": "Plausible stronger high-dimensional bandwidth comparison"
+        },
+        {
+          "assessment": "Residual possible overlap, not evidence of absence",
+          "evidence": "Identified relevant high-dimensional two-sample study; joint bandwidth claims could not be compared directly.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/asac049",
+          "material_read": "No independent full-text passage on attempted routes",
+          "method": "Lawful direct and VPN DOI requests denied",
+          "title": "Kernel two-sample tests in high dimensions: interplay between moment discrepancy and dimension-and-sample orders",
+          "trigger": "Potentially stronger high-dimensional two-sample covariance implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finite covariance and trichotomy",
+        "Schrab and Biggs multibandwidth passages"
+      ],
+      "rationale": "Multiple bandwidths are used for multiscale tests; this exact covariance determines the null redundancy of pairs of bandwidths and discloses a sharp scale separating near perfect correlation, finite correlation, and decorrelation. The nontrivial critical dependence and its small/large-scale limits go beyond a re-evaluation of the known one-bandwidth variance. In particular, decorrelation can occur despite very small raw variances and is not a power assertion.",
+      "residual_risks": [
+        "Does not calibrate a joint test, extend to estimated Gaussian parameters, or establish adaptive power."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

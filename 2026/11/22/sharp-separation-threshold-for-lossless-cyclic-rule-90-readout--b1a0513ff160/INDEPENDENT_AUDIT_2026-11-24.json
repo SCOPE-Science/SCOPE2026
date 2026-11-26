@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:06.938933Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen census is mathematically sound, but its r=1 branch has exact same-day coverage. The repaired RESULT limits the theorem to r≥2 and cites the r=1 counts as background. In the repair, the forward-gap composition with a marked occupied site proves the indexed count, including the singleton and empty cases. The equality of readouts is equivalent to a two-periodic XOR difference. A whole-site complement collision forces sitewise alternation, ruled out on odd rings and at separation r≥2. A parity complement forces the other parity to be zero, then excludes both 00 and 11 on the flipped parity sublattice. That gives exactly the complementary residue classes of spacing four when 4 divides n, and requires r=2 or 3. The even and odd pairs yield different alternating outputs because exactly one neighbor is occupied at each opposite-parity site. These exhaust all masks, so no fiber can exceed two in the repaired scope and the exact indexed image and singleton counts follow. The finite checker was inspected, not executed; the exact proof is the replay path, and the claimed finite-run evidence is corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regularity paper treats a different property and its golden-mean example is for Rule 28. The hard-core classification concerns endomorphisms of the constraint; the temporal-sensor and necklace results change the observation or output equivalence.",
+          "The same-day Lucas result also studies iterates, but it imposes just r=1 and its counts do not enumerate fibers of the stricter subspaces."
+        ],
+        "reasoning": "Even restricting a known r=1 fiber to r≥2 requires identifying the spacings of its members. The parity-complement argument yields precisely two surviving collision edges at spacings four and none when r≥4; the cited aggregate results do not give that census.",
+        "searches": [
+          "Salo arXiv:2209.13373, Introduction and Proposition 20",
+          "Resultary 824122558fbf (hard-core preservation), 162c468ed707 (static temporal sensors), 1b4786197dbc (necklaces)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py; repairs/5/RESULT.md",
+        "Resultary b1a0513ff160, a49ca7533403, 1b4786197dbc, 824122558fbf and 162c468ed707",
+        "Salo (2023), Miller–Bardzell (2004), Powley–Stepney (2009)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Lucas result directly covers the frozen r=1 branch, so it is removed from the repair's new theorem and explicitly attributed. Odd-cycle injectivity at r≥2 follows already from r=1 injectivity by restriction.",
+          "Even-cycle r≥2 classification depends on the additional alternating-parity test and divisibility by four; neither restricting injectivity on odd rings nor the unrestricted kernel gives it."
+        ],
+        "reasoning": "No novelty is assigned to the odd-ring restriction alone, the kernel, or the composition formula. The distinction is the complete even-ring transition and explicit sharp output witnesses.",
+        "searches": [
+          "Original Finding in a49ca7533403/RESULT.md, offset 0",
+          "Original Finding and labeled-fiber proof ingredient in 1b4786197dbc/RESULT.md",
+          "Salo arXiv:2209.13373 Prop. 20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At r=1, avoiding cyclic 11 is precisely the indexed Lucas/golden-mean constraint and L_n=S_(n,1); there is no normalization or rotation distinction in record a49ca7533403.",
+          "For r≥2 the problem is counting intersections of parity-mask cosets with a stricter distance constraint, not counting the full linear preimages."
+        ],
+        "reasoning": "The classical two/four unrestricted preimage theorem explains the masks but does not determine which masks connect two separated words. Site exclusion on the flipped parity sublattice is essential to the r≥2 claim.",
+        "searches": [
+          "Resultary: cyclic Rule 90 injectivity, hard-core spacing, golden-mean/Lucas constrained predecessor counts",
+          "Miller–Bardzell, The Evolution Homomorphism and Permutation Actions on Group Generated Cellular Automata, Rule 90 passage",
+          "Powley–Stepney, Automorphisms of Transition Graphs for Linear Cellular Automata, Lemmas 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b1a0513ff160 is the same finding. a49ca7533403 gives exactly the r=1 fiber table, including the zero triple and the even-ring singleton formula. The necklace table counts rotation classes on the unrestricted source."
+        ],
+        "reasoning": "The r=1 overlap is exact and is not credited to the repair. Neither the examined necklace table nor the Lucas table gives the indexed r≥2 exception and witness table.",
+        "searches": [
+          "Resultary: b1a0513ff160 and 2026/11/22/SCOPE-parity-stable-inversion-of-cyclic-rule-90-on-lucas-constrained-i--a49ca7533403",
+          "Resultary: 2026/11/8/SCOPE-the-four-valued-predecessor-law-for-cyclic-rule-90-necklaces--1b4786197dbc"
+        ]
+      },
+      "rationale": "The repaired claim excludes the demonstrably covered r=1 indexed census, without inferring priority from the shared date. Its distinct content is the separation-dependent r≥2 classification, two exceptional outputs, and sharp uniform threshold.",
+      "residual_risks": [
+        "Same-date order not established; verified coverage, not priority, determines the narrowing. The bounded comparison cannot exclude equivalent stronger restricted-code injectivity results in wider symbolic-dynamics or constrained-coding literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of r=1, without resolving same-date priority; not an r≥2 census.",
+          "evidence": "For n=2m the table gives one zero triple, 2^m−2 double fibers, and L_n−2^(m+1)+1 singleton fibers; L_n=S_(n,1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-stable-inversion-of-cyclic-rule-90-on-lucas-constrained-i--a49ca7533403/RESULT.md",
+          "material_read": "Finding (offset 0) and priority limitations (offset 8580)",
+          "method": "Original Resultary file through local mirror",
+          "title": "Parity-stable inversion of cyclic Rule 90 on Lucas-constrained inputs",
+          "trigger": "Indexed same-rule census at the weakest separation"
+        },
+        {
+          "assessment": "Counts unrestricted rotation classes, not constrained indexed preimages.",
+          "evidence": "The labeled step uses unrestricted counts two and four; the quotient formula uses output primitive period and parity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-four-valued-predecessor-law-for-cyclic-rule-90-necklaces--1b4786197dbc/RESULT.md",
+          "material_read": "Finding at offset 283, assumptions and labeled-fiber proof step",
+          "method": "Original Resultary file through local mirror",
+          "title": "The four-valued predecessor law for cyclic Rule 90 necklaces",
+          "trigger": "Exact cyclic Rule 90 predecessor law"
+        },
+        {
+          "assessment": "Different rule and different objective in the inspected material.",
+          "evidence": "Proposition 20 concerns ECA 28 on the golden-mean shift and the paper studies regularity and split epicness.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+          "material_read": "Introduction p. 1 and Proposition 20 p. 9 (offsets 900 and 34550)",
+          "method": "Lawful original PDF, bounded text reads",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Golden-mean restriction for an elementary cellular automaton"
+        },
+        {
+          "assessment": "Hard-core preservation is a different condition from injectivity into unrestricted outputs.",
+          "evidence": "Classifies maps X_k→X_k that preserve the same hard-core shift.",
+          "identifier_or_url": "824122558fbf",
+          "material_read": "Original Finding at offset 214",
+          "method": "Original Resultary file through local mirror",
+          "title": "Radius-two rigidity across binary hard-core shifts, with sharp forbidden-block horizons",
+          "trigger": "Hard-core shift and exact local-rule classification"
+        },
+        {
+          "assessment": "Repeated observations and unrestricted inputs do not give this constrained one-step count.",
+          "evidence": "Static-site readings over time and invisible dimensions.",
+          "identifier_or_url": "162c468ed707",
+          "material_read": "Original Finding at offset 214",
+          "method": "Original Resultary file through local mirror",
+          "title": "Exact rank deficits and optimal static sensors for cyclic Rule 90",
+          "trigger": "Exact observability for the same cyclic map"
+        },
+        {
+          "assessment": "Established unrestricted parity multiplicities, not hard-core collisions.",
+          "evidence": "Two predecessors per reachable state for odd rings, four for even, with reference to Martin–Odlyzko–Wolfram.",
+          "identifier_or_url": "Miller and Bardzell, Complex Systems 15 (2004), 121–136",
+          "material_read": "Rule 90 passage, PDF p. 11, offset 26950",
+          "method": "Lawful OA paper text",
+          "title": "The Evolution Homomorphism and Permutation Actions on Group Generated Cellular Automata",
+          "trigger": "Indexed finite periodic Rule 90 preimage formula"
+        },
+        {
+          "assessment": "Unrestricted indexed result; not the claimed separated-source census.",
+          "evidence": "Lemmas 6–7 restate the unrestricted odd/even counts.",
+          "identifier_or_url": "Powley and Stepney, Journal of Cellular Automata 4 (2009), 293–310",
+          "material_read": "PDF p. 13, offset 25700, Lemmas 6–7",
+          "method": "Lawful OA paper text",
+          "title": "Automorphisms of Transition Graphs for Linear Cellular Automata",
+          "trigger": "Linear cyclic automaton predecessor classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired range contains the sharp phenomenon: minimum spacing five is enough at every permitted length, whereas spacings three and four leave exactly two ambiguities at each permitted multiple of four. This gives both a precise design threshold and a complete identification of exceptional observations, more useful than the free-space kernel alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

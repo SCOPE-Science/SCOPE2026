@@ -1,15 +1,21 @@
-# Review of the resetting-Zeno accumulation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact probability \(q_\beta\) of an infinite nonresetting excursion and the expected duration \(B_\beta\) follow from independent Bernoulli renewals and Tonelli's theorem. An independent exponential holding time at every fresh state-zero visit excludes finite-time accumulation when \(q_\beta=0\); a successful excursion is summable because its expected total wait is \(\tau/(1-r)\). The expectation identity is a regenerative geometric-cycle sum. The sharp amplitude follows from the Laurent expansion of the Riemann zeta function, the convergent Gamma logarithm expansion, and the generalized binomial theorem. The exponential-clock limit follows from a uniform second-moment domination and Laplace-transform expansion. The executable 208-case exact-rational depth comparison is supplemental finite verification, not a substitute for infinite proofs.
+## correctness
 
-## Originality — PASS, with bounded priority risk
-A source-to-claim comparison was made against Huang's complete relevant Zeno and internal-state sections, Montero–Villarroel's state-dependent Sisyphus generalization, Colantoni–Pagnini's exogenous resetting CTRW theory, and Cairns–Pollett's catastrophe model. These describe underlying mechanisms or other observables, but the inspected material does not state or imply the combined power-hazard accumulation threshold, explicit \(\Gamma(1-c)\) amplitude, and normalized exponential explosion clock. Related indexed Zipf-disaster-chain work concerns *discrete-time* survival/aging and not an accumulating geometric physical clock. The general rare-event exponential-limit mechanism is recognized and not claimed as a wholly new technique. Publication priority remains subject to unindexed literature and specialists' independent inspection.
+PASS
 
-## Value — PASS
-The exact hazard \(c/(k+1)^\beta\) is a motivated scale-free resistance to resetting, directly adjacent to the inverse-level renewal law used in the cited internal-state models. The difference between almost-surely unbounded operational duration and a finite random Zeno horizon is a qualitative issue for the statistical-mechanical CTRW itself. The exact activated divergence shows how a formally explosive system can be effectively nonexplosive over very long observation windows near criticality; the distributional limit quantifies that observation-window uncertainty. This is not merely a finite truncation, textbook parameter substitution, or a claim about numerical simulations.
+For the independent exponential waits and independent restart decisions, from a fresh state zero the probability of reaching k is s_k and that of never resetting is q_beta. The latter is positive exactly when beta>1 by the infinite-product criterion. In this case the first infinite-growth excursion occurs after a geometric number of failures; its total wait has finite mean tau/(1-r). Otherwise infinitely many fresh state-zero waits force divergence almost surely. Regeneration and Tonelli give the mean B_beta/q_beta with B_beta=tau sum r^k s_k. In log q_beta, the first log-series term -c zeta_R(beta) yields the pole and -c EulerGamma, and the m>=2 terms are dominated by zeta_R(2)c^m/m. The finite part is -log Gamma(1-c). Dominated convergence and the binomial generating function give B_beta -> tau(1-r)^(c-1). For the limit law, condition on the geometric failure count G. Failure durations can be drawn i.i.d. independently of G with the conditional failure law; their variances are bounded as q_beta->0 because each unconditioned excursion is dominated by the full geometric sequence of waits with finite second moment. Thus the centered sum of failure durations multiplied by q_beta tends to zero in L2, since q_beta^2 E[G]=O(q_beta). The conditional failure mean tends to the positive limit of B_beta, the final success cost vanishes after scaling, and q_beta G converges to Exp(1). This also independently checks the renewal Laplace proof. The support checker and VERIFICATION.md were inspected but not executed; the finite depth and numerical checks do not certify these limits. The asymptotics fix c,r,tau, and no post-accumulation continuation is asserted.
 
-## Residual scope and verification limitations
-The result is confined to independent exponential state holds, exact power-law reset hazards, and fixed positive geometric acceleration. No spatial post-explosion evolution is defined. Numerical checks cannot alone establish weak convergence; the Laplace proof does. Comparisons to the most relevant freely accessible full texts were made, but unindexed equivalent prior statements cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected sources cover the Zeno-clock framework and generic renewal limits, not the power-law reset transition and sharp Gamma-prefactor asymptotic in this specific model. The contribution is the calibrated critical clock; the exponential shape alone is not new.
+
+## value
+
+PASS
+
+The minimum question in an accelerating internal-renewal walk is whether its departure clock stays finite. The summability boundary answers that question and the explicit finite prefactor calibrates how long an almost-sure accumulator can look nonexplosive just above threshold. Together with the limiting law this gives a useful quantitative time scale rather than just an explosion example or an order-of-magnitude estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

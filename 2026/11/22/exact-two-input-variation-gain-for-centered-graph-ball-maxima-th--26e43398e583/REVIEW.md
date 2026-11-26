@@ -1,15 +1,21 @@
-# Review of the centered cycle variation-gain theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The centered maximal map is a finite coordinatewise maximum of constant-preserving linear ball averages. Generic-segment differentiation and continuity reduce its two-input cyclic-variation Lipschitz factor to strict branch norms. The finite coarea identity reduces every such branch norm to a finite collection of binary-cut ratios. The exact-rational checker exhausts all branch/cut pairs for cycle lengths three through six, and the sole three six-site masks above \(19/10\) require mutually contradictory full-cycle versus opposite radius-one inequalities. Four independent, strictly feasible nonnegative input pairs attain the resulting sharp bounds. All branch lists and ball sizes are reconstructed from graph distance.
+## correctness
 
-## Originality
-**PASS, with qualification.** The closest mathematical statements concern centered finite-graph strong \(\ell^p\) norms, centered **one-input** total-variation gains, and **uncentered two-input** variation gains on the five- and six-cycles. The six-site uncentered modulus also equals \(19/10\), but the uncentered maximum contains more candidate balls; this pointwise inclusion cannot imply equality of the nonlinear *difference*-Lipschitz moduli. The new theorem uses a distinct centered ball family, and its proof isolates three impossible opposite-center branches. The 2010 integer-line centered and uncentered theorems do not control two-input variation on finite cycles. Unindexed historical equivalents remain possible.
+PASS
 
-## Value
-**PASS.** This is a complete exact classification across the initial four cycle lengths, including the smallest cycle with diameter three and a new radius-two proper ball. It identifies a sharp increase of sensitivity to perturbations from \(7/5\) to \(19/10\), despite single-input smoothing and against the misleading unconstrained upper envelope \(2\). The coincidence with the previously calculated uncentered six-site number is mathematically nonautomatic and useful in comparing two definitions of maximal averaging.
+For each fixed center the candidate averaging rows are all different. Outside the resulting finite set of tie hyperplanes the maximizing rows form a strict branch. A segment with positive generic endpoints has only finitely many switches; summing the variation bounds on its linear pieces, then using continuity to approximate arbitrary nonnegative endpoints, bounds the global two-input quotient by the maximum strict-branch norm. Conversely a small perturbation of a strictly feasible, positively translated baseline realizes its branch on both inputs. The linear branch preserves constants; integration of binary upper-level cuts gives exact cyclic coarea for the input and a triangle-inequality bound for the output. Its norm is therefore the maximum over all proper nonempty cuts, including disconnected ones. Independent exact enumeration gives the unrestricted envelopes 1, 5/4, 7/5, 2 and exactly three C₆ masks above 19/10. In each exceptional mask the two full rows are opposite; their competing radius-one triples partition the cycle, so the full average is the mean of the two triple averages and cannot strictly exceed both. Thus the only excessive masks are not strict branches. The four displayed baseline and cut perturbation pairs were checked to retain their unique branches and attain the claimed constants; for C₆ their variation pair is 1/50 and 19/500.
 
-## Scope and limits
-The work is confined to nonnegative real input pairs, counting-measure centered balls on \(C_3\) through \(C_6\), and full cyclic adjacent variation. The checker is an exhaustive finite arithmetic certificate, not an exploration of arbitrary cycles. Publication priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact, attained two-input variation modulus for the centered operator, including the strict-branch obstruction at six vertices. The inspected centered one-input variation and graph Lᵖ results compute different invariants. The reported same-value uncentered C₆ result was not independently located; its possible additional centered coverage remains a named risk.
+
+## value
+
+PASS
+
+The sizes are a meaningful cutoff rather than an arbitrary sample: the unrestricted row envelope is sharp for the first three cycles and first fails at C₆, where opposed full-cycle choices create a new feasibility constraint. The exact modulus quantifies sensitivity to differences between two signals, a question not answered by one-input variation bounds. The cut reduction and analytic obstruction explain why exhaustive small-instance values are sharp and why the naive bound first overestimates them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

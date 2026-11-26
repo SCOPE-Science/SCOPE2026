@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim holds for every integer Hill exponent \(n\ge3\), with all fixed parameters strictly positive, \(0<p<1\), biologically ordered transmission coefficients, and \(\mathcal R_c<1\). The stationary vaccinated and susceptible equations have explicit positive solutions for each \(I>0\), reducing the six-dimensional equilibrium problem to one scalar equation. Two applications of the implicit-function theorem at different scales yield separated positive branches. The disease-free Jacobian is Hurwitz because the environmental Hill term has vanishing derivative at zero. An exact rational witness satisfies all positivity constraints and has exactly two positive roots (certified by Sturm count).
+PASS
 
-## Originality — PASS, with residual risk
+For I>0 the stationary V and S equations solve uniquely with V/S=sigma/(epsilon I+eta+mu+alpha_2 g(qI)), q=varphi/omega. The return term in the susceptible denominator is strictly less than sigma, so that denominator is positive. All other coordinates reconstruct positively and only the exposed balance remains. With h=alpha^[-1/(n-1)] and I=hy, the apparent singularity alpha g(qI)/I cancels and the extended equation at h=0 is S_0 q^n y^(n-1)/kappa-K(1-R_c), strictly increasing at its positive root. With t=1/alpha and I away from zero the equation extends smoothly with limit Lambda/I-K, whose derivative at Lambda/K is nonzero. Both implicit-function arguments therefore give roots for every sufficiently large alpha; their limits separate them. As a separate check, adding the stationary S,E,V balances gives K I=Lambda-mu S-(p eta+mu)V, confirming the large-root limit is approached from below. At the disease-free state g'(0)=0. The infected (E,I) and uninfected (S,V) blocks have negative traces and positive determinants xi K(1-R_c) and mu(sigma+eta+mu)+p eta sigma; the other eigenvalues are -mu and -omega. The exact rational witness was independently reconstructed. Its Q has signs (-,+,+,-) at (1/20,1/10,1/3,1) and a positive denominator. The numerator Sturm variations are 3 at 0 and 1 at positive infinity, giving exactly two positive roots, one in each interval. It gives R_c=5/42, sqrt(37)/4 and 2/3 as stated.
 
-The 2023 Gökçe–Gürbüz–Rendall theorem rules out a **local generic backward transcritical bifurcation** for \(n\ge3\), but does not imply an absence of remote subthreshold equilibria. Its multiplicity analysis in Section 4 is explicitly specialized to \(n=2\). The inspected 2026 Penitente–Foryś–Gürbüz full paper proves supercritical persistence and local disease-free stability, not the two subthreshold branches or their strong-transmission asymptotics. Prior research records on epidemic multiplicity concern mathematically different compartmental or incidence models. This is substantive noncoverage by the inspected statements, not a uniqueness proof. A 2024 conference abstract mentions studying positive-equilibrium counts for arbitrary \(n\); no complete corresponding results were available, leaving priority uncertainty. General bifurcation literature could potentially imply parts of the argument.
+## originality
 
-## Value — PASS
+PASS
 
-The model's established local bifurcation result is often used to distinguish Hill-order incidence regimes. The result proves that \(n\ge3\) can nevertheless retain two positive equilibria when the invasion threshold indicates local extinction, and identifies both a quantitatively shrinking low-infection branch and a macroscopic high-infection branch. This is a substantive model-specific boundary to relying on local reproduction thresholds in environmental-response systems. It does not claim endemic stability or realism of the large-\(\alpha\) regime.
+The supported distinct claim is the pair of subthreshold endemic branches, at the two explicit singular scales, in this six-compartment model with fixed baseline parameters, n>=3 and every sufficiently large alpha. The closest same-model papers establish local bifurcation direction or supercritical persistence, not that combination. Analogous indexed conclusions change the dynamical model or the threshold regime. A relevant abstract leaves a real but unresolved priority risk, not evidence of equivalent coverage.
 
-## Literature and limitations
+## value
 
-The direct model is arXiv:2307.12707v1 (Sections 2–4 and conclusion); the closest follow-up is arXiv:2603.28285 (Sections 2–5). General methodology: Martcheva, DOI 10.1080/17513758.2019.1647359. The complete one-page 2024 Foryś–Pernitente conference abstract was inspected; it supplies no detailed theorem and remains a possible priority lead. The published result's journal formulation and all possible unpublished developments are not independently certified. The two branches are existence statements only; no stability, global attraction, or uniqueness is established in the general family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This model-specific result identifies a concrete limitation of relying on the disease-free invasion threshold or the local transcritical direction to rule out other equilibria. It proves persistence of two separate equilibrium branches as a parameter varies, distinguishes their scales quantitatively, and supplies a certified finite witness. It is not a claim about two attracting endemic states, public-health forecasts, or feasibility of the high-strength regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

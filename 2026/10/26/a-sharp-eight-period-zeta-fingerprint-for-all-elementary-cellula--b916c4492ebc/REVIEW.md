@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every output word of length \(n\) is counted exactly once, through the product of four-pair predecessor relations. The existence of any directed cycle in that product is necessary and sufficient for its periodic bi-infinite output to have a predecessor, whose period may be a multiple of \(n\). The finite-state transition matrix gives exact \(P_r(n)\) for all \(n\). For each of 256 rules, an integer recurrence is tested at as many consecutive positions as its full reachable state dimension, so Cayley–Hamilton proves the recurrence at all periods. Identical initial terms and recurrences prove equality within classes, while pairwise different length-eight vectors prove separation. The standalone verifier executes successfully, with a separate expanded-phase graph enumeration as a cross-check. Risk: dependence on the exact finite computation; the raw tables and complete checker are included for reproducibility.
+PASS
 
-## Originality — PASS under inspected evidence
+For a length-n word w, sample a labeled predecessor path at successive boundaries of copies of w. The resulting path in the four-state Boolean relation R_w forces a directed cycle. Conversely a directed cycle lifts to a repeating predecessor for w^infinity, possibly with period a multiple of n. Thus count words with cyclic relations once each, not input paths, rotations modulo shift, or self-loops only. The relation automaton gives P(n)=e_I T^n f, including formal P(0)=1. For a proposed recurrence of degree d, its defect at index n=k+d is e_I T^k v for a fixed vector v. Cayley–Hamilton for the N-state matrix proves all defects vanish if they vanish for k=0 through N-1. A separate exact checker reconstructed the relation graphs and checked those defects, all class assignments and initial data, and all table counts at periods 1–8. An additional data check confirmed each of the 31 recurrences has c0=1 and exactly d initial terms starting with 1. Expanded-phase cycle detection independently agreed at all 2048 rule/period pairs for periods 1–8. All 256 rules were verified: 31 distinct eight-term vectors, max N=2375, max degree 56. Rules 7 and 25 have common prefix (2,4,5,12,22,43,79) and eighth counts 148 and 156. Within-class initial terms and recurrence therefore suffice for equality at all periods, while the sharp witness defeats every earlier prefix. Formal logarithms identify equality of these sequences with equality of the zeta functions.
 
-Manada–Kashyap (arXiv:0904.2375, especially Theorem III.10) establish general zeta computation for periodic-finite-type shifts, not a quantitative census of elementary CA images. Salo (arXiv:2209.13373, including image-type and periodic-preimage discussions) addresses split epicness and regularity, not the complete counting sequences. Earlier individual image zeta computations, including Rule 110, are included as *covered individual examples*, not claimed as new. The new claim is the all-256, 31-class exact partition and minimal eight-period fingerprint, which are not implied by the inspected statements. Risk: an equivalent unindexed compilation or an implicit specialization of general methods could predate the present result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Spatial periodic-point counts and Artin–Mazur zeta functions are natural conjugacy invariants of symbolic dynamical systems. A complete exact spectrum across the canonical finite rule family, rather than a list of isolated examples, distinguishes 31 non-equivalent periodic-orbit signatures. The unexpected sharp finite fingerprint means period data through eight settle all later periodic-output counts in this family, despite some exact recurrence orders reaching 56. The sharp Rules 7/25 example demonstrates that the cutoff is substantive, not an arbitrary enumeration range. Scope: one-step spatial images; no claim about temporal dynamics or conjugacy classification.
+The supported distinct contribution is the complete 256-rule classification into 31 all-period spectra and the sharp eight-term prefix. Rationality and the finite-state counting framework are prior theory. A distinct same-day source gives the exact Rule 110 spatial zeta function, which covers that entry but not the census. The strongest other family-level exact catalog result has a superficially identical cutoff but tests equality of a different invariant.
 
-## Closest literature and limitations
+## value
 
-Manada and Kashyap, *The Zeta Function of a Periodic-Finite-Type Shift* (2009), arXiv:0904.2375v1; Ville Salo, *On von Neumann regularity of cellular automata* (2022), arXiv:2209.13373v1; Lind and Marcus, *An Introduction to Symbolic Dynamics and Coding* (1995), on general sofic zeta theory. The novelty assessment concerns the exact census and cutoff only. Priority uncertainty, possible unindexed tables, and the need for independent scrutiny remain explicit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete census of a natural small family for a standard dynamical invariant, with a minimal comparison prefix and an explicit witness. The verified tables let a researcher identify equal zeta functions or calculate higher-period counts without redoing every count, and the proof correctly distinguishes periodic outputs from equally periodic input rings. The contribution is the full certified classification, not general rationality or a count from a single cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

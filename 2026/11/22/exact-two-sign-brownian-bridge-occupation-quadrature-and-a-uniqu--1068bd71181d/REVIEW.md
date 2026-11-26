@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-pair risk and decoder follow from (i) the standard bivariate-Gaussian sign identity, (ii) a fully evaluated split arcsine integral, (iii) the self-contained prior-variance calculation, and (iv) orthogonal projection onto the four possible sign outputs. Exact sign-reversal symmetry eliminates the interaction term, leaving a nonsingular two-by-two covariance system. For the reflection-symmetric optimizer, strictly concave \(\log a\) and strictly convex \(\log(1+c)\) imply strict concavity of the log explained variance, and its derivative changes sign from positive to negative exactly once. The numerical assertions from the standalone script corroborate the independent analytic proof; they are not used to infer an infinite-domain result.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The mathematically closest related material is the classical bridge and Gaussian sign machinery, one-sign occupation estimation, and one-bit conditional-mean theory for Gaussian signals. Swanepoel (2017) treats linear Brownian areas and the bridge last-sign-change law rather than estimating positive occupation from two signs. Salminen and Stenlund (2019) develop diffusion occupation-time moments, not the two-bit sensor/decoder design. Fesl, Koller, and Utschick (2022) work on quantized jointly Gaussian channel-estimation targets, not a pathwise non-Gaussian occupation functional. Related single-sign occupation formulas do not imply the two-bit conditional structure, general risk, or unique reflection-symmetric optimum without further analysis. Targeted literature searches found no claim implying this exact result. A previously unlocated equivalent treatment under sojourn-time regression or Gaussian sign sampling remains possible; the absence of a search hit is not a proof of novelty.
+PASS
 
-## Value — PASS
-A continuous-time nonlinear path functional is reconstructed from two binary observations, yet the exact unrestricted Bayes decoder and risk reduce to elementary functions for **every** pair of interior sites. The theorem also provides a unique optimal placement in the time-reversal-symmetric design class and an exact, equal-probability three-level trisection calibration. These are natural finite-information benchmarks for occupation-time sensing rather than arbitrary numerical constants. The symmetric two-site optimum has not been proved globally optimal over asymmetric pairs, and the trisection improvement over that symmetric optimum is very small.
+Gaussian sign correlation gives the arcsine kernel. Splitting at the sampled time and integrating by parts gives π(s−1+√(1−s))/2 for the left integral and π(√s−s)/2 for the right, hence the sign cross moment a(s). Integrating the same covariance over both times gives Var(A)=1/12. Sign reversal sends A−1/2 to its negative (the zero set has zero Lebesgue measure almost surely by Fubini), so the conditional expectation on the four positive-probability atoms is odd, hence in the span of the two signs without a decoder restriction. The covariance matrix has determinant 1−c²>0 and its inverse gives the stated risk by orthogonal projection. For reflected sites, log V=2 log a−log(1+c); a>0 is strictly concave, and for g=arcsin(s/(1−s)), g''/(g')²=(2−r)/√(1−r²)>1>2/π, giving strict convexity of log(1+c). Near zero a behaves as √s/2, whereas at 1/2 the c slope diverges and the a slope vanishes. The logarithmic derivative thus crosses zero exactly once and gives the stated equation; this is not an assertion about asymmetric designs. At trisection c=1/3, same-sign atoms each have mass 1/3 and the two opposite-sign atoms combine into the third estimate of mass 1/3; the radical is an absolute explained variance (not a dimensionless fraction). Independent quadrature of the trivariate sign-orthant conditional means at trisection and an asymmetric pair, and slope bisection, replay with `cd /workspace && python -B -c 'import independent_checks as c; c.occupation()'`. They give s*=0.33678496676200454… and explained variance 0.05817302901099651…. The frozen 1359-assertion output was read, not rerun. The frozen self-review wording about the trisection improvement reverses the direction; the actual RESULT and numerical evidence correctly put the symmetric optimum slightly above trisection.
 
-## Boundaries and residual risk
-No optimality is asserted for arbitrary asymmetric locations, noisy measurements, nonzero thresholds, adaptive measurements, or more than two signs. The originality assessment is limited by possible historical reformulations in sojourn-time and excursion literature. The stated objective and model are exactly those used in the proof and verifier.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No covering exact two-sign occupation design was located. The same-target one-sign moments and standard sign-orthant algebra are substantive precursors; the supported contribution is the assembled all-interior-pair occupation risk and rigorously identified unique reflected optimizer, not the Gaussian sign identity, one-sign midpoint result, or conditional-expectation methodology.
+
+## value
+
+PASS
+
+The exact all-pair error and unrestricted decoder give a usable benchmark for two bits observing a nonlinear continuous-time quantity. The unique reflected solution and exact three-level trisection calibration illustrate the measurement geometry. The scientific value is the risk law and design classification, not the numerically tiny improvement over trisection; more than 69.8% explained variance contrasts with about 51.47% for a single midpoint sign. No global asymmetric optimum is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

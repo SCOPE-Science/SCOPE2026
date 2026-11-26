@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The claim concerns the continuous-time finite patch-occupancy chain with unit independent local extinction rates and per-neighbor colonization rate \(\lambda>0\), starting from all patches occupied.
 
-`verify_metapop_spectral_discordance.py` reconstructs the full Markov generator from the four specified graph edge sets and computes exact automorphism quotients of dimensions \(11\), \(5\), \(7\), and \(9\). Every orbit member is checked to have identical rates to the quotient classes.
+# Independent mathematical audit
 
-Each closed rational extinction-time formula is tested by exact Cramer polynomial determinant identities, not merely by interpolation or sampling. The two key difference factorizations are verified as exact polynomial equalities, as are adjacency characteristic polynomials. The unique-root proof checks positivity of all denominator coefficients, precisely one sign change of the crossing polynomial, and strict integer signs at the rational isolating endpoints.
+## correctness
 
-As an independent numerical implementation check, the complete \(15\)-state (unlumped) chain is solved by exact rational Gaussian elimination for each graph at three positive rates. Connected unlabeled simple graph types are exhaustively generated under vertex permutations for every fixed order/link-count stratum through four vertices, establishing the claimed finite minimality.
+PASS
 
-Run from the folder containing the script:
+In the full-occupancy finite chain, from each nonempty state there is a positive-probability path of only extinctions to the absorbing state, so each transient backward system is invertible at every positive rate. The independent replay builds the full 15-state backward matrix for each graph and solves it symbolically over the rate variable without orbit lumping. The four rational functions and both factored differences match. The cycle-minus-paw sign is the sign of F: the denominator is positive, F has exactly one descending coefficient sign change, and its constant and leading terms have opposite signs. Exact endpoint substitution verifies the bracket and exact evaluation at rate two gives 237101/648778. The two adjacency characteristic polynomials give strict paw superiority since x³−x²−3x+1 changes sign between 2 and 3. With three links, the star has larger spectral radius than the path, and the numerator of star-minus-path is a positive-coefficient polynomial times λ² over positive factors. At n≤3 each nonempty connected fixed-size stratum has one type. At n=4 the lower link stratum is the tree pair, and the four-link pair arises by removing two adjacent or two disjoint edges from the complete graph. This verifies both levels of minimality under the stated constraints.
 
-`python3 verify_metapop_spectral_discordance.py`
+## originality
 
-The first output line must be `VERIFY_OK`. This is an exact finite algebraic certificate; it does not assert broader ecological persistence rankings outside the defined model.
+PASS
+
+The supported distinct contribution is the sharp equal-order/equal-link minimal disagreement under full occupancy, with a global exclusion of the smaller link stratum. Older exact all-small-graph computations include the raw instances, but their compared statements do not give the all-rate ordering and exclusion. The later dated Resultary corridor record is an explicit equivalent of the paw–cycle crossing itself, and another later dated record explicitly gives the star–path mean inequality; the crossing and inequality are not distinct standalone claims across the catalogue. These overlaps are credited, but do not establish earlier coverage of the combined sharp minimum or settle priority/provenance.
+
+## value
+
+PASS
+
+Equal order and size hold the patch and link budgets fixed for a motivated comparison of two inequivalent persistence measures. The minimality theorem isolates the first structural obstruction and excludes a reversal on either four-patch tree at any positive rate. The crossover certificate says precisely on what rate side the spectral ranking fails, not just that a counterexample can occur. Value is in the combined sharp boundary and comparison, not in recomputing all small-graph lifetimes or asserting a new general ecological phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

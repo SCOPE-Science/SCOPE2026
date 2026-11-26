@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-height proof fixes the integral companion family and an integer trace-determinant height box. It separately verifies the strict-expansion population, the exact spectral disjunction from the published smooth-Markov criterion, exclusion of companion Jordan degeneracy, disjoint-family counts and the Dirichlet-divisor asymptotic. In particular, the four spectral branches \(t=0\), \(t^2=d\), \(t^2=2d\), \(t^2=3d\) are not a replacement for the distinct-integer-root branch. The proof removes overlaps explicitly. Exact-integer power-trace checks for all \(2\le H\le65\) corroborate, but do not certify, the infinite proof.
+## correctness
 
-## Originality — PASS under inspected sources
-Hughes and de Jong [HDJ] supply the geometric if-and-only-if and list dimension-two possible integer-eigenvalue exponents. Their inspected primary text does not give the all-height trace-determinant count or its arithmetic density. Cawley [C] covers toral automorphisms, not expanding determinant-modulus-at-least-two companions. Targeted bibliography and semantic searches found no covering parameter census. The residual risk is an earlier equivalent arithmetic enumeration under different terminology; search absence is not priority proof.
+PASS
 
-## Mathematical value — PASS
-A natural bounded-height census turns the motivating qualitative “almost always nonsmooth” assertion into an exact, sharp arithmetic frequency theorem. The divisor-sum identity includes a nontrivial cancellation of the Jordan and trace-zero overlap terms, and the \((\log H)/H\) density makes clear how sparse smooth partitions are among expanding companion toral maps. This is a complete statement for a canonical infinite family, not a collection of isolated tests.
+For the reciprocal polynomial, the disk inequalities are |1/d|<1 and 1+1/d>|t/d| (for real roots the latter gives positivity of both products at ±1, excluding roots beyond those endpoints given the product bound; for nonreal conjugates the product bound suffices). Summing 2d+1 at positive d and 2|d|−3 at negative d verifies E(H). HDJ Theorem 1.2 supplies the diagonalizable integral-power test. A double root gives a nontrivial Jordan block, with nonzero nilpotent term in every positive power on the expanding locus. For irreducible roots equal integral powers imply a root-of-unity ratio; the trace squared divided by d minus 2 is that ratio plus its inverse, a rational algebraic integer in [−2,2]. The real case has t=0 and the nonreal possibilities and converse powers in the record are exact. For the count of integer roots, |a+b|≤|ab| for |a|,|b|≥2, so there is no additional trace cap; taking absolute magnitudes yields D(H)−2H+1 ordered pairs, then sign choice, removal of 2(floor(sqrt(H))−1) equal pairs and division by two give the claimed integer-root class. The t=0 overlap is precisely d=−a² with |a|≥2; its subtraction and the diagonal subtraction cancel the separate t²=d contribution. The nonreal t²=2d and 3d families have t=±2j and ±3j respectively and determinants 2j² and 3j², with the trace cap automatic. This proves both exact formulas for all H≥2, and inserting the hyperbola estimate and dividing by 2H²−2 gives the stated errors including O(H^(−3/2)) for the proportion. The finite H=2..65 diagnostic and its code were inspected, not rerun; the analytic proof is independent of that diagnostic.
 
-## Limitations and relationship to prior work
-The smooth-Markov iff theorem, cyclotomic facts, and the classical divisor-summatory asymptotic are pre-existing. The result is limited to companion matrices ordered by \(|\operatorname{tr}|,|\det|\le H\), not general entrywise bounds or higher-dimensional systems. Individual partitions and the geometry of nonsmooth boundaries are not constructed here. The proof uses a published geometric theorem and remains subject to independent mathematical scrutiny and historical priority checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claimed novelty is an exact census in a specified trace–determinant height box and the derived density, not the geometry or integral-power criterion. The HDJ criterion, its finite-exponent result and representative spectral types, and the divisor-summatory asymptotic are prior inputs. Neither the identified HDJ results nor the other checked evidence supply the exact box enumeration or its leading and secondary terms. Priority is bounded by the comparisons below.
+
+## value
+
+PASS
+
+The simultaneous trace–determinant bound is a natural conjugacy-invariant height on this companion family. Counting at that height quantifies how exceptional the geometrically regular partitions are: the shrinking proportion and exact small-height corrections are useful and do not follow merely from knowing a finite test for each matrix. No claim about typicality among all integral matrices or other dimensions is warranted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

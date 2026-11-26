@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and boundaries
+# Independent mathematical audit
 
-The accompanying `verify.py` independently evaluates coordinate-recovery expectation by summing recovery events over all subsets of column positions, then compares the result with the exponential-arrival integration derived in the proof. It exhausts projective multiplicity profiles over the binary field at lengths \(2\)–\(8\) and the ternary field at lengths \(2\)–\(6\). It also exhausts ordered full-row-rank generator matrices over prime fields at the parameter grids listed in `verification_output.txt`, dividing by \(|\mathrm{GL}_2(\mathbb F_q)|\) only after checking the free orbit sizes analytically.
+## correctness
 
-The exact enumeration reproduces \(B_2(6)=25\), \(B_3(4)=20\), and \(B_5(4)=240\). A separate numerical comparison of the exact probability with the asymptotic equivalent checks the scale at selected larger lengths. The execution record ends with `RANK2_BALANCE_VERIFY_OK`.
+PASS
 
-The exhaustive matrix code supports prime fields \(q=2,3,5\); it does not implement extension-field multiplication. The theorem for all finite fields rests on the projective-line and orbit-count proof. Likewise, numerical asymptotic agreement is a sanity check, not a proof of the limit. The status of any independent audit remains unperformed.
+A zero column is known before sampling and a nonzero column cannot be, so no balanced rank-two code has a zero column. For a nonzero target in direction i and t≥1 draws, recovery fails exactly when all t draws come from a single occupied direction j≠i: in dimension two two distinct nonzero directions already span. These events are disjoint and have probabilities (a_j/n)^t. Summing the discrete survival tail including time zero gives E_i=1+Σ_(j≠i) a_j/(n−a_j), agreeing with the source's Poissonized expression. Equality of expectations is precisely equality of the occupied multiplicities, so r|n with 2≤r≤q+1. Choosing directions, assigning the n labels in equal parts, and making q−1 independent scalar choices per column gives the numerator count. A full-rank generator's left GL₂ action is free and its orbits are exactly row spaces. For the nondegenerate denominator exclude one-direction lists from all nonzero columns; for the all-code denominator choose two independent rows. These steps work for every prime power, including n=2, and the numerator is zero if there is no eligible r. Stirling gives r^(n+r/2)/(2πn)^((r−1)/2) for the leading multinomial term, and each smaller candidate is exponentially dominated uniformly over the finite list of r at fixed q. The polynomial subsequence concerns the nondegenerate denominator only. The frozen exact-arithmetic verifier and its recorded prime-field results were inspected, not rerun; no extension-field computation is required by this proof.
+
+## originality
+
+PASS
+
+Support is for the explicit census of distinct labeled subspaces over general finite fields and the exact divisor-sensitive rarity law. The recovery metric and the structural criterion's expectation-level derivation are not credited as new general results. The actual comparable sources inspect different populations or recovery objectives and do not establish the enumerated census or both probabilities.
+
+## value
+
+PASS
+
+Recovery balance is a preexisting natural property; the result gives its exact frequency in two clearly defined code populations. The largest-divisor law resolves why lengths at the same fixed field size can have polynomial rarity, exponential rarity or exact absence, which a single typical-length bound would miss. This is useful information about the natural ensemble despite elementary proof methods and the rank-two restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:59:06.771226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 5–62",
+        "Frozen VERIFICATION.md and verify.py (inspected as evidence, not executed)",
+        "Independent enumeration: 54 reflection counts, t=0..8 and a=1..6; exact local-run counts through L=9",
+        "Reilly–Scheinerman, Theorems 5.8 and 5.20, Corollaries 5.9–5.10 and Appendix A",
+        "Caravenna–Chaumont, section 1.1 and finite-horizon references"
+      ],
+      "rationale": "The fair-bit Hamiltonicity condition is strict positivity of every reversed partial sum. The clique identity counts the 1 bits plus the initial vertex, and edge counting with weight j on creation bit j gives the sum of the reversed partial sums with the stated normalization. The interpolated area differs from that sum divided by L^(3/2) by at most 1/(2 sqrt(L)). With r trailing 1 bits off the complete graph, the graph is the join of K_r and a disconnected remainder (the last vertex of the remainder was added isolated); the Laplacian spectrum of the join gives lambda_2=r, including zero for a disconnected graph. The exceptional complete graph has lambda_2=n, yielding the extra 2^(-L) needed for the exact unconditioned mean 1. Reflection at zero from height a subtracts binom(t,j+a) for an endpoint reached by j up-steps, and summation telescopes to B(t,a). The exact-r prefix is r up-steps then a down-step, leaving height r-1 and time L-r-1; the all-up word has its separate mass. Central-binomial asymptotics give (r-1)2^(-r). For the claimed uniform tail, the at-least-r prefix count is B(L-r,r); for r<=L/2 use the central-binomial bound, and for r>L/2 use B(L-r,r)<=2^(L-r) and sqrt(L)<=2r. This also controls moments, with the complete-graph moment correction exponentially small. Conditional on any fixed exact-r prefix, the surviving continuation is a walk from fixed positive height, with the same finite-horizon meander limit; the prefix vanishes on rescaling. Tightness allows summing over r, proving independence from the entire path, not just its endpoint or area. The latter two are dependent: the meander bridge at endpoint y has the law of a three-dimensional Bessel bridge to y (the positive Brownian kernel and its h-transform have the same bridges), so by convexity of the norm its expected area is at least y/2. This cannot be constant over the unbounded endpoint law.",
+      "residual_risks": [
+        "Finite enumeration does not check process convergence. The finite-horizon meander invariance principle is a classical analytic input, not a machine-checked result. For the fixed-positive-start variant one may also decompose the walk by first attainment of its minimum increment level: its finitely many allowed minimum levels have first-hit mass O((h+1)^(-3/2)), and subsequent nonnegative survival is O((L-h+1)^(-1/2)). Dividing by the order L^(-1/2) survival probability gives tightness of that first-hit time, reducing the limit to the ordinary meander started at zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Caravenna–Chaumont theorem has infinite-horizon conditioning, and the finite-horizon invariance principle cited there concerns the surviving path. Schwerdtfeger covers joint endpoint and area statistics."
+        ],
+        "reasoning": "A meander limit or its global statistics do not alone give joint convergence with a microscopic prefix. The exact-r disintegration and its conditional continuation limit are the additional argument.",
+        "searches": [
+          "Caravenna–Chaumont arXiv:math/0602306, defining equation (1.3) and Theorem 1.1",
+          "Iglehart DOI 10.1214/aop/1176996607",
+          "Schwerdtfeger arXiv:1105.5175, section 8"
+        ]
+      },
+      "checked_sources": [
+        "Reilly–Scheinerman DOI 10.37236/219",
+        "Caravenna–Chaumont arXiv:math/0602306",
+        "Iglehart DOI 10.1214/aop/1176996607 (limited access)",
+        "Schwerdtfeger arXiv:1105.5175",
+        "Resultary records 0cf251055999, 7794921470b6 and e3a4c8f95099"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph results reduce the task to positive walks; neither their unconditioned run law nor the global meander endpoint/area calculation determines the correlation with the initial run. Record 7794921470b6 decouples zero-degree counts from a reciprocal-pair count in a different directed model."
+        ],
+        "reasoning": "The supported claim requires counting an exact prefix under survival and conditioning on each such prefix before taking the path limit. The strongest checked results do not supply that combined conclusion.",
+        "searches": [
+          "Reilly–Scheinerman Theorems 5.8, 5.20 and 5.21",
+          "Schwerdtfeger section 8",
+          "Resultary records 0cf251055999 and 7794921470b6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.20 gives the exact suffix-positive reformulation; Corollaries 5.9–5.10 identify the unconditioned Laplacian law. Neither states a conditioned law for the first up-run jointly with the macroscopic path.",
+          "Distinct local result 0cf251055999 uses the same path encoding but pairs matching deficiency and edges under the unconditioned law."
+        ],
+        "reasoning": "The reversed positive-walk formulation is an equivalence of models, not an equivalence between the prior unconditioned joint theorem and the claimed conditioned one.",
+        "searches": [
+          "Reilly–Scheinerman, Random Threshold Graphs, sections 5.2–5.3",
+          "Resultary search for conditioned threshold-graph spectral and walk decoupling results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix A provides the total positive-path count N_L, not the run-refined numerator for a specified r. The strongest distinct local hit 0cf251055999 gives a Brownian maximum/area theorem, not an exact conditioned spectral table; e3a4c8f95099 uses Pólya threshold graphs under different conditioning."
+        ],
+        "reasoning": "Credit the known denominator. The inspected counts and recognized catalogue neighbors do not encode the finite run law or the path-level independence.",
+        "searches": [
+          "Resultary local search for threshold-graph conditioned spectra and local/global decoupling",
+          "Reilly–Scheinerman, Appendix A, Proposition A.2 and Theorem 5.21"
+        ]
+      },
+      "rationale": "Credit the already known threshold-graph encoding, Hamiltonicity and spectral identities, survivor count, unconditioned law, and meander endpoint/area law. The remaining supported contribution is the exact conditioned spectral run law and its joint path-level asymptotic independence. The inspected sources give ingredients or different joint observables, not an equivalent joint theorem covering this conditioned local variable. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "Iglehart full text not inspected; an equivalent or more general microscopic/macroscopic joint conditioned-walk theorem could be in uninspected literature.",
+        "Relative priority cannot be read from the same-day date of 0cf251055999; its inspected claim is different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the graph reductions, unconditioned connectivity and survivor denominator",
+          "evidence": [
+            "Theorem 5.20 identifies strict suffix positivity; the appendix counts strict partial Dyck walks; Corollaries 5.9–5.10 give the spectral relation and mean 1 before conditioning."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v16i1r130/pdf",
+          "material_read": "Sections 5.2–5.3, Theorem 5.8 and Corollaries 5.9–5.10 (pp. 16–17), Theorems 5.20–5.21 and Appendix A Proposition A.2 (p. 31)",
+          "method": "Bounded primary PDF passages located by theorem numbers",
+          "title": "Random Threshold Graphs",
+          "trigger": "Same graph model, spectral statistic and Hamiltonicity event"
+        },
+        {
+          "assessment": "Different horizon in the inspected theorem; credits the standard walk-limit machinery",
+          "evidence": [
+            "Equation (1.3) defines conditioning by sending the horizon to infinity first; this is different from survival to the endpoint of the observed walk."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0602306",
+          "material_read": "Section 1.1, equation (1.3), Theorem 1.1 and nearby finite-horizon references, pp. 171–173",
+          "method": "Bounded primary PDF inspection",
+          "title": "Invariance principles for random walks conditioned to stay positive",
+          "trigger": "Plausible stronger conditioned-walk process limit"
+        },
+        {
+          "assessment": "Full statement not inspected; not negative originality evidence",
+          "evidence": [
+            "Caravenna–Chaumont identify Iglehart among finite-horizon meander references."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176996607",
+          "material_read": "Bibliographic and accessible summary information; full text not reached via DOI or Project Euclid",
+          "method": "Identified lawful access attempts",
+          "title": "Functional Central Limit Theorems for Random Walks Conditioned to Stay Positive",
+          "trigger": "Cited primary finite-horizon theorem"
+        },
+        {
+          "assessment": "Covers the endpoint/area component, not the initial-run component in the inspected result",
+          "evidence": [
+            "Joint area/final-altitude laws of meanders and their Brownian limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1105.5175",
+          "material_read": "Abstract and section 8 (p. 21)",
+          "method": "Bounded primary PDF inspection",
+          "title": "Limit laws for discrete excursions and meanders and linear functional equations with a catalytic variable",
+          "trigger": "Prior joint global meander statistic"
+        },
+        {
+          "assessment": "Material but non-equivalent same-day overlap; no priority inference",
+          "evidence": [
+            "The pair is matching deficiency and edges under the unconditioned graph model, not algebraic connectivity and the full Hamiltonicity-conditioned path."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-brownian-maximum-area-coupling-for-matching-deficiency-and-edge--0cf251055999",
+          "material_read": "Finding and Proof 1–2",
+          "method": "Local Resultary search and local-mirror passage inspection",
+          "title": "Brownian maximum–area coupling for matching deficiency and edge count",
+          "trigger": "Strongest distinct Resultary overlap on model and edges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof 1–3",
+        "Reilly–Scheinerman, sections 5.2–5.3",
+        "Schwerdtfeger, section 8",
+        "Distinct local Resultary record 0cf251055999"
+      ],
+      "rationale": "Hamiltonicity is a natural rare-event conditioning that changes an actual graph invariant: the limiting spectral mean is 4 rather than 1, and the entire conditional spectral law is available at finite order, including the complete graph. The joint theorem separates a local spectral statistic from all continuous path functionals while retaining the dependence of the global endpoint and area. Neither the finite spectral comparison nor that joint interpretation is supplied by quoting the separate global and unconditioned spectral laws. The added value is this conditioned exact distribution and local/global separation, not the standard walk tools.",
+      "residual_risks": [
+        "Specific to the fair-bit model and strict Hamiltonicity condition; no claim of finite-order independence or a rate of joint convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

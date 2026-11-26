@@ -1,19 +1,21 @@
-# Scientific review — Exact critical relaxation and logarithmic signatures in a payoff-reversal evolutionary game
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The payoff-matrix reconstruction, all three equilibrium derivatives, and the two scalar substitutions were checked directly. On their strictly specified one-sided attracting basins, monotonicity and exact reciprocal-coordinate integrals prove the claimed all-time implicit formulas and the sharp infinite-time expansions. In particular, the endpoint reciprocal state has a nonzero \( -3\log(ct) \) contribution, whereas the interior reciprocal state has no logarithmic term. The frozen state and repelling/other basins are not incorrectly assigned a critical relaxation law. `check_critical.py` reported 12,859 checks. The proof, rather than the finite checks, establishes the universal conclusions.
+PASS
 
-## Originality — PASS, with limitations
+Subtracting the mixed-strategy payoffs from the reversed matrix gives (2x−1)[a+(b−a)x]. At 0,1,1/2 the drift derivatives are −a,−b,(a+b)/4. The affine factor has a simple root when nonconstant, so it can create a multiple equilibrium only by coinciding with one of these three; a=b=0 instead makes the drift identically zero. On the indicated endpoint basins u obeys u'=−cu²(1−u)(1−2u), and on the indicated interior basins u'=−cu²(1−4u²). Both have strict decay to zero for 0<u0<1/2: uniqueness precludes finite hitting and no positive limiting zero of the drift lies below u0. The other signs are repelling at the double root or in another basin. With z=1/u, partial fractions give F'=z²/[(z−1)(z−2)] and G'=z²/(z²−4); multiplying gives dF/dt=dG/dt=c on their respective basins. As z→∞, F=z+3 log z+O(1/z) while G=z−4/z+O(z^(−3)); the exact laws first give z/(ct)→1 and then the stated log coefficient and normalized constants. No asymptotic claim is made for fixed-point initial data. The finite checker was inspected, not executed; direct analytic identities and monotonicity establish the claims.
 
-Chen, Zhang, and Li, arXiv:2610.21575 (2026), derive the same vector field, its equilibria, and bifurcation thresholds, and discuss the degenerate \(S=P\) case. Their full accessible mathematical text was compared with the proposed exact quadratures and logarithmic dichotomy: those sharper time laws are not stated there. Ito and Yamamichi (2024, DOI:10.1093/pnasnexus/pgae455) analyze a different feedback game with an independent environmental state. Targeted exact-equation, alias, and broad critical-relaxation searches did not identify stronger equivalent coverage in inspected sources. This is not a proof of publication priority. An unindexed scalar-ODE normal-form study remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The payoff thresholds are natural boundaries at which eigenvalue-based convergence estimates fail. The derived complete explicit time laws give the leading coefficient, the initial-condition-dependent phase, and—only at the endpoint—the sharp nonzero logarithmic drift. This distinguishes otherwise similar critical cooperation thresholds, provides testable transient predictions, and treats the source's special degenerate endpoint line. Standard one-variable integration underlies the proof; novelty and value are specifically the exhaustive model-level critical signature, not a new general existence method.
+The scalar model and the two swept critical thresholds are prior work, and the same source recognizes S=P as degenerate. The supported distinct claim is the complete model-specific one-sided critical time laws, with their log/no-log contrast and initial-data constants. Earlier inspected relaxation records do not give these laws in this model. This is not a general new normal form, separation technique, or equilibrium-discovery claim.
 
-## Scope and residual risk
+## value
 
-All parameters are real constants and all claimed attracting rates require the sign and open initial interval specified in RESULT.md. Nothing is established here for spatial, random, discrete, or delayed versions of the game. As in any literature-priority assessment, relevant nonindexed work may have been missed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two types of collision in the existing model cannot be distinguished by their leading 1/(ct) critical decay. In the physical cooperation coordinate an endpoint trajectory has a growing logarithmic residual in reciprocal distance after removal of ct, while an interior trajectory has a finite residual. That distinguishes the deterministic critical transients and provides exact initial-condition-dependent benchmarks for fitting or numerical comparisons, including the endpoint symmetry and the previously degenerate S=P case. This is a modest quantitative model refinement; equilibrium conditions alone or a generic leading-order critical-slowing exponent would not deliver that comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

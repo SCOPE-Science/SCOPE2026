@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:26:34.376620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With h=n−1 the indexed windows of any circular host trace a closed walk on the full binary shift graph. Subtracting one copy of each required edge leaves integral flow with supply on legal vertices that start in 1 and end in 0, and demand on those that start in 0 and end in 1. The initial run length r at a supply vertex forces at least r shifts before reaching any demand vertex, even along forbidden edges. Appending r ones reaches the legal demand vertex 0u1^r from 1^r0u and is bijective by peeling the full trailing run of ones at the destination. Legal vertices are strongly connected via the all-ones vertex; the augmentation is therefore Eulerian and gives an avoidance-preserving cover. Independently, counting a supply vertex with a marked initial one is equivalent to counting a supply vertex of some length k from 2 to h by deleting the ones before the mark. There are F_(k−1) such vertices: for k≥3 they have the form 1w10, with w any valid (k−3)-word; k=2 gives one. Hence the excess is sum_{k=2}^h F_(k−1)=F_(h+1)−1, also zero at h=1. The mandatory count F_(n+2) gives the stated Lucas identity. The source scripts were inspected, not executed; their finite checks are not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 475811a7997d supplies the generating function for the optimal excess under cyclic avoidance. At q=r=2 the excess series is z/[(1−z)(1−z−z²)], giving F_n−1 in coefficient n−2.",
+          "Bernardini et al. formulate minimum augmentation with edges from the complete de Bruijn graph; this is the generic framework, not a closed-form evaluation for this language."
+        ],
+        "reasoning": "The general indexed result specializes exactly to the same excess. Contracting each forbidden cyclic run of the distinguished letter to length r−1 preserves legal windows by keeping their allowed entrance and exit segments, so the host constraint is inessential even for that general class. The generic Eulerian Extension formulation alone does not imply the closed form.",
+        "searches": [
+          "Resultary 475811a7997d, exact shortest cyclic covers over arbitrary alphabets and forbidden runs",
+          "Bernardini et al., CPM 2022, Eulerian Extension on de Bruijn graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 115d2faf86fa and 475811a7997d",
+        "Bernardini et al., CPM 2022 article 12",
+        "Moreno–Matamala arXiv:0711.1695",
+        "Chen–Kitaev–Sun arXiv:1908.01116",
+        "OEIS A001610 and A000032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier binary theorem, phi(v) is the number of leading zeros before the first one (or h). Its case analysis for phi(v)−phi(w)≤1 depends only on shifting one bit, not admissibility. In a full-graph covering walk the potential telescopes against exactly the prior required-arc imbalance because new, illegal vertices have no required arcs. The same earlier balancing augmentation is tight and costs F_n−1.",
+          "Moreno–Matamala use periodically admissible words, and Chen–Kitaev–Sun require exact-once windows. Neither is the direct source of the covered optimum."
+        ],
+        "reasoning": "The shift-potential certificate is already an unrestricted lower-bound proof once applied on the correct vertex set. It matches the frozen individual path-length lower bound and avoids mistaking a formally broader hypothesis for new extremal content.",
+        "searches": [
+          "Resultary 115d2faf86fa §3 Sharp lower bound, mirror offsets 3150–6229",
+          "Moreno–Matamala arXiv:0711.1695, restricted language definition",
+          "Chen–Kitaev–Sun arXiv:1908.01116, exact universal cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "115d2faf86fa states F_(n+2)+F_n−1 for cyclic 11-avoiding hosts covering every linearly 11-avoiding n-word, n≥2. Bit complementation converts both language and host to the 00 formulation.",
+          "The full-domain reduction is valid for cyclic hosts: a legal window of length n≥2 meets a nontrivial zero run only by using one exposed end of the run as a window endpoint. Collapsing the run retains the corresponding zero adjacent to its neighboring one. No legal window crosses that run. There is at least one one in a cover. Thus all required windows survive even for a run spanning an arbitrary cut in the circular representation."
+        ],
+        "reasoning": "The earlier theorem as stated has a host constraint, but minimum lengths agree under the elementary run contraction. The earlier construction gives the attainment and preserves avoidance. This proves implication rather than inferring it from matching values.",
+        "searches": [
+          "Resultary: shortest cyclic covers of linearly run-limited Fibonacci words, adjacent zeros/ones, Lucas-minus-one",
+          "Resultary 115d2faf86fa, Finding and Sharp lower bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001610 has a(0)=0, a(1)=2 and a(n)=a(n−1)+a(n−2)+1, with terms 3,6,10,17,28,46,75,122,198,321,520 starting at n=2. A000032 gives the Lucas convention L_0=2, L_1=1."
+        ],
+        "reasoning": "L_(n+1)−1 has exactly the indexed recursion and initial values. The sequence entry establishes numerical/algebraic identity, not the combinatorial optimum; the older theorem and its proof provide the latter coverage.",
+        "searches": [
+          "OEIS A001610 and A000032, exact length sequence and Lucas numbers"
+        ]
+      },
+      "rationale": "The earlier Oct. 18 indexed result computes the identical cyclic-host optimum under a host avoidance constraint, after bit complementation. Its proof uses a leading-symbol potential whose one-step inequality in fact holds on every edge of the full de Bruijn graph. Therefore its identical lower bound extends directly to unrestricted hosts, with zero mandatory imbalance at newly allowed vertices. Independently, contracting every maximal cyclic zero run to a single zero maps any unrestricted cover to an avoiding cover without losing a required window. The enlarged optimization domain consequently gives the same theorem by a direct reduction, not a distinct extremal fact.",
+      "residual_risks": [
+        "The classic Edmonds–Johnson and Hsu full texts were inaccessible on the routes tried; no negative inference about those papers is made. That limitation does not weaken the explicit earlier indexed implication. No historical priority outside the checked sources is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the frozen optimum and construction",
+          "evidence": "Explicit tight augmentation of F_n−1 windows and a leading-zero potential; the stated shift case analysis applies to all binary arcs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa/RESULT.md",
+          "material_read": "Finding at offsets 0 and 630; decisive sharp lower-bound passage in offsets 3150–6229",
+          "method": "Bounded local mirror reads",
+          "title": "Sharp Fibonacci length for cyclic covers avoiding adjacent ones",
+          "trigger": "Same optimum and complementary target language"
+        },
+        {
+          "assessment": "Broader constrained theorem, with the same optimum after contraction",
+          "evidence": "General explicit excess generating function and optimal Eulerian augmentation for q≥2, r≥2, n≥r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d/RESULT.md",
+          "material_read": "Finding and scope offset 0 onward; enumeration around offset 5500 onward",
+          "method": "Bounded local mirror reads",
+          "title": "Exact shortest cyclic covers of run-limited words over arbitrary alphabets",
+          "trigger": "General forbidden-run theorem and binary specialization"
+        },
+        {
+          "assessment": "Optimization framework, not the specific exact formula",
+          "evidence": "Adds a smallest edge multiset from the full de Bruijn graph to achieve balance/Eulerian structure.",
+          "identifier_or_url": "CPM 2022, article 12; 10.4230/LIPIcs.CPM.2022.12",
+          "material_read": "pp. 12:1–12:2, offsets around 499 and 3200",
+          "method": "Lawful OA primary paper passages",
+          "title": "Eulerian Extension on de Bruijn Graphs",
+          "trigger": "Full-graph minimum augmentation for a prescribed window set"
+        },
+        {
+          "assessment": "Periodically admissible, exact-once language differs",
+          "evidence": "A word must have an admissible periodic extension; for example frozen required word 010 does not meet that test.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+          "material_read": "pp. 1–2, offsets around 2056 and 6500",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Forbidden-language de Bruijn exact covering"
+        },
+        {
+          "assessment": "Different exact-once existence objective",
+          "evidence": "Exactly one occurrence per target, rather than minimizing repeats under mandatory coverage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01116",
+          "material_read": "pp. 1–2, offsets around 1761 and 3500",
+          "method": "Lawful OA primary PDF passages",
+          "title": "On the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+          "trigger": "Universal cycles for a subset of words"
+        },
+        {
+          "assessment": "Confirms numerical and recursion match only",
+          "evidence": "A001610 is the Lucas-minus-one sequence under the assigned shift.",
+          "identifier_or_url": "https://oeis.org/A001610 and https://oeis.org/A000032",
+          "material_read": "Displayed sequence and recurrence around offset 429 in each entry",
+          "method": "Bounded public sequence entries",
+          "title": "OEIS A001610 and A000032",
+          "trigger": "Exact sequence and Lucas indexing"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The covering invariant is natural, but the exact evaluation is already available from the constrained theorem by run contraction, or by its unchanged potential argument. The unrestricted wording adds no new cost regime, obstruction, or construction; the equivalent alternate proof and finite checks do not create a substantively new result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

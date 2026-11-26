@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_pav_cc_unique_boundary.py` performs two exact finite replays using only the Python standard library.
 
-The first replay enumerates all labeled approval profiles for one through five voters. Each voter independently chooses one of all eight subsets of the three-candidate set. PAV is scored ballot by ballot with exact rational arithmetic, and approval CC is scored by direct voter coverage.
+# Independent mathematical audit
 
-The second replay independently enumerates anonymous eight-type count vectors. PAV is scored in integer half-units and CC by aggregate coverage. Exact multinomial weights reconstruct the labeled profile counts.
+## correctness
 
-The two representations agree on every aggregate count. The verifier confirms:
-- no different unique PAV/CC committees for \(1,2,3,4\) voters;
-- exactly \(120\) labeled five-voter conflicts;
-- exactly \(6\) anonymous five-voter conflicts;
-- one candidate-relabeling class;
-- canonical counts \(3\times\{A,B\}+\{A\}+\{C\}\);
-- canonical PAV scores \((11/2,5,4)\);
-- canonical CC coverage scores \((4,5,4)\);
-- unconditional labeled incidence \(15/4096\);
-- exactly \(11970\) labeled five-voter profiles with both rules unique;
-- conditional incidence \(4/399\).
+PASS
 
-The verifier also checks the integer inequalities used by the analytic proof on every boundary profile after normalization by candidate relabeling.
+Normalize the distinct unique winners to PAV=AB and CC=AC. Let a,b,c be singleton counts and x,y,z be counts for AB, AC, BC. CC compares the singleton counts of the omitted candidates, so b<a,c. Twice the PAV score difference AB−AC is 2(b−c)+x−y; strictness forces x−y≥3. Thus n≥a+c+x≥2b+5. Equality forces b=0, a=c=1, x=3, and all other ballot counts zero, including empty and full ballots. Direct scores (11/2,5,4) and (4,5,4) give both strict winners, including the comparison with BC. The stabilizer is trivial: C is outside the repeated doubleton, and A is its uniquely singled-out member. There are six candidate renamings and 20 voter labelings each. Independent exact labeled and multinomial-weighted anonymous enumeration confirmed 0,0,0,0,120 conflicts for n=1 through 5, 11,970 jointly unique labeled profiles at n=5, and six conflicts among 792 anonymous profiles. The reported three fractions reduce exactly. This does not bound disagreement through ties or address other candidate and committee sizes.
 
-Run:
+## originality
 
-`python3 verify_pav_cc_unique_boundary.py`
+PASS
 
-The first output line must be:
+The distinct result supported by the available comparisons is the first resolute PAV/approval-CC split, its single boundary orbit and its exact census in this small domain. No priority claim is made for either rule, their common scoring representation, or general differences between their objectives.
 
-`VERIFY_OK`
+## value
 
-The finite replay does not make claims for more than three candidates or committee sizes other than two.
+PASS
+
+Three candidates and two seats is the smallest geometry in which two multiwinner committees can compete. The two established representation objectives handle one approved member identically and differ on their treatment of two; isolating the first strict reversal therefore separates a real rule difference from tie handling. The characterization gives a reusable minimal witness and the exact incidence distinguishes the size of the disagreement set from the size of its jointly resolute domain. This is a narrow exact benchmark, not a general performance claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

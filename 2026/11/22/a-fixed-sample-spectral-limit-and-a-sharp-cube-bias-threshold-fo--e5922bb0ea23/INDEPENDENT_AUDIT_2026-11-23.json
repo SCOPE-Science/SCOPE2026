@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:55:38.325262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source max of the squared centered Rayleigh quotient is n times the squared operator norm. With d≥2n the bottom deviation is −1/d and tr(G)=n gives λmax(G)≥1, so the positive top deviation λmax(G)/n−1/d is at least 1/d even for rank-deficient samples. This gives (1) exactly. The Haar off-diagonal Gaussian products have covariance identity (a singleton Gaussian index makes cross-products between distinct pairs vanish); norm ratios tend jointly to one. In the cube model, pair-products have means μ_d², shared-index covariance μ_d²−μ_d⁴, diagonal 1−μ_d⁴ and disjoint covariance zero. Boundedness and covariance convergence justify the centered joint triangular CLT; λmax stays continuous and the expansion around the identity gives the stated factor n√d/2. For exact finite Haar calibration, the unnormalized Gaussian cross-product matrix has positive Wishart density on positive definite matrices (d≥2n); diagonal normalization is a smooth change of variables with the positive diagonal scales, and the Haar Gram thus has positive density on the open unit-diagonal elliptope. Its λmax is atom-free by the determinant polynomial, and the available positive equicorrelations give positive mass in every open subinterval of (1,n). In the Gaussian limit and all finite shifts the determinant polynomial is likewise nonzero: specialize the total off-diagonal entries to zero at t≠0 and to J−I at t=0. Full support and scaling give the null's strictly increasing CDF on (0,∞). These facts justify converging quantiles and strict thresholds even for lattice alternatives. In the large-bias regime the all-ones Rayleigh quotient gives √d(λmax(G)−1)≥(n−1)√dμ_d²+O_P(1); the exact monotone spectral formula yields consistency. Subcritical power is nominal only for the stated upper-tail rule, not all tests. For n=2 the null |r| cutoff was independently obtained from z=t_(d−1,0.975) by z/√(d−1+z²); with h=√d integral at the four recorded d, the alternative tails were evaluated by the exact integer sum of binom(d,k)(h+1)^k(h−1)^(d−k)/(2h)^d over |2k−d|>d b. Rejection boundaries were k≤24 or ≥40, ≤112 or ≥144, ≤480 or ≥544, and ≤1985 or ≥2111, respectively. Powers 0.191249632841830, 0.175465797543167, 0.167714211420906, 0.171808101288575 and limiting power 0.17007504575308752 match the record. The n=2 derivative is positive for c>0 since |z−c²|<z+c². The source checker was only inspected: 751 is its scalar-check counter, including grouped checks on seeded simulation, not 751 distinct assert statements or proofs of the CLT. Discreteness versus nonatomic Haar proves TV=1 throughout the stated d≥2n scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source maximal-projection Gaussian-process limit grows sample size with dimension fixed.",
+          "Cutting–Paindaveine–Verdebout calibrate a quadratic Frobenius Bingham trace statistic, mostly with n and p diverging, with rotationally symmetric alternatives.",
+          "Cai–Fan–Jiang study marginal, empirical and extreme angles, not a biased sign-product shift of the joint Gram edge process. A classical Wishart entry CLT and smooth normalization already give the fixed-size Haar Gram input."
+        ],
+        "reasoning": "For n>2 the trace of squared scatter or angle extrema are not the largest Gram eigenvalue in general. Even a broader null Gram CLT would give the null input, not the sign-product mean shift, corresponding local threshold comparison and binomial lattice tail.",
+        "searches": [
+          "Web: Borodavka Ebner maximal projection hypersphere fixed sample high dimensional quadratic Gaussian Gram largest eigenvalue biased cube d 1/4 Cai Jiang angle finite n",
+          "Web: spherical pairwise angles fixed n dimension grows Cai Fan Jiang normal finite-dimensional Gram correlations joint CLT geometry random angles theorem",
+          "DOI:10.1214/21-AIHP1168 author preprint",
+          "arXiv:2301.03482 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.03482",
+        "DOI:10.1214/21-AIHP1168 author preprint",
+        "arXiv:1306.0256",
+        "DOI:10.3150/25-BEJ1889 (limited access)",
+        "Resultary projection/cube summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known test and normalized Wishart CLT plus elementary spectral mapping give the Haar law; this does not amount to a new general covariance limit.",
+          "The Bingham and angle results examined do not furnish the nonzero drift √dμ_d² in the edge vector or its effect on the exact Haar-calibrated cube power."
+        ],
+        "reasoning": "The overlap with existing ingredients is direct and should be credited. The matched subcritical, critical and supercritical behavior is not a direct specialization of the examined tests or asymptotic regimes. The later journal edition was not independently read in full and is not excluded wholesale.",
+        "searches": [
+          "arXiv:2301.03482 Eq. (1.3), quadratic representation, Theorem 2.1",
+          "arXiv:1306.0256",
+          "DOI:10.1214/21-AIHP1168 author preprint",
+          "DOI:10.3150/25-BEJ1889 lawful OA retrieval attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original quadratic statistic is n times the squared spectral norm of S−I/d; when d≥2n it thresholds only the largest Gram eigenvalue.",
+          "For n=2 this is exactly thresholding |cos Θ12|. The standard Haar angle density on [0,π] proportional to sin(θ)^(d−2) supplies the beta null; the product-cube pair gives a binomial alternative."
+        ],
+        "reasoning": "Neither the operator-norm representation nor the beta marginal alone is novel. The distinctive implication is calibration across a singular alternative family and the fixed-n matrix deformation, not relabeling a known sample scatter norm or angle law.",
+        "searches": [
+          "Resultary: spherical maximal projection uniformity quadratic statistic fixed sample high dimension cube bias Gaussian Gram",
+          "arXiv:2301.03482, Eq. (1.3) and page 3",
+          "arXiv:1306.0256, pairwise angle density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record. Nearby indexed cube results concern affine projection norms or antipodal spherical means, not calibrated rejection under a product sign law.",
+          "Haar angle and Binomial distribution formulas pre-exist; the relevant comparison is the strict tail of the latter at the former's exact critical quantile."
+        ],
+        "reasoning": "A numerical table of beta or binomial probabilities cannot by itself cover the theorem; the matched exact rejection event and its limiting scale are the scientific comparison. No independent matching table surfaced in these searches.",
+        "searches": [
+          "Resultary: spherical maximal projection uniformity quadratic statistic fixed sample high dimension cube bias Gaussian Gram",
+          "Web: Borodavka Ebner maximal projection hypersphere fixed sample high dimensional quadratic Gaussian Gram largest eigenvalue biased cube d 1/4 Cai Jiang angle finite n"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the singular product-cube detection boundary and explicit Haar-calibrated local and two-observation laws for this statistic. The source test, its scatter operator-norm identity, the two-angle marginal and generic fixed-size multivariate Gaussian covariance limit are not new ingredients.",
+      "residual_risks": [
+        "The journal edition was not independently accessible in full.",
+        "Uninspected directional-test work may state a similar cube calibration or fixed-sample threshold. No historical priority claimed for the classical null Gram input or pair-angle law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers statistic and scatter spectral representation, not the present calibrated cube comparison in the inspected statements",
+          "evidence": [
+            "Page 3: n(max(|λmin|,|λmax|))²",
+            "Theorem 2.1 limit concerns a Gaussian process over a fixed sphere"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.03482",
+          "material_read": "Introduction, Eq. (1.3), quadratic operator-norm representation and fixed-dimension asymptotic theorem setup",
+          "method": "Primary preprint PDF text",
+          "title": "A general maximal projection approach to uniformity testing on the hypersphere",
+          "trigger": "Exact same test and possible dimension-asymptotic law"
+        },
+        {
+          "assessment": "Distinguish Frobenius-test model and rotational alternatives from this statistic and cube regime",
+          "evidence": [
+            "Bingham trace-of-square statistic, n and p jointly diverging; axial and non-axial rotationally symmetric alternatives"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/21-AIHP1168",
+          "material_read": "Author preprint abstract and introduction, equations (1)–(2) and statement of double-asymptotic scope",
+          "method": "Lawful ULB author-preprint PDF text",
+          "title": "Testing uniformity on high-dimensional spheres: The non-null behaviour of the Bingham test",
+          "trigger": "Possible stronger sharp detection theorem for a quadratic uniformity test"
+        },
+        {
+          "assessment": "Covers the standard one-angle null law; inspected angle statements do not give the test-specific biased-cube power",
+          "evidence": [
+            "Density proportional to sin(θ)^(d−2); empirical and extreme angle asymptotics"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.0256",
+          "material_read": "Abstract, introduction and angle-density formula (5), stated empirical and extreme angle regimes",
+          "method": "Primary preprint PDF text",
+          "title": "Distributions of Angles in Random Packing on Spheres",
+          "trigger": "Equivalent n=2 null and potential broader Gram fluctuation coverage"
+        },
+        {
+          "assessment": "No whole-document exclusion inferred",
+          "evidence": [
+            "Bernoulli 32 (2026), 996–1019; identifiable earlier preprint was separately inspected"
+          ],
+          "identifier_or_url": "https://doi.org/10.3150/25-BEJ1889",
+          "material_read": "Bibliographic/landing information only; independent full text unavailable",
+          "method": "Exact DOI OA and Project Euclid access attempts",
+          "title": "A general maximal projection approach to uniformity testing on the hypersphere (journal edition)",
+          "trigger": "Possible extension of 2023 preprint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This makes a precise operational statement about an established test in a low-data, high-dimension regime. Even a TV-one alternative can yield nominal asymptotic power under its upper-tail calibration, and the exact bias scale and local matrix power law explain when that ceases. The n=2 lattice-vs-continuous tail is a useful exact benchmark rather than an isolated numerical check. Novel mathematical value lies in the test-specific comparison, not the standard multivariate CLT or a minimax claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

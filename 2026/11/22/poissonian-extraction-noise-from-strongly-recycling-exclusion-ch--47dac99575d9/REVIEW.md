@@ -1,15 +1,21 @@
-# Review of Poissonian extraction noise from strongly recycling exclusion chains
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies an irreducible finite open exclusion chain and the counted right-reservoir events. It uses regenerative cycles from the singleton first-site state, uniform fast-state absorption estimates, rare-excursion control of additional particle injections, and convergence of rare marked renewal cycles to a Poisson process. The regeneration variance identity establishes the asymptotic unit Fano ratio. The independently constructed full-state tilted generator passed 165 deterministic checks for lengths two through four; finite tests alone do not prove the general limit.
+## correctness
 
-## Originality — PASS, with priority limitations
-Pelizzola and Pretti (Journal of Physics A 55, 454001, 2022) provide the defining process and stationary mean/density analysis. The prior finite-chain leading mean-current theorem \(J_r\sim c_L/r\) is not new here. The original assessed statement is the *complete extraction-point-process* Poisson limit and corresponding long-time shot-noise coefficient. Published finite-size covariance reversal work concerns stationary spatial correlations, which do not determine independent output increments. The most relevant accessible primary manuscript and the Nagar–Gupta review were compared; no identical theorem was identified there. Unindexed equivalent literature remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The mean output flux alone cannot distinguish rare independent exits from bursts or slow noise correlations. Showing convergence to Poisson rather than compound Poisson, including the exceptional two-site rate, solves a natural counting-statistics question across all fixed finite chain lengths and all positive reservoir rates.
+Frozen proof Step 2 incorrectly says two extractions after the first injection require an additional injection. At L=3, 100→010→110→101→011→010→001→000→100 is a valid cycle with two extractions and no intervening injection. Both extractions happen with site 1 empty. The repaired proof bounds every nonreset transition from a vacant first site with downstream particles, not merely injections to three particles. A fixed bounded jump path (reset if needed, then remove rightmost particles without vacating site 1) supplies a uniform probability of hitting e1 within a fixed number of jumps, giving geometric jump-count tails and uniform holding-time moment controls. After an injection at e2, no exceptional transition forces exactly one extraction; after an e3 hop, no exceptional transition forces zero. Conditioning on the index and outcome of the first exception gives O(1/r) jump-count-weighted probability from either state. Multiplication by the O(1/r) probability of reaching them bounds the extra-reward moments at O(r^(-2)). A direct two-site exit gives exactly one reward. The rare-mark probability and the first two reward moments are c_L/r+O(r^(-2)); E C_r=1+O(r^(-1)), and E(M_r C_r)=O(r^(-1)) by conditioning on the first nonreset departure. Independent cycle-index marks converge to a Poisson point process. A uniform centered-duration maximal bound places physical exit times near lattice markers without assuming mark-duration independence. The union bound excludes bursts and the Poisson limit has no endpoint atoms, making the ordered time matching valid in J1. The regenerative site-1-only occupation fraction is 1/E C_r, so the stationary initial law follows by coupling. At each fixed r the regenerative variance rate uses E[(M_r-J_r C_r)^2]/E C_r, not an interchange of the time limits. Its mixed and duration terms are O(r^(-2)), proving the repaired sequential Fano limit.
 
-## Boundaries and limitations
-The strong-reset limit holds at fixed chain length only, and no finite-rate exact Fano formula or length-uniform estimate is asserted. The separate infinite-observation-time variance rate should not be confused with simultaneous joint limits. The primary open publication date is sourced to the author-manuscript repository timestamp 14 November 2022, with earlier-publication ambiguity noted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired finding credits the exact fixed-size mean-current overlap separately and corrects the frozen attribution. The distinct content is the rate-c_L full extraction process and sequential scaled variance/Fano limits. No inspected statement covers these observables in the specified fixed-size, strong-reset regime. Neither the mean-current result nor stationary occupation covariances imply them.
+
+## value
+
+PASS
+
+Rare extractions in a driven recycling system could remain clustered, even with the known mean current. The process result shows that the clusters do not persist on the natural time scale, and the separate variance calculation shows the same Poisson signature in sequential stationary noise. The two-site anomaly persists in both, not just in the current.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:26.349176Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: Proof, including group normalization; frozen VERIFICATION.md and verify.py (inspected only)",
+        "Rossmann, arXiv:2107.05564, §1.6",
+        "Independent direct GF(4) rank enumeration"
+      ],
+      "rationale": "Leaf-pair elimination gives rank 2ν on forests with nonzero edge weights, over any field. For an attached tree T with bridge endpoint u, restriction to the coordinate hyperplane u=0 has the same rank exactly when some radical vector has nonzero u-coordinate; otherwise that hyperplane maps to a hyperplane of the symplectic quotient and the rank drops by two. This is the frozen matching-essentiality test. Split the tree form into a nondegenerate complement and its radical. Eliminating the nondegenerate block does not change other entries: the bridge meets only one cycle vertex and the self-pairing is zero. A nonessential root leaves a radical vector paired with that cycle vertex v. Eliminating this pair leaves the unchanged forest on the remaining vertices (and zero radical coordinates). The matching number in this case is ν(T)+1+ν(H−(T∪{v})), using the bridge plus maxima in T−u and the remaining forest, and at most one matching edge incident to v. If every root is essential, the cycle survives unchanged and maximum matching sizes add. The odd cycle has maximal possible rank by deleting one vertex; the even cycle loses exactly two ranks on equality of its alternating products (a vertex-deleted path gives the lower bound). Solving for one nonzero cycle weight gives precisely (q−1)^(|S|−1) exceptional assignments. For odd q the class-two coadjoint orbit for a fixed edge functional of rank 2r has size q^(2r) and degree q^r, giving q^(n−2r) characters per such functional. A bounded independent GF(4) enumeration of a square, square with a leaf and square with a two-edge tail gave, in increasing half-rank, (1,75,180), (1,123,900), and (1,135,1800,2160). On full support the exceptional counts were 27, 0 and 243, respectively, as predicted.",
+      "replay_paths": [
+        "/workspace/evidence/3/gf4_rank_check.js (three bounded configurations over F_2[a]/(a²+a+1))"
+      ],
+      "residual_risks": [
+        "The numerical check is only a corroboration over an extension field; the matching and alternating-form arguments establish the general rank formula. No characteristic-two character claim is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Yu uses exactly the saturation test in structural rank results for unweighted oriented graphs, not all nonzero finite-field weights. Hou–Lei's evenly linear subgraph expansion exposes the matching/cycle terms for unweighted orientations.",
+          "Rossmann links the graphical-group degree enumerator to support-constrained alternating matrix ranks. The exact indexed factorization covers arbitrary attached trees and all prime powers for ranks."
+        ],
+        "reasoning": "The fixed-orientation and general group frameworks account for tools in the proof, but do not give the distribution by themselves. In contrast the distinct exact factorization is already a formula for the full distribution. No claim about the scope of the inaccessible Gong–Xu formula is necessary to the decision.",
+        "searches": [
+          "Li–Yu arXiv:1404.7230, saturated vertex definition, Lemma 4.4 and Theorem 4.5",
+          "Rossmann arXiv:2107.05564, §1.6 and Question 1.10",
+          "Hou–Lei DOI 10.37236/643, Lemma 2.2 and Theorem 2.3",
+          "Gong–Xu DOI 10.1016/j.laa.2011.12.033, weighted characteristic-polynomial formulas"
+        ]
+      },
+      "checked_sources": [
+        "Two distinct exact unicyclic RESULT.md records listed in source_inspections",
+        "Li–Yu arXiv:1404.7230",
+        "Rossmann arXiv:2107.05564",
+        "Hou–Lei DOI 10.37236/643",
+        "Gong–Xu DOI access attempt",
+        "Resultary tree and bare-cycle comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two distinct exact records give equivalent conditions on each support, the same rank decrement, and the same q domains for rank and character statements. The root-deletion equality in Q_v is equivalent to forbidding a matching gain through any bridge at v.",
+          "Rossmann's general bridge explains why identical rank polynomials give identical degree counts."
+        ],
+        "reasoning": "The frozen result is directly implied by either of these extant explicit formulations without new field hypotheses or a new enumeration. This establishes non-distinctness, not historical priority relative to the frozen record.",
+        "searches": [
+          "2026/11/2/SCOPE-unicyclic-skew-rank-distributions-and-character-degrees-from-a-s--2066f0baef03/RESULT.md, exact rank and degree identities",
+          "2026/11/2/SCOPE-a-factorized-pfaffian-correction-for-graphical-groups-of-every-u--938aea29d44f/RESULT.md, Q_v and pointwise rank condition",
+          "Rossmann arXiv:2107.05564, Question 1.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first record has the identical two support sums and character coefficient formula with correction indicator δ(F)=1 iff the full cycle is even and all maximum matchings pair its vertices using cycle edges.",
+          "The second gives the same dependence on even complete support and cycle-product cancellation, with product of Q_v factors testing ν_v(S)=ν_v^0(S)."
+        ],
+        "reasoning": "On a support with full cycle of length 2m, put M_0=m+Σ_Tν(T). If all bridge roots are essential, using any bridge costs one in that tree's internal matching, and at least one cycle edge is lost from the perfect cycle matching; hence all maxima perfectly match the cycle internally. If some root u is nonessential, use its bridge, maxima off-cycle leaving u free, and an (m−1)-matching on the cycle minus its bridge vertex, getting a size-M_0 matching using a bridge. This is either maximum or a greater maximum must also use a bridge, proving equivalence to δ. In the supported rooted tree at v, ν_v(S) exceeds ν_v^0(S) precisely if some bridge from v meets a nonessential branch root. Thus the Q_v factors select exactly the same exceptional supports; on such supports ν(S)=M_0, giving the identical factorized sum.",
+        "searches": [
+          "Resultary: unicyclic weighted alternating rank distribution, attachment-sensitive Pfaffian cancellation, graphical-group character degree",
+          "2026/11/2/SCOPE-unicyclic-skew-rank-distributions-and-character-degrees-from-a-s--2066f0baef03/RESULT.md, Finding and Proof §§1–4",
+          "2026/11/2/SCOPE-a-factorized-pfaffian-correction-for-graphical-groups-of-every-u--938aea29d44f/RESULT.md, Finding and Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both unicyclic records explicitly evaluate every rank stratum for any prime power, and every ordinary character degree count for odd prime powers. These are exact formulas, not matching titles or isolated numerical data.",
+          "The earlier tree and bare-cycle entries evaluate only the boundary graph families."
+        ],
+        "reasoning": "The indexed full enumerators cover the frozen object and all its parameters. Passing from the alternate predicate or product to the frozen support sum reproduces every coefficient; the square-plus-tail example is already a specialization of these formulas.",
+        "searches": [
+          "2026/11/2/SCOPE-unicyclic-skew-rank-distributions-and-character-degrees-from-a-s--2066f0baef03/RESULT.md, Finding",
+          "2026/11/2/SCOPE-a-factorized-pfaffian-correction-for-graphical-groups-of-every-u--938aea29d44f/RESULT.md, Finding",
+          "Resultary tree and bare-cycle exact character enumerators, 2026/10/4 entries ending fb80c871ed65 and a874723da77e"
+        ]
+      },
+      "rationale": "Distinct indexed records contain the same full all-field rank enumerator, supportwise rank-drop condition, and odd-field character enumerator. The first uses the equivalent condition that every maximum support matching pairs the entire cycle internally; the second gives an equivalent factorization over rooted trees. This is verified existing coverage of the mathematical claim, not a finding about priority or who discovered it first. The path dates differ, but do not independently establish priority or lineage. The frozen proof is correct, yet no distinct surviving theorem is established by the different presentation.",
+      "residual_risks": [
+        "Priority and the relationship among the distinct record histories have not been established by these source comparisons.",
+        "Gong–Xu full text was not retrieved; it might add antecedents. That limitation is not the basis of the failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage; independent of dating or attribution.",
+          "evidence": [
+            "Identical baseline and correction sums and identical coefficient extraction for odd-field characters, with δ defined by internal maximum matching on the cycle."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-unicyclic-skew-rank-distributions-and-character-degrees-from-a-s--2066f0baef03",
+          "material_read": "RESULT.md offsets 0–5303: Finding, scope, proof up to exceptional Pfaffians",
+          "method": "Local mirror",
+          "title": "Unicyclic skew-rank distributions and character degrees from a single cycle-cancellation correction",
+          "trigger": "Exact indexed overlap in graph class and statistic."
+        },
+        {
+          "assessment": "Equivalent distribution formula and pointwise classification, organized as a product.",
+          "evidence": [
+            "For even ℓ the correction is (q−1)^(ℓ−1) z^(ℓ/2−1)(1−z) times ∏Q_v(q−1,z). The support test uses ν_v=ν_v^0 and the matched cancellation fraction is 1/(q−1)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-factorized-pfaffian-correction-for-graphical-groups-of-every-u--938aea29d44f",
+          "material_read": "RESULT.md offsets 0–5521: Finding, scope and proof of exceptional-support condition",
+          "method": "Local mirror",
+          "title": "A factorized Pfaffian correction for graphical groups of every unicyclic graph",
+          "trigger": "Exact indexed overlap under a factorized formulation."
+        },
+        {
+          "assessment": "Same combinatorial saturation condition; fixed orientation rather than the full field distribution.",
+          "evidence": [
+            "A vertex is saturated if every maximum matching covers it; rank decomposes through rooted tree attachments."
+          ],
+          "identifier_or_url": "arXiv:1404.7230",
+          "material_read": "Definition on p. 2; Lemma 4.4 and Theorem 4.5 on p. 14, OA offsets 37000–40920",
+          "method": "Lawful OA PDF",
+          "title": "The skew-rank of oriented graphs",
+          "trigger": "Saturation and pendant-tree skew-rank precedent."
+        },
+        {
+          "assessment": "Character-rank bridge, not by itself a solution for unicyclic graphs.",
+          "evidence": [
+            "Relates odd-field degree multiplicities to rank counts with graph support; asks for field dependence."
+          ],
+          "identifier_or_url": "arXiv:2107.05564; DOI 10.1112/blms.12665",
+          "material_read": "§1.6, p. 5 near OA offset 14300, including Question 1.10",
+          "method": "Lawful OA PDF",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "General character-rank formula."
+        },
+        {
+          "assessment": "General unweighted orientation formula, not a distribution over finite-field assignments.",
+          "evidence": [
+            "Evenly linear subgraphs contribute products of ±2 with odd coefficients zero; the cycle/orientation part is visible in these terms."
+          ],
+          "identifier_or_url": "DOI 10.37236/643",
+          "material_read": "Lemma 2.2 (p. 3), Theorem 2.3 (p. 4)",
+          "method": "Lawful journal PDF",
+          "title": "Characteristic Polynomials of Skew-Adjacency Matrices of Oriented Graphs",
+          "trigger": "Matching/cycle terms of skew-adjacency polynomial coefficients."
+        },
+        {
+          "assessment": "Full-text scope unverified; no assertion of non-coverage is made.",
+          "evidence": [
+            "The accessible Hou–Lei theorem is a related unweighted precursor, not a substitute reading of Gong–Xu."
+          ],
+          "identifier_or_url": "DOI 10.1016/j.laa.2011.12.033",
+          "material_read": "DOI resolution and publisher landing response only; theorem text not retrieved",
+          "method": "Lawful OA DOI retrieval; literal theorem/formula probes did not locate text",
+          "title": "The characteristic polynomial and the matchings polynomial of a weighted oriented graph",
+          "trigger": "Plausible broader algebraic predecessor for arbitrary weights."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: Finding, limitations and square-with-tail example",
+        "Rossmann Question 1.10 and exact indexed unicyclic formulas"
+      ],
+      "rationale": "As mathematics the full enumerator is useful: it classifies all assignments, distinguishes a leaf from an even-length tail via a precise combinatorial test, and converts the result into degree multiplicities in a natural family of graphical groups. This is a general structural formula rather than an arbitrary small example. That usefulness does not make this presentation a distinct contribution given the verified coverage.",
+      "residual_risks": [
+        "The sum can be exponential in the edge count and does not extend by this proof to graphs with multiple cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

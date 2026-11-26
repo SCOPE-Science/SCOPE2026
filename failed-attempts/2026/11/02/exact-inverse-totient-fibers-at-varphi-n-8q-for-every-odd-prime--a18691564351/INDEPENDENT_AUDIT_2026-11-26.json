@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:20.575741Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and verification, lines 33–76",
+        "Frozen VERIFICATION.md and VERIFY.py (read, not executed)",
+        "Independent bounded totient sieve: initialize φ(n)=n and subtract φ(n)/p on multiples of each prime through 96000; extract the 302 target fibers and compare exact sorted sets"
+      ],
+      "rationale": "Prime-power totients of the distinct prime factors must divide 8q. For q≥7 the only support is 2,3,5 and prime r_i=2^i q+1; the odd exponents are at most one. Exact q-adic valuation forces one r_i per solution, not one prime candidate per q. The remaining 2-adic budget is 3−i; φ(2^u) contributes zero valuation for both u=0 and u=1. This gives multipliers {5,8,10,12}, {3,4,6}, {1,2}; substituting proves sufficiency. Modulo 3 exactly the claimed families are excluded, and surviving families are disjoint by large prime support. The exceptional support/exponent check and an independently written bounded totient sieve agree with both exceptional lists. The sieve through 96000 compared complete sets for the 302 odd primes ≤2000, with 503 solutions. For q≥7, n/φ(n)≤2·(3/2)·(5/4)·(r_i/(r_i−1))<6; for q=3,5 multiplying the corresponding factors over the full respective allowed supports gives <6 as well. The sizes 0,2,3,4,6,9,10 are realized at q=19,17,7,23,11,5,3, respectively. The valuation proof, not the sieve, proves the unrestricted claim.",
+      "residual_risks": [
+        "The numerical reproduction is finite; there is no machine-checked general proof in the package."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both cited general classification passages concern X_(4q), not every X_(8q); He poses the s≥3 classification as an open problem."
+        ],
+        "reasoning": "The smaller power-of-two slice and the general question do not imply the theorem here. The distinct Resultary result gives direct equivalent coverage, not just a method or stronger conjecture.",
+        "searches": [
+          "He, arXiv:2610.34808v1, §5 Proposition 15, Table 2 and Open Problem 16",
+          "Shannon et al., DOI 10.7546/nntdm.2025.31.3.504-534, Theorem 2.3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c933a6b9bfc1 full Finding and proof of the generic and exceptional branches",
+        "He, arXiv:2610.34808v1, §5",
+        "Shannon et al. (2025), Theorem 2.3.1 and Table 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=3 the prime A,B families plus {45,72,90} give all ten frozen solutions; at q=5 the prime A,C families plus {75,100,150} give all nine. For q≥7 there are no supplements."
+        ],
+        "reasoning": "The actual set families are identical for every admissible q. Neither sharper scope nor a remaining new arithmetic consequence is identified.",
+        "searches": [
+          "Resultary c933a6b9bfc1, Finding and Proof §§1–3",
+          "Shannon et al., Theorem 2.3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed c933a6b9bfc1 uses A=2q+1, B=4q+1, C=8q+1, with identical prime-conditional multipliers and an explicit disjoint-union formula."
+        ],
+        "reasoning": "Replacing A,B,C with r_1,r_2,r_3 and excluding the mod-3 composites gives exactly the nonexceptional frozen formula.",
+        "searches": [
+          "Resultary inverse Euler totient at 8q for odd primes; hit c933a6b9bfc1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 lists precisely X_24 and X_40; He's table has finite examples, whereas the indexed record gives all seven attainable sizes, with witnesses."
+        ],
+        "reasoning": "The exceptions are already tabulated. The finite tables alone do not exhaust the family; the indexed statement does.",
+        "searches": [
+          "Shannon et al., Table 1",
+          "He, arXiv:2610.34808v1, Table 2",
+          "Resultary c933a6b9bfc1, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed statement gives the same complete classification, not just sample counts: its three conditional multiplier families, mod-3 dichotomy, exceptional square-divisor supplements and all size values reproduce the entire frozen finding. The two records have different indexed identities and presentations. This is a failure of distinct scientific coverage, not an assertion that the later-dated catalogue entry has historical priority or that either result was derived from the other. The journal and arXiv references inspected do not already give the full 8q classification.",
+      "residual_risks": [
+        "The catalogue's date labels do not establish derivation order or provenance of the equivalent treatments; the audit makes no priority or attribution finding.",
+        "Historical coverage beyond the inspected statements was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent statement in a distinct indexed record",
+          "evidence": "Same three multiplier lists, same mod-3 reduction, and exact exceptional supplements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-complete-inverse-totient-classification-at-8q-for-every-odd-pr--c933a6b9bfc1/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–3, offset 0–4472",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A complete inverse-totient classification at 8q for every odd prime",
+          "trigger": "Direct same-family match"
+        },
+        {
+          "assessment": "Related slice, examples, and open formulation; not established coverage of this slice",
+          "evidence": "Proposition 15 resolves X_(4q); Open Problem 16 asks for complete s≥3 characterization.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34808",
+          "material_read": "§5 Proposition 15 (PDF p.10, text offset 32613), Table 2 and Open Problem 16 (pp.11–12, offset 36080)",
+          "method": "Open primary PDF passages",
+          "title": "The Family X_(qp^s) for Distinct Primes q,p in Connection with Carmichael's Totient Conjecture",
+          "trigger": "Candidate more general result"
+        },
+        {
+          "assessment": "Covers both exceptions but not uniform 8q classification",
+          "evidence": "Table 1 lists fibers at 24 and 40; theorem covers X_(4p) for p≡1 mod 6.",
+          "identifier_or_url": "https://www.nntdm.net/papers/nntdm-31/NNTDM-31-3-504-534.pdf",
+          "material_read": "Table 1, printed p.507 (offset 10674); Theorem 2.3.1, p.521 (offset 44750)",
+          "method": "Open primary PDF passages",
+          "title": "On the special cases of Carmichael's totient conjecture",
+          "trigger": "Smaller slice and exact exceptions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "He, Open Problem 16",
+        "Frozen RESULT.md, Finding and valuation proof"
+      ],
+      "rationale": "As mathematics the result is a natural complete first slice of an explicitly posed inverse-totient family, not a recomputation of the small tables. It characterizes empty fibers and all integers in nonempty ones via a small exact primality test. This intrinsic value does not give a second equivalent record distinct value over the indexed classification, and does not overcome the originality failure.",
+      "residual_risks": [
+        "The result classifies the 8q slice only; it does not determine frequencies of the prime conditions or settle the wider family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

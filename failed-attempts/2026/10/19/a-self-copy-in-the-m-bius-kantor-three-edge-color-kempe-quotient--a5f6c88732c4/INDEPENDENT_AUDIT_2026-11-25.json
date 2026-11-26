@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:11.982262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exhaustive Python census (/workspace/checks/kempe_gp83.py, run with python3) checks all eight-edge subsets for perfect matchings and all pairs of distinct named states for a move. Properness forces the changed support for a given transposition to have degree two at each moved vertex; its connectedness is thus exactly the one-cycle condition. Projecting named adjacencies and dropping loops gives 33 matchings, 20 partitions and 27 quotient edges. The stated bijection sends the complete 16-state component edge set to the base-graph edge set; the other component is the claimed star. Breadth-first distances from all named states confirm components of size 24 and 96, edge totals 54 and 288, the degree histograms and radii/diameters 3 and 4. The frozen transcript is consistent with, but is not the basis of, the independent count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belcastro–Haas define the named-coloring graph and equivalence-class count. Goedgebeur–Östergård census class counts for small cubic graphs. McDonald–Mohar–Scheide Theorem 3 treats four colors for maximum degree three."
+        ],
+        "reasoning": "Class counts and four-color connectivity are weaker or concern a different move space and do not give the three-color one-step quotient. The positive originality failure comes from the exact older record.",
+        "searches": [
+          "arXiv:1209.1730 §1; Belcastro–Haas AJC 69(2), p.197; arXiv:2105.01363 Tables 1–2; arXiv:1005.2248 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary e12726c83181, 94ffa91349b9, 9054ab6ecd47",
+        "arXiv:1209.1730",
+        "AJC 69(2), 197–214",
+        "arXiv:2105.01363",
+        "arXiv:1005.2248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each old quotient state lifts to six named states that are mutually reachable by global color swaps realized as sequences of component switches. The old cycle profiles are (6,10) in the large component, (8,8) at the star center, and one (8,8) plus two (16) at each leaf."
+        ],
+        "reasoning": "The old quotient gives the named component orders 6·4 and 6·16. Summing the number of two-color components over the three pairs gives named degrees 6 for the large component and the center lifts, and 4 for leaf lifts, hence the claimed named edge totals. This deduction does not supply the named distance distributions on its own.",
+        "searches": [
+          "e12726c83181 Finding and Assumptions and scope, including the two-color cycle profiles; arXiv:1209.1730 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e12726c83181 explicitly gives K(G) ≅ G ⊔ K1,3 and defines adjacency by exchanging two colors on exactly one connected cycle, taking global color permutations modulo and discarding loops."
+        ],
+        "reasoning": "Unordered one-factorizations and named proper colorings modulo global color permutations are the same states, and the connected-cycle move is identical.",
+        "searches": [
+          "Resultary: Möbius–Kantor GP(8,3), edge-Kempe reconfiguration, color-unlabeled one-factorizations",
+          "2026/10/12/SCOPE-the-m-bius-kantor-graph-recurs-as-a-component-of-its-edge-kempe--e12726c83181/RESULT.md, Finding and Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables 1–2 are aggregates, not an entry identifying GP(8,3) with its adjacency or metric data. e12726c83181 explicitly supplies the exact quotient. The exact later named census 9054ab6ecd47 postdates the assigned claim."
+        ],
+        "reasoning": "The older catalog is decisive for the quotient. The aggregate tables and later records do not independently establish earlier coverage of the named metrics.",
+        "searches": [
+          "Goedgebeur–Östergård arXiv:2105.01363 Tables 1–2, order-16 connected cubic and bipartite cubic rows",
+          "Resultary e12726c83181, 94ffa91349b9, 9054ab6ecd47"
+        ]
+      },
+      "rationale": "The 2026-10-12 source e12726c83181 already states and certifies the same one-cycle color-permutation quotient, including the exceptional self-copy, the star, and all quotient sizes. This is demonstrated equivalence of the central finding, not just familiarity with the two-class result or a similarity of titles. Earlier coverage of the auxiliary named-graph radii and diameters was not established.",
+      "residual_risks": [
+        "Per-graph census data or earlier exact work might additionally cover auxiliary counts or distances; the aggregate tables and bounded catalog comparison do not settle this. It does not affect the exact overlap on the headline theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central claim exactly",
+          "evidence": "Same GP(8,3), same unlabeled one-cycle graph, same K1,3 ⊔ GP(8,3), and two-color cycle profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-m-bius-kantor-graph-recurs-as-a-component-of-its-edge-kempe--e12726c83181/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, mirrored text offsets 90–2275",
+          "method": "Exact local mirrored passage comparison",
+          "title": "The Möbius–Kantor graph recurs as a component of its edge-Kempe reconfiguration graph",
+          "trigger": "Exact-object and self-copy catalog match"
+        },
+        {
+          "assessment": "Method and class counts, not exact quotient",
+          "evidence": "Global permutations are realizable by a sequence of switches; the invariant studied is a number of equivalence classes.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+          "material_read": "§1, pp. 1–2",
+          "method": "Primary text",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Prior equivalence and class counts"
+        },
+        {
+          "assessment": "Accurate framework for named states; not the decisive exact result",
+          "evidence": "KE(G) uses named colorings and edges for single switches.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+          "material_read": "§1, p. 197",
+          "method": "Primary text",
+          "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+          "trigger": "Exact same reconfiguration framework"
+        },
+        {
+          "assessment": "Aggregate data, no graph-specific adjacency, diameter, or exact quotient in the inspected tables",
+          "evidence": "The order-16 rows report counts and class-count values, not labeled GP(8,3) invariants.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.01363",
+          "material_read": "Tables 1–2, pp. 13–14 and column definitions",
+          "method": "Primary numerical tables",
+          "title": "Switching 3-edge-colorings of cubic graphs",
+          "trigger": "Possible exact order-16 census coverage"
+        },
+        {
+          "assessment": "Different number of colors",
+          "evidence": "For Δ≤3, the connectivity theorem uses Δ+1 colors, four for the cubic case.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2248",
+          "material_read": "Theorem 3, p. 2",
+          "method": "Primary text",
+          "title": "Kempe equivalence of edge-colourings in subcubic and subquartic graphs",
+          "trigger": "Potential stronger connectivity theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The self-copy would be a useful structural fact if uncovered, but is an exact repeat of an already proved natural invariant. Most named-graph sizes and degree data are consequences of the older cycle profiles. The remaining matching count and named distances are correct ancillary census data; this record offers no separate mathematical motivation for needing those precise numbers beyond checking the known self-copy. They do not support retaining this as a distinct finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

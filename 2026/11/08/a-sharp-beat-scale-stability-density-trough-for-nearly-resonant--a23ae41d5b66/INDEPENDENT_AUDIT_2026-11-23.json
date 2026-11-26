@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:09:51.839999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Variation of constants gives the exact scalar multiplier for each complex block; its modulus inequality reduces, by the positive half-angle sine, to the open phase interval (0,2 arctan ω). On each full fast cell h=2πk+s, only s in (0,a) matters; discarding εs and replacing β_(1+ε) by a can change membership only within (1+a)ε of the two circular endpoints. The changed measure is uniformly O(ε) regardless of slow phase. Summing the errors, adding the bounded last incomplete cell, and applying a Lipschitz Riemann sum to U gives O_L(1) in stable measure, hence O_L(ε) in density. Integrating the triangle gives all three J branches. The first-period average decreases until the terminal branch where its derivative has the sign of 1−10a²/L²; the root a√10 lies strictly between 3a and 4a. Each subsequent period's average is a convex combination with positive weight on 1/16, strictly above the first-period minimum (√10−3)/4. For a fixed irrational detuning, all nonconstant torus characters have nonzero frequency and zero long-time average; rectangle boundaries are null, yielding the stated product density. For fixed T, convergence to the coincident windows as ε→0 follows by dominated convergence outside finitely many phase endpoints, proving the reversed iterated limit. Fresh finite computations passed 20,884 bounded assertions; replay with Python 3 at /workspace/branches/fabe897c-7ffe-4e86-8622-1dd55e6ae217/ordinal5_recheck.py. Floating-point checks are not proofs of the asymptotic or minimizer; the supplied checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary Osinenko–Beckenbach–Streif theorem uses local Lipschitz and control-Lyapunov assumptions for practical stabilization under approximate optimizers at sufficiently short sampling durations.",
+          "The frozen Wakaiki comparison concerns preserving strong stability in infinite-dimensional Riesz-spectral systems under sufficiently fast sampling; no independent full-text inspection of that article is claimed."
+        ],
+        "reasoning": "Sufficient small-hold hypotheses or existence of some stabilizing hold are not quantitative laws for the measure of the entire set over horizons growing like 1/ε. A general quantitative periodic-averaging theorem might cover the averaging step, but not on its own the exact window size, integral, or global minimizer.",
+        "searches": [
+          "arXiv:1803.02203v3 §§II–IV, Definition 1 and Theorem 1",
+          "arXiv:2105.07152 and doi:10.1137/20M1356877 (frozen comparisons)",
+          "Web: sampled-data oscillator stabilizing sampling periods planar rotation zero order hold simultaneous stability sampling resonance density two frequencies"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.02203v3",
+        "Resultary a23ae41d5b66 (self-match), 09c3340f336a",
+        "arXiv:2105.07152 and doi:10.1137/20M1356877 (frozen comparison only)",
+        "classical Kronecker–Weyl criterion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed irrational ε, the torus theorem yields the product of mean window lengths. But the difference character has time average (e^(iεT)−1)/(iεT), generally nonzero at T=L/ε. Thus fixed-ε equidistribution does not even yield the finite beat occupation limit by substitution.",
+          "The short-hold practical-stability result provides neither the integrated overlap of two phase windows nor a comparison among different beat periods."
+        ],
+        "reasoning": "The asymptotic product density is covered by the classical theorem and the one-mode windows. The additional exact finite-window profile requires averaging at fixed difference phase, integration in the slow variable, and global comparison of averages over repeated periods.",
+        "searches": [
+          "arXiv:1803.02203v3 Theorem 1",
+          "Classical continuous Kronecker–Weyl criterion, with frequencies 1 and 1+ε"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match a23ae41d5b66 is the frozen record itself. Critical sampling resonances in a planar oscillator's reachability matrix (09c3340f336a) concerns singular values of a one-mode reachability matrix, not the visiting fraction of a product of two closed-loop phase windows.",
+          "The sampled-system density here is equivalently a finite-time occupation of a two-torus rectangle by a nearly diagonal flow, with slow difference phase in [0,L]."
+        ],
+        "reasoning": "Common words such as sampling resonance refer to different quantities. Closing the held loop with prescribed feedback leads to a Schur inequality on open windows, not a rank defect or optimal sensor design. The torus alias is the correct reduction for matching another claim.",
+        "searches": [
+          "Resultary: sampled planar oscillator zero order hold frequency detuning stable sampling durations density phase beat overlap",
+          "Web: sampled-data oscillator stabilizing sampling periods planar rotation zero order hold simultaneous stability sampling resonance density two frequencies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact formula in the inspected Resultary matches was the self-match. Adjacent records report reachability/observability resonances or unrelated hold-counts, not the density evaluated at a detuning-scaled horizon."
+        ],
+        "reasoning": "A table or exact formula for the occupation of these equal limiting quarter-circle windows on the beat horizon would count. Sampled-data rank resonances and fast-sampling stabilization results are not such tables; search scope cannot exclude an older equivalent formula.",
+        "searches": [
+          "Resultary: sampled planar oscillator zero order hold frequency detuning stable sampling durations density phase beat overlap",
+          "Web: sampled-data oscillator stabilizing sampling periods planar rotation zero order hold simultaneous stability sampling resonance density two frequencies"
+        ]
+      },
+      "rationale": "Qualified to the finite inverse-detuning density and its globally sharp trough. Neither the zero-order-hold map, the use of open Schur windows, nor the fixed-irrational equidistribution principle is new. The closest inspected statements do not supply the finite-horizon average along almost-coincident phases or its global minimum.",
+      "residual_risks": [
+        "Older specialist sampled-data or near-commensurate phase-window literature may contain an equivalent occupation limit; the search did not exhaust it.",
+        "Only the indicated primary control theorem and indexed Resultary statements were independently examined here; the Wakaiki full text and adjacent sampling-pattern paper were not independently read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Practical stabilization under approximate optimization with sufficiently short sample periods, not a measure across large durations of a prescribed linear feedback.",
+          "evidence": [
+            "Definition 1 asks for sufficiently small δ and bounded trajectories ultimately in a ball; Theorem 1 gives sufficient regularity/decay conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.02203",
+          "material_read": "Introduction, §II system and Definition 1, §§III–IV through Theorem 1 and initial proof steps",
+          "method": "Primary arXiv PDF text",
+          "title": "Practical sample-and-hold stabilization of nonlinear systems under approximate optimizers",
+          "trigger": "Primary control theorem cited as the focal sample-and-hold comparator"
+        },
+        {
+          "assessment": "A single-mode reachability question, not fixed-feedback two-mode stability density.",
+          "evidence": [
+            "Exact singular sampling times h_m=mπ/ω and conditioning blowups classify a matrix of controllability, not the product Schur condition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-critical-sampling-resonances-in-a-planar-oscillator-s-reachabili--09c3340f336a",
+          "material_read": "Indexed reachability singularity and inverse-norm laws",
+          "method": "Resultary published-record search",
+          "title": "Critical sampling resonances in a planar oscillator's reachability matrix",
+          "trigger": "Closest distinct published oscillator and sampling-resonance hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two nearby modal frequencies are a natural setting for simultaneous sampling constraints. The exact profile gives a quantitative counterexample to interpolating between the resonant 1/4 and equidistributed 1/16 densities: the stable share falls to about 0.04057, strictly lower than either, over a uniquely determined rescaled horizon. This is a benchmark for the time scale of detuning, not a recommendation about jitter, changing holds, or arbitrary coupled feedback.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

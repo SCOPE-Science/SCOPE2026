@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A deficient family is a maximal-subgroup selection with intersection strictly larger than the Frattini subgroup; its maximum cardinality is \(u(X)-1\). Coprime orders force all subgroups of a product to split, giving exactly two types of maximal subgroups. Counting the largest deficient family by holding one coordinate deficient and choosing every maximal subgroup in the other proves the exact formula. Hyperplanes through a projective point establish the \(p\)-group law; Sylow decomposition yields the nilpotent formula. All hypotheses, including nontrivial finite factors, coprime orders, and generator ranks, are explicit. Sixteen prime-rank cases and the nonabelian \(S_3\times C_5\) test independently enumerate actual subgroup-family intersections. The finite checks support but do not replace the proof.
+## correctness
 
-**Originality — PASS (subject to residual literature risk).** The October 15, 2026 Choudhury–Khanra primary manuscript was read through its definition, Proposition 2.1, Corollary 2.2 and surrounding section. The manuscript claims a contrary upper bound and abelian additivity, both refuted by the directly checked \(C_2^2\times C_3\) example. The 2019 Archer et al. intersection-number result is existence-based, not the uniform invariant; Lucchini's chain parameters concern different extrema. Targeted database and published-record searches for the product defect, hyperplane pencils and Frattini ranks did not reveal the exact formula. These searches are evidence, not proof of global novelty. A separate derivation or unindexed equivalence is still possible.
+PASS
 
-**Value — PASS.** This is a complete law for every coprime pair, an explicit classification for every finite nilpotent group, and a constructive correction to two recently asserted statements. The obstruction is quantitative and unbounded: the gap on \(C_2^d\times C_3\) equals \(2^{d-1}-1\). The conclusions address the distinction between existential and universal intersection invariants rather than a routine numerical example.
+For x outside Φ(X), let b_X(x) count the maximal subgroups omitting x. The largest deficient family has size max_{x∉Φ(X)}(m(X)−b_X(x)): any deficient intersection contains such an x, and all maxima containing x attain that family's size. Thus δ(X)=min_{x∉Φ(X)} b_X(x)−1. In a product of groups of coprime orders, taking powers by the Chinese remainder theorem separates the coordinates of every element of any subgroup. A maximal is therefore a lift from exactly one factor, and Φ splits. For x=(g,h) the omitted counts add, and x∉Φ precisely when at least one coordinate is outside its Φ. Putting the other coordinate equal to the identity attains the minimum, so δ(G×H)=min(δ(G),δ(H)). This proves both forms of the product law including δ=0. For P, maximal subgroups are preimages of hyperplanes of the elementary-abelian Frattini quotient. There are (p^d−1)/(p−1) hyperplanes, of which (p^{d−1}−1)/(p−1) contain a fixed nonzero vector, by quotienting by its line. Exactly p^{d−1} omit it. Iteration over nontrivial Sylow factors gives the formula for every nontrivial nilpotent group including rank one; the empty-family convention covers a sole maximal subgroup. Three lifted lines in C₂²×C₃ retain the C₃ factor; all four maxima intersect trivially. This refutes exactly the uniform bound and uniform additivity, not the existential additivity clause of Corollary 2.2. For C₂^d×C₃ the derived gap is 2^{d−1}−1. The frozen verifier was inspected, not run; its finite enumerations do not prove the formula.
 
-**Closest literature and limitations.** Choudhury and Khanra, arXiv:2610.22268v1, Proposition 2.1 and Corollary 2.2, is the closest directly contradicted claim. Archer et al., arXiv:1907.02898, and Lucchini, DOI:10.1007/s00009-021-01961-9, are context on other intersection parameters. No statement is made for noncoprime factors. Small computational cases do not certify the full result or global literature novelty. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact coprime law and full nilpotent classification go beyond the accessible statements. The motivating paper gives the same uniform invariant but claims the opposite type of bound, with a construction that only addresses existential choice. An indexed generalized-dihedral incidence theorem covers some instances (including elementary-abelian 2-groups) but does not give the coprime law or full classification. This is a best-of-knowledge judgment from bounded sources, not a first-priority attestation.
+
+## value
+
+PASS
+
+This resolves a well-specified published claim about the universal-choice invariant. The four-maximal witness isolates the quantifier error, the general law quantifies exactly how serious the error can be, and the Sylow calculation classifies all finite nilpotent groups. The combined result is a useful correction and exact classification, not merely a reindexing of a known minimum-based formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:12:04.979905Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coefficient of (i,j) in a product of block sums is r_X(i)c_Y(j). Summing each pair of closure tests over one color index shows the row and column degrees separately must be constant within each color, and that condition also suffices. A monochromatic row forces every row meeting its color to be monochromatic; the column argument is the same. Otherwise both degrees are interior and constant. Principal right and left ideals identify the rows and columns, and the relevant transitivity group is the stabilizer of the two colors in S_a x S_b, not the entire product group. In dimensions with a side at most three, every proper regular case is a singleton-neighborhood construction or its complement, with equal multiplicities forcing both flag transitivity statements. Up to transposition the only remaining rectangles below order 24 are 4x5 (no proper degree solution) and 4x4 (matching/complement, eight-cycle, or two four-cycles); in the eight-cycle case rotation and d -> 1-d on column-minus-row residues are transitive within each color. At 4x6 the column pairs form a cubic loopless multigraph on four vertices. Equal degrees force opposite-edge multiplicities to be equal; the three opposite-pair multiplicities sum to 3. Their possible unordered patterns are (3,0,0), (2,1,0), and (1,1,1). The middle pattern has two sizes of column-twin classes, so even its incidence flags cannot be transitive. The other two have both flag transitivity statements. Column labelings give 60, 1080, and 720 matrices, respectively; complementation is fixed-point-free, and the disjoint row and column cuts contribute 7 and 31. This gives 968 total, 428 automorphic and 540 non-automorphic. A separately implemented exact enumeration of all 46656 endpoint assignments also confirmed the census and orbit tests (/workspace/branches/e072f746-98ab-4ebd-9f64-d4da8eba14c6/census.py and census.json). The frozen checker was inspected, not executed. The threshold is for exactly two nonempty unordered blocks of labeled rectangular bands over Q, not arbitrary semigroups or arbitrary block counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Marrow–Misseldine finite enumeration is through order seven.",
+          "Record b55d2bce611d is stronger in the number of blocks but restricted to one dimension of size two; record 898f75a97d4e likewise classifies two-row bands."
+        ],
+        "reasoning": "The earlier two-row result subsumes that part of the positive threshold and must be credited. It does not classify bands with both dimensions at least three, and the general framework's finite census does not reach 24.",
+        "searches": [
+          "arXiv:2601.09940, abstract and §§2.2, 5.7",
+          "Resultary: all Schur partitions over two-row rectangular bands"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.09940",
+        "Resultary records b55d2bce611d and 898f75a97d4e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product construction supplies some closed partitions but is not stated as exhaustive for rectangular bands. The two-row counterpart rules out counterexamples in that subfamily only."
+        ],
+        "reasoning": "Exhaustiveness of the three two-block profiles needs the coefficient test, while the sharp threshold and count require automorphism-orbit analysis for biregular graphs not included in those constructions.",
+        "searches": [
+          "Marrow–Misseldine §2.2 (direct products)",
+          "Resultary b55d2bce611d and 898f75a97d4e, their FINDING statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marrow–Misseldine §2.2 identifies rectangular bands with the product of left- and right-zero semigroups and gives direct-product constructions.",
+          "The earlier indexed two-row finding b55d2bce611d asserts that all Schur partitions of a two-row band are automorphic."
+        ],
+        "reasoning": "Interchange of factors, complementation of a color, and the names left/right-zero product do not remove the two-row restriction. The direct-product examples do not classify non-cut two-color partitions on arbitrary two-sided sizes.",
+        "searches": [
+          "Resultary: two-block rectangular-band Schur partitions; biregular incidence classification; orbit partitions of rectangular bands; labeled first nonautomorphic Schur partitions",
+          "arXiv:2601.09940, §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary census covers orders 0–7. The closest catalogued count found is for two-row bands (898f75a97d4e)."
+        ],
+        "reasoning": "Even an order-24 two-row band is not the 4x6 semigroup: its principal ideal classes differ. Neither available count covers the labeled unordered 4x6 data, where orbit types must be counted in addition to closure.",
+        "searches": [
+          "Resultary: exact 4x6 rectangular-band Schur census and smallest nonautomorphic Schur partitions",
+          "arXiv:2601.09940, enumeration in §5"
+        ]
+      },
+      "rationale": "The new content supported by the comparisons is the general two-block structural classification, sharp failure of automorphic realization at size 24, and complete labeled first-case census. The semigroup Schur-ring framework, the row/column product construction, and the two-row positive case are not credited as new.",
+      "residual_risks": [
+        "The focused public-web query was uninformative. Differently phrased prior characterizations in semigroup algebra or incidence-partition literature are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, examples and small orders are prior; passages do not give the arbitrary-size two-block result",
+          "evidence": "Rectangular bands are left-zero by right-zero products and have direct-product Schur rings; enumeration through order seven.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.09940",
+          "material_read": "Abstract, §2.2 p. 8 around extracted offset 35939, §5.7 p. 32 offsets 144169–148654",
+          "method": "OA paper passages",
+          "title": "On Schur Rings Over Semigroups",
+          "trigger": "Original framework and rectangular-band discussion, plus small-size enumeration"
+        },
+        {
+          "assessment": "Genuine earlier subfamily overlap, not general two-block coverage",
+          "evidence": "All Schur partitions of {0,1} x [m] are classified and automorphic.",
+          "identifier_or_url": "2026/10/13/SCOPE-all-schur-partitions-of-two-row-rectangular-bands-are-automorphi--b55d2bce611d",
+          "material_read": "RESULT.md, classification and all-automorphic finding",
+          "method": "Local catalogue mirror",
+          "title": "All Schur partitions of two-row rectangular bands are automorphic",
+          "trigger": "Earlier theorem that subsumes the two-row automorphic claim"
+        },
+        {
+          "assessment": "Distinct two-row claim; later catalogue date",
+          "evidence": "Classification and enumeration for the dimension-two family, not 4x6.",
+          "identifier_or_url": "2026/10/26/SCOPE-schur-ring-classification-of-two-row-rectangular-bands--898f75a97d4e",
+          "material_read": "RESULT.md, two-row classification/count finding",
+          "method": "Local catalogue mirror",
+          "title": "Schur-ring classification of two-row rectangular bands",
+          "trigger": "Related exact counts and classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies an exact boundary between algebraic closure and realization by automorphism orbits in a standard family. The graph description reduces arbitrary-size closure to a simple incidence test; the minimal witness and complete census show both when the gap starts and that it is not exceptional there. The census is motivated by this threshold rather than an arbitrary rectangle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:03:05.735353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two complexes of neighborhoods centered on a single shore intersect in exactly the graph (including every vertex); each unique apex collapses relative to its nonempty simplex base by pairing apex faces with and without a chosen base vertex. The remaining complex is the dual of Ind(C_n) since a complement must contain an adjacent pair. The full 2-skeleton follows from ceil(n/2)>3. Integral Alexander duality and the cycle independence formula put free reduced homology in just one degree r=n-3-dim(Ind(C_n))>=3 (r=2k-2,2k-1,2k-1 in the stated cases). Hurewicz and homological Whitehead give a wedge in that degree. The bipartite overlap is connected by the common-neighbor argument and its cycle rank is n(n-2)-2n+1. Maps from a connected graph to either simply connected shore are nullhomotopic, and the cofibrant union is the corresponding homotopy pushout, with reduced suspension of the graph as third summand. Independently generated closed-neighborhood faces and reduced their binary boundary matrices for n=7,8,9, obtaining nonzero reduced Betti entries {2:22,3:2}, {2:33,3:2}, {2:46,4:4}; this checks examples only, not integral homotopy. The packaged checks/verify.py and its recorded output are supplementary evidence, not a substitute for the argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A mod-three sphere-wedge law for closed-neighborhood complexes of bipartite two-factor complements, 2026/11/1, d85826c9b40e: n>=7 and all forbidden cycles of length at least six; the extra sphere count is 2^(c+1) and dimension n-2-sum_j floor((m_j+1)/3)."
+        ],
+        "reasoning": "The condition 2n>=6 is automatic and the earlier statement also covers multiple deleted cycles; the frozen record adds no previously excluded n.",
+        "searches": [
+          "Resultary: closed neighborhood complex bipartite graph deleted Hamiltonian cycle Alexander dual wedge"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt and checks evidence",
+        "Resultary d85826c9b40e",
+        "Matsushita arXiv:2511.12608v2",
+        "Classical Kozlov cycle-independence formula as cited to Adamaszek arXiv:1106.6250"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set m_1=n; c=1 for 3|n and c=0 otherwise. The same baseline n^2-4n+1 is explicit. Then n-2-floor((n+1)/3) gives 2k-2, 2k-1, 2k-1 and 2^(c+1) is 4,2,2."
+        ],
+        "reasoning": "The entire homotopy statement, simple connectivity and absence of torsion follow, without needing to resolve whether the two proofs differ.",
+        "searches": [
+          "Resultary earlier theorem statement d85826c9b40e",
+          "arXiv:2511.12608v2 Theorems 1.2 and 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A deleted Hamiltonian cycle is the one-component case of a deleted spanning bipartite two-factor, of length 2n and half-length n.",
+          "Matsushita arXiv:2511.12608v2 Theorems 1.2, 1.4 compare another complex after suspension, or give a hypergraph Alexander dual, rather than stating the unsuspended wedge here."
+        ],
+        "reasoning": "Compare closed rather than open neighborhoods, and the actual wedge rather than just a suspension or Betti numbers. The Resultary overlap matches the stronger invariant exactly.",
+        "searches": [
+          "Resultary: closed neighborhood complex bipartite graph deleted Hamiltonian cycle Alexander dual wedge",
+          "Web: closed neighborhood complex complement Hamiltonian cycle complete bipartite homotopy Matsushita biclique cycle independence Alexander dual"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen entry itself and the earlier formula d85826c9b40e both returned; the latter is an all-n formula, not only a small-instance table."
+        ],
+        "reasoning": "The earlier formula returns the exact n=7 and n=9 examples and all other entries. The self-match is not independent evidence of overlap.",
+        "searches": [
+          "Resultary: closed neighborhood complex bipartite graph deleted Hamiltonian cycle Alexander dual wedge"
+        ]
+      },
+      "rationale": "The earlier published two-factor-complement result explicitly gives the *unsuspended* wedge and covers the entire frozen theorem by taking just one forbidden cycle. This is a scientific overlap, not a negative inference from failed access to a full text. The published statement contains the hypotheses, dimension and multiplicities needed for exact specialization.",
+      "residual_risks": [
+        "Earlier full proof beyond the published statement was not retrieved; the exact implication of its published statement is direct.",
+        "The independent finite replay verifies only binary Betti numbers for three parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS via one forbidden component; no assertion about the unseen proof",
+          "evidence": [
+            "n>=7, cycle lengths >=6, same quadratic 2-sphere count, extra rank 2^(c+1) in dimension n-2-sum floor((m_j+1)/3)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-mod-three-sphere-wedge-law-for-closed-neighborhood-complexes-o--d85826c9b40e",
+          "material_read": "Indexed published theorem statement giving graph hypotheses and both wedge formulas; full RESULT.md retrieval timed out",
+          "method": "Resultary search and direct raw GitHub reader",
+          "title": "A mod-three sphere-wedge law for closed-neighborhood complexes of bipartite two-factor complements",
+          "trigger": "Earlier theorem on same invariant and a larger class of deletion graphs"
+        },
+        {
+          "assessment": "Framework rather than the decisive earlier identical wedge law; example concerns a Cartesian-product graph",
+          "evidence": [
+            "Theorem 1.2 concerns suspension and a canonical double cover of the complement; Example 3.5 uses a different graph family."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.12608v2",
+          "material_read": "Definition 1.1, Theorems 1.2, 1.4, 3.1 and Example 3.5",
+          "method": "arXiv HTML",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "Foundational same-functor paper cited in frozen evidence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete integral wedge classification for this graph family would be useful as a new result, but the frozen claim supplies only the one-cycle substitution in the already published two-factor wedge law. No distinct invariant, useful new range, equivariance result, or independent substantive advance is established. It can serve as an exposition or worked example, not as a standalone new finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

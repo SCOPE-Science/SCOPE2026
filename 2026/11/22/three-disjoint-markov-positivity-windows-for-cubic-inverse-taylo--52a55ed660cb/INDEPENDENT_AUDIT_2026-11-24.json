@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:06:21.746364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For column distributions 1ᵀQ=0, so the update preserves total mass; its inverse exists since the triangular denominator has diagonal values E(h)/6>0 and 1. The transient block is the evaluation of the scalar inverse D_h(z)^−1 on a nilpotent shift, and the absorbing row is given by column-sum remainders. I independently expanded the finite geometric inverse of D_h as a truncated series and recovered all coefficients and the three displayed P,U,V, with Sturm variations (5,3), (5,5), (7,5). The calculation also recovers square-freeness and exact opposite signs in all four ordered rational isolation intervals. U is strictly positive because it has no nonnegative zero and U(0)>0. For the low-order numerators, RESULT.md line 54 overstates 'strictly positive coefficients': c_4 and T_4 have internal zero coefficients after the positive monomial is extracted. The required fact, as actually tested by check.py, is nonnegative coefficients with at least one positive term, which I verified and which gives strict positivity for h>0. At n≤6 only c_0 through c_4 and tails through T_5 are needed. At n=7 the two remaining sign constraints are exactly P≥0 and V≥0, allowing their roots as endpoints and excluding the interiors of the two negative bands. At h=0 the update is the identity, including for n=1. This proves the unchanged finding; independent exact replay is markov() in /workspace/calculations/algebra_checks.py. The supplied script was inspected but not run. The classification is for this family and exact arithmetic only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "808c1509a3bb proves all-step positivity for connected simple unweighted undirected graphs on ≤6 vertices and gives a seven-path witness negative at h=1 and positive again at h=2.",
+          "A distinct same-day record, 22ee684ff54b, describes a cutoff in Boolean cube dimension, not chain size, with an antipodal witness.",
+          "The positivity-preserving methods in the inspected Blanes–Iserles–Macnamara passage concern other constructions rather than a universal claim for this rational update."
+        ],
+        "reasoning": "These results address different generator classes or methods. Neither the undirected discrete witnesses nor Boolean cube results give the entire sign set even by scaling; no prior result covering this exact chain classification was established.",
+        "searches": [
+          "Resultary: seven vertices positivity loss cubic inverse-Taylor heat step undirected path",
+          "Blanes–Iserles–Macnamara, DOI 10.1051/m2an/2022042, p. 1843"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 52a55ed660cb, 808c1509a3bb, 7756127900e3, 22ee684ff54b, be294053bb82, 55c033cdfc5a",
+        "Fasi–Higham DOI 10.1137/18M1228876",
+        "Blanes–Iserles–Macnamara DOI 10.1051/m2an/2022042"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fasi–Higham conjecture positivity of the reciprocal denominator expansion at the origin for odd denominator degree. Resultary 7756127900e3 proves the degree-three case for all numerator degrees, including k=0.",
+          "Here c_k(h) is a shifted coefficient; equivalently it is h^k r^(k)(−h)/k! for the stability function r. The certified negative c_5 exhibits a distinction from origin-coefficient positivity, and the absorption remainder T_6 is a further condition."
+        ],
+        "reasoning": "Origin coefficients neither prove all relevant derivatives on the negative axis nor certify the absorption tails. For the frozen claim the exact shifted signs and strict ordering of both pairs of roots remain necessary.",
+        "searches": [
+          "Fasi–Higham, Conjecture 3.2, p. 9",
+          "Resultary: complete coefficient positivity cubic exponential Padé denominators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match 52a55ed660cb is the frozen record itself.",
+          "The undirected result 808c1509a3bb matches the method, dimension cutoff and reentry phenomenon but not the directed absorbing generator. In particular the latter has a nontrivial Jordan block at −1; a real symmetric graph Laplacian does not."
+        ],
+        "reasoning": "The inverse Taylor and [0/3] labels describe the same rational function. Transposition merely changes row/column convention, and rate scaling only reparametrizes the step. None of those equivalences makes an undirected heat generator the directed absorbing cascade.",
+        "searches": [
+          "Resultary: cubic inverse-Taylor directed pure-birth chain positivity windows [0/3]",
+          "Resultary: seven vertices positivity loss cubic inverse-Taylor heat step undirected path",
+          "Resultary: complete coefficient positivity cubic exponential Padé denominators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only located exact match for both polynomial-defined negative bands is the identical frozen record.",
+          "The seven-path has point witnesses, while the overlapping chain studies use two-stage Radau IIA (be294053bb82) or explicit truncated-Taylor endpoint polynomials (55c033cdfc5a)."
+        ],
+        "reasoning": "Shared state counts or positivity thresholds for different rational/polynomial functions do not reproduce P and V or give all four exact ordered thresholds.",
+        "searches": [
+          "Resultary: cubic inverse-Taylor directed pure-birth chain positivity windows [0/3]",
+          "Mirrored RESULT.md for 808c1509a3bb, be294053bb82 and 55c033cdfc5a"
+        ]
+      },
+      "rationale": "The classical rational map, unshifted expansion, and undirected six/seven cutoff are existing results. The supported distinct claim is the full all-step sign classification on a directed absorbing cascade, together with its two active entries and narrow middle recovery interval. Neither the undirected heat result nor positive Taylor coefficients at the origin establish it.",
+      "residual_risks": [
+        "Masood–Yousuf DOI 10.1080/10407781003744763 was not independently inspectable in full text; possible historical overlap with specialized Padé analyses remains unresolved.",
+        "The targeted broader literature query did not return usable evidence; bounded coverage does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap, different generator family and conclusion",
+          "evidence": "Connected simple unweighted undirected graphs; seven-path negative at h=1 and positive again at h=2.",
+          "identifier_or_url": "Resultary 2026/10/26, 808c1509a3bb",
+          "material_read": "Mirrored RESULT.md, opening finding, assumptions and proof",
+          "method": "Local Resultary mirror",
+          "title": "Seven vertices are sharp for positivity loss of the cubic inverse-Taylor heat step",
+          "trigger": "Same map and dimension boundary"
+        },
+        {
+          "assessment": "Origin expansion, not shifted chain entries",
+          "evidence": "Taylor coefficients of q_{k,3}^−1 at the origin are positive for all numerator degrees k.",
+          "identifier_or_url": "Resultary 2026/11/8, 7756127900e3",
+          "material_read": "Mirrored RESULT.md, opening theorem",
+          "method": "Local Resultary mirror",
+          "title": "Complete coefficient positivity for cubic exponential Padé denominators",
+          "trigger": "Possible implication via reciprocal coefficients"
+        },
+        {
+          "assessment": "Different geometry and no asserted priority ordering",
+          "evidence": "Positivity through Boolean cube dimension five; a negative antipodal entry in cube dimension six.",
+          "identifier_or_url": "Resultary 2026/11/22, 22ee684ff54b",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "A five-dimensional positivity frontier for cubic inverse-Taylor stepping",
+          "trigger": "Distinct same-day same-map theorem"
+        },
+        {
+          "assessment": "Credits background; not a shifted derivative or chain result",
+          "evidence": "Conjecture concerns coefficients of the Taylor series about the origin when the denominator degree is odd.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2721/1/ArbitraryPrecisionScalingAndSquaring.pdf",
+          "material_read": "p. 9, Conjecture 3.2",
+          "method": "Targeted lawful OA text inspection",
+          "title": "An Arbitrary Precision Scaling and Squaring Algorithm for the Matrix Exponential",
+          "trigger": "Origin of the reciprocal-denominator positivity comparison"
+        },
+        {
+          "assessment": "The inspected passage supports the related-method comparison only",
+          "evidence": "The abstract outlines other positivity-preserving constructions and includes Markov-process applications.",
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/m2an/2022042.pdf",
+          "material_read": "Abstract, p. 1843",
+          "method": "Open paper abstract inspection",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Positivity for Markov-type systems"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "Title confirms an inverse heat problem and positivity-preserving Padé methods but does not specify this generator or step-set classification.",
+          "identifier_or_url": "https://doi.org/10.1080/10407781003744763",
+          "material_read": "Independent access did not obtain abstract/full text; identification from the frozen citation",
+          "method": "Lawful DOI and publisher endpoint attempts; no accessible repository copy identified",
+          "title": "Solution of the Initial Inverse Problems in the Heat Equation Using the Finite Difference Method with Positivity-Preserving Padé Schemes",
+          "trigger": "Potential specialized historical Padé overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The homogeneous cascade is a natural nested family for testing whether a classical step transports probability distributions. Exact positivity at every step through six states, followed by two different mechanisms and an exceptionally narrow recovery window at the first failing size, shows why a single positivity threshold or numerical step grid is insufficient. The classification provides a reproducible benchmark without extrapolating to other generators or claiming accuracy on those intervals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

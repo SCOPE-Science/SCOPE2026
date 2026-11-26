@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:21.967145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the corrected RESULT.md. The frozen scope's independence of the initial oscillator state is misleading in a theorem about the stationary joint law and false if imposed there: E[sigma(0) X(0)]=1/(k+u+u^2)>0 though the two means vanish. The repair specifies the autonomous sign chain and the jointly stationary causal convolution, distinguishes transients, and proves existence, boundedness and uniqueness for k>0. It leaves the crossing theorem unchanged. Independently, in coordinates (sigma X,sigma V) the drift is (v,-v-kx+1), and a flip negates both coordinates; a degree-d homogeneous monomial gains the jump term -u(d mod 2). The resulting degree 1–4 systems are invertible for k,u>0. Running python3 /workspace/evidence/2_moments.py reproduced the moments, three numerator polynomials and both exact sign certificates. Even-degree moments of these coordinates are the original even-degree moments. H>0, P_c(6,u)>0, the positive quadratic root is increasing, and its small-u derivative is 477/57=159/19; its leading large-u coefficient is (26+28)/18=3. P_v has one sign variation even when its k^2 coefficient vanishes; P_x has none at u=4/3 and exactly one for larger u, with the indicated signs on either side. The remainder signs at the positive P_c root place it strictly above k_v and strictly below k_x when k_x exists. The energy rescaling preserves sign and all of k<=1/4 lies below k_c. Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dutta et al. Sec. III equations (22)–(28) give a full recurrence, and Sec. IV.1 equations (46)–(48) use marginal cumulants for reconstruction.",
+          "Resultary 2c4edea2eb0c has an exact position-kurtosis diagram in h,r; a fixed normalized rate traces the ray r=(u/2)h."
+        ],
+        "reasoning": "General access to moments in principle is broader than deriving any one formula, and the ray encodes substantial position-boundary information. Neither inspected statement supplies inequalities comparing three different observables on the same positive-k root. Conclusions for Gaussian colored driving would not apply to non-Gaussian telegraph input, and the APS full texts were not available to this review.",
+        "searches": [
+          "arXiv:2406.06120v2 stationary moments and cumulants",
+          "Resultary 2c4edea2eb0c position kurtosis phase diagram",
+          "doi:10.1103/PhysRevE.87.062132",
+          "doi:10.1103/PhysRevE.48.4309"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.06120v2",
+        "Resultary:8126e2ff3632",
+        "Resultary:66ee9dbaa5a1",
+        "Resultary:2c4edea2eb0c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same marginal polynomials and the equivalent covariance polynomial exist separately. The checked marginal record discusses covariance as contextual background, not a mixed-energy root comparison.",
+          "On P_c=0, exact division of the known polynomials gives -9 R_v and 3 R_x with strictly positive coefficients and nonzero constants."
+        ],
+        "reasoning": "Single-crossing of each curve alone cannot order the three roots: the mutual ordering needs a sign evaluation on a different curve. The explicit all-u remainder positivity is the substantive additional algebraic inequality, and excludes every possible exchange of order, including the u=4/3 boundary case. This is not merely substituting or renaming a prior root.",
+        "searches": [
+          "Resultary 8126e2ff3632 Finding and covariance mentions",
+          "Resultary 66ee9dbaa5a1 Finding and covariance sign theorem",
+          "arXiv:2406.06120v2 Secs. III and IV.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 66ee9dbaa5a1 treats the same covariance sign after changing coordinates to g=1/sqrt(k), u_old=g*u/2. Substitution makes its sign polynomial g^4 P_c.",
+          "Dutta et al. Sec. III uses symmetric sign reversals and the same damped linear oscillator after normalization."
+        ],
+        "reasoning": "Positive coordinate and energy scalings preserve the sign. The difference in independent variables does not make the covariance boundary itself new; the unresolved comparison is with the marginal fourth-cumulant zeros.",
+        "searches": [
+          "Resultary: potential kinetic energy covariance boundary, inertia, dichotomous telegraph and run-and-tumble oscillator",
+          "Resultary 66ee9dbaa5a1 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary 8126e2ff3632 gives the same P_x, P_v, unique velocity sign crossing and conditional existence of a unique position crossing, with no positive position zero for u<=4/3.",
+          "Resultary 66ee9dbaa5a1 provides the exact covariance sign frontier rather than just samples."
+        ],
+        "reasoning": "Those parametric results exhaust the standalone frontier lookups; no new isolated parameter value is asserted. The repair is an inequality for every positive switching rate, so neither exact knowledge of individual curves nor a finite comparison table settles it.",
+        "searches": [
+          "Resultary: exact fourth cumulant sign frontiers inertial run and tumble",
+          "Resultary: mixed fourth-order energy covariance threshold"
+        ]
+      },
+      "rationale": "Pass for the repaired claim of strict interlacing as a joint all-parameter inequality. The repaired file explicitly credits the published overlapping claims for the three individual frontiers and the known all-order moment machinery. The exact two comparisons on the covariance root curve, not the moment recurrence or the separate existence of any of the three roots, are the supported distinct contribution. No chronology is inferred from same-date records.",
+      "residual_risks": [
+        "APS texts 10.1103/PhysRevE.87.062132 and 10.1103/PhysRevE.48.4309 were not independently available. Older fourth-order comparisons may exist in other parameterizations. The verdict makes no historical-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior recurrence and cumulant calculation, not the interlacing in the read passages",
+          "evidence": "Recurrence for all stationary position–velocity moments; marginal cumulants used for truncated Fourier reconstructions.",
+          "identifier_or_url": "https://arxiv.org/html/2406.06120v2",
+          "material_read": "Sec. III Eqs. (22)–(28), OA offset 24700; Sec. IV.1 Eqs. (46)–(48), offset 49600",
+          "method": "OA original HTML passages",
+          "title": "Harmonically trapped inertial run-and-tumble particle in one dimension",
+          "trigger": "Exact model and arbitrary-order stationary moments"
+        },
+        {
+          "assessment": "Direct overlap of both marginal frontiers, not the joint ordering",
+          "evidence": "Same P_x and P_v and the u=4/3 cutoff; no mixed-energy root in the stated classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fourth-cumulant-sign-frontiers-for-an-inertial-run-and-tum--8126e2ff3632/RESULT.md",
+          "material_read": "Finding (offset 0) and localized covariance context",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact fourth-cumulant sign frontiers for an inertial run-and-tumble particle",
+          "trigger": "Exact same normalized marginal cumulants and roots"
+        },
+        {
+          "assessment": "Covariance frontier already covered under exact parameter equivalence",
+          "evidence": "On g=1/sqrt(k) and u_old=g*u/2 the stated sign polynomial is g^4 P_c(k,u).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-potential-kinetic-energy-covariance-boundary-for-an-inerti--66ee9dbaa5a1/RESULT.md",
+          "material_read": "Finding and mixed fourth moment calculation, offsets 0 and 2100",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp potential–kinetic energy covariance boundary for an inertial telegraph oscillator",
+          "trigger": "Exact same mixed sign threshold in alternate dimensionless variables"
+        },
+        {
+          "assessment": "Substantial same position-cumulant information but not three-observable interlacing",
+          "evidence": "Same oscillator position sign diagram in h,r; normalized fixed u corresponds to the specified ray.",
+          "identifier_or_url": "Resultary:2c4edea2eb0c",
+          "material_read": "Finding and supporting passages at offsets 0 and 2100",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp two-reversal kurtosis phase diagram for an inertial telegraph oscillator",
+          "trigger": "Broader phase diagram for one marginal root"
+        },
+        {
+          "assessment": "No negative whole-paper coverage finding",
+          "evidence": "The frozen citation identifies a Gaussian-force comparator; the Gaussian factorization distinction follows mathematically from the forcing law.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.87.062132",
+          "material_read": "Bibliographic identification from frozen record; no independent full text",
+          "method": "OA access attempt",
+          "title": "Stationary energy probability density of oscillators driven by a random external force",
+          "trigger": "Oscillator energy distributions under colored driving"
+        },
+        {
+          "assessment": "Remaining fourth-order coverage risk",
+          "evidence": "Access did not provide a passage about fourth cumulants or the mixed squared-energy observable, so it cannot support an exclusion.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.48.4309",
+          "material_read": "Bibliographic identification from frozen record; no independent full text",
+          "method": "OA access attempt",
+          "title": "Harmonic oscillators driven by colored noise: Crossovers, resonances, and spectra",
+          "trigger": "Potentially directly relevant older dichotomous-noise oscillator work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The point is whether sign changes in two marginal fourth cumulants and a mixed energy covariance are simultaneous or occur in distinct intervals. The global strict ordering makes the intervals explicit and gives a useful diagnostic: at the mixed zero the kinetic cumulant is already positive while the position cumulant is still negative. No collection of separate sign diagrams formally decides that comparison without an inequality on the common scaled variables. The sign boundaries are not dynamical phase transitions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

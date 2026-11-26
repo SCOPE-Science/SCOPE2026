@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:49:08.341666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integer powers have nonnegative Fourier coefficients by finite convolution (the zeroth power is one). At each nontrivial root θ_j=2πj/N the expansion is F_N(θ_j+u)=u² times a smooth positive factor of value N/[4 sin²(πj/N)]; θ=0 is smooth and nonzero. With β=2γ, Abel regularization of |u|^β gives the transform 2Γ(β+1) Re(ε+im)^(-β-1), tending away from zero frequency to −2Γ(β+1) sin(πβ/2)m^(-β-1). Subtracting the homogeneous model from its localization is rapidly decaying away from zero frequency, by taking sufficiently many integrable derivatives of the smooth difference. For the amplitude remainder, subtract its constant and linear parts: the linear term is one frequency derivative of the model transform up to a constant. The remaining local factor is |u|^β u² times a smooth compactly supported function and has integrable distributional derivative of order ceil(β+2), giving O(m^(-β-2)) or better. Restoring the translation phase and 1/(2π), conjugate zero pairs give precisely the real S profile in the claim. The zero residue is positive and the residue sum is zero, so there is also a negative residue. The sign of sin(πγ) determines which gives an eventually negative progression. Negative coefficients exclude PSD; explicitly, the normalized circulant eigenvalues at a fixed bad frequency converge to its negative coefficient as the grid is refined. The estimate is for fixed N,γ, with no sign implied when the leading residue vanishes. Replay: frozen RESULT.md Steps 1–5 and VERIFICATION.md; verify_fejer_powers.py inspected, not executed. As an independent finite check, for N=2, γ=1/2 direct integration gives coefficient −2√2/(15π) at m=2, agreeing with the diagnostic midpoint quadrature and the predicted sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The projective-power proof explicitly gives the general local one-cusp coefficient −2bΓ(p+1)sin(πp/2) and a symbol-remainder argument. That leading local calculation is already covered.",
+          "For a PSD circle function, even finite differences at zero, applied to the nonnegative Fourier coefficients and then to the limit by Fatou, show that smoothness at the identity forces every even spectral moment to be finite. It then implies global smoothness. Since F_N^γ is smooth at the identity and nonsmooth at its nodes for noninteger γ, this also yields the binary exclusion without the asymptotic."
+        ],
+        "reasoning": "General positive-type regularity and localized cusp tools are enough for basic exclusion or for a single node's contribution. Neither supplies the combined residue constants and the opposite-sign residue classes after summing the Fejér zeros.",
+        "searches": [
+          "Resultary 055e41b87723, RESULT.md proof of failure for non-even powers, local mirror offsets 3390–5143",
+          "arXiv:2007.13700, Theorem 2; Resultary cf9850093a62 and 5321b930c41b, integer Fejér–Jackson powers"
+        ]
+      },
+      "checked_sources": [
+        "Kravitz–Steinerberger arXiv:2007.13700, Theorem 2 and Fejér-triangle connection",
+        "Resultary 055e41b87723, cf9850093a62, 5321b930c41b; b66c867fd1f2 is the assigned record itself"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Fourier lemma allows localized leading amplitudes to be reused. For Fejér, one must superpose their phases, control the remaining Fourier error and prove that cancellation cannot make all leading residues of the same sign: S(0)>0 while the sum over all residues is exactly zero.",
+          "Fejér-triangle optimality under a nonnegative-transform constraint does not describe the Fourier transform after a real pointwise power."
+        ],
+        "reasoning": "Credit standard local Fourier machinery and the N=2 implication. The supported residue statement concerns multiple regularly spaced zeros and cancellation, including which progressions certify spectral negativity as the exponent changes. It is not the one-cusp formula applied at one zero or the general regularity-based PSD exclusion alone.",
+        "searches": [
+          "Resultary 055e41b87723, local one-cusp lemma and projective-line application; arXiv:2007.13700, Fejér-triangle extremizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_N/N is the characteristic function of X−Y for independent uniforms on {0,…,N−1}, so Fourier positivity of its pointwise power is precisely the signed triangular-law power question.",
+          "In the one-zero case F_2(θ)=2 cos²(θ/2). The prior projective-line non-PSD result for exp(κ|cos t|^(2γ)) rules out PSD of |cos t|^(2γ) for noninteger γ: if the latter were PSD, Schur powers and the exponential series would make the former PSD."
+        ],
+        "reasoning": "The check credits an implication for N=2 even though the objects are written differently. For N>2, projective nonpositivity on an embedded projective line does not imply nonpositivity on a different circle parametrized by a Dirichlet polynomial, much less the Fourier profile of that circle.",
+        "searches": [
+          "arXiv:2007.13700, Theorem 2 and the proof's Fejér/Dirichlet connection",
+          "Resultary local index for Fejér/Dirichlet power covariance, fractional characteristic powers, and Fourier cusp tails; ID 055e41b87723"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact residue-profile hit b66c867fd1f2 is the assigned record. The distinct Fejér–Jackson records address exact norm or approximation results at integer powers only.",
+          "The projective-power record contains an exact alternating one-cusp tail; it does not contain the general N-dependent Fejér residue profile."
+        ],
+        "reasoning": "There is no finite table being claimed; the relevant exact database target is the all-degree residue formula. Known degree-two and integer-power data do not reconstruct the residue signs for general N.",
+        "searches": [
+          "Resultary local index for powered Fejér–Jackson kernels, fractional Fejér powers and arithmetic negative Fourier modes; IDs b66c867fd1f2, cf9850093a62, 5321b930c41b, 055e41b87723"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit multi-zero Fejér residue profile with controlled remainder and forced negative arithmetic progressions for all N and noninteger powers. The one-cusp transform, the classical Fejér triangle, integer-power positivity and the one-zero case are not independent novelty. The yes/no PSD exclusion also admits a shorter general argument using smoothness at the identity for positive-type functions; the quantitative residue law is the material addition.",
+      "residual_risks": [
+        "The bounded literature comparison does not exclude an older identical residue expansion in work on triangular characteristic functions, norms of Dirichlet polynomials or explicit trigonometric Fourier integrals. The sought DLMF passage was not independently retrieved and is not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical positive-spectrum and extremizer background",
+          "evidence": "The theorem gives the discrete triangle extremizer under nonnegative Fourier transform; the proof links it to the normalized Fejér and squared Dirichlet kernels. These are not tail or sign statements for their noninteger powers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.13700",
+          "material_read": "PDF extraction p. 3 around offset 7877, Theorem 2, and p. 9 around offset 30934",
+          "method": "Original open-access PDF passages",
+          "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+          "trigger": "Same triangle Fourier sequence and Fejér/Dirichlet relation"
+        },
+        {
+          "assessment": "Explicit coverage of the local transform and an implication for the N=2 PSD classification; not a multi-zero residue law",
+          "evidence": "The projective-line kernel exp(κ|cos t|^α) has a single cusp modulo π and an alternating leading Fourier coefficient. Its proof states the general one-cusp transform lemma with symbol remainder.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-power-law-for-exponentiated-projective-inner-product-covar--055e41b87723",
+          "material_read": "RESULT.md Finding and decisive lower-exponent obstruction, especially offsets 3390–5143",
+          "method": "Published original in local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact power law for exponentiated projective inner-product covariance",
+          "trigger": "Nearby exact PSD exponent classification, Fourier tail and plausible general cusp coverage"
+        },
+        {
+          "assessment": "Integer powers on the admissible side, different conclusions",
+          "evidence": "The respective mathematical targets are sharp Lipschitz operator norms and BV approximation/extremizers for integer q, not the sign or residues of fractional powers.",
+          "identifier_or_url": "Resultary cf9850093a62 and 5321b930c41b",
+          "material_read": "Both RESULT.md Findings from offset 0",
+          "method": "Published originals in local mirror",
+          "title": "Sharp rough-input Lipschitz norms of powered Fejér–Jackson kernels; Sharp BV approximation and parity-order rigidity for powered Fejér–Jackson kernels",
+          "trigger": "Exact powered Fejér statements on the same object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nonnegative pointwise values do not suffice for covariance admissibility. In this canonical finite-band kernel family the quantitative result locates spectrally forbidden modes throughout an explicit infinite arithmetic progression and determines their leading decay, where a binary impossibility or a finite numerical example would not. The dependence on all nodes, including exact residue cancellation, is mathematical content beyond the older single-cusp obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

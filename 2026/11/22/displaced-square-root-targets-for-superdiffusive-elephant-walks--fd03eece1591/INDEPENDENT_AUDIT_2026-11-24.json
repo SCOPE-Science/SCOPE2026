@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:38:10.173318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–126; VERIFICATION.md and verify.py inspected, not executed",
+        "Trinas–Valle arXiv:2609.14753v1, Theorem 3.1 and §4",
+        "Independent replay: python3 /workspace/reproductions/04_05.py, record 4 output: 110 exact finite path-mass versus backward-recursion comparisons, at a=3/5 and 7/8"
+      ],
+      "rationale": "For a in (1/2,1), the future discount is asymptotic to (n/m)^a with uniform multiplicative error from summable logarithmic remainders. The discounted martingale's conditional variance is R^2(1-a^2 S_m^2/m^2); the second-moment recursion gives O(n) on bounded future time intervals for x=O(sqrt(n)), so the cumulative variance correction on the scaled clock vanishes. Discounted jumps satisfy Lindeberg. After subtracting the deterministic discounted target, a signed crossing is an exact lattice hit because the undiscounted integer difference changes by ±1. Brownian extrema are atomless by Cameron–Martin and reflection; at initial equality the Brownian path visits both sides immediately. The late-hit bound follows by splitting at m_T between an endpoint within η+|c|(1+T)^(-a) of zero on the scaled clock (Gaussian density bound) and a later martingale increment of magnitude η (Doob inequality and O((1+T)^(-δ)) tail variance). A possible hit only at the clock endpoint has probability zero. The global maximal Azuma envelope controls remote starting sites. The cited local limit factor 2 cancels the mesh 2/sqrt(n), giving exactly f_a(0) times the integrated hitting profile; inserting a bounded continuous test function proves the conditional law. The range identity follows by Tonelli on the continuous path image. Pathwise convexity and a Brownian small-ball event give a strict minimum at zero and hence strict increase on the positive half-line; reflection, Jensen and the oscillation triangle inequality give the constants and bounds. The conclusion includes q=0,1 and arbitrary lower-order lattice rounding.",
+      "residual_risks": [
+        "The bounded exact replay checks finite hitting algebra, not the infinite limit or published LLT. The proof has no uniformity as a approaches the endpoints and does not cover targets that change within a trajectory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trinas requires targets contained in [−r_n,r_n] with r_n=o(sqrt(n)); this excludes a singleton with k_n/sqrt(n) tending to nonzero c.",
+          "The square-root interval record assumes both endpoints are symmetric about zero; narrowing its intervals to a singleton only yields a centered singleton."
+        ],
+        "reasoning": "Neither quantifier dominates the frozen theorem; an event inclusion in a symmetric interval is at most a bound and does not preserve the constant.",
+        "searches": [
+          "arXiv:2611.01279v1, §8 Corollary 8.2",
+          "Resultary 07dd1168bd98, RESULT.md Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.14753v1",
+        "arXiv:2611.01279v1",
+        "Resultary 07dd1168bd98",
+        "Assigned record as identified in the Resultary lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform LLT is for the unconditional parity-lattice law at a single time; §4 gives f_{q,a}(x)=q f_a(x)+(1−q) f_a(−x).",
+          "The last-return comparison gives a last-zero and subcritical leading tail rather than the fixed displaced target's hitting kernel."
+        ],
+        "reasoning": "The LLT supplies weights only. Nonzero displacement requires a moving boundary on the martingale clock, a lattice crossing argument, late-hit control and path-image averaging; the prior constants do not determine the conditional spatial profile.",
+        "searches": [
+          "Primary literature web lookup for Trinas–Valle's superdiffusive local limit theorem",
+          "arXiv:2609.14753v1, Theorem 3.1 and §4",
+          "arXiv:2611.01279v1, Theorem 1.1 and Corollary 8.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact assigned record's own hit is not another publication. Distinct record 07dd1168bd98 treats the interval [−floor(c sqrt(n)),floor(c sqrt(n))], not a singleton.",
+          "Trinas's last-zero coefficient is f_a(0) sqrt(8/(π(2a−1))), the same c=0 leading coefficient; Corollary 8.2 also covers the leading tail for subcritical deterministic nonempty targets."
+        ],
+        "reasoning": "A space translation modifies the absolute-position drift of the elephant walk. Changing the interval to a singleton leaves a different Brownian swept set and changes the large-displacement slope from 2 to 1. Thus neither is an equivalent formulation for nonzero c.",
+        "searches": [
+          "Resultary lookup for the elephant-walk displaced square-root last-visit law",
+          "arXiv:2611.01279v1, Theorem 1.1 and Corollary 8.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record matches itself in the index. The strongest distinct indexed record has the centered-interval constant 2 E sup(B_u+c(1−δu)^(a/δ)), not the singleton oscillation or its normalized conditional hitting density."
+        ],
+        "reasoning": "These are limiting functions, not numerical table entries; the exact public finding is a different statistic for a different target and does not tabulate this displaced coefficient.",
+        "searches": [
+          "Resultary exact-object and semantic lookup; mirror RESULT.md for 07dd1168bd98, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The leading coefficient for c=0 overlaps Trinas's last-return result and is not new. The supported distinct claim is the nonzero square-root singleton displacement, its conditional starting-position profile, and the geometry of its Brownian range. The closest centered-interval and subcritical-target statements do not include that geometry or the nonzero displacement.",
+      "residual_risks": [
+        "The bounded searches do not rule out independent work on displaced targets. No historical priority is certified; centered and subcritical leading tails are credited as existing coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the LLT input but not the displaced hitting theorem",
+          "evidence": "Uniform n^a/2 normalization on n-parity sites for a in (1/2,1), q in [0,1]; the mixture relation gives f_{q,a}(0)=f_a(0).",
+          "identifier_or_url": "https://arxiv.org/html/2609.14753v1",
+          "material_read": "Abstract (offset 0), §3 Theorem 3.1 (15403), §4 mixture relation (20602)",
+          "method": "Lawful OA text, bounded passages",
+          "title": "A Superdiffusive Local Limit Theorem for the Elephant Random Walk and the Breakdown of Log-Concavity",
+          "trigger": "Exact external input and possible stronger coverage"
+        },
+        {
+          "assessment": "Covers the centered and subcritical leading tail, not nonzero square-root displacement",
+          "evidence": "Last-zero coefficient f_a(0) sqrt(8/(π(2a−1))); subcritical sets must be contained in a window of radius o(sqrt(n)).",
+          "identifier_or_url": "https://arxiv.org/html/2611.01279v1",
+          "material_read": "§1 Theorem 1.1 (offset 4988), §8 Corollary 8.2 (64270)",
+          "method": "Lawful OA text, bounded passages",
+          "title": "The Prodigal Elephant Returns: Last-Return Laws in the Superdiffusive Regime",
+          "trigger": "Closest primary last-return result"
+        },
+        {
+          "assessment": "Different target and limiting coefficient",
+          "evidence": "Frozen symmetric interval with radius floor(c sqrt(n)); its coefficient is a swept-interval length with large-c slope 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-critical-scale-interval-last-visits-for-superdiffusive-elephant--07dd1168bd98",
+          "material_read": "RESULT.md Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published finding via local mirror",
+          "title": "Critical-scale interval last visits for superdiffusive elephant random walks",
+          "trigger": "Strongest distinct indexed critical-scale hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§2–6",
+        "Trinas arXiv:2611.01279v1, Theorem 1.1 and Corollary 8.2",
+        "Resultary 07dd1168bd98 Finding"
+      ],
+      "rationale": "Critical displacement is the first scale at which the target location enters the future diffusive fluctuation kernel. The result determines both the rare-event coefficient and the position profile of walks contributing to it, and distinguishes displacement from widening an interval (slopes 1 and 2). This is structural information not available from the known last-zero coefficient.",
+      "residual_risks": [
+        "Value attaches to the nonzero critical displacement and associated geometry, not the known centered leading tail. No rate or moving-target application is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

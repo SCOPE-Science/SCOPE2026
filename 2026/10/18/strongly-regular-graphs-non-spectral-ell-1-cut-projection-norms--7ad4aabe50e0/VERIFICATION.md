@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Reproduction
+## correctness
 
-Run `python3 verify.py` with Python 3 and no third-party packages. Expected last output line: `ALL_EXACT_CHECKS_PASS`. The verifier constructs six unweighted strongly regular graphs and checks all unordered vertex pairs to recover the strongly regular parameters. For each edge, it checks the integer identity \((kI-A)((h+1)I+A)b_e=Db_e\), the computed voltage drop \(2h/D\), the total-variation/coarea wing formula, and the cycle complement identity. It computes all exact endpoint column sums using `fractions.Fraction`; no random sampling is used. In particular the complete rook and Shrikhande tests examine 48 of 48 edge columns each.
+PASS
 
-A separate symbolic calculation formed each \(16\times16\) Laplacian \(L\), computed \(L^+=(L+J/16)^{-1}-J/16\) over rational numbers, and checked \(Q^2=Q\), \(C^2=C\), rank \(15\), and the four claimed exact column-sum maxima on \(48\times48\) matrices. The resulting values agree with the explicit proof. The general theorem relies on its algebraic proof rather than the finite examples.
+On the zero-sum space the SRG adjacency quadratic gives (kI-A)((h+1)I+A)=D I. If lambda=k-1, adjacent vertices have identical closed neighborhoods and connectedness would make the graph complete, so k-lambda-1>=1 and h>=2. For b=e_x-e_y the potential levels in units 1/D are h,1,0,-1,-h. The cuts at the outer levels contribute 2k(h-1), and each inner-side cut has k(k-lambda)-2(k-lambda-1)-2 times the internal wing edge count with the last term understood as minus twice that count. Summing gives M-2w_e. The diagonal 2h/D is strictly between zero and one, since D-2h=(k-2)h+mu>0. Complementing the diagonal subtracts 4h/D and adds one to each absolute column sum; symmetry gives equality of both endpoint norms for each projector. Orientation changes are signed coordinate conjugations. For (16,6,2,2) the rook wings are triangles and Shrikhande wings are paths, giving w=6 and 4 respectively, and the four asserted norms. Independent rational L+ calculation checked all 120 unordered vertex pairs and all 48 columns per graph, along with symmetry, idempotence and tr(Q)=15. Replay: /workspace/branches/365269cd-1892-4542-a823-9db8b5dff4ed/independent_srg_projection_check.py and independent_pair_check.txt in the same directory. Frozen supporting material was inspected, not run; the finite check is not the general proof.
 
-## Scope of verification
+## originality
 
-The assertions concern only the Euclidean orthogonal cut and cycle projections of unweighted connected noncomplete strongly regular graphs considered as bounded operators on real finite-dimensional edge \(\ell_1\) and \(\ell_\infty\). The claim does not cover minimum projection constants, arbitrary weighted networks, or intermediate exponents. No independent scientific audit has been performed.
+PASS
+
+The general SRG wing-edge law and the resulting canonical cospectral separation survive the comparisons. The rook-only canonical constants are exactly covered by a different same-day Hamming record and are credited here only as the known side of the witness. Neither priority between those records nor arbitrary minimum projection constants are asserted.
+
+## value
+
+PASS
+
+The endpoint norms measure worst total absolute current for a unit edge injection (and the complementary cycle load). On a class with a three-eigenvalue adjacency algebra, the law reduces that norm exactly to one local subgraph statistic; a standard matched pair demonstrates that no function of the SRG spectrum alone suffices. This is useful beyond re-evaluating the known rook constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

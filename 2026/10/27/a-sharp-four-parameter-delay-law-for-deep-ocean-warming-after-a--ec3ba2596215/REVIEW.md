@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The impulse kernels follow from the exact two-by-two resolvent. Their sign structure proves the surface maximum at forcing shutdown and exactly one subsequent deep-ocean maximum; the eigenvalue perturbation identity and the strictly decreasing integral mean establish all four independent parameter signs. The proof includes the full positive-parameter domain and a non-asymptotic expression. Exact-rational checks verify the characteristic coefficients, and numerical tests corroborate sample signs; they are not substitutes for the analytical argument.
+## correctness
 
-**Originality — PASS within the inspected record.** Geoffroy et al. (2013) derive the general linear model and step/ramp analytical responses; those portions are *prior art*, not new claims. Held et al. (2010) analyze abruptly stopping forcing after climate warming and discuss continued climate adjustment. Lutsko and Popp (2019) analyze sensitivity to climate parameters with frequency and ramped forcing. The inspected mathematical statements do not supply the sharp post-pulse peak formula together with strict global comparative statics with respect to both capacities, radiative feedback, interlayer mixing and pulse duration. General two-by-two linear-systems transfer formulas permit derivation, so the residual risk is existing but not specifically located global peak-ordering results, including less accessible appendices.
+PASS
 
-**Mathematical value — PASS.** The theorem gives an exact sign-certain, physically interpretable answer to a meaningful climate-adjustment question: which parameters lengthen the post-cessation deep-ocean peak delay? Neither a two-timescale description nor pointwise simulation ensures global, four-parameter monotonicity. The statement supplies a reusable time-window bound and explains the structural persistence of delayed deep heating without any numerical calibration requirement.
+The two poles are simple and positive. The surface resolvent numerator places its zero between the poles since the rate polynomial is negative at gamma/C_d; hence both exponential weights are positive. A rectangular pulse differentiates to a single impulse response before shutdown and a difference of translated responses afterward. This gives a unique surface maximum at shutdown and a deep derivative with the sign of (exp(b*tau)-1)/(exp(a*tau)-1)-exp((b-a)*t), initially positive at shutdown and crossing once. The resulting delay is the interval mean of tau/(exp(r*tau)-1) over the two rates. Its partial derivative in either endpoint is strictly negative, as seen by writing the mean on the fixed unit interval. Both generalized eigenvalues increase strictly with feedback and coupling and decrease strictly with either capacity: the derivatives are v_s^2, (v_s-v_d)^2, -r*v_s^2, and -r*v_d^2 for a C-normalized eigenvector. The coupling prevents either entry from vanishing, and a constant eigenvector would force r*v_d=0 by the deep equation. Pointwise differentiation of tau/(1-exp(-r*tau)) gives a derivative in (0,1), proving the duration claim as well. Independently replayed the example by bisection of the translated impulse derivative: python3 /workspace/checks/4_peak_example.py gives peak 22.2543875592 and delay 12.2543875592. This is illustrative only; the strict signs follow analytically. The supplied check and verification notes were inspected, not executed or treated as an attestation.
 
-**Scope and risks.** The result is only for a prescribed rectangular *radiative forcing*, not cessation of emissions, and excludes efficacy changes, carbon-cycle effects, nonlinearity and multi-layer heterogeneity. Full publisher equations and appendices of the principal 2013 source were not exhaustively readable. An equivalent statement in broader thermal-network literature remains possible; an absence from search hits cannot establish uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Accept the distinct simultaneous global comparative statics of the pulse peak delay in four separate physical coefficients, not the model, transfer functions, or elementary translated-impulse peak formula as independent advances. The strongest exact lag-function match concerns a serial two-rate response and is later by its record date; its available statement does not give the bidirectionally coupled heat-model parameter sensitivities. No positive evidence of prior coverage of the four-sign result was found in the bounded comparison. Primary-text limitations remain material to priority, not evidence of absence.
+
+## value
+
+PASS
+
+Gives a usable direction-of-change theorem for how long deep warming continues after direct forcing stops, separately for both thermal capacities, leakage feedback and exchange, with no parameter tuning. The exact global directions are more informative than a representative time course or an unconstrained two-timescale fit. The result is limited to the specified linear two-layer pulse experiment, not a claim about emissions cessation or a calibrated climate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

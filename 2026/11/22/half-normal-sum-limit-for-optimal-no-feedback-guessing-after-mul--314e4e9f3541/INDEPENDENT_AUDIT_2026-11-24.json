@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:15:11.956621Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cited Theorem 1.1 and Corollary 4.1 establish the displayed floor-rule strategy for each fixed k and sufficiently large n, with at most the odd middle position an alternative for k>=2. The expected score is the sum of marginal hit probabilities, so the stated tie characterization applies to every deterministic optimum and changes the score by at most one. In the forward a-packet shuffle, each output-origin label word has probability a^-n (multinomial cut times uniform interleaving), and the GSR composition law gives a=2^k. Given the word, the card label equals the preceding packets' total plus the within-packet occurrence rank. Both extreme packets have Bin(n,1/a) sizes; the probability either is too short to contain its half's guesses is O_a(exp(-c_a n)), so discarding outside-packet hits costs at most n times this exceptional-event indicator. Each half's extreme-packet score is a function only of that half's labels, using ranks from the end for the bottom half. The jth success occurs at time T_j with iid geometric gaps; its hit condition is exactly T_j-aj in {-a,...,-1}. For j<=floor(half length/a), every hit lies inside that half, and only the next index can contribute beyond these j, so each truncation costs at most one and is measurable in its own label half. The centered gap walk has span 1 and variance a(a-1); Fourier inversion near 0 and exponential decay away from 0 yield the stated local limit and uniform C/sqrt(m) bound. In the factorial-moment sum, Markov factorization at increasing times gives a product over gaps; cutting out any gap <=epsilon J costs O_r(sqrt(epsilon)) after scaling, by summing the inverse square-root bounds. The remaining Riemann integral in gap coordinates is the stated Dirichlet integral. Lower factorial moments give vanishing repeated-time contributions after scaling the rth ordinary moment, and half-normal moment determinacy gives the claimed one-half law. The disjoint halves are independent and floor(half length/a)/n tends to 1/(2a), giving the scale 1/sqrt(2(a-1)) per half. The bounded and exponentially rare score discrepancies vanish in each scaled L^r, so all moments transfer. The orthogonal rotation identity max(|x+y|,|x-y|)=|x|+|y| yields the equivalent maximum, squared-erf CDF and the stated mean and variance. This is for fixed k, not k growing with n. The frozen checker was inspected, not executed; it provides finite marginal and occupation corroboration rather than proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multishuffle theorem gives the optimum floor rule, its large-deck tie scope, and the leading mean; Section 6 leaves the k>=2 distribution open and identifies the need for joint-position information.",
+          "The 2025 paper's full-text abstract specifies a generating function for the card at position i; the 2023 paper's abstract specifies one-shuffle score moments."
+        ],
+        "reasoning": "Optimizing and summing one-position marginals determines the mean, not joint hits. The 2023 and 2024 one-riffle results do not encompass the fixed multishuffle regime. A general occupation limit would need the exact occupation representation and independent half localization before it could apply to this strategy.",
+        "searches": [
+          "Krityakierne–Thanatipanonda arXiv:2611.04339v1 Theorem 1.1, Corollary 4.1 and Section 6",
+          "DOI 10.3934/math.20251075 positionwise generating functions",
+          "DOI 10.47443/dml.2023.119 one-shuffle moments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "The four primary card-guessing works and the identified first-hit catalogue record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior fixed-k paper expressly distinguishes its marginal-based expectation from the open score-law question. The first-hit result identifies a prefix first passage, whereas the frozen proof counts every success arrival whose centered geometric walk is in a finite band, on two disjoint halves."
+        ],
+        "reasoning": "The moment method is classical once the visit counts are available. The new inference uses a pathwise joint representation with exponential localization, deterministic one-visit truncation, and two independent occupations; none of the inspected prior statements gives that inference by parameter substitution or identifies the entire total-score limit for k>=2.",
+        "searches": [
+          "arXiv:2611.04339v1 Section 6, HTML offset about 38050",
+          "arXiv:2308.15782 Theorems 3 and 6",
+          "First-hit law 7b9ab77bff71, proof sections 1–3 at offset 2500"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For one riffle, the known limit is the sum of two independent variables with density 2 exp(-x^2)/sqrt(pi), with moment convergence. These are |Z|/sqrt(2), so that result exactly matches the k=1 specialization.",
+          "The maximum and squared-erf formulations in the frozen record are equivalent to the half-normal sum by rotation, not distinct novelty claims."
+        ],
+        "reasoning": "The one-riffle normalization does not make an a-packet riffle another binary riffle: both the centered wait variance and the matching interval depend on a. The scope of originality excludes the k=1 law and concerns k>=2 with dependence between guessed positions accounted for.",
+        "searches": [
+          "optimal no-feedback card guessing fixed multiple GSR riffle shuffles score limit distribution all moments half-normal Krityakierne Thanatipanonda Kuba Panholzer",
+          "Kuba–Panholzer arXiv:2308.15782, Theorems 3 and 6",
+          "Half-normal sum versus scaled maximum of two half-normals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day record proves a first-correct-guess survival law up to the first half, exponentially close to a binomial atom, by a packet-word coupling and a ballot count for first crossing below zero."
+        ],
+        "reasoning": "An exact waiting-time distribution for the first hit is not a distribution of all hits. The first crossing has a potentially varying landing state; that statement does not provide a renewal law for subsequent hits or the total score. Similarity in method and date does not settle priority or exact equivalence.",
+        "searches": [
+          "Resultary: optimal no-feedback multiple-riffle total score, joint hits, half-normal limit",
+          "2026/11/22/SCOPE-an-exact-first-hit-law-for-optimal-no-feedback-riffle-guessing--7b9ab77bff71"
+        ]
+      },
+      "rationale": "The supported distinct claim is the distribution and all positive integer moments of the total optimal no-feedback score for fixed k>=2. The primary optimal-strategy paper poses exactly this distributional question while giving the leading mean; the known identical-shaped half-normal law is for one shuffle. A related exact first-hit result uses the same packet representation but does not determine repeated hits or the total-score law. No inspected source covers the claimed extension.",
+      "residual_risks": [
+        "The statement-level comparisons do not prove universal historical priority. Some primary readings are confined to the cited theorem or abstract, not all appendices.",
+        "Same-day methodological overlap is not a chronology determination. Unindexed equivalent multishuffle work may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers optimal strategy, tie scope and leading expectation; leaves k>=2 distribution open",
+          "evidence": "The optimum is unique except the odd middle position for sufficiently large n and k>=2. Section 6 calls for joint-position information for higher moments.",
+          "identifier_or_url": "https://arxiv.org/html/2611.04339v1",
+          "material_read": "Model around HTML offset 2046; Theorem 1.1 around 4989; Corollary 4.1 around 33026; Section 6 around 38050",
+          "method": "Targeted OA HTML passages",
+          "title": "Optimal no-feedback card guessing after a fixed number of riffle shuffles",
+          "trigger": "Same model, canonical guesses and competing fixed-k results"
+        },
+        {
+          "assessment": "Exact k=1 precedent but not k>=2",
+          "evidence": "Independent half-normal sum and convergence of fixed positive integer moments for a single shuffle.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.15782",
+          "material_read": "Theorem 3 around HTML offset 35274 and Theorem 6 around 59192",
+          "method": "Targeted OA passages",
+          "title": "On card guessing games: Limit law for no feedback one-time riffle shuffle",
+          "trigger": "Exact same law at the one-shuffle boundary"
+        },
+        {
+          "assessment": "Inspected result is for one-position distributions, not total-score asymptotics",
+          "evidence": "Mixture of 2^k independent-Bernoulli-sum components for the card appearing at position i and its exact generating function.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20251075",
+          "material_read": "Full-text PDF abstract and opening background, OA offset 1045, obtained via SciOpen mirror",
+          "method": "Primary literature search and targeted lawful OA PDF passage",
+          "title": "A generating function framework for the no-feedback card guessing game after riffle shuffles",
+          "trigger": "Same multishuffle setting and distributional generating-function language"
+        },
+        {
+          "assessment": "Only a one-riffle moment antecedent in the inspected claim",
+          "evidence": "Closed asymptotic moment formulas under the optimal strategy for a one-time riffle.",
+          "identifier_or_url": "https://doi.org/10.47443/dml.2023.119",
+          "material_read": "Author-hosted PDF first page, abstract at offset 0 excerpt",
+          "method": "Primary literature search then targeted OA PDF passage",
+          "title": "Moments of the one-shuffle no-feedback card guessing game",
+          "trigger": "Search hit plausibly covering higher moments"
+        },
+        {
+          "assessment": "Substantial methodological overlap, different random variable",
+          "evidence": "First-match tail coupled to the first negative crossing by i minus a times the number of first-packet marks, evaluated by a ballot count. It does not evaluate the repeated-match occupation law.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-first-hit-law-for-optimal-no-feedback-riffle-guessing--7b9ab77bff71",
+          "material_read": "RESULT.md finding at offset 0 and proof sections 1–3 from offset 2500",
+          "method": "Local catalogue and mirrored source",
+          "title": "An exact first-hit law for optimal no-feedback riffle guessing",
+          "trigger": "Distinct same-day identical strategy and packet framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers the specific fixed-multishuffle distributional question left by the optimal-strategy theorem. It gives the scale and shape of score fluctuations and asymptotic values of all fixed moments, rather than another expectation calculation. The joint packet reduction explains why two independent limiting contributions appear and why the single-shuffle shape persists after rescaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

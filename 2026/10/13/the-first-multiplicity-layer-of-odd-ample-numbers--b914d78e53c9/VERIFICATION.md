@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python3 verify.py` in the directory containing this file.
 
-The verifier performs an exhaustive exact census of every integer partition of each total size from \(1\) through \(17\). It asserts the standard partition counts \(1,2,3,5,7,11,15,22,30,42,56,77,101,135,176,231,297\), for a total of \(1211\) signatures. For each signature it evaluates the defining recursive-divisor recurrence and the least odd representative.
+# Independent mathematical audit
 
-For total sizes through \(16\), every signature satisfies \(A(\lambda)\le m(\lambda)\). At total size \(17\), exactly three signatures satisfy the strict reverse inequality; their exact values are written to `partition_certificate.json`.
+## correctness
 
-The verifier then independently evaluates the defining recurrence on the actual divisor lattices of the boundary example and the source's least odd ample example. These calculations use \(1080\) and \(720\) divisors and reproduce the signature-based values exactly.
+PASS
 
-No finite numerical interval in \(n\) is used to infer an infinite statement. Exhaustiveness comes from the complete finite list of exponent partitions at the bounded values of \(\Omega\). A successful run ends with `VERIFY_OK`.
+The divisor poset depends only on the exponent multiset. For a fixed signature the minimum odd representative uses the smallest distinct odd primes and assigns larger exponents to smaller bases by the swap inequality. It can support ample numbers exactly when its minimum is ample. Independently of the supplied recurrence code, let f count ordered factorizations into factors >1, with f(1)=1. The first-factor decomposition and induction give a(n)=2f(n) for n>1. For l factors, inclusion–exclusion on empty factor positions counts f by the product of weak exponent-allocation binomials, with l≤Ω. Enumerating signatures by the multiplicities of parts reproduced all 1,211 rows in the sense of the counts, strict subcritical inequalities and per-layer maxima; the three boundary triples (n, signature, a(n)) are exactly (488462349375, (8,4,2,1,1,1), 523830280192), (1139745481875, (7,4,3,1,1,1), 1163507844992), (3093594879375, (7,4,2,1,1,1,1), 3210476052352). The least of these proves sharpness and the boundary minimum, not an overall minimum by size. At Ω=0, a(1)=1, so 1 is nonample by equality (a minor imprecision in the proof's description of all lower layers as depleted, not an exception to the Finding).
+
+## originality
+
+PASS
+
+Known recursive-divisor formulas and odd-ample constructions give methods and examples, not this threshold under total multiplicity or the exact feasible signatures. The strongest same-recurrence Resultary result extremizes the numerator alone at fixed (Ω,ω), not its ratio to the least odd representative. The frozen result addresses a genuinely different extremum from Fink's least value of n and from minimum distinct-prime support.
+
+## value
+
+PASS
+
+Odd ample examples are rare, and the smallest known by size does not settle how many prime factors are necessary. The exact minimum Ω, its supporting exponent signatures, and a smaller-multiplicity witness than the known smallest-by-size example supply a natural and reusable boundary for further construction and classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

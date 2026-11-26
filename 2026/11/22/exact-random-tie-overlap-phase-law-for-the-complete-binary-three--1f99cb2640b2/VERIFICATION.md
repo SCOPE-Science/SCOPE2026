@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-From the directory containing the extracted embedded files, execute:
+## correctness
 
-```
-python3 verify_literal.py
-python3 verify_paths.py
-```
+PASS
 
-Both require only the Python 3 standard library and arbitrary-precision `fractions.Fraction`. The first computes the complete distribution by literal-string recursion, asserts noncontainment at every reachable state, checks the de Bruijn optimality witness, and reports 1,309 memoized states. The second performs a separate forward probability propagation on component paths, checking the seven overlap-signature probabilities and the five output-length probabilities, visiting path-state layer sizes 1,14,78,220,332,288,224,192. Both assert exact normalization and mean; they do not sample. Recorded outputs are `verify_literal.out` and `verify_paths.out` and were reproduced by replay of the embedded source code. The endpoint-overlap reduction in the second checker uses the established lemma cited in RESULT.md; this does not independently prove that external lemma, but the literal-string checker does not depend on it.
+A legal transition removes two current strings and inserts their literal merge. Averaging over every maximal-overlap ordered pair, before identifying equal successor states, is the exact conditional law. The substring-free invariant also follows directly: a third string newly contained in a merge but contained in neither parent must cross the entire glued interval and extend both ways; this yields a suffix-prefix overlap with the left parent greater than the chosen maximum. Containment of the merge in a third string would imply containment of a parent. Any outgoing overlap of the merge longer than its right parent would embed that parent in the other string, and the incoming argument uses the left parent symmetrically. Shorter overlaps are endpoint overlaps and are bounded by the old maximum. Thus the maximum never exceeds the initial two and there are exactly seven merges. A separate exact forward DP on literal strings, annotating each path by its phase counts, reproduced all seven cells and the five length probabilities, normalization and mean 167269939/14968800, independently of the endpoint-index calculation. Length starts at 24 and each merge removes exactly its overlap. Eight distinct three-windows require at least ten characters; 0001011100 contains all eight. In the length-fourteen witness the first four choices have overlap two, after which only the two indicated overlap-one moves and a final overlap-zero move are needed, all legal. The exact table gives positive mass at both extremes and no length outside 10 through 14.
 
-The exact string-state recurrence is exhaustive for this fixed eight-input finite problem. It is not evidence for any extension to larger alphabets or higher-order reads. Independent scientific validation has not been performed.
+## originality
+
+PASS
+
+The endpoints 10 and 14 are already covered for the identical input; neither is credited as new. The distinct finding is the exact distribution over all tie histories, including the seven overlap-count cells and their length probabilities. The strongest inspected prior same-input census reports only worst legal ties, and the closest same-day probabilistic result is for a different 4-mer input. The primary literature inspected provides an endpoint reduction and worst-case bounds, not the exact pushforward.
+
+## value
+
+PASS
+
+The complete binary three-word universe is a natural fixed de Bruijn instance, not a selected collection with arbitrarily tuned tie behavior. The exact law distinguishes how often greedy is optimal from how badly it can fail and separates histories with the same output length, including length 12 with and without a zero-overlap merge. These are useful repeatable benchmarks for random tie policies that the known extrema cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

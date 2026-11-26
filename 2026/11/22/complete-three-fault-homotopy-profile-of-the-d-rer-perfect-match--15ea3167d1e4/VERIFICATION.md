@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible exact verification
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` in the directory containing `CERTIFICATE.json`. These two files are complete and require only Python's standard library. `VERIFY_OUTPUT.txt` contains the recorded output of a successful replay.
+## correctness
 
-The verification reconstructs every graph edge, all ten perfect matchings by recursion, and independently scans the complete set of six-edge candidate matchings. It processes exactly 988 fault sets of cardinality zero through three, checking each nerve as the common-edge intersection complex of surviving perfect matchings. It replays all 2,632 certificate free-face pairs with direct exhaustive searches of proper cofaces in the current complex. Every residue is confirmed to be either empty (no perfect matching) or a connected one-dimensional graph. The first Betti rank is obtained from exact graph counts, and the Euler characteristic of each ORIGINAL perfect-matching complex is independently evaluated by generating its original graph-edge faces.
+PASS
 
-The exact table asserted in RESULT.md is encoded as assertions, including the two exceptional alternating outer-rim triples. The proof uses no random sampling, finite field substitution, unverifiable logs or conditional computational timeout. It makes no claims for faults of size four or above. An independent human mathematical audit is not recorded.
+Independent replay (python /workspace/branches/replay_durer.py) scanned every six-edge subset covering all 12 vertices, giving precisely ten perfect matchings. Exactly the matchings avoiding each fault survive. Their simplex cover has simplex intersections whenever nonempty; the nerve theorem applies. Independently built the nerve as the union of simplices on matching indices sharing each graph edge, then read the frozen certificate as data and verified every one of 2,632 unique codimension-one proper coface deletions with respect to the whole current nerve, over all 988 faults. Each nonempty residue is connected and at most one-dimensional, so contracting a spanning tree gives the actual circle-wedge homotopy type with rank E-V+1, not just homology. Direct Euler computations on the original complexes agree. The reproduced (void, point, one, two, three circles) rows are (0,1,0,0,0), (0,6,6,6,0), (0,78,63,12,0), (20,662,132,0,2); one-edge types checked individually and the only rank-three faults are (0,2,4) and (1,3,5). This checks the supplied witnesses rather than independently rediscovering them.
+
+## originality
+
+PASS
+
+The supported distinct result is the exact nonzero-fault homotopy atlas, not intact contractibility. Searches and statement comparisons found no distinct same-object fault atlas or theorem giving those ranks. Same-graph results for arbitrary matchings, independent sets, and cut complexes compare different objects.
+
+## value
+
+PASS
+
+Three deletions are a natural cutoff in this cubic graph: a vertex star is already fatal. The atlas distinguishes the three edge classes after a single fault and shows that rank two disappears at three faults, while exactly the two alternating rim faults create rank three. The combination of this topological sensitivity with the 20 void cases gives a useful exact benchmark for extendible-matchings topology, beyond an intact complex or a mere perfect-matching count. No persistence-map consequence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

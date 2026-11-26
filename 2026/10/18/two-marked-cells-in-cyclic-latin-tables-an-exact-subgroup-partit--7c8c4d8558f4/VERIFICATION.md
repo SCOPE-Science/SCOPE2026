@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The theorem is proved in `RESULT.md`; the finite checks are corroborating tests, not a substitute for the all-order equitability and automorphism-group arguments.
+# Independent mathematical audit
 
-Execute from the directory containing this file using Python 3 and the standard library:
+## correctness
 
-```
-python verify/direct_refinement.py
-python verify/equitability_and_orbits.py
-python verify/autotopism_independent.py
-```
+PASS
 
-The first program computes actual iterative, relation-wise colour signatures for each input and tests exact equality of whole stable partitions with the subgroup-coordinate prediction. The second program separately calculates all relation-wise neighbour-count vectors and direct modular-unit orbits. The third program independently enumerates arbitrary row/column/symbol permutations for all group tables of orders two through five, rather than assuming the affine automorphism formula.
+Intersecting differently named lines through singleton colours makes their unique intersection a singleton in the next round. With C_0, C_g, and successive symbol lines this iterates (tg,0) to ((t+1)g,0), and then all of H² is distinguished. For the proposed partition, each line whose defining value is in H contains h singleton cells and n−h cells in its matching part. Each line defined by a value outside H contains one cell for each H-value in each of the other two line types; the two sets are disjoint (two values in H force the third in H), leaving n−2h cells in Z. This gives equitability for every named relation; past the singleton stage, relation counts against H² read the partial row, column and sum profile. The sizes and census follow, with Z empty exactly for k≤2. Any automorphism of the named relations has coordinate maps α,β with α(x)+β(y)=γ(x+y); subtracting the two translations gives a common group automorphism. Fixing the marks leaves units t with t≡1 mod h. For k≥3 the row-part witnesses (0,1),(0,2) cannot be joined by such a unit; for k=2,h≥3 use (0,1),(0,3). For (n,h)=(4,2), multiplication by 3 swaps the two elements of every nonsingleton part; k=1 is discrete. Independent exact checks for all 231 cases 2≤n≤22, 1≤g<n matched the whole partition and the orbit criterion, including 150 orbit-exact cases. Exhaustive permutation triples for n≤6 also agreed with the affine formula. Replay: python3 /workspace/branches/1ac146ad-a57e-4d05-885e-d46193229a72/independent_record3_check.py.
 
-Recorded standard outputs appear in the accompanying `.stdout` files and are subject to exact-byte embedding integrity checks. All three scripts completed without error during preparation. Finite enumeration is not claimed to prove the unrestricted \(n\)-quantified theorem. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the combining of the exact cyclic subgroup partition and the complete orbit-exactness criterion for this named structure. The closest named Latin-square automorphism results concern different actions, and the inspected Latin-square equitable-partition work classifies a merged graph. The closest indexed two-root theorem is about Hamming graphs, not a group addition table with three named relations. No exact or dominating statement was found in the inspected evidence; this is not a priority certification.
+
+## value
+
+PASS
+
+The theorem gives the entire local counting invariant for a natural marked group table, not just success or failure on particular orders. The orbit comparison exposes an infinite family where counts miss actual symmetry and identifies the sole nongenerator exception, with explicit same-colour different-orbit witnesses for both remaining index regimes. Those are useful distinctions when using refinement to approximate stabilizer orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

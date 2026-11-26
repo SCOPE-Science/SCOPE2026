@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:49:06.967383Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The parity of the total number of ones permits only zero or two; the zero-only count is floor(max(a,b,c)/2). Each distinct two-one factor is encoded uniquely by its outer gaps (i,k), and its halves contain one one each iff i+k≡b mod 2 and |i−k|≤b. The alternating row and column sums give the stated rectangle parity term. In the corner i−k>b put i=k+b+2r, r≥1; counting all k≥0 and removing k≥c+1 gives H(a−b)−H(a−b−c−1), and the other corner is disjoint and symmetric. This also covers zero gaps and the word 11. Uniform row parity and area comparison incurs O(a+b+c+1) error. With s=a+b+c and a≤c, for b≤a and h=c−a the strip-area deficit from s²/8 is 2(b−s/4)²+[h²−(h−b)₊²]/2. For b>a and a>0, area ≤ac<a(s−2a)≤s²/8, with zero area if a=0. Hence the unique positive-sum maximizing proportions are (3/8,1/4,3/8). Continuity and compactness give rigidity for all asymptotically maximizing sequences, not just exact maximizers. For gaps (3t,2t,3t), summing even-difference diagonals gives 4t²+3t+1 two-one factors, to which floor(3t/2) must be added; padding outer zeros gives the lower bound at intermediate lengths. A separate direct substring enumeration on all 2197 triples with 0≤a,b,c≤12 corroborated the formula; the supplied scripts were inspected, not executed. Neither the enumeration nor the Finding claims a finite maximum formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8655f359bb67 bounds the exactly-five-run maximum by n²/16+O(n) and the at-most-four-run contribution by 5n. It uses precisely 0^(3m)1 0^(2m)1 0^(3m) for the matching lower bound.",
+          "Its §3 bounds the same strip area by T²/8 with the equality ratios A/T=E/T=3/8, C/T=1/4."
+        ],
+        "reasoning": "Every eligible two-one word has at most five runs, including any zero-gap case. The known explicit five-run lower witness has exactly two ones. Matching the same underlying strip also covers the geometric portion of rigidity.",
+        "searches": [
+          "Resultary 8655f359bb67, Finding and Proof §§1, 3–5",
+          "Resultary 9387a2a4a9ec, Assumptions and uniform lattice-to-area comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_geometry.py",
+        "Resultary 9387a2a4a9ec and 8655f359bb67",
+        "DLT 2014 proceedings Theorem 1, arXiv:1506.03562, OEIS A262249"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use the exact two-one parity-band sum, subtract disjoint same-parity corners by the arithmetic progression i=k+b+2r, and get the H formula, including all boundary cases.",
+          "The compared uniform O(n) error and continuous strip with a unique maximum give rigidity by compactness; the broader five-run upper bound and the same explicit two-one family also give the coefficient along all lengths."
+        ],
+        "reasoning": "Although neither comparator's main theorem is titled fixed-two-one rigidity, their verified formulas and the explicitly stated strip equality condition yield it directly. There is no nontrivial residual condition on near-maximizing gap ratios or on the degenerate gaps.",
+        "searches": [
+          "Resultary 9387a2a4a9ec, factor classification and uniform error",
+          "Resultary 8655f359bb67, §3 equality clause and §§4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9387a2a4a9ec uses identical literal contiguous factors and exactly-two-one weak gap triples, and gives the same parity band plus zero-only term for each triple.",
+          "The classical papers use exactly-two-one lower witnesses for unrestricted quadratic growth, not a fixed-weight optimization."
+        ],
+        "reasoning": "The comparison is of literal distinct words, not Parikh vectors, occurrences, or cyclic factors. The sum form and the parity-corner formula count identically the same finite set.",
+        "searches": [
+          "Resultary: Abelian-square factor counts for binary words with two ones; 9387a2a4a9ec",
+          "Resultary: sharp quadratic Abelian-square density at the five-run threshold; 8655f359bb67",
+          "DLT 2014 Kociumaka–Radoszewski–Rytter–Waleń, Theorem 1",
+          "arXiv:1506.03562 §3 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A262249 maximizes over all binary words of length n, not those with exactly two ones. The random-limit comparator instead gives an exact all-triple formula; the five-run comparator gives an exact count for the all-five-run factors of the same witness."
+        ],
+        "reasoning": "The OEIS table does not cover a different constrained maximum merely because both sequences count Abelian squares. But the exact parity-band formula, not just a table, covers the underlying count. For the common witness, the all-five-run count 4m²+m gains 2m+1 when the two zero-gap axes are included, plus the stated zero-only factors.",
+        "searches": [
+          "OEIS A262249, definition and displayed initial table",
+          "Resultary 9387a2a4a9ec exact finite formula",
+          "Resultary 8655f359bb67 §5 explicit family count"
+        ]
+      },
+      "rationale": "Two indexed comparators jointly give the actual discrete count and all continuous extremal information, not merely matching parameters: 9387a2a4a9ec supplies the exact parity-band identity and a uniform count-to-area comparison for exactly two ones, including zero gaps; 8655f359bb67 supplies the same continuous band's global bound and unique positive-area equality proportions, the identical explicit lower witness, and the sharp coefficient on a covering run-restricted class. Closed-form summation of the two parity corners and the compactness corollary do not leave a distinct result. This decision is about available mathematical coverage, not chronological priority.",
+      "residual_risks": [
+        "The strongest two indexed comparator paths have later catalogue dates. The review makes no historical priority, provenance or authorship inference; the decision rests on verified mathematical coverage, not catalogue chronology.",
+        "A bounded literature search cannot exclude unindexed equivalents; the primary constructions inspected are not themselves the complete classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same finite parity-band count and asymptotic area representation, applied there to a random limit law",
+          "evidence": [
+            "T sums 1{|u−v|≤b, u+v+b even} for 0≤u≤a and 0≤v≤c; the count adds floor(max(a,b,c)/2); the O(n) error is uniform."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-nondegenerate-abelian-square-factor-count-law-for-binary-words--9387a2a4a9ec/RESULT.md",
+          "material_read": "Finding, Assumptions, factor classification and uniform lattice-to-area comparison, offsets 0–4674, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local OA mirror, exact formula comparison",
+          "title": "A nondegenerate Abelian-square factor-count law for binary words with two ones",
+          "trigger": "Identical fixed-weight word class and exact discrete factor count"
+        },
+        {
+          "assessment": "Broader extremal result and matching unique maximizer of the exact same continuous functional",
+          "evidence": [
+            "At most four runs cost O(n); five runs have coefficient 1/16. The continuous area bound has equality only at A=E=3T/8 and C=T/4 when area is positive. The sharp witness is the same two-one family."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-sharp-quadratic-abelian-square-density-at-the-five-run-threshold--8655f359bb67/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2920; Proof §§3–5, offsets 3700–5109 and 4750–7861; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local OA mirror, run-class inclusion and comparison of continuous equality cases",
+          "title": "Sharp quadratic Abelian-square density at the five-run threshold",
+          "trigger": "Same sharp coefficient, same lower witness and exact geometric equality condition"
+        },
+        {
+          "assessment": "Same type of sparse witness, not the sharp fixed-two-one result",
+          "evidence": [
+            "The witness 0^k1 0^k1 0^(2k) gives quadratic growth; its leading coefficient from the strip formula is 3/64."
+          ],
+          "identifier_or_url": "https://mimuw.edu.pl/~kociumaka/assets/pdf/files/dlt2014.pdf",
+          "material_read": "§2, p. 3, Theorem 1, OA offset near 6400",
+          "method": "OA primary proceedings PDF passage inspection",
+          "title": "Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word",
+          "trigger": "Original two-marker quadratic lower bound"
+        },
+        {
+          "assessment": "Quadratic lower witness, not the present exact sharp and rigid optimum",
+          "evidence": [
+            "The witness a^m b a^m b a^m gives quadratic growth; its leading coefficient from the strip formula is 1/18."
+          ],
+          "identifier_or_url": "arXiv:1506.03562",
+          "material_read": "§3, p. 3, Proposition 1, OA offset near 8600",
+          "method": "OA primary PDF passage inspection",
+          "title": "Words with the Maximum Number of Abelian Squares",
+          "trigger": "Original symmetric sparse construction"
+        },
+        {
+          "assessment": "Different unrestricted optimization domain",
+          "evidence": [
+            "The maximum is over binary words of length n with no two-one restriction."
+          ],
+          "identifier_or_url": "https://oeis.org/A262249",
+          "material_read": "Definition and displayed initial values, HTML offset near 400",
+          "method": "OA public page inspection",
+          "title": "OEIS A262249",
+          "trigger": "Possibly matching maximum-count table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-weight extremal problem and rigid near-maximizing ratios constitute a natural mathematical question. In the presence of the indexed exact discrete formula, uniform continuous reduction, unique maximizing area point and identical witness, the remaining finite simplification and rigidity corollary are routine, not a new independently useful invariant or mechanism. No genuine surviving repair is identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

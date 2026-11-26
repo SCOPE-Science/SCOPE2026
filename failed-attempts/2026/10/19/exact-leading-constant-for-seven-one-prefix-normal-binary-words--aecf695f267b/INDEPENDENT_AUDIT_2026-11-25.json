@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:29.701265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A prefix-normal positive-weight word starts with 1. A factor contains k+1 ones only if it contains a run of k+1 consecutive one positions; the minimal length for such a factor equals that run's span. Thus precisely the prefix-gap versus sliding-gap inequalities in the source are necessary and sufficient, with sizes one and seven automatic. Subtracting one from all distances leaves the homogeneous comparisons unchanged. The trailing zeros are uniquely n−7−sum(s_i), giving lattice points in (n−7)P for n≥7, including the single word at n=7 and none below. Positive strictly increasing gaps scaled to have sum below one show dimension six. Rational Ehrhart gives vol_6(P)n^6+O(n^5). The source checker was inspected but not executed. Fresh exact arithmetic at /workspace/branches/fe2a5143-c775-4a43-954b-d434f70d61eb/independent_volume.py, with output independent_volume.out in that directory, recovered 14 rays from the rank-five active sets and used supporting hyperplanes and pulling (10 outer facets, 15 simplices), not the supplied barycentric subdivision. The sum of exact absolute determinants divided by 6! gave 289/2488320. Dividing by binom(n−1,6) gives 289/3456 for the stated first-symbol conditioning. The computation certifies the numerical volume, not the bijection or Ehrhart argument, which were assessed separately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two indexed fixed-weight-seven records give the complete rational series; one also gives minimal quasiperiod 12. Burcsi et al. stop their concrete formulas at density six. Balister–Gerke estimates the all-density count."
+        ],
+        "reasoning": "The entire fixed-seven series determines a_7(n) and its leading term with the required error; the older gap representation or bounds on a sum over all weights do not by themselves evaluate this coefficient.",
+        "searches": [
+          "Resultary: exact rational enumeration of seven-one prefix-normal binary words",
+          "arXiv:1611.09017v1 Proposition 16",
+          "arXiv:1903.07957 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4ea2c5539e39 and dcc91b029afa",
+        "arXiv:1611.09017v1",
+        "arXiv:1903.07957",
+        "arXiv:2005.09281v3",
+        "arXiv:2003.03222",
+        "OEIS A194850"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 4 of dcc91b029afa derives the exact n^6 coefficient and the O(n^5) remainder. The earlier gap criterion gives inequalities, and the earlier fixed-density discussion expressly reports not reaching concrete formulas above six."
+        ],
+        "reasoning": "The new-to-that-older-paper calculation is not a routine consequence of a tabulation only through six or of general fixed-density rationality. However the indexed full series and its stated coefficient directly imply the frozen Finding. Weighted-alphabet gapfree conditions and all-word generation do not provide that implication.",
+        "searches": [
+          "Resultary dcc91b029afa RESULT.md Step 4",
+          "arXiv:1611.09017v1 §3 Lemma 8 and §4.2 Proposition 16 discussion",
+          "arXiv:2005.09281v3 Definition 12",
+          "arXiv:2003.03222 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed generating-function record states the limiting coefficient of binom(n−1,6) as 289/3456; the rational-enumeration record states the coefficient of n^6 as 289/2488320 with O(n^5) error."
+        ],
+        "reasoning": "Both count weight-seven words of length n, not all weights or all words with no first-bit condition. The two normalizations differ by 6!, hence are equivalent as leading terms.",
+        "searches": [
+          "Resultary: seven ones prefix normal fixed-density leading constant and exact generating function",
+          "arXiv:1611.09017v1 Lemma 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed IDs 4ea2c5539e39 and dcc91b029afa, Findings. Table 5 in Burcsi et al. and OEIS A194850 list pnw(n), the total count across densities."
+        ],
+        "reasoning": "A pooled sequence is not the desired fixed-density sequence, but each distinct indexed exact-series record covers the same sequence and its constant. The two catalogue paths dated 2026/11/2 are not the frozen source dated 2026/10/19.",
+        "searches": [
+          "Resultary: exact generating function and minimal quasipolynomial period for seven ones",
+          "Resultary: exact rational enumeration seven-one prefix-normal",
+          "OEIS A194850",
+          "arXiv:1611.09017v1 Table 5"
+        ]
+      },
+      "rationale": "Distinct indexed results give the full density-seven generating function, and explicitly derive both asserted forms of the leading constant. Both are later by their catalogue paths, so the exact mathematical coverage does not resolve chronological priority.",
+      "residual_risks": [
+        "The date paths do not establish public priority or dependence between the records. A focused public lookup for the fractions was uninformative; exact overlap is established by inspected catalogue statements, not by absent public matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly more complete census; direct overlap",
+          "evidence": "Exact fixed-seven series and P_7(n) asymptotic to (289/3456) binom(n−1,6).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-generating-function-and-minimal-quasipolynomial-period-for--4ea2c5539e39",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local indexed-file comparison",
+          "title": "Exact generating function and minimal quasipolynomial period for seven-one prefix-normal words",
+          "trigger": "Exact density and rational generating function"
+        },
+        {
+          "assessment": "Exact overlap",
+          "evidence": "Series and proof of p_7(n)=289n^6/2488320+O(n^5).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-rational-enumeration-of-seven-one-prefix-normal-binary-wor--dcc91b029afa",
+          "material_read": "RESULT.md Finding and Step 4 (offsets 0 and 3500)",
+          "method": "Local indexed-file comparison",
+          "title": "Exact rational enumeration of seven-one prefix-normal binary words",
+          "trigger": "Exact same weight and expansion"
+        },
+        {
+          "assessment": "Prior criterion and concrete formulas through six, not a weight-seven numerical evaluation",
+          "evidence": "Consecutive-gap criterion and explicit statement that the concrete list was not extended beyond six.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.09017v1",
+          "material_read": "Lemma 8 p. 7; Table 5 p. 9; Proposition 16 and discussion pp. 10–11 (offsets 26484, 34082, 39217, 41641)",
+          "method": "Primary PDF passages",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "Prior fixed-density enumeration and gap tests"
+        },
+        {
+          "assessment": "Different regime",
+          "evidence": "Global all-density estimate, not fixed-weight asymptotic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.07957",
+          "material_read": "Theorem 1 p. 2 (offset 3986)",
+          "method": "Primary PDF passage",
+          "title": "The asymptotic number of prefix normal words",
+          "trigger": "Asymptotic count for the same word class"
+        },
+        {
+          "assessment": "Pooled weight count",
+          "evidence": "No weight-seven restriction in the sequence definition.",
+          "identifier_or_url": "https://oeis.org/A194850",
+          "material_read": "Sequence title/description (HTML offset 421)",
+          "method": "Database entry",
+          "title": "Number of prefix normal words of length n",
+          "trigger": "Exact sequence database"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Seven is a motivated density, just past the prior published concrete list through six, and the limiting conditional fraction is a useful exact invariant. But the complete fixed-seven series in other indexed work already determines this invariant, and those records explicitly give the same coefficient. The supplied volume proof is a useful alternate check, not a separate unknown invariant in the frozen Finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

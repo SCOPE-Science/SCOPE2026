@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:30:35.790453Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Quantifier-rank recursion uses the SET of atomic third-vertex extensions of each ordered pair, then the set of these pair types at a chosen first vertex, then the realized first-vertex types. Vertex transitivity makes the last set a singleton. Equality cases are forced by the pair's atomic data, and the reflection interchanging the endpoints makes the two mixed extensions occur together. With L=2k+1, s=n−L, d≤floor(n/2), the two arcs give t=(L−d)_++(d−s)_+. For d<L this is L−min(d,s): the mixed count is min(d,s) for adjacent pairs and min(d,s)−1 otherwise; the neither count is s−min(d,s), and the common count is t−2 on adjacent pairs and t otherwise. For k≥2 adjacent pairs always have a common neighbor. Nonadjacent pairs with d<L have a common neighbor, and their mixed and neither counts change at s=1 and d=s respectively. When d≥L the bound d≤n/2 forces s≥d, giving t=0, mixed count L−1, and neither count s−L. These give all boundaries: s=0,1,2…k,k+1,k+2…2k,L,≥L+1, and direct substitution at k=1 gives the five ordinary-cycle rows. The resulting signatures are all distinct and minimizing n in each exact regime gives the listed representatives, with 11 first attained in class K. Independent bounded replay `python3 /workspace/audit-work/finite_checks.py` constructs pattern sets directly for 3≤n≤39 and gives the eleven expected minima. The infinite result relies on the symbolic inequalities, not the replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The permutation-digraph theorem reduces directed cycles of length greater than 7 to length 7. The reduction transfers to unmarked ordinary cycles under the quantifier-free symmetric adjacency interpretation.",
+          "The frozen result explicitly credits Brown–Hoshino for ordinary cycles; independent passage extraction was unsuccessful."
+        ],
+        "reasoning": "For arbitrary k≥2 the power adjacency is not the quantifier-free symmetrization of successor. Translating cyclic distance at most k through a successor chain increases quantifier rank, so the directed rank-three theorem does not establish the rank-three power classes.",
+        "searches": [
+          "Resultary 9624ad907a63 finite permutation digraphs, Finding and cycle-reduction proof",
+          "Brown–Hoshino, The Ehrenfeucht–Fraïssé Game for Paths and Cycles"
+        ]
+      },
+      "checked_sources": [
+        "Lin et al. DOI 10.1016/j.dam.2010.03.012",
+        "Resultary 9624ad907a63, 4dcd7e02b656 and 23a64bde8f69",
+        "Brown–Hoshino (OA extraction attempt)",
+        "Libkin Chapter 3 (standard recursion cited by source)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prerequisites explain canonical representations, the k=1 tail, and the logical method. The ranks after interpreting higher-power adjacency in a directed cycle are not preserved by that ordinary-cycle translation."
+        ],
+        "reasoning": "The type recurrence does not supply the sign table by itself; one must find exactly which extension patterns appear simultaneously for all distances and all parameter regimes. Those combinations create collisions between different exponents and give the eleven-point sharp cutoff.",
+        "searches": [
+          "Lin et al. Theorem 1",
+          "Rank-three permutation digraphs 9624ad907a63, cycle reduction",
+          "Libkin, Elements of Finite Model Theory, Chapter 3 (standard EF/type recursion, cited basis)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Lin et al. structural characterization identifies graph representations of noncomplete cycle powers, not equality of unpointed rank-three theories.",
+          "The closest same-family catalogue item uses one individually coloured vertex and counts all neighborhood colours in refinement."
+        ],
+        "reasoning": "An isomorphism/recognition criterion and a rooted counting process do not give the required unrooted sets of extension types; both distinguish information absent from the pure rank-three interpretation.",
+        "searches": [
+          "Resultary: rank-three FO equivalence and three-round Ehrenfeucht–Fraïssé games on finite cycle powers, regular circular graphs",
+          "Lin–Rautenbach–Soulignac–Szwarcfiter, Powers of cycles, powers of paths, and distance graphs, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-object rooted-refinement record reports a stabilization-round formula with boundary 4k, not a table of unrooted three-round equivalences. The finite cycle counting-depth item concerns ordinary cycles versus unions of cycles and permits counting."
+        ],
+        "reasoning": "No matching exact table was identified. Agreement on a cycle family or appearance of a nearby boundary is not database coverage.",
+        "searches": [
+          "Resultary: eleven rank-three cycle-power theories, kernel 11, n=3k+2 and 4k+2 boundaries",
+          "Resultary 4dcd7e02b656 and 23a64bde8f69"
+        ]
+      },
+      "rationale": "The already covered ordinary-cycle portion and the standard type recursion are not credited as new. The complete unrooted two-parameter classification for cycle powers and the sharp representative order are supported as distinct from the strongest inspected results, to the best of current evidence.",
+      "residual_risks": [
+        "The exact Brown–Hoshino theorem was not independently read from the scan; the frozen source already credits the ordinary-cycle case. No absence claim about unindexed or inaccessible treatments of powers is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph family, different invariant",
+          "evidence": "Recognition via circular-arc and related structural properties.",
+          "identifier_or_url": "https://bibliotecadigital.exactas.uba.ar/download/paper/paper_0166218X_v159_n7_p621_Lin.pdf",
+          "material_read": "Abstract p. 1 at offset 809; Section 2 Theorem 1 p. 2 at offset 8395",
+          "method": "Bounded OA PDF passages",
+          "title": "Powers of cycles, powers of paths, and distance graphs",
+          "trigger": "Primary structural theorem on the same graph family"
+        },
+        {
+          "assessment": "Covers the k=1 long-cycle tail by quantifier-free interpretation",
+          "evidence": "Bijection in directed vocabulary; truncation of directed cycle lengths to 7.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-143-rank-three-theories-of-finite-permutation-digraphs-and-a--9624ad907a63",
+          "material_read": "Finding offset 0 and cycle reduction around offset 3480, local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local-mirror passage",
+          "title": "The 143 rank-three theories of finite permutation digraphs and a sharp 19-point kernel",
+          "trigger": "Potential rank-three classification implying an ordinary-cycle result"
+        },
+        {
+          "assessment": "Different logical data and question",
+          "evidence": "Individually marks vertex 0 and uses exact colour-count signatures; computes the stable classes T_j and stabilization round.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-rooted-counting-refinement-depth-of-long-cycle-powers-and--4dcd7e02b656",
+          "material_read": "Finding offset 0–1740, local mirror",
+          "method": "Bounded local-mirror passage",
+          "title": "Exact rooted counting-refinement depth of long cycle powers and its sharp boundary",
+          "trigger": "Same uncoloured graph family before adding a root; adjacent parameter thresholds"
+        },
+        {
+          "assessment": "Counting-logic depth versus unions of ordinary cycles",
+          "evidence": "No higher-power classification is identified in the stated scope.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-three-variable-counting-depth-of-finite-cycle-graphs--23a64bde8f69",
+          "material_read": "Catalogue scope and Finding comparison",
+          "method": "Resultary/OA comparison",
+          "title": "Exact three-variable counting depth of finite cycle graphs",
+          "trigger": "Similar logical terminology and ordinary-cycle classification"
+        },
+        {
+          "assessment": "Ordinary-cycle antecedent credited; extent not independently determined from primary passages",
+          "evidence": "No adverse inference is made from the extraction failure.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Bibliographic record and attribution in the frozen result; theorem not text-extractable from the available scan",
+          "method": "Lawful OA retrieval and passage extraction attempt",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Frozen source's direct antecedent for k=1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a natural logical invariant uniformly over two unbounded parameters, isolates the boundary and mixed-extension effects that cause class changes, and proves sharp representative order within the family. The complete exact classification can be used in place of separate three-round comparisons and is not just a bounded table of trial graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

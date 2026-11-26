@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:19:07.950676Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the one-color-per-positive-vertex rule, a colored hub forces the positive rim support to dominate the cycle, giving k=ceil(n/3) as its attainable minimum size. A zero hub forces independent rim zeros and at least ceil(n/2) positive rim positions; for n≥9 the only non-strict comparison with 1+k is at n=10, where five alternating positive positions would have to alternate colors around an odd cycle. For a fixed hub color, if p rim positions carry the other color, then n−k≤2p. Only n≡1 mod 3 can have p<k; there p=k−1 and coverage is exact. Every gap of other-color vertices then contains exactly two zeros, with the lone same-color vertex between the two zeros in a unique gap. Its fixed rim index gives exactly n choices. In the all-opposite-color case each gap has length 0,1,2, and marking one selected vertex counts each support k times. Thus the counts for one hub color are (n/k)[u^(n−k)](1+u+u²)^k, plus n when n≡1 mod 3. Evaluating the three coefficients and doubling gives 6, n(n+11)/3, and 2n in the stated order. An independent direct census for n=9,10,11,12 returned counts 6,70,22,6 with no zero-hub minimizer; this only corroborates the proof. The supplied verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 0518da82b5ef Finding and scope give all-weight singleton spectra on paths and cycles, not cones over cycles.",
+          "Resultary 6a2d2531557b gives three-color singleton minima on cycle prisms.",
+          "RESULT.md lines 46–50 attribute scalar cycle and regular-family results to Lange; these sections were not independently retrieved."
+        ],
+        "reasoning": "Neither an all-weight spectrum on the wrong graph class nor counts with three colors on prisms cover wheels. A result for a general class including universal-vertex joins and counting all optimum functions in the same model could cover this case; no such statement was established.",
+        "searches": [
+          "Resultary: singleton two-rainbow path and cycle spectra",
+          "Lange arXiv:2610.06906, §§2,5,6",
+          "Chellali–Haynes–Hedetniemi DOI 10.1016/j.dam.2026.03.017"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md §§Finding, Proof, Relationship to prior work",
+        "VERIFICATION.md",
+        "verify.py",
+        "Resultary records 0518da82b5ef and 6a2d2531557b",
+        "DOI 10.1016/j.dam.2026.03.017 bibliographic metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A cycle singleton function requires both colors adjacent to each zero. With a positive wheel hub only the opposite color is required on the rim.",
+          "The count with a positive hub has an extra exact-coverage family with a same-color rim vertex, in addition to ordinary minimum dominating sets of the cycle."
+        ],
+        "reasoning": "The earlier cycle polynomial is relevant to the zero-hub branch, not to the exceptional positive-hub family. Ordinary dominating-set counts handle the all-opposite-color branch only; a scalar minimum does not imply hub rigidity or enumeration of the mixed-color optimizers.",
+        "searches": [
+          "0518da82b5ef Finding, Assumptions and scope, and Proof versus RESULT.md lines 23–41",
+          "Lange and dual-server article versus labelled wheel optimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 4, 20–21 impose one named color at each positive vertex and both colors adjacent to every zero.",
+          "Bibliographic description of DOI 10.1016/j.dam.2026.03.017 gives the two-service interpretation; no wheel-specific statement was retrieved."
+        ],
+        "reasoning": "The dual-server terminology can denote the same model, but the standard set-valued formulation also permits a vertex carrying both colors and so is not equivalent for optimizer counts. Counting up to rotation, reflection or color exchange would likewise be a different count.",
+        "searches": [
+          "Resultary: singleton two-rainbow wheel minimum multiplicities",
+          "Resultary: dual-server domination wheel enumeration",
+          "Literature search: Chellali Haynes Hedetniemi dual-server domination wheel enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same formula retrieved the assigned record, e08c9a017a67, which is not a distinct source.",
+          "The cycle record 0518da82b5ef gives cycle minima counts 2n for odd n, n² for n≡2 mod 4, and 4 for multiples of 4."
+        ],
+        "reasoning": "The closest exact table or formulas use a different graph and a different modulus. A coincident 2n term does not give wheel counts or the other regimes.",
+        "searches": [
+          "Resultary: labelled wheel minimum count 6, n(n+11)/3, 2n",
+          "Resultary: exact singleton wheel census"
+        ]
+      },
+      "rationale": "The singleton/dual-server invariant is existing, and the all-opposite-color subcount reduces to ordinary cycle domination. The distinct claim is the full labelled wheel optimizer classification, including exclusion of the zero hub and the exact correction in residue 1. Closest indexed same-model results are about paths and cycles; the strongest journal comparison remains access-limited.",
+      "residual_risks": [
+        "The dual-server journal full text and Lange primary text were not accessible in this review; either could contain an earlier wheel-specific result.",
+        "An unindexed wheel census or a general cone counting theorem might imply the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive same-model overlap, but no hub; the cycle-zero rule is not the positive-hub rim rule.",
+          "evidence": [
+            "Graph class paths/cycles; cycle counts 2n, n², 4 in the stated parity/mod-4 regimes."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/1/SCOPE-complete-singleton-two-rainbow-domination-spectra-of-paths-and-c--0518da82b5ef",
+          "material_read": "Finding, Assumptions and scope, and Proof for path and cycle spectra, including cycle minimum multiplicities.",
+          "method": "Resultary search followed by bounded source inspection.",
+          "title": "Complete singleton two-rainbow domination spectra of paths and cycles",
+          "trigger": "Same definition and exact labelled spectra; strongest indexed candidate"
+        },
+        {
+          "assessment": "Three colors and a two-row prism do not specialize to this two-color wheel census.",
+          "evidence": [
+            "The stated graph is a cycle prism, not K₁∨C_n."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/2/SCOPE-exact-optimal-singleton-three-rainbow-domination-multiplicities--6a2d2531557b",
+          "material_read": "Indexed statement.",
+          "method": "Resultary search and comparison of objects and palette.",
+          "title": "Exact optimal singleton three-rainbow domination multiplicities of cycle prisms",
+          "trigger": "Related residue-dependent optimizer counts"
+        },
+        {
+          "assessment": "Same-model literature; cannot conclude whether the paper contains wheels or their multiplicities.",
+          "evidence": [
+            "Descriptions discuss two services and relations to forms of 2-domination, not a recovered wheel theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.03.017",
+          "material_read": "Search descriptions and DOI bibliographic metadata only.",
+          "method": "Literature search, literal-query OA retrieval, and lawful publisher access attempted; full text unavailable.",
+          "title": "Dual-server domination in graphs",
+          "trigger": "Same invariant under alternate terminology; plausible wheel example"
+        },
+        {
+          "assessment": "The available comparison reports scalar cycle and regular-family minima, not a labelled wheel census; primary scope is access-limited.",
+          "evidence": [
+            "RESULT.md lines 46–50, 53."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06906",
+          "material_read": "Frozen record's comparison, lines 46–47; no primary passage retrieved.",
+          "method": "Literal-query OA retrieval attempted.",
+          "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+          "trigger": "Cited singleton formulation and scalar minima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete minimum-configuration census on a natural graph class, beyond computing the optimum weight. It explains why a single mixed-color defect is possible in exactly one residue class and separates bounded, linear and quadratic optimizer multiplicities with labels retained.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

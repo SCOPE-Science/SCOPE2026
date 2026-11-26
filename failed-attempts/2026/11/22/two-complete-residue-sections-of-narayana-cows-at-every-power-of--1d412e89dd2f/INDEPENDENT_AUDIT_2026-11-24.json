@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:07:24.273023Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–70; VERIFICATION.md; check.py (inspected, not executed)"
+      ],
+      "rationale": "In Z[x]/(x³−x²−1), x⁷=1+2(1+x+2x²), so B mod 2 is 1+x and (B+B²) mod 2 is x+x². Applied to the cyclic parity word (1,1,1,0,1,0,0), their two scalar parity rows are (0,0,1,1,1,0,1) and (0,1,1,1,0,1,0). Writing M^(7·2^r)=I+2^(r+1)D_r, successive squaring gives D_r≡B+B² mod 2 for r≥1; odd multiples preserve the leading term, including r=0. Only classes 2 and 3 pass both rows. Each failing row supplies the counterexample t−s=1 or 2 at s=0. The exact valuation gives finite bijections from t mod 2^(k−1) onto the appropriate parity class mod 2^k, also at k=1. The seven-letter nonconstant parity period forces any period to be a multiple of seven, and the difference law at j=2 forces the stated dyadic factor. Completing the compatible quotient bijections gives the asserted 2-adic isometries.",
+      "residual_risks": [
+        "The proof certifies the two sections, not the full multiplicity of every scalar residue across all seven classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9db364243951 proves the sharp period and additionally two singleton output balls; 145313dde067 treats 28-class 2-adic interpolation and valuations; 849f5443ff2b classifies full-state cycles; Kirthi treats prime-modulus periods; Guadalupe treats 3-adic valuations."
+        ],
+        "reasoning": "The state and valuation results do not by themselves give scalar permutations; the exact same-day branch theorem does, while adding other fiber information.",
+        "searches": [
+          "Resultary 9db364243951, 145313dde067, 849f5443ff2b; arXiv:1509.05745 and arXiv:2112.06187"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md bibliography and prior-work section; OEIS A271953; indexed records and primary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete pairwise metric identity and the finite quotient bijections are proved in 9db364243951. The same identity extends uniquely to the parity cosets by 2-adic completion. Its table rules out the other classes. Delayed-morphism or single-term valuation results alone do not do this."
+        ],
+        "reasoning": "No part of the finding survives the exact matching statement plus immediate table consequence as a distinct scientific result.",
+        "searches": [
+          "Resultary 9db364243951, Finding and Proof §§1–5; 145313dde067, Finding and Proof §1; Allouche–Johnson 1996"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9db364243951 uses u0=0,u1=u2=1, hence u_(n+1)=a_n. Its classes 3 and 4 are the exact same classes a_(7t+2), a_(7t+3), with the same two-parameter valuation and parity sections."
+        ],
+        "reasoning": "The shift is by one in this source, not the separate shift-by-two normalization mentioned in the frozen scope. The claim is equivalent for all k and all distinct s,t, not merely similar at sampled moduli.",
+        "searches": [
+          "Resultary: Narayana cows two dyadic isometric branches, exact valuation of differences, parity residue sections",
+          "Web literature: Narayana recurrence residues at powers of two, 2-adic permutations and zero counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A271953 gives periods, e.g. 7,14,28,56 for moduli 2,4,8,16. In 9db364243951 every one of the five rows outside u-index classes 3 and 4 has a repeated value among its four entries modulo eight. c391e761b117 tabulates the unrelated Narayana triangle."
+        ],
+        "reasoning": "The direct slice table excludes all other index classes: an exact scaled isometry must have four distinct residues modulo eight at t=0,1,2,3. This rules out a separate exclusivity contribution.",
+        "searches": [
+          "OEIS A000930 and A271953; Resultary 9db364243951, Proof §5; Resultary c391e761b117"
+        ]
+      },
+      "rationale": "A distinct indexed record establishes the same two exact isometries, sections and sharp period after an index shift, independently of reliance on the assigned statement in the inspected passages. Even the assigned exclusivity addendum follows immediately from its complete modulo-eight slice table. The matched records bear the same calendar date, so this is verified scientific coverage, not a conclusion about priority or who proved it first. No distinct valuable remainder was found to repair.",
+      "residual_risks": [
+        "Relative priority of the matching same-day records is not established. The exact-zero publication mentioned without a precise citation in the frozen text was not resolved; the verified coverage does not rely on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "equivalent coverage including the immediate exclusivity consequence; priority unresolved",
+          "evidence": "Same seven-step matrix and B,C certificates for both branches, exact valuation, complete parity charts, same least period, and repeats on all other rows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-dyadic-isometric-branches-and-singleton-residue-balls-for-na--9db364243951/RESULT.md",
+          "material_read": "Finding; Proof §§1–5, including ordered modulo-eight table; relationship to prior work",
+          "method": "local mirror offsets 0 and 1600–6993, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two dyadic isometric branches and singleton residue balls for Narayana cows",
+          "trigger": "exact strongest match"
+        },
+        {
+          "assessment": "related valuation result",
+          "evidence": "28 residue classes and explicit 2-adic interpolation, not the paired difference law on full scalar sections.",
+          "identifier_or_url": "Resultary 145313dde067",
+          "material_read": "Finding and Proof §1",
+          "method": "local-mirror text, offset 0",
+          "title": "A complete binary valuation law and bounded discrepancy density",
+          "trigger": "same recurrence, dyadic interpolation"
+        },
+        {
+          "assessment": "state rather than scalar classification",
+          "evidence": "Cycle lengths of full states include 7·2^(j−1), not scalar-section fibers.",
+          "identifier_or_url": "Resultary 849f5443ff2b",
+          "material_read": "Finding",
+          "method": "local-mirror text, offset 0",
+          "title": "Complete periodic-cycle spectra of the generalized Narayana recurrence",
+          "trigger": "same recurrence and dyadic periods"
+        },
+        {
+          "assessment": "not the exact dyadic sections",
+          "evidence": "States periods over prime moduli, not both scalar permutations for all dyadic powers.",
+          "identifier_or_url": "arXiv:1509.05745",
+          "material_read": "Abstract, introduction, and prime-modulus theorem",
+          "method": "OA PDF, pp. 1 and 3, offsets 265–2462 and 4300",
+          "title": "Narayana Sequences for Cryptographic Applications",
+          "trigger": "modular period literature"
+        },
+        {
+          "assessment": "different valuation and observable",
+          "evidence": "One-term 3-adic valuations are not two-term dyadic difference valuations.",
+          "identifier_or_url": "arXiv:2112.06187",
+          "material_read": "Normalization and Theorem 1.1",
+          "method": "OA PDF p. 2, offsets 7247 and 8011",
+          "title": "On the 3-adic valuation of the Narayana numbers",
+          "trigger": "valuation comparison"
+        },
+        {
+          "assessment": "historical recurrence context",
+          "evidence": "The inspected passages concern delayed morphisms and growth.",
+          "identifier_or_url": "https://oeis.org/A000930/a000930.pdf",
+          "material_read": "Abstract and recurrence/growth passage",
+          "method": "OA PDF pp. 1 and 6, offsets 0 and 12885",
+          "title": "Narayana’s Cows and Delayed Morphisms",
+          "trigger": "classical recurrence reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; precise matching theorem and the modulo-eight table in Resultary 9db364243951"
+      ],
+      "rationale": "Exact two-adic coordinate charts would be useful structural information by themselves, but this record adds no independently useful exact fact to the covered theorem: the only apparent further assertion, exclusivity, is a direct four-entry row comparison in the overlapping result.",
+      "residual_risks": [
+        "This assessment does not deny the intrinsic mathematical interest of the dyadic chart theorem itself or assign priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

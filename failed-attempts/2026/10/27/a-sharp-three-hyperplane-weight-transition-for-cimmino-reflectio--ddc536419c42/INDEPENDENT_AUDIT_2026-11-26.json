@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:37:34.881391Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the admissible c,d the Gram matrix is positive definite by its antisymmetric eigenvalue 1−d and the positive definite two-by-two block of determinant 1+d−2c². Swapping rows two and three is implemented by an orthogonal change of coordinates since the row matrix is invertible and the Gram matrix is invariant under the swap. Convexity of the error norm permits averaging the two weights without loss; it does not prove all optimizers symmetric. At w=τ(z,1,1), the nonzero spectrum of the weighted row outer-product sum is τ times the spectrum of the congruence by diag(√z,1,1). Its eigenvalues are 1−d and the two eigenvalues λ± of the block with diagonals z,h=1+d and off-diagonal c√(2z). Given extremes m,L, scale 2/(L+m) uniquely balances endpoint errors and gives (L−m)/(L+m). Here L=λ+>h and m=min(1−d,λ−). The crossing λ−=1−d is equivalent to (d−c²)z=d(1−d), so exists only for c²<d; λ− is initially zero in the limit z↓0 and tends to h−2c². In the block-controlled region, squared contrast is 1−4z(h−2c²)/(z+h)² with a strict minimum at h. After any crossing the larger eigenvalue is strictly increasing with z while 1−d stays fixed. Therefore the unique symmetric minimizer is h or the crossing if it occurs first; the latter lies at or below h exactly for c²≤2d²/h. At the crossing L=z+2d, m=1−d, reproducing the rational branch; at h the block endpoints are h±c√(2h), giving the second branch and scale 1/h. At the boundary both coincide, and the contrast lies strictly between zero and one. The criterion z=1 reduces to c=d. At (c,d)=(1/4,1/2) the crossing occurs at 4/7 and gives unscaled extremes (1/2,11/7), hence weights (16,28,28)/29 and norm 15/29. Equal relative weights have unscaled extremes (1/2,(5+√3)/4) and the asserted strictly larger best contraction. Replay via RESULT.md Steps 1–6. The attached script and VERIFICATION.md were inspected, not executed; sampled competitors are not needed for the global statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Windmill Step 2 guarantees a global automorphism-invariant optimum and Steps 3–5 give the full formula for the two effective correlations. This is a solved parameterized family, not just a general numerical optimization method.",
+          "Boyd et al., Qu et al. and Ghadimi et al. provide generic diagonal optimization frameworks. The later isosceles record specifically credits Kolotilina with solving the broader quasireal Hermitian SPD 3×3 problem, but that primary text was not read in this audit."
+        ],
+        "reasoning": "The k=2 windmill construction works on the entire frozen positive-definite domain and preserves its endpoint spectrum for each symmetric shape. That solved earlier case dominates. No implication is inferred merely from a framework, abstract, or unavailable paper.",
+        "searches": [
+          "Resultary 8c423dd752b2 Finding and Proof Steps 1–5",
+          "Boyd et al. (1994) §3.1",
+          "arXiv:2209.00809 pp. 1,4",
+          "arXiv:2509.23439 p. 3",
+          "Shapiro DOI 10.1137/0722005",
+          "Kolotilina DOI 10.1007/s10958-005-0488-1 and Math-Net znsl819"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and check.py",
+        "Resultary 8c423dd752b2, 4996ec89d4c9 and 5f2c24f3080f",
+        "arXiv:2605.24692, 2209.00809 and 2509.23439; Boyd et al. §3.1",
+        "Access-limited: Shapiro DOI 10.1137/0722005; Kolotilina DOI 10.1007/s10958-005-0488-1 / Math-Net znsl819"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set k=2, s=d, t=c/√2. Then 2kt²=2c²<1+d and all windmill hypotheses hold. Its congruence by diag(√z,1,1,1,1) has a hub/leaf-sum block with diagonal z,1+d and off-diagonal √(2kz)t=c√(2z), two antisymmetric eigenvalues 1−d, and one pair-symmetric eigenvalue 1+d.",
+          "The frozen scaled Gram matrix has that same block and one copy of 1−d. Because c>0 gives λ+>1+d and the minimum is at most 1−d<1+d, the extra windmill eigenvalues do not change either endpoint for any z>0."
+        ],
+        "reasoning": "Both problems have a global optimum among symmetric shapes. Their condition-ratio functions of z are identical by the endpoint check, so the windmill theorem at k=2, not an extrapolation to excluded k=1, imports its unique invariant optimizer, crossing, both branches, and Jacobi locus kt²=s². With the optimum common scale it also imports all reported contraction factors, the active-extrema pattern of the three frozen modes, and the uniform-weight comparison. No new substantive claim remains in the frozen theorem after this reduction.",
+        "searches": [
+          "Resultary 2026/10/26 windmill RESULT.md, offsets 0–6807, Finding, assumptions and Proof Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rᵀ diag(w) R and diag(√w)G diag(√w) have identical spectra. Optimizing the common scale converts a congruence condition ratio K to q=(K−1)/(K+1).",
+          "The later isosceles catalogue record's 3×3 family is this G under permutation and (a,b)=(d,c); its x*=max{1/(1+a),(a−b²)/(a(1−a))} is exactly the reciprocal of z*."
+        ],
+        "reasoning": "The iteration language does not produce a different optimization or a new extremizer when the positive weights are unconstrained. The common scale follows from the extreme eigenvalues once the diagonal shape is known. The exact isosceles overlap is distinct, not the frozen record itself, and its later date is not used as evidence of earlier priority.",
+        "searches": [
+          "Resultary: optimal diagonal scaling and mode switch on windmill matrices, 8c423dd752b2",
+          "Resultary: isosceles SPD matrices and sharp Jacobi gap, 4996ec89d4c9",
+          "Boyd et al. LMI book §3.1",
+          "arXiv:2605.24692"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Windmill gives both global branches and its own rational separation from Jacobi scaling. The later exact-family catalogue record explicitly gives optimal condition number 22/7 at (a,b)=(1/2,1/4); this maps to 15/29 at the exact frozen witness. The distinct hub-and-spoke record is constrained to normalized probabilities and correlates d=c²."
+        ],
+        "reasoning": "The exact rational example is a substitution into the prior family formula, not a separately new invariant. The normalized hub-and-spoke result is not treated as equivalent, and no priority inference rests on the later source's numerical match.",
+        "searches": [
+          "Resultary 8c423dd752b2, 4996ec89d4c9 and 5f2c24f3080f",
+          "Resultary windmill Verification at offset 6807 and isosceles Verification at offset 5010"
+        ]
+      },
+      "rationale": "The previously dated windmill record 8c423dd752b2 covers the complete pointwise result by an exact reduction within that record's stated k≥2 range. Use k=2, pair correlation s=d and hub–leaf correlation t=c/√2. Its effective coupling kt² equals c², so for every symmetric scale the same three extreme-mode candidates occur; the only additional eigenvalues are another copy of 1−d and a nonextremal 1+d. The published windmill optimum and equal-weight criterion therefore give both branches here, with the contraction norm a monotone rescaling of the optimal condition number. This decision does not depend on recovering the inaccessible Kolotilina primary text or assigning priority from the later isosceles catalogue result.",
+      "residual_risks": [
+        "Historical primary priority and the full reach of the older scaling literature remain open where access was unavailable. They are not needed for the demonstrated catalogue implication. The comparison does not identify a new remainder or claim uniqueness among asymmetric optimizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage by k=2 endpoint-preserving embedding",
+          "evidence": "Defines θ=kt²; invariant optimum hub-to-leaf squared ratio switches from s(1−s)/(s−θ) to 1+s at θ=2s²/(1+s), and Jacobi is optimal iff θ=s². Its only extra spectral levels under the embedding are redundant for the extrema.",
+          "identifier_or_url": "Resultary 2026/10/26, 8c423dd752b2",
+          "material_read": "RESULT.md Finding and assumptions offset 0; Proof Steps 1–5 and Verification offsets 720–9244",
+          "method": "Local Resultary mirror",
+          "title": "A sharp mode-switch law for optimal diagonal scaling on windmill matrices",
+          "trigger": "Earlier parameterized two-branch mode switch with hub and paired leaves"
+        },
+        {
+          "assessment": "Exact pointwise overlap, distinct later claim for worst-case ratio",
+          "evidence": "Optimal relative scale is reciprocal to the frozen one; exact witness condition number 22/7. The claimed sharp 3/2 worst-case ratio differs and is not available as a novel repair to this record.",
+          "identifier_or_url": "Resultary 2026/11/8, 4996ec89d4c9",
+          "material_read": "RESULT.md Proof Step 1 at offsets 1880–4023; Verification and Relationship to prior work at offsets 5010–8397",
+          "method": "Local Resultary mirror",
+          "title": "The sharp three-halves Jacobi gap on isosceles positive-definite matrices",
+          "trigger": "Identical 3×3 family under permutation and pointwise optimum"
+        },
+        {
+          "assessment": "Related but not controlling",
+          "evidence": "Unit-sum probability weights and relation d=c², unlike the unrestricted common scale and two independent correlations here.",
+          "identifier_or_url": "Resultary 2026/11/2, 5f2c24f3080f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Unique optimal convex reflection weights on hub-and-spoke linear systems",
+          "trigger": "Same reflection objective in a symmetric family"
+        },
+        {
+          "assessment": "Two-row antecedent",
+          "evidence": "A positive pair attains the two-row optimum uniquely at equal unit weights; not the three-row branch result.",
+          "identifier_or_url": "arXiv:2605.24692",
+          "material_read": "p. 1, offset 1573",
+          "method": "OA PDF passage",
+          "title": "Sharp Convergence Rates and Optimal Weights for Cimmino’s Reflection Algorithm",
+          "trigger": "Closest application-specific weighting result"
+        },
+        {
+          "assessment": "Classical general framework",
+          "evidence": "Diagonal row/column condition minimization posed as a generalized eigenvalue problem.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/lmibook/",
+          "material_read": "Ch. 3 §3.1 pp. 37–38, offset 122000",
+          "method": "OA book PDF passage",
+          "title": "Linear Matrix Inequalities in System and Control Theory",
+          "trigger": "Diagonal condition optimization equivalence"
+        },
+        {
+          "assessment": "Algorithmic coverage, not decisive exact case",
+          "evidence": "Quasiconvex and SDP reformulations with bisection/interior-point methods.",
+          "identifier_or_url": "arXiv:2209.00809",
+          "material_read": "pp. 1,4, offsets 2727 and 12589",
+          "method": "OA PDF passages",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "General positive diagonal optimization"
+        },
+        {
+          "assessment": "Methodological overlap",
+          "evidence": "General pseudoconvex optimization and algorithms, not the inspected two-correlation formula.",
+          "identifier_or_url": "arXiv:2509.23439",
+          "material_read": "p. 3, offset 9101",
+          "method": "OA PDF passage",
+          "title": "New Insights and Algorithms for Optimal Diagonal Preconditioning",
+          "trigger": "Broader exact condition optimization methods"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "Abstract describes general scaling and optimality conditions, not enough to decide case-specific coverage.",
+          "identifier_or_url": "DOI 10.1137/0722005",
+          "material_read": "Abstract only",
+          "method": "SIAM access unavailable; JSTOR landing page only",
+          "title": "Optimal Block Diagonal ℓ₂-Scaling of Matrices",
+          "trigger": "Possible historical exact scaling characterization"
+        },
+        {
+          "assessment": "Plausible historical coverage not used as proof",
+          "evidence": "Source name/description and later attribution suggest optimal pointwise scaling and Jacobi locus in a broader class. No primary theorem was obtained to confirm the details.",
+          "identifier_or_url": "DOI 10.1007/s10958-005-0488-1; https://www.mathnet.ru/eng/znsl819",
+          "material_read": "Bibliographic description and the later record's attribution only",
+          "method": "Publisher and author-upload attempts unavailable; identified Math-Net original returned unavailable by direct/VPN retrieval",
+          "title": "Solution of the Problem of Optimal Diagonal Scaling for Quasireal Hermitian Positive-Definite 3×3 Matrices",
+          "trigger": "Title suggests a dominating exact 3×3 result and later catalogue source attributes full coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The motivation for optimal simultaneous reflection weights is legitimate, and the numerical-size witness could be useful exposition. However the frozen mathematical contribution is exhausted by the earlier endpoint-identical scaling family, the elementary optimal common scale, and a parameter substitution. No new contraction-norm phenomenon, blocker to the reduction, or independently useful unknown exact invariant remains. This is a mechanical application rather than a substantive new gap filled by the three-row claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

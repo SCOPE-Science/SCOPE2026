@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:54:55.225590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Off contact four rate-1/2 jumps contribute squared increments 1/4 (centre) and 1 (gap); at contact the two outward jumps remain. In both regimes the centre signs cancel for each available gap direction, so the centre drift and predictable cross bracket vanish. For A equal to time at gap 1, this yields gap drift A, gap martingale bracket 2s−A_s, and centre bracket s/2−A_s/4. The latter is predictable, not the realized sum of squared hops. Since R−1≥0 and continuous A increases only at the zero gap above the wall, it is exactly the Skorokhod regulator of R(0)−1+M^r. Doob's inequality gives E[(A_{n²T}/n)²]≤8T, which both controls bracket errors uniformly by A_{n²T}/n² and gives uniform integrability. Vanishing jumps, diagonal bracket convergence and the martingale FCLT give independent Brownian drivers. The regulator under joint J1 convergence to continuous paths is continuous in the uniform metric (the running negative supremum is 1-Lipschitz), so the same joint limit carries R_n and H_n, with factor 1/4. Reflection gives the stated tail for z≥0, including P(K_t=0)=2Φ(δ/√(2t))−1, and integration gives the coefficient in terms of φ and Φ. The martingale isometry and uniform integrability justify using this coefficient for the actual variance, without inferring moment convergence from weak convergence alone. The frozen checker and its recorded 11482 assertions were inspected, not executed; the functional limit rests on the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-particle atomic limit has a one-dimensional O(1/n) bound for expected near-collision occupation, and the interaction tends to zero in L1.",
+          "Fan gives joint reflected walk/local-time convergence on bounded Lipschitz domains. Ayala–Renger treats collision fluxes under other regimes; Gess–Konarovskyi treats torus density fields from smooth product laws."
+        ],
+        "reasoning": "These results cover first-order or local-time ingredients, not the joint centre with a normalized bracket deficit for two deterministically started nearest-neighbour particles on the infinite line. A stronger equivalent joint theorem was not identified among the inspected statements.",
+        "searches": [
+          "arXiv:2610.31319v1 Proposition 6.8 and Corollary 6.9",
+          "arXiv:1410.3585 Theorem 3.1",
+          "arXiv:2512.20412v1 and 2610.13308v1 abstract and observable comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_checker.py and recorded verification_output.txt",
+        "arXiv:2610.31319v1, 1410.3585, 1412.6184v1, 2512.20412v1, 2610.13308v1",
+        "Resultary ef4ea58edfd5, 1689549ddad3, 6fbc744c1a0d and 3302a561a43a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An O(1/n) occupation bound does not determine the law after multiplication by n; local-time invariance can account for the regulator subclaim once the gap dynamics are identified.",
+          "The centre–gap cross bracket cancellation determines independence of the joint drivers, and the squared-centre-jump rate converts boundary occupation into exactly K/4."
+        ],
+        "reasoning": "Do not claim novelty for the reflection principle or a standard martingale invariance principle. The compared bounds and regulator statements do not by themselves give the model-specific normalized joint observable and its variance coefficient.",
+        "searches": [
+          "arXiv:2610.31319v1 eqs. (52)–(53), Corollary 6.9",
+          "arXiv:1410.3585 Theorem 3.1 versus frozen RESULT.md proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The correction is exactly one quarter of rescaled contact occupation; the regulator aspect has reflected-walk/local-time precedent.",
+          "Resultary ef4ea58edfd5 concerns accepted-hop activity in a stationary finite cycle; actual hop counts are not their predictable compensator, and the scaling and boundary conditions also differ."
+        ],
+        "reasoning": "Treat the occupation and compensator descriptions as equivalent within the frozen dynamics. Do not equate accepted-hop fluctuations or a boundary local-time marginal with the stated joint random bracket correction.",
+        "searches": [
+          "Resultary: two-particle exclusion centre bracket, adjacent gap occupation, collision activity and noise deficit",
+          "arXiv:1410.3585 Theorem 3.1",
+          "arXiv:1412.6184v1 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Findings include ef4ea58edfd5 (activity), 1689549ddad3 (equilibrium finite-ring block noise), 6fbc744c1a0d (stable heterogeneous pair displacement) and 3302a561a43a (Pascal-sign cross-bracket)."
+        ],
+        "reasoning": "These entries are different in either observable or regime; none of the returned comparisons supplies the exact K/4 process law or the scalar coefficient. Catalogue non-return is not a historical priority claim.",
+        "searches": [
+          "Resultary: exclusion pair contact regulator, Brownian centre predictable bracket deficit and finite-size variance"
+        ]
+      },
+      "rationale": "The random centre predictable-bracket correction at order 1/n, jointly with the centre and reflected gap, is the supported distinction. Neither the leading fixed-particle diffusion nor reflected-walk/local-time convergence alone is original here. The population, observable and limit of the closest collision and noise comparisons differ, and the combination requires the exact contact-to-bracket coefficient, joint martingale covariance calculation and uniform integrability for the mean.",
+      "residual_risks": [
+        "A more general joint collision-clock and martingale convergence theorem, or an older exclusion pair result, may cover the full observable; no historical priority certified.",
+        "Only the abstract was retrievable for the Ayala–Renger comparison during this review; sparse-regime overlap beyond the inspected statement was not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First-order convergence and bound, not the scaled bracket law",
+          "evidence": [
+            "One-dimensional expected near-collision time is O(1/n) in the rescaled system; L1 disappearance of the bracket interaction does not specify its next-order process."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31319v1",
+          "material_read": "p.1 abstract; Proposition 6.8, p.29, offset 91772, eqs. (52)–(53); Corollary 6.9, p.31, offset 97921",
+          "method": "Bounded primary PDF passages",
+          "title": "Atomic limits of empirical measures of interacting particle systems with self-duality",
+          "trigger": "Same fixed-particle exclusion and collision-occupation scale"
+        },
+        {
+          "assessment": "Covers regulator convergence as an ingredient in its stated setting",
+          "evidence": [
+            "Joint convergence of reflected walk and discrete boundary local time on bounded Lipschitz domains; no exclusion centre bracket in the statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.3585",
+          "material_read": "Theorem 3.1, p.5, offset 18396",
+          "method": "Bounded primary PDF passage",
+          "title": "Discrete approximations to local times for reflected diffusions",
+          "trigger": "Broader local-time invariance"
+        },
+        {
+          "assessment": "Different inspected regime; no whole-document noncoverage determination",
+          "evidence": [
+            "Abstract describes collision events and counts with varying particle/lattice scalings, including space-time white noise for net collision counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.20412v1",
+          "material_read": "p.1 abstract, offset 0; interior retrieval attempts were unsuccessful",
+          "method": "OA PDF abstract and targeted retrieval attempts",
+          "title": "Hydrodynamic limits of collisions and fluxes in the exclusion process",
+          "trigger": "Adjacent exclusion collision-observable work"
+        },
+        {
+          "assessment": "Different observable and initial-law regime",
+          "evidence": [
+            "Smooth product initial profiles on discrete tori and Gaussian approximation of density fields, not two deterministically started particles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13308v1",
+          "material_read": "p.1 abstract, offset 0",
+          "method": "OA PDF abstract",
+          "title": "Higher-Order Gaussian Approximations on Path Space for the Simple Symmetric Exclusion Process",
+          "trigger": "Higher-order SSEP path-space comparison"
+        },
+        {
+          "assessment": "Same contact mechanism but distinct observable and geometry",
+          "evidence": [
+            "Exact variance and Fano crossover for total accepted-hop activity on a stationary finite cycle."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-diffusive-time-theta-crossover-for-two-particle-exclusion-acti--ef4ea58edfd5",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A diffusive-time theta crossover for two-particle exclusion activity",
+          "trigger": "Closest two-particle Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leading diffusion loses the contribution of rejected jumps. The result identifies what survives at the next order as a non-Gaussian random contact regulator independent of the leading centre, and gives a measurable first correction to its variance, with the mass at zero explaining the effect of a positive starting gap. It is a precise two-particle benchmark, not a positive-density claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

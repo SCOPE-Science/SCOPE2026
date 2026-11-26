@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:34:34.279498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the aligned lattice of the isotropic quadratic, one can label the equally probable noise cells by j=1,...,2m so that k moves up iff j>k. For k<l, precisely l−k cells move them toward each other; if adjacent this swaps them. Hence gaps decrease by two until 0 or 1 and have independent geometric holding times at their successive levels, including deterministic or zero waiting-time edge cases. Within any initial parity class two indices cannot cross without meeting; its initial extremes therefore determine its entire coalescence time. Once both classes have coalesced and their representatives are adjacent, the lower index L moves up or down with counts 2m−1−L and L, respectively, and the class order flips with count one. The binomial weights on L satisfy neighboring detailed balance and the fair order satisfies flip balance. The recurrent set is irreducible; parity alternation and a positive two-step return give period exactly two, also for m=1. The variance follows by writing the centered average as the centered L plus (2r/d−1) times the centered fair Bernoulli, scaled by δ. The independent-noise product law need not be the only invariant law, because of parity phases; the cited independent-noise variance nonetheless holds under the product law and within any relative-parity recurrent class after averaging both phases, since the parity-conditioned binomial means both equal m. It is not an ordinary-time convergence result. Fresh exact-rational checks covered every ordered pair for m=1 through 5 and invariant mass and average variance for three four-coordinate class-size patterns.",
+      "replay_paths": [
+        "/workspace/evidence/replay.py (python3 /workspace/evidence/replay.py 2)",
+        "/workspace/evidence/2.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernstein et al. establish stochastic sign-based optimization bounds and analyze a distributed majority rule. Balles et al. give the elementwise updates and analyze optimization geometry. Porod gives a generic definition of coupling."
+        ],
+        "reasoning": "The model fits the update framework, but the inspected results do not specialize to a pure-death common-noise gap or the mixed-parity invariant coupling. One must identify the joint kernel and analyze its communicating states.",
+        "searches": [
+          "Bernstein et al., signSGD, PMLR 80",
+          "Balles, Pedregosa and Le Roux, arXiv:2002.08056v1",
+          "Porod §11.3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 91e3f2750878 and identical assigned entry",
+        "Bernstein et al. PMLR 80",
+        "arXiv:2002.08056v1",
+        "Porod §§11.2.4 and 11.3.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent-noise and shared-noise updates have the same scalar transitions and scalar invariant marginal. They differ in the joint transition and invariant correlations, as the frozen theorem explicitly calculates."
+        ],
+        "reasoning": "This countercomparison shows why neither the scalar theorem nor a binomial lookup implies the claimed coalescence and stationary average cost. The geometric holding times use standard tools but are quantified from the newly specified coupling.",
+        "searches": [
+          "Resultary 91e3f2750878 Finding, verification and scope passages versus the frozen theorem",
+          "Porod pp. 319–320 and 324"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is the common inverse-threshold coupling of Ehrenfest count chains. Porod's Ehrenfest passage gives scalar binomial equilibrium and a hypercube lift; the generic coupling passage does not give this coupling's gap law."
+        ],
+        "reasoning": "Using the same random bit label in a hypercube realization is not automatically the same as coupling the counts by their ordered noise thresholds. A scalar Ehrenfest chain does not specify the multivariate update.",
+        "searches": [
+          "Resultary: shared-uniform sign-gradient synchronization and multivariate stationary covariance",
+          "Open literature: synchronous common-uniform coupling of Ehrenfest chains",
+          "Porod §§11.2.4, 11.3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title match is the assigned record itself. Distinct record 91e3f2750878 gives the invariant marginal with M=2m under the frozen theorem's parameters and explicitly excludes multidimensional coupling."
+        ],
+        "reasoning": "This is exact overlap for each marginal, not for the joint state probabilities, hitting times or covariance. No distinct joint table was established.",
+        "searches": [
+          "Resultary: shared noise, Ehrenfest stationary covariance, lattice parity, signSGD"
+        ]
+      },
+      "rationale": "The defensible distinct content is the full common-uniform joint kernel and its quantitative parity-locked hitting and invariant laws, not the already known binomial marginal or generic signSGD update. The inspected scalar and coupling statements do not determine this common-threshold joint law.",
+      "residual_risks": [
+        "An older common-quantile coupling of parity classes of the Ehrenfest chain could cover the exact law under different terminology. The additional websearch did not yield relevant results and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar part only",
+          "evidence": [
+            "M-interval one-coordinate chain, binomial stationary law, exact stationary loss; multidimensional coupling explicitly excluded."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0 and 2477–5587; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published record mirror",
+          "title": "Exact Ehrenfest law and linear noise floor for additive-noise signSGD",
+          "trigger": "Closest distinct indexed result; exact scalar overlap"
+        },
+        {
+          "assessment": "Framework, not exact shared-coordinate dynamics",
+          "evidence": [
+            "Sign-based nonconvex convergence analysis and majority vote across independently sampled workers."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v80/bernstein18a/bernstein18a.pdf",
+          "material_read": "p. 1 and text offset 4173",
+          "method": "Open primary PDF, located passages",
+          "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+          "trigger": "Original update and stochastic analysis"
+        },
+        {
+          "assessment": "Different analytical objective",
+          "evidence": [
+            "Defines elementwise sign updates and studies smoothness-based geometry rather than this parity-dependent invariant coupling."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2002.08056v1",
+          "material_read": "Update definitions and setting, text offset 2146",
+          "method": "Open primary HTML, located passage",
+          "title": "The Geometry of Sign Gradient Descent",
+          "trigger": "Related deterministic and stochastic sign updates"
+        },
+        {
+          "assessment": "Prior scalar equilibrium and coupling machinery",
+          "evidence": [
+            "Scalar Ehrenfest equilibrium and hypercube lift; generic construction of a coupling on a common probability space."
+          ],
+          "identifier_or_url": "https://www.math.northwestern.edu/documents/book-markov-chains.pdf",
+          "material_read": "§11.2.4 pp. 319–320, text offset 773450; §11.3.2 p. 324, offset 785553",
+          "method": "Open PDF, located passages",
+          "title": "Dynamics of Markov Chains for Undergraduates",
+          "trigger": "Possible equivalent coupled Ehrenfest formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model isolates a concrete failure of dimension-based variance reduction without changing curvature or marginal noise: perfect dependence collapses arbitrarily many variables to at most two classes and produces an exact stationary covariance penalty. The distribution of the settling time and the comparison at fixed marginals make it useful as a precise benchmark, not as a general claim about signSGD on arbitrary objectives.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

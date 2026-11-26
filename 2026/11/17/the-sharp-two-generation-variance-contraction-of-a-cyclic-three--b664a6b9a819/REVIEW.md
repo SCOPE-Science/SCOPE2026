@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement covers the closed three-type simplex and the exact cyclic quadratic map. The calculation reduces the global two-generation variance ratio to the symmetric pair-sum and triple-product variables, proves the latter is monotone using Schur's inequality, and optimizes the only two feasible boundary branches exactly. This establishes both the radical optimum and its unique equality compositions. The one-generation bound gives a rigorous all-iteration consequence. Exact symbolic assertions were executed from the standalone checker. The finite rational-grid tests are auxiliary evidence, not a substitute for an infinite-domain proof.
+## correctness
 
-## Originality
-**PASS within inspected coverage.** Mamurov's same-map paper proves convergence to the barycenter and a product-of-gaps Lyapunov inequality. Neither establishes the claimed optimal two-iterate Euclidean-variance coefficient. Jamilov's permutation-class map and the 2024 general regularity paper were inspected and have different maps and hypotheses. Targeted database and literature searches produced no dominating same-operator theorem; database non-retrieval is not proof of priority. The May 2022 conference note could not be read continuously, and online posting timing is unknown, leaving a specific residual priority and dating risk. These risks were not represented as independent verification.
+PASS
 
-## Value
-**PASS.** The source's population model has known qualitative convergence, but its best uniform finite-generation rate and worst mixing composition are meaningful missing quantitative invariants. Exact one-step neutrality at edge midpoints coexists with strict, sharp two-step mixing, with the optimum attained at a distinct interior state. This is a natural finite-horizon extremal theorem rather than an arbitrary slice of simulations.
+Writing p=Σ_{i<j}x_i x_j, q=x_1x_2x_3 and b=(1−2p)/3 gives output coordinates b+2r_i with r_i the three pair products. They sum to one, and Σr_i²=p²−2q, so D(Vx)=8p²/3−8q. The next product is b³+2p b²+4qb+8q², and p'=1/3−D(Vx)/2; these reproduce the two-step polynomial. At fixed p its q derivative is −(32/9)(8p²−6p+12q+1); q≥0 suffices for p≤1/4 and Schur 9q≥4p−1 gives the strictly positive bracket for 1/4<p<1/3. The edge minimum q=0 is feasible through p=1/4, and the edge ratio increases to 1/9 (its derivative sign reduces to 18p²−11p+2>0). Above p=1/4 every state is interior; multiplier equations force repeated coordinates at an extremum of q, since pairwise differences of the equations for three distinct coordinates would identify all three with the same multiplier. The branch with repeated a=(1+sqrt(1−3p))/3 gives the smaller product. On it one step multiplies variance by 4a² and maps the repeated coordinate to a'=(1+2a−6a²)/3, so the two-step factor is 16a²(a')². Its derivative has the unique interior maximizing root of 18a²−4a−1=0 on (1/3,1/2); the other quadratic factor 6a²−2a−1 is negative there. At that root a(a+1)=(31+11sqrt(22))/162 and a'=2(a+1)/9, giving exactly the stated radical. Since the other branch and the edge cannot attain it, only its coordinate permutations give noncenter equality. The one-step ratio is increasing to one on the edge, and is 4a²<1 on the interior minimizing branch. Iteration gives the global bound; on the tangent plane the derivative is (2/3)(I+cyclic shift), with squared two-step factor 16/81. The frozen symbolic identities and 285 grid states are corroboration; the continuous maximum and closed-boundary cases were checked analytically.
 
-## Scope and closest literature
-The sharp constant belongs only to this operator, this imbalance norm, and exactly two generations. The local linear two-step variance coefficient differs from the global optimum, and no claim is made about the optimal all-time asymptotic rate. The earliest located same-title conference volume is dated May 11–12, 2022; its exact publication/upload day is unverified. No independent mathematical audit was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the optimal global two-step Euclidean variance factor and its interior equality orbit, contrasted with the sharp one-step factor. Mamurov's exact same map and qualitative regularity assertions are prior; the inspected proof bounds a different Lyapunov function that loses all variance information on the maximizing two-equal-coordinate branch. The plausible permutation-family comparison is a different map even under relabeling. This is a bounded best-of-knowledge decision, not a historical priority claim.
+
+## value
+
+PASS
+
+Variance around equilibrium is a natural imbalance statistic for this previously studied map. Two generations are the first horizon at which there is strict uniform contraction in this metric, since the one-step maximum is one at edge midpoints. The exact constant is a usable global transient bound, and its interior equality composition identifies an obstruction that neither boundary testing nor the equilibrium linearization captures. Thus this is a motivated sharp finite-horizon result, not a new claim of qualitative regularity or an arbitrary iterate count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

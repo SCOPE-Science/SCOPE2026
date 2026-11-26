@@ -1,19 +1,21 @@
-# Scientific review — star coloring on four cubic girth-six graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full constraints of proper vertex-star coloring were reconstructed from the no-bichromatic-four-vertex-path definition. The canonical restricted-growth enumeration is exhaustive up to global palette permutation because every coloring has a unique first-appearance normalization. Early pruning only excludes completed prohibited edges or completed forbidden paths and thus preserves all valid solutions. Independent original-order Python and BFS-order C++17 implementations enumerate the complete feasible sets, test nonexistence of every three-color solution, recover all 24 named permutations of each optimum, build all legal single-vertex recolorings, and identify all connected components. Python also checks the eight-cycle rim criterion for the nine-vertex grid components. The two standalone programs return identical detailed numbers; their recorded successful runs are included. Full finite enumeration, not a truncated sample, is the proof of the finite census. No independent scholarly assessment is implied.
+PASS
 
-## Originality — PASS, with priority risk
+Independently enumerated every coloring with a fixed ordered edge assigned 0,1. In a proper partial coloring, a bichromatic P4 exists exactly when a bichromatic edge has both endpoints of degree at least two in its color-pair subgraph. On assigning a vertex, the only newly bad edges are incident to it or have an endpoint whose degree it increases. This prunes only impossible completions. There are no states with at most three names. One palette permutation per ordered pair of edge colors recovers all named four-color states, including all permutations of the other two names already covered by the search. Changing each two-bit color coordinate in all three ways gives the exact adjacency. Each component was tested for adjacency-preserving bijection to the claimed templates: H 336 Q3; M 2280 K1, 1152 K2, 192 C4; P 3072 K1, 1296 K2, 648 P3, 144 Q3; D 7200 K1, 1440 K2, 480 Q3, 720 P3 x P3. The named, quotient, and edge counts all agree. The supplied C++ rim test by itself does not check that the alternating 2-regular rim is connected; the supplied Python test explicitly does, and the independent isomorphism check removes this concern. This is an exhaustive finite test on the four stated cubic incidence models, not a structural theorem for all cubic graphs.
 
-Actual searches of mathematical research records for star-coloring and the names of all four graphs, optimal partitions, frozen star colorings, and reconfiguration yielded no prior result implying the exact four component decompositions. The closest star-coloring theory gives generic subcubic upper bounds, not exact optimal-recoloring graphs; an indexed Heawood result instead concerns strong **edge** coloring, whose two-edge-color-path constraints differ. Published ordinary recoloring results permit intermediate colorings forbidden under the star constraint. No inspected statement covers the ordered combination of all four structures. No known table containing these component counts was located. Unindexed historical enumerations and papers not available in full are residual priority risks. This is a best-knowledge originality judgment, not proof of universal uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The quartet is not a handpicked arbitrary induced subgraph: it comprises classical, highly symmetric cubic graphs of girth six. At the same optimal palette size, their exact recoloring components range from purely eight-vertex cubes to thousands of isolated states, with a nine-state grid structure at Desargues. This supplies a natural finite family of starkly differing obstructions to local recoloring under a no-bichromatic-four-path constraint; full shape identification and all optimizer counts make the statement stronger than isolated chromatic-number computations. The finite scope is explicit, and there is no claim of a broader asymptotic theorem.
+Pass for the complete component classifications of the named optimal star-vertex state spaces. The closest catalogued comparisons change the coloring predicate or the move, and the exact catalog match is the assigned record itself. No independent priority is inferred for the four palette sizes.
 
-## Sources and limitations
+## value
 
-The primary dated archival source is Albertson et al., *Coloring with no 2-Colored P4's* (2004, DOI 10.37236/1779), with its published March 31, 2004 date. Fertin–Raspaud–Reed (2004, DOI 10.1002/jgt.20029), Karthick–Subramanian (2013, DOI 10.7151/DMGT.1672), and standard recoloring literature were compared for generic coverage. Historical graph-specific numerical tables may be unindexed. The classification is a machine-reproducible finite result and has not undergone independent scholarly audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These four standard girth-six cubic graphs support a natural finite comparison of mobility at the star chromatic optimum. The exact result distinguishes unrestricted mobility inside Heawood cubes (no isolated state) from extensive freezing and several distinct small component geometries on the other graphs. Knowing the actual components lets a researcher distinguish reachability, frozen states, and the size of all reachable sets, information that a chromatic number or census alone cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

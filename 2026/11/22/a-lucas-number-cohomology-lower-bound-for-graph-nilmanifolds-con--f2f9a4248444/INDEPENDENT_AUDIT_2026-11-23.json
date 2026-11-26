@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:17:30.095590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each nonzero differential term replaces an edge generator by its two endpoint generators and preserves all multiplicities w; terms with repeated exterior generators vanish. This is a direct sum of finite subcomplexes, so summing the absolute weight Euler characteristics gives a bound on total cohomology, not a formula for it. For binary vertex and edge masks a,b, the admissibility relation is a_i=w_i−b_{i−1}−b_i, and the sign is (−1)^(sum w−sum b). Thus the four matrices have the displayed column signs, and the trace imposes cyclic consistency including the wrap edge. The independent transition table has 25 reachable distinct matrices, closed under all four right products. It verifies all 25 coordinates of T(T^4−3T^3−4T²+8T+8I)q=0 for q(A)=|tr A|. The identity is applied after at least one transition: S_1 through S_4 are 4,12,36,116, and the polynomial factors as (z²−2z−4)(z−2)(z+1), the four bases of the stated formula. This proves the exact Euler sum even though sampled cohomology need not exhaust all n. The indicated initial bounds and Binet asymptotic then follow. For an induced vertex set, its cochains comprise precisely the summands of the full complex supported on subsets of that set, including constants; the complement is invariant. Thus the rational cohomology inclusion splits using the standard invariant-forms identification, with no independence assumption on the graph edges outside the cycle. The graph assertion begins at n=3. The supplied Python script was not executed; Python 3.10+ is needed to run its bit_count() check. Its internal independent cross-check does not by itself constitute a separate audit.",
+      "replay_paths": [
+        "branches/027e480f-aabe-4f8d-b75e-9cf86f74e236/lucas_cycle_monoid_check.md"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The path total in Theorem 6.1 is 2^(r−1)F_(r+2). The support decomposition is already known and implies induced-subgraph monotonicity. Applying both to the induced P_(n−1) gives 2^(n−2)F_(n+1) for a cycle or wheel, with the same base 1+√5 and smaller leading coefficient. The direct diameter bound in Corollary 6.3 remains constant on diameter-two wheels."
+        ],
+        "reasoning": "Only the uniform quantitative cycle bound, not mere exponential growth when a long induced cycle occurs, is beyond this combination of prior results. The explicitly comparable path estimate is strictly weaker than the cycle bound.",
+        "searches": [
+          "Aldi et al. arXiv:2611.17014 Theorem 6.1, Corollary 6.3 and induced-subgraph principle",
+          "Aldi et al. arXiv:2402.14188 Theorem 17",
+          "Aldi et al. arXiv:2504.19836 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17014",
+        "arXiv:2402.14188",
+        "arXiv:2504.19836 (abstract/introduction)",
+        "Resultary:a5fcdddd7bd7",
+        "Resultary:52fcc3a8cb47"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact proper-support contributions can be recovered from induced disjoint unions of paths; the full cyclic support term is not determined by path ranks. The four-generator cyclic trace calculation also resolves multiplicity cancellations within a fixed support."
+        ],
+        "reasoning": "Passing from a path to a cycle changes both the edge differential and the wrap constraint. Neither the known support splitting nor a path recurrence gives the claimed exact all-length cycle Euler bound without a new computation.",
+        "searches": [
+          "Path graph arXiv:2611.17014 §6 and Remark 2.7; vertex support arXiv:2402.14188 Theorem 17",
+          "Resultary: dihedral graph-nilmanifold exact cohomology compared with cycle weight-Euler evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant may be phrased as the l1 norm of the coefficients of the Euler product ∏_i(1−z_i)(1−z_i z_{i+1}), or of the signed cyclic transfer trace; the products encode the same vertex/edge multiplicity data.",
+          "The closest paths paper evaluates Poincaré polynomials for paths; Aldi et al. on graph Lie algebras splits only by supports in the cited theorem. Their independence-polynomial paper concerns basic cohomology classes pulled back from the abelianization, rather than this coefficient norm."
+        ],
+        "reasoning": "Ordinary support, signed multiplicity, and Betti totals are distinct. Neither the graph independence polynomial nor a single ungraded Euler characteristic supplies the alternating dimensions separately at each multiplicity.",
+        "searches": [
+          "Resultary: cycle graph C_n nilmanifold cohomology total Betti bound Lucas multigraded Euler signed transfer Dani Mainkar",
+          "Literature: nilpotent Lie algebra graph cycles C_n homology cohomology Betti numbers graph cycles Tirao cyclic multigrading Euler Dani Mainkar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pentagonal degree table gives total 364, and the hexagonal identity-character column gives total 1172, equal to the corresponding B_n. The hexagonal finding acknowledges the six-cycle lower bound and uses the same multiplicity grading for an exact rank calculation, but expressly makes no statement for arbitrary lengths."
+        ],
+        "reasoning": "These exact stronger fixed-n results cover those numerical inequalities, not the infinite formula. They should not be treated as evidence against or for historical priority at unbounded n.",
+        "searches": [
+          "Resultary cycle nilmanifold total cohomology search",
+          "Exact pentagonal and hexagonal primary Resultary findings a5fcdddd7bd7 and 52fcc3a8cb47"
+        ]
+      },
+      "rationale": "The claim is an exact all-length evaluation of the weight-Euler lower bound, not a new induced-subgraph principle or the first exponential growth bound. Paths already furnish the same exponential base via a weaker induced-path estimate, and the exact fixed-cycle computations already cover particular n. Those results do not supply the uniform Lucas expression or its parity correction.",
+      "residual_risks": [
+        "Other cycle-specific cohomology or coefficient-norm formulas under different terminology may be unindexed. The checked records do not establish historical priority. Exponential growth with this base already follows from paths, and fixed-length exact totals are antecedent or overlapping evidence, not new numerical claims here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers induced-path bounds and the common growth base, not the exact all-cycle lower bound",
+          "evidence": "Theorem 6.1 gives the exact path total; Corollary 6.3 inserts an induced shortest path of diameter length. The known general center bound noted in Remark 6.2 has smaller exponential base for cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17014",
+          "material_read": "Introduction, induced-subgraph/diameter comparison passages and §6 including Theorem 6.1, Remark 6.2 and Corollary 6.3",
+          "method": "OA primary PDF text",
+          "title": "Poincaré polynomials of nilmanifolds associated with path graphs",
+          "trigger": "Closest broad exponential Betti theorem in the same model"
+        },
+        {
+          "assessment": "Directly provides the credited support splitting, not the multiplicity-weight bound",
+          "evidence": "Theorem 17 indexes essential pieces by support sets S, whereas the calculation here separates multiplicities 0–3 at each vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.14188",
+          "material_read": "Abstract, support definition, Remark 13, Theorem 17 and its proof opening",
+          "method": "OA primary PDF text",
+          "title": "On the cohomology of Lie algebras associated with graphs",
+          "trigger": "Possible broader implication by decomposing cohomology over induced subgraphs"
+        },
+        {
+          "assessment": "Inspected result treats a particular abelianization sector, not the signed full cochain weight product",
+          "evidence": "The coefficients concern the basic graded pieces and extend the ordinary independence polynomial in the graph case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.19836",
+          "material_read": "Abstract and introduction discussion of basic cohomology and independence number",
+          "method": "OA primary PDF text",
+          "title": "Independence polynomials of 2-step nilpotent Lie algebras",
+          "trigger": "Potential graph-polynomial equivalence or a general Betti bound"
+        },
+        {
+          "assessment": "Covers individual lengths 5 and 6 only",
+          "evidence": "The tables give the exact totals 364 and 1172; the hexagonal record explicitly does not prove an arbitrary-length recurrence.",
+          "identifier_or_url": "Resultary:a5fcdddd7bd7; Resultary:52fcc3a8cb47",
+          "material_read": "Both findings and graded tables, the hexagonal multiplicity-block argument, and their limitations/prior comparison passages",
+          "method": "Matching RESULT.md files via Resultary mirror",
+          "title": "Complete rational dihedral cohomology of the pentagonal graph nilmanifold; Full graded dihedral cohomology of the hexagonal graph nilmanifold",
+          "trigger": "Same family with exact stronger finite tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-length cycle bound gives quantitatively stronger explicit Betti information than inserting just one induced path or using diameter, and may be used for cycles in larger graphs without computing their cohomology. The signed transfer finite-state identity isolates a reusable measure of multigrading cancellations, with exact Lucas and parity terms rather than a fitted growth rate. In particular it quantifies a diameter-blind phenomenon, while the exponential base alone is not new. No general equality, cohomology-ring computation or integral statement is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

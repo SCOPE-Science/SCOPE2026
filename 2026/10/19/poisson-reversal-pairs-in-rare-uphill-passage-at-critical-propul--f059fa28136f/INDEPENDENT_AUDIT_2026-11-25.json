@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:56:53.566924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stopped generator with each sign change marked by z has off-diagonal terms rz and diagonal killing r+s. Diffusion gives both boundary values 1 at a. The process drifts to −∞ on non-hit paths (Y_t/t→ξ√(rD)−b<0); alternatively its finite almost-sure supremum gives decay of the hitting probability as the start recedes. A bounded decaying mode solution represents the transform by stopped Itô's formula and dominated convergence. For z>0 the characteristic quartic is negative at each uncoupled positive and negative root and positive at both infinities. At zero it is positive or, in the untitled hit-probability case z=1,s=0, it has a simple zero with positive slope. The sign intervals exhaust the degree, leaving exactly two strictly positive modes. To check the slow mode let ε=√(rD), x=εκ/r and A=r(x²+ξx−1)−uε. The characteristic equation becomes ε(A²−r²z²)−2brx A=0. At ε=0 its positive root k=kξ is simple; with κ=rk/ε+c, the order-ε equation is −r²z²−2brk(hξ c−u)=0. Hence c=u/hξ−rz²/(2bk hξ). For the fast root the scaled variable Dκ tends to the simple root 2b of x³(x−2b). The slow eigenvector has plus coordinate 1 and minus coordinate O(ε); the fast one has minus coordinate 1 and plus coordinate O(D). Thus the slow boundary amplitude tends to 1 and the fast term at distance a is negligible. The scalar z=0 case has the same expansion without the z² term. Dividing by z=1,u=0 yields the claimed transform; setting z=e^(−v) gives joint Laplace convergence, and parity follows on the integer count space. Inspected RESULT.md lines 39–86, VERIFICATION.md and verify.py. The supplied finite comparison uses the same quartic and is diagnostic; it was not rerun or used as the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neri Eqs. 15–19 give general first-passage tilting and passage-time tools; the run-and-tumble calculation is lattice and finite-interval. Grange–Yuan Eqs. 8–16 treat orientation and tumble states under drift without translational Brownian diffusion."
+        ],
+        "reasoning": "These frameworks cover finite-model methodology, but the inspected formulas do not compute the order-one difference of two diverging spatial rates under rare-event normalization. The finite-tumble drift system lacks the small Brownian parameter needed for that limit.",
+        "searches": [
+          "arXiv:2504.03441 jump tilt, conditional passage-time generating function and run-and-tumble example",
+          "arXiv:2509.11308v2 imposed drift passage transform"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.08029v1",
+        "arXiv:2509.11308v2",
+        "arXiv:2504.03441",
+        "arXiv:2405.07032",
+        "Resultary 809b0f9b369d summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The z² mark comes from the product of off-diagonal terms, but deriving the Poisson exponent requires the order-one shift of the slow decaying rate, controlling the fast boundary mode and dividing by an exponentially small hit probability."
+        ],
+        "reasoning": "The z² dependence of the determinant itself is not a Poisson limit, and a mean passage time does not determine this joint transform. The new asymptotic extraction is not an immediate parameter substitution.",
+        "searches": [
+          "Singh–Aghion Eqs. 33–34; Neri Eqs. 15–19 and lattice example; frozen RESULT.md lines 52–82"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest catalogue summary is record 809b0f9b369d: a compound-Poisson half-count for successful crossing in a finite absorbing interval, with a long-interval limit. Singh–Aghion obtain first-passage means for a thermal model in a bistable potential."
+        ],
+        "reasoning": "A parity constraint or an even-count law alone is not equivalent to this fixed-distance, vanishing-noise, whole-line joint transform with a specified mean and time. The catalogue hit's full statement was not accessible.",
+        "searches": [
+          "Resultary: reversal-pair or marked telegraph first passage under a successful uphill crossing",
+          "arXiv:2610.08029v1 thermal run-and-tumble first passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit summarizes a long-interval compound-Poisson law, not a tabulation of μξ or the present joint transform; full-text catalogue retrieval was unsuccessful."
+        ],
+        "reasoning": "This is a continuum asymptotic law, not a finite tabulated invariant. The exact-claim analogue of a table check is the catalogue comparison; the summary is not proof of full-document noncoverage.",
+        "searches": [
+          "Resultary: conditioned run-and-tumble/telegraph passage and Poisson reversal pairs; record 809b0f9b369d"
+        ]
+      },
+      "rationale": "The supported distinct claim is the critical thermal-window limit of the reversal-marked transform conditional on an eventual uphill hit, including its Poisson mean and deterministic time. Neither the two-state backward equations nor jump marking is new. The statement-level comparisons establish no prior exact or mechanical coverage of the singular conditional law within the inspected sources.",
+      "residual_risks": [
+        "The catalogue comparator was accessible only as a summary. Broader Markov-modulated Brownian first-passage literature could have implicit coverage; the bounded comparison is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related generator and means, different passage claim",
+          "evidence": "Thermal two-orientation backward equations are used to obtain first-passage means in a bistable setting.",
+          "identifier_or_url": "arXiv:2610.08029v1",
+          "material_read": "PDF p. 17, Eqs. 33–34, offset 45912",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Spatial density, first passage times, and entropy of run and tumble particles in a bistable potential",
+          "trigger": "Thermal run-and-tumble in linear force segments"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Exit probabilities and conditional times for orientation and finite-duration tumble states without translational Brownian diffusion.",
+          "identifier_or_url": "arXiv:2509.11308v2",
+          "material_read": "PDF pp. 7–8, Eqs. 8–16, offsets 24600–31988",
+          "method": "Primary OA PDF passage inspection",
+          "title": "First passage of a run-and-tumble particle with exponentially-distributed tumble duration in the presence of a drift",
+          "trigger": "Laplace transform for passage with adverse drift"
+        },
+        {
+          "assessment": "Method rather than the critical limit",
+          "evidence": "Tilted rates and conditional first-passage transforms; lattice finite-interval example.",
+          "identifier_or_url": "arXiv:2504.03441",
+          "material_read": "PDF pp. 6–8 Eqs. 15–19; pp. 30–31 run-and-tumble example",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Martingale approach for first-passage problems of time-additive observables in Markov processes",
+          "trigger": "General methodology for jump marking and conditioning"
+        },
+        {
+          "assessment": "Different statistic in material read",
+          "evidence": "Local/occupation time and long-time non-exit decay, not the joint passage-time and reversal count.",
+          "identifier_or_url": "arXiv:2405.07032",
+          "material_read": "PDF p. 1, offset 2400",
+          "method": "Primary OA PDF scope inspection",
+          "title": "Large deviations in statistics of the local time and occupation time for a run and tumble particle",
+          "trigger": "Related tilted run-and-tumble statistics"
+        },
+        {
+          "assessment": "Summary-level resemblance, no exact comparison established",
+          "evidence": "Successful finite-interval crossing and long-interval compound-Poisson half-count, rather than the specified fixed-distance square-root thermal window.",
+          "identifier_or_url": "Resultary 809b0f9b369d",
+          "material_read": "Indexed summary only; mirror file unavailable",
+          "method": "Configured Resultary search; attempted mirror retrieval",
+          "title": "A compound-Poisson reversal-pair law for a successful telegraph crossing",
+          "trigger": "Similar even reversal count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a natural balance between adverse force and propulsion, the model distinguishes rare successful paths from typical ones and resolves an order-one path statistic that a mean-time result misses. The paired Poisson structure with explicit load dependence and joint deterministic time describes the selected trajectories, not merely the leading exponential scale of the hit probability. Its value is confined to the stated whole-line, plus-start model, not a full bistable escape claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

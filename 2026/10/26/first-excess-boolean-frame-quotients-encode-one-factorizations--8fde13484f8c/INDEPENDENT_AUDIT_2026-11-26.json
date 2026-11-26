@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:17.143511Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–45",
+        "Frozen VERIFICATION.md and packaged verification sources inspected, not executed",
+        "/workspace/branches/3ceb25f8-59dd-41b2-8572-26a7c5670db9/independent_enumeration.py",
+        "/workspace/branches/3ceb25f8-59dd-41b2-8572-26a7c5670db9/independent_factorization_counts.py",
+        "/workspace/branches/3ceb25f8-59dd-41b2-8572-26a7c5670db9/small_enumeration_output.txt"
+      ],
+      "rationale": "Surjectivity and monotonicity fix the images of the bottom and top. Above a maximal bottom-fiber element s, take a saturated chain to a back-lift of each middle point. The first strict successor has that middle label: it is no longer bottom, and monotonicity bounds it by the lifted label. Thus n−|s|≥m. At n=m the bottom fiber contains only the empty set, all singleton labels are distinct middle labels, and rank ≥2 is forced to top. Coordinate deletion is an onto bounded morphism, so precomposition gives existence for all larger n. At n=m+1 the bottom fiber can additionally contain only singleton worlds. With no zero singleton, all middle labels occur already at rank one; there is either one top singleton or one duplicated label. Only the pair of duplicate-label singletons allows a further choice, producing m!(m+1)². With a nonempty zero set S, each zero singleton sees all m middle labels exactly once among its immediate successors. This forces distinct middle labels on the outside singletons and colors the pairs in S by the z−1 remaining specified labels, one of each at every vertex. Each color is therefore a perfect matching, so z=1 or z is even, and for even z such a decomposition is available by the standard round-robin construction. For any triple there are two different middle labels below it: either on two distinct outside singletons, on an outside singleton and a pair in S, or on two incident pairs in S. Thus all ranks ≥3 are top. The constructions exhaust monotonicity and the upward back requirements: each bottom point sees all labels and any middle point sees the full-set top. Counting chosen S, injective outside labels and proper colorings verifies the stated formula with fixed labels and handles z=1 separately. Independent monotone-map enumeration and a separate perfect-matching enumeration agreed with the supported finite checks; the all-m result comes from the bijection, not extrapolation.",
+      "residual_risks": [
+        "Direct replay of the first-excess maps covers m=2,3, with counts 30 and 162. The counts 1080 and 9360 for m=4,5 are formula evaluations using independently counted F₂=1, F₄=6, and F₆=720, not full direct enumeration of those maps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tree threshold concerns a vertex with ≥m nonleaf children, while B_n for n≥2 has coalescing upward branches and is not a rooted tree of that type.",
+          "The chain-grid record has a totally ordered three-world target. Kudinov–Shapirovsky concern special finite-height partitions yielding finite approximability and decidability."
+        ],
+        "reasoning": "Sharing a target or finite height does not transfer a count. In B_{m+1} two zero singletons share the same rank-two successor, imposing compatibility not supplied by a tree threshold or ordinary filtrations.",
+        "searches": [
+          "Resultary 9537b2b1e958, exact branching threshold",
+          "Resultary 33b9dc1cd0ed, three-chain grid census",
+          "Kudinov–Shapirovsky arXiv:1511.09092, finite-height Kripke frames"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 59192d79f75e, 9537b2b1e958, 33b9dc1cd0ed, 085fd9039f00, cf33fd475bad",
+        "Kudinov–Shapirovsky arXiv:1511.09092",
+        "Kaski et al. doi:10.37236/3606",
+        "Mendelsohn–Rosa (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree result has no shared rank-two worlds; the diamond result has only two possible intermediate labels.",
+          "The new correspondence uses each pair of zero singletons as one edge colored consistently from both ends, then proves ranks ≥3 are forced and shows the map reconstruction is onto and unique."
+        ],
+        "reasoning": "Prior graph theory establishes what such an edge coloring is and when it exists, but neither it nor the adjacent frame statements supply the actual reconstruction, the no-zero contribution, or the labelled multinomial factors. These are not obtained by substitution into the inspected formulas.",
+        "searches": [
+          "Resultary 59192d79f75e and 9537b2b1e958, Findings",
+          "Kaski et al., abstract and introduction",
+          "Frozen RESULT.md §§3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rectangular product P_(2,2) is B₂ and the four-world labelled diamond is Q₂; the indexed count at that parameter is exactly two.",
+          "The direct-image theorem for nonempty subsets uses reverse inclusion; the compatibility result uses intersection accessibility and a fork, not Boolean inclusion with the bounded-morphism target here."
+        ],
+        "reasoning": "Order orientation, the empty world, and the relation itself affect the upward back-lifting constraints. The identified diamond overlap is real but only at the threshold case; B₃ is not a product of two chains of the kind in that result.",
+        "searches": [
+          "Resultary 59192d79f75e, diamond bounded-morphism census",
+          "Resultary 085fd9039f00, full subset frame p-morphisms",
+          "Resultary cf33fd475bad, atomic Boolean compatibility frames"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The grid formula contains the exact N(2,2) entry only among the reviewed boundary and excess instances.",
+          "Kaski et al.'s switching graph uses an isomorphism class of factorizations per vertex, unlike F_z with fixed vertex and color labels. The survey full text was not obtained."
+        ],
+        "reasoning": "A table of one-factorization counts even with correct labels supplies an input F_z, not the stratified Boolean morphism count. No conclusion is drawn from a failed retrieval or the absence of an exact hit.",
+        "searches": [
+          "Resultary 59192d79f75e exact grid-to-diamond formula",
+          "Kaski et al. DOI 10.37236/3606 and Mendelsohn–Rosa DOI 10.1002/jgt.3190090104, one-factorization classes/counts",
+          "Bounded search for the earlier Boolean chain/diamond enumerations mentioned in the frozen relationship section"
+        ]
+      },
+      "rationale": "The indexed rectangular-grid-to-diamond count covers N(2,2)=2 exactly, and the branching-threshold record treats the identical target on rooted trees. The former does not give B_3→Q_2 and neither gives the first-excess Boolean family. Standard one-factorization definitions and their small counts receive full prior credit. The supported distinction is the general Boolean first-excess classification, which identifies precisely which labelled frame-map choices correspond to labelled complete-graph factorizations, including the exceptional z=0 and z=1 strata. This is not an originality claim for the same-day diamond boundary instance, a priority ordering among same-day records, or the graph counts themselves.",
+      "residual_risks": [
+        "The original mentions earlier Boolean chain or diamond work without identifying all the exact sources. A specialized enumeration might overlap more than the identified N(2,2) case.",
+        "The same-day records' priority is unresolved; their actual overlap and limits are credited regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact threshold boundary overlap at N(2,2), no demonstrated overlap in first excess",
+          "evidence": "Rectangular chain products map onto the diamond with distinguished middle worlds; the formula gives two at the two-by-two product.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-delannoy-census-of-bounded-morphic-quotients-from-rectangular-kr--59192d79f75e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror file read",
+          "title": "Delannoy census of bounded-morphic quotients from rectangular Kripke grids to the diamond",
+          "trigger": "Exact overlap with the two-middle-world target"
+        },
+        {
+          "assessment": "Genuinely overlapping targets but different source relation",
+          "evidence": "Existence is equivalent to a tree vertex having at least m children that are nonleaves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-bounded-morphism-census-and-sharp-branching-threshold-for--9537b2b1e958",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror file read",
+          "title": "Exact bounded-morphism census and sharp branching threshold for rooted trees",
+          "trigger": "Same three-level target and branching threshold"
+        },
+        {
+          "assessment": "Both grid source and chain target differ",
+          "evidence": "The target is a three-world chain, not three levels with m incomparable middles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-catalan-leading-polynomial-census-of-three-chain-bounded-morphis--33b9dc1cd0ed",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror file read",
+          "title": "Catalan-leading polynomial census of three-chain bounded morphisms",
+          "trigger": "Earlier indexed onto-morphism counts in finite inclusion-like frames"
+        },
+        {
+          "assessment": "Different frame definition, no implication established",
+          "evidence": "Classifies direct-image maps on nonempty subsets under reverse inclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-every-bounded-morphism-between-full-subset-frames-is-a-direct-im--085fd9039f00",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror file read",
+          "title": "Every bounded morphism between full subset frames is a direct-image map",
+          "trigger": "Possible equivalent Boolean-frame classification"
+        },
+        {
+          "assessment": "Neither the same accessibility relation nor target",
+          "evidence": "Uses intersection accessibility and a three-world fork.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-binary-p-morphism-rigidity-for-atomic-boolean-compatibility-fram--cf33fd475bad",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror file read",
+          "title": "Binary p-morphism rigidity for atomic Boolean compatibility frames",
+          "trigger": "Boolean p-morphisms with a small fork target"
+        },
+        {
+          "assessment": "Filtration and decidability, not a numerical quotient classification in inspected passages",
+          "evidence": "Constructs special partitions of pretransitive frames of finite height.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.09092",
+          "material_read": "PDF p. 1 OA offset 906, p. 5 offset 9953",
+          "method": "Lawful OA PDF passages",
+          "title": "On partitioning Kripke frames of finite height",
+          "trigger": "Cited finite-height frame work"
+        },
+        {
+          "assessment": "Prior graph invariant and switching problem; no Boolean-frame reconstruction in these statements",
+          "evidence": "Each vertex of the switching graph represents one isomorphism class of one-factorizations.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v21i2p49",
+          "material_read": "PDF abstract p. 1 offset 0; introduction p. 2 offset 2600",
+          "method": "Lawful OA PDF passages",
+          "title": "Switching in One-Factorisations of Complete Graphs",
+          "trigger": "Cited complete-graph factorization work; exact count-label distinction"
+        },
+        {
+          "assessment": "Not used to infer coverage or noncoverage",
+          "evidence": "The access attempt did not yield paper passages.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190090104",
+          "material_read": "Bibliographic citation; full text not obtained",
+          "method": "Bounded lawful OA attempt; no repository copy located",
+          "title": "One-factorizations of the complete graph—A survey",
+          "trigger": "Cited historical factorization work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–5",
+        "Kaski et al., factorization definition and switching context",
+        "Independent finite replay"
+      ],
+      "rationale": "The first excess after the sharp existence threshold is the first place an internal choice of zero singletons changes the structure of the quotient. A compatibility condition between their shared successors is shown to encode full one-factorizations of complete graphs, not merely a similar sequence of small integers. This bijection explains the excluded odd strata and expresses a natural labelled quotient census using a well-established graph invariant. The significance is the structural transfer and exact boundary classification, not computing a known graph count anew.",
+      "residual_risks": [
+        "No enumeration for general n>m+1 and no faster algorithm for large F_z are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

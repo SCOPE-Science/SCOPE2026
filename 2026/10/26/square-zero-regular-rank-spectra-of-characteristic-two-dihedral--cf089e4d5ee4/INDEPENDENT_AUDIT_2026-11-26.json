@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:32.652144Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In characteristic two, odd m makes T^m-1 square-free and splits the rotation algebra into field factors tensored with F_q[t]/t^4. Inversion swaps the reciprocal-pair blocks; in the nonsplit orbit its order-two action is nontrivial on K=F_(q^{2d}). For theta of relative trace one, w=t+theta(t²+t³) is fixed because inversion fixes t² and t³ and adds t²+t³ to t. As w is a uniformizer, the involution in the w-coordinate acts only on coefficients. The twisted algebra is M2 over F_(q^d)[w]/w^4 by the faithful quadratic Galois action with multiplication; this descent works even in characteristic two. In D8 direct expansion forces a0=b0, a1=0, b1(b0+b1)=0; for b0 nonzero the b-component exhibits an injective four-dimensional column. Otherwise the induced matrix on the t²-layer over F_q[t]/t² is invertible if a2+b2 is nonzero, and has a unit pivot and vanishing determinant if a2=b2 is nonzero. The remaining t³-layer is an ordinary two-dimensional rank calculation. These cases give exactly H_q. In the matrix block L_X acts by X on each column (the 'right multiplication' wording in the proof is a slip). For valuation at least two, ranks follow from the reduction and a single complementary entry. For valuation one, after reducing to J=E12, B=bI+cJ and the pivot t leaves complementary entry t³(C21+b²), giving regular ranks six or eight. For nonzero reduction J, the upper-right entry is a unit; square zero is then exactly zero trace and zero determinant, so x11 in tS and x12 in 1+tS give Q^6 choices per J, and the image has maximum rank. This verifies P_Q coefficient by coefficient. Direct products add ranks, with scalar-degree conversion, so degree 4m and the top coefficient follow with the stated acyclicity criterion. The two frozen C++ checkers were inspected, not executed; their reported exhaustive counts for the named small cases agree and are not the proof for arbitrary parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brochero Martínez assumes gcd(q,n)=1 for rotation order n=4m; that assumption excludes the frozen q even case.",
+          "Resultary 8ff282635ea5 covers arbitrary chain lengths for size two; 455c0bf11aaa gives fuller chain-ring image spectra in a later-dated record. Carnevale–Shechter–Voll grade all traceless matrices by image size."
+        ],
+        "reasoning": "The stronger chain-ring censuses subsume the local matrix step but not the dihedral D8 block or the algebra-to-rank product. A traceless population is different: in characteristic two diag(t²,0) is square-zero with nonzero trace, and many traceless matrices do not square to zero.",
+        "searches": [
+          "arXiv:1405.3716 Introduction and Theorem 3.1",
+          "arXiv:1709.02717 §1.1 and Theorem 1.2",
+          "Resultary 8ff282635ea5 and 455c0bf11aaa"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.3716",
+        "arXiv:1902.07533",
+        "arXiv:1709.02717",
+        "Resultary 8ff282635ea5",
+        "Resultary 455c0bf11aaa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local specialization gives P_Q for every Q, not only the tested Q=2. Cao's decomposition classifies left codes in the binary repeated-root setting, not regular-rank fibers of individual multipliers for every 2-power q."
+        ],
+        "reasoning": "Use of the prior local polynomial still leaves identification of the characteristic-two algebra blocks (including the semilinear fixed-ring case) and evaluation of H_q by square-zero multipliers. Those are mathematical steps not supplied by the inspected code/chain-ring results, rather than one numerical substitution. The same-day local result supplies definite component coverage, not an established ordering of publications.",
+        "searches": [
+          "Brochero Martínez Theorem 3.1; Cao et al. Theorems 2.4, 5.1",
+          "Resultary 8ff282635ea5 and 455c0bf11aaa Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cao et al. treat the same D_(8m) ambient group over F_2 but enumerate distinct self-dual left ideals.",
+          "For M2(F_Q[t]/t^4), regular rank is twice the image-module length. The all-length 8ff282635ea5 formula gives precisely P_Q after substituting z² for the image-length variable."
+        ],
+        "reasoning": "The different names for local image size and regular rank are equivalent after the factor-two conversion, and this part is covered. Counting distinct self-dual codes is not equivalent to counting arbitrary square-zero generators with multiplicity and is not even graded by the same statistic.",
+        "searches": [
+          "Resultary: square-zero dihedral group algebra elements by left regular rank, acyclic differentials, and chain-ring matrix image-length enumerators",
+          "arXiv:1902.07533 Theorems 2.4 and 5.1",
+          "Resultary 8ff282635ea5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The chain-ring formula gives exactly the five local coefficients 1, a_Q, b_Q+a_Q Q³, a_Q(Q^4-Q³)+(Q²-1)Q^5, and b_Q Q^4+(Q²-1)(2Q^6-Q^5). The inspected Cao counts instead count distinct self-dual binary codes.",
+          "The supplied historical review reports an earlier ungraded D8 total; even a match to H_q(1) leaves all its rank coefficients undetermined."
+        ],
+        "reasoning": "Exact local equivalent coverage is credited irrespective of wording. No compared table yields the global element distribution; neither an ungraded local total nor a distinct-code count recovers it.",
+        "searches": [
+          "Resultary: exact square-zero group-algebra rank spectra and 2x2 chain-ring spectra",
+          "Cao et al. arXiv:1902.07533 Theorem 2.4 and finite examples",
+          "Resultary 8ff282635ea5 length-four specialization"
+        ]
+      },
+      "rationale": "Pass applies to the complete characteristic-two dihedral element-level rank enumerator, not to the length-four local P_Q polynomial in isolation. A distinct same-day indexed all-length result demonstrably covers P_Q; priority for that component is unresolved. The inspected results do not cover the D8 rank factor together with the reciprocal-orbit global product.",
+      "residual_risks": [
+        "No priority conclusion for the covered same-day local P_Q component.",
+        "An unlocated modular algebra rank census, or an extension of existing matrix results, could overlap further. Brawley's article was not accessible in full; coverage of rank-refined results there was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Semisimple-rotation case excludes this group order in characteristic two",
+          "evidence": [
+            "The hypothesis gcd(q,n)=1 fails for n=4m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.3716",
+          "material_read": "Primary PDF p. 1 and Theorem 3.1 p. 3 (offset 10501)",
+          "method": "Bounded OA primary-text reading",
+          "title": "Structure of Finite dihedral group algebra",
+          "trigger": "Reciprocal decomposition of dihedral group algebra"
+        },
+        {
+          "assessment": "Ambient structure and distinct self-dual code census, not the multiplier enumerator",
+          "evidence": [
+            "Theorem 2.4 counts self-dual binary left codes; Theorem 5.1 gives the constituent code decomposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.07533",
+          "material_read": "Primary PDF abstract, Theorem 2.4 p. 3 and Theorem 5.1 p. 9, offsets 21049 and 79008",
+          "method": "Bounded OA primary-text reading",
+          "title": "Self-dual binary [8m,4m]-codes constructed by left ideals of the dihedral group algebra",
+          "trigger": "Same binary group, repeated-root factors, exact enumeration"
+        },
+        {
+          "assessment": "Covers P_Q exactly; does not give H_q or the global product; same date is not proof of ordering",
+          "evidence": [
+            "All-length, all-characteristic 2x2 image-length formula; left multiplication doubles that length in the split local block."
+          ],
+          "identifier_or_url": "Resultary 8ff282635ea5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror and exact length-four specialization",
+          "title": "A uniform image-length census for square-zero two-by-two matrices",
+          "trigger": "Potential stronger theorem for P_Q"
+        },
+        {
+          "assessment": "Related broader local census, not the dihedral product; dated later",
+          "evidence": [
+            "Full chain-ring spectrum and commuting-matrix/Jordan-type interpretation."
+          ],
+          "identifier_or_url": "Resultary 455c0bf11aaa",
+          "material_read": "RESULT.md Finding at offset 0 and proof/consequence at offset 2991",
+          "method": "Local published-record mirror",
+          "title": "Complete image-length spectra for square-zero matrices over finite chain rings",
+          "trigger": "Broader local square-zero spectra"
+        },
+        {
+          "assessment": "A different matrix population",
+          "evidence": [
+            "Counts traceless matrices by image size without imposing square-zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.02717",
+          "material_read": "Primary PDF §1.1 and Theorem 1.2 (offsets 2603, 6144)",
+          "method": "Bounded OA primary-text reading",
+          "title": "Enumerating traceless matrices over compact discrete valuation rings",
+          "trigger": "Matrix image zeta functions"
+        },
+        {
+          "assessment": "No inference about rank-refined coverage from failed access",
+          "evidence": [
+            "Related record mentions possible coverage of some aggregate nilpotent totals, not a verified graded identity."
+          ],
+          "identifier_or_url": "Brawley (1982), Counting Matrices by Drazin Index",
+          "material_read": "Bibliographic lead and discussion in related chain-ring record only; primary text not accessed",
+          "method": "Direct and alternate-route OA attempts returned HTTP 403; no repository copy identified",
+          "title": "Counting Matrices by Drazin Index",
+          "trigger": "Possible unrefined nilpotent counts or rank-refined implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Square-zero left multiplication makes the labeled regular algebra a chain complex, and its rank determines the dimension of its homology. The all-q and all-odd-m enumerator gives actual multiplicities for every homology dimension and the acyclic case, not just numbers of codes, or isolated ranks from a small experiment. The reciprocal-orbit organization explains how the global census changes with the field and odd part of the group order. No extension to even m or classification up to conjugacy is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

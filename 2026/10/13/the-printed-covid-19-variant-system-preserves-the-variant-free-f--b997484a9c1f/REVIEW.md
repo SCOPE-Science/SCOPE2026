@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In every equation for a variant compartment, each gain and loss term contains a variant variable. Setting the complete variant subvector to zero therefore makes its derivative identically zero, independently of the healthy and primary-virus variables. Standard uniqueness preserves the coordinate face, and the source's normalized population conservation bounds the trajectory. The symbolic replay verifies the dependency pattern directly.
+PASS
 
-## Originality
+Read the printed Eq. (12) and state-space definitions, not just the checker. The entire active f5 block has a homogeneous right-hand side along any trajectory of the other compartments: every incoming, neighboring or loss term contains an active f5 factor. The terminal j=1 and j=m levels are classified into separate endpoint compartments on pp. 296–297 and are not additional f5 coordinates feeding into Z; the endpoint transfers appear in the aggregate equations. For arbitrary finite m, setting the entire block to zero therefore solves its equation, and local polynomial uniqueness on each transmission interval and continuity at switches imply invariance. Nonnegative data stay nonnegative (gains are nonnegative on the boundary of the orthant), and summing (12) telescopes the adjacent transfers and cancels transfers between compartments by Eq. (1), so the normalized solution is globally bounded and extends. The finite-grid checker is only corroborative and does not independently settle the terminal-state convention. The finding concerns the simultaneous zero block and does not say that individually zero coordinates in a nonzero block cannot become nonzero. The source confirms nonzero initial variant state in §4 and its stated value in Figures 6–8, not an inference from numerical curves.
 
-PASS. Coordinate-face invariance is standard ODE theory, so no methodological novelty is claimed. The accepted result is the source-specific consequence that system (12), despite being presented as a mutation/variant model, cannot create a variant from variant-free data. Targeted DOI, exact-title, initialization, mutation-source, correction, and implication searches did not locate an equivalent published correction.
+## originality
 
-## Value
+PASS
 
-PASS. Endogenous creation of a new variant and competition after an exogenous introduction are scientifically different mechanisms. The source explicitly describes mutations as generating variant onset, while its printed equations preserve zero variant mass and its simulations begin with a positive variant seed. The invariant therefore changes the precise interpretation of what system (12) demonstrates and identifies the structural ingredient any endogenous-mutation extension must add.
+The general zero-solution argument is standard and the nonzero initialization is already explicit in the article. Neither is claimed as new. The supported distinct finding is that the printed equation cannot represent endogenous appearance from exactly variant-free data, despite the surrounding mutation-onset framing. The closest indexed records use related zero-face reasoning, but apply it to different equations and conclusions.
 
-## Closest literature and limitations
+## value
 
-Earlier active-particle work explicitly models virus mutation, and a closely related 2022 article by the same authors discusses mutating viruses and variants. These establish broader context but do not supply the source-specific correction to system (12).
+PASS
 
-The conclusion concerns the printed equations. It does not determine whether unavailable code contained an extra mutation coupling, and it does not invalidate the study of an already-seeded variant.
+The distinction between generation of a state from zero and evolution of a state already present changes what a reader can infer from the article's simulations. The proof diagnoses a precise limitation of the printed model under a natural initial condition, rather than presenting coordinate invariance as a new mathematical technique.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

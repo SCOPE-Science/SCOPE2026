@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:51:33.893178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–190 and VERIFICATION.md lines 18–58",
+        "Magal et al., DOI 10.3934/dcdss.2020237, §§2–3, conservation (2.6), Theorem 3.1 and Theorem 3.3 with (3.2)–(3.7), author-hosted PDF"
+      ],
+      "rationale": "Under the source's global-existence hypotheses, conservation of the four nonnegative populations gives 0≤i≤N. Positivity and preservation of constants for the Neumann resolvent give 0≤b≤N. On that interval h(b)≤max(1,N^(p−1))b for p≥1 (if N≤1, simply use b^p≤b). The Neumann condition yields equal integrals of b and i, and the recovery balance bounds the space-time integral of i, so Fubini gives a finite cumulative susceptible loss coefficient a.e. The exact scalar solution then gives positive limiting susceptibility a.e. on the initially positive set. For extinction pointwise, the same recovery balance gives time-integrable i at each point. The infected time derivative is bounded on the tail by conservation, bounded coefficients and bounded incidence, including at the fixed delayed time. Nonnegative time-integrable i with bounded derivative tends to zero. Monotonicity of s and r gives their pointwise limits; the population bound gives the stated L1 conclusions by dominated convergence. The original theorem phrases positivity using an a.e.-positive initial density. The frozen localized a.e. assertion, stated explicitly, follows from its Fubini proof without requiring global initial positivity.",
+      "residual_risks": [
+        "This is a mathematical proof check, not formal verification; no decay rate or conclusion for p<1 is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 allows positive incidence exponents but gives global dynamics in the sense of well-posedness, not the asymptotics of Theorem 3.3.",
+          "Theorem 4 of arXiv:1801.01856v1 treats local incidence in a reaction–diffusion model and also requires 1≤p≤q+1.",
+          "Resultary 569e132ca7e4 proves supercritical extinction in a heterogeneous mass-action SIS lockdown example, not a long-time statement for the delayed model."
+        ],
+        "reasoning": "Neither a broader existence domain nor asymptotics of a distinct class supplies the missing asymptotics for the same delay and resolvent when p>q+1.",
+        "searches": [
+          "Magal et al., Theorems 3.1–3.3 and eqs. (3.2)–(3.7)",
+          "Magal–Webb–Wu, Spatial Spread of Epidemic Diseases in Geographical Settings, arXiv:1801.01856v1, nonlinear-incidence model and Theorem 4",
+          "Resultary extinction and positive limiting susceptible searches"
+        ]
+      },
+      "checked_sources": [
+        "Magal–Noussair–Webb–Wu, DOI 10.3934/dcdss.2020237, author-hosted text",
+        "Magal–Webb–Wu, arXiv:1801.01856v1",
+        "Resultary records 4d87f0bc3ae7, 569e132ca7e4, 86fd5f29697c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof uses the global estimate (3.5) h(u)≤max(1,1/κ)u. For p>q+1, h(u)/u grows without bound as u→∞, so this estimate cannot be used globally.",
+          "Conservation together with positivity and constant preservation gives a uniform bound on the argument of the incidence function; the replacement linear estimate on this range is sufficient for (3.7)."
+        ],
+        "reasoning": "The extension is not a specialization of the prior long-time statement. It extracts the crucial bound on the reachable range and changes the proof at the point where its upper exponent hypothesis was used.",
+        "searches": [
+          "Author-hosted source PDF p. 5–6, Theorem 3.3 and (3.2)–(3.7), OA offsets 12200–15249",
+          "Frozen RESULT.md lines 90–195 compared with the initiating proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The initiating paper's (2.2) is the same resolvent written as b−εΔ_N b=i. Theorem 3.3 begins 'Assume 1 ≤ p ≤ q + 1'.",
+          "The strongest indexed susceptible-positivity analogy, record 4d87f0bc3ae7, compares bounded and unbounded trait diffusion in an evolutionary SIR system, not bounded states of the delayed resolvent system."
+        ],
+        "reasoning": "Rewriting (2.2) changes notation, not the equations. No comparison under that equivalence removes the explicit upper bound in the prior extinction theorem; bounded trait intervals do not identify the same model.",
+        "searches": [
+          "Resultary: incidence exponent p≤q+1, extinction and limiting susceptibles",
+          "Resultary: Magal–Noussair–Webb–Wu Theorem 3.3 and bounded nonlocal Neumann-resolvent incidence",
+          "Magal et al., DOI 10.3934/dcdss.2020237, §2 and Theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed unrestricted-parameter record 86fd5f29697c concerns final-size uniqueness and certified error bounds for finite-group active-population SIRD networks. The two other indexed neighbors concern trait diffusion and a heterogeneous SIS lockdown example."
+        ],
+        "reasoning": "The theorem is quantified over an unbounded exponent range and is not a numerical table entry. The actual indexed theorem statements were checked for exact coverage, which none of these comparisons yields. Same-day dates are not priority evidence.",
+        "searches": [
+          "Resultary exact title, author/theorem, exponent removal, and Neumann-resolvent searches; nearest records 4d87f0bc3ae7, 569e132ca7e4, 86fd5f29697c (Findings and Assumptions)"
+        ]
+      },
+      "rationale": "The strongest verified same-model source imposes p≤q+1 for the long-time conclusion. Its global existence result does not supply extinction or susceptible positivity. The closest broader nonlinear-incidence paper retains the same exponent restriction in a different model. The distinct indexed overlaps do not transfer to these equations. On the inspected evidence the bound on the actual invariant range establishes the stated extension into a previously uncovered parameter region. This is a bounded assessment, not a claim that no equivalent extension exists elsewhere.",
+      "residual_risks": [
+        "Unindexed or differently phrased same-model extensions are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior theorem has narrower exponent scope; existence is broader",
+          "evidence": "Conservation (2.6), Neumann elliptic equation, recovery balance (3.2), explicit 1≤p≤q+1 and global bound (3.5).",
+          "identifier_or_url": "https://www.math.u-bordeaux.fr/~pmagal100p/papers/MMWW-DCDS-S-2019.pdf (DOI 10.3934/dcdss.2020237)",
+          "material_read": "§2 p. 2 (offset 5400); Theorem 3.1 p. 4 (offset 7600); Theorems 3.2–3.3 and proof pp. 5–6 (offsets 12200–15249)",
+          "method": "Lawful author-hosted PDF, targeted OA passages",
+          "title": "Modeling epidemic outbreaks in geographical regions: Seasonal influenza in Puerto Rico",
+          "trigger": "Same equations and initiating theorem"
+        },
+        {
+          "assessment": "Different model; does not supply unrestricted exponent statement",
+          "evidence": "Local-incidence reaction–diffusion model and Theorem 4 retains 1≤p≤q+1.",
+          "identifier_or_url": "arXiv:1801.01856v1",
+          "material_read": "Nonlinear model p. 3 (offset 6500); Theorem 4 p. 14 (offset 23000)",
+          "method": "Targeted OA arXiv PDF",
+          "title": "Spatial Spread of Epidemic Diseases in Geographical Settings",
+          "trigger": "Cited related nonlinear-incidence extinction theorem"
+        },
+        {
+          "assessment": "Both mathematically distinct; same-day indexing gives no priority evidence",
+          "evidence": "First changes trait domain in an evolutionary SIR system. Second gives a mass-action SIS witness for extinction above a spatial threshold.",
+          "identifier_or_url": "Resultary records 4d87f0bc3ae7 and 569e132ca7e4",
+          "material_read": "Findings and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Bounded versus unbounded trait diffusion, and extinction in a heterogeneous SIS lockdown model",
+          "trigger": "Strongest indexed positivity and spatial-extinction analogies"
+        },
+        {
+          "assessment": "Different equations and conclusion",
+          "evidence": "Finite-group active-population SIRD final-size uniqueness, not extinction and a.e. positivity for delayed Neumann-resolvent incidence.",
+          "identifier_or_url": "Resultary record 86fd5f29697c",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Parameter-unrestricted final-size uniqueness and certified geometric bounds",
+          "trigger": "Closest indexed restriction-removal analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bound closes a concrete mismatch between the domains of the published existence and long-time theorems. It preserves both extinction and positive residual susceptibility for every initially positive location up to a null set even in the omitted regime where the incidence has unbounded global ratio h(u)/u. The mathematical point is that the conserved population and the constant-preserving positive resolvent control the relevant range; it is not a numerical instance or a parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

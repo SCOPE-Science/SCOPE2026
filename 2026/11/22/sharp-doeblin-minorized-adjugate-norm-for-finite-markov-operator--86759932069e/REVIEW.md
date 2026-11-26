@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is valid for every stated integer dimension and nonnegative minorant with total mass below one. The exact identity \(P=(tI+\alpha\mathbf1^{\mathsf T})Q\) gives \(\operatorname{adj}P=t^{n-2}\operatorname{adj}Q(I-\alpha\mathbf1^{\mathsf T})\). Cofactor multilinearity proves a separate-convexity reduction to deterministic columns. The zero-, permutation-, and rank-\(n-1\) adjugate cases exhaust deterministic maps. The omitted-minimum-row map attains the upper bound, and a one-column perturbation produces invertible approximants. Exact rational checks on finite cases corroborate but do not substitute for the proof.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-The closest primary sources include Houache–Szehr–Zarouf (2026), which resolves the unrestricted Schäffer asymptotic, and Goldberg (1966), which optimizes stochastic determinants. The present exact functional is the induced \(\ell_1\) norm of the adjugate under a fixed, nonuniform Doeblin minorant; neither inspected source states that extremum. Related Markov-chain perturbation literature addresses stationary laws or contraction coefficients instead. A prior result using equivalent cofactor or determinant-derivative language remains possible; the reviewed searches are evidence of noncoverage, not proof of universal uniqueness.
+PASS
 
-## Mathematical value — PASS
-The minorization vector is a standard, mathematically meaningful feature of Markov operators, and the determinant-weighted inverse norm is a natural scale-invariant operator-stability quantity. The theorem computes its exact extremum in all finite dimensions, identifies an explicit extremal geometry, and establishes a sharp exponential suppression law under uniform positive refresh. This is not an arbitrary finite example or merely a numerical coefficient.
+Writing t=1−s and Q=(P−alpha 1^T)/t gives P=BQ with B=tI+alpha 1^T. On the zero-sum hyperplane B acts as tI, and on the one-dimensional quotient it acts as 1. Thus det B=t^(n−1); direct multiplication gives B^(-1)=t^(-1)(I−alpha 1^T). Reversing the factors in the polynomial adjugate identity yields the source formula even for singular Q. Each cofactor is affine separately in the stochastic columns; expanding Q as the product of its column mixtures represents the whole adjugate as a convex combination of deterministic-map adjugates, so triangle inequality bounds its norm by a vertex maximum. Ranks <=n−2 contribute zero; permutation vertices give t^(n−2)(1+s−2a). At rank n−1 there are a duplicated column pair u,v and an omitted row k; the right and left kernels are spanned by e_u−e_v and e_k respectively. A unit nonzero cofactor fixes the scalar in adj Q to ±1. The norm becomes 2t^(n−2)max(1−alpha_k,alpha_k), which is bounded by 2t^(n−2)(1−a) since alpha_k<=s−a<1−a, and attains it for alpha_k=a<1/2. Replacing one duplicated column by a mixture with the omitted output gives |det Q| equal to its positive mixing weight and cofactor continuity proves the claimed invertible supremum. All steps include n=2; at s=1 the unique matrix has rank one and gives the stated continuous limit (zero for n>=3, 2(1−a) for n=2). Absolute column sums are the induced norm over either scalar field.
 
-## Source limitations
-The two-page Goldberg paper and the directly relevant introduction and main result of the 2026 Schäffer paper were inspected in full-text form. The Visser source and broader Markov perturbation literature were checked at abstract or partial-text level. Further historical cofactor-inequality bibliography could affect originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected nearest results concern stochastic determinants, unrestricted determinant-weighted inverse asymptotics, or the stationary system I−P. The distinct supported contribution is the exact finite-dimensional norm extremum for P with a fixed nonuniform minorant, including sharpness in the invertible subclass. Common-minorant decompositions and the simplex vertex argument are standard ingredients.
+
+## value
+
+PASS
+
+The fixed common minorant is intrinsic to finite Markov operators, and the adjugate is the continuous extension of the determinant-weighted inverse norm needed in the near-singular regime. The exact dependence on s and the smallest entry, the rank-deficient extremizing geometry, and the explicit invertible approach separate this stability invariant from a stochastic determinant bound or a mixing estimate. The uniform refresh corollary supplies a genuine sharp dimension-dependent suppression law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

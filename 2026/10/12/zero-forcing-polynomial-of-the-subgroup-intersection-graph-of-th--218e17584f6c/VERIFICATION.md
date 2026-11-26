@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path before replay.
+# Independent mathematical audit
 
-For \(p=3\), it tests all \(131072\) initial blue subsets of the \(17\)-vertex abstract graph. It verifies the accepted-set criterion subset-by-subset and compares the entire coefficient dictionary with the closed product formula.
+## correctness
 
-It independently constructs the exponent-\(p\) Heisenberg group for \(p=3\) and \(p=5\), enumerates all order-\(p\) subgroups and projective-line maximal subgroups, and checks every subgroup-intersection edge against the claimed graph.
+PASS
 
-Finally it expands the closed formula for \(p=3,5,7,11\) and checks the minimum exponent \(p^2\) and minimum coefficient \((2p+1)p^p\).
+The maximal subgroups are the inverse images of the p+1 lines of G/Z, and any noncentral cyclic subgroup of order p is confined to the one maximal subgroup belonging to its image. The order-p subgroups in each elementary abelian maximal subgroup other than the center are its p private leaves. Thus there is a clique of p+2 core vertices and p(p+1) leaves. Two white leaves in one block cannot be separated. With at most one white per block, blue leaves can first color every hub. If the center is white with one white leaf in every block, the center and those leaves form a fort: each hub meets it twice, all other vertices zero times. Otherwise the blue center or a fully blue leaf block permits finishing. This criterion gives u^(p²−1)(1+u)^(p+1)[(1+u)(u+p)^(p+1)−p^(p+1)]. Size p² permits no blue hubs: all blocks leave one white if the center is blue, or exactly one block leaves none if the center is white. The two counts p^(p+1) and (p+1)p^p sum as claimed, and N−p²=2p+2. Independent replay: python /workspace/audit_checks.py 1 generates subgroups by closure for p=3,5 and tests all 131072 initial sets on the actual p=3 intersection graph, matching the criterion and all coefficients, including 189 at degree 9. This corroborates rather than proves the all-prime statement.
 
-Exact replay output:
+## originality
 
-```text
-p=3 full polynomial: {9: 189, 10: 918, 11: 1848, 12: 2005, 13: 1286, 14: 508, 15: 124, 16: 17, 17: 1}
-p=3 characterization checked on all 2^17 subsets
-Heisenberg p=3: 17 proper nontrivial subgroups, graph pattern OK
-Heisenberg p=5: 37 proper nontrivial subgroups, graph pattern OK
-p=3: Z=9, min_count=189, polynomial_at_1=6896
-p=5: Z=25, min_count=34375, polynomial_at_1=4971968
-p=7: Z=49, min_count=12353145, polynomial_at_1=7114145536
-p=11: Z=121, min_count=6562168424053, polynomial_at_1=60185692241063936
-VERIFY_OK
-```
+PASS
 
-The finite computations are corroborative; the arbitrary-prime theorem is proved by the subgroup-lattice reduction and the necessary-and-sufficient forcing criterion.
+The distinct content supported by the comparisons is the complete forcing criterion and two minimum regimes for this partially decorated core, not the subgroup-intersection construction or a generic private-module method. Exact same-family prior domination results and closely related polynomial results do not give the accepted claim. In particular the same-day clique-decoration theorem has internal clique edges necessary to its effective-root reduction; its assumptions and effective-root process do not hold for the private independent leaves and naked center in this finding. Priority is not inferred from catalogue dates.
+
+## value
+
+PASS
+
+The extraspecial groups form a natural infinite nonabelian family. The undecorated center produces an exact fort obstruction and two qualitatively different optimal configurations; the full enumerator gives a test case for zero forcing on subgroup-intersection graphs, in which the incidence structure and propagation constraints can both be checked directly. No minimum-rank or larger-group extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

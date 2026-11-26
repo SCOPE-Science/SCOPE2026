@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the two-round multipartite line-graph theorem
+# Independent mathematical audit
 
-The general proof appears in `RESULT.md`. The following commands reproduce finite consistency checks using Python 3 from the package directory:
+## correctness
 
-```text
-python direct_check.py
-python moment_check.py
-python orbit_check.py
-```
+PASS
 
-`direct_check.py` constructs every line-graph edge and adjacency explicitly in 114 test configurations; it performs synchronous refinement and compares zero-, one- and two-round equality relations with the mathematical type partition and the predicted exact depth. `moment_check.py` independently evaluates incident-edge moment sums by exact integer arithmetic, checks their closed formula, and verifies their separation of realized types in 3,424 size vectors. `orbit_check.py` uses NetworkX to enumerate all automorphisms for seven small line graphs and reconstruct their actual orbits without assuming the root-graph action has no extra automorphisms. Terminal outputs are reproduced in `direct_check_output.txt`, `moment_check_output.txt`, and `orbit_check_output.txt`.
+For a root edge xy, put d_x=N-a, d_y=N-b and T=sum_z d_z=N^2-Q. The inclusive sum of line-graph degrees over the star at x is d_x(d_x-2)+T-a d_x, since the excluded root vertices are precisely the a in x's part. Adding the y star and subtracting 2D(xy) recovers equation (3), with D=2N-a-b-2. Thus equality of second-round colours forces equality of a+b and a^2+b^2 and hence of the unordered multiset {a,b}. Root automorphisms act transitively on each such type, and full line-graph automorphisms preserve refinement, so the exact orbit conclusion needs no lifting theorem. Counting parts gives the displayed cell sizes and class count, including r=2 or repeated equal parts. Distinct equal-sum types cannot share a part; their four parts have total size at least 2*4, with equality uniquely at (1,2,2,3). Its four type sizes are 4, 3, 4, 12; the two colliding degree-10 types have neighbour-degree sums 100 and 96. This proves the exact depth and minimum, with the infinite sharp family checked by its identical endpoint sums. Read the three checker sources and logs (replay paths in VERIFICATION.md); not rerun. The direct checker tests attainment at the predicted depth and failure to attain before it, not each individual round-one equivalence in depth-two cases; the symbolic argument supplies all partitions. No cross-graph identification is shown.
 
-The direct checker sums 4,558 vertices over its test inputs, the moment checker compares 481,572 unordered type-pair instances, and the automorphism checker includes the 23-vertex minimal obstruction. These checks do not certify the universal mathematical claim; the proof of equations (1)–(4) and the orbit-transitivity argument establish it. No independent mathematical audit or external certification has been performed.
+## originality
+
+PASS
+
+The supported distinct claim is an exact depth classification of within-graph colour refinement on arbitrary complete multipartite line graphs, including endpoint-type recovery in two rounds and the unique least sharp instance. No equivalence or dominating result was established in the strongest checked material; general refinability and the studied alternative reconstructions do not yield the two moments for each individual edge.
+
+## value
+
+PASS
+
+A natural unbounded family has an exact refinement depth, explicit orbits and a unique minimum configuration where the degree partition fails. The second neighbour-degree moment explains the mechanism without orbit enumeration or lifting assumptions. This is a useful sharp classification, not merely a recomputed small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

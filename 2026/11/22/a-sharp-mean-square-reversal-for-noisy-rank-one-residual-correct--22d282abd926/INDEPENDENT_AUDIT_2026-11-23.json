@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:21:17.610094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence of the fresh read from the current error gives the exact noncentered second-moment map C ↦ E₀CE₀ᵀ+δ tr(C)I: the mixed terms vanish and each row-noise quadratic mean is δ tr(C), with off-diagonal row terms zero. In the orthonormal u,v basis the mean maps v to 2Ku and kills u. The diagonal transfer is [[δ,4K²+δ],[δ,δ]], with eigenvalues δ±√(δ²+4K²δ); no off-diagonal moment feeds back. Its strictly positive left Perron vector detects every nonzero deterministic initial error, including the nondecay at the equality threshold. The positive eigenvalue is below one exactly for δ<1/(4K²+2). Shah et al.'s residual identity at A=I gives Q E_j; hence after its first application the error lies on n. Direct contraction of the entry covariance gives Var(nᵀG_j n)=δ and Var(nᵀG_j e₀)=δ‖e₀‖². Thus the first moment factor is strictly positive for e₀≠0 and each subsequent second-moment multiplier is K²cos²(2θ)+δ, giving both extremal angles and the equality case. For K=2 and δ=1/100 the two factors are 0.410124980474851… and 4.01; the raw threshold is 1/18. The one-step norm ordering does not order products. Conditional on a nonzero unit probe the learned vector is Gaussian with covariance εI, so any arc within γ≥1+c has positive probability. Integrating the conditional lower bound δ‖e₀‖²(1+c)^(j−1) on that fixed arc proves unconditional divergence. At ε=0 a probe with nonzero image gives the stable complement v. This discontinuity concerns infinite-horizon classification, not finite-time behavior, typical devices, almost-sure failure or FGMRES. Inspected both support files but did not execute them; verify.py lines 66–67 make a tautological numerical comparison, which is not credited as covariance evidence. The proof and the separate symbolic covariance check do not depend on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shah et al. cover a broader analog–digital preconditioner model but distinguish guaranteed single-application reduction from unproved iteration guarantees; FGMRES is their experimental implementation, not this iteration.",
+          "The usual covariance lifting tests stability of a specified sequence of iid matrices; it does not relate unchanged versus projected spectral radii under a pointwise norm ordering."
+        ],
+        "reasoning": "The inspected pointwise theorem cannot imply that the projection preserves stability. Constructing a compatible nilpotent nonnormal mean and a rank-one projection with a large persistent multiplier is part of the actual new counterexample. The setup result uses joint conditional and unconditional quantifiers not supplied by one-step reduction.",
+        "searches": [
+          "Shah et al. arXiv:2611.17251v1, §§2.2–3.2, Theorem 1 and conclusion",
+          "Nabben–Rooch arXiv:2604.21648v1 §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Shah et al. arXiv:2611.17251v1",
+        "Nabben–Rooch arXiv:2604.21648v1",
+        "Local Resultary exact self-match and distinct stochastic KM record",
+        "Focused primary-literature lookup for nonnormal reversed convergence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shah et al. explicitly separate pointwise reduction from convergence and leave iteration/spectral questions open in the inspected passages.",
+          "Their fixed one-sweep setup gives the relevant construction framework, but it does not state positive-support bad orientations or unconditional divergence. Nabben–Rooch describe deterministic iterates, not the conditional Gaussian mixture."
+        ],
+        "reasoning": "The framework implies the factorization, not the sign reversal between the two long-time factors. A counterexample and the mixture lower bound are required; neither is a parameter substitution into a stronger conclusion located in these sources.",
+        "searches": [
+          "Shah et al. Eq. (25), Theorem 1, setup §3.2 and conclusion",
+          "Nabben–Rooch deterministic assumptions and theorem §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shah et al. Eq. (25) equals QE_j after A=I, B_j=I−E_j, I−P_Z=Q. Their read model admits fresh samples and their setup includes columnwise probing.",
+          "Nabben–Rooch's Theorem 3.7 and Corollary 3.9 concern deterministic transfer and B-normality criteria, not an iid moment map.",
+          "The separate stochastic KM Resultary result uses diminishing steps and additive signed fluctuations, not first multiplying by a freshly perturbed matrix and then projecting onto a persistent line."
+        ],
+        "reasoning": "The one-step identity is exactly equivalent and is not the novelty. Changing solver, noise law, and whether the projection is fixed across reads changes the iteration-level claim; neither the deterministic two-grid result nor the KM example maps to the joint sharp conditions here.",
+        "searches": [
+          "Resultary: iid nonnormal Richardson mean-square stability reversal under rank-one residual correction and learned-probe noise",
+          "Focused literature lookup: nonnormal correction destabilization and independent noisy stationary Richardson"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-sharp-mean-square-reversal-for-noisy-rank-one-residual-correct--22d282abd926 is the exact assigned record itself.",
+          "2026/11/22/SCOPE-sharp-mean-square-noise-boundary-and-almost-sure-collapse-in-a-n--240e3393377a, original RESULT.md offsets 0–3907, gives σB=1 in a diminishing-step KM setting, not this noise/angle formula."
+        ],
+        "reasoning": "No independent exact indexed formula match was established; the relevant same-date analogue was compared by mechanism and assumptions, not rejected on date. No external tabulated data is used by the theorem.",
+        "searches": [
+          "Local Resultary semantic search for mean-square correction reversal, Gaussian setup, and the sharp noise/angle phase diagram"
+        ]
+      },
+      "rationale": "A bounded pass for the quantitative stationary Richardson counterexample and learned-space discontinuity together. The pointwise correction, fresh reads, probe setup and general multiplicative-noise moment lift are not novel. The closest inspected source supplies the one-step operation and no equivalent stability analysis of this model; a moment-lift method by itself does not give the simultaneous projection reversal or the adverse fixed-setup expectation.",
+      "residual_risks": [
+        "García Ramos–Kehl–Nabben, DOI 10.1137/18M1180268, is related deterministic nonsymmetric-deflation literature; the frozen record reports abstract-only access and no independent complete-text comparison was established here.",
+        "Other unindexed examples could realize the same nonnormal mechanism. The bounded review does not establish priority for the broad deterministic phenomenon that an inserted projection can destabilize a product."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact one-step and setup framework; iteration-level comparison not stated in the inspected sections",
+          "evidence": "Eq. (25) reduces to QE_j. The discussion limits convergence implications and distinguishes the tested FGMRES solver.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17251v1",
+          "material_read": "§2.2, Eq. (25), Theorem 1, §3.2, and conclusion; offsets 19550–23738, 26200–32059, 37300–41498 and 81400–83978",
+          "method": "Open-access original HTML passages",
+          "title": "Noise-Adaptive Analog–Digital Preconditioning",
+          "trigger": "Exact same correction, read model and single-sweep setup"
+        },
+        {
+          "assessment": "Deterministic spectral context, not equivalent stochastic model",
+          "evidence": "Convergence bounds involving a deterministic smoother and B-normality assumptions.",
+          "identifier_or_url": "https://arxiv.org/html/2604.21648v1",
+          "material_read": "Abstract and §3, including Theorem 3.7 and Corollary 3.9; offsets 0–4200 and 38200–48299",
+          "method": "Open-access original HTML passages",
+          "title": "Optimal transfer operators for nonsymmetric two-grid methods",
+          "trigger": "Nonnormal projection and convergence obstacle in a closely related error-operator setting"
+        },
+        {
+          "assessment": "Real thematic overlap, not the same matrix-product or setup-noise reversal",
+          "evidence": "Diminishing-step stochastic KM with a σB=1 threshold at b=1/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-mean-square-noise-boundary-and-almost-sure-collapse-in-a-n--240e3393377a",
+          "material_read": "Original RESULT.md offsets 0–3907",
+          "method": "Local Resultary mirror",
+          "title": "Sharp mean-square noise boundary and almost-sure collapse in a nonstationary iteration",
+          "trigger": "Distinct indexed sharp mean-square divergence example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example gives a sharp warning about a practical inference in analog–digital solvers: every realized single-application improvement can be consistent with arbitrarily worse mean-square iteration factors. Exact best/worst orientation factors and the discontinuity for a fixed learned space distinguish solver noise from setup noise rather than just give a deterministic instability. The strongly nonnormal case and rare-event qualification appropriately limit the interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

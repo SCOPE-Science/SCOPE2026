@@ -1,15 +1,21 @@
-# Scientific review: complete-graph rooted-forest root-set Fourier resonances
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-root enumerator is established independently in the classical literature and follows from an explicit \(nI-J\) principal-minor calculation. The multiaffine generating polynomial follows by marking one of the selected roots. Substitution of \(\pm1\) yields every Fourier multiplier, with the two endpoint shells treated separately so that no negative powers or undefined specializations enter. The zero classifications cover every real \(t>0\) and every integer \(n\ge2\). The norm identities follow from orthogonal Walsh diagonalization and monotonicity of the explicit nonzero shell magnitudes. An independent edge-subset/root-choice enumerator and exact Walsh transform confirm the spectrum for all forests through six vertices; independent integer checks cover signs, zeros, and unit-activity gaps through the stated larger finite ranges. These checks are supplementary evidence, not the proof of the infinite claims.
+## correctness
 
-## Originality — PASS, bounded evidence and residual risk
-The classical enumerator, matrix-forest identity, root-set determinantal process, and corresponding probability coupling are *prior art* and are not asserted as new. The compared prior results include Pitman (1997), Chebotarev–Shamis (2006), Avena–Gaudillière (2013), D'Achille–Enriquez–Melotti (2026), and Moumeni (2026). The strongest coverage is the Avena–Gaudillière general determinantal root law: specializing its kernel to \(K_n\) yields the root-set law and, with further Walsh evaluation, the multiplier formula. The specific positive-activity cancellation classification, exact nullities at each activity, and globally sharp nonzero unit-activity gap and conditioning have not been found stated in the inspected sources or relevant indexed records. The proof therefore makes a precise additional spectral classification, not a claim to have introduced the underlying random forest measure. This distinction remains vulnerable to an unindexed equivalent signed-root analysis or a derivation recorded as a corollary elsewhere. Such a source should supersede this originality assessment if found.
+PASS
 
-## Value — PASS
-Boolean root-set convolution is a natural inverse problem: its Walsh zeros determine exactly which root-profile signals cannot be recovered, and its least surviving multiplier determines exact Euclidean amplification on recoverable data. Here a single continuous activity parameter has finitely many explicit exceptional values and a particularly large rank collapse at \(t=n\). At uniform unit activity, parity alone determines invertibility and the exact sharp amplification grows exponentially with explicit constants. This is a complete, natural spectral and stability classification rather than a single small-order enumeration. Its assumptions, technical simplicity, and reliance on the classical root-set law are material limits on significance.
+The principal-minor expansion of det(nI-J+t diag(z)) gives each nonempty root-set multiplicity k n^(n-k-1), including the empty determinant at k=n. Inserting Boolean signs and expanding the rank-one term gives exactly the three multiplier formulas without division by n-t. At t=n the terms at weights 0 and 1 survive, so the rank is n+1, including n=2. Off that activity only the linear factor in a middle shell can vanish, precisely at t=n-2j with binomial nullity. At t=1, putting a=n-1 and b=n+1, the magnitudes decrease on the positive branch (with the top at weight zero). On the negative branch the ratio is (d+2)a/(db) with d=2s+1-n>0; it is >=1 up to the terminal step since d<=a, and the terminal boundary has equal magnitude. The first negative shell beats the last positive middle shell by a/b (even) or (a/b)^2 (odd). The small cases have weight spectra (3,-1,-1) and (16,0,-4,-4), agreeing with the claimed gaps. The positive total mass is the maximum magnitude by the triangle inequality. Orthogonal Walsh diagonalization gives the inverse or pseudoinverse norm and restricted condition number. The supplied check_root_spectrum.py was inspected, not executed; python3 check_root_spectrum.py replays the reported finite checks. The proof, not the finite test, covers real activity and arbitrary n.
 
-## Closest source comparisons and limitations
-The exact signed-transform problem is different from edge-incidence Fourier transforms of spanning forests and trees. The most important related general theorem is the determinantal root-set formula of Avena–Gaudillière, which covers the underlying measure and makes the spectral computation accessible but does not itself state the sharp recovery theory. Exact higher-dimensional checks do not establish the infinite argument by enumeration. The result covers complete graphs, equal unit edge weights, and common positive activity; no general graph, complex activity, independent external review, or unique-priority assertion is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known fixed-root law and its generic determinant evaluation. The signed generating formula and the zeros it directly exposes are consequences of that law, not independent originality grounds. The supported distinct claim is the sharp all-order smallest nonzero absolute Walsh multiplier at unit activity, with exact Hilbert-space recovery conditioning even in the singular parity. This uses a discrete minimization across the sign change. The compared sources do not establish this sharp minimization for the vertex root profiles of K_n. The assessment is to the best of current knowledge, not a priority finding.
+
+## value
+
+PASS
+
+The root set is the natural Boolean observable. Knowing the exact smallest nonzero multiplier determines best possible stability of Hilbert-space recovery, on the whole space for even n and on the recoverable subspace for odd n. This requires locating the worst shell, not merely evaluating a root count or detecting a zero. The activity analysis also separates a high-nullity point from the isolated single-shell losses, without needing to treat those formula corollaries as original.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

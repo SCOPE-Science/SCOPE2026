@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:17:05.796350Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under uniform single ignition, each unordered connected pair contributes twice in the average, giving exactly the six path monomials with prefactor 1/2. The singleton monomials alone make the Hessian positive definite, while each remaining monomial has a positive semidefinite Hessian. Reflection gives equal outer effort, and the constrained derivative at zero outer effort is p[(1+p)exp(-B)-1]. Its sign and strict convexity prove uniqueness even at the threshold; the right endpoint has positive derivative, and B=0 is a singleton. Interior marginal equality gives q_2=q_1/(1+q_1) and hence the stated cubic and center-to-outer gap; the cubic gives the asymptotic fractions. On three sites the product is fixed and strict convexity equalizes the two efforts; on two sites there is no choice. Independently evaluated the rational risk witness (57/32 and 8177/4608). Reviewed VERIFICATION.md and check.py as evidence without execution; neither constitutes field validation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parity record studies paths beyond four sites and already compares the two- and three-site cases under its convention.",
+          "Ager et al. study operational simulation and a spatial treatment network; Yemshanov et al. formulate discrete node selection; the Somers–Manchester resource model uses continuous-time spread and recovery rates."
+        ],
+        "reasoning": "The applied papers motivate the setting but do not provide the exact independent-link rule. The broader path result supplies the decisive parent objective and exact optimizer, not just generic convexity.",
+        "searches": [
+          "SCOPE-parity-dependent-activation-thresholds-for-budgeted-probabilisti--b29b408dc542",
+          "10.1371/journal.pone.0295392",
+          "10.1371/journal.pone.0258060",
+          "arXiv:2003.07555"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary records b29b408dc542 and dc53d6309137",
+        "Ager et al., DOI 10.1371/journal.pone.0295392",
+        "Yemshanov et al., DOI 10.1371/journal.pone.0258060",
+        "Somers and Manchester, arXiv:2003.07555"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the translated variables the symmetric feasible interval for g_1 is [L,(D-L)/2], contained in the existing interval [0,D/2]. The unconstrained optimum has middle effort at least the common outer effort, so it satisfies the upper endpoint whenever its outer effort is at least L."
+        ],
+        "reasoning": "Strict convexity puts the restricted optimum at g_1=L when the known optimum lies to its left, and otherwise retains it. The boundary is exp(D)=exp(3L)+exp(2L), or B=log(1+p), including the p=1 boundary and zero-budget case. Above it set u=exp(L)z in the prior cubic, giving z^3+p z^2=exp(B), and subtract L from the translated efforts to recover all the claimed formulas. The two- and three-site comparisons are unaffected by the common floor and reflection. No separate phase phenomenon survives the transfer.",
+        "searches": [
+          "b29b408dc542, RESULT.md, Four-patch continuation (mirror offsets 5867–8859)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parity record gives the p=1 center-only cutoff log 2 and equation exp(D)=u^3+u^2 for u=exp(outer effort), with the exact same pair sum.",
+          "The increasing-reliability record uses 1-exp(-x), maximization, and positive outer effort from the origin, not the decreasing-transmission minimization."
+        ],
+        "reasoning": "For L=-log p and g_i=x_i+L, the bond probabilities become exp(-g_i) and the total budget D=B+3L. The only change is the common effort floor g_i>=L, which clips the strictly convex reflected one-variable optimizer.",
+        "searches": [
+          "Resultary: probabilistic firebreak path activation and four-site reliability investment",
+          "SCOPE-parity-dependent-activation-thresholds-for-budgeted-probabilisti--b29b408dc542, Four-patch continuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published catalogue includes the exact specialization p=1 as a theorem, not a numerical table. The other close record optimizes a different reliability objective."
+        ],
+        "reasoning": "A table of discretely sampled values cannot settle this continuum active-set law; the exact theorem and convex restriction do.",
+        "searches": [
+          "Resultary path optimization records b29b408dc542 and dc53d6309137"
+        ]
+      },
+      "rationale": "A distinct indexed path result gives the exact p=1 case and its strictly convex one-variable objective. The entire frozen generalization in p is obtained by a common effort translation and restriction to a subinterval of that very objective; see the explicit transfer below. This is a statement-level comparison, not a historical-priority inference from catalogue dates.",
+      "residual_risks": [
+        "No historical priority order is inferred between same-date records.",
+        "No exhaustive primary-literature claim: further papers could contain the exact p<1 formula, but cannot remove the demonstrated mathematical overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen law by translation and strict-convex minimization on a subinterval; no chronological inference",
+          "evidence": [
+            "Four-patch continuation gives 2e^{-x}+e^{-D+2x}+2e^{-D+x}+e^{-D}, strictly positive second derivative, cutoff log 2, and the unique interior root."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-dependent-activation-thresholds-for-budgeted-probabilisti--b29b408dc542/RESULT.md",
+          "material_read": "Path-wide results and Four-patch continuation; decisive source passage at mirror offsets 5700–8843",
+          "method": "Local Resultary lookup and mirrored original text",
+          "title": "Parity-dependent activation thresholds for budgeted probabilistic firebreaks on a path",
+          "trigger": "Closest exact indexed four-site threshold and general path result"
+        },
+        {
+          "assessment": "Related, different objective and activation",
+          "evidence": [
+            "Probability 1-exp(-x) and maximization; both outer efforts are positive from every positive budget."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-four-habitats-are-the-sharp-onset-of-unequal-reliability-investm--dc53d6309137",
+          "material_read": "Mirrored RESULT.md offsets 451–4902",
+          "method": "Local Resultary lookup and mirrored source comparison",
+          "title": "Four habitats are the sharp onset of unequal reliability investment on a path",
+          "trigger": "Closely matched four-site allocation geometry"
+        },
+        {
+          "assessment": "Different planning formulation in inspected material",
+          "evidence": [
+            "3,538-km landscape network; linear versus radial implementation strategies in simulations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0295392",
+          "material_read": "Open article abstract and spatial planning/simulation comparison, abstract PDF p. 1",
+          "method": "Original open article",
+          "title": "Optimizing the implementation of a forest fuel break network",
+          "trigger": "Most direct applied fuel-break comparison cited by the record"
+        },
+        {
+          "assessment": "Different decision variable",
+          "evidence": [
+            "Discrete treatment x_i in {0,1} acts on nodes; the frozen model has divisible independent-bond treatment."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0258060",
+          "material_read": "Open article PDF pp. 1, 3–4, especially the node-treatment and connected-pair formulations",
+          "method": "Original open article",
+          "title": "Detecting critical nodes in forest landscape networks to reduce wildfire spread",
+          "trigger": "Wildfire connectivity optimization"
+        },
+        {
+          "assessment": "Related framework, not the decisive path result",
+          "evidence": [
+            "Uses continuous-time spreading/recovery-rate allocations, not the uniform-root independent-bond pair sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.07555",
+          "material_read": "Original PDF abstract and resource model/convex framework, pp. 1 and 3",
+          "method": "Original open preprint",
+          "title": "Sparse Resource Allocation for Control of Spreading Processes via Convex Optimization",
+          "trigger": "Shared exponential-cost allocation and wildfire motivation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A support transition can be a useful exact design benchmark, but this record adds only a uniform coordinate translation and routine clipping of the already-known strictly convex optimizer. It adds no new active-set patterns, geometry, or scientifically justified treatment heterogeneity. The exact reparametrized cutoff alone is not a separate surviving valuable finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

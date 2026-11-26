@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:29:59.118285Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–47; VERIFICATION.md, line 21; verify.py, lines 3–43 (inspected, not executed). The script starts one window later than the stated convention, which is harmless by reversibility.",
+        "Replay: python3 /workspace/reproductions/frozen_math_checks.py 4; 244 selected lengths, directly summed b_n^2 over 16 initial windows per length, and independent multiplicative order iteration"
+      ],
+      "rationale": "Halving b gives the affine recurrence with constant 1; the displayed Pell formula satisfies it and the two zero initial values. Squaring gives the five bases 1, lambda^(±1), lambda^(±2), constant term 5/64, and unit coefficients for all four nonconstant bases at every odd prime. The monic characteristic polynomial has constant -1, so any five consecutive windows generate the same gcd as the full sequence. For the least period modulo p, the norms of lambda^j-1 for j=1..4 exclude collisions except at 3 and 7; in the split algebra the coordinates of lambda are inverse, so a collision in one coordinate implies a collision in both. A unit Vandermonde then forces lambda^h=1 for any period h, and for p=3,7 the direct square sequences (0,0,1,1) and (0,0,1) give the exact periods instead. Window differences force that period to divide k; the unit geometric-sum denominators then leave 5k/64 modulo p. Lifting lambda^k-1 makes every nonconstant window term vanish one p-power beyond the constant term when p is not 5 and p divides k. At 5, lambda^3=-1 mod 5, its order is 6, and lambda^6-1=19600+13860*sqrt(2) has exact valuation 1. Odd-prime binomial lifting preserves the first nonzero normalized coefficient and gives exact valuation 1+v_5(k). If all windows vanished one level deeper, their differences and the invertible five-mode matrix at 5 would force the lambda mode deeper, a contradiction. The argument excludes every other odd prime case and makes no 2-adic claim.",
+      "residual_risks": [
+        "Bounded replay does not establish the infinite classification or determine the power of two; those are respectively proved analytically and out of scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 30 poses the same square-window problem and notes the factor 4. The generalized Fibonacci result uses a homogeneous Fibonacci recurrence, not the affine cobalancing recurrence. The later October 26 exact formula covers all frozen valuations and adds the 2-adic part."
+        ],
+        "reasoning": "Neither earlier primary paper yields the formula by substitution. The later exact complete factorization is genuine broader catalog coverage, not proof of earlier priority.",
+        "searches": [
+          "arXiv:2301.05758v3, §6.1 Question 30",
+          "arXiv:2204.12626v2, Definition 2.1 and Theorem 3.4",
+          "Resultary 9c2a2a5070c4, Finding and odd-prime decomposition"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 11cd03c19bb6, ccb3ff598d74, 9c2a2a5070c4, and additional near-neighbors 688ac83f273a and 9d626bd01489; arXiv:2301.05758v3 and 2204.12626v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd k, the Pell identity plus lifting gives the order criterion in 11cd03c19bb6's formula (6 never divides odd k). For all k, ccb3ff598d74's Vandermonde proof works for p=5 and p>=11 but not for 3 or 7. The later complete formula includes even k at both 3 and 7."
+        ],
+        "reasoning": "At most the even-length 3- and 7-adic cases remain unaccounted for by those earlier/parallel records. Checking the two degenerate residue periods does not warrant attributing the overlapping all-length odd-prime classification anew. No priority conclusion is made for the two-day-independent publication order or for the remaining two coordinates as of the frozen date.",
+        "searches": [
+          "Resultary 11cd03c19bb6 and ccb3ff598d74, proof passages at offset 0; 9c2a2a5070c4, complete displayed formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "11cd03c19bb6 gives G(k)=4*gcd(k,Q_k) for every odd k, with the same sequence and windows. For odd k, 2*(1+sqrt(2))^k*Q_k=lambda^k-1; reduction and binomial lifting identify its odd factors with the frozen formula.",
+          "ccb3ff598d74 gives the same valuations for 5 and all p>=11, including every even window. Its n..n+k-1 convention and the frozen n+1..n+k convention give the same gcd by reversibility."
+        ],
+        "reasoning": "These are statements on the identical arithmetic function and have equivalent exact prime valuations on their overlapping domains. The same-date record is distinct, but relative publication order is not established.",
+        "searches": [
+          "Resultary semantic search: cobalancing square-window gcd, odd-window Pell factors, prime order and small prime exceptions",
+          "Resultary 11cd03c19bb6 and ccb3ff598d74, Findings and beginning of proofs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalog matches give infinite exact formulas, not coinciding sample values: full G(k) for odd k, exact coordinates for all k outside three small primes, and a later full formula at every k."
+        ],
+        "reasoning": "The overlap is at theorem level. Same-day matching prime coordinates and the earlier odd-length formula outweigh any apparent novelty inferred from the frozen finite sample.",
+        "searches": [
+          "Resultary 11cd03c19bb6, ccb3ff598d74, 9c2a2a5070c4, exact formulas in Findings",
+          "arXiv:2301.05758v3 §6.1"
+        ]
+      },
+      "rationale": "Originality of the broad all-odd-primary contribution is not established as submitted. The earlier October 12 catalog record gives the full identical gcd at every odd length. More decisively for even lengths, a distinct October 18 record already states the same valuation law at 5 and all primes >=11, for every length, for the identical gcd. It uses the same Pell modes and Vandermonde/prime-power mechanism. Only the even-length cases at 3 and 7 are outside these two demonstrable overlaps. The record does not isolate that remainder as its contribution or distinguish it from material already covered. This is not an assertion that the same-day comparator came first or that the entire theorem was published earlier; the overlapping formulas, not an access problem or the shared date itself, prevent accepting the original broad novelty claim. A later complete factorization independently confirms how much of the statement overlaps the catalog; it is not used as evidence of earlier priority.",
+      "residual_risks": [
+        "Same-day ordering and how the overlapping records relate are unresolved. There is no finding of false mathematics or of prior publication of the entire frozen theorem.",
+        "The earlier catalog coverage of the two remaining even-length prime coordinates was not established. No separate repaired claim for those coordinates is being delivered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all odd-length cases and more (their power of two)",
+          "evidence": [
+            "Same b, same G, exact formula 4*gcd(k,Q_k)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-odd-window-square-sum-gcd-of-cobalancing-numbers--11cd03c19bb6/RESULT.md",
+          "material_read": "Finding, assumptions and shift factorization at offset 0",
+          "method": "Local catalog mirror",
+          "title": "The odd-window square-sum gcd of cobalancing numbers",
+          "trigger": "Earlier exact formula on positive odd window lengths"
+        },
+        {
+          "assessment": "Demonstrably equivalent for p=5 and all p>=11; relative priority unresolved",
+          "evidence": [
+            "Same norm-one unit and exact exceptional 5 exponent; uses the same five modes and unit Vandermonde. Its one-index shift is immaterial."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-prime-power-divisor-spectrum-for-cobalancing-square-windows-outs--ccb3ff598d74/RESULT.md",
+          "material_read": "Finding and proofs of five-mode decomposition and window matrix from offset 0",
+          "method": "Local catalog mirror",
+          "title": "Prime-power divisor spectrum for cobalancing-square windows outside three small primes",
+          "trigger": "Distinct same-day exact formula for the same, unbounded window lengths"
+        },
+        {
+          "assessment": "Strictly broader exact formula; later dated",
+          "evidence": [
+            "Adds 2-primary factor and states the same p=3,5 and order-prime cases, including p=7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-prime-order-formula-for-all-cobalancing-square-window-gcds--9c2a2a5070c4/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of the odd-prime proof at offset 0",
+          "method": "Local catalog mirror",
+          "title": "Prime-order formula for all cobalancing square-window GCDs",
+          "trigger": "Potentially dominating full factorization of the same gcd"
+        },
+        {
+          "assessment": "Motivates the classification but does not supply the odd-prime formula",
+          "evidence": [
+            "Notes divisibility by four for this sequence and asks for square-window closed forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.05758v3",
+          "material_read": "§6.1 and Question 30, HTML offset 68851",
+          "method": "Open primary HTML",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Same sequence and square-window problem"
+        },
+        {
+          "assessment": "Different recurrence hypotheses",
+          "evidence": [
+            "A square-window gcd reduction for a homogeneous additive Fibonacci recursion, not this affine Pell-family sequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.12626v2",
+          "material_read": "Definition 2.1 and Theorem 3.4, offsets 8800 and 13628",
+          "method": "Open primary HTML",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Earlier apparently broader square-window gcd theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–16 and 38–44; arXiv:2301.05758v3, Question 30"
+      ],
+      "rationale": "As mathematics, a uniform exact description of all odd valuations answers a natural prime-local portion of Question 30. The exceptional 5 factor and the complete treatment of small-prime degeneracies are informative and not evidenced by a sample table. This assessment of mathematical usefulness does not establish originality of the broad contribution.",
+      "residual_risks": [
+        "The remaining 2-adic problem is not solved by the frozen record; a value judgment on this classification does not imply a distinct valuable repaired finding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

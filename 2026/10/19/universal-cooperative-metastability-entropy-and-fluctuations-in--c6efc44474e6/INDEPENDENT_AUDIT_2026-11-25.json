@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:13:03.177516Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the repaired theorem. A flip acts on the cut bonds. Maximal contiguous pieces have disjoint cut bonds, so checking allowed intervals is equivalent to checking all allowed subsets. A wall at j must evade both end intervals and be strictly lighter than all bonds at distance at most r; conversely such eligible walls cannot coexist on a block boundary, and a single such wall has lighter coupling than the opposite boundary. Whole-chain flip costs zero. For iid atomless bonds, the stationary indicators have mean 1/m (m=2r+1), are 2r-dependent, and have overlapping joint probability 2/[m(m+d)] for r<d≤2r by conditioning on the location of the union minimum. The variance sum verifies the displayed v_r, with v_r≥2r/[m²(4r+1)]>0; the finite-dependence CLT and ergodic theorem apply at fixed r. For N≥m the +1 in log₂ B exactly cancels the boundary correction in the mean. When N≤3r+2 the eligible interval has diameter at most r or is empty, giving the asserted Bernoulli law from its expectation. New independent script /workspace/reproductions/05_ising.py passed exact all-order, all-state and all-budget small checks (N=3..7, every coupling permutation) and exact rank checks for r=1,2; these corroborate, not replace, the proof. Frozen VERIFICATION.md and verify.py were inspected without running the supplied code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newman–Stein allow arbitrary subsets of up to M spins and cite earlier beyond-single-spin 1D work; the inspected exact weak-bond example is for M=1. The random-thin-graph and arbitrary-graph sources use single-spin stability."
+        ],
+        "reasoning": "The general stability definition does not imply the two detailed distribution formulas. The repair does not claim to introduce the definition, the local-minimum mechanism or a general CLT theorem.",
+        "searches": [
+          "arXiv:cond-mat/9908455 pp. 2, 4, 16 and Ref. [40]",
+          "10.1103/PhysRevB.24.6579",
+          "arXiv:cond-mat/0011265 p. 3; arXiv:0801.1224 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 190dc97a4214",
+        "arXiv:cond-mat/9908455",
+        "arXiv:cond-mat/0011265",
+        "arXiv:0801.1224",
+        "DOI:10.1103/PhysRevB.24.6579 (access attempted)",
+        "DOI:10.1103/PhysRevB.39.6925 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A weak-bond representation and a generic finite-dependence CLT do not specify the arbitrary-r limiting variance. Evaluating the covariance requires the overlapping-window count for all r<d≤2r. Large proportional budgets require the eligible open interval and its diameter bound, and are not a fixed-radius CLT corollary."
+        ],
+        "reasoning": "Radius extension of the elementary wall criterion and its entropy consequence alone would have limited novelty and are treated as derivation. The repaired conjecture-free statistics survive the identified overlap.",
+        "searches": [
+          "Resultary 190dc97a4214, local joint minima and prior work near offset 7847",
+          "arXiv:cond-mat/9908455 Eq. (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The infinite chain's radius-1 weak bonds are freely satisfied or unsatisfied modulo spin reversal. The periodic finite-chain formulation allows only even wall sets, unlike the open chain."
+        ],
+        "reasoning": "Weak-bond indicators are exactly local minima of a bond-order sequence. In particular a sign-symmetric one-dimensional chain can be gauged bond-by-bond to magnitudes without changing spin-flip costs, so positivity alone would not make known chain results new. The variant boundary and radius conditions matter for the exact finite law.",
+        "searches": [
+          "Resultary 190dc97a4214: two levels of metastability in a random ferromagnetic ring",
+          "arXiv:cond-mat/9908455, Eq. (6) and pp. 4, 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its diagonal entries 2/45 and 13/450 coincide exactly with the repaired formula at the two radii covered there; it uses iid atomless couplings, ring lengths at least 11, and radii only 1 and 2."
+        ],
+        "reasoning": "The exact entries are genuine duplicate coverage at r=1,2, not novelty. The inspected record gives neither a table across all r nor a large-r open-chain law.",
+        "searches": [
+          "Resultary 190dc97a4214, covariance matrix and bivariate limit in RESULT.md offsets 0–5504 and after 5504"
+        ]
+      },
+      "rationale": "The repaired claim expressly limits its advance to the explicit all-fixed-radius variance and the proportional-budget result in the specified open-chain range. The strongest inspected prior coverage is the one-spin weak-bond representation and the periodic r=1,2 marginal variance and Gaussian limits. Those ingredients are credited and not claimed distinct. The fixed-range table neither gives the arbitrary-r joint minimum formula nor covers the growing-r open-chain regime. The conclusion is limited to inspected evidence and does not certify priority.",
+      "residual_risks": [
+        "Li 1981 and Masui–Southern–Jacobs 1989 full texts were not retrieved lawfully; older cooperative chain treatments may include some results.",
+        "A focused search did not supply a decisive source on arbitrary-radius local-minimum counts; equivalent point-process formulations may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the periodic low-radius mechanism and variance, not the repaired all-radius/open large-budget claim",
+          "evidence": "At r=1,2 its wall subsets have even parity, and both marginal variance densities match; it identifies the joint covariance as its contribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-negative-covariance-across-two-levels-of-metastability-in-a-rand--190dc97a4214/RESULT.md",
+          "material_read": "Finding, covariance and bivariate limit, prior-work distinction and limitations",
+          "method": "Local index and mirror",
+          "title": "Negative covariance across two levels of metastability in a random ferromagnetic ring",
+          "trigger": "Direct corpus overlap in wall characterization and exact variance"
+        },
+        {
+          "assessment": "Covers stability definition and infinite-chain radius-1 reduction",
+          "evidence": "Eq. (6) compares |J| to its adjacent magnitudes; those weak bonds can be independently satisfied or unsatisfied modulo spin flip. Ref. [40] is T. Li, Phys. Rev. B 24, 6579.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9908455",
+          "material_read": "pp. 2,4,16, Eq. (6), bibliography around Ref. [40]",
+          "method": "OA primary full text, bounded passages",
+          "title": "Metastable States in Spin Glasses and Disordered Ferromagnets",
+          "trigger": "General cooperative stability and exact historical chain precedent"
+        },
+        {
+          "assessment": "Coverage unresolved; access denied and no recovered open copy",
+          "evidence": "Newman–Stein p. 2 explicitly note beyond-single-spin study in ref. [40].",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.24.6579",
+          "material_read": "Citation and scope as reported by Newman–Stein, not Li's paper",
+          "method": "DOI OA lookup, including alternate-route and repository recovery attempts",
+          "title": "T. Li, Phys. Rev. B 24, 6579 (1981)",
+          "trigger": "Early one-dimensional study including beyond-single-spin stability as reported by Newman–Stein"
+        },
+        {
+          "assessment": "Different stability scope and graph settings",
+          "evidence": "Both sources inspected define the counted states using single-spin flips.",
+          "identifier_or_url": "arXiv:cond-mat/0011265; arXiv:0801.1224",
+          "material_read": "Lefevre–Dean p. 3, Wacław–Burda p. 1 definitions and setting",
+          "method": "OA primary passages",
+          "title": "Metastable states of a ferromagnet on random thin graphs; Counting metastable states of Ising spin glasses on arbitrary graphs",
+          "trigger": "Frozen references as possible broader counting results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result gives quantitative information in two different regimes of a natural metastability count. The exact variance across all fixed cooperative budgets goes beyond the mere existence of a CLT or the first two previously calculated variances. In a separate proportional-budget range the open count has a fully specified non-Gaussian finite law rather than just a growth exponent. This is a useful boundary classification and does not assert results for all proportional budgets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

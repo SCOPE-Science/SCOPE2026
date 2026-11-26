@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:56:10.862154Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The adjacent pair gcds are gcd(n+1,3) and gcd(n+2,3), so the triple gcd is one. For the outer pair the four cross-factor gcds multiply since n and 2n−1, and n+2 and 2n+3, are coprime within their own factorizations. This gives gcd(n,2) gcd(n,3) gcd(n+2,5) and hence d≤30. The increasing generators are minimal for n≥4 by the stated inequalities and 2n²−9n−6≠0 (nonsquare discriminant 129); (6,15,28) is minimal, and n=3 gives the symmetric two-generator semigroup <15,28>. For n≥125, d(U−L)<L implies (d−1)U<dL≤dC≤dU<(d+1)L, so a gluing must have u+v=d. Only the middle generator can be a convex combination of the other two, and v=d/2−2d/(8n+6) cannot be integral. This proves the cutoff rather than extrapolating. A separate modular-inverse gluing test and an exact Apéry Frobenius/genus calculation both give exactly [2,3,6,7,8,18] over the entire finite interval 2–124.",
+      "replay": "From /workspace run python3 branches/independent_reproduction.py 2; frozen checker inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fel, Theorem 1 and Corollary 1, gives the minimal-three-generator gcd and scaled-pair membership criterion, not the arithmetic of this family.",
+          "Robles-Pérez–Rosales treats three consecutive triangular and four consecutive tetrahedral numbers.",
+          "The 2015 article page and alternate identified PDF timed out; no exclusion is inferred."
+        ],
+        "reasoning": "Fel provides the theorem to apply but does not give the all-index hexagonal cutoff and exception list. The other inspected polygonal family differs in indices.",
+        "searches": [
+          "arXiv:0803.1606 §2.1",
+          "arXiv:1706.04378v2 §4",
+          "Hacettepe Journal 2015 article 524404"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dc407cdf1d83 and 9e42d6f17cf0",
+        "OEIS A069758",
+        "arXiv:0803.1606 and 1706.04378v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "dc407cdf1d83 directly quantifies over n≥2, uses the same triples, and gives the same necessary-and-sufficient list.",
+          "Fel classifies Fibonacci and Lucas triples using a criterion that applies more generally, but does not compute this list."
+        ],
+        "reasoning": "No extrapolation, coefficient computation or indirect scope comparison is needed to get the frozen mathematical statement from the decisive catalogue result.",
+        "searches": [
+          "dc407cdf1d83 RESULT.md Finding",
+          "9e42d6f17cf0 RESULT.md Finding",
+          "arXiv:0803.1606 Theorem 1 / Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS and 9e42d6f17cf0 use ordinary H_n=n(2n−1); the latter gives the equivalent test 2g_n=F_n+1 and the same all-index answer.",
+          "H_n=T_(2n−1), so the triangular-number alias has step two, rather than the consecutive triangular case in Robles-Pérez–Rosales."
+        ],
+        "reasoning": "Frobenius-gap reciprocity and 2g=F+1 are equivalent. A change to odd-index triangular notation does not make the family consecutive triangular triples.",
+        "searches": [
+          "OEIS A069758",
+          "arXiv:1706.04378v2",
+          "Resultary 9e42d6f17cf0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dc407cdf1d83 Finding (offset 72) states symmetry exactly for n=2,3,6,7,8,18 with n≥2, and explicitly excludes all n≥19.",
+          "9e42d6f17cf0 Finding (offset 0) gives the same classification via symmetry and genus/Frobenius equality.",
+          "A069758 lists Frobenius numbers for n=2,…,30, not the genus or an unbounded classification."
+        ],
+        "reasoning": "The OEIS table motivates the family but does not supply the theorem. Both distinct mathematical records do supply it.",
+        "searches": [
+          "Resultary dc407cdf1d83",
+          "Resultary 9e42d6f17cf0",
+          "OEIS A069758"
+        ]
+      },
+      "rationale": "The complete unbounded classification, including the same generator family, full domain and six exceptions, is stated directly in a distinct configured published record, dc407cdf1d83, and also in 9e42d6f17cf0. The frozen claim is covered; there is no proven new remainder. This decision is about equivalent coverage and does not infer priority or provenance from a catalogue path date.",
+      "residual_risks": [
+        "Priority and provenance of equivalent records are not inferred from path dates.",
+        "The 2015 full text remained inaccessible; it is not a reason for failure. The web query had no useful hit, which does not exclude additional coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage",
+          "evidence": [
+            "All n≥2; symmetric iff n∈{2,3,6,7,8,18}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exactly-six-symmetric-semigroups-from-consecutive-hexagonal-trip--dc407cdf1d83/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 72",
+          "method": "Configured local mirror",
+          "title": "Exactly six symmetric semigroups from consecutive hexagonal triples",
+          "trigger": "Exact generator system and proposed six exceptions"
+        },
+        {
+          "assessment": "Direct coverage",
+          "evidence": [
+            "Same all-index exception list and 2g_n=F_n+1 equivalence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-symmetry-classification-for-semigroups-of-consecutive-ordinary-h--9e42d6f17cf0/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "Symmetry classification for semigroups of consecutive ordinary hexagonal numbers",
+          "trigger": "Exact family and symmetry claim"
+        },
+        {
+          "assessment": "Same family, different quantities and scope",
+          "evidence": [
+            "Lists finite Frobenius-number data from n=2, not the gap-genus symmetry criterion."
+          ],
+          "identifier_or_url": "https://oeis.org/A069758",
+          "material_read": "Title, definition/comments and sequence, offset 209",
+          "method": "Public page targeted read",
+          "title": "Frobenius number of the numerical semigroup generated by three consecutive hexagonal numbers",
+          "trigger": "Exact family data"
+        },
+        {
+          "assessment": "Verified general criterion; different evaluated families",
+          "evidence": [
+            "Minimal three-generator symmetry characterized by gluing across a pair with gcd greater than one and coprime complementary generator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.1606",
+          "material_read": "Abstract and §2.1, Theorem 1/Corollary 1, p. 3, offset 10567",
+          "method": "OA PDF targeted read",
+          "title": "Symmetric Numerical Semigroups Generated by Fibonacci and Lucas Triples",
+          "trigger": "Correctness-critical general three-generator theorem"
+        },
+        {
+          "assessment": "Consecutive triangular and consecutive tetrahedral indices, not every-other triangular triples",
+          "evidence": [
+            "The generator families have different index spacing or dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1706.04378v2",
+          "material_read": "Introduction, offset 8450, and §4, offset 30039",
+          "method": "OA HTML targeted read",
+          "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+          "trigger": "Ordinary hexagonal numbers have an odd-index triangular formulation"
+        },
+        {
+          "assessment": "Unavailable at inspection; no scope verdict from this source",
+          "evidence": [
+            "Both lawful attempts timed out."
+          ],
+          "identifier_or_url": "https://dergipark.org.tr/en/pub/hujms/article/524404",
+          "material_read": "No verified primary text passage",
+          "method": "Tried the public article page and its identified PDF article-file/644796",
+          "title": "The Frobenius problem for some numerical semigroups with embedding dimension equal to three",
+          "trigger": "Potentially broader embedding-dimension-three classification cited in the frozen result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The question is natural and a genuinely new complete six-exception classification would be useful. But the frozen submission gives the already covered classification on the identical domain, not a broader family, sharper structural conclusion, or separately established methodological gain. Its bounded replay certifies the same list, not a distinct mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

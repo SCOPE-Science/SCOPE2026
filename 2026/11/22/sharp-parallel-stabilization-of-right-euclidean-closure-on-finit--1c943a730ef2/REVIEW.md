@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The target invariant gives reflexivity and symmetry of the two-step restriction. Boolean graph squaring then gives the exact distance characterization. The spanning-path contradiction proves the diameter bound and directed paths attain the result for all sizes. Exhaustive computations through four vertices and larger path/random tests independently corroborate it. The construction is a proof for arbitrary finite \(n\), not an extrapolation from the tests.
+## correctness
 
-## Originality — PASS, conditional on inspected evidence
-The accessible abstract of Boman (arXiv:2609.13317) describes static entailments and independence between properties of binary relations; it does not announce an exact parallel completion-time bound. OEIS A398718 counts already right-Euclidean relations, not rounds of their generation. Standard transitive-closure textbook material uses a different rule. Searches for Euclidean frame completion and right-Euclidean closure rounds found no covering theorem. The complete Boman paper was inaccessible and exact historical priority remains a risk.
+PASS
 
-## Value — PASS
-The bound supplies an optimal logarithmic global round budget and a graph-distance normal form for a canonical modal-frame completion; the extremal family is explicit, all sizes are classified, and the subtle \(n-2\) diameter improvement makes the bound sharp. This is a motivated structural invariant, rather than a routine instance or a claim about unrelated closure rules.
+A new pair has both endpoints in the original target set T, so rows outside T never change; the consequences of every such constant row were already inserted in round 1. Vertices of T gain loops at round 1. Every earlier edge on T is reversed by round 2 using the source's loop, while newly added consequences are symmetric. Thus the update on T from round 2 is Boolean squaring of a reflexive symmetric relation, giving distance at most 2^s after s more rounds. The only way to have diameter n−1 would be a spanning path with T=X. Each path adjacency must occur in R0 (in some direction), since adding edges cannot join previously separate undirected components. A round-1 row cannot point to both path neighbors, or round 2 adds a chord. The original path orientations must have an endpoint without non-loop in-edges: an in-arrow at the first endpoint forces arrows toward it successively and leaves the far endpoint without one. Starting from an endpoint lacking in-arrows, its original loop forces an immediate back-edge in round 1. To avoid two outgoing neighbors in a round-1 row, each succeeding adjacency is then forced to point backward in R0, except the first. The far endpoint now has an original loop too and forces a second outgoing neighbor at its predecessor, a contradiction including n=3. A bare directed path has a non-target first vertex and yields a round-2 path of diameter n−2, and its last endpoint pair enters at the stated round. At n=1 all relations are fixed. At n=2 there are 16 relations, not the four described in a proof sentence: with no off-diagonal edge the relation is fixed; with two opposite edges the first round adds both loops; with only x→y the first round adds y's loop and adds y→x precisely if x already has a loop, and either resulting relation is fixed. A fresh implementation exhausted 66,066 cases of orders 1–4 (maxima 0,1,2,3), checking the graph-distance and row assertions, and reproduced all 62 paths for n=3–64. Finite checks do not establish the unbounded result. The supplied verify.py was read, not executed.
 
-## Limits
-Synchronous updates and finite nonempty binary frames only. No full-text inspection of the 2026 catalogue, no independent audit, and no claim for arbitrary alternating Horn rules.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The available prior statements concern static frame properties or counting, usual transitive closure, or a different ternary relation rule. None establishes the sharp synchronous right-Euclidean bound or its post-round-2 radius law. The possibility of coverage in the inaccessible relation catalogue remains explicit.
+
+## value
+
+PASS
+
+This gives the exact round budget for a natural modal-frame consequence operator and reduces the later dynamics on every input to graph distances. The exclusion of the n−1 diameter and the matching path family explain the improvement over a generic reachability bound; this is not an instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

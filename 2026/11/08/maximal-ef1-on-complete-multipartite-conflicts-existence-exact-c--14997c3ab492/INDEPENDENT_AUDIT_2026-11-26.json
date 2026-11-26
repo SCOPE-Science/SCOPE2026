@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:31:44.345852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–28 and 36–58",
+        "Frozen VERIFICATION.md and VERIFY.py, read without executing",
+        "Independent finite check: 36 direct labeled counts with a,b≤3 and n≤4; separate K_{3,3} count with 54 maximal feasible and 12 fair"
+      ],
+      "rationale": "With identical unit values EF1 is exactly bundle-size spread at most one, even with empty bundles. A nonempty bundle is confined to one part; any used part must be fully assigned, and leaving a whole part unassigned requires all agents to be nonempty. These conditions suffice for maximality. When the total goods fit into singleton bundles or the largest part can supply every agent, the construction is immediate. Otherwise the shortest descending prefix reaching n has sum S and last size c with S−n≤c−1; its first and last parts are distinct and supply at least floor(a₁/2)+floor(c/2)≥c−1 disjoint pairs. Splitting into S−n pairs and 2n−S singleton bundles yields maximal EF1 in the stated sort-and-scan bound. For two parts, complete assignments use the balanced sizes fixed by quotient and remainder; selecting the left labels and the larger bundle labels yields F_n, while nonfull assignments are balanced surjections from one shore and yield the two D_n terms. The injection and single-agent boundaries are included. If full fairness is impossible, existence implies at least one side has enough goods for a balanced surjection; hence the larger side does too. In the odd family the full balance would require pairs on both odd shores; the only fair maximal assignments are the 2t! side bijections. Disjoint label sets and side surjections give T_t. Keeping the (i,j)=((t−1)/2,(t+1)/2) term and counting the specified partitions gives the stated log-probability upper bound, not a claimed matching asymptotic.",
+      "residual_risks": [
+        "The recorded 121 count and 116020 construction checks were not replayed. The bounded independent comparison can be replayed by iterating assignments in {0,…,n}^{a+b}, with 0 unassigned, rejecting mixed-shore bundles, trying every omitted-good insertion, and independently testing the spread before comparison with F_n+D_n(a)+D_n(b). The proof, not these tests, covers the unbounded parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "59465652dd67 gives three-agent existence for a common normalized monotone valuation on every complete multipartite graph, and a four-agent unequal-unit-weight obstruction.",
+          "Equbal et al. cover two agents with monotone values on arbitrary graphs and all agent counts on trees for unit values."
+        ],
+        "reasoning": "These results cover meaningful subcases or expand another parameter, not simultaneously all n and arbitrary multipartite conflicts. The unequal side weights in the four-agent obstruction are not the frozen valuation. Neither statement is an enumeration theorem.",
+        "searches": [
+          "Resultary 59465652dd67, Finding",
+          "Equbal et al. arXiv:2605.09930v1 p. 3 and Theorem 5.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 59465652dd67, 592f301d301f, eca8ce52bd76 and the identical record 14997c3ab492",
+        "arXiv:2605.09930v1, 1508.04201v1, 1207.3578v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd K_{t,t} obstruction to a full equitable t-coloring is already known. The compact-biclique law conditions on EF compact allocations and uses even indices, not maximal independent-bundle allocations."
+        ],
+        "reasoning": "The obstruction alone does not show which partial allocations are maximal, how much they retain, or what proportion of the larger maximal feasible sample is fair. The frozen structural characterization and labeled surjection census supply those implications.",
+        "searches": [
+          "Nakprasit–Nakprasit arXiv:1508.04201v1, definition and odd balanced exception",
+          "Yan–Wang arXiv:1207.3578v1, complete equitable-coloring setup",
+          "Resultary eca8ce52bd76, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equbal et al. explicitly formulate maximal equitable partial coloring; the named colors are the named agent bundles and fairness may use empty classes. The complete-coloring references treat full colorings.",
+          "The alias query surfaced the frozen record itself and other coloring predicates, including strong odd colorings, rather than a distinct match for the partial-equitable census."
+        ],
+        "reasoning": "This equivalence is a change of language, not novelty. Full equitable coloring can overlap the full term F_n or imply its vanishing but does not count maximal assignments with omitted parts. Requiring odd classes or other coloring predicates does not enforce the present inter-class spread or insertion maximality.",
+        "searches": [
+          "Equbal et al., arXiv:2605.09930v1 §5.3",
+          "Resultary: Maximal equitable partial proper coloring complete multipartite graph color classes sizes difference 1 not all vertices need colored; exact Stirling denominator uniform maximal partial proper coloring odd balanced K_t,t labels, all agents and unit goods",
+          "Yan–Wang arXiv:1207.3578v1; Nakprasit–Nakprasit arXiv:1508.04201v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "14997c3ab492 is the assigned result itself. 592f301d301f counts complete connected allocations in a resource graph; eca8ce52bd76 measures prevalence of compact allocations with a different conditioning set and explicitly excludes partial allocation."
+        ],
+        "reasoning": "Neither distinct same-date hit counts the labeled objects from the frozen F_n+D_n+D_n formula or uses its uniform maximal feasible denominator. Matching the complete bipartite parameters or seeing a similar parity effect is not an exact database match.",
+        "searches": [
+          "Resultary 14997c3ab492, 592f301d301f and eca8ce52bd76",
+          "Resultary alias search for uniform maximal partial proper coloring and exact Stirling denominator"
+        ]
+      },
+      "rationale": "The supported distinct finding is the uniform all-agent unit-value construction together with the all-parameter labeled maximal-allocation count and its exact retention and conditional rarity consequences. Earlier complete-coloring obstructions, known two-agent existence and the stronger-valuations three-agent existence are credited; those pieces in isolation are not new. The strongest inspected overlaps do not imply the stated combined theorem.",
+      "residual_risks": [
+        "Bounded statement-level checks do not establish absolute priority. An unindexed full maximal-equitable partial coloring census or equivalent allocation law remains possible. Only the passages identified above, not every related publication, were assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior definitions, general two-agent theorem and all-agent tree theorem; no implication of the stated all-agent multipartite census from these passages",
+          "evidence": "The partial equitable-coloring formulation matches the frozen model, but the arbitrary-agent existence theorem there assumes the conflict graph is a tree.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.09930",
+          "material_read": "v1 p. 3 (offset 9449); §5.3 pp. 28–29 (offsets 101200–102770), including Theorem 5.6",
+          "method": "Lawful public full-text passages",
+          "title": "Fair Allocation under Conflict Constraints",
+          "trigger": "Same fairness and insertion-maximality model"
+        },
+        {
+          "assessment": "Genuine prior coverage of the three-agent existence subcase, not all n or the counts",
+          "evidence": "Existence for three agents with a common normalized monotone valuation, even without additivity. The four-agent counterexample weights the two sides differently and is not unit-valued.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-sharp-three-agent-frontier-for-maximal-ef1-on-complete-multi--59465652dd67",
+          "material_read": "RESULT.md Finding, offset 51",
+          "method": "Local mirror; hypothesis and quantifier comparison",
+          "title": "The sharp three-agent frontier for maximal EF1 on complete multipartite conflict graphs",
+          "trigger": "Closest prior multipartite maximal-EF1 existence theorem"
+        },
+        {
+          "assessment": "Known complete-coloring obstruction and related feasibility criteria",
+          "evidence": "The proper coloring is complete and class sizes are equitable. Odd K_{Δ,Δ} is an exception to equitable Δ-colorability; this does not state the partial maximality law.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.04201",
+          "material_read": "v1 pp. 1–2 (offsets 975 and 4400); Theorem 3 p. 4 (offset 12400)",
+          "method": "Lawful public full-text passages",
+          "title": "Equitable colorings of complete multipartite graphs",
+          "trigger": "Identical odd balanced complete-coloring obstruction"
+        },
+        {
+          "assessment": "Complete-coloring context",
+          "evidence": "Thresholds are about complete proper colorings with balanced class sizes, not the partial allocation count.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.3578",
+          "material_read": "v1 p. 1 (offset 0), definitions and problem scope",
+          "method": "Lawful public full-text passage",
+          "title": "Equitable chromatic threshold of complete multipartite graphs",
+          "trigger": "Multi-shore equitable-coloring feasibility literature"
+        },
+        {
+          "assessment": "Different object and count",
+          "evidence": "Complete allocation with connected nonempty bundles in a vertex-resource graph and a common binary valuation, not independent bundles under conflict with unassigned goods allowed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-outer-ef1-spectra-and-exact-counting-on-complete-bipar--592f301d301f",
+          "material_read": "RESULT.md Finding and Limitations (offsets 0 and 6050)",
+          "method": "Local mirror; feasibility and valuation comparison",
+          "title": "Universal outer-EF1 spectra and exact counting on complete bipartite graphs",
+          "trigger": "Exact bipartite EF1 count with similar title"
+        },
+        {
+          "assessment": "Distinct parity and scarcity law without the relevant maximal partial assignments",
+          "evidence": "Full allocation and compact bundles; the ratio is conditional on EF compact allocations on even indices and not on all maximal feasible hard-conflict allocations on odd indices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-gaps-and-exponential-scarcity-of-compact-biclique-all--eca8ce52bd76",
+          "material_read": "RESULT.md Finding and Limitations (offsets 0 and 6050)",
+          "method": "Local mirror; event, index and sample-space comparison",
+          "title": "Arithmetic gaps and exponential scarcity of compact biclique allocations",
+          "trigger": "Parallel bipartite parity and rarity claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and structural lemma",
+        "Equbal et al., arXiv:2605.09930v1 §5.3",
+        "Nakprasit–Nakprasit arXiv:1508.04201v1"
+      ],
+      "rationale": "The all-agent construction addresses existence when a full fair allocation is blocked, on a natural and widely studied conflict family. The exact labeled bipartite law simultaneously distinguishes complete feasibility from welfare loss and counts the maximal alternatives. The infinite odd family exhibits forced loss of half the goods and quantifies why naive uniform sampling among maximal outcomes is ineffective. These are substantive partial-allocation and prevalence statements beyond the already-known full-coloring parity obstruction.",
+      "residual_risks": [
+        "The prevalence claim is for the specified uniform sample space, not a general sampling or approximation guarantee, and values are identical and unit additive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

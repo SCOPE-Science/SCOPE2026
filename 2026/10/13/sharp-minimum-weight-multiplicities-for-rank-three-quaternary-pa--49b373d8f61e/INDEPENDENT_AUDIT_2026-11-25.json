@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:17:10.096539Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, assumptions, incidence identities and recurrence",
+        "VERIFICATION.md and verify.py (read only)",
+        "Independent replay: python3 /workspace/checks/review2_affine.py with NumPy; /workspace/checks/review2_output.txt"
+      ],
+      "rationale": "The repair equations repeat each kernel word, and the projectively distinct columns prevent supports of size 1 or 2. A line has five points, giving rank three for u>=7. A cap has at most six points since each of its other points uses a different line through any chosen cap point, and only five such lines exist. Thus there is a dependent triple, and its one-dimensional relation space has exactly three nonzero words, each with all three coordinates nonzero. This proves A6=3T and distance six. For the occupancy relaxation I independently enumerated the six counts with sum 21 and retained the point and pair moments. The two unique unrealizable minimizers are (2,2,3,14,0,0) and (2,1,1,16,1,0) with T=14,20. At the intersection of their two empty lines, the other three pencil lines partition S into parts of size at most four; sizes 10 and 11 force at least one and two four-secants respectively, a contradiction. I then reproduced the entire fifteen-row table by exhaustive direct summation over the 21 lines of an independent affine-plus-infinity realization. The check visits all 2^21 masks and verifies the binomial number at each size; it does not use the frozen dynamic program. The frozen recurrence itself counts each new triple once, since its pair lies on a unique joining line through the inserted point.",
+      "residual_risks": [
+        "Counts are unordered subsets of a fixed labelled PG(2,4), not equivalence classes of codes. The bundled script's use of int.bit_count means its Python 3.9+ claim should read 3.10+; this is not a defect in the census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Fu–Yang uses columns of a simplex code for the paired-locality distance-six construction. Cuypers gives the 168 hyperovals and 360 Baer subplanes. Record 54e3fa9cd82f concerns plane depths for a particular [21,4,11]_4 code, in PG(3,4)."
+        ],
+        "reasoning": "The construction gives parameters but does not optimize A6. Named configurations explain some examples but are not a classification of competing point sets; a census in the rank-four ambient geometry does not provide the rank-three census here.",
+        "searches": [
+          "Li–Fu–Yang DOI:10.1587/transfun.2026EAP1076, Theorem 1 and Eq. (12)",
+          "Cuypers, The projective plane of order 4; Cameron, Projective and affine planes §5.1",
+          "Resultary 54e3fa9cd82f"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1587/transfun.2026EAP1076",
+        "Cuypers and Cameron geometry passages",
+        "Resultary 265ea67aea9a and 54e3fa9cd82f",
+        "SCOPE 2026/9/7/SCOPE025"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three classical occupancy identities allow T=14 at u=10 and T=20 at u=11. Neither the code construction nor the top-k incidence ceiling excludes both target occupancy minimizers or counts all minimizing subsets. The [15,3,11]_4 example identifies one relevant profile and a readily counted labelled family."
+        ],
+        "reasoning": "The full table is not a mechanical specialization of the checked parameter/geometry theorems; realizing the relaxed bounds, excluding the two impossible profiles, and counting actual minima require additional reasoning. Credit the direct u=15 overlap and elementary boundary rows rather than asserting every row is separately new.",
+        "searches": [
+          "Li–Fu–Yang Theorem 1 and Eq. (12); SCOPE025 incidence theorem; Resultary 265ea67aea9a Example 4.16 reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the rank-three projective code the nonzero weight counts are 3n_j at weight u-j; the paired-kernel objective is 3 sum_j binom(j,3)n_j. The Resultary length-15 realization has n0=1, n3=5, n4=15, giving T=65 and A6=195. There are 21·16=336 distinct complements of a line and an off-line point, giving the matching family."
+        ],
+        "reasoning": "Secant profiles and dual-code weight enumerators are valid equivalent data. Also T(S)=210-30v+3 binom(v,2)-T(S complement) for v=21-u, by inclusion–exclusion on contained triples; thus an exhaustive complementary maximum-and-count table would cover the finding too. The inspected length-15 example does not itself classify all fifteen sizes.",
+        "searches": [
+          "Resultary and literature queries for PG(2,4) secant distributions, collinear-triple extrema, and low-weight enumerators of rank-three quaternary codes",
+          "Resultary 265ea67aea9a, [15,3,11]_4 projective realization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE025 optimizes the top-k line-degree sum for k=7–10 and reports full 21-line profiles only for the attaining 8-sets. Its 2520 sets of profile (3^8,2^4,1^8,0) have T=8, not the minimum T=6 for u=8. The other attaining profile has T=10, not a complete complementary maximum classification."
+        ],
+        "reasoning": "A tabulated count for another objective is not a substitute. The apparent 2520 match concerns a different subset size/objective. The inspected material does not contain a complete secant-profile census or its implication-equivalent table for this problem.",
+        "searches": [
+          "Resultary search for exact point-set secant or code weight-enumerator censuses in PG(2,4)",
+          "Published SCOPE 2026/9/7/SCOPE025, Result and certified side census"
+        ]
+      },
+      "rationale": "Pass for the complete optimized multiplicity and labelled subset census, especially the exact sharp results at the two infeasible occupancy minima. The construction, standard plane facts, and individual geometrical examples are not new. The indexed length-15 example supplies the same extremal profile and its natural family gives the reported count in that row; this material overlap does not subsume the all-length classification. The closest indexed incidence census optimizes a different functional and does not give the small-triple minima or the complete complementary maxima.",
+      "residual_risks": [
+        "An unindexed projective-code or plane subset catalogue could subsume part or all of the table. No priority claim is based on catalogue dates, failure of a literature query, or the unavailable Example 4.16 original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction and parameters, not the sharp multiplicity census.",
+          "evidence": [
+            "The parity-check construction uses columns of a simplex code."
+          ],
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/advpub/0/advpub_2026EAP1076/_pdf/-char/en (DOI:10.1587/transfun.2026EAP1076)",
+          "material_read": "Theorem 1 and Equation (12), p. 4 (text offset about 20811)",
+          "method": "Targeted lawful OA PDF passage",
+          "title": "Construction of Cadambe-Mazumdar Optimal and Almost Optimal Quaternary Locally Repairable Codes with Distance 6",
+          "trigger": "Same quaternary paired-repair family"
+        },
+        {
+          "assessment": "Specific configurations, not complete secant distributions for the target sizes.",
+          "evidence": [
+            "Lists 168 hyperovals and 360 Baer subplanes."
+          ],
+          "identifier_or_url": "https://hansc.win.tue.nl/mathieu/node2.html",
+          "material_read": "Projective configurations, HTML offset about 3950",
+          "method": "Lawful public-page inspection",
+          "title": "The projective plane of order 4",
+          "trigger": "Possibly relevant classical configuration counts"
+        },
+        {
+          "assessment": "Provides the geometric notion used for small-size examples.",
+          "evidence": [
+            "A hyperoval has q+2 points and meets every line in zero or two points."
+          ],
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/p.j.cameron/design/encyc/topics/pap.pdf",
+          "material_read": "§5.1 p. 5, hyperovals (offset about 10077)",
+          "method": "Targeted lawful OA PDF passage",
+          "title": "Projective and affine planes",
+          "trigger": "Standard finite-plane classification background"
+        },
+        {
+          "assessment": "Direct overlap with the u=15 profile and its naturally counted family; not a complete extremizer census.",
+          "evidence": [
+            "S=PG(2,4) minus a line and an off-line point; W=1+45z^11+15z^12+3z^15."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-projective-geometry-of-the-optimal-quaternary-code-in-example-4--265ea67aea9a",
+          "material_read": "Statement of the complement geometry, weight enumerator and scope limitation",
+          "method": "Local Resultary index and mirrored record",
+          "title": "Projective geometry of the optimal quaternary code in Example 4.16",
+          "trigger": "Rank-three quaternary projective code of a target size"
+        },
+        {
+          "assessment": "Top-k incidence optimization differs from triple-count minimization; its reported profiles are restricted to its own attainers.",
+          "evidence": [
+            "Maximum 24; 7560 attaining point 8-sets split into two full-line profiles with counts 5040 and 2520."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/7/SCOPE025/RESULT.md",
+          "material_read": "Result and certified side census, offsets 1120–2655",
+          "method": "Local mirrored record, bounded passage",
+          "title": "Sharp 8-by-8 point-line incidence ceiling in PG(2,4)",
+          "trigger": "Same plane and sizes; possible overlapping profile census"
+        },
+        {
+          "assessment": "One rank-four example in PG(3,4), not the rank-three minimum-weight census.",
+          "evidence": [
+            "The census concerns plane depth for a [21,4,11]_4 code."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-local-three-weight-depth-census-for-the-quaternary-21-4-11-examp--54e3fa9cd82f",
+          "material_read": "Finding and ambient space",
+          "method": "Local Resultary search and mirror",
+          "title": "Local three-weight depth census for the quaternary [21,4,11] example",
+          "trigger": "Potentially matching same-day quaternary code census"
+        },
+        {
+          "assessment": "The mirrored explicit example establishes the overlap; the original paper's classification scope remains uncertain.",
+          "evidence": [],
+          "identifier_or_url": "Example 4.16 as identified in Resultary 265ea67aea9a",
+          "material_read": "Bibliographic/Example locator via the mirrored comparison; no readable original decisive passage",
+          "method": "Reasonable lawful OA attempt did not obtain full text",
+          "title": "Li–Cao–Li, underlying paper cited for Example 4.16",
+          "trigger": "Potential earlier statement of the u=15 family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, complete fifteen-size table and occupancy obstructions",
+        "Li–Fu–Yang Theorem 1",
+        "Independent affine-geometry census"
+      ],
+      "rationale": "Within a motivated family whose minimum distance is fixed at six, A6 distinguishes the number of smallest undetectable error patterns. The exact number of configurations attaining each minimum is a meaningful complete finite invariant. The geometric obstruction at sizes 10 and 11 explains why integral moment feasibility alone produces wrong answers and is not just recomputation of a known table.",
+      "residual_risks": [
+        "No claim of improved decoding, distance, or optimization among arbitrary locality-one codes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

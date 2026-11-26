@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The polynomial identity \(\det W=-4(e_1e_3-4e_4)\) and complementary-pair block decomposition are valid for every nonzero symmetric \(4\times4\) reference matrix, including repeated eigenvalues and singular boundaries. Perron–Frobenius plus trace zero excludes a third nonnegative ordered eigenvalue when the second is positive, so the determinant exactly detects the second positive direction. The determinant polarization and both rational witnesses were independently re-expanded by the embedded symbolic verifier, whose limitations are explained in `VERIFICATION.md`.
+## correctness
 
-**Originality — PASS, subject to residual historical risk.** Brauner–Ortega-Moreno (arXiv:2610.08746v1, §4.2 Proposition 4.5) prove the signed mixed-discriminant hyperbolicity of the base case under a sufficient strict spectral-balance condition, using negativity on the trace-zero hyperplane. This does not imply the exact 4D inertia boundary: the explicit \(\operatorname{diag}(-1,3,4,100)\) witness violates their balance inequality. Ross–Süss–Wannerer (arXiv:2304.08399, §8.1) establish generalized AF inequalities under positive-definite reference hypotheses, which exclude the signed example. Published published-finding corpus searches for mixed discriminants, Lorentzian eigenvalue index, complementary pair weights, algebraic determinant boundary and strict positive-definite failures returned no equivalent theorem, only unrelated matrix objects. Older unindexed formulae may exist; absence of a search result is not a priority certificate.
+PASS
 
-**Value — PASS.** The exact necessary-and-sufficient condition resolves a natural sharpness question for the simplest base case of a recently studied signed Alexandrov–Fenchel extension. It creates a nontrivial enlargement of the admissible spectral domain, treats equality and singularities, and isolates a positive-definite obstruction to weaker spectral-positivity hypotheses. The result is not a finite table lookup or an arbitrary specialized parameter choice.
+After diagonalizing Z orthogonally, extract the coefficient of t²su in det(tA+sZ+uI). Fixing the two complementary diagonal rows for sZ and uI leaves the two-by-two principal minor of A; the polarization coefficient is 12. With complementary pair sums w_ij this gives the diagonal block W/24, where W has those off-diagonal entries and zero diagonal, and six independent scalar terms −w_ij a_ij²/12. W is nonzero for Z≠0 and has trace zero, so has a strictly positive eigenvalue; a negative w_ij adds a second independent positive direction. For W entrywise nonnegative the largest eigenvalue bounds every eigenvalue in absolute value (apply |xᵀWx|≤|x|ᵀW|x|). Thus if there are two positive eigenvalues, the remaining two are strictly negative by zero trace. The determinant is then positive; with exactly one positive eigenvalue it is nonpositive, including zeros. Independently, set u₁=λ₁λ₂+λ₃λ₄ and take u₂,u₃ from the other two pair partitions. The three complementary products of W-entries are P_i=e₂−u_i, and the determinant expansion is (∑P_i)²−4∑_{i<j}P_iP_j=−4∑_{i<j}u_iu_j using ∑u_i=e₂. The last sum contains exactly the twelve monomials of e₁e₃ other than the four copies of e₄. This proves the determinant criterion including all equalities. Orthogonal decomposition along any vector of strictly positive quadratic value proves the reverse inequality; zero gives it trivially, and PSD arguments have nonnegative value by the weighted principal-minor formula. I checked that (−1,3,4,100) gives e₁e₃−4e₄=56528 outside the weak balance cone, and that (−1,1,2,3) gives −1 and the asserted deficit −5t²/144 for the given positive definite matrices. The frozen symbolic support was inspected, not executed.
 
-**Limitations.** The reference tuple is precisely \((Z,I_4)\); no all-dimensional or several-signed-reference analogue is claimed. The analytic proof—not finite numerical sampling—establishes the theorem. Some historical literature may not be indexed. The 2018 historical mixed-volume primary source was not read exhaustively, and no whole-document noncoverage is asserted for it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The principal-minor identity, strict pair-sum positivity test on definite inputs, and strict and weak spectral-balance sufficiency are established antecedents. The distinct contribution is the exact positive-index-one criterion on the full ten-dimensional space, including the polynomial equality boundary and parameters outside weak spectral balance. The comparison in the frozen record would be more complete if it also cited the weak-balance result in Theorem 4.7 and its proof; that result still does not give the necessary-and-sufficient boundary.
+
+## value
+
+PASS
+
+For a natural signed Alexandrov–Fenchel quadratic form this replaces a sufficient cone with a checkable necessary-and-sufficient spectral boundary on the full space, rather than only positive input tests. It handles degenerate forms and exhibits both a signed case that works outside prior balance and a positive-definite inequality failure when only the pair-sum test holds. These distinctions are substantive even though the classification is specific to dimension four and one signed reference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:32:49.425180Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Modulo 3 the three classes follow 0→1→2→2. For both unit classes the derivative is a unit, so simple-root lifting supplies one predecessor in each unit class at each periodic target. This makes the class 2 a permutation and gives the claimed depth strata and unique transient predecessor. For depth-two points the exact identity F²(x)−2=x²(x²−4) gives twice the valuation of x and leading digit 2 until truncation. The zero-difference target counts multiples of 3^ceil(k/2). At any allowed nonzero difference with s=2v, dividing by 3^(2v) gives two simple unit roots modulo 3, lifted to modulus 3^(k−2v) and repeated 3^v times in the original variable, which gives the fibre formula. The multiplier y+2 preserves both shell invariants. On s≥2, y−F(y) has valuation s+1 because v_3(y+1)=1. For an iterate H with displacement valuation m≥3 and derivative 1 mod 3, the integral Taylor expansion gives the displacement of H³ as (1+H′+H′²) times the original modulo 3^(2m); the multiplier has valuation one. An iterate count prime to 3 preserves the displacement valuation by first-order iteration. This proves the period equals the cardinality of its leading-digit sector, including singleton sectors and k=1 with only the special root. The uploaded verifier was inspected, not executed. Independent replay: python3 /workspace/branches/47e5fac2-6e75-447e-b393-f5f363bb1e3c/independent_check.py 4 (also with argument 8); observations are in independent_k4.txt and independent_k8.txt there. Every fibre and rich shell was checked in those finite cases (11 cycles, 2 rich at k=4; 27 cycles, 4 rich at k=8, including the root 2 in each). Those checks are corroboration, not the all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Panraksa and Tangboonduangjit cover exact periods and cycle counts over odd prime powers, including the special ternary correction; their conclusion leaves nonperiodic tree classification separate.",
+          "Gassert treats finite fields. Lu–Dai–Li require a Chebyshev permutation polynomial; n=2 does not satisfy their ternary condition n≡±1 mod 6."
+        ],
+        "reasoning": "The strongest broader theorem genuinely covers periodic statistics after rescaling. Neither those statistics nor either adjacent theorem classifies the nonperiodic fibres on the nonreduced ternary ring.",
+        "searches": [
+          "arXiv:2605.04417, Theorem 1.1 and conclusion",
+          "arXiv:1209.4396, §2.1",
+          "arXiv:2605.21819, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py",
+        "Resultary entries 0353bbb32765 and 24093f02440f",
+        "arXiv:2605.04417, arXiv:1209.4396 and arXiv:2605.21819"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former states a five-adic branch incidence classification and the latter counts periodic points using fixed-point lifting, and explicitly separates tree classification."
+        ],
+        "reasoning": "Even exact knowledge of all periodic components does not determine which of their vertices receive extra incoming depth-two branches. The required unit-root fibre calculation together with the local cycle lengths gives the additional invariant.",
+        "searches": [
+          "Local Resultary mirror: 0353bbb32765, Finding and Assumptions at offset 0",
+          "arXiv:2605.04417, Theorem 1.1, p. 2 and conclusion, p. 22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D_2(x,1)=x²−2, and F(2z)=2T_2(z), so normalized Chebyshev results over odd prime powers apply under exact conjugacy.",
+          "The closest same-map Resultary finding is 0353bbb32765, over powers of 5, with an exact but different prime-specific attachment law."
+        ],
+        "reasoning": "Scaling by a unit preserves attachments, so changing Chebyshev notation does not create novelty. Changing the prime is not such a conjugacy: the local displacement y−F(y) near 2 has one extra factor of 3 from y+1, absent at 5, and the root sectors and periods must be analyzed at the new prime.",
+        "searches": [
+          "Resultary: ternary quadratic Chebyshev/Dickson attachments, rich-cycle lengths, ternary-ring functional graph",
+          "arXiv:2605.04417, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-map attachment entry 0353bbb32765 explicitly treats 5^k, with 5^floor(k/2) at 2 and one rich cycle out of two at each even five-adic valuation.",
+          "Entry 24093f02440f treats first-hit depths of the ternary cubic x³−3x, not the quadratic target-specific census."
+        ],
+        "reasoning": "The inspected close formula covers neither the ternary ring for this polynomial nor the prime-specific values; a depth histogram for a different polynomial does not determine attachment fibres. The ranked search cannot exclude an earlier unindexed statement.",
+        "searches": [
+          "Resultary: exact ternary quadratic law; rich-cycle lengths; depth-two attachments; ternary-ring Chebyshev graphs"
+        ]
+      },
+      "rationale": "Credit the existing exact-period and cycle census, and the closely related five-adic attachment classification. Neither states or implies the checked nonperiodic fibre assignment to individual ternary cycles. The distinct result is that assignment and its exact fibre counts, not Chebyshev conjugacy or periodic-point counting.",
+      "residual_risks": [
+        "The bounded comparisons cannot rule out an equivalent unindexed ternary attachment classification. Periodic census results are not treated as evidence that all older graph results have been surveyed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial structural analogue, distinct modulus and orbit law",
+          "evidence": "The result is explicitly five-adic, and identifies a single rich cycle among two at each even five-adic valuation, with a separately counted exceptional root.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-critical-branch-incidence-for-x-2-2-modulo-powers-of-five--0353bbb32765/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "Exact critical branch incidence for x²−2 modulo powers of five",
+          "trigger": "Strongest same-polynomial attachment match"
+        },
+        {
+          "assessment": "Different degree and counting statistic",
+          "evidence": "Concerns first-hit depths for x³−3x.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-first-hit-depth-distribution-for-the-cubic-dickson-map-mod--24093f02440f",
+          "material_read": "Indexed scope statement",
+          "method": "Resultary search",
+          "title": "Exact first-hit depth distribution for the cubic Dickson map",
+          "trigger": "Ternary Dickson record"
+        },
+        {
+          "assessment": "Covers periodic census, not nonperiodic attachment law",
+          "evidence": "Theorem 1.1 includes the ternary correction (for degree 2, the parameters are s=β=1 and the correction is 3 for k≥3); the conclusion leaves nonperiodic trees as a separate task. The v2 title differs from the frozen references' wording.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.04417",
+          "material_read": "Title page, Theorem 1.1 p. 2, p. 3 discussion and p. 22 conclusion",
+          "method": "Lawful OA primary text",
+          "title": "Fixed Points and Exact Periods of Chebyshev Polynomials Modulo Odd Prime Powers (v2 title)",
+          "trigger": "Same map under scaling and includes the ternary special case"
+        },
+        {
+          "assessment": "Finite-field theorem, not the nonreduced rings at k>1",
+          "evidence": "The base is a finite field; the decomposition does not give fibre lifting in integer residue rings.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.4396",
+          "material_read": "§2.1, p. 3",
+          "method": "Lawful OA primary text",
+          "title": "Chebyshev Action on Finite Fields",
+          "trigger": "Functional-graph components and branches of Chebyshev maps"
+        },
+        {
+          "assessment": "Direct applicability ruled out by the permutation hypothesis",
+          "evidence": "The ternary permutation criterion requires n≡±1 mod 6, excluding degree two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.21819",
+          "material_read": "Permutation criterion, p. 3",
+          "method": "Lawful OA primary text",
+          "title": "Graph Structure of Chebyshev Permutation Polynomials over Binary and Ternary Adic Rings",
+          "trigger": "Same type of moduli and Chebyshev graph structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies exactly how transient states are distributed in a natural nonpermutation dynamical system, distinguishing branch-bearing cycles from cycles with the same possible lengths but no such branches. It gives a local tree invariant at every periodic vertex for arbitrarily deep moduli and explains why uniform depth strata do not imply uniform trees. The ternary orbit argument addresses a different local lifting regime from the analogous five-adic calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

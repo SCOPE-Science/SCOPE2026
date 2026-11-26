@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The map has two full inverse branches contracting by \(\gamma=2/(3+\alpha)<1\). The exact cusp inverse is governed by \(4u=3s+s^\alpha\), producing \(\psi'(u)\sim p4^pu^{p-1}\). For \(k<p\), its derivatives through order \(k+1\) have the bounded/integrable regularity needed for the stated high-order Lasota--Yorke estimate. The estimate, compact one-dimensional Sobolev embeddings and integral preservation yield the unique invariant density in every admissible order. At integer \(p\), the substitution \(s=z^p\) makes inverse branches holomorphic; a compact analytic transfer operator supplies spatial analyticity. At noninteger \(p\), positivity at the cusp forces a nonzero fractional critical-value term and excludes the first and all higher forbidden orders. The finite numerical comparisons are not part of the infinite proof.
+PASS
 
-## Originality — PASS
+Both full inverse branches have maximal absolute slope γ=2/(3+α)<1. Substituting ψ(u)=(4u)^p Q((4u)^(p−1)) in 4u=3ψ+ψ^α gives an analytic implicit Q near Q=1. The convergent expansion bounds ψ^(j)(u)=O(u^(p−j)) at noninteger p and yields the asserted positive coefficient of ψ′. Thus for k<p the kth branch derivatives are bounded and the (k+1)st integrable, as needed for the Sobolev transfer estimate. The highest differentiated transfer term costs γ^k by change of variables; the coefficient of the next-highest derivative gives an integrable weight after change of variables, since its pushforward L¹ norm equals the original coefficient's L¹ norm. Splitting off a small L¹ tail and using the W^{1,1} sup bound absorbs it; lower terms cost only W^{k−1,1}. Iteration gives power bounds and the compact embedding gives essential radius <1. The invariant integration functional gives a fixed vector in each eligible space. For clarity on uniqueness and positivity, at order one, taking absolute values of a real fixed vector yields another fixed vector by positivity and conservation of the integral. Every nonzero nonnegative continuous fixed vector is positive on the entire interior by the full-cylinder argument. The positive and negative parts of a real fixed vector are fixed and cannot both be nonzero, so the fixed space is one-dimensional. The order-one power bound and quasi-compactness make its Cesàro averages converge to that space, and L¹ contraction and density of W^{1,1} in L¹ extend uniqueness to all L¹ invariant densities. All higher-order and analytic fixed vectors therefore represent the same density. The transfer equation gives the endpoint power with h(1/2)>0; its noninteger exponent lies strictly between ceil(p)−2 and ceil(p)−1, contradicting the endpoint Taylor expansion required by W^{ceil(p),1}. For integer p=m, the inverse of 4u=z+3z^m is analytic along the interval with simple roots, so ψ=z^m is holomorphic nearby. In a sufficiently thin complex tube the branch derivatives are uniformly <1; integrating along a segment to a closest real point puts both images in a compactly contained smaller tube. Signed holomorphic weights ±φ′ replace the real absolute weights. Compactness by Montel and invariance of integration again give a nonzero holomorphic fixed function, which restricts to a nonzero fixed vector on the real interval. No numerics are needed for either direction.
 
-The 2024 source establishes the cusp-tent family and low-order \(W^{2,1}\) regularity, and the 2025 extension addresses \(W^{2,q}\) plus \(L^q\) parameter response. They do not state an all-integer-order Sobolev equivalence or a sharp necessary fractional boundary obstruction. A 2007 analytic expanding-map theorem provides the holomorphic transfer method but assumes positive endpoint inverse weights, whereas these vanish at the cusp image; in any event it does not cover the noninteger necessity. A 2026 abstract treats cancellation at \(p=2\) and analytic response in a *probability parameter*, not spatial analyticity. The primary full-text comparisons and semantic novelty searches did not reveal stronger covering statements. The 2026 publisher paper and later random-systems preprint could not be inspected in full and remain explicit originality risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact boundary between finitely smooth and analytic stationary densities is a natural question prompted by the original W2 smoothing theory. The result identifies a full and sharp regularity phase diagram in cusp exponent, including unexpected isolated reciprocal-integer analytic parameter values and a nonzero endpoint witness proving failure elsewhere. No novel parameter linear-response theorem is asserted.
+PASS for the complete all-order spatial Sobolev classification and reciprocal-integer holomorphic dichotomy for this family. The exact endpoint term and W^{2,1} obstruction for 1<p<2 themselves overlap a broader indexed family and are not credited as distinct in that regime. Primary exact-map and related transfer results cover regularity at some orders and parameters and analytic mechanisms under different hypotheses, not the complete classification. Dates alone do not settle priority.
 
-## Limits
+## value
 
-Only the unperturbed symmetric full-height cusp-tent map is addressed. The argument uses standard compact/Sobolev spectral theory and the exact inverse-cusp asymptotic; independent audit and third-party numerical reproduction have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem distinguishes intrinsic invariant-density regularity from the order available in low-order transfer estimates. The noninteger obstruction identifies sharp loss at an endpoint in the actual density, and isolated reciprocal-integer cases offer a different analytic regime despite an unbounded forward derivative. This is a unified classification for a family used in response theory, not simply another second-order estimate or a numeric endpoint calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

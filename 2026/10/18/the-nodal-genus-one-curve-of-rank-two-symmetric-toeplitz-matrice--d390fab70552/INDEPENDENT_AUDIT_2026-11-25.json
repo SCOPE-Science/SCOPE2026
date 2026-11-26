@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:04:06.006534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the arbitrary-size proof on the reduced projective rank locus (RESULT.md lines 24–55). The 3×3 principal determinant is (t0−t2)(t0(t0+t2)−2t1²). When the leading 2×2 block is invertible, the first two coordinates determine any column in its two-dimensional span; column 2 then equals column 0 in the periodic case or (2t1/t0)column 1−column 0 on the Chebyshev branch. The relation gives all later coefficients, not just the first three. If t0≠0 and t1=±t0, the principal minors on {0,1,j} are −t0(tj∓t_{j−1})² and force the rank-one sequences. If t0=0 and t1≠0, the leading determinant forces t2=0 and the invertible-block case applies. If t0=t1=0, a first nonzero coefficient at r≤n−3 gives an upper triangular rank-three minor; at r=n−2 the four indices 0,1,n−2,n−1 give a block off-diagonal matrix with invertible cross-block [[t_r,t_{r+1}],[0,t_r]], hence determinant t_r^4. Only the rank-two corner point at r=n−1 survives. Conversely the two-periodic matrices split into the constant and alternating outer products, the finite Chebyshev matrices split into reciprocal exponential products, and the corner has rank two. The homogenized Chebyshev polynomials give a basis of binary forms of degree n−1. The two components intersect only at u=±1, because their t0=0 representatives differ for n≥4 and the pulled-back equation t2=1 has simple zeros at ±1. Thus the local completed reduced union is the fiber product of two smooth one-dimensional complete local rings over k, an ordinary node. The standard union exact sequence subtracts 2 from the two rational Hilbert polynomials, giving degree n, polynomial nd and genus 1; the normalization is the disjoint union. No scheme-theoretic assertion about the minor ideal is needed. CHECK.py was inspected: its exact identities and six finite-field point checks would corroborate but are not the proof or a new execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu–Funderlic–Plemmons Theorem 3.2 is an arbitrary-lower-rank existence statement, not a component theorem. Ottaviani–Spaenlehauer–Sturmfels p. 1 describes solving structured approximation/critical-point problems, primarily in Hankel, Sylvester and generic linear spaces.",
+          "Resultary a58bda70a733 classifies hollow symmetric rank-≤2 matrices by Segre components and nodal-product charts; 6e8cceb4fc77 computes Euler characteristics of unrestricted symmetric rank loci."
+        ],
+        "reasoning": "An unrestricted rank locus or a hollow section supplies neither the geometry of the special Toeplitz intersection nor its global node count. The hollow locus can only inform the t0=0 slice, so it cannot mechanically imply the whole-locus classification.",
+        "searches": [
+          "Chu–Funderlic–Plemmons ranklow.pdf §3.1 Theorem 3.2; Ottaviani–Spaenlehauer–Sturmfels DOI:10.1137/13094520X",
+          "Resultary semantic searches for symmetric low-rank determinantal loci and their Toeplitz sections"
+        ]
+      },
+      "checked_sources": [
+        "Chu–Funderlic–Plemmons §3.1",
+        "Chu 2004 Lecture II slides 13–14",
+        "Ottaviani–Spaenlehauer–Sturmfels p. 1",
+        "arXiv:1605.02431 Theorem 1",
+        "Resultary a58bda70a733, 6e8cceb4fc77",
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chu's determinant equals the first controlling minor in the frozen proof; it constrains only (t0,t1,t2). The frozen proof then uses rank of the full matrix to force subsequent coefficients and separately uses non-leading minors to handle t0=t1=0.",
+          "After the two components and their simple intersections are known, the genus and Hilbert polynomial are standard exact-sequence deductions, not independent novelty claims."
+        ],
+        "reasoning": "The known initial factorization by itself allows many choices for all later diagonals. Neither it nor the other inspected results resolves the stated projective boundary or determines the two-component geometry, upon which the standard deductions depend.",
+        "searches": [
+          "Compare Chu's formula and size-four equations against RESULT.md steps 2–4; compare the PSD decomposition and the indexed hollow section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite Chebyshev branch can be written t_j/t0=(z^j+z^(−j))/2, with u=(z+z^(−1))/2. Chu Lecture II exhibits its size-three determinant branch alongside the periodic line.",
+          "Yang–Xie Theorem 1 is a Hermitian positive-semidefinite, unit-circle, positive-weight result; it cannot be applied to arbitrary indefinite or complex symmetric matrices or to the projective corner. The separate C+1/C paper could not be inspected."
+        ],
+        "reasoning": "Equivalent exponential parametrizations describe a family, but the decisive content is exhaustion of all matrices, including loss of the leading pivot and a separate periodic component. The checked PSD statement has strictly different hypotheses and does not provide that exhaustion.",
+        "searches": [
+          "Rank-two symmetric Toeplitz classification via reciprocal exponentials, Chebyshev recurrences, two-periodic degeneracy",
+          "Yang–Xie arXiv:1605.02431, introduction and Theorem 1; Chu Lecture II, slides 13–14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lecture II explicitly gives the n=3 determinant factorization and sets up rank constraints for n=4 without giving the all-size curve classification. The nearby indexed determinant records concern different loci.",
+          "The frozen code tests n=4,5,6 over F3 and F5; its enumerations are submitted checks, not prior characteristic-zero coverage."
+        ],
+        "reasoning": "No table of fixed sizes, finite fields or small-rank examples suffices for this statement over arbitrary n in characteristic zero. A parameterized entry with the compatible reduced-support classification would count and was sought in the statement-level comparison.",
+        "searches": [
+          "Chu 2004 Lecture II slides 13–14 finite sizes; indexed Resultary Toeplitz/determinantal subsection comparisons; frozen CHECK.py"
+        ]
+      },
+      "rationale": "The known n=3 conic-plus-line example, ordinary exponential/Chebyshev algebra, and rank-one Toeplitz families must be credited. The distinct finding supported by the inspected comparisons is the exact union for all n≥4 over an algebraically closed characteristic-zero field, including the periodic and corner cases and its global reduced nodal geometry. None of the available compared statements gives or mechanically implies that full result. This is a bounded judgment, not exhaustive priority.",
+      "residual_risks": [
+        "The C + 1/C paper remains uninspected; its title is neither coverage nor evidence of novelty. Older equivalent recurrence or decomposition results may lie outside this bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence of symmetric Toeplitz matrices of lower rank, not classification",
+          "evidence": [
+            "Theorem 3.2 says symmetric Toeplitz matrices can have arbitrary lower rank."
+          ],
+          "identifier_or_url": "https://mtchu.math.ncsu.edu/Research/Papers/ranklow.pdf",
+          "material_read": "§3.1 Theorem 3.2 and surrounding discussion, PDF p. 4, text offset near 15300",
+          "method": "Primary author-hosted PDF bounded theorem read",
+          "title": "Structured Low Rank Approximation",
+          "trigger": "Primary Toeplitz rank-constrained antecedent"
+        },
+        {
+          "assessment": "Anticipates rank-one points and the three-by-three factorization; the cited size-four material is an equation setup",
+          "evidence": [
+            "The rank-deficient 3×3 locus has determinant (t1−t3)(t1²+t1t3−2t2²)."
+          ],
+          "identifier_or_url": "https://mtchu.math.ncsu.edu/Research/Lectures/Italy_2004/talk2a.pdf",
+          "material_read": "Slides 13–14, offsets near 9300–11596 and 15290",
+          "method": "Author-hosted lecture PDF, bounded slide reads",
+          "title": "Structured Low Rank Approximation, Lecture II: General Approach",
+          "trigger": "Exact small-size symmetric Toeplitz low-rank equations"
+        },
+        {
+          "assessment": "The inspected scope is exact optimization, not a statement of the target geometry",
+          "evidence": [
+            "Its particular emphasis is Hankel matrices, Sylvester matrices and generic linear spaces."
+          ],
+          "identifier_or_url": "https://members.loria.fr/PJSpaenlehauer/data/papers/OttSpaStu14.pdf",
+          "material_read": "Primary PDF abstract, p. 1, offset 0",
+          "method": "Bounded author-copy PDF read",
+          "title": "Exact Solutions in Structured Low-Rank Approximation",
+          "trigger": "Potential more general structured-rank coverage"
+        },
+        {
+          "assessment": "PSD-specific result does not cover the full reduced complex/indefinite locus",
+          "evidence": [
+            "Distinct unit-circle frequencies and positive weights give the rank decomposition when the Hermitian Toeplitz matrix is positive semidefinite."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.02431",
+          "material_read": "Introduction p. 1 and Theorem 1 p. 4, offsets near 2150 and 15100",
+          "method": "Primary arXiv v3 PDF passage read",
+          "title": "Frequency-Selective Vandermonde Decomposition of Toeplitz Matrices with Applications",
+          "trigger": "Possible reciprocal-exponential low-rank classification"
+        },
+        {
+          "assessment": "Unresolved, not counted as evidence of noncoverage",
+          "evidence": [
+            "The title concerns a symmetric Toeplitz family with a reciprocal-looking generator; no verified statement extends this to the full rank-two reduced support."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/373147337_Properties_and_Applications_of_a_Symmetric_Toeplitz_Matrix_Generated_by_C_1C_Elements",
+          "material_read": "Indexed title only; full text not read",
+          "method": "Primary-literature lookup and bounded direct/VPN retrieval, both HTTP 403; no identified alternate open copy",
+          "title": "Properties and Applications of a Symmetric Toeplitz Matrix Generated by C + 1/C Elements",
+          "trigger": "Potential equivalent exponential/Chebyshev formulation"
+        },
+        {
+          "assessment": "Different linear sections/invariants",
+          "evidence": [
+            "The hollow result allows all off-diagonal coefficients; the unrestricted result computes Euler characteristics rather than Toeplitz-section components."
+          ],
+          "identifier_or_url": "Resultary a58bda70a733; 6e8cceb4fc77",
+          "material_read": "Mirrored RESULT.md Findings at offset 0",
+          "method": "Resultary semantic query and local mirror inspection",
+          "title": "Resultary hollow and unrestricted symmetric determinantal records",
+          "trigger": "Nearby indexed rank-two symmetric classification claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank two is a natural first nontrivial rank stratum in symmetric Toeplitz approximation and structured matrix geometry. The global classification identifies a separate periodic family and an exceptional projective corner that a generic finite recurrence alone misses; it quantifies the component intersections and arithmetic genus for every size. This is a complete description of a natural reduced feasible geometry, not a claim about radicality or an isolated numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:46:47.182265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof (steps 1–5)",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "/workspace/branches/sunlet_review_replay.py, independent definition-based replay"
+      ],
+      "rationale": "Domination requires one vertex from every core–leaf pair. Adding an attacking selected leaf to a core attack cannot lower its surplus: if its leaf is newly reached, its +1 pays for the only possible new negative core; if the leaf is already reached, its support is already reached too. For a core attack I the surplus is twice the number of attacked A-pairs plus the signed number of newly reached external core positions. With no A, attacking all B positions in a mixed word exposes a negative C boundary, leaving precisely the two uniform sets. With a unique A, an internal B run exposes two distinct C positions; two B runs touching the ends of the tail expose A and two negative positions if their intervening C run has length at least two. Conversely a legal tail exposes at most two negatives when A is attacked, paid by +2; without A, it exposes at most one negative and the first un-attacked core on the B-chain from that boundary toward A gives +1. This includes n=3. Labelled counting uses n possible roots times (2n-2)+(n-3) distinct tails. Independently enumerating both subset sizes of the original vertex set and checking attacks against the definition for n=3,...,8 gave minimum counts all 2 and excess counts 12,28,50,78,112,152, with exact agreement per configuration.",
+      "residual_risks": [
+        "The finite replay corroborates the all-n proof; it is not a substitute for it. No formal proof-assistant verification or attestation is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.1 gives global security number k for a graph of order 2k with domination number k, and its proof identifies the pendant set and its complement in the relevant leaf setting.",
+          "The corona Resultary record proves two minimum super dominating sets for connected one-leaf coronas."
+        ],
+        "reasoning": "Apply the thesis result to H_n by the forced choice in each core–leaf pair to get the minimum value n; the two displayed minimum sets likewise are not novel examples. The proposition does not classify excess sets. The broader super-domination result is about another invariant.",
+        "searches": [
+          "Jesse-Józefczyk thesis, Proposition 3.1, PDF p. 22",
+          "arXiv:2610.28222, Introduction; local Resultary connected one-leaf corona record 304999ba8c77"
+        ]
+      },
+      "checked_sources": [
+        "Jesse-Józefczyk, Theorem 2.2 and Proposition 3.1",
+        "Zeng et al., arXiv:2610.28222",
+        "Resultary a2aac0f79fa9, 6a92bd2ea251, 304999ba8c77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum theorem certifies a cardinality and exhibits minimum sets; it does not state sufficient or necessary conditions at the next cardinality.",
+          "The catalogue results impose different local neighborhood conditions, evidenced by the secure ABC example excluded by both."
+        ],
+        "reasoning": "No substitution into the minimum theorem derives which size-n+1 words are secure, and enumeration under the other conditions does not count the desired sets. The classification uses the all-subsets attack inequality itself.",
+        "searches": [
+          "Jesse-Józefczyk Proposition 3.1 and closest Resultary statements a2aac0f79fa9 and 6a92bd2ea251"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The thesis defines global secure as secure by the all-subsets neighborhood inequality and also dominating. Zeng et al. use the same condition and distinguish the Cockayne et al. usage.",
+          "The catalogued super-domination criterion requires an exclusive selected neighbor for each omitted vertex; the ordinary P3-convexity criterion limits the outside vertex to at most one selected neighbor."
+        ],
+        "reasoning": "Neither other condition is equivalent to all-subsets security. For example, the secure triangle-sunlet selection with cyclic word ABC fails super domination (the unselected B-leaf's only neighbor also sees the omitted C-core) and ordinary P3-convexity (the C-core sees multiple selected neighbors).",
+        "searches": [
+          "Jesse-Józefczyk thesis, Theorem 2.2; arXiv:2610.28222 Introduction",
+          "Local Resultary terms sunlet, core–leaf spectrum, secure and super domination; records a2aac0f79fa9 and 6a92bd2ea251"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date a2aac0f79fa9 Finding gives a sunlet cyclic-run classification and core–leaf polynomial for ordinary P3-convexity.",
+          "The 6a92bd2ea251 Finding gives a spectrum of inclusion-minimal super dominating sets, with minimum term 2z^n and possible sizes n+2j rather than the global secure size-n+1 layer."
+        ],
+        "reasoning": "The closest actual catalogue statements study the same graph or a related exact spectrum but test different vertex subsets. The different definitions, not chronology, explain why these spectra do not cover the claim. An unavailable lookup contributes no negative evidence.",
+        "searches": [
+          "Local Resultary same-graph or same-spectrum search, strongest matches a2aac0f79fa9, 6a92bd2ea251, 304999ba8c77",
+          "Focused web literature search for the sunlet global secure spectrum (lookup unavailable)"
+        ]
+      },
+      "rationale": "The distinct supported content is the complete size-n+1 cyclic-word classification and labelled count n(3n-5) for global secure sets in the all-subsets sense. The minimum value and the two uniform examples are background. None of the inspected actual statements covers the next layer with this condition.",
+      "residual_risks": [
+        "Full text was not obtained in this check for Brigham–Dutton–Hedetniemi (10.1016/j.dam.2007.03.009), Ho–Dutton (10.1016/j.dam.2010.12.013), or Menon–Chithra (10.1007/s13226-022-00331-9); the exact scope of their relevant contents is not inferred from titles.",
+        "A focused web lookup was unavailable. Historical priority beyond the actual compared passages is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definition, numerical minimum, and the two pendant/complement examples in this application, not the claimed classification at n+1 in the inspected passage.",
+          "evidence": "Secure is the all-subsets inequality, global also requires domination; order 2k and domination number k imply global security number k.",
+          "identifier_or_url": "https://repozytorium.amu.edu.pl/server/api/core/bitstreams/b7479010-1a60-4396-aca8-2b6621919f7b/content",
+          "material_read": "Theorem 2.2, PDF p. 7, offset ~30090; Proposition 3.1 and proof, PDF p. 22, offset ~62409",
+          "method": "Read targeted passages in the original OA thesis",
+          "title": "Secure Sets in Graphs",
+          "trigger": "Same all-subsets notion and a prior theorem covering leaf-corona minima"
+        },
+        {
+          "assessment": "Same predicate but Sierpiński rather than sunlet graphs.",
+          "evidence": "Requires |N[X]∩S| ≥ |N[X]\\S| for every nonempty attack and domination for a secure dominating set; distinguishes the other use of secure domination.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.28222",
+          "material_read": "PDF Introduction p. 1, offset ~2083",
+          "method": "Read original OA passage",
+          "title": "Secure Domination in Odd-Order Sierpiński Graphs",
+          "trigger": "Same security concept under potentially ambiguous terminology"
+        },
+        {
+          "assessment": "Different condition on subsets.",
+          "evidence": "Ordinary P3-convexity forbids an outside vertex with two selected neighbors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-core-leaf-profile-of-ordinary-p-3-convex-sets-in-sunlet--a2aac0f79fa9/RESULT.md",
+          "material_read": "Finding and criterion, offset 0",
+          "method": "Read local mirrored Resultary record",
+          "title": "Complete core–leaf profile of ordinary P3-convex sets in sunlets",
+          "trigger": "Same-date same-object classification with cyclic runs and a polynomial"
+        },
+        {
+          "assessment": "Counts a different family even at the same graph and minimum cardinality.",
+          "evidence": "Requires an exclusive selected neighbor for every omitted vertex; inclusion-minimal spectrum starts with 2z^n and continues at sizes n+2j.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-inclusion-minimal-super-domination-of-leaf-coronas-and-the-exact--6a92bd2ea251/RESULT.md",
+          "material_read": "Definition and sunlet spectrum, offset ~1208",
+          "method": "Read local mirrored Resultary record",
+          "title": "Inclusion-minimal super domination of leaf coronas and the exact sunlet spectrum",
+          "trigger": "Strongest indexed spectrum match"
+        },
+        {
+          "assessment": "Different domination notion.",
+          "evidence": "Two minimum sets for connected one-leaf coronas, under super domination.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77/RESULT.md",
+          "material_read": "Finding, offset ~402",
+          "method": "Read local mirrored Resultary record",
+          "title": "Minimum super dominating sets of one-leaf coronas",
+          "trigger": "Broader same minimum multiplicity for leaf coronas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Relationship to prior work",
+        "Jesse-Józefczyk Proposition 3.1",
+        "Definition-based bounded replay"
+      ],
+      "rationale": "The first nonminimum size class is a natural next coefficient in a security spectrum, and the result explains exactly which selections attain it rather than tabulating a few cycles. The reduction of all-subsets attacks to charged core boundaries isolates the obstruction and applies uniformly to every cycle length. Value rests on that classification and coefficient, not on the known minimum.",
+      "residual_risks": [
+        "No higher-excess spectrum or arbitrary one-leaf-corona classification is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

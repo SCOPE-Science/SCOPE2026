@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:15:35.930527Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph has separate exterior rays at each junction and M finite interior paths of L-1 sites; deleting the incident edges is finite rank and leaves half-line adjacency operators, so the essential band is [-2,2]. The band recurrence has no nonzero square-summable ray solution, including double characteristic roots at +/-2. Thus the junction amplitudes vanish, and each interior amplitude is a Dirichlet sine mode. Its nonzero first-site value and its proportional last-site value reduce the two junction constraints to one copy-amplitude sum, giving exactly M-1 modes at each listed energy and none at the edges. For E>2, square summability forces decay by q per exterior step and uniquely fixes each interior branch from the two hub amplitudes. The resulting self-energy B*(E-K)^{-1}B has negative-semidefinite derivative, since the disconnected K has norm 2; both real parity scalars have derivative at least one. At E down to 2, the even value tends to 2-2M<0, the odd to 2-2M(1-1/L)<=0 with equality only at (2,2); both diverge positively at large E. The positive off-diagonal response magnitude orders the two distinct roots and makes each eigenspace one-dimensional. At the exception the bounded E=2 solution has hubs 1 and -1, middle sites zero, and constant tails of the matching signs. The integer-label bipartition gives the E=-2 solution and the negative eigenvalues. In q coordinates the parity secular equation is 1-(2M-1)q^2-s(M-1)q^L(1+q^2)=0 for 0<q<1; it follows by simplifying the sinh quotient to (q+s q^{L-1})/(1+s q^L). This places the roots on opposite sides of the single-junction value and shows local-uniform convergence in E>2 as L grows, so strict sign bracketing proves convergence. Independent direct L=2 interior elimination and an exact threshold residual check are replayable with python3 /workspace/branches/independent_checks.py 4. The supplied finite-ray eigensolver was read, not executed; it is not evidence of exact threshold or infinite-volume completeness by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Röntgen p. 2 constructs a compact antisymmetric state by cancellation at a central site. This mechanism applies to the antisymmetric copy sectors here; their Dirichlet modes are standard.",
+          "Wang p. 2 gives BICs by matching subnet nodes to open channels; Exner §7.5.1 gives nodal solutions of a loop with two leads under a differential metric-graph Hamiltonian."
+        ],
+        "reasoning": "Those principles account for compact-mode existence, but do not evaluate the discrete parity secular channels, count every bound pair, or locate the exceptional threshold. Metric and discrete adjacency spectra have different essential bands; the former is not the same spectral problem by relabeling.",
+        "searches": [
+          "Röntgen et al. arXiv:1811.02950, local symmetry and compact localized states",
+          "Wang et al. arXiv:2310.09682, symmetry BICs in open networks",
+          "Exner arXiv:1205.0512 §7.5.1, two leads and a loop"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.03065, 1811.02950, 2310.09682 and 1205.0512",
+        "DOI 10.1103/PhysRevA.110.013501",
+        "Resultary a7438e270539, 61df51aa339e and 9161230b60f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "He–Ganesh's reported single-site recurrence gives the limiting level, but its rank-one response has no relative junction parity. Exner's metric loop has nodal states and resonances, but no discrete out-of-band threshold implication.",
+          "Pinto–Molina–Orellana concerns continuous-wave crossbar junctions at abstract level. Access to a lawful full-text copy was not established; coverage beyond available material is not asserted."
+        ],
+        "reasoning": "The decisive finite-separation information is the different, explicitly evaluated Schur-complement limits at 2. General spectral tools justify the method, not a ready-made classification for this graph.",
+        "searches": [
+          "He–Ganesh arXiv:2302.03065 §III.A, bound states without potentials and more than one junction",
+          "Pinto–Molina–Orellana DOI 10.1103/PhysRevA.110.013501 and identified publisher OA path",
+          "Resultary two-junction and two-arm discrete BIC formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite bridge core is an equal-arm theta graph, but the full graph also has 2M free exterior rays. Resultary a7438e270539 studies an edge-general-position invariant of that finite core.",
+          "He–Ganesh §III.A Eqs. (3)–(6) give the one-junction level -2Mt/sqrt(2M-1) for negative hopping; graph bipartition reconciles the hopping-sign convention. It is the large-separation magnitude here, not the finite-L spectrum."
+        ],
+        "reasoning": "A single identified site or removal of the exterior rays changes the effective response. The close known one-junction level does not contain the two parity channels, pair splitting, or finite-L exceptional threshold.",
+        "searches": [
+          "Resultary two-junction tight-binding wires, equal-arm theta graph with leads, discrete compact eigenstates and threshold",
+          "He–Ganesh arXiv:2302.03065 single kinetic junction versus two identified lattice vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 61df51aa339e gives Laplacian and signless Laplacian facts for finite Theta_{2,2,r}, including a multiplicity-two eigenvalue 2 for r=2 mod 4.",
+          "Resultary 9161230b60f6 gives d-1 compact eigenstates at 2 cos(pi s/d), d=gcd(m+1,n+1), for a lead with two finite stubs at one root; Resultary a7438e270539 treats the finite equal-arm bridge core, not its adjacency point spectrum with rays."
+        ],
+        "reasoning": "The stub formula shares the Dirichlet mechanism, but a two-stub graph at one root has different endpoint constraints and no second junction response. Neither it nor the finite-Laplacian table implies the out-of-band roots or (2,2) exception.",
+        "searches": [
+          "Resultary theta spectral rigidity, exact tight-binding stub BICs, two shared junctions embedded eigenvalues and exterior bands"
+        ]
+      },
+      "rationale": "The supported contribution is a complete discrete infinite two-junction point-spectrum classification and sharp isolated missing odd bound pair with its threshold resonance. Credit the known single-junction energy, local-symmetry compact localization, ordinary Dirichlet path eigenvalues, and the metric two-junction BIC mechanism. No inspected statement establishes this conjunction for the specified discrete adjacency operator. Full-text access to the crossbar comparator remains limited as documented.",
+      "residual_risks": [
+        "Crossbar full-text comparison remains unresolved.",
+        "An unlocated two-defect weighted-Jacobi or discrete open-network formulation might cover this exact spectral subclass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the limiting single-junction bound magnitude; not the finite two-junction calculation",
+          "evidence": [
+            "One shared site for M wires gives -2Mt/sqrt(2M-1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.03065",
+          "material_read": "§III.A, p. 3, Eqs. (3)–(6), OA offsets 16636 and 19790",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Bound states without potentials: localization at singularities",
+          "trigger": "Same kinetic tight-binding junction under a hopping-sign convention"
+        },
+        {
+          "assessment": "Known local-symmetry compact eigenstates",
+          "evidence": [
+            "Opposite peripheral amplitudes cancel at the central site of a star example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.02950",
+          "material_read": "p. 2, OA offset 10328 and surrounding star example",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Quantum network transfer and storage with compact localized states induced by local symmetries",
+          "trigger": "Discrete compact-mode mechanism"
+        },
+        {
+          "assessment": "Analogous nodal BIC construction, not the discrete finite-separation spectral count",
+          "evidence": [
+            "States vanishing at subnet vertices persist as BICs on attachment to open channels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.09682",
+          "material_read": "p. 2, OA offsets 10400 and 13081",
+          "method": "Primary OA bounded passage comparison",
+          "title": "Bound states in the continuum induced via local symmetries in complex structures",
+          "trigger": "Symmetry-protected compact states in lead-attached networks"
+        },
+        {
+          "assessment": "Related continuous metric topology and nodal mechanism; different Hamiltonian",
+          "evidence": [
+            "Loop modes vanish at the lead attachments; metric edge operator is minus the second derivative."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.0512",
+          "material_read": "§7.5.1, p. 33, OA offset 128173",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Solvable models of resonances and decays",
+          "trigger": "Two-junction loop with external leads"
+        },
+        {
+          "assessment": "Continuous-wave comparison only; possible unexpected overlap remains unresolved",
+          "evidence": [
+            "Abstract description of waveguide crossbar BICs does not establish the discrete unit-hopping spectral classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.110.013501",
+          "material_read": "Accessible abstract-level description; no full text",
+          "method": "Lawful DOI and APS-page retrieval attempts through OA; no verified alternate",
+          "title": "Bound states in the continuum in asymmetric crossbar junctions in one-dimensional waveguides",
+          "trigger": "Close junction-array BIC comparison"
+        },
+        {
+          "assessment": "Same finite core in one record, distinct finite operators or one-root lead geometry in the others",
+          "evidence": [
+            "The stub mode count depends on a gcd of arm lengths; finite theta spectral rigidity concerns Laplacian-type matrices without exterior rays."
+          ],
+          "identifier_or_url": "Resultary a7438e270539; 61df51aa339e; 9161230b60f6",
+          "material_read": "Mirrored Findings at offsets 0, 0 and 374 respectively",
+          "method": "Resultary search and exact local passage comparison",
+          "title": "Exact theta-graph census, theta spectral rigidity, and arithmetic bound states in a two-arm quantum stub",
+          "trigger": "Same finite core or closely related adjacency BIC geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact point-spectrum census resolves what finite separation of two kinetic junctions changes: an entire compact embedded ladder, a split pair of exterior levels when both exist, and a single minimal geometry where a bound branch instead meets the continuum edge as a resonance. That is a reusable family-wide threshold result, more than an example of a BIC or a finite-matrix approximation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The packaged `verify.py` was run using Python 3's standard-library `fractions.Fraction`. It completed 57,627 exact rational pointwise inequality/equality tests; it generated smallest extremal electorates for each committee size \(2\) through \(14\); all swaps were checked, and all committees were enumerated through size \(6\). The mathematical proof, rather than these finite calculations, supports all integers \(k\ge2\).
+# Independent mathematical audit
 
-For \(k=3\), there are six voters approving one member of each of two three-candidate blocs (one voter per pair involving each of two designated outside candidates) and two voters approving the third outside candidate only. The baseline PAV score is \(6\), while the optimal alternative is \(8\), giving \(3/4\), and every one-candidate swap preserves score \(6\).
+## correctness
 
-No independent scientific audit or independent mathematical validation has been performed. The result depends on the mathematically explicit assumptions and the cited harmonic inequality; historical priority beyond the inspected literature remains uncertain.
+PASS
+
+Sum the cited pointwise harmonic bound and use the nonpositive exact swap gains. Its guarantee decreases strictly with committee difference r, forcing r=k; equality then makes every swap and every per-voter slack vanish. With r≥2, the positive-increment estimate bounds slack below by (r−1)H_u/2−(r−1)/(u+1) when x≥y and x≥1, strictly positive for u>1. At u=1 equality requires x=y=1. The zero-additions and falling-score cases are strict for u>0, while u=0 requires x=0 or 1. Summing the neutral-swap equations by row forces equal row totals and then identical columns across rows. In the converse, with exactly 2k candidates, a committee containing t members of O with index set T has score kS+(t−1)(sum over T of d_t)/2, by counting pair approvals and subtracting half the double approvals. This confirms global optimality independently of the locality bound. The voter count is at least (3k−1)S/2. Nonnegative singleton counts require S≥(k+1)/2 for odd k, attainable with that many unit columns. For even k integrality forces each d_t even, so S≥k+1 implies S≥k+2, attained by (k+2)/2 columns of size two. Irrelevant voters cannot improve this minimum. No general converse with extra candidates is asserted.
+
+## originality
+
+PASS
+
+The sharp finite ratio is already immediate from the cited lemma and prior witness; the frozen record credits both. What is distinct is the complete projected equality family and its sharp parity-sensitive minimum electorate, rather than either the approximation ratio or one construction.
+
+## value
+
+PASS
+
+The minimum number of voters is a natural measure of the size of an exact worst-case PAV instance, and the prior construction motivates minimizing it. The classification determines all distinct projected equality patterns, not just a smaller example, and explains the parity obstruction in the optimum. It can be used to generate sparse worst cases and to recognize why particular ballots cannot be extremal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

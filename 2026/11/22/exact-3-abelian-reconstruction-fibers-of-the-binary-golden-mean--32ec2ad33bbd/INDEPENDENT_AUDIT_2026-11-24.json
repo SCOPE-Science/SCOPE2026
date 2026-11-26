@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:19:30.567771Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4, VERIFICATION.md, verify_direct.py and verify_series.py (inspected)",
+        "python3 /workspace/evidence/3.py; output /workspace/evidence/3.txt",
+        "Exact algebraic simplification and partial fractions of both formal series"
+      ],
+      "rationale": "For each two-gram, subtract counts of its extensions on one side from its two-gram count to recover the indicator of the corresponding boundary two-gram. For n≥3 and m≥1 these boundaries determine u,v; 101 counts the interior single zeros and 000 counts exactly the excess zeros over length two. Conversely, the five allowed triple counts in the proof follow by counting the long gap ends (001 and 100), the short interior gaps (101), the ones with two zero neighbors (010) and the three-zero windows (000). The triple data and the boundaries recover all shorter counts. The all-zero word and lengths 0,1,2 are correctly separated. Choosing c of m−1 interior gaps to be long and distributing h among the r labeled long gaps gives precisely the binomial product, also checking realizability and the singleton condition. Independently simplified the geometric interior sum to z/[(1−z²)(1−z³)]. Allowing all h and removing excess when r=0 gives the stated C series; summing c=0, then c=m−1 with m=2 and m≥3 separately, gives the U series. Partial fractions give the stated parity formulas and small-length checks give the two listed first collisions. Independent replay compares the complete partitions, not just their sizes, through n=19. The zero-error claim follows by exactly one representative per profile.",
+      "residual_risks": [
+        "The finite replay corroborates but does not replace the all-length argument. The complete profile includes endpoint information; the count does not transfer to pure unordered three-gram observations or cyclic words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.7 gives exact 3-Abelian sizes in general and directly applies to each individual no-11 fiber. Proposition 5.3 also gives a general singleton criterion. Kiah et al. give quasipolynomial growth for strongly connected endpoint-free restricted profiles; this graph has five edges and three vertices."
+        ],
+        "reasoning": "This credits existing exact per-fiber computation and a prior quadratic degree for the coarser data. Summing the endpoint-refined feasible flows and isolating singleton flows are not supplied by those broader theorems.",
+        "searches": [
+          "arXiv:1605.03319 Proposition 4.7 and Proposition 5.3",
+          "arXiv:1502.00517v1 Theorem 3.3",
+          "Exact 3-Abelian/no-11 fibers and series primary literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1605.03319 §§4–5",
+        "arXiv:1502.00517v1 §§2–3",
+        "Resultary 903e81384c5f, bcc1ebef8280, db3743cca7ea, d7a18695ef7b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The BEST formula can be specialized after identifying the feasible paths and endpoints, but does not enumerate their supports or sum the singleton profiles over lengths. The cyclic formula quotients rotations, and is not the count of rooted linear paths with given endpoint categories."
+        ],
+        "reasoning": "The exact general formula covers the ability to evaluate each specified fiber; it does not mechanically imply the combined feasible parameter classification and the explicit endpoint-aware counting series. The result uses a separate zero-gap bijection and geometric sums.",
+        "searches": [
+          "arXiv:1605.03319 §§4–5",
+          "arXiv:1502.00517v1 Theorem 3.3",
+          "Resultary 903e81384c5f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n≥2 full 3-Abelian counts are equivalent to three-gram counts plus the boundary two-grams. The closest distinct exact cyclic no-11 result 903e81384c5f uses wraparound triples and necklaces, not these boundary data."
+        ],
+        "reasoning": "Reading a word with its left and right two-grams cannot be replaced by reading a necklace, or by an endpoint-free linear histogram. The equivalence with endpoint-refined de Bruijn flows is included in the comparison.",
+        "searches": [
+          "Resultary linear 3-Abelian/no-11 fibers, golden-mean profiles and singleton classes",
+          "Karhumäki et al. arXiv:1605.03319 definition and §4",
+          "Kiah et al. arXiv:1502.00517v1 §2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct same-day cyclic record has exact Burnside fiber laws and series. Other exact counts concern unrestricted endpoint-free linear profiles, avoiding both 000 and 111, or cyclic four-gram fibers."
+        ],
+        "reasoning": "None gives the stated pair of complete linear no-11 series. The same-day cyclic result is compared on its statement; the shared date does not establish priority. The ordinary Fibonacci word count is not a profile-class or singleton count.",
+        "searches": [
+          "Resultary exact linear and cyclic profile/fiber and constrained-count lookups",
+          "903e81384c5f, bcc1ebef8280, db3743cca7ea, d7a18695ef7b original findings"
+        ]
+      },
+      "rationale": "The general exact Euler-trail fiber formula and general singleton criterion already apply, since any 3-Abelian equivalent word has the same count zero of 11. The supported distinct result is the explicit feasible endpoint/run spectrum, binomial reduction, and its exact all-length profile and singleton counts for the linear forbidden-11 language, not a new general class-size method or a new generic polynomial-growth theorem.",
+      "residual_risks": [
+        "An exact constraint-specific specialization in unindexed work remains possible. General class-size methods and profile growth are prior, narrowing the contribution to the stated combined exact laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of per-fiber evaluation; not the explicit constrained feasible spectrum and all-length laws",
+          "evidence": [
+            "Uses Eulerian paths and the BEST theorem for exact sizes, and gives a general singleton criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+          "material_read": "pp. 1–2, §§4.1–4.3 and §5, Propositions 4.7 and 5.3, offsets 0 and 16400–25973",
+          "method": "OA original PDF",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "General exact antecedent for the same relation"
+        },
+        {
+          "assessment": "General growth result for a related coarser observation",
+          "evidence": [
+            "Quasipolynomial degree |S|−|V(S)| for strongly connected restricted graphs applies to endpoint-free profiles. Does not provide the endpoint-aware binomial/singleton calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+          "material_read": "Abstract; §§2–3 including Theorem 3.3, offsets 0,9000,22000,35489",
+          "method": "OA original HTML",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Constrained de Bruijn counting and channel model"
+        },
+        {
+          "assessment": "Cyclic necklace count rather than linear endpoint-aware count",
+          "evidence": [
+            "Uses (n,r,t), wraparound triple counts, Burnside fibers and associated series."
+          ],
+          "identifier_or_url": "Resultary 903e81384c5f",
+          "material_read": "Original finding and scope, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact cyclic three-gram fibers and capacity for binary words avoiding 11",
+          "trigger": "Closest catalogue overlap in source restriction and order"
+        },
+        {
+          "assessment": "Different source or information and no matching fiber law",
+          "evidence": [
+            "The former treats unrestricted endpoint-free profiles; the latter forbids 000 and 111."
+          ],
+          "identifier_or_url": "Resultary bcc1ebef8280 and db3743cca7ea",
+          "material_read": "Original findings, offset 0 for each",
+          "method": "Resultary local mirror",
+          "title": "Exact finite-length capacity of the linear binary three-gram spectrum; Exact binary three-gram profile counts under a two-run constraint",
+          "trigger": "Closest linear exact tables"
+        },
+        {
+          "assessment": "Different read order and cyclic model",
+          "evidence": [
+            "Oriented four-grams on cyclic no-11 necklaces."
+          ],
+          "identifier_or_url": "Resultary d7a18695ef7b",
+          "material_read": "Original finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact fibers and uniquely reconstructible profiles for cyclic four-gram reads under a binary run-length constraint",
+          "trigger": "Same constraint and exact singleton aim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and zero-gap proof",
+        "Kiah et al. multiplicity-profile model",
+        "Frozen comparison of complete and endpoint-free observations"
+      ],
+      "rationale": "Forbidden-11 is a classical finite-state source. Exact capacity versus singleton counts distinguish choosing one codeword per observable profile from the stronger property that the full source word is uniquely identified. The quadratic versus linear growth and every-fiber binomial formula quantify both properties uniformly and enable exact finite-length ambiguity checks beyond a general Euler method or asymptotic growth bound.",
+      "residual_risks": [
+        "Value is in the exact linear fixed-observation classification, not general reconstruction methodology or a claim about errors, missing reads, or long reads."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

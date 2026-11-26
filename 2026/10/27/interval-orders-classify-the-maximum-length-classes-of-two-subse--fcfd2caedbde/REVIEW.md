@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A length-at-most-two subsequence signature is preserved by retaining the first and last occurrence of each letter: the pair \(ab\) is present if and only if the first \(a\) precedes the last \(b\). Every class therefore has a representative of length at most \(2q\), with equality precisely when all \(aa\) are observed. The order of interval endpoints reconstructs every distinct-letter presence bit. The converse constructs a valid interval representation from the nested strict downsets of any \((2+2)\)-free poset, then writes a word from its distinct endpoints. Both injections and surjections, including boundary cases \(q=1\), are established. A standalone program checks the automaton and endpoint enumeration independently for \(q=1,2,3,4,5\). Finite checks supplement rather than replace the universal proof.
+## correctness
 
-## Originality — PASS, with uncertainty
-Published results already count all Simon two-congruence classes for small alphabets (Karandikar, Kufleitner and Schnoebelen, arXiv:1310.1278) and enumerate labeled interval orders (Brightwell and Keller, arXiv:1111.6766; OEIS A079144). The binary/ternary structural work of Fleischmann, Höfer, Huch and Nowotka (arXiv:2306.14192) is the direct literature motivation. The **newly claimed implication is the canonical all-alphabet bijection between the maximum shortest-representative layer and labeled interval orders**, including the reversed inclusion relation on the observed sets. Full-text inspection of those primary papers found no direct statement or equivalent coverage. A differently phrased classical equivalence, particularly in foundational normal-form references, remains possible; numerical agreement alone was not treated as novelty evidence.
+PASS
 
-## Value — PASS
-The result gives a natural, uniform structural model for precisely the hardest classes to represent in a central finite-index congruence of formal-language theory. It transports exact labeled/unlabeled interval-order enumerations and established asymptotics to a sharply defined language-theoretic layer, and identifies its containment order. This is not an isolated short table, a relabeling of a pre-existing result within its own theory, or a routine variant of a previous reconstruction count. It does not resolve the whole index problem or higher levels.
+Retaining each letter's first and last positions preserves singletons, diagonal pairs, and every distinct pair ab because ab is present exactly when first(a)<last(b). The resulting word has length at most 2q, with equality in the minimum precisely when all aa are present. Minimum representatives then have exactly two occurrences per letter; arbitrary representatives need only have at least two. Among these classes the only variable observations are ordered pairs of distinct letters, with ab missing exactly when last(b)<first(a). This identifies the observation set with the reversed complement of the strict interval order on distinct letters and proves both injectivity and reversal of inclusion. For surjectivity the strict predecessor sets in a (2+2)-free poset are nested: incomparable sets would supply a predecessor of each upper vertex missing below the other, giving an induced (2+2). For an element x let i be its predecessor-set index and j the first index of a set containing x, or one past the end. Then j>i and the interval [2i,2j−1] has the right strict comparisons; perturb ties within endpoint type without crossing an endpoint of the other type and read the endpoints in order. This yields the desired doubled word. Renaming commutes with the bijection; q=1 yields one deepest class, represented by aa. The independent endpoint enumeration gives 1,3,19,207,3451 signature/order classes through q=5; replay: python3 /workspace/branches/44766552-aa02-4b69-ae48-315dc237b573/independent_endpoint_check.py. This is not a reproduction of the frozen verifier's all-signature traversal. The denominators 152 and 2326 are from Table B.1 of arXiv:1310.1278; the labelled Brightwell–Keller asymptotic on p. 2 has 12√3/π^(5/2), (q!)²√q, exponential base 6/π² and relative error O(1/q), as stated.
 
-## Evidence and limits
-Proof steps, algorithms, counts, and citations are in `RESULT.md` and `VERIFICATION.md`. Finite checks are exhaustive for the indicated sizes only. Originality is based on specified material inspections and actual searches, not a priority guarantee. External expert validation is still required for publication-level acceptance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the canonical all-alphabet identification of the deepest two-subsequence layer with labelled interval orders, including reverse inclusion and behavior under renaming. The interval-order characterization, exact counts and asymptotic are existing results transported by that identification; the binary layer is also covered by a prior special case. No absolute priority is asserted.
+
+## value
+
+PASS
+
+The layer is selected by an intrinsic extremum, not by a convenient small alphabet. The identification gives an all-alphabet structural description with an order-theoretic interpretation of inclusion, and transfers counts, asymptotics and letter-renaming orbits. It is useful independently of the first few enumerated values; those values and the poset asymptotic alone are not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

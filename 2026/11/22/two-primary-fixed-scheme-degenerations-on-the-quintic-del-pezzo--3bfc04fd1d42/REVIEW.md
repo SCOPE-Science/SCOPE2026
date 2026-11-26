@@ -1,11 +1,21 @@
-# Three-axis scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** An explicit equalizer computation on blow-up charts gives the complete integral fixed schemes. The unit-resultant argument controls denominators, boundary-component permutations exclude missing fixed loci, and the local characteristic-two ideal verifies the nonreduced collision directly. The independent symbolic checker reproduces the equations and boundary combinatorics; its finite examples are not substitutes for the universal proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Zaitsev and Boitrel classify the ambient del Pezzo automorphisms and forms; Dolgachev–Duncan discuss fixed points of finite Cremona subgroups. Relevant primary text and full available sections were compared at the level of scheme-theoretic claims. No equivalent complete two-primary integral equalizer computation was identified in the inspected material or published-findings searches. A calculation implicit in the stable-pointed-curve literature, particularly at characteristic two, remains possible.
+PASS
 
-**Value — PASS.** These are the two remaining nonidentity two-primary permutation cycle shapes on a natural degree-five del Pezzo model. Their exact arithmetic equalizers distinguish a finite-flat curvilinear wild collision from a one-dimensional fixed component with an embedded nilpotent. This supplies geometry invisible in set-theoretic or conjugacy-class tables, with sharp field-point consequences.
+I reconstructed the renormalizations from the marked points: the 4-cycle formula uses the ordering with new first three x,∞,0 (using the inverse cycle convention instead gives the same equalizer), and the double transposition normalizes by z↦x/z. For the 4-cycle in x=uv,y=v the fixed condition first gives v=u/(u−1); clearing the other unit denominator gives P=u(u²−2u+2). In Z[u]/P, u−1 is a unit since P(1)=1; modulo u²−u+1 the polynomial P reduces to 1, so the other eliminated denominator is a unit as well. The open fixed equations force x=2 and y²−2y+2=0; there is no interior characteristic-two point. The only invariant boundary crossing is D13∩D24, represented by u=v=0. Thus the open equalizer computation includes all geometric support and determines the full scheme, finite free of rank 3, with fiber k[u]/u³ at 2. For h, the (1,1) chart gives the claimed product (a,b)F, F=a−2−b. It equals (a,b)∩(F) integrally because F restricts to the nonzero divisor −2 on the section. It is the product, not the intersection of the specialized ideals, that base changes to characteristic two: putting t=a+b gives (at,t²), so t survives and is annihilated by the maximal ideal at the collision. For global support the two swapped crossings of h lie over (0,0) and (∞,∞), where the charts have the equalizer (u−v). The only invariant components are D12=E11, on which a↦a/(a−1) fixes a=0,2 but not infinity, and D34, the strict transform x=1, on which y↦1/y fixes y=±1 and exchanges 0,∞. The y=1 point is the section, and y=−1 lies on the curve (the two points coalesce in characteristic two). The noncollision point with y=−1 lies in the ordinary unblown chart and has ideal x−y² since y is a unit. Elsewhere on the curve the equalizer is likewise the graph, a section of projection to y isomorphic to P1 over Z. These charts therefore cover all fixed support, including infinitesimal structure. The field counts and zeta functions follow from the roots of (u−1)²+1 and from the section adding one rational point only when disjoint. The frozen finite checker was inspected, not used as proof of field-uniform claims.
 
-Scientific limitations: statements concern the specified split integral model and two automorphism types, not arbitrary twists; independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ambient automorphism and boundary descriptions are prior results. The local embedded algebra for h also occurs in a distinct indexed record for a single transposition; the novelty here is not that isomorphism class in isolation. The supported distinct content is the two specified integral equalizers, including the global double-transposition curve and section and the finite flat four-cycle degeneration. The distinct record does not give those equalizers.
+
+## value
+
+PASS
+
+The two cycle types are natural automorphisms of the split integral moduli surface, and the exact schemes distinguish distinct wild behaviors invisible to fixed-point counts: a finite flat triple point versus a curve with an embedded length-one part. The attached component and colliding section are identified integrally, not just at a selected prime or in a local germ already considered in isolation. This is useful data for constructing wild fixed strata and comparing arithmetic fibers; no claim is made about all twists or quotient singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

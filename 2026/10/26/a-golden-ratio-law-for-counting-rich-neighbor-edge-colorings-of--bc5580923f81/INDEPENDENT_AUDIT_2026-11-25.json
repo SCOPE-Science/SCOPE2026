@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:46:22.748178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–67",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "Finite check replay specification: form M on the listed sign triples and residues; compute powers through 24 and use Newton identities, RESULT.md lines 49–53, for the full integer polynomial. For a separate finite cross-check, enumerate all 3ⁿ words for n=3–10 and test adjacency and the richness definition directly."
+      ],
+      "rationale": "For a proper coloring a rich edge occurs exactly at equality of the two incident sign increments around its color. Thus the rich-neighbor condition at i is equality of the two signs on the left or equality of the two on the right. Successive sign triples enforce every such test, and residue closure enforces sum of all signs equal to zero modulo three. For each admissible indexed sign word there are exactly three starting residues, just as there are three initial named colors. A walk is indexed by its starting time, not taken modulo rotation. This verifies the trace count including n=3. Independently constructed integer matrices reproduced the stated polynomial and traces through power 24; direct color tests matched n=3–10 and independent sign-word tests matched through n=18. In the sign graph one can reach a constant triple by repeating the terminal sign, reach either constant triple, and then build any target triple. The four-step −+++ return at +++ changes residue by 2, establishing residue adjustment. The length-three and length-five returns with modular sum zero certify primitivity. As an independent spectral check, for x=1[a≠b], y=1[b≠c] the transition on these bits is (x,y)→(y,z) with xz=0. The vector f(x)f(y) with f(0)=φ, f(1)=1 lifts to a strictly positive φ-eigenvector of M. By primitivity φ is simple and strictly dominant, so the power trace has leading coefficient one and no periodic modulation. The total proper count is the trace of the three-color off-diagonal adjacency matrix, 2ⁿ+2(−1)ⁿ.",
+      "residual_risks": [
+        "Finite integer checks certify only the displayed factorization and finite counts; the trace bijection and primitivity proof control the full sequence. The result is for named three-color assignments on a labeled cycle, not graphs modulo automorphisms or unrestricted palettes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published cycle results give constructions and the palette-size exceptions, including χ′rn(C₄)=4. The Resultary exact-count neighbors treat K₂,ₙ with n+1 colors and circular/Möbius ladders with five colors respectively."
+        ],
+        "reasoning": "Existence theorems control some zero/nonzero values, not multiplicities or growth. Optimizing or enumerating at those other graph families and palette sizes does not specialize to this exact three-color cycle count.",
+        "searches": [
+          "arXiv:2610.16446v1 Proposition 2",
+          "arXiv:2610.21036v1 Theorem 1.2 and §3.1",
+          "Resultary 2026/11/8/…b5202a4380b2 and 2026/10/18/…105708af762d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.16446v1",
+        "arXiv:2610.21036v1",
+        "Resultary …dc57dd577606, …b5202a4380b2, …105708af762d",
+        "DOI 10.1016/j.disc.2023.113803 (abstract and access attempts)",
+        "Targeted exact-prefix web query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constructions in Proposition 2 realize a few patterns and show feasibility, not exhaustiveness or an equivalent parametrization. The numerical match in leading growth to the frozen-state result does not preserve n=3 or 4."
+        ],
+        "reasoning": "The target must enforce modular closure and the distance-two constraint on sign changes simultaneously. Existing colorability or swap-based counts do not supply that joint transfer spectrum. A generic transfer-matrix technique is background, not a prior exact computation of this graph's determinant.",
+        "searches": [
+          "arXiv:2610.16446v1 Proposition 2, PDF pp. 3–4",
+          "arXiv:2610.21036v1 §3.1",
+          "Resultary 2026/11/22/…dc57dd577606 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycling edge colors can be seen as vertex colors on the line graph Cₙ; this preserves properness, not an arbitrary additional vertex-coloring condition. The nearby catalogue formula concerns absence of proper swaps and has F₃=0 and F₄>0, whereas the target has N₃=6 and N₄=0."
+        ],
+        "reasoning": "Identifying cycle edge positions with cycle vertices or comparing φⁿ is insufficient: the exact frozen-state numbers are not the same invariant and the respective local constraints are different.",
+        "searches": [
+          "Resultary 2026/11/22/…dc57dd577606: cyclic proper ternary colorings, golden-ratio growth",
+          "arXiv:2610.16446v1 Proposition 2",
+          "arXiv:2610.21036v1 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The web query surfaced the OEIS landing page but no identified sequence entry matching the target. Closest exact indexed cycle formula specifies nonexistence at 3, 5, 7 and existence at every even n≥4, explicitly differing from this sequence."
+        ],
+        "reasoning": "Match initial terms, indexing and what is counted, rather than φ-growth or zero at one length. A search returning no matching sequence is not evidence of exhaustive database absence.",
+        "searches": [
+          "Web query: OEIS cycles three colors rich-neighbor edge colorings 6 0 30 24 0 72 60 120 264 228 characteristic polynomial golden ratio",
+          "Resultary 2026/11/22/…dc57dd577606; 2026/11/8/…b5202a4380b2; 2026/10/18/…105708af762d"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact all-length named three-color count, characteristic factorization, and leading-constant asymptotic under the rich-neighbor property. The closest same-property cycle literature gives existence/chromatic index and the exceptions C₄ and C₇, not the count. The closest same-cycle and same-growth catalogue formula counts frozen ternary colorings under swaps; its local rule and counts differ. Related exact enumerations for ladders and complete bipartite graphs use other graphs and palettes. No inspected primary statement or indexed theorem implies the displayed trace count or determinant. This does not assert exhaustive historical priority.",
+      "residual_risks": [
+        "The 2024 foundational full text could not be inspected. An earlier reformulation or unindexed table cannot be excluded; the pass is limited to the evidence compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on feasibility and exceptions only",
+          "evidence": "Three-color constructions except C₄ and C₇, which receive four-color constructions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.16446",
+          "material_read": "Proposition 2, PDF pp. 3–4, offset 9600",
+          "method": "OA primary PDF passage",
+          "title": "The rich-neighbor chromatic index is linear in the maximum degree",
+          "trigger": "Exact same cycle and palette-size feasibility"
+        },
+        {
+          "assessment": "Exact exception, not enumeration",
+          "evidence": "Three-color C₄ cannot satisfy the rich-neighbor condition; the chromatic index is four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21036",
+          "material_read": "Theorem 1.2 and §3.1, pp. 2 and 7, offsets 6000 and 21100",
+          "method": "OA primary PDF passages",
+          "title": "Linear bounds for rich-neighbor edge-colorings",
+          "trigger": "Exact C₄ case within complete bipartite results"
+        },
+        {
+          "assessment": "Different local condition, excluded as equivalence",
+          "evidence": "Frozen under adjacency-preserving swaps; none at n=3 and some at n=4. Its leading asymptotic is shared but its exact count and formula are not.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-frozen-state-spectrum-for-cyclic-proper-ternary-colorings--dc57dd577606/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror and direct small-length mismatch",
+          "title": "Exact frozen-state spectrum for cyclic proper ternary colorings under neighbor swaps",
+          "trigger": "Same indexed named ternary cycles and golden-ratio asymptotic"
+        },
+        {
+          "assessment": "Different computation and palette",
+          "evidence": "Counts optimal n+1-color assignments on K₂,ₙ, not three-color assignments on all Cₙ.",
+          "identifier_or_url": "2026/11/8/SCOPE-derangement-rigidity-of-optimal-rich-neighbor-colourings-of-k-2--b5202a4380b2",
+          "material_read": "Mirror RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Derangement rigidity of optimal rich-neighbor colourings of K₂,ₙ",
+          "trigger": "Exact named-palette enumeration of a nearby bipartite family"
+        },
+        {
+          "assessment": "Different graph families and palette",
+          "evidence": "Concerns the five-color ladder problem, not a theorem enumerating three-color assignments on plain cycles.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d",
+          "material_read": "Mirror RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact rich-neighbor five-edge-colourings of circular and Möbius ladders",
+          "trigger": "Related exact rich-neighbor problem for cyclic graph families"
+        },
+        {
+          "assessment": "Unresolved historical access risk, not evidence of absence",
+          "evidence": "Abstract gives the definition and general subcubic coloring targets. No full-text cycle comparison is claimed.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2023.113803",
+          "material_read": "Indexed abstract/description only; full text not obtained",
+          "method": "Lawful OA/repository and publisher retrieval attempts; publisher route unavailable",
+          "title": "Proper edge-colorings with a rich neighbor requirement",
+          "trigger": "Foundational paper may contain alternate formulations or a cycle count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Kashima et al., arXiv:2610.16446v1, Proposition 2",
+        "Resultary …dc57dd577606, separate swap-frozen count"
+      ],
+      "rationale": "The graph family and named palette are natural: three is the feasibility threshold on all but two cycle lengths in the earlier colorability result. Counting all such colorings answers how frequent the feasible property is within proper colorings, including the exact growth constant, leading coefficient, and exponential sparsity. The distance-two local rule plus cyclic residue constraint supply an all-length classification, not small-case recomputation or a restatement of existence. The exact spectral formula is a usable invariant for later enumeration and asymptotics.",
+      "residual_risks": [
+        "No conclusion for wider palettes, unlabeled cycles, or general degree-two subgraphs beyond what follows directly for disjoint labeled cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

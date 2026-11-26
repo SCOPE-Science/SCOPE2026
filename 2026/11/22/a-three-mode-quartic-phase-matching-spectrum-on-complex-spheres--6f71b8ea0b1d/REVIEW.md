@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The phase Fourier coefficient is exactly \(1/\pi\) at the first harmonic, not \(2/\pi\); this normalization was separately checked in the analytic proof and in independent surface sampling. Dirichlet factorial moments give every matrix entry. Only shifts by one \((1,1,-2)\) character step survive in quartic degree. Exhaustive block decomposition yields a single three-mode chain, four degree-four pairs, replicated lower-degree pairs and the stated central multiplicity. The highest offset \(\sqrt{354}/64\) is strictly larger than all others. The exact symbolic checker passes in dimensions three through seven, with separate sampled integration checks in three, four and six. No finite computation is used as a substitute for the general proof.
+PASS
 
-## Originality: PASS subject to residual risk
+Independent uniform coordinate phases and Dirichlet(1,…,1) squared moduli give the normalized Haar monomial moments in the stated dimension. The half-circle Fourier coefficients give diagonal 1/2 and permit off-diagonal differences only at odd multiples of the primitive (1,1,-2) step. Exact degree four bounds the multiple by two, so only ±1 contributes. At fixed spectator exponent, the edges have initial third exponent at least two. The six quartic edges contain just one three-vertex path and four single edges; degrees three and two have three and one single edges respectively. Exact half-integer products confirm all squared weights and the sum 354/4096 for the two path weights (replay: python3 /workspace/check-1.py). The centered path eigenvalues are ±the square root of that sum and 0, with strictly larger offset than any single edge. Counting spectator exponents gives 10+6r+r(r+1) noncentral eigenvalues, hence the stated central count, including at r=0. The Rayleigh bounds are sharp and the ratio is the squared, not unsquared, restriction condition number. Submitted check.py was inspected, not executed; sampling is not used for the theorem.
 
-The closest reviewed general results describe quasi-homogeneous Toeplitz matrix elements and group-invariant decompositions, not the evaluated three-coordinate quartic half-region spectrum. The neighboring two-coordinate relative-phase problem has a different Fourier shift, different blocks and different sharp constants. The explicit extremal comparison and full dimension-uniform multiplicity classification were not found in the named reviewed sources or actual indexed searches. General monomial formulas could make the answer an implicit corollary; this is a real priority risk rather than a certificate of novelty.
+## originality
 
-## Value: PASS
+PASS
 
-The region tests the phase-locking relation of two complex amplitudes against the square of a third, a natural degree-balanced nonlinear phase relation. Quartic degree is the first level with a three-mode interaction chain rather than isolated paired modes. A complete sharp spectrum at that threshold gives all recovery constants and equality modes uniformly in dimension, separating a coherent three-mode extremum from pairwise interactions. This supplies a precise finite spectral invariant of the phase-matching observation geometry.
+Credit is limited to the fully evaluated exact quartic spectrum and dimension-independent sharp extremal pair for the three-coordinate half-phase mask. Torus selection rules and the generic monomial matrix machinery are established methods.
 
-## Scientific limitations
+## value
 
-No claim concerns other degrees, nonholomorphic harmonics, nonuniform weights, or a global classification of phase windows. Historical priority could be affected by an unindexed explicit specialization of general Toeplitz formulas.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This mask couples two coordinates against a doubled third phase, and degree four is the first degree admitting two consecutive character steps. The resulting three-mode extremizer is qualitatively different from an isolated pair of modes. The evaluated spectrum gives the sharp energy and condition bounds for all ambient dimensions and exact multiplicities off the extreme eigenspaces, which can be used without reconstructing a dimension-sized matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

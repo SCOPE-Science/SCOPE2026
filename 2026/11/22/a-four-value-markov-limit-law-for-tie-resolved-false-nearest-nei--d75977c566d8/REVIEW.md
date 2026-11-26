@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The selected first-hit positions stabilize almost surely and leave at most two exceptional indices. The stationary Markov ergodic theorem then computes the pathwise limit; the strong Markov property proves independence of the two next-symbol reference states. All four probabilities and the displayed moments were derived independently and checked with exact fractions on 81 positive rational transition pairs. Sixteen length-100000 generated trajectories matched the calculated random limit within 0.012. No simulation is treated as an infinite proof.
+PASS
 
-## Originality — PASS within inspected sources
+Fix the first index J_s of each symbol and its successor A_s. Once both references are present, for every nonreference position the earliest eligible index has distance zero and is J_s; Definition 1.1 flags that position exactly when its successor disagrees with A_s. The difference from the resulting transition-count formula is at most 2/n, even if a symbol has only one occurrence in the finite sample. Apply the ergodic theorem on a single probability-one event to the four transition frequencies; their random selection by A_s then needs no independence from the empirical counts. Given X_0=s, the opposite hit T is almost surely finite and at least 1, so X_1 is measurable at T, including the case T=1. The strong Markov law of X_{T+1} is the fixed opposite row, while X_1 has row s. The conditional product law does not depend on s, proving independence unconditionally. Multiplication gives the displayed ordered weights (A_0,A_1)=(0,0),(0,1),(1,0),(1,1); summing row means and independent weighted variances gives both formulas and the unique zero-variance point. Independently expanded the four-point moments symbolically and checked the finite reduction on all 4,052 binary words of lengths n+1, 2<=n<=10, with both symbols in the first n positions: minimize (distance,index) over j!=i and compare with the first-occurrence rule. The finite check is not the a.s. proof. The nearest-neighbour definition only needs n>=2; ratios at duplicate points and positive amplitude thresholds cause no boundary issue. No frozen code was executed.
 
-The full relevant portions of Śpiewak (2026), particularly Definitions 1.1 and Theorems 1.2–1.3, concern generic smooth observables; the tie-dependent binary Markov limit is not asserted there. The previous Bernoulli four-value special case corresponds to \(a+b=1\) and does not imply the two-parameter dependent process or the first-hit strong Markov identity. Kennel–Buhl's 2003 *symbolic FNN* addresses a distinct partition diagnostic (verified from its original abstract). Targeted searches of relevant published scientific records and literature did not find this Markov law. The possibility of a differently named historical result remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete two-parameter classification isolates precisely how serial correlation changes the empirical FNN diagnostic, not just an algebraic substitution: \(a=b=s\) holds the stationary one-symbol law fixed while its FNN mean becomes \(2s(1-s)\), and the limit remains random except at \(s=1/2\). The independence of successors at the *two stopping-time first hits*, despite serial dependence in the source, is the structural reason for the finite-atom law. This gives a natural complete classification of the simplest genuinely correlated finite-memory source under a common practical tie convention.
+The closest exact published result retrieved is the Bernoulli subfamily, not a law for genuinely dependent chains. The primary smooth FNN and symbolic partition papers do not imply this tie-resolved law. Priority is best of knowledge, not certified.
 
-## Scope and residual risks
+## value
 
-The result is restricted to one-delay binary quantization, positive transitions and earliest-index ties. The generic smooth-observable results of the source and the different symbolic partition diagnostic cannot replace this statement. Incompletely indexed older terminology remains a priority risk, and other tie conventions can have different limiting laws.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural two-parameter calibration of the simplest dependent binary sensor distinguishes serial persistence from stationary symbol imbalance. The fixed-marginal family yields a checkable change in mean and loss of self-averaging, attributable to the random choice of first-hit successors, not generic observation behavior or a numerical fit. The conclusion is useful for this specified tie rule and is not a claim about successful embedding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

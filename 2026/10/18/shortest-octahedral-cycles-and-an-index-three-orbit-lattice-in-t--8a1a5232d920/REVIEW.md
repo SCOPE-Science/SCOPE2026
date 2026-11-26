@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The graph is fully specified by its LCF construction. The complete matching face poset has 1,085 faces and a directly checkable acyclic Morse matching with one critical zero-cell and ten critical three-cells, yielding the asserted integral homotopy type. A self-contained flag-complex support lemma proves eight is the minimum induced size for nonzero degree-three homology. Direct enumeration identifies 39 induced octahedral sphere carriers. Signed boundary computations, an independent full-rank mod-two certificate for the 236 upper-paired third-boundary columns, integral Morse cancellation, the ten-carrier determinant \(-1\), and all maximal-minor gcds support both integral generation and the exceptional symmetry-orbit index. The bundled verifier recomputes every finite certificate from the graph, with no hidden datasets.
+## correctness
 
-## Originality
-Comparison at the level of mathematical implication separated general existence of disjoint two-edge paths, general sphere-join constructions, discrete-Morse methods, and homotopy results for other graph families from the specific Bidiakis integral carriers and orbit lattices. No inspected primary source or queried published record establishes this exact classification. This is a best-knowledge claim, not an absolute guarantee: unindexed computations or unpublished manuscripts could overlap. The Bidiakis graph itself, flag minimal-support principle, generic octahedral spheres, and standard discrete-Morse machinery are not claimed as new.
+PASS
 
-## Mathematical value
-The Bidiakis cube is a natural small 3-connected planar cubic graph, and its matching complex is a canonical graph-topological invariant. The complete eight-vertex carrier classification shows exactly which minimal geometric spheres detect its ten-dimensional integral homology. The index-three orbit defect is a nontrivial integral feature invisible from Betti numbers and the individual primitiveness of those classes. The exhaustive all-orbit analysis gives a useful local-to-global and symmetry-sensitive example, not an arbitrary selected subcase.
+The reconstructed nonempty face counts are (18,117,336,418,184,12). Replaying the stated toggle order on a vertex-deletion enumeration and sorting the entire directed Hasse graph gave 537 pairs and only one critical vertex and ten critical 3-cells. Forman's theorem gives an ordinary homotopy equivalence to a wedge of ten S^3: all the 3-cells attach to the sole vertex. The sharp flag lower bound 2d+2 follows on vertex-minimal supports by the deletion–star exact sequence and exclusion of universal vertices. At equality each vertex has one nonneighbor, and flagness gives the crosspolytope boundary. For d=3 the eight vertices are eight graph edges in four mutually disjoint two-edge paths. Independent recursion covering the least uncovered graph vertex gave exactly 39 distinct supports. All 39 signed cycles have zero boundary. Subtracting paired 4-cell boundaries in Hasse-topological order leaves only critical and matched-upper degree-three coordinates; the latter have a unit triangular down-boundary block of size 236. Thus a cycle whose critical coordinates vanish is a boundary, and all 184 degree-four boundaries project to zero. The ten stated classes have determinant -1, proving the coordinate lattice is all of Z^10. All 39 vectors have gcd one. A complete distance-preserving automorphism search found eight group elements and orbit representatives (0,1,2,3,4,5,11,17,21) with the stated sizes. Exact Smith forms verified all ranks; only the orbit of carrier 1 has a nonunit invariant factor, 3, giving index 3. This distinguishes integral saturation from rational rank without a finite-field extrapolation.
 
-## Closest literature and limitations
-Kelmans–Mubayi address path-packing existence; Bayer–Goeckner–Jelić Milutinović classify manifold matching complexes; Jelić Milutinović–Jenne–McDonough–Vega handle trees and related families; Matsushita handles certain grids. These explain tools and neighboring questions but do not imply the claimed Bidiakis orbit indices. The result is limited to the specified finite graph. Residual bibliographic uncertainty and lack of an independent external assessment remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspection supports the Bidiakis-specific wedge, induced-carrier census, and index-three finding as distinct. The generic fact that disjoint two-edge paths make a crosspolytope boundary is prior and is not credited as new. Neither a classification of manifold matching complexes nor wedge results for different graph families settle these statements. The closest analogue is the same-day Dürer computation, not a covering result or a basis for inferring same-day priority.
+
+## value
+
+PASS
+
+The Bidiakis cube is a classical cubic graph, and the question of which smallest induced spheres generate a matching complex's integral homology is intrinsic to the graph. Here two eight-element orbits of the same rank have different saturation indices. The index-three example shows exactly how individually primitive classes can fail to generate a saturated lattice despite full rational span in their subspace. The census and explicit basis make the example usable without guessing carriers or relying on rational data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

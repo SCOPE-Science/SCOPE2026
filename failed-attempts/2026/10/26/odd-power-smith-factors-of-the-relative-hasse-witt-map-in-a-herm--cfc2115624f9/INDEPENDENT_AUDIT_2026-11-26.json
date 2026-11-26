@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:08.584048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The family can be realized by the plane equation Y^pZ−YZ^p=X^(p+1)+aX²Z^(p−1): the affine chart is smooth by the y-derivative, and at the unique point at infinity the Z-derivative is nonzero. The pole orders of x and y are p and p+1; dx is nonvanishing on the affine étale x-chart and has order 2g−2 at infinity on each fiber. The g monomials x^iy^j dx with i+j≤p−2 are thus regular with distinct orders and give bases by base change. Over the nonperfect parameter ring use relative Cartier into the Frobenius-twisted Hodge bundle (x' pulls back to x^p, y' to y^p), with a a base coefficient. In the expansion of y^j=(y^p−f)^j the selected x-exponents are p(t−s)+(i+t+s); exactly i+t+s=p−1 survives. Relative Cartier consequently has coefficients (−1)^t binom(j,t)binom(t,s)a^s; its Serre dual is the specified linearized Hasse–Witt map, up to transpose, without adjoining a root of a. The weight v=i+2j−(p−1)=r+2h partitions all nonzero entries into blocks with floor(v/2)+1 rows and (p−1)/2−ceil(v/2) columns. Unit row and column rescalings give entries a^(1+h+c)/(1+h+c)!. The t-minors have order at least t², and the leading t-square minor is a^(t²) times a unit by the falling-factorial Vandermonde, with 2t−1<p. This gives 1,3,… per block and multiplicity p+2−4j of 2j−1; the total is (p²−1)/8. This proves the full ideals over F_p[a], not only local orders or fiber ranks. Hand checks give [1], [1,1,1] and [1,1,1,1,1,3] at p=3,5,7. Frozen verify_hasse_witt.py and VERIFICATION.md were inspected, not executed; the conclusion rests on the all-prime proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank paper treats general additive R and derives weight blocks containing this h=1 case, with all row and column factors recorded before rescaling.",
+          "Farnell–Pries assumes p≡1 modulo the lcm of pole orders, which fails for the single pole p+1; Bouw et al. cover the family in arithmetic results on zeta functions but not the relative invariant."
+        ],
+        "reasoning": "Neither a zeta-function result nor a constant-rank result for a different pole condition decides coefficient powers. The matching parameter and the explicit, stronger coefficient matrix in the 2026 rank paper are decisive.",
+        "searches": [
+          "arXiv:2610.17476 §8",
+          "arXiv:1202.4183 Theorem 1.1",
+          "arXiv:1410.7031 §1.1.1 and Theorem 1.8.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_hasse_witt.py",
+        "arXiv:2610.17476, 1202.4183, 1302.6261 and 1410.7031",
+        "Resultary/SCOPE cc96315dac3a, 7df14ae565ce, 46b1c17efee7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At h=1 the published (σ,s)-entry, after relative linearization and omitting constant unit factors, is a^σ binom(s,ρ−σ) a^(s−ρ), where rows begin at σ=0 and columns at s=ρ+1. The paper gives precisely these consecutive index ranges and the binomial reduction.",
+          "A t-minor has a-power Σσ+Σ(s−ρ)≥t². For the first t rows and columns put θ*=ρ−t+1 and reverse the selected rows. Their binomial indices become θ*+d, 0≤d<t. Lemma 2.7 replaces binom(s,θ*+d), up to nonzero row and column factors, by binom(s−θ*,d). Lemma 2.8 gives an invertible square matrix at the t distinct points s−θ*, since all relevant indices are below p."
+        ],
+        "reasoning": "Thus the first t rows and columns attain t² for every admissible t without needing a new determinant theorem or a stronger result about variation of ranks. This directly gives the consecutive odd Smith powers, and the block sizes already computed in §8 give their multiplicities. The frozen factorial determinant is another proof of the same scalar nonvanishing, not a surviving additional invariant of the stated family.",
+        "searches": [
+          "arXiv:2610.17476, Lemmas 2.7–2.8 and proof of Proposition 8.3, especially printed p. 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the rank paper set its degree index h=1, leading coefficient a₁=1 and lower coefficient a₀=a, so xR(x)=x^(p+1)+ax². Its Cartier coefficients with α₀=a^(1/p) give the integral coefficients by relative linearization, or equivalently transpose and take p-th powers in the fiber formula.",
+          "The older Hermitian EO classification covers the a=0 geometry, not the affine coefficient scheme."
+        ],
+        "reasoning": "Cartier and Hasse–Witt rank agree on fibers, but only the relative matrix over the coefficient ring can determine its torsion profile. The published entry formula, not the pointwise rank, supplies that matrix.",
+        "searches": [
+          "arXiv:2610.17476, §8 Lemmas 8.1–8.2 and Proposition 8.3",
+          "arXiv:1302.6261, Hermitian model, §§1.2–1.3 and Theorem 5.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record cc96315dac3a contains the exact one-step fiber rank and a-number for this family for p≥5, with no determinantal order claim. Records 7df14ae565ce and 46b1c17efee7 concern extremality and finite-field point counts for related equations.",
+          "Corollary 8.5 gives the exact rank (p²−1)/8 off zero and zero at zero."
+        ],
+        "reasoning": "No exact indexed Smith table was located. Neither the rank table nor point counts can distinguish a-invariant factors from a³-invariant factors; the failure is instead based on the prior matrix and its calculational implications.",
+        "searches": [
+          "Resultary/SCOPE cc96315dac3a, 7df14ae565ce and 46b1c17efee7",
+          "arXiv:2610.17476 Corollary 8.5"
+        ]
+      },
+      "rationale": "The ambient family, special and generic ranks, and the weighted block matrices are already covered by Almeida Filho–Tafazolian–Vieira. The Smith statement itself was not located verbatim. It does not follow from their rank values alone, but does follow by taking leading submatrices in their explicit coefficient factorization and applying their own binomial Vandermonde lemma. That is direct prior implication of every minor order, not an inference from a keyword miss or residual access risk.",
+      "residual_risks": [
+        "This does not establish whether the Smith diagonal has appeared verbatim elsewhere. Same-day catalog dates do not establish priority. The negative originality judgment is based on a verified implication of the published matrix, not a lack of search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the exact block minor orders by its coefficient factorization and binomial lemma, even though it states its conclusion in terms of rank.",
+          "evidence": [
+            "The entry factorization on p. 15 displays the row and column contributions α₀^σ and α₀^(s−(ρ−T)); for h=1, T=0. The constant block is binom(s,ρ−σ) up to units.",
+            "Lemmas 2.7 and 2.8 supply identically the binomial shift and nonvanishing needed on each leading t-square submatrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17476",
+          "material_read": "Lemmas 2.7–2.8, §8 basis (17), Lemmas 8.1–8.2, proof of Proposition 8.3 (printed pp. 14–15), and result at Corollary 8.5",
+          "method": "Bounded OA PDF reads, including extraction offsets near 17150, 43300 and 46700, and a submatrix comparison retaining the displayed powers",
+          "title": "a-Numbers, higher Cartier ranks and maximality of van der Geer–van der Vlugt curves",
+          "trigger": "Identical h=1 family and proof by coefficient-dependent weight blocks"
+        },
+        {
+          "assessment": "The hypothesis excludes this pole order.",
+          "evidence": [
+            "The theorem assumes p≡1 mod L; L=p+1 here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1202.4183",
+          "material_read": "Theorem 1.1, p. 2 near offset 6318",
+          "method": "Bounded OA PDF passage",
+          "title": "Families of Artin–Schreier curves with Cartier–Manin matrix of constant rank",
+          "trigger": "Potential general coefficient-independent Cartier result"
+        },
+        {
+          "assessment": "Special-fiber structure, not coefficient-line torsion.",
+          "evidence": [
+            "Determines Hermitian EO structure, which gives no deformation order off that fiber."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.6261",
+          "material_read": "Sections 1.2–1.3 and Theorem 5.13",
+          "method": "Bounded OA PDF passages",
+          "title": "The Ekedahl–Oort type of Jacobians of Hermitian curves",
+          "trigger": "Potential overlap at the Hermitian fiber"
+        },
+        {
+          "assessment": "Family overlap; inspected results are arithmetic rather than a relative matrix profile.",
+          "evidence": [
+            "The additive polynomial family contains the present binomial specialization and is used to analyze zeta functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.7031",
+          "material_read": "Section 1.1.1 and Theorem 1.8.4",
+          "method": "Bounded OA PDF passages",
+          "title": "Zeta functions of a class of Artin–Schreier curves with many automorphisms",
+          "trigger": "General family Y^p−Y=XR(X)"
+        },
+        {
+          "assessment": "Later-dated, narrower fiber invariant, not evidence of an exact Smith table.",
+          "evidence": [
+            "The scope explicitly limits the result to one-step Cartier rank and a-number of the fibers for p≥5."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-constant-non-hermitian-a-number-in-a-large-automorphism-artin-sc--cc96315dac3a",
+          "material_read": "Mirrored RESULT.md, Finding and scope",
+          "method": "Resultary discovery and bounded local-mirror read",
+          "title": "Constant non-Hermitian a-number in a large-automorphism Artin–Schreier family",
+          "trigger": "Exact same curve and Cartier rank"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An integral Smith profile is a meaningful invariant and detects nonreduced orders invisible to fiber ranks. But for this exact coefficient line all orders are obtained by retaining the published powers and applying the published binomial reduction and Vandermonde lemma to the initial submatrices. The frozen claim offers no separate nonmechanical consequence or extension beyond that computation. This is a useful explicit restatement, not a distinct narrow fact meeting the scientific-value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

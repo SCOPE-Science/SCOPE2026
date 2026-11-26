@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every admissible endpoint is characterized by a proper nonempty interval of residues modulo each prime in the window. The CRT box is invariant only under a multiple of each component prime, proving the least period. The count of \(r\) simultaneous endpoints uses a contiguous length-\(k+r-1\) block and gives \(A_{k,r}\) exactly. Double-boundary inclusion–exclusion gives all maximal run counts. Two distinct window primes provide independent boundary obstructions while preserving an interior clean block, establishing positivity of each length; one prime gives a single cyclic arc. Direct enumeration verifies the formulas for eighteen parameter values and checks 1,998 additional formula instances. No finite computation is substituted for the general proof.
+PASS
 
-## Originality
+The allowed residues modulo each window prime p are the proper nonempty cyclic arc {k+1,...,p−1,0}. CRT identifies the admissible endpoints with their Cartesian product. A period preserves that product and therefore each projection; a nonzero translation cannot preserve a proper nonempty subset of a prime cycle. For r consecutive endpoints the tested intervals have union of length k+r−1, leaving max(p−k−r+1,0) residues modulo p. Summing the indicator of r ones bracketed by zeros gives its second difference, also for runs crossing the period boundary. The smallest p produces the exact cutoff g_k. For r<g_k, choose distinct window primes and use one to put a multiple immediately before, and the other immediately after, the central tested interval; both periods exceed its length plus one, and each remaining prime has an admissible central residue. CRT realizes both boundaries simultaneously. A single prime gives one cyclic arc. The known R_2=11 applies at x=2k for k≥6 (2k is not prime); k=2,3,4,5 have window primes {3},{5},{5,7},{7} respectively. Thus only 3 and 5 miss a length. The exception list uses R_2=11 in addition to the basic Bertrand nonemptiness input; clarify this if interpreting the final limitation as saying Bertrand alone is invoked. Independent replay: `python3 /workspace/review_calculations/small_cases.py windows` marks forbidden endpoints from multiples and measures the gaps between consecutive zeros over 18 complete periods. It checks all candidate prime-index period reductions and reproduces the k=7 histogram (2,2,2,3) and all exact frequencies against the formula. The replay is finite, not the proof for all k.
 
-**PASS, with priority risk.** The relevant 2026 primary paper establishes a first-hit lower bound, not a complete periodic run-count law. Tang's 2025 note already states the one-point CRT density; this is explicitly excluded from novelty. Exact clustering, strict support by the number of window primes, and least-period sharpness are stronger multi-endpoint statements not found in the inspected full text or indexed comparisons. The original full text of the 2025 density note was not obtained; it may implicitly discuss the calculation, and the method is elementary. This remains a documented residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The complete run spectrum is a natural second-order refinement of the one-point density central to Erdős Problem #451. It identifies the exact prime-gap cutoff for *local clusters*, proves the only missing intermediate lengths occur at \(k=3,5\), and supplies exact multiplicities rather than isolated examples. This distinguishes local clustering from the unproved first-hit upper bound. The value is restricted to this local statistic; no resolution of the global first-hit problem is asserted.
+Credit the one-point density and CRT box to Tang and the generic correlation-to-runs technique to prior work. The supported distinct claim is the least period and complete prime-window maximal-run distribution, particularly its exact support and two exceptions for this indicator. Neither the same-object density and first-hit results nor the inspected distinct residue-run theorems cover it as a stated or mechanically evaluated case.
 
-## Prior literature and limitations
+## value
 
-The closest sources are van Doorn–Tang, *Consecutive integers free of certain prime factors* (arXiv:2606.19863; first public 18 June 2026), and Tang's *Notes on Erdős Problem #451* (2 October 2025). Secondary descriptions and the repository entry verify the earlier one-point density; the note's complete PDF was inaccessible. Relevant broader CRT-based run-count results concern different residue patterns and do not directly cover this theorem. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Erdős admissibility condition motivates a natural exact question about local clustering. The gap parameter controls the sharp cutoff, and two primes can independently impose both boundaries, giving a uniform full-support theorem apart from two exact exceptions. These distinguish where and at what lengths eligibility can persist in a cyclic window, information unavailable from the individual endpoint density. No claim about the first hit or distribution in a short interval follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

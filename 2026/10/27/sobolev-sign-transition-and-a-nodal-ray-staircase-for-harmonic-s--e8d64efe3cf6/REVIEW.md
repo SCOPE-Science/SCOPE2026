@@ -1,19 +1,21 @@
-# Scientific review: harmonic Sobolev reproducing-kernel nodal rays
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact theorem about real harmonic boundary-Fourier Hilbert spaces with coefficient weights \((n+1)^\sigma\). Direct orthogonal-basis calculation gives the kernel, including the normalization of the cosine/sine modes. For \(\sigma\ge0\) a Hausdorff-moment representation expresses it as a probability average of strictly positive Poisson kernels. For \(\sigma<0\), the standard polylogarithm singular expansion yields a uniform \(C^1\) angular limit \(\cos((1-\sigma)\theta)\), and its first correction determines the stated angular drift. All zeros in each sufficiently small admissible circle are counted by stability of simple zeros and a nonzero gap at the angular endpoints; excluded exponents correspond exactly to endpoint grazing. The attached computational checks are supportive, not exhaustive. No claim about global nodal connectivity or the exceptional local count is made.
+## correctness
 
-## Originality — PASS, qualified
-The kernel construction overlaps the established disk Sobolev/Steklov framework of Engliš–Lukkassen–Peetre–Persson (2004) and Auchmuty (2009), while the singular expansion is classical (Wood, 1992). The claim is limited to the combined sharp sign transition, complete local angular zero count for all nonexceptional negative exponents, and first drift, none of which was identified in the inspected relevant text or targeted research-record searches. Auchmuty's accessible author text, especially Theorem 8.2, specifies spectral kernels rather than this nodal classification. The 2004 article explicitly includes disk examples, but the full text could not be inspected despite an open-access search. Its section summary does not establish noncoverage; potential equivalent nodal results in that article or older literature remain material publication-priority risks. Likewise the classic polylog expansion alone gives ingredients, not a stated harmonic-space theorem. The result should not be presented as independently validated or as proving historical priority.
+PASS
 
-## Mathematical value — PASS
-The natural boundary regularity index controls a qualitative geometric property — pointwise positivity of a harmonic RKHS kernel — at an exact sharp threshold. Below it, a complete local nodal-ray staircase quantifies how additional branches appear as regularity decreases, and the first-order angle law records their displacement beyond the leading singularity. The statement is an infinite-parameter structural classification relevant to interpreting harmonic interpolation kernels and their loss of positivity, not a renamed numerical example. The sharp sign threshold applies even at parameters excluded from the local-count formula.
+Orthogonality and the squared norms (n+1)^σ/2 give the reciprocal weights and factor two; polynomial coefficient growth ensures continuous interior evaluations. The moment measure in the proof is a probability with moments (n+1)^(−σ) for σ>0, so the positive Poisson kernels give strict positivity, also directly at σ=0. DLMF 25.12.12 applies to every negative order. For w=1−z, write −log(1−w)=w A(w) with A analytic, A(0)=1, A′(0)=1/2. On the right-half sector the principal factorization gives Li_σ(z)/z=Γ(μ)w^(−μ)B(w)+C(w), where B and C are analytic at zero, B(0)=1 and B′(0)=1−μ/2. Thus the scaled real part has uniform C¹ angular remainder O(ρ²+ρ^μ), including at the sector endpoints (an angular derivative on an analytic factor is iw times its derivative). The leading cosine takes both signs at fixed admissible angles for every μ>1. Away from odd μ≥3, all leading zeros are simple and separated from the two endpoints; monotonicity on small neighborhoods and a compact nonzero gap on the complement prove exact root exhaustion inside |θ|<arccos(ρ/2). The derivative remains nonzero and the analytic implicit function theorem applies for ρ>0. The mean value theorem first gives shift O(ρ), then dividing the root equation by ρ gives the stated coefficient, using cos((μ−1)θ_j)=sin(μθ_j)sin θ_j. Conjugation doubles the count. No census is required at the grazing orders; realizability of all disk z makes the sign result an assertion about the actual kernel.
 
-## Closest literature and unresolved limits
-- Engliš, Lukkassen, Peetre and Persson, *On the formula of Jacques-Louis Lions for reproducing kernels of harmonic and other functions* (2004), DOI 10.1515/crll.2004.035: verified relevant abstract and disk-section description, but full text not inspected.
-- Auchmuty, *Reproducing Kernels for Hilbert Spaces of Real Harmonic Functions* (2009), DOI 10.1137/080739628: inspected author-provided manuscript introduction and Section 8 (spectral kernels), no directly covering local zero theorem in the inspected material.
-- Wood, *The Computation of Polylogarithms* (1992), University of Kent report: inspected indexed PDF text concerning the local expansion; it supplies established special-function input rather than the harmonic nodal theorem. Page-image retrieval was unsuccessful, so source inspection is qualified.
+## originality
 
-The numerical file verifies representative parameter values only, and no independent specialist review has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct contribution supported by the comparison is the complete order-dependent boundary-local nodal census together with its first angle correction for the specified shifted harmonic kernel. The kernel construction, moment mixture and local polylogarithm expansion are not credited as original. The sign threshold by itself also admits a standard positive-real-part coefficient argument. Available closest texts did not show equivalent coverage of the complete nodal result; limits of access are explicit below.
+
+## value
+
+PASS
+
+For a natural harmonic Sobolev scale, the census identifies where and how new boundary-local nodal branches appear as regularity changes. It establishes exhaustion and branch nonsingularity, not just example sign changes or a heuristic count from asymptotic rays. The first correction quantifies the geometry of each branch in the actual disk coordinate, and the theorem identifies the parameters where that stable analysis has a boundary-ray obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

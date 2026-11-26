@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:36:28.382695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof 1–4; VERIFICATION.md; verify_cayley_boundary.py and its recorded verification_output.txt (inspected, not executed)",
+        "Independent replay: python /workspace/branches/independent_exact.py 4; exact results in /workspace/branches/exact-4.txt"
+      ],
+      "rationale": "The four lines in general position are projectively equivalent over C to x=0, y=0, z=0, x+y+z=0. Recomputing the complete quadrangle by cross products gives six distinct base points and three distinct diagonal intersections off the base locus; common blown-up points of distinct lines separate into distinct direction points on the exceptional curve. The thirteen listed curves are all negative curves: −K=H+(sum R_i)/2 is nef, adjunction forces negative irreducible curves into (self-intersection, anticanonical degree)=(−1,1) or (−2,0), and Cauchy in the plane multiplicities gives degree at most two. Each five-element subset of the base points contains an original collinear triple, excluding the conic possibility. The incidence graph is connected with 21 nodes and thirteen rational components whose valencies are three or four, hence stable of genus nine. Over Q and in characteristics 7 and 13 the stated decomposition follows from QQᵗ=2I+J, PPᵗ=2I and QPᵗ=J: on the edge space the images of zero-sum vertex and matching spaces are orthogonal and have nondegenerate forms, and the constant line splits off (dimension six altogether). The constant block has rank two over both finite fields, the repeated vertex block has determinant seven, and the repeated matching block determinant thirteen. Hence the reduced nullities are three and two, exhausting the determinant valuations and forcing elementary primary groups. Fresh exact Smith reductions at two roots independently yield 1^9,7,91,91, determinant 57967, and the asserted polynomial. The Néron statement is valid under the specified regular split unit-thickness hypothesis; no fibration on X is inferred.",
+      "residual_risks": [
+        "The verification concerns the full reduced boundary over C and does not extend to arbitrary arithmetic descent or weighted nodes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The degree-class-group theorem identifies the relevant cokernel; the Cox-ring theorem for 4A1 gives thirteen variables; the Frobenius chamber record gives fixed chamber polynomials and an S4 support-orbit classification."
+        ],
+        "reasoning": "None determines the critical groups or spectra of a graph family containing this example. In particular the general Néron interpretation leaves the integral computation to be done.",
+        "searches": [
+          "Busonero–Melo–Stoppino, arXiv:math/0602553, pp. 1–2",
+          "Derenthal et al., arXiv:1409.0799, Theorem 3.1(v)",
+          "Resultary: Cayley cubic resolution Frobenius chamber classification, f623f0138011"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and adjacent-record queries",
+        "Records 496f00e7e487, f623f0138011 and 88803cbc29d5",
+        "Hassett §4.1; Derenthal et al. Theorem 3.1(v); Busonero–Melo–Stoppino pp. 1–2",
+        "Targeted Cayley-cubic critical-group literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier support polynomial counts 726 chambers using the number of permissible perfect matchings. It supplies geometric incidence information, but neither the 13-vertex Laplacian spectrum nor the 7- and 13-local nullities. The distinct same-day records do not state these invariants either."
+        ],
+        "reasoning": "Knowing a graph presentation is not knowing its Smith group. Even a tree count would leave open higher primary cyclic exponents. The prime-local rank argument here supplies the missing information. No date ordering between same-day records is assumed.",
+        "searches": [
+          "Compare 496f00e7e487, frozen Proof 2–3, and arXiv:math/0602553 pp. 1–2",
+          "Compare the nine-line record 88803cbc29d5 and the same-day Frobenius chamber record f623f0138011"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full dual graph can be seen as subdivided K4 with three matching vertices joined to their two subdivision vertices and to one another in a triangle. The same-resolution chamber work uses labeled K4 subgraphs and perfect matchings avoiding those subgraphs.",
+          "The distinct nine-line Picard-torus record uses a branch-incidence graph with 22 vertices and 30 edges, not this graph."
+        ],
+        "reasoning": "The equivalent graph encoding identifies the configuration in the chamber calculation, but its support polynomial is a different invariant. The nine-line divisor and branch-incidence convention cannot produce this full 13-component dual graph by relabeling.",
+        "searches": [
+          "Resultary: Cayley resolution thirteen negative curves, K4 matching, graph Laplacian and critical group",
+          "Resultary record 496f00e7e487, same resolution and matching encoding",
+          "Primary geometric construction in Hassett, §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact result returned in Resultary is the frozen record itself, 4819e816e836. The literature lookup produced no useful matching table; the strongest distinct indexed records treat chambers or the Picard torus."
+        ],
+        "reasoning": "A self-match is not independent coverage. The lack of a distinct result in these returns does not exclude unexamined exact graph tables.",
+        "searches": [
+          "Resultary: Cayley resolution, thirteen curves, Laplacian, critical group",
+          "Targeted literature search: Cayley cubic critical group graph Laplacian thirteen curves"
+        ]
+      },
+      "rationale": "The strongest checked overlap is the published chamber-support computation on the very same resolution, with the same thirteen curves and a K4/perfect-matching model. It enumerates negative-definite supports, not eigenvalues, prime-local ranks or the integral Laplacian cokernel. The geometric resolution and general degree-class-group theorem are likewise known, but do not solve the specific integral calculation. No exact coverage was established in the bounded comparisons.",
+      "residual_risks": [
+        "An unindexed critical-group or Laplacian-spectrum calculation under a K4 subdivision/matching name could affect priority. No such calculation was found in the bounded checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ground configuration; different invariant",
+          "evidence": "The structural formula sums over K4 subgraphs using the number of perfect matchings avoiding the subgraph, yielding 726 chambers.",
+          "identifier_or_url": "2026/11/8/SCOPE-zariski-chamber-support-polynomial-of-the-maximally-nodal-cubic--496f00e7e487",
+          "material_read": "RESULT.md, offsets 97–2413, Finding and support formula",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Zariski-chamber support polynomial of the maximally nodal cubic",
+          "trigger": "Same thirteen curves and K4/perfect-matchings encoding"
+        },
+        {
+          "assessment": "Geometric antecedent",
+          "evidence": "The four-line construction factors through the blow-up of the six intersections and has four exceptional (−2)-curves over the four nodes.",
+          "identifier_or_url": "https://www.claymath.org/wp-content/uploads/2022/03/cmip08c.pdf",
+          "material_read": "§4.1, printed pp. 188–190, OA offsets 540680–544765",
+          "method": "Lawful OA PDF passages",
+          "title": "Rational surfaces over nonclosed fields",
+          "trigger": "Primary source for Cayley's resolution"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The theorem gives a Cox ring with thirteen variables, not an integral Laplacian cokernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.0799",
+          "material_read": "Theorem 3.1(v), OA PDF offset 47011 onward",
+          "method": "Lawful OA PDF passage",
+          "title": "Cox rings of cubic surfaces and Fano threefolds",
+          "trigger": "Thirteen generators on the 4A1 resolution"
+        },
+        {
+          "assessment": "Necessary general machinery, not a specific calculation",
+          "evidence": "The degree class group is described through the nodal graph and related to the Néron component group for regular models.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0602553",
+          "material_read": "Abstract and pp. 1–2, OA PDF offsets 281–1334 and 4282–8454",
+          "method": "Lawful OA PDF passages",
+          "title": "Combinatorial aspects of nodal curves",
+          "trigger": "General degree-class-group identification"
+        },
+        {
+          "assessment": "Equivariant chamber results, not a critical group",
+          "evidence": "The finding gives Frobenius-fixed chamber polynomials and S4 support-orbit counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-descent-and-a-61-orbit-classification-of-zariski-chamb--f623f0138011",
+          "material_read": "RESULT.md, offsets 0–2979",
+          "method": "Local Resultary mirror",
+          "title": "Frobenius descent and a 61-orbit classification of Zariski chambers on the Cayley cubic resolution",
+          "trigger": "Exact same resolution and combinatorial boundary"
+        },
+        {
+          "assessment": "Different divisor, graph and invariant",
+          "evidence": "Its 22-vertex, 30-edge branch-incidence graph starts from the nine lines on the singular surface.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-picard-tori-and-zeta-functions-of-cayley-s-nine-line-di--88803cbc29d5",
+          "material_read": "RESULT.md, offsets 0–2464",
+          "method": "Local Resultary mirror",
+          "title": "Integral Picard tori and zeta functions of Cayley's nine-line divisor",
+          "trigger": "Closely related Cayley boundary graph with an integral invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen geometric boundary and rational/prime-local proof",
+        "Independent projective-coordinate and Smith reconstruction",
+        "Same-resolution chamber comparison 496f00e7e487"
+      ],
+      "rationale": "This is the whole canonical negative-curve boundary of a geometrically distinguished singular cubic resolution, not a selected induced subgraph. Its integral component group is an exact invariant a user of this genus-nine degeneration can need; the two local ranks prove that all 7- and 13-primary factors are elementary, which the spanning-tree count alone cannot do. The rational and prime-local block argument also explains where the two primary parts come from. Neither a known chamber support count nor the Picard torus of the singular nine-line divisor substitutes for this result.",
+      "residual_risks": [
+        "Application to Néron models is conditional; there is no claim that this divisor is a fiber on the resolved surface."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

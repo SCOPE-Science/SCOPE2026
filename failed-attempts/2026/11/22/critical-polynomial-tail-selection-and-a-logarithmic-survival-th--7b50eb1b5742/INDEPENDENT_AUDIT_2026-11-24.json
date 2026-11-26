@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:24:55.247547Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The killed kernel has similarity factor ρ^(j−i) and rate factor exp(−λt); the geometric factors in the exact initial law cancel in i. The Bessel recurrence tel­escopes into a positive sum with indices |i−j|+1, |i−j|+3, … and index sum ij. Contour tilting with min(|k|/(2z),1) yields the Gaussian-to-exponential bound in the proof, and angular rescaling gives the Gaussian local limit uniformly on compact diffusive windows. With j≤L log z the indices in the recurrence are i+O(log z). For β<2 the small-i part has relative bound of order ε^(2−β) below ε√z, and the large-i tail vanishes beyond R√z as R grows. The weighted Riemann sum has coefficient 2^(−β/2)Γ(1−β/2); at β=2 the main harmonic range up to √z/log z supplies (1/2)log z, with the omitted middle range O(log log z) and decaying outer tail. The log cutoff in j is justified by ρ^j times a polynomial bound from the Poisson jump count even for β<0. This proves the normalized ℓ¹ claim and exact constants, including the use of z=2√(ab)t. The left eigenvector recurrence has the double root ρ at decay rate λ, giving the minimal QSD, and reduces exactly to the initial law at β=−1, with H_−1=1. The comparison regime β>2 follows by domination of i^(1−β)jρ^j. The relative polynomial prefactor can grow for β<−1 without contradicting decay of the survival probability. At β=2 the mass is spread across logarithmic entrance scales, not concentrated at order √t; the discussion's diffusive-scale explanation should be read as applying to β<2.",
+      "replay": "python3 /workspace/branches/frozen_math_replay.py, check 3: independent sums check the exact β=0 reflection telescope and the β=−1 harmonic identity at selected times and states. The frozen checker was inspected but not run; 1262 is the recorded count of its finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pollett's weighted moment is C_β Σ i^(1−β), finite iff β>2, and his ratio theorem requires r>ρ; neither covers the β≤2 result.",
+          "The spectral-edge M/M/1 example gives rank-one t^(−3/2) behavior for fixed i,j, whereas the distinct indexed entrance result gives uniform growing-index estimates and the same critical logarithm."
+        ],
+        "reasoning": "The fixed-state theorem cannot justify interchanging with the divergent weighted sum, but the joint entrance result actually performs that sum; this is materially stronger coverage where β>0.",
+        "searches": [
+          "Pollett arXiv:2611.17791v1, Theorem 3.1, Proposition 4.1 and Remark 4.2",
+          "Pollett arXiv:2609.27335v2, §§4–5",
+          "Entrance-localization RESULT.md Steps 2–6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen finding, proof, scope and supporting verification files",
+        "Both Pollett papers and the distinct local Resultary result, as itemized"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eqs. (7) and (9) identify the weighted kernel sums uniformly for j≤L log t. Eq. (11) bounds larger j by C_β exp(−λt)ρ^j. Summation gives the survival equivalent with factor ρ/(1−ρ)^2 and forces ℓ¹ convergence of the normalized masses.",
+          "For β≤0 the Gaussian-power integral and bounds (5)–(7) need no positivity assumption on β. Only the bound on the large terminal indices uses β>0, and replacing 1 by E[(j+Pois(ct))^(−β)] yields polynomial growth absorbed by ρ^j."
+        ],
+        "reasoning": "This is implication from the inspected proof and not an inference from title or from weak conditional convergence alone. It covers the main exact positive-β survival claim and all of the boundary threshold. Pollett's finite-moment hypothesis is sufficient, not a claimed equivalence with minimal selection or the spectral-edge rate.",
+        "searches": [
+          "Entrance-localization RESULT.md Eqs. (1), (7), (9), (11), (12)",
+          "Pollett arXiv:2611.17791v1, Proposition 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Entrance-localization Finding and Eq. (1) give the same initial masses, rates and positive joint kernel, with d in place of the frozen c. Its limiting terminal pmf is precisely (1−ρ)^2 jρ^(j−1).",
+          "Its Eqs. (7) and (9) produce the identical unnormalized terminal masses for 0<β<2 and β=2, respectively."
+        ],
+        "reasoning": "Changing d to c is only notation. The boundary log t and log(ct) have the same leading coefficient and equivalent asymptotic because c is fixed. The embedded terminal statement is equivalent on 0<β≤2 and the joint entrance statement is stronger.",
+        "searches": [
+          "Local Resultary: survival-conditioned entrance localization, critical geometric-power tails and minimal QSD",
+          "2026/11/22/SCOPE-survival-conditioned-entrance-localization-across-the-critical-t--8f6b85888df1",
+          "arXiv:2611.17791v1, Remark 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue has a distinct same-model entry, 8f6b85888df1, with the matching formulas in its proof. The 7b50eb1b5742 hit is the assigned work itself."
+        ],
+        "reasoning": "A numerical table is not relevant for this continuum of exponents and asymptotic prefactors. The exact indexed mathematical match, not the self-hit, supplies scientific evidence.",
+        "searches": [
+          "Local Resultary: exact critical-ratio birth–death QSD tails and logarithmic survival; 8f6b85888df1"
+        ]
+      },
+      "rationale": "A distinct indexed finding on survival-conditioned entrance localization uses the identical walk and exact initial law for β>0. It proves the same sharp terminal and survival equivalents (including the log term and its exact coefficient) for the entire range 0<β≤2, with the same ℓ¹ control, in addition to the stronger joint entrance/terminal result. This is verified coverage of the central advertised threshold, not just a possible match. Both records carry the same date; their date does not resolve priority, and this decision makes no attribution about order or derivation. β≤0 is outside the explicit scope of the other result, but the weighted Gaussian argument already works there without a new critical mechanism, and the remaining terminal bound only needs a routine polynomial domination of a Poisson jump count. I do not propose a narrowed repair as a new valuable threshold result.",
+      "residual_risks": [
+        "No chronology, provenance relationship or cross-reference resolving order between the two same-day works was established.",
+        "No comprehensive historical priority claim is made, including for the β≤0 extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact coverage for 0<β≤2 plus joint entrance limit; β≤0 outside its statement",
+          "evidence": "Eqs. (7) and (9) supply identical leading constants after d=c; Eq. (11) and geometric summation yield ℓ¹ and survival.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-survival-conditioned-entrance-localization-across-the-critical-t--8f6b85888df1/RESULT.md",
+          "material_read": "Finding, assumptions, Eqs. (1)–(12), offsets 0–9008",
+          "method": "OA reader, local published mirror",
+          "title": "Survival-conditioned entrance localization across the critical tail boundary",
+          "trigger": "Same walk, initial tail, threshold and terminal law"
+        },
+        {
+          "assessment": "Covers finite-moment β>2; different assumptions otherwise",
+          "evidence": "Critical-law weighted sum diverges precisely for β≤2, the part left open there.",
+          "identifier_or_url": "arXiv:2611.17791v1",
+          "material_read": "Theorem 3.1; Proposition 4.1 and Remark 4.2, HTML offsets approximately 12000 and 24000–30000",
+          "method": "OA arXiv HTML",
+          "title": "Domains of attraction of quasi-stationary distributions for an absorbed random walk",
+          "trigger": "Same absorbed walk and exact critical family"
+        },
+        {
+          "assessment": "Fixed-state precursor, not the critical starting-tail sum",
+          "evidence": "Rank-one fixed-pair asymptotics plus a distinct condition for terminal summation; no divergent initial moment calculation in those passages.",
+          "identifier_or_url": "arXiv:2609.27335v2",
+          "material_read": "§4 Eq. (12), §5 Proposition 5.1, OA passages near offsets 31900 and 101000",
+          "method": "OA arXiv HTML",
+          "title": "Polynomial Decay in Absorbing Continuous-Time Markov Chains",
+          "trigger": "Same spectral edge for killed stable M/M/1"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact logarithmic boundary and survival prefactors at the critical geometric rate answer a natural minimal-QSD domain question that the weighted-moment criterion alone does not settle. This is a scientifically meaningful question and result; exact coverage of the central contribution elsewhere is accounted for under originality, rather than by disputing the mathematical value of the result itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

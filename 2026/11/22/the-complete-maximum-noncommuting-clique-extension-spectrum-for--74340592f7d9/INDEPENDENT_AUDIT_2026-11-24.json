@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:50:27.368232Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The central commutator pairing is nondegenerate and identifies noncommutation with pairing one. The Gram matrix J+I has full rank at even size and only the all-ones kernel at odd size. A 2r-clique basis exists by equivalence of nondegenerate alternating forms; adjoining its sum realizes the 2r+1 bound. Any ordered maximum clique is such a basis and its sum, giving a sharply transitive symplectic action and the full symmetric unordered stabilizer. For an even t-clique its span splits off, and the simultaneous neighbors are its sum plus the orthogonal complement; translating preserves the pairings between new vectors, so the count is the complement's maximum-clique count (or a singleton at t=2r). At odd t a vanishing sum makes the neighbor equations inconsistent, including a central singleton; otherwise the last fixed vector corresponds to a fixed nonzero vector of a complement of dimension d=2r-t+1. Its clique incidence is (d+1)/(2^d-1) of that complement's total by transitivity. This gives both denominators and the exact power of 2; each unprescribed coset has z independent lifts. The empty, maximum and rank-one cases agree. The independent transvection-orbit and clique-incidence calculation /workspace/audit-replay/1.py (output 1.txt) checked every clique in ranks 1–3: 8, 192, 26896 total clique instances and 1, 6, 288 projected maximum cliques. The proof, not the finite tests, covers all ranks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source inspection credits Lecomte with maximum size, spanning and the sum relation; the primary text was not obtained independently. A clique-size theorem cannot specify counts through two kinds of odd clique of the same size.",
+          "The ordered simplexes' single free orbit yields all-rank total counts, not in itself the incidence law for partial cliques."
+        ],
+        "reasoning": "An all-rank simplex result together with a complement reduction does derive the formula, but available statements did not identify a prior theorem giving that incidence reduction or an equivalent law.",
+        "searches": [
+          "Lecomte arXiv:2611.00943v1, Lemma 3.1 and Theorems 1.1–1.2; Liu–Wang DOI 10.1142/S1005386715000474",
+          "Literature search for clique-design incidence and binary symplectic simplex extension"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its literature notes",
+        "Resultary 74340592f7d9 (self-hit), 141b4bbe82fc, d542dd4596cd",
+        "Lecomte arXiv:2611.00943v1 and Liu–Wang DOI 10.1142/S1005386715000474 (retrieval attempts; frozen comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stabilizer S_(2r+1) gives the total by orbit–stabilizer. A full extension count additionally needs the even-span affine-complement parametrization, the odd radical/dependence test, and the fixed-vector incidence in a smaller complement."
+        ],
+        "reasoning": "Credit the standard/simplex ingredients and the directly implied total. The dependence-sensitive all-arity refinement goes beyond substituting parameters into the available prior statements.",
+        "searches": [
+          "Statement comparison with Lecomte Lemma 3.1 as described in the frozen file and with the indexed Resultary summaries",
+          "Analysis of the implication of Sp transitivity, orbit–stabilizer, and symplectic orthogonal complements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's binary symplectic/heisenberg conjugacy-class graph entry (141b4bbe82fc) concerns a graph and its spectrum/clique number, not incidence through prescribed elements in the commutator graph.",
+          "The frozen law is an incidence invariant of maximum pairwise-pairing-one simplices in the nonorthogonality convention, multiplied by a constant fiber factor; a bound on the size of a noncommuting set is not the same invariant."
+        ],
+        "reasoning": "The quotient reduction and graph complement convention were accounted for; no distinct matching all-arity statement was found in available material.",
+        "searches": [
+          "Resultary: binary symplectic clique extensions, noncommuting pairwise sets, maximum simplices and stabilizers",
+          "Literature search for maximum cliques in the binary symplectic graph, their stabilizers and containment counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit 74340592f7d9 is this record itself.",
+          "Distinct entry d542dd4596cd treats extremizer multiplicities in UT_4(F_q), including q=3, rather than all binary symplectic complements and all prescribed arities. Comparison is at the catalog-summary level."
+        ],
+        "reasoning": "The exact self-hit is not prior coverage and a different group's extremizer count does not give the claimed all-arity law.",
+        "searches": [
+          "Configured Resultary search for the exact law and extremizer multiplicities"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the all-arity prescribed-clique incidence law, not on the maximum-size bound or the underlying graph. The total follows directly from the simplex orbit and stabilizer and is not by itself a distinct contribution. No inspected statement establishes the full even/odd law with its dependence split; classical complement geometry and incidence counting explain the additional reduction required.",
+      "residual_risks": [
+        "Primary passages of Lecomte and Liu–Wang were not independently obtained. Distinct Resultary hits were compared at summary level.",
+        "Older binary symplectic clique/design literature may contain an equivalent incidence theorem; search misses do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits size/spanning/sum by the frozen comparison; cannot certify scope of unread primary text",
+          "evidence": [
+            "RESULT.md lines 63 and 71 provide the precise locators and claimed overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.00943v1",
+          "material_read": "Frozen account of Lemma 3.1 and Theorems 1.1–1.2 only; primary text not independently retrieved",
+          "method": "Attempted lawful OA HTML/PDF and ar5iv",
+          "title": "The Exact Central-Index Profile of Groups with Bounded Noncommutativity",
+          "trigger": "Same binary symplectic cliques; strongest plausible size theorem"
+        },
+        {
+          "assessment": "Size overlap credited; broader historical coverage unresolved",
+          "evidence": [
+            "The frozen comparison describes a maximum-size theorem for generalized extraspecial groups."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S1005386715000474",
+          "material_read": "Frozen account only; independent lawful OA request timed out",
+          "method": "DOI/OA lookup and comparison with RESULT.md lines 63,72",
+          "title": "On Non-commuting Sets in Certain Finite p-Groups",
+          "trigger": "Generalized extraspecial groups may include the same binary noncommutation graph"
+        },
+        {
+          "assessment": "Related graph, not shown to give the incidence law",
+          "evidence": [
+            "Summary describes commuting conjugacy-class graph, spectrum and clique number."
+          ],
+          "identifier_or_url": "141b4bbe82fc",
+          "material_read": "Catalog summary; mirror did not return primary record",
+          "method": "Configured Resultary search and mirror read attempt",
+          "title": "Commuting conjugacy-class graphs of finite Heisenberg groups are symplectic clique blow-ups",
+          "trigger": "Symplectic-graph reformulation"
+        },
+        {
+          "assessment": "Different parameter regime and invariant in available summary",
+          "evidence": [
+            "UT_4(F_q) and q=3 extremizer multiplicities, without all prescribed binary symplectic cliques."
+          ],
+          "identifier_or_url": "d542dd4596cd",
+          "material_read": "Catalog summary; mirror did not return primary record",
+          "method": "Configured Resultary search and mirror read attempt",
+          "title": "Exact extremizer multiplicities for pairwise noncommuting subsets",
+          "trigger": "Possible prior exact extremizer counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result measures how the natural maximum simplices intersect and extends a known clique-size invariant to every prescribed clique, with a sharp dependence obstruction and unique projected completion two below full even rank. The incidence and lift formula is reusable for counting configurations in central extensions without recovering the group's power map. The simple total by itself would not suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

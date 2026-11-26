@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim applies to all \(n\ge3\) and \(r\ge1\), with arbitrary symmetric nonnegative stochastic weights on allowed edges and connected support. The Kemeny convention is explicitly defined. The strictly convex trace-inverse objective yields global uniqueness, after which automorphism invariance is compulsory rather than assumed. Three invariant spectral blocks give an exact rational objective; saturation of two independent row budgets and a strictly convex scalar reduction prove the unique all-positive weights. For fixed \(r\), the scalar limiting optimization and direct maximum-degree substitution give the \(r+1\) regret. An extracted standalone script completed 585 exact and numerical assertions on actual package contents. No finite experiment is treated as an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Symmetry fixes uniform stationary mass but leaves the edge probabilities adjustable. For connected support, L+Q is positive definite with Q the stationary projection. The trace of its inverse has strictly positive second directional derivative on every nonzero symmetric direction (write it in an eigenbasis, where it is a sum of positive multiples of squared entries). The feasible connected class is convex; its compact closure and divergence of the inverse trace at a disconnected support give existence and strict convexity gives uniqueness. Averaging or uniqueness under permutations then justifies the orbit reduction even for arbitrary competitors. In addition to the leaf and ordinary-clique contrasts, use the block-constant Laplacian on the ordinary clique, gateway and leaves. Its diagonal entries are a,(n-1)a+rb,b; the sum of its principal two-minors is Nab, so its two nonzero eigenvalues contribute ((r+1)b+na)/(Nab). Adding the contrast inverses gives precisely the three-term formula. At fixed a it strictly decreases in b and c, so saturating the two independent row bounds is valid. The reduced objective is strictly convex with endpoint barriers; its derivative gives the stated equation and the root forces all allowed nonloop weights positive, no holds except at leaves, and positive holds even for r=1. For fixed r, the third term differs from n-3 by O(1/n) uniformly in z since (n-2)^2=(n-1)(n-3)+1; the other two positive terms keep minimizers away from the endpoints. Compact uniform convergence therefore gives the stated z-limit, b-limit and additive asymptotic cost. Substituting equal maximum-degree weights produces the stated finite benchmark and fixed-r ratio. The bounded independent `python3 -B /workspace/review_evidence/kemeny_checks.py` probe compared 36 exact rational inverse traces including connected examples with c=0; the frozen script was inspected, not executed. No joint-growth limit is inferred.
 
-Boyd–Diaconis–Xiao (2004) supplies a *different* fastest-mixing objective, and a small single-pendant example; Patel–Agharkar–Bullo (2015) supplies general Kemeny convex design, but not this evaluated clique–star family; Faught–Kempton–Knudson (2021) supplies fixed simple-walk 1-separation formulas with a degree-weighted stationary law. Two highly related published pineapple fastest-mixing result files were read in full and address SLEM, not Kemeny optimality. An earlier exact Kemeny design on leaf coronas covers a different attachment scheme, with leaves at **every** core vertex; it does not imply the localized-star optimum. One-leaf clique and double-clique fastest mixing are likewise distinct optimization questions. Queries covered aliases including lollipop, clique with pendant leaves, pineapple, inverse spectral trace and mean hitting-time design. The residual risk is an unindexed weighted-pineapple inverse-trace classification or a specialized equivalent consequence not identified by available searches.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives the unrestricted optimal transition design on the natural family of clique–star one-vertex attachments for every clique size and number of leaves, determines support and holding behavior, and exactly quantifies an unbounded-in-\(r\) large-clique loss of the familiar maximum-degree design. Its essential distinction from SLEM-optimal pineapple design is that the inverse-spectral-sum objective forces all internal clique edges to carry positive mass. These are structural design and benchmark facts, not just a computation of an arbitrarily chosen parameter value.
+The supported distinct claim is exact one-gateway Kemeny optimization with unrestricted symmetric competitors, including support, holds and the fixed-r benchmark limit. Generic fixed-stationary design, the maximum-degree walk, and SLEM solutions of the same graph are antecedents. A same-day corona result even shares a limiting leaf probability on clique cores, so that limit alone is not the distinction; its assignment is to every core vertex and its cost and penalty are different.
 
-## Scope and limits
+## value
 
-The strict theorem assumes uniform stationary law and symmetric transitions. The limiting regret fixes \(r\) before sending \(n\) to infinity. No independent mathematical audit or external priority certification was performed; unchecked equivalent literature remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-vertex cut concentrates competing demands for transition mass at a single row. The exact classification establishes how that bottleneck should be weighted and which permitted edges can be dropped (none at the optimum), not simply that an SDP could solve the problem. The fixed-r clique limit isolates an arbitrarily large penalty across the family for the standard maximum-degree heuristic, even though each n-limit keeps r fixed. This is informative for comparing designs on networks with a large tightly connected core and a localized peripheral star.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:15:09.294061Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55; VERIFICATION.md lines 19–23",
+        "verify_dephasing_channel.py and verification_output.txt (inspected, not executed)",
+        "repairs/1/RESULT.md, Finding, Proof, and two-site phase check in Verification",
+        "Clark et al. arXiv:0705.3584 pp. 4–5 and Eq. (6)"
+      ],
+      "rationale": "PASS applies to the repaired RESULT.md, not the frozen complex equality. Frozen line 9 says c=e^(−κt)f, but line 47 fixes c as the coefficient on |0><1| and line 35 correctly evolves |vacuum><j| with the conjugate amplitude. This is an actual phase error: with H_1=gσ_x, E_0=0, and t=π/(2g) for transfer between two sites, f=−i but c=+i exp(−κt). The repair gives the conjugate on |0><1| and f on its adjoint. Independently rederived the final statement: only site m flips sign on |vacuum><m|, so the rate on that invariant operator sector is −κ, and noiseless left-vacuum/right-excitation evolution gives e^(−itE_0)<j|e^(itH_1). Tracing all but k kills m≠k. Excitation conservation gives output populations (1−p,p) for input |1> and a pure vacuum output for |0>. For the normalized Choi matrix partially transposed on the output, the uncoupled entries are 1/2 and p/2, and the |01>,|10> block is one half of [[0,c],[conj(c),1−p]]. Its determinant is −|c|²/4. If c=0, the Choi state is diagonal and separable; otherwise the block is NPT. The damping factor is nonzero at finite κt, so the EB criterion is unchanged. With |f|=1 at τ=π/J, the negative eigenvalue has the stated form; at fixed |c|>0 it increases in 1−p, giving the displayed upper bound at 1−p=1, uniform in length for fixed J and κ. The frozen regression grid only tests magnitude-dependent algebra and is not evidence for the phase identity or the infinite family.",
+      "residual_risks": [
+        "The proof is confined to finite evolution under the specified common-rate Markovian pure-dephasing model and vacuum background; no bound on useful transfer fidelity or preservation at infinite κt is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Choi/EB equivalence and the two-qubit PPT/separability theorem apply. The Clark decay argument uses commutation in the different local-decay model; the paper explicitly distinguishes the noncommuting projected dynamics under dephasing."
+        ],
+        "reasoning": "A general channel test covers the last step but cannot derive the coherence coefficient from a spin Hamiltonian and Lindbladian. Commutation for local decay does not give the dephasing formula.",
+        "searches": [
+          "arXiv:quant-ph/0302031 Theorem 4",
+          "arXiv:quant-ph/9605038 abstract",
+          "Clark et al. arXiv:0705.3584 §§7.2.1–7.2.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked searches and the two distinct nearby records",
+        "Clark et al. arXiv:0705.3584",
+        "Horodecki–Shor–Ruskai arXiv:quant-ph/0302031",
+        "Horodecki et al. arXiv:quant-ph/9605038"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clark et al. provide the exact noise law and mirror time, and the general channel literature provides the Choi criterion. Neither of those inputs identifies the vacuum/one-excitation coherence sector as one on which independent dephasing is scalar and hence commutes with the restricted Hamiltonian action."
+        ],
+        "reasoning": "The additional restricted-generator calculation, not just substituting τ into a known general theorem, yields the chain-level identity and makes the extension beyond numerical coverage exact.",
+        "searches": [
+          "Clark et al. arXiv:0705.3584 Eq. (6), mirror-time derivation, and §7.2.2",
+          "Horodecki–Shor–Ruskai arXiv:quant-ph/0302031 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The norm-based criterion is equivalently nonzero transmitted vacuum/one-excitation coherence or an NPT 2×2 Choi block. Clark et al. use partial-transpose eigenvalues but describe their conclusion over the wide range of N and κ/J investigated; the no-EB claim for their fitted effective model concerns that model."
+        ],
+        "reasoning": "Numerical Choi signs and an effective fidelity fit are not equivalent to an exact reduced-channel coefficient for all finite lengths and rates. Switching which matrix unit defines the coefficient only conjugates it.",
+        "searches": [
+          "Resultary: spin-chain transfer, local dephasing, entanglement breaking",
+          "Clark et al. arXiv:0705.3584 §7.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first distinct same-day record treats a driven, zero-temperature amplitude-damped qubit with a weak-drive EB-time law. The second treats a serial cascade of two zero-temperature amplitude-damping maps with an intermediate unitary. Neither gives the transfer-channel coefficient in a dephasing chain."
+        ],
+        "reasoning": "Both are compared by model and conclusion, not by date. Their EB results do not subsume the exact coherence identity; no equivalent formula was identified among the returned records.",
+        "searches": [
+          "Local Resultary ranked search on EB under dephasing or damping",
+          "Resultary records 0f21ea5b3551 and 06d86d7242a6, local primary statements"
+        ]
+      },
+      "rationale": "Reassessed for the repaired convention. The distinct contribution supported by the comparison is the exact invariant-sector formula for common-rate chain dephasing and its universal finite-time EB test and mirror-chain consequence. The finite-size numerical observation, the effective-model observation, and the channel-level Choi and PPT theorems are prior. Correcting the conjugation changes neither the mathematical scope of this non-overlap nor the norm-based criterion.",
+      "residual_risks": [
+        "The wider web lookup was deferred; the positive source comparisons do not exclude an unindexed or uninspected exact common-rate result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and numerical conclusion; no exact all-length theorem in the decisive dephasing comparison",
+          "evidence": [
+            "τ=π/J with noiseless mirror transfer; κ-controlled local dephasing; numerical partial transpose over investigated parameters; effective noise-model fit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0705.3584",
+          "material_read": "PDF pp. 4–5, Eq. (6) at pp. 9–10, §7.2.2 at pp. 13–14",
+          "method": "Bounded primary PDF passages",
+          "title": "Graph state generation with noisy mirror-inverting spin chains",
+          "trigger": "Same engineered chain, local pure dephasing and EB question"
+        },
+        {
+          "assessment": "Supplies Choi equivalence, not transfer dynamics",
+          "evidence": [
+            "Separability of the channel's Choi state is equivalent to entanglement breaking."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0302031",
+          "material_read": "Theorem 4, p. 4",
+          "method": "Bounded primary PDF passage",
+          "title": "General Entanglement Breaking Channels",
+          "trigger": "Potential broader channel-level theorem"
+        },
+        {
+          "assessment": "Supplies the standard channel-state test in dimension 2×2",
+          "evidence": [
+            "PPT is necessary and sufficient for separability in 2×2 and 2×3 systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/9605038",
+          "material_read": "p. 1, abstract",
+          "method": "Primary PDF passage",
+          "title": "Separability of mixed states: necessary and sufficient conditions",
+          "trigger": "PPT-to-separability direction in dimension 2×2"
+        },
+        {
+          "assessment": "Physically and mathematically distinct channel model",
+          "evidence": [
+            "Zero-temperature amplitude damping with coherent qubit drive: infinite EB time without drive and finite EB time with positive drive."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-sharp-logarithmic-entanglement-breaking-delay-under-weak-resonan--0f21ea5b3551",
+          "material_read": "RESULT.md, offset 257, finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp logarithmic entanglement-breaking delay under weak resonant drive",
+          "trigger": "Same-day exact EB theorem near a noise regime with no finite EB time"
+        },
+        {
+          "assessment": "No implication for a vacuum-initialized dephasing chain",
+          "evidence": [
+            "Two zero-temperature amplitude-damping channels with an intervening unitary."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-an-exact-ordered-cascade-entanglement-breaking-threshold-for-amp--06d86d7242a6",
+          "material_read": "RESULT.md offsets 289 and 1450, finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "An exact ordered-cascade entanglement-breaking threshold for amplitude damping",
+          "trigger": "Same-day exact EB criterion for noise channels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/1/RESULT.md Finding and Proof",
+        "Clark et al. arXiv:0705.3584 §7.2.2"
+      ],
+      "rationale": "The repaired result turns a published numerical observation into a uniform finite-rate theorem and identifies which invariant block controls the answer without solving population transport. The exact characterization at arbitrary transfer times, including zeros of the noiseless amplitude, and the explicit finite-rate Choi witness distinguish EB from low transfer fidelity. The value survives the correction because both the factor's modulus and its zero set are unchanged.",
+      "residual_risks": [
+        "The theorem does not give an engineering threshold for useful fidelity, and exponentially small nonzero Choi negativity is not a claim of operational robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

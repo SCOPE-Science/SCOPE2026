@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:11:07.532809Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–74",
+        "VERIFICATION.md, recorded finite checks",
+        "verify.py, exact kernels and finite uniform and coupled comparison checks, inspected only"
+      ],
+      "rationale": "Conditionally on the full joint past, a fresh uniform proposal is rejected with probability sum_i(d_i/D)/n=1/n. Repeating without updating degrees until acceptance gives exactly Q_i, and the first proposals themselves are independent choices for the uniform comparison. Deterministic conditional rejection probabilities imply independence by iterated conditioning. The log moment generating function is m(e^t-1) log N+O_m,t(1); choosing small signed t gives summable tail bounds on dyadic N, and monotonicity interpolates because consecutive dyadic logarithms have ratio tending to one. Changing H targets alters at most two final vertex degrees per edit, so histogram TV is at most 2H/N. For uniform attachment a nonseed birth rank i has independent Bernoulli increments, m per old count n from i to N-1. On ranks i/N bounded away from zero the Poisson approximation is uniform (the summed squared probabilities are O(1/N)), and its mean is uniformly m log(N/i)+o(1). A Riemann sum and removal of the lower-rank cutoff yield the exponential–Poisson mixture m^r/(m+1)^{r+1}. Each coordinate is 2/N-Lipschitz in each of m(N-2) independent choices; concentration, Borel–Cantelli and truncation of a probability limit give almost-sure TV convergence, then transfer by the coupling. The fixed seed contributes only 2/N and m=1 also obeys every estimate.",
+      "residual_risks": [
+        "The frozen finite run was not replayed and does not prove an almost-sure limit. The rate is an upper bound on empirical histogram discrepancy, not graph-level total variation or a lower bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized linear family contains the displayed kernel at theta=alpha=1, but the empirical formula (2.5) is restricted to m=1; the inverse-power result uses a different kernel."
+        ],
+        "reasoning": "A generalized model definition is not a theorem implying the multiple-target empirical law; the prose about excluding parallel edges is also not an exact repeated-target match for m>1.",
+        "searches": [
+          "arXiv:2512.12408, §1.2.1 (1.1), (1.3), Theorem 2.1 and §2.2.1 Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror",
+        "arXiv:2508.18144v2",
+        "arXiv:2512.12408"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical uniform comparison has the same law; neither read de-preferential result gives a sublinear pathwise mismatch count between the models."
+        ],
+        "reasoning": "The shared limiting distribution is not inferred simply by identifying the uniform law or the fixed-vertex marginals. The exact rejection hazard and simultaneous logarithmic error control supply the transfer.",
+        "searches": [
+          "arXiv:2508.18144v2, Theorems 2.3–2.6 and following remark",
+          "arXiv:2512.12408, Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same seed and old-degree updates; Theorem 2.3 gives p_k=2^{-k} for m=1. The remark after Theorem 2.6 leaves the empirical law for m>1 open."
+        ],
+        "reasoning": "Counting excess degree instead of degree only shifts the variable by m. Fixed-vertex growth and the known m=1 law are not the empirical law across all birth ranks for m>1.",
+        "searches": [
+          "Bandyopadhyay Sen Bandyopadhyay Joshi de-preferential attachment linear kernel empirical degree distribution m greater than one geometric law sequential model",
+          "arXiv:2508.18144v2, §§1.1, 1.2.1, 2.1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-geometric-degree-law-for-all-linear-de-preferential-attachment-m--d677d54de27e, matching RESULT.md in the local mirror; same record, not a second finding."
+        ],
+        "reasoning": "Exact distributional match to this record is accounted for. A table of geometric masses could not establish applicability to this stochastic process or a pathwise coupling.",
+        "searches": [
+          "Resultary semantic lookup for sequential linear de-preferential attachment, all-fixed-m geometric degree law and logarithmic coupling"
+        ]
+      },
+      "rationale": "The uniform law and the de-preferential m=1 geometric limit are prior. In the exact sequential repeated-target model the all-fixed-m law, especially m>1, and the quantitative pathwise transfer are distinct from the available primary statements.",
+      "residual_risks": [
+        "The final Springer text (DOI 10.1007/s13226-026-01065-8) could not be read via OA; the submitted arXiv version was checked instead. Other perturbation/coupling treatments may be unindexed or missed; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and prior m=1 limit; m>1 empirical law explicitly left open in the read version",
+          "evidence": [
+            "Theorem 2.3: p_k=2^{-k} for m=1; remark after Theorem 2.6 says the analogue and its conjecture were unavailable."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2508.18144v2",
+          "material_read": "§§1.1–1.2.1, Theorem 2.3, Theorems 2.5–2.6 and remark after 2.6 (OA offsets around 7000–14500 and following)",
+          "method": "Bounded OA HTML passage comparison",
+          "title": "De-Preferential Attachment Random Graphs",
+          "trigger": "Exact seed and sequential kernel; plausible m>1 coverage"
+        },
+        {
+          "assessment": "No covering m>1 empirical theorem identified in the inspected passages",
+          "evidence": [
+            "The linear empirical limit is expressly only for m=1; the inverse case is distinct; the multiple-edge convention in the prose is ambiguous relative to its displayed formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.12408",
+          "material_read": "§1.2.1 formulas (1.1), (1.3), §2.1 Theorem 2.1 (2.5), §2.2.1 Theorem 2.2 (offsets about 2100, 3900, 6300)",
+          "method": "Bounded OA HTML passage comparison",
+          "title": "Generalised De-Preferential Random Graphs",
+          "trigger": "Broader shifted and inverse kernels"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": [
+            "All-fixed-m geometric law and logarithmic coupling match the frozen finding."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-geometric-degree-law-for-all-linear-de-preferential-attachment-m--d677d54de27e",
+          "material_read": "Finding and relationship to prior work",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Geometric degree law for all linear de-preferential attachment multiplicities",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, theorem and proof",
+        "arXiv:2508.18144v2, remark after Theorem 2.6"
+      ],
+      "rationale": "Answers an explicit empirical-law question for multiple sequential attachments and gives a pathwise error guarantee that explains why the limiting histogram is the uniform one, despite nonuniform conditional transitions. The classical mixture on its own is not the contribution.",
+      "residual_risks": [
+        "No claim for inverse kernels, growing m, or simple-graph sampling without replacement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

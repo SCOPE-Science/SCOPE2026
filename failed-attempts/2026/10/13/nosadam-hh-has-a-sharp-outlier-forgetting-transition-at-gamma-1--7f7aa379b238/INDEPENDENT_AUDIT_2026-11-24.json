@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:44:00.663085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Algorithm 1 gives B_t v_t=B_{t−1}v_{t−1}+b_t g_t², with B_0=0 and b_t=t^(−γ). Subtracting the all-baseline recurrence leaves zero for t<τ and exactly (H²−G²)τ^(−γ) in B_t(v_t−G²) for t≥τ. Integral comparison gives B_t∼t^(1−γ)/(1−γ) for 0≤γ<1 (at γ=0 it is exactly t), B_t∼log t for γ=1, and B_t→ζ(γ) for γ>1. These prove the constants, the positive permanent imprint, and the special γ=0.1 tail. Since G>0, taking the inverse-square-root ratio gives exactly the claimed rescaling, with limit 1 or strictly below 1 as stated. The calculation is for fixed τ and the prescribed one-coordinate input; it does not prove a trajectory statement, a momentum statement, or convergence of the full optimizer. The frozen verify.py was inspected but not executed; numerical guards are not required for these exact identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source recurrence holds for arbitrary squared-gradient histories; the HH definition expressly allows γ≥0, including γ>1.",
+          "Regret conditions are separate from the algebraic identity and do not exclude the γ>1 calculation for the second-moment state."
+        ],
+        "reasoning": "The wider source identity applies on the entire frozen domain. The result is a specialization rather than an extension outside the original family.",
+        "searches": [
+          "arXiv:1805.07557v1 pp. 3–5: second moment, HH specialization and regret assumptions",
+          "IJCAI 2019 DOI 10.24963/ijcai.2019/355, large-gradient comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:1805.07557v1",
+        "IJCAI 2019 DOI 10.24963/ijcai.2019/355",
+        "Resultary TAdam and StableAdamW records",
+        "arXiv:2405.03869 pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtract the source Eq. (3) for two histories agreeing except at τ to obtain the entire finite-time statement.",
+          "The elementary p-series integral test and asymptotics give the threshold and rates; algebra gives the inverse-square-root ratio and substitution γ=0.1 gives the last displayed rate."
+        ],
+        "reasoning": "No additional property of the optimizer, gradients, or any data is needed. The whole claim is mechanically implied whether or not the source discusses this precise perturbation.",
+        "searches": [
+          "arXiv:1805.07557v1 Algorithm 1, Eq. (3), HH specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general Eq. (3) explicitly weights g_k² by b_k/B_t. The submitted normalized outlier imprint is this very weight, at k=τ, when b_k=k^(−γ).",
+          "The IJCAI paper discusses a large-gradient example and qualitative recovery, but does not display the three rates."
+        ],
+        "reasoning": "The outlier imprint is the difference of two evaluations of the published weighted average on sequences differing in one term. Different terminology does not make that a distinct mathematical law.",
+        "searches": [
+          "Resultary: NosAdam hyperharmonic outlier forgetting and power-weight memory laws",
+          "Huang–Wang–Dong Algorithm 1 and Eq. (3), arXiv:1805.07557v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The TAdam block-size law concerns current robust first-moment attenuation and the StableAdamW impulse-tail law concerns stale EMA momentum/current clipping, not this second moment.",
+          "Outlier Gradient Analysis, arXiv:2405.03869, pp. 1–2, treats identifying detrimental training samples rather than optimizer-state memory."
+        ],
+        "reasoning": "An exact finite table would not decide this all-t limit. No identified catalogue result supplies a closer exact match than the original NosAdam identity, which already covers the input and parameters.",
+        "searches": [
+          "Resultary: NosAdam, hyperharmonic outlier forgetting, power-weight memory; closest outlier-response and impulse-tail records",
+          "Literature search on outlier-gradient memory and NosAdam"
+        ]
+      },
+      "rationale": "The original NosAdam paper already gives the exact normalized influence of every past squared gradient and the nonnegative hyperharmonic exponent family. Replacing one input in that identity and applying elementary partial-sum asymptotics directly implies the whole finding, even though the finite-outlier formulas and rates are not expressed verbatim there.",
+      "residual_risks": [
+        "The bounded comparison does not exclude a prior text giving exactly these rates; the established direct implication is sufficient regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the second-moment state and the full parameter range",
+          "evidence": [
+            "β₂,t=B_{t−1}/B_t; v_t is the normalized sum with b_k weights; HH uses b_k=k^(−γ), γ≥0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.07557v1",
+          "material_read": "Algorithm 1 and Eq. (3) pp. 3–4, OA offsets 12047–15997; regret hypotheses and HH specialization pp. 4–5, offsets 16400–24430",
+          "method": "OA PDF targeted passages",
+          "title": "Nostalgic Adam: Weighting more of the past gradients when designing the adaptive learning rate",
+          "trigger": "Exact algorithm and plausibly directly implying identity"
+        },
+        {
+          "assessment": "Qualitative discussion; implications are already in the formula",
+          "evidence": [
+            "The paper illustrates rise and decline in v_t versus AMSGrad's running maximum."
+          ],
+          "identifier_or_url": "https://doi.org/10.24963/ijcai.2019/355",
+          "material_read": "pp. 4–5, large-gradient comparison and recoverability discussion, OA offsets 29598–32395",
+          "method": "OA conference paper targeted passages",
+          "title": "Nostalgic Adam: Weighting More of the Past Gradients When Designing the Adaptive Learning Rate",
+          "trigger": "Possible explicit analysis of spike recovery"
+        },
+        {
+          "assessment": "Distinct models and state variables",
+          "evidence": [
+            "TAdam uses a current robust first moment; StableAdamW concerns clipping and EMA momentum."
+          ],
+          "identifier_or_url": "SCOPE-20261013-57f3afff740c; SCOPE-20261013-836d623c393d",
+          "material_read": "Original Findings and their scopes",
+          "method": "Resultary local mirror",
+          "title": "TAdam block-size outlier response and StableAdamW impulse-tail records",
+          "trigger": "Matching indexed optimizer outlier/impulse claims"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between summable and nonsummable memory is a useful explanation for users of the algorithm. As a mathematical finding, however, this is only substitution into the published influence weight followed by the textbook p-series calculation. No new stability, trajectory, or other nontrivial consequence survives within the submitted scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

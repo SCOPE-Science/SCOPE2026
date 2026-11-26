@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:12:08.927943Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Pauli terms give B0 Phi+ = 2 Phi+ − 2 Psi−, B0 Psi− = −2 Phi+ − 2 Psi−, and zero on the complementary Bell vectors. In the symmetric/antisymmetric block decomposition the swap difference has eigenvalues ±2||w||, giving d=2||w||. Positivity bounds d²/4<=b(1−b), fixes b in [b_−,b_+], and gives a>=|c|²/b when d>0. The positive expectation uses a<=1−b and |c|<=d/2. For the negative expectation, b−t²/b+2t, t=|c|, increases with b; after b=b_+ it increases on t<=d/2<=b_+, giving b_+−b_−+d. At d=0 the off-diagonal block vanishes and |2(a−b)|<=2. The displayed pure witnesses give both signs for every d, including d=1. To invert, beta/2−d>0 for beta>2 so squaring is reversible and gives the stated interval. RESULT.md lines 46–84 suffice; the script was inspected but not run. Its frozen log records 1,720 rational witness evaluations and 12,000 samples, not a proof for all states.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Horodecki criterion as reproduced by Lyyra et al. optimizes settings; their discord is a distance to zero-discord states. Grudka et al. bound mutual informations for a pair of measurement bases, not the fixed B0 expectation."
+        ],
+        "reasoning": "Neither an optimized-settings quantity nor the mutual-information complementarity bound determines an attained fixed-axis maximum at each swap distance.",
+        "searches": [
+          "Cusumano et al. arXiv:2504.03351v3, Schmidt-coefficient optimization",
+          "Lyyra et al. DOI:10.1038/s41598-017-08457-1, Bell function and trace distance discord",
+          "Grudka et al. arXiv:1210.8317 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2504.03351v3",
+        "arXiv:2606.26242v1",
+        "DOI:10.1038/s41598-017-08457-1",
+        "arXiv:1210.8317",
+        "Resultary records on Bell decay, the degradation cone, and crossed Bell wiring"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting d=0 recovers the known bound 2 for the exact same B0. The asymmetric state (|0−>+|1+>)/sqrt(2) in the randomized-test paper has zero SWAP overlap, hence d=1; the different reported setting attains 2sqrt(2) while the frozen B0 gives 2."
+        ],
+        "reasoning": "Known maximum-over-settings and symmetry-only statements omit the rank-one-block constraints and attainment needed to derive the nonmonotone interior frontier. The d=1 comparison confirms that changing axes is material, not cosmetic.",
+        "searches": [
+          "arXiv:2504.03351v3 Theorem 2 and Eq. (1)",
+          "arXiv:2606.26242v1, asymmetric Bell state example and appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first paper uses exactly B0 but proves the d=0 ceiling. The second uses a difference of test values (also written delta), not half the trace norm of the state minus its swapped state; it changes measurement settings."
+        ],
+        "reasoning": "A quantitative curve cannot be inferred from the symmetric endpoint. The two definitions of asymmetry and two axes conventions must not be equated.",
+        "searches": [
+          "Resultary: exact frontier formula; fixed-Pauli CHSH with SWAP defect; Bell violation versus exchange asymmetry",
+          "arXiv:2504.03351v3 Eq. (1), Theorem 2",
+          "arXiv:2606.26242v1 randomized Bell tests with permutation asymmetry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Resultary record 2026/11/22/SCOPE-asymmetry-blind-bell-thresholds-and-opposing-concurrence-order-u--2f9344890a4f optimizes CHSH under asymmetric decay rates, not state swap distance. 2026/10/13/SCOPE-a-state-dependent-degradation-cone-for-the-two-vs-two-qubit-corr--4951c36850f0 concerns mutual information; 2026/10/13/SCOPE-crossed-bell-pair-wiring-forces-a-fixed-output-swap--adb3a64820f5 concerns circuit wiring."
+        ],
+        "reasoning": "The closest catalogue records use different objective functions or different roles for swapping, not the frozen formula or its inverse. No exact matching continuum formula was found in the bounded checks.",
+        "searches": [
+          "Resultary: exact frontier formula; CHSH/complementarity tradeoffs; swap asymmetry and fixed Bell witnesses"
+        ]
+      },
+      "rationale": "The exact attained curve and inverse interval at positive state exchange distance for this fixed operator are not established by the inspected predecessors. The zero-distance no-violation obstruction is credited to Cusumano et al.",
+      "residual_risks": [
+        "The Horodecki original was not obtained from DOI or publisher; the criterion was checked as reproduced by Lyyra et al., not used as whole-paper exclusion.",
+        "A norm-constrained optimization or equivalent two-block complementarity formulation could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the d=0 ceiling, not an attained nonzero-distance frontier",
+          "evidence": "Theorem 2 imposes swap covariance with a swap-invariant input; its bound is 2.",
+          "identifier_or_url": "https://arxiv.org/html/2504.03351v3",
+          "material_read": "Eq. (1), HTML offsets 4200–7988; Theorem 2, offsets 17500–23400; comparison with Schmidt optimization",
+          "method": "Lawful primary arXiv HTML, statement-level comparison",
+          "title": "Non-stabilizerness and violations of CHSH inequalities",
+          "trigger": "Exact same witness and symmetry obstruction"
+        },
+        {
+          "assessment": "Different measurement and asymmetry constraints",
+          "evidence": "The appendix defines delta as the difference of two test scores; the d=1 example reaches 2sqrt(2) only with a different witness.",
+          "identifier_or_url": "arXiv:2606.26242v1",
+          "material_read": "PDF passages at offsets 9500 and 26000: asymmetric state example, finite setting pools, and appendix definition of test-value asymmetry",
+          "method": "Lawful OA PDF and direct operator comparison",
+          "title": "Permutation asymmetry unlocks emergent advantage in randomized Bell tests",
+          "trigger": "Exchange asymmetry and CHSH in two-party tests"
+        },
+        {
+          "assessment": "No matching B0 or SWAP distance constraint in the compared formulas",
+          "evidence": "Local measurement directions vary; discord minimizes over zero-discord states.",
+          "identifier_or_url": "DOI:10.1038/s41598-017-08457-1",
+          "material_read": "PDF p. 7, offset 45000, Bell function; p. 9, offset 57400, trace-distance discord",
+          "method": "Lawful OA source and compared definitions",
+          "title": "Symmetry in the open-system dynamics of quantum correlations",
+          "trigger": "Bell decay and a trace-distance quantity under subsystem exchange"
+        },
+        {
+          "assessment": "Different observables and constraints",
+          "evidence": "The bound is on a sum of mutual informations, dependent on basis overlap.",
+          "identifier_or_url": "arXiv:1210.8317",
+          "material_read": "Theorem 3, PDF p. 5, offsets 35400–37553",
+          "method": "Lawful OA original PDF and objective comparison",
+          "title": "Conjectured strong complementary-correlations tradeoff",
+          "trigger": "Possible equivalent complementarity inequality"
+        },
+        {
+          "assessment": "Does not have the fixed observable or state exchange-distance constraint",
+          "evidence": "The asymmetry is how the total decay rate is split, and the optimized threshold does not vary with that split.",
+          "identifier_or_url": "2026/11/22/SCOPE-asymmetry-blind-bell-thresholds-and-opposing-concurrence-order-u--2f9344890a4f",
+          "material_read": "Finding on optimized CHSH for amplitude damping and Poisson resets",
+          "method": "Local Resultary mirror, theorem comparison",
+          "title": "Asymmetry-blind Bell thresholds and opposing concurrence order",
+          "trigger": "Closest catalogue comparison on asymmetry and Bell thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the exact witness already used in the swap-covariance obstruction, the result gives both a sharp lower and a sharp upper certification of exchange defect from violation, with no purity assumption. The loss of violation near maximal as well as zero exchange distance and the attained interior Tsirelson point are useful additional structure, not a claim concerning optimized axes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

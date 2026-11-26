@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:09:13.337419Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding and Proof",
+        "VERIFICATION.md",
+        "verify.py",
+        "/workspace/evidence/p5_newton.py (executed independent integer certificate)"
+      ],
+      "rationale": "The four-term F submodularity slack is J(S)+J(S+ef)−J(S+e)−J(S+f), with common 1/μ terms cancelling and positive product denominator. Independently constructed all 64 characteristic polynomials using traces of Laplacian powers and Newton identities, rather than the supplied Leibniz code. Over all 240 unordered pair/base-set tests, the numerator is the asserted exceptional factorization once, identically zero 29 times, and strictly positive on μ≥5/4 by nonnegative shifted coefficients and positive constant 210 times. The least such constant after multiplying by 4^15 was 2607034601472000. The quartic changes sign between 5/4 and 13/10 and has exactly one positive root by Descartes' rule. Its numerator has the quartic's sign for μ>0, including equality at the root. At zero screening p′(0)/p(0) is the pseudoinverse trace; on the {24} witness the four traces are 8/3, 41/20, 41/20, 146/105, giving slack −3/70. Replay: python3 /workspace/evidence/p5_newton.py. The supplied script was inspected, not run.",
+      "residual_risks": [
+        "This is an exhaustive proof only for the specified unit, homogeneous-screening P5 instance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Garnett–Schneider, p. 1 abstract: V-optimality is submodular in the batch query set.",
+          "Indexed same-day records 7a046323f6e9 and 290479fde4af address screened-cycle vertex landmarks and Nyström vertex selection respectively."
+        ],
+        "reasoning": "Vertex conditioning/principal submatrices do not assert diminishing returns under incidence rank-one updates to a fixed Laplacian.",
+        "searches": [
+          "Resultary: screened trace-inverse edge-set and vertex-set submodularity",
+          "arXiv:1209.3694v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact, edge-coherence and screened vertex-set searches",
+        "arXiv:1411.4884v1 p. 1",
+        "arXiv:1209.3694v1 p. 1",
+        "Authors' correction identifier and frozen attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edge addition and unscreened J are the first cited objective; batch observation and conditional prediction-covariance trace are the second.",
+          "The present separating obstruction changes from S={24} at μ=0 to S=∅ at positive screening; sufficient screening needs all 240 tests."
+        ],
+        "reasoning": "A known failure at zero cannot imply the exact restoration parameter; a submodularity guarantee in different set variables cannot supply the missing sufficiency or equality tests.",
+        "searches": [
+          "arXiv:1411.4884v1",
+          "arXiv:1209.3694v1",
+          "Resultary: graph coherence edge-addition and screened vertex-landmark comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit is the assigned record itself (26b637136294).",
+          "Summers et al., p. 1 abstract, explicitly select edges and claim unscreened network-coherence submodularity."
+        ],
+        "reasoning": "Neither relabelling the original objective nor its limiting pseudoinverse at μ=0 gives the positive-diagonal resolvent classification.",
+        "searches": [
+          "Resultary: P5 threshold screened Laplacian inverse trace submodularity",
+          "arXiv:1411.4884v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed quartic and certificate hit is the exact self-match.",
+          "Frozen RESULT.md line 62 describes the authors' correction as supplying the zero-screening three-chord counterexample. The linked correction was not readable on attempted retrieval."
+        ],
+        "reasoning": "The zero-screening witness is credited. No inspected independent table entails the 240-inequality screened classification; inaccessible correction text is a limitation, not evidence of absence.",
+        "searches": [
+          "Resultary exact P5 threshold search",
+          "Summers et al., ECC_Correction.pdf"
+        ]
+      },
+      "rationale": "Credit the existing unscreened edge-addition counterexample, not priority for that example. The supported distinct claim is the exact positive-screening iff threshold on all six candidate edges and its strictness classification. Retrieved comparisons concern unscreened edge coherence or a genuinely different vertex-set objective, and do not imply the quartic, its global threshold role, or the equality counts.",
+      "residual_risks": [
+        "The authors' linked correction PDF was not independently read; unlocated screened edge-set results or tables could narrow the contribution. This is a best-of-knowledge comparison, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precursor on edge addition and unscreened coherence; abstract does not state the screened threshold.",
+          "evidence": [
+            "'network coherence is a submodular function of the network topology' is its original unscreened claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.4884v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary arXiv passage",
+          "title": "Topology Design for Optimal Network Coherence",
+          "trigger": "Same edge-addition objective in the unscreened limit"
+        },
+        {
+          "assessment": "Credit the reported P5 counterexample; do not infer anything about uninspected text.",
+          "evidence": [
+            "The frozen source attributes the five-vertex path and three-chord violation to the correction."
+          ],
+          "identifier_or_url": "https://personal.utdallas.edu/~ths150130/papers/ECC_Correction.pdf",
+          "material_read": "Indexed correction title and frozen RESULT.md line 62's description; no correction body retrieved",
+          "method": "Author PDF and lawful OA retrieval attempted",
+          "title": "Correction to ‘Topology design for optimal network coherence’",
+          "trigger": "Closest predecessor on the same five-vertex path"
+        },
+        {
+          "assessment": "Different ground set and covariance-update operation.",
+          "evidence": [
+            "The V-optimality guarantee is 'as a function of the batch query set'."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.3694v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary arXiv passage",
+          "title": "Submodularity in Batch Active Learning and Survey Problems on Gaussian Random Fields",
+          "trigger": "Related regularized inverse-trace objective"
+        },
+        {
+          "assessment": "Identical record; not independent priority evidence.",
+          "evidence": [
+            "Matches the same P5 lattice, quartic and positive-screening witness."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-screened-submodularity-threshold-on-the-five-vertex-path--26b637136294",
+          "material_read": "Indexed summary and frozen finding, lines 5–20",
+          "method": "Resultary and bound original",
+          "title": "Sharp screened-submodularity threshold on the five-vertex path",
+          "trigger": "Exact indexed quartic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and cited coherence correction",
+        "Independent exact P5 certificate"
+      ],
+      "rationale": "P5 is a named counterexample to an edge-design submodularity guarantee, not an arbitrary tiny graph. The complete lattice restoration threshold answers exactly how much uniform screening repairs that failure, including a different obstruction at μ=0 and exact strictness. A pointwise test or the old counterexample cannot answer this interval question.",
+      "residual_risks": [
+        "No claim of a screening threshold for other graphs, conductances or candidate sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

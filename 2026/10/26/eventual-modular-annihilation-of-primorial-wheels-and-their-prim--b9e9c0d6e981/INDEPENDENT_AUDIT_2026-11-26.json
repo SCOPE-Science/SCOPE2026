@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:09:02.368448Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–58; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Shunia–Prunescu arXiv:2610.13365v1 §2.1, binary invariant",
+        "/workspace/branches/independent_replay.py, case 1"
+      ],
+      "rationale": "For an old primorial L and new prime q, lift each old unit by a+tL for 0≤t<q. The discarded lifts are exactly qb with b an old unit, since q is coprime to L. This gives U_(Lq)(X)=U_L(X)Σ_t X^(tL)−U_L(X^q). If q≡1 (mod mr), the noninitial summands split in the quotient ring into (q−1)/r identical blocks of r summands, and m divides the number of blocks. The initial summand is 1 and X^q=X, so the two terms cancel, regardless of gcd(r,L). The substitution X↦X^s preserves the quotient ideal even when gcd(s,r)>1, propagating the zero to later stages. Dirichlet applies to the reduced class 1; m=1 is trivial, and q≥3 when m>1, so a nonempty preceding primorial is available. For odd m the order of 2 allows an evaluation homomorphism; the confirmed binary invariant removes 2 and adds 2^(P_k+1). Modulo 17 the order is 8, 137 is the 33rd prime, and multiplication of P_k by any odd prime congruent to 3 modulo 4 toggles P_k modulo 8 between 2 and 6. Infinitely many toggles give both stated state residues infinitely often. The independent replay compared direct and inclusion-exclusion count vectors in 96 bounded cases, and checked p_33 and the two endpoint expressions 7 and 6 after 137 and 139. These corroborate, but do not replace, the proof.",
+      "residual_risks": [
+        "The onset is sufficient, not asserted minimal; the state evaluation is for odd moduli only; finite replay does not establish Dirichlet's theorem or infinite persistence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holt–Rudd's recurrence operates on driving terms for a prescribed gap constellation",
+          "Resultary 618d583e0c17 concerns off-p coefficients of Frobenius-good polynomials; 64139eabdde3 concerns adjacent differences in cyclic orderings of units for a special family of moduli"
+        ],
+        "reasoning": "These claims do not give simultaneous divisibility of all absolute class counts for arbitrary independent r and m. Standard uniform fibers modulo a divisor of P_k do not address general r, e.g. r=8 for squarefree P_k.",
+        "searches": [
+          "Primary literature lookup for modular primorial/reduced-residue wheel recurrences",
+          "Holt and Rudd §2.1 Thm. 2.1",
+          "Resultary nearby Frobenius and unit-permutation records"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13365v1",
+        "arXiv:1312.7569v2",
+        "Resultary 618d583e0c17 and 64139eabdde3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary invariant directly supplies the endpoint-shift identity only",
+          "For r not dividing L, CRT describes simultaneous classes in a full interval of length lcm(L,r), not necessarily their counts in the single interval of length L",
+          "Inserting q≡1 mod mr gives exact cancellation in the single wheel interval and makes the zero persistent"
+        ],
+        "reasoning": "Neither prior representation nor the gap-count dynamics supplies the modular zero. A multiple of the period in the lifting parameter must be inserted and then the q-divisible lifts removed. Dirichlet and the eventual cancellation together give the new consequence; the endpoint and gap corollaries are not separate priority claims over the recurrence source.",
+        "searches": [
+          "Comparison with Shunia–Prunescu Lemma 2.1 and proof of Thm. 1.1; Holt–Rudd §2.1 Thm. 2.1; classical reduced-residue counting by CRT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monomials X^j, 0≤j<r, make the quotient statement equivalent to simultaneous divisibility of the individual class counts",
+          "Shunia–Prunescu's invariant encodes the same units but its inspected modular result uses T_k/2^ν₂(T_k)",
+          "Holt–Rudd classify occurrences of fixed patterns of gaps"
+        ],
+        "reasoning": "A sum or pattern count is not a vector of absolute residue locations. The normalized base-2 criterion is neither the general evaluated quotient identity nor the unnormalized mod-17 result.",
+        "searches": [
+          "Resultary semantic comparison of primorial wheel coefficient divisibility, reduced residue class counts, and odd-modulus integer state",
+          "arXiv:2610.13365v1 §2.1 and Prop. 2.7",
+          "arXiv:1312.7569v2 Thm. 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected recurrence paper gives a normalized 5 mod 8 twin-gap test, not a 6/7 mod 17 table or theorem",
+          "The checked neighboring Resultary records have different invariants"
+        ],
+        "reasoning": "This is an eventual theorem over unbounded k, r, m, not a table of finite wheels. The specific mod-17 split and its all-stage onset are not equivalent to the inspected normalized residue test; potential unindexed tables could give finite coincidences only without a general argument.",
+        "searches": [
+          "Resultary semantic lookup by wheel, modulo odd integer, and prime-recurrence residue aliases",
+          "arXiv:2610.13365v1 Prop. 2.7"
+        ]
+      },
+      "rationale": "The earlier state encoding and the general primorial-wheel setup are established work. The inspected recurrence paper's modular criterion describes a normalized state and detects a prime gap; it does not give the unnormalized eventual odd-modulus residues. The wheel-gap recurrence tracks a different statistic. The supported distinct result is full coordinatewise annihilation, including incompatible-length cases r not dividing P_k, with persistence and its odd-state application. This is a best-of-knowledge comparison, not a priority certification.",
+      "residual_risks": [
+        "A more general finite-group-ring sieve or wheel theorem, including work underlying the Holt–Rudd recurrence, could cover the modular property.",
+        "The bounded literature lookup adds no decisive competing source; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the binary representation, not of the inspected odd-modulus congruence.",
+          "evidence": [
+            "T_k sums 2^a on the reduced residues in [2,L_k+1]; Prop. 2.7 concerns normalized T_k equal to 5 mod 8 iff the gap is 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13365v1",
+          "material_read": "§2.1 Lemma 2.1, proof of Thm. 1.1 and Prop. 2.7",
+          "method": "OA primary HTML, offsets 15300 and 25540",
+          "title": "Short Recurrences and Straight-Line Programs for Primes",
+          "trigger": "Source of the precise binary state and plausible prior modular law"
+        },
+        {
+          "assessment": "Selected gap frequencies, not congruence counts of absolute reduced-residue positions.",
+          "evidence": [
+            "Thm. 2.1 propagates counts of a constellation and its driving terms; the upstream source it credits as reference [3] was not separately inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.7569v2",
+          "material_read": "§2.1 p. 4, Thm. 2.1 and the local definition of the recurrence",
+          "method": "OA primary PDF passage, offset 10950",
+          "title": "On small gaps among primes",
+          "trigger": "Primorial-wheel transition may already yield the annihilation invariant"
+        },
+        {
+          "assessment": "Different polynomial and divisibility property.",
+          "evidence": [
+            "Off-p coefficient divisibility is for Frobenius-good polynomials, not primorial unit indicators."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-prime-arity-coefficient-rigidity-for-frobenius-good-polynomials--618d583e0c17",
+          "material_read": "Finding",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Prime-arity coefficient rigidity for Frobenius-good polynomials",
+          "trigger": "Indexed coefficient divisibility theorem"
+        },
+        {
+          "assessment": "Orders units and controls their differences, not their absolute residue counts.",
+          "evidence": [
+            "The checked statement concerns cyclic orders of units for 3^a p^b."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-cyclic-unit-difference-permutations-for-moduli-with-prime-suppor--64139eabdde3",
+          "material_read": "Finding",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Cyclic unit difference permutations for moduli with prime support",
+          "trigger": "Indexed cyclic structure on reduced residues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations",
+        "Shunia–Prunescu arXiv:2610.13365v1 §2.1"
+      ],
+      "rationale": "The theorem supplies an exact invariant of all sampled residue coordinates of a natural sieve object, not just Euler's totient or the CRT-divisor case. It gives a simple residue law for otherwise enormous prime-generating states without computing the state itself, and an explicit fixed odd modulus where eventual support of size two does not mean stabilization. This is a modest but useful arithmetic application of the wheel transition, with no claim to a sharp least threshold.",
+      "residual_risks": [
+        "No claim to characterize which odd moduli give stabilization or to improve general least-prime bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

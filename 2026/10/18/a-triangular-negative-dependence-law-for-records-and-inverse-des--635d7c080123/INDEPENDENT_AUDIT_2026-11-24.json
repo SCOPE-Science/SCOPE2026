@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:19:57.252022Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Transposing the consecutive values j and j+1 bijects the fair J_j conditions. At other positions comparisons with j and j+1 agree, and at the earlier swapped position all prefix comparisons against the earlier maximum agree. At the later position a record is lost, never gained, precisely when the first two high labels in {j,…,n} are j,j+1 in that order. For m=n−j+1 that conditional fraction is (m−2)!/(m!/2)=2/[m(m−1)], with a change only at T_2, the second high position. High positions are a uniform m-subset independently of high-label order; exactly (i−1) binom(n−i,m−2) subsets have T_2=i. The conditional difference multiplied by −1/4 gives the stated binomial covariance after cancelling factorials. Its support is 2≤i≤j+1 and its diagonal i=j+1 is strictly negative. Summing T_2 probabilities gives the column total and summing 1/[h(h+1)] gives both telescoping identities. At n=2 the pair of indicators are complementary; R_1 is deterministic in all sizes. Domination is for one fixed J_j, not joint negative association or an equality for total-variation distance. Inspected the frozen checker, not run: it asserts the exact covariance entries and per-swap change pattern on a finite range, not a separate closed-form mismatch-probability total. The latter follows from the label-order argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin's count law includes lmin and ides. Complementing values sends lmin to lmax and ides to n−1−ides; the specialized law determines aggregate covariance. Gnedin–Gorin includes the uniform record process at θ=1. The Mallows theorem includes q=1 but for ordinary position descents."
+        ],
+        "reasoning": "Neither an aggregate joint law, a general record-process measure, nor extending ordinary-descents to Mallows covers conditioning the record vector on a specified rankwise inverse descent.",
+        "searches": [
+          "Jin arXiv:2210.08789 Theorem 1",
+          "Gnedin–Gorin arXiv:1202.3680 opening definitions and main results",
+          "Resultary 5eac6eea209c Finding"
+        ]
+      },
+      "checked_sources": [
+        "Baril–Vajnovszki arXiv:1606.07913",
+        "Jin arXiv:2210.08789",
+        "Gnedin–Gorin arXiv:1202.3680",
+        "Resultary 5eac6eea209c, 487eac650807, 3a647480e072"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jin's result implies the aggregate count law by specialization and complementation but has no rank/position variables. Passing to π⁻¹ to turn inverse descents into ordinary descents transforms the record-position set into the record-value set of the inverse; it does not preserve the target first statistic."
+        ],
+        "reasoning": "The conditional loss at the second position of a specified high-label subset and the triangular support are not consequences of specializing the ordinary-position kernels or the stated count law.",
+        "searches": [
+          "Baril–Vajnovszki Theorem 2 with definitions",
+          "Jin Theorem 1 and value complementation",
+          "Resultary 5eac6eea209c and 3a647480e072 exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baril–Vajnovszki Ides is the set of positions i at which π_i+1 appears to the left of π_i. It has the same cardinality as Des(π⁻¹), but the label set is generally different."
+        ],
+        "reasoning": "Changing labels requires the actual permutation values at those positions. The distribution of the stated position-labelled set jointly with record positions does not provide the claimed value-ranked coordinates by mere relabelling.",
+        "searches": [
+          "Resultary: record-position inverse descent, triangular covariance and value-swap coupling",
+          "Baril–Vajnovszki arXiv:1606.07913 definition of Ides and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5eac6eea209c gives a bidiagonal ordinary-descent kernel at q=1; 3a647480e072 gives ordinary-descent conditional shielding; 487eac650807 gives conditional stochastic regression for global ordinary-descent versus record counts."
+        ],
+        "reasoning": "The exact indexed records resolve other statistics. Reserve overlap credit for the aggregate covariance; neither same-day placement nor a later displayed date decides priority.",
+        "searches": [
+          "Resultary: indexed record–descent covariance and conditional swap laws"
+        ]
+      },
+      "rationale": "The aggregate count covariance is covered and not credited as new. The strongest set-valued primary theorem uses a position-labelled version of inverse descents, not the rank set of Des(π⁻¹). The strongest indexed exact matches concern ordinary descents at adjacent positions and yield a different kernel. Neither resolves the triangular position-by-value kernel or the fixed-value-swap conditional record-vector coupling.",
+      "residual_risks": [
+        "Another value-indexed formulation or exact swap coupling under different permutation coding could exist outside the inspected works.",
+        "The related-work paragraph should explicitly distinguish Baril–Vajnovszki's position-labelled set from the target rank-labelled set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real joint overlap for position-labelled Ides, not inverse-descent ranks",
+          "evidence": [
+            "Theorem 2 matches (Des, Ides, Lrmax, Lrmin, Rlmax) with (Asc, Row, Posz, Max, Rlmin); p. 3 distinguishes Ides from Des(π⁻¹)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.07913",
+          "material_read": "OA pp. 3 and 9, Ides definition and Theorem 2; offsets 8604 and 27441",
+          "method": "Primary text statement and definition comparison",
+          "title": "A permutation code preserving a double Eulerian bistatistic",
+          "trigger": "Closest broad joint set-valued equidistribution"
+        },
+        {
+          "assessment": "Determines aggregate covariance; not rankwise or vectorwise",
+          "evidence": [
+            "Specialize other variables to one in the joint (des, ides, rmax, lmin) generating function, then complement values."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.08789",
+          "material_read": "OA pp. 1–2, definitions and Theorem 1",
+          "method": "Primary statement and specialization comparison",
+          "title": "Symmetric generating functions and Euler–Stirling statistics on permutations",
+          "trigger": "Potentially dominating joint count result"
+        },
+        {
+          "assessment": "Record framework including uniform permutations, not a located inverse-descent law",
+          "evidence": [
+            "The uniform instance is θ=1 in the weighted record model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.3680",
+          "material_read": "OA pp. 1–2, definitions and statement of main results",
+          "method": "Primary passage comparison",
+          "title": "Record-dependent measures on the symmetric groups",
+          "trigger": "Broader record-process framework"
+        },
+        {
+          "assessment": "Ordinary descents or global counts, not the frozen position-by-value result",
+          "evidence": [
+            "The Mallows uniform case gives the same aggregate but a bidiagonal ordinary-descent kernel; the regression uses total counts; shielding resolves ordinary descent positions."
+          ],
+          "identifier_or_url": "Resultary 5eac6eea209c, 487eac650807 and 3a647480e072",
+          "material_read": "Each RESULT.md Finding at offset 0",
+          "method": "Resultary search and local-mirror passage comparison",
+          "title": "Bidiagonal record–descent dependence; Strict stochastic descent regression; A local shielding law for records and descents",
+          "trigger": "Strongest exact indexed dependence comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coupling orders every increasing functional of the record vector under one inverse-descent condition, which is stronger than pairwise covariance signs. The triangular full-rank kernel and exact localization at the highest value ranks reveal how the known aggregate dependence arises, with a specific mechanism absent from the aggregate count statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:36:25.242664Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; VERIFICATION.md, orbit_data.json and the two uploaded checker texts as evidence",
+        "Independent replay: python /workspace/reviews/recheck_2.py; transcript /workspace/reviews/recheck_2.txt; all eight data rows compared against frozen orbit_data.json"
+      ],
+      "rationale": "An independent enumeration considers all permutations from the even color class to the odd class of the cube and retains exactly the 272 supported bijections. Orbit closure under four translations and three adjacent coordinate swaps produces the full cube action and regenerates the eight lexicographic representatives and sizes. For each retained graph, independent subsets are generated via a least-bit recurrence, and an independent subset is maximal exactly when every one-vertex enlargement is disallowed. A support is shattered precisely when the successive positive/negative splits of the bitset of concepts leave every branch nonempty; this is equivalent to the trace equality in the Finding, with no restriction to maximum sets. Testing one-vertex supersets finds all facets by downward closure. All rows of the independent census agree with orbit_data.json, including the distinct maximal-independent-set size distributions, the common initial face counts, 40 VC-dimension-five deletions and 16 pure deletions. A separate backtracking isomorphism test finds a full edge-preserving bijection from GP(8,3) to class 8. The classification is eight orbit-indexed profiles, not eight distinct coefficient pairs: rows 1 and 6 coincide in both face and facet counts. The Finding's table is correct; the title can be read more clearly as a classification across eight orbits.",
+      "residual_risks": [
+        "Only the deletion of an entire perfect matching of Q4 is covered. Cube orbits are not by definition graph isomorphism classes after deletion; here the computed size distributions separate them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-nonpure record gives the intact Q4 coefficients 1,16,88,160,104 and facet sizes two and four. The antipodal insertion record changes the intact graph by edge addition. Literature on covering-graph maximal sets concerns their number, and inducibility concerns configuration densities."
+        ],
+        "reasoning": "The old graph and edge-insertion graph do not dominate the result: shattering here is defined through maximality in a specific retaining graph, so comparing arbitrary edge changes is not a monotonicity argument for this concept class.",
+        "searches": [
+          "Resultary 480bd3d24ed9 and 839008f93282; Duffus–Frankl–Rödl covering graph and Goldwasser–Hansen inducibility papers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 5cd5b9de4a8b, 480bd3d24ed9, 839008f93282",
+        "Jahari–Alikhani arXiv:1808.07369v3; Coudert et al. arXiv:2405.07588; Goldwasser–Hansen doi:10.1002/jgt.23053, first-page abstract; Duffus–Frankl–Rödl page 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The anti-forcing classification provides a natural set of cases, yet supplies no predicates or coefficients for the MIS trace/shattering tests on the retained edges. The intact-cube profile is for only a different graph."
+        ],
+        "reasoning": "A prior symmetry classification allows the new computation to be organized in eight rows, but neither it nor the intact-cube results imply which 40 deletions have VC dimension five or which 16 give a pure complex.",
+        "searches": [
+          "Compare Resultary 5cd5b9de4a8b, 480bd3d24ed9 and 839008f93282 with the frozen finite classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inclusion-maximal independent sets are precisely independent dominating sets. The independent-domination polynomial records counts by concept cardinality, not the pattern of restrictions to supports. Coudert et al. define a family of closed neighborhoods, not maximal independent sets."
+        ],
+        "reasoning": "A Boolean membership trace/facet result for independent dominating sets after one-factor deletion would be equivalent, but a neighborhood VC result or cardinality enumerator alone is not.",
+        "searches": [
+          "Resultary comparisons for matching-deleted Q4, independent domination, maximal-independent-set shattering and antipodal insertion",
+          "Jahari–Alikhani arXiv:1808.07369v3 §1; Coudert et al. arXiv:2405.07588"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The anti-forcing table explicitly lists 272 matchings, eight orbits, and matching orbit sizes 4,8,12,24,32,48,48,96, in exact agreement as a multiset. It reports forcing, anti-forcing and direction data, not the eight deleted-cube trace rows."
+        ],
+        "reasoning": "Credit the orbit partition as directly covered. A table of symmetry classes or concept size counts does not tabulate which positive/negative patterns occur on each support; the per-orbit face and facet counts go beyond the inspected tables.",
+        "searches": [
+          "Resultary 5cd5b9de4a8b matching orbit table and same-day exact shattering outputs"
+        ]
+      },
+      "rationale": "The eight matching orbits, group size and underlying independent-domination terminology are known. The result distinct in the inspected evidence is the Boolean trace and facet classification by orbit and its exact VC-dimension and purity split. Same-day shattering records concern intact Q4 or antipodal edge insertion, not this family; no priority is inferred from their date.",
+      "residual_risks": [
+        "A search hit titled On The Matching Forcing And Anti-forcing Numbers Of (3,6)-fullerenes And Hypercubes was not retrievable for full-text comparison; nothing is inferred from its title or unavailability. It may bear on the already credited matching classification.",
+        "Unindexed graph-specific MIS trace calculations remain possible; no chronological priority conclusion is made about the same-day intact/augmented cube cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct orbit classification coverage, not trace or purity coverage in the inspected passage.",
+          "evidence": "Reports the same 272 matchings and eight orbit sizes, with forcing/anti-forcing invariants and direction counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-first-gapped-anti-forcing-spectrum-in-the-hypercube-sequence--5cd5b9de4a8b",
+          "material_read": "RESULT.md orbit and invariant passage at offset 433",
+          "method": "Local published-record mirror",
+          "title": "First gapped anti-forcing spectrum in the hypercube sequence",
+          "trigger": "Closest exact orbit-class antecedent"
+        },
+        {
+          "assessment": "Intact Q4, not matching-deleted Q4.",
+          "evidence": "Gives the distinct intact profile and facets of size two and four.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-nonpure-maximal-independent-set-shattering-complex-in--480bd3d24ed9",
+          "material_read": "Finding and intact Q4 data at offset 382",
+          "method": "Local published-record mirror",
+          "title": "The first nonpure maximal-independent-set shattering complex in the hypercube sequence",
+          "trigger": "Same shattering concept and dimension"
+        },
+        {
+          "assessment": "Different changed graph: inserts antipodal edges rather than deleting a cube perfect matching.",
+          "evidence": "Compares intact Q4 and the antipodally augmented Q4 in the same trace terminology.",
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-edge-insertion-purifies-the-maximal-independent-set-sh--839008f93282",
+          "material_read": "RESULT.md comparison at offset 900",
+          "method": "Local published-record mirror",
+          "title": "Antipodal edge insertion purifies the maximal-independent-set shattering complex",
+          "trigger": "Same cube and a symmetric matching-type perturbation"
+        },
+        {
+          "assessment": "Defines concept-size count, not shattering.",
+          "evidence": "Counts independent dominating sets by their cardinalities.",
+          "identifier_or_url": "https://arxiv.org/html/1808.07369v3",
+          "material_read": "§1, offset 3745",
+          "method": "Lawful open primary text, bounded passage",
+          "title": "On the independent domination polynomial of a graph",
+          "trigger": "Alternative maximal-independent-set terminology"
+        },
+        {
+          "assessment": "Different hypothesis class.",
+          "evidence": "Uses closed neighborhoods.",
+          "identifier_or_url": "https://arxiv.org/html/2405.07588",
+          "material_read": "Abstract, offset 0",
+          "method": "Open primary text",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Potential alternate definition of graph VC dimension"
+        },
+        {
+          "assessment": "Abstract concerns numbers of maximal sets for cube covering graphs; no whole-document claim based on this passage.",
+          "evidence": "States bounds for counts of maximal independent sets in the cube covering graph.",
+          "identifier_or_url": "https://www.math.emory.edu/~dwight/papers/17-DFR-DAM.pdf",
+          "material_read": "Page 1 abstract",
+          "method": "Open PDF",
+          "title": "Maximal independent sets in the covering graph of the cube",
+          "trigger": "Possible cube maximal-set enumeration antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and orbit data; independent replay; intact and antipodally augmented comparison records"
+      ],
+      "rationale": "One-factor deletion gives a natural degree-preserving family relative to the deleted edge set: all retained graphs are cubic on the same vertex set and are generated by the same symmetric rule. A complete orbit-indexed census quantifies how this constrained perturbation changes the trace complex rather than simply tabulating isolated graphs. The exact coexistence of different dimensions and purity outcomes, and the identical face/facet vectors for two graphs separable by their concept-size counts, furnish precise comparison data for MIS-shattering and extremal examples such as Möbius–Kantor.",
+      "residual_risks": [
+        "No higher-dimensional stability theorem or general relation between orbit invariants and shattering is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

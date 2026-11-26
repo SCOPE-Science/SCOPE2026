@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stated language has a complete automaton whose states encode zeros modulo the exact period \(P\) of \(\binom{z}{2}\bmod m\), the scattered-triple count modulo \(m\), and the trailing-one run length. Every state is reached by explicit calibrating words. The proof separates every state pair, including run-length differences, same-residue differences, and different zero-residue differences. Its nonstandard step establishes an exact calibration-separation lemma by taking second finite differences. The separate checker confirms all 44 finite test automata, all 25,680 constructed distinguishing suffixes, and the 98,292 direct input comparisons. No sample is used to infer the general theorem.
+## correctness
 
-## Originality
-PASS, qualified. The closest unrestricted modular \(0^d1\) counting theorem was read in full: specializing \(d=2\) gives \(mP\) states, but its equivalence-separating suffixes permit arbitrarily long contiguous runs of ones. They fail under a forbidden \(1^r\) factor and do not supply the run-capped lower bound. The reviewed full-text material on binomial equivalence (Lejeune–Rigo–Rosenfeld), modular word-binomial coefficients (Leroy–Rigo–Stipulanti), and operational DFA complexity (Salomaa–Salomaa–Smith) does not give this combined all-parameter theorem. A prior constrained modular `01` syntactic-monoid result concerns a different statistic, local constraint and recognition invariant. This full-text comparison strengthens the implication check; independently unindexed equivalent work remains a risk.
+PASS
 
-## Value
-PASS. The statistic is a natural modular scattered-subsequence observable and \(1^r\)-avoidance is the standard homopolymer-run constraint. The result determines exact deterministic memory for every modulus and run cap, certifies simultaneous reachability and observability of the modular counter and local memory, and exposes a genuine even-modulus period doubling. The calibrated Myhill–Nerode construction is reusable beyond this particular instance. No claim is made for a broader counting pattern or actual hardware performance.
+For integers m,r≥2, the complete DFA tracks the zero count modulo P, scattered 001 count modulo m, and trailing-one run in {0,…,r−1}, with one rejecting sink. The shift difference dz+binom(d,2) forces d divisible by m and binom(d,2)=0 mod m; hence the exact least period P is m for odd m and 2m for even m. Starting with two zeros, a single marker one followed by P zeros increments the count by one without changing the zero residue modulo P or exceeding the run cap. This reaches every count, after which appending zeros and a prescribed final run with a compensated count reaches every legal triple. For unequal runs, kill the longer run then calibrate the surviving state to acceptance; for equal zero residue and different count residues, a common calibration can accept only one. For unequal zero residues, write f(a),g(a) for their increments after a zeros, and choose B with f(B)=1 and C=g(B). There must be a b with g(b)−Cf(b) nonzero modulo m: otherwise second differences force C=1, and the equal shifts contradict exact period. A suitable increment at B makes two probes, using zero or one marker at b, both accept for the first state; they cannot both accept for the second. Leading and separating zeros make these probes run-safe including r=2. The sink is reachable and has no accepted continuation, unlike every nonsink state. Thus exactly rPm+1 states are necessary and sufficient. Independent bounded minimizations for (m,r)=(2,2),(3,2),(4,3),(5,2),(6,3) gave 17,19,97,51,217, with direct triple counting through word length nine; replay: /workspace/branches/9da90b86-f47e-4bf3-b804-7c20f171c2bc/record3_independent_check.py. Those tests do not prove the universal result. The supplied checker was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The modular counter and its odd/even state period are already covered for unrestricted words. Pass applies to exact simultaneous run-cap minimality, not to those ingredients. No matched statement covers the constrained theorem in the evidence available; this is a best-of-knowledge assessment, not a priority certification.
+
+## value
+
+PASS
+
+This is an exact deterministic memory requirement for a natural conjunction of a scattered-count test and a local run constraint. It resolves whether enforcement of the run rule allows any of the modular-state memory to be shared or discarded, uniformly for all caps and composite as well as prime moduli: none can be discarded, and the unrestricted parity jump survives in full. The value is in the tight lower bound and constructive run-safe separation, not the obvious product construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

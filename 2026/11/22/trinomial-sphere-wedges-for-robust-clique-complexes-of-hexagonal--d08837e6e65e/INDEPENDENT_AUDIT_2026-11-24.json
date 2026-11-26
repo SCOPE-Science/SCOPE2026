@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:58:32.040417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:15–64",
+        "VERIFICATION.md",
+        "check_hex_bouquets.py:13–51,69–129",
+        "Independent local census: all 32 subsets of {0,1,2,3,4}, independence by testing consecutive gaps >1 in subsubsets, then toggle in ascending vertex order"
+      ],
+      "rationale": "For the ordered matching on nonempty faces, any directed cycle must alternate up and down: consecutive upward edges cannot occur in a matching, and the numbers of upward and downward steps around a cycle are equal. Thus every cycle cell survived all stages before the minimum-index upward toggle on the cycle. For that index, a downward toggle is impossible: its two endpoints would have been paired at that stage. This justifies the acyclicity argument. After toggling z, the only remaining z-face is {z}. For faces without z, the independence number is ∑A_j; adding z replaces this by max(∑A_j,1+∑B_j). A face remains exactly when A_j=B_j for all j and the sum is k−1. A residual cover cannot change this rank vector. Independently enumerated the 32 local subsets by testing every independent subsubset according to adjacency in the five-path; the qualifying strata have sizes 1,7,7, and successive toggles leave exactly ∅, de, bcde. On each product stratum, the blockwise greedy matching removes the entire earlier-coordinate pair times every later-coordinate choice, so the sole survivor is the product of local survivors. The empty face never consumes {z}. The Morse CW model has one point and cells only in dimension 2k−3, with multiplicity [t^(k−1)](1+t+t²)^m; their attaching maps are constant. This gives the wedge and the null case, including k=2m+2. Inspected frozen checker and verification scope without executing that checker.",
+      "residual_risks": [
+        "The independent finite census checked the local table, not all 16 recorded large finite checks. The integral conclusion rests on the reconstructed uniform matching proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filakovský uses square-sequence graphs; the all-k corollary imposes edge gluing of squares. A hexagon bouquet has no square.",
+          "Carnero Bravo's disconnected decomposition is a homotopy colimit; after deleting the hub it could describe the path disjoint union, but it does not compute the hub-link inclusion for the connected bouquet.",
+          "The indexed all-bipartite wedge theorem is at k=3 only."
+        ],
+        "reasoning": "Neither wider graph setting at a smaller threshold nor a disconnected-graph homotopy-colimit formula determines the joint hub and rank-stratum problem at k≥4.",
+        "searches": [
+          "Filakovský arXiv:2602.11365, Theorem 2 and Corollary 3",
+          "Carnero Bravo arXiv:2602.21427, disjoint union and gluing; Corollary 27 and Theorem 28",
+          "Resultary 8d06720b1a2b"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d08837e6e65e and six neighboring IDs above",
+        "arXiv:2602.11365",
+        "arXiv:2602.21427",
+        "arXiv:1912.12605"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pentagon contraction only identifies C5 with C4 complexes; it supplies no C6-to-C5 equivalence.",
+          "The hexagonal petal admits a rank-two surviving state in addition to the rank-zero and rank-one states. Its contribution changes both the top noncontractible threshold and multiplicities."
+        ],
+        "reasoning": "There is a common block philosophy, but neither the presence of that state nor its critical dimension follows by specializing the prior formulas. Checking the local rank-stratified matching is required.",
+        "searches": [
+          "Resultary 746320ce0145, eb26c76015bf, 460b5459c6ec, 6c8fc6e8dd2e (Findings)",
+          "Carnero Bravo arXiv:2602.21427, §3 and p. 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_k=BI_k=I_k in the bounded-independence notation, and is the Alexander dual of the total k-cut complex.",
+          "Resultary ec9e2f66e799 uses the same graph but studies the ordinary independence complex, not this complex or its total-cut dual."
+        ],
+        "reasoning": "Changing notation or taking the total-cut dual does not supply the C6 classification. Ordinary independence forbids edges, whereas R_k forbids independent k-sets, so its known wedge does not transfer.",
+        "searches": [
+          "Resultary: trinomial sphere wedges for robust clique complexes of hexagonal bouquets",
+          "Carnero Bravo arXiv:2602.21427, §3",
+          "Kim–Lew arXiv:1912.12605, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d08837e6e65e is the same record, not separate coverage.",
+          "746320ce0145 and eb26c76015bf give the C4 binomial formula; 460b5459c6ec reduces C5 to C4; 6c8fc6e8dd2e covers K_{2,t_i}; ec9e2f66e799 concerns another complex on B_m."
+        ],
+        "reasoning": "None gives the required uniform labelled graph family and robustness range with its trinomial multiplicity. No distinct exact enumeration or formula was found within the checked index.",
+        "searches": [
+          "Resultary: hexagonal bouquet robust-clique and total cut homotopy, quadrilateral/pentagonal and biclique bouquet analogues"
+        ]
+      },
+      "rationale": "On the assessed evidence, the classification for rooted bouquets of chordless C6 and k≥4 is not covered by the bounded-independence/total-cut literature or by the nearest indexed robust-clique results. The method and nearby families are not themselves new.",
+      "residual_risks": [
+        "Bounded best-of-knowledge comparison; unindexed treatments of rooted cut-vertex decompositions may exist.",
+        "No ordering or priority is inferred from same-day publication dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graphs or threshold",
+          "evidence": [
+            "The square-sequence hypotheses involve C4 attachments, absent from B_m."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.11365",
+          "material_read": "PDF pp. 1–3, Theorem 2 and Corollary 3",
+          "method": "Lawful OA primary PDF",
+          "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+          "trigger": "Same invariant and sphere-wedge claims"
+        },
+        {
+          "assessment": "Prior duality and disjoint-union machinery, not the connected bouquet theorem",
+          "evidence": [
+            "§3 identifies the dual; Corollary 27 describes a homotopy colimit for disconnected G, and Theorem 28 imposes hypotheses on disconnected components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.21427",
+          "material_read": "PDF pp. 1–2, §3 p. 9 and Corollary 27/Theorem 28 pp. 14–15 (offset 42460)",
+          "method": "Lawful OA primary PDF",
+          "title": "Total cut complexes and their duals",
+          "trigger": "Exact dual formulation and possible decomposition theorem"
+        },
+        {
+          "assessment": "Background on the definition and collapsibility, no matching classification in inspected passages",
+          "evidence": [
+            "I_n uses α(G[U])<n; the results introduced concern collapsibility numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.12605",
+          "material_read": "PDF pp. 1–2",
+          "method": "Lawful OA primary PDF",
+          "title": "Complexes of graphs with bounded independence number",
+          "trigger": "Same complex under alternate name"
+        },
+        {
+          "assessment": "Distinct records considered; no equivalent coverage",
+          "evidence": [
+            "C4 and K_{2,t_i} rooted-block results differ in petals; the C5 contraction does not cover C6; the same graph's independence complex and the k=3 theorem concern different invariants or thresholds."
+          ],
+          "identifier_or_url": "746320ce0145; eb26c76015bf; 460b5459c6ec; 6c8fc6e8dd2e; ec9e2f66e799; 8d06720b1a2b",
+          "material_read": "Mirrored RESULT.md Findings at offset 0",
+          "method": "Local Resultary search and mirrored full-text passages",
+          "title": "Resultary neighboring bouquet and robust-clique classifications",
+          "trigger": "Closest indexed families and same underlying graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–23,29–64",
+        "Resultary C4 and C5 comparison Findings"
+      ],
+      "rationale": "The first longer even cycle beyond a square in this bouquet problem supplies a second nonzero local rank, enabling a whole interval of higher thresholds absent for square petals. The uniform integral homotopy formula identifies precisely those thresholds and ranks and explains the trinomial rather than merely counting faces. The local-path decomposition also isolates where generalizations to other rooted blocks would need new work.",
+      "residual_risks": [
+        "No equivariant, filtration-compatible or general cactus classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

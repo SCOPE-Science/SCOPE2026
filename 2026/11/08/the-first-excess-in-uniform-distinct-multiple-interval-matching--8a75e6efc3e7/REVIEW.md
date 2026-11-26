@@ -1,15 +1,21 @@
-# Review of the exact uniform matching threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The lower bound \(F(n)\ge2n-2\) follows from the two-modulus obstruction at \(m=(n-1)^2\). For the upper bounds, modular translation reduces infinitely many starts to exactly \(L_n\) residue classes, and Hall matching is equivalent to distinct-multiple assignment. The complete C++17 verifier checks every one of the finite cases, including both lengths 32 and 33 at \(n=17\). It records 32 failed length-32 starts and none at length 33; its alternate BFS matcher checks a broad independent collection of cases, and direct Hall-subset search validates all failures. The explicit six-to-five Hall witness independently proves the key failure at \(m=485749\). The source code operates only on exact integers and bit masks of at most 33 right vertices. Remaining risk: the exhaustive positive conclusion relies on successful execution of the provided code, not a short pure-symbolic upper-bound proof.
+## correctness
 
-## Originality — PASS, qualified
-Erdős–Pomerance (1980) supplies the invariant, periodicity observation, and Hall framework; Kominers (arXiv:2607.10431, July 11, 2026) and Chen (arXiv:2607.26450, July 29, 2026) prove asymptotic bounds, not the exact values \(F(2),\ldots,F(17)\) or the 32-residue exceptional census. The explicit distinguishing claim is the first finite threshold and its exact period census, not the general matching theorem or its known lower-bound philosophy. Actual searches for the formula, numerical value, Hall-set aliases, and first-departure terminology in mathematical literature and mathematical records found no covering result. Unlike an asymptotic theorem, the exact initial values cannot be inferred from an unspecified sufficiently-large threshold. Residual risk: earlier numerical tables and differently indexed computational records might cover the exact values, and search noncoverage is not uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The invariant \(F(n)\) is a central natural quantity in a classical number-theory matching problem, with renewed asymptotic interest in 2026. The exact first failure of a sharp elementary threshold is a motivated boundary, rather than an arbitrary cutoff. Finding the smallest obstruction and its full-period count distinguishes the local Hall mechanism from the universal upper bound and gives a benchmark for higher-\(n\) methods. The classification does not claim an asymptotic improvement or settle general \(F(n)\).
+Translation by L=lcm(1,...,n) preserves all eligible offsets. At m=(n-1)^2 and H=2n-3 the sole multiple of each of n-1 and n is at offset n-1, proving the uniform lower bound by monotonicity in H. I wrote and ran an independent exact search /workspace/branches/audit_interval.py (arguments 2 through 17); the executed n=17 scan was split into million-residue chunks, with logs in /workspace/branches/interval_runs. The search uses no augmenting paths: it eliminates a modulus of degree at least the remaining number of moduli (assign it last), eliminates a modulus with a private offset (assign it there), enforces forced singleton assignments, and otherwise branches over every candidate offset of a minimum-degree modulus. Modulus 1 can be assigned last because H>=n. Reflection of actual interval values maps m to -m-H-1 modulo L and preserves matching, so one representative per reflection pair is exhaustive. For 2<=n<=16 the scan found no failures at 2n-2. At n=17,H=32 it checked all 6,126,120 reflection classes, recovered 32 full-period failures, minimum 485749, and checksum 11468177711038706587. None of the checked failures is consecutive modulo the full period; hence every length-33 interval contains a successful length-32 subinterval starting at m or m+1. This independently proves the upper bound without testing all length-33 intervals separately. At 485749 the six stated moduli have union {9,11,22,23,26}, validating the explicit Hall obstruction. Nothing beyond n=17 is certified.
 
-## Prior literature and remaining limitations
-The available full-text editions of the 1980 original article, the 2026 Kominers preprint, and the 2026 Chen preprint were inspected in relevant sections. The relevant portions include the invariant definitions, Hall reductions, main theorems, and comparisons; they do not state the asserted exact finite threshold. Historical coverage beyond indexed and accessible records remains uncertain. The finite verification is reproducible from standard C++17 source but has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the all-start problem, its period reduction, and prior bounds to the existing work. The supported distinct contribution is the first finite deviation from 2n-2, together with the exact obstruction census at that index. The exact matching Resultary item is the assignment itself. The closest primary material inspected establishes the same uniform function and asymptotic bounds, not a finite result implying this census. Unavailable portions and the unresolved database lead leave a historical-priority risk; neither is used as negative evidence.
+
+## value
+
+PASS
+
+This is a natural, historically posed uniform matching problem. Locating the first failure of the simple two-modulus lower bound identifies where that obstruction ceases to explain the exact extremum; the explicit six-to-five Hall obstruction explains the change. The full residue census also shows that the obstruction is rare and never occurs at consecutive starts, precisely the structural fact needed for an independent length-33 proof. The cutoff was motivated by the first deviation, not an arbitrary finite endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

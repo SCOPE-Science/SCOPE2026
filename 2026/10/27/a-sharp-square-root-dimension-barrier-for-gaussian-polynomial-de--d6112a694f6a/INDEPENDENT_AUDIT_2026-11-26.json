@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:08:39.459617Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the full Gaussian polynomial space of total degree r, homogeneous harmonic sectors are mutually orthogonal both in norm and after multiplication by the radial objective; quotients combine as convex averages. For d=1 these are even and odd. Substitution t=||x||²/2 gives the compressed multiplication Jacobi matrix with Laguerre parameter d/2+ℓ-1 and size floor((r-ℓ)/2)+1. For fixed degree, increasing the parameter by one size-biases the positive measure p(t)² t^α exp(-t)dt and can only increase its mean by Cauchy–Schwarz. Decreasing the available polynomial degree also cannot improve the minimum. The ℓ=0 sector is therefore globally optimal and the root is multiplied by two. For the all-degree bound, the vectors of lowering and raising actions have squared norms q and q+d, q the mean Hermite degree in [0,r]. Reverse triangle and monotonicity in q prove the claimed bound, including r=0 where the value is d. For d=O(sqrt r), the alternating sine trial vector on the last floor(r^(3/4)) indices has squared norm one and difference energy O(r^(-3/2)); the two zero-boundary edges are included in (61). With j=r/2+O(r^(3/4)) and β=d/2, the Jacobi diagonal minus adjacent off-diagonals is (β-1)²/(2j)+O((d+2)³/j²)=d²/(4r)+o(1) uniformly. The weighted difference energy is O(r^(-1/2)), giving the matching upper side. The lower bound can be rationalized as d²/(sqrt(r+d)+sqrt r)²: it tends to c²/4 at finite c, diverges if d/sqrt r→∞, and stays bounded away from zero on any subsequence with d/sqrt r bounded below. All dimensions, parity cases and the necessity in the arbitrary-sequence claim are covered. The frozen numerical table is corroboration, not a proof or an independent rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gribling–Klep–Kumar give O(1/r) for fixed dimension with objective- and dimension-dependent constants.",
+          "Krasikov bounds the least Laguerre zero below and above V² by explicit positive corrections, with the upper formula valid when 1/k+1/(α+1)<1/50; the leading root behavior is classical coverage, not a new bound on Laguerre roots.",
+          "DLMF 18.16.11 gives an explicit upper bound of order O((α+1)²/k) in the relevant bounded or subcritical parameter region for α=d/2-1, k=floor(r/2)+1."
+        ],
+        "reasoning": "Uniform root estimates are broader than the spectral limit, but do not identify the optimizer over the full Gaussian multivariate space. Fixed-d convergence, in turn, cannot control the growing dimension without further estimates.",
+        "searches": [
+          "arXiv:2610.22030 Theorem 1",
+          "Laguerre smallest zero explicit upper bound sharp large alpha n Driver Jordaan extreme zeros Krasikov",
+          "arXiv:math/0306286 Theorems 1, 3 and 5",
+          "NIST DLMF §18.16(iv)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22030",
+        "arXiv:math/0306286",
+        "arXiv:math/0211190",
+        "DLMF §18.16(iv)",
+        "Resultary e0cc28c7853e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put k=floor(r/2)+1, α=d/2-1. Then V=sqrt(k+d/2)-sqrt(k), and 2V²→c²/4 for d/sqrt r→c. For positive finite c the error in the upper bound is O(k^(-1/3)) because V=O(1), U²-V²=4sqrt(k(k+d/2)), and δ→0; the lower bound supplies the other side. For c=0 DLMF 18.16.11 bounds the roots by o(1), while for d/sqrt r→∞ the lower bound 2V² diverges.",
+          "Krasikov's lower inequality at k=1 and α=-1/2 gives only about 0.58 for twice the zero versus the record's bound 1 at d=1,r=0. No inspected Gaussian theorem states the full multivariate formula and finite Gaussian lower bound together."
+        ],
+        "reasoning": "The hierarchy phase law follows from existing root estimates once the nonradially constrained optimization is identified with the least zero, so the limit is not a freestanding originality claim. The route in the record that stays entirely within the hierarchy, the full multivariate exact value and the elementary finite lower bound comprise a distinct supported contribution.",
+        "searches": [
+          "arXiv:math/0306286 Theorems 1, 3 and 5(i)",
+          "arXiv:math/0211190 Theorem 6",
+          "arXiv:2610.22030 Theorem 1 and §5.1",
+          "DLMF 18.16.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Optimizing SOS densities of degree 2r here is equivalent to minimizing the Rayleigh quotient of the full degree-r multiplication compression, since the feasible PSD trace section has rank-one extrema.",
+          "The Gaussian paper's univariate quadratic section uses Hermite zeros in the odd-r case, consistent with the d=1 even-sector root here; orthogonal-polynomial compression is a known method."
+        ],
+        "reasoning": "An exact value on the radial subspace is not by itself a full multivariate hierarchy value. Comparing every angular sector is essential for transferring a Laguerre minimal-root statement to that problem. The univariate identity covers a genuine subcase, not the comparison in higher dimensions.",
+        "searches": [
+          "Gaussian Lasserre measure-based SOS upper hierarchy norm squared Laguerre smallest zero radial varying dimension",
+          "arXiv:2610.22030, Theorem 1 and §5.1",
+          "arXiv:1804.05524, orthogonal-polynomial formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact theorem, e0cc28c7853e, treats generalized Laguerre bounded-variation coefficient norms with fixed -1<α<=-1/2 and the corresponding fixed-parameter Bessel hard edge."
+        ],
+        "reasoning": "This is a symbolic continuum-parameter result, not a discrete catalogue lookup; specialized exact indexed theorems were checked instead. The indexed theorem has a different norm and does not tabulate or prove the full Gaussian compression, and its fixed α does not cover α on the critical growing scale.",
+        "searches": [
+          "Resultary: generalized Laguerre hard-edge transition and Gaussian polynomial-density optimization"
+        ]
+      },
+      "rationale": "Credit the known Laguerre extreme-root transition: Krasikov's two-sided, parameter-uniform inequalities already give the sharp critical constant and divergence for the indicated Laguerre zeros after substitution; bounded parameters are handled by classical bounds. The distinct supported finding is the exact identification of the full multivariate Gaussian hierarchy, rather than a radial restriction, and its simple all-(r,d) Gaussian lower bound, placing that spectral behavior in the total-degree hierarchy. The inspected Gaussian hierarchy results cover a fixed-d rate and a univariate exact model, not this characterization with dimension dependence. No originality is credited to the root asymptotics in isolation.",
+      "residual_risks": [
+        "The Gatteschi survey full text was inaccessible in the attempted sources. It may give other equivalent root estimates; the relevant spectral overlap has already been credited. An unindexed proof of full Gaussian radial optimality or an alternative finite Gaussian inequality may exist. No absolute priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-dimensional rate and univariate overlap",
+          "evidence": "Constants C_(f,d,N) in the fixed-d theorem, and squared Hermite root for the univariate quadratic case with odd r.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22030",
+          "material_read": "Theorem 1, p. 2 (OA offset 6500); §5.1, pp. 9–10 (offset 30400)",
+          "method": "Bounded OA PDF theorem and example inspection",
+          "title": "Convergence Rates for Lasserre’s Upper-Bound Hierarchy on R^d with Gaussian Measure",
+          "trigger": "Same Gaussian hierarchy and closest exact quadratic example"
+        },
+        {
+          "assessment": "Direct coverage of the growing-parameter spectral asymptotic",
+          "evidence": "x_1>V²+3 V^(4/3)/(U²-V²)^(1/3) and matching upper order for δ=1/k+1/(α+1)<1/50; Theorem 5 gives the relative asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0306286",
+          "material_read": "Theorems 1 and 3 and Theorem 5(i), PDF pp. 2–3, OA offsets 1450–8964 around the theorem statements",
+          "method": "Bounded OA PDF locate/read and substitution of k,α",
+          "title": "On extreme zeros of classical orthogonal polynomials",
+          "trigger": "Plausibly stronger uniform bounds in both directions"
+        },
+        {
+          "assessment": "Covers lower-side spectral estimate",
+          "evidence": "Least-zero lower bound in sqrt(k+α+1)−sqrt(k) with a positive correction, not the same finite Gaussian inequality for all pairs by direct substitution.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0211190",
+          "material_read": "Theorem 6, p. 7, OA around offset 24500",
+          "method": "Bounded OA theorem reading",
+          "title": "On zeros of polynomials and allied functions satisfying second order differential equations",
+          "trigger": "General cited parameter-uniform Laguerre lower bound"
+        },
+        {
+          "assessment": "Classical spectral inequalities; subcritical upper side",
+          "evidence": "18.16.11 has numerator O((α+1)²) for m=1 in the Gaussian parameter range α>=−1/2, with denominator ν=4k+2α+2.",
+          "identifier_or_url": "https://dlmf.nist.gov/18.16.iv",
+          "material_read": "§18.16(iv), inequalities 18.16.10–18.16.13 and source notices, offsets 7670–11011",
+          "method": "Bounded OA public-web passage",
+          "title": "NIST DLMF: Zeros of classical orthogonal polynomials, Laguerre",
+          "trigger": "Uniform explicit bounds including when α stays bounded"
+        },
+        {
+          "assessment": "Different invariant, fixed parameter",
+          "evidence": "A positive Bessel-root limit for n times the smallest zero at fixed -1<α<=−1/2, not the full Gaussian SOS eigenvalue for arbitrary d.",
+          "identifier_or_url": "Resultary e0cc28c7853e",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "A hard-edge transition for sharp generalized Laguerre bounded-variation estimates",
+          "trigger": "Closest plausible exact catalogue result"
+        },
+        {
+          "assessment": "Access limitation; no inference from the abstract about the scope of particular theorems",
+          "evidence": "The accessible bibliographic description identifies uniform extreme-root asymptotics as relevant; the overlapping asymptotic is already credited to inspected Krasikov inequalities.",
+          "identifier_or_url": "doi:10.1016/S0377-0427(01)00549-0",
+          "material_read": "DLMF bibliography citation and public search abstract only; no paper full text read",
+          "method": "Publisher and identified CORE and ResearchGate copies attempted through lawful OA and unavailable",
+          "title": "Asymptotics and bounds for the zeros of Laguerre polynomials: A survey",
+          "trigger": "Plausible uniform two-parameter asymptotic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension-uniform reliability of a total-degree approximation hierarchy is a natural issue even for the simplest radial quadratic. The full-space solution excludes an improvement by nonradial trial polynomials, supplies an exact benchmark at every (r,d), and proves a direct finite-degree barrier. This turns familiar spectral behavior into a concrete failure mode and convergence criterion for the optimization hierarchy, not a new result claimed merely by renaming Laguerre parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

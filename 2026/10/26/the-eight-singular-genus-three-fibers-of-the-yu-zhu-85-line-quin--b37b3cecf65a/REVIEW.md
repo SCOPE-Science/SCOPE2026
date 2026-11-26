@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof writes down the exact residual quartic for the full smooth pencil, verifies the base-point-free morphism and classifies its Jacobian singularities via the binary-quartic discriminant, including the fiber at infinity. Square identities prove the two-conic decompositions and the local \(A_3\) analytic types. An embedded exact symbolic checker verifies the critical polynomial identities; the independent Chern-class computation reproduces the Euler characteristic.
+## correctness
 
-## Originality: PASS, subject to historical priority risk
-Yu–Zhu [1] already identify the five four-line residual planes; this is credited rather than re-presented as wholly new. Their results on the order-four quotient elliptic fibration, including Kodaira labels, concern a different fibered surface and do not classify the remaining original genus-three singular plane quartics or their local conic contacts for every parameter. Published published-finding corpus searches found an incidence-spectrum calculation on the same quintic, but not these singular-fiber claims. The search cannot establish absolute novelty; unpublished equivalent derivations remain possible.
+PASS
 
-## Mathematical value: PASS
-An exact complete genus-three singular-fiber classification is a natural invariant of the newly constructed 85-line quintic family. The result locates the three non-line degenerations and distinguishes the four-line ordinary quadruple-point and two-conic two-tacnode geometries. Its global Euler accounting explains precisely how these singularities contribute to the topological geometry of each surface.
+PASS applies only to repairs/3/RESULT.md and its scientific verification notes, not the frozen finding. The original chart a=rb gives c=r(1-tr^3), so the original r^3=t assertion is false: for t=2 and r^3=2, c=-3r and the binary quartic is squarefree, giving a smooth quartic. The replacement explicitly defines r=a/b and corrects the finding and proof to r^3=1/t. On smooth X_t the residual system has no base points: on L simultaneous vanishing would require u^2v^2=u^4-3v^4=0, and off L a unique plane contains each point. For c=0 the biquadratic discriminant is nonzero and the leading and constant terms are nonzero; the same test at infinity gives a fourth-power-free binary quartic with four distinct roots (all factors simple). For c!=0 the b-partial forces b=0, and a projective repeated binary root occurs exactly at r^3=1, including the two roots of -12u^2v^2 at r=1. There the form is a nonzero scalar times q^2 with q nondegenerate, giving two smooth conics q±gamma b^2, and the local equation q^2-gamma^2 b^4 at each of their two intersections gives A3. These arguments exhaust the base and prove reducedness; the Euler arithmetic agrees with the Chern class. The frozen symbolic code was read, not executed: its c agrees with the repair and its identities are supplementary, not a parameter or singularity audit. The corrected notes retain the frozen verification front matter.
 
-## Limitations and closest literature
-This classification applies to the distinguished fibration of smooth complex members only, not to stable reduction or all fibrations. The nearest source is X. Yu–Z. Zhu, arXiv:2609.26862v1; a separate published 85-line incidence-graph result was compared at summary level and its full text was unavailable. No external scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the corrected statement, the distinct claim is the complete singular-fiber classification and the conic and tacnode structure of the unquotiented pencil in the varying family. Neither the known line-star sections nor their coordinate convention is claimed as new. The primary source's special-member quotient computation is related and is now expressly identified as a quotient of this pencil, rather than described as unrelated.
+
+## value
+
+PASS
+
+Lines on the surface detect only five of the eight degenerations of a specified, already studied genus-three pencil. The three additional reduced fibers and their two-branch contact orders give precisely the local input needed for study of degenerations of the original pencil; an elliptic quotient's labels cannot substitute for them. The uniform exhaustive classification is useful independently of publication priority for the line-star data or any future stable-reduction calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

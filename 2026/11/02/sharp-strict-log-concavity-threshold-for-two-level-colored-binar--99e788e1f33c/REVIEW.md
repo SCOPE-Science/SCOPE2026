@@ -1,19 +1,21 @@
-# Review: sharp two-level colored binary-partition log-concavity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A coefficient extraction gives the necessary sharp obstruction \(\Delta_m(1)=m(m-3)/2\). For \(m=4,5,6,7\), all eight Turán differences have positive rational factorizations stated in RESULT.md. These identities are established using coefficient quasipolynomials of degree at most \(2m-1\), hence Turán differences of degree at most \(4m-2\); the complete exact checker verifies enough evaluations to make the polynomial identities rigorous for every \(t\). The no-internal-zeros Toeplitz/PF2 convolution argument propagates strict log-concavity from four base colors through induction to every \(m\ge4\). The boundary \(n=1\) and indexing \(n\ge1\) are explicitly handled.
+PASS
 
-## Originality
+The first three coefficients give Δ_m(1)=m(m−3)/2, excluding m=1,2,3 for strict log-concavity. For m=4–7, (1+q)^m/(1−q²)^{2m} gives separate parity polynomials of degree ≤2m−1: the top integers of the binomial polynomials are nonnegative even for t=−1 in the odd branch, where all terms vanish. Thus each Turán parity polynomial, including the n=0 convention used in the certificate, has degree ≤4m−2. Each displayed rational factor becomes polynomial after cancellation against the squared products and has degree ≤4m−2. Independently generated coefficients, by successive steps a[n]+=a[n−j] for j=1,2 repeated m times, verified all eight tabulated identities with integer equality at 4m−1 distinct arguments each, hence as polynomial identities. The same independent data also give positive constant and nonnegative Newton-basis coefficients, a second positivity certificate. The actual factors are positive on t≥0. For propagation, positive log-concave sequences have nonnegative Toeplitz two-minors by the ratio test (zeros below the support give no negative minors), and convolution multiplies those matrices. In Cauchy–Binet for rows n,n+1 and columns 0,1 the intermediate columns 0,1 contribute Δ_u(n)v(0)²>0 while other terms are nonnegative. A_m=A_4 A_{m−4} and the four consecutive bases thus cover every m≥4.
 
-PASS within searched literature. The 2017 Gawron--Miska--Ulas Conjecture 5.10 treats the infinite product, not the two-denomination truncation. Gajdzica's 2022 primary full text (Theorem 5.6) treats general restricted-part sets but only for an explicit sufficiently large index; it does not imply the sharp all-index classification. The 2026 Bringmann--Kane--Pahari--Rolen work treats all integer denominations, not this truncation. Searches for the two-denomination color threshold, synonymous rational generating functions and restricted partition Turán inequalities in the research index and online sources found no exact match. Potential implicit coverage in uncatalogued finite-part examples remains a risk; this is not proof of absolute first discovery.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a sharp, complete simultaneous classification over all positive colors and every index for the natural first nontrivial truncation of an established colored binary-partition family, providing an all-index baseline for an explicit published conjecture. It upgrades the generic eventual statement to a precise phase transition \(m=4\), with an explicit positive-definite algebraic certificate at the four irreducible base cases and a structural convolution propagation argument. The theorem is not inflated into a claim about full binary partitions.
+The complete strict all-index threshold for the two-denomination product was not established in the inspected sources. General eventual restricted-partition theorems cover a substantial tail, but not the low-index signs or the sharp bi-quantified boundary; papers about unrestricted binary or unrestricted ordinary colored partitions use different coefficient sequences.
 
-## Closest work and limits
+## value
 
-The closest sources are arXiv:1703.01955v1 (Conjecture 5.10), arXiv:2206.04752v1 (Theorem 5.6), and DOI:10.1017/prm.2026.10154 (ordinary unrestricted colored partitions). Bibliographic uncertainty remains because even relevant fully searched literature need not exhaust equivalent formulations. Independent review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Parts 1 and 2 form the first binary-partition truncation in which parity competes with smoothing by colors. A uniform, sharp threshold for this natural case distinguishes initial obstructions from eventual log-concavity and determines precisely how many colors remove every obstruction. It is a useful base case and comparison for binary truncations, not a proof for the full binary product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

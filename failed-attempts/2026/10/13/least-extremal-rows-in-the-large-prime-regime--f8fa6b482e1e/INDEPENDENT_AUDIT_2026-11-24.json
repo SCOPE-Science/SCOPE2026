@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:42:15.502973Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For prime p>m>=2, p is not divisible by m, so T is the next admissible multiple p+s, 1<=s<m. All selected k obey s<k<p, and T<p^2. Kummer gives exactly one borrow at p and none at greater powers; earlier rows are strictly below p. The arbitrary-row upper bound also checks independently: if q=lambda*p^t+b and b>0, choose k=mb; k has high block X=floor(mb/p^t)<m and N-k has zero low block, so after separating low digits the total X+lambda*m<pm<p^2 has at most one carry. If b=0 and lambda>=2 choose k=mp^t: the shifted sum is lambda*m<p^2. If q=p^t then q>=2 forces t>=1; choose k=mp^(t-1): the shifted sum m+(p-1)m=pm has exactly one carry, since m<p and no higher digit is needed. Every witness has 0<k<N. Inspected frozen verifier (target and lower rows, no arbitrary-row empirical bound), not executed. Independent replay: python3 /workspace/branches/independent_probes.py 2; 36553 admissible rows up to p^3 with p prime 3..19 and 2<=m<p, exact residue comparisons for the upper bound and direct binomial divisibility at target rows. The proof, not the finite replay, supplies the global bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McTague implies the gcd value at p+m-1 for p≡1 mod m; Fairfax-Ball's minus-one Theorem 1.1 implies it at p+1 for p≡-1 mod m.",
+          "Wu treats the same gcd family under prime-power or additional factor hypotheses; those hypotheses do not give the whole large-prime slice.",
+          "The uniform minimal-zero-sum characterization does cover all p>m, since then p is coprime to m."
+        ],
+        "reasoning": "The two congruence-class papers alone are not general coverage. The uniform characterization applies to every residue and identifies divisibility at T without any special congruence restriction.",
+        "searches": [
+          "Resultary 339a752cfdc3 proof §1, uniform p coprime to m",
+          "arXiv:1510.06696v5 Theorem Q",
+          "arXiv:2609.37754v1 Theorem 1.1",
+          "arXiv:2606.20940v2 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01328v1",
+        "arXiv:1510.06696v5",
+        "arXiv:2609.37754v1",
+        "arXiv:2606.20940v2",
+        "Resultary 339a752cfdc3, 5bfb1fd719eb, 1da8f5b9bad4, 1302d88350d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "W(p+s) consists of s copies of 1 and p=-s modulo m, with no proper nonempty zero-sum submultiset.",
+          "Earlier admissible rows are below p. The established sharp maximum is 1 and each valuation at p+s is at most one because no borrow above the first p boundary can occur."
+        ],
+        "reasoning": "These statements imply both exact claims, even though neither stronger source prints the closed form for T in this regime. The purported coefficientwise refinement is automatic on this short interval.",
+        "searches": [
+          "Resultary 339a752cfdc3 §1 Lucas criterion and scope",
+          "arXiv:2610.01328v1 §§3–4 sharp maximum",
+          "Kummer carry criterion for N<p^2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.01328 gives the same maximum/least-row problem and a sufficient but generally nonminimal mp in the large-prime regime.",
+          "The Lucas digit-submultiset condition is equivalent to the existence of a selected coefficient not divisible by p."
+        ],
+        "reasoning": "In the r_p(m)=1 regime the least extremal row is precisely the first positive row for that equivalent flag; exactness of all coefficients follows from the two-digit bound.",
+        "searches": [
+          "Local Resultary: restricted binomial gcd p>m / least extremal row / two-digit minimum valuation multiplicities",
+          "arXiv:2610.01328v1 §§3–6 and Resultary 339a752cfdc3 proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 5bfb1fd719eb treats two-digit N=p^s+p^t with m dividing p+1 and t-s odd; positions 0,1 and p>m give precisely (p+1)/m-1 minimizers at valuation one, i.e. every selected coefficient in this subfamily.",
+          "1da8f5b9bad4 and 1302d88350d2 have exact minima but for m=p+1 and m=2p-1, respectively, so cannot by themselves cover p>m."
+        ],
+        "reasoning": "The minus-one exact record is a material partial overlap independent of same-day order. The unbounded all-residue implication is provided by the stronger criterion, not by extrapolating numeric rows.",
+        "searches": [
+          "Local Resultary: least T_p(m), exact two-digit coefficient valuations and other exact least rows"
+        ]
+      },
+      "rationale": "Demonstrated coverage of the full mathematical conclusion via the broader Lucas/minimal-zero-sum criterion in Resultary 339a752cfdc3 and the prior global maximum theorem of Fairfax-Ball. For p<N=p+s with s the least positive residue of -p mod m, W(N) is s copies of 1 and one residue -s. A subset without -s must be empty to sum to zero, and one containing it must use all s ones. Below p any admissible N>=2m has at least m ones as a proper zero-sum subset. Hence the first positive row is T. Moreover T<p^2 and Kummer or the Legendre valuation formula bounds every coefficient by 1 there: the broad criterion therefore implies coefficientwise exactness, not just a gcd-level assertion. The November catalog date establishes neither priority nor dependence; mathematical coverage is the reason for FAIL, not an assertion that the exact formula was published first in that text.",
+      "residual_risks": [
+        "Catalog dates do not settle historical priority; no allegation of dependence. The proof of implication and overlap is independent of such priority.",
+        "The distinct non-coprime-lower-index selection literature was not fully compared, but cannot undo the explicit coverage demonstrated here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global upper bound and sharpness; published exact least-row theorem treats m=p^a+1 with a>=2, not directly the large-prime row.",
+          "evidence": [
+            "v_p(G)<=r_p(m); attaining row mp when r_p(m)=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01328v1",
+          "material_read": "§§3–4 (OA offset about 8200), §§5–6 (about 15450)",
+          "method": "Primary paper passage comparison",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "Same maximum and least-row invariant"
+        },
+        {
+          "assessment": "Together with the sharp upper bound and the elementary two-digit bound, covers the full audited conclusion.",
+          "evidence": [
+            "p divides G iff W(N) is a minimal zero-sum sequence, for all coprime m,p; no restriction on the residue of p within that domain."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3/RESULT.md",
+          "material_read": "Local mirror Finding, assumptions and proof §1 (offsets 0–5145), prior-work comparison 6910–9582",
+          "method": "Exact broader theorem and constructive specialization",
+          "title": "Exact logarithmic row counts for restricted binomial gcds",
+          "trigger": "Potential implication by uniform rowwise divisibility"
+        },
+        {
+          "assessment": "Proper subfamily overlap.",
+          "evidence": [
+            "p≡1 mod m gives valuation one at p+m-1 where digit sum is m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.06696v5",
+          "material_read": "PDF pp. 1–2, Theorem Q and subsequent same-residue remark (OA offsets about 3500 and 6400)",
+          "method": "Primary text and target-row substitution",
+          "title": "On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Closest established plus-one residue-class valuation theorem"
+        },
+        {
+          "assessment": "Proper subfamily overlap.",
+          "evidence": [
+            "For m>=3 and p≡-1 mod m, p+1 has digit sums (A,B)=(1,1); the formula gives valuation one for p>m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.37754v1",
+          "material_read": "Theorem 1.1, §1 (OA offset about 3700)",
+          "method": "Primary text and target-row substitution",
+          "title": "Restricted Binomial GCDs at Primes Congruent to -1",
+          "trigger": "Closest minus-one residue-class valuation theorem"
+        },
+        {
+          "assessment": "Prime-power and additional factor assumptions; no general least row from these statements.",
+          "evidence": [
+            "Theorem 1 takes m a power of the valuation prime; Theorem 2 restricts prime factors of the multiplier."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.20940v2",
+          "material_read": "§1, PDF pp. 1–2, Theorems 1–2 (OA offset about 8060)",
+          "method": "Primary statement/hypothesis comparison",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Same restricted gcd and potentially broader valuation formulas"
+        },
+        {
+          "assessment": "Exact coefficientwise coverage on the minus-one subfamily only.",
+          "evidence": [
+            "The count of minimizers becomes (p+1)/m-1, the total number of selected coefficients in that row."
+          ],
+          "identifier_or_url": "Resultary:2026/10/13/5bfb1fd719eb",
+          "material_read": "Local mirror RESULT.md Finding and assumptions, offset 0",
+          "method": "Exact indexed theorem specialized to positions 0 and 1",
+          "title": "Exact minimum-valuation multiplicities in restricted two-digit binomial rows",
+          "trigger": "Coefficientwise exactness at p+1"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first extremal row is a naturally motivated invariant, but in the stated regime its exact value and coefficientwise refinement are an immediate two-digit application of the known rowwise flag and maximum. No independently nonmechanical remainder of the asserted result was identified. A condition beyond p>m would be new work, not a repair of this proof.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

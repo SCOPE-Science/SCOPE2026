@@ -1,15 +1,21 @@
-# Scientific review: trapped run–rest fourth moments
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The object is specified as independent alternating exponential runs and finite-mean zero-velocity rests, with independent fair direction redraw. Contraction establishes a unique stationary embedded law; renewal occupation gives the complete stationary second and fourth moment formulas. Substitution for two-stage Erlang rests yields explicit rational expressions. Their fourth-cumulant numerator has precisely one positive root by Descartes' rule and endpoint signs, while the polynomial identity comparing against exponential rests gives a strict threshold ordering. Independent exact-rational phase-type-generator calculations agree in 90 cases. The proof, rather than a finite calculation, establishes the universal quantifiers.
+## correctness
 
-## Originality
-**PASS, qualified.** The closest full primary texts are arXiv:2610.24961 and arXiv:2409.00578: both impose exponential rest periods and obtain conditional distributions or a moment-generating representation for that law, not an arbitrary independent rest duration. The distinct non-Markovian source arXiv:2401.01576 permits arbitrary inter-reorientation times while maintaining a nonzero active velocity, so it does not contain the independent zero-velocity residence considered here. Public-index and literature comparisons did not identify an equivalent arbitrary-rest, two-Laplace-value fourth-moment principle or a sharp mean-matched two-stage Erlang versus exponential crossover. This does not prove global publication priority; an unindexed phase-type or regenerative treatment remains possible.
+PASS
 
-## Value
-**PASS.** The effect of nonexponential stop-time variability in finite-tumble active particles is physically motivated. The general moment reduction replaces an entire waiting-time law by only three measurable quantities for stationary fourth-order response. The minimal Erlang-2 departure from memorylessness then yields a complete sharp non-Gaussianity sign diagram and a strict, all-run-rates comparison against exponential rests having the same mean. The content extends beyond merely recomputing one or two moments in the memoryless model.
+At run starts the affine update contracts by exp(−R−T), with strictly negative mean log multiplier; the bounded backward solution is unique. The stationary marked cycle sequence is an ergodic function of independent cycles. Occupation with the finite-mean roof R+T yields a unique stationary position marginal, including for rest laws with an atom at zero; position itself need not regenerate independently at cycle boundaries. Fair sign draws give symmetry. In RESULT.md lines 46–73 the mean run occupation at order j is z_j/a by exponential survival, and the rest reward is (1−t_j)z_j/j. Combining these with the end-of-run recursion cancels the same-order factors 1−t_j a/(a+j). In fact M2=1/[(a+1)(1+aμ)] and M4=6/[(a+1)(a+3)(1+aμ)(a+2−a t2)], so the claimed dependence on (μ,t2,t4) is true but not minimal. These formulas give the stated positive-denominator Erlang-2 cumulant, with exactly one positive simple zero by Descartes counting and the opposite endpoint signs. The comparator polynomial E_a(c) also has one positive zero. At matched μ=1/c, (c/(c+1))²<c/(c+2), so the Erlang fourth cumulant is strictly lower at every matched rate, independently confirming the claimed threshold ordering. This is an analytic check; the frozen rational generator checks are recorded corroboration only and were not executed.
 
-## Scientific limitations
-This is a classification of a fourth cumulant, not a density-mode or phase-transition theorem. It uses independent run/rest cycles, a harmonic trap, no additive thermal noise, and a finite mean rest duration. Priority remains provisional relative to inaccessible or unindexed literature. The auxiliary exact checks do not replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior exact memoryless-rest moments and the explicit exponential-rest threshold overlap. The supported distinct result is the dependence on Laplace statistics for arbitrary independent finite-mean zero-velocity rests, together with the simple Erlang-2 cumulant crossing and its strict shift relative to the mean-matched exponential law. The primary and indexed comparisons below do not supply that combined claim or a prior theorem covering it.
+
+## value
+
+PASS
+
+This gives an exact test of how changing inactive-time variability while preserving the mean changes stationary fourth-order shape in a natural active-particle model. The finite statistic reduction is useful without fitting a whole rest law, and the unique Erlang-2 crossover and strict shift give a quantitative benchmark beyond the known memoryless moments. Neither modality nor a thermodynamic transition follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

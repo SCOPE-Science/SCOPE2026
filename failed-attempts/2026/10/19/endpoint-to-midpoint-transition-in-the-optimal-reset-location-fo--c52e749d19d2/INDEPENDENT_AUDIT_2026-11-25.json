@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:48.715971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed start/reset position x, the cover time is pathwise the maximum of the two first hits, including an endpoint occupied initially. For a target, let φ be its no-reset first-hit Laplace transform at r; a renewal attempt succeeds with probability φ and lasts on average (1−φ)/r, giving mean (1−φ)/(rφ). Solving the Dirichlet/Neumann problems (two Dirichlet conditions for either endpoint) and taking the sum of the two target means minus the either-hit mean gives the stated objective. In z=cosh(sqrt(r/D)(x−L/2)), b=cosh(sqrt(ρ)), the derivative has positive denominator and numerator b F_b(z²); re-expansion gives F_b(y)=(3−4b²)y²+4b²(b²−1)y+(b²−1)². Its roots have opposite signs and its positive root is simple, so only z=1,b can minimize. The difference H_b(1)−H_b(b)=−(b−1)(2b²−b−2)/b gives all ties, locations and the stated minimum. F_b(b²)=1−2b²<0, F_b(1)=5(b²−1)²−1; hence endpoints are always strict one-sided minima and each half gains exactly one maximum when F_b(1)>0. At equality H''_b(1)<0 and z−1 is quadratic in displacement, giving strict quartic flatness. At b_s the crossing polynomial is 2/sqrt(5)−b_s<0, confirming b_s<b_c. Replay: frozen RESULT.md proof lines 43–113. VERIFICATION.md reports 748 finite assertions, including boundary-value discretization; verify.py was inspected, not executed, and is not needed for the continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley give the mean on a reflected asymmetric interval [−a,b], start/reset 0. Put a=x and b=L−x; the objective is exactly the frozen one, with endpoints by continuity or direct first hit.",
+          "Ghosh–Sabhapandit Eq. (21) supplies the midpoint branch and optimizes its rate, not its site. Julián-Salgado et al. optimize the rate for hitting a single target with distributed resets on a line."
+        ],
+        "reasoning": "The asymmetric mean makes the optimization derivable but does not state it; the two rate-optimization comparisons do not treat this spatial variable or its spinodal.",
+        "searches": [
+          "arXiv:2406.12154 §4.1 Eq. (38)",
+          "arXiv:2605.31207v1 §§II–III.B Eq. (21)",
+          "arXiv:2507.14483v2 §III"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and accompanying record evidence",
+        "Resultary 58df668581e9, c9ad586108f6 and fixed-start comparator fec886f1faad",
+        "arXiv:2406.12154, arXiv:2605.31207v1, arXiv:2507.14483v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equations (6) and (7) reproduce the entire rational objective and derivative polynomial under relabelling. Equations (8) and (9) yield exactly the global crossing and local stability, and the simple positive derivative root gives quartic flatness at equality and explicit maxima by the quadratic formula."
+        ],
+        "reasoning": "No independently meaningful theorem remainder survives this comparison, including the elementary expansions for flatness or explicit root coordinates. The finding is mathematically correct but not distinct from the separately indexed theorem.",
+        "searches": [
+          "Linn–Lawley §4.1 around Eq. (38)",
+          "58df668581e9 Proof §§2–4, Eqs. (6)–(9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "58df668581e9 states the same exact argmin, threshold [(1+sqrt(17))/4] in the cosh coordinate, three-way tie, exact minimum, lower spinodal and two separating maxima. It explicitly compares the same starting and resetting site at fixed rate.",
+          "c9ad586108f6 also states the same mean transition and spinodal, adding a separate tail criterion."
+        ],
+        "reasoning": "Translate notation by κ=2sqrt(ρ), c=b, t=z and rL²/(4D)=ρ. The alleged equivalent result is not just a common threshold; the parameter spaces, extremum sets and derivative polynomial coincide. A fixed-initial-midpoint result with independent reset site (fec886f1faad) is a different model.",
+        "searches": [
+          "Local Resultary semantic search: optimal reset location, endpoint versus midpoint in reflected Brownian interval cover times, local stability",
+          "2026/10/26/…58df668581e9/RESULT.md, equations (1)–(9)",
+          "2026/11/2/…c9ad586108f6/RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 58df668581e9 entry gives both closed forms, including the numerical global threshold, paired with the same argmin and local shape; not an isolated numeric match."
+        ],
+        "reasoning": "The relevant exact database check is a parameterized theorem lookup, not a sequence-number or empirical phase-diagram match.",
+        "searches": [
+          "Resultary exact threshold evidence: 58df668581e9 Eqs. (2)–(5); c9ad586108f6 Finding"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record contains the same global and local optimization at exactly the same parameters, with the same rational shape reduction and sign polynomial. This is demonstrated equivalent coverage in the inspected corpus, not a claim that the later catalogue path establishes historical priority. Linn–Lawley independently supply the underlying mean, but are not credited with stating the optimization classification.",
+      "residual_risks": [
+        "The 2026/10/26 and 2026/11/02 catalogue paths are later than the frozen path; catalogue labels and equivalent content do not resolve authorship, dependency or first-discovery priority.",
+        "The bounded primary search does not rule out any earlier optimization outside the inspected texts; failure rests on actual separately indexed coverage, not absent search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent indexed coverage",
+          "evidence": "Eqs. (2)–(5) give classifications; Eqs. (6)–(9) use the same derivative and endpoint comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md",
+          "material_read": "Finding, assumptions, proof through §4 (offsets 0–7306)",
+          "method": "Local mirror, bounded text passages",
+          "title": "An exact discontinuous optimal reset-site transition for Brownian interval cover times",
+          "trigger": "Same model and exact thresholds"
+        },
+        {
+          "assessment": "Same mean classification, separate tail result added",
+          "evidence": "States the endpoint-to-midpoint switch and spinodal alongside the contrasting tail-optimal midpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Exact mean–tail reset-location conflict in Brownian interval cover times",
+          "trigger": "Same mean-location regime with a stronger combined output"
+        },
+        {
+          "assessment": "Underlying mean fully covered; full spatial optimization not stated in inspected section",
+          "evidence": "After translation, Eq. (38) coincides; subsequent discussion concerns the effect of rate/high-rate behavior.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.12154",
+          "material_read": "§4.1 pp. 11–14, equation (38) and discussion (offsets 34289, 38200, 42424)",
+          "method": "Lawful OA primary text",
+          "title": "Cover times with stochastic resetting (Linn and Lawley)",
+          "trigger": "Prior arbitrary-location mean formula"
+        },
+        {
+          "assessment": "Midpoint specialization and rate optimization only",
+          "evidence": "Start/reset fixed at L/2; Eq. (21) supplies (3cosh(sqrt(ρ))−2sech(sqrt(ρ))−1)/r.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.31207",
+          "material_read": "v1 §§II–III.B, pp. 2–5, especially Eq. (21)",
+          "method": "Lawful OA primary text",
+          "title": "Cover time statistics of one-dimensional Brownian motion under stochastic resetting (Ghosh and Sabhapandit)",
+          "trigger": "Exact midpoint law and an optimization result"
+        },
+        {
+          "assessment": "Different process and optimized variable",
+          "evidence": "Single-target first passage with distributed reset sites; transition in optimal rate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.14483",
+          "material_read": "v2 abstract and §III, pp. 3–4",
+          "method": "Lawful OA primary text",
+          "title": "Abrupt transitions in the optimization of diffusion with distributed resetting (Julián-Salgado, Dagdug and Boyer)",
+          "trigger": "Possible prior discontinuous optimum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, a complete classification of all competing reset locations for a natural design problem is useful: the global switch, persistent endpoint minima and distinct midpoint stability threshold answer questions not conveyed by reporting either the mean or the midpoint optimum alone. This value judgment does not credit the frozen record with originality over the indexed classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

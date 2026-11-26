@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:38:50.465515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–56; VERIFICATION.md lines 19–23; checker.py lines 1–42 (read, not executed)."
+      ],
+      "rationale": "In companion coordinates the two subsequences of coordinate polynomials have degree 2^m in positions 2m and 2m+1. The even leading form is a nonzero pure u-power; restricting the odd leading form to u=0 leaves a nonzero pure v-power. This prevents cancellation in the degree induction and makes the top forms of the two fixed-point equations disjoint at infinity (for n=1 the first equation is v-u, with the same nonzero restriction). No common projective curve component can avoid infinity. Bézout therefore gives the product 2^n in both parities, entirely affine. Independently, introducing the n cyclic scalar coordinates u_i gives equations u_i^2=u_i+(a/c)u_{i+1}-(1/c)u_{i+2}, c=3b/2; this is the same fixed scheme by recurrence elimination and periodicity, including n=1,2 with indices taken modulo n. The monic equations have pairwise relatively prime leading monomials u_i^2 in a graded order, so the squarefree monomials give a quotient basis of size 2^n. A generic target has exactly two preimages, giving topological degree 2, while the iterate degrees give first dynamical degree sqrt(2). For fixed n projective incidence with the singularity condition has closed image on c!=0, since the entire fixed locus avoids infinity. At a=0,c=4, Chebyshev multipliers at scalar fixed points of T_(2^j) have magnitude 2^j away from the endpoints and 2^(2j) at fixed endpoints. The even companion iterates are products and the odd fixed equations reduce to one scalar iterate, so the witness makes every fixed scheme reduced. This verifies the proper exceptional loci, the simultaneous real full-measure assertion, and Möbius inversion/zeta only for distinct points when simple; at exceptional parameters the universally asserted rational expression is for the multiplicity-weighted series.",
+      "residual_risks": [
+        "The source's SymPy replay is finite and was not rerun. The independent verification above is algebraic and does not rely on that replay or on a real-orbit enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "G^2 is regular on projective space: its forms on the line at infinity are -cu² and -c(au²+v²), with no common zero. For degree D=2^m the projective intersection count is 1+D+D², the infinity restriction contributes D+1 with simple normal equation, leaving D² affine intersections.",
+          "The same regular-map formula cannot be applied to G^(2m+1) on projective space: unequal coordinate degrees leave a base point at infinity. The dynamical-degree article was identified but its full text was not available through the attempted OA DOI retrieval."
+        ],
+        "reasoning": "Credit the classical projective calculation for every even count and even iterate degree. This route neither supplies the odd-degree statement nor excludes multiple affine intersections on the specified parameter family.",
+        "searches": [
+          "Resultary: regular G^2 polynomial map periodic points odd periods graph affine fixed point count dynamical degree",
+          "Literature: \"generic topological degree\" dominant polynomial-like maps periodic points fixed points multiplicity periodic point formula",
+          "Bianchi–Dinh–Rakhimov, doi:10.1090/tran/9225"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 and Relationship to prior work",
+        "Liu–Zhong OA abstract and §2",
+        "Resultary/SCOPE 437f2e31ace1, 8c9b71eb2d78, 3af82670b4f4",
+        "Bianchi–Dinh–Rakhimov DOI metadata only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched real statements constrain particular real dynamics, not the complex fixed ideals. The regular-square comparison explicitly implies the even census; standard Bézout/Gröbner criteria still need control of fixed equations for the odd as well as even iterates, and the Chebyshev argument supplies a uniform witness on the discriminants."
+        ],
+        "reasoning": "The classical tools, the map itself, the even-parity consequence and the formal Möbius/zeta step are not original in isolation. No inspected result was shown to give the complete affine census with the exact degree growth and simplicity statement without the family-specific analysis.",
+        "searches": [
+          "Liu–Zhong abstract and §2",
+          "Classical projective fixed-point count and Chebyshev fixed equations",
+          "Resultary 437f2e31ace1, 8c9b71eb2d78, 3af82670b4f4 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Zhong §2 gives the identical map, on the real ab!=0 domain, and the abstract studies local stability and three local bifurcations. The companion form G(u,v)=(v,av+cu(1-u)) is conjugate, not a new map."
+        ],
+        "reasoning": "Conjugacy and the scalar delay formulation preserve all the fixed schemes. Neither the same map nor a primitive real period-three result is an equivalent affine all-period scheme census.",
+        "searches": [
+          "Resultary: F_{a,b}(x,y)=(ax+3y/2,bx(1-x)) all-period complex fixed points affine multiplicity exact iterate degree regular G squared",
+          "Liu and Zhong, doi:10.3390/math12152423"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact statement hit is the frozen record itself. Distinct inspected hits were 437f2e31ace1 (real primitive two-cycles), 8c9b71eb2d78 (real expanding subsystems), and 3af82670b4f4 (real period-three on a=1,b>0)."
+        ],
+        "reasoning": "A power-of-two sequence, or a catalogue entry about the same map, does not certify the invariant over all complex parameters, all periods and scheme multiplicities. The distinct records do not match that invariant.",
+        "searches": [
+          "Resultary exact-map/all-period and regular-square searches above"
+        ]
+      },
+      "rationale": "The supported distinct result is the package for this specified quadratic map: both parities of the exact complex affine multiplicity count and iterate degrees, together with an explicit witness proving simultaneous generic simplicity. The regular-square mechanism accounts for even periods and must be credited; neither it nor the inspected real-dynamics results supply the odd census and discriminant conclusion together.",
+      "residual_risks": [
+        "The inaccessible Bianchi–Dinh–Rakhimov full text and other general exact periodic-point formulas for polynomial-like or recurrence maps may provide further overlap; the unsuccessful keyword lookup does not exclude this. No historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map; real stability and local bifurcations, not the complex affine all-period claim",
+          "evidence": [
+            "§2 imposes a!=0 and b!=0; the abstract describes Naimark–Sacker, transcritical and flip bifurcations."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12152423",
+          "material_read": "OA PDF p. 1 abstract and p. 3 §2, at text offsets 458 and 10850",
+          "method": "Bounded primary full-text inspection",
+          "title": "Research on Stability and Bifurcation for Two-Dimensional Two-Parameter Squared Discrete Dynamical Systems",
+          "trigger": "Identical motivating map and real parameter domain"
+        },
+        {
+          "assessment": "No full-text coverage determination",
+          "evidence": [
+            "Metadata identifies a dynamical-degree monotonicity paper; that metadata does not establish the scope of any fixed-point consequence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/tran/9225",
+          "material_read": "Citation metadata only; attempted OA DOI full text returned 403",
+          "method": "DOI identification and lawful OA attempt",
+          "title": "Monotonicity of dynamical degrees for Hénon-like and polynomial-like maps",
+          "trigger": "Plausible broader polynomial-like framework and cited context"
+        },
+        {
+          "assessment": "Real period-two classification, real symbolic subsystem, and real period-three slice respectively; no matching all-period complex scheme result",
+          "evidence": [
+            "The entropy statement concerns parameters near (0,8/3), and the period-three result restricts to a=1,b>0. The two-cycle result counts real primitive two-cycles."
+          ],
+          "identifier_or_url": "Resultary/SCOPE 437f2e31ace1; 8c9b71eb2d78; 3af82670b4f4",
+          "material_read": "Matching RESULT.md opening Findings, offset 0 for each",
+          "method": "Local catalogue and mirror statement comparison",
+          "title": "Exact two-cycle census and a universal expanding Floquet multiplier; Near-maximal robust symbolic entropy; Sharp period-three creation and a narrow sink window",
+          "trigger": "Distinct matching records on the same quadratic family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a pre-existing bifurcation family this gives an exact complex benchmark at every period, including singular parameter values through multiplicity, that also bounds what can be found in real computations. The exact degree growth explains why a naive uniform-degree projective count is the wrong tool for odd periods. The discrimination between generic distinct counts and uniform scheme counts is practically relevant in continuing periodic orbits. This value does not depend on novelty of the even-period regular-map consequence or on a claim about real attractors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

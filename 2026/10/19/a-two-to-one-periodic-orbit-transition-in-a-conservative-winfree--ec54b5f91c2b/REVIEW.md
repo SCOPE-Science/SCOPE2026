@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns a fixed zero-frequency skew-coupled Winfree triad and the invariant transformed-phase-sum-zero torus. The proof establishes a genuine global circle diffeomorphism, derives a globally periodic Hamiltonian and Casimir, and then exhausts critical points using the fact that the response-level equation has at most two roots on the circle. The exact factorization excludes additional critical points for every \(0<\varepsilon<1\). Hessian determinants and exact energy inequalities establish two minima, three saddles, one maximum and the ordering of their levels. Compact Morse regular-level continuation implies two closed orbits below the saddle energy and one above it. The standalone checker provides finite corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-Pikovsky (arXiv:2603.25431v1), the originating network equation (9), proves divergence-free dynamics in the general skew-coupled model and illustrates nonintegrable behavior at nonzero frequencies. It does not supply the positive-response zero-frequency Poisson conjugacy or an exact uniform six-critical-point/periodic-orbit census on a two-torus. Burylko–Mielke–Wolfrum–Yanchuk (2018), whose model definition and relevant low-dimensional propositions were inspected, analyze phase-difference couplings and do not prove the present separable-product statements. Ten targeted published-record searches for equivalent formulations, Hamiltonian reductions, periodic components and three-saddle phase portraits found no covering record. General Morse theory by itself does not imply the nontrivial exact stationary-point census. A non-obvious conjugate earlier integrable oscillator is a remaining risk, not a proven absence.
+PASS
 
-## Mathematical value — PASS
-The recent framework specifically distinguishes volume conservation from genuine Hamiltonian behavior. A natural explicitly specified subfamily exhibits global Hamiltonian reduction, exact critical-energy thresholds and a parameter-robust change in orbit-component count, answering a concrete structural question not addressed by phase-volume preservation. This gives a full leafwise dynamics classification of non-equilibrium regular motion, rather than an isolated equilibrium computation or a cosmetic renaming.
+Positivity makes the reciprocal-response coordinate a global circle diffeomorphism of the stated circumference. The chain rule gives ∂_u log A=A' and hence the claimed constant-Poisson equations. The tangent half-angle transformation gives A=k²/(1−ε cos t); scaling both derivatives gives k²B∇ℋ. The sum of t_i is a Casimir because the column sums of B vanish. On its zero leaf (not the original phase-sum-zero set), equilibrium means the three values of ε sin t/(1−ε cos t) agree. A nonzero value gives at most two phases by a genuine quadratic in tan(t/2), with t=π excluded; the zero value gives just 0 and π. Two phases must coincide, and substituting (w,w,−2w) yields sin w(2 cos w+1)(1+ε−2ε cos w)=0; the final factor is strictly positive. This exhausts the six candidates. The constrained Hessians are definite at the equal-coordinate points, and at each mixed point the determinant is −ε²(1+3ε)/((1−ε)(1+ε)²). The three values are strictly ordered by the positive product differences in the proof. Near the extrema compactness excludes any other local level components. On each closed band of regular values, ∇h/||∇h||² transports levels diffeomorphically, so the counts persist throughout each indicated open energy interval. The Hamiltonian field is nonzero on each compact circle component, making it one periodic orbit.
 
-## Scope and limitations
-The one-versus-two periodic orbit count applies to regular energies on the \(C=0\) invariant leaf only. Separatrix connection counts, arbitrary Casimir leaves, nonzero frequencies and perturbative persistence are outside the claim. A future exact-equivalence literature match would require reevaluating novelty; no independent audit or validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The skew Winfree equations are prior, and the constant-Poisson reduction in their positive-response zero-frequency case is a short consequence. A prior skew phase-difference model even has the same critical-point and level-count pattern for the leading-order potential. Neither inspected model supplies the exact finite-ε census and levels for this product response over the whole stated interval.
+
+## value
+
+PASS
+
+An explicit all-parameter census on the distinguished symmetry leaf of a published oscillator family is a natural finite phase-portrait question. It identifies both energy ranges and their exact orbit multiplicities without a small-response approximation, beyond what general conservative structure or the limiting sinusoidal portrait tells a researcher.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

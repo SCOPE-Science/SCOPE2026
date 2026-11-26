@@ -1,15 +1,21 @@
-# Scientific assessment of the quadratic-character phase spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise object is the unnormalized complex matrix with entries \(\exp(2\pi i\eta(st+c)/p)\) over odd primes \(p\ge5\) and shifts \(c\ne0\). Multiplicative-character orthogonality splits it into a two-dimensional block and one-dimensional input sectors. The quadratic sector is evaluated using \(\sum_u\eta(u(u+1))=-1\); the other nontrivial sectors are bounded by the classical Jacobi-sum modulus \(\sqrt p\). The exact positive determinant of the shifted constant-block Gram matrix rules out an additional weakest mode. The upper spectral edge is shown to belong to the constant block for every admissible prime, including a separately bounded five-point case. The checker runs 140 independent finite assertions, but the all-prime conclusion is analytic; see `RESULT.md` Steps 1–6 and `CHECK.py`. The normalization, shift invariance, and large-prime asymptotics are explicit.
+## correctness
 
-## Originality — PASS (bounded best-knowledge comparison)
-Wei–Li–Wu (arXiv:2305.16064) compute determinants of generalized Legendre matrices over finite fields, with different index sets and coefficient fields; neither their objects nor their determinant claims imply the sharp complex singular value or unique quadratic-character weak mode. The quadratic-phase prime-field Fourier rank trichotomy concerns \(\omega^{a st+b s^2t^2}\), not the Legendre three-phase mask, and rank alone cannot imply the sharp spectral endpoints. The exact additive Fourier spectrum for rank-one idempotents in \(2\times2\) matrices concerns a different convolution operator and group. González-Riquelme–Oliveira e Silva (arXiv:2405.16647) treat sharp extension inequalities, not this finite square spectral problem. Eğecioğlu (2011 online) treats Jacobi-symbol enumerator Hankel determinants, not these complex matrix singular values. Further hidden equivalent spectral calculations cannot be ruled out; priority is not independently certified.
+PASS
 
-## Value — PASS
-The family is a canonical three-phase quadratic-residue modulation of a multiplicative Hankel sampling operator on every prime field. Determining its least singular value is necessary to know the exact worst-case Euclidean reconstruction amplification; rank or entrywise unimodularity does not suffice. The theorem identifies a unique universally worst noise mode, computes both spectral endpoints, and proves quadratic growth of the optimal condition number. This is a natural exact stability invariant, not an arbitrary isolated numerical parameter. Its relevance is restricted to this phase family; no extension-field or broader coding consequences are claimed.
+On unnormalized complex column space, s=cr reduces all nonzero c to the c=1 matrix or its conjugate, preserving its entire singular spectrum and the real candidate right-singular line. The c=1 kernel expands as C+iSη(1+u)+(1−C)1_{u=−1}; the zero/constant sector and the nontrivial multiplicative-character sector are orthogonal invariant subspaces. On each character χ the map to χ inverse has multiplier iS times the shifted Jacobi sum plus (1−C)χ(−1). For η, reindexing by u/(1+u) makes the shifted sum the sum of η over the field excluding 1, hence −1. This gives modulus m=2sin(π/p). For the other nontrivial χ, χη is nontrivial, so the Gauss-product identity gives Jacobi modulus √p, hence S√p−(1−C)≤|Lχ|≤S√p+(1−C). The lower bound is strictly above m at p=5 and stays so by monotonicity of √p cos(π/p) and 1+sin(π/p). For the zero/constant block B, the normalized constant gives the √(p−1) entries and summation over the kernel gives its lower-right entry 1+(p−1)C−w. Thus det B=w(1−C−ipS); the trace of B*B is 2p−1+(1+(p−2)C)^2+S². Independent symbolic expansion reduces det(B*B−m²I) to (p−1)(p−3)(1−C)^2(1+2C)>0, and the shifted trace is positive. Both block modes therefore exceed m strictly, proving simplicity. For p≥7, |B_22|≥(p−1)C>3(p−1)/5>√p+1/2 bounds all nontrivial characters from above and lies below or at the block's largest singular value. For p=5 the second-column squared norm is (15+√5)/2 and exceeds (S√5+1−C)^2, as verified by the stated strict rational bounds. The top singular value is consequently the larger Gram root's square root. Finally T_p=p²+O(1), D_p=O(1), and m=2π/p+O(p⁻³), which give the claimed condition number including its bounded remainder. CHECK.py was inspected as a finite numerical diagnostic, not run or used in place of the all-prime argument.
 
-## Limitations
-The result has an all-prime proof but only finite numerical test coverage; it does not cover other phase angles, zero shifts, other characters, or extension fields. The literature comparison is not exhaustive. No external validation of the complete finding has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical character transform and Jacobi identities. The supported distinct claim is the two exact complex singular edges, the simple quadratic right-singular line, nonzero-shift equivalence, and resulting exact conditioning of this shifted-product three-phase mask at angle 2π/p. Closest retrieved comparators differ in phase function, normalization, matrix dimensions or spectral question. The exact-source literature lookup is bounded, including explicit access limits for the closest determinant paper.
+
+## value
+
+PASS
+
+A shifted multiplicative mask with a canonical quadratic character and unimodular phases is a natural family for a sharp stability calculation. Exact singular edges determine worst-case Euclidean inverse amplification and identify a unique, explicitly described direction invisible to rank alone. The uniform quadratic growth quantifies increasing ill-conditioning despite constant entry magnitudes; the result need not imply a general claim about finite-field sampling to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

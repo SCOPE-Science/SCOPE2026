@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:26:46.044606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the population covariance on the Euclidean zero-sum space, the intrinsic determinant is n times a reduced principal cofactor. The augmented incidence Gram determinant is m^n times that cofactor by Schur complementation. Disconnected minors vanish by rank, and a spanning unicycle minor is the imbalance up to sign by the unimodular tree basis and its signed fundamental cycle. Every cycle extends to a spanning unicycle, so the vanishing criterion includes trees and semi-balanced orientations. The other Schur complement yields the matrix-tree/pseudoinverse expression; the row-space projector accounts for the squared norm. On K_n the restriction is (n/m)I-ss^T/m^2. Partial score sums are bounded by k(n-k), attained by the transitive score vector; strict convexity characterizes equality, and parity gives the regular/near-regular opposite endpoints. Even orders are realized by adjoining a vertex to an odd regular tournament with wins and losses split by one. These give the stated count, spectrum, condition numbers, and four-vertex examples. Reviewed RESULT.md proof and checker.py (especially covariance_cofactor, unicycle_imbalance_squared and tournament_check). The recorded finite checks are supplementary and were not executed for this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forman's theorem as reproduced by Kenyon gives det Δ as the sum over unoriented cycle-rooted spanning forests of products of 2-w-w^{-1} over cycles, for arbitrary line-bundle monodromies.",
+          "Mallik studies a different signed incidence/net Laplacian determinant; that source is not the coverage finding."
+        ],
+        "reasoning": "The line-bundle formula applies to every connected graph in the frozen claim and to arbitrary phases, so it is a stronger source than any individual unicycle or tournament case.",
+        "searches": [
+          "Kenyon arXiv:1001.4028, section 4.2; literal Theorem 1",
+          "Mallik arXiv:2210.03711, signed net Laplacian introduction"
+        ]
+      },
+      "checked_sources": [
+        "Kenyon arXiv:1001.4028 / Forman matrix-CRSF theorem",
+        "Kálmán–Tóthmérész arXiv:2105.00960",
+        "Numata–Takahashi–Tamaki arXiv:2203.14521",
+        "Mallik arXiv:2210.03711",
+        "Resultary e32575b66377, 984613841899, 3b4b1b16fef5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Give each arrow u→v the unitary incidence column e_u-e^{it}e_v, and write its matrix as D(t). Then the cycle monodromy is exp(±itδ(C)). Dividing the CRSF expansion of det(D(t)D(t)^*) by t² and letting t→0 leaves exactly the spanning connected unicycle sum of δ(C)^2; every forest with multiple cycles contributes O(t^4) or zero.",
+          "In an orthonormal basis with last vector 1/√n, the last row of D(t) is (1-e^{it})1_m^T/√n. Divide that row by (1-e^{it})/√n and take the limit. The resulting Gram matrix has top block L restricted to H, mixed column s in H and bottom entry m. Its determinant is m^n det_H Σ by Schur complement, so the same scaled connection determinant tends to m^n det_H Σ/n.",
+          "The other Schur complement gives (2); the scalar Laplacian on K_n makes (3)–(6) immediate consequences of a rank-one perturbation and classical tournament score bounds with parity."
+        ],
+        "reasoning": "The specialization derives exactly (1), including the normalization and degenerate cases; a differently worded covariance formulation is not independent coverage.",
+        "searches": [
+          "Kenyon arXiv:1001.4028, Theorem 1 and its determinant convention; frozen identities (1)–(6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kálmán–Tóthmérész give the semi-balanced affine dimension dichotomy, equivalent to zero versus nonzero covariance determinant, not the magnitude.",
+          "The row-rescaled small-phase connection Laplacian represents the exact same centered covariance determinant, not an uncentered second moment or ordinary signed Laplacian."
+        ],
+        "reasoning": "Balance is already known. To compare magnitude, connect covariance to a constant edge phase and expand at the trivial connection; using the induced Euclidean metric is essential for the factor n.",
+        "searches": [
+          "Directed edge polytope affine rank / semi-balanced cycles: Kálmán–Tóthmérész arXiv:2105.00960; Numata–Takahashi–Tamaki arXiv:2203.14521",
+          "Augmented incidence and line-bundle Laplacian / cycle-rooted spanning forests: Kenyon arXiv:1001.4028, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e32575b66377 gives single directed-cycle normalized lattice volume |p-q|; 984613841899 gives Euclidean volume for unicyclic directed-edge polytopes; 3b4b1b16fef5 concerns random tournament cycle correlations."
+        ],
+        "reasoning": "These are genuine nearby records, not an exact table of centered covariance or covering arbitrary connected graphs; the decisive coverage instead comes from the line-bundle formula.",
+        "searches": [
+          "Resultary indexed directed-root covariance / oriented-cycle imbalance comparisons: e32575b66377, 984613841899, 3b4b1b16fef5"
+        ]
+      },
+      "rationale": "The main all-graph identity is the quadratic coefficient of Forman's matrix-CRSF theorem for a uniform small phase along the chosen orientation. The precise centered covariance normalization follows from rescaling the constant row; see the implication below. This is positive proof of coverage of the main identity, not an inference from a missing search hit. The projection form and tournament specializations are elementary Schur complement, complete-graph spectrum and score consequences, not an independently surviving substantive finding.",
+      "residual_risks": [
+        "Historical priority for the covariance wording and the reported tournament normalization was not established. This does not affect the demonstrated older implication of the central identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the main determinant via specialization and limit",
+          "evidence": "For a line bundle on a connected finite graph the determinant is the CRSF sum of cycle factors 2-w-1/w; the proof uses the incidence Gram determinant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1001.4028",
+          "material_read": "Section 4.2, Theorem 1 and its Cauchy–Binet proof, PDF pp. 7–8, offsets 18400–23234",
+          "method": "OA PDF, located theorem then read bounded passage",
+          "title": "Spanning forests and the vector bundle Laplacian",
+          "trigger": "Arbitrary monodromy and the small-phase unicycle coefficient"
+        },
+        {
+          "assessment": "Covers precisely the vanishing distinction, not the numerical determinant",
+          "evidence": "Semi-balanced cycle affine dependence and connected-case dimension n-2 versus n-1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.00960",
+          "material_read": "PDF pp. 5, 8–9, offsets near 17750 and 25200",
+          "method": "OA PDF passage comparison",
+          "title": "Root polytopes and Jaeger-type dissections for directed graphs",
+          "trigger": "Balanced cycle criterion and affine dimension"
+        },
+        {
+          "assessment": "Rank overlap only",
+          "evidence": "Incidence-rank/dimension criterion, not a covariance evaluation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.14521",
+          "material_read": "Lemma 3.9, PDF p. 8, offset near 18450",
+          "method": "OA PDF passage comparison",
+          "title": "Faces of Directed Edge Polytopes",
+          "trigger": "Directed incidence rank"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Signed net-Laplacian incidence factorization and principal-minor tree counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.03711",
+          "material_read": "Introduction p. 1, offset near 780",
+          "method": "OA PDF passage comparison",
+          "title": "Matrix tree theorem for the net Laplacian matrix of a signed graph",
+          "trigger": "Signed cycle/graph determinant terminology"
+        },
+        {
+          "assessment": "Single-cycle volume only",
+          "evidence": "Normalized lattice volume |p-q| for the un-semi-balanced cycle simplex.",
+          "identifier_or_url": "e32575b66377",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact Ehrhart polynomials of oriented cycle root polytopes",
+          "trigger": "Exact imbalance in an indexed cycle family"
+        },
+        {
+          "assessment": "Different invariant, restricted graph family; no date-based priority inference",
+          "evidence": "Volume of the root polytope of a unicyclic graph, not the covariance of all edge roots in general graphs.",
+          "identifier_or_url": "984613841899",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp orientation-dependent Euclidean volume of unicyclic directed-edge polytopes",
+          "trigger": "Squared-imbalance and unicycle overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Vertex covariance is a natural invariant and the identity is a useful interpretation of the small-phase coefficient. As submitted, however, the main exact invariant is mechanically implied by the stronger determinant theorem. The remaining tournament census and condition bounds are direct applications of the scalar complete-graph Laplacian and classical score extrema, with no separate nonroutine threshold established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

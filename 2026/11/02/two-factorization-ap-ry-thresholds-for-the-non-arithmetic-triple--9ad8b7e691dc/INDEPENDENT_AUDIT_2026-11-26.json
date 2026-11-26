@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:04:44.665071Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and definitions; VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: python3 /workspace/reproductions/exact_checks.py 4"
+      ],
+      "rationale": "In residue r the possible (y,z) are partitioned by y+3z=r+jm, j≥0, and each such pair gives exactly one representation iff q≥j+y+z. For a given j the costs start at j+f(r+jm) and increase by 2 through floor((r+jm)/3)+1 choices. Writing t≡b mod 3 and m=3h+a gives f(t+m)−f(t)=h+a−2 floor((a+b)/3). It is nonnegative for m≥4 and at least one for m≥5, so j=1 is the earliest wrapped cost. If r≤2, layer zero has just one choice and the first wrapped cost is the threshold for two. If r≥3 and m≥5 the wrapped cost cannot precede the second layer-zero cost f(r)+2; the same holds at the only remaining case m=4,r=3 by f(7)=3. Thus the threshold formula includes ties and all small boundaries. In the large residues the maximum H−1 is h+2, whose last attainment is m−1 for a=0,2 or m−2 for a=1 when m≥5. The small residues have H−1≤h+2 and lower r, and direct substitution at m=4 gives (3,4,3,3) and F₁=13. Since f(m)+f(m+1)+f(m+2)=m+3, summing H gives Σf+3m−3, and excluding the single zero gives the positive count; summing the blocks f(3j+b)=j+b gives the three displayed quadratic formulas. A direct enumeration of distinct coin triples on both sides of each predicted threshold reproduced the boundary behavior for 4≤m≤36.",
+      "residual_risks": [
+        "The direct enumeration is finite and corroborative. The proof is for p=1 only. The positive count omits zero; the nonnegative p-genus includes it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of arXiv:2206.13052 assumes (a,a+d,a+2d), a≥3, d>0, gcd(a,d)=1, and 0≤p≤floor(a/2). Matching the first and second generators forces a=m and d=1, giving m+2 rather than m+3.",
+          "The p-symmetry paper's stated three-generator Apéry structure is arithmetic progression; the ordinary shifted-monoid theorem does accept offsets 1,3 but computes first-representability, under its m>9 condition."
+        ],
+        "reasoning": "The arithmetic theorem matches the representation count but not the generator pattern; the ordinary shifted theorem matches the pattern but minimizes over numbers with at least one representation rather than at least two.",
+        "searches": [
+          "arXiv:2206.13052 Theorem 1; arXiv:2207.08962 PDF p. 11; arXiv:1708.09527 Theorem 3.3",
+          "Resultary: parametrized first generalized Frobenius and shifted-triple representation families"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13052, 2207.08962, 1708.09527, passages listed above",
+        "Resultary 6e6d0d63c1d4, 7091c6f11bba, d6ba501caf95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known max/sum formulas immediately yield F₁ and genus once the distinct threshold array is proved; those conversions are not the contribution.",
+          "The ordinary Apéry minimum does not distinguish a second pair within a wrap layer from the first pair in a new layer. Changing offset 4 to 3 changes the underlying residue costs rather than reindexing the same theorem."
+        ],
+        "reasoning": "No inspected stronger conclusion specializes to the threshold array for all m≥4; the maximum and genus are checked corollaries of that array, not independently novel methods.",
+        "searches": [
+          "Komatsu–Ying arXiv:2206.13052 Lemma 1 and Theorem 1; O'Neill–Pelayo arXiv:1708.09527 Theorem 3.3; Resultary 6e6d0d63c1d4 and 7091c6f11bba, findings and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S_p={N:d(N)>p}; this puts the reviewed claim at p=1, not p=2. The minimum in each residue of S₁ is the reviewed threshold.",
+          "The nonnegative p-genus in the framework is the reviewed positive count plus one; the largest-gap and genus conversion identities are known."
+        ],
+        "reasoning": "Translate the claim into the earlier p-numerical semigroup language before comparing it; a count of reorderings of the same coins would not be equivalent.",
+        "searches": [
+          "Resultary: first-repeat or second-representation Apéry thresholds and generalized Frobenius/genus for shifted triples",
+          "Komatsu–Ying arXiv:2206.13052 PDF pp. 2–4, p-numerical semigroup, p-Apéry set and Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary 6e6d0d63c1d4 gives full first-repeat thresholds, maximum and genus, but for offset 4, not 3.",
+          "Later Resultary 7091c6f11bba matches the denominations only when (h−1)m=4, giving m=4,h=2. There its thresholds {12,17,14,15}, maximum 13 and nonnegative genus 13 agree exactly, but the record is dated November 8 and has no other matching m.",
+          "Later Resultary d6ba501caf95 works on arithmetic triples with d≥3 at p=floor(a/2)+1."
+        ],
+        "reasoning": "Neither an earlier adjacent offset nor a later single matching parameter resolves the whole residue array for this family.",
+        "searches": [
+          "Resultary: exact first-repeat shifted triples including (m,m+1,m+3), (a,a+1,a+4), and (m,m+1,hm−1)"
+        ]
+      },
+      "rationale": "The p-Apéry framework, largest-gap and genus identities are known. The distinct contribution is the two-piece threshold array for all m≥4 in this non-arithmetic shifted family. The closest arithmetic-progression theorem does admit p=1 but not these generators; the ordinary shifted-monoid theorem has the generators but not the two-representation condition. No inspected source gave the entire array or implied it through an existing family formula.",
+      "residual_risks": [
+        "The comparisons do not rule out an unnoticed specialization under a different denumerant or shifted-semigroup formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct framework and identity overlap; nonmatching generator pattern",
+          "evidence": [
+            "Uses d(N)>p; derives Frobenius/genus from Apéry minima; Theorem 1 assumes an arithmetic progression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+          "material_read": "PDF pp. 2–5, definitions, Lemma 1 and Theorem 1",
+          "method": "Primary open-access PDF",
+          "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+          "trigger": "Same p-Apéry objects and explicit formulas on triples"
+        },
+        {
+          "assessment": "No matched non-arithmetic formula in inspected passages",
+          "evidence": [
+            "Displayed triple Apéry structure concerns arithmetic sequences; general p≥1 structure is identified as difficult."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.08962",
+          "material_read": "PDF p. 11, three-variable p-Apéry structure discussion",
+          "method": "Primary open-access PDF",
+          "title": "p-Numerical Semigroups with p-Symmetric Properties",
+          "trigger": "Potential generalization beyond arithmetic sequences"
+        },
+        {
+          "assessment": "Ordinary Apéry theorem does not give second-representation thresholds",
+          "evidence": [
+            "With offsets 1,3 its size bound is m>9; the set in the theorem concerns representability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.09527",
+          "material_read": "PDF §3, p. 3, Theorem 3.3",
+          "method": "Primary open-access PDF",
+          "title": "Apéry Sets of Shifted Numerical Monoids",
+          "trigger": "Contains this offset pattern within a general shifted family"
+        },
+        {
+          "assessment": "Exact analogue with a different offset",
+          "evidence": [
+            "Covers (a,a+1,a+4) for a≥2."
+          ],
+          "identifier_or_url": "Resultary 6e6d0d63c1d4",
+          "material_read": "RESULT.md finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "First-repeat Apéry thresholds of shifted square triples",
+          "trigger": "Earlier first-repeat thresholds on a closely shifted family"
+        },
+        {
+          "assessment": "Later exact agreement only at m=4",
+          "evidence": [
+            "Third generator hm−1 with m≥3 and 2≤h≤m−1."
+          ],
+          "identifier_or_url": "Resultary 7091c6f11bba",
+          "material_read": "RESULT.md finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "First generalized Frobenius numbers and second Apéry thresholds",
+          "trigger": "Second thresholds in another family possibly containing the target"
+        },
+        {
+          "assessment": "Different parameter and representation count",
+          "evidence": [
+            "Arithmetic triples with d≥3, at p=floor(a/2)+1."
+          ],
+          "identifier_or_url": "Resultary d6ba501caf95",
+          "material_read": "RESULT.md finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "First post-range representation thresholds for three-term arithmetic progressions",
+          "trigger": "Possible expanded range of known thresholds for triples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, two-piece classification and corollaries",
+        "arXiv:2206.13052, p-Apéry framework and analogous arithmetic family"
+      ],
+      "rationale": "The first nontrivial generalized Apéry layer is a natural target already studied for arithmetic triples. Here the third denomination omits the next arithmetic shift, creating a real competition between two types of second representation. The exact threshold in every residue over an unbounded family decides uniqueness at any input and yields the generalized Frobenius and gap-count invariants, including the m=4 edge case. A largest-gap formula or first-representation computation alone would not answer that question.",
+      "residual_risks": [
+        "No result for higher p or arbitrary three-denomination families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:16:17.924413Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass for the repaired record (/workspace/repairs/2/RESULT.md and verify.py), which retains the gcd product and all density bounds. Writing Q_n=(α^n+β^n)/2, divisibility by an odd p is (α/β)^n=−1 in the cyclic norm-one subgroup (order p−(2/p)), including in the split algebra. There is a unique involution, so for even order h the indices are exactly odd multiples of e=h/2, with p∤e. Odd-exponent lifting for units α^e,β^e over the unramified p-adic component(s) gives ν_p(Q_em)=ν_p(Q_e)+ν_p(m) for odd m, enough for the whole p-part of n; p=2 never contributes. The obstruction p|gcd(n,Q_n) is an odd multiple of pe, whose intersections are empty in different 2-adic layers and are odd multiples of the lcm otherwise. With e≥log(2p−1)/log α, partial summation of Σ 1/(p log p) against π(x) bounded by 1.25506 x/log x gives exactly the stated tail. A finite interval n≤X incurs at most one rounding unit per prime ≤X, and π(X)/X→0; this justifies passage to natural density, not just convergence of formal inclusion–exclusion. The prime bound was independently certified through Dusart (6.6) for x≥60184 (log x>10, normalized factor ≤100/89), plus exact upward log-series comparisons at every prime 17≤p<60184 (tightest upper ratio at p=113, about 1.255058713). For the density endpoints, independent companion-matrix projective orders gave δ_59=154703748840589/176325122256360 and the ceiling sum 137404000609 across 6797 eligible primes of the 9591 odd primes ≤100000. Rational log bounds give tail ≤33236561673/662400500000<0.0502, implying the strict lower 0.812; δ≤δ_59<0.878. Direct integer recurrence confirmed 10000 gcds. Replay: python3 /workspace/reproductions/pell.py. The supplied verifier was inspected, not executed. Its original comment incorrectly bounded 1/log(100000)+1/(2 log²(100000)) by 0.0905 (instead about 0.0906311); its final floating comparison was numerically right but not an outward proof. The repaired copy uses exact rational inequalities and the independent test reproduced them. Neither finite check is a proof of the universal gcd rule or density existence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanna's general theorem gives qualitative existence and positivity under the nondegeneracy and u_n/n hypotheses. Mastrostefano–Sanna's polynomial theorem with G(n)=n,h=1 covers existence here.",
+          "For Fibonacci numbers, Sanna–Tron use ℓ(m)=lcm(m,z(m)) and a Möbius density sum; these conditions do not encode the exact 2-adic layer of a second-kind Pell zero."
+        ],
+        "reasoning": "General density existence is covered and credited, and lcm meets are not a novelty by themselves. The exact odd-quotient intersections plus a quantitative truncation error yield a different sequence-specific certified interval.",
+        "searches": [
+          "arXiv:1703.10478 Theorem 1.1",
+          "arXiv:1805.05114 Theorem 1.4",
+          "arXiv:1705.01805 rank/lcm density formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.05758",
+        "Resultary e7a5f03d5772 and a22e3ce24b44",
+        "arXiv:1703.10478",
+        "arXiv:1705.01805",
+        "arXiv:1805.05114",
+        "Rosser–Schoenfeld DOI (landing only)",
+        "arXiv:1002.0442"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of the earlier two-prime statement already supplies the all-prime local mechanism, but it does not quantify the infinite density or give explicit parity-layer intersections and a certified error.",
+          "Qualitative natural density existence plus an analogous lcm sieve for first-kind Fibonacci recurrence does not entail δ_59, the error at 100000 or the resulting interval for the second-kind associated Pell recurrence."
+        ],
+        "reasoning": "Credit earlier results on both the arithmetic and density sides. The corrected quantitative conclusion survives; its proof uses the local criterion as an input to events with explicit intersection densities, a tail estimate, and exact arithmetic.",
+        "searches": [
+          "earlier two-prime proof eqs. (1), (3) and Frobenius-ratio step",
+          "Sanna Thm. 1.1 and Mastrostefano–Sanna Thm. 1.4",
+          "Sanna–Tron Fibonacci lcm Möbius formula pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 32 uses e_Q(p)|n without requiring n/e_Q(p) odd. The earlier two-prime record already refutes this via n=3·2^a, a≥2 (in particular n=12).",
+          "The earlier record's Frobenius congruence and exact lifting, eqs. (1) and (3), apply for every odd p and every index m. With n=p^b m, p∤m, they imply unitary gcd at all n, testing exactly p|Q_m. Its ratio u and u^n=−1 argument give the entry-point parity rule in the cyclic subgroup."
+        ],
+        "reasoning": "The two ways of testing a p-block are equivalent once the ratio order is used and p∤e. Prior valuation and order lemmas give the local test by direct specialization, so not even its all-index version is needed as a novelty claim. The parity-layer event union and numerical certification remain separate.",
+        "searches": [
+          "Resultary: associated Pell gcd Q_n,n; odd quotient/entry-point phases; unitary divisor; parity lcm density",
+          "arXiv:2301.05758 §6.2",
+          "Resultary e7a5f03d5772, proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e7a5f03d5772 computes the gcd for indices with at most two prime divisors; its finite comparisons are not a density interval for all n.",
+          "The same-date cubic-window Pell Resultary record studies gcds of consecutive sums of cubed Pell terms, not the self-coprime-index set. No matching rational sieve table or certified interval was identified in the inspected records."
+        ],
+        "reasoning": "The specific finite densities and outward-rounded lower bound refer to all such indices, not the fraction of qualifying primes or an interval extrapolated from small counts. Bounded search is not a priority proof.",
+        "searches": [
+          "Resultary: coprime associated Pell indices sieve with finite order and effective density bound",
+          "e7a5f03d5772",
+          "a22e3ce24b44"
+        ]
+      },
+      "rationale": "Pass for the repaired distinct result: the explicit parity-stratified finite-lcm density sieve, quantitative tail and strictly certified interval for this sequence. The earlier closely matching Resultary paper already has the two-prime gcd rule, refutes Conjecture 32 and contains the lemmas from which the all-index unitary property and explicit local order test follow. The repair credits that material and does not claim it as new. Qualitative existence of recurrence self-coprime density and lcm/rank sieves in other Lucas settings are prior.",
+      "residual_risks": [
+        "A less accessible associated Lucas or Pell index sieve could cover part of the quantitative result; bounded retrieval did not identify such an interval.",
+        "The original Rosser–Schoenfeld paper was not read in full text; the relevant inequality was instead certified via an independently inspected explicit bound and rational computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjectures an incorrect criterion; no exact density coverage",
+          "evidence": [
+            "The condition e_Q(p)|n omits odd quotient. Q_12=19601 is coprime to 12 though e_Q(3)=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+          "material_read": "§6.2 and Conjecture 32, p. 22, OA offset 67350",
+          "method": "Primary PDF passage, compared to n=12 witness and parity condition",
+          "title": "Pell and associated Pell braid sequences as GCDs of sums of k consecutive Pell, balancing, and related numbers",
+          "trigger": "Exact prior conjectured self-coprime criterion"
+        },
+        {
+          "assessment": "Covers two-prime theorem, counterexample, and local proof mechanism, not effective density",
+          "evidence": [
+            "Q_(p m)≡Q_m mod p, exact lifting when p divides, and root ratio whose order divides p±1. The theorem treats at most two primes and explicitly refutes the conjecture with n=3·2^a."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-two-prime-index-rigidity-for-associated-pell-gcds--e7a5f03d5772",
+          "material_read": "Finding, scope, proof §§1–5 (including offsets 1700–5576), mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary primary source and general-n lemma comparison",
+          "title": "Two-prime-index rigidity for associated Pell gcds",
+          "trigger": "Strong same-sequence prior gcd theorem and lemmas"
+        },
+        {
+          "assessment": "Qualitative density coverage, not effective interval",
+          "evidence": [
+            "Theorem gives natural density and a positivity/finite alternative for nondegenerate recurrences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.10478",
+          "material_read": "Theorem 1.1 p. 2, offset 5200",
+          "method": "OA primary statement and hypothesis comparison",
+          "title": "On numbers n relatively prime to the nth term of a linear recurrence",
+          "trigger": "General theorem on the same density invariant"
+        },
+        {
+          "assessment": "Analogous first-kind Lucas sieve, not Pell parity-stratified bounds",
+          "evidence": [
+            "Fibonacci formula sums μ(d)/ℓ(dk) with ℓ(m)=lcm(m,z(m))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.01805",
+          "material_read": "pp. 2–3, offsets 4300 and 6100",
+          "method": "OA formulas and local progression comparison",
+          "title": "The density of numbers n having a prescribed G.C.D. with the nth Fibonacci number",
+          "trigger": "Closest lcm/rank density sieve analogue"
+        },
+        {
+          "assessment": "Covers existence only here",
+          "evidence": [
+            "Natural densities exist for prescribed gcd with suitable polynomial G."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.05114",
+          "material_read": "Theorem 1.4 p. 2, offset 6900",
+          "method": "OA theorem and specialization G(n)=n, h=1",
+          "title": "On numbers n with polynomial image coprime with the nth term of a linear recurrence",
+          "trigger": "Stronger general density existence theorem"
+        },
+        {
+          "assessment": "Original attribution not independently checked from its primary passage; numerical bound instead established from Dusart and finite computation",
+          "evidence": [
+            "No usable original theorem text retrieved; the correctness conclusion does not depend on that retrieval."
+          ],
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1255631807",
+          "material_read": "Landing/bibliographic information only; publisher full text and identified alternate routes not obtained",
+          "method": "Lawful OA attempts; no claim of direct examination of Corollary 1",
+          "title": "Approximate formulas for some functions of prime numbers",
+          "trigger": "Exact constant and cutoff used in the tail proof"
+        },
+        {
+          "assessment": "Stronger upper bound for x≥60184 sufficient for claimed tail",
+          "evidence": [
+            "π(x)≤x/(log x−1.1) for x≥60184. Monotonicity plus finite rational checks cover 17≤x<60184."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1002.0442",
+          "material_read": "§6.2 p. 9, Theorem 6.9 (6.6), offset range 24500–29400",
+          "method": "Primary text and normalized constant comparison",
+          "title": "Estimates of Some Functions Over Primes without R.H.",
+          "trigger": "Primary alternate bound for the large-x part"
+        },
+        {
+          "assessment": "Different gcd object",
+          "evidence": [
+            "Cubic sliding Pell sums, not gcd(n,Q_n) or its index density."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-cubic-window-gcds-of-pell-numbers--a22e3ce24b44",
+          "material_read": "Finding and recurrence object",
+          "method": "Local mirror semantic comparison",
+          "title": "Exact cubic-window gcds of Pell numbers",
+          "trigger": "Same-day nearby Pell gcd finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unlike qualitative density existence or known local lifting alone, the repaired result gives explicitly computable finite rational approximants and a guaranteed distance from the actual density. The 2-adic phase is arithmetically consequential, not an incidental filter, and the interval provides a quantitative benchmark for later refinements on indices of Lucas sequences of the second kind. The interval is not a precise decimal evaluation; neither the old two-prime rule nor a counterexample already known is relied on for the value assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

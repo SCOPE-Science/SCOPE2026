@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:23:40.398262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The separate finite check /workspace/branches/5e1de70f-c72b-48ff-9568-89b779f2d952/independent_check.py reconstructed KG(5,2), enumerated all ten-vertex spanning paths modulo reversal, and checked both-end rotations and BFS from every state. It obtained 120 paths (four for each of 30 nonedge endpoint pairs), 240 edges, degree four, and shells (1,4,11,25,39,29,11) at every state. The action preserves rotations. An element stabilizing the reference path cannot reverse it, since 01 and 24 are disjoint but their reversed images 14 and 04 are not; fixing the path pointwise fixes every two-subset and hence is the identity. The computed four reference neighbors give exactly the stated inverse pair, double transposition and transposition, with right multiplication as claimed; conjugates of (0 3) by (0 3 2 4) generate S_4 on its support, and (0 1)(2 3) then generates the missing transposition with 1. Full breadth-first enumeration gives eccentricity six. The edge-exchange criterion also follows: no old endpoints are adjacent in the non-Hamiltonian Petersen graph, so a one-edge addition must join an endpoint to an interior vertex; to undo the cycle and the degree-three vertex requires deleting the interior vertex's edge toward that endpoint. No frozen script was executed for the independent check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazazi proves connectivity and an O(n^2) bound under the spanning squared-path hypothesis. The Petersen graph is cubic and interior vertices of a spanning ten-vertex path square have degree four. The generalized Petersen Hamilton-path paper surfaced in the search but text was not retrieved."
+        ],
+        "reasoning": "The available broader theorem does not apply even for connectivity, much less give the generators or shells. The GP(5,2) alias is relevant to path enumeration; inaccessible text is not evidence of absence.",
+        "searches": [
+          "Kazazi arXiv:2610.05068, Theorem 1.1",
+          "Primary-literature search for Petersen or GP(5,2) Hamilton paths and endpoint-rotation graph"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and artifact roles",
+        "Resultary c93f9dff80fd and c5419e4dd1be (primary findings)",
+        "Kazazi arXiv:2610.05068",
+        "MathWorld Pósa Rotation",
+        "Bibliographic hit S0012365X13001064"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous containment-complex homotopy type and its 120-facet enumeration supply the state set; the facet/ridge criterion makes the rotation graph constructible from those data. The inspected statements do not determine its Cayley labeling, exact generator set or distance shells. The Herschel diameter does not transfer."
+        ],
+        "reasoning": "The 120 count is not a distinct contribution. Constructibility from the known states is not a statement or simple substitution yielding the regular action, generator identification or exact metric: these are the structural and metric results checked here.",
+        "searches": [
+          "Resultary c93f9dff80fd, finding and face enumeration; Kazazi Thm. 1.1; comparison to the c5419e4dd1be finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A backbite on an undirected Petersen spanning path is exactly a one-edge exchange between spanning paths, hence adjacency of facets along an eight-edge ridge in the Petersen Hamiltonian-path containment complex. Conjugation by (0 1) replaces the generators by (1 3 2 4),(1 4 2 3),(0 1)(2 3),(1 3), giving the same Cayley graph under relabeling."
+        ],
+        "reasoning": "The equivalent objects are the dual facet graph of this containment complex and the right Cayley graph under a regular labeling. Reachability equivalence of general backbites and edge flips is otherwise weaker than equality of graph metrics.",
+        "searches": [
+          "Resultary: Petersen Hamiltonian-path backbite, Pósa rotation, edge exchange, metric, and S5 Cayley graph",
+          "Kazazi arXiv:2610.05068; MathWorld Pósa Rotation; Resultary c93f9dff80fd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier c93f9dff80fd finding explicitly identifies and counts 120 undirected spanning paths as facets of its complex. The c5419e4dd1be exact backbite record concerns the Herschel graph (222 states, diameter nine), not Petersen. No exact Cayley-metric entry under a relabeling emerged from the bounded checks."
+        ],
+        "reasoning": "The path count is a verified partial overlap. The Herschel record is not discarded based on date: its underlying graph and metric differ. No claim is made of an exhaustive graph-isomorphism database search.",
+        "searches": [
+          "Resultary Petersen or Herschel exact backbite distances, S5 Cayley and Petersen Hamiltonian-path containment"
+        ]
+      },
+      "rationale": "The 120 path count and the existence of a containment-complex presentation of these paths are already covered. Supported distinct content is the exact backbite Cayley identification, including the right generators for the specified path, and the exact word metric distribution. No inspected prior statement supplies those invariants.",
+      "residual_risks": [
+        "The full text of Hamilton paths in generalized Petersen graphs was inaccessible. The bounded catalogue and literature checks cannot exclude a prior exact metric result or a Cayley database entry under another labeling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact state-count overlap, not the rotation-graph classification",
+          "evidence": "120 pure dimension-eight facets indexed by undirected paths; the reported invariants are homotopy and path-extension data, not the Cayley or word-metric results.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-integral-homotopy-of-the-petersen-hamiltonian-path-containment-c--c93f9dff80fd/RESULT.md",
+          "material_read": "Finding and assumptions (offsets 0–1775), facet enumeration passage (around offset 2274)",
+          "method": "Local mirror statement and proof-passage inspection",
+          "title": "Integral homotopy of the Petersen Hamiltonian-path containment complex",
+          "trigger": "Same Petersen spanning paths; dual facet adjacency may encode the graph"
+        },
+        {
+          "assessment": "Different underlying graph",
+          "evidence": "222 states, 444 edges, radius eight and diameter nine, for Herschel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-backbite-distances-among-hamiltonian-paths-of-the-herschel--c5419e4dd1be",
+          "material_read": "Mirrored RESULT.md offsets 537 and 1706",
+          "method": "Local mirror statement comparison",
+          "title": "Exact backbite distances among Hamiltonian paths of the Herschel graph",
+          "trigger": "Same move and exact metric question"
+        },
+        {
+          "assessment": "Hypothesis excludes Petersen",
+          "evidence": "A spanning square of a Hamiltonian path is required for the connectivity and quadratic bound; the move discussion distinguishes reachability from individual flips.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05068",
+          "material_read": "Primary PDF p. 2, Theorem 1.1 and preceding move discussion (OA offsets 5700 and 6103)",
+          "method": "OA primary statement inspection",
+          "title": "Connectivity of the reconfiguration graph of Hamiltonian paths",
+          "trigger": "Direct broader theorem for the same reconfiguration move"
+        },
+        {
+          "assessment": "Unresolved access risk, not assessed as non-covering",
+          "evidence": "Retrieved material does not establish which path-count or reconfiguration results the paper contains.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0012365X13001064",
+          "material_read": "Search-result bibliographic information only; no full text",
+          "method": "Publisher direct and VPN OA attempts returned HTTP 403; attempted exact bibliographic cross-reference did not retrieve an alternate copy",
+          "title": "Hamilton paths in generalized Petersen graphs",
+          "trigger": "Petersen is GP(5,2), so a full-text comparison could affect the path or rotation claims"
+        },
+        {
+          "assessment": "Move definition, not this classification",
+          "evidence": "Describes endpoint rotation and its use in rotation-extension.",
+          "identifier_or_url": "https://mathworld.wolfram.com/PosaRotation.html",
+          "material_read": "Definition at offsets 0–459",
+          "method": "Public page inspection",
+          "title": "Pósa Rotation",
+          "trigger": "Equivalent move terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known path count is not the gain. A natural non-Hamiltonian cubic test case lies outside the spanning-square connectivity theorem; identifying its reconfiguration graph with a specific S5 Cayley graph explains uniformity across all states and supplies exact answers for the reachability distance between configurations. The complete reference-path metric is a useful invariant of this specific move graph, not an arbitrary cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

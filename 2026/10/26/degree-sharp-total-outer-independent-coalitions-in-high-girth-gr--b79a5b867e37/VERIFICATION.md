@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,10 +21,6 @@
 
 # Verification details
 
-`verification/verify.py` is a standard-library Python 3 program operating on graph neighborhood bit masks. It separately evaluates total domination and independence of the outside set; a coalition check requires every part to fail TOIDS individually while at least one two-part union passes. It tests the explicit partition defined in the theorem for the selected vertex of maximum degree.
+The unchanged `verification/verify.py` uses graph neighborhood bit masks to check total domination and independence of the complement. It tests the explicit partition at selected vertices of maximum degree, and its exact small-graph routine visits all partitions via successive vertex insertion. It skips candidates with at most as many blocks as the current valid maximum; this is safe for computing the maximum. For the six-vertex boundary instance the maximum is three; the corrected result also proves this value directly.
 
-For exact small graphs, the routine `direct_coalition_number` recursively enumerates every set partition precisely once: starting from an empty partition, each successive labeled vertex is inserted into one existing block or creates a new terminal block. It scores the resulting complete partitions without pruning. In the six-vertex boundary instance there are \(203\) such partitions; it returns coalition number \(3\), strictly below the degree-bound value \(4\).
-
-The exhaustive labeled-graph search covers all \(33{,}864\) graph edge masks across orders three to six, with \(72\) meeting the stated girth and minimum-degree hypotheses. The resulting exact coalition numbers are compared to \(\Delta+1\). Exhaustive coalition checks are also run for the seven- and eight-cycles, the two-five-cycle bouquet, and the Petersen graph. The Heawood graph and the three- and four-cubes are checked constructively only. Three boundary cases are exhaustively verified: \(K_4\), \(P_4\), and \(K_{3,3}\) minus two independent edges.
-
-The recorded output is in `verification/verify_output.txt`; the final success marker is `VERIFY_OK`. The mathematical proof covers arbitrary finite order and does not infer infinite validity from the finite sample. No expert audit has been performed.
+The supplied `verification/verify_output.txt` records `VERIFY_OK`, with 72 eligible graphs among 33,864 labeled graphs of orders three to six, plus larger constructive or exhaustive checks and three small boundary cases. The additional positive-degree local case at maximum degree one is handled by the matching argument, not by this census. The finite tests are not a proof for unrestricted graph order.

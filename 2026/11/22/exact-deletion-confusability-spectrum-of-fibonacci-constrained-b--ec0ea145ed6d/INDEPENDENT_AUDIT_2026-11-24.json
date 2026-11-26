@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:23:31.944974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A synchronous scan retaining both deletion flags and at most one unmatched survivor bit exactly represents existential common one-deletion outputs: before either deletion, prefixes must match; after one deletion there is one unmatched survivor on the longer track; after both deletions there is again no lag and equality is required. Previous source bits reject 11, never imposing an output constraint. Keeping a set of alignments makes acceptance count an input once, regardless of witnesses. Independently constructed the raw automaton by appending the kept bits and cancelling their common prefix; refined its 17 states to 12 counted-equivalence classes, 9 productive. Independently evaluated the raw 17-state formal resolvent by an exact determinant ratio, without the supplied quotient certificate, and verified (ordered series−vertex series+1)/2 equals the proposed all-length edge OGF. The +1 corrects for the empty word rejected by the pair reader; for n≥1 every diagonal is accepted and both edge orientations appear. Hamming edges are counted by flipping each 1 to 0 from the heavier endpoint once; the marked Fibonacci-language series (1+tz)/(1−z−tz²) yields z/(1−z−z²)^2, and subtracting gives the asserted extra term. The unique dominant pole is φ^−1 of order three, with coefficient φ³/(5√5) of (1−φz)^−3; the vertex asymptotic φ^(n+2)/√5 gives both stated constants. Replay python3 /workspace/branches/deletion_replay.py verified the exact resolvent and pole constant plus literal bit-deletion shadow counts through n=15 (including all ten reported terms). The finite list checks interpretation, not the all-length identity. Frozen artifacts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-binary deletion graph has the same edge criterion before restriction; its inspected definition/construction does not give an edge-generating function for the induced no-11 language. The run-length-limited source example adds zero-run/endpoint conventions and proves bounds on code size. Gravier et al. work with Hamming adjacency."
+        ],
+        "reasoning": "A broader channel model is not a broader exact enumerator capable of specialization. No such enumerator for this induced subgraph was established by these sources.",
+        "searches": [
+          "Cullina–Kulkarni–Kiyavash arXiv:1211.4056v1 §II-B",
+          "Kulkarni–Kiyavash arXiv:1211.3128 §V-A",
+          "Gravier et al. arXiv:1504.00829"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and three transfer/deletion artifacts",
+        "Cullina–Kulkarni–Kiyavash arXiv:1211.4056v1",
+        "Kulkarni–Kiyavash arXiv:1211.3128",
+        "Rispoli–Cosares (2008)",
+        "Gravier et al. arXiv:1504.00829",
+        "Resultary records b85913bb6305, 25a61255a325, 737fed325e91 and the assigned self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The union of Hamming adjacency and the earlier two-output graph is still missing 001–100. Its edge series, using the two read and single-bit counts, cannot yield the new extra term just by subtraction or adding the known summands. Each alignment surviving one deletion on each track must be tested existentially."
+        ],
+        "reasoning": "The covered subcounts and available adjacency characterization explain genuine overlap but do not count the remaining exactly-one-output non-Hamming pairs. The new total is not a parameter substitution in the inspected graph recurrence.",
+        "searches": [
+          "Rispoli–Cosares Propositions 1–2 and Gravier et al. p. 1",
+          "Resultary b85913bb6305 actual Finding and relationship-to-prior-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rispoli–Cosares require one contiguous differing run in their enlarged Fibonacci Hypercube; the same-day two-read result requires two distinct outputs and its unweighted count follows by subtracting single-bit edges from that hypercube. The pair 001,100 has exactly the common deletion output 00 and noncontiguous differing coordinates {1,3}."
+        ],
+        "reasoning": "Neither the maximal-run adjacency formulation nor the two-output convention is an alias for the existential one-output induced graph. Indexed linear words and arbitrary deletions are material to the comparison.",
+        "searches": [
+          "Fibonacci constrained binary words avoiding 11 one-deletion confusability graph versus two-read common deletion outputs",
+          "Rispoli–Cosares Fibonacci hypercube Propositions 1–2",
+          "Resultary two-read ambiguity in Fibonacci constrained words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite same-channel packing record 25a61255a325 gives integral and fractional optimum tuples through n=7, not edge counts. The unrestricted two-read record 737fed325e91 and same-language two-read record b85913bb6305 count a different threshold; the latter has unweighted OGF z²/[(1−z)(1−z−z²)^2]. The exact same single-output Resultary hit ec0ea145ed6d is this record itself."
+        ],
+        "reasoning": "Neither an optimum packing table nor an edge table for another adjacency condition gives the target counts. Same-day results are compared by scope, not assumed to come before or after one another.",
+        "searches": [
+          "Resultary one-deletion graph enumeration and constrained deletion packing",
+          "Resultary constrained and unrestricted exact two-read graph counts",
+          "Rispoli–Cosares Proposition 2"
+        ]
+      },
+      "rationale": "The deletion graph framework and Hamming-edge summand are known. A prior larger Fibonacci-Hamming variant also encompasses the two-read part, with an exact edge count, but not the full target. The supported distinct contribution is the all-length count including exactly-one-output pairs outside ordinary Hamming adjacency and the resulting cubic-pole law.",
+      "residual_risks": [
+        "A differently indexed constrained-code enumerator could contain the missing exactly-one-output count; general Fibonacci search results are not evidence of historical absence.",
+        "Same-day two-read results overlap materially in a proper subgraph; no date-based priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general graph framework, not the target induced edge count.",
+          "evidence": "Common deletion outputs determine adjacency for unrestricted binary inputs.",
+          "identifier_or_url": "https://arxiv.org/html/1211.4056v1",
+          "material_read": "§II-B, around OA offset 11216",
+          "method": "Original OA HTML passage",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes",
+          "trigger": "Same deletion adjacency before restriction"
+        },
+        {
+          "assessment": "A source-constrained packing bound, not an edge enumerator for all no-11 words.",
+          "evidence": "Run constraints and endpoint conventions differ.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "§V-A, PDF p. 12, around OA offset 93838",
+          "method": "Original OA PDF passage",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Run-length-limited deletion channel"
+        },
+        {
+          "assessment": "Covers the maximal-run-difference graph, distinct from the target.",
+          "evidence": "Exact recurrence counts a graph missing noncontiguous differences such as 001–100.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/40/ajc_v40_p187.pdf",
+          "material_read": "Propositions 1–2, PDF pp. 3 and 5, around offsets 4608 and 11222",
+          "method": "Original OA journal PDF passages",
+          "title": "The Fibonacci hypercube",
+          "trigger": "Larger graph on Fibonacci words with exact count"
+        },
+        {
+          "assessment": "Hamming graph covers only ordinary Fibonacci-cube adjacency.",
+          "evidence": "The graph is induced from the hypercube on no-consecutive-ones words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.00829",
+          "material_read": "p. 1, definition and object studied, around offset 500",
+          "method": "OA PDF passage",
+          "title": "On Disjoint Hypercubes in Fibonacci Cubes",
+          "trigger": "Known Hamming summand and graph name"
+        },
+        {
+          "assessment": "Exact two-output and weight-layer results, not the one-output count.",
+          "evidence": "The unweighted two-read series is z²/[(1−z)(1−z−z²)^2] and is credited to prior hypercube counting after deleting single-bit edges.",
+          "identifier_or_url": "2026/11/22/SCOPE-weight-resolved-two-read-deletion-ambiguity-in-fibonacci-constra--b85913bb6305",
+          "material_read": "RESULT.md Finding and prior-work discussion, starting around offsets 0, 4960 and 7155",
+          "method": "Local published mirror",
+          "title": "Weight-resolved two-read deletion ambiguity in Fibonacci-constrained words",
+          "trigger": "Closest same-language exact enumeration"
+        },
+        {
+          "assessment": "Same language/channel; different invariant and strictly finite size range.",
+          "evidence": "Integer and fractional packing optima n=1,…,7.",
+          "identifier_or_url": "2026/11/2/SCOPE-first-fractional-deletion-packing-gaps-for-fibonacci-constrained--25a61255a325",
+          "material_read": "RESULT.md, around offsets 0 and 4938",
+          "method": "Local published mirror",
+          "title": "First fractional deletion-packing gaps for Fibonacci-constrained binary words",
+          "trigger": "Same constrained channel and finite exact table"
+        },
+        {
+          "assessment": "Counts exactly two common outputs on unrestricted q-ary words.",
+          "evidence": "Binary specialization alone neither imposes no-11 constraints nor changes the overlap threshold to at least one.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion graph",
+          "trigger": "Apparently broader exact edge enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count is a natural exact invariant of a deletion channel constrained by a standard forbidden factor, not an arbitrary graph slice. It quantifies the conflict contribution that the usual Hamming graph and two-read criterion miss and establishes quadratic mean degree at all-length scale. It provides a useful benchmark for constrained coding and graph calculations without purporting to solve maximum code size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

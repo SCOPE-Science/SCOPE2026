@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a full \(n\ge3,m\ge2\) equivalence, proved by exact Apéry minima, an explicit gap polynomial, a root-of-unity zero classification, and a separate evaluation at the exceptional cube roots. The proof excludes every even \(n\) by a concrete nonzero primitive-prime evaluation. A fresh shortest-path implementation verified 29,098 bounded cases; it does not establish the infinite theorem. Potential risks were denominator singularities and the unit-circle quadratic factor; both have explicit independent arguments in the proof.
+## correctness
 
-## Originality — PASS within checked evidence
-Shor's preprint (arXiv:2101.01760v1) supplies the general polynomial/Apéry testing framework and complete criteria for other generator classes. Its general test is acknowledged rather than claimed. Garcia-Sanchez, Gonzalez and Planas-Vilanova (arXiv:2404.06358v1) study these generators' factorization lengths rather than uniform gap residues. Searches of mathematical research records and broader references did not reveal an all-parameter classification equivalent to this theorem, including the prime-three branch. Residual risk: an unindexed or implicitly stronger prior result may exist. Bibliographic non-detection alone is not proof of originality.
+PASS
 
-## Mathematical value — PASS
-The infinite classification determines exactly which moduli split the gaps of \(\langle n,n+1,n+2\rangle\) equally, thereby identifying a natural residue-statistic invariant beyond known genus and Frobenius formulas. Its parity prohibition and singular prime-three obstruction are structural, and the result can serve as a test case for larger arithmetic-progression generator sets. The work does not purport to solve their general classification.
+For each nonzero residue r modulo n, the increments from n+1 and n+2 must sum to at least r, so at least ceil(r/2) such generators are needed; that many attain the increment r. The resulting genus is h^2 for n=2h and h(h+1) for n=2h+1. In the even case, for any prime p dividing an admissible modulus, p divides h, and the gap polynomial at a primitive p-th root is nonzero (including p=2). In the odd case I checked the finite geometric sums, their factorization under genus divisibility, and the unit-circle nonvanishing of the remaining quadratic. The separately grouped sum at order three is nonzero when 3 divides h. Testing all nonidentity roots, rather than only a primitive root, gives exactly the claimed exclusion when m divides h and 3 divides m. The n=3 endpoint is included. An independent direct-membership dynamic program agreed for 2,242 pairs, 3 <= n <= 40 and 2 <= m <= 60; this is corroboration, not the proof. The supplied verifier was inspected but not run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The all-moduli classification beyond the known parity slice and n=3 survives the inspected comparisons. Neither the Apéry calculation nor the roots-of-unity criterion is new. The strongest distinct indexed match directly covers m=2, not the full theorem; the same record date does not establish ordering.
+
+## value
+
+PASS
+
+A natural family of width-two semigroups has a complete modular gap classification beyond parity. It tells a reader exactly which divisors of the genus give equality, including the nontrivial obstruction at order three and the failure of mixed factors from consecutive h and h+1. These are useful distinctions not read off from the genus or the generator parity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

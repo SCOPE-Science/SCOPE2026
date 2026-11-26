@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:59:15.985089Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–90",
+        "VERIFICATION.md lines 19–25, check.py, check-output.txt",
+        "DLMF §25.12(ii), Eq. 25.12.12"
+      ],
+      "rationale": "Orthogonality and the squared norms (n+1)^σ/2 give the reciprocal weights and factor two; polynomial coefficient growth ensures continuous interior evaluations. The moment measure in the proof is a probability with moments (n+1)^(−σ) for σ>0, so the positive Poisson kernels give strict positivity, also directly at σ=0. DLMF 25.12.12 applies to every negative order. For w=1−z, write −log(1−w)=w A(w) with A analytic, A(0)=1, A′(0)=1/2. On the right-half sector the principal factorization gives Li_σ(z)/z=Γ(μ)w^(−μ)B(w)+C(w), where B and C are analytic at zero, B(0)=1 and B′(0)=1−μ/2. Thus the scaled real part has uniform C¹ angular remainder O(ρ²+ρ^μ), including at the sector endpoints (an angular derivative on an analytic factor is iw times its derivative). The leading cosine takes both signs at fixed admissible angles for every μ>1. Away from odd μ≥3, all leading zeros are simple and separated from the two endpoints; monotonicity on small neighborhoods and a compact nonzero gap on the complement prove exact root exhaustion inside |θ|<arccos(ρ/2). The derivative remains nonzero and the analytic implicit function theorem applies for ρ>0. The mean value theorem first gives shift O(ρ), then dividing the root equation by ρ gives the stated coefficient, using cos((μ−1)θ_j)=sin(μθ_j)sin θ_j. Conjugation doubles the count. No census is required at the grazing orders; realizability of all disk z makes the sign result an assertion about the actual kernel.",
+      "residual_risks": [
+        "Frozen replay: python check.py with mpmath and SciPy; not executed in this review. The ten radius/order checks on 80 angular intervals and twenty positivity samples do not isolate all zeros or prove the drift law. The drift check is taken at the smaller radius. The proof provides coverage independent of those samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lund abstract describes general harmonic Sobolev kernels and examples; frozen text cites Auchmuty Theorem 8.2 for a Steklov construction. DLMF gives the convergent expansion for negative orders."
+        ],
+        "reasoning": "A general reproducing-kernel construction or an expansion of an analytic symbol supplies ingredients, not the complete claim on the real level set. The full harmonic-kernel texts were not available for a stronger exclusion.",
+        "searches": [
+          "Engliš–Lukkassen–Peetre–Persson DOI 10.1515/crll.2004.035",
+          "Auchmuty DOI 10.1137/080739628",
+          "DLMF 25.12.12"
+        ]
+      },
+      "checked_sources": [
+        "Engliš et al., DOI 10.1515/crll.2004.035 (abstract)",
+        "Auchmuty DOI 10.1137/080739628 (unavailable full text)",
+        "Wood KAR 21052 (metadata); DLMF 25.12.12 (equation)",
+        "Resultary 620d2c813fe1 and 2ccb9ae2e363 (second record summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leading singular term supplies limiting angles; the real-part coefficient bound for a positive analytic function normalized to 1 excludes positivity when the first coefficient 2·2^(−σ) exceeds 2."
+        ],
+        "reasoning": "The expansion alone neither excludes additional boundary-grazing roots nor determines a fully normalized real level-set drift. The result needs the uniform angular control, the admissible open interval, derivative-based isolation and the first corrected coefficient. The sign threshold need not be claimed as distinct on its own.",
+        "searches": [
+          "DLMF Eq. 25.12.12 derivation comparison",
+          "Resultary 620d2c813fe1 statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 620d2c813fe1 concerns analytic F_p(z)=Li_{−p}(z)/z and a real-part certificate for (1−z)²F_p(z). Frozen condition is Re F_{−σ}(z)=1/2."
+        ],
+        "reasoning": "The same generating function does not identify an analytic zero set, or a rotated/rescaled real-part floor, with the fixed level 1/2 of its real part. The normalization and interior-circle geometry matter.",
+        "searches": [
+          "Resultary harmonic Steklov disk kernel, Sobolev order, polylogarithm zeros and nodal drift",
+          "Literature harmonic Sobolev kernels and disk examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant catalogue matches were analytic Bergman-type statements (620d2c813fe1; 2ccb9ae2e363 summary); DLMF lists function identities, not this census."
+        ],
+        "reasoning": "A table at discrete orders or radii would not decide the continuum of sufficiently small interior circles and the angular first-order law. No comparable census table was identified.",
+        "searches": [
+          "Local Resultary query for polylogarithm kernels, exact zero counts and angular laws",
+          "DLMF §25.12(ii) exact series entry"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the complete order-dependent boundary-local nodal census together with its first angle correction for the specified shifted harmonic kernel. The kernel construction, moment mixture and local polylogarithm expansion are not credited as original. The sign threshold by itself also admits a standard positive-real-part coefficient argument. Available closest texts did not show equivalent coverage of the complete nodal result; limits of access are explicit below.",
+      "residual_risks": [
+        "No publication-priority inference or exhaustive exclusion. Exact disk examples in Engliš et al. and any relevant results of Auchmuty could not be inspected in full text; the mirror for 2ccb9ae2e363 was unavailable. These limitations are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction overlap; exact nodal coverage unresolved from available material",
+          "evidence": "The abstract describes the general kernel formula and explicit examples; it is insufficient to establish the normalization or complete nodal statements of the examples.",
+          "identifier_or_url": "https://doi.org/10.1515/crll.2004.035",
+          "material_read": "Lund repository metadata and abstract; identified DiVA PDF retrieval timed out, DOI full text unavailable",
+          "method": "Lawful repository and DOI lookup",
+          "title": "On the formula of Jacques-Louis Lions for reproducing kernels of harmonic and other functions",
+          "trigger": "Closest cited harmonic Sobolev disk-kernel source"
+        },
+        {
+          "assessment": "No full-text comparison claimed",
+          "evidence": "The frozen reference describes a Steklov reproducing-kernel construction, not an order-dependent nodal census.",
+          "identifier_or_url": "https://doi.org/10.1137/080739628",
+          "material_read": "Citation and frozen characterization of Theorem 8.2; SIAM PDF inaccessible and no lawful repository copy recovered",
+          "method": "Source metadata and lawful full-text attempt",
+          "title": "Reproducing Kernels for Hilbert Spaces of Real Harmonic Functions",
+          "trigger": "Possible general framework covering the disk"
+        },
+        {
+          "assessment": "Validates the classical input; not a prior nodal theorem",
+          "evidence": "The gamma term plus convergent zeta Taylor series gives the needed local singular expansion for every σ<0.",
+          "identifier_or_url": "https://dlmf.nist.gov/25.12.E12",
+          "material_read": "DLMF offset 9670, Eq. 25.12.12 with parameter range and branch; Wood repository metadata only",
+          "method": "OA exact equation and repository comparison",
+          "title": "DLMF §25.12(ii), Polylogarithms",
+          "trigger": "Classical analytic input cited via Wood, The Computation of Polylogarithms, KAR 21052"
+        },
+        {
+          "assessment": "Different invariant under identical generating function",
+          "evidence": "Analytic kernel zeros and positivity of a modified symbol do not give the harmonic 1/2 level locus.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-zero-free-threshold-for-logarithmic-radial-bergman-kernels--620d2c813fe1",
+          "material_read": "Local mirror RESULT.md finding passage, offset 0",
+          "method": "Indexed record and local mirror statement",
+          "title": "Sharp zero-free threshold for logarithmic radial Bergman kernels",
+          "trigger": "Closest available indexed generating-function match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–35 and 57–90",
+        "DLMF 25.12.12 for the distinction from the classical input"
+      ],
+      "rationale": "For a natural harmonic Sobolev scale, the census identifies where and how new boundary-local nodal branches appear as regularity changes. It establishes exhaustion and branch nonsingularity, not just example sign changes or a heuristic count from asymptotic rays. The first correction quantifies the geometry of each branch in the actual disk coordinate, and the theorem identifies the parameters where that stable analysis has a boundary-ray obstruction.",
+      "residual_risks": [
+        "No global topology or exact census at the excluded negative even orders is provided; the value is local and normalization-specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

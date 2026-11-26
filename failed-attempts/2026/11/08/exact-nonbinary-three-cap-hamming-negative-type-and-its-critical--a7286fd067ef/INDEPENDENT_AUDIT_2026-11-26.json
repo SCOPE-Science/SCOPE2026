@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:28:15.516507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weight-1 and weight-2 sums of a character of weight j are T_j=(q−1)n−qj and U_j=(T_j²−(q−2)T_j−n(q−1))/2; the remaining nonzero shells sum to −1−T_j−U_j. This remains valid for composite q. The strictly concave multiplier as a function of T_j is maximized at the lattice point nearest (q−2)/2−R(p); the strict inequalities 2<R(p)<3 for 0<p<1 yield the stated unique floor index. At p=0 all nonconstant eigenvalues are −1, and at p=1 a four-coordinate subspace has a weight-3 eigenvalue q−1>0. Strict downward propagation of finite negative type then gives existence, uniqueness and the full threshold range; centering and taking the rank of the Gram matrix proves the embedding claims. The two limits follow by testing p=c/n with fixed q and p=c/q with fixed n, using bounded t in the first case and t=q−n, u=−(n−1)q+n(n−1)/2 in the second. Independent replay: OPENBLAS_NUM_THREADS=1 python3 -B /workspace/branches/independent_checks.py 4; it checks 16 real tensor-layer comparisons and four full powered-distance nullities, not the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "620a1519c809 gives the same negative-type interval (including p=0) and a residue-sensitive second-order fixed-q asymptotic. The Hamming eigenmatrix, general vertex-transitive singularity criterion, and strict downward propagation are in the respectively cited passages."
+        ],
+        "reasoning": "The general literature gives the spectrum or a threshold criterion, but those passages do not isolate the critical layer of the capped combination. The matching catalogue record does isolate it, with the same domain and stronger fixed-q information.",
+        "searches": [
+          "Resultary 620a1519c809; arXiv:1709.09011 §1.1; arXiv:1112.5657 Theorem 3.1; arXiv:1108.0451 Theorem 2.2; DOI 10.1090/S0002-9947-1990-0974513-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (read only)",
+        "Resultary 620a1519c809 and 98640c78266f (full-text passages); cc1d1530c2b5 and 15a9c80b83ab (summaries)",
+        "arXiv:1709.09011, 1112.5657, 1108.0451 (specified passages)",
+        "Deza–Maehara DOI 10.1090/S0002-9947-1990-0974513-6 (inaccessible full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its exact floor formula gives k*=n−1 for sufficiently large q at fixed n; its exact F gives t*=q−n and B*=−(n−1)q+n(n−1)/2."
+        ],
+        "reasoning": "For p=c/q the earlier exact equation consequently has F(c/q)=−1+c[(n−2)log 3−(n−1)log 2]+O_n(q⁻¹). The coefficient is positive for n≥4. Testing c just above and below its reciprocal and using the earlier unique-root theorem gives the remaining limit mechanically.",
+        "searches": [
+          "620a1519c809 exact Finding and fixed-q expansion; frozen RESULT.md lines 78–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "620a1519c809 prints k*=floor(((q−1)n+3)/q) and F(p)=t*+B*2^p−(1+t*+B*)3^p for q≥3,n≥4. The binary record treats the parallel q=2 threshold and nullity only."
+        ],
+        "reasoning": "The nonbinary match's arbitrary symbol alphabet is isometric to the frozen cyclic alphabet under any coordinatewise bijection, and its B* is the frozen u. The binary record does not cover q≥3.",
+        "searches": [
+          "Resultary nonbinary cap-three critical Fourier shell search; match 620a1519c809",
+          "Resultary binary cap-three Walsh threshold; match 98640c78266f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact nonbinary root equation, layer dimension and embedding dimensions are explicitly indexed. Other hits cover the binary case, Boolean even caps or shortest paths in Hamming graph powers."
+        ],
+        "reasoning": "The strongest match is an exact theorem, not finite data. The other metrics are not interchangeable: for example, capping at two has a linear multiplier with maximizer j=n and q-independent threshold log₂(n/(n−1)), unlike this quadratic cap-three problem.",
+        "searches": [
+          "Resultary 620a1519c809 mirrored RESULT.md, Finding offsets 0–2423; secondary hits 98640c78266f, cc1d1530c2b5 and 15a9c80b83ab"
+        ]
+      },
+      "rationale": "Distinct same-day Resultary record 620a1519c809 states the identical nonbinary cap-three critical layer, exact root, strictness, endpoint nullity, embedding dimension and exponential-kernel criterion; it also gives a stronger fixed-q expansion. This is equivalent coverage, not a claim about which same-day record came first. The only material-looking difference, the fixed-n large-q leading constant, follows by direct first-order Taylor expansion of the exact root already given there.",
+      "residual_risks": [
+        "The same-day dates do not establish relative order or authorship. Deza–Maehara historical coverage remains unknown; the actual same-day equivalent theorem, not unavailable literature, determines this verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct same-day equivalent coverage of the principal theorem.",
+          "evidence": "Identical floor, root and nullity, plus a residue-sensitive second-order fixed-q expansion whose leading constant equals the frozen one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-unique-critical-fourier-shell-of-nonbinary-three-capped-hamm--620a1519c809/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2423; comparison also located the proof via offsets up to 4200.",
+          "method": "Targeted local mirror reads, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "title": "The unique critical Fourier shell of nonbinary three-capped Hamming metrics",
+          "trigger": "Same nonbinary cap and exact layer/root in catalogue."
+        },
+        {
+          "assessment": "Equivalent kind of threshold on a different alphabet; not decisive.",
+          "evidence": "Gives parity-specific critical layers and leading constant 2/log(3/2) at q=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-walsh-positivity-threshold-for-three-capped-hamming-metric--98640c78266f/RESULT.md",
+          "material_read": "Finding and supporting passages, offsets 0–3966.",
+          "method": "Targeted local mirror reads.",
+          "title": "Sharp Walsh positivity threshold for three-capped Hamming metrics",
+          "trigger": "Binary boundary analogue."
+        },
+        {
+          "assessment": "Supplies classical eigenmatrix for the distance relations, not the cap-three combination's maximizing layer in the passage read.",
+          "evidence": "P_ij=K_j(i) simultaneously diagonalizes the individual Hamming relations.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.09011",
+          "material_read": "§1.1, p. 2, OA offset 4978.",
+          "method": "Targeted arXiv full text.",
+          "title": "The smallest eigenvalues of Hamming graphs, Johnson graphs and other distance-regular graphs",
+          "trigger": "Could supply exact Hamming-layer eigenvalues or their extrema."
+        },
+        {
+          "assessment": "General threshold test; does not locate this Fourier shell.",
+          "evidence": "Characterizes the supremal exponent by first singularity of the distance matrix in the vertex-transitive case.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.5657",
+          "material_read": "Theorem 3.1, §3, offset 7219.",
+          "method": "Targeted arXiv full text.",
+          "title": "Generalized roundness of vertex transitive graphs",
+          "trigger": "Stronger general negative-type characterization."
+        },
+        {
+          "assessment": "General propagation lemma, not the explicit threshold.",
+          "evidence": "If the space has p-negative type, it has strict r-negative type for 0≤r<p.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Theorem 2.2, p. 3, offset 12943.",
+          "method": "Targeted arXiv full text.",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Supports interval propagation and strictness."
+        },
+        {
+          "assessment": "Specialized coverage undetermined.",
+          "evidence": "No primary theorem passage read; not used as negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1990-0974513-6",
+          "material_read": "Bibliographic identification only; AMS full text and landing page returned 403.",
+          "method": "DOI and identified publisher OA retrieval attempts; no lawful alternate recovered.",
+          "title": "Metric transforms and Euclidean embeddings",
+          "trigger": "Possible specialized cap-distance transform theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full critical-layer theorem for this natural metric is worthwhile, but that theorem and the fixed-q asymptotic are already available in the exact matched record. The fixed-n coefficient is read off by one Taylor expansion of its exact scalar equation and does not constitute a separately substantive claim. No repair is justified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

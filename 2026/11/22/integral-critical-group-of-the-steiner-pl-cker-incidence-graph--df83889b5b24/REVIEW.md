@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric incidence is identified with two/three-subset inclusion by Boben–Gévay–Pisanski, Lemma 4.5. Direct counting proves the Gram identity \(BB^{\mathsf T}=2I+N^{\mathsf T}N\), so the nonzero spectrum and tree count follow. Standard-library exact fraction-free determinants and independent prime-local row/column elimination recover the group over \(2\), \(3\) and \(5\). A separate symbolic integer Smith calculation with opposite vertex deletions matches every factor. All steps and actual runnable code are included, and the stable-curve interpretation is explicitly conditional.
+## correctness
 
-**Originality — PASS, provisional priority.** The 2013 geometry source gives the Steiner–Plücker/Danzer subconfiguration but does not compute its graph critical group. The rectangular incidence Smith results of Wilson/Ducey et al. and the single-rank Kneser-graph critical-group results do not themselves supply the Smith form of this mixed-rank 35-vertex Laplacian. The closest previously recorded Pascal-chord graph uses 105 different vertices and does not imply the result. Searches for Steiner–Plücker, Cayley–Salmon, the 35-vertex unique edge-transitive bipartite graph, and equivalent Smith/sandpile terms did not identify this complete decomposition. Historical graph tables and unindexed work remain possible priority risks; a negative search is not a proof of novelty.
+PASS
 
-**Value — PASS.** The configuration is a distinguished projective incidence invariant of the six-point conic, and its Levi graph is a well-studied, edge-transitive, nontrivial \((3,4)\)-biregular configuration. Determining all torsion factors rather than only its rational spectrum or tree count gives the full degree-zero divisor class group of the graph. It supplies the precise geometric component group for every regular unit-thickness semistable genus-26 smoothing with this dual graph, and exposes a substantial \(5\)-primary subgroup of rank eight. No general-family formula is claimed.
+Boben–Gévay–Pisanski Lemma 4.5 identifies this incidence configuration with the part of the fourfold/triple hyperplane construction containing one distinguished index. Removing that index leaves exactly containment of a 2-set in a 3-set. I constructed the graph by masks: sets of weights 2 and 3 joined when their XOR has weight 1. The degrees are 4(15),3(20) with 60 edges, and the exact Laplacian characteristic polynomial agrees with the claimed simple zero and all remaining eigenvalues. The exact integer cofactor determinant and Smith form give 377913600000000 and 1(24),2(2),10(2),30(2),180(4), respectively. The dual graph has first Betti number 26; for a connected special fibre with rational components this is the arithmetic genus, and all vertices have valency at least three. For a regular unit-thickness split smoothing, the component intersection matrix is −L and its multidegree quotient in the sum-zero lattice is the geometric Néron component group, as claimed conditionally.
 
-The main residual risk is historical coverage under the graph-table identifier or a more general integral decomposition theorem; the two cited subset-matrix papers have been compared by statement and matrix dimensions. This review is not external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The configuration and even its graph catalogue identification are known. The 2- and 5-primary factors are covered by the known Johnson J(6,2) result after a Schur reduction. At 3 the required Schur reduction is instead to J(6,3); the inspected general diagonal-form and k=3 Johnson theorems do not include that boundary parameter, and the Wilson rectangular result alone gives no full Smith group. The surviving statement is the complete integral group (including the additional 3-primary argument), not the geometry or disjoint claims to the two already covered primary parts.
+
+## value
+
+PASS
+
+The Steiner–Plücker Levi graph and its dual are classical motivated projective configurations. The complete primary decomposition, including the 3-primary part not supplied by the checked J(6,2) corollary, is a reusable exact invariant. It also gives the precise component group for unit-thickness regular split genus-26 smoothings with this dual graph. Neither the geometric classification, the existing partial primary calculation, nor the spectrum alone gives this complete invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

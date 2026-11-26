@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:00:24.139755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The deterministic transport takes Lebesgue mass on I_0 onto I_1. The other two cells each send half their mass uniformly into I_0 and I_2, so Lebesgue is invariant and reversal gives exactly R. The average kernel is therefore reversible. For each component, every path of length two has a uniform draw within some cell; subsequent deterministic translation or a new draw preserves uniformity conditional on the cell. At n≥2 this gives block densities 3(M^n)_{ij}, and rectangles of full cells attain the largest absolute density deviation from one. In the stated matrix, max|3(M²)_{ij}−1|=1 and M(M²−J)=−(M²−J)/2, giving exactly 2^(2−n); reversal transposes the stationary joint law and preserves ψ. The endpoint coefficient agrees with the full past/future definition: condition the past event on X_0 and the future event on X_n; integrating the nonnegative conditional weights preserves the relative-probability bounds, and endpoint events attain or approximate the endpoint supremum. For the mixture, the alternating word of length n starting with P has weight 2^(−n), and maps a subinterval of I_0 of length ε onto itself or its translate. The joint-to-product ratio is at least 2^(−n)/ε, hence infinite in supremum for each n≥1. Both components also have infinite one-step ψ; the usual definition requires convergence to zero rather than finiteness at lag one. Every entry of M³ is at least 1/4, so the all-P word gives Q³≥(1/8)(3/4)μ=(3/32)μ pointwise. Doeblin splitting and contraction give the uniform geometric TV bound, including intermediate times. The copulas have singular parts, and no claim for an absolutely continuous subclass is made. Read VERIFICATION.md and the finite exact-arithmetic verifier without executing the supplied script; the all-lag conclusions come from the recurrence and interval probability argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2.2 assumes ψ_1<1 for every constituent; the components here instead have ψ_1=∞.",
+          "Theorem 3.1 uses absolute continuity and bounded power densities. The mixture corollary requires bounded density of the mixture at an iterate or related constituent-wide bounds to enforce it; the alternating singular word survives at every iterate.",
+          "The inspected 2015 mixture results give lower-ψ conclusions, compatible with minorization."
+        ],
+        "reasoning": "The applicable hypotheses or conclusions are strictly different. No positive bounded-density theorem implies the unrestricted closure or exhibits the frozen counterexample.",
+        "searches": [
+          "arXiv:2111.14682, Theorem 2.2.2 and §5; arXiv:2308.11074, Theorem 3.1 and Corollary 1; arXiv:1310.8241, mixture theorems"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a56d69cbdd15 and targeted ranked searches",
+        "arXiv:2111.14682",
+        "arXiv:1310.8241",
+        "arXiv:2308.11074",
+        "arXiv:2101.04573"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.3.3 states general closure, but its proof uses finite ψ_1 based on eventual ψ-mixing. The 2022 follow-up explicitly describes the gap and asks the unrestricted question.",
+          "The Resultary construction gives eventual finite upper coefficients and does not use mixing transpose components."
+        ],
+        "reasoning": "The inference from ψ_n→0 to ψ_1 finite fails for the explicit P and R. Neither the deficient prior proof nor the finite-delay phenomenon supplies the persistent alternating singular branch underlying the new counterexample.",
+        "searches": [
+          "arXiv:2101.04573, Theorem 2.3.3 and proof §4.8; arXiv:2111.14682, §5; Resultary a56d69cbdd15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The customary ψ is the supremum of the absolute ratio deviation; lower ψ′ is the infimum of the ratio. The 2022 article asks about unrestricted convex closure in the customary sense.",
+          "Averaging copulas with the same uniform marginal averages their one-step kernels. Averaging powers is not the same operation."
+        ],
+        "reasoning": "The construction addresses the actual kernel-mixture question rather than a random choice of an entire stationary path or a different mixing coefficient. A lower bound on the joint-to-product ratio cannot limit its upper supremum.",
+        "searches": [
+          "Resultary: copula-mixture ψ-mixing, time-reversal average, reversible Doeblin with infinite relative mixing",
+          "Longla (2015), Definitions 1–2; Longla–Mous-Abou–Ngongo (2022), Theorem 2.2.2 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct record a56d69cbdd15 gives a family of Doeblin circle kernels whose ψ_n is infinite until n(1−a)>1, then finite."
+        ],
+        "reasoning": "For any one such kernel the delay is finite. Varying parameters to delay an upper bound does not produce the same symmetrized pair, the exact component profile or infinitely many infinite coefficients for one fixed mixture. No matching exact catalogue formula was identified.",
+        "searches": [
+          "Resultary: explicit exponential ψ_n, reverse-mixture persistent infinite coefficient, geometric TV versus relative mixing"
+        ]
+      },
+      "rationale": "The result is an explicit counterexample to the unrestricted copula-mixture closure question under the usual two-sided ψ coefficient. Relevant positive results require one-step or density bounds that do not hold, or concern lower ψ. A general published assertion of closure has an invalid inference in the inspected proof, not a matching valid theorem or an equivalent counterexample. The related Doeblin example shows arbitrarily delayed but eventual finite ψ, not persistence under reversal symmetrization.",
+      "residual_risks": [
+        "The examined sources support distinction from the closest known mixture theorems, but do not certify absence of an unindexed equivalent Markov-kernel construction or establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Restricted positive theorem; unrestricted question left open",
+          "evidence": "The theorem requires each ψ_1<1 and the unrestricted earlier proof is acknowledged incomplete.",
+          "identifier_or_url": "https://doi.org/10.1007/s44199-022-00045-1",
+          "material_read": "Theorem 2.2.2 at PDF p. 7, offset 18600; §5 at p. 17, offset 47013",
+          "method": "OA primary PDF, bounded passages",
+          "title": "On Some Mixing Properties of Copula-Based Markov Chains",
+          "trigger": "Primary open question and corrected closure theorem"
+        },
+        {
+          "assessment": "Lower-ψ results do not settle upper unboundedness",
+          "evidence": "ψ′ uses an infimum of the joint-to-product ratio and is not the two-sided ψ deviation.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8241",
+          "material_read": "Definitions 1–2 offset 7800; mixture results pp. 4–5, offsets 12500–18800",
+          "method": "OA primary PDF, bounded passages",
+          "title": "On Mixtures of Copulas and Mixing Coefficients",
+          "trigger": "Potential equivalent mixture theorem under different notation"
+        },
+        {
+          "assessment": "Its relevant density bounds are absent here",
+          "evidence": "Theorem 3.1 assumes an absolutely continuous copula and bounded iterated density conditions; Corollary 1 uses bounds on powers for the mixture construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.11074",
+          "material_read": "Theorem 3.1 and Corollary 1, PDF p. 18, offsets 48600–50490",
+          "method": "OA primary PDF, bounded passages",
+          "title": "New Copula Families and Mixing Properties",
+          "trigger": "Broader sufficient mixture-mixing criteria"
+        },
+        {
+          "assessment": "The unrestricted theorem is not valid under the coefficient convention at issue",
+          "evidence": "The proof invokes finite ψ_1 from eventual mixing; the inspected corrected paper documents the shortcoming and the interval event shows its failure here.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.04573",
+          "material_read": "Theorem 2.3.3, PDF p. 15, offsets 45838–46015; proof §4.8, p. 21, offset 59750",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Perturbations of Copulas and Mixing Properties",
+          "trigger": "Apparently contradictory unrestricted closure claim"
+        },
+        {
+          "assessment": "Related weaker separation, not the mixture counterexample",
+          "evidence": "The pointwise threshold n(1−a)>1 makes ψ finite beyond a finite delay for each member.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-arbitrarily-delayed-relative-mixing-in-doeblin-circle-copula-pro--a56d69cbdd15",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Arbitrarily delayed relative mixing in Doeblin circle copula processes",
+          "trigger": "Closest distinct catalogue example of Doeblin and infinite relative coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The construction answers a documented closure question and shows that failure survives both reversibility and strong Doeblin control. Its transparent mechanism explains why exponential disappearance of a singular branch in total variation need not reduce a relative error tested on arbitrarily rare events. The exact component coefficients and explicit minorization make that contrast quantitatively checkable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

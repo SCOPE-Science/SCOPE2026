@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:03:12.356111Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–103",
+        "VERIFICATION.md, verify.py and convex.py"
+      ],
+      "rationale": "Uniform fixed-degree maps are uniform multiset words, so the probability of specified distinct fixed positions is their degree product divided by (n)ₖ. Expansion gives the PGF, mean 1 and variance 1−2C(d)/(n(n−1)). For a two-label transfer first choose uniformly the union S of the m=A+B positions occupied by either label, then allocate all outside symbols; neither stage depends on the split. With neither designated position in S no local match is possible. With exactly one, swapping the two designated positions gives the same law for the outside fixed-point count, since neither designated position is an outside label. Averaging the two cases gives match probability 1/2 under either split even conditional on the outside count. When both are in S, local counts 0 and 2 have probability AB/[m(m−1)] each; their common increase after balancing is (A−B−1)/[m(m−1)]. Multiplying the change in the three local probabilities by Pr(both in S)=m(m−1)/[n(n−1)] proves the identity for all tests. Integer majorization decomposes into these transfers: for sorted profiles with unequal entries, transfer from a first excess to a first later deficit, maintaining prefix dominance before re-sorting, and decreasing the sum of squares until the sorted target is reached. The excess and deficit give a difference at least two. Convex second differences are nonnegative and strictly positive for strictly convex functions, including when n=2. In the unconditional model E[F|D]=1 gives orthogonality to all degree statistics; F=n forces all degrees one with positive probability, and that degree event is not certain. The probability of a specified ordered pair of fixed points is n⁻², and under that condition its two degrees have one forced hit plus Bin(n−2,1/n), while all others have that binomial alone. Subtracting n bₙ(r) and using the two-step binomial convolution gives the stated signed second difference with factor (n−1)/n². The signs at zero and one are immediate from b(1)/b(0)=(n−2)/(n−1), at two the bracket divided by b(0) is n(n−3)/(2(n−1)²), and for 3≤r≤n the ratio b(r−1)/b(r−2)=(n−r)/[(r−1)(n−1)] is strictly below 1/2. Inspected source scripts without executing them. The convex checker derives probabilities from the PGF, so it is finite corroboration, not independent evidence for the PGF; the map enumeration checks moments directly in its stated small-size ranges.",
+      "residual_risks": [
+        "The conditional comparison is convex order, not stochastic order or a necessary characterization of convex-order comparability. The covariance law is for the unconditional uniform model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leckey–Wormald use the same uniform fixed-degree model and degree-product/elementary-symmetric calculations for path-length probabilities.",
+          "Stark's repeated-symbol matching setup gives Poisson and variance estimates for a different match count."
+        ],
+        "reasoning": "Neither the degree-product technique nor general multiset matching is itself novel. Neither inspected paper gives the mixed second moment of this unconditional mapping statistic with a degree frequency.",
+        "searches": [
+          "arXiv:1803.02667v1, §3 Lemmas 3.2–3.3",
+          "arXiv:2608.00710, Introduction and §2",
+          "Focused literature lookup on degree-constrained fixed points, multiset matching and convex order"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary e5840749e441, 05254e329b97 and 303f0920fc82",
+        "arXiv:1803.02667v1 and arXiv:2608.00710"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known PGF, the balancing difference in eₖ is (A−B−1)eₖ₋₂ of the other degrees; division by (n)ₖ gives the transfer after identifying the residual generating function as a law. The separately indexed transfer result directly covers this use.",
+          "The conditional law plus multinomial size-biasing can be used to derive the covariance, but fixed-degree PGF coverage alone is not a statement of the unconditional signed occupancy profile. The component-count covariance cannot be specialized by relabeling its random variable."
+        ],
+        "reasoning": "The acceptance rests on the finite dependence law, not on treating established counting or the overlapping conditional theorem as unattested novelty. Later display date does not itself establish chronology or priority.",
+        "searches": [
+          "Compare 05254e329b97 and e5840749e441 with RESULT.md lines 13–34, 61–71; compare 303f0920fc82 with lines 36–43, 73–103"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e5840749e441 gives the same deterministic-profile majorization, strictness, extremizers and all-test-function second-difference transfer, modulo representation of the auxiliary count. It does not state the unconditional F(F−1) covariance profile in the inspected finding.",
+          "Stark uses a designated word with repeated symbols, yielding mean Σaᵢ²/n rather than one.",
+          "303f0920fc82 treats the count of components/cycles, not ordered pairs of self-loops."
+        ],
+        "reasoning": "Treat the indexed conditional theorem as equivalent coverage of that part, not as different because of an auxiliary-variable relabeling. The covariance with F(F−1) is a separate statistic with different conditioning.",
+        "searches": [
+          "Local Resultary: degree-conditioned uniform-map loops, fixed points, majorization and occupancy covariance; IDs e5840749e441, 05254e329b97 and 303f0920fc82",
+          "arXiv:2608.00710, multiset fixed positions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "05254e329b97 already gives the full conditional PGF and factorial moments indexed by degree vector, and conditional mean 1.",
+          "303f0920fc82 gives an exact generating polynomial for a different cycle/component covariance and a limiting second-difference sign profile."
+        ],
+        "reasoning": "These are meaningful formula precedents, but neither states the exact finite binomial second difference for ordered pairs of prescribed self-loops against degree frequencies.",
+        "searches": [
+          "Local Resultary records 05254e329b97 and 303f0920fc82, exact formulas in opening findings"
+        ]
+      },
+      "rationale": "Credit the exact conditional degree-to-law formula and mean independence to the earlier indexed record, and record mathematically equivalent coverage of the transfer theorem in a separately indexed, later-dated record. This pass does not award priority for the conditional theorem; the distinct finite signed covariance profile for ordered fixed-point pairs versus degree frequencies is not covered by either inspected record. The broader model and elementary-symmetric counting are established antecedents.",
+      "residual_risks": [
+        "Chronology of the overlapping transfer findings remains unresolved beyond displayed record dates.",
+        "Unlocated matching, Schur-order or dependence results could overlap; the focused lookup is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent conditional comparison and transfer; no order of release established by the display dates alone",
+          "evidence": [
+            "All convex tests, same strictness and extremizers, and an arbitrary-test second-difference transfer."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-convex-order-dispersion-of-loops-under-indegree-balancing-in-uni--e5840749e441",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Convex-order dispersion of loops under indegree balancing in uniform mappings",
+          "trigger": "Exact transfer and order overlap"
+        },
+        {
+          "assessment": "Direct conditional formula and mean-independence overlap",
+          "evidence": [
+            "Elementary-symmetric factorial moments, PGF by profile, and E[F|D]=1."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-conditional-fixed-points-of-random-mappings-a-complete-poisson-b--05254e329b97",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Conditional fixed points of random mappings: a complete Poisson bound",
+          "trigger": "Earlier exact conditional law and mean"
+        },
+        {
+          "assessment": "Different random variable and different exact formula",
+          "evidence": [
+            "Component/cycle count with degree frequencies; exact generating polynomial and fixed-degree limiting profile."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-poisson-second-difference-law-for-component-indegree-covarianc--303f0920fc82",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A Poisson second-difference law for component–indegree covariance",
+          "trigger": "Same degree frequency and analogous signed shape"
+        },
+        {
+          "assessment": "Inputs for degree-product counting, not the stated signed mixed moment",
+          "evidence": [
+            "Elementary-symmetric expressions for path-length probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1803.02667v1",
+          "material_read": "§3 Lemmas 3.2–3.3, offsets 13000–15499",
+          "method": "Bounded OA HTML passages",
+          "title": "A limit theorem for the six-length of random functional graphs with a fixed degree sequence",
+          "trigger": "Same degree-conditioned map"
+        },
+        {
+          "assessment": "Distinct reference word and mean; no direct implication",
+          "evidence": [
+            "Repeated-symbol positions are used and the match mean is Σaᵢ²/n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.00710",
+          "material_read": "Abstract/Introduction offset 0 and §2 offsets 5438–8427",
+          "method": "Bounded OA passages",
+          "title": "Poisson approximations of the number of fixed points in random multiset permutations",
+          "trigger": "Potentially equivalent fixed-position statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, dependence law and its sign profile",
+        "Local Resultary 303f0920fc82 for the distinct component-count question"
+      ],
+      "rationale": "The exact signed mixed moment resolves how a standard cycle statistic and degree frequencies can be dependent when the ordinary fixed-point count is uncorrelated with every degree statistic. It identifies which occupancy classes detect paired loops and shows the finite sign transitions, rather than just observing that nonindependence is possible. The conditional transfer is useful context for the phenomenon but its catalogue overlap is not counted as independent value here.",
+      "residual_risks": [
+        "No claimed independence, uniform-profile asymptotic, or extension to nonuniform mappings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

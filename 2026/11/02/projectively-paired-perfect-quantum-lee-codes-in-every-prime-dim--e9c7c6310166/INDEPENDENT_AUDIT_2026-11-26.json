@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:11:25.649476Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42",
+        "Frozen VERIFICATION.md, verify.py and verification-output.txt, inspected without running uploaded code",
+        "Independent replay: python3 /workspace/review_checks/finite_checks.py, antipodal enumeration through (p,r)=(17,3)"
+      ],
+      "rationale": "The elementary syndromes are ±x_i and ±z_i. The consecutive pairing uses each antipodal class on each projective line exactly once. Every wedge x_i∧z_i vanishes and the columns span, giving an isotropic rank-r stabilizer. Every nonzero joint-Lee error of weight at most two is a difference of distinct radius-one errors, so none lies in the centralizer. The coordinate with pair (1,2) supplies X_i Z_i² of weight three and syndrome zero. Removing that coordinate leaves at least all other projective lines, which outnumber the lines in a hyperplane by p^(r−1)−1>0, so no stabilizer is supported there. Conversely, in a perfect nonempty coordinatewise-collinear code every syndrome is nonzero except the identity's, and each coordinate uses exactly two antipodal classes on a unique line. Thus (p−1)/2 must be even. This counts within the stipulated frame and does not give an obstruction for noncollinear checks.",
+      "residual_risks": [
+        "Finite replay checks the pairing and syndrome space, not the universal logical-distance or necessity arguments. Usual nonempty block length is implicit in the converse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsumoto uses CSS protection of shift and phase separately.",
+          "Resultary d4b4e06e1382 uses J²=−I and noncollinear pairs for p≡3 (mod 4), even r and excluding (3,2)."
+        ],
+        "reasoning": "The catalogue regime complements rather than contains the frozen prime regime and does not violate the restricted converse. The inspected separate-Lee CSS theory does not settle joint-Lee perfection.",
+        "searches": [
+          "arXiv:2610.04834v1 §§3.1 and 4.3",
+          "arXiv:2105.12354 §§2 and 4",
+          "Published Resultary search for all-prime or complex-structure perfect joint-Lee codes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.04834v1",
+        "arXiv:2105.12354",
+        "arXiv:1103.3933",
+        "arXiv:1201.3315v1",
+        "Resultary d4b4e06e1382"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical perfect-sphere results supply a syndrome partition, not symplectic commutativity of arbitrary pairings.",
+          "Neither the rank-two pairs of the six-qudit example nor the noncollinear construction for the complementary primes establishes the same-line perfect-code classification."
+        ],
+        "reasoning": "Pairing within lines simultaneously enforces isotropy and makes the antipodal parity constraint necessary. An explicit non-stabilizer witness, or equivalent distance argument, remains necessary beyond the classical bound.",
+        "searches": [
+          "arXiv:1103.3933 Theorem 14",
+          "arXiv:1201.3315v1 §2.1",
+          "arXiv:2610.04834v1 Example 3.3",
+          "Resultary d4b4e06e1382 Finding and construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical radius-one Lee transversal selects one vector per antipodal class in F_p^r; the stabilizer pairs them within projective lines to impose termwise isotropy.",
+          "At a split Gaussian prime the Mannheim alphabet's radius-one values are ±1 and ±i, and the same four-way syndrome count applies."
+        ],
+        "reasoning": "Mannheim check columns h_i can be used for elementary quantum syndromes by taking H_X=h and H_Z=i h; this is a real overlap in syndrome algebra. A single global ratio i does not reproduce arbitrary consecutive pairing, and the inspected classical statements do not prove the all-rank quantum logical distance or necessity for collinear checks.",
+        "searches": [
+          "Published Resultary search for perfect joint-Lee stabilizer constructions",
+          "arXiv:1103.3933 §II.A and §IV.B",
+          "Primary search: perfect stabilizer quantum Lee codes Gaussian integers Mannheim antipodal prime radius one quantum Hamming pairing",
+          "arXiv:1201.3315v1 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Guo et al. already give a perfect [[6,4,3]]_5 in the joint metric; their displayed pairs have nonzero 2×2 determinants mod 5.",
+          "The classical Gaussian paper tabulates the same length/rate possibilities and an explicit perfect (6,4) example, not an all-rank quantum table."
+        ],
+        "reasoning": "Credit the exact quantum parameter precedent. Collinearity distinguishes the checks locally; no global Clifford inequivalence is claimed. The raw sphere-count parameter coincidences do not establish the all-rank result.",
+        "searches": [
+          "arXiv:2610.04834v1 Table 2 and Example 3.3",
+          "arXiv:1201.3315v1 §2.1 equation (2), Example 1 and Table I",
+          "Published Resultary perfect joint-Lee parameter search"
+        ]
+      },
+      "rationale": "Only the all-rank collinear stabilizer construction and the matching obstruction in that restricted class receive credit. Classical perfect Lee syndrome transversals and the six-qudit joint-Lee parameters are prior. The closest matching quantum example has rank-two column pairs; the complementary catalogue construction uses noncollinearity for the other prime congruence class. Classical Mannheim codes provide an even closer syndrome analogue, but the examined statements do not give this quantum family and necessity result.",
+      "residual_risks": [
+        "The Golomb–Welch original full text (doi:10.1137/0118025) was not available via the attempted OA routes; classical radius-one perfection is credited regardless.",
+        "The review does not rule out an uninspected explicit quantum implementation of a Mannheim construction or settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact p=5,r=2 parameter precedent, distinct displayed checks",
+          "evidence": "Example 3.3 gives two check rows with symplectic product −5 and distinct syndromes; the six local pair determinants are nonzero mod 5.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04834v1",
+          "material_read": "§3.1/Table 2, Example 3.3 and family comparison in §4.3",
+          "method": "OA primary HTML",
+          "title": "Quantum codes in the Lee metric",
+          "trigger": "Same quantum metric and exact small parameters"
+        },
+        {
+          "assessment": "Separate shift/phase CSS scope",
+          "evidence": "Negacyclic CSS theorem; it does not supply a joint-Lee syndrome partition.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.12354",
+          "material_read": "§2 and §4 Theorem 5, p. 7",
+          "method": "Bounded OA primary text",
+          "title": "Lee Weight for Nonbinary Quantum Error Correction",
+          "trigger": "Earlier quantum Lee construction"
+        },
+        {
+          "assessment": "Classical perfect-sphere construction, not a stabilizer statement",
+          "evidence": "Defines metric partition perfection and includes single-error-correcting product constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.3933",
+          "material_read": "§II.A and §IV.B Theorem 14, p. 7",
+          "method": "Bounded OA primary text",
+          "title": "Product Constructions for Perfect Lee Codes",
+          "trigger": "Earlier perfect Lee syndrome mechanism"
+        },
+        {
+          "assessment": "Classical sphere count and exact six-coordinate analogue",
+          "evidence": "The proof counts ±1, ±i; equality is p^(n−k)=4n+1. Example 1 gives an explicit classical check over the norm-five Gaussian field.",
+          "identifier_or_url": "https://arxiv.org/html/1201.3315v1",
+          "material_read": "§2.1, offset 15600–21400, Theorem 3 proof, equality (2), Example 1 and Table I",
+          "method": "OA HTML bounded passage",
+          "title": "Perfect Mannheim, Lipschitz and Hurwitz weight codes",
+          "trigger": "Same four elementary syndrome multipliers on split primes"
+        },
+        {
+          "assessment": "Complementary parameter regime and mechanism, regardless of order",
+          "evidence": "p≡3 (mod 4) at even rank, except (3,2); commutativity is via global cancellation of noncollinear pairs.",
+          "identifier_or_url": "2026/11/2/SCOPE-complex-structure-perfect-joint-lee-stabilizer-codes-over-primes--d4b4e06e1382",
+          "material_read": "RESULT.md finding and noncollinear construction",
+          "method": "Local published-record mirror",
+          "title": "Complex-structure perfect joint-Lee stabilizer codes over primes",
+          "trigger": "Closest published catalogue family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42 and 54–62",
+        "arXiv:2610.04834v1 Example 3.3",
+        "Resultary d4b4e06e1382"
+      ],
+      "rationale": "The useful result is a restricted-class classification in a fixed joint-Lee frame: it gives a uniform nondegenerate construction saturating the packing bound and a necessary constraint for designs with locally proportional checks. This is useful beyond merely evaluating the bound or reprinting the first parameter example, and the simple termwise commutativity makes the distinction from noncollinear global-cancellation designs precise.",
+      "residual_risks": [
+        "No value assigned for the already-known six-qudit parameters, ordinary Hamming distance, efficient correction, or a nonexistence result outside the collinear class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

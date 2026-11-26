@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:41:12.520055Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh exhaustive enumeration encoded the four integer coordinate sums as base-three digits and rejected a subset upon a repeated sum among its unordered pairs. Diagonal sums are pairwise distinct and cannot coincide with a sum of distinct binary words. Of the 12870 size-eight subsets none passed, and of the 11440 size-seven subsets 240 passed. Heredity excludes every larger size. Testing all 384 permutation-and-complement maps on the two displayed representatives gives disjoint orbits of sizes 192 and 48 whose union is the exact census, stabilizers of orders 2 and 8, and the respective profiles (4,10,6,1) and (4,8,8,1). These isometries preserve ordinary sum collisions (a complemented coordinate replaces its sum s by 2-s). The numbers containing zero are 84 and 21; independently, translation transitivity of each orbit gives exactly 7 times the orbit size divided by 16 for each prescribed vertex.",
+      "reproducibility": "The frozen verify.py was inspected, not executed. Its replay is documented in VERIFICATION.md. The independent check regenerated all pairs and all group elements from four-bit tuples; it verified profile constancy and counted origin-containing codes within each orbit. The claim is restricted to length four and the standard Hamming group.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 definitions and equivalence lemma give general code-theoretic context but do not by themselves give the exact equality census at n=4.",
+          "The other primary full texts were not recovered or read in this review."
+        ],
+        "reasoning": "General asymptotic bounds or the binary equivalence alone do not determine the finite orbit census. The failure rests on affirmative catalogue coverage, not retrieval gaps in these other comparisons.",
+        "searches": [
+          "Fernández, Livieratos and Martín, DOI 10.1007/s12095-023-00682-y",
+          "Lindström DOI 10.1016/S0021-9800(69)80038-4 and 10.1016/0022-314X(72)90052-2",
+          "Length-four separability comparison DOI 10.1007/s12095-016-0182-9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7972e2c56907",
+        "DOI 10.1007/s12095-023-00682-y",
+        "OEIS A309370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published competing classification uses standard coordinate permutations and bit complements, a transitive group on the 16 vertices with order 384."
+        ],
+        "reasoning": "The compared orbit sizes force orders 384/192=2 and 384/48=8. In each orbit the incidence count between codes and vertices is 7 times its size and is equidistributed over all 16 vertices, giving 84 and 21, hence 105. No independent unknown remainder is established.",
+        "searches": [
+          "Resultary 7972e2c56907, RESULT.md orbit counts and group",
+          "Fernández, Livieratos and Martín, §2 Lemma 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 paper states the equivalence of binary 2-separability with at most two codewords and the B2 condition for ordinary sums.",
+          "Resultary 7972e2c56907 gives the two-separable equality census with the same parameters and equivalence group."
+        ],
+        "reasoning": "For binary vectors the per-coordinate descendant symbol set of two words determines their integer sum digit (0, 1 or 2), and conversely; a singleton is the diagonal case. Thus the two definitions produce exactly the same accepted subsets and group action. This is not XOR Sidon equivalence.",
+        "searches": [
+          "Published Resultary: binary length-four two-separable codes and binary B2 codes",
+          "Fernández, Livieratos and Martín, DOI 10.1007/s12095-023-00682-y, §2, Definition 1 and Lemma 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS gives the dimension-four maximum 7 for ordinary addition, with a maximum example.",
+          "The Resultary comparison also gives 240 labeled maxima, orbit sizes 48 and 192, the same examples and the same Hamming profiles."
+        ],
+        "reasoning": "OEIS alone is only partial coverage; the other record covers the claimed classification itself.",
+        "searches": [
+          "OEIS A309370, comments and examples",
+          "Resultary 7972e2c56907, RESULT.md finding and orbit classification"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 7972e2c56907, has the same exact classification in equivalent binary two-separable language: 7, 240, both orbit sizes and the same representatives and profiles. The stabilizer orders follow by orbit–stabilizer, and the origin-containing split is mechanically forced by vertex transitivity. The common displayed date does not resolve historical priority, but it does not support treating the frozen classification as a distinct contribution.",
+      "residual_risks": [
+        "Within-day publication order of the two distinct catalogue records is not established.",
+        "The primary Lindström full texts and DOI 10.1007/s12095-016-0182-9 were not available for substantive inspection here; this does not affect the demonstrable equivalent catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent equality census and orbit classification; no priority inferred from date",
+          "evidence": "Maximum 7, 240 labeled maxima, orbits 48 and 192 with the same representative sets and distance profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-classification-of-binary-length-four-two-separable-code--7972e2c56907",
+          "material_read": "RESULT.md, finding and classification near offsets 0 and 2938",
+          "method": "Local publication index and mirror text",
+          "title": "Complete classification of binary length-four two-separable codes",
+          "trigger": "Closest same-object catalogue comparison under an equivalent definition"
+        },
+        {
+          "assessment": "Establishes equivalence in the binary case",
+          "evidence": "The B2 definition uses sums with i<=j over real vectors; Lemma 2 identifies binary separability at most two with the same condition.",
+          "identifier_or_url": "https://doi.org/10.1007/s12095-023-00682-y",
+          "material_read": "§2 Definition 1 and Lemma 2, p. 3, offsets 6600–7445",
+          "method": "OA PDF passages",
+          "title": "Frameproof codes, separable codes and B2 codes: Bounds and constructions",
+          "trigger": "Test equivalence of the definitions"
+        },
+        {
+          "assessment": "Known extremal size; not the decisive orbit comparison",
+          "evidence": "Specifies coordinatewise ordinary addition and gives 7 at n=4 and a witness.",
+          "identifier_or_url": "https://oeis.org/A309370",
+          "material_read": "Comments and examples near offsets 0 and 2200",
+          "method": "Public database page",
+          "title": "Maximum size of a Sidon subset of {0,1}^n",
+          "trigger": "Exact-value and example coverage"
+        },
+        {
+          "assessment": "Unresolved; not used as negative evidence",
+          "evidence": "No scientific conclusion drawn from the unsuccessful request.",
+          "identifier_or_url": "https://doi.org/10.1007/s12095-016-0182-9",
+          "material_read": "No readable primary full-text passage obtained",
+          "method": "Direct Springer PDF retrieval attempt",
+          "title": "Length-four separability literature comparison",
+          "trigger": "Same short length and related separability scope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural length-four equality census can be useful in its own right, but it is already available in equivalent form. The stabilizer orders and zero-containing split add only immediate calculations from the published two orbit sizes; they do not furnish a distinct useful invariant. Recomputing the census corroborates it without creating a new scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

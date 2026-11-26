@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining equation is rewritten exactly as \(a s(a)+b s(b)=2ab\). The exclusions of \(1\), prime coordinates, same-base prime-power pairs, and distinct-base prime-power pairs are complete and use only divisibility, congruence, and \(s(p^r)<p^r\). The bundled computation is supplementary.
+PASS
 
-## Originality
+For positive integers, subtracting a²+b² gives a s(a)+b s(b)=2ab. If a=1, s(b)=2 contradicts s(1)=0, s(prime)=1 and s(composite)≥3. If a=p is prime, b(2p−s(b))=p, and neither b=1 nor b=p is possible. For powers of the same prime, unequal exponents give 1≡0 modulo p after division by the smaller power; equal exponents would require s(p^r)=p^r, whereas the geometric sum is strictly smaller. For powers a,b of different primes, coprimality forces a|s(b) and b|s(a), giving a<b and b<a. This proves the support bound also for equal coordinates. The known witness (4,6) gives 4·7+6·12=100 and support 1+2. See RESULT.md lines 18–53. The recorded finite scan in verification_output.txt and verify.py is corroboration only: its main pair scan uses a<b, although the prime-power grid includes the diagonal. Independently enumerating divisors by divisor pairs through 500 and scanning a≤b found no violations, including diagonal solutions (6,6), (28,28), (496,496). No bundled code was run.
 
-PASS. The primary source arXiv:2408.07387v1 was inspected at the defining WPM section and Table 4. It gives the equation and examples but not the support obstruction. Exact-equation, WPM(1), prime-power, OEIS, published-finding corpus, and own-ledger searches were compared at statement and implication level. The closest own results concern different equations.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem gives a sharp infinite support restriction: every \(WPM(1)\) pair has two composite coordinates and total distinct-prime support at least \(3\). The source example \((4,6)\) attains the lower bound.
+The distinct claim is the universal obstruction for the exponent-one weighted-power equation, not the example establishing sharpness. The closest definition and tables, the exponent-two sequence, and the related harmonious-pair theorem do not cover it on the inspected evidence.
 
-## Closest literature and limitations
+## value
 
-Dimitrov's paper is the closest source because it defines the object and lists the first examples. OEIS A383714 concerns \(WPM(2)\), not \(WPM(1)\). The theorem is not a full classification and does not extend automatically to higher exponents. A residual risk remains that an equivalent short observation appears under different terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pair condition is an independently introduced divisor-sum relation with published examples. The two-prime-power exclusion gives an unbounded structural restriction on its solutions and a sharp minimum of total prime support; it eliminates an entire family from classification even though one composite prime power is possible. The contribution is modest and uses elementary divisibility, but is not a recomputation of the known witness or a change of normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The multiplication table yields the two displayed linear operators; direct determinant expansion gives the factored difference \(-t(b-c)(a^2+b^2+c^2)\). On the two complementary branches the common zero equations factor into three quadratic families and the diagonal line. The proof checks reversibility, all characteristic-two collisions, projective disjointness in odd characteristic, the exact root counts, the maximum nine, and the two-sided-inverse refinement. The self-contained verifier exhaustively checks 56 finite-field parameter configurations including nonsplit fields and direct annihilator searches for small fields. Computational checks do not establish the universal statement alone.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The base article arXiv:2610.12483, inspected in its primary full text through Sections 2, 3, 5 and 9, states determinants for the **individual** left and right annihilator cubics over the real field for \(t=1\), not the common singular cone over all fields/parameters, nor its finite-field character count. Earlier finite-field results for the same algebra family count subalgebras and two-sided units, not simultaneous annihilator directions. No covering mathematical-index record or primary text was found in targeted statement-level searches. The relatively short polynomial derivation from the predecessor's basic structure and possibly unindexed zero-divisor literature remain originality risks; a failed search does not prove priority.
+PASS
 
-## Value
-PASS. Simultaneous left/right singularity is a canonical, cancellation-sensitive invariant of a nonassociative algebra, particularly relevant because two-sided inverses need not cancel. The complete geometry unexpectedly collapses an intersection of two cubic surfaces to 1–9 lines; the sharp maximum, field-arithmetic variation, and four-line characteristic-two regime give a global classification rather than an arbitrary slice or mere recomputation of inverse counts. The limit to this specific motivated deformation is explicit.
+The two witnesses are independent: bilateral annihilation is exactly singularity of L_x and R_x. Expanding the columns from the multiplication table gives D_L=aS+tc(a²+c²-bc) and D_R=aS+tb(a²+b²-bc) for S=a²+b²+c², whose difference is -t(b-c)S. On b=c the remaining equation is a(a²+tab+2b²)=0; when b=c=0 only zero remains. On S=0 it is -tbc(b+c)=0, giving the axes and antidiagonal root directions after scaling a nonzero b or c to one. Both tests are reversible. The directions are disjoint away from zero after the explicit characteristic-two deduplication, since distinct roots give distinct normalized coordinates and t≠0. The quadratic-character counts include discriminant zero, and for q=9,t=1 the three arguments lie in the square subgroup. For a common inverse, the commutation condition ce=bf forces any inverse of a nonscalar x to have imaginary part proportional to that of x; the two imaginary equations then force bc(b-c)=0. Thus the inverse, if any, lies in the same quadratic plane. Its existence is equivalent to nonzero norm, by the determinant of multiplication in that plane or the quadratic conjugate. This leaves exactly the nonzero diagonal line in odd characteristic and nothing in characteristic two. The arbitrary-field proof, including inseparable roots in characteristic two, is decisive; verify.py is only a finite determinant/kernel census, not an independent check of inverse counts, and was inspected without execution.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the simultaneous-singularity locus over all fields and parameters, its arithmetic enumeration, and its intersection with the existing unit locus. Prior sources determine major ingredients, even the same component directions in characteristic two as a subalgebra classification, but the inspected claims do not establish the bilateral property of those directions or exclude all others. No novelty is credited for the separate real base determinant cubics or classification of the quadratic planes or units.
+
+## value
+
+PASS
+
+Bilateral annihilation is a natural invariant independent of invertibility in this nonassociative family. Resolving two cubic equations into at most nine rational directions, with the arithmetic variation and characteristic-two collapse explicit, gives a usable classification not supplied by separate one-sided determinant equations or by a unit count. The identification of exactly the inverse-bearing part explains concretely how the two properties coexist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

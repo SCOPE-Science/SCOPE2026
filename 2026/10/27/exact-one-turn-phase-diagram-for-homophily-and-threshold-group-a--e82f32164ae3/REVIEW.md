@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finding is the full finite-group-size monotonicity/reversal classification of the group-level threshold-adoption probability, not an epidemic threshold theorem. The proof starts from the precisely stated two-binomial mixture, differentiates its binomial tail and reparameterizes homophily by \(t=h/(1-h)\). The logarithmic derivative has an affine numerator \(a-(n-1)p+(a-b)t\), providing the exhaustive sign classification and uniqueness of any turn. The four-person threshold/optimizer and rational adoption probabilities follow by exact substitution. The nondegenerate turning point persists for sufficiently steep finite response functions by polynomial \(C^2\) convergence. Replaying `verify.py` passed 23,097 exact rational checks. These finite checks corroborate the infinite-domain proof.
+PASS
 
-## Originality: PASS, provisional as to historical priority
+Differentiating the binomial tail telescopes to n·binom(n−1,m−1) z^(m−1)(1−z)^(n−m); the two latent components give opposite derivatives with the same positive factor pq. For 0<h<1, t=h/(1−h) makes the sign that of L(t)=a log(1+t/p)−b log(1+t/q). The numerator of L′ is a−(n−1)p+(a−b)t. With L(0)=0 and growth at infinity of sign a−b, this gives the full strict-sign/one-turn alternatives, also at p=p_c and with either exponent zero. Equal exponents are positive for n≥2 and give the stated comparison with p=1/2; at p=1/2 symmetry gives F=1/2. For n=2,3 the exponents are equal or one is zero, so none can turn. For n=4, m=3, p=4/5 the positive root is t=8/5. Direct integer evaluation of the mixture, using component probabilities 12/13 and 4/13 at the root, gives the claimed endpoint and minimum fractions 512/625, 8704/10985, 4/5. At a positive root the numerator of L′ has already passed its only zero, hence the turning point is nondegenerate. The grid values of the smooth threshold away from ties converge to their hard indicators; the fixed-degree polynomial and two derivatives converge uniformly, preserving a local extremum of the same kind, not necessarily the global phase diagram. Replay: RESULT.md lines 23–81; inspected verify.py lines 86–140 and VERIFICATION.md's frozen 23,097 finite checks, not rerun. Only the group-level response under the stated fixed-size mixture is validated.
 
-The motivating 2026 work introduced the exact group-composition mixture and used numerical/large-group arguments to describe homophily effects. Its epidemic-threshold nonmonotonicity concerns a different observable. The new theorem instead gives an all-finite-group-size, necessary-and-sufficient phase diagram for the unconditional fraction of groups satisfying a threshold, plus the sharp smallest group size for a response reversal. The related 2023 context-dependent epidemic model concerns different mixing parameters and a reproduction-number analysis; the 2021 higher-order homophily paper concerns hypergraph affinities and combinatorial impossibility, not this response probability. Targeted database and primary-literature searches did not reveal a stronger implication-equivalent result. A more general binomial-mixture theorem may nevertheless subsume this elementary-looking identity; no independent priority audit has occurred.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The exact group behavioral response is a natural input into network epidemic models. The theorem gives a sharp, all-size criterion identifying when increasing homophily must change sign in its effect on group-level adoption, rather than only showing a numerical example. It proves that four-member groups are the first ones capable of nonmonotonic group response, and the concrete three-of-four example exhibits a strict interior minimum below both endpoint adoption fractions. This separates an upstream conformity mechanism from epidemic feedback, and yields a checkable benchmark for smooth-conformity computations. It does not imply analogous phase diagrams for epidemic invasion or arbitrary group mixtures.
+The exact law of composition, averaged group response, and hard-threshold binomial-tail representation are already in Ribordy et al. The surviving distinction is the finite-size derivative phase diagram for the unconditional adoption probability, including the minimal turning example. The ordinary perturbation argument for smooth local persistence is a consequence of the newly classified nondegenerate turn, not a separate novelty basis.
 
-## Closest sources and residual limitations
+## value
 
-Ribordy et al., arXiv:2605.25875, eqs. (1), (2), (9), section III, Appendix B; Burgio et al., arXiv:2211.00435, sections III–VI; Veldt et al., arXiv:2103.11818, Theorem 1 and associated group-affinity definitions. The global classification is limited to the fixed-size two-binomial mixture with hard integer-count adoption threshold. The smooth-response result establishes existence of a corresponding nearby extremum only for sufficiently large steepness; it does not classify every finite-steepness setting. The finite checker does not replace proof, and independent priority validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unconditional group adoption fraction is a defined observable in the motivating model, not an arbitrary chosen statistic. Its exact finite-size phase boundary answers when homophily changes from helping to hurting adoption or vice versa, and the minimal four-person witness gives a precise benchmark below both endpoints. These are useful facts about behavioral aggregation without asserting any corresponding epidemic-threshold, prevalence, or policy conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

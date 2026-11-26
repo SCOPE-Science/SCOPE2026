@@ -1,19 +1,21 @@
-# Scientific review: rank-refined centralizers of finite directed-path clamps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All parameters and map domains are specified for every integer \(n\ge1\). The commuting criterion is necessary and sufficient on the interior and both tails. Binary increments are counted with image-rank weights, giving a polynomial valid at both endpoints and for constant clamps. Its degree-zero and degree-two coefficients independently determine the central gap and the product of endpoint gaps, reconstructing each nonconstant clamp up to reversal. Summing three independent gap lengths gives the rational multivariate series; setting the interval-length marker to one gives the factored aggregate series. Singularity analysis at its unique dominant double pole for \(z\) near one establishes the conditional central limit theorem. A standalone checker directly enumerated all maps and centralizers for \(1\le n\le11\), including characteristic-free boundary cases, and checked the aggregate finite series and reconstruction. Finite enumeration is corroboration, not proof of the infinite statements.
+PASS
 
-## Originality — PASS against the inspected prior statements, with residual priority risk
+The repaired finding preserves the valid equations and limits. For an idempotent the interval image is fixed pointwise, so monotonicity forces a clamp. A map commuting with it must send the interval into itself; a left extension can climb only when the image of the left endpoint is that endpoint, and the reflected statement holds on the right. These conditions are sufficient pointwise. For h interior rises the binomial walk count has k-h+1 initial positions, with both endpoint enhancements only at h=k. This gives the polynomial also for k=0, when it reduces to (1+z)^N. For k>=1 the double enhancement starts in degree >=3; c_0 and c_2 count rank 1 and rank 3, determining k and AB at fixed n, hence both gaps up to reversal. Summing the base and three enhancements gives the rational series; with y=1 the common numerator is (1-zx)^2+2zx(1-zx)+z^2x^2=1. As an alternate CLT check, the product coefficient makes the excess rank H+Bin(L,1/2) conditional on nonnegative I+H+L=N, with weights (I+1)(L+1)2^L. The probability I+H>=K is bounded by the tail of sum (i+1)2^{-i-h}, since the normalizer is at least (N+1)2^N. A coupling with Bin(N,1/2) then changes the excess rank by O_p(1); the difference between centering the resulting rank at n/2 and at N/2 is negligible. This is uniform over ordered commuting pairs, not uniformly chosen clamps.
 
-Fernandes–Paulista (arXiv:2112.13427v1, public 2021-12-26) and Fernandes (arXiv:2407.05084v1) establish the precise monoid and its elementary cardinalities. The two published centralizer results *Centralizer profiles and a quadratic limit law for idempotent finite-chain contractions* (2026-10-25) and *Idempotent centralizers and commuting semilattices in a finite directed-path monoid* (2026-11-02) already determine exactly the same **unrefined** centralizer counts. Their full result statements and proofs were compared; those counts, as well as the known unrefined commuting-pair totals, are explicitly excluded from the present novelty claim. These sources do not state the complete rank-by-rank polynomials, the two-coefficient reconstruction, the joint rational rank series, or the uniform-commuting-pair Gaussian law. *Eventual-image fibers and independent geometric–Gaussian limits in directed-path weak endomorphisms* (2026-11-01) stratifies all maps by eventual fixed intervals and rank, not by commutation with another chosen clamp. Older semigroup enumeration may implicitly subsume portions, so worldwide novelty is not guaranteed.
+## originality
 
-## Value — PASS
+PASS
 
-Image rank is an intrinsic and widely useful transformation-semigroup invariant. It is not determined by the known unrefined centralizer cardinalities: for chain length four, the centralizer of a constant clamp and the centralizer of the clamp to the middle two points both have size eight, yet their rank polynomials differ. The first and third coefficients alone recover the geometric position of every nonconstant clamp modulo reflection. The same refinement produces an exact, positive-coefficient rational census for all ordered commuting pairs and a Gaussian rank law under the natural uniform-pair sampling convention. These results provide substantive structure beyond unweighted enumeration rather than a change of notation or arbitrary isolated finite data.
+Pass for the repaired scope: two-coefficient reconstruction and the exact and asymptotic pair-rank law. The original called the per-clamp weighted spectrum a contribution, but the checked older proofs already supply the identical rise decomposition; weighting those choices gives the formula mechanically. The repair credits it as an ingredient rather than a standalone contribution.
 
-## Primary literature, risk and boundaries
+## value
 
-The two original monoid papers were read in accessible full-text form, as were the full published result statements and proofs of both earlier exact centralizer formulas. The eventual-image comparison was also read. Catalan-monoid centralizers address a different, decreasing-maps monoid. The rank-refined result is not claimed for centralizers of nonidempotents, and the constant-clamp positional failure is explicit. Literature comparisons cannot prove global priority; any general preexisting rank-weighted centralizer theorem could cover the claim after specialization and remains a residual historical risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Commuting maps detect the position of a nonconstant clamp through only ranks 1 and 3, even when the known centralizer cardinality collides (e.g. length four). The joint series and factored aggregate describe actual image rank under a natural pair sampling, yielding an exact finite distribution and a CLT not implied by knowing only the count of pairs. Value is in these uses, not marking the old counting criterion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

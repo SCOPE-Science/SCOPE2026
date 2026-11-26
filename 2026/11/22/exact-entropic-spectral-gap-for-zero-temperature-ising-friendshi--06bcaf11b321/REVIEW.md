@@ -1,15 +1,21 @@
-# Scientific review: exact entropic spectral gap for zero-temperature Ising friendship networks
+# Independent mathematical audit
 
-## Correctness — PASS
-The ground-energy minimization is independent across \(n\) frustrated triangles, yielding \(2\cdot3^n\) configurations. Each fixed-hub sector is a product of unit-rate three-vertex paths; hub flips couple only mixed configurations. Orthogonal symmetry sectors have gap at least one, while the antisymmetric hub mode maps exactly to a rate-two rank-one perturbation of independent two-state bits. The determinant lemma, spectral weights and the binomial inverse-moment estimate rigorously establish the unique root and its sharp asymptotics. Both exact integer/rational and independent finite-matrix numerical checks pass. The computation is a test of the proof's reductions, not an infinite proof.
+## correctness
 
-## Originality — PASS on the bounded examined record
-Published comparisons show that Kim, Kim and Lee (2003) examine a two-dimensional triangular antiferromagnet using Monte Carlo; Ismail and Salem (2003) analyze small triangular spin clusters; Berger et al. (2003) provide general bounded-degree tree/hyperbolic results; Chen et al. (2024) treat antiferromagnetic spin systems in a uniqueness regime. None of these inspected statements implies the friendship-graph rate-one ground-state secular equation or its exact exponential coefficient. Searches of public indexed research for the windmill/friendship graph, entropic bottleneck, alias triangular cactus, all-leaf coupling and binomial spectral formula identified no covering statement. Exact claims and implications, rather than just titles, were compared. The full Kim article was not available, and a priority risk remains from unindexed results.
+PASS
 
-## Mathematical value — PASS
-The theorem isolates a natural macroscopic entropic metastability mechanism in a fully frustrated graph family: two rapidly mixing sectors communicate only through \(2^n\) configurations among \(3^n\) sector states. It determines the complete sharp spectral gap as the root of an explicit scalar equation and a nontrivial first-order finite-size correction. This is substantially more informative than a generic conductance bound. It does not claim a positive-temperature result or a full spectrum.
+Each triangle minimizes at one equal bond; conditional on the hub there are three peripheral states forming a unit-rate three-vertex path. The two product sectors are connected by the rate-one hub matching of mixed states, so the full chain is connected and symmetric. Global-flip-even functions orthogonal to constants and functions odd under any leaf swap have zero conditional sector means; the product path Poincaré inequality bounds their eigenvalues below by one. In the remaining global-odd, swap-even block, the lumped bits have rates 2 and 1 and hub reversal contributes a rank-one positive diagonal term of strength 2 at the all-mixed point. The normalized point mass has weights Bin(n,1/3) at 3k by tensoring constant and centered eigenvectors. The secular function increases from minus to plus infinity between 0 and 3; the constant-vector Rayleigh quotient is 2(2/3)^n, strictly greater than the bottom because the constant is not an eigenvector, and <1 for n>=2. The inverse-binomial moment is 1/n+O(n^-2): outside an exponentially small lower tail, expand the inverse around n/3 with quadratic remainder bounded using Var(K)=2n/9. The resolvent shift changes that moment by O(lambda_n). Both asymptotic expansions follow. Independently constructed full Laplacians for n=2–5, confirmed the next eigenvalue is at least one to numerical tolerance, and obtained gaps 0.627718676731, 0.413850444148, 0.278476903921, 0.189144882974, with secular-root discrepancies below 7e-15. Replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/branches/independent_reproduction.py 3 (NumPy).
 
-## Scope and residual limitations
-The precise dynamics is rate-one zero-temperature *Metropolis* restricted to the ground manifold; a heat-bath convention would rescale neutral-spin kinetics. The foundational 2003 triangular-lattice paper was available in abstract only, . Historical priority and independent validation remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the explicit friendship-graph ground-state Markov spectral gap and sharp first correction, not the count of configurations, existence of an entropic bottleneck, or the rank-one formula as a general method. No inspected comparison establishes the same spectrum or implies it without the model-specific decomposition.
+
+## value
+
+PASS
+
+The frustration forces a genuine rare transition between two rapidly relaxing sectors; the exact gap and relative 1/n correction give a normalization-sensitive benchmark for entropic slow relaxation. A conductance estimate or the known ground-state count would not supply this precision. The small symmetry block gives a usable all-size calculation, not an isolated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

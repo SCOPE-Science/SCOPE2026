@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every equation at fixed \(x\) uses only the same \(x\); uniqueness keeps initially uninfected locations disease-free forever. The source's transform (3.7) has the exact product form \(\mathcal L(c,\lambda)=F(c\lambda)\), where \(F'<0\) for a positive exit density and \(F(u)\to0\). Therefore its speed infimum is zero and its positive-speed stationary equations have no solution. A fully admissible constant-hazard witness satisfies \(F(u)=4/(1+u)^2\), verified by exact rational arithmetic.
+PASS
 
-## Originality
+Verified the publisher's equations (2.1), (3.7), (3.9), (3.13), §4.2 and Table 3. The apparent permutation of the age and time arguments of I in the printed Q equation is a notational discrepancy and does not affect spatial decoupling. Outside the common compact seed set the pointwise disease-free solution has Q=I=0 and S time-constant; local uniqueness proves the support claim. For the constant background in (3.7), set u=cλ and A=η(1−γ)S₀. The integral M(u) of the tilted nonnegative exit density is positive and at most one. It is differentiable for u>0, with M′≤0 since a exp(−ua) is bounded locally in u>0, so F′(u)=A[M′(u)/(q+u)−M(u)/(q+u)²]<0. For any c>0, choosing u>A and λ=u/c gives F(u)<1, hence infimum zero in (3.13), not necessarily attained at zero. The positive-c derivative cF′(cλ) excludes the stationarity equation even when the level-one equation has a positive temporal root. The exact constant-hazard witness gives F(0)=4, F(1)=1, F(2)=4/9 and a strictly negative λ derivative. The published 0.23–3.5 km/week values do not follow from the printed definition. In contrast to the compact-support theorem, (4.3) seeds Q₀(x)=3exp(−|x|) everywhere at finite x; moving contours are not evidence of new spatial support. Read the frozen verification narrative and witness code without running the supplied script; one self-equality in the code is tautological, so spatial independence was checked from the actual equations instead.
 
-PASS for the source-specific correction. The motivating article reports positive speeds and does not recognize the no-coupling defect or unsatisfiable speed-selection equations. The broader diffusion and space-time-kernel literature uses genuinely spatial coupling. A separate examination of the same source concerns a fixed-latency simulation threshold and does not imply this finding. Earlier general speed theory may imply the generic no-dispersal phenomenon, which is explicitly not claimed as an original abstract principle. Targeted searches did not locate the published source-specific contradiction.
+## originality
 
-## Value
+PASS
 
-PASS. The article's principal reported speed values are incompatible with both the zero-propagation property of its printed equations and its own variational definition. The result distinguishes moving contours of infections pre-seeded everywhere from transport of infection into uninfected sites, a substantive distinction for using the model to assess quarantine and spatial epidemic spread.
+The supported contribution is the exact source-specific contradiction among the printed transform, stationarity system, variational speed and positive Table 3, not the general absence of spread without coupling. The strongest same-paper Resultary comparison has a different mathematical conclusion about the fixed-latency simulation. No inspected source establishes the same transform/speed incompatibility.
 
-## Closest literature and limitations
+## value
 
-The 2024 two-dimensional model by the same author has explicit spatial diffusion and so does not imply positive spread for the uncoupled 2024 equations. The 2020 rabies article has diffusing hosts and a space-time transform; its full text and Thieme–Zhao's 2003 general source were not available for full inspection. The proof is about the equations as printed and does not certify an undocumented simulation implementation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This matters as a correction to a definite published claim: it invalidates the positive numerical speed interpretation under the actual printed equations and explains why the displayed root conditions fail. It separates temporal growth, propagation into unseeded locations and contour motion under a positive tail, three quantities that would otherwise be conflated. It makes no claim about extending or improving the epidemic model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

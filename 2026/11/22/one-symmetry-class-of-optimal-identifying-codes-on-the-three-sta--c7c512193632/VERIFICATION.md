@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-All executable inputs are contained in this package: `verify.py`, `verify.cpp` and `OPTIMA.txt`. No remote services, proprietary libraries or unpublished data are required. Use Python 3.8+ and any C++17 compiler.
+## correctness
 
-```sh
-python3 verify.py
-g++ -std=c++17 -O2 verify.cpp -o verify_cpp
-./verify_cpp
-```
+PASS
 
-The Python verifier independently constructs all 24 vertices with set adjacency, forms all 300 closed-neighborhood and pair-separation hitting constraints, and tests all subsets of sizes zero through nine (there are zero valid of sizes at most eight and exactly 48 of size nine). It computes the natural 48-transformation orbit and verifies that the listed masks are precisely the complete optimum census. It also reports that all six permutations of stage occupancy \((2,3,4)\) each appear eight times.
+The undirected modulo-three edge rule gives 24 distinct vertices and four neighbors per vertex. Nonempty, distinct closed-neighborhood intersections are exactly the domination and symmetric-difference hitting conditions; adding any sensor preserves them. An independent signature-based enumeration (not a run of the frozen verifiers) covered all 735471 eight-subsets and 1307504 nine-subsets, finding zero and 48 respectively. Monotonicity then rules out all smaller subsets; every returned nine-set is minimum. The 48 sets in the census agree with the actual frozen OPTIMA.txt. The mask 0x901669 decodes to the nine stated stage/address pairs and has stage profile (4,3,2). Translation preserves the flip indices, rotation sends the flip at stage i to that at i+k, and the reflection of the stage pair (i,i+1) has outgoing stage 2-i and flips bit 2-i. These maps form the group of eight translations extended by the six rotations/reflections of the stage triangle. The replay checked all 27648 ordered-pair/map tests and verified that the representative orbit is the census; its size is 48, so the action is free and transitive. Each stage profile permutation occurs eight times. No determination of the full graph automorphism group is needed. UTC replay on 2026-11-24: /workspace/branches/144062aa-650b-4b97-986d-bf5a4186d99e/audit_b3.py, audit_result.json, size8_complete.json and size9_complete.json.
 
-The C++ verifier uses 24-bit neighborhood masks, checks every subset of cardinality eight and nine independently, checks preservation of adjacency for all 48 natural transformations on all ordered vertex pairs, and checks the canonical code, complete orbit and stored census. It prints `VERIFY_OK minimum=9 optima=48 natural_orbits=1 profiles=(2,3,4)` on success. These exact outputs were obtained in replay against the files being packaged.
+## originality
 
-The finite brute-force step proves only the fixed 24-vertex case, not all butterfly dimensions. Exhaustive integer enumeration is logically sufficient here because every possible candidate of the required sizes is tested, and monotonicity excludes smaller codes. No independent audit has been performed.
+PASS
+
+The supported distinction is the exact first cyclic degree-four butterfly census, including one free orbit of all 48 labeled minima and its stage profiles. The definition, lower bound 8 and analogous code investigations on other graphs are prior work. The comparison is bounded, not a first-priority certification.
+
+## value
+
+PASS
+
+Three is the smallest stage count in this degree-four cyclic family, where the known upper construction does not apply. The exact gap above the general lower bound is useful as a benchmark for identifying codes on the correct wrapped topology. The complete placement census and single free orbit are stronger than one optimum and answer whether genuinely different minimum sensor patterns occur. This is a natural finite boundary case, not an arbitrary parameter cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

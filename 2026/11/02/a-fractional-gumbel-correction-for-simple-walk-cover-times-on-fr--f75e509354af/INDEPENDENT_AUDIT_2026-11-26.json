@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:00:46.084259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen CDF and mean are both mathematically supported. Each excursion selects a uniform petal and a fair initial leaf; a specified leaf is visited with probability 3/(4n). Marking one or both leaves per petal gives (3) by inclusion–exclusion (a zeroth power is 1 at m=0). The mean excursion count is finite by a leaf union bound; Wald and the expected residual two steps from the last leaf give (4). Poisson splitting gives the product CDF. In the mean integral, on u≤n/3 the paired-term change is bounded by n^(−1/3)u^(4/3)e^(−u/2), and the independent-binomial difference by O(u² e^(−2u)/n); outside that range the tail is exponentially small by Φ_n≤e^(−u). Thus dominated convergence gives Γ(4/3)/2^(4/3) before the final walk-time factor. The repaired RESULT.md focuses on the discrete-step CDF. For correctness of its sharpened error, K=ceil(8n log n) controls M_n by the leaf union bound. Both exponential interarrival sums and excursion length sums, centered separately, have quadratic log-MGF near zero. A union bound through K gives deviation at most A sqrt(n) log n except with O(n^(−3)) probability for A large; this works even though excursion paths and M_n are dependent. The inequalities S_(M_n−1)<T_n≤S_(M_n) then give a two-clock CDF sandwich with compact-uniform x shift O(log n/sqrt n). The Poissonized Taylor error O(n^(−2/3)) is smaller. Thus the corrected walk-time claim includes the stated quantitative remainder without using the recorded checker as a proof; supplied scripts were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite-cover inclusion–exclusion is known. Constant-size batch arrivals, mixtures sampling one coupon per trial, ordinary stars and other optimal networks do not give a discrete-step fractional coefficient on this walk."
+        ],
+        "reasoning": "An exact generic finite-graph sum or first-order Gumbel theorem does not provide the smaller-order asymptotic uniform remainder for the random walk clock.",
+        "searches": [
+          "Zlatanov–Kocarev Phys. Rev. E 80, 041102 §IV.C",
+          "arXiv:1209.2667 §3",
+          "arXiv:1709.04500 Theorem 8",
+          "Aldous–Fill Ch. 6 §6.2(c)",
+          "arXiv:2302.06372 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Corrected RESULT.md",
+        "Resultary e2b8f714b901 and b0e9f34d56db",
+        "Zlatanov–Kocarev; Ferrante–Frigo; Doumas–Papanicolaou; Aldous–Fill; Xu–Zhang"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact paired-star product already gives the same Poissonized Taylor coefficient; its mean formula gives 4n(log 2+H_n)−2^(2/3)Γ(4/3)n^(2/3)+o(n^(2/3)). No walk-time CDF error of the required order is supplied by its expectation identities."
+        ],
+        "reasoning": "Removed the mean as a distinct claim and credited the equivalent product. The repair establishes the actual stopping-time second-order law with quantitative control of both clocks.",
+        "searches": [
+          "Resultary e2b8f714b901 Finding and Proof §§2–3",
+          "Resultary b0e9f34d56db Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent rate-one arrival labeling gives a product over correlated pairs, with leaf non-hit rate 3/(4n) and triangle non-entry rate 1/n. The paired-star record gives the identical Poissonized product."
+        ],
+        "reasoning": "The continuous auxiliary CDF is equivalent to the excursion catalogue after Poissonization, not to the actual edge-step stopping-time distribution without a clock comparison on a smaller scale than n^(2/3).",
+        "searches": [
+          "Friendship/triangular windmill paired-leaf walk and batch coupon collectors",
+          "Resultary paired-star cover time and fractional Gumbel corrections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e2b8f714b901 gives exactly the Poissonized product and the n^(2/3) mean correction; b0e9f34d56db has an exponent 1/3 at alternating dimer rates 1:2 on a different process."
+        ],
+        "reasoning": "The first record overlaps the auxiliary distribution and the mean, not the clock-transfer conclusion. The second is a thematic, not same-model, analogue.",
+        "searches": [
+          "Resultary: friendship graph pairing leaves and fractional-power cover time",
+          "Resultary: fractional Gumbel corrections"
+        ]
+      },
+      "rationale": "For the repaired finding only: the actual discrete-time CDF correction with a compact-uniform error that is smaller than n^(−1/3) was not found or established as a direct corollary in the inspected sources. The frozen presentation is narrowed: its Poissonized law, Poissonized expansion and mean correction are covered mathematically by the paired-star record, and the exact inclusion–exclusion framework is established work. The overlap verdict does not infer earlier priority from catalogue dates.",
+      "residual_risks": [
+        "Bounded comparison is not a universal priority claim; older specialized windmill or random-subset collector literature may contain other exact or asymptotic formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact auxiliary and mean overlap, not walk-time CDF",
+          "evidence": [
+            "Identical per-petal product and mean asymptotic; H_n−log n−γ=O(1/n). Later path date is not evidence of earlier priority."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fractional-power-cover-time-improvement-from-pairing-the-leaves--e2b8f714b901/RESULT.md",
+          "material_read": "Finding and Proof §§1–3, offsets 0–2200 and passage at 3352",
+          "method": "Resultary local mirror",
+          "title": "Fractional-power cover-time improvement from pairing the leaves of a star",
+          "trigger": "Identical friendship graph and fractional mean exponent"
+        },
+        {
+          "assessment": "Distinct process",
+          "evidence": [
+            "Dimer placement on even cycle with alternating rates, not an excursion-based walk."
+          ],
+          "identifier_or_url": "Resultary b0e9f34d56db",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Fractional Gumbel corrections and a logarithmic symmetry crossover",
+          "trigger": "Fractional Gumbel exponent 1/3"
+        },
+        {
+          "assessment": "Inclusion–exclusion as background",
+          "evidence": [
+            "Cover CDF via joint avoidance of selected vertices."
+          ],
+          "identifier_or_url": "DOI:10.1103/PhysRevE.80.041102",
+          "material_read": "§IV.C p. 2, equation (3)",
+          "method": "OA preprint PDF",
+          "title": "Random walks on networks: Cumulative distribution of cover time",
+          "trigger": "Exact finite-graph CDF"
+        },
+        {
+          "assessment": "Different batch assumptions",
+          "evidence": [
+            "Constant group size with no duplicates rather than random excursion batches of one or two constrained leaves."
+          ],
+          "identifier_or_url": "arXiv:1209.2667",
+          "material_read": "Abstract and §3, pp. 5–6",
+          "method": "OA PDF",
+          "title": "A note on the coupon-collector's problem with multiple arrivals and the random sampling",
+          "trigger": "Paired/batch coupon equivalence"
+        },
+        {
+          "assessment": "Single draws and leading law",
+          "evidence": [
+            "One draw from a mixture of uniform groups; does not capture correlated leaf pairs or discrete clock."
+          ],
+          "identifier_or_url": "arXiv:1709.04500",
+          "material_read": "Abstract, p. 1; Theorem 8, p. 7",
+          "method": "OA PDF",
+          "title": "Sampling from a mixture of different groups of coupons",
+          "trigger": "Multiple groups and Gumbel scaling"
+        },
+        {
+          "assessment": "Ordinary star only",
+          "evidence": [
+            "Coupon-collector calculation on the star; no leaf-pair correction."
+          ],
+          "identifier_or_url": "Aldous–Fill, Ch. 6 §6.2(c)",
+          "material_read": "Chapter 6 §6.2(c)",
+          "method": "OA book text",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Star-cover calculation"
+        },
+        {
+          "assessment": "First-order scaling on other graphs",
+          "evidence": [
+            "N log N scaling concerns other network families."
+          ],
+          "identifier_or_url": "arXiv:2302.06372",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF",
+          "title": "Optimal Scale-Free Small-World Graphs with Minimum Scaling of Cover Time",
+          "trigger": "Sparse-graph cover-time scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result quantifies the effect of genuinely correlated discoveries on a natural graph walk. It distinguishes, at the first nontrivial order, the actual walk from an independent coupon prediction and shows that the two random clocks cannot account for the anomalous correction. Compact-uniform smaller-order error makes that distinction quantitative; no significance is assigned to merely recomputing the covered expectation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

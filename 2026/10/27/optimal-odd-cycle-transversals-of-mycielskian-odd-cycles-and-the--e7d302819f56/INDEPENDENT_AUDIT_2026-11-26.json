@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:07:40.416783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every transversal must delete an original. If the apex is deleted, a missing original can be replaced by its shadow in the odd cycle, and two nonadjacent missing originals can both be replaced. These obstructions leave exactly A_i and B_i among triples deleting the apex. For either retained original path, any remaining shadow with two original neighbors has neighbors of the same alternating color, proving sufficiency. If the apex is retained, all surviving shadows have the same color, forcing any original with a surviving shadow neighbor to share the apex color. Two deleted shadows can make at most one original flexible; with one deleted original the remaining path has at least four vertices, so one flexible vertex cannot meet all original edges. With two or three deleted originals there is at most one deleted shadow and hence no flexible original: the retained originals must be independent. The cycle independence bound excludes two original deletions and permits three only at n=5, where the five complementary independent pairs give exactly R_i and the forced coloring works. With at most two total deletions, the same replaced cycle or forced-color obstruction persists. Exchanges follow by intersecting triples. For n=2k+1>=7 each A has two B partners at every distance 1..k and one at k+1; distinct B's at cyclic separation t have exchange distance t+1 via their incident A edges. Together with the A-cycle this gives the stated shells of unordered pairs and common eccentricity. At n=5 the A,R Petersen core contributes 15 pairs at distance one and 30 at distance two; each B contributes (2,2,1) to distances to A and (0,2,3) to R. The ten B-B pairs split equally at distances two and three. This yields (25,55,25) and every vertex has a distance-three partner. Independent replay (python3 -B /workspace/branches/independent_replay.py 5) exhaustively enumerated deletions through size three and all exchange distances for odd n=5..19, confirming those cases and the exact distance histogram. The frozen verifier prints but does not assert that histogram, and its out-of-scope n=3 check stops at size two; neither limits the deductive result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Esperet–Stehlík mention generalized Mycielski examples and relate minimum OCT size to face-width for nonbipartite projective quadrangulations; they also state scalar bounds.",
+          "Dąbrowski et al. study the cost of requiring the transversal itself to be independent in H-free classes."
+        ],
+        "reasoning": "Even if the scalar bound is sharp for a member of the ordinary Mycielski family, a minimum cardinality or face-width bound gives neither all triples attaining it nor their exchange edges. The independent-transversal condition is not imposed here, and arbitrary minima cannot be recovered from its price alone.",
+        "searches": [
+          "Esperet–Stehlík arXiv:1509.07716, pp. 1–2, 8, 14",
+          "Dąbrowski et al. DOI 10.4230/LIPIcs.MFCS.2018.63, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and oct_mycielski_verifier.py",
+        "Jansen–Kratsch arXiv:1107.3658",
+        "Esperet–Stehlík arXiv:1509.07716",
+        "Dąbrowski et al. MFCS 2018",
+        "SageMath MycielskiStep",
+        "Two Resultary records listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The face-width comparison is a size statement for the class; the dodecahedral metric is specific to its own minimum OCT solution space; the Grötzsch cut paper computes a different filtration."
+        ],
+        "reasoning": "These facts do not specify which deletion sets are bipartizing after retaining the apex, particularly the five R_i, or which pairs share two vertices. Those are necessary for the Petersen core and for all metric counts, so the claimed classification is not a mere change of terminology or a special case shown by the inspected results.",
+        "searches": [
+          "Esperet–Stehlík scalar OCT and face-width passages; direct comparison with Resultary dodecahedral exchange and Grötzsch cut-filtration Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jansen–Kratsch explicitly call OCT graph bipartization and define deletion to a bipartite graph.",
+          "SageMath identifies one Mycielski step on C5 with the Grötzsch graph."
+        ],
+        "reasoning": "Complements identify minimum OCTs with maximum-cardinality induced bipartite vertex sets, preserving one-for-one exchange; merely maximal induced bipartite sets are not equivalent. Thus Grötzsch and maximum induced bipartite subgraph are material aliases. The inspected sources on those formulations do not give the claimed optimizer geometry.",
+        "searches": [
+          "Jansen–Kratsch arXiv:1107.3658, Introduction",
+          "SageMath MycielskiStep documentation",
+          "Literature query for Grötzsch graph, Mycielski, odd cycle transversal and induced bipartite graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching metric-style record SCOPE-one-detour-exchange-metric-of-optimal-vertex-bipartizations-of-t--6689e33109ba computes an exact metric on the dodecahedral graph, with six-vertex minimum OCTs.",
+          "The same-graph entry SCOPE-the-ordinary-cut-filtration-of-the-gr-tzsch-graph-a-moore-space--3e81f678831d addresses cut-complex homotopy, not maximum induced bipartite sets."
+        ],
+        "reasoning": "Neither the graph-specific dodecahedral histogram nor the Grötzsch cut-complex invariant is a table of these minima or exchange distances. No exact corresponding indexed entry was identified in the bounded search; this does not exclude an unindexed small-graph census.",
+        "searches": [
+          "Resultary searches for minimum Mycielski-cycle OCTs, Grötzsch bipartizations and exact single-replacement metrics"
+        ]
+      },
+      "rationale": "Pass for the complete family-wise minimum transversal classification and the exchange metrics, including the Petersen exception in the ordinary Mycielskian of C5. The construction, graph bipartization concept and related scalar OCT bounds are not credited as novel. Compared statements on the closest same-invariant and same-graph work do not establish the submitted classification or metric; the conclusion is bounded by inspected evidence.",
+      "residual_risks": [
+        "Potential unindexed Grötzsch maximum-induced-bipartite-set tabulations or broader work under a different graph name were not exhaustively excluded.",
+        "The precise relationship of the generalized Mycielski examples in the quadrangulation paper to every ordinary mu(C_n) here was not resolved by the inspected passages. The originality rationale does not require novelty of the scalar minimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem definition, different type of theorem",
+          "evidence": "Defines OCT as graph bipartization and studies structural kernelization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1107.3658",
+          "material_read": "Introduction pp. 1–2, offsets 2360 and 5800",
+          "method": "OA PDF text",
+          "title": "On Polynomial Kernels for Structural Parameterizations of Odd Cycle Transversal",
+          "trigger": "Graph-bipartization alias and broad OCT results"
+        },
+        {
+          "assessment": "Relevant scalar bounds and context, no full solution space or metric in these passages",
+          "evidence": "Mentions generalized Mycielski examples, relates minimum OCT to face-width, and gives bounds for specified critical graphs. Applicability of each statement to the ordinary family was not inferred from the graph name.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.07716",
+          "material_read": "p. 1 offset 1800, p. 2 offsets 6550–8441, p. 8 offset 27480, conclusion p. 14 offset 44360",
+          "method": "OA PDF text",
+          "title": "The Width of Quadrangulations of the Projective Plane",
+          "trigger": "Generalized Mycielski graphs and broader minimum-OCT coverage"
+        },
+        {
+          "assessment": "Independent transversal cost rather than census/metric of all OCTs",
+          "evidence": "Defines OCT via G-S bipartite and compares independent and unrestricted versions in graph classes.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.63",
+          "material_read": "Abstract and Introduction pp. 1–2, offsets 1400–4073",
+          "method": "OA PDF text",
+          "title": "Price of Independence for Vertex Cover, Feedback Vertex Set and Odd Cycle Transversal",
+          "trigger": "Possible minima classification under related transversal requirement"
+        },
+        {
+          "assessment": "Establishes same graph name, not minimum OCT counts",
+          "evidence": "One step applied to C5 is isomorphic to the Grötzsch graph.",
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generators/families.html",
+          "material_read": "MycielskiStep passage, offsets 80668–81544",
+          "method": "OA website text",
+          "title": "SageMath graph generators: MycielskiStep",
+          "trigger": "Exact n=5 graph alias"
+        },
+        {
+          "assessment": "Same problem shape on different graph",
+          "evidence": "Dodecahedral graph, 3240 optimum six-sets, diameter six and an exact distance count; not mu(C_n).",
+          "identifier_or_url": "2026/10/26/SCOPE-one-detour-exchange-metric-of-optimal-vertex-bipartizations-of-t--6689e33109ba",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "One-detour exchange metric of optimal vertex bipartizations",
+          "trigger": "Closest exact exchange invariant with same bipartization objective"
+        },
+        {
+          "assessment": "Different invariant and later date",
+          "evidence": "Studies integral homotopy of cut complexes and a Moore-space stage, not the minimum bipartizing deletion families.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-ordinary-cut-filtration-of-the-gr-tzsch-graph-a-moore-space--3e81f678831d",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "The ordinary cut filtration of the Grötzsch graph",
+          "trigger": "Same exceptional graph on an indexed exact invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A scalar bipartization number does not tell how many minimum choices exist, whether one can move between them without increasing cost, or how far apart they can be. This classification answers those questions exactly for a standard family and identifies a real small-cycle change of shape: the larger odd cycles have an exchange cycle decorated by triangles, while C5 also admits apex-retaining minimizers forming a Petersen core with the A layer. The full distance distributions record that difference and provide concrete reconfiguration benchmarks, not just verification of a known count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

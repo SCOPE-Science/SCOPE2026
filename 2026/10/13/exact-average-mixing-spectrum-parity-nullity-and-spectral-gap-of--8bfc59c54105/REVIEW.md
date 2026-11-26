@@ -1,11 +1,21 @@
-# Scientific review: folded-hypercube average mixing
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof defines the antipodal quotient and its normalized, even-weight Walsh characters explicitly. Distinct adjacency energies are indexed by even weights, so the projectors do not merge unexpectedly. The Cesàro average is the sum of Schur squares, and discrete character orthogonality transforms it into the count of ordered equal-even-weight pairs. The parity-restricted binomial count is exhaustive, including the zero-weight and full-support boundary cases. Its only possible zero is the unique full-support character when \(d\equiv2\pmod4\). The decreasing central-binomial ratios and separately checked endpoint establish the sharp smallest-positive spectral eigenvalue. The self-contained exact checker corroborates these identities for dimensions three through nine but is not substituted for the proof for all dimensions.
+## correctness
 
-**Originality — PASS, subject to explicitly stated residual risk.** Godsil (arXiv:1102.4898, Section 17), Fan–Luo (2013), and Chan (arXiv:1305.5811) describe instantaneous uniform mixing on folded cubes or closely related cubelike/association-scheme objects, not the full **Cesàro** matrix eigenvalue multiset. The projector-Schur-square identity of Godsil (arXiv:1103.2578), the commutant theory of Coutinho–Godsil–Guo–Zhan (arXiv:1709.03591), and exact arithmetic methods of Coutinho et al. (arXiv:2208.08971) are prerequisites rather than statements of the claimed folded-cube spectrum. The survey by Coutinho–Guo (arXiv:2404.02236, Open Problem 4.1) poses the full-rank question in primitive distance-regular graphs. The known full spectrum of the *ordinary* binary cube is not, by itself, a full spectrum of its antipodal quotient: squared transition amplitudes contain inter-coset interference, and the quotient requires parity-filtered projectors and a separate pair count. Small folded-cube instances are special cases of previous classifications and are not individually credited as new. A broader unlocated association-scheme result might still imply the complete formula; this is a genuine residual risk, not a novelty guarantee from unsuccessful searching.
+PASS
 
-**Value — PASS.** An infinite natural family is classified exactly, including the complete spectrum, one-dimensional exceptional kernel, and sharp positive spectral gap. The modulo-four nullity transition is a structural boundary of unweighted quantum transport. Odd-dimensional folded cubes of arbitrarily high diameter supply a motivated concrete subfamily for the primitive distance-regular rank question, while even dimensions reveal a distinct parity obstruction. The precise eigenvalue is useful for conditioning and quantitative mixing-operator analysis, not just code reproducibility or a small finite table.
+The quotient has N even-weight characters and no other Fourier modes. Cesàro averaging retains the projector Schur squares, so the weight-w multiplier counts ordered equal-even-weight pairs with fixed sum divided by N. Balancing the w changed coordinates selects w/2; on a nonempty complement exactly half the subsets have the requisite parity. At full support the sole complement is empty and d/2 must itself be even. The only zero is therefore the full-support parity character when d ≡ 2 mod 4. Interior central-binomial ratios decrease, and in the nonzero endpoint case its ratio to the last interior mode is 2(d−1)/d>1. These facts give the multiplicities, gap and condition number including d=3 and d=4. The bundled numerical-range checks were inspected only; the proof is exact for all d.
 
-**Closest literature and limitations.** The source-based comparison covers both the original folded-cube graph literature and the general spectral treatment of long-time average mixing; its main references are listed in RESULT.md. No exhaustive originality or priority certification is claimed. Results concern adjacency-generated standard Cesàro average mixing only; they neither settle all primitive distance-regular graphs nor determine optimized sampling distributions. The positive spectral gap applies on the image if one exact null direction occurs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary cube covers the numerical interior formula, not the quotient mixing theorem. The distinct contribution is the quotient correction and the resulting unified spectrum, rank transition and sharp positive minimum. The comparison does not rely on ordering two records with the same date.
+
+## value
+
+PASS
+
+The quotient introduces a real interference effect invisible in ordinary-cube probabilities: one parity eigenmode alternates between a positive endpoint and exact nullity. The all-dimension calculation also gives the sharp conditioning on the image and verifies full rank for the odd folded-cube subfamily in a broader problem about distance-regular graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

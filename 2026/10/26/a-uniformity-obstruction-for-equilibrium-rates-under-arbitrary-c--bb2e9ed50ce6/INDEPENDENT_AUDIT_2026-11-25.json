@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:07:12.307380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, Verification and VERIFICATION.md",
+        "Chen et al., arXiv:2509.05170v2, Assumption 2.8, (2.19), (5.8)–(5.10), Theorem 5.13 and proof"
+      ],
+      "rationale": "For a fixed L and sup-rate bound M, integrate the cohort equation from birth and bound |η₀−c|≤η₀+κ. Grönwall bounds every cohort wealth path in absolute value by B=(|w₀|+L(η₀+κ))e^{ML}, and its a.e. derivative in absolute value by MB+η₀+κ. The birth-index integrand ρ(t−b)E[w_t^b] can be extended by zero outside b≤t≤b+L, with no jump because ρ vanishes at both endpoints. Its weak time derivative on the life interval is the product-rule sum; Fubini and the bounds permit integration in b, including for merely measurable bounded consumption. The derivative of aggregate wealth thus has essential-supremum bound B∫|ρ′|+MB+η₀+κ=3B/L+MB+η₀+κ. At equilibrium with a C¹ target the bound holds pointwise by continuity. Every sinusoid in the stated family has the same upper/lower range bounds and derivative norm ω/2, which can exceed that bound even on any fixed interval of positive length with a suitable phase. The v2 source hypotheses allow constant wealth at birth and deterministic constant income; Assumption 2.8 and optimal consumption (2.19) provide the cap, and (5.8)–(5.10) give the stationary density class on the moving support. The zero extension of the quadratic density is Lipschitz, not globally C¹; if global C¹ across both edges is imposed, the same proof applies to the normalized quartic density 30a²(L−a)²/L⁵ with derivative L¹ norm 15/(4L). The displayed bound is for the frozen quadratic on its natural support. This is an analytic replay, not an existence proof or a numerical search.",
+      "residual_risks": [
+        "This cannot reject a theorem that allows an L or rate bound depending on K, or certify a corrected existence theorem.",
+        "The differentiability required is that of the density on the demographic support; the frozen zero extension is not C¹ at the two corners."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.13 lists L̄₁(ν,w₀,η,κ,λ,R) and a rate bound (5.18) without explicit K. The proof works out constant K, calls the variable case similar, uses 1/K in the contraction estimates and explicitly includes K in the final contraction lifespan."
+        ],
+        "reasoning": "The constant-K calculation already exposes dependence on the level, but has derivative zero throughout and cannot rule out uniform bounds over time-dependent profiles of common range. The displayed general theorem is the object of the countercomparison, not a result implying the obstruction.",
+        "searches": [
+          "Chen et al. Theorem 5.13 and proof, arXiv:2509.05170v2",
+          "Web: arXiv:2509.05170v2 \"Theorem 5.13\" erratum OR corrigendum capital profile lifespan"
+        ]
+      },
+      "checked_sources": [
+        "Chen et al. arXiv:2509.05170v2, exact sections above",
+        "Targeted Resultary theorem, capital-profile and equivalent Lipschitz searches",
+        "Targeted erratum search (no pertinent correction located)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The statement supports the literal K-omitting reading; the proof includes K in L₀ in the constant-K estimates. The frozen family holds range fixed while its derivative grows without bound."
+        ],
+        "reasoning": "While the derivative estimate uses elementary and known model equations, turning them into a profile-independent necessary modulus and contradicting a displayed uniform dependence is a separate quantifier-level result, not established by finding a factor 1/K in a constant-K existence proof.",
+        "searches": [
+          "Chen et al. source equations, (5.8)–(5.10), Theorem 5.13, (5.18), constant-K proof continuation vs. high-frequency equal-range profiles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cohort equation and aggregate clearing condition identify the obstruction equivalently as a common Lipschitz bound on the image of bounded rate paths with fixed lifespan and bounded primitives."
+        ],
+        "reasoning": "A common Lipschitz modulus is stronger than fixed bounds on the level K or positivity. The inspected source does not give a necessary common derivative bound for variable K.",
+        "searches": [
+          "Resultary: uniform-in-capital-profile equilibrium interest rate bounds overlapping generations arbitrary C1 K demographic flow",
+          "Resultary: Every equilibrium aggregate wealth path K must satisfy a uniform derivative bound from cohort wealth dynamics arbitrary capital supply",
+          "Resultary: sinusoidal positive capital supply profiles no common lifespan bounded interest rate overlapping generations equilibrium"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a uniform inequality, not a classified list or a tabulated parameter. The topical catalogue hit ending e1eb9d0f24d1 concerns differentiation of a product ωp in a weighted cobweb operator."
+        ],
+        "reasoning": "A table of rates or examples for fixed capital paths would not settle the uniform statement. The nearest indexed operator counterexample uses different equations and no cohort-based derivative bound; no equivalence follows from time-dependent coefficients alone.",
+        "searches": [
+          "Resultary: A uniformity obstruction for equilibrium rates under arbitrary capital-supply paths Lipschitz aggregate wealth derivative bound",
+          "Resultary: Chen Ellingsrud Harang Irarrazabal Mayorcas Theorem 5.13 K-independent lifespan interest rate bound positive C1 capital profile derivative obstruction"
+        ]
+      },
+      "rationale": "The proof in the primary work already displays K-level dependence for constant K; do not credit a generic observation of omitted K from the theorem's constants as new. The supported distinct result is the explicit derivative-based obstruction to uniformity across time-varying profiles, including uniformly bounded and uniformly positive profiles of identical range.",
+      "residual_risks": [
+        "An unindexed correction or later author clarification may state the missing K-dependence more precisely.",
+        "No priority conclusion or claim about authorial intent follows from the display or search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Literal statement omits K, constant-profile proof uses its level; no full variable-profile derivative obstruction located in the inspected passages",
+          "evidence": [
+            "The proof's contraction estimates contain 1/K and the final L₀ has K as an explicit argument.",
+            "The detailed proof treats constant K and calls the variable-K argument similar.",
+            "The demographic flow is stationary under (5.9); the source places a bounded time derivative on the density on its support."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.05170v2",
+          "material_read": "Assumption 2.8 and consumption formula, offsets 31928–36860; demographic conditions (5.8)–(5.10), 126011–130993; Theorem 5.13 and proof, 152601–175572",
+          "method": "OA versioned primary full-text passages",
+          "title": "Stochastic Analysis of Overlapping Generations Models Under Incomplete Markets",
+          "trigger": "Primary model and the theorem whose displayed parameter dependencies are challenged"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen derivative bound and comparison family",
+        "Chen et al. Theorem 5.13 and contraction proof"
+      ],
+      "rationale": "The counterexample isolates a meaningful missing uniformity hypothesis in an equilibrium theorem: bounding the range of an exogenous capital supply cannot control the cohort aggregate's attainable time variation. The explicit primitive-dependent derivative ceiling identifies the kind of profile control needed, or why the constants must be permitted to depend on more than levels. This is a concrete use of an elementary estimate against a consequential quantifier, not presented as a new differential inequality method.",
+      "residual_risks": [
+        "The argument does not show sufficiency of a derivative bound or identify optimal admissible constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

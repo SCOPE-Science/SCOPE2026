@@ -1,15 +1,21 @@
-# Scientific review: Pell polynomial-weight exponentials
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical proof applies the integer-weight Dold–Euler criterion to the exact Pell recurrence. An integral companion-matrix trace and the identity \(8U_n^2=V_{2n}-2(-1)^n\) handle all odd primes. The identity \(U_{2n}=U_nV_n\) and \(V_n\equiv2\pmod4\) give exact dyadic valuations; quadratic-inert Frobenius primes force even polynomial weights. An explicit Binet factorization gives rational powers, and odd valuation at a noncolliding spectral pole proves the algebraic-degree lower bound. Non-even weights have an irrational logarithmic residue, contradicting algebraicity. The packaged exact checker passed 2,917 tests and seven coefficient expansions through degree 36; these are auxiliary tests and not the basis of the proof.
+PASS
 
-## Originality — PASS, qualified
+I reconstructed the all-prime and all-polynomial argument, not just the monomial tests. Euler exponents are (1/n)∑_{d|n} μ(n/d)P(U_d), so their integrality is equivalent to the stated prime-power congruences by Möbius inversion and factoring off each p-part. The ghost sequence tr((M²)^n) has integral Euler exponents by det(I−xM²)^−1; cancelling 8 against odd prime powers in 8U_n²=V_{2n}−2(−1)^n proves sufficiency at odd primes for every even weight. At 2, V_n≡2 mod 4 and doubling give v₂(U_{m2^r})=r for odd m, making r=1 exactly the parity obstruction. Conversely, infinitely many inert odd primes send U_{mp} to −U_m; for each fixed m, integrality forces P(−U_m)=P(U_m) over Z, hence evenness. The equivalent polynomial normal form follows by division by Y−1. For an even weight, clearing denominators in the Binet expansion and pairing conjugates gives the stated rational power. At the root associated with α^{2j₀}, the largest index attaining the maximal positive denominator deficit contributes an odd valuation after clearing; smaller indices cannot hit this root, and larger ones contribute even valuations. With D the stated power of two, extending that valuation gives v(E_P)=odd/D; the ramification index is divisible by D, forcing degree D even over Q(√2)(x), and any rationalizing exponent is divisible by D. Constants and H=0 give rational series. For a nonzero odd part the highest odd exponent contributes an uncancelled irrational log-derivative residue at x=α^{−d}; local Puiseux orders of algebraic functions are rational. The monomial product follows by conjugate pairing; its smallest multipliers follow from the parity test. Replay: RESULT.md §§1–7; checker.py was read, not run, and its finite coefficient and ghost tests do not prove the degree or universal claim.
 
-The November 12, 2026 Fibonacci article proves an analogous *different recurrence* and does not state these Pell conclusions (full HTML §§1–4 read). OEIS A208034 records the Pell square case and three all-power conjectures, not a proof of them; the directly retrievable page was indexed search text and direct page access was denied. The general Minton trace-sequence classification, as summarized in the full open-access Byszewski–Graff–Ward survey, is a general criterion, not the exact all-polynomial Pell classification or its algebraic-degree formula. Existing closely indexed Pell local Dold studies use prime parts or index-substituted sequences, not these polynomial weight powers. Relevant earlier work on Fibonacci polynomial weights and algebraic degrees concerns a different recurrence. A possible implicit specialization of earlier general trace theory, or an unindexed proof of the OEIS conjectures, is a remaining risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The statement settles three explicitly recorded infinite families of Pell power-series conjectures, upgrades them to an if-and-only-if classification of *all* integer polynomial weights, and determines a genuinely varying exact algebraic-degree spectrum. The dyadic congruence condition permits nontrivial cancellations, for example \(T^4-T^2\), so it is not only a separate-monomial multiplier statement. The result makes no claim about arbitrary Lucas recurrences, coefficient asymptotics, or externally certified correctness.
+Best-of-knowledge pass for the all-polynomial ordinary Pell criterion and exact degree, including the conjectured all-k monomial integrality families. Neither the general tools nor the close Fibonacci analogues inspected give the Pell dyadic criterion or its exact spectrum. The exact index self-hit does not establish prior coverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem settles three concretely stated Pell monomial conjecture families and determines exactly which arbitrary polynomial combinations survive the dyadic obstruction. The precise ramification/degree exponent remains useful when spectral factors from distinct degrees coincide; it determines whether an algebraic Pell exponential is rational and the exact rationalizing power. These are more than reproducing the first few coefficients or making the Fibonacci parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

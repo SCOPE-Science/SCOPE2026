@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:44:52.346757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–45",
+        "Frozen VERIFICATION.md lines 18–21, check.py and requirements.txt (inspected, not executed)",
+        "Independent polynomial replay /workspace/review-checks/last_swap.py"
+      ],
+      "rationale": "Dividing by a leaves rates 1,x,1+x. An adjacent inversion swap removes exactly one inversion, so the finite embedded chain is acyclic with only one absorbing state. The two penultimate arrangements are obtained by swapping either of the two unlike neighbors in 001122; consequently only (1,0) and (2,1) can be last. First-step exponential races establish the recurrence with the appropriate terminal payoff. I independently implemented the recurrence with integer polynomials: at each inversion level multiply the previous common denominator by one copy of each distinct total-rate polynomial at that level, and for each state sum move-weighted child numerators times all level factors other than its own rate. This establishes the rational representation by induction without cancellation or numerical interpolation. Exact cross-multiplication matched the frozen Q on the full 90-state/89-nonterminal/180-transition graph. Exact polynomial differentiation matched the reported numerator B with strictly positive coefficients; reciprocal numerator reversal, leading and constant coefficients and substitution x=2 verified symmetry, limits and the example. Reflection of sites plus reversal of labels supplies the probabilistic explanation of the reciprocal identity. Fresh replay passed: python3 /workspace/review-checks/last_swap.py (standard library only).",
+      "residual_risks": [
+        "The mathematical conclusion concerns only multiplicities (2,2,2) and x>0; the two endpoint statements are limits, not laws of the process with vanishing rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maga–Tóth identify single-cut times with inhomogeneous last passage and show a last-type probability tending to one if one cut uniquely maximizes the asymptotic coefficient. Bisi et al. study joint last-position times and establish their joint comparison for sizes up to six in the ordinary oriented swap process. The related catalogue result gives limiting last-type probabilities for four equally populated species."
+        ],
+        "reasoning": "None of the compared joint/asymptotic results gives a finite joint law for the two cuts in the precise three-speed exchange chain. The equal size n=6 in the unit-rate work is a different ensemble.",
+        "searches": [
+          "arXiv:2610.08135 pp. 1, 3, especially Theorems 1.1–1.2",
+          "arXiv:2005.02043 pp. 3, 6–7 and Theorem 1.4",
+          "Resultary 2026/10/25/SCOPE-a-sharp-three-cut-coexistence-threshold-for-four-speed-stochasti--065301c731d1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08135 and arXiv:2005.02043; Resultary 065301c731d1; focused literature search",
+        "Frozen RESULT.md lines 47–57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-cut marginal distributions do not give the comparison probability without dependence information, and convergence of the last type as size increases gives no exact size-two probability. The inspected joint oriented-swap result assumes a different interchange rule. The generic first-step equation determines Q but does not evaluate it to this rational polynomial or give the sign of its derivative without the finite graph calculation."
+        ],
+        "reasoning": "The computation resolves the exact event and monotonicity, not merely derives the defining recursion or takes a parameter limit of an already evaluated joint law.",
+        "searches": [
+          "Maga–Tóth p. 3, chars approximately 7900–8779; Bisi et al. pp. 6–7, chars around 12900 and 18000; Resultary 065301c731d1 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In this model the last-type event is equivalently that the cut separating species 0 from the others completes after the cut separating species 2 from the others. Maga–Tóth use these species cuts, while Bisi et al. use positions for unit-rate oriented swaps.",
+          "Exact literature query: finite multispecies velocity-difference swapping exact joint law of last interchange type (last overtake), inhomogeneous pair-rate adjacent swap process; exact finite-size formula or table."
+        ],
+        "reasoning": "A formula in terms of the correct joint distribution of the two cut times could be equivalent; a position-indexed vector from a unit-rate model is not identified with this process. At x=1 the dimensionless (2,0) rate is still 2, so even equal adjacent gaps do not recover the unit-rate model.",
+        "searches": [
+          "Resultary searches for last overpass, last interchange, and finite multispecies velocity-difference sorting",
+          "Maga–Tóth arXiv:2610.08135, Theorems 1.1–1.2; Bisi–Cunden–Gibbons–Romik arXiv:2005.02043, last swap at a position"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue entry, 065301c731d1, has four species and a large-size limit, not the 221100 finite probability. The focused literature search returned Maga–Tóth as the strongest relevant comparison; the retrieved passage gives no finite six-particle probability table."
+        ],
+        "reasoning": "The closest results parameterize different populations or limiting laws. No claim of exhaustive absence of another indexed exact calculation is made.",
+        "searches": [
+          "Local Resultary exact-title and semantic checks for last-overpass probabilities with multiplicities (2,2,2)",
+          "Focused primary literature search for an exact finite-size law or table in velocity-difference swaps"
+        ]
+      },
+      "rationale": "The supported distinct content is the exact finite rational last-type probability and its all-rate strict increase; the Markov recurrence, reflection idea, and large-population last-type selection are not claimed as new. No compared exact source or applicable stronger theorem supplies this finite joint event.",
+      "residual_risks": [
+        "A further rate-dependent joint last-swap theorem or exact table outside these accessible sources could contain this specialization. The negative search is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, relevant marginals and asymptotic last type",
+          "evidence": "Cut times have marginal last-passage representations; the unique asymptotically maximal cut yields probability 1−o(1) of its last type, not Q(x) at the frozen finite population.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08135",
+          "material_read": "p. 1 model; p. 3 Theorems 1.1–1.2 and last-overtake consequence, chars approximately 7900–8779",
+          "method": "OA primary PDF; confirmed strongest focused literature hit",
+          "title": "Microscopic sorting in a multispecies exclusion process",
+          "trigger": "Same velocity-difference model, species cuts and last overtake"
+        },
+        {
+          "assessment": "Relevant last-swap results, different statistic and rates",
+          "evidence": "Last swap at positions k,k+1 for an ordinary unit-rate process; finite verification of the joint comparison does not treat repeated species with three different pair rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.02043",
+          "material_read": "p. 3 U_n(k), p. 6 joint LPP recursion and p. 7 Theorem 1.4",
+          "method": "OA primary PDF",
+          "title": "The oriented swap process and last passage percolation",
+          "trigger": "Joint last swaps and exact finite n≤6 comparison"
+        },
+        {
+          "assessment": "Distinct four-species asymptotic law",
+          "evidence": "Four equally populated classes, three cuts and limiting type probabilities/coexistence; not a finite three-species calculation.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-three-cut-coexistence-threshold-for-four-speed-stochasti--065301c731d1",
+          "material_read": "Local RESULT.md Finding (opening passage)",
+          "method": "Local Resultary search and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp three-cut coexistence threshold for four-speed stochastic sorting",
+          "trigger": "Local result on final-interchange type for velocity-difference swapping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope",
+        "Maga–Tóth Theorems 1.1–1.2 and last-type consequence",
+        "Independent polynomial replay"
+      ],
+      "rationale": "The invariant tests which of two dependent species boundaries actually completes last, a finite counterpart to established cut-selection results whose marginal cut laws cannot answer it. Two particles per species give the first balanced repetition of all three species, with many different accessible orders of same-type crossings, in contrast to a single copy per species. The exact gap-ratio dependence, steep small-gap tail and strict ordering for every rate ratio give a usable benchmark for finite joint-cut theory, rather than a single enumerated instance or an absorption-time proxy.",
+      "residual_risks": [
+        "No monotonicity or even identical mechanism is inferred at larger multiplicities. The one-copy balanced chain already has a simpler, nonconstant last-type probability; the advance here is at the first repeated balanced population, not the first conceivable gap competition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

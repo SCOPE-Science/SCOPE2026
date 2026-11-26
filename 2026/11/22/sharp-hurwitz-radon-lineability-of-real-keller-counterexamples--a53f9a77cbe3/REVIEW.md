@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All quantifiers and fields are explicit: the assertion concerns real polynomial self-maps in every integer dimension at least three, with noninjectivity on real points and a nonzero constant real Jacobian. The rational three-dimensional base map has a directly checked Jacobian of \(-2\) and distinct real collision inputs. Evaluating the derivative at the origin embeds every admissible linear space into a nonsingular matrix subspace, so the established Adams–Lax–Phillips upper bound applies. The Hurwitz–Radon orthogonal construction supplies \(\rho(n)\) matrices, every nonzero real combination invertible; left output composition with any counterexample transfers this subspace faithfully and preserves both required properties. The finite checker confirms the concrete algebra but is not a substitute for either classical infinite theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-The initiating 2026 paper explicitly asks whether even-dimensional real counterexamples fail to be two-lineable; the theorem here disproves that possibility in all even dimensions and gives the exact dimension, not merely a lower bound. Its odd-dimensional non-two-lineability was already established and is only recovered as a special case. The classical Adams–Lax–Phillips result is correctly acknowledged as the source of the matrix-space invariant and does not itself assert the polynomial-map transfer. Targeted mathematical-record, title/alias and full-text searches found no published equivalent transfer. The use of classical matrix theory is mathematically close and could make the result obvious to specialists; undiscovered earlier applications remain a priority risk.
+PASS
 
-## Value — PASS
-An explicitly posed recent algebraic-geometry problem receives a full sharp classification across every real dimension, with pointwise attainment. The invariant has genuine periodic dimension jumps (for example \(\rho(4)=4\), \(\rho(8)=8\), \(\rho(16)=9\)) that are not visible from the source's elementary complex lineability obstruction. This is a motivated, natural exact invariant rather than an arbitrary finite computation. It needs no downstream theorem to be useful, and retains a clear field boundary: it does not assert the same outcome over algebraically closed fields.
+Nonemptiness in dimension three follows from the displayed exact collision and constant determinant; adjoining identity coordinates preserves both. On every admissible linear family derivative evaluation at zero is injective and sends its punctured space to nonsingular matrices, so the real matrix bound applies even if finite dimension was not assumed. Independently, the bound follows from Adams's sphere vector-field theorem: normalize the matrix space to contain I, then for each unit x project the remaining basis images A_i x onto x-perp. Any dependence would give a nonzero matrix in the space killing x. Conversely the Hurwitz–Radon skew, pairwise anticommuting generators give A^T A=(sum of squared coefficients)I, and hence an invertible-output space containing I. For any fixed eligible F, composing on the output preserves its real collisions and multiplies its constant Jacobian determinant by det A. The map from the matrix space is linear and injective and contains F via I. This proves both sharpness and pointwise attainment; odd n gives rho(n)=1, and even n>=4 gives rho(n)>=2, with no assertion for n=2.
 
-## Literature limits
-The main primary source is arXiv:2611.03572v1 (sections 1, 2 and 5). The upper-bound input is Adams–Lax–Phillips (1965), and the lower-bound orthogonal matrix construction is Geramita–Pullman (1974). Search coverage cannot prove publication priority and no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known exact invariant is for real matrix spaces. The prior polynomial lineability paper gives the odd-real obstruction and leaves even-real 2-lineability open. The frozen result identifies the matrix invariant with the noninjective polynomial one via both evaluation and a collision-preserving lift through an arbitrary seed. The defensible novelty is that identification and its application to the stated question, not the Hurwitz–Radon function, its sample values, or the odd-real maximum.
+
+## value
+
+PASS
+
+An explicit problem in the predecessor paper is resolved negatively in every admissible even dimension, and strengthened to a sharp structural invariant attained through every existing real counterexample. The transfer is short but makes the old matrix obstruction and construction solve a natural problem about preserving noninjectivity in linear families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

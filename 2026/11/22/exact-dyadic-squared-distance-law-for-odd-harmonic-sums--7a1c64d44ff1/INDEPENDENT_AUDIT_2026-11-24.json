@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:19:38.221225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–55",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)"
+      ],
+      "rationale": "Put n=b−a>0 and c=b+a. For n odd, both sides have valuation zero. For n=2m, c is even and positive; pairing the denominators c±(2i−1) gives O_b−O_a=2cT with T=Σ_{i=1}^m 1/(c²−(2i−1)²). An independent direct congruence proves the key valuation without an infinite series: for s=ν₂(m), put f(x)=1/(c²−x²) on odd x. For every r≥1 the square difference (x+2^r)²−x² is divisible by 2^{r+1}, so the same holds for the difference of the corresponding f-values since their denominators are units. Induction by pairing odd representatives x and x+2^r in modulus 2^{r+1} now gives Σ_{x odd mod 2^{s+1}}f(x)≡2^s mod 2^{s+1}, starting with f(1) odd. The m odd denominators' deviations comprise m/2^s complete systems, so T≡m mod 2^{s+1} and ν₂(T)=s. Thus ν₂(2cT)=ν₂(nc). The written proof instead obtains the same congruence from inverse even-power sums; its geometric series converges since c is even, and its tail is divisible by 2^{s+2}. This covers every shifted interval with a≥0, including a=0; for equal indices both congruences hold trivially. An independent exact-fraction test matched all 820 pairs with 0≤a<b≤40, e.g. O₃−O₁=8/15. The finite test is corroboration, not the proof.",
+      "replay": "For an independent bounded check, accumulate Fraction(1,2*j−1) for j from 1 through 40, subtract each of the 820 ordered pairs of distinct prefix sums, and compare the exponent of 2 of the reduced numerator to that of (b−a)(b+a); the reduced denominators are all odd.",
+      "residual_risks": [
+        "This validates nonnegative integer starts and lengths greater than zero at the prime two; there is no asserted odd-prime version or analytic continuation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sawin's aligned-block valuation is 2r for length 2^r and a=m2^r. The shifted-factorial statement compares P_e(A) and P_e(B) for products of odd factors in whole dyadic blocks. MO 146285 concerns hypercube resistance and sums of 2^k/k."
+        ],
+        "reasoning": "The block quantifiers and the product operation do not give the target for arbitrary starts and all lengths. A log derivative of the aligned product represents an aligned reciprocal block, but no stated valuation for arbitrary differences of sums follows from the product-distance result.",
+        "searches": [
+          "MathOverflow 244430, answers 244501, 244503 and 516189; linked question 146285",
+          "Resultary 1bdc41763956, Finding"
+        ]
+      },
+      "checked_sources": [
+        "MSE 1860105",
+        "MO 244430, 244501, 244503, 516189 and 146285",
+        "Resultary 1bdc41763956"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "MO 516189, posted 2026-10-20, uses the reversal pairing O_k=k Σ_i[(2i−1)(2k−2i+1)]^−1, with reciprocal-square congruences. This is important proof-technique overlap. Its modulus comparison uses the origin-specific midpoint k; at positive start the midpoint c=2a+n can have much lower valuation than n (n=16, a=1, c=18)."
+        ],
+        "reasoning": "The aligned-block and fixed-start results are recovered from the target, not the reverse: for aligned blocks (b−a)(b+a)=2^{2r}(2m+1). At general start, the pairing identity still works but the origin-specific reciprocal-square reduction need not; the uniform congruence for (c²−x²)^−1 (or the record's combination of inverse even-power congruences) supplies that step.",
+        "searches": [
+          "MO answers 244501, 244503, 516189 and comments 602768 and 603155"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MSE 1860105 states ν₂(O_n)=2ν₂(n); MO 244501 treats aligned blocks. Resultary 1bdc41763956 is a related two-variable collision law for differences of products."
+        ],
+        "reasoning": "Writing n=b−a expresses the target as the valuation of the shifted consecutive odd reciprocal sum. Equivalently all modular collisions are indexed by a²≡b². A fixed-origin valuation or a shifted product difference is not either of these equivalent laws.",
+        "searches": [
+          "Resultary: odd harmonic sum 2-adic valuation arbitrary shifted interval O_b - O_a squared distance law",
+          "Resultary: 2-adic valuation consecutive reciprocal odd integers interval shifted harmonic sum arithmetic progression odd denominators",
+          "Primary search: \"2-adic valuation of odd harmonic sums\" \"244430\" arbitrary interval shifted odd harmonic sum valuation arithmetic progression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The MSE question reports a one-dimensional bounded Mathematica check of ν₂(O_n) and answer 1860140 proves partial fixed-start cases. The closest catalogued non-self item, 1bdc41763956, evaluates shifted-product differences instead."
+        ],
+        "reasoning": "Neither one-point data nor even the exact sequence of one-point valuations determines pairwise congruences. No exact all-moduli collision table for the target was identified in these inspected sources; failure to locate one is not proof of its absence.",
+        "searches": [
+          "MSE 1860105 question and answer 1860140",
+          "Resultary searches for square distances and for consecutive odd reciprocal intervals"
+        ]
+      },
+      "rationale": "The distinct claim is the valuation for every pair of nonnegative indices and the resulting square-collision equivalence, not the fixed-start formula, the aligned-block case, or the reversal-pairing technique. The inspected sources contain all three of those antecedents but do not cover the arbitrary-interval valuation.",
+      "residual_risks": [
+        "A published equivalence phrased as a general reciprocal-progression congruence or as a 2-adic analytic identity may remain unlocated. The pairing technique and aligned instances are not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-start conjecture and partial proof; aligned-block suggestion, not general intervals.",
+          "evidence": [
+            "The question states ν₂(O_n)=2ν₂(n); the answer treats odd n and twice an odd number."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/1860105",
+          "material_read": "Question 1860105, answer 1860140 and comment 3809135",
+          "method": "Original public text via Stack Exchange API; canonical-page fetch did not succeed",
+          "title": "2-adic valuation of odd harmonic sums (Mathematics Stack Exchange)",
+          "trigger": "The exact same sequence and valuation at zero origin"
+        },
+        {
+          "assessment": "Aligned intervals or zero origin; answer 516189 is material same-method overlap, not the all-interval result.",
+          "evidence": [
+            "244501 proves the length-2^r, start-m2^r block valuation 2r; 244503 proves the formula at a=0 using power sums; 516189 pairs the summands by reversing the fixed-origin interval."
+          ],
+          "identifier_or_url": "https://mathoverflow.net/questions/244430",
+          "material_read": "Question 244430, Sawin answer 244501 and replies 602768/603155, Kim answer 244503, later answer 516189, and linked question 146285",
+          "method": "Original question, answer and comment bodies via the public Stack Exchange API",
+          "title": "2-adic valuation of odd harmonic sums (MathOverflow)",
+          "trigger": "Strongest earlier progression statement and possible method-level coverage"
+        },
+        {
+          "assessment": "Related mechanism and quadratic factor, different operation and quantifiers.",
+          "evidence": [
+            "The formula is ν₂(P_e(A)−P_e(B))=3e−2+ν₂((A−B)(A+B+1)) for P_e an aligned odd-factor product."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-2-adic-collision-distances-for-shifted-odd-factorial-block--1bdc41763956",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published full-text passage",
+          "title": "Exact 2-adic collision distances for shifted odd factorial blocks",
+          "trigger": "Nearest catalogued two-variable dyadic collision law with odd factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–55",
+        "MathOverflow answers 244501, 244503 and 516189"
+      ],
+      "rationale": "The theorem gives a usable exact two-point invariant of a classical rational sequence: two harmonic values collide modulo 2^r exactly when their indices have equal squares at that modulus. It also evaluates all shifted intervals without computing their denominators or sums. This is structurally stronger than the one-point and aligned-block valuations, and not a numerical slice or a repackaging of the reversal trick alone.",
+      "residual_risks": [
+        "This is a local arithmetic classification, not a claim about other harmonic sequences or primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

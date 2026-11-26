@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:47:48.653950Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–50 and 54–82",
+        "Frozen VERIFICATION.md and verify.py, static inspection"
+      ],
+      "rationale": "The KKT matrix is invertible with determinant c² and zero satisfies the saddle inequalities. Inverting I+τS gives D=(I−K)/ρ=[(s²+h,−s);(s(1−h),s²)]/(1+s²). Its trace is t and its determinant is s²/(1+s²)=d. Real roots μ± are positive, so the exact Schur limit is ρ<2/μ+, and the maximum modulus is minimized uniquely by balancing the opposed endpoints at ρ=2/t. For conjugate roots the squared radius is 1−ρt+ρ²d, giving the strict interval and the unique minimizer t/(2d). At the repeated root the strict limit is 4/t and the radius is zero only at 2/t; at each extreme stability boundary at least one eigenvalue has modulus one. A fixed K terminates universally in finite time iff both eigenvalues vanish, requiring Δ=0; factoring the discriminant numerator gives τ²[q²+4c²(τq−1)], with exactly one positive root iff q<2c. At that root the positive (1,2) entry prevents index one, and Cayley–Hamilton gives index two. Exact alternate replay: with ζ=q/(2c) at the terminating tuning, K=(2ζ/(1+ζ²))(1,ζ)ᵀ(−ζ,1), whose square vanishes since the row and column pair to zero. At ζ=3/4 this produces all four rational entries in the finding exactly. Solving ρ*>2 gives ζ>1/√3. These checks apply to all deterministic starts, not only eigenvector starts or monotonic norm decay. Supplied code and run description were inspected and not executed.",
+      "residual_risks": [
+        "Exact arithmetic and fixed positive parameters are essential for the termination claim. No finite-precision accuracy or multi-mode extension is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general relaxed forward–backward result gives sufficient convergence hypotheses, not the exact Schur interval and finite termination. The identified relaxed forward–backward linear-rate paper could not be inspected in full after the lawful lookup returned no copy."
+        ],
+        "reasoning": "A generic rate guarantee in an admissible relaxation regime need not be sharp for this model and does not give the feasibility of an all-start square-zero iteration. The inaccessible paper is a relevant residual risk, not negative evidence.",
+        "searches": [
+          "Condat et al., Proximal Splitting Algorithms, §3",
+          "DOI 10.1080/02331934.2020.1783260"
+        ]
+      },
+      "checked_sources": [
+        "Targeted Resultary searches and three closest indexed findings",
+        "Condat et al. author-final PDF §3 and §5.2",
+        "arXiv:1011.5517v1 §1",
+        "Lawful OA lookup for DOI 10.1080/02331934.2020.1783260"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Discriminant zero in the FRB/RFB recurrence yields a repeated root of nonzero modulus. Sequential implicit updates differ from this simultaneous skew resolvent. General relaxed forward–backward allows the formulation but does not fix its eigenstructure."
+        ],
+        "reasoning": "The generic two-eigenvalue minimization does not say that the repeated-root point can be obtained at a strictly positive τ for this splitting, nor that a positive ρ then makes it zero with a nontrivial Jordan block. Those conclusions require analyzing the specific τ-dependent preconditioned KKT spectrum, and distinguish the feasible curvature regime from q≥2c.",
+        "searches": [
+          "SCOPE 689d5e743c56 Finding",
+          "SCOPE c800095f428f Finding",
+          "Condat et al. §3 Eqs. (3.2)–(3.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited forward–backward equations give exactly this K for monotone part S and forward part F. Also K=I−ρ(τ⁻¹I+S)⁻¹(F+S), a Richardson step with this left preconditioner. The full proximal-point, inspected reflected-prox DR, and explicit-skew forward–backward–forward formulations differ."
+        ],
+        "reasoning": "Do not award novelty for the algorithm or reformulation. Known generic results in those aliases must match the exact parameter-linked spectrum to cover the nilpotence result; comparisons based on a different splitting matrix are not substitutes.",
+        "searches": [
+          "Condat et al., Proximal Splitting Algorithms, §3 Eqs. (3.2), (3.3), (3.7), (3.9) and §5.2 Eqs. (5.21)–(5.22)",
+          "arXiv:1011.5517v1 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact entries 689d5e743c56, c800095f428f, and 1201ae31b393 treat distinct iteration matrices: FRB/RFB skew recurrence, sequential implicit minimax, and a four-operator scalar example."
+        ],
+        "reasoning": "There is no pertinent finite table for the continuous parameters. The relevant exact-record comparisons have other transition matrices or nonzero optimal repeated roots; no exact match was retrieved in bounded catalog searches.",
+        "searches": [
+          "Resultary: relaxed planar skew-resolvent saddle finite termination",
+          "Resultary: FRB skew rotations discriminant optimum, implicit proximal minimax coupling, four-operator relaxation window"
+        ]
+      },
+      "rationale": "The method is established relaxed forward–backward splitting, also expressible as preconditioned Richardson, and its generic spectral minimization is standard. The supported distinct contribution is the sharp behavior in this motivated monotone-plus-skew model, especially the exact curvature/coupling feasibility of a unique positive, nontrivial nilpotent tuning and a region of such tuning beyond relaxation two. No inspected stronger convergence or different splitting theorem supplies that condition or tuning.",
+      "residual_risks": [
+        "An equivalent specialized Richardson or exact relaxed forward–backward result elsewhere is possible. The full text of DOI 10.1080/02331934.2020.1783260 was unavailable; no inference about its detailed coverage is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same generic relaxed forward–backward update; sufficient convergence and distinct DR formulation, not sharp specialization",
+          "evidence": "Unrelaxed J_(γM)(I−γC) followed by weighted relaxation; relaxed DR uses two proximal reflections.",
+          "identifier_or_url": "https://lcondat.github.io/publis/Condat_SIAM_Review.pdf",
+          "material_read": "§3 Eqs. (3.2), (3.3), (3.7), (3.9), pp. 14–15, offsets about 45400–51000; §5.2 Eqs. (5.21)–(5.22), p. 31",
+          "method": "Author-final OA PDF",
+          "title": "Proximal Splitting Algorithms for Convex Optimization: A Tour of Recent Advances, with New Twists",
+          "trigger": "Established iteration and alternative splitting formulations"
+        },
+        {
+          "assessment": "Conceptual overlap, distinct update and nonzero repeated root",
+          "evidence": "The two-step FRB/RFB recurrence optimizes at coalescence, with modulus 1/√(γ+2), not a square-zero one-step operator.",
+          "identifier_or_url": "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Rate-optimal FRB on skew rotations",
+          "trigger": "Closest indexed discriminant-optimal skew tuning"
+        },
+        {
+          "assessment": "Different update",
+          "evidence": "Sequential y-then-x implicit steps, compared with full proximal resolvent.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-coupling-frontier-for-sequential-implicit-proximal-minimax--c800095f428f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp coupling frontier for sequential implicit proximal minimax",
+          "trigger": "Exact bilinear saddle coupling comparison"
+        },
+        {
+          "assessment": "Different operator splitting and model",
+          "evidence": "Exact Schur window for a four-operator scalar difference-of-quadratics example.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-relaxation-windows-and-two-universal-stability-barriers-fo--1201ae31b393",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp relaxation windows and two universal stability barriers",
+          "trigger": "Exact relaxation phase diagram"
+        },
+        {
+          "assessment": "Different algorithm",
+          "evidence": "Forward–backward–forward uses two explicit skew evaluations, not an implicit skew resolvent.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.5517v1",
+          "material_read": "§1 p. 3, offset about 8800",
+          "method": "OA primary text",
+          "title": "A Monotone+Skew Splitting Model for Composite Monotone Inclusions in Duality",
+          "trigger": "Proximal method for the same operator decomposition theme"
+        },
+        {
+          "assessment": "Exact implication not assessed; access limit",
+          "evidence": "Available evidence identifies the algorithm family in the title but does not justify any claim about theorem content.",
+          "identifier_or_url": "https://doi.org/10.1080/02331934.2020.1783260",
+          "material_read": "Bibliographic lead only; no primary theorem retrieved",
+          "method": "Bounded lawful OA retrieval and alternate-copy check",
+          "title": "On the linear convergence rate of a relaxed forward–backward splitting method",
+          "trigger": "Plausibly strong same-family linear-rate theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 27–44, 72–82 and 86–94",
+        "Exact rank-one replay in this review"
+      ],
+      "rationale": "The spectral formulas alone are standard two-eigenvalue analysis. The smallest curved bilinear saddle model gives an exact separation between generic sufficient relaxation rules and what a fixed natural splitting can achieve: there is a precise curvature threshold for hitting the saddle from every start in two steps, and it can occur for relaxation greater than two. At the nilpotent tuning the displayed rank-one factorization gives ‖K‖₂=2ζ=q/c, which can exceed one despite exact termination. This is a precise witness distinguishing spectral behavior from per-step contraction, not a claim that extrapolation is generally numerically safe.",
+      "residual_risks": [
+        "The useful boundary is for the stated planar iteration; no implication for anchored ADMM or broad finite-precision practice is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

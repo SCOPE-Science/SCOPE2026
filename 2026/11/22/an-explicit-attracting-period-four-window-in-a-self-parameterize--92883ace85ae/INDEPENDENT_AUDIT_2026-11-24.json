@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:30:12.387838Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–2; independent rational endpoint comparisons via the formulas above",
+        "Frozen verify.py and VERIFICATION.md (inspected, not executed); verify.py documents a Fraction replay",
+        "Paul et al. 2023 Table 2 (exact model and parameter normalization)"
+      ],
+      "rationale": "The published gain and bias give F_c(x)=[3.9+(x+c)/25]x(1−x), which maps [0,1] into itself. For c in [4989/5000,4991/5000], ∂F/∂c=x(1−x)/25≥0. The displayed F' is positive on I₀,I₁ and negative on I₃; evaluate the monotone parameter-state corners for those three boxes. In I₂, t=x−1/2>0 gives F=B_c(1/4−t²)+t/100−t³/25 with B_c=3.92+c/25. The minimum is bounded by the smaller endpoint image at c_min by concavity, and for the upper bound take c_max, discard the nonpositive cubic, and complete the square. Independent Fraction comparisons verify all four strict containments and the stated outward bounds, respectively [0.14899438,0.14972141], [0.50027712,0.50241377], (0.9899788236,0.9899883133), and [0.03943226,0.03949482] for I₀,I₁,I₂,I₃. Uniformly on [0,1], |F'|≤3.94+1/25<4. On I₂, F'=1/100−2B_ct−3t²/25 decreases in both t and B_c; the inclusive endpoint limits −0.009325163072 and 0.008178434132 give |F'|<1/100. The cyclic strict containments give F_c^4(I₀) inside I₀; the uniform Lipschitz bound is strictly below 4³/100=16/25. There is one return-fixed point in I₀ by contraction, and disjointness excludes periods 1 and 2, proving least period 4, with one cycle point per box and an open local basin. The four-step multiplier gives the per-iterate exponent bound including the possibility of a zero multiplier (exponent −∞). These inequalities cover the parameter endpoints as well as the interior, without sampling c.",
+      "residual_risks": [
+        "The statement applies to a fixed control and ideal real arithmetic. It gives a certified subwindow and a local basin, not a maximal window or the behavior of all initial states, rounded implementations or coexisting invariant sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conference sweeps and journal bifurcation/LE evidence are numerical. The conference has broad language about chaos through the control range, also qualifying positive LE as occurring almost throughout. The journal discussion of fixed/period-two behavior does not address period four; literal nonexistence of fixed points is not true of the displayed map since 0 is fixed."
+        ],
+        "reasoning": "The strongest relevant studies are on the exact family, but not stronger theorems excluding or certifying this attracting cycle. Broad numerical behavior can coexist with an open basin of attraction on a narrow control interval. The review does not infer a rigorous or unconditional earlier assertion from the numerical discussion.",
+        "searches": [
+          "2021 conference PDF pp. 2–3; 2023 journal PDF pp. 7–9, ideal-logistic comparison and numerical Lyapunov test"
+        ]
+      },
+      "checked_sources": [
+        "Paul et al. IEEE ICECS 2021 PDF; Paul et al. DOI 10.3390/jlpea13010018; Resultary 942875d984b0 and f45c902d9650"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither inspected paper passage supplies uniform four-step trapping, a four-cycle throughout the stated subinterval, or bounds implying this. The same-day finite-state comparison explicitly does not establish ideal real dynamics. The targeted public query returned the defining conference and journal sources."
+        ],
+        "reasoning": "The numerical plots, orbit samples and finite-state cycle lengths do not give existence and contraction for every real control on the interval. This certificate refutes a uniform absence of periodic attractors for the ideal family, not the general observation of broad chaotic regions or a claim about all initial conditions.",
+        "searches": [
+          "Paul et al. 2021 PDF pp. 2–3, parameter sweeps; Paul et al. 2023 PDF pp. 7–9, Table 2 and the 14,000-value LE test; Resultary 942875d984b0, RESULT.md offsets 0 and 5925"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gain 0.01 and bias 0.975 in the transformation, multiplied by the ideal-logistic seed factor 4, give exactly the coefficient 3.9+0.04(x+c) printed in Table 2. The control is not the gain or the one constant growth parameter of the classic logistic family."
+        ],
+        "reasoning": "The original map is genuinely identical, not newly constructed. The inspected original studies do not state this parameter interval or an attracting four-cycle certificate for it. Classical logistic windows do not transfer by plugging in a constant growth rate because it depends on x here.",
+        "searches": [
+          "Paul et al. 2021 Eq. (1) and chosen parameters, PDF pp. 2–3; Paul et al. 2023 Table 2, PDF p. 7",
+          "Primary-literature query: Self-Parameterized Chaotic Map, Paul Dhungel Hasan, periodic window, period four, 0.998, ideal logistic cubic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-family window hit was the present record 92883ace85ae itself. The nearby same-day bfloat16 census gives cycle lengths 5 and 22, or 20 with another rounding rule, at external control 1. The stochastic response record studies noisy logistic dynamics about growth parameter 7/2."
+        ],
+        "reasoning": "Self-match is not antecedent evidence. None of the inspected cycle tables is a table of real ideal-cubic attractors for 0.9978≤c≤0.9982; both rounding and noise change the dynamics. No priority inference is made from shared dates.",
+        "searches": [
+          "Resultary: self-parameterized logistic map period four window; bfloat16 attractor collapse 942875d984b0; stochastic four-cycle response f45c902d9650"
+        ]
+      },
+      "rationale": "The model and interval-trapping method are known. The distinct result is a nonzero-width, uniform analytically certified period-four window for the exact ideal logistic polynomial previously studied for broad chaos.",
+      "residual_risks": [
+        "A narrow feature in prior plots was not independently assessed at pixel resolution; exact historical priority over unindexed or differently worded reports is not established. The 2021 initial online-release day was not independently determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining antecedent and numerical broad-chaos evidence; no inspected continuous-parameter period-four theorem",
+          "evidence": "Sweeps with 15,000 iterates and 1,000 discarded; positive LE described as covering almost the whole range.",
+          "identifier_or_url": "https://confcats-event-sessions.s3.amazonaws.com/icecs21/papers/2160.pdf",
+          "material_read": "PDF p. 2 numerical sweeps (offset 5700); p. 3 Eq. (1), chosen gain/bias and Lyapunov discussion (offsets 10500–10667)",
+          "method": "Bounded original open-access PDF passages",
+          "title": "Self-Parameterized Chaotic Map: A Hardware-efficient Scheme Providing Wide Chaotic Range",
+          "trigger": "Original transformation and potential same-family window claim"
+        },
+        {
+          "assessment": "Identical ideal family, numerical claims of broad chaotic regions; no located certified interior period-four window",
+          "evidence": "Table 2 explicitly prints [0.04(x_n+C)+3.9]x_n(1−x_n), and the LE comparison uses 14,000 steady-state values.",
+          "identifier_or_url": "https://doi.org/10.3390/jlpea13010018",
+          "material_read": "PDF abstract p. 1, Table 2 p. 7 (offset 31462), qualitative discussion p. 8 (32739), LE protocol p. 9 (35240)",
+          "method": "Bounded original open-access PDF, mdpi-res article copy",
+          "title": "Self-Parameterized Chaotic Map for Low-Cost Robust Chaos",
+          "trigger": "Same exact polynomial and numerical characterization"
+        },
+        {
+          "assessment": "Different arithmetic or dynamical system; no demonstrated coverage of the ideal window",
+          "evidence": "Rounded finite-state cycles at C=1 or stochastic dynamics at constant growth 7/2, rather than the real cubic window.",
+          "identifier_or_url": "Resultary 942875d984b0; f45c902d9650",
+          "material_read": "First record RESULT.md offsets 0 and 5925, second record opening near offset 117",
+          "method": "Resultary and bounded local-mirror passages",
+          "title": "Complete bfloat16 attractor collapse under intermediate rounding; stochastic four-cycle response",
+          "trigger": "Closest indexed cycle comparisons, including a same-day result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope; Paul et al. 2021 control-sweep discussion and 2023 abstract and ideal-logistic discussion"
+      ],
+      "rationale": "The parameter slice is motivated by the prior studies' emphasis on eliminating periodic windows in a specific ideal-map configuration. A positive-width interval with an open basin is a mathematically decisive counterexample to parameter-wide absence of periodic attractors; verifying isolated sampled parameters or plotting a coarse sweep would not give that quantitative conclusion. The proof supplies a reusable exact witness in that published family.",
+      "residual_risks": [
+        "The result does not classify practical implementation behavior, all controls, all initial states or the maximal window."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

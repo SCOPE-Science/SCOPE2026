@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:02:27.849362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For commuting idempotents the composite h is a retraction onto the simultaneous fixed set; each h-fiber is preserved. In one fiber, the root contributes one to both image ranks and to the composite rank. The p other e-fixed points are sent to the root by f and the q other f-fixed points are sent to it by e. Each remaining point chooses any of p+1 and q+1 respective targets, independently, and both composites are consequently the root. This is a bijection. Multiplying the labeled root and subset EGFs and then taking an unordered set of rooted fibers gives exactly the stated expression, including the empty map pair and ordered roles for e and f. The intersection size and union size give the necessary inequalities; one fiber with p=a-k, q=b-k, r=n-a-b+k and k-1 singleton fibers gives sufficiency. Independent replay (python3 /workspace/checks/check124.py, record 4) brute-forced all functions up to n=5, tested all ordered idempotent pairs and matched the full rank cells to a separately implemented labeled-set partition expansion. That expansion also confirmed support through n=8 and totals 1, 7, 58, 601, 7616, 113989, 1963060, 38178193 at n=1 through 8; the analytic bijection proves the unbounded theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0e04e0804e5b counts both idempotents and their idempotent product without requiring commutation, with the same support inequalities but a different table.",
+          "Araújo–Konieczny characterize commutation with a fixed idempotent and study largest subsemilattices. Konieczny 2002's accessible abstract addresses the structure of centralizers."
+        ],
+        "reasoning": "Commuting idempotents are included in the one-sided census but not separated by its three ranks. Fixed-centralizer criteria can be used to derive fiber structure, but the inspected statements do not perform the marked labeled enumeration.",
+        "searches": [
+          "Resultary: exact three-rank full transformation monoid idempotent product census",
+          "Konieczny 2002 fixed-idempotent centralizers",
+          "arXiv:1007.4845v1, §2 and stated main objective"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1007.4845v1",
+        "arXiv:1407.3312",
+        "Konieczny (2002) abstract",
+        "Resultary 0e04e0804e5b, 862679beafc6, e77898a3004e, 19779e27b698, eb9b8639e24b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regressive monoid requires f(i)≤i and e(i)≤i, changing the weighted target choices in the fibers; its EGF cannot be specialized by dropping a rank marker to give the unrestricted one.",
+          "The one-sided support is prior as a feasible rank set in a larger family; showing each cell has a commuting representative requires the commuting construction. The joint numeric cells cannot be recovered by just selecting triples from that prior support."
+        ],
+        "reasoning": "The independent image choices for remaining points in each common fiber, combined with the labeling and joint rank markers, give the substantive counting step. Neither support overlap nor familiarity of the common fixed-point criterion makes the full formula an existing enumerative corollary in the statements checked.",
+        "searches": [
+          "Resultary 862679beafc6, Finding and proof, local offset 0",
+          "Resultary 0e04e0804e5b, Finding and proof, local offset 0",
+          "Araújo–Konieczny Lemma 2.1, Corollary 2.2, Proposition 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A pair is a possibly nonfaithful action of the four-element Boolean meet-semilattice with named generators; the three ranks are its generator and meet image cardinalities.",
+          "Resultary 19779e27b698 uses base commuting-tuple counts as inputs to a group-labelled lift, not as computed output. eb9b8639e24b counts semigroup endomorphisms of T_n itself, not selfmaps on [n]."
+        ],
+        "reasoning": "The action and retraction descriptions are exact reformulations, but the retrieved lift theorem and semigroup retractions do not enumerate the target objects.",
+        "searches": [
+          "Resultary: commuting retractions, semilattice actions and three image ranks",
+          "Araújo–Konieczny arXiv:1007.4845v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At n=3 the compared full one-sided and regressive pair counts are 94 and 21, versus the unrestricted commuting count 58. Dolinka–East's one-block count is for a single idempotent.",
+          "The later e77898a3004e starts 1,6,39,300 for constant composite; these agree with the specialization [w]F(z;1,1,w), not the full three-rank table."
+        ],
+        "reasoning": "The exact tables inspected either count different objects or give only a later unranked stratum of the frozen result. An exact earlier three-rank table was not found in the material inspected.",
+        "searches": [
+          "Resultary: 1,7,58,601,7616 and ordered pairs of commuting idempotents by rank",
+          "Resultary 0e04e0804e5b, 862679beafc6 and e77898a3004e Findings",
+          "arXiv:1407.3312 Proposition 3.1 and Remark 3.3"
+        ]
+      },
+      "rationale": "Support inequalities already occur in a related larger census, and the core fixed-idempotent structure is classical. The distinct supported claim is the full joint-rank enumerator with simultaneous commutation and idempotence on the unrestricted labeled set. Neither a checked larger but unrefined census nor a narrower monoid supplies that enumerator.",
+      "residual_risks": [
+        "Konieczny (2002) full text and the lawful repository copy of the 2011 regular-centralizer paper were not obtained in this review. An earlier implicit or explicit count in centralizer or general finite-action literature is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural predecessor but not a joint-rank enumeration in passages inspected",
+          "evidence": [
+            "Conditions for commuting with a fixed idempotent and common-fixed-point structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1007.4845v1",
+          "material_read": "§2 Lemma 2.1, Corollary 2.2, Proposition 2.4, HTML near offset 5609",
+          "method": "Primary HTML statement comparison",
+          "title": "The Largest Subsemilattices of the Semigroup of Transformations on a Finite Set",
+          "trigger": "Same transformation monoid, directly related commutation theorem"
+        },
+        {
+          "assessment": "Single-map enumeration only for the compared statements",
+          "evidence": [
+            "The one-block case enumerates individual rank-k idempotents, not three ranks of a commuting pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.3312",
+          "material_read": "Proposition 3.1 p. 7, offset 23174; Remark 3.3 p. 8, offset 28906",
+          "method": "Bounded primary PDF comparison",
+          "title": "Idempotent generation in the endomorphism monoid of a uniform partition",
+          "trigger": "Rank enumeration in partition-preserving transformation settings"
+        },
+        {
+          "assessment": "Material structural predecessor; exact enumeration coverage unresolved",
+          "evidence": [
+            "Abstract discusses centralizers, Green relations and regularity rather than a stated three-rank theorem."
+          ],
+          "identifier_or_url": "Konieczny, Algebra Colloquium 9 (2002), 121–134",
+          "material_read": "Public bibliographic record and abstract only",
+          "method": "Abstract comparison; full text unavailable in this review",
+          "title": "Semigroups of transformations commuting with idempotents",
+          "trigger": "Possible older enumeration from fixed-idempotent centralizers"
+        },
+        {
+          "assessment": "Real conceptual and support overlap, different full distribution",
+          "evidence": [
+            "The one-sided result has the same support without requiring commutation; the regressive one has a different ambient monoid and total counts."
+          ],
+          "identifier_or_url": "Resultary 0e04e0804e5b and 862679beafc6",
+          "material_read": "Mirrored RESULT.md Findings and proofs starting at offset 0",
+          "method": "Compare exact hypotheses, support and sample totals",
+          "title": "Exact one-sided idempotence rank spectrum in the full transformation monoid; Joint image-rank census of commuting idempotents in the regressive monoid",
+          "trigger": "Closest earlier three-rank census and EGF matches"
+        },
+        {
+          "assessment": "Later unranked stratum; no coverage of full three-rank claim",
+          "evidence": [
+            "Exactly k=1 and summed over the two individual ranks."
+          ],
+          "identifier_or_url": "Resultary e77898a3004e",
+          "material_read": "Mirrored RESULT.md Finding and proof, offset 0",
+          "method": "Compare constant-composite total specialization",
+          "title": "Exact finite-model census and automorphism universality for two commuting idempotents with constant composite",
+          "trigger": "Strong overlap in the rank-one composite stratum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural simultaneous generator and meet ranks of a semilattice action give a full distribution, not just a support law or a few total counts. This supplies all rank-conditioned commuting counts, a useful invariant for labeled finite retractions. The rank-cell enumerator, rather than the already related support inequalities, carries the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

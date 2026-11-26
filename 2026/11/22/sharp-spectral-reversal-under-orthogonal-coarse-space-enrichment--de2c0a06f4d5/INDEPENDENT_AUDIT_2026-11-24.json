@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:26:47.374303Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–46; VERIFICATION.md; verify_jordan_enrichment.py (inspected, not executed)",
+        "/workspace/audit_checks.py 1"
+      ],
+      "rationale": "On the active 2×2 block J, the eigenvalues of JᵀJ give largest singular value (t+√(t²+4ρ²))/2, strictly less than one exactly when t+ρ²<1. The error matrix for U is S² since S annihilates e₁. For Vθ the complementary projector is zzᵀ with z=(0,−sinθ,cosθ), and the rank-one product (Sz)(zᵀS) has characteristic polynomial λ²(λ−zᵀS²z). Its spectral radius is ρ|ρ−q| for q=t sin(2θ), compared with ρ². The comparison is strict deterioration iff q>2ρ, improvement iff 0<q<2ρ, equality at q=0 or 2ρ. The maximum attainable q=t gives exactly the stated existence criterion. At θ=π/4 the ratio |1−t/ρ| diverges at fixed 0<t<1 even as both radii tend to zero. The enriched norm there is the product of the two rank-one vector norms, (ρ²+(t−ρ)²)/2; the original norm follows from the singular value of the block with diagonal ρ² and shear 2ρt. Dimension three is necessary for strict nesting of nonzero proper subspaces. An independent exact matrix/characteristic check including the stated numerical witness passed; replay with python3 /workspace/audit_checks.py 1.",
+      "residual_risks": [
+        "Only the analytic argument proves the full parameter region. No independent floating-point error or additive-Schwarz analysis was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bao–Cui–Li define L(I−P)R and bound its perturbation. Nabben–Rooch use nonorthogonal corrections for their norm counterexample and additional normality for the orthogonal monotonicity result."
+        ],
+        "reasoning": "The first framework permits the family but does not compute its spectrum; the second example changes both the projection hypothesis and the observable, and its theorem assumes a normality absent here.",
+        "searches": [
+          "Bao–Cui–Li arXiv:2611.05837, §§2.3, 5.1–5.2",
+          "Nabben–Rooch arXiv:2604.21815, §3.2",
+          "Notay DOI:10.1090/mcom/3460"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records de2c0a06f4d5 and 524a74d75748 and the two-grid resolvent-blending hit",
+        "Bao–Cui–Li arXiv:2611.05837; Nabben–Rooch arXiv:2604.21815",
+        "Notay DOI:10.1090/mcom/3460 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Perturbation control with coarse-space changes does not give the sign of the spectral-radius change. Orthogonal-projection monotonicity with a normality hypothesis does not apply to J with t>0."
+        ],
+        "reasoning": "The algebraic reduction is elementary, but the prior results inspected do not force or supply this contractive minimal-dimensional Jordan witness and its sharp deterioration region. The sign and unbounded ratio follow from the specific shear and oblique coupling in the same-S product.",
+        "searches": [
+          "Bao–Cui–Li Theorem 2, Eqs. (27)–(29); Nabben–Rooch Example 3.19 and Theorem 3.21 in accessible PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact corpus hit de2c0a06f4d5 is the audited record. The distinct hit 524a74d75748 concerns a condition-number penalty under surrogate rank increase, not Galerkin two-grid spectral radii.",
+          "The nonzero spectrum here is that of the rank-one compression of S² to the new complement (cyclic product identity)."
+        ],
+        "reasoning": "A condition-number or norm comparison is not equivalent. For adjoint rather than identical pre/post smoothers the orthogonal-projector congruence Sᵀ(I−P)S is positive semidefinite and monotone under nesting, so the distinction is essential.",
+        "searches": [
+          "Local Resultary search for nested coarse-space spectral reversal, contraction and Jordan smoothing",
+          "Primary-literature search for two-grid coarse-space enlargement, nonnormal smoothing and monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Self-hit de2c0a06f4d5; distinct 524a74d75748 concerns rank and condition number; the distinct sharp minimax two-grid resolvent-blending record concerns resolvent blending."
+        ],
+        "reasoning": "There is no discrete table parameter to query for this real-angle phase boundary. The closest catalogue comparison concerns a different operator and invariant.",
+        "searches": [
+          "Local Resultary comparisons for Jordan enrichment, rank-increase reversal and two-grid methods"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact orthogonal-nesting threshold and unbounded relative spectral penalty for the specified contractive same-smoother two-grid family. General nonnormal spectral pathologies and the Galerkin error-map formalism are not new. The closest located literature counterexample uses nonorthogonal projectors and a norm, not this spectral comparison with orthogonal corrections.",
+      "residual_risks": [
+        "Notay full-text comparison is unresolved. Specialist examples with the same spectral mechanism could be unindexed. The inspected papers establish the broader setting, so credit is limited to the precise orthogonal contractive witness and threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, not matching spectral threshold",
+          "evidence": "Allows nonsymmetric smoothing in E=L(I−P)R and bounds operator perturbation under coarse space change.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.05837",
+          "material_read": "§2.3 p. 6; §5.1 p. 21 Eq. (25); §5.2 p. 22 Theorem 2 and Eqs. (27)–(29), offsets 19710, 68400, 73154",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Learning Coarse Spaces for Two-Grid Methods from Smoothed Errors with Applications to High-Contrast Porous Media Flow",
+          "trigger": "Same nonsymmetric smoother and Galerkin error-map setting"
+        },
+        {
+          "assessment": "Distinct under hypotheses and target invariant",
+          "evidence": "Counterexample uses nonorthogonal projectors and the B-norm; monotonicity requires B-normality and B-orthogonal correction. The accessible version numbers these Example 3.19 and Theorem 3.21, unlike the frozen locators 3.26 and 3.28.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.21815",
+          "material_read": "§3.2 pp. 15–16, Example 3.19 and Theorem 3.21, offset 51096",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Norm-based convergence bounds for nonsymmetric algebraic V-cycle multigrid methods",
+          "trigger": "Closest prior nested-coarse-space deterioration and monotonicity results"
+        },
+        {
+          "assessment": "Unresolved access risk; not negative evidence",
+          "evidence": "DOI full-text requests returned 403 and no OA repository copy was identified.",
+          "identifier_or_url": "https://doi.org/10.1090/mcom/3460",
+          "material_read": "No decisive full-text passage retrieved",
+          "method": "Direct and VPN OA attempts and lawful alternate-copy lookup",
+          "title": "Analysis of two-grid methods: The nonnormal case",
+          "trigger": "General nonnormal two-grid theory is a potential prior implication"
+        },
+        {
+          "assessment": "The indexed claim uses a different invariant; no whole-record exclusion inferred",
+          "evidence": "Summary compares condition number against projection-surrogate rank, rather than spectral radius of a stationary two-grid iteration.",
+          "identifier_or_url": "524a74d75748",
+          "material_read": "Local catalogue statement only",
+          "method": "Local Resultary semantic search",
+          "title": "A rank-increasing spectral preconditioner with strictly better surrogate approximation",
+          "trigger": "Closest distinct conceptual corpus hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md assumptions and proof; explicit adjoint congruence comparison; Nabben–Rooch §3.2"
+      ],
+      "rationale": "It tests whether increasing a Galerkin space helps asymptotic convergence when even the unpaired smoother is a strict contraction and all corrections are orthogonal. The minimal-dimensional counterexample separates same-smoother from adjoint-paired schemes and gives a finite threshold identifying exactly when monotonicity fails, plus an unbounded relative effect. Neither a generic nonnormal transient warning nor a counterexample with oblique projection answers that question.",
+      "residual_risks": [
+        "Stationary toy model, not a claim of practical prevalence or divergence. The unbounded effect is a ratio, not an unbounded absolute convergence factor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

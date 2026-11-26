@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:50:21.760182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on hub and rim leaves independent Bernoulli occupations at vacant rim sites. Thus leaf covariance is t² times the effective rim covariance, with rim activity t=z/(1+z) and hub activity z. The single and double marked weights leave paths on n−3 and n−6 vertices, including P₀=1. Expansion of the marked numerator gives t³+O(t⁴) and zP_{n−6}(1)+O(1) at the two ends for fixed n. Independent full-graph enumeration gives covariance −1/14400 and −1/176400 at z=1 for n=6 and n=8. From P_k=(α^{k+2}−β^{k+2})/(α−β) and A_n=α^n+β^n, the even-n ratio in (2) follows, with C_n<1−u². The bound on the occupied-hub probability q<1/16<u² at unit activity gives strict negativity for every even n≥10. At z=cφ^n, n(1−t) tends to zero, giving (α(t)/φ)^n→1 and limiting sign comparison c/(1+c)−u_*². Brackets about its unique limiting zero yield a sequence of crossings at the stated scale (choose increasingly small brackets as n grows). The finite-n covariance is a nonzero rational function without poles on positive activities, so opposite signs do entail sign-changing zeros. No uniqueness or exact crossing count follows or is claimed.",
+      "reproduction": "python /workspace/reproductions/independent_checks.py 5; full independent-set enumeration at z=1 for n=6,8,10, with exact rational and symbolic checks of the finite-size bound and scale constant. Frozen verify.py was inspected, not run; its finite tests are not the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scott–Sokal Example 3.3′, eqs. (3.27)–(3.29), supplies the cycle eigenvalues, giving A_n=α^n+β^n in the hard-core specialization.",
+          "Record 138d25c33369 classifies open-path three-point cumulants; record f72dc63cf87e includes two reversals for a four-point connected cumulant on K_{3,2}."
+        ],
+        "reasoning": "These provide general tools or analogies, not a broader theorem that gives this marked pair's all-even-size signs and exponential return scale.",
+        "searches": [
+          "arXiv:cond-mat/0309352, §§1.1 and 3",
+          "Resultary: hard-core dependence parity and activity reentrance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0309352",
+        "MathWorld: Helm Graph",
+        "Resultary: 7b62f4d85d8f (self), 5514c00ace65, 736bfbff4534, fff67a1a5fe9, 138d25c33369, f72dc63cf87e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5514c00ace65 treats rim separation three on homogeneous odd wheels: positive at low activity, negative at high activity, with W(n)/n crossover scale.",
+          "736bfbff4534 concerns endpoints of a fan K₁∨P_n, with a single reversal for even n and a threshold tending to 2, not the helm pendant pair or its upper scale."
+        ],
+        "reasoning": "These same-day claims are substantive comparisons, but their graph, observables or activity assumptions prevent direct implication, independent of priority. In the helm, t stays below one while the hub fugacity diverges, a different balance from increasing all wheel activities together.",
+        "searches": [
+          "Resultary: two-site hard-core activity crossovers on wheels and fans",
+          "Mirrored results 5514c00ace65 and 736bfbff4534"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scott–Sokal eq. (1.3) defines the multiaffine partition function: the covariance here is the mixed derivative of its log in two log-activities evaluated at equal activities.",
+          "Record fff67a1a5fe9 counts paired-dominating sets via matchable base subsets in leaf-coronas, not independent sets or their two-site statistics."
+        ],
+        "reasoning": "Eliminating the leaves yields the equivalent wheel problem with two different activities, rim t=z/(1+z) and hub z, and multiplies the rim-pair covariance by t². This is not the simultaneous homogeneous odd-wheel activity change.",
+        "searches": [
+          "Resultary: hard-core covariance, helm and leaf-corona marked independence polynomials",
+          "arXiv:cond-mat/0309352, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct Resultary hit 7b62f4d85d8f is the assigned record itself; the mirrored Finding matches.",
+          "MathWorld's Helm Graph entry identifies the same graph and labels its ordinary independence polynomial as eq. (2)."
+        ],
+        "reasoning": "The ordinary partition function on the diagonal in activity space cannot by itself recover the mixed derivative for specific marked vertices. The exact self-hit is not independent prior coverage.",
+        "searches": [
+          "Resultary: even helm pendant correlations at rim separation three",
+          "https://mathworld.wolfram.com/HelmGraph.html"
+        ]
+      },
+      "rationale": "The comparison credits the unmarked helm polynomial and standard marked hard-core covariance and transfer identities. Neither the closely related homogeneous odd-wheel crossover, the fan endpoint parity law, nor the general polynomial framework covers the even-helm pendant covariance with a hub-dominated high-activity return. No distinct equivalent or dominating claim was established in the checked material; historical priority is not certified.",
+      "residual_risks": [
+        "Bounded comparison; a prior unindexed marked two-activity wheel/helm analysis could entail the result.",
+        "The MathWorld equation was labeled but not rendered in the text extraction; no equation-by-equation comparison claimed there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the ensemble and cycle transfer, not the stated helm pairing theorem",
+          "evidence": [
+            "Eq. (1.3): multivariate independent-set partition function; eqs. (3.27)–(3.29): cycle transfer eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0309352",
+          "material_read": "§1.1 PDF pp. 3–4 and §3 Example 3.3′ PDF p. 40",
+          "method": "Targeted OA paper reading",
+          "title": "The Repulsive Lattice Gas, the Independent-Set Polynomial, and the Lovász Local Lemma",
+          "trigger": "General marked hard-core polynomial and cycle transfer coverage"
+        },
+        {
+          "assessment": "Ordinary partition polynomial is credited; the located material is unmarked",
+          "evidence": [
+            "A wheel with a pendant edge at each rim vertex; ordinary independence polynomial identified as eq. (2)."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/HelmGraph.html",
+          "material_read": "Graph definition and equation labels around the independence polynomial",
+          "method": "Targeted public-page text reading; displayed formula not present in text extraction",
+          "title": "Helm Graph",
+          "trigger": "Exact same graph and known univariate partition polynomial"
+        },
+        {
+          "assessment": "Related but not equivalent or known to dominate",
+          "evidence": [
+            "Odd rim and common wheel activity; low-activity W(n)/n scale and negative high-activity covariance."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-lambert-w-covariance-crossover-on-hard-core-odd-wheels--5514c00ace65",
+          "material_read": "Finding and model at RESULT.md offset 0",
+          "method": "Local published-record mirror",
+          "title": "Lambert-W covariance crossover on hard-core odd wheels",
+          "trigger": "Rim sites at separation three and exact activity-crossover scale"
+        },
+        {
+          "assessment": "Different rim geometry and no exponential high-activity return",
+          "evidence": [
+            "Fan endpoint covariance: positive for odd path orders, single reversal for even path orders with threshold tending to 2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-five-site-covariance-reversal-and-a-parity-threshold-on--736bfbff4534",
+          "material_read": "Claim and parity scale at RESULT.md offsets 0 and 2906",
+          "method": "Local published-record mirror",
+          "title": "A sharp five-site covariance reversal and a parity threshold on hard-core fans",
+          "trigger": "Hub-induced two-point covariance competition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distance three is the first nonadjacent odd rim separation, where the cycle's negative occupation dependence competes with common hub fluctuations. The all-even-size sign witness and the explicit exponentially receding return scale distinguish finite-volume reentrance from both a partition-polynomial recomputation and a thermodynamic phase transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

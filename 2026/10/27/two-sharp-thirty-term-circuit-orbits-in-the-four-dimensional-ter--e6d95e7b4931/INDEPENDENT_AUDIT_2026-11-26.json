@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:23:22.024004Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rank-four 4×5 integer matrix has a one-dimensional kernel spanned by the signed minors. Nonzero same-sign minors are equivalent to strict positivity; dividing by their gcd gives the primitive integer generator, and every integer dependence is its integer multiple by Bézout. Consequently a positive primitive relation is minimal as a zero-sum multiset. No valid support can contain antipodes: their two-term relation would contradict the one-dimensional kernel having full support. An independent exact enumeration used all 658,008 five-subsets of the 40 antipodal directions, computing ordered 4-minors by a cached 24-term Leibniz sum. Five nonzero cofactors give rank four and exactly two sign assignments making the relation positive: signs of the cofactors or all reversed. The absolute cofactor sum divided by gcd thus tests every positive support exactly once via one of the two assignments. The run finds 253,152 qualifying direction sets, 506,304 positive supports, length 30 at exactly 768 supports, and two distinct canonical representatives matching the frozen representatives. The 384 group images of each are distinct; their disjoint union is precisely the 768, proving trivial stabilizers. The given coefficients independently sum to zero vector with gcd one. Rooted appearance counts 120,560 and rooted maximum counts (0,0,84,72) also match; neither rooted quantity is a full-support census. Replay /workspace/branches/five_ray_circuit_audit.py, with retained output at /workspace/branches/five_ray_circuit_audit_output.txt; frozen verify_fourcube.cpp was inspected, not executed. No upper bound was established for rank-deficient five-support multisets or for the full Davenport constant.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The low-dimensional box study covers support size d+1 in d=2,3 and gives a three-dimensional radius-one four-support value of 10.",
+          "The general-dimension heuristic/conjecture at arXiv:2510.20412v1 offset 19970 is about discrete Euclidean balls, not this four-dimensional box; the box discussion does not conjecture such a limit.",
+          "The inspected 2015 box results provide general bounds, not matching upper bounds with equality orbits here."
+        ],
+        "reasoning": "A general framework or a smaller-dimensional theorem does not specialize to this four-dimensional full-rank case. A lower bound for an unrestricted Davenport invariant would not classify its extremizers in the restricted subclass.",
+        "searches": [
+          "Girard–Plagne arXiv:2610.16562v1 abstract, introduction and §2; arXiv:2510.20412v1 general-dimension discussion; Plagne–Tringali arXiv:1405.4363 pp. 3 and 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_fourcube.cpp",
+        "arXiv:2610.16562v1, arXiv:2510.20412v1, arXiv:1405.4363",
+        "Resultary 54940d5a0af9",
+        "Independent five-direction enumeration and orbit outputs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior low-dimensional support-size study stops short of this exact classification. The disk census is a distinct finite computation. The known cofactor relation is used as a reduction, not claimed as a new theorem."
+        ],
+        "reasoning": "None of the compared results computes the joint distribution of signs, minor gcd and sum needed here, or separates the two equality orbits. The claimed lower bound D^(5)≥30 follows from the explicit supports and does not assert equality for the broader invariant.",
+        "searches": [
+          "ArXiv:2610.16562v1 §2; arXiv:2510.20412v1 offsets 17900–22399; Resultary 54940d5a0af9 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cofactor model is the standard oriented circuit criterion. For strictly positive relations the affine determinant obtained by appending a row of ones is the absolute sum of the signed minors.",
+          "No equivalent extremal primitive-length/orbit statement surfaced in those searches."
+        ],
+        "reasoning": "An extremal simplex-volume result would still require origin containment, division by the gcd of the minors, and a comparison of equality classes; affine volume alone is not the invariant claimed.",
+        "searches": [
+          "Resultary: signed and positive circuits, primitive relation coefficient extremum, oriented matroids and ternary-cube triangulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed census 54940d5a0af9 concerns the 13-point planar radius-two disk, with maximum 5 and 12 maximizers in orbits of sizes 8 and 4.",
+          "No matching table surfaced for the 80 nonzero points, primitive length 30 and 768 supports."
+        ],
+        "reasoning": "The related disk has a different dimension and point set, and its census allows all support sizes. A table of arbitrary determinant extrema would not by itself give primitive positive lengths. Search misses are not exclusion of an unindexed computation.",
+        "searches": [
+          "Resultary: four-dimensional ternary box, five-vector determinant census, determinant-based circuit enumeration and Davenport extremizers",
+          "Primary websearch for box Davenport/signed circuit and determinant enumerations"
+        ]
+      },
+      "rationale": "The bounded comparison did not establish earlier exact coverage of restricted maximum length 30 or the two-orbit classification on the four-dimensional radius-one box. Known cofactor formulas, general box bounds, and lower-dimensional exact censuses do not give this statement on the inspected evidence.",
+      "residual_risks": [
+        "An unindexed oriented-matroid, simplex, integer-kernel or determinant census may contain equivalent data; the statements inspected do not establish such coverage.",
+        "This is not a historical-priority certificate or a resolution of the unrestricted rank-deficient cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact low-dimensional results; different dimension and support size",
+          "evidence": "The radius-one three-dimensional D^(4) value quoted there is 10, not an enumeration for d=4.",
+          "identifier_or_url": "https://arxiv.org/html/2610.16562v1",
+          "material_read": "Abstract/intro offset 0 and §2 offset 6436",
+          "method": "OA original preprint",
+          "title": "The Davenport constant of low-dimensional boxes",
+          "trigger": "Strongest related d+1-support box study"
+        },
+        {
+          "assessment": "Relevant general context, no four-dimensional radius-one extremal classification in inspected text",
+          "evidence": "Conjecture concerns discrete Euclidean balls; box discussion does not give the exact restricted case.",
+          "identifier_or_url": "https://arxiv.org/html/2510.20412v1",
+          "material_read": "Offsets 17900–22399, including Conjecture 2 at 19970 and adjoining box discussion",
+          "method": "OA original preprint",
+          "title": "The Davenport constant of balls and boxes",
+          "trigger": "General-dimensional framework for the associated invariant"
+        },
+        {
+          "assessment": "General box motivation and bounds, not an equality or orbit classification here",
+          "evidence": "The box bounds inspected do not single out positive full-rank five-point relations of primitive length 30.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.4363",
+          "material_read": "pp. 3 and 7, offsets 7844 and 18854",
+          "method": "OA PDF",
+          "title": "The Davenport constant of a box",
+          "trigger": "Foundational box estimates"
+        },
+        {
+          "assessment": "Different domain and invariant, not equivalent",
+          "evidence": "A 13-point planar radius-two disk has maximum length 5, 47 minimal multisets, and 12 maximizers split into two orbits of sizes 8 and 4.",
+          "identifier_or_url": "Resultary 2026/10/18 54940d5a0af9",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "Exact Davenport constant and all primitive zero sums in the thirteen-point disk",
+          "trigger": "Closest indexed finite-census analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unit ternary box in dimension four is the next natural case beyond the compared two- and three-dimensional box studies. Full-rank supports of size d+1 isolate the positive-circuit obstruction to sharp bounds on minimal zero-sum lengths. An exact sharp upper bound and complete equality-orbit classification add information beyond the witnesses or a numerical search for long relations; the precise equality cases can be used in further box work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

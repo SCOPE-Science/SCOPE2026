@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical scope
+# Independent mathematical audit
 
-Execute `python3 diamond.py` and `python3 diamond_quotients.py` with Python 3 and SymPy. Both programs carry their full graph data, generators, signs and matrix construction in their source files and require no network or other research files.
+## correctness
 
-The first program checks \(d^2=0\), exact rational differential ranks, signed involution relations and intertwining with \(d\); it computes all four cohomology characters and multiplicity sequences. The second program independently builds invariant cochain bases as signed group-orbit sums and calculates all quotient Betti vectors using exact rational ranks. Their recorded outputs are included, and the independent outputs equal those implied by character averaging for all degrees zero through nine.
+PASS
 
-The computations are exhaustive for the specified nine-generator Chevalley–Eilenberg algebra, but their results do not address arbitrary graphs, integral torsion, the cup-product algebra, or publication priority. Nomizu's theorem and rational invariant-cohomology transfer are the theoretical bridges used in the proof. Independent mathematical audit has not been performed.
+The given two-step group law preserves the stated lattice, and degree-preserving vertex relabelings with the induced edge signs preserve both it and the bracket. Equivariant rational Nomizu reduces the claim to the nine-generator CE complex (negating all central dual generators accommodates the usual minus convention). An independently written exact replay builds all 512 wedges, checks d²=0 and commutation with the signed involutions, and reproduces all ranks and all ten character rows by computing plus/minus cohomology and inverting the Klein-four character matrix. The ranks in degrees 0–8 are (0,5,14,31,46,31,14,5,0). Direct invariant orbit sums give all three stated quotient vectors, of totals 108, 110 and 54; these are rational geometric-quotient Betti numbers by equivariant triangulation and averaging, not an assertion of freeness. The hub action has determinants (-1,-1) on vertices and center; the tip action has (-1,+1), checking the top-degree asymmetry.
+
+## originality
+
+PASS
+
+The evidence supports the complete diamond Klein-four character and the consequent three quotient vectors as distinct from the prior general cochain methods and ordinary low-degree Betti formulas. No novelty is credited to those methods or formulas.
+
+## value
+
+PASS
+
+The two graph-theoretically inequivalent exchanges in the diamond give a natural test of how vertex symmetries change rational cohomology. The exact character answers that question in every degree and permits every subgroup quotient to be treated without new cochain computations. In particular, the two geometric involution quotients already differ in b₂ (9 versus 10), not just by the predictable top-degree orientation distinction. This is a usable equivariant benchmark, not an ordinary Betti-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

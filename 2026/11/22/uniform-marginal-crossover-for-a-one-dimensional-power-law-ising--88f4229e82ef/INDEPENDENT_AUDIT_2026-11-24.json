@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:20:39.213866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof steps 1–4; VERIFICATION.md and check.py inspected, not executed",
+        "Independent bounded replay: node /workspace/branches/bounded-review-checks.js 2; finite tails with integral bounds at 15 (ell, lambda) points, all localizing within one, evaluated at floating precision"
+      ],
+      "rationale": "Counting the crossing unordered bonds gives 2 min(r,n) at separation r, each of excess energy 2J_r; the field contribution is −2hn. The increment divided by 4J is T(n)−1/R with T(n)=sum_{r>n} r^(−1−sigma). Strict decrease handles ties. Integral upper/lower bounds on T at n and n−1 yield |n−(R/sigma)^(1/sigma)|<1 whenever a maximizing n is at least 2, which holds eventually uniformly on compact lambda sets. Euler–Maclaurin on the finite harmonic sum and the tail has a uniform remainder for sigma in [1/2,3/2] after subtracting the pole; the two terms of order n^(−sigma) cancel. The smooth energy has derivative n^(−sigma)/sigma−1/R and second derivative −n^(−1−sigma), so replacing the discrete optimum by x* costs O(x*^(−1−sigma)). At x*, the tail and field give zeta(sigma)−x*^(1−sigma)/(sigma−1). Writing the pole-subtracted power as log(x*) times the integral of exp(−t(sigma−1)log(x*)) on [0,1] makes the expansion uniform through zero. Inserting log(x*)=ell−lambda+O_K(ell^−1) gives the finite part gamma−lambda exp(−lambda) and both length estimates. Phi is positive and has strictly negative derivative by its integral representation. Applies only to optimized contiguous-interval energy in the infinite chain at fixed J and compact lambda, not to kinetics or general saddles.",
+      "residual_risks": [
+        "Finite floating-point diagnostics are not rigorous interval arithmetic, a uniform proof, or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van Enter et al. have a closely related within-one critical size estimate for a finite chain; Lazarides–Pizzi obtain the weak-long-range continuum size scaling.",
+          "DLMF §25.11.43 is a large-parameter Hurwitz zeta expansion at fixed s, not a theorem on jointly optimizing the lattice droplet as s approaches the pole."
+        ],
+        "reasoning": "Credit the prior scales and asymptotic machinery. Neither the inspected length results nor the general special-function expansion states the optimized uniform crossover and finite part.",
+        "searches": [
+          "DOI 10.1007/s10955-019-02238-y, Prop. 3.3",
+          "arXiv:2506.10068, pp. 1–2",
+          "DLMF §25.11.43"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 88f4229e82ef (self-match) and f2f743a34fd2",
+        "Batini–Pagni–Defenu arXiv:2611.25764v1",
+        "van Enter et al. Prop. 3.3",
+        "Lazarides–Pizzi arXiv:2506.10068",
+        "DLMF §25.11.43"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact energy is input, but fixed-sigma barrier estimates leave the pole cancellation and finite correction as sigma−1=lambda/ell untreated."
+        ],
+        "reasoning": "The extra optimization/localization and pole-subtracted joint remainder argument is needed; existence of the prior exact expression is not itself uniform control of its optimized value.",
+        "searches": [
+          "arXiv:2611.25764v1 §§II, Eqs. (4)–(9); DLMF §25.11.43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Batini et al.'s two-wall lattice energy is the same by changing notation; their marginal barrier is 4J log(2J/h)+O(1).",
+          "The entropic-crossover record instead has a finite-chain low-temperature hitting-time prefactor with a different scaling variable."
+        ],
+        "reasoning": "Neither the fixed-marginal O(1) remainder nor the entropic crossover implies the compact-lambda lattice energy finite part.",
+        "searches": [
+          "Resultary: marginal long-range Ising barrier and entropic crossover",
+          "arXiv:2611.25764v1, §II Eqs. (4)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 88f4229e82ef hit is the assigned record itself; f2f743a34fd2 is materially different. No other directly matching record located in the bounded comparison."
+        ],
+        "reasoning": "This is a continuous two-parameter limit with uniform remainder, not a numerical table entry; the applicable exact-database check is against indexed theorem statements.",
+        "searches": [
+          "Resultary semantic comparison: joint marginal Ising crossover; generalized harmonic/Hurwitz-zeta asymptotics"
+        ]
+      },
+      "rationale": "The exact droplet energy, fixed-exponent barriers, and leading critical-length scaling have clear prior coverage. The distinct supported claim is the compact-lambda optimized lattice-energy expansion with its explicit finite part and uniform error across the marginal exponent. No equivalent statement or prior implication eliminating the joint-limit estimate was established in the inspected material.",
+      "residual_risks": [
+        "An unlocated prior uniform near-pole optimized energy expansion or differently presented consequence of the same exact lattice formulas could cover the result. No absolute publication priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap on the exact object and leading scales, no inspected statement of the joint finite part",
+          "evidence": "Same exact energy, approximate critical scale (2J/(sigma h))^(1/sigma), and fixed sigma=1 barrier with O(1) error.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.25764",
+          "material_read": "v1 §II Eqs. (4)–(5), (7)–(9), PDF text offsets 16121 and 20608",
+          "method": "OA primary PDF, located equations and read surrounding passages",
+          "title": "Critical droplets and metastability in long-range chains",
+          "trigger": "Same lattice droplet energy and fixed-exponent barriers"
+        },
+        {
+          "assessment": "Related length estimate, different scope from the optimized marginal-window energy",
+          "evidence": "Within-one estimate for polynomial couplings and finite chain.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-019-02238-y",
+          "material_read": "§3.3.2 Prop. 3.3 Eq. (3.12), PDF p. 7, offset 28327",
+          "method": "OA primary PDF passage",
+          "title": "Nucleation for One-Dimensional Long-Range Ising Models",
+          "trigger": "Potentially earlier sharp discrete length control"
+        },
+        {
+          "assessment": "Related leading continuum scale, not the lattice crossover constant",
+          "evidence": "R_c scales as h^(−1/(alpha−d)).",
+          "identifier_or_url": "https://arxiv.org/abs/2506.10068",
+          "material_read": "PDF pp. 1–2, offsets 8272 and 12261",
+          "method": "OA primary PDF passages",
+          "title": "Apparent bistability from weak long-range interactions",
+          "trigger": "Weak long-range field-theory critical droplets"
+        },
+        {
+          "assessment": "Provides classical ingredients; inspected statement at fixed s does not settle the joint optimized limit",
+          "evidence": "Large-parameter expansion and error-bound references.",
+          "identifier_or_url": "https://dlmf.nist.gov/25.11#E43",
+          "material_read": "§25.11 Eq. (25.11.43), offset 37628",
+          "method": "OA website equations and discussion",
+          "title": "NIST DLMF, Hurwitz Zeta Function",
+          "trigger": "Possible umbrella uniform harmonic-sum theorem"
+        },
+        {
+          "assessment": "Different observable, limit and geometry",
+          "evidence": "Finite-chain hitting-time prefactor in a low-temperature limit, not an infinite-chain interval energy.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-symmetry-breaking-entropic-crossover-in-long-range-ising-nucle--f2f743a34fd2",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A symmetry-breaking entropic crossover in long-range Ising nucleation",
+          "trigger": "Closest distinct Resultary crossover match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and limitations; arXiv:2611.25764v1 §§II"
+      ],
+      "rationale": "This resolves a natural change between a growing and a saturating contiguous-droplet interaction cost: the separately valid exponent regimes cannot give an additive-accuracy estimate through the logarithmic crossover. The finite part and controlled length directly quantify the exact lattice observable without claiming a transition-rate interpretation.",
+      "residual_risks": [
+        "Incremental asymptotic advance, not a theorem about stochastic nucleation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

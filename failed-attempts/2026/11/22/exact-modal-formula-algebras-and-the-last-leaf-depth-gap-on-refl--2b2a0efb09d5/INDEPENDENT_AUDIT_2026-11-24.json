@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:55:30.331022Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding (RESULT.md line 16) says the fixed-letter frame-validity theory increases strictly with the leaf count; it decreases under inclusion, as the proof itself correctly says at line 48. With one letter, p→Box p is valid on F_0 and false at the F_1 root when p holds only there. All the operation counts, collapse and sharpness are otherwise supported: a leaf only observes its color, and a root observes its color a and the set S of leaf colors. A uniform root is identified with the leaf type of color a; a nonuniform root detects every color in S by Diamond(chi_c and Box chi_c) because the root cannot witness the test. Depth zero has q types; depth one observes the root color and any set of at most k off-colors, while depth two distinguishes every nonempty S of size at most k (counting the uniform singleton as the terminal type, not an extra type). Boolean combinations of the characteristic formulas give the stated powersets. The single-world case and the q=1 case collapse at depth zero; for q>=2 and k>=2, supports {b} and {a,b} at a root of color a give the same depth-one palette and different depth-two types. At every step t to t+1 below q a new nonuniform support of size t+1 refutes the negation of its characteristic formula; duplicating colors, or using uniform assignments for t=0, embeds the old types in the new. This proves strict theory decrease and both stabilization cutoffs. Replay: RESULT.md lines 24–48. The first-step counterexample was also checked over all Boolean assignments on F_0 and F_1; the uploaded verify.py and VERIFICATION.md were inspected, not executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Height-two Proof Steps 1–3 classify and define every pointed type across all finite reflexive partial orders of height at most two; stars are in this class. Agnew gives a qualitative local-finiteness characterization; ten Cate–Koudijs connect finite characterizability and local tabularity."
+        ],
+        "reasoning": "The explicit height-two classification is stronger for this question, whereas qualitative local-finiteness and tabularity alone do not compute the operations on a fixed frame.",
+        "searches": [
+          "2026/10/26/SCOPE-exact-free-algebra-cardinalities-and-modal-depth-cutoff-for-heig--704161647189",
+          "arXiv:2606.02941v1 Theorem 3.16",
+          "arXiv:2206.06049 Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Four Resultary records identified above, particularly the October 26 height-two classification",
+        "arXiv:2606.02941v1 and arXiv:2206.06049"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Depth-two characteristic formulas there are defined globally for each terminal type and each pair (r,S) with an off-color, and depth-one characteristic formulas are given for every palette containing r."
+        ],
+        "reasoning": "On F_k every nonempty strict-successor support of size <=k is freely realizable by duplicating colors, and the uniform singleton per root color is replaced by the old terminal point. Thus the earlier complete list gives exactly q times the truncated positive-size binomial sum. At depth one, truncate off-colors at k to obtain q times the other truncated sum. A new definable type yields a strict validity loss by negating its characteristic formula. Supports reach maximum q, off-color palettes q−1, yielding exactly the last-leaf gap; no new type construction or independent obstruction is needed.",
+        "searches": [
+          "2026/10/26/SCOPE-exact-free-algebra-cardinalities-and-modal-depth-cutoff-for-heig--704161647189, RESULT.md Proof Steps 1–4 from offset 2370"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The height-two record uses the ordinary Diamond modality dual to Box, arbitrary Boolean colors, strict-successor color supports, and exactly the test Diamond(alpha_r and Box alpha_r) for root-color occurrence at a terminal successor.",
+          "Its sharpness comparison uses the same support pair {s} and {s,r} and the same accessible palette."
+        ],
+        "reasoning": "Dualizing Box and Diamond changes no types or depths. The earlier terminal and nonterminal profiles restrict exactly to the leaf and uniform-root types and the nonuniform-root types of this record. The same sharpness witness works on any fixed star with k>=2 by duplicating leaf colors.",
+        "searches": [
+          "Resultary: Boolean modal reflexive star fixed-algebra counts, terminal collapse and depth-two palette visibility",
+          "2026/10/26/SCOPE-exact-free-algebra-cardinalities-and-modal-depth-cutoff-for-heig--704161647189, RESULT.md Proof Steps 1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The height-two record lists the saturated operation counts at depths 0, 1 and 2, and its proof supplies the precise profile table to restrict for each k. The chain count is in a linear preorder, the intuitionistic fork uses persistent valuations, and the Alexandrov-star record uses derivative and reachability."
+        ],
+        "reasoning": "No independent printed fixed-k table was needed to resolve coverage: each entry follows by truncating the explicitly classified profiles. The other exact censuses have different relations, valuations or signatures and are not substitutable.",
+        "searches": [
+          "Resultary: exact modal formula-operation census, S4.3 palette-word chains, intuitionistic forks, Alexandrov reachability stars",
+          "2026/10/26/SCOPE-exact-free-algebra-cardinalities-and-modal-depth-cutoff-for-heig--704161647189"
+        ]
+      },
+      "rationale": "Earlier indexed height-two work provides the very same normal form, terminal collapse, depth-one quotient and sharp depth-two witness for a larger class containing all these stars. Its full proof gives the fixed-star counts and cutoff by direct restriction to realizable profiles. This is demonstrated stronger coverage even though the finite-k binomial sums are not printed there. The other cited comparisons are not the basis for the rejection.",
+      "residual_risks": [
+        "This is a demonstrated implication from the earlier indexed classification, not a claim about the first discovery of that classification. A bounded external search did not resolve older historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrated coverage by explicit profile restriction",
+          "evidence": "Terminal collapse S⊆{r}; nonterminal root pair (r,S); tests tau_r and eta_r; complete depth-one palette types; {s} versus {s,r} sharp witness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-free-algebra-cardinalities-and-modal-depth-cutoff-for-heig--704161647189/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof Steps 1–4 including the bounded passage from offset 2370",
+          "method": "Published Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact free algebra cardinalities and modal depth cutoff for height-two partial orders",
+          "trigger": "Broader same-language class containing all fixed stars"
+        },
+        {
+          "assessment": "Different observable signature",
+          "evidence": "Derivative and path-reachability distinguish a pointed-leaf profile with an extra j+1 factor.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-formula-algebra-and-sharp-depth-two-for-reachability-on-al--1151377036d3",
+          "material_read": "RESULT.md Finding, Assumptions and Proof Step 2",
+          "method": "Published Resultary local mirror",
+          "title": "Exact formula algebra and sharp depth two for reachability on Alexandrov stars",
+          "trigger": "Same star geometry and arbitrary valuations"
+        },
+        {
+          "assessment": "Different geometry",
+          "evidence": "The accessibility is a linear preorder of clusters; a star with multiple leaves has incomparable points.",
+          "identifier_or_url": "2026/10/12/SCOPE-canonical-palette-word-census-of-modal-term-operations-on-finite--241545926600",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published Resultary local mirror",
+          "title": "Canonical palette-word census of modal term operations on finite S4.3 cluster chains",
+          "trigger": "Exact fixed-frame modal algebra census"
+        },
+        {
+          "assessment": "Different semantics and invariant",
+          "evidence": "Persistent intuitionistic valuations and rooted theory counts, not arbitrary Boolean modal operation counts.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-variable-visibility-and-exact-rooted-type-counts-on-intuit--b556d9d8fa10",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published Resultary local mirror",
+          "title": "Sharp variable visibility and exact rooted type counts on intuitionistic forks",
+          "trigger": "Same leaf geometry, exact stabilization"
+        },
+        {
+          "assessment": "Qualitative background, no exact count in the theorem",
+          "evidence": "Local finiteness characterized by well-foundedness and absence of the stated obstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02941v1",
+          "material_read": "Theorem 3.16, p. 10, offset 35000",
+          "method": "Lawful OA original PDF",
+          "title": "On Local Finiteness of Modal K4 Algebras",
+          "trigger": "Broadest cited transitive-frame theorem"
+        },
+        {
+          "assessment": "Qualitative background, not the census",
+          "evidence": "Connects finite characterizability and local tabularity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.06049",
+          "material_read": "Theorem 3.3, p. 4, offset 10350",
+          "method": "Lawful OA original PDF",
+          "title": "Characterising Modal Formulas with Examples",
+          "trigger": "Published connection of characteristic formulas to tabularity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The leaf-depth cutoff is a meaningful question, but the frozen result adds only the mechanical truncation of the already explicit height-two palettes and leaf supports. The same identified profile, characteristic formula and small sharpness witness are already available, and the extra leaf follows directly from the known profile sizes q−1 and q. Correcting the direction in the Finding would not create a surviving distinct contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

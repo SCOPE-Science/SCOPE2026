@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:04:06.515796Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–107; first- and second-moment transforms, inverse identity, positivity, CLT and long-time limit checked",
+        "Frozen VERIFICATION.md and check_variance.py inspected; uploaded checker not executed",
+        "branches/8cee9e33-a354-498c-8165-a1152c925eb8/independent_repro.py (independent tilted generator, three heterogeneous cases and equal-rate boundary)"
+      ],
+      "rationale": "For iid mark–duration pairs the renewal transforms give the stated m=E K>0 and q=E R/m in (0,1). Poisson domination gives finite second moments. The fixed-horizon worker CLT and ratio delta method yield Var(R−qK)/m²; zero total completions has vanishing probability with increasing workers. Keeping q fixed during inversion, the diagonal second moment is q² E K+(1−2q) E R=q(1−q)m at the selected horizon. The ordered cross terms give the inverse transform of 2(f_1−qf)²/[s(1−f)²]. Verified the linear numerator over s(s+c) and, writing y=e^(−z), simplified the inverse-transform bracket to 2z(1−y)²−z²(1−y²)/2−z³y=−H(z). The first two even powers of the hyperbolic bracket cancel and all coefficients of z^(2n) for n≥3 are (2n−4)/(2n)!, strictly positive. The residual is nonconstant, for instance zero completions and one completed trajectory of outcome 1 both occur with positive probability. H(z)∼z²/2 and m∼Lz/c give the residual gap limit −(h/c)². It is nonzero only for unequal rates, as the formula and equal-rate clause imply. A separately written block-generator check also agrees at three heterogeneous cases and the homogeneous boundary.",
+      "residual_risks": [
+        "The statement is a fixed-deadline large-worker limit, not a finite-M formula, and the benchmark is centered at q(t), not the underlying mark probability b.",
+        "The general sign for nonexponential conditional durations is not certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patch et al. p. 1 gives an asymptotic covariance correction for general multivariate renewal rewards. Kremers–Robson's accessible abstract concerns sequential renewal quota sampling, unbiased random-mean estimators and variance. Reia–Fontanari supplies the model and first-moment context."
+        ],
+        "reasoning": "General large-time covariance corrections may help obtain a limiting constant, but say nothing by themselves about order and sign at each finite t with horizon-dependent q. The quota sampling and filtration problems must be compared at estimator level; neither accessible statement gives the asserted fixed-deadline pooled-ratio comparison.",
+        "searches": [
+          "Patch–Nazarathy–Taimre arXiv:1408.1530v1",
+          "Kremers–Robson DOI 10.1093/biomet/74.2.329",
+          "Reia–Fontanari arXiv:2611.12692v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit and distinct count-covariance record de88cddae192",
+        "Reia–Fontanari and Patch–Nazarathy–Taimre abstracts",
+        "Kremers–Robson accessible abstract/snippet",
+        "Frozen RESULT.md lines 113–125"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiation of the known marked-renewal transform does yield a route to exact second moments and is not itself the new result. The finite-time gap further cancels the diagonal term after substituting q(t), with a strictly positive hyperbolic power series after simplification."
+        ],
+        "reasoning": "Neither first moments, a general asymptotic correction, nor endpoint signs of a count covariance entail that remaining sign for every t. If an earlier source contained the complete joint moment calculation and comparison it could cover the result; this was not established by the accessible passages or catalog statements. No priority inference was drawn from the same catalog date.",
+        "searches": [
+          "Reia–Fontanari exact first moments, arXiv:2611.12692v1",
+          "Patch et al. arXiv:1408.1530",
+          "Resultary fast/slow count-covariance record de88cddae192"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Reia–Fontanari abstract uses the same two-outcome exponential model and identifies exact means and filtering MSE; the frozen record also credits their variance caution.",
+          "The distinct indexed record gives an endpoint sign reversal for the covariance of the two outcome counts in a stated parameter range."
+        ],
+        "reasoning": "The pooled mark fraction is the ratio of the count of 1s to total completions. Its first-order residual is (1−q)K_1−qK_0, whose variance depends on both marginal variances and their covariance. A sign change of the covariance alone is not the gap from its mean-matched Bernoulli benchmark. Filtered-scheme MSE relative to b is likewise a different comparison.",
+        "searches": [
+          "Resultary finite-budget pooled-fraction variance, renewal bias and fast/slow count covariance",
+          "Reia–Fontanari arXiv:2611.12692v1",
+          "2026/11/22/SCOPE-a-covariance-sign-reversal-between-fast-and-slow-absorbing-traje--de88cddae192"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified exact match is the assigned record itself. The closest distinct exact entry reports the two-count covariance rather than the mean-matched variance gap."
+        ],
+        "reasoning": "This is an all-horizon formula, not an isolated numerical sample or previously tabulated confidence interval. The distinct indexed observable does not give the gap without additional second-moment identities and comparison to the Bernoulli variance.",
+        "searches": [
+          "Resultary exact finite-time renewal-ratio variance gap and binary exponential marked count variance",
+          "2026/11/22/SCOPE-strict-finite-budget-underdispersion-of-pooled-absorbing-outcome--e27325fa5358",
+          "2026/11/22/SCOPE-a-covariance-sign-reversal-between-fast-and-slow-absorbing-traje--de88cddae192"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the finite-horizon exact mean-matched variance correction and its strict sign at every positive horizon in the heterogeneous exponential model. The model, first moments and bias, marked-renewal transform, and general renewal-reward covariance techniques are prior; the long-time constant alone is not the basis of the decision.",
+      "residual_risks": [
+        "The full text of the older renewal-sampling article and the same-model preprint and indexed count-covariance record could not be fully compared, so closer coverage is possible.",
+        "This bounded review does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the model, means and selection bias; exact body coverage not excluded",
+          "evidence": "Abstract describes expected count and composition, finite-budget bias, and MSE for First-Trajectory Filtering, rather than an all-horizon pooled-fraction variance-gap assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.12692",
+          "material_read": "p. 1 abstract; body claims beyond this taken only as described in the frozen comparison",
+          "method": "Public abstract retrieval; OA passage and alternate HTML retrieval attempts did not return the body",
+          "title": "Renewal Bias in Parallel Simulations of Absorbing Processes",
+          "trigger": "Identical binary exponential model and pooled finite-budget composition"
+        },
+        {
+          "assessment": "General asymptotic methodology, not independent evidence for the finite-time sign",
+          "evidence": "The stated result is an asymptotic covariance correction for multivariate renewal rewards.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.1530",
+          "material_read": "p. 1 abstract",
+          "method": "Public arXiv abstract; OA passage retrieval timed out",
+          "title": "A Correction Term for the Covariance of Renewal-Reward Processes with Multivariate Rewards",
+          "trigger": "General covariance correction could cover the limiting component of the result"
+        },
+        {
+          "assessment": "Relevant priority lead, not sufficient evidence of exact coverage",
+          "evidence": "Accessible description concerns sequential quota sampling and unbiased estimation for random means.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/74.2.329",
+          "material_read": "Accessible abstract/snippet, article pp. 329–337; full text not read",
+          "method": "OA attempt and OUP public endpoint attempt; full text not retrieved",
+          "title": "Unbiased estimation when sampling from renewal processes: The single sample and k-sample random means cases",
+          "trigger": "Older renewal sampling work on random means and variance"
+        },
+        {
+          "assessment": "Substantial method/model overlap; indexed claim is not the residual variance gap",
+          "evidence": "The summary gives a negative-to-positive endpoint transition for a covariance between two completion counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-covariance-sign-reversal-between-fast-and-slow-absorbing-traje--de88cddae192",
+          "material_read": "Indexed Resultary statement and frozen prior-work passage",
+          "method": "Local search and exact mirror retrieval attempt; decisive full text not retrievable",
+          "title": "A covariance sign reversal between fast and slow absorbing trajectories",
+          "trigger": "Same exponential model and exact second-moment analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–40 and 101–119; independent gap sign and long-time limit"
+      ],
+      "rationale": "The natural mean-matched Bernoulli sampling variance can misrepresent the uncertainty of a pooled renewal estimate even after allowing for its biased center. The theorem shows the direction of that error for every positive deadline under the model, gives its exact magnitude and locates the persistent residual-scale correction. The sign is a structural result about deadline censoring rather than a single small numerical effect or another bias calculation.",
+      "residual_risks": [
+        "This is not a recommendation to use naive binomial coverage for b, and smaller spread around q(t) need not mean smaller MSE for b."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

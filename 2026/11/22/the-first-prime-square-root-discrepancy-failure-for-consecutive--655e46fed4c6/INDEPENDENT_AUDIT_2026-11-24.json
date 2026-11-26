@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:51:57.843192Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68, VERIFICATION.md and verify_stern_prime_threshold.py (inspected)",
+        "Independent replay: python3 /workspace/replay/5.py (SymPy for exact polynomial factorization and gcd); trace/Newton and scalar generating-function methods"
+      ],
+      "rationale": "The two recursions on consecutive residues arise by replacing n with 2n and 2n+1, so starting at (0,1) gives exactly the full prefix vector. Both maps are permutations; the uniform vector and its zero-sum complement are invariant, and the computed simplicity of eigenvalue 2 isolates the centering term. Independently recovered the five characteristic polynomials by tracing powers with the inverse predecessor maps and applying Newton identities over the integers. All displayed factors and multiplicities matched. The nontrivial reciprocal quartics for p=5,7 reduce at y=x+2/x to the stated three quadratics, with real y-roots strictly between ±2sqrt(2); the two x-roots at each y are conjugate with product 2. All other nonprincipal factors for p<11 have roots of modulus at most sqrt(2). A possible polynomial factor from Jordan blocks does not affect the root limsup. For p=11, exact scalar counts and det(I−zT) give the generating-function numerator from its first 120 coefficients by the adjugate degree bound. Canceling its gcd with the denominator leaves the irreducible 1−z²+2z³, once, so z=−1/rho is an actual pole, not a merely available eigenmode. Subtracting the uniform geometric series cannot remove it. The frozen scalar certificate also independently reproduced as 573530441763580574433280. The cubic for rho is negative at sqrt(2) and increasing on [1,infinity), proving the strict failure and the prime minimum.",
+      "residual_risks": [
+        "This gives a lower bound for a single pair at 11, not the exact worst-pair exponent there, nor a lower bound at every depth or for nondyadic intervals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick p. 10, equations (60)–(64), explicitly derives a Jordan/recurrence bound from the largest nonprincipal modulus rho_d<2. Theorems 15–16 guarantee an unevaluated bound below 2 in dyadic blocks and a power saving in arbitrary prefixes. Section 5 gives the mod-2 cycle and the evaluated mod-3 bound (76)–(78).",
+          "The frozen account identifies Deshouillers–Schinzel as a general modular distribution result; no decisive passage was retrieved from that paper or De Angelis."
+        ],
+        "reasoning": "Reznick's general theorem is broader in moduli and intervals, but does not by itself give the required square-root cap for 5 and 7 or the active p=11 pair. The evaluated upper bounds for 2 and 3 are already covered. General density results do not decide which side of sqrt(2) an error exponent lies on.",
+        "searches": [
+          "Reznick, https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+          "Deshouillers–Schinzel, DOI 10.4064/bc118-3",
+          "De Angelis, arXiv:1511.02422"
+        ]
+      },
+      "checked_sources": [
+        "Reznick primary JIS PDF as located above",
+        "Resultary IDs 655e46fed4c6, 57068b08083f, c8dc01beeb78, ee10caa284d0, 2ccf8df2e88c",
+        "Frozen RESULT.md lines 73–82 and bounded attempts at its other relevant references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest p=11 statement read in Reznick is for the marginal zero residue of s(n). Independent exact rational-function calculation for that p=11 marginal leaves only 1±z, 1−2z, 1−2z+2z² and 1+z+2z², and not the frozen pair's cubic. All its nonprincipal modes meet the square-root bound.",
+          "The modulus-nine indexed result has a different factor and a composite modulus."
+        ],
+        "reasoning": "The known marginal is a sum of pair counts and loses the cubic; even an exact bound on that sum need not bound each individual discrepancy. The composite example establishes neither failure at a prime nor the cutoff among primes. The new 5/7 spectral exclusions and the active 11 pair are specifically what make the least-prime statement follow.",
+        "searches": [
+          "Reznick pp. 10–12 and 15; Resultary 57068b08083f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reznick equations (61)–(64) address entries of the same residue-pair walk (up to row/column orientation), with the same uniform density and dyadic block normalization. A normalized stochastic transition divides the corresponding eigenvalues by 2.",
+          "The first-covering-depth indexed record c8dc01beeb78 addresses positivity of counts/support, not balanced frequency or its exponent."
+        ],
+        "reasoning": "A sharp normalized walk rate or equivalent evaluated scalar recurrence could cover the theorem despite different terminology. The known framework provides an unevaluated spectral rate for general d; eventual support does not determine that rate or the relevant scalar poles.",
+        "searches": [
+          "Resultary Stern discrepancy and Calkin–Wilf / prime-spectra searches; exact and nearby IDs 655e46fed4c6, 57068b08083f, c8dc01beeb78",
+          "Reznick, JIS 11 (2008), Article 08.4.1, pp. 10–12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "655e46fed4c6 is an exact self-hit. 57068b08083f gives the same-pair composite-modulus nine value about 1.4390667245. c8dc01beeb78 tabulates coverage depths, and the other indexed results address three-/four-term densities or support.",
+          "Reznick tabulates mod-3 matrix and minimal polynomial explicitly; his p. 15 remarks compare specific dyadic one-residue marginal sequences, including T(2^r;6,0)=T(2^r;9,0)=T(2^r;11,0)."
+        ],
+        "reasoning": "The prior exact calculations cover part of the small-prime exclusion and an analogous composite case, not a prime-indexed table giving the claimed threshold or the designated pair's recurrence at 11. The search results are bounded, not a certification of absence.",
+        "searches": [
+          "Resultary: 655e46fed4c6, 57068b08083f, c8dc01beeb78, ee10caa284d0, 2ccf8df2e88c",
+          "Reznick section 5, equations (74)–(78) and closing remarks, pp. 12 and 15"
+        ]
+      },
+      "rationale": "The supported distinct result is the evaluated first-prime threshold and the active order-eleven cubic at the designated pair. The transfer matrices, spectral bounding argument, and the square-root upper bounds at 2 and 3 are not new. The earlier modulus-nine phenomenon does not settle the asserted prime threshold.",
+      "residual_risks": [
+        "The full text of the modulus-nine analogue and the relevant Deshouillers–Schinzel and De Angelis passages were not retrieved. An earlier unindexed computation or a stronger same-walk spectral theorem could bear on priority; deferred search results provide no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the transfer/spectral framework and prime 2/3 bounds, not the evaluated first-prime transition in the inspected relevant material",
+          "evidence": [
+            "Section 5 has tau_2=0 and m^(r)_{alpha,beta}=2^r/8+O(2^(r/2)) for d=3; p. 15 modulus-eleven observation is on T(2^r;11,0), a single-coordinate marginal."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+          "material_read": "PDF pp. 10–12, equations (60)–(64), Theorems 15–16, §5 small moduli through (78); p. 15 closing spectral and marginal remarks (offsets about 30000–33159, 34600–38982, 46100–48659)",
+          "method": "Lawful JIS PDF; literal ‘eigenvalue’ and ‘Theorem 1’ location then bounded offsets",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals",
+          "trigger": "Same dyadic residue-pair automaton, same spectral error criterion, actual small-modulus computations"
+        },
+        {
+          "assessment": "Strong analogue, but composite and does not settle the prime threshold",
+          "evidence": [
+            "The exact rate in the summary is about 1.4390667245 for (1,2) modulo 9, arising in a 72-state walk."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-non-square-root-dyadic-discrepancy-for-a-stern-residue-pai--57068b08083f",
+          "material_read": "Indexed theorem statement; mirrored full text not retrieved",
+          "method": "Resultary and exact source retrieval attempt",
+          "title": "Sharp non-square-root dyadic discrepancy for a Stern residue pair modulo nine",
+          "trigger": "Same pair and dyadic threshold criterion, exact greater-than-square-root example"
+        },
+        {
+          "assessment": "Visible description supports common modular-density context, not full-text exclusion of exact rates",
+          "evidence": [
+            "Frozen RESULT.md lines 73–82 identify the automaton and the density 1/(p²−1)."
+          ],
+          "identifier_or_url": "DOI 10.4064/bc118-3",
+          "material_read": "Frozen comparison and citation; primary passage not retrieved",
+          "method": "Bounded OA attempt",
+          "title": "The modular distribution of Stern's sequence",
+          "trigger": "Potential general discrepancy theorem for the same residue counts"
+        },
+        {
+          "assessment": "Different invariant; same-day date is not dispositive",
+          "evidence": [
+            "First-covering depth and last residue address which entries have become positive, not their centered growth."
+          ],
+          "identifier_or_url": "c8dc01beeb78",
+          "material_read": "Indexed statement",
+          "method": "Resultary",
+          "title": "Sharp first-covering depths and unique last residue in eleven dyadic Stern-pair graphs",
+          "trigger": "Same graph family and possible overlap in an eleven-related threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen least-prime claim",
+        "Reznick Theorems 15–16 and §5",
+        "Resultary modulus-nine comparison 57068b08083f",
+        "Independent replay /workspace/replay/5.py"
+      ],
+      "rationale": "The natural benchmark is square-root error for a length-2^k prefix. Known power saving does not decide this benchmark, and a composite counterexample leaves it open along the primes. Proving the exact prime onset by excluding every smaller prime and certifying an active, explicitly specified pair at the next prime gives a useful boundary, rather than just finding a large-modulus numerical eigenvalue or reproducing the general transfer method.",
+      "residual_risks": [
+        "No classification at larger primes or exact worst-pair rate at 11 follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

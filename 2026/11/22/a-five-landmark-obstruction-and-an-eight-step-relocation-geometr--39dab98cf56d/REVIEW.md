@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defined graph and edge distances determine 24 domination witnesses and 276 edge-pair distinction witnesses, so each jointly feasible set is exactly a hitting set of 300 known constraints. Exhausting all 65,536 vertex subsets therefore proves the cardinality polynomial and absence of four-element joint solutions, provided the reconstructed graph and witness conditions agree with the definitions. The Python checker builds shortest-path signature vectors and checks edge coverage, while the independently written C++17 checker uses Floyd–Warshall and pairwise vertex-witness masks. Both agree on 512 minima of cardinality five and the full polynomial, and independently enumerate each move and run 512 all-root breadth-first searches. The Python verifier additionally exhausts graph automorphisms. No infinite extrapolation is made.
+## correctness
 
-## Originality — PASS, provisional
-The motivating 2022 primary paper introduces the joint invariant but covers classical graph families and some Cartesian products, not the Möbius–Kantor instance. The 2018 generalized Petersen edge-resolution paper studies a weaker condition and lacks a combined census. An accessible exact result for complete prisms treats the *same* invariant on a structurally different graph; its claims do not imply the present finite graph's configuration list. Full closely related records on Möbius–Kantor identifying-code slides and zero-forcing exchange graphs have different feasibility rules, optimum counts and reconfiguration state spaces. Actual indexed record and primary-literature searches found no covering statement. Residual risk: unindexed or inaccessible work may have the same result; negative retrieval does not certify priority.
+PASS
 
-## Mathematical value — PASS
-The original invariant couples two natural and competing edge-sensor requirements: complete local edge surveillance and unique edge localization. On a canonical cubic vertex-transitive host, the requirements individually have optimum size four yet cannot be combined at that cost. The sharp one-extra-sensor threshold, the complete labelled polynomial, eight symmetry classes and nontrivial connected self-centered *adjacency-constrained* mobility are useful configuration-level information not entailed by either scalar minimum. This is a motivated exact finite classification; no claim of a universal or paper-sized theorem is required.
+The three listed edge forms give the 24 edges of the 16-vertex graph. The closed-neighborhood union of the two endpoints is exactly the coverage witness for an edge. A pair of distinct edges has different distance signatures precisely when the selected vertices meet its distinguishing set, so the 24 coverage tests and 276 distinction tests are jointly necessary and sufficient. The independent exact replay enumerated all 65,536 subsets, reproduced the separate minima and four-set counts (368 resolving, 128 dominating, none joint), every coefficient of the joint polynomial including the total 50,363, and all 512 feasible five-sets. For distinct states, a symmetric difference of size two is exactly a jump, and adjacency of its two vertices is exactly the slide condition. All-root BFS confirms connectivity and 1,320 slide edges with all 512 eccentricities eight; for jumps, 3,616 edges and 368 eccentricities five and 144 six. The automorphism orbit computation reproduced all eight representatives and sizes. This is exhaustive for the specified finite graph; no inference from testing smaller subsets of states is needed.
 
-## Closest literature and limits
-See RESULT.md References [1]–[5], especially the 2022 definition and 2018 edge-resolution study. The proof is finite exhaustive; it does not cover arbitrary generalized Petersen graphs, and complete publication-priority clearance remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The joint obstruction, joint labelled polynomial and configuration geometry are distinct on the evidence inspected. The separate edge metric dimension of this exact host was already known: Wang–Wang–Zhang explicitly give βe=4. Treat that scalar as a confirmed ingredient, not an original contribution; it does not imply the joint obstruction or census.
+
+## value
+
+PASS
+
+On a canonical cubic symmetric graph, the two natural vertex-based requirements separately admit four-landmark solutions but no four-landmark solution meets both. The record identifies every achievable size and the orbit and shortest-reconfiguration structure of all optima. Uniform slide eccentricity despite unequal degrees, and the contrast to jumps, give information not available from the scalar minima or automorphism order alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

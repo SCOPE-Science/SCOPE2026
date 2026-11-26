@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the exact formula for all integers \(m\ge3\) and real perimeters \(0<P<2\pi\). It checks the derivative sign through the monotone sine-ratio theorem and proves the uniform strict stability bound by a two-term alternating cosine expansion with a strictly positive all-integer coefficient estimate. Neither finite testing nor comparison with a few polygons is used to extrapolate these statements.
+## correctness
 
-Run `python verify.py` (Python 3.9 or later with SymPy). This reconstructs product-to-sum area identities and optimizer values at five exact disk counts; it compares a direct radial integral of the intersection of the original generating disks with the closed area formula at 25 parameter combinations; and it samples the global sharp inequality at five disk counts over a dense perimeter mesh. The expected final output is `LENS_GAP_FORMULAS_OPTIMA_STABILITY_AND_RADIAL_INTEGRALS_OK`.
+PASS
 
-The numerical integration is not exhaustive, and symbolic spot checks do not constitute a formal proof for all integers. The proof's continuum argument and boundary equalities are stated fully in `RESULT.md`. The previously published exact regular-intersection area function is cited as such, not presented as an independently discovered fact.
+Reconstructed the disk geometry and checked the bound independently. The farthest center changes at the rays bisecting consecutive opposite-center directions. In one such sector the corner at radius r satisfies r sin(alpha)=sin(q/m) and t+r cos(alpha)=cos(q/m), where alpha=pi/m and q=P/2. This gives t=sin((pi-q)/m)/sin(alpha), strictly decreasing from 1 to 0. Summing the corner polygon and the unit circular segments gives the stated area profile. With s=(P-pi)/pi, beta=pi/2, and k=m/(2 sin(alpha)), the gap is cos(beta s)-k[cos(alpha s)-cos(alpha)]. Its derivative with respect to q is positive on 0<q<pi/2 by strict increase of sin(alpha z)/sin(beta z) for 0<z<1 (x cot(x) decreases), and symmetry supplies the other half. For an independent check of the sharp envelope, regard the gap as a function of x=s^2. The second derivative of cos(a sqrt(x)) is a/(4 x^(3/2)) times the integral from 0 to a sqrt(x) of t sin(t) dt. Bounding sin(t) between 2t/pi and t gives the gap a strictly positive second derivative, since 2 beta^4/pi>k alpha^4 (the latter is at most pi^4/36). Its chord between x=0 and 1 is therefore a strict upper bound in between. This proves all equality cases; endpoint continuity forces the constant even on the open perimeter interval. Substitution gives G_m, the optimizing radius and the Reuleaux triangle; tan(x)/x gives the monotone limit. The frozen finite script is corroboration, not the proof, and was inspected rather than run.
+
+## originality
+
+PASS
+
+Credit the exact area profiles, strict fixed-perimeter hierarchy, and lens lower bound. The supported distinct claim is the variable-perimeter maximizer and the sharp global upper envelope with its equality set; the available prior statements do not supply that quantitative upper optimization.
+
+## value
+
+PASS
+
+The total gap between two canonical profiles has one optimizing perimeter for every disk count. The sharp estimate controls all perimeters at once and distinguishes global sharpness, which is forced by degenerate endpoints, from the local curvature at the interior maximizer. That is meaningful additional information beyond a known exact area formula or another finite comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

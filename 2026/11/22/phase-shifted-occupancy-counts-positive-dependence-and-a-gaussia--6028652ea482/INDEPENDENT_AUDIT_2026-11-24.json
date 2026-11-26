@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:00:43.238811Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76; VERIFICATION.md and supplied verify_phase.py inspected",
+        "/workspace/replay_frozen.py 4: exact rational DP on two occupancy masks"
+      ],
+      "rationale": "Use vacancies, so covariances are sums of joint void probabilities minus marginal products. There are m bin pairs of each of the two overlap lengths and m(m−2) other pairs, counting boundary intersections as length zero. Expanding about a=1−2/m cancels orders 0 and 1 and leaves nonnegative terms by α^k+(1−α)^k≥2^(1−k)≥m^(1−k). The k=2 term is strictly positive for m≥3,n≥2; for m=2 the k=n term is strictly positive unless α=1/2. Strict convexity and symmetry give the unique half-bin minimum for n≥2; at m=2, each draw supplies two independent fair bin labels at that shift, proving full independence. n=0,1 are deterministic. For the finite-dimensional limit, independent elementary Poisson cells give a one-dependent vector summand array apart from the circular seam. One can discard the seam, block with length floor(m^(1/8)) and single-index gaps, and use fourth-moment Lyapunov (uniform fourth moments and block fourth moment O(block length^4)) in positive-variance projections, or Chebyshev in degenerate projections. The Poisson covariances come from the same pair geometry. To justify removal of the random sample size in both directions, use a single forward martingale over the deterministic index interval n_m±A√m: the vacancy fractions at its endpoints converge to e^(−c) by their O(m) count variance, hence so do all intermediate fractions by monotonicity. The maximum martingale difference sum on the interval is O_p(m^(1/4)) for fixed A; take A large to contain N with arbitrarily high probability. The adjustment e^(−c)(N−n_m) therefore yields the stated kernel and the two centerings differ by O(1). As an algebra check on the normalization, the m-scaled difference of the disjoint void term and the marginal product within C/m tends to −c e^(−2c). The Fourier coefficients integrate directly; strict positivity gives strict definiteness by the Vandermonde matrix of distinct phase exponentials. Averaging complete empty bins within each gap gives (mS_i−1)_+, and integrating the stationary covariance gives the phase-average variance with zero-mode limit. Independent microcell transition counting corroborates 225 exact covariances, and tests the entire joint law in the exceptional case through eight points.",
+      "residual_risks": [
+        "Finite DP cases corroborate only finite formulas, not the limit theorem. The CLT is for fixed finitely many deterministic phases and not a functional or phase-average CLT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbour–Gnedin approximate joint counts at specified load frequencies in one fixed allocation scheme, with variance conditions.",
+          "Scott analyses ASH density estimation and risk, not the joint numbers of occupied cells of the same sample across phases."
+        ],
+        "reasoning": "A shared one-cell void probability or a single-phase marginal CLT does not specify correlations or the Gaussian process evaluated at multiple phases of an overlapping grid.",
+        "searches": [
+          "Barbour–Gnedin arXiv:0809.4387v1 on multivariate occupancy CLTs; Scott 1985 on averaged shifted density estimators; moving-window limit theorems"
+        ]
+      },
+      "checked_sources": [
+        "Scott (1985) ASH, Barbour–Gnedin arXiv:0809.4387v1",
+        "Resultary 65b25f57a4d7, 0606274d4166 and 054aa2852ed7",
+        "Scan and moving-window access attempts listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact covariance uses two distinct overlapped void probabilities and a nonoverlap term, with sign and unique-minimum classification after cancellation. At the two-bin half-shift the exact quarter-circle product structure is stronger than a zero covariance.",
+          "The Gaussian covariance contains the count-conditioning subtraction c e^(−2c), alongside phase-dependent Poisson overlap terms; none of the inspected exact statements combines these ingredients for a translated grid pair."
+        ],
+        "reasoning": "General void probabilities, finite dependence and de-Poissonization supply proof tools, not a stated or immediate one-parameter specialization that includes phase geometry, the independence boundary, and the phase kernel. The new content is their exact consequences in the specific shared-grid problem, not these general tools.",
+        "searches": [
+          "Direct comparison of Scott and Barbour–Gnedin to the two-grid overlap geometry and fixed-size multivariate correction; compare exact same-sample catalogue covariances"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scott's ASH construction averages histograms with the same width and different origins. The closest nonempty-bin passage concerns the number of operations in the fast implementation, not a law of the number of occupied bins.",
+          "The retrieved scan-statistics descriptions concern point counts in moving intervals or extremes of those counts, rather than the sum of all occupied-bin indicators from a translated partition."
+        ],
+        "reasoning": "These searches cover the natural histogram-origin, scan and vacancy/occupancy wordings, but the most relevant accessible passages refer to different statistics or targets. Inaccessible full texts are listed as unresolved rather than excluded.",
+        "searches": [
+          "Resultary: occupied bins under rotated equal partitions, same-sample shifted-grid occupancy and histogram dependence",
+          "Literature: averaged shifted histograms, overlapping occupancy and scan/moving-window CLTs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "65b25f57a4d7 concerns counts of first and second hits in a single occupancy scheme with one covariance sign change. 0606274d4166 concerns individual category occupancy indicators and their precision matrix in one scheme.",
+          "Same-day 054aa2852ed7 gives a cubic-load Poisson limit of adjacent tied counts in one fixed multinomial histogram. The exact topic catalogue top hit is the assigned record itself."
+        ],
+        "reasoning": "These exact formulas and limits do not encode the two-grid overlap parameter α or the phase dependence. This continuous phase/all-parameter claim is not settled by a numerical table, and no alternative exact law covering it was located in the inspected results.",
+        "searches": [
+          "Resultary: exact occupancy covariance, empty/occupied bin independence, phase grid rearrangement and histograms; records 65b25f57a4d7, 0606274d4166, 054aa2852ed7"
+        ]
+      },
+      "rationale": "The distinct contribution supported here is the exact two-grid covariance classification, including the only nontrivial independence exception, and its explicit phase-indexed finite-dimensional Gaussian covariance in the shared-sample fixed-size model. Shifted histograms, one-grid occupancy CLTs, and the bin-union moment and Poissonization methods are established; they are not claimed as discoveries. The gap formula is consistent with the standard void-length calculation and is not needed as an independent novelty claim.",
+      "residual_risks": [
+        "The full scan/moving-window papers identified above were not inspected. Broader overlooked occupancy-field results remain possible. Same-day dates do not establish priority and a self-hit is not independent evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family of grid shifts; risk and implementation results rather than the occupied-bin phase law",
+          "evidence": [
+            "Defines averaging shifted histograms; the nonempty-bin count sets computational workload in the inspected passage."
+          ],
+          "identifier_or_url": "https://www.stat.cmu.edu/~rnugent/PCMI2016/papers/ScottASH.pdf",
+          "material_read": "Opening page, journal p. 1024 / offset 0; fast ASH nonempty-bin passage at PDF p. 13 / OA offset 38758",
+          "method": "OA primary PDF passages",
+          "title": "Averaged Shifted Histograms: Effective Nonparametric Density Estimators in Several Dimensions",
+          "trigger": "Same equal-width translated grid and explicit nonempty-bin wording"
+        },
+        {
+          "assessment": "A joint CLT for load-frequency counts in one allocation scheme, not translated partitions of the same sample",
+          "evidence": [
+            "Counts boxes with prescribed ball counts r_i under fixed p_j and gives multivariate normal approximation with variance hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0809.4387v1",
+          "material_read": "Abstract and Introduction, offsets 731 and 2414",
+          "method": "OA primary text passages",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Closest primary multivariate occupancy CLT cited for methodological overlap"
+        },
+        {
+          "assessment": "Different observable, single allocation, cubic rather than proportional regime",
+          "evidence": [
+            "Tied adjacent bin counts and a Poisson point-process limit; no shifted grids."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-cubic-sample-poisson-transition-for-flat-edges-in-multinomial--054aa2852ed7",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Exact local-mirror passage",
+          "title": "A cubic-sample Poisson transition for flat edges in multinomial histograms",
+          "trigger": "Strongest distinct same-day histogram hit"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; snippet is not a noncoverage verdict",
+          "evidence": [
+            "Available description concerns extrema of point counts in moving intervals."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/2287786",
+          "material_read": "Result description and landing page only; full text unavailable in inspected route",
+          "method": "Literature lookup and lawful OA attempt",
+          "title": "Approximations for Distributions of Scan Statistics",
+          "trigger": "Plausible comparison using moving windows of a point sample"
+        },
+        {
+          "assessment": "Full text not assessed; possible methodological overlap only",
+          "evidence": [
+            "Available description refers to dependent moving-window variables and scan applications."
+          ],
+          "identifier_or_url": "10.1007/s41980-021-00675-8",
+          "material_read": "Search description only; lawful publisher/OA routes returned timeouts or redirects",
+          "method": "Literature lookup and lawful OA attempts",
+          "title": "Limit Theorems for a Correlated Moving Window Model",
+          "trigger": "Plausible broader overlapping moving-window limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finite covariance and independence results, Gaussian phase kernel and phase-average variance",
+        "Closest shifted-histogram and ordinary occupancy comparisons"
+      ],
+      "rationale": "The dependence of the represented-category count on bin origin is a natural robustness question when a histogram reuses one point sample. A sharp minimum, an exact independence boundary, and a multi-phase limit give information unobtainable from the single-phase count. The zero mode also gives how much phase averaging suppresses variance at proportional load. The claim is exact in natural parameters and does not require unsupported density-estimation or process-level conclusions.",
+      "residual_risks": [
+        "Positive covariance alone does not imply association. No nonuniform-grid or functional-tightness claim is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

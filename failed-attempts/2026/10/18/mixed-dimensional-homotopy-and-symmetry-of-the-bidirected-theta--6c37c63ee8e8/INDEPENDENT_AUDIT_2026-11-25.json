@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:01.984483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–61",
+        "VERIFICATION.md lines 19–27",
+        "CHECK.py (inspected, not executed)",
+        "CHECK_OUTPUT.json (recorded evidence)",
+        "/workspace/review_evidence/2-check.py"
+      ],
+      "rationale": "Independently enumerated path forests by cutting permutations of the five vertices into directed paths; every such forest appears in some ordering, and only available arcs were accepted. This yields the stated 114 nonempty faces. Reconstructed the specified 53 matching pairs, the 276 oriented Hasse incidences, and acyclicity by depth-first topological sorting. Integral elimination of matched edge-triangle incidences gives zero for all six critical degree-two attaching degrees. Discrete Morse theory gives a CW complex with one vertex, one loop, and six two-cells; each attaching map to the one-loop skeleton has degree zero and is null, giving the claimed integral homotopy type. For the action, an independent rational chain calculation used a different spanning tree and solved all triangle relations on chord coordinates to extract the H^1 functional; its pairing gives the H_1 trace on all 24 actions. Signed fixed-face counts then determine the H_2 trace. The traces agree in every class with the record, and the modules split over Q as stated. Replay: python3 /workspace/review_evidence/2-check.py.",
+      "residual_risks": [
+        "The homotopy equivalence is not equivariant, and the character calculation supplies rational modules only, not a decomposition of integral lattices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "319757da6952 gives the negative reduced Lefschetz character for S_n times D_8 for all n, including the subgroup of the two order-two actions in the frozen result.",
+          "The matching theorem requiring no oriented cycles does not apply, and the classic cycle-free chessboard and bidirectional path/polygon results do not state either theta invariant."
+        ],
+        "reasoning": "The relevant broader coverage is the dihedral theorem, not general matching-complex terminology; the otherwise missing degree information is supplied independently by 027fb88d517d at n=3.",
+        "searches": [
+          "Resultary: equivariant Euler character of bidirected complete bipartite multipath complexes",
+          "Resultary ID 319757da6952",
+          "arXiv:2401.01248 Theorem 4.20; arXiv:0710.5252 Theorem 10; arXiv:2601.05670v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs 027fb88d517d, 319757da6952, b0985f6c19bb and fd1e47c9eb99",
+        "arXiv:2208.04656",
+        "arXiv:2401.01248",
+        "arXiv:0710.5252",
+        "arXiv:2601.05670v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the dihedral notation a=(alpha delta), b=(beta gamma), s=(alpha beta)(gamma delta), the hub swap is s, reversal is ab s (conjugate to s), and their product is ab. For branch classes identity, transposition and 3-cycle, the displayed dihedral formulas restrict to L=(-5,-1,1) at eta=+1 and L=(1,-3,1) at eta=-1, using their sign convention L=chi_1-chi_2.",
+          "Expanding these numbers in irreducible characters gives L=sgn-(1+Std)-eta(sgn+Std), with one positive multiplicity, namely +1 for the inflated branch sign. The exact indexed homotopy type fixes dim H_1=1 and homology support in degrees 1 and 2."
+        ],
+        "reasoning": "The only way to realize that virtual character with a one-dimensional actual H_1 and a nonnegative actual H_2 is H_1=sgn: otherwise the positive sign coefficient could not occur. Subtraction then gives exactly H_2=(1+Std)+eta(sgn+Std). The two indexed statements jointly imply the full frozen claim.",
+        "searches": [
+          "Resultary 319757da6952 Finding and arc-type definitions",
+          "Resultary 027fb88d517d Finding at n=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "027fb88d517d states X_3=S^1 wedge six S^2 for the identical bidirected K_{2,3} arc-set complex.",
+          "The one-way alternating complete bipartite comparison in arXiv:2208.04656 is a chessboard/matching complex, not the same arc set."
+        ],
+        "reasoning": "Directed path systems are identical in the two indexed statements, including the prohibition on directed cycles; substituting n=3 is exact. A one-way graph or the Morse complex of vertex-edge pairs is not equivalent.",
+        "searches": [
+          "Resultary: bidirected theta K_{2,3}, arc-set multipath complex, mixed-dimensional homotopy",
+          "Resultary ID 027fb88d517d",
+          "arXiv:2208.04656, Definition 2.7, Proposition 2.8 and Theorem 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 027fb88d517d lists the exact n=3 wedge among n=3 to 6. The 1 November b0985f6c19bb lists the same n=3 case in its n=3 to 8 result."
+        ],
+        "reasoning": "These are explicit integral equivalences for the same complex, not numerical Betti table matches. The same-day catalogue date supplies no relative ordering.",
+        "searches": [
+          "Resultary: exact integral multipath homotopy for fully bidirected K_{2,n}",
+          "Resultary IDs 027fb88d517d and b0985f6c19bb"
+        ]
+      },
+      "rationale": "The integral homotopy type is stated exactly in distinct indexed findings. Combining that degree concentration with the broader indexed dihedral virtual character forces both claimed degreewise modules, not just their alternating sum. Thus the purported additional character result leaves no uncovered assertion in the frozen finding. This is mathematical coverage; it does not establish chronological priority.",
+      "residual_risks": [
+        "No finer chronology or dependency of the catalogue records was established; the disposition is based on exact statement-level implication, not a priority judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical n=3 homotopy claim",
+          "evidence": "Both have all four arcs at each leaf and the statement X_3 is a circle wedged with six 2-spheres.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-moore-space-summands-in-bidirected-complete-bipartite-multipath--027fb88d517d/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof (offsets 0–2600)",
+          "method": "Configured local mirror, exact statement",
+          "title": "Moore-space summands in bidirected complete-bipartite multipath complexes",
+          "trigger": "Exact indexed homotopy overlap"
+        },
+        {
+          "assessment": "Jointly with the indexed homotopy result determines every frozen character",
+          "evidence": "The five negative reduced Lefschetz class formulas include 1, ab, and s; the frozen subgroup uses precisely those classes. The unique positive irreducible multiplicity forces the degree-one module.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-hidden-dihedral-symmetry-and-universal-equivariant-euler-charact--319757da6952/RESULT.md",
+          "material_read": "Finding, arc-type labels and proof §§1–4 (offsets 0–6513)",
+          "method": "Configured local mirror, exact formulas and subgroup comparison",
+          "title": "Hidden dihedral symmetry and universal equivariant Euler characters of bidirected bipartite multipath complexes",
+          "trigger": "Broader equivariant character for same complex"
+        },
+        {
+          "assessment": "Requires alternating, one-way orientation in the relevant application",
+          "evidence": "The matching comparison and Euler calculation are not for the graph with both directed arcs per edge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+          "material_read": "Definition 2.7, Proposition 2.8, §3.2 and Theorem 3.7, pp. 4 and 6–7",
+          "method": "Open-access PDF passage inspection",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Matching-complex descriptions of complete bipartite multipaths"
+        },
+        {
+          "assessment": "Different host graph and conclusions",
+          "evidence": "Complete directed host and connectivity estimates, not the fully bidirected bipartite theta decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.5252",
+          "material_read": "Definition on p. 5 and Theorem 10 on p. 10",
+          "method": "Open-access PDF passage inspection",
+          "title": "Cycle-free chessboard complexes and symmetric homology of algebras",
+          "trigger": "Cycle-free formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–35 and 41–69",
+        "Resultary IDs 027fb88d517d and 319757da6952"
+      ],
+      "rationale": "The smallest simple bipartite theta and its natural branch-symmetry action are well motivated, and mixed homology would be useful as a base case. Here the wedge type already appears as that base case and both degreewise characters follow by elementary decomposition of the indexed virtual character. The frozen finite certificate provides another calculation, but the finding proves no further invariant or structural result beyond this covered case.",
+      "residual_risks": [
+        "This judgment does not rule out separate value for a new integral lattice or equivariant homotopy result; neither is claimed or proved in the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

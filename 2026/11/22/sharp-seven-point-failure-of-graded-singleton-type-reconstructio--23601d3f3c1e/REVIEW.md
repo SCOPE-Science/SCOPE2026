@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite seven-element classification is exhaustive because the recursion adjoining a new maximal element over an arbitrary old ideal spans every finite poset by induction, and the deduplication signature examines every degree-compatible vertex bijection. The two separately implemented polynomial evaluators, a direct ideal/filter-pair enumeration and an independent order-ideal traversal of the doubled poset, agree for all \(2045\) seven-element classes and every smaller class. Exactly six pairs have duplicate full rank vectors; the supplied cover-list certificate reproduces those pairs. The all-size type-to-doubled-ideal correspondence is proved independently of the finite census.
+## correctness
 
-**Originality — PASS, provisional.** The type lattice and ideal/filter correspondence are existing results and are not novelty claims. Relevant published work on general one-type complexity, rectangular-grid totals, ordered-poset degree-profile collisions and locally transitive tournament score collisions has been compared by statements and mechanisms. None of those inspected full results contains or directly implies the specific full-poset graded type polynomial classification through seven points. General poset doppelgänger work uses a different order polynomial. An unindexed finite-type or poset-ideal table could still contain this classification, so independent historical assessment remains necessary.
+PASS
 
-**Mathematical value — PASS.** The invariant grades every realizable one-point extension by its natural location in the possibility-order lattice. The exact transition from perfect reconstruction through six to exactly six failure pairs at seven is a natural finite obstruction for a strictly stronger invariant than the scalar type count. The paired complete rank profiles and exhaustive small-order classification expose precisely which logical type data lose reconstructive information. The bivariate type profile still distinguishes all 2,045 seven-element classes, so the precise seven-point failure isolates information lost by collapsing two natural coordinates into their lattice rank.
+Homogeneity and the generic extension property identify complete nonalgebraic types with admissible cuts: L a lower ideal, U an upper filter, and L×U contained in the strict order. These conditions are sufficient by transitivity, and placing one new point below a second is consistent exactly with growing L and shrinking U. In D(P), q⁰<p¹ for p not strictly below q is stable under composing either within-copy relation; no return cross-arrows are allowed. Its ideal consisting of P\U in copy 0 and L in copy 1 is therefore exactly the corresponding cut. Every cover of ideals adds one point, proving the stated rank and grading. Independent review-work/census.py posets 7 enumerates all naturally labeled orders without early isomorphism pruning (96,428 at seven), by adding a maximal point over an ideal; any poset admits a topological labeling. Exact degree-group permutations quotient each invariant fiber. As a separate type-count route, exhaustive three-color assignments on each representative use antitone colors 2,1,0 across comparable pairs and forbid incomparable pairs colored 2 and 0, tallying the rank as their sum. It recovered 1,1,2,5,16,63,318,2045 classes at orders zero to seven, injectivity through six, 2,039 ranks at seven with precisely six doubletons and 2,045 distinct bivariate profiles. The complete six cover-pair certificates were matched via transitive closure and exact isomorphism; the displayed first rank vector sums to 68. See review-work/posets.txt. There is no inference about larger orders or equality of full type lattices.
 
-**Scope and limits.** The result is not a general reconstruction theorem for arbitrary order, does not claim full type-lattice collisions and does not newly establish the already known lattice operations. Finite exhaustive verification is appropriate because the final classification is strictly finite. Source-access and historical-priority risks are detailed in the structured audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Assess only the exact graded-rank census and the earlier loss of reconstruction on collapsing the bivariate profile, not the known cut/type lattice, the bivariate injectivity result by itself, or the classical ideal lattice correspondence. The retrieved strongest distinct related statement does not establish the six compressed-rank fibers. A comprehensive previously published coefficient table would materially change that comparison; this remains a stated access risk, not evidence either way.
+
+## value
+
+PASS
+
+Lattice rank is a canonical compression of one-point extension data, not a selected ad hoc score. It was natural to ask whether it loses reconstructive power before the bivariate invariant. The complete six-fiber exception list answers precisely where and how that happens; both the absence of earlier failures and the limited multiplicities could matter to later reconstruction work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

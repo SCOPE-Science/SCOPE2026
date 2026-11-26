@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The update matrix follows exactly from the declared primal-first, unit-extrapolation recurrence. Its eigenvalues lie strictly in the open unit disk for every individually permitted step product. Direct matrix multiplication gives the full-period trace and determinant. All degree-two Jury inequalities are reduced analytically, with the only potentially failing inequality equal to a quadratic polynomial. Its discriminant, double-zero threshold, admissible roots, endpoint crossing and strict/marginal/unstable classifications are explicitly proved. The rational witness is independently checked. The included verifier passed 1,941 exact symbolic/rational comparisons; none is treated as an exhaustive infinite proof.
+## correctness
 
-## Originality
-PASS on inspected evidence, subject to a material bibliographic risk. Goldstein et al. already explicitly assert that nonconstant PDHG steps may destroy convergence despite safe products; that qualitative observation is acknowledged, not claimed. Wang–Lan–Ye analyze nonstationary steps under summable variation and a different extrapolation rule for the convergence theorem. Published constant-step scalar classifications optimize a single matrix; they do not imply the noncommuting two-matrix stability boundary. No covering formula for the exact universal jump threshold and full two-parameter phase diagram was found in the inspected primary papers, published mathematical records and accessible same-slot claims. An earlier switched-systems computation could contain the equivalent quadratic; novelty remains provisional without independent review.
+PASS
 
-## Value
-PASS. The exact universal threshold and two-dimensional parameter classification resolve a concrete design question: how far reciprocal primal-dual steps may alternate before the usual pointwise sufficient product condition ceases to ensure stability. The distinction between individually Schur-stable phases and unstable periodic composition is relevant to adaptive-solver safeguards and illustrates why boundedness and control of parameter variation enter convergence theorems. The result is naturally complete for the bilinear two-cycle model rather than an arbitrary numerical example.
+Reconstructed the map from the coordinate updates in RESULT.md lines 23–46. A single step has trace 2(1−r), determinant 1−r and discriminant −4r(1−r). The two-step map has trace 2−4r+4r²−rU and determinant (1−r)². In its real monic quadratic the Schur expressions 1−det and p(1) are strictly positive, respectively r(2−r) and r(U+2−3r); p(−1) is F_U(r). A zero of p(−1) yields distinct multipliers −1 and −(1−r)². If p(−1)<0 there is one root below −1 and a stable complementary eigenline. The intervening phase is fixed and invertible, so the convergence and generic growth conclusions extend to the full trajectory. Independently minimizing the boundary U=5r−6+4/r gives its unique minimum 4√5−6 at the interior r=2/√5; only this r is marginal at q=q*. The quadratic roots are positive, F_U(1)=3−U, and the vertex for U*<U≤3 lies inside (0,1); this recovers all root/interval cases. Phase reversal gives similar products. Exact multiplication at (r,q,t)=(4/5,3,4/5) gives P entries (−7/5,16/25;−4/15,7/75) and p(−1)=−4/15. The exact identities above and RESULT.md lines 30–60 are replay paths. Inspected VERIFICATION.md and verify.py (not executed); the recorded 1,941 checks supplement, not prove, the continuum result. Scope is the declared scalar bilinear, primal-first, fixed-unit-extrapolation, two-periodic schedule in exact arithmetic.
 
-## Closest literature and limitations
-Wang–Lan–Ye (arXiv:2402.00311v1), Goldstein et al. (arXiv:1305.0546v2), Lorenz–Tran-Dinh (arXiv:1801.03765), and the published constant-step scalar PDHG classification were compared. This is a predetermined periodic, unit-extrapolation test, not an execution of the convergence-assured tuning-free algorithm; conclusions do not extend to general switching or nonlinear problems. Equivalent historical statements and independent scientific priority remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior qualitative warning and general Schur tools are not new. The inspected primary sources and corpus comparators did not cover the particular two-parameter frontier and its sharp global contrast cutoff for the declared update. This is a bounded statement-level judgment, not a priority certification.
+
+## value
+
+PASS
+
+Reciprocal step balancing keeps the usual product constraint fixed while changing the primal–dual scales. The exact interior most vulnerable product and sharp uniform contrast cutoff quantify when that operation is safe, and separate marginal from unstable trajectories. This adds information beyond a numerical witness or the prior qualitative warning; no extension to adaptive or arbitrary switching is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

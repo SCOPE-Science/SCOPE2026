@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-point resolvent of the independent-coordinate-flip process gives the unreset hitting-time Laplace transform; the standard renewal calculation then gives the complete mean reset-hitting-time formula. Compact convergence on rates proportional to dimension is proved with dominated convergence, while two separate nonasymptotic inequalities rule out **both** degenerate rate regimes for global minimizers. The fixed-distance assumption, total jump-rate normalization, the unreset endpoint, and the quantifier covering **every** global minimizer are checked in the written proof. A standard-library script independently compares the tridiagonal birth–death equations with the coordinate-product integral and checks numerical optimizer trends; 45 comparisons passed. Computation verifies examples but the infinite assertion is established by the analytic estimates.
+PASS
 
-## Originality — PASS on examined evidence, not independently certified
+The finite reset identity follows by first-hit splitting of the product-chain resolvent, followed by renewal at the independent reset clock. With u=dt and r=cd, the two kernels, after multiplying by d and d^(k+1), tend respectively to exp(-(1+c)u) and u^k exp(-(1+c)u); the same dominating functions using the minimum c in a compact positive interval give uniformity. The scaled objective tends to (1+c)^k/(k!c), whose log derivative has only the zero c=1/(k-1). Rechecking the boundary estimates: on t<=1/minimum scale as used in the proof (t<=1/d for r<=d, t<=1/r for r>=d) the numerator kernel is bounded below by an absolute positive number. For the low-rate denominator, use q(t)<=exp(-t/2) on [0,1], tanh(t)<=t, and q^d<=q(1)^d thereafter. This yields divergence of the normalized mean when r/d tends to zero; the high-rate bound from the kth power t^k gives divergence when r/d tends to infinity. The lower bounds and a fixed positive scaled trial value prove compactness of every sequence of optimizers, not just local stationarity. An independent zero-rate check is to set Δ_j=M_{d,j}(0)-M_{d,j-1}(0). Its backward equation gives jΔ_j-(d-j)Δ_{j+1}=1 and thus Δ_j=sum_{i=j}^d binom(d,i)/(j binom(d,j)); Δ_1 dominates the fixed-k sum. Finite irreducibility gives the zero-rate renewal limit, and the large-r bound implies existence by continuity. Replay: frozen RESULT.md lines 26–94 and verify.py (read, not executed); the script's two numerical finite methods are not a proof of asymptotic optimality. No claim for growing k or non-Poisson policies.
 
-Janson–Peres (arXiv:1005.4275) develop state-dependent restart grades on infinite Euclidean lattices. Evans–Majumdar (arXiv:1102.2704 and 1107.4225) establish Poisson restarting and optimize Brownian first passage. Dharmaraja et al. (arXiv:2103.10984; journal 2015) study Ehrenfest catastrophes that return **directly to zero**, and thus a different first-passage mechanism. These results contain ingredients but do not state or imply the rare-corner fixed-distance **hypercube** Poisson optimization. Actual published-result searches and related primary literature were compared for reset aliases and implications. Residual risk: an unindexed exact special case may be in the literature; this is not independent historical certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result identifies the sharp crossover from exponential unaided hitting times to a polynomial optimized search with a nontrivial coefficient and rate law, for a natural high-dimensional physical configuration graph. It solves a complete infinite-family optimization with universal fixed-Hamming-distance constants. No claim about arbitrary restart strategies or growing starting distance is made.
+Reset renewal and Ehrenfest dynamics are prior, but the checked time/distance normalizations and theorem scopes did not cover the fixed-distance corner mean and all-minimizer limits.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural local-start/rare-target benchmark for resetting: the optimal clock and exact leading mean quantify an exponential-to-polynomial change. Two-sided rate control makes this a global optimization result, not just a tuned heuristic. Both constants depend on the stated coordinate clock and on fixed Hamming distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The six-\(I_2\) Weierstrass normal form and separation of the six difference roots are given in Ciliberto–Grassi–Miranda–Verra–Zanardini, Section 2.4. Taking the ratio of two coprime binary quadratics yields a double cover of \(\mathbb P^1\) unramified at \(0,1,\infty\). The Legendre invariant and its local ramification show that the Belyi constraint is exactly a choice of two among five branch values. Classification of degree-two covers and the anharmonic \(S_3\) action prove three classes; a twist maintaining precisely six \(I_2\) fibres must be trivial. Exact symbolic computations establish representatives, discriminant factorization, passports and Riemann–Hurwitz. Main scope restriction: only zero-section-preserving fibration isomorphisms over \(\mathbb C\).
+## correctness
 
-## Originality
-PASS under the inspected literature and accessible-history comparisons, with residual priority risk. The 2026 primary paper provides the two-dimensional Weierstrass family but not the three Belyi classes or ramification passports. A previous algebraic-geometric finding identifies a degree-15 Hermite/Humbert condition on the six unordered singular-fibre parameters; that classification does not constrain critical values of the \(j\)-map. Another previous finding classifies degree-four \(j\)-map monodromy for the different mixed \((4,2)\) fibre case. Beukers–Montanus discuss degree-24 K3 Belyi maps, not the degree-12 rational case. An unindexed or implicitly equivalent older dessins classification remains possible; the accessible Beukers–Montanus introduction was inspected, not the entire chapter.
+PASS
 
-## Mathematical value
-PASS. The Belyi condition is intrinsic to the elliptic fibration and its canonical \(j\)-map, and selects a natural arithmetic-combinatorial special sublocus of the newly parameterized two-dimensional six-\(I_2\) moduli family. Its complete finite classification and three distinct dessins/ramification passports provide exact invariants not given by the existing fibre-type and moduli classifications.
+The split quadratic-root normal form from Ciliberto et al. yields a degree-two lambda=N/D unramified above 0,1,infinity: the zeros of D,N,D-N are reduced and disjoint. Conversely the associated model for every such lambda has precisely six transverse root collisions, hence six I2 fibres (also at infinity when relevant, by homogeneous divisors), and chi=1 with a section gives rationality. For the degree-six Legendre J, the indices are 3 at eta_± and 2 at each harmonic point and each pole; these exhaust its Riemann–Hurwitz sum of 10. The chain rule then makes Belyi equivalent to the two distinct branch values of lambda lying in the five allowed non-pole points. For each unordered branch pair there is one quadratic cover modulo source automorphism. The anharmonic group acts as S3 on harmonic points and by sign on the two eta values; in particular the stabilizer of a harmonic point swaps the eta values, proving the one mixed orbit. The three pair types therefore suffice. The generic j is nonconstant; equal j after a base change gives at most a quadratic twist. An odd valuation gives I0* or I2* from a smooth fibre or an I2 respectively, so the twist preserving six I2 and no other singular fibres has even valuations, and is square in C(t). Minimal regular models then give the required zero-preserving isomorphism. For the chosen N and D the critical values are u,v; each chosen eta merges its contribution (3,3) to 6, each chosen harmonic value merges (2,2) to 4, and the poles stay 2^6. The three passports differ and each contributes total ramification 22. This is a composition of j-functions, not an assertion that the raw untwisted Legendre base change has the required fibre types.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported claim is the complete degree-twelve Belyi locus in the six-I2 fibration family with models and passports. The normal form and the Legendre quotient are prior ingredients. The classification adds the quadratic branch restriction and orbit calculation and connects the maps to uniquely admissible elliptic fibrations; it does not claim new general theory of Belyi maps.
+
+## value
+
+PASS
+
+The Belyi condition picks a naturally motivated finite sublocus of a known positive-dimensional six-I2 family. Counting it up to actual fibration isomorphism, giving models, and separating the three types by local ramification goes beyond exhibiting sample maps or identifying the ambient normal form. It provides a usable classification in both elliptic-surface and dessin terms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

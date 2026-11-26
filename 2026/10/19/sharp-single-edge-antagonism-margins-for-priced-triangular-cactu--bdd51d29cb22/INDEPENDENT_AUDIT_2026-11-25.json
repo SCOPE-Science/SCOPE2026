@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:48:31.240364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Congruence on 1-perp reduces the attacked Laplacian to I minus a rank-one term, with altered eigenvalue 1-delta R_e. Thus the single-edge threshold is a supremum, not strict stability at equality. Candidate edges with zero nominal conductance still have well-defined nonzero incidence vectors and finite resistance. Resistance in a block is unchanged by the outside branches of the block-cut tree, since the endpoint drive has a constant harmonic extension into each such branch. Independently minimizing cost at unit worst resistance gives the full result: equalizing spokes at fixed sum and backup is strict for unequal spokes because the common denominator increases and the maximum numerator cannot increase. For equal spokes a, the least backup b is a(1-a)/(2a-1) on 1/2<a<=2/3, 1-a/2 on 2/3<=a<=2, and zero thereafter. With y=2a-1, the first cost is 1+(1-t/4)y+t/(4y); the minimizing stationary point fits exactly for t<2/5. The middle cost is linear with slope 2-t/2, explaining the whole interval at t=4, and the third cost increases. The verified costs and equality cases are those claimed. By homogeneity each block has its own necessary lower budget at the same resistance cap; equality in the sum requires every block to saturate. Analytic replay: reviews/evidence/cactus_cost.md. The supporting finite tests were inspected, not run, and are not required by the proof. In the frozen sentence about t>4, the combined piecewise objective has its sole minimum at zero; the second branch on its own minimizes at r=1, not at zero. This wording does not affect the global result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Infinite Lewis weights address the unit-budget fixed-graph maximum over edge-endpoint resistances; the literature also has general convex formulations of all-vertex-pair maximum resistance.",
+          "A feasible-optimization or SDP formulation with costs does not itself give a closed-form minimum and all optimizers."
+        ],
+        "reasoning": "Absorbing costs into the incidence rows changes the corresponding edge quadratic measurements if the same scaled rows are used for both the Laplacian and the objective; the inspected unpriced result does not immediately give this priced task's stated optimizer classification.",
+        "searches": [
+          "Suliman and Weinstein arXiv:2302.05966, ERMP and maximum edge-resistance result",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, maximum-resistance SDP"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/18/SCOPE-an-equal-conductance-plateau-in-worst-outage-resistance-design-o--0e2a6b59a0bc",
+        "arXiv:1408.2187v1",
+        "Ghosh–Boyd–Saberi proceedings OA PDF",
+        "arXiv:2302.05966",
+        "arXiv:2610.03627v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signed stability theorem supplies 1/R but does not select conductances. The unpriced edge-endpoint analysis does not state which constraints bind when only one price changes or which allocations tie at price four.",
+          "The even-cycle objective is an all-pairs resistance sum after an outage, not the Schur-complement threshold for perturbing one edge."
+        ],
+        "reasoning": "The reviewed contribution is the explicit priced triangle frontier, including the complete continuum of optima and all-block equality cases; the inspected reductions and design formulations do not mechanically supply it.",
+        "searches": [
+          "Compare arXiv:1408.2187 Thm. III.3 and arXiv:2302.05966 against the candidate-edge priced classification",
+          "Compare Resultary 2026/10/18/SCOPE-an-equal-conductance-plateau-in-worst-outage-resistance-design-o--0e2a6b59a0bc full claim against the block problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With the selected edge removed from the positive graph, Theorem III.3 compares the residual negative weight to the inverse effective resistance across its endpoints. Adding back the nominal conductance adds w_e to that effective conductance when there is an alternate path; a nominal bridge is covered directly by rank-one positivity.",
+          "The closest indexed robust-design plateau is an even-cycle worst complete-outage result."
+        ],
+        "reasoning": "The resistance conversion is known. Complete outage evaluates redesigned graph response to a fixed edge deletion; the frozen task maximizes a subtractive threshold over all candidate locations and tests strict stability, a different design objective.",
+        "searches": [
+          "Zelazo and Bürger, arXiv:1408.2187 Theorem III.3; signed Laplacian and single negative edge",
+          "Resultary semantic lookups for single-edge antagonism and priced triangular cactus minimax reweighting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tovar et al. give an exact same-price-pattern deletion comparison at t=3 for mean pairwise resistance.",
+          "The indexed even-cycle outage record gives exact thresholds 2(m^2-1)/(2m^2+1) and its inverse, with all edges active; the metric is the worst post-outage all-pairs sum."
+        ],
+        "reasoning": "Neither exact result tabulates the worst-edge signed threshold function. A different exact deletion or equidistribution threshold under a different objective does not cover t=2/5 or t=4 here.",
+        "searches": [
+          "Resultary lookup for priced triangular networks and equal-conductance robust resistance plateaus",
+          "Tovar et al. arXiv:2610.03627v1 priced triangle at alpha=1"
+        ]
+      },
+      "rationale": "The resistance stability criterion and fixed-graph edge-max reweighting objective have prior coverage. No inspected source covers the specific continuous priced triangular-cactus block law, both thresholds and all optimizer faces with zero-conductance candidate edges retained. The strongest indexed robust-resistance analogue uses complete outage and an all-pairs sum on an alternating-price even cycle, so neither its plateau nor its optimal design implies this one. This judgment is limited to the exact priced classification, not the general method or objective.",
+      "residual_risks": [
+        "The uncited triangular-bouquet all-pairs comparison mentioned in the frozen record was not identified; the available description is a different objective.",
+        "Ranked catalogue searches and inspected literature do not rule out an equivalent weighted experimental-design statement elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rank-one stability criterion, not the priced optimization",
+          "evidence": "Positive semidefiniteness iff the single negative magnitude does not exceed inverse resistance on the positive network.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.2187",
+          "material_read": "Theorem III.3, PDF p. 4, OA offsets 19787–22565",
+          "method": "OA paper passage",
+          "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+          "trigger": "Exact signed-edge stability antecedent"
+        },
+        {
+          "assessment": "Different exact objective; general convex framework only",
+          "evidence": "All-pair sum studied; maximum over all vertex pairs noted as SDP-capable.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Proceedings PDF p. 11, OA offsets 79991–82455",
+          "method": "OA paper passage",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General resistance design and minimax precedent"
+        },
+        {
+          "assessment": "Direct objective-level precedent; no inspected statement of the priced cactus optimizer",
+          "evidence": "Discusses the Kirchhoff-index problem and separately uses infinity Lewis weights to minimize maximum resistance on graph edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05966",
+          "material_read": "PDF pp. 4–5, OA offsets 13701–14994 and 17600–22158",
+          "method": "OA paper passages",
+          "title": "Infinite Lewis Weights in Spectral Graph Theory",
+          "trigger": "Same maximum edge-endpoint resistance objective at unit budget"
+        },
+        {
+          "assessment": "Different functional; not the worst-candidate-edge threshold",
+          "evidence": "At linear resource cost the backup closes at price three for mean pairwise resistance.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+          "material_read": "PDF pp. 1, 3; triangle passage OA offsets 22375–25610",
+          "method": "OA paper passages",
+          "title": "Cost convexity controls the architecture of resistance-optimal networks",
+          "trigger": "Exact linear-priced triangle with two equal-cost spokes"
+        },
+        {
+          "assessment": "Related but different topology, single event, objective and thresholds",
+          "evidence": "Alternating-price even cycle minimizes the worst all-pairs resistance sum after complete outage; all edges positive at its unique design optimum.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-equal-conductance-plateau-in-worst-outage-resistance-design-o--0e2a6b59a0bc",
+          "material_read": "Mirrored RESULT.md offsets 0–7167",
+          "method": "Local Resultary semantic search and mirrored full-statement inspection",
+          "title": "An equal-conductance plateau in worst-outage resistance design",
+          "trigger": "Closest indexed price-dependent resistance robustness plateau"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact resource design law for a natural stability diagnostic rather than an example at chosen prices. It resolves when optimal designs delete an edge that is still vulnerable to subtraction, explains a full equal-design interval even under unequal prices, and identifies exactly when the optimum stops being unique. Block locality turns those distinctions into an explicit allocation for arbitrary triangular cacti under the stated budget model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

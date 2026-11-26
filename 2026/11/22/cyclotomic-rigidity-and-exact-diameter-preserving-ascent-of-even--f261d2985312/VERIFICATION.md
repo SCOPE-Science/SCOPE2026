@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of verification
+# Independent mathematical audit
 
-The analytic proof is self-contained in `RESULT.md`. Its critical points are the perpendicular displacement forced by equal antipodal edge lengths, cyclotomic closure, and the strict gap between a regular even polygon's antipodal and all other vertex distances.
+## correctness
 
-`checker.py` was executed with Python 3 and SymPy. It passed 24 symbolic cyclotomic-divisibility tests and 24 floating-point convex small-polygon realizations for orders 6 through 70 as enumerated by the script. It also checked the exact dyadic cyclotomic identity at orders 4, 8, 16, 32, 64. The tests are finite examples and do not themselves establish the infinite-order classification. The proof does not establish any unrestricted local maximality for dyadic polygons, any large-displacement feasibility, or historical uniqueness among all mathematics publications.
+PASS
 
-Independent audit: not performed.
+For every j including the half-period seam, the antipodal edge pair consists of a_j+d_j and -a_j+d_j. Equality forces Re(conj(a_j)d_j)=0; equality across pairs then forces the same |d_j|=t. At t=0 this is a translation, while at t>0 the perpendicular differences are exactly the signed choice in the Finding. They integrate to a periodic c if and only if their sum is zero. For m a power of two, Phi_{2m}=x^m+1 is the minimal polynomial, too large in degree to divide a nonzero sign polynomial of length m; this includes n=4. Otherwise write m=qd for odd d>1. In the proposed block signs, -zeta^q is a nontrivial d-th root and its geometric sum is zero. This proves the classification and existence for all stated n, not only sampled orders. For geometry near t=0, all oriented edge/other-vertex determinants are strictly positive at the regular polygon, so their simultaneous positivity persists and all ordered edges bound its strictly convex hull; this is a global convexity justification, not just a check of local turns. The shifts are O_n(t) and all nonopposite vertex distances retain the strict gap below one from cos(pi/n); the fixed antipodal vectors have length one and vertex distances determine the hull's diameter. Pythagoras gives the exact common side length; Taylor expansion gives the stated quadratic gain. The global classification is algebraic only, and power-of-two rigidity fixes labeled vectors rather than merely their lengths. Proof replay is given by these identities; the frozen checker was inspected, not executed, and finite tests are not needed for the universal proof.
+
+## originality
+
+PASS
+
+Earlier work covers global odd-factor perimeter optimization and part of the local paired-vector existence claim: the regular radial-grid classification mechanically gives the ascent for n=2 mod 4. The distinct supported claims are the full equal-side classification for all paired translations, the restricted dyadic rigidity, and the paired-vector construction also when 4 divides n and n has an odd factor. These are not covered by the radial-grid slice, a first-order optimality criterion, or the global Reinhardt results in the inspected literature. No priority is claimed for the earlier slice.
+
+## value
+
+PASS
+
+Exactly freezing the original active diameter vectors defines a natural restricted nonlinear model at the regular even polygon. The complete equal-side parameterization and the correct restricted rigidity/ascent boundary tell when those constraints suffice to prevent a perimeter improvement, and give an exact feasible direction family when they do not. This is meaningful also for orders divisible by four, where the earlier radial witness cannot preserve the vectors. It does not claim unrestricted dyadic optimality or new global perimeter maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

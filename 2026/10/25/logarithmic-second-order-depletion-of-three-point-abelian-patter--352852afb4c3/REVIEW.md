@@ -1,11 +1,21 @@
-# Three-axis scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The necessary and sufficient finite-prefix criterion follows from contracting the sum-\(c\) matching and applying the published two-distance Toeplitz forest theorem; super-doubling extension turns the condition into one for first-three prefixes of infinite supports. The exact sum counts the permitted initial position. The cubic term is the volume of a rational polytope, and the logarithmic term is a classical totient-divisor sum. The boundary strip is controlled by dividing spacings by their gcd; the error remains \(O(N^2)\). Finite checks independently test the reduction and formula but are not treated as proof.
+## correctness
 
-**Originality — PASS under examined evidence; bibliographic priority remains uncertain.** The two-distance Toeplitz forest criterion is **already known** and is explicitly excluded from the originality claim. The 2026 symbolic equivalence is also prior knowledge. The separately published logarithmic support-envelope result is a statement about occurrence-position bounds, not the asymptotic enumeration of three-point prefixes. Searches for gcd-averaged triple enumeration, equivalent Toeplitz formulations, and broader asymptotic counts did not identify a source stating the \(N^2\log N\) depletion coefficient. The 2026 full text and parts of the 2013 full text were not accessible; this residual risk is stated rather than dismissed.
+PASS
 
-**Value — PASS.** The claim answers a natural statistical question about the class characterized by a recent symbolic theorem: among finite triples, exactly how prevalent is extendibility to an extremal infinite word? The leading proportion \(1/2\) alone does not detect the arithmetic obstruction, while the next-order logarithmic coefficient detects it sharply. The formula is uniform over all triples in a natural growing cutoff and has an exact finite counting version.
+Theorem E of Zeng–Xue–Zeng supplies the infinite forest characterization. The sum-c perfect matching contracts to the simple graph of distances A=c−a and B=c−b on c+1 vertices. Independently, on A+B vertices the two-distance graph is the union of gcd(A,B) cycles, obtained by stepping by A modulo A+B. Deleting the last gcd(A,B) vertices breaks all cycles since each lies in a different residue class, whereas deleting fewer leaves a full cycle. For larger vertex sets the graph still contains the original cycles. This proves the required cutoff and the strict arithmetic inequality. Strict doubling adds only disjoint new edges with fresh endpoints and cannot create a cycle, so the finite forest criterion is sufficient for an infinite support with exactly these first three positions. For gaps x=b−a, y=c−b, the allowable starts satisfy 0≤a≤N−x−y and a<y−gcd(x,y). Without the gcd term, set y=a+1+j and x=1+i; this gives 2a+i+j≤N−2 and leading volume 1/12. The gcd deficit is exact on x+2y≤N+1; outside this triangle the only nonzero deficit is in a strip of width gcd(x,y). Writing x=du,y=dv with d=gcd(x,y), each d gives at most one possible integer u+2v in the strip, yielding O(N²) in total. The main triangle has divisor-sum count Σφ(d)floor((floor((N+1)/d)−1)²/4) and leading term (N²/4)Σ_{d≤N}φ(d)/d², after truncating at d≤N. Möbius inversion gives (6/π²)log N+O(1) for this last sum, verifying the correction and the normalized proportion. Separately, bounded graph and count comparisons covered 969 triples with c≤18 and 22 cutoff values through N=23; these are checks of the finite reductions only.
 
-**Related literature and scope.** Zeng–Xue–Zeng (arXiv:2609.28059v1); *Bipartite finite Toeplitz graphs* (DOI 10.1016/j.dam.2013.05.020); published sharp logarithmic support envelope for Abelian pattern Sturmian words (2026). No longer prefixes, multiletter words or arbitrary sparse supports are classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the aggregate prefix count, in particular the explicit nonzero N² log N depletion with O(N²) remainder. The forest equivalence, the arithmetic admissibility test it yields and the totient estimates are not separately credited as new. The strongest inspected matching classification concerns a single prescribed triple, not the weighted loss in the population of triples.
+
+## value
+
+PASS
+
+Passing from a decision criterion for one prefix to the prevalence of extendible prefixes fills a natural counting gap. The limiting one-half density by itself misses an arithmetic bias larger than the usual quadratic counting remainder. Isolating its coefficient separates geometric volume from gcd depletion, a meaningful use of the exact criterion rather than just evaluating small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

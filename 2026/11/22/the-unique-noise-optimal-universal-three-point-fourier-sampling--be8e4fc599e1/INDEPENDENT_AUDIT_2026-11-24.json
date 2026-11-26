@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:00:24.410599Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited RESULT.md and SLOGAN.txt in repairs/4: the mathematically valid extremum is over supportwise restricted Fourier matrices. The frozen slogan's claim of recovery of every signal with unknown support from only three measurements is false if read as blind recovery. Indeed, any two different supports of a universal design have invertible maps onto the same C^3, and for generic measurements both inverse coefficient vectors have no zero entries. The replacements distinguish amplitude inversion on a supplied support from choosing the sample rows without knowing the support, and give the sharp worst noise amplification gamma(R)^(-1/2) for the former. The mathematics is unchanged: residue collisions yield a singular witness at columns {0,5,10}, and distinct residues give full spark by the prime-power theorem. Counting distinct residues gives binom(5,3)*5^3=1250. Row affine maps multiply columns by phases and transport frequency indices by the inverse multiplier when passing from the canonical row representative to an image; column translations multiply rows by phases. The independently regenerated six affine row orbits have sizes 250,500,500,500,500,50. A three-set has no nontrivial translation stabilizer in Z_25, so the column problem has 92 translation classes. A fresh exact replay (python3 /workspace/branches/f767855a-6ddc-4d34-837a-09cf1e2ca787/order25_exact_recheck.py; output order25_exact.log in the same directory) checks every class for each universal representative. Machin's formula and bounded Taylor tails give the root approximants error <10^(-9), so the Gram error has row sums and operator norm <6*10^(-9). The exact integer leading minors at shifts t+10^(-6) are positive for all 91 nonconsecutive classes per representative, for t=1/1000,1/250,1/100 respectively; at t-10^(-6) the consecutive determinant is negative. Sylvester and Weyl transfer the strict separation. The same tests at the band endpoints adjusted by the guard certify (0.00044,0.00050), (0.0017,0.0018), (0.0039,0.0040). Thus exactly 25 worst supports per representative and exactly the 500 row images of {0,1,4} maximize the stated unnormalized squared-singular-value objective. The replay is finite and exact, with a separate implementation of the enclosure method; the uploaded scripts and numerical output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Theorem 9 prime-power full-spark criterion and the rank rule in Resultary 0fc41b9fd0d2 apply beyond modulus 25, but give no positive spectral levels.",
+          "Appendix A bounds condition numbers for consecutive sample locations; it does not optimize the least singular value over competing row designs."
+        ],
+        "reasoning": "A general rank classification cannot distinguish the three universal affine types by gamma. A condition-number example on consecutive rows also does not give the nonconsecutive optimum or exhaustive worst supports.",
+        "searches": [
+          "arXiv:1110.3548 Theorem 9",
+          "arXiv:1204.0992 Appendix A",
+          "valuation stratified rank census three point Fourier sampling prime square three by three singular minors 0fc41b9fd0d2 feb52ea6712b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.3548",
+        "arXiv:1204.0992",
+        "SCOPE-valuation-stratified-rank-census-for-three-point-fourier-samplin--0fc41b9fd0d2",
+        "SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b",
+        "SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7",
+        "SCOPE-the-unique-noise-optimal-universal-three-point-fourier-sampling--be8e4fc599e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The November-8 rank rule gives rank 3 for every C whenever (t(R),u(R))=(0,0) at p=5,k=2, and all three affine representatives have this same valuation pair.",
+          "The same-day volume theorem has continuous nodes and fixed modes, and the prior conditioning appendix treats consecutive sample rows."
+        ],
+        "reasoning": "The full-spark and exact-rank results imply the universal-row count, which is credited. They leave all three affine classes tied in rank information. Exact evaluation and strict comparison of the positive minima and their supports is additional to these statements; neither relative priority from a shared date nor novelty from failed searches is inferred.",
+        "searches": [
+          "SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md Finding",
+          "arXiv:1204.0992 Theorem 4 and Appendix A",
+          "SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7/RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Universality and full spark mean every square restriction is invertible; they are equivalent to gamma>0, not to an ordering of positive gamma values.",
+          "The same-day volume record optimizes the product of squared singular values for fixed modes {0,1,4} on an unconstrained circle and characterizes its equality geometry."
+        ],
+        "reasoning": "The present minimax over three-mode supports and discrete sampling triples uses the smallest singular value, not a determinant, and transposing a Fourier restriction does not turn the fixed-mode continuous maximization into this discrete max-min.",
+        "searches": [
+          "arXiv:1110.3548 Theorem 9",
+          "arXiv:1204.0992 Theorem 4 and Appendix A",
+          "SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October prime-square record identifies precisely the singular occupancy pairs, and the November prime-power record gives exact counts for rank 1,2,3 using minimum and maximum valuations.",
+          "The exact catalogue hit containing the 500 maximizers, 25 worst supports and bands is the very same record under review, not independent prior coverage."
+        ],
+        "reasoning": "The tables cover singularity, including the entire zero-versus-positive distinction here. They do not tabulate least positive squared singular values or their minimizers within the full-spark cases.",
+        "searches": [
+          "valuation stratified rank census three point Fourier sampling prime square three by three singular minors 0fc41b9fd0d2 feb52ea6712b",
+          "Resultary: SCOPE-the-unique-noise-optimal-universal-three-point-fourier-sampling--be8e4fc599e1"
+        ]
+      },
+      "rationale": "The repaired claim retains a distinct order-25 minimax spectral classification and equality sets, not a new claim of full spark, and not a blind sparse recovery result. The cited qualitative theorems and exact rank records already cover the universal-design criterion and hence the 1250 count. None of the inspected stronger-rank results, consecutive-design conditioning bounds, or fixed-mode determinant optimization supplies the comparison of the three positive minima and their complete extremizers.",
+      "residual_risks": [
+        "An unindexed earlier exact least-singular-value classification or a broader minimax result could give implicit coverage. The bounded web search did not supply a covering passage; that is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full-spark criterion, not relative spectral stability",
+          "evidence": [
+            "Uniform distribution over divisors characterizes full spark in prime-power order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Theorem 9, PDF p. 12, around text offset 45850",
+          "method": "Open-access PDF theorem passage",
+          "title": "Full Spark Frames",
+          "trigger": "Prime-power Fourier universality"
+        },
+        {
+          "assessment": "Covers invertibility and a different consecutive-sampling bound",
+          "evidence": [
+            "Theorem 4 equates residue balance with universality; the appendix bounds conditioning for consecutive rows and discusses clustered frequencies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.0992",
+          "material_read": "Theorem 4 p. 7, around offset 48900; conditioning appendix around p. 23, offset 166300",
+          "method": "Open-access PDF theorem and bound passages",
+          "title": "Discrete Sampling and Interpolation: Universal Sampling Sets for Discrete Bandlimited Spaces",
+          "trigger": "Universal sampling definition and conditioning"
+        },
+        {
+          "assessment": "Covers rank information including universality here; no positive values in the result",
+          "evidence": [
+            "Rank is determined exactly by the two valuation extrema per triple; closed counts scale to all prime powers."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-valuation-stratified-rank-census-for-three-point-fourier-samplin--0fc41b9fd0d2",
+          "material_read": "RESULT.md offsets 0–2450: Finding, formulas and scope",
+          "method": "Local mirror, directly read result statement",
+          "title": "Valuation-stratified rank census for three-point Fourier sampling on prime-power cycles",
+          "trigger": "Prior stronger exact rank census"
+        },
+        {
+          "assessment": "Covers zero-versus-positive and total rank counts, not least positive spectral bounds",
+          "evidence": [
+            "A singular pair has one triple concentrated in one class and the other not meeting three classes; rank is 1 only if both are concentrated."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b",
+          "material_read": "RESULT.md offsets 0–2563: Finding, scope and start of proof",
+          "method": "Local mirror, directly read result statement",
+          "title": "All singular three-by-three minors of prime-square Fourier matrices",
+          "trigger": "Prior exact result at the same prime-square regime"
+        },
+        {
+          "assessment": "Different objective and feasible sets; no demonstrated coverage",
+          "evidence": [
+            "Fixed modes and arbitrary circle nodes, with squared determinant at an isosceles geometry; scope expressly excludes condition-number optimization."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7",
+          "material_read": "RESULT.md offsets 0–2593: determinant theorem and scope",
+          "method": "Local mirror, directly read result statement",
+          "title": "The sharp three-node Fourier volume gap for the sparse modes (0,1,4)",
+          "trigger": "Same-day overlap on three Fourier points and (0,1,4)"
+        },
+        {
+          "assessment": "Same item, not a prior result",
+          "evidence": [
+            "Same affine maximizing orbit, 25 worst supports and three rational bands."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-unique-noise-optimal-universal-three-point-fourier-sampling--be8e4fc599e1",
+          "material_read": "RESULT.md Finding from around offset 535",
+          "method": "Local mirror, comparison with assigned frozen statement",
+          "title": "The unique noise-optimal universal three-point Fourier sampling orbit on the 25-cycle",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact optimum solves a meaningful finite design comparison among three inequivalent invertible layouts. If the support is supplied for inversion but is not available at the design stage, the sharp Euclidean noise gain is governed by gamma, so choosing the optimal orbit rather than the consecutive one improves the worst gain by nearly a factor of three. The complete list of worst supports and strict separation are useful beyond knowing invertibility. This value does not depend on the false blind-recovery reading excluded by the corrected files.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:14.520186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered rate-one Poisson cumulant is E[exp(tJ)-1-tJ], so the stated G kernel gives the exact normalized mixture (1-w_B)G_0(t)+w_BG(Bt), with w_B=e^(-h_B)B^2/V_B and V_B tending to v_0. The scale variational formula follows by rearranging on t<1/c and bounding Psi by 1/t outside that range. At z=Bt=h_B-2 log(B/h_B)+s, z/h_B tends to one and t tends to zero. Consequently w_BG(z) is asymptotic to 2 exp(s)(h_B/z)^2/V_B, giving both fixed-s limits with the stated normalization. To check the global optimum, for t below (1-epsilon)h_B/B the Psi upper bound is O(1)+O(B^3 exp(-epsilon h_B)), using the bounded Beta transform derivative. Above that threshold use 1/t. At (1+epsilon)h_B/B the spike contribution diverges, so Psi is asymptotic to 1/t there, proving c_B~B/h_B after epsilon decreases to zero. For every fixed integer r the spike moment e^(-h_B)B^r tends to zero. The centered cumulants then imply moment convergence, and a Poisson coupling with vanishing spike probability and convergent deterministic centers gives weak convergence. For the limiting law the series G(tJ_0) is bounded by (1-Kt/3)^(-1) on t<3/K, giving a finite scale. When J_0=1 the origin attains the lower bound in the limit t down to zero, proving scale 1/3. The origin slope for the spiked laws tends to 1/12-1/9=-1/36; continuity on [0,infinity), decay at infinity and the diverging supremum then give an interior global maximizer for large B. The diagnostic checker was inspected, not executed. It does not establish a global optimization limit or uniformity for varying s.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen's theorem applies more broadly to spectrally positive infinitely divisible laws, and reduces this example to an exact supremum but does not evaluate the moving supremum.",
+          "The November 8 finding takes a fixed bounded jump law with endpoint tail C u^beta, fixed positive Gaussian variance and Poisson intensity tending to zero; it computes a logarithmic scale correction.",
+          "The two proxy-variance sources address sub-Poisson and sub-Gaussian objectives rather than optimizing the scale at the true variance."
+        ],
+        "reasoning": "Rescaling the growing spike to unit amplitude does not turn the base into a fixed positive Gaussian variance: the base is compound Poisson and its variance after rescaling tends to zero. Neither the rare-jump theorem's hypotheses nor a proxy-variance optimum transfers directly to the present limit.",
+        "searches": [
+          "Chen Theorem 3.1 and Proposition 6.1",
+          "Original Resultary finding 2026/11/8 ...64ea017c3b4b",
+          "Leskelä–Välimaa arXiv:2508.12103; Arbel–Marchal–Nguyen DOI 10.1051/ps/2019018"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and the two mirrored findings above",
+        "arXiv:2610.00032v1 §§3.1, 6, 7.2",
+        "arXiv:2508.12103 abstract",
+        "DOI 10.1051/ps/2019018 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An interior maximum despite a local origin maximum already occurs for fixed parameters in earlier work.",
+          "The present proof uses e^(-h_B)B^r tending to zero for each fixed r, but e^(-h_B)B^2G(Bt) not tending to zero near t=h_B/B. An upper bound on the full range t>0 is needed separately from the fixed-s profile."
+        ],
+        "reasoning": "The result is an asymptotic evaluation within Chen's framework, not a new variational characterization or first interior optimizer. The fixed-example and fixed-Gaussian-base results as inspected do not imply the logarithmically centered profile with universal dependence on v_0 and the stated all-moment discontinuity.",
+        "searches": [
+          "Chen arXiv:2610.00032v1 §§3.1, 6, 7.2",
+          "Mirrored original findings for the fixed two-point transition and rare-jump endpoint exponents"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen proves c_*=sup Psi and identifies the compound-Poisson transform with the second-order equilibrium distribution of the jump law. These are equivalent fixed-law representations.",
+          "The same-date Resultary record ...33a2f59ff992 classifies optimal scales for fixed jump sizes 1 and 5 as their mixing probability varies."
+        ],
+        "reasoning": "Rewriting the Beta kernel as a second-order equilibrium transform does not change the already known variational problem. A bounded fixed-support classification cannot yield its B-to-infinity two-parameter transition with the given moment limits.",
+        "searches": [
+          "Resultary: true-variance sub-gamma rare diverging Poisson spikes, logarithmic transition and cumulant invisibility",
+          "Chen arXiv:2610.00032v1 §3.1 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chen calculates a fixed two-point instance with jumps 1 and 5 and probabilities 39/40 and 1/40, reporting t_* about 0.473723112 and c_* about 0.895416096.",
+          "The same-day 1/5-jump catalogue record gives actual fixed-support parameter ranges; neither it nor the retrieved rare-jump record states the present fixed-s limiting profile."
+        ],
+        "reasoning": "There is no finite table on which the analytic result relies. The numerical example and fixed-support classifications certify neither a growing-jump limit nor its logarithmic shift.",
+        "searches": [
+          "Local Resultary lookup for exact rare-spike compound-Poisson experiments and scale limits",
+          "Chen §7.2, equations (53)–(59)"
+        ]
+      },
+      "rationale": "The transform, the exact variational representation and qualitative interior optima are covered by Chen and are not new. The distinct claim is the sharp moving-spike scale and fixed-s logarithmic profile for a bounded Poisson base, with discontinuity despite convergence of every fixed moment. The closest rare-jump catalogue theorem overlaps in mechanism but not the stated hypothesis regime or profile.",
+      "residual_risks": [
+        "A general small-variance or two-scale rare-jump theorem could yield related asymptotics; the bounded external query was uninformative, not evidence of absence.",
+        "The mathematical overlap with the later endpoint-tail record is real, but neither path date nor related mechanism establishes priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact transform and supremum prior, plus qualitative interior optimizer; no moving-spike result in compared statements",
+          "evidence": [
+            "c_* = sup Psi for centered spectrally positive infinitely divisible laws; equilibrium transform for compound Poisson; fixed example (1,5) with probabilities (39/40,1/40)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00032v1",
+          "material_read": "§3.1 Thm. 3.1, §6 Prop. 6.1 and §7.2 equations (53)–(59), offsets about 10800, 23700, 28400",
+          "method": "OA primary HTML comparison",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "General optimal scale, equilibrium transform, two-point example"
+        },
+        {
+          "assessment": "Fixed support and mixing regimes; not the asserted diverging-spike layer",
+          "evidence": [
+            "Jump sizes 1 and 5 are fixed and the optimizer is classified for specified probability ranges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-local-to-interior-transition-for-two-point-compound-pois--33a2f59ff992",
+          "material_read": "Mirrored original Finding",
+          "method": "Local Resultary and original statement comparison",
+          "title": "A sharp local-to-interior transition for two-point compound Poisson laws",
+          "trigger": "Same-day two-point optimizer transition"
+        },
+        {
+          "assessment": "Related true-variance optimization in a different triangular regime",
+          "evidence": [
+            "Fixed jump endpoint law with power tail there, fixed positive Gaussian variance, and Poisson intensity tending to zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-endpoint-tail-exponents-determine-the-sharp-rare-jump-sub-gamma--64ea017c3b4b",
+          "material_read": "Mirrored original Finding",
+          "method": "Local Resultary and regime/normalization comparison",
+          "title": "Endpoint tail exponents determine the sharp rare-jump sub-gamma scale",
+          "trigger": "Closest rare-jump logarithmic correction"
+        },
+        {
+          "assessment": "Sub-Poisson variance proxy; no whole-paper negative claim",
+          "evidence": [
+            "Poisson-dominated moment generating functions and optimal proxy variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.12103",
+          "material_read": "Abstract, HTML offset 0",
+          "method": "OA abstract-level objective comparison",
+          "title": "Sub-Poisson Distributions: Concentration Inequalities, Optimal Variance Proxies, and Closure Properties",
+          "trigger": "Similar optimal variance/concentration terminology"
+        },
+        {
+          "assessment": "Sub-Gaussian variance proxy; no whole-paper negative claim",
+          "evidence": [
+            "Optimizes proxy variance for bounded random variables."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ps/2019018",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA abstract-level objective comparison",
+          "title": "On strict sub-Gaussianity, optimal proxy variance and symmetry for bounded random variables",
+          "trigger": "Other bounded-law optimal concentration parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The true variance and all fixed moments can stabilize while the best right-sided sub-gamma scale diverges at a precise rate. The explicit transition shows where the escaping spike dominates despite a locally decreasing canonical profile. This quantifies a real instability of variance-exact concentration bounds, not just a fixed numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

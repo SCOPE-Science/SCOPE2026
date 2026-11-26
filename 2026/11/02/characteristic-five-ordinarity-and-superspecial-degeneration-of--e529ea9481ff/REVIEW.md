@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic-five gradient equations give an exact smoothness condition \(t^3\ne3\), with explicit singular witnesses whenever equality holds. Smooth plane sextics have genus \(10\). The Čech basis for \(H^1(\mathcal O_{C_t})\) has ten vectors, and the coefficient rule for multiplication by \(F_t^4\) yields three diagonal entries \(t^2\), three two-cycle pairs of coefficient \(2t\), and a central entry \(t^4-t\). Independent exact polynomial expansions and finite-field checks reproduce all one hundred entries. The crucial stable-rank step follows from the explicit Frobenius-invariant direct sum of invertible nine-dimensional blocks, not an identification of one-step rank with \(5\)-rank. At the zero parameter every block vanishes; at the three roots of \(t^3=1\) only the central block vanishes. The tame coordinate-square quotient provides an independently motivated elliptic interpretation. The computation is symbolic over \(\mathbb F_5[t]\), not an extrapolation from finite tests.
+PASS
 
-## Originality — PASS, with residual literature risk
+A projective singular point has all coordinates nonzero. With their squares A,B,C and u=−2t, the gradient equations are A²=uBC, B²=uAC, C²=uAB. They imply u³=1, and (1,u⁻¹,1) gives a solution of the square equations if u³=1; Euler's identity puts its lift on the curve. Thus t³=3 is precisely the excluded locus. Bézout excludes a smooth reducible plane sextic; the genus is ten. The Frobenius formula follows by multiplying the fifth powers of the Čech fractions by F_t⁴. An independent exact multinomial calculation recovered all ten potentially nonzero entries and the other ninety zeros: enumerate nonnegative i,j,k,l summing to 4, match (6i+2l,6j+2l,6k+2l) against each Čech target exponent triple, and add 4!/(i!j!k!l!)·t^l modulo 5. The two possible source/target transpose conventions give the same symmetric matrix. The three t² lines and three 2t swaps stay bijective under every semilinear iteration if t≠0. The remaining line has coefficient t⁴−t, and all entries vanish at zero, giving the three stable ranks and the corresponding one-step coranks. The separable coordinate-square map onto the smooth Hesse cubic has generic fiber the four projective sign choices; sign changes fix just the central cohomology line as a common invariant. Its coefficient is also the cubic Hasse coefficient. The norm composed with pullback is [4], so the complementary cohomology is that of the nine-dimensional isogeny factor, ordinary at every nonzero smooth parameter. Superspeciality at zero follows from a-number equal to dimension.
 
-The exact family appears in Badr–Bars, §10.1 and Proposition 10.4, but the inspected article concerns automorphism groups under characteristic \(0\) or \(p>21\) assumptions. The article does not state the characteristic-five \(5\)-rank or \(a\)-number strata. Borges–Gonçalves establish Fermat-type curve \(p\)-rank formulas and related results, but no statement covering the mixed monomial deformation or the ordinary nine-dimensional Prym factor. The classical Fermat superspeciality and Hesse cubic supersingularity are excluded from the novelty claim. The preceding mathematical-record and historical-claim comparisons found no result that implies the full asserted rank trichotomy. No negative uniqueness claim is inferred solely from an unsuccessful search; equivalent unindexed prior calculations remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete classification of two natural Jacobian invariants over the whole smooth parameter locus of a distinguished highly symmetric genus-ten family, not merely a few special fibers. It exhibits both a superspecial degeneration and a separate three-point \(a=1\) locus against a generic ordinary open set. The elliptic quotient and the uniformly ordinary nine-dimensional complement explain the geometry of the intermediate rank, which is not determined by the known automorphism classification or the classical Fermat member.
+The distinct supported content is the characteristic-five stratification of the nonzero smooth parameters of this sextic, including the ordinary nine-dimensional complement to the Hesse elliptic quotient. The sextic model, the Fermat endpoint and the Hesse elliptic calculation are not taken as new. The exact model in Badr–Bars is stated in a range excluding five; the same-equation arithmetic record in characteristic eleven and the nearby characteristic-five pencils do not produce the asserted rank and a-number data. The articles and catalogue statements compared do not determine the Frobenius blocks of the other nine dimensions for this pencil. This is an assessment after bounded searches, not a claim of exhaustive priority.
 
-## Closest literature and limits
+## value
 
-Badr–Bars, arXiv:2208.12749 (2022) and DOI:10.1007/s10231-025-01558-z (2025), supply the defining family and automorphism motivation; applicability of their classification does not include characteristic \(5\). Borges–Gonçalves, arXiv:2212.03987, and earlier Fermat work supply general background but not this one-parameter formula. The status is based on a full read of the journal HTML sections and the accessible Fermat-type full text; the 2022 preprint version was dated from its abstract and not independently compared page-by-page. No claim is made about the complete Newton polygon or all unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a known symmetric sextic, the elliptic quotient gives a natural source of nonordinarity but leaves most of the genus-ten Jacobian undetermined. Proving its complementary factor is ordinary at every nonzero smooth parameter explains why exactly three smooth nonzero coefficients produce a rank drop, why that drop is exactly one, and how those fibers differ from the superspecial Fermat degeneration. This complete exceptional-locus calculation over the algebraic closure, not just a small-field table or a restatement of the elliptic criterion, is useful for comparing arithmetic of the pencil and its quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

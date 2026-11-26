@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:03:22.784478Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–63,69",
+        "VERIFICATION.md",
+        "check_erasure.py:16–88",
+        "check_erasure_independent.py:6–66",
+        "Independent replay: for each support S and retained u in {1,...,2^m−1}, form mask sum_j [popcount(u AND S_j) mod 2] 2^j and test for 2^|S| different masks; test all D for m=3 and D=∅,{1},{1,2},{1,2,3},{1,2,4} for m=4,5"
+      ],
+      "rationale": "Primitivity lists every nonzero query vector once, and multiplication by alpha traverses each phase state; a nonzero state cannot give the zero sequence by trace nondegeneracy. Dependent coordinates miss a labeling even before deletions. For independent k-sets, all fibers have 2^(m−k) elements; omit zero only from the zero-label fiber. This gives the baseline for k≤m−1, and forbids larger supports. At k=m−1 the kernel is {0,w}; the zero label dies on erasing w; a nonzero label dies exactly if both members of a pair with sum w are erased. Each surviving w contributes the unordered bases of w-perp. At k=m−2 only the zero label can die with three erasures, and only when the deleted states are exactly the nonzero part of its two-dimensional kernel. The three nonzero pair sums of an independent triple are distinct from the states, whereas for a line they are the states. Lower layers survive. This also covers m=3. The lower saturation bound is counting singles and pairs; the upper splits the vector space into complementary subspaces and uses each cross-sum. An independent dot-product replay enumerated all 128 erasure subsets at m=3 and all layers for five patterns at each of m=4,5. It tested for accepted supports by taking the set of observed binary masks on each support; no frozen code was executed. At m=4 the two triple cases gave coefficients (1,15,102,336) and (1,15,105,252) in increasing degree, compared with (1,15,105,420) before erasure.",
+      "residual_risks": [
+        "Finite replay corroborates but does not replace the trace-fiber proof. The whole polynomial below top degree is not claimed for larger D."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 14 equates full-array column coverage with independence and explicitly credits an earlier 2014 Theorem 2.",
+          "The removed-run paper's defined output is generalized word-length pattern, obtained from squared counting-function coefficients. Proposition 3.1 expresses that output via pairwise design-point geometry.",
+          "Example 3 gives the same complementary-subspace saturation construction when both summands have size at least four; the m=3 edge case is direct."
+        ],
+        "reasoning": "Full-array independence cannot by itself tell whether a label survives incomplete fibers, and aggregate aberration differs from counting which individual supports realize every label. The standard complementary-subspace construction yields the upper bound, not the erasure-polynomial profile.",
+        "searches": [
+          "Castoldi et al. arXiv:2208.00333, Theorem 14, §VII-A and reference 22",
+          "Fontana–Rapallo arXiv:1809.03759, Definition 2.4 and Proposition 3.1",
+          "Grynkiewicz–Lev arXiv:0811.1322, Example 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.06490",
+        "arXiv:2208.00333",
+        "arXiv:0811.1322",
+        "arXiv:1809.03759",
+        "Resultary a3fac0f55357 and f25380802f2c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The columns-as-vectors criterion and basis counting give the un-erased framework. Saturating-set arguments give the threshold bounds once the link to shattering is made.",
+          "None of the read statements specifies losses from the smaller all-zero fiber and from full deletion of a two-element nonzero fiber, or the next-to-top distinction."
+        ],
+        "reasoning": "The known inputs do not state or directly specialize to the reviewed two-layer loss. Its proof uses the actual deleted witnesses: a one-dimensional kernel tests the union with pair sums, but a two-dimensional kernel tests whether the erasures fill its punctured zero fiber. This produces an inversion in the loss from line versus independent triples despite equal erasure size.",
+        "searches": [
+          "Castoldi et al. Theorem 14; Grynkiewicz–Lev definition and Example 3; Fontana–Rapallo Definition 2.4 and Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnson's mask/sliding-window dimension agrees with the dimension of the un-erased phase family on a periodic word; his variable-length factor class is a different formulation.",
+          "The projective criterion A∪2A=F_2^m is, with the zero-point convention removed, exactly D∪ΔD=F*.",
+          "Thus neither the un-erased dimension viewpoint nor 1-saturation as a geometric condition is novel."
+        ],
+        "reasoning": "Cyclic phase erasure acts on hypotheses, not coordinates. The classical geometric condition gives a yes/no cover, while the reviewed count weights the uncovered normal directions by the number of hyperplane bases and distinguishes the penultimate-layer obstruction.",
+        "searches": [
+          "Resultary: phase-erased m-sequence shattering, top loss, line versus independent triple",
+          "Johnson arXiv:2101.06490, Proposition 3",
+          "Grynkiewicz–Lev arXiv:0811.1322, definition of binary projective 1-saturation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a3fac0f55357 is the assigned record itself.",
+          "Indexed f25380802f2c concerns fixed-weight primitive necklaces and arithmetic facet losses on its available summary; a local full-text copy was not retrieved.",
+          "No connecting exact counts for phase-erased LFSR families were established in these index checks."
+        ],
+        "reasoning": "Primitive necklaces with fixed weight do not by themselves impose the trace/LFSR phase structure or classify deletions of entire cyclic phase hypotheses. The related summary is not conclusive negative coverage evidence; its access risk is retained.",
+        "searches": [
+          "Resultary: cyclic maximum-length binary sequences and exact missing shattering faces under deletions",
+          "Resultary: primitive binary words and facet deletion"
+        ]
+      },
+      "rationale": "Credit prior work for un-erased phase-dimension concepts, the LFSR independence criterion, the saturation criterion itself and the bounds' standard finite-geometric ingredients. The supported distinct claim is the phase-erasure top coefficient and the explicit transfer of erasure geometry to loss in two different shattering layers. None of the compared passage-level results computes these counts or the opposing effects of a line versus an independent triple across those layers.",
+      "residual_risks": [
+        "An unindexed covering-array or simplex-code treatment could give an equivalent erasure calculation.",
+        "Related record f25380802f2c was assessed from its indexed summary only; the 2014 LFSR attribution was read through its later restatement, not the original paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Un-erased window/mask dimension overlaps; read passages do not treat phase-erasure coefficients",
+          "evidence": [
+            "The proposition equates sliding-window and full-mask dimension. Evaluating periodic shifts covers the un-erased phase windows."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06490",
+          "material_read": "pp. 3–5, definitions and Proposition 3, offsets 10214 and 14187",
+          "method": "Lawful OA primary PDF",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "VC dimension of phase windows via periodic strings"
+        },
+        {
+          "assessment": "Covers full-array coverage, not row-deletion classification; attributes criterion to Raaphorst–Moura–Stevens (2014), Theorem 2",
+          "evidence": [
+            "Coverage of the selected columns is equivalent to independence of the corresponding powers of alpha. Attribution verified through the 2022 statement, not a separate reading of the 2014 paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.00333",
+          "material_read": "§VII-A discussion (offset 15088), Theorem 14 (offset 60654), reference 22 (offset 98000)",
+          "method": "Lawful OA primary PDF",
+          "title": "Ordered Orthogonal Array Construction Using LFSR Sequences",
+          "trigger": "Same LFSR column model and coverage criterion"
+        },
+        {
+          "assessment": "Exact coverage of geometry and upper-bound construction in the indicated range, not phase shattering",
+          "evidence": [
+            "A∪2A covers the binary space; punctured union of complementary subspaces gives a saturating set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0811.1322",
+          "material_read": "pp. 2–3, definition (offset 4960) and Example 3 (offset 5644)",
+          "method": "Lawful OA primary PDF",
+          "title": "1-Saturating Sets, Caps and Round Sets in Binary Spaces",
+          "trigger": "Exact older binary projective saturation condition and bound construction"
+        },
+        {
+          "assessment": "A different statistic; assessment limited to sections compared",
+          "evidence": [
+            "The defined GWLP sums squared interaction coefficients, and Proposition 3.1 expands it via pairs of design points, rather than testing all labels on each support."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.03759",
+          "material_read": "pp. 2–3 (offset 6861), plus Definition 2.4 and Proposition 3.1 (offsets 12600–16693)",
+          "method": "Lawful OA primary PDF",
+          "title": "On the Aberrations of Mixed Level Orthogonal Arrays with Removed Runs",
+          "trigger": "Earlier design-array row deletion"
+        },
+        {
+          "assessment": "Identical target is not separate coverage; related record has unresolved full-text comparison",
+          "evidence": [
+            "The distinct indexed summary specifies primitive fixed-density necklaces and arithmetic facet deletion rather than erasure of nonzero LFSR phase states."
+          ],
+          "identifier_or_url": "a3fac0f55357; f25380802f2c",
+          "material_read": "Index statements; distinct record's targeted mirror lookup did not supply a usable full text",
+          "method": "Local Resultary search and targeted local mirror lookup",
+          "title": "Resultary exact phase-erasure entry and neighboring primitive-word facet entry",
+          "trigger": "Exact index hit and strongest topical catalog overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–46,57–63",
+        "arXiv:0811.1322, definition and Example 3",
+        "arXiv:2208.00333, Theorem 14"
+      ],
+      "rationale": "The quantity is the loss of realizable Boolean queries after removing hypotheses from a canonical recurrence family, not loss from arbitrarily chosen objects. Three deletions of equal cardinality have opposite effects by layer: a binary line loses fewer maximum supports than an independent triple yet uniquely loses penultimate supports. The exact count makes that failure of cardinality-only robustness explicit and identifies which top queries survive any erasure set. The old saturation bounds alone are not the value claim.",
+      "residual_risks": [
+        "No exact new minimum saturating-set formula or general lower-layer formula for four or more deletions is obtained."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:50:43.027919Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53 and 55–114",
+        "Frozen VERIFICATION.md and verify.py",
+        "arXiv:2211.03649v1, Theorem IV.8",
+        "DOI:10.3390/e26040338, Algorithm 1"
+      ],
+      "rationale": "Using the full-support rate theorem, I reconstructed each block's tuple classes directly from f. The a,b,c singletons split X into sizes 1 and 2, so their entropy is h(1/3)=L-2/3, L=log₂3. The d singleton and all larger blocks have three singleton classes. The first-merge entropy drop is (p_i+p_j)h(p_i/(p_i+p_j)); dividing the rate increase by its negative gives bc = -2/3, ab and ac = -(2/3)/h(4/9), ad = -8/[15h(4/5)], and bd and cd = -5/[9h(1/6)]. The last five are strictly smaller using h(4/9)<1, 5^5<2^12, and 6^6<32·5^5. Partitions P and Q have block masses (4,10,1)/15 and (10,5)/15, with rate difference (L-h(1/3))/15=2/45 and entropy difference (5 log₂5-8)/15>0 since 5^5>2^8. For independent X,Y, coarsening replaces the block partitions of X by their common refinement under the same X law, increasing rate weakly. For |Y|≤3 a strictly better two-block alternative improves both deltas from the singleton start and so has strictly larger slope; neither endpoint can strictly dominate. For |X|≤2 with independence, blocks are either constant-only or distinguishing; same-type merges have zero rate cost and mixed merges positive cost if both source symbols have positive probability. The algorithm therefore remains at minimum rate until the one-block endpoint. This checks the dimension statement in the stated independent-source regime. Independent numeric replay, node /workspace/replays/4.js, recomputes all 15 partitions from the function table: unique first slope -0.666666666667 and gaps approximately 0.240642698296 and 0.044444444444. The proof, not these decimal results, establishes strictness and minimality; the uploaded checker was not executed.",
+      "residual_risks": [
+        "The |X|≤2 argument uses independence: under correlation even two distinguishing blocks can have different conditional X laws, and their merge need not be rate-free. No dimension-minimality claim over all dependent full-support laws is validated.",
+        "The tuple identifies the output equivalence class, not necessarily the individual X value."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The design paper defines an achievable set from coarsening and refining and gives a worked uniform-product example where the stated boundary agrees with the front. The slope formula allows arbitrary maximizing choices."
+        ],
+        "reasoning": "The worked agreement neither proves universal nondomination for greedy iterates nor supplies a strictly dominated unique first choice. The full-support rate theorem applies more broadly but does not make that design assertion.",
+        "searches": [
+          "Charpenay Le Treust Roumy ‘Side Information Design in Zero-Error Coding’ greedy algorithm example Pareto front counterexample",
+          "DOI:10.3390/e26040338 §4.2 and Figs. 3–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked exact-instance and thematic searches",
+        "arXiv:2211.03649v1",
+        "DOI:10.3390/e26040338"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general formula gives rates on prescribed partitions; the algorithm specifies the local choice; the example shows agreement for another input. The frozen witness uses different data, exact comparison of the six first choices, a non-refining/non-coarsening dominator, and an all-instance lower-dimension exclusion within the independent model."
+        ],
+        "reasoning": "The known formula is an input to the proof but does not mechanically supply this counterexample or the small-dimension obstruction. The verified witness shows a limitation of a heuristic, not falsity of a claim made in the design paper.",
+        "searches": [
+          "arXiv:2211.03649v1, Theorem IV.8",
+          "DOI:10.3390/e26040338, Algorithm 1, Eqs. (30)–(31), and Figs. 3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem IV.8 computes conditional entropy of the full block-output tuple; its fibers are the common refinement used in the frozen proof.",
+          "The design source maximizes the same slope over single two-block merges, not a global Pareto criterion."
+        ],
+        "reasoning": "The same rate and merge rule were compared under their equivalent partition and entropy formulations. Not visiting all frontier points is weaker than visiting a partition with a different, strictly better point in both coordinates.",
+        "searches": [
+          "Resultary ranked query on zero-error coding side-information design, greedy slope and strict Pareto domination",
+          "arXiv:2211.03649v1 Theorem IV.8; DOI:10.3390/e26040338 Eqs. (30)–(31)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching witness surfaced in the ranked catalogue results. The paper's tabulated/illustrated example uses a uniform product law, not the stated Y masses, and is presented as boundary agreement rather than as a dominated first merge."
+        ],
+        "reasoning": "Neither an exact record nor a verified mathematical equivalent under relabeling or rescaling was found in the compared sources; the result is not a recalculation of that example.",
+        "searches": [
+          "Resultary exact title and instance searches including 4,5,5,1; bc; abd|c, alongside greedy coarsening and strict domination (limits 10–50)",
+          "DOI:10.3390/e26040338 §4.2 worked example, Figs. 3–5"
+        ]
+      },
+      "rationale": "The full-support entropy formula and the greedy algorithm are prior. The distinct content is a unique first choice strictly dominated in both objectives, and the impossibility of that failure at smaller stated alphabet dimensions. The inspected literature does not give either result or claim a general guarantee that the witness would contradict.",
+      "residual_risks": [
+        "The ranked and focused literature checks were bounded; an equivalent unpublished or unindexed witness is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact rate formula, not an algorithmic limitation",
+          "evidence": [
+            "Theorem IV.8 states the block-output tuple conditional entropy rate for full support."
+          ],
+          "identifier_or_url": "arXiv:2211.03649v1",
+          "material_read": "PDF p. 3, offsets 21400–24581, Theorem IV.8 and surrounding text",
+          "method": "OA primary PDF passage",
+          "title": "Optimal Zero-Error Coding for Computing under Pairwise Shared Side Information",
+          "trigger": "Same rate under the stated full-support assumption"
+        },
+        {
+          "assessment": "Same rule; worked example and achievable-set statements do not cover the witness",
+          "evidence": [
+            "Greedy coarsening selects a pair by argmax slope. The illustrated input is a uniform product distribution and the paper discusses its coinciding Pareto and greedy boundaries."
+          ],
+          "identifier_or_url": "DOI:10.3390/e26040338",
+          "material_read": "PDF §4.2, Algorithm 1 pp. 9–10, offsets 41350–43728; Eqs. (30)–(31), offsets 45300–48384; Figs. 3–5 pp. 11–12, offsets 48100–50999",
+          "method": "OA primary PDF passages",
+          "title": "Side Information Design in Zero-Error Coding for Computing",
+          "trigger": "Original coarsening rule, claimed performance, and worked example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact witness and dimension argument",
+        "DOI:10.3390/e26040338, §4.2"
+      ],
+      "rationale": "For a specified heuristic used to avoid enumerating the partition lattice, an iterate that is worse in both objectives is a meaningful failure mode, stronger than simply missing a feasible tradeoff. The unique first merge removes any tie-breaking explanation, and the lower-dimension obstruction shows why this instance is a natural smallest counterexample under independence rather than an arbitrary finite test.",
+      "residual_risks": [
+        "This does not quantify worst-case performance, establish dependent-law minimality, or imply universal failure of the heuristic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

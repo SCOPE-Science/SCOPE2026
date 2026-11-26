@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:21:50.386534Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof (1)–(4)",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Replay: from /workspace, python3 review-checks/records-2-5.py, section 4"
+      ],
+      "rationale": "Each arm is a capped Poisson arrival count. If Q_k=Pr[Poisson(τ)<k] and H_k is the mean capped count, the independent-arm expected reward is H_m+H_(6−m)+R(1−Q_m Q_(6−m)). This pays the bonus only once. Exhausting m=1,2,3 gives U₂−U₁=A₁−RB₁ and U₃−U₂=A₂−RB₂. The positive occupancy increments are p₂+p₃+p₄ and p₃; the reliability slopes are the two stated differences of products of truncated Poisson sums. Symbolic factorization from those sums gives the stated ratios. After canceling positive factors, their gap has numerator polynomial τ⁴+2τ³+10τ²+24τ+24, strictly positive at every positive deadline. The signs therefore give exactly the three strict regimes and the two adjacent ties, with no third maximizer. There are at most two unordered positive splits for fewer than six sites. A truncated-mass calculation reproduces 2.011511800830, 2.058940000562 and 2.045818834977 at τ=1, R=0.6.",
+      "residual_risks": [
+        "A nonempty reward interval for each deadline is not one common interval for all deadlines.",
+        "No claims about correlated arms, heterogeneous rates, extinction, unequal site values or other layouts are validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seymour–Altermatt is a topology and colonization experiment; Feng–Fu–Guo study connectivity with independently open/closed edges. Full text of Hock–Mumby and of the classical parallel–series allocation paper remained unavailable."
+        ],
+        "reasoning": "The inspected connectivity and topology results do not provide joint expected occupancy and terminal reach tradeoff slopes. The inaccessible literature is a named residual priority risk, not an exclusion or the basis of a verdict.",
+        "searches": [
+          "Primary literature: habitat-chain colonization, Erlang path/standby reliability and discrete allocation; Hock–Mumby DOI 10.1098/rsif.2015.0013; El-Neweihi–Proschan–Sethuraman DOI 10.2307/3214014"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d95a448d3aa9, d437ebce6f5e, 30ac821a1e2e, ae3e6f6f2f0f, 3c0015aa15b1",
+        "Seymour–Altermatt 2014, DOI 10.1002/ece3.1020",
+        "Hock–Mumby 2015 and El-Neweihi et al. 1986 limited access; Feng–Fu–Guo arXiv:2608.02523"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Here balancing raises the expected sum of the two capped counts but lowers the bonus probability. Strict exposure of the middle design additionally requires (A₁/B₁)>(A₂/B₂), certified by the explicit positive polynomial.",
+          "Neither ranking an individual route by reliability nor a continuous asymmetric founder optimum yields that inequality for the combined objective."
+        ],
+        "reasoning": "Separate monotonicity of the two objectives or a general upper-envelope description does not ensure that a third layout is ever best. The all-deadline inequality is the material exact claim.",
+        "searches": [
+          "d437ebce6f5e serial-chain Finding and ae3e6f6f2f0f asymmetric-founder Finding versus frozen (1)–(4)",
+          "Hock–Mumby and El-Neweihi–Proschan–Sethuraman reliability references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d437ebce6f5e compares a single direct exponential route with a single serial Erlang route; ae3e6f6f2f0f optimizes continuous Poisson founder means for at least one viable patch."
+        ],
+        "reasoning": "The Erlang race is an equivalent formulation only of the bonus probability; capped counts also enter the objective. Neither named finding optimizes the joint finite-horizon objective over this integer allocation.",
+        "searches": [
+          "Resultary: serial stepping-stone dispersal, two-arm Erlang allocation, endpoint reachability with occupancy reward",
+          "Parallel Erlang completion race and capped Poisson counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact phase diagram hit is d95a448d3aa9, the record under review. The comparable records classify deadline reversals, continuous gap spacing, continuous founder means, or corridor redundancy budgets, with different feasible sets and objectives."
+        ],
+        "reasoning": "A Poisson or Erlang probability table supplies the coefficients at fixed τ but not strict ordering of the resulting threshold functions on all τ>0. Distinct same-day records were compared on their statements, not dismissed by date.",
+        "searches": [
+          "Resultary six-patch either-refuge tradeoff, indexed IDs d95a448d3aa9, 30ac821a1e2e, d437ebce6f5e, ae3e6f6f2f0f and 3c0015aa15b1"
+        ]
+      },
+      "rationale": "Poisson/Erlang arrival counts, parallel path reach, and linear tradeoffs are standard. The supported distinct claim is that combining expected occupied sites with a single either-refuge reward produces two explicit strictly ordered thresholds for every deadline in the minimal six-site case. Path reliability alone determines neither the occupancy term nor the ordering of the two tradeoff slopes. The strongest inspected serial-chain and asymmetric-reliability analogues do not supply that ordering.",
+      "residual_risks": [
+        "Relevant Hock–Mumby and El-Neweihi et al. full texts were not available; unknown stronger reliability-allocation coverage remains possible.",
+        "No historical priority order is inferred among same-day related findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivating topology effect, no exact overlap in inspected passage",
+          "evidence": "Linear and dendritic protist microcosms; reports speed and richness changes, not the six-patch reward envelope.",
+          "identifier_or_url": "https://www.dora.lib4ri.ch/eawag/dload/eawag:9066/PDF/view",
+          "material_read": "Published-version PDF p. 1 abstract",
+          "method": "Lawful institutional OA copy, bounded passage",
+          "title": "Active colonization dynamics and diversity patterns are influenced by dendritic network connectivity and species interactions",
+          "trigger": "Primary habitat-network colonization comparison"
+        },
+        {
+          "assessment": "Possible reliability coverage, no whole-document exclusion",
+          "evidence": "Identified dispersal-path reliability source; the exact objective in the body could not be independently inspected.",
+          "identifier_or_url": "https://doi.org/10.1098/rsif.2015.0013",
+          "material_read": "Indexed bibliographic/abstract material only; full text not read",
+          "method": "DOI, PMC landing/PDF, publisher and Europe PMC OA routes attempted",
+          "title": "Quantifying the reliability of dispersal paths in connectivity networks",
+          "trigger": "Stochastic successive path reliability could bear on the terminal objective"
+        },
+        {
+          "assessment": "Residual coverage risk; no unsupported full-text conclusion",
+          "evidence": "Component allocation for system reliability is the stated topic; no evidence of the joint capped-occupancy objective was retrieved.",
+          "identifier_or_url": "https://doi.org/10.2307/3214014",
+          "material_read": "Bibliographic description; full text not read",
+          "method": "Lawful DOI direct and alternate OA retrieval yielded no readable copy",
+          "title": "Optimal allocation of components in parallel–series and series–parallel systems",
+          "trigger": "Classical reliability allocation analogue cited in the frozen assessment"
+        },
+        {
+          "assessment": "Different stochastic object and objective",
+          "evidence": "Independent open/closed edges; approximate terminal connectivity, not serial occupation by a fixed deadline.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02523",
+          "material_read": "Primary opening passage defining reliability",
+          "method": "Primary search and bounded OA reading",
+          "title": "Approximating two-terminal network reliability",
+          "trigger": "Search match on exact two-terminal network reliability"
+        },
+        {
+          "assessment": "Related arrival law, not opposite ranked two-arm objectives",
+          "evidence": "Deadline crossing of a direct exponential route and a single serial Erlang route.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-deadline-reversals-for-serial-stepping-stone-dispersal-exact--d437ebce6f5e",
+          "material_read": "Primary mirrored RESULT.md Finding",
+          "method": "Local Resultary search and bounded mirror passage",
+          "title": "Two deadline reversals for serial stepping-stone dispersal",
+          "trigger": "Close exponential/Erlang deadline law"
+        },
+        {
+          "assessment": "Distinct decision and payoff",
+          "evidence": "Allocates continuous founder means and optimizes at least one quorum; no serial arm lengths or occupancy term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-asymmetric-optimal-founder-effort-in-two-identical-quorum-limite--ae3e6f6f2f0f",
+          "material_read": "Primary mirrored RESULT.md Finding",
+          "method": "Local Resultary search and bounded mirror passage",
+          "title": "Asymmetric optimal founder effort in two identical quorum-limited patches",
+          "trigger": "Possibly equivalent two-way Poisson allocation with a union success event"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase diagram and least possible site count",
+        "Strict positive threshold gap verified in correctness assessment"
+      ],
+      "rationale": "This is the smallest two-arm instance in which a third integer design could be preferred. Two reasonable design objectives conflict, and opposite rankings alone could leave the middle layout nonoptimal for every reward. Showing that it is uniquely supported by a nonempty weight interval at every positive deadline, with exact endpoints and ties, supplies a natural small benchmark for stochastic habitat design.",
+      "residual_risks": [
+        "An idealized structural comparison, not empirical evidence that adding a physical stepping stone changes transit time or improves a real corridor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

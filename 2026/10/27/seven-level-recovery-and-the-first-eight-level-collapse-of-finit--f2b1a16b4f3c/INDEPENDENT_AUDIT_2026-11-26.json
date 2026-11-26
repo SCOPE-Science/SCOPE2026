@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:55.554263Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, verify.py and VERIFY_OUTPUT.txt, inspected without executing uploaded code",
+        "Independent replay: python3 /workspace/branches/reproductions/check3.py; stdout in /workspace/branches/reproductions/replay.txt"
+      ],
+      "rationale": "The three-move game preserves the correspondence within each level under truncation at three: at a move requiring a fresh element, at most two choices have already been used. For an independent type census I encoded a pair of anchors in different levels by its order direction and five availability bits for the third move: before both, fresh at the lower anchor's level, between, fresh at the upper anchor's level, and after both. Both exact anchor equalities are always available. For coincident anchors and distinct anchors in a common level, only the before, after and fresh-in-level bits are needed, with fresh thresholds two and three respectively. This describes exactly all atomic extensions; taking sets once over second moves and once over first moves checks both sides of the EF game. The replay gives 3279 distinct types over all heights 1–7 and 6417 at height eight. Its complete list of nonsingleton eight-level fibers equals the prescribed 144 pairs, with 6273 singletons. The all-three vector is unique in each tested family's relevant class, so the respective upper bounds 21 and 24 from truncation are attained. The two strata are not combined to assert a cross-height theorem.",
+      "residual_risks": [
+        "The computation is exhaustive after the symbolic cap reduction, not a proof about arbitrary heights or a formal proof-assistant check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9f715eba65cf gives exact height and truncation at k in unbounded-depth FO^k for arbitrary height.",
+          "The 2011 paper gives a general character recursion for coloured orders and exact low-move representative bounds; the 2019 paper studies three moves and long optimal coloured examples."
+        ],
+        "reasoning": "Agreement on equal capped profiles under FO^3 implies the sufficient direction at rank three, since bound variables in a rank-three sentence can be renamed to three reusable names. It supplies neither the low-height converse nor the exact higher-height mergers. The papers' methods also do not give those conclusions at the target signature.",
+        "searches": [
+          "Resultary 9f715eba65cf Finding and Assumptions; Mwesigye–Truss 2011 Theorem 1.2 and 2019 §§1,3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9f715eba65cf and 9da775cd8088",
+        "Mwesigye–Truss DOI 10.1007/s11083-010-9178-9 and DOI 10.1007/s11083-018-9458-3, bounded primary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The FO^3 criterion separates two capped profiles with 2 and 3 swapped, while the exact rank-three computation proves equivalence for the stated 144 pairs.",
+          "The coloured-order character criteria furnish a general recursion, but the near/equal/fresh third-move distinctions in the tie levels must still be analyzed at rank three."
+        ],
+        "reasoning": "Neither the unrestricted-depth separation nor the general induction entails the stated separation at rank three or the exact mergers. The finite rank computation supplies new information about the rank necessary to see ordered tie sizes; the caps themselves are not the novelty claim.",
+        "searches": [
+          "9f715eba65cf unrestricted-width equivalence theorem; Mwesigye–Truss 2011 Theorems 1.2 and 3.4; Mwesigye–Truss 2019 character theorem and §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reflexive weak relation is defined by not(y<x), and the strict relation by the asymmetric part of the reflexive relation, both quantifier-free.",
+          "The two papers' colour predicates are available atomically; whether a level admits a second or third point is not atomic in the frozen language."
+        ],
+        "reasoning": "The reflexive alias preserves rank, but assigning an atomic size-colour does not preserve it. Coloured-word character results for that stronger encoding cannot be equated with the pure rank-three game.",
+        "searches": [
+          "Resultary: finite weak orders ordinal sums of antichains quantifier rank three depth three Ehrenfeucht Fraisse seven levels eight levels 6417 3279 level size capped central swap fourth fifth 144 pairs",
+          "Mwesigye–Truss DOI 10.1007/s11083-010-9178-9 opening definitions; DOI 10.1007/s11083-018-9458-3 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9f715eba65cf gives k^h theories at fixed height in another fragment; at width three and height eight that is 6561 rather than 6417.",
+          "9da775cd8088 counts 102 rank-three theories of disjoint unions of up to three chains and gives a bound of 19, not ordinal sums of antichains."
+        ],
+        "reasoning": "Neither exact census is for the same universe and logic. The bounded catalogue search did not locate a statement giving the same seven-/eight-level outcome.",
+        "searches": [
+          "Resultary exact counts 6417, 3279 and 144 and central positions 4–5; matched entries 9f715eba65cf and 9da775cd8088"
+        ]
+      },
+      "rationale": "The supported contribution is the exact recovery range and the complete exceptional relation at fixed height eight for rank three in the pure order language. The closest same-family catalogue result characterizes unrestricted-depth finite-variable logic and does not bound the rank of distinguishing sentences; in fact at width three it distinguishes each of the swapped pairs that rank three merges. The primary coloured-linear-order character results use named predicates and do not furnish the required recovery or merger rule for unlabelled ties. The bounded searches and statement comparisons support distinctness, not a definitive priority claim.",
+      "residual_risks": [
+        "Unindexed equivalent statements and the inaccessible scattered-linear-order paper remain unassessed. The bounded searches do not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only the cap agreement direction transfers to rank three; the exact recovery and collapse do not",
+          "evidence": "Permits arbitrary quantifier depth and at most k reusable variable names; exact equivalence requires equality of all capped levels at every height.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-unrestricted-finite-variable-theories-and-order-spectra-of-finit--9f715eba65cf/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0–2809; bounded proof passages through offset 9247",
+          "method": "Local mirror primary text",
+          "title": "Unrestricted finite-variable theories and order spectra of finite weak orders",
+          "trigger": "Same exact family, pure order language and capped level sizes"
+        },
+        {
+          "assessment": "Different poset operation and family",
+          "evidence": "Disjoint unions of at most three chains are counted, not ordinal sums of antichains.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-102-rank-three-theories-of-finite-direct-sums-of-at-most--9da775cd8088/RESULT.md",
+          "material_read": "Finding, scope and bounded proof text, offsets 0–4516",
+          "method": "Local mirror primary text",
+          "title": "Exactly 102 rank-three theories of finite direct sums of at most three chains",
+          "trigger": "Pure-order rank-three poset census with exact mergers"
+        },
+        {
+          "assessment": "General method and one-/two-move results in a different language, not the target result in inspected passages",
+          "evidence": "Named colours, the (n+1)-move character criterion, and g(m,2)=m²+2m.",
+          "identifier_or_url": "https://doi.org/10.1007/s11083-010-9178-9",
+          "material_read": "Opening definitions; Theorem 1.2, pp. 389–390, offsets 7383–10954; Theorem 3.4, p. 394, around offset 24421",
+          "method": "Bounded original OA PDF passages",
+          "title": "Classification of Finite Coloured Linear Orderings",
+          "trigger": "Potential prior classification via EF character recursion"
+        },
+        {
+          "assessment": "Three-move results use unary colour information and do not give the exact weak-order criterion in the inspected material",
+          "evidence": "Constructs long optimal coloured examples, including sizes 70 and 74, and keeps colours named.",
+          "identifier_or_url": "https://doi.org/10.1007/s11083-018-9458-3",
+          "material_read": "Introduction and character theorem in §1, offsets 3533–10429; §3 pp. 113–116, offsets 24289–34229",
+          "method": "Bounded original OA PDF passages",
+          "title": "On Optimal Representatives of Finite Coloured Linear Orders",
+          "trigger": "Primary work on three-move coloured-word EF equivalence and optimal representatives"
+        },
+        {
+          "assessment": "Not evidence of coverage or noncoverage",
+          "evidence": "No original statement was obtained.",
+          "identifier_or_url": "Web search result under the exact quoted title",
+          "material_read": "Title only; OA tool did not return readable linked full text",
+          "method": "Lawful OA lookup following the literature result",
+          "title": "Ehrenfeucht–Fraïssé Games on a Class of Scattered Linear Orders",
+          "trigger": "Possible general result on EF games for ordered structures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact boundary is motivated by a natural expressibility question for finite rankings with ties: when does rank-three first-order logic cease to recover the sequence of tie sizes that it can in principle count? The first failure is not just an example; the controlled central swap and the required four surrounding nonsingleton levels explain every failure within height eight. This gives exact classification and sharp in-family compression at the boundary, independently useful without an arbitrary-height theorem. The 3279 and 6417 totals are consequences, not the sole source of value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

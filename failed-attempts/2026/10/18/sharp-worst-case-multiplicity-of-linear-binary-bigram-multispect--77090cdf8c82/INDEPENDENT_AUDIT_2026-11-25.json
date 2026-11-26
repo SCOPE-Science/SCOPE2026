@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:16.325923Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, run counts and ratio proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent enumeration of all binary words at lengths 2–12"
+      ],
+      "rationale": "For equal endpoints the two endpoint orientations must be added, giving the prefactor (n−1)/k in the balanced count; each unequal-transition profile has just one orientation. At fixed lower binomial index t, the decreasing successive-factor ratio yields strict balancing for t≥1. The balanced t-ratio crosses one at m−1, m−1, a tie at m−1 and m, and m, respectively, giving all and only the stated loop splits. The unequal-endpoint optimizing ratios give the stated comparison factors (4m−1)/(2m−1), 2, (4m+1)/(2m+2), 2, all strictly larger than one for m≥2. Constant words have multiplicity one. Independent bitwise enumeration checks all small maxima and the exact argmax sets at lengths 8–12.",
+      "residual_risks": [
+        "The all-n result rests on the ratio proof, not the bounded enumeration; the observation is linear, not cyclic or endpoint-conditioned."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5122acc1b9bd includes n≥3, exact equality rules down to j=1 and asymptotics.",
+          "Other inspected sources treat per-class k-abelian sizes, counts of attainable spectra, cyclic transition types, or k-mer sets without repetitions."
+        ],
+        "reasoning": "The earlier Resultary result covers the frozen substantive range directly. General class-size or spectrum-count formulas alone should not be mistaken for the global optimum.",
+        "searches": [
+          "Resultary 5122acc1b9bd, Finding and Proof",
+          "arXiv:1605.03319 pp. 1–2",
+          "arXiv:1804.04548 §II, pp. 2–3",
+          "DOI:10.46298/dmtcs.2768 pp. 388–389",
+          "DOI:10.1186/s13015-023-00227-1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5122acc1b9bd and 13779c08da71",
+        "arXiv:1605.03319",
+        "arXiv:1804.04548",
+        "DOI:10.46298/dmtcs.2768",
+        "DOI:10.1186/s13015-023-00227-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior rule: c01=c10=j, with j=k or j=k−1 only when M≡1 mod 4. Loop counts sum to M−2j and differ by at most one for j≥2; no unequal-transition maximizer."
+        ],
+        "reasoning": "For n≥8 every maximizing j is at least two; splitting the loop sum by parity gives exactly 2, 1, 4, 1 profiles by residue, with the extra j at n≡2. Thus both the values and all equalities are covered.",
+        "searches": [
+          "5122acc1b9bd, complete equality statement and exact-fiber proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5122acc1b9bd, Finding and Assumptions: ordered counts of consecutive pairs in a linear binary word; neither endpoint observed; maximize the number of distinct source words in a profile."
+        ],
+        "reasoning": "Its collision fibers are exactly the frozen record's bigram multispectrum classes, including both orientations for equal cross-transition counts.",
+        "searches": [
+          "Local Resultary search for worst-case ambiguity of binary two-gram profiles, linear spectrum fiber size and maximizing profiles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For M=n−1 and k=ceil(M/4), 5122acc1b9bd gives (M/k) choose(floor(M/2)−1,k−1) choose(ceil(M/2)−1,k−1). The read-two census instead counts profiles and singleton classes."
+        ],
+        "reasoning": "Substituting n modulo four reproduces every displayed value; in residue 2 the earlier formula uses the larger of the two tied k values. Values at n=3–7 also follow from the same formula.",
+        "searches": [
+          "Resultary 5122acc1b9bd and binary read-two census 13779c08da71"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record, 5122acc1b9bd, gives the same global maximum and complete set of maximizing profiles in a unified form, and additionally gives their asymptotics. The residue table in the frozen record is a direct specialization, not a new optimization theorem. The only extra length, n=2, is the trivial case in which the observation is the entire word.",
+      "residual_risks": [
+        "The literature check was bounded; the exact catalogue overlap is decisive independently of absolute priority. The binary census attribution in the frozen prose is not specifically identified by its paper citations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact existing coverage",
+          "evidence": "States the M/k binomial formula for n≥3 and ‘all and only maximizing profiles’ with equal cross transitions, the same tie and balanced loop splits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd/RESULT.md",
+          "material_read": "Finding, Assumptions and proof of individual counts and loop balancing, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact worst-case ambiguity of binary two-gram profiles",
+          "trigger": "Identical linear-profile optimization"
+        },
+        {
+          "assessment": "Overlaps the observation model, not the displayed objective",
+          "evidence": "Reports the number of attainable spectra and singleton classes, not the maximum collision multiplicity.",
+          "identifier_or_url": "13779c08da71",
+          "material_read": "Catalogue summary",
+          "method": "Local Resultary search",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Same observation alphabet and read length"
+        },
+        {
+          "assessment": "The inspected passages address a different quantifier",
+          "evidence": "Defines counts through length k and gives a formula for the class induced by a word, not a global maximum of the coarser profile fibers.",
+          "identifier_or_url": "arXiv:1605.03319",
+          "material_read": "pp. 1–2, offsets 0 and 4426",
+          "method": "Primary OA PDF",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "General per-class counting"
+        },
+        {
+          "assessment": "Inspected bound counts profiles, not their largest fiber",
+          "evidence": "Defines the linear L-multispectrum and uses 2^L-compositions for an upper bound on the number of possible spectra.",
+          "identifier_or_url": "arXiv:1804.04548",
+          "material_read": "§II pp. 2–3, offsets 8364 and 12323",
+          "method": "Primary OA PDF",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Same linear multispectrum data"
+        },
+        {
+          "assessment": "Cyclic observation",
+          "evidence": "Treats cyclic strings and balanced transition matrices.",
+          "identifier_or_url": "DOI:10.46298/dmtcs.2768",
+          "material_read": "pp. 388–389, offset 4489",
+          "method": "Primary OA PDF",
+          "title": "Counting Markov Types",
+          "trigger": "Adjacent-transition matrix formulation"
+        },
+        {
+          "assessment": "Set representation, not multiplicity fibers",
+          "evidence": "The objective is minimum representation of k-mer sets without repetitions.",
+          "identifier_or_url": "DOI:10.1186/s13015-023-00227-1",
+          "material_read": "p. 1, offset 0",
+          "method": "Primary OA paper",
+          "title": "Eulertigs: minimum plain text representation of k-mer sets without repetitions in linear time",
+          "trigger": "Graph representation of substring observations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Resultary 5122acc1b9bd, exact formula and all-maximizers statement"
+      ],
+      "rationale": "The maximum collision fiber is a natural invariant, but its exact solution, tie cases and exclusion of unequal-transition profiles are already available. Expanding the unified theorem into four residues and recording the n=2 identity gives no substantive new mathematical answer.",
+      "residual_risks": [
+        "This judgment concerns the incremental contribution of this record, not the usefulness of the known invariant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

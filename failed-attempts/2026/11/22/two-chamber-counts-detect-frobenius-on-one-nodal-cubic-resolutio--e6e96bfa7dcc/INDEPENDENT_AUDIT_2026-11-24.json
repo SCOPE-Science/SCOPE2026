@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:56:43.420383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62, chamber_table.json, VERIFICATION.md and all three accompanying verification scripts (inspected, not run)",
+        "Independent replay: python3 /workspace/branches/reproduce_02_03.py (03 rows and profiles)",
+        "Bauer–Funke–Neumann arXiv:0912.0958, Prop. 1.1; Blache–Hallouin arXiv:2301.13582 §5.2 and Table 8"
+      ],
+      "rationale": "The Finding is true. Over the algebraic closure, let g=0 be the conic and choose a cubic F whose section on the conic vanishes simply at the six points. This section exists by restriction of cubics to the conic; the cubic forms through the six points are spanned by g times the linears and F. At each basepoint g,F are transverse, so the blow-up resolves the anticanonical map. Its image in coordinates (Y,W) is g(Y)W=F(Y), birational by recovery of Y as the old plane coordinates away from the conic. At [0:0:0:1] the quadratic part is the smooth conic form, an ordinary node in odd characteristic. A singular point away from there would require g(Y)=F(Y)=0 and dependent plane gradients, contradicting transversality. Bézout with the conic gives anticanonical degree at least d for each other nonexceptional irreducible plane transform of degree d, so adjunction leaves only the fifteen secants and the six exceptionals as (−1)-curves. The strict conic is the sole (−2)-curve. A negative support's (−1)-curves must be disjoint by principal minors; adjoining the conic gives Schur complement −2+s, where s counts selected exceptional curves, so requires s≤1. For invariant S and ground-field ample A, solve P=A+Σ b_i C_i with P·C_i=0; without the conic b_i=A·C_i, and with it b_Q=(A·Q+Σ_E A·E)/(2−s), b_E=A·E+b_Q and b_L=A·L. All are positive, P is nef and P²=P·A>0. The reduced sum D_S descends, and A+kD_S for k>max b_i has negative support S, including the empty case with A alone. Independently enumerated by invariant exceptional sets (unions of marking cycles). On the remaining labels, pairwise-intersecting secant edges are empty, a single edge, a unique-centre star with at least two edges, or a triangle. For residual cycle counts f fixed points, d transpositions, t three-cycles and h cycles overall, the number is 1+binomial(f,2)+d+f(2^(h−1)−f)+binomial(f,3)+fd+t, with zero star term when f=0. Summing over exceptional cycle subsets and retaining Q exactly when allowed gave all eleven pairs, all support-size profiles, and both orbit decompositions (via fixed counts of the powers). Frozen proof line 62 omits the +1 from q^k+1 in Möbius inversion for the number of closed conic points. This affects only degree one; the Finding uses the correct q+1. At q=3 the counts in degrees 1 through 6 are 4,3,8,18,48,116, which suffice except for six singletons; for q≥5 monotonicity of the closed-point counts for d≤6, or the explicit formulas, supplies every partition. No repair package is warranted for this otherwise true but covered contribution.",
+      "residual_risks": [
+        "The statement classifies a Frobenius partition of the marking, not the cubic's isomorphism class. No claim in characteristic two or for another curve configuration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "709ff6674212 supplies the full Frobenius chamber cycle decomposition as well as support profiles for the same labeled configuration, in characteristic ≥5. The primary geometric sources give the S6 marking types/conic construction and the general negative-support chamber correspondence, respectively, not this numerical arithmetic census."
+        ],
+        "reasoning": "Distinguish stronger enumerative data from field scope: the data enumerate a characteristic-independent permutation on the same incidence lattice, while realizability in characteristic three is an added, elementary step.",
+        "searches": [
+          "709ff6674212 Finding, Assumptions and field paragraph",
+          "Blache–Hallouin arXiv:2301.13582 §5.2/Table 8 and Bauer–Funke–Neumann arXiv:0912.0958 Prop. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 709ff6674212 RESULT.md plus its linked scientific JSON; Resultary 4b531d234d53",
+        "arXiv:2301.13582 and arXiv:0912.0958"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eleven pairwise distinct summed pairs give the inference from (c,r) immediately, even though the exact two-count wording is not that record's headline. The finite conic has q^k+1 points over F_(q^k). At q=3 this rules out six singleton cycles, and the required low-degree counts give the other ten types."
+        ],
+        "reasoning": "The separating inference is mere summation/comparison of already exact data. The characteristic-three refinement changes which partitions occur, but no coefficient of the fixed-support computation changes; it does not leave a substantive new arithmetic census.",
+        "searches": [
+          "709ff6674212 Finding, actual supplement, and closed conic point construction at offsets 7070–7596",
+          "arXiv:2301.13582 §5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The supplement's fixed_with_exceptional_minus_two profiles count preserved supports containing the same strict conic Q, the sole geometric (−2)-curve. Summing these support-size profiles gives r exactly; fixed_chambers gives c."
+        ],
+        "reasoning": "Support-size refinement is stronger numerical data for the same Frobenius-stable geometric supports, not a change of sampling or meaning of rationality.",
+        "searches": [
+          "Resultary: Frobenius-fixed rational Zariski chambers, six conic blow-up centers, conic-root support count",
+          "709ff6674212 RESULT.md Finding; nodal_cubic_chambers_results.json cases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read all eleven entries in the comparison supplement and summed the conic profiles. Each pair matches the assigned table after aligning by cycle partition; in particular (4,2) gives (8,2) and (5,1) gives (8,3). Its chamber_cycles entries are {1:8,2:55,4:445} and {1:8,5:378}. The earlier geometric record gives the identity pair (1898,648) only."
+        ],
+        "reasoning": "The collision and both distinguishing counts were numerically present in stronger tabular form, including the supplementary rather than just the headline data.",
+        "searches": [
+          "709ff6674212 nodal_cubic_chambers_results.json, cases[*]",
+          "Resultary 4b531d234d53 Finding, geometric chamber spectrum"
+        ]
+      },
+      "rationale": "Distinct same-date record 709ff6674212 already gives all eleven total counts and a linked supplement tabulates each complete profile of supports containing the sole (−2)-curve. Summing the entries for each cycle type gives exactly the second column and certifies both the stated collision and the joint injection. Its complete chamber-cycle data also give both orbit patterns. This is exact coverage of the novel invariant calculation, not just the identity row or a similar title. The other Finding assumes characteristic at least five, whereas the assigned statement includes characteristic three. Its same labeled cycle computation applies there without change; the extra field realization is the elementary closed-point feasibility check on the conic, not a new chamber invariant. No relative priority is inferred from the shared date.",
+      "residual_risks": [
+        "The shared display date does not establish relative publication order. The field-three distinction is explicitly retained, not attributed to a same-day theorem whose Finding assumes characteristic ≥5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the pair data and stronger orbit information; narrower stated field scope, no temporal priority claim",
+          "evidence": [
+            "fixed_chambers and fixed_with_exceptional_minus_two recover (c,r) for every row.",
+            "The table collision and both full cycle profiles already occur in these data."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-fixed-zariski-chambers-of-the-one-nodal-cubic-resoluti--709ff6674212/RESULT.md",
+          "material_read": "Finding table and assumptions (offsets 0–3340); field proof offset 7070–7596; all eleven cases of the linked nodal_cubic_chambers_results.json (0–6939)",
+          "method": "Local mirror, compare aligned partitions and sum actual profiles",
+          "title": "Frobenius-fixed Zariski chambers of the one-nodal cubic resolution",
+          "trigger": "Identical arithmetic census on the conic marking"
+        },
+        {
+          "assessment": "Covers identity row and geometric support spectrum, not arithmetic fixed supports",
+          "evidence": [
+            "1898 total, 648 containing Q, over the algebraically closed field."
+          ],
+          "identifier_or_url": "Resultary 4b531d234d53",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Zariski-chamber spectrum of the one-nodal cubic’s minimal resolution",
+          "trigger": "Exact same geometric chamber family"
+        },
+        {
+          "assessment": "Gives the conic realizations and eleven S6 types, not the Zariski-support pair table",
+          "evidence": [
+            "Strict conic is the unique (−2)-curve; Table 8 lists the eleven A1 arithmetic types with stabilizer S6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.13582",
+          "material_read": "PDF p. 2, §5.2 pp. 39–40 and Appendix A Table 8 p. 47",
+          "method": "OA primary passage and table comparison",
+          "title": "Classification of singular del Pezzo surfaces over finite fields",
+          "trigger": "Classification of the same A1 six-marked surfaces"
+        },
+        {
+          "assessment": "General support mechanism, not arithmetic classification",
+          "evidence": [
+            "Non-nef chambers correspond to reduced negative-definite supports; add the empty nef chamber separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.0958",
+          "material_read": "Prop. 1.1 and its ample-divisor construction, PDF p. 3, offset 7241",
+          "method": "OA primary proposition comparison",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces",
+          "trigger": "General correspondence and construction for chamber supports"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; 709ff6674212 supplement and field construction; Blache–Hallouin §5.2"
+      ],
+      "rationale": "As invariants, the total and conic-refined chamber counts are natural and potentially useful; the problem is not that the counting family is finite. The assigned numerical table and its distinguishing implication are already available by inspecting and summing a stronger support profile, and field-three availability follows from the routine conic closed-point check without changing the action. This does not leave a substantive new exact invariant worth a separate repair.",
+      "residual_risks": [
+        "The decision is about the incremental contribution of the assigned record, not against the usefulness of distinguishing Frobenius types."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

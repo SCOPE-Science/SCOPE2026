@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:05:58.674621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69 and 71–144; VERIFICATION.md; verify_spherical_slab.py inspected, not executed",
+        "python3 /workspace/branches/frozen_review_reproduction.py slab: alternate high-precision coordinate quadrature agrees for six contact coefficients and two three-dimensional logarithmic coefficients; it also checks the explicit planar minimum"
+      ],
+      "rationale": "The support maximizer for t=|u_d| is unconstrained when t≤a and is on the rim of the slab otherwise, giving H_a(t)=at+b√(1−t²) on that branch, with quadratic loss (t−a)²/(2b²) at contact. Projection preserves support on the unit sphere of E (the intended domain of the sphere integral). The in-plane axis length is s=sinθ, so support is averaged against the absolute coordinate distribution of that sphere. This gives the whole profile and strict decrease for s>a. The plateau is exactly the ball event and sin²θ has the stated beta law; pushing forward the acute-angle measure gives the continuous CDF and the unique jump. In the coordinate integral set sz=a+δv, δ=s−a. The resulting beta moment ∫v²(1−v)^(α−1)dv is B(3,α); δ∼bη gives the quoted contact constant. Differentiating the integral with the same substitution and H'_a(a+h)∼−h/b² gives a derivative of order η^(α+1) with coefficient (α+2)κ, justifying the density exponent, not merely the integrated mass. At s=1 the derivative majorant is (1−z)^((d−5)/2), integrable for d≥4. In d=3 the localized derivative integral has divergent part (2b/π)∫dφ/√(1−s²+φ²), with bounded error, giving (b/π)log(1/(1−s)). Integrating and using 1−s∼η²/2 gives the stated logarithmic gap and its inverted probability constant. Direct planar integration recovers the minimum, and the top support and atom invert R and a by scaling and the strictly increasing beta CDF.",
+      "residual_risks": [
+        "Asymptotics are for fixed d and 0<a<1, not uniform in degenerate aspect ratios. Finite quadrature does not certify the continuum law.",
+        "For unambiguous notation the sphere of E should be written S(E) or S^{d−1}∩E in the ambient space; the normalized surface area and proof identify the intended domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison reports ellipsoids, cylinders and cones in Vickers–Brown and regular-polytope projection cases in Finch; the relevant original passages were not retrieved. The web result for MathWorld's Zone states a surface-area treatment, not a shadow law."
+        ],
+        "reasoning": "A general pushforward method for rotationally symmetric objects could encompass slabs, but standard support projection and planar perimeter identities do not specify the slab profile or prove endpoint asymptotics without a separate calculation. Whole-source exclusions are not made.",
+        "searches": [
+          "Vickers–Brown DOI 10.1098/rspa.2000.0667 (shape-based perimeter distributions); Finch arXiv:1203.2464; Weisstein Spherical Segment and Zone"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 149–158 and supporting frozen REVIEW.md comparison, distinguished from independent source access",
+        "Resultary 0ef4e1544f7a, 94c36f959083 and 8202aacb7c96",
+        "arXiv:1203.2464 and Vickers–Brown public copy retrieval attempts; MathWorld search descriptions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cap lead shares a 5/2 power and the cone lead shares a logarithm in a perimeter near one endpoint; neither available statement gives the slab beta probability, slab-specific factors b/a and b/π or the threshold between d=3 and d≥4."
+        ],
+        "reasoning": "General Cauchy/support formulas reduce the law to a quadrature. The two asymptotics come from different boundary regions of that quadrature and are not a substitution in the available cap/cone statements. Same-day dates do not establish priority either way.",
+        "searches": [
+          "Compare Resultary 94c36f959083 and 8202aacb7c96 and the general projection-method citations in frozen RESULT.md lines 149–158"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0ef4e1544f7a is the assigned indexed record itself",
+          "94c36f959083 catalogue describes a solid spherical cap with a shadow area atom and 5/2 contact; 8202aacb7c96 describes a circular cone perimeter law with a logarithmic side-on gap"
+        ],
+        "reasoning": "A centered slab is not the one-plane cap or the cone. Area and mean support/perimeter are different observables even when an exponent is shared. The common endpoint mechanism is real overlap in phenomenon, not an equivalent law.",
+        "searches": [
+          "Resultary: spherical slab shadow law; full ball atom; contact exponent; three-dimensional side-on logarithm",
+          "Web: spherical zone slab truncated sphere orthogonal projection perimeter random orientation distribution viewing angle ball spherical segment shadow side on projected perimeter elliptic integral Vickers Brown"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available exact catalogue match is the assigned record. The solid/surface zone entries surfaced by the web search describe the body and classical area or volume quantities rather than the Haar law for its shadows."
+        ],
+        "reasoning": "A table of zone surface area, volume or rim size is not a table of shadow mean-support values by viewing angle and cannot supply the two endpoint coefficients.",
+        "searches": [
+          "Resultary queries for the slab beta atom and 5/2 or logarithmic endpoint; classical spherical segment formula search"
+        ]
+      },
+      "rationale": "The supported distinct claim is the mixed mean-support law for a centered spherical slab, with the sharp contact coefficient and dimension-sensitive side-on endpoint. General support/projection identities and the occurrence of contact exponents or logarithms in other bodies are not credited as new.",
+      "residual_risks": [
+        "Relevant original passages were not available for the closest published projection work or the cap/cone notes. Generic surface-zone results retrieved in search are not evidence that no exact result exists.",
+        "A general theorem or exact tabulation for rotationally symmetric truncated solids could affect coverage if it supplies this law or its sharp endpoint constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact phenomenon, different body and invariant; full overlap not resolved",
+          "evidence": "One-cap area versus centered slab mean support, with a dimension-specific side-on minimum in the latter.",
+          "identifier_or_url": "Resultary 94c36f959083",
+          "material_read": "Indexed statement of spherical cap shadow area; original Finding not retrieved",
+          "method": "Local catalogue and targeted original-file retrieval attempt",
+          "title": "Sharp five-halves shadow contact for a solid spherical cap",
+          "trigger": "Potential same contact law and atom"
+        },
+        {
+          "assessment": "Shared endpoint type, not the same law in the available statement",
+          "evidence": "Cone perimeter and a switch of minimizers versus monotone decreasing slab profile.",
+          "identifier_or_url": "Resultary 8202aacb7c96",
+          "material_read": "Indexed statement of logarithmic side-on gap and minimum-direction transition; original Finding not retrieved",
+          "method": "Local catalogue and targeted original-file retrieval attempt",
+          "title": "A first-order minimum shadow perimeter transition for solid circular cones",
+          "trigger": "Potential prior logarithmic perimeter endpoint"
+        },
+        {
+          "assessment": "Plausible general treatment; no whole-document exclusion",
+          "evidence": "The frozen comparison reports ellipsoids, cylinders and cones; applicability to the slab and its endpoint coefficients remains a named risk.",
+          "identifier_or_url": "DOI 10.1098/rspa.2000.0667; https://www.academia.edu/60865860/The_distribution_of_projected_area_and_perimeter_of_convex_solid_particles",
+          "material_read": "Frozen Relationship to prior work and reference lines 149–158 only; external passage not retrieved",
+          "method": "Bounded OA retrieval attempts of an identified public copy",
+          "title": "The distribution of projected area and perimeter of convex, solid particles",
+          "trigger": "Closest methodological publication and potentially broader body coverage"
+        },
+        {
+          "assessment": "Related techniques and body geometry, not evidence of exact shadow-law coverage",
+          "evidence": "An intrinsic area or volume of the unprojected shape and a regular-polytope random projection model are not the slab support law.",
+          "identifier_or_url": "arXiv:1203.2464; https://mathworld.wolfram.com/SphericalSegment.html; https://mathworld.wolfram.com/Zone.html",
+          "material_read": "Frozen scope comparison and cited references; available MathWorld search descriptions of spherical segment and zone surface area; primary passages not retrieved",
+          "method": "Bounded primary web query and targeted OA primary reading attempts",
+          "title": "Planar Projections and Second Intrinsic Volume; Spherical Segment/Zone",
+          "trigger": "Random projection formulas and possible exact tables for the same shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–6; independent endpoint calculation"
+      ],
+      "rationale": "At a positive fraction of views a nonspherical convex solid has an exactly round shadow; the continuous remainder starts at a computable fractional contact power and ends at a dimension-dependent geometric singularity. The resulting law distinguishes the two mechanisms and identifies both radius and thickness from population data, giving a motivated exact benchmark for inverse convex geometry.",
+      "residual_risks": [
+        "The inverse claim is within the spherical-slab family and from the population law, not an estimator guarantee or a characterization among arbitrary solids."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

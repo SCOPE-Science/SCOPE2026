@@ -1,15 +1,21 @@
-# Review of the stationary Gaussian mesh-loss theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof checks all three quantifiers separately: a pathwise injection establishes \(I_h\le J\) for every positive mesh; the existing exact bivariate orthant formula plus a sixth-order covariance Taylor expansion yields the signed relative \(h^2\) coefficient; a tilted derivative-energy spectral measure, antitone covariance and strict Jensen give the if-and-only-if equality classification at and below the bandlimit's Nyquist spacing. The pathwise step uses the almost surely continuously differentiable derivative implied by finite sixth spectral moment and Bulinskaya/Rice regularity; the continuous maxima are counted at finite intensity. The formula is exact for a monochromatic-plus-constant spectral law, including the endpoint Nyquist case. The standalone checker verifies algebra and finite examples, not infinite sample paths.
+## correctness
 
-## Originality — PASS, qualified
-The exact three-site Gaussian peak probability and leading infill intensity are explicitly prior work (Cheng–Ginos, arXiv:2610.27687v1, Corollaries 2.4 and 3.4); neither is claimed as novel. Their formula already implies the sixth-moment coefficient after expansion, so its standalone novelty is limited. The identifiable additional mathematical content is the all-mesh pathwise comparison and the strict global equality classification on the bandlimited regime, with the sixth-moment coefficient serving as a quantitative spectral stability law. Taylor–Worsley–Gosselin discuss discrete maxima primarily to approximate excursion probabilities; Kratz surveys continuous Kac–Rice functionals. No inspected source asserts this combined sharp counting/equality theorem. Residual historical-priority risk is meaningful because classical extrema-sampling inequalities may already cover the pathwise part or stronger versions.
+PASS
 
-## Mathematical value — PASS
-Expected observed local-maximum counts have a natural systematic sampling bias. The exact sign, first nonvanishing spectral coefficient and strict equality class identify how much continuous peak-count intensity is lost at fine mesh, and when no loss is possible at any non-aliased mesh. The spectral coefficient distinguishes processes with identical continuous Rice intensity but different sampling losses (a squared-exponential covariance and a single harmonic of frequency \(\sqrt3\) both have intensity \(\sqrt3/(2\pi)\), but mesh-loss coefficients \(1/6\) and zero); the all-mesh bound gives a robust check independently of small-mesh approximations. This is more informative than recomputing the known orthant probability at isolated numerical parameters, although it is a focused rather than general random-field theorem.
+Finite m6 gives a mean-square second derivative with Gaussian increment variance bounded by m6 times the squared separation. Kolmogorov continuity and integration give a C² version. Bulinskaya's lemma applies to X' (its one-point Gaussian density is uniformly bounded), so critical points on compact intervals are simple. Rice gives J using independence of X' and X'' by evenness of the covariance. The disjoint open two-mesh intervals around strict lattice peaks each contain an interior continuous maximum; the two end effects disappear in the expected intensity. For V=1-r(h)>0 the comparison differences have correlation (1-2r(h)+r(2h))/(2V), giving the stated arccos formula including perfect correlations by continuity. For u=(4V-V(2h))/(2V), u=(m4/(2m2))h²[1+(m4/(12m2)-m6/(6m4))h²+o(h²)]; the square-root and arccos corrections combine to the stated coefficient. Its numerator is m2² times the variance of ω² under the derivative-energy law. In the bandlimit range the arccos input is the mean of cos(hω) under the (1-cos(hω))-weighted spectral law. This law is a decreasing positive tilt, in ω², of the derivative-energy law, so its mean ω² does not increase. Strict convexity of cos(h sqrt(x)) on [0,Ω²] (sin z-z cos z>0 for 0<z≤π) gives strict Jensen unless ω² is constant there. The tilt preserves nonzero spectral support. For one absolute frequency the formula gives p_h=hω*/(2π) through hω*=π, including the perfect-correlation endpoint. A zero-frequency atom has no effect.
 
-## Limits, proximity and verification
-The classified equality range assumes compact spectral support and mesh at or below its Nyquist cutoff; no strict bound above that range, no nonstationary analogue and no rough-process result is claimed. Independent audit and independent historical-priority review have not been performed. The exact finite-mesh probability, leading rate, and Gaussian calculus are established inputs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The already-known exact discrete probability and leading infill limit are not new; the second-order coefficient is a direct refinement of those formulas. The inspected results do not give the combined all-mesh non-overcount and sub-Nyquist rigidity characterizing equality, which is the supported distinct contribution.
+
+## value
+
+PASS
+
+The strict equality classification answers when sampling preserves an exact continuous extrema intensity at a finite spacing. It separates a single-frequency process from genuinely mixed derivative spectra even below Nyquist; this is more informative than the sign of the infinitesimal bias. The explicit coefficient further quantifies discrepancies among processes that share the same continuous peak intensity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

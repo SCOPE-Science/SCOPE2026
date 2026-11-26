@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:15:20.624190Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For deterministic gaps, the Laplace factor in Wang–Zhang is q(s)=exp(−sγw)=q^s and the renewal rate is 1/w, giving the exact claimed weights and MFPT normalization. Independently, if f(y) is the remaining mean jump count at scaled signal y≤x, first-step conditioning gives f(y)=1+exp(qy)∫_{qy}^x exp(−u)f(u)du. The entire series f(y)=1+∑_{n≥1}(x^n−(qy)^n)∏_{j=1}^{n−1}(1−q^j)/n! satisfies f′=q(f−1−f(qy)) and f(x/q)=1; integrating this identity recovers the first-step equation. The latter is a contraction on bounded functions on [0,x]. For the shape theorem, the sign of a_{n+1}−a_n is that of F_n−1, with F_n=q^n[(n+2)−(n+1)q], F_n−F_{n+1}=(n+2)q^n(1−q)^2, F_n→0, and F_1−1=(2q−1)(1−q). Include the initial ratio C_1/C_0=x: for q≤1/2 all ratios are nonincreasing, including at the boundary q=1/2; otherwise log-concavity already fails at index 2. In the open reciprocal window, away from ties, the ratios yield consecutive signs +,−,+,− for C_{n+1}−C_n, hence exactly two strict maxima at 1 and at least 3. The individual equality thresholds with C_1 grow to infinity, so their minimum over n≥3 is attained. At 1/M, C_2<C_1 and no subsequent ratio exceeds 1; at 1/a_1, C_3>C_2=C_1. These give the strict bounds and exclude index 2 and index 0 at the first global transition. Inspected frozen VERIFICATION.md and proof_check.py without executing the uploaded script; the proof controls all indices, not just its checked window.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Zhang Eq. (7) and Sec. III Eqs. (13)–(18): all-renewal coefficients and large-threshold saddle displacement under an interarrival-density hypothesis.",
+          "Brémont Eq. (1): high-threshold MFPT product under a waiting-time density model."
+        ],
+        "reasoning": "The cited saddle crossover at density exponent κ=1/2 is not the exact retention threshold q=1/2. An asymptotic for the total mean does not determine exact finite-threshold modalities, even where product factors are formally the same.",
+        "searches": [
+          "periodic renewal shot noise first passage exact mean first passage coefficient sequence product",
+          "deterministic interarrival exponential marks exact finite threshold mean first passage q product shot noise",
+          "\"Exact mean first-passage time\" \"Poisson-smoothing crossover\" renewal shot noise Wang Zhang 2611.18675 auxiliary weights formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18675v1",
+        "arXiv:2510.21670",
+        "2026/11/22/SCOPE-sharp-log-concavity-boundary-and-nonadjacent-modal-coexistence-i--9956997214ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (13) immediately supplies the ratio and permits the two-term test a_2>a_1, but does not establish its single-hump character across all n.",
+          "The exact modal and skipping statements additionally use the strict decrease of F_n and the minimization of the global tie thresholds, not a substitution into an earlier shape theorem."
+        ],
+        "reasoning": "Credit the MFPT expansion, normalization and ratio entirely to the prior work. No inspected stronger theorem yields the combined finite-threshold shape and global-selection result as a specialization.",
+        "searches": [
+          "arXiv:2611.18675v1, II.2 and III",
+          "arXiv:2510.21670, Main result",
+          "2026/11/22/SCOPE-sharp-log-concavity-boundary-and-nonadjacent-modal-coexistence-i--9956997214ea"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Zhang II.2, Eqs. (11)–(12): the same terms when written as tilted Poisson weights.",
+          "Resultary 2026/11/22/SCOPE-sharp-log-concavity-boundary-and-nonadjacent-modal-coexistence-i--9956997214ea: Poisson–Lindley probabilities with a 0/2 tie, not the same weight sequence."
+        ],
+        "reasoning": "Normalization and Poisson tilting are equivalent formulations; the source establishes them but does not classify their shape. The Poisson–Lindley ratio and indices do not reduce to the retained-fraction product or the 1-to-later-index jump.",
+        "searches": [
+          "q-Pochhammer finite product adjacent ratio unimodality log-concavity coefficient sequence",
+          "q-product finite product (1-q^j) over factorial summands ratio mode",
+          "two strict local maxima q-product coefficient sequence log-concavity threshold adjacent ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching frozen claim in the index is this same record, not distinct evidence of prior discovery.",
+          "The examined distinct Poisson–Lindley entry concerns a different sequence and threshold; the primary source gives coefficients but not a table of modal boundaries."
+        ],
+        "reasoning": "No matching exact threshold or global-mode crossover table was established. This limited lookup is not a proof of priority.",
+        "searches": [
+          "periodic shot noise MFPT summands log-concavity q=1/2 two modes auxiliary weights",
+          "auxiliary MFPT series weights bimodality deterministic periodic renewal shot noise",
+          "Sharp log-concavity boundary and nonadjacent modal coexistence generalized Poisson Lindley counts"
+        ]
+      },
+      "rationale": "The exact coefficient and ratio are prior; the inspected closest results do not establish the finite-threshold mode classification or its first nonadjacent global transition. The conclusion is bounded by the inspected literature and index.",
+      "residual_risks": [
+        "An unindexed general theorem for the same factorial-weighted finite q-product could affect the assessment.",
+        "The primary papers were compared at the identified passages, not exhaustively through all appendices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact MFPT and ratio; the examined saddle analysis is not a finite-threshold classification",
+          "evidence": "Deterministic W=w gives q(s)=q^s and 1/r=w; small-gap density exponent controls the large-x saddle displacement, not retention at finite x.",
+          "identifier_or_url": "https://arxiv.org/html/2611.18675v1",
+          "material_read": "Sec. II Eq. (7), II.2 Eqs. (11)–(12), III Eqs. (13)–(18); bounded passages around text offsets 13800 and 21780",
+          "method": "Direct open HTML, passage and formula inspection",
+          "title": "Exact mean first-passage time and a Poisson-smoothing crossover in renewal shot noise",
+          "trigger": "Exact same coefficient family and normalization"
+        },
+        {
+          "assessment": "Asymptotic sum behavior, not exact shape of individual periodic terms",
+          "evidence": "The product involves 1−ŵ(mγ) in the large-threshold mean, stated for an interarrival density.",
+          "identifier_or_url": "https://arxiv.org/html/2510.21670",
+          "material_read": "Main result, Eq. (1), text offsets 4000–11398",
+          "method": "Direct open HTML, statement and waiting-time assumptions",
+          "title": "Beyond Poisson: First-Passage Asymptotics of Renewal Shot Noise",
+          "trigger": "Product asymptotics for the same renewal first-passage problem"
+        },
+        {
+          "assessment": "Structural analogy, not equivalent coverage",
+          "evidence": "The tie is at indices 0 and 2 at α=5/3, for a different count probability law.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-log-concavity-boundary-and-nonadjacent-modal-coexistence-i--9956997214ea",
+          "material_read": "Finding and Proof, local RESULT.md offsets 0–6153",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp log-concavity boundary and nonadjacent modal coexistence in generalized Poisson–Lindley counts",
+          "trigger": "Same style of sharp log-concavity and modal coexistence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At deterministic arrivals the retention has a direct physical meaning and the dominant summands are the terms used to analyze or sum the exact MFPT. A sharp cutoff for log-concavity, an explicit two-peak window and a nonadjacent first global-mode switch identify where single-peak intuition for that sum fails. This is useful without implying any bimodality of the physical hitting index or a quantified approximation error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

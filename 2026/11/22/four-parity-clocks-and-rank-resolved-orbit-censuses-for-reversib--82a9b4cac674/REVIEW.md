@@ -1,15 +1,21 @@
-# Scientific review: symmetric-design reversible-wave classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument starts with the standard dual Gram identities of a nontrivial symmetric \(2\)-design, reduces modulo two, and classifies the adjacency Jordan blocks in four parity regimes. When the intersection number is odd, the design equation forces an odd point count, justifying the direct decomposition into constant and zero-sum subspaces. Explicit temporal-module transfers then yield each fixed-space exponent via polynomial gcd, and Möbius inversion gives the primitive-orbit census. The sharp global order follows because every needed primary block has positive multiplicity. All six verification designs agree with the formulas at every time \(1\le t\le12\). Separate per-vertex state iteration exhausts the 4096 and 65536 states of two smaller designs. These computations do not replace the universal argument.
+## correctness
 
-## Originality — PASS, with residual historical-priority uncertainty
-The standard symmetric-design Gram relation and the reversible two-row construction are foundational and not new. A directly relevant published projective-plane classification covers the \(\lambda=1\) special family, while the published strongly regular graph classification applies to nonbipartite diameter-two graphs rather than the bipartite incidence graphs here. The inspected design notes, second-order reversible-automaton paper and two related temporal classifications do not state the combined four-parity, all-symmetric-design rule or its complete binary-rank-resolved period populations. The contribution is the positive-even-intersection regimes and the universal classification, not a new incidence identity. Historical records outside the searched corpus may contain a mathematically equivalent result.
+PASS
 
-## Value — PASS
-Symmetric designs form a natural infinite-area class of finite incidence geometries, including projective planes, biplanes, higher-dimensional projective point-hyperplane designs and complementary designs. Their binary incidence ranks are classical objects of coding theory. The theorem gives a sharp global dynamical clock from only two parities while the full temporal orbit data recover the incidence code's rank. The Fano plane and its complementary symmetric design have the same number of points but periods \(12\) and \(4\). This separates a robust structural clock from rank-sensitive orbit multiplicities; it is not a single arbitrary parameter computation.
+The symmetric-design Gram identities give A squared, and rank(A)=2 rho. In the even-even case A is square-zero with 2 rho size-two blocks. In the odd-even case B is invertible with inverse B^T, so a change of coordinates on one shore makes A a direct sum of swaps. For odd lambda, v is odd and the constant and zero-sum summands split on both shores. On the latter, even k again gives swaps and odd k gives a square-zero operator of rank 2(rho-1). The constant summand is respectively zero or one swap. In the odd-odd case rho cannot be one: all nonzero binary rows would coincide, contrary to the column sums 0<k<v. For any cyclic adjacency block with generator z, (z,0) generates both temporal rows, since T inverse sends it to (0,z) and T+T inverse acts as A on both rows. A block killed by (A-aI)^s thus transfers to the cyclic module killed by (X^2+aX+1)^s of full dimension 2s. This verifies all three temporal transfers over any finite characteristic-two field, whether or not X^2+X+1 splits. The fixed dimensions are gcd degrees; the latter polynomial has the two primitive third roots and is square-free. Taking the available primary components gives the asserted sharp orders and exactly the listed periods, including no least period two in the odd-even case. Mobius inversion counts orbits, and a fixed state is precisely (u,u) with Au=0, giving rank recovery independently of the four formulas.
 
-## Closest prior work and limitations
-The projective-plane result supplies a proper subfamily and was fully compared. The strongly regular graph result uses an incompatible graph class. Macfarlane's reversible update formalism and Tonchev's incidence identities are acknowledged. The proof does not classify which binary ranks occur for any design parameter set, nor extend beyond characteristic two. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The projective-plane clock and the temporal transfer are prior, not distinct contributions of this record. The identifiable extension is the complete classification for symmetric designs with lambda>1, including even lambda; the checked partial-geometry and strongly-regular cases do not cover that extension. This is a bounded comparison, not a publication-priority certificate.
+
+## value
+
+PASS
+
+The useful result is the explicit complete time census across the symmetric-design family, not reversibility or the elementary module transfer. It states exactly when a global order of six lacks any state of least period two and when design information beyond the parameters is needed. Even the plane and its complement give sharply different orders. The theorem turns a large state-space enumeration into four parity cases and one incidence invariant on a natural class of incidence graphs outside the plane case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

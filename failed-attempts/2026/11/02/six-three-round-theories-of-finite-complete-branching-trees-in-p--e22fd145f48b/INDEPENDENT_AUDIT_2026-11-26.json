@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:09.295289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Sections 1–5",
+        "Frozen VERIFICATION.md, both Python verifiers and both recorded outputs (read only)",
+        "Independent finite type projection: python3 /workspace/audit-tree-projection.py"
+      ],
+      "rationale": "For distinct vertices the pair type is the adjacency bit plus the achievable Boolean adjacency patterns of a third distinct vertex. Equality choices are always retained and a repeated pair sees just neighbor/nonneighbor existence. When h≥3 (and also when h=2,b≥3), the order exceeds 2b+4, so two closed neighborhoods leave an outside nonneighbor. A common neighbor is unique and exists exactly at distance two; at distance one or two, the one-sided pattern occurs exactly at a nonleaf endpoint, and at distance at least three both one-sided patterns occur. For h≥3 every vertex sees a distance-at-least-three vertex; each internal vertex sees nonleaves at distances one and two. The leaf, its parent, its grandparent, and higher internal vertices have the four asserted possibilities for their own status and nearby leaves, all realized, giving constant pointed-type sets. At height two the corresponding root, middle and leaf profiles are constant for b≥3, with the root having no distance-three vertex. At height one the center and leaf profiles stabilize once there is a third leaf. The singleton, universal vertex and radius-at-most-two sentences distinguish the height regions, and an independent triple or a dominating pair distinguishes the binary exceptions at heights one or two respectively. The tall class has minimum order 15. In a nontrivial tree, distinct equal-open-neighborhood vertices cannot have two common neighbors and so must be leaves at one parent; three such leaves exist exactly for b≥3. This validates the rank-four witness without implying a full rank-four classification.",
+      "residual_risks": [
+        "The finite projection alone is not an extrapolation beyond the test cases; its use for all parameters requires the published directed classification, or the frozen structural proof as checked separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directed theorem distinguishes classes h=3,4,5,≥6 and the same four short classes. Its sharp directed bound is 127, not 15.",
+          "The compared papers treat general definability depth, separator bounds, or regular labeled tree languages rather than this particular exact classification."
+        ],
+        "reasoning": "The directed theorem directly implies the within-class equivalences but not the merging merely from its eight class labels. The exact type-table projection supplies the missing step.",
+        "searches": [
+          "0748ae3a47d9 Finding and exact type recursion",
+          "Bohman et al. arXiv:math/0506288, Verbitsky arXiv:math/0401361, and Benedikt–Segoufin author PDF"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0748ae3a47d9",
+        "Bohman et al. arXiv:math/0506288",
+        "Verbitsky arXiv:math/0401361 p. 3",
+        "Benedikt–Segoufin DOI 10.1145/1614431.1614435",
+        "Independent projection of the published representative set"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduct projection determines the six classes, and the minima directly follow from the orders of the smallest directed representatives whose types merge. The distinction by two-vertex domination at height two is already used explicitly in the directed record.",
+          "The rank-four formula is valid, but its exact branching criterion follows immediately from forbidding a 4-cycle and from the number of sibling leaves."
+        ],
+        "reasoning": "The new signature name and sharp bound do not constitute a separately established invariant once the prior directed tables are projected. The frozen statement contains no further nonroutine rank-four theorem to repair.",
+        "searches": [
+          "0748ae3a47d9 exact three-round type encoding, height profile table and representative list",
+          "Frozen height, bound and open-neighborhood-twin statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0748ae3a47d9 is for the same b≥2 family at positive height, with immediate parent–child as its only relation and no named root.",
+          "Replace each undirected adjacency atom by the disjunction of the two opposite parent–child atoms. This preserves quantifier rank and vertex domain; this is not a comparison with a transitive ancestry relation."
+        ],
+        "reasoning": "The statements are not literally identical, but this exact low-rank reduct makes the published directed types computable sources for the undirected types.",
+        "searches": [
+          "Resultary exact rank-three class and height-collapse searches for complete branching trees",
+          "Resultary 0748ae3a47d9, Finding and Assumptions",
+          "Primary query on three-round EF games, complete binary trees, and undirected adjacency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior representatives are T(2,1), T(3,1), T(2,2), T(3,2), and T(2,h) for h=3,4,5,6, with an exact nested type recursion and atomic-diagram encoding.",
+          "The independent projection grouped exactly the four T(2,h) with h=3,4,5,6 together, leaving each short representative separate. The height-zero singleton supplies the sixth type."
+        ],
+        "reasoning": "Map each directed atomic triple to its undirected diagram, then take images at each of the pair, pointed and sentence-type set levels. This is a finite readout of the prior exact invariant, not a conjectural extrapolation from a few undirected examples.",
+        "searches": [
+          "0748ae3a47d9 Proof, depth profiles and eight explicit representatives",
+          "Independent projection of the directed atomic triple diagrams for those eight representatives plus the singleton"
+        ]
+      },
+      "rationale": "The earlier exact directed classification is in a different signature, but supplies representatives and complete three-round type information from which this reduct's exact partition is mechanically recovered by replacing atomic directed edges by their symmetric disjunction. The four tall representative images coincide, not just the already equivalent directed cases. The rank-four witness is an elementary leaf-twin observation rather than a distinct substantial remainder.",
+      "residual_risks": [
+        "Only bibliographic metadata was read for Li–Luo–Xiang, On the computational complexity of the theory of complete binary trees (MaRDI Q3614383). This access limitation does not inform the fail verdict.",
+        "The prior theorem does not by itself assert adjacency equivalence of different directed classes; the recorded projection explicitly checks these mergers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical implication of the exact adjacency partition",
+          "evidence": "The full directed pair/pointed/sentence types project by atomwise symmetrization; the four tall representatives all give the same image.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-eight-rank-three-theories-of-complete-finite-branching-trees--0748ae3a47d9/RESULT.md",
+          "material_read": "Finding, Assumptions and proof with atomic triple encoding, exact depth profiles, low heights, and all representatives; mirror offsets 0–6612",
+          "method": "Local mirror and independent projection of the published representative family",
+          "title": "Eight rank-three theories of complete finite branching trees",
+          "trigger": "Same family and rank, finer directed signature"
+        },
+        {
+          "assessment": "Relevant tools and context; not the specific tree family classification",
+          "evidence": "Concerns definability depth of individual trees and random structures.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0506288",
+          "material_read": "PDF pp. 2 and 4, extracted offsets 4980 and 9200",
+          "method": "OA primary passage comparison",
+          "title": "First Order Definability of Trees and Sparse Random Graphs",
+          "trigger": "General pure graph first-order tree-definability work"
+        },
+        {
+          "assessment": "Different signature and problem",
+          "evidence": "Ranked-tree successor relations used for regular tree-language definability.",
+          "identifier_or_url": "https://www.cs.ox.ac.uk/michael.benedikt/papers/revise.pdf",
+          "material_read": "PDF p. 4, extracted offset 12934",
+          "method": "Author-hosted OA passage comparison",
+          "title": "Regular Tree Languages Definable in FO and in FOmod",
+          "trigger": "FO tree language characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Sections 1–5",
+        "Resultary 0748ae3a47d9 exact typed classification and representative list"
+      ],
+      "rationale": "The exact signature-sensitive classification is mathematically well posed, but the sharp bound and full partition in the frozen record can be read out of already available types by rank-preserving projection and a small exact comparison. The remaining rank-four example is a direct open-neighborhood fact, not a new cutoff or full rank-four classification. The standalone proof explains the projection's effect but does not isolate a further independently valuable mathematical gap.",
+      "residual_risks": [
+        "This judgment does not apply to a broader unrooted-tree classification or a full rank-four theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

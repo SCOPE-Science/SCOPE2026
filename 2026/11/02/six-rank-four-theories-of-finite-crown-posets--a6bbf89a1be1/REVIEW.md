@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-round cyclic gap argument proves equivalence of all crowns with at least twelve alternating pairs; its cutoffs are \(L_0=2,L_1=5,L_2=11,L_3=23\), and the initial cycle lengths are at least 24. The exact rank-type recurrence is equivalent to the Ehrenfeucht--Fraisse game by backward induction. Two independent programs agree on the complete finite classification of pairs 2 through 15, including the sharp non-equivalence at 6 versus 7. The infinite conclusion does not depend on extrapolating finite tests.
+## correctness
 
-**Originality — PASS, qualified.** Brown--Hoshino classify pure graph cycles, but pure graph equivalence at twelve and fourteen vertices cannot imply the corresponding crown-poset equivalence: the latter fails. Their published result thus does not cover the sharp six-class statement. published-finding corpus queries on crown posets, circular fences, alternating colored cycles and first-order rank-four equivalence returned crown topology/configuration results, not this equivalence classification. Previously checked mathematical results involve uncolored cycles and other structures; none states or implies the strict-order crown classification. The check is not exhaustive; older papers about colored cycles or finite topological spaces could contain equivalent formulations.
+PASS
 
-**Value — PASS.** The finite crown is a canonical height-two cyclic poset and a finite model for the circle. Its exact four-round logical visibility and sharp fourteen-point threshold provide a natural finite-model-theoretic invariant of an entire infinite family. The explicit contrast with the uncolored 12- and 14-cycle theories isolates genuine information carried by order orientation that is lost on passing to the Hasse graph. It is not a renaming of the prior graph theorem or an arbitrary parameter slice.
+Use the fixed strict-order signature and n≥2 (n=2 is the four-point crown). The crown is a quantifier-free reduct of the alternatingly colored directed 2n-cycle. After the first move in cycles of length at least 24, preserve clockwise order, colors, and gaps either equal and <L_r or both ≥L_r of equal parity, with L_0=2 and L_r=2L_{r−1}+1. A repeated choice uses the same partner; at a newly split short gap the equal offset works. At a long gap either copy a subgap shorter than T=L_{r−1} (both remaining subgaps then exceed T), or choose T or T+1 of the required parity, leaving at least T on both sides. Thus the invariant is symmetric, preserves color and at r=0 preserves exactly the distance-one arcs among selected vertices, including a one-pebble whole-cycle gap. This proves a tail from n=12. The frozen type recursion is sound by induction, storing sets of possible extensions rather than counts; its supplied programs and output were inspected, not executed. Independent replay /workspace/crown_rank4_replay.py (stdout /workspace/crown_rank4_replay.txt) tests the two-board EF game on all 55 pairs with 2≤m<n≤12. Each proposed move is matched in its atomic-relation bucket; moves on both boards are checked, and the first-move rotations preserve all choices within each level. The only equivalent pairs in this finite range have both parameters at least seven. This bridges to the analytic tail, giving six classes and the sharp fourteen-point tail representative within this family. The same game calculation on uncolored C12 and C14 independently confirms their rank-four equivalence. It does not rely on verification of the numbering of Brown–Hoshino's cited theorem.
 
-**Closest source and limitations.** Brown--Hoshino (2007), Theorem 4.1, determines the pure-graph cycle threshold at eleven vertices, not the ordered crown threshold. Stong (1966) gives historical finite-space context, not an accessible rank-four crown classification. The result is for the single-crown strict-order language at rank four; priority and independent validation are not conclusively established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp unmarked strict-order crown classification, especially the threshold n=7 and separation of the 12- and 14-vertex crowns despite rank-four equivalence as pure cycles. Inspected indexed results cover different signatures, ranks or graph families. Pure-cycle equivalence, known as prior work in the frozen record and independently confirmed for this pair, goes in the wrong direction to imply equivalence of the orders. No exact or mechanically implying antecedent was identified in the bounded comparisons; the primary pure-cycle attribution remains an access risk, not evidence of absence.
+
+## value
+
+PASS
+
+Finite crowns are a canonical family of two-level orders with cycle Hasse graphs. Comparing exactly the four-round cutoff with the pure-cycle benchmark is a motivated test of what information is lost on forgetting the comparison direction. The twelve- versus fourteen-point contrast is a concrete sharp witness, and the fourteen-point optimal representative answers the exact bounded-rank question throughout the family. Neither a finite census alone nor a coarse gap bound establishes that cutoff. No broader claim about all finite posets is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

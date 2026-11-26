@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:28.645643Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify_angle.py (inspected, not executed)",
+        "Repaired /workspace/repairs/5/RESULT.md and /workspace/repairs/5/VERIFICATION.md",
+        "Independent exact combinatorial count of test iterations"
+      ],
+      "rationale": "The frozen exponential example's assertion that all 2^n coefficients are nonzero is false under the stated hypotheses: θ(x)=2^x−1 is a permitted principal angle (α=1, c=log 2, θ₀=−1) and its coefficient at the empty monomial is θ(0)=0. The complete corrected RESULT.md under /workspace/repairs/5 states the exact nonempty count, and the correct total according to the intercept; the frozen source remains intact. Re-auditing the corrected claim: iterating the fundamental theorem of calculus identifies D with the integral of θ^(q) over increments 2^{j−n}, j=0,…,q−1. Their product is exactly 2^{q(q−1)/2−qn}. Every evaluation of the derivative in the integral is within one block of its base, and every point of [0,1], including 1, is within one block of some base; the two modulus comparisons give the stated error inequality. A positive scalar multiple of x^q in the allowed angle range gives a constant qth derivative and exact normalization. Degree at most q−1 kills the alternating difference on every q-bit face; if it vanishes on all sufficiently fine grids the recovered derivative is zero, while ordinary polynomials give the converse by reducing b_j^k=b_j. This includes d=0. On the fixed most significant q-bit face (n≥q), the signed derivative assumption and product 2^{−q(q+1)/2} give a discrepancy at least that product times m₀; the alternating-sum functional has sup-norm dual norm 2^q, giving the uniform lower bound. Exponential factorization gives precisely the corrected nonempty coefficients and full degree n for all n≥1. On the q-face the alternating sign residual a/2^q times parity has highest coefficient a, so removing it attains the dual lower bound on that face. The unchanged script tests only the nonempty exponential coefficients; its loop counts sum independently to 2644, not a fresh assertion replay. Corrected verification documentation requires Python 3.10 because of int.bit_count and retains the frozen status metadata.",
+      "residual_risks": [
+        "The recovered derivative belongs to the fixed principal angle, not to g; the theorem requires θ∈C^q and fixed q. The positive uniform error bound uses the additional one-sign lower bound; the exact exponential optimum is a face optimum only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 5.5 builds an affine angle table of a rough integrand for a specified n. Fornberg's bibliographic description concerns generating finite-difference weights on arbitrary grids; its full text was unavailable. The standard multilinear expansion supports the proof of the fixed-face duality."
+        ],
+        "reasoning": "The fixed-n constructions have a different quantifier and regularity. General finite-difference and Boolean identities are underlying methods; the searches did not verify a dominating cross-resolution characterization or high-bit obstruction for this hierarchy.",
+        "searches": [
+          "arXiv:2604.24289, Lemma 5.5",
+          "doi:10.1090/S0025-5718-1988-0935077-0",
+          "arXiv:2105.10386, Chapter 1 §1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.24289",
+        "arXiv:2105.10386",
+        "Fornberg 1988 bibliography only",
+        "Resultary mirror ec4a8b1168c3 and b87f6c90a4aa",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior angle result gives multivariate discrete relations on one cube, not a derivative limit. The finite-difference comparison in Resultary uses order tending to infinity rather than fixed order and a mesh tending to zero."
+        ],
+        "reasoning": "The fixed-grid criterion supplies the exact vanishing interaction. Obtaining the continuum conclusion also uses the normalized integral identity and density of dyadic block bases, and the approximation obstruction instead keeps a leading-bit face of fixed spatial span as the mesh shrinks. The example's factorized coefficients and the parity norm calculation are elementary and not a standalone originality claim.",
+        "searches": [
+          "arXiv:2604.24289 Eqs. (23)–(25), Lemma 5.5",
+          "O'Donnell arXiv:2105.10386 Chapter 1 §1.2",
+          "Resultary ec4a8b1168c3, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chinesta–Falcó–Falcó-Pomares defines the identical principal-angle class on a fixed grid and uses the Möbius alternating sums of subsets to characterize its degree.",
+          "O'Donnell gives the equivalent unique real multilinear Boolean expansion."
+        ],
+        "reasoning": "A Boolean degree test at fixed n is covered. Neither of these formulations states what uniformly bounded degree across arbitrarily fine dyadic samples imposes on one smooth continuum function.",
+        "searches": [
+          "arXiv:2604.24289, §§3.1–3.3, Eqs. (23)–(25)",
+          "arXiv:2105.10386, Chapter 1 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ec4a8b1168c3 optimizes ℓ² norm of a discrete kth forward difference after fixed-radius convolution smoothing with k→∞. b87f6c90a4aa characterizes Bernstein node choices preserving positive-definite isotropic kernels on a circle."
+        ],
+        "reasoning": "Neither is a tabulation or theorem for fixed q, mixed increments, dyadic refinement and the continuum angle. The latter is same-day, but is separated by mathematical scope, not chronology. Ranked misses do not show absence.",
+        "searches": [
+          "Resultary title and topic comparisons for dyadic mixed differences and Boolean angle degree",
+          "Resultary: SCOPE-sharp-high-difference-binomial-limits-for-fixed-radius-discrete--ec4a8b1168c3",
+          "Resultary: SCOPE-quadratic-rigidity-and-cubic-node-freedom-for-positive-definite--b87f6c90a4aa"
+        ]
+      },
+      "rationale": "For the final corrected claim, credit the fixed-grid angle hierarchy and Möbius criteria to prior work, and the mixed difference and exponential-product identities to standard calculus and Boolean algebra. The supported distinct result is the cross-resolution derivative diagnostic and classification of a single smooth angle, with a refinement-independent approximation obstruction tied to the same hierarchy. No independent priority is asserted for the repaired coefficient arithmetic or the general parity duality.",
+      "residual_risks": [
+        "Best-of-knowledge determination. General restricted-increment finite-difference or dyadic Walsh classifications might contain a closer result under other terminology; the cited Fornberg article could not be read in full. Ranked database searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for fixed-grid criteria and monomial rotations; distinct refinement quantifier",
+          "evidence": [
+            "Definitions fix n; Eq. (23)–(25) describe expansion, inversion and vanishing for the fixed table. Lemma 5.5 chooses the function for a prescribed grid. Locators in the corrected RESULT.md match the PDF passages checked."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.24289",
+          "material_read": "PDF p. 3 around OA offset 11679; §3.3 pp. 9–10, offsets 35507–35897, Eqs. (23)–(25); p. 18 Lemma 5.5 near offset 65000",
+          "method": "OA PDF source passages",
+          "title": "On the complexity of quantum numerical integration: an angle-structure characterization",
+          "trigger": "Exact same angle mapping and degree classes; potential rigidity at all resolutions"
+        },
+        {
+          "assessment": "Classical counterpart for the Boolean ingredient, not an all-grid theorem in this material",
+          "evidence": [
+            "Existence and uniqueness of multilinear representations of fixed Boolean functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.10386",
+          "material_read": "Chapter 1 §1.2, pp. 20–21 around offset 37746",
+          "method": "OA book mirror text",
+          "title": "Analysis of Boolean Functions",
+          "trigger": "Standard Boolean expansion and related degree theory"
+        },
+        {
+          "assessment": "Only evidence for general topic, not used to rule out finer overlap",
+          "evidence": [
+            "DOI retrieval timed out and the AMS PDF did not yield document text; the bibliographic topic is weights on arbitrarily spaced grids."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1988-0935077-0",
+          "material_read": "Bibliographic description, no primary full-text passage available",
+          "method": "OA DOI attempt and identified AMS PDF alternate (unavailable)",
+          "title": "Generation of finite difference formulas on arbitrarily spaced grids",
+          "trigger": "Cited broader finite difference formulas"
+        },
+        {
+          "assessment": "Related finite-difference topic; different limit and norm",
+          "evidence": [
+            "High-order limit with fixed-radius smoothing and ℓ² norm on the integers, not sup-norm recovery of a fixed continuum derivative."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-high-difference-binomial-limits-for-fixed-radius-discrete--ec4a8b1168c3",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp high-difference binomial limits for fixed-radius discrete smoothing",
+          "trigger": "Nearest ranked discrete derivative limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md derivative law, classification, and quantitative obstruction; arXiv:2604.24289 fixed-grid framework"
+      ],
+      "rationale": "A fixed-grid classification does not decide what can remain low-degree while a quadrature grid is refined. In the natural principal-angle class the repaired theorem gives a complete smooth continuum classification and a normalized diagnostic for the derivative responsible for a degree violation. Its persistent leading-face lower bound explains why convergence of the low-bit differences to zero without normalization does not certify good compression. Correcting the count of constant terms leaves the full degree and exact face obstruction unchanged; neither the value nor the scientific scope relies on an all-circuit complexity claim.",
+      "residual_risks": [
+        "Does not exclude advantage from other oracle constructions or identify the best approximation on the entire Boolean table."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

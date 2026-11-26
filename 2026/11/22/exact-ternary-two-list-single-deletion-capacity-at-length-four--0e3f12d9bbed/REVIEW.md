@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns exactly one deletion from ordered ternary four-letter words with at most two distinct source words per received triple. The exact upper certificate is the inequality \(\sum_{y\in D(w)}\lambda(y)+\mu(w)\ge1\) for all \(81\) source words, checked by ten explicitly reported symmetry-orbit cases. Its sums are \(75/8\) and \(21/8\), yielding \(171/8<22\). The explicit \(21\)-word code hits each of the \(27\) outputs twice. The independent standard-library verifier checks all \(81\) inequalities and all \(27\) incidences; the three-word conflict triangle is also verified. No infinite conclusion rests on these finite checks.
+PASS
 
-## Originality — PASS against inspected evidence
+For each received triple reverse the channel by inserting each symbol in each position and retaining a set of parents. This gives the distinct-source incidence, not a count of positions. My exact check covers all 81 inputs and 27 outputs and confirms the ten symmetry orbits: in units of one eighth, the left sides of (1) are 8 on 51 inputs, 9 on 12, and 10 on 18. The total output and input weights are 75/8 and 21/8. Summing (1) over any valid code counts nonnegative output weights at most twice and nonnegative input corrections at most once, giving size at most floor(171/8)=21. The displayed 21 distinct parents hit each received word exactly twice. Pairwise intersections for the triangle on 0120, 0121, 0210 are {012}, {010,020}, and {021} in pair order (first/second, first/third, second/third). No output hits all three, and the resulting odd cycle cannot lie in a union of two independent sets in the conflict graph. Zero deletions give a unique parent and do not change the maximum.
 
-Kiah–Wei–Zeng (arXiv:2609.21395, first public 2026-09-18; revised 2026-11-01), Theorem 28, is an actual finite-length generic bound, but at these parameters its best direct specialization is \(30\), not \(21\). Lin (arXiv:2609.26650, 2026-09-22) states asymptotic **binary** bounds. The closest publicly indexed ternary length-four optimum is the **unique-decoding** value \(11\), not list size two. Binary two-list and ternary covering records likewise do not imply the result. Equivalent deletion-incidence packing, perfect twofold covering, and nondecomposable-code aliases were searched. An unindexed equivalent finite table remains a live priority risk. Relevant parts of the first preprint were inspected in full public PDF text; several related full texts were unavailable and are not claimed to have been examined.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact optimum is a natural fixed-alphabet, short-block benchmark for list decoding. Its fractional shadow certificate establishes a strict one-codeword gap below twice the uniquely decodable ternary maximum, while the attaining code is a perfect twofold output cover whose conflict graph is not two-colorable. This separates the list constraint from simple aggregation of uniquely decodable codes. The result is deliberately finite and makes no promise of asymptotic coding-rate gains.
+In the sources checked, the directly applicable run-counting converse gives only 30, and related exact records have different list bounds or block lengths. No examined exact optimization or stronger applicable theorem settles the stated capacity. The supported distinct result is the sharp list-two optimum for q=3,n=4 with an exactly two-fold and non-bipartite witness, not the general deletion-hypergraph method.
 
-## Limits and nearest comparisons
+## value
 
-The result does not extend the exact count to longer words or other alphabets. The strongest directly inspected general finite-length converse fails to settle this case; associated small-block historical tables may be incomplete or unindexed. The second preprint and relevant published code tables were inspected at summary level only, not in full. Independent verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A standard fixed-list channel has a meaningful exact finite benchmark here. A checkable rational converse closes the one-codeword gap below twice the unique-list optimum. The attaining code saturates all received words yet cannot be partitioned into two uniquely decodable codes, separating these two ways to use the list allowance at optimum size. The result is not merely a numerical feasible example or an asymptotic-rate claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

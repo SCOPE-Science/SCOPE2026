@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The killed drift-resolvent and Poisson renewal formula are derived directly with the correct delta-killing normalization. A coefficient-sign argument proves a unique global optimizing reset rate for every inward drift, including zero drift. The global lower bound follows from elementary inequalities, is strict for finite parameters, and is saturated in a controlled strong-drift limit. Symbolic perturbation yields the two-term optimized rate and time expansions. The small-drift derivative proves a turnover must occur. The standalone checker reproduces independent resolvent and algebraic computations; numerical sampling does not serve as an infinite proof.
+PASS
 
-## Originality — PASS (residual risk)
+For generator D∂²−U∂ and the stated occupation-density convention, the rank-one Green function gives q=k exp(−t)/(k+√(U²+4Dr)); resetting renews after min(killing time, reset clock), of mean (1−q)/r and success probability q. Thus T=(1−q)/(rq), with r=(D/L²)t(2M+t). In the dimensionless objective the strictly positive summand (eᵗ−1)/[t(2M+t)] plus η[(M+t)/(2M+t)]eᵗ/t gives the strict floor and the trial t=1 approaches it as M→∞. At fixed M the objective diverges at both endpoints, also at M=0 where its numerator starts at (1+η)t and its denominator at t². For the derivative numerator H, independent expansion gives H=eᵗ[−2MA+2A(M−1)t+(A+η(2M−1))t²+ηt³]+2M+2t, A=1+ηM. Its coefficients match the asserted Qₙ and strictly positive first differences for n≥2. At M>0 the first two coefficients are negative and those from n=3 positive; at M=0 the first negative one is n=2 and the positive tail starts at n=4. Dividing H by the first positive degree leaves a strictly increasing function on (0,∞), tending to opposite signs at the endpoints; its unique zero is simple. Thus the minimizer is nondegenerate and locally analytic in U. Coercivity of eᵗ/t and the trial value force t*→1; expansion of the stationary equation in M⁻¹ gives t*=1−[1/2+1/(ηe)]/M+O(M⁻²). Converting back gives the constant correction −k/(eL) in r* and [(e−1)L+eD/k]/U in T*, with the stated fixed-parameter remainders. Differentiating T first in U at zero and then in r at r₀ gives L/(2Dr₀²)>0, hence r*′(0)<0; continuity and r*→∞ give an interior minimum without proving it unique. The frozen checker was inspected, not executed: contrary to RESULT.md line 90 it does not check the stationary-coefficient identity. Separate `python3 /workspace/checks/frozen_math_checks.py 4` passed for the coefficients through n=8, the symbolic first-difference identity and both expansion coefficients; the all-degree formula and global arguments above are analytic.
 
-The motivating 2026 article explicitly contains the exact forward drifted mean absorption formula and plots a nonmonotonic optimum for representative parameters, so neither is claimed new. Its Appendix A.2 proves uniqueness only without drift; Appendix A.5 treats weak drift and direct numerical optimization rather than all-parameter inward-drift uniqueness, the sharp finite-reactivity bound, and strong-drift asymptotics. The 2013 partial-trap result is driftless. The 2018 drift-restart paper assumes a perfectly absorbing boundary, with a distinct zero-optimum phase. Published-record searches and comparisons with accessible prior local claims did not uncover equivalent statements. A broader restart-optimization theorem could still implicitly imply some conclusions, and the exact forward solution makes these asymptotics derivable; this is an acknowledged literature-coverage risk, not a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem quantifies a physically motivated reaction-limited obstruction to arbitrarily fast transport: increasing inward drift without bound cannot reduce the optimized mean below \(eL/k\) for a finite-reactivity point target. It gives an explicit reset-rate design law, a diffusion-dependent first correction to the optimal time, and an all-parameter explanation for the drift-speed turnover observed numerically. These are not arbitrary parameter substitutions or isolated computations.
+Credit Mazzolo for the exact drifted MFPT, zero-drift uniqueness, the sign of the first derivative of the optimum at zero drift, and a numerical turnover. The distinct earlier-uncovered part supported here is all-inward-drift uniqueness, the sharp reaction-limited lower bound, the fixed-reactivity strong-inward expansions, and the resulting universal turnover. Later local results explicitly cover uniqueness and the rate expansion (not independently novel relative to those texts); their overlap is material but not prior coverage of this October 19 record.
 
-## Limits
+## value
 
-The theorem assumes a single one-dimensional delta trap, identical reset location, constant inward drift, and fixed finite positive reactivity. Perfect absorption and outward drift are outside the asymptotic claim. At least one, not exactly one, turnover in drift speed is proved. Independent audit and experimental validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result identifies what arbitrarily fast delivery and optimized resets cannot overcome: finite point reactivity imposes the nonzero sharp time eL/k. The first correction distinguishes finite travel/diffusion from that limit, and uniqueness removes ambiguity in the reset-rate law even though the optimal rate need not increase monotonically with drift. The contributions are meaningful for this reset search model without claiming outward-drift behavior or an optimum for ideal absorption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

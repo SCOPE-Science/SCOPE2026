@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed universal asymptotic is supported by an exact conditional transition identity for random-edge greedy dimers on the unoccupied vertex set. For a tagged missing edge, the avoidance probability differs from the one-missing-edge transition by a uniform relative \(O(k^{-2})\) at stage \(k\), giving a telescoping survival law. An independent fixed-vertex-set survival comparison bounds the chance that other missing edges accompany the tag late in the process, and a uniform \(O(K^{-2})\) upper bound on eventual tag survival handles exceptional histories. Choosing \(K\asymp N^{1/3}\) proves the uniform relative \(O(N^{-1/3})\) statement. Exact rational dynamic programming over 13 finite graph instances and exhaustive enumeration of 362880 edge orderings provide reproducible checks, but are not used as infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+Uniform priorities give uniform choice of an allowed residual edge: after each acceptance the relative order of the remaining feasible edges is still uniform. For even k≥4 the deletion graph cannot contain a clique on the residual k-set, so the only possible nonzero terminal vacancy is a forbidden pair. For a tagged forbidden pair the avoidance ratio at size k is [binom(k-2,2)-r]/[binom(k,2)-1-a-r], with r≤k and a≤2. Relative to (k-3)/(k+1) the difference is O(k^-2): the change from r is multiplied by the O(k) difference of the two baseline counts, and the change from a is O(k²), against a denominator of order k⁴. The product to an even K gives (K²-1)/(N²-1) with relative O(1/K). The analogous comparison with binom(k-t,2)/binom(k,2) for any t≤4 marked vertices gives O((K/N)^t). Given tagged survival, the union bound over at most two adjacent and at most N disjoint other forbidden edges is O(K/N+K²/N). From any such exceptional residual state the tagged pair's final-survival probability is O(K^-2), by its survival to a fixed even stage. If no other forbidden edge remains it is exactly 3/(K²-1). Combining gives relative O(1/K+K²/N) for the event that the last pair is the tag. Choosing even K of order N^(1/3) and summing disjoint last-pair events proves the uniform error, also for m=1. The zero-deletion case, vacancy expectation, matching existence by Dirac and the stated limits follow. The frozen verification notes and script were inspected, not run. The finite examples are diagnostic, not required for this proof; the script's header gives a stale filename, whereas VERIFICATION.md correctly identifies verify.py.
 
-The closest previously recorded theorem gives the coefficient only for a deleted perfect matching. That is a strict special case and is explicitly excluded from the novelty claim. The new statement uniformly covers arbitrary maximum-degree-two forbidden graphs, including deleted paths and cycles, without vertex transitivity. Gamarnik–Goldberg's inspected 2008 primary text concerns fixed-degree/high-girth **host** graphs and bounded-host-degree concentration; Dietzfelbinger–Peilke–Rink inspect sparse random hosts; Tang–Wu–Zhang analyze oblivious greedy algorithms and other performance measures. Database and web searches for complement-bounded-degree rare-jamming coefficients found no equivalent statement. Dyer–Frieze (1991) and Pippenger (1989) could only be compared through accessible abstracts; unrecognized earlier coverage is a real remaining risk.
+## originality
 
-## Value — PASS
+PASS
 
-The leading probability of adsorption failing to reach an available perfect matching is a sensitive finite-size reliability statistic: the occupied fraction tends to one regardless of the shape of these sparse deletions. This theorem identifies a nontrivial universality class and a fixed amplitude \(3\) per missing edge in the failure law, showing that a global observable is insensitive at first order to arbitrary path/cycle arrangements. The uniform result extends beyond any one symmetric example, while its explicit error identifies the regime where architecture-dependent corrections must enter.
+Supported distinct content at the frozen record's date is the arrangement-uniform law over all degree-at-most-two deletions, including triangles, on the complete nonbipartite host. The perfect-matching special case is not credited as new. An inspected later-dated indexed result gives precisely this class and a stronger error; it is mathematical coverage but is not verified antecedent evidence. No inspected older source implies the claimed uniform coefficient.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The failure probability of a greedy matching on a graph that admits a perfect matching is a natural performance observable. Uniformity from one removed edge up to a linear number, including both regular and nonregular deletions, resolves whether geometry can change the leading constant. This is more than an evaluation of the symmetric matching or cycle. The frozen error rate is not credited as optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

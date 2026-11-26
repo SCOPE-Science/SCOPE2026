@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:11:33.178994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45 and 49–90; VERIFICATION.md and checker.py inspected, not executed",
+        "Independent bisection of H_L on [0, acosh(cosh L/2)] and of the mixed-branch excess in L: L_*≈2.195042322200679, z_*≈0.858743695256390, k≈1.881452102681085, C≈0.209137127699404.",
+        "Bracket check: H_{2.1}(1.02)<−0.010, H_{2.1}(1.04)>0.020, and cosh(2.1)>2cosh(1.04), so the smaller root is in (1.02,1.04). On that interval Q_{2.1}≤(2.1+1.04)²+(cosh(2.1)−cosh(1.02))²<16.51<17.64; Q_{2.3}(1)>23.09>21.16. These separated bounds follow by summing cosh/sinh terms j=0,…,8 with the remaining positive terms bounded by a geometric series using ratio 2.3²/(17·18) or smaller."
+      ],
+      "rationale": "For a pair not touching a domain endpoint, move its larger-|x| member toward the endpoint on that side. The horizontal distance strictly increases and the absolute height separation cannot decrease. After reflection, maximizing reduces to Q_L(x) with one endpoint fixed at −L; Q_L is strictly increasing for −L<x≤0. On the positive side Q_L′=−2H_L, and H_L′=cosh(x)(cosh L−2cosh x) changes from positive to negative at most once. H_L is negative at 0 and L, so only the smaller crossing can give an interior maximum; neither a double root nor the local minimum can tie the endpoint. For x=rL, 0≤r<1, the normalized vertical difference has termwise positive L derivative, and a trial pair's crossover span is continuous in r and escapes uniformly on each bounded span range as r→1. This follows from the O(1−r) cosine-hyperbolic difference versus the square root of 4−(1+r)². The infimum is attained away from r=0 because the excess increases to first order in r there. Thus a unique nondegenerate interior contact ties the endpoint once; the positivity of the normalized excess's L derivative at this contact gives A_*>2 by stationarity. The endpoint-pair deficit is u+v to first order in inward parameter gaps. Each interior-contact pattern has deficit A u+B v² plus lower scaled order, giving limiting area 4/(3A√B) after division by ε^(3/2) and asymptotically constant sampling density. Counting two ordered endpoint neighborhoods and four ordered mixed neighborhoods reproduces both constants and the conditional law. In the moving window the budget for the mixed contact is ε[1+k min(λ,0)]+O(ε²), and uniform compact localization around the three unordered contact pairs shows that the ε^(−3/2) limit vanishes even at the cutoff. No uniformity away from the specified local window is used.",
+      "residual_risks": [
+        "The displayed many-digit constants are approximations, not decimal interval certificates. The supplied checker tests the reduced one-parameter maximum and finite fixed-span quadratures, not a certified all-pairs mesh or the full moving window."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parabolic arc has the same two types of competing contacts and powers 2 and 3/2, but is a different fixed curve with parameter-uniform sampling and a different global crossing equation. The inspected assumptions do not claim a moving-window result or a general theorem for the catenary.",
+          "The Coll–Harrison publisher response was 403; whole-text coverage from that citation is not inferred."
+        ],
+        "reasoning": "The contact-volume mechanism is shared; the single strictly transversal crossing for this curve, its constants and its critical-window law are not supplied by the inspected statements.",
+        "searches": [
+          "Resultary truncated-parabola diameter and long-chord tails, 2e6c3c85982f",
+          "Rojas arXiv:1401.2660, opening; Coll–Harrison DOI 10.4169/amer.math.monthly.121.02.109, attempted publisher retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and mirror entries 9ed585ed8e68, 2e6c3c85982f, 7fa132028ccf",
+        "Rojas arXiv:1401.2660",
+        "Coll–Harrison DOI attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catenary has cosh differences, and the constancy of the contact's finite normalized-span crossing must be proved for the entire range of x/L. Neither an exponent table nor an enclosing-circle support criterion yields the contact stationarity equation, the gap slope A_*−2, or the truncated moving-window constant."
+        ],
+        "reasoning": "The exponents can be predicted from the separate contact geometries, but those geometries and their coexistence and slope are necessary nonmechanical inputs to the stated theorem. No independent claim is made for the local integration method.",
+        "searches": [
+          "Indexed parabola RESULT.md, opening offsets 0–2367 and assumptions 2300–3506",
+          "Indexed catenary disk RESULT.md, offsets 0–2178 and 4800–6619",
+          "Frozen RESULT.md, equations at lines 40–45 and 65–90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen diameter is the two-point Euclidean maximum; a catenary minimum enclosing disk can instead be supported by three sites. The indexed disk transition has cosh a−1=a and endpoint/midpoint disk contacts, not the simultaneous chord equality and stationary condition at L_*.",
+          "Rojas arXiv:1401.2660, page 1, treats the variational origin of the parametrization, not the maximum pairwise distance."
+        ],
+        "reasoning": "Farthest-point formulations are equivalent to the frozen functional; the different exact catenary transition in disk-cover language is not.",
+        "searches": [
+          "Focused primary literature search on finite symmetric catenary diameter/farthest pair/diametral chord",
+          "Resultary catenary maximal-pair and catenary disk searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9ed585ed8e68 is the exact frozen work and supplies no independent evidence. The distinct 2e6c3c85982f is for a truncated parabola; 7fa132028ccf is the minimum disk of a catenary arch with a different threshold and different contact equations."
+        ],
+        "reasoning": "Compared both close records without inferring chronological order from their shared date. Neither provides an equivalent threshold or tail table.",
+        "searches": [
+          "Resultary and local mirror: 9ed585ed8e68, 2e6c3c85982f and 7fa132028ccf"
+        ]
+      },
+      "rationale": "The strongest distinct indexed comparison gives the same local exponents for a parabola but neither its geometry nor its sampling law implies the finite-catenary phase boundary or moving arclength-volume law. The catenary minimum-disk transition is a different invariant. The judgment rests on the exact catenary classification, transversality and critical window, not on the catenary representation or the elementary linear/quadratic integral.",
+      "residual_risks": [
+        "Priority is a bounded best-of-knowledge finding. An earlier catenary farthest-pair computation in a source under different terminology is possible; unavailable full text is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close structural precedent, not equivalent coverage",
+          "evidence": "Changing from endpoint pair to two mixed pairs on a parabola yields powers 2 and 3/2 for parameter-uniform chords, not the catenary arclength law.",
+          "identifier_or_url": "2026/11/22/SCOPE-golden-ratio-diameter-bifurcation-and-sharp-long-chord-tails-on--2e6c3c85982f",
+          "material_read": "RESULT.md opening offsets 0–2367; assumptions 2300–3506",
+          "method": "Local Resultary mirror, primary record text",
+          "title": "Golden-ratio diameter bifurcation and sharp long-chord tails on a truncated parabola",
+          "trigger": "Near-identical contact geometry and exponents"
+        },
+        {
+          "assessment": "Different objective and different threshold",
+          "evidence": "Minimum disk supports on endpoints and midpoint; switch near 1.61614, not a farthest-pair switch.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-three-contact-screening-principle-and-the-sharp-minimum-disk-t--7fa132028ccf",
+          "material_read": "RESULT.md offsets 0–2178 and catenary proof 4800–6619",
+          "method": "Local Resultary mirror, primary record text",
+          "title": "A three-contact screening principle and the sharp minimum disk transition",
+          "trigger": "Same curve and another exact contact transition"
+        },
+        {
+          "assessment": "Opening is variational background, not a statement of the frozen result",
+          "evidence": "Studies the relation between variational curve problems and their classical solutions.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.2660",
+          "material_read": "Primary PDF page 1, abstract and opening near offset 521",
+          "method": "Open-access PDF, bounded passage",
+          "title": "The straight line, the catenary, the brachistochrone, the circle, and Fermat",
+          "trigger": "Cited catenary source surfaced under diameter search"
+        },
+        {
+          "assessment": "Not used as negative whole-paper evidence",
+          "evidence": "Scope beyond the frozen record's description remains unverified in this review.",
+          "identifier_or_url": "https://doi.org/10.4169/amer.math.monthly.121.02.109",
+          "material_read": "No full primary text retrieved",
+          "method": "DOI/publisher retrieval attempt, HTTP 403",
+          "title": "Two Generalizations of a Property of the Catenary",
+          "trigger": "Cited same-curve source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–38 and 65–90",
+        "Distinct indexed parabola and catenary disk comparisons above"
+      ],
+      "rationale": "For a canonical arclength-sampled curve this gives the full finite-span diameter phase diagram and quantifies the effect of competing, nonmerging chord geometries on rare-event probabilities. It distinguishes what survives at the contact itself from what contributes through the width-ε window. This matters beyond a decimal root or a change of variables from the parabola.",
+      "residual_risks": [
+        "The result is not a general theorem for arbitrary graphs, asymmetric spans, other sampling measures, or a higher-order description at the moving cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

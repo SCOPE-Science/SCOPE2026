@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:37:57.310523Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–111",
+        "Frozen VERIFICATION.md and verify_condensate.py"
+      ],
+      "rationale": "The reverse inclusion hop cancels the same occupation factor as the forward hop, leaving rate ratio w_{i+1}/w_i. This proves the stated product-weight canonical law; irreducibility holds at fixed N, and diagonal densities remain diagonal under the Lindblad jumps. At fixed L normalize the maximal weights to one. Divide the marginalized weight of each nonground configuration by the number of compositions of N into K ground boxes. The remaining combinatorial ratio is ≤1 and tends to 1 at each fixed nonground configuration. Summable geometric weights give tightness and asymptotically full ground mass, and the uniform weak-composition grid converges to the uniform K-simplex law (point mass if K=1). As a direct moment check, conditional on putting n=N−M particles in the ground boxes, their expected sum of ordered pairs is 2K binom(n+K−1,K+1)/binom(n+K−1,K−1)=2n(n−1)/(K+1), with zero pairs when n<2. The path splits at the first and last minimum into positive meanders and K−1 positive return excursions with Catalan series E. The unmarked count 1/(1−2t) then gives (1−E)E^{K−1}/(1−2t). At fixed K its numerator is absolutely summable at t=1/2; convolution yields 2^{−K}, and these limits sum to one. Integrating twice the marked series over a uniform mark in [0,1] gives the stated logarithmic generating function, and the bounded pair moment averages to 4 log 2−2. At h=0 every one of the L sites is a maximum, giving exact pair probability 2/(L+1) for N≥2. The proof checks the stated order of limits, not a joint N,L scaling; the frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "Only the diagonal stationary population law; no claim of uniqueness of the full quantum steady state, coherent hopping, or a fixed-density thermodynamic result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman–Tang explicitly give P(L_0=k)=2^{−k} in the simple symmetric case and a stronger limiting level-occupation process.",
+          "The earlier index treats the joint finite-horizon counts at both the minimum and the next level; Grosskinsky–Redig–Vafayi give reversible product and conditioned canonical measures more generally."
+        ],
+        "reasoning": "A count at level zero is the below-one marginal of the lattice level process, not a count of distinct heights. For inclusion parameter m=2 the occupation factors in the prior canonical law give no additional combinatorial dependence on the occupation at each site, and the weights are exactly proportional to exp(−2hS_i).",
+        "searches": [
+          "arXiv:2007.13991 Theorems 1.1(ii), 4.1(i)",
+          "arXiv:1009.2799 Theorem 2.1 and §2.2",
+          "Resultary 3105844e04eb"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3105844e04eb and 6f749099c732",
+        "arXiv:2007.13991",
+        "arXiv:1009.2799",
+        "arXiv:2602.14698",
+        "arXiv:2301.11339",
+        "arXiv:1907.12166"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The canonical measure implies uniform weak compositions conditional on the off-ground configuration. The exact ground moment is 2n(n−1)/(K+1); n/N→1 at fixed L by geometric domination.",
+          "Averaging 2/(K+1)=2∫₀¹u^K du in the indexed marginal gives the frozen length series, and averaging it against the published geometric law gives 4 log 2−2."
+        ],
+        "reasoning": "The older inclusion-process paper's own unique-maximum condensation theorem is not invoked for tied maxima. That case follows directly from the canonical mass formula and a summable finite product. The corresponding Dirichlet fractions are the routine simplex-grid limit. The ingredients therefore imply the frozen conclusions without a new model-dependent estimate.",
+        "searches": [
+          "arXiv:1009.2799 Theorem 2.1, §2.2 and Theorem 3.1",
+          "arXiv:2007.13991 Theorem 4.1(i)",
+          "Resultary 3105844e04eb Finding and meander formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3105844e04eb defines L_{0,n} as the number of observed times i=0,…,n at the sample minimum of the same fair ±1 walk and gives u C(z,v)^2/(1−u A(z,v)).",
+          "Longhi uses the same symmetric binary incoherent-hop terms, but its inspected J=0 analysis factorizes correlations."
+        ],
+        "reasoning": "Take v=1 in the indexed joint transform: A=e, C=q by positive meander decomposition, and q²=(1−e)/(1−z). Then put z=2t to undo the probability 2^{−n} per path, with n=L−1 and e(2t)=E(t). This yields exactly the frozen minimum-visit transform, not merely a height-gap law.",
+        "searches": [
+          "Resultary query: exact bivariate generating function number of visits to global minimum simple symmetric random walk",
+          "Resultary 2026/10/18/SCOPE-exact-two-level-occupation-generating-function-at-the-minimum-of--3105844e04eb",
+          "arXiv:2602.14698 Eqs. 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite joint exact-count series and the geometric limiting table are directly available; 6f749099c732 concerns lowest heights/gaps, a different random variable.",
+          "No inspected source states the bosonic number verbatim."
+        ],
+        "reasoning": "One has an earlier complete coefficient formula, not just a handful of simulations. The scalar not appearing verbatim does not prevent equivalent coverage by the exact distribution and a fixed pair-moment transform.",
+        "searches": [
+          "Resultary query: two boson pair co-location 4 log 2 minus 2 high loading Sinai chain",
+          "Resultary 3105844e04eb and 6f749099c732",
+          "arXiv:2007.13991 Theorem 4.1(i)"
+        ]
+      },
+      "rationale": "The exact random-well multiplicity series is a marginal of the earlier indexed two-level series, and Pitman–Tang explicitly give the limiting geometric law. The prior inclusion-process canonical theorem supplies the ground-box distribution conditional on the nonground occupancies. The remaining pair observable, finite-length transform, and zero-disorder comparison are mechanical consequences of uniform compositions and the already covered law. No inspected paper prints the physical scalar 4 log 2−2, but that is not distinct mathematical content once these statements are combined.",
+      "residual_risks": [
+        "Historical origin of the earliest exact finite-walk law is not settled; Katzenbeisser–Panny's relevant body could not be inspected. The failure rests on demonstrated coverage, not on that access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger coverage after marginalization and change of length variable",
+          "evidence": [
+            "u C(z,v)^2/(1−u A(z,v)) gives the joint count profile, with u marking minimum visits.",
+            "At v=1, q²/(1−e)=1/(1−z); z=2t maps n-step probability coefficients to path counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-two-level-occupation-generating-function-at-the-minimum-of--3105844e04eb/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–2, offsets 0–3098, and prior-work passage around offset 6800; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic search and bounded local-mirror passage reading",
+          "title": "Exact two-level occupation generating function at the minimum of a symmetric random walk",
+          "trigger": "Stronger finite-sample minimum-count transform"
+        },
+        {
+          "assessment": "Explicit coverage of geometric minimum multiplicity and more",
+          "evidence": [
+            "The simple symmetric limiting minimum occupancy has positive-integer geometric law of parameter 1/2; higher-level occupancies are also described."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.13991",
+          "material_read": "Thm. 1.1(ii) p. 2 offset 7045 and Thm. 4.1(i) pp. 15–16 offsets 54893 and 58462",
+          "method": "Bounded OA primary PDF passage reading",
+          "title": "Extreme order statistics of random walks",
+          "trigger": "Stronger primary limit law at the sample minimum"
+        },
+        {
+          "assessment": "Canonical law subsumed; cited unique-weight theorem not used for ties",
+          "evidence": [
+            "The reversible product law and its fixed-particle conditioning give the required occupation distribution at m=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.2799",
+          "material_read": "Thm. 2.1 p. 4 offset 9497, §2.2 p. 6 offset 15113, Thm. 3.1 p. 8 offset 20618",
+          "method": "Bounded OA primary PDF passage reading",
+          "title": "Condensation in the Inclusion Process and Related Models",
+          "trigger": "Exact canonical-measure antecedent and possible tied-maxima result"
+        },
+        {
+          "assessment": "Model covered, exact pair observable not explicitly evaluated",
+          "evidence": [
+            "The same binary hopping asymmetries appear; the purely dissipative mean-field equations factorize occupation correlations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.14698",
+          "material_read": "Eqs. 6–7 HTML offset 13512; Appendix C Eqs. 47–48 around offset 53956",
+          "method": "Bounded OA primary HTML passage reading",
+          "title": "Erratic Liouvillian Skin Localization and Subdiffusive Transport",
+          "trigger": "Same model and many-boson analysis"
+        },
+        {
+          "assessment": "Different driven open population regime",
+          "evidence": [
+            "The ends are coupled to reservoirs and the condensate is a transport-induced boundary effect."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.11339",
+          "material_read": "Reservoir model p. 5 offset 17563 and boundary condensation p. 14 offset 46451",
+          "method": "Bounded OA primary PDF passage reading",
+          "title": "The bosonic skin effect: boundary condensation in asymmetric transport",
+          "trigger": "Closely related bosonic condensation model"
+        },
+        {
+          "assessment": "Different homogeneous condensation scaling",
+          "evidence": [
+            "Poisson–Dirichlet statistics arise in a homogeneous diffusion-parameter scaling, not fixed-L splitting over tied random extrema."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.12166",
+          "material_read": "Abstract p. 2 offset 6839 on homogeneous scaling regimes",
+          "method": "Bounded OA primary PDF passage reading",
+          "title": "Structure of the condensed phase in the inclusion process",
+          "trigger": "Possible earlier splitting law for condensed inclusion processes"
+        },
+        {
+          "assessment": "Unresolved exact scope; not negative evidence and not the reason for failure",
+          "evidence": [
+            "The inspected indexed record points to this paper for walks at a global maximum, but that secondary attribution was not treated as verification of its precise identities."
+          ],
+          "identifier_or_url": "https://research.wu.ac.at/ws/portalfiles/portal/19844788/document.pdf",
+          "material_read": "Only 940 characters of repository front matter were extractable; the alternate DOI route did not yield lawful full-text access",
+          "method": "Bounded repository PDF and alternate DOI access attempts",
+          "title": "Simple Random Walk Statistics. Part I: Discrete Time Results",
+          "trigger": "Possible primary precedence for finite-horizon extremum-visit laws"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–56 and 96–111",
+        "arXiv:2602.14698 Appendix C",
+        "Resultary 3105844e04eb",
+        "arXiv:2007.13991 Thm. 4.1(i)"
+      ],
+      "rationale": "Co-location at high loading is a motivated observable in Longhi's model, and its contrast with the clean chain is a useful interpretation. As a proposed additional exact invariant, however, the number and finite-length curve are already determined by the covered walk law and a textbook factorial moment of a uniform weak composition. The singular h=0 case just replaces K by L under the same formula. The application supplies no separate surviving structural result, new regime, or independently unresolved exact fact at this scope.",
+      "residual_risks": [
+        "This does not assess a different loading/chain-length scaling, other disorder laws, or coherent hopping; none is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

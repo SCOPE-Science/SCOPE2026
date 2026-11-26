@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:56:42.942318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m<F<2m all positive sums exceed F, so the r−1 optional positions are iid fair bits under the stated uniform law. For a gap in [m+1,F] or (r,m), addition of any positive member crosses F. For 1≤j≤r, addition of m first forces j∈B; the remaining below-conductor additions give exactly b∈B and j+b≤r ⇒ j+b∈B. This yields t=m−1−|B|+H, including r=1 and m=r+1. For a fixed j, the implications are monotonicity along step-j chains in [1,r−1]. The multiples chain is all ones, and the chain terminating at r−j is all zeros. They coincide exactly when j divides r; otherwise independent unforced paths of L vertices each allow L+1 words, giving the product with no extra bit count. For j>r/2 the fixed two bits and r−j−1 implications use disjoint coordinates, giving the exact geometric tail that sums to 1−(3/4)^(r−1−floor(r/2)). For the smaller j the path graph admits a disjoint matching of size at least (r−1−j)/3, so the sum of the probabilities is O(r(3/4)^(r/6)). Thus E H=1+O(r(3/4)^(r/6)), and Markov makes H/√r negligible; the centered reflected binomial CLT and Slutsky prove the Gaussian law. All dependence on admissible m is a deterministic translation. Separately, review_checks/semigroup.py enumerated 12,285 semigroups using maximal Apéry representatives under the semigroup-difference order. The maximum test is exact since w+s is in Apéry precisely when w−m+s fails membership. It reproduced the PF sets, residue counts and rational means for r=1,…,12 at three admissible m values per r. It also recovered irreducibles {6,7,8,9} and {6,7,9,10}, and PF sets {10,11} and {3,8,11}, with genus seven in both examples. Finite enumeration does not prove the uniform asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Singhal's genus theorem fixes F but does not condition on m or study type. His type paper counts the fixed-α regime t=F−α at fixed F, not the conditional mean as r grows. The fixed-F covariety paper gives an enumeration algorithm."
+        ],
+        "reasoning": "A different distribution or a fixed extremal type gap is not the all-type bulk expectation and fluctuation in a fixed-multiplicity slice. Here F−t=r+1+|B|−H is typically of order r, not fixed. Enumeration does not itself analyze that growth.",
+        "searches": [
+          "Singhal DOI:10.1007/s00233-022-10282-6 §7 Theorem 14",
+          "arXiv:2008.08110 Theorem 3.2",
+          "DOI:10.1007/s10801-024-01342-x p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.23111v1",
+        "DOI:10.1007/s00233-022-10282-6",
+        "arXiv:2008.08110",
+        "arXiv:1505.08111",
+        "DOI:10.1007/s10801-024-01342-x",
+        "Resultary d2845b6b7dea and d2cd7e96a30f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior enumeration gives the binomial |B| part of t=g−r+H, and the recent matched records analyze e and g, not H. The checked type-specific fixed-gap result and prescribed-set algorithm give no bound or expectation for H in this parameter sequence."
+        ],
+        "reasoning": "The CLT becomes a consequence of a known CLT only after proving that H=o_P(√r); the residue-chain count and the decay estimate provide this extra input and also the exact mean. Related same-day records are not ordered by their date.",
+        "searches": [
+          "arXiv:2607.23111v1 abstract and Lemma 2.9",
+          "Singhal arXiv:2008.08110 Theorem 3.2",
+          "Resultary d2845b6b7dea and d2cd7e96a30f Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The type may be computed equivalently by semigroup-order maximal Apéry representatives; this equality underlies the independent enumeration. Delgado–García-Sánchez–Robles-Pérez give a prescribed-PF-set enumeration procedure, not the fixed-(F,m) expectation in the inspected statement."
+        ],
+        "reasoning": "The usual Apéry translation and the algorithms describe how to compute type for individual instances or constrained families, not the count of each step-j maximality event via factorization of linked bits.",
+        "searches": [
+          "Resultary: depth-two pseudo-Frobenius type, Apéry maxima, residue-chain expectation and normal law",
+          "arXiv:1505.08111 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The July 2026 original version already gives 2^(F−m−1) by the same subset bijection and hence the exact binomial genus slice. Indexed d2845b6b7dea and d2cd7e96a30f supply exact embedding-dimension data and laws in the same depth-two window, not the type-event product. Finite checks through r=12 are corroboration, not a new census claim."
+        ],
+        "reasoning": "Exact counts and moments for a different invariant must be credited without treating them as tables of type. The verified same-(m,F,g,e) example prevents recovering individual type from those invariants.",
+        "searches": [
+          "Resultary: fixed-(m,F) depth-two type product, genus-conditioned defects and embedding-dimension boundary laws",
+          "arXiv:2607.23111v1 §2.4 Lemma 2.9"
+        ]
+      },
+      "rationale": "The exact cardinality and binomial genus component are already known in the same window and are not distinct. The residue-chain product and quantitative control of the type-specific discrepancy, enabling the uniform type CLT, remain distinct in the inspected comparisons. Neither same-day embedding-dimension result supplies a type law.",
+      "residual_risks": [
+        "Uninspected equivalent type-counting results in Apéry/Kunz terminology or unpublished tables may overlap; the comparisons do not establish historical priority.",
+        "Related same-day records share the sampler but their sequence is unresolved. The covariety comparison was abstract-level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cardinality and gives binomial genus by the subset bijection; no type law in the compared result",
+          "evidence": [
+            "For m>F/2, n_(F,m)=2^(F−m−1) from optional elements m+1 through F−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.23111v1",
+          "material_read": "Abstract pp. 1–2, §2.4 Lemma 2.9 p. 18",
+          "method": "OA PDF comparison with F=m+r",
+          "title": "Algorithms and results on multiparameter counting of numerical semigroups",
+          "trigger": "Earliest cited exact count in this depth-two window"
+        },
+        {
+          "assessment": "Genus at fixed F, not conditional type at fixed (m,F)",
+          "evidence": [
+            "Theorem 14 gives an asymptotic genus law over fixed-F semigroups."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00233-022-10282-6",
+          "material_read": "§7 Theorem 14, PDF p. 13, journal p. 123",
+          "method": "OA PDF hypothesis and conclusion comparison",
+          "title": "Distribution of genus among numerical semigroups with fixed Frobenius number",
+          "trigger": "Closest genus fluctuation law"
+        },
+        {
+          "assessment": "Type-specific but a different extremal regime",
+          "evidence": [
+            "Fixed-α enumeration of type F−α at fixed F."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.08110",
+          "material_read": "Abstract p. 1 and Theorem 3.2 pp. 5–6",
+          "method": "OA primary passages; compare asymptotic regimes",
+          "title": "Numerical semigroups of small and large type",
+          "trigger": "Same type statistic; possible dominating type count"
+        },
+        {
+          "assessment": "Prescribed PF sets, not the claimed closed expectation",
+          "evidence": [
+            "Tests a proposed set and computes semigroups realizing it."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.08111",
+          "material_read": "p. 1 statement of the algorithmic problem",
+          "method": "OA primary passage comparison",
+          "title": "Numerical semigroups with a given set of pseudo-Frobenius numbers",
+          "trigger": "Potential computational equivalent for type enumeration"
+        },
+        {
+          "assessment": "Relevant procedure; abstract does not state the type statistics",
+          "evidence": [
+            "Algorithmic fixed-F covariety enumeration."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-024-01342-x",
+          "material_read": "Abstract p. 1",
+          "method": "OA abstract scope comparison only",
+          "title": "The covariety of numerical semigroups with fixed Frobenius number",
+          "trigger": "Potential general enumeration at fixed F"
+        },
+        {
+          "assessment": "Same genus component and sampling window, different second invariant and boundary discrepancy",
+          "evidence": [
+            "Exact genus and embedding-dimension mean, boundary law for e+g−2m and Gaussian e fluctuations, not t or H."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-joint-genus-embedding-moments-and-a-boundary-law-for-depth--d2845b6b7dea",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 7900",
+          "method": "Resultary retrieval and direct statement comparison",
+          "title": "Exact joint genus–embedding moments and a boundary law for depth-two semigroups",
+          "trigger": "Same Boolean depth-two family and moment/limit claims"
+        },
+        {
+          "assessment": "Embedding-dimension defects rather than PF type",
+          "evidence": [
+            "Genus-conditioned embedding-dimension defects and e CLT in the depth-two window."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-genus-conditioned-embedding-dimension-defects-at-the-depth-two-f--d2cd7e96a30f",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary retrieval and statement comparison",
+          "title": "Genus-conditioned embedding-dimension defects at the depth-two frontier",
+          "trigger": "Same conditioning framework and limiting law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cohen–Macaulay type is a natural invariant not recoverable from the enumerated genus and embedding dimension. The formula explicitly resolves the average defect from the binomial component at all admissible parameters and controls it sharply enough for uniform fluctuations. The separation example makes that additional information concrete and the limiting correction is not a renaming of genus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

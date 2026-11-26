@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:21:59.887312Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–81",
+        "VERIFICATION.md lines 19–27",
+        "verify.py, inspected without execution"
+      ],
+      "rationale": "The top-cutoff rule makes each acceptable item better than every unacceptable one. Thus the best displayed item before the first retention is below that retention, each successive retention beats the previous running best, and all other items after the first retention are below the most recent retained record. Conversely, every tree extension is realized: take full acceptability if r_1=1, otherwise take the cutoff immediately above the best item preceding r_1. This leaves all retained records acceptable and first excludes exactly the needed prefix (possibly also excluding later items). A nonfinal retained node's subtree comprises exactly the positions strictly before the next retention. Interleaving extensions of the children gives the tree hook formula; summing subtree size minus one over all nodes gives C=m-1+sum_{h=2}^k(r_h-2), since every incomparable pair admits both orders. Without the log and with arbitrary unknown presentation order, the ballot winner must be the true top; presenting the retained chain from worst to best first, with full acceptability, realizes every ranking satisfying just that top and chain constraint. The no-log counts and example follow. With full acceptability, independent insertion ranks give independent Bernoulli(1/j) indicators; the variance summand is j-5+8/j-4/j^2 for j>=2. In the limit proof each logarithm argument differs from 1 by at most |t|/m; the total quadratic error is O(1/m) and the linear sum converges to the stated integral. This is an unrestricted proof check, not an execution of the supplied finite verifier.",
+      "residual_risks": [
+        "The identified set is a union over feasible cutoffs; this does not identify the actual cutoff or actual ranking, nor apply to a predetermined disclosed cutoff.",
+        "The no-log ballot is the mechanism's incomplete ranked list, not necessarily the voter's true top k, and the comparator allows all presentation orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Approval anchoring addresses robustness and manipulation of approval outcomes, not reconstruction from ranked lists.",
+          "The independent 1/j record-indicator law and Dickman limit of the sum of record positions are prior. The independent law already counts outright record-position fibers under full tolerance; dividing its occupancy probability by 1/m! yields the corresponding hook count."
+        ],
+        "reasoning": "This credits broader permutation-record theory for the tolerant probabilistic calculation, without extending it to the complete named-alternative tree or the disappearance of comparisons when the presentation order is hidden.",
+        "searches": [
+          "arXiv:2602.04494v3, approval anchoring and order manipulation",
+          "Louchard 2014, DOI:10.61091/ojac-901, Theorem 1.2 and its record-indicator setup"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and named covariance record",
+        "arXiv:2610.10316v1",
+        "arXiv:2602.04494v3",
+        "DOI:10.61091/ojac-901"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier probability result implies the translated Dickman limit because the O(log m) expected contribution of the indicator-count centering vanishes on division by m.",
+          "The ranking fiber with r_1>1 requires eliminating the unknown cutoff, and the no-order comparator requires a constructive converse over presentations; neither follows from the cited aggregation, covariance or distribution statements."
+        ],
+        "reasoning": "The distinction is the necessary-and-sufficient structural inversion and exact deterministic gains, not a different name for standard record-position statistics.",
+        "searches": [
+          "arXiv:2610.10316v1, model and Theorem 1",
+          "Louchard 2014, Theorem 1.2",
+          "Local mirror of SCOPE-strict-covariance-law-for-shared-random-order-anchored-ballots--6208666b4075, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper has the same better-than-all-prior and acceptability mechanism, but Theorem 1 is the tops-only characterization of anchor-proof rank-based rules.",
+          "The related shared-order covariance finding treats fixed intrinsic rankings as inputs rather than solving for them."
+        ],
+        "reasoning": "Recasting the observable ballot as a retained running-best record chain matches the model, but neither an invariant aggregation rule nor a forward shared-order covariance gives the necessary-and-sufficient ranking constraints for a given observed order.",
+        "searches": [
+          "Local Resultary search for an anchored record-tree fiber and sharp order-disclosure counts",
+          "arXiv:2610.10316v1, Introduction, formal model and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest related record surfaced was SCOPE-strict-covariance-law-for-shared-random-order-anchored-ballots--6208666b4075; its RESULT.md studies covariance of retained lengths for two fixed rankings under a common random order and full acceptability."
+        ],
+        "reasoning": "The inspected record provides no exact fiber or comparison census of the claimed object. The frozen small-m case enumeration is verification, not evidence of priority.",
+        "searches": [
+          "Local Resultary search for exact sequential anchoring identification, tree linear extensions, and pairwise comparison counts"
+        ]
+      },
+      "rationale": "On the evidence inspected, credit the exact order-conditional tree fiber and sharp comparison of information with and without order disclosure, not the anchoring mechanism, the tree hook principle, or the record-position probability law. The primary ranked-anchoring theorem concerns invariance of outcomes under presentation, not the inverse set of individual rankings. The strongest surfaced related Resultary claim likewise does not invert that map.",
+      "residual_risks": [
+        "Best-of-current-knowledge comparison, not priority certification; inverse record inference or sequential revealed-preference literature may use different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same forward model; different theorem",
+          "evidence": [
+            "Theorem 1: a rank-based rule is anchor-proof iff it is tops-only."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10316v1",
+          "material_read": "OA PDF pp. 1–3: motivation, formal model and Theorem 1",
+          "method": "Compared retention and theorem quantifiers to the fixed-observation inverse set",
+          "title": "Anchor-proofness in Voting with Ranked Ballots",
+          "trigger": "Same ranked anchoring mechanism"
+        },
+        {
+          "assessment": "Approval outcomes rather than latent strict-order fibers",
+          "evidence": [
+            "The abstract states the nonexistence of nonconstant anchor-proof approval-based rules."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.04494v3",
+          "material_read": "OA abstract and scope of order-manipulation results",
+          "method": "Compared ballot type and outcome quantifiers",
+          "title": "Anchor-proofness in Voting",
+          "trigger": "Earlier approval observation model and potential broader implication"
+        },
+        {
+          "assessment": "Covers the limit ingredient; not the voting inversion",
+          "evidence": [
+            "Independent probability 1/j indicators and the normalized Dickman record-position limit."
+          ],
+          "identifier_or_url": "https://doi.org/10.61091/ojac-901",
+          "material_read": "OA full-text record-indicator setup and Theorem 1.2, p. 2",
+          "method": "Compared the sum of record positions after scaling and centering",
+          "title": "Sum of positions of records in random permutations: asymptotic analysis",
+          "trigger": "Exact prior record law and limiting distribution"
+        },
+        {
+          "assessment": "Different invariant even without relying on dates",
+          "evidence": [
+            "Full acceptability and two fixed rankings with a shared random presentation order; target is covariance, not ranking recovery."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-strict-covariance-law-for-shared-random-order-anchored-ballots--6208666b4075",
+          "material_read": "Local-mirror RESULT.md, retained-length covariance claim and assumptions",
+          "method": "Compared what is observed and what is fixed",
+          "title": "Strict covariance law for shared-random-order anchored ballots",
+          "trigger": "Strongest related indexed mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–33 and 64–72",
+        "arXiv:2610.10316v1"
+      ],
+      "rationale": "The rooted tree gives the exact support of the latent preference, not just an upper bound or a win/top rule, and separates pairs whose direction is recoverable from those that can be reversed. The r_h-dependent comparison gives a sharp, observation-specific value of logging presentation order under unknown cutoffs. This answers a specific mechanism-inference question beyond reporting a classical probability limit.",
+      "residual_risks": [
+        "No model-free or election-level robustness claim, and no Shannon-information or empirical-engineering claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

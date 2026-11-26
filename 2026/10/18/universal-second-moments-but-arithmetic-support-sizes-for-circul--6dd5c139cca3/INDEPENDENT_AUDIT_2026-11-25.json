@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:19:45.336405Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof 1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected; not executed)"
+      ],
+      "rationale": "Centering changes each score only by a deterministic term: shifting all values by c adds c times the regular lag degree times the sample sum, plus |E_d|c². The score itself is not shift-invariant, but its covariance is. For the centered sample the same-edge, incident-edge and disjoint-edge moments are respectively (Q²−R)/(n(n−1)), (2R−Q²)/(n(n−1)(n−2)), and (3Q²−6R)/(n(n−1)(n−2)(n−3)). A degree-two class has n identical and 2n distinct incident ordered comparisons with itself; two ordinary classes are disjoint and have 4n incident pairs, so diagonal minus ordinary off-diagonal is Λ. The perfect matching has half the ordinary cross-pair counts. At n=4 there is no actual ordinary off-diagonal, but its displayed algebraic expression B still satisfies V−B=Λ and D=B/2 by counting the matching. The deterministic sum gives zero rows; contrasts within ordinary lags have eigenvalue Λ, and the even contrast against the matching gives nΛ/[2(n−1)]. Four distinct positions give Λ=n/4 times the product-of-squared-differences mean. This vanishes exactly when two disjoint unequal pairs are impossible, i.e. at least n−1 observations coincide. Correlation is defined only for Λ>0 and where two ordinary lags exist. For algebraically independent data, equal values imply equal formal edge coefficients. Each marginal score fiber is a coset of the position graph automorphism group, a wreath product of g copies of the cycle dihedral group with S_g, or of g copies of the two-element group with S_g for a matching. The joint fiber is exactly a coset of the distance-one dihedral group, since it preserves all distances. These give the stated support and uniform atom masses, including 20,160 versus 280 at n=9.",
+      "residual_risks": [
+        "The finite program enumerates n≤8 for covariance and supports and ternary multisets through n=12 for degeneracy. Its bit-separated input illustrates that algebraic independence is sufficient, not necessary, for collision-free identification of edge sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou et al. give the first four exact moments for centered quadratic forms and explain removal of the constant-row-sum part. Polarizing their variance covers individual lag-pair covariances.",
+          "Romano–Tirlea give joint asymptotic autocorrelation results for endpoint-truncated statistics."
+        ],
+        "reasoning": "Individual moment coverage is genuine despite different notation. It does not supply the graph automorphism orders or exact randomization probabilities; multivariate asymptotics for a different statistic also do not supply these.",
+        "searches": [
+          "Resultary: exact permutation moments covariance arbitrary quadratic forms finite population fourth moments",
+          "Zhou et al. Introduction and §2.2",
+          "Romano–Tirlea arXiv:2009.03170 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Zhou et al., DOI 10.1002/sta4.37",
+        "Romano–Tirlea arXiv:2009.03170",
+        "Resultary b3ad3b36c62e, fb83bca256ed, and summary-level 4f870a695087, a39bad53d101 and 63797e3c8ded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General quadratic-form moments give covariance entries by polarization, with a subsequent circular row-sum and spectral simplification.",
+          "Generic coefficient identity reduces the support to graph automorphism cosets; d=1 determines the entire joint collision group because its dihedral automorphisms preserve every unordered distance."
+        ],
+        "reasoning": "The support arithmetic and the contrast with equal second moments are not determined by the moment formulas. Orbit-stabilizer is standard; its use here is to compute the exact generic atom law for this family, including the exceptional matching and the joint stabilizer. No prior inspected statement subsumes that support law.",
+        "searches": [
+          "Zhou et al. Introduction and §2.2",
+          "Resultary b3ad3b36c62e and fb83bca256ed original RESULT.md passages",
+          "Romano–Tirlea Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered lag sums are regular symmetric quadratic forms of the permuted vector; the antipodal class is counted once.",
+          "The leading Resultary covariance hits b3ad3b36c62e and fb83bca256ed concern triple-pattern counts and peak/valley indicators, not edge-product sums."
+        ],
+        "reasoning": "The quadratic-form formulation is exactly equivalent for the moments. For exact score collisions the equivalent object is the orbit of the lag's labeled simple graph, not a cyclic ordering pattern or Fourier statistic of extrema.",
+        "searches": [
+          "Resultary: circular permutation autocorrelation covariance spectrum all lags finite sample",
+          "Resultary: graph automorphism orbit counts permutation statistic support assignment cyclic distance graphs",
+          "Zhou et al. §2.2, DOI 10.1002/sta4.37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-result catalog returned related a39bad53d101 and 63797e3c8ded on different cyclic objects; their summaries concern partial permutations and conjugacy of endomorphisms, and their original files were unavailable. The checked same-date b3ad3b36c62e original concerns linear triple-pattern counts without wrapping."
+        ],
+        "reasoning": "An exact catalog statement on labeled assignment score fibers would be relevant, but a finite table of support sizes would not establish the generic law for all n,d. Related orbit calculations do not count collisions of these score polynomials; inaccessible originals are not treated as negative evidence.",
+        "searches": [
+          "Resultary: gcd-dependent permutation support sizes circular distance graph algebraically independent observations",
+          "Resultary: graph automorphism orbit counts permutation statistic support assignment cyclic distance graphs",
+          "Primary graph-edge-sum/support literature search"
+        ]
+      },
+      "rationale": "Exact individual moments and cross-covariances are already accessible from general quadratic-form permutation moments by polarization. The contribution supported as distinct is the circular all-lag structural simplification combined with the exact arithmetic law of equiprobable marginal and joint score values. The latter needs identification of quadratic coefficients and the component geometry, not just moment information. The closest inspected cyclic or permutation covariance records use different statistics.",
+      "residual_risks": [
+        "An earlier formulation of generic weighted edge-assignment orbit supports remains possible. Related graph originals were not accessible; no blanket claim of noncoverage or priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Raw individual covariance calculations covered in principle; no arithmetic support statement in the passages",
+          "evidence": "First four exact moments for centered quadratic forms; constant-row-sum contribution is permutation invariant and can be removed.",
+          "identifier_or_url": "https://europepmc.org/articles/PMC4157666",
+          "material_read": "Introduction, OA offset 4873; §2.2, offset 4653",
+          "method": "Targeted OA published text; DOI 10.1002/sta4.37",
+          "title": "Space–time clustering and the permutation moments of quadratic forms",
+          "trigger": "Broader exact permutation moment formulas for the same class of quadratic forms"
+        },
+        {
+          "assessment": "Related inference, distinct autocorrelations and asymptotic rather than exact circular spectrum",
+          "evidence": "Distinguishes zero autocorrelation from permutation invariance; proves multivariate normal limit of ordinary sample autocorrelations.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.03170",
+          "material_read": "PDF pp. 2–3 and Theorem 4.1 pp. 22–23",
+          "method": "Targeted OA primary text",
+          "title": "Permutation Testing for Dependence in Time Series",
+          "trigger": "Exact permutation framework and joint-lag results"
+        },
+        {
+          "assessment": "Different statistic, sample mechanism for scores, and boundary convention; no priority inference from date",
+          "evidence": "Exact spectrum for counts of six linear consecutive patterns without wrapping.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e",
+          "material_read": "Original RESULT.md from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact covariance spectrum of the six consecutive triple patterns",
+          "trigger": "Strongest same-date permutation covariance spectrum match"
+        },
+        {
+          "assessment": "Later and about different observables",
+          "evidence": "Peak/valley indicators and Fourier spectral structure, not pair-products and graph assignment supports.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-two-channel-fourier-sampling-of-cyclic-permutation-extrema--fb83bca256ed",
+          "material_read": "Original RESULT.md from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-channel Fourier sampling of cyclic permutation extrema",
+          "trigger": "Cyclic covariance and spectral overlap candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and Proof 2–4",
+        "General quadratic-form moment and conventional permutation test comparisons above"
+      ],
+      "rationale": "The result identifies a finite-sample inferential distinction that covariance cannot reveal: with equal ordinary lag variances, the arithmetic of the lag controls exact attainable permutation significance. The n=9 example changes the attainable upper-tail resolution by a factor of 72. The joint count and uniform masses quantify the analogous simultaneous randomization support rather than only giving a collision bound.",
+      "residual_risks": [
+        "No test power, independence, or asymptotic joint distribution is implied; exact support sizes can drop for nongeneric data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

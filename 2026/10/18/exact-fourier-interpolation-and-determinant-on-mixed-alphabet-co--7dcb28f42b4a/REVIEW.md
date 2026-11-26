@@ -1,11 +1,21 @@
-# Mathematical review: mixed-alphabet Fourier coordinate crosses
+# Independent mathematical audit
 
-**Correctness (PASS).** The point and character crosses have identical cardinality. Character orthogonality yields the exact identities \(B_i^*B_i=n_i I-J\) and \(B_i\mathbf1=B_i^*\mathbf1=-\mathbf1\), proving the centered-block singular values and the orthogonal constant-axis reduction. The center/constant matrix is \(S\), whose Schur complement is \(-D\). Its displayed inverse, determinant, singular values, and equal-alphabet specialization follow by direct multiplication and quadratic algebra. The fully specified checker constructs matrices independently for groups of orders two through nine, mixed orders, and noncyclic factors; its outcomes corroborate, but are not substituted for, the universal argument. Numerical singular-value experiments alone would not certify all groups; the proof does.
+## correctness
 
-**Originality (PASS within inspected literature).** The full published theorem on Boolean Hamming balls includes the all-order-two specialization; the published nonbinary Hamming-shell theorem analyzes a **shell** rather than the origin-inclusive **ball**; the published split quadratic-cone theorem gives a two-axis equal-prime-power specialization. These genuine overlaps are acknowledged. None of those statements implies the full determinant factorization, inverse and complete mixed-alphabet spectrum without a new argument across arbitrary coordinate group orders. The published two-axis fourth-moment result concerns a different norm, not a full singular-value classification. Searches for synonyms, Hamming degree-one restrictions, mixed alphabets, arbitrary finite abelian group products and Fourier minors returned related but noncovering claims. No general bibliographic uniqueness claim is made.
+PASS
 
-**Value (PASS).** Simultaneous spatial-and-spectral sampling on a radius-one cross is a natural finite uncertainty/interpolation question. The result identifies exact invertibility, the *entire* singular spectrum, sharp noise amplification and an unexpectedly factorized determinant for arbitrary nonisomorphic coordinate groups. It distinguishes full-ball interpolation from singular shell sampling and makes explicit the equal-alphabet instability transition as coordinate count increases. It is an exact self-contained structural classification, not an arbitrary small numerical example. Its usefulness does not depend on a further application theorem.
+For each punctured character table B_i, full-table orthogonality gives B_i 1=B_i* 1=-1 and B_i*B_i=n_i I-J. The domain and dual centered blocks have dimension n_i-2, vanish under all cross-axis couplings, and have singular values sqrt(n_i) and inverse B_i*/n_i there. The complementary normalized axis indicators plus center give diag(0,-D)+(1,v)(1,v)^T, so the Schur complement -D proves the inverse and gives determinant magnitude product n_i^(n_i/2) after the centered blocks. Equal orders give -n on d-1 contrasts, and the two remaining eigenvalues have product -n and sum (d-1)(n-1); evaluating the polynomial at n gives the stated change of largest singular value at d=2. For the normalized forward restriction the sharp two-sided bounds are sigma_min/max divided by sqrt(|G|); the inverse stability norm is the reciprocal of the lower bound. Read the bundled checker and independently rebuilt four raw character matrices in independent_checks.py cross, including Z/4 and (Z/2)^2 in the same product (max SVD discrepancy 1.34e-15). These are corroboration; the orthogonal decomposition proves the full theorem.
 
-**Closest sources and limits.** Slepian's discrete concentration work supplies the motivation rather than the present shape. Ghobber–Jaming's general finite uncertainty criteria do not furnish this spectrum. The general finite-abelian operator norms of Gilbert–Rzeszotnik address different restrictions. The precise mixed-alphabet result may have an equivalent coding-theoretic or finite-Fourier-minor formulation not found in the inspected sources. The numerical checker uses double precision, but all essential conclusions have algebraic proofs. External independent mathematical assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete finite radius-one spectrum with unequal factor orders and its sharp sampling consequences. The homogeneous special cases have exact published coverage. The determinant and inverse are useful but not strong standalone originality claims: the published unitriangular support-poset factorization yields them by taking the one-coordinate Schur blocks separately. It does not preserve singular values and does not give the mixed-order finite spectrum.
+
+## value
+
+PASS
+
+Radius-one support is a natural model for signals with a baseline and separate coordinate effects. Sampling on the same frequency cross is a square recovery problem; invertibility alone gives no noise amplification. The heterogeneous spectrum reduces the exact stability computation from a full character-dependent matrix to d+1 real dimensions and specified scalar blocks, even with noncyclic factors. The determinant by itself would not justify this assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

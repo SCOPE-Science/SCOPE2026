@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The standalone `verify_periodic_ssa2.py` is ordinary Python 3 standard-library code. From the embedded file, run `python3 verify_periodic_ssa2.py`. The expected success line is:
+# Independent mathematical audit
 
-`PERIODIC_DNA_SSA2_PASS choices=729 nonzero_det_groups=18 polynomial_identity=exact trace_n=1..45 direct_n=1..10 necklaces_n=1..24`
+## correctness
 
-The code builds the six explicit non-self-reverse-complement dinucleotide pairs, enumerates all \(729\) three-choice exclusion patterns, computes each \(\det(I-zA)\) by a four-column permutation expansion, verifies all 18 nonzero-weight characteristic-polynomial classes, and checks a full integer polynomial identity for the claimed zeta factorization. It then derives \(c_n\) using Newton coefficient identities for every \(1\le n\le45\) and directly enumerates all words of lengths \(1\) through \(10\). It tests integral Burnside necklace counts through length \(24\).
+PASS
 
-The proof for all lengths is the structural finite-exclusion expansion and exact rational determinant calculation, not finite experimental extrapolation. Source interpretation follows the explicitly defined infinite periodic-extension convention, which is stronger than requiring two disjoint stems only in one finite traversal. The complete 2024 journal extension was not available for inspection. This package has not received independent mathematical auditing.
+In the bi-infinite extension any two specified cyclic edge types, even two copies of one type, can be realized disjointly by translation. Thus admissibility is exactly exclusion of all four self-dual edges and simultaneous use of either pair of distinct reverse-complement edge types; this also treats n=1,2. The pairwise indicator expansion is exact, the trace of each surviving adjacency matrix counts positioned closed walks, and the formal trace-determinant identity gives the signed determinant product. Independently, review_checks/periodic_alphabet_certificate.py built the union of the 64 maximal graphs by successive inclusion-exclusion and extracted determinants by trace/Newton identities: all 18 signed nonzero entries and the exact cross-multiplied identity agreed. It reproduced the first 18 counts from the product and direct word/rotation-class counts through length 8. Burnside applies because repeating a block does not change the bi-infinite extension; the divisor formula counts fixed words rather than just primitive periods. The cubic has one simple root alpha>2 and the other roots in (-1,0) and (0,1); the other factors have reciprocal roots of modulus at most 2 (in particular |x|>2 is impossible for x^4-x^3-1=0). Logarithmic differentiation gives multiplicity eight and O(2^n), and proper-period divisor terms are O(n alpha^(n/2)) before division by n.
+
+## originality
+
+PASS
+
+The asymptotic exponential rate and compatible generating graphs are prior. The all-length overlap-corrected zeta function, exact positioned and rotation-class counts, and leading multiplicity eight are distinct from the strongest statements inspected. In particular an extremal generating graph's spectral radius does not enumerate the union or determine its leading coefficient.
+
+## value
+
+PASS
+
+This is the fixed-point zeta function of a natural periodic four-letter avoidance language, not a rerun of the finite-linear capacity computation. The compatible graphs have overlapping cycle languages, and even the leading multiplicity is not supplied by optimizing a spectral radius. The simplified rational invariant resolves the all-length census and determines both positioned words and rotation classes, useful when counting or comparing periodic constraint languages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

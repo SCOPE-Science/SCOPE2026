@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:23:10.307936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a witness outside T in the same row as a target, its omitted-neighbor set is the disjoint union of omitted cells in its row and column, so its row must have degree one and its column zero; the transposed condition is analogous. If a part has no empty line, the other must and the omitted cells form the corresponding nonsurjective transversal. With both kinds of empty lines, every incidence edge has a degree-one endpoint, so the graph is a star forest. One-sided centers give strictly fewer than q edges in this case. For a row-centered and a column-centered component, at least two stars and two isolates are required, giving at most p+q−4 edges; equality saturates both sides with exactly two components, opposite nontrivial centers, and one isolate each. At p=4 both bounds tie; outside the tie the larger bound determines the optimum. Inclusion–exclusion counts the nonsurjective maps, and each crossed-star configuration uniquely determines its two centers and two isolates. The families are disjoint. Independent direct adjacency tests of the optimum and next size ran on 2×2, 2×6, 3×3, 3×5, 4×4 and 5×5, matching all corresponding families and counts. Downward closure in T excludes larger complements when the next size is infeasible. Replay: python /workspace/review_checks/rook.py 2x2 2x6 3x3 3x5 4x4 5x5. The frozen output and code were inspected, not rerun; finite results corroborate, not replace, the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klein–Rodríguez-Velázquez–Yi bound omitted size in Theorem 30 Eq. (4) and give the numerical minimum (the K_2 factor is covered separately), not the full census.",
+          "The distinct indexed polynomial theorem partitions all feasible omission sets, not just optima, into two nonsurjective-function families and both-isolated star forests (Steps 1–4)."
+        ],
+        "reasoning": "The minimum cardinality alone does not enumerate equality. The broader exact all-size partition, however, is defined on exactly the objects needed for both the count and the extremal cases.",
+        "searches": [
+          "super domination number Cartesian product complete graphs optimizer incidence structures",
+          "Resultary 7bfe482ba5b5, Steps 1–5",
+          "arXiv:1705.00928 Theorems 22 and 30"
+        ]
+      },
+      "checked_sources": [
+        "Resultary four semantic formulations; 7bfe482ba5b5 full-polynomial overlap",
+        "arXiv:1705.00928, Theorems 22 and 30",
+        "arXiv:2209.01795, Section 6",
+        "Kaidash 2024 chapter abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 5 counts edges as nonisolated rows plus nonisolated columns minus nontrivial component count, and proves equality requires two components saturating both sides. Step 2 already identifies the function families at sizes p and q."
+        ],
+        "reasoning": "For p≤3 a forest with at least two components has at most p+q−4<q edges and one star has at most q−1; only full-size function families remain. For p=4, q edges from the forest require exactly two stars and all p−1≥3 and q−1≥3 possible nonisolated lines. Each orientation must occur as two same-side centers or a single-edge component would give at most two lines on one side. Thus the very same template gives the additional tied class, and growth follows from the elementary function counts. This implication requires no new structural lemma.",
+        "searches": [
+          "Resultary 7bfe482ba5b5 RESULT.md Step 2 and Step 5, offsets 3752–4630 and 5700–7570"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cartesian product of the cliques is L(K_p,q) by the cell–edge correspondence. The Ghanbari–Jäger–Lehtilä complete bipartite count applies to K_p,q, not its line graph.",
+          "Resultary 7bfe482ba5b5 works on the same labeled boards and the same omission sets, with the exact wide-regime crossed-star template."
+        ],
+        "reasoning": "Complements, Cartesian cells and line-graph edges represent the same sets. The indexed labeled omission formulation is genuinely equivalent; the bipartite-graph result without the line-graph operation is not.",
+        "searches": [
+          "rook graph minimum super domination all minimum sets classification count",
+          "enumeration minimum super dominating sets line graph complete bipartite graph",
+          "arXiv:2209.01795 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading coefficient of the full labeled omission enumerator is exactly N_sp and its degree is max(q,p+q−4); the same p(p−1)q(q−1) formula is explicitly stated in the stable case."
+        ],
+        "reasoning": "Even where width-four counts are not displayed in a table, the polynomial supplies them as its top coefficient. Evaluating or simplifying that coefficient does not create an independent exact count.",
+        "searches": [
+          "width four transition exponential polynomial counts rook graph super domination",
+          "Resultary 7bfe482ba5b5 full omission enumerator and stable-range minimum census"
+        ]
+      },
+      "rationale": "A distinct indexed result covers the count by its full labeled omission polynomial and directly covers the stable crossed-star classification. Its all-size characterization and extremal proof also mechanically give the remaining boundary classification: the two nonsurjective-function families occur at the stated sizes, a single star with both kinds of isolates is too small, and two saturated components at width four force precisely the crossed stars. This is coverage of mathematical content; it does not establish that the later-dated indexed record predates this record or settle priority.",
+      "residual_risks": [
+        "Catalogue record dates do not decide priority. The finding's scientific overlap is based on the mathematical statements and proofs themselves.",
+        "The Kaidash chapter's exact graph families could not be determined from accessible material; the decision does not depend on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Minimum cardinality is prior; full optimizer census not stated there",
+          "evidence": "The omitted size is bounded by max(n,n′,n+n′−4); K_2 factor covered separately.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.00928",
+          "material_read": "Theorems 22 and 30, pp. 11–12 and 14, and Theorem 30 proof Eq. (4), OA offsets 26199 and 31080",
+          "method": "Bounded OA PDF passages",
+          "title": "On the super domination number of graphs",
+          "trigger": "Same rook graphs and extremal bound"
+        },
+        {
+          "assessment": "Related count on different graphs",
+          "evidence": "N_sp(K_n,m)=nm, choosing one vertex per side in the complement, not a result for L(K_n,m).",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.01795",
+          "material_read": "Introduction p. 5 and Section 6 p. 17, OA offsets 15349 and 43959",
+          "method": "Bounded OA PDF passages",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Exact minimum-set counting with a complete bipartite alias"
+        },
+        {
+          "assessment": "Covers stable classification directly, boundary counts by coefficients, and boundary classification by the same equality argument",
+          "evidence": "Nonsurjective functions have sizes m,n; otherwise feasible sets are both-isolated star forests. Step 5 uses edge count equal to nonisolated vertices minus components, with equality at two stars filling both sides.",
+          "identifier_or_url": "Resultary 2026/11/2/7bfe482ba5b5",
+          "material_read": "Finding and limitations; exact witness and partition in Steps 1–2; extremal forest proof in Step 5, in particular offsets 3752–4630 and 5700–7570",
+          "method": "Bounded local-mirror passages",
+          "title": "Complete super-domination polynomial and minimum-set rigidity",
+          "trigger": "Same labeled rook graphs; all-size enumerator and stable equality characterization"
+        },
+        {
+          "assessment": "Unresolved exact families; not evidence of coverage or absence",
+          "evidence": "Abstract describes the polynomial and formulas for unspecified graph families.",
+          "identifier_or_url": "https://sciact.math.nsc.ru/public/article/5672/en",
+          "material_read": "2024 chapter abstract, not theorem text",
+          "method": "Lawful OA landing passage; PDF unavailable and no lawful alternate recovered",
+          "title": "Super domination polynomial of a graph",
+          "trigger": "Potential earlier enumeration covering rook graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Optimizer growth at a sharp finite width is a natural question, but no independent scientific increment remains relative to the exact all-size partition and stable equality proof. The tied width-four geometry and resulting formula are immediate size comparisons and extraction from that result, rather than a new motivated invariant or structural lemma.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

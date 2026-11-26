@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The antipodal-pair partition and Euler-circuit equivalence establish the exact finite search domain. Balance reduces to 13 representative flow coordinates, and exact two-half enumeration checks all 40-bit selections without sampling. Two structurally independent implementations reproduce all 12 composition coefficients, balanced/disconnected totals, and six explicit witnesses; the proof does not confuse support sets with cyclic words.
+## correctness
 
-## Originality
-PASS relative to inspected primary sources and available indexed claims. Mitchell–Wild (arXiv:2603.25286; 2026-03-26) gives maximum length and existence, but no complete labeled factor-support census or 56,060 connectivity exclusions or 12-row composition histogram. Earlier orientable and negative-orientable works use reversal relations rather than coordinatewise negation. Comparable length-three or binary classifications do not imply the order-four ternary numbers. Unindexed equivalent calculations remain a priority risk, and no claim of globally certified novelty is made.
+PASS
 
-## Value
-PASS. Factor supports determine which 40 possible window records a maximal position code can contain; their classification separates balance from realizability and quantifies composition constraints. The 56,060 disconnected balanced configurations show that local degree constraints are insufficient, while the complete nontrivial one-count spectrum is exact rather than an isolated example.
+The frozen proof's parenthetical asserting three reciprocal nonself pairs at 000 was inaccurate. The corrected full RESULT.md at /workspace/repairs/3/RESULT.md identifies the two distinct antipodal pairs: {0001,0002} contributes exactly one outgoing edge and {1000,2000} exactly one incoming edge; 0000 is excluded. Thus the claimed unit in/out degrees and zero flow are correct. Every nonzero vertex pair has total outdegree 3 and total indegree 3, so opposite flows justify the 13 coordinates. Each 40-edge support chooses exactly one member of every pair, and a directed Euler circuit exists exactly when the flow vanishes and the nonzero-degree underlying graph is connected. The independently reproduced census used all 27 coordinates, so it did not depend on the reduction. It confirmed 274624 balanced, 218564 connected and 56060 disconnected selections and every row at j=8..19, with no other j. The 13 antipodal pairs beginning with zero force exactly 13 zeros in any realizing word. The repaired text also correctly says that the C++ code Gray-enumerates each half, not just one. No statement, count or code changed.
 
-## Limitations
-Only ternary four-window maximum-period supports are counted, not all Eulerian cyclic words or general order. This is a finite exact classification, with published maximum length used as context rather than claimed anew.
+## originality
 
-## Closest literature
-Mitchell–Wild, *Negative Avoiding Sequences*, arXiv:2603.25286 (full text consulted); Mitchell–Wild, *Orientable and Negative Orientable Sequences*, arXiv:2409.00672; Alhakim et al., *Orientable sequences over non-binary alphabets*, arXiv:2407.14866.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct claim is an exact census of labeled order-four factor supports, including failures of connectivity and composition stratification. It is not a new maximum-period theorem or existence statement. Correcting the degree explanation does not change that claim.
+
+## value
+
+PASS
+
+For the natural maximal order-four avoidance problem the census determines which local balance solutions cannot be realized as cyclic supports and exactly which compositions are possible. Connectivity eliminates 56060 balanced choices; the complete composition table is additional information not implied by one maximizing example or the extremal bound. The proof repair retains this substantive content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

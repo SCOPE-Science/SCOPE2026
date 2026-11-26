@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:14:29.704147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For centered X the explained variance is exactly sum_y M_y^2/P_y with all P_y>0 for contrast below one. The Walsh expansions follow from the independent common-contrast likelihood; sign reversal gives evenness. To justify the uniform Lipschitz order-six remainder, choose a complex contrast disk where the absolute sum of nonconstant denominator terms is below 1/2 for every threshold vector. Step-function moments are uniformly Lipschitz from their changing intervals; on the disk both the rational expression and its threshold differences are bounded, the latter by C_k times threshold distance. Cauchy coefficient bounds and a geometric tail give the stated Lipschitz estimate on a smaller disk. At fourth order the terms are E[L2^2+2L1 L3-2L1 L2 Q1+L1^2(Q1^2-Q2)] with L_j the numerator and Q_j the denominator Walsh degree j; E[L1 L3]=0. At t_i=1/2+d_i, b_ij=O(||d||^2), a_i=-2d_i and a_ij=1-2|d_i-d_j|, so only -2 sum c_i c_j a_ij generates the linear +sum|d_i-d_j|/4. The order-two loss is -sum d_i^2/2+sum d_i^4. Compact uniform order-two convergence brings every optimizer to the repeated midpoint; the quadratic loss and linear difference bound then force O_k(epsilon^2). Sorting reduces the scaled energy to a square around (2i-k-1)/4, with unique sorted maximizer and gain k(k^2-1)/96. Uniform scaled convergence plus comparison to this feasible trial design proves the claim for all global optimizers. The positive scaled spacing implies their eventual distinctness. Independent polynomial-cell calculations checked exact dyadic coefficients through order six in 28 finite designs, k=2..8, with replication and perturbed offsets; replay /workspace/branches/spectral_design_replays.js, thresholdCheck. Frozen CHECKS.txt reports 40 finite inequalities; verify.py was inspected but not executed. Neither finite check proves uniqueness at finite contrast or a growing-budget limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Variani et al. Theorem 2 concerns distortion with the number of transmissions growing and a dyadic bit class.",
+          "Zhou–Hero study excess-resolution probability and finite-blocklength/large-query estimates; the inspected BSC example has query-dependent flip probability proportional to query volume."
+        ],
+        "reasoning": "The broader query/channel framework does not imply an optimizer of fixed-budget posterior quadratic loss at common vanishing bit contrast.",
+        "searches": [
+          "arXiv:1504.05996v3, distortion with coding and repetition",
+          "arXiv:2004.07231v3, nonadaptive 20 questions finite-blocklength"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dedce94eaa8e",
+        "Resultary 155cc48bc5f7",
+        "arXiv:1504.05996",
+        "arXiv:2004.07231"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier source fixes k=2 and symmetry, whereas the frozen claim optimizes all upper-threshold vectors at fixed k>=3. The same-day comparison is only a k=2 unrestricted parallel benchmark and stops at order four."
+        ],
+        "reasoning": "The first two orders of the globally optimized information are shared with replication and hence cannot certify the order-six gain. Extending to arbitrary fixed k requires the full pair-separation energy and global concentration at scale epsilon^2, not a substitution of the two-site formula.",
+        "searches": [
+          "dedce94eaa8e Finding and model scope",
+          "155cc48bc5f7 Finding and optimal parallel benchmark"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayes MSE equals 1/12 minus explained variance Var(E[X|Y]); this is the same centered posterior-mean objective used in the two catalogue comparisons.",
+          "Variani et al. use posterior-mean MSE but ask dyadic-bit questions and allocate repetitions, not arbitrary sorted upper thresholds."
+        ],
+        "reasoning": "An objective written as explained variance rather than risk can overlap exactly. A more general channel coding setup does not identify an optimum over the upper-threshold class without solving the relevant constrained problem.",
+        "searches": [
+          "Resultary: weak-channel parallel nonadaptive thresholds for uniform scalar Bayes square loss",
+          "arXiv:1504.05996 §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dedce94eaa8e has offsets ±epsilon^2/4+O(epsilon^4) within reflected pairs; 155cc48bc5f7 reports unrestricted two-query parallel information epsilon^2/8-epsilon^4/8+o(epsilon^4) as the comparator for an adaptive policy."
+        ],
+        "reasoning": "The result is a symbolic budget family, not a numerical invariant table. These exact nearby catalogue formulas do not include its fixed-k>=3 parameters or order-six information gain.",
+        "searches": [
+          "Resultary: noise-calibrated thresholds for two parallel binary location queries",
+          "Resultary: adaptive squared-loss threshold localization at high noise"
+        ]
+      },
+      "rationale": "The strongest checked overlaps are an earlier exact reflected pair and a distinct same-day adaptive two-query result comparing against unrestricted parallel pairs through order four. Neither states nor entails the unrestricted fixed-k>=3 spacing coefficient or sharp replication gain at order six. Related nonadaptive coding and finite-blocklength studies use different admissible questions, regimes or losses. This is an assessment on inspected statements, not an exhaustive priority claim.",
+      "residual_risks": [
+        "An older equivalent fixed-cardinality weak-channel design result may be indexed under quantization, cut placement or explainable variance.",
+        "The distinct same-day two-query record does not establish relative chronology. Public checks were bounded, not a proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine earlier symmetry-restricted k=2 precursor",
+          "evidence": "Half-reflected design with lower site 1/2-epsilon^2/4+O(epsilon^4). This agrees with the formal continuation to k=2 but not the unrestricted theorem in the submitted range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-noise-calibrated-thresholds-for-two-parallel-binary-location-que--dedce94eaa8e/RESULT.md",
+          "material_read": "Finding and scope, local offsets 0–3950 and 5100–7506",
+          "method": "Configured local Resultary mirror",
+          "title": "Noise-calibrated thresholds for two parallel binary location queries",
+          "trigger": "Exact weak-contrast threshold law in the same model"
+        },
+        {
+          "assessment": "Material two-query overlap in model and asymptotic regime, not the claim",
+          "evidence": "Parallel two-query optimum is compared through order four, and the adaptive gain to that order is epsilon^4/32. No higher-budget spacing or order-six gain is obtained there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-adaptive-squared-loss-threshold-localization-a-unique-nonmedian--155cc48bc5f7/RESULT.md",
+          "material_read": "Finding and comparison with two-query predecessor, local offsets 0–3769 and 8650–11229",
+          "method": "Configured local Resultary mirror",
+          "title": "Adaptive squared-loss threshold localization: a unique nonmedian threshold",
+          "trigger": "Unrestricted parallel benchmark in the same weak-channel model"
+        },
+        {
+          "assessment": "Related objective with different questions and large-transmission asymptotics",
+          "evidence": "Uses dyadic-bit coding and repetition schedules rather than freely chosen upper thresholds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.05996",
+          "material_read": "Abstract, §§2–3 around offsets 9230–13442, and Theorem 2 around 18100–21625",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Non-Adaptive Policies for 20 Questions Target Localization",
+          "trigger": "Nonadaptive localization with same quadratic loss and noisy binary responses"
+        },
+        {
+          "assessment": "Different loss and asymptotic object",
+          "evidence": "Excess-resolution probability and finite-blocklength bounds do not select the fixed-budget upper-threshold Bayes MSE minimizer here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.07231",
+          "material_read": "Abstract, related-work discussion near 11700 and measurement-dependent BSC definition near 23800",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Resolution Limits for the Noisy Non-Adaptive 20 Questions Problem",
+          "trigger": "General nonadaptive resolution and noisy channels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At leading order the globally optimal thresholds are indistinguishable from full replication, so neither first-order weak-channel information nor an exact pair design determines whether spreading helps for arbitrary budgets. The result resolves where every global optimizer goes at the first scale that distinguishes locations, and computes the first positive value advantage with explicit dependence on budget, without imposing symmetry. This is an intrinsic design question, not a routine reparametrization or a numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

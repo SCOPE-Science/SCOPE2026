@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:54:28.265839Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Composing the two complement swaps gives a_j'=a_{j-1} except at j in J and b_j'=b_{j+1} except at j+1 in J, where the output is one. With no faults, reverse the indexing of the b stream to obtain rotation of an m-letter word on four symbols; the fixed point count of its d-th power is 4^gcd(m,d), yielding the primitive census. With faults, each stream is a disjoint union of directed copy chains of lengths g_i with forced-one heads. At round t each chain retains max(g_i-t,0) distinct original bits. All ones is reached iff every surviving bit is one, giving the stated cumulative and first-entry counts. This proves sharpness, the maximum-depth fraction and the phase-resolved cycle, including one fault (g=m), every edge faulty (g=1), and m=2. The longest intact Bernoulli run is L-1 on the conditioning event. The cyclic union bound and disjoint blocks at (1±epsilon) log_{1/(1-p)} m prove the claimed convergence for fixed p. As a check separate from the general proof, /workspace/nor_review_check.py (output /workspace/nor_review_check.txt) rebuilt the NOR tables for every fault pattern and every even-phase initial state at m=2 through 7: 246 nonempty fault patterns, 2374896 faulted initial states, and the complete fault-free orbit censuses. None of the frozen checkers was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-synchronization-shells-and-a-critical-slowing-transition-f--5b15590db320, RESULT.md Finding: incoming-neighbor NOR on a de Bruijn digraph, exact first-constant times and initial-bias-dependent typical clocks."
+        ],
+        "reasoning": "The same-day result is considered as distinct evidence without assigning order within the day. Its graph, fixed incoming-neighbor operator and initial-state randomness are different; its result neither quantifies over prescribed alternating faulty matchings nor implies the gap spectrum.",
+        "searches": [
+          "Resultary: exact NOR synchronization shells and alternating matching fault gaps"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 18 d96482bfb41c RESULT.md",
+        "Resultary November 22 5b15590db320 RESULT.md",
+        "Gopaulsingh arXiv:1612.03814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier extinction clock samples initial membership, not fault locations. Its lower approximations are already noninvertible without faults; intact NOR preserves all states in recurrence.",
+          "For the random part of the frozen record the largest fault gap equals the largest Bernoulli intact run plus one; hence the leading random scale is a standard consequence once the dynamics-to-gap identity is known."
+        ],
+        "reasoning": "The decisive new step counts independent surviving original bits for both streams under the specified graph dynamics, for each deterministic fault layout. Neither prior extinction populations nor general composition of approximations give that identity.",
+        "searches": [
+          "October 18 Resultary mirror, Proof, offsets 2400–4324 and 4900–7872",
+          "November 22 de Bruijn NOR mirror, Finding",
+          "arXiv:1612.03814, composition context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-extinction-time-spectra-and-logarithmic-cutoff-for-alterna--d96482bfb41c, RESULT.md Finding and Proof: alternating lower approximations on two pair partitions; initial full-pair runs govern extinction.",
+          "Gopaulsingh, arXiv:1612.03814, pp. 1, 24: composed lower-approximation operators are used to reconstruct equivalence relations."
+        ],
+        "reasoning": "Pair lower approximation duplicates the AND of its two inputs and is noninjective. The fault-free NOR return map is bijective and the faulty map copies on oppositely directed chains with forced-one heads. Same alternating cycle does not make these operators equivalent.",
+        "searches": [
+          "Resultary: alternating matching NOR fault-gap synchronization and alternating lower approximations",
+          "Primary literature search on alternating matching NOR synchronization, faulty cycles and reset transport"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 18 comparison gives exact extinction populations and a cutoff around log_4 n for random input subsets; November 22 de Bruijn comparison gives first-constant-time counts for another graph/operator."
+        ],
+        "reasoning": "The inspected exact enumerators are for different dynamics, and the reviewed deterministic formula is indexed by every fixed cyclic fault pattern and time, not merely by the cycle size. The intact orbit formula is a standard four-symbol necklace enumeration once the conjugacy is proved, not evidence of a new enumeration of necklaces.",
+        "searches": [
+          "Resultary matching-NOR fault-gap synchronization, exact extinction times, exact NOR synchronization shells"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact fault-layout-dependent first-entry spectrum of alternating matching NOR and its sharp depth. The intact orbit count after rotation reduction is the standard primitive necklace count; the random-fault limit after the gap reduction is the classical longest-run scale, not an independent novelty claim. Neither the closest earlier alternating lower-approximation finding nor the same-day NOR synchronization result supplies the deterministic matching-fault spectrum. This is a statement-level comparison, not a priority guarantee.",
+      "residual_risks": [
+        "Different literature on reset shift registers or periodically switched Boolean networks could formulate the same deterministic copy-chain count under another name. Search absence is not proof of priority.",
+        "The frozen bibliography reports only snippet access for a fixed-graph parallel/sequential periods paper (DOI 10.3390/math8101812); no full-text noncoverage is asserted here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial geometric analogy but no fault-reset spectrum",
+          "evidence": [
+            "Extinction of non-full inputs under repeated lower approximations; distribution from initially full pairs; log_4 scale for random input subsets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-extinction-time-spectra-and-logarithmic-cutoff-for-alterna--d96482bfb41c/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–2600, 2400–4324 and 4900–7872",
+          "method": "Compare operator, input randomness, time and count",
+          "title": "Exact extinction-time spectra and logarithmic cutoff for alternating lower approximations",
+          "trigger": "Closest earlier alternating matching exact-time spectrum"
+        },
+        {
+          "assessment": "Different deterministic and probabilistic claims",
+          "evidence": [
+            "Incoming-neighbor NOR on de Bruijn digraphs; exact first-constant-time counts, initial Bernoulli bias."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-synchronization-shells-and-a-critical-slowing-transition-f--5b15590db320/RESULT.md",
+          "material_read": "Finding at start of RESULT.md",
+          "method": "Compare graph, update and clock",
+          "title": "Exact synchronization shells and a critical slowing transition for NOR dynamics",
+          "trigger": "Same-day exact NOR synchronization result"
+        },
+        {
+          "assessment": "Establishes context, not a transferable fault-gap result",
+          "evidence": [
+            "Composition L_2 L_1 and reconstruction of the underlying equivalence relations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.03814",
+          "material_read": "pp. 1 and 24 around composition and reconstruction",
+          "method": "Compare composed operators and stated problem",
+          "title": "Double Successive Rough Set Approximations",
+          "trigger": "Primary work on two lower approximations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact robustness invariant for a natural switched cycle: a single deletion destroys a full recurrent permutation, and the complete synchronization-time population depends on the fault gap profile, not simply the number of deletions. The whole first-entry distribution, including the exact fraction at the sharp depth, adds information needed to distinguish layouts. The standard necklace and longest-run consequences are useful baselines rather than the main contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

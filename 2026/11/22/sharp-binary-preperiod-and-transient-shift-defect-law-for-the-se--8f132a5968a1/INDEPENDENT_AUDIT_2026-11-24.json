@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:42:15.839923Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inclusion-exclusion splits 5040 S(n,7) into the odd-base numerator and -7*2^n*(3^n+3+5*2^n). The squared odd bases give increments 48,24,8. The first two Mahler coefficients on even inputs have valuations 2,4; the first two on odd inputs have valuations 0,3. For j>=3 the coefficients have valuation at least 3j-4. Vandermonde and C(d,i)=(d/i)C(d-1,i-1), with integer d=s-t initially and continuity on the 2-adics, bound C(s,j)-C(t,j) in valuation by at least nu2(s-t)-floor(log2 j). Thus no nonlinear terms tie the linear term; the branch distances are exactly nu2(s-t)+2 (even) and nu2(s-t) (odd). The constants and coefficient valuations give the stated integral branches with the even branch in 4 Z_2. Isometry modulo each power of two makes the normalized branches onto by finite bijection and lifting. Modulo 8 the factor 3^(n-1)+1 has valuation 1 for odd n and 2 for even n, and adding 5*2^n cannot alter that when n>=7. After division by 7!, the remainder valuations are n-3 and n-2. With shift 2^(k+1), the shifted remainder has strictly higher valuation than both competitors. Taking the unique minimum, or gaining at least a power of two on a tie, proves the two formulas and their stated lower bounds. For each k the first parity-compatible cutoff at or above 7 is exactly max(7,k+2+(k mod 2)); when greater than 7 its odd predecessor fails by the strict lower remainder valuation. An odd eventual period would identify an odd input with odd branch residue modulo 2 with an even input, which is impossible arbitrarily far out. Any even period 2d must satisfy 2^k|d by the odd branch distance. This proves both least assertions without extrapolating the tests. The supplied checker and verification notes were inspected, not executed. An independent Stirling recurrence modulo 2^(k+4), for k=1..10 and n=7..160 including shifted indices, matched 1532 nonresonant valuation instances, 8 resonance lower bounds, 1522 tail congruences, and 6 applicable failed predecessor congruences. This finite reproduction checks examples only; no exact resonance value is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwong's rational generating-function criterion and Theorem 3.6 concern eventual periods, not the least index of their validity. The OCR of the scanned theorem does not reliably distinguish strict from weak signs at the binary boundary b=3; it is not grounds to claim period novelty or exclusion there.",
+          "Bennett–Mosteig Eqs. (33)–(36) give stable congruence-class constancy/nonconstancy at successive levels for column seven, split by parity. Resultary 5173a83d3613 concerns effective eventual isometry for Mersenne columns 2^m-1 with m>=4."
+        ],
+        "reasoning": "Stability and nonconstancy on entire residue classes give prior information on the stable branch structure; they do not evaluate the two early terms at a specified n with opposing valuations. An eventual period criterion alone cannot produce a least onset without a further exact remainder or numerator-degree computation. The indexed Mersenne assumptions exclude column seven.",
+        "searches": [
+          "Kwong 1989 Theorems 2.1 and 3.6, binary fixed-column periods",
+          "Bennett–Mosteig 2013 Proposition 13 and §6.2",
+          "Resultary 5173a83d3613 and 9aede18ef392"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_stirling7.py",
+        "Kwong (1989) p. 217 and p. 220; Bennett–Mosteig (2013) Proposition 13 and §6.2; arXiv:1407.8443v1 Theorem 1.2(ii)",
+        "Resultary 8f132a5968a1, a900c8064e91, 42b89173ef61, 5173a83d3613, 9aede18ef392"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 13 analyzes constancy for congruence classes past their stated large-index condition and does not specify the sharp preperiod. The accessible Theorem 1.2(ii) gives the even dyadic-pair specialization, so the frozen mention of Mersenne exclusion must not be read as excluding all prior S(n,7) difference results. Resultary 9aede18ef392 is a dyadic-pair result for column fifteen."
+        ],
+        "reasoning": "None of the inspected bounds on stable classes or exact formulas on restricted pairs settles when every arbitrary-index full-period difference first becomes divisible. The earlier branch tools motivate the method; the exact transient remainder and comparison on both parities are substantive additional calculations. The distinct earlier exact matches within restricted families are credited rather than dismissed.",
+        "searches": [
+          "Bennett–Mosteig §6.2 and Proposition 13",
+          "arXiv:1407.8443v1 Theorem 1.2(ii)",
+          "Zhao–Hong–Zhao JNT DOI 10.1016/j.jnt.2014.01.005",
+          "Resultary a900c8064e91, 9aede18ef392 and 42b89173ef61"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The accessible Mersenne-column paper proves the exact two-scale minimum with a strict improvement at a tie for S(a*2^r,7)-S(b*2^r,7) when r>=3 and a>b>=1.",
+          "Resultary a900c8064e91 uses odd/even branch isometries and a transient remainder for column five; its exact least onset is max(5,k+2)."
+        ],
+        "reasoning": "For n=b*2^r and a shift with r+nu2(a-b)=k+1 the theorem's stable scale is k+2 and its transient scale is n-2, exactly covering the corresponding even subset of this claim. In particular it applies when n is divisible by eight and k>=2. It cannot be reparametrized to cover odd n or even n not divisible by eight, so it does not settle the parity-dependent last failure. Changing the column from five to seven also changes the branch scales and remainder, rather than relabeling the same sequence.",
+        "searches": [
+          "Resultary: Stirling S(n,7) seventh column least eventual binary period exact sharp tail onset and arbitrary-index 2-adic shift-defect valuation",
+          "arXiv:1407.8443v1 Theorem 1.2(ii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 8f132a5968a1 is the assigned record. Resultary 42b89173ef61 gives the eighth column's least eventual period and residue fibers, with max(8,k+5) stated as a sufficient cutoff, not least. The fifth-column record gives its own exact onset."
+        ],
+        "reasoning": "The novelty does not concern looking up the eventual period or enumerating a finite residue fiber. The exact all-depth seventh-column transient threshold and valuations were not found in an independent matching table or indexed finding.",
+        "searches": [
+          "Resultary exact seventh-column transient shift defect and least binary tail",
+          "Kwong 1989 Theorem 3.6 period formula and Resultary eighth-column exact binary fibers"
+        ]
+      },
+      "rationale": "Credit the standard fixed-column period comparison, known parity-class behavior, and an exact two-scale seventh-column difference theorem on dyadic-scaled pairs. The distinct supported part is the all-depth least onset with its parity correction and the arbitrary-index full-period shift-defect law (including odd inputs and small/transient even inputs not in the previously covered dyadic pairs). The period alone, the use of odd-base interpolation, and the two-scale mechanism on previously covered subsets are not being credited as new.",
+      "residual_risks": [
+        "Publisher full text of Zhao–Hong–Zhao JNT 2014 remained unavailable; the precise relationship to the accessible related arXiv treatment does not establish priority.",
+        "Kwong's binary boundary was not visually resolved from the scanned inequalities. No originality is attributed to the minimum-period formula on the strength of the extraction.",
+        "Other work on partial Stirling functions or low fixed columns could contain stronger exact transient estimates; the bounded search is not proof of historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "Same shift, onset, parity scales and resonance bounds.",
+          "identifier_or_url": "Resultary 8f132a5968a1",
+          "material_read": "Frozen Finding and scope, RESULT.md lines 3–21",
+          "method": "Catalogue match against frozen original",
+          "title": "Sharp binary preperiod and transient shift-defect law for the seventh Stirling column",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Direct eventual-period comparison; boundary glyph in extracted text not decisive; no inspected least-onset result",
+          "evidence": "The generating-function criterion asks that (1-x^p)A(x) be a polynomial modulo the modulus; the binary theorem gives minimum periods, not the degree that would yield the sharp onset.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/27-3/kwong.pdf",
+          "material_read": "Introduction and Theorem 2.1, printed p. 217; Theorem 3.6 with proof, printed p. 220",
+          "method": "OA original scan via configured retrieval, extracted text near offset 10400; cache page was not available for a separate visual reading",
+          "title": "Minimum Periods of S(n,k) Modulo M",
+          "trigger": "Potential direct period and onset coverage"
+        },
+        {
+          "assessment": "Stable-class partial overlap, not the transient defect law",
+          "evidence": "At the higher levels the stated congruence-class nonconstancy depends on odd parity.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Mosteig/mosteig4.pdf",
+          "material_read": "Proposition 13 p. 13 and §6.2 equations (33)–(36), pp. 16–17",
+          "method": "OA primary PDF, offsets 35470 and 44350",
+          "title": "Congruence Classes of 2-adic Valuations of Stirling Numbers of the Second Kind",
+          "trigger": "Exact column seven and its parity stability"
+        },
+        {
+          "assessment": "Exact overlap on dyadic-scaled pairs, not arbitrary shifts or sharp onset",
+          "evidence": "For S(a*2^r,7)-S(b*2^r,7), r>=3, compare r+1+nu2(a-b) against b*2^r-2, with strict gain on equality.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.8443v1",
+          "material_read": "Restatement of earlier non-Mersenne result and Theorem 1.2(ii) pp. 2–3; bibliography referencing the JNT paper",
+          "method": "OA primary PDF, near offset 6060 and bibliography p. 20",
+          "title": "2-adic difference valuations of Stirling numbers, Mersenne-column treatment",
+          "trigger": "Plausible exact column-seven difference theorem"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not a negative evidence claim",
+          "evidence": "The related accessible arXiv treatment discusses the non-Mersenne restriction and includes its own seventh-column theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2014.01.005",
+          "material_read": "Bibliographic identification and related arXiv theorem's description of non-Mersenne coverage; no original publisher full text read",
+          "method": "Attempted lawful DOI landing and publisher retrieval; original article text unavailable",
+          "title": "Divisibility by 2 of Stirling numbers of the second kind and their differences",
+          "trigger": "Cited JNT source on exact fixed-column difference valuations"
+        },
+        {
+          "assessment": "Analogous theorem for another column",
+          "evidence": "Both branches isometric for column five with cutoff max(5,k+2), unlike the column-seven parity scales.",
+          "identifier_or_url": "Resultary a900c8064e91",
+          "material_read": "Original Finding and supporting branch/remainder passage",
+          "method": "Local Resultary mirror",
+          "title": "Uniform binary residue fibers of the fifth Stirling column with sharp preperiod",
+          "trigger": "Closest indexed analogue of sharp onset, period and branches"
+        },
+        {
+          "assessment": "Different column; sufficient rather than least cutoff",
+          "evidence": "Period 2^(k+1), sufficient max(8,k+5), no full transient defect formula.",
+          "identifier_or_url": "Resultary 42b89173ef61",
+          "material_read": "Original Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Complete dyadic residue fibers of the eighth Stirling-number column",
+          "trigger": "Nearby exact column period and cutoff"
+        },
+        {
+          "assessment": "Parameter range excludes column seven",
+          "evidence": "Only columns 2^m-1 with m>=4.",
+          "identifier_or_url": "Resultary 5173a83d3613",
+          "material_read": "Original parameter restriction and finding",
+          "method": "Local Resultary mirror",
+          "title": "Effective eventual 2-adic isometry for Mersenne-column Stirling numbers",
+          "trigger": "Potential broader Mersenne theorem"
+        },
+        {
+          "assessment": "Different column and restricted dyadic pairs",
+          "evidence": "Treats S(a*2^r,15)-S(b*2^r,15).",
+          "identifier_or_url": "Resultary 9aede18ef392",
+          "material_read": "Original Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "A two-scale 2-adic valuation law for Stirling differences",
+          "trigger": "Similar minimum and resonance law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The seventh column is a small Mersenne column with unequal parity scales. Its least onset tells exactly where any finite modular period computation becomes valid; the alternating last failure and the two competing valuations explain where that cutoff comes from. Extending pairwise dyadic estimates to arbitrary starting indices answers a natural fixed-column question without claiming to resolve the two possible resonance valuations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

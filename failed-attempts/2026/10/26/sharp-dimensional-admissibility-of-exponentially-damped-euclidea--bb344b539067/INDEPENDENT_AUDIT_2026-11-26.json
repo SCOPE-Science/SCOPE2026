@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:04:05.854255Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–94, VERIFICATION.md and verify.py (read only)",
+        "Independent Gaussian Fourier calculation and analytic continuation"
+      ],
+      "rationale": "I independently obtain the transform by writing k(r)=Im(e^(−cr)/r)/ω for c=a−iω. For real c>0 the Gaussian integral e^(−cr)/r=π^(−1/2)∫₀^∞ t^(−1/2)exp(−tr²−c²/(4t))dt gives Fourier transform (4π)^p Γ(p)(s²+c²)^(−p) in dimension 2p+1. The identity extends to Re c>0 by domination on compact subsets and the identity theorem; the denominator does not vanish there. This recovers the frozen normalization and confirms its Bessel recurrence calculation. The negative argument of s²+c² runs strictly upward from −2 arctan(ω/a) to zero; hence the displayed sine gives exactly the interior zeros and sign changes, with an endpoint zero at s=0 when the phase is a multiple of π. The density is everywhere nonnegative precisely when the upper positive phase is at most π and has a negative open band otherwise. At the admissible boundary it is positive for all s>0. Bochner and Fourier uniqueness give the finite Gram-matrix criterion, and strictness follows because a nonzero combination of characters at distinct locations cannot vanish on an open frequency set (restrict to a line with distinct projections and use the Vandermonde equations).",
+      "residual_risks": [
+        "The frozen result addresses strictly positive a and ω, and odd dimensions at least three only. The bundled finite checks do not themselves prove the sign criterion or its necessity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier phase–frequency theorem allows every integer m≥1 and general coefficient β; its upper face β=cot φ gives the exact condition (m+1)φ≤π.",
+          "Gneiting records the general radial Schoenberg representation and nesting; Genton gives the individual exponential and wave kernels and product closure, implying only the familiar dimension-three baseline here."
+        ],
+        "reasoning": "General covariance closure or Bochner alone would not give this bound, but the explicit earlier all-parameter phase cone does, once the two-dimension spectral identity is used.",
+        "searches": [
+          "SCOPE-sharp-phase-frequency-cone-for-damped-oscillatory-radial-covaria--346188edc9c1 Finding and Proof §§1–3",
+          "arXiv:1111.7077 §2 Eq. (4)",
+          "Genton 2001, Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Earlier exact phase–frequency cone and same-day undamped sinc powers inspected in the local mirror",
+        "Genton; Gneiting; Abel–Kushnirevych; Schubert et al. retrieval lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior phase is q=−arctan(β)−φ−((m+1)/2)Arg(s²+z²). Substituting β=cot φ gives q=−π/2+p·Arg(conj(s²+z²)), so cos(q) is exactly the frozen sine.",
+          "The prior phase endpoint and monotonicity statements give the same interior zero levels and endpoint equality; solving cotangent for s² immediately gives the displayed zero radii. Positivity of the density off the endpoint yields strictness by the same Bochner argument."
+        ],
+        "reasoning": "This covers both the main iff statement and the finer sign-phase contribution. No independent surviving novelty is established by deriving the same transform using a Bessel recurrence or by using a different spatial representation.",
+        "searches": [
+          "Earlier Resultary phase–frequency cone, Finding and Proof §§1–3, mirror offsets 0–2000 and 2900–5324",
+          "Frozen RESULT.md lines 18–27 and 67–91"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier formula has spectral denominator (s²+z²)^((m+1)/2). At m=d−2 and β=a/ω its complex numerator is −i(a²+ω²)/ω.",
+          "Frozen RESULT.md lines 68–88 gives the identical imaginary part of (s²+z²)^(−p) with normalization differing by the positive frequency-independent ratio 2π/(a²+ω²)."
+        ],
+        "reasoning": "The different spatial kernels are equivalent for the exact question reviewed: the two spectra are positive scalar multiples pointwise in radial frequency. Rescaling the spectra and moving up two dimensions introduces no additional radial sign analysis.",
+        "searches": [
+          "Resultary: damped sinc covariance, Bessel dimension walks, radial spectral phase, exponentially damped sine/cosine",
+          "SCOPE-sharp-phase-frequency-cone-for-damped-oscillatory-radial-covaria--346188edc9c1 Proof §§1–2, mirror offsets 2335 and 2900–5324"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day sinc-power finding tabulates maximal dimensions for undamped powers, a different parameter domain and family.",
+          "The earlier phase–frequency record is not a literal damped-sinc table, but its explicit upper-face formula covers all frozen thresholds, including the three displayed entries in dimensions 5,7,9 via m=3,5,7."
+        ],
+        "reasoning": "Literal table identity is unnecessary: the earlier formula already determines every entry via the proven dimensional substitution. The undamped table is not the basis for the rejection.",
+        "searches": [
+          "Resultary phase–frequency and sinc dimensional threshold searches",
+          "SCOPE-sharp-ambient-dimensions-and-spectral-holes-for-the-first-five-r--5b18271030a8 Finding",
+          "SCOPE-sharp-phase-frequency-cone-for-damped-oscillatory-radial-covaria--346188edc9c1 Finding"
+        ]
+      },
+      "rationale": "The sharp criterion and complete spectral phase are covered by an explicit specialization of the earlier Resultary phase–frequency cone, despite the different spatial formula. Let m=d−2=2p−1, z=a−iω and use the prior damped cosine-plus-sine kernel in dimension m with coefficient β=a/ω (its upper coefficient face). Its spectral formula is c_m Re[(1−iβ)z(s²+z²)^(−p)], with c_m=2^m π^((m−1)/2)Γ((m+1)/2). Since (1−iβ)z=−i(a²+ω²)/ω and (4π)^p Γ(p)=2πc_m, the frozen density in dimension d is exactly 2π/(a²+ω²) times the prior density in dimension m, for every radial frequency and parameter pair. Thus all signs, zeros and boundary cases agree. The prior criterion on this face is (m+1) arctan(ω/a)≤π, exactly the frozen criterion. Its phase proof on this face is the identical sine-sign calculation. The earlier finding need not mention sinc to imply this result. This is a coverage finding based on exact passages, not an adverse inference from unavailable papers or empty searches.",
+      "residual_risks": [
+        "The focused primary web lookup was unavailable, and the original Schoenberg and Schubert full texts were not independently retrieved. Those limits do not affect the demonstrated earlier coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen criterion and signs by m=d−2 and β=a/ω",
+          "evidence": "The earlier transform has numerator (1−iβ)z and the denominator exponent (m+1)/2; the upper coefficient bound is β=cot φ. Both the finding and the full phase argument support the specialization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-phase-frequency-cone-for-damped-oscillatory-radial-covaria--346188edc9c1/RESULT.md",
+          "material_read": "Mirrored Finding/assumptions and Proof §§1–3, offsets 0–2000 and 2900–5324 plus transform locator at 2335",
+          "method": "Local Resultary catalogue and mirror, decisive exact passages",
+          "title": "Sharp phase–frequency cone for damped oscillatory radial covariances",
+          "trigger": "Earlier exact Fourier formula and PSD phase cone for related damped trigonometric kernels"
+        },
+        {
+          "assessment": "Same-day related result, not the damping threshold",
+          "evidence": "Studies undamped powers (sin r/r)^j for j=1,…,5 and their maximal Euclidean dimensions.",
+          "identifier_or_url": "SCOPE-sharp-ambient-dimensions-and-spectral-holes-for-the-first-five-r--5b18271030a8",
+          "material_read": "Mirrored RESULT.md Finding/Proof from offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Sharp ambient dimensions and spectral holes for the first five radial sinc powers",
+          "trigger": "Exact sinc-kernel dimension classification in the catalogue"
+        },
+        {
+          "assessment": "Explains dimension three, not the full claim",
+          "evidence": "Lists the exponential for all dimensions and the wave for dimension three; products preserve positive definiteness.",
+          "identifier_or_url": "https://www.jmlr.org/papers/volume2/genton01a/genton01a.pdf",
+          "material_read": "PDF p. 7 Table 1 and product-closure passage p. 9",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Classes of Kernels for Machine Learning: A Statistics Perspective",
+          "trigger": "Classical wave and exponential covariance families"
+        },
+        {
+          "assessment": "General representation, not the specialized cone",
+          "evidence": "Gives the Bessel-mixture representation and nesting of Euclidean radial positive-definite classes.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+          "material_read": "§2 Eq. (4), PDF p. 4",
+          "method": "Open primary PDF, bounded passage",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Potential general dimension-walk or positive-definiteness theorem"
+        },
+        {
+          "assessment": "Related formulas, not the decisive comparator",
+          "evidence": "Discusses transforms of sinc powers and reports historical damped sinc-power integrals; the inspected passage does not give the all-frequency covariance classification here.",
+          "identifier_or_url": "Abel and Kushnirevych (2023), Sinc integrals revisited, Eq. (4)",
+          "material_read": "Eq. (4) and surrounding discussion, PDF pp. 3–4",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Sinc integrals revisited",
+          "trigger": "Historical damped-sinc integral overlap"
+        },
+        {
+          "assessment": "Unresolved as a historical comparator; no role in the failure",
+          "evidence": "The frozen text distinguishes its denominator-free model; no independent whole-text exclusion made.",
+          "identifier_or_url": "https://doi.org/10.3390/engproc2021005037",
+          "material_read": "Landing page and frozen description only; full text not read",
+          "method": "Lawful DOI/OA attempt",
+          "title": "On the Family of Covariance Functions Based on ARMA Models",
+          "trigger": "Package-cited damped oscillatory covariances"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and exact spectral comparison against the earlier phase–frequency cone"
+      ],
+      "rationale": "The damped wave kernel is a natural object and the threshold is mathematically correct. But as a standalone new result, its whole admissibility diagram and finer spectral signs are a direct dimension-index and coefficient specialization of a known exact phase theorem. The separate proof and spatial formula do not supply a new structural gap, sharper boundary, or independently useful unknown invariant beyond that mechanically implied corollary.",
+      "residual_risks": [
+        "This assessment does not question correctness or the pedagogical utility of recording the corollary."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

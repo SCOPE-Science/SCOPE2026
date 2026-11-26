@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:46:54.860956Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–39; VERIFICATION.md; verify_geometry.py; verify_all_edge_sets.cpp",
+        "Replay: python3 /workspace/branches/audit02.py; recorded output /workspace/branches/audit02.out"
+      ],
+      "rationale": "The uncovered point and line sets must be incidence-free. Three points meet at least nine lines, so leaving three points uncovered cannot coexist with at least five uncovered lines. This excludes size at most six and forces exactly two uncovered points at size seven. Exactly seven lines meet that pair, so each is covered once, as is each other point; every optimum is a matching. The common line's flag is forced. The two remaining triples of lines meet across directions except for the three parallel pairs. Their cross-incidence graph is K(3,3) minus a perfect matching, whose subdivision by the six off-line points is a twelve-cycle with exactly two perfect matchings. Conversely those two matchings extended by the forced flag dominate, because the uncovered sets are incidence-free. A separate exhaustive run used the four line-coordinate maps x, y, x+y, x−y over F3 and the union of closed flag neighborhoods as the domination test. It tested all subsets of sizes 0–7, including all 8,347,680 of size seven. It found no smaller sets and precisely 72 at size seven, with two for each omitted point pair. Pairwise intersections of sizes 0, 1, 2, 3 occurred 612, 900, 756, 288 times with none larger, and every source had zero unreached vertices and distance levels (1,8,32,28,3) in the four-exchange graph. This reproduces the sharp threshold, size, degree and diameter.",
+      "residual_risks": [
+        "This concerns the point/line incidence graph of AG(2,3) only. The complete overlap histogram and each-source levels were checked in the independent run; the frozen C++ assertions check maximal overlap, degree, connectivity and diameter rather than reporting each full histogram."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.5(1) at the design parameters (v,b,k,r,λ)=(9,12,3,4,1) yields 2(7−√13), hence the integer lower bound seven. The symmetric-design theorem does not apply and the weaker general graph bound of Caro et al. only gives six."
+        ],
+        "reasoning": "Credit the existing lower bound even without a separate statement for this plane. It does not yield attainability or count the feasible minima, and it does not give their intersections or distances.",
+        "searches": [
+          "arXiv:2211.14339 Corollary 3.5(1), Theorem 1.2 and Remark 3.6; arXiv:2104.01092 Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1a2a97eb3abe, 9ca05a02f1ba, ecacc8554454",
+        "arXiv:2211.14339 and 2104.01092"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The corollary's lower bound uses incidence-free sets and has no size-seven equality classification for this parameter. The same-day vertex result uses size-five subsets of points/lines rather than seven flags."
+        ],
+        "reasoning": "The twelve-cycle and two-matchings construction, plus the common-neighborhood and distance census across those 72 states, are not corollaries of the inspected bounds or vertex-domination classification.",
+        "searches": [
+          "Compare Spiro–Adriaensen–Mattheus Corollary 3.5 and the 9ca05a02f1ba Finding with the omitted-pair classification and intersection test"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum cardinality of an edge-dominating set equals the minimum cardinality of a maximal matching. The reported exchange-bridge result ecacc8554454 concerns projective PG(2,4), not affine AG(2,3)."
+        ],
+        "reasoning": "The minimum cardinality equivalence does not establish that every edge-dominating optimum is a matching or classify all such configurations. Once that stronger fact is proved here, the two reconfiguration formulations do agree for this graph.",
+        "searches": [
+          "Matching-based formulations in arXiv:2104.01092 §3",
+          "Resultary minimum maximal matching and finite affine-plane edge reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 1a2a97eb3abe is the frozen result itself. The distinct same-day 9ca05a02f1ba gives 12 size-five vertex-dominating sets and K12 at budget four for the same incidence graph."
+        ],
+        "reasoning": "The distinct hit does not list flag sets; the common exchange budget does not link the state spaces. The self hit is not independent coverage.",
+        "searches": [
+          "Resultary affine-plane incidence graph edge domination and four-swap threshold"
+        ]
+      },
+      "rationale": "A known design bound already yields the lower bound seven, and the minimum maximal matching interpretation is classical. The surviving contribution is the classification of every minimum edge-dominating set and the sharp exchange structure for those configurations. The closest same-graph result uses vertex domination, not edge domination.",
+      "residual_risks": [
+        "The 1999 Laskar–Wallis article was not directly inspected; its scope is described from the citing primary paper. Unindexed calculations could overlap. Same-day dates do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lower bound; no classification or exchange consequence in the inspected results",
+          "evidence": "The substituted bound rounds to seven. Theorem 1.2 concerns symmetric designs with block size at least 100, and Remark 3.6 concerns projective planes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.14339",
+          "material_read": "pp. 1–2; p. 6 Corollary 3.5(1) and Remark 3.6; p. 21 citation",
+          "method": "Open primary PDF, targeted statements",
+          "title": "Incidence-free sets and edge domination in incidence graphs",
+          "trigger": "General result for edge domination in designs"
+        },
+        {
+          "assessment": "General equivalence and bound, no implication of audited census",
+          "evidence": "At n=21, δ=3 and Δ=4 the general lower bound is 63/12, or six after rounding.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01092",
+          "material_read": "§3 pp. 9–10 and Theorem 9",
+          "method": "Open primary PDF",
+          "title": "Conjectures of TxGraffiti: Independence, domination, and matchings",
+          "trigger": "Equivalent minimum optimization and broader graph bound"
+        },
+        {
+          "assessment": "Distinct vertex invariant",
+          "evidence": "At q=3, 12 vertex sets of size five, exchange graph K12 at budget four.",
+          "identifier_or_url": "Resultary 2026/11/22/9ca05a02f1ba",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-finding mirror",
+          "title": "Sharp exchange thresholds for minimum dominating sets in finite affine-plane incidence graphs",
+          "trigger": "Same graph and first exchange budget"
+        },
+        {
+          "assessment": "Different geometry and exchange setting",
+          "evidence": "Projective plane PG(2,4), not AG(2,3).",
+          "identifier_or_url": "Resultary 2026/11/22/ecacc8554454",
+          "material_read": "Indexed finding; graph parameters",
+          "method": "Local catalogue comparison",
+          "title": "Seven-edge exchange bridges between minimum maximal matchings",
+          "trigger": "Same equivalent optimization and exchange question"
+        },
+        {
+          "assessment": "The cited contribution is described as projective-plane edge domination; no primary-text negative finding",
+          "evidence": "Spiro et al. attribute a symmetric projective-plane result to Laskar and Wallis.",
+          "identifier_or_url": "J. Statist. Plann. Inference 76 (1999), 285–294",
+          "material_read": "Bibliographic citation and description in arXiv:2211.14339 pp. 2, 6, 21; not the primary article",
+          "method": "Secondary scope check only",
+          "title": "Chessboard graphs, related designs, and domination parameters",
+          "trigger": "Earlier incidence-graph edge-domination literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–9 and 17–27; independent exhaustive audit"
+      ],
+      "rationale": "This is a natural small affine plane on which the general lower bound is sharp. The omitted-pair/twelve-cycle description organizes the entire optimum family, and the first nonzero batch mobility immediately permits global connectivity. The complete overlap and distance data provide a reproducible benchmark for reconfiguration among minimum maximal matchings, not merely another low-order scalar bound.",
+      "residual_risks": [
+        "Neither a formula for larger affine planes nor a general mobility theorem is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

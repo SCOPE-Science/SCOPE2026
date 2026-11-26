@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:08:29.354442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit path has the simple cosine spectrum λ_k=2−2 cos(πk/n) with normalized half-step eigenvector entries. If d=gcd(2j−1,n)>1, the mode k=n/d has a cosine zero. Otherwise multiplication by 2j−1 permutes the residue pairs ±k modulo 2n, preserving the product of squared cosines; the fixed classes 0 and n are excluded from the permutation. The sine product gives ∏_{k=1}^{n−1}cos²(πk/(2n))=n/4^(n−1), so including eigenvector normalization gives ∏_k v_k(j)²=(2n)^(1−n). The Vandermonde then fixes the nonzero absolute Kalman determinant independent of j; the distance-triangular endpoint basis gives value one. In modal coordinates W_j has the common time kernel flanked by the diagonal input vector; distinct exponentials on a positive interval make the kernel positive definite, including μ=0 with the time-integral convention at the constant mode. This proves the two determinant cases and φ(2n) maximizing sites; for powers of two this is every site. The positive-damping infinite-horizon Cauchy identity and the small-time trace difference are also consistent. The common value is for each fixed (T,μ), not numerically constant as those parameters change. Independently generating the actual edge Krylov matrices and eliminating modulo 1009 at all sites of orders 21,22,25,27,30,32 gave respectively 12,20,20,18,16,32 nonzero residues, all ±1 and at precisely the predicted sites. This is corroboration, not the proof; the supplied code was read without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-positive-weight path theorem gives |det C_j|=|E_j Res(p_j^−,p_j^+)| and det G_j=det H_T (E_j Res)²/Δ² for the same finite horizons and common leakage. Its proof uses cofactor residues and Jacobi recurrences, not the audited unweighted theorem. Its prior-work section calls the exact uniform classification background. The normalized adjacency record instead gives endpoint preference for a different operator and observation design."
+        ],
+        "reasoning": "The weighted theorem genuinely includes all the present systems at E_j=1; the uniform arithmetic evaluation and normalization can be recovered independently as below. The normalized endpoint theorem does not cover this system.",
+        "searches": [
+          "Resultary 68e9d81bce1e, Finding, proof steps 1–3 and prior-work passage",
+          "Resultary d0ca7333cb0f, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5f5dcc0ba067, 68e9d81bce1e, e7c04e833fd0 and d0ca7333cb0f",
+        "Louboutin DOI 10.4153/CMB-2012-002-1, second-kind result",
+        "arXiv:1109.3556v1 Theorem 4.4 and Corollary 4.6",
+        "arXiv:1306.2491v1 abstract",
+        "arXiv:2611.21385v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At unit weights the cut polynomials are the grounded arm polynomials P_a,P_b for a=j−1,b=n−j. P_a is the monic odd-angle factor of U_{2a}(1−z/2): by the Chebyshev recurrence it is (−1)^a[U_a(1−z/2)−U_{a−1}(1−z/2)] for a>0, and U_{2a}=U_a²−U_{a−1}². Louboutin's |Res(U_{2a},U_{2b})|=2^{4ab} in the coprime-label case becomes modulus one for the monic affine transforms. Multiplicativity forces each integer factor resultant, in particular |Res(P_a,P_b)|, to be one. A common odd g>1 gives the shared odd angle π/g and zero. Empty blocks have resultant one. The label gcd is gcd(2j−1,2n−2j+1)=gcd(2j−1,n). Thus the stronger theorem gives the exact zero-or-unit determinant and common nonzero det H_T/Δ² under all the stated horizons and damping, and at infinite time for μ>0. The endpoint eigenvector sine product gives Δ⁻²=(2n)^(1−n); the totient count is immediate."
+        ],
+        "reasoning": "This reduction recovers both exact numerical formulas, not merely nonsingularity or an example tie, and does not require the frozen theorem as an assumption. The dyadic corollary and trace expansion add no independent original claim. Inaccessible material is kept separate from the verified mathematical implication.",
+        "searches": [
+          "Resultary 68e9d81bce1e equations (1), (2), (4)–(8)",
+          "Louboutin DOI 10.4153/CMB-2012-002-1, second-kind identity, equation (2) and final theorem",
+          "Parlangeli–Notarstefano arXiv:1109.3556v1, grounded spectra and Theorem 4.4",
+          "Dilip DOI 10.1109/LCSYS.2019.2919278, primary access and alternate author copies attempted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.4's odd-prime condition for a nonreachable site is equivalent to gcd(2j−1,n)>1; Corollary 4.6 gives the all-site dyadic reachability phenomenon. The weighted diffusion path theorem uses C_j=[e_j,L e_j,…] rather than (−L)^r; the two determinants differ only by a column sign. The A_α-Wronskian path paper instead treats another operator."
+        ],
+        "reasoning": "The qualitative condition and dyadic full rank are precedent but cannot alone infer volume ties or lattice index. The unsigned weighted-diffusion result does cover the same coordinate Laplacian matrices and their determinants after setting weights to one.",
+        "searches": [
+          "Resultary: exact unweighted path coordinate Krylov unimodularity and controllability-Gramian D-optimal ties",
+          "arXiv:1109.3556v1 Theorem 4.4 and Corollary 4.6",
+          "arXiv:2611.21385v1, path Wronskian/walk matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same formula is in this record's own entry 5f5dcc0ba067. The distinct 68e9d81bce1e explicitly identifies unweighted coprimality/unimodularity and common positive volume as background and reports finite regression checks. The distinct e7c04e833fd0 also mentions exact unimodularity on paths as related work, but its finite census is not the all-size classification."
+        ],
+        "reasoning": "The self-entry is not evidence of prior work, and finite checks are not the decisive evidence. The stronger exact formula and its arithmetic specialization, rather than the shared date or these mentions alone, establish coverage.",
+        "searches": [
+          "Local Resultary: all-vertex path Laplacian gcd criterion, 0/±1 determinant, all-horizon common positive determinant"
+        ]
+      },
+      "rationale": "The exact main theorem is covered by a distinct indexed result plus the published Chebyshev resultant identity, not just by the 2011 qualitative rank criterion. The distinct all-positive-weight path theorem independently establishes the exact magnitude/resultant and finite-horizon spectral-factor formulas, explicitly identifies the uniform zero-or-unit and common-volume classification as background, and has a direct unit-weight specialization once the cut-block resultant is evaluated by Louboutin's theorem. The resulting tie and normalization cover the quantitative claim itself; no distinct substantive remainder is established for the frozen result. This is a statement-coverage judgment, not a claim that one of the two same-day records was posted first. The inaccessible Dilip paper is not the reason for failure.",
+      "residual_risks": [
+        "Within-day order or historical priority between the two distinct diffusion-path records is not established.",
+        "Dilip 2019 full text could not be independently checked; stronger older exact coverage of the tie has not been inferred from access failure or abstract snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Independent general determinant formulas specialize to exact frozen conclusions with established arithmetic; priority not inferred",
+          "evidence": "E_j monomial equals one on the unit path; formulas (1) and (2) share the same kernel and damping. Equations (4)–(8) establish the exact magnitude formula independently of uniform data. The paper explicitly labels the uniform positive-volume and unimodularity classification background.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-rooted-resultant-d-volumes-for-arbitrary-weighted-diffusio--68e9d81bce1e/RESULT.md",
+          "material_read": "Finding offsets 0–3224, proof offsets 4050–7092, verification and related-work passage 8150–10475",
+          "method": "Bounded local mirror reads",
+          "title": "Exact rooted-resultant D-volumes for arbitrary weighted diffusion paths",
+          "trigger": "Stronger formula on the identical path/operator/horizon family and explicit uniform classification overlap"
+        },
+        {
+          "assessment": "Supplies the unit-after-scaling resultant needed for the uniform specialization",
+          "evidence": "With gcd(m+1,n+1)=1 the cosine-difference product in (2) is a unit and the resultant has modulus 2^{mn}. Taking m=2a,n=2b after monic scaling gives the factor resultant comparison.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-2012-002-1",
+          "material_read": "Section on second-kind polynomials, equation (2) and subsequent product argument, PDF pp. 604–605, extraction offset 11795 onward",
+          "method": "Lawful open primary PDF passage",
+          "title": "Resultants of Chebyshev Polynomials: A Short Proof",
+          "trigger": "Published exact evaluation for the containing Chebyshev second-kind resultants"
+        },
+        {
+          "assessment": "Exact rank precedent; no quantitative tie inferred from rank",
+          "evidence": "Odd-prime divisibility at sites is equivalent to the stated gcd condition, and all nodes are reachable for dyadic orders.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.3556v1",
+          "material_read": "Theorem 4.4 p. 16 (offset 50636) and Corollary 4.6 p. 18 (offset 58700)",
+          "method": "Lawful open primary PDF passages",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Exact qualitative criterion and dyadic case"
+        },
+        {
+          "assessment": "Further primary priority risk, not used as proof of full coverage",
+          "evidence": "The weighted paper attributes the general spectral determinant reduction and a six-node tie to Theorems 2–3. DOI returned HTTP 202, author-hosted copy could not be retrieved and author-posted ResearchGate PDF returned HTTP 403; theorem scope not independently resolved.",
+          "identifier_or_url": "https://doi.org/10.1109/LCSYS.2019.2919278",
+          "material_read": "Index/abstract material and the secondary description in 68e9d81bce1e; no primary full text read",
+          "method": "Lawful DOI and repository lookup, author page and author-posted PDF access attempts",
+          "title": "The Controllability Gramian, the Hadamard Product, and the Optimal Actuator/Leader and Sensor Selection Problem",
+          "trigger": "Same spectral log-volume objective and reported unweighted-path example"
+        },
+        {
+          "assessment": "Related trace optimization, not the asserted determinant theorem",
+          "evidence": "Abstract states trace modularity, not the all-location path determinant tie.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.2491v1",
+          "material_read": "Abstract at offset 0",
+          "method": "Primary open abstract",
+          "title": "Optimal Sensor and Actuator Placement in Complex Dynamical Networks",
+          "trigger": "Gramian placement metrics"
+        },
+        {
+          "assessment": "Different operator and observation metric",
+          "evidence": "Uses symmetric degree-normalized adjacency, not the combinatorial Laplacian with uniform additive damping.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Same graph family, determinant design and competing endpoint conclusion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical classification, this answers a natural all-size question about reachable volume and integer control, distinguishing a determinant tie from graph automorphism, trace or conditioning. At dyadic sizes the endpoint and interior have different degrees yet tie at every horizon, which is a useful constraint on actuator-placement intuition. This scientific usefulness does not establish independent originality over the checked stronger result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

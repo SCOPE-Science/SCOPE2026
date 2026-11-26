@@ -1,0 +1,199 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:03:38.990211Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4-57",
+        "VERIFICATION.md and check_cycle.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 2; direct ordered-pair histograms and integer-base recurrence evaluation, moments, parity and endpoints agree for n=3..8"
+      ],
+      "rationale": "A mixed sign string admits a strictly exposing objective: subtract the mean from its ±1 entries and integrate the resulting zero-sum edge differences. The incidence kernel is exactly the constants, so the mixed images are distinct; equality of the independently chosen vertices is allowed. The difference coordinates are cyclic increments of w=(s-t)/2. A closed-walk trace counts these increments with multiplicities 1,2,1; fixing one sign string constant gives the binary trace, and inclusion-exclusion restores four zero-distance pairs. The symmetric transfer block has trace 3+z^4 and determinant 2(1-z^2)^2; the antisymmetric eigenvalue is 1-z^4. For the unconditioned cyclic sum the summands have mean 1, variance 3/2 and adjacent covariance 1/4, including all three unordered pairs at n=3; the analogous binary transition indicators have mean 1/2 and zero pair covariance. Subtracting their moment sums gives the two exact moments. Cut the cycle by changing one bounded term and apply the bounded 1-dependent CLT of variance rate 2; excluding the two constant inputs from each string costs at most 2^(2-n) in total variation. The square-root identity gives the second CLT. Parity follows by telescoping mod 2. With any zero state the distance is <=4n-6; otherwise maximal opposite transitions give the two even-order alternations or the 2n odd-order patterns with one agreeing edge.",
+      "residual_risks": [
+        "The bounded histogram replay does not check weak convergence; the asymptotic reasoning supplies that check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unicyclic radius ae7e706cbf12 and cactus covariance b39706fc7ceb cover C_n but different statistics. Same-date a491432b4d2c treats K_{2,n}, 8ee3f7725078 the wheel spanning-tree polytope, and 397d212d8e0c a complete-DAG flow polytope; none is a theorem for all cycles in the same embedding/measure.",
+          "The cycle intrinsic-volume law 3ae59b7ce98c concerns a random dimension weighted by intrinsic volumes, not independent uniform vertex draws."
+        ],
+        "reasoning": "The shared orientation framework and analogous transfer methods do not remove the need to compute the correct local pair state and two-input exclusion in this model.",
+        "searches": [
+          "Resultary: uniformly sampled vertices cycle zonotope pair distance Euclidean transfer recurrence finite n",
+          "Resultary: cycle graphical zonotope expected squared distance two uniform vertices exact mean covariance vertex measure",
+          "Padrol–Pilaud–Poullot arXiv:2111.12422 and Pešović–Stojadinović arXiv:2209.12053, introduction and Euclidean-distance locators"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-distribution, moment and CLT searches; cited and same-date records listed above",
+        "arXiv:2111.12422 and arXiv:2209.12053 (targeted passages)",
+        "Ding DOI 10.1112/jlms.12776 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C_v=2^n L(C_n)/[4(2^n-2)] implies E D=2 tr C_v, exactly the frozen mean.",
+          "Combined with the prior one-point radius law, symmetry and independence also give E D²=2 E||X||⁴+2(E||X||²)²+4 tr(C_v²). In this normalization the radius polynomial gives E||X||⁴=2^n n(n+1)/[4(2^n-2)], and tr(L²)=6n, reproducing the displayed second moment.",
+          "The ellipsoid record identifies balanced cycle-sign contacts; the diameter assertion is ancillary. Intrinsic-volume normality does not imply the chord CLT."
+        ],
+        "reasoning": "Give prior credit for the moments as consequences, but the radial distribution and covariance do not give the required joint radius/inner-product distribution. The full pair transfer law goes beyond those implications.",
+        "searches": [
+          "Cactus covariance b39706fc7ceb and unicyclic radii ae7e706cbf12, Finding and proof sections on cycle specializations",
+          "Löwner ellipsoid 1583727c8ad6 and intrinsic-volume profile 3ae59b7ce98c, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit afdf0b7435d7 is the frozen record itself.",
+          "Prior unicyclic radius record ae7e706cbf12 gives a cycle specialization of a one-point polynomial sum over z^(4||X||^2) with the same orientation exclusion; it does not count two-point inner products or chords.",
+          "Prior Laplacian record 8dfabf4d984d concerns the punctured cube graph. Even the coordinate map gives squared distance 4 or 6 for two differing edge signs, depending on adjacency, when both patterns are feasible; Hamming distance is not interchangeable."
+        ],
+        "reasoning": "Compare oriented-difference statistics (or antipodal sums, equal in law here) with one-point radii and graph distances; neither substitution retains the joint Euclidean chord law.",
+        "searches": [
+          "Resultary: cycle graphical zonotope exact Euclidean squared distances between uniformly sampled distinct vertices all-n transfer polynomial",
+          "Resultary: cycle zonotope vertex pair distance polynomial finite state transfer matrix Markov CLT Gaussian law",
+          "Websearch: \"graphical zonotope\" cycle \"pairwise distances\" vertices Euclidean distribution transfer matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct catalogue match is the same record. The inspected weighted enumerators are lattice-point/quasisymmetric counts; the nearby one-point and distinct-polytope polynomials count different objects."
+        ],
+        "reasoning": "An exact vertex-pair table must count ordered pairs including self-pairs (equivalently, double the unordered distinct-pair counts and add the diagonal), in the canonical Euclidean metric. None of the distinct tables or polynomials inspected satisfies that for C_n.",
+        "searches": [
+          "Resultary exact Euclidean pair-histogram and transfer-polynomial queries above",
+          "Pešović–Stojadinović arXiv:2209.12053, PDF p.2 weighted enumerator"
+        ]
+      },
+      "rationale": "Pass the full two-vertex Euclidean chord enumerator and its fluctuation law, not independent novelty of its first two raw moments, vertex correspondence, or diameter. The strongest same-model prior results evaluated one-point radii and vertex covariance; several distinct same-date records evaluate chord laws for other polytopes. None of the inspected statements supplies this joint chord polynomial or its matching limit law. Dating alone was not used to discount coverage.",
+      "residual_risks": [
+        "Ding full text was not obtained. The bounded catalogue and literature search cannot establish priority against inaccessible or unindexed sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not an independent overlap",
+          "evidence": "Identical ordered squared-distance polynomial and limits",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-euclidean-vertex-distance-polynomial-and-gaussian-law-for--afdf0b7435d7",
+          "material_read": "Indexed summary and frozen RESULT finding and proof",
+          "method": "Resultary local search and frozen file",
+          "title": "Exact Euclidean vertex-distance polynomial and Gaussian law for cycle graphical zonotopes",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Shared model and exclusion; one point instead of two",
+          "evidence": "R_Cn(z)=2^n(F_2(z)^n+(-1)^n B_2(z)^n)-2 for the scaled squared radii",
+          "identifier_or_url": "2026/11/17/SCOPE-eulerian-cycle-correction-and-degree-data-rigidity-of-unicyclic--ae7e706cbf12",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Eulerian-cycle correction and degree-data rigidity of unicyclic zonotope vertex radii",
+          "trigger": "Same cycle Euclidean metric, orientation correction and exact polynomial"
+        },
+        {
+          "assessment": "Mean chord distance squared is covered; not the pair polynomial",
+          "evidence": "C_v=2^n L(C_n)/[4(2^n-2)]",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-vertex-volume-covariance-sandwich-for-cactus-graphical-z--b39706fc7ceb",
+          "material_read": "RESULT.md Finding and Proof §2, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "A sharp vertex–volume covariance sandwich for cactus graphical zonotopes",
+          "trigger": "Same Euclidean uniform vertex covariance"
+        },
+        {
+          "assessment": "Graph adjacency and Laplacian, not ambient Euclidean distance",
+          "evidence": "Graph is a cube with antipodal vertices removed",
+          "identifier_or_url": "2026/10/11/SCOPE-laplacian-spectrum-and-spanning-tree-complexity-of-cycle-graphic--8dfabf4d984d",
+          "material_read": "RESULT.md Finding and Proof §1, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Laplacian spectrum and spanning-tree complexity of cycle graphical zonotopes",
+          "trigger": "Same cycle vertex set"
+        },
+        {
+          "assessment": "Different sampling law/statistic",
+          "evidence": "Intrinsic-volume index has weights V_k(Z_n)t^k",
+          "identifier_or_url": "2026/11/8/SCOPE-gaussian-intrinsic-volume-profiles-for-cycle-graphical-zonotopes--3ae59b7ce98c",
+          "material_read": "RESULT.md Finding eqs. (1)–(4), offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Gaussian intrinsic-volume profiles for cycle graphical zonotopes",
+          "trigger": "Same zonotope and Gaussian limit"
+        },
+        {
+          "assessment": "Outer geometry, not complete pair law",
+          "evidence": "Ellipsoid and balanced cycle-sign contacts",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-l-wner-ellipsoids-and-sharp-cycle-length-extremizers-of-un--1583727c8ad6",
+          "material_read": "RESULT.md Finding and Proof §1, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Exact Löwner ellipsoids and sharp cycle-length extremizers of unicyclic graphical zonotopes",
+          "trigger": "Outer Euclidean geometry and possible endpoint overlap"
+        },
+        {
+          "assessment": "Different graph family and pair convention",
+          "evidence": "K_{2,n} with unordered distinct-vertex pairs (isolated graph isomorphism K_{2,2}=C_4 does not cover the cycle family)",
+          "identifier_or_url": "2026/11/22/SCOPE-two-scale-euclidean-chord-spectra-of-two-hub-graphical-zonotopes--a491432b4d2c",
+          "material_read": "RESULT.md Finding and Proof §1, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Two-scale Euclidean chord spectra of two-hub graphical zonotopes",
+          "trigger": "Distinct same-date graphical-zonotope chord law"
+        },
+        {
+          "assessment": "Different face/vertex model",
+          "evidence": "Wheel spanning-tree incidence vectors, not cycle orientation images",
+          "identifier_or_url": "2026/11/22/SCOPE-full-euclidean-chord-spectrum-and-gaussian-overlap-law-of-wheel--8ee3f7725078",
+          "material_read": "RESULT.md Finding and Proof §1, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Full Euclidean chord spectrum and Gaussian overlap law of wheel spanning-tree polytopes",
+          "trigger": "Distinct same-date corrected transfer trace and CLT"
+        },
+        {
+          "assessment": "Different vertices and metric problem",
+          "evidence": "Unit flows on a complete DAG",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-state-distance-law-and-gaussian-fluctuations-for-complete--397d212d8e0c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "A two-state distance law and Gaussian fluctuations for complete-DAG flow polytopes",
+          "trigger": "Distinct same-date exact distance and Euclidean CLT"
+        },
+        {
+          "assessment": "Structural input in inspected passage",
+          "evidence": "Acyclic orientation correspondence and spanning-tree volume statement",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12422",
+          "material_read": "Introduction, PDF p.1 near offset 1360",
+          "method": "Bounded OA read and term locator",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Same general family and vertex parametrization"
+        },
+        {
+          "assessment": "Different enumerative statistic",
+          "evidence": "Positive lattice points and weighted quasisymmetric enumerators",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.12053",
+          "material_read": "PDF p.2 near offset 3300",
+          "method": "Bounded OA read and term locator",
+          "title": "Between Graphical Zonotope and Graph-Associahedron",
+          "trigger": "Graph-polytopal weighted enumerators"
+        },
+        {
+          "assessment": "No full-text noncoverage conclusion",
+          "evidence": "No substantive passage obtained",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12776",
+          "material_read": "Bibliographic identification only; full text not obtained",
+          "method": "Lawful DOI retrieval attempt",
+          "title": "Geometric Bijections Between Spanning Subgraphs and Orientations of a Graph",
+          "trigger": "Cited geometrical orientation framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4-28 and 39-57; comparison with the prior radius, covariance and graph spectrum results"
+      ],
+      "rationale": "Uniform-vertex chord lengths are a canonical metric statistic of this Euclidean realization. A fixed-order recurrence determines every ordered pair multiplicity, beyond orientation counts, one-point radii and moments; it allows exact probabilities for clustering or extreme distances without enumerating exponentially many pairs. The finite law and explicit unit-scale Euclidean fluctuations give useful complementary descriptions. The transfer technique and generic CLT are not themselves value claims.",
+      "residual_risks": [
+        "No local limit theorem, quantitative error bound, or extension to other embeddings or sampling measures is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

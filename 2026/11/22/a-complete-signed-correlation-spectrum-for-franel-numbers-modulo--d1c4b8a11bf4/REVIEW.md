@@ -1,19 +1,21 @@
-# Review of the Franel character correlation spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(F_n=\sum_{j=0}^n\binom nj^3\) the binomial Lucas congruence yields the exact modulo-five digit product with digit values \((1,2,0,1,1)\). Taking quadratic characters gives \((1,-1,0,1,1)\). Enumerating five possible outgoing digit carries produces the ordered correlation coefficients \((4,0),(0,1),(-1,0),(0,-1),(1,0)\), and hence the exact unwrapped recurrence. Induction on the nonnegative shift proves \(S_r(h)=4^r C(h)+b_h\), with integer \(b_h\), once the block is sufficiently long. The signed two-state transition is the identity and the unsigned transition is \(\bigl(\begin{smallmatrix}1+2t&2t\\2t&1+2t\end{smallmatrix}\bigr)\), proving the finite all-shift binomial spectrum. The zero predecessor is unique, yielding the sharp extremal equality cases. The standalone program checks 450 original sums, direct correlations, a complete finite spectrum and stabilized error constants. It is not used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Lucas applied to each binomial and independent summation of its digit cubes give character weights (1,-1,0,1,1). To check the limit and spectrum independently, first restrict both n and n+h to the block. The exact Laurent polynomial for those correlations is the product for i=0,...,r-1 of (4-z^(2*5^i)-z^(-2*5^i)+z^(4*5^i)+z^(-4*5^i)). The unwrapped sum differs by at most h terms, so this gives the same normalized fixed-h limit. The exponent h is impossible if h is odd. For even h the unique balanced-quinary representation of h/2 uses digits 0, +/-1, +/-2; the value after normalization is 4^(-j) times (-1) to the number of digits +/-1, with j the number of nonzero digits. For 0<=h<5^r the balanced representations are exactly the nonnegative half of the r-digit balanced words. At each selected nonzero position two choices are positive and two negative; reflection preserves sign and halves each nonzero class. This yields the displayed signed counts and the only positive shifts of magnitude 1/4 are 2*5^i and 4*5^i with the stated signs. For the stronger exact remainder claim, splitting the unwrapped sum by n mod 5 gives the single surviving coefficient 4,+1,-1,-1,+1 and predecessor q,q+1,q,q+1,q respectively. Shifts 0 and 1 have exact values 4^r and -1; all other predecessors decrease, proving eventual constant integer remainder by induction. This also confirms the four small-shift identities. The frozen scope is fixed h, not a uniform asymptotic for growing shifts.
 
-The central comparison is Z.-W. Sun, *Congruences for Franel Numbers* (arXiv:1112.1034), which proves congruences for weighted sums of Franel terms rather than a shifted joint quadratic-character spectrum. V. J. W. Guo's *Proof of two conjectures of Z.-W. Sun on congruences for Franel numbers* (arXiv:1201.0617) likewise studies weighted congruences. E. Rowland and R. Yassawi's *Automatic congruences for diagonals of rational functions* (arXiv:1310.8635) gives a more general automatic-congruence mechanism, which accommodates the *pointwise* digit factorization but does not state the evaluated signed shift spectrum, its exact multiplicity table or the extremal families. A related published result on all-lag central-trinomial residues modulo five concerns a different sequence and does not imply this digit-character law; a result on dyadic Pascal-row shift correlations has different digit weights. A recorded Franel modulo-nine joint-residue result also does not imply the modulo-five quadratic-character spectrum. Neither semantic searches nor text comparisons demonstrate absolute priority: earlier general digit-multiplicative correlation theorems may hide an equivalent specialization. This is an explicit residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Franel quadratic character is supported on a thin fractal set of \(4^r\) indices within \(5^r\) and is therefore not addressed by an ordinary positive-density correlation limit. Normalizing by the natural active count reveals a complete, previously unresolved two-point statistic, including exact cancellation for half of all shifts, equal positive/negative multiplicities at every scale, and uniquely extremal shift families. The complete signed spectrum, rather than isolated sample values or a restatement of Lucas's theorem, is the motivating invariant. This provides a structural benchmark for correlations on digit-defined sparse arithmetic supports.
+Qualified best-of-knowledge pass for the evaluated all-shift signed multiplicity law and sharp equality families for this sparse arithmetic character, not for Lucas, digit automata, or generic block-product correlation methods.
 
-## Evidence and limitations
+## value
 
-Relevant opening, theorem, selected proof and closing pages of the three primary arXiv PDFs were inspected; entire documents were not read exhaustively. The supplied verifier was executed successfully, and the proof has separately been reconstructed from its defining recurrences. Finite tests do not establish the result for every index or shift; those conclusions require, and follow from, the exact induction and two-state polynomial identities. General automatic-sequence literature remains a historical-priority risk. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The usual correlation normalization loses all information on this sparse support. The natural active normalization yields a complete exact two-point statistic: precisely the odd shifts vanish, the signs balance at each nontrivial magnitude and the strongest lags have a sharp arithmetic classification. This is an all-depth benchmark for sparse digit-defined correlations rather than a recomputation of a Franel residue table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

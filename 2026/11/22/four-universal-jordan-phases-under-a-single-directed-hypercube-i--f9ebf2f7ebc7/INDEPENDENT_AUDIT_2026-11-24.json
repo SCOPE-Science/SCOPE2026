@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:30:38.748683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–67",
+        "VERIFICATION.md",
+        "check_rank.py and check_dynamics.py inspected; not executed",
+        "Frozen check_rank.stdout and check_dynamics.stdout (recorded finite checks only)",
+        "/workspace/branches/frozen_exact_checks.py"
+      ],
+      "rationale": "Let δ=d mod 2 and H=A+δI. The commuting cube flips give H²=0, and the cube split H=[[D,I],[I,D]] with D²=I gives im H=ker H of dimension r. For E=e_u e_vᵀ, e_u is outside im H because He_u≠0, and e_vᵀ is nonzero on im H because Hᵀe_v≠0. Thus ker(H+E)=ker H ∩ ker e_vᵀ has dimension r−1. With K=H+E, a=He_u, b=Hᵀe_v and ε=e_vᵀHe_u, direct multiplication gives K²=a e_vᵀ+e_u bᵀ of rank two, K³=abᵀ+εE and K⁴=εK². The endpoint scalar ε is exactly adjacency. For ε=0, the power ranks r+1,2,1,0 select one size-four nilpotent block and r−2 size-two blocks. For ε=1, K² projects onto span(e_u,a) on which K swaps the basis, giving J2(1); on the complement K has square zero and half rank, giving only J2(0). The shift by δ swaps eigenvalues if d is odd without changing lengths. In the Fitting decomposition, entry by t requires the initial nilpotent component in ker F^t and imposes no constraint on the unipotent component. Counting its fixed spaces for powers 1,2,4 and taking differences gives the stated primitive state populations; each orbit of length ℓ has ℓ fibers of size q^(m−s). The largest nilpotent block or nonzero primitive-period count certifies the claimed sharp times and order. This handles d=2 (no spare blocks in the nonedge case) and every extension of the binary field. Independent exact replay: python3 /workspace/branches/frozen_exact_checks.py 2, covering all five binary dimension/distance cases at d=2 and 3; it matched the entry and period populations.",
+      "residual_risks": [
+        "The independent enumeration is small; all dimensions and extension fields follow from the algebraic proof. Self-loops and symmetric toggles are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thompson characterizes invariant-factor lists attainable under rank-one perturbations as the two update vectors vary, over any field. Batal studies nullity changes from undirected edge operations."
+        ],
+        "reasoning": "The general theorem applies to the square-zero cube reduction but leaves a set of attainable lists, not a selection for fixed vectors. Nullity alone also cannot distinguish all the higher power ranks that fix the blocks.",
+        "searches": [
+          "R. C. Thompson (1980), Invariant Factors Under Rank One Perturbations, Theorem 2",
+          "arXiv:2108.03059v2, graph nullity"
+        ]
+      },
+      "checked_sources": [
+        "Thompson, Canadian Journal of Mathematics 32(1), Theorem 2",
+        "arXiv:2108.03059v2",
+        "Resultary dd92ed895cc8 and 0ddebf65b6fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The perturbation theorem lets the vectors vary. Here the endpoint scalar e_vᵀHe_u and nonvanishing H-images, along with power ranks, are needed to select one of the possible block patterns. The symmetric chord includes a second update e_v e_uᵀ and the published conclusions for it have different invariant factors."
+        ],
+        "reasoning": "Applying general attainability to H does not give the ordered endpoint classification without computing which possibilities occur. Nor can one reverse one rank-one constituent of the symmetric theorem from its Jordan form alone. Once the selection is proved, the period and basin counts are standard consequences, not separately novel general formulas.",
+        "searches": [
+          "Thompson Theorem 2, pp. 243–244",
+          "Resultary dd92ed895cc8 and 0ddebf65b6fe, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordered input is exactly one matrix unit. Its transpose is similar via a cube symmetry swapping the endpoints; it is not similar to the symmetric update in the comparison records in general. Batal uses the closed-neighborhood matrix of an undirected simple graph over Z2."
+        ],
+        "reasoning": "The open/closed neighborhood distinction can introduce an identity shift, but cannot turn a two-orientation edit into a single matrix unit. The distinction persists in the periods and Jordan block lengths, so the earlier symmetric perturbation is not a relabeling of this one.",
+        "searches": [
+          "Resultary: hypercube XOR dynamics, missing edge and added chord",
+          "arXiv:2108.03059v2",
+          "Thompson, Invariant Factors Under Rank One Perturbations, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The missing-edge theorem deletes an undirected cube bond. The six-cycle result adds an undirected nonedge with d≥3: its odd-dimensional form has factors (X²+X+1)² and its even-dimensional form has two J3(0) blocks. It does not cover adjacent vertices."
+        ],
+        "reasoning": "These are exact comparison tables on adjacent and nonadjacent endpoints, respectively, but are rank-two edits with different blocks on their overlapping parameter ranges. A same-day date cannot resolve priority and is not the reason for excluding equivalent coverage.",
+        "searches": [
+          "Resultary 2026/11/1/SCOPE-a-missing-edge-parity-transition-in-hypercube-xor-dynamics--0ddebf65b6fe",
+          "Resultary 2026/11/22/SCOPE-distance-blind-six-cycle-resonance-from-one-added-hypercube-chor--dd92ed895cc8"
+        ]
+      },
+      "rationale": "The closest cube perturbation records toggle both orientations, producing genuinely different operators and invariant factors. General rank-one interlacing characterizes which invariant factors can occur when vectors vary but does not choose the actual form for this ordered endpoint pair. The endpoint-sensitive Jordan selection and the resulting all-dimension census are distinct on inspected evidence; the general Fitting census method is inherited linear algebra.",
+      "residual_risks": [
+        "A prior theorem selecting Jordan type for fixed rank-one updates of maximal-rank square-zero matrices may exist beyond inspected sources. The scoped comparison is best of current knowledge, not an exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Attainability/interlacing theorem, not exact selection for fixed graph endpoints.",
+          "evidence": [
+            "The update vectors range over all vectors in the field; no adjacency parameter or fixed-vector selection occurs."
+          ],
+          "identifier_or_url": "R. C. Thompson, Canadian Journal of Mathematics 32(1), 240–245 (1980)",
+          "material_read": "Theorem 2, pp. 243–244, OA PDF offset about 9900",
+          "method": "OA PDF passage",
+          "title": "Invariant Factors Under Rank One Perturbations",
+          "trigger": "General rank-one theorem may cover square-zero perturbation"
+        },
+        {
+          "assessment": "Symmetric chord insertion, not one directed input, and different Jordan structure.",
+          "evidence": [
+            "The update contains both matrix units. For odd d the factors include (X²+X+1)², and for even d there are two J3(0) blocks."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-distance-blind-six-cycle-resonance-from-one-added-hypercube-chor--dd92ed895cc8",
+          "material_read": "RESULT.md Finding and assumptions, local-mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Distance-blind six-cycle resonance from one added hypercube chord",
+          "trigger": "Same nonedge endpoint classes and temporal setting"
+        },
+        {
+          "assessment": "Deletes both orientations and does not state the rank-one Jordan classification.",
+          "evidence": [
+            "The deletion is of an undirected edge, not a directed arc."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-missing-edge-parity-transition-in-hypercube-xor-dynamics--0ddebf65b6fe",
+          "material_read": "RESULT.md formulation of the missing-edge perturbation",
+          "method": "Resultary and local mirror",
+          "title": "A missing-edge parity transition in hypercube XOR dynamics",
+          "trigger": "Direct competing deletion result on adjacent cube vertices"
+        },
+        {
+          "assessment": "Concerns static nullity of symmetric closed-neighborhood matrices, not all powers of the directed edit.",
+          "evidence": [
+            "The graph is simple and undirected and the nullity is over Z2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.03059v2",
+          "material_read": "Abstract, offset 0 and closed-neighborhood setup, offset 4600",
+          "method": "OA HTML passages",
+          "title": "Effects of edge addition or removal on the nullity of a graph",
+          "trigger": "Characteristic-two matrix edge-perturbation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof lines 34–67",
+        "Symmetric deletion and chord-insertion comparison records"
+      ],
+      "rationale": "A one-way input defect is a natural minimal modification, different from removing or adding a bond. For an infinite symmetric family it produces only two adjacency classes and a parity switch, despite potentially large changes in exact return periods or extinction. The result resolves not only ranks or eigenvalues but the smallest extinction bound, entry-time distributions and individual basin sizes; these are useful for analyzing sensitivity to one-way input edits.",
+      "residual_risks": [
+        "No robustness statement for multiple edits, other characteristics or asynchronous updates follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

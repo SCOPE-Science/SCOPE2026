@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:58:49.016641Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof and VERIFICATION.md; checker.py inspected, not executed",
+        "Independent replay: python3 /workspace/audit_beta.py; output /workspace/audit_beta.out"
+      ],
+      "rationale": "Integrating the unscaled beta density and counting the k−1 outward edges gives the mean in the finding. At x=1/k the derivative of (1−x)F_b(x)/x has the sign of q_b(x)−1, where q_b'(x)=b(b+1)x(1−x)^(b−1)[1−(b+2)x]. The rise above 1 and fall to 0 prove strict unimodality for every real b>0, including b<1. The high-degree limit is 0 and strict monotonicity on either side gives the stated integer consequences. At k=2 the mean is below 1; at k=3 it increases with b and is 262/243 at b=4. Rounding a strict continuous upper crossing gives ceil(c_b)−1, also at integer crossings. The rescaled stationary equation has a unique positive crossing bounded away from zero and infinity, and converges uniformly on the resulting compact interval; floor/ceiling of the peak give the integer maximizing scale and the maximum coefficient. For k=b²/2+tb a Taylor expansion of the density integrand, uniform for bounded t, gives coefficients −2t−1/3 and 4t²+(10/3)t−1 at orders 1/b and 1/b². Setting t=−1/6+u/b and bracketing by bounded u on the descending branch gives the residual coefficient −2u−13/9 and hence the continuous constant −13/18 with O(1/b) remainder. Independent high-precision bisection at noninteger b agrees; it is not the proof.",
+      "residual_risks": [
+        "The proof is for local vulnerable-branching supercriticality, not global cascade probability, size or a finite-graph law. No formal or expert certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meador-Woodruff–Ghoshal give a general branching mean and analyze rescaled thresholds and other degree ensembles. Fontanari studies a fully connected finite-population Granovetter model."
+        ],
+        "reasoning": "General applicability of a branching expression is not a universal theorem about its peaks or its descending threshold roots. The changing beta mean and fixed regular degree are decisive in the new shape result.",
+        "searches": [
+          "arXiv:2610.33927v1 §§II–II.2, Eqs. (1), (7)–(15)",
+          "arXiv:2606.25921v1, pp. 1–3",
+          "Watts DOI 10.1073/pnas.082090499 and PMCID PMC122850"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary results and strongest matching indexed RESULT.md",
+        "arXiv:2610.33927v1",
+        "arXiv:2606.25921v1",
+        "Watts (2002), retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Point-mass degree law in Eq. (1) yields (k−1)F(1/k) directly; independent critical-point and cutoff-root analysis is needed for the other conclusions."
+        ],
+        "reasoning": "The formula alone is covered. The inspected framework gives neither the derivative sign structure nor the sharply located descending crossing for the unscaled Beta(2,b) family.",
+        "searches": [
+          "arXiv:2610.33927v1 §II Eq. (1) and §II.2 scaling equations",
+          "SCOPE-sharp-one-edge-inhibition-bounds-for-fractional-threshold-social--879616ed8476 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest displayed topical Resultary result, SCOPE-sharp-one-edge-inhibition-bounds-for-fractional-threshold-social--879616ed8476, concerns the effect of adding one edge to a finite graph with a uniform adoption fraction."
+        ],
+        "reasoning": "An edge perturbation on finite graphs is not a change of variables for the random regular network with independent beta draws; the comparison included peak and decreasing-root formulations.",
+        "searches": [
+          "Resultary: unscaled Beta(2,b) regular Watts branching; strict unimodality; −13/18 cutoff",
+          "Targeted primary search on unscaled beta thresholds and the regular-degree cascade window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No equivalent displayed indexed finding and no table in the inspected relevant calculations recording the correction or exact integer endpoint. Figure 2 is used to distinguish threshold normalizations."
+        ],
+        "reasoning": "Finite examples of a cascade window cannot encode the all-b theorem or the asymptotic coefficient; the continuous coefficient and the rounded integer endpoint are distinct claims.",
+        "searches": [
+          "Resultary exact cutoff correction −13/18 and unscaled Beta(2,b) queries",
+          "arXiv:2610.33927v1 §II.2, Fig. 2 and large-connectivity Eqs. (10)–(15)"
+        ]
+      },
+      "rationale": "Credit the known branching formula and qualitative finite-connectivity cascade window. The supported distinct claim is strict all-real-b shape and the linear maximizing and quadratic cutoff scales with the continuous crossing correction, in this unscaled regular-degree family. No inspected matching statement or dominating result yields that package.",
+      "residual_risks": [
+        "The Watts primary text was not retrieved; the primary and indexed searches are bounded and do not exclude an unnoticed equivalent derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the base mean, not the specialized shape-and-scales theorem in inspected passages",
+          "evidence": [
+            "Eq. (1) gives z⁻¹∑ k(k−1)p_kF(1/k); threshold cascade calculations rescale to a fixed mean; the asymptotic analysis concerns other degree ensembles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.33927v1",
+          "material_read": "§II Eq. (1), §II.2 Fig. 2 and Eqs. (7)–(9), large-connectivity Eqs. (10)–(15); text offsets 10300, 18100, 21400",
+          "method": "Bounded OA full-text passages",
+          "title": "Interplay Between Network Heterogeneity and Activation Thresholds in Global Cascades",
+          "trigger": "Strongest primary comparison: beta thresholds and the same branching criterion"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": [
+            "Fully connected finite-population Granovetter model, not a locally tree-like k-regular graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.25921",
+          "material_read": "PDF pp. 1–3, text offsets 0 and 7600",
+          "method": "Bounded OA PDF text",
+          "title": "Exact Solution of Granovetter’s Threshold Model for a Finite Population",
+          "trigger": "Beta-threshold cascade source"
+        },
+        {
+          "assessment": "Different statement and parameters; shared date not used to infer priority",
+          "evidence": [
+            "A uniform adoption fraction and single-edge perturbation on finite graphs, not the random regular beta-law shape theorem."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-one-edge-inhibition-bounds-for-fractional-threshold-social--879616ed8476",
+          "material_read": "RESULT.md opening finding and assumptions",
+          "method": "Indexed local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp one-edge inhibition bounds for fractional-threshold social networks",
+          "trigger": "Closest topical Resultary hit"
+        },
+        {
+          "assessment": "Not a negative comparison; classical mechanism credited",
+          "evidence": [],
+          "identifier_or_url": "DOI:10.1073/pnas.082090499; PMCID:PMC122850",
+          "material_read": "No primary full text retrieved in this review",
+          "method": "DOI copy returned access error; alternate PMC copy timed out",
+          "title": "A simple model of global cascades on random networks",
+          "trigger": "Foundational vulnerable-cluster and cascade-window source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and scope",
+        "arXiv:2610.33927v1 comparison"
+      ],
+      "rationale": "Knowing where vulnerable propagation is strongest is a different practical and mathematical question from knowing how far connectivity can rise before it fails. The theorem separates their scales by a growing order of magnitude and gives both a precise finite connectivity window and a sharp descending boundary, for a natural threshold family. This is more than a substitution in the known branching formula.",
+      "residual_risks": [
+        "The conclusions depend on the unscaled varying-mean family and do not imply corresponding laws under fixed-mean rescaling or degree heterogeneity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

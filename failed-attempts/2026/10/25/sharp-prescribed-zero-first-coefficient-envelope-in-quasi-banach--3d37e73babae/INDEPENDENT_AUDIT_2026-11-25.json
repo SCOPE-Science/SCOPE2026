@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:41:24.777520Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–84",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent evaluation of the q=4, rho=1/2 example using Decimal arithmetic, confirming the stated values to the printed precision."
+      ],
+      "rationale": "The normalized analytic outer q-th root G has H² norm one since qp=2 and inner multiplication preserves boundary modulus. Writing x=|G(0)|>0, Parseval gives |G'(0)|≤sqrt(1-x²). Schwarz–Pick and the product rule then give the objective (1-rho²+q rho t)/(1+t²)^(q/2) for t=sqrt(x^(-2)-1). The sign of its derivative is the sign of rho-(1-rho²)t-(q-1)rho t². For rho>0 it changes once, at the claimed root in (0,1/sqrt(q-1)]; for rho=0 the unique maximum is at zero. For 0<rho<1 equality requires a disk automorphism for I, a linear polynomial for G, and matched phases in their derivative terms; the displayed factors have exactly those phases, the linear factor is outer because t<1, and the norm is one. The endpoint equalities reduce to the Schwarz lemma and constant G at rho=0, and constant I and the linear G at rho=1. The stationarity polynomial evaluated at 2 rho/q is -rho(q-2)(q-2rho²)/q², so the envelope derivative (q t-2rho)/(1+t²)^(q/2) is positive for rho>0. Implicit analyticity and oddness of t at zero give t=rho+O(rho³), yielding the claimed quadratic expansion; evaluating the envelope derivative at one gives the other expansion. If f(a)=0, I=B_a J gives rho≤|a|, and strict increase forces constant J in equality when a≠0. Its phase parameter is eta=-|a|/a; at a=0 equality means a multiple of z by a unit scalar.",
+      "residual_risks": [
+        "The finite verifier samples the algebra and asymptotics only; it does not certify any infinite parameter domain. The proof covers the entire inner factor, including the possibility of a singular inner factor before equality is imposed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Set s_*=(1-p/2)^(1/p). The old transition satisfies s_p<s_*sqrt(p/(2-p))<s_*. Its frontier reaches its global maximum uniquely at s_*, and for s≥s_* the unique optimizer up to rotations is (1+beta z)^q/(1+beta²)^(q/2), where s=(1+beta²)^(-q/2). These optimizers are outer.",
+          "The separate unrestricted first-coefficient constant is already known (Brevig–Saksman); qualitative outerness for bounded linear extremizers (Brevig–Søvik) is not itself the decisive quantitative prior coverage."
+        ],
+        "reasoning": "For any A,B≥0 not both zero, the support objective A s+B Phi_1(p,s) is maximized at s≥s_*, since both terms there at s_* dominate those at every s<s_*. Thus the only part of the known frontier needed for all these linear combinations is its outer branch, which remains sharp under a restriction to outer factors.",
+        "searches": [
+          "arXiv:2011.07790, §4, Theorem 12(ii) and Corollary 13",
+          "arXiv:1905.09547, Eq. (3)",
+          "arXiv:2610.21788, Theorem 1 and Corollary 3"
+        ]
+      },
+      "checked_sources": [
+        "Brevig–Grepstad–Instanes arXiv:2011.07790",
+        "Brevig–Saksman arXiv:1905.09547",
+        "Brevig–Søvik arXiv:2610.21788",
+        "Connelly thesis (comparative account only)",
+        "Resultary findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the conditional problem write f=IF and apply the known Phi_1(p,s) to F, where s=|F(0)|. By Schwarz–Pick, |f'(0)|≤(1-rho²)s+rho Phi_1(p,s). Below s_* this cannot maximize; above s_* the known sharp outer optimizer has parameter beta in [0,1/sqrt(q-1)]. Substitution gives (1-rho²+q rho beta)/(1+beta²)^(q/2); its derivative gives the frozen stationary quadratic.",
+          "The known frontier optimizers attain the bound with the corresponding Schwarz–Pick automorphism and aligned phases, and its uniqueness on s≥s_* fixes the outer equality factor. For prescribed zeros use the same support calculation with the quotient g; its optimizer is already outer and hence gives exactly the single-Blaschke equality case."
+        ],
+        "reasoning": "Unlike applying the old theorem to f itself, applying it to the appropriate factor gives the entire sharp profile. The endpoints are the norm of evaluation and the classical unrestricted derivative extremum. The monotonicity witness and endpoint expansions follow by differentiating and expanding the explicit one-variable maximum; they require no further extremal theorem.",
+        "searches": [
+          "arXiv:2011.07790, p. 12, OA offsets 38290–42137: transition bound, Theorem 12 and Corollary 13",
+          "Frozen RESULT.md, lines 12–41 and 46–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brevig–Grepstad–Instanes fix the whole value g(0) and give the exact maximum |g'(0)| and extremizers after phases are normalized.",
+          "For a prescribed zero, f=B_a g is a norm-preserving correspondence with unrestricted g. The derivative at zero is the linear functional B_a'(0)g(0)+B_a(0)g'(0). The magnitudes of its weights are 1-|a|² and |a|."
+        ],
+        "reasoning": "The prescribed-zero bound is the support value of the known first-jet body at those nonnegative weights, with phase alignment obtainable by constants and rotations. A naive substitution of |f(0)|≤|a| in the old theorem, without dividing by B_a, gives a different and loose bound; that is not the relevant implication.",
+        "searches": [
+          "arXiv:2011.07790, Eq. (1), Theorem 12 and Corollary 13",
+          "Focused literature lookups for prescribed-zero and first-jet Hardy extremal problems",
+          "Resultary: fixed entire inner modulus, prescribed-zero first coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 1 result gives unconditioned small-p asymptotics for fixed Taylor order; the November 16 result concerns the mixed second jet and a fixed-origin second-coefficient frontier.",
+          "The same-day cubic result concerns zero-free polynomials in H²."
+        ],
+        "reasoning": "None is an identical tabulation or exact statement of the fixed-inner-modulus profile. The established prior implication instead comes from the published first-coefficient frontier.",
+        "searches": [
+          "Resultary: exact prescribed-zero first coefficient and fixed |I(0)| envelope",
+          "2026/11/1/SCOPE-two-term-small-exponent-hardy-coefficient-law-and-gaussian-extre--02d71d74a071",
+          "2026/11/16/SCOPE-all-exponent-second-jet-hardy-extremals-and-the-sharp-wiener-ter--e78751dcccab",
+          "2026/10/25/SCOPE-sharp-first-coefficient-hardy-bound-for-zero-free-cubic-polynomi--32265bd8e92d"
+        ]
+      },
+      "rationale": "The frozen problem conditions on a different quantity than Brevig–Grepstad–Instanes, but the proper comparison applies their stronger exact fixed-origin first-coefficient frontier to the outer factor (or, for a prescribed zero, to the quotient by its Blaschke factor), not to the original f. Their Theorem 12 and Corollary 13 then give the sharp formula and equality cases by elementary support maximization. Strict increase and the stated endpoint expansions are elementary calculus consequences of that same formula. There is no verified claim of an earlier statement worded with the same parameter; this is verified implication, not a title match.",
+      "residual_risks": [
+        "No absolute claim about historical priority is made; older mixed functional or interpolation work may cover further cases. The originality failure is based on a verified implication of the accessible Theorem 12, not on the inaccessible thesis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication via the normalized outer factor or Blaschke quotient; not direct comparison of the two conditioning parameters.",
+          "evidence": "Theorem 12(ii) gives the exact sharp outer branch, uniquely above the transition. Corollary 13 puts the unrestricted maximum strictly above transition in the origin variable, so the entire relevant positive support locus is on that branch.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.07790",
+          "material_read": "Eq. (1), p. 1; §4, Lemma 11, transition estimate, Theorem 12 and Corollary 13, pp. 11–12 and the prior-range note on p. 13",
+          "method": "OA PDF, bounded passage inspection including offsets 35080–42137",
+          "title": "F. Wiener's Trick and an Extremal Problem for H^p",
+          "trigger": "Closest primary exact coefficient frontier and possible stronger coverage"
+        },
+        {
+          "assessment": "Prior unrestricted endpoint; not by itself the conditional profile.",
+          "evidence": "Gives the exact unrestricted first coefficient equal to the frozen C_q(1).",
+          "identifier_or_url": "https://arxiv.org/abs/1905.09547",
+          "material_read": "Eq. (3), p. 2, OA offset about 4000",
+          "method": "OA PDF passage",
+          "title": "Coefficient estimates for H^p spaces with 0<p<1",
+          "trigger": "Unrestricted endpoint and first-order coefficient optimization"
+        },
+        {
+          "assessment": "Qualitative prior; not the decisive exact implication.",
+          "evidence": "Extremizers for bounded linear functionals are outer; no numerical norm for the mixed first jet is needed from this source.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21788",
+          "material_read": "Theorem 1 and Corollary 3, pp. 1–2",
+          "method": "OA PDF passage",
+          "title": "Extremals for linear functionals on H^p are outer when 0<p<1",
+          "trigger": "General theorem on the relevant factor optimization"
+        },
+        {
+          "assessment": "Direct comparison limited; the accessible Theorem 12 suffices for the established implication.",
+          "evidence": "The later paper identifies Connelly's partial origin range and says which additional cases its theorem settles.",
+          "identifier_or_url": "arXiv:2011.07790 reference [4], thesis Theorem 4.1",
+          "material_read": "Scope as described by the later paper, pp. 12–13; thesis full text not retrieved",
+          "method": "Repository access attempt and primary-paper account of earlier theorem",
+          "title": "Connelly's thesis (2017), cited as [4] by Brevig–Grepstad–Instanes",
+          "trigger": "Earlier partial fixed-origin theorem cited by Theorem 12"
+        },
+        {
+          "assessment": "Second-order comparison, not the basis of the prior-coverage decision.",
+          "evidence": "Computes a mixed second-jet norm and a sharp terminal comparison with the known fixed-origin first-coefficient frontier.",
+          "identifier_or_url": "2026/11/16/SCOPE-all-exponent-second-jet-hardy-extremals-and-the-sharp-wiener-ter--e78751dcccab",
+          "material_read": "RESULT.md Finding and relation to the first-coefficient frontier",
+          "method": "Resultary and mirror passage",
+          "title": "All-exponent second-jet Hardy extremals and the sharp Wiener threshold",
+          "trigger": "Indexed mixed-jet norm and exact frontier"
+        },
+        {
+          "assessment": "Different order restriction and function space.",
+          "evidence": "Optimizes over zero-free cubics in H², not the fixed-inner-factor condition in quasi-Banach Hardy spaces.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-first-coefficient-hardy-bound-for-zero-free-cubic-polynomi--32265bd8e92d",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Resultary and mirror passage",
+          "title": "Sharp first-coefficient Hardy bound for zero-free cubic polynomials",
+          "trigger": "Same-day exact first-coefficient record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharp formula, equality cases, and expansions",
+        "Brevig–Grepstad–Instanes, Theorem 12 and Corollary 13"
+      ],
+      "rationale": "Prescribing a zero is a natural problem, and the record gives a concise, correct direct proof. But the quantified loss and exact extremizers come from the known first-jet frontier by norm-preserving division or inner–outer factorization, phase alignment, and a single scalar optimization. The additional monotonicity and endpoint coefficients are routine calculus of the resulting formula; no independently useful exact result not mechanically implied by the prior frontier survives as stated.",
+      "residual_risks": [
+        "This assessment concerns the frozen invariant, not higher-order jets, multi-zero constraints, or quantitative distance to extremizers, which the record does not claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

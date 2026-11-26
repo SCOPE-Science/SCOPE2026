@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:43:14.259499Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md, Proof 1–4. The Bloch matrix has an x eigenvalue −2κ and a yz pair −κ±iΩ with Ω²=ω²−κ²>0. The causal mild Volterra equation preserves positivity and trace (positive history mean and Lindblad evolution, with weights summing to one), and Volterra iteration gives uniqueness. Multiplying a scalar mode equation by t and differentiating gives tf″+[1+(q−λ)t]f′−λf=0. For z=q−λ and a=q/z, 0<Re a<1; the normalized regular solution is exp(−zt)M(a,1,zt). Its Euler integral after reflection is proportional to the Laplace integral of s^(−a)(1−s)^(a−1) against exp(−zts); Re z>0 gives leading (zt)^(a−1)/Γ(a) and a relative O(t^−1) error. The real and imaginary parts of a nonreal eigenvector are an independent real basis for the yz plane; with nonzero initial projection the leading oscillation has norm bounded away from zero after removing its decay power. Direct subtraction gives βyz−βx=q(ω²−2κ²−κq)/[(q+2κ)(q²+2κq+ω²)]. Its sign proves both strict dominance regimes, equality of orders at qc>0, and no positive crossing at ω=√2κ. The observable switch requires both initial projections and is at fixed q>0 as t→∞, not at q=0 or at/under the exceptional point. VERIFICATION.md and check.py were inspected, not executed; their finite tests are not needed for the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer et al. derive history-reset mode dominance over an ordered real nonnegative Fokker–Planck relaxation spectrum, with exponent αλ/(r+λ).",
+          "Rose et al. treat genuinely open generators but their reset-to-fixed-state protocol shifts the nonstationary spectrum by −Γ."
+        ],
+        "reasoning": "The first ordering theorem does not compare a real mode to a nonreal one. The second, even for complex Lindbladian eigenvalues, shifts rates uniformly and yields no uniform-history algebraic exponents. Neither provides stronger coverage of the crossing.",
+        "searches": [
+          "arXiv:2411.00641, §§3, 4.1 and Eq. (30)",
+          "arXiv:1806.01298, Eq. (14) and Eqs. (60)–(64)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.02297",
+        "arXiv:2411.00641",
+        "arXiv:1806.01298",
+        "arXiv:2601.13367",
+        "Resultary: 1493090d05f9, c6f98720ec59, 27f94a2f311b, c3ac5492b019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known pure-imaginary powers preserve the ordering of the magnitudes of nonzero Bohr frequencies at every reset rate; real-spectrum history-reset powers likewise preserve their ordering.",
+          "Carollo and Wald use discrete-time renewal by returning to a reference state, not repeated draws from full evolving history."
+        ],
+        "reasoning": "A mixed damped spectrum must be analyzed, and the scalar method alone does not provide its observable asymptotic ordering or a switch. The explicit positive-rate sector classification is the assessed contribution, not the special-function calculation in isolation.",
+        "searches": [
+          "arXiv:2608.02297 pp. 8–9 and conclusion; arXiv:2411.00641 §4.1; arXiv:2601.13367 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Mauro et al. resolve purely imaginary Bohr-frequency modes, with exponent ω²/(r²+ω²); their conclusion places open systems in future work.",
+          "The same-day memory-matched exceptional-point record 27f94a2f311b uses a clipped exponentially recency-weighted history rather than uniform full-history sampling."
+        ],
+        "reasoning": "The closed-system Bohr-frequency representation shares the scalar method but never has the real dissipative eigenline competing with a pair with negative real part. The recency-weighted reset changes the time law and gives exponential behavior, not an equivalent algebraic crossing.",
+        "searches": [
+          "Uniform-history / preferential-relocation resetting and open Lindblad spectral relaxation literature lookup",
+          "Resultary: quantum resetting with memory, dephasing and log-periodic crossover",
+          "arXiv:2608.02297, Eqs. (11)–(15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1493090d05f9 proves Schatten/trace-norm and continuum purity results for self-adjoint Hamiltonian evolution with historical resetting.",
+          "c6f98720ec59 treats the continuum spectral edge and purity; 27f94a2f311b treats an exceptional point for recency-biased resetting. c3ac5492b019 is the frozen record itself."
+        ],
+        "reasoning": "The inspected exact index hits are analytically distinguishable, not independent entries for the same phase diagram. This is a continuously parameterized analytic threshold rather than an invariant of a tabulated finite object; there is no separate finite table lookup that could verify its originality.",
+        "searches": [
+          "Local Resultary search; mirrored findings 1493090d05f9, c6f98720ec59, 27f94a2f311b, c3ac5492b019"
+        ]
+      },
+      "rationale": "Credit the scalar uniform-history relaxation, Kummer method, and log-periodicity to previous work. The supported distinction is the exact competition of a real dissipative mode and a damped complex pair of this driven dephasing Lindbladian, with a positive-rate reversal precisely above the stated drive boundary. The strongest reviewed precedents each lack a necessary spectral sector or use a different resetting rule.",
+      "residual_risks": [
+        "An unindexed open-system history-reset calculation or a general complex-spectrum comparison not located here could cover the specialization. The assessment is not a historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedent for the scalar response, not for the assessed damped-sector comparison",
+          "evidence": "Purely imaginary Bohr frequencies; open systems expressly listed as future work.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02297",
+          "material_read": "PDF pp. 8–9, Eqs. (11)–(15), and p. 19 conclusion",
+          "method": "OA PDF passage inspection",
+          "title": "Quantum resetting with memory",
+          "trigger": "Same uniform-history quantum law and log-periodic mode tails"
+        },
+        {
+          "assessment": "Related dominance theorem for a real relaxation spectrum",
+          "evidence": "Rate exponent αλ/(r+λ); with nonzero overlap the first excited discrete Fokker–Planck mode dominates.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.00641",
+          "material_read": "PDF pp. 7–8 §3, pp. 10–12 §4.1 including Eq. (30)",
+          "method": "OA PDF passage inspection",
+          "title": "Diffusion with preferential relocation in a confining potential",
+          "trigger": "General history-dependent spectral dominance theorem"
+        },
+        {
+          "assessment": "Different reset rule",
+          "evidence": "Fixed-state reset shifts the nonstationary Lindbladian eigenvalues by −Γ.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+          "material_read": "PDF p. 1 introduction, p. 3 Eq. (14), p. 7 Eqs. (60)–(64)",
+          "method": "OA PDF passage inspection",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "Open-system reset spectral theorem"
+        },
+        {
+          "assessment": "Different memory mechanism",
+          "evidence": "Discrete reset to a reference state with probabilities depending on time since last reset.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.13367",
+          "material_read": "PDF pp. 1–2 introduction and protocol",
+          "method": "OA PDF passage inspection",
+          "title": "Stochastic resetting induces quantum non-Markovianity",
+          "trigger": "Quantum non-Markovian reset dynamics"
+        },
+        {
+          "assessment": "Substantial method overlap but distinct mathematical claim",
+          "evidence": "Self-adjoint Hamiltonian and spectral purity, not competing real and damped nonreal Lindblad modes.",
+          "identifier_or_url": "Resultary 2026/10/25/1493090d05f9",
+          "material_read": "Finding and Kummer-mode proof",
+          "method": "Local mirror of finding",
+          "title": "A Schatten threshold and a logarithmic purity law for quantum resetting with memory",
+          "trigger": "Closest catalogue overlap in protocol and analytic method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A worked open-system mechanism in which memory can change which physical polarization is slowest, even though all positive rates share the same stationary state. The threshold predicts when a leading log-periodic polarization will be visible rather than subleading and excludes a switch throughout an entire nontrivial underdamped regime. Without resetting the yz pair has the slower exponential envelope, yet for strong drive and sufficiently small positive resetting the real x mode wins at late times. The scientific contribution is that sharp distinction, not a general Lindblad theorem or an experimental claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

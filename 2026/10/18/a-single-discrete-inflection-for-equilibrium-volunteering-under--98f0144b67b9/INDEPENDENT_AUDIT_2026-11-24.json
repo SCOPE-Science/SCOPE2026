@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:16.705577Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–37 and 39–82",
+        "Frozen VERIFICATION.md and verify.py beside RESULT.md (inspected, not executed; bundled replay path: python3 verify.py from that directory)"
+      ],
+      "rationale": "Indifference with the other n−1 players gives the claimed interior probability and V_n. In RESULT.md lines 40–54, factoring D_n leaves R_n(z), whose derivative has exactly one interior sign change from positive to negative; the strict maximum exceeds R_n(1)=0, giving exactly one interior root and the asserted signs in lambda. The tent-kernel representation compares adjacent sizes strictly: at the root, the negative-to-positive change of f'' lies inside the tent support (giving both strict brackets); if it lies within the overlap, subtract the two tents scaled to agree at that point. Their difference and f'' have the same sign on both sides, and their product has strictly positive integral. If the point is left of the overlap the later tent already integrates a positive f''. Independently checked the most cancellation-sensitive coefficient using the integral: with h=1/n, x=n−1+t, lambda=2−2h+uh^3, the square bracket in f'' is 2ht−uh^2−uh^3t and the prefactor is 2h^4[1+(1−4t)h+O(h^2)] uniformly for |t|≤1 and bounded u. The tent moments of 1,t,t^2 are 1,0,1/6, giving h^6(−2u−8/3)+O(h^7). Bracket with u=−2 and 0 and substitute the root to recover the stated expansion, including the absence of an n^−2 term. Linear interpolation gives the two convex-order directions; V_n is bounded for fixed lambda. The exact change for the example is −2s²+3s³−s^6 with s=e^(−lambda/6), giving the stated fractions at 5/6 and 4/5. This unrestricted analytic check does not rely on executing the supplied finite checker.",
+      "residual_risks": [
+        "Only symmetric interior play after group size is observed, with one volunteer sufficient; the comparison is per group, not per fixed total population."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nöldeke–Peña pp. 1, 5 limit their analyzed case to a threshold greater than one and expressly exclude the one-volunteer case from that analysis.",
+          "Archetti's landing page/abstract and Peña's unresolved full-text access do not establish broader coverage or noncoverage."
+        ],
+        "reasoning": "A more general contribution threshold could have included k=1, but the inspected analysis explicitly does not. Access limits on the two older comparisons leave a bibliographic risk, not evidence either way.",
+        "searches": [
+          "Nöldeke–Peña, Group size and collective action in a binary contribution game, preprint DOI 10.1101/483149",
+          "Archetti, The volunteer’s dilemma and the optimal size of a social group, DOI 10.1016/j.jtbi.2009.08.018",
+          "Peña, Group-size diversity in public goods games, DOI 10.1111/j.1558-5646.2011.01504.x"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 795252349f7f",
+        "Hillenbrand–Winter author preprint",
+        "Nöldeke–Peña author preprint",
+        "Archetti DOI abstract",
+        "Frozen RESULT.md prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-increment signs do not determine the ordering of two increments when their signs agree; the new comparison uses a curvature identity and tent-weight ordering.",
+          "A spread inequality for a common ex-ante strategy supplies no convexity test for n times the size-specific equilibrium probability."
+        ],
+        "reasoning": "Convex order itself is standard once the second-difference classification is proved. Neither the neighboring-size peak theorem nor the ex-ante spread theorem implies the new needed signs; the same-day index date establishes no ordering of priority.",
+        "searches": [
+          "Resultary 795252349f7f, Finding and Relationship to prior work",
+          "Hillenbrand–Winter, Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed ladder is for V_(n+1)−V_n, yielding a one-peak result; it does not state the sign of (V_(n+1)−V_n)−(V_n−V_(n−1)).",
+          "Proposition 1 compares individual equilibrium cooperation probabilities under unknown group size, not expected total volunteers under size-conditional equilibrium."
+        ],
+        "reasoning": "Writing the target as either a difference of consecutive increments or a Jensen comparison of aggregate volunteering does not identify it with either inspected result.",
+        "searches": [
+          "Resultary record 795252349f7f: Exact finite-group crossover ladder in the symmetric volunteer's dilemma",
+          "Hillenbrand–Winter, Volunteering under Population Uncertainty, Theory §§2.1–2.2 and Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed ladder has asymptotic 2−4/(3n)+O(n^−2), and is for optimization of V_n, not for the root of its centered second difference."
+        ],
+        "reasoning": "The shared model and limiting value 2 do not make these the same threshold. A finite table of thresholds would not establish the unbounded strict ordering or coefficient; no exhaustive threshold database is known from this check.",
+        "searches": [
+          "Local Resultary search on the size-conditional volunteer-equilibrium curvature threshold; exact indexed match 795252349f7f inspected"
+        ]
+      },
+      "rationale": "The standard equilibrium formula is prior work. The supported distinct claim is the strictly ordered second-difference threshold ladder with its sharp coefficient and implied per-group convex-order regimes. The closest indexed record proves a different ladder for first differences; the closest inspected spread result uses a different information structure and outcome. No covering result was established in inspected material; this is not a priority determination.",
+      "residual_risks": [
+        "Archetti and Peña full texts were not available in the attempted lawful retrievals.",
+        "Same-day relationship with the first-difference paper is not a historical priority determination; equivalent discrete thresholds under other terminology cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related first-difference theorem, not the target ladder; no inferred priority",
+          "evidence": "Uses V_(n+1)−V_n with asymptotic threshold 2−4/(3n)+O(n^−2); identifies the one-peak optimizer.",
+          "identifier_or_url": "Resultary 795252349f7f",
+          "material_read": "RESULT.md Finding and comparison sections, offsets 0–7053 and 7000–9439",
+          "method": "Local published-record mirror",
+          "title": "Exact finite-group crossover ladder in the symmetric volunteer's dilemma",
+          "trigger": "Same model, V_n, threshold ladder and date"
+        },
+        {
+          "assessment": "Prior for basic equilibrium and a different spread problem",
+          "evidence": "Players do not know their actual size at choice; Proposition 1 is for the common MSNE cooperation probability.",
+          "identifier_or_url": "https://homepage.coll.mpg.de/pdf_dat/2017_12online.pdf",
+          "material_read": "Theory §§2.1–2.2 and Proposition 1 (p. 7), offsets 8000 and 14784",
+          "method": "Author-hosted primary PDF passage inspection",
+          "title": "Volunteering under Population Uncertainty",
+          "trigger": "Mean-preserving-spread theorem in same game"
+        },
+        {
+          "assessment": "Analysis expressly excludes the case at issue",
+          "evidence": "Assumes 1<k<n and treats k=1 as familiar with explicit equilibrium.",
+          "identifier_or_url": "https://publications.ut-capitole.fr/id/eprint/26531/1/wp_iast_1886.pdf",
+          "material_read": "Abstract p. 1 and scope statement p. 5 (offset 14800)",
+          "method": "Primary repository PDF passage inspection",
+          "title": "Group size and collective action in a binary contribution game",
+          "trigger": "Potential broader threshold-game coverage"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "The frozen record credits its group-size discussion; an equivalent aggregate-count curvature result was not verifiable from the material available.",
+          "identifier_or_url": "10.1016/j.jtbi.2009.08.018",
+          "material_read": "Landing page/abstract; no full text retrieved",
+          "method": "Lawful DOI and repository retrieval attempt",
+          "title": "The volunteer’s dilemma and the optimal size of a social group",
+          "trigger": "Closest older group-size title"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "Frozen record describes a common evolutionary strategy and selection gradients; that distinction could not be independently confirmed from the full text.",
+          "identifier_or_url": "10.1111/j.1558-5646.2011.01504.x",
+          "material_read": "Citation and description in frozen RESULT.md, not primary full text",
+          "method": "DOI access and lawful alternate-retrieval attempt",
+          "title": "Group-size diversity in public goods games",
+          "trigger": "Earlier group-size Jensen effects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and Proof §§3–5",
+        "Resultary 795252349f7f",
+        "Hillenbrand–Winter Proposition 1"
+      ],
+      "rationale": "There is a meaningful quantitative distinction between where mean volunteer counts peak and where size diversification raises or lowers mean volunteer counts. The ordered thresholds and one-inflection result answer the latter uniformly in group size and explain why local spreads can have opposite effects. The asymptotic identifies the approach to the fixed-lambda phase boundary; basic equilibrium indifference and generic Jensen reasoning are not the contribution.",
+      "residual_risks": [
+        "No implication claimed for welfare, provision probability, or choice with unknown realized group size."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

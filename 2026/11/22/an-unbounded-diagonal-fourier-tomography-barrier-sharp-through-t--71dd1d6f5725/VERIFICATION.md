@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limitations
+# Independent mathematical audit
 
-The included `verify_recursive.py` performs exhaustive Catalan recursion and exact \(\mathbb F_2\) column elimination on all diagonal monomials up to the proposed degree. The independent `verify_flips.py` builds all triangulations by legal flips and performs row-wise \(\mathbb F_2\) elimination, checking the Catalan counts and the explicit even/odd flip-cube obstruction. Use `python3 verify_recursive.py` and `python3 verify_flips.py` from the directory containing these files. No downloads or third-party packages are necessary.
+## correctness
 
-Both programs ran successfully and asserted the full row rank at degrees \(1,1,2,2,3,3,4\) for polygons with \(4,5,6,7,8,9,10\) vertices. The derivation of the unbounded lower bound is algebraic and independent of computational enumeration. Finite-field full rank supplies a nonzero integer minor, which is sufficient for full real rank; the exact modulo-two intermediate ranks must not be mistaken for a complete complex- or real-rank census.
+PASS
 
-Only the self-contained finite computations and direct proofs listed here have been checked. Independent audit and independent validation have not been performed. The general upper-bound equality for larger polygons remains unproved.
+The affine conversion x_e=(1-χ_e)/2 gives equality of the real degree filtrations. In the fan at 0, the diagonal (0,2j) separates the two triangles in the quadrilateral with cyclic vertices (0,2j-1,2j,2j+1); the r=floor((n-2)/2) such quadrilaterals have disjoint interiors. Simultaneous independent flips therefore give 2^r distinct valid triangulations, with each indicator depending on at most one flip bit. A monomial of degree <r omits a bit, so its alternating sum cancels by pairing that bit. The uniform parity measures differ on the event that all replacement diagonals occur, since exactly one bit pattern qualifies. For finite sharpness I independently generated size-(n−3) compatible subsets by the alternating-endpoint crossing test and retained all size-≤r compatible subsets as features; no use of the frozen recursion or flip traversal. Exact row elimination modulo 3 gave (rows,features,rank) for n=4,…,10 equal to (2,3,2), (5,6,5), (14,31,14), (42,71,42), (132,441,132), (429,1078,429), (1430,7351,1430). Replay: python3 -I independent_polygon_rank.py from the review workspace root; equivalently recursively take each next higher-ordered diagonal from those compatible with all previously taken, set the row entries for the subsets of that triangulation, and eliminate over F_3. The row counts agree with Catalan enumeration, and full rank over F_3 certifies a nonzero integral minor, hence full real row rank. This does not assert that intermediate modular ranks equal the real ones. Full rank gives unique measures. More generally a nonzero real left-kernel vector sums to zero since the empty monomial is present; normalizing its positive and negative parts gives two equal-data measures. The explicit parity vector specifically certifies degrees <r, not possible larger deficient degrees for n>10. No general equality for n≥11 is needed or established.
+
+## originality
+
+PASS
+
+The result concerns the saturation degree of the finite Boolean evaluation ring of triangulations in the labelled diagonal coordinates. Structural associahedron results, compatible-face counts, full Walsh transforms in the same coordinates, and filtered ranks in a different Catalan encoding do not cover the actual degree cutoff. The lower bound uses a specific independent-flip family, and the finite cutoffs are genuine exact ranks rather than face counts.
+
+## value
+
+PASS
+
+The minimum joint observation degree is a natural invariant for exact recovery of arbitrary mixtures on a standard combinatorial family. The independent-flip construction supplies explicit indistinguishable probability laws for a degree growing linearly with n; the exhaustive calculation settles the matching threshold through the nontrivial 1430-state case. It is not an enumeration of triangulations, a single-state identification algorithm, or a noise-conditioning claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

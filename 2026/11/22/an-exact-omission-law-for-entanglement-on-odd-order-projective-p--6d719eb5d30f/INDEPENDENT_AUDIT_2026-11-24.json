@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:35:19.575046Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the computation in RESULT.md lines 31–53. In graph-state basis amplitudes, tracing the line register gives cancellation unless B_fault transposed annihilates the difference of the two point labels; the reduced density then has identical rank-one blocks indexed by the corresponding cosets, giving rank 2^rank(B_fault) and flat nonzero eigenvalues. Odd q gives BB^T=I+J and B1=B^T1=0 in F₂, with n odd, so B has corank one. For the matching update, z=V^Tx forces even parity by the left kernel. Every preimage of Uz is B^TUz+c1; asking it to have V^Tx=z gives exactly the bordered equations. The maps in both directions are inverse, including k=0. When D=0 and k≥1 the border imposes c=0 and one parity constraint, so the loss relative to pristine is k−2. With two flags one cross-incidence instead gives determinant 1 for K_F, while two cross-incidences violate uniqueness of the common line. For Desarguesian odd q the stated finite point/tangent dot product is (s−t)^2 and neither type of finite/infinite cross-incidence occurs; this works over all the specified fields. Read VERIFY.py, VERIFICATION.md and the supplied finite check output without executing the script. Those prime-order tests are not the basis for the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hein–Eisert–Briegel gives the cut-rank observable for any graph state, not its rank after these changes. Generic singular-base low-rank reduction gives a (k+corank B)-dimensional system with a right inverse on im B and nullspace data; it does not evaluate that system on these flags."
+        ],
+        "reasoning": "The generic compression is routine, and even an invertible-base Schur complement can be used after verifying that B+J has inverse B^T+J in this parity. The plane-specific structural law identifies the auxiliary entries as cross-incidences and proves the exact pattern-dependent entropy response rather than just bounding the rank shift. The inspected general graph-state results give no such response; the even-plane statement cannot be specialized across the parity change.",
+        "searches": [
+          "arXiv:quant-ph/0307130 p.7 Eq. (43)",
+          "arXiv:2402.06260v3 §4.2 Theorem 4.9",
+          "Resultary 0f1e8bff6768 offset 0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0307130",
+        "arXiv:2402.06260v3",
+        "Resultary 0f1e8bff6768",
+        "Resultary 4180b85d8592",
+        "Resultary c7d8e76cc7eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=2 the rank decreases to the baseline or stays one above it according to whether the flags cross; the even-order threshold theorem instead concerns gains with a different parity mechanism. The census supplies matching existence/counts but no omission response."
+        ],
+        "reasoning": "The standard rank observable by itself would require computing the entire modified block for each pattern. The useful specialized claim is that all effects are encoded by the bordered adjacency among just the selected flags, and that these effects reverse already within a naturally realizable family. No inspected stated result supplies that exact odd-parity classification.",
+        "searches": [
+          "Hein–Eisert–Briegel Eq. (43) and its crossing-block rank interpretation",
+          "Resultary even-order fault law 0f1e8bff6768 and PG(2,3) census 4180b85d8592"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The even-order matching-omission record has the same observable but k-bit gains (apart from its threshold exception) and different parity. The Fano record computes Vietoris–Rips homology in the changed graph metric, not incidence adjacency cut rank, and q=2.",
+          "Cautrès et al. Theorem 4.9 gives two-side k-pairability of the same intact Desarguesian incidence graphs, by finding lines with restricted incidence neighborhoods."
+        ],
+        "reasoning": "Omission, rank-one edge toggling, and flag deletion describe the same incidence-block change, but neither metric homology nor vertex-minor pairability is the point/line Schmidt rank of the altered graph. Same-day material was compared by its statement, not discarded by date.",
+        "searches": [
+          "Resultary comparison for odd-projective-plane graph-state entanglement after omitted incidence matchings",
+          "Resultary 0f1e8bff6768 and c7d8e76cc7eb (flag or incidence edge deletion)",
+          "arXiv:2402.06260v3 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4180b85d8592 RESULT.md offset 0 has the induced-matching polynomial and 10700 such matchings in PG(2,3), as well as extension data for them. The Fano tabulation enumerates homology behavior for up to three deletions."
+        ],
+        "reasoning": "The induction-pattern census is genuine coverage of eligible patterns but provides no cut ranks after omission. The Fano tabulation is in the wrong parity and measures a different invariant. Neither is an exact table of the all-matching entropy law, even in the available small relevant plane.",
+        "searches": [
+          "Resultary 4180b85d8592, order-three Levi graph induced-matching and saturation spectra",
+          "Resultary c7d8e76cc7eb, enumerated Fano incidence deletions"
+        ]
+      },
+      "rationale": "On available evidence, the distinct result is the exact odd-plane cross-incidence criterion for every matching, with the sign reversal under repeated induced omissions and its conic realization. The GF(2) entropy law, low-rank compression technique, ordinary projective-plane incidence identities, and conic tangents are not novel ingredients.",
+      "residual_risks": [
+        "An unindexed equivalent odd-plane binary rank-update or encoding-theory theorem could cover the plane-specific relation. The search is bounded, and no claim of historical priority or novelty of generic rank updating is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the cut-rank reduction, not the changed rank",
+          "evidence": "Entropy equals the GF(2) rank of the submatrix between the two parties.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0307130",
+          "material_read": "p.7 Eq. (43)",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Multi-party entanglement in graph states",
+          "trigger": "General exact graph-state bipartition entropy theorem"
+        },
+        {
+          "assessment": "Distinct graph-state property",
+          "evidence": "Two-side k-pairability for k≤(q+4)/5 is proved by choosing auxiliary point and line neighborhoods, not by rank evaluation after controlled-Z omissions.",
+          "identifier_or_url": "https://arxiv.org/html/2402.06260v3",
+          "material_read": "§4.2, Theorem 4.9 and beginning of Proof 4.10, offset 59848",
+          "method": "Lawful arXiv HTML, bounded passage",
+          "title": "Vertex-minor universal graphs for generating entangled quantum subsystems",
+          "trigger": "Same projective-plane incidence graphs used for quantum resources"
+        },
+        {
+          "assessment": "Complementary parity, different exact behavior",
+          "evidence": "For even q and k≤q+1, entropy gains k bits except for the specified one-bit deficit at the threshold.",
+          "identifier_or_url": "Resultary: 2026/11/02/0f1e8bff6768",
+          "material_read": "RESULT.md offsets 0 and 9709",
+          "method": "Resultary search and local mirror passages",
+          "title": "Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes",
+          "trigger": "Same observable under the same fault family, potentially broader coverage"
+        },
+        {
+          "assessment": "Exact pattern census but no entropy table",
+          "evidence": "Gives the PG(2,3) induced-matching polynomial, total and saturation data; it describes strong representative systems.",
+          "identifier_or_url": "Resultary: 2026/10/13/4180b85d8592",
+          "material_read": "RESULT.md offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Induced-matching and saturation spectra of the order-three projective-plane Levi graph",
+          "trigger": "Exact table for relevant small odd plane and induced fault family"
+        },
+        {
+          "assessment": "Distinct topological rather than cut-rank effect",
+          "evidence": "The small-deletion enumeration uses Vietoris–Rips homology in the changed metric for q=2.",
+          "identifier_or_url": "Resultary: 2026/11/22/c7d8e76cc7eb",
+          "material_read": "RESULT.md offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "The first three incidence-topology anomalies in Fano-plane graph metrics",
+          "trigger": "Same-day flag omissions and induced-matching rank rebound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ideal missing gates are a natural graph-state perturbation. The same parity law handles arbitrary matching sizes rather than a sampled small case, and separates first-omission gains from cumulative losses based on the geometry of the missing flags. The q+1 tangent realization makes the reversal an unbounded family rather than a tiny rank check. This is mathematical value for the specified pure-state cut only.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

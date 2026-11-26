@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:57:47.420781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact replay: `python3 /workspace/reviews/check_5.py`. Using the midpoint-coordinate graph and down-spin subsets S of its twelve vertices, the normalized energy is 24-8|S|+4e(S)-x(12-2|S|), with e(S) the induced edge count. Exhaustion of all 4096 subsets gives the strict and weak counts at x=0,2,4, nine common ground states at the endpoint envelopes x=0 and x=4, exactly 108 ground states at x=4, and all-plus above x=4. The energy gaps are affine, and equality at an interior point of [0,4] requires equality at both ends; local stability changes only at 0,2,4. The replay gives 36 and eight excited strict minima in the two open field ranges and confirms the stated energy/magnetization census and 12,24 / 8 orbits. Every first-flip cost bounds the barrier from below at both ends of each affine branch. Independently enumerating ordered triples of distinct flips gives feasible three-flip routes at both ends of every branch: 4–6 routes per lower-field trap and six per upper-field trap. Both bounds extend to the full intervals by affinity, so this does not extrapolate from sampled barrier values. The proof's 'different magnetization parity' means different parity of down-spin counts, equivalently magnetization modulo four (ordinary parity is even in both cases). With a single flip ruled out by strict stability, this gives shortest length three. The frozen program was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karlová–Strečka PDF pp. 2–5, 7 discuss the Hamiltonian, Ising limit and one-third equilibrium plateau",
+          "Godrèche–Luck PDF pp. 4, 7–8 treat ferromagnetic zero-temperature blocked states and, in a separate setting, an extensive free-energy barrier",
+          "Schnack et al. abstract and section 3.1 concern isotropic quantum Heisenberg minimal-energy levels and a high-spin anomaly"
+        ],
+        "reasoning": "These calculations constrain equilibrium energies or address dynamics on different models. They do not determine the local minima and single-flip sublevel connectivity of the binary antiferromagnetic cuboctahedron.",
+        "searches": [
+          "Karlová–Strečka, arXiv:1611.04301v1",
+          "Godrèche–Luck, arXiv:cond-mat/0412077v1",
+          "Schnack–Schmidt–Richter–Schulenburg, arXiv:cond-mat/0108432v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and supplied verifier source",
+        "Configured Resultary including the self-hit, spin-one matching record and triangle-expanded equilibrium hit",
+        "arXiv:1611.04301v1; arXiv:cond-mat/0412077v1; arXiv:cond-mat/0108432v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Ising plateau does not change across the two trap regimes",
+          "The earlier spin-one saturation result has the same matching enumeration on Q3 but uses different spin dynamics and does not compare paths",
+          "The adjacent triangle-expanded-cubic-graph record concerns equilibrium of a different family, including the truncated tetrahedron"
+        ],
+        "reasoning": "An exact equilibrium matching catalogue fixes some ground counts, but gives no barriers between excited subsets and ground matchings with single-spin changes. Establishing the 88 trap/branch comparisons needs first-flip bounds and actual feasible paths, rather than equilibrium counts or the plateau alone.",
+        "searches": [
+          "Same-graph equilibrium statements and matching data in arXiv:1611.04301 and the older spin-one Resultary record",
+          "Resultary one-third Ising plateau on triangle-expanded cubic graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 8–13: path bottleneck measured above the starting energy and minimized over every possible ground destination",
+          "RESULT.md lines 31–40: the sign of the single-flip energy difference determines strict/weak stability",
+          "The upper-regime down-spin set is a maximal matching of Q3; a perfect matching is a ground configuration there"
+        ],
+        "reasoning": "A ground-reaching minimax height is a connectivity threshold in a single-flip energy sublevel, not a free-energy barrier, a time, or a barrier to a predetermined ground state. The spin-1/2 convention for the equilibrium model also changes field normalization relative to spins ±1, not which magnetization fraction defines the plateau.",
+        "searches": [
+          "Configured Resultary search for binary Ising cuboctahedron strict/weak minima, blocked states, ground-reaching activation barrier and three-flip paths",
+          "arXiv:1611.04301 Ising limit and plateau; arXiv:cond-mat/0412077 blocked states and energy barriers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact barrier match is the assigned record itself",
+          "Resultary SCOPE-universal-spin-one-ground-states-on-three-edge-colorable-cubic-l--9c30ab970c22, matched 9 perfect and 108 total cube matchings; local-mirror offsets 1150–2491 and 7230–7841 give the saturation formula and explicit matching polynomial"
+        ],
+        "reasoning": "At x=4 the binary energy above all-plus is exactly 4Je(S); ground configurations (also all the weak minima there) are cube matchings. The older exact tabulation therefore determines 108 directly, and its perfect-matching coefficient gives nine. The tabulation of all size-three matchings does not classify which are maximal, the lower-field traps, or any minimax paths.",
+        "searches": [
+          "Resultary exact-match lookup for cuboctahedron trap counts and barrier function, including the earlier cubic-line-graph spin-one matching record"
+        ]
+      },
+      "rationale": "The one-third equilibrium plateau, the nine perfect matchings and the total of 108 cube matchings are not credited as new. The supported distinction is the excited strict-minimum classification, threshold stability census beyond the saturation matching count, and the complete minimax barrier and optimal-path profile to the ground-state set, with trap orbits. The consulted same-graph equilibrium results and general blocked-state work do not supply this dynamical extremum.",
+      "residual_risks": [
+        "A finite binary-spin enumeration or related landscape computation outside the inspected papers and catalogue could contain further components; the bounded search does not certify priority"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior equilibrium plateau, not the trap or barrier inventory",
+          "evidence": [
+            "Delta=0 is the Ising limit; the one-third magnetization plateau persists in that limit"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04301v1",
+          "material_read": "PDF pp. 2–5 and 7, offsets 6200–8649, 20300–24068, 32700–36154",
+          "method": "Primary OA PDF, bounded full-text passages",
+          "title": "Magnetization process and magnetocaloric effect of the spin-1/2 XXZ Heisenberg cuboctahedron",
+          "trigger": "Same physical graph and Ising limit"
+        },
+        {
+          "assessment": "Different instances and barrier notion from the finite cuboctahedron result",
+          "evidence": [
+            "Ferromagnetic blocked-state dynamics; mean-field free-energy barrier extensive in volume"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0412077v1",
+          "material_read": "PDF pp. 7–8 offsets 19400–22862 and p. 4 around offset 8500",
+          "method": "Primary OA PDF, bounded full-text passages",
+          "title": "Metastability in zero-temperature dynamics: Statistics of attractors",
+          "trigger": "Blocked states and barrier terminology for single-flip dynamics"
+        },
+        {
+          "assessment": "Quantum Heisenberg high-spin anomaly, not a classical single-flip minimax theorem",
+          "evidence": [
+            "Minimal energies as a function of total spin and the corresponding magnetization jump for the cuboctahedron"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0108432",
+          "material_read": "Abstract and section 3.1, offsets 0–3492 and 10200–12543, including the text around Fig. 3",
+          "method": "Primary OA PDF with literal locate and offset passages",
+          "title": "Independent magnon states on magnetic polytopes",
+          "trigger": "Earlier cuboctahedral work cited by Karlová–Strečka"
+        },
+        {
+          "assessment": "Independently covers the exact matching counts shared by the binary ground census; not the binary trap/path theorem",
+          "evidence": [
+            "Matching polynomial 1+12t+42t²+44t³+9t⁴ and value 108 at t=1"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-spin-one-ground-states-on-three-edge-colorable-cubic-l--9c30ab970c22",
+          "material_read": "RESULT.md saturation finding and explicit Q3 matching polynomial, offsets 1150–2491 and 7230–7841",
+          "method": "Configured Resultary and local-mirror primary record",
+          "title": "Universal spin-one ground states on three-edge-colorable cubic line graphs",
+          "trigger": "Earlier same-graph saturation and matching counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a standard frustrated spin cluster, the equilibrium ground family is fixed in the whole interval 0<x<4, yet the excited strict traps change at x=2 and the minimax escape barrier has two distinct peaks. The exact census and field-uniform optimal paths make that equilibrium–dynamics distinction testable rather than a report of a single arbitrary finite value. This is a combinatorial energy barrier, not a physical lifetime or a kinetic prefactor.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

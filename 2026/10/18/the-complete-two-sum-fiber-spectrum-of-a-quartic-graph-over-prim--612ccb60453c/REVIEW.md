@@ -1,19 +1,21 @@
-# Review of the quartic prime-square two-sum spectrum
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The identity \(8(a^4+b^4)=s^4+6s^2d^2+d^4\) is exact and bijective in the difference coordinate. Unit-sum fibers reduce to Hensel roots of \(z^4+6z^2+1=\lambda\). The two critical residue values \(1\) and \(-8\) are disjoint for \(p\ge5\), and every critical root has exactly the stipulated \(p\) lifts at one target. Character sums determine the counts \(L,H\); nonunit-sum fibers reduce to fourth-power roots. The independent singular-locus count yields the same exact energy. Exhaustive exact-integer counts for six primes corroborate all fibers, including zero multiplicity.
+PASS
 
-## Originality: PASS (best-knowledge)
+The frozen claim for every nontrivial ring character is false. For psi(x)=exp(2 pi i x/5) on Z/25 the moment is 69, not 89/25. The replacement distinguishes primitive from imprimitive characters: in the expanded fourth moment the two frequency sums detect j times the differences for a character of index j. A unit j detects the ring equalities, while an index of valuation one detects only the field equalities; each field quadruple has p^4 ring lifts. The representation spectrum and ring energy survive unchanged. With d=a-b, the unit-s equation is z^4+6z^2+1=lambda. A regular root has one lift for each target lift. At 1 the p lifts of z=0 contribute only to the exact target 1, alongside regular roots z^2=-6; at -8 the identity g+8=(z^2+3)^2 gives all p lifts per exceptional root only at -8. In the field, g(z)=g(w) describes the union z^2=w^2 and z^2+w^2=-6; their counts are 2p-1 and p-chi(-1) and the intersection size is 2u. The first and second fiber moments then solve for L,H after removing the two exceptional residue values. When p divides s, 8y=d^4, giving the stated h-to-one nonzero lifted fibers and p roots at zero. For the energy, the equality product (d^2-f^2)(d^2+f^2+6s^2) has E_p=3p^2-3p+1-2(p-1)c reduction zeros and S=p+2(p-1)u singular reduction zeros. The latter are the line d=f=0 and common zeros away from that line. At these, the product is zero for every lift, whereas a regular zero has p^2 lifts. This gives p^2 E_p+(p^3-p^2)S and the stated energy. The repair includes exact bounded per-sum comparisons and the field counts, separately from the universal proof.
 
-Literature and mathematical-record searches, including aliases and the relevant convolution, fourth-moment, cyclotomic, Hensel-lifting, and prime-square variants, located the previously published finite-field quartic energy and invariant-subspace Fourier theorem; their statements and full mathematical explanations have been compared. They do not cover the nonreduced \(p^2\)-ring critical lifts. The prime-square cubic classification uses a different graph, and the main 2024 finite-field sharp-extension source treats different varieties and coefficient problems. Unindexed ring character-sum classifications remain a priority risk; absence from the searches does not establish absolute novelty.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The complete distribution, not merely a sample energy, locates all exceptional convolution fibers on the first nilpotent thickening of a natural polynomial Fourier graph. It identifies arithmetic transitions through \(\chi(-1),\chi(-3),\chi(-6)\), gives an exact sumset size, and quantifies the loss of finite-field regular lifting at two critical values. These are structural invariants for a motivated extension-convolution problem; the proof is uniform in the prime and not a table re-enumeration.
+The supported increment in the repair is the full ordered fiber classification over Z/p^2, including the descriptions of exceptional lifts and nonunit sums. The field energy, elementary character orthogonality and character-conductor correction are not counted as novel. The strongest same-object match gives energy, but explicitly omits individual fibers and has a later catalogued date.
 
-## Limitations and nearest literature
+## value
 
-The conclusion does not treat higher powers or claim a sharp weighted Fourier norm. Closest work: *Exact additive energy of the finite-field quartic graph* (2026); *An arithmetic phase transition in the invariant quartic-curve Fourier norm* (2026); González-Riquelme–Oliveira e Silva (arXiv:2405.16647v1, 2024). A nonindexed equivalent polynomial-fiber result cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The higher-multiplicity prime-square fibers are a substantive obstruction to transferring field convolution estimates. This gives all multiplicities, including targets missed entirely, concentrated critical lifts of size proportional to p, and a different nonunit-sum stratum. The exact classification is therefore useful even apart from the energy and supplies a benchmark for extension moments and lifting questions. The conductor correction alone is elementary and would not justify acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

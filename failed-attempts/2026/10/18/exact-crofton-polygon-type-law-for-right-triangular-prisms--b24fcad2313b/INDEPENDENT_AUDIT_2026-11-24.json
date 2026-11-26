@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:27:04.682379Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated invariant affine-plane measure the normalization is π(L+2h), not the normalization for a uniformly sampled conditional orientation. The common offset interval for five cut facets has length [min(q,H)−max(0,H−p)]_+, where p,q are consecutive projected gaps and H=h|u_z|. Its four positive parts integrate to the displayed g_h combination. The edge-crossing identity gives 2π(2L+3h) for the integrated vertex count, so E[N]=4−P_3+P_5 gives the stated gap. Differentiation of F_κ cancels all terms except cos(t) arctan(κ/cos(t)); its endpoint convention is correct. There are six circular order intervals (possibly seven pieces with a fixed coordinate seam). For an equilateral unit base the symmetry sector sum is 12[F_h(π/2)−2F_h(π/6)], giving J and the stated probabilities. All three types have open positive-measure offset/orientation sets. Independent tests counted all nine edges over 120 directions on three bases (worst discrepancy 4.23e−16); the scalene example (0,0),(4,0),(1,2) at h=0.7 gave numerator 3.08542540297806 by endpoint evaluation versus 3.08542540301388 by midpoint integration; unit equilateral h=1 gave 1.34604800953373. These are checks, not the proof. The frozen script was inspected without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f7463d4c242b covers arbitrary nondegenerate triangular bases, not just regular prisms, and also gives thin/tall asymptotics; it explicitly stops at a one-dimensional quadrature.",
+          "Wang's theorem addresses tilability of individual sections. The historical stereology full texts were not recovered."
+        ],
+        "reasoning": "The stronger asymptotic and quadrature record demonstrably covers the complete probability law as an integral. Tilability has no implication for probability weights. Wider potential stereological coverage was not inferred from bibliographic evidence.",
+        "searches": [
+          "Resultary f7463d4c242b, Finding and Proof steps 1–2",
+          "Voss DOI 10.1111/j.1365-2818.1982.tb00443.x; Ohser–Mücklich DOI 10.2307/1427832",
+          "Wang arXiv:1110.1715, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–100 and 102–119; VERIFICATION.md and verify.py inspected",
+        "Resultary originals f7463d4c242b, d6887160b043 and fcf730a5cfb8",
+        "Wang arXiv:1110.1715 p. 1",
+        "Voss DOI 10.1111/j.1365-2818.1982.tb00443.x and Ohser–Mücklich DOI 10.2307/1427832 (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "fcf730a5cfb8 explicitly differentiates a primitive F_t(β) of √3 cos(β) arctan(√3 cos(β)/t), for all t>0 and 0≤β≤π/2, with continuous endpoints.",
+          "f7463d4c242b expresses the general angular integrand using three differences of sorted vertex projections."
+        ],
+        "reasoning": "Put t=√3κ and divide the published primitive by √3. Then (π/2)sin(β) minus that result is exactly the frozen F_κ(β), by complementary arctangents. Extend it oddly for negative β, since the integrand is even. The arbitrary-base integral already breaks into the six circular projection-order cells, on each of which a gap is r cos(θ−arg d) for a directed side d. Choose κ=h/r and apply the identical primitive at the endpoints. No new integration or case theorem beyond sorting the three projections is needed.",
+        "searches": [
+          "Resultary fcf730a5cfb8, Proof step 3, RESULT.md offsets 3250–6810",
+          "Resultary f7463d4c242b, Finding and general projection gaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f7463d4c242b states the arbitrary-base probabilities with X arctan(X/h), Y arctan(Y/h) and their sum; the same gap appears explicitly.",
+          "d6887160b043 gives the same elementary equilateral distribution and a unique pentagon optimum."
+        ],
+        "reasoning": "For X≥0, g_h(X)=πX/2−X arctan(X/h); the linear terms cancel in the combination of three gaps, so the arbitrary-base laws are equal. Expanding the equilateral Ψ in d6887160b043 gives exactly J(h) when its base side is one.",
+        "searches": [
+          "Resultary: invariant affine-plane Crofton pentagon probabilities, arbitrary triangular and equilateral prisms",
+          "Resultary f7463d4c242b and d6887160b043, original Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d6887160b043 gives exact P_3,P_4,P_5 for every height-to-side ratio, including the catalogued unit equilateral example. fcf730a5cfb8 gives an equivalent exact equilateral law using circumradius and half-height."
+        ],
+        "reasoning": "This is exact function-level coverage, not a match of rounded tabulation. The arbitrary-base claim is decided by identities and is not exhausted by finite instances.",
+        "searches": [
+          "Resultary d6887160b043 and fcf730a5cfb8, exact equilateral section laws"
+        ]
+      },
+      "rationale": "The arbitrary-base exact Crofton law and gap coincide with one distinct indexed result, and the equilateral closed law with another. The alleged remaining distinction, finite elementary arbitrary-base evaluation, follows mechanically from the very same one-variable antiderivative in a third indexed record. The conclusion is about equivalent coverage and direct implications, not which same-day record came first.",
+      "residual_risks": [
+        "Historical stereological priority is unsettled; the failure is based on directly read indexed results and mathematical equivalence, not unavailable sources.",
+        "Catalogue dates do not settle which entry was obtained first or whether the results were independently obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general exact quadrature law and gap",
+          "evidence": "The four-positive-part interval and full law are equal after using complementary arctangents; states that it does not itself claim an elementary primitive for arbitrary bases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-crofton-pentagon-law-and-thin-tall-asymptotics-for-triangu--f7463d4c242b/RESULT.md",
+          "material_read": "Finding, scope, offset proof and start of normalization, offsets 0–4350",
+          "method": "Original record from local mirror",
+          "title": "Exact Crofton pentagon law and thin–tall asymptotics for triangular prisms",
+          "trigger": "Exact arbitrary-base probability claim"
+        },
+        {
+          "assessment": "Covers equilateral specialization, with more optimizer information",
+          "evidence": "Ψ(x)=π/2−arctan(2x/√3)+πx/6−√(1+x²)[π/2−2 arctan(x/(√3√(1+x²)))].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-crofton-polygon-type-law-and-unique-pentagon-optimum-for-r--d6887160b043/RESULT.md",
+          "material_read": "Finding and Proof steps 2–4, offsets 0–2950 and 2930–7440",
+          "method": "Original record from local mirror",
+          "title": "Exact Crofton polygon-type law and unique pentagon optimum for right equilateral triangular prisms",
+          "trigger": "Closed equilateral formula"
+        },
+        {
+          "assessment": "Primitive is identical after rescaling and using the complementary arctangent",
+          "evidence": "Their continuous F_t integrates √3 cos β arctan(√3 cos β/t) for every t>0, hence the parameter ratio needed in every arbitrary-base cell is covered.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-affine-plane-section-law-and-unique-pentagon-optimum-for-r--fcf730a5cfb8/RESULT.md",
+          "material_read": "Finding and Proof steps 2–4, particularly step 3 and offsets 3250–6810",
+          "method": "Original record from local mirror",
+          "title": "Exact affine-plane section law and unique pentagon optimum for right equilateral triangular prisms",
+          "trigger": "Elementary angular primitive, the putatively distinct remainder"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Universal tiling concerns whether each section tiles the plane, not invariant probabilities of polygon types.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.1715",
+          "material_read": "OA PDF p. 1, around text offset 980",
+          "method": "OA original text",
+          "title": "Determining All Universal Tilers",
+          "trigger": "Cited prior classification of triangular-prism sections"
+        },
+        {
+          "assessment": "Unresolved scope; not used as evidence of coverage or noncoverage",
+          "evidence": "Full-text attempts were unsuccessful, so its formulas were not compared.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1982.tb00443.x",
+          "material_read": "Bibliographic evidence; no full-text passage recovered",
+          "method": "Lawful direct/VPN and alternate-copy attempt",
+          "title": "Frequencies of n-polygons in planar sections of polyhedrons",
+          "trigger": "Plausible exact stereological coverage"
+        },
+        {
+          "assessment": "Unresolved scope; not used as evidence of coverage or noncoverage",
+          "evidence": "No readable original full text was located; landing-page evidence cannot settle the exact prism laws.",
+          "identifier_or_url": "https://doi.org/10.2307/1427832",
+          "material_read": "Bibliographic/landing-page evidence; no full-text passage recovered",
+          "method": "Lawful OA and repository lookup",
+          "title": "Stereology for some classes of polyhedrons",
+          "trigger": "Plausible prism-specific coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact prism section-type probabilities are a natural integral-geometric invariant. But the frozen gap, law and specialization are already covered, and the finite evaluation is a direct application of the identical indexed scalar primitive to the already known integrand after sorting its three projections. The remainder does not close a distinct mathematical gap and supplies no substantive repaired claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

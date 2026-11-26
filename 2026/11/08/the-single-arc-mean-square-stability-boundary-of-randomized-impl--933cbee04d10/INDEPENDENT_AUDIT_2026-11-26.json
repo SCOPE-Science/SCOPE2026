@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:52:52.575945Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–100, VERIFICATION.md, check_stability.py, requirements.txt and verification_output.txt",
+        "Bochacik–Przybyłowicz arXiv:2404.19059 §1.2",
+        "Bochacik et al. arXiv:2006.12131 §5.1, Eq. (73)"
+      ],
+      "rationale": "For the stated multiplier and fresh independent stages, the second moment multiplies by E|R|² each step. With q=y² and D=(1+xt)²+qt², subtracting one from the integrand gives −D'/D+(x²+q)/D (prime in t); substitution t/(1+xt) integrates the latter and yields Φ. The q derivative has numerator 1−2t+2xt(1−t), over D². Pairing t with 1−t gives a nonnegative integral from the first term since D⁻² decreases; the second term is strictly positive for x>0, and at x=0, q>0 the first term is strict. The real-axis derivative (x²−2)/(1+x)² gives the unique positive cutoff X. Growth in y is uniform over x∈[0,X]: for y≥1+X the arctangent term is at least πy/4, dominating the logarithm. Pairing the squared multipliers at t and 1−t by AM–GM excludes Re z≥0; poles on the positive real axis have infinite second moment. Strict signs at every fixed y>0 over x=0 and x=X force B to tend to zero at each endpoint. Smoothness in the interior and the two disjoint upper/lower arcs joined at just the endpoints give the asserted bounded Jordan domain. At the origin Φ=−2x+q²/6+O(x²+xq+q³), giving B⁴∼12x. At X the ratio g'(X)/Φ_q(X,0)=3(X²−2)(1+X)/(X(3+2X)) gives C². The explicit defect is a quadratic in q with leading coefficient 1/3 and, for small x>0, negative constant term −2x+O(x²). Its unique positive root gives y⁴∼6x and the exact ratio 2^(1/4). The precise theorem in lines 23–27 is the one assessed: the interval is nonempty only for 0<x<X, not at every negative real part literally; line 82's two arcs are the upper and lower ones. The shipped numerical run is ancillary and was not rerun.",
+      "residual_risks": [
+        "The proof is for the scalar test equation with independent uniform stages. It does not establish nonlinear contractivity or stability for other stage laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier all-moment result is restricted to the real decay ray. The arbitrary-law mean-stage result addresses A-stability, not the full finite complex stability region. The same-day centered-law theorem gives local geometry for arbitrary centered laws and a global polynomial criterion specifically for a symmetric two-point law."
+        ],
+        "reasoning": "Neither general real moments nor a two-atom global criterion covers the interior slices of the uniform distribution. The cited paper's plot and pointwise test permit evaluation, but do not establish monotonicity or topology.",
+        "searches": [
+          "arXiv:2404.19059 Facts 2–6 and Figure 2",
+          "Resultary 3342f4e645f9, 3d7701908c6c, b50d9b3e1e32"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.19059",
+        "arXiv:2006.12131",
+        "Resultary 933cbee04d10, 3342f4e645f9, 3d7701908c6c and b50d9b3e1e32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two moment formulas permit local expansions, and b50d9b3e1e32 proves the centered-law quartic expansion explicitly with a covariance argument at x=0. The new sign test concerns the q derivative for the entire x>0 half-plane and integrates a different paired expression."
+        ],
+        "reasoning": "A contour, or even the exact pointwise moment defect, does not itself show that no slice re-enters the stable region. The global derivative sign, endpoint joining, and the transverse expansion at the nonzero cutoff provide the new geometric theorem. The local comparison is a quantitative corollary, not a separate priority claim for either prior formula.",
+        "searches": [
+          "arXiv:2404.19059 Fact 5 and Eq. (19)",
+          "arXiv:2006.12131 Eqs. (72)–(75)",
+          "Resultary b50d9b3e1e32 proof sections 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar theta amplification (1+(1−t)z)/(1−tz) is exactly the stated R, not a different scalar model. Resultary b50d9b3e1e32 supplies the weak-damping formula for all centered nonconstant stage laws."
+        ],
+        "reasoning": "Taking the uniform law in that broader theta theorem gives κ=2/4−1/3=1/6, so x∼y⁴/12. This is genuine local equivalence despite different algorithm names; it does not prove the asserted global uniform-law shape.",
+        "searches": [
+          "Resultary: randomized implicit RK2 mean-square, theta-stage multiplier, complex stability and weak damping",
+          "Literature: Convergence and stability of randomized implicit two-stage Runge–Kutta schemes, monotone imaginary frequency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact target 933cbee04d10 is the assigned record. The literature gives a contour plot and real cutoff; 3342f4e645f9 explicitly cites the established mean-square cutoff with numerical digits."
+        ],
+        "reasoning": "No independent tabulation of the full boundary with the global uniqueness and negative-real contact theorem was located. The cutoff's digits are not treated as novelty.",
+        "searches": [
+          "Resultary: implicit RK2 cutoff 4.033610469, complex Jordan region and endpoint laws",
+          "arXiv:2404.19059 Figure 2, Facts 4–5",
+          "Resultary 3342f4e645f9 Finding"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the global strict frequency monotonicity and the resulting single Jordan boundary, including the negative-endpoint square-root law and the quantitative comparison derived from the two boundary widths. The multiplier, moment test, left-half-plane containment, boundedness and real-axis cutoff are prior. The explicit coefficient follows immediately from its published moment polynomial. The implicit quartic contact is also covered by a broader same-day result; no priority between same-day records is inferred and that local law is not credited as distinct.",
+      "residual_risks": [
+        "Further stability literature may have an equivalent global frequency monotonicity argument. The bounded primary-text and catalogue comparisons are not a historical priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct substantial coverage of the basic stability test, boundedness and real cutoff, not the global single-interval theorem in the inspected results.",
+          "evidence": "Fact 5 yields the same defect Φ; Fact 4 brackets the positive real-decay cutoff between 4.03 and 4.04.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+          "material_read": "§1.2 PDF pp. 2–4 around offsets 7983 and 10332; Facts 2–6 and Eq. (19), pp. 8–11; Fig. 2 on p. 12",
+          "method": "OA PDF bounded passages",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Exact implicit multiplier, stability formula and plotted boundary"
+        },
+        {
+          "assessment": "Explicit quartic coefficient is a direct local consequence of the existing formula.",
+          "evidence": "Eq. (73) gives the same explicit moment polynomial, with coefficient 1/3 at |z|⁴.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.12131",
+          "material_read": "§5.1, Eqs. (72)–(75), PDF p. 14 around offset 64542",
+          "method": "OA PDF bounded passage",
+          "title": "Randomized Runge–Kutta method — stability and convergence under inexact information",
+          "trigger": "Exact explicit comparator"
+        },
+        {
+          "assessment": "Real ray only; no general complex moment region is asserted.",
+          "evidence": "s₂=4.033610469358… is explicitly credited as the established mean-square cutoff.",
+          "identifier_or_url": "Resultary 3342f4e645f9",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2679",
+          "method": "Local mirror",
+          "title": "All-moment stability frontiers for randomized implicit two-stage Runge–Kutta decay",
+          "trigger": "Same law and same numerical mean-square cutoff"
+        },
+        {
+          "assessment": "Covers mean-stage obstruction and a two-point A-stability frontier, not uniform stable slice topology.",
+          "evidence": "For mean 1/2, only the deterministic midpoint is mean-square A-stable; the second theorem treats support {a,1}.",
+          "identifier_or_url": "Resultary 3d7701908c6c",
+          "material_read": "RESULT.md Finding, scope and exact stability identity, offsets 0–3385",
+          "method": "Local mirror",
+          "title": "Sharp mean-stage obstruction and two-point A-stability frontier for randomized implicit RK2",
+          "trigger": "Same multiplier under a broader class of distributions"
+        },
+        {
+          "assessment": "Exact uniform local contact is covered as a specialization and is explicitly noted there. The two-point global statement does not include the uniform law. No order inferred from the common date.",
+          "evidence": "Theorem gives x=(κ/2)y⁴+O(y⁶) for any centered nonconstant law; the relationship section explicitly evaluates the uniform coefficient as 1/12.",
+          "identifier_or_url": "Resultary b50d9b3e1e32",
+          "material_read": "RESULT.md Finding and scope, offsets 0–3645, and proof sections 4–5/relationship passage, offsets 4780–7457",
+          "method": "Local mirror",
+          "title": "Sharp mean-square A-stability for two-point randomized theta integration",
+          "trigger": "Equivalent scalar amplification and a general weak-damping boundary theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Prior implicit pointwise stability test and figure"
+      ],
+      "rationale": "The global one-interval result converts a pointwise test or plot into a certified frequency limit at every damping value in the stable range, with no disconnected bands or additional components. The endpoint laws describe how that allowable band closes at both extremes, and the near-axis ratio quantifies exactly how much width is gained over the explicit method in a regime where both bands collapse. These are concrete stability questions for the original methods.",
+      "residual_risks": [
+        "The ratio is local in weak damping, not a bound on the gain at every damping value or an efficiency comparison for general systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

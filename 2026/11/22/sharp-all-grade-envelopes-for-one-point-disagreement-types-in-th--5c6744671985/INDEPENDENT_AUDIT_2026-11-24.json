@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:58:03.797199Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–58",
+        "Frozen check.py, lines 8–66",
+        "Frozen check_output.txt, lines 1–11",
+        "Frozen VERIFICATION.md, lines 1–25"
+      ],
+      "rationale": "In the generic two-order Fraïssé limit, any pair of gaps is realized by the one-point extension property, and ultrahomogeneity makes any two realizations of the same gap pair have the same type over the parameters. For a grade-k pair, h=|A_i∩B_j| obeys max(0,i+j-n)<=h<=min(i,j) and 2h=i+j-k. Thus (u,v)=((i+j-k)/2,(i-j+k)/2) is an integer pair exactly in the claimed candidate rectangle; the inverse always gives legal gaps. For the folded list, the first and third clauses enumerate the parity of k in the disjoint intervals [1,k] and [k+1,n], and the other two enumerate the opposite parity in [1,n-k] and [n-k+1,n]. At a candidate cell, an odd position fails the intersection test exactly when t<=k-i, with k-i<=j, and every odd t>k is counted since j-k<=i. The even positions counted are exactly the positive evens up to i-k (if positive), since i-k<=min(j,n-k) and the far even fold gives a value at least 2n-k+1-j>i. Hence h=ceil(j/2)+floor((i-k)/2)=u by the parity constraint. For the lower bound with 2k<=n, the row walk starts at i and ends at n-i, changing by ±1. Each of the first and last k+1 rows contributes, with two different endpoints in the shared row when n=2k>=2. Reversing the second order complements grade, giving the opposite lower bound. The reverse permutation has d=min(i+j,2n-i-j) and the identity has d=|i-j|, attaining the correct lower sides including k=0,n and n=1. No exhaustion of all maximizing permutations is required or claimed.",
+      "residual_risks": [
+        "Finite enumeration is recorded, not rerun, and not the proof. The advertised Python 3.8 minimum in the verification notes is too low for the script's int.bit_count(); Python 3.10+ is required for unchanged replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day d00cf6e5e308 gives a beta-integral for the mean E_pi c_k and central asymptotics.",
+          "Bhattacharya–Mukherjee give fixed-label degree limits and a limiting empirical density -log|1-2z|, matching macroscopic mean-spectrum behavior and not finite pointwise extrema.",
+          "Cameron's use of small zigzag patterns concerns a different pair-adjacency condition."
+        ],
+        "reasoning": "Averages, limit distributions or the structural homogeneous framework do not give extremal multiplicities for each finite permutation or folded witnesses.",
+        "searches": [
+          "Bhattacharya–Mukherjee, arXiv:1503.03582, Corollaries 3.3 and 3.5",
+          "Cameron, Homogeneous Permutations, DOI 10.37236/1674",
+          "Resultary d00cf6e5e308, exact expected coefficient"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d00cf6e5e308, 265be793933b, 30d779ca875c, fa99bb387cdb",
+        "arXiv:1503.03582 and arXiv:1405.4297",
+        "Cameron, DOI 10.37236/1674"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Plugging k=1 or 2 into the new upper formula recovers the corresponding specialized upper bounds; the specialized articles do not imply the rectangle saturation for general k.",
+          "The expected spectrum and nonunimodality results concern respectively averaging over permutations and the shape of coefficients within a permutation."
+        ],
+        "reasoning": "No inspected stronger claim subsumes the grade-by-grade extrema and witness. The low-grade specializations and type-space setup are not claimed as distinct novelty.",
+        "searches": [
+          "Resultary 265be793933b, Theorem; 30d779ca875c, Finding; d00cf6e5e308 and fa99bb387cdb, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gap coordinates coincide with pointwise-stabilizer regions R_i∩C_j in the random permutation.",
+          "Resultary fa99bb387cdb explicitly relates the disagreement enumerator to the Hamming-distance profile between maximal Boolean-lattice chains and studies unimodality, not the sharp size of each distance shell."
+        ],
+        "reasoning": "The cube-chain translation is equivalent, but characterization of the profile's shape does not bound an individual shell sharply or exhibit saturation.",
+        "searches": [
+          "Resultary semantic search for two-order disagreement, Boolean-lattice maximal chains and whole-spectrum behavior",
+          "Linman–Pinsker, arXiv:1405.4297, gap regions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "265be793933b has c_1<=2n and its complete adjacent-matching characterization.",
+          "30d779ca875c has c_2<=3(n-1), with two inverse extremizers for n>=4.",
+          "fa99bb387cdb records exact first nonunimodality at n=10 and a count there, rather than the general envelopes."
+        ],
+        "reasoning": "Credit exact prior catalogue coverage of the two upper slices and their stronger equality information; no distinct inspected table supplies all n, all k and both envelopes. Sharing a record date does not remove overlap or resolve priority.",
+        "searches": [
+          "Resultary whole-profile and low-grade extremal searches",
+          "Separate grade-one and grade-two statements at 265be793933b and 30d779ca875c"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp pointwise lower and upper envelopes at all grades with a grade-specific constructor, not the two-gap encoding, the previously catalogued upper bounds at grades one and two, or the exact average. Distinct 2026-11-22 records were compared without presuming their order or priority.",
+      "residual_risks": [
+        "Priority within the same UTC record date is not inferred; the frozen 'earlier' phrasing should not be understood as dating evidence.",
+        "An equivalent extremal bound under Boolean-chain or permutation terminology may have been missed; the bounded web search did not supply evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mean rather than envelope",
+          "evidence": "The exact beta-integral is for E_pi c_k(pi).",
+          "identifier_or_url": "Resultary d00cf6e5e308",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary lookup and statement inspection",
+          "title": "A Gaussian-smoothed logarithmic spike in two-order one-point types",
+          "trigger": "Same coefficients, all grades"
+        },
+        {
+          "assessment": "Exact upper specialization, finer rigidity",
+          "evidence": "c_1<=2n, equality exactly for disjoint adjacent transpositions.",
+          "identifier_or_url": "Resultary 265be793933b",
+          "material_read": "Theorem, offset 400",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "A sharp one-disagreement extremal law and complete matching fibers",
+          "trigger": "Exact overlap at grade one"
+        },
+        {
+          "assessment": "Exact upper specialization, finer rigidity",
+          "evidence": "c_2<=3(n-1), including two inverse equality cases for n>=4.",
+          "identifier_or_url": "Resultary 30d779ca875c",
+          "material_read": "Finding, offset 400",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Sharp two-disagreement insertion-type bound and zigzag rigidity",
+          "trigger": "Exact overlap at grade two"
+        },
+        {
+          "assessment": "Same statistic, different question",
+          "evidence": "First nonunimodality at n=10, 32 offending permutations; compares maximal Boolean-lattice chains.",
+          "identifier_or_url": "Resultary fa99bb387cdb",
+          "material_read": "Finding offset 0; relationship offset 6486",
+          "method": "Resultary lookup and local mirror passages",
+          "title": "The sharp ten-parameter failure of unimodality for two-order singleton types",
+          "trigger": "Same full profile and equivalent Boolean-chain formulation"
+        },
+        {
+          "assessment": "Asymptotic distribution, not deterministic finite extremum",
+          "evidence": "Rescaled degree limits and limiting empirical density -log|1-2z|.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.03582",
+          "material_read": "Corollaries 3.3 and 3.5, pp. 9–10",
+          "method": "Primary open PDF passages",
+          "title": "Degree Sequence of Random Permutation Graphs",
+          "trigger": "Possible equivalent degree frequency or broader random-permutation theorem"
+        },
+        {
+          "assessment": "Structural background not the grade extrema",
+          "evidence": "The first discusses gap regions R_i∩C_j; the second uses 2413 and 3142 in a different adjacency question.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.4297 ; https://doi.org/10.37236/1674",
+          "material_read": "Linman–Pinsker p. 10; Cameron p. 5",
+          "method": "Primary open PDF passages",
+          "title": "Permutations on the Random Permutation; Homogeneous Permutations",
+          "trigger": "Underlying two-order structure and possible gap/zigzag results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and folded construction",
+        "Resultary d00cf6e5e308, 265be793933b and 30d779ca875c comparisons"
+      ],
+      "rationale": "Grading the one-point type count by its actual order disagreements refines the otherwise constant (n+1)^2 count. Exact envelopes and witnesses show that the central-grade count varies from order n to order n^2 as the parameter pattern changes, a genuinely quantitative feature not determined by the known mean or small-grade bounds. The explicit witness saturates every admissible cell at the chosen grade, rather than joining isolated finite examples.",
+      "residual_risks": [
+        "The witnesses are for prescribed grades individually. No full equality classification, multi-grade simultaneous maximization, or higher-arity result follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

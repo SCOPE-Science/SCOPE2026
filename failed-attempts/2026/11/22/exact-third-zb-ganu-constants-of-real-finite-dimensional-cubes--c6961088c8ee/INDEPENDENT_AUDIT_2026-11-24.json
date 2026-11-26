@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:54:45.739504Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The geometric mean of the four squared signed norms is exactly the numerator. In dimension one their arithmetic mean is Q by sign cancellation; in dimension two replacing each squared sup norm by the sum of its two coordinate squares bounds that mean by 2Q. The displayed witnesses attain both bounds. In dimension three two sign maxima choose a common coordinate, and their scalar product of absolute values is |u²−v²|≤(S−m)², where m is the least radius and both sign-agreement classes are nonempty. The other factors are at most S. Writing t for the sum of the two larger radii and u=m/t gives the bound (1+u)/(u²+1/2) on [0,1/2], with unique maximum at (√6−2)/2. Equality in the larger-radii square bound and this scalar maximum forces the stated radius ratio. The witness has signed norms 2,2,2+a,2+a for a=√6−2. The four-coordinate sign witness gives 3, the general bound S²/Q, and zero padding gives all larger d. For the arithmetic comparator, the colliding pair's squared norms sum to at most 2(a²+t²), with a the singleton-group radius and t the sum of the other two (not necessarily ordered). Bounding the other two by (a+t)² yields ratio at most (a²+t²+at)/(a²+t²/2), maximized at a/t=(√3−1)/2; the witness with first vector (−a,−a,a) and the same other two, a=√3−1, attains it. The two three-dimensional witnesses were reproduced independently (`python3 /workspace/frozen_review_replay.py 1`); the frozen diagnostic was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "44d920273418 maximizes F(z)=m^q(m+z)^(2−q)/(m+z²) for the penultimate dimension using a two-sign coordinate collision, Cauchy–Schwarz, a scalar critical point, and a matching construction. Its statement and scope explicitly start at order four.",
+          "The arXiv order-n paper gives the order-n saturation criterion and classical-space cases."
+        ],
+        "reasoning": "Read beyond the stated parameter range: at n=3 the proof still has two omitted rows assigned to a common coordinate, both complementary sign groups are nonempty, and the other rows have separate coordinates. In particular the omitted rows see a mismatch in a noninitial sign of the first m=2 at every other coordinate, so the exact attaining construction still works. Its separate sign-row saturation proof also applies at N=4; the published sufficient criterion likewise yields saturation with the four-row witness.",
+        "searches": [
+          "Resultary: n-th Zbáganu constant ell infinity finite-dimensional real cube order three",
+          "44d920273418, RESULT.md, Proof steps 1–4 and Relationship to prior work",
+          "arXiv:2611.24308, p. 5"
+        ]
+      },
+      "checked_sources": [
+        "c6961088c8ee (assigned entry)",
+        "44d920273418",
+        "425b85a56396",
+        "arXiv:2611.24308",
+        "arXiv:2607.17241",
+        "DOI:10.1007/s43037-019-00033-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 44d920273418 the critical equation is (2−q)m−2mz−qz²=0, and the first m radii in the equality construction are 1, with the remaining radius z.",
+          "The indexed arithmetic three-cube result gives the benchmark, and the arithmetic article treats saturation rather than the product deficit."
+        ],
+        "reasoning": "With q=1 and m=2 the critical equation is 2−4z−z²=0, so z=√6−2 and F(z)=2(2+z)/(2+z²)=1+√6/2. Equality in its radius Cauchy–Schwarz step forces the equal larger radii for every optimizer, and strict scalar maximization fixes the third. These are mechanical consequences of the proof, even though the displayed theorem starts at n=4.",
+        "searches": [
+          "44d920273418, RESULT.md offsets 0–5835, exact value and attainment",
+          "425b85a56396, RESULT.md Finding",
+          "Ciesielski–Płuciennik, Proposition 4(b)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2611.24308, §2, p. 3: the power on the product of the 2^(n−1) norms is 1/2^(n−2), hence 1/2 at n=3.",
+          "44d920273418, Finding: real signed product with first sign fixed and exponent 2/N.",
+          "c6961088c8ee is the assigned catalogue entry, not an independent comparison."
+        ],
+        "reasoning": "The product normalizations are identical. Requiring all input vectors to be nonzero instead of only requiring a positive denominator does not change the supremum, by continuity and approximation.",
+        "searches": [
+          "Resultary: third-order geometric-mean Zbăganu constant real finite-dimensional cube l_infinity sharp value dimension three",
+          "Resultary: geometric mean of the four signed-sum norms x1 plus or minus x2 plus or minus x3 real Banach cube",
+          "Literature: \"The n-th Zbáganu constant\" finite-dimensional cube geometric mean signed sums l_infinity third order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "425b85a56396, Finding, states the arithmetic third constant (3+√3)/2 with radii √3−1:1:1. The exact geometric sequence is the assigned c6961088c8ee entry, while 44d920273418 is a distinct same-family indexed formula."
+        ],
+        "reasoning": "The arithmetic table does not itself give the geometric optimum by AM–GM, since equality in the latter is not forced by the arithmetic maximizer. Coverage comes from the signed-product proof rather than matching the arithmetic parameter or the self-entry.",
+        "searches": [
+          "Resultary: exact third von Neumann-Jordan constant real ell infinity three cube arithmetic mean signed sums",
+          "Resultary: third-order geometric-mean Zbăganu constant real finite-dimensional cube l_infinity sharp value dimension three"
+        ]
+      },
+      "rationale": "The closely matching indexed penultimate-Walsh result 44d920273418 formally states n≥4. However, its inspected proof of the exact penultimate value and saturation applies unchanged at n=3: the only needed scalar range here is 0<q<2, and (n,N,m,q)=(3,4,2,1) satisfies every condition of the collision, derivative, and matching-construction steps. It gives the exact three-cube value and radii, not just a loose estimate or an analogy. The same-day relationship and chronology are unresolved; this decision rests on verified mechanical coverage of the substantial calculation, not priority inferred from the date. The two smaller dimensions follow by elementary arithmetic-mean and Hilbert-coordinate comparisons.",
+      "residual_risks": [
+        "The same-day relationship and chronological priority of 44d920273418 relative to the assigned item are unresolved. The overlap is a proof-level implication, not a claim that its theorem explicitly includes order three or predates this text.",
+        "Older equivalent geometric-product coverage beyond the inspected passages is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not a literal n=3 theorem, but its proof mechanically specializes to the substantive n=3 claim",
+          "evidence": [
+            "The two-sign collision bound, one-variable maximum and paired omitted-row witness work at (m,q)=(2,1); the saturation sign assignment has four rows.",
+            "The relationship passage explicitly disclaims stating the n=3 calculation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-penultimate-walsh-dimension-geometric-signed-product-const--44d920273418/RESULT.md",
+          "material_read": "Finding, assumptions and Proof steps 1–4, offsets 0–5835; relationship and limitations, offsets 6399–8380",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp penultimate Walsh-dimension geometric signed-product constant for real cubes",
+          "trigger": "Exact same invariant at the penultimate cube dimension in a distinct same-day record"
+        },
+        {
+          "assessment": "Covers the benchmark only, not the geometric numerator",
+          "evidence": [
+            "Arithmetic value (3+√3)/2; optimal radii √3−1:1:1."
+          ],
+          "identifier_or_url": "SCOPE-exact-third-von-neumann-jordan-gap-in-ell-infty-3--425b85a56396",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact third von Neumann–Jordan gap in ell-infinity three",
+          "trigger": "Identical dimension, sign sums and objective comparator"
+        },
+        {
+          "assessment": "Same functional and classical/saturation cases; not the exact subthreshold dimension-three computation in the inspected passages",
+          "evidence": [
+            "Product exponent 1/2^(n−2), and a sufficient condition for attaining n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.24308",
+          "material_read": "§2, p. 3 around offset 8000; p. 5 around offset 19600",
+          "method": "OA located PDF passages",
+          "title": "The n-th Zbáganu constant",
+          "trigger": "Exact invariant definition and general saturation criteria"
+        },
+        {
+          "assessment": "Discusses two-input variants; not the asserted three-input invariant",
+          "evidence": [
+            "The compared Zbăganu product and parameter variants involve two vectors x and y."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.17241",
+          "material_read": "p. 4 around offset 9400",
+          "method": "OA located PDF passage",
+          "title": "A generalization of the (α,β,γ) von Neumann–Jordan type constant in Banach spaces",
+          "trigger": "Potential geometric-product equivalent"
+        },
+        {
+          "assessment": "Arithmetic saturation, not the exact geometric subthreshold computation",
+          "evidence": [
+            "Arithmetic constants reach n for cube dimension at least 2^(n−1)."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s43037-019-00033-1",
+          "material_read": "p. 659, Proposition 4(b), PDF offset about 31800",
+          "method": "OA located passage",
+          "title": "On some modifications of n-th von Neumann–Jordan constant for Banach spaces",
+          "trigger": "Sharp arithmetic sign-sum estimates on the same cubes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first nonsaturated sharp geometric constant and radius rigidity are intrinsically interesting, but they are supplied mechanically by the distinct indexed formula and proof. After removing that overlap and the saturation cases, dimensions one and two use immediate coordinate/AM–GM bounds with a one- or two-input equality witness. No separate valuable, nonroutine remainder is established by those endpoint cases or by restating the arithmetic comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

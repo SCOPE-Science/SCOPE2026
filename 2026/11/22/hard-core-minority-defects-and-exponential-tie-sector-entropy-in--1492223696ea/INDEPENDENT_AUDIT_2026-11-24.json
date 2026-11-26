@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:05:36.115490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen check_equilibria.cpp, check_transfer.py and both recorded .out files (inspected, not executed)",
+        "Fresh replay: cd /workspace && python independent-checks/5-direct-plurality.py"
+      ],
+      "rationale": "For histogram (L,L,r) with r<L, subtracting the deleted cyclic triple from the totals gives the open-neighbor votes. A boundary C of an adjacent C-run and the center of CAC or CBC have an opposite unique winner, ruling out distance one and two. At an isolated C an equal pair of leader neighbors also gives an opposite unique winner. Within each C-gap, any equal leader pair must be an internal doublet surrounded by the other leader: triples of the same leader and doublets abutting C are prohibited. Such an internal doublet is prohibited when L-r>=2 because a competing leader uniquely wins. When L-r=1, the total of 2r+2 leader sites leaves only two extra sites above two per gap, permitting at most one equal edge, whereas an even cyclic binary word has an even number of equal edges. Thus alternation is necessary in this boundary case as well. Conversely the allowed triples leave the incumbent either a winner or unchanged on a leading tie, including C when not a maximizing opinion. Marking a C gives n choices times the weak compositions of n-3r into r parts; divide by r and multiply by six for naming the minority and alternating. The three-state cyclic trace encodes these same placements; parity projection keeps r congruent to n mod 2 and the subtractions remove the empty packing for even n and the three perfect packings for 3|n. The trace is the sum of eigenvalue powers. For z=1 the other two roots are conjugate of modulus lambda^(-1/2)<0.827 (lambda>1.465). For z=-1 the real root is -u with u^3+u^2=1, 0.7548776<u<0.7548777, so the conjugate pair has modulus u^(-1/2)<1.151. These bounds prove the stated error and eventual positivity for the entropy limit (B_6=0 is immaterial). Fresh exact enumeration counted votes on the actual complement edges for n=5..12, yielding totals 30,0,42,72,54,150,198,252; an independent trace recurrence matched the spacing counts for n=5..100. The all-n conclusion uses the proof, not these finite tests.",
+      "residual_risks": [
+        "The exact count at fixed r and the entropy of the aggregate over all eligible r are distinct. The rule must retain even a nonmaximizing incumbent when the top count ties."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper perturbs weights to avoid ties for multiple opinions. The second samples three random neighbors on a clique and resolves sample ties uniformly. Available same-day summaries describe matching-deleted cliques (920fa65cb1d5) and a one-sided cyclic rule (ed9b4d3a8cbc), not the frozen open-neighborhood cycle complement."
+        ],
+        "reasoning": "These regimes do not include the deterministic tied-open-count update on the specific graph; degree-one deleted matching neighborhoods cannot be turned into degree-two deleted cycle neighborhoods by relabelling. The catalogue summaries support graph/rule distinctions, not conclusions about everything in the uninspected full texts.",
+        "searches": [
+          "Mossel–Neeman–Tamuz arXiv:1207.0893, p. 18 and Proposition 6.6",
+          "Becchetti et al. arXiv:1310.2858, model p. 2",
+          "Resultary 920fa65cb1d5 and ed9b4d3a8cbc for adjacent ternary models"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1492223696ea (target), c1a31cd30a7a, 920fa65cb1d5 and ed9b4d3a8cbc (latter two summarized)",
+        "arXiv:1207.0893 and arXiv:1310.2858"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary theorem has no cases with r>0. Perturbed strictly decided votes cannot imply retention by a C incumbent when A and B tie. The effective transfer matrix acts on spacing states, not on opinion configurations; the parity and strict-minority exclusion matter in converting its counts to B_n."
+        ],
+        "reasoning": "Once the new characterization is known the combinatorial counts and cubic rate are derived by standard methods; those methods or the inspected prior dynamical claims do not directly imply the characterization.",
+        "searches": [
+          "c1a31cd30a7a Finding and assumptions",
+          "arXiv:1207.0893 p. 18; arXiv:1310.2858 p. 2",
+          "Resultary: tied-leader entropy, ternary plurality counting transfer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact matching indexed statement is the assigned 1492223696ea. The closest distinct same-graph result c1a31cd30a7a uses a binary alphabet. Distance-three cyclic packings are exactly independent sets in the square of a cycle; the transfer polynomial counts such sets, not stationary ternary words without the proved correspondence."
+        ],
+        "reasoning": "Binary near-alternation is not alternating leaders after deleting a third opinion, and the equivalence to hard-core placement needs the actual nonbinary tie and alternation proof.",
+        "searches": [
+          "Resultary: ternary tie-retaining fixed configurations, complete graph minus a Hamilton cycle, minority spacing and alternation",
+          "Web: three-opinion cycle-complement plurality equilibria and hard-core counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary c1a31cd30a7a gives exactly 2n+2 fixed states for odd n>=7, a census outside the positive third-opinion sector. 920fa65cb1d5's indexed model is a different graph and its catalogue describes orbit, fixed-point and basin counts. No distinct exact stratum entry was identified for the cycle complement."
+        ],
+        "reasoning": "A database listing binary equilibria, matching-deleted equilibria or independent sets is not an exact table of the frozen ternary fixed configurations.",
+        "searches": [
+          "Resultary: exact histogram (L,L,r), ternary cycle-complement equilibria, sector entropy, distance-three defect census",
+          "Resultary c1a31cd30a7a Finding and same-day 920fa65cb1d5 summary"
+        ]
+      },
+      "rationale": "The standard hard-core placement enumeration and transfer calculation are not themselves claimed as new. The supported distinct result is the exact dynamical equivalence of that model, with an alternating leader background, to the positive-minority tied-leader sector on the cycle complement; it also yields the stated labelled count and sector entropy.",
+      "residual_risks": [
+        "The scope of unavailable same-day full texts is not asserted beyond their retrieved summaries. Unindexed same-rule ternary calculations or work giving the underlying hard-core counts may exist; standalone hard-core formula priority is not claimed. The web lookup was inconclusive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph, binary only",
+          "evidence": "For odd n>=7 gives unanimity and binary near-alternation with one equal-bit bond (2n+2 fixed states); for even n>=8 gives a long transient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-and-long-transients-in-majority-dynamics-on-cycle-complem--c1a31cd30a7a/RESULT.md",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror; compared alphabets, graph and claims",
+          "title": "Parity and long transients in majority dynamics on cycle complements",
+          "trigger": "Exact cycle-complement graph and close tie-retention rule"
+        },
+        {
+          "assessment": "Perturbed weighted, tie-free model",
+          "evidence": "Multiple-opinion ties are avoided using rationally independent edge weights; Proposition 6.6 assumes no ties.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.0893",
+          "material_read": "PDF p. 18, near offset 61400; tie discussion and Proposition 6.6",
+          "method": "Primary open text; inspected exact tie assumption",
+          "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+          "trigger": "Multi-opinion plurality in a network model"
+        },
+        {
+          "assessment": "Different sampling, graph and tie rule",
+          "evidence": "Each vertex samples three random neighbors in a clique and breaks sample ties uniformly.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.2858",
+          "material_read": "PDF p. 2, offset 5637",
+          "method": "Primary open text; read update protocol",
+          "title": "Simple Dynamics for Plurality Consensus",
+          "trigger": "Alternative ternary plurality model"
+        },
+        {
+          "assessment": "Different deleted-edge graph on available evidence; no full-text judgment",
+          "evidence": "Complete graphs minus a perfect matching, with fixed/orbit/basin formula claims in that model.",
+          "identifier_or_url": "Resultary 920fa65cb1d5",
+          "material_read": "Catalogue summary; full record not retrieved from the local mirror",
+          "method": "Local catalogue and mirror access attempt; compared reported graph",
+          "title": "An inverse-size oscillation law and a sharp two-update clock for ternary plurality on matching-deleted cliques",
+          "trigger": "Distinct same-day close ternary full-neighborhood tie-retaining model"
+        },
+        {
+          "assessment": "Different model on available evidence",
+          "evidence": "A one-sided cyclic rule with 2^n growth, not the all-open-neighbor update in the cycle complement.",
+          "identifier_or_url": "Resultary ed9b4d3a8cbc",
+          "material_read": "Catalogue summary only",
+          "method": "Local catalogue and mirror access attempt; compared reported rule",
+          "title": "Three-color entropy resonance in one-sided tie-retaining plurality",
+          "trigger": "Distinct same-day ternary tie-retaining entropy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, scoped classification, boundary and entropy",
+        "Resultary c1a31cd30a7a for comparison with the binary invariant"
+      ],
+      "rationale": "The two-leader tie is precisely where a nonmaximizing minority can persist under this update. The exact structure, including the boundary where locally permitted doublets are excluded only by cyclic parity, explains how that persistence leads to a positive, computable aggregate entropy. This is a natural all-length sector and not an arbitrary finite sample or merely a count of arrangements imposed in advance.",
+      "residual_risks": [
+        "No implication for other fixed-state sectors, system-wide convergence, basins or the entropy of the full equilibrium set."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

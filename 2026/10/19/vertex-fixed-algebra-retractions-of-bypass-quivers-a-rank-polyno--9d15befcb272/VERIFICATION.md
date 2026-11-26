@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone file `check.py` uses Python 3 without third-party dependencies. Run `python check.py`. It independently enumerates all matrices describing maps of the three arrow-corner spaces, extends them multiplicatively to the path basis, checks every ordered basis product, checks \(F^2=F\) on the entire basis, computes ranks by finite-field row reduction, and compares the complete observed histogram with the stated Gaussian sum.
+## correctness
 
-Exact checks passed for \((q,r,s,t)\) equal to \((2,1,1,1)\), \((3,1,1,1)\), \((4,1,1,1)\), \((2,2,1,1)\), \((2,1,2,1)\), and \((2,2,2,1)\). The last case comprises 8,192 maps; its 728 retractions have ranks and multiplicities \((3:1),(4:28),(5:194),(6:104),(7:288),(8:48),(9:48),(11:16),(12:1)\). The output ends in `ALL_EXACT_CHECKS_PASSED`.
+PASS
 
-The checks are finite tests only; the general theorem depends on the algebraic proof in `RESULT.md`. No independent mathematical audit or formal proof-assistant certification was performed.
+For the specified relation-free three-vertex path algebra, fixing the vertices forces the arrow images into their endpoint corners. The maps on the two consecutive arrow spaces are S and T, the map on direct arrows is (D,B), and the map on length-two paths is P=S⊗T. There are no unstated multiplicativity conditions. Idempotence requires S,T,D to be projections and BD+PB=B. Splitting by image and kernel gives exactly B(im D)⊆ker P and B(ker D)⊆im P, in every characteristic. This gives the stated power of q, independently of the Gaussian-binomial counts of image/kernel decompositions. The corner image projects onto im D and meets the path space in im P, so its rank is d+ab. All triples occur, and lowering a or b from the maximal pair costs at least two ranks, proving the codimension-one coefficient and both unique extremes. The small example was recomputed from I_2(2,k)=(1,6,1): the coefficients in ascending attainable-rank order are (1,28,194,104,288,48,48,16,1), totaling 728; neither 7 nor 8 occurs as a product (a+1)(b+1), hence rank 10 cannot occur for t=1. This finite arithmetic supplements the general proof, not the converse.
+
+## originality
+
+PASS
+
+The strongest inspected overlaps establish the bypass shear, general path-algebra morphisms, and related rank enumerations, but do not give or subsume the exact anchored, composition-idempotent rank count on these corners. Credit is limited to the full weighted rank distribution and rank gaps, not to the shear or Gaussian-binomial projection counts.
+
+## value
+
+PASS
+
+The smallest acyclic bypass geometry in which direct-arrow and path images share a corner gives a natural test of split algebra images. The formula counts labeled splitting maps including the path-valued shear multiplicities, and gives a field-independent forbidden codimension-two rank in the exhibited example despite the adjacent ranks occurring. This supplies useful exact data not recoverable from counting linear projections alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

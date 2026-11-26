@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:33:45.150904Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A length-3^k window crosses at most one substitution-block boundary. The only source adjacencies are 00, 01 and 10, all occurring, so the all-zero block, padded prefixes and padded suffixes are exhaustive and all cuts occur. Palindromicity makes the last two families reversals. For weight w the scattered 01 count is the position sum minus binom(w,2), and the other scattered counts are determined by that count, n and w. Thus the fixed-weight cut interval [p_(w−1)+1,p_w] gives precisely the two displayed profile sets. Matching the two position sums requires cuts t,t' with t+t'=n+1+2U_w/w; counting integer cuts in the resulting intersection gives the stated I_w. The binary carry gives p_w−p_(w−1)=3^ν₂(w)+1 and the gaps telescope to n−1. All zeros and the whole Cantor block each give one endpoint profile, also when k=0. The bit-count formula for U_w follows from complete bit periods followed by the final incomplete period. Independent code (`/workspace/reproductions/5.py`) generated the word by ternary digit tests and directly accumulated all six scattered counts in every window of a 9·3^k prefix, then compared complete profiles at k=0,…,6, yielding 2,5,17,50,154,466,1402. It also checked the two length-27 examples. The supplied verifier was inspected, not executed, and its larger finite ranges are reported in the frozen source, not claimed as independent replay. The block proof, not the scan, establishes completeness for all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Lü–Wu prove 3-regularity for contiguous k-abelian equivalence of the same word, with prefix/suffix data and contiguous word counts.",
+          "Rigo–Salimov study the same scattered equivalence, but their Parikh-constant morphism hypothesis does not hold for 101 versus 000. The inspected indexed exact-spectrum result covers k≥1 and adds a separate linear lower bound on genuine collision profiles."
+        ],
+        "reasoning": "A theorem about an inequivalent statistic or a substitution with equal letter-count vectors is not the basis for the novelty failure; the indexed exact-spectrum theorem is. Its extra collision claim does not belong to the frozen record.",
+        "searches": [
+          "Literature: binary Cantor word scattered 2-binomial complexity triadic length 101 000 Cantor sequence Rigo Salimov spectra scattered subsequences exact",
+          "Chen–Lü–Wu arXiv:1703.04063 Definition 1; Rigo–Salimov final paper abstract and Definition 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Indexed Ternary-length 2-binomial spectra of the binary Cantor word RESULT.md",
+        "Chen–Lü–Wu arXiv:1703.04063",
+        "Rigo–Salimov final 2015 OA preprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed spectral theorem states both the arithmetic progressions and their intersection. Its progression length in each intermediate weight is b_w−a_w+1=p_w−p_(w−1). Evaluating this length by a binary carry gives the frozen 3^ν₂(w)+1.",
+          "The earlier background supplies binomial equivalence and the fixed-length counting framework but is not being credited with this Cantor profile theorem."
+        ],
+        "reasoning": "Expanding a progression length by its defining digit carry or appending the two one-letter profiles does not create a new spectrum. The general overlap calculation is already explicit.",
+        "searches": [
+          "Ternary-length 2-binomial spectra of the binary Cantor word, proof of the exact count",
+          "Rigo–Salimov, Another generalization of abelian equivalence, Section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record uses J=#scattered 01 and profiles (w,J), with the same positions f(j)=p_j and P_w=U_w−binom(w,2). Its two progressions are w(n−t)+P_w and w(t−w)−P_w on the frozen cut interval for 1≤w<2^k.",
+          "Adding binom(w,2) to each second coordinate gives U_w+w(n−t) and w(n−1)−[U_w+w(n−t)], exactly the frozen A_w and B_w."
+        ],
+        "reasoning": "The profile sets, not just their sizes, agree at each weight and k≥1. Positions versus scattered-01 counts is an invertible change of coordinates, not a different spectrum.",
+        "searches": [
+          "Resultary: Cantor word sequence 101 000 2-binomial scattered subword binomial complexity triadic powers 3 weight-resolved spectra prefix reversal first moment",
+          "Ternary-length 2-binomial spectra of the binary Cantor word, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed total is 2·3^k+1−Σ_(w=1)^(2^k) O_w, with overlap centers n+w+2P_w/w. These centers equal n+1+2U_w/w and the interval intersection is the frozen one for w<2^k.",
+          "At w=2^k the two arms are the same whole block, so the extra indexed term O_(2^k)=1 cancels the extra constant 1."
+        ],
+        "reasoning": "The exact indexed count reduces to the frozen total at every k≥1, including all twelve illustrated levels except the trivial k=0, where both one-letter factors occur. Novelty does not rest on whether someone tabulated the displayed integers.",
+        "searches": [
+          "Resultary: Cantor word sequence 101 000 2-binomial scattered subword binomial complexity triadic powers 3 weight-resolved spectra prefix reversal first moment"
+        ]
+      },
+      "rationale": "A distinct indexed result states the same complete profiles in scattered-01 coordinates and the same overlap-based count for all nontrivial levels. The change of coordinates is invertible at fixed weight. The length-one endpoint, expanded gap formula and digit-sum bookkeeping do not supply a distinct substantive finding. The indexed record has a later catalog date, so the comparison establishes current equivalent coverage, not historical priority or derivation direction.",
+      "residual_risks": [
+        "The literature search was bounded and is not a historical-priority audit. The later catalog date of the equivalent record does not determine authorship, priority, or direction of derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full profile and exact count for k≥1, plus a distinct collision bound not claimed here",
+          "evidence": "With the same Cantor morphism, the finding gives the two scattered-01 progressions at each weight, the interval overlap O_w, and 2·3^k+1−Σ O_w.",
+          "identifier_or_url": "2026/11/2/SCOPE-ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offsets 0–4915; relationship/limitations from offset 5900",
+          "method": "Local published-record mirror, bounded passages",
+          "title": "Ternary-length 2-binomial spectra of the binary Cantor word",
+          "trigger": "Strongest indexed exact-spectrum match"
+        },
+        {
+          "assessment": "Same word, different equivalence relation",
+          "evidence": "Definition 1 compares prefixes, suffixes and contiguous occurrences. It does not count scattered 01 pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.04063",
+          "material_read": "PDF p. 1, abstract, Equation (1.1) and Definition 1 (offset 2190)",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "On the k-abelian complexity of the Cantor sequence",
+          "trigger": "Same Cantor sequence and potentially confusable equivalence"
+        },
+        {
+          "assessment": "Same equivalence theory but compared result has an inapplicable substitution hypothesis",
+          "evidence": "Definition 4 requires all letter images to have equal Parikh vectors; the frozen substitution's images contain two and zero ones.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf",
+          "material_read": "PDF p. 1 abstract and pp. 8–9 Section 5 and Definition 4",
+          "method": "Lawful OA university PDF, bounded passages",
+          "title": "Another generalization of abelian equivalence: Binomial complexity of infinite words",
+          "trigger": "Foundational 2-binomial complexity literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The triadic scale is natural for this substitution and the complete spectrum is useful for distinguishing scattered equivalence from contiguous equivalence. As a separate finding, however, the whole nontrivial spectrum and its total are already covered. The alternative coordinate, carry expansion and length-one boundary do not resolve an additional mathematical question.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

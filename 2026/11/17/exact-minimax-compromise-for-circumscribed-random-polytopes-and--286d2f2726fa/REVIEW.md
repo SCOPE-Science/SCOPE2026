@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two normalized asymptotic curvature integrals are taken from the specified primary circumscribed random-polytope theorems. Hölder's equality proves the exact scalar dual for each multiplier; strict concavity and its stationarity condition produce a feasible density with exactly balanced risks, proving global minimax equality and uniqueness. The support-function condition \(h+h''>0\) verifies admissibility of the explicit planar family. Binomial expansions and angular moments reconstruct the nonzero fourth-order dual slope and negative quadratic dual curvature, hence the optimizer shift and strictly positive sixth-order gap. A standalone quadrature/bisection verifier was executed successfully, but is not an infinite proof.
+PASS
 
-## Originality
+For the corrected finding, reconstructed the curvature-risk normalization from Böröczky–Reitzner and the Hölder lower bound with equality at rho proportional to (lambda f^p+(1-lambda)g^p)^(1/p). Strict concavity for unequal laws gives an interior stationary multiplier and equalizes the actual two risks, establishing a matching upper bound within the admissible positive continuous densities. For the oval, r=h+h''=1+t cos(2 theta), dS=r dtheta and curvature=1/r; p=3. Independently set x=t cos(2 theta), U=<r^(2/3)>^(-3), V=<r^(1/3)>^(-3), and factor the half-weight denominator S=(U+V)/2 times (1+Ux/(U+V)). U/(U+V)=1/2+O(t^4). The angular factor (1+x)^(1/3)(1+x/2)^(-2/3)=1-x²/12+x³/12+O(x^4). U-V=-t^4/72+O(t^6), so the slope coefficient is ((3/8)/12-1/72)/3=5/864, with the second derivative -t²/9+O(t^4) from <x²>=t²/2. Even analytic dependence and the simple zero of H'/t² yield the shift 5t²/96+O(t^4). Taylor expansion gives gain 25t^6/165888+O(t^8) in H; cubing multiplies the leading coefficient by three. No finite checker proves the expansion. Replay is the exact calculation in the repair; inspected the frozen verifier and its verification notes without running the script. The claim applies to fixed-density leading errors and sufficiently small nonzero t, not finite N or general shape perturbations.
 
-PASS, subject to historical priority uncertainty. The 2026 motivating paper derives a lower bound for the maximum by minimizing the **average**; its Remark 3.7 expressly withholds any minimax identification. The exact scalar optimum, its optimizer and equal-risk law are stronger, and the sixth-order positive difference demonstrates the mathematical distinction. The 2004 source treats separate objective asymptotics, not their minimax compromise. Closest published results for inscribed polytopes use the analogous duality technique but neither assert a circumscribed error frontier nor imply the sixth-order curvature-radius calculation. The technique itself is not claimed novel. Unindexed literature may contain equivalent circumscribed variants; this review is not independent certification.
+## originality
 
-## Value
+PASS
 
-PASS. The precise strength of the published simultaneous-approximation gap is a motivated geometric question: one must know whether a single common sampler can do better than the average-error construction when both circumscribed volume and mean width are protected. The theorem gives the exact robust design for each positive-curvature body and an explicit, sharp analytic separation in a canonical perturbation of a disk. The first nonzero discrepancy only appears at order six, so a quadratic near-ball analysis would miss it. This is a genuine quantitative improvement and comparison, not a reformulation of separate optimal samplers.
+The repaired claim is specifically the sharp sixth-order oval separation, not the two-law radius theorem. It is not supplied by the known separate curvature risks, Hölder/power-mean center identities, or the prior half-weight inequality. The coefficient requires evaluating the particular normalized curvature perturbation beyond its quadratic behavior.
 
-## Scope and risk
+## value
 
-Results are for fixed-density leading expected errors. The precision of the historical overlap search is bounded by the accessible indexed primary and mathematical records; an independent audit is not asserted. Numerical tests are finite corroboration only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The published lower bound is expressly not known to be exact from its derivation. The oval perturbation proves a concrete strict failure arbitrarily close to a disk and identifies the first order at which the average benchmark underestimates the optimum. The small size is mathematically informative: quadratic or quartic near-disk comparisons cannot detect it. This justifies the exact positive coefficient and the narrower finding, apart from the known minimax reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

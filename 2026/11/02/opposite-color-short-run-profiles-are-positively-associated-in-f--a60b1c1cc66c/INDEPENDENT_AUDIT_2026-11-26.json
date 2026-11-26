@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:45:21.658876Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniformly marking one of the r zero-run starts introduces no size bias within R=r: there is a bijection of marked labeled words to a labeled start and a pair of ordered positive compositions. Hence the two profiles are conditionally independent even for rotationally periodic words. Taking the first r−1 cuts in a uniform permutation of the internal gaps realizes each uniform composition and couples consecutive r by refinement. A split can never reduce a cumulative count, and the last coordinate rises strictly. Thus the conditional means of the indicated isotone functions are isotone in the shared scalar R, with strictness between r=1 and 2 for both strictly isotone functions and positive mass at both levels. The independent-copy formula for covariance proves the sign. The singleton conditional mean is r(r−1)/(m−1) for each color of content m≥2. Independently, the marked count is the hypergeometric mass binom(a,r) binom(b−1,b−r)/binom(n−1,b), giving exactly the quoted falling-factorial moments including the zero convention; the square of (R)_2 expands into (R)_4+4(R)_3+2(R)_2. One occurrence of a color makes its profile constant. The paragraph about monotone statistics is interpreted in the displayed nondecreasing order; reversing just one monotonicity reverses the sign. Fresh replay `python3 /workspace/review-evidence/reproduce.py 1` checked 3944 labeled words over 36 content pairs through n=11, including 243 joint conditional profile cells and the exact singleton covariance. The analytic argument, not that finite range, proves the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eryilmaz gives a joint multicolor run law for a linear urn sequence, including the without-replacement case. Inoue–Aki give a circular joint enumerator for several lengths of success runs, which can be conditioned on the success count to match the uniform fixed-content sample measure."
+        ],
+        "reasoning": "The first statement is joint across colors but not circular, and the second is circular but not joint across colors. Neither inspected broader result yields the claimed cross-color order under these hypotheses.",
+        "searches": [
+          "Eryilmaz DOI 10.1239/jap/1231340230, Theorem 1 and s=-1 case",
+          "Inoue–Aki AISM 57, Theorems 4.3 and 4.6"
+        ]
+      },
+      "checked_sources": [
+        "Inoue–Aki, AISM 57 (2005) 353–368",
+        "DOI 10.1239/jap/1231340230",
+        "Resultary 0174d9413a90, 10ab2630cc39, 3cf268842cf9, 5c4560dfff3b, 5e29bbdfb592",
+        "DOI 10.1080/03610920601033942 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known finite enumerators give marginal circular data or joint linear data. The line's conditional singleton dependence differs from the circle's exact conditional factorization. A split preserves cumulative short-run counts in the necessary order, not arbitrary exact-length counts."
+        ],
+        "reasoning": "The inspected results do not directly imply the universal sign or strictness, which use the circular factorization and stochastic monotonicity jointly. No originality claim is made for composition enumeration, total covariance or hypergeometric moments in isolation.",
+        "searches": [
+          "Eryilmaz Theorem 1",
+          "Inoue–Aki §4",
+          "Resultary 0174d9413a90 and 10ab2630cc39 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier nested-majorization record couples run compositions by successive splits in a linear word and proves majorization and longest-run consequences. The circular result is a shared scalar mixture of two independent isotone composition laws, with two color run counts always equal."
+        ],
+        "reasoning": "The same refinement construction is an antecedent, not a new technique here. The circular marked counting and cross-color association are a different conclusion; linear boundary and orientation effects preclude simply replacing the model in the prior statement.",
+        "searches": [
+          "Resultary 0174d9413a90, nested majorization coupling",
+          "Resultary 10ab2630cc39, color-separated singleton covariance",
+          "Inoue–Aki circular joint runs §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier linear opposite-singleton result has nonpositive conditional covariance, including −4/(n−2)^2 at total run count 3. A same-date linear result orders a single color's singleton statistic against its run count. The later circular records address total versus single-color exact lengths at fixed weight, or single-color spectra in the i.i.d. model."
+        ],
+        "reasoning": "None is an exact reference for the opposite-color circular covariance or isotone-profile theorem; overlapping statistics and dates are not themselves a finding of coverage or priority.",
+        "searches": [
+          "Resultary 10ab2630cc39 and 3cf268842cf9, singleton covariances",
+          "Resultary 5c4560dfff3b and 5e29bbdfb592, circular run covariances"
+        ]
+      },
+      "rationale": "The supported distinction is a cross-color covariance sign for arbitrary isotone statistics of the cumulative circular profiles, with the exact circular singleton factorization. The cut-refinement mechanism has a close earlier linear antecedent, and the circular one-color and linear joint multicolor enumerations precede this record. Those are not the same claims; in particular the different linear conditional covariance shows why transferring the result from line to circle without a new argument is not valid.",
+      "residual_risks": [
+        "The earlier linear refinement mechanism and circular joint-run enumeration are close antecedents; another earlier source could combine them or explicitly evaluate opposite-singleton moments.",
+        "Full text of the cited Makri–Philippou–Psillakis paper was unavailable. Deferred literature searches are not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Circular enumeration for one color; no inspected cross-color theorem",
+          "evidence": "The joint probability functions count several success-run lengths, not a joint pair of opposite-color profiles.",
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+          "material_read": "pp. 353–354; §4, Theorems 4.3 and 4.6, pp. 361, 363",
+          "method": "Bounded OA PDF text, offsets 0, 4300, 24100 and 29100",
+          "title": "Joint distributions of numbers of success runs of specified lengths in linear and circular sequences",
+          "trigger": "Closest circular joint run-length enumeration"
+        },
+        {
+          "assessment": "Substantial linear joint enumeration, not this circular stochastic order",
+          "evidence": "Color-specific fixed/at-least run length statistics are in the setup; s=−1 gives sampling without replacement in a linear sequence.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1231340230",
+          "material_read": "pp. 1008–1011, definitions, s=−1 case and Theorem 1",
+          "method": "Bounded OA PDF text at offsets 4200, 9000, 14500 and 20300",
+          "title": "Run Statistics Defined on the Multicolor Urn Model",
+          "trigger": "Closest multicolor fixed-content joint enumeration"
+        },
+        {
+          "assessment": "Earlier coupling for a linear model",
+          "evidence": "Successive splits as total run count grows give majorization and longest-run consequences.",
+          "identifier_or_url": "Resultary 0174d9413a90 (2026-10-25)",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Bounded local published-mirror text",
+          "title": "A nested majorization coupling for fixed-composition binary-run lengths",
+          "trigger": "Same splitting mechanism"
+        },
+        {
+          "assessment": "Different linear conditional dependence",
+          "evidence": "Positive unconditional linear covariance, but conditional covariance is nonpositive and equals −4/(n−2)^2 at R=3.",
+          "identifier_or_url": "Resultary 10ab2630cc39 (2026-10-25)",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Bounded local published-mirror text",
+          "title": "Opposite conditional and unconditional covariance signs for color-separated singleton runs",
+          "trigger": "Prior opposite-singleton covariance theorem"
+        },
+        {
+          "assessment": "One-color linear result, not the opposite-color circle",
+          "evidence": "TP2 for one color's run count and singleton count.",
+          "identifier_or_url": "Resultary 3cf268842cf9 (2026-11-02)",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Bounded local published-mirror text",
+          "title": "Likelihood-ratio ordering of singleton success runs under fixed composition",
+          "trigger": "Same-date fixed-content singleton covariance and stochastic order"
+        },
+        {
+          "assessment": "Exact scope undetermined",
+          "evidence": "Title indicates circular success runs but cannot exclude other coverage.",
+          "identifier_or_url": "https://doi.org/10.1080/03610920601033942",
+          "material_read": "Citation; no theorem passage retrieved",
+          "method": "Lawful OA access failed; no alternate repository copy identified",
+          "title": "Pólya, Inverse Pólya, and Circular Pólya Distributions of Order k for l-Overlapping Success Runs",
+          "trigger": "Cited antecedent on circular success runs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-composition circular null model is natural for run tests, and the theorem determines a structural sign for any opposite-color increasing profile tests simultaneously, not merely a single pair of run counts. It identifies which dependence survives conditioning, and the exact singleton covariance quantifies it; removing the circular sampling assumption changes the conditional mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

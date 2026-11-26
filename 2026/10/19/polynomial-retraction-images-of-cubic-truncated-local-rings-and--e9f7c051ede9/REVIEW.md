@@ -1,19 +1,21 @@
-# Review: Polynomial retraction images of cubic truncated local rings
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated ring is the equal-characteristic chain ring \(R=\mathbb F_q[t]/(t^3)\), and the objects counted are distinct polynomial functions under composition. Hasse--Taylor expansion yields local jets \((s,r)\mapsto(u+\alpha s,w+vs+\beta s^2+\alpha r)\). The derivative coefficient \(\alpha\) is forced to \(0\) or \(1\) for a fixed fiber of an idempotent, yielding only constant or identity functions there. The CRT for \((X-a)^3\) justifies independent gluing. All factors of the exact formula account for disjoint residue fibers; boundary cases \(q=2\), rank one and full rank are handled. Exact finite checks over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\) agree; infinite validity follows from the symbolic proof rather than enumeration.
+PASS
 
-## Originality — PASS within examined coverage
+For X=a+ts+t²r, Hasse–Taylor expansion gives output residue b and coordinates (u+αs,w+vs+βs²+αr). Jets of degrees 0, 1, 2 modulo (X−a)³ can be specified independently at each residue by CRT, since a−a′ is a unit. For q>2, 1,s,s² are independent as functions; for q=2 exactly the sum v+β remains after identifying s²=s. This gives q⁵ and 16 distinct local maps for a fixed b, respectively. The residue of an idempotent is a set retraction. On a fixed source residue α²=α. If α=1, u=0 and idempotence of translation of r forces the translation to vanish as a function. If α=0, idempotence forces the entire quadratic output g(s) to equal g(u), even in the binary case. So every occupied fiber is fixed fully or contributes one point; unused fibers choose independently among one map to each singleton and H_q to each full target. Choosing the active and full residues and their singleton values gives the rank polynomial and image-subset count; k+s(q²−1) gives the stated extrema and their coefficients. Independent direct ring multiplication and the span of monomial evaluation tables (`python3 review_checks/finite_checks.py 4`) give 1024 distinct binary functions, 35 images, and rank counts 8,16,32,8,1 at 1,2,4,5,8, verifying each fixed-image multiplicity without using the jet template as enumeration input.
 
-Al-Maktry (arXiv:2002.01304v1) and Al-Ezeh--Al-Maktry--Frisch (arXiv:1910.00238v1) study polynomial functions on split square-zero dual numbers. Their inspected formulas do not imply the specific length-three chain-ring retraction spectrum because here the radical square is nonzero. Aichinger (DOI:10.1017/S0013091599001418), Theorem 1.1, characterizes near-ring ideal ranges, rather than arbitrary fiberwise image subsets with exact polynomial-map multiplicities. An earlier square-zero image/retract theorem likewise has different nilpotence hypotheses and cannot be used by renaming parameters. The quadratic Hasse jet and exceptional binary function identity are the new ingredients. Targeted equivalence and table searches found no matching full formula, but searches do not certify novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The first nonsquare-zero finite chain-ring stage is a natural test case for polynomial-function semigroups. The result classifies all possible retract images and their multiplicities for infinitely many finite fields, detects a binary jet exception, and identifies sharp image-size extremes. These exact invariants are not limited to an arbitrary small numerical slice.
+The supported distinct result is the composition-idempotent image and rank enumeration and its binary multiplicity effect. Total polynomial-function counts on suitable rings already encode the numerical local-count exception; that local count alone is not new. The strongest inspected same-ring indexed results count unital algebra endomorphisms, and the broader near-ring theorem does not cover the arbitrary image subsets and multiplicities here.
 
-## Residual scientific and access risks
+## value
 
-The result does not treat mixed-characteristic chain rings, other nilpotence lengths, or multivariate polynomial self-maps. The complete Frisch (1999) and Bulyovszky--Horvath (2017) sources were not obtained; equivalent older near-ring terminology could conceal a pre-existing formula. Direct local computational tests are finite. The detailed proof remains subject to independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first nilpotence length with a genuinely nonlinear local Hasse jet. An idempotent could superficially seem able to keep an intermediate-sized part of a residue fiber through the quadratic term when the linear coordinate collapses; the composition constraint rules it out. At the same time the nonlinear jet changes the retraction multiplicities, with a binary collision that affects the coefficients while leaving the admissible image sets unchanged. The complete exact image census for this natural chain-ring stage resolves both issues, not just the already-known count of all maps or an isolated binary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

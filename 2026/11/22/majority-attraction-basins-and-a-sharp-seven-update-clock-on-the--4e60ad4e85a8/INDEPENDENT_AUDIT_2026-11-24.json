@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:13:47.918698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56 and VERIFICATION.md",
+        "Frozen verify_paths.py and verify_pruning.py, inspected, not executed",
+        "Fresh replay: python3 /workspace/reproductions/majority.py groetzsch (Python 3, NumPy; exact integer arithmetic)",
+        "Direct check of all 2048 successors and breadth layers, seven spectrum rows, and 20 symmetries"
+      ],
+      "rationale": "Independent exact census: construct the 11 neighbors lists for mu(C5), add the incumbent as an extra voter exactly at even-degree vertices (equivalent to tie retention), and evaluate strict odd-input majority simultaneously on all 2048 bitmasks. Seed the recurrent set by F(F(x))=x. Grow its inverse images one full breadth layer at a time, inheriting the least mask of the target orbit; since this exhausts every state by layer 7, no longer cycle can exist. The fixed/oscillating entry pairs for t=0,...,7 are (22,70),(262,130),(594,10),(290,0),(280,0),(230,0),(130,0),(30,0). The 30 last-layer masks lead only to unanimity. For example 107 -> 663 -> 363 -> 1687 -> 1003 -> 1695 -> 1023 -> 2047, then fixed. Basin counting gives the seven stated rows, including two unanimous basins of 884 (221/256 of all starting states). All twenty dihedral/complement maps commute with the full computed map and canonicalizing both phases under them gives precisely one symmetry class per basin row. This verifies the sharp identities and complete labelled/symmetry census without presupposing the clock or a period bound.",
+      "residual_risks": [
+        "The reproducible proof is for the single labelled graph and stated synchronous rule, not other graphs or tie rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaaser–Mallmann-Trenn–Natale p. 1 discusses the general O(|E|) result for entry into a two-periodic state",
+          "Resultary 82371cbac77e is an exact enumeration on the 20-vertex Folkman graph"
+        ],
+        "reasoning": "Even applying a general period-at-most-two bound yields neither the sharp time seven nor any of the labelled basin/entry/symmetry counts. A same-time calculation on a nonisomorphic graph supplies no wider exact theorem.",
+        "searches": [
+          "arXiv:1508.03519 p. 1; extracted-text lookups for Grötzsch, Mycielski and basin",
+          "Resultary majority dynamics and exact recurrent/entry census"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e60ad4e85a8 (identical), c135e8bc2320, 82371cbac77e",
+        "arXiv:1508.03519",
+        "MathWorld Mycielski Graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Folkman also has sharp time seven but 4036 fixed points, 351 two-cycles, and 960 depth-seven masks, in dimension 20",
+          "Greenberg–Hastings on Grötzsch has other periods and a nine-update clock",
+          "The voting-time paper's inspected general statement yields a qualitative constraint"
+        ],
+        "reasoning": "Neither the graph alias, the equal numerical cutoff elsewhere, nor the general theorem implies the exact basins or entry populations of this map.",
+        "searches": [
+          "Resultary c135e8bc2320 and 82371cbac77e, local mirror RESULT.md offset 0",
+          "arXiv:1508.03519 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4e60ad4e85a8 is the assigned record itself",
+          "Same-day c135e8bc2320 uses the same graph but three-state threshold-one Greenberg–Hastings dynamics with periods 1,3,4,7,10 and a nine-update clock",
+          "MathWorld Mycielski Graph confirms the graph nomenclature"
+        ],
+        "reasoning": "Relabelling mu(C5) leaves the census unchanged, so this alias was checked; changing from binary incumbent-retaining majority to a three-state excitable-wave rule changes the map and recurrent states. The identical indexed record is not independent overlap.",
+        "searches": [
+          "Resultary semantic searches for Grötzsch / Mycielski C5 majority, 22 fixed, 35 two-cycles, seven updates and the basin distribution (two ranked sets)",
+          "Web: Grötzsch graph majority dynamics synchronous binary tie retention attraction basin two-cycle Mycielski C5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table surfaced in the assignment's own indexed record; the inspected MathWorld material describes graph construction and sizes, not dynamic tables",
+          "The nearest graph-specific dynamic table retrieved on the same graph (c135e8bc2320) enumerates a different state space and rule"
+        ],
+        "reasoning": "A graph description specifies what to enumerate, not the resulting basin values. No matching distinct exact table was found in these bounded checks. No separate comprehensive graph-dynamics database search is claimed.",
+        "searches": [
+          "Resultary Grötzsch or Mycielski C5 exact synchronous majority census, including seven-step clock and 884-state basins",
+          "MathWorld Mycielski Graph, offsets 780 and 1350"
+        ]
+      },
+      "rationale": "The supported contribution is the exact Grötzsch-specific entry and attraction-basin census, including its symmetry classes, not the general period restriction. The strongest distinct indexed matches share the rule on another graph or the graph under a different rule. Neither covers the census.",
+      "residual_risks": [
+        "Bounded index/literature searches do not exclude unindexed computations or a more general exact census under undocumented aliases.",
+        "A web query miss is not positive originality evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph, does not cover",
+          "evidence": "20-vertex Folkman with 4036 fixed states and 351 two-cycles.",
+          "identifier_or_url": "2026/11/22/SCOPE-majority-dynamics-on-the-folkman-graph-a-sharp-seven-step-clock--82371cbac77e",
+          "material_read": "Local-mirror RESULT.md offset 0 and assigned record's graph definition",
+          "method": "Resultary/local mirror and frozen text",
+          "title": "Majority dynamics on the Folkman graph: a sharp seven-step clock and 26 basin sizes",
+          "trigger": "Same-day majority census and same cutoff"
+        },
+        {
+          "assessment": "Different dynamics, does not cover",
+          "evidence": "Three-state threshold-one Greenberg–Hastings, periods 1,3,4,7,10; sharp time nine.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-excitable-wave-spectrum-and-basin-geometry-on-the-gr-tzsch--c135e8bc2320",
+          "material_read": "RESULT.md offset 0",
+          "method": "Resultary/local mirror",
+          "title": "Exact excitable-wave spectrum and basin geometry on the Grötzsch graph",
+          "trigger": "Same-day exact dynamics on identical graph"
+        },
+        {
+          "assessment": "General background, no exact implication from the inspected theorem statement",
+          "evidence": "General two-periodic state in O(|E|) rounds; no numerical Grötzsch result in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+          "material_read": "p. 1, extracted offset 900; literal alias searches in extracted text",
+          "method": "OA PDF text",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "General eventual-period and voting-time theorem"
+        },
+        {
+          "assessment": "Graph identification, not a majority-dynamics database",
+          "evidence": "Grötzsch is the 4-Mycielski graph, of order 11.",
+          "identifier_or_url": "https://mathworld.wolfram.com/MycielskiGraph.html",
+          "material_read": "Offsets 780, 1350",
+          "method": "Public page text",
+          "title": "Mycielski Graph",
+          "trigger": "Graph alias and exact table check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29",
+        "Independent complete census and symmetry reduction in reproductions/majority.py",
+        "General comparison arXiv:1508.03519"
+      ],
+      "rationale": "The Grötzsch graph is the canonical pentagon Mycielski lift, a small triangle-free four-chromatic test graph. The general period constraint says nothing about the likelihood of unanimity, the exceptional attraction of nontrivial fixed points and oscillations, or the exact maximal transient. The seven-row labelled and symmetry classification gives these quantitative baselines for the standard deterministic process: unanimity dominates, and all sharp-depth trajectories reach it, despite 55 other recurrent orbits. This is useful as an exact benchmark on a motivated, structurally asymmetric graph, not a claim of a general convergence theorem.",
+      "residual_risks": [
+        "Finite canonical example only; no extrapolation to the full Mycielski family or nonuniform initial measures is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

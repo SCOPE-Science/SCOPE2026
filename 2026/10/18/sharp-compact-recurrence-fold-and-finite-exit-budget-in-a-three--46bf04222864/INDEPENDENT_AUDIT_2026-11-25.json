@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:49:09.535885Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inverse recovers the first two old coordinates from the new second and third and then divides the first-coordinate residual by δ. Substitution into H=x+(δ−σ)y+δz cancels the y,z terms in H∘F−H and leaves x²+(δ−σ−1)x+α=(x−c)²+ε. On an interval of N steps the increment is at least Nε. For ε>0 the height difference between two points in the cube is at most 2R(1+|δ−σ|+δ); separately H(F^Np)≥H(p)+Nε and H≤(1+|δ−σ|+δ)||·||∞ give the liminf bound and eventual permanent exit. At ε=0, bounded forward orbits have summable squared first-coordinate deviations by telescoping, hence all three coordinates converge by the shifts. For any full bounded orbit the same sum over all integers is finite; both limiting states are the fixed one, so both limiting heights agree and the sum is zero. This applies to any point of F(K)=K by invertibility, not to arbitrary forward-invariant compact sets. Integrating the identity under a compactly supported invariant law gives the moment equation, and the marginal shifts prove Dirac uniqueness at equality. Solving the fixed-point equation gives the stated two fixed points below the fold. This is an exact existence boundary, not a claim that the runtime bound is the optimal finite exit time, or that all trajectories converge at the fold. Replay: RESULT.md lines 39–68 and direct substitution above. The inspected verify.py checks finitely many rational substitutions including δ=0 as a check of the identity only; it was not executed and does not prove the orbit statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lomelí–Meiss Theorem 5.1 treats a positive-definite quadratic part and volume preservation, not a dissipative rank-one square.",
+          "edd60670a63c allows larger dimension and proves stronger measure and critical-rate claims for its delayed-square dynamics; it does not allow an independent term −σy or a square in the current first coordinate."
+        ],
+        "reasoning": "More dimensions or a stronger conclusion for a different family do not give the target within their hypotheses. The search for a stronger theorem across these models did not identify a statement carrying the target assumptions; it is not proof there is none.",
+        "searches": [
+          "Resultary: three-dimensional Hénon map sigma delta alpha saddle-node all bounded forward orbits critical compact invariant stationary moment",
+          "Lomelí–Meiss arXiv:chao-dyn/9706001, Theorem 5.1",
+          "Hampton Meiss generalized Hénon x squared map no bounded orbit saddle node threshold global escape Lyapunov drift sum of squares compact invariant measure"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Hampton–Meiss arXiv:2206.07855",
+        "Lomelí–Meiss arXiv:chao-dyn/9706001",
+        "Resultary edd60670a63c and ace815aa3687"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the linear functional in the frozen RESULT.md to Hampton–Meiss's Eq. (15) gives the increment by elementary algebra. The source's stated fixed-point and cube results do not themselves contain a monotone height, accumulated square-deviation law, or equal limiting heights for entire orbits.",
+          "The delayed-square record deploys the same strategy with its own functional L=x₁+⋯+x_(m−1)+b x_m. Its identity singles out the next-to-last coordinate and cannot be substituted as the drift identity for the general frozen map."
+        ],
+        "reasoning": "The original proof naturally starts from a known equation, and several conclusions are routine once the balance is obtained. The model equation is not an existing stronger recurrence theorem: the additional way of combining it with its shifts, and the bounded-entire-orbit use of the resulting square, are what prove the global implication. The close methodological analogues are credited rather than claimed as new methods.",
+        "searches": [
+          "Hampton–Meiss arXiv:2206.07855 §§III–IV, literal Eq. (15) comparison",
+          "edd60670a63c Proof §1 and ace815aa3687 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hampton–Meiss use the exact shift recurrence x_(t+1)=δx_(t−2)+α−σx_(t−1)+x_t² and give the same discriminant threshold. Their Lemma 1 encloses bounded orbits in a parameter-dependent cube.",
+          "edd60670a63c uses a square in the next-to-last coordinate of a shift map and no independent σ. Its characteristic polynomial in dimension three at the critical fixed point is ξ³+(δ−1)ξ−δ, whereas the frozen family's is ξ³−2cξ²+σξ−δ."
+        ],
+        "reasoning": "The map and fold in the first source are truly identical, but the bounded-orbit enclosure is not existence, escape, or rigidity. The delayed-square map is not the same family under dimension and parameter matching: the fixed-point traces disagree for generic σ, ruling out a differentiable conjugacy of the full families.",
+        "searches": [
+          "Resultary: Hampton Meiss three-dimensional generalized Hénon fold bounded forward orbits escape finite exit height moment",
+          "Hampton–Meiss arXiv:2206.07855 §§III–IV, Eq. (8), Eq. (15) and Lemma 1",
+          "Resultary edd60670a63c Finding and exact coboundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact fixed-point locus is an explicit match. The planar ace815aa3687 computes a stationary parabola by Hénon invariance; the delayed-square edd60670a63c has its own stationary second-moment constraint and escape law."
+        ],
+        "reasoning": "The exact parameter boundary for fixed points is already present; this alone does not determine whether other bounded-forward orbits exist. The exact stationary parabolas in the other records are for different recurrences. A trajectory or parameter grid cannot establish the all-real, all-orbit assertion.",
+        "searches": [
+          "Hampton–Meiss Eq. (8) and Lemma 1",
+          "Resultary edd60670a63c and ace815aa3687"
+        ]
+      },
+      "rationale": "The fixed-point fold and the starting recurrence are exactly Hampton–Meiss's. Their recurrence is a short route to the balance once the height is chosen, but the fixed-point and enclosure theorems do not give global exclusion above the fold or full bounded-orbit rigidity at the fold. The distinct delayed-square map in edd60670a63c uses essentially the same coboundary method and proves parallel global theorems; it neither states nor subsumes this three-dimensional family with arbitrary σ. The supported contribution is the use of the exact height to turn the known fixed-point fold into a global boundary, with critical two-sided rigidity and explicit exit and moment consequences. It is not priority for the map, fold calculation, general telescoping method, or stationary parabolas.",
+      "residual_risks": [
+        "A general companion-recurrence Lyapunov theorem or an equivalent height argument in uninspected work could overlap. The comparison does not establish historical priority; the deriving step from the known recurrence is short."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and fixed-point coverage, but the statements are not the global forward and critical entire theorems",
+          "evidence": "Eq. (15) is the exact scalar recurrence, Eq. (8) is the known saddle-node, and the lemma bounds already-bounded orbits using forward and backward recurrences.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2206.07855",
+          "material_read": "§III Eq. (8) and §IV Eqs. (14)–(16) and Lemma 1; HTML passages around offsets 15450 and 20150–24383",
+          "method": "Lawful full HTML of the same preprint after the PDF route exceeded size limits",
+          "title": "Visualizing Attractors of the Three-Dimensional Generalized Hénon Map",
+          "trigger": "Source of the identical map, saddle-node threshold and bounded-orbit enclosure"
+        },
+        {
+          "assessment": "Parallel theorem for another companion map, not a stronger theorem whose specialization gives the target",
+          "evidence": "Square acts on coordinate m−1, with only a constant and b x_m in the first component; the global moment and bounded-orbit conclusions are for that model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-global-recurrence-threshold-and-logarithmic-fold-relaxation-for--edd60670a63c/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §1, mirror offsets 0–4060",
+          "method": "Published local-mirror text inspection",
+          "title": "Global recurrence threshold and logarithmic fold relaxation for generalized Hénon maps",
+          "trigger": "Closest exact coboundary and global-threshold database comparator"
+        },
+        {
+          "assessment": "Different hypotheses and enclosure conclusion",
+          "evidence": "Bounded-orbit cube and escape directions under a positive-definite quadratic form and volume preservation.",
+          "identifier_or_url": "https://arxiv.org/pdf/chao-dyn/9706001",
+          "material_read": "Theorem 5.1, PDF p. 15, text offset around 41850",
+          "method": "Lawful OA theorem inspection",
+          "title": "Quadratic Volume Preserving Maps",
+          "trigger": "Possible general bounded-orbit theorem for quadratic maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local fixed-point discriminant need not decide global bounded recurrence. The exact height settles that distinction for all real linear feedback values in this family and rules out nontrivial compact two-sided dynamics on the entire critical locus. The orbit-by-orbit residence bound is directly quantitative above the fold without any assumption about trapping or local stability. The value lies in these global decisions, not in recomputing the fixed-point locus or asserting optimality of the residence bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

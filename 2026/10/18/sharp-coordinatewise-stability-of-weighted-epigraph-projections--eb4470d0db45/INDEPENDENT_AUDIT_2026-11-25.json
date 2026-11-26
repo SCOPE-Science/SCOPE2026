@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:29:27.717332Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For output height θ≥0, the spatial minimizers are coordinate clips, and the remaining scalar objective is strictly convex. On a strict clipped support S the active height-spatial derivative block is the rank-one orthogonal projector in direction (1,(σ_i a_i)_{i∈S}); the unclipped block is identity. The specified input at θ=1 realizes every S in an open chart, so segment integration and small row-sign perturbations give equality in the global formula. At an optimal subset for R, every unforced included a is ≤1/R and every excluded a is ≥1/R, by deletion and insertion, respectively. Ties can be ordered as a prefix. This proves the candidate count both with no forced coordinate and with one forced. Singletons give strict expansion at any non-unit reciprocal weight. For k active coordinates, a rank-one orthogonal projector in dimension k+1 has maximum row sum bounded by (1+√(k+1))/2: writing q for its diagonal entry, Cauchy–Schwarz bounds the row by q+√(kq(1−q)). Equality at the ambient ceiling forces full support and a distinguished coordinate larger in magnitude than every other coordinate by √(n+1)+1, the other magnitudes being equal. Normalizing the height coordinate gives exactly the n+1 listed positive designs; strict chart realization attains the bound. For the positive dual at unit weights, the active block is the complementary hyperplane projector with row sum 2k/(k+1); full support is feasible and gives the claimed constant. The negative polar has the same modulus by reflection. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al. p. 738 explicitly announce exact directional derivatives, B-subdifferentials and Clarke generalized Jacobians for the same two weighted epigraphs. Ding–Sun–Toh treat unweighted or uniformly scaled cases. The indexed Lorentz theorem contains the same ceiling (1+√d)/2 for its axial branch in ambient dimension d+1, but with a Euclidean spatial norm.",
+          "For any orthogonal projector in N coordinates, the row diagonal q fixes the off-diagonal squared row mass at q(1−q), giving the general ceiling (1+√N)/2 independently of epigraph structure."
+        ],
+        "reasoning": "Prior derivative theory is real coverage, as is the generic bound as a mathematical implication of idempotence. Neither the general ceiling alone nor the Lorentz example identifies all heterogeneous weights realizing it in the specified maximum-norm epigraph.",
+        "searches": [
+          "Liu Han Wang Chen Differential properties of the metric projectors weighted epigraph Pacific Journal of Optimization 2015 737 749 pdf",
+          "Ding–Sun–Toh §3, Proposition 3.2",
+          "Resultary 2d1b9aa4230e, Lorentz-cone projection"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary a3fe218df88d and 2d1b9aa4230e",
+        "Chierchia et al. arXiv:1210.5844",
+        "Ding–Sun–Toh technical report",
+        "Liu et al. (2015), publisher introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed ℓ1 proof gives J=I−vvᵀ/(1+Σ_{i∈S}a_i²) on the active coordinates and height, with zero inactive rows and all strict supports realized. Moreau gives the frozen derivative as the complement of that matrix at the reflected input. Its row sums are R(S), a_iR(S) and 1. The same threshold exchange in the indexed proof applies to these ratios; singleton rigidity then follows directly."
+        ],
+        "reasoning": "The reduction credits exact chart and subset-modulus implications and the shared prefix method. The unrestricted optimum and complete designs require a further equality analysis across all supports and reciprocal weights: no proper support can saturate the ambient bound, and the equality row forces one distinguished magnitude. This produces the specific two types of weight vectors, not a change of variables in the indexed product-constrained ℓ1 optimum.",
+        "searches": [
+          "Resultary a3fe218df88d, Proof §§1–3",
+          "Chierchia et al. Proposition 3.6, Eqs. (42)–(44)",
+          "Liu et al., p. 738 introduction and stated scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With a_i=1/w_i, the positive dual of the frozen cone is the indexed weighted ℓ1 epigraph K_a. That record proves 2n/(n+1) at equal unit weights, and its weight-design theorem in the Finding fixes a product constraint in the plane and concerns K_a, not its dual projector.",
+          "Chierchia et al. give the weighted coordinate clipping and scalar minimizer for the exact frozen cone."
+        ],
+        "reasoning": "Moreau converts the complete chart matrices, but the norm of I−J is not determined by the norm of J. In particular their product-constrained planar ℓ1 design theorem is not an equivalent formulation of the unrestricted all-dimensional maximum-epigraph design equality cases.",
+        "searches": [
+          "Resultary: heterogeneous weighted ℓ∞ epigraph projection exact coordinatewise stability and optimizing weights",
+          "2026/11/22/SCOPE-sharp-endpoint-stability-and-a-golden-ratio-phase-transition-for--a3fe218df88d",
+          "Chierchia et al. arXiv:1210.5844, Proposition 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first supplies the exact unit-weight polar constant; the second supplies the same dimension-dependent number on a different cone. Neither states the n+1 maximum-epigraph designs."
+        ],
+        "reasoning": "The exact design is an analytic continuum optimization, not a finite catalogue or census. Matching constant values without matching the cone and attainable weight vectors do not establish the design theorem.",
+        "searches": [
+          "Resultary a3fe218df88d, exact Finding",
+          "Resultary 2d1b9aa4230e, exact Finding"
+        ]
+      },
+      "rationale": "Pass for the exact unconstrained design maximum for the weighted maximum-norm epigraph together with the exhaustive classification of its attaining weight vectors. Credit the earlier projection and derivative theory; the exact subset modulus is also a direct Moreau-complement consequence of the matching indexed weighted ℓ1 chart matrices, and the unweighted dual comparison is already covered. The generic matrix ceiling, taken alone, is not a distinct result. None of the inspected sources optimizes across reciprocal-weight designs for the maximum-norm epigraph or identifies which weights realize the ceiling; that requires the full-support and equality optimization, not just a numeric ceiling or duality of the cones. The unresolved complete-text comparison with Liu et al. limits this judgment. No priority conclusion is made from catalogue dates.",
+      "residual_risks": [
+        "The later sections of Liu et al. (2015) were not recovered for inspection; exact global conclusions in them remain an open bibliographic risk.",
+        "The bounded comparison does not rule out another known source explicitly optimizing all reciprocal weights or supplying an immediate equivalent equality classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of the unit-weight polar comparison and mechanical coverage of the fixed-weight modulus through Moreau; different design theorem.",
+          "evidence": "Complementable hyperplane Jacobian and strict-support realization in §§1–2; prefix exchange in §3; the Finding optimizes a planar product-normalized ℓ1 design.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-endpoint-stability-and-a-golden-ratio-phase-transition-for--a3fe218df88d/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–3, offsets 0–5428",
+          "method": "Configured Resultary search and exact local-mirror statement inspection",
+          "title": "Sharp endpoint stability and a golden-ratio phase transition for weighted ℓ₁-epigraph projection",
+          "trigger": "Exact coordinatewise modulus of the weighted positive-dual projector"
+        },
+        {
+          "assessment": "The same projection formula, not the cross-weight design theorem in the inspected proposition.",
+          "evidence": "Coordinate clipping at ±τ_iθ and the scalar height determination.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.5844",
+          "material_read": "Proposition 3.6, p. 11, Eqs. (42)–(44)",
+          "method": "Primary OA PDF passage",
+          "title": "Epigraphical splitting for solving constrained convex formulations of inverse problems with proximal tools",
+          "trigger": "Primary formula for weighted maximum-norm Euclidean epigraph projection"
+        },
+        {
+          "assessment": "Verified same-object scope and announced exact differential formulas. Whether later passages contain the cross-weight design optimization remains unresolved; no negative inference from partial access.",
+          "evidence": "The introduction defines K₁ʷ and its dual K∞ʷ, announces exact derivative and generalized Jacobian results, and locates them in §4.",
+          "identifier_or_url": "http://www.ybook.co.jp/online-p/PJO/vol11/pjov11n4p737.pdf",
+          "material_read": "Publisher PDF extraction p. 738, introduction lines 12–49; detailed §§3–5 not read",
+          "method": "Targeted journal/paper search; publisher HTTP PDF passage retrieved; HTTPS direct and alternate-host attempts did not retrieve the remaining passages",
+          "title": "Differential properties of the metric projectors over the epigraph of the weighted ℓ₁ and ℓ∞ norms",
+          "trigger": "Closest primary derivative paper for exactly both weighted objects; potential stronger coverage"
+        },
+        {
+          "assessment": "Unweighted or uniformly scaled projection context, not the heterogeneous optimal weights in the inspected result.",
+          "evidence": "Projection and piecewise derivative formulas for the uniformly scaled maximum-norm epigraph.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2010/09/2746.pdf",
+          "material_read": "§3, Proposition 3.2, p. 17, Eqs. (58)–(62)",
+          "method": "Primary OA technical report passage",
+          "title": "An Introduction to a Class of Matrix Cone Programming",
+          "trigger": "Prior unweighted projection and its directional derivative"
+        },
+        {
+          "assessment": "Different cone and no weight-design comparison.",
+          "evidence": "Spatial ℓ₂ constraint and axial norm (1+√d)/2 for d≥5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e/RESULT.md",
+          "material_read": "Finding and opening proof; axial/spatial comparison",
+          "method": "Configured Resultary search and exact local-mirror statement inspection",
+          "title": "Sharp coordinatewise Lipschitz transition for Euclidean Lorentz-cone projection",
+          "trigger": "Same numeric ceiling for a different projection cone"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coordinatewise perturbation question is natural because Euclidean nonexpansivity does not control the largest coordinate error sharply. Beyond the generic ceiling, the design theorem says whether it is realized by this specific family and gives every calibrating weight vector that realizes it, distinguishing height and spatial failure modes. These exact equality cases are useful for choosing or ruling out worst-case anisotropic calibrations. The covered polar example is not counted separately.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:03:31.990546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Independent alignment and cycle arguments; direct received-word deletion census"
+      ],
+      "rationale": "For W=AcB the only candidate parents are AA and BB, as a one-position deletion leaves at least one entire outer block. If both parents are distinct, B is a deletion from Ac and A from cB. Let r be the first differing position. The former deletion can be placed at r, since any earlier deletion leaves equality up to r−1 only by shifting an initial equal-letter run within the deletion interval. It follows that B_t=A_{t+1} for t≥r with A_{m+1}=c. The latter deletion must remove B_j with j≥r or A_r would equal B_r. Thus A_1=c and A_t=B_{t−1} up to r. Equality before r forces A_1 through A_r all to be c, so the shift relation holds throughout; W=AAa_1 with a_1=c. The converse uses end deletions, and nonconstant A gives two distinct parents. Count incidence using q(2m+1) insertion histories per codeword minus 2m run redundancies; this yields all three histogram cells and excludes higher multiplicity. The graph components have sizes d dividing m, in numbers P_q(d) by primitive period Möbius inversion. An even cycle has two alternating maximum sets; for odd d there is exactly one gap with two unselected vertices, whose freely chosen position gives d maximum sets. Handle d=1 and d=2 as a singleton and an edge. This proves the sum/product, and smaller periods contribute O_q(q^{m/2}) words. Independently enumerated received words for q=2 through m=6, q=3 through m=4 and q=4 through m=3; all histograms, parent identities and edges agree. Replay: /workspace/review-check-4.py; frozen checker inspected, not executed.",
+      "residual_risks": [
+        "Checks use exactly one insertion, with repeated insertion histories counted once and distinct parents counted as words, not positions. Finite enumeration is supplemental to the proof for all q and m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multi-deletion record treats U^r with exactly t≥2 deletions and r≥2t+1. It classifies confusable messages by rotations of at most t and derives orbitwise expurgation in that regime. Theorem 5 of Sala et al. gives a pairwise maximum over distinct equal-length source words."
+        ],
+        "reasoning": "Neither changing the channel to one insertion nor applying deletion/insertion duality for the existence of a common subsequence brings the doubled case into the hypotheses r≥2t+1 and t≥2. The general pairwise output bound does not classify the confusable pairs of this restricted code.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-multi-deletion-subcodes-of-repeated-message-blocks--bbec9b260b49, mirrored Finding and assumptions",
+          "arXiv:1604.03000v2, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1604.03000v2, §II and Theorem 5",
+        "Resultary bbec9b260b49 exact finding and 05adac328b6c identity",
+        "Frozen RESULT.md Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pairwise result gives at most two shared one-symbol supersequences for any two distinct equal-length inputs. The frozen result instead bounds the number of parents of a single received word and pins down exactly which words have two parents."
+        ],
+        "reasoning": "A pairwise intersection bound alone does not bound the number of sets containing a single point (many sets may share the same point). It gives neither the shift rigidity nor the adjacency relation needed for the independent-set count.",
+        "searches": [
+          "arXiv:1604.03000v2, Theorem 5, t=ℓ=1; compare with frozen RESULT.md parent rigidity and graph proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section II defines insertion output sets and their pairwise intersections. A codeword in a received word's one-deletion shadow is precisely a one-insertion parent; a pair of parents shares that one-insertion output."
+        ],
+        "reasoning": "Whole-block doubling is distinct from repeating each symbol; count words rather than edit histories. A graph edge means the existence of a common supersequence of length 2m+1, but the full inverse-list count also requires control over received words with more than one parent.",
+        "searches": [
+          "Sala–Gabrys–Schoeny–Dolecek, arXiv:1604.03000v2, §II and Theorem 5",
+          "Resultary: doubled-block UU one-insertion common supersequence / one-deletion inverse-list confusability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match 05adac328b6c is the reviewed record itself. The strongest distinct inspected result bbec9b260b49 counts optimal subcodes only in its multi-deletion regime; no equivalent exact law was surfaced."
+        ],
+        "reasoning": "The claim is a closed-form family for all q,m, not a lookup of small parameters. The returned multi-deletion extremal counts do not supply the inverse-list or expurgation formulas at r=2 for this channel.",
+        "searches": [
+          "Resultary: whole-block doubled code UU single-insertion ambiguity and optimal expurgation; repeated-block deletion subcodes"
+        ]
+      },
+      "rationale": "The general one-insertion pairwise overlap bound is known, and a closely related repeated-block deletion result gives orbit-based expurgation in a different regime. The inspected statements do not give the exact inverse-list law, the rotation adjacency criterion in this doubled family, or its two optimal-code formulas.",
+      "residual_risks": [
+        "Unindexed or unpublished equivalent classifications may exist. No exhaustive priority assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuinely relevant pairwise intersection bound, not the inverse-list classification of this family",
+          "evidence": [
+            "At one insertion the maximum pairwise intersection of distinct inputs is two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.03000v2",
+          "material_read": "§II, p. 3, offset about 23000; Theorem 5 and discussion, p. 5, offsets about 38000 and 43000",
+          "method": "Original lawful OA PDF locate and bounded passage read",
+          "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+          "trigger": "General common-supersequence result on the same insertion metric"
+        },
+        {
+          "assessment": "Related rotation structure, materially different channel and range; no ordering inferred from same-date entries",
+          "evidence": [
+            "Exactly t≥2 deletions, r≥2t+1 repetitions, confusability by rotation through at most t."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-multi-deletion-subcodes-of-repeated-message-blocks--bbec9b260b49",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–4035",
+          "method": "Resultary and exact local mirror passages",
+          "title": "Exact multi-deletion subcodes of repeated message blocks",
+          "trigger": "Strongest structural overlap: rotation edges and optimal subcodes of repeated whole blocks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md inverse-list rigidity, confusability graph and optimal-code formulas",
+        "Pairwise intersection and multi-deletion comparisons"
+      ],
+      "rationale": "The doubled code is a natural memoryless-alphabet repetition construction. Exact parent rigidity reduces a synchronization ambiguity problem to rotation orbits, making the complete ambiguity law and best corrected rate computable and giving both the optimal size and multiplicity. This is more than a general insertion-ball size bound or an unexplained finite census.",
+      "residual_risks": [
+        "Optima are inside the full doubled-block family, not across unrestricted insertion-correcting codes or a multi-edit channel."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

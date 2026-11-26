@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:07:16.907710Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Hardy–Weinberg marginal survivals give (1) and (2) with positive denominators. Positive post-pulse matrices with uniform entry bounds keep normalized densities away from the simplex boundary. The surviving mixing gap bounds the stagewise spread by successive decreases of the maximum susceptible fraction. A strictly selected stage rules out a common interior limit, and the initial maximum is below one. For h>0, late entrywise multiplicative sandwiches give both componentwise Perron exponents; strict Perron monotonicity and division by total density give the stated strictly negative log-rate. For h=0 the resistant recurrence is exactly linear. In (3), writing W_k=b_k u_k bounds the remainder by O(b_k^2), as the scaled resistant vector tends to a positive Perron vector and u_k is bounded. The normalized recurrence has an O(b_k) perturbation on the stable complement of the Perron projection, so u_k→v. The projected quadratic coefficient is S/a, since d_i(Ev)_i=ρ(M)v_i. The reciprocal increment tends to S/a and the factor a cancels when passing to fractions. Between pulses the fractions lie between the post-pulse minimum and maximum, giving both continuous-time limits, also at ρ(M)=1. Read the frozen proof, VERIFICATION.md and verify.py; did not run the supplied script. Its rational identities and finite two-stage tests are supplementary. Positivity of both initial alleles and deterministic fixed parameters are essential scope restrictions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The underlying model allows ordered genotype survival and gives qualitative fixation. The periodic impulse-control theorem is about spectral-radius convexity in the period with diagonal symmetrizability, not a fraction-rate theorem."
+        ],
+        "reasoning": "Prior coverage of a broader pulse model and spectral properties of DE does not extend to the nonlinear endpoint coefficient.",
+        "searches": [
+          "arXiv:2609.10581v1, Theorems 5–7",
+          "arXiv:2310.07616, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.10581v1",
+        "arXiv:2310.07616",
+        "Resultary f9d2261216a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 gives y(t)→1; Theorems 6–7 concern total density at multiplier less or greater than one. At h=0 both allele-density linearizations have the same Perron multiplier."
+        ],
+        "reasoning": "Qualitative fixation and a common linear multiplier do not distinguish 1/k from other subexponential laws or determine the coefficient. The explicit projected quadratic loss supplies what the inspected results do not.",
+        "searches": [
+          "arXiv:2609.10581v1, equations (7)–(10), Theorems 5–7",
+          "arXiv:2310.07616, Theorem 1",
+          "Resultary f9d2261216a7, finding and density analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5's resistant-frequency limit is equivalent to q_i→0, not to a scaled limit of q_i. The inspected Resultary density-threshold record f9d2261216a7 concerns the population multiplier rather than a susceptible fraction."
+        ],
+        "reasoning": "Changing from resistant to susceptible fractions or expressing the claim in allele densities does not turn the earlier limit or population threshold into either rate.",
+        "searches": [
+          "Local Resultary semantic lookup: pulsed stage structure, dominance, susceptible-fraction fixation and Perron rates",
+          "arXiv:2609.10581v1, §2 and §3.3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct indexed hit f9d2261216a7 gives a density criterion in a two-stage model, not either symbolic fixation rate."
+        ],
+        "reasoning": "No matching formula record was located in the inspected index. A numerical table of finitely many matrices cannot encode the claimed limit for arbitrary dimension and continuous parameters.",
+        "searches": [
+          "Local Resultary semantic lookup for the continuous-parameter rate formulas and fixation transition"
+        ]
+      },
+      "rationale": "The inspected same-model result establishes fixation and separates density growth from extinction, but gives neither fraction asymptotic. The exponential branch follows from standard positive-matrix comparison once the model-specific rare-allele matrix is identified; the quadratic projection at the fully dominant endpoint supplies the substantive quantitative distinction.",
+      "residual_risks": [
+        "Bounded source comparison is not historical priority; an unlocated class-structured second-order expansion specialized to this pulse map could reduce originality. The elementary unstructured dominance distinction and Perron methods are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying model and qualitative limit already known; rates not supplied by inspected statements",
+          "evidence": "Theorem 5 concludes lim y(t)=1; Theorems 6–7 compare total-density behavior to the multiplier.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10581v1",
+          "material_read": "§2, equations (7)–(10); §3.3.2, Theorems 5–7; HTML near offset 36728 for Theorem 5",
+          "method": "Lawful open full-text passages",
+          "title": "On the formulation and analysis of a stage-structured eco-evolutionary model with pulsed disturbances",
+          "trigger": "Identical pulse model and claimed prior fixation theorem"
+        },
+        {
+          "assessment": "Related spectral method, different theorem and assumptions",
+          "evidence": "Convexity of ρ(De^(τA)) in τ under diagonal symmetrizability; no nonlinear allele fraction.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.07616",
+          "material_read": "Theorem 1, p. 6",
+          "method": "Lawful open PDF passage",
+          "title": "On the spectral radius properties of a key matrix in periodic impulse control",
+          "trigger": "Same matrix product DE"
+        },
+        {
+          "assessment": "Different observable, no equivalence; shared date does not establish order",
+          "evidence": "Two-stage population growth/extinction criterion and use of qualitative convergence, not an asymptotic rate of susceptible-frequency decay.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-an-exact-log-kill-budget-separating-extinction-from-growth-in-a--f9d2261216a7",
+          "material_read": "RESULT.md opening and offsets 6500–7900, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and local mirror full-text passages",
+          "title": "An exact log-kill budget separating extinction from growth in a stage-structured model",
+          "trigger": "Closest distinct indexed overlap with the same underlying model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint rate is invisible to a linearized multiplier. Its exact coefficient shows how stage-specific selection is weighted over one period, distinguishes algebraic from exponential fixation, and separates both fraction asymptotics from baseline density growth. This is quantitative information beyond earlier convergence, not a claim of new Perron theory or empirical prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

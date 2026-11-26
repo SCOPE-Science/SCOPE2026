@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:33.419536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52; VERIFICATION.md and verify_85.py read, not executed",
+        "Abram–Lagarias arXiv:1308.3133, Proposition 2.2 and Theorem 3.1"
+      ],
+      "rationale": "The input is read from the least significant ternary digit. A carry c with next digit a in {0,1} is allowed exactly when (c+Ma) mod 3 is not 2, and maps to floor((c+Ma)/3). The carry interval [0,floor(M/2)] is invariant. Independent fixed-point enumeration starting from zero gave the 3 and 18 states and 4 and 24 edges, with no reachable sinks, so every counted prefix extends. Iterating the adjacent-state sum on an initial all-ones vector gave zero residual at all states for A13^3-A13^2-I and A85^9-A85^8-A85^4-2A85^2-I. Multiplication by A^k proves every subsequent recurrence, unlike a scalar finite fit. The computed initial coefficients give the displayed numerators. The factorization of the 85 denominator is exact; its second factor H=1+z^3+z^4+z^6 is positive on the positive real axis. Neither numerator vanishes at the unique root r in (0,1) of 1-z-z^3. Pringsheim's theorem rules out a smaller radius, and the cited right-resolving path-set theorem gives Hausdorff dimension log_3(1/r) in the stated metric. The denominator is even reduced: N85=(z^2+z+2)H-1, and 1-z-z^3 is irreducible over Q and cannot divide N85. The distinct length-three counts verify different prefix languages.",
+      "replay_paths": [
+        "Build the transition list on the full bounded carry interval by the rule above, then repeatedly union the successors of the reached set starting at {0}. On each state iterate v_(j+1)(c)=sum v_j(d) over allowed transitions c→d, with v_0(c)=1. The order-nine and order-three residuals are identically zero. Independent direct enumeration of x with n low-order digits in {0,1}, testing Mx modulo 3^n for a digit 2, gave counts through n=10: 85: 1,2,3,5,8,11,16,22,32,47,70; 13: 1,2,3,4,6,9,13,19,28,41,60.",
+        "The frozen verification path verify_85.py records a replay of the all-state certificates and separate finite digit counts."
+      ],
+      "residual_risks": [
+        "The result does not classify other multipliers. The direct finite digit test alone does not show extension or prove the recurrence; those depend on the no-sink and all-state checks respectively."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Part I gives the generic construction and the exact growth constant for L3=13. Part II sections 4 and 5 give families P_k=2*3^k+1 and Q_k=3^(2k)-3^k+1; Appendix A covers L_k=(1^k)_3 and N_k=3^k+1. None of those specialized families contains 85."
+        ],
+        "reasoning": "The existence of an algorithm for all M is prior; it supplies no evaluated recurrence or entropy identity at 85 without new instance-specific arithmetic.",
+        "searches": [
+          "arXiv:1308.3133 Proposition 2.2 and Theorems 3.1, 4.2; arXiv:1508.05967 §§4–5 and 8"
+        ]
+      },
+      "checked_sources": [
+        "Abram–Lagarias arXiv:1308.3133",
+        "Abram–Bolshakov–Lagarias arXiv:1508.05967",
+        "Resultary f694f1465473",
+        "Frozen RESULT.md lines 57–66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known 13 graph and the 19 comparison concern other presentations; the close 31 computation also uses a statewise certificate, but with distinct edges and annihilator. The 85 equality follows from factoring the new order-nine recurrence; none of the inspected specific prior spectral formulas or equality statements applies to 85."
+        ],
+        "reasoning": "This is an exact invariant computation in an established framework, not a new general theorem. It does not follow by substituting 85 in any of the inspected evaluated family laws.",
+        "searches": [
+          "Part I Example 3.3 and Proposition 4.3; Part II Table 7.1 and §9; Resultary f694f1465473"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's X_M is the standard C(1,M) digit intersection; its prefix language is the marked right-resolving path set, not the unrestricted number of graph walks or the dimension alone."
+        ],
+        "reasoning": "Compared the claim under the C(1,M) and automaton formulations, so a different notation for the same intersection would not evade comparison.",
+        "searches": [
+          "Focused literature lookup for ternary multiplier 85=(10011)_3 and exact prefix recurrence; Resultary lookup for ternary carry-prefix recurrence",
+          "Abram–Lagarias arXiv:1308.3133, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 7.1 gives selected rows, including 19 and 91 with rounded dimension 0.347934, but not 85. Table 8.1 explicitly has the 13 baseline. The Resultary 31 entry certifies a different fifth-order law on ten carries."
+        ],
+        "reasoning": "The 13 invariants are known, and similar-looking dimensions or a graph-based recurrence for a different multiplier are not exact 85 matches. Absence from this selected table or a literal lookup is not proof of historical absence.",
+        "searches": [
+          "Part II Table 7.1 and literal C(1, 85), (10011",
+          "Resultary exact ternary prefix-law lookup, including 31 record f694f1465473"
+        ]
+      },
+      "rationale": "The pass concerns the specialized 85 prefix law and exact 85-to-13 dimension comparison, not the carry algorithm, the known 13 case, or the idea of obtaining different graphs with a common growth constant. The strongest nearby catalogue computation is for 31. The primary sequel's families and comparison examples do not give this exact 85 case.",
+      "residual_risks": [
+        "The focused primary search produced no further results; unpublished computations, unindexed tables or a differently formulated equivalent 85 example could exist. The inspected selected table is not comprehensive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers framework and exact 13 graph/rate; inspected calculations do not solve 85",
+          "evidence": "L_k=(1^k)_3 has k states with two exits at state 0 and one elsewhere; at k=3 the growth root satisfies t^3-t^2-1=0.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.3133",
+          "material_read": "Proposition 2.2 and Theorem 3.1, pp. 11–12; Example 3.3, pp. 17–18; Theorem 4.2, Table 4.1 and Proposition 4.3, pp. 21–22",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Intersections of multiplicative translates of 3-adic Cantor sets",
+          "trigger": "Origin of construction and same 13 comparison"
+        },
+        {
+          "assessment": "Published matching 13 law and other related examples; 85 is not a member of the displayed solved families or a selected table row",
+          "evidence": "Section 8 gives the L_k root lambda^k-lambda^(k-1)-1; Table 7.1 includes 19 and 91 but not 85.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.05967",
+          "material_read": "Family definitions in §§2,4,5 and appendix headings; Table 7.1, p. 30 (offset 102000); Theorem 8.1/Table 8.1, pp. 30–31",
+          "method": "Open primary PDF by literal lookup and offset",
+          "title": "Intersections of multiplicative translates of 3-adic Cantor sets II: two infinite families",
+          "trigger": "Plausible table or family coverage for 85"
+        },
+        {
+          "assessment": "Strong methodological overlap, not equivalent mathematical result",
+          "evidence": "M=31=(1011)_3, ten reachable states, fifth-order rather than ninth-order prefix law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-fifth-order-prefix-law-for-the-3-adic-cantor-multiplier-31--f694f1465473/RESULT.md",
+          "material_read": "Finding and carry-identity comparison",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A fifth-order prefix law for the 3-adic Cantor multiplier 31",
+          "trigger": "Closest indexed claim form and adjacent sparse multiplier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52",
+        "Part II Table 7.1 and Theorem 8.1; Resultary f694f1465473"
+      ],
+      "rationale": "The multiplier is the next small sparse 3^k+4 case after 13 and the indexed 31 example. The exact prefix law resolves all scales of a natural intersection and exhibits the same entropy as the simpler 13 intersection despite different finite languages and graph sizes. That gives both a precise benchmark for sparse-multiplier classification and a concrete example of information the dimension discards, beyond a tabulated decimal or a short prefix sample.",
+      "residual_risks": [
+        "The result is a single evaluated multiplier and does not resolve an infinite family, or claim the first example of two 3-adic path sets sharing a dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

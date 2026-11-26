@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:45:04.407037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exponential Hermite generating function gives the even series (1+u)^(-1/2) exp(ux²/[2(1+u)]); this also follows from the explicit Hermite coefficients of x^(2k). The diagonal Mehler series at x/sqrt(2) has the same exponential and prefactor (1-u²)^(-1/2). Multiply it with u=gamma*t by sqrt(1-gamma*t)/(1-t) and extract t^m. This verifies the coefficient identity formally, with no restriction on gamma, including m=0. The representation has nonnegative weights on [0,1]; outside this interval the identity is a linear combination of squares, not a positivity certificate. All nonconstant coefficients of a_m as a polynomial in gamma are negative, so a_m(gamma)>=a_m(1)=[t^m](1-t)^(-1/2)=binom(2m,m)/4^m. Negative gamma fails with m=1 and large |x|. At x=0 and gamma>1, divide by (-gamma)^m c_m with c_m=binom(2m,m)/4^m. Each fixed reverse-index ratio c_(m-r)/c_m tends to 1; for r<=m/2 the ratio is uniformly bounded, and for r>m/2 the omitted sum is O(sqrt(m)*gamma^(-m/2)). The limit gamma/(1+gamma)>0 gives a genuinely negative value for all sufficiently large odd m. Equation (2.11) of the quadrature paper has this partial sum and strictly positive other factors: the classical Gaussian weights, normalization and exponential. The usual scale has finite length ell>0 and 0<gamma<1. This establishes only the Mercer-truncated approximate weights. Independently ran `python audit_checks/independent_replays.py 1`: exact coefficient comparisons of the formal Hermite/Mehler product through degree 24 in u, the central-binomial bounds, and exact negative witness m=393 at gamma=101/100. This is a finite corroboration, not the proof; submitted code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved quadrature paper's p. 19 excerpt says experiments indicate positivity at the tested N and n, not an all-degree proof.",
+          "The distinct Bayesian positivity work is identified in the frozen source as concerning kernel-system weights under design/geometric assumptions; its full text was not retrieved for independent comparison."
+        ],
+        "reasoning": "A theorem on exact Gram-system weights at special designs would not imply pointwise positivity of the Mercer-truncated polynomial without a formula identifying them. The classical infinite Hermite generating formulas are broader analytic identities; their product and coefficient extraction give the finite square certificate, but the all-degree failure beyond the interval is a separate argument.",
+        "searches": [
+          "Gaussian kernel quadrature at scaled Gauss–Hermite nodes, arXiv:1803.09532 and DOI 10.1007/s10543-019-00758-3",
+          "On the positivity and magnitudes of Bayesian quadrature weights, DOI 10.1007/s11222-019-09901-0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.09532 / DOI 10.1007/s10543-019-00758-3 (located passages)",
+        "DOI 10.1007/s11222-019-09901-0 (bibliographic and attempted)",
+        "Resultary 2b6fb9925f9d (self match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known weight formula implies the quadrature corollary once polynomial positivity is supplied; the inspected excerpts do not supply it.",
+          "The diagonal Mehler formula alone expands an infinite series, not the same finite partial sums; the factor sqrt(1-gamma*t)/(1-t) and its endpoint coefficient bounds produce the required finite structure."
+        ],
+        "reasoning": "The audit credits inherited formulae and does not count the weight formula or Mehler identity as newly discovered. The coefficientwise positivity plus the outside-interval obstructions are not in the retrieved prior statements.",
+        "searches": [
+          "arXiv:1803.09532 Eq. (2.11), PDF pp. 8 and 19; Hermite–Mehler positivity and alternating Laguerre equivalents"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He_(2j)(x)/(2^j*j!)=(-1)^j L_j^(-1/2)(x²/2), so the Laguerre all-y>=0 finite sum with coefficients (-gamma)^j is exactly equivalent.",
+          "Karvonen–Särkkä Eq. (2.11), PDF p. 8, contains the same even-Hermite factor and describes the normalization as probabilists' Hermites."
+        ],
+        "reasoning": "Plainly tabulating that factor is prior; demonstrating positivity for its entire alternating Laguerre form on y>=0, for every degree and precisely 0<=gamma<=1, would cover the result. No such matching theorem was retrieved. Nonalternating sums or a proof just at Gaussian nodes would not settle the full statement.",
+        "searches": [
+          "Resultary: finite Hermite sum-of-squares certificate and sharp positivity interval for scaled Gauss–Hermite quadrature",
+          "Alternating Laguerre L_j^(-1/2) finite sums and Hermite partial-sum positivity",
+          "arXiv:1803.09532 Eq. (2.11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalog hit 2026/11/22/SCOPE-sharp-universal-positivity-and-sum-of-squares-structure-for-herm--2b6fb9925f9d is the assigned record itself; no distinct close match in the returned searches.",
+          "The experiments discussed in the quadrature source concern sample weights, not an exact table of the universal polynomial bounds."
+        ],
+        "reasoning": "The self match cannot be prior evidence and positivity in tested sizes or at nodes does not decide the exact parameter set.",
+        "searches": [
+          "Resultary: sharp universal Hermite truncation positivity [0,1], finite squares and central-binomial lower bound; positivity of Mercer-truncated Gauss–Hermite weights"
+        ]
+      },
+      "rationale": "The positive-prefactor approximate weight formula and its positivity question are prior; so are the underlying Hermite generating functions. The supported distinct claim is the explicit finite square certificate and exact all-m, all-x interval (including the failure mechanisms outside it), and their use to prove approximate weight positivity. No covering theorem for this combination was found in the retrieved evidence. This does not assert absolute priority or a theorem for exact kernel-system weights.",
+      "residual_risks": [
+        "An older equivalent alternating Laguerre or Hermite finite-sum identity may be indexed under other notation.",
+        "The full Section 2.4 text and subsequent Bayesian weight paper were not retrieved at the decisive offsets; priority is based on the actual passages and searches described, not wholesale exclusion of those works or later literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior approximate weight formula and empirical positivity; no finite SOS or sharp classification in the retrieved passages",
+          "evidence": "The finite sum uses the probabilists' H_(2m); experiments are described as indicating positivity at tested N and n.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.09532 ; https://doi.org/10.1007/s10543-019-00758-3",
+          "material_read": "Eq. (2.11) locator excerpt, PDF p. 8, offset 24873; experimental positivity excerpt, p. 19, offset 62911",
+          "method": "OA literal passage search; subsequent offset retrieval timed out",
+          "title": "Gaussian kernel quadrature at scaled Gauss–Hermite nodes",
+          "trigger": "Exact same approximate weights and Hermite factor"
+        },
+        {
+          "assessment": "No independent coverage conclusion from access failure",
+          "evidence": "The frozen source distinguishes exact Bayesian weights under design hypotheses from Mercer-truncated approximate weights; this was not independently full-text-checked.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-019-09901-0",
+          "material_read": "Bibliographic identification and frozen record's characterization only; external full text unavailable",
+          "method": "OA retrieval attempt",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Potential broader theorem on positive quadrature weights"
+        },
+        {
+          "assessment": "Same record, not another prior finding",
+          "evidence": "All-m SOS, [0,1] sharpness and approximate weight corollary match.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-universal-positivity-and-sum-of-squares-structure-for-herm--2b6fb9925f9d",
+          "material_read": "Resultary summary and assigned original",
+          "method": "Local Resultary catalog, matched to frozen result",
+          "title": "Sharp universal positivity and sum-of-squares structure for Hermite truncations in Gaussian quadrature",
+          "trigger": "Exact indexed statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A positivity certificate for weights in a specified practical quadrature approximation resolves a motivated sign question that node sampling cannot settle. The same identity gives a uniform-in-x lower bound and a sharp all-degree real parameter classification with explicit qualitatively different obstruction on each side. It does not promise conditioning improvements, exact-kernel weights, or error rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

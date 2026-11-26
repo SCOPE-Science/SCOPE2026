@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:42:34.776317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on its uniform arrival time x, a tagged long edge pivots precisely if its b-1 companions have arrived and all m short paths remain incomplete. Integrating and aggregating gives the beta integral and product. For the normalized Banzhaf calculation the analogous independent-coalition factors give the short-to-long per-edge ratio (2^b-1)/(2^a-1); summing over ma short edges and b long edges gives the displayed share. The Shapley integrands differ by the strictly positive x^(a-1)(1-x^a)^(m-1)(1-x^(b-a)). With A=b/a and T=a(2^b-1)/(b(2^a-1)), the adjacent difference in (2^n-1)/n^2 has strictly positive numerator for n>=2, so T>A and R_1>1. The sign of R_(m+1)/R_m-1 is the opposite of A-T+(A-1)mT, strictly increasing in m, hence any plateau is at the peak above one. The gamma ratio yields R_m of order m^(1-A), which tends to zero; the boundary has at most one tie. Seven is minimal within the stated family after adding a short path since m>=2 and 2a+b>=7, not a claim about all simple graphs. New exact permutation and coalition enumeration verified both minimal-witness fractions and the 1/6 tie. The frozen certificate reports finite checks only; its 17040 pivotal count is the nominal total of edge/other-edge subsets, while the code skips states already winning, not 17040 separate swing evaluations. This accounting detail does not affect its fractions or the theorem.",
+      "replay": "python3 /workspace/audit_checks/frozen_examples.py (record 1 check); frozen verification.py and verification_certificate.json inspected, not executed",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 computes both shares in series-parallel connectivity games, covering every target instance.",
+          "The 2008 secondary description credits 2007 work on Banzhaf hardness and bounded-layer computation; the 2013 game is vertex-controlled with backbone vertices."
+        ],
+        "reasoning": "Algorithms covering each instance and a distinct vertex-control model do not give an all-m comparative-statics law for the normalized aggregate shares.",
+        "searches": [
+          "Elkind et al., §4.1, §4.2 Theorem 11",
+          "Bachrach and Rosenschein DOI 10.1145/1329125.1329433",
+          "Bachrach, Porat and Rosenschein arXiv:1402.0572"
+        ]
+      },
+      "checked_sources": [
+        "Elkind et al. AAMAS 2008",
+        "Bachrach–Rosenschein AAMAS 2007 (primary full text unresolved)",
+        "Bachrach–Porat–Rosenschein JAIR 2013",
+        "Local Resultary six-player ordinal divergence records (2026/10/04 and 2026/10/12)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pivot recurrences compute each pair of values; the frozen theorem additionally shows positivity at m=1, an affine adjacent-ratio sign, and eventual strict reversal by decay."
+        ],
+        "reasoning": "Computation and standard arrival/pivot formulas underlie the closed expressions, and the published algorithms can recover the numerical witness. They do not imply unimodality, limit below one, and the unique boundary without the extra analytic work; no inspected prior result yields that reasoning mechanically.",
+        "searches": [
+          "Elkind et al., p. 6 Remark 7 and p. 7 Theorem 11 against RESULT.md proof steps 4–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The game is equivalently a read-once OR of AND blocks and a unit-capacity series-parallel connectivity game.",
+          "The closest catalogue comparisons concern ranking individual players, not summing shares over one block and varying the number of alternatives."
+        ],
+        "reasoning": "The Boolean and network representations describe the same game and admit known index computation. Ordinal per-player divergence is not equivalent to the sign of the difference between normalized aggregate shares.",
+        "searches": [
+          "Elkind et al., AAMAS 2008 Definition 4, Theorem 6, Remark 7",
+          "Resultary: exact path-share formulas, edge-connectivity, series-parallel and read-once Shapley–Banzhaf crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/12 catalogue census classifies all six-player simple games by individual-player rank disagreement, and the 10/04 record concerns the first individual ordinal disagreement at six players."
+        ],
+        "reasoning": "These are finite ranking checks for another statistic. The smallest seven-edge physical-path witness, even if computable by known methods, and the unbounded single-crossing sign rule are not tabulated there.",
+        "searches": [
+          "Local Resultary: complete six-player ordinal divergence layer; sharp threshold for Banzhaf–Shapley–Shubik ordinal divergence; parallel-path allocation reversal"
+        ]
+      },
+      "rationale": "The game class and computation of the two indices are established prior art. The supported distinct result is the aggregate physical path allocation crossing uniformly in both path lengths and the number of parallel alternatives, including its unique boundary and scoped smallest witness. Neither the inspected index algorithms nor the adjacent catalogue rankings give this parametric inequality.",
+      "residual_risks": [
+        "The unavailable 2007 full text could contain unstated special cases not conveyed by the secondary summary.",
+        "An older comparative-statics theorem for read-once games might imply the crossing; bounded searches do not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers index computation, not the inspected comparative inequality",
+          "evidence": "Binary read-once formula algorithms and both power-share algorithms for series-parallel connectivity games.",
+          "identifier_or_url": "https://www.cs.ox.ac.uk/people/paul.goldberg/papers/AAMAS08procs.pdf",
+          "material_read": "p. 4 Definition 4 and Theorem 6 (offset 25200–28850), p. 6 Remark 7 and §4.1 (offsets 38200–42047), p. 7 Theorem 11 (offset 49547–52504)",
+          "method": "lawful OA primary PDF passages",
+          "title": "A Tractable and Expressive Class of Marginal Contribution Nets and Its Applications",
+          "trigger": "Exactly contains read-once and series-parallel game class and both indices"
+        },
+        {
+          "assessment": "Primary scope unresolved; no negative inference",
+          "evidence": "The secondary description attributes #P-hardness in general and a polynomial algorithm in bounded-layer connectivity networks.",
+          "identifier_or_url": "https://doi.org/10.1145/1329125.1329433",
+          "material_read": "Bibliographic result and secondary description in Elkind et al. (2008), p. 6 §4.1, offsets 39058–42047; no primary text retrieved",
+          "method": "DOI/ACM full text HTTP 403; identified alternate repository/title searches did not recover a lawful accessible copy",
+          "title": "Computing the Banzhaf Power Index in Network Flow Games",
+          "trigger": "Earlier edge-game Banzhaf calculation"
+        },
+        {
+          "assessment": "Related but vertex-controlled",
+          "evidence": "Each agent owns a vertex and controls its incident edges; coalitions connect designated primary vertices with backbone vertices available.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.0572",
+          "material_read": "Abstract p. 1 and printed p. 282 / PDF p. 3, offsets 6833–9831",
+          "method": "lawful OA primary PDF passages",
+          "title": "Sharing Rewards in Cooperative Connectivity Games",
+          "trigger": "Same index names in network reward allocation"
+        },
+        {
+          "assessment": "Different statistic and finite layer",
+          "evidence": "Counts individual-player rank disagreements in the six-player layer; not a comparison of sums along paths.",
+          "identifier_or_url": "2026/10/12/SCOPE-complete-six-player-ordinal-divergence-layer-for-shapley-shubik--2cec2731b038",
+          "material_read": "Original finding and scope",
+          "method": "local publication mirror",
+          "title": "Complete six-player ordinal divergence layer for Shapley–Shubik and Banzhaf",
+          "trigger": "Closest catalogue result comparing these indices exactly"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp redundancy threshold compares two standard allocation methods on a motivated network observable. It separates aggregate path allocation from per-edge rankings, establishes a unique reversal rather than isolated counterexamples, and includes a sharp small witness and a genuine tie.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

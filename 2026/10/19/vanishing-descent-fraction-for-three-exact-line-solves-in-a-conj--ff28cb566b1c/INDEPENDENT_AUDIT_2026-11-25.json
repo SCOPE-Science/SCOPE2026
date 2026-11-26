@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:31:16.318546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–56, 66–67",
+        "VERIFICATION.md lines 19–23 and uploaded verify.py, inspected without execution",
+        "Independent exact rational line arithmetic at N=3,4,256"
+      ],
+      "rationale": "Here H=I and g∘A=|x₁+x₂|, so the exact model equals the strongly convex objective up to its base constant. With δ=1/N, h=2−δ and q=hδ², one has q<δ since hδ=1−(1−δ)². At v=(δ,−q) the penalty gradient is (1,1); Pv=(δ,−h) cancels the other linear terms exactly. Positive definiteness of P gives the unique metric proximal-gradient direction. The second vector s=(q,δ) is H-orthogonal and det[v,s]=K=δ²+q²>0. On the v-line the left and right slopes at zero are both negative; on the positive half-line the objective is Kt²/2−Dt with D=δ²+hq, so t₁=D/K. On the s-line the slopes straddle zero strictly, since S−C=δ²+(2+δ)q and S+C=δ(h−q) are positive. Thus t₂=0 and the combined-direction solve gives t₃=1. Completing the square writes the objective as ∥x−(1,−1)∥²/2−1+|x₁+x₂|−δ(x₁+x₂). The last two terms combined are nonnegative and vanish at (1,−1), so the joint decrease is one. The line decrease D²/(2K) is exactly the stated ratio; multiplication by N² and passage to δ→0 gives 25/2. Independent piecewise rational arithmetic agrees at N=3,4,256 (first two ratios 289/477 and 845/1952). The zero second solve is allowed: it does not collapse the basis, only the computed sum.",
+      "residual_risks": [
+        "No historical momentum realization of s is established or claimed. The bound is not uniform under prescribed conditioning restrictions on A or P; the example lets κ(P)=N² grow. Finite rational checks are corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The scalar source's full-rank preconditioner is AᵀA and its model formulas give the same independent lines and refinement. Its algorithm takes a history-dependent second direction or projection displacement and imposes uniform spectral bounds on P_k; Theorem 2 is a global rate under stated conditions.",
+          "The multiobjective source uses a separated surrogate and two scalar solves (25)–(26), with a structured preconditioner in (43)."
+        ],
+        "reasoning": "The scalar method and convergence result do not give a worst-case local fraction of the joint model decrease across this family with unbounded conditioning. The related multiobjective surrogate does not state or compute that exact comparison either.",
+        "searches": [
+          "Chen–Yang arXiv:2603.16573 / Optimization Online, Eqs. (6), (14)–(22), (23)–(27), Algorithm 1 and Theorem 2",
+          "Chen–Yang arXiv:2606.26792 §§4.3–4.5"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Yang scalar and multiobjective primary texts; Tseng primary text",
+        "Resultary method-specific, exact-title and conjugacy searches with the two closest inspected findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The example has exact H=I and exact H-conjugacy, yet the penalty couples the two coordinates and the relative decrease is asymptotically 25/(2N²). A clipping-induced conjugacy defect is therefore not the mechanism. The scalar primary gives the line-solve recipe but uses bounds on P and a history rule in its algorithmic convergence setting."
+        ],
+        "reasoning": "Known nonseparability and loss of conjugacy do not imply a vanishing fraction with exact conjugacy, a structure-induced first direction, and the combined search. Conversely this example need not violate any guarantee under fixed uniform spectral bounds or admissible history directions.",
+        "searches": [
+          "Chen–Yang scalar primary, exact-Hessian construction (18)–(22) and Theorem 2",
+          "2026/10/12/SCOPE-curvature-clipping-destroys-exact-conjugacy-in-p2gm-cm-with-an-e--e6e6c15a040c",
+          "Tseng 2001 Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target independently minimizes both H-conjugate lines at the same base, then minimizes on the line through their sum. Tseng's inspected updates use successive blocks and his theorem gives stationarity under additional hypotheses.",
+          "Search leads on smooth random-sketch subspace termination and BFGS line-search parameters are different quantities and algorithms."
+        ],
+        "reasoning": "This is not the usual failure of a sequential nonsmooth coordinate method to reach a global optimum. It keeps the first direction as an actual preconditioned proximal point and measures a single-step decrease ratio under a prescribed third refinement.",
+        "searches": [
+          "Resultary: exact fraction optimal decrease composite proximal Newton two independent line minimizations combined direction",
+          "Resultary: vanishing decrease ratio nonseparable composite objective independent coordinate line search",
+          "Tseng 2001, sequential block updates and Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Oct. 12 clipping record proves an exact-conjugacy defect for P2GM-CM with a trajectory example and a repair. The Oct. 13 SRMIL/SMRMIL record gives a third-direction conjugacy defect and nontermination witness for a smooth SPD quadratic recurrence. Neither is the exact-conjugacy composite ratio.",
+          "The assigned frozen item was not returned by the bounded exact-title search; no distinct same-day exact match was identified among the returned hits."
+        ],
+        "reasoning": "Record identity, matching scheme, and coverage of the quantitative claim are different tests. The strongest actual overlap concerns curvature approximation, not a conditional or exact computation of the local ratio. A missed hit does not establish absence or priority.",
+        "searches": [
+          "Resultary: P2GM_CM Chen Yang subspace proximal Newton conjugate momentum equations 20 21 22",
+          "Resultary: Hessian conjugate exact line search three direction composite proximal model joint optimal decrease",
+          "Resultary exact-title and same-day check"
+        ]
+      },
+      "rationale": "The motivating paper already contains the metric, the common-base line solves and the combined direction search. The supported distinct claim is the explicit local counterexample with exact curvature and the quantified ratio against the exact joint minimum, not the procedure, a new convergence theorem, or an algorithmic trajectory counterexample. The closest inspected prior scheme-specific work concerns loss of conjugacy caused by curvature clipping, which is absent here.",
+      "residual_risks": [
+        "Bounded search does not rule out differently formulated quantitative counterexamples. The absence of a distinct same-day hit is not a catalog-wide statement or proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ideal local construction with further algorithmic constraints; no equivalent bound or obstruction in these statements",
+          "evidence": "Full-rank P=AᵀA; independent common-base lines with combined refinement; momentum chosen from prior direction/projection; c₃I≼P_k≼c₄I and outer Armijo in algorithm, convergence rather than joint-model fraction.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/03/PreConPG.pdf",
+          "material_read": "Problem class p. 3 (offset ~7300), Eq. (6) p. 7 (~18800); (14)–(22) pp. 12–14 (~33000–39000); curvature approximation (23)–(27), Algorithm 1 p. 17 (~54700), Theorem 2 pp. 20–21 (~63300)",
+          "method": "OA primary PDF, targeted passages",
+          "title": "Preconditioned Proximal Gradient Methods with Conjugate Momentum: A Subspace Perspective",
+          "trigger": "Exact motivating method and possible overlap of guarantees"
+        },
+        {
+          "assessment": "Related multiobjective method, not the same scalar comparison",
+          "evidence": "Separated surrogate, two scalar solves combined into a direction, and preconditioner (43).",
+          "identifier_or_url": "https://arxiv.org/abs/2606.26792",
+          "material_read": "§§4.3–4.5 pp. 16–21 (offsets ~58600–74700)",
+          "method": "OA primary PDF, targeted passages",
+          "title": "Second-order Methods for Multiobjective Composite Optimization: Preconditioning Strategies, Subspace Variants and Inexact Solutions",
+          "trigger": "Related independent subspace solves and operator-aware metric"
+        },
+        {
+          "assessment": "Sequential convergence framework, not an exact three-line fraction",
+          "evidence": "Block iterates use updated coordinates; stationarity is shown under additional conditions.",
+          "identifier_or_url": "https://www.mit.edu/~dimitrib/PTseng/papers/archive/bcr_jota.pdf",
+          "material_read": "Sequential updates p. 4 and Theorem 4.1 pp. 5–6 (offset ~7800)",
+          "method": "OA primary PDF, targeted passages",
+          "title": "Convergence of a Block Coordinate Descent Method for Nondifferentiable Minimization",
+          "trigger": "Prior coupled nonsmooth coordinate-splitting phenomena"
+        },
+        {
+          "assessment": "Same algorithmic setting but different hypothesis and failure mode",
+          "evidence": "Clipping yields loss of exact Hessian conjugacy, with a trajectory example; the target assumes exact Hessian and maintains conjugacy.",
+          "identifier_or_url": "2026/10/12/SCOPE-curvature-clipping-destroys-exact-conjugacy-in-p2gm-cm-with-an-e--e6e6c15a040c",
+          "material_read": "RESULT.md finding on defect, witness and repair, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and local source mirror",
+          "title": "Curvature clipping destroys exact conjugacy in P2GM-CM",
+          "trigger": "Strongest exact-method indexed overlap"
+        },
+        {
+          "assessment": "Different smooth recurrence and conclusion",
+          "evidence": "First two directions conjugate for an SPD quadratic, with a third-direction defect and a 3D nontermination witness.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-third-direction-conjugacy-break-for-srmil-and-smrmil--45a8332d7e12",
+          "material_read": "RESULT.md finding, same mirror snapshot",
+          "method": "Resultary index and local source mirror",
+          "title": "Exact third-direction conjugacy break for SRMIL and SMRMIL",
+          "trigger": "Indexed exact-line and conjugacy counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–8, 20–56, 66–67",
+        "Chen–Yang scalar Eqs. (6), (14)–(22), Algorithm 1 and Theorem 2"
+      ],
+      "rationale": "This quantifies a genuine approximation gap in a proposed way to avoid a joint subproblem solve. In dimension two the example holds the smooth Hessian at identity and keeps the first direction tied to the proposed metric, so the effect cannot be blamed on curvature approximation or on choosing both directions freely. It establishes exactly which type of uniform guarantee strong convexity and exact conjugacy alone cannot supply, and points to conditioning and trajectory assumptions relevant to sharper guarantees.",
+      "residual_risks": [
+        "Only a local model counterexample. Both nonzero line corrections, uniformly conditioned metrics, and actual algorithmic trajectories are separate questions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

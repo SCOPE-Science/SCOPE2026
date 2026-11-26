@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:17.143511Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71",
+        "Frozen VERIFICATION.md and verify_curie_weiss.py inspected without executing the uploaded code",
+        "Independent continuous Gaussian-mixture derivation",
+        "Can–Pham, arXiv:1709.04267v2, §§3.2–3.3"
+      ],
+      "rationale": "The formula holds for distinct spins in the stated β=1, zero-field normalization. In the frozen method the Stirling factor and sextic entropy term give g(x)=x²/2−x⁶/30 for W=M/N^{3/4}; normalized ratios, not bare weights, give the coefficient Cov(W²,g)=−a²/5. Quartic tails are negligible outside the growing central window; full-lattice integration of smooth quartic-weighted polynomials has error O(h²) on either lattice translate by a second-derivative bound, h=2N^{-3/4}, which is smaller than the required O(N^-1) for the scaled moment. Exchangeability subtracts the N diagonal terms exactly. An independent continuous calculation gives the same answer: Gaussian decoupling makes the spins conditionally independent with conditional mean tanh t and mixing density proportional to exp[−N(t²/2−log cosh t)]. Thus c_N=E tanh²t. For t=N^-1/4 x the mixing law expands against exp(−x⁴/12) with relative correction N^-1/2 x⁶/45; tanh²t=N^-1/2 x²−(2/3)N^-1x⁴+O(N^-3/2 x⁶). The potential is bounded below by a positive multiple of t⁴ near zero, has its unique global minimum at zero and grows quadratically at infinity, allowing termwise normalized integration with the claimed remainder. The coefficient is (μ₈−μ₂μ₆)/45−2μ₄/3=−(1+a²/5) using μ₂=a, μ₄=3, μ₆=9a, μ₈=45.",
+      "residual_risks": [
+        "The numerical frozen check is corroborative only. No claim is made outside the exact critical zero-field model or for coincident sites."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Can–Pham's central representation bounds the error by O(N^-1) times an explicit quartic-weight envelope and their Lemma 3.1 handles all terms outside the window.",
+          "The 2025 critical law and partition calculation give the quartic limit and leading normalization; the 2023 growing-block theorems inspected cover other regimes, not this critical correction."
+        ],
+        "reasoning": "A leading limit, or a pointwise tail approximation without usable error control, would not by itself prove the frozen remainder. The stronger 2017 local calculation supplies precisely the additional quantitative input.",
+        "searches": [
+          "Can–Pham Theorem 1.4, equations (18)–(20), and Lemma 3.1",
+          "Jalowy–Kabluchko–Löwe 2025, Theorem 4.4 and equations (4.11),(4.14)–(4.16)",
+          "arXiv:2307.05335, eq. (6), Theorems 3.5 and 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Can–Pham 2017, arXiv:1709.04267v2, Theorem 1.4, Lemma 3.1, §§3.2–3.3",
+        "Jalowy–Kabluchko–Löwe 2025, §4",
+        "arXiv:2307.05335",
+        "Resultary 372f072d6fa7",
+        "Ellis–Newman citation and access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For x=(2k−N)/N^{3/4}, the prior local weights, scaled by a common constant, have central profile p₁(x)+N^-1/2 p₂(x)+O(N^-1)(1+x⁴+x⁸+x¹²+x¹⁴/√N)p₁(x).",
+          "The outer weights sum to O(e^{-cN}); multiplying by x², at most N^{1/2} on the spin lattice, preserves exponential negligibility."
+        ],
+        "reasoning": "The second-moment ratio requires only x² weighting of the existing expansion, a whole-line sum-to-integral replacement and quartic gamma integrals. Both the coefficient and the claimed big-O follow without a new asymptotic lemma. This is demonstrable prior coverage, not a failure to find material or a claim that the frozen formula is false.",
+        "searches": [
+          "Can–Pham arXiv:1709.04267v2, after eq. (19) through eq. (20), PDF pp. 8–9",
+          "Can–Pham Lemma 3.1, PDF pp. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With M the total spin, zero-field susceptibility per site is χ_N=Var(M)/N=√N E[(M/N^{3/4})²] and c_N=(χ_N−1)/(N−1).",
+          "Can–Pham use W=M/N^{3/4} in the same β=1,h=0 model and give the needed N^-1/2 perturbation to the quartic law."
+        ],
+        "reasoning": "The claimed pair-correlation correction is exactly the constant susceptibility correction −a²/5 plus the explicit self-correlation subtraction, not a new parameter regime or a new model.",
+        "searches": [
+          "Can Pham critical Curie Weiss Cramer moderate deviations Edgeworth magnetization quartic moment susceptibility",
+          "arXiv:1709.04267, Theorem 1.4 and §§3.2–3.3",
+          "Resultary 372f072d6fa7 critical diagonal law and leading pair dependence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed November 2 record gives an exact finite-N integral and the leading limit √N C_N(1)=a, not the N^-1 coefficient.",
+          "The closest prior exact formula is the pair of quartic-weighted functions p₁,p₂ in the 2017 paper, rather than a table of numerical finite-system evaluations."
+        ],
+        "reasoning": "An exact finite-size table is not the natural evidence for an asymptotic coefficient; even an exact finite integral leaves an expansion to do. Here an exact prior correction profile makes the coefficient directly calculable.",
+        "searches": [
+          "Resultary critical Curie–Weiss finite-size pair correlation, match 372f072d6fa7",
+          "Can–Pham arXiv:1709.04267, Thm. 1.4 and eq. (20) exact correction profile"
+        ]
+      },
+      "rationale": "Already covered as a direct moment consequence of Can and Pham (2017), not merely of the leading quartic limit. In exactly the same model, Theorem 1.4 prints the normalized first distribution correction using p₂(t)=(t²/2−t⁶/30)e^{−t⁴/12}. Crucially, their proof in §§3.2–3.3 gives the pointwise central expansion with an integrable polynomial times the quartic weight at order O(N^-1), as well as an exponentially small outer sum. Multiply that expansion by x² for the numerator and use it unweighted for the denominator. Summing the weighted remainder still gives relative O(N^-1); the grid spacing is 2N^-3/4 and the whole-line quadrature for each displayed smooth term costs O(N^-3/2) after multiplication by the spacing. Normalizing gives E[W²]=a+N^-1/2[(μ₄−a²)/2−(μ₈−aμ₆)/30]+O(N^-1)=a−N^-1/2a²/5+O(N^-1). The exact identity c_N=(√N E[W²]−1)/(N−1) now gives the frozen coefficient and remainder. It is immaterial that the source chooses a distribution tail, rather than a distinct-spin pair, as its named statistic: the very same local expansion and error control already settle this moment.",
+      "residual_risks": [
+        "This review does not identify the earliest possible occurrence; the 1978 paper and other earlier critical-moment treatments could also bear on priority.",
+        "Can–Pham's proof supplies the expansion used here; this review does not assert that their paper prints the pair coefficient as a displayed formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong earlier coverage; the proven local expansion mechanistically yields the stated pair-correlation expansion",
+          "evidence": "It defines p₁(t)=exp(−t⁴/12) and p₂(t)=(t²/2−t⁶/30)p₁(t), proves a summed quartic-polynomial O(N^-1) remainder with a pointwise envelope and obtains an exponential bound for outer weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.04267",
+          "material_read": "Theorem 1.4, PDF p. 3 (OA offset 8050 onward); §§3.1–3.2, Lemma 3.1, pp. 7–8 (offset 22000 onward); §3.3, equations (18)–(20), pp. 8–9 (offset 27350 onward), arXiv v2",
+          "method": "Targeted primary-literature search, then lawful arXiv PDF locators and decisive offset reads",
+          "title": "A Cramér type moderate deviation theorem for the critical Curie-Weiss model",
+          "trigger": "Primary result stating an explicit critical magnetization correction for the exact model; DOI 10.1214/17-ECP96"
+        },
+        {
+          "assessment": "The inspected result gives the leading critical law and partition asymptotic only",
+          "evidence": "The critical density is proportional to exp(−x⁴/12), and the inspected partition calculation gives a relative 1+o(1) result.",
+          "identifier_or_url": "https://doi.org/10.1007/s11040-025-09503-5",
+          "material_read": "§4 pp. 19–23, eq. (4.11) and eqs. (4.14)–(4.16), OA offsets 62477 and 70476",
+          "method": "Lawful OA passage read",
+          "title": "Propagation of Chaos and Residual Dependence in Gibbs Measures on Finite Sets",
+          "trigger": "Cited critical quartic limit and potential equivalent partition-function result"
+        },
+        {
+          "assessment": "Leading critical law; inspected spin-block approximations have noncritical parameters",
+          "evidence": "Eq. (6) is the quartic limit; Theorems 3.5, 3.7 cover h≠0 or β<1 and h=0,β>1 respectively.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05335",
+          "material_read": "Eq. (6) p. 2 offset 7372; Theorems 3.5 and 3.7, pp. 11–12 offset 42648",
+          "method": "Lawful OA PDF passage read",
+          "title": "When does the chaos in the Curie-Weiss model stop to propagate?",
+          "trigger": "Direct Curie–Weiss finite-marginal literature cited but not read in the frozen record"
+        },
+        {
+          "assessment": "Later dated source gives an equivalent exact finite-N expression and leading limit, not the next coefficient",
+          "evidence": "Correlation is the integral of tanh² against the critical mixing law, with limit √N C_N(1)=a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-curie-weiss-criticality-from-collective-stochastic-anti-he--372f072d6fa7",
+          "material_read": "Local RESULT.md finding at offset 564 and proof at offset 4300",
+          "method": "Local Resultary search and bounded mirror passage read",
+          "title": "Exact Curie–Weiss criticality from collective stochastic anti-Hermitian dynamics",
+          "trigger": "Indexed exact law and same critical pair observable"
+        },
+        {
+          "assessment": "Contents beyond citation were not decided and are not needed for the demonstrated coverage",
+          "evidence": "The 2025 bibliography identifies the 1978 article; no proposition of that paper was used.",
+          "identifier_or_url": "Ellis and Newman, Z. Wahrscheinlichkeitstheorie verw. Geb. 44 (1978), 117–139",
+          "material_read": "Bibliographic citation only, in the 2025 paper p. 24, OA offset 78413",
+          "method": "Bounded lawful OA attempt did not obtain the full paper",
+          "title": "Limit theorems for sums of dependent random variables occurring in statistical mechanics",
+          "trigger": "Foundational critical limit cited in frozen literature comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Can–Pham 2017, Theorem 1.4, Lemma 3.1 and equations (18)–(20)"
+      ],
+      "rationale": "Critical pair dependence and the susceptibility correction are natural observables, and the formula is useful as a concise corollary or reference calculation. But the frozen record's proposed new narrow exact fact is mechanically implied by the published correction profile and its established remainder. Applying the second-moment observable and subtracting the known diagonal contribution offers no surviving independent exact invariant, new regime or structural extension. No repair is warranted on the available result.",
+      "residual_risks": [
+        "The failure concerns research contribution, not the coefficient's correctness or usefulness in an expository note crediting the prior derivation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

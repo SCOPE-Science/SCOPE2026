@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:46:39.386074Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py and artifacts/certificate.json (read, not executed)",
+        "Yadav–Tiwari–Sarma, arXiv:2609.11783v1, Example 4.4",
+        "/workspace/independent/census.py (run with argument 5)",
+        "/workspace/independent/census-5.json",
+        "/workspace/repairs/5/RESULT.md and VERIFICATION.md",
+        "/workspace/repairs/5/artifacts/verify.py (run against the corrected certificate)"
+      ],
+      "rationale": "Explicit reconstruction gives two blocks of 48 distinct columns. Either spans the six-dimensional message space. Their missing spaces have dimensions (4,4) and intersection dimension 3, with constraints x2=y3=0 and x2+y2=y3=0 respectively. The span of e6 and e2 is a simultaneous complement, so the two dimension lower bounds are attained by an h-space inside that span or containing it. The repaired flag and certificate agree in the declared coordinate order. Independent hyperplane/coset recursion on all 2,824 annihilators, direct multiset counts, and a separate message-space word-weight sum agreed with every support bin and with (48,72,84,90,94,96). The repaired verifier returned VERIFY_OK.",
+      "residual_risks": [
+        "The census applies to the exact unreduced example, not to the compressed core or all Gray images."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan et al. use a strict flag, whereas these two deletions are both dimension four and distinct with three-dimensional overlap. Relative to two copies of the binary rank-six simplex, the deficit is 30 points with multiplicity; distinct increasing proper dimensions at most four can delete at most 26, while a dimension-five deletion alone is 31. The antiGriesmer single-simplex complement is projective, unlike this multiset."
+        ],
+        "reasoning": "Known formulas for those configurations do not specialize to the target. The inaccessible 2022 article remains a theorem-level scope risk.",
+        "searches": [
+          "Pan et al. arXiv:2408.10005v1 Theorem 3.3 and construction",
+          "Xie–Chen–Ding–Li DOI:10.1109/TIT.2026.3665706 §III",
+          "Shi–Li–Helleseth DOI:10.1109/TIT.2022.3217078"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and artifacts; primary Example 4.4; Grassl access attempt; two archived geometry comparisons; Pan et al.; Xie et al.; Shi–Li–Helleseth retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Gray geometry already identifies the generator multiset up to its stated construction, and makes blockwise support counting possible. A formula only for compressed supports discards second column copies; a complete uncompressed census requires the joint intersection-size distribution across both deleted spaces."
+        ],
+        "reasoning": "Credit the previously derived geometry. No inspected theorem supplies this equal-dimensional non-nested pair's joint distribution, and the repaired claim counts all higher support layers, not merely attainment of a dimension bound.",
+        "searches": [
+          "Prior compression RESULT.md offsets 750–3674 and limitation near 7740",
+          "Pan et al. Theorem 3.3 and strict-flag assumptions",
+          "Xie et al. §III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first record gives exactly the two excluded spaces and the one- versus two-copy geometry. Its projective core has length 56, keeping each point only once; the target has length 96 and retains 40 duplicated points. The second record concerns disjoint deletions and counts minima for other parameters, including [21,5,10]."
+        ],
+        "reasoning": "The multiplicity-weighted support size uses both separate intersection dimensions, not just the intersection with the common flat used in the projective-core support formula.",
+        "searches": [
+          "Resultary for two excluded Gray spaces and projective compression",
+          "2026/10/12/SCOPE-projective-flat-compression-of-simplicial-gray-codes--f91818bd3af7",
+          "2026/10/4/SCOPE-minimum-support-multiplicities-for-simplex-sr-sums--b93f5e25acc2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary Example 4.4 prints only the ordinary four-term homogeneous enumerator and cites Grassl for distance-optimality. The archived geometry result gives multiplicities of columns, not multiplicities of subcode support sizes. No direct row for this code was retrieved from Grassl."
+        ],
+        "reasoning": "A bound on d1 is distinct from counts at any higher dimension; the strongest exact object match supplies inputs to the census but not the bins.",
+        "searches": [
+          "Resultary for exact [96,6,48] Gray support spectra",
+          "Literature search for repeated-simplex deletion of two overlapping non-nested flats and full support distributions",
+          "Grassl table cited by Example 4.4"
+        ]
+      },
+      "rationale": "For the repaired scope: the primary paper supplies the parameters and ordinary enumerator, and the archived compression theorem supplies the geometry and multiplicities. The surviving claim is the complete higher support distribution of the original repeated-column Gray code, not the geometry or a hierarchy of the compressed code. The checked exact support-distribution theorems concern different configurations.",
+      "residual_risks": [
+        "Uninspected 2022 full text, unpublished calculations, or a different theorem for multiplicity-weighted non-nested deletion pairs could cover more. Failed retrieval is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact source code and ordinary distribution",
+          "evidence": [
+            "Prints x^96+58x^48 y^48+4x^40 y^56+x^32 y^64 and refers to Grassl for distance-optimality."
+          ],
+          "identifier_or_url": "arXiv:2609.11783v1",
+          "material_read": "Example 4.4, p. 18 offset 61774, and reference [21], p. 27 offset 92934",
+          "method": "OA paper PDF",
+          "title": "Linear Codes over F_q+uF_q associated with Simplicial Complexes, Their Gray Images, and Subfield Codes",
+          "trigger": "Exact Gray example and published distribution"
+        },
+        {
+          "assessment": "Covers geometry and core hierarchy, not the original weighted distribution",
+          "evidence": [
+            "The recorded maps T0,T1 and intersection T give the same two complements. The assumptions say the generalized Hamming weight is that of the projective core, not of the original longer code."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-projective-flat-compression-of-simplicial-gray-codes--f91818bd3af7",
+          "material_read": "RESULT.md offsets 750–3674; limitation near 7740",
+          "method": "Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Projective-flat compression of simplicial Gray codes",
+          "trigger": "Strongest earlier same-family and equivalent geometry match"
+        },
+        {
+          "assessment": "Strict nested flag not applicable; correspondence to published version not verified via DOI",
+          "evidence": [
+            "Uses 0=u_0<u_1<…<u_s<u_{s+1}=k for the deleted-space flag."
+          ],
+          "identifier_or_url": "arXiv:2408.10005v1; cited published DOI:10.1109/TIT.2024.3519672",
+          "material_read": "Definition p. 3 offset 9698; Theorem 3.3 p. 7 offset 23500; construction p. 8 offset 28492",
+          "method": "OA arXiv PDF; DOI did not yield readable paper",
+          "title": "Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions",
+          "trigger": "Most plausible prior repeated-simplex complete distribution"
+        },
+        {
+          "assessment": "Projective simplex-complement construction not equivalent to the length-96 multiset",
+          "evidence": [
+            "The complement is taken inside one simplex, starting from a projective code; duplicate projective points cannot occur."
+          ],
+          "identifier_or_url": "DOI:10.1109/TIT.2026.3665706",
+          "material_read": "Abstract p. 2 offset 946 and §III p. 4 offsets 17000–19945; p. 3 prior-work passage offset 15350",
+          "method": "OA HKUST submitted-version PDF",
+          "title": "AntiGriesmer Bounds, Optimal Codes, and Their Subcode Support Weight Distributions",
+          "trigger": "Simplex complementary full spectrum"
+        },
+        {
+          "assessment": "Unresolved detailed hypotheses",
+          "evidence": [
+            "Xie et al. describe it as treating projective Solomon–Stiffler codes; that description is not a full theorem comparison."
+          ],
+          "identifier_or_url": "DOI:10.1109/TIT.2022.3217078",
+          "material_read": "Citation and scope description in Xie et al. only; direct and VPN OA retrieval did not yield full text",
+          "method": "OA citation passage and retrieval attempts",
+          "title": "On the Subcode-Support-Weight Distributions of Some Classes of Optimal Codes",
+          "trigger": "Adjacent Solomon–Stiffler full distributions cited by Xie et al."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired higher-dimensional table",
+        "Repaired verifier and independent replay",
+        "Archived compression comparison"
+      ],
+      "rationale": "In the original distance-optimal Gray example, the repeated columns change higher-support behavior in a way not captured by compressing the geometry. The census quantifies this, for instance counting 256 four-spaces at odd support 91 although all ordinary nonzero weights are divisible by eight. This is useful as an exact comparison case for multiset generator constructions, independently of the known geometry or minimum distance.",
+      "residual_risks": [
+        "No general table for all parameters or orbit-level classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

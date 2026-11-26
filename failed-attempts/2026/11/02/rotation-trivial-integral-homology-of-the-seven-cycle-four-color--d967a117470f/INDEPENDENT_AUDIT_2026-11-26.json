@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:56:57.171918Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated graph allows neighboring occupied rows only when both contain the same single color. Independently enumerating compatible cyclic row subsets gives all 36,069 faces and the stated cardinality distribution. The bundled Morse proof uses the full acyclicity check and a signed unit-pivot boundary projection; the 12-by-9 array represents the transpose of the column-convention differential, leaving Smith factors unchanged. Independently, branches/audit5.py and audit5.out use actual unit Gaussian cancellations over Z, top degree down on the uncompressed augmented boundary, without a prespecified matching. Unit clearing changes only the cancelled basis vector in the next lower boundary; precisely three degree-three and six degree-four basis classes survive and no nonzero boundary remains. For a nonidentity rotation, the only fixed nonempty simplices are the four single-color 6-simplices, each with a positive orientation sign. The augmented trace is 3, independently confirmed for all six powers. The degree-three representation is trivial since a nontrivial rational C7 constituent has dimension six. The degree-four trace is then 6, ruling out that constituent there too. Integral freeness makes rational triviality faithful; barycentric subdivision and rational coinvariant exactness give the geometric quotient ranks without assuming freeness or making an integral quotient claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "62a674f26446 fixes color zero, leaves an upper filter P based on total domination, and decomposes P over exact sets of one or two nonzero colors. Every first-block matched pair lies outside P, and all faces outside P are paired. Both predicates are stable under cycle rotation.",
+          "One-color relative sectors have one critical degree-four cell; two-color sectors have one each in degrees three and four, with zero signed differential. The separate K3 records concern only the three-color graph."
+        ],
+        "reasoning": "The row-greedy matching itself is not rotation-equivariant, but the augmented relative chain splitting is, which is the only equivariance needed. Rotations fix each sector rather than permuting them. Restricting a broader explicitly computed dihedral K3 representation alone would not answer the K4 question.",
+        "searches": [
+          "Resultary 62a674f26446, Proof steps 1–4 and Limitations",
+          "Resultary a4b9eeaaf3d0 and 052efc1455b0 full dihedral/color refinements"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "Resultary 62a674f26446, 50b8be4e4c8f, a4b9eeaaf3d0, 052efc1455b0, dcca336a0ff9",
+        "arXiv:2307.12401v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P is an upper filter; its complement A is a rotation-invariant subcomplex. On the augmented complex for A, all cells are acyclically paired by the source's first block, hence reduced homology of A vanishes.",
+          "The source proves that a boundary incidence remaining in P preserves the exact color set, and computes the one- and two-color integral sector homology (unit generators, differential zero)."
+        ],
+        "reasoning": "The equivariant projection from augmented chains of X onto C(X,A) induces a homology isomorphism by acyclicity of A. The relative chain complex is the direct sum over the exact-color sectors of P because any incidence leaving P dies in the quotient. Rotations preserve each such sector. Its homology in each nonzero degree is Z; any action on it has image in {+1,-1}, hence an order-seven rotation acts trivially. This direct deduction from the previously computed sector data works for all color counts, and ordinary rational quotient transfer finishes the K4 claim. It does not rely on an equivariant choice of matching or an unverified bilateral comparison.",
+        "searches": [
+          "Resultary 62a674f26446 RESULT.md, exact Proof steps 1–4, offsets 0 and 2000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "50b8be4e4c8f gives the exact nonequivariant K4 wedge of three 3-spheres and six 4-spheres. arXiv:2307.12401v2 Theorem 23 and the discussion at Question 24 give the neighboring-degree setting without the exact K4 character.",
+          "At n=4 the all-color wedge gives the same integral ranks. The frozen character is equivalent to trivial C7 actions on the two free lattices; the quotient assertion is its standard rational consequence."
+        ],
+        "reasoning": "Nonequivariant ranks alone do not force the degree-four character, which could be cyclotomic over Q. Actual information on the underlying action is needed; the earlier proof supplies it through rotation-stable sectors rather than a Lefschetz trace.",
+        "searches": [
+          "Resultary rotation or equivariant homology for Ind(C7 categorical K4)",
+          "Resultary 50b8be4e4c8f and 62a674f26446, wedge Findings",
+          "arXiv:2307.12401v2 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact K4 indexed result 50b8be4e4c8f gives the wedge but no rotation action in the inspected Finding. The all-color record mentions earlier three-/four-color symmetry refinements without identifying the four-color claim and expressly excludes equivariant modules from its own stated scope.",
+          "The superficially matching quotient computation dcca336a0ff9 uses Hom(C7,K4), a different complex whose cells require nonempty color subsets at every cycle position and whose asserted rotation action is free."
+        ],
+        "reasoning": "No direct verified character table is needed for the coverage finding. Neither the unreferenced phrase nor the visually similar Hom quotient is being counted as a direct exact match.",
+        "searches": [
+          "Resultary four-color integral rotation module and quotient; 50b8be4e4c8f, 62a674f26446 and dcca336a0ff9"
+        ]
+      },
+      "rationale": "The strongest examined source is the November 1 Resultary all-color sector theorem 62a674f26446, at the level of its proof, not merely its wedge statement. Its augmented relative chain decomposition identifies rotation-stable rank-one homology summands for every color count. This forces trivial rotation integrally for all colors, and rational quotient ranks follow by ordinary finite-group averaging. The frozen K4 result is covered by that immediate implication. No claim is made that the prior record printed the character conclusion or that its unidentified symmetry reference is a verified exact duplicate.",
+      "residual_risks": [
+        "No printed exact K4 character was identified in these sources; the decision is made on proved implication, not an exhaustive historical search. The family record's unreferenced symmetry phrase does not identify an exact overlap on its own."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger sector calculation directly implies the rotation claim although the wedge statement alone does not",
+          "evidence": "Rotation-stable upper filter, acyclic matching on the complement, exact color sectors with free rank-one groups, and zero signed boundary in the two-color sector.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-uniform-integral-sphere-wedges-for-seven-cycle-categorical-produ--62a674f26446/RESULT.md",
+          "material_read": "Finding; Proof steps 1–5, offsets 0 and 2000; prior-work/limitations at offset 8850",
+          "method": "Exact local-mirror text and mathematical implication check",
+          "title": "Uniform integral sphere wedges for seven-cycle categorical products",
+          "trigger": "Potential dominating all-color theorem"
+        },
+        {
+          "assessment": "Covers K4 integral ranks but not the degree-four action by itself",
+          "evidence": "Wedge of three 3-spheres and six 4-spheres.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-torsion-free-mixed-dimensional-sphere-wedge-for-the-seven-cycl--50b8be4e4c8f",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror full-text passage inspection",
+          "title": "A torsion-free mixed-dimensional sphere wedge for the seven-cycle categorical product with four colors",
+          "trigger": "Exact nonequivariant predecessor"
+        },
+        {
+          "assessment": "General adjacent-degree baseline, does not supply exact K4 action",
+          "evidence": "C7 case admits Moore-space summands in its structural theorem; the discussion names K4 as a computed free example and poses torsion-freeness generally.",
+          "identifier_or_url": "arXiv:2307.12401v2",
+          "material_read": "§3 Theorem 23 pp. 25–26 offset 58291; discussion and Question 24 p. 27 offset 61744",
+          "method": "OA PDF passage inspection",
+          "title": "Homotopy type of the independence complex of some categorical products of graphs",
+          "trigger": "Primary theorem on the same graphs"
+        },
+        {
+          "assessment": "K3 only",
+          "evidence": "The D7 x S3 representation restricts trivially to rotations, but uses the 21-vertex graph and does not assert other color counts.",
+          "identifier_or_url": "Resultary a4b9eeaaf3d0; see also 052efc1455b0",
+          "material_read": "Finding and rotation statement; assumptions at offsets 583–1568 of a4b9eeaaf3d0",
+          "method": "Local-mirror passage inspection",
+          "title": "Integral homotopy and joint dihedral-color homology of the seven-cycle three-color independence complex",
+          "trigger": "Nearby symmetry theorem"
+        },
+        {
+          "assessment": "Different complex/action",
+          "evidence": "The source uses Hom cells with nonempty color subsets and a free rotation action, not the independence complex.",
+          "identifier_or_url": "Resultary dcca336a0ff9",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local-mirror passage inspection",
+          "title": "The fourteen-element fundamental group of the seven-cycle four-color Hom-complex quotient",
+          "trigger": "Possible matching quotient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A nonfree geometric quotient and the associated integral rotation action are motivated invariants, but the specific K4 answer is mechanically forced by the existing relative-sector computation, not by new data needed for this object. The exact homology validation and independent fixed-face route are corroboration and an alternative proof of that consequence. No separate quotient torsion or fuller representation is asserted that could survive as a new useful finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

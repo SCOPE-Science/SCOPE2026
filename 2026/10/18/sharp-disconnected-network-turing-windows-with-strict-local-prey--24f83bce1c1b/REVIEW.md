@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete claim follows from an exact local Jacobian and modal determinant, positivity of the quadratic coefficients, one-dimensional simple-eigenvalue transversality, the standard finite-dimensional bifurcation theorem, and an exact stationary two-equation moment balance. In the path case, all eigenvalues are simple and a ratio-continuity argument separates all windows. A reproducible SymPy/NumPy program verifies symbolic equalities and finite spectral examples. Computations supplement and do not replace the proof of the all-order statement.
+## correctness
 
-**Originality — PASS, qualified.** The 2010 network Turing eigenmode theory and the 2023 weak-Allee source's modal dispersion and numerical patterns directly cover the *generic linear method*; no novelty is asserted for that method. The inspected original and companion 2023 primary full texts have different rational population kinetics and do not derive the exact quadratic two-species biomass losses for this strong-Allee model or its separated path-scale thresholds. Closest retrieved scientific records concern temporal mean-bias identities of other predator–prey ODEs, a bounded-domain discrete-mode example, or different nonlinear ecological models. Abstract-only 2024 clustering work and possible general bifurcation consequences remain priority risks.
+PASS
 
-**Value — PASS.** Whether spatial patterning redistributes density or reduces total prey and predator population is a concrete gap left by the linear stability test. The result proves a signed second-order demographic cost for every simple critical spatial eigenvector of a natural positive strong-Allee predator–prey network system, supplies an exact finite-amplitude diagnostic identity, and constructs arbitrarily many sharp separated stability/instability windows on elementary connected habitats. The assertions do not claim ecological data-fit, stable patterned attractors, or generic applicability to all predator–prey kinetics.
+In repairs/2/RESULT.md the two positive uniform equilibria are enumerated and all stability/bifurcation claims are explicitly scoped to (1,1). The negative trace and determinant 1-(r-3)z+rz² give all stability and zero-mode regimes, including double-root r=9 and overlapping endpoints. At an isolated r>9 threshold the right/left modal null vectors (1,h),(4,-h) give transversality -λh[2rz-(r-3)]≠0. The simple-eigenvalue theorem gives the branch in real states. Exact polynomial expansion and zero Laplacian column sums give the two linear equations for mean shifts; their inverse yields (5). Inserting the tangent yields deficits h(7-3h), h(8-3h) times σ²s² with positive coefficients. The simple path spectrum, z+/z-→1 and a strict gap-ratio bound give n-1 bands, with P₂ and the rational P₃ example consistent. The repaired record asserts neither patterned stability nor a global mean sign.
 
-## Closest literature and limitations
+## originality
 
-Ye and Zhou (arXiv:2306.11818, 2023) and Shi, Zhou, and Ye (Preprints 202306.1868, 2023) study weak-Allee rational reaction terms, not the specified polynomial model. Nakao and Mikhailov (2010) already give the network modal decomposition. Luo et al. (Chaos 2024, doi:10.1063/5.0195450) concerns network clustering and nonlinear Turing patterns; only its abstract was accessible, so equivalence beyond that cannot be excluded. Nonuniform branch stability, far-from-equilibrium biomass signs, and applicability to the motivating model's original kinetics remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported contribution is the model-specific exact two-species stationary mean balances and sign-definite local coefficients at every isolated simple threshold, coupled to separated bands on an explicit unweighted path family. Generic modal criteria, narrow-band arguments, and simple-eigenvalue bifurcation are not original. Inspected primary and indexed statements do not supply the joint claim or the specific paired mean law.
+
+## value
+
+PASS
+
+The exact spatial balances, robust paired local deficit signs and repeated crossings distinguish linear instability from the demographic direction of the resulting equilibrium branch. The arbitrary number of windows makes this more than a numerical small-network example. The kinetics are a tractable model, not an empirical or global pattern-stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

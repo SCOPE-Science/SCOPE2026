@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:19.880519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a positive Perron vector w of K, the empty-state Jacobian obeys J(c)w=(cρ(K)−1)diag(m)w. Irreducible Metzler bounds give the asserted stability sign on either side of 1/ρ(K). Conjugation by diag(sqrt(q_i d_i)) yields the symmetric weights sqrt(q_i q_j/(d_i d_j)). Because the inserted edge was absent, no old edge has both endpoint degrees changed. Each old weight is multiplied by 1 or sqrt(d/(d+1))≥1/sqrt(2). The new positive edge improves the Rayleigh quotient strictly on the old positive Perron vector. For q=(1,b,1), the transpose reduced to the invariant (end,center) subspace has characteristic polynomials x²−b before and x²−x/2−b/2 after insertion, and symmetry places the Perron vector in this subspace. This recovers R(b)=(b^{-1/2}+sqrt(8+b^{-1}))/4. It is strictly decreasing, with the stated endpoint limits; equivalently each R>1/sqrt(2) is realized by b=(2R−1/R)^{-2}. Equality is impossible for any allowed instance, and two or fewer vertices cannot furnish a missing edge in a connected simple graph. Thus the reciprocal critical-rate factor is always strictly below sqrt(2). Independent symbolic reduction and combinatorial counts 81+6,804+763,020=769,905 for the stated finite grid are replayable via python /workspace/branches/independent_checks.py. The numerical grid minimum was not needed for the theorem and was not independently recomputed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altenberg's general result concerns spectral-bound convexity and a derivative bound as one scalar mixing parameter changes.",
+          "The later graph-resistance record can switch the invasion verdict by closing a three-habitat path, but its operator is (aI+fL)^{-1}diag(b) with explorer births, not diag(q)AD^{-1}."
+        ],
+        "reasoning": "A scalar-mixing reduction result or an invasion verdict reversal for a resolvent kernel does not imply the strict quantified one-edge multiplicative bound and surjectivity for fixed local exports.",
+        "searches": [
+          "arXiv:1108.4546, scalar mixing and heterogeneous growth",
+          "DOI 10.1098/rspb.2015.0203 (available excerpt)",
+          "Resultary 2026/11/22/SCOPE-a-graph-resistance-critical-window-for-fast-exploration-in-heter--365eb550e61d"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1371/journal.pcbi.1004251",
+        "arXiv:1504.07669",
+        "arXiv:1108.4546",
+        "Resultary 365eb550e61d",
+        "Resultary 05d94569135f",
+        "Resultary 2dee4c03082f",
+        "DOI 10.1098/rspb.2015.0203 (excerpt)",
+        "DOI 10.1038/35008063 and 10.1016/j.jtbi.2011.11.027 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-weight positive link yields an entrywise increase rather than dilution; a normalized Laplacian gap is not ordered by this same Perron argument.",
+          "Perron monotonicity or a single reversal example gives neither the controlling factor from at most one changed endpoint per old edge nor the exact three-patch continuum attaining all larger values."
+        ],
+        "reasoning": "The quantitative bound and complete range need the actual edge update and a continuously tunable extremizing family. Those are substantive additions even though the comparison principle is standard.",
+        "searches": [
+          "DOI 10.1371/journal.pcbi.1004251, metapopulation-capacity discussion",
+          "arXiv:1504.07669 pp. 1–2",
+          "Resultary 365eb550e61d, RESULT.md Finding and comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent quality-weighted reversible operator uses diagonal factors sqrt(q_i/d_i). Eldan–Rácz–Schramm use D^{-1/2}AD^{-1/2} inside a Laplacian and track a spectral gap, not the top eigenvalue after quality weighting.",
+          "Grilli–Barabás–Allesina's leading-eigenvalue capacity uses a patch-value/distance kernel, not endpoint-budget splitting."
+        ],
+        "reasoning": "Neither using the term capacity nor sharing the unweighted normalized adjacency changes the functional being compared into the weighted Perron-root ratio with degree updates.",
+        "searches": [
+          "Resultary: fixed-output degree normalization, one-edge capacity ratio and three-patch path to triangle",
+          "DOI 10.1371/journal.pcbi.1004251",
+          "arXiv:1504.07669"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact indexed corridor bounds include a four-patch conductance-budget crossing at B=sqrt(3)d and an area-allocation optimization on a fixed four-patch path.",
+          "The first fixes a global undirected conductance sum; the second uses fixed-graph weights (a_i a_j)^{3/8}. Neither is the one-missing-edge ratio or a table covering it."
+        ],
+        "reasoning": "This analytic continuum range is not a finite-table claim. The exact competing results were compared by graph operation and normalization; a missing exact index hit is not evidence of historical absence.",
+        "searches": [
+          "Resultary: exact factor 1/sqrt(2), fixed-output degree normalization, path-to-triangle range",
+          "Resultary 2026/11/22/SCOPE-a-sharp-four-patch-corridor-budget-inversion-at-b-sqrt-3-d--05d94569135f",
+          "Resultary 2026/10/18/SCOPE-symmetry-breaking-habitat-allocation-on-a-four-patch-corridor--2dee4c03082f"
+        ]
+      },
+      "rationale": "The supported distinction is the exact strict lower bound and full attainable capacity-ratio range for degree-renormalized fixed exports at unchanged positive extinctions. The nearest indexed path-to-triangle invasion reversal uses a different operator. Known spectral-capacity and edge-perturbation theory supplies the method or motivation, not the exact range under this intervention.",
+      "residual_risks": [
+        "Named inaccessible primary bodies may contain relevant special cases; no noncoverage claim for them.",
+        "An equivalent theorem for diagonally weighted reversible random walks could sit outside the examined literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Leading-eigenvalue framework is known; normalization and intervention differ.",
+          "evidence": [
+            "M_ij=M_ji=A_iA_j f(||x_i−x_j||/ξ); patch removal deletes a row and column."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1004251",
+          "material_read": "OA primary full text, particularly p. 6 around extraction offset 25552",
+          "method": "Compare entry formula and graph operation in the capacity discussion",
+          "title": "Metapopulation Persistence in Random Fragmented Landscapes",
+          "trigger": "Primary spectral habitat-capacity model"
+        },
+        {
+          "assessment": "Normalized Laplacian spectral gap, not heterogeneous quality-weighted Perron growth.",
+          "evidence": [
+            "Abstract states normalized-Laplacian gap change; operator uses D^{-1/2}AD^{-1/2}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.07669",
+          "material_read": "Primary PDF, particularly pp. 1–2",
+          "method": "Check operator and eigenvalue target",
+          "title": "Braess's paradox for the spectral gap in random graphs and delocalization of eigenvectors",
+          "trigger": "Spectral edge-addition paradox with normalized adjacency"
+        },
+        {
+          "assessment": "General spectral-bound reduction, not the same operation or quantified range.",
+          "evidence": [
+            "Convexity and derivative control for a scalar mixing parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.4546",
+          "material_read": "Primary preprint, particularly p. 1 statement",
+          "method": "Compare the scalar mixing hypothesis with graph-specific degree renormalization",
+          "title": "Resolvent Positive Linear Operators Exhibit the Reduction Phenomenon",
+          "trigger": "Stronger general dispersal spectral perturbation theorem"
+        },
+        {
+          "assessment": "Real qualitative overlap, later dated and mathematically non-equivalent due to the different kernel; not a prior exact range theorem.",
+          "evidence": [
+            "Three habitats with b=(3,2,1) and the explorer-resolvent kernel (aI+fL)^{-1}diag(b)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-graph-resistance-critical-window-for-fast-exploration-in-heter--365eb550e61d",
+          "material_read": "Mirrored RESULT.md offsets 0–4649 and 8266–10402",
+          "method": "Compare explicit kernel and path-to-triangle example",
+          "title": "A graph-resistance critical window for fast exploration in heterogeneous habitats",
+          "trigger": "Same smallest path-to-triangle intervention and reversal of invasion verdict"
+        },
+        {
+          "assessment": "Global conductance-budget path/diamond comparison, not fixed per-patch export corridor insertion.",
+          "evidence": [
+            "Four-patch invasion threshold ordering reverses at B=sqrt(3)d."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-four-patch-corridor-budget-inversion-at-b-sqrt-3-d--05d94569135f",
+          "material_read": "Mirrored RESULT.md offsets 0–6455",
+          "method": "Compare conserved budget and affected graphs",
+          "title": "A sharp four-patch corridor-budget inversion",
+          "trigger": "Exact budget-constrained corridor threshold"
+        },
+        {
+          "assessment": "Not equivalent regardless of same-day ordering.",
+          "evidence": [
+            "Area allocation on a fixed four-patch path with weights (a_i a_j)^{3/8}."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-symmetry-breaking-habitat-allocation-on-a-four-patch-corridor--2dee4c03082f",
+          "material_read": "Mirrored RESULT.md offsets 0–4463",
+          "method": "Check graph intervention and weights",
+          "title": "Symmetry-breaking habitat allocation on a four-patch corridor",
+          "trigger": "Same-day habitat spectral optimization record"
+        },
+        {
+          "assessment": "General topic overlap; no whole-paper exclusion.",
+          "evidence": [
+            "Excerpt describes a spectral persistence index and degree/symmetry effects."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspb.2015.0203",
+          "material_read": "Available search excerpt only; lawful publisher and alternate OA retrieval did not yield full text",
+          "method": "Compare excerpt and attempt full-text retrieval",
+          "title": "The effects of connectivity on metapopulation persistence: network symmetry and degree correlations",
+          "trigger": "Potential stronger result on degree-dependent spectral persistence"
+        },
+        {
+          "assessment": "Full-text coverage unresolved.",
+          "evidence": [
+            "No independently readable passage relied on."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/35008063",
+          "material_read": "Citation and access outcome only; journal redirects and alternate retrieval did not supply primary text",
+          "method": "Lawful primary retrieval attempted",
+          "title": "The metapopulation capacity of a fragmented landscape",
+          "trigger": "Foundational spectral capacity paper"
+        },
+        {
+          "assessment": "Full-text coverage unresolved.",
+          "evidence": [
+            "No independently readable passage relied on."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2011.11.027",
+          "material_read": "Citation and access outcome only; no readable publisher or identified OA copy",
+          "method": "Lawful primary retrieval attempted",
+          "title": "Spatial network structure and metapopulation persistence",
+          "trigger": "Network-topology persistence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed per-patch dispersal gives a clear mathematical reason why a new edge may be adverse, unlike adding independent per-edge export. The strict uniform downside ceiling and lack of an upside ceiling answer how large that tradeoff can be. Exact attainability already on the minimal network supplies a controlled benchmark. Interpret it only as deterministic linear invasion, not stochastic survival or a measured habitat effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

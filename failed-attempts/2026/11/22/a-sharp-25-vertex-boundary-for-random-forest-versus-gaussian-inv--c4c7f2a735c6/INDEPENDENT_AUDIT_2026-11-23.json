@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:05:57.310144Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md and verify.py inspected, not executed",
+        "arXiv:1905.02086, eqs. (6), (9)"
+      ],
+      "rationale": "The root-count pgf is det(qzI+L)/det(qI+L), so R_q is a sum of Bernoulli variables in distribution, with parameters t_j=q/(q+λ_j). The orthogonal Gaussian moments give V_G=2Σt_j². Connectedness gives t_1=1 and contributes −2 to the forest excess; every remaining summand t_j−3t_j² equals 1/12−3(t_j−1/6)². The bound and certificate follow, and equality forces λ_j=5q for all j≥2. The Laplacian is then exactly 5q times the orthogonal projector away from the constant vector, which gives the unique uniform complete conductance matrix and realizes all equality conditions simultaneously. At n=26 the variances are 125/36 and 122/36; the numerator of the complete-graph difference at general n is −2x²+(n−5)x−2n, with discriminant (n−1)(n−25) and positive roots for n≥26. The strict excess persists on an open neighborhood of the complete graph in the positive conductance and q parameters.",
+      "residual_risks": [
+        "The graph statement uses the usual conductance-matrix convention; if parallel edges are allowed the uniqueness is of aggregate conductances, not their splitting. Comparison is for unmodified one-draw variances, not time or cost."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 source treats arbitrary spectra in the graph setting, without imposing complete-graph symmetry. The follow-up treats variance reduction and empirical cost comparisons."
+        ],
+        "reasoning": "The older pair of exact formulas covers the hypotheses and the individual graph values throughout the frozen optimization. The later empirical comparison is not needed for the implication.",
+        "searches": [
+          "arXiv:1905.02086, single-draw Gaussian and forest variance formulas and adjacent comparison",
+          "arXiv:2206.07421, abstract and §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.02086",
+        "arXiv:2206.07421",
+        "Resultary: exact local match and nearby star-control-variate and bipartite-root-count findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each t_j−3t_j²≤1/12 with equality at t_j=1/6, while the connected zero mode contributes −2. The spectrum with all remaining t_j=1/6 is realized by the complete graph.",
+          "Equal nonzero eigenvalues force the constant-complement projector; evaluation at a common nonzero eigenvalue reduces the crossover to a single quadratic."
+        ],
+        "reasoning": "No independent graph constraint or new variance calculation is required. The separable bound is simultaneously attained by an elementary Laplacian, its rigidity is immediate from the spectral theorem, and the complex-looking endpoints are the quadratic formula. The full result, not only a sample or one bound, is mechanically implied.",
+        "searches": [
+          "arXiv:1905.02086, eq. (6) and eq. (9), and their per-sample comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local hit was the audited finding. The earlier primary paper compares the Wilson root-count and Gaussian Girard estimators, the same pair under different names.",
+          "The requested excess is exactly tr(K_q)−3 tr(K_q²)."
+        ],
+        "reasoning": "The spectral and trace formulations are identical; the degree-two trace expression uses precisely the two moments already in the prior work. Nearby star control-variate and bipartite likelihood-ratio records have different estimands or comparisons.",
+        "searches": [
+          "Resultary: rooted forest trace estimator variance Gaussian Hutchinson 25 vertices",
+          "Resultary: Gaussian inverse-trace variance versus Wilson root count, exact dimension and certificate",
+          "arXiv:1905.02086, eqs. (6), (9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact threshold table identified. Substituting 0,5q,…,5q into the published formulas immediately gives the excesses −1/12, 0, +1/12 at orders 24, 25, 26."
+        ],
+        "reasoning": "Those numbers are evaluations of an exact prior calculation, not evidence of an earlier printed table or of a new census.",
+        "searches": [
+          "Resultary: Gaussian probe versus root count 25 vertices, first reversal at 26 and complete-graph witness",
+          "arXiv:1905.02086, comparison adjacent to eq. (9)"
+        ]
+      },
+      "rationale": "The 2019 paper already compares the same unmodified one-draw estimators and gives both exact variances on these graphs. The frozen result is a mechanical sharp corollary: complete the same scalar square in each nonconstant mode, realize its equality with a uniform complete graph, and solve the resulting quadratic on that graph. This judgment is based on positive prior-coverage evidence, not a claim that the literal number 25 appears in the paper.",
+      "residual_risks": [
+        "Bounded searches do not determine whether an older work explicitly prints the threshold. The implication from the inspected formulas does not depend on a printed threshold or a keyword miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_MECHANICAL_COROLLARY",
+          "evidence": [
+            "One-Gaussian-probe variance 2Σ(q/(q+λ_j))²; one-forest root-count variance Σqλ_j/(q+λ_j)². The text explicitly compares the two and notes dependence on the eigenvalue distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.02086",
+          "material_read": "Eq. (6), PDF opening pages/OA offsets 6200–8381; eq. (9) and adjacent per-sample comparison, offsets 18900–22044",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Estimating the inverse trace using random forests on graphs",
+          "trigger": "Same estimators, observables and graph domain; possible prior implication"
+        },
+        {
+          "assessment": "DIFFERENT_COMPARISON_IN_PASSAGES",
+          "evidence": [
+            "Control variates, stratification and empirical effective runtime rather than the two unmodified one-draw variances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.07421",
+          "material_read": "Abstract/introduction and §§3.2–4, OA offsets 2175–9985 and 17300–24255",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Variance Reduction for Inverse Trace Estimation via Random Spanning Forests",
+          "trigger": "Same inverse-trace task and possible later dominance of the variance comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "arXiv:1905.02086, eqs. (6), (9) and the adjacent comparison"
+      ],
+      "rationale": "A sharp one-draw variance boundary is a natural benchmark, but this particular certificate and cutoff are a scalar square completion and an elementary equality realization from the already published comparison. The complete-graph window adds only the roots of that same quadratic. There is no independently nonmechanical invariant here, nor does the result resolve computational efficiency, correlated probes, or general-graph crossover sets.",
+      "residual_risks": [
+        "This judgment concerns the frozen raw-variance claim, not the potential value of a different estimator or a cost-aware comparison."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

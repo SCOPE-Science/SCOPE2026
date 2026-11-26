@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:03:06.955510Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof (lines 5–48)",
+        "Frozen VERIFICATION.md, check.py, checker_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/evidence/two_pole_check.py; captured output /workspace/evidence/two_pole_output.txt"
+      ],
+      "rationale": "The positive-length paths span the nilpotent arrow ideal, whose vertex-algebra quotient is semisimple. There are w+e arrows, 2e length-two paths and e length-three paths, no longer paths, so J has dimension w+4e and J³ has the stated basis. Each cubic coefficient is precisely a_u b_{uv} c_v because only a concatenation of three arrows can survive and the specified path has one such factorization. This leaves 3e higher-path coordinates free. Fixing the set S of nonzero outer coefficients forces S to include every endpoint of a nonzero target edge, then determines the middle variable on each induced edge and leaves each other middle variable free. This derives the entire prescribed fiber and ensures surjectivity (choose all outer coefficients equal to one). In fact the fiber depends only on the set of forced endpoints. At zero, the squarefree ideal is the intersection of coordinate primes for vertex/edge-variable transversals of the triples; minimal transversals give geometrically irreducible components. Disjoint triples from a maximum matching lower-bound all transversal sizes, and a minimum bipartite vertex cover realizes equality. For a fixed set S of retained outer variables, the unique least transversal with these retained outer variables is W\\S plus the middle variables of induced edges. Thus the components of maximum dimension are directly enumerated by the S satisfying |S|-e_G(S)=w-nu(G). The leading term of the root polynomial comes from just these sets and has positive coefficient c_G, with next degree at least one lower, yielding the stated probability and error for fixed G. Conditioning on all outer variables nonzero gives exactly uniform output and the probability of failure is at most w/q, giving the TV bound. The argument has no coefficient or sign restriction and applies in characteristics two and three. Independent inclusion-exclusion checked all 16, 32 and 64 graph supports in three further cases (K2,2 over size 5, an irregular disconnected graph over size 7, and a six-cycle over size 4); direct transversal enumeration checked the top-component counts 2, 9, 2 and exact TV estimates. These checks used coefficient counts and not brute-force path multiplication.",
+      "residual_risks": [
+        "The independent replay tests three graphs and field sizes, using inclusion-exclusion for arrow equations. The passage from the path algebra to those equations and the all-graph result rest on the proof, not the finite tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kadison–Young §4 describes the positive-length radical grading. Bouchat–Hà–O'Keefe describe squarefree path ideals as hypergraph edge ideals, investigating Betti numbers and resolutions rather than prescribed cube counts.",
+          "The nearest plausible external hit by title, Quiver Heisenberg algebras: a cubic analogue of preprojective algebras, was inaccessible at the returned PDF address (direct and VPN attempts HTTP 403); no theorem comparison could be made from the title alone."
+        ],
+        "reasoning": "The background theory gives the algebra's path coordinates and the general geometry of squarefree zero equations. Neither inspected theorem gives the private middle-variable product equations for the cube map, the effect of prescribing nonzero target entries, or the matching and probability conclusions as a package.",
+        "searches": [
+          "Resultary: cubic powers in Jacobson radical path algebra prescribed targets monomial equations",
+          "Resultary: squarefree monomial point counts matching theorem leading coefficient coordinate subspace components",
+          "Web search: \"cubic\" \"path algebra\" radical cube map fiber counts quiver graph matching number",
+          "arXiv:1302.1730v1 p. 9; arXiv:1008.4829v2 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs e14651f0a3e6, 3f6b29b03a8b, e78c20362889, 1c150d6b326e, 0edf4af1aaa4",
+        "Kadison–Young §4, p. 9; Bouchat–Hà–O'Keefe p. 2",
+        "Heisenberg-algebra title/search description and lawful retrieval attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "König's theorem gives a minimum vertex cover of size nu(G) and hence one transversal of that size once the cubic equations are known. A matching gives the reverse bound by disjoint triples. The earlier induced-edge and independent-set arguments are for other equations in square-zero algebras."
+        ],
+        "reasoning": "The exponent and coordinate-arrangement argument specialize classical machinery, but that machinery does not already identify the family of prescribed cube fibers or compute its exact support law. One must identify the one-private-middle-variable equations from radical multiplication, exploit their solvability under nonzero prescriptions, and then connect the least transversals to G. There is no evidence the inspected earlier counting laws imply this as their own special case.",
+        "searches": [
+          "Resultary: squarefree monomial point counts matching theorem leading coefficient coordinate subspace components",
+          "Resultary 3f6b29b03a8b and e78c20362889, Finding, offset 0",
+          "Bouchat–Hà–O'Keefe arXiv:1008.4829v2, p. 2; König matching–vertex-cover theorem named in the frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-date e14651f0a3e6, Finding, gives prescribed cube fibers in N5(k), surjectivity onto N5(k)^3, and leading zero probability 5q^{-2}.",
+          "1c150d6b326e studies powers in units of radical-square-zero quotients; 0edf4af1aaa4 studies commuting pairs in a multiarrow line radical."
+        ],
+        "reasoning": "N5(k) is a single-chain radical with a length-four path, whereas this problem admits no length-four paths and has one distinct edge-indexed coefficient per length-three path. A single-chain formula cannot establish the arbitrary graph support law. The unit and commuting-pair formulations count different maps. The same date was not treated as evidence of priority. The identical indexed record was not counted as overlap.",
+        "searches": [
+          "Resultary: prescribed cubic fibers cubes of quiver path algebra radicals bipartite graph matching-number leading coefficient/components",
+          "Resultary: exact cubic root count N5(k) nilpotent algebra cube fibers",
+          "Resultary records e14651f0a3e6, 1c150d6b326e, 0edf4af1aaa4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared N5(k) record has a complete prescribed census in its own algebra. The radical-square-zero tuple record has an induced-edge polynomial for pairwise annihilation; the characteristic-two tripotent record has an independent-set component count for a^3=a. None provides the actual prescribed graph-dependent counts at both zero and nonzero targets here."
+        ],
+        "reasoning": "The input is an arbitrary labeled graph and target support over a variable field, not one integer sequence. The function-level catalogue comparisons are the applicable exact-data check; matching a zero-fiber exponent or a few examples would not be equivalent coverage.",
+        "searches": [
+          "Resultary: finite field point count squarefree cubic monomial ideal coordinate components matching number bipartite quiver radical x^3=0",
+          "Resultary: matching number codimension maximum components cubic zero locus graph algebra",
+          "Resultary records e14651f0a3e6, 3f6b29b03a8b and e78c20362889"
+        ]
+      },
+      "rationale": "The distinct result is the exact prescribed cubic census for a whole graph-indexed radical family, coupled to the matching-controlled zero fiber, its exact leading coefficient and a uniformity bound on the whole target distribution. The arrow-ideal description, monomial component description and König's theorem are prior mechanisms, not new results. The closest actual cubic-fiber statement is a single-chain algebra, and the most similar graph-indexed counting methods concern different equations. The comparison supports the specialized claim without making an exclusive priority assertion.",
+      "residual_risks": [
+        "Catalogue searches are ranked, not exhaustive. No historical priority is inferred from same-day metadata or from failure to retrieve the Heisenberg article.",
+        "A general theorem about monomial-map fibers with one private variable per output could give implicit coverage; the inspected sources did not establish such coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct path algebra and scope; not this arbitrary bipartite family",
+          "evidence": [
+            "N5(k) cube image is N5(k)^3 and its zero fiber probability leads with 5q^{-2}."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-level-cubic-power-fibers-in-the-five-by-five-nilpotent-tri--e14651f0a3e6",
+          "material_read": "Finding, local mirror RESULT.md offset 0",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Three-level cubic power fibers in the five-by-five nilpotent triangular algebra",
+          "trigger": "Closest exact prescribed-cube result"
+        },
+        {
+          "assessment": "Method overlap, not stronger cube-fiber theorems",
+          "evidence": [
+            "One counts ordered tuples with distinct-index products zero; the other classifies a^3=a in characteristic two and uses independent sets."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-pairwise-annihilating-tuple-varieties-of-radical-square-zero-qui--3f6b29b03a8b ; 2026/11/2/SCOPE-characteristic-two-tripotent-components-and-independent-sets-in--e78c20362889",
+          "material_read": "Findings, local mirror, offset 0 in each",
+          "method": "Resultary search and local mirror passage reads",
+          "title": "Pairwise-annihilating tuple varieties of radical-square-zero quiver algebras; characteristic-two tripotent components",
+          "trigger": "Graph monomial counts and leading components"
+        },
+        {
+          "assessment": "Different domain or counted relation",
+          "evidence": [
+            "The power domains are square-zero quotient units; the higher radical result counts commuting pairs."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-complete-power-map-fibers-in-radical-square-zero-quiver-unit-gro--1c150d6b326e ; 2026/11/2/SCOPE-commuting-pair-polynomial-for-the-three-step-multiarrow-line-qui--0edf4af1aaa4",
+          "material_read": "Findings, local mirror, offset 0 in each",
+          "method": "Resultary search and local mirror passage reads",
+          "title": "Power-map fibers in radical-square-zero quiver unit groups; commuting-pair polynomial for the multiarrow line quiver",
+          "trigger": "Similar quiver power problems or radical length"
+        },
+        {
+          "assessment": "Supplies background, not prescribed cubes",
+          "evidence": [
+            "rad A=A_1⊕A_2⊕⋯, the arrow ideal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.1730v1",
+          "material_read": "§4, p. 9",
+          "method": "OA PDF passage read",
+          "title": "Subalgebra depths within the path algebra of an acyclic quiver",
+          "trigger": "Same path radical and path-length grading"
+        },
+        {
+          "assessment": "Background squarefree ideal methods; different invariants and graph model",
+          "evidence": [
+            "The cited results address homological invariants of path ideals such as Betti numbers rather than counting the stated finite-field power fibers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.4829v2",
+          "material_read": "p. 2, setup and invariants",
+          "method": "OA PDF passage read",
+          "title": "Path ideals of rooted trees and their graded Betti numbers",
+          "trigger": "Squarefree path ideals and related hypergraphs"
+        },
+        {
+          "assessment": "Unresolved scope; not used as an exclusion",
+          "evidence": [
+            "No accessible theorem passage of this source was compared."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/403468924_Quiver_Heisenberg_algebras_a_cubic_analogue_of_preprojective_algebras",
+          "material_read": "Title/search description only; no body",
+          "method": "Attempted OA direct and VPN retrieval of identified PDF; HTTP 403 on both",
+          "title": "Quiver Heisenberg algebras: a cubic analogue of preprojective algebras",
+          "trigger": "Cubic quiver topic surfaced by primary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4), geometry and TV claims",
+        "Earlier single-chain N5(k) census and square-zero comparisons above"
+      ],
+      "rationale": "The prescribed-target count, the leading coefficient of the exceptional probability, and the top components are usable invariants of a natural layered path-algebra family. In particular the same graph statistic controls codimension and the decay exponent, while the explicit component count distinguishes graphs with equal matching number, and the near-uniform law clarifies why that exceptional fiber does not dominate total variation. The result yields more than the application of a matching theorem to determine one exponent.",
+      "residual_risks": [
+        "The quantitative applications are for the stated graph family and fixed graph in the asymptotic, not all acyclic path algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

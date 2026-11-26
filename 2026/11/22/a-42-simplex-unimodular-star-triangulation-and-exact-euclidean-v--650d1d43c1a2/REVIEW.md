@@ -1,15 +1,21 @@
-# Mathematical review: the Petersen spectral polytope star triangulation
+# Independent mathematical audit
 
-## Correctness — PASS
-For the unsigned \(K_5\) incidence matrix \(B\), the kernel is the adjacency eigenvalue-\(1\) space of \(KG(5,2)\) and \(BB^{\mathsf T}=3I+J\), determinant \(648\). Polarity maps facets to fractional-matching extreme points, whose supports are exactly \(12\) five-cycles and \(10\) triangle-plus-matching patterns. Each six-vertex facet has a unique balanced \(3+3\) affine circuit, furnishing three disjoint-interior boundary simplices; adding the other twelve gives \(42\) simplicial cones from the interior. Complementary incidence minors have determinant \(\pm2\), so all Euclidean cone determinants equal \(1/\sqrt{162}\) and each five-volume is \(1/(1080\sqrt2)\). The standard-library exact checker independently reconstructs all \(22\) facets from \(252\) candidate hyperplanes, verifies all \(42\) unit determinants and matches the source classification. No finite experiment is substituted for a general theorem.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Babecki–Thomas (arXiv:2204.01873, Example 3.10) already gives the Petersen five-dimensional eigenpolytope's \(10\) vertices and \(22\) facets, split \(12+10\), which is expressly credited. The published Kneser pair-eigenpolytope work explicitly supplies the broader all-\(n\) fractional-matching polar and extremal ellipsoids, also credited. Those statements do not assert or directly imply the exact intrinsic Euclidean volume or the equal-volume unimodular \(42\)-simplex triangulation. A lattice-coordinate volume or a triangulation in a different equivalent model could still subsume the result; targeted literature and published research searches found none. The earlier Powers (1986) technical report could not be read, so priority is not claimed conclusively.
+PASS
 
-## Mathematical value — PASS
-The Petersen eigenspace polytope is a specific named, natural geometric object in graph spectral realizations and graphical-design theory. Its \(5\)-dimensional Euclidean volume in the orthonormal metric, unlike its known face vector, depends on exact geometry. The proof constructs a nontrivial and reproducible regular structure: a complete equal-volume unimodular triangulation with normalized volume \(42\). It provides a reference metric invariant and direct geometric decomposition that could support lattice and metric comparison of related eigenpolytopes; that prospective use is not claimed as a proven downstream theorem. This is not the mechanical reporting of a known face count or an arbitrary parameter slice.
+The unsigned K₅ incidence matrix has BBᵀ=3I+J, rank 5 and determinant 648. Since 1 is in the row space of B and A=J+I−BᵀB, ker B is exactly the five-dimensional adjacency-1 subspace. The centered projected columns affinely span it; the positive average gives an interior cone apex. Polarity with h=1−4u gives Bu=1 and u≥0. Independent positive-support columns give vertices of this standard-form polytope: a leaf forces an isolated unit edge, and every other component has minimum degree 2 and at most as many edges as vertices, thus is an odd cycle by independence. This gives precisely 12 five-cycle and 10 triangle-plus-edge supports and the complementary 5- or 6-vertex facets. A six-vertex facet has affine dimension 4 and its sole affine dependence has nonzero entries on all six vertices, with signs 3 against 3. The specified three deletions triangulate it; all proper faces are simplices, so local triangulations necessarily agree on common faces without extra vertices. Independent checking confirmed zero mismatches across all 231 facet pairs. It also verified all 42 selected Z row determinants have magnitude 1, all complementary B determinants magnitude 2, and det(ZᵀZ)=162. Thus Zᵀ is an isomorphism on ker B with volume factor sqrt(162), and this is a unimodular star triangulation in the whole stated lattice. Dividing 42/5! by sqrt(162) gives 7/(180 sqrt(2)); each simplex has volume 1/(1080 sqrt(2)). This is the intrinsic orthonormal spectral volume, not the volume of an unnormalized eigenvector basis.
 
-## Closest results and remaining limits
-The closest full-text statement is Babecki–Thomas, Example 3.10, https://arxiv.org/abs/2204.01873; the broader published matching-polar theorem is at the 2026 Kneser pair-eigenpolytope research record cited in RESULT.md. Winter's 2021 thesis distinguishes the four-dimensional Petersen hypersimplex from the five-dimensional eigenpolytope and cites the unlocated D. L. Powers 1986 report. The exact conclusion remains unverified against that report and any unindexed triangulation tables. This is a self-review, not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: the precise metric volume and the equal-volume unimodular decomposition were not found in the inspected literature. The configuration, 22 facets, their 12+10 split, and the fractional-matching input are not credited as new. The older same-object literature leaves a concrete priority risk.
+
+## value
+
+PASS
+
+This is a canonical spectral realization used in graphical-design theory, not an arbitrary linear model. The exact metric volume gives a comparison invariant beyond its known face numbers. More significantly, the complete 42-piece triangulation gives unit lattice simplices and translates the Euclidean calculation into integer determinants, an explicit structure potentially usable in further metric or lattice comparisons without assuming a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

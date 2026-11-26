@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:48:24.382219Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-step probability update eliminates x for n≥1 and gives θ_(n+1)=(1−δ)θ_n+δa tanh(θ_(n−1)). For δ≤1 the two-step sliding maximum contracts because the nonnegative coefficients sum to 1−δ(1−a)<1. For δ>1, y_n=(−1)^nθ_n gives a cooperative recurrence with u=δ−1, b=δa. If u+b<1 the same contraction applies; if u+b=1 the maximum is bounded and limsup L obeys L≤uL+b tanh L, forcing zero. For δ_c<δ<2 the strictly decreasing tanh(r)/r supplies the unique positive constant solution of the transformed recurrence, hence a primitive physical two-cycle. Its one-step physical Jacobian has a negative root greater than −1 and a positive root less than 1 because b sech²r<2−δ and a sech²r<1; both cycle points have the same Jacobian. The cycle is in the physical interior, giving an open basin. For δ≥2, choose θ_0>0, x_0=1/2: y_0,y_1>0 and the recurrence with u≥1 cannot approach zero. At δ_c the positive-cone quotients q_n converge to one by the vanishing-error iteration of G(q)=u+b/q: on [u,u+b/u], (G²)'=b²/(uq+b)² is uniformly less than one. The exact difference of w_n=y_n+b y_(n−1) is b(y_(n−1)−tanh y_(n−1)); q_n→1 gives w_(n+1)^(-2)−w_n^(-2)→2b/[3(1+b)^3]. Summation and odd symmetry yield nθ_n²→3(1+3a)/(4a) only in the stated strict sign sectors. The cubic coefficient is independently checked by critical_cubic() in /workspace/branches/independent_replay.py; that finite formal expansion is not a replacement for the ratio and telescoping proof. This is a deterministic probability-law result, not a finite-sample stochastic one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hong–Ma admits bounded strictly sublinear tanh and singular M-matrices in its delayed recurrence. Oliveira–Teixeira supplies the same scalar attractivity test in its broader family. Bento–Oliveira–Silva supplies a strict subcritical exponential criterion."
+        ],
+        "reasoning": "For a11=δa, b1=1−δ and delay one, the scalar M-matrix is 1−|1−δ|−δa. With |1−δ|<1 and a∈(0,1), nonnegativity is equivalent to 0<δ≤2/(1+a). The earlier sufficient direction, including equality, is a direct implication, but the recorded comparison does not yield the exact neutral amplitude law or prove attraction to the nonzero alternating solution.",
+        "searches": [
+          "Primary literature: exact global stability threshold flip bifurcation period-two solutions delayed hyperbolic tangent recurrence y_{n+1}=u y_n+b tanh(y_{n-1})",
+          "Hong–Ma 10.3934/mbe.2019249, Eq. (2.1) and Thm. 3.1; arXiv:2502.11016 §3; arXiv:2211.04853 §4"
+        ]
+      },
+      "checked_sources": [
+        "Hong–Ma DOI 10.3934/mbe.2019249 full PDF passages",
+        "arXiv:2502.11016",
+        "arXiv:2211.04853",
+        "arXiv:2611.15649v1",
+        "Resultary 5e8d4a841f7f, b8f714458c50, 9e3a2ce60668 and 3184cbe9f50f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Galatolo–Lippi proves small-step local convergence and reports a period-two numerical regime in a different example with its own linearized frontier. Hong–Ma directly gives global convergence through this record's endpoint. The sampled-flow model already has both a tanh flip and an exact critical cubic law, but on an unrelated scalar mesh map."
+        ],
+        "reasoning": "The frozen contribution does not reassert the general convergence criterion or discovery of flips in adaptive feedback. Its critical constant comes from the cubic deficit and the projection onto the neutral mode of the delayed recurrence; proving the positive-sector asymptotic and existence and attraction of the specific supercritical orbit is additional to the known criterion.",
+        "searches": [
+          "Galatolo–Lippi arXiv:2611.15649v1, Theorem 5.2 and §8.3.3",
+          "Hong–Ma DOI 10.3934/mbe.2019249, Thm. 3.1",
+          "5e8d4a841f7f, exact mesh equations and critical rate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The physical map is exactly equivalent after elimination to a second-order delayed tanh recurrence. The closest sampled-tanh record 5e8d4a841f7f instead has one mesh state x, an implicit within-step sample z solving z+r(1−alpha)tanh(z)=alpha x, and mesh update F(x)=beta x−r(1−beta)tanh(z). Its critical coefficient is (1+beta)d³/[3 alpha(1−beta)³] in its own variables."
+        ],
+        "reasoning": "A first-order sampled-flow map, including its unit-mesh variant, is not the second-order recurrence with two freely variable nearby physical lag values. Similar critical exponents and two-cycle root forms do not identify the full dynamics or the amplitude constant. The formula search did not yield an exact matching passage, which does not prove absence.",
+        "searches": [
+          "Resultary: Exact global threshold and critical asymptotic rate for delayed tanh recurrence y[n+1]=u y[n]+b tanh(y[n-1]) including attracting positive fixed point",
+          "Resultary: Prior delayed tanh recurrence threshold period two critical n^-1/2 hyperbolic tangent feedback",
+          "Primary literature: \"x_{n+1}\" \"tanh(x_{n-1})\" discrete-time neural network global stability flip bifurcation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Material record IDs 5e8d4a841f7f and b8f714458c50 describe a sampled scalar flow; 9e3a2ce60668 concerns the GeCo2 map with a different critical exponent for the state amplitude; same-day 3184cbe9f50f concerns a local flip of a hysteretic relay return map. None of those matching passages states the delayed Markov recurrence's critical constant."
+        ],
+        "reasoning": "The closest recorded rates are analytic but their state variables, maps and normalization differ. A numerical threshold table would not establish an all-a asymptotic constant or nonlinear sector theorem.",
+        "searches": [
+          "Resultary: Adaptive Markov transfer feedback exact stability boundary period-two cycle critical relaxation law",
+          "Resultary: Galatolo Lippi adaptive self-consistent transfer operator small learning rate threshold nonlinear period two"
+        ]
+      },
+      "rationale": "The convergence through the exact endpoint is verified prior coverage under Hong–Ma's scalar singular-M-matrix specialization, independently of the later Oliveira–Teixeira theorem. Neither convergence sufficiency nor its endpoint is credited as new. The supported distinct result is the fixed-delay adaptive Markov phase diagram's nonlinear remainder: the explicit attracting flip for δ_c<δ<2, nonconvergence beyond the interval, and especially the exact critical squared-amplitude constant on the specified physical sectors. Closest qualitative flip-and-rate results concern different update laws.",
+      "residual_risks": [
+        "Other specialist delayed-neuron bifurcation studies could treat the exact scalar recurrence under a different normalization; the literature search and source passages do not establish exclusive priority.",
+        "Subcritical and endpoint attraction on their own are already covered and should not be described as a new convergence criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies global attraction throughout the claimed convergence interval, including the singular endpoint",
+          "evidence": "Take the scalar delayed system with leakage coefficient 1−δ, feedback δa, delay 1, activation tanh. The printed M-matrix criterion gives 1−|1−δ|−δa≥0; the assumption |1−δ|<1 is met on the interval.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2019/5/PDF/mbe-16-05-249.pdf",
+          "material_read": "Eq. (2.1), activation assumptions and M-matrix definition, Thm. 3.1, printed pp.4938–4940; offsets 3300, 7000, 10500–15785",
+          "method": "Bounded original PDF passages and scalar specialization",
+          "title": "Sufficient and necessary conditions for global attractivity and stability of a class of discrete Hopfield-type neural networks with time delays",
+          "trigger": "Potential exact delayed tanh attractivity overlap"
+        },
+        {
+          "assessment": "Broader sufficient theorem covers endpoint attraction, not the claimed exact asymptotic",
+          "evidence": "The scalar M-matrix test includes equality under the specified activation hypotheses, which tanh satisfies.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.11016",
+          "material_read": "§3 Thm. 3.4, Cor. 3.5 and finite-delay specialization (25), offsets 15000, 16230, 45900, 52200",
+          "method": "Bounded OA original passages",
+          "title": "Global attractivity criteria for a discrete-time Hopfield neural network model with unbounded delays via singular M-matrices",
+          "trigger": "Endpoint convergence already flagged as possibly covered"
+        },
+        {
+          "assessment": "Covers the strict subcritical convergence interval",
+          "evidence": "Strict scalar condition 1−|1−δ|>δa does not include the critical equality or a nonzero post-critical orbit.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.04853",
+          "material_read": "§4 Theorem 5, around offset 41500",
+          "method": "Bounded OA original passage",
+          "title": "Existence and stability of a periodic solution of a general difference equation with applications to neural networks with a delay in the leakage terms",
+          "trigger": "Delayed global exponential stability overlap"
+        },
+        {
+          "assessment": "Different model; small-step local theorem and numerical flip discussion, not the frozen global phase diagram",
+          "evidence": "Theorem 5.2 is local exponential stability for sufficiently small step size; §8.3.3 gives an example's linearized threshold and notes that nonlinear flip conditions are required.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15649v1",
+          "material_read": "Thm. 5.2 offset 54300 and §8.3.3 offsets 157800–164866",
+          "method": "Bounded OA original passages",
+          "title": "Autonomous Neural Adaptive Control as a Self-Consistent Transfer Operator",
+          "trigger": "Initiating adaptive transfer framework"
+        },
+        {
+          "assessment": "Distinct one-dimensional sampled-ODE mesh map and different coefficient",
+          "evidence": "A single initial real value determines the trajectory; each update uses the unique implicit sample z within that step, not a lagged independent physical controller value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-an-all-gain-sampling-transition-and-attracting-two-cycles-in-a-s--5e8d4a841f7f/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of exact mesh dynamics proof, offsets 0–3579; unit-mesh variant b8f714458c50 compared in its matching statement",
+          "method": "Bounded local-mirror original passage and state/update comparison",
+          "title": "An all-gain sampling transition and attracting two-cycles in a scalar feedback network",
+          "trigger": "Strong qualitative overlap: tanh, sharp global threshold, attracting flip, exact critical rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even with instantaneous frozen mixing and a uniformly strongly convex loss, the coupled plant's delay can induce a stable alternating response at steps for which the stationary-reduced gradient map still contracts. The rigorous flip and critical squared-amplitude constant make this distinction quantitative, providing useful benchmarks for adaptive transfer models near loss of stability. Neither a generic flip analogy nor re-proving the known attractivity condition would alone supply this value. The critical rate is not asserted for every initial pair, and the cycle theorem does not classify all attractors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

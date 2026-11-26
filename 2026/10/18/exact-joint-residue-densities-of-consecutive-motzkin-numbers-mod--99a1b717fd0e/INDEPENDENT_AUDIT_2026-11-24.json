@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:43:34.279995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 28–87",
+        "Frozen VERIFICATION.md and verification.py",
+        "Krattenthaler–Müller, Theorem 11",
+        "Independent prefix/statistic enumeration: 26 ordinary and 24 exceptional representatives, exact rational geometric weights"
+      ],
+      "rationale": "The published digit predicates supply the pointwise input at positive indices; the unaddressed index n=0 is directly the allowed pair (1,1). The high-bit chain has sixteen states with two incoming labeled transitions each. From trailing bit zero, 10 and 110 add generators (1,0) and (2,1), and the zero loop gives aperiodicity. The ordinary five-bit prefixes resolve the carry and keep a common boundary bit. For low residues 13, 14, 15 the first zero at or above bit 4 and the next bit resolve both exceptional tests and the carry. Lengthening the run by four adds multiples of four to the necessary statistics and preserves the exceptional parity; for residue 15 the successor has its low run reset, and its ordinary residue-0 evaluator is independent of bit 4. The geometric sum for each exceptional representative includes the factor 1/8 for the eight uniform tail statistics. On every aligned block the fixed high suffix merely translates the uniform statistics conditional on the last free bit, so convergence for each bounded prefix is uniform over blocks. The omitted late exceptional prefixes have uniformly vanishing block proportion; binary partition of [0,N) then proves the ordinary density. Independent exact rational evaluation matched all 64 entries, both marginals, the mass 192 in scaled units, and all 44 positive entries; positive weights and exhaustive prefix types also show the zero cells are impossible rather than only sparse. An independent bounded evaluator check matched the exact recurrence for the first 512 terms with n=0 handled separately. The frozen verifier was inspected, not executed.",
+      "residual_risks": [
+        "The finite recurrence comparison is corroboration, not a proof of the published congruence or of ordinary natural density."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Figure 4 gives a 28-state mod-8 Motzkin automaton. Section 3.3 uses the incidence matrix of a morphism for a one-coordinate mod-2 example and gives individual mod-4 frequencies, not an evaluated mod-8 pair law."
+        ],
+        "reasoning": "A carry-product automaton yields an effective route to the joint output; base automaticity alone does not guarantee ordinary natural densities. One must resolve limiting measures and their behavior at arbitrary cutoffs for the actual pair output.",
+        "searches": [
+          "Rowland–Yassawi arXiv:1310.8635, §§3.2–3.3, Figure 4",
+          "Primary lookup: Motzkin modulo 8, Theorem 11, adjacent residues and automatic joint frequency"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused searches and Findings 7159a644b09a and d52764ad9675",
+        "arXiv:1608.05657",
+        "arXiv:1310.8635",
+        "DOI 10.37236/7092"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact pointwise support is computationally extractable from a carry-product with the published automaton. The claimed pair frequencies additionally use the primitive high-digit chain, the exceptional-prefix geometric tail and uniformity on aligned dyadic blocks."
+        ],
+        "reasoning": "Do not credit reachability or automaton construction alone as novel. The exact ordinary joint weights and their limit are the substantive calculation, not a reindexing of an earlier frequency theorem or multiplication of the known marginals.",
+        "searches": [
+          "Krattenthaler–Müller arXiv:1608.05657 Theorem 11",
+          "Wang–Xin DOI 10.37236/7092 Theorem 3",
+          "Rowland–Yassawi Figure 4 and §3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krattenthaler–Müller Theorem 11 gives individual residues, including the first-zero and next-bit exceptional cases; Wang–Xin Theorem 3 is another individual classification."
+        ],
+        "reasoning": "Rephrasing the claim as block frequencies or as frequencies of the carry-product output still requires the joint distribution of the digit statistics and a full-cutoff limit. Individual residue evaluations alone are not that law.",
+        "searches": [
+          "Motzkin numbers modulo 8 adjacent consecutive terms joint residue densities 192 matrix automaton frequency",
+          "Motzkin sequence modulo 8 joint distribution of successive values two-point law",
+          "Krattenthaler Müller Motzkin modulo eight pointwise residues adjacent two-coordinate frequency automaton"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7159a644b09a has a full adjacent Motzkin table with a quantitative error estimate but modulo 5. d52764ad9675 has an adjacent table modulo 8 but for central trinomial coefficients. No exact table surfaced in the bounded searches."
+        ],
+        "reasoning": "Residues modulo 5 do not determine residues modulo 8, and the central trinomial table concerns another sequence with different support. Neither evaluates the 64 entries here.",
+        "searches": [
+          "consecutive Motzkin numbers modulo eight adjacent residue pair density matrix support",
+          "Resultary 7159a644b09a and d52764ad9675, exact local-mirror Findings"
+        ]
+      },
+      "rationale": "The distinct supported claim is the full evaluated ordinary adjacent-pair density law modulo 8, with its joint support, not the pointwise congruences or marginal parity counts. Inspected pointwise classifications and the known mod-8 automaton encode all values; neither supplies the adjacent distribution or establishes the required limiting behavior without further sequence-specific analysis. The closest indexed exact pair laws differ in modulus or sequence. The no-zero-residue fact is prior input.",
+      "residual_risks": [
+        "The published mod-8 automaton makes an equivalent product-state computation possible; a prior unindexed evaluated table or stronger frequency calculation has not been excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pointwise antecedent",
+          "evidence": "Positive-index congruences, including K parity and the next bit for low residues 14 and 15.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05657",
+          "material_read": "§7, Theorem 11, PDF pp. 17–18, offset 65454",
+          "method": "OA primary PDF",
+          "title": "Motzkin numbers and related sequences modulo powers of 2",
+          "trigger": "Exact published digit evaluator"
+        },
+        {
+          "assessment": "Gives computation machinery and one-coordinate examples, not evaluated pair law",
+          "evidence": "28-state mod-8 automaton; one-coordinate frequencies via incidence matrices and mod-4 valuation outputs.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "§3.2 Figure 4 p. 16; §3.3 pp. 17–18, offsets 42800 and 46000",
+          "method": "OA primary PDF",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Same mod-8 sequence automaton and frequency methods"
+        },
+        {
+          "assessment": "Pointwise alternative, not adjacent frequencies",
+          "evidence": "Splits n into 4s through 4s+3 and uses binary statistics to compute individual residues.",
+          "identifier_or_url": "https://doi.org/10.37236/7092",
+          "material_read": "Theorem 3, p. 2, offset 5078",
+          "method": "OA primary text",
+          "title": "A classification of Motzkin numbers modulo 8",
+          "trigger": "Same exact modulus and sequence"
+        },
+        {
+          "assessment": "Different, non-dominating modulus",
+          "evidence": "Adjacent Motzkin pairs modulo 5, all-cutoff discrepancy and exclusion of (0,0).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-consecutive-residue-law-for-motzkin-numbers-modulo-five--7159a644b09a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete consecutive-residue law for Motzkin numbers modulo five",
+          "trigger": "Exact adjacent matrix for the same sequence"
+        },
+        {
+          "assessment": "Different sequence",
+          "evidence": "Sixteen adjacent-pair values with densities 1/12 or 1/24 for central trinomial coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-point-residue-laws-for-consecutive-central-trinomial-c--d52764ad9675/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-point residue laws for consecutive central trinomial coefficients",
+          "trigger": "Exact adjacent table for the same modulus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–5",
+        "Rowland–Yassawi §§3.2–3.3"
+      ],
+      "rationale": "Adjacent terms at modulus 8 form a natural first joint statistic beyond the established pointwise and single-coordinate Motzkin laws. The complete ordinary density matrix identifies precisely how marginals fail to describe local dependence and distinguishes support restrictions from quantitative biases (e.g. marginal mass at 4 but no adjacent (4,4)). It provides a usable exact benchmark for automatic-sequence block-frequency calculations, not just sampled pairs or chosen entries of a known table.",
+      "residual_risks": [
+        "No discrepancy exponent or longer-block generalization is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

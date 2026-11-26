@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The inverse problem is reduced exactly by the linear flux equation to a scalar cosine equation. For any fixed nonzero coupling, the residual target function and its derivative vanish at infinity at rates \(O(x^{-1})\) and \(O(x^{-2})\); hence each sufficiently high flux cell contains exactly one simple inverse. The proof separately treats the possibility of near-zero accumulation, establishes the precise linear cell count, and obtains the lattice correction by a local sine expansion. The Jacobian equals the reduced scalar derivative times \(-k_2\), and the zero-coupling endpoint is a strictly unimodal exponential term. The symbolic check and 558 numerical large-cell examples corroborate—but cannot replace—the analytic argument. Nonstandard calculations are explicitly reconstructed in RESULT.md.
+PASS
 
-## Originality (PASS, provisional historical assessment)
+For fixed target and nonzero k, the second equation forces φ=νx−Φ/k₂, with ν>0. Division by kx on x>0 gives a cosine equal to g(x)=(X−k₀)/(kx)−xe^(r−x)/k, with g=O(x⁻¹) and g′=O(x⁻²). Opposite endpoint cosine values give a root in each high flux cell since |g|<1/2. All roots there lie in the same middle interval, on which the absolute cosine derivative is at least πν√3/2 and has fixed sign, so that the difference is strictly monotone and its root simple. The undivided scalar equation extends analytically past both excluded lower boundaries of x; it is not identically zero because the cosine term has amplitude |k|x along the high integer-flux endpoints. Thus compact portions have only finitely many zeros, including for X=k₀. The Jacobian is −k₂ times the reduced derivative, with the latter equal to kx times the cosine-minus-g derivative at a root. High roots are therefore regular. Counting completed flux cells gives νR+O(1). At center z_j the midpoint sine expansion has sign (−1)^(j+1); the root displacement is O(1/z_j), so replacing 1/x_j by 1/z_j and linearizing the sine incurs O(z_j⁻³), with exponential terms negligible. This even strengthens the stated O(z_j⁻²). For k=0 the x-only first coordinate is strictly increasing to x=2 and strictly decreasing afterwards, with the stated first-coordinate range; the flux equation adds no multiplicity. The claimed proper strip is not a claim of properness as a map into the plane. No bound here is uniform as k goes to zero or asserts forward-invariance of the quadrant.
 
-Kumar and Chandramouli, arXiv:2605.00442v1, give the exact neuron map and investigate local fixed points, bifurcations, coexistence of attractors, and networks; the inspected full-text material does not provide the all-target inverse-valence and density theorem. Han et al. (2022), doi:10.3389/fphy.2022.911144, investigate a different cosine memristor map. Broader theories of infinite-degree cosine functions and of noninvertible maps do not automatically imply the present restricted-positive-input, real two-dimensional formula with exact linear inverse density and a zero-coupling discontinuity. Actual bibliographic and mathematical-record searches found no direct covering statement. Absence from those searches is not a uniqueness certificate; additional historical papers may exist.
+## originality
 
-## Value (PASS)
+PASS
 
-Inverse multiplicity controls backward branching and distinguishes proper finite-to-one and surjective infinite-to-one dynamics. The natural physical question is whether adding a very weak cosine memristor term merely perturbs the reduced Chialvo map or changes its global geometry. The theorem supplies an exact, discontinuous qualitative answer, shows every remote branch is regular, and identifies a parameter-independent asymptotic inverse density. It simultaneously warns against extrapolating bounded-neuron simulations to arbitrary states. This is a structural global result, not a parameter substitution or a sampled table.
+The exact model and its local dynamical analysis are prior work. The distinct supported result is the positive-source all-target inverse-fiber structure of the untruncated Chialvo map, including exact density, regular high branches and the contrast at decoupling. No covering statement was verified; the closest ample-overlap oscillator record is a different map and is dated later.
 
-## Closest literature and limits
+## value
 
-Primary arXiv:2605.00442v1; a different 2022 two-dimensional memristor cosine map; general theory of noninvertible maps. The analytic theorem is not a statement about bounded attractor geometry or positive forward invariance. The historical-priority conclusion remains provisional and is not independent scholarly certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a global inverse-geometry statement for an established model, not an attractor claim or a numerical preimage table. Even arbitrarily weak cosine coupling changes finite inverse valence and a bounded first-coordinate range into surjectivity with one regular branch per high flux cell for every target. The exact slope and location term quantify backward branching and show why conclusions based on bounded input simulations need not transfer to the untruncated system. The exact domain and fixed-parameter scope are essential to that value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

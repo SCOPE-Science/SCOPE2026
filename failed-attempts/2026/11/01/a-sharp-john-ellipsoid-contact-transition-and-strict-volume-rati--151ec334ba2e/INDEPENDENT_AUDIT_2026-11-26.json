@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:13:16.973643Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–42 and 44–89; frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Uniqueness of the maximizing inscribed ellipsoid forces coordinate-permutation invariance, hence the stated center and two-eigenspace matrix. For fixed axial sum half-width R, the allowed center sums satisfy a+R≤s≤1−R, and β²≤(s²−R²)/(d(d−1)); maximizing first over s and β gives s=1−R and β²=(1−2R)/(d(d−1)). The remaining log derivative of R(1−2R)^((d−1)/2) has the sign of 1−(d+1)R. Thus the global optimum is at min{1/(d+1),(1−a)/2}; substituting gives the two phase formulas, equality at a_*, and all facet contacts including lower-facet contact at equality. The denominator is (1−a^d)/d!. In the upper phase the reciprocal of the varying quotient is Σ a^(j−(d−1)/2), decreasing strictly by pairing the exponents t and −t for t>0. This gives strict increase, including across the common transition value, and evaluating the geometric sum at 1 gives the stated boundary limit.",
+      "residual_risks": [
+        "The frozen sampled checks were inspected, not executed or used to certify the continuous optimization. The limit is a ratio as a tends to 1 from below, not a d-dimensional volume fraction at a=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b5af3bdeb35c treats every convex base for d≥2 and gives normalized height half-axis b=1/((d+1)(1−q)) or 1/2, transverse multiplier ρ=√(1−2(1−q)b), volume, and exact cap transition.",
+          "07410bf05003 treats every full-dimensional convex base for d≥3 and explicitly gives an increasing normalized volume fraction and both endpoint values.",
+          "Ivanov–Naszódi give general John conditions, Eydelzon treats the untruncated simplex, Horwitz treats planar quadrilaterals, and Mordhorst §6.2 uses a selected truncation; these are not the source of the decisive coverage."
+        ],
+        "reasoning": "The arbitrary-base hypothesis includes a simplex. In original coordinates the formulas give s=1−(1−a)b, α=(1−a)b/√d, and β=ρ/√(d(d−1)); the claimed phases follow without any new optimization.",
+        "searches": [
+          "Published Resultary b5af3bdeb35c, 07410bf05003",
+          "arXiv:2212.11781, 2609.08045, math/0312403, 1509.06023"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d34d69923786, b5af3bdeb35c, 07410bf05003, 976839cd459e",
+        "arXiv:2212.11781, 2609.08045, math/0312403, 1509.06023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier b5af3bdeb35c explicitly gives κ_d|det T|ρ^(d−1)b; division by the slice integral |B|Σq^j/d gives the normalized profile. For q≥q_0 the only varying term is q^((d−1)/2)/Σq^j; the paired reciprocal exponents immediately show the claimed strictness. For q≤q_0 the ratio varies as 1/(1−q^d).",
+          "Separate record 07410bf05003 explicitly asserts strict increase on [0,1], not merely an ellipsoid volume or a value at the transition."
+        ],
+        "reasoning": "Even without assigning priority among the same-day records, the older explicit arbitrary-base theorem makes the claimed specialization and normalized profile routine consequences. The separate exact monotonicity statement confirms full overlap.",
+        "searches": [
+          "Resultary b5af3bdeb35c Finding and contact certificate; 07410bf05003 Finding and volume section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d34d69923786 states the same family x_i≥0, t≤Σx_i≤1 for dimension at least two, with the same optimizer and contacts.",
+          "Put s=Σx_i, u=x−(s/d)1 in the perpendicular hyperplane and z=(1−s)/(1−a). Then u∈[1−(1−a)z]B with B the centered regular simplex at s=1 and 0≤z≤1. Thus q=a in the arbitrary-base theorem and the upper z-cap is exactly the new lower-sum facet."
+        ],
+        "reasoning": "This invertible affine identification gives literal coverage, not a similarity between unrelated truncation parameters. Using the John radius of B, 1/√(d(d−1)), pulls back the entire ellipsoid and sends its lateral contacts to the coordinate facets.",
+        "searches": [
+          "Published Resultary: one-vertex simplex cut, homothetic frustum, cap-contact threshold, John volume fraction; d34d69923786, b5af3bdeb35c, 07410bf05003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-phase simplex table is already present in d34d69923786. 07410bf05003 gives the continuous ratio in factorized form |J(B)|/|B| · (κ_d/κ_(d−1)) · dρ^(d−1)b/Σq^j, with scalar endpoint 1/2 at q=1."
+        ],
+        "reasoning": "The relevant exact-data object is a continuous formula, not a sequence table. Substitution of the simplex base and q=a into the factorized profile gives both exact branches and the limit in the frozen claim.",
+        "searches": [
+          "Published Resultary d34d69923786, b5af3bdeb35c, 07410bf05003"
+        ]
+      },
+      "rationale": "The exact unrestricted ellipsoid, threshold and contact regimes are already covered by an earlier same-family statement and an earlier arbitrary-base frustum theorem. The ratio is an immediate normalization of the latter's volume formula, with strictness by a one-line pairing argument. A separate indexed arbitrary-base result explicitly states the strictly increasing normalized fraction and covers the whole frozen claim; it is dated the same day and no within-day priority is inferred.",
+      "residual_risks": [
+        "The cited literature comparisons are bounded and do not establish who first proved the general theorem. Same-day Resultary ordering is unresolved. Neither fact weakens the demonstrated mathematical coverage by the older arbitrary-base formula and the separate strictly increasing ratio statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of optimizer and contacts",
+          "evidence": "Same x_i≥0, t≤Σx_i≤1, with the same cutoff, center and semiaxes; the additional profiles there concern symmetry centers and rounding.",
+          "identifier_or_url": "Resultary 2026/10/18, d34d69923786",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Matched the defining halfspaces, dimensions and tangent phases",
+          "title": "Exact John ellipsoids and symmetry centers of one-vertex simplex truncations",
+          "trigger": "Same family and exact ellipsoid phases"
+        },
+        {
+          "assessment": "Earlier stated formula covers exact shape, volume and contact; normalized strictness follows directly",
+          "evidence": "Arbitrary convex base with transverse radius √(1−2(1−q)b), cap transition at (d−1)/(d+1), exact volume κ_d|det T|ρ^(d−1)b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-universal-john-ellipsoid-contact-transition-for-homothetic-fru--b5af3bdeb35c/RESULT.md",
+          "material_read": "Finding through contact-certificate proof, local-mirror offset 0 to 5085",
+          "method": "Identified affine section coordinates and substituted q=a and the base John radius",
+          "title": "A universal John-ellipsoid contact transition for homothetic frusta",
+          "trigger": "General theorem that could dominate a simplex cut"
+        },
+        {
+          "assessment": "Full stronger coverage, same-day ordering undetermined",
+          "evidence": "States normalized ratio factorization with F_d(q)=dρ^(d−1)b/Σq^j, explicitly strictly increasing on [0,1], F_d(1)=1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-john-ellipsoids-of-homothetic-frusta-and-a-sharp-conta--07410bf05003/RESULT.md",
+          "material_read": "Finding, scope and proof through derivation of factorized volume, local-mirror offset 0 to 5176",
+          "method": "Specialized the arbitrary base to a centered regular simplex and compared both phases and the limit",
+          "title": "Universal John ellipsoids of homothetic frusta and a sharp contact transition",
+          "trigger": "Exact ratio and possible full coverage"
+        },
+        {
+          "assessment": "Background rather than decisive overlap",
+          "evidence": "General John/Löwner conditions, not a stated two-phase frustum ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.11781",
+          "material_read": "Opening statements, OA offset 0",
+          "method": "Compared general optimality conditions with exact frustum output",
+          "title": "Functional John and Löwner conditions for pairs of log-concave functions",
+          "trigger": "Cited general optimality framework"
+        },
+        {
+          "assessment": "Related selected construction, not needed for the coverage decision",
+          "evidence": "A selected simplex truncation is used in an asymptotic argument rather than to classify all cut parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06023",
+          "material_read": "Section 6.2, OA offsets 53000–59000",
+          "method": "Checked role of truncation and parameter coverage",
+          "title": "Affine invariant points and new constructions",
+          "trigger": "Uses simplex frusta in affine-invariant-point analysis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and scalar proof; Resultary b5af3bdeb35c and 07410bf05003"
+      ],
+      "rationale": "The family and its affine-invariant ratio are natural, and the scalar derivation is useful exposition. As a separate finding, however, the work repeats already determined ellipsoid data and a mechanically implied ratio profile, which is also stated explicitly in stronger generality. No independent new invariant or surviving substantive refinement is demonstrated.",
+      "residual_risks": [
+        "This assessment concerns the frozen claim as a standalone contribution, not the pedagogical utility of the simpler proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

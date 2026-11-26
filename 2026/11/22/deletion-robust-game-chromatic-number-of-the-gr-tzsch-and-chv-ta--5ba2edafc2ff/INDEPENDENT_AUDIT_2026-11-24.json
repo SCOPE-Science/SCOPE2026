@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:16.291610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, graph definitions, rules and recurrence",
+        "Frozen VERIFICATION.md, game_color_check.cpp and game_color_check.py (read, not executed)",
+        "NetworkX chvatal_graph source, small graph generators",
+        "Replay: python3 /workspace/reproductions/2/independent_game_check.py; full cases in /workspace/reproductions/2/full_reproduction.txt"
+      ],
+      "rationale": "The bound graphs match the pentagon Mycielskian and the explicit Chvátal edge list, the latter checked against the standard NetworkX generator. Independent exhaustive ordinary colouring with dynamic vertex ordering excludes three colours for each original and two for every deletion, and finds proper colourings with four and three respectively. For the game, each proper partial colouring has its turn fixed by occupancy parity. Completion is Alice-winning; a blocked uncoloured vertex is irrecoverable because no colours can be removed. On the remaining states the disjunction on Alice turns and conjunction on Bob turns give exact backward induction by decreasing uncoloured count. Equivalence under global palette permutations justifies canonical keys and keeping only one unused-colour representative; no vertex symmetry or monotonicity of wins with palette size is assumed. Read both frozen source programs and checked a separately written bit-state search and its full output: four-colour wins for both originals, and across all 23 deletions Bob wins at three colours and Alice at four. The ordinary lower bounds exclude every smaller palette not examined as a game. These are exact results for the stated rules and labelled graphs.",
+      "residual_risks": [
+        "This is finite minimax enumeration, not a general strategy theorem or an analysis of recolouring, prescribed-order, or asymmetric variants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 theorem gives χ_g(μ(C_n))=4 for n≥5, without deletion; the 2026 preprint's generalized Mycielski bounds use k≥2, on whole graphs.",
+          "The Chvátal graph construction and its ordinary criticality are established background; nothing in that background gives the game outcomes."
+        ],
+        "reasoning": "The verified broader whole-family theorems do not include arbitrary one-vertex-deleted graphs of the cited sizes or guarantee the deleted-game value.",
+        "searches": [
+          "Alagammai–Vijayalakshmi, Theorem 2.2",
+          "Mou–Sun–Zhang arXiv:2609.02283",
+          "Chvátal original 1970 paper, DOI 10.1016/S0021-9809(70)80057-6; standard NetworkX graph source for identification"
+        ]
+      },
+      "checked_sources": [
+        "Alagammai–Vijayalakshmi 2019",
+        "arXiv:2609.02283",
+        "Resultary/SCOPE 676b14391238, 97ad1b64c71a, 9eab978a928b, 4886232debf8 and self-match 5ba2edafc2ff",
+        "Chvátal 1970 landing page; NetworkX graph source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary χ=3 gives a lower bound and an achievable completed colouring with cooperative choices; it does not supply a strategy. A winning full-graph strategy is not automatically a strategy for a deletion with a changed turn sequence and legal continuations.",
+          "The independent replay checks both palettes separately for every labelled deletion."
+        ],
+        "reasoning": "The material overlap does not mechanically establish three-colour Bob wins or four-colour Alice wins in the deletion positions.",
+        "searches": [
+          "Compare Alagammai–Vijayalakshmi Theorem 2.2 and Resultary 676b14391238 with the deletion minimax recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pentagon Mycielskian is the full Grötzsch graph treated by Theorem 2.2; the game rules there match the audited game.",
+          "Resultary recolouring records 9eab978a928b and 4886232debf8 study completed four-colourings with recolouring moves, not adversarial filling of partial colourings."
+        ],
+        "reasoning": "Compared the same game via alternate graph names and separated variants whose legal positions, moves and quantifiers differ. Full-graph coverage is real but is not deletion-game coverage.",
+        "searches": [
+          "Focused literature and Resultary searches for Alice-first game colouring, vertex deletions of the Grötzsch/pentagon Mycielskian and Chvátal graph, and game-critical classifications",
+          "Alagammai–Vijayalakshmi (2019), definitions and Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 5ba2edafc2ff is the assigned record. Earlier 676b14391238 states χ(H−w)=3 for each Chvátal deletion but studies independence-complex homotopy, not games.",
+          "Earlier 97ad1b64c71a gives χ_g(M₂(C₅))=4 for a 16-vertex 30-edge graph, not any of the 10-vertex Grötzsch deletions."
+        ],
+        "reasoning": "Do not claim novelty for the ordinary deletion column or infer equivalence from a shared value of 4; the inspected entries do not cover the same labelled games.",
+        "searches": [
+          "Resultary queries for the exact graph/deletion/game values and exact generalized Mycielski game number",
+          "Focused literature check for vertex-deletion game-chromatic tables"
+        ]
+      },
+      "rationale": "Credit ordinary criticality and the full Grötzsch game number as known. The contribution assessed is the whole vertex-deletion persistence classification for the Alice-first game on both graphs: ordinary chromatic number drops, while the game number does not. The closest prior deletion result supplies only the ordinary Chvátal values; the closest exact game results concern different graphs or the original unmodified Grötzsch graph.",
+      "residual_risks": [
+        "The original Chvátal full text was not accessible through the DOI attempt. Unindexed game-critical classifications, unsearched isomorphic graph names, or older exact tables may affect priority. The disposition is based on the inspected statements, not on the absence of a search hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full Grötzsch value is covered; the stated theorem does not cover one-vertex deletions.",
+          "evidence": "Alice starts and χ_g(μ(C_n))=4 for n≥5.",
+          "identifier_or_url": "https://www.naturalspublishing.com/files/published/4d0us4el8te290.pdf",
+          "material_read": "Definitions, p. 261, OA offset 0; Theorem 2.2, p. 262, offset 5031",
+          "method": "OA primary PDF passages",
+          "title": "Game Chromatic Number and Game Chromatic Index of the Mycielski Graphs of Some Families of Graphs",
+          "trigger": "Published result on the same game and Grötzsch parent graph"
+        },
+        {
+          "assessment": "Different whole graphs and quantifiers; does not establish the audited deletion values.",
+          "evidence": "Generalized Mycielski graphs with k≥2 and bounds 4≤χ_g(M_k(C_n))≤5 for n≥5.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02283",
+          "material_read": "Introduction and preliminaries, OA offsets 247 and 5200",
+          "method": "OA primary preprint passages",
+          "title": "The game chromatic number of generalized Mycielski graphs of paths and cycles",
+          "trigger": "Potential family theorem for the same game"
+        },
+        {
+          "assessment": "Ordinary deletion criticality already covered; different invariant thereafter.",
+          "evidence": "All Chvátal deletions lower χ from 4 to 3; remaining analysis concerns homotopy types.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-chv-tal-graph-independence-complex-and-its-vertex-deletion-d--676b14391238",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "The Chvátal graph independence complex and its vertex-deletion deck",
+          "trigger": "Same labelled deletion family with ordinary χ overlap"
+        },
+        {
+          "assessment": "Same type of invariant but a distinct graph.",
+          "evidence": "Exact χ_g=4 for a 16-vertex, 30-edge generalized Mycielskian, not a deletion of either graph under review.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-game-chromatic-number-of-m-2-c-5--97ad1b64c71a",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact game chromatic number of M₂(C₅)",
+          "trigger": "Nearest separate exact catalogue game invariant"
+        },
+        {
+          "assessment": "Identical edge list independently identified by the generator; original paper's full text not used as evidence of priority.",
+          "evidence": "Generator lists 0:[1,4,6,9], 1:[2,5,7], through 9:[10,11], matching all 24 frozen edges.",
+          "identifier_or_url": "https://doi.org/10.1016/S0021-9809(70)80057-6 ; https://networkx.org/documentation/stable/_modules/networkx/generators/small.html",
+          "material_read": "Journal landing page/abstract only; NetworkX chvatal_graph generator around OA offset 5439",
+          "method": "OA retrieval attempt and bounded public graph generator passage",
+          "title": "The smallest triangle-free 4-chromatic 4-regular graph; alternate graph definition in NetworkX",
+          "trigger": "Original Chvátal graph and exact labelled instance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Findings and scope",
+        "Prior full Grötzsch result and ordinary Chvátal deletion result",
+        "Independent all-labelled outcome table"
+      ],
+      "rationale": "These are classical small triangle-free, ordinarily 4-critical graphs, so the deletion family is intrinsic, not an arbitrary sample. The precise divergence of ordinary and adversarial criticality is established on every deletion in both examples, supplying reusable witnesses and exact benchmarks in the ordinary Alice-first game. This is stronger than observing a discrepancy on one labelled vertex and cannot be read off from known ordinary colourings.",
+      "residual_risks": [
+        "The result supplies no universal persistence theorem, symbolic winning strategies, or characterization across all ordinarily critical graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

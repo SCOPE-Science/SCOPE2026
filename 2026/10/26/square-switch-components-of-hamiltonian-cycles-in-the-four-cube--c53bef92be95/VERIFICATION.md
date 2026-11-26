@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` without third-party packages.
+## correctness
 
-The verifier constructs \(Q_4\) from four-bit labels and checks:
+PASS
 
-1. An exhaustive canonical vertex-walk enumeration equals an independent enumeration from the \(272\) perfect matchings of \(Q_4\): both give exactly \(1344\) undirected Hamiltonian cycles.
-2. All \(24\) square masks are generated once. A face-flip adjacency computation exactly equals an independent unordered-cycle-pair symmetric-difference test.
-3. The resulting graph has \(1920\) edges and degree census \(240,384,192,288,240\) in degrees \(0,1,2,4,8\), respectively.
-4. Complete component searches return \(240\) singleton components and one connected component of order \(1104\).
-5. Breadth-first search from every vertex in the nontrivial component yields radius \(10\), diameter \(12\), eccentricity counts \(96,192,816\), and the twelve reported pair-distance counts.
-6. All \(384\) coordinate permutations/complements give nine automorphism orbits with the asserted sizes and degrees.
+The canonical walks through 0 distinguish neither starting point nor orientation, and a connected disjoint pair of perfect matchings gives exactly an undirected Hamilton cycle. The symmetric difference for a two-edge move is a nonempty even subgraph with four edges in a simple graph of girth four; a four-cycle of the cube alternates two axes and is a face. Adjacent removed face edges would change a vertex degree by two, so the removed edges are opposite. Thus the face test with Hamiltonicity and the cycle-pair symmetric-difference test enumerate exactly the requested adjacency. The whole cube automorphism group is accounted for: after a translation an automorphism fixes 0, a coordinate permutation accounts for its permutation of the neighbors of 0, and distances to 0 and the four unit vectors determine every vertex. The separate full enumeration reproduced 1344 cycles (also from 272 perfect matchings), all 24 faces, 1920 edges, degree counts (240,384,192,288,240) at (0,1,2,4,8), components 1^240 and 1104, radius 10 and diameter 12, eccentricity counts (96,192,816), all nine orbit-size/degree pairs, and all twelve unordered pair-distance counts, with total 608856.
 
-The observed verifier terminator was `VERIFY_OK`. All loops have finite, explicit domains, with no dependence on heuristics, unbounded solver behavior, or external data. Exhaustiveness follows from (i) the recursive Hamiltonian-walk or matching-pair descriptions and (ii) enumeration of every square/edge pair and every graph state.
+## originality
 
-The asserted findings are exact finite statements. Reproduction is not an independent audit, and the checks make no statement about Hamiltonian-cycle reconfiguration in higher-dimensional cubes or larger switch sizes.
+PASS
+
+The novelty is the exact labeled switch graph census, its connectivity and metric, and the exact association of orbit sizes with switch degrees, not the number of cycles, the nine types, the switch operation, or the existence and count of three isolated symmetry types. The 2018 inversion paper is material prior coverage of the last two points and should be credited. No earlier inspected result establishes the whole labeled census or its metric. A strong exact later Resultary match covers much of it and is recorded as such, without inferring provenance from dates alone.
+
+## value
+
+PASS
+
+The Hamilton-cycle move graph is a natural reconfiguration and constrained-sampling object. The precise decomposition distinguishes immobile cycles from a single freely connected class, and the distances quantify the number of moves required within that class. Orbit-degree data identify how this structure depends on symmetry type. This is a complete labeled metric census, not a re-tabulation of the known state count or the known count of isolated types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

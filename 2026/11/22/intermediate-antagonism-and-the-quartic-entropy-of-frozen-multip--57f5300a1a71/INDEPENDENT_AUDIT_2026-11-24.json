@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:55:26.124871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired RESULT.md. Absorption requires each signed field to be strictly positive because ties may change spins. At an aligned site, the cutoff above d−2 forces all d neighbors to agree in each layer; identical adjacency and connectedness propagate the same aligned pair globally. Those two configurations are stable since d−a>0. In the remaining sector B=−A, the two signed fields coincide and equal d−2r_i+a, positive exactly if the number r_i of unlike neighbors is less than d. Both implications hold uniformly in the strict window; the repair makes explicit that (1,3) is the cubic case only. On a prism each rung with different spins requires a horizontal match in each row; a monochromatic rung supplies both matches vertically. The overlap matrix therefore counts labeled cyclic rung words by rooted closed walks without a division by n, also for n=3. Independent exact replay: python3 /workspace/branches/b5974770-8b31-4e59-b98c-19cdbacf146e/reproduce_transfer.py 12. Using integer trace identities it yields coefficients [1,−4,5,−10,7,−6,4,−4,4,0,0,0,0,0,0,0,0], verifying the factorization; totals n=3..12 are 36,120,366,1166,3828,12464,40392,131188,426498,1386006; direct cyclic-word enumeration agrees for n=3..6. On |z|=2, |z³(z−3)|≥8 and |z²−2|≤6, so the quartic has exactly one exterior root, simple and real in (3,4); every other root is smaller than 2 in modulus. Power trace counts algebraic multiplicities without assuming diagonalizability, so the leading coefficient is one and the entropy normalization is by 2n in one layer. The frozen verifier was inspected, not run; numerical and finite checks do not replace the graph-general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hughes uses the same sign rule and shows that the two uniform opposed configurations are absorbing; its baseline contact graphs are independent. The dominant-inhibition theorem permits all sitewise-opposed colorings when a>Δ."
+        ],
+        "reasoning": "Having the same rule does not classify the frozen microstates. The larger inhibitory magnitude changes the local inequalities; it covers a disjoint window and has no coloring constraint.",
+        "searches": [
+          "Hughes et al., DOI 10.3390/e28080857, §2 and §3.4–3.5",
+          "SCOPE-exact-involution-and-exponential-prevalence-of-two-cycles-under--39f67e98d2ad, Finding and Complete orbit census"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/e28080857",
+        "SCOPE-exact-involution-and-exponential-prevalence-of-two-cycles-under--39f67e98d2ad",
+        "SCOPE-exact-locally-optimal-colouring-polynomial-of-circular-ladders--b9c77d1b74ba",
+        "SCOPE-exact-locally-optimal-colouring-polynomials-of-clique-blown-up-p--aaec0f6009f6",
+        "SCOPE-complete-dissociation-polynomial-and-lucas-maximum-set-law-for-c--862aa31d85c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform opposed fixed points, all opposed points for strong inhibition, and strict-majority prism colorings are three different conclusions in the checked sources."
+        ],
+        "reasoning": "An opposed state having exactly one like neighbor at some vertex passes the intermediate rule but fails the cubic strict-majority rule; a singleton color site fails intermediate inhibition but not dominant inhibition. Neither prior count can be specialized into the stated quartic; the force of an aligned site is a separate part of the bilayer proof.",
+        "searches": [
+          "Hughes et al., §3.4 Eqs. (21)–(23)",
+          "SCOPE-exact-involution-and-exponential-prevalence-of-two-cycles-under--39f67e98d2ad, dominant-field identity",
+          "SCOPE-exact-locally-optimal-colouring-polynomial-of-circular-ladders--b9c77d1b74ba, strict-majority criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weak-plurality cycle result counts binary colorings with no singleton monochromatic runs; the circular-ladder strict majority result needs at least two same-colored neighbors on the cubic graph."
+        ],
+        "reasoning": "On an ordinary cycle one same-colored neighbor is exactly the binary weak-plurality rule. On cubic prisms the threshold differs from strict majority; the evaluated cycle count covers only the coloring portion of the degree-two slice, not the layer reduction.",
+        "searches": [
+          "Resultary: no isolated monochromatic vertices, locally optimal coloring, circular ladders and cycles",
+          "SCOPE-exact-locally-optimal-colouring-polynomials-of-clique-blown-up-p--aaec0f6009f6, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The single-layer binary circular-ladder count is a Lucas term plus 2 cos(nπ/3)+2. The dissociation comparison 862aa31d85c9 counts subsets of induced maximum degree one, not two classes of induced minimum degree one."
+        ],
+        "reasoning": "Neither enumerates the one-neighbor colorings on the prism. The identified exact weak-plurality overlap is for cycles and is credited. No matching evaluated cubic-prism polynomial was found in the bounded comparison.",
+        "searches": [
+          "Resultary: prism majority Lucas, circular ladders same-colored neighbor, no singleton monochromatic runs",
+          "SCOPE-exact-locally-optimal-colouring-polynomial-of-circular-ladders--b9c77d1b74ba, binary specialization"
+        ]
+      },
+      "rationale": "The repaired scope credits prior enumeration of the degree-two coloring slice and compares the cubic result with a directly inspected one-layer circular-ladder census. The distinct claims are the exact absorbing-state reduction for intermediate inhibition and its evaluated cubic-prism transfer; neither the local neighbor predicate by itself nor the binary cycle census is counted as new.",
+      "residual_risks": [
+        "The specific November 17 Lucas record originally cited, f39104b86e05, could not be inspected in the mirror; its exact scope is not inferred from that failure. The revised comparison uses an accessible exact circular-ladder result instead.",
+        "Bounded searches do not exclude other exact no-isolation counts under a different graph-coloring or spin terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule, two explicit absorbing examples; the inspected fixed-state analysis does not prove a complete intermediate classification or a prism count",
+          "evidence": [
+            "Eqs. (2)–(3) use synchronous signs with J<0 and random ties. Eqs. (21)–(23) only verify the two spatially uniform opposed cases."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/entropy/entropy-28-00857/article_deploy/entropy-28-00857.pdf",
+          "material_read": "Publisher PDF §2 pp. 3–4, Eqs. (1)–(5), offset 15500 onward; §3.4–3.5 pp. 6–7, Eqs. (21)–(27), offset 29789 onward",
+          "method": "Primary open PDF passages, compared update, topology and quantifiers",
+          "title": "Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics",
+          "trigger": "Originating microscopic model and claimed polarized absorbing outcomes"
+        },
+        {
+          "assessment": "Disjoint strong coupling, different predicate",
+          "evidence": [
+            "j>Δ yields the update (A,B)→(−B,−A) and every sitewise-opposed pair is fixed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-involution-and-exponential-prevalence-of-two-cycles-under--39f67e98d2ad/RESULT.md",
+          "material_read": "Finding, assumptions, dominant-field identity and orbit census, offsets 0–4313",
+          "method": "Local mirror statement and parameter comparison",
+          "title": "Exact involution and exponential prevalence of two-cycles under dominant antagonistic coupling",
+          "trigger": "Same microscopic model with exact fixed-state census"
+        },
+        {
+          "assessment": "One-layer strict-majority count requires two matching neighbors, not one",
+          "evidence": [
+            "The binary unique-plurality census uses Lucas growth and counts a different set."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-locally-optimal-colouring-polynomial-of-circular-ladders--b9c77d1b74ba/RESULT.md",
+          "material_read": "Finding and binary specialization, offset 0 onward",
+          "method": "Local mirror coloring criterion and exact formula comparison",
+          "title": "Exact locally-optimal colouring polynomial of circular ladders",
+          "trigger": "Same prism graph and plausible equivalent exact count"
+        },
+        {
+          "assessment": "Covers the degree-two opposed-sector coloring count, not the bilayer classification or cubic-prism count",
+          "evidence": [
+            "Weak plurality on binary cycles excludes exactly the singleton runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-locally-optimal-colouring-polynomials-of-clique-blown-up-p--aaec0f6009f6/RESULT.md",
+          "material_read": "Finding and cyclic formulas, offsets 0–4093 and 4200–6783",
+          "method": "Local mirror weak-plurality rule and degree-two reduction comparison",
+          "title": "Exact locally-optimal colouring polynomials of clique-blown-up paths and cycles",
+          "trigger": "Potential equivalent no-singleton enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local-field theorem resolves which mixed states can genuinely remain frozen, rather than merely linger in metastability, in an entire natural coupling interval. Exact counts on the natural cubic family quantify the size of that sector, with a growth rate measurably distinct from one-layer majority. It shows extensive possible heterogeneity without overclaiming its dynamical likelihood or attraction basins.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

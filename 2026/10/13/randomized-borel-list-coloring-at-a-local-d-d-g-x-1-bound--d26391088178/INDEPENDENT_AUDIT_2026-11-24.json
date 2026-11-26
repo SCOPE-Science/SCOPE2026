@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:54:04.081631Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the loopless digraph in the stated assumptions, Lemma 8 supplies Borel independent sections with the exact uniform vertex marginal p=2^{−d−1}; the raw fair-bit construction can be thinned to this marginal without affecting independence. At x the list minus current out-neighbor colors has at least d+1 entries. Joint Borelness of each step follows from countable-section projection on histories times vertices and ordering a finite set of natural numbers. A selected sad vertex clears its conflict since all its neighbors are unselected. Otherwise next-stage sadness is bounded by old sadness with nonselection and by new conflicts from previously sad out-neighbors. Conditional on the past, a specific out-neighbor recolors into the old color of x with probability at most p/(d+1): the independent fresh index can hit it at most once. The resulting recurrence contracts the uniform bound by 1−p/(d+1), and summability gives pointwise eventual constancy and eventual non-sadness. The Borel eventual-value rule with list-valued fallback gives properness with probability one on each fixed edge, not a single almost-sure event over all edges. Cyclically orienting K_{2d+1} as a regular tournament verifies sharpness for common lists of size 2d: the finitely many edge events would yield an impossible proper coloring. No local pointwise optimum is asserted. This is a proof check, not a finite experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pelayo-Gómez's theorem concerns measurable coloring for an assigned measure; its proof uses residual lists from one palette on the complement of a conull core, not arbitrary prescribed lists.",
+          "The comparison cited in the frozen record for Conley–Marks–Tucker-Drob uses locally finite underlying graphs and degree lists with a Gallai-tree restriction; the primary passage was not reverified in this review."
+        ],
+        "reasoning": "Measurable colorings for an assigned measure and a single jointly Borel randomization with edgewise guarantees are not the same specification. Bounded out-degree permits unbounded in-degree, so ordinary degree-list theorems under local finiteness cannot supply this whole theorem.",
+        "searches": [
+          "arXiv:2609.19038v1, Theorem 1 and its extension off the conull core",
+          "Conley–Marks–Tucker-Drob, Brooks's theorem for measurable colorings, Forum of Mathematics, Sigma 4 (2016), e16, as identified in frozen RESULT.md lines 65, 73"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 2–73 and VERIFICATION.md lines 18–26",
+        "Bernshteyn–Hou–Shinko–Weilacher, arXiv:2609.21286v1, Theorem 7 and Lemma 8",
+        "Pelayo-Gómez, arXiv:2609.19038v1, Theorem 1 and residual lists",
+        "Resultary returned finite list/DP record 5c76c3027da8 and unfriendly-coloring record 44f46cb6b339; their stated regimes are distinct"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7's proof uses the independent-set rule and d+1 choices from its common palette. Pelayo-Gómez chooses lists of the form Z_q minus colors imposed by the core."
+        ],
+        "reasoning": "The new conclusion adapts the prior proof rather than specializing its theorem. For arbitrary lists it requires the local subtraction |L(x)|−d⁺(x)≥d+1 and a jointly Borel ordered selection from those remaining choices. Neither theorem statement forces arbitrary-list compatibility.",
+        "searches": [
+          "arXiv:2609.21286v1, Lemma 8 and proof of Theorem 7",
+          "arXiv:2609.19038v1, proof on the complement of the core"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 7 provides an edgewise-a.s. jointly Borel coloring into a common fixed palette of size 2d+1. The finite two-hub biclique list/DP hit (5c76c3027da8) and the measurable unfriendly-coloring hit (44f46cb6b339) concern different objects and conclusions."
+        ],
+        "reasoning": "A common palette is a specialization, not an equivalent encoding: even independently enumerating each vertex's list does not preserve inequality across an edge when the two enumerations differ. The sharper list requirement can also be strictly below the uniform size.",
+        "searches": [
+          "Resultary: randomized Borel list coloring and bounded-outdegree Borel list coloring",
+          "Primary literature: Borel list coloring, out-degree, arbitrary lists, randomized Borel digraph coloring",
+          "arXiv:2609.21286v1, Theorem 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite biclique hit gives finite graph list/DP thresholds, not the bound for arbitrary Borel input lists. The uniform sharp constant already occurs in the fixed-palette theorem."
+        ],
+        "reasoning": "A finite graph table is inapplicable to the claimed Borel probability construction over all standard Borel spaces; the uniform numeral alone is not the assessed result.",
+        "searches": [
+          "Resultary: exact list-color thresholds for Borel bounded-outdegree digraphs; inspected closest finite list-threshold hit 5c76c3027da8"
+        ]
+      },
+      "rationale": "The proof method and sharp uniform palette size are known. The supported distinct claim is the jointly Borel edgewise-a.s. theorem for arbitrarily prescribed finite input lists with the local threshold d+d⁺(x)+1. The strongest inspected fixed-palette and residual-list results do not furnish this assertion.",
+      "residual_risks": [
+        "Bounded searches cannot rule out an equivalent arbitrary-input-list formulation under different terminology.",
+        "The Conley–Marks–Tucker-Drob comparison is limited to the cited scope; there was no primary-text comparison of that theorem in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies the exact independent-set lemma and the direct proof predecessor, not arbitrary list input",
+          "evidence": "Theorem 7 uses a common 2d+1 palette; Lemma 8 gives constant membership probability 2^{−d−1}.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21286v1",
+          "material_read": "Theorem 7, p. 2, located at OA text offset 5019; Lemma 8 and the recoloring proof, offsets 5398–8900",
+          "method": "OA original PDF, bounded passages",
+          "title": "Randomized Borel (2d+1)-coloring of digraphs",
+          "trigger": "Same randomized coloring method and bound with a fixed palette"
+        },
+        {
+          "assessment": "Relevant measurable theorem and residual-list construction, but not the assessed joint arbitrary-input theorem",
+          "evidence": "The remaining lists have the form Z_q minus the core colors on the relevant orbit set and are not free input.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19038v1",
+          "material_read": "Theorem 1, p. 2, OA text offset 4760; proof's list passage, p. 6, offsets 18000–19831",
+          "method": "OA original PDF, bounded passages",
+          "title": "The measure half of the 2n+1 problem",
+          "trigger": "Related bounded-function Borel graph result with lists in its proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prescribed allowable colors are a natural strengthening that a fixed palette does not handle. The local bound treats vertices of smaller out-degree with genuinely smaller lists while allowing unbounded in-degree, and preserves the nontrivial edgewise jointly Borel guarantee. The finite regular tournament demonstrates a meaningful uniform boundary. The contribution is the broader usable list theorem, not a new recoloring technique or pointwise sharpness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

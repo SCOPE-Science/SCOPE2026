@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:58:21.653355Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–69",
+        "VERIFICATION.md lines 19–25",
+        "verify.py lines 6–76",
+        "arXiv:1506.05426v1 Definition 2.1 and §4"
+      ],
+      "rationale": "The prime-power formula gives the stated exponent transition, preserving the support; on nonunits L₂(n)<n and the iterates stay odd so the terminal value is 1. For b>0, the second exponent stays at b for c steps, then drains in b steps, while the first exponent after these steps is max(a,1). For b=0<c, the first transition produces second exponent 1 and first exponent (a−1)₊; the second coordinate is positive at times 1 through c and then vanishes. The remaining first exponent is max(a−1,1), giving c+max(a,2) total steps. For b=c=0 there are exactly a steps. At a fixed k≥2, in the region a,b≥1 the ratio to 15·7^(k−2) is (3/7)^(a−1)(5/7)^(b−1); for a=0,b≥1 it is (5/7)^(b−1)/3. In the b=0 regions the ratio is at most 3/5, including pure powers of 3. Only (a,b,c)=(1,1,k−2) attains one. The five counting terms for k≥3 are 1, 2(k−1), (k−1)(k−2)/2, 3, k−3; the first two levels respectively contain {3} and {5,9,15}. Summation and coefficient extraction give the advertised generating function. Since the logarithm has base 7>1, the level extremum is equivalent to the claimed lower bound and its equality family. The unit is outside the frozen domain; 3 is a genuine failure of the numeric inequality. The frozen verify.py is a replay path using prime-factor iterations on [0,9]^3 and complete fibers up to 16 in [0,17]^3 (every exponent is bounded by its height). It was inspected, not run; these computations are finite corroboration only.",
+      "residual_risks": [
+        "No conclusion about arbitrary odd x>3 is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 5ef4f7f3a8f8 studies all odd inputs but only through level 10. The distinct exact-height result 02b7e79219f6 requires a positive 13 exponent, incompatible with this family's support.",
+          "Defant's note treats complete multiplicativity of the terminal-value function H, not stopping times."
+        ],
+        "reasoning": "A larger input domain truncated in height does not dominate the infinite restricted classification; the 13-required family and terminal-value theory do not determine these levels.",
+        "searches": [
+          "Resultary: exact iteration heights on 3^a 5^b 7^c second Schemmel totient stopping time R2 complete all exponents",
+          "Resultary: Defant proposed lower bound R2(n) logarithm 49n/15 equality family n=15 times 7 power",
+          "arXiv:1501.06075v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5ef4f7f3a8f8 and 02b7e79219f6",
+        "arXiv:1506.05426v1",
+        "arXiv:1501.06075v1",
+        "DOI 10.1515/integ.2010.042 open journal PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 20's product law, with base C(3)=0 and C(5)=1, gives R₂(3^a5^b)=a for b=0,a>0 and b+max(a,1) for b>0. Theorem 22 gives class-m maximum 3·5^m; in height k this is 3·5^(k−1), already implying the Defant estimate on that domain for k≥2.",
+          "Defant's §4 conjecture is for odd x>3; it is not proof of the bound or of the restricted extremizer's uniqueness."
+        ],
+        "reasoning": "No novelty is credited to the c=0 stopping times or their lower bound, or to the already-known initial levels' maxima. The 7-coordinate feeds 5 before its own removal and lies outside the hypotheses of the product rule. Exact heights and level fibers with that feed are not a parameter substitution into that theorem.",
+        "searches": [
+          "Resultary: second Schemmel totient R2 maximum integer at each exact iteration height and extremizers 15 times 7 power",
+          "Harrington–Jones Theorems 20 and 22",
+          "arXiv:1506.05426v1 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On odd numbers the prime-power rule for the extended Euler function in Harrington–Jones agrees with L₂. Their C₂ counts one step less than R₂ on their domain D.",
+          "Defant defines the first positive iteration into {0,1} and states the bound for odd x>3."
+        ],
+        "reasoning": "The height offset is essential to compare exact level labels. A prime 1 mod 3 in the initial input excludes it from D, so the equivalent formulation covers c=0 here but no c>0.",
+        "searches": [
+          "Resultary: second Schemmel totient L2 exact iteration height on integers 3^a 5^b 7^c",
+          "arXiv:1506.05426v1 Definition 2.1 and §4",
+          "Harrington–Jones Theorem 3 and Definition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete odd-integer strata in 5ef4f7f3a8f8 identify 15·7^(k−2) as the unique maximum for 2≤k≤10, which already covers the corresponding restricted maxima since the maximizers belong to the restricted family.",
+          "That record explicitly stops at level 10; the ranked searches did not supply the uniform restricted histogram."
+        ],
+        "reasoning": "The finite-range overlap is exact, not just numerical resemblance. Its all-odd sizes are not the restricted size sequence, and even filtering complete finite strata would not imply the rational all-level generating function.",
+        "searches": [
+          "Resultary: height level counts histogram generating function for iterations of the second Schemmel totient on 7-smooth odd integers",
+          "Resultary: R2 second Schemmel exact level cardinalities N_k generating function 7-smooth integers",
+          "Resultary 5ef4f7f3a8f8 Finding and finite construction"
+        ]
+      },
+      "rationale": "Credit the prior stopping-time formula and maxima on the trajectory-restricted domain without 7, and the earlier exact all-odd maxima for the first ten levels. The surviving distinct result is the uniform height classification with the 7-transition present, including an all-level restricted extremizer and exact histogram. The previous finite census and the 7-free theorem do not imply that infinite claim, and Defant stated the unrestricted inequality as a conjecture, not a theorem.",
+      "residual_risks": [
+        "Ranked catalogue searches do not exclude other arithmetic-height results, including differently named smooth-number classifications. The attested comparison is to the actual passages inspected, not a universal priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact definition, conjecture and older theorem linkage",
+          "evidence": "First positive iteration; conjecture for odd x>3; C₂=R₂−1 in Harrington–Jones's setting.",
+          "identifier_or_url": "https://arxiv.org/html/1506.05426v1",
+          "material_read": "Opening definitions, Definition 2.1 (offset 6100), §4 (offset 35000)",
+          "method": "Lawful OA full-text passages",
+          "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+          "trigger": "Primary source of R₂ and the lower bound"
+        },
+        {
+          "assessment": "Exact restricted height and maximum coverage on D; 7 is excluded",
+          "evidence": "The prime-power rule equals L₂ for odd primes; trajectories in D avoid primes 1 mod 3. Product law differs by divisibility by 3, and the class-m maximum is 3·5^m.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/k42/k42.pdf (DOI 10.1515/integ.2010.042)",
+          "material_read": "Theorem 3 (PDF text offset 4200), Definition 9 (8000), Theorems 20 and 22 (17680–19980)",
+          "method": "DOI access unavailable; recovered and inspected lawful journal PDF after query on the exact title, authors and full text",
+          "title": "On the Iteration of a Function Related to Euler's φ-Function",
+          "trigger": "Plausible earlier equivalent height classification"
+        },
+        {
+          "assessment": "The inspected theorem is for the terminal value, not level timing",
+          "evidence": "Complete multiplicativity is for H.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.06075v1",
+          "material_read": "Abstract, OA offset 0",
+          "method": "Lawful OA primary statement",
+          "title": "A Note about Iterated Arithmetic Functions",
+          "trigger": "Possible general theorem about the iterates"
+        },
+        {
+          "assessment": "Exact initial overlap and wider input alphabet within the finite range",
+          "evidence": "Complete odd strata through rank 10, including unique 15·7^(k−2) maxima for ranks 2–10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-first-ten-stopping-time-strata-of-the-second-schemmel-toti--5ef4f7f3a8f8",
+          "material_read": "Finding and bounded stratification, local mirror offsets 0–6437",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact first ten stopping-time strata of the second Schemmel totient",
+          "trigger": "Exact indexed maxima and level sizes for the same iteration"
+        },
+        {
+          "assessment": "Incompatible forced prime factor",
+          "evidence": "Positive exponent of 13 is required.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-schemmel-iteration-heights-for-13-divisible-odd-13-smooth--02b7e79219f6",
+          "material_read": "Finding and domain restriction",
+          "method": "Local mirror passage inspection",
+          "title": "Exact Schemmel iteration heights for 13-divisible odd 13-smooth integers",
+          "trigger": "Nearby indexed exact smooth-support height theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–65",
+        "arXiv:1506.05426v1 §4",
+        "Harrington–Jones Definition 9 and Theorem 22",
+        "Resultary 5ef4f7f3a8f8"
+      ],
+      "rationale": "This is the smallest prime support containing 7 closed under the odd-prime L₂ transitions, and it contains the conjectured extremal progression. It is not an arbitrary exponent cutoff. The formula resolves every level within that natural family, separating the transient filling of a missing lower prime from subsequent depletion. The sharp unique maximizer settles an infinite test case of the lower bound, and the histogram gives a complete exact benchmark for work on inverse stopping-time strata. The usefulness is in the all-level structure with 7, not in tabulating the earlier initial levels again.",
+      "residual_risks": [
+        "The value is a natural invariant-subsemigroup result, not a solution of the unrestricted Defant conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

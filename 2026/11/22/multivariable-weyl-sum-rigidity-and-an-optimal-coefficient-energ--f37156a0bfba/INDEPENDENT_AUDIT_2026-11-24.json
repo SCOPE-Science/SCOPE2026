@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:46:55.357888Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the pairing linear in the first variable, the adjoint coefficient at the kernel centered at A_jw+b_j is the conjugate weight times exp((||A_jw+b_j||²−||w||²)/2); its modulus is e^(||b_j||²/2) times that of the entire compensated weight. For a generic complex line tv the Gram blocks with the same A_j are fixed up to unitary phases under Weyl translation; distinct translation centers give positive definite blocks by restriction of the exponential relation to a Vandermonde line. Off-block overlaps tend to zero uniformly as |t|→∞ since (A_i−A_j)v≠0. Thus the bounded adjoint gives a lower Gram bound for the coefficient estimate on the complement of a disk on every such line. Liouville and density force the compensated weights to be constant, nonzero by hypothesis. Conversely the Gaussian change of variables gives an isometry, onto by the inverse affine composition and reciprocal weight. In the averaged energy, unequal linear parts give vanishing cross terms by rescaling and dominated convergence off ker(A_i−A_j). For equal A, with a=Aw, the coherent-kernel overlap phase Im⟨a+b_j,a+b_i⟩ together with the adjoint phases gives exactly 2 Im⟨a,b_i−b_j⟩+Im⟨b_j,b_i⟩, a nonconstant real character; its normalized ball average tends to zero. Monomial testing shows weak escape of normalized kernels; hence any compact adjoint contributes vanishing averaged squared norm. The essential-norm estimate follows. The parity choices of chirp make it periodic mod N and every nonzero shift gives a geometric sum of ratio exp(2πih/N); hence the Fourier modulus is sqrt(N) on every homogeneous degree. This attains the bound with b_j=0 for all N,d in scope. The packaged checker and 9448-check diagnostic claim were inspected, not executed; analytic arguments establish the general claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayart–Wang–Yao characterize individual unweighted affine composition and study affine semigroups; Tien–Khoi treat general affine individual weighted compositions in several variables.",
+          "Cho–Choe–Koo–Tien's introduction discusses earlier unweighted polynomial-symbol finite sums and reports a gap in that earlier proof."
+        ],
+        "reasoning": "Larger symbol classes do not imply that boundedness of a weighted sum controls each term. Unweighted polynomial or affine results do not allow arbitrary entire weights nor yield the stated Calkin constant.",
+        "searches": [
+          "arXiv:2610.26349v1 Theorems 1.1 and 3.4",
+          "arXiv:1801.08279v1 Theorems 3.8–3.9",
+          "arXiv:2611.26206v1 Introduction on earlier several-variable finite-sum coverage"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.26349v1",
+        "arXiv:1801.08279v1",
+        "arXiv:2611.26206v1",
+        "arXiv:2611.19948v1",
+        "Resultary f37156a0bfba (self-hit)",
+        "Resultary b96c3b6b80d6 (catalogue statement)",
+        "DOI:10.1109/TIT.1972.1054846 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the regular representation, applying the sum to δ_e gives the ℓ₂ bound (also for projective representations in the corresponding regular model); it is not an estimate on an arbitrary quotient representation.",
+          "The frozen calculation gives a normalized ball-averaged coherent-state functional that cancels all cross terms after taking radii to infinity, and is insensitive to compact perturbations for the energy in question."
+        ],
+        "reasoning": "The Fock/Calkin representation must still be shown to support the relevant trace-like coefficient separation. Also, individual weight characterization starts only after absence of cancellation is proved. The block Gram and kernel-energy arguments provide the missing implications; neither follows from the existing numerical norm constants.",
+        "searches": [
+          "Regular group representation coefficient bound vs. Fock Calkin representation",
+          "arXiv:2611.19948v1 Theorems 1.1–1.2",
+          "arXiv:1801.08279v1 Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two finite-sum sources state boundedness iff each summand is bounded, but on a one-complex-variable Fock space.",
+          "After compensation the frozen summands are affine unitary rotations combined with Weyl displacements, not generally sums of translations only or constant-coefficient unweighted rotations."
+        ],
+        "reasoning": "For d=1 on the unitary-affine boundary the classification fits the one-variable criteria plus individual weight theory. With general A_j and b_j at d≥2 there is no common invariant complex line reducing the sum to these criteria; the generic-ray argument instead uses distinct lines of image centers in the full reproducing kernel space.",
+        "searches": [
+          "Resultary on unitary-affine Fock weighted composition, Weyl displacements, and finite-sum Calkin rigidity",
+          "arXiv:2611.26206v1 Theorem 1.1",
+          "arXiv:2611.19948v1 Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit f37156a0bfba is the assigned record. The closest distinct catalogue statement b96c3b6b80d6 treats two-scale singular-value limits for radial composition sums with coalescing symbols.",
+          "Lin–Lu–Yang–Zu's essential-norm constants depend on the symbols. The classical chirp source was inaccessible at the DOI; the periodicity and flat Fourier modulus in the frozen example are independently proved from a finite geometric sum."
+        ],
+        "reasoning": "An exact tabulation of finite Fourier chirps or singular values in a radial coalescing family would not compute the coherent-state energy for arbitrary affine-unitary symbols. No inspected distinct entry supplies the universal constant and identity; novelty is not asserted for the finite chirps.",
+        "searches": [
+          "Resultary Fock weighted-sum and affine Weyl records f37156a0bfba and b96c3b6b80d6",
+          "Chu DOI:10.1109/TIT.1972.1054846 for the finite chirp ingredient",
+          "arXiv:2611.19948v1 Theorem 1.2 for an exact bound comparison"
+        ]
+      },
+      "rationale": "The distinct result concerns arbitrary finite families of distinct unitary-affine symbols in several variables, with entire weights, plus the exact volume-averaged coherent-state identity and consequent sharp universal Calkin bound. Individual-operator theory and one-dimensional sum theory are covered ingredients. The classical-type chirp and regular-representation ℓ₂ inequality are not separately credited as new. No inspected statement supplies the several-variable rigidity and the required affine-Weyl quotient estimate.",
+      "residual_risks": [
+        "The earlier unweighted several-variable result was compared via Cho–Choe–Koo–Tien's discussion, not its full primary text.",
+        "The coalescing-spectra companion's exact mirror file and Chu's original paper were not available in the bounded checks.",
+        "No exhaustive priority claim or assertion covering all possible prior Fock/C*-algebra formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same boundary geometry without weighted finite sums",
+          "evidence": "Theorems concern bounded individual unweighted affine composition and structured affine semigroups.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.26349",
+          "material_read": "Theorems 1.1, 3.4, OA offsets about 2581 and 17369, printed pp. 1 and 5",
+          "method": "Lawful OA primary-text sections",
+          "title": "Semigroup of composition operators on the Fock space of several complex variables",
+          "trigger": "Multivariable affine boundary structure in the same Fock space"
+        },
+        {
+          "assessment": "Individual-operator results, not cancellation or coefficient-energy theorem",
+          "evidence": "Boundedness and compactness criteria for a single weighted composition with an affine symbol.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08279",
+          "material_read": "Theorems 3.8–3.9 near OA offsets 40895 and 45555, printed pp. 12–13",
+          "method": "Lawful OA primary-text sections",
+          "title": "Weighted composition operators between Fock spaces in several variables",
+          "trigger": "Potentially larger affine weight/norm classification"
+        },
+        {
+          "assessment": "One-variable overlap; earlier unweighted polynomial case does not address arbitrary weights",
+          "evidence": "Theorem 1.1 separates a weighted sum into bounded individual terms in dimension one; the Introduction identifies multivariable weighted rigidity as outstanding and describes the earlier unweighted claim.",
+          "identifier_or_url": "https://arxiv.org/html/2611.26206v1",
+          "material_read": "Theorem 1.1 and Introduction, HTML offsets about 8370, 2000 and 5544",
+          "method": "Lawful OA HTML bounded passages",
+          "title": "The rigidity phenomenon for weighted composition operators on the Fock spaces",
+          "trigger": "Identical finite-sum rigidity question in one variable; report of earlier several-variable work"
+        },
+        {
+          "assessment": "One-variable finite sums and symbol-dependent norm constants",
+          "evidence": "Boundedness iff each summand is bounded; two-sided essential norm estimates do not state the sharp universal coefficient-one multivariable bound.",
+          "identifier_or_url": "https://arxiv.org/html/2611.19948v1",
+          "material_read": "Theorems 1.1–1.2, HTML offset about 8036",
+          "method": "Lawful OA HTML bounded passage",
+          "title": "Finite Sums of Weighted Composition Operators on the Fock Space",
+          "trigger": "May cover both rigidity and the essential norm"
+        },
+        {
+          "assessment": "Different claimed spectral regime on available material; no full-text verdict",
+          "evidence": "Catalogue describes radial coalescing symbols and two-scale singular-value limits, not arbitrary entire weights and unitary-affine symbols.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-scale-singular-spectra-of-coalescing-fock-composition-sums--b96c3b6b80d6",
+          "material_read": "Catalogue statement; exact-path mirror lookup unavailable",
+          "method": "Local Resultary search and local mirror attempt",
+          "title": "Two-scale singular spectra of coalescing Fock composition sums",
+          "trigger": "Closest distinct indexed Fock composition-sum finding"
+        },
+        {
+          "assessment": "Exact historical formula not verified; chirp is not credited as new",
+          "evidence": "The relevant finite Fourier identity is established directly in RESULT.md §5, not inferred from source access.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1972.1054846",
+          "material_read": "Bibliographic identifier only; OA attempt did not return full text",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Polyphase codes with good periodic correlation properties",
+          "trigger": "Classical periodic flat-spectrum chirp construction used in sharpness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unitary-affine boundary is the natural Gaussian-norm-preserving regime and still permits noncommuting matrices, coincident linear parts and distinct translations. The theorem rules out cancellation even between initially unrestricted entire weights and identifies a usable, symbol-independent coefficient norm modulo compacts. The exact energy and sharpness at each N make that quantitative separation meaningful, beyond recalculating single-operator criteria. It does not settle the broader nonunitary multivariable problem or claim equality for arbitrary coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

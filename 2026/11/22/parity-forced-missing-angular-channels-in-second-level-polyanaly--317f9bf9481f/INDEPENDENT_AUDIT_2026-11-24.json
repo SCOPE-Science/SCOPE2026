@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:01:37.872494Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first creation operator applied to the normalized analytic monomials gives the stated basis of the true second level (not the two-level sum), with angular weight p-1. The full angular integral of the compressed multiplier forces output index p+m. In the radial integral let a=p+m/2 and view t as Gamma(a,1) with mean and variance a. Then (t-p)(t-p-m)=(t-a)^2-(m/2)^2, so the integral is Gamma(a)(a-m^2/4); the Gaussian normalization supplies the stated factorials. This also holds at p=0, where the factor t cancels the apparent singularity of the basis expression. The only potential zero is p=m(m-2)/4, integral and nonnegative exactly at even positive m. Expanding the log-gamma ratio gives p^(-1)[1-(m^2/8+m/2)/p+O_m(p^(-2))], so multiplication by the linear term gives the stated 1/p correction. Convergence to 1 makes the perturbation of S^m compact, bounds all nonzero weights away from zero, and leaves exactly the first m output coordinates plus the single missing even-winding output. Thus the range is closed and the index is -m. The Fredholm essential spectrum is the circle; inside it the nonzero index persists for T_m-lambda, and the compression norm is at most one. Independently checked 14 radius quadratures, including nodal zeros and adjacent nonzeros, and ten large-index comparisons (python3 /workspace/checks/finite_review.py 5, requires mpmath; /workspace/checks/5.txt). These approximate checks do not decide exact zeros or infinite spectrum; those follow from the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hagger develops general compactness/Fredholm tools and gives the true-level projections. Fulsche–Hagger characterize the kernel of true-level bounded-symbol quantization by the weak-* span of characters at Laguerre zeros."
+        ],
+        "reasoning": "A theorem on when an entire symbol quantizes to the zero operator does not characterize which vectors an individual nonzero angular Toeplitz operator annihilates. General essential-spectrum or index results do not determine the separate finite kernel and cokernel dimensions.",
+        "searches": [
+          "arXiv:2201.10230 pp. 1–3",
+          "arXiv:2308.11292 Theorems 3.4 and 3.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.07741",
+        "arXiv:2201.10230",
+        "arXiv:2308.11292",
+        "arXiv:1202.1976",
+        "NIST DLMF 18.17.47",
+        "Resultary e6f124794c36"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4 concerns the symbol-map kernel for k>1, using characters at L^0_(k-1)(|xi|^2)=0. This yields no direct integer condition on p for the vector kernel of T_m. The Hankel notch condition concerns a different scaled parameter n beta=m in a radial regulator problem."
+        ],
+        "reasoning": "The true-level basis and angular orthogonality justify the weighted-shift reduction, and ordinary shift theory gives spectrum and index once the asymptotics are known. What the inspected results do not supply is the equality of the mixed radial variance with m^2/4 at precisely the stated even winding and index, which decides the additional defects.",
+        "searches": [
+          "arXiv:2308.11292 Theorem 3.4 (p. 21)",
+          "arXiv:1905.07741 Eq. (22) and Definition 2",
+          "Resultary e6f124794c36, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keller–Luef give Hermite-transformed bases and the equivalent true-level Toeplitz and localization setup. Hagger gives the creation-operator true-level model. Neither inspected formulation evaluates the single shifted matrix entry for the pure angle multiplier."
+        ],
+        "reasoning": "Using a true Fock level, a Gaussian Landau level or the corresponding Hermite localization model changes the representation, not the compression. Angular covariance singles out one shift but does not decide whether its radial coefficient cancels.",
+        "searches": [
+          "Resultary: angular winding, true second polyanalytic Fock, complex-Hermite channels",
+          "polyanalytic Fock Toeplitz angular symbol unimodular phase winding weighted shift complex Hermite Landau level Laguerre kernel matrix elements",
+          "arXiv:1905.07741 Eq. (22) and Definition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e6f124794c36 gives a notch for big Hankel operators on analytic Gaussian Fock space with Gaussian-regulated monomials, not pure phase compression on the true second level. The precise angular record returned by the catalogue is the assigned record itself.",
+          "The inspected Babusci–Dattoli–Górska Gaussian-integral identities concern two-variable and associated Laguerre polynomials. DLMF 18.17.47 is a convolution of generalized Laguerre factors at t and x-t, not the same-argument mixed moment in the finding."
+        ],
+        "reasoning": "These are relevant analytical or exact-channel comparisons, but the differing arguments, symbols and operators prevent reading the claimed zero condition off their outputs. The Gaussian moment arithmetic itself is classical.",
+        "searches": [
+          "Resultary: Gaussian Fock angular channels and exact spectral notches",
+          "arXiv:1202.1976 Eqs. (2.2), (2.5), (2.7)",
+          "NIST DLMF §18.17(viii), 18.17.47"
+        ]
+      },
+      "rationale": "The true-level model, Laguerre/Hermite machinery and Fredholm theory are established, and neither angular equivariance nor the index on its own carries the originality decision. The supported distinct claim is the explicit mixed moment for this specified compressed angular multiplier and its complete finite defect classification for all positive windings. The strongest inspected kernel theorem is about the symbol-to-operator map, not the vector kernel of a particular phase operator. This judgment is limited to the stated comparisons.",
+      "residual_risks": [
+        "A specialized phase-operator calculation or a more closely matching general Laguerre product identity may provide earlier coverage. The bounded comparisons are not a certification of worldwide priority.",
+        "The exact self-hit is not prior evidence; same-day dating of the adjacent Hankel record does not determine order. The candidate Resultary 1294c93375a2 was summary-only after a mirror lookup failed and was not used to establish noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies basis and model, not the angular coefficient in those passages",
+          "evidence": "Orthonormal bases from transformed Hermite functions; true-level compression P_k f P_k.",
+          "identifier_or_url": "arXiv:1905.07741",
+          "material_read": "pp. 7–9, Eq. (22) and Definition 2, offsets 25800–34754",
+          "method": "Primary open-access text",
+          "title": "Polyanalytic Toeplitz operators: isomorphisms, symbolic calculus and approximation of Weyl operators",
+          "trigger": "Equivalent Hermite localization model and true-level quantization"
+        },
+        {
+          "assessment": "General operator tools, not the finite defect classification",
+          "evidence": "Creation-operator construction, Laguerre reproducing kernel and true-level decomposition; general limit-operator theory described in abstract.",
+          "identifier_or_url": "arXiv:2201.10230",
+          "material_read": "p. 1 abstract and pp. 2–3, offsets 5000–12666",
+          "method": "Primary open-access text",
+          "title": "Toeplitz and related operators on polyanalytic Fock spaces",
+          "trigger": "General projections and Fredholm criteria"
+        },
+        {
+          "assessment": "Symbol-map kernel and related injectivity, not a prescribed symbol's vector kernel",
+          "evidence": "Weak-* character-span description uses the zeros of an ordinary Laguerre polynomial in frequency space.",
+          "identifier_or_url": "arXiv:2308.11292",
+          "material_read": "Theorem 3.4, p. 21, offset 67280 onward; Theorem 3.9, p. 24, offset 79000",
+          "method": "Primary open-access text",
+          "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+          "trigger": "Strongest inspected true-level kernel theorem"
+        },
+        {
+          "assessment": "Different integral setups; no inspected winding coefficient",
+          "evidence": "Gaussian-integral methods for two-variable and associated Laguerre polynomials.",
+          "identifier_or_url": "arXiv:1202.1976",
+          "material_read": "pp. 2–3, Eqs. (2.2), (2.5), (2.7), offsets 2260 and 4700",
+          "method": "Primary open-access text",
+          "title": "Symbolic calculus and integrals of Laguerre polynomials",
+          "trigger": "Potential table or formula coverage of the radial integral"
+        },
+        {
+          "assessment": "Convolution formula rather than the asserted mixed Gaussian moment",
+          "evidence": "Integrates the product with factors at t and x-t on [0,x].",
+          "identifier_or_url": "https://dlmf.nist.gov/18.17.E47",
+          "material_read": "§18.17(viii), 18.17.47 at section text offset 47240",
+          "method": "Open formula table, decisive formula",
+          "title": "NIST Digital Library of Mathematical Functions: Integrals",
+          "trigger": "Tabulated integrals of products of generalized Laguerre polynomials"
+        },
+        {
+          "assessment": "Different operator and level",
+          "evidence": "Big Hankel singular values for analytic Fock with Gaussian-regulated monomials; notch at n beta=m.",
+          "identifier_or_url": "Resultary e6f124794c36",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue and source mirror",
+          "title": "Gaussian-regulator Hankel pairs: a spectral notch and reversal",
+          "trigger": "Closest distinct catalogue angular-channel spectral notch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pure angle multipliers represent the basic Fourier components of angular observables, and the true second level is the first level with a radial node in the mode factors. The formula tells exactly which input and corresponding output mode are missing under compression, at every positive winding, information that the common index and spectra cannot distinguish. The parity exception is a concrete loss of a channel, including p=0 for winding two, not just a rederivation of the shift index.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

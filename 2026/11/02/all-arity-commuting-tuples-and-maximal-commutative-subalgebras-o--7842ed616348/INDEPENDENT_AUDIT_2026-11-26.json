@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:26.967928Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 5–27 and 29–51; VERIFICATION.md and verify.py inspected, not executed."
+      ],
+      "rationale": "Coordinates collected over the k tuple slots give exactly the three wedge equations in RESULT.md 31–35; vanishing means all two-coordinate minors vanish, in every characteristic. One middle diagonal vector is free. If both diagonal differences vanish, the two nonzero arrow families, when both present, must lie on one common line; if one is zero the other is arbitrary. The length-two vectors are then free. If just one difference vanishes, the other constrains its own arrows to its line, and each length-two equation is a translate of the kernel of wedging by that nonzero difference. If the two differences are nonzero opposites, both arrow families share a line and all length-two coordinates are free. Otherwise write x_i=lambda_i u and y_j=mu_j v; z_ij=-lambda_i mu_j v is a particular solution and the kernel is the line through u+v. The differences in this last case have (Q-1)(Q-2) choices. This accounts for every summand without assuming invertibility or excluding characteristic two. For k=0 only the all-zero differences/vector families exist, and k=1 makes every wedge vanish. All commuting tuples lie in the union of Cartesian powers of commutative unital subalgebras because they generate one; the union is finite and two distinct largest subalgebras intersect in dimension at most d-1. It follows that the leading exponent and coefficient in Q count the largest dimension and how many realize it. For max(r,s)>=2 the leading terms come only from the highest arrow powers in B, with coefficient one or two; for r=s=1 the other terms tie and the coefficient is q^3+3q^2+q+1. The explicit scalar-plus-arrow-plus-length-two spaces are commutative by zero radical products and realize the full census in the general case. The conclusion concerns maximum dimension, not maximality under inclusion.",
+      "reproduction": "Run python3 /workspace/branches/25a469f5-b185-4516-b887-20396dc34737/audit_record1.py (bounded default). Direct path-basis multiplication produces ordered pair counts 928, 6400, 6400, 139264, 33777 at (q,r,s)=(2,1,1),(2,2,1),(2,1,2),(2,2,2),(3,1,1), respectively, and 9472 triples at (2,1,1). Direct unital subspace enumeration at r=s=1 gives 23 and 58 top-dimensional examples at q=2 and q=3, respectively, and one dimension-five example for each of (2,2,1) and (2,1,2), with no larger examples in these tests.",
+      "residual_risks": [
+        "The independent tests use prime fields, not extension fields, and do not exhaust the r=s>=2 subalgebra census. An optional larger binary (2,2) subspace sweep did not finish and supplies no evidence; the (2,2) ordered pair test did finish. The proof, not the finite tests, handles all arities and fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The branching result uses invertible triangular and unitriangular groups over fields of odd characteristic, with probabilities for the listed ranks and arities. Green–Schroll divide the path algebra by differences of parallel paths. Słowik characterizes individual upper-triangular matrices with inclusion-minimal element centralizer using a triangular-similarity generalized direct sum and a condition on the number of eigenvalues."
+        ],
+        "reasoning": "The arbitrary-element census includes zero diagonal coefficients, not just group tuples. Identifying parallel paths destroys the independent length-two coordinates here. Inclusion comparisons of centralizers of single matrices are a different optimization and do not classify the largest-dimensional commutative subalgebras of this multiarrow algebra.",
+        "searches": [
+          "Primary-literature search for commuting triangular-matrix tuples and maximum commutative subalgebras",
+          "Kaur–Sharma–Singh arXiv:2006.01493v1, p. 1 and §8",
+          "Green–Schroll arXiv:2302.08169v3 abstract and introduction",
+          "Słowik DOI 10.1007/s00025-018-0819-4, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md; Resultary a985f1f1a2d2, b56a1e679f3d, 0edf4af1aaa4 and 6670047405da; arXiv:2006.01493v1 and 2302.08169v3; Słowik DOI 10.1007/s00025-018-0819-4."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H(T) tallies each element by dimension of its centralizer. For T_3, the later centralizer census gives c_3=3q^2+q-1+q^3 times the indicator q>2 on the final term only; its dimension-three centralizers comprise nonsplit two-eigenvalue, regular nilpotent and, when available, distinct-eigenvalue types. Each of these centralizers is commutative by its form."
+        ],
+        "reasoning": "The centralizer-dimension histogram determines how many single partners commute with each element in aggregate, not which partners commute with one another; it does not determine the larger cliques by that statistic. In T_3 the later c_3 table does give a substantial part of the maximum-subalgebra count, but two scalar-plus-one-sided-arrow-plus-length-two subalgebras have no element with three-dimensional centralizer, and over F_2 no full diagonal conjugate is the centralizer of a single element. Hence the two counts differ by 2 for q>2 and by 10 for q=2. The extra classes require an argument beyond counting element centralizers. Neither this boundary overlap nor the pair specialization yields the general leading coefficient by itself.",
+        "searches": [
+          "Resultary a985f1f1a2d2, definition of H(T)",
+          "Resultary 6670047405da, codimension refinement and proof strata, offsets 0–≈5100",
+          "Słowik, Theorem 3, p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For r=s=1 the path basis maps to the six upper-triangular matrix units, including the product E12 E23=E13. The zero-commutator fiber of the indexed T_3 record counts ordered pairs of arbitrary matrices over the same field."
+        ],
+        "reasoning": "Multiplying the indexed probability (q^4+3q^3-2q^2-2q+1)/q^7 by q^12 yields the frozen r=s=1, k=2 specialization. This is exact agreement, not an independent contribution at that arity. T_3 does not represent parallel-arrow multiplicities larger than one.",
+        "searches": [
+          "Resultary: three-vertex multiarrow path algebra commuting tuples and centralizers; T_3(F_q) commuting and commutator fibers",
+          "Resultary b56a1e679f3d, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The spectrum H(T) for exactly the same unquotiented algebra at r,s>=2 states the ordered-pair count is H(q), giving 139264 at (q,r,s)=(2,2,2). The T_3 fiber gives the pair count at r=s=1. The same-date radical pair polynomial applies to three arrow layers on four vertices."
+        ],
+        "reasoning": "The first two matches supply exact pair subfamilies, not the full sequence in k. The four-vertex radical has both a different multiplication structure and no arbitrary diagonal; the date need not be resolved to establish the difference.",
+        "searches": [
+          "Resultary a985f1f1a2d2, centralizer spectrum table",
+          "Resultary b56a1e679f3d, zero-commutator fiber",
+          "Resultary 0edf4af1aaa4, radical pair polynomial"
+        ]
+      },
+      "rationale": "The supported distinct result is the full all-arity census on the unquotiented two-layer multiarrow algebra and its maximum-dimensional commutative-subalgebra law. Prior indexed records exactly cover substantial k=2 ranges, including the T_3 case, and the later T_3 centralizer classification overlaps some structure at the subalgebra boundary. None of the compared records supplies the arbitrary-arity formula or the maximum-dimension census for the full multiarrow family. The covered specializations receive no separate originality credit.",
+      "residual_risks": [
+        "Targeted literature and ranked index checks are not global priority guarantees; an unlocated general theory of simultaneous centralizers might imply further specializations. Prior indexed pair results and the partially overlapping T_3 centralizer census have been expressly excluded from the originality credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier k=2 coverage for this range",
+          "evidence": "H(T) sums T to the dimension of each element centralizer and the pair count is explicitly H(q).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-centralizer-dimension-spectrum-of-three-vertex-multiarrow-path-a--a985f1f1a2d2/RESULT.md",
+          "material_read": "Finding and spectrum table, offsets 0–2321; Assumptions",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Centralizer-dimension spectrum of three-vertex multiarrow path algebras",
+          "trigger": "Exactly the same unquotiented family for r,s>=2"
+        },
+        {
+          "assessment": "Exact earlier k=2 coverage at r=s=1",
+          "evidence": "The C=0 commutator fiber is the same ordered-pair count; the result is explicitly only about pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-four-commutator-fiber-strata-in-t-3-mathbb-f-q--b56a1e679f3d/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2040",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four commutator-fiber strata in T_3(F_q)",
+          "trigger": "Exact boundary algebra over all finite fields"
+        },
+        {
+          "assessment": "Different algebra and arity",
+          "evidence": "The count is in the radical of a four-vertex line with three arrow layers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-commuting-pair-polynomial-for-the-three-step-multiarrow-line-qui--0edf4af1aaa4/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Commuting-pair polynomial for the three-step multiarrow line quiver",
+          "trigger": "Overlapping line-quiver and pair terminology"
+        },
+        {
+          "assessment": "Related later classification with overlap on most dimension-three subalgebras, not identical census",
+          "evidence": "The object is C(X), not a largest commutative subalgebra. For the one-sided radical types C(X) is four-dimensional; distinct-eigenvalue centralizers are unavailable over F_2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-centralizer-subalgebra-census-in-the-three-by-three-triang--6670047405da/RESULT.md",
+          "material_read": "Finding, codimension table and the three diagonal-pattern cases, offsets 0–≈5100",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact centralizer-subalgebra census in the three-by-three triangular matrix algebra",
+          "trigger": "Potential implication for the boundary commutative-subalgebra census"
+        },
+        {
+          "assessment": "Invertible-group branching and example probabilities rather than arbitrary-element multiarrow counts",
+          "evidence": "The objects are triangular and unitriangular groups over odd-characteristic finite fields.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.01493v1",
+          "material_read": "p. 1 and §8 p. 115, text offsets around 200 and 651400",
+          "method": "Open full-text passages",
+          "title": "Branching rules and commuting probabilities for Triangular and Unitriangular matrices",
+          "trigger": "Primary triangular commuting-tuple result"
+        },
+        {
+          "assessment": "Different algebra and invariant",
+          "evidence": "The construction is KQ/C with C generated by differences of parallel paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.08169v3",
+          "material_read": "p. 1 abstract and introduction, around offset 200",
+          "method": "Open full-text passage",
+          "title": "The Commuting Algebra",
+          "trigger": "Same path-algebra and commuting vocabulary"
+        },
+        {
+          "assessment": "Minimal element-centralizer classification, not the assigned maximization or census",
+          "evidence": "Minimality is characterized by triangular similarity to a generalized direct sum of minimal blocks and the requirement that the eigenvalue cardinality be the minimum of the block count and field cardinality.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-018-0819-4",
+          "material_read": "Theorem 3, PDF p. 3, offset 4700–6372",
+          "method": "Open publisher PDF passage",
+          "title": "Maximal and Minimal Triangular Matrices",
+          "trigger": "Potential broader structural theorem on triangular centralizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Finding and lines 39–51; Resultary a985f1f1a2d2 and b56a1e679f3d pair coverage; Resultary 6670047405da dimension refinement."
+      ],
+      "rationale": "This is a natural smallest layered path-algebra family with nonzero radical square and independent parallel two-step paths. One polynomial gives all commuting tuple sizes, and its top term reveals a sharp change between the scalar triangular boundary and the large-arrow regime, including when there are precisely two largest commutative subalgebras. The all-arity and structural information is not supplied by the known pair counts or single-element centralizer data.",
+      "residual_risks": [
+        "The result is not a classification of all inclusion-maximal commutative subalgebras, or a general-quiver enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

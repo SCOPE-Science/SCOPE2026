@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:51:58.734971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–57",
+        "Frozen VERIFICATION.md",
+        "Frozen artifacts/check_small.py, artifacts/check_fast.cpp and artifacts/check_topology.py with associated logs (reported checks, not executed)"
+      ],
+      "rationale": "Two edges that meet are compatible by bipartiteness. A disjoint pair is compatible exactly when both cross-edges were deleted, which forces a unique reciprocal partner; a third edge would have to meet both and be one of the missing cross-edges. A pairwise-intersecting family lies in one star because there are no triangles. This partitions packings into empty, singletons, unique-center star subsets of size at least two, and reciprocal pairs. Every degree is at least two, so singletons extend, whole stars cannot extend, and the maximal polynomial follows. At saturation all vertices on the smaller shore lose one edge, while the other shore has degree at most the smaller shore size; the largest star has size max(m,n)-1, also when m=n. Below saturation the largest full-degree star survives. For topology, the nonempty intersection of any two star simplices is exactly the vertex for their shared graph edge; all higher intersections are empty. The good-cover nerve is thus G, connected because any two vertices of either shore share a neighbour, and it has cycle rank mn-t-m-n+1. Each reciprocal pair contributes one independent new interval attaching its two endpoints to the connected star complex; its attaching map from S^0 is homotopic to a constant, adding a circle. There are no additional higher faces. This proves actual homotopy equivalence, not just the recorded mod-two checks. It gives the stated Betti change t-2 and the maximal-size gap for balanced shores.",
+      "residual_risks": [
+        "The finite log counts and mod-two homology checks do not establish the all-parameter result or the integral homotopy claim; those rest on the reviewed classification and nerve and attachment arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.3 and its proof give the maximum for complete multipartite graphs; the later works treat the maximum-size invariant, including edge-deletion bounds and selected graph products."
+        ],
+        "reasoning": "Deleting a matching no longer gives a complete multipartite graph. General bounds for the maximum do not supply the reciprocal facets or the homotopy type of the packing complex.",
+        "searches": [
+          "Chelladurai et al., DOI 10.1051/ro/2022171, Prop. 2.3",
+          "Brešar–Samadi, arXiv:2403.00750v1, HTML offset 3200",
+          "Brešar et al., arXiv:2406.04020v1, offset 0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact, dissociation, injective-coloring and persistence records listed above",
+        "Chelladurai et al., RAIRO OR 56 (2022), Prop. 2.3",
+        "arXiv:2403.00750v1 and arXiv:2406.04020v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The undeleted no-disjoint-pair argument already yields the star-only description when specialized to a biclique. The reciprocal pairs are absent there, and their appearance affects both maximality and the first Betti number after deletions."
+        ],
+        "reasoning": "Credit the prior maximum and its easy star-enumerator consequences at t=0. The full deletion family and its topological description are not consequences of the inspected prior claims.",
+        "searches": [
+          "DOI 10.1051/ro/2022171, Prop. 2.3 and proof",
+          "Resultary 9f3e4c6f19b5, offset 2900",
+          "Resultary ea494ab50b5c, offset 160"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Injective coloring partitions the undeleted graph edges into EOP color classes. Dissociation counts vertex sets inducing degree at most one, with the same reciprocal configuration contributing z^4 there versus z^2 here."
+        ],
+        "reasoning": "Disjoint reciprocal pairs overlap structurally, but edge-star EOP subsets have no such dissociation interpretation; the full polynomials and complexes have different ground sets and maximal supports. Coloring asks for a partition, not the enumerator of individual packings.",
+        "searches": [
+          "Resultary 9f3e4c6f19b5, complete multipartite injective edge coloring",
+          "Resultary ea494ab50b5c and 3b6797f0f13c, dissociation sets in matching-deleted bicliques",
+          "Brešar et al., arXiv:2406.04020v1, PDF opening"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact entry is this frozen finding. The same-family persistence results treat Ind_2 on original vertices and can have nonzero H_2; the three-cut result concerns an Alexander dual."
+        ],
+        "reasoning": "The other exact formulae and topology statements do not tabulate or characterize the EOP complex, which has edge-vertices and no higher reduced homology.",
+        "searches": [
+          "Resultary: matching-deleted biclique edge-open-packing polynomial and homotopy; 179ef9fc8450, ea494ab50b5c, fac6a09d737e, c03b085e3d8d, ab19f54685e2"
+        ]
+      },
+      "rationale": "The established undeleted biclique maximum and the star property used to derive it are prior. The same deleted-matching graph also has known vertex-dissociation enumerators and topology, but for a different complex. None of the inspected statements covers the additional reciprocal edge-packing facets, the deletion-sensitive exact enumerators or their integral homotopy type; the one exact match is this same Resultary record.",
+      "residual_risks": [
+        "Bounded search, not a priority certification. The Filomat coloring paper's full text was not obtained. An unindexed exact EOP treatment remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers t=0 maximum and provides its star-based argument, not matching deletion",
+          "evidence": [
+            "The proposition gives the largest part size; the proof excludes disjoint pairs in the complete multipartite graph."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+          "material_read": "PDF page 3, Proposition 2.3 and proof, offset 9345",
+          "method": "Lawful Numdam full-text copy via OA retrieval",
+          "title": "Edge Open Packing Sets in Graphs",
+          "trigger": "Original complete multipartite result, plausibly covering the biclique baseline"
+        },
+        {
+          "assessment": "Different output (maximum size and its bounds)",
+          "evidence": [
+            "It defines the same invariant rho as a maximum cardinality, not a count of packings."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.00750v1",
+          "material_read": "Introduction and invariant definition, offset 3200",
+          "method": "Open full-text passage inspection",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Edge-deletion and EOP scope"
+        },
+        {
+          "assessment": "Related structural interpretation and different graph families",
+          "evidence": [
+            "Discusses maximum induced unions of stars and product-graph results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "v1 opening, offset 0",
+          "method": "Open full-text passage inspection",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Structural star formulation or broader graph-family result"
+        },
+        {
+          "assessment": "Undeleted independent color classes are stars; the problem is a partition",
+          "evidence": [
+            "The displayed result partitions the graph edges into injective color classes, not all EOP faces after deletion."
+          ],
+          "identifier_or_url": "Resultary 9f3e4c6f19b5",
+          "material_read": "RESULT.md proof pass on complete bipartite cuts, offset 2900",
+          "method": "Local mirror passage inspection",
+          "title": "Correct injective edge chromatic index of complete multipartite graphs",
+          "trigger": "Conflict-graph and color-class equivalence on bicliques"
+        },
+        {
+          "assessment": "Different complexes and polynomials",
+          "evidence": [
+            "The reciprocal labels contribute binomial(t,2)z^4 to the dissociation enumerator; maximal crown sizes in the cited dissociation result are 4 and k in the stated range, versus 2 and k-1 in EOP."
+          ],
+          "identifier_or_url": "Resultary ea494ab50b5c; related 3b6797f0f13c",
+          "material_read": "RESULT.md polynomial statements at offsets 160 and 200 respectively",
+          "method": "Local mirror passage inspection",
+          "title": "Dissociation and maximal-set polynomials of bicliques with a deleted matching",
+          "trigger": "Exact enumerators for the same graph family"
+        },
+        {
+          "assessment": "Studies a different complex",
+          "evidence": [
+            "The stated Ind_2 persistence includes H_2 from t>=3; it does not give the EOP wedge of circles."
+          ],
+          "identifier_or_url": "Resultary c03b085e3d8d; related fac6a09d737e",
+          "material_read": "RESULT.md theorem at offset 0 in the split-persistence record and comparison with the earlier record's complex",
+          "method": "Local mirror passage inspection",
+          "title": "Split integral persistence under successive matching deletions",
+          "trigger": "Highly related graph family and integral topology"
+        },
+        {
+          "assessment": "Unresolved primary access; the inspected related note concerns coloring partitions",
+          "evidence": [
+            "The DOI retrieval timed out. This is not evidence on the unavailable article's full contents."
+          ],
+          "identifier_or_url": "https://doi.org/10.2298/FIL2312963K",
+          "material_read": "No original full-text passage obtained via DOI; compared the applicable complete-bipartite-cut proof in the separate Resultary note",
+          "method": "Lawful DOI retrieval attempt and separate local mirror comparison",
+          "title": "Injective edge coloring article in Filomat",
+          "trigger": "Primary source cited by the closely related injective-edge-coloring record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen classification, maximal polynomial and wedge formula",
+        "Prior complete-biclique maximum and comparison with the distinct dissociation complexity"
+      ],
+      "rationale": "Matching deletion is the basic perturbation connecting complete bicliques to crown graphs. The reciprocal pair is a precise new type of maximal face, gives an unbounded gap in balanced maximal-size spectra, and accounts for every new circle relative to the star subcomplex. This is a single structural description of enumerative and integral topological behavior, not a table of small examples.",
+      "residual_risks": [
+        "The scope is matching deletions with both shores of size at least three; no analogous result for arbitrary deletion patterns or equivariant homotopy is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

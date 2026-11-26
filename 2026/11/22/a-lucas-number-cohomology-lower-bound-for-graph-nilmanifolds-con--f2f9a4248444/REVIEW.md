@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A preserved vertex-multiplicity multigrading decomposes the Chevalley–Eilenberg complex into finite cochain complexes. The cycle-edge incidence condition is handled exactly by a cyclic trace of four signed two-by-two matrices. Summing absolute Euler characteristics yields a rigorous lower bound for total rational cohomology. The complete twenty-five-state matrix monoid and the annihilating vector identity imply a recurrence for every cycle length, with the same four initial values as the Lucas expression. Vertex-support splitting supplies the induced-subgraph extension. All hypotheses, signs, cyclic indexing, integer calculations and recurrence normalization were independently checked with the actual included `verify.py`. The exact certificate does not assert Betti equality.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest November 2026 source, *Poincaré polynomials of nilmanifolds associated with path graphs* (arXiv:2611.17014), establishes path formulas and a graph-diameter bound; it neither states this induced-cycle lower bound nor evaluates the cycle multiplicity-Euler sum. *On the cohomology of Lie algebras associated with graphs* (arXiv:2402.14188) already proves vertex-support decomposition and related low-degree/star formulas, so induced-subgraph monotonicity itself is not new; the nonimplied 25-state Lucas cycle bound is new to the inspected sources. *Independence Polynomials of 2-step Nilpotent Lie Algebras* (arXiv:2504.19836) concerns independent-set parameters, not total Betti numbers. Targeted published-index and published-finding corpus alias/parameter searches found no statement implying the proposed cycle bound. Unindexed equivalent work remains a residual risk, and an absence of search hits alone is not a proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The recent path-nilmanifold result highlights a natural gap for cycles. The bound detects induced cycles inside arbitrarily large graphs and grows as \((1+\sqrt5)^n\). In particular it grows exponentially on wheel graphs even though their diameter remains two, sharply demonstrating why the general diameter bound cannot capture this topology. The exact Lucas number and parity correction come from a structural multigraded transfer calculation, rather than an arbitrary finite slice or a routine reparameterization.
+Each nonzero differential term replaces an edge generator by its two endpoint generators and preserves all multiplicities w; terms with repeated exterior generators vanish. This is a direct sum of finite subcomplexes, so summing the absolute weight Euler characteristics gives a bound on total cohomology, not a formula for it. For binary vertex and edge masks a,b, the admissibility relation is a_i=w_i−b_{i−1}−b_i, and the sign is (−1)^(sum w−sum b). Thus the four matrices have the displayed column signs, and the trace imposes cyclic consistency including the wrap edge. The independent transition table has 25 reachable distinct matrices, closed under all four right products. It verifies all 25 coordinates of T(T^4−3T^3−4T²+8T+8I)q=0 for q(A)=|tr A|. The identity is applied after at least one transition: S_1 through S_4 are 4,12,36,116, and the polynomial factors as (z²−2z−4)(z−2)(z+1), the four bases of the stated formula. This proves the exact Euler sum even though sampled cohomology need not exhaust all n. The indicated initial bounds and Binet asymptotic then follow. For an induced vertex set, its cochains comprise precisely the summands of the full complex supported on subsets of that set, including constants; the complement is invariant. Thus the rational cohomology inclusion splits using the standard invariant-forms identification, with no independence assumption on the graph edges outside the cycle. The graph assertion begins at n=3. The supplied Python script was not executed; Python 3.10+ is needed to run its bit_count() check. Its internal independent cross-check does not by itself constitute a separate audit.
 
-**Limitations and residual risks.** No all-length equality theorem, individual-degree Betti formula, integral cohomology-ring statement, or unqualified priority claim is made. Exact algebraic checks were performed on the included certificate; an independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim is an exact all-length evaluation of the weight-Euler lower bound, not a new induced-subgraph principle or the first exponential growth bound. Paths already furnish the same exponential base via a weaker induced-path estimate, and the exact fixed-cycle computations already cover particular n. Those results do not supply the uniform Lucas expression or its parity correction.
+
+## value
+
+PASS
+
+The all-length cycle bound gives quantitatively stronger explicit Betti information than inserting just one induced path or using diameter, and may be used for cycles in larger graphs without computing their cohomology. The signed transfer finite-state identity isolates a reusable measure of multigrading cancellations, with exact Lucas and parity terms rather than a fitted growth rate. In particular it quantifies a diameter-blind phenomenon, while the exponential base alone is not new. No general equality, cohomology-ring computation or integral statement is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

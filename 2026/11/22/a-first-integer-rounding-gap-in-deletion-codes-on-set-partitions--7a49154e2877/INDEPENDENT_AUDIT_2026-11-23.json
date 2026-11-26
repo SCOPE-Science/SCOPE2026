@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:01:30.058740Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A restricted-growth word bijects with an order-retaining partition with unnamed blocks: on appending one point there is one choice per existing block and one new singleton choice. Deletion removes a position and orders surviving block labels by first occurrence; the incidence is a set, not a multiset or an observed deck. Pairwise disjoint shadows are exactly cliques of the compatibility graph. In the frozen search each color class is independent, and a reverse-order branch has only the remaining prefix of the coloring, making selected size plus prefix color count an admissible bound. Separately re-enumerating the graph and using exact pivoted Bron–Kerbosch with a cardinality bound returned (1,1,2,3,6,14) through length six, including 275,862,687 recursive nodes in that separate n=6 computation (not the frozen search's node count). At n=1 the only source has the only empty receiver. Independent certificate arithmetic checked the explicit code's 14 admissible pairwise disjoint shadows covering 45 receivers, the 41 positive fractional numerators summing to 972 with per-output load at most 64 on all 52 receivers, and the length-four and length-five covers, of total 3 and 25/4. The latter are dual feasible by summing weight over each distinct shadow, so the code sizes and receiver-count bounds prove floor(P_n)=M_n through five. At six, 14<15<243/16≤P_6; no exact P_6 or claim past six follows or is needed. The frozen replay entry point is verify.py with CERTIFICATES.json; uploaded code was inspected, not run. The exact enumerations are finite mathematical checks, not formal verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Kiyavash use matching/LP dual bounds and even constrained sources, but keep surviving alphabet symbols unchanged.",
+          "Chee–Ge–Ling compute perfect-code spectra for ordinary short word lengths (one deletion at length three, two at length four).",
+          "Resultary d07bd07e8019 treats collisions between two deletion positions in a single source."
+        ],
+        "reasoning": "The hypergraph framework subsumes the modeling, but fixing a restricted source alphabet does not enact an output quotient. Perfect labeled-word packs and within-source collisions do not settle the maximum among partitions with mutually disjoint standardized output sets.",
+        "searches": [
+          "arXiv:1211.3128, abstract, introduction and §II deletion definitions",
+          "arXiv:1008.1343, §§1–2",
+          "Resultary: single deletion shadow collision same source partitions standardized pattern one point two positions equal class deletion length six packing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1008.1343",
+        "arXiv:1211.3128",
+        "arXiv:1605.04807",
+        "arXiv:1511.00192 abstract",
+        "DLMF §26.7",
+        "Resultary d07bd07e8019 and a34e5c3f82d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing partition-avoidance counts for an output pattern specifies counts of inputs avoiding that pattern, not which inputs sharing it also share another output.",
+          "A within-source collision criterion determines duplicate deletions without supplying the cross-source matching obstruction; the noncrossing optimum gives at most a lower bound on the all-source optimum."
+        ],
+        "reasoning": "To get the new inequality requires both an integral upper bound over the entire 203-source channel and a feasible fractional packing above 15, plus earlier-length certificates. None is mechanically forced by the checked statements.",
+        "searches": [
+          "Resultary d07bd07e8019 and a34e5c3f82d2",
+          "arXiv:1211.3128",
+          "arXiv:1511.00192"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campbell et al. distinguish standardized subpartitions from standardizing the numerical labels of a subword; correct receivers are standardized subpartitions.",
+          "Ordinary symbol-preserving deletion would distinguish 0000 and 0111, whose raw output sets are disjoint, but the unnamed-block receiver recanonicalizes 111 to 000, causing a conflict.",
+          "Bloom–Saracino arXiv:1511.00192 studies Klazar pattern avoidance for the same type of standardized subset restriction."
+        ],
+        "reasoning": "The equivalent combinatorial object is a matching of lower cover sets in adjacent ranks of the Klazar partition pattern poset, not an ordinary antichain, a raw q-ary deletion code or a numerical RGF-subword avoidance class. None of these comparisons supplies the same maximum and rounded LP failure.",
+        "searches": [
+          "Web: one-deletion codes on unlabelled set partitions, restricted growth strings and recanonicalization",
+          "Web: finite set partition poset pattern avoidance covers one element delete largest antichain with disjoint shadows Klazar set partition packing",
+          "arXiv:1605.04807, §1 Proposition 1.1",
+          "arXiv:1008.1343, §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF includes the source and receiver Bell cardinalities B_6=203 and B_5=52 only.",
+          "The exact corpus hit is the audited candidate. The closest separate exact capacity table retrieved, a34e5c3f82d2, concerns the noncrossing subfamily and gives 12 at six, not 14."
+        ],
+        "reasoning": "A Bell count supplies an elementary capacity ceiling, not an optimum of disjoint shadows. The noncrossing solution restricts the variables and cannot upper-bound the all-partition integer or LP optimum. No independent exact table for the frozen channel appeared in the material compared.",
+        "searches": [
+          "DLMF §26.7 table 26.7.1",
+          "Web: exact sequence 1,1,2,3,6,14 deletion codes set partitions OEIS",
+          "Resultary: one deletion correcting set partitions restricted growth strings canonical relabeling first integer packing rounding gap 7 8 Bell"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge pass for the first rounded packing gap and the actual zero-error optimum in the all-partitions channel. Disjoint-shadow packing and the abstract LP are well established; the novelty claim is not the method or the Bell enumeration.",
+      "residual_risks": [
+        "An unindexed partition-poset computation or exact table under a different name might contain the same capacity or gap.",
+        "Corpus comparisons were independently made at statement level, not a whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different alphabet channel and perfect-code focus",
+          "evidence": [
+            "Descendants of x are subsequences in X^(n−t); perfect codes partition X^(n−t)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.1343",
+          "material_read": "Open PDF abstract, journal publication note, introduction and §2 statements",
+          "method": "Read primary text and compared channel and perfection/optimality quantifiers",
+          "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+          "trigger": "Exact short-length deletion code results"
+        },
+        {
+          "assessment": "Direct antecedent of the underlying hypergraph method; does not supply the specialized capacity or integer-rounding threshold",
+          "evidence": [
+            "Ordinary subsequences retain symbols; the maximum matching/fractional matching/dual output cover setup is common to both problems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "Open PDF abstract, introduction (including constrained sources) and §II deletion definitions",
+          "method": "Read primary text and compared what is constrained and what is recanonicalized",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "General matching and LP methodology, including constrained deletion channels"
+        },
+        {
+          "assessment": "Pattern geometry and terminology only, not deletion-code capacity",
+          "evidence": [
+            "Proposition 1.1 is one-way for RGF-subword versus partition pattern containment."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.04807",
+          "material_read": "Open PDF, §1 and Proposition 1.1",
+          "method": "Primary text definition and implication comparison",
+          "title": "Restricted growth function patterns and statistics",
+          "trigger": "Potentially equivalent subpartition and word standardizations"
+        },
+        {
+          "assessment": "The stated avoidance/Wilf-equivalence results do not decide packing disjoint covers",
+          "evidence": [
+            "Enumerates single-pattern avoidance classes for patterns on four points, not families of sources with mutually disjoint shadows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.00192",
+          "material_read": "Public abstract and metadata",
+          "method": "Compared stated classification and enumerative goals",
+          "title": "Pattern avoidance for set partitions à la Klazar",
+          "trigger": "Same restriction order and possible overlap through pattern classes"
+        },
+        {
+          "assessment": "Within-source read collision result, distinct from packing",
+          "evidence": [
+            "Classifies when two positions of one partition give one common output."
+          ],
+          "identifier_or_url": "Resultary d07bd07e8019",
+          "material_read": "Indexed result statement only",
+          "method": "Configured index and quantifier comparison",
+          "title": "Exact distance-resolved collisions of one-deletion set-partition reads",
+          "trigger": "Same deletion operation"
+        },
+        {
+          "assessment": "Restricted result does not imply the all-partitions optimum",
+          "evidence": [
+            "Its six-point integral optimum is 12 and its LP optimum is below 14, both for the noncrossing subfamily."
+          ],
+          "identifier_or_url": "Resultary a34e5c3f82d2",
+          "material_read": "Indexed exact values and scope only",
+          "method": "Configured index and parameter/domain comparison",
+          "title": "The first integer-rounding gap for single-deletion codes on noncrossing set partitions",
+          "trigger": "Same channel restricted to a natural subfamily and same first failing length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordered positions with unnamed blocks give a natural zero-error channel distinct from conventional word deletion. The finite cutoff is the least failure of a standard relaxation, not a preselected numerical slice. An exact upper obstruction with an explicit feasible packing of weight greater than 15 shows why rounding the standard bound is insufficient despite the small input size. These exact outcomes and witnesses are useful benchmarks independent of any claimed law at larger n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

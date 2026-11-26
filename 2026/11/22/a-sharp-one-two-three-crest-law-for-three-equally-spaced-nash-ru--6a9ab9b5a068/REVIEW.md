@@ -1,19 +1,21 @@
-# Scientific review of the three-impulse Nash crest theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every positive dimensionless gap \(\delta>0\) for three identical instantaneous impulses, using the normalized three-reservoir Nash response. The model normalizes discharge by a positive factor, leaving strict local maxima unaffected. The analytical proof counts all stationary sign changes on the three impulse-activity intervals: the derivative becomes a strictly concave quadratic after multiplication by \(e^t\), and the sign at the third impulse equals the sign of a strictly decreasing threshold function on \((0,2)\). The negative-slope bound \(2M<e^{-1}\) guarantees a later positive derivative, so no missing crests hide behind a tangency. Exact equality cases at the two thresholds are treated separately. The supplementary standard-library checker passed 2,297 assertions. It cannot prove continuous parameter completeness and is not used to do so.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For g(u)=u²e^(−u) on u≥0 and zero otherwise, g and g′ match continuously across zero. On each active interval e^t H′ is a concave quadratic with negative leading coefficient. Its signs at the second and third arrivals equal the signs of 2−δ and F(δ)=2−δ+4(1−δ)e^(−δ), respectively. F decreases up through 2 and stays negative thereafter. The largest possible negative impulse slope is M=2(1+√2)e^(−2−√2); the degree-four Taylor lower bound for e^(1+√2) exceeds 4(1+√2) by 11/8−2√2/3>0, giving 2M<e^−1 and a positive slope one time unit after either new arrival when δ>1 (using the applicable active impulses). Concavity then yields one down-crossing after the last arrival for δ≤δ₀, an additional down-crossing between arrivals for δ₀<δ≤2, and the isolated first-pulse maximum for δ>2. At δ₀ the third-arrival slope is zero but positive on both adjacent sides; at 2 the same holds at the second arrival. Neither shoulder adds a maximum. This also verifies the one-crest two-pulse comparison for δ≤2. Replay: RESULT.md, Proof, lines 29–62; independent high-precision bisection gives δ₀=1.537805488887338839… . The supplied checker was inspected as text, not executed, and is not needed for the all-real proof. Scope is strict maxima at positive times for three equal, equally spaced point inputs and three identical linear reservoirs.
 
-The Nash kernel itself and linear convolution of effective rainfall impulses are classical. The closest earlier online results classify **two** equal or unequal runoff impulses through three or four serial reservoirs. They do not imply the present result for **three** equally spaced impulses, because the third input creates a new activity interval and permits a two-crest signal strictly below the two-impulse modal-delay barrier. The accessible texts of Boufadel (1998), Muneepeerakul et al. (2010), and Gnecco et al. (2018) supply hydrologic models, empirical hydrographs or one-rectangle peak studies, but do not contain the stated one–two–three crest cutoff. Ahmed et al. (2008) and Došlá (2009) treat two-component gamma mixtures with common starting support, not this three-component translated pulse train. General variation-diminishing statements can bound the number of peaks without implying these exact thresholds. Some earlier relevant articles and mathematical records were accessible only in summary form; originality is a documented, provisional best-evidence assessment, not an assertion of exhaustive historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-The explicit first cutoff \(\delta_0\approx1.53780549\) resolves a physically motivated question: can *three* closely spaced rainfall-excess bursts generate two outlet discharge crests when a pair of bursts cannot? The sharp answer changes the interpretation of multi-crest hydrographs and supplies an exact benchmark for numerical flood-routing and pulse-separation algorithms. It is structurally distinct from a merely numerical example, a slight parameter gain, or a general convexity exercise. Value is limited to idealized linear time-invariant, equal-volume point-impulse routing and does not establish empirical flood risk or resolution under finite sampling.
+The supported distinct claim is the full three-input Nash-kernel crest classification, especially the resolved two-crest window below the isolated pulse's mode. The closest inspected same-kernel results concern two pulses; the strongest distinct same-date three-pulse match is for the logistic kernel and has no two-crest phase. This is a bounded scientific comparison, not certification of historical priority.
 
-## Sources and residual limits
+## value
 
-Key inspected sources: Nash (1957; original accessible scan, pp. 114 and 116); Boufadel (1998; accessible article body on unit-hydrograph reconstruction and 12-pulse numerical storms); Muneepeerakul et al. (2010; full text, gamma pulse sum and statistical moments); Gnecco et al. (2018; full text, one rectangular hyetograph); Došlá (2009; accessible complete article text on two-mixture criteria); Ahmed et al. (2008; accessible article text on two-component gamma mixtures). The 2004 Singh article supplies a verified exact first-online date, but its full text was unavailable at the publisher; it is used only as methodological background, not as negative coverage evidence. The most pertinent earlier two-pulse mathematical notes were searchable by public summaries but their full texts were not retrievable. These remaining sources may contain relevant stronger general modal-geometry results, though none of the available statements subsumes the present theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact first transition answers whether collective inputs can resolve two discharge crests before pairwise resolution is possible, not merely whether an isolated numerical example can do so. The complete gap ranges and shoulder endpoints provide a reproducible benchmark for idealized routing. It does not predict observational peak resolution or flood risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

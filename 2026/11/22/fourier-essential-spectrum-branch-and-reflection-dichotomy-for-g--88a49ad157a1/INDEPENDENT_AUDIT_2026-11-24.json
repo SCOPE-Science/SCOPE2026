@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:00:54.880401Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for the repaired proof. The original referred to the Bochner integral of operators, which interpreted in operator norm need not exist for nonatomic measures: for t≠u, take a unit function on a sufficiently short interval far to the left so that the two shifted supports are disjoint; the difference of their images has norm approaching sqrt(w_t^2+w_u^2), where w_t=[t(1-t)]^(-1/2). This gives norm separation and precludes an essentially separable range for a nonatomic example. The repair defines the integral on each fixed L2 vector: the translated, damped integrands are norm-continuous in t for that vector and dominated by w_t times its norm. The Cayley factor 1/(1-t) and affine argument (tw+1)/(1-t) give Laplace-side g↦t^(-1) exp(-v/t)g((1-t)v/t), hence exactly the claimed logarithmic model. For the weakly null negative-tail packets the squared translation error is bounded by min(2,|ell_t|/L_j), while the damping error tends to zero for each fixed t on the shifted support; vector-valued dominated convergence applies with bound 2w_t. A left Fredholm parametrix contradicts weakly null approximate eigenvectors of norm one. The xi=0 packet gives equality of ordinary and essential norms of each power by telescoping, and membership of M_mu in the corresponding spectra gives both radii. Fourier uniqueness for the reflected weighted-logit pushforward gives the necessity of reflection symmetry; the converse uses entry symmetry and self-adjointness. Strict damping on every nonzero vector integrates to a positive norm deficit for nonzero positive mu. Independently checked the Cayley/Laplace/logarithmic transform on exponential vectors and used exact formal series to replay 192 coefficient identities in /tmp/opencode/frozen-review-replay.py (hilbert_matrix). The frozen checker compared the coefficient expression to itself; the repaired checker compares an independent formal series recurrence and the repaired scientific notes accurately describe it. The theorem gives a branch, not a complete Fredholm spectrum, even for a centered unit atom.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abadias–Oliva-Maza treats triangular generalized Hausdorff matrices via semigroup averages. Galanopoulos et al. gives Mellin essential spectra of Hausdorff matrices on BMOA and Bloch.",
+          "Bellavita–Stylogiannis gives Fourier spectral curves of a pure dilation average; Lindström et al. studies essential norms for different generalized integral kernels."
+        ],
+        "reasoning": "These precedents do not supply a larger theorem about this damped binomial matrix on H2 as written. Changing the function space, the matrix support or the action from affine to homogeneous does not preserve Fredholmness without an additional comparison.",
+        "searches": [
+          "Abadias–Oliva-Maza, spectral sets of generalized Hausdorff matrices, Eqs. (0.1)–(0.2)",
+          "Galanopoulos et al. arXiv:2610.22554 Theorems 1.1–1.2",
+          "Bellavita–Stylogiannis arXiv:2603.08449 Theorems 1–2",
+          "Lindström–Miihkinen–Norrbo arXiv:2201.09591 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md and VERIFICATION.md; frozen and repaired check.py",
+        "Resultary 1bea671ee6d5 and 110d9a62b785",
+        "arXiv:2307.15334, 2603.08449, 2610.22554 and 2201.09591",
+        "Abadias–Oliva-Maza PDF, abstract and introductory equations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bellavita et al. arXiv:2307.15334 Theorems 2–3 give norm/noncompactness; the two-atom and beta records use related logarithmic models and weakly null approximate modes.",
+          "The arbitrary-measure proof needs dominated transfer of modes escaping toward negative log-position through the entire weighted measure and Fourier uniqueness of an injective weighted-logit pushforward."
+        ],
+        "reasoning": "Knowing the norm and spectra of special averages does not determine the spectrum of an arbitrary mixture; even approximation by mixtures is not a general spectral-continuity argument for nonnormal operators. The simultaneous packet construction supplies the Fredholm obstruction for every frequency, and Fourier uniqueness then converts real-valuedness into reflection invariance. A relevant sufficiently general operator-limit result remains a possible alternative implication but was not established in the inspected sources.",
+        "searches": [
+          "Compare the full-measure weighted-composition representation and norm/noncompactness with the special-case log-coordinate proofs",
+          "Compare pure-dilation Fourier symbols with the damped model's Fredholm branch"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen matrix is the weighted-composition average already given by Bellavita et al.; its unitarily transformed shift is ell_t=log((1-t)/t) with a nonconstant damping multiplier.",
+          "For dmu_b=(1-t)^b dt, the exact matrix entries equal the beta-curve record's entries and Lambda_mu equals B(1/2-i xi,b+1/2+i xi)."
+        ],
+        "reasoning": "Beta/Mellin frequency is a reparameterization of the same curve for that subfamily; the arbitrary measure is not a beta parameter. The Fourier multiplier for the pure dilation model removes the spatial damping and is a limiting object, not a unitary reformulation of the full operator.",
+        "searches": [
+          "Resultary: generalized Hilbert matrices on H2 with Mellin/Fourier essential spectra",
+          "Bellavita–Stylogiannis arXiv:2603.08449, half-plane Hausdorff dilation",
+          "Bellavita et al. arXiv:2307.15334, weighted-composition representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1bea671ee6d5 gives beta curve plus zero for dmu_b=(1-t)^b dt, b>0.",
+          "110d9a62b785 gives the full essential spectrum for mu=delta_t+delta_(1-t): the centered interval of radius 2/sqrt(t(1-t)) off the midpoint and [0,4] at the midpoint."
+        ],
+        "reasoning": "Both are exact, genuine special-case coverage, not just similar terminology. Neither exact family spans arbitrary finite positive measures. Off-midpoint real spectra in the second family are consistent with the general criterion but do not cover its asymmetric direction.",
+        "searches": [
+          "Resultary: beta curve Fredholm spectrum generalized Hilbert operator",
+          "Resultary: symmetric two-atom generalized Hilbert matrices and midpoint jump"
+        ]
+      },
+      "rationale": "Pass limited to the arbitrary-positive-measure essential branch and the all-measure reflection criterion. The exact norm and its essential-norm precursor are already credited; the beta subfamily and symmetric two-atom subfamily already have complete essential spectral formulas. The pure-dilation Mellin theorems identify symbols of different operators, including the natural limit model here, but do not by themselves place their values in the Fredholm essential spectrum of the affine-plus-damping Hardy matrix. The repaired vector integration retains exactly the same statement.",
+      "residual_risks": [
+        "No separate targeted web query on H2 reflection/reality was completed; the assessment rests on catalogue and relevant actual primary-text passages, not on a missing lookup.",
+        "An abstract limit-operator theorem could already imply the branch once the full weighted-translation model is identified; exact coverage and hypotheses were not established here.",
+        "The common date with the symmetric two-atom record does not establish precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the matrix model, exact H2 norm and noncompactness; inspected material does not give the full-measure branch or reflection criterion",
+          "evidence": [
+            "Theorem 2 yields the reciprocal-square-root moment norm at p=2; Theorem 3 gives noncompactness for nonzero measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.15334",
+          "material_read": "PDF pp. 4–5 weighted composition representation and Theorem 2; p. 7 Theorem 3",
+          "method": "Lawful OA PDF passages roughly at offsets 14795, 18050 and 25400",
+          "title": "Generalized Hilbert operators arising from Hausdorff matrices",
+          "trigger": "Same matrix and full positive-measure class at H2"
+        },
+        {
+          "assessment": "Exact special-case coverage, stronger within the beta subfamily",
+          "evidence": [
+            "The matrix entry is Gamma(n+k+1)Gamma(n+b+1)/[Gamma(n+1)Gamma(n+k+b+2)], equal to binomial(n+k,k) B(k+1,n+b+1). The Fredholm spectrum is the beta curve and zero for b>0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-beta-curve-fredholm-spectrum-of-generalized-hilbert-operator--1bea671ee6d5",
+          "material_read": "Finding and log/Mellin proof, offsets 0–1880 and 1850–6741",
+          "method": "Bounded Resultary local mirror passages",
+          "title": "The beta-curve Fredholm spectrum of generalized Hilbert operators",
+          "trigger": "Exact same Fredholm branch after a beta-measure specialization"
+        },
+        {
+          "assessment": "Exact symmetric subfamily overlap; not the all-measure asymmetric statement",
+          "evidence": [
+            "Opposite reflected atoms give a real interval off the midpoint; at the midpoint the operator is multiplication and the essential spectrum is [0,4]."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-essential-spectrum-and-a-midpoint-jump-for-symmetric-two-a--110d9a62b785",
+          "material_read": "Finding and proof, offsets 556–1469 and 1400–5373",
+          "method": "Bounded Resultary local mirror passages",
+          "title": "Exact essential spectrum and a midpoint jump for symmetric two-atom generalized Hilbert matrices",
+          "trigger": "Exact special-case spectrum and delegated proof's closest Cayley–Laplace/log-coordinate precedent"
+        },
+        {
+          "assessment": "Related semigroup averages and triangular matrices, not matching this full binomial matrix",
+          "evidence": [
+            "The indexed spectral setting uses generalized triangular Hausdorff matrices."
+          ],
+          "identifier_or_url": "https://zaguan.unizar.es/record/129777/files/texto_completo.pdf",
+          "material_read": "Abstract and pp. 1–2, Eqs. (0.1)–(0.2)",
+          "method": "Lawful OA PDF opening passage",
+          "title": "Spectral sets of generalized Hausdorff matrices",
+          "trigger": "Semigroup spectral mapping might dominate the Fourier branch"
+        },
+        {
+          "assessment": "Relevant method on different spaces and matrix operators",
+          "evidence": [
+            "States essential and full spectra via Mellin symbols for the two indicated spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22554",
+          "material_read": "Theorems 1.1–1.2, p. 3 and neighboring statement",
+          "method": "Lawful OA PDF theorem passages",
+          "title": "Hausdorff Matrices on the BMOA and Bloch spaces",
+          "trigger": "Mellin formulas for Fredholm essential spectra in a related family"
+        },
+        {
+          "assessment": "Covers Fourier spectral model of pure dilations, not the damped family or reflection criterion",
+          "evidence": [
+            "The integral uses f(z/t) with weight phi(t) dt/t; the log transform yields convolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.08449",
+          "material_read": "pp. 1–3, defining integral, Theorems 1–2 and logarithmic unitary",
+          "method": "Lawful OA PDF bounded read",
+          "title": "Half-plane Hausdorff spectra for dilation operators (Bellavita–Stylogiannis)",
+          "trigger": "Pure dilations provide the formal translation limit of the damped model"
+        },
+        {
+          "assessment": "Prior essential norm work on another kernel class, not the general Fredholm claim here",
+          "evidence": [
+            "The opening refers to generalized Hilbert integral operators on weighted analytic-function spaces and the classical Hilbert operator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.09591",
+          "material_read": "p. 1, class of weighted-space integral operators",
+          "method": "Lawful OA PDF opening passage",
+          "title": "Exact essential norm of generalized Hilbert matrix operators on classical analytic function spaces",
+          "trigger": "Named generalized-Hilbert essential norm precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-measure reality test decides a natural qualitative Fredholm spectral property from the generating measure, even for singular or highly asymmetric measures where self-adjoint formulas do not apply. In particular it converts every asymmetry into a nonreal essential point via one explicit branch, whereas norm/noncompactness and the beta or two-atom formulas do not answer this for general mixtures. The result remains useful without identifying the rest of the spectrum or treating the already known norm as a new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

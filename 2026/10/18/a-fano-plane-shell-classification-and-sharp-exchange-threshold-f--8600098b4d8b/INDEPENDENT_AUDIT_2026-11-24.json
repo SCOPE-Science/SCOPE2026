@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:27:18.025713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–35",
+        "Frozen VERIFICATION.md, certificate.json, the three verification source programs and their recorded outputs (read, not executed)",
+        "/workspace/reproductions/finite_checks.py 4"
+      ],
+      "rationale": "The graph defined by disjoint noncollinear triples is cubic on 28 vertices, so a total dominating set has size at least 10. The shell transitions show that S0∪S1∪S4 has size 10 and covers every vertex by open neighborhoods, with a unique triply covered center. An independent lexicographic 10-subset traversal discarded only branches where fewer than three new vertices per remaining choice would not suffice even at the maximum of three (equivalently, uncovered > 3 times remaining). It reached 3730 leaves after safe pruning, returned 28 covers, and verified equality of the full sets of masks with the 28 shell witnesses. It also computed all 378 pair costs, with (distance,cost,count)=(1,6,42),(2,9,84),(3,7,168),(4,4,84), and all distance-four graph profiles (1,6,15,6). This proves the sharp exchange threshold under simultaneous replacements preserving optimality at endpoints. Replay: python3 /workspace/reproductions/finite_checks.py 4.",
+      "residual_risks": [
+        "Finite proof concerns this graph only. A source comment says Python 3.8 for the frozen branch script, although int.bit_count requires 3.10; the mathematical certificate is unaffected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MathWorld describes the classical distance-regular and distance-transitive graph. The frozen report cites Lemma 2.2 as asserting 14; only metadata, not the operative primary passage, was retrieved independently."
+        ],
+        "reasoning": "The known intersection array supplies a route to witnesses and their intersection arithmetic, but not an a priori assertion that all minimum open-neighborhood covers are those witnesses. The proposed comparison to 14 remains conditional on the actual lemma and its graph.",
+        "searches": [
+          "MathWorld Coxeter Graph, distance-regular description",
+          "Jeyanthi–Hemalatha exact title and Lemma 2.2 via ResearchGate and alternate Academia listing"
+        ]
+      },
+      "checked_sources": [
+        "MathWorld Coxeter Graph",
+        "Jeyanthi–Hemalatha bibliographic metadata",
+        "Resultary 1771f0cf5c41, 0d18ffe9d675, 24a2261a2118"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical intersection counts imply the constructed size-ten upper bound when the shells are selected, and cubicity gives the elementary lower bound. The classification needs an extra exhaustive argument ruling out all other optima; exchange costs then follow for the entire classified family."
+        ],
+        "reasoning": "Credit the standard data and deductions; judge the natural complete classification and sharp reconfiguration statement as the distinct contribution. No inspected broader theorem asserts either that cover classification or an equivalent one.",
+        "searches": [
+          "MathWorld Coxeter Graph",
+          "Resultary 1771f0cf5c41, 0d18ffe9d675 and 24a2261a2118 Findings",
+          "Jeyanthi–Hemalatha retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1771f0cf5c41 has 7728 optimal four-landmark metric bases and a one-landmark exchange; 0d18ffe9d675 has minimum edge domination in the Heawood graph and a Coxeter line graph as a reconfiguration graph."
+        ],
+        "reasoning": "Neither the metric distinction condition nor the edge-covering condition is an open-neighborhood cover of this Coxeter graph. The invariant, ground set and adjacency criterion distinguish the results.",
+        "searches": [
+          "Resultary: Coxeter graph total domination, open-neighborhood covering by noncollinear Fano triples, minimum-set exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classic graph reference describes graph structure, not a table of all total-dominating sets and exchanges. Same-date 24a2261a2118 counts 192 minimum connected-dominating sets of the four-cube and classifies their token-jumping graph."
+        ],
+        "reasoning": "No matching table was seen in the returned evidence. The same-day result has different graph and constraint, irrespective of unknown within-day order.",
+        "searches": [
+          "Resultary exact Coxeter total domination and 28 shell minima searches",
+          "MathWorld Coxeter Graph",
+          "Resultary same-date 24a2261a2118"
+        ]
+      },
+      "rationale": "The classical graph and distance regularity are prior knowledge. The inspected sources do not cover the complete minimum open-neighborhood cover family and its exchange geometry. The reported numerical disagreement with Jeyanthi–Hemalatha is not used as decisive novelty evidence because Lemma 2.2 was not independently retrieved.",
+      "residual_risks": [
+        "The wording and graph of Jeyanthi–Hemalatha Lemma 2.2 remain unchecked in the primary text. An unindexed census of total domination could overlap; the index comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary comparison unconfirmed, not a finding of noncoverage.",
+          "evidence": "ResearchGate HTTP 403 and alternate Academia access timeout/403. Frozen RESULT.md reports 14; if for this graph and invariant, the ten-set witness contradicts it.",
+          "identifier_or_url": "https://www.researchgate.net/publication/304170270_New_results_on_total_domination_number_and_subdivision_number_of_some_families_of_graphs",
+          "material_read": "Citation metadata only; primary lemma not accessible",
+          "method": "Targeted search and lawful OA ResearchGate and Academia retrieval attempts",
+          "title": "New results on total domination number and subdivision number of some families of graphs",
+          "trigger": "Reported contradictory Coxeter-specific value in Lemma 2.2"
+        },
+        {
+          "assessment": "Classical structure used as prior input.",
+          "evidence": "The passage states distance regularity and transitivity and refers to the intersection array; the frozen claim uses that array, independently verified from triples.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CoxeterGraph.html",
+          "material_read": "Distance-regularity and graph description passage around offset 757",
+          "method": "OA public-page passage inspection and independent reconstruction of intersection counts",
+          "title": "Coxeter Graph",
+          "trigger": "Classical graph data and possible exact invariant table"
+        },
+        {
+          "assessment": "Different invariant.",
+          "evidence": "7728 four-landmark metric bases with one-landmark exchanges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-twenty-nine-symmetry-types-and-one-step-geodesic-detours-among-c--1771f0cf5c41/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search followed by actual mirror passage",
+          "title": "Twenty-nine symmetry types and one-step geodesic detours among Coxeter metric bases",
+          "trigger": "Same graph and optimum exchange"
+        },
+        {
+          "assessment": "Different graph, invariant and role of Coxeter structure.",
+          "evidence": "Two-edge exchange of minimum Heawood edge-dominating sets gives the line graph of Coxeter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-coxeter-line-graph-of-optimal-edge-dominators-in-the-heawood--0d18ffe9d675/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search followed by actual mirror passage",
+          "title": "The Coxeter line graph of optimal edge dominators in the Heawood graph",
+          "trigger": "Coxeter association and domination exchange"
+        },
+        {
+          "assessment": "Distinct graph and domination constraint.",
+          "evidence": "192 minimum connected-dominating sets of the four-cube, with token-jumping exchanges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-cayley-exchange-graph-of-minimum-connected-dominating-sets-i--24a2261a2118/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search followed by actual mirror passage",
+          "title": "The Cayley exchange graph of minimum connected dominating sets",
+          "trigger": "Same-day optimum domination reconfiguration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and exact-cover proof",
+        "Independent cover and exchange replay"
+      ],
+      "rationale": "This is a complete optimum-family classification in a canonical symmetric cubic graph, not an isolated number produced by enumeration. Each optimum has a geometric center, and the complete exchange obstruction makes the gap between no moves and connectivity at four replacements precise. The result is useful independently of whether the reported prior numerical error is confirmed.",
+      "residual_risks": [
+        "The threshold is for simultaneous optimum-to-optimum exchanges and says nothing about sequences through larger or nonfeasible sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

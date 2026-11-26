@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim applies to every odd prime power and every nontrivial additive character. The four-term ambiguity expansion is explicit with translation and modulation boundary cases included. The universal upper bound follows from the nearest-antipodal \(p\)-th root and the exact norm inequality; equality forces the unique weight \(c=-1\). For this weight, all other ambiguity strata have modulus at least \(2\sin(\pi/(2p))\). Weyl conjugation and finite-character orthogonality yield the full operator-frame eigenvalues, so the singular-value ratio is the inverse minimum normalized ambiguity. The multiplicity uses uniform character fibers and counts the additional \(q=3\) equality cases. The bundled checker independently reconstructs 3,856 coefficients and checks all 121,545 closed-form cases. Its finite tests are corroboration, not the unrestricted proof.
+## correctness
 
-## Originality — PASS, residual risk noted
-The 2015 Bojarovska--Flinth paper provides the general phase-retrieval nonvanishing criterion and quantitative methodology; 2021 Goldberger--Kang--Okoudjou supplies the cyclic operator-projector spectral identity. This result does not claim either input as new. The present exact global minimax over *weighted two-line* windows on \(\mathbb F_q^2\), its unique optimizer, and its weak-eigenspace multiplicity are not implied as stated by the relevant inspected portions. Full texts of two relevant published results were compared: a cyclic multi-window capacity law for two-point windows, and a finite-field construction of orthonormal Gabor bases on a restricted lattice; neither supplies this minimax. Targeted searches uncovered no dominating result. Residual uncertainty includes older unindexed results and the unreadable full text of a later cyclic Gabor-window paper. A failed search is not proof of priority, and no independent priority determination is asserted.
+PASS
 
-## Value — PASS
-Conditioning of the full intensity-lifted operator measurement is a natural quantitative strengthening of informational completeness. The sharp maximum of the worst ambiguity coefficient among a deliberately sparse, geometrically natural window class gives an explicit stable tomography design, and identifies the only optimal relative phase and every least-stable Weyl mode. Dependence on the characteristic \(p\) and the \(q=3\) multiplicity exception are genuine structural information, not only verification of an existing general formula. The result is intentionally confined to this family; no unrestricted optimum is asserted.
+The two self-intersections give q times the respective translation/frequency delta terms (the horizontal one weighted by |c|²), and the two mixed intersections give the displayed character phases. Weyl conjugation diagonalizes the Hilbert–Schmidt frame operator by character orthogonality, giving eigenvalues N|A_c/Q_c|² and largest N from the identity. For both translation coordinates nonzero, relative frequencies range uniformly over p roots, so some resultant is at most 2|c| sin(π/(2p)). The norm bound Q_c≥2(q−1)|c| is strict except at c=−1. There the minimum is 2 sin(π/(2p)) before normalization; the remaining cases give either a sum of two roots, q−2, −2 or 2(q−1). The support at c=−1 cannot have a nonzero translation period (its size is not divisible by p). A modulation constant on a punctured axis has phase equal to its inverse by the two arguments t and −t, hence phase one in odd characteristic; requiring this on both axes forces trivial modulation. This proves uniqueness of the largest eigenvalue. Two closest relative phases contribute 2(q−1)²q²/p off-axis and 4(q−1)q²/p on one axis. At q=3 the additional q−2 cases contribute 12+4, giving 64. Independent direct sums at q=3,5,9 give bottom multiplicities 64,240,4320, with top multiplicity one in each case (python -B /workspace/branches/audit-replay.py 1). The character argument, not the finite replay, proves the claim for all odd prime powers.
 
-## Scientific limitations
-The claim concerns complex-linear recovery of arbitrary matrices, not a noise-minimax theorem or nonlinear phase-retrieval condition number. Neither historical equivalence nor independent mathematical validation has been excluded by this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported advance is the sharp weighted two-line minimax, its unique optimizer and extremal multiplicities. Neither operator-frame conditioning via ambiguity coefficients nor the Weyl/Gram spectrum machinery is new.
+
+## value
+
+PASS
+
+In the natural support family of two lines, canceling the intersection yields an operator basis from only 2(q−1) support sites. Characteristic rather than field size controls the closest opposing phase; the exact minimax quantifies amplification and the multiplicities count least stable Weyl directions. This is a sharp sparse tomography design result on a stated family, not an optimum over arbitrary windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

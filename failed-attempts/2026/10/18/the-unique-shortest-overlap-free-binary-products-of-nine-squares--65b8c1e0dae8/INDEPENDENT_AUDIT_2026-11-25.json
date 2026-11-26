@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:43.784379Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof, VERIFICATION.md, both supplied programs and both recorded outputs (inspected)",
+        "Independent replay: python3 /workspace/branches/recheck_4.py; output /workspace/branches/recheck_4.txt"
+      ],
+      "rationale": "A factor of period p and length 2p+1 is exactly an overlap, with p=1 testing triples. The search is exhaustive: every shorter prefix of a valid word is valid, and when appending a symbol only factors ending at the new symbol can become invalid. The displayed period limit should use the length of the extension, rather than |v| if v denotes the old prefix in that sentence; the actual code correctly uses the new length. The last-square recurrence counts disjoint choices of a final cut and hence ordered factorizations, not just existence. The block-based proof is also exhaustive: any eligible block has root length at most 16 since eight other squares use at least 16 letters, and no partial product with an overlap or insufficient length budget can extend to a candidate. My independent replay used left extensions with a full overlap check (runs of p+1 equalities at shift p) and forward DFS over all viable cuts into exactly nine squares. It checked 7,867 overlap-free words including the empty word, 416 at length 48, and reproduced no shorter solution, the exact two claimed words at length 48 and one factorization each with root-length sequence (3,2,2,2,6,2,2,2,3). The strings are both complements and reversals of each other.",
+      "residual_risks": [
+        "Finite exhaustive proof of the minimum and its equality cases, not a census of all lengths or a proof of the ten-square impossibility theorem. The overlap test must use the length after extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "52c025fc067a treats all k=1,…,9, computing minima, counts and unique factorizations. fc9c72e08d71 proves exact nine-square length counts through 96 and uniqueness for each of the twelve words. Shallit's ten-square theorem rules out ten or more, while the extension-extremal paper studies resistance to letter insertion."
+        ],
+        "reasoning": "Specializing the exact minimum spectrum to k=9, or the length census to n≤48, gives the frozen extremum and equality counts. Neither the ten-square obstruction alone nor extension-extremality gives that specialization.",
+        "searches": [
+          "Resultary 52c025fc067a, Finding and Assumptions",
+          "Resultary fc9c72e08d71, Finding and Assumptions",
+          "Shallit arXiv:2605.28570v1 Theorem 1 and §3",
+          "Mol–Rampersad–Shallit arXiv:2006.10152 §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 52c025fc067a and fc9c72e08d71 mirrored Findings",
+        "arXiv:2605.28570v1 Theorem 1, Lemma 7, Table 1 and §3",
+        "arXiv:2006.10152 §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shallit's witness supplies length ≤48 and complementing supplies a second example but not exclusion below 48 or uniqueness at equality. The minimum-length Resultary statement separately gives the lower bound, lists both minimizers and states factorization uniqueness. The window record additionally enumerates other feasible lengths."
+        ],
+        "reasoning": "The frozen exact claim is not merely a corollary of the ten-square obstruction, but is exactly the k=9 case of the broader minimum result. No valuable distinct remainder follows from changing the proof implementation.",
+        "searches": [
+          "Shallit arXiv:2605.28570v1 §3, closing witness",
+          "Resultary 52c025fc067a and fc9c72e08d71, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The broader minimum-length record explicitly uses contiguous axaxa overlaps, including x empty, over finite binary words and counts exactly k nonempty square blocks. For k=9 it displays exactly the two frozen witnesses, the same nine roots for the first, and unique ordered decompositions."
+        ],
+        "reasoning": "Both use linear words and ordered lists of square blocks, not circular words or unordered factors. The complement and reversal relation is decidable directly from the two identical strings and is not a distinct classification.",
+        "searches": [
+          "Resultary: shortest overlap-free binary concatenation of nine nonempty squares, 48, complementary minimizers and unique factorizations",
+          "Resultary 52c025fc067a, fc9c72e08d71"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shallit's Table 1 uses only the four blocks 00, 11, (010)², (101)², not all nine-square products. The Resultary minimum-count vectors give (m_9,c_9)=(48,2) and list both words with the exact decomposition for the first. The window record gives no admissible lengths below 48, two words at 48, and an exact census reference; its abstracted count formula was read, not the referenced TSV here."
+        ],
+        "reasoning": "The restricted primary table cannot exclude other square blocks; the catalogue entries explicitly supply the unrestricted exact answer.",
+        "searches": [
+          "Shallit arXiv:2605.28570v1 Lemma 7 and Table 1",
+          "Resultary 52c025fc067a, minimum/count vectors and explicit witnesses",
+          "Resultary fc9c72e08d71, length-count formula and referenced census_96.tsv"
+        ]
+      },
+      "rationale": "Shallit supplies the ten-square theorem and one length-48 witness, not the asserted minimum or equality classification. However, two distinct indexed records cover that complete classification under the same hypotheses: 52c025fc067a explicitly states the exact finding as k=9, and fc9c72e08d71 covers it in a much larger length census. This is exact coverage in the indexed corpus, not a claim of earlier historical priority.",
+      "residual_risks": [
+        "The two matching catalogue results carry later nominal dates than the frozen record. That does not establish who reached the exact classification first or its lineage. Historical priority beyond the consulted material remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit coverage of all frozen assertions up to trivial symmetry of the listed strings",
+          "evidence": [
+            "k=9 gives 48, two minimizers with the identical strings and factorization, and one decomposition for each."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-minimum-lengths-for-overlap-free-binary-products-of-up-to--52c025fc067a/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2079",
+          "method": "Local publication mirror",
+          "title": "Sharp minimum lengths for overlap-free binary products of up to nine squares",
+          "trigger": "Same optimum for a broader range of square counts"
+        },
+        {
+          "assessment": "Stronger length-domain coverage and same factorization uniqueness",
+          "evidence": [
+            "No solutions below 48; two words at 48; unique ordered factorization of each word in the through-96 census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-first-doubling-window-spectrum-for-overlap-free-nine-square-prod--fc9c72e08d71/RESULT.md",
+          "material_read": "Finding, Assumptions and finite-exhaustiveness setup, offsets 0–2100",
+          "method": "Local publication mirror",
+          "title": "First doubling-window spectrum for overlap-free nine-square products",
+          "trigger": "Larger exact census at the same square count"
+        },
+        {
+          "assessment": "Proves ten-square obstruction and gives one sharpness witness; table scope is narrower than the frozen minimization",
+          "evidence": [
+            "Table 1 only concerns four designated small square blocks. The closing proof uses the same length-48 sharpness witness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.28570v1",
+          "material_read": "Theorem 1 p. 2 offset 3603; Lemma 7 and Table 1 p. 4 offset 7600; Theorem 8 pp. 4–6 offsets 8500 onward and closing witness p. 6 offset 13870",
+          "method": "Open primary PDF",
+          "title": "Ten Squares Force an Overlap",
+          "trigger": "Same sharp nine-square witness and related exhaustive table"
+        },
+        {
+          "assessment": "Different notion of extremality",
+          "evidence": [
+            "Concerns whether a letter can be inserted while retaining overlap-freeness, not minimizing the length of a square product."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.10152",
+          "material_read": "§1 p. 2, offset 4700",
+          "method": "Open primary PDF",
+          "title": "Extremal overlap-free and extremal β-free binary words",
+          "trigger": "Primary literature using extremality of overlap-free words"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "Shallit arXiv:2605.28570v1",
+        "Resultary 52c025fc067a and fc9c72e08d71"
+      ],
+      "rationale": "Minimizing the length at the natural nine-square extremal threshold is a worthwhile question, but the exact answer and uniqueness assertions are already covered by stronger available classifications. The frozen result establishes no additional extremal property beyond those classifications.",
+      "residual_risks": [
+        "The rejection concerns the distinct scientific contribution of the frozen claim, not the significance of the extremal problem itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

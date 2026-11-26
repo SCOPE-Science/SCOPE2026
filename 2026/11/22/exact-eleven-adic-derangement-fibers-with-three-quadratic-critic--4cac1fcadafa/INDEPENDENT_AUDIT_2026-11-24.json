@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:39:59.243487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The falling-factorial summands converge uniformly since every 11 consecutive factors give at least one factor of 11. Finite partial sums are integral polynomials and one-Lipschitz, so the limit is one-Lipschitz as well. For jets of fixed order j, a coefficient removes at most j factors from each product, so the coefficient sum converges integrally and substitution T=11t gives a restricted series. The truncation at index 32 suffices for constants modulo 1331, linear coefficients modulo 121 and quadratic coefficients modulo 11: every omitted term originally contains at least three divisible factors. At n>=0 the series terminates and equals (-1)^n D_n, by the recurrence; each class modulo 11^k occurs once at each parity in the stated block. The regular branches become unit-affine isometries after normalization by 11. The singular scaled series divided by 121 reduces coefficientwise to a quadratic with a nonzero quadratic coefficient, hence a unique critical center by Hensel. Translation and division by the square of the translated variable leaves a restricted series congruent to u_a. Its ratio to u_a has a restricted square root 1 mod 11 by the binomial series, yielding a linear isometry plus an 11-divisible Lipschitz correction; lifting gives an exact bijective coordinate. This proves E as exactly eleven lifts of each square root, including the modulus-one case. The square count follows by halving an even valuation and lifting the two unit square roots (or divisibility by 11^ceil(m/2) at zero). The regular signed images already cover all seven target balls, and taking a critical value proves unbounded fibers. The claim uses a complete period, not least period. Independently python3 /workspace/replay_independent.py 2 computed modular jets by nested Horner, recovered all three critical rows including gamma=(121,1090,1050) mod 1331, and compared every fiber at k=1..5 from recurrence and direct square histograms (maxima 6,26,48,125,246). This bounded reproduction checks the certificate and consistency, not the infinite theorem; the frozen k=6 run is recorded, not asserted here as independently replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O’Desky–Richman provide the general locally analytic factorial interpolation; Miska gives general mod-period and Hensel tools; Buckingham's alternative gamma-function construction has a different stated conclusion."
+        ],
+        "reasoning": "Analyticity and regular Hensel lifting neither detect the zeros of the derivative at this prime nor enumerate all lifts for targets hit by singular sheets. The evaluated quadratic normal forms with regular contributions are needed.",
+        "searches": [
+          "arXiv:2012.04615 Theorems 4.3 and 4.5, Corollary 4.4",
+          "Miska arXiv:1508.01987 §3.1 and §4.1.1, Proposition 4",
+          "Buckingham arXiv:2206.12726v2 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.04615 §§4.3–4.5 theorem passages",
+        "arXiv:1508.01987 §§3–4",
+        "arXiv:2206.12726v2 abstract",
+        "Resultary/SCOPE:ed49d5358733,3be509e9074e,7e3e471f3ea3",
+        "Left-factorial article index description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The seven-adic theorem covers the same integer sequence but with seven regular branches, giving no eleven-adic jet or critical values. The lonesum record computes a different interpolant's normal form. Miska's periodicity bounds the index block and does not count output multiplicity."
+        ],
+        "reasoning": "None of these comparisons mechanically produces the three exceptional contributions or the eight-branch regular count vector at eleven. Same-day similarities are credited without an assertion of publication order.",
+        "searches": [
+          "Resultary/SCOPE:ed49d5358733,3be509e9074e,7e3e471f3ea3",
+          "O’Desky–Richman Theorem 4.5 instantiated at r=-1",
+          "Miska prime-power congruence and Hensel statements versus singular a=1,2,7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.5 at r=-1 is the identical unsigned interpolation F; parity combines its target fibers at y and -y. The accessible left-factorial article description concerns a single sum of factorials residue per prime, not this full index count."
+        ],
+        "reasoning": "An evaluated eleven-adic fiber law for F would imply the signed law by the known parity split, but a formula for F itself, or a single factorial-sum congruence, does not evaluate those fibers.",
+        "searches": [
+          "Signed derangements, falling factorial at r=-1, p-adic incomplete gamma",
+          "O’Desky–Richman arXiv:2012.04615 equation (11) and Theorem 4.5",
+          "Left factorial residues versus indexed prime-power derangement fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-sequence tables ed49d5358733 and 3be509e9074e give (2,3,3,0,0,3,3) modulo seven, not the evaluated eleven-adic critical table. The inspected width-three lonesum record at eleven has a different sequence, period and only one exceptional sheet."
+        ],
+        "reasoning": "Changing the prime changes the derivative roots and local geometry, and equal image cardinality across sequences supplies no fiber matching. The catalogue comparisons are not a proof of historical absence.",
+        "searches": [
+          "Resultary exact derangement fibers modulo powers of eleven and seven",
+          "Resultary prime-power derangement frequency tables; 11-adic quadratic sheets",
+          "Improved algorithms for left factorial residues, indexed description"
+        ]
+      },
+      "rationale": "The credited general interpolation, congruence period and lifting tools are not new. The supported distinct result is the evaluated prime-eleven image and full signed all-depth index-fiber law with three quadratic branches; the strongest compared same-object result at seven is regular, and the closest same-prime fiber result is for a different sequence. No compared primary result or catalogue statement gives the same critical and regular data for derangements at eleven.",
+      "residual_risks": [
+        "The Miska 2020 recurrence article (DOI 10.4064/cm7510-4-2019) and the left-factorial article were not inspected in primary full text. Deferred exact-eleven external search is not negative evidence.",
+        "A stronger unindexed factorial sequence fiber theorem or earlier prime-eleven table may exist; priority is qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the analytic framework and the exact falling-factorial function, not the compared prime-eleven fiber law",
+          "evidence": [
+            "The r=-1 specialization of Theorem 4.5 is F; the introduction credits earlier local analyticity at r=-1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.04615",
+          "material_read": "PDF pp. 4,14–17, equation (11), Theorems 4.3,4.5 and Corollary 4.4",
+          "method": "Compared primary formula and regularity passages at the stated parameters",
+          "title": "Derangements and the p-adic incomplete gamma function",
+          "trigger": "Same sequence and its prior p-adic interpolation"
+        },
+        {
+          "assessment": "Known period/lifting machinery, not a full target count in the compared statements",
+          "evidence": [
+            "Theorem 1 is a Hensel criterion for a pseudo-polynomial decomposition; Proposition 4 proves prime-power periodicity under the stated conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.01987",
+          "material_read": "PDF p. 5 Theorem 1, pp. 12–13 §4.1.1, p. 18 Proposition 4",
+          "method": "Read primary hypotheses and conclusions and compare them to the singular-branch count",
+          "title": "Arithmetic Properties of the Sequence of Derangements and its Generalizations",
+          "trigger": "Same sequence with explicit recurrence, period, and p-adic Hensel methods"
+        },
+        {
+          "assessment": "Material method overlap, distinct prime and no three-branch critical table",
+          "evidence": [
+            "Both give the seven-adic frequency vector; ed49d5358733 has seven regular branches and image measure 5/7."
+          ],
+          "identifier_or_url": "Resultary/SCOPE:ed49d5358733,3be509e9074e",
+          "material_read": "Exact mirrored Finding statements and regular setup of ed49d5358733",
+          "method": "Compared prime, regular geometry and fiber vector",
+          "title": "Exact seven-adic fibers of the derangement numbers; The first missing prime-level derangement residue balls",
+          "trigger": "Closest same-sequence all-depth findings"
+        },
+        {
+          "assessment": "Different arithmetic invariant despite shared method",
+          "evidence": [
+            "Its exponential power sum has nine regular branches and a single quadratic branch at r=5, not the factorial interpolation."
+          ],
+          "identifier_or_url": "Resultary/SCOPE:7e3e471f3ea3",
+          "material_read": "Exact Finding and exceptional normal-form scope",
+          "method": "Compared interpolants and multiplicity formulas",
+          "title": "Exact eleven-adic fibers of three-column lonesum matrices",
+          "trigger": "Closest same-prime analogue"
+        },
+        {
+          "assessment": "Alternative construction in the available passage; no claim about every section",
+          "evidence": [
+            "The abstract concerns construction via factorial-type recurrences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.12726",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "Bounded primary comparison of stated scope",
+          "title": "Factorial-Type Recurrence Relations and p-adic Incomplete Gamma Functions",
+          "trigger": "Related interpolation framework"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not evidence against overlap",
+          "evidence": [
+            "Indexed left-factorial task concerns residues at prime arguments modulo p. The separate Miska recurrence work is cited by the seven-adic record."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0020019020301654 ; DOI:10.4064/cm7510-4-2019",
+          "material_read": "Index description for first paper; citation only for second",
+          "method": "Bounded OA attempts did not retrieve primary text",
+          "title": "Improved algorithms for left factorial residues; On a generalization of the recurrence defining the number of derangements",
+          "trigger": "Related factorial congruence formulation and later same-sequence work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For classical derangements, specifying the entire prime-power representation count is more informative than a congruence or an image alone. At eleven, critical fibers become unbounded without opening new target balls; that contrast with the compared regular seven-adic case motivates the exact invariant and the parity-aware three-sheet count. This is neither a least-period result nor a claim for general primes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:38:48.359939Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the known-identity point null and independent splits, the conditional qth moment is exp(q(q−1)kλ²||X̄||²/2); the chi-square integral diverges even at equality. For the balanced product, the per-coordinate precision eigenvalues are (1−λ)² and (1+λ)². This gives the mixed moment, and F≥E₁/2 proves divergence of its second moment at the marginal boundary. At λ=c/√d the two logarithms have the same random term c∑UᵢVᵢ/√d and both norm penalties tend to c²/2. The second-moment and cross-moment exponents are c²+c⁴/d+O(d⁻²) and c²+c⁴/(2d)+O(d⁻²), respectively, so the swap difference has the stated sharp coefficient and the variance gain is one quarter of it. Independence under the alternative gives the stated concave expected-log quadratic; r/(1+r)<1/√2 is exactly r<1+√2, with an unattained supremum beyond the open boundary. The exact finiteness threshold at each fixed d is distinct from bounded, nonzero variance as d grows. RESULT.md, VERIFICATION.md and checker.py were inspected; the bundled checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dunn et al. study split, cross-fit and repeated Gaussian likelihood-ratio tests; their inspected Gaussian cross-fit setup uses the unshrunk training MLE.",
+          "The accessible discussion arXiv:2303.17689 is not the primary Tse–Davison paper."
+        ],
+        "reasoning": "Generic split-test validity covers the expectation bound, not the sharp coupled mean-square asymptotic for deterministic shrinking in growing dimension. No inspected broader theorem gives that contrast.",
+        "searches": [
+          "arXiv:2104.14676 pp. 1–5",
+          "DOI:10.1002/sta4.501",
+          "arXiv:2303.17689"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2104.14676",
+        "DOI:10.1002/sta4.501 (full-text access attempted)",
+        "arXiv:2303.17689 (discussion, not the primary)",
+        "Resultary 744b2d026282 and e95aca5c91b7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unshrunk balanced variance is already infinite and does not give the first finite d⁻¹ correction. The coupled precision determinant is (1−λ²)² and differs from the single-split second-moment determinant.",
+          "The oracle cutoff uses the quadratic shrinkage optimum together with the strict finite-moment condition; the earlier scalar λ=1 e-power result optimizes a different parameter."
+        ],
+        "reasoning": "The distinction is quantitative: the known marginal expressions alone cannot determine averaging gain; the coupled calculation and subtraction resolve it. Standard Gaussian integration is the method, not a previously stated result on this gain.",
+        "searches": [
+          "arXiv:2104.14676 pp. 4–5",
+          "Resultary 744b2d026282 and e95aca5c91b7",
+          "RESULT.md equations (1)–(5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dunn et al. use the same two reversed independent halves and an arithmetic mean at λ=1.",
+          "The published scalar component law uses (1−q(q−1)/(K−1))^(-1/2); in the present marginal, λ² simply rescales the effective k/m."
+        ],
+        "reasoning": "Marginal effective sample-size rescaling does not encode the two-direction joint law: both directions depend on the same bilinear term. The fixed-c contrast requires the coupled moment, not just marginal equivalence.",
+        "searches": [
+          "arXiv:2104.14676 pp. 4–5",
+          "Resultary 744b2d026282",
+          "Resultary e95aca5c91b7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives the strict scalar unshrunk K-fold component moment boundary; the second gives the scalar unshrunk log-growth and split-size law."
+        ],
+        "reasoning": "Both are exact special cases worth crediting; neither fixes the balanced coupled moment across d or gives the sharp vanishing gain from averaging in the scaling window.",
+        "searches": [
+          "Resultary: Gaussian universal likelihood ratio shrinkage; published records 744b2d026282 and e95aca5c91b7"
+        ]
+      },
+      "rationale": "Pass for the scoped deterministic-shrinkage comparison, in particular the sharp high-dimensional loss of benefit from averaging the swapped directions and its constant. The universal split likelihood ratio, validity and unshrunk cross-fitting are established background; the marginal moment and log-growth computations extend known special cases by routine Gaussian algebra and receive no separate priority credit for those cases.",
+      "residual_risks": [
+        "The Tse–Davison primary article or supplement was not accessible; an equivalent more general calculation there cannot be excluded.",
+        "This is a best-of-knowledge comparison, not a priority or external certification claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the baseline, including this point-null construction at λ=1; not the sharp shrunk two-direction comparison in those passages.",
+          "evidence": [
+            "The second split term reverses the training/testing roles; the reported cross-fit statistic averages them."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14676",
+          "material_read": "pp. 1–2 and 4–5, including split and reverse-direction cross-fit construction (text offset near 14650)",
+          "method": "OA original PDF passage inspection",
+          "title": "Gaussian universal likelihood ratio testing",
+          "trigger": "Same known-covariance Gaussian split and cross-fit statistics"
+        },
+        {
+          "assessment": "Access limit, not negative evidence.",
+          "evidence": [
+            "The frozen record explicitly credits unshrunk cross-fit variance to Tse and Davison; the exact primary formulas were not independently read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/sta4.501",
+          "material_read": "No full text obtained through public publisher text, PDF and ePDF routes (HTTP 403); arXiv:2303.17689 was identified as the separate discussion.",
+          "method": "Lawful primary retrieval attempts; separate OA discussion identified",
+          "title": "A note on universal inference",
+          "trigger": "Most plausible exact unshrunk variance antecedent"
+        },
+        {
+          "assessment": "Covered scalar unshrunk special case, including strict divergence boundary.",
+          "evidence": [
+            "The factor q(q−1)/(K−1) matches k/m times q(q−1) at λ=1 for the same split ratio."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-moment-spectrum-of-gaussian-k-fold-universal-likelihood-ra--744b2d026282",
+          "material_read": "Finding, local mirrored RESULT.md at offset 0",
+          "method": "Resultary search and original record mirror",
+          "title": "Sharp moment spectrum of Gaussian K-fold universal likelihood ratios",
+          "trigger": "Exact overlap in Gaussian likelihood-ratio moments"
+        },
+        {
+          "assessment": "Covered scalar unshrunk case, not shrinkage-constrained oracle behavior.",
+          "evidence": [
+            "Expected log growth (n−m)(μ²−1/m)/2 is equation (5) at d=λ=1 and k=n−m."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-e-power-split-law-for-gaussian-universal-likelihood-ratios--e95aca5c91b7",
+          "material_read": "Finding, local mirrored RESULT.md at offset 0",
+          "method": "Resultary search and original record mirror",
+          "title": "Exact e-power split law for Gaussian universal likelihood ratios",
+          "trigger": "Exact overlap in alternative log growth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical nondegenerate bounded-null-variance scaling tests a concrete reason to use cross-fitting: reduction of null fluctuations. The common lognormal limit and the sharp e^(c²)c⁴/(4d) variance gain show that reversing the halves buys only a vanishing correction in that regime. This quantitative conclusion is useful even though the Gaussian integrals are elementary. The exact finite-moment versus oracle-growth boundary clarifies a second tradeoff; no power gain or data-dependent validity is established.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

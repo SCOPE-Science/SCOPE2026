@@ -1,19 +1,21 @@
-# Review of exact two-layer metric-circle covering radii
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact theorem covers every \(L,s>0\) and \(N\ge1\) with intrinsic circle distance and centers restricted to the two-point product. For \(r<s\), the projected sheet arcs are disjoint by layer and demand at least \(\lceil L/(2r)\rceil\) centers each. For \(r\ge s\), projecting to each sheet and comparing total arc lengths yields \(L\le2rN-2s\lceil N/2\rceil\). These exclude radii below both branches. Explicit separate-sheet equispacing realizes one branch. The alternating cyclic construction, with a single short-short gap for odd \(N\), realizes the other branch; gap lengths sum to \(L\) exactly. The boundary \(N=1\) is treated separately. The attached exact-fraction checker passes 7,200 sets of construction and strict smaller-radius tests, independently of the proof's universal quantifiers.
+PASS
 
-## Originality (PASS, provisional)
+The formula survives unchanged. The original odd-N construction incorrectly says every pair of adjacent covering arcs touches at the gap midpoint in the minority sheet. On an unlike-label gap the radii b and b-s are unequal, so the meeting point is at distance equal to the starting radius, not generally at the midpoint. The corrected complete RESULT.md replaces that sentence with the directed-gap criterion: distances from a point x along a gap of length g to the endpoint projections are at most x and g-x, so radii with sum at least g cover it. Same-label and unlike-label gaps satisfy this criterion on both target sheets, and the odd gap lengths sum to L. The lower bound splits at r=s: when r<s each sheet requires its own ceil(L/(2r)) centers, and when r>=s the lesser sheet arclength bound is 2rN-2s max(n0,n1), giving b=(L+2sh)/(2N). The separate equal-spacing construction attains a=L/(2k), including s=a, and the mixed construction applies for s<a where b>s. For N=1 the antipode in the other sheet forces and attains L/2+s. This proves the exact formula for all positive real parameters and the stated parity and endpoint behavior. The original exact-fraction interval-union checker was inspected, not executed; its 7200 recorded rational cases are supplemental, and the repair does not change its tested constructions or any verification status.
 
-Cieliebak--Cieliebak (2026), arXiv:2611.15599v1, formulate a general conjectural covering inequality and prove several restricted cases, including graph-theoretic cycle results. They do not give a continuous two-layer intrinsic-circle \(N\)-center formula. Allagan (2026), arXiv:2601.03488v1, studies finite prism graph domination and counts, not continuous-circle products or variable real separation. Public research records concerning intrinsic multipath graph nets and metric-ladder distance moments concern different geometries and invariants. Searches for alias formulations such as circular prism covering, a circle times two-point metric, and parity transition returned no equivalent formula. Priority is not independently certified; unindexed older covering literature remains a risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The claim is a complete natural two-parameter \(N\)-center classification for the simplest non-tree continuous-by-discrete product. The formula distinguishes the mixed-sheet and independent-sheet phases and exhibits a sharp separation threshold with an odd-even slope effect. It supplies a concrete exact model for the recently proposed metric-product covering program, rather than an isolated example or numerical improvement. It does not solve that program's general conjecture.
+The corrected statement credits the applicable tree-factor covering-number inequality and the standard one-circle ingredients. The overlapping separated-regime obstruction is thereby accounted for. The parity-sensitive mixed-regime bound, the placement attaining it on both circles, and the complete exact formula do not follow from the inspected broader bounds, Finsler asymptotics, or finite prism enumeration.
 
-## Independent status and limits
+## value
 
-The tests use finitely many rational parameters, while the proof handles arbitrary real parameters. Only explicit optimizers, not a classification of all optimizers, are asserted. Primary-source and public-record searches support but cannot certify global publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A two-point factor is the simplest discrete fiber in a natural product-covering problem. In the mixed regime the worse sheet limits cover length and produces a sharp parity effect that the general product bound misses. The exact transition from coupled to separated placement, with realizers for every budget and scale, is a useful benchmark for stronger product-covering bounds, not a sampling result or a restatement of the usual circle formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

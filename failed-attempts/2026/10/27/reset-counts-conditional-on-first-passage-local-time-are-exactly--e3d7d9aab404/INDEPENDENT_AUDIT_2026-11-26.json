@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:38:32.530346Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 22–80",
+        "Frozen VERIFICATION.md and check_joint_localtime.py (inspection only; recorded finite-chain and Brownian checks were not rerun)"
+      ],
+      "rationale": "For one attempt, encode absorption and the independent exponential interruption as two distinct absorbing marks. Let Λ be the occupation-density local time at the common starting/reset point a before either terminal event. On {Λ>u}, the inverse local time at level u is before termination, has local time u by continuity, and is at a because dL is supported at a. By strong Markov and exponential-clock memorylessness, P(Λ>u+v,J=j)=P(Λ>u)P(Λ>v,J=j). The unmarked survival is exponential (the positive finite mean EΛ=G excludes a zero or infinite lifetime and forces P(Λ>0)=1). Setting v=0 proves independence of the terminal mark. EΛ=G follows by independent discounting of dL in the stated Lebesgue occupation normalization. The iid cycles then give P(N=n)=q(1-q)^n and L|N=n a sum of n+1 exponentials of mean G. Inverting this mixture gives exactly the claimed density, no atom at zero, L exponential of mean G/q, and the Poisson conditional distribution. Cov(N,L)=(1-q)Var(L)/G yields the stated correlation. The killed Brownian image Green kernel and bounded hitting transform give the displayed q, G and rate. No assertion here extends to nonexponential clocks or resetting to a site other than the local-time site.",
+      "residual_risks": [
+        "The frozen proof compresses the point-supported resolvent justification; the inverse-local-time argument avoids the delta-approximation limit. Finite-chain corroboration is not a continuum proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitzsimmons–Pitman §3.1 Eq. (21) gives the occupation identity for continuous additive functionals and a future-path observable. The OU reset work gives first-passage local-time transform/mean; the fixed-horizon and local-time-reset threshold papers have different observables."
+        ],
+        "reasoning": "The old marked identity applies to the two-terminal-state killed diffusion, including the diffusion and normalization of the frozen claim. The other papers do not establish the joint law in the inspected passages.",
+        "searches": [
+          "Fitzsimmons and Pitman, https://www.stat.berkeley.edu/~pitman/kac.pdf",
+          "arXiv:2304.05226",
+          "arXiv:1902.00907",
+          "arXiv:2203.04868"
+        ]
+      },
+      "checked_sources": [
+        "Fitzsimmons–Pitman (1999), Eq. (21)",
+        "Resultary 05188208a06b",
+        "arXiv:2202.02715",
+        "arXiv:2304.05226",
+        "arXiv:1902.00907",
+        "arXiv:2203.04868"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (21) integrates a shifted path functional against dA before terminal time T; the kernel is supported only at a for this A. The two terminal causes can be encoded as separate absorbing states."
+        ],
+        "reasoning": "Apply the identity to the residual additive functional times either terminal cause. The resulting marked moments are j-probability times m!G^m. This proves independence without a new model-specific lemma; renewal gives the joint and conditional laws exactly.",
+        "searches": [
+          "Fitzsimmons–Pitman (1999), §§2–3.1, Eqs. (13), (19)–(21)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Later mirrored RESULT.md Finding gives q/[1+sG-(1-q)z], the same conditional Poisson/Gamma laws, and its proof §2 uses terminal-mark factorization. Singh–Pal §3 Eqs. (20)–(22) gives the Brownian marginal only."
+        ],
+        "reasoning": "Conditional Poisson plus the exponential marginal, the marked-attempt factorization with renewal, and the bivariate transform are equivalent here. The indexed record covers them, but its later displayed date is not earlier priority. The earlier Brownian marginal by itself cannot identify the coupling.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b",
+          "arXiv:2202.02715"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result matches the joint law. The explicit Brownian marginal is already in Singh–Pal; its parameters are the killed Brownian image kernel and hitting transform."
+        ],
+        "reasoning": "The claim is a parameterized distributional identity, not an isolated numeric datum, so a numerical table lookup would not address it. Comparison used the exact transform and Brownian formulas instead.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b",
+          "arXiv:2202.02715 §3 Eqs. (20)–(22)"
+        ]
+      },
+      "rationale": "The claim is correct but is a direct rank-one specialization of an earlier marked occupation identity plus ordinary renewal. Fitzsimmons–Pitman (1999), §3.1 Eq. (21), permits an arbitrary future-path functional under dA. With A equal to local time at a in the process killed at absorption or interruption and the terminal cause encoded in the path, support at a makes the operator scalar at a. Applying Eq. (21) with future residual local time to power m times the terminal-mark indicator gives E_a[Λ^(m+1);J=j]=(m+1)G E_a[Λ^m;J=j]; the factor m+1 is the continuous additive-functional power identity. With m=0 as the initial mark probability this gives all marked exponential moments (moment determinacy follows from the exponential moment series for arguments less than 1/G). The remaining laws follow from iid attempts and Gamma–Poisson algebra. This is verified implication from an earlier general result, not a claim that its authors expressly discussed resetting. The separate later indexed record is equivalent coverage, not evidence for earlier priority.",
+      "residual_risks": [
+        "No absolute priority assessment; the later indexed match does not date first discovery. The verdict rests on the verified older general implication, not on a search miss or on equating marginal and joint laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies key marked transforms, hence the finding after renewal",
+          "evidence": [
+            "Eq. (21) allows a future-path functional under dA for a complete separable state space and right-continuous paths; apply to local time before a two-mark killing time."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~pitman/kac.pdf",
+          "material_read": "§2 Eq. (13) and §3.1 Eqs. (19)–(21), printed pp. 121–123",
+          "method": "Lawful author-hosted primary PDF, passage lookup and read by offset 12650 and 16430",
+          "title": "Kac's moment formula and the Feynman–Kac formula for additive functionals of a Markov process",
+          "trigger": "Earlier formula for marked occupation/local-time moments"
+        },
+        {
+          "assessment": "Equivalent theorem; later record does not determine earlier priority",
+          "evidence": [
+            "Same joint transform and conditional laws, including terminal-mark moment factorization."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b",
+          "material_read": "Mirrored RESULT.md Finding and proof §2 (offset 2590 onward)",
+          "method": "Local indexed search and mirrored full-text passages",
+          "title": "Joint local time and reset-count conjugacy before absorption",
+          "trigger": "Exact joint-law Resultary match"
+        },
+        {
+          "assessment": "Covers Brownian marginal, not the joint law in these equations",
+          "evidence": [
+            "Exponential absorbed local-time law at reset site."
+          ],
+          "identifier_or_url": "arXiv:2202.02715",
+          "material_read": "§3, Eqs. (20)–(22), PDF pp. 8–9",
+          "method": "OA primary PDF passage comparison",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "Exact Brownian marginal antecedent"
+        },
+        {
+          "assessment": "First-passage local-time transform/mean, not the count coupling in the inspected passages",
+          "evidence": [
+            "Local time is measured at the reset position up to target first passage."
+          ],
+          "identifier_or_url": "arXiv:2304.05226",
+          "material_read": "§3, Eqs. (11)–(12), (25)–(26), PDF pp. 6–8",
+          "method": "OA primary PDF passage comparison",
+          "title": "First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting",
+          "trigger": "Generalization beyond Brownian motion"
+        },
+        {
+          "assessment": "Different observation protocol",
+          "evidence": [
+            "Absorbing-boundary section fixes observation time and conditions on survival."
+          ],
+          "identifier_or_url": "arXiv:1902.00907",
+          "material_read": "§IV.B, Eqs. (27)–(32), PDF pp. 8–9",
+          "method": "OA primary PDF passage comparison",
+          "title": "Local time of diffusion with stochastic resetting",
+          "trigger": "Potential alternative stopping-time formulation"
+        },
+        {
+          "assessment": "Different local-time convention across resets",
+          "evidence": [
+            "The resetting protocol replenishes the internal state; it is not retention of total pre-absorption occupation local time across attempts."
+          ],
+          "identifier_or_url": "arXiv:2203.04868",
+          "material_read": "PDF pp. 4–5",
+          "method": "OA primary PDF passage comparison",
+          "title": "Threshold surface reactions and local time resetting",
+          "trigger": "Local-time/reset observable variant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Fitzsimmons–Pitman (1999), Eq. (21)"
+      ],
+      "rationale": "The count prediction from local time is interpretable and the choice of a as the observation site is natural. However, the exact invariant is mechanically implied by the old marked occupation identity at the single support point and routine renewal; the additional correlation and Brownian parameters are direct algebra. The frozen claim does not establish a further nonroutine invariant.",
+      "residual_risks": [
+        "This does not assess inference with finite-bin local time or a multi-site/reset-dependent variant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:44:47.132680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–143 and repaired RESULT.md",
+        "Frozen VERIFICATION.md and verify_depth_dependence.py, inspected but not executed",
+        "Gałązka–Wdowicka, arXiv:2610.00614v1, Proposition 5.1"
+      ],
+      "rationale": "Conditioning on the independent parent choice for m>i gives the weighted joint PGF recurrence with the old depth marker retained. Updating the weighted sum from m−1 to m multiplies the joint PGF for the next label by 1−p_m+p_m z, giving exactly the independent convolution in the younger coordinate, including the empty sum. The weighted depth mean increments by p_m(1+xi_m) and the innovations are orthogonal; common terms in the two centered depths give the displayed covariance. Parent depths 0 and 1 both have strictly positive conditional probabilities, proving strictness for i≥3. For the upper bound, Bernoulli convolution is log-concave and hence unimodal, so unit-shift TV is its maximum mass; shift telescoping and then averaging over the coupled fibers give the factor E|Y−Y'|. Fourier inversion with |phi(t)|≤exp(−2V sin²(t/2)) gives the stated constant. For the lower bound, the summed centered absolute third moments are at most V and the same Fourier bound dominates the rescaled inversion integral. This proves the central local limit for each bounded offset, giving a threshold-test discrepancy C_i/((i−1)sqrt(2πV)) in absolute value to first order. The [0,1] test is admissible for the specified TV convention. Power sums give V asymptotic to (alpha+1)log j or log log j. In the summable power case the Bernoulli tail probability gives TV convergence; finite second moments and positive limiting covariance force strictly positive limiting TV. No finite simulation is used for any infinite assertion.",
+      "residual_risks": [
+        "Only fixed earlier label and V divergent for the rate statement. No exact TV-prefactor or generic bounded-V classification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The deterministic-weight model paper gives the one-vertex Bernoulli law, its power-weight regimes and arbitrary-weight martingale innovations; its fluctuation theory concerns total path length.",
+          "The m-ary result gives a marginal depth law under batch insertion."
+        ],
+        "reasoning": "The one-vertex variance asymptotics are genuine prior coverage at the marginal level. They do not determine the deviation of the two-vertex law from a product or its limiting positive value under summable weights.",
+        "searches": [
+          "arXiv:2610.00614v1, Proposition 2.1, Lemma 2.3 and Section 5",
+          "arXiv:2609.33636v2, Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Primary arXiv:2610.00614v1, 1810.02735, 2204.09032v4 and 2609.33636v2",
+        "Local Resultary/SCOPE record 64c654896be4",
+        "Repaired RESULT.md contribution and prior-work sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the weighted-mean innovation representation, the two centered depths share the terms p_k xi_k for k<i; the older depth has coefficient one at i and the younger has coefficient p_i. Orthogonality gives exactly the frozen covariance, and the older innovation has positive variance.",
+          "The same representation does not give an independent remainder for the joint depths or a TV lower bound; the bivariate PGF and centered-lattice test provide those steps."
+        ],
+        "reasoning": "The covariance formula and sign are covered as a direct prior implication and removed from the contribution scope. The nonzero covariance alone does not lower-bound TV at a fixed positive scale when younger depths spread; finding the sharp vanishing rate requires the distributional argument.",
+        "searches": [
+          "Gałązka–Wdowicka, arXiv:2610.00614v1, equations (23)–(25), Propositions 5.1 and 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted ancestral result gives independent ancestor indicators and analyzes two weight-sampled nodes; the two nodes are not the given deterministic labels.",
+          "The uniform-tree joint limit theorem has diverging label sequences, not one fixed older label."
+        ],
+        "reasoning": "Neither sampling random mass-biased nodes nor a joint distributional limit with both labels diverging identifies the exact law of the fixed-label pair or its TV distance to the product.",
+        "searches": [
+          "Resultary semantic comparisons for exact joint depth Bernoulli convolution and age-independent covariance",
+          "arXiv:1810.02735, Corollary 8 and Proposition 9",
+          "arXiv:2204.09032v4, Theorem 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed result is exact strictly positive age-independent covariance between birth-batch depths in a tree adding m children per step. No fixed-label arbitrary-weight bivariate convolution or TV-rate match emerged in the bounded comparison."
+        ],
+        "reasoning": "A covariance-pattern match in a different process is material context, not exact coverage of a joint-law or distance statement. The catalogue entry is later dated and makes no priority case.",
+        "searches": [
+          "Local Resultary searches for fixed-label tree-depth covariance, Bernoulli dependence and total variation",
+          "Resultary 64c654896be4, Finding and proof"
+        ]
+      },
+      "rationale": "The repaired claim credits the martingale covariance and one-vertex variance regimes as prior consequences. Inspected earlier statements do not supply the exact fixed-label bivariate law and two-sided TV order to the product law or the persistent-dependence power regime. The rate transfers from standard smoothing estimates only after identifying this specific joint signal and giving a nonzero matching lower bound.",
+      "residual_risks": [
+        "Full text of Nakata–Mahmoud (DOI 10.31390/josa.5.2.04) and Lyon–Mahmoud (DOI 10.1016/j.ipl.2021.106227) was unavailable; only the inspected marginal-depth attributions are supported.",
+        "No absolute priority or exhaustive absence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers marginal law, boundary and innovation identities; covariance an immediate implication",
+          "evidence": "The centered weighted mean is the sum of orthogonal p_k xi_k; centered depths add the new innovation. The focus beyond this is global path length.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00614v1",
+          "material_read": "Proposition 2.1 and Lemma 2.3; Section 5, equations (23)–(25), Propositions 5.1 and 5.3, offsets 12200, 21500 and 27750",
+          "method": "Primary full-text passages",
+          "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+          "trigger": "Exact attachment model and direct antecedents"
+        },
+        {
+          "assessment": "Related ancestor law, different vertex sampling",
+          "evidence": "Samples nodes with probability proportional to weight; not the stated deterministic-label two-depth law.",
+          "identifier_or_url": "arXiv:1810.02735 (Mailler–Uribe Bravo)",
+          "material_read": "Corollary 8, Proposition 9, pp. 15–16, offsets 57500–68977",
+          "method": "Primary full-text passages",
+          "title": "Random recursive trees with weighted vertices",
+          "trigger": "Joint ancestor indicators in weighted recursive trees"
+        },
+        {
+          "assessment": "Different asymptotic regime, no TV coverage established",
+          "evidence": "Uniform-tree label sequences in that theorem increase and diverge.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.09032v4",
+          "material_read": "Section 2, Theorem 2.6, offsets 19800–26173",
+          "method": "Primary full-text passages",
+          "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+          "trigger": "Primary joint label-depth analysis"
+        },
+        {
+          "assessment": "Marginal depth, batch model",
+          "evidence": "Adds vertices in batches, rather than deterministically weighted single-vertex insertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33636v2",
+          "material_read": "Section 2, opening passage",
+          "method": "Primary full-text passage",
+          "title": "Distances in m-ary recursive trees",
+          "trigger": "Bernoulli convolution in a nearby model"
+        },
+        {
+          "assessment": "Same qualitative covariance pattern, different model and statistic",
+          "evidence": "Birth-batch depths with m children inserted per step; no claim of the fixed-weight-law TV rate.",
+          "identifier_or_url": "Resultary: 64c654896be4",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Persistent birth-depth covariance in batch recursive trees",
+          "trigger": "Closest indexed covariance claim"
+        },
+        {
+          "assessment": "Possible broader coverage unresolved",
+          "evidence": "The repository copy could not be obtained; the title and citation alone do not settle joint scope.",
+          "identifier_or_url": "https://doi.org/10.31390/josa.5.2.04",
+          "material_read": "Citation and surrounding marginal-depth attribution in arXiv:2610.00614v1; no primary full text",
+          "method": "Lawful OA and repository retrieval attempted",
+          "title": "Bernoulli convolution of the depth of nodes in recursive trees with general affinities",
+          "trigger": "Plausible joint-depth extension of a marginal-law paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md equations (1), (3)–(5)",
+        "Gałązka–Wdowicka marginal phase comparison"
+      ],
+      "rationale": "Even with strictly persistent covariance, the repaired theorem shows sharp asymptotic independence in total variation whenever younger-label noise grows, and identifies when dependence instead persists in the natural power family. The lower bound makes the answer quantitative rather than qualitative, and the exact joint-law factorization explains why noise masks but does not erase the covariance. This is useful beyond reciting the known one-depth phase boundary or measuring correlation alone.",
+      "residual_risks": [
+        "No growing-old-label, many-label, or conditional-on-tree consequence is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

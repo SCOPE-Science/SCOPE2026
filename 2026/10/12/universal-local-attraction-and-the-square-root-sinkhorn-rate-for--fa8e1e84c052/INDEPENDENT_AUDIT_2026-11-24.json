@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:16:25.754597Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–91",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Ma, Convergence of BDRS as a Matrix Scaling Algorithm, equations (22)–(23) and subsequent elimination",
+        "python3 /workspace/review_work/definition_replays.py 2"
+      ],
+      "rationale": "The cumulative-factor update cancels the old row scaling and gives y=(q^k)^2/q^{k−1}, p_new=r/(My) and q_new=S_M(y); reconstruction from y is gauge invariant and exactly column feasible. In c-centered logarithmic coordinates the one-step derivative is J=D_c^−1 PᵀD_r^−1 P, self-adjoint in the c inner product and similar to WᵀW. It is nonnegative and stochastic; positivity makes the Perron eigenvalue 1 simple. The centered derivative has top eigenvalue s₂², with singular values read as square roots of eigenvalues of WᵀW (including zeros for wide W, and s₂=0 for the empty projective space). Each projective two-state block has polynomial λ²−2σλ+σ, where σ is a centered eigenvalue of J. This yields modulus √σ, also covering the zero nilpotent block. An equivalent norm and a sufficiently small invariant ball give every rate ρ∈(s₂,1). The reconstructed output differential is P_ij[(Jh)_j−(Ah)_i]; for a nonconstant top mode with σ>0 it cannot vanish, and its extrapolation multiplier 2λ−1 is nonzero. Complexifying a real uniform derivative bound therefore proves output and state sharpness. Rank-one M gives a constant projective map; the symmetric two-by-two family gives the advertised limiting rates. An independent exact test uses a positive rank-two 2×3 coupling, finds centered eigenvalues 0 and 19/504, and checks reconstruction, nonzero output differential and first-order response.",
+      "residual_risks": [
+        "The frozen checker calls the coupling at verify.py line 52 nonsquare and suggests rank-deficient testing there; that particular matrix is actually 3×3 with determinant −28/40³. The original check is finite supporting evidence, not the proof. The separate audit replay covers the nonsquare rank-two case.",
+        "Padding with zero singular values via WᵀW resolves the one-row, several-column convention in the theorem's stated rank-one case. A one-column quotient is trivial.",
+        "Local exact-arithmetic result only; no global bound, uniform basin across inputs, or guaranteed rate for a single special trajectory is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma's global theorem imposes tanh²(Δ/4)<1/3 and uses a scalar nonnegative comparison recurrence; the later six-cycle is on strictly positive data.",
+          "The Euclidean DR theorem gives an optimal radius involving the Friedrichs angle in the locally polyhedral setting (the angle cosine for unrelaxed DR)."
+        ],
+        "reasoning": "A global theorem restricted by the cross-ratio cannot imply a sharp result for all positive inputs. The Euclidean principal-angle result anticipates the square-root spectral pattern, but applying it requires establishing an entropy-Bregman linearization, identifying the relevant projective modes and the observable, or directly deriving the two-state derivative. It does not itself give the claimed BDRS theorem.",
+        "searches": [
+          "Ma, Convergence of BDRS as a Matrix Scaling Algorithm, §4 Theorem 4.1",
+          "Ma, BDRS Can Fail for Matrix Scaling and Optimal Transport, §2 and Theorem 3.2",
+          "Liang–Fadili–Peyré arXiv:1412.6858, Theorem 4.8"
+        ]
+      },
+      "checked_sources": [
+        "Ma May/September 2026 primary PDFs",
+        "arXiv:2609.33814, 2012.12562, 1412.6858",
+        "Resultary e038ddd65b39, 312bdfd301f9, 875039633e84 and four bounded ranked checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ma's comparison polynomial λ²−2κλ−κ has opposite constant-term sign from the exact modal polynomial λ²−2σλ+σ.",
+          "The normalized Gram spectrum is available for standard Sinkhorn. The precise BDRS companion dynamics, plus the test that the output does not annihilate the top mode, are needed to turn it into the claimed sharp law."
+        ],
+        "reasoning": "The difference between an error upper envelope and an exact derivative is decisive. Neither the global analysis nor a parameter substitution into the SOR rates yields this law; Euclidean DR angle theory would also require a separate identification of the BDRS local operator and gauge. The theorem assembled from these ingredients is not credited for rediscovering the ingredients.",
+        "searches": [
+          "Ma May 2026, proof of Theorem 4.1 following equations (22)–(23)",
+          "arXiv:2012.12562 equation (3) and Theorem 1",
+          "arXiv:2609.33814 §3.2",
+          "arXiv:1412.6858 Theorem 4.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma's cumulative row/column equations give exactly the recurrence, so attribution is not novelty.",
+          "Chin–Schiffer identify dual BDRS with an annealed update using momentum (b^{k−1})²/b^{k−2} and a cooler kernel, and relate this to Ma. They say their annealed-Sinkhorn convergence analysis does not immediately transfer to BDRS."
+        ],
+        "reasoning": "Use the equivalent logarithmic momentum formulation to test coverage, not just names. The algorithmic identification does not give the fixed-positive-kernel projective Jacobian or a sharp reconstructed-output rate.",
+        "searches": [
+          "Resultary: BDRS local spectral law cumulative column matrix scaling square root Sinkhorn",
+          "Resultary: Annealed Sinkhorn with Momentum BDRS log-scaling momentum local spectral result",
+          "arXiv:2609.33814 §3.2, Proposition 1, Corollary 1 and Remark 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lehmann et al. explicitly give the second eigenvalue (the squared normalized singular value) for ordinary Sinkhorn and a different parameter-dependent rate for their relaxed updates.",
+          "Resultary e038ddd65b39 gives a sharp fixed-parameter rate for symmetric two-atom Acc-Sinkhorn. Resultary 312bdfd301f9 and 875039633e84 concern ordinary Sinkhorn contraction or special-family phases, not BDRS."
+        ],
+        "reasoning": "These comparisons give exact local values, but for different update maps or restricted families. No inspected entry gives the universal BDRS spectrum and coupling-output law. The same-day Acc-Sinkhorn comparison is decided by mathematical scope, not date.",
+        "searches": [
+          "Resultary: ordinary Sinkhorn exact projective Jacobian second singular value squared local rate",
+          "Resultary: two-atom Acc-Sinkhorn fixed-parameter local rate one-quarter transition",
+          "arXiv:2012.12562 §1 equation (3) and Theorem 1"
+        ]
+      },
+      "rationale": "The recurrence itself and the standard Sinkhorn s₂² baseline are prior. The supported distinct finding is the all-positive-data BDRS local spectral radius s₂, with sharpness for reconstructed couplings and a quantitative distinction from both the sufficient global contraction condition and genuine overrelaxed Sinkhorn. General Euclidean DR angle theory supplies an analogous spectral mechanism, not a theorem for this nonlinear entropy-Bregman recurrence and its observed couplings. The closest inspected algorithmic and catalogue comparisons do not establish the stated result.",
+      "residual_risks": [
+        "The search was bounded; an uninspected Bregman-specific local linearization theorem could entail more than the Euclidean results inspected. Ranked search misses are not evidence of absence.",
+        "The complete Chin–Schiffer HTML was available and decisive BDRS passages were read; no claim of exhaustive line-by-line coverage is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact recurrence prior; different conditional global theorem",
+          "evidence": "Cumulative factor elimination gives S_M((q^k)²/q^{k−1}); the sufficient global estimate uses a diameter threshold and polynomial with negative constant term.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/05/Convergence_BDRS-1.pdf",
+          "material_read": "§4, proof of Theorem 4.1, equations (22)–(23) and following comparison, pp. 5–7, text offset near 18850",
+          "method": "OA primary PDF passages",
+          "title": "Convergence of BDRS as a Matrix Scaling Algorithm",
+          "trigger": "Same algorithm, convergence theorem and cumulative recurrence"
+        },
+        {
+          "assessment": "Prior recurrence, not opposite local conclusion",
+          "evidence": "Derives the recurrence with an auxiliary q^{−1} for the first update and gives a positive-data six-cycle.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/09/BDRS-counterexample.pdf",
+          "material_read": "§2 equations (2.2)–(2.6), pp. 3–5, text offset near 12900; §3 Theorem 3.2 and abstract",
+          "method": "OA primary PDF passages",
+          "title": "BDRS Can Fail for Matrix Scaling and Optimal Transport",
+          "trigger": "Exact recurrence and counterexample to unconditional global convergence"
+        },
+        {
+          "assessment": "Algorithmic overlap, not the exact fixed-kernel local law",
+          "evidence": "BDRS maps to an annealed momentum iteration with cooler kernel and squared-over-old factor; the cited annealed convergence argument is not transferred to BDRS.",
+          "identifier_or_url": "https://arxiv.org/html/2609.33814",
+          "material_read": "§3.2 Proposition 1, Corollary 1, Remark 1, equations (6)–(9), text offsets around 11900–19500",
+          "method": "OA arXiv full HTML, bounded passages",
+          "title": "Annealed Sinkhorn with Momentum: Certified Unregularized Optimal Transport in Linear Memory",
+          "trigger": "Equivalent dual BDRS formulation with scaling momentum"
+        },
+        {
+          "assessment": "Ordinary Sinkhorn baseline prior; SOR algorithm differs",
+          "evidence": "Their row-side matrix has the same nonzero normalized Gram eigenvalues as the column-side J; their relaxed factor law depends on ω and does not describe the BDRS extrapolation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.12562",
+          "material_read": "§1 equation (3) and Theorem 1, p. 2, text offset 6380",
+          "method": "OA primary PDF, located and read bounded passage",
+          "title": "A note on overrelaxation in the Sinkhorn algorithm",
+          "trigger": "Same normalized singular values and exact local rates"
+        },
+        {
+          "assessment": "General Euclidean DR spectral precedent, not an entropy-matrix-scaling theorem",
+          "evidence": "Optimal polyhedral local factor √[(1−λ)²+λ(2−λ)cos²θ_F] concerns the proximal DR algorithm and tangent spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6858",
+          "material_read": "Theorem 4.8, p. 10, text offset 36036",
+          "method": "OA primary PDF, located and read bounded passage",
+          "title": "Activity Identification and Local Linear Convergence of Douglas–Rachford/ADMM under Partial Smoothness",
+          "trigger": "Potential broader DR result implying a square-root alternating-projection factor"
+        },
+        {
+          "assessment": "Related but different iteration or parameter scope",
+          "evidence": "Acc-Sinkhorn is optimized on a symmetric two-atom family; the other records concern ordinary Sinkhorn, not the claimed BDRS spectrum or output visibility.",
+          "identifier_or_url": "Resultary e038ddd65b39; 312bdfd301f9; 875039633e84",
+          "material_read": "RESULT.md Findings and relevant algorithm/family assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fixed-parameter local rate and the one-quarter transition in Acc-Sinkhorn and related scaling records",
+          "trigger": "Closest indexed local rate, momentum and sharp Sinkhorn comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–42 and 74–91",
+        "Ma May 2026 Theorem 4.1; Ma September 2026 Theorem 3.2",
+        "Lehmann et al. equation (3) and Theorem 1"
+      ],
+      "rationale": "The theorem resolves a natural local question for an established scaling method with genuine global counterexamples: every positive-data optimum is locally stable, yet stability can be arbitrarily slow. The exact exponent shows that this momentum is locally slower than ordinary Sinkhorn on non-rank-one instances, and the visibility check makes that conclusion applicable to the actual coupling rather than only to internal scaling coordinates. This separates local rate, global guarantees and algorithmic acceleration in a useful way.",
+      "residual_risks": [
+        "Does not give a basin size or a comparison of run times from arbitrary starting points."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:30:27.755329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Successive nonzero radical layers have sizes (q−1)q^(ell−i−1), by the simple residue modules of a finite chain ring. Valuation gives adjacency iff i+j>=ell for distinct vertices, and the twin condition prohibits two whites in one layer. If t is the highest white valuation, a blue vertex at ell−t sees exactly the white at t. The only unavailable source is the one-vertex (2,2) case: the only possible singleton is layer ell−1 at q=2, and if it is a white source then t=ell−1 too, giving ell=2. Thus the force order and all coefficients are correct. The layer matrix with its indicated diagonal becomes unit triangular after reversing columns; its incidence lift has rank ell−1 and M<=Z gives equality. The zero matrix on K1 supplies mr=0 and the isolated vertex must start blue. Root recovery and the minimum count follow as stated. Independent replay python /workspace/audit_checks.py 3 uses direct modular multiplication and exhausts masks for Z/4, Z/8, Z/9, Z/16, Z/27 and Z/32; it matches every profile and coefficient (e.g. Z/32 gives {11:64,12:120,13:70,14:15,15:1}). This is corroboration, not the proof of arbitrary q and ell.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer's conditions are at most one omitted vertex per block and an included 0-vertex between two omitted 1-vertices. In this chain graph every separating 0-block has size >=2. Boyer's proof of Theorem 14 explicitly treats automatic separation when intervening 0-blocks are of size two; Theorem 10 shows it regardless of the size of a 1-block.",
+          "Lin's looped blow-up bound covers the rank-lifting framework. Lin's all-clusters-at-least-two zero-forcing lemma does not alone handle the singleton at q=2, but Boyer's threshold result does."
+        ],
+        "reasoning": "Specializing the full set characterization leaves no nontrivial profile restrictions to solve; multiplying the independent choices is exactly the sum over blocks in the prior counting formula.",
+        "searches": [
+          "Boyer et al., arXiv:1801.08910 Theorems 10 and 12 and Theorem 14 proof, part 4",
+          "Lin 10.13001/1081-3810.2836 Lemmas 4.3–4.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification evidence",
+        "arXiv:1801.08910",
+        "arXiv:0801.0086",
+        "doi:10.13001/1081-3810.2836",
+        "doi:10.1080/00927870802110888",
+        "Resultary 86625146ed7a, 7178b3fa1b20, a8f5518e4e9c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any chosen set A of omitted blocks, the prior count is the product of sizes of those blocks; here A ranges over every subset of the ell−1 blocks. This yields u^(N−ell+1) times the product of (u+n_i), every minimum set and the minimum coefficient.",
+          "The known Z and N determine both algebraic parameters from the two extreme exponents, including recognition of K1 by degree one."
+        ],
+        "reasoning": "The original proof is a valid alternative, not a new forcing classification. The recovery statement offers no surviving nonmechanical narrowing.",
+        "searches": [
+          "Boyer et al. Theorem 10 omitted-block conditions; Theorem 12 solving the coefficient for each allowed block-index set",
+          "86625146ed7a Z and graph order expressions; frozen RESULT.md lines 218–230"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assign weight i to V_i and threshold ell. Alternating the innermost layers outward gives the 0/1 creation blocks described above, so the two statements are compared on the exact ordinary graph.",
+          "arXiv:0801.0086 Definition 1.1 and catalogue 7178b3fa1b20 use annihilator-compressed graphs, while a8f5518e4e9c uses skew forcing. Neither is the same graph-and-rule pair."
+        ],
+        "reasoning": "The threshold formulation is equivalent to the graph in the frozen theorem; the compressed or skew formulations by themselves are not equivalent.",
+        "searches": [
+          "arXiv:1801.08910, Section 4.2, Theorem 10",
+          "Finite chain-ring ordinary zero-divisor graph, threshold creation blocks, standard zero forcing polynomial; compare compressed and skew variants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "86625146ed7a already states Z=M=q^(ell−1)−ell and mr=ell−1 on the exact same graph with the same one-vertex exception. Its limitations exclude all-minimizer classification; it is not an exact duplicate of the polynomial statement."
+        ],
+        "reasoning": "Numerical invariant coverage is exact; coverage of the polynomial is instead established by the broader threshold theorem, not by asserting the indexed record says more than it does.",
+        "searches": [
+          "Resultary finite chain-ring zero-divisor graph real minimum rank, maximum nullity and minimum zero forcing",
+          "Resultary record 86625146ed7a, Finding and Limitations"
+        ]
+      },
+      "rationale": "The full ordinary forcing classification and factorization are immediate specializations of Boyer et al. Theorems 10 and 12, not just applications of a general-purpose counting algorithm. For ell=2m, use the creation order V_m (1), V_(m−1) (0), V_(m+1) (1), V_(m−2) (0), V_(m+2) (1), and so on. For ell=2m+1, use V_m (0), V_(m+1) (1), V_(m−1) (0), V_(m+2) (1), and so on. Each 0-layer sends no edges to earlier layers and each 1-layer is dominating when appended, by i+j>=ell; these are exactly the blocks, with the first block of size at least two outside K1. Every 0-block has at least two vertices. Boyer's separation condition is therefore automatic for every omitted-at-most-one-per-block profile, including q=2 with a singleton final 1-block. Theorem 12 gives exactly the factorization and minimum count. The same-graph Resultary record 86625146ed7a already gives Z, M, mr and the K1 exception. Parameter recovery is mechanically implied by those known invariant relations: the polynomial's degree N and least exponent Z give ell=N−Z+1 and q=(N+1)^(1/(N−Z)) outside K1. Using roots instead does not change that conclusion. This is a coverage decision, not a correctness failure or an inference from inaccessible papers.",
+      "residual_risks": [
+        "Lawful independent full text of Anderson–Badawi and of the adjacency-spectrum article doi:10.1080/03081087.2021.1917501 was unavailable. No negative inference is drawn; positive coverage already suffices.",
+        "The rank catalogue date alone is not needed to infer precedence; the published threshold theorem establishes polynomial coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all ordinary forcing sets and exact enumerator after the explicit block identification, including the q=2 top singleton.",
+          "evidence": "Theorem 10 uses the one-omission condition per block and included 0-vertex separation; Theorem 12 counts choices by omitted block sizes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "Section 4.2 definition of threshold graphs (PDF offset 26400); Theorem 10 at p. 8, offset 28329; Algorithm 1 and Theorem 12 pp. 9–10; Theorem 14 proof part 4 p. 12, offset 40400",
+          "method": "Open paper, decisive passages by offset",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Direct general theorem for precisely the valuation threshold graph"
+        },
+        {
+          "assessment": "Exact coverage of all numerical invariants and the boundary, not a full polynomial statement.",
+          "evidence": "The finding gives Z=M=q^(ell−1)−ell and real mr=ell−1, with K1 separated; Limitations excludes classification of all minimizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-and-real-minimum-rank-of-finite-chain-ring-zero-div--86625146ed7a",
+          "material_read": "Finding and Limitations",
+          "method": "Indexed statement and source comparison",
+          "title": "Zero forcing and real minimum rank of finite chain-ring zero-divisor graphs",
+          "trigger": "Identical graph and numerical rank/forcing claims"
+        },
+        {
+          "assessment": "General rank framework; ordinary forcing size hypothesis is not all chain rings.",
+          "evidence": "The quotient rank bounds the lift, and the forcing lemma assumes all clusters at least two.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1627/1627",
+          "material_read": "Lemmas 4.3–4.4 pp. 54–55, rank passage offset 37510; general inequality p. 2",
+          "method": "Open ELA PDF passage comparison",
+          "title": "Odd Cycle Zero Forcing Parameters and the Minimum Rank of Graph Blowups",
+          "trigger": "Known blow-up rank mechanism"
+        },
+        {
+          "assessment": "Prior structural context; no unverified whole-document novelty assertion.",
+          "evidence": "The frozen comparison discusses the clique of square-zero elements, vertices outside the clique and diameter; this is not needed for the decisive coverage.",
+          "identifier_or_url": "doi:10.1080/00927870802110888",
+          "material_read": "Frozen description of Sec. 4 and bibliographic identification; no independent full text obtained",
+          "method": "Lawful DOI retrieval attempt and frozen source comparison",
+          "title": "On the Zero-Divisor Graph of a Ring",
+          "trigger": "Earlier chain-ring graph literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a useful worked threshold-graph example, and its symbolic proof is sound, but no independently useful new exact fact remains in the finding. The known class theorem makes every block choice admissible here, and knowing the two extreme exponents mechanically recovers the parameters. A different proof or the convenient root presentation is not a substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

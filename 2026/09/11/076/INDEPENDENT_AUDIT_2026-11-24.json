@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:51:25.409037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choose the representative row of each of the two row cycles, and let p be its permutation of the ten symbols indexed by column group and residue c mod 5. Equivariance generates the other four rows in that cycle. In each representative column of residue zero the five contributed entries from this row cycle are obtained from its five inputs v at residues c by shifting the symbol phase by -c. Thus it is necessary and sufficient that the resulting symbol masks have five distinct entries each and that the two row cycles' masks are complementary in each of the two representative columns. I wrote and ran a separate enumeration: loop over the 10P5 ordered half-rows, reject a repeated shifted symbol, and histogram by original-symbol set s and shifted-symbol mask a; for the normalized first half also require p[0]=0. Multiply half-row counts for original sets s and its complement to build the row table for mask pairs (a,b). Multiply row counts against their complementary mask pairs to count the squares. This gives 29,420 normalized first-row-cycle states and completion histogram (45:1125, 55:2750, 65:7500, 70:7000, 75:6500, 90:4500, 225:45), yielding 2,082,000 normalized and 20,820,000 when both rows are unrestricted. Independently the symbol centralizer acts transitively, using within-cycle rotations and exchange of the two cycles, proving the factor of ten. The two committed census output lines are consistent with this fresh run; no historical PASS, orthogonal-mate obstruction, or triple result is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 establishes existence for fixed-point-free automorphisms with two cycles of odd length five.",
+          "The planar-assignment/Gröbner method tabulates selected counts for orders 8 and 9, not this order-10 target.",
+          "The MOLS enumerations address pairs or larger sets; the order-10 related-pair count is up to equivalence, not a count of individual fixed arrays."
+        ],
+        "reasoning": "Existence, general enumeration algorithms, and counts of different orthogonality objects do not fix the numerical multiplicity without a separate census. No stronger processed count was identified in the inspected passages.",
+        "searches": [
+          "Stones–Vojtěchovský–Wanless, Cycle structure of autotopisms of quasigroups and Latin squares, Theorem 5.2",
+          "Falcón–Martín-Morales arXiv:1105.1067, Algorithm 1.5 and Table 1",
+          "Egan–Wanless arXiv:1406.3681; Gill–Wanless arXiv:2204.10996"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE076 (self-match) and SCOPE075 (summary only)",
+        "Falcón arXiv:0709.2973",
+        "Falcón–Martín-Morales arXiv:1105.1067",
+        "Stones–Vojtěchovský–Wanless",
+        "Egan–Wanless arXiv:1406.3681",
+        "Gill–Wanless arXiv:2204.10996"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Catalogued feasibility establishes Delta>0, without weights. In the fresh calculation there are seven different completion counts for admissible representative-row states."
+        ],
+        "reasoning": "Local choices have unequal completion multiplicities that must be determined; it is not a parameter substitution in a prior explicit count or immediate from the class list. Different counts of equivalence classes or pairs cannot be identified with the required fixed set.",
+        "searches": [
+          "Falcón fixed-count definition and Table 5",
+          "Stones–Vojtěchovský–Wanless Theorem 5.2",
+          "Gill–Wanless order-10 scope, abstract and §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE076 is the same record and states the same two counts.",
+          "Falcón §3 considers the cardinality of the set of squares admitting a fixed isotopism and shows the number depends only on the three cycle types."
+        ],
+        "reasoning": "Without normalization the frozen count equals Delta(Theta) for any given triple of type (5^2,5^2,5^2) by independent coordinate relabeling. The centralizer gives the normalized count by division by ten; an occurrence table is not a cardinality table.",
+        "searches": [
+          "Resultary: C5-equivariant order-10 Latin squares and 2,082,000",
+          "Falcón arXiv:0709.2973, order-10 autotopism cycle structures and Delta(Theta)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Falcón Table 5 lists the vector with two length-5 cycles in each coordinate, but has cycle-profile columns, not fixed-square counts.",
+          "The exact Resultary hit SCOPE076 is the same record. SCOPE075's indexed summary concerns an order-10 orthogonal pair with the order-3 profile 3+3+3+1; full record unavailable in the local mirror during this check."
+        ],
+        "reasoning": "Neither the exact profile entry nor the neighboring same-day record gives the fixed-square census. The normalized and unnormalized counts are equivalent, not two separately original discoveries.",
+        "searches": [
+          "Resultary: exact 2,082,000 and 20,820,000 fixed-square counts",
+          "Falcón arXiv:0709.2973 Table 5, order-10 profile (5^2,5^2,5^2)",
+          "Falcón–Martín-Morales arXiv:1105.1067 Table 1, exact fixed-square counts"
+        ]
+      },
+      "rationale": "The best-supported distinct result is the exact multiplicity for the specified fixed action (and equivalently its normalized multiplicity). The known exact cycle profile catalogues establish occurrence, and prior general enumeration methods do not supply this coefficient. This is a bounded best-of-knowledge assessment, not a priority claim.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison; another prior count outside the inspected material is possible.",
+        "Full SCOPE075 text was unavailable; the available indexed statement differs on both the counted object and cycle profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact profile occurrence, not multiplicity",
+          "evidence": "Lists (0,0,0,0,2,0,0,0,0,0) for each component; distinguishes computation of Delta(Theta) from the profile catalogue.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.2973",
+          "material_read": "pp. 2–3 fixed-set definition and scope; Table 5 p. 15 around offsets 43900–46550",
+          "method": "OA PDF passage inspection",
+          "title": "Cycle structures of autotopisms of the Latin squares of order up to 11",
+          "trigger": "exact subject and order-10 cycle profile"
+        },
+        {
+          "assessment": "general count method and smaller-order tables",
+          "evidence": "The numerical table covers selected autotopisms of order 8 and 9.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.1067",
+          "material_read": "pp. 3–4, Algorithm 1.5 implementation and Table 1 scope",
+          "method": "OA PDF passage inspection",
+          "title": "The 3-dimensional planar assignment problem and the number of Latin squares related to an autotopism",
+          "trigger": "direct fixed-square count method and data"
+        },
+        {
+          "assessment": "direct existence coverage only",
+          "evidence": "Feasibility iff cycle length is odd or number of cycles even for the stated diagonal case.",
+          "identifier_or_url": "https://www.cs.du.edu/~petr/data/papers/cycle_structure_of_autotopisms_of_quasigroups_and_latin_squares.pdf",
+          "material_read": "abstract and Theorem 5.2, pp. 14–15 around offset 42350",
+          "method": "OA PDF passage inspection",
+          "title": "Cycle structure of autotopisms of quasigroups and Latin squares",
+          "trigger": "matching action with equal fixed-point-free cycles"
+        },
+        {
+          "assessment": "different objects or orders in inspected scope",
+          "evidence": "MOLS census through order nine and a near-triple at order ten.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.3681",
+          "material_read": "p. 1, abstract and introduction",
+          "method": "OA PDF passage inspection",
+          "title": "Enumeration of MOLS of small order",
+          "trigger": "cited nearby complete censuses"
+        },
+        {
+          "assessment": "different equivalence/orthogonality objects",
+          "evidence": "18,526,320 related pairs up to equivalence, none extending to a triple; not the fixed-square census.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.10996",
+          "material_read": "abstract and §1, pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Pairs of MOLS of order ten satisfying non-trivial relations",
+          "trigger": "order ten, symmetry and numerical census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The diagonal, fixed-point-free order-five action is a natural order-10 automorphism stratum recognized by the cycle-structure literature. An exact fixed-set size supplies the quantitative information absent from an existence classification and a useful independent benchmark for automorphism-stratified enumeration of order-10 designs. This is a full count of that motivated stratum, not a sample or arbitrary truncation; it neither needs nor claims a solution to the orthogonal-mate or triple question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

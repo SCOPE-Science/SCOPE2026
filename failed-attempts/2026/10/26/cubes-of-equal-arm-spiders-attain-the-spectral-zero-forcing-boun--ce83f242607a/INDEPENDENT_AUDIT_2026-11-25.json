@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:50:18.698377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is correct for ordinary powers, m≥2 and ℓ≥4. For each of the top three distinct eigenvalues of the ℓ-vertex path, zero at the center and arm multiples with coefficients summing to zero give m−1 independent spider eigenvectors. The annihilating cubic Q(A)=A³−s₁A²+s₂A−s₃I has entries 1 at distance three, −s₁ at distance two, and deg(u)+deg(v)−1+s₂ on edges (count the two ways to backtrack along the length-three walk and subtract their duplicate). Beyond distance three all entries vanish. Here s₁>0 and s₂≥0 for ℓ≥5; at ℓ=4, s₁=φ and s₂=(√5−3)/2>−2, whereas the walk count on any edge is at least 2. Thus Q is an exact-pattern nullity witness. Starting with the outer three vertices on m−1 arms, each depth t+3 forces t inward; these sources have depth at least four. Depths 3, 2, 1 in one of those arms then force the center and depths 1, 2 of the last arm, followed by the center forcing depth 3 and ordinary inward-to-outward spacing-three propagation. This also works at m=2 and ℓ=4. The inequalities null(Q)≤M≤Z and the forcing upper bound prove equality and hence the rank. Replay: RESULT.md lines 17–39 give the symbolic certificate; verify.py and verify_output.txt were inspected, not executed, and only corroborate finitely many cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-10-13 equal-leg theorem covers every k with ℓ≥k+1. The 2026-10-18 unequal-arm theorem covers every arm length ℓᵢ≥k+1."
+        ],
+        "reasoning": "Either specializes to the full assigned m,ℓ range, including ℓ=4 and m=2.",
+        "searches": [
+          "Resultary: equal-arm spiders S_m(ℓ) third power zero forcing maximum nullity cubic adjacency matrix top three path eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03892v1",
+        "Resultary:8e9d1cb373f9",
+        "Resultary:5580508bfee7",
+        "Resultary:9b56bd0ac1b9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abiad et al. prove the upper bound and a spectral criterion conditional on nonzero shorter-distance entries; their Example 23 shows cancellation is possible. The independent window-matrix constructions in the two earlier Resultary results already give the unconditional lower bound."
+        ],
+        "reasoning": "The frozen support check does discharge the primary paper's extra hypothesis. It is not necessary to conflate that conditional theorem with the later unconditional coverage to establish duplication.",
+        "searches": [
+          "arXiv:2610.03892v1: Proposition 9, Conjecture 10, Theorem 20, Example 23",
+          "Resultary: 8e9d1cb373f9; 5580508bfee7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-13 equal-leg theorem uses the ordinary distance-at-most-k power and agrees on both Z and real symmetric M; set k=3. Minimum rank is order minus M."
+        ],
+        "reasoning": "Equal leg and equal arm describe the same tree, and the comparison is to the ordinary, not strict, power on both sides.",
+        "searches": [
+          "Resultary: equal-arm spiders S_m(ℓ) third power zero forcing maximum nullity cubic adjacency matrix top three path eigenvalues",
+          "arXiv:2610.03892 Conjecture 10 Theorem 20 spider graph powers zero forcing maximum nullity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two indexed records are exact theorem-level coverage, not matching finite entries. The 2026-11-08 signed-polynomial record matches the certificate for m≥3, ℓ≥5, k=3, but is later and does not cover m=2 or ℓ=4."
+        ],
+        "reasoning": "The earlier exact overlap concerns the finding itself; no finite table is needed. The later record is method context, not evidence of earlier priority.",
+        "searches": [
+          "Resultary mirror: 8e9d1cb373f9, 5580508bfee7, 9b56bd0ac1b9"
+        ]
+      },
+      "rationale": "Two distinct earlier published Resultary records prove the full scalar claim with no additional hypotheses on the assigned case. The frozen record uses a different, correct cubic witness, but does not newly resolve the conjecture's cubic case or newly determine the minimum rank.",
+      "residual_risks": [
+        "The comparison is a bounded search, not a complete history of alternative certificates. The two decisive published statements suffice regardless of other literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound and conditional method, not unconditional coverage in those passages",
+          "evidence": "Theorem 20 requires nonvanishing at short distances and Example 23 exhibits a failed eigenvalue choice.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03892v1",
+          "material_read": "Proposition 9 and Conjecture 10 (pp. 6–7); Theorem 20 and proof and Example 23 (pp. 14–15)",
+          "method": "OA PDF passages",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Source conjecture and closest cited spectral criterion"
+        },
+        {
+          "assessment": "Direct broader coverage",
+          "evidence": "M=Z=(m−1)k for m≥2, k≥1, ℓ≥k+1 with independent construction of the required kernel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-zero-forcing-and-maximum-nullity-of-powers-of-equal-leg-sp--8e9d1cb373f9",
+          "material_read": "Theorem and consecutive-window/arm-block proof construction",
+          "method": "Local Resultary mirror",
+          "title": "Exact zero forcing and maximum nullity of powers of equal-leg spiders",
+          "trigger": "Indexed exact equal-leg result"
+        },
+        {
+          "assessment": "Direct broader coverage",
+          "evidence": "Z=Mℝ=(m−1)k and the resulting real minimum rank for arbitrary arm lengths ℓᵢ≥k+1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7",
+          "material_read": "Theorem and block sliding-window lower-bound and forcing construction",
+          "method": "Local Resultary mirror",
+          "title": "Sharp zero forcing and minimum real rank of spider powers with unequal arms",
+          "trigger": "Dominating unequal-leg parameters"
+        },
+        {
+          "assessment": "Later method overlap only",
+          "evidence": "First-k path eigenvalues give signed support for m≥3, k≥3, ℓ≥2k−1; expressly not a new scalar result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-signed-adjacency-polynomial-certificate-for-long-arm-spider-po--9b56bd0ac1b9",
+          "material_read": "Statement, parameter range and adjacency-polynomial certificate",
+          "method": "Local Resultary mirror",
+          "title": "A signed adjacency-polynomial certificate for long-arm spider powers",
+          "trigger": "Same spectral witness in indexed results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conjecture is meaningful and the cubic witness is a useful exposition of the existing spectral criterion. However, the claimed exact invariants are already provided in broader scope; the different proof is a short path-eigenvalue specialization plus a walk count. No independently useful new property of the cubic matrix or new application is established as a separate surviving finding. No repair is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

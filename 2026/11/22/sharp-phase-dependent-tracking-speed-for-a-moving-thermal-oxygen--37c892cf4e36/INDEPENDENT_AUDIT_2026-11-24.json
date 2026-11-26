@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:39:28.735687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In angular time every admissible path is c-Lipschitz for circle geodesic distance (integrate along the shorter arc), and a circle c-Lipschitz selection corresponds to a periodic path with the given a.e. speed bound. Pairwise L(theta)-U(eta)<=c d(theta,eta) is necessary and the upper envelope of L(theta)-c d(theta,eta) is itself a selection when those inequalities hold, including at the optimum. At fixed separation d the amplitudes in the two orientations are 2A sin(alpha+d/2) and 2A|sin(alpha-d/2)|; comparing their squares gives an ordering from sin(phi) sin(d)>=0. The resulting quotient derivative has sign h-G(x), where x=alpha+d/2 and G'(x)=2A(x-alpha)sin x. This gives the global maximum, including the one-sided case h=h_0 and the antipode at phi=0, h approaching 2A. Pointwise nonempty iff h>=h_0; constant feasible iff h>=2A; at phi=pi the intermediate branch is empty. Expanding G from alpha gives A sin(alpha)(x-alpha)^2 for fixed nonzero lag below pi, or (2A/3)x^3 at zero lag; expanding the speed then gives the stated coefficients and exponents. At pi/2 the derivative A(pi-phi) yields the claimed linear vanishing for fixed phi<pi. Independent check: python3 /workspace/review_checks.py 2 maximizes over all ordered pairs on a 1,024-phase grid in five examples; agreement is within 1.5e-5 in scaled speed in these examples. This does not verify the continuous optimum on its own. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Shvartsman abstract addresses existence of Lipschitz selections of compact convex sets, including one-dimensional-valued cases. The Barrett citations are on coupled thermal and oxygen limits or timing of vertical movement; full statements could not be recovered."
+        ],
+        "reasoning": "The general existence framework provides the type of condition that reduces the optimization, but no inspected statement supplies the trigonometric evaluation or the two local critical scalings. The physical subject overlap does not by itself establish mathematical coverage.",
+        "searches": [
+          "arXiv:2010.04540v2, first-page statement of the general selection problem",
+          "doi:10.1002/lno.70536 and doi:10.1111/fwb.14294"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.04540v2 (abstract)",
+        "doi:10.1002/lno.70536 (metadata only)",
+        "doi:10.1111/fwb.14294 (metadata only)",
+        "SCOPE-20261122-37c892cf4e36 (assigned record)",
+        "SCOPE-20261122-8f9df18c8511 (catalogue summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar interval compatibility gives the supremum of cross-time lower-minus-upper distances. The exact root additionally uses the sine amplitude with the better of two circle orientations and solves the maximizing-separation equation; the Taylor expansion loses its quadratic term exactly at zero phase lag."
+        ],
+        "reasoning": "Generic extensions or empirical asynchronous-depth observations do not mechanically furnish the evaluated invariant with its singular endpoint laws. A closer prior calculation in inaccessible text is not excluded.",
+        "searches": [
+          "arXiv:2010.04540v2",
+          "doi:10.1002/lno.70536",
+          "Literature: sinusoidal Lipschitz selection moving interval minimum speed phase lag periodic tracking formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A speed bound on a free periodic scalar trajectory is exactly a bound on the Lipschitz seminorm of a circle interval selection; the distance-envelope proof is the usual scalar metric extension construction applied to lower bounds. Shvartsman arXiv:2010.04540v2 p. 1 explicitly includes one-dimensional-valued selections."
+        ],
+        "reasoning": "Neither the reformulation nor the envelope is counted as novel. The evaluated maximum over separation and the degeneracy-dependent asymptotics must be compared separately.",
+        "searches": [
+          "Resultary: periodic scalar interval-valued Lipschitz selection and asymmetric thermal/oxygen phase tracking",
+          "Literature: sinusoidal Lipschitz selection moving interval minimum speed phase lag periodic tracking formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the assigned record itself. SCOPE-20261122-8f9df18c8511 is a distinct neighbor: its catalogue summary describes gap formation in a static depth-viability profile for a Gaussian oxygen deficit, not a periodic path problem."
+        ],
+        "reasoning": "The distinct indexed summary gives no identified instance or stronger exact law for the speed-width curve; its full text was not retrieved. Shared catalogue dates do not establish priority or exclusion.",
+        "searches": [
+          "Resultary: equal-amplitude sinusoidal depth bounds, minimum-speed root, square-root and two-thirds exponents",
+          "Resultary: thermal oxygen refuge with lagged boundaries"
+        ]
+      },
+      "rationale": "The supported distinction is the evaluated sharp sinusoidal speed-width frontier and its change in endpoint scaling, not the general Lipschitz-selection principle or an empirical result about fish. No materially equivalent prior calculation was found in the checked sources; the ecological follow-up and general selection literature were only partially accessible.",
+      "residual_risks": [
+        "The bodies of the close Barrett ecological papers, the broader selection reference, and the distinct indexed record were not independently available for decisive inspection.",
+        "An older control/viability or moving-obstacle formulation may contain the evaluated curve under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General existence machinery, not the model-specific optimum or asymptotics in the available passage; body coverage was not resolved.",
+          "evidence": [
+            "Abstract describes selection existence conditions for compact convex images and mentions the one-dimensional-valued case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.04540v2",
+          "material_read": "PDF p. 1, abstract, lines 17–28; not the theorem sections.",
+          "method": "Locate original arXiv text; use accessible first-page extraction after the full-passage request timed out.",
+          "title": "The Core of a 2-Dimensional Set-Valued Mapping. Existence Criteria and Efficient Algorithms for Lipschitz Selections of Low Dimensional Set-Valued Mappings",
+          "trigger": "Potentially stronger general minimum-Lipschitz-selection theory."
+        },
+        {
+          "assessment": "Scope overlap in topic is clear; no whole-document assessment of the mathematical model is justified.",
+          "evidence": [
+            "Citation title explicitly connects asynchronous stress to diel vertical movement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/lno.70536",
+          "material_read": "Citation metadata only; independent publisher and OA routes did not yield abstract or body.",
+          "method": "DOI resolution and lawful OA/publisher retrieval attempts.",
+          "title": "Asynchronous timing of hypoxia and thermal stress induces diel vertical movement",
+          "trigger": "Closest ecological comparator on phase lag and diel vertical movement."
+        },
+        {
+          "assessment": "Static fragmentation of usable depth bands, not speed-limited motion in periodic time, in that summary.",
+          "evidence": [
+            "The described threshold concerns a Gaussian oxygen dip splitting a viability profile."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-oxygen-refuge-fragmentation-threshold-for-a-gaussian-mid--8f9df18c8511",
+          "material_read": "Local catalogue title and claim summary; matching full-text retrieval timed out.",
+          "method": "Compare the claimed object and observable from the returned summary and attempt the matched source passage.",
+          "title": "A sharp oxygen-refuge fragmentation threshold for a Gaussian mid-depth deficit",
+          "trigger": "Closest distinct indexed ecological threshold record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model separates instantaneous refuge availability from continuous occupancy at a prescribed speed, and gives the sharp threshold and a constructive trajectory. The distinct phase-dependent speed savings near the feasibility boundary add quantitative content beyond set-selection existence. This is an idealized benchmark, not a physiological threshold or a field prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

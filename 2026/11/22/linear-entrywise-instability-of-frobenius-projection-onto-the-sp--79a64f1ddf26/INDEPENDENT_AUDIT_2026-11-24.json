@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:31:55.561264Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 27–79; frozen VERIFICATION.md and checker.py inspected but the frozen script was not executed.",
+        "Independent replay: python3 -B /workspace/branches/independent_arithmetic.py (section 3). A two-eigenvalue formula on a symmetric finite pair gave 1.4999900000; this tests the witness, not the global bound."
+      ],
+      "rationale": "Clipping is the Frobenius projector by the singular-value trace inequality and scalar minimization. At X=(1+s)uv^T, symmetric dilation gives a simple positive eigenvalue with a uniform gap as s decreases to zero, so the derivative of the leading singular outer product remains bounded. Differentiating X-(sigma_1-1)uv^T gives the asserted tangent limit in coordinate operator norm. The selected row sum is 1+|u_i v_j| ||u||_1 ||v||_1-2u_i^2 v_j^2. With fixed absolute selected entries x,y, equal absolute tails attain both Cauchy inequalities, including the endpoints. The explicit half-mass coordinates give the lower bound. Independently, for input difference h and output difference g, firm nonexpansivity gives ||g-h/2||_2 <= ||h||_2/2, hence the upper bound globally without assumptions on differentiability. The bounds coincide at 2 by 2. The only jointly leading term in the rank-one formula is bounded by sqrt((m-1)(n-1))/4 and attained to leading order by x=y=1/sqrt(2); the single-root terms vanish upon division by sqrt(mn) if both dimensions diverge. No finite-pair equality or unrestricted leading constant is established in general dimensions.",
+      "residual_risks": [
+        "No formal certificate, external attestation, or general exact value of L_{m,n} is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day Resultary item 054e541508a5 gives a square PSD-cone diagonal tangent optimum with leading n/4 and a linear global modulus. Same-day item 96cde73fc3b5 gives the claimed general upper bound, a tangent-hyperplane row formula, and equality globally for C^1 convex bodies."
+        ],
+        "reasoning": "The PSD record is a material overlap in the square symmetric sector. The general row formula applies once the relevant normal is supplied, but the all-normal equality for globally C^1 bodies does not apply to the spectral ball, which is nonsmooth at a multiple top singular value. Neither theorem optimizes independent left and right singular vectors over rank-one normals. A shared date does not determine priority.",
+        "searches": [
+          "Resultary: PSD-cone rank-one boundary diagonal sensitivity and dimensional growth",
+          "Resultary: universal sharp maximum-entry infinity norm Lipschitz constant (1+sqrt N)/2 Euclidean metric projection convex body C1 smooth boundary support normals halfspaces"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-hit and 96cde73fc3b5, 054e541508a5, 3b499f2228aa, 8ac4b9e16f52, e19c93a79149",
+        "arXiv:1209.3318; arXiv:1805.10408"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For symmetric inputs with spectrum strictly above -1, P_ball(X)=I-(I-X)_+. A smooth rank-one PSD kernel direction with its nonzero eigenvalues scaled into (0,2) therefore gives an identical local symmetric spectral-ball witness. The rank-one row expression then specializes to u=v for diagonal outputs."
+        ],
+        "reasoning": "Square symmetric lower witnesses do transfer locally (and the ubiquitous upper bound can settle 2 by 2). That reduction does not prove the independent x,y optimization, which uses the rectangular singular outer product and its independently saturating coordinate tails. The latter, not the PSD analogy, earns the originality pass.",
+        "searches": [
+          "arXiv:1209.3318 §III-F; arXiv:1805.10408 §3",
+          "Resultary items 054e541508a5, 3b499f2228aa and e19c93a79149"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two primary papers give Euclidean projection of singular values, explicitly clipping at the spectral endpoint. The same-topic catalogue hit was the frozen result itself."
+        ],
+        "reasoning": "This is the same projector in clipping and nearest-point language. Neither inspected passage gives the rectangular coordinatewise tangent optimum or the endpoint lower bounds.",
+        "searches": [
+          "Resultary: spectral-norm-ball projection, maximum-entry Lipschitz modulus and rank-one clipping tangents",
+          "arXiv:1209.3318, Proposition 1 and Eq. (34)",
+          "arXiv:1805.10408, Proposition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Items 3b499f2228aa and 8ac4b9e16f52 give 3/2 for symmetric 2 by 2 PSD repair; e19c93a79149 distinguishes its off-diagonal modulus 9/8. No separate rectangular spectral-ball exact tangent formula was identified."
+        ],
+        "reasoning": "Numerical equality of the 2 by 2 constants is not equality of the global operators. The known symmetric cone result is a substantive low-dimensional analogue, not an exact database hit for the full rectangular optimization.",
+        "searches": [
+          "Resultary: sharp independent-entry and diagonal/off-diagonal moduli in 2-by-2 spectral or semidefinite projection"
+        ]
+      },
+      "rationale": "The supported distinction is the rectangular, independently optimized rank-one tangent formula and its use in nondifferentiability-sensitive bounds for this projector. Singular-value clipping and the universal convex-projection upper bound are not new. Neither the square growth phenomenon nor the 2 by 2 benchmark alone is a strong priority claim given the close PSD transfers.",
+      "residual_risks": [
+        "Focused literature search had limited yield; an earlier exact rectangular result under a different norm alias is not excluded.",
+        "The assessed one-quarter coefficient is for rank-one boundary tangents, not the unrestricted modulus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior clipping identity, not the claimed entrywise analysis",
+          "evidence": [
+            "The projector replaces singular values by their Schatten-ball vector projection; Eq. (34) gives the capping operation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.3318",
+          "material_read": "Proposition 1, manuscript p. 5, and §III-F Eq. (34), p. 6",
+          "method": "Lawful open primary manuscript, located and read bounded mathematical passages",
+          "title": "Hessian Schatten-Norm Regularization for Linear Inverse Problems",
+          "trigger": "Exact same clipping operator"
+        },
+        {
+          "assessment": "Same projector, different question",
+          "evidence": [
+            "Proposition 9 uses clipped SVD to project in Frobenius norm, not an entrywise Lipschitz formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.10408",
+          "material_read": "§3 Proposition 9, p. 7",
+          "method": "Lawful open primary manuscript, bounded passage",
+          "title": "The Singular Values of Convolutional Layers",
+          "trigger": "Spectral-ball clipping application"
+        },
+        {
+          "assessment": "Material overlap and local symmetric transfer, not rectangular coverage; no relative priority inferred",
+          "evidence": [
+            "PSD diagonal tangent sensitivity grows as n/4 to leading order; global growth is linear."
+          ],
+          "identifier_or_url": "Resultary 054e541508a5",
+          "material_read": "Indexed mathematical result and scope for the PSD cone",
+          "method": "Local Resultary comparison",
+          "title": "Sharp rank-one boundary diagonal sensitivity and dimension-linear entrywise instability for PSD projection",
+          "trigger": "Same-day strongest square tangent analogue"
+        },
+        {
+          "assessment": "Equal benchmark, distinct global projection",
+          "evidence": [
+            "Symmetric Frobenius-nearest PSD projection has independent-entry maximum-norm modulus 3/2."
+          ],
+          "identifier_or_url": "Resultary 3b499f2228aa",
+          "material_read": "Indexed exact global statement and norm/feasible set",
+          "method": "Local Resultary comparison",
+          "title": "Sharp independent-entry Lipschitz constants for 2-by-2 semidefinite projection",
+          "trigger": "Exact 3/2 coincidence"
+        },
+        {
+          "assessment": "Supplies the general upper bound and row formula, not the spectral-ball restricted optimization",
+          "evidence": [
+            "The lower equality assumes all normals available at smooth boundary points of a globally C^1 body; the proof optimizes over the full unit sphere of normals."
+          ],
+          "identifier_or_url": "Resultary 96cde73fc3b5",
+          "material_read": "RESULT.md Finding and Steps 1–3, offsets 0–5510, snapshot 36a7204",
+          "method": "Local mirrored primary result, bounded passages",
+          "title": "Shape-independent sharp coordinatewise stability of smooth convex-body projection",
+          "trigger": "Broader exact upper bound and tangent amplifier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–5; arXiv:1805.10408 §3; Resultary 96cde73fc3b5 and 054e541508a5 for shared projection mechanisms"
+      ],
+      "rationale": "The entrywise modulus is a natural worst-case stability benchmark for a standard matrix projection, different from its Euclidean modulus. The independent left/right tangent optimization gives a sharp and usable rectangular benchmark, with a mechanism showing order growth even though the operation is Frobenius nonexpansive. The universal upper bound or a repeated 2 by 2 number alone would not justify this assessment.",
+      "residual_risks": [
+        "The theorem does not cover perturbations restricted by convolutional structure or any all-dimension global sharp coefficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:39:47.429397Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–59",
+        "VERIFICATION.md; check_group.py and .out; check_stabilizer.py and .out; check_asymptotics.py and .out"
+      ],
+      "rationale": "The group law follows by counting crossings of a word concatenation and the cocycle is bilinear over Z/mZ. Each letter generator has order m and positive powers give its inverse. The commutator for i<j gives the single central (i,j) coordinate generator, so every possible tuple is reached even for composite m. For a pair of different letters the two counts sum to the product of the corresponding letter counts, so acceptance requires exactly the stated zero pair coordinates and pairwise-zero products. Since every suffix image is available, indistinguishability of g,g′ is equivalent to equality of g^(-1)F and g′^(-1)F, i.e. stabilization of F on the left by h=g′g^(-1). Such an h belongs to F and has zero pair part. Testing h times the last letter forces the first q−1 letter coordinates of h to vanish by the (i,q) pair counts, and testing h times the first letter forces the final coordinate to vanish by the reverse-count product condition. Nothing requires cancellation by arbitrary residues, and the argument includes q=2. The faithful regular action gives the stated transition group (up to the right-action convention). For the uniform-letter random walk, every step increments total residue by one, all states communicate, and the m-fold power of one letter gives a return of length m; the period is therefore exactly m. Each probability block for the m-step walk on a length fiber is finite, irreducible and aperiodic, with uniform stationary law from double stochasticity. It converges exponentially. Every fiber has m^(d−1) elements, with exactly E_s accepting points, and over a prime field these have at most one nonzero letter coordinate, giving the two distinct limits. Frozen finite tests and outputs were inspected, not executed; they are not the basis for the general claims.",
+      "residual_risks": [
+        "No extension to same-letter pairs, nonuniform input distributions, or modulus-dependent convergence rates is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unmodded group description applies widely but does not calculate the syntactic group of this Boolean modular language.",
+          "Resultary …58224cc14c12 gives rm^2+2 states for binary avoidance of contiguous 0^r1 plus zero scattered 01 modulo m.",
+          "Resultary …ff50d393a0c3 treats contiguous bigrams, with designated endpoints, and a residue-dependent density."
+        ],
+        "reasoning": "No located broader theorem evaluates the relevant accepting-set stabilizer or uniform random-walk fiber counts for these all-mixed-pair conditions. The standard Markov-chain convergence theorem is general background, not the actual construction and predicate-specific density evaluation.",
+        "searches": [
+          "arXiv:2001.11732, Theorem 11 and group formulation",
+          "Resultary: modular scattered-pair state complexity and length residue density; …60f4e56820b8, …58224cc14c12, …ff50d393a0c3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.11732 Theorem 11",
+        "arXiv:2610.06717 binary fiber definition",
+        "Resultary …60f4e56820b8, …58224cc14c12, …8aeb5d8c6529, …ff50d393a0c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A finite modular quotient of a count group can give an upper bound on the DFA size, but two states merge if their difference belongs to the left accepting-set stabilizer.",
+          "The prior group description alone does not force triviality of that stabilizer, which here uses both pair orientations.",
+          "After the specific group and acceptance fibers are identified, the density uses a standard periodic-walk theorem and a separate arithmetic count."
+        ],
+        "reasoning": "Credit the prior structural group description and the standard walk theorem. Neither supplies the requisite predicate-specific stability calculation or identifies these residue densities. The other indexed languages alter the constraints rather than subsume the claimed one.",
+        "searches": [
+          "arXiv:2001.11732, Theorem 11; arXiv:2610.06717, binary fibers; Resultary …60f4e56820b8 and …ff50d393a0c3 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 11 identifies the positive-word quotient by unmodded two-binomial equivalence as a submonoid of a free nil-2 group.",
+          "The binary Parikh-matrix paper counts exact a, b, ab, and studies questions within that fiber.",
+          "Resultary …60f4e56820b8 uses a finite Heisenberg group for scattered 01 with the additional forbidden contiguous factor 11."
+        ],
+        "reasoning": "The equivalent test here must impose both mixed orientations, or equivalently the forward counter and each product of first-order counts. Exact fibers, one-direction modular fibers with forbidden factors, and group representations that omit the accepting subset are not equivalent recognition problems.",
+        "searches": [
+          "Resultary: modular scattered mixed pairs, Parikh matrices, nilpotent counting group, syntactic monoid",
+          "Lejeune–Rigo–Rosenfeld arXiv:2001.11732, Theorem 11",
+          "Fazekas–Huang–Mercaş arXiv:2610.06717, binary Parikh fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest coinciding state number is …8aeb5d8c6529, which gives m^3/gcd(m,2) for zero difference of scattered 01 and 10, agreeing numerically at q=2 for odd m.",
+          "Nearby exact catalog metrics distinguish Rees monoid order, minimal state counts under forbidden factors, and density of contiguous rather than scattered constraints."
+        ],
+        "reasoning": "A shared count is not duplication of a language theorem. For example 010 has equal mixed counts of one and passes the difference predicate, but not the simultaneous zero predicate for any m≥2. The located tables and formulas do not give the identical combined state/density assertion.",
+        "searches": [
+          "Resultary: exact modular minimal DFA, scattered opposite-pair predicates, exact periodic densities; local Finding passages …8aeb5d8c6529, …58224cc14c12, …60f4e56820b8, …ff50d393a0c3"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for this exact simultaneous directed modular predicate's minimal DFA and its length-residue density. The class-two mechanism has published structural antecedents and nearby catalog analogues; the full recognition/minimality statement and accepting-fiber counts are distinct.",
+      "residual_risks": [
+        "An unindexed equivalent classification in the older literature on finite nilpotent-group languages is not ruled out; the inspected matching catalog records share a date but supply no relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong structural background, different theorem from exact minimal finite recognition and asymptotic acceptance.",
+          "evidence": [
+            "The positive submonoid on the alphabet of the free nil-2 group is isomorphic to the quotient for exact two-binomial equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+          "material_read": "PDF p. 8, Theorem 11 (OA offset 19900)",
+          "method": "OA primary PDF passage",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Equivalent free class-two group formulation"
+        },
+        {
+          "assessment": "Conditions on exact counts in binary fibers rather than modular zero acceptance over all ordered distinct pairs.",
+          "evidence": [
+            "L_(A,B,C) fixes the numbers of a, b, and scattered ab; the sampling question asks for the probability of containing a pattern within such a fiber."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "PDF p. 2, exact fiber definition and questions (OA offset 5000)",
+          "method": "OA primary PDF passage",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Scattered mixed-pair conditions as Parikh-matrix constraints"
+        },
+        {
+          "assessment": "Finite Heisenberg mechanism is shared, but the Boolean predicate and syntactic object are different.",
+          "evidence": [
+            "Binary 11-avoiding words with scattered 01 count zero modulo m have the stated identity-adjoined Rees zero-matrix monoid of order 4m^3+2; the record does not assert an exact minimum DFA size."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-rees-zero-matrix-syntactic-monoid-for-modular-scattered-pairs--60f4e56820b8",
+          "material_read": "RESULT.md Finding and Limitations, local offsets 0 and 7900",
+          "method": "Resultary search and local mirror passages",
+          "title": "A Rees zero-matrix syntactic monoid for modular scattered pairs",
+          "trigger": "Strongest overlap in modular scattered-pair group recognition"
+        },
+        {
+          "assessment": "Different accepted words and state formula.",
+          "evidence": [
+            "Binary avoidance of 0^r1 with one directed scattered-pair constraint, size rm^2+2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/…58224cc14c12",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact minimal deterministic complexity for modular scattered pairs",
+          "trigger": "Closest exact scattered-pair state-complexity analogue"
+        },
+        {
+          "assessment": "Equality of pair counts is strictly weaker than both counts being zero.",
+          "evidence": [
+            "The binary zero-difference predicate has m^3/gcd(m,2) states."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/…8aeb5d8c6529",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact modular state complexity of the opposite scattered-pair imbalance",
+          "trigger": "Odd-modulus coincidence of binary state counts"
+        },
+        {
+          "assessment": "Adjacent pair statistic with different pair and endpoint conditions, not scattered pairs.",
+          "evidence": [
+            "Contiguous bigrams include equal letters and the language requires designated start and end symbols; its density differs from the scattered mixed-pair density."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/…ff50d393a0c3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact automaton complexity and periodic density for modular adjacent pairs",
+          "trigger": "Automaton plus periodic density analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–4",
+        "Contrast with one-orientation and opposite-pair-imbalance catalog results"
+      ],
+      "rationale": "The simultaneous two-orientation test is a natural uniform modular subsequence constraint. The result resolves whether the whole finite counting group is needed when only a single Boolean signal is observed, including all composite moduli where zero divisors change the accepting set. It also gives the exact long-word acceptance profile and shows that prime modulus yields genuinely different limiting densities rather than a single frequency. Together these are a structural and quantitative description for the whole parameter family, not a catalog of small automata.",
+      "residual_risks": [
+        "The composite formula is an exact arithmetic counting problem, not a closed prime-style expression or a claim that every composite case has distinct residue limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

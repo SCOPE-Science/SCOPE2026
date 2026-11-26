@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:31:25.287171Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write K=3-M_0. The product of means uses binomial marginal probabilities; the joint term sums only distinct boxes, with the unused mass (1-p_i-p_j)^{n-r}. At r=n a zero mass to the zero power means there are no remaining allocations, so the factor is one. The common binomial and denominator factors are positive, leaving the sign of H. Independent ordered-allocation dynamic programming produced all fourteen signs ++++-+++++---- at n=14. Separate integer maximization of the positive and negative bases reproduced the four displayed pairs and checked that the certified ratios to the powers t,2t,2t,t exceed the appropriate opposing term counts 6 or 9 already at t=15. Since all ratios exceed one, this proves the signs for every later integer t. The strict inequalities persist simultaneously by continuity after normalization of the positive weights (the max of finitely many continuous bases is continuous), preserving the same lower bounds and hence the same cutoff uniformly. Two boxes have M_0 M_r=0 for r<n and positive means of M_0 and M_r; M_n=M_0 gives strict negative covariance at n for n>=2 and positive box probabilities. One box has constant K. The infinite claim is at least three sign reversals witnessed by the sampled signs (sign variation ignoring zeros), not an exact sign sequence or a claim of exactly three switches for all large n. Replay: python3 -B /workspace/branches/frozen_review_replay.py 4. Frozen script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier homogeneous theorem gives strict single-switch behavior with p_i=1/m. Barbour–Gnedin address infinitely many positive-probability boxes, normalized fixed-index counts and large variances; Iksanov et al. cover occupancy constructions and O'Neill covers occupancy distributions."
+        ],
+        "reasoning": "The homogeneous covariance reduces to a comparison of two powers because all the box probabilities agree. The fixed-index infinite-box asymptotics neither control a fixed three-box model nor the exponentially small fixed-n sign comparisons at r proportional to n. General counts or their moments need a new comparison to force alternating signs.",
+        "searches": [
+          "Resultary 93dddb2be813 Finding and assumptions, offsets 0–2282",
+          "arXiv:0809.4387 Introduction and covariance discussion; arXiv:2403.16448v1 §§4.1, 5; O'Neill DOI articles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 93dddb2be813, d3caf6abcfaa, 3189eaadf964 and 6882bffd0f38",
+        "arXiv:0809.4387 and 2403.16448v1; O'Neill (2021, 2023)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite counterexample supplies signs only at its indicated parameters; the homogeneous theorem supplies one switch under equal probabilities. The infinite-box joint approximation in Barbour–Gnedin is for finitely many fixed r_i with diverging count variances."
+        ],
+        "reasoning": "Continuity alone gives local persistence of a finite sign table, not a single neighborhood and cutoff for unbounded n. Summing asymptotics at fixed r_i over all frequencies does not control the growing indices r=t,4t,6t,9t. The uniform margin between the positive and negative exponential bases is the separate ingredient.",
+        "searches": [
+          "d3caf6abcfaa Finding; 93dddb2be813 Finding and scope; Barbour–Gnedin arXiv:0809.4387 Introduction, offsets 1132–2985"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same covariance can be read with opposite sign using M_0=m-K, or by summing Cov(M_s,M_r) over all s>=1. In the related same-date group-draw record the unseen-coupon statistic is paired with positive frequency counts, but the draw model is repeated fixed-size groups. In the other same-date record the law is uniform weak compositions and the two coordinates are both frequency counts."
+        ],
+        "reasoning": "A sign flip from the empty-box reparametrization is exact only with the same sampling law; the group-draw model and Bose–Einstein model are not equivalent evidence for the heterogeneous iid claim. The focused web lookup mostly returned ordinary category-count covariance or generic occupancy moments, not the claimed sign pattern.",
+        "searches": [
+          "Resultary search for richness versus exact-frequency covariance, heterogeneous occupancy and unseen coupons",
+          "Primary web lookup for multinomial unequal-probability occupancy and three-species exact-frequency sign reversals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d3caf6abcfaa states three reversals at n=16 for (7/10,1/5,1/10), and the same one-switch bound for two species; 93dddb2be813 tabulates/proves the homogeneous sign regimes."
+        ],
+        "reasoning": "The finite counterexample and minimality are genuine qualitative overlap. The matching phenomenon in the Nov. 8 record is not an exact table or formula for the Nov. 2 record's n=14 probabilities, four linear-frequency witnesses at every n=10t, or a uniform neighborhood statement.",
+        "searches": [
+          "Local Resultary search; distinct records d3caf6abcfaa, 93dddb2be813, 3189eaadf964 and 6882bffd0f38"
+        ]
+      },
+      "rationale": "The elementary multinomial moment identity is not new. The strongest local overlap is a distinct later-path finite three-species witness with different probabilities and n, and the same minimum box count. Neither it nor the earlier homogeneous law gives the quantitative robust infinite family, and no exact three-box match was found in the inspected primary passages. Path dates establish neither provenance nor priority; this pass concerns the materially stronger distinct persistence claim with its stated finite certificate and scope.",
+      "residual_risks": [
+        "The web lookup was low-yield. Earlier equivalent heterogeneous sign or exponential-dominance results could exist in uninspected sources; no comprehensive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same finite phenomenon and box minimality, not the robust infinite claim; dates alone do not adjudicate priority",
+          "evidence": "Three reversals at n=16 and probabilities (7/10,1/5,1/10), with the one-switch two-species boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-minimal-three-species-counterexample-to-one-switch-richness-fr--d3caf6abcfaa/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement comparison",
+          "title": "A minimal three-species counterexample to one-switch richness–frequency dependence",
+          "trigger": "Strongest exact qualitative overlap in the three-box case"
+        },
+        {
+          "assessment": "Homogeneous iid model only",
+          "evidence": "The statement begins with independent uniform allocation; its exact covariance and strict one-switch theorem have that restriction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2282",
+          "method": "Local mirror bounded passage",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Prior theorem on the identical covariance statistic"
+        },
+        {
+          "assessment": "Different sampling mechanism",
+          "evidence": "Repeated fixed-size group draws, not heterogeneous independent multinomial allocation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-one-strict-covariance-switch-across-positive-coupon-frequencies--3189eaadf964",
+          "material_read": "RESULT.md Finding and sampling rule",
+          "method": "Local mirror statement comparison",
+          "title": "One strict covariance switch across positive coupon frequencies",
+          "trigger": "Empty-box equivalent and same-date indexed record"
+        },
+        {
+          "assessment": "Different sampling law and estimand",
+          "evidence": "Uniform weak compositions; frequency-frequency covariance instead of richness-frequency covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-single-covariance-positive-band-for-two-bose-einstein-occupanc--6882bffd0f38",
+          "material_read": "RESULT.md Finding and model",
+          "method": "Local mirror statement comparison",
+          "title": "A single covariance-positive band for two Bose–Einstein occupancy frequency counts",
+          "trigger": "Same-date covariance frequency sign theorem"
+        },
+        {
+          "assessment": "Related asymptotics, not finite three-box or growing-frequency signs",
+          "evidence": "The joint normal approximation assumes an infinite-box setting and diverging variances of fixed-index frequency counts.",
+          "identifier_or_url": "https://arxiv.org/html/0809.4387",
+          "material_read": "Introduction offsets 1132–2985; related covariance discussion near offsets 4300–12077",
+          "method": "Bounded OA passages",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Most relevant broader unequal-probability frequency-covariance literature inspected"
+        },
+        {
+          "assessment": "Adjacent occupancy constructions, not the sign profile in the inspected material",
+          "evidence": "Incomplete partitions in urn schemes and random incomplete compositions.",
+          "identifier_or_url": "https://arxiv.org/html/2403.16448v1",
+          "material_read": "Abstract, §4.1 near offset 84007 and §5/Definition 5.1 near offset 103700",
+          "method": "Bounded OA passages",
+          "title": "Multinomial random combinatorial structures and r-versions of Stirling, Eulerian and Lah numbers",
+          "trigger": "Named prior multinomial occupancy framework"
+        },
+        {
+          "assessment": "Related occupancy distributions; does not supply the sign claim in the passage read",
+          "evidence": "Develops extended occupancy distributions with a Markov-chain treatment.",
+          "identifier_or_url": "https://doi.org/10.1007/s11009-023-10053-y",
+          "material_read": "Opening abstract/introduction, p. 1",
+          "method": "Bounded OA passage",
+          "title": "Three Distributions in the Extended Occupancy Problem",
+          "trigger": "Named occupancy-moment comparison"
+        },
+        {
+          "assessment": "Uniform classical occupancy distribution and moments",
+          "evidence": "Uniform classical occupancy rather than the heterogeneous richness/exact-frequency sign comparison.",
+          "identifier_or_url": "https://doi.org/10.1080/00031305.2019.1699445",
+          "material_read": "Accepted version p. 2, near offset 1006",
+          "method": "Bounded OA passage",
+          "title": "The Classical Occupancy Distribution: Computation and Approximation",
+          "trigger": "Named classical occupancy comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result tests whether a natural uniform one-switch law is stable when box probabilities differ. The three-box boundary is minimal and the exact signs show that failure is neither a finite-n accident nor restricted to one exceptional vector. The dominant-base bounds supply an explicit cutoff and common-neighborhood stability, not just isolated enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Three-term Lanczos reduction gives an explicit degree-two inverse polynomial; the tree's unique length-two paths isolate the only coordinates whose signs can change. The projected matrix is positive definite. The family-specific numerator and denominator identities were reconstructed from the matrix and independently checked by exact rational CG. Sturm-chain counts prove a unique positive root for the exceptional numerator and no positive roots for the remaining neighbor numerators. Exact original-source versus approximate-solver sign distinctions are explicit. Scope is exact arithmetic, positively weighted trees, positive scalar shift, and the first three unpreconditioned CG steps.
+## correctness
 
-**Originality — PASS, qualified by access.** Axelsson (2010) establishes the standard CG Galerkin and energy-optimality theory; Livne and Brandt (2011) study graph Laplacian solvers without this point-source sign classification. A prior publicly indexed Stieltjes-matrix note establishes CG positivity failures for unrestricted nonnegative right-hand sides in dimension three: that is not an implication of the point-source weighted-tree local law or this complete explicit broom parameter transition. Another indexed discrete-Poisson-path note studies two-source interactions in the second iterate. Repository record summaries, not full texts, were available for those two notes; unindexed or inaccessible equivalent work remains a residual risk. No novelty claim is based solely on a title mismatch or numerical search failure.
+PASS
 
-**Value — PASS.** Sign preservation matters when an iterative solver approximates positive responses of a screened diffusion operator. The local criterion applies to *every* weighted tree at the third step, not just an arbitrary five-node example: its neighboring sign tests use the two successive Lanczos Rayleigh quotients, while the root and distance-two entries are structurally sign-protected. The exactly solved five-node family gives a sharp conductance transition where CG energy optimization and the maximum principle disagree. This supplies a concrete diagnostic and regression boundary; no higher-iterate claim is made.
+For a nontrivial rooted tree, let b=sqrt(S), c=||v||/b. Positive definiteness follows from the shift plus the sum of edge squares. The absence of triangles gives (A-alpha1)q1-b*q0=v/b, with a unique two-edge contribution at every distance-two vertex. When v is nonzero the Galerkin solution has basis coefficients (alpha1*alpha2-c^2, -b*alpha2, b*c)/Delta by cofactors of the positive-definite compression. In original coordinates the two nonroot terms are w_i*alpha2/Delta plus v_i/Delta for neighbors and v_j/Delta for distance two. This proves all the asserted signs, including equality at a zero, and the root cofactor is positive. For two steps the coefficients are (alpha1,-b)/det(T2); for one step only a_r^{-1} at the root is nonzero. A one-vertex tree, if included, terminates at step one. With v=0 the two-dimensional Krylov space is invariant and the result is exact. For inverse positivity independently, a minimum of the solution cannot be negative because at a negative minimum both the Laplacian term and the shift give a strictly negative right-hand side there; a zero minimum propagates to the root by connectedness and contradicts the unit source. On the broom the distance-two residual is nonzero for each t>0. Independent exact Galerkin elimination yields the three stated neighbor polynomials over Q, v^T v=2D/(t^2+26) and Q=Delta D. Exact Sturm variations are 3 to 2 for P and 2 to 2 for each other numerator. The latter start strictly positive; P(28)=-609696 and P(29)=3005694 certify the unique transition and the t=30 vertex-2 value is -77253/484548896. This is an exact-arithmetic, unpreconditioned result only. The indexing of v in the piecewise display is clarified immediately below it; there is no substantive ambiguity in the formula.
 
-The central scientific risk is undetected earlier derivation of the same local formula; the available primary papers' inspected CG and graph-Laplacian sections and the closest indexed research summaries do not show that coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Broad transient CG negativity and Lanczos/Galerkin theory are prior. The narrower point-source neighbor criterion and complete weighted-broom sign transition are supported as distinct to the best of the checked evidence, not as a claim of methodological novelty or certified priority.
+
+## value
+
+PASS
+
+Point forcing is the natural test of whether an iterative approximation to a positive graph Green function preserves the maximum principle. The general certificate isolates the only shell where signs can fail and the reproducible continuous conductance transition shows exactly when the discrepancy appears in a concrete tree. This is stronger than a single arbitrary numerical example. No minimum tree size, preconditioning, or rounding robustness is claimed; 'local' permits the diagonal entries in the Rayleigh quotient of a vector supported within distance two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

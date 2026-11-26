@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The irrotationality theorem of Gravner–Lyu–Sivakoff supplies synchronization if and only if vanishing edge circulation; the rook graph has diameter two. The proof reconstructs the unique normalized integer height for each irrotational coloring, partitions its \(\{0,1,2\}\)-arrays by the support of zero entries, counts full-support matrices by inclusion–exclusion, and establishes a uniform error bound including both bounded and growing minimum side lengths. The formula and asymptotic hold for all integers \(m,n\ge2\), and seven small graphs have an independent exhaustive transition-graph check. The compiled checker and scripts reproduce their outputs. No unverified computational enumeration is used as a proof for unbounded dimensions.
+## correctness
 
-**Originality (PASS, with residual risk).** The fully general irrotationality criterion, the generic Widom–Rowlinson homomorphism representation, and the corresponding sum over connected components are prior facts, not proposed as new. The closest general published formula \(\sum_Z2^{c(G-Z)}\) is exact for every graph but requires exponentially many vacancy-set terms and does not evaluate the explicit rook-graph binomial sum nor prove its uniform \(3\cdot2^{mn}\) asymptotic. Searches for alternative names (line graph of a complete bipartite graph; rook/Hamming graphs; row/column height matrices) found no dominating specialization. A potentially overlooked specialized partition-function computation remains a genuine risk.
+PASS
 
-**Value (PASS).** The rook graphs are a canonical infinite family of diameter-two Cartesian products of cliques. An explicit polynomial-arithmetic count and its uniform exponential rarity identify an exact natural dynamical basin invariant beyond qualitative synchronization criteria, and connect the dynamical count with a statistical-mechanical partition function. The result is not a merely finite census or a relabeling of the prior generic formula: the support factorization and asymptotic require additional arguments.
+For the stated synchronous three-color rule, let e(v) be the advance indicator. The new signed edge increment is the old one plus e(v)-e(u): it cannot leave [-1,1], since at old increment +1 the tail advances, and at -1 the head advances. Thus cycle sums persist. If they vanish, integrate to integer heights; updates take the maximum over the closed neighborhood and after two steps the diameter-two rook graph is constant. Minimum-zero heights are confined to {0,1,2}, and the three root phases give distinct colorings. Of these arrays, 2^(mn)-1 use no two. Otherwise the exact row and column supports of zeros determine a full-support binary rectangle (inclusion–exclusion E), and twos occupy an arbitrary nonempty subset of its complementary rectangle. For two rows E(1,u)=1; the binomial sum simplifies to the stated closed form. Inner sums of size O(ru) give O(m²n²) arithmetic, with binomial and power tables precomputed, not a bit bound. For m<=n, each fixed zero/two row typing permits at most 2^r+2^s-1 options per column. Apart from at most 2m extreme typings the bound is 2^(m-2)+3, by r+s<=m and convexity. For m>=6 the normalized contribution is at most 2n(33/64)^n+(57/64)^n; for m<=5 it is at most 3^5(3/4)^n. This proves the uniform asymptotic. An independent spanning-tree exact-lift count and direct binary support check gave 57, 261, 1065, 4149, 2289, 17757 for (2,2),(2,3),(2,4),(2,5),(3,3),(3,4). Replay: python3 /workspace/branches/reproduce_frozen_math.py 4.
 
-**Limits.** No classification of non-synchronizing recurrent periods is claimed. The operation bound is arithmetic rather than bit complexity. Independent external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general synchronization theorem, the diameter-two homomorphism identity and its generic Widom–Rowlinson partition function, as well as covered tiny members. The distinct all-size result is the polynomial-arithmetic evaluation by zero row/column supports, the entire two-row formula, and the uniform leading term even when the short side stays bounded. No dominating result for those claims was established by the inspected evidence.
+
+## value
+
+PASS
+
+Labelled rook graphs are a natural infinite diameter-two test family, and basin size is a natural dynamical invariant. The support evaluation gives an exact usable count rather than an exponential state or vacancy census, and shows that short graph distances and fast synchronization conditional on success coexist with an exponentially small basin. The leading constant holds even for arbitrarily thin families with the short dimension at least two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

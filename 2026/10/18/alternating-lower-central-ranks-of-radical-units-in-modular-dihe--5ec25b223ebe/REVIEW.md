@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The dihedral group algebra is reconstructed over the given coefficient field as a truncated skew-polynomial algebra using a reflection-odd coordinate. The radical and its algebra basis are explicit. Direct multiplication yields the entire Lie bracket table, including the nonzero coefficient two. Induction computes every Lie lower central term with exact dimensions; the standard truncated exponential/Lazard equivalence applies because the class is \(p-1<p\). A standalone program independently checks the bracket series over six small odd primes and the full radical-unit commutator calculation at \(p=3\). Finite verification does not stand in for the general proof.
+PASS
 
-## Originality
+Independently reconstructed the lower central series by u-degree. One may use u=r−r⁻¹ itself, which has leading term 2(r−1) and is negated by s. Its ideal is nilpotent with semisimple quotient k×k, hence is J. For a,c≥1 and b,d∈{0,1}, the bracket is ((−1)^(bc)−(−1)^(ad))u^(a+c)s^(b+d). In any even target degree t the only possible image is k u^t s, and in odd target degree t both basis vectors are allowed. Bracketing degree t−1 with degree one generates the full allowed target: for even t use the two different parity-of-s basis vectors in the odd degrees; for odd t use u^(t−1)s against u and us. This works also with the restricted degree-(t−1) image from the previous lower central term. Thus for i≥2 the i-th Lie term is exactly the sum of the allowed spaces in degrees t≥i through p−1. Nilpotence J^p=0 makes the associative exp/log and BCH identities valid in degrees <p, and the class-<p Lazard correspondence transports the entire lower central series. Counting gives the stated orders and all additive quotients, including p=3; (1+x)^p=1 gives the Frattini conclusion over every field extension. This is a symbolic replay, not an extrapolation from the finite tests.
 
-PASS, with a documented possibility of an unlocated equivalent calculation. Gildea (2009) computes the center and Kaur--Khan (2013) compute the radical-unit group decomposition, exponent, total order and an upper bound on class. Neither inspected text states the full alternating lower-central quotient profile or proves that the upper bound is sharp for every odd prime. A comparison with accessible published mathematical records and existing related algebra findings did not identify a statement implying those ranks directly. The general product description is structurally related but does not itself calculate lower-central subgroups. Earlier small-prime presentations and Jeyakumar's original paper remain literature risks.
+## originality
 
-## Value
+PASS
 
-PASS. Lower-central quotients and minimal generator numbers are natural invariants of a finite \(p\)-group. The complete formula holds over every finite field of characteristic \(p\) and shows that the radical-length upper bound is attained, with an alternating sequence of one- and two-dimensional successive layers. It substantially refines the published center, order and class-bound information for a classical modular group algebra.
+The evidence supports the full alternating lower-central quotient profile as the distinct claim. Previously recorded order, exponent, center and class bound are not credited as new.
 
-## Limits
+## value
 
-The result concerns the normal Sylow \(p\)-subgroup, not the whole unit group. It does not extend the theorem to higher dihedral prime powers or characteristic two. No independent audit or exhaustive priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The lower central quotients are natural structural invariants of the distinguished modular unit group. The alternating dimensions describe every noncentral commutator layer uniformly over primes and extension fields; a center computation or class bound cannot substitute for that profile. The exact series resolves sharpness and supplies the number of generators without separately assuming either invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

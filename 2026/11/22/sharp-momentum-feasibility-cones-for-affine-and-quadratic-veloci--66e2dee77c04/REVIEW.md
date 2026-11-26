@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact proof reduces any fixed-factor nonnegative matrix to its nonnegative velocity marginal and uses the spatial constant vector for converse realization. In degree one it computes the feasible interval from endpoint inequalities. In degree two it exhausts all extreme rays of the three-dimensional polyhedral sample cone, evaluates their two moments exactly, and proves the full finite-size formula. The strict rank hierarchy, continuum limits, and arbitrarily-close infeasible full-grid targets follow from explicit constructions. The dimension assumptions, nonnegative versus strict positivity, equal weights, and small-grid exception have been checked. Running the actual packaged checker yields 1,800 counted exact-rational cases, checked with explicit assertions for grid sizes 3 through 50; the unlimited-size result is analytical rather than experimental.
+PASS
 
-## Originality — PASS, with residual risk
+The column marginal ranges over exactly the nodally nonnegative polynomial samples: necessity follows by summing rows and sufficiency by assigning the marginal divided by N_x to every row. The normalized slice is a compact convex subset of the probability simplex. The affine constraints are a >= |b| and the moments are na and n mu_n b. The quadratic normalized slice is a polygon: a vertex must have two distinct active nodes by injectivity of evaluation, and two active nodes fix a ray. An upward quadratic with two roots is nonnegative at every node iff the roots are adjacent; a downward one requires the two endpoints. The resulting mean is -2 mu_n c/(mu_n+c^2-delta_n^2) for signed midpoint c, or zero on the downward ray. This gives both endpoints and every intervening value by mixing. The first adjacent pair gives a strictly larger bound than mu_n since mu_n<1. The midpoints become dense and the envelope converges uniformly to 2c/(1+3c^2), maximized at c=1/sqrt(3). R_2=1 at n=3, but for n>=4 every nonzero polynomial of degree <=2 has support on at least two nodes, so by compactness R_2<1. Moving a mass t from a lower occupied node to velocity 1 increases momentum by t(1-v_k) at unchanged mass, with Frobenius distance at most sqrt(2/N_x)t. The QP objective is coercive and strictly convex in the core; the feasible set is closed convex. This is nonnegativity, not strict positivity at the frontier.
 
-The 2026 Kormann–Nazarov–Wen study introduces the mass/momentum/positivity core-matrix quadratic program and explicitly leaves feasibility under rank restrictions unresolved. The older robust conservative and LoMaC papers preserve kinetic moments through fixed or adapted basis modes but do not supply this nodewise-positive polynomial-factor feasibility classification. Searches for exact finite-grid degree-one and degree-two moment cones, adjacent-zero extreme rays, and the asymptotic \(1/3\) and \(1/\sqrt3\) limits did not identify a statement implying this combination. Basic convex-cone machinery is known, and unindexed equivalent elementary calculations remain possible. No general novelty of the extreme-ray method is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp **if and only if** condition is a practical feasibility precheck for a natural fixed-velocity-factor specialization of a recently proposed correction algorithm, where a failed QP cannot be repaired by merely improving the optimizer. The explicit rank-two-to-rank-three attainable-momentum jump, fixed-grid values, and construction showing failure despite arbitrarily small approximation error explain why conservation-mode inclusion alone does not guarantee positivity. The statement is a complete natural classification with a concrete rank-enrichment diagnostic; no claim about global convergence or broad algorithmic speedup is needed.
+Pass for the evaluated polynomial-factor frontier, its all-grid comparison, and the explicit near-frontier obstruction, not for the generic fixed-factor reduction or the QP formulation. The leading related corpus record has a genuinely overlapping general framework; the available statements do not establish its coverage of the explicit adjacent-root maximization over arbitrary n or the sharp limit in this specialization. Mathematical comparison is best-of-knowledge, not a priority ruling.
 
-## Literature and limitations
+## value
 
-Closest source: Kormann–Nazarov–Wen (2026), section 4 equations (4.1)–(4.5) and conclusion. Supporting comparison: Einkemmer–Ostermann–Scalone (2022/2023) and Guo–Qiu (2024). The theorem is for equispaced one-dimensional velocity samples and low-degree fixed polynomial factors, not arbitrary Vlasov time integrators, arbitrary nonpolynomial bases, or a general feasibility algorithm. Scientific priority may require further specialist assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit frontier is a practical exact precheck for a natural low-rank correction with conservation modes. It quantifies the benefit and the limit of adding the quadratic mode, and shows that a small approximation error does not guarantee feasible exact repair. Neither the generic linear feasibility problem nor a continuum asymptotic alone gives that finite-grid diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducible mathematical checks
 
-Run `python3 verify.py` using Python 3 standard library. It tests polygonal arithmetic, pair gcd bounds, the strict cutoff inequality, independent shortest-path Apéry computations for the triangular boundary, and small nontriangular instances. Expected last line begins `VERIFY_OK`.
+Run `python3 verify.py` with Python's standard library. It asserts the generator differences, two divisibility identities, pair gcd bounds and the relevant strict inequalities on 644 sampled triples. It separately computes the Frobenius number and genus for the square triples starting at 193 and 194, just above the sufficient cutoff 192, by shortest paths in the residue graph modulo the smallest generator. It tests nonsymmetry for both instances via \(2g\ne F+1\). The expected last line begins `VERIFY_OK`.
 
-The complete proof for all parameters is the symbolic gcd and gluing argument in `RESULT.md`. Direct finite checks cannot prove its universal quantifiers. The result does not classify indices under the cutoff, and the sharp cutoff is unknown. Independent validation has not been performed.
+These are bounded checks. The all-parameter result is the symbolic proof in `RESULT.md`; the checker neither classifies the region under the bound nor checks priority. The known triangular boundary is cited for context only.

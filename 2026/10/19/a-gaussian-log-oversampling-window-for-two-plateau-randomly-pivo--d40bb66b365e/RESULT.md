@@ -2,119 +2,67 @@
 
 ## Finding
 
-Let \(n\ge2\), \(1\le r<n\), and \(a>1\), and consider the positive-definite two-plateau matrix
+Let \(r=r_n\to\infty\) with \(r=o(n)\), let \(m=n-r\), and fix \(\lambda>0\). Apply exact sequential residual-diagonal-proportional randomly pivoted Cholesky to \(A=\operatorname{diag}(\lambda n I_r,I_m)\), for \(n\) large enough that \(\lambda n>1\). Let \(L\) be the number of unit-weight coordinates selected before the last weight-\(\lambda n\) coordinate. With \(H_r=\sum_{h=1}^r h^{-1}\), put
 \[
-A_{n,r,a}=\operatorname{diag}(aI_r,I_{n-r}).
+\mu_n=\frac{m}{\lambda n}H_r.
 \]
-Apply the exact, sequential **residual-diagonal-proportional** randomly pivoted Cholesky algorithm. Let \(L=L_{n,r,a}\) be the number of pivots from the \(n-r\) unit-weight coordinates **before the last** of the \(r\) weight-\(a\) coordinates is selected. Write \(m=n-r\).
-
-**Exact finite distribution.** For every \(z\in[0,1]\),
+Then \(\mu_n\sim\lambda^{-1}\log r\), and
 \[
-\boxed{\mathbb E[z^L]=\sum_{j=0}^{m}\binom mj z^{m-j}(1-z)^j\prod_{h=1}^r\frac{ah}{ah+j}.}
+\frac{L-\mu_n}{\sqrt{\mu_n}}\Rightarrow N(0,1).
 \]
-In particular, for \(0\le\ell\le m\),
+For any fixed \(0<\varepsilon<\lambda\) and \(x\in\mathbb R\), let \(s_n=\lfloor\mu_n+x\sqrt{\mu_n}\rfloor\) and \(k_n=r+s_n\). If \(\widehat A^{(k_n)}\) is the resulting approximant, then
 \[
-\boxed{\Pr(L=\ell)=\binom m\ell\sum_{j=0}^{\ell}(-1)^j\binom\ell j\prod_{h=1}^r\frac{ah}{ah+m-\ell+j},}
+\Pr\{\operatorname{tr}(A-\widehat A^{(k_n)})\le (1+\varepsilon)m\}\longrightarrow\Phi(x),
 \]
-and
-\[
-\boxed{\mathbb E L=m\left(1-\prod_{h=1}^r\frac{ah}{ah+1}\right).}
-\]
-The alternating finite sum is an exact rational formula for integer \(a\); its positivity follows from the probabilistic construction in the proof.
-
-**Two asymptotic regimes.** Fix \(\lambda>0\) and let \(a=\lambda n\) (so \(a>1\) eventually). For each fixed \(r\ge1\), as \(n\to\infty\),
-\[
-L_{n,r,\lambda n}\ \Rightarrow\ \sum_{h=1}^r G_h,
-\quad
-\Pr(G_h=j)=\frac{\lambda h}{1+\lambda h}\left(\frac1{1+\lambda h}\right)^j\quad(j=0,1,\ldots),
-\]
-where the \(G_h\) are independent.
-
-If instead \(r=r_n\to\infty\) and \(r_n=o(n)\), let \(H_r=\sum_{h=1}^r h^{-1}\) and
-\[
-\mu_n=\frac{n-r_n}{\lambda n}H_{r_n}.
-\]
-Then \(\mu_n\sim(\log r_n)/\lambda\) and
-\[
-\boxed{\frac{L_{n,r_n,\lambda n}-\mu_n}{\sqrt{\mu_n}}\ \Rightarrow\ N(0,1).}
-\]
-The Gaussian, rather than Gumbel, window arises because the number of unit-weight pivots preceding the final dominant pivot has conditional binomial fluctuations of order \(\sqrt{\log r_n}\), whereas the centered maximum of the dominant exponential clocks fluctuates on order one.
-
-**Sharp relative-trace stopping window.** Fix \(0<\varepsilon<\lambda\) and \(x\in\mathbb R\), and define
-\[
-s_n=\lfloor\mu_n+x\sqrt{\mu_n}\rfloor,\qquad k_n=r_n+s_n.
-\]
-For all sufficiently large \(n\), \(0\le s_n\le n-r_n\), and the randomized Cholesky approximant after \(k_n\) pivots satisfies
-\[
-\boxed{\Pr\left\{\operatorname{tr}(A_{n,r_n,\lambda n}-\widehat A^{(k_n)})\le(1+\varepsilon)(n-r_n)\right\}\ \longrightarrow\ \Phi(x),}
-\]
-where \(\Phi\) is the standard normal cumulative distribution function. The best rank-\(r_n\) approximation has residual trace exactly \(n-r_n\). Thus obtaining success probability tending to one or zero occurs on opposite sides of a sharp oversampling threshold \(\sim(\log r_n)/\lambda\), with window width \(\asymp\sqrt{\log r_n}\).
+where \(\Phi\) is the standard normal distribution function. The rank-\(r\) spectral truncation has residual trace \(m\). Thus the logarithmic oversampling threshold has a window of order \(\sqrt{\log r}\) around the specified centering. For feasible deterministic oversampling sequences with normalized offsets tending to \(+\infty\) or \(-\infty\), the success probabilities tend respectively to one or zero.
 
 ## Assumptions and scope
 
-All matrices are real and computations use exact arithmetic. At each step, a pivot is sampled *sequentially* with probability proportional to the currently unselected residual diagonal, not in an iid batch from the original diagonal. A selected diagonal coordinate is removed by its one-column Cholesky update. The finite distribution holds for every finite \(n,r,a\) satisfying the first paragraph. The two limits use \(a=\lambda n\), fixed \(\lambda>0\), and either fixed \(r\) or growing \(r_n\to\infty\) with \(r_n=o(n)\). The trace-window statement additionally requires fixed \(0<\varepsilon<\lambda\); it does not cover the threshold equality \(\varepsilon=\lambda\).
+Each pivot is sampled from the current unselected residual diagonal, not in an iid batch. Calculations use exact arithmetic; selecting one diagonal coordinate removes it without altering the others. In the theorem, \(\lambda\) and \(\varepsilon\) are fixed, and the stated growth and tolerance assumptions are essential to the argument. In particular, the statement does not cover \(\varepsilon=\lambda\). The centering is \(\mu_n\) itself, not a replacement by its leading equivalent \(\lambda^{-1}\log r\) at the precision of the window.
 
 ## Proof
 
-**1. Diagonal updates are size-biased sampling without replacement.** On a diagonal positive-definite matrix, selecting pivot \(i\) subtracts precisely the current diagonal entry at \(i\). All other diagonal entries remain unchanged. Thus the first \(r\) coordinates have selection weights \(a\), the other \(m\) have weights \(1\), and all selected coordinates subsequently have weight zero.
+**1. Diagonal pivoting and exponential clocks.** For the general finite setup \(1\le r<n\), \(m=n-r\), and \(a>1\), the diagonal updates give sampling without replacement with weights \(a\) and \(1\). Assign each of the \(r\) heavy coordinates an independent rate-\(a\) exponential clock and each of the \(m\) light coordinates an independent rate-one clock. The minimum has selection probabilities proportional to these rates, and memorylessness repeats the rule after each selection. If \(T\) is the maximum of the heavy clocks, then \(L\mid T\sim\operatorname{Bin}(m,1-e^{-T})\). By rescaling, \(Y_r=aT\) is the maximum of \(r\) rate-one exponential variables; its independent spacings have rates \(r,r-1,\ldots,1\). Thus \(\mathbb E Y_r=H_r\) and \(\operatorname{Var}Y_r=\sum_{h=1}^r h^{-2}\le\pi^2/6\).
 
-**2. Exponential-race representation and exact law.** Give every dominant coordinate an independent exponential clock of rate \(a\) and each unit-weight coordinate an independent exponential clock of rate one. Sorting all clocks gives exactly the same ordered pivot distribution: the next smallest exponential clock belongs to index \(i\) with probability equal to its rate divided by the sum of remaining rates, and the memoryless property iterates this identity. Let \(T\) be the largest of the \(r\) dominant clocks. Conditional on \(T=t\), the number \(L\) of unit-weight clocks less than \(t\) has the binomial distribution \(\operatorname{Bin}(m,1-e^{-t})\).
+**2. Gaussian window.** Now take \(a=\lambda n\) and the growing-rank regime of the finding. Put \(p_n=1-e^{-Y_r/(\lambda n)}\). The variance bound gives \(Y_r=H_r+O_{\Pr}(1)\), and expansion at zero gives
+\[
+mp_n=\frac{m}{\lambda n}Y_r+O_{\Pr}((\log r)^2/n)=\mu_n+O_{\Pr}(1),\qquad p_n\xrightarrow{\Pr}0.
+\]
+In particular \(mp_n/\mu_n\xrightarrow{\Pr}1\) and \(\mu_n\to\infty\). For fixed real \(t\), write \(u=t/\sqrt{\mu_n}\). The logarithm of the conditional characteristic function of \((L-mp_n)/\sqrt{\mu_n}\) is
+\[
+-iump_n+m\log(1+p_n(e^{iu}-1))
+=-\frac{u^2}{2}mp_n(1-p_n)+O(mp_n|u|^3),
+\]
+using the logarithm near one. It converges in probability to \(-t^2/2\). The conditional characteristic functions are bounded by one in modulus, so their expectations converge to \(e^{-t^2/2}\). The random centering differs from \(\mu_n\) by \(o_{\Pr}(\sqrt{\mu_n})\); the stated weak convergence follows. The largest heavy clock contributes bounded fluctuations to the conditional mean in count units, whereas the light-clock count contributes the growing Gaussian fluctuations.
 
-The spacings between successive ordered dominant clocks are independent exponentials of rates \(ar,a(r-1),\ldots,a\); equivalently,
-\[
-\mathbb E[e^{-jT}]=\prod_{h=1}^{r}\frac{ah}{ah+j}\qquad(j\ge0).
-\]
-Conditionally expanding \((z+(1-z)e^{-T})^m\) establishes the finite generating function. Similarly,
-\[
-\Pr(L=\ell)=\binom m\ell\mathbb E[(1-e^{-T})^\ell e^{-(m-\ell)T}],
-\]
-and binomial expansion gives the displayed finite mass formula. Differentiating the generating function at \(z=1\), or conditioning directly, proves the exact mean. The exact variance, if desired, follows from \(m_1=\mathbb E e^{-T}\), \(m_2=\mathbb E e^{-2T}\):
-\[
-\operatorname{Var}(L)=m(1-m_1)+m(m-1)(1-2m_1+m_2)-m^2(1-m_1)^2.
-\]
+**3. Relative-trace success.** After \(k=r+s\) pivots, let \(h\) be the number of heavy coordinates remaining. There are \(m-s-h\) light coordinates remaining, so the residual trace is \(m-s+(a-1)h\). At \(s=s_n\) we eventually have \(0\le s\le m\) and \(a-1>\varepsilon m+s\), since \(s=O(\log r)\) and \(\varepsilon<\lambda\). Trace success is then equivalent to \(h=0\); the last heavy coordinate is selected at pivot \(r+L\), so \(h=0\) at this step is exactly \(L\le s_n\). The Gaussian limit and continuity give \(\Phi(x)\). The residual trace decreases as pivots are added, so comparison with each fixed normalized offset gives the asserted zero and one limits for offsets diverging with either sign.
 
-**3. Fixed-rank Poisson-geometric limit.** Put \(a=\lambda n\). Let \(Y_r\) be the maximum of \(r\) independent unit-rate exponentials, so \(T=Y_r/(\lambda n)\). For fixed \(r\), conditional on \(Y_r\),
-\[
-\operatorname{Bin}\left(n-r,1-e^{-Y_r/(\lambda n)}\right)\ \Rightarrow\ \operatorname{Poisson}(Y_r/\lambda).
-\]
-Bounded convergence of conditional generating functions gives convergence after mixing over \(Y_r\). The limiting generating function is
-\[
-\mathbb E[e^{-(1-z)Y_r/\lambda}]
-=\prod_{h=1}^r\frac{\lambda h}{\lambda h+1-z},
-\]
-which factors into generating functions of the independent geometric failure counts shown above. This also yields the fixed-\(r\) limiting mean \(H_r/\lambda\).
+## Finite-law context and fixed-rank comparison
 
-**4. Growing-rank central limit theorem.** Let \(r=r_n\to\infty\), \(r_n=o(n)\), and \(m=n-r_n\). Define \(Y_r\) as above. The maximum exponential has mean \(H_r\) and variance \(\sum_{h=1}^r h^{-2}\le\pi^2/6\), so \(Y_r-H_r=O_{\Pr}(1)\), while \(H_r\sim\log r\). Given \(Y_r\), write \(L\sim\operatorname{Bin}(m,p_n)\) with \(p_n=1-e^{-Y_r/(\lambda n)}\). Uniformly on events of probability tending to one on which \(Y_r=O(\log r)\),
-\[
-m p_n=\frac{m}{\lambda n}Y_r+O\left(\frac{(\log r)^2}{n}\right)
-=\mu_n+O_{\Pr}(1)+o(1).
-\]
-Here \((\log r)^2/n\to0\) since \(r<n\) and \(r\to\infty\). Moreover \(p_n\to0\), \(m p_n/\mu_n\to1\), and \(\mu_n\to\infty\). The conditional binomial central limit theorem (or expansion of the conditional characteristic function) consequently yields \((L-mp_n)/\sqrt{\mu_n}\Rightarrow N(0,1)\). Since \((mp_n-\mu_n)/\sqrt{\mu_n}\to0\) in probability, Slutsky's theorem establishes the stated unconditional limit.
+The finite capture-count distribution is a re-expression of the Wallenius biased-urn law, not a separate originality claim. In the notation of the finite setup in Proof §1, let \(X_k\) count heavy items among the first \(k\) draws. Then \(\Pr(L\le\ell)=\Pr(X_{r+\ell}=r)\). This is precisely the all-heavy endpoint of the fixed-draw Wallenius probability (Fog, §2, equations (1)–(6)); differencing adjacent draw counts gives the mass of \(L\), with the full-sample endpoint interpreted as certain capture.
 
-**5. Exact trace threshold.** Suppose \(k=r+s\) pivots have been taken, and \(h\) dominant coordinates remain unselected. Then precisely \(m-s-h\) unit-weight coordinates remain, and the residual trace is
+Equivalently, the conditional binomial representation and the clock spacings give \(M_j=\mathbb E e^{-jT}=\prod_{h=1}^r ah/(ah+j)\) for \(j\ge0\). Consequently, for \(z\in[0,1]\),
 \[
-\operatorname{tr}(A-\widehat A^{(k)})=m-s+(a-1)h.
+\mathbb E z^L=\sum_{j=0}^m\binom mj z^{m-j}(1-z)^j M_j,
+\qquad
+\Pr(L=\ell)=\binom m\ell\sum_{j=0}^\ell(-1)^j\binom\ell j M_{m-\ell+j},
+\qquad \mathbb E L=m(1-M_1).
 \]
-For \(a>1\), the best rank-\(r\) spectral truncation has residual trace \(m\). If \(a-1>\varepsilon m+s\), the inequality \(m-s+(a-1)h\le(1+\varepsilon)m\) holds **if and only if** \(h=0\). With \(a=\lambda n\), fixed \(\varepsilon<\lambda\), \(r=o(n)\), and \(s=\lfloor\mu_n+x\sqrt{\mu_n}\rfloor=O(\log r)=o(n)\), this strict condition holds for all sufficiently large \(n\). The event \(h=0\) at step \(r+s\) is precisely \(L\le s\). Apply the central limit theorem at the continuity point \(x\) to obtain the asserted limit.
+These identities follow by expanding the conditional generating function \((z+(1-z)e^{-T})^m\) and conditional mass \(\binom m\ell(1-e^{-T})^\ell e^{-(m-\ell)T}\). In contrast to the growing-rank window, for fixed \(r\) and \(a=\lambda n\) the conditional binomial tends to Poisson with parameter \(Y_r/\lambda\). Mixing and using the independent spacings yields the limiting generating function \(\prod_{h=1}^r \lambda h/(\lambda h+1-z)\), that of a sum of independent geometric failure counts. This is included as a comparison of regimes, not as a separate originality claim.
 
 ## Verification
 
-`verify.py` contains an exact rational implementation of both the binomial-Laplace formula and an independent finite-state Markov recursion for sequential weighted pivoting. It checks all finite mass values, normalization, first two moments, and the critical-window mean centering on representative parameter arrays. Run with `python verify.py` using only Python's standard library. The finite calculations test formulas, not the universal limit theorems; those follow from Steps 1–5.
+The unchanged standard-library `verify.py` checks the finite probability formula against a separate rational finite-state recursion and checks moments and sample centering values. Those checks do not establish the growing-rank limit, which follows from the proof above.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-The residual-diagonal sampling algorithm is from Chen, Epperly, Tropp and Webber, *Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations* (original 2022 preprint, arXiv:2207.06503; inspected v6). Its Appendix C.4 already features two-level diagonal spectra **for determinantal-point-process sampling**, a distinct fixed-cardinality distribution; the matrix family itself is not presented as new.
+The pivot rule is that of Chen, Epperly, Tropp and Webber (equation (2.6)). Their Appendix C.4 studies two-level diagonal matrices for a different sampling law, the fixed-cardinality determinantal point process. The classical Wallenius law already treats the sequential weighted finite sample and hence determines the finite capture distribution. Epperly studies the cost of capturing all large coordinates on a two-level diagonal example in a different high-to-low weight regime and gives general expected and high-probability trace bounds. Divan and Gilles give general convergence bounds. The contribution here is the explicit critical Gaussian scale and success curve at fixed \(a/n=\lambda\) in the stated growing-rank regime. This does not assert absolute literature priority.
 
-Epperly, *A new analysis of the randomly pivoted Cholesky algorithm* (arXiv:2608.20633v1, released August 21, 2026), gives general expected/high-probability trace-error bounds and motivates quantitatively sharp instance-dependent analyses. Divan and Gilles, *Convergence rates of randomly pivoted methods for low-rank approximation* (arXiv:2609.06287v1), give general spectral-decay bounds including approximate pivot distributions. Neither inspected result specifies the **exact finite capture-count law** or the **Gaussian logarithmic-oversampling success window** for the stated two-plateau RPCholesky family.
-
-The exponential-race representation and conditional binomial/Poisson limits are classical probabilistic tools. The contribution claimed here is the exact RPCholesky-specific law and its nontrivial growing-rank trace-success transition, not invention of those tools, the diagonal test family, or general RPCholesky convergence bounds.
-
-## Limitations
-
-The result applies to a two-plateau diagonal matrix, not to arbitrary dense kernels or approximate/block pivoting. Its performance statement is about the event that the trace residual is within a fixed multiplicative tolerance of the best rank-\(r\) residual. The high modes scale as \(a=\lambda n\); a fixed spectral contrast can lead to different asymptotics. The threshold equality \(\varepsilon=\lambda\), other rank regimes, floating-point error, wall-clock cost, and general kernel accuracy are not determined. Classical sampling theory could contain differently phrased equivalent results; the literature search does not establish global uniqueness.
+The proof does not cover dense kernels, other spectral ratios, approximate or block pivoting, floating-point error, or wall-clock cost.
 
 ## References
 
-1. E. N. W. Epperly, *A new analysis of the randomly pivoted Cholesky algorithm*, arXiv:2608.20633v1 (first public release 2026-08-21), https://arxiv.org/abs/2608.20633.
-2. R. Divan and M. A. Gilles, *Convergence rates of randomly pivoted methods for low-rank approximation*, arXiv:2609.06287v1 (2026-09-05), https://arxiv.org/abs/2609.06287.
-3. Y. Chen, E. N. Epperly, J. A. Tropp, and R. J. Webber, *Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations*, arXiv:2207.06503v6 (original release 2022-07-13), https://arxiv.org/abs/2207.06503.
+1. A. Fog, *Calculation Methods for Wallenius' Noncentral Hypergeometric Distribution*, Communications in Statistics – Simulation and Computation 37 (2008), 258–273. [Author copy](https://www.agner.org/random/theory/nchyp1.pdf), §2.
+2. Y. Chen, E. N. Epperly, J. A. Tropp, and R. J. Webber, *Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations*, [arXiv:2207.06503v6](https://arxiv.org/abs/2207.06503v6).
+3. E. N. W. Epperly, *A new analysis of the randomly pivoted Cholesky algorithm*, [arXiv:2608.20633v1](https://arxiv.org/abs/2608.20633v1).
+4. R. Divan and M. A. Gilles, *Convergence rates of randomly pivoted methods for low-rank approximation*, [arXiv:2609.06287v1](https://arxiv.org/abs/2609.06287v1).

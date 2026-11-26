@@ -31,7 +31,7 @@ and
 \boxed{\lim_{t\to\infty} e^{\mu t}t^{\nu}(u(t),v(t))
 =C\,(1,z_*),\qquad 0<C<\infty.}
 \]
-The positive constant \(C\) depends on the initial state, but the exponential rate, noninteger power and limiting predator-to-prey ratio do not.
+The positive constant \(C\) depends on the initial state, but the exponential rate, the power exponent and the limiting predator-to-prey ratio do not. The exponent \(\nu\) is not required to be an integer; within the stated parameter range it is a positive integer \(k\) exactly when \(q=k/(k+2)\).
 
 At the same fold there is a one-dimensional local strong-stable curve containing positive states, whose graph in ratio coordinates has the exact leading slope
 \[
@@ -41,7 +41,7 @@ Positive trajectories on this exceptional curve instead satisfy
 \[
 e^{\mu t}(u(t),v(t))\longrightarrow C_{\rm s}(1,z_*),\qquad C_{\rm s}>0,
 \]
-with no noninteger power factor. When additionally \(b<d\), the prey-only equilibrium \((1,0)\) is locally asymptotically stable, while the displayed open wedge still goes extinct. Consequently both prey survival and total extinction have nonempty open basins **at** the angular saddle-node threshold.
+with no power-law factor. When additionally \(b<d\), the prey-only equilibrium \((1,0)\) is locally asymptotically stable, while the displayed open wedge still goes extinct. Consequently both prey survival and total extinction have nonempty open basins **at** the angular saddle-node threshold.
 
 ## Assumptions and scope
 
@@ -97,7 +97,7 @@ In particular \(t w(t)\to1/\kappa\), \(\int_1^\infty w^2(t)\,dt<\infty\), and
 \]
 for a finite trajectory-dependent constant \(B\).
 
-**4. Noninteger extinction exponent.** Taking a logarithmic derivative of \(u\),
+**4. Power-law correction to exponential extinction.** Taking a logarithmic derivative of \(u\),
 \[
 \frac d{dt}\log u=-\mu+\lambda'(z_*)w+O(w^2)-u.
 \]

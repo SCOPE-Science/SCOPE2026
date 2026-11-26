@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:55:35.116302Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Verification",
+        "Frozen VERIFICATION.md, checks/check_hankel.py and checks/verification_output.txt (inspected)",
+        "Independent replay: python3 /workspace/evidence/1/ramified_ring.py"
+      ],
+      "rationale": "The reduction of UW−V² has q² zeros, with unique singular zero the origin even in characteristic 2 (if U=W=0, the equation forces V=0). For the cubic, the field cases a≠0, a=0 with b≠0, and a=b=0 give respectively (q−1)q³,(q−1)q²,q² zeros. There are q² rank-at-most-one points: with a≠0 choose a,b and use the rank-one relations; with a=0 the minors force b=c=d=0. Each rank-two point has a unit directional derivative by the Schur chart, or by −b² or −d² in the complementary cases. A unit derivative gives a bijection in the chosen coordinate on a fixed residue class: each next-digit change modifies the output by the derivative times that digit, and hence uniquely lifts each preceding solution. This does not assume a coefficient field. At a rank-one residue, a or e is a unit; the invertible Schur coordinate transformation makes the three residual entries uniformly independent in (π) conditional on the residue class and free values of a,b. Multiplication by π bijects R/(π^(m−1)) with (π), so the rank-one quadratic and origin homogeneous recurrences use honest uniform shorter-ring coefficients, with no ignored terminal condition. For shifts of size at least m the whole contribution is already in the terminal bin; otherwise coefficients below m follow by induction using the respective shifts 1,2,3. The rational solutions follow by solving the two recurrences, first for Q and then the cubic. Their finite tails are recovered by subtracting lower coefficients, and the only nearest pole t=u⁻¹ has coefficient 1−u³ when expressed as a multiple of (1−ut)⁻¹. The remaining possible pole moduli are distinct between the two other denominator factors and at least u⁻³ᐟ², giving the asserted summed remainder. Separately, an independent Leibniz enumeration over the ramified characteristic-four ring Z[X]/(X²−2,X³) gives (1/2,3/16,9/64,11/64) at length three. The frozen checker and saved output were inspected, not run.",
+      "residual_risks": [
+        "The auxiliary computation checks one ramified ring only; the proof uses finite lifting at every length.",
+        "Neither an arbitrary non-chain local ring nor an embedding of each chain ring in a complete DVR is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doan treats topological zeta for arbitrary indicated sizes and minor ideals, with simultaneous local product reductions",
+          "Comer–Kaltofen calculate finite-field singularity counts and related rank information for Hankel matrices"
+        ],
+        "reasoning": "The broader claims dominate in size but not in the arithmetic invariant or the coefficient-ring class; they account for local geometric structure and the field slice, respectively.",
+        "searches": [
+          "arXiv:2610.23689, Theorem 1.3 and Lemma 7.3",
+          "Comer–Kaltofen, §§1–3, especially Theorem 10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.23689",
+        "Comer–Kaltofen author PDF",
+        "Determinant/Pfaffian zeta search description",
+        "Local Resultary self-match and size-four comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Doan's affine local argument uses complex binary-form orbits to arrange a pivot, and the topological formula uses exceptional strata's Euler characteristics",
+          "The frozen proof instead identifies rank strata over all residue fields and uses unit-coordinate uniform lifting and a rank-one Schur chart over the actual ring"
+        ],
+        "reasoning": "The prior chart and resolution supply strong guidance (and potential good-reduction formulas after separate work), but are not a theorem of finite-q point counts or uniform lifting at every residue characteristic. The finite-field count fixes the first tail only. The new arithmetic assertion is not obtained just by substituting into either prior statement.",
+        "searches": [
+          "arXiv:2610.23689 §7.1, Lemma 7.3, and Corollary 1.4",
+          "Comer–Kaltofen §3, singular Hankel counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a complete DVR of residue size q the claimed normalized Igusa integral is Z_q(q⁻ˢ)",
+          "Doan's n=3 square determinant topological formula is exactly (s+3)(2s+5)/[(s+1)(2s+3)(3s+5)]",
+          "The identified Igusa determinant/Pfaffian abstract-level match is on Hermitian rather than Hankel determinants"
+        ],
+        "reasoning": "The substitution t=q⁻ˢ and formal q→1 recover Doan's expression, but this operation loses finite-q information. DVR equivalence also does not on its own give all finite chain rings.",
+        "searches": [
+          "Arithmetic/Igusa local zeta for the three-by-three generic Hankel or catalecticant determinant (primary literature)",
+          "arXiv:2610.23689, Corollary 1.4 Eq. (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-universal-determinant-valuation-zeta-law-for-cubic-hankel-matr--366901687f00 is the assigned self-match",
+          "2026/10/12/SCOPE-arithmetic-determinant-fibers-of-four-by-four-hankel-matrices-ov--ef46cabffa4c gives exact determinant fibers over fields in size four"
+        ],
+        "reasoning": "The self-match is not independent coverage. Size-four field fibers neither count the size-three lifts nor imply the finite-length series.",
+        "searches": [
+          "Local Resultary for arithmetic Hankel determinant valuation series and congruence strata"
+        ]
+      },
+      "rationale": "Credit the established catalecticant local geometry, the identical topological specialization, and the classical field-level rank and singularity counts. The supported distinct result is the exact finite-q valuation series and characteristic- and ramification-uniform finite-chain-ring distribution, not the topological zeta function or first congruence count.",
+      "residual_risks": [
+        "An unlocated same-size arithmetic-zeta formula or a genuinely arithmetic general resolution could cover part of the series. The bounded searches and inaccessible determinant/Pfaffian paper do not settle exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same topological specialization and overlapping geometry, not arithmetic chain-ring counts",
+          "evidence": "The square formula is the product over j of linear s-factors; Lemma 7.3 produces local product charts simultaneously for all minor ideals, with a complex base in the cited construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23689",
+          "material_read": "Theorem 1.3 and Corollary 1.4 Eq. (8), p. 4 (offset 14500); Lemma 7.3 and proof, p. 21 (offset 94100)",
+          "method": "Open-access PDF, bounded passages",
+          "title": "Local topological zeta functions of generic symmetric and catalecticant determinantal varieties",
+          "trigger": "Exact square size-three topological overlap and broader normal forms"
+        },
+        {
+          "assessment": "Covers the first residue layer, not higher powers",
+          "evidence": "Counts matrices over the field, including in cases with specified entries.",
+          "identifier_or_url": "https://users.cs.duke.edu/~elk27/bibliography/10/CoKa10.pdf",
+          "material_read": "§3, PDF pp. 8 and 10; Theorem 10 near offset 31650",
+          "method": "Author-hosted open PDF",
+          "title": "On the Berlekamp/Massey Algorithm and Counting Singular Hankel Matrices over a Finite Field",
+          "trigger": "Exact known finite-field Hankel singularity counts"
+        },
+        {
+          "assessment": "Search description signals a different determinant family; full scope not verified",
+          "evidence": "Available description concerns Hermitian determinants over ramified quadratic or quaternion division algebras.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022314X96900554",
+          "material_read": "Search description only; publisher and lawful CORE PDF attempts blocked",
+          "method": "Primary search and open-access routes attempted",
+          "title": "The Igusa Local Zeta Function Associated with the Singular Cases of the Determinant and the Pfaffian",
+          "trigger": "Potential determinant-zeta precedence"
+        },
+        {
+          "assessment": "Different size and only field fibers",
+          "evidence": "Four-by-four determinant fibers over finite fields have no higher congruence-length parameter.",
+          "identifier_or_url": "2026/10/12/SCOPE-arithmetic-determinant-fibers-of-four-by-four-hankel-matrices-ov--ef46cabffa4c",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic determinant fibers of four-by-four Hankel matrices over finite fields",
+          "trigger": "Closest distinct Resultary arithmetic determinant finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof Steps 2–4 and Limitations",
+        "Doan, Corollary 1.4",
+        "Comer–Kaltofen §3"
+      ],
+      "rationale": "The valuation law gives the entire tower of thickened determinant congruence counts for a canonical structured matrix. It quantifies the rank-one contribution and its lifting uniformly even in residue characteristic two and across different ramification types. These finite-q corrections are needed for arithmetic singularity and probability calculations and are not encoded in the already known topological specialization.",
+      "residual_risks": [
+        "The result does not determine full Smith forms, arbitrary nonzero determinant fibers, or larger Hankel sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

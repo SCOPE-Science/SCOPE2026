@@ -1,23 +1,21 @@
-# Review of the four-sink coexistence certificate
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nine explicitly listed disjoint boxes have all 36 strict boundary signs of the continuous fixed-point residual; the rational-interval checker reproduces those inequalities and certifies each exponential bound with a finite positive Taylor lower sum. Poincare–Miranda proves existence for all real \(\alpha\ge6\), not just sampled gains. Exact Jacobian row-norm estimates give four sinks; det(I−J)<0 with 0<det(J)<1 gives four saddles; a strict inverse-Jacobian norm bound gives one repeller. No global uniqueness, optimality or omitted spectrum assertion is used.
+PASS
 
-The exact-arithmetic checker tests all nine boxes and the monotone inequalities used in the continuum proof. Hyperbolicity is established by inequalities rather than numerical eigenvalues. No exact-total-census claim is made.
+At T=1 the published Euler map gives exactly the displayed residual after subtracting (x,y). The changes of coordinate u=tanh(αx), v=tanh(αy) are continuous and strictly increasing for every α≥6. Positive exponential Taylor sums and the monotonicity of tanh and artanh give uniform endpoint bounds. The independent rational vertex-of-interval calculation in /workspace/review-evidence/replay.py 5 (output 5.txt) verifies all 36 prescribed strict face signs, with minimum certified margin 3/1000, and pairwise separation of the physical rectangles using enclosing intervals. Poincaré–Miranda gives interior zeros; no uniqueness or census is needed. For both possible orientations of a corner box, the two absolute Jacobian row sums are less than one, using the two thresholds 0.34 and 0.90 and monotonicity of αe^(−2αt). For mixed boxes, 1.7−3.89d_tiny>0, and det(I−J)≤1−(1.7−3.89·24/1999)·6(1−0.94²)<0; the eigenvalues are real and straddle 1. The positive determinant makes the smaller eigenvalue positive, so its modulus is less than 1. The inverse row norm in the central box is less than one, proving repulsion. Hyperbolic sinks have nonempty open basins, which cannot intersect since an orbit has at most one limit. The inequalities include α=6 and hold for the entire unbounded interval. The type counts are lower bounds and apply only to step T=1.
 
-## Originality — PASS within inspected evidence
+## originality
 
-This is an effective all-real-gain certificate at the explicit boundary \(\alpha=6\) for this precise biased, oppositely coupled sigmoid neuron pair; it yields four genuine attracting resting states, compared with only two observed in the original numerically explored region. General nine/four capacity bounds and qualitative large-gain switching existence are preexisting and are expressly not claimed as new. The two retrieved results for the same map concern respectively primitive two-cycles and global boundedness, neither of which proves even one of these nine fixed-point existence or stability inequalities.
+PASS
 
-Relevant sources include the originating 2023 article (DOI 10.1007/s11071-023-08897-7), Jin and Gupta (1996), and Duncan et al. (arXiv:2103.17184). Closest same-family indexed findings address two-cycle exclusion and compact global attraction. Their published full RESULT.md proofs were inspected and establish period-two exclusion and global absorption, neither of which implies the present gain-six nine-point certificate. Unindexed or ancillary exact gain-six results remain a publication-priority risk.
+The supported distinct increment is a simultaneous rigorous lower certificate for nine hyperbolic equilibria, including four sinks, at every α≥6 for this exact published discrete map and Euler step. The original numerical examples and the continuous-time capacity/steepness results do not supply these quantifiers and stability conclusions. The same-day catalogue reflection is the assigned record, not separate priority evidence. This is a bounded comparison.
 
-## Value — PASS
+## value
 
-The originating numerical equilibrium study reports counts one, three, and five at gains 1, 1.666 and 1.8, and its phase diagrams emphasize no more than two stable equilibria in the explored range. A rigorously certified four-basin coexistence regime at a small explicit integer gain, persisting for all higher gains, changes the established parameter portrait for a concrete implemented spiking map, and gives a usable quantitative bound absent from qualitative steep-switching theory. Its value is not based on a mere one-parameter substitution or finite enumeration.
+PASS
 
-## Limits
+An explicit uniform sufficient threshold establishes four open basins of attraction for a particular published discrete model, beyond the low-gain numerical examples and the bare possibility of high capacity. The robust coexistence regime and verified type composition are useful constraints on higher-gain bifurcation studies even without a full census or sharp threshold.
 
-Six need not be sharp, the total number of fixed points need not equal nine, and results concerning other time steps or global basins are not asserted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

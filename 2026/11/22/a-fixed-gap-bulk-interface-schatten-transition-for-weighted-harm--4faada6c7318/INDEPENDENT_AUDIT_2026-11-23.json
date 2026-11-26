@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:05:26.055153Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Radial integration gives μ_j=β B(j+1,β), with μ_0=1. On the unnormalized mode r^|j| e^(ijθ), projection after z^a multiplication yields the one coefficient μ_[(a+|j|+|j+a|)/2]/μ_|j+a|. Composing and normalizing gives all three coefficient branches including k=n,m. Both ordered products telescope on each tail (j≥0 and j≤−(2n+d)); reflection k→2n+d−k negates the normalized coefficient and forces the midpoint to vanish if integral. Distinct output modes give exactly the singular-value list. An independent Python Fraction diagnostic constructed the moments with μ_j/μ_(j−1)=j/(j+β), worked on unnormalized Fourier modes, and compared the two products with the three branches after removing the common normalization sqrt(μ_(2n+d−k)/μ_k). It agreed exactly on all 6048 checks for β=1/5,1/2,4/5, n=1..12, d=1..7 and −3≤k≤2n+d+3, including antisymmetry after clearing the square roots. The frozen checker was read, not run. For the infinite limit a useful independent reconstruction avoids differentiation: with F_l(k)=μ_l/μ_(l−k), the exact quotient F_(l+1)/F_l is 1+βk/[(l+1+β)(l−k+1)] for l≥k. Summing these d increments at l=n..n+d−1 and multiplying by the moment square-root prefactor gives the left branch with a minus sign. Gamma ratios show F_l≤C((l−k+1)/(l+1))^β and the square root is bounded there. Thus k=n−u gives the uniform bound C n^(−β)(1+u)^(β−1); reflection and the finitely many intermediate modes give the global bound. For t=k/n in a compact subset of (0,1), the same increments give nc/d→−β t(1−t)^(β−1)(t/(2−t))^(β/2). To justify the bulk Riemann sum rigorously, trim both ends of the left interval: the interface near t=1 costs O(ε^(1−p(1−β))) in rescaled mass, and near t=0 the uniform bound gives |c|≤C/n and hence O(ε). This supplies the endpoint detail implicit in Step 3. For fixed signed r=k−n, the three branches give n^βc→Gβ(|r|)−Gβ(|d−r|). The differences Gβ(j+1)−Gβ(j)=βGβ(j)/(j+1) are positive and decreasing and ∼βj^(β−1), so the tail gives exactly the stated convergence threshold and the maximum occurs at r=0,d. The same majorant yields dominated convergence of the upper-regime mass and tightness of the scaled maximum. In the critical region R≤u≤εn the exact increments have F_l=(u/n)^β[1+O(1/u+u/n)], the prefactor is 1+O((u+1)/n), and βk/[(l+1+β)(l−k+1)]=(β/u)[1+O(1/u+u/n)]. This proves the required uniform intermediate law. Reflection shifts u by the fixed d only; each tail contributes the same harmonic log coefficient. At fixed R,ε the central and outer strips have O(1) mass after n^(βp) scaling, so the two-sided coefficient is 2(βd)^p. All results require fixed d,β,p and measure asymptotic mass, not membership of individual finite-rank operators.",
+      "replay_path": "/tmp/opencode/bergman_review.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cui–Huang–Lu–Zu Theorem 1.1 classifies finite rank for bounded harmonic symbols for unweighted area; analytic polynomial primitives put monomials in the finite-rank class. Sadraoui–Halouani's published abstract treats weighted commutation and punctured-disk hyponormality. The one-fixed-degree record 5ef517e809cb treats a different family of growth regimes."
+        ],
+        "reasoning": "Qualitative finite rank, commutation and compactness, and the separate regime with one exponent fixed do not control the competition between n^{1−p} bulk mass and the n^{−βp} coalescing interface here. Results about a single Toeplitz operator in a Schatten class or mixed analytic/coanalytic symbols do not cover these analytic–analytic commutator limits.",
+        "searches": [
+          "arXiv:2611.08988v2 §§1–4 finite-rank and compact commutators",
+          "Resultary weighted two-degree spectral law and one-fixed-degree bulk–boundary Schatten law",
+          "AIMS Mathematics DOI 10.3934/math.2024977"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fixed-gap search and near-neighbor entries",
+        "arXiv:1411.0213v3",
+        "arXiv:2611.08988v2",
+        "DOI 10.3934/math.2024977 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-ratio theorem assumes m/n→λ>1 and gives a positive unrescaled macroscopic singular profile. The proposed specialization has m/n→1; it would collapse that scale and gives no limit for the microscopic gamma difference. The single-growing-degree theorem has only one degree tending to infinity."
+        ],
+        "reasoning": "The exact coefficients are a common starting point, but only a separate uniform coalescing-scale estimate turns them into the fixed-gap sharp weakly decaying tail and two-sided logarithm. A formal derivative of a bulk profile in the ratio might suggest the subcritical integral; it neither justifies that limit near the interface nor yields the critical and upper limits.",
+        "searches": [
+          "Resultary e8a619449e4a and 5ef517e809cb theorem summaries; frozen record's relationship section",
+          "Dong–Zhou arXiv:1411.0213v3 §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dong–Zhou arXiv:1411.0213v3, Lemmas 3.1–3.4 and §4: quasihomogeneous signed Fourier shift and reflection symmetry in the unweighted setting; finite supported shifts have canonical finite-rank forms.",
+          "The weighted two-degree spectral record e8a619449e4a concerns precisely the same family parametrized by the limiting degree ratio strictly above one."
+        ],
+        "reasoning": "The finite shifted-diagonal coefficient representation and its singular lists are the right equivalence to check, rather than spectral eigenvalues of the nilpotent commutator. The nonzero, rescaled near-diagonal asymptotics for 0<β<1 do not follow from unweighted formulas or changing variables in the fixed-ratio limit.",
+        "searches": [
+          "Resultary: weighted harmonic Bergman monomial Toeplitz commutators fixed gap Schatten gamma interface degree ratio one",
+          "harmonic Bergman weighted Toeplitz analytic monomials commutator consecutive powers fixed difference Schatten asymptotic singular values [T_z^n,T_z^(n+d)] gamma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact tabulation of the fixed-gap critical exponent/log coefficient or the gamma-interface sequence was identified in those results; the nearby catalogued results respectively specify fixed nonunit degree ratio, a fixed degree one, or a mixed commutator. The quantities here are infinite-limit constants, not a numerical finite-rank table."
+        ],
+        "reasoning": "Exact finite-n coefficients can generate examples, but their existence or tabulation does not give the summability threshold or logarithmic residue. No priority inference is made from absence of a table.",
+        "searches": [
+          "Resultary fixed-gap gamma-interface search, with retrieved e8a619449e4a, 5ef517e809cb and e4b0e7c2544e",
+          "harmonic Bergman weighted Toeplitz analytic monomials commutator consecutive powers fixed difference Schatten asymptotic singular values [T_z^n,T_z^(n+d)] gamma"
+        ]
+      },
+      "rationale": "Best of knowledge for the fixed-positive-gap asymptotic theorem, not for the Fourier coefficient representation, finite rank, reflection, or the finite-rank mechanism. It is important that the two-degree regime does not just substitute ratio one into the positive fixed-ratio result.",
+      "residual_risks": [
+        "An unindexed weighted two-degree theorem with a uniform coalescence estimate could cover this boundary; did not identify such a theorem in the checked sources.",
+        "Full-text noncoverage was not established for the weighted commutation paper or the locally summarized corpus records; access limits are not evidence of uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unweighted shift/canonical and rank structure, not the negatively weighted fixed-gap Schatten law.",
+          "evidence": "Lemmas 3.2–3.4 give the shift, paired symmetry and finite basis form; ambient space uses normalized unweighted disk area.",
+          "identifier_or_url": "https://arxiv.org/html/1411.0213v3",
+          "material_read": "Introduction, Lemmas 3.1–3.4 and relevant rank/canonical treatment in §4",
+          "method": "Primary arXiv HTML",
+          "title": "Ranks of Commutators and Generalized Semicommutators of Quasihomogeneous Toeplitz Operators",
+          "trigger": "Exact earlier canonical finite-rank shift and reflection structure"
+        },
+        {
+          "assessment": "Strong qualitative finite-rank result, with different weight and conclusion.",
+          "evidence": "Theorems 1.1–1.2 use unweighted normalized disk area and rational primitives or hyperbolic boundary criteria; they do not give rescaled weighted singular masses.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08988v2",
+          "material_read": "Abstract and Introduction, Theorems 1.1–1.2, projection identity Lemma 2.1 and structural discussion",
+          "method": "Primary arXiv HTML",
+          "title": "Finite-rank and compact Toeplitz commutators on the harmonic Bergman space",
+          "trigger": "Highly relevant monomial finite-rank coverage"
+        },
+        {
+          "assessment": "Statements give distinct degree limits and do not directly specialize to the asserted fixed-gap law.",
+          "evidence": "Fixed nonunit limiting degree ratio and one-fixed-degree regimes, respectively.",
+          "identifier_or_url": "Resultary 2026/11/17 e8a619449e4a and 5ef517e809cb",
+          "material_read": "Indexed mathematical statements plus frozen explicit comparison, not independent full text of these two entries",
+          "method": "Configured Resultary search",
+          "title": "A weighted two-degree spectral law for finite-rank harmonic Bergman Toeplitz commutators; A bulk–boundary Schatten transition for high-degree harmonic Bergman Toeplitz commutators",
+          "trigger": "Closest same-weight degree-asymptotic claims"
+        },
+        {
+          "assessment": "Related weighted structure; no whole-document noncoverage claimed from abstract access.",
+          "evidence": "Abstract concerns exact commutation of harmonic symbols and a sufficient criterion for hyponormality, not a stated scaling law.",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.2024977",
+          "material_read": "Publisher abstract, scope and metadata; PDF access attempt did not deliver full text",
+          "method": "Primary publisher public landing page",
+          "title": "Commuting Toeplitz operators on weighted harmonic Bergman spaces and hyponormality on the Bergman space of the punctured unit disk",
+          "trigger": "Weighted harmonic Toeplitz antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed integer difference is the natural neighboring-degree limit where the established fixed-ratio profile degenerates. The finding determines which spectral modes carry each Schatten mass, including the borderline residue and the nonzero trace norm despite operator norm going to zero. Exact gamma constants and a proof of the change of scale provide new spectral information beyond the algebraic finite support.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

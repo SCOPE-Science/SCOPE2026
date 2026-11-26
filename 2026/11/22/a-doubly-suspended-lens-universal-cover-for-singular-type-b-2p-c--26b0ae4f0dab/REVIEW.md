@@ -1,9 +1,0 @@
-# Scientific review
-
-**Correctness — PASS.** The signed Coxeter cycle decomposes as odd complex Fourier weights. The unique weight divisible by an odd prime gives the complete point-stabilizer picture. A quotient of a sphere join by the normal prime subgroup yields an explicit double-suspended ordinary lens space, and the remaining order-four group acts freely. Hurewicz, deck-group isotopy, and prime-local transfer yield the claimed low homotopy and all integral groups. The standalone exact modular check for the rank-six case reproduces predicted Betti numbers and boundary compositions. This check alone is not an infinite proof.
-
-**Originality — PASS for the geometric cover/low homotopy claim; known homology explicitly credited.** Kawasaki's general weighted-lens-space cohomology, as directly summarized in the fully inspected Bahri–Franz–Ray Section 2, already implies the integral homology portion and so that part is *not* an original result. The actual Coxeter orbit space universal-cover homeomorphism, \(\pi_3\cong C_p\), and the trivial \(C_4\) monodromy are not statements found in the inspected primary work. The closest existing orbit-space results concern different complexes, different stabilizer geometry, or different fundamental groups. The original Kawasaki paper was not accessible, leaving a nonzero priority risk for a previously stated general homotopy consequence.
-
-**Value — PASS.** For a natural infinite family of singular reflection-complex symmetry quotients, the universal cover and first nontrivial higher homotopy group are pinned down geometrically, detecting unbounded-order structure invisible in the quotient's preexisting weighted-lens cohomology formulas. No full quotient homotopy classification or priority certainty is claimed.
-
-Self-review: passed. Independent audit: not yet performed.

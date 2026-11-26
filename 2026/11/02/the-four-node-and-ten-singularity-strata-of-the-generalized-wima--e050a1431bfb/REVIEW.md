@@ -1,11 +1,21 @@
-# Scientific review: exact nodal and rational degeneration strata
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof makes a complete reduction to the nodal cubic \(Q_{a,b}\), establishes the exact condition \((a+b+3)(a^2+ab+b^2)\ne0\) for its geometric integrality, proves connectedness of the degree-four Kummer pullback using independent odd-valuation supports, and classifies all local singularities through the multiplicities of axis roots. The genus-six, ten-node and six-cusp cases follow from arithmetic genus and local \(\delta\)-invariants. The two supplied standalone checkers verify the defining identities and independently count singularities in the characteristic-five finite-field sample. The infinite theorem is established by geometric arguments, not extrapolated from that sample.
+## correctness
 
-**Originality — PASS, with a stated risk.** Kawakita (2017) and Iezzi–Kawakita–Timpanella (2023) give the family and a sufficient genus-six regularity criterion; their polynomial resultant is \(-(a+b+3)^3(a^2+ab+b^2)\). The new assertion goes beyond the sufficiency criterion: it exactly identifies the four-node locus, classifies the rational ten-singularity discriminant stratum in all characteristics at least five, and distinguishes its unique six-cusp parameter. The source manuscripts were inspected in their sections specifying the family, quotient geometry and genus criterion. Targeted searches of mathematical literature and research-index statements uncovered no implication covering the full degeneration classification. The historical Edge pencil has only one parameter, but its entire text was unavailable; an unindexed earlier degeneration computation remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The published sextic family was introduced to construct high-point genus-six curves. Its exact degeneration boundary is geometrically meaningful: the normalization genus jumps from six to zero, and the generic boundary curve is a geometrically integral rational sextic attaining the maximal ten ordinary nodes possible for its degree. The special member has six cusps instead of six additional nodes. The complete sharp boundary helps distinguish allowable geometric members for arithmetic applications; no downstream coding-theory claim is made.
+In the cubic chart centred at [1:1:1], the quadratic term is L(u²−uv+v²). For roots t of t²−t+1, restriction to v=tu leaves the cubic coefficient (a+b)t−b; the product over the two roots is R. A reducible cubic with an ordinary node has a line component through the node: if only a residual conic passed through it the point would be smooth unless another component also passed through it. Conversely a zero tangent coefficient gives a line component. If L=0 the cubic is homogeneous of degree three in the shifted chart and factors into lines through the point, so the exact four-node condition does not miss integral members on LR=0. For LR≠0 the irreducible cubic has no further singularity by arithmetic genus one. Its smooth points on U=0 and V=0 have respective odd axis orders somewhere (each total intersection degree is three), and both coordinates are never zero there. Valuations there prove independence of U/W and V/W as squareclasses and give a field of degree four on the torus of the pullback. The pullback has no component on the axes and is generically reduced, hence is integral as a plane hypersurface. Squaring is étale on the torus, giving four nodes. At a smooth axis point of contact order m, the completed pullback local equation is x²=s^m after taking a square root of a unit; there are two preimages. Orders 1, 2, 3 thus give smooth points, nodes, cusps. The axis cubic has discriminant Δ; a triple root r satisfies r³=−1, a=−3r, b=3r², hence L=3(r²−r+1), R=9(r²−r+1). Only r=−1 survives on LR≠0. Subtracting the unit delta-invariant of each listed singularity from ten gives genus six or zero.
 
-**Scientific limits.** This theorem is restricted to the explicit open parameter region \((a+b+3)(a^2+ab+b^2)\ne0\) and characteristic at least five. It does not classify the complement, fields of definition, or isomorphism classes. No independent external validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The family, quotient construction and an earlier sufficient genus-six locus are not new. Credit the exact integral and four-node conditions and the two explicitly classified degenerations on the integral locus. No inspected full statement covers this two-parameter classification.
+
+## value
+
+PASS
+
+For a literature-motivated genus-six family used in point-count constructions, the exact open conditions separate genuine integral four-nodal models from rational degenerations. The contact orders identify what replaces the nodes at the exceptional parameter instead of merely flagging a failed sufficient test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

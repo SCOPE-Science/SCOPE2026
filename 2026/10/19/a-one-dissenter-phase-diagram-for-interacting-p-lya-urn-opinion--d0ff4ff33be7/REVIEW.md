@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The equilibrium-symmetry contradiction and exactly factored scalar fixed-point equation exclude all unlisted stationary profiles. The two Perron sign tests distinguish the two boundary regimes. The published stochastic convergence and boundary-exclusion theorems, together with vanishing update increments and a finite fixed-point set, establish the deterministic almost-sure interior limit. An exact derivative calculation establishes interior local stability. The proof handles the equalities at both phase boundaries, and rational checks are auxiliary, not infinite certification.
+## correctness
 
-**Originality — PASS, with residual risk.** Tang et al. provide general convergence-to-equilibrium-set and boundary spectral criteria, but explicitly leave determination and uniqueness of interior equilibria unresolved generally. Jadbabaie et al. analyze a homogeneous-honesty complete graph rather than independently tunable opposing biases on a loopless graph. The new fixed-point uniqueness, explicit interior almost-sure limit, and public-majority inversion condition are not statements of those sources. The mere boundary criterion is not claimed as new, and an equivalent unlocated reinforced-urn specialization remains possible.
+PASS
 
-**Value — PASS.** One biased dissenter opposed by a weakly biased majority is a natural social-pressure experiment. A strict persistence window, its width, an exact stationary public-opinion profile, and a reversal threshold answer quantitatively meaningful questions absent from the general theory; the conclusion is not solely a routine eigenvalue substitution.
+At any fixed point unequal majority entries would have oppositely ordered neighbor averages on loopless K_n, contrary to strict monotonicity of their shared map. Setting x=f(y,g) reduces the majority equation to y(y−1)(A−Cy)=0 after positive denominator clearing, with A=h(g+n−2)−(n−1) and C=(g−1)(1−h)(n−2)>0. Hence the interior root is y=A/C, admissible exactly when 0<A<C; the endpoint roots merge at the stated thresholds. Evaluating its odds at y=1/2 and taking endpoint differences give the flip formula and positive width. At each consensus boundary the positive Perron vector of the two-class quotient lifts to the full Jacobian; its determinant at I changes sign at h0 or h1. Tang et al., Theorem 4, includes equality and excludes the two boundary limits in the open window under these model hypotheses. Theorem 3 plus increments bounded by 1/(t+1) forces convergence to one point of the finite fixed set, therefore to the unique interior point almost surely in that window. At that point the derivative of the scalar residual has sign C y(1−y)/D>0, giving det(I−B*)>0; the second quotient eigenvalue is negative and the majority-difference drift eigenvalues are −1−b/(n−1). This proves local stability for continuous time, not convergence of individual binary declarations. Independently inverted the majority equation in odds at 300 rational cases and reproduced the fixed point, window/flip and closed stability determinant exactly (python3 /workspace/branches/reproduce_reviews.py 5); no stochastic assertion is inferred from the sample.
 
-Closest literature: Tang, Adler, Ajorlou, and Jadbabaie, arXiv:2308.09275 (Theorems 3–4 and discussion of interior equilibria), and Jadbabaie, Makur, Mossel, and Salhab, arXiv:2104.11172 (common-honesty complete-graph solution). Scope is one distinguished bias on a loopless complete graph; no general network uniqueness, trajectory rate, or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Support is for the explicit loopless one-dissenter phase diagram, including the interior frequencies, reversal threshold, width and local stability calculation. Do not credit the general spectral consensus criterion or equilibrium approach. The strongest distinct catalogue match also covers interior uniqueness and deterministic selection as qualitative claims; it does not supply the quantitative one-dissenter solution.
+
+## value
+
+PASS
+
+In this minimal heterogeneous complete-graph model the explicit frequency and flip threshold tell when a privately biased majority nevertheless declares the opposite opinion more often, an effect neither endpoint condition reveals. The nonzero width locates the whole mixed regime, and the drift analysis explains its local stability. These are usable precise predictions, rather than merely applying an existing consensus theorem to a smaller graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

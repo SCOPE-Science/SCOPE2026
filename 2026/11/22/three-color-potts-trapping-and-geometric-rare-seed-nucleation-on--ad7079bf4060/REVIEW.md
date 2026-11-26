@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local flip rule is defined for each ordered recoloring, strictly increasing the number of agreeing bonds and giving a finite DAG of all \(3^{10}\) configurations. The exact absorbing-probability recurrence therefore has a unique rational solution. Both packaged full-state enumerators generated the 579 terminal states by class and agreed exactly on all four probabilities and the five geometric classes of \((7,2,1)\) minority arrangements. This is a proof by complete finite enumeration with a rigorous recurrence, not simulation. The model excludes energy-neutral moves, which is part of the stated theorem.
+PASS
 
-## Originality — PASS on examined evidence
+A vertex recoloring changes the agreeing-edge count by its new same-color neighbor count minus its old count. Every allowed change increases this integer, so the chain is acyclic up to absorption and has at most fifteen jumps. Its embedded jump chain chooses uniformly among allowed ordered recolorings, not first among vertices; terminal values therefore propagate uniquely in descending agreement score. A fresh pentagon/pentagram/spokes implementation enumerated all 59,049 labeled states, validated strict score increases on all transitions and propagated exact named terminal probabilities. It reproduced the (population, count, score) rows ((10),3,15), ((5,5),36,10), ((5,3,2),360,8), ((4,3,3),180,7); all four frozen exact uniform-initial fractions and the exact nonconsensus total 1130139522395301525645463/3686384171559531241800000 agree. For all 360 placements it reproduced the five adjacency counts 90,120,30,60,60 and found nonconsensus only in class (0,1), with probability 11/270 and terminal named populations (5,5,0). Thus the uniform-placement mean is 11/810. This independently verifies the agreeing-edge column and the complete seeded terminal law, which are not both reported by the packaged diagnostics. Replay with Python 3 using /workspace/branches/4bd1aaed-95ae-4737-9ff8-939e8c296b3d/independent_petersen_check.py; exact output and each named placement law are in independent_petersen_results.json in the same directory. The finite check exhausts the specified graph and dynamics, not other graphs or rates.
 
-The strongest conceptual antecedents are the q-state Potts persistence work of Derrida, Bray and Godrèche (1994) and Derrida, Hakim and Pasquier (1995), followed by the attractor study of Godrèche and Luck (2004) and random-graph Ising work of Baek, Ha and Jeong (2011). Their actual statements concern lattice coarsening, persistence or different spin/update rules, not the complete strict three-color absorption distribution on Petersen. The accessible earlier two-color Petersen law is a distinct, smaller state space; its binary model cannot supply the mixed three-color local minima or \((7,2,1)\) nucleation rule. Proper-coloring tables and antiferromagnetic Petersen optical-Potts optimization address different observables. Search absence is not a uniqueness proof; an unindexed exact enumeration remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural finite-size kinetic benchmark for the unique cubic girth-five cage, with a complete terminal population census rather than one arbitrarily selected state. More importantly, it gives a sharp geometrical seed-selectivity law for a two-color droplet interacting with a third-color singleton: only one of five minority placement geometries can reach nonconsensus, with the exact nonzero chance \(11/270\). This distinguishes microscopic recruitment from simple static energy and from the two-state process. The finding does not assert thermodynamic scaling or general-network conclusions.
+PASS is supported by the distinct kinetic content: the full four-class rate-one-per-recoloring absorption probabilities and the placement-selective mixed-minority law. Do not credit the bare total 579 or its one-/two-/three-color split as distinct from the verified same-day Resultary fixed-point census. Its more detailed energy/population breakdown is a useful accompanying census, not the sole basis for originality.
 
-## Closest literature and limitations
+## value
 
-Relevant full articles inspected include the 1994 Potts persistence paper (web-extracted PDF text), the 1995 Potts reaction–diffusion preprint, the 2004 attractor review, the 2011 random-network Ising study and later low-temperature Potts tunneling analysis. The closest same-graph public results concern two-state dynamics, three-color antiferromagnetic Potts equilibrium, or a different three-color excitation process. Unindexed equivalence and the strictly cooling versus neutral-update distinction remain important risks. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On the Petersen graph, a natural minimal cubic girth-five example, a complete strict-cooling kinetic benchmark distinguishes which static minima are actually reached and with what mass. In particular the (7,2,1) selection rule isolates an exact difference between identical populations arranged in different local geometries, including the disappearance of the third color on the nonconsensus paths. This is meaningful without extrapolation to other graphs and is not merely the overlapping fixed-point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

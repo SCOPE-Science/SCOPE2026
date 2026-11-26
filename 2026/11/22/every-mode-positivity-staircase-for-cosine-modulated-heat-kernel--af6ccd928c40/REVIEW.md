@@ -1,20 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Fourier diagonalization on \(\mathbb Z/N\mathbb Z\) gives the exact eigenvalue factor \(a_j[1+\beta F_j(t)]\), with all \(a_j>0\). On the upper-frequency half-grid, an exact integral expression for an adjacent log-ratio, divided by \(2t\), is strictly increasing in \(t\) and changes sign exactly once when the lower index is greater than \(N/4\). A strict continuous unimodality lemma establishes that each adjacent equality is a global two-mode tie. The straddling comparison excludes all lower indices. These establish sharpness, exhaustive strict ordering of all transition times, and the exact full-circulant boundary nullity. The standalone checker independently reproduces 200246 numerical regression and Fourier-DFT assertions on finite instances. Floating-point comparisons are not used as proof of universal inequalities.
+## correctness
 
-## Originality
-**PASS, best-knowledge.** The 2024 discrete-Gaussian paper and earlier cyclic heat-kernel/Bessel work supply the unmodulated spectral formula, not the signed-mask positivity threshold or the exact full mode-switching diagram. The 2024 group-heat multiplier treatment addresses regularization and completely positive semigroups rather than finite-cycle modulation. Closest published comparison: the sampled two-harmonic von Mises theorem classifies Fourier eigenvalue order for a different spatial exponential family; its theorem does not imply the current inverse-DFT heat-kernel times cosine-mask result. Existing geodesic-exponential and wrapped-Gaussian infinite-circle modulation results likewise have different base kernels, character sets, and transition equations. The comparable published statements and available prior claims do not establish the current classification. Historical priority is not exhaustively established; a classical cyclic multiplier or discrete covariance identity might be equivalent.
+PASS
 
-## Mathematical value
-**PASS.** Signed modulation of a positive heat kernel need not retain positive type. The first-harmonic case is the minimal nontrivial stationary modulation, and determining the sharp admissible negative coefficient is a natural covariance-design and Fourier-positivity question. The answer is not merely a finite scan: it gives an all-order complete phase diagram with unique adjacent crossings, an exact no-skips law, and boundary nullity at every time. It resolves the mode-selection behavior uniformly for every cycle size, including parity effects, with an independent explicit equation for each transition.
+The kernel depends on the difference coordinate; multiplying by its first cosine shifts the Fourier coefficients by ±1. Thus λ_j=a_j(1+βF_j) with a_j>0 and F_j>0, so the largest F_j sets the only cutoff for real β. For the angular extension, the log derivative is positive up to π/2. Above π/2, dividing by sin θ gives u−v²y tanh(v√(1−y²))/(v√(1−y²)) with y=−cos θ. The subtracted product strictly increases in y, because tanh z/z strictly decreases in z>0. This proves strict unimodality and that any adjacent sampled equality is a global and exclusively two-representative tie. For consecutive upper angles the log-ratio divided by 2t is −AΔcos plus the integral of tanh(2tw) over [B sin((j+1)h),B sin(jh)]; it strictly increases from a negative limit to −2A cos(jh)>0. At the π/2 straddle the same limiting expression is nonpositive when N≡0,1 mod 4; for finite times the integral is strictly below its limit. When N≡2 mod 4 the sine factors tie and the cosine exponential favors the higher mode; when N≡3 both factors favor it. The straddle and all smaller modes are therefore excluded. At an upper adjacent tie, every comparison to its left still points upwards by strict unimodality, forcing every corresponding lower-index transition to occur later. Reversing adjacent signs in that order gives all active modes and no skipped or simultaneous transitions. The single-candidate case J=M needs none; t=0 is excluded. Reflection pairs j with N−j, except the even Nyquist singleton, proving the stated boundary nullities and strict inequalities away from the boundary. Read the frozen checker without running it. A separate stable spectral-exponential check (`python3 /workspace/independent_checks.py 3`) checked 4,851 adjacent roots in their within-cycle order for N=3–200 and direct positional DFT for N=3–25; for N=12 it gave 0.2881787753 and 0.4028304687. These bounded floating-point comparisons are not proofs of the strict all-time inequalities.
 
-## Closest literature and limits
-- Chinta, Jorgenson, Karlsson, Smajlović (arXiv:2409.14344v1; first public 2024-09-22), discrete Gaussian and cyclic spectral expansion.
-- Karlsson and Neuhauser (2006), cyclic heat kernels and theta identities.
-- Bédos and Conti (2024), heat properties and positive Fourier multipliers for groups.
-- Published studies of two-harmonic sampled von Mises spectra, geodesic-exponential circle modulation, and wrapped-circle Gaussian modulation; their precise implications were compared.
+## originality
 
-The theorem is restricted to one harmonic modulation of the nearest-neighbor cycle heat kernel. Transition roots are unique implicit values, not elementary closed forms. An independent audit and exhaustive historical search have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best of current knowledge, the signed lag-mask Fourier cutoff follows from standard diagonalization, but the finite nearest-neighbor cycle's complete order of active modes and exact tie multiplicities are distinct. Even the closest earlier sharp first-harmonic theorem uses geodesic-exponential continuous-circle coefficients, and the other all-mode staircases use different masks or spectra. The same-day Bessel analogue has a locked mode, not the finite heat staircase; no order is inferred from the date.
+
+## value
+
+PASS
+
+Positive heat spectra alone do not ensure positivity after a signed lag mask. The smallest nontrivial harmonic mask already leads to a full phase diagram in time, with sharp permissible negative coefficient and exact degeneracies. A uniform no-skips theorem gives a usable covariance-design criterion and predicts which modes lose positivity without an all-mode scan of every cycle and time; it is more than a Fourier rewrite of the cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

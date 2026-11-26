@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:51:26.256730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4",
+        "Frozen VERIFICATION.md and checker.py",
+        "Independent exact matrix multiplication, Hermitian pencil reduction and 2-by-2 compression"
+      ],
+      "rationale": "Exact inversion gives rows (3/2,1/2), (-9/2,5/2); squaring gives rows (0,2), (-18,4). Multiplication by diag(9,1) cancels both off-diagonals of the symmetric part and gives the two stated pressure blocks. The first block attains the lower weighted Rayleigh bound on a least eigenvector of P; the second strictly dominates that bound. Accretivity then gives the inverse norm bound. For any universal diagonal weight let alpha decrease to zero with scalar P=Q=1. The limiting symmetric part has zero first diagonal and off-diagonal d_1-9d_2, so nonnegative determinant requires d_1=9d_2. For the angle, first use the similarity by W^(1/2) to make the original weighted numerical range Euclidean. Its symmetric part is positive definite, so the extremal imaginary-to-real ratios are the generalized Hermitian eigenvalues of the skew part multiplied by -i against the symmetric part. Spatial congruence by P^(-1/2) times an orthogonal eigenbasis of P^(-1/2) Q P^(-1/2) preserves those ratios, without asserting simultaneous similarity of P and Q. Each reduced two-stage block has symmetric diagonal h_1=(3/2) alpha, h_2=(5/2) alpha+4 beta mu and skew off-diagonal t=(3/2) alpha+6 beta mu. Its signed extremizers have stage components proportional to (sqrt(h_2), ±i sqrt(h_1)) and give ±t/sqrt(h_1 h_2). Squaring gives 3(r+4)^2/[r(5r+8)]; differentiation gives -96(r+1)(r+4)/[r^2(5r+8)^2], so mu_max is decisive. The limits are sqrt(3/5) and divergence like sqrt(6/r). The Euclidean symmetric two-stage compression along a common spatial direction has determinant -u^2/4-26uw-64w^2, strictly negative. The symbolic checks and finite matrix design in the supplied checker are consistent with these derivations. The supplied checker was inspected, not run.",
+      "residual_risks": [
+        "Valid for positive coefficients and SPD factors in finite dimensions, with a pressure gauge if needed. Uniqueness is among universal positive diagonal stage weights, not among arbitrary metrics or weights for one chosen pair. The angle is over the complexified space and is not a full-preconditioner convergence result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eqs. (21)–(22) give an augmented-Lagrangian approximation whose expansion has both inverse-stage and squared-inverse-stage terms.",
+          "The closest indexed stage-coercivity result, 2318e2983f4c, treats the single inverse-stage matrices at s=8,9,10, not arbitrary pairs in the two-term problem.",
+          "The original Axelsson et al. full text could not be read by the attempted lawful routes."
+        ],
+        "reasoning": "A sufficient accretivity test for A^(-1) would not control the A^(-2)-dominated limit that forces uniqueness. No inspected stronger theorem was found to imply the sharp angle; the uninspected material remains a priority risk.",
+        "searches": [
+          "Leveque–He–Olshanskii arXiv:2506.04451v1, Eqs. (21)–(22)",
+          "Axelsson–Dravins–Neytcheva DOI 10.1002/nla.2532 and identified DiVA OA route",
+          "Local Resultary weighted Radau and stage-coercivity search"
+        ]
+      },
+      "checked_sources": [
+        "Ali–Kirby arXiv:2611.03361v1",
+        "Leveque–He–Olshanskii arXiv:2506.04451v1",
+        "Local Resultary checks including 2318e2983f4c",
+        "DOI 10.1002/nla.2532 metadata and limited retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known surrogate identities specify L. General weighted field-of-values ideas give the relevant positive-definite/skew Hermitian pencil once the weight is chosen.",
+          "The forcing limit of the squared term, the reduction by congruence for noncommuting spatial factors, and monotonic maximization at the largest spatial generalized eigenvalue are the steps that identify the unique ratio and exact boundary."
+        ],
+        "reasoning": "The exact sector is neither a restatement of Eq. (25) nor a specialization of the observed stage-coercivity catalogue claim. Those sources provide the model and related methods, not the pair of necessary and sharp assertions.",
+        "searches": [
+          "Ali–Kirby §5.2, Eq. (25) and derivation",
+          "Leveque–He–Olshanskii Eqs. (21)–(22)",
+          "Mirrored Resultary 2318e2983f4c, result for single-inverse stage matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choosing the two-stage Radau tableau and setting P=M_p^(-1), Q=K_p^(-1), alpha=(Pr+gamma)/Delta t, beta=1/(Delta t)^2 identifies the exact prior surrogate template.",
+          "The weighted numerical range can also be expressed as the ordinary numerical range after the stage balancing similarity by diag(3,1); the sector calculation is equivalent to bounding both signed eigenvalues of a Hermitian pencil."
+        ],
+        "reasoning": "A stage scaling or generalized eigenvalue formulation with the same scope and sharp bound would be equivalent. Eq. (25) matches the operator but does not identify its balancing metric or sharp sector.",
+        "searches": [
+          "Local Resultary: universal 9:1 Radau weighting; exact sector; two-term inverse-Schur template; weighted field of values for noncommuting SPD factors",
+          "Ali–Kirby arXiv:2611.03361v1, Eq. (25)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6fd24a6c7ad7 is the frozen record itself. The strongest distinct indexed hit concerns positive diagonal certificates for other stage counts and a single stage term.",
+          "The two pressure-surrogate primary papers provide operator identities, not tables or exact results for this balancing ratio and sharp sector."
+        ],
+        "reasoning": "A matching certificate for another inverse tableau would not establish the exact equality over the continuum of admissible spatial pairs and coefficient values. The observed exact hit is the object of review, not independent coverage.",
+        "searches": [
+          "Local Resultary checks for 9:1, the exact sector rational function, and same-object predecessor records",
+          "Indexed hits 6fd24a6c7ad7 and 2318e2983f4c"
+        ]
+      },
+      "rationale": "Ali–Kirby already give exactly the two-term inverse pressure-Schur operator template; earlier augmented-Lagrangian work has the same architecture. Credit is confined to the universal diagonal-weight uniqueness and sharp attainable field-of-values sector for arbitrary SPD pairs. The relevant passages inspected do not supply those conclusions, and exact prior construction of the operator is not evidence for a new surrogate.",
+      "residual_risks": [
+        "Axelsson–Dravins–Neytcheva full text was not inspected. The bounded comparison cannot exclude earlier general diagonal-stability or sharp weighted-sector results for tensor sums."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the operator template under Radau specialization, not of the metric or sector in the compared passage.",
+          "evidence": [
+            "Eq. (25) gives (Pr+gamma)/Delta t times A_RK^(-1) tensor M_p^(-1) plus 1/(Delta t)^2 times A_RK^(-2) tensor K_p^(-1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03361v1",
+          "material_read": "§5.2 derivation and Eq. (25), HTML around offsets 26450 and 29351",
+          "method": "Original OA HTML passage locate and bounded read",
+          "title": "Scalable Fully Implicit Runge–Kutta Solvers for Time-Dependent Rayleigh–Bénard Convection",
+          "trigger": "Direct source of the exact inverse-Schur surrogate"
+        },
+        {
+          "assessment": "Prior two-term architecture; no sharp metric or sector in these equations.",
+          "evidence": [
+            "Substituting the intermediate inverse approximation produces the inverse and squared-inverse stage terms with pressure mass and stiffness factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.04451v1",
+          "material_read": "§4, Eqs. (21)–(22) and surrounding text, offsets 31000–35623",
+          "method": "Original OA HTML passage reading",
+          "title": "An Augmented Lagrangian Preconditioner for Navier–Stokes Equations with Runge–Kutta in Time",
+          "trigger": "Earlier augmented-Lagrangian formulation with possible two-term coverage"
+        },
+        {
+          "assessment": "Wiley routes denied access and the DiVA copy timed out; a potential broader theorem was not ruled out by original text.",
+          "evidence": [
+            "Frozen references attribute the comparison to §§4–5 and a single A^(-1) operator; the original passages were not available to confirm or extend that characterization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nla.2532",
+          "material_read": "Frozen citation and its characterization; no readable primary full text obtained",
+          "method": "DOI/Wiley OA attempts and identified DiVA PDF route",
+          "title": "Stage-parallel preconditioners for implicit Runge–Kutta methods of arbitrarily high order, linear problems",
+          "trigger": "Cited field-of-values analysis for a related Radau tensor operator"
+        },
+        {
+          "assessment": "Related diagonal certificates, not the two-stage inverse/squared-inverse tensor sum.",
+          "evidence": [
+            "Concerns A_s^(-1) for s=8,9,10. Its stage counts and operator family do not cover the assigned object."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 2318e2983f4c",
+          "material_read": "Mirrored result statement on the three Radau stage counts",
+          "method": "Local Resultary index and mirror",
+          "title": "Certified diagonal coercivity for eight-, nine- and ten-stage Radau",
+          "trigger": "Closest distinct indexed positive-diagonal coercivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ali–Kirby Eq. (25) provides the motivating operator",
+        "Frozen coercivity, metric uniqueness, sector, and Euclidean-sign results"
+      ],
+      "rationale": "The exact operator is a published solver surrogate, not an arbitrary matrix slice. A researcher studying its iterative solution can distinguish a guaranteed pressure-block coercivity norm from the indefinite Euclidean metric, and use the sharp sector to locate the loss of a coefficient-uniform narrow angle. Universality of the weight and attainment of the sector edges preserve that information for spatial operators that need not commute. This is useful geometry of the surrogate itself even without a claim about the entire block solver.",
+      "residual_risks": [
+        "No iteration-count or spectral-equivalence guarantee for the full saddle-point problem, nor an empirical performance assertion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

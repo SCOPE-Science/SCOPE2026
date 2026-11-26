@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:52:40.185308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the continuous Cesàro adjoint C*f(x)=∫_x^1 f(y)/y dy, exchanging the integrals on a dense class and extending gives HC*=DH. The row map x^(z−1)/z is L²-holomorphic on Re z>1/2 and has norm 1/(|z|√(2 Re z−1)). On the parameter-2 ellipse in the scaled variable for a=2^j, Re z≥7a/8 and 2 Re z−1≥3a/4; Cauchy's coefficient estimate and the geometric tail give per-row error at most 4M a^(−3/2)2^(−J), M=16/(7√3). Summing squares over a rows and j<J, then bounding the omitted squared row norms by Σ_(n≥2^J)n^(−3)≤(3/2)4^(−J), gives the claimed constant 128/21+√(3/2)<8. There are J coefficient vectors per block, so rank is at most J², not necessarily exactly J². Approximation numbers, J=floor(√(n−1)) for n≥2, and the Hilbert–Schmidt norm for n=1 give the displayed bound. Superpolynomial decay is severe under the cited definition; neither a sharp rate nor a matching lower bound follows. The supplied NumPy script was read, not run; it diagnoses interpolation and finite sections, not the analytic series truncation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 4.2 includes arbitrary row/column weights and separated node intervals, matching the Gram matrix; its weakened version is quantitative for every finite N and admissible rank.",
+          "Kindermann–Hofmann give an O(n^(−3/2)) upper bound and a lower bound of exponential type for HC*, which do not by themselves settle the classification."
+        ],
+        "reasoning": "The general weighted-Cauchy bound applies to each finite row section uniformly enough to control the entire infinite operator.",
+        "searches": [
+          "arXiv:1609.09494, generalized Cauchy matrices, Theorem 2.1 and Corollary 4.2",
+          "arXiv:2401.14701 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof lines 24–71 and relationship section; VERIFICATION.md and verify.py inspected statically",
+        "Resultary 77bee943354b (self-hit)",
+        "arXiv:1609.09494",
+        "arXiv:2401.14701",
+        "arXiv:2201.13185"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The argument in the originality rationale gives rank at most J² and error bounded by (2√2+√(3/2))2^(−J), already less than 8·2^(−J).",
+          "The open wording in Remark 4 of the 2024 paper does not negate this implication of the 2016 result. Gerth studies HJ and finite numerical profiles, not the target estimate."
+        ],
+        "reasoning": "The published inequality plus standard spectral truncation and row-tail summation implies the stated existence and severe classification. A different valid proof does not make those conclusions new.",
+        "searches": [
+          "arXiv:1609.09494 §4.2, read (4.5)–(4.7) with weakened cross-ratio bound",
+          "arXiv:2401.14701 §4, Remark 4",
+          "arXiv:2201.13185 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact matching hit 77bee943354b is the assigned item, not independent prior evidence.",
+          "Kindermann–Hofmann Proposition 2 gives HC*=DH; the finite row Gram is a weighted Hilbert matrix and σ_(r+1)(T_N)²=σ_(r+1)(G_N)."
+        ],
+        "reasoning": "The operator aliases represent the same singular-value problem; the weighted Cauchy reduction preserves the rank/error question, with a square root and a tail estimate. HJ, with J the Volterra operator, is different.",
+        "searches": [
+          "Resultary semantic checks for Hausdorff–Cesàro HC*=DH, dyadic rank compression, weighted Hilbert/Gram formulation, and severe singular-value decay",
+          "arXiv:2401.14701 §4",
+          "arXiv:1609.09494 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogued statement found is the target itself.",
+          "Eq. (4.8) is a finite Hilbert-matrix inequality rather than a tabulation of this infinite operator's spectrum; the frozen numerical diagnostics are not such a table either."
+        ],
+        "reasoning": "There is no need for an exact numerical table of this infinite-dimensional estimate. Coverage is established by a theorem and specialization, not by matching finite numerical values.",
+        "searches": [
+          "Resultary semantic lookup of the exact rank J², error 8·2^(−J), and root-exponential HC*=DH claim",
+          "Beckermann–Townsend Eq. (4.8)"
+        ]
+      },
+      "rationale": "The frozen quantitative existence claim and the severe classification are already a direct consequence of a pre-existing generalized-Cauchy singular-value bound. Proof of implication: let N=2^J−1 and T_N retain the first N rows. Its Gram matrix G_N=T_NT_N* has entries 1/[ij(i+j−1)], with Cauchy nodes i−1/2 and −j+1/2 and weights 1/i and 1/j (column order is immaterial). In Beckermann–Townsend Corollary 4.2, the endpoint cross-ratio is γ=N²/(2N−1)≤N for N>1. For r=J²<N the weakened version gives σ_(r+1)(G_N)≤4 exp(−π²r/log(16γ))‖G_N‖. Hence its truncated singular expansion yields a rank-r approximation to T_N with error ≤2√2 exp(−π²J²/[2(J+4)log 2])≤2√2·2^(−J); use ‖T‖_HS<√2 and J²/(J+4)≥J/5. The approximation is specified by the top r eigendirections of the explicit finite Gram matrix, projecting T_N onto them. If r≥N retain T_N exactly. Zero-extension plus the elementary tail ≤√(3/2)2^(−J) gives a smaller constant than 8, and the same approximation-number consequences for the infinite operator. Thus even the stated all-J numeric guarantee, not just its asymptotic order, is implied. This does not identify the frozen Chebyshev coefficient vectors in prior work, nor claim the 2016 paper explicitly mentions the composition.",
+      "residual_risks": [
+        "No exhaustive priority determination for the particular Chebyshev construction; the rejection is for the bound and classification as stated, independently of that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPLIES_FROZEN_RESULT",
+          "evidence": "Corollary 4.2 gives σ_(j+k)≤4 exp(−π²k/log(16γ))σ_j in its weakened form. Applied to G_N, then using square roots and the tail, it gives the claimed finite-rank bounds with room in the constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.09494",
+          "material_read": "Title/date, Theorem 2.1 p. 4, Corollary 3.2 p. 8, §4.2 pp. 11–13, especially (4.5)–(4.8); OA text offsets 15120, 28210, 44760, 50160.",
+          "method": "OA PDF passage reading and substitution of exact nodes, weights and cross-ratio.",
+          "title": "On the singular values of matrices with displacement structure",
+          "trigger": "The finite Gram has rank-one Cauchy displacement; a quantitative bound may settle the finding by implication."
+        },
+        {
+          "assessment": "SAME_OBJECT_COARSER_BOUNDS",
+          "evidence": "HC*=DH, lower bound of exponential type and upper O(n^(−3/2)); the paper explicitly leaves severity open and defines it as faster-than-polynomial decay.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.14701",
+          "material_read": "Definition 1; §4 Proposition 2, Theorems 1–2 and Remark 4, pp. 5–7, OA offsets 14000–26164; §3 Proposition 1 for HJ.",
+          "method": "OA PDF passage comparison.",
+          "title": "Curious ill-posedness phenomena in the composition of non-compact linear operators in Hilbert spaces",
+          "trigger": "Same HC* operator and claimed unresolved classification."
+        },
+        {
+          "assessment": "DIFFERENT_COMPOSITION",
+          "evidence": "The (1−s^j)(1−t^j)/j² kernel terms are for HJ; numerical finite sections are not an all-index upper bound for HC*.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.13185",
+          "material_read": "§1 p. 3 near OA offset 8000; numerical sections pp. 5–7 at offsets 14000–24894.",
+          "method": "OA PDF passage comparison.",
+          "title": "A note on numerical singular values of compositions with non-compact operators",
+          "trigger": "Plausible kernel approximation overlap for Hausdorff compositions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Severity of this inverse problem is a worthwhile question, and the elementary analytic-row proof is clear. But the frozen claimed advance is the bound and resulting classification, both obtained by direct specialization of an older quantitative theorem. The record does not separately establish a substantive new structural, complexity, or optimality guarantee for the Chebyshev construction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

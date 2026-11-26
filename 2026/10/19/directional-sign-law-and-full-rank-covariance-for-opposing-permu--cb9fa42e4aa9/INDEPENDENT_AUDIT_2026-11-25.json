@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:16:49.957201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–38, 40–73",
+        "VERIFICATION.md lines 19–23; verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 3; 46,232 total permutations and 203 indexed counts over n=2..8, plus integer-scaled covariance signs and fraction-free determinants through n=16"
+      ],
+      "rationale": "Under the i.i.d. atomless assumption the ranks form a uniform permutation. For i<j the prefixes and suffixes used by the flags are disjoint. For i=j the joint probability is the beta integral, and the truncated pivot is strictly stochastically smaller than uniform if i>1, giving strict negative covariance if also i<n. The endpoint flags A_1 and B_n are constants. For i>j, after conditioning on A_i, the pivot M has Beta(1,i) law, and the j-through-(i-1) maximum is M+(1-M)Z with independent Z~Beta(i-j,1). Its argmax is uniform in that block and the n-i subsequent draws are independent. Thus the conditional probability of B_j is at least 1/(n-j), strictly above 1/(n-j+1), even when i=n; expansion and beta moments give exactly the displayed factorial sum. For the shifted matrix, deleting row k and column j in a leading k-minor leaves a block triangular minor with factors D_(j-1) and the superdiagonal h_(t,t+1), j<=t<k. Their signs cancel the cofactor sign, so every term in the last-row recurrence is positive, including the 1x1 case. This proves sign-nonsingularity, not just nonsingularity of one numerical matrix.",
+      "residual_risks": [
+        "The replay is finite; the beta-moment argument and cofactor decomposition establish the universal claims. The covariance assertion is linear and assumes no ties."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin marks lmin and rmax by single variables q and v, together with descent and inverse descent counts, not by occurrence-position variables.",
+          "The Borovkov–Pfeifer full result was not accessible on the lawful OA retrieval; only abstract-level material was compared."
+        ],
+        "reasoning": "Adding descent counts does not supply the individual joint position events needed here. No checked stronger position-marked result covers them.",
+        "searches": [
+          "arXiv:2210.08789v1 Eq. (1.3), Theorem 1",
+          "Borovkov–Pfeifer DOI 10.1016/0378-3758(94)00063-8"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and closest indexed finding",
+        "Jin arXiv:2210.08789v1",
+        "Gnedin arXiv:math/0611538",
+        "Gnedin–Gorin arXiv:1202.3680",
+        "Borovkov–Pfeifer DOI 10.1016/0378-3758(94)00063-8 (abstract level)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating Jin's count variables yields a sum of pairwise covariances, not the signs or determinant of the indexed matrix.",
+          "Prefix-record rank and exchangeability explain the marginals; they do not resolve the shared/distinct pivot overlap event."
+        ],
+        "reasoning": "The signed region follows from a new comparison for the overlapping conditioned block, not from an aggregate covariance or from a sign-matrix theorem applied without first establishing that pattern.",
+        "searches": [
+          "Jin Eq. (1.3) and Theorem 1",
+          "Gnedin arXiv:math/0611538 record-time definitions",
+          "Gnedin–Gorin arXiv:1202.3680 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform ranks identify exactly left-to-right minima and right-to-left maxima of the same word; classical same-direction record positions are prefix extrema.",
+          "Resultary 2026/10/26/SCOPE-diagonal-forward-inverse-record-covariance-for-uniform-permutati--815731fffa25 gives diagonal covariance for upper records of the word and its inverse."
+        ],
+        "reasoning": "A common reversal or value complement transforms both flags and cannot turn opposite scans into two prefix scans; the inverse-permutation pairing has zero off the diagonal rather than the frozen nonzero Hessenberg band and lower triangle.",
+        "searches": [
+          "Local Resultary semantic search for position-indexed opposing permutation records",
+          "arXiv:math/0611538",
+          "arXiv:1202.3680"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed comparison inspected was 2026/10/26/SCOPE-diagonal-forward-inverse-record-covariance-for-uniform-permutati--815731fffa25, a distinct covariance table."
+        ],
+        "reasoning": "The rank number can match while the indexed indicators and covariance law differ; that hit is not a table of the present invariant. No matching exact entry was established.",
+        "searches": [
+          "Local Resultary semantic search: opposing scans, permutation record covariance, indexed signs and rank"
+        ]
+      },
+      "rationale": "The supported addition is the complete position-indexed law for opposite scans of the same permutation, with the forced invertibility of its nonconstant cross-covariance pattern. The nearest prior generating function marks the correct two counts but cannot separate positional entries or certify the sign pattern; the nearest indexed catalogue finding uses a different pair of permutation statistics. The Hessenberg argument is standard and is not itself credited as new.",
+      "residual_risks": [
+        "Borovkov–Pfeifer full text could not be compared; an older position-marked identity may be unindexed.",
+        "The attempted general literature lookup returned no useful primary results; the conclusion rests on actual statement comparison, not search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers joint counts, not position-indexed law.",
+          "evidence": [
+            "Weights q^lmin(pi) and v^rmax(pi) use count exponents."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.08789",
+          "material_read": "PDF pp. 1–3, Eq. (1.3) and Theorem 1",
+          "method": "Bounded OA full-text passages",
+          "title": "Symmetric generating functions and Euler-Stirling statistics on permutations",
+          "trigger": "Same two record families"
+        },
+        {
+          "assessment": "Same-direction record definitions, not the opposite scan pairing.",
+          "evidence": [
+            "A record at j is a prefix maximum or minimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611538",
+          "material_read": "PDF pp. 2–3 record and record-time definitions",
+          "method": "Bounded OA full-text passages",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Classical mixed extrema and record times"
+        },
+        {
+          "assessment": "Different record-set object.",
+          "evidence": [
+            "Upper record positions are prefix maxima."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.3680",
+          "material_read": "PDF p. 1 definitions",
+          "method": "Bounded OA full-text passage",
+          "title": "Record-dependent measures on the symmetric groups",
+          "trigger": "Position-dependent record statistics"
+        },
+        {
+          "assessment": "Distinct even apart from publication date.",
+          "evidence": [
+            "Upper records of pi and pi inverse have diagonal cross-covariance, with off-diagonal independence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-diagonal-forward-inverse-record-covariance-for-uniform-permutati--815731fffa25/RESULT.md",
+          "material_read": "Finding and record definitions",
+          "method": "Local Resultary mirror",
+          "title": "Diagonal forward–inverse record covariance for uniform permutations",
+          "trigger": "Nearest indexed rank/covariance catalogue hit"
+        },
+        {
+          "assessment": "Substantive coverage unresolved, not evidence of absence.",
+          "evidence": [
+            "The available material did not settle the opposite-direction paired pivot law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0378-3758(94)00063-8",
+          "material_read": "Landing/abstract only; no identified accessible full text retrieved",
+          "method": "Lawful OA lookup",
+          "title": "On record indices and record times",
+          "trigger": "Potential older index-level theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and sign-nonsingularity proof",
+        "Jin's count formulation, Eq. (1.3)"
+      ],
+      "rationale": "These are two classical and naturally paired record processes. Position indexing exposes a directional pattern of exact independence, negative shared-pivot dependence and positive separated-pivot overlap that joint counts suppress. The sign pattern rules out any nonzero linear contrast invisible to all reverse records and gives robustness without estimating determinant magnitudes. This is a useful finite-size dependence law, not just a single enumerated determinant.",
+      "residual_risks": [
+        "No claim about higher-order independence, recovery of one record set from the other, or robustness to ties and non-identical sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

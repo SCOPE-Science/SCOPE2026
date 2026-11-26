@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:08.583048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The symmetric difference of two perfect matchings is a union of disjoint even alternating cycles; a single length-ℓ flip is equivalent to that difference being connected and having ℓ edges. A fresh finite replay (independent_gp83_check.py with output independent_gp83_check.txt) used least-uncovered-vertex exact cover to enumerate all 33 matchings, then tested all 528 unordered pairs. Separate cycle enumeration gave 24 hexagons and 30 octagons. The 96 length-six adjacencies give components 30,1,1,1; the mobile component has degrees 6^24,8^6, radius 3 and diameter 4. The 36 length-eight adjacencies give the three hubs, each with eight leaves, and exactly two degree-two paths per hub pair. The hubs are precisely the three hexagon isolates. The all-spoke matching cannot alternate on a hexagon: an alternating six-cycle would need three spokes, but any cycle uses an even number of spokes. A no-spoke matching has one of two phases on each rim. A six-cycle uses two spokes and rim paths of total length four; for alternation with no spokes selected, their lengths are 1 and 3. The matching phases in the positive strides +1 and +3 must then agree, so the two opposite-phase states are the other isolates. The replay verified octagon radius 3 and diameter 4, and eccentricity 3 at every vertex of the 132-edge union, with degrees 7^24,10^6,12^3. There is no four-cycle: with two spokes the rim steps ±1 and ±3 cannot have the same endpoints, and the rims are 8-cycles. Thus the successful maximum length 8 is least possible. The frozen scripts, certificate and recorded outputs were inspected, not executed. The replay's agreement with the certificate was checked on counts, structure and hub indices, not by claiming byte-for-byte replay. The proof permits all simple cycles, not just faces, and applies only to GP(8,3).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bošković's inspected theorem treats decorated graph families; acceptable decorations with more than two distinguished vertices are non-bipartite. The inspected statements do not identify the present bipartite flip graphs.",
+          "4378d18b0724 gives the same three move rules with exact pair-distance distributions and associates the degree triples to complementary two-factor types."
+        ],
+        "reasoning": "General bounded-cycle connectivity is not by itself the exact instance geometry. The catalogued complete classification is stronger on the very same instance, not just broader in topic.",
+        "searches": [
+          "arXiv:2607.16101, Lemma 14 and Theorem 18",
+          "Resultary/SCOPE 4378d18b0724, structural and metric classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json, two verify scripts and their recorded outputs",
+        "Resultary/SCOPE 4378d18b0724 and 77fdbb644648",
+        "Bošković arXiv:2607.16101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first catalogued result explicitly establishes the same six- and eight-cycle behavior and the same threshold 8, including the equality between three degree-12 octagon hubs and three zero-degree hexagon states via their (8,8) complement type.",
+          "The same-day anti-forcing result does not itself give the moves or distances; its date is not evidence of priority."
+        ],
+        "reasoning": "The dominant comparison already states the central claim, not merely a data set from which it might be guessed. The coordinate description of the three frozen states is an elementary check of that finite class, not a novel remainder. This comparison does not identify the frozen item with the later catalog item or infer which work was performed first.",
+        "searches": [
+          "4378d18b0724, Finding, Exact move criterion, Structural classification and Connectivity and distances",
+          "77fdbb644648, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4378d18b0724 defines adjacency by the identical single simple cycle symmetric difference on actual matchings, not embedding faces, symmetry classes or unrestricted exchanges.",
+          "Its double-edge triangle has six edges before subdivision. Subdividing them and adding eight leaves to each original vertex gives precisely the claimed octagon-only graph."
+        ],
+        "reasoning": "The 'trades' and 'flips' are the same moves, and the alternate graph descriptions are isomorphic by construction. The equivalence is stronger than a coincidence of totals or degree sequences.",
+        "searches": [
+          "Resultary/SCOPE 4378d18b0724, Möbius–Kantor six- versus eight-cycle matching trades",
+          "arXiv:2607.16101, alternating-cycle flip definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4378d18b0724 states 33 matchings, the 96 and 36 adjacency totals, the split 30,1,1,1, the octagon structure, and the 132-edge union, with all the stated radii and diameters.",
+          "77fdbb644648 gives the 33 matchings and the three complementary (8,8) types in an anti-forcing problem. The matching-polynomial source is cited for the already-known count 33; no claim of firsthand full-text comparison to that paper is made."
+        ],
+        "reasoning": "A matching count or two-factor table alone is not a flip graph. The exact corroborating catalogued move graph and comparison tables, rather than the count 33, are decisive for coverage.",
+        "searches": [
+          "Resultary/SCOPE 4378d18b0724 and 77fdbb644648",
+          "Balasubramanian, DOI:10.3390/sym17010133"
+        ]
+      },
+      "rationale": "A distinct indexed record states the same theorem for the same graph, same matching states and all simple cycles of the two lengths. The subdivided doubled triangle with eight leaves at each hub is exactly the claimed octagon-only graph; the other move rules and the sharp length bound are likewise covered, with additional two-factor types and pair-distance counts in the comparator. This is verified duplicate mathematical coverage at review, not a determination of historical priority: the comparator is catalogued later than the frozen source date. Explicit labels for the three frozen states and a different certificate do not furnish a separate substantive reconfiguration theorem.",
+      "residual_risks": [
+        "The relation and historical priority between the October-dated frozen item and the later exact catalog result are not established. Failure records exact overlap, not a claim that the later catalog result predates the frozen work.",
+        "The Marušič–Pisanski graph paper, Lijnen–Ceulemans embedding paper, de Carvalho–Lucchesi–Murty counting paper and Balasubramanian polynomial paper were not inspected in full after attempted retrieval. Their coverage beyond the context cited in the frozen record is not established. Inaccessibility does not drive the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical overlap with stronger type and distance refinements; later-dated distinct catalogue entry, not proof of priority.",
+          "evidence": [
+            "The graph is on all 33 matchings without symmetry quotient; it permits every simple alternating cycle of the stated length.",
+            "The octagon-only incidence gives exactly two length-two paths per hub pair and eight leaves per hub. The component sizes, degree distributions, union eccentricity and minimal length threshold match."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-six-versus-eight-cycle-matching-trade-geometry-of-the-m-bi--4378d18b0724",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 4293: Finding, scope, move criterion, structural and metric classifications",
+          "method": "Resultary discovery and bounded local-mirror passage comparison",
+          "title": "Sharp six- versus eight-cycle matching-trade geometry of the Möbius–Kantor graph",
+          "trigger": "Exact same move rules, graph and subdivided doubled-triangle structure"
+        },
+        {
+          "assessment": "Exact partial state-space overlap, not a theorem about the scoped flip adjacencies.",
+          "evidence": [
+            "Gives 33 states and the three matchings with (8,8) complements for an anti-forcing calculation."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-anti-forcing-spectrum-and-two-factor-types-of-the-m-bius-kantor--77fdbb644648",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary discovery and bounded local-mirror passage",
+          "title": "Anti-forcing spectrum and two-factor types of the Möbius–Kantor graph",
+          "trigger": "Exact census of the same matchings with a three-versus-thirty split"
+        },
+        {
+          "assessment": "General framework, no equivalent GP(8,3) exact result located in the inspected statements.",
+          "evidence": [
+            "Decorated families and their connectivity do not describe the octagon-only graph on the specified bipartite instance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.16101",
+          "material_read": "Introduction, Lemma 14 and Theorem 18, PDF offsets 0, 2896, 23777 and 27224",
+          "method": "Bounded OA original PDF passages",
+          "title": "Flip dynamics on perfect matchings beyond bipartite and planar graphs",
+          "trigger": "General flip-connectedness results for restricted simple-cycle lengths"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp difference between hexagon and octagon reconfiguration on this natural symmetric graph would be useful, and independently replaying it is valuable as corroboration. But the exact structure and threshold are already available in the independently catalogued classification, and the frozen item supplies no distinct claim beyond a routine coordinate identification of the three hubs. The alternative certificate does not add a new scientific result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

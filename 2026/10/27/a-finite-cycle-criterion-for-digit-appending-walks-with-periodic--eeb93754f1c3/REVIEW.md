@@ -1,11 +1,21 @@
-# Review of a finite-cycle criterion for digit-appending walks
+# Independent mathematical audit
 
-**Correctness — PASS.** The uniform comparison of the geometric leading term with polynomial errors applies to unbounded index jumps and forces equality between jump and digit length past a fixed index. Concatenation of arbitrary-length steps traps every later correction in the closed interval \([-1,0]\); eventual polynomial growth excludes all nonconstant residue corrections. The finite-graph cycle argument proves both directions, including rational-integrality of the period jump. Seven exact-rational instance families and 385 local comparisons corroborate the algebra. Finite tests are not treated as proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** The full 2026 paper arXiv:2610.18919v1 proves dominant-root scaling rigidity for bounded digit lengths and unrestricted existence under multiplicative independence. Neither its statements, proofs, nor its two dependent-root examples establish an if-and-only-if classification or the minimal digit ceiling for periodic-polynomial corrections. The 2025 Fibonacci/Lucas theorem and earlier whole-term concatenation theory do not imply the claimed infinite-walk cycle criterion. Semantic searches of research records using leading-root dependence, periodic correction, bounded-digit walks and graph-cycle aliases yielded no covering claim. This does not preclude implicit coverage in further literature.
+PASS
 
-**Mathematical value — PASS.** The dependent-root regime is explicitly left unresolved by the general 2026 criteria and exhibits both existence and nonexistence even in simple geometric-plus-constant examples. This theorem gives a complete classification for the natural subfamily whose subordinate characteristic roots are roots of unity (including repeated roots), including an exact sharp uniform digit threshold. The period-four example has a genuine bottleneck of two digits, not merely a yes/no consequence of the older examples.
+For nonnegative degree bound D, (n+k+1)^D≤(n+1)^D(k+1)^D and sup(k+1)^D/b^k is finite. Dividing the geometric decomposition by b^k a_n gives ratio 1+O((n+1)^D/b^n) uniformly in k≥1. A legal append also gives ratio a_(n+k)/(b^t a_n) in [1,1+1/a_n); their quotient is the discrete power b^(k−t) and must be 1 uniformly on the tail. For a late index m on an infinite walk, concatenated blocks to any later index n keep a_n/b^(n−m) in [a_m,a_m+1). Its limit is Ab^m, so the residual lies in the CLOSED interval [−1,0]. On each unbounded residue progression every nonconstant polynomial eventually leaves that interval, and a constant outside it never enters. This pruning applies even to unbounded jumps and uniformly over walks once m is large. Between good residues the difference is precisely c_s−b^k c_r, integral on the positive integer tail. Finite directed cycles are equivalent to infinite capped paths, and every directed cycle lifts by positive jumps, including self-loops. Any good residue has the legal loop k=P, d=(1−b^P)c_r, explaining the cap P and bottleneck formula (empty minimum infinite); jumps through increasing multiples of P would also give an actually unbounded-length walk if desired. In the period-four example the legal unit edges 0→1→2 cannot close, whereas 2→0 with length 2 has d=1. The frozen finite checker was inspected only; the proof covers unrestricted parameters and does not depend on it.
 
-**Closest literature and limitations.** arXiv:2610.18919v1 (Theorems 1.2–1.3, Examples 1.1 and 3.3), arXiv:2512.06446v1 (Theorems 3.1 and 4.2), and Banks–Luca (2005). Higher-modulus exponential corrections, arbitrary dependent root powers and finite-walk lengths are not classified; independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+There is exact earlier Resultary coverage of the A=1, constant-integer periodic subcase, including the cycle idea and an explicit gap formula. Credit that work, not the frozen record, for that case. The supported advance is the rational-amplitude, polynomial-by-residue classification and proof of uniform tail synchronization and pruning under those broader assumptions. The prior finite-residue proof starts with a bounded periodic integer correction and does not itself prune nonconstant polynomials or classify fractional good corrections.
+
+## value
+
+PASS
+
+The class captures a simple dominant base root accompanied by arbitrary root-of-unity polynomial modes, a natural dependent case not decided by multiplicative independence. The infinite-prefix argument shows why even unrestricted jumps cannot save an infinite path through nonconstant residue corrections. The criterion then gives an exact smallest finite cap for the whole stated class, rather than just sufficient examples or a nonsharp existence bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

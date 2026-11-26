@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:43:05.044931Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–54 and 58–113; frozen VERIFICATION.md and verify.py inspected (not executed)",
+        "Repairs: RESULT.md and VERIFICATION.md, all sections",
+        "Independent exact replay: N<=8, 58 multisets, 813 rows from grounded Laplacians match both original per-edge formulas. Separately group all positive integer partitions for N<=30 by (N,r) and maximize the rational row score over pairs; all 435 groups have the predicted unique multiset."
+      ],
+      "rationale": "For the repaired claim, a known exact per-edge cut-projection row sum is 2+f_N(u)+f_N(v) for parts of sizes u,v. At fixed t=u+v, strict concavity forces the balanced integer split. For r>=3 and N>=5, each allowed increment of the balanced score equals f_N(k+1)-f_N(k) with k=floor(t/2)<=(N-2)/2, and its numerator is at least (N-2)(N-4)/4>0. The optimal t is therefore exactly N-r+2, leaving only singleton parts. For r=2 the sum is forced and for r>=3, N<=4 each fixed count has only one multiset. Substitution gives the optimized value, and the reciprocals sum to 4/N+O_r(N^-2), giving the correction r+6. In the original, the row identities themselves check out by solving the zero-mean vertex dipole and counting absolute differences; diagonal entry R>0 gives S_Q=S_P+1-2R. But the original proof line 110 makes a false comparison with the balanced bipartite graph at the same N (at N=5, K_{2,2,1} yields 26/15 versus K_{3,2} at 5/3); the original strict universal bounds instead follow directly from a+b<=N and R>0. Also, K_{N-2,1,1} has tied cut-projection edge orbits, so an attaining edge between largest parts need not be the only type. The replacement makes no cross-count comparison or claim about uniqueness of a norming edge.",
+      "residual_risks": [
+        "Finite enumeration corroborates the proof only. Uniqueness is up to graph isomorphism/part permutation, not choice of edge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 17 result gives the same cut row formula and analyzes the maximum at fixed N over unrestricted r. Its exceptional N=3,5 also disprove the frozen proof's universal balanced-bipartite comparison. Balanced-family results require equal part sizes and optimize over projection maps, not part partitions. The cited Hodge/transfer-current literature gives the general projector representation, not the constrained optimizer."
+        ],
+        "reasoning": "Optimization over unrestricted r does not give the optimum for each prescribed r. Optimizing a different projection for a preassigned balanced graph does not compare graph partitions.",
+        "searches": [
+          "Resultary 0f6b407e194c (all part counts), 455756fd66a8 and 0ddb732c660c (balanced families); arXiv:0811.1067 Theorem 4.8; arXiv:1312.2946 §4.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 745e7b0c399e, 455756fd66a8, 0ddb732c660c, 0f6b407e194c",
+        "arXiv:0811.1067 and arXiv:1312.2946 passages above",
+        "Repaired RESULT.md, Finding, proof and prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier two-size score does not immediately force the optimizer because its single-size increments can be negative (the unrestricted-N comparison is false at small N). Balance at fixed sum, strict increase of the balanced pair score in the feasible range, and forced singleton remainder establish the new equality classification."
+        ],
+        "reasoning": "A prior formula can calculate any specific partition's score; the repaired mathematical content is a constrained extremal theorem with uniform equality cases and optimized asymptotics, not another derivation of the scores.",
+        "searches": [
+          "745e7b0c399e Finding and Proof §§1–4; 0f6b407e194c Finding; fixed-r comparisons in repaired proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 745e7b0c399e's Q and C are the frozen P and Q. The scores F_N and H_N are exactly 1+F_{2,N} and 1+F_{4,N}. Its absolute columns equal absolute rows by symmetry."
+        ],
+        "reasoning": "This is verbatim mathematical overlap on the original graph-by-graph benchmark; notation, rows versus columns, and incidence orientations do not distinguish it. The repaired theorem is about the extremal graph, not relabeling that benchmark.",
+        "searches": [
+          "Resultary: complete multipartite endpoint Hodge norms; absolute transfer currents; fixed N,r graph optimizing the cut norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "745e7b0c399e gives exact formulas for every fixed graph but no fixed-r extremal multiset. 0f6b407e194c tabulates exact all-r maximizers by N, including exceptional small orders, not fixed-r maxima."
+        ],
+        "reasoning": "The prior formulas cover the input data; the repaired all-N,r equality classification does not come from selecting an entry in a table. A bounded enumeration cannot prove it.",
+        "searches": [
+          "Resultary fixed-r search: maximum over all part-size partitions fixed number N of vertices r parts unique optimizer two balanced largest parts remaining singleton electrical current"
+        ]
+      },
+      "rationale": "PASS is restricted to the repaired fixed-(N,r) extremum and uniqueness theorem. The frozen claim as a whole fails originality: both exact canonical row and norm formulas and cut attainment between two largest parts are already explicit in the October 18 complete-multipartite result, which the repair credits and uses solely as input. Its formulas also imply the frozen balanced-bipartite evaluations and global envelope consequences. The constrained optimization and its sharp first correction were not stated by the inspected prior results; they require a new comparison across part multisets and equality analysis.",
+      "residual_risks": [
+        "Older exact electrical-flow literature could contain an equivalent constrained extremum; the assessment is based on inspected passages and targeted searches, not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of the frozen per-edge and norm formulas; not the fixed-r optimization",
+          "evidence": "F_N(s)=1+F_{2,N}(s), H_N(s)=1+F_{4,N}(s). Includes the comparison of attaining edge types and a reversal on K_{N-3,2,1}.",
+          "identifier_or_url": "Resultary 2026/10/18/...--745e7b0c399e",
+          "material_read": "RESULT.md Finding and Proof §§1–4, offsets 0–8971",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs",
+          "trigger": "Exact same graph and complementary projections"
+        },
+        {
+          "assessment": "Later equivalent gradient scores, different optimization constraint",
+          "evidence": "Its h_N(s) equals 1+f_N(s); the unrestricted all-r maximizers by N are stated, but not maximizers for each prescribed r.",
+          "identifier_or_url": "Resultary 2026/11/17/...--0f6b407e194c",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–3348",
+          "method": "Local Resultary mirror",
+          "title": "Sharp endpoint norms of complete multipartite electrical gradient projections",
+          "trigger": "Same gradient projection plus graph-size optimization"
+        },
+        {
+          "assessment": "Earlier narrower graph family, different minimization problem",
+          "evidence": "Requires equally sized parts, r>=3 and size>=2; optimizes among projections rather than graph size multiset.",
+          "identifier_or_url": "Resultary 2026/10/18/...--455756fd66a8",
+          "material_read": "Scope and exact norm statement for equal part size",
+          "method": "Local Resultary comparison",
+          "title": "Simultaneously minimal cycle and cut projections for balanced complete multipartite graphs",
+          "trigger": "Balanced family with exact cut and circulation norms"
+        },
+        {
+          "assessment": "Applies to general edge flows but does not cover exact optimized norms",
+          "evidence": "Orthogonal decomposition, not optimization over multipartite count constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.1067",
+          "material_read": "Theorem 4.8, p. 19, text offset 67450",
+          "method": "OA theorem inspection",
+          "title": "Statistical ranking and combinatorial Hodge theory",
+          "trigger": "General Hodge least squares"
+        },
+        {
+          "assessment": "Foundational relation, not an extremal partition theorem",
+          "evidence": "Green-function transfer-current representation does not directly give the graph partition attaining the worst norm.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.2946",
+          "material_read": "§4.4, text offset 48000",
+          "method": "OA passage inspection",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Electrical-current alias of the orthogonal cut projection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and constrained score optimization",
+        "Resultary 745e7b0c399e and 0f6b407e194c for the distinct optimization scopes"
+      ],
+      "rationale": "The original per-graph formulas are known and would not justify acceptance by themselves. The remainder answers a natural worst-case design question for bounded edge error at specified vertex budget and number of vertex classes. The unique extremizer concentrates non-singleton mass into two almost equal groups, rather than balancing the entire partition, and the dependence of the optimized deficit on the prescribed number of classes is explicit. The proof of strict concentration and equality across all boundary counts is substantive beyond evaluating or tabulating one known norm.",
+      "residual_risks": [
+        "Specific to canonical gradient fitting, unweighted complete multipartite graphs and fixed N,r. Does not optimize complementary cycle norms or other projections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:50:36.476006Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof, Verification; VERIFICATION.md; supplied replay verify_delta.py in the frozen record directory (inspected, not executed)",
+        "Independent direct row reductions of the three bracket-relation matrices for all (m,δ) over F3 and F5, not requiring the block decomposition"
+      ],
+      "rationale": "The bracket equations yield D=δT(D). The two singleton, two edge and m−1 interior weight blocks exhaust the space. With u=m/2−j the interior determinant is (t−1)[t(t−1)−m(m+2)/4], and the edge determinant is (t−1)(t+m/2). Distinct roots give the three stable multiplicities; at m=p−2 and m=p−1 the repeated root has geometric multiplicity one per interior block, as verified by the minors on the first and third coordinates (pivots −(j+1),j+1 and −j,j+1 respectively). Edge ranks and singletons give p+1 at δ=1 for m=p−2, and p,p+2 at δ=1,2 for m=p−1. At p=3,m=1 there is no interior block and thus no actual zero root; the conclusion remains p+1. The trivial module and δ=0 vanish by perfectness. These are field-independent determinant and rank tests in odd prime characteristic. Fresh bracket-equation row reductions over F3 and F5 passed all 34 cases; the frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The empirical check is bounded to p=3,5; the symbolic proof, not the replay, covers other fields. No formal or specialist attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Li's H¹ has dimension two exactly for the restricted weight p−2 and vanishes otherwise; their ordinary derivation theorem includes this branch outright.",
+          "Jiang–Liu–Pei treat arbitrary coefficient modules over C, not prime characteristic."
+        ],
+        "reasoning": "The full δ=1 dimension profile, including both boundary rows, is prior; the broader complex module theorem does not subsume the modular δ≠1 claim.",
+        "searches": [
+          "arXiv:2206.07943v1, Theorems 2.1 and 3.1",
+          "arXiv:2611.17683v1, Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.06645",
+        "arXiv:2206.07943",
+        "arXiv:2611.17683v1",
+        "Local Resultary exact-record and related-results search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=p−1 the two generic nonordinary roots merge with dimensions p+2 and p−2 before reduction, but the actual repeated-root eigenspace has dimension p+2. The nonzero minors in RESULT.md establish this for every interior block.",
+          "At m=p−2 the only nonzero eigenvalue is the ordinary branch; Wang–Li already determines its rank profile."
+        ],
+        "reasoning": "Distinct-root specialization accounts for the stable rows and existing cohomology for δ=1. The modular Steinberg rank is a separate all-p calculation, not a numerical consequence of the generic dimension formulas.",
+        "searches": [
+          "arXiv:2211.06645 Lemma 9, basis and block equations",
+          "arXiv:2206.07943 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weight equations in Lemma 9 are equivalent to the frozen block equations, but the stated proof assumes characteristic zero.",
+          "The complex Casimir criterion has δ=2 at scalar −1; this is impossible for finite-dimensional complex V(n), whereas the Steinberg scalar is −1 modulo p."
+        ],
+        "reasoning": "The generic spectral method and formulas are not new. Neither the weight result's characteristic-zero multiplicities nor the complex arbitrary-module theorem supplies the positive-characteristic collision ranks.",
+        "searches": [
+          "arXiv:2211.06645, Lemma 9 and equation (5)",
+          "arXiv:2611.17683v1, Theorem 3.3 and Proposition 4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit 2026/11/22/SCOPE-modular-collision-of-delta-derivation-spectra-for-restricted-sim--3a92c601aa32 is this same frozen record, not a distinct precedent."
+        ],
+        "reasoning": "No distinct exact table was evidenced in the returned results; the self-match offers no corroboration or priority information.",
+        "searches": [
+          "Local Resultary: restricted simple sl2 delta derivation spectrum, Steinberg m=p−1 and m=p−2 collisions"
+        ]
+      },
+      "rationale": "Credit the entire ordinary modular branch to Wang–Li and the weight decomposition and generic nonordinary pattern to Zohrabi–Zusmanovich. The distinct supported contribution is the complete restricted modular nonordinary spectrum, especially the Steinberg collision and its geometric multiplicity; the inspected characteristic-zero results neither assert it nor justify adding or specializing multiplicities at that repeated root.",
+      "residual_risks": [
+        "The alternate linked 2020 copy of the Whitehead paper was inaccessible; the arXiv text confirms the mathematical overlap, not that earlier date.",
+        "The scoped literature lookup was unproductive beyond the inspected sources; unindexed modular results under other terminology remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact characteristic-zero overlap and the same weight equations; repeated-root modular ranks not asserted",
+          "evidence": "The section expressly assumes characteristic zero and derives the three generic roots from the three scalar equations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.06645",
+          "material_read": "§3 pp. 5–7, Lemma 9, its bases and equation (5), OA offset 21500",
+          "method": "OA PDF text and block comparison",
+          "title": "A δ-first Whitehead Lemma",
+          "trigger": "Exact generic module spectrum and potential integral transfer"
+        },
+        {
+          "assessment": "Covers the ordinary branch",
+          "evidence": "Two outer derivations at χ=0, λ=p−2, and none elsewhere on the restricted simples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.07943",
+          "material_read": "Theorems 2.1 and 3.1, pp. 4–5, OA offsets 8000 and 15000",
+          "method": "OA PDF passage comparison",
+          "title": "Cohomology of sl(2) and its applications in prime characteristic",
+          "trigger": "Same modules in odd characteristic"
+        },
+        {
+          "assessment": "Related complex theorem, not modular coverage",
+          "evidence": "At δ=2 the Casimir scalar is −1, illustrated by the complex Verma module M(−1), not a finite-dimensional modular Steinberg module.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17683v1",
+          "material_read": "Theorem 3.3 and Proposition 4.5, pp. 7 and 15, OA offsets 24000 and 61800",
+          "method": "OA PDF statement and hypothesis comparison",
+          "title": "δ-Derivations of Finite-Dimensional Simple Lie Algebras with Values in Arbitrary Modules",
+          "trigger": "Casimir classification and δ=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§ Finding and Proof",
+        "arXiv:2211.06645, Lemma 9",
+        "arXiv:2206.07943, Theorem 3.1"
+      ],
+      "rationale": "The scalar collision for the Steinberg module is a natural obstruction to reading modular dimensions off the known characteristic-zero spectrum. A uniform geometric multiplicity and exclusion of other nonordinary parameters give a usable dimension/counting invariant for the restricted family. The known ordinary branch and the stable specialization are context rather than the reason for acceptance.",
+      "residual_risks": [
+        "No consequence for arbitrary modular simples or nonsimple modules is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is restricted to degree-preserving derivations induced by a cubic-zero operator on generators, in characteristic three. The proof reduces their modules to three fixed truncated symmetric blocks; explicit exact monomial matrices determine the local Jordan types and the primitive tensor fusion table. Green-ring multiplication proves the all-dimensional formula, prime factorization proves inverse rank uniqueness, and nilpotent centralizers give the finite-field counting coefficients. Recomputed exact ranks, the three primitive tensor decompositions, and exhaustive three-dimensional verification support the fixed-size calculations. The independent program checks 729 cubic-zero generator matrices, not a purported exhaustive search in all dimensions.
+## correctness
 
-**Originality — PASS relative to examined evidence.** The nearby full-text 2021 Witt-module tensor paper treats characteristic greater than three and only a two-fold defining module; the 2021 symmetric/exterior-square paper treats degree two in characteristic two. Published exact Jordan counts for \(\mathbb F_q[x,y]/(x^3,y^3)\) classify multiplication by nilpotent *elements*, not derivations induced by nilpotent matrices. Published derivation counts for \(k[x_i]/(x_1,\ldots,x_n)^3\) concern a different algebra and idempotent derivations. This finding does not follow from those statements, and the existing exterior-algebra rank-pair theorem is not a statement about truncated symmetric powers. General modular tensor representation formulas and uninspected full texts create residual priority risk; searches alone are not proof of universal novelty.
+PASS
 
-**Mathematical value — PASS.** The exact rank of an operator acting on an exponentially larger truncated symmetric algebra unexpectedly recovers a complete nilpotent similarity class on generators, including separately the multiplicities of blocks of lengths two and three. The same theorem supplies exact rank frequencies over every characteristic-three finite field. This is a natural inverse invariant of restricted polynomial derivations, not a selected small-dimension table or a simple reparameterization of a known output.
+In characteristic three the quotient is by the coordinate cubes and D³ is a derivation zero on generators, so only lengths 1–3 occur. Independently verified small monomial calculations give (m1,m2,m3)=(3,0,0),(2,2,1),(2,2,7). For example on the length-three generator block, degree three in basis x²y,x²z,xy²,xyz,xz²,y²z,yz² has image spanned by x²y, x²z+xy², xyz, xz²+2y²z, and the square has image spanned by x²z+xy². Degrees above the middle are dual to the lower degrees via the top-monomial pairing, with D dual to −D. For a primitive tensor with J3, multiplication by u=x+y on k[x,y]/(x³,y^s) is free of rank s over k[u]/(u³) by the characteristic-three change of variables; J2⊗J2 has ranks 2 and 1. Modulo projectives, each nontrivial block therefore contributes 2(1+J2), with (1+J2)²=2(1+J2). This proves h and both ranks in arbitrary dimension, with the remaining multiplicity obtained from dimension 3^n. Unique factorization recovers a and b+c from h and the known dimension distinguishes b from c. D=0 if and only if T=0. The standard module centralizer has dimension (a+b+c)²+(b+c)²+c² and semisimple quotient Mat_a×Mat_b×Mat_c; its radical accounts for the q-power in the unit-group order, giving matrix counts by orbit–stabilizer, not a count of orbits. The three-dimensional example agrees. VERIFICATION.md and VERIFY.py were inspected, not executed.
 
-**Boundary and integrity.** All formulas concern the natural height-one truncation and linear-induced derivations only; no extension to arbitrary nonlinear vector fields or another characteristic is claimed. The fixed-size row-reduction checks are reproduced with a standard-library script. Historical literature access was incomplete, particularly the OCR-imperfect Doty–Walker author-uploaded text, and published equivalence has not been ruled out absolutely.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact primitive-action Jordan spectrum for the entire height-one algebra and its single-rank inverse for the cubic-zero generator class. The tensor rules themselves are standard/data already shared with cyclic-group Green rings, and the class cardinality formula is standard. The strongest inspected related results classify different operators or tensor factors. The site of remaining plausible overlap is the broader modular truncated-symmetric-power literature; this assessment is bounded and not a priority certification.
+
+## value
+
+PASS
+
+A single derived rank is a complete invariant of the inducing nilpotent partition at known dimension, even though the length-two and length-three generator blocks become indistinguishable in the stable ring. Recovering the missing split from dimension and separating the trivial factors by prime valuations give an exact inverse useful for classifying this natural family. The finite-field distribution is an accompanying application, not the main basis for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

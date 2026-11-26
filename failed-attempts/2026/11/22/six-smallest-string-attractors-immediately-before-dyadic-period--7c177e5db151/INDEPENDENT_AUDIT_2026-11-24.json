@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:57:44.954921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The morphism has constant first letter 0 and complementary second letter. Thus in φ(W)0 a factor meeting at least one second position is specified by a source factor and two zero flags. Every occurrence of the source factor lifts with the same flags, including across the right boundary using the appended zero. For the remaining singleton zero, a mark on a source 1 supplies an even-position zero. This proves forward lifting and T_{k+1}=φ(T_k)0. In the converse a two-mark set must hit both singleton letters. Its 1 must be at an even one-based position. For k≥5, the 24 short factors of T5 impose the exact obstruction to an odd-position zero mark. A complete radius-four window lies in at most two adjacent level-four blocks, aligned modulo two; the only source pairs are 00,01,10. Include the first four truncated contexts; at the right end a finite context only loses occurrences relative to the infinite one. Independent replay (python3 /workspace/independent_checks.py 5) checked all 8×5 possible mask combinations and found no cover, and enumerated precisely the six base pairs at k=4. For projection, the possible three-letter factors at odd starts are 000 and 010, and at even starts 001,100,101. Hence every occurrence of φ(Y), for |Y|≥2, aligns to a block start, and its even length precludes inclusion of the appended last zero. Even marks halve to a covering pair, including singletons by complementation of the second letters. This proves the unbounded classification by induction, not by testing a finite sequence of lengths. The full-dyadic multiplicity two is established by Banbara et al. Theorem 30.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaeffer–Shallit prove minimum size two for every prefix of length at least two; their witness specialized to length 2^k−1 is the scaled {4,8} pair, as summarized in Banbara et al. §4.",
+          "Banbara et al. give the stronger exact all-pairs relation, not just size or one witness."
+        ],
+        "reasoning": "Size and one witness alone do not imply multiplicity; the exact recognizing relation does, with standard finite-state operations.",
+        "searches": [
+          "Schaeffer–Shallit arXiv:2012.06840 §3 Theorems 3–4",
+          "Banbara et al. arXiv:2602.16152 Appendix A, Figure 17"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.16152 §4 and Appendix A",
+        "arXiv:2012.06840 §3",
+        "Resultary 7c177e5db151 (self), 344443ea5b69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 30 supplies the two full-dyadic attractors; Corollary 32 already supplies parity rigidity. The Appendix's displayed power-of-two filter is 10*, not 1^k.",
+          "Intersecting pdfa2 with the pre-dyadic length tracks and comparing with the finite union of stem languages by automaton product and emptiness derives the classification uniformly, not only for finite tested k."
+        ],
+        "reasoning": "Absence of the pre-dyadic filter in print does not prevent a direct corollary of the exact recognizer. The structural proof is different, not a distinct classification.",
+        "searches": [
+          "Banbara et al. arXiv:2602.16152 §4 Theorem 30, Corollary 32, Appendix A/A.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix A explicitly gives pdfa2 with i1<i2 and says it accepts exactly the minimum attractors of every prefix of length at least two.",
+          "Restrict n to the regular set of binary words 1^k, k≥4, using standard synchronized padding. With one-based to zero-based conversion, the six formula families are exactly six four-column stems with common tail (1,1,1)*."
+        ],
+        "reasoning": "The general recognizer and its pre-dyadic regular restriction encode the identical ordered-pair relation. The compact representation is not printed there, but it is mechanically recoverable.",
+        "searches": [
+          "Banbara et al. arXiv:2602.16152 Appendix A and A.1",
+          "Resultary: six smallest period-doubling string attractors just before dyadic lengths"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7c177e5db151 is the frozen record itself. Distinct Resultary 344443ea5b69 gives a greedy rule using zero-based positions {2^j−1}, not an all-minima table.",
+          "The all-prefix finite automaton is an exact database in regular-language form, covering in particular the six pre-dyadic families."
+        ],
+        "reasoning": "The distinct greedy result is not controlling; the material exact coverage comes from the published regular relation.",
+        "searches": [
+          "Resultary: period-doubling smallest/greedy string attractor",
+          "arXiv:2602.16152 Appendix A pdfa2 and pdfa2pow2"
+        ]
+      },
+      "rationale": "The frozen finding's exact six-pair relation is mechanically covered by a published stronger all-prefix result. In Banbara et al., Appendix A gives the actual exact three-track automaton pdfa2, not only a minimum-size bound or an existence theorem for some unspecified algorithm. The pre-dyadic restriction is ordinary regular intersection on its length track. In their zero-based coordinates, for k=4+m and base pair a,b, the k-digit tracks for (n,i,j) are the length-four stems for (15,a−1,b−1) followed by m copies of the column (1,1,1). The complete assertion is equality of a restriction of the published regular language to a six-stem regular language. Indeed one can extract the stems directly by classifying the 120 ordered increasing pairs of four-bit index stems under continuation by (1,1,1), and test for any accepted nonconstant-column tail by regular-language difference and emptiness. These operations use only the supplied exact automaton and require no fresh word-combinatorics lemma. No claim is made that these automaton operations were rerun or that the printed paper explicitly states the formula. The morphic lifting/projection is a different proof, but the frozen Finding is the covered pair classification plus a comparison to the known full-dyadic classification.",
+      "residual_risks": [
+        "The specific six-pair formula may have been printed elsewhere; the decision does not require finding such a statement.",
+        "The regular-language specialization is a mathematical coverage comparison, not an independently executed Walnut verification or a verdict about all possible uses of the lifting lemma."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material broader exact coverage; explicit complete dyadic comparison; pre-dyadic arithmetic formula not stated in inspected passage.",
+          "evidence": "Appendix A states that pdfa2 accepts exactly the smallest attractors of every relevant prefix, and illustrates a regular restriction of its length variable.",
+          "identifier_or_url": "https://arxiv.org/html/2602.16152",
+          "material_read": "§4 Theorem 30, HTML offset 50000; Appendix A/A.1 offsets 91950–94346, including literal pdfa2 and the start of pdfa2pow2",
+          "method": "OA HTML passages",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Exact arbitrary-prefix relation and dyadic theorem"
+        },
+        {
+          "assessment": "Size and one witness are antecedents, not by themselves the count.",
+          "evidence": "Every period-doubling prefix of length at least two has minimum size two; its construction includes the scaled {4,8} witness.",
+          "identifier_or_url": "https://arxiv.org/html/2012.06840",
+          "material_read": "§3 Theorems 3–4, HTML offsets 8369–11517",
+          "method": "OA full-text passage",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Minimum size and witness for arbitrary prefixes"
+        },
+        {
+          "assessment": "Different greedy selection rule, not enumeration of all minimum pairs.",
+          "evidence": "Greedy zero-based marked positions are of the form 2^j−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact greedy string attractor of the period-doubling word",
+          "trigger": "Closest distinct Resultary attractor law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural boundary and the six-to-two contrast is readable. However, as a narrow invariant of this exact family, it is already mechanically determined by the published all-prefix pair relation and the known full-dyadic result. The submitted Finding does not establish a distinct useful invariant beyond that specialization. The structural proof may be instructive; it does not change the status of the invariant under review.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

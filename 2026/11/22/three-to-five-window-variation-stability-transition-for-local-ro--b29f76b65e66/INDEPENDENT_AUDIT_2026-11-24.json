@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:31:37.248211Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a fixed fused partition and fixed signs of unfused edges, the KKT block sums make each center derivative the average on its block. The proximal map is continuous piecewise affine. At width three, a unit step can have at most two partially crossing rows; their values are at most and at least 1/2, respectively, since either outer coefficient is at most 1/2. Thus all truncated step images are monotone with variation at most 1, and summing the signed input steps and integrating along generic line segments proves the bound, including nongeneric pairs by continuity. A sufficiently steep increasing ramp and a small jump between sites 2 and 3 give equality for every N≥4; N=3 has a single output. I independently reconstructed the baseline and perturbed proximal solutions from the dual vectors and block means (python /workspace/branches/independent_frozen_checks.py 5). The two types of strict KKT slack are valid in all 12 windows, with minimum 3/20, and the center changes divided by ε are (0,1/3,0,1,2/3,1), giving ratio 7/3 exactly at N=10. Positive scaling gives all λ; continuing the step at its final value leaves the six original windows and the input variation unchanged and can only increase output variation. This is a lower bound for width five, not a sharp global modulus.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b4b1357d8d1c gives a graph-variation modulus for one global TV proximal map using connected-block projections. Little–Jones prove a one-input three-point median variation inequality. Louchet–Moisan §2 bounds the global ROF response in an l2 setting."
+        ],
+        "reasoning": "A global block projection has a single common partition, unlike the Jacobian assembled from independent window rows. One-input variation and global l2 response are likewise different observables.",
+        "searches": [
+          "Resultary b4b1357d8d1c and 9412f0250c25",
+          "Little–Jones arXiv:1012.5095, §4.4 and Appendix",
+          "Louchet–Moisan §2, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (read only)",
+        "Louchet–Moisan 2011",
+        "Little–Jones arXiv:1012.5095",
+        "Resultary b4b1357d8d1c, 9412f0250c25, bec95f897de0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p=2 result treats a fixed three-point moving mean. The global graph result compares full proximal maps with one active partition; the cyclic median result compares order-statistic outputs."
+        ],
+        "reasoning": "Treating a fixed mean or computing the modulus of one global projection does not account for the attainable changes of fused blocks between overlapping local problems. The frozen all-input width-three proof and feasible width-five simultaneous KKT witness supply that information. No within-day order is inferred.",
+        "searches": [
+          "Louchet–Moisan §3.1 and Proposition 4",
+          "Resultary b4b1357d8d1c, 9412f0250c25 and same-day bec95f897de0, Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local ROF defined by per-neighborhood minimization followed by center extraction is the same operator on a 1D interval with induced endpoints, up to fidelity/penalty normalization."
+        ],
+        "reasoning": "Matching operators must be compared on the same observable. The inspected local range/order principles do not control variation of differences between two outputs.",
+        "searches": [
+          "Resultary: sliding-window local ROF central output, two-input path variation",
+          "Louchet–Moisan, §3.1 equations (21)–(22), Proposition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed coefficient 1 for the quadratic sliding p-mean concerns a fixed arithmetic mean, not the nonlinear interval ROF center. The cyclic sliding median coefficients are 2r+1 for width 2r+1 in the stated size range. No distinct same-operator 7/3 witness or width-transition result was located in the retrieved entries."
+        ],
+        "reasoning": "The matching scalar coefficient for a different operator is not an exact match over the four possible local ROF Jacobian rows; the order-statistic examples use another operator and boundary condition.",
+        "searches": [
+          "Resultary: width-three path-variation coefficient 1 and width-five gain 7/3, local ROF",
+          "bec95f897de0 and 9412f0250c25, RESULTS Finding and Assumptions"
+        ]
+      },
+      "rationale": "The local-filter construction is already in Louchet–Moisan. The supported distinct result is the two-input path-variation boundary for its interior 1D interval implementation: exact contraction at width three and a realized width-five amplification bound. Neither the construction itself nor the fused-block derivative formula is claimed as new.",
+      "residual_risks": [
+        "The literature comparison is bounded to relevant open primary passages and the retrieved catalogue records. A specialized prior analysis of pairwise variation for the same local ROF operator could be unindexed; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Operator covered; inspected results treat different stability statements",
+          "evidence": "Center selection from an independent neighborhood minimization; local monotonicity and a global l2 response theorem.",
+          "identifier_or_url": "https://doi.org/10.1137/100785855",
+          "material_read": "OA PDF §3.1 pp. 664–665 eqs. (21)–(22), Proposition 4 p. 668, and §2 Theorem 1",
+          "method": "Bounded original passages in lawful OA PDF",
+          "title": "Total Variation as a Local Filter",
+          "trigger": "Direct prior art for the very same operator"
+        },
+        {
+          "assessment": "Global, not sliding-window",
+          "evidence": "One global denoiser and connected-block active projections.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+          "material_read": "RESULT.md Finding, Assumptions and proof passage from mirror offset 0",
+          "method": "Resultary and local-mirror primary passage",
+          "title": "Exact graph-variation perturbation modulus of the graph fused-lasso denoiser",
+          "trigger": "Same penalty and two-input variation metric"
+        },
+        {
+          "assessment": "Different order-statistic filter and cyclic boundary",
+          "evidence": "Constant 2r+1 for cyclic sliding medians of that width at n≥8r.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+          "material_read": "RESULT.md Finding, Assumptions and proof passage from mirror offset 0",
+          "method": "Resultary and local-mirror primary passage",
+          "title": "Sharp total-variation perturbation constant for sliding median filters",
+          "trigger": "Same kind of windowed perturbation metric"
+        },
+        {
+          "assessment": "Different objective, no five-site local ROF witness",
+          "evidence": "The p=2 arithmetic mean has two-input open-path variation constant 1 for n≥6.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-quadratic-loss-phase-transition-in-path-variation-for-slid--bec95f897de0",
+          "material_read": "RESULT.md Finding and Assumptions from mirror offset 0",
+          "method": "Resultary and local-mirror primary passage",
+          "title": "Sharp quadratic-loss phase transition in path variation for sliding three-point p-means",
+          "trigger": "Same catalogue date, metric and window size"
+        },
+        {
+          "assessment": "One-input three-point median statement",
+          "evidence": "Variation inequality compares filtered and unfiltered values of a single signal.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.5095",
+          "material_read": "§4.4 and Appendix, PDF pp. 9 and 22",
+          "method": "Bounded original OA PDF passages",
+          "title": "Generalized Methods and Solvers for Noise Removal from Piecewise Constant Signals",
+          "trigger": "Three-point variation diminution in a nearby filter class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A known local smoothing construction may be monotone in each input coordinate yet amplify the spatial variation of input perturbations. The result identifies the first odd width exhibiting that effect, with an exact stable regime and an explicit amplification witness under the same normalizations and endpoints. It is useful for deciding when the usual single-signal or global-prox intuitions do not transfer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

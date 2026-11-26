@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:34.820113Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–4; AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt and VERIFICATION.md; frozen verify.py inspected as text, not run",
+        "Independent output-set enumeration through n=10 and component-moment recurrence through degree 35. At n=10 the 16796 sources give sum X=263950, sum X²=6971650, sum L=335680, sum L²=7710336. Replay: /workspace/branches/7e9e58fd-e06f-4508-bf44-dfd86cdd5886/ordinal5_recompute.py"
+      ],
+      "rationale": "Proposition 2.1 of the v1 Dyck pattern poset paper gives the distinct lower-cover count, not the number of position pairs. With X the sum of products of sizes of two different components, the count is n²/4−X/4+epsilon. Conditional on component sizes, the internal Dyck words are independent; each nontrivial size-f component has the Narayana peak law at f−1 with mean f/2, and the size-one adjustment is bounded. Narayana is hypergeometric (population 2m, m successes, m+1 draws at semilength m), so variance is O(m), the fourth centered moment O(m²), and the centered sqrt(m)-scale limit has variance 1/8. Applied to the total peaks and the conditional components, these bounds give E epsilon=O(n) and E epsilon²=O(n³); the local pattern correction is O(n). Marking the two component pairs for X² gives one coincident-pair term and six ordered edge-pair choices on either three or four marked components. With s=sqrt(1−4z), A1~1/(4s), A2~1/(8s³), and C~2, the first and second moment series have leading terms (1/2)s^−2 and (1/8)s^−6. Coefficient extraction and division by C_n give EX=(sqrt(pi)/2)n^(3/2)+O(n) and EX²=(sqrt(pi)/16)n^(7/2)+O(n³). The squared mean and the remainder are smaller; Cauchy–Schwarz gives a mixed error O(n^(13/4)), so Var(L_n)~(sqrt(pi)/256)n^(7/2). The largest-component remainder is tight since the fixed-residual limits 4^(−r−1)[z^r]C² sum to one. Hence all peak cross-products between components are O_P(n), leaving the total-peak square, whose Gaussian limit is centered at n²/4; true-mean centering shifts the limit by +sqrt(pi)/8. For the rare-split mechanism, the leading marked-pair coefficients can also be localized: with pair sizes i,j and remaining size k, the exponentially renormalized h-th pair weight (h=1 or 2) is bounded by a constant times i^(h−3/2) j^(h−3/2)(k+1)^−3/2. For k≤n/2 and min(i,j)≤δn, δ<1/4, summing gives O(δ^(h−1/2)n^(2h−2)); k>n/2 contributes O(n^(2h−5/2)). Thus the leading moment contributions come from two macroscopic components in the limit δ→0, with overlap and disjoint-pair terms subleading for the second moment.",
+      "residual_risks": [
+        "Finite checks do not establish limits. The result is for the uniform Catalan level and distinct valid balanced-deletion outputs, not a weighted Dyck source or arbitrary deletion channel."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2013 proposition gives each finite value. The 2019 interval paper counts cover edges in special intervals and proves an extremal upper degree, not a full-level down-degree law. The same-day insertion record obtains the heavy-tailed weak limit of X/n and its finite-source expectation."
+        ],
+        "reasoning": "A pointwise formula does not itself give a sharp all-source second-moment asymptotic; a nonintegrable weak limit plus a first moment likewise does not imply one. The variance here requires the marked second moment and control of the peak-count error.",
+        "searches": [
+          "arXiv:1303.3785v1, Propositions 2.1–2.2 and Section 4",
+          "arXiv:1910.00299v1, Sections 3.2 and 4",
+          "Resultary: Heavy-tailed insertion-degree deficits in uniform Dyck words"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting evidence; arXiv:1303.3785v1 and arXiv:1910.00299v1; insertion-deficit Resultary source and bounded query results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing U_m for upper degree, the known identity is U_m=m²+1−X_m. Double counting gives C_n E L_n=C_(n−1) E U_(n−1), with C_(n−1)/C_n=(n+1)/(4n−2). The sibling’s mean of X gives the coefficient −sqrt(pi)/8 by this relation. The respective degree-square sums count pairs of edges sharing a lower or an upper endpoint; this argument cannot equate them."
+        ],
+        "reasoning": "Mean overlap is substantive and should be credited, regardless of same-day manuscript order. The Gaussian limit uses known Narayana behavior and tightness of the residual component size. The independently surviving sharp second moment and its contrast with the distributional limit support originality of the full theorem.",
+        "searches": [
+          "Insertion-deficit sibling RESULT.md, Finding and mean derivation",
+          "arXiv:1303.3785v1, Propositions 2.1 and 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A balanced two-symbol descendant of semilength one smaller, when valid, is exactly a lower cover. Proposition 2.1 gives the per-path ascent/peak formula. The sibling’s insertion deficit is precisely X by Proposition 2.2."
+        ],
+        "reasoning": "The pointwise deletion model and down-degree are aliases; the upper-degree observable is different but its deficit is the same auxiliary random variable whose moments drive the deletion mean and variance.",
+        "searches": [
+          "Resultary: Dyck pattern poset balanced deletion lower covers degree random Catalan mean variance Narayana rare split",
+          "Web: Dyck pattern poset lower covers average variance down degree Dyck paths Bernini Ferrari random conditioned renewal Catalan giant component",
+          "arXiv:1303.3785v1, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The interval degree histogram counts a restricted set of paths; the Dyck two-read graph returned by the index is a different graph based on shared single-deletion outputs. The Narayana peak table is known and is not the lower-cover degree table. The matching same-statistic index hit is this target itself."
+        ],
+        "reasoning": "None of those exact counts supplies the sharp full-level variance or the comparison of that variance with the centered limit. This finding is not a finite-data table.",
+        "searches": [
+          "Resultary: Dyck pattern poset balanced deletion lower covers degree random Catalan mean variance Narayana rare split",
+          "arXiv:1910.00299v1, interval degree histogram and cover counts"
+        ]
+      },
+      "rationale": "The per-word lower-cover identity is known. A same-day insertion-deficit result treats exactly the component interaction X and covers the leading deletion mean correction by double counting consecutive-level cover edges. It does not supply a second moment of the deficit or distribution of the lower-cover degree; first moments dualize but second moments count ordered pairs of edges sharing different endpoints. The joint conclusion of a sharp n^(7/2) variance and a Gaussian n^(3/2)-scale distributional limit (with its mean-centering shift) is not thereby covered. The decision rests on that stochastic scale separation, not on reinvention of the cover formula or a priority claim for the mean alone.",
+      "residual_risks": [
+        "Same-day mirror dates do not establish which manuscript came first. Unindexed global Dyck-poset degree asymptotics could overlap with the sharp variance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies both per-object formulas, not uniform-source asymptotics",
+          "evidence": [
+            "Prop. 2.1 gives half the sum of the squared total ascent count and the squared component ascent counts, minus UDU and DUD occurrences; Prop. 2.2 gives 1+sum f_i²+sum_{i<j} f_i f_j for upper covers. The four-author citation is correct for v1, distinct from the six-author journal version."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1303.3785v1",
+          "material_read": "Section 2, Propositions 2.1–2.2 and Section 4, plus v1 front matter",
+          "method": "Original open arXiv text and direct formula comparison",
+          "title": "The Dyck pattern poset",
+          "trigger": "Identical deletion statistic and possible insertion/deletion duality"
+        },
+        {
+          "assessment": "Restricted two-peak intervals and a deterministic maximum, not full-level stochastic variance",
+          "evidence": [
+            "Uses the earlier per-word formula in its restricted interval enumeration; Proposition 10 gives maximum upper degree n²+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.00299v1",
+          "material_read": "Preliminaries p. 2; Section 3.2, Lemma 4 and Proposition 6, pp. 9–10; Section 4, Proposition 10 and future directions",
+          "method": "Open original PDF and restriction/observable comparison",
+          "title": "Enumerative combinatorics of intervals in the Dyck pattern poset",
+          "trigger": "Counts covering relations and degree histograms"
+        },
+        {
+          "assessment": "Covers the leading deletion mean correction indirectly but not its sharp variance or the combined fluctuation result",
+          "evidence": [
+            "Defines the insertion deficit n²+1−U as X, derives the X/n heavy-tailed law and the sqrt(pi)/2 coefficient of EX."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-heavy-tailed-insertion-degree-deficits-in-uniform-dyck-words--eb6cf81fbabc/RESULT.md",
+          "material_read": "Finding, Proposition 2.2 input, component limit and mean derivation",
+          "method": "Local mirror and direct double-counting comparison",
+          "title": "Heavy-tailed insertion-degree deficits in uniform Dyck words",
+          "trigger": "Identical auxiliary statistic X and candidate coverage of the mean or variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 2–4; earlier cover formulas and same-day insertion comparison"
+      ],
+      "rationale": "The exact variance gives a statistic of a natural full level of the Dyck poset that is not predicted by its weak limit. For the same valid-output diversity observable, typical peak fluctuations are Gaussian but two macroscopic components, on a vanishing-probability subset, determine the leading second moment and shift the mean relative to the typical center. The explicit constant and failure of uniform integrability distinguish risk from typical behavior, beyond a pointwise count or a weak-limit calculation.",
+      "residual_risks": [
+        "No claim about decoding guarantees, coding optima, or robustness to different source laws is needed or established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

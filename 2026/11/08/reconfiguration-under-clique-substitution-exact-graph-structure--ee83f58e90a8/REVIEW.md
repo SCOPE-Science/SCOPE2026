@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The minimum independent dominating configurations are exactly one-per-selected-clique lifts of minimum independent dominating base sets; dominance and independence reduce to the base. Every slide is either a within-clique relabelling or a base slide with fixed shared labels, proving the full lifted graph, weighted vertex/edge enumerators and degree formula. Projected walks count persistent-label mismatches, and a last-entry label choice provides a matching construction. The 2/3-gap cyclic count yields the stated family specialization. The standalone finite verifier confirms original graph definitions, state-space and metric claims on 180 graph/fiber profiles, 1,870 shortest-path pairs and further cycles. No finite experiment is used as an unrestricted proof.
+PASS
 
-## Originality — PASS, provisionally
+A selected clique is represented by at most one label; an unrepresented clique is dominated exactly when an adjacent clique is represented. Independence is likewise equivalent on supports, so the map preserves the minimum cardinality and all minimum configurations are precisely labelled lifts. A slide changes either one label within a selected clique or one base support vertex along a base edge while preserving shared labels. Counting these disjoint types gives the Hamming fibers, shared-label-indexed complete bipartite cross-edges, and all the displayed vertex, edge and degree formulas. Connected fibers and freely liftable base moves give the component bijection. For the metric, deleting stationary projected moves from any lifted path yields a base walk; each mismatched vertex still present at every step needs one distinct local move. Conversely, along any base walk, pay once for those persistent mismatches and set the label at each target vertex's last insertion whenever it was not persistent. This reaches the exact target labels and attains the bound, including the length-zero walk; disconnected supports give infinity. The diameter and regularity consequences follow by lifting a geodesic for the upper bound and by the degree formula. On C_n, gaps of size 2 or 3 characterize independent dominating supports, and n≥4 allows k=ceil(n/3) with d=3k−n feasible short gaps. Counting a marked starting token counts each support k times. A directed slide swaps a 2,3 or 3,2 consecutive gap pair; for each order choose its start and d−1 of the other k−2 gaps short. Division by two counts each undirected edge, including n=4,5,6 with k=2 and the stipulated zero binomials. This reconstructs the formulas in RESULT.md lines 53–61 for arbitrary graph size and positive integral fiber sizes. The frozen finite enumerator was inspected, not executed, and its reported BFS and subset checks are corroboration only.
 
-Brewster–Mynhardt–Teshima's 2023 primary i-graph paper (arXiv:2303.06299) studies realizability and different Cartesian/inflation constructions. Their path/cycle paper (arXiv:2303.08190) already counts ordinary cycle i-sets and describes their reconfiguration graphs; those unexpanded results are not claimed as new. True-twin reachability reductions exist in general token-sliding literature and are also not claimed as independently new. The candidate adds an exact nonuniform-clique-fiber graph and weighted adjacency/degree laws plus a complete distance formula, none of which was found in the checked primary statements, search records or accessible previous claims. A more general theorem under different terminology could still dominate this one, and one newer true-twin paper was not read in full.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The construction yields quantitative reconfiguration information that the independent domination number alone cannot encode. It precisely controls how exponential state-space replication changes edges and path distances without changing reachability components. The uniform cycle case gives an explicit infinite family; the nonuniform theorem applies to arbitrary base graphs and all sizes of substituted cliques. The exact metric accounts for labels that remain fixed across the projected walk, a structural issue invisible to ordinary base i-graphs.
+Pass the full labelled token-slide graph and exact distance lift for variable clique multiplicities, with counting consequences, not base cycle counts, simple reachability preservation, or the standard graph blowup operation. Inspected i-graph construction and ordinary-cycle results are different operations or describe only the base graph. No checked source gives the shared-label adjacency condition together with the exact persistent-mismatch metric for the substituted host.
 
-## Source and verification limits
+## value
 
-Primary full text inspected: arXiv:2303.06299, arXiv:2303.08190. Additional general token-slide and true-twin literature was searched, with arXiv:2606.31815 available only through a secondary synopsis. Reproducibility: run `python verify.py`; all reported finite checks passed. Originality remains a best-knowledge assessment rather than a proof of publication priority. Independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete structural and metric rule for a natural host-graph operation. It gives exact nonuniform component, adjacency and enumeration data without constructing the exponentially many labelled states first. In particular it distinguishes a compulsory within-clique move from a free label change on reentry along a support walk, information not given by the component quotient. It is an exact characterization, not a claim of polynomial-time evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

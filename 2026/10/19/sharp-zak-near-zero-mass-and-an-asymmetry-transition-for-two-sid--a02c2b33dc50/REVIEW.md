@@ -1,14 +1,21 @@
-# Review of Zak near-zero mass and asymmetry transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric-series representation has numerator \(P_x+Q_x e^{2\pi i\omega}\), and strict increase of \(Q_x/P_x\) gives exactly one Zak zero per period. Explicit derivatives at that zero give a real Jacobian \(4\pi ab\beta A^2>0\) for the unit-normalized Zak transform. The inverse-function theorem yields the coefficient \(\pi/J\) for the small-value area, without assuming the zero is holomorphic in both real variables. Direct algebra gives the stated positive hyperbolic closed form.
+## correctness
 
-At fixed total rate, the computed second variation is \(-\mathcal H(s/4)/(4(s/4)^2)\), with \(\mathcal H\) strictly increasing from \(-1\) to infinity, so the local change of type occurs once. The coefficient diverges as either rate approaches zero, guaranteeing global minimizers; above the switch all are asymmetric. Uniform-on-compacts convergence after rescaling, with two explicit coercive bounds, proves the limiting global optimum. The associated scalar minimizing equation has one positive solution. The accompanying executable checker corroborates but does not replace these proofs.
+PASS
 
-## Originality — PASS, with priority risk
-Kloos–Stöckler (arXiv:1311.7359v1, Section 3) supply the known one-zero Zak structure. Janssen's 2003 article concerns critical-density Zak/Gabor facts for even exponential windows. De Dios Pont et al. (arXiv:2608.04992v1, Sections 2 and 5) provide general qualitative frame-set and shifted-sampling conclusions. The most directly comparable public mathematical result, *Sharp shifted sampling bounds and two tight phases for asymmetric two-sided exponentials*, already displays the same rational Zak symbol and optimizes lower sampling bounds over translated spatial grids. Its full RESULT.md was read: it does not evaluate normalized two-dimensional small-value area or optimize its asymmetry under fixed total decay. Those are distinct parameter/statistic problems. The classical symbol, its one zero, and ordinary local invertibility are not claimed as new. Equivalence in unindexed classical spline/Gabor papers remains a nonzero priority risk; no independent audit was performed.
+The rational Zak numerator is P(x)+Q(x)e^{2πiω}, with Q/P strictly increasing from zero to infinity, so its only zero is at ω=1/2 and P=Q. At this zero the two unnormalized derivative columns are −(a+b)A and −2πiβA; the normalization multiplies the real determinant by 2ab/(a+b). Thus J=4πabβA², and local change of variables plus the positive modulus away from the zero gives π/J as the sharp area coefficient. The coefficient of δ² in the fixed-sum logarithm is 1/(4q²)−tanh(q)/(2q)+sech²(q)/2; the equivalent threshold function is strictly increasing by sinh(q)cosh(q)>q. Boundary divergence gives attained minima and excludes balance above the threshold. For the large-rate limit, sC is bounded below by e^{a/2}/(4a) on a≤s/2 and admits a bounded fixed-a comparison, giving compactness of all smaller minimizing rates. On such compact sets A→1/(1+e^a), β→1/(1+e^{−a}) uniformly, giving F(a); its derivative equation has exactly one root, which implies the limit for every selection of minimizers. An independent replay reproduced the three numerical constants and checked Zak sums and determinants; it is corroboration, not the limiting proof.
 
-## Mathematical value — PASS
-The small-Zak-value area is a natural quantitative measure of near-degeneracy of a critical Gabor symbol, rather than the mere existence of an unavoidable zero. The exact coefficient permits nontrivial, scale-controlled window comparison. A unique symmetry-to-asymmetry local transition and a sharp, genuinely global large-rate design law identify meaningful structural behavior not given by the known qualitative Zak-zero theorem or shifted sampling bound formula. It does not claim to solve oversampled frame bound optimization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rational Zak symbol and zero coordinate for this window are prior. The distinct claim is the explicit L²-normalized two-dimensional area coefficient and its fixed-total-decay local stability threshold and global large-rate design. The closest prior sampling record studies a different statistic on a one-dimensional grid; the inspected general zero theorems supply no such optimization.
+
+## value
+
+PASS
+
+The sharp area coefficient measures how much of a normalized Zak cell has small transform magnitude, beyond simply detecting the zero. The fixed-budget local switch and the global all-minimizer limit explain when and how unequal rates improve this statistic; the surviving smaller decay tends to a specific finite value rather than tracking the growing total rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

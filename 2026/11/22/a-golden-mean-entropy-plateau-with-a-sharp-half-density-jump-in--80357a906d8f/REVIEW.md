@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source definition and discrepancy normalization agree exactly with Reyes (2026), Section 2. The two-branch recurrence gives an at-most-Fibonacci count at any fixed starting discrepancy. All changes in feasible words occur at explicitly counted finite thresholds, yielding at most a quadratic multiplier in the global language. A negative-drift \((10)^N\) prefix realizes every golden-mean factor below half density. The exact endpoint entropy is explicitly imported from Reyes, Theorem C(c). Infinite assertions do not depend on the finite checker; the checker verifies representative exact rational cases and boundary behavior.
+## correctness
 
-**Originality — PASS within inspected evidence.** The initiating article treats only the special parameter family \(k/(k+1)\) for its exact entropy, where \(k\ge1\). The 2023 introduction establishes general positivity of entropy and a composition count at integer-ratio parameters. The published records concerning transitivity of parameters below half do not imply any entropy formula. Searches using the threshold, plateau, golden-mean and Fibonacci descriptions found no identical theorem. Full 2023 text was inaccessible and remains a priority risk, not proof of absence of prior work. The direct comparison of implications is detailed in `AUDIT.json`.
+PASS
 
-**Mathematical value — PASS.** An exact entropy formula on an entire real interval, with a sharp discontinuity at its endpoint, gives a natural phase diagram for a history-dependent symbolic system. The universal Fibonacci-language estimate also establishes nontrivial control of entropy for all interior parameters. This is a structural phenomenon, not a finite table or an arbitrary special parameter. The key mechanism is that forcing after \(1\) restricts each fixed-offset language, while a long negative-drift prefix restores full golden-mean complexity below half density.
+For the exact one-sided shift closure and ties-up rule, the discrepancy increases by β on a 0 and decreases by 1 on a 1. At fixed starting discrepancy, appending an initial 0 leaves at most b_(n−1) choices; an initial 1 determines the second digit, and dropping any residual constraint on the third leaves at most b_(n−2). From b_0=1, b_1=2 this gives the Fibonacci bound. Over all starting discrepancies, every transition in an n-word depends on the sign at a threshold o−βz with 1≤o+z<n, so there are at most n²+n−1 regimes including ties and the n=1 case. Cylinders are open, so closure adds no previously absent finite words. For β<1, each 1 in (10)^N has negative discrepancy, and the discrepancy after the whole prefix tends to −∞. A sufficiently long such prefix lets any finite no-11 word obey the correct rule through its trailing zero continuation. The proof works for arbitrary real β in the relevant ranges, so golden-mean inclusion matches the entropy upper bound for all 0<p<1/2. Independently of the endpoint citation, at β=1 the generator consists of concatenated blocks 0^k1^(k+1)0, k≥0, with a possible terminal all-zero tail: from discrepancy 0, the k zeros build discrepancy k, the following ones are forced until discrepancy −1, and the forced 0 restores 0. Complete blocks of total length 2m are counted by compositions of m, giving 2^(m−1) words. Factors can trim at most two boundary blocks; each partial piece has only polynomially many possibilities at length ≤n (each block has at most two runs plus its final zero), as do factors entirely within one block or the zero tail. The resulting upper rate is (log 2)/2, matching the complete-block lower rate. Hence the left jump is real since φ>√2; no right-hand claim is made. The supplied finite checker was inspected, not executed.
 
-**Residual limits.** The historical 2023 complete manuscript was unavailable; the proof establishes the stated quantities but not entropy above one half or intrinsic ergodicity below half. All C/O/V decisions are same-model assessments, not independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-real sub-half plateau and the parameter-uniform language bound; the left discontinuity combines this with an already credited endpoint value. The exact-index match is the same record. Relevant distinct indexed rational and irrational results do not state a matching entropy theorem below 1/2 in the material read. Primary-source access limits remain, especially for the founding article.
+
+## value
+
+PASS
+
+The rule has unbounded historical memory, so the language of all shifts cannot be counted by fixing one initial discrepancy. Showing that past history contributes only polynomial multiplicity while every golden-mean factor is realizable below half determines an exact invariant on an entire real parameter interval, including irrational parameters. Combined with the known half-density entropy, it shows an explicit and strict left discontinuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

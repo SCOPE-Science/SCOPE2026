@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:56:19.790173Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the masses with t=theta+1 and c=theta²/t gives F(z)=c(t+1-z)/(t-z)² and G=pi+(1-pi)F. For p_0>0 the Taylor coefficients are (2 t^(-n)-sum r_j^(-n))/n, where r_j are the finite numerator roots. When 0<pi<1, the quadratic in s=t-z is pi s²+(1-pi)c(s+1); both roots have negative real part, so the corresponding z roots have modulus >t. At pi=0 the single root is t+1; pi=1 gives the point mass. In the negative branch set q=(1-pi)c/(-pi); the positive root of s²-q(s+1)=0 rises strictly from t to infinity, putting one z root rho down from zero through -t, and the other eta stays >t. The equation at rho=-t is q=4t²/(2t+1), giving the displayed pi_* and its strictly positive distance from pi_min. For rho<=-t even coefficients are bounded below by (t^(-n)-eta^(-n))/n>0 and odds are positive as well. For -t<rho<0, negative even coefficients eventually dominate. Real iid roots with p_0>0 cannot have a negative part (all copies could be negative); they must have an atom at 0 and then lie on the integer lattice, since the other copies can all be zero. At truncation, the shifted PGF has a single numerator zero t(theta+3)/(theta+2)>t, so its log coefficients are positive and summable and G=zH gives explicit fractional-shift real roots. Integer roots at truncation cannot exist for order m>1 since the minimal possible summed integer count would be m times the least supported count, not 1. The boundary coefficients remain strictly positive at every fixed degree, so continuity at fixed positive p_0 provides the arbitrarily late obstruction; no finite enumeration is needed. For theta=1 the right-hand boundary roots are -2 and 14/5, and at pi=-1/3 I get p_0=1/6, p_1=1/3, p_2=5/24 and lambda_2=-3/4. The first two raw moments are 2 and 22/3, so the overdispersion example also checks. Frozen checker read, not executed; the mass recurrence it uses follows from G'=G(log G)' and is independent as a finite coefficient computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard lattice theory relates infinite divisibility to nonnegative canonical coefficients or the compound-Poisson form; bibliographic access to van Harn–Steutel is not counted as full-text inspection. The targeted search also returned rational-infinite-divisibility work on the different quotient-of-two-ID class."
+        ],
+        "reasoning": "Applying the standard criterion still requires proving all-degree signs, deriving the root crossing inside the admissible region and separately factoring off the unit shift. Rational infinite divisibility as a quotient property is not ordinary convolution-root divisibility and would not give the excluded interval.",
+        "searches": [
+          "infinite divisibility rational probability generating functions zeros poles numerator denominator two poles compound Poisson rational pgf Steutel van Harn criterion negative dominant zero",
+          "doi:10.1016/0304-4149(77)90049-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.04088v2",
+        "doi:10.1016/j.matcom.2007.11.021 (bibliography)",
+        "doi:10.1016/0304-4149(77)90049-7 (bibliography)",
+        "Bertoli et al. doi:10.1214/19-BJPS447 (abstract)",
+        "Resultary negative-binomial threshold e4339a2d413f (full RESULT) and related indexed count-family classifications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xavier et al. defines truncation and derives moments and estimation; it does not derive the threshold at the negative pole radius. The 2008 DOI gave bibliographic information, not the paper’s proof; the 2021 autoregression DOI access was rate-limited."
+        ],
+        "reasoning": "Identifying the endpoint as a zero-truncated law is not enough to prove its shifted compound-Poisson decomposition. Also a result for innovations used in an integer autoregression would need an actual canonical-coefficient or additive-divisibility theorem covering the whole modification interval to imply this claim; the unavailable full text was not assumed not to cover it.",
+        "searches": [
+          "arXiv:1712.04088v2 §§2–3 and §6",
+          "doi:10.1016/j.matcom.2007.11.021",
+          "doi:10.1080/03610918.2020.1864644"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xavier et al. §2 gives exactly the same admissible pmf, including its zero-truncated, deflated and inflated branches. Bertoli et al. describes a hurdle parameterization in the accessible abstract. Resultary also returned zero-deflated Poisson–Bilal and Bernoulli–Poisson–Lindley classifications."
+        ],
+        "reasoning": "The hurdle representation replaces pi by p_0, an affine parameter with positive slope at fixed theta; thus the same theorem would have a singleton p_0=0 and the stated sharp positive cutoff. The positive-count shape here is unchanged by pi; Bernoulli convolution acts on the entire count and has a different PGF. Poisson–Bilal supplies a different parent pgf and does not convert into this model by a change of the zero parameter.",
+        "searches": [
+          "zero-modified Poisson-Lindley infinite divisibility zero-deflated compound Poisson threshold truncation Lindley count",
+          "Zero-modified Poisson Lindley zero-deflated discrete infinite divisibility compound Poisson numerator zero threshold shifted zero-truncated"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed structural comparators include SCOPE-sharp-infinite-divisibility-threshold-for-zero-inflated-negative--e4339a2d413f, SCOPE-sharp-zero-deflation-boundary-for-infinite-divisibility-of-poiss--629172e5405f, and SCOPE-a-sharp-compound-poisson-boundary-for-bernoulli-poisson-lindley--8d2c7b003f1d. Xavier et al.'s simulations tabulate estimation bias and coverage, not divisibility thresholds."
+        ],
+        "reasoning": "Neither a matching numeric threshold nor finitely many positive coefficients would determine all-degree signs for this family. The fixed-shape negative binomial zero-modified PGF adds a constant to a pure power of the pole; it lacks the linear numerator term t+1-z of the PL parent. Same root-expansion technique, different roots and admissible phase diagram.",
+        "searches": [
+          "Zero-modified Poisson Lindley zero-deflated discrete infinite divisibility compound Poisson numerator zero threshold shifted zero-truncated",
+          "arXiv:1712.04088v2 §4 and numerical examples"
+        ]
+      },
+      "rationale": "The phase classification for this exact zero-modified family, especially the conjunction of a sharp deflation cutoff with an isolated shifted endpoint, survives the comparisons. The model, standard lattice compound-Poisson criterion, and expansion of rational logarithms are not contributions. Earlier work on the isolated endpoint specifically remains a priority risk.",
+      "residual_risks": [
+        "The 2008 full text and the 2021 ZMPL autoregression full text were not obtained, and earlier inflated Poisson–Lindley literature was not exhausted.",
+        "The other related count-family records were compared at the indexed statement level. Generic rational PGF theory may give an alternative proof; no inspected statement gives this entire family-specific classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the unmodified and modified models and inference; does not state the sharp ordinary or integer-root ID boundary in the inspected treatment",
+          "evidence": [
+            "§2 lists all five regimes from zero truncation to the degenerate zero law",
+            "§3.1 gives modified mean and second raw moment"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1712.04088v2",
+          "material_read": "Abstract, §§1–2 pmf and cases, §3 moments and estimation setup, §4 simulations, and concluding scope",
+          "method": "Read and compared primary versioned arXiv HTML, using §2 pmf and §3 moments for a direct cross-check",
+          "title": "Zero-Modified Poisson-Lindley distribution with applications in zero-inflated and zero-deflated count data",
+          "trigger": "Same family and full parameter range"
+        },
+        {
+          "assessment": "Same endpoint distribution; no full-text conclusion about prior divisibility of that endpoint",
+          "evidence": [
+            "Xavier et al. §2 identifies pi_min with Ghitany–Al-Mutairi–Nadarajah’s truncated law"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.matcom.2007.11.021",
+          "material_read": "DOI bibliographic entry and the reference to this endpoint in Xavier et al. §2, not primary full text",
+          "method": "Tried the DOI and checked the cited endpoint match in the accessible primary family paper",
+          "title": "Zero-truncated Poisson–Lindley distribution and its application",
+          "trigger": "Exact isolated endpoint of the reviewed classification"
+        },
+        {
+          "assessment": "The modulus method itself is prior. A general Pringsheim argument would also obstruct a root inside the pole radius here for p_0>0, but the prior theorem has only a pure negative-binomial parent and interior zero inflation; it does not give the Lindley crossing or endpoint. Its necessity gives at least one negative coefficient, not eventual negativity of every even coefficient.",
+          "evidence": [
+            "Its numerator is w[(1-qz)^m+c^m] with 0<w<1",
+            "At the matching pole multiplicity m=2 it has all zero-inflated members infinitely divisible and cannot describe a negative-weight interval or the shifted truncation"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-infinite-divisibility-threshold-for-zero-inflated-negative--e4339a2d413f/RESULT.md",
+          "material_read": "Full rendered result, including factorization, sufficiency and Pringsheim necessity proof",
+          "method": "Compared the PGF numerators, parameter ranges, obstruction and support assumptions",
+          "title": "Sharp infinite-divisibility threshold for zero-inflated negative-binomial laws of integer shape",
+          "trigger": "Closest published analogue using numerator zeros and the same pole-modulus comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an established model whose defining flexibility is zero inflation and deflation, the two notions of divisibility give genuinely different phase diagrams, and the isolated ordinary-ID law cannot be read from the coefficient test for positive zero mass. The result both supplies the exact admissible region for a jump interpretation and explains why finite coefficient screening or overdispersion can falsely suggest it. No empirical jump mechanism or inference guarantee follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

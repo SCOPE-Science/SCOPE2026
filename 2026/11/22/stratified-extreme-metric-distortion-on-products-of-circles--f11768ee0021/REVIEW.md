@@ -1,15 +1,21 @@
-# Scientific review of the stratified Clifford-torus distortion theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies every radius, the sampling measure, both metrics, the endpoint, the two leading powers and the remainder. The folded coordinate law is exactly product-uniform, and the quotient is a weighted average of one-circle squared dilation factors. Its maximum set consists of the nonzero binary-angle corners, not just the fully antipodal corner. At a corner indexed by a nonempty set \(A\), the deficit has positive linear coefficients in \(\pi-U_j\) for \(j\in A\) and positive quadratic coefficients in \(U_i\) for the remaining factors. Real analyticity in the squared coincident angles justifies integer relative-order corrections; this is what separates the singleton and doubleton terms cleanly. Dirichlet simplex integrals produce the stated gamma constants. AM–GM gives strict balance rigidity and conditional concentration yields the stated index/Dirichlet laws. Exact integral numerical evaluations for three radius pairs and four thresholds support—but do not replace—the proof. The standalone diagnostics passed 2436 checks.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-The closest same-object full text examined is Tavernier et al., arXiv:2107.04686v1, Sections 3–4 and the conclusions. It derives Clifford-torus chord geometry, which is acknowledged as prior input, but its conclusions concern Madelung lattice sums and do not state or imply the probability of extreme intrinsic/Euclidean dilation, its two-term asymptotic or shape minimizer. Brendle, arXiv:1203.6597v3, introduction and theorem and proof, treats geometric rigidity of minimal Clifford tori, not random paired distortion. Published research summaries concerning intrinsic pair-distance on inversion quotients, sheared flat-torus diameter tails, and Clifford-torus harmonic traces describe distinct observables. Their linked full repository pages were unavailable, so the comparison to those items is limited to their indexed statements; an older unindexed probability-law calculation remains a meaningful residual risk. Search absence alone is not treated as proof of novelty.
+PASS
 
-## Value — PASS
-Intrinsic-to-ambient metric distortion is a natural embedding-quality observable. Unlike a routine substitution, this statistic has \(2^d-1\) global maximizing angular strata of different codimensions and hence a hierarchy of half-integer tail powers. The leading probability coefficient uniquely selects the equal-radius Clifford geometry among the whole positive-radius product family; the labelled rare-event frequencies recover the aspect ratio, and the conditional Dirichlet law gives the actual near-extreme geometry. These are meaningful structural, probabilistic and inverse-geometric consequences under a natural sampling measure.
+Folded angular differences are independent uniform on [0,π]. The squared ratio is a positive weighted average of the squared one-circle arc/chord factors, which increase strictly to (π/2)². It tends to 1 at the all-zero corner and reaches π/2 exactly on the other 2^d−1 corners, so all sufficiently high exceedances are localized there. Expanding at antipodal set A gives deficit F=L+O(L²) with L=Σ_{j∈A}r_j²s_j/(2S_A)+Σ_{i∉A}(π²−4)r_i²y_i²/(16πS_A); all coefficients are positive at fixed radii. In a small fixed neighborhood, F<ε is thus squeezed by L<ε±O(ε²). The volumes of these model sets scale exactly with exponent (d+|A|)/2. The squared-coordinate substitution and beta integral give c_A as stated, with a relative O(ε) error, so a singleton's next error cannot contribute to the second coefficient (including d=2). The AM–GM equality case is exactly equal radii. On singleton corners, rescaled model contributions have simplex density proportional to the product of inverse square roots of the coincident-coordinate contributions; adding slack gives Dirichlet(1,1/2,…,1/2,1). The squeeze implies the same law for the true exceedance and either exact or leading slack. Singleton corner weights are proportional to r_j^d, and the labelled ratios plus diameter determine the scale. All claims are for fixed positive radii and the specified embedding.
 
-## Boundaries and verification
-All claims are for fixed \(d\ge2\) and strictly positive radii, not degenerating product tori, arbitrary isometric embeddings, or all sampling laws. The checker depends on SciPy and is a finite numerical diagnostic; the infinite-dimensional family statement relies on the written argument. Closest linked summary records were not all available in full text, and independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Available sources share ingredients, statistics in other geometries, or intrinsic-distance observables on flat tori. No inspected statement gives the claimed two corner orders, labelled inverse proportions and conditional simplex law for the specified orthogonal product embedding. Credit the corner tail and defect law rather than classical metric formulas or the Clifford torus itself.
+
+## value
+
+PASS
+
+The second term reflects a genuinely different antipodal stratum rather than a correction to the most likely stratum. The coefficients measure geometric imbalance, identify equal radii uniquely, and recover labelled shape information from rare events. The conditional defect profile gives more than an endpoint exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

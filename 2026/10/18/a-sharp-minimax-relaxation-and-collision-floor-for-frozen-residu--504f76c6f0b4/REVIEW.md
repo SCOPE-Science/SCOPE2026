@@ -1,19 +1,21 @@
-# Scientific review: frozen residual-weighted Kaczmarz batches
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent frozen row choices, multinomial marginals give the exact conditional squared-error moment (equation (1) in `RESULT.md`). The cubic-simplex extremal lemma is proved, not numerically assumed: holding a pair sum fixed makes the objective affine in the pair product, and a support-minimal maximizer must be equal on its positive support. Convexity across reciprocal support sizes restricts global maximizers to the uniform distribution or a vertex. Their exact quadratic envelope yields the unique relaxation in both regimes, the sharp strict contraction window, and the positive one-batch concurrency limit. The computations in `verify.py` independently enumerate multinomial counts and check rational arithmetic; they are corroboration rather than the proof of the infinite parameter claim. Boundary cases \(d=2\), \(k=1\), equality in the phase inequality, zero residual, and \(\beta=2/k\) are explicitly handled.
+PASS
 
-## Originality — PASS, subject to bibliographic limitations
+For every nonzero error the conditional ratio is the probability-weighted sum of the squared coordinate factors. The binomial marginals give 1 - k(2β−β²)S₂ + k(k−1)β²S₃; every simplex point is admissible. An independent sharp certificate beyond the source's pair-splitting argument is S₃ ≤ (1+1/d)S₂−1/d. With E_j the elementary symmetric sums of p, the gap times d is (d−2)E₂−3dE₃, exactly Σ_l p_l Σ_{i<j, i,j≠l}(p_i−p_j)². The cubic coefficient is nonnegative, so the resulting chord bounds the objective by the larger endpoint, and both endpoints attain it. At d=2 the chord is an identity and at the positive crossing all splits tie; β=0 also gives ties. The theorem asserts witnesses, not exclusivity. The uniform-minus-vertex gap changes sign once at β_c=2d/[k(d+1)−1] for β>0. The vertex minimum 1/k lies strictly before that crossing, and the uniform minimum d/(d+k−1) lies at or before it exactly when k(d−1)≤2d−1. The envelope thus has the stated unique optimum, including equality of branches. The vertex requires 0<β<2/k and the uniform branch stays below one throughout that window (its own positive crossing is 2d/(d+k−1)≥2/k). This covers k=1 and the absorbing zero-error case in the conditional iteration. The fixed-d floor follows from the balanced branch; under fixed-uniform sampling every coordinate has the same expected multiplier and the uniform quadratic is exact for every start. I inspected verify.py and its documented finite replay without executing it; the count and Monte Carlo figures are frozen supporting evidence, not the basis of the universal check.
 
-The primary 2026 residual-weighted Jacobi paper analyzes one-step concentration and asynchronous stochastic updates. Its collision discussion and the subsequent 2026 Kaczmarz study provide the motivation but not the sharp, all-dimension, frozen-batch minimax law. The classical minibatch averaging paper gives relaxation bounds and fixed row-probability designs; its result does not directly imply the state-dependent residual sampling extremal lemma or the collision floor. The closest related numerical statements were compared by model, update semantics, parameters, and implication, not keywords alone. Directly related formulas in unindexed studies cannot be ruled out, and independent literature validation remains absent.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives an exact design rule for the snapshot-collision regime rather than a generic concentration bound. It identifies a nontrivial phase change in the unique minimax step, a sharp universal safety range, and a gap that persists between residual-adaptive and uniform sampling even as the batch size grows indefinitely. The relevant application is assessing when residual-greedy sampling and parallel frozen reads work against each other; the result is not represented as a real-machine speedup theorem.
+Distinct supported contribution is the all-dimension sharp cubic-simplex envelope and resulting finite-k minimax relaxation and floor, not the d=2 specialization, single-step moments, fixed sampling, or safety window by itself. The strongest catalogue overlap is explicit below; no priority is inferred from same-date metadata.
 
-## Closest literature and limitations
+## value
 
-E. Coleman, arXiv:2606.01232 (first public submission 2026-05-31), Sections 3–6; E. Coleman, arXiv:2607.08313 (first public submission 2026-07-09), Sections 2–6; L. Tondji and D. Lorenz, DOI:10.1007/s11075-022-01473-x, Sections 1, 4 and 5. These sources develop adaptive sampling, snapshot interference, and minibatch averaging, respectively. Their results do not explicitly determine the exact state-dependent worst-case one-batch relaxation across all dimensions and batch sizes. The claim is restricted to orthogonal identity systems, exact arithmetic, iid within-batch row draws and additive corrections from a common frozen residual. It does not cover live reads, non-orthogonal rows or the best long-run rate under repeated batches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The condition-one benchmark isolates occupancy collisions from matrix conditioning. It answers a motivated robust tuning question: which of uniform fractional coverage and duplicate hits on a single residual dominates at the best step? The all-dimension sharp crossover and persistent quantitative gap versus fixed-uniform sampling supply that design information; the floor is not a limitation on repeatedly refreshed accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

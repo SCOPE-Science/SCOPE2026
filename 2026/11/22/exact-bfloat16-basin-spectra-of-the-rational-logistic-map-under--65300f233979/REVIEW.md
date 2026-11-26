@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every state code is decoded as an exact rational; both successor semantics are explicit and all outputs are in the enumerated domain. Two mathematically distinct exact rounding implementations agree on the full set of inputs and midpoints and on all successor evaluations. Independent path-following and indegree-peeling algorithms agree on the complete graph decomposition, cycle codes, basin totals and transients. The attached executable reproduces all entries. The exact finite-graph claims make no extrapolation to a continuum orbit.
+## correctness
 
-## Originality
-PASS on inspected literature, not an independent priority certification. The originating Kumar et al. article supplies the recurrence and specifically uses control 5.5 in its chaotic plot, but its available full paper does not present bfloat16 state graphs. Klöwer et al. address low-precision periodicity for logistic and Bernoulli maps, not this rational family. Other published rational-map results classify real periodic orbits and do not determine rounded graph basins. Search comparisons of equation aliases, evaluation orders and exact period/basin counts found no statement implying this particular census. An unindexed equivalent computation remains possible.
+PASS
 
-## Value
-PASS. The parameter is the originating paper's canonical chaotic example and the invariant finite-state census is a natural diagnostic of numerical fidelity and periodic-orbit diversity. A change from one nonzero recurrent component to three despite only 1,371 changed edges is a substantive state-space phenomenon, not a random partial trajectory or a generic inevitability of finite precision.
+I independently decoded every code 0000–3f80 as a dyadic rational, including zero and all 127 positive subnormals, and evaluated both exact expression trees with one rounding at each specified node (only the root for A). A neighbor-midpoint comparator and an independently specified integer-quantum rounder agreed at every node and every adjacent midpoint of the relevant table. The denominator of B is always positive and every successor is in-domain. Indegree peeling followed by residual cycle walks and reverse BFS accounted for all 16,257 states of each map. The (period, basin size, maximum transient) triples were A: (1,2,1), (19,16255,74); B: (1,2,1), (2,409,53), (6,5958,64), (21,9888,63). Both fixed cycles were zero. Exactly 1,371 successors differ. The little-endian SHA-256 values were 61a5e82b755d2663346b81fce98adced48bacb0933638361e4e29635e8a25d71 and eb02e69879f027f218499d3e54f21b936d0619cf219b386b5ab312721c106d4b, respectively. Replay: python3 /workspace/independent_bfloat16.py. The frozen checker was inspected, not run. It compares final successor arrays rather than each actual intermediate node directly; the independent replay checks these nodes too. This exhausts only the defined finite systems, not the real map or optimizations used by a particular processor.
 
-## Residual limitations
-The finding is about two explicitly defined ideal rounding semantics, not all possible bfloat16 execution orders or actual microarchitecture. Cycle lengths do not establish information-theoretic security. Independent audit is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the complete census for this rational map and the two exact evaluation trees, not the discovery that rounding changes low-precision dynamics. No inspected source covers that conjunction.
+
+## value
+
+PASS
+
+A motivated parameter taken from a published chaotic real trajectory and two plausible evaluation trees give a reusable all-state benchmark, rather than a selected orbit. The substantial change from one to three nonzero attractors, with exact basin sizes and transient maxima, is information a researcher comparing precise low-precision evaluation semantics can use. It does not license claims about real chaos, unspecified hardware or cryptographic security.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:49:12.491556Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–74: exact counting, covariance and three-regime limit",
+        "Heuer–Striker arXiv:2012.09901 §5.1 Proposition 5.7",
+        "VERIFICATION.md and verify_chords.py inspected; independent hand count at (m,n)=(4,2), not an asymptotic certificate"
+      ],
+      "rationale": "The top-k label classification gives exactly (m)_k vertices of rank k. The norm bound is saturated only at rank n, and nonnegativity makes disjointness equivalent to zero cross term. Thus the known diameter equality cases count to the exact unconditional atom for independent ordered draws with replacement. On the event that both draws are full rank, W is the inner product divided by n². The centered permutation covariance has eigenvalue (Q_n−S_n²/m)/(m−1) on the mean-zero space and vanishes on constants; squaring and taking its trace gives the stated variance. An independent m=4,n=2 hand count gives atom 24/289, conditional mean 9/16 and variance 121/768. In the critical regime the hypergeometric overlap has all falling-factorial moments tending to λ^r, and at each fixed overlap size the two ordered samples of scaled labels converge to independent uniform marks. Tightness of the overlap and full-rank probability 1−O(1/(m−n)) transfer this compound-Poisson limit to the actual draws. The critical zero probability follows separately from the exact no-overlap product, so does not rely on weak convergence at an atom. In the subcritical and supercritical cases, the conditional mean and relative variance give the stated mean-scale limits, using Markov and Chebyshev respectively; the overlap mean bound and the exponential no-overlap bound give the corresponding zero-atom limits.",
+      "residual_risks": [
+        "Moment formulas are conditional on both draws being full rank; no claims for uniform interior points, random edges or dense sequences outside the stated assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The diameter result already gives 2Q_n and the exact disjoint full-rank maximizing vertex pairs in the relevant range.",
+          "The edge spectrum concerns sampling adjacent pairs and works in the different n≥m range; the original adjacency criterion determines the edge types, not distances of arbitrary uniform vertex pairs."
+        ],
+        "reasoning": "There is direct prior coverage of the geometrical baseline and the finite equality class; counting that equality class is an elementary consequence. The distinct content needs the law of positive deficits between arbitrary sampled vertices.",
+        "searches": [
+          "partial permutohedron Euclidean diameter saturation m=2n disjoint supports vertex pairs",
+          "partial permutohedron Poisson edge-length spectrum length-condensation transition adjacent edges",
+          "Behrend et al. arXiv:2207.14253 Prop. 5.7, Cor. 5.8 and Rem. 5.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.09901 and arXiv:2207.14253",
+        "Gouyou-Beauchamps–Nicaud §4.1",
+        "Resultary cb2829b66c5c, c92e973354a1, 6522264cb481 and self-match e9bbf59cb7da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard covariance, vertex count and equality cases imply the exact conditional moments and zero-atom count after a short calculation.",
+          "The inspected closest pair-distance result controls shared unit matrix cells rather than a collision sum weighted by two uniform samples without replacement.",
+          "No covering marked sparse-permutation theorem surfaced in the searches made; the retrieved partial-injection passage addresses generation, not this asymptotic weighted statistic."
+        ],
+        "reasoning": "Credit the exact inputs and do not rely on simple corollaries for distinctness. The nondegenerate critical weighted law and the neighboring geometry-specific regimes remain the audited new content relative to the inspected results.",
+        "searches": [
+          "uniform random sparse permutations partial overlap marked compound Poisson sum product weights collision birthday regime n squared over m",
+          "random pair distances partial permutation vertices common nonzero coordinates exact moments Poisson sparse",
+          "Resultary cb2829b66c5c, c92e973354a1 and 6522264cb481"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioned on full rank the geometric deficit is exactly a sparse randomly permuted inner product with deterministic labels, or the sum of products on collisions of two uniform partial injections into coordinates.",
+          "The primary sources inspected give vertex classification/rank counts and partial-injection sampling respectively, not a law of the resulting pair metric in those passages."
+        ],
+        "reasoning": "A primary result on the same weighted overlap with n²/m tending to a fixed constant could cover the main limit even without the polytope formulation. Unweighted Poisson overlap alone does not give the product-jump law.",
+        "searches": [
+          "sparse random permutations partial overlap marked compound Poisson sum product weights collision birthday regime",
+          "sparse randomly permuted vectors overlap count Poisson marks product of sampled labels without replacement",
+          "Heuer–Striker arXiv:2012.09901 §5.1",
+          "Gouyou-Beauchamps–Nicaud, Random Generation Using Binomial Approximations §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match e9bbf59cb7da is the assigned record itself.",
+          "Distinct same-day 6522264cb481 gives an exact Frobenius pair-distance PGF and Poisson(1) common occupied matrix sites with independent Gaussian rank deficits for the doubly substochastic polytope."
+        ],
+        "reasoning": "The distinct entry is real thematic and methodological overlap. Its matrix cells carry unit weights, obey row/column constraints, and have random rank fluctuations. It does not furnish the scalar label-product marks or the n²/m transition of this polytope. A common date is not a priority ordering.",
+        "searches": [
+          "random ordered uniform vertex pairs near-diameter chord deficit exact atom conditional moments partial permutohedra same day",
+          "partial permutation polytope two uniformly random vertices squared Euclidean distance pair law shared support same day November 22 2026"
+        ]
+      },
+      "rationale": "The prior diameter, equality classification, and standard permutation/hypergeometric formulas are inputs, not novel results. The supported distinct contribution is the uniform arbitrary vertex-pair deficit law, particularly the marked critical law and related atom transition; it is neither the edge spectrum nor the pair-distance law of the different doubly substochastic matrix model.",
+      "residual_risks": [
+        "The sparse-permutation lookups were bounded to the local catalogue and retrieved primary references; an unindexed weighted permutation statistic or broader marked collision theorem could already imply the critical law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact foundational classification; no sampled-pair metric statement in the checked passage",
+          "evidence": "At rank k the vertices use the top k labels on distinct coordinates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.09901",
+          "material_read": "§5.1, Proposition 5.7, PDF p. 16, offset 57393",
+          "method": "Open-access primary PDF",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Same polytope and all its vertices"
+        },
+        {
+          "assessment": "Adjacency result, not arbitrary pair sampling",
+          "evidence": "An anti-blocking edge criterion and its specialized adjacency description.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.14253",
+          "material_read": "Proposition 5.7 at PDF p. 26, offset 111382; Corollary 5.8 and Remark 5.9 at pp. 27–28, offset 116205",
+          "method": "Open-access primary PDF",
+          "title": "Partial permutohedra",
+          "trigger": "Same geometry and adjacency needed for the edge comparator"
+        },
+        {
+          "assessment": "Combinatorial sampling input, not a weighted pair distance in that passage",
+          "evidence": "Uniform generation and rank counts of partial injections.",
+          "identifier_or_url": "Gouyou-Beauchamps and Nicaud, DMTCS Proceedings AM (2010), 359–372",
+          "material_read": "§4.1, PDF p. 5, offset 14282",
+          "method": "Open-access primary PDF",
+          "title": "Random Generation Using Binomial Approximations",
+          "trigger": "Equivalent uniform partial-injection sampling"
+        },
+        {
+          "assessment": "Verified coverage of diameter and equality cases",
+          "evidence": "For m≥2n the squared diameter is 2Q_n and is attained by full-rank disjoint-support pairs.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-euclidean-diameter-of-partial-permutohedra-saturates-exactly--cb2829b66c5c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The Euclidean diameter of partial permutohedra saturates exactly at m=2n",
+          "trigger": "Exact baseline and equality pairs"
+        },
+        {
+          "assessment": "Noncovering edge law",
+          "evidence": "Euclidean census over edges and an edge-sampling limit for n≥m.",
+          "identifier_or_url": "2026/11/17/SCOPE-poisson-edge-length-spectrum-and-a-length-condensation-transitio--c92e973354a1",
+          "material_read": "RESULT.md Finding at 0 and prior-work passage at 5500",
+          "method": "Local Resultary mirror",
+          "title": "Poisson edge-length spectrum and a length-condensation transition for partial permutohedra",
+          "trigger": "Same metric and Poisson geometry on another pair sample space"
+        },
+        {
+          "assessment": "Material overlap in mechanism, different support structure and conclusion",
+          "evidence": "Exact pair-distance PGF for doubly substochastic matrix vertices, shared occupied cells tending to Poisson(1), and independent Gaussian rank-deficit fluctuations.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-frobenius-pair-distance-law-and-independent-gaussian-poiss--6522264cb481",
+          "material_read": "RESULT.md Finding at 0 and prior-work passage at 5900",
+          "method": "Local Resultary mirror",
+          "title": "Exact Frobenius pair-distance law and independent Gaussian–Poisson limits",
+          "trigger": "Strong distinct same-day random-pair distance and collision result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and regimes",
+        "Known diameter and edge comparators, and the separate Frobenius matrix-pair law"
+      ],
+      "rationale": "A worst-case diameter does not indicate whether a typical ordered pair attains it or how it misses when it does not. The result identifies a sharp birthday-scale transition and the nontrivial weight distribution of rare overlaps, not merely a contact census. It is a usable native-metric benchmark for uniform vertex pairs with a distinct normalization on either side of the transition.",
+      "residual_risks": [
+        "The comparison concerns this sampling measure and sparse native-coordinate model, not the typical chord of a general convex body."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

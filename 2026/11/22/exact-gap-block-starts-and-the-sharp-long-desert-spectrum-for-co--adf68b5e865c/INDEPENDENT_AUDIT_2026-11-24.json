@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:26:13.283488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original start/count formulas check out but were removed for prior coverage. For the repaired long-block theorem set u=n+1, v=2u+1. In a fixed-q layer the j-th subprogression has step u; the next lower endpoint is at most u+1 above the previous upper endpoint, and the new upper endpoint increases by u+1. Thus successive represented points in the layer are at most u+1 apart, including overlapping progressions. A gap intersecting any layer span cannot cross either represented endpoint, so every gap longer than u lies between successive spans, whose endpoints increase with q. Each nonempty uncovered interval is genuinely missing and bounded by represented endpoints. Its length is a−1−qv. With u=4K+r, 0≤r≤3, subtracting u at q=K−1 and q=K gives u(r+1)/2−K>0 and u(r−3)/2−K−1<0 respectively, including n=3. Independent Dijkstra enumeration in /workspace/branches/4cdad8b1-ae1d-4725-b6d0-ae7385fe4857/independent_enumeration.py matched the original 583156 starts and all 1800 long intervals for n=3..120; separate reachability cross-checked full blocks at n=3..28. The repaired checker /workspace/repairs/4/verify.py ran successfully (n=3..40, 200 long blocks). The frozen script was inspected, not executed; finite reproduction does not prove the uniform formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Robles-Pérez–Rosales give the Apéry rectangle for the exact family. Komatsu gives higher-representation Frobenius thresholds for these triangular generators."
+        ],
+        "reasoning": "These determine membership or endpoints at specified representation thresholds, not a closed evaluation of intervals longer than b−a in ordinary membership. The repaired argument requires comparison of consecutive elements within each coin-count layer.",
+        "searches": [
+          "arXiv:1706.04378 Corollary 28",
+          "arXiv:2206.13054 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Repaired RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary records listed in the checks",
+        "arXiv:1706.04378",
+        "arXiv:2206.13054"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The left bound of a missing lift is (w−w_minus−1)/a; in interior cells and the final z row it is B times the indicator y≥A−2, minus one; the z=0 boundary has no positive left bound."
+        ],
+        "reasoning": "The exact formula and total count for starts are a one-condition deletion and multiplication, so mere absence from the prior Finding does not establish originality. The repaired theorem needs the within-span spacing bound, the exhaustion of possible inter-span intervals, and the exact floor cutoff, which are not supplied by those one-step results.",
+        "searches": [
+          "Isolated gaps in semigroups of three consecutive triangular numbers, Proof §§1–3, local offsets 1470–3900",
+          "arXiv:1706.04378 Corollary 28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior exact-family isolated-gap proof gives both adjacent-residue inequalities, including the left-only inequality that characterizes starts. The same-day progression record's starts instead concern the adjacent-square geometric triple."
+        ],
+        "reasoning": "A one-sided neighbor inequality is equivalent to being a gap start, but not to having the next represented value more than n+1 missing steps away. The different-family progression classification does not determine either aspect of long gaps here.",
+        "searches": [
+          "Resultary 2026/11/2 SCOPE-isolated-gaps-in-semigroups-of-three-consecutive-triangular-numb--42c2c6edcb7c",
+          "Resultary 2026/11/22 SCOPE-exact-gap-block-starts-and-semigroup-polynomial-sparsity-for-thr--b6421fdf05b3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-family entry lists singletons and initial exceptional counts; its proof also gives the start information above. The other inspected entries concern positive representation thresholds for consecutive integer denominations, not ordinary gaps of triangular denominations."
+        ],
+        "reasoning": "None of these catalogue results tabulates or classifies the exact long intervals in the repaired claim.",
+        "searches": [
+          "Resultary 2026/11/2 SCOPE-isolated-gaps-in-semigroups-of-three-consecutive-triangular-numb--42c2c6edcb7c",
+          "Resultary 2026/11/22 SCOPE-parity-bifurcation-at-the-first-post-ap-ry-representation-thresh--c1e32fc93396",
+          "Resultary 2026/11/22 SCOPE-universal-quadratic-genus-defect-and-exact-interior-gaps-in-odd--a40c79c05b6e"
+        ]
+      },
+      "rationale": "PASS applies only to the repaired exact spectrum above n+1. The original all-start formula and parity count fail originality: the prior exact-family isolated-gap proof already evaluates the left-neighbor bound in every Apéry cell. Dropping the right-neighbor requirement recovers the starts immediately. For w(y,z)−ta with t≥1, the prior left bound is B−1 at y=A−2,A−1 for each z=1..d−1, and is otherwise nonpositive (including z=0). Thus it gives exactly 2(d−1)(B−1) starts, the original parity count, as well as every lift in the original formula by taking y=(j_r−2) mod A and z=ell+1. This is prior-coverage evidence even though the prior theorem advertises singleton gaps. That calculation does not compare long stretches between consecutive represented points; the repaired result establishes an exact cutoff and exhaustion via coin-count layers.",
+      "residual_risks": [
+        "No separate targeted external keyword lookup was used for this record; the exact-family primary sources and prior Resultary proof were inspected. An unindexed equivalent layer theorem remains possible.",
+        "Same-day analogues do not establish chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers all starts and their count, not the repaired long-block spectrum",
+          "evidence": "Positive left bound is B−1 exactly in the last two y-columns and rows 1≤z<d; dropping the right bound makes these precisely all starts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-isolated-gaps-in-semigroups-of-three-consecutive-triangular-numb--42c2c6edcb7c/RESULT.md",
+          "material_read": "Finding; Proof §§1–3, including both interior and boundary left bounds",
+          "method": "Resultary local mirror, offsets 0–2661, 1470–2927 and 2850 onward",
+          "title": "Isolated gaps in semigroups of three consecutive triangular numbers",
+          "trigger": "Same family and one-step adjacency; potential implication for starts"
+        },
+        {
+          "assessment": "Prior structural input, not long-gap exhaustion",
+          "evidence": "Computes the triangular triple's rectangular Apéry set.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.04378",
+          "material_read": "Corollary 28, p. 14",
+          "method": "OA primary text",
+          "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+          "trigger": "Exact-family Apéry and free-semigroup results"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Gives generalized Frobenius thresholds by number of representations, not adjacency lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13054",
+          "material_read": "Theorem 1, pp. 6–7",
+          "method": "OA primary text",
+          "title": "The Frobenius number for sequences of triangular numbers associated with number of solutions",
+          "trigger": "Same generators and potentially stronger representation threshold"
+        },
+        {
+          "assessment": "Different semigroup and no long-length classification",
+          "evidence": "The generators are n²,n(n+1),(n+1)², and the claim determines starts, not run lengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-gap-block-starts-and-semigroup-polynomial-sparsity-for-thr--b6421fdf05b3",
+          "material_read": "Finding, offsets 0–2570",
+          "method": "Resultary local mirror",
+          "title": "Exact gap-block starts and semigroup-polynomial sparsity for three geometric generators",
+          "trigger": "Distinct same-day explicit gap geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired claim gives a sharp cutoff at the natural generator spacing b−a. It classifies every exceptionally long void, not merely a family of large examples, gives their positions and all their distinct lengths without scanning through the conductor, and distinguishes inter-layer gaps from all gaps within one coin-count span. This geometric consequence is useful apart from the removed start census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

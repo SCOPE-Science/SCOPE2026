@@ -1,20 +1,20 @@
-# A unique entropy–exceedance covariance crossover for uniform spacings
+# The scaling constant of the Shannon entropy–exceedance crossover for uniform spacings
 
 ## Finding
 
-Let \(m\ge2\) be any integer, and let \((X_1,\ldots,X_m)\) be the spacings of \(m-1\) independent uniform points of \([0,1]\), including the two boundary spacings. Define the Shannon spacing entropy \(H_m=-\sum_{i=1}^m X_i\log X_i\) and the large-spacing count \(N_m(t)=\sum_{i=1}^m\mathbf1\{X_i>t\}\) for \(0<t<1\). There exists exactly one \(t_m\in(0,1)\) with \(\operatorname{Cov}(H_m,N_m(t_m))=0\), and
+Let \(m\ge2\) be any integer, and let \((X_1,\ldots,X_m)\) be the spacings of \(m-1\) independent uniform points of \([0,1]\), including the two boundary spacings. Write \(H_m=-\sum_{i=1}^m X_i\log X_i\) for Shannon spacing entropy and \(N_m(t)=\sum_{i=1}^m\mathbf1\{X_i>t\}\) for the exceedance count. Let \(t_m\in(0,1)\) denote the unique covariance crossover threshold (see the finite-sample lemma below). The entropy-specific result is that, for each fixed \(c>0\),
 
 \[
-\operatorname{Cov}(H_m,N_m(t))\begin{cases}>0&0<t<t_m,\\=0&t=t_m,\\<0&t_m<t<1.\end{cases}
+\lim_{m\to\infty}\operatorname{Cov}(H_m,N_m(c/m))=F(c),\qquad m t_m\longrightarrow c_*=1.700321026132689\ldots,
 \]
 
-For \(m=2\), \(t_2=1/2\). Moreover \(m t_m\to c_*\), where \(c_*=1.700321026132689\ldots\) is the unique positive zero of
+where \(c_*\) is the unique positive zero of
 
 \[
 F(c)=e^{-c}[(c+1)(2-\gamma-\log c)-2]-E_1(c),\qquad E_1(c)=\int_c^\infty\frac{e^{-u}}u\,du,
 \]
 
-and \(\gamma\) is Euler's constant. Thus the covariance crossover occurs at an asymptotically fixed multiple of the mean spacing, distinct from the corresponding quadratic-concentration crossover.
+and \(\gamma\) is Euler's constant. The limiting covariance is positive for \(0<c<c_*\) and negative for \(c>c_*\). The crossover is at about \(1.70\) times the mean spacing instead of \(2\) times the mean spacing as for Greenwood's quadratic concentration statistic. For example, for the threshold \(1.8/m\), the concentration score \(\log m-H_m\) has positive covariance with the count, while the quadratic score has negative covariance with the count, for all sufficiently large \(m\).
 
 ## Assumptions and scope
 
@@ -36,14 +36,14 @@ g_m''(x)=-\frac1x-\frac1{1-x}<0\qquad(0<x<1).
 
 Since the beta marginal density is \(f_m(x)=(m-1)(1-x)^{m-2}\), the tower property gives \(\int_0^1g_m(x)f_m(x)\,dx=0\). Strict concavity, negative endpoints, and zero mean imply that \(g_m\) is positive somewhere and has exactly two interior roots \(a_m<b_m\); its sign is negative on the two outer intervals and positive between the roots.
 
-**Unique finite-sample crossover.** By exchangeability and the conditional-mean identity,
+**Finite-sample crossover lemma.** By exchangeability and the conditional-mean identity,
 
 \[
 C_m(t):=\operatorname{Cov}(H_m,N_m(t))
 =m(m-1)\int_t^1 g_m(x)(1-x)^{m-2}\,dx,
 \]
 
-with \(C_m(0)=C_m(1)=0\) and \(C_m'(t)=-m f_m(t)g_m(t)\). Thus \(C_m\) increases from zero up to \(a_m\), strictly decreases between \(a_m\) and \(b_m\), and increases from \(b_m\) to zero. In particular \(C_m(a_m)>0\) and \(C_m(b_m)<0\), so there is exactly one zero \(t_m\in(a_m,b_m)\), with the stated signs on both sides. For \(m=2\), \(N_2(1/2)=1\) almost surely because exactly one of the two continuously distributed spacings exceeds \(1/2\); uniqueness yields \(t_2=1/2\).
+with \(C_m(0)=C_m(1)=0\) and \(C_m'(t)=-m f_m(t)g_m(t)\). Thus \(C_m\) increases from zero up to \(a_m\), strictly decreases between \(a_m\) and \(b_m\), and increases from \(b_m\) to zero. In particular \(C_m(a_m)>0\) and \(C_m(b_m)<0\), so there is exactly one zero \(t_m\in(a_m,b_m)\), with positive covariance below \(t_m\) and negative covariance above \(t_m\). For \(m=2\), \(N_2(1/2)=1\) almost surely because exactly one of the two continuously distributed spacings exceeds \(1/2\); uniqueness yields \(t_2=1/2\).
 
 **Limit of the threshold.** Fix \(u>0\). The conditional-mean formula gives
 
@@ -69,11 +69,13 @@ The accompanying standalone `verify_entropy.py` evaluates the exact beta integra
 
 ## Relationship to prior work
 
-Slud (1978) analyzes Shannon partition entropy and maximum-spacing asymptotics, but the inspected entropy results concern the marginal entropy mean and variance rather than its covariance with a prescribed exceedance count. Bieniek and Szynal (2008) derive exact partition-entropy moments and convergence properties; their inspected formulas do not classify the finite-sample covariance with \(N_m(t)\). Standard Dirichlet moments provide the conditional entropy identity used here, but neither marginal moments nor a large-sample central limit theorem alone implies the unique finite-sample sign crossover. The distinct statistic \(\sum_i X_i^2\) has a different exact count-covariance transition; replacing it by entropy changes the threshold and requires the concavity argument above.
+Slud (1978) analyzes Shannon partition entropy and maximum-spacing asymptotics. Bieniek and Szynal (2008) derive exact partition-entropy moments and convergence properties. Their inspected passages address marginal entropy quantities rather than the explicit limiting mixed covariance \(F\). Joint spacing limit theory provides a possible alternative route to a mixed covariance; here it is obtained directly from the finite beta integrals.
+
+The [universal one-switch covariance law for large spacings and convex spacing tests](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-universal-one-switch-covariance-law-for-large-spacings-and-con--8cec2684e10a/RESULT.md) proves the finite switch for strictly convex \(C^1\) summands. Its conditional-simplex proof also applies to \(f(x)=x\log x\) with \(f(0)=0\): near \(t=0\) the coordinates of \(t e_1+(1-t)Y\) are bounded below by \(Y_j/2\), so the differentiated integrands are dominated by a constant plus \(\sum_j|\log Y_j|\), which is integrable. Negating the statistic gives the finite entropy switch. That switch is used here as a lemma, not as a separate contribution. The cited law gives an asymptotic correlation for the quadratic score, not the entropy-specific \(F\) or its zero. The exact quadratic crossover \(2/(m+2)\) also appears in the [Greenwood–exceedance covariance result](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-greenwood-exceedance-covariance-crossover-for-dirichlet--178c0a43180a/RESULT.md).
 
 ## Limitations
 
-This theorem concerns uniform spacings and a common deterministic length threshold. It does not claim the analogous uniqueness for general Dirichlet parameters, nonuniform point sampling, or entropy functionals of arbitrary order. A general joint empirical-process theorem may imply parts of the asymptotic covariance expression; the finite-sample uniqueness claim is the feature assessed here. The comparison with older specialist spacing literature is not exhaustive, and an equivalent earlier formulation may exist. Numerical checks do not constitute a proof of any infinite statement. A zero covariance does not imply independence.
+The asymptotic formula concerns uniform spacings and deterministic thresholds \(c/m\) with fixed \(c>0\). It does not extend here to general Dirichlet parameters, nonuniform point sampling, or other entropy functionals. The comparison with older specialist spacing literature is not exhaustive, and an equivalent earlier formulation may exist. Numerical checks do not constitute a proof of any infinite statement. A zero covariance does not imply independence.
 
 ## References
 

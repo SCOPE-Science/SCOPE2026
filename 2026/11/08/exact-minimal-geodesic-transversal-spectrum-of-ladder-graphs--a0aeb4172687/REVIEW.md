@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof identifies every maximal ladder geodesic as a one-switch diameter path, derives an exact two-inequality hitting criterion, then uses extremal selected indices to classify all inclusion-minimal covers. The impossibility of four essential vertices follows from the incompatible inequalities \(c>d+1\) and \(d>c+1\). The triple count excludes the sole redundant endpoint configuration for each middle rung, giving the exact polynomial and boundaries. An independent BFS and complete-subset verifier confirms the finite cases without supplying an infinite proof.
+PASS
 
-## Originality — PASS (provisional priority)
+Distances are rung difference plus the column-change indicator. Thus shortest paths are monotone in the rung and use at most one switch. Extension gives exactly the two diameter-endpoint pairings with h switch positions each. If both columns are chosen, a path in one orientation misses the set exactly when its switch index t lies strictly between the maximum selected rung of its ending column and the minimum of its starting column; both orientations give the two gap inequalities. With one chosen column, the two extreme switches force its boundary pair. Only column extrema can be essential. In a 2+2 selection, both minima being essential would require each column maximum to exceed the other by at least two, an impossibility. In a 2+1 selection the singleton must be at least two rungs inside both extrema; removing it fails unless the two extrema are the full boundary pair. This proves both directions for all three labeled families. Pairs total 2+h+2(h−1)=3h. Per doubled column the count is binom(h−2,3)−(h−4) for h≥4, and is zero at h=2,3. Complementation makes minimal transversals correspond to facets, so positivity of the triple term from h=6 gives the stated purity cutoff.
 
-The closest primary source [1] defines the problem and addresses complexity and trees/cactus graphs. The distinct formulation in [2] concerns maximal-shortest-path-cover numbers; an available extract of its first sections and abstract was read, but complete reinspection was rate-limited. The packing work [3] concerns packing and scalar transversal bounds, not these labeled inclusion-minimal families. Targeted searches for ladder geodesic transversals, maximal shortest paths covers, aliases and polynomial counts yielded no directly subsuming result. Related existing graph-general-position and distinct-graph-family transversal classifications do not imply these ladder counts. Search failure is not a proof of novelty, and incomplete/full-text coverage is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural previously studied minimum invariant does not specify how many inclusion-minimal covers exist nor whether all irredundant choices are optimal. This complete classification explains a sharp purity transition: every minimal cover has size two through five rungs, but cubic-many size-three minimal covers arise beyond that threshold. It also supplies an exact polynomial and a bounded-upper-size phenomenon for an unbounded graph family, useful for enumerative and extremal refinements of shortest-path hitting problems.
+The minimum value 2 is prior, even on all rectangular grids. What survives is the labeled inclusion-minimal classification, size spectrum, and resulting purity cutoff. A distinct same-day ladder homology record has exactly the same cubic coefficient as a Betti number, but not the transversal spectrum or the complement complex.
 
-## Limitations
+## value
 
-The theorem is confined to the unweighted two-column ladder and does not encompass wider grids or other notions of edge/strong geodetic covering. Published priority is conditional on the searched and accessible sources; complete access to [2] was unavailable. Finite code is corroboration, not an exhaustive infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest nontrivial Cartesian strip is a natural test family for the maximal-geodesic covering hypergraph. The formula distinguishes optimum from inclusion-minimality and locates the first non-pure order h=6; the labeled families identify exactly which irredundant covers cause that distinction rather than merely giving a scalar optimum.
 
-References: [1] arXiv:2101.08042; [2] DOI:10.3390/math9141592; [3] arXiv:2210.15325.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

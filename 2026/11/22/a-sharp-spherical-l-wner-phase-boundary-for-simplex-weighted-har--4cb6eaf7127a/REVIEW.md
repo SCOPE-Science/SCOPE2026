@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The affine dimension is \(2n-2\), and the center is fixed by simultaneous coordinate permutations. The squared radius follows exactly from the generating-point norm identity; its contacts have both distinguished permutation ranks maximal. The rearrangement inequality minimizes the contact cross product and gives the factorized expression \((n-1)(-n(n-5)/12+\lambda+\lambda^2/n)\). When nonpositive, a convex mixture of aligned and reversed contact orbits has zero mean and scalar covariance, which certifies global Löwner optimality by a trace–determinant inequality against arbitrary shifted ellipsoids. When positive, a small negative cross-term strictly lowers enclosing-ellipsoid volume. The endpoint and all integer/real quantifiers are covered. Rational finite enumerations corroborate, but do not replace, these arguments.
+PASS
 
-## Originality — PASS, priority conditional on accessible evidence
+In the stated affine Euclidean metric, simultaneous permutations force the minimum ball to be centered at the constant-block point. Maximizing the squared norm of a centered Minkowski generator pins the largest rank in both permutations at the simplex coordinate. Such points are uniquely exposed by strictly ordered normals with that common maximizing coordinate; strict convexity excludes any additional contacts. For reverse pairing of the unpinned ranks, their pairwise sums are −1, so the centered-permutation dot product is 2h²+h−S=n(n−1)(5−n)/12, where h=(n−1)/2 and S=n(n²−1)/12. The contact block dot product therefore has minimum (n−1)[−n(n−5)/12+λ+λ²/n]. The average over simultaneous permutations makes each covariance block scalar on the sum-zero subspace (constant diagonal and constant off-diagonal); the cross scalar is proportional to the dot product. Mixing the positive and minimum cross-correlation orbits when the minimum is nonpositive gives a centered isotropic measure, including a single orbit at equality. Its averaged containment inequalities and AM–GM certify unique global volume minimization. If all contact dot products are positive the proposed cross-term perturbation cuts volume to first order: noncontacts retain slack for small perturbations by finiteness, and the determinant changes only at second order. Solving the quadratic gives precisely the stated positive-weight boundary and the unit-weight onset n=7 (not n=6). λ=0 and nonspherical semiaxes are outside the claim. Replay: RESULT.md steps 1–5; check.py was inspected, not run, and checks finite rational generators and pinned pairings only.
 
-The original harmonic-polytope paper provides the object and its vertices, while a prior public mathematical record gives the unit-weight minimum sphere and contact strata. Those antecedents do not determine unrestricted Löwner optimality; it requires an isotropic frame of outer contact points. A separate prior result on weighted harmonic polytopes concerns the Euclidean **inball**, and another concerns covariance under uniform sampling of **all** vertices, neither of which implies the claimed outer-contact criterion. Exact searches of mathematical records and web literature for the family, its ellipsoid aliases, contact isotropy and coupled simplex weight found no statement of the sharp \(\lambda_c(n)\) law. The public-record full texts were not retrievable through available public access, so hidden equivalent formulations remain a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question is whether the known optimal enclosing **sphere** is also the optimal enclosing **ellipsoid**. Diagonal permutation symmetry alone does not force this in two coupled copies of the standard representation. The theorem gives a complete answer throughout a continuous one-parameter Minkowski deformation, an exact dimension-seven onset for the canonical example, a sharp \(n^{3/2}\) weight scale, an explicit isotropic contact frame and an explicit strict-volume improvement on the other side. This is a geometric phase boundary, not a renamed radius computation.
+The supported distinction is the exact roundness boundary of the unrestricted enclosing ellipsoid over the weighted family, not the harmonic polytope definition, the unit-weight contact set, or the general ellipsoid criterion. The available strongest comparisons do not determine the sign range of the cross covariance of an arbitrary contact-supported mixture on this family.
 
-## Source and limitation comparison
+## value
 
-Ardila–Escobar, arXiv:2006.03078v2, Section 2.2 and the first part of Section 3 through Proposition 3.6 were read in full-text HTML; they establish the summand and vertex setup. Gartsman–Linial, arXiv:2305.02113, describes contact isotropy for the unrelated metric polytope. Public prior records include *Harmonic-polytope vertices form exactly n Euclidean shells*, *A sharp inball-center phase transition in simplex-weighted harmonic polytopes* and *A nine-label covariance-axis reversal in harmonic polytopes*; their accessible abstracts were compared by object, operation, statistic and implication, with full-text access unavailable. The claim does **not** encompass semiaxes in the nonspherical regime, and unindexed prior results could affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This classifies exactly when a natural enclosing ellipsoid invariant collapses to an ordinary sphere. Simultaneous permutations alone permit cross-block anisotropy; the explicit dimension/weight boundary, including the unit-weight dimensional onset and strict volume improvement outside it, is substantive even without complementary-regime semiaxes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

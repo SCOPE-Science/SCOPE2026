@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The multiplicative Banach–Mazur distance to a Hilbert space equals the optimal distortion of a positive definite quadratic pullback. Symmetrizing its quadratic form under coordinate permutations preserves both sides of a fixed two-sided quadratic sandwich, so it does not worsen distortion. The two extremum formulas are proved for every real vector: the lower one by a sharp convex one-variable bound on the norm of the negative part; the upper one by convex endpoint control of both possible signed sums. The symmetric scalar minimization is resolved exhaustively for every integer dimension, including the interior optimizers in dimensions five and six and the phase transition at seven. In particular the negative quadratic-parameter range is excluded by two explicit test vectors. The supplied script reproduces sharp vectors and randomly checks inequalities; the proof, not simulation, handles unbounded parameter ranges and all vectors.
+PASS
 
-## Originality — PASS with residual bibliographic risk
+Normalize a positive quadratic form by its smallest ratio to N². The resulting two-sided sandwich survives permutation averaging at no increase in squared distortion. The averaged positive form is a scalar multiple of I+t11ᵀ with t>−1/n. The uniform positive and opposite-coordinate unit vectors rule out t<0 by giving a ratio greater than 2. For t≥0 and max(‖x₊‖₂,‖x₋‖₂)=1, writing v for the smaller sign norm, Q≥1+v²+t(1−√(n−1)v)₊². Its minimum is exact at (1,−s,…,−s), s=t/(1+(n−1)t). For a mixed-sign vector the extremal sign-sum bounds reduce the upper bound to two convex quadratics in v, so an endpoint suffices. The uniform positive vector and the vector with n−1 equal positives and one negative attain the two candidate upper values. The resulting quotient switches at 1/(2√(n−1)); below that point the derivative numerator is H_n=c_n−2+2c_n(n−1)t+nc_n(n−1)t² and above it the slope is n−1. At the switch H_n equals c_n(1+√(n−1)+n/4)−2: negative for n=2,3, zero for n=4, positive thereafter. H_n(0) is negative at 5 and 6 and positive from 7 on. These signs and strict monotonicity where needed verify every minimum, exact values, and uniqueness only of the normalized invariant parameter.
 
-Bynum (1972) introduced the exact sign-split norm but studied normal structure, not finite-section Hilbert distances. The full text of Kato–Maligranda–Takahashi (2001), especially Section 5 and Example 8, provides a generic Banach–Mazur framework and rough norm comparisons, and mentions the same sign-split space, but gives neither the sharp finite-dimensional quadratic optimizers nor the seven-dimensional threshold. Closely ranked contemporary results on quadratic \(\ell_1/\ell_\infty\) mixtures, absolute piecewise-Hilbertian planes, Nakano and Day–James planes, and zero-sum sections have different defining norms and do not imply a finite-section sign-split formula without a new reduction. Searches covering exact norm, sign-part aliases, threshold, and the explicit five-dimensional value did not identify covering theorems. Residual risk: unindexed literature on symmetric ellipsoids or finite-dimensional Bynum sections may contain an equivalent formula.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies the exact multiplicative Banach–Mazur distance for every finite-coordinate section of a named classical nonstandard Hilbert renorming. It identifies a specific, nontrivial finite-dimensional phenomenon: the optimal ellipsoid is tilted for precisely dimensions two through six; it is the ordinary Euclidean ball from dimension seven. Its explicit equality vectors and a nontrivial interior optimizer make it useful for quantitative comparisons of geometric invariants under renorming, for which Banach–Mazur distance appears in the 2001 source. The scope is a natural complete classification, not an arbitrary finite numerical example.
+The exact all-dimensional calculation, notably the n=5 and n=6 interior optima and the first dimension of Euclidean optimality, is distinct from the strongest inspected statements. Do not credit the known norm, the uniform upper bound, or the planar endpoint as stand-alone novelty: the planar value is implied by the nearby Day–James theorem and continuity.
 
-## Limitations
+## value
 
-No independently reviewed correctness or bibliography certificate exists. The comparisons considered accessible primary PDFs and retrieved topical records; completeness over all earlier mathematical publications cannot be proved. The verifier is finite and auxiliary. Neither normal-structure constants nor general Bynum parameters are determined.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This determines a natural linear invariant of a classical signed norm, not merely its equivalence constant for the identity map. The sharp cutover at dimension seven, with two different regimes of tilted optimizers below it, distinguishes where the canonical Euclidean structure loses or attains optimality. The classified dimensions and the normalized optimal forms can serve as exact geometric comparison examples independently of the known planar limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

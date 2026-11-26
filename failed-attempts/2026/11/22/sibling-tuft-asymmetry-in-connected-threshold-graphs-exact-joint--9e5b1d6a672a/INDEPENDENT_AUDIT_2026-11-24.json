@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:55:01.974073Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–87",
+        "VERIFICATION.md and uploaded verify.py inspected without execution",
+        "Independent replay record5_independent_check.py and record5_check_extended.log under /workspace/branches/947e9db9-41f1-4d27-8081-0ae31cae83bb: 2,046 words through n=12 and 250 coefficient checks"
+      ],
+      "rationale": "The canonical word begins in 0, ends in 1, and has n−2 free bits. A one-run is a closed-twin class, with the initial singleton zero joining the first class exactly when a₁=1. Earlier zero vertices distinguish this first condition and later one-runs; zero vertices themselves are pairwise nonadjacent. For n≥3, a one-symbol vertex has degree at least two, and a zero-symbol vertex is a leaf exactly if the only 1 after it is the last symbol. All leaves then share that last vertex. Thus s is the maximum of b₁−1+1_{a₁=1} and the later b_j−1, while t is a_q for b_q=1 and zero otherwise. Splitting into first, interior and final pairs gives A_S, B_S, C_{S,T}. The single-pair words of length at least three split into a=1,b≥2; a≥2,b≥2; and a≥2,b=1, giving the three terms of E_{S,T}. All choices are disjoint, giving the formal power series in the finding, including S or T zero. Zero siblings require a 00 prefix and no adjacent ones; the strings ending in 1 give F_{n−2}. Zero tuft means a final 11 and gives 2^(n−3); the latter is strictly larger for n≥4. For 1≤k≤n−2 the tuft tail is P(t≥k)=2^(−k) from the last k free bits, with extra endpoint P(t≥n−1)=2^(−(n−2)); summing tails and weighted tails gives E[t]=1 and Var(t)=2−2^(3−n). The sibling statistic differs from the longest run of ones by at most one. A union bound and independent disjoint internal blocks prove the log₂ n scale; a half-log cutoff separates the tight tuft marginal from the diverging sibling marginal, giving TV→1. Independent bounded calculations confirmed the graph statistics, generating coefficients and moments.",
+      "residual_risks": [
+        "The distributions are over uniform connected unlabeled threshold graphs of order at least three. The TV statement compares marginals, not joint laws or vertex-labeled graph ensembles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source states that Fürnsinn–Gangl–Rubey prove a joint symmetry over connected graphs and connected chordal graphs; the relevant primary theorem passage was unavailable",
+          "Frozen assumptions and references identify the standard normalized binary representation and known twin-block structure"
+        ],
+        "reasoning": "Symmetry over the larger chordal class cannot be restricted without proving the interchange preserves the threshold subclass; it is not the reason for the originality failure. The standard binary structure does give the usual fair-bit-run setting for the asymptotic addendum.",
+        "searches": [
+          "Resultary: Fürnsinn–Gangl–Rubey symmetry with connected threshold graphs",
+          "Fürnsinn–Gangl–Rubey arXiv:2505.03665 refined symmetry",
+          "Sciriha–Farrugia threshold coduplicates, Galvin–Wesley–Zacovic normalized creation-sequence enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Local exact Resultary statements for both threshold census records",
+        "Frozen RESULT.md lines 5–107 and referenced primary literature lookups",
+        "Direct CDF and bit-run implication checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct statement covers all finite bounded counts, but no explicit TV claim was read there; the mirror Finding was unavailable",
+          "Under uniform words, absence of an all-one block of any fixed length k is bounded by (1−2^(−k))^floor((n−2)/k), and the tuft tail at threshold k is 2^(−k) once n≥k+2"
+        ],
+        "reasoning": "For fixed k, P(s<k) tends to zero by using blocks of length k+1, while P(t<k)≥1−2^(−k). Letting k grow after taking the lower limit proves TV→1 without a new enumeration. The more precise sibling scale is the usual longest-run scale via the two elementary bounds. None of this asserts that the inaccessible full text actually includes these deductions.",
+        "searches": [
+          "Resultary: sibling tuft total-variation asymptotics and log₂ n",
+          "Decisive statement of 36f773d9f998 through the local mirror",
+          "Frozen RESULT.md lines 52–87, compared with standard fair-coin longest-run and terminal-run bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-sharp-symmetry-failure-and-exact-sibling-tuft-census-for-conne--36f773d9f998 states that an explicit rational generating function determines the entire bounded joint-statistic census at every order",
+          "The exact asymmetric marginal/TV index hit at 9e5b1d6a672a is the assigned record"
+        ],
+        "reasoning": "A complete bounded census for these same unlabeled classes determines all CDF coefficients uniquely; equality does not require that the rational representations have the same written form. Identical parameters and domain make the distinct exact result covering at statement level.",
+        "searches": [
+          "Resultary: connected threshold graphs bounded joint sibling tuft census",
+          "Resultary: H_{S,T} rational enumerator",
+          "A sharp symmetry failure and exact sibling tuft census for connected threshold graphs explicit rational bounded generating function exact distribution Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "36f773d9f998 gives the exact discrepancy 2^(n−3)−F_(n−2) for n≥3 and first failure at four vertices, as well as an explicit rational generating function for the entire joint bounded census"
+        ],
+        "reasoning": "This is exact coverage at every order, not a few coinciding table entries. Setting one bound above n makes the relevant bounded count marginal; with exact differences the same census gives the full probability mass function.",
+        "searches": [
+          "Resultary: exact discrepancy 2^(n−3)−F_(n−2) connected threshold graphs",
+          "Resultary: bounded census and Fibonacci versus powers of two for sibling and tuft numbers"
+        ]
+      },
+      "rationale": "A distinct indexed exact statement gives the entire rational bounded joint census on the same graphs and parameters and the exact zero-class discrepancy with first failure at n=4. Coefficients and discrete differences of a complete bounded census already determine the finite law and hence its marginals and moments. The asymptotic paragraph is not explicitly stated in the matched summary; it is a direct application of the standard longest-fair-bit-run scale to s (bounded error one), and the elementary endpoint run law to t. In particular the claimed TV separation needs only that a fixed length of ones eventually occurs with probability tending to one and the exact geometric tail bound for the terminal zeros. There is no distinct census or nonroutine limiting law left that would support the submitted package. This is a statement of mathematical coverage and routine consequence, not a determination of publication order or full-text duplication.",
+      "residual_risks": [
+        "The matched exact finite census formula and full proofs were not retrieved, so no assertion about who first proved what, or what asymptotics are in its full text, is made. The exact stated coverage and the elementary implications suffice for the scientific verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full finite census and discrepancy; no chronological inference or claim of verbatim equivalence of proofs",
+          "evidence": "An explicit rational generating function determines the entire joint bounded-statistic census at every order; discrepancy 2^(n−3)−F_(n−2), first failure n=4.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-symmetry-failure-and-exact-sibling-tuft-census-for-conne--36f773d9f998",
+          "material_read": "Exact indexed joint-census and discrepancy statement; not the full formula or proof",
+          "method": "Targeted local Resultary search; local mirror Finding and raw-source retrieval attempts",
+          "title": "A sharp symmetry failure and exact sibling–tuft census for connected threshold graphs",
+          "trigger": "Direct exact match for both parameters, finite distribution and class"
+        },
+        {
+          "assessment": "Self-hit; its explicit asymptotics are not evidence of earlier publication",
+          "evidence": "Identical finite census and uniform unlabeled marginal limits.",
+          "identifier_or_url": "2026/11/22/SCOPE-sibling-tuft-asymmetry-in-connected-threshold-graphs-exact-joint--9e5b1d6a672a",
+          "material_read": "Indexed claim and bound original lines 5–87",
+          "method": "Local Resultary and bound source",
+          "title": "Sibling–tuft asymmetry in connected threshold graphs: exact joint enumeration and limiting separation",
+          "trigger": "Top exact asymptotic match"
+        },
+        {
+          "assessment": "Broader class symmetry described by the frozen source; precise refinements unresolved, not classified as noncovering based on access",
+          "evidence": "Frozen comparison concerns all connected and connected chordal graphs, whereas the submitted counterclass is connected threshold graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.03665 ; https://doi.org/10.37236/15312",
+          "material_read": "Reference and relationship discussion in frozen lines 93–105; no decisive primary passage",
+          "method": "Literal-query OA PDF and HTML attempts",
+          "title": "Unexpectedly, a symmetry on unlabeled graphs",
+          "trigger": "Origin of the two statistics and plausible threshold comparison"
+        },
+        {
+          "assessment": "Standard encoding used for the direct implication; no whole-document exclusion",
+          "evidence": "With the normalized first and last bits fixed, the uniform words are fair bits in the interior, sufficient for the elementary asymptotic deductions.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Galvin/galvin22.7.html",
+          "material_read": "Frozen reference and comparison in lines 46, 97, 107; original passages not retrieved",
+          "method": "Lawful journal/OA lookup",
+          "title": "Enumerating threshold graphs and some related graph classes",
+          "trigger": "Canonical encoding and exact threshold parameters"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 52–87",
+        "Resultary 36f773d9f998 exact finite census statement",
+        "Independent fixed-cutoff and log-scale comparisons"
+      ],
+      "rationale": "An exact census for this natural counterclass would be useful if it supplied an unknown distribution. The distinct indexed result already gives the full census and exact discrepancy. The remaining putative contribution follows from the standard longest-run calculation and a one-sided geometric tail, with the TV limit already following by fixed cutoffs; it does not require a new threshold-specific structural theorem or establish a refined limiting distribution beyond those run facts.",
+      "residual_risks": [
+        "The judgment is about the increment beyond the identified censuses and known encoding, not the intrinsic interest of sibling–tuft symmetry or threshold graphs."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

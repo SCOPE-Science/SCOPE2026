@@ -9,9 +9,9 @@ N_L(a,b)=\#\{n:0\le n<5^L,\ P_n\equiv a,\ Q_n\equiv b\pmod5\}\qquad (L\ge0).
 All joint residues lie in the eleven-element set
 \[
 \mathcal S=G\cup\{(0,0),(0,1),(0,4)\},\qquad
-G=\langle u=(3,4),v=(4,4)\rangle\le (\mathbb F_5^\times)^2\cong C_4\times C_2.
+G=\langle u=(3,4),v=(4,4)\rangle\le (\mathbb F_5^\times)^2.
 \]
-In particular, \(G=\{(1,1),(3,4),(4,1),(2,4),(4,4),(2,1),(1,4),(3,1)\}\), and no pair outside \(\mathcal S\) ever occurs. The complete frequencies are
+Here \(G\cong C_4\times C_2\), whereas the ambient group \((\mathbb F_5^\times)^2\cong C_4\times C_4\). In particular, \(G=\{(1,1),(3,4),(4,1),(2,4),(4,4),(2,1),(1,4),(3,1)\}\), and no pair outside \(\mathcal S\) ever occurs. The complete frequencies are
 \[
 N_L(0,0)=5^L-4^L;
 \]

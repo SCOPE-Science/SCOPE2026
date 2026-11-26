@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:39:29.904351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay: python /workspace/branches/audit5.py. The program generates the 1440 column-ordered six-rook words and 3600 deleted-column equations from the capacities, and the 15-by-20 inclusion equations from subsets. The orientation sign (-1)^j is constant within each boundary row and does not change its kernel; the separate column-action sign is retained. The ranks modulo 101 are 1435 and 15, giving rational lower bounds. Lifting the free-coordinate vectors to integers, checking every original integer boundary equation, and using their identity projections proves both upper bounds and integral saturation. This gives a different pair of integral bases. All three row generators act trivially and the column action on the entire basis is verified. Using only a generating 6-cycle and transposition gives a 50-equation intertwiner system of rank 24 over Q. Its primitive integer generator has determinant -162 and Smith factors (1,3,3,3,6), reproducing the reported quotient in the independent bases. Primitivity on a rational line forces every integral map to be an integer multiple, hence index 162|k|^5. There are no higher simplices, so the top kernel is H5 integrally. Young's rule for the subset modules and surjectivity of W over Q leave precisely S^(3,3) in L, and the nonzero determinant transfers the representation to K. The frozen proof/checker and captured matrix evidence were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Limonchenko–Yu's nearby four-row order-two torsion example uses seven columns and the relevant total-capacity equality is n+1; here total capacity 8 is n+2.",
+          "Reiner–Roberts Theorem 3.3 applies to chessboards with multiplicity over a characteristic-zero field; Problem 4.1 concerns torsion-free integral homology, not a canonical comparison of free lattices.",
+          "The Kustin full text was not read; its DOI route was unavailable."
+        ],
+        "reasoning": "Characteristic-zero equivalence makes the integral index invisible. Even an integral torsion-free or wedge theorem for the same underlying space, without compatible symmetry and the identification of the comparison lattice, would not compute the primitive map.",
+        "searches": [
+          "Limonchenko–Yu arXiv:2610.37827v1 Theorems 1.2–1.3",
+          "Reiner–Roberts §3 and Problem 4.1",
+          "Kustin DOI 10.1080/00927870802107140 (attempted access)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verification_output.json",
+        "Resultary 6426dc910f3d, cb4d18162d1c, e52bc69f2e71, 30d9e2ad4036, 0d835e117881",
+        "Limonchenko–Yu arXiv:2610.37827v1",
+        "Reiner–Roberts 10.1023/A:1008728115910",
+        "Rónyai 10.71352/ac.56.305 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary homotopy information determines the rank, not S6 actions.",
+          "A rational character does not determine the integral intertwiner line's primitive integral generator or its determinant.",
+          "The comparison involves two integral lattices; the incidence-kernel literature alone addresses at most one of them."
+        ],
+        "reasoning": "There is no demonstrated implication of the Smith factors or minimal index from the strongest inspected statements; the rational and underlying homology facts are expressly credited.",
+        "searches": [
+          "Resultary 6426dc910f3d limitations and cb4d18162d1c finding",
+          "Reiner–Roberts Theorem 3.3, characteristic-zero hypothesis",
+          "Rónyai abstract, scope of subset incidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6426dc910f3d treats the identical multiple chessboard complex but leaves the symmetric-group action undetermined.",
+          "The rational chessboard module is a case of the multiplicity-complex weight-space description of Reiner–Roberts; Rónyai's abstract describes kernel/image theory for subset inclusion maps.",
+          "cb4d18162d1c compares a row-pairing lattice with the homology of a five-column complex, in degree three."
+        ],
+        "reasoning": "Identifying the same rational representation does not identify integral lattices. The cited inclusion theory concerns the comparison lattice alone. The five-column computation is not an equivariant description of the present six-column top kernel.",
+        "searches": [
+          "Resultary: four capacity-two rows, six columns, integral symmetry, Specht/inclusion kernel and index 162",
+          "Resultary 6426dc910f3d and cb4d18162d1c",
+          "Reiner–Roberts DOI 10.1023/A:1008728115910, Theorem 3.3",
+          "Rónyai DOI 10.71352/ac.56.305"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact six-column record gives 88 four-spheres and 5 five-spheres, and does not tabulate the S6-lattice comparison.",
+          "The inspected same-day hits are a dihedral queen-complex quotient and ordinary 5-by-5 and 4-by-4 transpose quotients, not the capacity-two top cycle lattice."
+        ],
+        "reasoning": "None of these inspected statements lists the target intertwiner, index, or an equivalent integral classification.",
+        "searches": [
+          "Resultary exact number/capacity comparison, including same-day near hits e52bc69f2e71, 30d9e2ad4036, 0d835e117881 and earlier exact record 6426dc910f3d"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the primitive integral comparison with its cokernel and minimal index for this natural pair of lattices, not the rational representation framework, the incidence lattice by itself, or the already known nonequivariant homotopy type.",
+      "residual_risks": [
+        "An uninspected integral equivariant theorem or computation (including the inaccessible Kustin text) could give a stronger comparison; no such implication was established.",
+        "Bounded corpus/primary-source comparisons do not prove worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NONEQUIVARIANT_COVERAGE",
+          "evidence": [
+            "Identifies the 88 four-sphere and 5 five-sphere wedge and explicitly leaves the symmetric-group action undetermined."
+          ],
+          "identifier_or_url": "Resultary 6426dc910f3d",
+          "material_read": "RESULT.md offsets 0 and 5600, finding and limitations",
+          "method": "Local mirror",
+          "title": "Four capacity-two rows on six columns: a torsion-free mixed-dimensional chessboard wedge",
+          "trigger": "Identical complex and exact prior computation"
+        },
+        {
+          "assessment": "NEARBY_HOMOTOPY_THEOREMS_NOT_LATTICE_COMPARISON",
+          "evidence": [
+            "Includes the (2,2,2,2) seven-column torsion example, not the n+2 total capacity in this six-column record."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.37827v1",
+          "material_read": "Primary pp. 2–3, Theorems 1.2–1.3, text offsets 7300–11393",
+          "method": "Bounded OA text inspection",
+          "title": "Homotopy types and torsion in homology of generalized chessboard complexes",
+          "trigger": "General criteria and adjacent capacity profile"
+        },
+        {
+          "assessment": "GENERAL_RATIONAL_FRAMEWORK_ONLY_FOR_THIS_COMPARISON",
+          "evidence": [
+            "Theorem 3.3 explicitly uses a characteristic-zero field when identifying the Young-subgroup representations as direct sums of weight spaces."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1008728115910",
+          "material_read": "Abstract, §3 Theorem 3.3 and Remark 3.4 (offset 38850), §4 Problem 4.1 (offset 46836)",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Minimal Resolutions and the Homology of Matching and Chessboard Complexes",
+          "trigger": "Rational equivariant theorem for chessboards with multiplicity"
+        },
+        {
+          "assessment": "DIFFERENT_COMPLEX_AND_LATTICE",
+          "evidence": [
+            "Five columns, degree three, row-pairing lattice."
+          ],
+          "identifier_or_url": "Resultary cb4d18162d1c",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "Integral pairing-lattice symmetry of a balanced four-row multiple chessboard complex",
+          "trigger": "Closest earlier integral symmetry claim"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTS",
+          "evidence": [
+            "Dihedral queen quotient; ordinary 5-by-5 transpose quotient; ordinary 4-by-4 transpose quotient, respectively."
+          ],
+          "identifier_or_url": "Resultary e52bc69f2e71, 30d9e2ad4036, 0d835e117881",
+          "material_read": "Finding passage of each mirrored RESULT.md at offset 0",
+          "method": "Local mirror",
+          "title": "Same-day queen and chessboard quotient comparisons",
+          "trigger": "Same-day finite integral board-topology hits"
+        },
+        {
+          "assessment": "INCIDENCE_BACKGROUND_IDENTIFIED",
+          "evidence": [
+            "The abstract describes Wilson's rank formula and a dual Specht filtration in subset inclusion theory."
+          ],
+          "identifier_or_url": "https://doi.org/10.71352/ac.56.305",
+          "material_read": "Publisher's abstract, offsets 82–820, not full paper",
+          "method": "OA publisher page",
+          "title": "Specht modules and incidence matrices",
+          "trigger": "Subset-incidence lattice L"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": [
+            "The configured fetch could not resolve a usable public text; no noncoverage inference is drawn from this."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927870802107140",
+          "material_read": "No full text read",
+          "method": "Attempted lawful DOI-based OA lookup",
+          "title": "An explicit, characteristic-free, equivariant homology equivalence between Koszul complexes",
+          "trigger": "Potential general integral homology technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pair is motivated by the structured row-capacity complex and its rationally identical column-subset model. The explicit obstruction shows that a natural replacement by the incidence kernel cannot be made integrally equivariant. The Smith factors distinguish the 2- and 3-primary defects and give a precise benchmark for characteristic or coefficient-sensitive comparisons, beyond the known homology ranks and rational type.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

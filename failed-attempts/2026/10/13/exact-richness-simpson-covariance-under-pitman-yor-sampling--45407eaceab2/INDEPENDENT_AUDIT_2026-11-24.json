@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:05:12.714429Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md, checker.py and CHECKER_OUTPUT.txt"
+      ],
+      "rationale": "For A={1 and 2 in the same block}, the predictive rule gives P(A)=(1-α)/(θ+1) and P(Aᶜ)=(θ+α)/(θ+1), both strictly positive on the stated domain, including admissible negative θ. The mean richness at m+1 conditional on either event is its mean at m multiplied by 1+α/(θ+m), plus θ/(θ+m). The difference starts at 2−1 and is precisely R_n, with the empty product for n=2. Centering the two conditional means gives the signed shifts in the Finding. Cov(K_n,1_A) is minus the product of the two event probabilities and the gap. Label exchangeability makes all pair covariances equal; averaging therefore produces exactly the sample Q_n covariance. D_n and the squared-frequency statistic follow respectively from a sign change and the deterministic identity Ĥ_n=1/n+(n−1)Q_n/n. At α=0 the product is always one, yielding the Ewens and uniform-permutation values; the ratio of shifted gamma functions gives the stated α>0 asymptotic with positive arguments. The isolated malformed fraction at frozen Proof line 170 is a rendering error: the same product is well defined in the Finding and follows from the recursion. The archived rational checker and output were inspected, not executed. The enumeration is supplementary; its recurrence replay compares adjacent evaluations of the same product and is not an independent all-n proof.",
+      "residual_risks": [
+        "This proof treats the observed exchangeable partition, not latent frequency statistics or a claim about stochastic ordering of conditional laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sibuya gives the finite restart count law and all factorial moments at arbitrary initial time and block count. The first moment specializes directly to the entire conditional component of the frozen claim.",
+          "Sibuya's finite subsampling result treats arbitrary subsample sizes; for a uniform subsample of size two the expected richness conditional on the parent partition is 2−Q_N.",
+          "The later Resultary kernel cb22e90cc85a covers the same-time covariance and gives a two-time formula."
+        ],
+        "reasoning": "The decisive comparison uses an explicit stronger moment formula, not merely a distribution that could be enumerated in principle. The subsampling comparison corroborates how the observed pair statistic fits the finite EPSF machinery.",
+        "searches": [
+          "Sibuya (2014), §2.1, Eqs. (9)–(13), Proposition 2; §§4.1–4.2, Propositions 6–7 and Eq. (27)",
+          "Resultary two-time Pitman–Yor richness–Simpson covariance kernel"
+        ]
+      },
+      "checked_sources": [
+        "Sibuya (2014), §2.1 and §§4.1–4.2",
+        "Innan et al. (2005), pp. 1763–64 and Table 1",
+        "Resultary cb22e90cc85a and 5cd09dd16e1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At moment order one the prior restart mean from initial block count k equals (θ/α+k) times the shifted rising-factorial ratio minus one, with the parenthesis around the ratio minus one. At initial time 2 that ratio is just R_n.",
+          "Subtracting the total means k+E[K'|k] gives R_n. For any binary event A, Cov(X,1_A)=P(A)P(Aᶜ)(E[X|A]−E[X|Aᶜ]); exchangeability transfers this value unchanged to the average of the pair indicators."
+        ],
+        "reasoning": "This is a direct finite specialization and elementary identities, with no additional nonstandard lemma or uncovered domain. The α=0 and affine statistic conversions and the gamma ratio asymptotic do not leave a distinct result.",
+        "searches": [
+          "Sibuya Proposition 2, Eq. (13), compared with the frozen R_n product and indicator covariance",
+          "Sibuya Eq. (10) for the α=0 endpoint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At time two pair agreement is exactly K_2=1, and disagreement exactly K_2=2, so the tagged-pair conditional richness means are just the two restart means after adding their initial counts.",
+          "Observed sample homozygosity F is affinely equivalent to Q_n, not the latent homozygosity of a Poisson–Dirichlet mass sequence. The Ewens–Watterson literature uses F conditional on K and n, in the α=0 subcase."
+        ],
+        "reasoning": "The change from conditioning on two initial block counts to conditioning on one observed pair is only a change of formulation. The transformation between the two sample homozygosity conventions is deterministic and does not create a distinct mixed moment.",
+        "searches": [
+          "Focused lookups for Pitman–Yor restart moments, finite species richness and Ewens–Watterson sample homozygosity",
+          "Sibuya (2014), Eq. (9) and Proposition 2",
+          "Innan et al. (2005), pp. 1763–64 and Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary cb22e90cc85a (2026-10-18), Finding and tagged-pair proof, states a two-time covariance kernel and the exact same-versus-different gap with the reverse sign convention.",
+          "Resultary 5cd09dd16e1e (2026-10-13) concerns covariance of latent Shannon entropy and latent Gini–Simpson diversity, not sample richness and pair diversity."
+        ],
+        "reasoning": "The first distinct indexed record explicitly covers the diagonal and conditional gap, but it is later dated. The same-date comparison is not treated as earlier or later; its actual quantities are different.",
+        "searches": [
+          "Local Resultary lookup for exact Pitman–Yor richness–Simpson covariance, pair-conditioned block count, and related Poisson–Dirichlet Gini–Simpson results"
+        ]
+      },
+      "rationale": "The full two-parameter conditional-gap result is a direct corollary of Sibuya's published exact restart mean, and the displayed covariance follows from that mean by the covariance identity for one indicator and exchangeable averaging. To see this without relying on keyword matches, write K'_s(m,k)=(K_{m+s}−K_m | K_m=k). In Proposition 2, Eq. (13), set moment order r=1, m=2, s=n−2. For α>0 this gives E[K'_s(2,k)]=(θ/α+k)(R_n−1). Adding k and subtracting the instances k=2 and k=1 gives exactly R_n; A={K_2=1} and Aᶜ={K_2=2}. For α=0 the restart transition probability for a new block is independent of k, so the gap is one (also the limit of the same formula for θ>0). Thus the covariance and its stated conditional refinements are mechanically covered even though the earlier source does not print them in Simpson notation. The later two-time Resultary hit is explicit equivalent coverage on the diagonal and is not the reason for the failure. Inaccessible literature is not needed for this decision.",
+      "residual_risks": [
+        "The unavailable Yamato–Sibuya and Watterson primary passages leave open whether the exact covariance itself was also printed earlier. They do not weaken the explicit mathematical implication from the inspected Sibuya formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established exact prior implication via the first factorial moment; direct attribution does not depend on whether the term Simpson appears",
+          "evidence": [
+            "Eq. (9) defines the increment from state (m,k). At r=1, Eq. (13) is (θ/α+k) times [(θ+m+α) rising s / (θ+m) rising s − 1].",
+            "The exact subsampling law supplies a separate finite-partition interpretation of two-label diversity."
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/10463_2013_Article_427.pdf",
+          "material_read": "p. 835 Eq. (1); §2.1, pp. 837–38, Eqs. (9)–(13) and Proposition 2 (decisive passage at extracted offsets 12200–17793); §§4.1–4.2, pp. 849–50, Propositions 6–7 and Eq. (27)",
+          "method": "Lawful journal OA primary PDF, targeted passages",
+          "title": "Prediction in Ewens–Pitman sampling formula and random samples from number partitions",
+          "trigger": "Exact restart richness moments may already cover the conditional gap"
+        },
+        {
+          "assessment": "Confirms relevance of the classical conditional sample-homozygosity law; not independent evidence of a printed covariance or α>0 coverage",
+          "evidence": [
+            "Defines F by sample squared frequencies and identifies the test distribution P(F|K,n)."
+          ],
+          "identifier_or_url": "https://www.columbia.edu/cu/simontavare/STpapers-pdf/Ietal05.pdf",
+          "material_read": "pp. 1763–64 and Table 1",
+          "method": "Lawful university-hosted paper PDF",
+          "title": "Innan et al., Ewens sampling formula and conditional test statistics",
+          "trigger": "Ewens/Watterson sample homozygosity could already encode the α=0 mixed moment"
+        },
+        {
+          "assessment": "Exact diagonal and conditional-gap coverage, later dated than frozen record",
+          "evidence": [
+            "Cov(K_n,Q_m) is given as a two-time kernel; the tagged-pair proof gives the negative of R_n for same minus different."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, cb22e90cc85a",
+          "material_read": "Finding and proof step for the tagged-pair conditional difference",
+          "method": "Local mirror",
+          "title": "A two-time richness–Simpson covariance kernel for Pitman–Yor partitions",
+          "trigger": "Strongest exact indexed overlap and broader two-time theorem"
+        },
+        {
+          "assessment": "Different functionals and latent rather than empirical statistics",
+          "evidence": [
+            "The variables are latent Shannon entropy and latent Gini–Simpson diversity."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13, 5cd09dd16e1e",
+          "material_read": "Finding identifying the variables and law",
+          "method": "Local mirror",
+          "title": "Shannon and Gini–Simpson diversity have an exact Poisson–Dirichlet covariance",
+          "trigger": "Same-date diversity covariance under closely related model"
+        },
+        {
+          "assessment": "Unresolved, not used to infer coverage or absence",
+          "evidence": [
+            "The accessible response did not expose a readable paper."
+          ],
+          "identifier_or_url": "DOI:10.5109/13490",
+          "material_read": "No readable primary passage obtained during bounded retrieval",
+          "method": "Lawful OA attempt",
+          "title": "Moments of some statistics of Pitman sampling formula",
+          "trigger": "Possible explicit earlier mixed moment"
+        },
+        {
+          "assessment": "Direct formula in Watterson's text remains unresolved and is not needed for the decision",
+          "evidence": [
+            "Publisher retrieval was denied and the alternate exposed no readable full-text passage."
+          ],
+          "identifier_or_url": "Watterson (1977, 1978), as cited by Innan et al., pp. 1763–64",
+          "material_read": "No readable primary passage; the conditional test law was checked in Innan et al.",
+          "method": "Publisher and identified alternate-access attempt",
+          "title": "Watterson's classical sample-homozygosity work",
+          "trigger": "Possible printed equivalent in the Ewens case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding through Proof",
+        "Sibuya (2014), Eq. (9), Proposition 2 and Eq. (13)"
+      ],
+      "rationale": "The statistic is natural and the succinct presentation may be useful exposition, but the narrow exact claim is mechanically implied by the known conditional first moment and an elementary identity for an indicator. Both the allegedly stronger gap and the same-sample covariance are covered, including the Ewens and normalized variants. The candidate adds no surviving worthwhile mathematical gap by itself, and merely reframing it as a Simpson statistic would not repair the finding.",
+      "residual_risks": [
+        "The decision concerns this narrow scientific claim, not the usefulness of citing the corollary in an applied context or studying other mixed moments."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

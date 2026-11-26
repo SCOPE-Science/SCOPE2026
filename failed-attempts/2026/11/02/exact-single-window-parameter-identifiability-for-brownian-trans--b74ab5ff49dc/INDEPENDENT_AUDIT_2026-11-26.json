@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:54:28.058415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stationary reset mobility, the generator sends w² to 2Λ²−αw² and w⁴ to 12Λ²w²−αw⁴. Thus E[D]=2Λ²/α and Var(D)=20Λ⁴/α²; the centered quadratic is an eigenfunction at −α, giving the stated exponential covariance. Conditional Gaussianity gives V=2E[H] and K=Var(H)/(E[H])² for H=∫D, and the conditional radial fourth moment is 4d(d+2)H². Integration yields K=10∫₀¹(1−u)exp(−zu)du, strictly decreasing with limits 5 and 0, so V and K identify both positive parameters at any known t>0. For disjoint windows the conditional increments are independent even for the same coordinate, so integrating the diffusivity covariance over the two windows gives the stated squared-increment covariance, including τ=h. The no-reset kernel follows by a Gaussian-in-w ansatz in Feynman–Kac; first-reset renewal gives the quotient with its denominator positive at s>0. Regenerative averaging of the integrated diffusivity gives the Gaussian limit. The bounded independent comparisons in /workspace/branches/frozen_math_replay.py (argument 5) passed; the uploaded script was inspected, not executed. The claim concerns ensemble moments, not measurement from one realized increment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General partial-reset renewal and the generic covariance-to-non-Gaussianity functional are prior frameworks. The original squared-mobility paper gives the no-reset kernel but resets both processes in its resetting case."
+        ],
+        "reasoning": "These general results supersede claims about generic methods but do not alone evaluate the relevant stationary covariance or prove identifiability in the specified reset regime.",
+        "searches": [
+          "Olsen–Löwen arXiv:2401.12685v1 §2 Eq. (5)",
+          "Miyaguchi–Akimoto–Yamamoto arXiv:1605.00106v1 Appendix E",
+          "Santra–Basu–Sabhapandit arXiv:2205.00549v1 §§2,7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof, VERIFICATION.md, and verify.py",
+        "Resultary 77586bc806c7 and f2a3cc9b36a4",
+        "arXiv:2205.00549v1",
+        "arXiv:2401.12685v1",
+        "arXiv:1605.00106v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the matching record the strictly monotone curve with short-time limit 15 in its excess-kurtosis convention identifies r at known t; its finite-time variance identifies Λ. The disjoint-window integral of its exponential covariance equals the frozen positive exponential law."
+        ],
+        "reasoning": "The inverse, cross-window formula and radial factor are direct implications of the exact same-model evaluated quantities. The matching record's later displayed date does not determine publication priority or scientific provenance.",
+        "searches": [
+          "77586bc806c7, Proof §§1–3 (mirror offsets 400–5919)",
+          "arXiv:2401.12685v1 and arXiv:1605.00106v1, decisive general identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record uses r for α and |ω| instead of ω in the independent tracer noise; conditional on the bath either convention has the same Gaussian law. Its reported excess kurtosis is exactly 3K."
+        ],
+        "reasoning": "The models and observables agree after conventions are reconciled; the coordinate statistic is not a different invariant.",
+        "searches": [
+          "Resultary: stationary Brownian squared mobility, diffusivity-only Poisson reset, normalized fourth cumulant and parameter identification",
+          "Resultary record 77586bc806c7, Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 77586bc806c7 gives V=4Λ²t/r, excess kurtosis 30(rt−1+e⁻ʳᵗ)/(rt)² and the exact diffusivity covariance. Record f2a3cc9b36a4 instead identifies a common-clock intensity with position resetting."
+        ],
+        "reasoning": "This analytic family has no finite lookup-table requirement; the exact finding catalogue yields a direct formula match, rather than only a similar inference problem.",
+        "searches": [
+          "Resultary: stationary diffusivity-only reset and kurtosis",
+          "Indexed records 77586bc806c7 and f2a3cc9b36a4"
+        ]
+      },
+      "rationale": "The distinct same-model Resultary Gaussian–Weibull record, Proof §§1–3, contains the exact variance, strictly monotone kurtosis curve with both endpoints (in the convention 3K), and the exponential squared-mobility covariance under the identical stationary and partial-reset assumptions. Its variance and strict bijection immediately give the proposed one-window inverse; its conditional Gaussian representation and covariance immediately give the disjoint-window formula and dimension-independent radial normalization. This is demonstrable coverage of the scientific claim, not a finding that the matching catalogue entry was published before the frozen one. The 2022, 2024 and 2016 primary papers inspected separately cover ingredients or general identities, not this entire model-specific calculation.",
+      "residual_risks": [
+        "The displayed catalogue dates do not resolve provenance or earlier circulation, and the targeted primary search is not exhaustive. This decision concerns exact current coverage, not priority or authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct formula coverage and implication of the inverse and clustering observable; not evidence of pre-frozen publication priority",
+          "evidence": "Explicit conditional Gaussian law, finite-time variance, exponential covariance, normalized fourth moment and strict integral monotonicity with limits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-gaussian-weibull-dichotomy-under-diffusivity-only-resettin--77586bc806c7/RESULT.md",
+          "material_read": "Finding (a), assumptions, Proof §§1–3, mirror offsets 400–5919",
+          "method": "Local mirror, bounded passage inspection",
+          "title": "Sharp Gaussian–Weibull dichotomy under diffusivity-only resetting",
+          "trigger": "Same stationary squared-mobility reset regime and exact kurtosis hit"
+        },
+        {
+          "assessment": "Different reset regime and inferred quantity",
+          "evidence": "Three clocks including position resets, and stationary rather than finite-window displacement kurtosis.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-identifying-common-reset-shocks-from-the-stationary-kurtosis-of--f2a3cc9b36a4/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Identifying common reset shocks from the stationary kurtosis of a diffusing diffusivity tracer",
+          "trigger": "Similar use of kurtosis to infer a reset rate"
+        },
+        {
+          "assessment": "Prior reset-free ingredient; whole protocol differs",
+          "evidence": "Known oscillator kernel and joint-reset application; §7 identifies diffusivity-only reset as an open alternative.",
+          "identifier_or_url": "https://arxiv.org/html/2205.00549v1",
+          "material_read": "§2 Eq. (14) and §7",
+          "method": "Lawful OA passage inspection",
+          "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+          "trigger": "Same unreset squared-Brownian mobility and propagator"
+        },
+        {
+          "assessment": "Renewal architecture covered; same-model inverse not given in the inspected application",
+          "evidence": "Fourier–Laplace quotient under resetting of a hidden coordinate, applied there to velocity rather than squared diffusivity.",
+          "identifier_or_url": "https://arxiv.org/html/2401.12685v1",
+          "material_read": "§2 Eq. (5)",
+          "method": "Lawful OA passage inspection",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "General partial-reset renewal theorem"
+        },
+        {
+          "assessment": "General normalized fourth-moment identity, not the target model's evaluation",
+          "evidence": "Expresses non-Gaussianity through diffusivity covariance; the model treated there has two states.",
+          "identifier_or_url": "https://arxiv.org/html/1605.00106v1",
+          "material_read": "Appendix E, Eqs. (163)–(165)",
+          "method": "Lawful OA passage inspection",
+          "title": "Langevin equation with fluctuating diffusivity: a two-state model",
+          "trigger": "General moment-covariance relation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Inferring hidden diffusivity parameters from position moments is well motivated and the stationary formulas are useful. But the claimed incremental result in the frozen form supplies no distinct exact invariant once the same-model variance, invertible excess-kurtosis curve and diffusivity covariance are known: the inverse and observables follow by solving for the scale, Gaussian normalization and elementary integration. No separate finite-sample or new-regime result survives in the submitted claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of Dual Hirzebruch models for an unequal-weight del Pezzo family
+# Independent mathematical audit
 
-## Correctness
-PASS. Kim--Won Lemma 4.2 supplies the exact family \(tz+f=0\), the quotient types \(\frac1a(1,1)\) and \(\frac1b(1,1)\), and the \((-1)\)-curve intersection calculation on the weighted blow-up of \(p_t\). The equation is symmetric after exchanging \(z,a,p_z\) with \(t,b,p_t\), so the second set of fiber components has the same verified local geometry. The projection to \([x:y]\) extends over both one-curve resolutions; the local form \(zt+s u(s)=0\) at a simple root proves that each singular fiber is exactly two transverse components. Elementary transformations then give \(\mathbb F_b\) and \(\mathbb F_a\), with section squares forced by \(-a+d=b\) and \(-b+d=a\). The numerical corollaries follow from standard blow-up formulas. The packaged verifier checks these algebraic identities exactly.
+## correctness
 
-## Originality
-PASS, with a stated literature risk. Searches for the exact equation together with minimal resolution, Hirzebruch surface, blow-up, ruled model, reducible fibers, Picard rank, and canonical square found no covering published-finding corpus record or web result. Kim--Won state only the one-sided weighted blow-up needed for K-instability; they do not state the dual ruled models. Liu--Petracci treat the equal-weight family and a toric degeneration, not this unequal-weight resolution. The closest published-finding corpus items concern unrelated weighted-projective birational thresholds and an unrelated rough-Veronese identification with \(\mathbb F_2\). The residual risk is an equivalent classical description under rational \(\mathbb C^*\)-surface or ruled-compactification terminology.
+PASS
 
-## Value
-PASS. The result gives the complete birational geometry of an infinite, explicitly published K-unstable del Pezzo family: the full minimal resolution, its natural \(\mathbb P^1\)-fibration, every reducible fiber, two complementary Mori contractions, and closed formulas for \(\rho\) and \(K^2\). This is structural information about the family used in the source's stability argument, not a parameter substitution or isolated numerical recomputation.
+On each standard base chart normalize a weight-one coordinate to 1 and write zt=−f(s). Away from the two coordinate points this surface is smooth (a simultaneous zero of z,t is over a simple root, where f' is nonzero). Near p_z the cover z=1 is smooth with coordinates x,y and scalar μ_a action. Blow up the origin on the cover and take the quotient; a chart uses s=y/x and U=x^a, giving U=1/z in the normalized x=1 coordinates and t=−f(s)U. The quotient chart is smooth, and its zero section has normal bundle O(−a). The same construction at p_t gives V=1/t and z=−f(s)V, with section normal O(−b). The two resolutions are minimal because a,b≥2. Together with the affine equation, the charts give the map to the base and identify both sections. To check the first blow-down directly, use t as fiber coordinate of O(b), adding its infinity section to get F_b. The affine chart zt=−f(s) and the chart t=−f(s)U, with U=1/z on the overlap, are precisely the charts of the blow-up of the ideal (t,f(s)). The p_t chart makes the map an isomorphism near infinity. Thus one blows up exactly the d distinct reduced centers on the positive zero section, off the negative infinity section. At each center the total transform of its fiber is the proper transform plus the exceptional curve, both of square −1, meeting once and transversely. The exceptional component meets the proper transform of the zero section E_z and is the one contracted to F_b. Interchanging z,t gives the other model; the section squares satisfy −a+d=b and −b+d=a. The standard smooth blow-up formulas give Picard rank 2+d and canonical square 8−d. This proof is geometric. The inspected but unexecuted frozen script tests arithmetic identities only, and no numerical check is needed to establish the blow-ups. Repeated roots and a=1 are excluded.
 
-## Closest literature and limitations
-Kim--Won Lemma 4.2 is the closest source because it provides the defining equation, quotient singularities, and one collection of \((-1)\)-curves. Liu--Petracci is the closest broader K-stability comparison for weighted index-two del Pezzo surfaces. The result does not cover \(n=0\) or nonsquare-free binary forms, and an older equivalent ruled-surface description remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published one-sided local input and the related abstract elementary-transformation symmetry. The supported distinct result identifies the full minimal resolution of this exact unequal-weight hypersurface as the marked section blow-up, with both exceptional sections and contractions geometrically specified. The intersection formulas once that identification is made are standard deductions and are not asserted to be original on their own.
+
+## value
+
+PASS
+
+The model identifies the actual centers and marked sections of a natural published family, so computations on its minimal resolution can be transferred explicitly to either smooth ruled surface. The placement and geometry of all reducible fibers and the dual models are more informative than just evaluating Picard rank and canonical square.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

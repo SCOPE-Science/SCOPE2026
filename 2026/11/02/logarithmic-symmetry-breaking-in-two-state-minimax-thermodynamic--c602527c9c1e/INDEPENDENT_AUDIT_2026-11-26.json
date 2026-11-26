@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:59.092618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-state semigroup gives off-diagonals u and v and output probability z=u+(1-u-v)q. The entropy chain rule and conditional variance decomposition prove the objective and its strict concavity; positivity of the channel gives an interior optimizer. The gradient of the homogeneous conditional entropy in positive input weights is the vector of point-mass mismatch costs, and the point-mass maximum and KL data processing give the minimax equality. In the fixed gap regime, at q=c/L the term h'(q)−h'(z) is asymptotic to atL/c, the extra factor (1−k)h'(z) is O(t log L), and h(v)−h(u) contributes −ΔtL. Thus concavity brackets q* at a/(ΔL). On that bracket the entropy Taylor error is O(t²/q)=o(t). The term −Δq*log(1/t) cancels the constant +a, while −a log(1/q*) converts a log(1/t)−a log a to a(L−log L). At equal rates the symmetric optimizer is exactly 1/2. In the varying-rate family the compact-interior first-order objective and derivative limits give the stated g_η; its strictly negative second derivative and derivative sign brackets localize the finite-time maximizer away from either endpoint before evaluating the value. The large-η slope equation has leading term κ/Q_η, as claimed. The varying-rate expansion is pointwise at fixed κ>0, η≥0, not uniform near a moving boundary. Inspected but did not execute verification/minimax_verifier.py; its recorded 76 checks are finite diagnostics, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general finite-state result identifies the leading coefficient as the largest escape rate and concentration on the maximum-exit states as t→0."
+        ],
+        "reasoning": "An o(t log(1/t)) error admits both a t log log(1/t) correction and an O(t) correction. Concentration alone does not give the inverse-log optimizer mass. A fixed-generator law does not give the near-equal O(t) profile for the specified varying generator.",
+        "searches": [
+          "arXiv:2610.03478v3, continuous-time Section, Eqs. (32)–(40)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/minimax_verifier.py",
+        "arXiv:2610.03478v3",
+        "Resultary archive record 387a57f5bc7d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Along Δ_t=η/log(1/(κt)), the finite-rate upper/lower expansion cannot be substituted in a pointwise remainder. The optimized limiting objective instead contains η(1/2−q)−κ(1−2q)log((1−q)/q); its derivative retains both terms on a fixed interior interval."
+        ],
+        "reasoning": "Neither the general leading law nor the exactly matching fixed-rate archive statement yields the crossover by specializing parameters or exchanging limits. The explicit first-order objective and localization are additional arguments.",
+        "searches": [
+          "Resultary 387a57f5bc7d, Finding and assumptions, offset 0–3474",
+          "arXiv:2610.03478v3, Eqs. (34)–(40)",
+          "Frozen RESULT.md, Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-time channel objective is the initial-state conditional entropy capacity, equivalent to the worst-case KL contraction loss under an optimal design prior. Reversing state labels only swaps a and b."
+        ],
+        "reasoning": "Using the mismatch or entropy-capacity formulation does not create novelty. Both uncover the same optimization; the rate-dependent expansions are the relevant comparison.",
+        "searches": [
+          "Resultary: binary CTMC minimax conditional initial-state entropy, logarithm-of-logarithm correction",
+          "arXiv:2610.03478v3, finite-time minimax entropy production"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separate archive theorem lists exactly q*L→a/(a−b), F=at(L−log L)+o(t), and the equal-rate cost. Its stated rates are fixed and it disclaims uniformity as the gap decreases. No exact crossover match was established."
+        ],
+        "reasoning": "The archive match is substantive, not an alias to discard. It is exact for the fixed-rate slice but supplies neither Q_η nor G_η at positive η. A numeric table does not directly identify a continuous asymptotic family.",
+        "searches": [
+          "Resultary exact binary log-log and symmetry-crossover records, especially 387a57f5bc7d"
+        ]
+      },
+      "rationale": "The minimax identity and the leading law and qualitative concentration for fixed rates are established prior results. The supported refinement is the sharp two-state rate/cost expansion and, particularly, the explicit crossover between fixed imbalance and symmetry. There is a verified exact match to the fixed-unequal and balanced formulas in a separate archive entry dated Nov. 8; it has no varying-rate theorem. That entry's relationship to the frozen work is not established by date alone and no priority is inferred from it. The full stated result, including the crossover, is distinct from the inspected matches.",
+      "residual_risks": [
+        "Broad external search coverage was limited; equivalent binary-channel asymptotics under other terminology are not excluded.",
+        "The fixed-rate formulas have an exact separately indexed match; this comparison is not a historical priority finding or a chronology of derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the variational identity and leading law, not the matched sharper statements",
+          "evidence": [
+            "Largest escape rate leads the t log(1/t) term; priors concentrate on largest-exit-rate states. The setup fixes a finite generator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03478v3",
+          "material_read": "Main text continuous-time passage Eqs. (34)–(40), OA offsets 25200–31187; Eq. (32) and surrounding setup",
+          "method": "OA full-text passages",
+          "title": "Minimax entropy production for arbitrary processes",
+          "trigger": "Primary finite-time minimax identity and short-time theorem"
+        },
+        {
+          "assessment": "Exact fixed-rate overlap; varying-rate crossover not in scope",
+          "evidence": [
+            "States the same L, optimizer limit and o(t) cost, and says uniformity as Δ↓0 is not claimed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-logarithm-of-logarithm-correction-to-two-state-minimax-mismatc--387a57f5bc7d/RESULT.md",
+          "material_read": "Finding and assumptions and beginning of Proof, offset 0–3474",
+          "method": "Local mirror full-text passage",
+          "title": "A logarithm-of-logarithm correction to two-state minimax mismatch entropy",
+          "trigger": "Exact archive overlap in the fixed-rate formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximization is singular at fixed asymmetry and regular at symmetry. The optimizer scale and the negative log-log term quantify the singularity, and the varying-rate theorem identifies the transition window in which neither fixed-rate formula can be used uniformly. Resolving the order-t value and the optimizer in that window is useful beyond recomputing a binary-channel leading coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

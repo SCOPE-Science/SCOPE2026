@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:12.118464Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions, and proof steps 1–4; frozen VERIFICATION.md; verify_hook.py inspected without execution",
+        "Independent exterior-square trace and permutation count, and factorial tail bound for the decimal: python3 /workspace/reviews/reproduce.py 4"
+      ],
+      "rationale": "For n≥4 the exterior square of the standard real module is the irreducible hook with degree d=(n−1)(n−2)/2. Its full real coefficient space has dimension d² by Schur orthogonality. The character is ((f−1)(f−2))/2−t by the exterior-square trace identity and F(g²)=f+2t. The Fourier projector's row sums in absolute value are d E|χ|, attained by a real sign vector. Averaging over left and right translations fixes the block and yields the unique equivariant projection onto it, since the full real coefficient blocks of S_n are pairwise inequivalent absolutely irreducible S_n×S_n modules. Extending coordinate evaluations by Hahn–Banach proves absolute=relative. Orthogonality to constants gives E|χ|=2 E(−χ)_+; the exact disjoint-cycle probability is r_(n−f−2t)/(f!2^t t!), including r_0=1. For the limit, the finite r_m are bounded by 1 and converge to exp(−3/2); the summable domination by t/(f!2^t t!) justifies the limiting sum directly. The independent replay confirms the rounded constant 0.643322969593223 and the finite formula on all permutations for n=4,…,7.",
+      "residual_risks": [
+        "The finite calculations corroborate the analytic all-n proof; they do not test uniqueness of an optimizer under arbitrary non-equivariant choices.",
+        "The frozen description of the Barvinok–Stephen passage as explicitly printing the hook polynomial is not supported by the inspected §7.4/Proposition 7.5 text. The identity in the Finding is independently established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The invariant averaging theorem gives minimality of the unique commuting projection; the regular representation supplies its character kernel. Ellis et al. supply Fourier-support notation, not this exact norm.",
+          "The broader crossover statement explicitly evaluates the hook and companion projection norms and compares them. The full-second-level record 0b07d79a8aa3 treats their sum as a subspace, not the single hook."
+        ],
+        "reasoning": "The crossover's hook component subsumes the exact invariant. Standard general tools plus the hook character already reduce it to a routine expectation; the sum-of-blocks subspace does not itself identify the single-block norm.",
+        "searches": [
+          "Defant et al. arXiv:2208.06467v1 Theorem 2.2.1",
+          "Ellis–Filmus–Friedgut arXiv:1209.5557v1 §2",
+          "Resultary same hook block, crossover and full second level"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 34de8d3d2fe2, 0b07d79a8aa3, d168823581e6 and 5d303130bd8b",
+        "Barvinok–Stephen §§6.4.2 and 7.4; Ellis–Filmus–Friedgut §2; Defant et al. Theorem 2.2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite coverage follows from the displayed formula for Λ_h. The crossover proof's individual hook limit is E|H(F,T)| with independent Poisson(1) and Poisson(1/2) counts. The Poisson mean of H is zero because E[F]=1, E[F(F−1)]=1 and E[T]=1/2; hence that limit is the frozen negative-part series exactly.",
+          "The elementary character, expectation, and coordinate-extension steps do not add a new section of parameter space, a sharp inequality, or a comparison theorem."
+        ],
+        "reasoning": "The strict sign threshold is just the inequality H<0; the series is the same expectation split by sign, not a new consequence apart from the existing exact characterization.",
+        "searches": [
+          "Resultary 34de8d3d2fe2, displayed A_n and its asymptotic proof at offsets 4500–8730",
+          "Barvinok–Stephen character/cycle-count passages",
+          "Defant et al. commuting projection theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crossover record 34de8d3d2fe2 uses H(k,m)=((k−1)(k−2))/2−m on the same full real block; its q_r is the same short-cycle exclusion density as r_r in the frozen record.",
+          "For this nontrivial irreducible character, E|H|=2 E(−H)_+. Extending finitely many coordinate evaluations by Hahn–Banach identifies the absolute constant with the relative one for this ambient space."
+        ],
+        "reasoning": "The change from absolute character mass to negative mass, and from relative to absolute norm in the specific ℓ∞ embedding, does not change the invariant.",
+        "searches": [
+          "Resultary: full (n−2,1,1) matrix coefficient block; exterior-square Specht Fourier kernel; projection norm and absolute character mass",
+          "Barvinok–Stephen arXiv:math/0104229v1 §§6.4.2, 7.4 and Proposition 7.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The standard-block record d168823581e6 and two-subset band 5d303130bd8b do not include the second hook. In contrast 34de8d3d2fe2, RESULT.md offsets 0–4807, explicitly evaluates Λ_h(n)=d_h A_n by the same joint mass at every n≥4.",
+          "No need to rely on a small-n character table or numeric matching: the overlap is a full formula. The matching indexed entry is not the identical frozen file and its displayed date does not establish derivation order."
+        ],
+        "reasoning": "The exact match is established mathematically through equality of spaces and expectations, not appearance of the same decimal.",
+        "searches": [
+          "Resultary projection constants for S_n hook, two-subset band and neighboring Specht blocks; signed short-cycle character mass"
+        ]
+      },
+      "rationale": "The distinct crossover record 34de8d3d2fe2 explicitly states d_h A_n for the same full real hook coefficient space, using the identical finite joint cycle law and the absolute value of the same polynomial. The frozen negative-part version is equal term-summed by zero character mean. Its Poisson-limit component is also the one used in that record's separation theorem; the equivalence of absolute and relative constants in this ambient ℓ∞ is immediate by coordinate extension. This shows mathematical coverage, not historical priority: the crossover entry has a later displayed date, and derivation order or dependence was not established. Moreover the narrow invariant follows mechanically from Fourier optimality, the exterior-square trace identity, elementary short-cycle counting and a Poisson expectation. The sign threshold and the decimal are not distinct surviving results.",
+      "residual_risks": [
+        "Historical precedence and whether the drafts share evidence are unresolved; the conclusion is actual mathematical overlap and routine implication, not a claim of copying or earlier publication.",
+        "The frozen informal reference to an unnamed companion record was not uniquely resolved. It is not the basis of the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader comparison explicitly containing the same relative norm and asymptotic expectation.",
+          "evidence": "Real full coefficient space of (n−2,1,1), Λ_h(n)=d_h A_n with identical H and q, and the independent Poisson hook expectation used in the limiting strict comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-crossover-between-two-neighboring-specht-fourier-project--34de8d3d2fe2/RESULT.md",
+          "material_read": "Finding, assumptions, and proof offsets 0–4807 and 4500–8730, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary lookup and mirrored text reads",
+          "title": "A sharp crossover between two neighboring Specht Fourier projection norms",
+          "trigger": "Strongest same-hook norm candidate"
+        },
+        {
+          "assessment": "Representation, character and avoidance ingredients, not an explicit ℓ∞ projection calculation.",
+          "evidence": "Discusses the skew-symmetric zero-row/column-sum matrix subspace, character orthogonality and short-cycle counts. The precise exterior-square character polynomial is not printed in the inspected proposition passage.",
+          "identifier_or_url": "https://arxiv.org/html/math/0104229v1",
+          "material_read": "§6.4.2, offset 40441 onward; §7.4 and Proposition 7.5, offsets 46600–50392",
+          "method": "OA primary passage reads",
+          "title": "The distribution of values in the quadratic assignment problem",
+          "trigger": "Closest frozen attribution for skew hook and short-cycle calculation"
+        },
+        {
+          "assessment": "Fourier-support background, not the target norm.",
+          "evidence": "Defines U_α and discusses the trivial and standard constituents and coset functions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5557v1",
+          "material_read": "p. 5, offsets 14650–17173",
+          "method": "OA primary passage reads",
+          "title": "A quasi-stability result for dictatorships in S_n",
+          "trigger": "Potential broader coverage of Fourier-supported subspaces"
+        },
+        {
+          "assessment": "General averaging and minimality, no hook-specific cycle sum in the inspected result.",
+          "evidence": "Averaging over isometries gives a commuting projection without increasing norm; if unique, it minimizes norm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.06467v1",
+          "material_read": "Theorem 2.2.1, p. 25, offsets 79100–83861",
+          "method": "OA primary passage reads",
+          "title": "Projection constants for spaces of multivariate polynomials",
+          "trigger": "General minimal projection theorem under symmetries"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md steps 1–4",
+        "Resultary 34de8d3d2fe2, exact norm component and comparison theorem"
+      ],
+      "rationale": "The target block is natural, but this narrow invariant is already given in equivalent form and reduces to inserting the elementary hook character into the standard minimal Fourier-kernel norm. Counting fixed points and transpositions and taking a dominated Poisson limit do not add a nonroutine result here; the displayed decimal and sign rewrite have no independent scientific need established in the record. The separate indexed crossover provides an additional structural conclusion, which is not part of this claim.",
+      "residual_risks": [
+        "This does not rule out value for a genuinely distinct projection theorem, quantitative crossover, or another nonroutine Fourier block."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

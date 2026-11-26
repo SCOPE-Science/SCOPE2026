@@ -1,131 +1,89 @@
-"""Finite checks of the two-colour equivalence one-point-extension rank.
+"""Bounded exact verification of the two-colour extension game."""
 
-Execute with Python 3.9 or later, without additional packages.
-A finite check corroborates, but does not replace, the all-size proofs.
-"""
 from functools import lru_cache
 from itertools import combinations, permutations, product
 
 
-def normal(caps, used):
-    return tuple(sorted((int(flag), a, b) for (a, b), flag in zip(caps, used)))
+def spend(pair, colour):
+    return (pair[0] - (colour == 0), pair[1] - (colour == 1))
 
 
 @lru_cache(None)
-def game_ge(state, depth):
-    """The defining game: universal request, existential realization."""
+def survives(depth, marked, free):
     if depth == 0:
         return True
-    for i, (flag, a, b) in enumerate(state):
-        if flag:
-            for color in (0, 1):
-                qty = a if color == 0 else b
-                if qty == 0:
-                    return False
-                next_state = list(state)
-                next_state[i] = (1, a - (color == 0), b - (color == 1))
-                if not game_ge(tuple(sorted(next_state)), depth - 1):
-                    return False
-    for color in (0, 1):
-        possible = False
-        for i, (flag, a, b) in enumerate(state):
-            if flag == 0 and (a if color == 0 else b) > 0:
-                next_state = list(state)
-                next_state[i] = (1, a - (color == 0), b - (color == 1))
-                if game_ge(tuple(sorted(next_state)), depth - 1):
-                    possible = True
-                    break
-        if not possible:
-            return False
-    return True
+    for i, pair in enumerate(marked):
+        for colour in range(2):
+            if pair[colour] == 0:
+                return False
+            updated = tuple(sorted(marked[:i] + marked[i+1:] + (spend(pair, colour),)))
+            if not survives(depth - 1, updated, free):
+                return False
+    return all(any(pair[colour] and survives(
+        depth - 1, tuple(sorted(marked + (spend(pair, colour),))), free[:i] + free[i+1:]
+    ) for i, pair in enumerate(free)) for colour in range(2))
 
 
-def separate_ge(state, depth):
-    if any(flag and (a < depth or b < depth) for flag, a, b in state):
-        return False
-    free = tuple(sorted((0, a, b) for flag, a, b in state if flag == 0))
-    return game_ge(free, depth)
+def all_hosts(budget):
+    pairs = [(r, b) for r in range(budget+1) for b in range(budget-r+1) if r+b]
+
+    def multisets(lo, remaining, prefix):
+        yield prefix
+        for i in range(lo, len(pairs)):
+            cost = sum(pairs[i])
+            if cost <= remaining:
+                yield from multisets(i, remaining-cost, prefix + (pairs[i],))
+
+    yield from multisets(0, budget, ())
 
 
-def host_multisets(max_total):
-    """All class-size-vector multisets up to max_total, no empty E-classes."""
-    types = [(a, b) for a in range(max_total + 1)
-             for b in range(max_total + 1 - a) if a + b > 0]
-    types.sort()
-    def rec(start, remaining, acc):
-        yield tuple(acc)
-        for j in range(start, len(types)):
-            a, b = types[j]
-            if a + b <= remaining:
-                acc.append((a, b))
-                yield from rec(j, remaining - a - b, acc)
-                acc.pop()
-    yield from rec(0, max_total, [])
+def marked_positions(host):
+    selections = [list(product(range(r+1), range(b+1))) for r, b in host]
+    for selection in product(*selections):
+        marked, free = [], []
+        for (r, b), (red_used, blue_used) in zip(host, selection):
+            if red_used or blue_used:
+                marked.append((r-red_used, b-blue_used))
+            else:
+                free.append((r, b))
+        yield tuple(sorted(marked)), tuple(free)
 
 
-def check_relative(max_total=7):
-    hosts = states = comparisons = 0
-    for caps in host_multisets(max_total):
-        hosts += 1
-        profiles = [list(product(range(a+1), range(b+1))) for a, b in caps]
-        for selected in product(*profiles):
-            state = tuple(sorted((int(r+b > 0), a-r, b-s)
-                                 for (a, b), (r, s) in zip(caps, selected)))
-            states += 1
-            for depth in range(0, max_total+1):
-                if game_ge(state, depth) != separate_ge(state, depth):
-                    raise AssertionError((caps, selected, depth, state))
-                comparisons += 1
-    print('RELATIVE_SEPARATION_OK', hosts, states, comparisons)
+def staircase_hosts(t):
+    sizes = set(range(1, t+1))
+    for k in range(t+1):
+        for r in combinations(sorted(sizes), k):
+            for b in combinations(sorted(sizes), k):
+                for q in permutations(b):
+                    yield tuple(sorted(list(zip(r, q)) + [(v, 0) for v in sizes.difference(r)]
+                                       + [(0, v) for v in sizes.difference(b)]))
 
 
-def pairs_and_unmatched(rank):
-    """Enumerate all joint couplings of the two forced staircase profiles."""
-    colors = tuple(range(1, rank + 1))
-    for count in range(rank + 1):
-        for red in combinations(colors, count):
-            for blue in combinations(colors, count):
-                for arranged in permutations(blue):
-                    matched = tuple(zip(red, arranged))
-                    red_unused = tuple((r, 0) for r in colors if r not in red)
-                    blue_unused = tuple((0, b) for b in colors if b not in blue)
-                    yield tuple(sorted(matched + red_unused + blue_unused))
+def main():
+    nhost = npos = checks = 0
+    for host in all_hosts(7):
+        nhost += 1
+        for marked, free in marked_positions(host):
+            npos += 1
+            for d in range(8):
+                bound = all(min(p) >= d for p in marked) and survives(d, (), free)
+                assert survives(d, marked, free) == bound, (host, marked, free, d)
+                checks += 1
+    assert (nhost, npos, checks) == (573, 24963, 199704)
+    print('RELATIVE_SEPARATION_OK', nhost, npos, checks)
 
-
-def fibonacci(x):
-    a, b = 0, 1
-    for _ in range(x):
-        a, b = b, a + b
-    return a
-
-
-def predicted(rank):
-    """Canonical extremizers: top joint, top crossed, or split bottom."""
-    if rank == 0:
-        return {()}
-    if rank == 1:
-        return {((1, 1),), ((0, 1), (1, 0))}
-    out = set()
-    for tail in predicted(rank - 1):
-        out.add(tuple(sorted(((rank, rank),) + tail)))
-    for tail in predicted(rank - 2):
-        out.add(tuple(sorted(((rank, rank-1), (rank-1, rank)) + tail)))
-    return out
-
-
-def check_extremal(max_rank=5):
-    for depth in range(max_rank + 1):
-        candidates = list(pairs_and_unmatched(depth))
-        passing = {caps for caps in candidates if game_ge(
-            tuple(sorted((0, a, b) for a, b in caps)), depth)}
-        wanted = predicted(depth)
-        assert passing == wanted, (depth, passing.symmetric_difference(wanted))
-        assert len(passing) == fibonacci(depth + 2), (depth, len(passing))
-        assert all(sum(a+b for a, b in caps) == depth*(depth+1) for caps in passing)
-        print('EXTREMAL_OK', depth, len(candidates), len(passing))
+    predicted = [{()}, {((1, 1),), ((0, 1), (1, 0))}]
+    for t in range(2, 6):
+        predicted.append({tuple(sorted(h + ((t, t),))) for h in predicted[t-1]} |
+                         {tuple(sorted(h + ((t, t-1), (t-1, t)))) for h in predicted[t-2]})
+    for t, want in enumerate(predicted):
+        candidates = set(staircase_hosts(t))
+        got = {h for h in candidates if survives(t, (), h)}
+        assert got == want and all(not survives(t+1, (), h) for h in got)
+        assert len(got) == (1, 2, 3, 5, 8, 13)[t]
+        print('EXTREMAL_OK', t, len(candidates), len(got))
+    print('ALL_CHECKS_OK')
 
 
 if __name__ == '__main__':
-    check_relative(7)
-    check_extremal(5)
-    print('ALL_CHECKS_OK', game_ge.cache_info())
+    main()

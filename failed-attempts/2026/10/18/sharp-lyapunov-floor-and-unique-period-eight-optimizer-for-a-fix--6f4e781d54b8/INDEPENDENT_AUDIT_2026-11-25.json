@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:19.820689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under u=|x|/a, inner states map by t(1−u), and outer by the increasing P(u)=s(u−1). Four successive outer states would require P³(u)>1 for some u≤t, whereas P³(t)=ρ<1. Hence the product in every regular four-window is at least Λ=ts³. The proposed u*=ρ/(1+Λ) is strictly inside (0,1); P³(t(1−u*))=u*>0 implies the three outer inputs are all >1 by working backward, and they are all <t because the first is <t and P strictly reduces a positive outer input. The magnitude orbit has one inner state per four and least period four. Precisely one sign reversal in four steps gives least signed period eight. For μ(B)=0, invariance removes the union of all forward boundary encounters (the union of the preimages of B), and expectation of each four-window gives inner mass ≥1/4. Equality makes the integer window count identically one almost surely and subtracting adjacent counts forces the repeated IOOO word up to shift. On that cylinder the four-step magnitude return is ρ−Λu; any displacement from its fixed point grows by Λ on each return and cannot stay in [0,t]. The lift is a single signed eight-cycle and invariance forces equal atom weights. This proves uniqueness of the minimizing measure, not uniqueness of all initial points with a limiting exponent equal to the floor. The rational sample cycle, all images and its multiplier 4096/625 were independently checked with `python3 /workspace/checks/exact_checks.py`; this is not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0e8f83f035e7, proof steps 1–4: no four outer visits, explicit count bound, signed affine return in IOOO, and a uniform expansion criterion including the cases P≤1.",
+          "2023 FPGA paper reproduces a no-fixed-point criterion and a Devaney-chaos example, not the optimizing theorem in the inspected passages."
+        ],
+        "reasoning": "The exact all-orbit bound, stronger parameter coverage and same saturating orbit subsume the numerical floor; by integrating the four-window bound, the same minimum applies to invariant boundary-null measures. Devaney chaos and simulated exponents alone would not give that implication.",
+        "searches": [
+          "Local mirror 0e8f83f035e7, literal: Proof; bounded passage from offset 2165",
+          "doi:10.3390/electronics12020444, Theorems 1 and 2, Eq. (4), Figure 2",
+          "doi:10.1142/S021812742150200X, DOI and lawful PDF/repository retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0e8f83f035e7, 3ad9a95c328f, df917790f30c",
+        "doi:10.3390/electronics12020444, Theorems 1–2, Eq. (4), Figure 2",
+        "doi:10.1142/S021812742150200X, access attempt and 2023 quotations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published proof gives each regular four-window at least one inner state and the exact affine fourth iterate T⁴(u)=Pu+K−P on the positive-start IOOO cylinder; the opposite signed cylinder is obtained by oddness."
+        ],
+        "reasoning": "The other Finding does not state measure uniqueness. At optimal integral the expected count is one, so all shifted four-windows have count one almost surely. A positive inner start has T⁴ negative after an IOOO block; oddness alternates signs and makes the magnitude return P−K−Pu. Since P>1, only its fixed point can stay in the cylinder indefinitely. The same orbit and its uniform measure are therefore forced by the published ingredients, without another model-specific lemma.",
+        "searches": [
+          "0e8f83f035e7 Proof steps 1–3, offsets 2165–4974; compare the equality case of the frozen invariant-measure claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0e8f83f035e7 Finding gives log(sr³)/4 with a primitive eight-cycle. Its scale convention is X=ax, with r the outer slope and s the inner slope.",
+          "Writing H=1+r+r², its inequalities H/r²<s<1+H/r³ give 0<sr³−rH<1, precisely frozen 0<ρ<1."
+        ],
+        "reasoning": "Identify r with the frozen s and s with the frozen t and rescale x. The quantity P−K in the published proof is then ρ and P is Λ; its witness u=(P−K)/(1+P) is exactly u*. The published chamber includes the frozen strict expansion restriction.",
+        "searches": [
+          "Local Resultary mirror 0e8f83f035e7: Finding, Assumptions, Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0e8f83f035e7 gives u=76/445, scale a=5 and multiplier 4096/625; its exact coordinates match all eight frozen points.",
+          "Local-mirror 3ad9a95c328f discusses restricted periodic words; df917790f30c works on a rounded finite grid. FPGA Figure 2 is a numerical sweep, not the exact example."
+        ],
+        "reasoning": "This is an actual match for the exact cycle and multiplier, not just parameters drawn from the same map. Grid cycle tables and other restricted word results are not needed for this coverage.",
+        "searches": [
+          "Local mirror 0e8f83f035e7 proof step 5; 3ad9a95c328f and df917790f30c targeted passages",
+          "2023 FPGA paper, Fig. 2 and Theorem 2"
+        ]
+      },
+      "rationale": "A distinct Resultary result, 0e8f83f035e7, covers the floor and its sharp period-eight witness on a parameter chamber containing the entire frozen regime. Its proof supplies the precise symbolic restriction and expanding affine return that also give uniqueness of the minimizing invariant measure as a direct corollary. Thus the frozen mathematical claim is covered in the inspected corpus; this is not a judgment of chronological precedence, copying, or coverage by the 2021 paper. The matching record has a later catalogue path (2026/11/1 versus 2026/10/18).",
+      "residual_risks": [
+        "No 2021 full text retrieved; further older overlap remains possible.",
+        "The mirror establishes distinct mathematical coverage, not chronology of discovery. The catalogue dates are not used to attribute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers floor and witness explicitly and entails unique minimizing measure on frozen regime",
+          "evidence": [
+            "P=sr³, K=r+r²+r³, all windows have an inner step and T⁴(u)=Pu+K−P on the positive-start IOOO cylinder.",
+            "Step 5 gives the identical physical orbit at the published slopes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-all-orbit-lyapunov-floor-in-a-four-branch-map-without-fixe--0e8f83f035e7/RESULT.md",
+          "material_read": "Finding, assumptions, proof steps 1–5 (text offsets 2165–4974 for the proof)",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; symbolic substitution and implication check",
+          "title": "Sharp all-orbit Lyapunov floor in a four-branch map without fixed points",
+          "trigger": "Same map, bound and sharp cycle"
+        },
+        {
+          "assessment": "Same map and sample slopes, not the sharp extremum in passages read",
+          "evidence": [
+            "Theorem 2: m₁=0.8, m₂=5, b₁=4, b₂=25 and Devaney chaos. Eq. (4) is a time-average definition and Fig. 2 samples x₀=0.11."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/electronics12020444",
+          "material_read": "OA PDF pp. 3–5: Theorems 1–2, Eq. (4), discussion and Figure 2",
+          "method": "Lawful full text, targeted theorem and figure passages",
+          "title": "FPGA Implementation of a Chaotic Map with No Fixed Point",
+          "trigger": "Same four-branch family and numerical Lyapunov result"
+        },
+        {
+          "assessment": "Unresolved beyond the reproduced theorems; not evidence of noncoverage",
+          "evidence": [
+            "2023 article attributes its fixed-point and Devaney results to this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S021812742150200X",
+          "material_read": "Identity and theorems attributed to it by the 2023 article; no independently readable 2021 body",
+          "method": "Lawful DOI/PDF and repository recovery attempts; 403 and no located alternative",
+          "title": "Chaotic Features of a Class of Discrete Maps without Fixed Points",
+          "trigger": "Originating same-family work"
+        },
+        {
+          "assessment": "Adjacent but not needed for the demonstrated implication",
+          "evidence": [
+            "Strict period-eight words in a resonance analysis; rounded dynamics distinguished from exact-real dynamics."
+          ],
+          "identifier_or_url": "Resultary 3ad9a95c328f; df917790f30c",
+          "material_read": "Targeted passages at offset 2947 (restricted periodic itineraries) and offsets 1763, 4136, 5597 (finite grid semantics)",
+          "method": "Local Resultary mirror",
+          "title": "Sharp periodic resonance staircase and neutral intervals in a fixed-point-free map; Exact scale-128 cycle spectra under coefficient encoding in a fixed-point-free map",
+          "trigger": "Possible overlap on period and slopes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant-measure minimum over an open chamber and the exact extremal measure address a natural expansion problem for a studied interval map with contracting branches. The analytical extremum adds information beyond typical numerical exponents and does not suggest cryptographic significance. This assesses the mathematical object and question, not distinctness from the covering result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

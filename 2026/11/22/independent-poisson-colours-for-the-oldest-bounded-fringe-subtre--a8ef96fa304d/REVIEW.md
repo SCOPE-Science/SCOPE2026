@@ -1,19 +1,21 @@
-# Scientific review: early small fringe subtrees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact one-root beta-binomial size law and conditional uniformity of the internal tree and outside tree. Induction on any fixed number of early marked roots shows that disjoint marked subtrees supply the product rare-event probability, while any nesting imposes at least one extra factor of order inverse tree size. Summed mixed factorial moments converge to those of independent point processes; the Poisson-superposition calculation supplies the uniform first-size mark. The standalone deterministic checker passed 1,336 assertions for all recursive trees through eight vertices and additional first-moment checks. No finite experiment substitutes for the proof.
+PASS
 
-## Originality — PASS, with historical priority risk
+The urn started with populations 1 and i-1 gives the stated falling-factorial law, uniformly i/n+O(n^-1) at fixed sizes in a bounded square-root window. Conditioning on the exact descendant set is a product restriction on parent choices: inside parents stay inside, outside parents stay outside, and the parent's choice at the deleted root disappears. Thus the increasing parent vector is uniform and the relabelled exterior is an independent recursive tree. Deleting the earliest nominated fringe leaves surviving later roots' fringes unchanged, shifts labels by at most K, and gives the induction main term. The contribution with m>=1 nested roots gains O(n^-m) from membership of specified labels in the bounded uniform descendant set; after the first-root factor and the exterior estimate its order is O(n^{-(r+m)/2}). The resulting uniform error sums to O(n^-1/2) at each fixed factorial-moment order. For disjoint marked windows, deletion of repeated labels from the product Riemann sum is negligible by the O(n^-1/2) one-label bound. The joint Poisson moments determine the limit, the local first-moment bound gives tightness, and diffuse intensity plus the diverging cumulative rate gives convergence of each fixed arrival prefix. Summing the shape intensities gives one x dx per size and proportional intensity gives independent marks. A direct finite conditional calculation gave P(|F_{5,2}|=2, |F_{5,3}|=1)=1/6 versus marginal product 1/8, consistent with the required nested-root treatment, not exact finite independence.
 
-Holmgren–Janson (arXiv:1406.6883, Theorems 1.4, 1.5, 1.9) treats global size/shape totals, including normal laws for small sizes and Poisson laws for large sizes, not birth-rank-resolved small-subtree extremes. Feng–Mahmoud (2010, DOI 10.1239/jap/1269610825) establishes a global fixed-shape Gaussian law and a shape functional. The published earliest-leaf process covers the case of subtree size one exactly, which is not claimed new. None of the inspected statements covers the simultaneous independent point processes for all fixed sizes/shapes and the uniform mark at the first qualifying birth label. The full 1991 Mahmoud–Smythe paper was unavailable for complete inspection, so a priority risk remains.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem identifies a natural earliest-birth boundary for unexpectedly short descendant branches. It shows that different fixed fringe sizes have *equal* early rarity, despite their unequal global abundances, and determines the joint law of all early exceptions and their increasing shapes. The first-event uniform size mark is a direct structural consequence with interpretation independent of global fringe counts.
+The K=1 case is an exact prior result, and global fixed-shape laws and conditional shape probabilities are established context. The supported distinct contribution is joint marked Poisson convergence for bounded fringe sizes on the early birth-rank scale, including positive sizes greater than one and exclusion of nonnegligible nested-root dependence in the limit.
 
-## Limitations
+## value
 
-Only fixed finite size/shape sets and fixed ranked arrivals are proved. No rate or growing-cutoff extension is claimed; complete historical priority requires further literature review. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The marked point process identifies the entire fixed-order arrival law for unusually early bounded fringe trees, not just their expected number or a single old leaf. The homogeneous mark proportions across the inhomogeneous arrival scale and the quantitative control of nested configurations add genuine dependence information for a natural model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:33:07.726187Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any block the positive eigenvalues of its Gram matrix are twice the multiplicities of its pairwise orthogonal row types. This gives 4b at the root, 2b for every represented type below it at group-aligned nodes, and 2h for h identical rows. The corresponding squared tolerances are b/4, gb/(8r) and h/(8r), strictly below those eigenvalues; exact local ranks and zero reconstruction error follow. The root split adds r(n+1) storage, since both children contain all r types, so the specified one-step procedure stops. Within each child, splitting a g-group node into equal halves saves g²b/2, while cuts inside one homogeneous group only add overhead. Thus each child is optimally cut into single groups. The root can either be kept or replaced by the two independently optimal child cuts, and the latter saves r(2r³−2r²−2r−1)>0 for every r≥2. The exact costs are r(2r³+2r+1) and 2r(r+1)², the ratio is asymptotic to r, and even the larger cost is strictly below the raw 4r⁴ entries. These conclusions concern the prescribed hierarchy and factor-entry measure, not arbitrary partitions or a particular graph-partitioner run. The supplied finite verifier was inspected, not run; the uniform claim follows from the calculation above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The HAL manuscript §4.2 (especially p. 14) warns that PF-MERGE may reject an intermediate merge despite savings several merges later; it is a bottom-up tensor scheme. Shamrai addresses joint SVD error under concatenation and clustering."
+        ],
+        "reasoning": "The earlier warning covers the generic local-choice phenomenon. The inspected procedures do not yield a worst-case quantitative bound for this top-down size-proportional local POD rule on a fixed balanced hierarchy.",
+        "searches": [
+          "Ehrlacher–Grigori–Lombardi–Song, HAL-02284456v1, §4.2 Algorithms 4.1–4.2",
+          "Shamrai arXiv:2601.11626v2, abstract and problem setup"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.31375v1",
+        "HAL-02284456v1 (DOI 10.1137/19M128689X)",
+        "arXiv:2601.11626v2",
+        "Resultary record 95eb43c7a798"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source warning states that deeper splits might help, not that the best cut can be arbitrarily cheaper. The record repeats all orthogonal modes in both first children, then separates the modes in later levels while controlling the local error budgets."
+        ],
+        "reasoning": "Qualitative failure alone is compatible with a bounded approximation ratio. The construction, strict first rejection and exact optimum together establish the quantitative separation absent from the inspected earlier statements.",
+        "searches": [
+          "arXiv:2610.31375v1 Remark 4.2",
+          "HAL-02284456v1 §4.2, comparison of merged versus unmerged storage",
+          "frozen RESULT.md lines 48–114"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With identity mass matrices, the source local POD tail budget is the SVD squared-error budget used in the record. Equation (26) charges (m_k+n+1)p_k. Remark 4.2 explicitly describes the parent-versus-children stop condition and the possibility of starting without an initial partition."
+        ],
+        "reasoning": "The counterexample matches the mathematical rule after the identity-mass specialization. It is not a claim about every partition generator or a failure of the error certificate.",
+        "searches": [
+          "arXiv:2610.31375v1 §3.3, equations (22)–(25), §4, equation (26), Remark 4.2",
+          "Resultary search for an unbounded greedy hierarchy storage ratio under local rank/tolerance selection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected indexed result gives the two costs or a dominating ratio for the same rule. The strongest indexed analogue, 2026/11/8/SCOPE-sharp-flat-spectrum-approximation-ratio-for-three-level-reserve--95eb43c7a798, compares greedy and optimal allocations over three bitwidths for equal singular weights."
+        ],
+        "reasoning": "That ratio concerns bitwidth allocation, not the choice of a tree cut under a rank threshold. The ratio here comes from the row-block rank and factor-count formulas, not a lookup of compression benchmark values.",
+        "searches": [
+          "Resultary searches for local POD, balanced tree cuts, greedy storage approximation ratios and greedy compression analogues",
+          "arXiv:2610.31375v1 Remark 4.2"
+        ]
+      },
+      "rationale": "The no-lookahead pitfall is recognized in the motivating POD paper and appears qualitatively in earlier hierarchical tensor compression. The supported distinct claim is an explicit admissible binary path-mesh family with a proved unbounded quantitative ratio between the greedy and optimal cuts, both reconstructing exactly under the stated positive tolerance rule and both compressing the data.",
+      "residual_risks": [
+        "These bounded comparisons do not rule out an unindexed quantitative example for an equivalent rule.",
+        "No originality is asserted for the qualitative local-refusal pitfall or the general observation that tree-cut optimization can use recursion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rank, algebraic storage and stopping rules match; qualitative trap is already stated",
+          "evidence": "Remark 4.2 retains the parent if children are no cheaper and warns that a deeper refinement may help.",
+          "identifier_or_url": "https://arxiv.org/html/2610.31375v1",
+          "material_read": "§3.3 equations (22)–(25), §4 equation (26) and Remark 4.2",
+          "method": "Primary OA HTML, bounded passages",
+          "title": "Adaptive Local Proper Orthogonal Decomposition via Graph Partitioning and Provable Error-Bounded Lossy Compression for Parametric Series in Finite-Dimensional Function Spaces",
+          "trigger": "Exact algorithm and quantitative claim"
+        },
+        {
+          "assessment": "Material qualitative analogue, not the same optimization or a stated unbounded ratio in the passages inspected",
+          "evidence": "PF-MERGE compares storage before and after one bottom-up merge and can stop despite better multi-step mergers.",
+          "identifier_or_url": "https://inria.hal.science/hal-02284456v1/document",
+          "material_read": "Submitted-version PDF §4.2, Algorithms 4.1–4.2 and p. 14 warning (pp. 12–16)",
+          "method": "Lawful same-paper HAL full text after publisher access was unavailable",
+          "title": "Adaptive Hierarchical Subtensor Partitioning for Tensor Compression",
+          "trigger": "Flagged related paper on hierarchical compression with local storage decisions"
+        },
+        {
+          "assessment": "Related error-constrained compression, with a different clustering problem",
+          "evidence": "Constraints and representations concern the joint SVD of a concatenation rather than the top-down cut of a prescribed path-mesh hierarchy.",
+          "identifier_or_url": "https://arxiv.org/html/2601.11626v2",
+          "material_read": "Abstract and formulation of concatenation/clustering",
+          "method": "Primary OA HTML bounded inspection",
+          "title": "Concatenated Matrix SVD: Compression Bounds, Incremental Approximation, and Error-Constrained Clustering",
+          "trigger": "Plausibly equivalent SVD grouping problem"
+        },
+        {
+          "assessment": "Different decisions and objective, not exact or broader coverage",
+          "evidence": "Allocates three bitwidths to equal-weight modes instead of selecting blocks of a dyadic POD hierarchy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-flat-spectrum-approximation-ratio-for-three-level-reserve--95eb43c7a798",
+          "material_read": "Indexed RESULT.md, claim and worked bitwidth example",
+          "method": "Local published-record mirror",
+          "title": "Sharp flat-spectrum approximation ratio for three-level reserve greedy",
+          "trigger": "Closest indexed greedy compression ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This supplies a worst-case obstruction to any dimension-independent factor-storage guarantee for the specified greedy rule, even on connected balanced path partitions and without any reconstruction tradeoff. It gives a concrete reason to compare against deeper lookahead or whole-hierarchy optimization. The approximation claim is useful within that scope without implying practical failure of a particular partitioner.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

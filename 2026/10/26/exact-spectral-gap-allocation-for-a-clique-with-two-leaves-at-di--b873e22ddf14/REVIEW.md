@@ -1,19 +1,21 @@
-# Review: clique with two distinct pendant attachment vertices
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-A globally applicable centered Euclidean trace-variance certificate bounds the second weighted Laplacian eigenvalue by the total budget divided by a known variance. The four explicit edge classes make every column of the certificate a Fiedler eigenvector and yield an unnormalized Laplacian with strictly positive remaining spectral gaps. The root exists uniquely by elementary monotonicity. Direct matrix assembly and numerical spectrum checks of the independent checker passed on 33 sizes. These finite checks corroborate, rather than replace, the proof for all integers \(k\ge1\).
+PASS
 
-## Originality (PASS, with limitations)
+With t=sqrt(1-u^2) and s=sqrt((k+2)/k)/2 the scalar equation is (ks-2t)/(k+4)=t/(2sqrt(1-t^2)); the difference is strictly decreasing from positive to minus infinity, so there is exactly one admissible root. All edges of the displayed embedding have squared length one, including when k=1 and the peripheral simplex is a single point. Applied to its centered coordinates the Rayleigh bound gives lambda_2 V<=B for every feasible allocation. Substitution into the rates gives LQ=lambda Q_c in the odd, even and simplex directions using mu/s=-k/H and mu=-t/(2u). There are 1+1+(k-1) such independent modes; the two block traces are 2w_AB+k w_AC+2w_AX and (k+2)w_AC+2w_AX, both strictly greater than 2lambda, so the two other nonzero eigenvalues strictly exceed lambda. Summing weights gives lambda V_k, and tracing the embedding identity also gives lambda V, proving equality and the optimal B/V_k. The root gives u->1/sqrt(2); division in the stated budget expression yields k/2+7/2+2u+1/u+O(1/k), giving the claimed asymptotic.
 
-The closest primary antecedent is Sun–Boyd–Xiao–Diaconis (2006), which establishes budgeted continuous-time fastest mixing and its Euclidean dual but does not state this exact distinct-attachment clique solution. Jafarizadeh (arXiv:2501.02421v1) addresses discrete-time reversible-chain SLEM, clique lifts, and a single-attachment lollipop, with different admissible weights and topology. Accessible same-topic records include a clique with one two-edge pendant tail and two cliques joined by a bridge; neither specializes to different clique hubs bearing separate leaves. Broad Results/graph searches found no implication-equivalent formula, but rare alternate-name coverage remains possible. The 2009 symmetry primary full text could not be examined; only its abstract was available. Originality is not asserted as independently certified.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The budgeted spectral-gap allocation models a heavily interconnected core with two different leaf bottlenecks. The formula gives all edge classes and a unique evaluable root, proves global rather than symmetry-restricted optimality, and shows a high-dimensional Fiedler eigenspace and sharp leading-order scaling. These facts provide practical coupling design rules and exact spectral optimization benchmarks beyond routine SDP feasibility.
+Maximum-variance unfolding is an established exact dual framework for this optimization. Neither the inspected general theorem nor the strongest matching graph or optimization records evaluate this family with two leaves at distinct core vertices. The explicit root, rates, multiplicity and asymptotic are the supported distinct contribution.
 
-## Limits
+## value
 
-The claim does not cover discrete-time stochastic kernels, directed links, nonuniform vertex masses, or uniqueness of all optimizing conductance vectors. An exact mathematical proof supports all graph sizes; the attached numerical script uses NumPy and SciPy for reproducible finite tests. A specialized prior formula under a different topology name remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family isolates the competition between a dense core and two bottlenecks on distinct hubs. The exact evaluation specifies how to allocate a finite budget across all existing edge classes, shows that none need be dropped, and gives a sharp spectral benchmark with the Fiedler multiplicity and asymptotic scale. This is substantive graph-specific information not obtained merely by restating the SDP.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

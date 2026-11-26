@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The lower bound is the central binomial Walsh eigenspace multiplicity, and the proof explicitly verifies PBH injectivity at every eigenvalue, including the top and zero eigenspaces. The potentially nonstandard Boolean-layer harmonic argument is reconstructed from the incidence commutator; its restriction scalar is evaluated exactly as a nonzero binomial coefficient. Even dimensions follow by a unitary two-point transform that separates the two sources of each repeated eigenvalue. The complement-row obstruction is exact. Independent exact modular and integer tests cover 54 spectral-rank cases, 2,309 intertwining identities, and 2,924 coefficient evaluations; they do not replace the proof. No hidden numerical convergence or exhaustive-all-dimension inference is used.
+PASS
 
-## Originality — PASS on the inspected evidence; publication priority not independently established
+Original mathematical assertions check out: degree j Walsh characters have eigenvalue 2j and form a binomial-dimensional eigenspace, so PBH applies to coordinate-row restriction. For n=2k+1, incidence up/down commutation gives a direct harmonic decomposition. Substituting the lifts reduces the action to a function of t=|x∩R| for each ℓ-set R; repeated lowering and Newton expansion cancel all terms below order ℓ. The surviving difference gives (−2)^ℓ[z^(j−ℓ)](1−z²)^(k−ℓ)(1+z), which yields the stated nonzero signed binomial. Column complementation handles j>k. The original even product placement follows by taking row sums and differences over the last bit; an even middle shell has proportional antipodal rows in degree k. For the repaired spectrum claim, separately checked the commutator recurrence for the unnormalized iterated up-lifts F_r: D_r F_r=(r−ℓ)(n−r−ℓ+1)F_(r−1). This gives ||E_(r,ℓ)h||²=binom(n−2ℓ,r−ℓ)||h||² and orthogonality of distinct sectors by induction (D_r U_(r−1) is scalar on each source sector). Thus the singular values use the square root of the target/source norm factors, with sector dimensions binom(n,ℓ)−binom(n,ℓ−1), including the ℓ=0 case. The supplied integer and modular checks were inspected, not replayed; full rank mod the prime suffices for full real rank but is not a general upper-bound certificate for real rank. The original upper bound for the middle shell comes from exact row proportionality, not modular evidence; the repaired spectral normalization is proved rather than inferred from those tests.
 
-The closest earlier framework is the PBH maximum-multiplicity result of Yuan et al. (2013), which governs unrestricted input ranks and does not exhibit the particular coordinate placements or certify the all-degree middle-layer rank statements. The qualitative-matrix and zero-forcing treatment of Monshizadeh et al. (2014) is a stronger robustness requirement but not a covering result for this fixed Laplacian's exact coordinate optimum. Zhang et al. (2011) provide general bounds for distance-regular graphs and a limited set of explicit examples; their abstract alone is not a whole-document exclusion. Dai (2023) develops critical-set methods but its inspected examples and statements do not identify the odd/even hypercube placement. The Boolean-slice harmonic basis and uniqueness principles of Filmus (2014) and Filmus–Mossel (2015) are acknowledged as established algebraic machinery; they do not explicitly furnish the homogeneous Walsh restriction coefficient or coordinate placement. A previously obtained four-dimensional hypercube characterization is only a single even-dimensional instance and does not imply the all-dimension assertion. Unindexed incidence-matrix or control literature could contain an equivalent formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact all-dimensional *coordinate* actuator count and fully explicit input locations resolve a natural combinatorial design problem for every binary cube with exponentially many states. The odd/even middle-sphere contrast is structural, not a minor numerical improvement: a cardinality-optimal candidate can have a middle-eigenspace restriction of at most half rank. The uniform formula and constructive placement support network input design without searching subsets or solving symbolic rank systems separately in each dimension. No claim is made that the classical Walsh or PBH tools are new.
+The frozen optimal-count claim and odd-layer placement have exact prior coverage, and they are not passed. The completed replacement claims only the closed harmonic-sector action of the fixed-degree Walsh sampling map and its counting-norm spectrum. The earlier controlling shell proof contains neither those coefficients nor the implied exact conditioning; its vanishing propagation can show nonzero action but cannot give its size. The two elementary parity observations of the original record are not used as a stand-alone novelty claim.
 
-## Scope and residual risks
+## value
 
-Uniform unweighted Laplacians and independently driven standard basis columns only; no classification of all optimal sets, robust weights or controls with constraints. Publication-priority comparisons remain limited by relevant specialist literature not fully accessible, especially possible generalized Walsh-slice rank theorems. The result has not undergone an independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the known optimal odd sampling shell, recovering coefficients from node values benefits from knowing how each input mode is amplified, rather than merely knowing recoverability. The closed action and singular spectrum give that quantitative answer uniformly for all Walsh degrees, including multiplicities and inverse stability via the least singular value. This is a substantive exact invariant of a motivated sampling matrix, not a rederivation of the known actuator count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

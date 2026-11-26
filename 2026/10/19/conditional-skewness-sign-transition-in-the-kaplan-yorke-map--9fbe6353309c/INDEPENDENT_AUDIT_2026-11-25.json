@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:15:59.326410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–76",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/frozen_math_replay.py"
+      ],
+      "rationale": "Lebesgue marginal gives equal inverse-branch weights. Writing c=cos(2πx) and P for their averaging operator, the first conditional moment solves m₁=c+αPm₁, hence is c; P kills c and I−αP is invertible. The conditional variance solves v=α²P(c²+v), yielding α²[(1−α²)⁻¹+c]/2. To check the cubic directly rather than subtracting raw polynomials, condition on the previous base point U. The new forcing is c(x) on both branches; after subtracting c(x), the ordinate is α times the old ordinate. Thus κ₃=α³P(κ₃+3cv+c³), with Pc³=0 and P(cv)=α²(1+c)/4. Resolving this equation gives the claimed κ₃, as P kills c on the next iteration. These recursions work in L∞ or L¹ under the stated moment assumptions. The variance has a positive lower bound when α≠0 and vanishes at zero. For negative α the prefactor reverses the inequality; the two zeros pertain to the continuous representative. Arc length gives the increasing proportion with limiting values 0 and 1/3. Integrating the raw profiles yields the stated global moments: the variance gives |α|, the cubic separates its two signs, and α=0 is handled separately. Independent replay, python3 /workspace/frozen_math_replay.py 2, compares direct dyadic-history cubics for ten parameter/base pairs at truncation depth 17, allowing for the discarded tail. This corroborates, but does not prove, the functional identity.",
+      "residual_risks": [
+        "Pointwise sets use a representative of conditional moments; all measure statements are modulo null sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang's inspected section derives a transport operator for information flow, not a solved conditional law or evaluated cubic. The strongest same-map indexed record explicitly rules out a full conditional distribution in its scope."
+        ],
+        "reasoning": "A solved joint law or evaluated third-order cumulant family could cover the result; the inspected operator framework is not such a law. The 1979 inaccessible text is a residual risk rather than a negative lookup.",
+        "searches": [
+          "Resultary lookup for joint and conditional distribution laws of the same map",
+          "DOI 10.1007/BFb0064319, chapter and PDF access attempts",
+          "arXiv:1503.08389v1 §III.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2cc33694c056",
+        "arXiv:1503.08389v1",
+        "DOI 10.1007/BFb0064319 (bibliographic/access check)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier profiles coincide at α and −α. The prior operator supplies branch weights, whereas the decisive additional evaluation is P(cv) and the solution of the resulting cubic recurrence."
+        ],
+        "reasoning": "The moments through order two are input to the nontrivial third-order calculation, not an evaluated stronger result from which the claim follows by substituting parameters.",
+        "searches": [
+          "Entry 2cc33694c056, Finding and Limitations",
+          "Liang §III.3, equations (17)–(23), PDF pp. 9–11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liang equations (17)–(23) specify precisely the cos(4πx) forcing and inverse branches; the nearby Resultary entry 2cc33694c056 specifies only conditional moments through order two and excludes higher conditional cumulants."
+        ],
+        "reasoning": "The centered third moment is the third conditional cumulant and determines the standardized sign wherever variance is positive. Neither the same-map variance formula nor an unevaluated Frobenius–Perron operator is a statement of that cubic or its sign region.",
+        "searches": [
+          "Resultary semantic lookup: Kaplan–Yorke conditional cubic or skewness, signed moments and conditional laws",
+          "Liang, arXiv:1503.08389v1 §III.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest hit gives only the first and second profiles and gives the global variance; no distinct same-date equivalent entry appeared among the returned results."
+        ],
+        "reasoning": "Those profiles are even in α and do not tabulate or determine the signed cubic. This was a bounded index check, not an exhaustive negative claim.",
+        "searches": [
+          "Resultary ranked lookup: exact same-map signed skewness, moments and joint/conditional laws; inspection of entry 2cc33694c056"
+        ]
+      },
+      "rationale": "The established map, transfer operator and exact conditional variance are not the distinct contribution. The inspected prior results leave the conditional cubic unevaluated, including its sign-region measure and the signed identifiability it yields. No stronger evaluated law has been identified in the accessible comparisons.",
+      "residual_risks": [
+        "The original 1979 chapter could not be independently inspected in full.",
+        "A focused primary search produced no relevant candidate beyond the compared sources; this is not evidence of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers first two moments, not the cubic",
+          "evidence": "Conditional mean cos(2πx); second-order profiles even in α; no full conditional law or higher cumulants claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056/RESULT.md",
+          "material_read": "Finding (offset 79), Limitations (offset 5027)",
+          "method": "Resultary search and local mirror",
+          "title": "Exact conditional variance profile of the Kaplan–Yorke stationary measure",
+          "trigger": "Strongest same-map and same-hypothesis match"
+        },
+        {
+          "assessment": "Same transport model, different assertion",
+          "evidence": "Derives the transfer operator to compute information flow; the inspected argument does not evaluate the third conditional centered moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08389v1",
+          "material_read": "§III.3, PDF pp. 9–11, equations (17)–(23)",
+          "method": "OA passage inspection",
+          "title": "Information flow and causality as rigorous notions ab initio",
+          "trigger": "Same map and inverse-branch calculation"
+        },
+        {
+          "assessment": "Residual access limitation",
+          "evidence": "Lecture Notes in Mathematics 730, pp. 204–227 (1979); the variance record notes its own partial extraction and does not identify a matching moment theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/BFb0064319",
+          "material_read": "Bibliographic details; no full text independently available",
+          "method": "Lawful chapter/PDF access attempts; comparison with access limits recorded in the earlier variance finding",
+          "title": "Chaotic behavior of multidimensional difference equations",
+          "trigger": "Original chapter and a plausible earlier moment identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and sign/identifiability proof",
+        "Resultary 2cc33694c056, the even-in-α first two profiles"
+      ],
+      "rationale": "The first conditional moment that distinguishes the contraction sign gives a sharp qualitative distinction: all fibers have positive skewness for positive contraction, but a negative contraction has a varying positive minority despite a positive global third moment. The explicit proportion and a minimal pair of global moments recovering the signed parameter make the cubic identity useful as an exact benchmark rather than another unevaluated moment recurrence.",
+      "residual_risks": [
+        "This diagnoses third-moment asymmetry, not the entire conditional distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

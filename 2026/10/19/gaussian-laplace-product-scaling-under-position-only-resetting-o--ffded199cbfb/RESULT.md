@@ -1,10 +1,24 @@
-# Gaussian–Laplace product scaling under position-only resetting of Brownian-square diffusivity
+# Exact transient characteristic function under position-only resetting of Brownian-square diffusivity
 
 ## Finding
 
-For an unreset Brownian stochastic diffusivity, resetting *position alone* does not produce a stationary position distribution. Instead, it induces a quantitative non-Gaussian scaling limit: the position divided by \(\sqrt t\) converges to a product of an independent Gaussian and Laplace random variable. The limiting law has a logarithmic density peak, a sharp \(2/3\)-power stretched-exponential tail and raw kurtosis \(18\). A deterministic diffusivity with the same mean and same resetting mechanism has the same limiting variance but a simple Laplace scaling limit with raw kurtosis \(6\).
+Fix \(r,\Lambda>0\), take independent standard Brownian motions \(B,W\), and an independent rate-\(r\) Poisson process. Write \(\omega_t=\sqrt2\Lambda B_t\) and evolve the position between resetting times by \(dX_t=2\Lambda B_t\,dW_t\), starting from \(X_0=0\). At each Poisson event set \(X_t=0\), leaving the Brownian medium \(\omega\) unchanged. The signed noise coefficient is equivalent in position law to the physical nonnegative coefficient \(2\Lambda|B_t|\), since both have the same conditional quadratic variation.
 
-Here is the exact statement. Fix \(r,\Lambda>0\), take independent standard Brownian motions \(B,W\), and an independent rate-\(r\) Poisson process. Write \(\omega_t=\sqrt2\Lambda B_t\) and evolve the position between resetting times by \(dX_t=2\Lambda B_t\,dW_t\), starting from \(X_0=0\). At each Poisson event set \(X_t=0\), without changing either \(B\) or the Brownian medium \(\omega\). The signed noise coefficient is equivalent in position law to the physical nonnegative coefficient \(\sqrt{2\omega_t^2}=2\Lambda|B_t|\), since both have the same conditional quadratic variation.
+**Exact transient law.** For each \(t>0\), let \(A_t\) be the time since the last reset, set to \(t\) if no reset has occurred, and put \(w=2\Lambda|k|/\sqrt t\). The conditional characteristic function of \(X_t/\sqrt t\), at age \(a\in[0,t]\), has the version
+\[
+H_t(k,a)=[\cosh(wa)+(t-a)w\sinh(wa)]^{-1/2}.
+\]
+Consequently the characteristic function at every finite observation time is the one-dimensional single quadrature
+\[
+\varphi_t(k)=e^{-rt}\,[\cosh(wt)]^{-1/2}
++r\int_0^t \frac{e^{-ra}}{\sqrt{\cosh(wa)+(t-a)w\sinh(wa)}}\,da,
+\qquad \varphi_t(0)=1.
+\]
+The term \((t-a)w\sinh(wa)\) records the inherited Brownian variance at the last position reset. It disappears if the medium is also reset, in which case the conditional kernel is \([\cosh(wa)]^{-1/2}\). Thus at every \(t>0\) and real \(k\ne0\), resetting position alone gives a strictly smaller characteristic function than resetting both position and medium, because the two kernels have identical no-reset terms and are strictly ordered at each interior age. The transient transform, not merely the limiting density or moments, distinguishes the protocols without assuming that the medium clock renews.
+
+## Scaling benchmark and quantitative check
+
+The following large-time laws give a benchmark for the transient formula. The one-time product limit and its density asymptotics are also covered by the same-protocol aging result [4]; they are not asserted as distinct contributions here.
 
 Let \(Z\sim N(0,1)\) and \(L\sim\mathrm{Laplace}(0,1)\) (density \(e^{-|x|}/2\)) be independent, and set \(c=\sqrt2\Lambda/\sqrt r\), \(Y=cZL\). Then for all \(t>0\), with \(W_2\) denoting the quadratic Wasserstein distance,
 
@@ -42,7 +56,7 @@ in particular \(\mathbb E[Y^2]=4\Lambda^2/r\) and \(\mathbb E[Y^4]/\mathbb E[Y^2
 
 ## Assumptions and scope
 
-The Poisson clock is homogeneous and independent of both driving Brownian motions. Each event resets position to zero only; neither the medium variable nor its clock is renewed. The medium starts at zero, and the theorem holds for all \(r,\Lambda>0\). The result is one-dimensional. The displayed density is the law of the *scaled limiting variable*, not a stationary density for unscaled position. At every fixed time the characteristic function below is exact. Endpoint asymptotics apply to the *limiting* density after the limit \(t\to\infty\) is taken; no claim of uniform finite-time tail equivalence is made.
+The Poisson clock is homogeneous and independent of both driving Brownian motions. Each event resets position to zero only; neither the medium variable nor its clock is renewed. The medium starts at zero, and the theorem holds for all \(r,\Lambda>0\). The result is one-dimensional. The displayed density is the law of the *scaled limiting variable*, not a stationary density for unscaled position. The characteristic function in the Finding is exact at every positive observation time. Endpoint asymptotics apply to the *limiting* density after the limit \(t\to\infty\) is taken; no claim of uniform finite-time tail equivalence is made.
 
 ## Proof
 
@@ -114,15 +128,15 @@ Replace the random diffusivity by its same-time mean \(D_{\rm det}(t)=\mathbb E[
 
 ## Verification
 
-The self-contained `verify.py` performs 43 independent deterministic numerical/algebraic checks. They include discretized Gaussian covariance-determinant checks for the Feynman–Kac expression, comparison of finite-time characteristic functions with the closed limiting transform, direct integration of the exact variance, independent Gaussian-quadrature mixture evaluation, matched deterministic-model comparison, explicit coupling-bound calculations, and numerical checks of the logarithmic center and sharp tails. The code requires Python, NumPy and SciPy; run `python verify.py`. All checks were executed successfully. The rigorous statements above follow analytically; discretization and quadrature are not substitutes for proofs of continuum or asymptotic assertions.
+The self-contained `verify.py` specifies 43 deterministic numerical/algebraic checks, including discretized Gaussian covariance-determinant checks for the finite-time expression, comparison with the limiting transform, integration of the variance, the matched deterministic model, and density and coupling checks. The code requires Python, NumPy and SciPy; run `python verify.py`. The rigorous statements above follow analytically; discretization and quadrature are not substitutes for proofs of continuum or asymptotic assertions.
 
 ## Relationship to prior work
 
-Santra, Basu and Sabhapandit [1] introduced precisely the Brownian-square stochastic diffusivity and studied Poisson resetting of **both** the position and the diffusivity. Their whole-state renewal creates a true stationary position law, with a different stretched-exponential tail. Their free-process characteristic function provides a benchmark for the no-reset term here, but their full-reset renewal does not apply when the Brownian medium retains its history. Bodrova, Chechkin and Sokolov [2] analyzed position-only nonrenewal resetting of a **deterministic** time-dependent diffusivity, thereby covering the matched Laplace benchmark but not the stochastic-medium product law. Gupta [3] studies position resetting with an unreset **Ornstein–Uhlenbeck velocity** (a stationary internal process), rather than the unbounded Brownian-square diffusivity. The new claim is the explicit stochastic-medium product limit, its quantitative \(W_2\) rate, and sharp density diagnostics, not the basic reset-age identity or these earlier processes.
+Santra, Basu and Sabhapandit [1] studied this stochastic diffusivity with **both** position and medium reset. Their free-process characteristic function provides the \(a=t\) benchmark but does not describe the extra inherited-variance term at \(0<a<t\). Bodrova, Chechkin and Sokolov [2] studied the position-only protocol for a **deterministic** time-dependent diffusivity and cover the matched deterministic benchmark. Gupta [3] retains an Ornstein–Uhlenbeck velocity rather than a Brownian-square diffusivity. The same-protocol result [4] contains the one-time scaling law, density core and tail, finite-time moment calculations, and the Brownian freezing estimate underlying the \(W_2\) bound. Its aging and one-time scaling statements do not evaluate the age-conditioned Fourier kernel at finite time. The claim defended here is that exact transient kernel and its Poisson mixture. The Gaussian–Laplace product, moment comparison and quantitative scaling bound are contextual consequences, not separately asserted as novel.
 
 ## Limitations
 
-No claim of an exact unscaled stationary density is made; there is none. Only homogeneous Poisson position resetting, Brownian-square diffusivity, zero initial medium, and one-dimensional position are covered. The limiting density's tail asymptotic is taken after the large-time limit. The convergence bound is an upper bound, not a proved optimal rate. Equivalence to a broader published Gaussian-mixture or nonrenewal-reset theorem remains a priority risk; independent scientific validation has not been performed.
+Only homogeneous Poisson position resetting, Brownian-square diffusivity, zero initial medium, and one-dimensional position are covered. The characteristic function gives the transient law; a closed-form inverse transform or uniform finite-time tail asymptotic is not asserted. The convergence bound is an upper bound, not a proved optimal rate. Broader Gaussian quadratic-functional or nonrenewal-reset results may yield equivalent formulas; historical priority is not certified.
 
 ## References
 
@@ -131,3 +145,5 @@ No claim of an exact unscaled stationary density is made; there is none. Only ho
 [2] A. S. Bodrova, A. V. Chechkin and I. M. Sokolov, *Non-renewal resetting of scaled Brownian motion* (2018 preprint), arXiv:1812.05664, https://arxiv.org/abs/1812.05664.
 
 [3] D. Gupta, *Stochastic resetting in underdamped Brownian motion* (2018), arXiv:1812.07227, https://arxiv.org/abs/1812.07227.
+
+[4] *Persistent aging correlations under position-only resetting of Brownian diffusivity*, Resultary a81738fe04a3, [Finding and proof](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-persistent-aging-correlations-under-position-only-resetting-of-b--a81738fe04a3/RESULT.md).

@@ -1,15 +1,21 @@
-# Scientific review: birth-time harmonic leaf influence
+# Independent mathematical audit
 
-## Correctness — PASS
-Independent uniform parent choices show exactly that a specified vertex is childless with probability \((j-1)/(n-1)\). Conditional on the event, all later parent choices remain independent uniform choices from the sets excluding \(j\); the conditional total-depth recurrence telescopes to the stated harmonic shift. Summing the label covariances gives \(-(n-2)/4\). For \(n\ge4\), the strictly convex finite profile, its \(u\log u\) scaling and its \(e^{-1}\) minimum are derived by adjacent differences and harmonic asymptotics. Enumerations through nine vertices checked the formulas but are not substituted for the proof. The correlation asymptotic relies on explicitly identified classical marginal variances.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The accessible full Dobrow–Fill manuscript treats total path length without labeled leaf conditioning. The publicly accessible Zhang abstract treats leaf-count asymptotics, not joint age-resolved path-length effects; the inaccessible full text leaves a genuine risk. Janson's 2005 paper treats outdegree-profile asymptotics. The 2026 Lundblad–Wagner full text provides a broad generating function for aggregate path/leaf quantities, potentially implying the aggregate cross-moment if further differentiated, but it does not encode birth labels and does not state a harmonic conditional influence profile. The closest published results found concern root-degree/leaf covariance and a forced root-attachment/path-length influence; neither is equivalent to conditioning a specified vertex to have zero children. Searches for the age-indexed conditional statement and for cross-covariances found no dominating published formula. This is not a uniqueness guarantee. Independent literature priority inspection remains warranted.
+PASS
 
-## Mathematical value — PASS
-The specific mathematical gap is how a vertex's continued childlessness affects the global search-cost statistic in an increasing tree. The exact birth-time profile is structurally stronger than a global covariance: it identifies negative dependence for all nonterminal labels, the unique macroscopic sensitivity scale near \(n/e\), and the exact cancellation that yields a simple linear covariance. These are natural global/local characteristics of the standard recursive-tree model, not arbitrary parameter slices. The result does not assert a downstream theorem or a joint limiting distribution.
+For fixed j, leafhood independently excludes j from each later parent's choices, with probability product (j−1)/(n−1). On that event, delete j and relabel in birth order. The remaining independently uniform choices give a uniform size-(n−1) recursive tree, and no surviving depth changes. The conditioning leaves D_j's mean H_(j−1) unchanged. Since the unconditional increase in expected path length is H_(n−1), this directly verifies the conditional mean shift without assuming independence of D_j and the remaining tree. Multiplying by the event probability gives the label covariance; summing by reversing the harmonic sum gives −(n−2)/4. The adjacent differences in k=j−1 are (1+H_k−H_(n−1))/(n−1), strictly increasing; harmonic integral bounds approximate the whole profile uniformly to O(1/(n−1)) by u log u at u=k/(n−1). Its unique limiting minimum is at u=1/e. The variance constants also follow directly: if v_t=Var(P_t)/t², conditioning on the size-(t−1) tree gives v_t=(1−1/t²)v_(t−1)+Var(D_t)/t², with Var(D_t)=H_(t−1)−sum_(k<t)1/k² from the depth generating function. Iteration and changing the order of the resulting nonnegative sum give lim v_t=sum_(k≥1)(1/k−1/k²)/(k+1)=2−π²/6. The leaf count grows by one minus a conditional Bernoulli with parameter L_(t−1)/(t−1), so its variance obeys w_t=(1−2/(t−1))w_(t−1)+1/4 and yields w_t=t/12 for t≥3. Thus the correlation coefficient and domain are correct. An independent hand enumeration of the six parent pairs at n=4 gave mean 13/3 and label covariances −5/18, −2/9, 0, summing to −1/2; no execution of the frozen verifier. The deterministic last label and the n=2 degeneracy agree.
 
-## Sources and limitations
-Primary references: Dobrow–Fill (1999), DOI 10.1017/S0963548399003855; Zhang (2015), DOI 10.1214/14-BJPS252; Janson (2005), DOI 10.1002/rsa.20046; Lundblad–Wagner (2026), DOI 10.4230/LIPIcs.AofA.2026.2. The latter article contains an aggregate four-variable generating function and is the strongest plausible broader comparison. Some historical complete texts remained inaccessible. The present proof is restricted to uniform recursive trees and first/second moments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the fixed-birth-label conditional harmonic shift and influence profile at the frozen record, not merely its aggregate covariance or the marginal variances. There is distinct same-day exact aggregate coverage and a materially identical later indexed profile. Neither the same-day aggregate proof nor the earlier published passages gives the fixed-label profile. The catalogue comparison does not certify historical priority.
+
+## value
+
+PASS
+
+The label-specific effect identifies which birth times contribute most to the negative association of two natural tree statistics. Its exact harmonic magnitude and limiting maximally negative age 1/e cannot be read from the aggregate number or its decay in correlation. This is useful even apart from the marginal asymptotics and the separate aggregate computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

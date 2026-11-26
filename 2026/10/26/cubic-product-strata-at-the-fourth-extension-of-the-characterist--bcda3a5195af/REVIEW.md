@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic fourth-power subgroup of \(\mathbb F_{625}^\times\) has order \(156\). Exact Euclidean gcds over \(\mathbb F_5\) have degrees \(41\) and \(5\); the latter is \((T-1)(T-2)(T-3)(T^2+T+1)\). Each quotient solution lifts to \(16\) torus points. Frobenius exchanges the two nontrivial cubic classes. Independent exact extension-field enumeration confirms \(80,288,288\). The twelve tame branch points and Riemann--Hurwitz yield genus \(19\), and fiber counting gives \(252\) points for the Kummer cover. Reproducible proof/code is included. No infinite conclusion is inferred from sampled field computations.
+## correctness
 
-**Originality — PASS, qualified.** Voloch--Zieve, arXiv:1310.1772, proves the degree-one, -two, -three cube property, and its Section 4 *already supplies* a fourth-extension counterexample for the \(q=2\) line. No first-discovery-of-failure claim is made. The new narrowly assessed claim is the exhaustive fourth-extension cubic-class and orbit decomposition for the genus-three Fermat quartic at \(q=5\), plus the associated genus-\(19\) Kummer-cover count. Actual targeted historical and published-record searches found no equivalent specialization. Standard generalized Jacobi sums, and unindexed specialized tables, remain residual risks; Moisio (2007) was inspected at abstract level only.
+PASS
 
-**Mathematical value — PASS.** The product-cubeness obstruction is motivated by a published exact theorem for the first three extension degrees. The five-orbit exceptional locus determines exactly where the obstruction survives at the next degree; the complementary \(576\) torus points and genus-\(19\) Kummer cover describe nontrivial arithmetic geometry beyond the known total count of the genus-three curve. The result is narrow but resolves a natural precise boundary, not a random integer statistic.
+On Z=1, fourth powers lie in a cyclic subgroup of order 156 with fibers of size four. The two coordinates' fourth powers sum to −1; the corresponding degree-41 gcd is separable and splits over K. The character χ(x)=x^208 satisfies χ((uv)^4)=χ(uv), so χ(AB) tests the product class on every fiber; the second gcd picks out precisely the five displayed A values, with B=−1−A. Independent exact field enumeration confirms all 41 ordered pairs and the 5,18,18 split, lifting to 80,288,288. The diagonal μ₄² action is free on the torus, its elements preserve the class, and Frobenius exchanges the nontrivial classes. The boundary consists of twelve distinct K-rational simple coordinate-section intersections, since −1 is a fourth power. The divisor of XY/Z² has eight simple zeros and four double poles, so the degree-three extension is nontrivial even geometrically, with tame total ramification at exactly those twelve points. Riemann–Hurwitz using g(C)=3 gives 2g(D)−2=36. On the torus there are three rational lifts of each cube-class point and none otherwise; each rational ramified point has one, giving 252.
 
-The proof is particular to the stated quartic and degree-four extension. Independence and exhaustive historical novelty are not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinction is the complete product-class and explicit orbit classification on the characteristic-five quartic at i=4, with its associated normalized cover count. Prior work proves that there are no nontrivial classes at i≤3 and already exhibits fourth-extension failure for q=2; neither is claimed here as new. No inspected statement or established reduction supplied the exact classification in the target regime.
+
+## value
+
+PASS
+
+The fourth extension is the first outside the prior universal cube theorem; this specified smooth quartic gives an exact complete distribution there, not just one noncube sample. The five split orbits are an explicit geometric classification and quantify precisely where the natural cubic cover has rational lifts, a relevant fixed arithmetic invariant beyond the base curve count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

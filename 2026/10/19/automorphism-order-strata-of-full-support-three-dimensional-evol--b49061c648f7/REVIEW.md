@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-characteristic argument normalizes every full-support perfect structure matrix uniquely to unit diagonal. The finite-field determinant and row-incidence counts establish the fixed-point totals for the identity, transpositions, three-cycles, and full symmetric group, after which subgroup inversion yields all four exact automorphism strata. Exhaustive independent matrix-and-stabilizer enumeration over seven finite fields, including extension fields, matched the formulas. The proof, rather than finite enumeration, establishes the infinite-family statement.
+## correctness
 
-**Originality — PASS within checked coverage.** Wei–Zou (2023) already derives the monomial action and counts all isomorphism classes of perfect evolution algebras in dimensions two through four; Elduque–Labra (2019) already provides the graph-automorphism exact sequence. These premises are explicitly credited. Neither inspected full text tabulates the subgroup-refined isomorphism classes of the full-support three-dimensional locus. Costoya et al. (2023) realizes prescribed automorphism groups but does not count their multiplicities here. The closest remaining risk is an equivalent subgroup-refined enumeration in a different finite-field classification.
+PASS
 
-**Value — PASS.** The locus of invertible structure matrices with all entries nonzero is a natural dense full-support family of absolutely simple evolution algebras. This is the first dimension whose permutation symmetries have genuinely distinct involution, three-cycle and full-symmetric types. The exact full family of symmetry-orbit multiplicities, with separate characteristic-two, characteristic-three and cubic-root phases, refines the known total orbit enumeration and is more informative than the existence of isolated examples.
+Independence of the squares forces images of distinct natural basis vectors to have disjoint support, hence the change is monomial in any characteristic. The nonzero diagonal scales uniquely to 1, leaving only permutations. A nonzero ideal contains one basis square, then all three via full support; the argument survives every field extension. For D one can scale in the ambient entrywise-nonzero invertible family to unit diagonal. Distinct first-row/second-row ratio patterns distinguish a plane defined by an equation with two nonzero coefficients (q−1 squared torus solutions) from one with three (choose two nonzero inputs and exclude one ratio, giving (q−1)(q−2)). The fixed transposition factors as (1−x)(1+x−2yz), with x=−1 requiring special treatment in odd characteristic only. The circulant factor is a cube in characteristic 3; for q≡1 mod 3 the three torus lines have distinct pairwise intersections and no triple intersection, and for q≡2 mod 3 the two conjugate lines share only (1,1), not on the remaining line. For all-equal off-diagonals the excluded roots of (1−t)^2(1+2t) coalesce in characteristic 3; the second factor is constant in characteristic 2. Proper nontrivial stabilizer fixed sets intersect exactly on the S3-fixed locus, so subtraction and division by 6/h give the stated formulas. Independent exact orbit enumeration verified q=2,3,4,5,9; a separate seven-field stabilizer census also included q=7,8.
 
-The result excludes structure matrices with zeros, semilinear symmetries and group-scheme structure. The literature comparison does not establish universal publication priority; independent human validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-prime-power four-stratum census is the supported distinct claim. Unit-diagonal permutation equivalence on the same full-support locus is already tabulated by Cabrera Casado–Siles Molina–Velasco under field restrictions. The S3 stratum alone, including its count, follows directly from Sriwongsa–Zou and is not a separate novelty. Their theorem and the overall Wei–Zou perfect-algebra census do not give the joint full-support distribution; computing the remaining locus-specific fixed counts is substantive.
+
+## value
+
+PASS
+
+At dimension three the natural permutation group first distinguishes involutions, three-cycles and full symmetry. Evaluating their multiplicities on the dense full-support family, including small fields and the characteristic-two and characteristic-three jumps, gives exact input for symmetry statistics that the ambient orbit total and the known S3-only classification cannot provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

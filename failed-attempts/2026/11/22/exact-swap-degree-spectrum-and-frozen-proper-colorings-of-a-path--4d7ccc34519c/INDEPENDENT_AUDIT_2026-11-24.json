@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:37:34.961282Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–51",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "/workspace/audit_replay/path_degree.py"
+      ],
+      "rationale": "The endpoint indicators and overlapping adjacent indicator products count exactly the legal swaps; different swap positions produce different words. With the initial two distinct colors fixed, a distance-two inequality bit allows q−2 extensions and an equality bit allows one. This gives independent Bernoulli indicators under the uniform word measure, and the two-state weighted transfer with endpoint factors yields the stated rational series (including the separate n=2 term). Zero degree forces zero endpoints and an independent set of interior ones, giving the recurrence; full degree forces every indicator to be one. The two endpoints collapse to the same bit at n=3, as reflected in the variance. At n≥4 the only nonzero cross terms are neighboring products and the two endpoint/product covariances. The interior sum is bounded and 1-dependent; the stated separated blocks have total variance asymptotic to n times the positive variance density, negligible omitted centered variance, and third-moment bound O(n^(7/5)), sufficient for the CLT. An independent direct-swap script matched all histogram coefficients and exact rational moments for 18 strata (2≤q≤4, 2≤n≤7); the proof, not the script, covers all parameters. Replay: python3 /workspace/audit_replay/path_degree.py.",
+      "residual_risks": [
+        "No joint-growth CLT in q and n is asserted; finite replay is not the Gaussian proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuchs et al. define the proper-preserving swap, call stuck states rigid, and give local ternary legality and path reachability; the older general colored-token model does not impose the properness restriction."
+        ],
+        "reasoning": "Neither broad colored-token swapping nor ternary reachability by itself classifies the distribution under the stated rule. The narrower Resultary theorem does directly cover it in the substantive range.",
+        "searches": [
+          "Fuchs et al., arXiv:2511.06473 §2.1, §4.1, Theorem 8 and Observation 11",
+          "Yamanaka et al., WADS 2015, author manuscript p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-day match 8cf8692431c0",
+        "Fuchs et al. arXiv:2511.06473",
+        "Yamanaka et al., DOI 10.1007/978-3-319-21840-3_51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary source gives independent Bernoulli distance-two bits and the exact degree as their two endpoint terms plus consecutive-bit products. Fuchs's local three-color swappability does not by itself supply those laws."
+        ],
+        "reasoning": "The consecutive products depend on disjoint sets of bits at lags ≥2, so the standard bounded 1-dependent CLT applies and the already-tabulated asymptotic variance is its variance density. This is an implication comparison, not an assertion that the match states a CLT explicitly.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible--8cf8692431c0, equations (5)–(6), (8)–(9) and Bernoulli representation",
+          "Fuchs et al., arXiv:2511.06473, Observation 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homopolymer-free words with the stated admissible swap are exactly labeled proper path colorings under the frozen move rule. The comparison source uses the same distance-two indicators, profile multiplicities and two-state degree enumerator on q≥3 and n≥3."
+        ],
+        "reasoning": "A different description of the words or length-series index does not change the generating polynomials. The indexed equations match the claimed spectrum on every nondegenerate stratum.",
+        "searches": [
+          "Resultary: degree spectrum for admissible adjacent swaps on proper path colorings / homopolymer-free words",
+          "Resultary 2026/11/22/SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible--8cf8692431c0, equations (1)–(2), (8)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched record supplies an exact symbolic census for all q≥3,n≥3, including the same weighted recurrence for frozen words, full-degree multiplicity, mean and variance."
+        ],
+        "reasoning": "This is stronger than isolated numerical tables: it yields each common-range histogram and its two finite moments. The remaining alternating binary case and one-swap two-vertex case need no new enumeration.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible--8cf8692431c0, RESULT.md equations (1)–(6) and maximum-degree statement"
+        ]
+      },
+      "rationale": "A distinct indexed result directly states the substantive degree-spectrum theorem, frozen and full-degree counts, and finite moments on the common nondegenerate range. Both entries are dated the same day; the evidence establishes equivalent coverage, not publication order. The extra q=2 and n=2 cases are immediate degeneracies. The Gaussian limit is not directly stated in that entry, but follows using the standard bounded 1-dependent CLT on its expressly identified independent bits and the same adjacent-product formula. The frozen combined finding does not establish a distinct substantive theorem apart from that coverage.",
+      "residual_risks": [
+        "No priority inferred between distinct same-day records.",
+        "The arXiv rather than proceedings version of Fuchs et al. supplied the decisive local criterion; conference observation numbering was not verified.",
+        "The focused general search did not return further evidence; this does not exclude unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct common-range coverage; Gaussian limit not explicitly stated; same-day priority unresolved",
+          "evidence": "Same two-state enumerator and length series, same isolated/full-degree counts and moments, same independent-bit representation and degree formula.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible--8cf8692431c0",
+          "material_read": "RESULT.md theorem and equations (1)–(9), beginning at OA offset 0",
+          "method": "Local Resultary search and OA local-mirror text inspection",
+          "title": "Exact degree spectrum of homopolymer-free words under admissible adjacent swaps",
+          "trigger": "Strongest exact same-object Resultary match"
+        },
+        {
+          "assessment": "Direct overlap in move and ternary local criterion, not the quantitative degree law in the inspected passages",
+          "evidence": "Three-color legal-swap criterion and path reachability algorithm, not a count by degree.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.06473",
+          "material_read": "ArXiv PDF §2.1 p. 4; §4.1 Theorem 8, rigid states p. 17, and Observation 11 p. 20",
+          "method": "OA text passages near offsets 15002, 61004, 62434 and 70912",
+          "title": "Coloring Reconfiguration under Color Swapping",
+          "trigger": "Primary source on the precise move rule and the path case"
+        },
+        {
+          "assessment": "Different state space",
+          "evidence": "Adjacent token moves do not impose that every resulting placement is a proper coloring.",
+          "identifier_or_url": "https://dspace.jaist.ac.jp/dspace/bitstream/10119/13768/1/21475.pdf",
+          "material_read": "Author manuscript p. 3, model definitions",
+          "method": "OA text near offset 7600",
+          "title": "Swapping Colored Tokens on Graphs",
+          "trigger": "Earlier general colored-token swap framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary match 8cf8692431c0, degree enumerator, count and moment statements"
+      ],
+      "rationale": "An unknown exact degree spectrum for this move graph would be useful for local branching and frozen-state counts, but the precise spectrum and those consequences are already supplied for the substantive range. The distinct additions in the frozen finding are two trivial regimes and a standard 1-dependent normal approximation from the existing exact representation. No separate meaningful invariant or new asymptotic regime beyond that routine implication is established.",
+      "residual_risks": [
+        "Does not assess reachability, component structure, mixing, or asymptotics with growing palette."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

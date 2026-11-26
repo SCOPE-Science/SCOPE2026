@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:39.318445Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unnormalized defining character on probability Haar SU(N), N≥3, tensor-power multiplicities are tableau counts; padded highest weights restrict to the same SU(N) character exactly when their difference is constant. The center forces r−s to be a multiple of N. At r+s=6 the diagonal moment is 1²+2²+1²=6, and the only extras, with conjugates, come from shapes (2,2,2), (2,1,1,1) paired with (1), and (1⁶); their hook products give 5, 4, and 1, respectively. The j,k terms of the two cubic expansions have trace degrees (3+j−k,3−j+k); the diagonal gives 6S³+36Spq, and the extras give 10 Re(w³), 24S Re(w²), and 2 Re(w³) at the three ranks. Writing pq=(S²−(p−q)²)/4 and |w|=√(pq) gives precisely the four nonnegative deficits. Equality means balance and, at exceptional ranks, Re(w^k)=|w|^k; a=b≠0 attains each optimum, and S=0 is trivial. Character orthogonality validates the denominator S³. RESULT.md line 88 reverses the subtraction in prose only; its displayed definition and formulas are correct. The archived finite checks were read as corroboration, not as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (31) of the first source covers arbitrary trace powers via an integer determinant shift and dimensions of symmetric-group representations; its following paragraph also derives this by Schur orthogonality.",
+          "Theorem 2.2 of the second source is about GUE/LUE/JUE rather than the required SU(N) Haar measure."
+        ],
+        "reasoning": "The first is a genuinely stronger exact formula, not just general methodological background. The second alone would not establish coverage.",
+        "searches": [
+          "arXiv:1812.06069 §3.1",
+          "arXiv:2003.02620 Theorem 2.2 and Eqs. (3.8)–(3.10)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "arXiv:1812.06069",
+        "arXiv:2003.02620",
+        "Resultary 382775ed6a3d",
+        "Bounded attempted Diaconis–Shahshahani JSTOR lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After the binomial expansion the only phase terms are positive multiples of Re(w^k), with k=2 or 3. Their maxima at fixed p,q are (pq)^(k/2), attained simultaneously with balance. The identity S²−4pq=(p−q)² gives the displayed balance terms."
+        ],
+        "reasoning": "The nonmonotone ranks, all equality phases and global deficits do not require a new optimization lemma or cancellation: there is one independently maximizable phase term at each rank, and the remaining one-variable bound is pq≤S²/4.",
+        "searches": [
+          "arXiv:1812.06069 §3.1 Eq. (31) compared with RESULT.md lines 20–39 and 72–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (29) is the integral of exactly (Tr U)^r(Tr U*)^s; Eq. (31) gives the special-unitary value.",
+          "Resultary 2026/10/11/SCOPE-sharp-sixth-moments-and-phase-localization-for-three-consecutive--382775ed6a3d treats three finite abelian Fourier cosets, including phase locking at order five, unlike this two-character SU(5) packet."
+        ],
+        "reasoning": "The integral notation matches the mathematical inputs exactly. The Resultary record is a structural analogue but not an equivalent packet or norm theorem.",
+        "searches": [
+          "Resultary sharp sixth moments and phase localization",
+          "arXiv:1812.06069 §3.1 Eqs. (29)–(31)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Insert r=s=3 to get 6; the determinant shifts at (N,r,s)=(3,6,0),(4,5,1),(6,6,0) give respectively 5,4,1; divisibility eliminates all other off-diagonal ranks."
+        ],
+        "reasoning": "No separately tabulated sharp norm was verified; no enumeration over high ranks is needed, since Eq. (31) computes the entire input table including all vanishing entries.",
+        "searches": [
+          "arXiv:1812.06069 §3.1 Eq. (31)",
+          "Resultary two-character sixth-moment comparisons"
+        ]
+      },
+      "rationale": "The exact general SU(N) mixed trace-moment formula, including the determinant shifts needed at all three exceptional ranks, is already given by Borisenko–Voloshyn–Chelnokov (2018), §3.1 Eq. (31). The frozen degree-six polynomial is its direct specialization after a cubic binomial expansion. The claimed sharp optimization, phases and deficits are immediate algebraic consequences: at fixed S the phase can maximize the single real-part monomial, after which every pq-dependent term is increasing in pq. No separate prior statement of the sharp norm or deficits was ascertained; the failure is direct implication by an existing stronger moment formula, not a claim of verbatim publication.",
+      "residual_risks": [
+        "No priority finding is made for the exact wording of the optimization. The separate Diaconis–Shahshahani full-text attempt did not return a relevant passage; the rejection instead uses the directly inspected Eq. (31)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general moment formula; direct implication of the frozen sharp result",
+          "evidence": "The SU(N) branch sums d(λ)d(λ+|q|^N) subject to s−r=qN. This is exactly the sum over partitions with a constant shift in the padded weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.06069",
+          "material_read": "Title page and §3.1 pp. 7–8 (offset 18500), especially Eqs. (29)–(31) and the following Schur expansion paragraph",
+          "method": "OA original PDF passage inspection",
+          "title": "SU(N) polynomial integrals and some applications",
+          "trigger": "General exact special-unitary trace moments"
+        },
+        {
+          "assessment": "Framework, not the claimed special-unitary optimization",
+          "evidence": "The exact trace formulas of Theorem 2.2 are for GUE/LUE/JUE; the Schur expansions are relevant background.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.02620",
+          "material_read": "pp. 1, 3, 5, 8; Theorem 2.2, Eqs. (3.8)–(3.10)",
+          "method": "OA original PDF passage inspection",
+          "title": "Symmetric Function Theory and Unitary Invariant Ensembles",
+          "trigger": "Frozen lead citation for trace moments"
+        },
+        {
+          "assessment": "Related structural result, not equivalent",
+          "evidence": "The three magnitudes are proportional to (1,t_r,1); order five has a phase restriction, unlike the SU(5) packet.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-sixth-moments-and-phase-localization-for-three-consecutive--382775ed6a3d",
+          "material_read": "RESULT.md finding and extremizer classification",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Sharp sixth moments and phase localization for three consecutive Fourier cosets",
+          "trigger": "Similar sharp phase transition in the Resultary index"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two-character norm is natural and the exceptional ranks are worth stating, but in this frozen narrow invariant the exact constants, equality phases and balance identities are mechanically implied by the known arbitrary-degree trace moment formula and the single inequality pq≤S²/4. The record adds neither a non-routine sharp optimization nor a new stability mechanism. It is useful as an explicit worked specialization, not as a distinct mathematical finding under this standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

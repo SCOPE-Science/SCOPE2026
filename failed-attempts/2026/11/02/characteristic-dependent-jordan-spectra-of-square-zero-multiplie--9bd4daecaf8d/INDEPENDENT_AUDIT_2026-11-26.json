@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:52.839466Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–20 and 22–54",
+        "Frozen VERIFICATION.md, lines 18–24; verify_square_zero_multiplication.py, lines 29–97"
+      ],
+      "rationale": "For R=k[y]/(y^n), write f=a+xb and let u,v be the valuations with zero assigned n. Then f²=a²+2xab, so square-zero means 2u≥n and, outside characteristic two, u+v≥n. The R-linear matrix of multiplication has equal diagonal a and sole off-diagonal b. If v≥u, eliminate b with a, leaving two factors of valuation u; if v<u, pivot on b and the other factor has valuation 2u−v capped at n. Zero factors give the same formula. The k-rank is therefore max(2(n−u),n−v), and m_f²=0 makes rank the number of Jordan blocks of size two. Every rank r is witnessed by xy^(n−r), including zero at r=0. Bounding rank gives u≥n−s and v≥n−r for s=floor(r/2), and 2u≥n is then automatic. In characteristic two these bounds give one linear space of dimension s+r. Outside characteristic two the spaces L_h in the proof exhaust all points: take h=n−u; conversely their defining inequalities imply square-zero and the rank bound. When s≤n−r they are nested. Otherwise the maximal ones are L_{n−r},…,L_s, of dimension n with intersection for i<j of dimension n−(j−i). The intersection with the previously added union is the intersection with the immediately preceding component, yielding q^n−q^(n−1) new points per step. This gives all cumulative counts including r=n. For e=r+s−n>0 these counts differ from q^(n+e) since q^e>1+e(1−1/q); the first such r is ceil(2(n+1)/3). The coefficient conditions and intersections apply over the algebraic closure and describe reduced support only. The supplied checker was inspected, not executed: it constructs finite multiplication matrices and compares Gaussian-elimination histograms with an equivalent valuation sum; it does not certify the universal geometric statement.",
+      "residual_risks": [
+        "The recorded run on 18 finite configurations was not independently rerun; the general claim was checked algebraically. No assertion is made about the unreduced defining ideal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact same algebra's general power-rank formula and coefficient-independent valuation cells cover all nilpotent multipliers, not just square-zero or linear ones, in positive characteristic.",
+          "Example 3.37 of Artinian algebras and Jordan type gives types in the n=3 instance for x, y and linear forms x+by; Example 2.31 is a different multicompartment Jordan-locus example. Cook and Altafi–Iarrobino–Khatami focus on linear forms, with the latter assuming characteristic zero or sufficiently large characteristic."
+        ],
+        "reasoning": "The published Lefschetz/Jordan-type passages are real antecedents but do not determine the all-elements rank locus. It is the exact same-algebra census, via its power ranks, that makes the locus a direct specialization.",
+        "searches": [
+          "All-element Resultary census, mirrored RESULT.md offsets 0 and 3443",
+          "Iarrobino–Macias Marques–McDaniel, arXiv:1802.07383v6, Examples 2.31 and 3.37",
+          "Cook arXiv:1111.4979v1; Altafi–Iarrobino–Khatami arXiv:1810.00716"
+        ]
+      },
+      "checked_sources": [
+        "Exact same-algebra Resultary all-multiplier census (mirror)",
+        "Resultary general square-zero matrix census (mirror)",
+        "Iarrobino–Macias Marques–McDaniel arXiv:1802.07383v6",
+        "Cook arXiv:1111.4979v1",
+        "Altafi–Iarrobino–Khatami arXiv:1810.00716",
+        "Jet Schemes, Newton Polygons and Continued Fractions, Theorem 7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write α,β for the two valuations. Substitution t=1 in the broader rank formula yields max(2(n−α),n−β). Substitution t=2 gives zero iff 2α≥n and (p=2 or α+β≥n). Thus the same broader formula already identifies each selected cell over algebraically closed fields of positive characteristic.",
+          "Closing the selected valuation cells replaces exact orders by lower bounds. The maximal closed cells have α≥n−s, β≥n−r and, in the e>0 odd branch, α+β=n at their minimal orders. Equivalently the node factors have component order cutoffs (i,e−i), i=0,…,e. Intersecting two imposes the larger cutoff on each coordinate; their dimensions and point counts are then determined by coefficient lengths.",
+          "The jet reference that was accessible treats components of jets over the origin; the potentially closer monomial-jet paper was not read."
+        ],
+        "reasoning": "The phase boundary and intersection dimensions follow from the explicit cutoffs, and the finite sums are their cell counts. The same substitution in the equal-diagonal multiplication matrices handles characteristic zero, since testing powers one and two uses only whether 2 vanishes. The geometry is a useful reading of the rank formulas but no independent geometrical gap beyond this direct specialization and coordinate closure remains.",
+        "searches": [
+          "All-element census RESULT.md offsets 0–2566 and 3443–5643",
+          "Jet Schemes, Newton Polygons and Continued Fractions, arXiv:2509.06095v2, Theorem 7",
+          "The Jet Scheme of a Monomial Scheme, identified mirror copies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Because multiplication acts faithfully on 1, f²=0 is equivalent to m_f²=0. In the all-element census this is scalar part zero and nilpotent block sizes at most two.",
+          "In the odd-characteristic rank locus factor a=y^(n−s)U and b=y^(n−r)V. When e=s+r−n>0, ab=0 means UV≡0 mod y^e. The reduced support is A^(s+r−2e) times the full reduced (e−1)-jet space of UV=0; the constants of U,V are allowed to vary."
+        ],
+        "reasoning": "The finite count is a subdistribution of the same multiplication-operator invariant, not a census of arbitrary square-zero endomorphisms. The geometry is exactly the order-cut decomposition of the split-node jets, not just a loosely related singularity example. Published theorems for jets restricted over the origin must not be conflated with this full jet space.",
+        "searches": [
+          "Exact-algebra web lookup for square-zero element rank distributions in k[x,y]/(x²,y^n)",
+          "Literature lookup for component formulas of jets of a node or monomial schemes",
+          "Resultary: SCOPE-complete-jordan-type-distribution-on-k-x-y-x-2-y-n-over-finite-f--6fd6b605a52d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives a counting polynomial with q times the weights w_αw_β of the valuation cells and one monomial for each partition. Its coefficients for (2^i,1^(2n−2i)), i≤r, divided by q, give the target cumulative count (restricting the scalar eigenvalue to zero).",
+          "The second record counts over the full square-zero locus in M₂(R), where the restricted equal-diagonal triangular multiplication matrices are not singled out."
+        ],
+        "reasoning": "The stronger census is not a verbatim table of the closed forms, but supplies their values for every n,q,r. Aggregate counts of all square-zero 2×2 matrices alone would not suffice. Shared catalogue dates do not prove priority.",
+        "searches": [
+          "Resultary: SCOPE-complete-jordan-type-distribution-on-k-x-y-x-2-y-n-over-finite-f--6fd6b605a52d",
+          "Resultary: SCOPE-complete-image-length-spectra-for-square-zero-matrices-over-fini--455c0bf11aaa"
+        ]
+      },
+      "rationale": "The distinct indexed all-element census for the exact same algebra gives the first and second power ranks on every valuation cell in positive characteristic and the corresponding finite-field weights. Selecting the cells with second power rank zero and first power rank at most r gives this census; taking their maximal closures yields exactly the reduced components. Equivalently, after the rank cutoffs the odd-characteristic region is a split-node jet locus with free tail coefficients, with an elementary coordinate-linear component rule. The extension to characteristic zero uses the same two formulas with 2 nonzero. Thus a distinct result beyond specializing the stronger valuation stratification and evaluating its cells is not established. The two indexed records carry the same date, so the comparison demonstrates mathematical coverage, not who obtained it first. The failure is not based on inaccessibility of monomial-jet literature.",
+      "residual_risks": [
+        "Priority between the same-day Resultary records is unresolved; the comparison is of scientific implications, not chronological priority.",
+        "The identified monomial-jet copies were inaccessible, leaving its exact theorem scope unconfirmed. The verdict does not depend on that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-multiplier power ranks subsume the two needed valuation tests in positive characteristic. The record does not list the reduced components, but the component statements are obtained by closing the explicit selected cells. Same-day publication order is not determined.",
+          "evidence": [
+            "r_t=2n−min(n,d_t)−min(n,2u_t−d_t), with u_t=min(n,tα), d_t=min(u_t,v_t).",
+            "v_t=n if p divides t, and min(n,(t−1)α+β) otherwise. Cell weights are (q−1)q^(n−j−1) for j<n and 1 for j=n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-jordan-type-distribution-on-k-x-y-x-2-y-n-over-finite-f--6fd6b605a52d/RESULT.md",
+          "material_read": "Mirrored statement and formula offsets 0–2566, proof of power ranks and weights offsets 3443–5643; limitations near offset 6443.",
+          "method": "Local Resultary discovery and exact bounded mirror reads (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4).",
+          "title": "Complete Jordan-type distribution on k[x,y]/(x²,y^n) over finite fields",
+          "trigger": "Exact same algebra and stronger all-element power-rank and distribution claim."
+        },
+        {
+          "assessment": "Larger matrix space but aggregate matrix counts do not recover the rank distribution in the multiplication subfamily.",
+          "evidence": [
+            "Counts over M₂(F_q[t]/(t^n)), not solely lower triangular matrices with equal diagonal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-image-length-spectra-for-square-zero-matrices-over-fini--455c0bf11aaa/RESULT.md",
+          "material_read": "Mirrored finding at offset 0.",
+          "method": "Local Resultary lookup and bounded mirror inspection.",
+          "title": "Complete image-length spectra for square-zero matrices over finite chain rings",
+          "trigger": "Same coefficient ring and square-zero 2×2 condition."
+        },
+        {
+          "assessment": "General framework and small common examples, not this all-n square-zero count or geometry in the passages read.",
+          "evidence": [
+            "Example 3.37 includes the type (2,2,2) of x in k[x,y]/(x²,y³)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1802.07383v6",
+          "material_read": "Abstract/introduction offsets 0–3495, Example 2.31 near 94500, Example 3.37 offsets 208800–210940.",
+          "method": "OA primary HTML passage inspection.",
+          "title": "Artinian algebras and Jordan type",
+          "trigger": "Exact n=3 algebra example and more general discussion of Jordan-type loci."
+        },
+        {
+          "assessment": "Linear-form Lefschetz properties, not a distribution over arbitrary square-zero elements.",
+          "evidence": [
+            "Scope is Lefschetz properties of monomial complete intersections and multiplication by powers of linear forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1111.4979v1",
+          "material_read": "Abstract/introduction around offset 400.",
+          "method": "OA primary HTML passage inspection.",
+          "title": "The Lefschetz properties of monomial complete intersections in positive characteristic",
+          "trigger": "Characteristic-dependent ranks in monomial complete intersections."
+        },
+        {
+          "assessment": "Different field and linear-form hypotheses; the compared passage does not imply the all-element square-zero answer.",
+          "evidence": [
+            "Exceptional types of linear forms in characteristic zero or above the socle-degree bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1810.00716",
+          "material_read": "Introduction around offset 14600.",
+          "method": "OA primary HTML passage inspection.",
+          "title": "Complete intersection Jordan types in height two",
+          "trigger": "Jordan-type classifications in the same embedding dimension."
+        },
+        {
+          "assessment": "Relevant component theory, including reducible curves, but Theorem 7 is for jets over the origin and is not the full jet-factor assertion for the rank locus.",
+          "evidence": [
+            "General decomposition for jets over the origin of a Newton-nondegenerate plane curve."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.06095v2",
+          "material_read": "Introduction offsets 0–5845 and Theorem 7 offsets 68000–74157.",
+          "method": "Focused literature search and OA theorem inspection.",
+          "title": "Jet Schemes, Newton Polygons and Continued Fractions",
+          "trigger": "Plausible coverage of the exact split-node component pattern under a broader jet theorem."
+        },
+        {
+          "assessment": "Exact full-node component coverage in this paper remains unverified; it is not used as evidence of prior overlap or noncoverage.",
+          "evidence": [
+            "The description advertises equations and components for jets of monomial schemes."
+          ],
+          "identifier_or_url": "The Jet Scheme of a Monomial Scheme (identified Deep Blue and ResearchGate copies)",
+          "material_read": "Search-result description only; neither identified copy permitted full-text inspection.",
+          "method": "Focused literature search and lawful retrieval attempts on the two identified copies.",
+          "title": "The Jet Scheme of a Monomial Scheme",
+          "trigger": "Potential general formula for components of full jets of the node UV=0."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–17 and 23–51",
+        "Same-algebra Resultary census, valuation and power-rank formula",
+        "Independent split-node comparison above"
+      ],
+      "rationale": "The square-zero slice is mathematically natural, and the component transition gives an interpretable description. But the stronger exact-algebra valuation stratification already identifies the relevant cells via ranks of powers one and two. The remaining closed counts and component data come from elementary closures and a single valuation inequality, equivalent to a truncated product equation in two variables with free tails. At this scope the record has not established an independently valuable unknown invariant beyond that specialization; no separate surviving claim is being delivered as a repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

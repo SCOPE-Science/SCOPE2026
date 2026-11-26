@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:23:15.143701Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the corrected finding, reconstructed the curvature-risk normalization from Böröczky–Reitzner and the Hölder lower bound with equality at rho proportional to (lambda f^p+(1-lambda)g^p)^(1/p). Strict concavity for unequal laws gives an interior stationary multiplier and equalizes the actual two risks, establishing a matching upper bound within the admissible positive continuous densities. For the oval, r=h+h''=1+t cos(2 theta), dS=r dtheta and curvature=1/r; p=3. Independently set x=t cos(2 theta), U=<r^(2/3)>^(-3), V=<r^(1/3)>^(-3), and factor the half-weight denominator S=(U+V)/2 times (1+Ux/(U+V)). U/(U+V)=1/2+O(t^4). The angular factor (1+x)^(1/3)(1+x/2)^(-2/3)=1-x²/12+x³/12+O(x^4). U-V=-t^4/72+O(t^6), so the slope coefficient is ((3/8)/12-1/72)/3=5/864, with the second derivative -t²/9+O(t^4) from <x²>=t²/2. Even analytic dependence and the simple zero of H'/t² yield the shift 5t²/96+O(t^4). Taylor expansion gives gain 25t^6/165888+O(t^8) in H; cubing multiplies the leading coefficient by three. No finite checker proves the expansion. Replay is the exact calculation in the repair; inspected the frozen verifier and its verification notes without running the script. The claim applies to fixed-density leading errors and sufficiently small nonzero t, not finite N or general shape perturbations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited 2004 formulas supply separate leading curvature weights; the stronger Rényi theorem supplies the minimax center for arbitrary laws. The inscribed duality record and adjacent near-sphere expansion concern different risks and do not supply the sixth-order comparison."
+        ],
+        "reasoning": "The repair acknowledges the stronger theorem as background. Its value is the shape-dependent Taylor coefficient, which is not a tabulated specialization of the general duality theorem.",
+        "searches": [
+          "Böröczky–Reitzner DOI 10.1214/aoap/1075828053, Theorems 1 and 3",
+          "arXiv:1608.02424 Theorem 1, equations (31)–(38)",
+          "Resultary 20a687e8594a, finite-simplex minimax for inscribed intrinsic-volume errors"
+        ]
+      },
+      "checked_sources": [
+        "Böröczky–Reitzner, Theorems 1 and 3",
+        "Hoehner, arXiv:2602.18547v2 §3",
+        "Nakiboğlu, arXiv:1608.02424 Definition 2 and Theorem 1",
+        "Resultary 179adc1046b6, 20a687e8594a, 4e45a188ddc4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hoehner's Remark 3.7 explicitly withholds exact minimax identification; the bound is the half-weight risk optimization. The repaired theorem finds that the maximizing weight has a nonzero quadratic drift and quantifies the resulting gap."
+        ],
+        "reasoning": "The fact that a positive gap can occur and its sharp sixth-order size here are not consequences of Hoehner's inequality alone. Computing the normalized curvature moments and first nonvanishing half-weight slope supplies the missing comparison.",
+        "searches": [
+          "Hoehner, Proposition 3.5, Theorem 3.6 and Remark 3.7; Nakiboğlu Theorem 1; Resultary 179adc1046b6, 20a687e8594a and 4e45a188ddc4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For F=f dS, G=g dS, Q=rho dS, R_V=exp((p-1)D_p(F||Q)) and similarly R_W. Rényi capacity–radius for {F,G} therefore gives the exact scalar dual/center statement, with the Rényi mean having the displayed positive continuous density."
+        ],
+        "reasoning": "This is an exact equivalence, not just similarity of methods, and removes the frozen headline's general minimax novelty. Neither the radius theorem nor the change of variables computes the planar oval coefficient or implies a positive gap from lambda=1/2 for this specific shape.",
+        "searches": [
+          "Nakiboğlu arXiv:1608.02424, order-p Rényi radius, Definition 2 and Theorem 1",
+          "Hoehner arXiv:2602.18547v2, normalized worst error and half-weight bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record was retrieved and is not independent coverage. The closest distinct records were 179adc1046b6 (inscribed ellipse area/perimeter quadratic result), 20a687e8594a (inscribed finite-simplex dual and quadratic near-sphere expansion), and 4e45a188ddc4 (quadratic boundary-sampling harmonic expansion)."
+        ],
+        "reasoning": "Their different sampling models, dimensions or expansion orders do not give the specified circumscribed oval comparison. A bounded catalogue search does not establish historical priority.",
+        "searches": [
+          "Resultary: circumscribed normalized volume and mean-width minimax, near-disk sixth-order separation, exact random-polytope sampling"
+        ]
+      },
+      "rationale": "The repaired claim is specifically the sharp sixth-order oval separation, not the two-law radius theorem. It is not supplied by the known separate curvature risks, Hölder/power-mean center identities, or the prior half-weight inequality. The coefficient requires evaluating the particular normalized curvature perturbation beyond its quadratic behavior.",
+      "residual_risks": [
+        "A bounded best-of-knowledge comparison does not exclude an earlier unindexed computation of the same oval gap. The exact radius theorem itself is known and not claimed by the repair."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the frozen general minimax, not the repaired Taylor gap",
+          "evidence": [
+            "Capacity equals minimax radius; unique center at finite capacity and optimizing prior's Rényi mean; order-p mean is pointwise power mean of densities, followed by normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.02424",
+          "material_read": "Definition 2, PDF p.6 around offset 53715; Theorem 1, PDF p.13 around offset 115880, equations (31)–(38)",
+          "method": "Lawful OA PDF, literal locate and bounded passages",
+          "title": "The Rényi Capacity and Center",
+          "trigger": "Potential equivalent general two-law minimax theorem"
+        },
+        {
+          "assessment": "Benchmark for the repair, no coefficient or exactness claim in these passages",
+          "evidence": [
+            "Worst normalized circumscribed error is bounded below by the optimized average; exactness is expressly not asserted."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.18547v2",
+          "material_read": "§3, Theorem 3.6 around offset 32502 and Remark 3.7 around offset 35721",
+          "method": "Lawful OA passages",
+          "title": "Simultaneous random polytope approximation characterizes the Euclidean ball",
+          "trigger": "Exact published equal-weight benchmark and possible exact minimax coverage"
+        },
+        {
+          "assessment": "Separate-risk inputs",
+          "evidence": [
+            "Curvature weights kappa^(1/(d-1)) and kappa^(d/(d-1)), respectively, each with the sampling-density power -2/(d-1)."
+          ],
+          "identifier_or_url": "https://www.renyi.hu/~carlos/randomapprox.pdf",
+          "material_read": "Theorems 1 and 3, formulas (2) and (6), pp.240–243",
+          "method": "Lawful OA PDF passages",
+          "title": "Approximation of smooth convex bodies by random circumscribed polytopes",
+          "trigger": "Precise asymptotic normalization"
+        },
+        {
+          "assessment": "Related method and quadratic expansions, different claims",
+          "evidence": [
+            "Ellipse area/perimeter result is inscribed, finite-simplex dual is inscribed in d>=3, and harmonic expansion is quadratic rather than a circumscribed planar sixth-order gap."
+          ],
+          "identifier_or_url": "Resultary 179adc1046b6, 20a687e8594a, 4e45a188ddc4",
+          "material_read": "Finding sections, local mirror offset 0",
+          "method": "Resultary search and local mirror source passages",
+          "title": "Closest inscribed random-polytope minimax and near-sphere records",
+          "trigger": "Possible distinct exact or perturbative coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The published lower bound is expressly not known to be exact from its derivation. The oval perturbation proves a concrete strict failure arbitrarily close to a disk and identifies the first order at which the average benchmark underestimates the optimum. The small size is mathematically informative: quadratic or quartic near-disk comparisons cannot detect it. This justifies the exact positive coefficient and the narrower finding, apart from the known minimax reduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

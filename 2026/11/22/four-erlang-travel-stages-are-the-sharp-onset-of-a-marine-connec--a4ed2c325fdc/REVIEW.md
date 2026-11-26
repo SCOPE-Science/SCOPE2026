@@ -1,19 +1,21 @@
-# Review of the wrapped Erlang spacing classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-positive-parameters theorem for two directional point sites and integer travel-stage counts one through four. The four exact rational polynomial identities in the result follow from the geometric-series moment formulas. The positive two-site Perron multiplier is strictly increasing in the off-diagonal kernel product. The sign of its stage-four derivative shows that global maxima occur only at the boundary or antipode and that the only interior stationary point is a minimum. The exact endpoint comparison yields the first threshold; the location of the stationary point yields the second. A strict separated-site reversal is rationally certified. All 1659 standalone checker assertions passed. This does not prove any statement for five or more stages or finite-width reserve populations.
+PASS
 
-## Originality — PASS, provisional historical priority
+With fixed positive receiving and source strengths, the characteristic polynomial depends on layout only through the reciprocal kernel product; the Perron root is strictly increasing in this product. Independently expanding the wrapped geometric moments, with x=q/(1-q) and τ=z(1-z), gives the spacing-dependent parts of (1-q)^2 P_{k-1}(z)P_{k-1}(1-z) as 0, τ, τ², and τ³−3x(1+x)τ², respectively. In the last case the derivative changes from negative to positive at 2x(1+x) when that point lies below 1/4. The endpoint difference is proportional to 1−14q+q² and the interior-minimum condition to 1−10q+q²>0, yielding the two stated, distinct roots. At the global tie the central and coincident maxima are the only maximizers on the closure, and the minimum has τ=1/6; at the minimum merger the antipode is the unique minimum. On the distinct-site domain the coincidence-only regime has an unattained supremum, not an interior optimum. The exact q=1/2, z=1/10 witness gives the stated positive excess 19469/15625 over the antipode. Stage-one spectral invariance is for distinct sites only; the diagonal convention at the directional jump is held fixed.
 
-The closest complete prior statement, *Spacing-blind recruitment spectra characterize exponential transport, while two stages favor opposite sites*, establishes only the one- and two-stage point-site laws. Its two-stage conclusion does not imply the stage-four reversal. *Memoryless dispersal is the only gap-neutral exponential mixture* proves an all-mixture finite-reserve result, but a convolution of four equal exponential travel stages is not a positive mixture of exponential-rate densities, and its log-convexity comparison therefore does not apply. The full marine-reserve papers by Shanks et al. (2003), Kaplan and Botsford (2005), Hastings and Botsford (2006), and Artzy-Randrup and Stone (2010) address empirical distances, numerical two-sided Laplacian spacing, or general connectivity criteria rather than the exact two-threshold Erlang-four-stage result. An earlier own claim analyzes catastrophe-dependent two-reserve occupancy and does not imply this theorem. Broader historical convolution-kernel optimization remains a priority risk; absent search matches are not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-A natural first question after the existing two-stage antipodal law is whether adding staged transport delays preserves optimal spacing. The answer is structurally negative in the smallest possible stage count: two and three still prefer antipodal placement, while four can prefer clustering. The first exact threshold determines global layout choice; the second determines the pattern of local minima. The finite-separation rational witness avoids reliance on the biologically delicate coincidence limit. The result is an exact benchmark for interpreting dispersal-kernel assumptions rather than a calibrated ecological forecast.
+Credit the previously stated stage-one spectral invariance and stage-two antipodality. The supported distinct contribution is universal stage-three antipodality and the sharp stage-four reversal/minimality, with separate global and local thresholds. The closest read statements do not supply those products or extrema.
 
-## Scientific limits and validation
+## value
 
-Two point sites on a ring with one-way travel, fixed site qualities, and Erlang distance distributions are essential. The inference is only about a linearized recruitment eigenvalue, not extinction probability or fishery output. The fully inspected sources and historical-priority reservations are detailed in AUDIT.json and RESULT.md. The standalone computation checks representative cases and exact parameter specializations; it does not replace the universal polynomial proof. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural point-site extension of the exponential and two-stage laws has a genuinely different optimum, with the first stage count allowing reversal proved and a strict distinct-site witness. Separating the global endpoint tie from the interior-minimum merger answers a useful qualitative question that a spacing comparison at only one rate or two fixed layouts would miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

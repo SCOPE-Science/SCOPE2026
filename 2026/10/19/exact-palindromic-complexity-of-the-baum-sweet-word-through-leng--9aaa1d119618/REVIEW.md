@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four-state bit-reading representation matches the defining Baum–Sweet zero-run condition, and its length-two uniform substitution provides an exact factor cover at dyadic scale \(8192\). Closure of actual adjacent pairs gives precisely eight pair images covering *every* palindrome of every length through \(8192\). The standalone palindromic-tree checker tracks literal nonzero palindromes, includes the always-present zero palindrome, and tests each coefficient against the theorem. Center expansion checks equality of entire palindrome sets independently for lengths through \(128\). No infinite conclusion is inferred from a finite test.
+PASS
 
-## Originality — PASS, with stated residual risk
+Read the frozen factor-cover proof and eertree implementation. The four states distinguish a leading-zero prefix, an even zero run, an odd run, and a permanently failed internal odd run; accepted states give b_0=1 and the specified digits. The eight pair types all occur already in the four-letter prefix ABCBBDCBCBDDBDCB and are closed under adjacent pairs of substituted words; this proves both directions of the pair inventory. Every length <=8192 factor lies in at most two successive aligned blocks of size 8192, and each pair block occurs. DD supplies 0^n for every n in scope. A new distinct palindrome at a right endpoint must be the longest palindromic suffix (any shorter palindromic suffix also occurs as a prefix of the longest); literal keys deduplicate across blocks without approximation. Independently generated an actual 106496-symbol digit-defined prefix containing representatives of all eight aligned pair types and used Manacher radii, not the uploaded eertree, with literal substring sets for palindromes containing a 1 (/workspace/review_work/baum.py). The full profile agrees at all lengths 1–8192, digest c94eac15fdef31d2b90ccd14121e0782788a316c05a5c80f9d7bde100ff05e55, with 66 exceptional and 8082 zero-only lengths in 45–8192. This certifies nothing about larger lengths.
 
-Allouche–Baake–Cassaigne–Damanik (2001) explicitly analyze other automatic words, not this Baum–Sweet spectrum. Charlier–Rampersad–Shallit (2011) establish automatic-word palindrome-complexity regularity but do not evaluate the present coefficients; Pelantová–Starosta (2011) give a different Thue–Morse example. Exact-claim, equivalent-coding and profile-table searches found no covering Baum–Sweet table. These comparisons support best-knowledge originality; an older unindexed exact calculation remains possible, and negative search results cannot establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Palindrome complexity is an established symbolic invariant. For a classical nonprimitive automatic word, the exact distribution at *every* length through \(8192\) reveals seven dyadic clusters separated by stretches of uniquely zero-palindromic lengths. This motivated, natural, reproducible classification is useful as a benchmark for structural and algorithmic theories of automatic-word factors. Its status is deliberately finite rather than an unsupported conjectural recurrence.
+The assessed fact is the complete actual palindrome profile of this word through 8192, not the known automaticity of the word or general regularity of an automatic word's palindromic complexity. No earlier exact table or equivalent Baum–Sweet-specific representation covering the range was found in the inspected sources.
 
-## Limits and nearby literature
+## value
 
-The full eight-block factor-cover argument certifies all lengths \(1\)–\(8192\), not lengths beyond that range. The checker is plain Python, not an external formal proof. Original sources: arXiv:math/0106121, arXiv:1102.3698, arXiv:1103.4051. A separate independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Palindromic complexity is a standard exact language invariant, tested here on the classical nonprimitive Baum–Sweet word. The dyadic cutoff uses the natural substitution scale and resolves several scales of two different parity bands, including the earliest irregular lengths and the complete complement, not a prefix-occurrence sample or isolated hand-computable values. The profile is a useful finite benchmark and potential structural clue, without inferring an infinite pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

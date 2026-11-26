@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Eliminating juveniles yields a strictly positive mixture of two decaying exponentials. Rolle induction bounds distinct positive census crossings by two after accounting for the guaranteed common initial value; equal adult-loss rates make the initial zero double and lower the maximum to one. The exact \(x=e^{-t}\) quadratic and the monotone–unimodal graph \(g_p(x)\) establish the entire feasible phase diagram. The two explicit rate matrices have positive biological parameters, decaying spectra and exactly the claimed simple crossing times. The standalone checker confirms algebra and 2,000 supplementary root-classification instances.
+## correctness
 
-## Originality — PASS on inspected evidence
-The general variation-diminishing bound on exponential mixture crossings is established classical mathematics and is not counted as novel. The specifically assessed contribution is simultaneous realization inside strictly positive subcritical juvenile–adult generators, a sharp equality-of-adult-loss obstruction, and a complete exact two-reversal phase window for a common-maturation, four-decay-rate ecological benchmark. The 2024 ephemeral-habitat paper and the 2022 transient-stage-sensitivity paper study different questions and do not imply that concrete classification in the inspected material. The 1989 mixture source is highly relevant, but its inaccessible full text leaves priority uncertainty; this assessment does not certify first discovery.
+PASS
 
-## Value — PASS
-Ephemeral-habitat comparisons can depend on observation time. This result provides a sharp constructive test demonstrating an early–middle–late ranking reversal even under individually monotone decline, proves the two-stage maximum, and identifies exactly when two reversals occur in a minimal testable family. It cautions against inferring the entire patch-lifespan ranking from short- and long-time censuses. It is a theoretical benchmark, not a field-management prediction.
+Eliminating juveniles yields the stated constant-coefficient equation and initial derivative −α. The positive decay roots r<s satisfy (α−r)(α−s)=−βκ<0, so the adult trajectory is a strictly decreasing convex combination of the two decays. For the difference, combine repeated exponents first. On any finite interval a nonzero sum of m distinct real exponentials has at most m−1 zeros with multiplicities, by factoring out one exponential and applying Rolle to the derivative, which has one fewer term. With at most four terms the common zero at t=0 leaves at most two positive zeros; if α is equal the initial zero is at least double, leaving at most one. For the canonical family direct trace/determinant evaluation gives decay pairs {1,3} and {2,4}; the spectral weights are p and q and both juvenile nonmaturation losses are strictly positive. For x=e^(−t), the residual factor in x(1−x)[p+(p−q)x+(1−q)x²] equals x(1+x)(g_p(x)−q), with g_p(x)=p/x+x/(1+x). On (0,1), g_p either strictly decreases (p≥1/4) or decreases to one interior minimum 2√p−p and increases to p+1/2 at the right endpoint. This gives exactly the claimed strict window and the two boundary degeneracies; the coincident endpoint p=1/4 is not in the open window. At p=1/10, q=11/20 the residual quadratic is (3x−1)(3x−2)/20, giving exactly the stated ordered times and signs. All claims are for expected adult trajectories with common adult-only initialization, not for total populations or sample paths.
 
-## Closest literature and limitations
-Crispim-Mendes et al., Ecological Modelling 2024, DOI 10.1016/j.ecolmodel.2024.110839; Giaimo and Traulsen, Ecology and Evolution 2022, DOI 10.1002/ece3.9561; Boland, Proschan and Tong, Probability in the Engineering and Informational Sciences 1989, DOI 10.1017/S0269964800001224. The general exponential-mixture crossing bound is prior mathematical knowledge. Full-text historical overlap for the specialized feasible family cannot be ruled out; the analysis makes no independent validation claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the positivity-constrained stage realization, strict-decline sharpness and its full exact phase window. The exponential Chebyshev bound and the multiplicity observation on equal adult loss are direct mathematical ingredients, not claimed as original principles. The strongest inspected mixture source concerns general crossing bounds; no accessible evidence establishes this exact feasible diagram or rules it out as earlier specialized work.
+
+## value
+
+PASS
+
+Even monotone decline and a common adult-only baseline do not preserve census rankings. A sharp, biologically feasible witness and all phase boundaries for the simple equally spaced four-mode comparison supply a reproducible benchmark for when snapshot rankings can mislead. This is distinct from restating the classical exponential zero bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

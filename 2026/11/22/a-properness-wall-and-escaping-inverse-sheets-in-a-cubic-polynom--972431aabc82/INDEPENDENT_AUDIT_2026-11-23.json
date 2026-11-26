@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:25:44.581290Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read frozen RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and check.py; did not execute check.py.",
+        "Separate exact eliminant and boundary check: for u≠0 the discriminant is 27u⁴(4u⁴h³-w²); at u=0 it cannot be used as a cubic root-count test. Independent derivations in /workspace/branches/44500d81-d6d4-433a-96bf-9ba9df148e37/check-note.md.",
+        "Verification caveat: the check.py loop with b=-u² checks the exact roots ±2,0 on a moving-parameter curve; despite the comment, the roots do not escape in that loop. The following Newton loop is a bounded floating-point diagnostic with fixed negative b. The analytic fixed-b witness and implicit-function proof establish the escape claim independently of both checks."
+      ],
+      "rationale": "The target coordinate u fixes y. At u=0 the equation is bx=w, so b≠0 gives one regular inverse and b=0 gives the collapsed line only for w=0. For u≠0 write h=1-b/(3u²); the derivative is 3u²(x²-h). The critical values at x=∓sqrt(h), h>0, have w=±2u²h^(3/2); the remaining simple root at w=E is 2sqrt(h) and the negative-height case is its sign reversal. The h=0 case has one root, triple only when w=0. Since det DF is minus the cubic derivative, at a critical point x≠0 the derivative of that determinant along the kernel is nonzero, giving a fold. For b>0 the two x=0 critical points have a critical-image parametrization with independent second and third jets in the two coordinate directions, giving ordinary cusps. The |x|≥2 sign bound implies properness for b>0 and onto follows from the cubic and exceptional linear slice. The regular value (0,M) has a single inverse with determinant -b, fixing the oriented degree at -1. For b<0, at fixed w=0 the escaping roots are exactly ±sqrt(3-b/u²). For general bounded w set s=|u| and solve z³+(b-3s²)z-ws=0 with z=sx. The three simple zeros at s=0 have derivatives in z of b,-2b,-2b; smooth implicit branches near these zeros and bounded w give the claimed uniform expansion, including the finite limit w/b. Substitution in the height formula gives the stated 1/|u| coefficient. At b=0 the two fold curves for u≠0 extend to w=±2u², tangent at the collapsed value. Counts refer to distinct real affine inverse points and no stronger forward dynamics follow.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "El Hilany–Tsigaridas provide a general Newton-polytope based algorithm for the Jelonek set of dominant real polynomial plane maps, so detecting where this family is nonproper is within existing algorithmic scope.",
+          "The Wei et al. abstract states symbolic semiconjugacy for the polynomial family, two-sided horseshoe results for degree-one f, and numerical examples of higher degrees. The supplied prior comparison reports lower-degree collapse and linear rational inversion; these details were not independently reverified in full text here."
+        ],
+        "reasoning": "A general set-computation result does not by itself provide the number of real inverse sheets tending to each finite target, their first two expansion terms, the finite discriminant regions, or the oriented degree. Those require the additional fiber analysis.",
+        "searches": [
+          "Computing the Non-properness Set of Real Polynomial Maps in the Plane DOI 10.1007/s10013-023-00652-0",
+          "Wei–Zhang–Zhang–Grebogi DOI 10.3934/dcdsb.2024163"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/dcdsb.2024163 (publisher and Aberdeen metadata/excerpts only)",
+        "doi:10.1007/s10013-023-00652-0",
+        "Resultary dce0a6248844"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A horseshoe on an invariant bounded subset, or the existence of locally equivalent cusps for a proper rational map, does not decide whether whole-plane inverse points escape at regular values. At b=0 the collapse is immediate from y²f(x), and is not by itself the novel part. The fixed-negative-b expansion requires resolving the leading-degree loss with z=|u|x."
+        ],
+        "reasoning": "The standard cubic and singularity results supply ingredients, whereas the b-sign transition and uniform escape expansion through the exceptional line are additional conclusions on the named family.",
+        "searches": [
+          "Wei et al. publisher abstract, figure captions and repository manuscript listing",
+          "El Hilany–Tsigaridas DOI 10.1007/s10013-023-00652-0",
+          "Resultary dce0a6248844"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wei et al.'s publisher and institutional abstracts identify exactly the ambient family with arbitrary polynomial f. Translating v by M and rescaling a cubic fiber away from u=0 gives the usual depressed cubic; that rescaling is singular at the very slice where the properness question is decided.",
+          "The closest indexed two-cusp rational-map result reduces to V=y+U-Ua/(B+y²), B>0, and is proper throughout its range. Its cubic obtained by clearing denominators retains a nonzero leading coefficient at every target; it has no counterpart of the drop from cubic to linear here."
+        ],
+        "reasoning": "Normalization and local-cusp equivalence explain the finite discriminant shape, but are not an equivalence of whole-plane maps through the branch-loss transition.",
+        "searches": [
+          "Wei Zhang Grebogi (y, f(x)y^2+bx+M) Chebyshev x^3-3x global properness wall folded cubic cusps escaping inverse sheets nonproperness and topological degree (Resultary)",
+          "\"A class of non-invertible chaotic polynomial maps\" cubic properness Chebyshev cubic inverse real polynomial maps nonproper set cusp x y^2 b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the assigned finding itself. Other retrieved Chebyshev entries concern projective/curve discriminants or different inverse maps; the rational two-cusp record was compared at the formula level."
+        ],
+        "reasoning": "No separate case table combining b-sign, distinct real multiplicities at u=0, cusp values and the escape expansion was located in compared materials. Negative lookups are bounded evidence, not priority proof.",
+        "searches": [
+          "Resultary: Wei Zhang Grebogi (y, f(x)y^2+bx+M) Chebyshev x^3-3x global properness wall folded cubic cusps escaping inverse sheets nonproperness and topological degree",
+          "\"A class of non-invertible chaotic polynomial maps\" cubic properness Chebyshev cubic inverse real polynomial maps nonproper set cusp x y^2 b"
+        ]
+      },
+      "rationale": "The source family, depressed-cubic discriminant, and ordinary fold and cusp tests are known. The independently supported novelty is the combined sign classification across the singular slice u=0, with the global properness, finite fiber and quantitative real escaping-sheet laws for this specialization. The available same-family primary excerpts and other comparisons do not settle the claim by an existing statement, though the original article body could not be re-inspected independently in this run.",
+      "residual_risks": [
+        "The originating article's full text was not independently accessible; omitted algebraic results or another treatment of the same Chebyshev specialization could overlap. The source package reports a fuller inspection, not an independent one.",
+        "Elementary local cubic geometry and earlier general nonproperness algorithms should not be claimed as original. Unindexed equivalent classifications and priority ordering remain unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family is confirmed; claim of absence throughout the full paper cannot be independently made from this material.",
+          "evidence": [
+            "The abstract displays (y,f(x)y²+bx+M) and confines its two-sided horseshoe statement to degree-one f. Captions show bounded image and inverse-of-rectangle geometry and numerical attractors.",
+            "Aberdeen lists 2024-11-03 (the frozen metadata anchor), whereas publisher metadata lists 2024-11-18; these are different source-record dates, not proof of the earliest actual public day."
+          ],
+          "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2024163?viewType=HTML",
+          "material_read": "Publisher abstract and figure captions; Aberdeen repository abstract, early-online metadata and open AAM listing. Full publisher text restricted; lawful repository AAM file and identified ResearchGate copy returned access errors.",
+          "method": "Publisher and repository metadata plus attempted same-paper OA retrieval",
+          "title": "A class of non-invertible chaotic polynomial maps and Smale horseshoes of new types",
+          "trigger": "Exact originating family and possible global inverse analysis"
+        },
+        {
+          "assessment": "Broad algorithm for the set where a dominant map fails to be proper; no evidence from this reading that it gives this complete inverse census and rates.",
+          "evidence": [
+            "The abstract describes real or complex Jelonek sets from Newton polytopes, as unions of semi-algebraic curves."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10013-023-00652-0",
+          "material_read": "OA abstract and opening problem statement",
+          "method": "Publisher OA PDF",
+          "title": "Computing the Non-properness Set of Real Polynomial Maps in the Plane",
+          "trigger": "Possible broad theorem covering properness or branch loss"
+        },
+        {
+          "assessment": "Similar finite multiplicities but different maps and no sign-triggered nonproperness.",
+          "evidence": [
+            "Proper of degree +1; the reduced rational equation is continuous with leading term y and with no real denominator zero."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-exact-cusps-and-a-sharp-three-preimage-region-in-a-planar-ra--dce0a6248844",
+          "material_read": "Finding, assumptions and scalar elimination",
+          "method": "Resultary local mirror full-text passages",
+          "title": "Two exact cusps and a sharp three-preimage region in a planar rational map",
+          "trigger": "Closest indexed explicit whole-plane cusp and inverse census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest normalized odd polynomial with two turning points in the source family gives a natural, explicit whole-plane inverse benchmark. The useful distinction is between a sheet count changing at a finite fold and two sheets disappearing to infinity over a line of regular values. The exact phase diagram and constant-order displacement make that distinction quantitative; neither a textbook cusp example nor an isolated numerical root calculation establishes it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

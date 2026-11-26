@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:55:12.454814Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4, VERIFICATION.md and verify.py by inspection",
+        "arXiv:2611.16746v1, Theorem 4 and Corollary 3",
+        "Independent permutation-table reproduction"
+      ],
+      "rationale": "For the nonabelian projection, factor images commute. Each proper image of an S3 input factor is abelian (the proper quotients are trivial or C2), and every C2 factor has abelian image. Thus an onto projection requires one full S3 image, whose centralizer kills every other projected factor. That one map is an automorphism, with six choices. Abelianization gives independent sign and central bits. Given a target S3 sequence its source is unique; the remaining affine central equation is solved by P(sigma). Its dual is Laurent multiplication (up to reversing the indexing convention), injective exactly for nonzero P and surjective exactly for monomials. For an onto F, the central subgroup is preserved and maps onto itself, and the quotient is alpha composed with the shift by k. Compact-group addition and the scalar Laurent entropy result apply: the scalar interval has endpoints min(0,min supp P) and max(0,max supp P); the quotient contributes |k| log 6 by taking a power eliminating alpha. If P=0, finite local surjectivity holds exactly when Q can vary a sign independently of the one S3 input fixed by the output; this means a nonzero coefficient outside k. Counting all parameter choices gives the three rule totals, including no false positives at r=1. On 0,...,r−1 there are 2^d polynomials of degree d, precisely one monomial per degree, and 6^k2^d=3^k2^(k+d) separates all entropy pairs. Independent permutation-table enumeration gives 64 one-factor endomorphisms and 168 locally onto two-site maps; 144 satisfy the proved global criterion and 96 the unit criterion. Replay: python3 /workspace/branches/independent_reproduction.py 5.",
+      "residual_risks": [
+        "The finite check tests local image sizes and the proved criteria; it does not test infinite global surjectivity directly or certify entropy.",
+        "The original Bowen text was unavailable; the compact-group addition step is independently stated and applied in the accessible group-CA paper."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The divide-and-conquer paper supplies general quotient methods and notes the missing explicit relation between local rules and global dynamics in that decomposition. The later entropy paper explicitly establishes computability, addition and the scalar entropy law."
+        ],
+        "reasoning": "The prior general results cover evaluation of entropy for a given rule after decomposition, not which rules lie in each joint entropy/reversibility class on this alphabet.",
+        "searches": [
+          "arXiv:2507.09761, discussion p. 31",
+          "arXiv:2611.16746v1, Theorem 4 and Corollary 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and comparisons",
+        "Resultary related actual findings",
+        "arXiv:2507.09761 and arXiv:2611.16746v1",
+        "2024 DOI and institutional open-copy attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier entropy law immediately supplies the scalar contribution once P is identified. The indexed S3 result gives the automorphism-shift sector for the quotient. Neither of those statements classifies whether varying signs at other sites can compensate for an absent scalar fiber on finite inputs but fail globally."
+        ],
+        "reasoning": "The proof requires classifying the commuting projections together with the independent binary P and Q, and distinguishing global lifting from picking inputs for one output site. Only then do degree and monomial counts give the joint fiber sizes. This is not a mere numerical evaluation of the earlier entropy theorem or substitution into the S3-only census.",
+        "searches": [
+          "arXiv:2611.16746v1, Theorem 4 and Corollary 3",
+          "ac69f84fa1f7, S3 classification, mirror Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned index self-hit is not independent evidence. ac69f84fa1f7 gives an S3-only census and overlaps on the quotient, while 8fa80cdab7a1 gives unique automorphism-bearing-site rigidity for nonabelian groups of order p³."
+        ],
+        "reasoning": "The alphabet here is the order-twelve hexagon group, not S3 alone, a general arbitrary CA, or a nonabelian group of prime-cube order. A C2 fiber independent of the S3 coordinate changes surjectivity, reversibility and the census.",
+        "searches": [
+          "Resultary comparison on dihedral/S3×C2 homomorphic CA, entropy and reversibility",
+          "Resultary ac69f84fa1f7 and 8fa80cdab7a1, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2024 D6 image-graph table is a plausible source of local image counts, reported by the frozen record. DOI and institutional repository routes did not allow direct inspection of Theorem 12 or its tables. The accessible S3-only indexed census is for another alphabet."
+        ],
+        "reasoning": "No inspected table gives the joint multiplicities. Local surjectivity alone cannot stand in for the global census (the two-site totals are 168 and 144 respectively). Exact overlap in the inaccessible table is a material residual risk, not an inference either way.",
+        "searches": [
+          "Resultary exact-classification and related comparisons",
+          "Web exact title/DOI lookup: On the Dynamical Behavior of Cellular Automata on Finite Groups, 10.1109/ACCESS.2024.3452199",
+          "Repository record 10281/515259 and OA table passages attempted"
+        ]
+      },
+      "rationale": "The distinctive result is the joint all-neighborhood classification and exact census of global, reversible, locally onto and one-sided entropy fibers for S3×C2. General linear entropy/addition formulas, S3 classification alone and image-graph methodology are not new. The closest sources inspected do not give this joint census. The cited 2024 paper's exact tables could not be checked; no exclusion of their coverage is inferred from failure to retrieve them.",
+      "residual_risks": [
+        "The exact 2024 D6 image-graph and local surjectivity passages were inaccessible, so their exact coverage is not independently settled.",
+        "Same-day comparisons do not establish priority; no guarantee against earlier or unindexed equivalent counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap in the quotient, not equivalent joint classification",
+          "evidence": "Automorphism-shifts, sign/parity polynomial and zero cases for S3; not the independent C2 fiber or local-versus-global census.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-composition-and-entropy-classification-for-s-3-group-ce--ac69f84fa1f7",
+          "material_read": "Finding near offset 0 and prior-work passage near 5420",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete composition and entropy classification for S3 group cellular automata",
+          "trigger": "Same-day quotient classification and entropy census"
+        },
+        {
+          "assessment": "Different group family",
+          "evidence": "Unique site and central factors on nonabelian groups of order p³, not order twelve.",
+          "identifier_or_url": "2026/11/22/SCOPE-shift-power-rigidity-for-surjective-cellular-automata-on-nonabel--8fa80cdab7a1",
+          "material_read": "Finding near offset 0 and comparison near 5940",
+          "method": "Local mirror",
+          "title": "Shift-power rigidity for surjective cellular automata on nonabelian groups",
+          "trigger": "Automorphism-bearing-site structure beyond S3"
+        },
+        {
+          "assessment": "General reduction, not explicit spectrum multiplicities",
+          "evidence": "Discussion notes that the decomposition does not explicitly relate the local rule to the resulting global dynamics.",
+          "identifier_or_url": "arXiv:2507.09761",
+          "material_read": "PDF p. 31, OA offset 76182",
+          "method": "OA PDF passage",
+          "title": "A Divide and Conquer Algorithm for Deciding Group Cellular Automata Dynamics",
+          "trigger": "General quotient decomposition"
+        },
+        {
+          "assessment": "Direct coverage of entropy inputs, not the target joint counts",
+          "evidence": "The scalar case of the characteristic-polynomial formula yields the support span; Corollary 3 uses compact-group addition for normal invariant factors.",
+          "identifier_or_url": "arXiv:2611.16746v1",
+          "material_read": "Theorem 4, PDF p. 17, OA offset 53368; Corollary 3 and proof, PDF p. 23, offsets 72750–74139",
+          "method": "OA PDF passages",
+          "title": "Topological Entropy of Group Cellular Automata is Effectively Computable",
+          "trigger": "Prior group entropy algorithm and exact scalar entropy formula"
+        },
+        {
+          "assessment": "Material unresolved full-text comparison",
+          "evidence": "The frozen result cites D6 image graphs and decomposable examples; the theorem and tables were not independently retrieved from the DOI or repository.",
+          "identifier_or_url": "doi:10.1109/ACCESS.2024.3452199; https://www.boa.unimib.it/handle/10281/515259",
+          "material_read": "Public metadata and identified repository copy; no full-text passage successfully retrieved",
+          "method": "OA DOI route HTTP 202; repository PDF/record on direct and VPN routes HTTP 403",
+          "title": "On the Dynamical Behavior of Cellular Automata on Finite Groups",
+          "trigger": "Same order-twelve group and possible image-graph table coverage"
+        },
+        {
+          "assessment": "Original-source access limitation; addition checked in the cited contemporary application",
+          "evidence": "arXiv:2611.16746v1 Corollary 3 cites Theorem 19 and applies the required addition formula.",
+          "identifier_or_url": "doi:10.1090/S0002-9947-1971-0274707-X",
+          "material_read": "No original paper passage retrieved",
+          "method": "OA DOI and identified AMS PDF HTTP 403",
+          "title": "Entropy for group endomorphisms and homogeneous spaces",
+          "trigger": "Original entropy addition source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1, 4",
+        "Independent two-site local-image enumeration",
+        "Related general group-CA results"
+      ],
+      "rationale": "The hexagon group is a natural small nonabelian product alphabet for which onto local maps and onto global dynamics genuinely differ. The full support-size census quantifies this distinction and the decay of the reversible fraction, and the one-sided classification gives explicit level sizes rather than a rule-by-rule algorithm. These exact joint counts can benchmark general image-graph/entropy procedures.",
+      "residual_risks": [
+        "Only group-homomorphism rules on the bilateral full shift with support within the prescribed sites are counted; no statement for arbitrary CAs or larger dihedral groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

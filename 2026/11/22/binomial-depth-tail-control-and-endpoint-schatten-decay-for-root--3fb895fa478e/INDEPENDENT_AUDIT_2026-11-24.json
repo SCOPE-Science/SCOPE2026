@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:54:10.843751Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Steps 1–4",
+        "Frozen VERIFICATION.md lines 19–25 and tree_aluthge_verifier.py lines 21–106 inspected, not executed; its stated ROOTED_ALUTHGE_DEPTH_DIAGNOSTICS_OK 30516 is finite diagnostic evidence only. The analytic proof was independently reconstructed."
+      ],
+      "rationale": "Disjoint column supports make the modulus diagonal, with the v-entry r_v=||Te_v||. For r_v>0 the polar update gives edge weight lambda_vu(r_u/r_v)^t, and gives a zero outgoing column if r_v=0. The resulting p-mass at v is at most b_v^(1-t)(sum_children b_u)^t, by bounding each r_u in the weighted quadratic mean by (sum_children b_u)^(1/p). This remains valid for countably many children, vanishing weights, and p<1. Scalar weighted AM–GM then bounds it by ((1-t)I+tQ)b, where Q adds child masses. Unique parents make Q positive and contractive on l1; Q^k counts each vertex once exactly when it has depth at least k. Iteration and the binomial expansion thus give the precise depth-weighted sum over the original masses, including n=0, and justify that every iterate is in the same Schatten class. Since each vertex has finite depth, dominated convergence gives the endpoint result. Splitting at K, and setting K=floor(nt/2)+1 for the Chernoff estimate, gives precisely the claimed strict depth tail and e^(-nt/8). On L equally weighted positive path edges of normalized weight L^(-1/p), exactly one more terminal edge vanishes in each iteration up to L, so the p-energy is (L-n)/L for n<L and gives the stated supremum by sending L to infinity.",
+      "residual_risks": [
+        "No conclusion for rootless shifts or arbitrary compact operators, and no assertion about t=1. No fresh numerical run or formal certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanković's general Schatten theorem starts in S_q with q<p, with Remark 5.7 distinguishing the unresolved general diagonal endpoint. Proposition 5.8 already treats every p>0 on a unilateral path; Corollary 5.9 also treats direct sums with finite-dimensional operators. Bala's general compact result uses operator norm for the ordinary transform, not the same Schatten quasi-norm."
+        ],
+        "reasoning": "A genuine branching example evades both Stanković extensions: assign two nonzero root edges and distinct decaying outgoing weights on the two infinite rays with p-masses comparable to 1/(k log^2 k). It is in S_p and in no S_q for q<p. It is injective and quasinilpotent, hence has no nonzero finite-dimensional reducing summand; W*W and WW* do not commute because of the unequal child norms and the common root. Thus it is also not an orthogonal sum of unilateral shifts.",
+        "searches": [
+          "Stanković 2611.07728v1 Theorem 5.5, Remark 5.7, Proposition 5.8 and Corollary 5.9; Bala 2602.07916v1 Theorem 2.4/Corollary 2.5; DOI 10.3934/cpaa.2024078"
+        ]
+      },
+      "checked_sources": [
+        "Trepkowski arXiv:1401.4415",
+        "Stanković arXiv:2611.07728v1",
+        "Bala arXiv:2602.07916v1",
+        "Resultary c463d19a6de1 (summary)",
+        "cpaa.2024078 (citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-step weight rule is known. Known path iteration gives the endpoint and mechanically gives the long constant path example. The broader compact convergence/majorization results inspected do not give a per-depth tightness estimate at the equal-class endpoint."
+        ],
+        "reasoning": "Turning the known nonlinear polar update into a scalar positive mass comparison that survives both arbitrary branching and p<1, then evaluating the exact loss of mass due to the root, is the additional argument. In particular, one cannot infer convergence in S_p from operator-norm decay and mere boundedness in S_p.",
+        "searches": [
+          "Trepkowski 1401.4415 Theorem 4.1, and Stanković 2611.07728v1 §§5.5–5.9; Bala 2602.07916v1 §§2.4–2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A binomial scalar-weight product is already stated on a unilateral path. The published edge formula for a general directed tree uses the ratios of child and parent column norms. The exact distinct catalogue hit c463d19a6de1 concerns explicit unilateral weighted shifts and weak ideals."
+        ],
+        "reasoning": "A version of the claim in column-mass language is domination by the killed ancestor transition ((1-t)I+tQ)^n, summed over all vertices, with a different survival probability at each depth. A scalar geometric product along a single path neither states this column inequality at a split nor constrains its incoming branch masses.",
+        "searches": [
+          "Resultary semantic check for iterated Aluthge transforms, rooted tree depth tails, Schatten endpoint and the unilateral weak-ideal obstruction",
+          "Trepkowski arXiv:1401.4415 Theorem 4.1; Stanković arXiv:2611.07728v1 Proposition 5.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed summary describes polynomially decaying compact unilateral shifts with exact decay asymptotics and critical weak-Schatten quasi-norm one; the mirrored finding could not be opened during the check."
+        ],
+        "reasoning": "The proposed exact object is an all-rooted-tree inequality, not an entry in a table of path rates. The indexed summary is positive evidence of the path scope and a live access limitation for stronger overlap, not evidence of absence of a generalized theorem.",
+        "searches": [
+          "Resultary binomial-depth/endpoint Schatten and unilateral decay lookup; compare c463d19a6de1"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit binomial-depth estimate and its same-ideal decay consequence on general rooted branching trees. The one-step edge formula and same-Schatten unilateral result are already known, as is the scalar path iteration on which the sharp nonuniformity witness rests. Neither is being credited for originality in isolation.",
+      "residual_risks": [
+        "Some related full text was inaccessible as described. Earlier equivalent positive-semigroup statements or deeper results not recovered in the bounded search remain possible. No temporal priority inferred from same-date indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact endpoint overlap on paths and stated direct-sum class; broader theorem has stricter initial ideal",
+          "evidence": "Theorem 5.5 uses q<p, while Proposition 5.8 proves same-S_p convergence for unilateral weighted shifts. This is a known endpoint on that subclass.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.07728",
+          "material_read": "v1 §5, Theorem 5.5 pp.13–14 (offset 47020), Remark 5.7 p.14 (52500), Proposition 5.8 and Corollary 5.9 pp.15–17 (54850 and 60250)",
+          "method": "OA bounded PDF passage inspection",
+          "title": "Singular values of iterated Aluthge transforms of compact operators",
+          "trigger": "Potential direct same-ideal endpoint and path binomial overlap"
+        },
+        {
+          "assessment": "Direct one-step coverage, not the asserted iterated norm/depth theorem",
+          "evidence": "The transform is a directed-tree shift with the stated new weights (and domain conditions in the unbounded setting).",
+          "identifier_or_url": "https://arxiv.org/abs/1401.4415",
+          "material_read": "§4 Theorem 4.1 p.7, OA offset 22950",
+          "method": "OA bounded PDF passage inspection",
+          "title": "Aluthge transforms of weighted shifts on directed trees",
+          "trigger": "Same directed-tree operator and algebraic update"
+        },
+        {
+          "assessment": "Weaker topology with classical transform, not endpoint Schatten quasi-norm",
+          "evidence": "Theorem 2.4 gives convergence in operator norm, and Corollary 2.5 gives the zero limit for quasinilpotent compact operators.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.07916",
+          "material_read": "Theorem 2.4 and Corollary 2.5, pp.4–5, OA offset 11708",
+          "method": "OA bounded PDF passage inspection",
+          "title": "The iterated Aluthge Transforms of compact operators",
+          "trigger": "General compact-operator convergence"
+        },
+        {
+          "assessment": "Unresolved direct comparison; no inference of overlap or non-overlap from the title",
+          "evidence": "The bibliographic citation is identified but no theorem hypotheses were recovered.",
+          "identifier_or_url": "https://doi.org/10.3934/cpaa.2024078",
+          "material_read": "Citation/title only; bounded DOI and publisher HTML/PDF attempts did not yield full text",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Schatten p-norm related to some transforms of operators",
+          "trigger": "Potentially stronger Schatten inequalities for transforms"
+        },
+        {
+          "assessment": "Material one-path overlap; unread full record remains an access risk, not negative evidence",
+          "evidence": "The summary states precise rates for polynomially decaying compact unilateral shifts and a critical weak-ideal obstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-schatten-decay-and-a-critical-weak-ideal-obstruction-for-a--c463d19a6de1",
+          "material_read": "Catalogue summary only; corresponding local mirror passage not found",
+          "method": "Local Resultary search, followed by bounded mirror lookup",
+          "title": "Sharp Schatten decay and a critical weak-ideal obstruction",
+          "trigger": "Closest distinct indexed record about Schatten iteration rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and strict branching example; Trepkowski Theorem 4.1; Stanković Theorem 5.5, Remark 5.7 and Corollary 5.9"
+      ],
+      "rationale": "Equal-ideal convergence at every p>0 is a meaningful endpoint question, including the quasi-Banach regime. This solves it for a natural nontrivial branching class with operators outside the previous smaller-ideal and direct-sum hypotheses, and provides usable quantitative decay governed by initial depth tails. The simple path witness clarifies why a unit-normalized, depth-free uniform rate is not an acceptable replacement.",
+      "residual_risks": [
+        "The estimate is not asserted to be pointwise sharp on every tree and does not settle the general compact Schatten endpoint."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

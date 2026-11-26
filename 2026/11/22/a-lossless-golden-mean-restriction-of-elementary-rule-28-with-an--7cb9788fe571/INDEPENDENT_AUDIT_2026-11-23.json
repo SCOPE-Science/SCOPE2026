@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:26.055596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Wolfram truth table gives 1 on 010, 011 and 100; forbidding adjacent input ones leaves just 010 and 100 as one-producing triples. The former has preceding output zero and the latter preceding output one, so the decoder x_i=y_i(1−y_{i−1}) identifies input ones as output run starts. Three consecutive output ones would decode the last two to zeros, making the last output zero by the forward rule. A factor 0100 would decode its singleton to an input one and the next two sites to zero, making the first following output zero impossible. Conversely the decoded word has no adjacent ones; an output-one run start is reproduced by 010 and its second site by 100. At an output zero the only possible spurious one would be due to an input one immediately to the left with no input one immediately to the right. The forbidden 0100 condition forces an output run start to the right in that case, ruling out the spurious one. Both maps are sliding block codes. Every indexed length-n ring can be lifted to its n-periodic bi-infinite word, on which the same argument applies also for n=1,2. Indexed counts are the trace of the golden-mean adjacency matrix (not primitive necklaces), giving L_n by its quadratic identity and the determinant formula for the zeta function. The periodic words (1100)^Z and (01)^Z supply the required maximal proper factors 11, 100 and 010; one can witness irredundancy by 1^Z and (10000)^Z separately. A separate exact finite replay confirmed images, counts and decoder for all indexed n=1–18; the local proof supplies the unbounded statement. No unrestricted inversion or iteration on the no-11 domain is claimed.",
+      "replay_paths": [
+        "branches/f35f87e1-1609-48e0-a017-b7cea0cacbde/rule28_independent_check.py",
+        "branches/f35f87e1-1609-48e0-a017-b7cea0cacbde/rule28_independent_check.out",
+        "branches/f35f87e1-1609-48e0-a017-b7cea0cacbde/rule28_audit.md"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salo's full-shift Rule 28 image is precisely the no-111 shift and is nonregular. The periodic condition asserts existence of an unrestricted same-period preimage. The unrestricted de Bruijn construction could be adapted by deleting the state 11, but the general method does not state the restricted language or decoder."
+        ],
+        "reasoning": "Solving the more permissive preimage problem only supplies a necessary obstruction or an enumeration method, not uniqueness and necessity/sufficiency within the smaller source. One still needs a new computation of the restricted transitions or the explicit inverse argument.",
+        "searches": [
+          "Salo arXiv:1804.03913 Lemma 6 and §6.3",
+          "Salo arXiv:2209.13373 Propositions 20 and 25",
+          "Resultary same-rule inverse fibers 8fa574301e73 Proof Steps 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.13373",
+        "arXiv:1804.03913",
+        "Resultary:8fa574301e73",
+        "Resultary constrained elementary-automaton search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bi-infinite periodic repetition of 10000 avoids 111 and therefore has an unrestricted predecessor, but it contains 0100 and cannot have a no-11 predecessor. Salo's same-period preimage result is consistent with this strict difference. Neither the unrestricted trace count nor the no-00 section determines the two-site inverse on the no-11 domain."
+        ],
+        "reasoning": "The theorem adds lossless decoding and solves the exact constrained image membership problem. It is not the full-shift image result with the same class of antecedents relabeled, nor just a new expression for the source's periodic counts.",
+        "searches": [
+          "Salo arXiv:2209.13373 Proposition 20 and Proposition 25",
+          "Resultary 8fa574301e73 unrestricted predecessor trace construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Salo's Proposition 20 uses the no-00 input shift and maps it onto the no-11 output shift by a shift and bit flip. The record instead starts with no-11 inputs and has outputs that can contain 11.",
+          "In Salo's Proposition 25, 0100 is a preimage block for 11, not the forbidden output block of this restricted map. An equivalent run-language formulation of the additional condition is that an isolated output 1 must be followed by exactly one zero before the next 1."
+        ],
+        "reasoning": "Complementing the input alone would change the rule's truth table. Comparing the two domain-image pairs and the direction of the local section is necessary; matching the words golden mean or 0100 is not evidence of coverage.",
+        "searches": [
+          "Resultary: elementary cellular automaton Rule 28 golden mean hard core no 11 conjugacy inverse forbidden 0100 Lucas cyclic inverse fibers",
+          "Literature: Rule 28 golden mean 0100 hard core image conjugacy cellular automata Salo",
+          "Literature: elementary cellular automata images restricted to subshifts of finite type tables golden mean shift nearest neighbor no 11 transducer classifications Jen Voorhees Rule 28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-rule record gives exact unrestricted fibers by a cyclic product that records only zero versus positive gap sizes between successive output ones. For example 110010 and 110100 have the same length and the same zero/positive gap word (zero, positive, positive), but only 110010 has a no-11 preimage. The latter word contains 0100. Other constrained inverse-fiber records returned by the search treat different elementary rules."
+        ],
+        "reasoning": "Even the exact reduced table of unrestricted fibers does not encode the desired classification. Counts on the underlying golden-mean source are classical and only transferred by the new identification.",
+        "searches": [
+          "Resultary Rule 28 cyclic fiber table/formula 8fa574301e73",
+          "Literature: Rule 28 golden mean hard core restriction no adjacent ones"
+        ]
+      },
+      "rationale": "The surviving claim is a two-site inverse and exact irredundant image SFT for Rule 28 with a no-11 input constraint. Salo's broader-domain image theorem and different no-00 input restriction are not the same conjugacy or a stronger version of it. The same-rule exact cyclic precursor counts include mixed source types and their reduced matrices lose information necessary to detect the additional obstruction. The Lucas enumeration and zeta formula are standard consequences, not credited as new.",
+      "residual_risks": [
+        "A recoding in an unindexed constrained-SFT or elementary-automaton table can use different terminology. Available searches and the inspected primary comparisons do not establish historical priority. No originality is assigned to the Lucas counts or generic de Bruijn/transducer methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full-shift image and a no-00 restriction, not this no-11 restriction",
+          "evidence": "Proposition 20 explicitly says flipped golden mean SFT forbidding 00; Proposition 25 specifies one forbidden output word, 111.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13373",
+          "material_read": "Abstract, Proposition 20 with proof, and Proposition 25 with proof",
+          "method": "OA primary PDF text",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Same Rule 28 and similar golden-mean and forbidden-block descriptions"
+        },
+        {
+          "assessment": "Closest Rule 28 passages state unrestricted nonregularity and the one-block full image",
+          "evidence": "The proof concerns a putative section of the entire image, while the table lists only 111 for the full image of ECA 28.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.03913",
+          "material_read": "Abstract, Rule 28 Lemma 6 proof passages, and §6.3 forbidden-word table",
+          "method": "OA primary PDF text",
+          "title": "Von Neumann regularity, split epicness and elementary cellular automata",
+          "trigger": "Earliest preprint line and potential duplicate inverse construction"
+        },
+        {
+          "assessment": "Unrestricted predecessor counts rather than the hard-core image and decoder",
+          "evidence": "The proof uses four two-bit states including 11 and its reduced gap matrices explicitly conflate all positive gap lengths.",
+          "identifier_or_url": "Resultary:8fa574301e73",
+          "material_read": "Finding, assumptions, Steps 1–5, limitations and prior-work comparison",
+          "method": "Resultary search and matching RESULT.md via local mirror",
+          "title": "Sharp Lucas inverse-fiber law and output classification for cyclic Rule 28",
+          "trigger": "Same rule, indexed cyclic convention and exact per-output formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It answers a natural exact constrained-reconstruction question for a standard nonregular elementary rule, contrasting the known flipped-golden-mean restriction and unrestricted image. The short local inverse and a necessary-and-sufficient pair of minimal forbidden blocks yield an immediately usable membership and unique decoding test for every ring and bi-infinite word. This utility is in the constrained image and decoder, not in a finite prefix of counts, a generic algorithm to find a presentation, or the familiar Lucas numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

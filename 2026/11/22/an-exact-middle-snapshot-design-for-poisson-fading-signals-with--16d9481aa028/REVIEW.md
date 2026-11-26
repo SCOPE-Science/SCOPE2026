@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is reconstructed directly from the three-by-three Poisson Fisher determinant, with all parameters positive, two fixed endpoints and exactly one free interior date. The normalized Jacobian factor, log-determinant and its strictly negative second derivative prove unique global optimality. An implicit derivative proves strict monotonicity in background ratio, and uniform Taylor analysis plus fixed-point convergence give both asymptotic laws. The embedded standalone checker verifies 7,875 numerical diagnostics over sampled parameters; numerical evidence is not substituted for the infinite-domain proof.
+## correctness
 
-**Originality — PASS relative to inspected material, with historical-priority risk.** Classical exponential-regression design studies (Dette–Neugebauer 1997; Han–Chaloner 2003) predate the present claim and already establish related constant-variance Jacobian design equations. Shi–Zhang–Wong (2019), inspected in full, writes the *same exponential-plus-background mean* but specifies independent homoscedastic Gaussian errors; its general numerical/Bayesian results do not state this Poisson background-ratio monotonicity theorem. Bélanger (2013), inspected as accessible full text, motivates source/background photon counts without determining a three-snapshot information-optimal middle date. Pauw–Tardif (2012) optimizes independent sample and background exposure allocations, not the spacing between fixed endpoints in a jointly unknown three-parameter fading signal. A 2026 Poisson fluorescence-lifetime design abstract discusses analogous nuisance-aware numerics but does not explicitly claim this exact theorem; full-text overlap remains unresolved. published-finding corpus searches found pinned two-exponential-mode and spatial Gaussian-plume results, distinct in forward model, likelihood and design variable. The inaccessible historical sources and uninspected newer full text warrant independent literature review; searches are not a proof of priority.
+PASS
 
-**Value — PASS.** A three-readout photon-limited transient instrument with an unknown ambient baseline has an actionable exact one-dimensional timing design, and the forced interval constraints permit a global classification. The sharp direction of sky-background movement and two horizon limits are structural effects absent from the constant-variance analogue. At an explicit practical-scale parameter combination the determinant is more than doubled compared with midpoint timing. The result is an idealized local Fisher benchmark, not an optimal schedule for finite shutter windows, prior uncertainty or every instrument.
+Subtract the time-zero derivative row from each of the other two rows of the Poisson mean Jacobian. Its determinant is, up to sign, (theta/lambda)(1-e^-q)e^-z h(z). Squaring and dividing by the three means gives the stated Fisher determinant, with variable part e^-2z h(z)^2/(e^-z+rho). The strictly concave h vanishes at 0 and q, is positive between them, and has strictly signed endpoint slopes. The log determinant is strictly concave and goes to minus infinity at both ends, proving one interior maximum at fixed nominal parameters. With G=2h'/h-2+1/(1+rho e^z), both G_z and G_rho are strictly negative, so dz*/drho=-G_rho/G_z<0 at fixed q. The limiting scores at zero and infinite rho bracket the score strictly and converge uniformly on compact interior intervals; their unique roots give the two strict bounds. For the short horizon, put z=qv and factor h(qv)=q^2 v(1-v)[1+q(2v-1)/6+O(q^2)]/2, analytically in a neighborhood of v=1/2. The derivative in v of the leading log score is -16 at 1/2. Its first-order score perturbation is q(2/3-2+1/(1+rho)), which gives the claimed coefficient. The local branch is the global maximizer by uniqueness. At large q the limiting score is strictly decreasing, with opposite signs at 1 and 2; convergence on compact subsets brackets the finite-q root at the limiting root. A separately written diagnostic reproduced t*=1.043396317665198 and the determinant ratio 2.013109816346372, and independently compared the analytic determinant to the direct Jacobian computation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the uniquely optimal pinned-endpoint middle snapshot in the instantaneous single-exponential Poisson-plus-constant model, its strict background-ratio sensitivity, and its explicit temporal limits. The Fisher information construction and exponential-plus-constant Jacobian are not novelty claims.
+
+## value
+
+PASS
+
+With only one free snapshot in a saturated joint design, the result gives a usable rule for scheduling under background uncertainty: increasing the background moves that date strictly earlier rather than leaving it at the Gaussian optimum or the midpoint. The limits quantify when the scale is T and when it is 1/lambda, and the numerical example shows a substantial determinant gap within the declared design space. The contribution is the strict analytic comparison and calibration, not use of Poisson Fisher information by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

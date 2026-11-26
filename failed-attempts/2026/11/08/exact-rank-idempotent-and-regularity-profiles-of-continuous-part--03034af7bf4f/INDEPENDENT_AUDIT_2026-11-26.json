@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:35:30.436446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the fiber classification. With no fiber over the center, the map is an injection to leaves or has exactly one doubled fiber consisting of the source center and a leaf. A center fiber {0} allows only singleton leaf fibers; a center fiber {j} with j a leaf permits at most one extra fiber, namely {0}; a center fiber {0,j} permits none. These cases give all five terms of R including the empty map. Idempotents fix the image pointwise; if the image contains no center, only the source center can additionally map into the fixed leaf set, while a doubled center fiber gives the extra n rank-one idempotents. For regularity, restrict any generalized inverse to the image to obtain a continuous section, and conversely use such a section for fgf=f. A doubled leaf fiber allows a leaf representative; center-image cases allow an edge-respecting or one-point section. The forced inverse of an injection to leaves fails exactly when it takes two target leaves onto a source edge, equivalently when the domain contains the center and another point. Counting those domains and injections gives B. A separate exhaustive partial-map/section check matched R, E, B and the obstruction in all 25 rank strata for 1 <= n <= 5, including K2, where all nine maps are regular. Replay: python3 /workspace/branches/7a5cc781-1578-4fcc-a63f-131dd1a96ffd/independent_star_census.py 5. This is bounded corroboration, not the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The star domain-size/image-rank enumerator specializes to total counts by setting the domain variable to one. Proposition 4.4 proves qualitative regularity exactly for empty or complete graphs, not an elementwise census. Partial endomorphisms with forward edge preservation are not the frozen class."
+        ],
+        "reasoning": "The stronger bivariate result covers R separately; the qualitative regularity result and forward-endomorphism counts are not evidence of full numerical coverage.",
+        "searches": [
+          "Resultary fa69e9e31ab0",
+          "arXiv:2609.39370, Proposition 4.4",
+          "arXiv:2401.11741, definition of partial endomorphism"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, star_mr_verify.py and verification_output.txt (support inspected, not executed)",
+        "Resultary a744b2960c42, e122c9061ee5 and fa69e9e31ab0",
+        "arXiv:2609.39370, 2005.02606 and 2401.11741"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both records count distinct labeled partial functions with the same inverse-image condition and rank equal to image size. The earlier record gives the total E directly, and P_m-N_m for regular maps."
+        ],
+        "reasoning": "Neither the rank-zero case, K2, nor the exact regular profile survives as a distinct remainder. No conclusion about authorship or external publication priority is drawn.",
+        "searches": [
+          "a744b2960c42, Finding and regularity counting argument",
+          "arXiv:2005.02606, p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The terms of P_m are F_{m,m+1}, 2mt, tF_m, m^2t^2, and m^2tF_{m-1}, giving the five frozen R terms. The idempotent polynomial (1+t)^(m+1)+mt(1+(1+t)^(m-1)) has the frozen E coefficients. In N_m, binom(m,r)r! = (m)_r, giving B."
+        ],
+        "reasoning": "Rank-generating polynomials and exact image-rank coefficients encode identical information; the description of the forbidden injection is also the same.",
+        "searches": [
+          "Resultary: star Margolis–Rhodes monoid rank, idempotents and regular elements",
+          "a744b2960c42, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 record explicitly says its identities hold also for m=1,2; the October 12 regularity-and-rank record gives the same distributions on branching stars with an n=2 note."
+        ],
+        "reasoning": "Coverage is by exact symbolic statements, not by a finite table or the frozen record's self-match.",
+        "searches": [
+          "Resultary a744b2960c42 and e122c9061ee5"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record explicitly states the same three rank enumerators and nonregularity criterion for the full range n >= 1. Coefficient extraction converts it to the frozen formulas without a new mathematical result.",
+      "residual_risks": [
+        "The compared archive statements establish mathematical overlap, not a claim about authorship or comprehensive publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full coverage",
+          "evidence": "P_m, E_m, N_m, the forbidden injections, and explicit extension to m=1,2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-rank-regularity-and-idempotents-in-the-margolis-rhodes-monoid-of--a744b2960c42/RESULT.md",
+          "material_read": "Finding, assumptions and regularity counting passage, local mirror offsets 670, 1161 and 6613",
+          "method": "OA local-mirror passages and coefficient comparison",
+          "title": "Rank, regularity and idempotents in the Margolis–Rhodes monoid of a star",
+          "trigger": "Exact same objects and profiles"
+        },
+        {
+          "assessment": "Equivalent on the stated branching range; n=2 boundary noted",
+          "evidence": "The three polynomials and nonregularity conditions are stated for n>=3; a singleton center fiber in a leaf-only image forces injectivity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-regularity-and-rank-censuses-of-operatorname-mr-k-1-n--e122c9061ee5/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "OA local-mirror passage",
+          "title": "Regularity and rank censuses of MR(K_{1,n})",
+          "trigger": "Equivalent star census"
+        },
+        {
+          "assessment": "Covers total image-rank counts",
+          "evidence": "The bivariate distribution for n>=1 specializes to R by forgetting domain size.",
+          "identifier_or_url": "Resultary:fa69e9e31ab0",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "OA local-mirror passage",
+          "title": "Domain-rank enumerator of graph-continuous partial maps on stars",
+          "trigger": "Potential stronger census"
+        },
+        {
+          "assessment": "General qualitative regularity coverage",
+          "evidence": "Regular iff graph is empty or complete; this separates K2 from branching stars but does not by itself yield the frozen counts.",
+          "identifier_or_url": "arXiv:2609.39370",
+          "material_read": "p. 2 discussion of path/cycle orders and p. 9 Proposition 4.4 (offset 31258)",
+          "method": "OA paper passage",
+          "title": "The Margolis-Rhodes Monoid of a Graph",
+          "trigger": "Same monoid and regularity"
+        },
+        {
+          "assessment": "Identical underlying continuity convention",
+          "evidence": "Preimages of vertices and edges must be empty, a vertex or an edge.",
+          "identifier_or_url": "arXiv:2005.02606",
+          "material_read": "p. 3, offset 9547",
+          "method": "OA paper passage",
+          "title": "Degree 2 Transformation Semigroups as Continuous Maps on Graphs: Foundations and Structure",
+          "trigger": "Origin of inverse-image continuity"
+        },
+        {
+          "assessment": "Different counted objects",
+          "evidence": "The definition uses preservation of edges forward.",
+          "identifier_or_url": "arXiv:2401.11741",
+          "material_read": "p. 1, offset 2450",
+          "method": "OA paper passage",
+          "title": "On partial endomorphisms of a star graph",
+          "trigger": "Same graph with possibly different map class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rank-resolved census is a natural invariant, but this record repackages the already available full census and elementwise obstruction. It adds no new boundary case, structural consequence or exact statistic over that coverage; another finite check does not create a distinct scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

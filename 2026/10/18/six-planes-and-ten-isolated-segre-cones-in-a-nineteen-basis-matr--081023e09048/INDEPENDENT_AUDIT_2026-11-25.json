@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:51:08.161398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; VERIFICATION.md and verify_matroid19.py inspected as evidence",
+        "/workspace/branches/check_1.py"
+      ],
+      "rationale": "The truncating hyperplane deletes the one corner without creating vertices; the retained coordinate facets and new product facet exhaust the facets. Outside the new facet the proper fixed-coordinate subsets are saturated, while the ten vertex cones have six rays in rank five. Inside the product facet the full facet, its facets and its square faces have independent saturated normals; the triangular faces have four rays, any three a basis of their rank-three saturation, with primitive 2-versus-2 relation. In such a basis the dual semigroup consists of (a,b,c) with a,b,c nonnegative and c at most a+b; its four generators give the determinant of a 2-by-2 matrix. Every edge or vertex of the product lies in one of the triangles; its normal cone contains a nonsimplicial face, so it too is nonsimplicial. Orbit closures are unions over subfaces, so the six unimodular triangles give standard projective planes with nine distinct cross-family incidences. The ten remaining charts are the equal-total row/column margin semigroup: every nonnegative integral margin pair is a sum of unit row-unit column pairs. This is the rank-one 3-by-3 cone, smooth off its vertex and of Segre degree six. The tensor product with the orbit torus at each triangle leaves transverse multiplicity two. Thus exactly the nonsimplicial cones are singular and the orbit profile is (19,18,6). Independent replay: python3 /workspace/branches/check_1.py enumerates the coordinate patterns with and without the cut active and independently verifies ranks, saturation, maximal singular faces and intersection counts.",
+      "residual_risks": [
+        "The first sentence of Step 4 says orbit closures reverse face inclusion; it is normal cones that reverse face inclusion. The subsequent maximal-face and intersection reasoning uses the correct orbit-closure inclusion. No singular subscheme is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary gives the complete signed coordinate and cutting rays at all fixed points for a wider family, and calculates canonical Cartier and local divisor-class criteria.",
+          "The general split characterization identifies the source of facets; the Gorenstein result addresses a different toric property."
+        ],
+        "reasoning": "Specializing the broader family covers the cut, the normal-cone inputs and all-fixed-point singularity. The statements do not classify minimal nonsmooth cones or identify their transverse semigroups.",
+        "searches": [
+          "Resultary dc4319654b64",
+          "Joswig–Schröter arXiv:1607.06291 Proposition 7",
+          "Lasoń–Michałek arXiv:2005.08359 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and dc4319654b64",
+        "arXiv:2310.05487",
+        "arXiv:1607.06291",
+        "arXiv:2005.08359",
+        "doi:10.1016/0001-8708(87)90059-4 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=6,k=3 the earlier rays give nineteen nonsimplicial maximal cones, with the two fixed-point cases distinguished by the cut ray.",
+          "An aggregate face count does not identify which 18 edges and six triangles give nonsimplicial cones. The classification uses integral normal relations and identification of dual semigroups."
+        ],
+        "reasoning": "The outside charts are amenable to the standard hypersimplex/Segre identification, and the earlier fan data are enough to start a new computation. The complete statement is not a substitution into an earlier singular-strata theorem or a rearrangement of its outputs: locating the minimal nonsmooth cones, their closure incidences and saturated transverse models is the additional calculation.",
+        "searches": [
+          "dc4319654b64 proof §§1–3 (actual normal rays and conclusions)",
+          "arXiv:2310.05487 Example 2.2 and arXiv:1607.06291 Proposition 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 2.2 omits {1,2,3} from the 3-subsets of [6], the identical object after relabeling.",
+          "Resultary dc4319654b64 gives local class groups of the same projective normal-fan variety in the one-deleted-basis family."
+        ],
+        "reasoning": "A different ground set notation, fixed-point local class-group language or the split-matroid description does not make the input distinct. The fixed-point subclaim overlaps; these statements do not give the non-fixed-point singular strata or their incidence.",
+        "searches": [
+          "Resultary: one-circuit-deletion matroid toric singularity / local divisor classes",
+          "Ferroni–Schröter arXiv:2310.05487 Example 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published aggregate face vector (19,81,111,60,13,1) matches exactly.",
+          "The overlapping Resultary fixed-point census yields nine class groups of rank two and ten of rank one in this case, not the positive-dimensional orbit census."
+        ],
+        "reasoning": "The closest aggregate and fixed-point counts are credited, but neither is a table of singular orbits, component closures or transverse chart types. No exact covering entry was returned in the searches examined.",
+        "searches": [
+          "Resultary local search for this singular-orbit classification",
+          "arXiv:2310.05487 Example 2.2"
+        ]
+      },
+      "rationale": "Credit the previously published identical matroid and face vector, and the general Resultary calculation of its maximal-cone rays, fixed-point singularity and class groups. The supported distinct contribution is the full reduced singular stratification with component incidence and transverse rings and multiplicities; it is not a claim that the fixed points or the face vector are new.",
+      "residual_risks": [
+        "The explicit earlier fan makes routine fixed-point overlap substantial; novelty is bounded to the computed structural stratification.",
+        "The GGM–S full text was not inspected. Unindexed toric classifications or a more general result giving the same stratification could alter this assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap but not the claimed stratification",
+          "evidence": "Facet product, all fixed-point normal rays, local class groups and singularity of every fixed point are explicit. Non-fixed strata and local analytic types are not claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-local-divisor-classes-and-canonical-boundaries-for-a-one-circuit--dc4319654b64/RESULT.md",
+          "material_read": "Finding and limits; proof §§1–3 (offset 2430 onward)",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Local divisor classes and canonical boundaries for a one-circuit deletion",
+          "trigger": "Same family and toric singularity consequences"
+        },
+        {
+          "assessment": "Identical object and aggregate counts; not a singular census",
+          "evidence": "Deletes just {1,2,3} and explicitly gives (19,81,111,60,13,1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.05487",
+          "material_read": "PDF p. 4, Example 2.2 (near offset 15300)",
+          "method": "Open primary PDF, located passage and read by offset",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "Exact matroid and face counts"
+        },
+        {
+          "assessment": "Supplies facet framework rather than local geometric decomposition",
+          "evidence": "Facets induced by hypersimplex facets or split hyperplanes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.06291",
+          "material_read": "PDF p. 6, Proposition 7 (near offset 18531)",
+          "method": "Open primary PDF passage",
+          "title": "Matroids from hypersimplex splits",
+          "trigger": "General split facet coverage"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Criterion for Gorenstein base polytopes is not a classification of singular strata.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.08359",
+          "material_read": "PDF p. 3, Theorem 1.2 (near offset 7800)",
+          "method": "Open primary PDF passage",
+          "title": "Gorenstein matroids",
+          "trigger": "Possibly broader classification of toric properties"
+        },
+        {
+          "assessment": "Full text not assessed",
+          "evidence": "No available passage classifying this singular locus was read; no negative coverage conclusion drawn.",
+          "identifier_or_url": "https://doi.org/10.1016/0001-8708(87)90059-4",
+          "material_read": "Landing material/abstract only",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Combinatorial Geometries, Convex Polyhedra, and Schubert Cells",
+          "trigger": "Foundational matroid-polytope and torus-stratum connection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and structural proof; Ferroni–Schröter Example 2.2 and Resultary dc4319654b64 as comparisons"
+      ],
+      "rationale": "This is a natural test of how removing one basis changes the projective toric singularities of a uniform matroid. The decomposition tells a reader exactly which directions acquire nonisolated singularities, how those components meet, where the isolated Segre model persists, and whether non-factoriality is a reliable detector in this case. Such explicit strata can be used as a benchmark for other splits and are not just the known face vector or an undifferentiated list of singular fixed points. The finding is a focused example, not a general classification.",
+      "residual_risks": [
+        "The benchmark concerns this normal fan and its reduced strata, not a general matroid theorem or a scheme-theoretic description."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

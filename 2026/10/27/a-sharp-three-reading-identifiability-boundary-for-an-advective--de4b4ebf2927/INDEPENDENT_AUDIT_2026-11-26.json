@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:01.625868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed known injection location/time, take p=1/D, q=v/D and A=log(M√p/√(4π)). This maps the physical domain bijectively to p,q>0 and A real; Y=log(C√t)=A−x²p/(4t)+xq/2−q²t/(4p). Differencing at the first time fixes q=ap+b, with a=(x₁+x₂)/(2t₁)>0 and b determined by the readings. Differencing across times at x₁ then gives γ=κp−2ab−b²/p. Exactly the positive roots satisfying ap+b>0 are physical: Y₁₁ fixes A freely, and the two differences then certify the other readings. For κ>0 the right-hand side is strictly increasing. For κ<0, choose b>0 and distinct positive p values with product b²/(−κ); then both slopes q are positive and the two time differences coincide. The resulting quadratic roots are simple and positive, persist with both inequalities strict under small changes of (Y₁₁,b,γ), and exhaust the fiber. Since these three data coordinates are invertible affine functions of the Y values, the double-fiber set is open also in positive concentrations. For κ=0, b=γ=0 makes every p>0 admissible at a fixed Y₁₁; this is an existence assertion, not a statement about every critical-design data triple. Taking positive square roots in κ>0 gives the exact sensor inequality, which imposes x₂<x₁ and t₂/t₁<4. For the rectangle, spatial slopes at two distinct times determine the slope and intercept of a line in 1/t: their difference uniquely fixes p since x₁+x₂>0, then q and A follow. The example can be replayed by inserting (p,q,A)=(1/2,7/4,0) and (8/7,19/7,−27/112) into Y; the ordered L readings are (−25/32,−9/32,−9/4) for both, with distinct fourth readings −25/16 and −37/28. RESULT.md §§1–5 establish global noiseless identification only. The finite rational verifier and its notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ogata–Banks solve a semi-infinite forward problem with a prescribed inlet value and zero initial concentration. Browning et al.'s inspected passages describe a structural identifiability method based on differential algebra for partially observed PDEs.",
+          "The available bibliographic/abstract descriptions of the 2005 inverse study concern unknown source position and time-dependent intensity with time recordings. Its full text and the 2020 monitoring-design full text were not available in this review."
+        ],
+        "reasoning": "A forward boundary solution or continuum-time identifiability theorem does not give exact global fibers after restriction to three samples. The inspected broader methodological statements did not show an implication of the κ criterion. No whole-document negative conclusion is drawn from inaccessible papers.",
+        "searches": [
+          "Ogata–Banks DOI 10.3133/pp411A",
+          "Browning et al. DOI 10.1098/rspa.2023.0911",
+          "El Badia–Ha-Duong–Hamdi DOI 10.1088/0266-5611/21/3/020",
+          "Zeunert–Meon DOI 10.1016/j.advwatres.2020.103788"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, verify.py",
+        "Resultary a9167f8e630b, 46fe34c2d67d, 035dbf4c4ed9 and 1d30ea7555b9",
+        "Ogata–Banks USGS report and Browning et al. OA PDF",
+        "Access-limited inquiries: 10.1088/0266-5611/21/3/020, 10.1088/0266-5611/29/3/035009, 10.1016/j.advwatres.2020.103788"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even fixing release metadata and zero decay in the closest advective catalogue result leaves a substantially richer observation operator than the three mixed-time samples. The one-snapshot quadratic test instead requires all readings at a known age.",
+          "The decisive frozen comparison is the positivity and number of roots of κp²−(γ+2ab)p−b² with ap+b>0, not observability under arbitrary time histories."
+        ],
+        "reasoning": "Injectivity for richer data and a larger parameter space does not imply it survives deleting data, and noninjectivity for more unknowns need not survive fixing them. The checked statements do not settle this smaller measurement map and its exceptional geometries.",
+        "searches": [
+          "Resultary 035dbf4c4ed9 Proof §§3–4",
+          "Resultary 46fe34c2d67d Proof §1",
+          "Ogata–Banks pp. A-1–A-2",
+          "Browning et al. pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian logarithms make both the frozen inverse and nearby records algebraic. The single-snapshot Gaussian record imposes unisolvency for quadratics; the transient three-monitor record uses full traces or three times per station.",
+          "The frozen three samples instead require intersecting q=ap+b with the quadratic constraint involving q²/p; global fibers change when κ changes sign."
+        ],
+        "reasoning": "The single-snapshot model can absorb v into the unknown center at that time, but the L-data are not simultaneous; there is no transformation of the given three observations to a quadratic spatial interpolant at a common time. The full-trace sampling operator likewise is not an equivalent description of the L-design.",
+        "searches": [
+          "Resultary searches for Gaussian/advection–diffusion identifiability, exact title and κ, and spelled-out L-design coordinates",
+          "Resultary a9167f8e630b, 46fe34c2d67d, 035dbf4c4ed9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact nearby records give a two-snapshot hypersphere obstruction, a single-snapshot full-tensor test, a two-versus-three monitor trace result and a four-reading steady-source inverse, respectively. No identical exact L-design claim appeared in the returned ranked results."
+        ],
+        "reasoning": "Neither a threshold for a different observation design nor a value for one set of station coordinates covers the continuous κ boundary and all physical-fiber alternatives. Distinct records are compared by hypotheses, not discarded by date.",
+        "searches": [
+          "Resultary exact-title/κ and three-coordinate L-design queries",
+          "Resultary a9167f8e630b, 46fe34c2d67d, 035dbf4c4ed9 and 1d30ea7555b9"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact joint mass/diffusion/positive-drift L-design boundary, fiber multiplicities and rectangular remedy for the specified Gaussian pulse. Neither classical Gaussian transport nor observation geometry affecting identifiability is itself novel.",
+      "residual_risks": [
+        "Unavailable inverse-source and monitoring-design texts, or general Gaussian interpolation or projected-cone inverse results, could contain closer coverage. Ranked search results and methodological comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different parameter and sampling model",
+          "evidence": "Advection-free source with unknown location, mass, diffusivity and release time; two snapshots at d+2 suitable sensors.",
+          "identifier_or_url": "Resultary 2026/11/2, a9167f8e630b",
+          "material_read": "RESULT.md Finding and Proof §1, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An exact hypersphere obstruction and minimal two-snapshot sensor design",
+          "trigger": "Exact sparse Gaussian identifiability"
+        },
+        {
+          "assessment": "Same Gaussian algebra, different design",
+          "evidence": "Known-age advection-free model with unknown center and diffusion tensor; quadratic unisolvency at one time.",
+          "identifier_or_url": "Resultary 2026/11/22, 46fe34c2d67d",
+          "material_read": "RESULT.md Finding and Proof §1, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp single-snapshot sensor geometry for an anisotropic Gaussian puff",
+          "trigger": "Three exact readings for Gaussian recovery in 1D"
+        },
+        {
+          "assessment": "Different observation operator and unknowns",
+          "evidence": "Unknown source location/time and decay as well as transport and mass; two full traces can alias and three sensors suffice, with finite version of three times per sensor under upstream assumptions.",
+          "identifier_or_url": "Resultary 2026/11/22, 035dbf4c4ed9",
+          "material_read": "RESULT.md Finding offset 0, Proof §§3–4 offset 4400",
+          "method": "Local Resultary mirror",
+          "title": "Two-versus-three-monitor identifiability and calibrated-mass aliases",
+          "trigger": "Closest exact advective pulse inverse"
+        },
+        {
+          "assessment": "Steady rather than transient",
+          "evidence": "Four samples under two known flow conditions for a steady source.",
+          "identifier_or_url": "Resultary 2026/11/22, 1d30ea7555b9",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Four one-sided concentrations separate diffusion, loss, drift and source strength",
+          "trigger": "Exact four-concentration recovery"
+        },
+        {
+          "assessment": "Forward problem with different boundary conditions",
+          "evidence": "The initial concentration is zero and inlet concentration at x=0 is prescribed; solution uses boundary conditions at x=0 and infinity.",
+          "identifier_or_url": "DOI 10.3133/pp411A; https://pubs.usgs.gov/pp/0411a/report.pdf",
+          "material_read": "Basic Equation and Solution, pp. A-1–A-2, offsets 4700–6855",
+          "method": "USGS OA report PDF",
+          "title": "A Solution of the Differential Equation of Longitudinal Dispersion in Porous Media",
+          "trigger": "Classical related forward kernel"
+        },
+        {
+          "assessment": "Methodological comparison only",
+          "evidence": "Differential-algebra method under partial observations, not an L-design sharp threshold in the passages read.",
+          "identifier_or_url": "DOI 10.1098/rspa.2023.0911",
+          "material_read": "Abstract and introduction, pp. 1–2, offsets about 4100–10098",
+          "method": "Oxford repository OA PDF",
+          "title": "Structural identifiability analysis of linear reaction–advection–diffusion processes in mathematical biology",
+          "trigger": "General identifiability methods for the same PDE class"
+        },
+        {
+          "assessment": "Full text not verified; abstract suggests a different inverse",
+          "evidence": "Abstract describes unknown source point and time-dependent intensity identified from time recordings, not solely unknown constant transport parameters.",
+          "identifier_or_url": "DOI 10.1088/0266-5611/21/3/020",
+          "material_read": "Abstract-level source description only",
+          "method": "Publisher access unavailable; identified author-uploaded copy and PDF returned 403",
+          "title": "Identification of a point source in a linear advection–dispersion–reaction equation: application to a pollution source problem",
+          "trigger": "Potentially related point-source recovery at two stations"
+        },
+        {
+          "assessment": "Comparison access-limited",
+          "evidence": "The landing-page title is relevant, but does not establish a parameter-level or geometry-level match.",
+          "identifier_or_url": "DOI 10.1016/j.advwatres.2020.103788",
+          "material_read": "Landing-page scope only",
+          "method": "Publisher landing and PDF routes attempted; no full text obtained",
+          "title": "Influence of the spatial and temporal monitoring design on the identification of an instantaneous pollutant release in a river",
+          "trigger": "Monitoring design for instantaneous release"
+        },
+        {
+          "assessment": "No full-text conclusion",
+          "evidence": "Description indicates a time-dependent source inverse; not evidence by itself of noncoverage.",
+          "identifier_or_url": "DOI 10.1088/0266-5611/29/3/035009",
+          "material_read": "Search description only",
+          "method": "Publisher route paywalled; purported alternate not verified as the same work",
+          "title": "Point source identification in nonlinear advection–diffusion",
+          "trigger": "Related point-source inverse literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two stations with one repeat measurement impose a natural sparse observation budget. The theorem decides whether noiseless global identification can even be attempted at that budget and separates unique, two-valued and continuous ambiguity, with an explicit fourth-reading remedy. The coupling of geometry and time, rather than just a local rank calculation or a count of unknowns, makes the exact boundary useful. It supplies neither noise conditioning nor field guidance beyond the ideal passive model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

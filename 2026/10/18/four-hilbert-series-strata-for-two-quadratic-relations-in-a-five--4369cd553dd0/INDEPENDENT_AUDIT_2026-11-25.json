@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:37:54.525018Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The wedge pairing kills quotient degree five for any nonzero relation. If minimal support is three, splitting off the complementary two-space gives ideal ranks 5 and 4 in degrees three and four. If support is at least four, a nonzero annihilator of the degree-four ideal would force both relations into v∧V and support at most three, so degree four vanishes. In support four the same annihilator argument applied inside the support gives all of Λ³U, with two extra independent dimensions from wedging the complement, hence cubic quotient dimension four. For support five some pencil member α has rank four, since two independent decomposable members have joint support at most four. Write the other generator as β+e∧x relative to the support U of α. The invertible wedge map α∧−:U→Λ³U eliminates the pure-U component, leaving image contributions from x∧U+kα+kβ in the component e∧Λ²U. The rank of that span drops from five to four exactly when a pencil member with nonzero e-component is decomposable; two such points cannot occur. This uses alternating rank and perfect pairings even in characteristic two, not division by 2 or a wedge-square test. Unique minimal support gives C3 and C4. For C5,1 the fixed decomposable point count is Möbius inversion on V/S(ω) with coefficients 1,−1,q and zero contribution from dimension zero; the per-point factor simplifies to q⁴(q+1)(q³−1). Independent Gaussian polynomial expansion gives C5,0/C5,1=q(q−1) and proves positivity together with e12,e34 as a support-four witness. Independent replay (python /workspace/branches/independent-reproductions/algebra_reproduction.py) computes actual wedge ranks for all 174251 binary two-subspaces and gives 1085,16926,52080,104160 in the claimed order. The binary experiment does not prove the uniform theorem; the displayed rank and counting arguments do. Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known two-generic-quadrics result for E5 is 1+5t+8t²+t³, the generic row of the frozen finding.",
+          "The inspected Boij–Lundqvist result treats generic ideals for even numbers of generators. The later split-pencil Resultary claim covers regular split pencils in characteristic two and even dimension 2r, excluding odd-dimensional singular summands."
+        ],
+        "reasoning": "One generic row gives neither the three non-generic rank strata nor their finite-field frequencies. Neither the even-dimensional generic result nor the split regular pencil result generalizes the odd-dimensional unrestricted finite-field problem.",
+        "searches": [
+          "Crispin Quiñonez–Lundqvist–Nenashev §1 on Fröberg–Löfwall Theorem 10.1, §2 on pencil classification",
+          "Boij–Lundqvist arXiv:2608.22823, abstract and §5",
+          "Resultary joint annihilator Hilbert spectra of split alternating pencils"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.08918v1",
+        "arXiv:2608.22823",
+        "doi:10.1007/s10623-004-4855-6",
+        "doi:10.1016/j.disc.2004.11.023",
+        "Resultary SCOPE-joint-annihilator-hilbert-spectra-of-split-alternating-pencils-i--f38d76d47671",
+        "Resultary SCOPE-modular-wedge-multiplication-rank-spectra-of-finite-field-bivect--bc501903d7e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full binary orbit information where available can be regrouped by common support and rational rank-two membership; the generic E5 observation independently covers the lowest cubic coefficient. Neither has a mechanism in its inspected statement that gives C5,1 over every Fq.",
+          "The finite-field proof here conditions on a rank-two point, excludes pencils supported on a proper subspace by lattice inversion and uses the fact that a full-support pencil has at most one such point. This joint condition is absent from the inspected generic and single-element statements."
+        ],
+        "reasoning": "Do not treat known rank forms or binary table recomputation as the originality. The case genuinely supported here is the characteristic-uniform combination of the wedge-rank classification and the four exact subspace counts. A broader finite-field normal-form table with stabilizer sizes could enable a separate derivation and remains a literature risk.",
+        "searches": [
+          "arXiv:1803.08918v1 §2, pencil hypotheses and generic statement",
+          "DOI:10.1007/s10623-004-4855-6 and DOI:10.1016/j.disc.2004.11.023, scope of binary external-flat classification",
+          "Resultary SCOPE-modular-wedge-multiplication-rank-spectra-of-finite-field-bivect--bc501903d7e7 and SCOPE-joint-annihilator-hilbert-spectra-of-split-alternating-pencils-i--f38d76d47671, findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A relation two-space is a projective line in P(Λ²V); decomposable members are precisely its Fq-points on Gr(2,V). Exterior quotient dimensions depend also on the common contraction support, not just on how many decomposable points are on the line.",
+          "For example, over F2 the line spanned by e12+e34 and e12+e13+e24 has no decomposable point but support four (each of its three Pfaffians on that support is 1), unlike the full-support external-line stratum.",
+          "The inspected generic exterior-algebra prior uses skew-symmetric pencil normal forms over algebraically closed characteristic not two."
+        ],
+        "reasoning": "Binary external-line statistics cannot be equated solely with the support-five zero-decomposable stratum. A pencil normal form over an algebraic closure does not by itself count rational lines or finite-field membership of the rank-drop locus. The independently reconstructed wedge step is needed to turn rank/drop data into all four Hilbert profiles.",
+        "searches": [
+          "Resultary: exterior algebra two quadrics in five generators, alternating pencils, joint annihilators",
+          "Crispin Quiñonez–Lundqvist–Nenashev arXiv:1803.08918v1 §2, skew-symmetric pencils",
+          "Shaw–Maks–Gordon DOI:10.1007/s10623-004-4855-6, external Grassmannian flats and lines"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two 2005 binary finite-geometry precedents address external flats, including projective lines; accessible material does not tabulate all four Hilbert/support counts.",
+          "The indexed single-bivector wedge rank census treats one element at a time. The closest split alternating pencil Hilbert census is later, even-dimensional and regular split, with different hypotheses."
+        ],
+        "reasoning": "The binary incidence precedent is real and its specialization is not claimed new. No inspected table gives the joint support and decomposable-point stratum distribution over arbitrary finite field orders. Marginal counts for one bivector cannot give the distribution on pencils.",
+        "searches": [
+          "Resultary: exact C5,1, four Hilbert strata for a two-space of bivectors on dimension five",
+          "Shaw–Maks–Gordon and Shaw–Gordon–Maks binary Grassmannian-flat and partial spread records"
+        ]
+      },
+      "rationale": "Pass for the all-prime-power distribution of the Hilbert series of relation subspaces, not for the generic series or binary incidence problem. The generic five-generator series is explicitly prior. The frozen record excludes the binary census from novelty; the exact extent of the inaccessible binary orbit tables was not independently established. The strongest inspected pencil and exterior-algebra prior does not supply the uniform count of subspaces in each of the four strata.",
+      "residual_risks": [
+        "The two 2005 binary papers could not be inspected in full: lawful publisher and institutional-repository access was unsuccessful. This is not evidence that the detailed binary census is absent; no binary novelty is awarded.",
+        "An earlier uniform finite-geometric or alternating-pencil census with sizes and support data could subsume the all-q distribution. The inspected results do not establish such coverage and no global priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly identifies earlier generic E5 Hilbert series; no uniform finite-field all-pencil enumeration in the passages examined",
+          "evidence": [
+            "Generic E5 series 1+5t+8t²+t³; canonical pencil form used over an algebraically closed field of characteristic not two."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1803.08918v1",
+          "material_read": "§1 at offset 2549 and §2 offsets about 6000–10398",
+          "method": "Lawful OA arXiv HTML, inspected primary text and its report of Fröberg–Löfwall Theorem 10.1",
+          "title": "On ideals generated by two generic quadratic forms in the exterior algebra",
+          "trigger": "Same number and degrees of relations; canonical pencil classification"
+        },
+        {
+          "assessment": "Generic even-number-of-generators theorem, not a five-generator finite-field stratum count",
+          "evidence": [
+            "The generic Hilbert-series result treats an even number of exterior generators."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.22823",
+          "material_read": "Abstract and §5 p. 14, OA offset about 46000",
+          "method": "Lawful OA primary-paper passages",
+          "title": "Boij–Lundqvist, arXiv:2608.22823",
+          "trigger": "Adjacent exact Hilbert series for two quadratic exterior relations"
+        },
+        {
+          "assessment": "Relevant external-line precedent; exact four-row implication from the full paper is not established by the abstract",
+          "evidence": [
+            "Binary external lines represent pencils with no decomposable point, a condition compatible with more than one support dimension."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-004-4855-6",
+          "material_read": "Accessible indexed abstract describing external k-flats for k=1,2,3; no full table accessed",
+          "method": "Primary abstract and lawful full-text retrieval attempts via publisher and institutional copy",
+          "title": "The Classification of Flats in PG(9,2) which are External to the Grassmannian G_{1,4,2}",
+          "trigger": "Same geometry in the binary case, possible direct orbit-table implication"
+        },
+        {
+          "assessment": "Additional binary precedent; no verdict on uninspected orbit tables",
+          "evidence": [
+            "The object is external flats relative to the binary Grassmannian; that domain does not yield all prime powers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2004.11.023",
+          "material_read": "Accessible abstract; full article not read",
+          "method": "Lawful indexed primary abstract and retrieval attempts",
+          "title": "Partial spreads in PG(4,2) and flats in PG(9,2) external to the Grassmannian",
+          "trigger": "Companion binary finite-geometric classification"
+        },
+        {
+          "assessment": "Later characteristic-two, even-dimensional split regular case",
+          "evidence": [
+            "The split regular 2r-dimensional hypothesis excludes odd-dimensional singular pencil summands."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-annihilator-hilbert-spectra-of-split-alternating-pencils-i--f38d76d47671/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3030",
+          "method": "Published record via local mirror",
+          "title": "Joint annihilator Hilbert spectra of split alternating pencils",
+          "trigger": "Closest indexed two-relation pencil Hilbert-spectrum claim"
+        },
+        {
+          "assessment": "Single bivectors rather than two-relation ideals",
+          "evidence": [
+            "A one-generator wedge spectrum does not determine the rank of the sum of the two wedge images of a pencil."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-modular-wedge-multiplication-rank-spectra-of-finite-field-bivect--bc501903d7e7/RESULT.md",
+          "material_read": "Finding, beginning at offset 0",
+          "method": "Published record via local mirror",
+          "title": "Modular wedge-multiplication rank spectra of finite-field bivectors",
+          "trigger": "Earlier finite-field wedge rank census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Hilbert series is a natural invariant of exterior ideals, and the first five-generator case exposes two distinct full-support behaviours which the generic series and binary line census alone do not explain uniformly. The complete distribution relates cubic syzygies to rank-two incidence, works in characteristic two, and gives exact proportions for arbitrary finite fields. It is not an orbit or Betti-table classification, and the worth of the result does not depend on treating the generic row or the q=2 recomputation as novel.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

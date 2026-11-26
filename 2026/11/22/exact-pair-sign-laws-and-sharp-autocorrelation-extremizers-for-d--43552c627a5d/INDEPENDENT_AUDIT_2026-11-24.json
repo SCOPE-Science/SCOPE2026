@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:02:04.656645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 5–42 and 50–89; VERIFICATION.md lines 21–31; CHECK.py inspected, not executed.",
+        "Independent finite replay: compute D_n from the defining binomial sum, reduce modulo 5, and compare signs to digit products for 0<=n<=128. Tally f(n),f(n+1) and sum f(n)f(n+h) directly for n<5^r, r=1,2,3, h=1,2,3. All 12 adjacent-pair cells and nine raw low-lag sums agreed."
+      ],
+      "rationale": "The central binomial Vandermonde identity gives the sum of squared four-part multinomials. Modulo five, the freshman's-dream digit factorization leaves only carry-free multinomials; their sum of squares factors across digits. The residues of D_0 through D_4 are (1,4,3,1,1), yielding weights (1,1,-1,1,1) and no zeros. Summing w_b w_(b+a mod 5) separately on no-carry and carry units b gives coefficient pairs (5,0),(0,1),(-1,2),(2,-1),(1,0). At lag one this gives raw sum 1 for every complete block [0,5^r); both marginal sums are 3^r because the right endpoint f(5^r) equals f(0)=1. The four indicator expansions give the exact cells. For h>=2 all nonzero terms of the correlation recursion use smaller lags; induction from h=0 and h=1 gives rational limits and O_h(5^(-r)) normalized complete-block errors, with the starting r=0 absorbed in the constant. An aligned block differs from an initial block at no more than h carry-boundary locations, so the arbitrary-cutoff error is O_h(log(2N)) on the RAW sum, i.e. O_h(log(2N)/N) on the average. Single-sign sums are bounded by the geometric sum of 3^r block contributions, and shifting by fixed h does not affect their zero limiting mean. Finally, for q>=1 the nonzero units digits map the interval [-1/5,2/5] strictly inside itself, while trailing zeros preserve the value. Removing the trailing zeros leaves only one-digit 2 and 3 as equality seeds. This checks the endpoints, normalizations and the all-shift quantifier.",
+      "residual_risks": [
+        "Finite computation is corroboration only; no formal proof certification. The arbitrary-cutoff constant is for fixed h, not uniform in growing h."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rowland–Yassawi provide general automatic congruence and Lucas methods; Osburn–Sahu establish Domb supercongruences. The inspected Thue–Morse treatment is binary, and the Baake–Grimm DOI text was inaccessible."
+        ],
+        "reasoning": "The digit law follows from general Lucas techniques, and general autocorrelation machinery may supply existence or recursions. The evidence did not supply a general sharp equality theorem specializing to these two extremizer families and exact cells.",
+        "searches": [
+          "arXiv:1310.8635; arXiv:1201.6195v2; arXiv:2209.07102v2; doi:10.1088/1751-8113/41/42/422001."
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact records 60b755902f8c, d1c4b8a11bf4, fa9f646a7cb7; arXiv:2209.07102v2, 1310.8635, 1201.6195v2; Baake–Grimm DOI access attempt."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Domb law fixes the weight vector; determining the signed sums for each carry and exploiting their invariant strict subinterval are additional steps. The Domb upper extremizer 3·5^m is not the Franel 4·5^m."
+        ],
+        "reasoning": "Credit the common method, not the claimed sharp Domb consequences. They require the specific signed carry cancellations, the lag-one raw bias, and a global strictness argument; the inspected statements do not mechanically imply them.",
+        "searches": [
+          "Combine the exact Domb Lucas law of 60b755902f8c with arXiv:1310.8635 and compare the exact results of d1c4b8a11bf4 and fa9f646a7cb7."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baake–Coons pp. 1–3 treats the binary Thue–Morse weight t_n=(-1)^s_2(n); the frozen claim is equivalently a five-multiplicative sign sequence with only digit 2 negative.",
+          "Resultary d1c4b8a11bf4 treats Franel signs with zeros and a 4^r active-index normalization; its extrema are ±1/4 with different upper equality family."
+        ],
+        "reasoning": "A common digit/carry representation is not an equivalent object or result. Neither inspected weight nor the Franel support/normalization can be identified with the everywhere nonzero Domb sequence.",
+        "searches": [
+          "Local Resultary catalogue: Domb modulo five quadratic-character pair laws and autocorrelation; primary literature: generalized Morse / base-five digit-weight correlations; arXiv:2209.07102v2."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "60b755902f8c gives the same Domb nonvanishing and digit product but a joint one-point Apéry–Domb residue census, including conditional Domb counts. fa9f646a7cb7 gives an exact adjacent table for central trinomial residues, weights (1,1,3,2,4)."
+        ],
+        "reasoning": "One-point counts do not encode the order or carry in an adjacent pair. The trinomial and Franel outputs are about different sequences. The same-day date gives no priority ordering.",
+        "searches": [
+          "Local Resultary records 60b755902f8c, d1c4b8a11bf4 and fa9f646a7cb7, exact Finding passages."
+        ]
+      },
+      "rationale": "Best of current knowledge, credit the digit/Lucas law and general carry-correlation method as known ingredients; the supported distinct result is the explicit Domb sign table and sharp Domb-specific autocorrelation classification with arbitrary-cutoff control. Inspected analogues use different digit weights or observables and do not yield that specific arithmetic and extremal conclusion by specialization alone. No historical-first claim is made.",
+      "residual_risks": [
+        "An unnoticed equivalent digit-weight table or general Morse autocorrelation calculation could predate the Domb formulation. Baake–Grimm DOI passage unavailable on the attempted route. The comparison is bounded, not an exhaustive exclusion or priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Lucas product, nonvanishing and one-point residue census; not two times of Domb signs",
+          "evidence": "Digit product D_n ≡ product D_(n_i) and base-five Apéry–Domb joint table.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-joint-residue-spectrum-of-ap-ry-and-domb-numbers-modulo-fi--60b755902f8c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact joint residue spectrum of Apéry and Domb numbers modulo five",
+          "trigger": "Same Domb sequence and modulus"
+        },
+        {
+          "assessment": "Different sequence with zero weights and different normalization and extrema",
+          "evidence": "Franel extrema ±1/4 and equality families 2·5^m and 4·5^m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-complete-signed-correlation-spectrum-for-franel-numbers-modulo--d1c4b8a11bf4/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A complete signed correlation spectrum for Franel numbers modulo five",
+          "trigger": "Same modulus and sharp all-shift theorem form"
+        },
+        {
+          "assessment": "Different sequence and observable",
+          "evidence": "Central trinomial residue ratios and adjacent cells, with digit weights (1,1,3,2,4).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-lag-two-point-laws-and-exact-logarithmic-bias-for-central-tr--fa9f646a7cb7/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "All-lag two-point laws and exact logarithmic bias for central trinomial residues",
+          "trigger": "Exact adjacent table and all-lag catalogue analogue"
+        },
+        {
+          "assessment": "Methodological analogue, not the five-weight Domb law",
+          "evidence": "Sequence defined by parity of the binary digit sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.07102v2",
+          "material_read": "pp. 1–3, offsets 0, 4567 and 7153",
+          "method": "OA primary PDF passages",
+          "title": "Correlations of the Thue–Morse Sequence",
+          "trigger": "Possible formulation as digit-multiplicative correlations"
+        },
+        {
+          "assessment": "General congruence method; not evidence of an exact correlation or extremizer theorem",
+          "evidence": "Automata for diagonals modulo prime powers and Lucas-product context.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "Abstract at offset 325",
+          "method": "OA original text",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "General automatic/Lucas coverage"
+        },
+        {
+          "assessment": "Supercongruence problem, distinct from sign correlations",
+          "evidence": "Statements concern congruences of generalized Domb numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.6195v2",
+          "material_read": "p. 1, offset 245",
+          "method": "OA primary PDF passage",
+          "title": "A supercongruence for generalized Domb numbers",
+          "trigger": "Same arithmetic sequence in primary literature"
+        },
+        {
+          "assessment": "Unavailable passage is not negative evidence",
+          "evidence": "No claim about the unread full text.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/41/42/422001",
+          "material_read": "No full text (HTTP 403 on DOI route)",
+          "method": "Lawful OA lookup",
+          "title": "The singular continuous diffraction measure of the Thue–Morse chain",
+          "trigger": "Cited autocorrelation method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 12–42, 64–89; Resultary 60b755902f8c and d1c4b8a11bf4."
+      ],
+      "rationale": "The quadratic character of the classical Domb sequence at this nonvanishing prime gives a natural binary observable. The complete two-point law distinguishes asymptotic nearest-neighbor independence with an exact finite-block bias from unique strong positive and negative correlations at other lags. A researcher studying digit correlations or testing arithmetic independence can use the full lag recursion, extrema and cutoff estimate without recreating a carry analysis. The value is the complete sharp spectrum, not recomputing a residue census or selecting a single tiny instance.",
+      "residual_risks": [
+        "No claim of comparable behavior over other primes or for higher-point correlations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

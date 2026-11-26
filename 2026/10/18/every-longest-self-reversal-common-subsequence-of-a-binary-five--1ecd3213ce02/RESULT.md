@@ -31,6 +31,8 @@ Write \(\operatorname{LCS}(u,v)\) for the maximum common subsequence length. For
 \]
 For each pattern the unique longest word is therefore palindromic. For completeness, a common two-run word \(0^i1^j\) cannot be globally optimal. Its occurrence in \(w^{\mathrm R}\) forces \(i\le c\) and \(j\le b\). If one occurrence in \(w\) takes its ones from the \(b\)-run, a zero may be appended in both inputs. Otherwise an occurrence takes its ones from the final \(d\)-run, giving \(j\le d\); the common palindrome \(1^j0^i1^j\) is strictly longer. For a common word \(1^i0^j\), its occurrence in \(w\) forces \(i\le b\) and \(j\le c\). If one occurrence in \(w^{\mathrm R}\) uses the first zero-run (length \(c\)), a one can be appended in both inputs. Otherwise an occurrence uses the final zero-run (length \(a\)), giving \(j\le a\); the common palindrome \(0^j1^i0^j\) is strictly longer. Thus an optimum cannot have two runs; one-run words are already palindromic.
 
+The preceding two-run alternatives are exhaustive even for embeddings that skip a middle run. For \(0^i1^j\), if any ones in an embedding in \(w\) occur in the \(b\)-run, the initial zeros occur in the \(a\)-run and all \(j\) ones can be taken from the \(b\)-run because \(j\le b\). If no ones are taken from it, all are in the \(d\)-run. Likewise, for \(1^i0^j\), if any zeros in an embedding in \(w^{\mathrm R}\) occur in the \(c\)-run, the initial ones occur in the \(d\)-run and all \(j\) zeros can be taken from the \(c\)-run because \(j\le c\); otherwise all are in the \(a\)-run.
+
 **Five input runs.** Write
 \[
 w=0^a1^b0^c1^d0^e,\qquad
@@ -44,7 +46,9 @@ Every common subsequence having an even number of runs (two or four) can be exte
 
 The three-run pattern \(1^i0^j1^k\) necessarily uses the two one-runs and the middle zero-run in each input. It satisfies \(i,k\le r\) and \(j\le c\), so its unique longest word is the palindrome \(1^r0^c1^r\).
 
-It remains to analyze \(0^i1^j0^k\). In \(w\), its one-run is embedded either in the earlier one-run of length \(b\) (case E) or the later one-run of length \(d\) (case L). The same earlier/later choice applies independently in \(w^{\mathrm R}\). In an E embedding of \(w\), \(i\le a\), \(j\le b\), and \(k\le c+e\). In an L embedding of \(w\), \(i\le a+c\), \(j\le d\), and \(k\le e\). For \(w^{\mathrm R}\), exchange \(a\) with \(e\) and \(b\) with \(d\). Taking the intersections for the four possible pairs of embedding choices yields:
+It remains to analyze \(0^i1^j0^k\). If \(j>\max(b,d)\), both embeddings must use both one-runs. The initial and final zeros must therefore come from the outer zero-runs, giving \(i,k\le p\) and \(j\le b+d\). These bounds are attained together by the palindrome \(0^p1^{b+d}0^p\), which is the unique longest word in this case.
+
+If \(j\le\max(b,d)\), any embedding using both one-runs can be replaced by an embedding using only a one-run of length at least \(j\): keep the initially and finally selected zeros in the outer zero-runs and place all the ones in the chosen one-run. Thus in each input we can use an embedding using only the earlier one-run (case E) or only the later one-run (case L). In an E embedding of \(w\), \(i\le a\), \(j\le b\), and \(k\le c+e\). In an L embedding of \(w\), \(i\le a+c\), \(j\le d\), and \(k\le e\). For \(w^{\mathrm R}\), exchange \(a\) with \(e\) and \(b\) with \(d\). Taking the intersections for the four possible pairs of embedding choices yields:
 
 * E/E: \(i\le p\), \(j\le r\), \(k\le c+p\). Hence \(i+j+k\le2p+c+r<|P|\).
 * L/L: \(i\le c+p\), \(j\le r\), \(k\le p\). Again \(i+j+k<|P|\).
@@ -64,7 +68,7 @@ Thus no nonpalindromic three-run word can be globally longest. Together with the
 | 5 | `0101001` | 5 | Yes |
 | 6 | `0101011` | 5 | No |
 
-Complementation supplies exactly the four displayed exceptional words, establishing both minimal length and the full length-seven classification. Reversal exchanges the run-index-two and run-index-five representatives and exchanges the other two by complementation, so these four form one symmetry orbit. \(\square\)
+Complementation supplies exactly the four displayed exceptional words, establishing both minimal length and the full length-seven classification. Reversal followed by complementation exchanges the run-index-two and run-index-five representatives, so the four exceptional words form one orbit under the two symmetries. \(\square\)
 
 ## Verification
 
@@ -78,7 +82,7 @@ Brodal, Fagerberg, and Rysgaard (ESA 2024) prove that longest-common-subsequence
 
 ## Limitations
 
-The theorem is restricted to the binary alphabet and a maximum of five runs; six or more runs may or may not have nonpalindromic longest common subsequences. It does not classify every longer counterexample, every optimal alignment, or the number of optimal words in general. The originality assessment rests on examined primary sources and searched research records; it cannot exclude an equivalent unindexed statement. The verification programs check finite instances and are not substitutes for the infinite combinatorial proof. Independent assessment has not been performed.
+The theorem is restricted to the binary alphabet and a maximum of five runs; six or more runs may or may not have nonpalindromic longest common subsequences. It does not classify every longer counterexample, every optimal alignment, or the number of optimal words in general. The comparison with prior work cannot exclude an equivalent unindexed statement. The verification program checks finite instances and is not a substitute for the infinite combinatorial proof.
 
 ## References
 

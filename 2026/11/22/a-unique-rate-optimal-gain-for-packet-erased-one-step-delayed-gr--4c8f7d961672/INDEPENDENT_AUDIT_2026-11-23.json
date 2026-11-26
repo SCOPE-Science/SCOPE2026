@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:57:21.823722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Branch averaging gives the stated three-moment lift and determinant cubic. The positive-map argument is needed because the moment matrix in entry coordinates has negative entries: for a rank-one input with both coordinates nonzero the two images are independent, whereas an input on either axis first reaches a spanning case within three steps. Positive definiteness then persists because the delivered matrix is invertible. Primitivity gives a simple dominant eigenvalue and strictly positive left and right eigenmatrices; a deterministic nonzero initialization has positive projection and the first square moment observes it. For h small the simple leading root is 1−2ph+O(h²). For h>h_c, F_p(1,h)<0 guarantees a real root greater than one, and there is no other positive h below h_c where the rate could equal one. Continuity forces Λ=1 at h_c, where the square moment tends to a positive constant for each nonzero initialization; the phrase instability at the boundary means failure of asymptotic decay, not divergence. F_p(1/4,h)<0 similarly forces Λ>1/4. At h≤1/4, F_h/p at r=Λ exceeds 3(1−p)/16, so the rate strictly decreases there. The exact stationary resultant is 4h³p²Q_p(h); strict concavity and the signs at 0, 1/4 and h_c isolate one candidate in (1/4,h_c). The rate derivative is positive at h_c because F_h(1,h_c)=p(h_c−4)<0 and F_r>0 at the simple leading root. Thus there is exactly one minimizer and gains outside the stable interval cannot match it. Both Q_h and Q_p (partial in p) are negative on the selected root, giving strict decrease of the optimal gain with p. At p=0 the only limiting Q-root in [1/4,2] is 1, a simple root, and at p=1 Q becomes −16(h−1/4)^2. Substitution yields h_*=1−2p+5p²+O(p³) and Λ_*=1−p+p²+O(p³). Applying the strictly positive left Perron functional to the erasure-only fixed direction (1,1)(1,1)ᵀ and its nonzero delivered image gives Λ>1−p, the exact best fresh-erasure rate. The frozen verify.py and VERIFICATION.md were inspected, not executed; the independent symbolic check confirms the resultant and signs and independently reproduces the p=1/2 rates, while finite spectral minimization is not the quantified proof. The frozen enumeration loops over 135 initialization/gain/probability/path-length combinations and asserts the top moment in each; the printed 405 count should not be interpreted as 405 separate moment assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General iid random-matrix second-moment theory gives a spectral-radius criterion, but the inspected theorem supplies no root selection or rate minimizer for this gain family.",
+          "The delay analyses treat additive-noise delayed gradients or adaptive schedules; the control analysis concerns input-output stability/stabilizability, not the same scalar constant-gain rate objective.",
+          "The plausible Xu et al. paper could not be read in full text on available routes."
+        ],
+        "reasoning": "Knowing how to compute a rate at a given gain, or when that rate is less than one, is not a theorem for the optimum over h or its branch dependence. General moment lifting and the known stability ceiling are credited.",
+        "searches": [
+          "ACC 2014 stochastic delays, §III",
+          "Arjevani–Shamir–Srebro PMLR 117, §1",
+          "Wu et al. PMLR 162, abstract and §1",
+          "Su–Li–Lu arXiv:2108.12795",
+          "Xu et al. DOI 10.1137/22M1496062"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1b8d6aef9d3a, 11f2caf45cc5, 742359c7b394, 31cc3019551c, f5af2b949bb8, db9fbbc3513e and exact self-match 4c8f7d961672",
+        "Gomez et al. ACC 2014 §III",
+        "Su et al. arXiv:2108.12795v1 abstract and §1",
+        "Arjevani et al. PMLR 117 §1",
+        "Wu et al. PMLR 162 abstract and §1",
+        "Xu et al. DOI 10.1137/22M1496062 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the fresh-or-stale and erased-or-stale recursions the same r=1 frontier is compatible with different moment matrices and different optimized rates (at p=1/2 about 0.309017 and 0.630225 respectively).",
+          "The finite-horizon erased heavy-ball optimum encompasses a fresh-gradient baseline, but cannot imply the delayed covariance stationary resultant and exclusion of its lower candidate root."
+        ],
+        "reasoning": "The shared boundary does not determine even the rate at an interior gain; a stationary resultant by itself would not prove uniqueness or optimality on the correct Perron branch. Those steps and the reliability-dependent branch are the distinct mathematical work.",
+        "searches": [
+          "Resultary 1b8d6aef9d3a, Finding and Assumptions",
+          "Resultary 11f2caf45cc5, Finding and optimizer proof",
+          "Gomez et al. §III and Su et al. §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the fresh-or-stale recursion with stale probability p, loss-free fresh updating gives moment entries M₁₁=(1−p)(1−h)^2+p and M₂₁=(1−p)(1−h)+p. Both entries are exactly 1 under erased-or-stale updating. The two p=1/2 optima and rates differ in direct spectral checks.",
+          "Rescaling the erased fresh gradient by 1/p can be absorbed into a gain, but the heavy-ball record's gradient reads X_k rather than X_{k−1}, and its optimizer is finite horizon from zero velocity."
+        ],
+        "reasoning": "The transformation q=p and z=h maps the stability inequalities, not the full transfers or objectives. Neither changing gain convention nor adding an unrelated noise term equates a missing update with a fresh update.",
+        "searches": [
+          "Resultary 1b8d6aef9d3a, 11f2caf45cc5 and exact record 4c8f7d961672",
+          "Gomez–Qin–Orosz–Murray ACC 2014, §III",
+          "Su–Li–Lu arXiv:2108.12795, abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue optimizer match 4c8f7d961672 is the assigned finding. The closest distinct exact frontiers and baselines include qz²+z<2 in fresh-or-stale descent and the fresh-erasure optimum factor 1−p.",
+          "The distinct same-day two-attempt Richardson result treats robust finite-horizon error over an SPD spectrum, and the momentum crossover treats stability under periodic versus Bernoulli delivery. Neither is a table of gains for the erased-or-stale one-step-lag asymptotic rate."
+        ],
+        "reasoning": "A matching scalar stability threshold or the standard fresh optimum is a genuine overlap but not a matching exact optimizer polynomial, root interval, or performance theorem. The checked table-like and explicit results differ in recurrence or objective.",
+        "searches": [
+          "Resultary 4c8f7d961672, 1b8d6aef9d3a, 11f2caf45cc5, 742359c7b394 and 31cc3019551c",
+          "Resultary f5af2b949bb8 and db9fbbc3513e"
+        ]
+      },
+      "rationale": "The supported contribution is the global mean-square rate optimizer for the precise erased-or-one-step-stale scalar rule, with its reliability dependence and attainable rate gap. The stability boundary formula, covariance lifting as a method, and optimal no-delay Bernoulli rate are prior or elementary baselines, not novelty claims. Same-boundary, fresh-or-stale and other dropout models do not share the objective as a function of gain.",
+      "residual_risks": [
+        "A scalar specialization in random-channel control literature may give the same optimal gain. Xu et al. remains a specific unverified comparator; inaccessible text is not contrary evidence.",
+        "The results do not address rescaled/adaptive gains, physical throughput, almost-sure rates or multidimensional spectra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algebraic frontier, different rule and no matching erased-or-stale optimizer",
+          "evidence": "X_{n+1}=X_n−zX_{n−D_n} always updates and D_n selects fresh or stale; frontier qz²+z<2",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-quadratic-energy-and-the-sharp-mean-square-frontier-for-be--1b8d6aef9d3a",
+          "material_read": "RESULT.md Finding/Assumptions, offset 39",
+          "method": "Local catalogue mirror",
+          "title": "Exact quadratic energy and the sharp mean-square frontier for Bernoulli stale-gradient descent",
+          "trigger": "Exact matching stability inequality; potential equivalent recursion"
+        },
+        {
+          "assessment": "Different momentum and delay structure and different optimization horizon",
+          "evidence": "From zero initial velocity the finite-horizon minimizer uses no momentum, rescaled gain p, and factor (1−p)^n",
+          "identifier_or_url": "2026/11/2/SCOPE-a-three-objective-conflict-for-bernoulli-erased-heavy-ball-optim--11f2caf45cc5",
+          "material_read": "RESULT.md Finding offset 39 and optimizer proof offset 7431",
+          "method": "Local catalogue mirror",
+          "title": "A three-objective conflict for Bernoulli-erased heavy-ball optimization",
+          "trigger": "Erasure optimizer in a two-state gradient scheme"
+        },
+        {
+          "assessment": "Finite-horizon robust optimization over a spectrum, not this asymptotic fixed-gain delayed rate",
+          "evidence": "Two attempts and an SPD spectral interval",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-delivery-probability-bifurcation-for-two-step-richardson--742359c7b394",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary catalogue lookup",
+          "title": "A sharp delivery-probability bifurcation for two-step Richardson",
+          "trigger": "Distinct same-day delivery-probability gain classification"
+        },
+        {
+          "assessment": "Stability-ceiling comparison in no-delay heavy ball",
+          "evidence": "Periodic and Bernoulli delivery compared with raw momentum and fresh gradients",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-momentum-crossover-between-periodic-and-bernoulli-gradie--31cc3019551c",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary catalogue lookup",
+          "title": "A sharp momentum crossover between periodic and Bernoulli gradient delivery",
+          "trigger": "Distinct same-day delivery/crossover result"
+        },
+        {
+          "assessment": "General iid lifted-moment machinery; no matching gain optimizer in the inspected passage",
+          "evidence": "Second-moment dynamics for independent random matrices",
+          "identifier_or_url": "https://websites.umich.edu/~orosz/articles/ACC_2014_paper2.pdf",
+          "material_read": "§III, PDF p. 2, OA offset 9444",
+          "method": "Bounded lawful OA PDF passage",
+          "title": "Exact Stability Analysis of Discrete-Time Linear Systems with Stochastic Delays",
+          "trigger": "Potential general theorem subsuming the rate result"
+        },
+        {
+          "assessment": "Different input-output stability/control objective; no asserted covering gain formula",
+          "evidence": "Random-channel delay and output-feedback stabilizability",
+          "identifier_or_url": "https://arxiv.org/abs/2108.12795",
+          "material_read": "v1 abstract p. 1 offset 2235; §1 p. 3 offset 10799",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Mean-Square Input-Output Stability and Stabilizability of a Networked Control System with Random Channel Induced Delays",
+          "trigger": "Closest channel-delay control paper"
+        },
+        {
+          "assessment": "Consistent delay with deterministic or additive-noise gradients, not Bernoulli-erased updates",
+          "evidence": "The update always uses a delayed gradient, with an additive stochastic term in the noisy setting",
+          "identifier_or_url": "https://proceedings.mlr.press/v117/arjevani20a/arjevani20a.pdf",
+          "material_read": "§1, PDF p. 2, OA offset 5977",
+          "method": "Bounded lawful OA PDF passage",
+          "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+          "trigger": "Delayed quadratic optimization problem"
+        },
+        {
+          "assessment": "Adaptive asynchronous method rather than the given fixed-gain scalar law",
+          "evidence": "Online delay tracking to select step sizes",
+          "identifier_or_url": "https://proceedings.mlr.press/v162/wu22g/wu22g.pdf",
+          "material_read": "Abstract and §1, pp. 1–2, offsets 0 and 10564",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Delay-Adaptive Step-sizes for Asynchronous Learning",
+          "trigger": "Possible stronger delay-rate tuning result"
+        },
+        {
+          "assessment": "Actual model and theorem not verified; no claim of exclusion from title or access failure",
+          "evidence": "No usable full-text passage",
+          "identifier_or_url": "https://doi.org/10.1137/22M1496062",
+          "material_read": "No primary full-text passage",
+          "method": "Lawful DOI attempts direct and VPN returned 403; targeted lookup found no accessible copy",
+          "title": "Stabilization of Discrete-Time Systems with Random Delays and Packet Drops: A Predictor-Like Controller",
+          "trigger": "Plausibly related random delay/drop control"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A stability ceiling does not answer how aggressively to tune the gain. This exact unique optimum, including its strict movement as delivery improves and its separation from the best fresh-packet rate, gives a concrete scalar benchmark for delay-and-erasure algorithms. The result is a complete natural optimization problem in the stipulated rate metric rather than a finite grid or reuse of the known ceiling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

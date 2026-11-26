@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:06:42.251063Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–48",
+        "Frozen VERIFICATION.md, line 21, and verify.py, lines 22–103 (inspected, not executed)"
+      ],
+      "rationale": "Fix the uniformizer. If s is the minimum entry valuation of a nonzero traceless X, multiplication by pi^s identifies R/(pi^(m-s)) with (pi^s), using ann(pi^s)=(pi^(m-s)), so there is a unique primitive traceless preimage Y at length ell=m-s. Reduction of the inputs and multiplication by pi^s identify the two additive images. A primitive 2-by-2 matrix has a unit pivot, and hence elementary divisors 1 and its determinant up to units; writing v=min(ell,val(det Y)), its image exponent is 2ell-v. Cayley–Hamilton in every characteristic tests X^2=0 by pi^(2s) det(lift Y)=0, i.e. v>=m-2s, since m-2s<=ell and reduction to length ell preserves that test (also when m-2s<=0). The criterion is exactly 2ell-v<=m. For the enumeration, a^2+bc=0 over F_q has q^2 roots (q(q-1) for b nonzero, q for b=0), and at every nonzero root one of b,c is nonzero, giving q^2 lifts for each prescribed next digit, regardless of characteristic. Grouping valuation v=ell, v=0, and 0<v<ell gives, respectively, (q^2-1)T/(1-q^2T), (q-1)q^2T^2/(1-q^3T^2), and (q^2-1)(q-1)q^2T^3/[(1-q^2T)(1-q^3T^2)]; with the zero matrix these sum to the stated rational function. At exponent r every contributing length is at most r, giving stabilization and the field boundary m=1. The proof is exact and does not rely on the bundled finite verifier.",
+      "residual_risks": [
+        "The coordinate map depends on the chosen uniformizer; only the resulting sizes are invariant under that choice."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carnevale–Shechter–Voll enumerate primitive traceless matrix images by elementary divisors over compact DVRs, not a square-zero locus at fixed ambient length.",
+          "Brawley’s abstract promises Drazin-index counts including some finite rings; full text could not be retrieved lawfully and was not used to rule out overlap."
+        ],
+        "reasoning": "A total count by nilpotence or image length generally does not isolate simultaneous trace-zero and fixed image size; square-zero matrices over rings need not be traceless (e.g. diag(2,0) modulo 4). The known primitive census and ordinary trace-zero identity together enable, but do not themselves state, the map.",
+        "searches": [
+          "arXiv:1709.02717, Definition 1.1, Theorem 1.2 and §2.2",
+          "J. V. Brawley, Counting Matrices by Drazin Index, DOI:10.1137/0603003"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1709.02717",
+        "Resultary 8ff282635ea5, 455c0bf11aaa, 23a796dc387a, 5538837448c5",
+        "DOI:10.1137/0603003 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior DVR result grades primitive matrices by their additive image sizes; it does not supply X=pi^(m-ell) lift(Y) or prove that the quadratic constraint is equivalent to the exponent cutoff at arbitrary ambient length."
+        ],
+        "reasoning": "Equality of generating functions is insufficient for the object-level map. The additional chain-ring reduction, determinant constraint and image identification are the exact bounded transfer; novelty is not claimed for its standard proof ingredients.",
+        "searches": [
+          "arXiv:1709.02717, Definition 1.1 and §2.2",
+          "Resultary findings 8ff282635ea5 and 455c0bf11aaa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later Resultary square-zero image censuses at 8ff282635ea5 and 455c0bf11aaa count unrestricted square-zero matrices; their valuation organization is close, but not a trace-zero primitive quotient correspondence.",
+          "Same-day records 23a796dc387a and 5538837448c5 treat nonhomogeneous finite abelian p-groups, not free rank-two trace-zero endomorphisms over a chain ring."
+        ],
+        "reasoning": "Truncated valuation or image length is the relevant equivalent parameter, not residue-field rank. Counts for the unrestricted family and for the nonhomogeneous modules do not identify the fibers in question. No priority is inferred from same-day dating.",
+        "searches": [
+          "Resultary search: square-zero traceless 2-by-2 chain-ring matrices, primitive valuation strata and image exponent",
+          "Primary-literature query: ‘square-zero’ traceless matrices finite chain rings uniformizer primitive matrices valuation scaling bijection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 1.3 gives exactly (1-T)(1-q^2T^2)/[(1-q^2T)(1-q^3T^2)] for the primitive traceless input series.",
+          "The later unrestricted square-zero enumerators include a different population in mixed characteristic."
+        ],
+        "reasoning": "The exact series match is prior coverage of the coefficients as a primitive image census, not a new series; it becomes a square-zero census by a proved identification, not by reading a matching numerical table.",
+        "searches": [
+          "arXiv:1709.02717, Example 1.3",
+          "Resultary square-zero image-length census records 8ff282635ea5 and 455c0bf11aaa"
+        ]
+      },
+      "rationale": "The primitive image-zeta rational function is already known and is explicitly not presented as new. The supported distinct result is the uniformizer-relative bijection, with exact preservation of image size, that identifies the finite square-zero trace-zero stratum with a disjoint union of bounded primitive image strata. No statement giving that transfer was identified in the inspected sources.",
+      "residual_risks": [
+        "An earlier equivalent valuation-scaling correspondence may be named differently.",
+        "Full text of Brawley’s Drazin-index paper was unavailable; the nilpotent counting literature, including Bollman–Ramírez on nilpotent matrices over Z_m, was not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the primitive series, not the square-zero bridge in the inspected passages",
+          "evidence": "Example 1.3 gives the exact expression with T=q^(-s); Definition 1.1 sums additive image sizes over primitive traceless matrices at all levels.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.02717",
+          "material_read": "Definition 1.1 (p. 1), Theorem 1.2 and Example 1.3 (p. 2), §2.2 (p. 6)",
+          "method": "OA PDF passage inspection",
+          "title": "Enumerating traceless matrices over compact discrete valuation rings",
+          "trigger": "Identical rational function and primitive image grading"
+        },
+        {
+          "assessment": "Later comparisons; unrestricted locus, not the claimed trace-zero bridge",
+          "evidence": "They grade all square-zero matrices, without using the traceless primitive zeta strata in this correspondence.",
+          "identifier_or_url": "Resultary 8ff282635ea5 (2026/10/26); 455c0bf11aaa (2026/11/02)",
+          "material_read": "Findings and the valuation-shell description",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "A uniform image-length census for square-zero two-by-two matrices over finite chain rings; Complete image-length spectra for square-zero matrices over finite chain rings",
+          "trigger": "Same square-zero matrix size, ring class and invariant"
+        },
+        {
+          "assessment": "Unresolved wider enumeration risk, not evidence for or against exact coverage",
+          "evidence": "Abstract mentions finite fields and rings including Z/mZ, without the claimed rank-preserving map.",
+          "identifier_or_url": "https://doi.org/10.1137/0603003",
+          "material_read": "Available abstract only",
+          "method": "Primary literature search; SIAM source request unsuccessful and no lawful OA alternative located",
+          "title": "Counting Matrices by Drazin Index",
+          "trigger": "Plausible earlier finite-ring nilpotent enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–20 and 26–48",
+        "arXiv:1709.02717, Definition 1.1 and Example 1.3"
+      ],
+      "rationale": "The exact bijection identifies which primitive finite-ring data survive a nonlinear square-zero constraint at each ambient length, explains the landscape of image sizes and stabilization of every fixed-size fiber, and makes an existing explicit zeta series usable in both equal and mixed characteristic. It is more informative than a fresh computation of known coefficients or a coincidence of closed forms.",
+      "residual_risks": [
+        "The transfer is confined to traceless 2-by-2 matrices over chain rings and does not settle higher-rank or nonprincipal cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

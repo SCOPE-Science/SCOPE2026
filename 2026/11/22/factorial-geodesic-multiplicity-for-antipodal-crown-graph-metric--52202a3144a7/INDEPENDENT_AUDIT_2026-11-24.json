@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:34:47.305763Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For vertices, two omitted indices leave their same-shore vertices indistinguishable, and a chosen landmark distinguishes either endpoint of its own index from every other index. For edges a coordinate equals 1 away from both endpoint indices, 0 at a chosen endpoint and 2 at a chosen opposite vertex of an endpoint index. This decodes the side and location of the detected endpoints and recovers a missing endpoint at the sole omitted index. Conversely if i,j are omitted, the edges a_i b_t and a_j b_t for a third index t are indistinguishable. Thus the minimum basis family is the same for both metrics. A slide necessarily sends a token to the unique vacant index and flips its side; every such move is legal. With m=n-1, length equals m+2d for d decreasing moves. The initial b₀ must be removed, and an a₀ must be separately installed before the last move removes it to finish on the B shore. These are two separate decreases. With exactly two, the initial strictly increasing excursion visits distinct nonzero indices and is closed by the first decrease removing b₀. The next move must place a₀: otherwise b₀ is reinstalled and would require another decrease. If the excursion visits t+1 nonzero indices, it leaves t B landmarks; 1≤t≤m-1 is necessary and sufficient. The second decrease can use any one of those t B landmarks. Thereafter only increasing moves are possible: the remaining m-t A landmarks at nonzero indices can be visited in any order, followed by the forced slide from 0. This yields (m)_(t+1)·t·(m-t)!=m!t(m-t) distinct labelled paths and realizes the lower bound m+4. The sum is m!·m(m-1)(m+1)/6=(n-1)! binom(n,3). In particular n=3 allows t=1 and gives two length-six paths. Inspected artifacts/verify_original.py, artifacts/verify_quotient.py and recorded verification_output.txt without replay: they supply respectively direct finite BFS for n=3..7 and weighted orbit BFS for n=3..100, not the proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "30e06175a718 specializes at k=1 to the known vertex-basis family; b5b3c45f23e8 proves the edge-basis family",
+          "f346d16bc708 gives a global diameter and routes for general vertex-basis pairs; that broader endpoint scope is about distance, not path enumeration",
+          "Morentin's listing provides no theorem; the accessible colloquium abstract concerns general reconfiguration and Cayley graphs"
+        ],
+        "reasoning": "The prior classifications give the setup in both metrics and the diameter result applies to exactly these endpoints. None of the inspected general statements gives the factorial shortest-route count as a specialization.",
+        "searches": [
+          "Resultary: complete k-metric hierarchy and edge metric bases of crown graphs",
+          "Resultary: sharp token-slide diameter",
+          "Thesis literature: Reconfigurations of Metric Bases"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:f346d16bc708",
+        "Resultary:30e06175a718",
+        "Resultary:b5b3c45f23e8",
+        "Resultary:52202a3144a7 (identical record)",
+        "Morentin thesis listing and related colloquium abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older proof already forces at least two decreases and gives an upper-bound itinerary h,p,q,h,O,p,q,C,h. For all-A initial sides O is empty; this constructs optima with an initial excursion of exactly two nonzero indices and a specified next stage.",
+          "The frozen proof allows every valid initial excursion length, every choice of second decreasing landmark from those created, and every permitted cleanup order, and proves exhaustion."
+        ],
+        "reasoning": "The prior family accounts for some paths (and the trivial n=3 boundary) but not all. The new count comes from analyzing equality in the lower bound to rule out all other route structures, not from simply evaluating or relabelling the diameter formula.",
+        "searches": [
+          "Read f346d16bc708 Proof steps 2–4, local-mirror offsets 3500–5408 and 5500–8933, and Limitations at offset about 9100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f346d16bc708 encodes the same slide rule by vacancy and side reversal, and studies exactly the specified opposed endpoints",
+          "The exact formula match 52202a3144a7 is the assigned record itself"
+        ],
+        "reasoning": "The encoded vacancy trajectories are equivalent to labelled configuration paths, not a quotient that identifies routes. The prior move rule and distance match, but its exhibited routes do not classify all optimum trajectories.",
+        "searches": [
+          "Resultary: antipodal crown metric-basis geodesics and shortest slide schedules",
+          "Resultary: vacancy-and-side token flips and same-vacancy complements",
+          "Literature: metric-basis reconfiguration and crown shortest-path multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four focused catalogue checks found the same frozen item as the exact match, but no distinct exact match among the relevant results",
+          "f346d16bc708 uses finite all-pairs distance checks and gives C₁₂ at n=3, which covers the two-route boundary by elementary cycle geometry"
+        ],
+        "reasoning": "A distance table does not determine multiplicity. Even a numeric sequence match would require interpreting it as shortest legal slides between the specified labelled metric bases, in all orders.",
+        "searches": [
+          "Resultary: (n-1)! binom(n,3) crown route count",
+          "Resultary: labelled shortest-path counts by crown order"
+        ]
+      },
+      "rationale": "The common basis family, vacancy move model, length n+3, two-decrease lower bound and example optimal routes have prior coverage. The supported distinction is the necessary and sufficient itinerary classification of every shortest route for these endpoints, with the resulting closed count in both metrics.",
+      "residual_risks": [
+        "The full 2026 thesis by Morentin was not available and potential overlap remains unresolved.",
+        "Bounded searches for equivalent vacancy-based counts do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers distance and part of the proof, not all geodesics",
+          "evidence": "The two-decrease lower bound and a restricted explicit family give equality. The older proof does not derive every initial excursion, second decrease and cleanup choice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-token-slide-diameter-of-crown-graph-metric-bases--f346d16bc708/RESULT.md",
+          "material_read": "Finding offset 0, Proof steps 2–4 offsets 3500–5408 and 5500–8933, Limitations offset about 9100",
+          "method": "Local mirror",
+          "title": "Sharp token-slide diameter of crown-graph metric bases",
+          "trigger": "Exact same endpoints and length, with a constructive proof potentially giving the count"
+        },
+        {
+          "assessment": "Underlying vertex-basis family",
+          "evidence": "At k=1 it classifies the transversals omitting one matched pair.",
+          "identifier_or_url": "Resultary:30e06175a718",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror",
+          "title": "Complete k-metric hierarchy of crown graphs",
+          "trigger": "Potential broader metric-basis treatment"
+        },
+        {
+          "assessment": "Underlying edge-basis family",
+          "evidence": "One selected vertex per pair except for one omitted pair; count n·2^(n-1).",
+          "identifier_or_url": "Resultary:b5b3c45f23e8",
+          "material_read": "Finding and basis proof passages, offsets 0–3067 and 2400–4200",
+          "method": "Local mirror",
+          "title": "Edge metric bases of crown graphs",
+          "trigger": "Edge-metric version of the common basis family"
+        },
+        {
+          "assessment": "Unresolved thesis coverage",
+          "evidence": "Listing identifies the title only, not a crown shortest-path claim; the relationship to the inaccessible ScholarWorks item was not established.",
+          "identifier_or_url": "https://www.cpp.edu/faculty/brianaf/student-research.shtml",
+          "material_read": "Public thesis listing, offset 438; no thesis body",
+          "method": "OA public listing; similar ScholarWorks item pv63g4914 returned 403",
+          "title": "Reconfigurations of Metric Bases",
+          "trigger": "Potentially relevant 2026 thesis by Jimmy Morentin"
+        },
+        {
+          "assessment": "No claim-level coverage evident in this abstract; not a substitute for the thesis",
+          "evidence": "Discusses metric-basis reconfiguration generally and mentions Cayley graphs without a crown path count.",
+          "identifier_or_url": "https://www.cpp.edu/sci/mathematics-statistics/docs/colloquium/2021_2022_jimmy_morentin.pdf",
+          "material_read": "Abstract, offset 0",
+          "method": "OA PDF",
+          "title": "Jimmy Morentin colloquium abstract on reconfiguration",
+          "trigger": "Lawful related presentation evidence for the thesis topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These endpoints are natural extremal placements with a shared vacant pair and every occupied shore reversed. Distance tells the smallest relocation time, but not the diversity of choices at that time. The factorial count and explicit classification give all optimal schedules without exploring the exponential basis graph, and apply to both resolution notions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

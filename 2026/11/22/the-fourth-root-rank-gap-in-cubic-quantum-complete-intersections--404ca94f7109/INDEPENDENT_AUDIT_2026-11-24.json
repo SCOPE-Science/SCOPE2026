@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:20:13.531965Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original Finding uses the unqualified condition λ²=−1 for row three and says it gives a disjoint partition in every characteristic. Over F₂ with λ=1 this condition holds, but row three would give C₄=384 whereas the algebra is commutative and C₄=0. The intended proof already excludes λ=1 before splitting by 1+λ². The complete corrected RESULT.md under /workspace/repairs/2/ makes the stratum order four, fixes the overbroad rank-increment sentence at A=B=C=0, and states the actual checker scope. Re-audit: the PBW product has coefficient λ^(jk) on x^(i+k)y^(j+l), and 1 and x²y² commute with everything. For λ≠1 set h=1+λ, k=1+λ². For h≠0 and a nonzero linear part the four output rows are independent: if v≠0 use x² and xy for the two middle rows, otherwise use xy and y²; the highest-degree row has a pivot on x²y or xy², and the first row is nonzero on x or y. This gives q⁷(q²−1) elements. With zero linear part the lower-degree block has rank 0,1,2 for respectively 1,q²−1,q³−q² quadratic triples because h²AC=B² has q² solutions. If k≠0 the last row extends every nonzero rank-one block and every rank-two block except A=C=0,B≠0. At the zero block it is freely specified by D,E. If k=0 it extends each rank-one block in q²−q of the q² last-row choices, and never extends a rank-two block. These counts, times the free q², recover all coefficients including the exceptional fourth-root row. When h=0 and λ≠1 the resulting 3-by-3 block has zero determinant and its two-by-two minors include signed squares of u,v,B, giving rank two exactly off the central locus. In characteristic two k=0 forces λ=1, handled only by the commutative case. Rank-nullity gives q^(9−r) commuting partners and the stated probability. Proof checked algebraically; the finite-field transcript is supplemental and was not used as an all-field proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "56b11792d0e8 treats F_Q<x,y>/(x²,y^m,xy−ζyx) and already gives cyclotomic centralizer spectra and probabilities in that family (catalog statement).",
+          "Bergh–Oppermann, arXiv:0710.2606v1, p. 1: bounds on representation dimension of QCIs."
+        ],
+        "reasoning": "Imposing x²=0 changes the algebra: already x², x²y, x²y² are independently nonzero in the cubic PBW basis. In particular the extra x² and x²y columns matter to the cubic rank proof, so the earlier exponent-(2,m) formula cannot be specialized to the two cubic generators. The advertised representation-dimension bounds address a different invariant.",
+        "searches": [
+          "Resultary: cyclotomic centralizer spectra of two-generator quantum complete intersections",
+          "arXiv:0710.2606"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0df5db5db134, 56b11792d0e8, 34b3aa08e8c0, 7f6201de1b8d (returned statements)",
+        "Bergh–Oppermann arXiv:0710.2606v1 p. 1",
+        "Frozen RESULT.md §§Finding and Relationship to prior work; corrected RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "34b3aa08e8c0 concerns radical-element nilpotency indices for the nine-dimensional algebra; 7f6201de1b8d concerns left multiplication Jordan types and principal right ideals at order three (catalog descriptions).",
+          "The actual cubic adjoint block changes when 1+λ² vanishes, a condition not satisfied at primitive cube roots."
+        ],
+        "reasoning": "Ranks of L_a−R_a are joint data about left and right multiplication, not ranks of either one or the nilpotency index of a. A fixed order-three class-size census cannot imply the new order-four row or the all-twist if-and-only-if gap.",
+        "searches": [
+          "Resultary 0df5db5db134, 56b11792d0e8, 34b3aa08e8c0, 7f6201de1b8d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0df5db5db134 addresses conjugacy classes of the algebra group and commuting probability at a primitive cube root."
+        ],
+        "reasoning": "Adjoint rank is nine minus algebra centralizer dimension. For the radical J, conjugacy class size of 1+a in 1+J is q^r when a has adjoint rank r, since 1+b centralizes 1+a exactly when [a,b]=0; adjoining arbitrary scalars to a multiplies element counts by q. Thus a full multiplicity spectrum of class sizes would be equivalent at the stated twist. Reversing the convention xy versus yx amounts to λ↦λ⁻¹ and preserves all four parameter strata.",
+        "searches": [
+          "Resultary: cubic quantum complete intersection centralizer ranks and conjugacy classes",
+          "Web: \"x^3,y^3\" \"yx\" lambda \"commutator\" centralizer rank quantum complete intersection primitive fourth root"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 0df5db5db134 catalog statement gives algebra commuting probability (q³+2q²−2)/q⁷ at a primitive cube root, equal to the value obtained by inserting the generic row in the probability formula.",
+          "The frozen RESULT.md expressly excludes the previously reported primitive-cube histogram from its novelty claim."
+        ],
+        "reasoning": "The aggregate probability agrees exactly, not merely qualitatively. The returned statement does not expose the individual rank multiplicities or give order-four data. A same-day label does not settle priority or show that differently titled records are the same source.",
+        "searches": [
+          "Resultary: cubic finite-field element centralizers, adjoint rank spectrum and fourth-root gap",
+          "Resultary 0df5db5db134"
+        ]
+      },
+      "rationale": "The repaired novelty claim is the entire twist classification, specifically the order-four loss of rank three and associated rank-one/rank-two fibers, not the primitive-cube specialization. Exact aggregate overlap at order three was independently confirmed against a distinct catalogued comparison. No prior evidence inspected gives the order-four degeneration in this exponent pattern or the complete all-twist rows.",
+      "residual_risks": [
+        "Full text of closest cubic and exponent-(2,m) catalog matches was unavailable, so the exact fixed-cubic histogram match is not independently claimed from those texts; the specialization remains excluded from novelty.",
+        "An unindexed all-twist calculation or different formulation could reduce priority; the unsuccessful web lookup is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact aggregate overlap at order three; no all-twist implication from the inspected statement.",
+          "evidence": "Primitive cube twist; algebra commuting probability (q³+2q²−2)/q⁷; catalog also names the class-size spectrum.",
+          "identifier_or_url": "Resultary 2026/11/22 0df5db5db134",
+          "material_read": "Returned catalogue statement; full source unavailable",
+          "method": "Resultary and bounded OA source attempt",
+          "title": "Centralizer ranks and conjugacy-class spectra of the cubic quantum complete intersection",
+          "trigger": "Exact family and adjoint/centralizer invariant at a specific root"
+        },
+        {
+          "assessment": "Prior cyclotomic census for a different exponent pattern.",
+          "evidence": "First generator squares to zero, second is truncated at m.",
+          "identifier_or_url": "Resultary 2026/10/26 56b11792d0e8",
+          "material_read": "Returned catalogue statement",
+          "method": "Resultary and bounded OA source attempt",
+          "title": "Cyclotomic resonance in the centralizer spectra of two-generator quantum complete intersections",
+          "trigger": "Potential all-twist theorem on the same invariant"
+        },
+        {
+          "assessment": "Confirms advertised scope; not a full-text exclusion.",
+          "evidence": "Studies lower and upper bounds on representation dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.2606",
+          "material_read": "v1 p. 1 abstract and introduction",
+          "method": "Open primary PDF text preview",
+          "title": "The representation dimension of quantum complete intersections",
+          "trigger": "Foundational source on the algebra family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact centralizer dimension census of a standard low-dimensional noncommutative family over all finite fields, not just a pointwise experiment. The order-four condition changes the support of the adjoint rank distribution while leaving the center and maximal rank unchanged, so neither datum nor the known fixed-cube specialization detects the transition. The counts also give commuting-pair probabilities and expose exactly where the rank jump fails. No claim about conjugacy classification or centralizer algebra types is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

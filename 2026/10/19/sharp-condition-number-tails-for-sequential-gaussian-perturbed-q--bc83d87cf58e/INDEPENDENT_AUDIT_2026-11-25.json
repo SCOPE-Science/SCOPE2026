@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:14:59.342309Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof Steps 1–6, lines 45–116",
+        "VERIFICATION.md, lines 21–25; verify_qr_tail.py, lines 9–103; requirements.txt"
+      ],
+      "rationale": "Condition first on the entire predictable history, then use the fact that the radial perpendicular law depends only on the deterministic signal length to reduce to conditioning on B and the in-span Gaussian V. The perpendicular residual is positive almost surely. To bound each append, factor it as [Q,q] diag(R,1) for B=QR; the unit-column assumption puts 1 between the extreme singular values of R, and the two exceptional Gram eigenvalues of [Q,q] are 1 ± sqrt(1−ρ²). Thus κ is at most 2κ(B)/ρ, and central chi-square inverse moments (dominating the noncentral inverse moments) give Eκ(B)^d<∞ because B has final codimension d+1. At ρ=0 the bordered Gram has simple kernel spanned by (−B†u,1); differentiating in ρ² gives Rayleigh quotient 1/(1+||B†u||²), so the actual κ is asymptotic to D(B,u)/ρ. For fixed B,V with R=||V||>0, the append bound confines the large-κ event to ||W||<4κ(B)R/t for t>4κ(B). The local asymptotic therefore squeezes its conditional probability between Gaussian small balls of radii (1±o(1))RD/t. The bounded density and the complementary t≤4κ(B) case give integrable domination by a constant times κ(B)^d(1+R^d). Multiplying the volume and Gaussian density at zero by the chi moment of R gives the stated gamma-factor constant; integrating the positive tail gives exactly the positive-moment frontier. For two columns B is a single unit vector, so D=2, and the exact central two-column ratio test agrees in m=2 and 3.",
+      "residual_risks": [
+        "When conditioned only on B rather than the full history, W itself may be a mixture of shifts. Its norm law and density at zero are nevertheless the same for every allowed predictable shift. This distinction does not change the proof or theorem.",
+        "Read the supplied finite diagnostic and its recorded summary, but did not execute it. The script tests regular bordered matrices and two-column formulas; it is not a certificate for integrating over the random history."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected sharp Gaussian theorem uses iid unnormalized real entries; the conic tube/smoothed bound is for a different ill-posed-set geometry and is an upper bound."
+        ],
+        "reasoning": "Codimension and distance to singularity explain how these results can share a power of t. The inspected theorems do not give the coefficient for the adaptive normalized law or the integrability of the local coefficient over earlier histories.",
+        "searches": [
+          "Edelman–Sutton, DOI 10.1137/040614256, Theorem 1.1",
+          "Bürgisser, Smoothed Analysis of Condition Numbers, §§1.2, 1.7 and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.18905",
+        "DOI 10.1137/040614256",
+        "Bürgisser, Smoothed Analysis of Condition Numbers",
+        "Liesen–Rozložník–Strakoš via Lotfi et al.",
+        "Resultary 2026/10/26/SCOPE-sharp-real-complex-inverse-moment-thresholds-for-two-row-gaussia--9116deeb1835"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier iteration gives an upper product bound; an elementary converse order bound follows from testing the almost-kernel vector (−B†P_Bq,1). With inverse residual moments, the cutoff is thus closely implied by these ingredients. The cited augmented-orthonormal-matrix relation does not resolve the singular coefficient for a general B."
+        ],
+        "reasoning": "Obtaining the exact limit requires the normalized null-vector derivative and a proof that ill-conditioned histories do not invalidate exchange of limit and expectation. Substituting into the prior bound cannot recover that coefficient.",
+        "searches": [
+          "arXiv:2409.18905, Corollaries 7.3 and 7.5, §1.3",
+          "Liesen–Rozložník–Strakoš, SIAM J. Sci. Comput. 23(5), 1503–1525, as cited and described in arXiv:2409.18905"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The squared norm ratio from the conditional Gaussian split is a noncentral-F residual law after inversion/rescaling; the cited corollary bounds, rather than identifies, the actual κ for the full matrix."
+        ],
+        "reasoning": "Replacing the actual condition number by a residual or a product of residuals loses the conditional bordered-Gram limit. The two-column special cases can instead be characterized directly by a single ratio, so these are not the decisive distinction.",
+        "searches": [
+          "Resultary: condition number tail normalized QR Gaussian perturbed columns",
+          "arXiv:2409.18905, Theorem 6.1 and Corollary 7.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest returned record gives two-sided small-ball estimates and moment thresholds for an overlapping-entry Gaussian Hankel matrix, not a coefficient or sequential normalized model. No matching exact result was found among the inspected returns."
+        ],
+        "reasoning": "Matching a codimension-type exponent or moment cutoff in a different structured ensemble does not identify the same exact invariant; this is bounded search evidence, not a priority certificate.",
+        "searches": [
+          "Resultary: sharp condition-number tails sequential Gaussian orthogonalization exact constant",
+          "Resultary: condition number tail normalized QR Gaussian perturbed columns",
+          "Resultary record 2026/10/26/SCOPE-sharp-real-complex-inverse-moment-thresholds-for-two-row-gaussia--9116deeb1835"
+        ]
+      },
+      "rationale": "The distinct contribution is the positive finite limiting coefficient for the actual condition number with normalized columns and predictable perpendicular signals. The closest same-model work supplies the residual distribution and a one-sided conditioning certificate. The exponent and moment cutoff are related to those inputs and are not the strongest originality basis; neither an upper certificate nor the unnormalized Wishart asymptotic computes this history-averaged coefficient.",
+      "residual_risks": [
+        "A more general exact tube expansion for weighted product-of-spheres laws could overlap; the inspected tube result was an upper bound only.",
+        "Liesen et al. and Weyl original full texts were not inspected; the supporting secondary passages do not rule out all overlap.",
+        "The finite search gives no absolute publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers residual law and upper certificate but not the exact full-matrix coefficient",
+          "evidence": [
+            "Theorem 6.1 splits the normalized residual into independent central and noncentral chi-square inputs; Corollary 7.5 uses an iterated bound with deterministic lower bounds on signal lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.18905",
+          "material_read": "§1.3 p. 2, Theorem 6.1 pp. 10–11, Corollaries 7.3 and 7.5 pp. 14–15; PDF-text offsets 7863, 32648, 41330, 42766",
+          "method": "Bounded open-access PDF inspection",
+          "title": "Probabilistic Analysis of Least Squares, Orthogonal Projection, and QR Factorization Algorithms Subject to Gaussian Noise",
+          "trigger": "Same stochastic model and append-conditioning inequality"
+        },
+        {
+          "assessment": "Different matrix law",
+          "evidence": [
+            "An exact x^{-1} asymptotic for square iid real Gaussian matrices, not products of normalized adaptive columns."
+          ],
+          "identifier_or_url": "https://math.mit.edu/~edelman/homepage/papers/conditions.pdf",
+          "material_read": "Theorem 1.1, p. 2, PDF-text offset 5432",
+          "method": "Open-access author PDF",
+          "title": "Tails of Condition Number Distributions",
+          "trigger": "Sharp Gaussian condition-number asymptotics"
+        },
+        {
+          "assessment": "Codimension-based geometric background; inspected bound does not give the conditional coefficient",
+          "evidence": [
+            "Estimates smoothed probabilities for conic condition numbers with an algebraic hypersurface model of ill-posedness."
+          ],
+          "identifier_or_url": "Peter Bürgisser, TU Berlin open copy, §1.2, §1.7 and Theorem 1.2",
+          "material_read": "pp. 6–8 and 21; PDF-text offsets 13000, 16552, 51247",
+          "method": "Open PDF; Weyl's original was not available, so only the accessible geometric discussion is credited",
+          "title": "Smoothed Analysis of Condition Numbers",
+          "trigger": "Potential geometric tube theorem covering a rank-deficient manifold"
+        },
+        {
+          "assessment": "Deterministic background, with primary-access limitation",
+          "evidence": [
+            "The attributed relation concerns [Q,γc] with Q orthonormal and the least-squares residual of c."
+          ],
+          "identifier_or_url": "Liesen, Rozložník and Strakoš, SIAM J. Sci. Comput. 23(5), 1503–1525",
+          "material_read": "Attribution in Lotfi–Langou–Meysami §1.3 and its reference list, PDF-text offsets 7863 and 63221; not original full text",
+          "method": "Secondary passage in open-access PDF",
+          "title": "Least squares residuals and minimal residual methods",
+          "trigger": "Deterministic appended-column residual identity"
+        },
+        {
+          "assessment": "Different ensemble and no limiting coefficient",
+          "evidence": [
+            "The real case has cutoff p<m−1 from two-sided bounds for a structured Hankel matrix with overlapping entries."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-real-complex-inverse-moment-thresholds-for-two-row-gaussia--9116deeb1835",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 7567",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Sharp real–complex inverse-moment thresholds for two-row Gaussian Hankel matrices",
+          "trigger": "Closest returned indexed moment-threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, proof Steps 3–6 and Limitations",
+        "arXiv:2409.18905, §7"
+      ],
+      "rationale": "The exact rare-event coefficient distinguishes distributions having the same rectangular exponent, shows which history and signal enter the leading risk, and controls the actual spectral condition number rather than a sufficient certificate. The nonzero coefficient and sharp integrability threshold explain the qualitative square-versus-one-extra-row change in the mean even at small nonzero noise. This is a meaningful refinement for an existing model, not a claim about floating-point QR generally.",
+      "residual_risks": [
+        "Fixed dimension and exact isotropic Gaussian noise only; the expectation in the coefficient need not have a simple closed form. No uniform small-noise or finite-precision interpretation is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

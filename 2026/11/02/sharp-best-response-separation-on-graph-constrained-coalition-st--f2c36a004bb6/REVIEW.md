@@ -1,15 +1,21 @@
-# Review: Sharp best-response separation on graph-constrained coalition stars
+# Independent mathematical audit
 
-## Correctness — PASS
-The structural classification of all feasible star partitions is exhaustive. The monotone-hub proof compares every admissible singleton destination before and after the first hub switch, and the counting argument includes singleton and tie boundaries. The nonmonotone construction has a concrete min-index hub utility, an explicitly initialized partition and strict best-response and recipient-consent checks at each move. The matching quadratic upper bound uses the nondecreasing utility along consensual joins, not an integer-potential assumption. The accompanying finite exhaustive and constructive checker confirms the critical finite cases; no finite test is substituted for the theorem's general proof.
+## correctness
 
-## Originality — PASS (qualified priority risk)
-The closest primary comparison, Fanelli et al., arXiv:2408.11488v1, supplies a quadratic improving-response result on IR stars and says its lower trajectory does not enforce best response. Its theorem is weaker than the new tight linear bound under hub monotonicity, and its example does not entail the new quadratic best-response lower example. Relevant additive/anonymous hedonic papers and mathematical result records were compared for dominance and alternate formulations; no direct coverage was found. Specialized unpublished or unlocated coverage remains possible. Supporting citations and the exact inspection limits are recorded in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-The result resolves the best-response speed question on a natural canonical topology: response quality gives a sharp linear maximum when just the hub is monotone, but cannot improve the worst-case quadratic order if only individual rationality is assumed. The distinction is constructive, robust over arbitrary leaf preferences, and identifies the single hub's preference geometry as the relevant mechanism.
+A feasible partition consists of the hub coalition and singleton outsiders. A leaf cannot leave the hub strictly improving because its only other feasible destination is its singleton. Every outsider accepts a hub offer by individual rationality; the hub can only strictly improve by going to an outside leaf, since singleton hub is no better under either set of assumptions. Hub utility weakly increases on a consensual leaf join. In the monotone case, at its first move the hub chooses a highest-ranked outside pair; every previously attached leaf's pair is no better than the old coalition by monotonicity, hence is strictly worse than the chosen pair. The chosen leaf stays, and subsequent joins cannot lower the hub's ranking below that pair, so there is no second hub move. With no hub move there are at most n-1 joins; with one, its recipient has never joined and every other leaf can join at most twice, yielding 2n-3 including n=2. The prize construction works with nonnegative edge values, weak acceptance at value zero and unrestricted scheduling among movers. In the IR-only witness write k=n-2; leaf utility one in every hub coalition makes each indicated join its best response. At stage j the min-index hub payoff stays j as all free leaves with index >=j+2 join. Leaf a_(j+1) is left outside and is the available pair with largest index, so moving to it is a strict best response. Together with the initial move to the sole outside leaf a_1, this gives k hub moves and (k-1)(k-2)/2 joins, including k=1. More generally, after any hub move its utility is a fixed pair utility; successive such utilities strictly rise, so there are at most n-1 hub moves and at most n-1 joins between them. This proves the quadratic upper independently. The frozen finite checker was inspected but not executed.
 
-## Limitations
-The first conclusion is specific to star communication constraints, strict individually stable best responses and hub monotonicity, while the lower example requires nonmonotone hub utility. The strong result does not extend automatically to arbitrary trees or to alternative reconfiguration rules. Full publication priority and correctness await external review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The IR-only quadratic upper bound is prior (and transfers to best responses by containment). The inspected prior lower witness is for improving moves and the authors explicitly identify the failure to extend their examples to best responses. The credited contributions are the sharp 2n-3 worst case under hub monotonicity and a genuinely best-responding quadratic-length witness with IR alone. The displayed lower trajectory length is not asserted to be the exact IR maximum.
+
+## value
+
+PASS
+
+The witness answers a specific open speed-up question in the IR star setting rather than duplicating the known convergence bound. The complementary sharp linear analysis identifies a structural condition on only the hub, with leaves still arbitrary IR, and gives a matching additive witness for every n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

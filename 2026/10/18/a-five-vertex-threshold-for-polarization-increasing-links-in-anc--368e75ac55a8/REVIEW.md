@@ -1,19 +1,21 @@
-# Scientific review: a five-vertex opinion-polarization threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update converges to \(z=a(aI+L)^{-1}s\), whose mean equals the innate mean. Clearing the positive determinant denominators gives an exact polynomial sign certificate. The independent-by-case finite enumeration covers all connected unlabeled graphs through four vertices, every missing edge and binary innate assignment modulo exact complement symmetry: \(0,3,77\) nontrivial comparisons at sizes two, three and four. Each cleared numerator has only nonpositive coefficients, proving the bound simultaneously for every positive anchoring parameter. For the five-vertex path the reconstructed matrix expression equals the stated rational function. Descartes' sign criterion and values at \(a=1,2\) prove one and only one positive reversal. All computations are reproducible from the included exact symbolic program; no numerical inference establishes the universal claim.
+PASS
 
-## Originality — PASS, with explicit residual risk
+The update is a contraction in sup norm (row sums d_i/(a+d_i)<1), and the Laplacian equation preserves the innate mean. Reproduced the exact lower bound independently of the frozen adjugate code. Relabel the nonedge as 01; enumerate all connected masks on the remaining pairs with no graph-isomorphism quotient, and all nonzero binary opinions with s_0=0 by complement symmetry. In difference coordinates y_i=z_i-z_0, solve (a I+Q)y=a(s_i-s_0)_{i>0}, where Q_ij=L_ij-L_0j for i,j>0. Compute polarization as sum y_i^2-(sum y_i)^2/n. For each rational difference that is not identically zero, remove powers of a from its reduced numerator, test that the numerator has no positive Sturm roots, and check that Delta(1)<0; the rational function has no positive pole since the original Laplacian resolvents are nonsingular. This gave (graphs, identically zero, strictly negative) = (1,1,2) for n=3 and (14,18,80) for n=4, with n<=2 vacuous. Replay: python3 /workspace/check_opinion.py (independent SymPy reproduction, unexecuted frozen verifier). For the specified five-vertex witness, reflecting 0 with 2 and 4 with 3 leaves the symmetric component unchanged under the edge update. On antisymmetric coordinates at 0 and 4, the system has matrix with diagonals (a+2,a+1), off-diagonal -1, and input (-a/2,a/2); the new edge replaces a+2 by a+4. Subtracting twice the squared solution norms produces the stated rational difference. Exact evaluations yield 2/405 and -496/34969; the quartic's one sign variation and its opposite signs at 1 and 2 give the unique positive crossover (approximately 1.32018042507931). The obstruction is binary and homogeneous; it does not assert monotonicity for arbitrary real opinions.
 
-The 2015 Parsegov–Proskurnikov–Tempo–Friedkin source establishes the model, not a sharp link-polarization size boundary. The accessible full primary 2021 Zhu–Bao–Zhang work proves monotonicity of polarization **plus disagreement**, not polarization alone, so that theorem does not cover the claim. Biondi and collaborators examine dynamic polarization under related opinion processes, not this finite edge-addition minimum. Bhalla–Lechowicz–Musco's 2021 edge-dynamics paper is directly relevant: its abstract discusses changes in polarization from individual edge edits and theoretical bounds. Its full mathematical treatment could not be verified through the available authorized sources. This is a substantial remaining literature risk, but the accessible claims do not imply the specific complete four-vertex obstruction and five-vertex crossover. An earlier exact five-vertex theorem in graph resolvent or network polarization literature remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp threshold and explicit crossover isolate a natural intervention ambiguity: strengthening one positive tie can worsen aggregate polarization under weak common anchoring while improving it under stronger anchoring. The use of a path (rather than a specially engineered dense graph), binary innate attitudes, equal anchoring and unweighted edges makes the threshold interpretable and reproducible. The bound is more than a renamed matrix identity because it compares every binary initialization and every edge addition across all connected graphs below the sharp size, with a continuum parameter certificate.
+Pass for the sharp obstruction simultaneously for every positive common anchor, and the unique reversal in the specified path as that anchor varies. The indexed unit-anchor threshold and witness match exactly after opinion re-encoding. General weighted-edge formulas and prior increases for real innate opinions are antecedents, not the all-anchor binary theorem or the exact crossover.
 
-## Limits
+## value
 
-The verified result does not cover real-valued opinions, heterogeneous anchoring, directed ties or multiple edge edits. A highly relevant earlier full article remained inaccessible; a human bibliographic comparison is still warranted. The finite certificate is exact but must be executed or independently checked to reproduce the exhaustive part. No empirical inference is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The uniform obstruction rules out counterexamples below five agents at every positive homogeneous anchor, not merely at the standard unit normalization. The path example then identifies a true reversal under global social-to-innate scaling, with an exact threshold that separates improvement from worsening in a minimal example. The binary restriction is substantive in view of smaller nonbinary examples; no empirical claim follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

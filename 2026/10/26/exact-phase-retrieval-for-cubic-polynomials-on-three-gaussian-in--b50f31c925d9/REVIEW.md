@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact rational row reduction yields a twelve-dimensional measurement image and the four-parameter Hermitian kernel displayed in `RESULT.md`. The independent checker constructs the sixteen three-by-three minors and verifies four ideal-membership consequences that force every rank-at-most-two kernel element to vanish. The quantified conclusion applies to all complex cubic coefficients. Exact substitution proves the only smaller Gaussian-integer three-square configuration is ambiguous.
+## correctness
 
-**Originality — PASS (best knowledge).** Chalendar–Partington (2024) establishes continuous-circle uniqueness and various continuous circle pairs; Bodmann–Hammen (2013) constructs a different 4d−4 design on intersecting circles; Vinzant (2015) provides an eleven-vector dimension-four frame outside this monomial orbit geometry. Liehr (2023) treats infinite parallel-line uniqueness. The previously recorded two-square result addresses quadratics, not cubics. None of the inspected statements implies the present three-square cubic arithmetic certificate or exact radius threshold. Searches of indexed records under lattice nodes, aliasing and Hermitian rank gave no equivalent. Remaining risk: unindexed equivalent constructions and the lack of independent priority confirmation.
+PASS
 
-**Mathematical value — PASS.** The theorem establishes a simple and exactly reproducible structured twelve-sample phase-retrieval grid in the first nontrivial four-coefficient polynomial case, and shows why the only smaller-radius three-square integer grid fails. The smallest achievable sampling radius within that class is a natural design invariant, not a gratuitous parameter slice. The proof mechanism is an explicit rational kernel with a short Gröbner elimination obstruction.
+Equal squared moduli put the difference of two coefficient outer products in the real Hermitian sampling kernel, with rank at most two. I independently constructed the measurement matrix directly on a standard Hermitian basis over the rationals and found nullity four. Using that independently computed basis, I formed all sixteen minors of size three and tested each of the four projective charts over Q(i) by normalizing one kernel coordinate to one. The Gröbner basis is [1] in every chart. Thus even the complexified pencil has no nonzero rank-at-most-two point; this independently proves the needed certificate without assuming the frozen pencil coordinates or its four reductions. Equal outer products imply equality up to phase, including the zero case. For the ambiguity at radius two, writing R=|ζ|² and T=ζ², the intensity gap of the displayed pair is 2(R−1)(R−2)(R−4)+4√14(R−2) Im T. It vanishes on the three stated orbits: R=2 on the middle one and T is real on the other two. The distinct odd/even supports exclude phase equivalence. Squared Gaussian norms are integers and the only nonzero orbits below squared radius five have representatives 1, 1+i, 2, so the exhibited design attains the restricted minimum.
 
-**Limits.** No arbitrary-frame cardinality minimality or optimal numerical stability is claimed. The symbolic certificate is finite and exact, but would benefit from independent implementation; such an audit has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work already gives 12 cubic measurements in other geometries and fewer in unrestricted complex frames. The distinct contribution supported here is the explicit Gaussian-integer three-square design and its restricted radius optimum, including a concrete ambiguity for the only competing smaller design.
+
+## value
+
+PASS
+
+Gaussian coordinates and complete rotational orbits give a natural exact, highly symmetric polynomial-sampling constraint. The first three available orbit radii fail, so just counting twelve measurements cannot settle the design question. A universal success at the next radius, paired with an explicit alias at the only smaller candidate, is a meaningful sharp design boundary. Neither a generic frame dimension count nor the prior 12-sample constructions give that information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

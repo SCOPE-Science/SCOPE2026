@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:02:12.966474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md, reported matrix/sign and optimizer checks"
+      ],
+      "rationale": "For the counting-measure combinatorial Laplacian, constants, leaf differences and the hub–leaf contrast have eigenvalues 0, 1 and m+1. Only distinct leaf pairs can be negative. Their common entry is [m−(m+1)e^(−at)+e^(−bt)]/[m(m+1)], where a=1+eta and b=(m+1)(1+(m+1)eta). Its derivative starts at −eta and has exactly one positive zero, while the entry tends to 1/(m+1); this proves the crossing and all boundary signs, including the identity at t=0. At the crossing let h=at. Eliminating b/a gives the delay [m(m+2)h+log(m+1−m e^h)]/[m(m+1)], with strictly negative second derivative. Its critical h=log((m+2)/(m+1)) lies in the permitted rate-ratio interval because m h<log(m+1)<m(m+2)h. Substitution and h~1/m verify the optimizer, the example and both growing-star limits. On two vertices L²=2L reduces the problem to ordinary heat. The analytic check is decisive; the packaged finite tests were reported, not rerun.",
+      "residual_risks": [
+        "No extension to weighted, directed or normalized stars is tested or asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete-multipartite mixed heat, 93b1348c8e6a, RESULT.md Finding and Proof: every unweighted complete multipartite graph with largest part of size at least two has the all-eta cutoff and a unique optimizing eta.",
+          "Spectral-window envelopes, aea2a1d10bf1, Finding: universal bounds optimize over symmetric operators with a fixed null vector and spectral window; they do not impose all star spectral weights or the coupled rate constraint."
+        ],
+        "reasoning": "The first theorem covers all stars, including every allowed m and eta, not just a matching example.",
+        "searches": [
+          "Resultary: unique worst positivity delay for mixed heat on complete multipartite graphs",
+          "Resultary: sharp entrywise spectral-window envelopes and exact eventual-positivity horizon"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed findings 93b1348c8e6a, e4f9c89a420f and aea2a1d10bf1",
+        "Daners–Glück–Kennedy arXiv:1511.05294",
+        "Gregorio–Mugnolo arXiv:1712.07370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use N=m+1 and p=m/(m+1). The only nonedge class is distinct leaves, and its general within-part entry is precisely the frozen star entry. At the general optimum x*=log(m+2), the root relation gives e^(−(1+eta)t)=(m+1)/(m+2), so h=h_m and the rate ratio is x*/h_m=r_m. The broader optimized delay simplifies to the expression in the frozen Finding."
+        ],
+        "reasoning": "The implication includes uniqueness, the exact positivity set and both optimizer formulas. The star delay scaling is explicit in the broader theorem and the strength scaling follows by expanding h_m.",
+        "searches": [
+          "93b1348c8e6a, RESULT.md Finding and Proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Daners–Glück–Kennedy give general eventual-positivity criteria; Gregorio–Mugnolo §6.1 treats eventual positivity for e^(−tL²). Neither yields the finite mixed-strength star optimizer under the same parameters."
+        ],
+        "reasoning": "Qualitative eventual positivity, pure biheat and finite-strength mixed semigroup positivity are different assertions; the mixed complete-multipartite formulation is the exact one.",
+        "searches": [
+          "Resultary: mixed Laplacian–bi-Laplacian positivity and sharp star delay",
+          "arXiv:1511.05294",
+          "arXiv:1712.07370"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pure-biheat entry supplies exact cutoffs in a different generator regime. The mixed entry supplies a symbolic optimizer with the star as an exact slice."
+        ],
+        "reasoning": "A finite table would not cover this continuous-parameter theorem; the indexed symbolic formula is stronger than a table and does cover it.",
+        "searches": [
+          "Resultary: pure squared-Laplacian complete-multipartite cutoff, e4f9c89a420f",
+          "Resultary: mixed complete-multipartite cutoff and optimizer, 93b1348c8e6a"
+        ]
+      },
+      "rationale": "A distinct indexed complete-multipartite theorem specializes exactly to the claimed star threshold and unique strength and delay. This is demonstrable mathematical coverage, not a claim about which of the two same-day records has historical priority. The displayed star asymptotic for the strength and small-star numbers are elementary evaluations of the same exact optimizer, not an uncovered substantive claim.",
+      "residual_risks": [
+        "Priority between the two same-day records is unresolved; the overlap judgment does not rely on it.",
+        "The bounded primary-literature search does not exclude older equivalent mixed-heat results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the star theorem mathematically; chronology between the same-day publications is not established.",
+          "evidence": "The within-part kernel, unique root and unique optimizer specialize with N=m+1 and p=m/N.",
+          "identifier_or_url": "93b1348c8e6a",
+          "material_read": "RESULT.md Finding and Proof §§1–5",
+          "method": "Resultary lookup, local mirror and frozen-source comparison",
+          "title": "Unique worst positivity delay for mixed heat on complete multipartite graphs",
+          "trigger": "Same generator and sharp optimization on a larger graph family"
+        },
+        {
+          "assessment": "Pure generator only",
+          "evidence": "The semigroup is e^(−tL²), without a finite mixing parameter to optimize.",
+          "identifier_or_url": "e4f9c89a420f",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local-mirror passage",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Identical graph family and a related exact cutoff"
+        },
+        {
+          "assessment": "Universal window envelope does not give the fixed-star calculation for all m.",
+          "evidence": "It optimizes over the spectral-window class rather than over the mixed strength for the given star.",
+          "identifier_or_url": "aea2a1d10bf1",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local-mirror passage",
+          "title": "Sharp entrywise spectral-window envelopes and the exact eventual-positivity horizon",
+          "trigger": "An exact positivity horizon from a wider spectral optimization"
+        },
+        {
+          "assessment": "Background rather than sharp finite-time optimization",
+          "evidence": "The inspected statements concern eventual and asymptotic positivity criteria.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "p. 2, qualitative framework",
+          "method": "OA primary text",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "General eventual-positivity framework"
+        },
+        {
+          "assessment": "Ordinary and pure squared-Laplacian heat, not the mixed optimization",
+          "evidence": "The inspected graph positivity results address e^(−tL) or e^(−tL²).",
+          "identifier_or_url": "https://arxiv.org/abs/1712.07370",
+          "material_read": "p. 5 and §6.1, p. 30",
+          "method": "OA primary text",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Graph heat and biheat positivity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "93b1348c8e6a, RESULT.md Finding and Proof"
+      ],
+      "rationale": "Sharp recovery delays on stars are mathematically meaningful, but this record does not establish a distinct valuable remainder beyond the exact same-generator multipartite theorem. A convenient specialization and evaluations of its optimizer do not add a new invariant, boundary or method of comparable scope.",
+      "residual_risks": [
+        "This assessment does not diminish the value of the broader result or decide historical attribution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

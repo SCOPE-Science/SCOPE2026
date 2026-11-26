@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:33:42.993290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5; VERIFICATION.md and check.py (inspected, not executed)",
+        "Goda, arXiv:2404.16352, Theorem 1 and Lemma 3 for context"
+      ],
+      "rationale": "At each cut a different sampled coordinate wraps to become least; the n ordinal permutations are distinct cyclic shifts, with probabilities equal to the circular gap lengths. Thus the defect is the relative entropy from the uniform law on n gaps. In q=q_k through Q−1, Q=q_{k+1}, the first q points lie within 1/Q of a permuted q-grid, so the largest gap is at most 1/q+2/Q, and inserting points only lowers it. This yields Δ≤log(3n/q)≤log(3(a_{k+1}+1)), including the claimed uniform bound by choosing the surrounding denominators. For a=a_{k+1}≥16, b=floor(a/log a) gives n=bq<Q. Writing an index as r+sq puts its b translates of each base point along one direction of the circle, spaced by δ=|qα−p_k|<1/Q. The arc length (b−1)δ is less than 1/(q log a), smaller than the separation of the q base points. There are exactly q large-group gaps and q(b−1) within-cluster gaps, the latter of total mass ε<1/log a. The chain rule gives H_{bq}≤log q+h(ε)+ε log(b−1), so M_k≥log a−log log a−1−o(1) uniformly in earlier quotients. Together these bounds give both the classification and the leading coefficient. For a_j=j, q_j≥j! and q_{j+1}/q_j≤j+2 imply irrationality exponent two by the convergent formula; in fact the uniform block upper bound directly gives Δ/log n→0 there. The optional finite checks are not used to establish the all-slope statement.",
+      "residual_risks": [
+        "The leading coefficient is proved as a_{k+1}→∞, not a second-order expansion or order-one constant. The observation, sampling and phase measure are fixed by the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier spectrum is [1/(μ−1),1] for normalized entropy. Goda characterizes quasi-uniform Kronecker sequences by bad approximation; Maga–Szepessy give a zero linear entropy rate for irrational rotations."
+        ],
+        "reasoning": "Quasi-uniformity controls gap extremes, which can give a bounded Shannon defect, but lack of quasi-uniformity does not imply divergent probability-weighted entropy by abstract comparison. Bounded- and unbounded-quotient exponent-two rotations have the same normalized limit and are separated by the additive result.",
+        "searches": [
+          "Resultary November 17 all-slope logarithmic ordinal-entropy spectrum",
+          "Goda, arXiv:2404.16352, Theorem 1",
+          "Maga–Szepessy, arXiv:2611.12789, Corollary 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary suffixes e37534938d5c and 5bbf3af57625; target b9fe48d9fb17 excluded as a duplicate of itself",
+        "arXiv:2404.16352, 2405.11137v1, 2611.12789 as located above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof gives the same H_n≥log(q/3), and bounds H_n above near a grid by log q+h(2n/Q)+(2n/Q)log n. It chooses n=floor(Q/(log Q)^2) on subsequences with Q/q growing sufficiently fast, not for all growing a_{k+1}."
+        ],
+        "reasoning": "The earlier lower entropy bound mechanically gives the bounded-type direction and the block upper estimate; neither is credited as distinct. Its displayed upper entropy bound retains a log n term, which can be much larger than log a when a grows slowly. The short-gap versus intercluster split reduces that cost to ε log(b−1), obtaining the uniform block lower bound and the reverse direction without a growth relation between a and q.",
+        "searches": [
+          "November 17 normalized ordinal-entropy spectrum, Proof Steps 1–4, eqs. (1)–(2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both the November 17 ordinal-entropy spectrum and October 26 golden-rotation result identify ordinal probabilities with rotation gaps. Sturmian cylinder gap counts are another expression of the same lengths, with the indexing convention adjusted."
+        ],
+        "reasoning": "The gap representation itself is covered; this is a statement about the maximum additive Shannon divergence from uniformity within each convergent block, not a new name for the gap distribution or slow-entropy invariant. The golden frequency only has a_{k+1}=1 and cannot test the divergent regime.",
+        "searches": [
+          "Resultary: Shannon gap entropy of irrational rotations, partial quotient/additive ordinal entropy defect",
+          "Resultary golden-rotation/Fibonacci entropy-defect profile",
+          "Cheng et al., arXiv:2405.11137v1, §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-gap formula gives exact lengths and multiplicities from convergent errors and the block position. The golden-rotation record evaluates the defect in a particular bounded-type case."
+        ],
+        "reasoning": "The counts determine every finite Shannon value, and are viable input to another proof. Extracting a uniform maximization over a growing block and showing a lower bound independent of q require entropy estimates beyond looking up or substituting a finite value. No compared exact table evaluates this all-slope block maximum.",
+        "searches": [
+          "Goda, Halton Lemma 3",
+          "Cheng et al., §5.1, exact Sturmian cylinder lengths and counts",
+          "Resultary golden-rotation Fibonacci staircase"
+        ]
+      },
+      "rationale": "The gap identity, convergent-block upper estimate and exponent-two normalized law already occur in an indexed earlier result. The supported distinct claim is the all-slope additive classification and uniform large-partial-quotient block growth. Its lower estimate accounts for entropy within the small-gap group without a cost depending on the absolute denominator. The compared exact gap counts and normalized laws do not already give that maximized asymptotic or the classification as stated.",
+      "residual_risks": [
+        "A prior Shannon-gap treatment under rank, spacings, or symbolic coding terminology is not exhaustively excluded. The checked additive claim is separated from covered framework and normalized statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact representation, upper estimate and normalized example; not uniform additive lower estimate",
+          "evidence": [
+            "Eq. (1) gives H_n≥log(q/3); eq. (2) pays (2n/Q)log n rather than a term independent of q.",
+            "Finding gives the complete normalized accumulation interval from μ."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-irrationality-exponent-and-the-complete-logarithmic-ordinal-entr--e37534938d5c",
+          "material_read": "Finding and Steps 1–4, local mirror offsets 0 and 2600–6608",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "Irrationality exponent and the complete logarithmic ordinal-entropy spectrum of rotations",
+          "trigger": "Same object and strongest earlier statement, including proof-level overlap"
+        },
+        {
+          "assessment": "Single slope with bounded quotients",
+          "evidence": [
+            "Exact golden rotation defect profile, with the same gap representation."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-fibonacci-staircase-and-sharp-entropy-defect-oscillation-for-gol--5bbf3af57625",
+          "material_read": "Finding and proof of gap identity, around local mirror offset 1120",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "Fibonacci staircase and sharp entropy-defect oscillation for golden-rotation ordinal patterns",
+          "trigger": "Exact additive-defect formulas"
+        },
+        {
+          "assessment": "Geometric rather than Shannon classification",
+          "evidence": [
+            "Quasi-uniformity iff bad approximation; exact three gap lengths and multiplicities."
+          ],
+          "identifier_or_url": "arXiv:2404.16352",
+          "material_read": "Theorem 1 and Halton Lemma 3, OA offsets 5777 and 8200",
+          "method": "OA primary passages",
+          "title": "One-dimensional quasi-uniform Kronecker sequences",
+          "trigger": "Geometric characterization and exact three-gap formula"
+        },
+        {
+          "assessment": "Provides finite geometry, not the Shannon-defect optimization",
+          "evidence": [
+            "At n=mq_k+q_{k-1}+r, lists lengths η_k, η_{k-1}−mη_k, η_{k-1}−(m−1)η_k with corresponding cylinder multiplicities."
+          ],
+          "identifier_or_url": "arXiv:2405.11137v1",
+          "material_read": "§5.1, OA offset 63250",
+          "method": "OA primary passage",
+          "title": "Slow Entropy and Variational Dynamical Systems",
+          "trigger": "Exact gap lengths in a coding and slow entropy of rotations"
+        },
+        {
+          "assessment": "Different normalization",
+          "evidence": [
+            "Establishes the vanishing of H_n^{perm}/n for irrational rotations."
+          ],
+          "identifier_or_url": "arXiv:2611.12789",
+          "material_read": "Corollary 2.6, OA offset 14956",
+          "method": "OA primary passage",
+          "title": "The generic behavior of permutation entropy for continuous maps",
+          "trigger": "Permutation entropy of rotations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§3–5",
+        "Resultary normalized spectrum suffix e37534938d5c, eqs. (1)–(2)"
+      ],
+      "rationale": "The additive defect measures loss of near-uniformity of ordinal patterns on a scale where the standard normalized laws discard the difference. The theorem separates bounded-type rotations from exponent-two rotations with slowly growing unbounded partial quotients and quantifies by how much at their worst phases of observation length. The uniform dependence on the current partial quotient, rather than on the whole scale q, is the useful feature.",
+      "residual_risks": [
+        "No claim of a full second-order profile or extension to general observables, alternative phase laws, or noisy sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

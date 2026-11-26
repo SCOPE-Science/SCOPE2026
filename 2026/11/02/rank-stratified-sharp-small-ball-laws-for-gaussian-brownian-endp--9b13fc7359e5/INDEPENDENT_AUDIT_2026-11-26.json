@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:16.001201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed endpoints inside the open interval, conditioning on the endpoint of free Brownian motion gives the killed/free kernel ratio. With generator (1/2)d²/dx², Dirichlet eigenvalues are n²π²/(8ε²) and eigenfunctions have normalization ε^(-1/2). The sine bound |sin(nθ)|≤n sin θ on [0,π] follows from a sum of n unit complex exponentials for the sine ratio. Thus after dividing by the ground-state product the absolute remainder is bounded by R_ε, even arbitrarily near the wall. The free-kernel divisor contributes an exponential multiplier between 1 and exp(2ε²); outside or at the walls both the strict survival and the cosine product are zero. Integrating preserves both bounds without dividing by any small endpoint probability; a neighborhood of zero has positive mass on every centered Gaussian support. For fixed C, changing variables on its support yields H=1 for rank zero, H∼ε I(w)/sqrt(2πλ) for rank one, and H∼8ε²/(π³ sqrt(det C)) for rank two, using the cosine integral 4/π. This also gives the Brownian-motion and anti-periodic constants 4/π and 2. Normalizing a multiplier in [1-R_ε,(1+R_ε)exp(2ε²)] preserves covariance-uniform O(ε²) TV error against the moving cosine-weighted law; weak Gaussian convergence with bounded continuous weights yields the stated weak limit, not generally TV across supports. Source verification reports 2,381 finite deterministic assertions; supplied script inspected, not executed. The analytic pointwise bound, not the finite calculations, proves the uniform assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact-persistence record uses the same kind of endpoint vector and conditioning but restricts the path only from below by zero and studies increasing endpoint variance. Petrova's finite-dimensional perturbation result explicitly uses L² small balls. Li and Fatalov were accessible only at abstract or bibliographic level in the lookup."
+        ],
+        "reasoning": "An exact half-line killed-kernel average does not imply the interval killed-kernel crossover; the second wall changes both the eigenvalue scale and the endpoint weight. L² asymptotics do not give sharp sup-norm constants. The later date is not needed to distinguish the persistence statements.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-persistence-of-gaussian-endpoint-brownian-bridges-and-a-co--8e7450a67957",
+          "Petrova arXiv:1905.07804",
+          "Li doi:10.1023/A:1021771503265; Fatalov doi:10.1070/RM2003v058n04ABEH000643"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–108; VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2610.36762v1; arXiv:2610.33747v1; arXiv:1905.07804",
+        "Resultary 8e7450a67957",
+        "Li, Fatalov, Slepian and Shepp (bibliographic/abstract-level access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact expansion is classical. Its pointwise dominant term at an interior endpoint does not by itself establish uniform relative control after averaging over moving endpoint distributions. The frozen proof bounds the entire tail relative to two vanishing ground-state factors and then normalizes the resulting likelihood ratio."
+        ],
+        "reasoning": "The combination makes the expansion stable to rank changes and arbitrarily small leading endpoint averages, and yields the tilted law rather than only a fixed-process rate. None of the inspected process-class or special-case sources gives those implications as stated. Priority of the Slepian boundary-crossing specialization is unresolved.",
+        "searches": [
+          "Raket arXiv:2610.36762v1 Theorem 2.1; classical interval Dirichlet heat kernel",
+          "Slepian (1961) and Shepp (1971), First passage time for a particular Gaussian process (OA attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The independent bridge plus Gaussian linear endpoints is the ordinary positive Brownian covariance family in Raket's classification. Some familiar formulations include Brownian motion, anti-periodic Brownian motion, and a rescaled Slepian example."
+        ],
+        "reasoning": "Equivalent names or rescalings of the process supply possible special-case overlap. Classification is not itself an estimate for two-sided survival or the endpoint law after conditioning.",
+        "searches": [
+          "Resultary Gaussian endpoint Brownian bridge, covariance-rank crossover and confinement",
+          "Raket arXiv:2610.33747v1 §4 Ex. 4.7; arXiv:2610.36762v1 Thm. 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bestiary provides examples of different endpoint laws; the persistence finding has closed formulas by rank for a different confinement event. Rank zero and the Brownian-motion constant are classical checks of the frozen formula."
+        ],
+        "reasoning": "A tabulation of Gaussian covariances, classical scalar constants, or persistence-by-rank formulas is not a census of sharp two-sided constants. The frozen finding includes a continuous function of the entire scaled covariance and exact fixed-rank coefficients, not just a finite list.",
+        "searches": [
+          "Raket arXiv:2610.33747v1, endpoint examples and boundary models",
+          "Resultary 8e7450a67957, Finding and scope"
+        ]
+      },
+      "rationale": "Pass for the covariance-uniform relative confinement law, rank constants for the full endpoint family and conditional endpoint crossover taken together. The Brownian covariance parameterization, killed-kernel expansion, and classical pinned and free Brownian special cases are antecedents, not new here. The inspected results do not supply the two-sided relative estimate and normalized endpoint asymptotic across arbitrary moving and singular Gaussian covariances.",
+      "residual_risks": [
+        "Historical priority not established. Older two-sided Slepian or general sup-norm/bridge-crossing literature could cover a specialization or a broader principle. The cited first-passage and broader small-deviation full texts were not recovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the independent-endpoint representation, not its small sup-norm law.",
+          "evidence": [
+            "Ordinary positive Brownian covariances are parameterized by a PSD endpoint covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.36762v1",
+          "material_read": "§2, Theorem 2.1, offsets about 5358–9601",
+          "method": "OA arXiv HTML passage",
+          "title": "Brownian covariances on an interval: a complete endpoint classification",
+          "trigger": "Full process family"
+        },
+        {
+          "assessment": "Identifies a rescaled Slepian member and earlier first-passage work; does not give the stated whole-family relative law in the passages read.",
+          "evidence": [
+            "The Slepian example has independent endpoints in this construction; references list Slepian (1961) and Shepp (1971)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.33747v1",
+          "material_read": "§4 Example 4.7, offsets 70543–77272, references near offset 214469",
+          "method": "OA arXiv HTML passages",
+          "title": "A Bestiary of Brownian Processes: A Field Guide to Boundary Conditions and Conditioning",
+          "trigger": "Endpoint models with potential boundary-crossing antecedents"
+        },
+        {
+          "assessment": "Different event and asymptotic parameter; no implication for a two-sided shrinking interval.",
+          "evidence": [
+            "The proof conditions on endpoints u,v and uses the half-line survival factor 1-exp(-2uv) for positive u,v."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-persistence-of-gaussian-endpoint-brownian-bridges-and-a-co--8e7450a67957/RESULT.md",
+          "material_read": "Finding, scope and Proof §1, offsets 0–3198",
+          "method": "Resultary and local-mirror full-text passage",
+          "title": "Exact persistence of Gaussian-endpoint Brownian bridges and a covariance-rank crossover",
+          "trigger": "Same Gaussian-endpoint family, kernel reduction and rank regimes"
+        },
+        {
+          "assessment": "The result uses the L² norm.",
+          "evidence": [
+            "The setting is finite-dimensional perturbations, but not a supremum-norm confinement over the continuous interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.07804",
+          "material_read": "Page 1, statement of the norm and perturbation scope",
+          "method": "OA PDF passage",
+          "title": "L2-small ball asymptotics for a family of finite-dimensional perturbations of Gaussian functions",
+          "trigger": "Sharp small balls under finite-dimensional Gaussian perturbations"
+        },
+        {
+          "assessment": "No whole-source exclusion of overlap; none of these limited views is used as proof of noncoverage.",
+          "evidence": [
+            "Li's abstract concerns Gaussian Markov sup-norm small deviations; the Slepian and Shepp references explicitly concern first passage."
+          ],
+          "identifier_or_url": "10.1023/A:1021771503265; 10.1070/RM2003v058n04ABEH000643; Slepian (1961), Shepp (1971) as cited in arXiv:2610.33747v1",
+          "material_read": "Abstracts, reference entries or publisher landing pages; no readable full text recovered in the bounded attempts",
+          "method": "DOI/OA recovery and Project Euclid access attempts",
+          "title": "Sup-norm and first-passage antecedents: Li, Fatalov, Slepian and Shepp",
+          "trigger": "Potential sharp-sup-norm and Slepian special-case overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leading constant and power of ε matter in rare-event comparisons across covariance ranks. The relative bound remains informative even when the endpoint factor tends rapidly to zero, and the cosine tilt identifies which endpoints are seen conditional on the event. This addresses the moving-covariance regime, for which fixed-process asymptotics cannot simply be substituted, and explains why support changes permit weak but not total-variation convergence to the limiting law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

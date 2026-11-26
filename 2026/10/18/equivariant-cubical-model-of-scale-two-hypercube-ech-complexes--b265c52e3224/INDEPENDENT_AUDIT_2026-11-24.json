@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:23:22.455606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The center cones meet only along common right faces, so sending each apex to its base barycenter gives a well-defined equivariant strong deformation retraction onto the nerve. Distinct closed cube neighborhoods have intersection zero or two; each right face on at least three vertices has a unique center. In descending right cardinality its sole surviving strict coface is the cone over it. Same-size pairs are noninterfering, and their equivariant retracts can be made explicit: subtract the minimum barycentric coefficient on the free face from each coordinate there and transfer the mass to the fixed apex, using the linear homotopy. The all-dimensional residual incidence graph is the higher cube via the even/odd parity labeling. A pair of right vertices sharing a center has precisely two common centers, which form a unique square; the two cone triangles triangulate it. The parity lift preserves the odd diagonal and intertwines the full stated action. For n=1 no collapses are needed and the result is a filled square model of the interval. Reflections fix forced midpoints of axes, while a three-cycle forces its three equal coordinates to be all zero or all one in a two-skeleton. The remaining cube has dimension n-2; simple connectivity and its cell counts give the stated sphere multiplicities.",
+      "reproduction": "python3 /workspace/review-evidence/frozen_math_crosschecks.py 2. Independently enumerated simplicial faces and invariant supports through n=6. For translations all stable supports were edges and matched the claimed counts; for three-cycles the fixed Euler characteristics were 2,2,4,16 at n=3,4,5,6. These are finite consistency checks, not evidence by themselves of homotopy type. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "006bbbe8a937 assumes triangle-free codegree-at-most-two graphs and supplies a nonequivariant square-filled-graph splitting with sphere summands. 52cf23582d57 explicitly requires no edge in two distinct four-cycles.",
+          "Matsushita's inspected material supplies structural and fundamental-group results, not the claimed geometric action."
+        ],
+        "reasoning": "The first comparator omits precisely the coherent group action. The second has that action for a square-lift model, but each edge of Q_(n+1) lies in n squares, violating its hypothesis for n>=2 even after the open/closed parity reduction.",
+        "searches": [
+          "Resultary 006bbbe8a937 closed square-completion splitting, 52cf23582d57 equivariant open square lifts",
+          "arXiv:2511.12608v2, §1.3 and Theorem 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and verify.py",
+        "Resultary 344271f4218a, 28af810d1399, 56228186318e, 006bbbe8a937, 52cf23582d57",
+        "arXiv:2212.05871 and 2511.12608v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The affine-character proof explicitly does not assume an equivariant homotopy equivalence: it calculates the Hopf trace from stable faces. The older parity-component proof uses the same two-vertex intersection bound but chooses one distinguished right vertex in each facet rather than keeping all center vertices."
+        ],
+        "reasoning": "The previously published trace and ordinary homotopy information cannot recover the model. The equivalent parity presentation recovers standard combinatorial input and suggests the cubical geometry, but does not build the complete incidence square structure with both parity parts and the lifted action. The frozen proof supplies these geometric steps explicitly.",
+        "searches": [
+          "Resultary 28af810d1399, proof at offsets 2920–4120",
+          "Resultary 344271f4218a, collapse proof at offsets 1450–4000",
+          "Resultary 52cf23582d57, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projection deleting a distinguished coordinate is an exact simplicial isomorphism from one parity component of the open-neighborhood complex of Q_(n+1) to the closed-neighborhood complex of Q_n. In 344271f4218a the proof fixes that coordinate and collapses within each facet toward a right vertex, producing L_d on one parity part, rather than using separate apex vertices.",
+          "56228186318e is genuinely Vietoris–Rips: its scale-two fixed spaces for weight-one/two translations are copies of the (n-1)-cube graph, not isolated points."
+        ],
+        "reasoning": "The open-neighborhood comparison is equivalent at the source-complex level, not merely related by title. Its distinguished-coordinate collapse is compatible with the parity-preserving subgroup fixing that coordinate if paired collapses are grouped; this is real methodological overlap. The residual L_d is not the claimed higher-cube model. Identifying it with the claimed model up to equivariant homotopy needs an additional geometric construction, not a substitution of dimensions. The Rips fixed-space classification concerns a different complex and does not imply the Čech result.",
+        "searches": [
+          "Resultary: hypercube open and closed neighborhood collapses, affine homology character, equivariant cubical model; 344271f4218a, 28af810d1399, 56228186318e",
+          "Adams–Shukla–Singh arXiv:2212.05871, Lemma 2.2 and Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational character for the same nerve and its nonequivariant Betti rank are exact known invariants; the same-day fixed-space entry gives exact values for a Rips filtration."
+        ],
+        "reasoning": "These formulas do not tabulate equivariant homotopy types on the Čech side. At most the rational trace determines fixed Euler characteristic; it does not distinguish two spheres from other spaces of the same Euler characteristic.",
+        "searches": [
+          "Resultary 28af810d1399 full affine H_2 character and 56228186318e translation fixed-space classification",
+          "arXiv:2212.05871, Theorem 4.1"
+        ]
+      },
+      "rationale": "Supported distinct claim: the explicit full affine-equivariant identification, via a common incidence-cone intermediary, with the prescribed diagonal triangulation of the complete higher-cube two-skeleton and parity-lift action. The nonequivariant wedge, rational character, translation count and the unique-center collapse idea are not credited as new. The closest overlapping open-neighborhood collapse genuinely treats this complex after projection to one parity class, but ends in a different coordinate-selected complex on half as many vertices; it does not give the cubical intermediary or the lifted geometric action on the entire higher-cube two-skeleton. The two plausible general square models do not state the claimed equivariant conclusion under hypotheses covering all these cubes.",
+      "residual_risks": [
+        "The literature search was unavailable; no inference of absence follows. The specific earlier square-completion reference alluded to in the frozen text was not identified beyond the closely related indexed comparators.",
+        "An equivalent equivariant argument from the distinguished-coordinate collapse or elsewhere could be unindexed; no priority or exhaustiveness claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in source object and collapse; different residual triangulation and conclusion.",
+          "evidence": "It fixes a coordinate, retains the full one-skeleton and apex-containing triangles in each right facet, and uses square relations in Q_(d-1) to prove simple connectivity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-neighborhood-complexes-of-hypercubes-collapse-to-explicit-2-sphe--344271f4218a/RESULT.md",
+          "material_read": "Finding and proof, offsets 1450–4000",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Neighborhood complexes of hypercubes collapse to explicit 2-sphere wedges",
+          "trigger": "Exact parity-component reduction to the source complex"
+        },
+        {
+          "assessment": "Exact equivariant analogue with an edge-disjoint-square hypothesis not met by the general cube.",
+          "evidence": "Each simple four-cycle lifts twice to B(G); the text assumes no edge belongs to two different simple four-cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-integral-symmetry-modules-and-square-orbit-characters-of-lov-sz--52cf23582d57/RESULT.md",
+          "material_read": "Finding, offsets 0–2924",
+          "method": "Local mirror",
+          "title": "Integral symmetry modules and square-orbit characters of Lovász neighborhood complexes",
+          "trigger": "Closest equivariant square-lift analogue"
+        },
+        {
+          "assessment": "Character-level overlap only; stronger than nonequivariant Betti counts.",
+          "evidence": "Computes 1+tr(g|H_2) by a simplicial Hopf trace and explicitly does not assume equivariance of the known homotopy equivalence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-full-hyperoctahedral-homology-character-of-scale-two-hypercube-e--28af810d1399/RESULT.md",
+          "material_read": "Finding and proof offsets 2920–4120",
+          "method": "Local mirror",
+          "title": "Full hyperoctahedral homology character of scale-two hypercube Čech complexes",
+          "trigger": "Same object and full group action"
+        },
+        {
+          "assessment": "Different functor, with explicitly different rank-one fixed spaces at scale two.",
+          "evidence": "The metric is Hamming and the complex is inclusive VR; rank-one low-weight translation fixed spaces are cube graphs, not discrete spaces.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-translation-subgroup-fixed-point-persistence-of-scale-two-hyperc--56228186318e/RESULT.md",
+          "material_read": "Finding, offsets 0–2205",
+          "method": "Local mirror",
+          "title": "Translation-subgroup fixed-point persistence of scale-two hypercube Vietoris–Rips complexes",
+          "trigger": "Same-day fixed-point comparator"
+        },
+        {
+          "assessment": "Genuine nonequivariant overlap; distinct output.",
+          "evidence": "Square-filled graph plus one sphere per four-cycle; no equivariant or canonical splitting claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-square-completion-splitting-of-closed-neighborhood-complexes-wit--006bbbe8a937/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Square-completion splitting of closed neighborhood complexes",
+          "trigger": "Broader closed-neighborhood structural comparator"
+        },
+        {
+          "assessment": "Definitions and ordinary wedge known.",
+          "evidence": "Closed neighborhoods are the generators at scale two, and the ordinary homotopy type has the already known wedge rank.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.05871",
+          "material_read": "Lemma 2.2 p.4 offset 14003; Theorem 4.1 p.7 offset 26196",
+          "method": "Lawful OA PDF passages",
+          "title": "Čech complexes of hypercube graphs",
+          "trigger": "Primary known homotopy result"
+        },
+        {
+          "assessment": "Related structural theory; no matching equivariant description in inspected passages.",
+          "evidence": "General closed-neighborhood structural and fundamental-group conclusions, not an affine action on a complete cubical skeleton.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.12608",
+          "material_read": "p.1 and §1.3/Theorem 1.5 p.5, offsets 0, 11000–12570",
+          "method": "Lawful OA PDF passages",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "General closed-neighborhood theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model gives an explicit integral cell structure compatible with all affine symmetries and reduces geometric fixed-space computations to ordinary cubical geometry. The uniform three-cycle classification, e.g. two sphere components at n=5, is information beyond rational trace or nonequivariant wedge counts. This is not a claim of an equivariant sphere-wedge decomposition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

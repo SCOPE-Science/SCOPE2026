@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope
 
-The mathematical claim is proved by direct solution of four absorbing-chain equations and two integer-polynomial sign identities, not by finite sampling. To independently check the displayed identities and selected samples, execute `python3 verify.py` in the directory holding that file. The checker uses only standard-library `fractions.Fraction`, integer polynomial arithmetic, and a separately constructed absorbing Markov transition system.
+# Independent mathematical audit
 
-The checker reports: five universal bivariate polynomial identities passed; two universal selection-strength polynomial identities passed; 144 exact-rational independent four-state Markov-chain comparisons passed; and exact positive/negative witness comparisons passed. The universal identities are exact integer coefficient equalities, while the 144 rational comparisons are finite supplemental checks. Assertions passing do not certify unpublished-priority status or an external audit. Source comparisons are limited to the specifically named literature and checked mathematical implications; the original model and fundamental-matrix method belong to prior research.
+## correctness
 
-Boundary cases: all fitness ratios must be strictly positive; the explicit zero-strength case has equal fixation probabilities, and the critical threshold is inside the allowed interval. Claims about longer delays, larger populations, different initial histories, or different reproduction/replacement conventions are not made.
+PASS
+
+I independently built and solved the instantaneous and delayed chains in symbolic arithmetic by listing all ordered distinct reproducer/victim pairs, weighting the reproducer by the historical ratio and the current type. A hold changes the delayed state to (current,current), as required. Eventual absorption follows because a path of bounded length to an endpoint has probability bounded uniformly away from zero over the finite transient state space. Starting at (1,1), elimination gives both frozen probabilities and the factorization -x(x-y)(xy-2y-2) over the stated positive denominator. On the witness game the two sign factors have numerators w(5+13w) and 31w^2-4w-3, with positive denominators. The first is positive for w>0 and the second has its only positive root at (2+sqrt(97))/31 in (0,1); this proves the strict reversal and neutral cases without reversing the relative fitness ordering. For N=2, all pre-absorption history counts are one under the deterministic all-one initialization, for any finite delay. The two exact example differences are 1/70 and -15/2132. Finally the average-payoff identities imply x/y<4 for positive games, and the construction with alpha between x/(4y) and 1 attains every point of that region.
+
+## originality
+
+PASS
+
+The lagged Moran model, no-self-replacement rule, deterministic all-one history, history-valued Markov-chain method, and qualitative dependence on the game and selection strength are prior work. The inspected matches do not resolve the complete first-delay sign boundary in three individuals or the exact sign reversal of the delay effect along the specified fixed positive-game strength path. The smallest-population statement is supported as part of this exact classification, not as a separate novelty claim for the observation that N=2 has only one transient count.
+
+## value
+
+PASS
+
+For the established delayed Moran model, the earliest size at which composition history can matter already has two distinct exact neutrality loci, and the second is reachable within strictly positive games. The fixed-game path separates reversal of the delay effect from reversal of relative fitness ordering. This provides an interpretable phase boundary for when a delay helps, not just isolated numerical fixation values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:51:52.382977Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–62, VERIFICATION.md, verify.py and certificate.json (read as evidence, not executed)",
+        "/workspace/repairs/3/RESULT.md, all scientific sections",
+        "Replay: python3 /workspace/branches/b137b42c-ad63-4f52-9049-f1569e3c5149/reproduce.py; reproduction.txt in the same directory"
+      ],
+      "rationale": "The frozen results are numerically and mathematically correct; the repaired finding narrows the contribution, not the count. Half of each even letter multiplicity can be placed in each subword, and all permutations of ≤3 positions are dihedral. In the length-eight witness any candidate must give both subwords letters {0,0,1,2}; the subword containing the zero at position 6 reads 0102, and its complement 0012. One has opposite zeros and the other adjacent zeros on the four-cycle. There are C(4,2)·2·2=24 oriented balanced splits. For the repaired orbit statement, rotating an entire word simply rotates both induced subwords, and reversing or renaming the word also preserves the predicate. An alphabet permutation in a stabilizer must fix the dominant letter, and a rotation preserving its position set must fix its unique isolated occurrence, hence is trivial. The rotation/relabeling orbit has exactly 48 distinct failures. A separately written literal enumeration of all lengths 2,4,6,8 and all candidate splits yields 3,21,183,1641 even words, 0,0,0,48 failures, and the four specified classes of 12. Thus the orbit is exhaustive and the classification checks at the stated finer equivalence relation.",
+      "residual_risks": [
+        "Exhaustion stops at length eight; no density or classification claim at higher lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former paper treats a constraint-graph framework and cutting distance rather than a D_n-only split census",
+          "The latter proves m_3(4)=7 using seven arbitrary permutations, including non-dihedral ones"
+        ],
+        "reasoning": "A guarantee of coverage by an arbitrary set of permutations is not coverage by D4, or an upper bound on how often D4 coverage fails. The different variant does not settle the asserted finite classification.",
+        "searches": [
+          "More Variations on Shuffle Squares, DOI 10.3390/sym15111982, constraints and cutting-distance passages",
+          "Resultary 07a749473b9e, upper and lower covering arguments"
+        ]
+      },
+      "checked_sources": [
+        "Primary arXiv:2308.13882 and DOI 10.3390/sym15111982",
+        "Resultary record 07a749473b9e, exact table and upper-cover argument",
+        "Focused external lookup on the ternary dihedral conjecture",
+        "/workspace/repairs/3/RESULT.md Finding and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete inverse-class list for 00011022 is {1324,2314}; neither representative nor its inverse is in D4",
+          "Rotating the input rotates its two subwords within their own dihedral orbits; relabeling also preserves failure. The 48 distinct failures constructed this way account for all observed failures only after the separate exhaustive test"
+        ],
+        "reasoning": "The companion table implies refutation and the lower bound of 48, and existence at the first possible length follows with the elementary D1–D3 argument. It does not certify absence of further length-eight failures. The repair does not claim independent novelty for what that table implies.",
+        "searches": [
+          "07a749473b9e lower-bound row 00011022, and stated scope of both tables",
+          "Original conjecture §2.3 and the later constraint/cutting comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original Conjecture 2 asks for some γ in D_n relating the two equal-length split subwords; the frozen D_n-orbit definition matches",
+          "The distinct cyclic failure 012210 and whole-word dihedral-transform example 001221 do not refute that conjecture",
+          "Resultary 07a749473b9e gives an inverse-class certificate for the actual witness 00011022"
+        ],
+        "reasoning": "D_n is inverse closed, so allowing either direction of a split with a permutation in D_n is equivalent to the orbit criterion. A permutation of the entire word is not the constraint on the two subwords.",
+        "searches": [
+          "Resultary: exact four representatives, original authors' conjecture, and ternary length-eight dihedral shuffle squares",
+          "Grytczuk–Pawlik–Pleszczyński arXiv:2308.13882 §§2.1 and 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "07a749473b9e gives full inverse-class neighborhoods for seven witnesses, and aggregate first-coverage counts for a selected set of permutations on 274 relabeling classes",
+          "Appendix A lists binary anti-square class counts at lengths 24,26,28, under a different property and symmetry relation"
+        ],
+        "reasoning": "The seven exact witness rows have material overlap on existence. The upper table is not all per-word dihedral membership data; it cannot supply the missing length-eight exhaustiveness check. The binary anti-square census is an unrelated enumerated property.",
+        "searches": [
+          "Resultary: shortest-failure wording and 48-word/four-class census",
+          "Resultary 07a749473b9e lower-bound seven-word table and upper-bound first-coverage counts",
+          "Variations on shuffle squares Appendix A"
+        ]
+      },
+      "rationale": "PASS is for the repaired exhaustive classification only. The frozen presentation of the refutation as a distinct finding failed originality in that part: the separate indexed seven-permutation result's complete permitted-permutation row already certifies exactly the same witness, regardless of priority. Rotations and relabelings give all 48 proposed failures from that witness, and the half-length argument rules out shorter ones. The repair explicitly credits that coverage and claims exhaustiveness (no additional length-eight failures) and the resulting census only. The inspected comparison supplies neither a full D4 membership table nor an upper bound of 48 failing words. Same-day indexing does not determine priority.",
+      "residual_risks": [
+        "Catalogue and literature searches are bounded; an unindexed or differently worded complete census is not ruled out.",
+        "No priority is assigned to either same-day record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same conjecture, but the displayed prior ternary obstructions are for different restrictions",
+          "evidence": "γ-similarity is a permutation of the two halves' positions; Conjecture 2 says some γ in D_n for every even ternary word; Theorem 2 is binary cyclic.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.13882",
+          "material_read": "§2.1 HTML offsets 9417–12991; §§2.2–2.3, Conjecture 2 at PDF p.7 offset 22586; Appendix A HTML offset around 47900",
+          "method": "Bounded primary OA PDF/HTML passages",
+          "title": "Variations on shuffle squares",
+          "trigger": "Exact conjecture and previously described counterexamples"
+        },
+        {
+          "assessment": "Inspected statements concern different restrictions, not the described D4 census",
+          "evidence": "Constraint graphs for permutations and bounded cutting/rearrangement, rather than a dihedral relation between two subwords.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15111982",
+          "material_read": "Abstract and constraints/cutting-distance passages, PDF pp.1,3,8",
+          "method": "Bounded primary OA PDF passages",
+          "title": "More Variations on Shuffle Squares",
+          "trigger": "Later same-author variants could refute or subsume the conjecture"
+        },
+        {
+          "assessment": "Equivalent witness refutation, but not the exhaustive D4 classification; date gives no priority ordering",
+          "evidence": "Lower table gives both permitted inverse classes for 00011022 (1324 and 2314); upper table gives cumulative coverage by seven selected arbitrary permutations, not D4 failure counts.",
+          "identifier_or_url": "2026/10/12/SCOPE-seven-permutations-suffice-and-are-necessary-for-ternary-length--07a749473b9e",
+          "material_read": "Finding, lower and upper covering arguments, verification scope, mirror offsets 1532–4351",
+          "method": "Read bounded indexed local-mirror passages",
+          "title": "Seven permutations suffice and are necessary for ternary length-eight shuffle coverage",
+          "trigger": "Same alphabet and length; exact table plausibly includes the witness or full census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original Conjecture 2",
+        "/workspace/repairs/3/RESULT.md Finding, scope and proof",
+        "Independent finite reproduction for all even words through length eight"
+      ],
+      "rationale": "Even without novelty for a first witness, exhausting the first failing length of a named conjecture answers a natural structural question: every minimal failure follows by rotation and relabeling from one pattern, and none is of another kind. The exact labeled census and the four explicitly defined smaller orbits make this finite boundary usable for comparing strengthened shuffle restrictions. This is not a recount of one observed counterexample or an arbitrary slice.",
+      "residual_risks": [
+        "The four classes are only under the stated smaller group; no general result about longer obstructions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

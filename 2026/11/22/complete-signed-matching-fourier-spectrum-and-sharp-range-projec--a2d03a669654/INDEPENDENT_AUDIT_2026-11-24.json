@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:11:51.214501Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT §§Finding–Proof; VERIFICATION.md; mcgee_verify.py (inspected, not run)",
+        "branches/check_matchings.py and check_matchings.log"
+      ],
+      "rationale": "Independently built the LCF graph and reproduced girth seven. Enumerated disjoint edge subsets in the two halves of the edge list and joined them by complementary covered-vertex sets; this gives each perfect matching once. Evaluated Walsh signs by parity sums using a different spanning tree from the frozen verifier, and inverted the range indicator by separable direct summation. All nine histogram entries, 60 matchings, 2112 reduced zeros, full rank 51,002,736,640 and nullity 17,716,740,096 agree. The connected cut space has dimension 23, and tree restriction on it is bijective by propagation along the tree; signs differ only by a common global factor within each coset, so the histogram lifts by 2^23. Direct original-edge character evaluation gives no singleton zeros, exactly 128 pair zeros, all disjoint, and edge incidences 20 throughout. Fourier inversion gives zero off the cycle space, with exactly 2412 nonzero coordinates inside and absolute integer coefficient sum 120192 on the 8192-point quotient, hence endpoint norm 939/64. A convolution has this same kernel absolute sum as either the maximum column sum or maximum row sum. Translating and averaging any projection onto the invariant range keeps its range and its identity action there, contracts the norm, and forces the unique convolution projection. Thus the norm is sharp for all real or complex projections at both endpoints.",
+      "residual_risks": [
+        "The 2412 support is the projection kernel's support, not the nullity. Only the specified graph and unnormalized matching convolution were checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day Chvátal result also has 8192 switching classes but has 2536 zeros and endpoint norm 5067/256; dodecahedral and Heawood results also give different constants. The cage survey gives the standard graph and automorphism context."
+        ],
+        "reasoning": "Generic translation averaging and sign switching already apply; the inspected analogues are graph-specific, not stronger results covering the McGee evaluation.",
+        "searches": [
+          "Resultary signed matching or Walsh results for Chvátal, dodecahedral, Heawood and four-cube graphs",
+          "Exoo–Jajcay, Dynamic Cage Survey §2.1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs 434d398b5fa9, 586cf7e5211d, 68b36f468b5d, 0645b73a843d, 706d7c9e0a96, b52baedd0542",
+        "McGee 1960; Exoo–Jajcay survey; arXiv:0711.2585"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching census determines the new invariants in principle: form parity counts for 8192 switching classes, then transform their nonzero indicator in cycle coordinates. The second evaluation depends on the entire located zero set, not on its cardinality or even the absolute multiplier histogram alone."
+        ],
+        "reasoning": "This is a new evaluation of two distinct transforms and an exact endpoint norm, not a renaming of the incidence list, a cosine or sign convention change, or substitution of a number into the stated two-factor, anti-forcing or Tutte profiles. The proof method and the input data do not earn novelty credit.",
+        "searches": [
+          "Resultary 434d398b5fa9 Proof and labeled data; 586cf7e5211d Finding; signed recovery analogues 68b36f468b5d and 0645b73a843d",
+          "arXiv:0711.2585, McGee graph coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a labeled complementary 2-factor F=E∖M, the sign is (-1)^|s| times (-1)^|s intersect F|, so a complete signed labeled 2-factor spectrum would be equivalent in magnitude. The existing 2-factor result gives cycle profiles and lists labeled matchings, not counts under each signing."
+        ],
+        "reasoning": "The actual overlap in combinatorial data is recognized; taking complements does not turn the prior cycle-type classification into a signed Fourier classification.",
+        "searches": [
+          "Resultary: McGee signed perfect-matching spectrum, signed matching counts, two-edge cancellation, sharp range projection and support",
+          "Cubic complement bijection in McGee 2-factor census 434d398b5fa9, Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit was the assigned record itself. The older McGee census actually publishes labeled matching edge lists in matchings.csv on the same LCF model; it provides the whole input incidence family. The anti-forcing and Tutte tables give other invariants. None of the checked earlier tables is indexed by edge signings or gives evaluated kernel coefficients."
+        ],
+        "reasoning": "The exact input database is accepted as prior coverage and would allow computing the output. No distinct matching evaluated spectral or projection table was found.",
+        "searches": [
+          "Resultary exact McGee spectrum, 128 pair zeros, support 2412 and 939/64",
+          "Same-graph repository 434d398b5fa9 RESULT.md and matchings.csv; 586cf7e5211d Finding",
+          "arXiv:0711.2585, McGee Tutte coefficient table"
+        ]
+      },
+      "rationale": "The method and theorem form have close other-graph analogues. The exact labeled perfect-matching census is independently prior, not just the unsigned total, and must not be presented as original. The supported distinct output is the evaluated McGee signed Fourier distribution and zero locus information, including its sharp range-projection constant and kernel support. Neither the earlier graph-specific data table nor the analogue theorems states those evaluations.",
+      "residual_risks": [
+        "A separate unpublished or unindexed signed-matchings/hafnian calculation using the old incidence census could overlap. Broader search availability was limited.",
+        "Same-date catalogue records do not establish ordering; their mathematical domains differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete labeled input census, no evaluated edge-sign or projection table in the inspected material",
+          "evidence": "60 matchings, complementary cycle-type counts 42,6,12, eight symmetry classes; CSV records each matching by its specific edge set.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-the-complete-2-factor-spectrum-of-the-mcgee-graph-and-its-eight--434d398b5fa9",
+          "material_read": "RESULT Finding and Proof offsets 1380–3752; matchings.csv header and rows, offset 0–863",
+          "method": "Resultary local mirror",
+          "title": "The complete 2-factor spectrum of the McGee graph and its eight symmetry classes",
+          "trigger": "Strongest same-graph antecedent, including precise incidence lists"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Anti-forcing polynomial 40t^5+20t^6 and a matching/cycle-type distribution.",
+          "identifier_or_url": "Resultary 2026/10/26, ID ending 586cf7e5211d",
+          "material_read": "RESULT Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Anti-forcing spectrum of the McGee cage and a two-factor-profile obstruction",
+          "trigger": "Exact same-graph matching statistics"
+        },
+        {
+          "assessment": "Graph construction and structural identification",
+          "evidence": "24-vertex cubic girth-seven example, Hamiltonian circuit and later automorphism background; these statements do not evaluate the matching transform.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1960-018-1 ; https://www.combinatorics.org/files/Surveys/ds16/ds16v1-2008.pdf",
+          "material_read": "McGee pp. 149–152, offsets 0 and 3449; Exoo–Jajcay §2.1.3, PDF pp. 7–8 (12554)",
+          "method": "OA PDF passages",
+          "title": "A Minimal Cubic Graph of Girth Seven; Dynamic Cage Survey",
+          "trigger": "Original graph and broad structural source"
+        },
+        {
+          "assessment": "Different table of coefficients",
+          "evidence": "Tutte coefficients count edge-subset rank/nullity classes, not signed matching counts at each edge character.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.2585",
+          "material_read": "McGee graph appendix table, PDF p. 21, offset 85767",
+          "method": "OA PDF passage",
+          "title": "Computing the Tutte Polynomial in Vertex-Exponential Time",
+          "trigger": "Exact table for the same graph"
+        },
+        {
+          "assessment": "Graph-specific analogues, not dismissed by date",
+          "evidence": "Chvátal has 48 pair zeros; dodecahedral has 60 and support 1024; four-cube has 96. Dodecahedral and Heawood norms are 83/8 and 93/16, not the McGee constant.",
+          "identifier_or_url": "Resultary IDs 68b36f468b5d, 0645b73a843d, 706d7c9e0a96 and b52baedd0542",
+          "material_read": "RESULT Findings, offset 0 for each",
+          "method": "Resultary local mirror",
+          "title": "Signed Fourier recovery analogues on the Chvátal, dodecahedral, Heawood and four-cube graphs",
+          "trigger": "Strongest prior or same-day matches in the invariant and proof method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and normalization",
+        "McGee construction and earlier same-graph census 434d398b5fa9"
+      ],
+      "rationale": "The (3,7)-cage is a canonical extremal graph. The exact parity cancellations and endpoint range-projection amplification are meaningful Fourier recovery benchmarks on its matching incidence cube. The 2412-support fact and optimal norm use the zero locus, not the previously published total of 60, its cycle types, or merely its graph symmetries. The graph-specific exact results, not the general algorithm, warrant the value assessment.",
+      "residual_risks": [
+        "No optimal inverse on other data spaces, general new projection formalism, or all-cage pattern is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

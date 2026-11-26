@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:29:23.017441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, all five proof steps and the model definition",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "H_n is the trailing block of leaf labels, not a depth statistic. For a=n-m, the event H_n>=m restricts exactly the independent parent draws at times a+1 through n to the first a labels. Multiplying their probabilities gives the factorial tail; conditional on the event these parents are iid uniform on the first a labels and independent of the induced tree. Each old leaf survives all m draws with probability (1-1/a)^m, and the leaf recurrence gives mean a/2 for a>=2. If a=1 the old root is hit with certainty. This proves the threshold regression, not a conditional formula for H_n=m. Subtracting n/2 and summing the indicator representation of H_n gives the covariance formula. The excess is half the expected duplicate draws in m draws on a labels; it is zero at m=1 and positive at every m>=2. Expanding the logarithmic product for m on the sqrt(n) scale gives the Rayleigh tail. The leaf recurrence agrees with the Eulerian descent-count recursion. Uniform permutation descents are 1-dependent when generated from iid continuous ranks and give Var(L_n)=n/12 for n>=3 and the stated normal limit. To check the joint step, write Y_k=L_k-k/2, and Y_(k+1)=(1-1/k)Y_k+D_(k+1) with bounded, orthogonal martingale differences. Thus Y_n-Y_a=-m Y_a/(n-1)+sum from k=a to n-1 of k D_(k+1)/(n-1), which is o_P(sqrt(n)) for m=O(sqrt(n)). The early count is exactly independent of the threshold event, so survival/leaf rectangles factor in the joint limit. The conditional mean excess converges to x²/4 at m near x sqrt(n), uniformly on bounded x ranges; at x=0 use m=1. For m<=n/2 the duplicate-draw bound is m(m-1)/(4a) for the excess, and the product tail is bounded by exp(-m(m-1)/(2(n-1))). For m>n/2 the trivial bound m/2 and the same tail are sufficient. These bounds give dominated Riemann sums and the limit sqrt(pi/2)/4 for the scaled covariance.",
+      "residual_risks": [
+        "The reported 178 checks use finite enumeration and numerical asymptotic tests, not a proof. The argument is for independent uniform increasing parents, not the plane-oriented or nonuniform attachment model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The oldest-leaves record has an early-label Poisson process and Rayleigh first-leaf label, not the youngest nonleaf or the final leaf suffix. The conditional-erasure record covers deleting sets of conditioned leaf labels and studies depth. Classical sources treat degree counts, sums of fringe functions, or degree/depth/label extremes of other kinds."
+        ],
+        "reasoning": "An early leaf and a late nonleaf are different extremes of a parent process that is not invariant under time reversal of labels. Erasure identifies the reduced tree but is not a joint statement about the suffix, the late attachments that erase old leaves, or the residual total-leaf covariance.",
+        "searches": [
+          "Resultary: Rayleigh/Gaussian joint limit and age-indexed leaf extremes",
+          "Resultary: conditional leaf erasure in recursive trees",
+          "Janson DOI 10.1002/rsa.20046; Holmgren–Janson arXiv:1406.6883; Eslava arXiv:1611.07466; Lodewijks arXiv:2204.09032"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary catalogue and the two inspected material overlap records",
+        "Altok–Işlak (2017) abstract",
+        "Janson, Najock–Heyde, Holmgren–Janson, Eslava and Lodewijks passages as detailed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact parent-avoidance tail is elementary and the Gaussian marginal is classical. The linked leaf-erasure result establishes a conditioned reduced-tree law, whereas the present mixed regression also tracks whether each old leaf is hit by the remaining parents. The inspected oldest-leaf result computes a different marginal limit."
+        ],
+        "reasoning": "The residual covariance requires combining the late-parent occupancy deficit with the trailing-leaf probability, including convergence of its weighted sum. Neither classical Gaussian marginals nor the other Rayleigh marginal supply this, and the early/late decoupling is needed for the joint weak limit.",
+        "searches": [
+          "Resultary: oldest leaves PPP; conditional leaf erasure and depth–leaf covariance",
+          "Janson (2005), degree-count marginal",
+          "Altok–Işlak (2017), leaf-run abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In triangular occupancy language H_n=n-max(parent labels) and L_n=n-number of distinct parent labels. The Eulerian descent bijection describes the marginal L_n and does not alone identify this joint statistic.",
+          "Altok–Işlak's accessible abstract mentions the number of runs of leaves, a potentially relevant permutation formulation, but gives no inspected definition or formula for the terminal run length."
+        ],
+        "reasoning": "Counting runs is not in general the same as measuring the length of the final run. Without the full article, equivalence of a stronger process description cannot be excluded; the abstract does not establish one.",
+        "searches": [
+          "Resultary: exact final leaf suffix, tail and conditional regression",
+          "Altok–Işlak (2017), On leaf related statistics in recursive tree models; targeted search for an open full text of that article"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue results give exact laws for different leaf statistics, including an earliest-leaf Rayleigh analogue. The accessible classical count materials concern marginal leaf or degree counts. Finite enumeration in the frozen package gives only small-n support for the formulas."
+        ],
+        "reasoning": "An exact marginal law or table of total leaf counts does not determine the conditional means with respect to the maximum parent label, or the scaled mixed covariance. No matching exact joint entry was verified.",
+        "searches": [
+          "Resultary: covariance constant of terminal leaf-suffix length and total leaves; threshold conditional expectation",
+          "Najock–Heyde (1982), terminal vertices; Janson (2005), asymptotic degree counts"
+        ]
+      },
+      "rationale": "The uniform recursive-tree leaf count, Eulerian marginal and its normal limit are not new. The supported distinct contribution is the trailing birth-label extreme jointly with the total leaf count, in particular the exact threshold regression and residual covariance constant despite limiting independence. The strongest same-model age result concerns the earliest surviving leaf, and fixed-set leaf erasure does not supply the mixed claims. Older leaf-run work could not be inspected beyond its abstract and is not treated as ruled out.",
+      "residual_risks": [
+        "Altok–Işlak is the principal unresolved full-text risk. Two catalogue hits, on birth-rank covariance in plane recursive trees and regression on pendant root branches, were available as search synopses only, not local full text; their described model or conditioning differs. No historical priority claim follows from this bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different age extreme and no matching mixed leaf-count statement.",
+          "evidence": [
+            "A Poisson process of earliest surviving leaves on the sqrt(n) scale with intensity x dx gives the Rayleigh first leaf label."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror record inspection",
+          "title": "The oldest leaves of random recursive trees form a Poisson point process",
+          "trigger": "Strongest same-model leaf-age and Rayleigh overlap"
+        },
+        {
+          "assessment": "Related conditioned subtree law, not the suffix regression or covariance.",
+          "evidence": [
+            "Conditioning a fixed set of nonroot labels to be leaves and deleting them leaves a uniform recursive tree on the remaining labels; the reported covariance concerns depth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror record inspection",
+          "title": "Conditional leaf erasure and the depth–leaf covariance profile of recursive trees",
+          "trigger": "Broader conditioning on sets of leaf labels"
+        },
+        {
+          "assessment": "Potentially relevant but full comparison unresolved; not used to exclude prior coverage.",
+          "evidence": [
+            "The abstract mentions a permutation bijection, the leaf-count normal law and a statistic described as the number of runs of leaves."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0167715215304119",
+          "material_read": "Publisher/institutional abstract only; no definition of its run statistic could be read",
+          "method": "Bounded abstract inspection, lawful publisher and institutional retrieval and targeted alternate-copy search",
+          "title": "On leaf related statistics in recursive tree models",
+          "trigger": "Plausible stronger coverage via leaf runs or the uniform-permutation bijection"
+        },
+        {
+          "assessment": "Relevant marginal background; accessible passages do not resolve the birth-order mixed statistic.",
+          "evidence": [
+            "The papers concern degree-count distributions/evolution or terminal-vertex counts, respectively."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20046 ; https://doi.org/10.2307/3213526",
+          "material_read": "Wiley and Cambridge abstracts; full text was not obtained in the attempted copies",
+          "method": "Lawful publisher/author-copy retrieval attempted, bounded abstract inspection",
+          "title": "Asymptotic degree distribution in random recursive trees; On the number of terminal vertices in certain random trees",
+          "trigger": "Classical marginal leaf count and degree statistics"
+        },
+        {
+          "assessment": "Related functionals and extremes; the accessible passages do not identify the maximum label with a child or its joint leaf-count law.",
+          "evidence": [
+            "Fringe additive functionals; depths of high-degree vertices; and joint behavior for high-degree or prescribed-label vertices, respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883 ; https://arxiv.org/abs/1611.07466 ; https://arxiv.org/abs/2204.09032",
+          "material_read": "PDF p. 1 abstracts, offset 0 in each",
+          "method": "Bounded primary PDF abstract inspection",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Random Recursive Trees; Depth of vertices with high degree in random recursive trees; On joint properties of vertices with a given degree or label in the random recursive tree",
+          "trigger": "Plausible fringe-functional, age/label and extreme-degree coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, conditional regression and covariance limit",
+        "Resultary oldest-leaf and leaf-erasure studies for neighboring age and conditioning questions"
+      ],
+      "rationale": "The statistic locates the most recently born vertex that has already become a parent, a natural age observable distinct from depth. Its Gaussian/Rayleigh separation by itself would miss the positive mixed effect: the exact threshold regression and nonzero sqrt(n)-scale covariance quantify what the independent leading limit hides. Both pieces are useful in comparing local age extremes to global degree counts.",
+      "residual_risks": [
+        "The quantitative statement belongs to the particular uniform attachment rule; no universality or multi-extreme law is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

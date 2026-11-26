@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:13:59.849720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–90",
+        "Shen–Wang arXiv:2611.10680v1, Proposition 2.2, (2.7)–(2.8), pp. 2–3",
+        "VERIFICATION.md:19–30",
+        "check.py:11–183, inspected rather than executed"
+      ],
+      "rationale": "Shen–Wang Proposition 2.2 was confirmed for both words: marginal membership is gp_{λi}∈Z(G). Multiplying two such elements gives the stated quotient rectangle, with exactly z² ordered pairs above each failing ordered row/column quadruple. Row ratios u_{λi}u_{μi}^{−1} are constant exactly for pairs of left-equivalent rows; transitivity follows by multiplying the constant left factors in order. For a partition of d into at least two positive sizes, the cross-class ordered-pair count is at least 2(d−1), with equality only for sizes 1,d−1, by maximizing the sum of squares. Applying this first to the rows and then to column-ratio batches gives the product bound and forces one exceptional row and one exceptional column. More explicitly, first divide each column on the right by its entry in a reference ordinary row; ordinary rows now have constant entries, and the exceptional row's entries are constant except at one column. Scaling each row on the left makes all these constants 1. Under any left-row/right-column gauge change the normalized quotient matrix changes only by a uniform conjugation (by the multiplier at column 1). Normalizing the one-cell perturbation produces either its interior row/column or the entire respective interior when it is on a distinguished axis; the four cases yield a common value t or t⁻¹ on the product support. Conversely all listed products arise this way. The only duplicated support choice is at size 2. An arbitrary quotient matrix is determined by its normalization and r+c−1 boundary entries, and each free G-coordinate has z lifts. Division by (zq)^(rc) verifies the probabilities. If Q is trivial or either matrix dimension equals one there is no failing rectangle.",
+      "residual_risks": [
+        "The counts concern ordered product pairs and labeled matrices over a finite group, not isomorphism classes or sandwich matrices with zeros."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shen–Wang characterize qualitative closure; the paper also considers completely regular semigroups",
+          "Radović–Mudrinski describe congruence commutators via linked triples; Araújo–Araújo–Kinyon study inverse semigroups"
+        ],
+        "reasoning": "A theorem for a wider class on whether closure holds does not count ordered defects when closure fails. The other two references address different algebraic observables or settings.",
+        "searches": [
+          "arXiv:2611.10680v1 Proposition 2.2 and Example 2.3",
+          "arXiv:2208.05237v3 Theorem 1.1",
+          "Araújo–Araújo–Kinyon DOI 10.1007/s00233-025-10548-9"
+        ]
+      },
+      "checked_sources": [
+        "Shen–Wang arXiv:2611.10680v1, Prop. 2.2 and Example 2.3",
+        "arXiv:2208.05237v3",
+        "DOI 10.1007/s00233-025-10548-9",
+        "Resultary 799224ef2750, 56110b6f6601, d9bc660c91b2",
+        "Focused gain-graph/rectangle primary-literature comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The qualitative test does give the flat stratum by straightforward factorization",
+          "The first-positive argument additionally forces equality of two independent partition-square inequalities and must track the normalized gauge supports and boundary multiplicities"
+        ],
+        "reasoning": "Neither the zero-defect stratum alone nor a 2×2 counterexample determines the uniform minimum positive weight in all dimensions, the noncommutative extremizers, and their populations. Those are the incremental claims, not fresh attribution of the flat criterion.",
+        "searches": [
+          "Shen–Wang Proposition 2.2 and Example 2.3; linked-triple congruence-commutator literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shen–Wang Prop. 2.2 translates directly to identity rectangles in G/Z(G)",
+          "B/(4z²) counts the unbalanced unoriented 4-cycles of the Q-gain assignment on K_{r,c}",
+          "Resultary 56110b6f6601 treats finite-field rank-one arrays and rectangular scarcity per its catalog statement"
+        ],
+        "reasoning": "The cycle-violation count is not entrywise Hamming distance to factorable matrices. In the binary abelian case, 4-cycle syndromes are the image of a tensor product of complete-graph coboundary maps, so the gap has a product-code distance interpretation; the nonabelian quotient and its normalized stratum do not follow by applying a linear tensor-product distance theorem.",
+        "searches": [
+          "Primary literature: minimum number of unbalanced 4-cycles in group gain complete bipartite graphs and group rank-one rectangle defects",
+          "Resultary: Rees rectangle defects, rectangular scarcity and rank-one normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 799224ef2750 is the subject itself",
+          "Resultary 56110b6f6601 concerns finite-field normalized rank-one statistics and d9bc660c91b2 concerns coordinate-zero faces of transportation polytopes",
+          "Shen–Wang Example 2.3 gives a nonclosed 2×2 instance, not a census"
+        ],
+        "reasoning": "No distinct inspected table gives the labeled zero and first-positive counts or the equality classification; the bounded lookup does not prove absence.",
+        "searches": [
+          "Resultary: sharp first positive Rees commutator margin defect and exact labeled counts",
+          "Primary literature: minimum bad rectangles for group-valued rank-one arrays"
+        ]
+      },
+      "rationale": "The common marginal set and criterion for defect zero are credited to Shen–Wang, and no originality is attributed to those facts. The supported distinct claim is the sharp first positive defect, simultaneous equality classification including nonabelian quotients, and exact labeled populations. The inspected prior qualitative results and related finite matrix results do not give that classification and census.",
+      "residual_risks": [
+        "An equivalent general gain-graph theorem on minimum unbalanced 4-cycles and extremizers may exist; the primary lookup did not settle its historical priority.",
+        "The flat criterion and the abelian distance analogy are not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Common margin and identity-rectangle criterion directly covered; inspected proposition and example give no first positive stratum",
+          "evidence": "Marginality is gp_{λi}∈Z(G); closure iff every sandwich rectangle lies in the center.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.10680v1",
+          "material_read": "§2 Proposition 2.2, (2.7)–(2.8), printed pp. 2–3; Example 2.3 comparison",
+          "method": "Original arXiv PDF passage inspection",
+          "title": "Marginal Congruences and Elements for Two Commutator Words in Completely Regular Semigroups",
+          "trigger": "Exact same Rees semigroup and marginal words"
+        },
+        {
+          "assessment": "Congruence commutator rather than counting products of marginal elements",
+          "evidence": "Theorem describes the congruence commutator through linked triples.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.05237v3",
+          "material_read": "Theorem 1.1, p. 2",
+          "method": "ArXiv theorem passage comparison",
+          "title": "Commutators in completely simple semigroups",
+          "trigger": "Commutators in the same class of semigroups"
+        },
+        {
+          "assessment": "Identified scope is inverse semigroups and metacenter; no Rees census in the abstract, and no whole-paper exclusion inferred",
+          "evidence": "The stated object is a marginal inverse subsemigroup.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-025-10548-9",
+          "material_read": "Publisher abstract",
+          "method": "Publisher passage comparison",
+          "title": "Marginal subsemigroups and commutators in inverse semigroups",
+          "trigger": "Marginal subset closure"
+        },
+        {
+          "assessment": "Related matrix language, not the same count on arbitrary finite group arrays",
+          "evidence": "The summary concerns a finite-field convolution spectrum and scarcity on the normalized rank-one set.",
+          "identifier_or_url": "Resultary 2026/11/8, 56110b6f6601",
+          "material_read": "Catalog statement",
+          "method": "Local catalog comparison",
+          "title": "Exact convolution spectrum and rectangular scarcity on normalized finite-field rank-one matrices",
+          "trigger": "Rectangle statistics for normalized rank-one matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:14–48,63–90",
+        "Shen–Wang Proposition 2.2"
+      ],
+      "rationale": "This quantitatively separates the first possible nonclosure from exact closure in a setting where the qualitative criterion was known. A sharp uniform gap alone gives an obstruction; classifying all cases and counting them also determines the precise low-defect probabilities for random labeled matrices. The dimensions, central lift and noncommutative gauge invariance are intrinsic to the problem rather than arbitrary enumeration choices.",
+      "residual_risks": [
+        "No downstream classification of the full defect spectrum or of semigroup isomorphism types is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

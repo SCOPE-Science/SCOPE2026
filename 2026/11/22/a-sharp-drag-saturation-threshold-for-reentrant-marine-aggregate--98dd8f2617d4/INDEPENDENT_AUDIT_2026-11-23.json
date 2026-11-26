@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:06:52.157075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md and check_settling.py (read only)",
+        "checks/replay_certificates.py, settling"
+      ],
+      "rationale": "The numerator g is strictly concave, positive at zero and tends to −∞. Its unique positive zero x_b has g′<0, hence H(x_b)<0; the displayed cutoff is the positive root of the multiplied quadratic. V′ has the sign of H and the positive factor (1+x)^3 turns H′ into Q with Q′<0. If Q(0)≤0 then H falls throughout; otherwise it rises to exactly one maximum at z and falls thereafter. Q(0)>0 implies b>c; x₀=√(b/c)−1 lies below x_b and H′(x₀)=(1+ηx₀)g″(x₀)<0, so z<x_b. The exact two-root test is then H(0)<0, Q(0)>0, H(z)>0; H(0)=0 is a boundary, not a first interior extremum. If H(z)=0, H′(z)=0 and H″(z)=Q′(z)/(1+z)^3<0: V′ is negative on both sides and V‴(z)<0, giving a stationary inflection. At or below η=2/(1−α), Q(0)<0 for all b,c>0. Above it choose b/c large enough for Q(0)>0 and first set a₀=(b−c)/(αη); then H(0)=0 and H(z)>0. A small positive perturbation of a makes H(0)<0 while preserving H(z)>0, proving realizability for each α,η above the frontier. Independent symbolic reconstruction of the stationary polynomial and exact signs at 0, 1/10 and 2 gives two roots below the buoyancy cutoff in the witness. The α=1/3 threshold is strictly η>3.",
+      "residual_risks": [
+        "The frontier concerns existence over positive a,b,c, not all material choices above it; it does not apply where g≤0.",
+        "The physical use of creeping-flow spherical drag and the assigned load–mass–volume law is conditional, not an empirical conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chajwa et al. pp. 5–7, Eqs. (1)–(5), model settling with mucus geometry, deformation and mobility as well as size/density ratios.",
+          "Yoshitake and Maggi full text could not be retrieved in the independent check. The frozen support points to Yoshitake §§2.1–2.2 Eqs. (7a–b) and Maggi §2.1 as relevant, but those locators do not constitute independent reading."
+        ],
+        "reasoning": "Generic force balance or Stokes drag is already known; it can supply α=1/3 if volume is affine and radius scales cubically, but does not supply the coexistence of two turning points without assumptions on the excess-mass numerator and the allowed coefficient variations. The inspected mucus-halo model does not provide those inputs.",
+        "searches": [
+          "arXiv:2310.01982, mucus-halo Stokesian settling model",
+          "doi:10.1002/jgrc.20086, fractal aggregate drag",
+          "doi:10.1029/2022JC018961, lawful full text or author manuscript for the exact settling-model paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.01982 Eqs. (1)–(5)",
+        "Yoshitake, Maggi and Roberts DOIs (access attempted, no primary text read)",
+        "Resultary records ending 98dd8f2617d4, b38dab808a65, eddb13bade10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked physical equations use eccentricity/mobility ratios and deformation rather than g(x) with independent linear penalty and affine drag volume. The checked mathematical double reversal is a difference of composed rational maps; both are order-specific concentration trajectories.",
+          "The closest microplastic-aggregation article was not retrieved. The freeze reports that its velocity law distinguishes the presence of plastics, not their total mass, but that claim is unverified independently."
+        ],
+        "reasoning": "Known Stokes scaling gives the denominator exponent only. The frontier requires both a monotone derivative-numerator reduction and a construction calibrating the baseline to create two strict roots before buoyancy cutoff. The accessible comparator results give neither these hypotheses nor the associated necessary and sufficient conditions.",
+        "searches": [
+          "Chajwa et al., arXiv:2310.01982 Eqs. (1)–(5)",
+          "doi:10.1029/2022JC018961, direct OA and targeted same-paper copy lookup",
+          "Resultary reentrant rational/saturating maps, exact source comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting x/d in place of x gives the same family with η=k d; a witness written using a half-saturation loading d would therefore be relevant.",
+          "The exact settling hit ending 98dd8f2617d4 is the identical record. The inspected serial saturation record ending b38dab808a65 compares T₂(T₁(x)+r) and T₁(T₂(x)+r), not stationary points of a single load–speed curve. The inspected record ending eddb13bade10 varies the allocation between two substrate-inhibited responses under a fixed budget."
+        ],
+        "reasoning": "Changing physical interpretation or normalizing the loading unit alone would not distinguish equivalent theorems. The distinct checked hits differ at the objective and constitutive-map level, not merely in labels or constants.",
+        "searches": [
+          "Resultary: sharp two turning points or stationary inflection in a saturating Michaelis–Menten rate a+b x/(d+x) minus linear load cost, divided by a power of affine load 1+kx; ratio k d and reentrant response",
+          "Resultary setting-specific reentrant aggregate-settling and drag/saturation frontier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only identified matching exact indexed criteria are in the identical frozen record. The checked serial reaches paper gives thresholds 2/5, 12/25, 2 for order crossings; the separate budget-allocation paper classifies a root of m³−3m−α, not a settling-law frontier."
+        ],
+        "reasoning": "The general analytic threshold and strict fixed-coefficient test do not follow from a measured speed table or any located exact tabulation; the witness is a rational sign certificate, not a table-based inference. Inaccessible empirical articles were not searched for exact tables in their full text.",
+        "searches": [
+          "Resultary exact η>2/(1−α) and H(0), Q(0), H(z) settling criterion",
+          "Resultary saturation/loading reentrance and dimensionless threshold (records ending b38dab808a65 and eddb13bade10)"
+        ]
+      },
+      "rationale": "The exact result is for a specified rational excess-mass response and power-law volume drag, not general Stokes terminal velocity or the existence of competing physical effects. The checked alternate saturation models optimize different maps; the inspected physical model resolves different constitutive variables. No confirmed stronger theorem gives this family and two-root criterion. This is a best-of-knowledge judgment, with the closest motivating articles' unavailable passages explicitly retained as risks, not counted as exclusions.",
+      "residual_risks": [
+        "The exact Yoshitake and Maggi model equations remain unresolved in independent retrieval, and Roberts full text could not be read. An exact earlier algebraic reduction in unavailable or unindexed literature cannot be ruled out.",
+        "The originality assessment is scoped to inspected evidence and does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different shape/deformation drag relation",
+          "evidence": "Mucus halo, eccentricity, volume/density ratios and mobility determine deformation and settling; not the target scalar saturating plastic-load law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.01982",
+          "material_read": "pp. 5–7, PDF offsets 24850, 28850 and 32300, Eqs. (1)–(5)",
+          "method": "Original OA PDF, relevant model passages",
+          "title": "Hidden Comet-Tails of Marine Snow Impede Ocean-based Carbon Sequestration",
+          "trigger": "Plausible stronger Stokesian settling model"
+        },
+        {
+          "assessment": "Unresolved beyond frozen attribution; not counted as noncoverage",
+          "evidence": "The reported dependence on plastic presence but not mass is the frozen authors' account, not an independently read passage.",
+          "identifier_or_url": "https://doi.org/10.1029/2022JC018961",
+          "material_read": "No primary text retrieved; frozen dossier points to §2.1 Eqs. (7a–b), §2.2 and Discussion",
+          "method": "DOI, publisher full/PDF OA routes and one targeted same-paper lawful copy search; no text obtained",
+          "title": "A Numerical Model Approach Toward a Settling Process and Feedback Loop of Ocean Microplastics Absorbed Into Phytoplankton Aggregates",
+          "trigger": "Closest motivating experiment/simulation variables: aggregation and buoyant plastic"
+        },
+        {
+          "assessment": "Unresolved exact-form comparison",
+          "evidence": "The topic identifies a plausible broader physical model; no inference of exact noncoverage from unsuccessful access.",
+          "identifier_or_url": "https://doi.org/10.1002/jgrc.20086",
+          "material_read": "No primary text retrieved independently; frozen dossier identifies §2.1 and §§3.2–3.4 and notes inaccessible formula images",
+          "method": "DOI and direct publisher OA routes",
+          "title": "The settling velocity of mineral, biomineral, and biological particles and aggregates in water",
+          "trigger": "Broad constitutive drag/fractal-size law might enable a reduction"
+        },
+        {
+          "assessment": "Empirical context, no independent full-text implication claim",
+          "evidence": "The result title concerns reduced settling velocity and carbon content; it is insufficient to infer a coefficient law or exclude one.",
+          "identifier_or_url": "https://doi.org/10.1002/lno.12615",
+          "material_read": "No independent full text; bibliographic description in the frozen record",
+          "method": "Attempted DOI OA retrieval",
+          "title": "Microplastics may reduce the efficiency of the biological carbon pump by decreasing the settling velocity and carbon content of marine snow",
+          "trigger": "Related empirical settling speed under plastic loading"
+        },
+        {
+          "assessment": "Different objective and constitutive relation",
+          "evidence": "Zeros of F₁₂−F₂₁ determine the minimizing order of two composed removal maps with an external addition; not extrema of one load–speed law.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-source-driven-double-reversal-in-two-serial-saturating-stream--b38dab808a65",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions and exact sign reduction, offset 0",
+          "method": "Resultary alias query and local original text",
+          "title": "A source-driven double reversal in two serial saturating stream reaches",
+          "trigger": "Distinct rational saturation and exact double reversal"
+        },
+        {
+          "assessment": "Not the same one-curve criterion",
+          "evidence": "A constrained sum of two Haldane–Andrews responses gives unequal allocation above a cubic-root threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-symmetry-breaking-for-two-fixed-budget-compartments-with-s--eddb13bade10",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary alias query and local original text",
+          "title": "Sharp symmetry breaking for two fixed-budget compartments with substrate-inhibited kinetics",
+          "trigger": "Rational saturating/inhibited response and sharp threshold"
+        },
+        {
+          "assessment": "Identical frozen record, not independent earlier coverage",
+          "evidence": "Same excess-mass function, power drag, strict existential frontier and fixed-parameter sign test.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-drag-saturation-threshold-for-reentrant-marine-aggregate--98dd8f2617d4",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 1451",
+          "method": "Resultary retrieval and local original text",
+          "title": "A sharp drag–saturation threshold for reentrant marine-aggregate settling",
+          "trigger": "Exact semantic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and Limitations",
+        "Chajwa et al., arXiv:2310.01982 model equations"
+      ],
+      "rationale": "Opposing buoyant loss, saturating mass gain and size-dependent drag motivate asking whether a load–speed curve can reverse slope twice before flotation. The work gives a strict universal exclusion/realizability boundary controlled by the ratio of the saturation and drag-load scales, and a usable necessary and sufficient coefficient test that includes the tangency. It is more informative than a numerical reentrant example or a slope calculation at zero. It provides a benchmark for evaluating this explicitly assumed response law; it does not make an ocean-wide prediction.",
+      "residual_risks": [
+        "No data identify the coefficients, no evidence is given that natural aggregate trajectories attain the threshold, and the witness is not calibrated to turbulent, fractal or non-Stokes settling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

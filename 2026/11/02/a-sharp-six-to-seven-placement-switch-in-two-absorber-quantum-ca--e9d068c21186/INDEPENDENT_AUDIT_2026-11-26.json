@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:08:59.773989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–4; VERIFICATION.md; PLACEMENT_CERTIFICATE.json; check_triangular.py (inspected, not executed)",
+        "Independent exact replay: python /workspace/evidence/replay.py 2"
+      ],
+      "rationale": "For the point/pair incidence matrix B, A=BᵀB−2I and BBᵀ=(n−2)I+J. The projected symmetric and antisymmetric absorber vectors are orthogonal at each energy by pair-exchange symmetry. Projection onto the centered incidence space and its two complements independently gives the stated weights, with exactly three and two positive weights respectively. Any eigenvector of the active generator with real part zero would, by the dissipative quadratic form, be orthogonal to the loss vector and thus be a pure energy vector; each such direction couples. Therefore the active part is strictly stable and the captured probability is 5/binom(n,2). Conditioned on capture the initial active density is I₅/5. For a rank-one energy sector write q_j=(Xv)_j/v_j=x_j+iz_j for the integrated density X. The diagonal Lyapunov equations give x_j=1/(κw_j). The off-diagonals are iκv_jv_k(q_j+conjugate(q_k))/(2(e_j−e_k)), so z_j=(2w_j)⁻¹∑_{k≠j}(w_j+w_k)/(e_j−e_k). Pairing the real contributions in ∑X_jj gives Tr X=∑x_j+κ∑w_j z_j², with both rate coefficients positive (e.g. the maximum-energy term in the second sum is nonzero). The independent incidence-based exact replay reproduces all four rational functions and every optimized-difference certificate coefficient; it checks the fixed-rate signs and exact squared-rate crossings 59392/293 and 2500/51 separately. A direct exact Lyapunov linear solve corroborates the general identity on an independent non-flat example.",
+      "residual_risks": [
+        "No conclusion here for unequal losses, a different initial ensemble, or an unconditional finite lifetime. Equal hopping is set to one and κ is a population-loss rate, not an amplitude-loss rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed distance-regular theorem gives 2d+1 bright modes and fraction (2d+1)/v. The primitive strongly regular theorem gives 5 modes and 5/v explicitly, plus site-resolved integrated capture. Novo et al. supply a related invariant-space method."
+        ],
+        "reasoning": "T_n is primitive strongly regular of diameter two for n≥5, so these broader indexed rank results genuinely cover the active dimension and mixed capture fraction. Eventual or site-resolved capture probabilities do not determine their time-weighted first moment or optimal decay rates.",
+        "searches": [
+          "Resultary 1660beea2236 and 9174c1f874d0, Findings and assumptions",
+          "arXiv:1412.7209, transport invariant-space discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof and prior-work section",
+        "arXiv:0803.3446, arXiv:1412.7209, arXiv:2203.14384",
+        "Resultary 1660beea2236, 9174c1f874d0, 940d079fa0ca and 876a81781f4d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Johnson search result uses marked-pair spectral data; the strongly regular absorption result includes the common active dimension. The inverse-gap hypercube formula is the flat-weight rank-one case after mixed-state normalization."
+        ],
+        "reasoning": "The rank comparisons leave conditional lifetimes undetermined. Search projector weights are inputs, not the Lyapunov trace and rational sign classification. Flat weights impose extra equalities, whereas the two triangular sectors have nonuniform, n- and geometry-dependent weights. The switch claims require that actual time calculation and its global signs.",
+        "searches": [
+          "Lugão et al., arXiv:2203.14384, PDF pp. 3, 11–12",
+          "Resultary 9174c1f874d0 and 940d079fa0ca, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lugão et al. use Johnson distance and two marked vertices in a Hermitian spatial-search Hamiltonian. Varbanov et al. define hitting by measurements at Poisson times. Novo et al. supply the transport invariant-space argument and discuss time on a particular modified complete graph."
+        ],
+        "reasoning": "Two-site geometry and a rate optimum do not by themselves identify equivalent observables. The frozen conditional mean is a survival integral after subtracting a dark component for a maximally mixed state under a dissipative local-loss generator, not a search amplitude or projective hitting time.",
+        "searches": [
+          "arXiv:2203.14384 (two marked vertices, including J(n,2))",
+          "arXiv:0803.3446 (continuous walk hitting time)",
+          "arXiv:1412.7209 (trapping/Krylov reduction)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In addition to the matching rank results, the indexed hypercube result gives a rank-one lifetime for flat spectral weights and the indexed path result gives lifetimes for one sink on paths (including other initial states)."
+        ],
+        "reasoning": "Neither addresses the variable weights in the two absorber sectors of the triangular graph. Verified material overlaps concern the rank statement or one-sink cases, not an exact indexed table of the triangular-graph rates or crossover.",
+        "searches": [
+          "Local Resultary semantic lookup: two-absorber Johnson/triangular graphs, dark/bright capture, optimized conditional survival",
+          "Resultary 1660beea2236, 9174c1f874d0, 940d079fa0ca and 876a81781f4d"
+        ]
+      },
+      "rationale": "The supported distinction is the exact conditional lifetimes and their all-n adjacent/disjoint placement classifications (separately optimized and at common rate), not the five-mode rank or eventual captured fraction. Two general indexed capture-rank theorems already imply those ancillary statements, and one single-sink result gives a flat-weight specialization of the lifetime identity. None of these statements supplies the two geometry-dependent conditional lifetimes or the placement thresholds. Same-day dates do not resolve priority.",
+      "residual_risks": [
+        "Chronological priority of the overlapping capture-rank and flat-spectrum claims is not resolved by the dates. General Lyapunov lifetime or Johnson absorption literature could contain further overlap. The PASS is for the specific lifetime and geometry classification in the evidence reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different measurement law",
+          "evidence": "Unitary evolution between projective measurements at Poisson-distributed times.",
+          "identifier_or_url": "arXiv:0803.3446",
+          "material_read": "PDF pp. 1 and 3, offsets 1650 and 13800",
+          "method": "OA PDF text",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "Possible equivalent continuous quantum hitting time"
+        },
+        {
+          "assessment": "Related trapping machinery and illustrative case",
+          "evidence": "Invariant-subspace reduction for transport to a trap, with a trapping-time example for a modified complete graph.",
+          "identifier_or_url": "arXiv:1412.7209",
+          "material_read": "PDF pp. 2–3, offsets 11751 and 17473",
+          "method": "OA PDF text",
+          "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+          "trigger": "Trapping invariant-space method and rate-dependent time"
+        },
+        {
+          "assessment": "Same graph and pair types, different Hamiltonian and observable",
+          "evidence": "Two marked vertices, including the triangular J(n,2) case, in spatial search.",
+          "identifier_or_url": "arXiv:2203.14384",
+          "material_read": "PDF p. 3 and pp. 11–12, offsets 9534 and 40987",
+          "method": "OA PDF text",
+          "title": "Multimarked Spatial Search by Continuous-Time Quantum Walk",
+          "trigger": "Same Johnson graphs and same two-site geometries"
+        },
+        {
+          "assessment": "Covers bright mode count and eventual fraction",
+          "evidence": "Uniform-count theorem 2d+1 and mixed fraction (2d+1)/v regardless of placement and positive rates.",
+          "identifier_or_url": "Resultary 1660beea2236",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local Resultary search and mirror",
+          "title": "Two-absorber capture on primitive distance-regular quantum networks",
+          "trigger": "Broader indexed result for the same capture model"
+        },
+        {
+          "assessment": "Directly covers two ancillary findings",
+          "evidence": "Five active modes and 5/v for mixed capture; site-resolved probability, not conditional first moment.",
+          "identifier_or_url": "Resultary 9174c1f874d0",
+          "material_read": "Mirrored Finding, offset 209",
+          "method": "Local Resultary search and mirror",
+          "title": "Two-sink capture universality and site-resolved absorption on primitive strongly regular quantum networks",
+          "trigger": "Same two-sink model in a broader graph class"
+        },
+        {
+          "assessment": "Flat-weight specialization",
+          "evidence": "Single sink, flat spectral weights, initial I/N, inverse-gap expression and rate optimum.",
+          "identifier_or_url": "Resultary 940d079fa0ca",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Inverse-gap capture law and singular anisotropy in quantum hypercubes",
+          "trigger": "Possible equivalent rank-one lifetime identity"
+        },
+        {
+          "assessment": "Different graph and one sink",
+          "evidence": "One-sink path capture times including arbitrary initial states, not a two-site placement comparison.",
+          "identifier_or_url": "Resultary 876a81781f4d",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact state-dependent capture times and optimal sink strength on finite quantum paths",
+          "trigger": "Same integrated lifetime and optimization theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, lifetime proof and rate comparisons",
+        "PLACEMENT_CERTIFICATE.json",
+        "Resultary 9174c1f874d0 (value beyond eventual yield)"
+      ],
+      "rationale": "Both geometries remove the same part of the initial mixture eventually; finite conditional transport instead shows a switch as dimension changes. The exact optimized boundary and fixed-rate alternatives resolve two distinct decisions for all triangular graphs in scope and supply a benchmark in an infinite natural graph family. The strength optimum balances the 1/κ and κ contributions rather than just reflecting the common rank result.",
+      "residual_risks": [
+        "This is a benchmark for the specified coherent model, not evidence for a particular device or for other initial states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

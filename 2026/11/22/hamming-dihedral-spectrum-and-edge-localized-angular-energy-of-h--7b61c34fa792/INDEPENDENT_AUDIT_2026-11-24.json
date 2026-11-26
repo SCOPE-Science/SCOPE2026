@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:14:36.147891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; checker.py inspected, not executed",
+        "Repaired /workspace/repairs/4/RESULT.md and VERIFICATION.md",
+        "Fresh replay: cd /workspace/repairs/4 && python3 radial_inverse_check.py"
+      ],
+      "rationale": "The frozen formulas are mathematically correct; the substantive repair narrows the claim, not the estimates. Affine independence follows from ker L=span(1); w_x=L^dagger e_x satisfies w_x·Le_y=delta_xy-1/N, so -w_x is outward and the interior angle has cosine -c_h/a. Each difference of weight h gives N/2 pairs. The inverse-square multiplier 1/(4|S|^2) yields a convergent integral of t times the product heat kernel minus its stationary term; at every t>0 the product strictly decreases with h, hence so do the interior angles. Comparing the linear coefficient at u=0 of the binomial expansion and finite product for the beta integral B(u,d+1) gives c_d=-(H_d^2+H_d^(2))/(8N). The adjacent entry is positive for d>=3 by the first term of the one-coordinate difference sum and is -1/64 at d=2. Parseval gives the shell sum including h=0; remove a^2 and divide by a^2 to obtain the normalized off-diagonal energy. For X=(2K-d)/d with K fair binomial, the cubic Taylor expansions of (1+X)^(-2), (1+X)^(-4) and -X(1+X)^(-2) on |X|<=1/2 use E X^2=1/d and E X^4=(3d^2-2d)/d^4, with odd moments zero. The tails are exponentially small even after the inverse-power bounds. This gives a=d^(-2)(1+3/d+O(d^-2)), b=d^(-4)(1+10/d+O(d^-2)) and c_1=d^(-2)(2/d+O(d^-2)). Both all nonzero differences and the Hamming-one contribution have leading energy 4/d in shell normalization, with O(d^-2) errors, establishing the asserted share and mean. The exact antipodal value then gives the other asymptotic by expansion of arccos. A newly written rational replay solved two radial Poisson equations using shell-neighbor counts, matching all Walsh shells, energy, monotonicity, signs and antipodal values for d=2..30; the estimates remain analytical.",
+      "residual_risks": [
+        "The metric is inherited from the full columns of L, not the simplex of Gram L or an arbitrary affine image. The replay is finite and does not certify the asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devriendt's Property 1 gives the general normalized pseudoinverse-Gram formula for dihedral angles. The inspected general Resultary weighted-graph recognition Proof gives normalized (L^dagger)^2 specifically for column simplices, along with inverse recognition. Neither major statement gives the local/off-diagonal energy ratio on the d-cube.",
+          "The simplex papers treat lattice properties or a simplicial-complex generalization. The inspected higher-order biharmonic paper's opening discusses graph-wide edge importance, sparsity and clustering, not this cube's angular energy asymptotic."
+        ],
+        "reasoning": "A general angle formula and its inverse solve the pointwise exact spectral input, not the relative sizes of weighted Hamming sums as dimension increases. The related Fiedler realization with Gram L is not the present Gram L^2.",
+        "searches": [
+          "Devriendt arXiv:2010.04521, §2.2 Property 1",
+          "Braun–Meyer arXiv:1706.07085, §3.1",
+          "Juhnke-Kubitzke–Köhne arXiv:2301.11602, pp. 1–2",
+          "Resultary 49d3b46853da",
+          "Biharmonic Distance of Graphs and its Higher-Order Variants, arXiv:2406.07574v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.02656v2, 2010.04521, 1706.07085, 2301.11602, 1807.06475 and 2406.07574v2 (located passages)",
+        "Resultary 49d3b46853da, e78a2f0afa5f, aea66d1fe696 and 7b61c34fa792 (target)",
+        "ScienceDirect S0377042721001709 (indexed description only)",
+        "Repaired /workspace/repairs/4/RESULT.md, Finding, Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apply the general angle identity with center Gram L^2 to the cube kernel, and count unordered pairs by binary differences. The exact angles and their shell multiplicities follow mechanically; the exact unweighted squared energy also follows by Parseval.",
+          "Strict ordering uses the sign of the integrated differences of the product heat kernel. Localization requires identifying and matching the leading 4/d terms for the total off-diagonal and first-shell energies, and the exceptional antipodal scale uses the alternating harmonic sum. Those conclusions are not immediate parameter substitutions in any inspected stronger theorem."
+        ],
+        "reasoning": "The frozen originality issue was demonstrable prior implication, not a retrieval error. The repaired claim requires distinct quantitative work, and no inspected source directly implies its estimates.",
+        "searches": [
+          "Wei–Li–Yang arXiv:2110.02656v2, pp. 18–19, Theorem 5.5, Remark 5.1 and Corollary 5.6",
+          "Devriendt arXiv:2010.04521, pp. 9–10, Property 1",
+          "Resultary angular recognition 49d3b46853da, Finding and Proof",
+          "Focused follow-up on hypercube inverse-square energy localization, ordering and extreme scales"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wei–Li–Yang, Proposition-level framework in Theorem 5.5 and the exact cube specialization in Corollary 5.6, give the same Walsh distance kernel. With the cube's normalized distance D between the w_x vectors, D(x,y)=2(a-c_h), where D is the square and the unnormalized printed square is N times D. Its row average is 2a. Thus cos(theta_xy)=-1+D(x,y)/(row average of D), unchanged by a uniform normalization.",
+          "This covers the exact formula in an equivalent formulation, not just a similar graph parameter. No retrieved passage from that source asserts localization of the squared cosine energy or the two extreme rates."
+        ],
+        "reasoning": "The repair explicitly distinguishes a now credited equivalent input from the new comparisons and asymptotic estimates extracted from that input. Exact spectrum and shell counts are not reasserted as independent discoveries.",
+        "searches": [
+          "Resultary: hypercube Laplacian-column simplex Hamming spectrum and inverse-square Laplacian; adjacency squared-energy localization and extreme scales",
+          "Web: hypercube biharmonic distance Q_d inverse square graph Laplacian Hamming Krawtchouk monotonicity biharmonic distance hypercube exact formula asymptotic",
+          "Wei–Li–Yang arXiv:2110.02656v2, §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact catalogue match 7b61c34fa792 is this assigned record. Separate angle spectra are available for cycles and matching-deleted cliques. Wei–Li–Yang give all cube pairwise biharmonic values in closed form, not an energy-asymptotic table."
+        ],
+        "reasoning": "The finite and exact kernel data are credited even without a table of angles; no distinct indexed match was identified containing the repaired large-d comparison and scales.",
+        "searches": [
+          "Resultary: exact Hamming angle spectrum and strict shell ordering for cube column simplices",
+          "Resultary: squared angular energy on adjacent cube labels, mean and extreme asymptotic scales",
+          "Resultary e78a2f0afa5f and aea66d1fe696, Findings"
+        ]
+      },
+      "rationale": "The frozen presentation does not pass originality as a claim to the complete exact spectrum: the exact angular values are an immediate conversion of an existing exact biharmonic distance formula for this very cube. The repair removes that as a contribution, explicitly credits it and the general angle formula, and treats exact multiplicities and energy identities as supporting calculations. PASS applies only to the repaired quantitative localization, mean and extreme-scale result with its strict-order argument. The closest inspected papers and indexed statements do not establish those estimates.",
+      "residual_risks": [
+        "The complete text of Spectral properties of hypercubes with applications was not retrieved. An unindexed stronger asymptotic result for inverse-square Green functions is not excluded. No priority is claimed over the exact kernel or mechanically equivalent spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of the frozen exact angle formula by direct conversion; does not state repaired estimates in inspected passages",
+          "evidence": "Corollary 5.6 gives the square root of a sum of |I|^(-2)(1-(-1)^{sum_{i in I}(u_i+v_i)}) with factor 1/sqrt(2). Normalize the printed square by N to get 2(a-c_h); the scale cancels in the cosine conversion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.02656v2",
+          "material_read": "§5.3, Theorem 5.5, Remark 5.1 and Corollary 5.6, PDF pp. 18–19, offsets about 42000–45900; conclusion passage",
+          "method": "Primary OA PDF; locate then read matching passage, check normalization and convert the squared distance to the cosine",
+          "title": "Biharmonic distance of graphs",
+          "trigger": "Same hypercube and exact equivalent inverse-square kernel"
+        },
+        {
+          "assessment": "Prior general angle-normal identity",
+          "evidence": "Exterior dihedral cosine is the normalized entry of the pseudoinverse of the simplex vertex Gram matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.04521",
+          "material_read": "§2.2 Property 1, PDF pp. 9–10, offset 22650",
+          "method": "Primary OA text; apply general centered-Gram formula to L^2",
+          "title": "Effective resistance is more than distance: Laplacians, Simplices and the Schur complement",
+          "trigger": "General simplex dihedral formula"
+        },
+        {
+          "assessment": "Known exact input identity; no cube-specific large-d conclusions in inspected text",
+          "evidence": "Interior cosines are given by normalized (L^dagger)^2 and the labelled matrix determines a weighted graph up to the stated scaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-angular-recognition-and-weighted-graph-reconstruction-for-laplac--49d3b46853da",
+          "material_read": "Finding and Proof, angle formula and inverse recognition",
+          "method": "Local mirror; compared general Gram and conclusions",
+          "title": "Angular recognition and weighted-graph reconstruction for Laplacian-column simplices",
+          "trigger": "Exact same column-simplex construction"
+        },
+        {
+          "assessment": "Foundational, concerned with lattice behavior",
+          "evidence": "Definition introduces lattice-coordinate representation and unimodular equivalence; the latter does not fix Euclidean angles.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.07085",
+          "material_read": "§1.2, p. 2; §3.1 Definition 3.3, p. 5",
+          "method": "Primary OA; compared realization and scope",
+          "title": "Laplacian Simplices",
+          "trigger": "Foundational graph Laplacian simplex"
+        },
+        {
+          "assessment": "Different edge quantity and scope on passages inspected",
+          "evidence": "The opening concerns edge importance, sparsity and clustering via distance notions, without this cube dihedral-energy limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.07574v2",
+          "material_read": "Abstract and opening of introduction, PDF p. 1, offset 900",
+          "method": "Primary OA; checked scope of available relevant statements",
+          "title": "Biharmonic Distance of Graphs and its Higher-Order Variants",
+          "trigger": "Plausible broader inverse-square kernel and edge concentration work"
+        },
+        {
+          "assessment": "Incomplete comparison, not negative evidence",
+          "evidence": "Indexed description mentions normalized-Laplacian eigenvalues and an eigentime identity; it is not enough to judge all inverse-square asymptotics in the article.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0377042721001709",
+          "material_read": "Indexed description only; primary passage retrieval returned HTTP 403",
+          "method": "OA access attempt; not used as whole-paper evidence",
+          "title": "Spectral properties of hypercubes with applications",
+          "trigger": "Potential stronger exact cube spectral application"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/4/RESULT.md, Finding and §§2–4",
+        "Wei–Li–Yang, Corollary 5.6, exact pointwise input"
+      ],
+      "rationale": "The repaired result identifies which ridges account for nearly all deviation energy even though the fraction of such ridges tends to zero exponentially. A typical ridge therefore hides a strong local signal; the mean and the two disparate extreme scales quantify this distinction. These conclusions give a usable metric description beyond computing an already known pointwise kernel or tabulating finite dimensions.",
+      "residual_risks": [
+        "The interpretation applies to equal-weight squared cosines in the full Euclidean column realization, not a weighted curvature measure or a general Laplacian-simplex law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

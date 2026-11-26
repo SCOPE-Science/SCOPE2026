@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem follows from the exact reduction to a divisibility-minimal set of obstruction moduli for each abscissa, then a three-congruence compatibility criterion from generalized CRT. The bounded, exhaustive first-coordinate search is reproduced by two source-level implementations that agree on every negative case and on the two terminal candidate triples. The Python implementation computes both positive residue classes modulo the actual joint period and checks the defining condition point by point. The boundary and quantifiers, including unbounded positive ordinates, are accounted for: the first-coordinate cutoff is not inferred from a finite ordinate search.
+PASS
 
-## Originality — PASS, qualified
+For each witness t<x the defining divisibility is equivalent to y being a multiple of P(x)/gcd(P(x),P(t)); removing divisible moduli preserves the union. For two abscissae, simultaneous multiples use their least common multiple, and pairwise compatibility of residue differences 1,1,2 is sufficient and necessary by the generalized CRT. Independently, python3 /workspace/reproductions/5.py (NumPy) marked the original t-witness multiples directly for all residues modulo lcm(P(x),P(x+1)), without antichains or CRT triples. It found no three consecutive simultaneously invisible ordinates, including wraparound, at any x=1 through 229. At x=230 the full period 6163080 gave exactly 759044 and 781724 plus 0,1,2,3 times 1540770; hence the smaller-period two-class classification for all positive y follows. The direct witnesses at the first corner and gcd(231,759046)=1 were also checked. This is lexicographic and the shape is two abscissae by three ordinates.
 
-Ahuja's January 2026 full relevant sections on polynomial visibility and invisible blocks (arXiv:2601.15877, Sections 3–4, Table 1, conclusion) include the first reported polynomial-invisible two-by-two block at \((13,195)\) for \(t(t+1)\) and identify larger blocks and first locations as further questions. They do not contain the complete first two-by-three result or the exact two classes of all ordinates at the minimal first coordinate. Murphy–Schmiedeler–Stonner analyze a different *linear* gcd-visibility problem; their classical block is not a covering theorem for polynomial visibility. The present six-point configuration even includes a classically visible point. Targeted searches of mathematical literature, indexed research records and accessible prior claims yielded no covering statement. The lack of a global priority guarantee is a residual risk, not claimed uniqueness of research output.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This settles the first six-site rectangular pattern beyond the two-by-two configurations explicitly computed in the motivating paper, at its least possible first coordinate, and supplies *all* ordinates at that boundary. Lexicographic first occurrence of an invisible rectangular forest is a standard, natural invariant in the earlier classical literature, but the polynomial rule is non-equivalent. The result gives an exact finite obstruction and a reproducible CRT structure, with an unexpectedly large first ordinate compared with the source's finite search range. No broad asymptotic claim is made or needed for the stated finite value.
+Best-of-knowledge pass for the exact first 2-abscissa by 3-ordinate block and two complete boundary classes for the fixed polynomial. The strongest same-polynomial precedent gives a smaller square; the strongest first-occurrence table uses a different visibility relation.
 
-## Closest literature and remaining limits
+## value
 
-Chahat Ahuja, *Visibility of Lattice Points across Polynomials*, arXiv:2601.15877, especially Sections 3 and 4; Nolan Murphy, Lauren Schmiedeler and Ellen Stonner, *First Occurrence and Frequency of Invisible Lattice Point Patterns*, especially Section 4 and its tables; Chaubey–Pandey–Regavim, *On the density of visible lattice points along polynomials*, arXiv:2109.08431. The classical paper's exact first rectangular patterns cannot be transferred wholesale from linear visibility. An unindexed prior computation of the specific polynomial first rectangle remains possible. This is a finite result, not a solution of the first polynomial-invisible three-by-three square or an assertion of arbitrary large patterns.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural rectangular extension of the motivating same-polynomial square example and of classical first-occurrence studies. It answers a specific larger-block existence problem by giving a sharp, lexicographic boundary and the complete set of starting ordinates there. The all-ordinate exclusion is useful exact data under the genuinely different polynomial predicate; no large-size or density conclusion is needed to make that finite cutoff meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

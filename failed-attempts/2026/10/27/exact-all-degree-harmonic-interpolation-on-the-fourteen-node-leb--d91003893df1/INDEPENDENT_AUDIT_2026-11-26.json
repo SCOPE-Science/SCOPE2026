@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:02:55.359792Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27 and 29–72; CHECKER.py lines 53–125; CHECKER_OUTPUT.txt; VERIFICATION.md (read only)",
+        "Independent check: /workspace/branches/14ceaffb-9380-44b4-9bcb-62601ae8fabd/independent_exact_check.py and independent_exact_check.txt",
+        "https://dlmf.nist.gov/18.14.E3"
+      ],
+      "rationale": "Antipodal parity reduces evaluation to seven representatives, and the addition theorem gives exactly the reading's Legendre Gram rank. The even constant-sector block and the odd three coupled Fourier characters plus the uncoupled product character agree with the signed dot products. Independent Q(√3) elimination gave ranks (1,3,5,4,6,6,6,7,6,7,6,7,7,7,6) through 14 and full rank through 28 thereafter. At 14 the kernel vector has per-node weights 1 on axes and −729/1024 on corners. In the displayed orthonormal two-orbit block the coordinate ratio includes a factor 2/√3; the stated sampling functional and code use per-node weights. DLMF 18.14.3 at α=β=0 gives the Bernstein bound with degree ℓ+1/2, hence the weaker bound used in the proof. Since 72<(157/50)·29·(4/5), all six off-diagonal terms sum to less than one in each row from degree 29. The finite verification and positive-definite tail cover every degree, with degree 14 making the persistent threshold sharp.",
+      "residual_risks": [
+        "Single exact-degree parity-compatible interpolation only; no statement of multidegree rank or conditioning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed record gives all parity-dependent spectral blocks, the same complete rank table, and additional condition-number statements. Beentjes treats Lebedev cubature via octahedral invariance and exactness conditions; Rogers uses the Legendre-kernel/harmonic relation for cubature and multipole representations."
+        ],
+        "reasoning": "The index record is stronger for this same map. The cubature papers explain low-degree weighted zeros but not the high exact-degree rank statement.",
+        "searches": [
+          "Indexed rhombic-dodecahedron record, Finding and spectral decomposition",
+          "Beentjes, Quadrature on a spherical surface, pp. 4–5; Rogers, arXiv:1411.0011, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary rhombic-dodecahedron record at the inspected commit",
+        "Beentjes, Quadrature on a spherical surface",
+        "Rogers, arXiv:1411.0011",
+        "Frozen RESULT.md and checker files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At degree 14 the known even constant block has a one-dimensional kernel. In per-node weights x,y its axis equation is (1+2b)x+4cy=0 with b=P14(0)=−429/2048, c=P14(1/√3)=595/2916, so y/x=−729/1024."
+        ],
+        "reasoning": "The printed functional need not appear literally in the indexed record: its two constants and the one-dimensional kernel are fixed by the given block and recurrence. The coefficient is not independently uncovered content.",
+        "searches": [
+          "Indexed rhombic-dodecahedron record Proof §§2–3, even constant block and Legendre recurrence; frozen CHECKER.py lines 118–124"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized rhombic dodecahedron has exactly the same six axes and eight normalized cube corners. The indexed evaluation is unweighted, on real harmonics of one exact degree, and uses the identical antipodal representatives up to ordering."
+        ],
+        "reasoning": "A change of polyhedral name does not change the node set or map. In contrast, integrated polynomial exactness and finite-band reconstruction do not ask for this map's rank.",
+        "searches": [
+          "Resultary: 14-node Lebedev exact-degree harmonic interpolation; axis and cube-corner harmonic sampling",
+          "Rhombic-dodecahedron sampling record, Finding and Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding lists exactly (1,3,5,4,6,6,6,7,6,7,6,7,7,7,6) and rank 7 for every degree ≥15. The standard fifth-order rule has weights 1/15 per axis and 3/40 per corner, not the degree-14 sampling coefficient."
+        ],
+        "reasoning": "The index table is an exact match for the whole classification. No mismatch in weighting, degree convention, or parity changes that comparison.",
+        "searches": [
+          "Resultary exact-degree Lebedev/orbit rank queries; 2026/11/2/SCOPE-all-degree-harmonic-sampling-and-sharp-stability-on-the-radially--d466d2d286c1"
+        ]
+      },
+      "rationale": "A distinct Resultary record identifies the same 14 nodes by their rhombic-dodecahedral geometry, states the entire exact-degree rank table and threshold, and gives the blocks from which the one added null-functional coefficient follows by one scalar solve with Legendre recurrence values. The overlap is demonstrated without inferring priority from path dates.",
+      "residual_risks": [
+        "The GSL reference timed out; fifth-order exactness was instead checked by moments. No priority claim follows from the archive dates. The indexed overlap is independently decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the full classification and directly implies the null functional",
+          "evidence": "Same point set and unweighted exact degree; same table; even block supports the two-orbit kernel calculation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-all-degree-harmonic-sampling-and-sharp-stability-on-the-radially--d466d2d286c1/RESULT.md",
+          "material_read": "Finding and Proof §§1–3 opening, mirror offsets 100–4576",
+          "method": "Local-mirror statement and spectral-block comparison",
+          "title": "All-degree harmonic sampling and sharp stability on the radially normalized rhombic dodecahedron",
+          "trigger": "Exact rank hit on alternate name for the grid"
+        },
+        {
+          "assessment": "The inspected section describes octahedral cubature, not the all-degree rank table",
+          "evidence": "Lebedev weights are constructed to enforce polynomial integration exactness through prescribed degree.",
+          "identifier_or_url": "https://cbeentjes.github.io/files/Ramblings/QuadratureSphere.pdf",
+          "material_read": "PDF pp. 4–5, text offsets 11750–14723",
+          "method": "Bounded OA passage inspection",
+          "title": "Quadrature on a spherical surface",
+          "trigger": "Lebedev exactness and orbit invariant zeros"
+        },
+        {
+          "assessment": "Provides related kernel and cubature framework",
+          "evidence": "The inspected discussion concerns multipole representation and Legendre kernels, not the full exact-degree classification on this grid.",
+          "identifier_or_url": "arXiv:1411.0011",
+          "material_read": "PDF p. 2, text offset 11000",
+          "method": "Bounded OA passage inspection",
+          "title": "Real-space quadrature: a convenient, efficient representation for multipole expansions",
+          "trigger": "Possible interpolation equivalence through the addition kernel"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; matched rhombic-dodecahedron Finding and even Gram block"
+      ],
+      "rationale": "The persistent exact-degree threshold and isolated defect on a standard grid would be useful to someone selecting a degree for interpolation. They are already present in the matched sampling result, and the residual coefficient is immediate from its spectral block, not a separate valuable finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

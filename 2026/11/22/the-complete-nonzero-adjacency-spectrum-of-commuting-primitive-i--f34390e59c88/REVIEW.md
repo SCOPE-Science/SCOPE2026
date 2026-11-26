@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Projective point–hyperplane antiflags are canonically rank-one projections, and distinct commuting projections have mutually zero products. The explicit factorization \(A=UTU^{\mathsf T}\), the line-sum elimination, incidence functions realizing \(\pm q^{3(n-2)/2}\), and four exact trace moments establish all eigenvalues and multiplicities. The checker generated the adjacency matrices from scratch for three finite configurations; the numerical results agree to floating-point precision. Full prime-power generality rests on the proof rather than finite tests.
+## correctness
 
-**Originality — PASS (best-knowledge comparison).** Cohen–Postma 2003, Cohen–Cuypers–Gramlich 2005, and a published primitive-idempotent graph result cover the antiflag identification, neighborhood structure, degree and adjacent common-neighbor counts, but do not, on the material examined, specify the complete \(n\ge4\) eigenvalue spectrum. Faradzev 1994 concerns projective planes and is not asserted not to contain their spectra; dimension \(n=3\) is excluded. Pankov–Pasini 2026 classify four pair relations rather than reporting these multiplicities. General antiflag association-scheme or representation-theoretic formulas could imply the claim; this remains a genuine priority risk.
+PASS
 
-**Value — PASS.** The full algebraic commutativity spectrum is a natural invariant beyond the already-known local edge counts. It gives a closed rank statement for the adjacency operator, a sharp finite-field two-versus-odd distinction in the number of bands, and identifies infinite families of nonintegral finite-matrix commuting graphs.
+A rank-one projection is uniquely specified by its image point and complementary kernel hyperplane (a vector/covector pair is unique only up to reciprocal scaling). Distinct commuting projections have zero products in both orders, so adjacency is mutual cross-incidence. Counting hyperplanes gives the stated degree and the arc Gram entries gamma, 0 and beta; AB/BA transfers nonzero eigenvalues through A=UTU^T. For lambda outside 0,beta,+/-gamma, paired arc equations give the denominator lambda^2-gamma^2. Summing over the q other points on a line gives lambda(lambda-beta)d=(lambda^2-gamma^2)S-beta lambda D and D=(lambda-gamma)/lambda times the sum of point totals on the line. Each other point is on exactly one line through a fixed point, yielding (lambda^2-gamma^3)S=beta(lambda-gamma)JS with S nonzero. The constant and mean-zero modes bound multiplicities by 1 and v-1 respectively. The all-ones vector realizes k; the two mean-zero incidence combinations have squared norms 2(q^(n-1) minus/plus sqrt(gamma)) times the squared point-function norm, so realize both exceptional large bands with the full v-1 dimensions. For an adjacent pair, a common neighbor's image is in the intersection of their kernels (s choices) and its kernel contains the two image points but avoids its own (beta choices), so the trace through order three is determined. An independent symbolic check of all four trace identities and the constant-space factorization is in /workspace/audit-replay/3.py. The Vandermonde system for 0,beta,+gamma,-gamma is nonsingular; zero has multiplicity 0. The same script tested the exact integer annihilating polynomial on full matrices at (n,q)=(4,2),(5,2),(4,3), and eight columns at (4,4), with exact degree/common-neighbor checks as documented in 3.txt. The GF(4) probes are not a full matrix census. The analytic argument covers all prime powers, including absence of the +gamma band at q=2, and implies the stated irrationality.
 
-**Limitation.** Priorities require independent literature review, especially older finite-geometry schemes. The attached numerical checks are independent calculations, not substitutes for symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass on the uniform complete adjacency spectrum and nonsingularity, not on the same known cross-incidence graph, its degree, or its local structure. The strongest same-graph Resultary entry gives edge-regular parameters, not a spectrum. No accessible source statement gives a full higher-dimensional antiflag eigenmatrix implying the claim; that possibility remains open as a historical risk.
+
+## value
+
+PASS
+
+This is a complete invariant of a standard projective graph and natural matrix commuting geometry, not a small parameter sample or another degree count. The no-zero result establishes full adjacency rank uniformly, and the two radical bands distinguish integral from nonintegral families. Both conclusions depend on resolving the spectrum beyond the known edge-regularity data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

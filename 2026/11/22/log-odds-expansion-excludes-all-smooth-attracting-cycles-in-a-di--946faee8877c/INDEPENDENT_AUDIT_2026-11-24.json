@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:18:25.711738Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a branch write y=x+s x(1−x), |s|≤1. The image of an interior point stays interior, including s=±1. Expansion gives x(1−x)f′(x)=y(1−y)+(y−x)². Thus the log-odds branch derivative is exactly 1+(y−x)²/[y(1−y)]. Staying off both thresholds ensures a smooth branch itinerary locally through each finite return. Over the cycle the log-odds coordinate factors cancel, and at least one step is nonzero. The product is therefore >1 and is bounded below by 1+4 times the sum of the squared increments, using y(1−y)≤1/4 and dropping all cross terms. This proves hyperbolic repulsion at every least period in scope. Independently, the specified example has steps ±7/50, ordinary derivatives 61/40 and 449/561, product 27389/22440, and lower bound 723/625. CHECK.py was inspected, not executed; the exact arithmetic and branch proof do not depend on that script. No differentiability at the cuts or conclusion about their periodic cycles or about endpoints is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-cut proof uses ordinary slopes greater than one on its open half-interval branches.",
+          "The two-cut family includes a branch with ordinary slope 1/2 at x=3/4 when c=1; the log-odds conjugacy overcomes precisely this obstruction."
+        ],
+        "reasoning": "The available one-cut theorem neither permits two independently positioned cuts nor allows contracts in the ordinary derivative in its proof. The two-cut existence statement is not a more general stability theorem. No broader covering theorem was established by the inspected evidence.",
+        "searches": [
+          "arXiv:1909.07106, Theorem 2 and proof",
+          "arXiv:2103.14834v1, §2 cycle analysis and Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and VERIFICATION.md; inspected CHECK.py",
+        "Resultary ID 2026/11/22/SCOPE-log-odds-expansion-excludes-all-smooth-attracting-cycles-in-a-di--946faee8877c",
+        "arXiv:2103.14834v1",
+        "arXiv:1909.07106"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 determines branch parameters for specified period-two points under its hypotheses; it neither treats all periods nor provides the positive telescoping multiplier factors.",
+          "One-cut repulsion does not furnish the parameter-free increment bound, and the hypotheses of its ordinary-expansion proof fail in the two-cut family."
+        ],
+        "reasoning": "The disputed assertion does not follow by applying these theorems or specializing their parameters. It requires a different exact derivative identity, valid across any smooth off-cut itinerary of this family.",
+        "searches": [
+          "arXiv:2103.14834v1, Theorem 5 and (2.7)–(2.9)",
+          "arXiv:1909.07106, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original polynomial (1−2p)x²+2px is exactly x+(2p−1)x(1−x), with the same cuts and parameter ranges.",
+          "The one-cut model is also of the branch form x+s x(1−x), but with cut 1/2 and the left and right coefficients of opposite prescribed signs."
+        ],
+        "reasoning": "Expanding the polynomials and comparing the itineraries rules out a mere difference of notation for the map in the original source, while distinguishing the model actually covered by the earlier repulsion result.",
+        "searches": [
+          "Resultary mirror 2026/11/22/SCOPE-log-odds-expansion-excludes-all-smooth-attracting-cycles-in-a-di--946faee8877c",
+          "arXiv:2103.14834v1 §2, (2.1)–(2.2)",
+          "arXiv:1909.07106 §3.2, (3.1) and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror Finding and Assumptions reproduce this exact three-parameter cycle multiplier and lower bound on the same threshold-avoiding domain."
+        ],
+        "reasoning": "The exact hit is this assigned record, not separate evidence of prior coverage. No mathematical orbit table could by itself cover arbitrary real parameters and periods; the indexed theorem was compared directly instead.",
+        "searches": [
+          "Targeted Resultary search for the two-threshold quadratic population map, log-odds multipliers and repelling periodic orbits",
+          "Resultary ID 2026/11/22/SCOPE-log-odds-expansion-excludes-all-smooth-attracting-cycles-in-a-di--946faee8877c"
+        ]
+      },
+      "rationale": "The nearest prior sources cover the exact map's two-cycle existence and all-period repulsion for a different one-cut map. Neither implies the universal quantitative multiplier theorem for the given three independent branch coefficients. The identical indexed record is not independent coverage; the decision is limited to the stated formula and repulsion obstruction in the two-cut family.",
+      "residual_risks": [
+        "The targeted primary-literature search did not identify a closer relevant source; that is not negative evidence of priority. An unlocated broader piecewise-quadratic log-odds expansion result remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned finding, not independent prior work",
+          "evidence": "Same thresholds, multiplier product, lower bound and exclusion of threshold hits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-log-odds-expansion-excludes-all-smooth-attracting-cycles-in-a-di--946faee8877c/RESULT.md",
+          "material_read": "Finding and Assumptions, from offset 0",
+          "method": "Local published mirror compared with frozen claim",
+          "title": "Log-odds expansion excludes all smooth attracting cycles in a discontinuous quadratic population map",
+          "trigger": "Exact thematic match in Resultary"
+        },
+        {
+          "assessment": "Exact model and partial cycle existence prior; does not cover the audited assertion",
+          "evidence": "Equation (2.2) gives (1−2p)x²+2px, while Theorem 5 gives conditions and parameters for 2-cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.14834v1",
+          "material_read": "§2, pp. 2–3, (2.1)–(2.2), and pp. 6–7, Theorem 5, (2.7)–(2.9); text offsets 6144–11042 and 17214–21708",
+          "method": "Located equations and theorem in open full text; checked map and quantifiers",
+          "title": "Dynamical system of a quadratic stochastic operator with two discontinuity points",
+          "trigger": "Exact prior definition of the two-cut model and possible cycle coverage"
+        },
+        {
+          "assessment": "Different one-cut theorem, not covering the three-parameter family",
+          "evidence": "The split is at 1/2 and the ordinary derivatives on its two open half-intervals are used directly for the repulsion claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.07106",
+          "material_read": "§3.2, Eq. (3.1), p. 6, and Theorem 2 and proof, p. 8; text offsets 18063 and 22775",
+          "method": "Open full-text comparison of branch definitions and proof",
+          "title": "Dynamics of a Population with Two Equal Dominated Species",
+          "trigger": "Earlier all-period repulsion for a related piecewise quadratic family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A parameter- and period-uniform stability obstruction resolves a natural question about the existing two-cut model: existence results for specific cycles cannot determine whether an interior, smooth itinerant attractor can be periodic. The formula gives a quantitative reason that holds even on branches with ordinary contraction, and the rational two-cycle establishes that the obstruction is not vacuous. Neither global convergence nor exclusion of border cycles is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

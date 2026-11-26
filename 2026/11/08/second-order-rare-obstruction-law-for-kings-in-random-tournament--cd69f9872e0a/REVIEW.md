@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each ordered pair, absence of a one- or two-edge path is an explicit product event. The 5-of-8 shared-coordinate intersection rule gives the entire second-order \((5/8)^n\) scale, and all other event-pairs are bounded by \((9/16)^n\) or \((1/2)^n\). The three-implication Boolean lemma is proved by an exhaustive classification of three-edge directed constraint graphs; the all-order Bonferroni bounds therefore control both the second correction and the conditional geometry. The extracted standalone verifier reproduced 5,740 exact assertions. Finite tests are supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS (with residual priority risk)
+For E_{a,b}, a is the target and b the source. The forced edge a→b and external restrictions X_b≤X_a give the exact single-event weight. Two events with the same target require two forced edges and have five allowed assignments out of eight at every external vertex; the remaining internal edge is free. Reversal gives the same weight for the shared source. Counting unordered pairs yields B_n with half from each type. Reciprocal events conflict; a three-vertex chain forces a transitive triangle and allows four of eight external patterns; disjoint endpoints have two independent restrictions of weight 3/4 per outside vertex. For triples, reciprocal constraints enforce equality; a triangle allows at most four of eight assignments; a star with k arcs of one orientation has 2^k+2^(3−k)≤9 of sixteen. In the three-edge path, each failed implication has weight 1/4, the disjoint pair has 1/16, and each adjacent pair has 0 or 1/8. If both adjacent intersections are nonzero, the triple fails simultaneously with weight 1/16, giving valid weight 1/2; otherwise it is smaller. The remaining disconnected patterns have weights at most 15/32 and 27/64. The independent enumeration also confirms the sharp triple bound. Conditioning on internal edges leaves independent external blocks, giving S_3≤binom(N,3)(9/16)^(n−6) for n≥6. Bonferroni gives the claimed union error after subtracting the noncluster pair mass. The bound binom(w,2)−1_{w≥2}≤2 binom(w,3) gives the two-obstruction asymptotic. At W≥3 at most 3S_3 pair mass can contribute in expectation, so each shared-coordinate type accounts for B_n/2+o(B_n) among exactly-two cases; their overlap is impossible for two distinct events.
 
-The first-order estimate and the fact that all vertices are eventually kings are classical and not claimed. Maurer's 1980 article is a relevant historical antecedent, but its full text was inaccessible. The inspected Manurangsi–Suksompong 2022 article states a single-pair product formula and king-prevalence threshold laws, not the sharp two-obstruction correction. The inspected Linusson–Leander 2013 source concerns unrestricted paths rather than two-step paths. The accessible algorithmic king-finding study is a different problem. A search of related mathematical research records found no claim that implies the second correction, but the unavailable original and unindexed classical literature remain possible implicit coverage.
+## originality
 
-## Value — PASS
+PASS
 
-The second exponential scale is a substantive precision gain over first-moment high-probability bounds because it identifies *why* the dominant rare failures cluster: the leading two-obstruction events share exactly one extremal role. The result provides sharp reliability information for the random uncovered set and a conditional local failure mechanism, neither a mere change of variables nor a routine numerical slice.
+The supported distinct result is the second-exponential overlap correction, with its explicit smaller-base error and the conditional two-obstruction law. The one-pair probability, universal-kings prevalence, and the uncovered-set formulation are prior. A later indexed refinement expressly uses the correction and adds a different statistic. Reasonable access attempts did not yield Maurer's full text; that historical risk does not decide the review.
 
-## Limitations
+## value
 
-Only independent unbiased orientations and large-order limits are treated. A third-order constant and arbitrary heterogeneous probabilities are unproved. The historical priority comparison is qualified because a plausible 1980 original was inaccessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The correction identifies the dominant dependence mechanism, not just a small improvement in the error term. It gives the leading probability of multiple failures, the exponential separation from other overlap patterns, and an exact description in the limit of how the two obstructions typically share an endpoint. The result refines a classical tournament property at a scale that the first moment cannot distinguish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

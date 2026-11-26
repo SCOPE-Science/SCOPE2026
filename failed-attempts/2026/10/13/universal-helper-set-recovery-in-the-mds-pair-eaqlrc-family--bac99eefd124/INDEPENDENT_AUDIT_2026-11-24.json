@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:58:09.400593Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Li et al. Theorem 6 supplies the frozen parameters and exceptions for the MDS-intersection construction, not an assertion about arbitrary EAQLRCs with the same parameters. For a chosen erased coordinate i and arbitrary r-set R outside i, S=R union {i} has complement of size d-2. In the generator matrix of either [n,d-1,n-d+2] dual MDS code, any d-2 columns are independent, leaving a one-dimensional kernel of words zero off S; any extra zero violates minimum distance. Thus each dual has a nonzero word of exact support S. Theorem 2 is formally quantified over all coordinates; make this choice at i and any valid choice at each other coordinate. Its coordinatewise recovery proof then uses precisely those transmitted helpers for i, with Bob's reliable register allowed by Definition 5. This includes c=0 when permitted, and does not infer simultaneous recovery or disjointness of the Bob registers. Counting free choices outside a fixed t-set gives the incidence formula, and packing r-element blocks proves the matching number. The endpoints r=n-1 and r=1 follow by the same argument. Replay: RESULT.md lines 79–159; arXiv:2607.27091v1 Theorems 2 and 6 below. The frozen artifacts/verify.py and certificate.json were inspected, not executed. The length-five support enumeration is only a witness; the script's general t-loop checks positivity of the binomial expression, not an independent census of incidences. The analytic count, not that loop, establishes the formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li's paired-support sufficient criterion is for general EA-CSS codes and constructs local recovery from the selected support; the MDS construction verifies the condition for any support of the relevant size.",
+          "Kumar–Bandi give a related stabilizer-pair criterion with access to decoder ebits. Kshirsagar–Matthews–Shapiro transfer classical availability subject to additional local conditions. Li's puncturing argument is a separate locality bound."
+        ],
+        "reasoning": "Coverage already follows from the same-family proof and general criterion combined. Other availability and puncturing results are comparisons, not assumed to specialize without their own hypotheses.",
+        "searches": [
+          "arXiv:2607.27091v1 Theorem 2 and its constructive proof; Theorem 6 Step 1",
+          "arXiv:2608.06854v1 Definition 2 and Theorem 2",
+          "arXiv:2608.09886v1 Proposition 3.4",
+          "Li et al. Theorem 3 puncturing argument"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py and artifacts/certificate.json",
+        "Li et al. arXiv:2607.27091v1, Definition 5, Theorems 2, 3 and 6",
+        "Kumar–Bandi arXiv:2608.06854v1",
+        "Kshirsagar–Matthews–Shapiro arXiv:2608.09886v1",
+        "The three Resultary catalogue summaries identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 Step 1: both duals are [n,d-1,n-d+2] MDS; choose S_i through i of size n-d+2; the proof explicitly says every such coordinate set is a minimum-word support and matches both supports to S_i.",
+          "Theorem 2 chooses the pair for a given i, lifts it to extended stabilizers and constructs recovery there. The construction and code parameters do not depend on S_i. Taking all choices gives the entire hypergraph and its ordinary binomial incidence and block-packing formulas."
+        ],
+        "reasoning": "The unconditional arbitrary choice in the primary proof gives the exact conclusion by instantiation, weaker recovery hypotheses are not needed, and the counts add no extra code-theoretic assertion.",
+        "searches": [
+          "arXiv:2607.27091v1 Theorem 6 Step 1, HTML offset 83257 onward, and Theorem 2 proof, offset 55270 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prescribing R is the same as prescribing a minimum dual support S=R union {i} through the erased coordinate; this is true for both dual codes at once.",
+          "Availability formulations express disjoint recovery neighborhoods that intersect in the target only. This matches the transmitted-coordinate disjointness count for a single erasure, not a guarantee about Bob's shared auxiliary resource."
+        ],
+        "reasoning": "Neither the dual-support language nor the general availability terminology changes the exact quantified helper-set conclusion already implicit in Li's construction.",
+        "searches": [
+          "arXiv:2607.27091v1 Definition 5, Theorem 2 Eq. (12), §5.2 Theorem 6",
+          "Resultary: all helper sets, exact repair counts, disjoint availability, MDS-pair EAQLRC",
+          "arXiv:2608.09886v1 Definition 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue summaries concern cubic first-jet, systematic ternary simplex LCD, and punctured binary simplex families, not the present EA-CSS supports. No claim about those reports' entire texts is made from the summaries.",
+          "The exact count at [5,2,3;1]_5 is the four complements of a single omitted coordinate among four possible helpers, directly supplied by the all-support argument. The claimed general counts are not a separate enumeration or lookup."
+        ],
+        "reasoning": "The exact finite profile is already forced by the complete uniform hypergraph, so absence of a numerical table for this family provides no independent originality.",
+        "searches": [
+          "Resultary exact repair and disjoint availability: 616c2e81669d, 31405a315864 and 9363868e508b",
+          "Frozen artifacts/certificate.json and artifacts/verify.py",
+          "Li et al., arXiv:2607.27091v1 §5.2"
+        ]
+      },
+      "rationale": "Li et al. do not headline the full hypergraph, but their Theorem 6 proof explicitly allows a choice of any size-(r+1) support through i in already-fixed dual MDS codes and states the every-subset support property. Theorem 2 then recovers from its complement to i, with no dependence of the underlying code on the choice. The frozen strengthening is a direct re-quantification of that exact proof, not a new coding construction or alteration of the recovery criterion. The binomial and packing formulas are the standard complete-uniform-hypergraph counts. This is a demonstrated prior implication, not an absence-of-search-evidence verdict.",
+      "residual_risks": [
+        "Full mirror passages for the catalogue analogues were not obtained; no exhaustive priority claim is made about an explicitly worded enumeration.",
+        "Potential other statements using shortening need not be ruled out; the primary same-family implication suffices for rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the universal helper-set claim in exactly the frozen family",
+          "evidence": "Step 1 explicitly supplies both MDS duals and every size-(r+1) support; Eq. (12) and its coordinatewise construction produce the recovery on the fixed code, with reliable Bob register.",
+          "identifier_or_url": "https://arxiv.org/html/2607.27091v1",
+          "material_read": "Definition 5 HTML offset 40894; Theorem 2 and proof offsets 55270–58769; Theorem 3 puncturing near 61745; §5.2 Theorem 6 and proof offsets about 83257–91733",
+          "method": "OA primary passages and direct quantifier comparison",
+          "title": "Entanglement-Assisted Quantum Locally Recoverable Codes: Characterizations, Bounds, and Constructions",
+          "trigger": "Identical code construction and recovery model"
+        },
+        {
+          "assessment": "Related sufficient criterion; Li primary proof is more decisive for the frozen claim",
+          "evidence": "Identifies Li's related construction; the stabilizer criterion uses an appropriate pair and the decoder's ebits.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.06854v1",
+          "material_read": "P. 3 offset 16671, Definition 2 and Theorem 2 pp. 6–8 offsets 38842–46899",
+          "method": "OA primary section comparison",
+          "title": "Entanglement-Assisted Quantum Locally Recoverable Codes: Bounds, Optimal Constructions, and Achievability",
+          "trigger": "Similar recovery criteria and known MDS-intersection codes"
+        },
+        {
+          "assessment": "General availability formalism and conditional transfer, not an exact count for Li's family",
+          "evidence": "Recovery neighborhoods meet only in the erased set; transfer proposition has additional local restriction/distance conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.09886v1",
+          "material_read": "Definition 3.3 and Proposition 3.4, HTML offsets 40801–46362, proposition at 44078",
+          "method": "OA primary passage comparison",
+          "title": "Entanglement-assisted quantum locally recoverable codes: bounds and constructions with availability",
+          "trigger": "Directly relevant disjoint quantum-recovery neighborhoods"
+        },
+        {
+          "assessment": "Different family in the summary; catalogue date does not settle priority",
+          "evidence": "Exact three-helper counts are for cubic first-jet codes.",
+          "identifier_or_url": "2026/10/13/SCOPE-steiner-repair-geometry-of-cubic-first-jet-codes-over-even-field--616c2e81669d",
+          "material_read": "Local Resultary catalogue summary only; mirror passage unavailable",
+          "method": "Bounded catalogue comparison",
+          "title": "Steiner repair geometry of cubic first-jet codes over even fields",
+          "trigger": "Same-day exact helper-set incidence and availability analogue"
+        },
+        {
+          "assessment": "Different family in inspected material",
+          "evidence": "Systematic ternary simplex LCD repair and disjoint sets.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-disjoint-recovery-availability-in-systematic-ternary-simpl--31405a315864",
+          "material_read": "Local Resultary catalogue summary only; mirror passage unavailable",
+          "method": "Bounded catalogue comparison",
+          "title": "Sharp disjoint recovery availability in systematic ternary simplex LCD codes",
+          "trigger": "Analogous availability invariant"
+        },
+        {
+          "assessment": "Different construction and helper family in inspected material",
+          "evidence": "Disjoint-pair spectra for punctured binary simplex codes.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-helper-repair-availability-spectra-for-three-subspace--9363868e508b",
+          "material_read": "Local Resultary catalogue summary only; mirror passage unavailable",
+          "method": "Bounded catalogue comparison",
+          "title": "Exact two-helper repair availability spectra for three-subspace punctured binary simplex codes",
+          "trigger": "Potential puncturing-based helper spectra overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Flexibility of helper choice is useful to users of the known code, but here it is already built into the primary proof. Once all r-sets are allowed, binomial incidence and disjoint packing are immediate and do not address a new coding constraint. No distinct claim about smaller helper sizes, a restriction on Bob's register, or multiple erasures survives to support a substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

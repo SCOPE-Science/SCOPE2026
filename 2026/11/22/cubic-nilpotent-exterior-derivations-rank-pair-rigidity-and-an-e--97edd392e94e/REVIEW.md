@@ -1,19 +1,21 @@
-# Scientific review: cubic-nilpotent exterior derivations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows from explicit, independently reconstructible steps. Exterior-degree preserving derivations are exactly generator-linear derivations; in characteristic three the third iterate is again a derivation, giving the exact cube-zero criterion. The exterior modules for all three possible generator Jordan blocks are computed by signed wedge bases. Their tensor products reduce to a two-dimensional quotient of the restricted-module Green ring, with all projective summands accounted for by total dimension. The rank-pair inverse recovers the generator block multiplicities without any statistical or genericity assumption. The finite-field orbit count follows from the centralizer algebra's dimension, reductive quotient, and unit group. The accompanying checker directly tests the original wedge Leibniz matrices, rather than a formula-only implementation.
+PASS
 
-## Originality — PASS relative to the inspected evidence
+The ordinary Leibniz extension preserves v∧v=0 and is unique; its third iterate in characteristic 3 is again a derivation and restricts to M³. For generator blocks J₁,J₂,J₃, the full exterior modules have types 2J₁, 2J₁+J₂, and 2J₁+2J₃: on ∧²J₃ a nonzero two-step chain runs e₂∧e₃ → e₁∧e₃ → e₁∧e₂. In k[x,y]/(x²,y²), (x+y)²=2xy≠0 gives J₂⊗J₂=J₃+J₁. For k[x,y]/(x³,yˢ) the substitution x=t−y makes the algebra free over k[t]/(t³), since y³=0. Quotienting the integral Green ring by the span of J₃ leaves two independent classes with u²=1; evaluating (2+u)ᵇ at ±1 recovers the two actual short-block multiplicities. Dimension gives C, and the two rank equations and n recover (a,b,c). For the finite count, Hom(Jᵢ,Jⱼ) has dimension min(i,j); reducing diagonal length groups modulo t gives the semisimple quotient. On V/tV the kernel of this reduction acts strictly triangularly by block length, so products of three members raise t-adic filtration and products of nine vanish. This proves the radical description and the unit count, with equivariance supplying the rank-stratum orbit formula. Independently, for n=4,q=3, the three nonzero types have counts 40·13·2 (image line in kernel hyperplane), 130·48 (image=kernel plane), and 40·13·12·12 (image and kernel planes meeting in the image-of-square line, and an isomorphism V/ker→im mapping the specified line to that line). Together with the zero map these reproduce 82161 and the stated rank pairs. The attached code was inspected as finite corroboration, not run or used in place of the proof.
 
-Korhonen's 2021 work analyzes the second exterior/symmetric powers in characteristic two, not the characteristic-three full exterior-algebra derivative or its inverse rank rigidity. Briggs–Rubio y Degrassi address restricted Lie algebras of integrable derivations, not Jordan spectra of exterior-induced operators. Armstrong–Sigg treat related exterior actions in complex Lie cohomology, and Norman's earlier modular Kronecker-sum work supplies general tensor tools but not the full exterior functor plus rank recovery and arithmetic census. Complete published research results about bivector multiplication, all-element multiplication in four generators, and matrix-power differentials concern distinct operators. Index searches and accessible historical claims did not identify a stronger theorem directly implying this entire statement. Historical priority remains provisional, especially since Norman's full journal article was not recovered.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two rank measurements on an exponentially large induced space recover the entire generator Jordan partition, uniformly in the dimension. This is a structural rigidity statement rather than a finite list of examples or a rephrased nilpotent-orbit formula. The exact joint finite-field rank polynomial gives the arithmetic distribution of the recovered types, and the characteristic-three projective tensor cancellation explains why the reconstruction can be so simple. Such rank-pair data are natural invariants in modular exterior representation theory and facilitate detecting generator nilpotence types without reconstructing matrices from the induced representation.
+The restricted-power identity, tensor rules and orbit weights are established tools. Even the forward spectrum can be reached by translating known cyclic-group tensor rules in this small case. The supported distinct contribution is the explicit exterior-induced spectrum as a two-rank inverse theorem and the resulting complete labeling of finite-field rank strata for this operator. The closest same-day catalogue result gives a different functor's inverse theorem, not implication for this one.
 
-## Limitations and closest comparisons
+## value
 
-The conclusion excludes non-degree-preserving derivations, other characteristic values, higher nilpotency exponents, and multiplicative group actions. The full historical tensor-algebra corpus cannot be certified as exhausted. The reproducibility tests are finite and not a substitute for the proof. See `RESULT.md` and `AUDIT.json` for exact claims and scientific comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Knowing n, two ranks of the induced action on the whole exterior algebra determine the generator similarity type with no grading-by-grading rank data. Projective cancellation explains this rigidity rather than just yielding a small-dimension table, and the census labels previously distinct rank strata. The claim is restricted to ordinary degree-zero derivations, cube zero and characteristic three; it does not assert minimality of the rank data or a new centralizer enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

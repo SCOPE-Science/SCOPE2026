@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized cyclic definition is fixed, including the exponent of the two norms. The degree-ten exact values were checked algebraically using \(\sqrt5\). The third weak derivative of \(|w|^3\) is bounded by \(12\), yielding a fully derived \(18420/N^3\) alias estimate. The separately executable integer checker certifies all 124 smaller admissible orders other than ten and a high-order lower bound, including absolute rounding envelopes. An exact rational comparison completes every remaining order \(N\ge130\). The finite certificate supports, but does not alone establish, the infinite theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest published finite-cyclic theorem proves positivity and a gap larger than \(0.0237\), and numerically observes order ten among the first 199 orders; it does not entail the exact global sharp value or uniqueness over infinitely many orders. The new strengthened \(N^{-3}\) alias bridge proves precisely those missing implications. The September 2026 three-term theorem concerns the continuous torus. Alternate phase/support results and three-character norm constants differ in their objectives and exponents. The older discrete-uniform thesis reference is incompletely accessible and remains a genuine historical-priority risk.
+PASS
 
-## Value — PASS
-The sharp order-independent margin measures the guaranteed magnitude of the classical three-term majorant reversal on every finite cyclic quotient. It replaces the nonsharp uniform \(0.0237\) bound by its best possible constant and identifies the unique worst cyclic sampling order. The strengthened Fourier-aliasing argument is structurally reusable whenever a periodic signed norm-difference has a bounded third weak derivative.
+Direct substitution of the fifth-root cosine values on the tenth-order grid yields contributions at indices 0–5 of −26, 0, 11+3√5, 0, 7−5√5, 0; reflection gives exactly 1−2/√5. For F(w)=|w|³ the derivative of the Hessian is the sum of four terms of norm at most 3 in unit directions, yielding the stated weak third-derivative bound; the Hessian extends Lipschitz through zero. The chain rule gives 3684 for each polynomial's cubed modulus, hence Fourier coefficient bound 7368/|k|³ for the difference. Absolute convergence and root-grid orthogonality give |Δ_N−I|<18420/N³. Independently certified all 124 required orders and the order-1000 proxy using Machin intervals, a degree-24 rational cosine polynomial and exact lower/upper endpoint propagation through integer square roots. The smallest resulting lower bound among 5–129 excluding ten was 648213509486681/6000000000000000 at N=6. The proxy exceeded 11554/100000, giving a bound 11769045563/109850000000 > 107/1000 for every N≥130. Both ranges therefore strictly exceed Δ_10. Replay: python3 /workspace/branches/reproduce_majorant.py, with outputs in /workspace/branches/majorant_reproduction.txt. The theorem concerns cubed norms of one fixed pair on complete uniform grids only.
 
-## Literature and limitations
-Compared directly with the complete publicly posted finite-cyclic result: https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-a-finite-cyclic-three-term-majorant-reversal-exactly-from-order--60a27acbb9f3/RESULT.md. The motivating contemporary continuous theorem is arXiv:2609.09740v1, first posted September 9, 2026; Krenedits' 2010 paper supplies background. The revised continuous-conjecture preprint was inspected across all 23 pages and addresses continuous norms. Direct full-text inspection of the 1996 thesis and of Krenedits' earlier paper was unavailable. Novelty is a qualified self-review rather than an independent priority certification. The theorem makes no claim about other exponents, frequencies, or unsigned gap normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reversal, an order-independent positive bound, and order ten as candidate were already published in the exact same finite-grid setting. The supported distinct result is the sharp all-order value and its unique attainment, not the sign or the candidate. The predecessor's stated lower endpoint at order ten and weaker bound for L≥200 do not establish either the algebraic equality or a global sharp minimum. Inspectable continuous-circle results likewise do not give finite-grid extremality.
+
+## value
+
+PASS
+
+The uniform margin is a quantitative stability threshold for the classical signed trinomial tested over all cyclic orders where reversal occurs. The result replaces a much smaller safe bound with the largest admissible one and identifies its sole bottleneck order; neither is interchangeable with observing positivity or a likely minimum on a finite grid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:05:18.230503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the closed neighborhoods in RESULT.md lines 56–69; non-codeword traces must be nonempty and pairwise incomparable because the difference condition applies to both orders. If x is absent, any absent v_i has trace inside I_C(x), so all v_i are present. With y present the remaining outsider traces are the distinct singletons {v_i}, incomparable with I_C(x), which contains y but no v_i. Interchanging the sides handles y absent and x present. If both spines are absent the same forcing gives all page vertices, and the two outsider traces U and V are disjoint and nonempty since m≥1. If both spines are present an empty page gives traces {x} and {y}, which prohibit any other outsider. Without an empty page every outsider has a two-element trace containing the corresponding spine and a selected page mate. These traces are distinct, hence incomparable. The disjoint contributions are 2z^(m+1)(1+z)^m from one spine, z^(2m) from neither, mz^(2m) from an empty page with both spines, and z²(2z+z²)^m from both spines and no empty page. The lowest power is m+1; at m=1 the z^(2m) contributions tie and there are four minima, while for m≥2 only the two one-spine choices of lowest size qualify. At z=1 the stated total follows. The frozen checker and output were inspected, not executed; they compare actual masks and coefficients on 349,520 subsets through m=8 only. The trace argument, including sufficiency in each branch, proves the all-m result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 paper derives the vicinal Dilworth lower bound and computes the ladder minimum for P_n Cartesian-product P_2. Our prism over a star is a ladder only at m=1,2, since for m≥3 it has degree m+1 at the spine.",
+          "The inspected scope of the 2023 work concerns triangular/king grids, direct products of complete graphs and Hamming graphs. No statement on the star prism was identified in the read material."
+        ],
+        "reasoning": "The general vicinal lower bound specializes to 2 here: the 2m page vertices form an antichain, and a spine vertex precludes the opposite page class, so no antichain is larger. This does not determine m+1 for m≥2 or the structural count for any m. The ladder specialization gives the known minima at m=1,2 only.",
+        "searches": [
+          "arXiv:1808.06891 Lemma 17, Corollary 18, §4 and Corollary 38; book/theta and ladder locators",
+          "arXiv:2306.07862v3 abstract and book/theta/ladder locators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "DOI 10.1016/j.dam.2018.03.050 (abstract/landing only); arXiv:1808.06891 and arXiv:2306.07862v3",
+        "Resultary 60cce5e52da9, 9ccb7294d11f, beaa1109f65c, 6826442d6ec8 and 9d21916b2835"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A vicinal antichain is necessary, not sufficient for traces restricted to a given code. For example with both spines chosen and all pages empty at m≥2, the omitted page vertices form a vicinal antichain but two absent u_i have the same trace {x}, so this selection fails the solid condition.",
+          "The source ladder result and the foundation's abstract do not provide the coupling of empty and full pages on square books in the inspected passages."
+        ],
+        "reasoning": "The empty-page coupling and all-code enumeration require a new trace analysis on this family, not substitution into the known scalar bound or minimum-size result.",
+        "searches": [
+          "arXiv:1808.06891 §2.2 Lemma 17 / Corollary 18 and §4 Corollary 38",
+          "Foundational paper DOI 10.1016/j.dam.2018.03.050 abstract/available routes; exact Resultary crown and same-book comparators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is K_{1,m} Cartesian-product P_2, equivalently one spine path of length one and m internally disjoint paths of length three between the same end vertices. Same graph is confirmed by the Roman book polynomial record 9ccb7294d11f, but it counts weight of ternary Roman functions.",
+          "The prior solid locating predicate is antichain incomparability of non-codeword traces, not Roman domination or the analogous self-locating condition. The targeted web query returned no hits, which is not affirmative novelty evidence."
+        ],
+        "reasoning": "Product and generalized-theta terminology are real aliases for this graph. Neither same-graph counts for another predicate nor same-predicate counts for another graph become equivalent under these aliases.",
+        "searches": [
+          "Configured Resultary semantic comparisons for solid location domination of square-page books, book/theta aliases and code-size polynomial",
+          "Web search: \"solid-locating-dominating\" (\"book graphs\" OR \"theta graphs\" OR \"Cartesian product\" star) square book K1,m prism code polynomial cardinality",
+          "arXiv:1808.06891 §2.2 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The crown record gives exact solid/self code polynomials for K_{n,n} minus a perfect matching. The half-graph record gives minimum-code results for half graphs. The same square books occur in the Roman polynomial and local edge metric records, not with the stated solid locating count.",
+          "The product-spectrum record 9d21916b2835 treats K_2 Cartesian-product K_n, not the prism over a star. No exact square-book solid-code histogram was identified in the inspected table material."
+        ],
+        "reasoning": "These are positive comparisons to exact results on materially different objects; neither the inspected catalogue claims nor the small ladder minima give the all-size coefficients or their exceptional empty-page contribution.",
+        "searches": [
+          "Configured Resultary exact size-polynomial comparisons for 60cce5e52da9, 9ccb7294d11f, beaa1109f65c, 6826442d6ec8 and 9d21916b2835",
+          "arXiv:1808.06891 minimum/code sections and table locators"
+        ]
+      },
+      "rationale": "The distinct claim is the full family classification and code-size polynomial for square-page books, not the solid condition, general antichain theory, or known ladder minima. The strongest inspected indexed comparators either change the graph (crown and half graphs) or count a different predicate on the same square book (Roman functions and local edge metric bases). The known product-ladder minima cover the smallest two minimum-size values but not the all-code polynomial. Bounded source and catalogue checks support the distinct result, not a priority certification.",
+      "residual_risks": [
+        "Full text of the foundational 2018 paper was unavailable on the attempted lawful routes, so uninspected results or tables under another graph name remain a risk.",
+        "The catalogue and targeted literature searches are bounded. A specialized exact theorem for generalized theta graphs or graph prisms could be differently named or unindexed. Same-day dates establish neither priority nor equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General necessary condition and scalar minima for ladders; no identified all-code star-prism theorem",
+          "evidence": [
+            "γ_DLD(G)≥|V(G)|−∇(G); γ_DLD(P_n Cartesian-product P_2)=n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.06891",
+          "material_read": "§2.2 p. 7 Lemma 17 and Corollary 18; §4 pp. 13,17 and Corollary 38",
+          "method": "OA primary passages and term locators",
+          "title": "On Stronger Types of Locating-dominating Codes",
+          "trigger": "Strongest established general bounds and Cartesian product/ladder results"
+        },
+        {
+          "assessment": "Definition and historical context, not enough for a whole-paper exclusion",
+          "evidence": [
+            "The accessible material points to rook and binary Hamming spaces; no full-text determination is claimed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.03.050",
+          "material_read": "Publisher landing/abstract only; identified repository route returned HTTP 403",
+          "method": "Lawful OA retrieval attempts",
+          "title": "On regular and new types of codes for location-domination",
+          "trigger": "Original solid-code predicate and possible differently named results"
+        },
+        {
+          "assessment": "No identified exact coverage in retrieved material",
+          "evidence": [
+            "The stated topics are triangular and king grids, direct products of complete graphs, and Hamming graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07862v3",
+          "material_read": "Abstract p. 1 and term locators for book/theta/ladder",
+          "method": "OA PDF inspection and location queries",
+          "title": "New Optimal Results on Codes for Location in Graphs",
+          "trigger": "Published continuation and possible newer graph-family coverage"
+        },
+        {
+          "assessment": "Different graph, not equivalent coverage",
+          "evidence": [
+            "Crown graph K_{n,n} minus a matching and minimum n, rather than a square book."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-self-and-solid-locating-dominating-code-polynomials-of-crown-gra--60cce5e52da9",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "Self- and solid-locating-dominating code polynomials of crown graphs",
+          "trigger": "Same-day match on predicate and all-code polynomial"
+        },
+        {
+          "assessment": "Counts different structures on the same graph",
+          "evidence": [
+            "Square-page book K_{1,m} Cartesian-product P_2; Roman functions instead of incomparable identifying sets."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-roman-domination-polynomial-of-book-graphs--9ccb7294d11f",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "Roman domination polynomial of book graphs",
+          "trigger": "Same-day same graph and polynomial format"
+        },
+        {
+          "assessment": "Different family and primarily minima",
+          "evidence": [
+            "Half-graph minimum 2n−2, not the all-code book problem."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-self-and-solid-location-domination-of-half-graphs--beaa1109f65c",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "Self- and solid-location-domination of half graphs",
+          "trigger": "Same-day solid minima classification"
+        },
+        {
+          "assessment": "Local edge metric predicate, not solid location-domination",
+          "evidence": [
+            "Bases distinguish edges by distance rather than comparing outsider closed-neighborhood traces."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-stable-local-edge-metric-bases-of-square-page-book-graphs--6826442d6ec8",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "Stable local edge metric bases of square-page book graphs",
+          "trigger": "Same-day same graph family and locating terminology"
+        },
+        {
+          "assessment": "Product with a complete graph, not a star prism",
+          "evidence": [
+            "The graph is K_2 Cartesian-product K_n."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-three-location-domination-polynomials-and-minimal-code-spectra-o--9d21916b2835",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "Three location-domination polynomials and minimal-code spectra",
+          "trigger": "Potential stronger product-family exact count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a natural non-ladder prism and shared-edge cycle book. Its full code-size spectrum and actual choices are useful beyond the scalar minimum bound. In particular, the exact rule that emptying one page forces every other page to be full produces a distinct coefficient contribution; it is a structural constraint, not a sampled count or a rescaled existing invariant. The result also accounts for the transition from four minimum codes on the square to two rigid minima on larger books.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

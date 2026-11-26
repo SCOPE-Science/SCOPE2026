@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact coefficientwise identity for every finite simple base graph with one private leaf at each base vertex. The full argument partitions functions by the uniquely determined set of positive-labeled base vertices and exhausts all permitted root–leaf pairs. In particular, a positive root labeled one forces a positive leaf, whereas a root labeled two allows all three leaf labels. At a zero root, the private leaf may be one precisely when some base neighbor is positive; otherwise it must be two. Thus the fixed-support factors have no omitted dependencies or double counting. The extremal identity follows from a sharp equality between the maximum external boundary and the complement of a minimum dominating set. Independently implemented direct checks exhaust all 1,099 labeled base graphs up to five vertices and the entire coefficient distribution, and separately test further code paths in Python. The finite runs corroborate, but do not replace, the symbolic all-order proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The earlier Roman-two corona theorem already implies the scalar minimum \(\gamma_I(G\circ K_1)=|V(G)|+\gamma(G)\), which is explicitly excluded from the originality claim. A 2026 sunlet result already counts minimum-weight functions on cycle coronas; the proposed universal formula subsumes those special cases, so the sunlet minimum multiplicities are likewise not claimed as independently novel. The 2026 Italian-weight polynomial work addresses paths, trees and cycles and does not supply an all-base one-leaf-corona identity. Read published work on restrained Italian and pointwise-minimal Roman functions contains boundary transforms for different function classes, not an implication of the unrestricted Italian all-weight polynomial. Direct searches for this formula, its aliases, the boundary statistic, exact tables and stronger statements identified no covering result. An unindexed older all-weight corona formula is a residual priority risk. A negative search is not a proof of historical uniqueness.
+PASS
 
-## Value — PASS
-The object is the complete Italian-domination weight distribution, which has become a natural counting target in recent combinatorics, not an arbitrarily selected coefficient or parameter. The result gives a finite combinatorial transform for all possible base graphs, including disconnected and cyclic cases, and a structural classification of every feasible labeling from which every coefficient follows. Its minimum-coefficient refinement gives a nontrivial weighted sum over *all* maximum-boundary subsets, extending beyond the known scalar value. This is a whole-family enumeration, not a relabeling of a preexisting number. Computation may remain exponential for arbitrary input and no polynomial-time claim is made.
+Fix the support P of positive base labels. On P the valid root/leaf pairs are (1,1),(1,2),(2,0),(2,1),(2,2). Outside P the leaf cannot be zero, and it may be 1 exactly when a positive base neighbor is present; label 2 is always sufficient. This establishes independence of the local choices, all three weight factors, and unique decomposition by P. No connectivity assumption was used. Adjoining to P all vertices outside P and its boundary gives a dominating set of size n−b(P); any minimum dominating set attains the bound, so the least exponent is n+γ(G). Exactly the maximizing supports contribute there, with local constant term 2 per positive root. Evaluation at one is direct. Independent exhaustive base-3 enumeration for all 75 labeled bases of orders 1–4 compared 1,215 coefficient positions with the product; it reproduced the stated two-vertex-edge polynomial and the K3 leading coefficient 6. This was separate from the inspected, unexecuted supplied checkers; their larger counts are package-reported, and neither computation substitutes for the general proof.
 
-## Closest sources and limitations
-P. Shao and C. Zhao, arXiv:2610.00108v1 (2026-09-09): full Italian weight enumeration for specified graph classes. F. Alizadeh et al., arXiv:1701.01416, Theorem 3.2: prior scalar equality. R. Hernández-Ortiz et al., arXiv:2006.02124: scalar rooted-product results. *Exact minimum Italian-domination multiplicities of sunlet graphs* (2026-10-13): already-known cycle-corona minimum multiplicities. *Restrained Italian domination polynomials of leaf coronas from induced boundary profiles* (2026-10-12) and *A neighborhood enumerator for pointwise-minimal Roman functions on one-leaf coronas* (2026-11-08): different function classes. Unindexed sources and the lack of an independent audit remain explicit limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the all-base all-weight Italian transform and general minimum multiplicity formula, not the scalar minimum or any priority claim on cycle bases. In addition to already known sunlet minima, an earlier record gives the entire polynomial for sunlets. No inspected broader statement effects this substitution for unrestricted Italian labelings of arbitrary one-leaf coronas.
+
+## value
+
+PASS
+
+This identifies sufficient base-graph information for every coefficient of a natural enumerator, for arbitrary cyclic or disconnected bases as well as trees. It also gives an explicit census of all optimizers, not just the already known minimum. Replacing enumeration of labelings on 2n vertices by a structural subset sum is useful without implying polynomial-time complexity. The all-base reduction, not repetition of the known sunlet counts, is the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

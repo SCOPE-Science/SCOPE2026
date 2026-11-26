@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:29:09.683237Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph of four-bit vertices and five-bit edges gives a bijection between cyclic words of the required kind and Euler tours rooted at the unique edge 00000. The pairing-permutation argument is exhaustive: each tour prescribes exactly one in/out bijection per vertex and admissibility is exactly having a single orbit. I independently enumerated via last-exit trees, not the frozen pairing or depth-first programs. Each nonroot's final outgoing edge must point along a directed path to root 0000, since otherwise the last departure time strictly increases around a nonroot cycle. Conversely, order each nonroot's outgoing edges with the chosen tree edge last and put the 00000 loop first at the root. A traversal that stops early must stop at the root by degree balance. Any unused outgoing edge would imply an unused last-exit path to the root (unused indegree equals unused outdegree after a closed partial traversal), a contradiction. This justifies exhausting the 2^15 nonroot last-exit choices. The fresh code evaluated distinct circular factors as fixed-width integers, tested strict comparison against every bit rotation (equal rotations reject nonprimitive factors), reproduced all 2048 original CSV rows exactly, and obtained cutoff distinct-profile/collision-pair counts (2044,4), (2045,3), (2047,1), (2048,0) at 16–19. The sole 18-doubleton and its full common profile were reproduced, with respective 19-coordinates 1 and 2. Both words have the unique 00000 root, and truncation preserves their collision, so sharpness holds at every shorter cutoff. All binary strings through length five occur, yielding (2,1,2,3,6). Replay: python3 /workspace/audit_evidence/3_census.py /workspace/source/2026/10/19/sharp-lyndon-factor-reconstruction-of-binary-order-five-de-bruij--b0fd8712e30d/profiles.csv. This is finite exact arithmetic with a completeness argument, not a result for other orders or quotients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saari treats recurrent infinite words; Goc–Saari–Shallit give regularity for lengthwise counting functions of automatic sequences; Glen–Simpson–Smyth study extremal and expected counts for finite words. The accessible reconstruction paper material concerns Lyndon arrays, but no readable primary full text was recovered for a theorem-level comparison."
+        ],
+        "reasoning": "Regularity or extremal counts do not imply injectivity of a map from cycles to count profiles. Reconstruction from positional arrays is not evidence for reconstruction from aggregated lengthwise counts, and no unsupported whole-paper claim is made for the inaccessible source.",
+        "searches": [
+          "arXiv:1207.4233 abstract, Introduction and Lemma 4(ii)",
+          "arXiv:1207.5124 Theorem 11",
+          "arXiv:1701.00928 abstract and introduction",
+          "10.1016/j.tcs.2017.04.008 landing-page material"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and profiles.csv; independent audit_evidence/3_census.py",
+        "Resultary SCOPE-20261102-7a3540ed28da",
+        "arXiv:1207.4233, 1207.5124, 1701.00928",
+        "10.1016/j.tcs.2017.04.008 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lyndon-word concatenation constructs particular de Bruijn sequences; the suffix criterion tests individual Lyndon words. Neither supplies the profiles of all 2048 cycles. Ordinary circular factor complexity is identical on this family: every length-five factor occurs once, and distinct positions cannot agree on a longer factor."
+        ],
+        "reasoning": "Existence, the catalogue size, predicate equivalence and ordinary factor complexity do not decide whether the Lyndon-count profile collides, much less isolate the exact pair and smallest cutoff.",
+        "searches": [
+          "Saari arXiv:1207.4233 Introduction and Lemma 4(ii)",
+          "Goc–Saari–Shallit arXiv:1207.5124 Theorem 11",
+          "Glen–Simpson–Smyth arXiv:1701.00928 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record studies, for each linear rotation, its Chen–Fox–Lyndon component count and tabulates rooted and maximum-over-rotation statistics; it expressly distinguishes counts of distinct substrings. The frozen profile instead uses all cyclic locations, fixed lengths and distinct accepted strings."
+        ],
+        "reasoning": "A component count for a canonical factorization is not a count of all substrings passing the Lyndon predicate. Rewriting the latter as strict comparison against proper suffixes leaves the frozen statistic unchanged; changing to canonical factorization does not.",
+        "searches": [
+          "Resultary distinct cyclic Lyndon factors by length, order-five binary de Bruijn cycles and reconstruction threshold",
+          "Resultary SCOPE-20261102-7a3540ed28da, Finding and prior-work discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed catalogue tabulates another statistic on the same 2048 cycles. The frozen profiles.csv contains the directly relevant rows and is part of the identical record's evidence, not an independently pre-existing matching table."
+        ],
+        "reasoning": "Enumerating the cycles or tabulating their component counts supplies no separating-cutoff statistic without additional calculation. No equivalent external lengthwise profile table was established by these checks.",
+        "searches": [
+          "Resultary order-five de Bruijn cycle count tables and distinct Lyndon-factor profiles",
+          "SCOPE-20261102-7a3540ed28da rooted and maximum component-count tables",
+          "Frozen profiles.csv exact independent replay"
+        ]
+      },
+      "rationale": "The nearest indexed record tabulates the number of components in the Chen–Fox–Lyndon factorization of linear rotations, not distinct Lyndon substrings by length. The inspected primary literature establishes the relevant predicate, counting questions and constructions, but not the separating profile or cutoff on this finite cyclic family. The independent census verifies the result, not novelty. The literature comparison is bounded and does not certify historical priority.",
+      "residual_risks": [
+        "Unindexed finite catalogues or unpublished computations might include the same profiles. Full theorem-level comparison with the Lyndon-array paper was not possible from retrieved evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic on the same exact cycle family",
+          "evidence": "Counts Chen–Fox–Lyndon factors in individual linear rotations; records rooted and per-cycle-maximum distributions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-cyclic-lyndon-factor-counts-for-binary-order-five-de-br--7a3540ed28da/RESULT.md",
+          "material_read": "Finding and prior-work comparison, offsets 263–1784 and 6459–7830",
+          "method": "Local mirror, compare definitions and table outputs",
+          "title": "Complete cyclic Lyndon factor counts for binary order-five de Bruijn cycles",
+          "trigger": "Closest same-object Resultary count table"
+        },
+        {
+          "assessment": "Prior predicate and context, no finite-cycle cutoff in the inspected claims",
+          "evidence": "Proper-suffix characterization and Lyndon factors in recurrent words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.4233",
+          "material_read": "p. 1 abstract/Introduction, offsets 898–2586; p. 4 Lemma 4(ii), offset 12415",
+          "method": "Primary OA passages and exact statement comparison",
+          "title": "Lyndon Words and Fibonacci Numbers",
+          "trigger": "Lengthwise Lyndon counts, predicate and de Bruijn context"
+        },
+        {
+          "assessment": "Regularity theorem, not separation of cycle profiles",
+          "evidence": "The lengthwise counting function for automatic sequences is k-regular; regularity does not imply reconstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.5124",
+          "material_read": "p. 1, offset 1318; p. 6 Theorem 11, offset 16346",
+          "method": "Primary OA statement inspection",
+          "title": "Primitive Words and Lyndon Words in Automatic and Linearly Recurrent Sequences",
+          "trigger": "Lengthwise Lyndon factor counting function in a potentially broader sequence setting"
+        },
+        {
+          "assessment": "Motivates distinct-factor counts; inspected results concern extremal or expected counts, not the cyclic cutoff",
+          "evidence": "Maximum and expected numbers for unrestricted finite words and minima in Lyndon words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.00928",
+          "material_read": "p. 1 abstract and introduction, offset 0",
+          "method": "Primary OA scope comparison",
+          "title": "Counting Lyndon Factors",
+          "trigger": "Potentially covering exact finite-word counts or inducing a de Bruijn census"
+        },
+        {
+          "assessment": "Not decisive for matched coverage; exact theorem comparison remains limited",
+          "evidence": "Accessible bibliographic and abstract material identifies reconstruction from Lyndon arrays rather than providing the exact cyclic profile theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2017.04.008",
+          "material_read": "Landing page/abstract-level material only; no readable full-text theorem recovered",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Reconstructing a String from Its Lyndon Arrays",
+          "trigger": "Alternative Lyndon reconstruction invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both the object and invariant arise naturally: order-five binary de Bruijn cycles form a standard complete nontrivial family, ordinary circular factor complexity is identical across it, and distinct Lyndon-factor counts are an established refinement of word complexity. The first five coordinates are forced, so it is not evident that retaining just fourteen later counts suffices or that the last needed count is at 19. The exact collision and its resolution give a reusable sharp certificate for reconstruction from counts rather than positions; this is not merely a known cycle census or an arbitrarily selected cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

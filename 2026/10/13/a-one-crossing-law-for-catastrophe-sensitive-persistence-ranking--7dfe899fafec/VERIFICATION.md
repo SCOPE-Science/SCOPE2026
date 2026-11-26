@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the two-patch extinction-time comparison
+# Independent mathematical audit
 
-The proof is an exact symbolic calculation from a three-state transient generator; this report records companion reproducibility checks, not an independent audit.
+## correctness
 
-Run `python3 verify_two_patch.py` with Python 3.10 or newer. The checker uses `fractions.Fraction`, enumerates 3,125 exact first-step identity cases, 729 matched-total polynomial coefficient identities, and five exact values around the unique crossover, and prints:
+PASS
 
-```
-VERIFY_OK first_step_exact=3125 comparison_polynomials=729 sharp_example=5
-```
+In the transient states 11, 10, 01 the holding rates are r+E, r+u+a, r+v+b; from 11 the 10 and 01 transition rates are v and u respectively. Accessibility of the absorbing state on this finite chain gives a finite mean even at r=0. Eliminating the singleton-state means gives numerator N=(r+E)(r+E+K)+A−U and denominator D=rN+U(2r+E+K), which expand to the displayed coefficients. N>0 follows, e.g., from E²−U>0, so D>0. With totals fixed, cross-multiplication cancels the rN_P N_Q terms and leaves (2r+E+K)(V N_P−U N_Q). This proves the stated sign factor. The quadratic h=(r+E)(r+E+K) starts at E(E+K) and is strictly increasing to infinity. For U≠V the strict-threshold case gives a simple interior root with the asserted quadratic-formula value, equality gives just the endpoint tie, and a lower threshold gives no tie. With U=V the sign reduces to the constant product comparison for A and B. In the witness U=1, A=4, V=24/25, B=3; the threshold is 21 and h(1)=21. D_P=(r+3)(r²+5r+2), so cancellation reproduces the displayed difference. A separate exact rational Gaussian elimination of the three-state equations reproduced the witness difference at r=0, 7/8, 1, 9/8, 7. Inspected, not executed: verify_two_patch.py. The finite checks are corroboration, not the universal proof.
 
-The unrestricted denominator-positivity check follows because the local rates are positive and the denominator polynomial has strictly positive coefficients. The factorization and strict monotonicity of the critical comparison polynomial constitute the analytical proof of the infinite parameter-domain classification. The finite computation is supplementary and cannot independently establish those universal statements.
+## originality
 
-No simulation, field-data fit, asymptotic approximation, or independent scientific validation was performed. The historical-literature access limitations are recorded in REVIEW.md and AUDIT.json.
+PASS
+
+Credit the matched-total reversal criterion and its sharpness, not the finite-chain first-step method or the general effect of independent killing. Strong model overlaps do not cover the joint matched-total comparison; the historical literature assessment is qualified.
+
+## value
+
+PASS
+
+Even fixing both rate sums need not yield a uniformly best design for mean persistence. The proof isolates which product tradeoff matters and limits its consequence to one reversal, with an exact decision condition and feasible witness. This is a motivated structural comparison, not a fitted effect or a generic first-step calculation. It applies to a two-patch mean from full occupancy and does not rank other survival statistics or establish a field-management rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

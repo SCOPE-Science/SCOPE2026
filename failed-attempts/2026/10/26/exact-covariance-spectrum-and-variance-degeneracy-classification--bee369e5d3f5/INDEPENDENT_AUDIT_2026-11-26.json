@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:56.046838Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–47 and 49–79",
+        "VERIFICATION.md lines 3–14 and 19–25",
+        "verify.py lines 9–141"
+      ],
+      "rationale": "A prescribed-size coloring induces the edge vector of a disjoint union of cliques of sizes r_a, uniformly relabeled. With B the unsigned incidence of K_N, BBᵀ=(N−2)I+J and the orthogonal pair modules are constants, Bᵀ of centered vertex vectors, and ker B, of dimensions 1, N−1 and N(N−3)/2. To check scalar action directly, covariance depends only on equal, incident or disjoint edge pairs; their matrices are spanned by I, BᵀB and the all-ones matrix. The total pair sum is deterministic. Each row of the co-color pair array has random degree r_color−1 with variance s², and the row covariance off diagonal is −s²/(N−1) because the sum of rows is fixed. Dividing the centered row eigenvalue by N−2 recovers the star eigenvalue. The pairwise variance p(1−p) fixes the trace and hence the cycle eigenvalue, including N=4. Centering degrees by 2W/N and using the incidence identity gives the stated star projection norm; subtracting both the constant and star norms gives the residual norm and hence the variance formula. For a binary additive edge vector a_i+a_j, unequal coefficients a_i>a_j differ by one, since comparison to any third vertex gives a positive difference of bits. All other coefficients then equal −a_j. As N≥4 their mutual bit is 0 or 1, giving a star or co-star; equal coefficients give a constant graph. Of those graphs only the empty, complete and co-star are unions of cliques. The star mode vanishes exactly when the clique degrees are all equal. The two null modes therefore yield exactly the four stated graph cases. In the one-singleton case the statistic is m−d_H(J) for a uniform singleton J, independently confirming the regular-graph condition. The frozen checks were inspected, not executed; N=4–8 checks range over histogram multisets, and for all graphs at N=4,5 the classifications are compared to the formula, with direct coloring tests for a subset of cases. They are finite corroboration, not a substitute for the proof.",
+      "residual_risks": [
+        "The decomposition labels invariant subspaces; if eigenvalues coincide their dimensions must be added for the numerical multiplicity. The result is for unrestricted fixed-histogram assignments, not proper colorings or the law with only the number of blocks fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filmus–Ihringer Theorem 1.2 states that for k,N−k≥2 every Boolean degree-one function on J(N,k) is constant or depends on one coordinate. At k=2 the coordinate x_i of a subset is one exactly on the edges of the star centered at i. Thus the theorem gives empty, complete, star and co-star, exactly the frozen Step 4 binary lemma. The multiplicity-free pair modules also belong to the standard Johnson scheme; equal-block perfect hypermatchings are a narrower representation-theoretic application."
+        ],
+        "reasoning": "The Johnson result covers the full auxiliary graph classification, not only its equal-size case. Applying it to both the tested graph and the fixed cluster template removes any need for a new binary classification.",
+        "searches": [
+          "Filmus Ihringer Boolean degree 1 functions Johnson scheme slice star all degree one functions 2-subsets theorem",
+          "arXiv:1801.06034 Theorem 1.2",
+          "arXiv:2201.02887v1 Section 9"
+        ]
+      },
+      "checked_sources": [
+        "Bounded primary and catalogue passages listed in source_inspections",
+        "RESULT.md lines 50–76 for the correspondence to the earlier Boolean theorem and the exact pair action"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schur averaging for any deterministic edge template z gives Var⟨w,πz⟩=Σ_{α=1,2}||P_αw||²||P_αz||²/d_α. Indeed center z to remove constants; averaging its outer product over permutations commutes with the pair action, and its trace on module α is ||P_αz||². For the cluster graph these squared norms are Ns²/(N−2) and Mp(1−p)−Ns²/(N−2), from row degrees and binary entries. Thus the eigenvalues are the displayed norms divided by d_1=N−1 and d_2=N(N−3)/2, without any new pair-moment theorem. The first projection vanishes iff the graph is regular; by Theorem 1.2 the second vanishes iff the graph is empty, complete, a star or a co-star."
+        ],
+        "reasoning": "In each mode one factor must vanish. For the cluster template regularity is equality of sizes and the four-graph list loses only the star. Intersecting those two conditions gives all histogram exceptions and graph cases immediately. This is specialization of standard orthogonality and an exact earlier Boolean classification, not just a vague similarity of representations.",
+        "searches": [
+          "arXiv:1801.06034 Theorem 1.2 and Johnson-slice definition",
+          "arXiv:2411.00947v1, symmetric-matrix simultaneous permutation formulation",
+          "Schur orthogonality for the multiplicity-free Johnson pair representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi–Ding use simultaneous row and column permutations of one symmetric network matrix; with one matrix the adjacency of the fixed cluster graph, this is exactly the prescribed-histogram model (all labeled colorings have equal preimage count). Up to counting ordered versus unordered pairs, the unnormalized QAP inner product is precisely the statistic here."
+        ],
+        "reasoning": "Changing from random labeled colors to a random vertex relabeling of a fixed cluster graph does not change its co-color edge vector law. The QAP paper's inspected asymptotic statements are not being treated as statements of the frozen finite rank formula.",
+        "searches": [
+          "quadratic assignment permutation distribution exact variance symmetric matrices Mantel statistic Hubert graph join-count random labeling eigencomponents permutation variance analytical formula",
+          "graph constant number of monochromatic edges fixed color class sizes join count random labeling zero variance regular star balanced partition graph permutation variance graph partition spectrum",
+          "arXiv:2411.00947v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-block-number record gives an exact covariance for counts on two spanning trees as a function of shared edges. Its ensemble fixes the number of blocks, not their sizes. The cited October 11 equal-block item was not available at the supplied local-mirror path, and the title query did not recover the statement."
+        ],
+        "reasoning": "The readable catalogue formula describes a mixture over size profiles and does not establish the claimed fixed-profile formula. No matching all-profile formula table was identified; the covering evidence is analytic rather than a table match.",
+        "searches": [
+          "Resultary search for fixed-composition edge co-color covariance and degeneracy",
+          "Resultary: A Poisson asymptotic for sharp Fourier projection norms on uniform set partitions: pair colocation covariance, equal size perfect hypermatchings",
+          "2026/11/2/SCOPE-two-shared-edges-force-positive-co-block-covariance-in-fixed-blo--44a13e35c143"
+        ]
+      },
+      "rationale": "No inspected catalogue hit states the full prescribed-size theorem verbatim. Nevertheless, both parts are mechanically covered: Schur orthogonality for the standard three pair modules gives the complete variance decomposition for an arbitrary uniformly relabeled edge vector, and the known classification of Boolean degree-one functions on J(N,2) gives exactly the binary additive graphs used to determine the null modes. Specialization to a disjoint union of cliques requires only its deterministic degree multiset and the fact that a star on N≥4 is not a union of cliques. The failure is by explicit mathematical implication, not by the inaccessible equal-block citation or by a near title match.",
+      "residual_risks": [
+        "This is a statement-level implication, not a claim that an earlier paper prints the same all-histogram formulas or proves historical priority. Exact coverage of the unavailable cited equal-block source remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage of the binary classification at k=2",
+          "evidence": "Theorem 1.2 (Folklore): when k,N−k≥2 every Boolean degree-one function on J(N,k) is constant or depends on a single coordinate.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.06034",
+          "material_read": "Introductory Johnson graph and degree definitions, PDF offsets 1550–4943; Theorem 1.2 and context, offset 5160–7449, p. 2",
+          "method": "OA full-text bounded passages",
+          "title": "Boolean degree 1 functions on some classical association schemes",
+          "trigger": "Exact stronger form of the key additive-binary lemma"
+        },
+        {
+          "assessment": "Same general permutation formulation; not used as a finite spectrum or degeneracy theorem",
+          "evidence": "The test permutes rows and columns of a symmetric dyadic matrix together; inspected supplementary variance passage discusses bounds and a single-index exact specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.00947v1",
+          "material_read": "PDF abstract at offset 0 and supplement guide at 73900; variance-bound discussion 120600–123091",
+          "method": "OA full-text bounded passages",
+          "title": "Asymptotic theory for the quadratic assignment procedure",
+          "trigger": "General random permutation quadratic assignment model containing the statistic"
+        },
+        {
+          "assessment": "Related pair representation, narrower equal-size setting",
+          "evidence": "The passages treat matching schemes and a hypermatching derangement-graph eigenspace, not a stated full fixed-composition variance classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.02887v1",
+          "material_read": "Perfect-matching scheme at PDF p. 11 offset 47320 and perfect hypermatchings Section 9 at p. 12 offset 51640",
+          "method": "OA primary passages",
+          "title": "Simple Algebraic Proofs of Uniqueness for Erdős–Ko–Rado Theorems",
+          "trigger": "Cited equal-block pair representation"
+        },
+        {
+          "assessment": "Different independent-color law",
+          "evidence": "Vertices receive colors independently and uniformly rather than by sampling one prescribed histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.2336v3",
+          "material_read": "PDF p. 1 offset 2233, model definition",
+          "method": "OA primary passage",
+          "title": "Universal Limit Theorems in Graph Coloring Problems with Connections to Extremal Combinatorics",
+          "trigger": "Same statistic in a superficially similar coloring model"
+        },
+        {
+          "assessment": "Different admissible coloring law",
+          "evidence": "The fixed-size coloring in the definition must be proper; the frozen statistic is taken over unrestricted assignments.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.08259",
+          "material_read": "PDF p. 2, offset 8030, Definition 1.2",
+          "method": "OA primary passage",
+          "title": "Sampling Colorings with Fixed Color Class Sizes",
+          "trigger": "Title matches fixed size profiles"
+        },
+        {
+          "assessment": "Related covariance, but distinct sampling law and statistic",
+          "evidence": "Fixes the number of blocks and gives covariance for two spanning-tree counts in terms of their shared-edge count.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-shared-edges-force-positive-co-block-covariance-in-fixed-blo--44a13e35c143",
+          "material_read": "RESULT.md offsets 0–4712",
+          "method": "Local Resultary mirror",
+          "title": "Two shared edges force positive co-block covariance in fixed-block partitions",
+          "trigger": "Exact Resultary co-block edge-count covariance hit"
+        },
+        {
+          "assessment": "Unresolved scope of its equal-block result; not used to support the failure",
+          "evidence": "The frozen discussion attributes the residual pair module and overlap kernel to this work, with a different stated projection-norm objective.",
+          "identifier_or_url": "2026/10/11/SCOPE-a-poisson-asymptotic-for-sharp-fourier-projection-norms-on-unifo--65a32e191d85",
+          "material_read": "Only the frozen discussion at line 84 and citation at line 93; cited primary finding not retrieved",
+          "method": "Identified local-mirror file lookup and title search",
+          "title": "A Poisson asymptotic for sharp Fourier projection norms on uniform set partitions",
+          "trigger": "Frozen citation suggests overlap for equal-block covariance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 21–42, 68–76 and 81–87",
+        "Filmus–Ihringer Theorem 1.2",
+        "General permutation variance and support comparison in originality"
+      ],
+      "rationale": "A zero-variance diagnostic for fixed-histogram permutation tests is naturally motivated and the presentation is useful. The exact diagnostic in this record, however, is obtained by two standard pair-mode norms and direct use of the known Boolean degree-one classification; the cluster restriction only deletes the star and identifies regularity with equal class sizes. There is no remaining unknown invariant or further structural case requiring a new argument, and no distinct extension is supplied to repair the record.",
+      "residual_risks": [
+        "This value assessment does not apply to other permutation statistics, higher-order motif counts or asymptotic fluctuation results not established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

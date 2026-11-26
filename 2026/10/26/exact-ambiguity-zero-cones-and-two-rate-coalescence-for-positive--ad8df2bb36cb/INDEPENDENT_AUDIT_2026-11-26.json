@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:12:19.937075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Completing the square in the two mixed products shifts the Gaussian centers by ±(q-p)T/[2(p+q)]. The Fourier phases therefore combine into cos(κTω) with positive prefactor 2c sqrt(2π/(p+q)) exp[-(pqT²+ω²)/(2(p+q))]. The diagonal products give the two stated positive exponential ratios. The axes are strictly positive. Outside either separated sector one ratio grows exponentially in T²+ω² uniformly, ruling out distant zeros. On an interior ray the ratios and their derivatives decay exponentially in t=T². Disjoint fixed neighborhoods of the cosine nodes have a derivative bounded away from zero and opposite signs at the ends for late nodes; the complement has no late roots. The first-order Taylor equation gives the stated (-1)^k sign and quadratic remainder, and real analyticity and positivity at t=0 rule out infinitely many early roots. Counting nodes gives the stated O(1) error. Choosing progressively more distant roots on interior slopes tending to either boundary gives sharpness even when that boundary ray has no zeros. On a boundary ray one ratio is a positive constant, so its being below one is necessary and sufficient for sign changes at late oscillations; equality leaves a strictly positive decaying term. On the balanced ray the ratios add to B exp(-δt), with B>1 by AM–GM. There can be no root before log(B)/δ, and the next cosine minimum supplies the other bracket endpoint, including equality. At q=p+ε, δ~ε²/(8p), β~ε/4; for c≠1 their time scales are separated and B tends to (c+c⁻¹)/2. At c=1, log B=3ε²/(32p²)+O(ε³), whereas πδ/β is of order ε. In phase coordinates the function is uniformly positive away from π on the first half-cycle and strictly negative at π for small ε, giving the asserted 4π limit. The degenerate Gaussian is zero-free. No extension to general mixtures, shifted centers, or all finite zero components is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former supplies cross-Gaussian ambiguity and nonzero/zero examples, including an ambiguity with zeros for a two-sided exponential window.",
+          "The latter classifies zeros of a polynomial times one Gaussian; unbounded zeros in dimensions at least two have equal-norm and orthogonality asymptotics, whereas the one-dimensional sets are compact."
+        ],
+        "reasoning": "These results supply a broader method or related unbounded zero geometry, but neither states a theorem that specializes to the claimed one-dimensional two-width cone and escape limits.",
+        "searches": [
+          "arXiv:1811.03937, pp. 2–4 and Eq. (8)",
+          "Resultary matched record 0e6509f16d66, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py, CHECK_OUTPUT.txt and requirements.txt",
+        "arXiv:1811.03937",
+        "arXiv:1002.2248",
+        "Resultary 09edf5000fc0 and 0e6509f16d66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian cross term is available by prior formulas; the previous results do not control the amplitude ratio versus unity uniformly along rays or during width coalescence."
+        ],
+        "reasoning": "The starting identity follows by bilinearity. The precise directional exclusion requires opposing diagonal exponents, and the first-root dichotomy requires resolving a tangency when B tends to one. Those conclusions are not supplied by the interference phase or the compared exact classifications.",
+        "searches": [
+          "arXiv:1811.03937, Eq. (8)",
+          "arXiv:1002.2248, §IV Eq. (48) and Fig. 4",
+          "Resultary exact cone/first-root comparisons 09edf5000fc0 and 0e6509f16d66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nicacio et al. give hyperbolic interference for unequal squeezing and illustrate an equal-weight superposition of two centered squeezed states in Fig. 4(c).",
+          "For an even real g, in angular-frequency coordinates W_g(x,ξ)=2 A(2x,2ξ), by changing variable in the Wigner integral."
+        ],
+        "reasoning": "The even-window Wigner comparison is relevant even though the transforms have different names. The phase and illustration do not give the cone of cancellation of the interference with the positive diagonal terms, its endpoint weights, or the first-zero scaling as widths merge.",
+        "searches": [
+          "Resultary search: centered two-Gaussian ambiguity-zero cone, endpoint slopes, ray counts and coalescence",
+          "arXiv:1002.2248, §IV and Fig. 4",
+          "arXiv:1811.03937, ambiguity/Wigner correspondence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "09edf5000fc0 gives exact zero sets for equal-width displaced pairs (bounded ovals or isolated zeros); 0e6509f16d66 gives exact null thresholds for polynomial-Gaussian windows."
+        ],
+        "reasoning": "These are substantive exact comparisons but not tables or classifications of the frozen model. A common invertible phase-space change cannot turn equal component covariances and different centers into unequal covariances and coincident centers. No exact matching cone or coalescence formula was established in the inspected entries.",
+        "searches": [
+          "Resultary exact cone, ray count and Gaussian-mixture zero classification search; matched 09edf5000fc0 and 0e6509f16d66"
+        ]
+      },
+      "rationale": "The distinct supported content is the centered unequal-width escaped cone with exact boundary tests, interior root asymptotics, and the two first-root escape laws. Gaussian cross-ambiguity, hyperbolic Gaussian interference and positive-window zero examples are prior, not credited as original.",
+      "residual_risks": [
+        "The inspected corpus is not a priority proof. A more specialized study of centered squeezed-state interference or exact ambiguity nulls may contain additional overlap.",
+        "The uploaded output is finite and was inspected, not rerun. Its balanced-ray root finder does not certify firstness from a sign bracket alone; the next-minimum proof gives a global bound for the first root without needing that numerical assertion. Independent spot checks integrated on [-10,10] by composite Simpson with 4096 subintervals at (p,q,c,T,ω)=(0.8,3.1,1.4,1.3,2.05), matching 1.615901612046245 to roundoff. An independent floating-point first-root check scanned negative cosine lobes from the amplitude threshold, located their minima using convexity there, and bisected on the decreasing side of the first feasible lobe. At p=2 and ε=0.01,0.001,0.0001 the scaled values were 12.07626,12.40888,12.51634 for c=1, and 8.41266,8.18059,8.17442 for c=3. These finite checks are not proofs of the quantified limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known existence examples and starting identity, not quantitative coverage",
+          "evidence": "Eq. (8) gives the complex Gaussian cross term; the two-sided exponential example has ambiguity zeros.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.03937",
+          "material_read": "pp. 2–4, PDF offsets about 6300, 10000 and 14700; §3 Example 1",
+          "method": "OA primary PDF",
+          "title": "Zeros of the Wigner Distribution and the Short-Time Fourier Transform",
+          "trigger": "Positive ambiguity windows and exact Gaussian cross formula"
+        },
+        {
+          "assessment": "Covers hyperbolic interference and relevant centered examples; not the zero asymptotics in the inspected passages",
+          "evidence": "Fig. 4(c) uses two centered squeezed states; text identifies the one-degree-of-freedom hyperbolic phase away from degeneracy.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.2248",
+          "material_read": "§IV, PDF offsets 43050–44825; Eq. (48), Fig. 4 and adjacent text",
+          "method": "OA primary PDF",
+          "title": "Phase Space Structure of Generalized Gaussian Cat States",
+          "trigger": "Exact interference for unequal Gaussian covariances, including centered pairs"
+        },
+        {
+          "assessment": "Different component covariances/centers regime",
+          "evidence": "Equal widths, different centers; bounded ovals or isolated regular zeros depending on the amplitude balance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-one-area-fourier-ambiguity-ovals-and-their-collapse-under-gaussi--09edf5000fc0",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "One-area Fourier ambiguity ovals and their collapse under Gaussian amplitude imbalance",
+          "trigger": "Exact Gaussian-mixture ambiguity zeros"
+        },
+        {
+          "assessment": "Different window and dimension regime",
+          "evidence": "Window (|x|²+c)e^(−|x|²/2), compact nulls in dimension one; equal-norm and orthogonality asymptotics in higher dimensions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-doppler-null-thresholds-and-a-dimension-induced-topology-c--0e6509f16d66",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Sharp Doppler null thresholds and a dimension-induced topology change",
+          "trigger": "Exact unbounded ambiguity-zero geometry of a positive window"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural positive-window model separates pointwise positivity of the window and its Fourier transform from positivity of the ambiguity function. The exact allowed escape directions, endpoint-amplitude cuts and sharp ray census tell where nulls persist, while the two asymptotic scales explain quantitatively how nulls disappear in the approach to a single zero-free Gaussian. These are useful geometric and singular-perturbation conclusions beyond plotting the known interference pattern.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

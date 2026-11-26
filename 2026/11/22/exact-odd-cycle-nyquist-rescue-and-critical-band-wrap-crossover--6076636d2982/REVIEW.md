@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The kernel is absolutely summable for each integer power at least two. Its discrete Fourier spectrum is the circular periodization of the probability density of a sum of independent uniform variables, with the normalization \(2\pi\). Positivity, circular unimodality, strict open-support counting and the B-spline simplex-edge identity rigorously give the exact rank, sharp strict invertibility thresholds, critical eigenvalue and finite-scale crossover. The separate exact-rational standalone checker verifies thousands of spectra, boundary cases and coefficients. That finite evidence supports, but does not replace, the analytic proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Absolute summability (p≥2) allows grouping the DFT by residues. The wrapped continuous convolution density has Fourier coefficients s_a(j)^p/(2π), yielding the exact normalization and positivity in (1). For circular monotonicity, let r,s≤π be two arc half-lengths and ℓ(x)=max(0,min(2r,2s,r+s−x)) the corresponding line overlap at displacement x≥0. For 0≤d≤π the circular overlap is ℓ(d)+ℓ(2π−d). The second summand can increase only where d>2π−r−s≥|r−s| and d<r+s, hence its increase is canceled by the first summand. Layer cake iterates that monotonicity for all wrapped uniform convolution powers even past later wraps. The minimum is therefore at a nearest-to-π bin, with no uniqueness claim. Strict support yields the ceiling count (2) and the strict thresholds (3), including bins exactly on endpoints. At the nearest bin θ=π−δ_N, the only possible copies in (5) are at θ and θ−2π: other copies have absolute value at least 3π−δ_N, exceeding 5π/4 since δ_N≤π/3. Their signed edge depths are ε+δ_N and ε−δ_N. Positive depths in [0,2a] give the stated density via the volume of a p-dimensional simplex of deficits. Substituting ε=0 and then ε=πt/N gives (4) and (6), including exact zero at each support threshold. These checks reconstruct the universal argument, independent of the finite checker.
 
-The closest primary paper, Pillai (arXiv:2611.08401v1), works with principal finite Toeplitz truncations and Szegő asymptotic quantiles. Its B-spline symbol identity supplies a building block, but its results do not imply exact eigenvalues of a different finite periodized matrix, the parity-dependent rank rescue or the critical finite-grid crossover without new circular-alias and grid-counting arguments. Standard circulant diagonalization and the B-spline edge are acknowledged rather than presented as new. A related cardinal B-spline collocation study concerns an operator with different matrix entries. Searches for equivalent Nyquist/parity and cyclic sinc-power finite-rank statements did not find a complete matching theorem. An older unindexed formulation could still cover some or all of the result.
+## originality
 
-## Value — PASS
+PASS
 
-Periodic approximation and cyclic signal processing use genuinely cyclic covariance matrices, not Toeplitz principal blocks. Here the exact rank and least eigenvalue determine the precise stable-versus-singular boundary for all integer powers and all cycle lengths. The odd-only window of strict positivity below the half-circle continuum threshold and the two distinct \(N^{-1}\)-bandwidth crossover laws are natural finite-grid effects, not arbitrary parameter slices. The theorem provides sharp, reusable test cases for circular spectral regularization. It does not extrapolate these conclusions to ordinary finite Toeplitz truncations.
+The matched Toeplitz primary source gives the spline description and edge exponent in the no-aliasing setting; the finite circular operator has a different spectrum. The closest distinct Resultary record shows a parity effect for Bernstein approximants to circle covariances, not equivalent sinc-power coverage. The supported distinction is the combined exact cyclic classification and two-sided crossover, not the classical DFT, support of a uniform convolution, or B-spline edge formula in isolation.
 
-## Residual risks and limits
+## value
 
-Potential prior coverage by less searchable work on cyclic covariance kernels or wrapped B-splines remains; the new theorem is therefore a same-model finding, not a certified statement of historical uniqueness. The infinite argument relies on circular-unimodality preservation, justified geometrically by arc-overlap layer cake, and the strict endpoint support of the B-spline; both are explicitly stated in the proof. An independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First circular wrap is a natural bandwidth boundary for invertibility and conditioning, and the corresponding question for a cyclic operator is not resolved by the known Toeplitz quantile exponent. Exact finite positive-definiteness thresholds and a parity-sensitive scaled eigenvalue across the boundary are useful spectral information, not arbitrary samples of a spline. The value is the full transition from zero to positive, its finite-grid constants, and the all-band minimum-location guarantee, not novelty of Fourier diagonalization or the classical edge power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof reduces a non-determining vertex subset to inclusion in the fixed-point set of a nonidentity automorphism. Group-completeness lemmas use a six-cycle rooted neighborhood for the Shrikhande graph and maximal four-cliques for the rook graph; neither relies on a heuristic group guess.
+## correctness
 
-Two separately written and executed Python 3 checks accompany this document. `verification/check_affine.py` enumerates all connection-set-preserving matrices and all row/column automorphisms, confirms exact maximal fixed-point families (28 cosets; 12 slabs and 24 transversals), and checks **every** one of the 65,536 vertex subsets on each graph. It confirms:
+PASS
 
-- Non-determining coefficients for Shrikhande: `[1,16,120,112,28,0,0,0,0,0,0,0,0,0,0,0,0]`.
-- Non-determining coefficients for rook: `[1,16,120,560,812,672,336,96,12,0,0,0,0,0,0,0,0]`.
+Nonbases are precisely subsets of a nonidentity automorphism's fixed set. The Shrikhande neighborhood six-cycle and the distinct signatures of the nine other vertices bound a root stabilizer by 12; the twelve connection-preserving matrices attain the bound. The seven order-four kernels are the six cyclic subgroups and the subgroup of all elements of order dividing two. Translating their kernels yields exactly 28 maximal fixed sets; a triple in one of them generates its order-four subgroup by differences, so no triple is double counted. Rook automorphisms preserve or swap the two row/column clique families. Nonidentity preservers leave at most two fixed rows or at most two fixed columns, while swappers have fixed sets contained in permutation transversals. Each slab and each full transversal is attained, and they are incomparable. The independent adjacency-bijection check, without assuming either group formula, obtained 192 and 1152 automorphisms and recovered both maximal families and their full down-closures. The coefficient difference from degrees 3 to 8 is (448,784,672,336,96,12). It gives determining numbers 3 and 4, guarantees at 5 and 9, respectively, and a strict difference under i.i.d. Bernoulli selection, since every positive coefficient has positive weight p^k(1−p)^(16−k) in the open interval.
 
-`verification/check_graph.py` constructs the two edge sets from scratch and uses generic NetworkX graph isomorphism to obtain all automorphisms (192 and 1,152), then checks every vertex subset against the complete list. It reproduces the entire determining-coefficient sequence, independently of affine or row/column formulas. Reproduce with `python3 verification/check_affine.py` and `python3 verification/check_graph.py`. The latter requires NetworkX version 2.8 or newer.
+## originality
 
-Both checks were executed successfully against the exact embedded source text. The scripts exhaust a finite problem only. The proof is structural; the tests are supporting reproducibility, not infinite certification or independent scholarly review. The original mathematical objects and the previously published Cartesian-product criterion retain the limitations stated in `RESULT.md`.
+PASS
+
+The rook obstruction criterion is covered as a specialization of the known Cartesian-product determining-set criterion, and the high-cardinality centroidal comparison also overlaps. The Shrikhande coset classification and precise coefficientwise pointwise-fixing comparison are the distinct supported contribution; neither a general fixing-set method nor a count of sensor sets under a different predicate yields them in the inspected evidence.
+
+## value
+
+PASS
+
+The graphs share (16,6,2,2), so the difference is a concrete invariant invisible to their strongly regular parameters. The Shrikhande coset description yields the exact shape of failures, not merely their count or a minimum base size. The combined all-cardinality census proves uniform Bernoulli advantage rather than just a threshold difference; the alternative sensor predicates show why specifying the fixing event matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

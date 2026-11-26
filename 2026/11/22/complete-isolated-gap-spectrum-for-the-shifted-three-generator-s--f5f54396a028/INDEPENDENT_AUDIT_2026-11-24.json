@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:37:11.993085Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–46 and VERIFICATION.md",
+        "Frozen verify_isolated.py inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/check_isolated_apery_f5f54396a028.py"
+      ],
+      "rationale": "I checked the formula by partitioning the integers into slices ta+r, 0≤r<a. In a t-coin band the offsets with exactly j nonzero summands form [3j,4j]; for j≥2 successive intervals touch, so the t≥2 band is {0,3,4} and [6,4t] in offsets. For t≥3 the previous terminal interval starts at (t−1)a+6≤ta. Therefore earlier-band coverage of the slice is exactly its prefix ending at E_(t−1)=(t−1)(a+4); older bands cannot extend it, and no later band begins inside the slice. In t=2 the previous band cannot reach 2a. Offsets 3,4 are covered, and offset 1 cannot stand by itself because earlier coverage of offset 2 also covers 1. A missing offset 2 has both neighbors precisely when E_(t−1)=ta+1; a missing offset 5 always has both neighbors for t≥2 and is missing iff E_(t−1)<ta+5. The remaining possible hole at the end of a slice is isolated only when E_t=(t+1)a−2. For a=6 the possible offset 5 is just before the next slice. For t=1, only the terminal boundary can furnish an isolated gap because its members are a, a+3, a+4; before a there is none. Solving the equations yields both residue exceptions and the stated range for t. The extra term has a residue distinct from 5 except for a=6, where it is 11, below the first main term 17. I also independently matched 158 complete gap sets for a=6..163 by minimizing y(a+3)+z(a+4) in each residue over 0≤y,z<a. Larger coefficients cannot be minimal because a copies can be subtracted.",
+      "residual_risks": [
+        "Only the band proof is infinite-range; the independent Apéry check is a finite cross-check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moreno-Frías–Rosales describe an iterative perfect-closure procedure using the maximum isolated gap. Singh–Ram cover all two-generator semigroups; their introduction describes earlier dimension-three work as characterizing perfection."
+        ],
+        "reasoning": "A general algorithm or a test that the isolated-gap set is empty does not yield explicit nonempty sets and their periodic boundary terms. The target has three minimal generators.",
+        "searches": [
+          "arXiv:2305.14967 perfect closure, arXiv:2406.09848 embedding dimension two, DOI:10.5486/PMD.2020.8699 and DOI:10.3906/mat-2107-54"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f5f54396a028 (self-match), 1a98ce07f8f0, 0d9290baf24e, 005a58f3e51a",
+        "arXiv:2305.14967, arXiv:2406.09848 and the accessible material for the two journal DOIs above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quotient has offsets k,k+1 from 2k+1, so offsets 3,4 occur only at k=3. The 3,5 family has modulus-five gap-run behavior. The general closure result does not evaluate the Apéry or fixed-coin thresholds of this family."
+        ],
+        "reasoning": "These sources provide comparators and methods, but not the family-specific fixed-coin intervals and boundary equations needed to obtain the exact set.",
+        "searches": [
+          "Resultary: 0d9290baf24e and 005a58f3e51a actual Findings",
+          "arXiv:2305.14967 perfect-closure passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f5f54396a028 is the exact self-match. The same-day 005a58f3e51a counts full gap runs of <a,a+3,a+5>, not this family."
+        ],
+        "reasoning": "Length-one gap runs are the same invariant, but changing the largest generator changes fixed-coin bands, so the other modulus and counts do not give this formula.",
+        "searches": [
+          "Resultary: isolated gaps of <a,a+3,a+4>; general fixed-offset shifted triples; length-one maximal gap runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1a98ce07f8f0 gives a full spectrum for <a,a+2,a+4> at odd a. 0d9290baf24e gives three isolated gaps for <2k+1,3k+1,3k+2>; at k=3 these are 19,23,26 for <7,10,11>. The external query yielded general and two-generator sources, not a distinct exact table."
+        ],
+        "reasoning": "Credit the exact a=7 data. A single common instance and neighboring-family tables do not cover the all-a spectrum.",
+        "searches": [
+          "Resultary: isolated-gap spectra for neighboring offsets and threefold quotients",
+          "Literature query for exact shifted triple"
+        ]
+      },
+      "rationale": "The all-parameter formula for this exact triple survives comparison with explicit spectra for neighboring families, one covered quotient instance, and general perfect-closure methods. The contribution is the complete set for a≥6, not the definition, a general isolated-gap algorithm, or the a=7 case.",
+      "residual_risks": [
+        "Full journal text unavailable for Smith (2022) and Moreno-Frías–Rosales (2020) through attempted lawful routes; unlocated more general or implicit formulas remain possible.",
+        "Same-day record comparison does not establish order of publication within the day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General perfect-closure method, no target formula in the passages",
+          "evidence": "Iterative procedure adjoins the maximum isolated gap.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.14967",
+          "material_read": "PDF p. 2 offset 6200 and p. 11 offset 27270",
+          "method": "OA full-text passages",
+          "title": "The covariety of perfect numerical semigroups with fixed Frobenius number",
+          "trigger": "General isolated-gap method potentially covering the triple"
+        },
+        {
+          "assessment": "Restricted to two generators",
+          "evidence": "Exact set and count for embedding dimension two; cites the dimension-three perfection characterization and Smith's two-generator minimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.09848",
+          "material_read": "PDF pp. 1 and 3, offsets 363, 2515 and 10308",
+          "method": "OA full-text introduction and Theorem 3.4",
+          "title": "On Isolated Gaps of Numerical Semigroups of embedding dimension two",
+          "trigger": "Complete isolated-gap classification and citation trail"
+        },
+        {
+          "assessment": "Known two-generator result credited; other possible content not ruled out",
+          "evidence": "The citing discussion describes Smith's theorem for the smallest isolated gap of a two-generator semigroup.",
+          "identifier_or_url": "doi:10.3906/mat-2107-54",
+          "material_read": "Publisher abstract and Singh–Ram PDF p. 1 citation discussion",
+          "method": "Publisher and lawful OA retrieval attempted; no full text available in the attempted routes",
+          "title": "On isolated gaps in numerical semigroups",
+          "trigger": "Potential broader coverage"
+        },
+        {
+          "assessment": "Perfection classification as described in available evidence",
+          "evidence": "The cited theorem characterizes lack of isolated gaps in dimension three, not the explicit positive spectrum here.",
+          "identifier_or_url": "doi:10.5486/PMD.2020.8699",
+          "material_read": "Journal landing/abstract and Singh–Ram PDF p. 1 citation discussion",
+          "method": "OA lookup and citation comparison; full text not retrieved",
+          "title": "Perfect numerical semigroups with embedding dimension three",
+          "trigger": "Same embedding dimension, possible stronger theorem"
+        },
+        {
+          "assessment": "Covers a=7 only",
+          "evidence": "Q_3=<7,10,11>; Q_k has generator offsets k,k+1.",
+          "identifier_or_url": "Resultary 0d9290baf24e",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published record text",
+          "title": "Complete isolated-gap classification for a threefold quotient of consecutive-generator semigroups",
+          "trigger": "Explicit related formula with one identical triple"
+        },
+        {
+          "assessment": "Different arithmetic progression",
+          "evidence": "Exact indexed set for odd a≥3, same invariant but different triples.",
+          "identifier_or_url": "Resultary 1a98ce07f8f0",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published record text",
+          "title": "Isolated gaps of the three-term progression <a,a+2,a+4>",
+          "trigger": "Neighboring three-generator family"
+        },
+        {
+          "assessment": "Different infinite family",
+          "evidence": "For <a,a+3,a+5>, the length-one run counts depend on a modulo five.",
+          "identifier_or_url": "Resultary 005a58f3e51a",
+          "material_read": "RESULT.md offsets 0 and 1200",
+          "method": "Local published record text",
+          "title": "Complete gap-run spectrum for three-generator semigroups with shifts 3 and 5",
+          "trigger": "Stronger gap-run statistic at very close offsets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–43",
+        "Moreno-Frías–Rosales arXiv:2305.14967 perfect-closure passage"
+      ],
+      "rationale": "Isolated gaps are the precise exceptions relevant to perfection and closure. This natural consecutive-offset triple is an infinite minimal three-generator family where fixed-coin bands have a persistent isolated hole at offset 5; the exact set separates these recurring holes from two arithmetic boundary mechanisms. This gives concrete inputs to closure calculations and a sharp test case for broader offset families, not just a few enumerated examples.",
+      "residual_risks": [
+        "No complete gap-run, genus, or general three-generator classification is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

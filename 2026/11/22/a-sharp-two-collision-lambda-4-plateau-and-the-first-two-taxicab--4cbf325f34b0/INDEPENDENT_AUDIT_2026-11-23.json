@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:56:26.624627Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–24 and 26–91; VERIFICATION.md and verify_cubic_two_collisions.py inspected, not executed.",
+        "Independent finite replay: group j³+k³ by exact integer sum for all 1≤j≤k≤24, retaining only groups with at least two pairs; for a prefix N retain only pairs with k≤N and regroup. The fibers are 1729: (1,12),(9,10); 4104: (2,16),(9,15); 13832: (2,24),(18,20)."
+      ],
+      "rationale": "Haar orthogonality applied to F² gives 2S²−Σ|a|⁴ plus 8 times the real part of the coefficient-product pairing for each of the two exceptional fibers; the off-diagonal multiplicity is two. Normalize S=1. For fixed mass on the shared vertex and each three-vertex arm, equal weights within each arm simultaneously optimize the positive product and negative square sum. At a fixed shared mass with 0<x<1, the derivative for the split between arms factors as √z−√(1−z) times a strictly increasing bracket on (1/2,1), so no unbalanced interior split can maximize. At the balanced split, multiplying the gap from 9/4 by 12(1+y²)² gives the strictly positive quartic in (4); expanding its two squares leaves the stated positive constant 1169/1296. At a one-arm endpoint, the square sum and AM–GM give 9/4 with exactly four equal weights; the phase correction must attain its modulus. Shared mass 0 or 1 cannot give equality. Scaling the seven-vertex bound by the square of the mass on the union forces zero mass outside the union in equality. Independent exact pair grouping found only 1729 and 4104 through index 23, with first indices 12 and 16 and shared mode 9, and the additional 13832 at 24. The zero-collision case gives 2−1/N by the square-sum inequality, and the one-collision range uses the four-weight bound. This checks the fourth power of the norm constant, not the constant before taking the fourth power.",
+      "residual_risks": [
+        "The cubic census is bounded; neither it nor the sharp inequality classifies configurations with other collision incidences or higher moments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Short-interval estimates and divisor-count/Sidon results are not an exact sharp norm on the unrestricted initial prefixes.",
+          "The polynomial-spectrum norm bound assumes nonincreasing coefficient moduli."
+        ],
+        "reasoning": "The inspected broader results neither apply to every allowed coefficient vector with the sharp conclusion nor determine the extremizers.",
+        "searches": [
+          "Gabdullin–Konyagin arXiv:2311.14937v2, Theorems 1.1–1.2 and 2.2",
+          "Vasilyev arXiv:2608.19132v2, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary single-collision record b11b0dc59997",
+        "arXiv:2311.14937v2",
+        "arXiv:2608.19132v2",
+        "OEIS A001235"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-collision theorem establishes the quartet lower bound and the N=12–15 case, but its hypothesis fails once both product fibers are present."
+        ],
+        "reasoning": "Putting two known quartet optimizers inside the larger set proves a lower bound only. The simultaneous upper bound and exclusion of equality with both quartets active require the new optimization.",
+        "searches": [
+          "Resultary single-collision RESULT.md, finding and limitations, offsets 0–7002",
+          "Compare OEIS A001235 and the two checked arithmetic/spectral papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local single-collision RESULT.md explicitly excludes multiple simultaneous collisions.",
+          "The cubic paper treats additive two-sum relations, fourth-moment bounds and Sidon intervals."
+        ],
+        "reasoning": "Writing the problem as a weighted additive-energy maximization or in product notation does not turn the interacting seven-character configuration into a one-fiber problem.",
+        "searches": [
+          "Resultary: single and two pair-product collisions, sharp Λ(4) constants",
+          "Gabdullin–Konyagin arXiv:2311.14937v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The entry lists 1729, 4104, 13832 as its first numbers expressible as two cubes in multiple ways. The bounded pair grouping identifies the actual representations and prefix thresholds."
+        ],
+        "reasoning": "Credit the arithmetic sequence to prior sources. A table of repeated sums is not a table of Fourier norm constants or maximizers and by itself does not establish their behavior across the overlap.",
+        "searches": [
+          "OEIS A001235, original entry, offset 0 (list and definition)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the equal sharp value and equality rigidity with both overlapping collisions present. The no-collision and one-collision cases, and the arithmetic taxicab values themselves, are not new.",
+      "residual_risks": [
+        "Bounded primary literature and local catalogue coverage; an equivalent weighted additive-energy theorem under different terminology is not ruled out. An empty general literature query supplies no evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage, not the one-vertex overlap case.",
+          "evidence": [
+            "Exactly one nonsingleton unordered pair-product fiber; explicitly excludes multiple simultaneous collisions."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-sharp-lambda-4-constants-for-a-single-pair-product-collision--b11b0dc59997",
+          "material_read": "RESULT.md, finding and limitations, offsets 0–7002; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local mirror, bounded source read.",
+          "title": "Sharp Λ(4) constants for a single pair-product collision",
+          "trigger": "Same norm, sharp value and equality characterization for one collision."
+        },
+        {
+          "assessment": "Arithmetic and qualitative analytic antecedent.",
+          "evidence": [
+            "1729 obstruction, interval estimates and divisor bounds, not the overlapping-collision extremal theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.14937",
+          "material_read": "v2 pp. 2–4; short-interval Theorems 1.1–1.2, discussion of 1729, and Theorem 2.2.",
+          "method": "OA PDF bounded passage inspection.",
+          "title": "Trigonometric polynomials with frequencies in the set of cubes",
+          "trigger": "Same Fourier exponent and arithmetic spectrum."
+        },
+        {
+          "assessment": "Different coefficient hypotheses and non-sharp for this comparison.",
+          "evidence": [
+            "Nonincreasing coefficient moduli are assumed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.19132",
+          "material_read": "v2 pp. 1–2, opened at offset 0.",
+          "method": "OA PDF bounded passage inspection.",
+          "title": "Norm bounds on Fourier series with polynomial spectra and constrained coefficients",
+          "trigger": "Potential broader polynomial-spectrum bound."
+        },
+        {
+          "assessment": "The first three repeated-sum values are catalogued already.",
+          "evidence": [
+            "The list begins 1729, 4104, 13832; it states no linked Fourier sharp bound or equality classification."
+          ],
+          "identifier_or_url": "https://oeis.org/A001235",
+          "material_read": "Original list, definition, comments and references at offset 0.",
+          "method": "OA original website, locate then bounded read.",
+          "title": "Taxi-cab numbers: sums of 2 cubes in more than 1 way",
+          "trigger": "Exact arithmetic data for repeated sums."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and exact cubic application; OEIS A001235 for the distinction from tabulated repetitions."
+      ],
+      "rationale": "The first pair of interacting resonances sharing a character is a natural test of whether coexistence improves the sharp norm. The result answers no and proves that optimizing coefficients suppress an entire arm; it is not merely a recomputation of known cubic identities. Positive cubes exhibit precisely this configuration and give the sharp finite plateau.",
+      "residual_risks": [
+        "No conclusion after the next collision or on arbitrary cube spectra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

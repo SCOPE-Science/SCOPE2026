@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the following exact, finite and general checks.
+# Independent mathematical audit
 
-1. The nine MUB vectors per finite parameter are normalized; nondegenerate character orthogonality gives cross-basis squared overlap \(1/9\). The computational basis has the same mutual-unbiasedness property.
-2. The complete-MUB projection decomposition proves \(\sum p_{j,b}^2=2\) for every normalized pure state. Cauchy--Schwarz yields the universal support lower bound \(50\) without finite enumeration.
-3. For the explicit state, the finite-field trace map \(b=u+v\iota\mapsto(2u,-2v)\) is invertible. A three-value phase identity proves exactly four zero coefficients for each finite \(a\), with five other coefficients each of probability \(1/5\).
-4. Run `python3 verify_mub9.py` from the embedded file; it enumerates all 81 quadratic-phase sums in \(\mathbb Z[\zeta]\) with exact integers, and asserts the full pattern and support total.
+## correctness
 
-This finite checker is corroboration, not a replacement for the universal proof. The analysis is restricted to the displayed standard family and does not certify historical uniqueness, independent validation, or a classification of all optimizers.
+PASS
+
+The trace pairing of F_9 is nondegenerate. Character orthogonality gives orthonormal finite bases; in the squared Gauss sum, summing over one coordinate after the difference substitution leaves only the zero difference for distinct quadratic coefficients, giving squared overlap 1/9. Diagonal traceless subspaces for the ten bases are pairwise orthogonal and have combined real dimension 80, so the squared norm of rho-I/9 is the sum of the squared probability deviations from 1/9. For pure states this gives sum p^2=2. Cauchy–Schwarz on all positive probabilities then gives 2 times total support >= (sum p)^2=100. For the unit five-coordinate witness, the unnormalized finite-basis sum is 1-zeta^A H(U)-zeta^(-A) H(V), with (U,V) running bijectively over F_3^2 and H=2 at zero, -1 otherwise. When A=0 exactly the four pairs with one zero give zero; when A is nonzero exactly the four pairs with neither zero give zero. All remaining sums have squared norm 9 and hence probability 1/5. The coordinate basis also has five equal nonzero probabilities, so equality holds. An independent integer character count reproduces both the overlap norms and all 81 witness norms.
+
+## originality
+
+PASS
+
+The distinct contribution supported by the inspected evidence is exact saturation at dimension nine by the specified flat-on-five state, not the known moment identity or its universal Cauchy–Schwarz bound. Neither the closest complete-MUB support theorems nor the balanced-state constructions checked give this witness, an equivalent one, or an implication of the flat-on-five equality.
+
+## value
+
+PASS
+
+The explicit exact witness closes the gap between a universal moment bound and actual attainment for a natural first odd composite square dimension; it supplies a balanced state in the congruence class excluded by the standard constructions. The small calculation is not the value: the sharp extremal statement and simple reproducible witness are.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

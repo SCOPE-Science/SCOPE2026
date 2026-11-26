@@ -1,29 +1,21 @@
-# Scientific assessment: monomorphic ESS rarity in Gaussian co-colonization games
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed random object is exactly the independent Gaussian interaction ensemble and structured payoff in Nassor et al. [1, Eq. (22)]. For every fixed integer \(N\ge2\), the proof reduces strict pure-state evolutionary stability to \(N-1\) negative invasion fitnesses, derives the one-site Gaussian integral by conditioning on a diagonal, and verifies the zero-ratio count is a binomial sum of independent row-maximum indicators. Gaussian integration by parts proves strict decline of the mean for \(N\ge3\). An exact two-site overlap integral is expanded with an integrable Gaussian second-order remainder, while independent antisymmetric pair contrasts give \(O_N(\mu^{-2})\) triple-overlap control. Finite inclusion-exclusion establishes the full trichotomy. The code checks finite examples, not the limit proof.
+PASS
 
-Potential error boundaries: the formula concerns strict **monomorphic** ESS states only; \(N\) is fixed before \(\mu\to\infty\); and diagonal interactions are independent Gaussians rather than deterministically zero.
+Strict negativity of each invasion payoff at e_j is equivalent almost surely to pure ESS, and given its diagonal D_j the N-1 outside comparisons are independent with acceptance probability Phi(D_j/sqrt(v_mu)). Independent row maxima give the zero-ratio endpoint. For m=N-1>=2 the symmetrized integrand z on |Z| involves p^m+(1-p)^m, strictly increasing for p=Phi(t|Z|)>1/2 as t=v_mu^(-1/2) increases; this independently proves the monotonicity direction. The expectation is even in t with bounded second derivative near zero, giving O_N(mu^-2) one-site error. For each pair the independent Gaussian antisymmetric contrast has density 1/sqrt(pi) at zero, interval width (D_i+D_j-2U)_+/(1+2mu), and the N-2 outside tests for each resident multiply to leading term 4^(-(N-2)). The width numerator is the positive part of N(0,4), of mean sqrt(2/pi). Bounded Gaussian CDF derivatives, finite moments and the Lipschitz estimate for the outside factors give the claimed integrable O_N(mu^-2) pair error. At least two independent contrast intervals are required for a triple, so its error bound suffices: summing one-site probabilities and distinct pair overlaps gives probabilities 1-q_N+C_N/mu, q_N-2C_N/mu and C_N/mu at the stated precision. The N=2 orthant law reduces to arctan(1/sqrt(v_mu))/pi, independently confirming its leading constant (python /workspace/branches/independent-algebra.py, item 4). All probability comparisons are fixed-N and count pure ESSs only; the script spot check is not an all-N proof.
 
-## Originality — PASS, within inspected literature
+## originality
 
-Nassor et al. [1, §§4.2–4.3 and Figs. 15–16] specify the same Gaussian structured ensemble and measure ESS multiplicities numerically over all supports. Their reported disappearance of multiple ESSs as \(\mu\) grows does not give the exact monomorphic mean or its fixed-\(N\) asymptotic coefficient. Madec and Gjini [2] analyze the co-colonization model and antisymmetric limit, with some other interaction-distribution or diagonal conventions; neither is a direct derivation of this fixed-\(N\) pure-state count. Hart, Rinott and Weiss [3] prove random-game ESS statements for a different, independent-payoff ensemble. Chawanya and Tokita [4] analyze antisymmetric dynamics, but only their abstract was accessible and the full comparison remains limited. Searches for equivalent correlated Gaussian invasion-proof vertex laws and stronger rare-mutual-invasion laws did not surface the same theorem. This is a literature-bounded assessment, not a claim of universal priority.
+PASS
 
-## Scientific value — PASS
+The zero-ratio binomial law and the limiting tournament probability are existing coverage. The distinct contribution is fixed-N positive-ratio Gaussian expectation together with the explicit inverse-ratio rare-pair coefficient and resulting trichotomy. The exact same-ensemble primary model and all-support simulations do not give that finite-ratio analytic law. Bounded search does not establish historical priority.
 
-The count of distinct one-strain ESS endpoints is a natural restricted multiplicity statistic for alternative strain dominance. The exact zero-ratio binomial law, monotone expectation and the sharp \(\mu^{-1}\) correction determine how quickly **alternative monomorphic states** disappear as co-colonization becomes rare. The coefficient is explicit for every finite community size and supplies a quantitatively testable benchmark for simulations at intermediate interaction ratios. These are stronger than the known qualitative antisymmetric-endpoint exclusion; the phenomenon and invariant are directly motivated by the initiating ecological model, not chosen as an arbitrary parameter slice.
+## value
 
-## Closest prior sources and residual risks
+PASS
 
-[1] H. Nassor et al., *A system-centered probabilistic formalism linking multiple equilibria and biodiversity in ecological and evolutionary models*, arXiv:2609.17232v1, https://arxiv.org/abs/2609.17232 (full HTML §§4.1–4.3 inspected).
+The primary numerical study motivates understanding rare multiplicity, and the pure-strategy restriction permits an exact distribution-level benchmark. The first nonzero correction is meaningful where the limiting tournament assigns zero mass to multiplicity. This does not solve mixed-support multiplicities, uniform large-N estimates, or real-system outcomes.
 
-[2] S. Madec and E. Gjini, *The ratio of single to co-colonization is key to complexity in interacting systems with multiple strains*, https://pmc.ncbi.nlm.nih.gov/articles/PMC8258234/ (primary full text, different model statements and diagonal convention compared).
-
-[3] S. Hart, Y. Rinott and B. Weiss, *Evolutionarily Stable Strategies of Random Games*, https://arxiv.org/abs/0801.3353 (PDF proof and main results examined; independent random-game payoff model).
-
-[4] T. Chawanya and K. Tokita, *Large-dimensional replicator equations with antisymmetric random interactions*, doi:10.1143/JPSJ.71.429 (abstract only). Its full paper and possible unindexed near-antisymmetry equivalents are a residual historical-priority risk.
-
-The theorem does not determine the probability of any ESS when mixed supports are included, does not provide uniformity as the number of strains grows, and does not prove ecological or epidemiological clinical outcomes.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

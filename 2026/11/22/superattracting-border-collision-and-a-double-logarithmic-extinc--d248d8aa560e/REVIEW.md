@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The right-branch factorization and the two-step return are exact polynomial identities. The invariant right interval and all switch conventions were checked explicitly. The crucial all-real-parameter inequalities \(6\le C(r)-r^3u^2\le7\) yield both upper and lower bounds on the first passage; they do not rest on a plotted trajectory. The proof accounts for exceptional exact landings at the switch and does not assert the non-invariant ghost is an invariant measure. The attached checker passed from this package. The estimate is only for \(x_0=3/5\), not an initial-state average.
+PASS
 
-## Originality: PASS within inspected literature
+The frozen opening says that x_0=3/5 enters the extinction branch above the border, but the formal clock counts equality and exact hits occur arbitrarily close to the border. At r_* all the polynomial even returns from 3/5 are positive. For N large, start at r_* and take the first parameter where the minimum of the first N polynomial returns becomes nonpositive. The minimum is then zero. It must be the Nth return, since an earlier zero would be followed by -Delta<0, contradicting minimality and continuity. Any fixed r>r_* has finite first passage, so these exact-hit parameters approach r_*. The actual map fixes 1/2. repairs/2/RESULT.md corrects the title and finding to a first-passage clock, preserves strict-crossing extinction, and proves that equality is a real exception. The repaired proof checks the sign branches and endpoint contact by f_r(r/4)-1/2=-Delta; the factored return gives the two roots, multiplier -r^2+2r+4, and the only eternally right fixed orbit above the border. At the critical trap the endpoint pair pushes forward to the single atom at 1/2, hence is not invariant. From 3/5 the odd state is right and strictly positive even returns shrink in the domain 0<u<=1/10; comparing -Delta+u^2(C-r^3u^2) with the pure squaring recurrences proves K=log_2 log(1/Delta)+O(1). Delta has a simple zero at r_*; each return uses two iterates. The frozen script was inspected, not executed; all-real claims follow from the analytic bounds.
 
-The full 2023 originating study gives a generic logarithmic law assuming a strictly positive linear return slope; its hypothesis excludes the present zero-slope quadratic contact. The complete 1998 Pramana article already explains zero-multiplier virtual two-cycles for an additively shifted logistic map; that *mechanism* is prior knowledge. The resulting golden-ratio threshold and sharp detuning double-log law for the 2023 multiplicative-dispersal map are not implied by that analysis. The closest published same-map result treats only \(\varepsilon<1/2\), a disjoint interval. A published nonstationary-ghost result concerns a different piecewise power family. An older 1993 sectional-discontinuity study was abstract-accessible only; unindexed equivalents remain possible.
+## originality
 
-## Value: PASS
+PASS
 
-The finding answers a specific quantitative open edge of the originating numerical transient analysis, where the generic logarithmic formula is not applicable. The exactly located collapse and deterministic scale supply a meaningful exception with reproducible proof, while not claiming a broad new theory of ghost orbits or stochastic ecology.
+The map, a generic ghost mechanism, and superattracting virtual-cycle collisions are not credited as newly discovered. The repaired result retains a distinct exact border and fixed-initial-condition parameter-detuning clock for this map, with the equality convention kept explicit. No inspected prior result establishes that combination or implies it; decisive portions of some primary sources were unavailable, so the judgment is bounded.
 
-## Scientific limitations and literature
+## value
 
-The critical empirical limit is not stationary, and right-branch equilibrium exceptions are retained. An exact threshold hit yields the fixed switch rather than extinction. The previous virtual-cycle mechanism and related examples are credited in the article. No claim is made beyond the written parameter and initial-state hypotheses. See RESULT.md for primary sources and the proof, and AUDIT.json for the specific coverage comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The corrected statement quantifies a distinct change from a logarithmic to a double-logarithmic transient at a concrete border, with an exact factor of two, and separates approaches, threshold hits, and strict extinction-producing crossings. This matters even arbitrarily close to the border and cannot be inferred from stability or empirical convergence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

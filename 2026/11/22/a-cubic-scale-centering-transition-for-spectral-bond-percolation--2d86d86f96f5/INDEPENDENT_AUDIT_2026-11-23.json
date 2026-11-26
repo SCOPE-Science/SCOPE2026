@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:05:04.855488Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially Steps 1–4; checker.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json and SLOGAN.txt inspected as evidence, not executed.",
+        "Independent exact replay: python /workspace/review-evidence/1/check.py."
+      ],
+      "rationale": "The positive eigenpair of the quotient [[0,ns],[1,s-1]] gives the exact Perron root; s=o(n) gives sp=o(1), nsp→∞ and sigma∼sqrt(c)(ns)^(1/4). Independent clique contributions and an independent conditioning calculation validate the bottleneck variance step: with K~Bin(s,p) open spokes in one clique, its oriented count Z conditional on K is Bin(K(s−K),p), since each edge between an open and a closed spoke appears only once. The independent-copy variance identity and |k(s−k)−l(s−l)|≤(s−1)|k−l| give Var Z_n≤ns(s−1)p²+ns(s−1)²p³. Multiple length-two arrivals cost at most ns*binom(s−1,2)p⁴(1−p) in expectation; every remaining indirect vertex has a simple path entirely inside its own petal, bounded by n(sp)^3/(1−sp). Thus the aggregate mean absolute error is o(s), E Z_n/s→c² for s→∞ and Var Z_n=o(s²) in that regime. E B_n=O(s) handles bounded or irregular sequences at t=0, including s=1 where B_n=0. The binomial CLT and convergence-in-probability shift need no independence between direct and indirect counts; tightness gives divergence in the last regime. The coefficient follows from c²s/sigma∼c^(3/2)(s³/n)^(1/4).",
+      "residual_risks": [
+        "Independent exact rational replay: let d_1=1 and d_k=1−sum_{j=1}^{k−1} binom(k−1,j−1)d_j(1−p)^{j(k−j)}; root-component size k has mass binom(s,k−1)d_k(1−p)^{k(s+1−k)}. Subtract E K=sp from its mean minus one, and compute E Z, Var Z and E B_2 via the binomial law of K, with E[B_2|K]=(s−K)(1−(1−p)^K). Verified the exact moment and analytic bounds for all ten rational test pairs in the source, at s=1 through 5. These tests are finite only. The bundled checker uses s³p⁴ rather than s³p⁴/2 in its error bound and increments a bookkeeping counter; its reported 203236 should not be read as a literal count of independently evaluated assert statements or as a variance check. The proof of the sharper bound does not rely on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christoph–Morawski–Wigderson's results compare probabilities of components of given orders, using K_{s,t} with one side fixed as a sharpness example. Allard et al. equations (3a)–(3b) give finite component-size recursions."
+        ],
+        "reasoning": "Those bounds do not resolve centered fluctuations; the finite recursion can compute the windmill distribution but needs an asymptotic argument separating indirect paths from binomial fluctuations when s varies with n.",
+        "searches": [
+          "arXiv:2608.19145, Theorems 1.3–1.4 and introduction",
+          "arXiv:1509.01207, Section II"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.19145",
+        "arXiv:1509.01207",
+        "Resultary: Finite-core Fortuin–Kasteleyn reduction and mixed-Gaussian cluster fluctuations (indexed summary)",
+        "Resultary: A two-rate wheel percolation limit with explicit full-connectivity and hub-mass laws (indexed summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distribution can be convolved from single-petal distributions, but the inspected prior does not estimate the indirect count uniformly enough for the cubic window. A fixed independent peripheral population in the bipartite limit has no internal percolation paths."
+        ],
+        "reasoning": "Encodeability in a general recursion is not an existing asymptotic theorem. The error bound, concentration and scale comparison are needed to derive the stated distribution and its coefficient.",
+        "searches": [
+          "arXiv:1509.01207, finite component equations (3a)–(3b)",
+          "arXiv:2608.19145, Theorems 1.3–1.4",
+          "Resultary fixed-core fluctuation and wheel percolation hits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record, Gaussian FK fluctuations on fixed-core K_{r,n}, and a wheel percolation law with a cycle of peripheral vertices; neither neighboring model has the windmill's independent growing complete petals."
+        ],
+        "reasoning": "In the natural equivalent formulation as a sum of rooted G(s+1,p) component sizes minus hub duplicates, the target is the second-generation contribution on the direct binomial fluctuation scale, not first-order hub mass or finite-core coalescence.",
+        "searches": [
+          "Resultary: clique windmill bond percolation hub component Gaussian centered two-step paths n^(1/3) peripheral size",
+          "Web: bond percolation growing windmill graphs clique hub cluster central limit theorem spectral radius Gaussian centering friendship graphs clustered graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The targeted web results included arXiv:2608.19145 but did not deliver a matching limit; a finite probability table would not certify an all-sequence distributional limit."
+        ],
+        "reasoning": "The target is not a numerical census: an exact matching limit entry would need the same normalization and all three growth regimes. The corpus hit corresponding to the frozen result is not independent precedent.",
+        "searches": [
+          "Resultary windmill and hub-Gaussian query above",
+          "Web: critical probability for percolation on finite graphs windmill clique wedge central limit fixed hub 1/3 spectral random graph root fluctuations"
+        ]
+      },
+      "rationale": "On the evidence inspected, the three-regime centered rooted limit and its coefficient are not previously supplied. This is a conditional best-of-knowledge finding, not a priority certificate.",
+      "residual_risks": [
+        "An earlier sparse rooted-clique expansion or triangular-array theorem specialized to this observable could have been missed. Indexed summaries were used for triage only; no whole-document noncoverage is asserted for those corpus neighbors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant spectral order bounds, not a comparable centered windmill law in the inspected results",
+          "evidence": "Theorem 1.3 controls component sizes at order spectral radius or square root of graph order; the theorem has no direct-spoke center or fluctuation normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.19145",
+          "material_read": "PDF abstract, introduction through Theorems 1.3–1.4, fixed-side bipartite example and exploration outline",
+          "method": "Open arXiv PDF text",
+          "title": "The critical probability for percolation on finite graphs",
+          "trigger": "Same spectral scaling and irregular graphs"
+        },
+        {
+          "assessment": "Prior finite-size machinery, not a stated asymptotic of the target type",
+          "evidence": "Equation (3a) conditions on a component of a given size, with (3b) supplying connectedness recursively; neither normalizes a two-step correction by a binomial standard deviation.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.01207",
+          "material_read": "PDF abstract, introduction and Section II including equations (3a)–(3d)",
+          "method": "Open arXiv PDF text",
+          "title": "General and exact approach to percolation on random graphs",
+          "trigger": "General finite component-size distribution method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and spectral normalization",
+        "arXiv:2608.19145, irregular-graph examples"
+      ],
+      "rationale": "This addresses a natural fluctuation question left by order-level spectral bounds on a highly irregular family. The exact center at the actual spoke mean matters at the transition, and the theorem distinguishes invisible, finite and overwhelming drift produced by internal clique edges, including a usable mean-shift constant. It is not a claim of a new percolation threshold.",
+      "residual_risks": [
+        "Only the rooted statistic and s=o(n) with fixed c are assessed, not the largest component or a recentered above-window CLT."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

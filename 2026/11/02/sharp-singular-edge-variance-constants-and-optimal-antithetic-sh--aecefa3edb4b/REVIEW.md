@@ -1,15 +1,21 @@
-# Review of the singular-edge shifted-grid coupling theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-Unbiasedness is cellwise integration; positivity supplies a coupling-independent sharp moment threshold. A uniformly Cauchy centered power sum gives the exact limiting Hurwitz profile. Its oscillatory Fourier coefficients are evaluated by the gamma integral; Parseval verifies both constants. Countermonotone rearrangement optimizes the covariance and uniform marginal L2 errors justify optimization before the asymptotic limit. The calculations in `verify.py` pass for two exponents and two finite-grid comparisons; they support but do not certify the infinite theorem.
+## correctness
 
-## Originality — PASS (qualified)
-The two-global-shift antithetic construction and the rearrangement inequality are **not** new. Ben-Ameur, L'Ecuyer and Lemieux (2004) already analyze antithetic randomized lattice points. Wu's 2020 preprint treats independently paired random cells and regular integrands, whereas L'Ecuyer, Munger and Tuffin (2010) treat smooth shifted-lattice errors and include a qualitative unbounded-tail example, but not the stated sharp singular-edge constants. Goda, Kazashi and Suzuki (2022) work in Gaussian Sobolev spaces with different randomization. Neither the exact singular-profile coefficient nor the \(2\sin^2(\pilpha/2)\) all-coupling gain was found in the inspected literature or published-record searches. The claimed novelty is the compound **sharp singular-edge numerical classification**, not its constituent classical tools. A prior equivalent special-function calculation remains possible.
+PASS
 
-## Value — PASS
-Weak endpoint singularities occur in transformation-based quadrature and integral kernels. The result quantifies when common-shift averaging is not even square integrable, and exactly how much an optimal second shift can reduce asymptotic variance where RMS is defined. The distinction from independent cellwise stratification and from arbitrary importance sampling is essential.
+Unbiasedness is by exact cell integration. For fixed m the first summand is asymptotic to g(0)m^(α−1)u^(−α); all other terms are bounded as u tends to zero. Positivity gives the same divergent-moment lower bound for any coupling, with logarithmic divergence at qα=1. Below this threshold the sum is controlled by the two marginal moments. In the pure-power scaled error H_m, consecutive differences are O(m^(−1−α)) uniformly in the shift, so the remainder to the limit is O(m^(−α)) and H_α is square integrable for α<1/2. The g−g(0) component has integrable derivative and variation error O(m^−1). Direct cellwise Fourier integration gives the stated gamma coefficients and zero mean; Parseval gives C_α, and reflection takes real parts, multiplying that norm by sin²(πα/2). The strict countermonotone claim can be proved by integrating the intersection lower bound P(U<a,V<b)>=(a+b−1)_+ for superlevel sets of the decreasing profile (shift it by a constant if needed). Attainment forces equality at all interior a,b by continuity of the copula and strict continuous monotonicity; this determines the reflected coupling. This applies to Q_m when f is strictly decreasing, with variance finite. The difference in scaled second moments from replacing each marginal by the limiting profile tends to zero uniformly in the coupling by Cauchy–Schwarz, so coupling infima converge to the same optimum. It neither asserts uniqueness at infinite variance nor requires monotonicity for the limiting gain. Independent numerical integration of finite-grid squared errors (`python3 /workspace/branches/independent_replay.py 5`) gave reflected coefficient ratios within 0.0004 of one for α=0.18,0.33, g=1 or 1+2x² at m=1024. The uncorrected single-grid coefficients converge more slowly; an endpoint-corrected numerical check is only diagnostic, not the basis for the limit.
 
-## Closest literature and limitations
-Primary sources: arXiv:2011.15086; DOI:10.1287/moor.1040.0101; DOI:10.1214/10-EJS574; arXiv:2212.11476. No exact publication-priority certificate is claimed. One dimension, uniform marginal shifts, equal positive weights, two complete grids and fixed \(C^2\) positive multipliers only; no claim of optimality among all quadratures or stable numerical performance in floating-point arithmetic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The antithetic lattice construction, the rearrangement principle and the Hurwitz Fourier expansion are prior; the supported distinct result is the sharp endpoint-singular variance coefficient and reflection gain as an optimum over all prescribed-marginal couplings, stable for the stated multipliers. The closest shifted-lattice paper uses the equivalent pairing and gives an unbounded-tail warning, but the inspected passages do not establish that singular L² limit or the optimal coefficient.
+
+## value
+
+PASS
+
+At equal work for two global shifts, 2 sin²(πα/2) quantifies how much reflection gains and proves that no other coupling improves the leading coefficient for these multipliers. The complementary impossibility of curing infinite variance by dependence alone identifies when a different estimator, rather than a different pairing, is necessary. Both conclusions are practically interpretable for the singular shifted rule and not a trivial comparison of two simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

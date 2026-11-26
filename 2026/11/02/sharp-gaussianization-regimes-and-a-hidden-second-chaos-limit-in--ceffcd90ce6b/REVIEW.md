@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional Gaussian computation fixes normalization exactly: the mean-square displacement is \(2\mu t^{2H}\), and the non-Gaussian parameter equals the normalized covariance double integral. The three regimes follow from a scaled dominated-convergence calculation, an integrable-kernel monotone limit, and a logarithmic Tauberian boundary comparison, respectively. The positive Gaussian-square diffusivity is admissible because its Gaussian covariance is a mixture of OU covariances. Its subcritical weighted quadratic fluctuations converge in \(L^2\) to a nonzero second-Wiener-chaos element, rigorously non-Gaussian by the positive fourth cumulant. Thirteen deterministic numerical checks passed across quadrature normalizations and all regimes. No finite computation is used as a substitute for the analytical proof.
+PASS
 
-## Originality — PASS, with residual risks
+For measurable stationary nonnegative diffusivity independent of W, finite second moment and μ>0 justify conditioning on its path and give Γ=p²I_t/(μ²t^(2p)), where I_t is the weighted double covariance integral. In the supercritical regime 2p>η, the uniform bound h^η C(h)≤K gives an integrable rescaled majorant x^(p−1)y^(p−1)|x−y|^(−η); setting y=xz on the triangle gives 2cB(p,1−η)/(2p−η). For 2p≤η, use u=v+h and v=hz: I_t=2∫_0^t h^(2p−1)C(h)F_p((t−h)/h)dh with F_p(∞)=B(p,1−2p). In the strict subcritical range the weighted covariance is integrable at zero and infinity and has positive integral. At equality the integrand's covariance factor is asymptotic to c/h; the bound by F_p(∞) and uniform convergence to F_p(∞) for 1≤h≤t^a with a<1 yield exactly the logarithm with the stated coefficient as a increases to 1. All regimes make the normalized conditional variance converge to 1 in L² and hence the normalized position converge weakly to N(0,1) by its conditional characteristic function. For D=d_0+δG², stationarity and reversibility identify the law of the reversed conditional-variance integral with that of δp∫_0^t u^(p−1)(G_u²−1)du. Its covariance kernel 2(1+|u−v|)^(−η) yields L² convergence when 2p<η; the lag integral is B(2p,η−2p) and the variance is 4δ²p²B(p,1−2p)B(2p,η−2p). The second chaos is closed and the nonzero limit has positive fourth cumulant by the square-summable eigenvalue representation. The claims require C(h)≥0 at every lag as stated in the assumptions; the fluctuation limit is in marginal law only, with L² convergence of the forward representative, not claimed L² convergence of the original reversed process. The numerical quadrature script was inspected, not executed, and is not required for the integral proof.
 
-Pacheco-Pozo and Krapf (arXiv:2405.03836) provide the stochastic integral model and second-order theory, so these are prior work. Balcerek et al. (arXiv:2501.10472), especially Eq. (13), already give the general kurtosis covariance integral; that identity is **not** claimed as new. Their evaluated analyses concern Markovian exponential switching and nonstationary, infinite-mean renewal switching, not the stationary algebraic-covariance asymptotic coefficient trichotomy or the non-Gaussian magnified conditional-variance limit. A subsequent broad heterogeneous-medium framework (arXiv:2603.12775) was also compared: it discusses general non-Gaussian parameters without providing these evaluated Hurst/memory boundaries. Published mathematical-record searches under aliases including fluctuating diffusivity, long-memory covariance, Gaussianization, and second Wiener chaos did not reveal equivalent indexed coverage. This is a best-knowledge priority assessment: general regular-variation and Wiener-chaos limit theory may subsume techniques or partial statements; publication priority is not definitively certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact transition at \(H=\eta/4\) identifies which physical memory scale controls the rate at which a heterogeneous fractional displacement loses non-Gaussianity. The borderline logarithm and all three explicit amplitudes are meaningful predictions for anomalous transport with slowly relaxing environments. The distributional second-chaos limit shows that experimentally invisible Gaussianized displacement can coexist with non-Gaussian fluctuations in its latent conditional variance; this distinction is not an arbitrary parameter slice or mere restatement of the previously known fourth-moment integral.
+The supported distinct claim is the sharp stationary algebraic-memory trichotomy with its three coefficients, together with the non-Gaussian subcritical conditional-variance limit and its variance. The fractional random-diffusivity integral, general fourth-moment identity, qualitative Gaussianization in related models, and Gaussian-square construction are not credited as new. The strongest inspected same-kernel source with Gaussian-square diffusivity uses exponential memory and does not supply the stated algebraic-memory asymptotics or fluctuation limit in the passages checked.
 
-## Scope and evidence limits
+## value
 
-The asymptotic trichotomy assumes a stationary diffusivity with nonnegative, regularly varying covariance and finite second moment; it is not a theorem about nonstationary heavy-tailed renewal switching or sign-changing covariance. The non-Gaussian fluctuation limit is for a particular strictly positive Gaussian-square environment and only in the subcritical Hurst range. Independent expert assessment and exhaustive publication-priority checking have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural fractional diffusion model the result specifies when the endpoint memory of the kernel, the covariance tail, or a logarithmic balance determines the leading non-Gaussianity. The distinction between a tail-universal coefficient and an all-lags coefficient is useful when comparing diffusivity environments. The explicit example shows that a Gaussian tracer does not exclude non-Gaussian, rescalable environmental fluctuations and quantifies them. The value rests on these sharp statements, not the already known mixture identity or Gaussianization in related examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

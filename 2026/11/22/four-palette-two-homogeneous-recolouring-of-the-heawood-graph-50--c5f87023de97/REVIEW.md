@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The seven-line incidence system forces each side-colouring to have colour multiplicities \((4,2,1,0)\). Fano flags classify the \(504\) shore states; a complete normalized seven-bit extension check has exactly twelve masks. The resulting exhaustive move table proves the disjoint union \(2520K_1\sqcup504T_7\), with \(6048\) colourings and \(3024\) edges. The supplied standalone verifier recomputes the constraints, counts, degrees, and component shapes from the literal incidence graph.
+## correctness
 
-**Originality (PASS, historical priority provisional).** The motivating cubic-bipartite theorem proves existence, not this exact four-palette reconfiguration graph. Existing Heawood three-colour reconfiguration describes a different palette and allowable states; it accounts only for the already-known three-colour subfamily. Existing total-domination witness counts concern different set-valued labels. Searches did not reveal an implication deriving the four-colour move graph. Unindexed equivalent finite computations remain possible.
+PASS
 
-**Value (PASS).** The Heawood graph is a canonical Fano incidence graph and a building block of the new cubic-bipartite two-homogeneous colouring theorem. Its four-palette solution space exhibits an unexpectedly severe disconnection: every nontrivial component is the same seven-state tree, and thousands of four-colour states remain frozen. This exact geometry distinguishes availability of a fourth colour from its usefulness in constrained reconfiguration.
+Each bichromatic Fano line accounts for exactly one equal-colour pair, and each pair has exactly one line; this forces multiplicities 4,2,1,0. The singleton and the two same-colour points must be collinear, since otherwise the line through the singleton and one of the pair would be trichromatic. The flag and three distinct names determine that shore. An independent implementation exhausts all 4^7 words on each shore, joins under the properness conditions, and tests all single-coordinate moves. It gives 6048 states (504 three-colour, 5544 four-colour), degree counts (2520,2016,504,1008), and 3024 edges. Crucially, it checks that the unique degree-two vertex in each nontrivial component is adjacent to both degree-three vertices, each of which has two leaves, establishing the explicit T7 shape in all 504 components, not just its degree sequence. The 2520 isolates all use four names; the centre state in each T7 uses three.
 
-The result is finite and graph-specific, not a universal connectivity theorem. Exact comparison to inaccessible unindexed studies remains a literature-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A known Fano-flag result gives the 504 three-colour states after palette choice. The distinct supported claim is the entire four-palette move graph for the exact two-neighbour-colour predicate, including all four-colour states and component types. The inspected existence theorem, earlier three-colour move graph and same-day Heawood count do not give that result.
+
+## value
+
+PASS
+
+The four-name palette is motivated by the general four-colour existence result and is the first enlargement of the known Heawood three-name sector. The exact component types answer reachability under the preserved local constraint: every non-isolated state can reach a unique three-colour state within its component, whereas 2520 four-colour states cannot move at all. This is a usable benchmark for comparing constraints or allowing larger moves, not just a tally of witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

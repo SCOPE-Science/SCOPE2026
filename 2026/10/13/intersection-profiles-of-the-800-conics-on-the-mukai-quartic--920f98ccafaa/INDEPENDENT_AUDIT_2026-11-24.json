@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:23:12.496402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–66; frozen VERIFICATION.md and artifacts/verify.py (static inspection; not executed)",
+        "Degtyarev arXiv:2102.08163v1, §§2–3, especially Tables 1–2 and §§3.2–3.3",
+        "Naskręcki arXiv:2108.13402v1, pp. 1–2",
+        "Independent full replay: python3 /workspace/branches/1c0c102c-9822-49b9-bcbe-b85e30a5fdb9/record4_replay.py; complete output /workspace/branches/1c0c102c-9822-49b9-bcbe-b85e30a5fdb9/record4_replay.out"
+      ],
+      "rationale": "The replay uses all five actual vectors of Degtyarev's Table 1, not an arbitrary realization of their Gram matrix. The ordered five coordinates and octad with intersection {1,2,4,5} are unique up to M24 in the source. The independent integer replay constructs the extended Golay code and all three minimal-vector families, applies the five pairings, and gets 800 distinct conic vectors (192 Golay type, 608 octad type). In the published Néron–Severi realization, x_l=l-hbar/2 is orthogonal to hbar, the lattice form on this summand changes sign, and h^2=4, so C_l.C_m=1-x_l.x_m=2-l.m. The replay exhausts 319600 unordered pairs and returns (72240,174720,72240,400) in multiplicity order (0,1,2,4). It recovers 480 copies of (179,440,179,1) and 320 copies of (183,432,183,1), and its second pass confirms A/A (115,248,115,1), A/B (64,192,64,0), B/B (87,144,87,1), B/A (96,288,96,0). The residual vector hbar-l satisfies all constraints, has norm four, and is distinct from l. Its conic class is h-C_l; their sum is a plane section because the Picard and Néron–Severi groups agree on this K3 and every section of its hyperplane line bundle comes from a plane. Equality in the Cauchy inequality for the norm-three projected vectors shows that intersection four forces this residual partner. For nonresidual distinct pairs, the Leech minimum bounds l.m and l.(hbar-m) each above by two, so 0<=l.m<=2, an independent check of the allowable values. Projective automorphisms preserve profiles: the published 480-orbit fills A and the two 160-orbits exhaust B. The profile class B is not asserted to be a single automorphism orbit.",
+      "residual_risks": [
+        "The finite computation is exhaustive in the specified lattice model; it does not reprove the underlying geometric realization. The numbers are intersection products, not claims about individual point incidences or transversality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classification gives the sharp maximum 800 and the single extremal M20 quartic. The explicit construction counts conics by vector type; the equations paper gives sizes 160,160,480 for projective conic orbits.",
+          "2f022151cabc treats the same quartic but classifies fields and orbits for the planes splitting into a pair of conics."
+        ],
+        "reasoning": "Equations and a finite coordinate model make pair computations possible, but the inspected broader statements are not a closed formula or tabulation of the pair census. The plane orbits of sizes 160/240 are objects different from the projective conic orbits, and neither set of orbit sizes supplies numerical intersection profiles.",
+        "searches": [
+          "arXiv:2407.00493v1, abstract, Theorem 1.1 and ancillary discussion",
+          "arXiv:2102.08163v1, Tables 1–2",
+          "arXiv:2108.13402v1, conic equations and group orbits",
+          "Published Resultary/SCOPE 2f022151cabc, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.08163v1, §§2–3 and Tables 1–2",
+        "arXiv:2108.13402v1 and current Corollary 3.1",
+        "arXiv:2407.00493v1, selected sections and 4tab.pdf",
+        "Published Resultary/SCOPE 2f022151cabc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 400 plane sections and the residual-class identity h-C establish the type-four count and matching. Naskręcki's projective-invariance argument assigns the 480 class once its profile is independently determined.",
+          "Computing the types 0/1/2 and the quotient requires comparing admissible Leech vectors in pairs; single-vector counts, group-orbit cardinalities and plane splitting-field data do not determine those comparisons."
+        ],
+        "reasoning": "The residual part is already covered, and the identification of A with the large orbit is a consequence of the independently computed profile and the known orbit sizes. Even after these implications and the 0/2 symmetry, the typed pair and cross-class counts contain additional exact information; they are not entries of the known residual matching.",
+        "searches": [
+          "Naskręcki arXiv:2108.13402 current Corollary 3.1 and v1 orbit-size passage",
+          "Degtyarev arXiv:2102.08163v1, §§3.1–3.3",
+          "Published Resultary/SCOPE 2f022151cabc",
+          "Frozen RESULT.md, proof of orbit and residual identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Leech condition is equivalent to the typed intersection graph by C_l.C_m=2-l.m. Residual pairing is l↦hbar-l.",
+          "Naskręcki's current Corollary 3.1 and indexed 2f022151cabc identify the 400 residual planes."
+        ],
+        "reasoning": "Changing from Leech dots to intersection numbers just relabels edge types. The residual data cover the matching of type four; replacing a partner by its residual also exchanges 0 and 2 on the nonresidual pairs. These equivalences do not give either class's multiplicities of the remaining types or the two-class quotient.",
+        "searches": [
+          "Published Resultary/SCOPE: Mukai or M20 quartic 800 conics pair intersections, local neighbor profiles and residual planes",
+          "arXiv:2102.08163v1, §§3.1–3.2; arXiv:2108.13402v1 and current unversioned paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Degtyarev's Table 2 lists conic vector counts 96,96,320,288 in four coordinate patterns, not pair multiplicities. The located 179 substring in 4tab.pdf p. 11 near offset 45710 was part of 1792, not a neighbor-profile entry.",
+          "The indexed splitting-field table gives 16,144,48,192 for the 400 planes. Retrieval of GAP/2/4Leech.txt in this review did not succeed."
+        ],
+        "reasoning": "An exact published typed adjacency matrix or equivalent degree table would cover the census without needing its wording; none of the tables inspected gives those entries. Keyword misses and the unavailable ancillary file are not negative evidence.",
+        "searches": [
+          "arXiv:2407.00493v1 main text and companion 4tab.pdf for census/profile numbers",
+          "arXiv:2102.08163v1, Tables 1–2",
+          "Published Resultary/SCOPE 2f022151cabc, mirrored RESULT.md",
+          "arXiv ancillary GAP/2/4Leech.txt (attempted direct retrieval)"
+        ]
+      },
+      "rationale": "The distinct claim is the full typed pair census and local/cross-class profiles of this extremal quartic. The residual involution and the 400-plane count are covered and get no separate originality credit. The primary vector tables and orbit sizes alone do not supply the typed pair multiplicities, and the strongest inspected matching records on planes do not cover the rest of the census. The actual available statements are sufficient to distinguish the complete profile, subject to a residual risk from the uninspected extent of the classification's ancillary corpus.",
+      "residual_risks": [
+        "An exact machine-readable typed graph or equivalent count could already be present elsewhere in the classification's ancillary files. The checked material, including the unrelated near-hit and the unavailable direct GAP path, is not a historical priority proof. The residual-plane count is independently covered regardless of those risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives exact conic model, conic types and smooth realization; the tables read enumerate individual conics, not the pair profiles.",
+          "evidence": [
+            "The ordered quintuple and octad are unique up to M24, Table 1 gives the five vectors, Table 2 counts 96+96+320+288 conics, and §3 gives c(l)=l-hbar/2+h/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.08163v1",
+          "material_read": "§§2–3, PDF pp. 2–4, especially Table 1, Table 2 and §§3.2–3.3; offsets around 6400–9696 and 9960.",
+          "method": "Bounded open-access primary PDF passages.",
+          "title": "800 conics in a smooth quartic surface",
+          "trigger": "Primary Leech-vector construction and possible source of a pair-count table."
+        },
+        {
+          "assessment": "Provides the three projective conic orbits and, in the current version, explicitly covers the residual plane count. These passages do not give the complete typed quotient.",
+          "evidence": [
+            "Conic orbit sizes 160,160,480; current Corollary 3.1 counts exactly 400 hyperplanes yielding 800 irreducible conics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13402v1 and https://arxiv.org/pdf/2108.13402",
+          "material_read": "v1 pp. 1–2 (offsets around 0 and 7480); current p. 4, Corollary 3.1, near offset 17480.",
+          "method": "Bounded open-access PDF passages in both versions.",
+          "title": "Explicit equations of 800 conics on a Barth-Bauer quartic",
+          "trigger": "Same configuration, explicit equations and potential orbit or pair-count coverage; compare cited and current versions."
+        },
+        {
+          "assessment": "The main theorem establishes the unique 800-conic extremum. The observed table near-hit was unrelated; machine-readable coverage across the ancillary corpus remains incompletely checked.",
+          "evidence": [
+            "The M20 quartic is the unique extremal case; the 4tab.pdf 179 hit came from 1792; direct GAP/2/4Leech.txt retrieval returned 404."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.00493v1 and companion 4tab.pdf",
+          "material_read": "Main v1 abstract and Theorem 1.1, pp. 1–2, offsets near 250 and 2850; ancillary discussion p. 4. Targeted literal search and checked near-hit in 4tab.pdf p. 11.",
+          "method": "Open-access primary passages and bounded companion-table lookup; attempted lawful arXiv ancillary-file access.",
+          "title": "Conics on smooth quartic surfaces",
+          "trigger": "Classification of conic configurations might contain the entire typed graph or equivalent profile table."
+        },
+        {
+          "assessment": "Direct overlap on the residual-plane count, but other reported counts classify field data and plane orbits rather than conic-pair intersection types.",
+          "evidence": [
+            "Residual planes split into pairs of irreducible conics; field distribution 16,144,48,192 and plane orbit sizes 160/240 are not a conic adjacency classification."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-biquadratic-splitting-fields-for-the-400-conic-pair-planes-on-th--2f022151cabc",
+          "material_read": "Mirrored RESULT.md Finding and proof passages, offsets 0–8317.",
+          "method": "Published local Resultary search and mirror passages.",
+          "title": "Biquadratic splitting fields for the 400 conic-pair planes on the Mukai quartic",
+          "trigger": "Indexed exact match for the count of 400 pairs on the same quartic; possible wider intersection census."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and scope",
+        "arXiv:2407.00493v1, Theorem 1.1",
+        "arXiv:2108.13402v1, conic group orbits",
+        "Independent full replay output"
+      ],
+      "rationale": "The configuration is the unique extremal 800-conic quartic, and numerical intersection products are intrinsic to its curve configuration. The complete profile and two-class quotient supply precise constraints for incidence and automorphism calculations: they distinguish the large projective orbit purely numerically and show that the two smaller orbits are not distinguished by this invariant. This is a full, motivated exact invariant, not a sample, the known residual count, or a recomputation of an inspected table.",
+      "residual_risks": [
+        "The two-class quotient is not a full three-orbit quotient or a classification of pair orbits. It does not encode a distribution of geometric intersection points."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Assessment of the marked-subtree attachment law
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete polynomial follows from the exact classical tree-extension count applied to a marked connected subtree and disjoint additional prescribed edges. The joint factorial moments are calculated explicitly and uniquely determine the finite law. Independent exact Prüfer enumeration checks every coefficient through eight labeled vertices (648 assertions), plus the distance count and conditional covariances; the proof, not the enumeration, covers all \(n\). The limit is the standard rare-multinomial Poisson limit with a surviving independent categorical variable. The endpoint coupling is explicit and has the claimed marginals.
+## correctness
 
-**Originality — PASS, provisional.** Pitman's 1996 *Coalescent Random Forests* gives the stronger counting *tool* but neither a stated distribution for the entire vector of off-subtree degrees nor the specific negative conditional covariance and common categorical survivor. The published *Exact negative regression between endpoint degree and distance in a uniform Cayley tree* covers the one-endpoint binomial-plus-Bernoulli marginal and its stochastic ordering, **not** the joint pair or whole-spine law; a marginal distribution cannot determine joint covariance. The accessible full text on distance profiles by Berzunza Ojeda and Janson treats different limiting profile and branching claims. Searches for aliases and stronger multivariate coverage found no exact covering law. **Risk:** a classical weighted forest/Prüfer identity might imply this polynomial after a short additional calculation; absence from targeted searches is not proof of priority.
+PASS
 
-**Mathematical value — PASS.** The result addresses the natural two-point-degree dependence question *not resolved by the already-known one-point regression*. Its exact complete joint law is invariant under the marked subtree's topology, and it reveals one compulsory random attachment which creates persistent covariance \(-1/q^2\) at fixed marked size as \(n\to\infty\). The two-endpoint simultaneous coupling adds multivariate stochastic content not supplied by componentwise marginal comparisons. This identifies a local correlation mechanism in conditioned Cayley trees beyond a normalization check or a single covariance evaluation.
+The original factorial moments follow by adjoining distinct prescribed outside neighbors to the marked component and taking the ratio of forest extension counts; an outside vertex cannot attach twice to that component without creating a cycle. Independently, the repaired proof uses contraction and weighted Cayley to establish the exact input law. In the repair the common sequence of nonnegative endpoint trials is shortened, and the first member in a single random ordering of the expanding marked sets is marginally uniform and can only lose, not regain, either endpoint. The final spanning-path case is (1,1) and the endpoint means decrease strictly. Conditioning on distance averages over interior label choices with identical pair laws. Our bounded reproduction enumerated all Cayley trees on six labels and confirmed the attachment histogram of two distinct marked subtree topologies (24 conditioned extensions each, 14 supported cells). Neither that check nor the source's geodesic coefficient enumeration is an all-size proof.
 
-**Closest literature and limitations.** Pitman (Berkeley TR 457, 1996) proves the forest-extension count; Aldous (1990) gives degree and spanning-tree analyses; Berzunza Ojeda–Janson (2020/2022) analyze distance profiles; the 2026 published one-endpoint regression record establishes the closest overlapping marginal. The theorem is confined to uniform labeled trees and a fixed connected marked subtree; the fixed-\(q\) limit is not a limit with growing marked size. The self-review does not establish independent historical priority or independently certified proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original headline attachment PGF failed originality: it is a direct specialization of weighted Cayley, as are the exchangeability and the ensuing moment/limit calculations. The repaired claim is the simultaneous stochastic order of the fixed endpoint pair, not the polynomial or the previously recorded one-endpoint regression. On the inspected evidence the pair order is distinct: it needs a common coupling of the dependent one-hot contributions across distances, not the scalar marginal ordering or just degree enumeration. The narrower claim is assessed here, not a pass for the original headline.
+
+## value
+
+PASS
+
+The repaired result makes a joint negative-regression statement under a natural conditioning variable, giving simultaneous control of threshold events at the endpoints despite their dependent attachments. This is a mathematically motivated strengthening over the scalar expectation and is useful without a full-tree coupling. The classical attachment PGF is no longer presented as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-## Analytical checks
-The form transformation \(v=(D^4+1)^{1/2}u\) reduces negative eigenvalue inertia to the two eigenvalues of the exact point-evaluation Green matrix. The Green function is checked by the constant-coefficient fourth-order equation, evenness, continuity of derivatives up to order two, and a unit third-derivative jump at zero. The strict comparison with one distinguishes unstable negative modes from threshold zero modes. The derivative \(F'(t)=-2e^{-t}\sin t\) determines all lobes without any finite cutoff; the number of lobes strictly above the threshold gives the ceiling formula for every allowed strength.
+## correctness
 
-## Executable independent numerical corroboration
-The standalone script `beam_instability_checker.py` (Python with NumPy and SciPy) compares the closed Green expression with direct Fourier-integral quadrature for 62 distances; verifies four exact lobe-onset values, scans 10,005 spatial points across five stiffness values, and checks eight independent large periodic finite-difference matrix spectra away from near-neutral threshold cases. Execute `python beam_instability_checker.py` from the same directory. The observed output was `PASS: 10079 quadrature/phase/threshold/finite-difference checks`.
+PASS
 
-## Scope and open verification
-Finite-difference truncation is independent corroboration, not a proof of infinitely many components. Claims concern only exact linear fourth-order point-softener dynamics on \(\mathbb R\). Complete historical texts of Coman (DOI:10.1093/imamat/hxh088) and Wang (DOI:10.1061/(ASCE)EM.1943-7889.0000097) were inaccessible, so independent priority investigation remains useful. No independent audit or experimental validation has been performed.
+On the line with no axial term, the evaluations are infinitesimally form bounded: write the evaluation as a Fourier integral, bound the low frequencies by C_R||u||, and the tail by O(R^(-3/2))||u''||. Thus the point terms at any fixed strength define the advertised semibounded closed form. With H_0=D^4+1, congruence by H_0^(1/2) reduces it to identity minus a rank-two positive operator. Its nonzero reduced matrix is a times the Green Gram matrix, with diagonal 1/(2√2) and off-diagonal e^(-t)(cos t+sin t)/(2√2), t=d/√2. These constants follow from the homogeneous decaying ODE, continuity through the second derivative and the unit third-derivative jump. A two-dimensional inversion of the resolvent form preserves essential-spectrum bottom 1; negative inertia is therefore the number of reduced eigenvalues strictly above one, and an eigenvalue exactly one corresponds by the same form transformation to an L² zero eigenfunction. The two eigenvalues average a/(2√2)<1 in the stated regime, so strict negativity is exactly |F(t)|>r=(2√2-a)/a. F'=-2e^(-t)sin t; from the first endpoint t=0 and successive zero-separated lobes the heights are e^(-nπ) for n≥0. Each height strictly above r contributes one bounded open interval, giving the ceiling of log(1/r)/π. When log(1/r)/π=n is a positive integer, the n-th later lobe reaches threshold at t=nπ only and the count is n, not n+1. The isolated spring's Gram value is a/(2√2)<1. This is an exact whole-line argument, not a numerical extrapolation.
+
+## originality
+
+PASS
+
+The inspected prior result gives exactly the single-site threshold but not two-site positioning. The nearest multi-spring primary text is finite-domain and perturbative. The exact strict two-defect placement-component classification is the distinct contribution, not the Green kernel, a general rank method, or the isolated critical value. Bounded best-of-knowledge only.
+
+## value
+
+PASS
+
+The ideal model presents a natural design/stability question: can two individually stable point defects switch a beam repeatedly between stable and unstable by moving one defect? The exact number of such windows and the strict birth thresholds answer this globally, including arbitrarily many stable–unstable alternations near the one-defect threshold. This is information a single critical stiffness, a local frequency shift, or isolated resonance examples do not provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

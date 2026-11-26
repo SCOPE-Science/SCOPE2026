@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:59:04.479902Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and Assumptions",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "Independent local coefficient and bounded multinomial-sum checks; census pairs for L=0…6: (0,1),(1,3),(4,8),(10,18),(24,40),(56,88),(128,192)"
+      ],
+      "rationale": "The constant term of f^n for f=x^−1+1+x is T_n. The exact f^3=f(x^3)+3h identity and cubing modulo nine show that for the i-th ternary digit the only first-order correction involves h(x^(3^(i−1))). The uncorrected exponent choice vanishes digitwise by reduction modulo 3, giving 3^s where s is the number of 2 digits. For a correction at i, lower exponents vanish up to i−2; the combined block at i−1 and i has absolute exponent at most 7·3^(i−1)<3^(i+1), while every higher term is a multiple of 3^(i+1). Thus the block must itself have exponent zero, and the remaining higher exponents vanish digitwise. Exact expansion gives local constant-term rows (2,2), (6,8), (16,24). A 2 outside the correction pair annihilates that correction modulo nine, and a pair of adjacent 2s has local value 24, also annihilating the correction. For one 2, the base term 3 receives +3 if the position is positive and +3 if its next higher digit is 1, giving the stated four residues. No 2 gives a unit modulo 3, not a specified residue modulo 9. For L≥2, the two end positions each give 2^(L−1) words and each interior position gives 2^(L−2); add 2^L words without a 2 to count those not divisible by nine. Direct cases L=0,1 and squeezing all cutoffs between powers of three complete the proof including n=0. A fresh check used T_n=Σ_k binom(n,k)binom(n−k,k) for n<729 and matched both censuses through L=6. This corroborates the checks without using a finite test as an unlimited proof.",
+      "residual_risks": [
+        "Only valuation layers zero and one are classified; terms divisible by nine need not have exact valuation two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/11/22/SCOPE-complete-modulo-nine-residue-spectra-of-central-trinomial-coeffi--a8ada75e42c9 gives the complete spectrum including residues on words with no digit 2; its one-2 cases agree with all four frozen residues.",
+          "The primary automaton work is a general algorithmic route and Rampersad–Shallit discuss mod 3 and a mod 5 automaton; the inspected Mikić theorem is a parameter-divisibility result, not the frozen valuation formula."
+        ],
+        "reasoning": "The explicit complete mod-nine spectrum dominates the specified digit cases. A generic algorithm that could compute this result is materially different from an already stated exact spectrum, the decisive overlap here.",
+        "searches": [
+          "Resultary: complete modulo-nine residue spectra and histograms",
+          "Rowland–Zeilberger prime-power constant-term automata",
+          "Rampersad–Shallit §3",
+          "Mikić Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary digit, census and full spectrum comparisons",
+        "Two distinct indexed Findings (2026/11/2 and 2026/11/22)",
+        "Deutsch–Sagan, Noe, Rowland–Zeilberger, Rampersad–Shallit, Mikić",
+        "OEIS A002426 bounded lookup only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete spectra Finding gives every residue and sufficient counts for both censuses; residue classes 3 and 6 are precisely valuation one and the remaining nonzero residue classes give the nonmultiples of nine.",
+          "Noe's inspected theorem is a prime-divisibility digit reduction and does not establish the higher layer."
+        ],
+        "reasoning": "Read off the cases, add two bins for valuation one, and subtract the zero bin for nondivisibility by nine. The density-zero conclusion follows from the same counts, and the short boundary cases are elementary. This is a statement-level implication despite the later index dates.",
+        "searches": [
+          "Complete modulo-nine spectra Finding, one-2 cases and histogram",
+          "Exact ternary language Finding",
+          "Noe Theorem 8.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-an-exact-ternary-language-criterion-for-nine-dividing-central-tr--f302476becb1: nine divides iff at least two 2s occur or the unique 2 is immediately preceded by 1 and followed by another digit in the usual most-significant-first word.",
+          "The frozen convention indexes from the units end: the latter case is exactly j≥1 and d_(j+1)=1."
+        ],
+        "reasoning": "Reversing the indexing convention and complementing the divisibility language recovers the same first-valuation criterion once the modulo-three no-2 criterion is applied. The 11/2 record alone does not distinguish residues 3 and 6.",
+        "searches": [
+          "Resultary: ternary modulo-nine digit criterion for central trinomial coefficients",
+          "Resultary: exact ternary language for divisibility by nine",
+          "Deutsch–Sagan Theorem 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/2 Finding gives the complementary count (L+6)2^(L−2) directly.",
+          "The 11/22 histogram gives N_3+N_6=(L+2)2^(L−2) and N_0=3^L−(L+6)2^(L−2).",
+          "OEIS A002426 was not accessible beyond landing/bibliographic evidence and is not used to infer absence."
+        ],
+        "reasoning": "At the same cutoff 0≤n<3^L, these exact counts are the frozen statistics, not numerical matches at a few ternary lengths.",
+        "searches": [
+          "Resultary: nonmultiples-of-nine census (L+6)2^(L−2)",
+          "Resultary: modulo-nine residue histogram for central trinomial coefficients",
+          "OEIS A002426 lookup"
+        ]
+      },
+      "rationale": "The distinct indexed complete modulo-nine spectrum covers the entire frozen claim by direct restriction and aggregation, and the distinct exact language record independently states the divisibility criterion and complementary census. This establishes current substantive coverage, not the historical priority of any of these records. Both comparison records bear later index dates than the assigned record. The classical mod-three literature and a general automaton construction alone would not have been grounds for failure. No separately supported new remainder is identified in the frozen finding.",
+      "residual_risks": [
+        "Index dates do not settle historical priority or derivation; the failure rests on verified mathematical coverage, not timing.",
+        "One generalized-coefficient paper and the OEIS entry were not inspected in full; neither limitation is used as a reason to fail."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same criterion and complementary census; does not separate 3 and 6",
+          "evidence": "The preceding-1, nonterminal-2 word condition is exactly j≥1 and d_(j+1)=1.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-ternary-language-criterion-for-nine-dividing-central-tr--f302476becb1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exact ternary language criterion for nine dividing central trinomial coefficients",
+          "trigger": "Direct equivalent divisibility claim"
+        },
+        {
+          "assessment": "Fully covers the assigned digit/residue and census statements; no priority inferred",
+          "evidence": "Same four one-2 residues and exact histogram including the assigned two census aggregates, plus residues without any 2.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-modulo-nine-residue-spectra-of-central-trinomial-coeffi--a8ada75e42c9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete modulo-nine residue spectra of central trinomial coefficients",
+          "trigger": "Potential stronger exact spectra and count"
+        },
+        {
+          "assessment": "Covers modulo 3, not the higher layer",
+          "evidence": "The unit criterion is absence of a 2 in ternary.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407326",
+          "material_read": "§4 Theorem 4.7, p. 13",
+          "method": "OA primary PDF passage",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Classical coefficient digit criterion"
+        },
+        {
+          "assessment": "Prime-divisibility reduction, not the mod-nine classification",
+          "evidence": "Reduction to individual base-p digits for divisibility by p.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+          "material_read": "Theorem 8.5, p. 6",
+          "method": "OA primary PDF passage",
+          "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+          "trigger": "Possible more general digit/valuation theorem"
+        },
+        {
+          "assessment": "Supplies general algorithm, not the explicit result in inspected passage",
+          "evidence": "Constant-term method produces automata modulo prime powers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.4776",
+          "material_read": "The Present Method: Using Constant Terms, p. 3",
+          "method": "OA primary PDF passage",
+          "title": "A Case Study in Meta-AUTOMATION: Automatic Generation of Congruence Automata for Combinatorial Sequences",
+          "trigger": "General computation of prime-power congruence language"
+        },
+        {
+          "assessment": "Inspected cases concern mod 3 and mod 5",
+          "evidence": "Restates the ternary digit criterion mod 3 and treats a mod 5 automaton.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.06244",
+          "material_read": "§3 pp. 6–7",
+          "method": "OA primary PDF passages",
+          "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland–Yassawi–Zeilberger Automaton",
+          "trigger": "Same coefficient with congruence automata"
+        },
+        {
+          "assessment": "Parameter-divisibility result, not the ordinary first valuation layer",
+          "evidence": "The compared theorem concerns generalized central trinomial parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14623",
+          "material_read": "Theorem 8, p. 6",
+          "method": "OA primary PDF passage",
+          "title": "On New Divisibility Properties of Generalized Central Trinomial Coefficients and Legendre Polynomials",
+          "trigger": "Possible stronger valuation coverage"
+        },
+        {
+          "assessment": "Unresolved; not used as overlap or absence evidence",
+          "evidence": "Title identifies the generalized sequence; no theorem was read.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022247X23004274",
+          "material_read": "Bibliographic search hit only; OA full text not retrieved",
+          "method": "Targeted search and bounded lawful access attempt (HTTP 403)",
+          "title": "Analytic aspects of generalized central trinomial coefficients",
+          "trigger": "Possibly relevant generalized sequence material surfaced by targeted literature query"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Complete modulo-nine spectra indexed Finding",
+        "Exact ternary language indexed Finding"
+      ],
+      "rationale": "The object and valuation boundary are natural, and the local corrections provide a readable proof. But as an exact-data contribution the submission adds no demonstrated needful datum beyond the already documented complete residue spectrum and histogram; both census quantities are read off or summed directly. There is no separately established reusable lemma or new valuation layer that would stand as a distinct valuable claim in the current comparison set.",
+      "residual_risks": [
+        "This is a judgment of incremental contribution as submitted, not of the intrinsic interest of the congruence or the historical worth of an earlier proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

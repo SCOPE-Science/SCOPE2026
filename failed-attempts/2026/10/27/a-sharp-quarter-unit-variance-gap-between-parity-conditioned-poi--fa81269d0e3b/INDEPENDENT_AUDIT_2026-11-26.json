@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:13.741933Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With positive masses the quadratic factors are Hurwitz stable. On the positive imaginary axis the continuous argument of their product increases strictly from 0 to nπ (each zero contributes a positive phase derivative); thus the even and odd parts have simple, alternating negative roots, with the even part at both ends. The normalized parts give independent Bernoulli sums, up to the odd half-shift. The difference of Bernoulli parameter counting functions is 0 or 1, so integrating 1−2x gives an upper and lower bound equal to the respective signed half-interval areas ±1/4. The finite-support conditional moments are continuous as the masses are mixed with uniform triples, since both conditioning probabilities remain positive in the limit. The one-variable witness has conditional variances (1/4,0); adding a deterministic half shifts and swaps the parities, giving (0,1/4). An independent integer-coefficient convolution checked the 52,686 valid denominator-four cases through n=4 and both witnesses (python3 /workspace/reproductions/frozen_checks.py 1). The frozen 53,886 count includes additional sampled cases and is recorded evidence, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier record proves 0<a_1<b_1<a_2<⋯<b_{n-1}<a_n<1 for Bernoulli parameters of these exact marginals, and uses the same positive-mass approximation for boundary laws.",
+          "The Hermite–Biehler references supply the classical polynomial interlacing, but the earlier Resultary proof already carries it to the conditional Bernoulli representation."
+        ],
+        "reasoning": "The earlier result on the same model and hypotheses determines the structural fact from which the asserted bound follows directly.",
+        "searches": [
+          "Resultary 47c48859520c, §§1–4",
+          "arXiv:1701.07912, Theorem 1.1",
+          "arXiv:math/0512591, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 47c48859520c, 9da3331a541c, caba490c5c50",
+        "arXiv:2603.09019v1",
+        "arXiv:1701.07912",
+        "arXiv:math/0512591"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Bernoulli chain implies 0≤#(a_i≥x)−#(b_j≥x)≤1. For g(x)=x(1−x), the variance difference is the integral of g′ against that count. The sign-split integral is bounded between −1/4 and 1/4.",
+          "The earlier |E−O|=1/2 coupling, considered by itself, does not imply the conclusion: fair laws on {0,N} and {1/2,N−1/2} furnish counterexamples to that inference."
+        ],
+        "reasoning": "Coverage is by the explicit stronger structure in the earlier proof; the distinction from the transport conclusion does not remove it.",
+        "searches": [
+          "47c48859520c, §§2–4, OA mirror offsets 1770–5045",
+          "arXiv:2603.09019v1, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "47c48859520c uses E and O−1/2 as the two Bernoulli sums. The half-shift leaves variance unchanged.",
+          "The October 13 and October 18 records 9da3331a541c and caba490c5c50 concern modes, not variance."
+        ],
+        "reasoning": "Changing from score S to 2S multiplies variance by four; neither normalization turns a mean or mode result into the bound. Alternating Bernoulli parameter counts, rather than alternating lattice support alone, are decisive.",
+        "searches": [
+          "Resultary: parity-conditioned Poisson trinomial variance; integer versus half-integer conditional scores; parity-displacement transport",
+          "arXiv:2603.09019v1, Theorem 1 and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected findings give exact transport or mode constants, not the explicit variance constant.",
+          "Frozen verification_output.txt records finite convolution checks only."
+        ],
+        "reasoning": "An exact table for a finite set of probabilities would not establish the dimension-free inequality with arbitrary real masses. No literal result match is relied on.",
+        "searches": [
+          "Resultary: sharp variance gap for parity-conditioned Poisson trinomial sums",
+          "47c48859520c, Finding and proof"
+        ]
+      },
+      "rationale": "The October 26 Resultary antecedent expressly establishes exactly the interlacing of the Bernoulli parameters of these same conditional laws, not merely the advertised half-unit coupling. The proposed bound is a direct corollary of that already proved stronger marginal structure: write each Bernoulli variance as the integral of 1−2x up to its parameter, sum the alternating indicators, and bound by the positive and negative parts of the kernel. The sharpness examples amount to the single ternary law and a deterministic half-shift. Thus the quantitative statement is correct and not literally stated in the closest record, but its general bound is mechanically covered. This finding is not rejected because of unsuccessful searches or on the basis of a generic displacement coupling alone.",
+      "residual_risks": [
+        "The inspected papers and records do not determine where the variance consequence was first explicitly written; the wider literature lookup was inconclusive. This does not weaken the demonstrated implication from the earlier marginal structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger structural antecedent; main transport conclusion alone is insufficient",
+          "evidence": "Section 2 explicitly gives the parameter chain and both sums as marginal laws; §4 gives the boundary approximation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-half-unit-transport-and-sharp-mode-separation-for-parity-c--47c48859520c/RESULT.md",
+          "material_read": "Finding; proof §§1–4, especially the alternating Bernoulli chain and positive-mass approximation",
+          "method": "Indexed discovery and bounded local mirror reading",
+          "title": "Exact half-unit transport and sharp mode separation for parity-conditioned scores",
+          "trigger": "Same scores, conditional marginals, and hypotheses"
+        },
+        {
+          "assessment": "Conditional Poisson–binomial forms and other comparisons, not a stated sharp variance comparison",
+          "evidence": "Theorem 1 concerns log-concavity, conditional means relative to the unconditional mean, and mode bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2603.09019v1",
+          "material_read": "Theorem 1 and §3.2 (offsets around 2100 and 15300)",
+          "method": "Open primary text",
+          "title": "On the structure of the Poisson trinomial distribution",
+          "trigger": "Primary theorem on both parity-conditioned distributions"
+        },
+        {
+          "assessment": "Classical general polynomial input",
+          "evidence": "The stability condition yields alternating roots of the even and odd parts.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.07912",
+          "material_read": "Abstract and §1, Theorem 1.1",
+          "method": "Open primary text",
+          "title": "An extension of the Hermite–Biehler theorem with application to polynomials with one positive root",
+          "trigger": "Root interlacing underpinning both records"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A length-independent sharp comparison of two potentially large conditional dispersions is useful in interpreting this model. The sharp endpoints distinguish parity-specific uncertainty from transport closeness. This usefulness is not evidence that the consequence is original.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

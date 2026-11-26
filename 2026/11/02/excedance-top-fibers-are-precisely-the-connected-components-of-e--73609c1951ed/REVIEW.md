@@ -1,19 +1,21 @@
-# Scientific review of excedance-top fiber connectivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local swap rule is an exact indicator identity at positions \(i,i+1\): the excedance number is unchanged if and only if neither exchanged value equals \(i+1\). It separately preserves each moved value's excedance status. Every proposed top-value subset has an explicit feasible canonical representative, and every adjacent inversion in the ordering defined by this representative is a legal swap. Bubble sort therefore proves connectivity of every fiber and the component formula. The characterization of isolated representatives is checked at each boundary. The edge identity follows from a degree count and two deletion bijections. Exhaustive independent permutation-graph implementations test \(n\le9\). Their success corroborates but is not the infinite proof.
+PASS
 
-## Originality — PASS, subject to literature risk
+At the boundary i,i+1 the change in excedance count is [π_{i+1}=i+1]−[π_i=i+1]. Since entries are distinct, legality excludes that value in both slots, so no moved value changes excedance status. For any top set T⊆{2,…,n}, the canonical word lists T increasingly and its complement increasingly. The j-th top is ≥j+1 and the j-th complement value is ≤|T|+j, so the canonical word realizes T. Sorting in this order is legal: an adjacent inverted pair within T has both entries >i+1, an inverted pair in the complement has both <i+1, and a cross-block inversion moves each entry away from its threshold. This proves connectivity and the two-sort bound n(n−1). For T={2,…,k+1}, every boundary of the canonical word contains its forbidden value; hence that word is isolated and its fiber is a singleton. Otherwise the first top t_j>j+1 can be swapped with the next top or with 1 if j=k, so its connected fiber is nontrivial. For the edge count, the two forbidden events at each boundary are disjoint. Deleting a fixed point removes its row and column with all other strict excedance comparisons unchanged. Deleting π_i=i+1 removes row i and column i+1; the remaining rows before i and after i keep the same comparison signs, including at surviving column i and row i+1. Thus the counts of blocked incidences are A(n−1,k) and A(n−1,k−1) per boundary; subtraction and division by two gives the result. This also covers k=0, k=n−1 and n=2 under the stated convention. The frozen scripts were inspected but not executed. A separate bounded breadth-first search using the strict top-set test found distance 8 and 31 reachable vertices in the illustrative n=5 fiber {4,5}; the unrestricted relative permutation has 6 inversions.
 
-The inspected 2000 paper of Ehrenborg and Steingrímsson treats sets of excedance *indices* and their enumeration; it does not supply the top-value reconfiguration graph. Steingrímsson and Williams' 2005 tableaux paper develops refined weak-excedance bijections, not connectivity under statistic-preserving neighboring transpositions. The 2014 paper of Baril–Mansour–Petrossian specifies individual excedance positions and values; that equivalence is finer, so its counting statements do not establish the present connectivity of coarser top-value fibers. The 2011 adjacent-transformations paper studies pattern rules that do not depend on the absolute boundary value. Actual searches of the research-record index for excedance-top fibers, Eulerian strata, adjacent-transposition connectivity, and corresponding aliases returned no stronger covering theorem. Residual risk remains for an unindexed reconfiguration treatment or an equivalent constrained-permutation theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a complete structural classification for the natural Eulerian-number layers of the permutahedron, which fragment into exponentially many components under the classical permutation statistic. The constructive canonical-path argument resolves reachability; the isolation result finds a unique frozen state at each cardinality; the explicit edge formula quantifies permitted local dynamics. These go beyond recomputation of Eulerian coefficients or an isolated example.
+The distinct claim is the top-value component classification for strict fixed-excedance strata of all permutations under consecutive-position swaps, including its isolates and edge formula. Value-side excedance statistics, fiber enumeration under inverse/reflection, and the closely related side-signature bubble-sort method are not claimed as new. The strongest same-day forbidden-fixed-point record uses the same sorting idea but a different vertex constraint and threshold; its theorem does not give this move rule, classification, or edge statistic.
 
-## Limits
+## value
 
-No exact internal diameter or individual component-size formula is claimed. Some fibers are not geodesically convex in the full permutahedron. Independent scholarly validation has not been performed, and alternative-literature novelty remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A classical statistic defines a natural subgraph of the permutahedron. The theorem gives complete reachability information in all strata via a simple conserved set, an explicit path construction, and exact isolation and edge counts. These answer structural questions not resolved by the classical Eulerian enumeration of vertices alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

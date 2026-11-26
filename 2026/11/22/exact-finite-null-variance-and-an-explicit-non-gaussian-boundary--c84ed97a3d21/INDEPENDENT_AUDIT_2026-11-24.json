@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:42:55.621913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited /workspace/repairs/4/RESULT.md. The frozen claim of almost-surely no comparison ties is false: i=j+1 on the cycle shares the Y value, and equal Bernoulli halves, of probability 1/2, then force a tie. The repaired scope describes these ties and retains the strict inequality, under which they contribute zero; the theorem's formulas are unchanged. Subtracting the unpermuted strict count yields the signed quadratic identity with a cyclic-ascent diagonal. Conditional on the Y ranks the Rademacher pair products are orthogonal, and each coefficient C_ik has second moment 1/2, including at adjacent indices and for n=3. The ascent count has expectation n/2 and variance n/12 (covariance -1/12 per adjacent unordered pair); total variance yields the claimed exact moments. For the limit, bounded finite-rank eigenfunctions give a one-dependent joint CLT with identity covariance after removing the single seam; sign-pair orthogonality bounds the non-overlapping tail by the squared Hilbert–Schmidt norm and the overlapping tail by O(1/n) at each fixed rank. The shift is -1/4. On antisymmetric functions the square of K gives the stated ODE and boundary constraints, and their converse recovers each eigenfunction. The cosine frequencies and tangent equation each give simple modes; coordinate exchange pairs the opposite eigenvalues of K. The repaired product argument excludes nonreal zeros by positivity of K^2 and uses evenness and order one to fix the product. Taylor coefficients or the paired chi-square cumulants give variance 1/16 and excess kurtosis 10/3. Replay: python3 /workspace/independent_checks.py 4 independently enumerates exact comparisons, ties and finite moments for n=3,4,5. It is not a spectral or limit certificate; those were checked analytically. Frozen check.py inspected only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 3.1 requires non-additivity of the score CDF transform for its first-order Gaussian conclusion. Borisov–Volodko give general chaos limit theory for stationary dependent canonical U-statistics under additional conditions."
+        ],
+        "reasoning": "The present CDF transform is additive. A generalized chaos limit, even when applicable after handling the seam, supplies neither the finite adjacent-pair moments nor the explicit eigenfrequencies of this operator.",
+        "searches": [
+          "Resultary: second-order limits for overlapping or cyclic rank statistics",
+          "Cai–Lei–Roeder, Thm. 3.1 and Remark 3",
+          "Borisov–Volodko arXiv:0906.5465, Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index (four focused searches); mirror dfe3880f12a1",
+        "Cai–Lei–Roeder arXiv:2110.07652",
+        "Borisov–Volodko arXiv:0906.5465",
+        "Carlstein and Shao DOI routes (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 3 identifies the excluded/degenerate first-order regime. General canonical U-statistic limits yield quadratic Gaussian forms in appropriate settings but leave their concrete kernels and spectral evaluations to the application."
+        ],
+        "reasoning": "First-order degeneracy does not imply an n-scaled nondegenerate law, let alone its shift and hyperbolic characteristic function. The overlap bookkeeping, operator reduction, spectral equation and product evaluation are specific additional results.",
+        "searches": [
+          "Resultary: explicit non-Gaussian limit for an additive-score cyclic rank statistic",
+          "Cai–Lei–Roeder arXiv:2110.07652, Remark 3",
+          "Borisov–Volodko arXiv:0906.5465, Thm. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest Resultary match was the assigned record c84ed97a3d21 itself. Eq. (2.2) uses strict comparisons over original and cyclically shifted held-out scores. It specifies no midrank contribution in the formula."
+        ],
+        "reasoning": "This is the same statistic as the prior formula, but the input score and the resulting exact law are not computed there. With shared Y values, the strict and midrank comparisons are not equivalent.",
+        "searches": [
+          "Resultary: exact null variance of the cyclic split-permute rank sum",
+          "Cai–Lei–Roeder arXiv:2110.07652, Sec. 2.2 Eq. (2.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six-pattern Resultary record states an exact mean and an n-scaled second-chaos limit for weighted pattern densities of a uniform permutation. Cai–Lei–Roeder propose normal calibration with estimated variance, not the exact additive-score null in the inspected material."
+        ],
+        "reasoning": "Neither result tabulates this strict original-versus-shifted statistic; the pattern densities have neither the Bernoulli-half score nor its cross-list ties.",
+        "searches": [
+          "Resultary: exact rank-statistic null distributions and second-chaos spectra",
+          "Resultary mirror dfe3880f12a1, Finding and Assumptions",
+          "arXiv:2110.07652, method and calibration around (2.2) and Thm. 3.1"
+        ]
+      },
+      "rationale": "Final claim only: the strict cyclic statistic is prior, and the earlier authors already explain that additive CDF transforms cause first-order degeneracy. The particular additive score's tie-aware exact moments, second-order spectrum and explicit characteristic function are the distinct contribution; a Gaussian-chaos theorem alone does not evaluate these. No exact independent cover was found in the reasonable bounded comparisons. The repair does not introduce a different statistic or a new priority claim.",
+      "residual_risks": [
+        "Full texts of Carlstein and Shao were not obtained; overlapping general results remain possible.",
+        "The bounded literature search cannot settle global priority for the score-specific law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same strict cyclic statistic; Gaussian result excludes the additive transform; no explicit boundary law in inspected portions",
+          "evidence": [
+            "Eq. (2.2) averages strict all-pairs comparisons with a cyclic Y shift.",
+            "Remark 3 relates additivity to first-order degeneracy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.07652",
+          "material_read": "Sec. 2.2 Eq. (2.2), pp. 9–10; Thm. 3.1 and Remark 3, pp. 12–13",
+          "method": "Lawful OA PDF passages",
+          "title": "Asymptotic Distribution-Free Independence Test for High Dimension Data",
+          "trigger": "Same test statistic and possible prior treatment of the excluded regime"
+        },
+        {
+          "assessment": "Related general chaos framework with its own conditions; no explicit score-specific spectrum or finite moments",
+          "evidence": [
+            "Thm. 1 relates canonical U-statistic limits to covariance-dependent Gaussian chaos under dependence conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0906.5465",
+          "material_read": "Thm. 1, pp. 11–12, OA offset 36451",
+          "method": "Lawful OA PDF passage",
+          "title": "Orthogonal series and limit theorems for canonical U- and V-statistics of stationary connected observations",
+          "trigger": "General dependent degenerate-statistic limit could cover the result"
+        },
+        {
+          "assessment": "Different pattern-count statistic and limiting kernel",
+          "evidence": [
+            "The formula sums densities of six length-three or length-four permutation patterns; there is no cyclic score comparison."
+          ],
+          "identifier_or_url": "Resultary dfe3880f12a1",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror of RESULT.md",
+          "title": "Exact non-Gaussian null fluctuations of a six-pattern quasirandomness statistic",
+          "trigger": "Closest distinct indexed non-Gaussian rank-statistic boundary"
+        },
+        {
+          "assessment": "Not compared at theorem level",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1177/0008068319880106",
+          "material_read": "No primary passage obtained",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Degenerate U-Statistics Based on Non-Independent Observations",
+          "trigger": "Potential broader dependent U-statistic coverage"
+        },
+        {
+          "assessment": "Not compared at theorem level",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1080/24754269.2025.2579414",
+          "material_read": "No primary passage obtained",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Asymptotic distributions of degenerated U-statistics",
+          "trigger": "Potential broader degenerate-statistic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an explicit nontrivial two-coordinate score in the defining test's additive exception. It shows what replaces first-order Gaussian calibration for the strict statistic, with a finite-size correction, a genuinely non-Gaussian boundary law and a computable characteristic function. Recognizing structural cross-list ties matters at the same order as the fluctuation. This is a boundary example, not a general result for trained classifiers or estimated calibration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

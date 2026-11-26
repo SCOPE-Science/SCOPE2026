@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of folded-hypercube average mixing
 
-The attached `verify.py` uses only the Python standard library. Execute `python3 verify.py` from a directory containing `verify.py`.
+# Independent mathematical audit
 
-For each dimension \(3\le d\le9\), it builds the folded cube as the Cayley graph of a group with \(2^{d-1}\) elements and its \(d\) canonical generators. It checks each adjacency eigenvector independently at every vertex, constructs each spectral projector using integer Walsh sums, forms the complete Cesàro average-mixing first row from projector Schur squares, and Fourier-transforms that row with exact rational arithmetic. Every computed multiplier is compared with the formula, along with the full nullity and the smallest strictly positive eigenvalue.
+## correctness
 
-Observed exact output:
+PASS
 
-```
-d=3 vertices=4 nullity=0 exact_modes=4
-d=4 vertices=8 nullity=0 exact_modes=8
-d=5 vertices=16 nullity=0 exact_modes=16
-d=6 vertices=32 nullity=1 exact_modes=32
-d=7 vertices=64 nullity=0 exact_modes=64
-d=8 vertices=128 nullity=0 exact_modes=128
-d=9 vertices=256 nullity=0 exact_modes=256
-VERIFY_OK dimensions=3..9 adjacency_tests=87376 eigenmodes=508
-```
+The quotient has N even-weight characters and no other Fourier modes. Cesàro averaging retains the projector Schur squares, so the weight-w multiplier counts ordered equal-even-weight pairs with fixed sum divided by N. Balancing the w changed coordinates selects w/2; on a nonempty complement exactly half the subsets have the requisite parity. At full support the sole complement is empty and d/2 must itself be even. The only zero is therefore the full-support parity character when d ≡ 2 mod 4. Interior central-binomial ratios decrease, and in the nonzero endpoint case its ratio to the last interior mode is 2(d−1)/d>1. These facts give the multiplicities, gap and condition number including d=3 and d=4. The bundled numerical-range checks were inspected only; the proof is exact for all d.
 
-**Scope and limits.** These are finite exact tests of \(87{,}376\) adjacency eigenvector–vertex identities and \(508\) complete spectral multipliers; they are not an exhaustive computation of every dimension, and the absence of a failing finite case would not prove the theorem. The all-dimensional claim is established separately by orthogonal Fourier decomposition and an exact parity-binomial identity in RESULT.md. Independent external audit has not been performed.
+## originality
+
+PASS
+
+The ordinary cube covers the numerical interior formula, not the quotient mixing theorem. The distinct contribution is the quotient correction and the resulting unified spectrum, rank transition and sharp positive minimum. The comparison does not rely on ordering two records with the same date.
+
+## value
+
+PASS
+
+The quotient introduces a real interference effect invisible in ordinary-cube probabilities: one parity eigenmode alternates between a positive endpoint and exact nullity. The all-dimension calculation also gives the sharp conditioning on the image and verifies full rank for the odd folded-cube subfamily in a broader problem about distance-regular graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

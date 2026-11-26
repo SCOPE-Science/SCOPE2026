@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:44:22.746487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–60",
+        "Frozen VERIFICATION.md lines 18–22 and verify.py lines 18–91",
+        "Corrected RESULT.md, verify.py and VERIFICATION.md in repairs/2, read as complete replacements",
+        "Independent integer Boolean enumeration and numerical layer-wise check"
+      ],
+      "rationale": "For the final files, the Euler update is nonnegative and bounded by the interpolation between 1-h*delta_i and h*tau*L_i, both at most one. At equilibrium the response ratio is zero precisely when the input polynomial vanishes; nonnegative terms with positive coefficients give exactly the Boolean support condition. The response from half-density dominates half-density on every fixed support when tau>=tau_* and is zero off it; monotone iteration gives a limit with exactly that support. The Boolean iterates descend and contain all fixed supports. With empty core, the first deleted layer has no input, and every input monomial on the next deleted layer contains a coordinate from an earlier layer. Unrolling the one-step decay recurrence gives the claimed bound with the stated C_k and rho (strictly between zero and one). A nonempty core itself is a fixed support, so a nonzero equilibrium at a large common scale contradicts extinction at every scale. The original assertion that excluding dyadic terms is essential was unsupported and false as a necessity assertion: no step uses the lower bound two, rather than one, on parent-set size. The corrected statement keeps the original purely higher-order model. The original test included a duplicate terminal empty set and so used a weaker envelope than claimed, and its printed equilibrium wording exceeded what was computed. The replacement tests Boolean supports and subsolutions, and indexes the bound by the true layers. An independent in-memory implementation checked 4096 patterns (6753 fixed supports, 1439 empty cores), and verified the individual layer bounds for masks [31,27,24,0] at every time 0 through 100. No submitted script was executed.",
+      "residual_risks": [
+        "The examples are checks of subsolutions and one finite trajectory, not exhaustive equilibrium solutions or a proof of the asymptotic result.",
+        "The theorem is deterministic, assumes an admissible step at each fixed scale, and does not classify nonzero-core stability or low-scale behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-order discrete-time equations include pairwise and higher-order incidence; Proposition 8 uses a spectral sufficient condition, and Proposition 9 gives a fully positive equilibrium under other conditions.",
+          "The indirect diffusion source uses continuous time, spectral hypotheses and an irreducible monotone system."
+        ],
+        "reasoning": "The wider equation family does not amount to a wider theorem covering the reducible partial-support and parameter-uniform extinction classification here.",
+        "searches": [
+          "arXiv:2408.08602v1 section 6 and Propositions 8–9",
+          "arXiv:2306.00619v3 Theorems 3 and 8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.08602v1",
+        "arXiv:2306.00619v3",
+        "Resultary 1e1ec14295d0, e52a8b9c2a88 and db2f87d88af7",
+        "Frozen and corrected proof statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Closest sources supply either spectral sufficient conditions, a full-support equilibrium, or family-specific partial supports. The largest Boolean fixed point alone only bounds possible supports."
+        ],
+        "reasoning": "Turning each fixed support into an equilibrium requires the same-scale lower subsolution; turning core emptiness into all-scale global decay requires the layer-wise nonlinear input bound. These implications are not supplied by the compared statements.",
+        "searches": [
+          "Liang–Cui–Liu §6 equations (19)–(20) and Propositions 8–9",
+          "Cui et al. Theorems 3 and 8",
+          "Resultary 1e1ec14295d0 active-petal parameterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A monotone subset map descends from the top to the greatest fixed point, independently of any SIS argument.",
+          "The frozen and repaired proofs add a positive half-level subsolution on each fixed support and a layer recurrence for the Euler trajectory."
+        ],
+        "reasoning": "Equivalence to a greatest Boolean fixed point is standard on the combinatorial side. Generic peeling alone does not imply realization of all such supports as equilibria or bound trajectories.",
+        "searches": [
+          "Boolean hyperedge activation, monotone support lattice, and directed peeling formulations",
+          "Resultary: higher-order SIS fixed supports and extinction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1e1ec14295d0 indexes equilibria by active petal subsets only for continuous-time friendship graphs; e52a8b9c2a88 is confined to complete transversal multipartite hypergraphs and excludes nonzero boundary equilibria; db2f87d88af7 analyzes homogeneous fixed points with a different mean-hazard closure."
+        ],
+        "reasoning": "There is no exact data-table claim; the exhaustive four-vertex examples are verification only. The materially adjacent catalogue results do not state a class-wide theorem about arbitrary directed parent sets.",
+        "searches": [
+          "Resultary: pure higher-order SIS equilibrium supports, extinction, Boolean hyperedge core"
+        ]
+      },
+      "rationale": "The final claim does not take credit for generic greatest-fixed-point iteration. The inspected model and graph-family precedents do not give the simultaneous partial-support classification together with the all-scale extinction equivalence and explicit layer-wise trajectory estimate. This passes on the checked statement-level evidence, not on an inference from sparse search returns.",
+      "residual_risks": [
+        "Equivalent support and extinction statements in the broader monotone Boolean or autocatalytic-network literature remain possible; a bounded search cannot settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same type of polynomial update in a wider family, with different theorem hypotheses and conclusions",
+          "evidence": [
+            "Spectral sufficient extinction and sufficient existence of a fully positive equilibrium, not arbitrary partial supports."
+          ],
+          "identifier_or_url": "arXiv:2408.08602v1",
+          "material_read": "Section 6 equations (19)–(20), HTML offset 79500; Propositions 8–9, offsets 84500–89499",
+          "method": "OA original HTML passage inspection",
+          "title": "Discrete-time SIS Social Contagion Processes on Hypergraphs",
+          "trigger": "Closest discrete-time arbitrary-order model"
+        },
+        {
+          "assessment": "Different time model and irreducibility setting",
+          "evidence": [
+            "Spectral conditions and irreducible monotone-system equilibrium/convergence results."
+          ],
+          "identifier_or_url": "arXiv:2306.00619v3",
+          "material_read": "Theorem 3 at offset 44600 and Theorem 8 at 62400",
+          "method": "OA original passage inspection",
+          "title": "General SIS diffusion process with indirect spreading pathways on a hypergraph",
+          "trigger": "Spectral and monotone indirect contagion comparison"
+        },
+        {
+          "assessment": "Restricted family, continuous time",
+          "evidence": [
+            "Active-petal subset indexing with scalar threshold equations on friendship graphs."
+          ],
+          "identifier_or_url": "Resultary 1e1ec14295d0",
+          "material_read": "RESULT.md offsets 0–6500",
+          "method": "Local mirror",
+          "title": "Equilibrium proliferation and sharp stability thresholds in pure higher-order SIS",
+          "trigger": "Partial-support indexed equilibria"
+        },
+        {
+          "assessment": "Restricted multipartite problem",
+          "evidence": [
+            "Complete transversal form and exclusion of nonzero boundary equilibria."
+          ],
+          "identifier_or_url": "Resultary e52a8b9c2a88",
+          "material_read": "RESULT.md offsets 0–4128",
+          "method": "Local mirror",
+          "title": "A sharp endemic fold and a balancing principle for pure higher-order contagion",
+          "trigger": "Pure higher-order equilibrium classification"
+        },
+        {
+          "assessment": "Different closure and homogeneous states",
+          "evidence": [
+            "Exponential mean-hazard closure with pairwise, triangle and overlap terms."
+          ],
+          "identifier_or_url": "Resultary db2f87d88af7",
+          "material_read": "RESULT.md offsets 0–4077",
+          "method": "Local mirror",
+          "title": "Sharp extinction, bistability and critical relaxation laws in overlapping contagion",
+          "trigger": "Extinction and fixed-point classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected theorem and proof in repairs/2/RESULT.md",
+        "arXiv:2408.08602v1 Propositions 8–9"
+      ],
+      "rationale": "In this deterministic model a finite Boolean computation settles a universal-in-scale extinction question, where a rate-specific spectral condition does not suffice. It also separates which partial equilibrium supports are topologically possible from the small-scale quantitative question, and quantifies decay via the removal depth. This is a structural classification, not merely a sufficient bound from enumerated examples.",
+      "residual_risks": [
+        "No claim of a sharp finite-scale threshold or trajectory classification for a nonempty core."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "The exact two-dimensional covariance transfer was derived from Bernoulli moments and checked by exhaustive rational-mask enumeration in 72 cases. The determinant identity, signs, root localization, no-reentry argument and strict gap are analytic; 360 parameter-side eigenvalue checks are supportive only. Universal necessity follows from positivity of covariance transfer and symmetry of coordinate basis starts, not from a finite search. The standalone verifier replays these statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Salzo-Villa 2019 proves sufficient linear rates under its ESO/descent hypotheses; the current strict-gap interval is outside exact expected one-step descent.",
+        "Hanzely-Richtárik 2018 treats general minibatch algorithms and rates via ESO, not a sharp all-starting-state mean-square stability boundary."
+      ],
+      "reasoning": "A broader algorithmic framework would cover the present recurrence only if its theorem also entailed the exact necessary/sufficient stepsize or stronger full-scale guarantee. Reviewed general sources give sufficient bounds, not one that dominates the claimed sharp frontier.",
+      "searches": [
+        "sharp mean square stability beyond one step expected descent smoothness bound independent coordinate activation",
+        "sharp mean square stability synchronous Bernoulli coordinate dropout Jacobi equicorrelated SPD system exact critical relaxation",
+        "arXiv:1906.07392 Theorem 4.15/4.18",
+        "arXiv:1809.09354 minibatch ESO"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://arxiv.org/abs/1906.07392",
+        "title": "Parallel Random Block-Coordinate Forward-Backward Algorithm: A Unified Convergence Analysis"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/abs/1809.09354",
+        "title": "Accelerated Coordinate Descent with Arbitrary Sampling and Best Rates for Minibatches"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/abs/2309.02082",
+        "title": "Backward error analysis and the qualitative behaviour of stochastic optimization algorithms: Application to stochastic coordinate descent"
+      },
+      {
+        "identifier_or_url": "2026/11/2/SCOPE-an-exact-mean-square-stability-window-beyond-one-step-contractio--85b584c1ebd0",
+        "title": "Exact mean-square stability beyond one-step contraction for averaged two-row Kaczmarz"
+      },
+      {
+        "identifier_or_url": "2026/11/2/SCOPE-an-exact-noise-rate-pareto-frontier-for-randomized-coordinate-de--58b00d457699",
+        "title": "An exact noise-rate Pareto frontier for randomized coordinate descent"
+      },
+      {
+        "identifier_or_url": "2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f",
+        "title": "Exact coupling-invariant Euclidean risk and state-dependent batch-optimal objective in four-coordinate descent"
+      },
+      {
+        "identifier_or_url": "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "title": "Sharp Euclidean damping frontier for weighted Jacobi on 2x2 SPD systems"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.8 of arXiv:2309.02082 addresses a modified SDE with one sampled coordinate and a sufficient stability rate.",
+        "published-finding corpus 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f addresses deterministic weighted Jacobi Euclidean one-step safety on 2-by-2 SPD systems.",
+        "The present result has an exact gap \\(2/W<\\eta_*\\) with first-step objective increase and eventual mean-square convergence."
+      ],
+      "reasoning": "Neither a one-step descent guarantee nor a modified-SDE sufficient condition entails convergence beyond one-step objective descent for the discrete masked iteration. Conversely, the present closed formula does not claim to improve all general sampling results; only this natural exact family is classified.",
+      "searches": [
+        "arXiv:2309.02082 Theorem 4.8",
+        "arXiv:1906.07392 Theorem 4.15",
+        "published-finding corpus 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "sharp mean square stability beyond one step expected descent smoothness bound independent coordinate activation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The standard covariance/Kronecker transfer spectral-radius test can be specialized to the present family, but does not supply the closed stability root without nontrivial symmetry reduction.",
+        "arXiv:1906.07392 is a parallel-coordinate framework with sufficient ESO steps and different no-empty-mask sampling."
+      ],
+      "reasoning": "Compared covariance lifting, random diagonal mask/Jacobi, Bernoulli minibatch, expected Hessian smoothness and stochastic iteration formulations. Generic second-moment tests are known; the analytic parameter-uniform closed boundary and gap are not stated by the inspected closest full texts.",
+      "searches": [
+        "exact mean-square stability of parallel Bernoulli coordinate descent on equicorrelation quadratic H=(1-c)I+c11^T spectral 2x2 transfer critical step",
+        "equicorrelated quadratic random parallel coordinate gradient descent independent Bernoulli mask sharp stepsize spectral radius",
+        "universal all-dim Bernoulli Jacobi equicorrelation dropout two moment modes transverse longitudinal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/11/2/SCOPE-an-exact-mean-square-stability-window-beyond-one-step-contractio--85b584c1ebd0 treats averaged two-row Kaczmarz.",
+        "published-finding corpus record 2026/11/2/SCOPE-an-exact-noise-rate-pareto-frontier-for-randomized-coordinate-de--58b00d457699 treats noisy single-coordinate descent on diagonal Hessians.",
+        "published-finding corpus record 2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f treats fixed-two minibatch coupling on a special four-coordinate problem."
+      ],
+      "reasoning": "No matching closed-form threshold was identified in the current published-finding corpus searches or recoverable same-topic historical claims. This negative lookup is not proof of uniqueness; the explicit closest constructions are compared by their hypotheses and conclusions.",
+      "searches": [
+        "random diagonal mask gradient iteration complete-graph rank-one Hessian sharp stability 4/(S+sqrt(S^2-4pK))",
+        "exact mean-square stability of parallel Bernoulli coordinate descent on equicorrelation quadratic H=(1-c)I+c11^T spectral 2x2 transfer critical step",
+        "sharp mean square stability synchronous Bernoulli coordinate dropout Jacobi equicorrelated SPD system exact critical relaxation"
+      ]
+    },
+    "rationale": "Originality is assessed for the exact universal equicorrelation Bernoulli-mask stability frontier and its strict separation from all-state one-step expected descent, not for known covariance-transfer or ESO methods. published-finding corpus and recoverable local claim comparisons did not identify an implication covering this claim. The closest full primary papers have different sufficient or modified-equation conclusions; priority remains provisional.",
+    "residual_risks": [
+      "General random matrix product and arbitrary-sampling optimization literatures are broad; an unlocated stronger specialization may exist.",
+      "Database retrieval and textual comparison cannot establish global uniqueness; independent historical review is outstanding.",
+      "A published covariance/Kronecker spectral criterion is standard; only the closed parameter-uniform threshold and strict separation are claimed new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general sufficient ESO-derived stepsize and rates do not give this exact equicorrelated all-mask necessary-and-sufficient threshold; its no-empty-block sampling assumption differs.",
+        "evidence": [
+          "arXiv:1906.07392 abstract and sec.1 Eq.1.2, Eq.1.5; sec.4 Theorems 4.9, 4.15, 4.18"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.07392",
+        "material_read": "Full accessible preprint sections 1-6 including definitions of sampling, ESO and linear-convergence theorems 4.9-4.18",
+        "method": "Read preprint full text and compare update law, assumptions and theorem implications",
+        "title": "Parallel Random Block-Coordinate Forward-Backward Algorithm: A Unified Convergence Analysis",
+        "trigger": "Same general parallel random block-update algorithm and sufficient rate claims"
+      },
+      {
+        "assessment": "Uses sufficient ESO conditions and complexity rates; did not establish a sharp necessary-and-sufficient all-parameter parallel Bernoulli threshold or strict expected-descent gap.",
+        "evidence": [
+          "arXiv:1809.09354 sections 1-2 (minibatch Eq.5, arbitrary sampling, ESO); later rate results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.09354",
+        "material_read": "Accessible complete preprint from introduction through results and minibatch analysis",
+        "method": "Read full preprint, compare ESO and update against sharp exact covariance radius",
+        "title": "Accelerated Coordinate Descent with Arbitrary Sampling and Best Rates for Minibatches",
+        "trigger": "Arbitrary-sampling minibatch coordinate update and expected separable overapproximation"
+      },
+      {
+        "assessment": "Theorem 4.8 concerns a sufficient rate for a modified continuous-time SDE with a single sampled coordinate, not exact discrete multi-Bernoulli full-horizon stability.",
+        "evidence": [
+          "arXiv:2309.02082 sections 3.2, 4.1, Theorem 4.8 (Eq.35-37)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.02082",
+        "material_read": "Accessible full preprint, including sec.3.2, sec.4.1 and Theorem 4.8 and proof",
+        "method": "Read main theorem and derivation of modified SDE and sampling restriction",
+        "title": "Backward error analysis and the qualitative behaviour of stochastic optimization algorithms: Application to stochastic coordinate descent",
+        "trigger": "Potential competing mean-square stability theorem for stochastic coordinate descent"
+      },
+      {
+        "assessment": "Averaged two-row Kaczmarz differs from independent parallel Bernoulli mask on general-dimensional equicorrelation; no direct implication established.",
+        "evidence": [
+          "Published record abstract and main quantitative statement"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-an-exact-mean-square-stability-window-beyond-one-step-contractio--85b584c1ebd0",
+        "material_read": "Database abstract, title and claim summary only; full article not inspected",
+        "method": "Compare stated objects and quantifiers from database record",
+        "title": "Exact mean-square stability beyond one-step contraction for averaged two-row Kaczmarz",
+        "trigger": "Closest database result explicitly about mean-square stability beyond one-step contraction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ca6b551f-e80d-464d-b46e-ba6184a0bcfd",
+  "value": {
+    "rationale": "Independent synchronous Bernoulli masks and equicorrelated SPD Hessians are an interpretable, natural model of parallel partial participation. This complete all-dimensional sharp stability law gives a computable safe gain and proves a robust regime in which per-step expected objective descent fails yet the algorithm converges mean square. It clarifies the cost and conservatism of ESO descent tuning, beyond a numeric instance. The theorem is limited to this symmetric family.",
+    "status": "PASS"
+  }
+}

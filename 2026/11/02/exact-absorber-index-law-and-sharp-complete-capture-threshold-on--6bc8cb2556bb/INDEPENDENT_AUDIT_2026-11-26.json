@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:53:34.614605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–5; VERIFICATION.md; crown_check.cpp; crown_numeric_audit.py",
+        "/workspace/reproduction/frozen_checks.py (run `python3 /workspace/reproduction/frozen_checks.py 5`): exact rational adjacency Krylov projections for every nonempty mask at n=3,4, 318 cases; rank, all projector diagonals and minimum-placement counts matched"
+      ],
+      "rationale": "The crown adjacency off-diagonal block is 11*−I. For n≥3 its adjacency has distinct levels ±(n−1), ±1. Nonempty T rules out both principal vectors; at either remaining level the absorber equations delete exactly the touched indices from a zero-sum coordinate vector. Their direct sum is the stated dark space, with one zero-sum summand per shore. It reduces the loss generator; on the complement any imaginary-axis eigenvector would have zero dissipation and thus be an adjacency eigenvector vanishing at T, a contradiction. Strictly negative real parts imply decay there even with Jordan blocks. The complementary orthogonal projector gives the pure/mixed and sitewise laws, including all-marked and one-unmarked cases. Complete capture is equivalent to at least n−1 distinct touched indices, not arbitrary placements of n−1 vertices; minimal successful placements number n·2^(n−1). Adding the second member of an already touched pair changes no eventual capture probability; this is the meaning of the redundancy example.",
+      "residual_risks": [
+        "The finite projection check does not test arbitrary rates or finite-time decay. Those are handled only to the extent of the analytic eventual-capture argument; no rate bound is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klee–Stamps gives the Laplacian characteristic polynomial for the same graph. No decidable Dai full-text comparison; the Dai landing route was forbidden (HTTP 403) and a candidate alternate was unconfirmed. The primitive distance-regular theorem also limits to two absorbers."
+        ],
+        "reasoning": "General spectral control and loss criteria require the graph-specific ranks and overlaps; a characteristic polynomial alone gives neither. Lack of Dai access is a limitation, not evidence of no prior result.",
+        "searches": [
+          "Klee and Stamps arXiv:2008.01669 §3.3 Proposition 8; Dai DOI 10.1049/cth2.12385",
+          "Resultary SCOPE-two-absorber-capture-on-primitive-distance-regular-quantum-netwo--1660beea2236"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.01669 §3.3 Proposition 8",
+        "arXiv:0903.3288 p. 3 (6)–(7)",
+        "DOI 10.1049/cth2.12385 (access limitation)",
+        "Local Resultary records --1660beea2236, --715745e5641d, --1385869a4e94"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old framework supplies a loss evolution and old crown polynomial supplies global eigenvalue multiplicities. The actual placement law uses identical coordinate constraints at matched mates, deletes one degree of freedom for the zero-sum condition on each shore, and evaluates the orthogonal projector."
+        ],
+        "reasoning": "The general framework can test each placement individually but does not give the index reduction or classify all placements by a formula. The minimum threshold by itself would not imply the sitewise result.",
+        "searches": [
+          "Klee–Stamps Proposition 8; Agliari–Mülken–Blumen (6)–(7); local Resultary --1660beea2236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Absorption by H₀−iΓ is the old formalism. The same-crown record concerns randomized-time unitary mixing; the same-day two-absorber record explicitly assumes primitivity."
+        ],
+        "reasoning": "A unitary time average is not an eventual loss projector. The nearest capture law has no specialization to the bipartite crown (its distance-2 graph is disconnected).",
+        "searches": [
+          "Local Resultary coherent capture on crowns, traps/sinks and dark/bright projectors; compared SCOPE-two-absorber-capture-on-primitive-distance-regular-quantum-netwo--1660beea2236 and SCOPE-randomized-time-uniform-quantum-mixing-on-crown-graphs-exactly-t--715745e5641d",
+          "arXiv:0903.3288, p. 3, (6)–(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matched crown data in Klee–Stamps are spectral; the Resultary threshold formulation concerns prime Paley graphs, and the matching crown record tabulates a mixing rather than absorption quantity."
+        ],
+        "reasoning": "The checked sources do not tabulate the all-n, all-mask capture projector, nor the sitewise diagonal and optimal-placement count. An isolated small-graph dimension would not supply that classification.",
+        "searches": [
+          "Local Resultary crown graph, quantum mixing, trap configurations and absorption thresholds; compared --715745e5641d, --1660beea2236 and SCOPE-a-placement-independent-quantum-absorption-threshold-on-prime-pa--1385869a4e94",
+          "arXiv:2008.01669, Proposition 8"
+        ]
+      },
+      "rationale": "The verified old inputs are the crown spectrum and the general coherent trap formalism. Neither identifies the marked-index equivalence of all absorber sets or the full capture effect. The strongest related Resultary all-placement laws do not cover this graph and problem. The pass is for the distinct crown-specific all-set classification, not the known spectrum or general observability criterion.",
+      "residual_risks": [
+        "The inaccessible Dai result and other specific crown controllability/quantum trapping literature could contain a threshold or projector formulation. No global priority is established. Same-day indexing was not used to determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact spectral input, not capture coverage",
+          "evidence": "Characteristic polynomial for the perfect-matching deletion of K(n,n); use (n−1)-regularity to convert to adjacency.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.01669",
+          "material_read": "§3.3, Proposition 8, PDF p. 6",
+          "method": "OA PDF passage",
+          "title": "Eigenvalues of graph Laplacians via rank-one perturbations",
+          "trigger": "Identical graph family"
+        },
+        {
+          "assessment": "General formalism only in passage",
+          "evidence": "Trapping enters as H=H₀−iΓ; this does not determine the projectors for crown absorber sets.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.3288",
+          "material_read": "p. 3, equations (6)–(7)",
+          "method": "OA PDF passage",
+          "title": "Continuous-Time Quantum Walks and Trapping",
+          "trigger": "Quantum capture formulation and placement context"
+        },
+        {
+          "assessment": "Unresolved access",
+          "evidence": "No full-text statement verified; no inference against coverage drawn from access.",
+          "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+          "material_read": "No authenticated primary passage; DOI returned HTTP 403; alternate not confirmed",
+          "method": "Direct and configured alternate lawful retrieval",
+          "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+          "trigger": "Possible exact leader threshold or equivalent all-placement rank"
+        },
+        {
+          "assessment": "Does not cover bipartite crowns",
+          "evidence": "Bright dimension 2d+1 under primitive distance regularity, with two traps; crown is imprimitive.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-two-absorber-capture-on-primitive-distance-regular-quantum-netwo--1660beea2236",
+          "material_read": "Finding and assumptions on primitivity/absorber count",
+          "method": "Local Resultary search and mirrored record passage",
+          "title": "Two-absorber capture on primitive distance-regular quantum networks",
+          "trigger": "Strongest related indexed two-absorber capture result"
+        },
+        {
+          "assessment": "Different unitary observable",
+          "evidence": "Randomized-time mixing is not absorption with local losses.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-randomized-time-uniform-quantum-mixing-on-crown-graphs-exactly-t--715745e5641d",
+          "material_read": "Finding on randomized-time uniform mixing",
+          "method": "Local Resultary comparison",
+          "title": "Randomized-time uniform quantum mixing on crown graphs",
+          "trigger": "Identical graph and coherent dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact capture effect, redundancy, site efficiencies and minimum placement theorem",
+        "Resultary --1660beea2236 (primitive two-trap context); Klee–Stamps Proposition 8 (spectral baseline)"
+      ],
+      "rationale": "The crown family is a standard graph with large degenerate eigenspaces. The full capture effect for every absorber placement distinguishes strategies with the same cardinality, gives efficiency even at a site not itself absorbing, and yields exact minimal design counts independently of positive rate heterogeneity. These are useful inputs for coherent transport calculations; the known spectrum and a generic rank test are not themselves the placement law.",
+      "residual_risks": [
+        "No claim about capture times, rate optimization, or nonuniform hopping."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

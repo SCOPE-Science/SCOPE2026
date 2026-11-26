@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:35:05.458878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bipartite conjugation turns Laplacian powers into weighted walk sums with the sign set by distance parity. Uniqueness of paths gives the distance-three coefficient and the positive distance-four entry. For distance two, the contribution of two stays alone gives a quadratic coefficient at least 2s²/3; its discriminant with the lower-order terms is strictly negative. For an edge, enumerate the one-edge walk with stays and the three possible backtracking families (across the edge, or via a neighbor on either side). In the weighted degree notation x,y,s=x+y, these give 3xy ≤ c ≤ 2s²−3xy and b ≥ s(c−xy). Thus c²/(c−xy) ≤ c+3xy/2 < 2s², which gives a strictly negative discriminant for g′ and hence a unique positive zero of g. The scalar RK4 sum-of-squares identity gives positive diagonals, entries beyond distance four are zero, and L annihilates the constant vector. This proves the inclusive minimum horizon and permanent failure past it, including trees with no three-edge path. Independently computing the matrix polynomial at the path threshold confirmed the (1,1,1) and (4,1,1) examples and the latter's cubic; (2,1,1) also gives a genuinely nonuniform path-controlled example, with all three edge polynomials positive at h=1/2. Replay: python3 /workspace/replay/checks.py 5. The frozen log is only a finite supplementary check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bipartite catalog statement generalizes the topology but is unweighted. The frozen comparison identifies general polynomial threshold and positivity-preserving integrator frameworks in the two cited papers; targeted primary passage retrieval was unsuccessful."
+        ],
+        "reasoning": "More general topology is not more general conductance data. An initial positivity threshold from polynomial first-root machinery is not by itself a proof of permanent sign loss or a reduction to this weighted local formula. No broader weighted statement with these conclusions was established in the accessible evidence.",
+        "searches": [
+          "Resultary: 9b715f55a0bc",
+          "arXiv:1406.6755",
+          "arXiv:2102.08242"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:2042521dfc9d (catalog statement)",
+        "Resultary:9b715f55a0bc (catalog statement)",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted Resultary classifications already give the two local obstruction types and nonreentry. At h=1/3 on the path with weights (4,1,1) the first edge cubic is negative and the other two are positive, whereas all edge cubics are positive at the three-path threshold for the same topology with all weights 1."
+        ],
+        "reasoning": "Direct rescaling of the tree result cannot yield this reversal. Passing to a quotient of an unweighted network could aggregate entries of the update and does not directly transfer their individual signs or single crossings; a reduction would need additional arguments. Here the inequality on incident conductance squares supplies a weighted sign proof independently of unit-edge estimates.",
+        "searches": [
+          "2042521dfc9d",
+          "9b715f55a0bc",
+          "arXiv:1406.6755"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both catalog matches describe edge-cubic and distance-three obstructions for unweighted inputs, including nonreentry."
+        ],
+        "reasoning": "The graph-heat or Markov generator notation Q=−L is equivalent here. When conductances are all equal, scaling h reduces the claim to the unit-edge predecessor. No single time scaling removes relative weights such as 4:1:1.",
+        "searches": [
+          "Resultary: classical RK4 positivity horizon, heat step, weighted tree, bipartite network",
+          "Resultary: 2042521dfc9d; 9b715f55a0bc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two closely matching exact Resultary records, 2042521dfc9d and 9b715f55a0bc, state the result for unit conductances."
+        ],
+        "reasoning": "These hits rule out claiming the unit-weight classification as new. A finite table of particular thresholds cannot settle the real-conductance inequality or all-tree nonreentry; the indexed comparisons inspected did not provide the weighted statement.",
+        "searches": [
+          "Resultary: exact local RK4 positivity horizons on every finite tree; local all-step RK4 positivity law for every unweighted bipartite network"
+        ]
+      },
+      "rationale": "The local formula and nonreentry mechanism for unit weights are already covered. The supported increment is the sharp all-step theorem including arbitrary heterogeneous symmetric conductances and the conductance-dependent edge bound, not the first identification of edges and three-edge paths. The best-of-knowledge comparison uses the matching catalog statements; unavailable full texts do not certify noncoverage.",
+      "residual_risks": [
+        "Neither cited primary full text nor the full closest Resultary texts were retrieved. Unindexed weighted-network results or a nontrivial reduction from an unweighted lift could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage for unweighted trees only in the available statement",
+          "evidence": "Edge roots and a four-vertex-path threshold determine the whole unweighted positivity interval.",
+          "identifier_or_url": "Resultary:2042521dfc9d",
+          "material_read": "Catalog summary; full result unavailable from the mirror",
+          "method": "Resultary search and attempted local mirror passage retrieval",
+          "title": "Exact local RK4 positivity horizons on every finite tree",
+          "trigger": "Exact closest tree result"
+        },
+        {
+          "assessment": "Covers more topologies, not arbitrary conductances in the available statement",
+          "evidence": "Its domain is finite connected unweighted bipartite graphs; it includes the unit-weight tree case.",
+          "identifier_or_url": "Resultary:9b715f55a0bc",
+          "material_read": "Catalog summary; full result unavailable from the mirror",
+          "method": "Resultary search and attempted local mirror passage retrieval",
+          "title": "A local all-step RK4 positivity law for every unweighted bipartite network",
+          "trigger": "Stronger graph class and matching all-step conclusion"
+        },
+        {
+          "assessment": "General-method relevance; exact coverage unverified",
+          "evidence": "Frozen RESULT.md line 72 describes polynomial invariance and first-root tests. No independent whole-paper noncoverage finding.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6755",
+          "material_read": "Frozen description only; no primary passages retrieved",
+          "method": "Targeted OA retrieval including alternate arXiv route",
+          "title": "Steplength thresholds for invariance preserving of discretization methods on a polyhedron",
+          "trigger": "Potentially stronger invariance-threshold theory"
+        },
+        {
+          "assessment": "Framework relevance; exact coverage unverified",
+          "evidence": "Frozen RESULT.md line 72 describes positivity-preserving graph-Laplacian integrators. No independent whole-paper noncoverage finding.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+          "material_read": "Frozen description only; no primary passages retrieved",
+          "method": "Targeted OA retrieval including alternate arXiv route",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Positivity for graph-Laplacian problems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Heterogeneous conductances arise naturally in graph diffusion. An exact row-stochasticity horizon, expressed by finite local scalar tests and excluding any recovery of positivity, answers more than a sufficient initial step bound. The checked nonuniform paths demonstrate that the active obstruction can change with weights on fixed topology. The result makes no claim about internal stages, stability radii or cyclic weighted networks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:45:10.021247Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unit-edge path and counting norms, adjacent difference coordinates identify TV with ℓ1 on the quotient by constants, so the sharp norm is the largest step-error column norm E_k. Strict stochastic positivity fixes each error column's signs on its two sides. Telescoping the derivative of the mass on the first k sites and using D exp(−tDᵀD)=exp(−tDDᵀ)D gives E′_k(t)=2(exp(−tDDᵀ))_{kk}; the sine expansion has the stated normalization. On the 2N-cycle the odd reflection yields the diagonal h_t(0)−h_t(2k). The radial differences start at (1,0,…,0), have −3 boundary and −2 interior diagonals with +1 nearest-neighbor entries, and are strictly positive for t>0 by irreducibility (also N=2). Hence only the central cuts maximize. For two active jump coefficients with the same sign, the error columns oppose between the cuts; for opposite signs they oppose to the left of both. Thus even an odd-path tie cannot yield a maximizing mixture. Spectral differentiation, mixing and dominated convergence via the 1/r² bound verify the time behavior, derivative at zero and diffusive limit. Independent diagnostic `python /workspace/independent_replay.py 1`: 684 direct step/time versus sine-formula comparisons for 2≤N≤19, and strict loss of both signed equal-size central mixtures in odd N at those times. Rigidity for every signal and time is analytic, not asserted from this test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-aee0530d4249 solves the weighted four-path (a,b,a), in particular a=b. It is broader in conductances but restricted to N=4.",
+          "SCOPE-b2e6b62be786 optimizes the same TV-to-counting-ℓ1 objective on complete bipartite graphs K_{m,m} and K_{m,m+1}. Alonso Ruiz–Baudoin Thm. 1.1 is a short-time BV characterization on manifolds."
+        ],
+        "reasoning": "Neither the weighted four-path nor the bipartite family covers all unit paths, and the manifold limit is not this objective at finite positive time.",
+        "searches": [
+          "path graph heat kernel step function maximizer total variation to L1 heat approximation central edge",
+          "reflecting path graph heat kernel central edge cut maximizer finite time",
+          "arXiv:2010.12131 Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.2096",
+        "arXiv:2010.12131",
+        "SCOPE-20261122-b61064b7e3c0 (target itself)",
+        "SCOPE-79e9f8095717",
+        "SCOPE-aee0530d4249",
+        "SCOPE-b2e6b62be786"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dowker gives the exact edge spectrum and image method. The all-N optimization still uses strict radial monotonicity of the cycle kernel and sign-incompatibility for any two active jump columns. The weighted four-path result does directly cover the N=4 optimization and equality."
+        ],
+        "reasoning": "The central maximum and complete rigidity across arbitrary path lengths are not parameter substitutions in the inspected predecessors. The proof makes the extra comparison at every time; finite examples or the continuum theorem do not imply it.",
+        "searches": [
+          "arXiv:1207.2096 §§7–8",
+          "SCOPE-a-unique-outer-to-center-cut-migration-in-four-site-weighted-hea--aee0530d4249",
+          "\"discrete path\" heat kernel total variation L1 bounded variation sharp heat approximation norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is the maximum twice-cross-cut heat content along edges, or twice the time integral of the killed edge kernel diagonal. Dowker §§7–8, Eqs. (31), (36), give the Dirichlet and Neumann path spectra/kernels in these exact conventions.",
+          "SCOPE-79e9f8095717 gives the reflecting-continuum norm and midpoint jumps; its series equals the target's limiting series by ∑(2j+1)^−2=π²/8."
+        ],
+        "reasoning": "The known kernels directly supply a way to compute each cut error using the flux relation. Their inspected statements do not identify the all-size finite-time maximizing cuts and equality classification; the continuum limit is equivalent to the existing continuum norm and is not claimed as new.",
+        "searches": [
+          "finite path heat semigroup exact L1 error coefficient adjacent total variation counting measure",
+          "discrete path heat content cut flux Dirichlet edge heat kernel diagonal",
+          "arXiv:1207.2096"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact b61064b7e3c0 hit is the assigned record itself. Separate 79e9f8095717 and aee0530d4249 entries respectively cover the continuum expression and the finite N=4 case exactly; the index also returned b2e6b62be786 for a different graph family."
+        ],
+        "reasoning": "Same-date distinct records are credited where equivalent, with no assumed priority. No inspected table or indexed stronger result supplies the all-N coefficient and rigidity.",
+        "searches": [
+          "finite path heat semigroup exact L1 error coefficient adjacent total variation counting measure",
+          "path graph heat kernel step function maximizer total variation to L1 heat approximation central edge",
+          "reflecting path graph heat kernel central edge cut maximizer finite time"
+        ]
+      },
+      "rationale": "Credit the known discrete heat kernels, the directly overlapping continuum limit, and the N=4 overlap. The supported distinct finding is the uniform all-N exact finite-time sharp coefficient and single-cut equality classification, including odd paths.",
+      "residual_risks": [
+        "Older equivalent finite-path comparison theorems could be unindexed; websearch's irrelevant results do not establish absence.",
+        "Exact overlap on four vertices and at the continuum limit is credited without claiming a date-based order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact kernel ingredients, not the optimized norm with all equality cases in the material read",
+          "evidence": [
+            "Sine eigenvectors with eigenvalues 4 sin²(πj/2N); Neumann reflecting vertex kernel"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.2096",
+          "material_read": "§7 p. 10 Eq. (31), offset about 28500; §8 p. 12 Eq. (36), offset about 35300",
+          "method": "Original open PDF, locate and read kernel passages",
+          "title": "Heat-kernels on the discrete circle and interval",
+          "trigger": "Same path/Dirichlet edge kernels and image expansions"
+        },
+        {
+          "assessment": "Exact overlap with continuum comparison, not finite-N finding",
+          "evidence": [
+            "Interval coefficient 1/2−(4/π²)∑ exp(−(2j+1)²π²t)/(2j+1)²; midpoint jumps"
+          ],
+          "identifier_or_url": "SCOPE-sharp-bv-to-l-1-approximation-norm-of-reflecting-interval-heat-f--79e9f8095717",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp BV-to-L1 approximation norm of reflecting-interval heat",
+          "trigger": "Equivalent continuum coefficient and rigidity"
+        },
+        {
+          "assessment": "Exact N=4 specialization; no general-N or odd-path statement",
+          "evidence": [
+            "For b/a≥1 the center strictly wins at all t>0, and equality signals are single steps"
+          ],
+          "identifier_or_url": "SCOPE-a-unique-outer-to-center-cut-migration-in-four-site-weighted-hea--aee0530d4249",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique outer-to-center cut migration in four-site weighted heat",
+          "trigger": "Same objective and weighted-path extremizers"
+        },
+        {
+          "assessment": "Different graph families, not arbitrary paths",
+          "evidence": [
+            "Attained sharp norm on K_{m,m} and K_{m,m+1}"
+          ],
+          "identifier_or_url": "SCOPE-sharp-heat-approximation-and-finite-time-cut-rigidity-on-k-m-m-a--b2e6b62be786",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp heat approximation and finite-time cut rigidity on complete bipartite graphs",
+          "trigger": "Same norm and equality framework on finite graphs"
+        },
+        {
+          "assessment": "Asymptotic manifold theorem, not a finite path optimization",
+          "evidence": [
+            "Short-time integrated heat oscillation divided by √t converges to (2/√π)||Df||"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.12131",
+          "material_read": "p. 2, Theorem 1.1, offset about 3860",
+          "method": "Open PDF theorem passage",
+          "title": "Yet another heat semigroup characterization of BV functions on Riemannian manifolds",
+          "trigger": "BV and heat inequalities under nearby objectives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp finite-time TV control of heat approximation is a natural operator invariant, not merely a kernel computation. Its dependence on t and N and the fact that even a tied pair of central cuts admits no two-jump equality signal are useful finite-path benchmarks. The contribution is scoped away from equilibrium, continuum and the isolated N=4 case as independent novelties.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

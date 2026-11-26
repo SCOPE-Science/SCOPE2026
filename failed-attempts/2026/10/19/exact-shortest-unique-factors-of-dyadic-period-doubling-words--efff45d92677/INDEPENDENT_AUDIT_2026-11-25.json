@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:19:24.036654Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The simultaneous induction is valid. In either target word every length-four window contains a 1 (its two odd global positions complement consecutive source letters, which cannot both be 1). Thus multiplicities for lengths at least four separate by start parity. Odd lengths 2m−1 read m source letters at odd starts and m−1 at even starts; even lengths 2m read m in both. Imposing the target's end bound gives exactly X or its truncation Y as in RESULT.md:26. Below 2L−1 this reads at most L−1 source letters; uniqueness at a shorter length than four would also give a unique length-four extension. At 2L−1 only odd starts can be unique, with source X for P and Y for Q and position map j→2j+1. The k=4 base and this map give all stated lengths and positions. An independent exact check generated P by substitution, truncated for Q, and counted overlapping slices at every length through the first singleton for k=1–10; it confirmed all claimed cases k=4–10. This is bounded corroboration, not a substitute for the induction. Replay: generate from 0 using 0→01, 1→00 and count the slices X[i:i+ell] for 0≤i≤len(X)−ell separately for each ell and for each of P and Q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue record classifies all minimal unique factors from m=3 and proves that every nonempty terminal suffix of every D_m has odd multiplicity.",
+          "Lemma 35 of arXiv:2602.16152 is a lift for two-position attractor sets. arXiv:2511.20881 discusses kernel/gap methods and cites work on Lempel–Ziv and Crochemore factorizations."
+        ],
+        "reasoning": "The catalogue theorem is stronger than the complete-word claim and contains the separate suffix multiplicity hypothesis needed for the truncation. Attractor positions and parsing rules as inspected do not themselves establish all globally shortest unique factors.",
+        "searches": [
+          "Local Resultary match a64ede970c54, proof Steps 1–4",
+          "arXiv:2602.16152, period-doubling part, Lemma 35",
+          "arXiv:2511.20881, p. 1 and bibliography"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a64ede970c54",
+        "arXiv:2605.04826",
+        "arXiv:2602.16152",
+        "arXiv:2511.20881",
+        "Bognini–Kaboré–Kientéga (2020), bibliographic evidence only",
+        "OEIS A367184"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deleting the last symbol destroys at most one occurrence of any fixed factor, and the destroyed occurrence must be terminal. The only way to create a singleton is to start with a suffix of multiplicity exactly two, excluded by the lemma. At length N/4+1 the first three unique intervals survive, and the last one is deleted."
+        ],
+        "reasoning": "No new unique factor at any length is created by this truncation. Therefore no shorter unique factor can appear, and all and only the claimed three minimizers survive. The Q assertion is a direct consequence of this stronger record, even though it does not state the truncation theorem explicitly.",
+        "searches": [
+          "Resultary a64ede970c54, Finding and terminal-suffix parity lemma, proof Step 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary match identifies four inclusion-minimal unique factors of the complete word, all of one length N/4+1. Its four half-open intervals give exactly the frozen P starts.",
+          "arXiv:2605.04826 defines and computes global shortest unique substrings for general input strings; the inspected statement is algorithmic, not an evaluation for this family."
+        ],
+        "reasoning": "A globally shortest unique factor is inclusion-minimal; conversely here all inclusion-minimal unique factors have the same length, so all four are globally shortest. The two notions are not equivalent in general.",
+        "searches": [
+          "Local Resultary comparison: finite period-doubling words, global shortest unique and minimal unique substrings",
+          "arXiv:2605.04826, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In a64ede970c54, the intervals start at N/4−1, 3N/8−1, N/2−1 and 3N/4−1; only the fourth ends at N.",
+          "A367184 is the first start of a maximum-length window in the infinite sequence in which all length-n factors are distinct."
+        ],
+        "reasoning": "The former is an exact catalogue match for P. The latter has a maximization over host windows and pairwise distinctness within a selected window, not multiplicity one within the fixed finite prefixes.",
+        "searches": [
+          "Local Resultary: finite period-doubling minimal unique substrings",
+          "OEIS A367184"
+        ]
+      },
+      "rationale": "A distinct, stronger Resultary record together with its terminal-suffix lemma covers the entire frozen result, not just the complete-word half. This is demonstrable mathematical coverage in the current catalogue, not a claim that the November record predates the October record or that the October author had access to it. No earlier publication of the full claim was established.",
+      "residual_risks": [
+        "The catalogue match is dated 2026-11-02, later than the frozen path dated 2026-10-19; the comparison does not establish historical priority.",
+        "The 2020 factorization paper could not be inspected at theorem level; earlier priority is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger theorem plus a lemma directly covering both frozen answers; later catalogue date, not evidence of earlier priority",
+          "evidence": [
+            "Four MUSs of length N/4+1 with the stated intervals",
+            "Step 2: every nonempty suffix of D_m occurs an odd number of times; parity recognition and the source-suffix bijection justify the induction"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-four-minimal-unique-substrings-of-every-finite-period-doubli--a64ede970c54/RESULT.md",
+          "material_read": "Finding, assumptions and proof Steps 1–4; offsets 180–5666",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All four minimal unique substrings of every finite period-doubling word",
+          "trigger": "Same morphism, finite words and exact four candidate starts"
+        },
+        {
+          "assessment": "General algorithmic coverage in the passage inspected, not a closed evaluation for these prefixes",
+          "evidence": [
+            "Defines shortest unique substrings of a general string S and studies their computation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.04826",
+          "material_read": "Abstract and introduction, p. 1 near offset 1212",
+          "method": "Open manuscript",
+          "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+          "trigger": "Same global shortest-unique invariant"
+        },
+        {
+          "assessment": "Attractor results, not the claimed singleton classification in the inspected passages",
+          "evidence": [
+            "Abstract: exactly two smallest attractors for each period-doubling iterate from n=2; Lemma 35 maps an attractor pair to a pair in the previous iterate"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16152",
+          "material_read": "Abstract, p. 1 near offset 1800, and statement of Lemma 35, p. 12 near offset 58192",
+          "method": "Open manuscript and targeted passage",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Same finite morphic iterates, structural occurrence analysis"
+        },
+        {
+          "assessment": "Related factorization methods and citation to more directly relevant 2020 work, not evidence of this formula",
+          "evidence": [
+            "Discusses parsings based on single or repeated occurrences rather than global shortest unique factors of two finite prefix sequences"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.20881",
+          "material_read": "p. 1 near offset 3919 and bibliography, p. 16 near offset 53986",
+          "method": "Open manuscript",
+          "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+          "trigger": "Exact factor structure of the same morphic family"
+        },
+        {
+          "assessment": "Unresolved historical coverage risk, not evidence of absence or the reason for failure",
+          "evidence": [
+            "Citation establishes related scope by title, not the paper's theorem or assumptions"
+          ],
+          "identifier_or_url": "Bognini, Kaboré and Kientéga, Advances and Applications in Discrete Mathematics 25(2), 143–159 (2020)",
+          "material_read": "Bibliographic citation in arXiv:2511.20881 only",
+          "method": "Identified copy returned HTTP 403; no readable same-paper copy obtained",
+          "title": "Ziv-Lempel and Crochemore factorization of the generalized period-doubling word",
+          "trigger": "Potential broader occurrence formulas for the same word"
+        },
+        {
+          "assessment": "Different quantifiers and invariant",
+          "evidence": [
+            "Maximal window with distinct length-n subwords, not globally shortest singleton in P or Q"
+          ],
+          "identifier_or_url": "https://oeis.org/A367184",
+          "material_read": "Entry definition near offset 559",
+          "method": "Public entry",
+          "title": "OEIS A367184",
+          "trigger": "Cited adjacent distinct-window invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The shortest identifying factor in a finite morphic iterate and stability under deletion are natural exact invariants. However, the complete-word answer is already contained in the stronger catalogue theorem, and deleting a terminal occurrence is an immediate application of that record's odd-multiplicity lemma. Thus no distinct exact invariant or structural content survives as an independent finding under review.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

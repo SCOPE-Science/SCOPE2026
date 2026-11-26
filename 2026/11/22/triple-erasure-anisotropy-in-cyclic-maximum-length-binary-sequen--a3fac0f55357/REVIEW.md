@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses the trace form over a binary field, and cyclic phases are the full nonzero state set. Nondegeneracy and the fiber count give a complete proof for all degrees and all erasure sets at top rank. The unique zero-pattern witness and two-element nonzero fibers at rank one below full give the exact arbitrary-erasure kernel criterion; fiber sizes at the next rank give the dependent-triple exception. The explicit counting factor is the number of unordered bases of an orthogonal hyperplane, with no multiplicity or boundary overcount. Both independent standalone programs agree through degree five. These are finite corroborations; the proof handles every degree, not merely tested cases.
+PASS
 
-## Originality — PASS (best available evidence)
+Primitivity lists every nonzero query vector once, and multiplication by alpha traverses each phase state; a nonzero state cannot give the zero sequence by trace nondegeneracy. Dependent coordinates miss a labeling even before deletions. For independent k-sets, all fibers have 2^(m−k) elements; omit zero only from the zero-label fiber. This gives the baseline for k≤m−1, and forbids larger supports. At k=m−1 the kernel is {0,w}; the zero label dies on erasing w; a nonzero label dies exactly if both members of a pair with sum w are erased. Each surviving w contributes the unordered bases of w-perp. At k=m−2 only the zero label can die with three erasures, and only when the deleted states are exactly the nonzero part of its two-dimensional kernel. The three nonzero pair sums of an independent triple are distinct from the states, whereas for a line they are the states. Lower layers survive. This also covers m=3. The lower saturation bound is counting singles and pairs; the upper splits the vector space into complementary subspaces and uses each cross-sum. An independent dot-product replay enumerated all 128 erasure subsets at m=3 and all layers for five patterns at each of m=4,5. It tested for accepted supports by taking the set of observed binary masks on each support; no frozen code was executed. At m=4 the two triple cases gave coefficients (1,15,102,336) and (1,15,105,252) in increasing degree, compared with (1,15,105,420) before erasure.
 
-The closest primary full text is Castoldi et al. (arXiv:2208.00333), particularly Theorem 14 and Section VII-A, which give the standard independence criterion in a nonerased LFSR-derived array; the old base case is expressly excluded from novelty. Johnson (arXiv:2101.06490) studies different factor relations rather than erasure of a complete cyclic-shift hypothesis class. Fontana and Rapallo (arXiv:1809.03759) study one- to three-run deletions from orthogonal arrays, but their inspected formulas/tables give generalized word-length patterns, not shattering-support counts. Grynkiewicz and Lev (arXiv:0811.1322) already prove aspects of the 1-saturating-set theory; its criterion and complementary-subspace construction are attributed, not presented as inventions. The exact cardinality of the exposed top layer after arbitrary phase removals, and the sharply contrasting full three-erasure shattering polynomials, were not covered by the materials read or by the accessible indexed claims. Similar conclusions could exist in unindexed covering-array or coding-theory literature, so priority is qualified.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem answers a motivated robustness question: how do missing cyclic phases damage all Boolean coordinate traces of a maximum-period pseudorandom sequence? The full three-erasure classification produces a structural tradeoff between top and next-to-top shattering faces, while the arbitrary-erasure top coefficient gives a geometric obstruction and links VC-rank loss to the classical projective coverage threshold. This is more informative than a scalar VC bound or a small finite census and applies uniformly to every primitive binary recurrence degree.
+Credit prior work for un-erased phase-dimension concepts, the LFSR independence criterion, the saturation criterion itself and the bounds' standard finite-geometric ingredients. The supported distinct claim is the phase-erasure top coefficient and the explicit transfer of erasure geometry to loss in two different shattering layers. None of the compared passage-level results computes these counts or the opposing effects of a line versus an independent triple across those layers.
 
-## Limits of the review
+## value
 
-The universal claims rely on the supplied proof, not on finite enumeration. The exact extremal size of a binary one-saturating set is not claimed. A possible equivalent result outside the inspected literature cannot be categorically excluded. An independent mathematical audit has not yet been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantity is the loss of realizable Boolean queries after removing hypotheses from a canonical recurrence family, not loss from arbitrarily chosen objects. Three deletions of equal cardinality have opposite effects by layer: a binary line loses fewer maximum supports than an independent triple yet uniquely loses penultimate supports. The exact count makes that failure of cardinality-only robustness explicit and identifies which top queries survive any erasure set. The old saturation bounds alone are not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

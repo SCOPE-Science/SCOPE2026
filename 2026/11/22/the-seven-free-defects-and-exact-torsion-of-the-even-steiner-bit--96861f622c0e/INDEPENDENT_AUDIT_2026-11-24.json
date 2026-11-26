@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:37:49.423510Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The marking is geometric and fixed. In the even-subset model, a nonzero isotropic class is a complementary pair of four-sets. Adding this class to the odd theta characteristic of an octad pair preserves odd parity exactly when that pair lies in one of the two blocks. This is exactly membership in the Steiner complex, so the map is the 28-by-35 internal-edge incidence (not the crossing incidence). I inspected the frozen verification and elementary-operation logic and reproduced the Smith form with a fresh matrix and exact integer Smith algorithm, without replaying the uploaded program. Every column has weighted degree three at each octad label. The seven degree differences are independent, their kernel is saturated, and the Smith rank is 21, so their kernel is exactly the saturation. The Smith factors give seven free directions, torsion index 49152 and exponent 6; a degree-one perfect matching witnesses the obstruction modulo three. This does not assert quartic divisor-class or Galois-module information.",
+      "replay": "python /workspace/independent/check_steiner.py (SymPy 1.14.0); output /workspace/independent/check_steiner.log. Diagonal multiplicities 0:7, 1:7, 2:13, 6:1; degree-difference rank 7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b76c5509eb43 computes 1^7, 2^14, 4^6, 12 for all 63 complexes with full target rank 28; 876736e134fd computes a reduced-Laplacian critical group for the 28+63 incidence graph."
+        ],
+        "reasoning": "The full reconstruction lattice contains the selected one but does not specify the latter's integral index or rank. The graph Laplacian is a different endomorphism on different generators and its critical group is not the stated rectangular-map cokernel.",
+        "searches": [
+          "Resultary b76c5509eb43",
+          "Resultary 876736e134fd"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1008.4104",
+        "arXiv:2106.13072",
+        "Resultary b76c5509eb43",
+        "Resultary 876736e134fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The selected matrix has rank 21, versus 28 for the full matrix. All-63 Smith equivalence makes unrestricted column changes; it need not preserve the indexed 35-column span. The classical incidence identities allow a rational rank computation but do not give the primary torsion or its exponent."
+        ],
+        "reasoning": "The earlier results specify the object or a larger incidence lattice. They do not mechanically yield this saturation quotient or the sharp reconstruction multiplier.",
+        "searches": [
+          "arXiv:1008.4104 Theorem 5.10",
+          "arXiv:2106.13072 §§2.3, 2.5",
+          "Resultary b76c5509eb43 exact reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Plaumann–Sturmfels–Vinzant, Theorem 5.10, gives the exact 28+35 classification and the bitangents of the partition type; Bergvall §§2.3, 2.5 gives the theta/Steiner formulation."
+        ],
+        "reasoning": "Transposing the matrix does not change the nonzero Smith entries; it does change which cokernel has seven free directions. The theorem uses two disjoint complete four-vertex graphs per column, not incidence with a single four-set or cut edges. Classical evidence identifies that very matrix but does not state the integral result.",
+        "searches": [
+          "Resultary: even Steiner complexes, Cayley-octad bitangent incidence and integral reconstruction",
+          "focused literature lookup: integral Smith form of two-subset incidence with the 35 complementary four-four partitions of eight labels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected published record statements are the all-63 incidence map and all-63 incidence graph; the classical exact classification table contains memberships, not Smith entries. The 2016 PDF had no extractable text."
+        ],
+        "reasoning": "An exact table of column supports does not report the integer lattice they generate. No matching integral table was verified; the unread design paper was not treated as negative evidence.",
+        "searches": [
+          "Resultary catalog search for selected 35-column incidence, Steiner reconstruction, and bitangent–Steiner critical group",
+          "Crnković–Mikulić Crnković–Švob (2016), S(6,2) designs/codes"
+        ]
+      },
+      "rationale": "The classical theta marking and the selected incidence entries are established prior work. The supported distinct result is the integral structure of the 35-complex sublattice, not the incidence model or the full 63-complex computation. The closest inspected sources do not cover or determine that structure. The judgment is bounded, not a priority guarantee.",
+      "residual_risks": [
+        "Older integral design or representation tables could contain the equivalent complementary-block computation; the 2016 S(6,2) code paper was not fully readable, and a related 2011 DOI lookup did not yield a lawful full text. These limits do not show noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers classical incidence, not integral reduction",
+          "evidence": "Separates the 63 complexes into 28 pair-type and 35 partition-type complexes and identifies the members.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.4104",
+          "material_read": "§5, Theorem 5.10, pp. 15–16, around text offset 48000",
+          "method": "Lawful OA primary PDF, relevant theorem passage",
+          "title": "Quartic Curves and Their Bitangents",
+          "trigger": "Same Cayley-octad membership matrix"
+        },
+        {
+          "assessment": "Covers the geometric inputs",
+          "evidence": "Labels bitangents by pairs and identifies Steiner membership by the quadratic refinement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13072",
+          "material_read": "§§2.3, 2.5, pp. 5–7, around offsets 12600 and 19400",
+          "method": "Lawful OA primary PDF, bounded passages",
+          "title": "Arithmetic and topology of classical structures associated to plane quartics",
+          "trigger": "Geometric marking and parity criterion"
+        },
+        {
+          "assessment": "Different column family",
+          "evidence": "Uses all 63 complexes; full rank 28 and factors 1^7, 2^14, 4^6, 12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-steiner-reconstruction-lattice-of-plane-quartic-bitange--b76c5509eb43",
+          "material_read": "RESULT.md Finding and integral reduction, offsets 0–8591",
+          "method": "Resultary local mirror",
+          "title": "Integral Steiner reconstruction lattice of plane-quartic bitangents",
+          "trigger": "Closest exact Smith calculation"
+        },
+        {
+          "assessment": "Different invariant and same-day date does not enter the comparison",
+          "evidence": "The reduced Laplacian is for the entire 28+63 incidence graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-integral-critical-group-of-the-bitangent-steiner-incidence-g--876736e134fd",
+          "material_read": "RESULT.md Finding and proof opening, offsets 0–4129",
+          "method": "Resultary local mirror",
+          "title": "The integral critical group of the bitangent–Steiner incidence graph",
+          "trigger": "Nearby catalog record on the same classical objects"
+        },
+        {
+          "assessment": "No substantive coverage determination",
+          "evidence": "No primary passage available for comparison.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20097/vol-097-paper%209.pdf",
+          "material_read": "Citation and PDF retrieval attempted; no extractable primary text read",
+          "method": "Lawful OA publisher PDF attempt",
+          "title": "On some transitive combinatorial structures and codes constructed from the symplectic group S(6,2)",
+          "trigger": "Potential equivalent design/code computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing an even theta characteristic naturally selects the 35 Steiner complexes, rather than an arbitrary matrix slice. Their exact integral span answers which formal bitangent weights can be reconstructed from these generators: equal degrees are the only rational constraints, and six is the least uniform multiplier. This is specific integral information useful for marked incidence questions and absent from the full-63 reconstruction invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

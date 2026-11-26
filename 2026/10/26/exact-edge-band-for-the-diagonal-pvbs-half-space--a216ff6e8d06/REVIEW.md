@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** In the one-particle sector the local projector gives the stated Jacobi fiber. The decaying recurrence root is fixed by the boundary equation, and the endpoint \(|k|=\pi\) is handled separately. The exact bulk separation is positive for the full stated parameter range. The script is a finite consistency check, not the proof.
+## correctness
 
-**Originality — PASS, bounded to the inspected sources.** The closest primary literature proves edge gaplessness and gives an \(O(L^{-2})\) variational upper bound, but the inspected statements do not provide the exact fiber eigenvalue, normal decay ratio, or exact sub-bulk separation. Targeted index searches returned related quantum-graph band results but no matching PVBS edge-band record. This is not a proof that no unindexed equivalent exists.
+PASS
 
-**Value — PASS.** The exact dispersion and normal localization profile quantify the gapless edge branch that the prior PVBS paper identifies as a subject for further study. The exact distance below the bulk band distinguishes an edge mode from the bulk continuum at every momentum; this is more than merely restating gaplessness.
+In coordinates s=x+y and j=x an inward step goes to (s+1,j) or (s+1,j+1). The one-particle bond form therefore gives boundary diagonal a=2λ²/(1+λ²), interior diagonal 2, and, after the half-angle gauge, hopping −b with b=2λ cos(k/2)/(1+λ²). The constant Dirichlet half-line tail has band [2−2b,2+2b], unchanged in its essential spectrum by the boundary diagonal change. Below it, for b>0 the square-summable solution is a single geometric mode; matching boundary and bulk gives r=b/(2−a)<1. Substitution gives the stated E and separation (2−a)(1−r)², and the gauge restores exp(ik(x−y)/2). At k=±π hopping vanishes, leaving one boundary level a<2. The Taylor coefficient follows from sin²(k/2)=k²/4+O(k⁴). This is an exact fiber proof, not a global eigenvector assertion. The frozen verification prose mentions a grid script but the bound package contains none; no finite replay or formal certificate is claimed or needed for this derivation.
 
-**Closest literature and limits.** Bachmann–Hamza–Nachtergaele–Young (arXiv:1410.0398v1), especially §5.2 and §6.2, construct low-energy edge trial states and prove an \(O(L^{-2})\) upper bound. Bishop–Nachtergaele–Young (arXiv:1509.07550v1), especially §§2 and 6, classify gaplessness by boundary orientation but do not state the exact fiber band. The claim is restricted to the one-particle fiber for equal couplings on the diagonal half-space; the infinite-edge Bloch wave is not a globally square-summable vector.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the complete isolated edge branch in this diagonal equal-coupling one-particle fiber, not gaplessness, the k=0 decay, or the prediction of soft edge modes. No equivalent exact branch was found in the sources inspected.
+
+## value
+
+PASS
+
+The diagonal boundary is a physically motivated gapless case already studied variationally. The exact profile, branch and projected-bulk separation distinguish the low-energy boundary channel from the bulk over the entire Brillouin zone, including its boundary-supported endpoint, and quantify the previously qualitative soft modes. This is not a new global gap result or a finite-volume asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

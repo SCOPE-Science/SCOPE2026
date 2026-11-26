@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:59:55.711724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n<m a hit forces a proper border of length m−n; otherwise overlapping hits force a border with the directed overlap shift. Compatible starts therefore have all cyclic gaps >=m and fix disjoint letters. Marking one of j starts and counting ordered excess gaps gives (n/j) binom(n−mj+j−1,j−1), including n=m and the full-tiling case; the empty case is separate. The expansion in t−1 counts these joint prescriptions, yielding the multinomial law and biased iid PGF without any assumption of independent hits. The start conflict graph is claw-free: if n<3m three disjoint m-arcs cannot exist; otherwise three mutually nonadjacent neighbors would have two successive offset gaps >=m in a span <=2m−2. The Chudnovsky–Seymour theorem then gives real zeros, and nonnegative PGF coefficients with positive constant term from any constant-letter sample make them strictly negative. The degree is achieved by a maximum separated start set of floor(n/m) positions, not merely by an arbitrary inclusion-maximal set. Normalized factors are nondegenerate Bernoulli PGFs. Independently checked 1,059 composition moments and corresponding biased iid moments for binary and ternary examples, including same-composition 0012/0102 and n<m; /workspace/branches/replay-cyclic.py. The infinite claims use the combinatorial and real-rootedness arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected cluster/inclusion–exclusion framework marks occurrences in ordinary finite texts.",
+          "The inspected Bóna–Maga–Richey introduction concerns long-word letter frequency in a shift with one forbidden word.",
+          "Brown–Hoshino give precisely H(n,m,j) after setting cycle power d=m−1. The claw-free theorem is the prior real-rootedness ingredient."
+        ],
+        "reasoning": "Neither the cyclic hard-particle placement polynomial nor its real-rootedness counts the unoccupied letters of a fixed-composition word by itself. The occurrence-law specialization requires the equivalence of disjoint placements with jointly enforceable cyclic occurrences and the exact content refinement.",
+        "searches": [
+          "Bassino–Clément–Fayolle–Nicodème DOI 10.46298/dmtcs.3543",
+          "Bóna–Maga–Richey arXiv:2606.06655v1",
+          "Brown–Hoshino Theorem 3.3",
+          "Chudnovsky–Seymour DOI 10.1016/j.jctb.2006.06.001"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --f2d2b4ad711f and --15954dd9e6c4",
+        "10.46298/dmtcs.3543",
+        "10.1051/ita/2016019",
+        "Brown–Hoshino Thm. 3.3",
+        "arXiv:2606.06655v1",
+        "10.1016/j.jctb.2006.06.001 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest linear theorem covers independent nonidentical input and an unbordered/bordered boundary; it does not have wrap-around or exact input-composition conditioning.",
+          "The cycle-power independent-set formula yields placement moments only after a new cyclic motif-prescription argument. With fixed content the moment multiplication is by a residual multinomial rather than by a power of the iid hit probability."
+        ],
+        "reasoning": "The linear scope is not enlarged by its stronger independence hypothesis, since conditioning removes independence and duplicating letters for wrap-around removes it as well. No inspected broader word-enumeration statement has the cyclic and composition scope simultaneously. The theorem uses prior graph results but is not given as an already established cyclic word specialization.",
+        "searches": [
+          "Resultary --f2d2b4ad711f, RESULT.md offsets 0 and 4800",
+          "Arnoux pp. 167–168",
+          "Bassino et al. pp. 32–33",
+          "Brown–Hoshino Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 Poisson–binomial record counts linear windows; the cyclic statistic counts modulo n and includes all n marked starts.",
+          "The unbordered-conjugate record counts which rotations of a given word are unbordered, rather than how many times a fixed word occurs.",
+          "Arnoux uses the same indexed circular occurrence convention and establishes selected linear identities of binary factor counts."
+        ],
+        "reasoning": "Unrolling a circle duplicates input letters, violating independent-linear-input hypotheses. The individual circular relations do not determine an occurrence distribution over fixed letter content.",
+        "searches": [
+          "Resultary: unbordered word Poisson–binomial and cyclic motif counts",
+          "Resultary: exact unbordered-conjugate spectrum",
+          "Arnoux, DOI 10.1051/ita/2016019"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known circular coefficient table enumerates independent sets, not the distribution conditioned on motif content.",
+          "The October 18 record's iid finite formula uses binom(n−(m−1)j,j), not the circular coefficients.",
+          "No matching full fixed-composition cyclic law was established in the inspected material; a keyword miss is not evidence of whole-document absence."
+        ],
+        "reasoning": "The exact known placement and linear occurrence formulas are separate partial overlaps, not the full cyclic joint law.",
+        "searches": [
+          "Resultary linear pattern counts and unbordered-conjugate spectrum",
+          "Brown–Hoshino, p. 2296, Theorem 3.3",
+          "Bóna–Maga–Richey, PDF p. 1 and locate 'circular'"
+        ]
+      },
+      "rationale": "The evaluated distinct contribution is the exact joint cyclic/content-conditioned law and its full anagram-equidistribution consequence, together with the Poisson–binomial identification for the same cyclic window model. The placement counts, general real-rootedness theorem, and linear unbordered-word Poisson–binomial law are prior; they are not individually claimed as new.",
+      "residual_risks": [
+        "An older cyclic weighted cluster enumerator or an explicit independent circular pattern law could cover the same specialization; the targeted comparison does not certify historical priority.",
+        "The full real-rootedness paper was not retrieved via the attempted lawful routes; its standard theorem, not any assertion of whole-document noncoverage, is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger input generality in linear windows, not cyclic/content-conditioned law.",
+          "evidence": [
+            "Uses binom(n−(m−1)j,j) in the iid statement and covers arbitrary independent observations in linear windows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-poisson-binomial-universality-boundary-for-pattern-counts-in-i--f2d2b4ad711f",
+          "material_read": "RESULT.md offsets 0 and 4800, linear statement and method",
+          "method": "Configured Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A Poisson–binomial universality boundary for pattern counts in independent words",
+          "trigger": "Strongest prior exact independent-input unbordered motif law"
+        },
+        {
+          "assessment": "Primary inclusion–exclusion method for ordinary finite texts; no claimed whole-document exclusion from those passages.",
+          "evidence": [
+            "Introduces generating functions for text length and counts for a finite word set."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.3543",
+          "material_read": "Section 1, pp. 32–33, PDF offsets 559–3936",
+          "method": "Lawful DMTCS OA PDF",
+          "title": "Counting occurrences for a finite set of words: an inclusion-exclusion approach",
+          "trigger": "Potential broad multivariate enumeration implication"
+        },
+        {
+          "assessment": "Deterministic relations among selected factor counts; not distribution over fixed composition.",
+          "evidence": [
+            "Defines occurrences modulo the length and equates four specified count differences."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ita/2016019",
+          "material_read": "pp. 167–168, definition and proposition; PDF offset 1437",
+          "method": "Lawful Numdam OA PDF",
+          "title": "Note on occurrences of factors in circular words",
+          "trigger": "Same circular factor convention"
+        },
+        {
+          "assessment": "Exact overlap for H(n,m,j), credited in the finding.",
+          "evidence": [
+            "For C_n^d the coefficient is n/(n−dk) binom(n−dk,k)."
+          ],
+          "identifier_or_url": "https://www.mscs.dal.ca/~hoshino/music.pdf",
+          "material_read": "Theorem 3.3, p. 2296 (PDF offset 16533)",
+          "method": "Lawful author-hosted PDF",
+          "title": "Independence polynomials of circulants with an application to music",
+          "trigger": "Exact cyclic placement formula"
+        },
+        {
+          "assessment": "Inspected results concern asymptotic letter frequency conditioned on avoiding the pattern, a different law; not a claim about all uninspected sections.",
+          "evidence": [
+            "Studies the Parry/Markov measure on a binary shift forbidding one word and two-variable border polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.06655v1",
+          "material_read": "PDF pp. 1–2, abstract and introduction (offsets 820–4981); also literal locator for circular",
+          "method": "Lawful arXiv OA PDF",
+          "title": "Letter frequency in shifts of finite type with one forbidden word",
+          "trigger": "Motivating single-pattern exclusion and letter statistics"
+        },
+        {
+          "assessment": "Known theorem used only after constructing a finite claw-free conflict graph; no wider absence claim from this access limitation.",
+          "evidence": [
+            "The published result asserts real zeros for the independence polynomial of a claw-free graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2006.06.001",
+          "material_read": "Classical theorem as cited; primary full text not retrieved in attempted routes",
+          "method": "Lawful DOI lookup reached a landing page; attempted Princeton paths returned 404",
+          "title": "The roots of the independence polynomial of a clawfree graph",
+          "trigger": "Cited real-rootedness theorem, not a word-specific originality claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed composition is a natural constrained-word null model, and cyclic wrap-around changes the admissible placement counts. A full distribution rather than just the probability of avoidance or a mean is useful for finite conditional calculations; it proves the exact anagram invariance uniformly across composition classes. The iid result identifies the distribution class and nondegenerate factor count for those same circular observations. The useful fact is the joint specialization, not recomputation of known cycle-power coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

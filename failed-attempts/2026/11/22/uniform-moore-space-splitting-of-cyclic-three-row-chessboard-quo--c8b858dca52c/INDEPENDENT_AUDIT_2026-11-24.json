@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:00.228087Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof steps 1–4; VERIFICATION.md and verification/verify.py inspected, not executed",
+        "Independent bounded replay: node /workspace/branches/bounded-review-checks.js 4; direct ranks of quotient boundary after tree collapse for widths 5–12 over five prime fields",
+        "Shareshian–Wachs, arXiv:math/0409054, Thm. 1.1"
+      ],
+      "rationale": "A point fixed by a column shift would have a setwise fixed support face, which is impossible because rows are fixed and there is at most one rook in each occupied row. The quotient retains three vertices, 3(n−1) edges and (n−1)(n−2) triangles. Collapsing the two tree edges gives triangle words a_i c_(j−i) b_j^−1. The j=1 and i=1 relators eliminate a_i and b_j by homotopy-preserving substitution and cancellation, not just by a group presentation isomorphism. For the remaining relators, r=1 yields c_s=u^(s−1)t with u=c_(n−1)^−1 and t=c_1. The pair (n−2,1) gives c_2^−1 c_3 c_1^−1=t^−1u, so it eliminates u for every n≥5. Remaining exponents E=e(s−r)−e(−r)−e(s) are divisible by n and lie between −2n+3 and n−2, hence are −n or 0. The distinct pair (2,1) survives and gives −n. The cofiber on one circle is invariant under source wedge Nielsen operations, reducing the degree vector to (n,0,...,0) and giving (n−2)(n−4)−1 spheres. Covering space and standard connectivity give an independent check of pi_1. At n=4 the vertex links are six-cycles; signing each row-ordered triangle by the permutation of the occupied columns followed by the unused column orients the torus. The column four-cycle reverses the sign, so the free quotient is a nonorientable surface of Euler characteristic zero, the Klein bottle.",
+      "residual_risks": [
+        "Boundary ranks only corroborate homology; the proof of the homotopy statement is by actual presentation-complex moves or the general classification below."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer's Theorem 2 on p. 209 states essential height at most 1 for finite abelian fundamental groups. His definition on the same page gives uniqueness of homotopy type at equal Euler characteristic at least one above the minimum. In dimension 2 the directed Euler characteristic is ordinary chi.",
+          "Jajodia–Magurn's §7 also explicitly records uniqueness at positive levels, and at level zero for finite cyclic groups, and cites Dyer and Dyer–Sieradski.",
+          "Prior connectivity gives simply connected Delta_(3,n) for n≥5."
+        ],
+        "reasoning": "The finite quotient is a connected 2-complex with fundamental group C_n by a free action on a simply connected complex; no unproved stronger claim about general 2-complexes is needed.",
+        "searches": [
+          "Dyer, On the essential height of homotopy trees with finite fundamental group, Thm. 2",
+          "Jajodia–Magurn, Units and simple homotopy type, §7",
+          "Shareshian–Wachs arXiv:math/0409054, Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Dyer 1978 Thm. 2",
+        "Jajodia–Magurn §7",
+        "Dyer–Sieradski 1973 (bibliographic/successor evidence)",
+        "Shareshian–Wachs Thm. 1.1; Friedman–Hanlon abstract/introduction on unquotiented complexes",
+        "Resultary 20a6d60950c7, 15afee5c608a, c48a071d1ac7, and c8b858dca52c (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A finite connected 2-complex with finite pi_1 has chi≥1 by rational homology, and the cyclic Moore model has chi=1, so the minimum for C_n is 1. The quotient has chi=n²−6n+8≥3. Wedge n²−6n+7 two-spheres to the Moore model to get precisely the same chi and C_n.",
+          "These two complexes satisfy Dyer's positive-level uniqueness hypotheses for every n≥5, including composite n."
+        ],
+        "reasoning": "Apply the prior theorem to the quotient and this model directly. This gives the exact nonequivariant splitting, not only its homology. The explicit elimination algorithm in the record is not a necessary new homotopy invariant.",
+        "searches": [
+          "Dyer 1978, definition of essential height and Thm. 2; Shareshian–Wachs Thm. 1.1; frozen quotient cell counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary record 20a6d60950c7 states exactly M(Z/5,1) wedge two 2-spheres for the same 3×5 geometric column quotient.",
+          "The row-rotation records 15afee5c608a and c48a071d1ac7 have a different action; they are not reformulations of the full column family."
+        ],
+        "reasoning": "The prior width-five theorem is exact at that width only; the general algebraic-topology theorem handles every width in the Finding.",
+        "searches": [
+          "Resultary: ordinary cyclic column quotients of three-row chessboard complexes and Moore space splittings",
+          "Dyer–Sieradski finite cyclic fundamental group and Euler characteristic classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact uniform catalogue hit c8b858dca52c is the bound record itself. The 2026/11/17 record 20a6d60950c7 is an exact distinct match for n=5. No distinct uniform-object catalogue match located; the primary theorem gives stronger coverage regardless."
+        ],
+        "reasoning": "This is not a numerical table claim. The exact catalogue comparison establishes a prior specialization, while the general theorem eliminates the apparent uniform gap.",
+        "searches": [
+          "Resultary: exact Moore splitting for cyclic column rotation of Delta_(3,n), and the 3×5 instance"
+        ]
+      },
+      "rationale": "The homotopy type in the Finding is already a direct corollary of Dyer's 1978 theorem on the essential height of homotopy trees for finite abelian groups, using prior chessboard connectivity and the elementary orbit cell counts. The finding is true; this rejection is verified general-theorem coverage, not a failure of correctness. In addition, the exact n=5 instance has an earlier Resultary record. The constructive calculation is distinct from merely calculating homology, but it is an alternate proof of a type already determined by the stronger theorem.",
+      "residual_risks": [
+        "The earliest specific publication of the all-width example is not established. The original 1973 cyclic classification was inaccessible, but the inspected 1978 primary theorem independently proves the prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger theorem; applies at every width of the frozen claim",
+          "evidence": "Essential height at most one for finite abelian groups; equal directed Euler characteristic strictly above the minimum implies homotopy equivalence.",
+          "identifier_or_url": "https://www.numdam.org/item/CM_1978__36_2_209_0.pdf",
+          "material_read": "Primary p. 209, definition of essential height and Theorem 2, and continuation p. 210; OA text offset 0–4441",
+          "method": "OA archive PDF, bounded opening passage",
+          "title": "On the essential height of homotopy trees with finite fundamental group",
+          "trigger": "Potential general finite 2-complex classification with cyclic fundamental group"
+        },
+        {
+          "assessment": "Confirms comparison and identifies older primary theorems",
+          "evidence": "Defines G-complexes as finite connected 2-complexes with fundamental group G; records uniqueness at positive levels, and at zero for cyclic G.",
+          "identifier_or_url": "https://csis.gmu.edu/jajodia/1980-J%20Pure%20Applied%20Algebra.pdf",
+          "material_read": "§7, printed pp. 55–56, offset 22700; references [6], [8], offset 29480",
+          "method": "OA author-hosted PDF",
+          "title": "Units and simple homotopy type",
+          "trigger": "Independent published statement of the homotopy classification and source citations"
+        },
+        {
+          "assessment": "Not needed for the fail because the accessible 1978 primary theorem suffices",
+          "evidence": "Jajodia–Magurn §7 and reference [6] point to this earlier cyclic classification; no characterization attributed to an unread original passage here.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02566109",
+          "material_read": "Bibliographic references and successor classification only; original full text not read",
+          "method": "DOI and open archival access attempts unavailable",
+          "title": "Trees of homotopy types of two-dimensional CW-complexes",
+          "trigger": "Earlier explicit finite cyclic classification cited by subsequent work"
+        },
+        {
+          "assessment": "Exact prior n=5 result for the same action and space",
+          "evidence": "Fixed rows, full cyclic column rotation of Delta_(3,5), Moore space wedge two 2-spheres, and additional deck lattice data.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-moore-space-splitting-and-integral-deck-lattice-for-the-fivefo--20a6d60950c7",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A Moore space splitting and integral deck lattice for the fivefold quotient",
+          "trigger": "Earlier exact width-five overlap"
+        },
+        {
+          "assessment": "Unquotiented connectivity supplies the covering-space hypothesis",
+          "evidence": "At three rows and n≥5 the connectivity bound is 1, so the free cyclic action has simply connected covering complex.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0409054",
+          "material_read": "Introduction and Thm. 1.1, PDF p. 3, offset 8023",
+          "method": "OA primary PDF",
+          "title": "Torsion in the Matching Complex and Chessboard Complex",
+          "trigger": "Prior simple connectivity for the cover"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations; Dyer 1978 Thm. 2; Resultary 20a6d60950c7"
+      ],
+      "rationale": "The quotient and its homotopy type are natural, and the explicit word calculation can be pedagogically useful. As frozen, however, the asserted new fact is the exact nonequivariant wedge type, mechanically implied by the established positive-level classification; no distinct new invariant or quantitative property of the explicit simplification is claimed. This does not clear the value bar for a narrow exact invariant.",
+      "residual_risks": [
+        "No evaluation is made of a separately posed equivariant or deck-module problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

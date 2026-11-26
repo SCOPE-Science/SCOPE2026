@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:31:20.772810Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Odd parts can repeat, even parts cannot, and S(0)=1. Requiring odd parts through 2m-1 and excluding 2m+1 gives the factor q^(m^2)(1-q^(2m+1)); weighting by 2m+1 and telescoping gives F=(E(q^4)/E(q)) Theta(q). Jacobi and Gauss give F=Psi(-q) R^2, with R=E(q^2)^3/(E(q)^2 E(q^4))=prod_{a>=1}(1+2q^a/(1+q^(2a))). For R=1+2U, each positive-index coefficient of U modulo 2 is the number of odd divisors of that index, which is odd exactly when the odd part is a square. Frobenius gives U^2=U(q^2) modulo 2; in U+U(q^2) the indices with positive 2-adic exponent cancel. Hence R^2=1+4 sum_{s>0 odd} q^(s^2) modulo 8. At each coefficient the sign in the correction times 4 disappears modulo 8, giving the stated formula and valuation alternatives including the constant term. If C(n)>0, 8n+1=(2j+1)^2+8s^2 has even valuation at each prime p=5 or 7 modulo 8, since -8 is a nonresidue there and any divisibility forces both coordinates to be divisible by p. For each such prime the density of even valuation is (1-1/p) sum_{a>=0}p^(-2a)=p/(p+1); truncation errors are bounded by the density of divisibility by a high p-power, and CRT multiplies densities for finitely many primes. Their product tends to zero by divergence of the prime reciprocal sum. Triangular indices also have density zero, so 8 divides S(n) on a set of natural density one. The frozen verification notes, output and code were inspected but the code was not run. A separate direct enumeration checked n=0..24 over 3,721 admissible partitions without mismatch. The finite checks do not prove the congruence or density.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baruah–Bhoria–Eyyunni–Maji prove a modulo-eight progression for the sum of odd ordinary mex over unrestricted partitions.",
+          "2026/11/1/SCOPE-a-modulo-16-correction-and-sparse-modulo-8-spectrum-for-support--061a63000c81 gives a mod-16 correction and mod-8 classification for least absent odd parts in overpartition support; its density-one residue is 4, not 0."
+        ],
+        "reasoning": "The unrestricted ordinary-mex theorem changes both the admissible partitions and what is counted as the mex. The stronger modulus in the overpartition result does not dominate a residue claim for a different generating function.",
+        "searches": [
+          "arXiv:2110.08108v2 Theorem 2.2",
+          "Resultary: odd mex mod 8, triangular and square representations and sparse residues"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.13915v1",
+        "arXiv:2110.08108v2",
+        "Resultary 2026/10/13/SCOPE-complete-modulo-eight-residues-of-the-odd-mex-overpartition-sum--bee256e63339",
+        "Resultary 2026/11/1/SCOPE-a-modulo-16-correction-and-sparse-modulo-8-spectrum-for-support--061a63000c81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known exact product starts the proof but coefficients modulo eight require the R^2 reduction, with cancellation of positive 2-adic exponents.",
+          "The density conclusion uses the support obstruction from 8n+1=x^2+8s^2 and independent local prime conditions, not just the formal factorization."
+        ],
+        "reasoning": "Neither the exact generating function as stated nor the different-statistic congruence supplies these arithmetic consequences without the substantive dissection and support argument.",
+        "searches": [
+          "Mukherjee arXiv:2603.13915v1 Theorem 1.12 and §6 versus the odd-divisor parity reduction",
+          "Baruah et al. arXiv:2110.08108v2 Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mukherjee's definition and theta-product generating function are the exact same sequence, not merely an analogy.",
+          "The reduced result here is a signed triangular theta series multiplied modulo 8 by 1 plus four times the positive odd-square series."
+        ],
+        "reasoning": "The generating function is credited as known. The compared primary statement does not supply the mod-8 reduction or the representation-parity formula. Four-regular partitions refer to the base factor E(q^4)/E(q), not to the odd-excludant weighted sequence by itself.",
+        "searches": [
+          "arXiv:2603.13915v1 Eq. (1.18), Theorem 1.12 and §6",
+          "Least missing odd part, weighted odd excludant, partitions without repeated even parts, four-regular partition theta product and modulo 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/13/SCOPE-complete-modulo-eight-residues-of-the-odd-mex-overpartition-sum--bee256e63339 gives divisibility by eight exactly at squares for an ordinary odd-mex weighted overpartition statistic.",
+          "The other catalogued mod-8 spectrum concerns overpartition support. The cited four-regular count is only the unweighted factor."
+        ],
+        "reasoning": "The matched records are real topical overlaps but neither supplies a table or classification for the even-distinct least-absent-odd-part sum; the difference does not rest on priority or catalogue date.",
+        "searches": [
+          "Resultary: complete modulo-eight odd mex residues, distinct even parts, triangular odd square dissection",
+          "OEIS A001935 (base partition factor identified in the frozen references) versus Mukherjee Theorem 1.12"
+        ]
+      },
+      "rationale": "The exact weighted statistic and generating function are established prior work. The supported distinct claim is the coefficientwise mod-8 dissection, the nontriangular valuation criterion, and the resulting density-one divisibility for this specific partition class. Nearby odd-mex congruences and overpartition residue laws do not coincide with this statistic. The conclusion is best-of-knowledge after bounded comparisons, not inferred from an empty search.",
+      "residual_risks": [
+        "A differently indexed congruence for the same eta–theta product or a theorem subsuming its mod-8 dissection could escape bounded searches.",
+        "The underlying generating function is prior work; success of the residue proof does not establish priority for that identity or for unrelated mex statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact generating function already known; does not state this mod-8 dissection in the inspected result and proof",
+          "evidence": "Same sum of least absent odd parts with no repeated even part; same E(q^4)/E(q) times theta.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.13915v1",
+          "material_read": "§1 Eq. (1.18) and Theorem 1.12, PDF p. 6; §6 proof, pp. 24–25",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Parity of parts and excludant statistics in partitions",
+          "trigger": "Identical partition statistic and likely prior generating function"
+        },
+        {
+          "assessment": "Different statistic and partition class",
+          "evidence": "Sigma_mex^o(4n+1) is zero modulo 8 for the odd ordinary mex sum over unrestricted partitions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.08108v2",
+          "material_read": "Theorem 2.2, PDF p. 3",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "A refinement of a result of Andrews and Newman on the sum of minimal excludants",
+          "trigger": "Nearest primary modulo-eight theorem for odd excludant sums"
+        },
+        {
+          "assessment": "Different classes, excludant definition, and residue spectrum",
+          "evidence": "Ordinary mex is counted only when odd; divisibility by eight exactly at square indices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-modulo-eight-residues-of-the-odd-mex-overpartition-sum--bee256e63339",
+          "material_read": "RESULT.md Finding and statistic",
+          "method": "Local Resultary mirror",
+          "title": "Complete modulo-eight residues of the odd mex overpartition sum",
+          "trigger": "Close exact modulo-eight catalogue classification"
+        },
+        {
+          "assessment": "Same type of least-absent-odd-part question, different objects",
+          "evidence": "Overpartition support and density-one residue 4 modulo 8.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-modulo-16-correction-and-sparse-modulo-8-spectrum-for-support--061a63000c81",
+          "material_read": "RESULT.md Finding and statistic",
+          "method": "Local Resultary mirror",
+          "title": "A modulo-16 correction and sparse modulo-8 spectrum for support odd excludants",
+          "trigger": "Possible broader modulus and analogous support statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result explains every residue modulo eight of a named partition statistic in terms of two sparse families and separates the exact valuation-two cases from divisible-by-eight cases. Density-one divisibility then follows from a distinct arithmetic obstruction. This is more informative than an isolated congruence progression or an empirical frequency and does not depend on novelty of the original generating function.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

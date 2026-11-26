@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:22:50.719501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed 0<s<1, direct differentiation gives the trace mu and determinant s^2 and the stated scaled oscillator. Independently set q=r cos(theta), p=−r sin(theta), with G=q'−p in scaled time. Then r'=cos(theta)G and theta'=1−sin(theta)G/r. Writing c=cos(theta), v=sin(theta), the order-two and order-three parts of G/r are r g2 and r^2 g3 with g2=A c^2−Bcv, g3=C c^3−D c^2v and A,B,C,D as in RESULT.md. At mu=0 the mean cubic radial return term is (3C−AB)/8=−1/(8s^3): the term from varying r in the quadratic radial term integrates to zero because that primitive U has U(0)=U(2pi)=0. In the travel time per turn the linear term averages to zero, as does the term linear in mu; the quadratic coefficient is the mean of v g3+v^2 g2^2+U v g2 with U=A(v−v^3/3)+(B/3)(c^3−1). The three means are −D/8, (A^2+B^2)/16, and (5A^2−B^2)/48. Their sum is (9s^4−5s^2+1)/(24s^4). The linear radial growth has slope 1/(2s) in scaled time, hence along the stable Hopf cycle r^2 is 4s^2 mu to leading order. The analytic remainder can be justified by the analytic signed-section return map, dividing its fixed-point displacement by the initial radius and applying the implicit function theorem in mu. Half return interchanges the two signed section crossings as an analytic involution with derivative −1. In the odd coordinate induced by this involution both mu and the return time are even analytic, and mu has nonzero quadratic coefficient. Thus the remainder is O_s(mu^2). Monotone angle on the small branch makes one turn its least period; physical time divides scaled time by s. The normalized slope simplifies to [1+(3s−1/s)^2]/6, with equality only at 1/sqrt(3). Local nondegenerate supercritical Hopf supplies uniqueness and orbital asymptotic stability. No uniformity in s or global period law is needed. Inspected both frozen scripts without executing them; this independent return calculation is analytical rather than numerical shooting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2013 model includes diffusion, but its j=0 spatially homogeneous Hopf branch is exactly the same ODE; Theorem 2.2 gives its stable supercritical branch for the entire range 0<s<1.",
+          "The period statement (2.16) alone is only leading order. The needed stronger implication comes from the exact bilinear and trilinear values in the proof, not from the leading period or a general Hopf existence theorem."
+        ],
+        "reasoning": "The prior computation applies to the exact path and object, not by analogy with a different model. Inaccessible papers do not determine the verdict.",
+        "searches": [
+          "Liu–Shi–Wang–Feng Theorems 2.1–2.2 and homogeneous mode normal-form calculation",
+          "Kusbeyzi Aybar et al. 2021 doi:10.1007/978-3-030-70795-8_8",
+          "Al Noufaey doi:10.1515/math-2021-0008"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Shi–Wang–Feng, doi:10.1007/s10910-013-0196-x",
+        "doi:10.1007/978-3-030-70795-8_8 (limited access)",
+        "doi:10.1515/math-2021-0008 (limited access)",
+        "Resultary:eb28160f951f,aabe4353694d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let b0'=(1−3s^2)/2. In the 2013 convention their projections give g20=−b0'−2is, g11=−b0', g21=−3s^2+is, with zero corrections from the two displayed homogeneous center-manifold terms. The projection of the real forcing direction (1,−1) is real, so g02 is the conjugate of g20.",
+          "Substituting into c1=i(g20*g11−2|g11|^2−|g02|^2/3)/(2s)+g21/2 gives Re c1=−1/2 and Im c1=s/2−2[(b0')^2+s^2]/(3s)=−(9s^4−5s^2+1)/(6s). This uses their exact displayed complex data, not only their stability sign.",
+          "The real eigenvalue part is mu/2 and the linear imaginary part is sqrt(s^2−mu^2/4)=s+O_s(mu^2). Consequently the leading squared normal-form radius is mu and the angular frequency is s+(Im c1)mu+O_s(mu^2). Expanding the reciprocal gives the frozen normalized slope. Completing the square gives 1/6 and its unique minimizer."
+        ],
+        "reasoning": "The full phase information is already evaluable from the earlier exact coefficients by routine algebra and the usual cubic Hopf relation; no new normal-form calculation or optimization argument is needed for the claimed conclusion. This is prior implication, not a claim that the 2013 article printed the boxed slope or minimum.",
+        "searches": [
+          "Liu–Shi–Wang–Feng §2, homogeneous eigenvectors and (2.18)–(2.20), printed pp. 2008–2010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their beta=a+b and alpha=b−a become beta=s and alpha=s^3+s*mu, giving the exact fixed-determinant path and same stable-cycle side.",
+          "Their complex-mode frequency convention is +is in original time; the frozen z=q+ip uses −i in scaled time and a different amplitude. The physical-time slope, rather than the raw cubic coefficient, is the comparable quantity."
+        ],
+        "reasoning": "Neither relabeling the unfolding nor changing oscillator coordinates changes the normalized period slope on the same trace-parametrized path.",
+        "searches": [
+          "Liu–Shi–Wang–Feng 2013, §2 equations (2.2)–(2.4), (2.16)–(2.20)",
+          "Resultary: fixed-determinant Schnakenberg Hopf frequency and period slope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed findings eb28160f951f and aabe4353694d concern a fixed-feed Brusselator and a fixed-determinant Selkov oscillator, respectively, with different vector fields."
+        ],
+        "reasoning": "No exact same-system numerical table was identified in the checked catalogue; the decisive comparison is the primary paper's analytical computation, not these other systems.",
+        "searches": [
+          "Resultary: Schnakenberg normalized near-Hopf period, with fixed-determinant and frequency-shift aliases"
+        ]
+      },
+      "rationale": "Although Liu–Shi–Wang–Feng state only the leading period and evaluate only the real part of c1, their displayed exact homogeneous Hopf data determine its imaginary part by immediate substitution into the standard cubic coefficient formula. On their already matching parameter path the claimed period slope and its minimum then follow mechanically.",
+      "residual_risks": [
+        "The founding 1979 article and the full 2021 same-model chapter were not inspected; earlier explicit coverage remains possible.",
+        "The adverse verdict does not depend on either inaccessible text or on a priority inference from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The published coefficients imply the period correction and sharp minimum directly, even though the paper uses them for stability",
+          "evidence": [
+            "PDF extraction near 8371 and 19863 for the parameterization and leading period, 20500–26300 for the eigenvector and complex derivatives/projections, and 26200–30300 for the vanishing corrections and real-part evaluation."
+          ],
+          "identifier_or_url": "https://jxshix.people.wm.edu/shi/2013-Liu-Shi-Wang-Feng-JMC.pdf",
+          "material_read": "§2 kinetic parameterization, (2.16), Theorem 2.2, and proof through (2.20) and the evaluation of Re c1, especially printed pp. 2007–2010",
+          "method": "OA author PDF passages and algebraic substitution into the Hopf coefficient",
+          "title": "Bifurcation analysis of reaction–diffusion Schnakenberg model",
+          "trigger": "Exact same kinetic ODE and parameter path; detailed cubic data"
+        },
+        {
+          "assessment": "Its independent historical coverage is unresolved, and it is not needed for the verdict",
+          "evidence": [
+            "No full-text period passage independently inspected."
+          ],
+          "identifier_or_url": "doi:10.1007/978-3-030-70795-8_8",
+          "material_read": "Bibliographic identification; full chapter not retrieved",
+          "method": "Bounded lawful OA lookup",
+          "title": "Limit Cycles of the Schnakenberg Chemical Reaction Model",
+          "trigger": "Same kinetic system in a cycle-focused study"
+        },
+        {
+          "assessment": "No negative whole-paper coverage inference",
+          "evidence": [
+            "No independently read equation of its near-Hopf frequency was used in the decision."
+          ],
+          "identifier_or_url": "doi:10.1515/math-2021-0008",
+          "material_read": "Bibliographic identification; full article not independently retrieved",
+          "method": "Bounded lawful OA lookup",
+          "title": "Stability analysis for Selkov-Schnakenberg reaction-diffusion system",
+          "trigger": "Potential near-Hopf frequency comparison"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": [
+            "Brusselator slowing and Selkov slope sign changes are not the Schnakenberg coefficient."
+          ],
+          "identifier_or_url": "Resultary:eb28160f951f,aabe4353694d",
+          "material_read": "Available catalogue finding and model scope",
+          "method": "Resultary lookup and model comparison",
+          "title": "Near-Hopf period laws for the Brusselator and Selkov oscillator",
+          "trigger": "Closest indexed comparison of the exact observable"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The slope is a meaningful physical observable, but the particular exact invariant and its minimum follow by retaining the imaginary part of published cubic data on the same unfolding, then completing a square. The independent derivation verifies correctness but does not leave a substantial separate scientific claim here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

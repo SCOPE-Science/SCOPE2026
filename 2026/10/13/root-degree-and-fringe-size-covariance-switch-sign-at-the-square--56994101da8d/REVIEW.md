@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The tree's independent-parent law gives an exact two-color Pólya urn for a specified fringe subtree. Conditioning on its size and separating its inside and outside arrivals yields the mixed conditional root-degree identity; binomial-hockey-stick sums reconstruct the covariance for every specified integer. The strict threshold and square-root limit follow from the explicitly increasing harmonic-tail ratio and a uniform expansion. Exact enumeration through nine vertices and rational checks across 498 further sizes support the steps without replacing the proof.
+## correctness
 
-**Originality — PASS, with acknowledged risk.** Holmgren and Janson (arXiv:1406.6883v1), Theorems 1.4 and 1.13–1.15 and §8.1, develop marginal size counts, mixed counts of two fringe types, and whole-tree degree frequencies, not root-degree versus fringe-size covariances. Devroye and Janson (arXiv:1310.0665v1) treat protected nodes and fringe distributions; Feng, Mahmoud and Panholzer (DOI:10.1137/060653950) establish the marginal square-root transition. The previously known \(k=1\) root/leaf covariance is expressly excluded as a novelty assertion. Older generating-function literature could imply the new mixed covariance without directly displaying it; the Feng et al. article was verified from its publisher abstract and metadata, but complete inspection remained unavailable because of access limitations.
+PASS
 
-**Value — PASS.** The root's degree is the simplest global-root branching feature and fringe-size counts summarize descendant mass over the tree. The exact sign transition at \(\sqrt{2n}\), lying at a natural marginal normal-to-Poisson crossover, identifies a nontrivial point where root branching switches from positive to negative association with subtree counts. The precise crossover and limiting signed covariance offer information unavailable from marginal count laws or the single leaf-count special case.
+A nonroot vertex v starts a two-color urn with one descendant and v-1 complement vertices, so the beta-binomial weight applies exactly for 2<=v<=n-k+1. Given the membership history, only complement arrivals can attach to the root after v. Their denominator sequence is v-1 through n-k-1, independent of the order of subtree arrivals; including earlier arrivals and v's independent parent gives H_{n-k-1}+1/(v-1). The two binomial sums then give E F_{n,k}=n/[k(k+1)] and E[R_n F_{n,k}]=H_{n-k-1} n/[k(k+1)]+1/k. The crossing exists because b_{n,k} increases strictly from below 1 at k=1 to H_{n-1}>1 at k=n-1. Uniform expansion for k=O(sqrt n) gives Cov=1/[k(k+1)]-1/(2n)+O(k/n^2); the signs at (sqrt(2)±epsilon)sqrt n squeeze the crossing. The exact finite rank is kappa_n as defined, not sqrt(2n); covariance can be zero at the crossing, and k=1 gives the known leaf identity. In a separate finite replay all 5,913 parent vectors through n=8 were compared with exact rational means, covariances and monotonicity; summary /workspace/branches/bab8b9f6-a731-4da8-bbb1-6bfc68c648f9/independent-replay.md. The supplied CHECK.py was inspected, not executed.
 
-Independent validation has not been undertaken, and bibliographic uniqueness is not established. The statement concerns uniform recursive trees only, not other attachment rules or joint limit distributions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact distinguished-root degree/size-k fringe-count mixed moment for k>=2, with its covariance crossover and scaled limit. Neither the prior leaf boundary nor the marginal square-root transition is passed as new. The strongest accessible primary covariance theorem and closest catalogue findings do not establish equivalent coverage of the supported claim.
+
+## value
+
+PASS
+
+The root outdegree and the full descendant fringe profile are natural complementary tree statistics. The exact mixed profile is a finite-size benchmark and reveals that the direction of dependence changes with size, locating the normalized crossover and magnitude rather than merely identifying a marginal scale. This is useful for studies of joint root/fringe fluctuations even without proving any joint limit distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

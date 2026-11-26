@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:58:38.145481Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exhaustive replay tested all permutations through order seven against every factor inequality at every flip, kept exactly the legal neighboring-entry edges, and compared all BFS distances with the number of discordant label pairs. It recovered vertex counts 1,1,2,4,14,44,220, no discrepancy through six, and the six exceptional bins (4,6):4, (5,7):6, (6,8):4, (7,9):3, (8,10):2, (9,11):1. The frozen replay paths are check_a.py, check_b.py and their .out files; uploaded scripts were not executed in review. The infinite portion follows separately. In the displayed seven-permutation route, the three-flip one-position sets are {1,2,5,7}, {1,2,3,5}, {1,3,5,7}, and the four-flip sets are {1,2,5}, {1,3,5}, {1,3,7}; each satisfies the prefix bounds. Earlier states are common and legal, and from five flips onward at most two ones remain, with any nonempty word retaining position 1. The four discordant pairs are precisely the cross pairs between (3,7) and (2,5); only 7,2 can be swapped first in a path that changes just these four orders. This gives the forbidden prefix-normality defect 1000101, whose prefix 100 loses to factor 101. A swap changes parity, ruling out length five. Appending a trailing zero preserves all inequalities: a newly included suffix can be shortened by removing the final zero, and the full-length inequality is vacuous. Inserting each new largest label at the front implements this append operation and preserves the six-swap path. The common leading block creates no discordant pairs and a Kendall geodesic cannot swap any pair not discordant initially, so the same first move remains forced and forbidden. This proves the all-n existence claim without extrapolation and says nothing about the largest detours above seven.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected exact metric comparators concern the 132-avoiding, 321-avoiding, and 321/312/2341-avoiding classes. The Reifegerste passage concerns diagrams and pattern-class bijections rather than generator geodesics."
+        ],
+        "reasoning": "A shared move rule does not identify the induced graphs. No reduction preserving both legality and Kendall length to these pattern classes is supplied by the compared results.",
+        "searches": [
+          "Resultary 8ecaeb9ac4ba, 91a983c81cec and e725af36020e, restricted-permutation graph metrics",
+          "arXiv:math/0208006v3, 132-avoiding structure"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.19619v1",
+        "arXiv:math/0208006v3",
+        "Resultary 8ecaeb9ac4ba, 91a983c81cec, e725af36020e, 26333db55de7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Repeated use of the earlier increasing-pair rule gives paths to the decreasing permutation, which can change label orders that agree between endpoints. The decreasing-pair criterion is local; the other exact metric theorems have different admissibility hypotheses."
+        ],
+        "reasoning": "Neither the route through a common extremum nor the local legality criterion gives an isometric embedding, the first obstruction and its multiplicities, or the all-order lifted witness by direct specialization. The known move test is a tool, not coverage of the metric conclusion.",
+        "searches": [
+          "arXiv:2508.19619v1, Lemmas 3 and 4, HTML offsets 27600 and 32595",
+          "Resultary metric comparator Findings 8ecaeb9ac4ba, 91a983c81cec, e725af36020e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-object paper defines the admissible generator swap itself; Lemma 3 states that an increasing adjacent pair can be swapped. The exact indexed prefix-normal metric hit 26333db55de7 is the subject itself."
+        ],
+        "reasoning": "The metric question is not whether a local swap exists or there is some graph path. Kendall-geodesic paths may swap only discordant label pairs, which can force a direction excluded by the local closure rule.",
+        "searches": [
+          "Resultary: prefix-normal word-chain generators, neighboring transpositions, Kendall distance and geodesic detours",
+          "arXiv:2508.19619v1, generator framework and swap lemmas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical hit includes the exact order-seven spectrum and is not a distinct catalogue result. The inspected generator-paper passages give move criteria, not an all-pairs distance table."
+        ],
+        "reasoning": "A generator list or its cardinality does not give the all-pairs comparison; no distinct matching table was found in the bounded sources.",
+        "searches": [
+          "Resultary: first geodesic detour in prefix-normal generator chain, order-seven graph and pair spectrum",
+          "arXiv:2508.19619v1, adjacent swaps and conclusion"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp failure of isometry of the natural inclusion into the adjacent-transposition permutahedron, its exact first-failure census, and persistence of a fixed detour. The strongest inspected same-object prior gives the generator construction and directed swap criteria, not a metric equality or obstruction. The exact Resultary hit is the subject record; distinct nearby findings use other permutation classes and do not imply the result.",
+      "residual_risks": [
+        "The prefix-normal definition's 2011 antecedent was identified via the generator paper and not separately retrieved.",
+        "The focused comparison does not exclude unindexed exact metric work. Distinct same-day analogues were compared on substance, not used to infer precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the framework and local swap results, not the metric classification",
+          "evidence": "Lemma 3 proves legality for an increasing adjacent pair; Lemma 4 gives a factor criterion for the other direction. No metric theorem is attributed to the conclusion's connectivity discussion.",
+          "identifier_or_url": "https://arxiv.org/html/2508.19619v1",
+          "material_read": "Introduction, Lemmas 3–4 and conclusion/bibliography, HTML offsets 0, 27600, 32595, 57500",
+          "method": "OA arXiv HTML; bounded decisive lemma reread",
+          "title": "Word Chain Generators for Prefix Normal Words",
+          "trigger": "Same generator definition and swap graph"
+        },
+        {
+          "assessment": "Different admissibility and invariant",
+          "evidence": "Diagrams, bijections and enumeration for pattern classes, not prefix-normal chains or their induced distances.",
+          "identifier_or_url": "arXiv:math/0208006v3",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "OA arXiv passage",
+          "title": "On the diagram of 132-avoiding permutations",
+          "trigger": "Structural literature for the closest pattern-class analogy"
+        },
+        {
+          "assessment": "Different generated subgraph",
+          "evidence": "Identity-to-rotation witness with unrestricted distance n-1 and induced distance (n-1)^2 in the 132-avoiding class.",
+          "identifier_or_url": "Resultary 8ecaeb9ac4ba",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Quadratic adjacent-swap detours among 132-avoiding permutations",
+          "trigger": "Closest detour analogue"
+        },
+        {
+          "assessment": "Different class",
+          "evidence": "Uses right-weak-order meet to compute distances in the 321-avoiding permutation class.",
+          "identifier_or_url": "Resultary 91a983c81cec",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp diameter of the 321-avoiding adjacent-swap graph",
+          "trigger": "Exact distance formula in another constrained permutahedron"
+        },
+        {
+          "assessment": "Different class, not excluded on date grounds",
+          "evidence": "Formula for the class avoiding 321, 312 and 2341.",
+          "identifier_or_url": "Resultary e725af36020e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp three-periodic diameter for restricted pattern-avoiding permutations",
+          "trigger": "Distinct same-day distance theorem"
+        },
+        {
+          "assessment": "Identical subject record",
+          "evidence": "Same small-order boundary, spectrum and uniform witness.",
+          "identifier_or_url": "Resultary 26333db55de7",
+          "material_read": "Indexed finding and frozen RESULT.md Finding",
+          "method": "Local catalogue comparison against frozen text",
+          "title": "The sharp first geodesic detour in prefix-normal word-chain generators",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Connectivity by sorting toward a common extremum leaves open whether shortest unrestricted paths can stay admissible. A sharp counterexample to that natural metric property is useful, especially with a classified first failure and a simple obstruction that persists in the entire family. The census identifies just how the property breaks at its first order, rather than reporting an arbitrary small-order graph statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

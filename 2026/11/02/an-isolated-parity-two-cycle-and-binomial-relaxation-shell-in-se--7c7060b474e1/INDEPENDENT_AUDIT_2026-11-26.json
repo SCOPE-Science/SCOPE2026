@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:13:05.959373Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 of the proof; VERIFICATION.md, verify.py and VERIFY_OUTPUT.txt inspected",
+        "Replay: python3 /workspace/review-evidence/sweep_graph.py"
+      ],
+      "rationale": "In sweep coordinates, populations below k or above k+1 move monotonically farther from the band and give a constant output when the sweep starts there. Inside the band the unique flips that do not escape are 0 to 1 at k and 1 to 0 at k+1. Escape on either of the first two updates leaves no already processed bit inconsistent with the resulting constant. Thus the only potentially nonconstant outputs come from the two stated first-two-bit signatures, which produce a mixed output prefix. Escape later yields a nonconstant output outside the band, with exactly one more sweep needed. Survival of the whole sweep forces an alternating input and complements it. For even n its complement has the wrong start bit for the same population and escapes on the next sweep; for odd n survival requires n=2k+1 and both alternators already form a cycle. This also excludes transient predecessors of the cycle and all other periodic configurations. The signature sizes are binomial(n-2,k-1) and binomial(n-2,k); subtract the two already periodic states precisely in the odd central case. This handles n=3, and gives a positive second shell for all n>=4. The local binomial estimate at k-(n-1)/2=s sqrt(n)+O(1) yields the stated Gaussian limit with the extra factor 1/2 from 2^n rather than 2^(n-1). An independent functional-graph enumeration discovered cycles without prespecifying them and reproduced the basin and entry claims on 14,344 initial states for all admissible pairs with 3<=n<=10.",
+      "residual_risks": [
+        "The proof is for a fixed repeated permutation and closed-neighborhood semantics. The finite replay is corroboration only.",
+        "The original verifier made 196 additional random-permutation trials, not 196 guaranteed nonidentity trials: replaying its RNG states yields one identity draw. Relabeling proves order independence and the discrepancy does not affect the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuhlman et al. Proposition 3.6 constructs an (n-1)-cycle on C_n at thresholds (1,3); related tree constructions give long periods",
+          "Defant's coding theorem maximizes the count over arbitrary homogeneous functions",
+          "Wu–Adiga–Mortveit abstract concerns dynamic bi-threshold systems"
+        ],
+        "reasoning": "The long-cycle constructions rule out a graph-general theorem of the same form. The maximization theorem and dynamic-threshold problem do not yield a complete classification of transients for this fixed rule.",
+        "searches": [
+          "arXiv:1108.2974 §§3–4",
+          "arXiv:1509.03907, abstract and Lemma 2.1",
+          "DOI:10.1016/j.tcs.2014.06.042"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.2974",
+        "arXiv:1509.03907",
+        "DOI:10.1016/j.tcs.2014.06.042 abstract",
+        "Local Resultary items 2d6ad6be9642, e79a108b9794, 9e5a9ef7f73d and d0eaea0f4dd6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defant forces complementarity for any preexisting two-cycle",
+          "The cyclic graph instead exhibits a much larger periodic set and a one-sweep bound"
+        ],
+        "reasoning": "The clique population update and the two-step escape gate are additional ingredients, not consequences of a period-two complement constraint or a maximum over functions. The Gaussian central-window form is a standard consequence of the new exact binomial count, not an independent novelty.",
+        "searches": [
+          "Defant Lemma 2.1; Kuhlman et al. Theorem 3.5 and Proposition 3.6; Resultary e79a108b9794"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant Lemma 2.1 gives bitwise complementation for homogeneous Boolean functions on the clique",
+          "Resultary e79a108b9794 treats the same type of local gap-two rule with a cycle graph"
+        ],
+        "reasoning": "The clique rule falls in Defant's formulation, but the complementation conclusion does not specify which complements occur or their basins. Altering the graph changes the local count and therefore the sweep dynamics.",
+        "searches": [
+          "Local Resultary: sequential complete graph, gap-two bi-threshold, alternating two-cycle and exact entry distribution",
+          "arXiv:1509.03907"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2d6ad6be9642 gives the path extinction shells 1, n, and (n-t+1)2^(t-2) for t>=2",
+          "e79a108b9794 gives on C_n exactly 2^(n-1) recurrent states and 2^(n-1) states with one-sweep entry",
+          "9e5a9ef7f73d gives finite tree maximum periods through 14 vertices"
+        ],
+        "reasoning": "These exact catalogs involve different graphs and census objects; none supplies the clique's threshold-dependent binomial shell. No relative priority was inferred for distinct same-date records.",
+        "searches": [
+          "Local Resultary: first-periodic-entry distributions, sequential gap-two networks"
+        ]
+      },
+      "rationale": "The known complementation lemma and critical threshold gap are not new. Neither the prior all-function extremal result nor the closest exact entry distributions give the two-bit, two-sweep shell and the isolated odd-central attractor for the specified clique rule.",
+      "residual_risks": [
+        "Full texts of Wu–Adiga–Mortveit (2014) and Kuhlman–Mortveit, Limit Sets of Generalized, Multi-Threshold Networks (2015), were not available in the examined material; an equivalent static special case there or elsewhere is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers complementation and an extremal classification, not the specified rule and its basins",
+          "evidence": "Same homogeneous Boolean function framework; any two-cycle complements every bit, and the maximum cycle count over functions is related to binary codes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.03907",
+          "material_read": "Abstract p. 1 and Lemma 2.1 p. 5",
+          "method": "Open primary PDF, statement comparison",
+          "title": "Binary Codes and Period-2 Orbits of Sequential Dynamical Systems",
+          "trigger": "Complete-graph period-two analysis with a fixed sweep"
+        },
+        {
+          "assessment": "Relevant gap-two results outside the clique family",
+          "evidence": "Proposition 3.6 gives an (n-1)-cycle on C_n at thresholds (1,3) in cyclic update order.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2974",
+          "material_read": "Abstract, §§3.2–3.3 and §4.2; Theorem 3.5 p. 7 and Proposition 3.6 p. 8",
+          "method": "Open primary PDF",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "Prior static bi-threshold rules and the gap-two threshold"
+        },
+        {
+          "assessment": "Same threshold gap and sweep type, distinct graph and theorem",
+          "evidence": "Cycle graph with two equal periodic and one-sweep populations, not a clique with an isolated parity cycle and two-sweep shell.",
+          "identifier_or_url": "Resultary:e79a108b9794",
+          "material_read": "Frozen catalog counterpart RESULT.md Finding",
+          "method": "Local mirror comparison",
+          "title": "Binary necklace attractors and triangular run basins",
+          "trigger": "Closest indexed classification with a fixed sweep and critical-gap-two rule"
+        },
+        {
+          "assessment": "No clique specialization",
+          "evidence": "Open path, left-to-right sweep and absorption into zero, with an n-sweep shell law.",
+          "identifier_or_url": "Resultary:2d6ad6be9642",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror comparison",
+          "title": "Ballistic ascent transport and exact extinction shells",
+          "trigger": "Exact entry shells with the same threshold gap"
+        },
+        {
+          "assessment": "Different invariant and graph class",
+          "evidence": "Maximum primitive periods over trees of bounded order, including periods greater than two.",
+          "identifier_or_url": "Resultary:9e5a9ef7f73d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror comparison",
+          "title": "Sharp primitive-period maxima through fourteen vertices",
+          "trigger": "Same gap-two dynamics with exact finite classification"
+        },
+        {
+          "assessment": "Full special-case coverage unresolved",
+          "evidence": "Accessible material describes dynamic rather than static bi-threshold dynamics; it does not settle the clique case.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.06.042",
+          "material_read": "Landing page and abstract only",
+          "method": "Open-access source attempt",
+          "title": "Limit cycle structure for dynamic bi-threshold systems",
+          "trigger": "Potentially broader threshold dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and its escape-band proof",
+        "Kuhlman et al., long-cycle constructions",
+        "Defant, complete-graph complementation lemma"
+      ],
+      "rationale": "Complete graphs are a natural global-interaction benchmark in a threshold-gap regime where general graphs can sustain long cycles. The result explains exactly which initial states delay relaxation and which realize persistent oscillation, separating the size of a slow shell from the tiny basin of the only nonconstant attractor. Neither an upper bound on period nor a numerical small-n census would supply this statewise and parametric information.",
+      "residual_risks": [
+        "The compact proof exploits the two-count band and complete adjacency; it does not predict the census for sparse graphs or other schedules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:23.347036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every pair has exactly two common neighbors in both specified graphs. Adjacent pairs need no interior vertex, so a nonadjacent pair in X fails visibility precisely when both its common neighbors also belong to X. All resulting quartets are minimal obstructions and duplicate witnesses must be identified. Structurally the rook graph has 36 Cartesian squares. Shrikhande neighborhoods are induced 6-cycles, so each of its 48 adjacent pairs produces a distinct diamond with a unique nonedge diagonal; the other 24 nonedges generate 12 induced squares counted twice, yielding 60 distinct quartets. Independent replay python3 /workspace/review_checks/3.py tests actual available length-two routes on every labelled subset rather than testing a precomputed obstruction family. It confirms both complete coefficient vectors, the 96 size-nine rook optima and 32 size-ten Shrikhande optima, then tests every pair of optima for symmetric difference two (none). The orbit of one optimum under separately adjacency-checked generators equals the entire optimum family in each graph; no assertion about the full automorphism group is needed. Here exchange means on maximum ordinary visibility sets as explicitly defined, not on metric bases (the phrase ‘minimum-basis’ in the Finding is a terminological slip; the extremal sets and single replacements tested are unambiguous). For the common spectrum, the verified strongly regular parameters give A²=4I+2J, hence eigenvalues 6,2,−2 with common multiplicities 1,6,9. The coefficients at degrees below four agree and those at degree four are 1820−36 and 1820−60.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The diameter-two and Cartesian-product papers cover rook maxima via z(m,n;2,2).",
+          "The two visibility-polynomial papers give the ordinary definition and other class calculations; inspected material does not cover the Shrikhande census.",
+          "The catalogue family is K₃ □ Kₙ for n≥2, with three rows fixed."
+        ],
+        "reasoning": "No substitution for n in the three-row theorem yields K₄ □ K₄; although the earlier general square characterization gives its rook feasible-set predicate and maximum in terms of z, it does not supply the Shrikhande exact enumeration or a stronger paired result.",
+        "searches": [
+          "arXiv:2401.02373, Theorem 3.13 and Corollary 3.14",
+          "arXiv:2412.03066 Definition 3.1; arXiv:2507.01851 §5",
+          "Resultary 54b55c893708: full visibility polynomial on a rook family"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Verification and prior work; EXACT_OUTPUT.txt and visibility_direct.cpp",
+        "arXiv:2112.13024, 2401.02373, 2412.03066 and 2507.01851",
+        "Valency Hub W_rcdw4vus_v1",
+        "Resultary 54b55c893708 and c06bb7289e67",
+        "Bryant–Fu DOI 10.1016/S0012-365X(02)00371-0 retrieval record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the known rook reduction, row degrees obey ∑binom(d_i,2)≤6; this excludes 10, and 9 forces degree pattern (3,2,2,2). Each row pair then intersects once, forcing the canonical pattern 1110,1001,0101,0011 up to row and column permutations. It yields 4·4·3!=96 and one orbit; the same pattern rules out one-cell exchanges.",
+          "The reconfiguration manuscript's complete bipartite case concerns token sliding and its full graph also allows cardinality changes. The inaccessible Bryant–Fu paper is about C₄ saturation in bipartite graphs."
+        ],
+        "reasoning": "Accept rook extremality as prior-implied, with the count/orbit and isolation elementary consequences of that reduction on this small instance, not the stand-alone substantive advance. The Shrikhande census and exact comparison are not implied by this classification or by complete-bipartite sliding statements. No full-text coverage inference was drawn from the Bryant–Fu title.",
+        "searches": [
+          "arXiv:2112.13024 §3.1 and arXiv:2401.02373 §3",
+          "Bryant–Fu DOI 10.1016/S0012-365X(02)00371-0",
+          "Valency Hub W_rcdw4vus_v1 abstract and fixed-cardinality results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 result is exactly the rook criterion: no fully selected Cartesian square, equivalently a C₄-free labelled subgraph of K₄,₄.",
+          "The October 2026 reconfiguration manuscript adds/removes vertices and slides along host edges; its abstract treats complete bipartite hosts, not their line graphs, and that move rule is not token jumping."
+        ],
+        "reasoning": "Use the C₄-free matrix alias as positive prior coverage of the rook predicate, not as a similar-sounding keyword. It does not describe the Shrikhande diamonds. An isolated sliding layer on a complete bipartite host does not give the exchange result for these two graphs.",
+        "searches": [
+          "Cicerone–Di Stefano–Klavžar arXiv:2112.13024 §3.1 Lemma 3.5 and Corollary 3.7",
+          "arXiv:2401.02373 §3 Theorem 3.13 and Corollary 3.14",
+          "Primary query: Shrikhande mutual visibility visibility polynomial rook graph 4 by 4 and rectangle-free enumeration",
+          "Fresán-Figueroa–Goldfeder–Lozano-Piña, Reconfiguration graphs of mutual-visibility sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual three-row coefficient table is for a family containing K₃ □ K₄ on twelve vertices, not the sixteen-vertex rook graph.",
+          "The same-day pair c06bb7289e67 reports 60 minimal four-vertex skew forts in each graph, which are not the visibility obstructions (36,60). The identical assigned result is not independent evidence.",
+          "No separate exact 4×4 coefficient table was identified in the focused query; its empty response does not establish absence."
+        ],
+        "reasoning": "An exact table must match both the graph and the subset predicate. In particular matching the number 60 for Shrikhande in a different set family is not exact coverage. Earlier C₄-free matrix tables remain a meaningful risk for the rook component.",
+        "searches": [
+          "Resultary ordinary visibility/facet polynomial, Shrikhande and rook",
+          "Primary query: rectangle-free (0,1) 4×4 matrices, 18521 total and first divergent coefficients",
+          "Resultary 54b55c893708 and c06bb7289e67"
+        ]
+      },
+      "rationale": "Pass the exact paired ordinary visibility comparison with the Shrikhande census, optimum orbit and exchange isolation, not the visibility polynomial definition or the rook extremal reduction. Prior work explicitly gives the rook square-free characterization and Zarankiewicz maximum, and the little rook extremizer classification follows elementarily from it. Neither the two inspected polynomial papers nor the exact neighbouring catalogue records establish the full paired classification. Same graphs or same numerical entries in a different invariant do not count as equivalence.",
+      "residual_risks": [
+        "Bryant–Fu's full text was not obtained. Detailed small C₄-free array tables or classifications, and equivalent exact Shrikhande computations absent from inspected passages, remain possible. Rook extremality and its predicate are explicitly treated as covered, not made original by recomputation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive prior coverage of the rook predicate and general maximum",
+          "evidence": "A mutual-visibility set uses at most three vertices of each Cartesian square; μ(K_m □ K_n)=z(m,n;2,2).",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+          "material_read": "§3.1 pp. 7–8, offset 16700, Lemma 3.5 and Corollary 3.7",
+          "method": "OA text",
+          "title": "On the mutual-visibility in Cartesian products and in triangle-free graphs",
+          "trigger": "General rook-square characterization and maximum"
+        },
+        {
+          "assessment": "Prior rook maximum, credits 2023 result",
+          "evidence": "Gives the complete-bipartite line-graph maximum and identifies the rook product as already covered.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.02373",
+          "material_read": "§3 p. 13, offsets 36350 and 37238, Theorem 3.13 and Corollary 3.14",
+          "method": "OA text",
+          "title": "Mutual-visibility problems on graphs of diameter two",
+          "trigger": "Rook as line graph and the extremal array reduction"
+        },
+        {
+          "assessment": "Positive prior coverage of polynomial definition, not an inspected matching table",
+          "evidence": "Coefficients count distinct ordinary mutual-visibility sets by size.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.03066",
+          "material_read": "§3 p. 6, Definition 3.1, offsets 16445 and 16815; targeted graph-name checks",
+          "method": "OA text",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Primary exact polynomial framework"
+        },
+        {
+          "assessment": "Other class formulas in inspected passages",
+          "evidence": "Same definition and calculations including joins; no matching paired table found. Keyword misses alone do not exclude implicit results.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.01851",
+          "material_read": "p. 1 and §5 p. 8, Theorem 16, offset 40253; targeted graph-name checks",
+          "method": "OA text",
+          "title": "On the visibility polynomial of graphs",
+          "trigger": "Exact polynomial formulas by graph class"
+        },
+        {
+          "assessment": "Relevant reconfiguration framework, but distinct move and hosts",
+          "evidence": "Abstract defines adding, removing and sliding adjacent tokens; the inspected maximum-layer isolation is for complete bipartite hosts, not their rook line graph or Shrikhande.",
+          "identifier_or_url": "https://hub.valency.io/works/W_rcdw4vus_v1",
+          "material_read": "Version 1 abstract at offsets 0–2399, targeted locates for rook and Shrikhande and complete-bipartite layer passage around offset 104953",
+          "method": "Public full-text web manuscript, bounded inspection",
+          "title": "Reconfiguration graphs of mutual-visibility sets",
+          "trigger": "Directly plausible prior work on visibility-set reconfiguration"
+        },
+        {
+          "assessment": "Close but width is different",
+          "evidence": "Full ordinary polynomial and facets on K₃ □ Kₙ, n≥2, not K₄ □ K₄ or Shrikhande.",
+          "identifier_or_url": "Resultary 54b55c893708",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact visibility and facet polynomials for three-row rook graphs",
+          "trigger": "Earlier exact ordinary-polynomial calculation on a rook family"
+        },
+        {
+          "assessment": "Different invariant and set predicate, not treated as priority evidence",
+          "evidence": "Reports 60 minimal four-vertex skew forts in both graphs; these are not the ordinary visibility obstructions.",
+          "identifier_or_url": "Resultary c06bb7289e67",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Identical skew zero forcing polynomials, different minimal-fort geometry",
+          "trigger": "Same-day exact invariant and four-sets on the same graph pair"
+        },
+        {
+          "assessment": "Unresolved exact coverage risk for rook classification",
+          "evidence": "No full-text extremizer passage obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00371-0",
+          "material_read": "Landing-page/abstract evidence only",
+          "method": "DOI and lawful repository recovery attempt",
+          "title": "C₄-saturated bipartite graphs",
+          "trigger": "Plausible source for detailed classification of the rook rectangle-free extremizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Shrikhande–rook pair is a canonical equal-parameter, cospectral test of whether a graph invariant sees more than adjacency eigenvalues. Ordinary visibility distinguishes the pair at the first degree where any obstruction is possible, with a structural explanation via diamonds and duplicated square witnesses. The full labelled tables expose further differences and the contrast in optimum sizes, while both distinct optimum families turn out to be transitive yet exchange-isolated. This comparative information is useful beyond the known extremal rook number or a bare claim that cospectral visibility can differ.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

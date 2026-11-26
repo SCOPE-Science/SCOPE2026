@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-At the double-critical reproduction threshold the two aggregate infections satisfy exact signed equations. Conservation gives per-strain Riccati upper bounds. Stable linear-convolution estimates then justify the quadratic competitive reduction with controlled \(O(t^{-2})\) errors. In logarithmic time, the marginal coefficient equality makes the log-ratio derivative sign definite up to an integrable error. This proves the ratio tends to zero, the dominant strain's \(1/t\) limit, the subordinate strain's \(1/[t\log t]\) limit, and the dominant strain's next coefficient. Two independent full-system integrations and exact parameter checks support but do not replace the proof.
+PASS
 
-## Originality — PASS, with explicit remaining risk
+The simplex is invariant, and the critical aggregate equations are multiplicative in Jᵢ; initial positivity persists. Since 1−S−σRⱼ≥Jᵢ, Riccati comparison gives Jᵢ=O(t⁻¹). Writing B=β₁J₁+β₂J₂, the stable equation for z=1−S gives z=O(t⁻¹), hence Jᵢ′ and B′ are O(t⁻²). Subtracting B/μ from z and γᵢJᵢ/μ from Rᵢ leaves stable equations with O(t⁻²) forcing, using Rⱼ≤z and O(t⁻²) secondary infections. This verifies the four reduced coefficients for the full solution, with multiplicative errors in the aggregates. The balance gives β₁>β₂ and k>0; b₂₁>0 since β₁−σ₁₂γ₁≥μ. With s=log t and uᵢ=tJᵢ, the ratio has log derivative −ku₁+O(e⁻ˢ), so is bounded above and converges after removing the integrable error. In particular u₁≤M u₂; comparison with y′=y(1/2−Cy) bounds u₂ away from zero eventually. A positive limiting ratio would contradict the integrated log derivative. Thus u₁→0 and logistic comparison gives u₂→1/a₂. The reciprocal ratio v solves v′=ku₂+ε(s)v, |ε(s)|=O(e⁻ˢ); the integrating factor gives v=O(1+s) and then v/s→k/a₂. Hence su₁→1/k. For w=u₂−1/a₂ the stable equation has coefficient a₂u₂→1 and forcing asymptotic to −b₂₁/(a₂ks); on scaling by s, the recent convolution has limiting mass one by dominated convergence and the part before s/2 is exponentially small. This gives the stated correction. Frozen verification support was inspected without executing the supplied code; its finite integrations are illustrative.
 
-The closest primary paper is Gavish, arXiv:2412.07536v1 (2024; final SIAM paper 2026), whose focus is coexistence and oscillatory instability for reproduction numbers greater than one. The new statement concerns an analytically distinct disease-free *double critical* regime with a second marginal-competition equality and a logarithmic exclusion law. Chung–Lui (2016) treats local coexistence stability/bifurcation; Kadyrov et al. (2025) treats a distinct variant/wane-immunity formulation. The earlier double-critical logarithmic coefficient was not located in searches of original primary full text, related literature, and published finding records. This does not prove uniqueness. The Chung–Lui full manuscript could not be lawfully retrieved during this check; its abstract concerns another parameter regime, but this is a residual comparison risk. An unknown general critical-competition theorem might yield the same corollary.
+## originality
 
-## Value — PASS
+PASS
 
-The motivated question is the rate and ordering of disappearance of co-circulating strains precisely at the epidemic threshold, where standard linear stability is inconclusive. The additional marginal competition surface produces a non-power-law separation with explicit, initial-condition-independent amplitudes. Resolving the full nonlinear eight-compartment dynamics—including the subleading prevalence correction—provides a concrete quantitative boundary beyond a generic reduction or a finite computation.
+Best-of-knowledge pass for the global full-system two-rate law and the explicit subleading correction on the marginal double-critical surface. The demographic model and competitive normal-form ideas are not new; the closest inspected statements do not supply the asymptotics in this regime with the full-system error controlled.
 
-## Limits
+## value
 
-The result is conditional on two critical basic reproduction ratios and one interaction equality, deterministic well-mixed vital dynamics, and initially positive prevalence of both strains. It makes no quantitative finite-population extinction-time or clinical forecasting claim. Publication venue classification uses primary MSC 92D30 in the 2026 journal article; the 2024 preprint used older author-assigned MSC 92B05. Independent review may uncover broader prior results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In a published deterministic model, the result distinguishes the two strains on a genuine boundary where their linear growth rates coincide. The full-system argument explains why an extra log appears and determines both leading constants and the faster-decaying strain's effect on the other's first correction. It is a global asymptotic statement, not a local linearization or a claim about stochastic elimination times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

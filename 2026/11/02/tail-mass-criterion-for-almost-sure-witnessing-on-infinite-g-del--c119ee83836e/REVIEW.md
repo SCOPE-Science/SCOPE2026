@@ -1,19 +1,21 @@
-# Review of the tail-mass criterion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the full countable Gödel-modal language, the exact selector induction shows that every leaf formula has value equal to either \(0\), \(1\), or the value of one of its finitely many local atoms. This bounds the probability of a dangerous positive value below \(r_n\) by the number of formula variables times \(h(r_n)\). Under summability, the first Borel–Cantelli lemma and a countable intersection handle every formula simultaneously; \(r_n\to0\) makes every possibility supremum attained. Under divergence, the second Borel–Cantelli lemma for one independent atomic column forces a nonattained necessity infimum \(0\). The argument checks equality at the implication threshold, zero-accessibility leaf rows, and boundary values. Standard Borel–Cantelli is explicitly used, not claimed as new.
+PASS
 
-## Originality — PASS within inspected evidence
+Reconstructed RESULT.md lines 43–85. At a leaf all boxes are 1 and diamonds 0; minimum, maximum, and Gödel implication select 0, 1, or one of the finitely many local input values used by the formula. In the summable case apply first Borel–Cantelli to each atom and take the countable intersection first: every formula then has only finitely many strictly positive subthreshold leaf values. Equality with the edge weight contributes 1 to a box, not an exception, and any zero leaf value witnesses the box at once. Summability and positivity of h on positive arguments imply weights tend to zero, so every sequence of diamond candidates tends to zero and its supremum is attained (the zero case uses the root). Conversely for every k the sum of the probabilities of 0<U_n<min(r_n,1/k) diverges, either due to infinitely many r_n≥1/k or by agreement with the original divergent series in the tail. Second Borel–Cantelli on independent leaves and countable intersection give infimum zero for one fixed atom, while all candidates are strictly positive. Countable infima, suprema and witness unions over Borel leaf values give measurable events; root values are irrelevant even at equality. Atoms in μ cause no trouble. The uniform law and the union-bound refinement follow directly. VERIFICATION.md describes analytic checks only; no finite run or formal proof is asserted.
 
-The main 2026 paper defining witnessed fuzzy Gödel models (Ferrari et al., arXiv:2606.31906, Section 2, Fig. 1, and modal calculus sections) was examined from accessible full text, including its definitions and its nonwitnessed example. It studies semantic completeness, a calculus, finite models, and isolated infinite nonwitnessed examples, rather than random valuations or summable lower-tail accessibility. The 2025 open-access crisp witnessed-model paper proves a calculus and the finite model property but does not supply a fuzzy weighted-star probabilistic threshold. Goranko–Kapron's random **classical frames** concern almost-sure formula validity, not a fixed fuzzy frame with random continuous truth degrees. The closest semantic mathematical-record entry concerns regrading on **finite** fuzzy Gödel frames. Targeted literature and research-record searches found no demonstrably covering theorem; absent search hits are not proof of priority. Residual risk: an older probabilistic fuzzy-frame result under different terminology could imply this specialization.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact iff phase transition for whether an infinitely branching, fixed weighted Kripke star produces a witnessed model under stochastic valuations. It distinguishes 'almost every valuation' from 'every valuation,' gives an immediate explicit \(\ell^1\) threshold for uniform atom values, handles all nested formulas simultaneously, and supplies a quantitative tail bound for each formula. This fills a natural semantic gap between witnessed infinite models and explicit unwitnessed infinite examples; it is more than an isolated finite calculation.
+The supported distinct claim is the distribution-sensitive almost-sure simultaneous witnessing threshold on this fixed directed star, not the semantics or general witnessing conditions. No covering result was verified in the closest indexed statements or primary sources read.
 
-## Limits and provenance
+## value
 
-No independent historical-priority check or independent validation has been performed. The theorem does not assert coverage of arbitrary frames, distributions with values of zero, or correlated atom values. The residual priority risk does not change the mathematical proof but calls for external specialist checking prior to publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The iff separates two natural questions (every valuation versus almost every valuation) even on the same infinite fuzzy frame. The criterion is directly testable on the law and row weights, handles discrete laws and all formulas at once, and identifies a single atom certifying failure. The star restriction is essential for the selector mechanism, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The closure is defined by precisely the two-coordinate rectangle implications. Each box is closed, and the absorption lemma explicitly propagates a new symbol across every coordinate of an existing box. An endpoint at distance two produces its two distance-one intermediates. Hence merging boxes at mutual distance at most two is sound; when no such pairs remain, their union is closed, establishing completeness and confluence. The Hamming adjacency components of every closed set force a unique decomposition. The rank-increment inequality for two boxes is at most two because at most two coordinate projections are disjoint. Its lower bound combines with necessary coverage of every alphabet symbol. A matching partition of nonbase symbols between distinct coordinate groups gives an explicit generator meeting both lower bounds. The finite checker independently corroborates selected cases; the proof, not enumeration, covers all parameter values.
+## correctness
 
-## Originality — PASS, qualified
-The most directly related source is Brešar–Valencia-Pabon on ordinary (non-induced) \(P_3\) hull number for Hamming graphs. Ordinary \(P_3\) inference includes pairs of adjacent neighbors inside coordinate cliques; the current induced-path rule does not. Therefore its general Hamming hull formula does not imply the heterogeneous-alphabet sharp generator formula given here. In the binary case the two rules coincide and the minimum-generator formula is already known; this special case is credited, not counted separately as new. Dourado–Penso–Rautenbach study induced \(P_3^*\) closure generally, focusing on complexity in chordal graphs and algorithms on unit interval graphs; examined sections do not cover the coordinate-box normal form or sharp heterogeneous-alphabet formula. Bichoupan's general closure-system complexity results do not supply these formulas. Comparisons covered statement and implication strength, not merely keywords. A more general, differently phrased rectangular-relation result or inaccessible part of the induced-path literature could still subsume the theorem; novelty has not been independently certified.
+PASS
 
-## Mathematical value — PASS
-A broad class of explicit finite Horn theories acquires a canonical, provably merge-order-independent model normal form and an exact optimum generator across all heterogeneous alphabets. The optimum depends quantitatively on symbol multiplicities and distinguishes induced two-step inference from ordinary three-vertex-path inference. This determines motivated structural and optimization invariants of an infinite family, not a numerical exercise or arbitrary small subfamily.
+The implication stays in a box and cannot cross boxes at distance at least three. A new symbol in just one coordinate can be propagated over the base box one distance-one step at a time: the new-symbol word at the old base and the old-symbol word at the next base are the two distance-two premises. For a point at distance two, the first rectangle supplies the two one-symbol extensions, after which both can be absorbed. Traversing a distance-one spanning tree in the second box extends this to the box merge. The resulting greedy process stays in the actual closure and terminates in a closed cover of the seed, so it yields the closure for any merge order. For a closed set the distance-one components are precisely the boxes; the merge lemma rules out components at distance two. This includes the empty union. Coordinate coverage forces k≥1+M, and for a merge the rank Σ(|Bᵢ|−1) increases over the sum of the two ranks by Σ(1−|Bᵢ∩Dᵢ|)≤2, proving the other lower bound. For attainment, if the largest symbol class dominates, pair each other token with a distinct token of that class. Otherwise pair from two largest classes: with n tokens and each class at most ceil(n/2), any class attaining that cap must be among the two selected, so after removal the new cap ceil((n−2)/2) is maintained. The construction yields max(M,ceil(T/2)) groups. With the common base word, the group words generate all one-change words and then all words by the rectangle rule and induction on support. In dimension one this gives exactly q₁, consistent with there being no triggers.
 
-## Limits and comparison risks
-The statement excludes general Horn theories and graph convexities based on longer paths. The author-accessible ordinary-\(P_3\) Hamming paper was examined in full; portions of the closest induced-\(P_3^*\) study were examined, but a complete open full text of every potentially relevant earlier paper was not available. Equivalent results under other algebraic terminology remain a priority risk. Finite checks are not infinite proof and no independent external audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The structural recursion has a strong antecedent in ordinary P₃ convexity: connected hulls factor and nearby subproducts can merge, and in the binary case the two rules coincide. The supported distinct result is the exact induced-P₃ structure with arbitrary coordinate symbol subsets and its sharp heterogeneous generator count. Ordinary P₃ hulls fill an entire clique fibre as soon as there are two symbols in it; that operation is unavailable for induced P₃. The known geodesic result has a different closure and generator count in general.
+
+## value
+
+PASS
+
+Separated product components are a canonical description of the actual implication closure, making the box-merge algorithm exact rather than just an upper bound. The minimum generator formula distinguishes a single large alphabet's supply constraint from the total two-symbol growth budget. Those are natural structural features not detected by the established dimension-only ordinary-P₃ result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

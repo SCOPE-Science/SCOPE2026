@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact \(2k\)-dimensional Jacobian splits by cyclic spatial Fourier transform into \(k\) complex quadratic characteristic factors. The complex Schur–Cohn criterion reduces every factor to a signed quartic \(H(a,\operatorname{Re}\omega)\), minimized at the most negative available spatial cosine. Strict monotonicity in the gain on the relevant interval proves one sharp threshold for every ring size; root-product inequalities control all larger gains. Exact factorization proves the even-ring threshold, the implicit-function theorem yields the odd-ring finite-size law, and implicit root differentiation establishes outward transversality. The standard-library numerical checker passed from the package. **At criticality no nonlinear stability is claimed.**
+PASS
 
-## Originality — PASS within inspected evidence
+At the synchronous equilibrium, t=s(s−1) and a=(s−1)/s. Linearization differentiates the current numerator and lagged squared denominator to a and −2a. Diagonalizing the spatial shift gives all k quadratics lambda²−a omega lambda+2a omega. For a<1/2 the Schur condition is exactly H(a,Re omega)>0. Its minimizing mode(s) have the smallest cosine; the derivative −6a(3−2a Re omega−8a²) is strictly negative throughout this interval, so the sign change determines the unique first threshold. At equality the product has modulus below one, leaving one unit root and one interior root per critical mode, and all other modes are strictly stable. A critical mode is expanding above the crossing up to 1/2 by the strict Schur violation away from equality. Exactly at a=1/2, if neither root expanded their moduli would both equal one and b−conj(b)c would vanish for the quadratic lambda²+b lambda+c; here it is a(2a−omega), nonzero in a critical mode. For a>1/2 expansion follows from the product. The even-case factorization expands correctly and the sole critical multiplier is −1; real unit multipliers are excluded for odd k. Simplicity and the positive radial derivative establish transversality. Differentiating H at a=1/3, u=−1 gives the claimed odd-k asymptotics after converting a to t. The in-phase mode remains contracting until t=2.
 
-The source study treats the three-dimensional recurrence and gives a sufficient stability condition; the current theorem provides a necessary-and-sufficient linear stability classification for every uniform cyclic dimension and a parity law with sharp asymptotics. The primary full text was inspected at its equations, proofs of Theorems 4–6, and conclusion's cyclic extension problem. The older scalar recurrence study treats its \(t=2\) crossing, which has no spatial Fourier modes. Indexed findings on other rational-delay maps and parity-sensitive Gumowski–Mira rings use different characteristic polynomials, so their stated implications do not cover this theorem. Equivalent independently published/unindexed results and a possible general theorem on circulant delayed systems remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The originating work explicitly proposes higher-dimensional cyclic systems, and the theorem completes the fundamental local-stability frontier for their natural symmetric specialization without arbitrarily truncating dimension. It identifies a qualitative parity change (real \(-1\) multiplier versus nonreal conjugate pair), an exact all-even threshold, the three-component threshold beyond the previous sufficient range, and a sharp \(k^{-2}\) odd-dimensional correction. These resolve a meaningful dynamical phase boundary rather than merely improving a decimal estimate.
+The same three-component system, its Jacobian and a sufficient stability region are prior work, as is the in-phase scalar threshold. What survives the comparison is the sharp full-ring threshold, parity-dependent critical spectrum and large-odd-size correction in the stated uniform-gain model. This is not a claim to a new Schur criterion, to introducing the recurrence, or to exhaustive historical priority.
 
-## Scope and limitations
+## value
 
-Claims are for uniform positive coupling and the local stability of the positive synchronous equilibrium. The threshold does not certify a nonlinear flip or Neimark–Sacker bifurcation, global convergence, or a complete recurrent-orbit classification. Broader independent literature coverage remains uncertain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp threshold and the identity of the destabilizing modes resolve what a sufficient norm bound and the synchronous scalar analysis leave open. The parity law separates a single alternating negative multiplier from a genuinely nonreal pair; the strict extension of the stable interval for odd rings and its k^(-2) scale quantify this difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

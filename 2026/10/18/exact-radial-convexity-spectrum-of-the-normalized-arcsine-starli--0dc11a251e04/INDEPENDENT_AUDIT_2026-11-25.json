@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:28:34.784760Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The power series gives Re q(w)≥Q(s)>0 and |q′(w)|≤c/A(s), for s=|w|. Applying Schwarz–Pick to ω(z)/z yields |zω′(z)−ω(z)|≤(r²−s²)/(1−r²), giving the proposed lower bound G_r(s) through the logarithmic derivative identity. The sign of −G′_r(s) is the sign of the stated affine H(r²). Independently, Q(s)=c arccos(s), so cA/Q>s follows from sin x>x cos x for x=arccos(s)>0. Thus H(1)=cA/Q−s>0, and H(s²)=(1−s²)Q+(1−s)²+s(cA/Q−s)>0. This also resolves the harmless strict-inequality slip at s=0 in RESULT.md line 47: the displayed comparison is equality there but its right-hand side is positive. Strict decrease forces s=r; Schwarz equality forces a rotation, and equality in the real-part estimate (already its first series term) fixes w=−r. Integrating zf′/f recovers exactly the claimed normalized extremal aligned to the evaluation point. Q and A decrease, and the numerator cr increases, proving strict radial decrease and both limits. The open disk of radius Rβ has strict order >β, and a larger disk includes an extremal point below β. Independent bisection of (2 arccos(r)/π)²−2r/(π sqrt(1−r²)) confirms 0.538585996535522 rounded. The supplied finite Schwarz-jet diagnostic was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filomat's accessible abstract treats close-to-starlike classes W and W_n and various targets.",
+          "The apple-like result uses e^w sqrt(1+w) and gives the radial order through the classical convexity radius."
+        ],
+        "reasoning": "The accessible Filomat statement does not establish this q and this starlike class. The apple-like calculation is a method analogue, not a general theorem covering the arcsine; the present bound needs its own affine-endpoint positivity and is valid past the zero-order threshold.",
+        "searches": [
+          "Janani–Ravichandran–Sebastian, Filomat article 26750",
+          "Resultary apple-like Ma–Minda exact radial order, da69a52cafc8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–60, VERIFICATION.md and check_arcsine.py",
+        "arXiv:2609.20288",
+        "arXiv:2607.27293",
+        "Filomat article 26750",
+        "Resultary f0dbb9d220ac and da69a52cafc8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Here the additional term zq′(ω)ω′/q(ω) depends on a Schwarz derivative, not just the image or sector of q.",
+          "The general Dieudonné disk supplies a jet bound, but it still leaves a minimization over s∈[0,r]."
+        ],
+        "reasoning": "The whole-class conclusion requires proving for this target that the bound is minimized at s=r and checking sharpness there. Classical Schwarz–Pick and the image theorem alone do not supply that minimization or equality. Inverting the resulting profile is not counted as a separate novelty.",
+        "searches": [
+          "Resultary f0dbb9d220ac and da69a52cafc8, mirrored RESULT.md",
+          "Class definitions in arXiv:2609.20288 and arXiv:2607.27293"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.20288 p. 2 defines the same class by zf′/f subordinate to q.",
+          "arXiv:2607.27293 p. 2 instead subordinates 1+zf″/f′ to q.",
+          "Resultary f0dbb9d220ac studies the exact image and strong starlikeness of the starlike class."
+        ],
+        "reasoning": "Strong starlikeness measures the argument of zf′/f. Direct subordination of the pre-Schwarzian expression defines a different class. Neither is a reformulation of the desired radial infimum.",
+        "searches": [
+          "Normalized-arcsine starlike/convex class and sharp Ma–Minda radial convexity literature",
+          "Resultary same-target arcsine and radial-order comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-target indexed passage is f0dbb9d220ac (exact image and strong-starlikeness order 1/2). The closest profile record is da69a52cafc8 for a different target.",
+          "The inspected Panja et al. passages give definitions and coefficient/Hankel scope, not an exact pre-Schwarzian radius or spectrum entry."
+        ],
+        "reasoning": "Neither adjacent exact invariant supports a table entry for this profile or its root; an unrelated search result was not treated as negative evidence.",
+        "searches": [
+          "Resultary normalized-arcsine convexity radius/radial order and Ma–Minda comparison",
+          "Panja et al., arXiv:2609.20288 and arXiv:2607.27293"
+        ]
+      },
+      "rationale": "The supported distinct result is the full sharp pre-Schwarzian profile of the normalized-arcsine starlike class and the aligned equality classification. Its all-order radii are consequences of that profile. Neither the same-target image and strong-starlikeness law nor the compared radii for different targets and classes give that profile.",
+      "residual_risks": [
+        "The literature review is bounded; the full Filomat theorem text was not available in the inspected material, and an uninspected general sharp-radius result could imply a subcase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same class, different invariants in the passages read.",
+          "evidence": "Defines q=1+(2/π)arcsin z and starlike subordination; states coefficient, logarithmic-coefficient and Hankel problems.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20288",
+          "material_read": "PDF pp. 1–2, abstract and defining passage (offsets 0 and 8842–9355)",
+          "method": "OA PDF passages",
+          "title": "Coefficient estimates and Hankel determinant for the class of leaf shaped starlike function",
+          "trigger": "Same normalized-arcsine starlike class"
+        },
+        {
+          "assessment": "Different subordination class.",
+          "evidence": "Subordinates 1+zf″/f′ directly rather than zf′/f.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27293",
+          "material_read": "PDF pp. 1–2, abstract and class definition near offset 6000",
+          "method": "OA PDF passages",
+          "title": "Coefficient Problems for a Ma-Minda Convex Class Associated with the Normalized Arcsine Mapping",
+          "trigger": "Same mapping with convexity terminology"
+        },
+        {
+          "assessment": "No demonstrated implication from the accessible scope; full-text coverage is not determined.",
+          "evidence": "The abstract describes sharp radii for close-to-starlike classes W and W_n and several targets.",
+          "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/26750",
+          "material_read": "Journal landing-page abstract only",
+          "method": "OA website inspection; no primary theorem passage obtained",
+          "title": "Ma-Minda convexity and starlikeness for certain subclasses of close-to-starlike functions",
+          "trigger": "Plausible broader radius methods"
+        },
+        {
+          "assessment": "Prior image and argument invariant; no pre-Schwarzian jet minimum.",
+          "evidence": "Exact bounded-leaf image and sharp strong-starlikeness order 1/2.",
+          "identifier_or_url": "2026/9/18/SCOPE-exact-arcsine-image-sharp-strong-starlikeness--f0dbb9d220ac",
+          "material_read": "Mirrored RESULT.md, image and sharp order statement, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and mirror",
+          "title": "Exact normalized-arcsine image and sharp strong-starlikeness",
+          "trigger": "Strongest indexed same-target result"
+        },
+        {
+          "assessment": "Analogous invariant for a distinct target and smaller radial range.",
+          "evidence": "Target e^w sqrt(1+w), exact profile through the classical convexity radius.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-convexity-radius-and-radial-order-of-the-apple-like-ma-min--da69a52cafc8",
+          "material_read": "Mirrored RESULT.md finding and scope",
+          "method": "Local Resultary and mirror",
+          "title": "Exact convexity radius and radial order of the apple-like Ma–Minda class",
+          "trigger": "Closest indexed methodological analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp pre-Schwarzian lower envelope is a natural quantitative invariant of this starlike class, resolving the classical transition, all other orders and the extremal geometry. It controls all Schwarz functions and remains exact well beyond the first loss of convexity, so its value is not just a numerical root or a routine inversion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

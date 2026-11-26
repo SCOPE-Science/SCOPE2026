@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph Laplacian has rank \(N-1\); class-permutation invariance and the strict convexity of the squared minimax objective force a one-parameter center. Direct substitution gives two vertex-distance quadratics with a single crossing. Their derivative signs yield the claimed piecewise optimizer; algebra gives both squared-radius formulas and the exact clearance. An independent convex-combination certificate of contact vertices confirms global optimality. The standalone checker rebuilt 138 instances from the original Laplacian vertices, with 77 strict screening cases; its numerical optimization is corroboration, not proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The original 2017 Laplacian-simplex paper develops lattice and Ehrhart questions, not Euclidean minimum enclosing spheres. The 2018 continuation concentrates on code and lattice properties. The closest mathematical research record gives the all-vertex circumsphere only for vertex-transitive graphs; it implies the balanced \(K_{p,p}\) special case but cannot imply the unbalanced class-screening formula. A second record concerns inradii of trees, a different metric and graph family. General minimum-ball convex-combination criteria do not provide the explicit graph-dependent threshold. Searches covered the object name, graph family, vertex-orbit contact sets, equivalent minimum-enclosing-ball terminology, and pseudoinverse/spectral approaches. Further terminology-based prior art remains a residual risk.
+PASS
 
-## Value — PASS
-The result is a complete minimum-enclosing-ball classification across a natural infinite two-parameter family, including a discontinuous change in the number of contacting vertices despite every member having simplex face structure. The exact adjacent transition \(K_{3,13}\) to \(K_{3,14}\) screens fourteen vertices at once, with explicit positive clearance. The result distinguishes the familiar equidistant vertex circumsphere from a genuinely optimal enclosing sphere; the distinction is not captured by lattice invariants or known vertex-transitive cases.
+Connectedness gives ker L=span{1}, so the columns are affinely independent. The maximum squared distance is strongly convex; its unique minimizer lies in the zero-sum plane and is fixed under permutations in the two classes. For c=(a1_p,−pa1_q/q), direct column inner products give D_A=q(q+1)+pNa²/q−2Na and D_B=p(p+1)+pNa²/q+2Npa/q. Their difference is (q−p)(N+1)−2N²a/q. The upper envelope follows D_A up to the crossing a_0, and follows D_B after it. On the latter interval D_B increases; D_A has its minimum at q/p. Thus a*=min(a_0,q/p). At the crossing the common squared distance is the average squared vertex norm plus ||c||², giving the first displayed radius; at q/p, D_A=q²(p−1)/p and D_A−D_B is the stated clearance. Contact weights (1+a)/N and (1−pa/q)/N are nonnegative at the optimum and map under L to c; in the screened case the latter vanish. This also directly certifies the global optimum. The screened-test integer numerator is −2 for (3,13) and 16 for (3,14), hence the cited clearance 16/3. Literal equality in the transition condition cannot occur for the allowed integers: it would force N+1 to divide 2N², thus to divide 2. Its stated contact behavior is a correct boundary description of the scalar minimization, not an actual integer instance.
 
-## Limits
-Only unweighted complete bipartite graphs in full-Laplacian Euclidean coordinates are treated. No statement of independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The balanced radius is prior. The same simplex was studied for other geometric invariants, and a separate composition polytope has a similar two-block transition, but the inspected statements do not cover the exact unbalanced contact criterion and clearance in this embedding. The pass credits only that distinct part of the classification, not the embedding, balanced case, or general minimum-ball principles.
+
+## value
+
+PASS
+
+This is a natural exact Euclidean invariant of a standard family, with a complete classification of which vertices determine the minimal ball. The distinction between an equidistant circumsphere and an optimal ball has a concrete witness at adjacent parameters K_{3,13} and K_{3,14}; the formula also quantifies clearance throughout the latter phase. This is useful information beyond the balanced radius and beyond a numerical convex-hull test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

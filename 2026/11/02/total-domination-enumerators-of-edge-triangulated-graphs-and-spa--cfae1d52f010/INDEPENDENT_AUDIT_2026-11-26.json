@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:54:25.053950Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–96",
+        "verify_total_domination.py, static inspection, lines 13–155",
+        "VERIFICATION.md, verification status fields"
+      ],
+      "rationale": "The original edges are retained. To dominate the new vertex on each edge, the original selected set S must be a vertex cover. Every original vertex outside S then has a selected original neighbor because the base has no isolates. Within S only vertices isolated in G[S] still need selected new neighbors, and their incident edge sets are disjoint, giving precisely the independent nonempty-subset factors and the free factors of the product. In a biclique a cover contains a whole shore. If it also contains vertices of the other shore, all new vertices are redundant; minimality requires exactly one opposite vertex. If the cover is just one shore, exactly one chosen incident new vertex per shore vertex is necessary and sufficient for new-vertex minimality. In each of the four cases every original vertex is also essential, either for the cover condition or to dominate the selected shore. Single-vertex deletion suffices to test minimality by monotonicity. Both-shore covers occur twice only in the full polynomial, where the stated subtraction removes the duplicate. The minimum, maximum and counts follow from the four terms, including tied exponents. For a=2,b≥5 the four exponents are distinct; deleting new vertices first and then the vertices of the size-b shore proves 2-degeneracy. The largest-set fraction has the claimed limit since the competing terms are only quadratic or smaller in b.",
+      "residual_risks": [
+        "The supplied script was not executed. The reported finite enumerations are corroboration, not the basis for the arbitrary-base formula or the biclique classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sigarreta's result for R(G) identifies its minimum total-domination size with the total co-independent domination number of G.",
+          "Bermudo's inspected comparisons concern scalar total-domination quantities for tree operators.",
+          "The general transversal formulation does not give a coefficientwise formula for this incidence structure."
+        ],
+        "reasoning": "Extremal size results do not give the distribution of all sets or the distribution and largest size of inclusion-minimal sets. Tree comparisons do not contain the biclique case.",
+        "searches": [
+          "Sigarreta, Theorem 2",
+          "Bermudo, DOI:10.1007/s00009-022-02236-7, p. 11",
+          "Bahadır–Ekim–Gözüpek, Lemma 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "DOI:10.3390/math9030241",
+        "arXiv:2010.02341",
+        "DOI:10.1007/s00009-022-02236-7",
+        "Local Resultary records cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact minimum is known from the co-independent optimization. The graph-theoretic reason for the product is the disjointness of incident-edge groups at isolated vertices of G[S]; the minimal census further needs the one-shore cover structure and deletion tests."
+        ],
+        "reasoning": "Neither the scalar comparison nor the generic transversal reduction supplies those multiplicities or shows that the four classes exhaust all minimal sets. The spectrum and concentration then follow directly from that census rather than standing as unrelated novelty claims.",
+        "searches": [
+          "Sigarreta, Section 2.2 and Theorem 2",
+          "Bahadır–Ekim–Gözüpek, Lemma 2.1",
+          "Resultary 24085e47f2b4 and d94ae62f6ccd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sigarreta's R(G) is exactly the edge-retaining triangulation, not S(G).",
+          "Lemma 2.1 identifies minimal total dominating sets with minimal transversals of the open-neighborhood hypergraph.",
+          "Resultary d94ae62f6ccd and 24085e47f2b4 operate on full subdivisions and count independent or connected domination, respectively."
+        ],
+        "reasoning": "The abstract transversal identification describes what to count, not the four minimal classes. Neither the construction nor the adjacency constraint can be dropped when comparing the subdivision formulas.",
+        "searches": [
+          "Sigarreta, DOI:10.3390/math9030241, Section 2.2",
+          "Bahadır–Ekim–Gözüpek, arXiv:2010.02341, Lemma 2.1",
+          "Resultary matching terms: edge-triangulation, full subdivision, biclique domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The subdivision records have spectra for different domination notions. Record 5e74ec4276a1 is a total-domination polynomial for K_m×K_n; f6679e0fe594 is a vertex-cover optimization formula for the scalar minimum of a central graph C(G).",
+          "No returned match supplies the R(K_{a,b}) four-term census or the stated R(G) polynomial."
+        ],
+        "reasoning": "The graph operations and counted sets determine the coefficients; a similar index, method or cardinality gap is not exact coverage. The lookup was bounded.",
+        "searches": [
+          "Resultary records d94ae62f6ccd, 24085e47f2b4, 5e74ec4276a1 and f6679e0fe594, Findings"
+        ]
+      },
+      "rationale": "The same operator and scalar minimum are known, and the open-neighborhood transversal representation is standard. The supported contribution is the weighted all-set product and the full inclusion-minimal biclique census and spectrum. The closest inspected operator, transversal and catalogue results do not give that coverage. No separate originality is attributed to the minimum or to the algebraic consequences once the four-term census is given.",
+      "residual_risks": [
+        "No exhaustive priority claim: equivalent earlier enumerators under a different name for the edge-retaining operation or under hypergraph-transversal terminology remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the scalar minimum, not the coefficient formulas",
+          "evidence": "R(G) retains original edges; Theorem 2 states gamma_t(R(G))=gamma_{t,coi}(G).",
+          "identifier_or_url": "DOI:10.3390/math9030241",
+          "material_read": "Section 2.2 and Theorem 2, pp. 4–5",
+          "method": "Lawful OA PDF mirror, offsets 15950 and 16762",
+          "title": "Total Domination on Some Graph Operators",
+          "trigger": "Identical operator and domination parameter"
+        },
+        {
+          "assessment": "General re-expression of minimal sets, not their counts in this family",
+          "evidence": "The lemma identifies minimal total dominating sets with minimal transversals of the open-neighborhood hypergraph.",
+          "identifier_or_url": "arXiv:2010.02341",
+          "material_read": "Lemma 2.1, p. 3",
+          "method": "OA PDF, offsets 9700–10925",
+          "title": "Well-Totally-Dominated Graphs",
+          "trigger": "Equivalent formulation and literature on inclusion-minimal size spectra"
+        },
+        {
+          "assessment": "Different scope and strength",
+          "evidence": "Inspected statements about extremal sizes in tree operators, not an all-sets or minimal-sets count on an edge-triangulated biclique.",
+          "identifier_or_url": "DOI:10.1007/s00009-022-02236-7",
+          "material_read": "p. 11 passage with scalar comparisons and tree corollary",
+          "method": "OA PDF, offset 24000",
+          "title": "Total Domination on Tree Operators",
+          "trigger": "Total domination under related graph operations"
+        },
+        {
+          "assessment": "Different operation and counted property",
+          "evidence": "Independent domination of full subdivisions S(K_{a,b}), not total domination of the edge-retaining graph.",
+          "identifier_or_url": "Resultary d94ae62f6ccd",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Independent domination of subdivided bicliques: exact polynomials",
+          "trigger": "Biclique enumerator and spectrum gaps"
+        },
+        {
+          "assessment": "Different operation and counted property",
+          "evidence": "Connected domination of a full edge subdivision, with sizes b+4 and 2b+2 in the compared family.",
+          "identifier_or_url": "Resultary 24085e47f2b4",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Minimal connected domination of full edge subdivisions",
+          "trigger": "Minimal domination spectrum for a subdivision of K_{2,b}"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 7–42 and 62–96",
+        "Sigarreta, Theorem 2",
+        "Bahadır–Ekim–Gözüpek, Lemma 2.1"
+      ],
+      "rationale": "The natural edge-triangulation operator admits a weighted count at every cardinality, not only a minimum-size reduction. In a natural connected 2-degenerate family the separate minimal census shows arbitrarily long gaps and concentration on the largest size while the minimum remains 3. This is explicit structural information about the distribution of minimal open-neighborhood covers, not a tiny isolated computation.",
+      "residual_risks": [
+        "The weighted product still sums over vertex covers and supplies no general efficient algorithm. The four-class census is for bicliques with both shores of size at least two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

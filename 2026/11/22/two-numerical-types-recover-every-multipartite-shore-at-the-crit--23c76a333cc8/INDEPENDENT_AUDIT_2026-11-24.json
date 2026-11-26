@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:03:45.611718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Universality realizes each induced K_m-free finite extension of the named graph (move its embedded base onto the named one by homogeneity). Any two ordered extensions with the same labelled diagram are conjugate by homogeneity over the named base, and any unequal diagrams differ by an atomic formula. Because the base has clique number ℓ≤m−2, every one-point diagram and every nonadjacent pair diagram is legal, giving 2^n and 4^n respectively. For an adjacent pair only a clique using both new vertices can be forbidden; it needs a common named clique of size m−2. For ℓ=m−2 this means a common neighbor in every shore. The four labels per named vertex have three options other than ‘both’, so the lost adjacent diagrams are precisely the product of 4^a−3^a over the shores. Below this rank none are lost. For the inverse, after comparing products and cancelling shared factors, take the largest unmatched size d≥2. Bang–Zsigmondy applies at d≥2 to (4,3): 4+3 is not a power of two and the sixth-exponent exception is (2,1), not (4,3). The primitive prime at d cannot divide any smaller factor, a contradiction. The total named size then detects the 1-parts (also determined by k after reconstruction of the non-singletons). Even t_2 alone distinguishes critical bases: 4^n<t_2<2·4^n gives disjoint n-ranges, and then the same inverse applies. At n=k,k+1 the partition is unique; at n≥k+2, (n−k+1,1^(k−1)) and (n−k,2,1^(k−2)) are distinct at fixed n, and at the first collision 7²−37=12. The claim of subcritical information loss means no information beyond n, not failure in instances already unique from n and a supplied rank. Section 3 of python /workspace/review_reproduction.py independently enumerates small finite clique-free diagrams, including totals 2011 and 1999 at the first collision; it is not a bound or a proof of number-theoretic rigidity. The package's stored 64-case and partition-census outputs are historical checks, not required for the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general one-type theorem counts K_(m−1)-free induced vertex subsets and therefore covers t_1=2^n in this rank range.",
+          "The biclique inverse uses arity m−2 and applies to exactly two shores. The finite-jet inverse reconstructs maximal multipartite bases in H_(r+1) via several grades of one-point data, not just the two ungraded counts here."
+        ],
+        "reasoning": "The general unary count covers only one axis of the fingerprint. Neither inverse theorem contains the many-shore critical-rank claim on the same observable.",
+        "searches": [
+          "Resultary 7c84dde7c650, Finding",
+          "Resultary 4a1772a85496, Finding",
+          "Resultary 5d62697fc5af, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Henson §2; Conant §3",
+        "Pati Thm. 1 for Bang–Zsigmondy",
+        "Resultary 7c84dde7c650, 8c8e5c9b100b, 4a1772a85496, 5d62697fc5af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximal law is T_2=2U²−B with U=2^N−∏(2^a−1) and B a sum of leave-one-shore-out products. It does not extract the multiset from a single full-product invariant at the critical rank.",
+          "The biclique monotonicity argument does not rule out collisions among arbitrary partitions into k≥3 shores. The classical primitive-divisor theorem supplies a new way to handle that particular combinatorial obstruction product: a largest unmatched exponent has a distinguishing prime."
+        ],
+        "reasoning": "Henson's age/extension criterion and Bang–Zsigmondy give the ingredients, but do not already state an inverse from the two numerical counts. The proof must identify this obstruction product and recognize and use its multiplicative rigidity. The stronger-looking finite-jet theorem uses different input and cannot be specialized by dropping that input.",
+        "searches": [
+          "Resultary 8c8e5c9b100b, displayed U and B in Finding/proof",
+          "Resultary 4a1772a85496 and 5d62697fc5af, detecting data",
+          "Pati, Zsigmondy's Theorem and its Applications, Thm. 1, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-diagram, orbit and complete-type formulations here are equivalent by Henson universality and homogeneity; Conant's optimal realization is adjacent background.",
+          "The maximal multipartite collision law uses the same ordered labelled diagrams and the same factors, but U is restricted and the correction sums over a missing part rather than taking the full product."
+        ],
+        "reasoning": "The difference is the actual ambient clique-rank gap, not a relabeling of variables, parameter naming, or unordered-to-ordered counting. The critical rank leaves all singleton diagrams legal.",
+        "searches": [
+          "Resultary 8c8e5c9b100b, Finding and proof",
+          "Henson, §2, Thm. 2.3",
+          "Conant, arXiv:1401.1570v1, §3, Prop. 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target returned by local Resultary search is itself; the maximal formula and two-shore specialization are different entries.",
+          "The biclique formula gives the same pair obstruction at m=4 (two critical shores), outside the asserted m≥5. The maximal result's correction is a sum of products, and its Finding does not assert this inverse."
+        ],
+        "reasoning": "Here the material exact database check is for symbolic type formulas and inverse theorems. A table of sample partitions or pair numbers would not certify the unbounded product injectivity.",
+        "searches": [
+          "Resultary 7c84dde7c650 and 8c8e5c9b100b, Findings",
+          "Resultary 4a1772a85496 and 5d62697fc5af, Findings"
+        ]
+      },
+      "rationale": "The unary formula and legality criterion are covered, and the factors 4^d−3^d have appeared in a closely related maximal-rank pair census. The distinct claim is all-shore recovery from the two numerical low-arity counts at rank m−2 for m≥5. The strongest inspected inverse results use two shores or a different rank and richer counting data. The classical primitive-divisor theorem is an input, not a novelty claim.",
+      "residual_risks": [
+        "The original 1892 paper was not directly inspected; an accessible exact theorem statement verifies the required cases.",
+        "Same-day record ordering is undetermined, and the inspected sources do not exclude unindexed all-shore inversions or other general enumeration formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers age and homogeneity, not inverse type counts",
+          "evidence": "G_p is homogeneous and its finite induced graphs are exactly the K_p-free graphs.",
+          "identifier_or_url": "https://msp.org/pjm/1971/38-1/pjm-v38-n1-p09-s.pdf",
+          "material_read": "§2, Thm. 2.3, PDF p. 7",
+          "method": "Targeted open-access PDF passage",
+          "title": "A family of countable homogeneous graphs",
+          "trigger": "Foundational diagram realization"
+        },
+        {
+          "assessment": "Supports realization context",
+          "evidence": "Relational diagrams/optimal realizations, not a numerical shore inverse.",
+          "identifier_or_url": "https://arxiv.org/html/1401.1570v1",
+          "material_read": "§3, Prop. 3.4, offset 10800",
+          "method": "Targeted open-access passage",
+          "title": "Forking and dividing in Henson graphs",
+          "trigger": "Optimal-realization formulation"
+        },
+        {
+          "assessment": "Classical theorem supports largest-unmatched-exponent step",
+          "evidence": "For d≥2 neither the d=2 power-of-two sum exception nor (2,1,6) applies at (4,3).",
+          "identifier_or_url": "https://www.awesomemath.org/wp-pdf-files/math-reflections/mr-2025-02/mr_2_2025_zsigmondys_theorem.pdf",
+          "material_read": "Thm. 1, p. 1",
+          "method": "Primary-literature search followed by accessible theorem statement",
+          "title": "Zsigmondy's Theorem and its Applications",
+          "trigger": "Primitive-divisor lemma and exceptions"
+        },
+        {
+          "assessment": "Directly implies the unary count",
+          "evidence": "The nonalgebraic one-types correspond to K_(m−1)-free subsets.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-finite-parameter-1-type-counting-in-henson-graphs-is-p-com--7c84dde7c650",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact finite-parameter 1-type counting in Henson graphs is #P-complete",
+          "trigger": "General 1-type count"
+        },
+        {
+          "assessment": "Maximal-rank count, not critical-rank inverse",
+          "evidence": "Restriction of unary neighborhoods and correction by summed omitted-shore products.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-collision-law-for-two-types-over-maximal-multipartite-paramete--8c8e5c9b100b",
+          "material_read": "Finding and proof, offsets 0–6202; prior work near 6200",
+          "method": "Resultary and local mirror",
+          "title": "A collision law for two-types over maximal multipartite parameter graphs in Henson structures",
+          "trigger": "Closest matching factors and pair census"
+        },
+        {
+          "assessment": "Exact two-shore specialization at m=4 only",
+          "evidence": "Two-shore recovery from (t_1,t_(m−2)) through monotonicity.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-arity-threshold-for-recovering-biclique-parameters-in-hens--4a1772a85496",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp arity threshold for recovering biclique parameters in Henson graphs",
+          "trigger": "Sharp type-arity inverse"
+        },
+        {
+          "assessment": "Different rank and data",
+          "evidence": "Maximal-rank bounded jet of graded singleton counts, e.g. grades 1, 3, 5 at three shores.",
+          "identifier_or_url": "2026/11/22/SCOPE-finite-jet-reconstruction-of-complete-multipartite-henson-type-s--5d62697fc5af",
+          "material_read": "Finding and proof, mirror offsets 0–6079",
+          "method": "Resultary and local mirror",
+          "title": "Finite-jet reconstruction of complete multipartite Henson type spectra and the sharp tripartite threshold",
+          "trigger": "All-shore inverse comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural information-loss question: can mere totals of logical types over named vertices determine the unnamed multipartite structure? At exactly the first allowed clique rank where pairs see a forbidden configuration, one scalar correction is rigid enough to recover arbitrarily many shore sizes. The all-size inverse, rank boundary and sharp first unary collision answer that question, beyond producing another list of counts. No efficient inverse algorithm, arbitrary-base result or general higher-arity classification follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

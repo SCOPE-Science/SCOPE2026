@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:28:34.487751Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(7) and normalization argument; VERIFICATION.md; verify_gap_marks.py; verification_output.txt",
+        "Independent /workspace/branches/replay2.py and /workspace/branches/replay2.txt"
+      ],
+      "rationale": "The shift for stopping at permitted u_j with mark a is sS_{j−1}+a u_j, and forbidding another copy multiplies the partition product by 1−q^{u_j}. Marks telescope to the unmarked count, including n=0. For a<b, the difference kernel has bracket e^(−a x)(1−e^(−(b−a)x))(1−e^(−x)), x=z u_j. Its quadratic term is (b−a)x², with O_s(|x|³) remainder for Re x≥0 (Taylor bounds along the segment to x for |x|≤1, direct boundedness otherwise). For t=Re z and |Im z|≤t^(3/2−δ), |z| is comparable to t. With u_j=j/ρ+O(1) and S_{j−1}=j²/(2ρ)+O(j), summing the Taylor remainder and the replacement errors against a Gaussian gives O(t): the errors are bounded by constants times t³ sum j³ exp(−ct j²) and t² sum j exp(−ct j²). Summing the main x² Gaussian rather than integrating incurs O(t) too, by integrating the absolute derivative of x² exp(−s z x²/(2ρ)) on the positive real axis (this integral is O(t^−1), before multiplying by z²). The complex integral yields (b−a)√(π/2) z^(1/2)/(s^(3/2)√ρ). For coefficient transfer, the eta-product quotient has leading factor ℓ^−1/2 exp(μ/z+(ℓ−1)z/24), μ=π²ρ/6. The modulus deficit off the central arc follows from the product over m≈1/t: for small angles the permit-class cosine deficit is Ω(θ²t^−3); for angles |θ|≥t it is Ω(t^−1) by residue-class geometric sums. In the only resonant subsequences θ→2πh/ℓ, a bounded scaled detuning gives the mean cosine as Re(residue average × integral over [1,2]); this cannot be 1 unless h=0 and detuning is zero, excluded by |θ|≥t. Unbounded scaled detuning gives zero mean cosine. Thus the polynomially bounded kernel leaves the minor arcs exponentially negligible. With t=√(μ/n), phase μ/z+nz has central quadratic term −μθ²/t³, and cubic remainder O(t^(1/2−3δ)) on the stated arc (0<δ<1/6). The same nonzero Gaussian factor cancels in the numerator/denominator, and z^(1/2)/t^(1/2) tends uniformly to 1. This proves the difference on the n^−1/4 scale, not by subtracting two leading marginals. Multiplication by μ^(1/4) gives the claimed C; normalization gives the linear mark profile. Earlier parts have at least s copies, so M_r=M_s iff J_s<r; the sum of the first r coefficients is r(s−r)C/2. An independent exact replay using Euler logarithmic-derivative counts and direct multiplicity-vector enumeration checked 875 mark vectors and 2625 tie counts. Its finite diagnostics are not a proof of the limit. Replay: python3 /workspace/branches/replay2.py; output /workspace/branches/replay2.txt.",
+      "residual_risks": [
+        "All parameters are fixed; the argument is not uniform for growing ℓ or s. At the central mark when s is odd the stated first coefficient is zero, without a claim about the next nonzero term."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner proves a location Weibull limit and local limit for general allowed part sequences, not a marked second term.",
+          "1284bec11d63 has uniform limiting marks and limiting tie probabilities for unrestricted partitions. a7d5664f9d36 treats the joint locations for fixed levels in regular partitions."
+        ],
+        "reasoning": "A continuous location or joint location limit cannot by itself control discrete equality, and a leading mark limit even in the same model would not imply the signed second term.",
+        "searches": [
+          "Wagner, Limit distributions of smallest gap and largest repeated part in integer partitions, Theorem 3",
+          "Resultary: Joint Rayleigh records uniform multiplicity marks least partition gaps",
+          "Resultary: finite size correction marked mex uniform multiplicity first deficient part"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary passages and cited literature above",
+        "Bound RESULT.md prior-work paragraph and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3717532c7cf3 gives a local expansion for the unmarked point mass and a uniform expansion of p_ℓ(n−h)/p_ℓ(n) as an analytic input; it sums the local mass by position residue. Unmarked local mass has already summed over all marks and loses their differences.",
+          "a7d5664f9d36 explicitly does not assert convergence of exact equality events.",
+          "The shifted-count quotient can be used with the known exact identity as an alternate analytic route, but one must combine the four shifts of the differentiating mark kernel, keep its quadratic term through cancellation, and sum with controlled tails."
+        ],
+        "reasoning": "The residue theorem is not a broader marked theorem that specializes to the coefficient. The available analytic inputs make the problem tractable but there is a substantive mark-specific asymptotic calculation, not a parameter substitution in a known law. Same-day dates do not establish precedence.",
+        "searches": [
+          "3717532c7cf3 RESULT.md Finding and Proof equations (2)–(4), mirror offsets 0 and 3069",
+          "a7d5664f9d36 RESULT.md Finding and Proof offsets 0 and 5724",
+          "arXiv:2611.07871v1 Proposition 2.2 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stopping-part factor in Proposition 2.2 is 1+q^m+...+q^{(r−1)m}; choosing q^{am} gives exactly the mark-specific fixed-location generating function.",
+          "M_r=M_s is the partial sum of the mark probabilities over a<r."
+        ],
+        "reasoning": "The exact marked formula is a termwise reformulation of primary prior work. The tie law is a consequence of the mark law, not counted as a separate independent novelty. The inspected fixed-location generating function is not an evaluated asymptotic of that partial sum or difference.",
+        "searches": [
+          "Resultary: least multiplicity gap regular partitions mark deficiency first deficient multiplicity",
+          "Resultary: least r-gap marked multiplicity stopping part exact local law n^-1/4",
+          "arXiv:2611.07871v1 §2, Proposition 2.2 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed coefficient result 3717532c7cf3 gives a sharp n^−1/4 bias indexed by the residue of the stopping part, not by multiplicity, and treats ℓ=2 residue as deterministic.",
+          "No inspected independent result tabulates or states the same explicit mark coefficient. Aggregate moments and run-of-absences laws concern different observables."
+        ],
+        "reasoning": "This is an analytic coefficient, so the pertinent exact match would be a formula or expansion for fixed marks rather than numerical finite-n data. The exact location formula, residue coefficients and other least-gap quantities found do not constitute that expansion.",
+        "searches": [
+          "Resultary: minimal excludant least r-gaps ell-regular partitions marked generating function",
+          "Resultary: r-chain minimal excludant consecutive missing parts exact formula marked chain mex",
+          "Websearch: arXiv 2611.07871 Tejash Bhowmick Meher \"minimal excludant\" \"least r-gaps\" ℓ-regular partitions exact generating function marked location multiplicity"
+        ]
+      },
+      "rationale": "The positive finding is specifically the explicit signed n^−1/4 multiplicity-mark expansion and its equality-event consequence. The paper arXiv:2611.07871v1 already encodes the exact mark counts by splitting its finite geometric sum at the stopping part, contrary to a possible reading of the frozen prior-work paragraph. The exact identity is not credited as original. Location limits, the previously studied leading unrestricted mark law, and the closely related regular-partition residue-bias theorem do not give this coefficient for the actual stopping multiplicity in their statements.",
+      "residual_risks": [
+        "An unindexed marked refinement could give the same coefficient. Related saddle/shift expansions share tools and exact identities; this verdict concerns the asymptotic mark profile, not priority for the counting identity or method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_IDENTITY_ENCODED_NOT_MARK_ASYMPTOTIC",
+          "evidence": [
+            "The proof explicitly expands the allowed multiplicities at the stopping part as a finite geometric sum; it does not in the inspected passages evaluate an asymptotic coefficient for individual marks."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07871v1",
+          "material_read": "§1 abstract and Definition 1.1; §2 Proposition 2.2 and proof, offsets 11800–15295",
+          "method": "OA arXiv HTML",
+          "title": "The minimal excludant and the least r-gaps of ℓ-regular partitions",
+          "trigger": "Identical least-deficient allowed-part definition and exact fixed-location count"
+        },
+        {
+          "assessment": "PRIOR_LOCATION_LIMIT",
+          "evidence": [
+            "Weibull law and local limit for the least deficient allowed part in general Λ-partitions."
+          ],
+          "identifier_or_url": "https://www.finanz.math.tugraz.at/~wagner/limitdist.pdf",
+          "material_read": "Theorem 3, PDF p. 6, offset 17093",
+          "method": "OA author PDF",
+          "title": "Limit distributions of smallest gap and largest repeated part in integer partitions",
+          "trigger": "General leading and local least-gap law"
+        },
+        {
+          "assessment": "CLOSE_ADJACENT_EXPANSION_DIFFERENT_OBSERVABLE",
+          "evidence": [
+            "Its coefficient is for M modulo ℓ and its local law for M alone; (3) controls the shifted partition-count quotient rather than giving the mark law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-arithmetic-bias-in-least-gaps-of-regular-partitions--3717532c7cf3",
+          "material_read": "RESULT.md Finding, Assumptions, Proof §§1–4, offsets 0 and 3069",
+          "method": "Local mirror",
+          "title": "A sharp arithmetic bias in least gaps of regular partitions",
+          "trigger": "Same model and n^−1/4 correction scale"
+        },
+        {
+          "assessment": "PRIOR_MARK_LIMIT_NOT_CORRECTION",
+          "evidence": [
+            "States exact counts, a uniform limiting mark and tie limit r/s in the unrestricted model."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-joint-rayleigh-records-and-uniform-multiplicity-marks-for-least--1284bec11d63",
+          "material_read": "RESULT.md Finding and Proof at offset 0; Relationship and Limitations at 6409",
+          "method": "Local mirror",
+          "title": "Joint Rayleigh records and uniform multiplicity marks for least partition gaps",
+          "trigger": "Same mark statistic and equality events in unrestricted partitions"
+        },
+        {
+          "assessment": "PRIOR_JOINT_LOCATION_LIMIT_NOT_TIE_REFINEMENT",
+          "evidence": [
+            "Joint limit and exact survivor formula; no assertion of discrete equality-event convergence."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-joint-least-multiplicity-gap-laws-for-regular-partitions--a7d5664f9d36",
+          "material_read": "RESULT.md Finding at offset 0 and Proof at 5724",
+          "method": "Local mirror",
+          "title": "Joint least-multiplicity-gap laws for regular partitions",
+          "trigger": "Joint locations in the same ensemble"
+        },
+        {
+          "assessment": "AGGREGATE_UNMARKED_COUNTS",
+          "evidence": [
+            "Gives the aggregate sum over least r-gaps for partitions, not the mark coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.05960",
+          "material_read": "§1 PDF pp. 2–3, offset 4156",
+          "method": "OA PDF",
+          "title": "Bisected theta series, least r-gaps in partitions, and polygonal numbers",
+          "trigger": "Earlier least-r-gap counts and identities"
+        },
+        {
+          "assessment": "ABSTRACT_DESCRIBES_LOCATION_MOMENTS",
+          "evidence": [
+            "The stated focus is moments of the least s-gap in unrestricted partitions, not multiplicity at that gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.31104",
+          "material_read": "Abstract, offset 0",
+          "method": "OA arXiv HTML",
+          "title": "On the Moments of Least s-Gaps of Partitions and a Conjecture of Baruah and Talukdar",
+          "trigger": "Search hit on least-s-gap asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen difference-kernel and tie derivations; primary fixed-location formula and prior regular joint-limit comparison"
+      ],
+      "rationale": "The leading uniform mark law or continuous locations miss a systematic signed difference between early multiplicities. The first correction has a sharp nonzero constant for every comparison of distinct marks and quantifies positive coalescence relative to r/s for every fixed 1≤r<s. This is information about a discrete equality event, not merely an improved error bar on an existing limit or a rebranding of the known exact generating function.",
+      "residual_risks": [
+        "This is a fixed-parameter first correction, not a general locality or all-orders result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

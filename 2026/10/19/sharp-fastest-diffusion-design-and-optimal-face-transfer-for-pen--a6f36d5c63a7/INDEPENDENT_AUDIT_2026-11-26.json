@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:25:39.843480Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Vertex and edge transitivity give respectively P_ii=k/n and edge leverage k mu/m for the k-dimensional base Fiedler projector P. The lifted mean-zero vectors (r phi,(1+r) phi) therefore have summed energy kB/n and summed squared norm k[r^2+(1+r)^2], proving the budget upper bound for any assignment, even one with zero rates. With b=b_* constant, a base weighted eigenvalue xi yields a 2x2 block with eigenvalues (xi+2b +/- sqrt(xi^2+4b^2))/2. The lower branch is strictly increasing, starts at zero, and stays below b; the upper branch is at least 2b. At xi=a_* mu the lifted vector has eigenvalue lambda_* on the lower branch (it is below b_*), and the candidate meets the budget since mt a_*/(n lambda_*)=2r^2+r. Every optimal assignment must saturate each individual Rayleigh inequality. Its leaf equation forces b_i=b_* because for each vertex some Fiedler basis vector has a nonzero coordinate there. Then the budget fixes total base rate, and the block formula reduces the gap criterion to exactly base gap optimality, including the disconnected cases. On the cycle the imaginary parts of the first Fourier mode equation force equality of neighboring edges; on the clique all mean-zero directions must have the same eigenvalue, determining the full matrix. The positive uniform solution and both class expenditure fractions are as stated; no general uniqueness of base weights is needed. The recorded 4209 checks were inspected as finite illustrations, not rerun or used as universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first supplies continuous-time weighted-budget Laplacian optimization; the second supplies geometric rate bounds with other normalizations. The cited corona spectral result was not retrievable in full; the uniform-leaf block decomposition is independently established from the matrix."
+        ],
+        "reasoning": "The general variational framework permits deriving certificates, but does not itself identify this optimal set, and uniform-leaf spectral decomposition assumes the property that must first be proved for unrestricted optimizers.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis 2006 §§1.1–1.2",
+          "Olesker-Taylor–Zanetti DOI 10.1007/s00440-023-01257-x §4.1",
+          "Barik–Pati–Sarma DOI 10.1137/050624029 cited Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "Resultary 638ad6225b9e, eed5b428788a and 6de3873d5eaa",
+        "Sun–Boyd–Xiao–Diaconis 2006",
+        "Olesker-Taylor–Zanetti 2024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two records' unrestricted-cycle arguments do not handle a general base with an arbitrary possibly non-singleton optimal set. Averaging alone proves existence of a symmetric optimum, not constancy of leaves across all optima."
+        ],
+        "reasoning": "The projector equality certificate adds the nonvanishing coordinate fact needed to force all individual pendant rates, then identifies the exact surviving base set by the strict spectral branch. This is not an implication of merely optimizing the symmetric family or knowing the general value.",
+        "searches": [
+          "Compare eed5b428788a proof and 638ad6225b9e unrestricted cycle equality with frozen §§3–4 and the general continuous-time Laplacian problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sunlet result converts by setting pendant price to 1/t and multiplying the unit-budget solution by B/t. The transitive corona record with common prices P=t and Q=1 has c=dP/(2mu)=r^2."
+        ],
+        "reasoning": "The former exactly covers the C_n statement, including rigidity. The latter covers the general optimum value and rates under the same unrestricted design problem, but only gives unrestricted rigidity on cycles, not the equality characterization for all allowed base graphs.",
+        "searches": [
+          "Resultary: priced continuous-time fastest mixing one-leaf transitive coronas and sunlet unrestricted optimizers",
+          "Records 638ad6225b9e and eed5b428788a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is an exact catalogue match for the scalar value and uniform design on general transitive one-leaf coronas. A separate indexed sunlet result optimizes discrete-time stochastic SLEM and is not a match."
+        ],
+        "reasoning": "The continuous-price scalar match is material, independent of archive chronology. A scalar value/rate table cannot establish which arbitrary weight vectors saturate the bound.",
+        "searches": [
+          "Resultary: exact price-optimal gap corona, exact sunlet allocations, all-optima rigidity",
+          "Records eed5b428788a, 638ad6225b9e, 6de3873d5eaa"
+        ]
+      },
+      "rationale": "Pass is for the supported distinct contribution: the characterization of every optimizer for general vertex- and edge-transitive bases, including forced uniform leaves and exact transfer to the full base optimal set. The cycle formula and unrestricted cycle uniqueness are explicitly covered; the general value and invariant rates also have a near-identical indexed counterpart. Neither is counted as distinct content against those comparators.",
+      "residual_risks": [
+        "Archive ordering alone does not decide priority, including for the matching scalar formula.",
+        "Barik–Pati–Sarma full text unavailable; a general optimal-set or equality theorem outside sources inspected cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT COVERAGE ON CYCLES",
+          "evidence": "Independent base and leaf rates are optimized; exchange of price units gives the same theorem for C_n.",
+          "identifier_or_url": "2026/10/13/SCOPE-unique-price-optimal-fastest-mixing-on-sunlet-networks--638ad6225b9e",
+          "material_read": "Mirrored Finding and Proof §§1–4, offsets 0 and 4794",
+          "method": "Configured Resultary search and mirror inspection",
+          "title": "Unique price-optimal fastest mixing on sunlet networks",
+          "trigger": "Exact cycle optimum and unrestricted equality"
+        },
+        {
+          "assessment": "EXACT VALUE OVERLAP, NO GENERAL ALL-OPTIMA SET",
+          "evidence": "The common-price formula reduces exactly to the frozen value, with unrestricted uniqueness stated for cycles.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-price-optimal-continuous-time-mixing-on-transitive-one-lea--eed5b428788a",
+          "material_read": "Mirrored Finding and Proof §§1–4, offsets 0 and 5043",
+          "method": "Configured Resultary search and mirror inspection",
+          "title": "Exact price-optimal continuous-time mixing on transitive one-leaf coronas",
+          "trigger": "Near-identical stated graph class and objective"
+        },
+        {
+          "assessment": "DIFFERENT PROBLEM",
+          "evidence": "Stochastic discrete-time matrices and SLEM, not the weighted-budget Laplacian gap.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa",
+          "material_read": "Mirrored Finding",
+          "method": "Configured Resultary search and mirror inspection",
+          "title": "Exact fastest mixing on sunlet networks",
+          "trigger": "Same graph family and fastest-mixing terminology"
+        },
+        {
+          "assessment": "FRAMEWORK",
+          "evidence": "The paper formulates the positive linear cost constraint and maximization of the second Laplacian eigenvalue.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Primary §§1.1–1.2, pp. 681–683, OA offsets 0 and 3924",
+          "method": "Read primary PDF passages",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "General weighted-budget formulation"
+        },
+        {
+          "assessment": "NO EXACT CORONA DESIGN FROM INSPECTED BOUND",
+          "evidence": "A diameter-based existence bound rather than equality and all-optimizer structure.",
+          "identifier_or_url": "https://doi.org/10.1007/s00440-023-01257-x",
+          "material_read": "Primary §4.1, Thm. 4.1, p. 1053, OA offset 104808",
+          "method": "Read primary PDF passage",
+          "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+          "trigger": "General continuous-time bounds"
+        },
+        {
+          "assessment": "FULL TEXT NOT VERIFIED",
+          "evidence": "The needed block decomposition for constant leaves follows directly from the frozen matrix, not from assuming the full text's contents.",
+          "identifier_or_url": "https://doi.org/10.1137/050624029",
+          "material_read": "No primary Theorem 3.2 passage retrieved",
+          "method": "Lawful OA attempt returned 403; no accessible repository copy identified",
+          "title": "The Spectrum of the Corona of Two Graphs",
+          "trigger": "Cited unweighted corona spectral transformation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact allocation alone could conceal qualitatively different asymmetric optima. The full transfer shows where all freedom in the design resides and which rates cannot change even in a symmetry-unconstrained solution. This is a structural characterization that remains useful despite exact overlap on the cycle specialization and general scalar value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

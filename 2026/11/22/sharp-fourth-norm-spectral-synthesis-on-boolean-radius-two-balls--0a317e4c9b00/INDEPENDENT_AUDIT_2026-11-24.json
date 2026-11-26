@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:13:48.512713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–85; VERIFICATION.md and check.py inspected, not executed",
+        "/workspace/review_evidence/algebra.py, Walsh block"
+      ],
+      "rationale": "By character modulation the supremum of the Fourier max-to-fourth-norm ratio equals that for the zero-frequency numerator, and scaling normalizes sum f=1. With this normalization the fourth-power objective is coercive and strictly convex on the finite-dimensional complex affine space (injective Walsh transform), so its unique minimizer is fixed by complex conjugation and by the permutation group of the m=d+1 parity coordinates. Under x→(x,sum x), the support becomes exactly zero and the complete edge shell. The two real orbit coefficients are 1-u and u/binom(m,2). Uniform sign vectors count each character twice; the edge sum ((sum eta_i)^2-m)/2 gives the stated t_j and counting factor 2^(-d/4). The real quartic is strictly convex and coercive, with derivative -4 at zero, so the cubic has one root u>0. Independently expanded the moment-generating polynomial of sum eta_i and recovered the second, third and fourth edge moments and the polynomial for M'_m(1); its sign is positive for m=3,4,5 and negative for m>=6. The support indicator is optimal precisely for m=3,4, since its normalized derivative is -32(m-4)(m-3)(m-2)/(m^2-m+2)^3. Jensen and the u=1 competitor imply |u_m-1|=O(1/m). From the exact edge moments, mt has moments through degree four tending to (1,0,2,8,60), so the rescaled objective converges uniformly on bounded v=m(u-1) to Q(v). Comparing the bounded minimizers with every fixed v, all subsequential limits minimize the strictly convex Q, with unique minimizer satisfying v^3+6v-8=0. This also gives the exact asymptotic prefactor. Every extremizer is consequently a modulation and scalar of the unique zero-frequency profile, and all such profiles attain the ratio. Exact replay: python3 /workspace/review_evidence/algebra.py (SymPy; Walsh block).",
+      "residual_risks": [
+        "Counting rather than probability Fourier norms matter; the theorem is for the full radius-two support, not incomplete two-shell subsets or other norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison identifies an exact transitive-affine-support indicator formula in Iosevich–Li–Yu and general inequalities in Bhowmik–Deodhar–Iosevich; the primary passages were not retrieved. The Hamming ball spectra abstract is about adjacency eigenvalues/eigenfunctions. The line-pencil record concerns unions of concurrent finite-field lines."
+        ],
+        "reasoning": "An exact formula conditional on affine transitivity would enforce the indicator, which the unique normalized optimizer here rules out for d>=4. General bounds, adjacency spectra or concurrent-line support formulas do not give the complete-edge fourth moment optimization.",
+        "searches": [
+          "arXiv:2609.25404 and 2508.12194, finite spectral synthesis; arXiv:2411.14597, Hamming ball spectra",
+          "Resultary concurrent-line synthesis 87d7ea89b8bb"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c3162aa6321 mirrored RESULT.md Finding and scope (offset 0–2600)",
+        "Resultary entries 0a317e4c9b00 and 87d7ea89b8bb",
+        "Frozen prior-work citations for arXiv:2609.25404 and 2508.12194; index abstract for 2411.14597"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparable formula minimizes E|Z_m^2-u| divided by a square root of its second moment, restricting u to a finite zero-level grid. The frozen normalized maximization instead minimizes an unnormalized Fourier fourth moment at fixed DC and yields the smooth cubic, center sign transition and v determined by v^3+6v-8=0."
+        ],
+        "reasoning": "One cannot substitute a zero-level index or transfer the l1/l2 stationarity law to recover the optimizer of the smooth quartic. Common orbit symmetry and moment limits explain why the same quadratic appears but do not supply the norm-dependent results.",
+        "searches": [
+          "Resultary 2c3162aa6321 exact Finding and assumptions; frozen RESULT.md lines 45–81 and 87–99"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parity embedding identifies the support with origin plus weight-two vectors in the (d+1)-cube; each restricted character has two ambient extensions, changing a counting linfinity/l4 ratio by a factor 2^(-1/4). The strongest distinct record's exact Finding instead defines FR as l1/l2, with both norms counting and the inputs radial."
+        ],
+        "reasoning": "Ambient/group conventions or the parity isomorphism change multiplicities, not the norm functional. The equivalent support and Gaussian statistic do not make those optimized ratios equivalent.",
+        "searches": [
+          "Resultary: direct radius-two Walsh synthesis; two-shell Krawtchouk formulation; even-subspace edge representation; complete-edge quadratic moments",
+          "Resultary 2c3162aa6321 exact-ID query including infinity ell4 and Gaussian limit; mirrored Finding offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned claim appears under the same ID 0a317e4c9b00. In the competing record the exact finite formula minimizes over Krawtchouk zero levels u=(m-2j)^2/m, and its asymptotic normalized squared l1/l2 ratio is 0.301869177854…, with threshold parameter t_*^2=0.230261747765929…."
+        ],
+        "reasoning": "The competing closed formula and its numeric limit are for a different optimized energy. Neither is a table of the l4-optimal cubic parameters or sharp constants at any dimension. The self-match is not a distinct antecedent.",
+        "searches": [
+          "Resultary: 0a317e4c9b00 exact radius-two result; 2c3162aa6321 exact-ID two-shell result with primary mirrored offset 0"
+        ]
+      },
+      "rationale": "The strongest distinct same-day Resultary hit really does use the same edge-shell representation and a Gaussian quadratic model, but its full Finding defines an infimum of counting l1/l2 on a radial two-dimensional input space. That is not this sharp counting linfinity/l4 synthesis, which starts on the entire supported complex space and has a different finite optimizer and limiting moment equation. No priority claim is needed. General finite synthesis and transitive-support background provide methods, not the nonuniform profile, threshold or asymptotic read here.",
+      "residual_risks": [
+        "A fuller audit of the cited general synthesis papers was limited by OA access. An unlocated earlier l4 synthesis result in the equivalent even-subspace formulation is not ruled out; the most concrete catalog overlap has been resolved at the statement level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified different norms, objective and equality equation despite equivalent support representation. No claim of relative posting priority.",
+          "evidence": [
+            "FR := counting l1/l2; infimum over the two-dimensional space a1_{0}+b1_{|x|=2}; minimum at Krawtchouk zero-level indices; limiting normalized squared ratio about 0.30186918"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-boolean-two-shell-fourier-ratio-and-its-unique-gaussian-li--2c3162aa6321/RESULT.md",
+          "material_read": "Full Finding and start of Assumptions and scope, character offsets 0–2600 of RESULT.md",
+          "method": "Exact-ID local mirror; literal locate at 0.301869177854 followed by bounded passage read",
+          "title": "Sharp Boolean two-shell Fourier ratio and its unique Gaussian limit",
+          "trigger": "Strongest same-day match: same edge-shell support, sharp formula, complex equality, Gaussian quadratic optimizer"
+        },
+        {
+          "assessment": "Available comparison describes indicator results for affine-transitive support and general bounds; no whole-paper exclusion",
+          "evidence": [
+            "The stated indicator theorem would not produce an optimizer with a distinct and eventually negative center coefficient"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25404",
+          "material_read": "Frozen prior-work comparison, RESULT.md lines 87–99; no primary passage retrieved",
+          "method": "Lawful OA retrieval attempts timed out",
+          "title": "Spectral synthesis with the complexity parameter in Z_N^d",
+          "trigger": "Potential same-ratio exact synthesis theorem"
+        },
+        {
+          "assessment": "Available comparison describes general finite synthesis inequalities, not evidence of this exact ball optimizer",
+          "evidence": [
+            "No matching sharp dimension-dependent statement was located in the material inspected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.12194",
+          "material_read": "Frozen prior-work comparison, RESULT.md lines 87–99; no primary passage retrieved",
+          "method": "OA full-text retrieval unavailable",
+          "title": "On spectral synthesis in Z_N^d",
+          "trigger": "Potential broader synthesis inequality or exact formula"
+        },
+        {
+          "assessment": "Different spectral invariant in the abstract; not a full-text exclusion",
+          "evidence": [
+            "Adjacency eigenvalues/eigenfunctions of Hamming-ball-induced subgraphs and adjacent sphere unions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.14597",
+          "material_read": "Search-index abstract text",
+          "method": "Literature index passage",
+          "title": "Eigenvalues and eigenfunctions of a Hamming ball",
+          "trigger": "Same Hamming domain; possible spectral equivalent"
+        },
+        {
+          "assessment": "First is the same record; the other exact synthesis result is for a different support family",
+          "evidence": [
+            "Concurrent-line support versus complete even-parity edge support"
+          ],
+          "identifier_or_url": "Resultary 0a317e4c9b00 and 87d7ea89b8bb",
+          "material_read": "Indexed summaries and frozen Finding identity comparison",
+          "method": "Local Resultary search",
+          "title": "Sharp fourth-norm spectral synthesis on Boolean radius-two balls; Universal sharp fourth-power Fourier synthesis on finite-field line pencils",
+          "trigger": "Exact assigned hit and nearby sharp fourth-norm synthesis result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Independent moment, center-sign and asymptotic checks"
+      ],
+      "rationale": "The radius-two Hamming ball is a standard finite Fourier support and the sharp synthesis ratio is a pre-existing exact-norm question. The result goes beyond using visible coordinate symmetry: the parity embedding forces the two noncentral layers together even though the indicator stops being optimal. The exact low-dimensional sign boundary and all extremizers determine when positivity can or cannot be imposed without losing the sharp constant, and the chi-square quartic fixes a sharp asymptotic coefficient rather than only order of growth.",
+      "residual_risks": [
+        "The methods are specialized to the radius-two edge orbit and do not claim results for general radii or norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

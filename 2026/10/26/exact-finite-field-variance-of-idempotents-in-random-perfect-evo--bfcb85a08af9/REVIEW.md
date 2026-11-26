@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Transitivity of the general linear group gives the first moment and simultaneous-fixing probability for two independent pairs. Collinear distinct candidate idempotents cannot coexist. The only second-moment deficit comes from linearly independent vectors with dependent coordinatewise squares. The support-and-sign count in odd characteristic and Frobenius-semilinear argument in even characteristic rigorously give the formula for every allowed prime power and dimension. Ten direct finite-field enumerations agree; they are not treated as an infinite proof.
+## correctness
 
-**Originality — PASS.** Remark 23 of Kaygorodov–Martín González–Viruel (arXiv:2610.22248v1) establishes the mean, not the odd-field second moment. Their generic-Galois conjecture predicts a large-field distribution, not the finite-field variance. Jain's random-polynomial binomial law has a different coefficient sample space. The previously known characteristic-two distribution implies the even case, which is not asserted as novel by itself. Formula/equivalence searches found no exact odd-field variance coverage. A hidden equivalent in older finite-field fixed-point literature remains possible; the 2023 isomorphism-class paper was assessed only at abstract level.
+PASS
 
-**Value — PASS.** A universal exact variance across odd finite fields measures a natural, nontrivial fluctuation of idempotent counts and pinpoints the precise square-dependence obstruction. The parity transition and quantitative large-field correction make the result directly informative for current random-evolution-algebra and generic-Galois questions, without claiming to resolve the latter.
+Write Q=q^n. Each x≠0 is an idempotent with probability 1/(Q−1) by transitivity on nonzero vectors. Distinct collinear vectors x and tx cannot both work, since then t²=t with t≠0,1. Among the (Q−1)(Q−q) ordered independent pairs, exactly those with dependent coordinatewise squares must be discarded; each remaining pair has joint probability 1/((Q−1)(Q−q)). With mean one this factorial moment is the variance. In characteristic two, squaring is an automorphism and preserves independence. In odd characteristic, for x with r nonzero coordinates, a proportional squared y has (q−1)/2 possible square ratios and 2^r sign patterns per ratio; exactly two patterns give collinear y. Summing binomially over support sizes gives (q−1)((2q−1)^n−2q^n+1)/2 excluded pairs. The r=2 term gives strict positivity of the defect, its expansion gives (2^(n−1)−1)q^(1−n)+O_n(q^(−n)), and n=1 gives the unique nonzero solution x=M^(-1). Independently looping over determinant-nonzero 2×2 matrices and counting solutions among nonzero pairs gives histograms 0:16, 1:20, 2:8, 3:4 over F3 and 0:60, 1:90, 3:30 over F4 (replay with F2[t]/(t²+t+1)), confirming 5/6 and 1. Inspected frozen verification notes and script without executing the uploaded script; the proof covers the universal claim, not the finite checks.
 
-**Limitations.** The theorem gives no odd-characteristic full distribution or independent audit; its sampling law is uniform over invertible structure matrices, not algebra isomorphism classes. The characteristic-two comparison is not asserted as independent novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier mean and the earlier full characteristic-two distribution, not those moments as new. The supported distinct content at the frozen record's date is the uniform all-n exact odd-characteristic variance defect. A distinct November 2 Resultary record states the equivalent general formula and is recorded as direct coverage in the current catalog, not precedence over the October 26 finding. The inspected passage in that later record does not point to earlier coverage of the odd-characteristic formula. No earlier equivalent or mechanically stronger odd-characteristic theorem was identified in the checked material.
+
+## value
+
+PASS
+
+The uniform invertible ensemble and the second factorial moment are motivated by an existing fixed-point prediction. The exact finite-field correction isolates an odd-characteristic obstruction due to square-map projective collisions, distinguishes finite from limiting behavior, and gives the size of the discrepancy uniformly in dimension and field size. This is useful independently of a full distribution and is not a recomputation of the known mean or characteristic-two law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

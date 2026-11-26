@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:30:46.604639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated semantics all connectives preserve persistence under taking substates, including the modal clauses by their pointwise support. If every neighborhood of a contains a and {a} itself is a neighborhood, persistence gives E(theta) iff theta at a. At {a} the propositional clauses depend only on their subformulas there (implication checks also the empty state, which supports both formulas). Induction therefore gives locality at a for all atoms and all nesting depths. Both neighborhood families in the witness are upward; fixed p(a)=1 makes ?p true on {a} in both models, but {a,b} supports ?p exactly in the valuation with p(b)=1. Thus top implies ?p in the strict neighborhood sense differs while the existential fragments agree. On one world the empty neighborhood family makes the conditional vacuously true, and the only nonempty family makes it ordinary implication at the singleton. The displayed elimination formula expresses this split, is supported at the empty state as well, and can be substituted recursively. Independent semantic replay `python3 /workspace/audit_recompute.py 4` computed the closed set of 13 joint support denotations with local atomic agreement for the fixed two-world frame, checked the separating states, and checked the elimination table on both singleton frames. The structural proof covers the full language and proves minimality; the finite closure is corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.5 is an elimination using the universal modality over downward-monotone models.",
+          "The four-world convex result separates both unary modalities, but its two constant families are {U,V0} and {U,T,V0} with U strictly contained in T and V0 incomparable. They omit the greatest state and are not upward-monotone."
+        ],
+        "reasoning": "A stronger fragment separation on a larger class does not give separation on an arbitrary smaller class. The four-world witnesses are not in the smaller class, and upward-closing them erases their difference because T is already a superset of U.",
+        "searches": [
+          "Ciardelli Propositions 4.3 and 4.5 and Corollary 4.4",
+          "Resultary 2026/10/18/d9e65b2475b4 Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Ciardelli, DOI:10.1007/s10849-025-09440-0, §4",
+        "arXiv:2411.04031",
+        "Resultary 2026/10/18/d9e65b2475b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-model argument distinguishes a model from its upward closure by a binary conditional and uses existential-fragment upward invariance. The unclosed endpoint need not be upward-monotone.",
+          "The related convex result has the same valuation in both models and identical upward closures."
+        ],
+        "reasoning": "Neither comparison produces two upward-monotone models separated by the conditional. The new proof uses instead one fixed upward frame and a changed remote valuation invisible to the existential fragment. Singleton elimination supplies an independent sharpness direction.",
+        "searches": [
+          "Published Ciardelli PDF p. 16, Proposition 4.3 and Corollary 4.4",
+          "Convex companion Resultary RESULT.md offsets 3056–4829"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published PDF p. 17 asks the same translation question as the first of two questions; the arXiv p. 15 formulation is a conjecture.",
+          "Corollary 4.4 proves separation on arbitrary models, not on this subclass."
+        ],
+        "reasoning": "The absence of a translation is proved by two points indistinguishable in the entire unary existential fragment. Expressing this as upward-closure invariance instead would not suffice on frames already upward-closed.",
+        "searches": [
+          "Ciardelli Open Problem 4.6 upward-monotone existential-only binary neighborhood conditional",
+          "Resultary: exact two-world title and Ciardelli upward-monotone existential-only queries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed near hit is the four-world convex result d9e65b2475b4, with the different explicit neighborhood families in its proof. Its prior-work discussion mentions an existential-only upward-monotone separation without identifying a separate record."
+        ],
+        "reasoning": "The matched witness is not the requested two-world same-frame pair and does not yield a singleton lower bound; a cross-reference without a source identity is not evidence of a second equivalent result.",
+        "searches": [
+          "Resultary: two-world upward-monotone minimal existential-fragment countermodel",
+          "Resultary: four-world convex neighborhood separation of binary inquisitive conditional"
+        ]
+      },
+      "rationale": "The first of the published Open Problem 4.6 questions is exactly this existential-only/upward-monotone question. The distinct two-unary/convex result was compared at the level of its actual frames, not excluded by date or its headline. Its witnesses do not provide an upward-monotone separation. No inspected result supplies the same-frame two-world obstruction or one-world elimination.",
+      "residual_risks": [
+        "The companion's unspecified reference to an upward-monotone separation may refer to this finding; the checked text does not establish a distinct equivalent source.",
+        "Targeted searches do not rule out an independently obtained or unindexed equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses the exact first question but the neighboring results have different hypotheses or direction",
+          "evidence": [
+            "The first question names the existential modality and upward-monotone models; the separate question names both unary modalities and convex models."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10849-025-09440-0",
+          "material_read": "Published PDF pp. 16–17: Prop. 4.3, Cor. 4.4, Prop. 4.5 and Open Problem 4.6 (text offsets 45350–51332)",
+          "method": "OA PDF passage inspection",
+          "title": "Inquisitive Neighborhood Logic",
+          "trigger": "Exact published open problem and potential neighboring solution"
+        },
+        {
+          "assessment": "Same scope and problem wording by substance",
+          "evidence": [
+            "The nonempty worlds and nonempty neighborhood members agree with the assumptions; the open question appears as a conjecture in this version."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.04031",
+          "material_read": "PDF p. 9 model definition and p. 15 conjecture (text offsets near 28500 and 48000)",
+          "method": "OA PDF passage inspection",
+          "title": "Inquisitive Neighborhood Logic (preprint)",
+          "trigger": "Match semantics and versioned source question"
+        },
+        {
+          "assessment": "Distinct witness for the second question",
+          "evidence": [
+            "U={a}, T={a,b}, V0={a',b,c}; families {U,V0} and {U,T,V0} have the same upward closure.",
+            "The prior-work passage distinguishes the two questions and does not provide an identifier for the referenced upward-monotone separation."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-four-world-convex-neighborhood-separation-of-the-binary-inquis--d9e65b2475b4",
+          "material_read": "Local mirrored RESULT.md finding, Proof offsets 3056–4829, and relationship to prior work around offset 7600",
+          "method": "Local mirrored record passage inspection",
+          "title": "A four-world convex neighborhood separation of the binary inquisitive conditional",
+          "trigger": "Strongest indexed related separation, with both unary modalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves an explicit published expressivity question and identifies the obstruction: persistence turns existential neighborhood inspection into evaluation at the generating singleton, whereas the binary modality can test whether a larger neighborhood settles an atom. The one-world translation makes the countermodel size optimal. The separate question over convex frames with both modalities is not a contribution of this record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

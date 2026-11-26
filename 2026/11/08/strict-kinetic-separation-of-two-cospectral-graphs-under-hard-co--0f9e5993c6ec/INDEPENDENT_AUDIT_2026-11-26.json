@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:47:20.876344Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76",
+        "VERIFICATION.md, verify_terminal.py, verify_kinetics.py and KINETICS_COEFFICIENTS.csv",
+        "Independent residual-graph and clock-to-Bernstein replay, /workspace/branches/rook_shrikhande_clock_check.py"
+      ],
+      "rationale": "Direct coordinate sets give degree six and two common neighbors for every pair of distinct vertices (hence the same strongly regular spectrum). After the first accepted vertex there are nine free vertices, and after any nonadjacent second vertex four. Sorting their induced degrees gives nine cycles on the rook graph and on Shrikhande three cycles (the three specified second choices) and six diamonds. Only the latter can stop at three, and do so half the time. Each permissible ordered triple of early acceptances has probability 1/(16·9·4); a terminal triple has six orders and a terminal quadruple 24, because in the latter case the fourth vertex is the sole free vertex after the third. This gives the claimed labeled probabilities, counts and means. Independently of the packaged subset DP, exponential memorylessness gives independent stages with rates 16, 9 and 4 up to the third acceptance, and with rate 1 when a fourth is possible. Each free vertex is unattempted, and the waiting time for its minimum clock is independent of which free vertex is selected. Thus the mean gap is one third the CDF of the sum of independent exponentials of rates 16,9,4,1. With q=exp(−t), partial fractions give (1−8q/5+4q⁴/5−8q⁹/35+q¹⁶/35)/3. Expanding q^j using (p+q)^(16−j)=1 exactly reconstructed all 17 coefficients and both boundaries, including zero at t=0, the first term 8p⁴ and limiting gap 1/3. The replay command is python /workspace/branches/rook_shrikhande_clock_check.py /workspace/source/2026/11/08/strict-kinetic-separation-of-two-cospectral-graphs-under-hard-co--0f9e5993c6ec/KINETICS_COEFFICIENTS.csv; the separately written checker also confirms the residual classifications. Packaged scripts were inspected, not executed.",
+      "residual_risks": [
+        "The frozen comparison pertains to mean occupancy on the two specified graphs with independent equal rates; it asserts neither stochastic ordering nor a general cospectral-graph result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dhara et al. study jamming in Erdős–Rényi large-graph limits; Krivelevich et al. develop local convergence tools for the output density of the uniformly ordered greedy algorithm.",
+          "The publisher and Claremont records identify Pippenger's foundational work; no full text was retrieved through the lawful routes tried."
+        ],
+        "reasoning": "The inspected large-size frameworks do not supply the exact finite-graph evaluating inequalities. In particular the comparison is not a consequence of equality of the strongly regular parameters, which leave residual graph types distinct. The scope of any uninspected Pippenger result cannot be certified.",
+        "searches": [
+          "arXiv:1604.03918v1",
+          "arXiv:1907.07216 / DOI 10.1002/rsa.21200",
+          "DOI 10.1137/0402034 and Claremont repository record"
+        ]
+      },
+      "checked_sources": [
+        "Resultary pair and dynamic claim comparisons",
+        "Dhara et al. arXiv:1604.03918v1",
+        "Krivelevich et al. arXiv:1907.07216",
+        "Pippenger DOI and repository bibliographic evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static source identifies independent-set counts but not the C₄/diamond split after two accepted sites, needed in the terminal and clock arguments.",
+          "The dodecahedral/Desargues all-time result uses a different cubic pair. Its publication day supplies no precedence for an equivalent claim, and its evaluated comparison is not this one."
+        ],
+        "reasoning": "General first-arrival recurrences provide a way to compute either law. They do not evaluate the claim or imply strict order merely from the graph spectrum or previously tabulated independent-set counts; the residual free-site structure supplies the pair-specific calculation and sign.",
+        "searches": [
+          "Same-graph static RESULT.md 41bf4d1d3187, Finding and Proof",
+          "Same-day dynamic RESULT.md 93f496108dd7, Finding",
+          "General greedy RSA and local convergence papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning on the attempted subset at time t gives the uniform random-order greedy independent-set problem, so a same-pair exact random-order coverage comparison would cover the claim.",
+          "The exact dynamic index hit is the assigned record. Static match 41bf4d1d3187 shares the graph pair; dynamic match 93f496108dd7 shares the kind of all-time inequality but has a different graph pair."
+        ],
+        "reasoning": "Changing probability parameter from t to p or describing a random greedy maximal independent set instead of site adsorption does not create novelty. The compared distinct records do not match both dynamics and graph pair.",
+        "searches": [
+          "Resultary: Shrikhande/rook random greedy adsorption and exact finite-time occupancy",
+          "Primary literature: random sequential adsorption graph Shrikhande rook graph greedy independent set terminal occupancy Pippenger DOI 10.1137/0402034"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior independence polynomial gives 96 triples in each graph and 24 versus 16 independent four-sets; it is a static table, not outcome weights or time coefficients.",
+          "The same-day cubic graph adsorption record concerns the 20-site dodecahedral and Desargues graphs, not any competing tabulation of the frozen 16-site pair."
+        ],
+        "reasoning": "An exact terminal probability table or time polynomial in an equivalent basis would count as coverage. The inspected static counts do not identify which triples are maximal or give their random-arrival weights. Different graph sizes and residual laws preclude table equivalence in the cubic example.",
+        "searches": [
+          "Resultary: Shrikhande rook exact terminal probabilities, random greedy independent sets, kinetic separation",
+          "Resultary 41bf4d1d3187 and 93f496108dd7"
+        ]
+      },
+      "rationale": "Both the static graph distinction and the random-order greedy algorithm are established. The supported distinct claims are the evaluated labeled terminal law and strict positive-time expected coverage gap for this particular strongly regular pair. No earlier evaluated equivalent appeared in the compared material; the inaccessible foundational paper remains a priority caveat.",
+      "residual_risks": [
+        "Pippenger's full text remained inaccessible; older evaluated kinetic comparisons could be unindexed. No claim of historical priority follows from that access limit or from negative search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified static overlap, no kinetic probabilities in inspected statement",
+          "evidence": "Counts by size are (16,72,96,16) on Shrikhande and (16,72,96,24) on rook; invariants are the complexes and their face counts.",
+          "identifier_or_url": "2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+          "material_read": "RESULT.md Finding and Proof at offsets 0 and 2000",
+          "method": "Resultary search and local mirror",
+          "title": "Independence complexes of the Shrikhande and 4×4 rook graphs have different sphere-wedge homotopy types",
+          "trigger": "Exact same graph pair, static independence counts"
+        },
+        {
+          "assessment": "Similar result on a different pair, not an equivalence",
+          "evidence": "Terminal laws and strict mean gap for GP(10,2) and GP(10,3), the dodecahedral and Desargues graphs.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-all-time-monomer-adsorption-ordering-of-two-cubic-twenty--93f496108dd7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Strict all-time monomer adsorption ordering of two cubic twenty-site graphs",
+          "trigger": "Closest exact dynamical claim of the same type"
+        },
+        {
+          "assessment": "Provides related RSA dynamics, scope is large random graphs",
+          "evidence": "Uniform random arrival order with exclusion; limiting jamming constants on Erdős–Rényi graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.03918v1",
+          "material_read": "Abstract, PDF p. 1, offset 500",
+          "method": "OA PDF",
+          "title": "Generalized Random Sequential Adsorption on Sparse Random Graphs",
+          "trigger": "Graph RSA framework"
+        },
+        {
+          "assessment": "General asymptotic density framework; no same-pair evaluation in inspected passage",
+          "evidence": "Greedy independent set from a uniformly random order, with limiting density via local convergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.07216",
+          "material_read": "Abstract, PDF p. 1, offset 500",
+          "method": "OA PDF",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Equivalent greedy framework and possible broader result"
+        },
+        {
+          "assessment": "Unresolved historical-priority risk",
+          "evidence": "The inspected entries identify Pippenger's graph RSA paper; they do not expose a technical passage evaluating this pair.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Bibliographic records only; no full-text claim assessed",
+          "method": "Publisher DOI, lawful OA and Claremont repository lookup, including https://scholarship.claremont.edu/hmc_fac_pub/117/",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Earliest plausible graph-RSA comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact terminal distribution, all-time table and small-p expansion",
+        "Independent rate-stage and exact Bernstein verification"
+      ],
+      "rationale": "The rook and Shrikhande graphs are a canonical, not arbitrary, equal-parameter nonisomorphic pair. Their full labeled terminal laws and strict positive-time mean separation provide a concrete test of what a natural exclusion process detects beyond spectral parameters. The fourth-order onset specifies exactly when low-attempt expansions first distinguish the graphs; the result is more than a comparison of maximum independent-set counts.",
+      "residual_risks": [
+        "Only this finite pair and the specified rates are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

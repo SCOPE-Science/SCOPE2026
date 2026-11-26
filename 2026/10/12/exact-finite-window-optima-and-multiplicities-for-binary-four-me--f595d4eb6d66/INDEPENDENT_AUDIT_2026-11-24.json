@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:45:55.257116Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unrestricted binary words of length L correspond to walks of L−3 edges in the order-three de Bruijn digraph, removing precisely the edges for U. A directed cycle gives arbitrary avoiding lengths. An acyclic remainder has at most seven edges on any path, so the longest avoiding word has length at most ten, including length three when there are no remaining edges. Each rotation class gives periodic avoiders unless hit, so size at least six is necessary at every L≥4, and six-element candidates are the 128 labeled transversals. I inspected both bundled verification programs and independently ran `python3 /workspace/reproductions/four_mer_reproduction.py`. That exact-integer census counts the occurring four-mer masks of every binary word at each L=4,…,11 and uses a subset zeta transform to obtain the number of avoiders for every complement of U. Across all 65,536 masks the computed (size,count) rows are (16,1),(10,2),(9,50),(7,8),(7,52),(6,10),(6,14),(6,30). Of 128 transversals the exact maximum avoiding lengths are 8, 9, 10 for 10, 4, 16 choices respectively, and the 98 others fail at length 11, hence have cycles. The length-11 row therefore persists for all longer windows at size six, not by extrapolation. This is exhaustive finite computation with an analytic tail, not a theorem prover certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general UHS framework and necklace lower bound precede this result. The published minimum decycling census gives exactly thirty at binary order four. Table 2 computes the remaining-node-path length range 5–7 exactly from exhaustive MDS lists, rather than by annealing for these parameters."
+        ],
+        "reasoning": "Prior coverage already gives the minimum six in every L≥9, the impossibility of six in L≤8 and the eventual multiplicity thirty. This does not settle the optimal larger cardinalities, their multiplicities, or the number of the thirty MDSs at each intermediate threshold.",
+        "searches": [
+          "Orenstein et al. 2017 UHS optimization",
+          "Zheng–Kingsford–Marçais doi:10.1089/cmb.2020.0432 §4.4",
+          "Marçais–DeBlasio–Kingsford arXiv:2311.03592 §2, Table 2"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1371/journal.pcbi.1005777",
+        "doi:10.1089/cmb.2020.0432",
+        "arXiv:2311.03592",
+        "https://github.com/Kingsford-Group/mdsscope",
+        "SCOPE-20261013-96243f6839cd",
+        "SCOPE-20261122-7a42240bea9d",
+        "SCOPE-20261025-0d6eb2eaa895",
+        "SCOPE-20261012-2e57c8213fa8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Total 30 plus exact endpoints 5 and 7 supplies a best six-set hitting window of 9 and a worst such window of 11. It gives no counts at residual lengths 5, 6 and 7. In particular, the row (6,30) from L=11 onward follows from prior results."
+        ],
+        "reasoning": "The endpoints and total alone leave many possible distributions. Even a full list of minimum decycling sets cannot on its own count hitting sets of size seven, nine, ten or sixteen for L≤8. The novelty judgment is for the joint profile with those omissions filled, not a recomputation of the previously reported total or extremes.",
+        "searches": [
+          "Marçais–DeBlasio–Kingsford Table 2 p. 12 and Zheng–Kingsford–Marçais §4.4",
+          "Literature query for binary four-mer exact remaining-path histogram and associated supplementary data"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orenstein et al.'s UHS meets every length-L sequence by a contiguous length-k factor, and their optimization asks for a smallest UHS. Deleting forbidden four-mer vertices in the order-four node graph is the line-digraph formulation of deleting the corresponding edges here. A residual path of r four-mer vertices spells r+3 bits."
+        ],
+        "reasoning": "Thus the path extrema 5 and 7 in the prior node-graph convention mean avoiding-length extrema 8 and 10, not 5 and 7. Eventual unavoidability is decycling; a prescribed finite window also restricts the remaining path length. The minimum decycling census alone does not optimize larger sets for the shorter windows.",
+        "searches": [
+          "Resultary and literature: binary four-mer universal hitting sets, constant-length unavoidable sets, de Bruijn minimum decycling/feedback sets and remaining path lengths",
+          "doi:10.1371/journal.pcbi.1005777, definition of a universal hitting set; arXiv:2311.03592 §2 and Table 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected tables/passages provide the total and extrema, not the (10,4,16) histogram or the full size-count sequence. The inspected adjacent census records use the binary language forbidding 11, binary six-mers, or ternary three-mers. The same-day binary order-four record enumerates 385 wildcard partial words with exact-once factor coverage."
+        ],
+        "reasoning": "The competing catalogue objects have different allowed edges, alphabet/order, or quantifiers. Counting wildcard words rather than sets intersecting every ordinary word does not imply the profile. The source of the exhaustive MDS list warrants a residual data overlap risk: an accessible explicit list would encode the six-set histogram after evaluating remaining paths, but would still not decide multiplicities over larger sets.",
+        "searches": [
+          "Resultary: exact binary four-mer size and multiplicity for each finite window; UHS/feedback-set complete census",
+          "doi:10.1089/cmb.2020.0432 §4.4 and supplement availability",
+          "arXiv:2311.03592 Table 2 and associated mdsscope public README",
+          "SCOPE-20261013-96243f6839cd, SCOPE-20261122-7a42240bea9d, SCOPE-20261025-0d6eb2eaa895, SCOPE-20261012-2e57c8213fa8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint exact labeled profile, especially the finite-window cardinalities and multiplicities before size six becomes attainable and the finer multiplicities at that transition. Neither the eventual thirty-set count nor the extremal path range or the first window attaining size six is credited as independently novel.",
+      "residual_risks": [
+        "The contents of the 2021 supplement were not recovered; a supplement, archival dataset or unpublished list might already encode some or all of the histogram. The author-uploaded 2004 article could not be inspected. The verdict is limited to the precise joint profile relative to the evidence available, not a worldwide priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general problem, not the inspected exact profile",
+          "evidence": [
+            "Defines hitting every length-L word by a k-mer and seeks a smallest such set."
+          ],
+          "identifier_or_url": "doi:10.1371/journal.pcbi.1005777",
+          "material_read": "PDF p. 2, definition and optimization at offset 8772",
+          "method": "OA article passage",
+          "title": "Designing small universal k-mer hitting sets for improved analysis of high-throughput sequencing",
+          "trigger": "Same finite-window optimization problem"
+        },
+        {
+          "assessment": "Covers total of thirty; supplement was not read",
+          "evidence": [
+            "Counts at binary orders 2,…,7 are 2, 4, 30, 28, 68288, 18432. The inspected passage does not give cardinalities of each path-length class."
+          ],
+          "identifier_or_url": "doi:10.1089/cmb.2020.0432; PMC8066347",
+          "material_read": "§4.4 passage at offset 50481; supplementary-file listing only",
+          "method": "Accessible article text; identified Europe PMC alternate did not give supplement access",
+          "title": "Lower Density Selection Schemes via Small Universal Hitting Sets with Short Remaining Path Length",
+          "trigger": "Exact number of binary four-mer MDSs and possibly closer supplementary results"
+        },
+        {
+          "assessment": "Covers the path-length extrema and implies the best and worst MDS window thresholds",
+          "evidence": [
+            "Table 2 binary k=4 gives 5 and 7 exactly from the exhaustive MDS list; it is not a table of frequencies."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.03592; doi:10.1089/cmb.2024.0544",
+          "material_read": "§2 p. 3 and Table 2 p. 12, offsets 8300 and 40400–43993",
+          "method": "OA preprint PDF passages",
+          "title": "Sketching Methods with Small Window Guarantee Using Minimum Decycling Sets",
+          "trigger": "Exact data for the same parameter size and path invariant"
+        },
+        {
+          "assessment": "Describes algorithms/experiments; no exact profile established by this material",
+          "evidence": [
+            "The described histogram is of gaps for a given set, not counts of all labeled optimum sets by window. No datasets were replayed."
+          ],
+          "identifier_or_url": "https://github.com/Kingsford-Group/mdsscope",
+          "material_read": "Public README program/experiments description, offset 4400 onward",
+          "method": "Public webpage passage",
+          "title": "mdsscope (associated code)",
+          "trigger": "Linked computation behind the MDS path results"
+        },
+        {
+          "assessment": "No negative comparison inferred from access failure",
+          "evidence": [
+            "The necklace lower bound is credited as background and independently follows here from periodic words."
+          ],
+          "identifier_or_url": "Champarnaud–Hansel–Perrin, International Journal of Algebra and Computation 14 (2004), 241–251",
+          "material_read": "Bibliographic identification only; identified author-uploaded copy inaccessible",
+          "method": "Attempted OA retrieval",
+          "title": "Unavoidable sets of constant length",
+          "trigger": "Prior necklace method for unavoidable sets"
+        },
+        {
+          "assessment": "Restrictions change the optimization",
+          "evidence": [
+            "Only binary words forbidding 11 are tested."
+          ],
+          "identifier_or_url": "SCOPE-20261013-96243f6839cd",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror",
+          "title": "Exact minimum unavoidable set and avoidance-window census (restricted language)",
+          "trigger": "Closest exact binary avoidance profile"
+        },
+        {
+          "assessment": "Other order, no four-mer implication",
+          "evidence": [
+            "Studies binary six-mer MDSs."
+          ],
+          "identifier_or_url": "SCOPE-20261122-7a42240bea9d",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror",
+          "title": "Complete six-mer decycling set window spectrum and sharp optimization",
+          "trigger": "Binary exact path spectrum"
+        },
+        {
+          "assessment": "Other alphabet and order",
+          "evidence": [
+            "Eighty-four ternary three-mer MDSs, partitioned 60/24 by path length."
+          ],
+          "identifier_or_url": "SCOPE-20261025-0d6eb2eaa895",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror",
+          "title": "Complete ternary three-mer minimum decycling set census and sharp window results",
+          "trigger": "Short-mer exact census with path counts"
+        },
+        {
+          "assessment": "Different set of enumerated objects",
+          "evidence": [
+            "Counts 385 wildcard partial words covering each four-bit factor exactly once, not subsets hitting all length-L words."
+          ],
+          "identifier_or_url": "SCOPE-20261012-2e57c8213fa8",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror",
+          "title": "Complete binary order-four universal partial word enumerator",
+          "trigger": "Same-day indexed universal four-mer enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cardinality versus guaranteed window is the natural UHS tradeoff, and this is a complete sharp profile for a small standard de Bruijn instance rather than an isolated word length. The multiplicities say how much choice an exact design has at the optimum: ten size-six designs attain the shortest possible six-set window, fourteen work one position later, and all thirty work at eleven. The shorter-window larger optima provide additional exact benchmarks for optimization and enumeration; the known total and endpoint range do not supply them. No large-alphabet or algorithmic performance claim is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

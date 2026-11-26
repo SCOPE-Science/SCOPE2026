@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:05:04.389234Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The curve has q graph points and only P_infinity at Z=0. For two distinct parameters s,s+u, the affine secant has slope u^(p^2-1); its fiber is a coset of the kernel u F_p because gcd(p^2-1,p^m-1)=p-1 for odd m. This is exactly the affine line through the two parameters, and hence all blocks and their pair multiplicities follow. All projective lines meet at most p points of the curve; a parallel affine spread and one line through infinity attain ceil((q+1)/p)=q/p+1. For odd p, counting affine incidences excludes two or more lines through infinity or any nonmaximal ordinary line. The q secant incidences can have just one hole only if there is also exactly one double point. Every affine line has parameter sum zero, as does all of F_q, so the double point minus the hole would be zero, impossible. Thus the cover uniquely determines its spread and a freely chosen line through infinity. Partitioning into affine two-plane cosets and independently choosing any of p+1 parallel line partitions proves the stated lower bound (not a count of all covers). In the binary example the four different secants on eight parameters cover seven with one repeat, pairing the remaining parameters covers all but the same hole, and the vertical line covers that hole and infinity; the size meets the same lower bound. Independent replay (python3 -B /workspace/branches/independent_replay.py 4) enumerated slope fibers rather than generating secants from input blocks in fields of sizes 3, 8, 27 and 125, yielding respectively 1, 28, 117 and 775 maximal secants and verifying pair uniqueness, the odd-characteristic moments and the binary witness. The proof, not the bounded check, treats all the claimed fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.1 gives the minimum q/p+1 for this curve and exhibits a fixed-direction cover.",
+          "Blokhuis–Brouwer–Szőnyi, p. 65, state Jamison's r^{N-d}-1+d(r-1) lower bound for covering affine space except one point by d-flats."
+        ],
+        "reasoning": "With d=1 the affine bound is p^{m-1}+p-2, ruling out a one-hole family of p^{m-1} secants avoiding that hole when p is odd, once the secant identification holds. It is tight enough to allow the binary case. Minimum size alone does not classify all optimal sets, but the exact earlier record does.",
+        "searches": [
+          "Asgarli et al. arXiv:2610.13042v1, Proposition 4.1 and proof; Blokhuis–Brouwer–Szőnyi DOI 10.1007/s10801-009-0204-1, Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_frobenius_spread.py",
+        "Two Resultary curve-cover findings listed in source_inspections",
+        "Asgarli et al., Proposition 4.1",
+        "Blokhuis–Brouwer–Szőnyi, Section 4",
+        "Gupta–Pavese abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 4 fixes a two-dimensional U, partitions into its affine cosets and independently chooses one of two parallel line partitions per coset; it also counts global parallel spreads by one-dimensional directions.",
+          "Section 5 includes all-secant covers with exactly one doubled rational point and all other points once."
+        ],
+        "reasoning": "The local independence and choice mechanism are already proved. Each plane has exactly p+1 one-dimensional directions, each supplying one parallel partition, so replacing 2 by p+1 yields exactly the submitted exponential term, with the same independent q+1 factor. Even adding the parallel directions outside U is immediate by the prior proof. In the binary all-secant type, choosing the doubled point affine and one secant through P_infinity with a separate affine partner gives the submitted repeated-affine-point and unique-hole pattern.",
+        "searches": [
+          "Earlier Resultary extremal configuration RESULT.md, Section 4 of proof, offset 4640, and Section 5 binary proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The extremal-configuration record identifies maximal affine sections with s+F_p u and every odd-p minimizer with exactly an affine one-spread and an arbitrary line through P_infinity.",
+          "The affine-spread literature uses same-dimensional affine subspaces partitioning affine space, the same combinatorial object once the curve parameters are identified."
+        ],
+        "reasoning": "The earlier extremal record is on the precise YZ^{p^2-1}=X^{p^2}, odd-m regime, not merely the same spread term. The distinct rigidity/switching record treats t,h, with a parallel classification at h=2; that would not alone settle the present odd-m case.",
+        "searches": [
+          "Resultary extremal line-cover configurations on Frobenius plane curves and rigidity/switching of optimal Frobenius line covers",
+          "Gupta–Pavese arXiv:2402.07882v1, Abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed record gives (q+1)((q-1)/(p-1)+2^{q/p^2}-2) as an odd-characteristic lower bound and binom(q+2,2)(q-1)!! as the exact binary count, with the one-double-point type."
+        ],
+        "reasoning": "The binary witness is explicitly within the earlier classified type. For odd p the lower bounds are not numerically identical, nor is either an exact catalogue count. The difference in the lower bound must be tested against the prior construction, rather than treated as new because the expression differs.",
+        "searches": [
+          "Resultary extremal line-cover configurations on Frobenius plane curves, Finding and binary counting proof"
+        ]
+      },
+      "rationale": "Earlier exact Resultary coverage establishes the odd-characteristic complete spread classification, the secant identification and a stronger binary classification/count. The different odd-characteristic numerical lower bound is obtained by allowing all parallel directions in each independent two-plane choice of the prior proof, rather than restricting to two choices. It is a genuine numerical improvement but a mechanically available consequence of that same construction, not an independent surviving contribution under review.",
+      "residual_risks": [
+        "Historical priority before the checked records and general affine-spread enumerations were not exhaustively investigated.",
+        "The precise stronger odd-p expression was not located as an earlier explicit statement; coverage of its content rests on the directly inspected construction and elementary direction count, not on asserting a matching formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage; odd-p factor improvement follows from inspected proof",
+          "evidence": "All odd-p covers are spread plus one infinity line; the proof makes two independent direction choices per affine two-plane, and the binary theorem counts all minimizers including one double point.",
+          "identifier_or_url": "2026/10/18/SCOPE-extremal-line-cover-configurations-on-frobenius-plane-curves--cc2207d8ebd6",
+          "material_read": "Local RESULT.md Finding near offset 350, quantitative proof from offset 4640, binary classification/count from offsets 5600 and 6336",
+          "method": "Resultary search and local mirror with bounded passage inspection",
+          "title": "Extremal line-cover configurations on Frobenius plane curves",
+          "trigger": "Same curve, characteristic regimes and exact extremizers"
+        },
+        {
+          "assessment": "Covers size and fixed-direction construction",
+          "evidence": "At most p rational curve points per line; minimum q/p+1 attained via translates determined by s^{p^2}-s and the line at infinity.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13042v1",
+          "material_read": "Section 4, Proposition 4.1 and proof around offset 40510",
+          "method": "OA HTML",
+          "title": "Covering plane curves over finite fields with lines",
+          "trigger": "Same originating curve and minimum"
+        },
+        {
+          "assessment": "Stronger affine obstruction for even the one-hole case, but no curve-specific theorem in the inspected passage",
+          "evidence": "Quotes Jamison's bound r^{N-d}-1+d(r-1) for a near cover by affine d-flats.",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-009-0204-1",
+          "material_read": "Section 4, printed p. 65, OA offset 14386",
+          "method": "OA PDF text",
+          "title": "Covering all points except one",
+          "trigger": "Broader near-cover obstruction in affine geometry"
+        },
+        {
+          "assessment": "Relevant general background",
+          "evidence": "Affine spreads partition affine space into affine subspaces of one fixed dimension.",
+          "identifier_or_url": "https://arxiv.org/html/2402.07882v1",
+          "material_read": "Abstract, offset 95",
+          "method": "OA HTML",
+          "title": "Affine vector space partitions and spreads of quadrics",
+          "trigger": "Terminology and general spread formulation"
+        },
+        {
+          "assessment": "Related parameter regime, not the decisive exact match",
+          "evidence": "Studies YZ^{t-1}=X^t over F_{t^h}; gives the h=2 parallel classification and nonparallel minimizers for larger h.",
+          "identifier_or_url": "2026/10/18/SCOPE-rigidity-and-switching-of-optimal-line-covers-of-frobenius-plane--2300d4621d6a",
+          "material_read": "Local RESULT.md Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Rigidity and switching of optimal line covers of Frobenius plane curves",
+          "trigger": "Closely matching curve and switching construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full extremizer geometry and the binary boundary are substantive questions, but their answers are already covered. The only differing deliverable increases the numerical lower bound by counting every available direction in the same independent-plane construction that previously used two. It neither distinguishes a new configuration type nor adds an independently motivated extremal result. No separate viable repair is supported by the frozen contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

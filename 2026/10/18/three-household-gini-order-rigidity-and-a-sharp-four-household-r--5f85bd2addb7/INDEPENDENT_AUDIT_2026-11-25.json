@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:36:17.476072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write G=N/(nS) in the sorted convention with N=sum_{i<j}(z_j-z_i). At n=1 N=0; at n=2 and 3 N is the extreme gap multiplied by 1 and 2, respectively, by cancellation of all intermediate terms. Original majorization with equal totals gives x_1<=y_1 and x_n>=y_n (use the prefix of length n-1 and subtract from the common total). The common monotone map preserves these comparisons, enlarging the gap in f(x) relative to f(y). Concave Karamata gives S(f(x))<=S(f(y)), both strictly positive. Thus the numerator and denominator changes both favor the stated ratio, with ties and flat f allowed. For n=4 the sorted prefix totals of x and y are (1,2,3,6) and (1,2,4,6); raw (N,S) are (6,6) and (4,6), and after the top-code they are (3,5) and (4,6). The resulting reversal is 3/20 versus 1/6. For f(t)=1-8^(-t), f is positive and f'>0>f'' on t>0. From the exact three transformed values, using denominators 512 for x and 64 for y, the (N,S) pairs are (189,1855)/512 and (28,238)/64. The Ginis are 27/1060 and 1/34, with difference -71/18020. This algebra independently checks the exact witnesses; universal preservation does not rely on finite enumeration. The supplied exact-arithmetic checker and recorded verification output were read, not executed. The claim requires original equal totals and the majorization comparison of profiles, not just their untransformed Gini ranking.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fellman Theorem 1 compares X and g(X); Theorem 4 compares g_1(X) and g_2(X) for one base distribution, not f(X) and f(Y) for ordered X,Y.",
+          "Bishop–Chiou–Formby abstract studies CPS microdata and biennial changes of adjusted and unadjusted Lorenz curves; it reports significant effects of truncation on ordinal rankings beginning in 1985.",
+          "The Resultary Winsorization result is for input-dependent order-statistic thresholds, unnormalized pairwise dispersion, and a difference-of-inputs Lipschitz comparison."
+        ],
+        "reasoning": "A transform that Lorenz-improves each profile relative to itself need not improve both by the same amount, so Fellman's theorem does not preserve their mutual rank. The empirical truncation result motivates the witness but does not, in accessible material, state the finite mathematical cutoff. The two-input seminorm Lipschitz property is a different inequality with different thresholds and normalization.",
+        "searches": [
+          "Fellman (2016), DOI 10.4236/tel.2016060615565238, Theorems 1 and 4",
+          "Resultary common monotone concave transformation query; opened 2026/11/17/...ddc6dbb8f632",
+          "Web: \"Truncation Bias and the Ordinal Evaluation of Income Inequality\" full text PDF Bishop Chiou Formby 1994"
+        ]
+      },
+      "checked_sources": [
+        "Fellman (2016), DOI 10.4236/tel.2016060615565238",
+        "Bishop–Chiou–Formby (1994), DOI 10.1080/07350015.1994.10509995 (abstract only)",
+        "Resultary 2026/10/13/...785cb5dc23d2, 2026/11/17/...ddc6dbb8f632 and 2026/10/18/...282d4d29b0de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoint expression plus standard concave Karamata implies the preservation direction immediately; neither component is credited as new.",
+          "The exact sharpness examples use the same relative Gini and initially Lorenz-ordered profiles, reverse under a common fixed top-code, and also reverse under a smooth strictly increasing concave saturating map."
+        ],
+        "reasoning": "The low-n implication is elementary once posed, but the inspected older comparisons do not supply the complete sharp boundary under the same transform; individual Lorenz improvement does not give even the direction of the mutual order. The nontrivial scope of the combined result is the first failure under these joint requirements, not merely that modified data can have different rankings.",
+        "searches": [
+          "Resultary 2026/10/13/...785cb5dc23d2, Finding offset 390",
+          "Fellman Theorems 1 and 4, OA offsets 3450 and 28870",
+          "Focused web search for common concave transformations preserving two distributions' Gini ordering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For equal original totals, the stated prefix comparison is original Lorenz order, since the equal-weight Lorenz curves interpolate those normalized prefixes.",
+          "The strongest indexed small-n Gini/Pietra result gives G=2/3 times the sum of the poorest and richest share deviations at n=3, exactly the same normalized endpoint formula for a single profile."
+        ],
+        "reasoning": "Using the Lorenz formulation does not change the hypothesis. The Gini/Pietra result compares two indices on unchanged profiles; it documents a needed ingredient, but its theorem concerns a different reversal and does not give the common-transform cutoff. Its example (1,6,9) and (3,3,10) has crossing prefix sums, not the bound theorem's comparable pair.",
+        "searches": [
+          "Resultary: Gini coefficient order common concave income transformation majorization minimal four households three population ranking reversal top coding",
+          "Resultary: common monotone concave transformation of two Lorenz ordered income distributions relative Gini comparing before after tax and top code majorization",
+          "Web: \"Gini\" \"concave transformation\" majorization preserve ordering two distributions inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby finite cutoff hits are for different-index reversals (Gini versus Pietra, Atkinson, Theil, or CV) or for Theil T under grants; the mirror Finding for 2026/10/18/...282d4d29b0de uses T for both profiles and counts positive-grant crossings.",
+          "The inspected Bishop abstract gives empirical ordinal comparisons across survey years, not a small-n witness or a theorem listing a minimal size."
+        ],
+        "reasoning": "The relevant exact lookup is a published finite-size boundary or equal-total comparable-pair witness, not a census of incomes. Index-disagreement tables and cash-grant crossing results do not yield an example for a common monotone concave map preserving the index definition.",
+        "searches": [
+          "Resultary finite-household ranking and top-coding searches above",
+          "Web exact-title lookup for Bishop–Chiou–Formby (1994), indexed abstract"
+        ]
+      },
+      "rationale": "The credited result is the combined sharp boundary for a single relative Gini coefficient comparing two initially majorized profiles after a common positive nondecreasing concave map. Endpoint cancellation at n<=3 and Karamata are existing ingredients. Impact of top-coding on ordinal inequality rankings is also documented, but the checked evidence does not establish the universal small-n theorem or the sharp first strict reversal under these matched hypotheses. Same-input comparisons, different indices, and data-dependent Winsorization are distinguished below. This judgment is limited by the unavailable full text of the 1994 empirical paper.",
+      "residual_risks": [
+        "The 1994 primary full text was not retrievable through the inspected lawful routes; its exact finite examples or theoretical observations are unknown. The abstract is not evidence about the whole paper.",
+        "The endpoint and Karamata derivation is elementary, so implicit or unindexed treatments of the combined sharp cutoff remain plausible. This is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Transforming a single baseline or comparing two maps on a single baseline does not compare distinct initially ordered populations",
+          "evidence": [
+            "Theorem 1 compares L_g(X) with L_X via g(x)/x; Theorem 4 compares g_1(X),g_2(X) via g_1(x)/g_2(x)."
+          ],
+          "identifier_or_url": "https://www.scirp.org/pdf/tel_2016060615565238.pdf ; DOI 10.4236/tel.2016060615565238",
+          "material_read": "Theorems 1 and 4, journal pp. 443 and 447, OA offsets 3450–5625 and 28870–30532",
+          "method": "Primary publisher OA PDF passages",
+          "title": "Transformations and Lorenz Curves: Sufficient and Necessary Conditions",
+          "trigger": "Possible theorem yielding Lorenz or Gini-order preservation for common concave transforms"
+        },
+        {
+          "assessment": "Accessible evidence concerns empirical effects, not the mathematical boundary; body unresolved",
+          "evidence": [
+            "Abstract reports CPS-based inference on adjusted and unadjusted Lorenz curves and significant truncation effects on ordinal rankings from 1985."
+          ],
+          "identifier_or_url": "DOI 10.1080/07350015.1994.10509995 ; https://econpapers.repec.org/RePEc:bes:jnlbes:v:12:y:1994:i:1:p:123-27",
+          "material_read": "Indexed abstract near offset 524; publisher, JSTOR and identified alternate routes did not yield the full text",
+          "method": "Open RePEc abstract and exact-title search; OA with DOI recovery and lawful identified copies attempted",
+          "title": "Truncation Bias and the Ordinal Evaluation of Income Inequality",
+          "trigger": "Closest primary topic: top-coding and inequality ranking reversals"
+        },
+        {
+          "assessment": "Same endpoint identity and normalization, different comparison",
+          "evidence": [
+            "Gini is 2/3 times the sum of the two normalized endpoint deviations, Pietra their maximum; no common f is applied."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-three-households-are-the-sharp-gini-pietra-ranking-split--785cb5dc23d2/RESULT.md",
+          "material_read": "Finding and scope, offsets 390–2317",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three households are the sharp Gini–Pietra ranking split",
+          "trigger": "Prior sharp small-n Gini endpoint identity and reversal vocabulary"
+        },
+        {
+          "assessment": "Not a relative-Gini ranking theorem",
+          "evidence": [
+            "The data-dependent cap is an order statistic of each sample, and the invariant is a seminorm of a difference, not G(x) compared with G(y)."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-input-gini-stability-of-empirical-quantile-winsorizati--ddc6dbb8f632/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2379",
+          "method": "Resultary local mirror",
+          "title": "Sharp two-input Gini stability of empirical-quantile Winsorization",
+          "trigger": "Both concerns capping and two-sample Gini behavior"
+        },
+        {
+          "assessment": "Different index and problem; no priority order inferred from the date",
+          "evidence": [
+            "Theil T, common additive grant, and maximum number of positive-grant crossings, not Gini-order preservation under concavity."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-household-count-bound-on-theil-inequality-reversals-unde--282d4d29b0de/RESULT.md",
+          "material_read": "Finding and scope, offsets 220–1622",
+          "method": "Resultary local mirror",
+          "title": "A sharp household-count bound on Theil inequality reversals under universal cash grants",
+          "trigger": "Same-date household-count ranking theorem for a common transform"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A common top-code or saturating concave rescaling is a natural way to modify incomes. The result identifies exactly when a reversal first becomes possible even with initial Lorenz dominance, and demonstrates it with a strict smooth witness rather than an artifact of a flat cap or noncomparable originals. The mechanistic distinction is useful: an endpoint gap controls the low-dimensional numerator, while at four households interior ranks matter and can overcome the favorable denominator comparison. No empirical prevalence or maximal size is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify_transfer.py` in the package directory. It rebuilds all temporal-column constraint graphs from the local Rule 22 truth table, runs an exact Tarjan decomposition, determines all cyclic-block characteristic polynomials using integer closed-walk counts and Newton identities, and verifies the determinant ratio \(D_6(z)/D_2(z)=(1-z^8)^3(1-z^{10})^2(1-4z^{10})\) as a coefficient identity. The \(p=1\) and \(p=3\) transfer determinants agree exactly. All graph vertices are covered; this is a complete finite certificate supporting an all-length trace theorem.
+## correctness
 
-Run `python3 verify_direct.py`. Independently implemented bitwise Rule 22 enumerates all \(2^n\) states for each \(3\le n\le20\) and checks exact first, second, third and sixth returns. It verifies the predicted number of primitive period-six configurations at every tested size, including nonzero cases at eight, ten, sixteen and twenty. These bounded tests alone would not prove a universal result; the transfer correspondence and complete exact graph block calculation establish the unbounded claim.
+PASS
 
-Both scripts require only Python 3's standard library. No network access, random sampling, external reference files or nonstandard arithmetic packages are required. Independent audit has not been performed.
+An anchored length-n closed walk on pairs of p-bit time histories enforces the exactly-one rule at every site and time. It determines a unique initial row fixed by F_n^p and conversely is determined by that row. Anchor and orientation are retained, so the trace counts labelled configurations, not rotation/reflection classes. A fresh bitwise reconstruction and Kosaraju decomposition gave the stated cyclic SCCs. The only branching block has 60 vertices, with 12 vertices of outdegree two within the block; all paths to the next such vertex have length five. The nonbranching vertices induce an acyclic graph, so eliminating them by the Schur complement reduces det(I−zA) on that block to the determinant of I minus the weighted branch adjacency with weights z^5 per path. Enumerating all 324 collections of disjoint directed branch cycles (including the empty collection), with sign minus per cycle, gives 1−6z^10+9z^20−4z^30=(1−z^10)^2(1−4z^10). All other cyclic components are simple cycles of lengths [1,2] at heights 1 and 3, [1,2,4] at height 2 and [1,2,4,8,8,8] at height 6. This independently gives both determinant identities, also reconfirmed via exact Newton identities in a separate reconstruction. The formal log derivative extracts all trace differences; fixed-by-1 is contained in fixed-by-3 and the trace equality makes them equal. Thus only fixed-by-2 must be subtracted from fixed-by-6 to count exact period six. The coefficients are 24 on multiples of eight, and 10(4^(n/10)+2) on multiples of ten, with addition on multiples of forty. Dividing by six counts temporal orbits and the table agrees. Replay: node /workspace/rule22-replay.js. The two supplied scripts were read, not executed; their bounded direct enumeration alone is not the all-length proof.
+
+## originality
+
+PASS
+
+Credit the historical finite tables, the known period-six patterns, and the extended de Bruijn method. The distinct claim is the complete labelled, oriented, all-circumference period-six census and its exact determinant factorization for Rule 22; the independent check also proves the all-length absence of primitive period three, which was reported in the historical finite-table context. No priority claim is made for the existence of the smallest examples or for the general method.
+
+## value
+
+PASS
+
+Gives a complete exact temporal orbit census at a natural return time for a standard cellular automaton. It distinguishes a bounded population from an exponential one, accounts for their coexistence, and proves the omission of all other circumferences rather than extrapolating a finite cycle table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

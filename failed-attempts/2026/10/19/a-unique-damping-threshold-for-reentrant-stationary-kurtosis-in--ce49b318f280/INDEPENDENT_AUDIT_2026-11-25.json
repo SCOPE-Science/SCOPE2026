@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:54:49.296543Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–20 and 28–75; VERIFICATION.md; verify.py (inspected)"
+      ],
+      "rationale": "The frozen Finding, item 1, says that κ4<0 outside the open interval (a_−,a_+), which includes both endpoints. The explicitly verified identity κ4=−3P/D gives κ4=0 at each endpoint, not κ4<0. The proof otherwise yields the intended classification with negative sign only on 0<a<a_− and a>a_+. I reconstructed the stationary causal solution (exponential decay and bounded input) and the stationary moment systems. Ordered by velocity degree, the four positive block determinants are 4a²+4az+1, 8z, (4a²+12az+9)(4a²+12az+8z²+1), and 256z(3z²+1), so the exact variance and factorized cumulant from /tmp/opencode/scope-review-analytic.py 1 apply across the positive quadrant; no uploaded script was executed. P_aa>0 and P_z>0, with P_z≥12 on the closed rate half-line. Uniform coercivity on compact damping intervals ensures continuity of the minimum. The zero-damping polynomial gives a negative witness for sufficiently small positive z, and at z=1 the positive intercept and initial derivative imply a positive minimum. That minimum crosses exactly once, at an interior rate, yielding the intended two-root, double-root and no-root regimes. The checked threshold pair is (a_c,z_c)=(0.1096101765953479,0.0424392667442718) approximately. No repair is submitted because the corrected classification is itself fully covered by the distinct catalogue match.",
+      "residual_risks": [
+        "No zero-damping stationary law is asserted; its polynomial is only a boundary witness. Threshold decimals are approximate."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2c4edea2eb0c proves the all-rate diagram for general positive stiffness and forcing after nondimensionalization.",
+          "8126e2ff3632 instead varies trap stiffness at fixed persistence and classifies position and velocity signs.",
+          "Dutta et al. give same-dynamics moment recursions. Smith–Farago study the rapid-switching large-deviation regime."
+        ],
+        "reasoning": "The first catalogue result fully subsumes the theorem; the other sources inspected supply related regimes or calculation machinery but are not needed to establish exact coverage.",
+        "searches": [
+          "Resultary 2c4edea2eb0c; Resultary 8126e2ff3632",
+          "arXiv:2406.06120 stationary moments",
+          "arXiv:2208.06848 rescaled equation and regime"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c4edea2eb0c, 8126e2ff3632",
+        "arXiv:2406.06120, arXiv:2208.06848",
+        "Pawula DOIs 10.1103/PhysRevA.35.3102 and 10.1103/PhysRevA.36.4996 (OA attempts unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue proof uses positive damping derivative, strict convexity in rate, positive endpoints and the unique double-root argument; the conclusion matches for every positive damping and rate.",
+          "An exact moment recursion alone gives a route to a polynomial, not the global root-count argument; full Pawula texts were not recovered."
+        ],
+        "reasoning": "The indexed theorem implies all scientifically valid substance of the frozen claim directly, not merely its moment computation or a one-sided limit.",
+        "searches": [
+          "Resultary 2c4edea2eb0c Proof §§1–3",
+          "arXiv:2406.06120 stationary recursions (20)–(24)",
+          "10.1103/PhysRevA.35.3102; 10.1103/PhysRevA.36.4996"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue models position, velocity, and a sign that flips at Poisson rate gamma. Unit-frequency, unit-amplitude specialization gives g=a and h=2z.",
+          "Direct term-by-term rescaling gives P_cat(2z,a)=2P(a,z) and Q_cat(2z,a)=4D(a,z)."
+        ],
+        "reasoning": "The factor in front of the catalogue rational expression is −6 at unit stiffness and amplitude, hence it is identical to −3P/D. The reentrant region and both boundaries are the same.",
+        "searches": [
+          "Resultary: inertial telegraph-driven oscillator two-reversal stationary kurtosis unique damping threshold",
+          "Resultary 2c4edea2eb0c Finding and assumptions",
+          "arXiv:2406.06120 model equations (1)–(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct record gives h_*≈0.08487853348854 and g_*≈0.10961017659535 and defines them as the unique positive simultaneous solution of P_cat=∂_gP_cat=0."
+        ],
+        "reasoning": "These values are 2z_c and a_c, and the exact defining equations and sign classification match, which is stronger evidence than rounded numerical agreement.",
+        "searches": [
+          "Resultary: exact critical damping and two positive switching-rate zeros",
+          "Resultary 2c4edea2eb0c exact Finding"
+        ]
+      },
+      "rationale": "There is demonstrable mathematical equivalence with a distinct indexed Resultary result, not merely a nearby parameter value. At unit mass, stiffness and amplitude put (h,g)=(2z,a); the catalogue polynomials become P_cat(2z,a)=2P(a,z) and Q_cat(2z,a)=4D(a,z). Thus the two rational cumulants, both switching-rate roots, the critical double root, and every sign region agree after accounting for the frozen endpoint error. The indexed comparator is dated later than the frozen record; the decision is about exact available coverage, not historical priority, dependence or authorship.",
+      "residual_risks": [
+        "Pawula's full papers were not recovered; their precise historical coverage is unresolved. This does not affect the direct equivalence with the checked catalogue theorem.",
+        "No priority inference from catalogue path dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-rate classification, including the exact polynomial boundary and all signs",
+          "evidence": [
+            "h=eta/sqrt(k), g=gamma/sqrt(k); the formula is −6(A/k)^4 P_cat/Q_cat",
+            "Two simple positive roots below h_*, one double root at h_* and none above"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-two-reversal-kurtosis-phase-diagram-for-an-inertial-tele--2c4edea2eb0c",
+          "material_read": "RESULT.md Finding and assumptions (offset 0); Proof §§1–3 including derivative step near offset 4657",
+          "method": "Read local-mirror text and compared normalized symbols term by term",
+          "title": "A sharp two-reversal kurtosis phase diagram for an inertial telegraph-driven oscillator",
+          "trigger": "Distinct catalogue theorem with same positive double-root criterion and diagram"
+        },
+        {
+          "assessment": "Related but not the decisive equivalent result",
+          "evidence": [
+            "Varies trap stiffness at fixed persistence; includes both position and velocity"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-fourth-cumulant-sign-frontiers-for-an-inertial-run-and-tum--8126e2ff3632",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local-mirror text",
+          "title": "Exact fourth-cumulant sign frontiers for an inertial run-and-tumble particle",
+          "trigger": "Same type of particle and fourth-order sign frontier"
+        },
+        {
+          "assessment": "Model and moment calculations are prior; inspected passages do not state the sign classification",
+          "evidence": [
+            "Dichotomous forcing with switching rate τ_a⁻¹; higher moments can be calculated recursively"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.06120",
+          "material_read": "PDF model eqs. (1)–(2), offsets 17000–22443; stationary recursions (20)–(24) and variance (29), offsets 40800–46767",
+          "method": "OA PDF passages",
+          "title": "Harmonically trapped inertial run-and-tumble particle in one dimension",
+          "trigger": "Same oscillator and exact moments"
+        },
+        {
+          "assessment": "Stationary rapid-switching limit rather than global fourth-cumulant signs",
+          "evidence": [
+            "Large deviation law and underdamped/overdamped support geometry as correlation time tends to zero"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.06848",
+          "material_read": "PDF abstract and model/main results, pp.1–3, offsets 0–5429 and 13200–18698",
+          "method": "OA PDF passages",
+          "title": "Nonequilibrium steady state for harmonically-confined active particles",
+          "trigger": "Identical telegraph oscillator in dimensionless variables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; Resultary 2c4edea2eb0c Finding and Proof"
+      ],
+      "rationale": "The global sign topology of this canonical oscillator is scientifically meaningful. As a contribution of this record, however, the surviving correct theorem is just the same diagram and threshold as the indexed result in different damping units; no additional useful exact fact survives that comparison. Merely correcting the equality cases or independently recomputing the constants would not remedy this.",
+      "residual_risks": [
+        "Value judgment is for the duplicate finding, not for the underlying question or the first establishment of its answer."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

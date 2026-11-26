@@ -1,19 +1,21 @@
-# Scientific review: one-path-defect \(K_{2,m}\) John ellipsoids
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim concerns all integers \(m\ge2\) and all real \(t>0\), in the explicitly defined zero-sum Euclidean hyperplane. Every assigned edge is metrically irredundant. A tree-enumeration identity gives the determinant and a derivative of the tree polynomial gives the exact edge effective resistances. Choosing the unique positive quadratic root makes the ordinary and anomalous edge resistances equal to their squared metric lengths. The positive-conductance Laplacian is a global John certificate by strict log-determinant concavity, without a symmetry restriction on competing ellipsoids. Direct asymptotic analysis establishes all three stated limits. Numerical and independent symbolic tests of finite instances corroborated, but do not establish, the universal proof.
+PASS
 
-## Originality
+Re-derived the resistance and volume without the spanning-tree differentiation: on the zero-sum hyperplane set h=x_u−x_v and z_i=x_{w_i}−(x_u+x_v)/2, and write G=sum g_i. The energy is Gh²/2+2 sum g_i z_i². Since the edge forms are ±h/2−z_i, their squared supports are 1/(2G)+1/(2g_i). The coordinate map has squared Jacobian m+2 (row Gram blocks 2 and I+11ᵀ/2), giving det_H L=(m+2)2^{m−1}G prod g_i and the claimed intrinsic volume. The ordinary support condition fixes a=(1+1/(m−1+r))/2; the exceptional support condition gives the stated quadratic with opposite-sign roots. Thus all contacts hold, including m=2 and t=1. For arbitrary feasible centered shape matrices the positive Laplacian decomposition bounds the log-determinant gain by zero, with equality only at the proposed shape. A translation adds |edge difference of the center| to the necessary support; at the optimal shape all these differences must vanish, so the center is zero. The zero-row-sum extension of the precision matrix L recovers labeled edges from negative off-diagonals, and the covariance determines the contacting lengths. For fixed t, rationalizing the positive root gives r→t⁻² and log(a/a₀)=O(m⁻²). At fixed m, r=2/t²−(m+1)/2+O(t²), giving det_H L~(m+2)t⁻⁴ and the stated prefactor. At t=c/√m the equation for u=r/m is c²u²+(c²−2)u−(1−1/m)=0, so u→ρ; (m+1)log(a/a₀)→−ρ/(1+ρ) and r(m−1+r)/m²→ρ(1+ρ). This gives the profile and both endpoints using ρ~2/c² and ρ~1/c². The bundled NumPy and SymPy programs were read but not executed; this check is analytical and covers the full parameter range.
 
-**PASS under the completed comparisons, subject to residual bibliographic uncertainty.** The 2023 cycle-space study of Dilworth, Kutzarova and Ostrovskii supplies the Lipschitz-free framework, not an ellipsoid formula. Suliman and Weinstein's 2023 work supplies general graph effective-resistance and D-optimal design principles, not the stated radical conductances for one anomalous two-edge path, full-contact reconstruction, or singular volume crossover. Previously recorded complete split-graph John ellipsoids concern a different graph, and the one-deleted-edge result concerns a Löwner ellipsoid for a different family. A published book-graph ellipsoid result concerns an additional shared edge, and another published result concerns graphical zonotopes rather than the polar transportation ball. The latter comparisons were available in summary form; complete equivalence checks could not be made from those summaries alone. Thus a differently formulated predecessor cannot be excluded, particularly one deriving the same graph-specific calculation from a more general theorem.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is an exact extremal Banach-space invariant for an infinite, continuously weighted graph-metric family. The claim goes beyond generic ellipsoid existence and beyond a single dimension: all edges remain in contact at any positive defect length, the ellipsoid determines the labeled metric, and its volume exhibits distinct quadratic and linear limits connected by an explicit singular finite-size scaling function. The precise crossover separates a defect collapsing two effective local directions from a large-network defect collapsing only one, a natural issue in metric sensitivity.
+The general D-optimal certificate and the ordinary K_{2,m} baseline are not the new content. The supported distinction is the exceptional-path solution, its persistent contact when t varies, and the normalized volume scaling law. Checked related graph families do not imply this anisotropic formula and limit.
 
-## Scope and limitations
+## value
 
-The proof does not cover heterogeneous lengths on the two exceptional edges or more than one exceptional path. It does not claim every graph metric has a fully supported John Laplacian. The complete general D-optimality framework is credited. An unindexed or uninspected equivalent specialization remains a bibliographic risk. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The one-path defect is a minimal controlled metric perturbation, and the normalized John volume is a specific extremal invariant. The exact solution distinguishes a two-direction collapse at fixed size from the linear large-network response and gives the crossover function, not just a possible scaling exponent. This has quantitative use for sensitivity of these metric balls; it does not assert that general heterogeneous metrics have full contact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

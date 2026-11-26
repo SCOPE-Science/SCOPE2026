@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two backward Poisson boundary problems reduce to two first-order equations for the oriented slopes; their sum and normalized ratio reconstruct drift and spatial diffusivity. Strict ratio decrease provides both ellipticity and the necessary-and-sufficient test. The reflected stationary density follows from a zero-current identity. The one-profile ambiguity and paired \(C^1\) inverse discontinuity are exhibited by explicit families, not inferred from computations. Symbolic checks and four independently formulated numerical boundary value solves passed; numerical checks do not replace the proof.
+## correctness
 
-**Originality — PASS, qualified.** The closest source, Keidar–Reuveni–Sokolov (arXiv:2611.03831v1), fixes diffusivity and addresses one MFPT profile on a half-line. Bal–Chou (2004) study the full first-exit-time distribution from one start and discuss classical scale/speed recovery; Abundo (2014) inverts a starting-position law. Standard backward equations and scale/speed theory are credited. Searches of mathematical findings for opposite-boundary profiles, joint drift/diffusivity recovery and inverse instability found related but not covering results. An unindexed equivalent two-profile theorem remains an originality risk, and the inspected older literature was not exhaustive.
+PASS
 
-**Value — PASS.** Swapping absorbing and reflecting endpoints is a well-defined, physically motivated interrogation of the same diffusive medium. A complete compatibility criterion plus simultaneous recovery of two unknown spatial coefficient functions establishes what such data can determine. The explicit high-frequency counterexample quantifies why noisy first-derivative data cannot deliver stable local diffusivity estimates; the single-profile alias family demonstrates why both directions matter.
+The two mixed boundary problems give Da'+μa=-1 and Db'+μb=1. Their sum yields DS'+μS=0, and a=qS gives DSq'=-1. With p=exp(∫μ/D), the oriented slopes are p(x)^(-1) times the integrals of p/D over [x,L] and [0,x], respectively; this gives strict positivity precisely away from the respective reflecting endpoint, including the claimed one-sided endpoint signs. Conversely the compatibility conditions and C³ data give C¹ coefficients, uniform ellipticity, and both backward equations. The mixed problems are unique; stopping the reflected process at absorption uses the zero normal derivative and bounded solution and gives finite mean and the claimed interpretation. Dπ=1/S verifies zero flux and q(0)-q(L)=1 gives normalization when both endpoints reflect. Substitution verifies the one-profile alias and the exact D=1+x example. In the oscillatory family the slope error is at most c/(nπ), hence the profile-pair C¹ error is O(1/n), while the diffusivity error in L∞ is c/(1-c); continuity makes the endpoint value also a valid essential-supremum lower bound. The ellipticity bounds hold uniformly, but not a uniform derivative bound on D. Brownian normalization here is D=1 (generator ∂xx). The 'absorbing-side derivative zero' wording in the necessity paragraph is a slip: the displayed conditions, argument, and theorem put derivative zero at reflection.
 
-**Limitations.** Both protocols require the same interior Itô coefficients and exact complete spatial MFPT profiles. The result does not provide a regularizer, confidence bands, or multidimensional identification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit classical scale/speed identification and the ordinary two-equation inversion, including the exact data equivalence described below. The supported distinct contribution is the paired opposite mixed-boundary formulation with its intrinsic compatibility and stationary-tail readout, together with an explicit uniformly elliptic zero-drift discontinuity witness in C¹→L∞ for that measurement scheme. The closest inspected statements do not present or imply that instability merely from identifiability. This is not a claim of priority for simultaneous inverse-diffusion recovery, nor for one-profile ambiguity in general.
+
+## value
+
+PASS
+
+Reversing only the boundary roles gives a concrete design using means rather than full distributions, with a direct model-compatibility test and a stationary density readout for a third, both-reflecting setup. The exact uniformly elliptic counterexample shows why smooth-looking passage profiles and control of their first derivatives do not suffice for uniform diffusivity recovery. This topology-specific obstruction is useful even though the central identification algebra is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

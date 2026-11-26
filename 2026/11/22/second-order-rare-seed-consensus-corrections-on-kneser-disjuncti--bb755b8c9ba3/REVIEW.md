@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-step propagation identity uses an explicit intermediate vertex disjoint from the endpoints. The first-step event is exactly the absence of a size-\(k\) transversal. For \(k+1\) seeds a size-\(k\) transversal is equivalent to an intersecting pair, giving the exact finite product and second-order logarithmic expansion. For \(k+2\) seeds, only a triple common point or two disjoint intersecting pairs can save two transversal points with at most two coincident element identifications. A union bound over ground \(k\)-sets controls all larger seed families to order \(n^{-3}\), with the same order for finite-binomial/Poisson correction. The independent bit-mask and numeric checks in the package agree. The result assumes fixed \(k\ge3\) and \(\lambda>0\).
+## correctness
 
-## Originality
-**PASS with residual historical-priority risk.** General conjunctive/disjunctive network theory already covers broad attractor structure; Kneser total-domination papers cover the threshold/minimum disjoint-clique configuration, but neither result implies the displayed second-order random first-hit probability. In particular, minimum total-domination alone cannot determine the relative contributions of the two \(k+2\)-seed collision motifs. Comparisons included published indexed results on Kneser Boolean networks and direct rare-hypergraph/transversal searches. Equivalent older rare-hypergraph enumeration is a residual risk, and not every plausible full text was accessible.
+PASS
 
-## Value
-**PASS.** A first-hit probability is a natural temporal basin statistic for disjunctive networks. The zeroth-order Poisson tail and minimum dominating configurations do not resolve the two distinct overlap mechanisms at order \(n^{-2}\). Their explicit coefficients give a reproducible finite-size refinement, useful when a sparse random seed population has only \(k+1\) or \(k+2\) active sites. No claim of a broad new domination theorem is made.
+For every pair of Kneser vertices, including repeated endpoints, a common neighbor exists since n≥3k. Thus every nonempty state reaches all one by step two; the empty state remains empty and all-one is absorbing. One-step coverage is equivalent to the absence of a transversal of size at most k, since such a transversal can be extended to exactly k. Up to k seeds always have one; k+1 seeds have one iff they intersect in some pair. In an independent ordered draw of k+1 ordered k-sets, the disjointness probability is (n)_{k(k+1)}/(n)_k^{k+1}; conditioning on distinct seeds multiplies by 1+O(n^{-k}). Subtracting the first and second sums of falling-factorial log terms gives log D=−A/n−(B+A²/2)/n²+O(n^{-3}), with the asserted signs after exponentiating. For k+2 seeds, use independent ordered draws without repetition within each seed. A fixed admissible equality pattern of codimension d on the k(k+2) coordinate slots has probability O(n^{-d}) (match its blocks to distinct ground points). With at most two lost distinct points there is either one triple block or two double blocks; the saving of two transversal picks requires a triple from distinct seeds or two double blocks on four different seeds. With double blocks sharing a seed, even choosing both block points saves at most one. These exact patterns are disjoint and each has probability n^{-2}+O(n^{-3}), from the falling-factorial count; conditioning away repeated entire seeds again costs O(n^{-k}). Independent small symbolic/count checks recovered (A,B,C)=(54,−1215,1485) and (160,−11600,12800) for k=3,4, with the respective triple/pair split (270,1215), (1280,11520). For M≥k+3 and failure, some ground k-set is hit by at least k+3 selected seeds. Its hit-family has O(n^{k−1}) possible seeds, so the (k+3)th binomial factorial-moment bound gives O(n^{-k-3}) per transversal candidate and O(n^{-3}) overall. The finite collection of fixed-count binomial masses differs from the Poisson masses by O(1/N); this also controls the baseline tail via its complement. Subtract p^N, negligible in the expansion, to distinguish first hitting from all-one at t=1. This proves the normalization and the stated uniform-in-n remainder for fixed k,λ.
 
-## Closest literature and limitations
-Jarrah–Laubenbacher–Veliz-Cuba (2008) provides general OR-network dynamics; Brešar–Cornet–Dravec–Henning (2023) supplies relevant minimum Kneser total domination; Cornet–Torres (2023) studies multiple domination; Östergård–Shao–Xu (2015) treats ordinary domination bounds. The expansion applies only to fixed \(k\ge3\) and fixed positive \(\lambda\). Independent assessment and exhaustive historical novelty verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the quantitative first-hit expansion, not for OR-network propagation or deterministic minimum total domination. The nearest theorem gives the eventual k+1/disjoint threshold; the nearest exact polynomial covers rank two only; and the distinct same-day Johnson record treats a different adjacency and regime. The new content is the second-order rare-seed correction, including the k+2 transversal obstruction coefficient and the control needed to mix over all larger families.
+
+## value
+
+PASS
+
+In a natural bounded-time OR process on a standard family, the rare-seed approximation quantifies when one update suffices rather than two. The first two correction orders resolve a deterministic threshold, a disjointness penalty, and two non-equivalent multi-seed collision mechanisms; the second-order term cannot be read off the minimum total domination number. The explicit coefficient and all-sizes remainder are useful for finite-size comparison at fixed rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

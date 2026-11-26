@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-The proof is entirely analytic and covers every real \(a\in(0,1)\) and every pair \((\ell,u)\in[0,a]^2\). Its critical checks are: (i) exact section-based upper bounds; (ii) equality of restricted coordinate marginals before and after both patches; (iii) preservation of the full section, including its endpoint by continuity; (iv) the comonotone coupling's upper-tail intersection mass, equal to the minimum of its two terminal marginal masses; (v) explicit corner probabilities for every sufficiently small \(\varepsilon\), with no assumption that the two patches are disjoint.
+# Independent mathematical audit
 
-The standalone `check_tail.py` executable was run with Python's standard-library `fractions.Fraction`. It passed **26,912 exact rational assertions** across five grid resolutions, all nontrivial rational square widths, and sixteen lower/upper mixing pairs per width. It independently checks the finite two-stage measure calculation and section preservation with overlapping squares. Finite checkerboards are not used to infer an infinite limit; the continuous quantile-coupling argument supplies it.
+## correctness
 
-Relevant source comparisons include full substantive sections of Xie–Zou (2026), the primary 2008 section-construction paper included in Saminger-Platz's habilitation compilation, the 2009 rectangular-patchwork primary article, and de Amo et al. (2013). The 2011 joint diagonal/opposite diagonal paper was accessible by abstract only, which leaves residual priority risk. There is no independent validation or external certification.
+PASS
+
+The prescribed C(a+t,t), evaluated at the lower displacement ε and the reflected upper displacement 1−a−ε, bounds both ε-corner masses by ε(a+ε). For sharpness the lower-square replacement at mixing weight ℓ/a preserves both marginals; every prescribed rectangle includes its entire horizontal span, so the section is unchanged. The intermediate law is symmetric, so its restriction to the upper square has identical coordinate marginals ν. The upper replacement couples ν to itself by the diagonal pushforward of ν, mixed at weight u/a. This is a finite measure of total mass ν([0,1]), not its normalized probability law: equivalently, the record's finite-mass quantile pushforward uses Lebesgue measure on (0,m), or multiplies the uniform probability law there by m. For ε<min(a,1−a), each upper terminal strip retains marginal mass aε, unchanged by the first patch, and the terminal corner mass changes from ε² to aε under the diagonal coupling. The second patch does not touch the lower ε-corner or the section for t<1−a; the endpoint is fixed by C(1,1−a)=1−a. This verifies both tail limits for every pair simultaneously even when the squares overlap. The checker source was inspected; the frozen reported 26,912 grid assertions are consistency evidence and were not executed or used to infer the continuum theorem.
+
+## originality
+
+PASS
+
+The supported distinct claim is the entire simultaneous square for ordinary diagonal tail coefficients under the fixed independence sub-diagonal, including attainability of (a,a) and independently settable coefficients when a>1/2. It is not claimed that prescribed-section existence, pointwise bounds, or rectangular patchwork techniques are new. No inspected source establishes the sharp joint region or contains a theorem specializing directly to it. This is a best-of-knowledge determination, not priority certification.
+
+## value
+
+PASS
+
+A complete feasible region gives more information than two separate sharp upper bounds. The result resolves the non-identifiability of both asymptotic tail masses under an exact continuum of independence-section data, identifies the sharp simultaneous endpoint, and shows that overlapping corner squares do not impose a tradeoff. Its construction works across the natural full range 0<a<1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

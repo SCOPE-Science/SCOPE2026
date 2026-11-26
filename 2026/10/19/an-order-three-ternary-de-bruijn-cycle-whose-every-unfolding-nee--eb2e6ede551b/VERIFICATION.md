@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-Run `python3 debruijn_attractor_check.py` in a standard Python 3 interpreter (no third-party dependencies). It checks all \(27\) length-three cyclic factors against \(\{0,1,2\}^3\), calculates the three critical bigram occurrence lists, verifies each residue obstruction, and exhaustively confirms both the nine-mark failure and a size-ten full string attractor for each of the \(27\) cuts and all factor lengths from \(1\) to \(29\). The expected output begins with `PASS deBruijn=27_distinct_trigrams all_27_cuts=gamma_exactly_10`.
+## correctness
 
-The noncomputational lower-bound certificate uses 27 distinct length-three occurrences and the fact that each marked position meets at most three starts, forcing exactly the nine positions \(3,6,\ldots,27\) if size nine were possible. The residue-class bigram table rules out those positions for every cut. For the upper bound, all triplets are already covered and only one bigram fails at each cut; adding a position in that bigram fixes it. Uniqueness of each triple then implies coverage of every longer factor. No unbounded assertion is based on finite experimental extrapolation.
+PASS
 
-This is a complete finite-instance proof. The literature comparison is bounded by accessible source material and records. Independent audit has not been performed.
+The cycle has all 27 cyclic triples once. A nine-mark solution must partition the 27 linear triple starts into three-start consecutive intervals; covering start 1 with full capacity forces mark 3 and induction forces 3,6,…,27 (one-based). This marks cyclic residue r=c+2 mod 3. In residues 0,1,2 the omitted bigram respectively is 02, 01, 12, with start residues 1,2,0, so both coordinates avoid the marks, including any repeated unmarked suffix. Independently computed occurrence-union bitmasks for every length in every one of the 27 cuts give exactly one missed factor with these nine marks, and adding one position in that factor hits every factor. Analytically, any factor longer than three has a unique triple suboccurrence, so hitting all triples already hits all such factors. This proves both minima exactly ten and both quantifiers over the given instance.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the explicit universal-cut witness with exact minima 10 for both ordinary and 3-attractors. The elementary lower bound and a single bad unfolding are prior context; the distinct claim is that all unfoldings of one cyclic ternary order-three word fail the target nine. The primary text explicitly separates this all-cycles question from the existence of some favorable cycle and has a favorable cut for its own illustrative cycle. The closest inspected Resultary profile is binary order four and has favorable cuts, not this witness.
+
+## value
+
+PASS
+
+The explicit witness rejects a universal rotation fix (not just a single bad linear representation); it separates forcing the exact-length factors from hitting all shorter factors. The modest finite certificate resolves a natural quantifier in the de Bruijn attractor question and gives a structural obstruction through the forced residue class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

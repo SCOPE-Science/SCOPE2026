@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:17:32.876407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–82; primary Theorem 3, Section 4 Lemma 7 (arXiv:2610.31449v1)",
+        "Frozen VERIFICATION.md lines 19–21; verify_power_threshold.py lines 19–83; verification_output.txt lines 1–2"
+      ],
+      "rationale": "The universal comparison uses the same deterministic step bounds on both sides. Martingale orthogonality proves p=2; the cited planar comparison for even convex C² functions with convex second derivative applies to |t|^p for p≥3, and the cited norm-preserving planar reduction handles every finite Euclidean dimension. For two steps, with previous vector v, s=|v| and increment bound r, the affine chord of (s²+r²+2sr u)^(p/2), u in [-1,1], majorizes the boundary values when p≥2. Subtracting that affine function leaves a convex difference, extending the bound to the ball. Conditional mean zero removes the affine term and the average of (s+r)^p and |s-r|^p increases in s, so substitution of the initial bound is valid. Zero step bounds and the one-step case are immediate. For p<2 the orthogonal two-step witness gives 2^(p/2)>2^(p-1). In the three-step witness the first two orthogonal increments give deterministic norm sqrt(2)δ; the last signed increment is radial and is mean zero given the past. In the reference sum the first two signs have magnitude 0 or 2δ with probability 1/2 each. The even power series cancel through order two; at every order 2k≥4 the multipliers 2^k-2^(2k-1) and binom(p,2k) are both strictly negative for 2<p<3. The first coefficient is p(p-1)(p-2)(3-p)/6, and absolute convergence holds for every 0<δ<1/2. Thus a strict failure occurs at horizon three for the whole subcubic gap and not before.",
+      "residual_risks": [
+        "The 1191 assertions are recorded supporting checks, not a fresh run of the supplied script or evidence for the universal statement; the independent check used the analytic proof. No complex or general Banach-space extension is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 compares all even convex C² functions with convex second derivative in the plane; Lemma 7 preserves the relevant joint norms in the planar reduction. Pinelis 2002 uses independent comparisons, not the selected radial final direction of this witness."
+        ],
+        "reasoning": "The stronger test-function theorem covers the positive result for p=2 and p≥3 but cannot give the new all-subcubic counterexamples. Independent-vector comparison theorems have different hypotheses.",
+        "searches": [
+          "Juškevičius–Šileikis arXiv:2610.31449v1, §3 Theorem 3, §4 Lemma 7",
+          "Pinelis 2002, §4 context and introductory comparison; Pinelis 2015 DOI:10.1137/S0040585X97T987417"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.31449v1",
+        "Resultary 3f87a236f0a1",
+        "Pinelis 2002, Mathematical Inequalities & Applications 5, 7–26",
+        "Pinelis 2015, DOI:10.1137/S0040585X97T987417 (full text unavailable in checked route)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 6's proof uses Δ'(u)=v h(g(u))−α and monotonicity of h; for |t|^p this holds for p≥2. Applying the one-step inequality and monotonicity immediately gives the two-step bound, even for subcubic p. Theorem 3's iteration, in contrast, assumes convexity of f''."
+        ],
+        "reasoning": "The auxiliary bound is close to an implication of the earlier local proof; the exact obstruction to iteration and the strict three-step violation across the full open interval are not implied by those inspected results.",
+        "searches": [
+          "arXiv:2610.31449v1, Theorem 3 and proof of Lemma 6, equation (7); §4 planar reduction",
+          "Resultary record 3f87a236f0a1, Finding and Rademacher comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day two-step Hilbert tail-envelope record 3f87a236f0a1, Finding and discussion near mirror offset 8000, explicitly distinguishes tails from Rademacher power moments; at a=b=1 and threshold 3/2 its planar sharp tail is 8/9 versus 1/2 for the sign sum."
+        ],
+        "reasoning": "A pointwise worst-case tail and an optimum for one fixed power are different functionals; the record neither gives the same comparison nor supplies the three-step adapted witness.",
+        "searches": [
+          "Resultary ranked search for two-step Hilbert martingale comparisons and Rademacher moment domination",
+          "arXiv:2610.31449v1, §3 Theorem 3 and Lemmas 4–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest verified result: Resultary record 3f87a236f0a1, same two-step setting but an exact tail envelope."
+        ],
+        "reasoning": "No matching indexed statement was identified in this check. A finite table of moment examples could not establish the claimed continuum of exponents and all-horizon classification.",
+        "searches": [
+          "Resultary semantic check for an exact Euclidean martingale Rademacher exponent frontier and sharp two-step Hilbert bounds"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit strict planar three-step obstruction for every 2<p<3, giving the sharp frontier and, with the two-step comparison, the first failure horizon. The positive all-horizon range is established prior work. The two-step lemma's method and its monotonicity mechanism are already present in the proof of Juškevičius–Šileikis Lemma 6 after weakening its input from convexity of f'' to monotonicity of f'(x)/x; this auxiliary part is not an independent broad novelty claim.",
+      "residual_risks": [
+        "The identified older Rosenthal-type article was not inspected in full. An older Bellman-function calculation might overlap the auxiliary two-step result. The inspected sources and ranked results do not certify worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive half covered; essentially the same local argument with an immediately weaker sufficient hypothesis; no located statement of the strict three-step obstruction",
+          "evidence": [
+            "Theorem 3 around offset 6375; Lemma 6 proof around 9040–14802; dimension reduction around 15800"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.31449v1",
+          "material_read": "§3 Theorem 3, Lemmas 4–6 and proof at equation (7); §4 Lemma 7",
+          "method": "Bounded primary HTML passage inspection",
+          "title": "Concentration inequalities for vector-valued martingales",
+          "trigger": "Exact positive comparison; possible overlap of one-step ingredient"
+        },
+        {
+          "assessment": "Material overlap in setting; different objective and no subcubic witness",
+          "evidence": [
+            "Finding at offset 0; x=3/2 example near offset 8000"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-two-step-hilbert-martingale-norm-tails-and-their-dimension--3f87a236f0a1",
+          "material_read": "Finding and comparison with scalar and Rademacher tails",
+          "method": "Resultary hit and local mirror passages",
+          "title": "Sharp two-step Hilbert martingale norm tails and their dimension",
+          "trigger": "Distinct same-day mathematical result for the same two-step process"
+        },
+        {
+          "assessment": "The independent sum comparison discussed there does not give adapted sharpness",
+          "evidence": [
+            "PDF text near offset 1380"
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-05-02.pdf",
+          "material_read": "Opening comparison, p. 7 (PDF p. 1)",
+          "method": "OA PDF passage",
+          "title": "Spherically symmetric functions with a convex second derivative and applications to extremal probabilistic problems",
+          "trigger": "Historical convex-second-derivative framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–82; Juškevičius–Šileikis arXiv:2610.31449v1, Theorem 3 and Lemma 6"
+      ],
+      "rationale": "The counterexample identifies precisely where a natural sharp Rademacher comparison fails, and the two-step upper bound identifies the minimum failure horizon. A conditionally symmetric planar example of length three distinguishes adaptation from deterministic-direction comparisons; the proof shows that neither a large dimension nor an asymptotic construction is needed. The already known positive theorem and the auxiliary two-step argument do not alone carry this assessment.",
+      "residual_risks": [
+        "The sharpness is for powers and deterministic individual bounds, not a classification of comparison functions or a claim about exact tail bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

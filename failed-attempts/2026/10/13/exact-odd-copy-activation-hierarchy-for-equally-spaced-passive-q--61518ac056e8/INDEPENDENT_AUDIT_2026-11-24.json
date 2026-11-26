@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:18:56.592655Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–49",
+        "VERIFICATION.md",
+        "verify.py (inspected, not executed)",
+        "/workspace/audit_replays/frozen_math.py 5"
+      ],
+      "rationale": "All energy shells t=0 through 2N occur. It suffices to compare adjacent shells, because minimum population in the lower shell exceeding or equaling maximum population in the next propagates by transitivity. For two such words, twice minus the log population ratio is u+v+(u-v) times the difference in middle-level counts, with the intended grouping (u+v)+(u-v)*Delta. The difference is odd and lies between -r_N and r_N. Both extremes occur: compare the r_N ones against the endpoint-only words at energies r_N-1 and r_N+1; append the same zero for even N. Thus the sharp inequality is u+v>=r_N|u-v|, with equality passive by rearrangement. Rearranging gives the sandwich. The least allowed odd r_N strictly exceeding 2 max(u,v)/|u-v|-1 gives the floor formula including integer-ratio boundaries; equal slopes give Gibbs and no activation. Independent replay: python3 -I -B /workspace/audit_replays/frozen_math.py 5, with 12240 exact adjacent-shell checks up to 15 copies for ordered positive integer triples bounded by 16.",
+      "residual_risks": [
+        "The test is for arbitrary joint cyclic unitaries and exact equidistance with positive populations. Neither the proof nor replay determines optimal work yield or a rank-deficient classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General N-passivity is a lattice ordering over all occupation-count vectors in energy and surprisal; equal-energy constraints are additional structural stability, not ordinary passivity.",
+          "At odd N=2k-1 with equidistant energies, Proposition 1 Eqs. (48)–(51), with m=k-1, gives the two target population bounds as necessary conditions."
+        ],
+        "reasoning": "The existing general tests identify the same exact ordering problem; the specific necessary bounds alone are not a proof of sufficiency. The separate indexed result already evaluates this problem in closed form.",
+        "searches": [
+          "Koukoulekidis et al. arXiv:1912.07968v3, Eq. (12)/Lemma 7",
+          "Salvia–Giovannetti arXiv:1912.02099v4, Eqs. (13), (15), (16), Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and October 12 matching Finding",
+        "arXiv:1912.07968v3",
+        "arXiv:1912.02099v4",
+        "arXiv:1412.5485",
+        "arXiv:1502.07311 abstract (passive energy/entropy extremizers)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The virtual-temperature witness construction is sufficient for activation and does not exclude earlier activation.",
+          "The indexed iff result gives no activation before the onset. Monotonicity under appending a common ground symbol gives activation at larger powers, a standard hierarchy property also reflected in the general literature."
+        ],
+        "reasoning": "A swap witness does not establish the converse, but the matching indexed iff includes it. The explicit five-copy witness is an application of the same boundary and endpoint construction, not a separate activation theorem.",
+        "searches": [
+          "Skrzypczyk–Silva–Brunner arXiv:1412.5485, Eq. (9)",
+          "Salvia–Giovannetti arXiv:1912.02099v4, Eq. (13) and Proposition 1",
+          "October 12 indexed Finding and witness sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed finding states g_N|a-b|<=min(a,b), g_N=floor((N-1)/2), and first activation 2 floor(min(a,b)/|a-b|)+3.",
+          "The indexed finding also states the equivalent population inequalities separately on either side of the Gibbs line, and equal odd/next-even decisions."
+        ],
+        "reasoning": "With a=u, b=v, r_N=2g_N+1 and u+v=2 min(u,v)+|u-v|, the two regions coincide including equality. For unequal slopes max=min+|u-v| makes the onset formulas identical. For each sign of u-v the opposite population bound is automatic from u,v>=0; hence the branch form equals the sandwich.",
+        "searches": [
+          "Resultary queries for equally spaced qutrit finite-copy passivity and exact minimum activation",
+          "2026/10/12/SCOPE-sharp-odd-copy-activation-law-for-passive-equally-spaced-qutrits--d9a37c2da2f6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record is an all-N theorem on the same full-rank population simplex, not a numerical table or a dataset-specific match."
+        ],
+        "reasoning": "A finite onset table would not cover arbitrary real populations or copy numbers. The exact indexed criterion covers both unbounded quantifiers, including cases of repeated populations.",
+        "searches": [
+          "Resultary semantic index, exact odd-copy activation and equally spaced qutrits",
+          "Indexed Sharp odd-copy activation law, Finding and Proof"
+        ]
+      },
+      "rationale": "The distinct indexed Sharp odd-copy activation law has the same spectrum, initial population order, arbitrary global operations, all-copy iff boundary, Gibbs case, equality rule and parity pairing. Its floor formula is exactly the same after shifting the min/max quotient by one. This is verified mathematical coverage, not a priority claim based on record dates. The alternative proof via parity and the symmetric sandwich do not change the theorem.",
+      "residual_risks": [
+        "Historical priority outside the inspected sources is not decided. The inaccessible cited pedagogy page does not affect the decisive indexed equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent theorem, including equality and odd-even pairing",
+          "evidence": "g_N absolute difference <= minimum slope and activation 2 floor(minimum slope / absolute difference)+3.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-odd-copy-activation-law-for-passive-equally-spaced-qutrits--d9a37c2da2f6",
+          "material_read": "RESULT.md Finding, assumptions and start of proof offsets 0–3425; witness and relationship from offset 4919",
+          "method": "Resultary local search and lawful local mirror text",
+          "title": "Sharp odd-copy activation law for passive equally spaced qutrits",
+          "trigger": "Matched all-N qutrit passivity threshold"
+        },
+        {
+          "assessment": "General ordinary passivity iff ordering and same odd-copy necessary sandwich; not the evaluated iff in inspected Proposition 1",
+          "evidence": "With midpoint energy and odd N the integer m in both ratio bounds is (N-1)/2; equal-energy constraints are distinguished by Eq. (16).",
+          "identifier_or_url": "https://arxiv.org/abs/1912.02099v4",
+          "material_read": "p. 5, Eqs. (13), (15), (16), offsets 21600 and 23500; pp. 10–11, Proposition 1 Eqs. (48)–(51), offset 41700 onward",
+          "method": "Targeted OA primary PDF text",
+          "title": "Energy upper bound for structurally-stable N-passive states",
+          "trigger": "Same all-copy order and three-level inequalities"
+        },
+        {
+          "assessment": "General ordering criterion without explicit qutrit slope threshold in inspected passage",
+          "evidence": "The k-copy occupation-count ensemble must be totally ordered in energy–surprisal coordinates.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.07968v3",
+          "material_read": "Sec. 3.3, Eq. (12) and Lemma 7, p. 5, offset 25200",
+          "method": "Targeted OA primary PDF text",
+          "title": "The geometry of passivity for quantum systems and a novel elementary derivation of the Gibbs state",
+          "trigger": "Equivalent general occupation-lattice representation"
+        },
+        {
+          "assessment": "Sufficient activation witness, not no-earlier-activation converse",
+          "evidence": "Equation (9) is presented as sufficient for activation using two virtual transitions.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.5485",
+          "material_read": "Complete Passivity, Eq. (9), p. 3, offsets 16500 and 21100",
+          "method": "Targeted OA primary PDF text",
+          "title": "A short note on passivity, complete passivity and virtual temperatures",
+          "trigger": "Finite-copy activation construction for neighboring virtual temperatures"
+        },
+        {
+          "assessment": "Unresolved access, not evidence of presence or absence of coverage",
+          "evidence": "No article text was available for comparison.",
+          "identifier_or_url": "https://qft.org/quantum-information/energy-entropy-localization/complete-passivity-kms-resource-conversion/",
+          "material_read": "None; HTTP 404 in both attempted routes",
+          "method": "Lawful OA website retrieval, direct and configured alternate route",
+          "title": "Complete Passivity, KMS Structure, and Resource Conversion",
+          "trigger": "Cited example source on three- and five-copy inversions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–49",
+        "October 12 indexed Finding and witness sections"
+      ],
+      "rationale": "An exact resource threshold at Gibbs proximity is a natural invariant, but the identical threshold, parity pairing, and equality convention are already given in the matched record, which also treats the divergence near thermal populations. The symmetric expression and one additional rational witness do not add a distinct boundary, population regime, or extraction result.",
+      "residual_risks": [
+        "The parity proof has expository utility; this assessment is of the scientific claim and does not detract from the value of the invariant itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

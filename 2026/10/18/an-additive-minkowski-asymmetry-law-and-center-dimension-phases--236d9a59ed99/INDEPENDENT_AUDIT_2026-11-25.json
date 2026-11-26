@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:28:00.923670Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, halfspaces, reflection argument, center locus and examples",
+        "Frozen VERIFICATION.md and verify_ps.py, inspected not executed"
+      ],
+      "rationale": "For a defining form f(x)≤b with min f=h, reflected containment at scale s is equivalent to f((s+1)c)≤sb+h. Independently checked the minima: a single nonzero row k supported on the first j columns at level A_k attains the coordinate and prefix-gap extrema, and zero attains the top-prefix minimum. With y=(s+1)c, use slack coordinates z_k=y_(k,m)−A_k and w_(i,j)=Y_(i,j)−Y_(i,j+1)−A_i. They give an invertible affine coordinate change and are nonnegative. The top inequalities become sum_(k≤i)z_k + sum_(j<m)w_(i,j) ≤ (s−m+1−r_i)A_i. Thus s≥m−1+ρ; z=w=0 attains it and yields the stated center, which is interior. At equality in the scale, exactly the z_k with k≤L and w_(i,j) with i∈T are forced to zero. Set all remaining slacks equal to one sufficiently small positive constant: the non-tight top inequalities have positive margins and the other floors, in columns j<m, have original slack (m−j)a_k>0. This proves no other affine equations and gives the center dimension. All members of the scaled feasible set are interior by positive floors, positive gaps and the strict top margin after rescaling. Uniform weights, n=1, and both examples at n=3,m=2 agree; the latter have r_3=3/2 and 103/100 respectively.",
+      "residual_risks": [
+        "Strict positivity of the increments is needed for the relative-interior witness; no zero-increment or skew-shape claim is credited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unit-flow theorem assumes conservation at nonterminals, total source flow 1, and route-incidence vertices; its invariant is w−1 for an integer width w. The chain–order theorem is unmarked with fixed boundary levels 0 and 1 and yields the integer poset height. Neither scope is all fixed-netflow or arbitrary marked polytopes."
+        ],
+        "reasoning": "Affine invariance and the explicit noninteger instance rule out general reductions to these two covered classes. Their shared support-width method and covered subcases do not invalidate the weighted result. No priority inference is made from the same-day labels.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-minkowski-asymmetry-of-acyclic-unit-flow-polytopes-from-ar--0aaa0ebf412b",
+          "Resultary 2026/10/18/SCOPE-height-and-longest-chain-coverage-determine-minkowski-centers-of--9a43b298226b",
+          "arXiv:2307.09925v2, flow realization"
+        ]
+      },
+      "checked_sources": [
+        "Pitman–Stanley Report 560",
+        "arXiv:2307.09925v2",
+        "arXiv:1807.03970",
+        "Resultary 90db80da3ebc, 0aaa0ebf412b, and 9a43b298226b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior findings supply multichain shapes and grid-flow models, or explicit unit-width center rules. The present inequalities instead have varying widths A_i and different winning prefixes; identical asymmetry 5/2 can give center dimensions 1 and 3."
+        ],
+        "reasoning": "The usual halfspace reflection condition is shared, not novel. The weighted collapse to one maximum plus a complete independent count of forced center slacks is not a substitution into the inspected unit-width formulas. In particular a scalar invariant does not determine the claimed center geometry.",
+        "searches": [
+          "Pitman–Stanley Report 560, pp. 23–24",
+          "arXiv:2307.09925v2",
+          "Resultary 0aaa0ebf412b and 9a43b298226b, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Π_n^m(x) in Report 560 already has the same cumulative inequalities with reversed columns for positive integer data. The later generalized family has a grid-flow formulation. The Minkowski property of marked chain–order polytopes is a Minkowski-sum decomposition property."
+        ],
+        "reasoning": "The first alias denotes the same family in its integer-data domain, not a different family. Neither lattice enumeration in those coordinates nor Minkowski addition is the reflected-containment invariant. The fixed-netflow grid is not in general a unit-flow route polytope.",
+        "searches": [
+          "Pitman–Stanley Report 560, pp. 23–24",
+          "arXiv:2307.09925v2",
+          "arXiv:1807.03970"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed same-family specialization tabulates/describes Euclidean incenters and inradius of the all-ones staircase; the generalized-polytope paper gives combinatorial data on vertices/faces."
+        ],
+        "reasoning": "Euclidean incenters and reflection-minimizing centers are different optimization problems. A vertex description provides input for an individual containment program, not an existing table of this exact invariant or a general parameter-phase law.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-the-generalized-pitman-stanley-staircase-has-dimension-free-eucl--90db80da3ebc",
+          "arXiv:2307.09925v2, vertex and face results"
+        ]
+      },
+      "rationale": "The multichain family itself is prior, including for m≥2. The distinct claim is its weighted asymmetry law and its tight-prefix classification of the full center locus. The closest unweighted center theorems cannot cover the whole family even up to affine equivalence: they have integer asymmetry, whereas the verified straight shape (n,m,a)=(2,2,(1,1)) has asymmetry 5/2.",
+      "residual_risks": [
+        "A more general marked-polytope or fixed-netflow weighted asymmetry theorem could overlap but was not established by the inspected sources.",
+        "The frozen historical wording 'new multichain regime' should not be read as priority for m≥2; Report 560, pp. 23–24, already has that construction for integer parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_OBJECT",
+          "evidence": "The paper explicitly introduces the multichain Π_n^m(x); the inspected passage treats enumerative geometry rather than these centers.",
+          "identifier_or_url": "https://statistics.berkeley.edu/tech-reports/560",
+          "material_read": "1999 Report 560, pp. 23–24 (PDF text near offset 73000)",
+          "method": "Targeted primary PDF passage",
+          "title": "A polytope related to empirical distributions, plane trees, parking functions, and the associahedron",
+          "trigger": "Original Pitman–Stanley family and its multichain extension"
+        },
+        {
+          "assessment": "PRIOR_OBJECT",
+          "evidence": "Defines and relates the multichain, plane-partition and grid-flow formulations; the inspected results address vertices, faces and enumeration, not the claimed asymmetry law.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.09925",
+          "material_read": "v2 abstract/introduction and flow-polytope section (offsets 0–5877 and around 35500)",
+          "method": "Targeted arXiv passage retrieval",
+          "title": "Generalized Pitman–Stanley polytope: vertices and faces",
+          "trigger": "Same object and flow formulation"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "The property is about Minkowski sums and reflexivity, not the reflection asymmetry or center classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.03970",
+          "material_read": "Abstract/introduction and §2 near offset 14500",
+          "method": "Targeted arXiv passage retrieval",
+          "title": "The Minkowski Property and Reflexivity of Marked Poset Polytopes",
+          "trigger": "Marked polytope and potentially equivalent Minkowski terminology"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "The all-ones result is the Euclidean inradius and Euclidean incenter geometry.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-generalized-pitman-stanley-staircase-has-dimension-free-eucl--90db80da3ebc",
+          "material_read": "Mirrored RESULT.md offsets 0–5934",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The generalized Pitman–Stanley staircase has dimension-free Euclidean inradius",
+          "trigger": "Same-family complete center-set result"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE",
+          "evidence": "Unit route-flow theorem has integer asymmetry even up to affine equivalence; general weighted fixed-netflow straight shapes can have noninteger asymmetry.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minkowski-asymmetry-of-acyclic-unit-flow-polytopes-from-ar--0aaa0ebf412b",
+          "material_read": "Mirrored RESULT.md offsets 0–4272, Finding, assumptions and route decomposition",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Minkowski asymmetry of acyclic unit-flow polytopes from arc antichains",
+          "trigger": "Potential stronger theorem via the grid-flow realization"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE",
+          "evidence": "The unmarked height formula is integer; it does not cover varying prefix ceilings or their weighted critical-prefix phases in general.",
+          "identifier_or_url": "2026/10/18/SCOPE-height-and-longest-chain-coverage-determine-minkowski-centers-of--9a43b298226b",
+          "material_read": "Mirrored RESULT.md offsets 0–4429, Finding, assumptions and unit-width proof",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Height and longest-chain coverage determine Minkowski centers of every chain–order poset polytope",
+          "trigger": "Potential stronger theorem for an alternate polyhedral formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, center formulas and equal-scale different-dimension examples",
+        "Prior multichain and exact-center results inspected in originality"
+      ],
+      "rationale": "This is an exact invariant and center-locus classification of an established polytope family across continuous weight data. It replaces an optimization over vertices or centers by explicit prefix statistics and identifies ties that change the affine dimension even at the same optimal scale. That distinction is useful when the freedom in choosing a center matters, unlike merely applying a generic linear feasibility test to one example.",
+      "residual_risks": [
+        "No combinatorial, enumerative, or algorithmic gain outside the stated straight positive family is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

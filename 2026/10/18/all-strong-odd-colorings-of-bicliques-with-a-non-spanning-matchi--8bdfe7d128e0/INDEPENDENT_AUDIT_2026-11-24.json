@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:58.061978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47; VERIFICATION.md and verification/verify.py plus recorded output (inspected; uploaded code not run)",
+        "/tmp/opencode/replay_discrete.py colorings"
+      ],
+      "rationale": "Properness means that a class meeting both sides is precisely one missing matched pair: there is no third vertex nonadjacent to both endpoints. A class confined to one side is seen in full by an unmatched opposite vertex, hence has odd size. If it meets a matched endpoint, the matched opposite vertex sees one fewer, an even count which must vanish, so that class is a singleton. Conversely an unmatched-side odd block is seen in full or not at all; a matched singleton or pair is seen in at most one vertex, so the three types suffice independently. Fusing j of t pairs and partitioning the two unmatched sets gives 2t−j+k+l distinguishable blocks, assigned distinct named colors by the falling factorial. Odd-block partitions have EGF (sinh z)^k/k!, including the empty convention. Minimum block counts on positive odd and even sets are 1 and 2 respectively. A minimum forces all matched pairs fused; the number of optimal partitions from a positive even unmatched side is half the number of odd subsets, 2^(m−2). Multiplying the two counts and permuting the full optimum palette gives the stated multiplicity. The graph with t=0 and the one-edge deletion give the stated 4→3 and 2→5 changes. Saturation is genuinely excluded: in K2,2 minus a perfect matching two vertices on one side can share a color even though both are matched. An independent exact-cover enumeration using adjacency and all compatible subsets checked the whole block-count histogram and optima in 30 asymmetric cases with a+b≤10.",
+      "residual_risks": [
+        "The independent replay is finite; necessity and sufficiency in the proof justify the full range. Neither the classification nor the formula is asserted for saturated sides or arbitrary cross-edge deletions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The odd-independence paper defines odd independent sets and bounds the chromatic invariant; its odd-degree regular bipartite statement concerns maximum size. The graph-products paper gives product bounds. The ScienceDirect paper was inaccessible (HTTP 403)."
+        ],
+        "reasoning": "Partitioning into odd independent sets is the general framework, but general bounds on their sizes do not specify which subsets can occur here, or the full exact-cover enumerator. No inference about the inaccessible paper's coverage is made.",
+        "searches": [
+          "Caro et al. arXiv:2509.20763 for odd independence and general bounds",
+          "Kwon–Park arXiv:2401.11653; Caro et al. arXiv:2410.02336 for strong odd coloring and graph products",
+          "On odd and strong odd colorings of graphs, ScienceDirect PII S0012365X25002912"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE a8a6d125d085, cebdb2d805e7, 1208341d824e, 3bc0465d6248",
+        "arXiv:2509.20763, arXiv:2401.11653 and arXiv:2410.02336; attempted ScienceDirect PII S0012365X25002912"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier multipartite result classifies odd subsets of parts; the crown result relies on saturation; the positive-t proof uses one full-neighborhood witness and one one-fewer witness to rule out larger classes containing matched endpoints."
+        ],
+        "reasoning": "Restoring or deleting edges changes both independence and the parity of color multiplicities, so neither result transfers by monotonicity. The general partition equivalence does not supply the local witness argument or its structural conclusion. Once that classification is known the polynomial is elementary; its value and distinction are tied to the classification, rather than to the falling factorial alone.",
+        "searches": [
+          "Compare 3bc0465d6248 and 1208341d824e Findings and arXiv:2509.20763 bounds to frozen RESULT.md lines 31–44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a8a6d125d085 Finding and proof §§2–4 give identical three class types, polynomial and optimum multiplicity for 1≤t<min(p,q). cebdb2d805e7 treats the t=0 case as complete multipartite."
+        ],
+        "reasoning": "S_odd equals O, c(m) equals E(m), and any zero-block terms disappear because both unmatched sides have positive size. The later Oct. 26 record and this finding are equivalent for positive t; the earlier multipartite record covers the baseline, not graphs with positive t.",
+        "searches": [
+          "Resultary: strong odd colorings biclique K_{a,b} minus non-spanning matching complete classification polynomial",
+          "Partial crowns, odd-independent-set partitions, and strong odd colorings of complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 26 polynomial is exact for the positive-t domain; the earlier Oct. 13 multipartite polynomial is exact for t=0. The Oct. 4 crown result gives the unique optimum and maximum odd independent sets in odd spanning crowns."
+        ],
+        "reasoning": "This is a symbolic family rather than only a table. An exact value on a spanning crown does not classify proper submatchings: the necessary witnesses on each side are absent for crowns. Existing exact coverage is credited on the earlier baseline, while the later equivalent positive-t formula is disclosed.",
+        "searches": [
+          "Resultary a8a6d125d085, cebdb2d805e7, 1208341d824e and 3bc0465d6248"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the structural and enumerative result for positive non-saturating matching deletions, including the full optimum structure. The undeleted case is an exact specialization of an earlier complete-multipartite result and receives no novelty credit. The nearest matching-deletion finding repeats the positive-t result on a later catalogue path; this is an explicit overlap but not evidence of earlier coverage. The inspected primary results and earlier crown finding do not extend to the non-saturating classification.",
+      "residual_risks": [
+        "The equivalent positive-t Oct. 26 indexed result overlaps explicitly; path dates do not resolve provenance. The inaccessible primary article and unindexed results could affect best-of-knowledge priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same classification, polynomial and optima for positive t; later catalogue path, provenance not established",
+          "evidence": "Singleton or fused deleted pairs, odd unmatched-side partitions, and the same named-palette factor and optimum weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-strong-odd-coloring-polynomial-of-bicliques-with-a-partially-del--a8a6d125d085/RESULT.md",
+          "material_read": "Finding at offset 0 and Proof §§2–4 around offset 4000",
+          "method": "local mirror",
+          "title": "Strong odd coloring polynomial of bicliques with a partially deleted matching",
+          "trigger": "Direct mathematical match on positive deletion sizes"
+        },
+        {
+          "assessment": "Direct earlier coverage of t=0",
+          "evidence": "Odd blocks within each part, named-palette count, and all optimal colorings of complete multipartite graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-strong-odd-colorings-of-complete-multipartite-graphs-are-odd-blo--cebdb2d805e7",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Strong odd colorings of complete multipartite graphs are odd-block partitions",
+          "trigger": "Earlier enumerator implies undeleted biclique case"
+        },
+        {
+          "assessment": "Earlier baseline, no deleted edges",
+          "evidence": "Empty set or odd subset of a single part.",
+          "identifier_or_url": "2026/10/4/SCOPE-odd-independent-sets-in-complete-multipartite-graphs--1208341d824e",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Odd independent sets in complete multipartite graphs",
+          "trigger": "Possible earlier odd-independent classification"
+        },
+        {
+          "assessment": "Odd spanning crowns only",
+          "evidence": "Odd independence number 2, maximum odd independent sets exactly the missing matched pairs, unique optimal partition.",
+          "identifier_or_url": "2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248",
+          "material_read": "Finding, around offset 423",
+          "method": "local mirror",
+          "title": "Odd independence and strong odd coloring of odd crown graphs",
+          "trigger": "Same matching-deletion description but potentially spanning"
+        },
+        {
+          "assessment": "Framework and neighboring graph classes, not a partial-matching enumerator in the inspected material",
+          "evidence": "Odd-independent-set condition, equality of independence parameters for odd-degree regular bipartite graphs, and general chromatic bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.20763",
+          "material_read": "pp. 2–3 definitions and regular bipartite statement, and p. 5 bounds",
+          "method": "OA primary PDF text",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "General odd independence and strong odd coloring implications"
+        },
+        {
+          "assessment": "Definition and sparsity framework; inspected passage does not give this classification",
+          "evidence": "Multiplicity requirement is for neighbor color counts in a proper coloring.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11653",
+          "material_read": "p. 1, formulation",
+          "method": "OA primary PDF text",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Foundational treatment of strong odd colorings"
+        },
+        {
+          "assessment": "Inspected result gives general graph-product bounds, not an exact partial-deletion polynomial",
+          "evidence": "Different construction and bounded chromatic results rather than classification of every admissible block.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "Abstract and §4, Theorem 4.2 on pp. 17–18",
+          "method": "OA primary PDF text",
+          "title": "Strong odd colorings: bounds and graph products",
+          "trigger": "Possible general graph-product implication"
+        },
+        {
+          "assessment": "Coverage not determined; not used as negative evidence",
+          "evidence": "Exact PII identifies the potential source; no scientific passage was accessible through these routes.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0012365X25002912",
+          "material_read": "Search identification only; full text unread",
+          "method": "OA direct and VPN and webpage retrieval all returned HTTP 403; no identified lawful same-paper preprint",
+          "title": "On odd and strong odd colorings of graphs",
+          "trigger": "Primary discovery hit with plausible broader exact coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24 and 31–44",
+        "Earlier complete-multipartite and crown Findings",
+        "Independent exact-cover histogram check"
+      ],
+      "rationale": "Removing a matching is a natural structured perturbation of the biclique and exposes how parity constraints depend on near-complete neighborhoods. The exact class description for all non-saturating sizes gives every palette count and every optimizer. The opposite changes under one deletion in the even/even and odd/odd cases identify a concrete boundary in the behavior of the strong odd chromatic invariant. The contribution is not the previously enumerated undeleted case or numerical tests.",
+      "residual_risks": [
+        "This structurally motivated family does not resolve arbitrary deletion patterns or the case when one side is saturated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

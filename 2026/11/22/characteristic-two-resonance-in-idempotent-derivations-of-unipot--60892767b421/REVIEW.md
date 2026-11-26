@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivation condition for the almost-abelian algebra reduces to \([B,T]=aT\) with \(D(t)=at+u\) and \(D|_R=B\), and idempotence gives \(a^2=a\), \(B^2=B\), and \(Bu=(1-a)u\). For \(a=0\), the cyclic centralizer is the local algebra \(k[T]\), whose only idempotents are zero and one. For \(a=1\), the invertible action shifts the eigenvalues of an idempotent by one; thus characteristic two and even \(N\) are necessary. There the differential \((1+x)d/dx\) gives a base solution, every other solution differs by multiplication by \(c\), and the idempotence equation is \(c^2+c+(1+x)c'=0\). The substitution \(R=S\oplus(1+x)S\) with \(S=k[x^2]/(x^{2m})\) proves the solution locus is affine \(m\)-space over any characteristic-two field. Its \(q^m\) points and the \(m\)-dimensional kernels yield \(q^{2m}\) exceptional maps of rank \(m+1\). Their image brackets are exactly their kernel. The separately packaged checker verifies the original derivation and idempotence identities in exhaustive small examples and finite parameter enumerations.
+PASS
 
-## Originality — PASS relative to checked sources
+The derived ideal is R because T is invertible. The resulting condition is [B,T]=aT and composition idempotence adds a=0 or 1, B²=B, Bu=(1−a)u. In the zero branch the cyclic commutant is the local ring k[x]/(x^N). In the one branch, T shifts the projection eigenvalues by one; outside characteristic two it annihilates the one-eigenspace, an impossibility, and in characteristic two it exchanges the two eigenspaces, giving N=2m. The Euler derivation in y=1+x descends in exactly the required even characteristic-two case and is idempotent; other commutator solutions differ by multiplication. Squaring gives the stated quadratic equation. With z=x² and c=A+yC, this is A²+A+(1+z)C²=0; the constant coefficient is eliminated by a₀=(a₀+b₀)², and every higher a_j is determined by earlier indices. This gives polynomial inverse coordinates and does not need a perfect field. Rank m+1 and the bracket equality follow from T(E₁)=E₀ and im D=k(t+u)⊕E₁. Over F_q there are q^m choices each of c and u; at N=2 the contributions occupy the same rank. An independent bounded replay (python3 /workspace/independent_sanity.py) exhausted raw matrices at (q,N)=(2,2),(3,2),(2,3), giving respectively {0:1,2:8}, {0:1,2:9}, {0:1,3:8}, and checked the exceptional brackets against the kernel at (2,2). The frozen verification note overstates the supplied checker: it tests the derivation equation and rank but does not separately assert the image-bracket identity. The independent proof establishes that identity for the entire stated range.
 
-The primary paper by Burde and Moens (arXiv:2009.05434, 2020) gives general theorems on polynomial identities of Lie derivations; its Theorem 3.10 and Remark 3.11 do not classify the idempotents for a unipotent almost-abelian family. Avetisyan (arXiv:1610.05365, Proposition 13) already supplies the broad block derivation equations, credited in the proof, but the idempotence restriction and exact finite-field rank polynomial are not consequences without further analysis. A separate published study of ID-derivations of almost-abelian Lie algebras concerns a different linear condition; a published census of idempotent Nijenhuis projections concerns a different quadratic operator identity. The same-type toral derivation census for null-filiform Leibniz algebras does not include this nonnilpotent Lie family. Searches for equivalences, terminology, direct tables and stronger classifications found no covering source; this does not establish priority beyond inspected literature.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a structural, all-dimension operator-classification question on a canonical unipotent family of solvable Lie algebras. It exhibits a sharp and otherwise absent characteristic-two/even-length stratum, an exact complete rank polynomial and equal population of the two nonzero branches, and a bracket-span identity for exceptional projections. The new rank branch is not a routine change of notation or a single small-dimensional table: it follows from a nontrivial Riccati-type parameterization and gives a precise obstruction in all characteristics.
+Verified prior work supplies the general linear derivation reduction, not the single-unipotent-block composition-idempotent classification, exceptional affine locus and labeled rank census. Closely indexed results change the algebra or operator identity. The scoped distinction is supported on the inspected evidence, without a global priority claim.
 
-## Evidence, limitations and priority risk
+## value
 
-The proof establishes every claimed field and integer range symbolically. The included finite-field checker tests the original identities, but neither finite testing nor unsuccessful database searches prove all-dimensional correctness or world-wide novelty alone. The analysis is restricted to one cyclic unipotent action, not all almost-abelian Lie algebras. Older bibliographic coverage and inaccessible or unpublished papers pose residual priority risk. The existing structural derivation block lemma is acknowledged as prior work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single invertible Jordan block is the natural indecomposable unipotent action. The all-dimension rank census identifies an extra family of the same population as the ordinary nonzero branch under a sharp characteristic/parity switch, and explains how a projection derivation can have brackets spanning its entire kernel. These structural and labeled-count conclusions go beyond the general block equation or a small-dimensional example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

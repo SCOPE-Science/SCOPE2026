@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:50:05.720230Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially proof steps 1–2 and the boundary assertion at line 38",
+        "Frozen VERIFICATION.md and verify.py",
+        "Repaired RESULT.md, VERIFICATION.md and SLOGAN.txt",
+        "Independent symbolic differentiation and exact certificate replay"
+      ],
+      "rationale": "The frozen proof incorrectly says that at either adherence boundary there is at most one feasible epidemiological equilibrium. For example, in the given family at x=0 both (1,0,0) and (1/2,5/18,0) exist. In the repair the disease-free equilibrium is always included, and the behavioral row at an adherence boundary yields a block triangular Jacobian. Whenever an endemic point exists the disease-free point has positive infection invasion eigenvalue, so at most one boundary hyperbolic sink remains possible. No disease-free interior point can be a sink, since its behavior eigenvalue is positive. For mixed endemic points with a>0 the reduced G is strictly concave. The endemic (S,I) block B is invertible with positive determinant, and the Schur complement in the full Jacobian is epsilon*x*(1-x)*G'(x), using the derivative of the endemic branch -B^(-1)*partial_x f. Thus a Hurwitz point must be a descending crossing, and strict concavity allows at most one; at a=0 any interior payoff root has positive behavioral eigenvalue. These facts support the credited background bound, not a claim that only three equilibria exist. In the repaired fixed family, the positive endemic branch is 0<=x<1/2. The endpoints of its payoff curve are 1/10-c and -c; its maximum at x_m=1-sqrt(5/8) is (7-2sqrt(10))/5-c. Inside the strict window there are two roots, the larger below 3/8. The lower has C3<0; the upper has C3>0 and is Hurwitz by uniform inequalities on [1/5,3/8], using C1>=169/180, C2>=3/40, C3<=3/80, so C1*C2-C3>=79/2400. Independent replay (python3 /workspace/branches/replay_exact_audit.py 4) derived all three coefficients from the full vector field and gave positive exact Bernstein minima 685/16, 1605/256 and 807825/4096 for the respective cleared polynomials, checked both boundary characteristic factors, and recovered 40x^2-16x+1 for c=3/25. At c<=1/10 the nonadherence boundary has no hyperbolic sink; at the upper endpoint the double mixed root has zero eigenvalue; above it no mixed endemic point exists. Full adherence is stable throughout the strict window since c<2/5. The disease-free interior saddle has two negative epidemic eigenvalues and a positive behavioral one. Strict stability, continuation on the invariant faces, and positive interior fractions at the mixed state give robustness within the admissible parameter set. The frozen checker was inspected, not run; its auxiliary radical comparisons are floating-point, as now described in the repair.",
+      "residual_risks": [
+        "Strict Jacobian stability is a local equilibrium claim, not a global-basin, recurrent-attractor, or empirical result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "S31–S33 give the constant-term slope condition and generic cubic stability inequalities; Figure S3 maps coexistence in a different slice.",
+          "The indexed theorem proves universal capacity plus attainment in another slice. Related PNAS and HAL papers use different payoff or epidemic dynamics."
+        ],
+        "reasoning": "The exact ceiling and generic inequalities are covered and credited. A universal upper bound or general necessary-and-sufficient Jacobian test does not locate the roots in the specified cost family or prove all strict inequalities along an entire branch.",
+        "searches": [
+          "Kumata–Ito–Yamamichi Figure S3 and Supplement S2–S3",
+          "Resultary 862b1c9a80d4 general theorem and exact example",
+          "Saad-Roy–Traulsen DOI 10.1073/pnas.2311584120; Martin–Castella–Hamelin HAL hal-05015410v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12519v1",
+        "Resultary 862b1c9a80d4",
+        "Saad-Roy–Traulsen DOI 10.1073/pnas.2311584120 main text",
+        "Martin–Castella–Hamelin HAL hal-05015410v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior formula C3=-epsilon*x*(1-x)*beta*b(x)*I*(mu+delta+gamma)*G'(x) only excludes the increasing crossing; G'<0 alone is not sufficient for a sink. The fixed-family proof needs the epidemic-branch concavity calculation, boundary eigenvalues, and uniform bounds for the other cubic coefficients and their combination."
+        ],
+        "reasoning": "Neither existence near a different witness nor the slope test mechanically implies full stability for the upper branch and a no-other-cost assertion. The surviving classification identifies distinct mechanisms at both exact endpoints and controls the potential extra stability obstruction (the other two cubic inequalities) across the continuum. The boundary proofreading fixes the original error; the realignment of the claim and citations removes prior coverage from the headline.",
+        "searches": [
+          "Compare Resultary 862b1c9a80d4 proof steps 1–4 and arXiv:2610.12519v1 S17–S23, S31–S33 with the repaired cost-family theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 862b1c9a80d4 has exactly the same equations and admissible range, and defines locally exponentially attracting via the same full strict Jacobian criterion.",
+          "The source article's G(x)=alpha(x,E(x)) and adherence payoff have the same model and variable interpretation."
+        ],
+        "reasoning": "The universal ceiling is an exact same-model match, not just a similar attractor label. For the narrower claim cost is varied with nine specified parameters fixed; after matching the identical parametrization, the indexed witness and original paper's figure use different fixed parameters.",
+        "searches": [
+          "Local Resultary: conformist behavioral SIRS, three hyperbolic sinks, endemic nonadherence and mixed adherence plus disease-free full adherence",
+          "Kumata–Ito–Yamamichi arXiv:2610.12519v1, Eqs. 1–3 and S17–S23"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue table classifies six equilibria at a single different parameter vector with rational coordinates and proves local robustness. Figure S3's caption fixes c=1 and kappa=1.2 and varies other quantities."
+        ],
+        "reasoning": "Neither is an exact entry for the fixed-family iff cost endpoints. Exact lookup found a positive coverage match for the former ceiling/witness headline, not one that supplies the scalar interval or its uniform stability proof.",
+        "searches": [
+          "Local Resultary: exact cost window, sharp adherence multistability, exact three-sink SIRS witness",
+          "arXiv:2610.12519v1 Figure S3 parameter map and caption",
+          "Resultary 862b1c9a80d4 six-equilibrium table"
+        ]
+      },
+      "rationale": "PASS for the repaired finding only. The general ceiling and sharp three-sink coexistence theorem in the frozen headline are materially covered by the same-model Resultary 862b1c9a80d4, so the repair credits them as background. Its rational witness (a=e=1/2, epsilon=1/10) and open-neighborhood claim do not identify either end of the fixed-family cost interval at a=1,e=0,epsilon=1, or suffice for the stability inequalities throughout that interval. The initiating paper defines the model, gives qualitative multistability maps and the equivalent generic stability tests, not the explicit fixed-family iff interval in the passages inspected. The repaired statement verifies a parameter-wide stability classification along the specified cost slice, not a new model, discovery of the qualitative behavior, or universal-capacity claim. Coverage is separated from priority: the comparator has a later catalogue path date and no priority conclusion follows.",
+      "residual_risks": [
+        "The source Fig. S3 visual legend and the PNAS supplementary stability result were not verified; the checked main and supplementary equations of the identical model and decisive indexed theorem are reported separately.",
+        "Bounded comparisons are not historical priority or exhaustive novelty certification; unindexed equivalent cost-slice calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, general stability tests and qualitative multistability; not the repaired parameter-specific interval in the inspected material",
+          "evidence": "S31 gives the identical constant-term identity; S32 is the necessary slope sign and S33 gives the cubic criterion. Fig. S3 caption describes stability combinations at different fixed parameters, with full adherence stable throughout its map; the visual legend was not verified from the text extraction.",
+          "identifier_or_url": "https://arxiv.org/html/2610.12519v1",
+          "material_read": "Eqs. 1–3 and coupled system; main stability discussion; Supplement S2 (S17–S23), S3 (S31–S33), Fig. S3 caption",
+          "method": "Original OA HTML, bounded passage inspection",
+          "title": "Voluntary nonpharmaceutical intervention as a feedback-evolving game",
+          "trigger": "Identical equations, qualitative coexistence and same stability framework"
+        },
+        {
+          "assessment": "Equivalent general capacity and sharpness; does not give the repaired cost interval",
+          "evidence": "It proves at most three with the same payoff and admissible parameters and gives an exact six-state table at a=e=1/2, epsilon=1/10, c=41/140, including three sinks. Its continuity argument asserts an open neighborhood, not the sharp boundary of the distinct cost slice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-is-the-sharp-local-attractor-capacity-of-a-conformist-beha--862b1c9a80d4/RESULT.md",
+          "material_read": "Finding, scope, Schur-complement bound, proof step 4 and equilibrium table; mirror offsets 0–2253 and 4800–7799",
+          "method": "Local Resultary comparison and local-mirror statement/assumption reading",
+          "title": "Three is the sharp local-attractor capacity of a conformist behavioral SIRS model",
+          "trigger": "Strong same-model exact bound and multistability match"
+        },
+        {
+          "assessment": "Related equilibrium types with different behavioral equations; supplementary stability theorem not retrieved",
+          "evidence": "Uses one symmetric transmission factor p with pi_A=p*pi_N-c, rather than separate protection, source control and conformity; up to three possible endemic equilibria is not the repaired three-sink theorem.",
+          "identifier_or_url": "https://www.pnas.org/doi/10.1073/pnas.2311584120",
+          "material_read": "Main-text model and possible equilibria, OA offsets 2300–8000 and SI theorem reference near offset 30600",
+          "method": "Open primary main-text passages",
+          "title": "Dynamics in a behavioral-epidemiological model for individual adherence to a nonpharmaceutical intervention",
+          "trigger": "Three adherence types and potential same classification"
+        },
+        {
+          "assessment": "Different SIS imitation model, not a dominating theorem for the SIRS/conformity system",
+          "evidence": "The state classes include no, partial and full compliance, but the inspected result has only one of its five equilibria locally stable at a time.",
+          "identifier_or_url": "https://hal.science/hal-05015410v1",
+          "material_read": "Submitted-version PDF abstract p. 2 and §3.1 p. 8",
+          "method": "Identified lawful HAL full-text alternate; passage inspection",
+          "title": "Wearing face masks to protect oneself and/or others: Counter-intuitive results from a simple epidemic model accounting for selfish and altruistic human behavior",
+          "trigger": "Plausible protection/adherence stability overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, uniform Hurwitz proof and strict endpoint exclusions",
+        "Kumata–Ito–Yamamichi qualitative stability comparison",
+        "Resultary 862b1c9a80d4 witness and background ceiling"
+      ],
+      "rationale": "The repaired contribution answers a meaningful parameter question left by an isolated coexistence witness: at fixed disease and payoff parameters, what exact range of the adherence cost allows all three local outcomes? The simplified protection corner makes the two different losses of coexistence analytically distinguishable, while strict stability shows this is not a degeneracy limited to zero source efficacy. The lower endpoint is set by the nonadherent equilibrium's transverse eigenvalue and the upper by merger of the mixed roots, with no untested extra instability along the upper branch. This complete cost classification is useful as a solvable benchmark and not an extrapolation to epidemic policy or equilibria outside the model.",
+      "residual_risks": [
+        "Value is mathematical and local; costs and efficacies are not empirical calibrations and no global attractor theorem follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

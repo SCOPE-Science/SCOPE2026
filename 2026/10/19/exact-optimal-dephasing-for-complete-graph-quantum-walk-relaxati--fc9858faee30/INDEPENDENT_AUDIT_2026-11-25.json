@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:03:24.997663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–98",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent commutator resolvent and determinant calculation"
+      ],
+      "rationale": "Independent full-spectrum derivation: let K=−i[H,·], z=λ+γ, and ω=nJ. The two cross-block spaces for the uniform-vector projector P and I−P give eigenvalues ±iω, each n−1 times; the two diagonal blocks give zero n²−2n+2 times. The dephasing is −γI plus γ times the projection to the site diagonal. Compress (zI−K)^{-1} to that diagonal: its constant direction has resolvent 1/z, and any traceless diagonal direction puts squared norm fractions 1/n in each cross-block (PDP=0 and ||PD||²_F=||D||²_F/n). Polarization gives the scalar compression (1−2/n)/z+(2/n)z/(z²+ω²) on the traceless diagonal. The finite-rank determinant lemma now gives λ(λ+γ)^((n−1)(n−2)) times the stated cubic to the power n−1, by rational identity and polynomial continuation. Its constant term is positive, zero is simple, and the cubic is stable by Hurwitz. A negative real cubic root −r exists for every γ>0; regarding its equation as quadratic in γ gives discriminant 4nJ²[nJ²−(n−2)r²]. Since g≤r, equality with the bound forces the repeated solution γ=(n−1)r. At that γ the factor λ+r has r=J√(n/(n−2)), the other two cubic roots have real part −(n−3/2)r and negative quadratic discriminant, and −γ also decays faster for every n≥3. This checks global attainment and uniqueness without a dominant-root assumption away from the optimum. The supplied spot-check code and recorded evidence were read, not executed.",
+      "residual_risks": [
+        "The check is for spectral relaxation on the full matrix space, not finite-time mixing or the excluded n=2 case. The tolerance in the recorded numerical off-optimum tests is not strict-equality exclusion; uniqueness is established algebraically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luppi–Benedetti–Smirne treat general connected graphs, bound temporal nonclassicality using the gap, and relate the strongly dephased gap to the graph Laplacian.",
+          "The universal-vertex reduction is broader in graph class but applies to vertex launch dynamics rather than the entire operator on all matrices."
+        ],
+        "reasoning": "The asymptotic gap 2nJ²/γ is not a finite-rate optimum. Neither broader result controls full multiplicities on K_n or bounds all spectral gaps by the attained exact rate.",
+        "searches": [
+          "arXiv:2512.18873 Eq. (48), surrounding strong-dephasing discussion and Appendix A Eq. (A14)",
+          "Resultary universal-vertex position dephasing --4e0e911e9d37"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.01836",
+        "arXiv:2512.18873",
+        "Resultary --4e0e911e9d37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The launch denominator is s³+2γs²+(γ²+N²)s+2Nγ; for K_n, N=n. The hub-return maximizing rate is √(k²−1), k=n−1, not (n−1)√(n/(n−2))."
+        ],
+        "reasoning": "A restricted resolvent denominator alone does not exclude slower directions outside its subspace or give their multiplicities. Optimizing its dominant real-part behavior over γ also requires a separate upper-bound and attainment analysis. The full decomposition and global gap optimization are not merely a conversion of the prior result.",
+        "searches": [
+          "Resultary --4e0e911e9d37 Finding and reduction",
+          "arXiv:2512.18873 Eq. (48) and Appendix A",
+          "arXiv:2204.01836 §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete-graph adjacency and Laplacian differ by sign and an irrelevant scalar; complex conjugation of the site-dephased equation handles the sign. The complete-graph literature discussed in §3.1 uses QC-distance.",
+          "At unit hopping the hub-return denominator matches the entire monic cubic factor, but its optimizer is for a signed integrated statistic. In degree-normalized units the present optimizer and gap are J₀√(n/(n−2)) and J₀√(n/(n−2))/(n−1)."
+        ],
+        "reasoning": "Normalization, scalar shifts and sign are not novelty. The same model and same restricted block must be credited, while QC-distance and the signed integrated return are mathematically different optimization criteria.",
+        "searches": [
+          "arXiv:2204.01836 Eq. (4), §3.1 and Eq. (14)",
+          "Resultary exact integrated hub-return resonance --4e0e911e9d37",
+          "Comparison in the degree-normalized adjacency convention H=J₀A/(n−1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hub-return finding supplies an exact degree-three denominator, not an n²-eigenvalue multiset; the complete-graph figures and Eq. (14) in the primary source concern QC-distance and its asymptote."
+        ],
+        "reasoning": "There is no finite table central to this all-n theorem. The most relevant candidate exact formula agrees at the reduced-cubic level but does not tabulate or prescribe the full spectrum or the same optimizer.",
+        "searches": [
+          "Resultary complete-graph site dephasing and exact gap overlap, strongest hit --4e0e911e9d37",
+          "arXiv:2204.01836 §3.1, complete-graph plots and Eq. (14)"
+        ]
+      },
+      "rationale": "There is demonstrable prior overlap in the exact reduced cubic. Credit the indexed hub-return result for this reduction at J=1, and Bressanini et al. for studying the same open-system model. The distinct supported finding is the full-matrix characteristic polynomial with multiplicities and the unique optimizer of the spectral gap. Neither a launch-restricted cubic nor an optimum for an integrated return signal settles those claims. The strongest inspected primary source statements also do not establish them.",
+      "residual_risks": [
+        "An equivalent full-spectral calculation under different normalization may be unindexed. A separate primary-source degree-normalized optimizer was not located. The same-cubic overlap should be acknowledged explicitly in any subsequent presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, different quantity studied",
+          "evidence": "Eq. (4) gives the site-projector generator. The complete-graph section describes QC-distance curves and its dephasing-independent asymptote, not the full spectral gap optimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.01836",
+          "material_read": "PDF p. 4 Eq. (4) (offset 11562); §3.1 pp. 7–8 (offsets 20284 and 23500) and Eq. (14)",
+          "method": "OA PDF bounded passage lookup",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Same site-dephased complete-graph walk"
+        },
+        {
+          "assessment": "Asymptotics and a bound expressed using the gap, not an exact optimizer",
+          "evidence": "Adiabatic elimination gives gap proportional to 2λ_F/γ at strong dephasing; Appendix A relates a temporal nonclassicality quantifier to the gap.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.18873",
+          "material_read": "PDF p. 9 Eq. (48) and strong-dephasing passage (offsets 59218–63378); Appendix A p. 15 Eq. (A14) (offset 98000 onward)",
+          "method": "OA PDF bounded passage lookup",
+          "title": "Temporal nonclassicality in continuous-time quantum walks",
+          "trigger": "General site-dephasing spectral-gap treatment"
+        },
+        {
+          "assessment": "Material exact prior coverage of the restricted cubic but not the new full-matrix and gap claims",
+          "evidence": "For a universal-vertex launch, N=k+1 and its scalar cubic denominator is the unit-hopping K_n block when N=n. Its exact optimizer concerns signed integrated hub return, not spectral relaxation.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-integrated-hub-return-resonance-under-position-dephasing--4e0e911e9d37",
+          "material_read": "Mirrored RESULT.md bounded passages at offsets 0 and 4500",
+          "method": "Local Resultary lookup and mirror passage reading",
+          "title": "Exact integrated hub-return resonance under position dephasing",
+          "trigger": "Strongest indexed overlap: identical cubic in a broader graph model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and limitations",
+        "arXiv:2512.18873 strong-dephasing limit",
+        "Resultary --4e0e911e9d37 comparison"
+      ],
+      "rationale": "The complete graph is a natural test case for separating dephasing-induced relaxation from strong-dephasing slowdown. The exact spectrum with multiplicities permits direct benchmarks in every size, and the exact optimizer and maximum give a non-asymptotic target rather than a finite-time proxy or a scaling guess. No new value is assigned to recovering the previously known launch cubic alone.",
+      "residual_risks": [
+        "No implication asserted for finite-time distance metrics, graph-search objectives, or inhomogeneous or non-Markovian noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

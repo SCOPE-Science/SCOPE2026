@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:41:10.070359Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the connected symmetric stochastic domain, trace inverse of M=I−P+J/N minus 1 is the stated zero-target Kemeny constant, including periodic kernels. Its strict convexity follows by conjugating the second derivative by M^(−1/2); a nonzero symmetric perturbation has a strictly positive weighted square. Disconnected boundary points have divergent objective. Averaging over within-part permutations is sufficient to get the three edge classes, even when additional automorphisms merge classes. On the three normalized part indicators, the quotient Laplacian has trace S and principal minors Q/(ab), Q/(bc), Q/(ca); this and the vertex-contrast eigenvalues give the stated F. For c<a+b, all three capacities are tight and the capacity multipliers have the stated cyclic formula. In the potentially negative regime, bc=Q+Y² and a=X+Z give the displayed bound Q²−bc(XZ−2aY)>0, whereas singleton parts have 2aY>XZ directly. For c≥a+b, the negative gradient at (0,b,a) is (2,f,f) with f>1 (the numerator at c=a+b is (a+b)²(2(a+b)−3) and increases thereafter). The nonnegativity multiplier 2f−2 and the two capacity multipliers f give KKT stationarity, including equality when the third capacity is tight but its multiplier is zero. This certifies the global unique kernel. Substitution gives the values, both equal to N−3/2 at c=a+b. Read VERIFICATION.md and check.py without executing the uploaded code. Independently checked the inverse trace on full matrices for eight triples spanning singleton, balanced, equality, and imbalanced cases, with agreement to within 4×10⁻¹⁵. The finite check is not needed for the KKT conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general reversible prescribed-stationarity problem includes the uniform tripartite instance. Its inspected formulation and convexity theorem are not an explicit active-set solution.",
+          "The complete-split formula on K_p ∨ independent q, p,q≥2, applies to K_{1,1,c} by p=2, q=c."
+        ],
+        "reasoning": "An optimizer formulation does not settle which inequality constraints bind. Complete split does not cover a general tripartition with two nonsingleton smaller parts.",
+        "searches": [
+          "Patel–Agharkar–Bullo, IEEE TAC 2015, Problem 1 and convexity result",
+          "Resultary: complete tripartite and complete split Kemeny optimization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Primary Kemeny optimization statement and Resultary comparisons listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In K_2 ∨ independent c the clique edge is absent for c≥2, both edge classes to the independent part have weight 1/c, and holding there is 1−2/c. Equality c=2 is included and holding vanishes. These agree exactly with the frozen formula.",
+          "The prior priced result supplies a threshold only with equal sizes and its own global budget; the reversible convexity result leaves the tripartite inequality proofs to be done."
+        ],
+        "reasoning": "The intersection is demonstrably covered regardless of publication order, but deriving the general active set and its equality behavior requires capacity-sensitive gradient inequalities and is not a substitution in those statements.",
+        "searches": [
+          "Complete-split RESULT.md, Finding",
+          "Priced complete-tripartite RESULT.md, Finding and Assumptions",
+          "2015 weighted-Kemeny formulation, p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For L=I−P the objective is tr(L⁺), equivalently the all-pairs Kirchhoff index divided by N; allowing holding is equivalent to per-vertex weighted degree at most 1.",
+          "The priced complete-tripartite resistance design has the same trace-inverse objective up to N, but takes three equal part sizes and a single total price-weighted budget."
+        ],
+        "reasoning": "A freely chosen global price budget is not the stated individual degree-feasible region. The balanced priced result does not imply the unequal-size active-set law; fastest mixing by SLEM is a different objective.",
+        "searches": [
+          "Resultary: Minimize Kirchhoff index total pairwise effective resistance weighted complete multipartite graph with per-vertex conductance degree constraints; optimal absent edges tripartite",
+          "2015 minimal weighted Kemeny paper, Problem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-split threshold q≥p gives exactly c≥2 on its K_{1,1,c} overlap. The priced-tripartite table of regimes has r_c(m)=24m/(15m−7), in the price ratio on equal parts, not the part-size threshold."
+        ],
+        "reasoning": "The exact-object check is for a symbolic optimizer and support threshold indexed by three unbounded part sizes, not for a finite sequence of numerical Kemeny values. The actual matching subfamily is credited, not counted as distinct content.",
+        "searches": [
+          "Resultary exact support/frontier results for Kemeny and Kirchhoff objectives",
+          "4d1b0c2f60fb complete-split record and 93a220470d32 priced-tripartite record"
+        ]
+      },
+      "rationale": "The novelty supported here is the explicit active-set law for arbitrary positive tripartite part sizes, not the general convex optimization formulation, strict convexity, or the complete-split intersection. In particular the exact intersection K_{1,1,c}, c≥2, is also covered by a distinct complete-split result; the shared record date gives no historical order.",
+      "residual_risks": [
+        "Bounded comparison, not a comprehensive priority certification. A specialized or unindexed multipartite Kirchhoff-index law with individual degree bounds could bear on coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the problem formulation, not the symbolic instance solution",
+          "evidence": "Minimizes reversible Kemeny on a given graph with prescribed stationary probability; adding the recurrence term changes the objective by a constant here.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Problem 1 and convexity theorem, p. 4, extracted offset 22981",
+          "method": "Lawful author-hosted PDF",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "General optimization potentially subsumes the claim"
+        },
+        {
+          "assessment": "Covers precisely the displayed intersection for c≥2; simultaneous date is not chronological evidence",
+          "evidence": "On K_p ∨ independent q with p,q≥2, clique edges are deleted exactly at q≥p, with cross probabilities and holding as above when p=2.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-kemeny-optimal-symmetric-walks-on-complete-split-graphs--4d1b0c2f60fb",
+          "material_read": "RESULT.md, Finding and optimizer statement",
+          "method": "Resultary and local source mirror",
+          "title": "Exact Kemeny-optimal symmetric walks on complete split graphs",
+          "trigger": "Same objective with overlapping graph family"
+        },
+        {
+          "assessment": "Different constraint and size parameters",
+          "evidence": "K_{m,m,m} with one total price-weighted conductance budget and deletion at P/Q≥24m/(15m−7); no per-vertex degree capacities are imposed.",
+          "identifier_or_url": "2026/11/2/SCOPE-priced-complete-tripartite-resistance-design-has-an-exact-shortc--93a220470d32",
+          "material_read": "RESULT.md, Finding, Assumptions and beginning of Proof §1, offset 0",
+          "method": "Resultary and local source mirror",
+          "title": "Priced complete-tripartite resistance design: exact edge deletion and the critical 1/m price window",
+          "trigger": "Effective-resistance alias with tripartite edge deletion"
+        },
+        {
+          "assessment": "Indexed objective appears different; no whole-text assessment",
+          "evidence": "The index describes fastest mixing by SLEM with no holding, not trace inverse with holding allowed.",
+          "identifier_or_url": "2026/11/2/SCOPE-four-phase-fastest-loopless-mixing-on-two-size-complete-multipartite-graphs--100f10c7fcfd",
+          "material_read": "Index description only; exact mirror file unavailable",
+          "method": "Resultary and attempted local-mirror reader",
+          "title": "Four-phase fastest loopless mixing on two-size complete multipartite graphs",
+          "trigger": "Complete multipartite support optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classification gives an exact, nontrivial support boundary in a standard graph family for a natural Markov objective; the optimal walk deletes a whole permitted edge class even at a no-holding boundary. It certifies uniqueness against asymmetric edge assignments and provides solved instances for the general optimization framework. The value lies in general tripartite sizes, not in repeating the split overlap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

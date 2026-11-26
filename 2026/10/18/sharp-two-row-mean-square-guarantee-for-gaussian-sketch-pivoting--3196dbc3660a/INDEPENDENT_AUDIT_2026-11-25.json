@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:34:08.267430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 46–116. Each residual has just one nonzero column, so its squared spectral (and Frobenius) loss is the squared orthogonal rejection D/u or D/v. On span(a,b), aaᵀ−bbᵀ has trace u−v and determinant −D, yielding exactly the stated opposite-sign eigenvalues. Rotating each independent Gaussian row to these eigenvectors makes the sketch norm difference (λ₊X+λ₋Y)/s for independent χ²_s variables; X/(X+Y) is Beta(s/2,s/2). The comparison event is the lower tail at q=−λ₋/(λ₊−λ₋). The beta variable has a density, so there are no ties for any full-rank input, including u=v; the scope's wording about a possible special equal-norm degeneracy is unnecessary and there is no such exception under the hypotheses. The equal-original-norm losses indeed coincide. For s≥2 a symmetric beta density is nondecreasing up to 1/2 and has average density one there, giving I_q≤q≤v/(u+v); inserting this in the exact risk gives 2D/(u+v). At s=2 the beta law is uniform (and unequal orthogonal columns give equality in the finite-Gram bound); balanced columns attain the finite-Gram bound for any s and give the global sharp limit 2, not attained at finite σ₁/σ₂. Jensen gives the first-moment bound. For s=1 diagonal inputs have exact Cauchy-tail mispivot probability (2/π)arctan(1/κ), so normalized squared risk grows as 2κ/π. An independent nonorthogonal exact replay is Gram data (u,v,τ)=(4,1,3/2): X,Y are exponential for s=2, the mispivot is X<Y/7, p=1/8 by direct integration, and risk=77/128≤7/10. Inspected VERIFICATION.md and check_pivot.py; the supplied script was not executed and its reported 21,092 finite checks are not a proof of the uniform bound. Scope is the first maximum-sketch-norm decision on two fixed real independent columns, with Gaussian sketch and mean-square loss in the original space.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duersch–Gu analyze norms in Gaussian QRCP, including χ² marginals and truncated laws after selection. Grigori–Xue's strong RRQR guarantees depend on embedding or high-probability assumptions and a different post-sketch procedure.",
+          "Volume sampling at k=1 on Mᵀ gives precisely the norm-proportional alternative and its expected error: choosing with probabilities u/(u+v),v/(u+v) gives 2D/(u+v); the Frobenius and spectral losses agree in this rank-one residual setting."
+        ],
+        "reasoning": "Known norm-proportional sampling already provides the baseline; it does not identify the sketched maximum as sampling from those probabilities or bound its worse-pivot probability. The other general QR results do not apply as an unconditional two-row risk estimate of this form.",
+        "searches": [
+          "arXiv:1509.06820v2, Duersch–Gu Sections 3.1–3.3",
+          "arXiv:2503.18496v1, Grigori–Xue Algorithm 2 and Section 4.2",
+          "Deshpande–Rademacher–Vempala–Wang, volume sampling Theorem 1.3 and Section 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1509.06820v2",
+        "arXiv:2503.18496v1",
+        "Theory of Computing v002a012",
+        "Resultary 87492150b186",
+        "Resultary 18298ce65322",
+        "Resultary 3e3b827418f2",
+        "Resultary 3ec204a30cf5",
+        "Resultary 672f7b4a2f0b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A pair of χ² marginals implies the orthogonal specialization only when the two projected columns are independent. For general Gram data the joint difference must be reduced to its opposite-sign eigenmodes.",
+          "The two-row exact probability supplies the first case of the risk upper bound, but for all s the uniform comparison requires the beta lower-tail inequality together with the Gram bound q≤v/(u+v). The one-row diagonal obstruction and balanced sharpness are explicit and have restricted or baseline overlap, respectively."
+        ],
+        "reasoning": "The substantive addition is dominance for this distinct Gaussian selection rule at every s≥2 with no correlation assumption, and a sharp boundary in mean square. It is not an assertion that the beta identity, the baseline, or the diagonal Cauchy example viewed alone are new.",
+        "searches": [
+          "Duersch–Gu fixed-column chi-square law and selection discussion, pp. 7–11",
+          "Volume sampling proof, equations (3.1)–(3.3)",
+          "Resultary two-row regret and diagonal moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-row regret record treats the same max-norm decision; its expected regret divided by |u−v| recovers exactly p₂=q for unequal norms (using Δ²=(u−v)²+4D). It therefore also allows the two-row residual risk to be recovered by reweighting the same probability.",
+          "The diagonal moment record has precisely the assigned probability and mean-square formula for orthogonal diagonal inputs, including unbounded s=1 and the limiting factor 2 for s=2."
+        ],
+        "reasoning": "These are real probability and restricted-risk overlaps, not just shared parameters. The former fixes s=2 and optimizes first-pivot-norm regret, and the latter fixes the matrix orientation. They do not state the arbitrary-Gram/all-s comparison against the original-space norm-proportional baseline. The inspected exact catalogue records on these two overlaps postdate the assigned finding; that alone does not decide mathematical equivalence or priority.",
+        "searches": [
+          "Resultary semantic comparison: first Gaussian-sketch QR pivot, symmetric beta mispivot, two-column norm comparison, sharp expected squared residual",
+          "Resultary pivot-regret record 87492150b186 and diagonal moment-cutoff record 18298ce65322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The orthogonal-column pivot law gives the symmetric-beta tail in the two-orthogonal-column case. The diagonal and two-row records cover the other restricted exact statements noted above.",
+          "The earlier LU result samples a row and an entry using a different rule, while the same-day null-space result estimates a right singular vector rather than making the max-norm pivot."
+        ],
+        "reasoning": "Exact indexed matches on subcases were credited. Neither the orthogonality restriction nor replacing the selection rule or the residual loss yields the general assigned risk guarantee.",
+        "searches": [
+          "Resultary exact first-pivot law 3e3b827418f2 Eq. (4); diagonal moment cutoffs 18298ce65322; two-row orientation regret 87492150b186",
+          "Resultary Gaussian LU width threshold 3ec204a30cf5 and same-day null-space angle transition 672f7b4a2f0b"
+        ]
+      },
+      "rationale": "The Gaussian quadratic-form and beta-ratio identities are standard, and the norm-proportional baseline and some sketched pivot probabilities have exact prior or catalogue coverage. The supported distinct claim is the arbitrary-Gram, unconditional mean-square comparison for the max-norm decision and its sharp one-versus-two-row guarantee; the evidence does not establish publication priority.",
+      "residual_risks": [
+        "The literature comparison is bounded. An exact comparison under different terminology for correlated Gaussian norm ranking or randomized QR cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Documents Gaussian QRCP pivot statistics but not the inspected arbitrary-Gram projection-risk threshold",
+          "evidence": "Fixed-column norm has a scaled χ² law; trailing norms after pivoting have truncated laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.06820v2",
+          "material_read": "Sections 3.1–3.3, pp. 7–11, including Theorem 3.1",
+          "method": "OA primary PDF passages",
+          "title": "Randomized QR with Column Pivoting",
+          "trigger": "Same Gaussian sketched-norm pivot and selection bias"
+        },
+        {
+          "assessment": "Different scheme and guarantee regime",
+          "evidence": "Strong RRQR on the sketch with embedding conditions or high-probability bounds, not an unconditional s=2 sharp-risk result for one pivot.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.18496v1",
+          "material_read": "Algorithm 2 and Section 4.2, Theorems 4.1 and 4.3, pp. 11–14",
+          "method": "OA primary PDF passages",
+          "title": "Randomized strong rank-revealing QR for column subset selection and low-rank matrix approximation",
+          "trigger": "Broader sketched column subset guarantees"
+        },
+        {
+          "assessment": "Covers the baseline sampling rule and its multiplicative factor, not Gaussian maximum selection",
+          "evidence": "Squared volumes weight selection; at k=1 these are squared row norms. The volume-height identity gives the exact two-row expectation upon transposing M.",
+          "identifier_or_url": "https://theoryofcomputing.org/articles/v002a012/v002a012.pdf",
+          "material_read": "Theorem 1.3 and Section 3 proof equations (3.1)–(3.3), PDF pp. 4 and 11",
+          "method": "OA primary PDF passages",
+          "title": "Matrix Approximation and Projective Clustering via Volume Sampling",
+          "trigger": "Known norm-squared-proportional comparison, exact volume-sampling error"
+        },
+        {
+          "assessment": "Exact two-row selection-law overlap, different optimized loss",
+          "evidence": "Expected squared pivot-norm deficit is δ(1−δ/√(δ²+4L))/2, with smaller-column selection as the only deficit event.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2743, and pivot probability in proof",
+          "method": "Local Resultary mirror passages",
+          "title": "A golden-ratio orientation transition for Gaussian-sketched QR pivot regret",
+          "trigger": "Exact two-row first-pivot law for arbitrary full-rank Gram matrices"
+        },
+        {
+          "assessment": "Exact result on restricted diagonal family",
+          "evidence": "Normalized q-th moment is 1+(κ^q−1)I_{1/(1+κ²)}(s/2,s/2).",
+          "identifier_or_url": "Resultary 18298ce65322",
+          "material_read": "Finding concerning diagonal QRCP weak-column probability and residual moments",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp moment cutoffs for the first Gaussian-sketched CUR pivot",
+          "trigger": "Exact risk moments, diagonal inputs and sketch-row threshold"
+        },
+        {
+          "assessment": "Includes orthogonal two-column beta law without the general arbitrary-Gram guarantee",
+          "evidence": "Independence across orthogonal sketched columns yields symmetric-beta comparison tails.",
+          "identifier_or_url": "Resultary 3e3b827418f2",
+          "material_read": "Finding and equation (4) on orthogonal competitors",
+          "method": "Local Resultary mirror passage",
+          "title": "Exact Gaussian-sketch first-pivot law and sharp runner-up principle",
+          "trigger": "Exact Gaussian pivot law with more columns"
+        },
+        {
+          "assessment": "Different pivot rule and threshold",
+          "evidence": "Uses a random sketched-norm row draw followed by entry sampling in that row, not a maximum norm.",
+          "identifier_or_url": "Resultary 3ec204a30cf5",
+          "material_read": "Finding and selection rule",
+          "method": "Local Resultary mirror passage",
+          "title": "A sharp Gaussian-sketch width threshold for the mean-square stability of randomized LU pivots",
+          "trigger": "Earlier closely worded mean-square Gaussian pivot-width transition"
+        },
+        {
+          "assessment": "Different estimator and loss",
+          "evidence": "Smallest-right-singular-vector angle, not the error of projection onto a selected input column.",
+          "identifier_or_url": "Resultary 672f7b4a2f0b",
+          "material_read": "Finding and error objective",
+          "method": "Local Resultary mirror passage",
+          "title": "A two-to-three-row mean-angle transition in Gaussian sketched null-space extraction",
+          "trigger": "Same-day nearby Gaussian row-threshold record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rule and loss are natural in sketched column selection: one extra sketch row changes mean-square projection loss from unbounded in condition number to a sharp dimension-free bound. The exact probability works for correlated sketches of the two columns, and the risk comparison to norm-proportional selection is stronger than reporting just the limiting factor two. The threshold is not a claim about later pivots, mean angle or high-probability error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

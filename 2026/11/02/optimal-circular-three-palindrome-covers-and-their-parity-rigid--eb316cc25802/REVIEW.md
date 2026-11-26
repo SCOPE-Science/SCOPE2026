@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim covers every integer alphabet size \(q\ge2\). In a nonconstant cyclic edge-label sequence, \(t\) appearances of one edge label produce at most \(t-1\) adjacent equal-label pairs. The two oppositely centered palindromes on each distinct symbol pair therefore force three edge traversals, while every constant palindrome forces two loops. Closed-walk vertex degree parity forces at least \(q/2\) additional nonloop traversals when the alphabet is even. A connected Eulerian multigraph with one loop per symbol and one intersymbol edge per pair (plus a perfect matching for even alphabets) expands to a cover meeting this bound; the equality case enforces all asserted profile conditions. The actual standalone verifier constructs and checks covers for \(2\le q\le30\) and independently computes exact minima for \(q=2,3,4\).
+PASS
 
-## Originality — PASS, residual risk acknowledged
+Every aaa requires two loop steps. For any distinct unordered pair, the two opposite-center palindromes require two separate consecutive equal-label adjacencies; its label is not the entire circle, so at least three occurrences are necessary. The resulting undirected closed-walk degrees have odd baseline at every vertex for even q. Extra loops cannot change parity, so at least q/2 extra nonloop edges are required. At equality each vertex must meet exactly one such edge, and there is no loop excess. For odd q there is no parity excess and equality forces every lower bound individually. For either parity a looped complete graph (augmented by any perfect matching for even q) is connected Eulerian; the first traversal of each pair expands to three alternations without changing endpoints, and a loop expands to two loop steps. This gives every required window, exact multiplicities and attainment of every stated profile, including q=2. The iff is explicitly among covers. `python3 /workspace/review-evidence/reproduce.py 4` independently verifies minima 8, 15 and 28 by finite state BFS starting at a completed compulsory 000 and checking both cyclic wrap windows; this does not prove the general formula.
 
-The initial 2019 Chen–Kitaev–Sun universal-cycle paper and the 2020 full-text article address exact-once factor covers after deleting a few words; their quantified existence probabilities and de Bruijn-graph constructions do not give shortest **at-least-once** covers for the family of all three-letter palindromes or the mandatory adjacency profiles. Searches for cyclic palindrome covers, palindrome superstrings, Eulerian parity corrections, and the exact formula found no equivalent statement in accessible scientific records. General shortest-superstring literature supplies an algorithmic setting, not an explicit value for this family. A hidden older graph-walk or superstring specialization remains the main novelty risk; absence from searches does not prove historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-All three-letter palindromes are a natural reversal-symmetric test family, and the minimum cyclic covering length gives an exact unavoidable observation budget. The optimum changes by a sharp \(q/2\) parity correction, and every optimum has an explicit constrained adjacency spectrum: a complete characterization at the level of pair counts. The construction applies uniformly to arbitrary alphabet size and shows that the parity obstruction, not an algorithmic search artifact, is the only excess needed. The assertion is an infinite structural optimum rather than a small-census calculation.
+The exact all-q length formula and matching Euler construction are duplicated in the dated 2026-11-22 catalogue record 18d0cf3a4b8f, and its proof yields the same parity equality profile. This is equivalent mathematical coverage, not merely a similar title and not present-day novelty relative to that record. It is dated later than the frozen finding's 2026-11-02 record; it does not supply evidence that the frozen claim was already known on its record date. The inspected earlier results give general formulations or different covering objectives, not this exact solution or its rigidity. This is a qualified assessment at the frozen record date, not a historical claim about who first found the theorem.
 
-## Scientific boundaries
+## value
 
-No theorem is claimed for longer palindromes or non-cyclic covers; no independence or external certification has occurred. Exhaustive BFS covers only \(q\le4\), while the proof applies to all \(q\ge2\). The source comparison remains subject to independently reviewing further historical shortest-superstring literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The target language is the full, natural length-three palindrome family. The theorem gives the exact sampling budget for cyclic coverage and a rigid adjacency-count classification, including a parity correction that is necessary and sufficient. Knowing only that an Euler tour exists or knowing the minima for a few alphabet sizes does not recover those facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

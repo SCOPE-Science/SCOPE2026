@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Direct enumeration of graph distances followed by an exact zero-sum square completion reduces the full \(m+n+2\)-vertex negative-type problem to a two-dimensional symmetric block. Strict negativity at exponent one, concavity of the crossing term, and the Li–Weston strict-inheritance principle establish exactly one critical exponent and an equality space of dimension one. A parameter-dependent determinant identity, an elementary concavity inequality, and controlled Taylor expansions prove the fixed-leaf-budget balance theorem and both branching limits. Exact-rational tests independently verify the principal algebraic identity; finite numerical tests corroborate, but do not prove, universal inequalities. All assumptions, powers, normalization, and endpoint ranks have been rechecked.
+PASS
 
-## Originality — PASS, with residual risk
+On the zero-sum space eliminate the second hub coefficient and write each leaf vector as its mean plus a zero-sum fluctuation. If A=2^p, the only remaining hub square is -2[u+AX/2-(A-2)Y/2]^2. Its complementary 2-by-2 form on the two leaf sums has diagonal U_m,U_n and off-diagonal -B after changing the sign. The fluctuations and hub variable are freely choosable in this decomposition. At p=1 the form is positive definite; at p_*<2 one diagonal vanishes and B>0 by strict concavity of log(3^p-1)-(2p-1)log 2 between its zeros at 1 and 2. Thus a root inside the interval is positive semidefinite of rank one. Li–Weston Theorem 5.4 excludes any higher negative type, hence also a second root in that interval, and gives strictness at every lower nonnegative exponent. The endpoint has one equality direction; equivalently the centered Euclidean Gram rank drops by one. For fixed S, at p_S=log_2(2+2/S) the diagonals are positive and B(p_S) is at most J(p_S-1)<2/S by B''<0 on p>=1 and J<2 log 2. The determinant is then positive, and all critical roots are above p_S. Beyond p_S the product-dependent term 2^(2p)(1+S(1-2^(p-1)))/(mn) strictly increases with mn. A larger product also lowers max(m,n), increasing p_*, so comparison at the smaller-product root stays inside the larger pair's positive-diagonal interval. For proportional growth the scaled equation is (1/rho-Lc)(1-Lc)=J^2 c^2/4; the left side strictly decreases until its first zero, giving the unique admissible root, whose rationalized form is the display. For fixed m the determinant instead forces U_n=O(n^-2) and gives 1/L. Independent bisection reproduced the two quoted examples to the displayed precision; this is diagnostic, not needed for proof.
 
-Doust–Weston (arXiv:0705.0411, especially Section 5) give a general finite-tree framework and solve the equiradial one-hub star, not the two-parameter unbalanced two-hub problem. Li–Weston (arXiv:0901.0695, Theorem on strict inheritance) determine the shape of possible negative-type intervals but not this explicit exponent. The previously known balanced double-star root is a special case of the present classification; no novelty is asserted for that one-dimensional diagonal. The asymmetric determinant, strict monotonicity with the leaf-class product at fixed size, and full branching-ratio profile go beyond those cited statements. Searches for equivalent double-star/bistar generalized-roundness formulations did not identify a matching classification. An unindexed equivalent or stronger tree-embedding result could exist; this is a literature-priority uncertainty, not a proof limitation.
+## originality
 
-## Value — PASS
+PASS
 
-The problem concerns the first natural nonsymmetric variation of a diameter-three tree whose negative type is known in the balanced case. The sharp monotonicity with fixed tree order gives a genuine structural rearrangement theorem, not a routine instance of a known symmetric formula. The explicit continuum of aspect-ratio asymptotics and its different fixed-short-arm boundary law describe how two branching scales compete. Together these results are useful for comparing snowflake Hilbert-embeddability within a canonical family of trees.
+Credit the balanced equation, equality dimension and balanced leading coefficient as material existing coverage. The supported distinction is the unequal-branch determinant classification, strict allocation order at fixed total leaf count and the full branching-ratio and fixed-branch laws. The strongest available exact comparisons concern either equal arms, the one-hub star, or a different hub separation.
 
-## Scope and limitations
+## value
 
-All claims concern unit-edge diameter-three double stars with at least two leaves on each side. They do not cover weighted or longer trees; numerical checks were not used as infinite proofs. Further external literature or independent validation could change a publication-priority assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact threshold and extremal allocation law for a natural tree family, with the size, asymmetry, and critical equality dimension all controlled. The strict leaf-budget order is not a restatement of the balanced value, and the two growth regimes quantify distinct ways of approaching the tree exponent 1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

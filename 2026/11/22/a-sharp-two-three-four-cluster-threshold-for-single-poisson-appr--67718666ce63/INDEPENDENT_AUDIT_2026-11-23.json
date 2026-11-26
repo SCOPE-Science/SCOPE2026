@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:23.931806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic average selects exactly the Fourier modes divisible by m. With the probability normalization dθ/(2π), the positive first cross-term at mode m forces all and only the aligned phases at s>0. Parseval gives the best-angle error increment 2g with g=s²/(1−s²)−2(rs)^m/[1−(rs)^m]. It diverges at s→1 for each r<1, and s=0 is one density regardless of phase. For m≥4, comparison with (rs)^m≤s⁴ gives g≥s²/(1+s²)>0. For m=2 the strictly increasing ratio (1−r²t)/(1−t), t=s², reduces the derivative sign test to crossing sqrt(2)r. The resulting t=2δ+O(δ²) gives 2g=−4δ²+O(δ³). For m=3 the numerator of g after multiplying by positive denominators is s²[1−u(2s−s³)], u=r³. The cubic has its unique maximum at s_c=sqrt(2/3), giving the stated critical u, and exactly four distinct minimizing densities at equality. The derivative sign for s>0 is the sign of R_u²−3u; R_u decreases and then increases since its derivative has sign Q_u and Q_u is strictly increasing from negative to positive. Above criticality a strictly negative value forces the larger stationary root to be the sole positive minimum. At the critical positive branch the factorization gives g_ss=18, permitting smooth continuation; 2g_u=−4s_c³/(1−u_c s_c³)²=−32sqrt(6)/9. These verify the onset laws and all global uniqueness assertions under the stated model. Replay: RESULT.md steps 1–4 (lines 54–111). Inspected finite quadrature/diagnostic evidence is supplementary, and r=1 is not included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "24d362b94140 restricts to fixed 0<a<π/2 and expressly excludes antipodal centers, and treats small r and r near one only. c39128e11afd varies radial components about a common center. Theorem 8(a) of Baringhaus–Grübel is a discrete mixture representation, not a fit theorem."
+        ],
+        "reasoning": "The first theorem cannot specialize to m=2: a=π/2 is excluded and its small-r coefficient r cos(a) vanishes there. Its two end regimes would not give the exact global transition even with a limiting comparison. The co-centered and representation results do not cover rotated targets or this minimization.",
+        "searches": [
+          "Resultary 24d362b94140, same L² loss on two-source circle Poisson compression",
+          "Resultary c39128e11afd, co-centered radial mixtures under squared L² loss",
+          "Baringhaus–Grübel Theorem 8(a)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary 67718666ce63 (identity), db760cf84463, 24d362b94140 and c39128e11afd",
+        "Golzy–Markatou, Chaubey and Baringhaus–Grübel primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reverse KL has a jump for every m≥3 and its cubed critical radius at m=3 is 4/(3sqrt(3)), not 3sqrt(6)/8; the L² theorem rules out all positive fits for m≥4. The nonantipodal L² theorem does not claim an exact intermediate transition."
+        ],
+        "reasoning": "Fourier identities are shared steps, but exchanging the objective changes the global scalar comparison; the distinct KL theorem does not imply these L² minimizers. Neither same-day related record was ordered by date.",
+        "searches": [
+          "Resultary db760cf84463, both KL directions and critical formulas, offsets 0–2576",
+          "Resultary 24d362b94140, explicit scope and two boundary regimes, offsets 0–2608"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wrapped Cauchy and normalized circle Poisson are the same family up to the choice of reference measure. Chaubey's Eqs. (3.1)–(3.3) give the connection; its integrated-square discussion is for Fourier truncation. Golzy–Markatou's quadratic distance is used for empirical clustering rather than this single-kernel projection."
+        ],
+        "reasoning": "A Fourier coefficient/Hardy-space reformulation must retain the same normalized fixed-gain single-kernel manifold, phase freedom and squared coefficient loss; general radial mixtures, truncation, mixture identifiability or model-order reduction with a free gain are not shown equivalent.",
+        "searches": [
+          "Resultary: cyclic circle Poisson kernel one-component compression and phase thresholds",
+          "Golzy–Markatou arXiv:1803.04485; Chaubey arXiv:1601.05053; Baringhaus–Grübel DOI 10.1007/s00362-023-01393-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-model KL record db760cf84463 shares r=1/sqrt(2) for the reverse-KL two-source onset but has fitted radius sqrt(2−r^−2), and gives a nonuniform phase even for m≥4. Its forward KL optimum is always uniform."
+        ],
+        "reasoning": "The pertinent exact catalogue compares complete continuous phase diagrams rather than sampled numerical cutoffs. Coincidence of the m=2 onset number does not match the optimized densities or the many-component phase.",
+        "searches": [
+          "Resultary 67718666ce63 (identity), db760cf84463, 24d362b94140, c39128e11afd"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exact global continuous/coexisting/no-improvement taxonomy for a normalized one-Poisson population L² projection of a regular equal cyclic orbit, with exact radii and onset laws. The standard Poisson Fourier/mixture identities and related fits are not credited as new. The closest statements differ in metric or exclude the decisive geometric limit, and no covering statement was established by the bounded comparison.",
+      "residual_risks": [
+        "A specialized normalized one-pole Hardy-space model reduction or wrapped-Cauchy fitting treatment not identified by the bounded retrieval could overlap; the review is not a comprehensive historical priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different loss and phase diagram, not covering",
+          "evidence": "Forward KL always uniform, reverse KL jumps for all m≥3; its two-source radius and three-source threshold differ from L².",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-directional-kullback-leibler-projection-has-a-sharp-two-versus-m--db760cf84463/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2576",
+          "method": "Local mirror",
+          "title": "Directional Kullback–Leibler projection has a sharp two-versus-many Poisson phase transition",
+          "trigger": "Exact same target and fitted manifold; strong different-objective match"
+        },
+        {
+          "assessment": "Related, not covering the antipodal result",
+          "evidence": "Fixed half-separation a is strictly less than π/2; estimates and optimizer counts concern boundary regimes only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-two-peak-boundary-layers-in-circular-poisson-kernel-co--24d362b94140/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2608",
+          "method": "Local mirror",
+          "title": "Universal two-peak boundary layers in circular Poisson-kernel compression",
+          "trigger": "Same metric and model family with two peaks"
+        },
+        {
+          "assessment": "Different target and angular constraints",
+          "evidence": "The mixtures are co-centered with varying radii and the candidate is co-centered, not optimized over phase on a cyclic orbit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-convex-order-concentration-bias-and-a-sharp-boundary-layer-law-f--c39128e11afd",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror",
+          "title": "Convex-order concentration bias and a sharp boundary-layer law for Poisson fitting",
+          "trigger": "Same L² projection family"
+        },
+        {
+          "assessment": "Related mixture model and loosely related discrepancy, not the stated projection",
+          "evidence": "Mixture identifiability and a kernel-based quadratic distance for empirical selection of clusters.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.04485",
+          "material_read": "pp. 3 and 16, converted offsets 5600 and 37512",
+          "method": "Public arXiv paper, bounded passages",
+          "title": "Poisson Kernel-Based Clustering on the Sphere: Convergence Properties, Identifiability, and a Method of Sampling",
+          "trigger": "Poisson mixtures and quadratic discrepancy"
+        },
+        {
+          "assessment": "Standard representation and different use of L² loss",
+          "evidence": "The fitted choice there uses Fourier truncation in density estimation, not projection onto one rotated normalized Poisson kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.05053",
+          "material_read": "p. 4 Eqs. (3.1)–(3.3) and p. 7, converted offsets 9256 and 15846",
+          "method": "Public arXiv paper, bounded passages",
+          "title": "Smooth Kernel Estimation of a Circular Density Function: A Connection to Orthogonal Polynomials on the Unit Circle",
+          "trigger": "Wrapped-Cauchy alias and integrated square loss"
+        },
+        {
+          "assessment": "Representation rather than best approximation",
+          "evidence": "Identifies the wrapped-Cauchy case and proves a discrete mixture representation.",
+          "identifier_or_url": "https://doi.org/10.1007/s00362-023-01393-5",
+          "material_read": "pp. 8 and 15, Theorem 8(a), converted offsets 23117 and 44354",
+          "method": "Public paper, bounded passages",
+          "title": "Discrete mixture representations of spherical distributions",
+          "trigger": "Wrapped-Cauchy harmonic and mixture theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact nonlinear compression of cyclic harmonics distinguishes a continuous loss of uniform fitting, a discontinuous jump with genuine coexistence, and a regime where all nonuniform fits are worse. The sharp m=3 comparison, unique positive branch and loss slope go beyond a local bifurcation test, and the contrast with KL illustrates an observable consequence of the loss choice. The result does not claim the high-symmetry mixture is itself undetectable or uniform.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

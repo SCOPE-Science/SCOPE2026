@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,8 @@
 }
 ---
 
-# Verification record
-The embedded Python program checks exact symbolic derivative, factorization, resultant identities, and cubic Taylor coefficient with SymPy, then performs 50,331 deterministic finite numerical diagnostics using direct support optimization, extremal root comparisons, mean-width integration, critical-band probabilities and local splitting rates. It reports the exact quantitative tolerances in source. The reference execution returned PASS.
+# Reproducibility and analytic scope
 
-## Critical analytic checks
-1. The support formula treats both the upper chord and all points on the quadratic lower boundary for every positive aspect parameter and normal direction.
-2. The stationary polynomial's positive local minimum changes sign only at \(a=\sqrt2\), with a double root there; there are exactly two simple roots for larger \(a\).
-3. The two envelope derivatives have strict opposing signs, ruling out missed or recurring global optimizer crossings.
-4. Algebraic elimination verifies the exact two global thresholds, and Taylor expansion derives the singular mass and unfolding amplitudes.
+The width law follows by maximizing the two supports; the stationary equation factors into a linear factor and a quadratic. The minimum-switch proof uses the positive root of a cubic in the square of the stationary slope, then the quadratic relation between that slope and the aspect ratio. Local angle inversion and integration of the scaled derivative, respectively, give the density and width-splitting constants.
 
-Finite numerical checks do not certify global statements; those follow from the analytic proof. Historical priority is provisional. No independent mathematical audit was performed.
+The retained supplementary Python diagnostic `parabolic_segment_width_check.py` (Python 3.10+, SymPy, NumPy, SciPy) checks identities and finite examples, with historical output in `CHECKS.txt`. Its check of the maximum-width switch is retained for consistency with the credited diameter result, not as evidence of a distinct contribution. The analytic argument establishes the infinite-parameter claims.

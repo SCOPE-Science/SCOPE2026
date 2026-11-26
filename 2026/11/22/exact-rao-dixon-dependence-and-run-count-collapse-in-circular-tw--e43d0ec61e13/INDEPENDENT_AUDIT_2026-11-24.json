@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:24:08.970273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the independent samples under the common atomless null, anchoring a named first-sample point yields equally likely assignments of the other first-sample label positions. These positions and the weak gap compositions are in bijection. Samplewise, the zeros are the only negative deviations when n/m<=1, so R=2nZ/m. Each occupied gap contributes one second-sample run, matched by one first-sample run, proving the stated affine equivalence, with matched tie treatment. The null has P(S1=0)=(m-1)/(m+n-1), P(S1=S2=0)=(m-1)(m-2)/((m+n-1)(m+n-2)), including m=2. The factorial generating identities give E Q=n+2n(n-1)/(m+1) and its zero-conditioned version by replacing m with m-1. For Var Q, if P_k is the ratio of falling n of order k to rising m of order k, expansion gives (24m+4m(m-1))P_4+24mP_3+4mP_2-(2mP_2)^2, which factors as in the source. The covariance follows from the mean shift multiplied by m P(S1=0); both variances and covariance are positive. Verified the denominator-minus-numerator factor and balanced successive-difference factor; the cubic is positive at 2 and has positive derivative for s>=2. Counting positive compositions gives the balanced vacancy law; leading powers give both limiting statements. Independent exact replay python3 -B /workspace/evidence/check_2.py checks separator configurations for 28 pairs with 2<=n<=m<=8. All-parameter correctness uses the moment proof, not these finite checks. This is dependence in second moments and optimal linear prediction, not a full joint law or incremental power theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 primary paper uses the joint occupancy-vector law for univariate calibrations.",
+          "Resultary 70169af507aa gives exact joint vacancy/positive-count entries in two distinct named categories (m>=3), and their crossing sign.",
+          "b21fff941275 gives an exact covariance formula for frequencies of two distinct positive sizes, not the diagonal or vacancy terms."
+        ],
+        "reasoning": "These occupancy entries can be inputs to a weighted contraction. They do not state or directly specialize to the aggregate Cov(X_0,sum r²X_r), Var(sum r²X_r), and the simplified correlation. Computing the aggregate requires more than substituting a parameter (including same-cell/diagonal terms and evaluating sums); the exact composition law alone likewise enables, but is not, that calculation.",
+        "searches": [
+          "Resultary: weak-composition or Dirichlet–multinomial vacancy and joint laws",
+          "doi:10.1007/s13571-020-00244-9 §4",
+          "doi:10.1002/9781118866641.ch6 §§6.2–6.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; bundled check.py inspected statically",
+        "Jammalamadaka–Guerrier–Mangalam (2021) §§2 and 4",
+        "Resultary 70169af507aa, b21fff941275, c1542db37fe8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive-part identity covers the low-occupancy collapse as an elementary implication.",
+          "Using the already known null law still requires exploiting the shift in the quadratic mean conditional on vacancy and computing the variances and ratio; balanced strict decrease is a property of the resulting exact ratio, not of the marginal tests."
+        ],
+        "reasoning": "Credit the already implied pieces and assess the closed mixed law of second moments and its balanced dependence on their own. No novelty credit is assigned to the foundational moment framework.",
+        "searches": [
+          "2021 Springer PDF §2 pp. S143–S144 and §4 p. S145",
+          "Resultary 70169af507aa and b21fff941275, exact covariance/proof passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 paper gives T1=2 sum max(S_j-n/m,0). For n/m<=1, summing over positive parts makes it exactly 2nZ/m, equivalently 2n-(n/m)C.",
+          "Dixon's centered squares equal Q minus a deterministic constant; changing Rao's normalization rescales covariance but not correlation."
+        ],
+        "reasoning": "These changes are exact equivalences; the novelty supported here is the mixed second-moment evaluation, not the deterministic Rao reduction, the tests, or the composition model.",
+        "searches": [
+          "Resultary: deterministic Rao–runs or vacancy relation",
+          "doi:10.1007/s13571-020-00244-9 §§2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is this assignment. The distinct same-day c1542db37fe8 concerns different-order noncircular squared-Gini spacing statistics.",
+          "The exact distributions in the 2021 paper are marginal, not a table of the pair or its joint moments."
+        ],
+        "reasoning": "Neither exact marginal tabulation nor a covariance formula for a distinct spacing pair evaluates the joint second moments here. The self-hit cannot establish priority.",
+        "searches": [
+          "Resultary: exact Rao–Dixon dependence and run-count collapse",
+          "Resultary: Rao/Dixon exact mixed covariance or correlation"
+        ]
+      },
+      "rationale": "For the exact finite mixed covariance/correlation and its balanced behavior, best of inspected evidence. Do not credit Rao's vacancy/run reduction separately as new mathematics: it follows immediately from the 2021 published positive-part identity and identifying circular blocks. The vacancy marginal at balance is also a direct composition count. The strongest inspected sources give definitions, marginal calibration, the common occupancy law, or exact entries for other occupancy/spacing covariances; they do not give the evaluated mixed rational dependence and its monotonicity.",
+      "residual_risks": [
+        "The 2015 chapter full comparison was not available; it may contain further historical implications.",
+        "Unlocated explicit covariance formulas for arbitrary occupancy score functions, or equivalent older finite circular-test results, could affect priority. No claim of an exhaustive prior search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definitions, low-occupancy reduction by immediate implication, and null composition law; inspected exact calibrations are not joint",
+          "evidence": [
+            "Positive-part form of Rao and equiprobability of frequency configurations are explicit."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13571-020-00244-9",
+          "material_read": "§2 pp. S143–S144 and §4 p. S145 (PDF text offsets 8305–18947)",
+          "method": "Bounded OA Springer PDF passages",
+          "title": "A Two-sample Nonparametric Test for Circular Data–its Exact Distribution and Performance",
+          "trigger": "Same statistics and exact distributions"
+        },
+        {
+          "assessment": "Unavailable in the attempted route; no negative coverage conclusion",
+          "evidence": [
+            "HTTP 403 on source attempt."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/9781118866641.ch6",
+          "material_read": "Target §§6.2–6.3 not retrieved",
+          "method": "Bounded OA Wiley access attempt",
+          "title": "On two-sample tests for circular data based on spacing-frequencies",
+          "trigger": "Potential earlier coverage of the same three statistics and conditional law"
+        },
+        {
+          "assessment": "Relevant entrywise overlap; not evaluated aggregate correlation",
+          "evidence": [
+            "Two distinct named cells, one with zero occupancy and one with exactly r. Scope excludes aggregate vacancy counts."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa",
+          "material_read": "Finding, Assumptions and joint-moment/sign passages",
+          "method": "Resultary search and OA local mirror",
+          "title": "A universal one-crossing law for missing and rare categories in Dirichlet–multinomial sampling",
+          "trigger": "Exact vacancy and occupancy mixed moments in the same family of laws"
+        },
+        {
+          "assessment": "Only distinct positive-size frequencies in the stated formula",
+          "evidence": [
+            "a,b>=1, a≠b. The vacancy column required for the Rao comparison is not among the claimed covariances."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-single-positive-covariance-island-for-positive-occupancy-frequ--b21fff941275",
+          "material_read": "Finding and displayed equation (1)",
+          "method": "Resultary search and OA local mirror",
+          "title": "A single positive covariance island for positive occupancy frequencies in uniform weak compositions",
+          "trigger": "Exact aggregate covariance entries under the same null law"
+        },
+        {
+          "assessment": "Distinct noncircular statistics",
+          "evidence": [
+            "The covariance compares different orders of squared-Gini spacings rather than circular Rao L1 and Dixon L2 of the same two-sample frequencies."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cross-order-null-covariance-and-a-universal-correlation-ke--c1542db37fe8",
+          "material_read": "Finding and statistic definitions",
+          "method": "Resultary search and OA local mirror",
+          "title": "Exact cross-order null covariance and a universal correlation kernel for squared-Gini spacings",
+          "trigger": "Close exact spacing-dependence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two used circular two-sample procedures have an exact finite dependence that is not visible from separate critical values or asymptotic marginal normality. The rational correlation discriminates two-observation degeneracy, sparse versus balanced behavior, and the exact monotone loss of linear predictability at balance. The simple run identity has practical interpretive value but is not the standalone research contribution; neither piece establishes power improvements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

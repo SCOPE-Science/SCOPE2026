@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:30:13.736233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The support-line intersection is e^(it)((1+i)R+eps e^(3it)); shifting by -pi/4 gives the stated z. Since r>4eps, the argument winds once with strictly positive derivative (the numerator is at least (r-eps)(r-4eps)), so the image is a regular positively oriented radial Jordan curve. Its curvature numerator has minimum (r-4eps)(r-16eps), giving convexity at and below r/16. Above, maximizing x as a quartic in c=cos(t) gives its only maxima at +/-s: the negative branch of c*(2c^2-1) never reaches q=r/(16eps)>1/sqrt(2), and its positive increasing branch crosses q exactly once between cos(pi/6) and 1. At these contacts x''<0 and y'>0. Curvature is strictly positive on the entire retained arc from s to 2pi/3-s by the cosine bound, and the two rotations give the same geometry. For the global patch, x(s)>0 and the vertical segment, traversed upward, is a strictly increasing polar graph over the same angular interval as the removed arc. The other two segments have rotated disjoint angular intervals. On those rays the removed arc has smaller radius by x(t)<x(s) for |t|<s. The patched curve is consequently a simple radial graph containing the original; it has a continuous nondecreasing tangent lift of one turn (the retained tangent lift is t+pi/2+arg(r-4eps e^(3it)), joining each chord with the same vertical direction up to rotation). Hence it bounds a convex domain. Conversely every arc and replacement chord belongs to the original hull, proving equality and excluding extra faces. Green's formula yields pi*(r^2+4eps^2) and the pockets give the stated integral since y is strictly increasing on a removed arc. Expanding 16eps cos(s)cos(2s)=r gives s^2=32delta/(5r)+O(delta^2); uniformly at t=s*u the x difference is (5r/8)s^4(1-u^2)^2+O(s^6) and y'=3r/4+O(s^2). Integrating gives (3r^2/2)s^5. Substitution t=s*u and the analytic implicit equation in s^2 show that the full defect above onset is delta^(5/2) times an analytic function with the stated nonzero limit; this justifies C^2 but not C^3, not merely a formal differentiation of an error bound. RESULT.md §§1–5 and the inspected checker give replay paths. Independent quadrature via the cubic for cos(s) gives the R=1 coefficient 130.70243996332004023, and at eps=.1249 an independent 72000-point hull agrees within 1.3e-8 in area. These checks do not prove the continuum claim; the global argument does. No assertion is made at eps=R/8 or for other viewing angles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Csima treats isoptic parametrizations of epi- and hypocycloids, including via generalized support functions. Michalska treats the convexity of A(alpha) as a function of viewing angle, including the same harmonic support family.",
+          "The accessible abstract of Apostol–Mnatsakanian describes arch/cap area relations and extensions to cycloids; it does not identify a fixed-orthoptic Euclidean convex hull. Its full text was inaccessible."
+        ],
+        "reasoning": "Viewing-angle convexity is not spatial convexity or the convex-hull-minus-Jordan-area invariant. Parametrization formulas alone do not classify distinct exposed contacts or quantify the missing pockets.",
+        "searches": [
+          "Csima arXiv:2304.07517 §§1,4 on isoptics of cycloids",
+          "Michalska (2003), formula (1.1), Example 1",
+          "Apostol–Mnatsakanian (2009), cycloidal areas and caps"
+        ]
+      },
+      "checked_sources": [
+        "Skrzypiec (2021) Theorem 1",
+        "Michalska (2003) formula (1.1) and Example 1",
+        "Csima arXiv:2304.07517 abstract and §4",
+        "Apostol–Mnatsakanian (2009) abstract",
+        "Published Resultary exact and neighboring hull claims cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign at/near a symmetry-axis point locates a local concavity transition. The published epicycloid result gives bitangents and area for a fixed coefficient ratio.",
+          "Here the chord contact t=+/-s varies with eps by 16eps cos(s)cos(2s)=r; global maximality and the intervening convex arc bounds are needed, and the missing area depends on integrating the actual pocket and the quartic flattening."
+        ],
+        "reasoning": "A curvature transition does not determine the global contact pair or how much curve the hull replaces. No inspected general theorem was shown to supply these contacts and exponent/coefficient by direct specialization.",
+        "searches": [
+          "Skrzypiec Theorem 1, curvature at the positive-axis point",
+          "Michalska (2003), Example 1",
+          "Resultary integral-epicycloid hull opening finding and proof material"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scaling p by 1/eps identifies the generating family with Skrzypiec's p=a+cos(3t), a=R/eps, and the supercritical range with 8<a<8sqrt(2).",
+          "The distinct exact integral-epicycloid hull ending --f28f9fd8114e uses z=rho((n+1)e^(it)-e^((n+1)it)); n=3 gives coefficient ratio 4, not r/eps>8sqrt(2)."
+        ],
+        "reasoning": "Curvature information for the same isoptic is prior. The bitangent-hull analogue with ratio 4 cannot be taken to the present ratio range by scaling, rotation or phase change; these preserve the magnitude ratio.",
+        "searches": [
+          "Threefold harmonic orthoptic, right-angle isoptic, epitrochoid convex hull, bitangent chord and area onset",
+          "Skrzypiec DOI 10.1007/s13366-021-00564-5 Theorem 1",
+          "Resultary: epicycloid convex hull and harmonic area onset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit ending --d5def9ff082e is the submitted finding. The same-day distinct hull results ending --f28f9fd8114e, --7b87c69af509 and --b2893f1e6bc7 concern integral epicycloids, a finite circular-involute arc and a finite Archimedean spiral arc, respectively."
+        ],
+        "reasoning": "The distinct records are compared by their curves and amplitude/arc regimes, not dismissed by date. None of these inspected findings computes the stated threefold onset coefficient for the harmonic orthoptic.",
+        "searches": [
+          "Resultary: exact supporting chords, harmonic orthoptic, 5/2 convex hull area excess"
+        ]
+      },
+      "rationale": "Pass for the all-amplitude three-chord convexification and exact hull defect, including its onset coefficient, not for the classical parametrization or same-family curvature transition. Neither the inspected same-family curvature/area results nor the close exact integral-epicycloid hull determines this amplitude-dependent hull law. Priority remains bounded by the material inspected.",
+      "residual_risks": [
+        "Apostol–Mnatsakanian full text and a 2014 nephroid/bitangent lead cited in the epicycloid record were not accessible. Classical epitrochoid hull results stated without isoptic vocabulary could cover more than the examined formula comparisons.",
+        "The evidence supports the distinction of the claimed hull and area law, not definitive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers same-family curvature behavior, not the claimed hull law in the inspected theorem",
+          "evidence": "For 8<a<8sqrt(2) the theorem describes the sign transition in viewing angle at the positive-axis isoptic point.",
+          "identifier_or_url": "https://doi.org/10.1007/s13366-021-00564-5",
+          "material_read": "Abstract and §2 Theorem 1, journal pp. 55–57, PDF text around offset 2155",
+          "method": "Primary passage inspection and normalization a=R/eps",
+          "title": "Convexity limit angles for isoptics",
+          "trigger": "Same harmonic support family and curvature transition"
+        },
+        {
+          "assessment": "Different area function and convexity notion",
+          "evidence": "A(alpha) is the enclosed area at viewing angle alpha, not the Euclidean hull defect at a fixed angle.",
+          "identifier_or_url": "https://www.numdam.org/item/RSMUP_2003__110__161_0.pdf",
+          "material_read": "p. 161 formula (1.1) and p. 165 Example 1, offsets 447 and 16074",
+          "method": "Primary PDF passage inspection",
+          "title": "A sufficient condition for the convexity of the area of an isoptic curve of an oval",
+          "trigger": "Same support family and an area convexity result"
+        },
+        {
+          "assessment": "Exact analogue at different coefficient ratio; no same-day priority assumed",
+          "evidence": "Its n bitangent sides, n exposed arcs and area/perimeter are for rho((n+1)e^(it)-e^((n+1)it)); the threefold choice has ratio 4 and involves no amplitude onset in the audited regime.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-convex-hulls-of-integral-epicycloids-and-a-persistent-peri--f28f9fd8114e",
+          "material_read": "Published RESULT.md offsets 0–3912",
+          "method": "Local mirror statement and bounded proof-passage inspection",
+          "title": "Exact convex hulls of integral epicycloids and a persistent perimeter law",
+          "trigger": "Closest published exact harmonic-curve hull and area analogue"
+        },
+        {
+          "assessment": "Characterization of isoptics, not matched hull theorem in inspected passages",
+          "evidence": "Uses a generalized support function to parametrize isoptics of hypo- and epicycloids.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.07517",
+          "material_read": "Abstract p. 1 and §4 pp. 8–9, offset 20630",
+          "method": "Primary PDF passage inspection",
+          "title": "Isoptic curves of cycloids",
+          "trigger": "Cycloidal parameterizations and isoptics"
+        },
+        {
+          "assessment": "Unresolved priority lead, not a verified overlap",
+          "evidence": "The abstract describes arch/cap-area identities and extensions, without a specified orthoptic convexification formula.",
+          "identifier_or_url": "https://authors.library.caltech.edu/records/7wxkh-b1h64",
+          "material_read": "Repository metadata abstract only; DOI full text not retrieved",
+          "method": "Primary abstract inspection and lawful full-text access attempt",
+          "title": "New Insight into Cycloidal Areas",
+          "trigger": "Plausible related cycloidal cap-area formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Once concavity appears, the exact hull is a natural global invariant: curvature alone cannot say which arcs are lost, how many faces replace them, or the amount of area recovered. The all-amplitude chord characterization answers these questions and fixes the first nonsmooth term in the hull area as the amplitude varies. The value is in the precise new convexification law, not a repeat of the curvature threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

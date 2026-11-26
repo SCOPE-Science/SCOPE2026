@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:52.227610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the deterministic normalization: decompose one endpoint's per-edge payoff into a constant, two centered one-coordinate terms and a row/column-centered interaction. The opponent has the complementary payoff. The slope in each player's own priority is 1/K after averaging over a neighbor, independent of tie orientation, so the potential gradient energy is c_K sum d_i². The opposite-signed interactions have cancelling profile divergence and are orthogonal to gradients; across distinct neighbors their mixed products average to zero. For each endpoint interaction the squared matrix norm is (K²-1)/12 (subtract the two main-effect variances from the Bernoulli variance); summing unilateral differences gives c_K per incidence. Thus R=X/(2X+Y) under unordered equal-weight moves; doubling all moves would cancel in the ratio. Counting edges and wedges gives the listed expectations and covariances. In particular writing each edge indicator as p+epsilon makes the centered Y equal to 2q p sum epsilon plus twice the centered quadratic wedge sum; the latter is orthogonal to the linear sum and has variance 4H[p(1-p)]² including the factor of two. This independently gives the sparse covariance and, by the displayed gradient, variance 2(1+lambda)/(2+lambda)^4. Connected edge-sharing cumulant patterns have v<=e+1 and O(n^v p^e) contribution, hence after scaling only the covariance survives; exact p=lambda/n gives O(1) bias in the means. At n²p bounded the wedge expectation vanishes and the Poisson edge law gives the Bernoulli mixture. When n²p diverges with np small the wedge-to-edge ratio vanishes by concentration and Markov; when np tends to a finite positive constant both statistics concentrate on scale n; and when np diverges relative variances vanish. The no-edge convention and boundedness justify the stated limits. Frozen VERIFICATION.md and verify.py were inspected, not executed; `OPENBLAS_NUM_THREADS=1 python3 /workspace/reproductions/frozen_checks.py 5` independently checks both absolute finite energies at K=2,3,4 with cyclic edgewise ties.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 103–105 cite general fixed-subgraph and local-functional CLTs. Primary passages were not obtained; the additive degree score indexed hit concerns third cumulants, with an isolated-vertex application, and is dated later in the catalogue."
+        ],
+        "reasoning": "Single subgraph CLTs are not a joint variance calculation for the edge/wedge combination. Broader joint CLT machinery may give the normality step; one still needs the cross-covariance, ratio centering and the singular empty-graph window, and no inspected statement gives these together.",
+        "searches": [
+          "Ruciński DOI:10.1007/BF00718031",
+          "Sturm–Wemheuer arXiv:2404.12740",
+          "Resultary 62b95f65e0a9, additive degree scores"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–109",
+        "Resultary indexed IDs 3e56695ed673, 62b95f65e0a9, 2847f7280db3",
+        "arXiv:2610.05832v1, DOI:10.1007/BF00718031, arXiv:2404.12740 (primary retrieval attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The credited deterministic identity is a complete reduction to two integer statistics; the frozen result computes both their overlap covariance and their connected-pattern Gaussian scale. The rareness of nonempty matchings at n²p=O(1) uses a different limit argument from the mean-degree CLT."
+        ],
+        "reasoning": "Combining classical graph limits with the prior identity is a route to portions of the result, not a new general limit theory. The explicit game ratio specialization with its variance and both transition windows is the supported distinct contribution; a theorem specifying the same normalized degree-moment ratio could subsume it even without game terminology.",
+        "searches": [
+          "Frozen RESULT.md lines 5–21, 32–42 and 103–115 versus cited Proposition 2 and Resultary degree/motif matches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 32–42 explicitly credit the deterministic ratio, which is 1/(2+Y/X), equivalently sum d_i/(sum d_i+sum d_i²), on nonempty graphs. The exact Resultary match 3e56695ed673 is the frozen record."
+        ],
+        "reasoning": "Degree-moment and edge/wedge ratio formulations are exactly equivalent, so a graph ratio theorem on the same normalizations would cover the game statement. Existing finite-graph identities alone do not specify any distribution of this ratio.",
+        "searches": [
+          "Resultary: sparse priority-game Hodge error ratio, edge and wedge fluctuation",
+          "arXiv:2610.05832v1, Proposition 2, Remark 1 and Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed motif record concerns induced wedges and isolate covariance in G(n,m); the current statistic uses all centered wedges (triangles contribute), random edges and a joint edge fluctuation in G(n,p)."
+        ],
+        "reasoning": "A fixed edge count removes the edge fluctuation in the delta-method variance. An induced motif covariance threshold in that ensemble does not tabulate this ratio law or its Gaussian coefficient.",
+        "searches": [
+          "Resultary: exact sparse edge/wedge covariance and Hodge Gaussian variance",
+          "Resultary 2847f7280db3, isolate–induced motif covariance"
+        ]
+      },
+      "rationale": "Pass for the combined stochastic ratio laws and explicit fluctuation coefficient, not the exact finite-game formula, the thresholds for raw graph edge and wedge counts, or a new CLT method. The assigned record itself is the exact Resultary hit; the strongest distinct hits concern degree-score third cumulants and fixed-edge isolate–motif covariance. Classical subgraph methods provide the tools to derive the stated result, but the available statements do not themselves give the normalized priority-game ratio regimes and law. Closest full-text access limits are recorded rather than treated as evidence of absence.",
+      "residual_risks": [
+        "The primary full texts were not obtained; the exact scope of their applications and any ratio thresholds beyond the cited statements could not be confirmed.",
+        "Equivalent limits for the empirical degree ratio, even without Hodge-game terminology, would be material; broad joint graph-count methods are not themselves claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit for deterministic ratio, full paper not excluded as stochastic prior",
+          "evidence": [
+            "Frozen statement attributes c_K times sum d_i and sum d_i² for the two energies."
+          ],
+          "identifier_or_url": "arXiv:2610.05832v1",
+          "material_read": "Frozen RESULT.md lines 32–42 and 103–115 specify Proposition 2, Remark 1, Corollary 1; primary text request timed out",
+          "method": "Targeted lawful OA attempt; independent mathematical check of normalization",
+          "title": "Priority Coordination Games: Hodge Decomposition and a Sharp Design Limit",
+          "trigger": "Direct source of the exact deterministic reduction"
+        },
+        {
+          "assessment": "Probabilistic background; full statement-level coverage not independently resolved",
+          "evidence": [
+            "Frozen RESULT.md line 105 describes normal limits for fixed-subgraph counts."
+          ],
+          "identifier_or_url": "10.1007/BF00718031",
+          "material_read": "Frozen related-work description; OA retrieval of the cited teaching-site copy and primary passage attempts failed",
+          "method": "Targeted lawful OA attempts and frozen comparison",
+          "title": "When Are Small Subgraphs of a Random Graph Normally Distributed?",
+          "trigger": "Classical subgraph normal-limit antecedent"
+        },
+        {
+          "assessment": "Potentially supplies a broader normality mechanism, no inspected ratio-specific statement",
+          "evidence": [
+            "Frozen RESULT.md line 105 describes broader normal approximation for local functionals."
+          ],
+          "identifier_or_url": "arXiv:2404.12740",
+          "material_read": "Frozen related-work description; decisive OA text not returned",
+          "method": "Targeted lawful OA attempt and frozen comparison",
+          "title": "A Central Limit Theorem for Functions on Weighted Sparse Inhomogeneous Random Graphs",
+          "trigger": "Broader sparse random-graph functional CLT"
+        },
+        {
+          "assessment": "Related method, different reported result",
+          "evidence": [
+            "Third cumulants for additive degree scores and an isolated-vertex application, not the ratio's limiting variance."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-third-cumulant-law-for-additive-degree-statistics-in-bi--62b95f65e0a9",
+          "material_read": "Indexed statement only",
+          "method": "Configured Resultary",
+          "title": "An exact third cumulant law for additive degree statistics",
+          "trigger": "Closest indexed additive-degree fluctuation result"
+        },
+        {
+          "assessment": "Induced motifs, isolate covariance and fixed edge count; not the claimed ratio",
+          "evidence": [
+            "Indexed statement concerns G(n,m) and isolate–motif covariances."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-isolate-induced-motif-covariance-threshold-in-fixed--2847f7280db3",
+          "material_read": "Indexed statement only",
+          "method": "Configured Resultary",
+          "title": "A universal isolate-induced motif covariance threshold",
+          "trigger": "Closest indexed wedge covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stochastic ratio measures a specific obstruction to a potential approximation, and the zero-denominator convention makes its first-contact limit genuinely different from the positive-mean-degree fluctuation analysis. The two scaling windows and exact Gaussian variance turn a pointwise identity into quantitative distributional predictions. The second window is when wedges become appreciable relative to edges, not the first appearance of any wedge, and the claim concerns incentive error rather than safety or welfare.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

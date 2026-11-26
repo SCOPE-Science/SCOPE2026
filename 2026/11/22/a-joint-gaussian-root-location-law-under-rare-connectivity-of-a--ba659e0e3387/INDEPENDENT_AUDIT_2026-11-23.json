@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:49.319950Z",
+  "axes": {
+    "correctness": {
+      "bounded_reproduction": "A fresh exact-rational replay enumerated the eligible ranks and checked normalization, the binomial probabilities and the five moment entries for n=2 through 9. All matched. Replay: python3 /workspace/branches/bbde5f56-07d5-4c59-9e52-7611a6cc1859/recompute.py. This tests finite formulas, not the limit.",
+      "rationale": "On the line, edges join consecutive sample points; a gap is skipped by both ends exactly when it is a strict interior peak (the two boundary edges cannot be missing). With distinct gaps, the sign pattern of successive differences therefore decreases then increases if and only if connected. The unique reciprocal pair sits at the minimum. The symmetric Dirichlet density gives an independent uniform rank permutation even jointly with the two exterior gaps and all sorted interior magnitudes. A connected rank permutation is uniquely determined by choosing the side of each of the n−2 nonminimum ranks, hence exactly 2^(n−2) admissible permutations and a binomial left-placement count. If a_r are the nonminimum gaps, the centered midpoint is half the exterior-gap difference plus the sum of (B_r−1/2)a_r over fair independent placement bits. The conditional covariance with the rank is one quarter the expected sum of the a_r, and the midpoint variance is one quarter the expected sum of their squares plus one quarter the exterior-difference variance. The minimum T satisfies P(T>u)=(1−(n−1)u)^n on its support by simplex translation. Subtracting its first and second moments from the full Dirichlet sums gives both stated finite formulas. In particular n=2 gives constant J=1 and midpoint variance 1/24. For the CLT the conditional characteristic function of each rescaled linear combination is a product of cosines. Normalized exponentials give sum a_r→1, n sum a_r²→2 and sqrt(n) max a_r→0 in probability; the minimum and exterior terms have vanishing normalized effect. The sum of quadratic terms in log cos yields the asserted covariance, and the sum of quartic remainders is controlled by the largest squared argument times the sum of squares. Bounded conditional characteristic functions then converge also after averaging; the determinant is 1/16. The frozen checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bahadır–Ceyhan give the exact count distribution and unconditional laws of large numbers and central limit theorems for reflexive and shared pairs.",
+          "Penrose–Wade Theorem 2.3 gives weighted-edge-length moments in exactly this uniform directed graph. The indexed mutual-pair count/length coupling gives a joint unconditional CLT for the count and total pair length."
+        ],
+        "reasoning": "The broader count distribution covers the connected event but loses the rank of the sole pair. Even knowing both R_n and W_n exactly on connectivity specifies the minimum gap length, not the side sums of the other gaps and the resulting spatial midpoint.",
+        "searches": [
+          "https://arxiv.org/abs/1605.01940 §§3–4",
+          "https://arxiv.org/abs/math/0603561 §2.2",
+          "Resultary: one dimensional nearest neighbor graph connectivity rare valley spacing mutual closest pair binomial rank conditional midpoint"
+        ]
+      },
+      "checked_sources": [
+        "Bahadır–Ceyhan, arXiv:1605.01940",
+        "Penrose–Wade, arXiv:math/0603561v1",
+        "Eppstein–Paterson–Yao, author manuscript",
+        "Resultary mutual-nearest-neighbor count–length record 58929be679e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical rank reduction and count recurrence already identify the denominator of the conditioned model.",
+          "The proof under review additionally retains the actual sorted weights and the independent assignment of each weight to either side of the root; crossing moments use their sums and squared sums."
+        ],
+        "reasoning": "Fixing or counting the set of rank patterns does not yield the joint midpoint law without this weighting and normalization. The prior unconditional fluctuation theorems do not permit conditioning on R_n=1, whose probability vanishes faster than exponentially.",
+        "searches": [
+          "Bahadır–Ceyhan §§3.1, 3.3 and eq. (17)",
+          "Penrose–Wade Theorem 2.3",
+          "Resultary mutual-pair count–length coupling, Finding and exponential-spacing representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eppstein–Paterson–Yao §2 identifies the bi-root as the unique reciprocal two-cycle per weak component.",
+          "Bahadır–Ceyhan §§3.1, 3.3 identify number of weak components with the number R_n of reflexive pairs and use local minima in the interpoint spacing ranks."
+        ],
+        "reasoning": "The event is equivalently R_n=1 or an interior-gap rank permutation with exactly one minimum, including endpoints in the local minimum convention. The variable of interest is the location of that minimum and its physical midpoint, not R_n itself.",
+        "searches": [
+          "Literature: one dimensional nearest neighbor graph uniform points root location connected mutual nearest neighbour valley binomial midpoint joint central limit theorem",
+          "Literature: Bahadir Ceyhan reflexive nearest neighbor pairs one-dimensional uniform data probability exactly one connectivity valley rank location Henze Schilling peak permutations",
+          "Resultary: one dimensional nearest neighbor graph connectivity rare valley spacing mutual closest pair binomial rank conditional midpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equation (17) specializes at k=1 to p(n+1,1)=2p(n,1)/n with p(2,1)=1, yielding the exact connectivity sequence.",
+          "The exact rank and midpoint result in the database search was the assigned record; related records give a cut-gap CLT for two neighbors or laws of count and total length, not the conditional joint law here."
+        ],
+        "reasoning": "The connectivity sequence is an immediate old special case, not a separate discovery or table novelty. Neither it nor the retrieved numerical covariance constants for other statistics supply the conditional cross-covariance or midpoint variance under review.",
+        "searches": [
+          "Resultary: one dimensional nearest neighbor graph connectivity rare valley spacing mutual closest pair binomial rank conditional midpoint",
+          "Bahadır–Ceyhan, equation (17) and preceding local-minimum enumeration"
+        ]
+      },
+      "rationale": "The qualifying component event and its exact probability are covered by earlier one-dimensional reciprocal-pair counts; novelty is not assigned to them. The exact conditional covariances and joint limit for the rank and physical midpoint of the sole pair use the spacing values as well as their ranks, and go beyond all located overlap. The frozen result appropriately makes its main distinction the joint conditional location law; a future revision should explicitly cite the earlier component-count recurrence for the connectivity probability.",
+      "residual_risks": [
+        "Enns et al. were checked only through the explicit Bahadır–Ceyhan attribution and recurrence comparison. Historical priority for the joint conditional location result is limited to the inspected passages and indexed matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers connectivity probability; no joint sole-root midpoint theorem in the inspected derivations",
+          "evidence": [
+            "Section 3.3 equation (17) explicitly gives the count recurrence and credits Enns et al. with the same recurrence by generating functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.01940",
+          "material_read": "Abstract; §3.1 component/reflexive-pair identification; §3.3 local-minimum recurrence and comparison with Enns et al.; §4 unconditional asymptotic setup",
+          "method": "Open arXiv PDF text by sections",
+          "title": "On the Number of Reflexive and Shared Nearest Neighbor Pairs in One-Dimensional Uniform Data",
+          "trigger": "Same graph, same event R_n=1, exact distribution of R_n"
+        },
+        {
+          "assessment": "Same uniform graph in §2.2; distinct unconditional total-weight statistic",
+          "evidence": [
+            "Equations (22)–(24) are moments of total power-weighted length, not joint location of a sole reciprocal pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0603561v1",
+          "material_read": "Abstract and §2.2 definition and Theorem 2.3 statement",
+          "method": "Open arXiv PDF text",
+          "title": "Limit theory for the random on-line nearest-neighbour graph",
+          "trigger": "Same standard directed graph as an auxiliary model and exact Dirichlet-derived moments"
+        },
+        {
+          "assessment": "Covers uniqueness of the bi-root per component, not the conditional location formulas",
+          "evidence": [
+            "Preliminaries property 2 states there is exactly one 2-cycle per weak component for samples of size at least two."
+          ],
+          "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf",
+          "material_read": "Abstract, introduction and §2 definition and basic properties",
+          "method": "Open authors' manuscript PDF text",
+          "title": "On Nearest-Neighbor Graphs",
+          "trigger": "Bi-root terminology and one reciprocal pair per component"
+        },
+        {
+          "assessment": "Distinct observable, without rare connectivity conditioning",
+          "evidence": [
+            "R_n is the number of reciprocal pairs and W_n their total length; under R_n=1 the latter is a gap length, not a midpoint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-count-length-coupling-of-mutual-nearest-neighbor-pairs-on--58929be679e6/RESULT.md",
+          "material_read": "Finding, scope, normalized exponential representation and beginning of local covariance calculation",
+          "method": "Published record via local mirror",
+          "title": "Exact count–length coupling of mutual nearest-neighbor pairs on an interval",
+          "trigger": "Same uniform interval and reciprocal pair model with an explicit bivariate Gaussian law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The midpoint of the unique reciprocal pair is a canonical statistic of a connected nearest-neighbor graph on a line. The result quantifies how an extreme global graph event changes spatial fluctuations, separating the random placement rank from the additional spacing-magnitude effect and identifying nontrivial correlation 1/sqrt(2). This is not just a rederivation of the known probability of a single component.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

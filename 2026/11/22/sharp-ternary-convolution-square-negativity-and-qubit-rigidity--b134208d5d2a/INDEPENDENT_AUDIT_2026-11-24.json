@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:20:31.786255Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "VERIFICATION.md and verify_z3_effects.py (inspection of purported ancillary checks, not execution)",
+        "/workspace/checks/04.md (independent compression and contact proof)"
+      ],
+      "rationale": "For each k on the three-cycle there is one square atom C and a reversed mixed pair A,B, so the coefficient is Hermitian and equals C^2+AB+BA. Independently, the isometry Vv=(A^(1/2)v,B^(1/2)v,C^(1/2)v) and D=diag(I,-I,0) give X=V*DV=A−B and S=V*D^2V=I−C. Hence S−X^2=W*W with W=(I−VV*)DV. This proves the contraction inequality even for singular effects. Completing the square gives C^2+AB+BA+I/24=W*W/2+3(C−I/6)^2/2. At a contact unit vector v, Cv=v/6, X^2v=5v/6 and Wv=0. The third component of DVv=VXv gives C^(1/2)Xv=0, so w=Xv/sqrt(5/6) is a unit vector in ker C orthogonal to v. On (w,v), X exchanges the basis vectors with coefficient sqrt(5/6) and C is diag(0,1/6); self-adjointness makes this a common reducing block for A,B,C. Substitution gives the exact matrices in the finding and spectrum {1/12,−1/24} for the coefficient. The two rank-one matrices there have determinant zero and positive trace; the block extends by any normalized positive triple and can be placed at any specified k by relabeling the atoms. In dimension one all products are scalar nonnegative; with two group elements B=I−A, so A^2+B^2 and 2A(I−A) are positive. This proves both minimalities. The proof neither assumes invertibility nor depends on sampling.",
+      "residual_risks": [
+        "The equality classification is for one specified coefficient, not a prescribed full convolution spectrum or an extremum over groups of arbitrary order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jabbari's abstract explicitly notes that general positive matrix convolution products can lose positivity, and proves commuting matrix values with a Haar decomposition under the assumption μ*μ=μ on locally compact groups.",
+          "Girard–Plávala–Sikora's abstract gives sufficient criteria for compatibility via Jordan products of quantum channels."
+        ],
+        "reasoning": "Broader groups in the idempotent theorem do not broaden the class of normalized non-idempotent triples addressed here. Channel compatibility is not a spectral estimate for a sum of normalized effects.",
+        "searches": [
+          "Jabbari, arXiv:2611.09755v1, matrix Kawada–Itô theorem and harmonic rigidity",
+          "Girard–Plávala–Sikora, arXiv:2009.03279v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-record match and 5051f8b37c12",
+        "Jabbari arXiv:2611.09755v1 and Girard–Plávala–Sikora arXiv:2009.03279v1, abstract passages",
+        "Guo–Luo DOI 10.1103/PhysRevA.110.062206, accessible abstract excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compression inequality X^2≤S gives AB+BA≥(S^2−S)/2, and completion of the square with C^2 gives the numerical lower bound. This ingredient is standard and is not credited as a novel operator inequality.",
+          "The earlier accessible idempotent and Haar-square statements impose extra conditions, and available Guo–Luo evidence does not give the contact equations or a dominating bound for the three-effect combination."
+        ],
+        "reasoning": "A lower bound deduced by this short standard step does not establish sharpness or classify contact. The independent proof checks precisely when the compression defect vanishes and simultaneously C has eigenvalue 1/6, forcing the reducing block. Known qualitative negativity and the restricted square classifications do not supply this conjunction.",
+        "searches": [
+          "Guo–Luo DOI 10.1103/PhysRevA.110.062206; Jabbari arXiv:2611.09755; Resultary 5051f8b37c12; standard self-adjoint compression (Kadison) inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized three-atom convolution formulation is exactly the effect problem C^2+AB+BA with A+B+C=I, no additional restrictions. The matching exact Resultary summary is this record.",
+          "Guo–Luo's accessible abstract uses negativity of the Jordan product of POVM effects for incompatibility, without stating a bound on the combined expression including the remaining effect squared."
+        ],
+        "reasoning": "Changing from convolution labels to effects does not add novelty; the tests concern the same extremum under either terminology. Ordinary effect-product negativity is weaker than the exact spectral floor and reducing contact block for the sum.",
+        "searches": [
+          "Resultary: three-cycle matrix convolution, three-effect Jordan sum and canonical −1/24 block",
+          "Guo and Luo, DOI 10.1103/PhysRevA.110.062206, including searches for lawful OA versions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target hit is the same record. The distinct older record 5051f8b37c12 covers positive 2×2 matrix-measure square roots of Haar on the three-cycle, including noncommuting roots and a sharp commutator estimate, in its published summary."
+        ],
+        "reasoning": "Haar square fixes the normalized coefficients to I/3, excluding all negative contacts; its constraint and commutator objective do not classify equality cases at the least convolution eigenvalue. No other exact floor/contact catalogue entry was located.",
+        "searches": [
+          "Resultary exact −1/24 spectral contact, canonical qubit block, and three-cycle convolution square; record 5051f8b37c12"
+        ]
+      },
+      "rationale": "The matrix compression estimate and qualitative failure of Jordan or convolution positivity are not new. The supported distinct content is the sharp spectral floor for the normalized three-effect sum and its entire contact-block classification. The closest three-cycle result located optimizes under a Haar-square equality constraint; the closest Jordan-effect paper is materially related but accessible only at abstract level. Neither inspected statement gives a sharp pointwise result for this sum on arbitrary normalized positive triples. Priority remains provisional.",
+      "residual_risks": [
+        "Guo–Luo main text could not be inspected. No assertion is made that it lacks a related sharp inequality or saturation result.",
+        "A specialized operator inequality outside the inspected material could cover some or all of the contact theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known qualitative failure and a different idempotent theorem",
+          "evidence": "Positive matrix convolution need not preserve positivity; if μ*μ=μ the values commute and have the stated Haar decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09755v1",
+          "material_read": "Primary preprint p. 1, abstract",
+          "method": "Public arXiv PDF passage",
+          "title": "The Matrix Kawada–Itô Theorem and Harmonic Rigidity on Locally Compact Groups",
+          "trigger": "Same matrix-valued ordered convolution positivity issue"
+        },
+        {
+          "assessment": "Relevant; no verdict about uninspected text",
+          "evidence": "The excerpt quantifies measurement incompatibility via Jordan-product negativity. It provides no inspected bound for C^2+AB+BA.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.110.062206",
+          "material_read": "APS abstract excerpt; no full article passage",
+          "method": "Publisher/OA attempt and search for alternate lawful copy",
+          "title": "Quantifying incompatibility between positive operator-valued measures via negativity of the Jordan product",
+          "trigger": "Closest effect-Jordan negativity candidate for a dominating floor or equality theorem"
+        },
+        {
+          "assessment": "Overlapping setting, strictly different square constraint",
+          "evidence": "The summary fixes the convolution square to Haar and reports a sharp commutator bound, not an unconstrained coefficient minimum.",
+          "identifier_or_url": "Resultary 5051f8b37c12",
+          "material_read": "Published-record summary; local full-text passage attempt did not return",
+          "method": "Resultary query and local mirror attempt",
+          "title": "Sharp noncommutative square roots of Haar measure on the three-cycle",
+          "trigger": "Earlier exact result on the same group and 2×2 positive measures"
+        },
+        {
+          "assessment": "Different objects and objective",
+          "evidence": "Jordan products of channels are used for sufficient channel-compatibility conditions; the inspected result is not a three-effect Loewner bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.03279",
+          "material_read": "Primary preprint p. 1, abstract",
+          "method": "Public arXiv PDF passage",
+          "title": "Jordan products of quantum channels and their compatibility",
+          "trigger": "Jordan products in quantum operator settings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sharpness, rigidity and minimality",
+        "/workspace/checks/04.md"
+      ],
+      "rationale": "This quantifies rather than merely demonstrates failure of convolution positivity in the smallest possible normalized matrix setting. The dimension-free bound is exactly attained, and identifying the forced common reducing block describes all equality cases, not just a numerical minimum or isolated example. That structure is the reason the result goes beyond a routine compression inequality.",
+      "residual_risks": [
+        "The result addresses ordered square convolution on the three-cycle only; it does not bound a general product of matrix-valued measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:26:00.870729Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting the first, middle or last adjacent pair from abcd gives cd, ad or ab, so at least ⌈q²/3⌉ words are needed. I checked the seven local templates by this exact rule: the 2×3, 3×2, 3×3, 3×4 and 4×3 templates hit every cell once; 2×2 doubles exactly local cells (0,0) and (1,0), and 4×4 doubles exactly (1,3) and (3,3). All templates have three distinct outputs per word. For q≡0 mod 3 the Cartesian blocks are all 3×3; for q≡1 or 2 there is one exceptional square of side 4 or 2, respectively, including q=4 or 2 with no other blocks. Source words from different rectangles cannot coincide, since their row and column coordinates identify the rectangle. Thus the block partition lifts the finite certificate to all q≥2 and proves both optimality and the multiplicities of the exhibited family. No claim about the multiplicities of every optimal cover is needed. The uploaded script was not executed; the required finite certificate was checked by direct enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior Resultary theorem allows all independent alphabet sizes m,n≥2. Xie–Sun–Ge's generally applicable bound is not exact here (8 versus 6 at n=q=4); Lenz et al. allow nonadjacent deletions."
+        ],
+        "reasoning": "It is the rectangular Resultary theorem, not these more general coding methods with looser bounds or different channels, that mathematically subsumes the assigned claim.",
+        "searches": [
+          "Resultary 2026/10/12/...--d4593077776a, rectangular covering theorem",
+          "Xie–Sun–Ge arXiv:2606.15379v1, Theorems VI.1 and VI.4",
+          "Lenz et al. arXiv:1911.09944v4, §§I–II"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58 and verification materials",
+        "Earlier rectangular Resultary theorem and its actual finite bases and induction",
+        "Teypaz–Rapine Theorem 4.1",
+        "Xie–Sun–Ge Theorems VI.1 and VI.4",
+        "Lenz et al. §§I–II"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior 4×4 template the words 0031, 0213, 1120, 2112, 2330 and 3213 cover all 16 cells, doubling exactly 13 and 20. The 2×2 template is identical to the assigned one. Removing strips of three rows or columns and adding their disjoint tilings preserves all core multiplicities. Teypaz–Rapine address the 3|mn edge-disjoint case only."
+        ],
+        "reasoning": "Specializing the prior induction to equal sides reduces to 3×3, 2×2 or 4×4, proving both the assigned count and its multiplicity property. Choosing different valid templates does not evade that direct implication.",
+        "searches": [
+          "Earlier Resultary rectangular proof, finite bases and induction, offsets 1900–5724",
+          "Teypaz–Rapine, Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A three-output word abcd is the path c–d–a–b in the bipartite graph on row and column alphabets. The earlier Resultary proof makes the same reduction and constructs a minimum covering by such paths."
+        ],
+        "reasoning": "The oriented three-corner grids and three-edge paths encode the same outputs; translating between them does not produce a new covering number.",
+        "searches": [
+          "Resultary: sharp length-four consecutive-two-deletion covering and alternating alphabets",
+          "Teypaz–Rapine, Graph decomposition into paths under length constraints, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-sharp-length-four-consecutive-two-deletion-covering-for-alternat--d4593077776a explicitly states B(q,q)=⌈q²/3⌉ and shows the rectangular bases and recurrence, not just example values."
+        ],
+        "reasoning": "The earlier exact match is a published theorem that covers every assigned alphabet size, not a finite table from which the formula was extrapolated.",
+        "searches": [
+          "Resultary: exact length-four two-burst covering number and finite rectangular path-cover templates"
+        ]
+      },
+      "rationale": "An earlier published Resultary theorem for alternating alphabets X×Y×X×Y already proves the stronger rectangular optimum ⌈mn/3⌉ and explicitly specializes it to the same q-symbol formula. Its three-edge-path construction also already gives the asserted two distinct doubled outputs in the balanced nondivisible case: its 2×2 base doubles 00 and 10, its 4×4 base doubles 13 and 20, and the strip extensions leave those multiplicities unchanged. The different 4×4 word list and block presentation do not establish a distinct scientific claim.",
+      "residual_risks": [
+        "Additional earlier graph or coding results may exist, but the demonstrated earlier exact coverage already decides this axis.",
+        "The exact choice of the new seven local word lists is not claimed to have appeared verbatim in the earlier record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact prior coverage of the formula and constructive multiplicity property",
+          "evidence": [
+            "For all m,n≥2 the sharp size is ⌈mn/3⌉; the finding explicitly takes m=n=q.",
+            "The actual base words and strip tilings establish the same balanced overlap profile."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-length-four-consecutive-two-deletion-covering-for-alternat--d4593077776a/RESULT.md",
+          "material_read": "Finding and proof; finite bases and induction at offsets 1900–5724",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp length-four consecutive-two deletion covering for alternating alphabets",
+          "trigger": "Earlier exact rectangular theorem and ordinary alphabet specialization"
+        },
+        {
+          "assessment": "Covers the disjoint case, not by itself the overlapping case",
+          "evidence": [
+            "Kₘ,ₙ with both sides at least two has a P₄ edge-decomposition exactly when 3 divides mn."
+          ],
+          "identifier_or_url": "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf",
+          "material_read": "§4, Theorem 4.1, PDF p. 10, OA offset 28595",
+          "method": "OA primary PDF passage",
+          "title": "Graph decomposition into paths under length constraints",
+          "trigger": "Equivalent graph decomposition when 3 divides the number of edges"
+        },
+        {
+          "assessment": "Binary perfect cover and broader upper bound, not the sharp all-q n=4 classification",
+          "evidence": [
+            "The general bound gives 8 at q=n=4, while the exact optimum is 6."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.15379v1",
+          "material_read": "§VI-A Theorem VI.1 and §VI-B Theorem VI.4, OA offsets 40209 and 43284–48313",
+          "method": "OA primary HTML passages",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "General two-burst-deletion covering construction"
+        },
+        {
+          "assessment": "Different channel",
+          "evidence": [
+            "Exactly R deletions are not restricted to a consecutive burst in the inspected definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.09944v4",
+          "material_read": "§II definition and §I-A general bounds, OA offsets 3260–5418 and 12500–14614",
+          "method": "OA primary paper passages",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "Could cover the deletion invariant under different nomenclature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact burst-covering parameter is natural and useful, but this record recomputes a known narrow invariant. Even the asserted balanced overlap behavior follows directly from the earlier construction. The replacement local word lists do not offer a new bound, guarantee, or motivated optimization, so there is no independently valuable distinct remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

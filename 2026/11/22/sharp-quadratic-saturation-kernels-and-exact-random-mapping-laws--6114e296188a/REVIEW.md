@@ -1,19 +1,21 @@
-# Review of bounded unary orbit-type saturation
+# Independent mathematical audit
 
-## Correctness — PASS
-The quantified domain is all integers \(d\ge1\) and all finite nonempty total unary functions. Every equality pattern of one orbit prefix has a first-repeat form \((t,c)\) with \(t+c\le d\), or has no repeat. Distinct required cycle lengths force disjoint components of at least \(d\) vertices; an additional point is necessary to realize the no-repeat type. Exactly one chain extension attains the bound, with the stated automorphism factors. The two generating functions follow from component SET decompositions with mandatory maximum-height conditions; the singular expansion at \(z=e^{-1}\) proves the limit. All critical steps are included in RESULT.md. Direct standard-library checks in `verify.py` independently enumerate all maps on up to six points and reproduce the exact coefficient formulas. Finite tests support rather than replace the full proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The strongest recent comparison, Kuželka, arXiv:2608.30580, was read in its accessible full HTML text, including the general model-counting theorem and forward-profile/cycle/decorated-tree algorithm (Sections 3, 8.1.2–8.1.6). Its universal algorithm can in principle count this particular fixed existential-conjunction property and is not claimed to be new. The precise \(d^2+1\) sharp universal saturation kernel, its \(d\) extremal isomorphism types, the closed explicit two-term EGF and limiting probability product were not stated or directly established in the inspected text. The classical random-mapping component EGF and analytic method are separately credited to Soria and Flajolet–Odlyzko. Searched published-finding corpus records concerning unary-function FO spectra, idempotent quantifier-free profiles, and generic unary type spaces; their statements concern different invariants and do not imply the complete bounded all-type saturation package. Search cannot prove historical novelty. The Flajolet–Odlyzko conference chapter was accessible only at abstract level and the large older literature presents a residual priority risk.
+PASS
 
-## Value — PASS
-There is a concrete finite-model-theoretic gap between counting individual one-variable equality types and constructing the smallest single function realizing all types simultaneously. The sharp quadratic resource threshold and classification of every extremizer are structurally meaningful, while the finite-size EGF and fixed-depth random saturation limit quantify how common complete local expressivity is among finite unary structures. The precise counts are not merely redefinitions of generic model-counting tractability. The limit is restricted to fixed depth; no uniform varying-depth assertion is made.
+In an orbit observed through f^d(x), the first repeat, if any, has index t+c and repeats the entry at t; subsequent equalities are determined by that transient length and period. Summing d-c+1 over c=1,...,d gives the repetition-type count. For each such c, the deepest required type (d-c,c) needs a c-cycle with a chain of length d-c in its component, and these d forced blocks are disjoint and each uses d vertices. Exactly those blocks cannot realize the window with no repeat. With just one extra vertex, no new cycle longer than d fits outside them, and the only way to make a longer orbit in a forced component is to append the extra vertex at the tip of its chain (or mark a vertex on the bare d-cycle). The d choices of cycle length are exactly the isomorphism classes. All components are rigid except the untouched bare d-cycle when that chain was extended elsewhere, yielding the factor 1+(d-1)/d by orbit-stabilizer, also valid at d=1. In the labeled SET of directed cycles of rooted trees, qualifying c-components have EGF (T^c-H_{d-c-1}^c)/c. Requiring at least one from each disjoint class multiplies the total mapping EGF by the stated occupancy factors. Absence of the no-repeat type means c<=d in every component and all heights at most d-c; applying the same occupancy rule with these truncated tree classes gives precisely B_d. Its subtraction therefore has no overcount. At rho=1/e the analytic tree branch has a dominant square-root with 1-T~sqrt(2(1-z/rho)); the product is analytic in z and T there and its limiting factors are positive. Singularity transfer divides the leading coefficient by that for (1-T)^(-1), while B_d is entire and negligible by Cauchy's bound on a circle beyond rho. The recurrence H_j(rho)=h_{j+1} gives the stated product; independent evaluations match all four displayed probabilities.
 
-## Closest literature and limitations
-- Ondřej Kuželka, *Unary Functions, Automorphisms, and Unlabeled First-Order Model Counting*, arXiv:2608.30580 (2026), full text inspected.
-- Philippe Flajolet and Andrew M. Odlyzko, *Random Mapping Statistics* (1990), https://doi.org/10.1007/3-540-46885-4_34 (abstract level only).
-- Michèle Soria, *Distribution of Image Points in Random Mappings* (1996), https://algo.inria.fr/seminars/sem96-97/soria.html (accessible seminar text inspected).
+## originality
 
-Independent historical-priority and mathematical verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+General one-variable unary-function counting, bounded forward profiles and the cycle-of-trees/singularity framework are prior. The supported distinct result is the minimal all-profile carrier and its exact classification, together with the specialized all-profile coefficient formula and fixed-depth saturation probability. No earlier equivalent joint result was found in the statements inspected.
+
+## value
+
+PASS
+
+Realizing all bounded equality patterns is a natural small-carrier problem for unary term tests, and the exact quadratic size and classification give both minimum witnesses and the obstruction at the preceding size. The same orbit condition gives a concrete fixed-depth event in random mappings, for which the formula and strictly positive limit determine prevalence rather than just saying that a count exists. The exact symmetry factor and the no-repeat exclusion are structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

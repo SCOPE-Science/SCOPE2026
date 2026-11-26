@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:21:02.872542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md; packaged replay command python3 check_cycles.py, not executed for this review",
+        "Independent standard-library replay: enumerate permutations for n=2 through 6 and θ=1/2,1,2 with exact Fraction weights, tally both marked-cycle moments and cutoff covariances; separately bisect both continuum equations with Decimal arithmetic"
+      ],
+      "rationale": "Marking a j-cycle gives its mean times 1+h_(n−j) for the mixed moment; subtracting the total-cycle mean gives the stated factor δ. The factors are strictly decreasing in j; deleting nonnegative terms lowers the tail, with any flat step already negative, and the remaining negative tail cannot cross back. The variance at cutoff 0 is positive since the Ewens law gives positive mass to permutations with different total counts, and the n−1 cutoff is strictly negative even for n=2. The gamma and harmonic ratios converge uniformly on interior compact intervals. Near j=n, writing s=n−j+1 and grouping dyadically gives O(ε^θ(1+|log ε|)) limsup from the bound n^(−θ)s^(θ−1)(1+log(n/s)), including θ<1. The limiting integrand changes sign at 1−e^(−1/θ), is integrable at 1, and has a positive θ/x singularity at zero. The single integrated root and two-sided cutoff convergence follow. At small θ, differentiating the integration-by-parts expression gives Q/θ→log((1−t)/t); at large θ, u=θx gives E1(c)−e^(−c), dominated on u≤θ/2 by e^(−u/2)(1+2u)/u and with O(2^(−θ)) tail from y=1−u/θ. Two-sided sign tests then prove both parameter limits. Independent exact enumeration corroborated 60 marked moments and 60 cutoff cases; independent root calculations agreed with both numerical constants to the stated digits.",
+      "residual_risks": [
+        "The finite replay does not certify the universal result. The macroscopic limit is at fixed θ and t, not a uniform-in-θ joint limit. The finite zero, when present, is a cutoff, not a zero increment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two studies treat weighted-permutation statistics and total-cycle asymptotics; the third gives factorial moments under the no-fixed-points Ewens law."
+        ],
+        "reasoning": "A CLT for the total or factorial moments in the restricted model do not classify this mixed tail covariance. Classical unrestricted Ewens moments supply the starting summands; sorting their signs and evaluating the moving root are distinct steps.",
+        "searches": [
+          "Nikeghbali–Zeindler arXiv:1105.2315, §3 Theorem 3.1",
+          "Maples–Nikeghbali–Zeindler arXiv:1203.4132, Theorem 1.1",
+          "da Silva–Jamshidpey–Tavaré arXiv:2006.04840, §2.1 Eqs. (6)–(7)"
+        ]
+      },
+      "checked_sources": [
+        "All primary passages and indexed results specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform factorial moments can recover the mixed count formula at θ=1. The derangement profile gives the pointwise sign change (the sign-change location of the limiting integrand here), not that of its integrated tail."
+        ],
+        "reasoning": "The supported distinct content is the unique aggregate crossing uniformly in the sense of validity for every θ>0, convergence of the finite crossing for each fixed θ, and the small- and large-θ laws. Neither the closest pointwise result nor the available general total-cycle CLTs asserts or immediately subsumes that package.",
+        "searches": [
+          "Lugo Proposition 1 and normalized-length Theorem 3",
+          "Ewens derangement catalogue record's Finding and signed profile",
+          "Nikeghbali–Zeindler §3 and Maples et al. Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Betz–Schäfer impose a maximum length and prove a CLT for the conditioned total. Lugo's factorial moments apply at θ=1 for uniform permutations; they can yield the mixed moment at θ=1 and their interval cycle count limits overlap related counts."
+        ],
+        "reasoning": "Conditioning on the absence of long cycles is different from taking their covariance with the unrestricted total. The derivative of the expected aggregate count in log θ is another formulation of the unrestricted covariance, but recovering the moment identity does not by itself give its zero as a function of cutoff and the endpoint scaling.",
+        "searches": [
+          "Focused literature lookup on unrestricted Ewens total-cycle versus long-cycle covariance",
+          "Betz–Schäfer arXiv:1605.08383, §2 Theorem 1",
+          "Lugo arXiv:0909.2909, Proposition 1 and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed match gives a finite and macroscopic sign switch for Cov(C_r,K) under Ewens derangements, at a limiting r/n of 1−e^(−1/θ). The second uses conditioning away near-maximal cycles and changes the mixed statistic."
+        ],
+        "reasoning": "The closest match is not the integral of the unrestricted covariance tail as a theorem in the assigned model. The pointwise profile's root is strictly above t_θ, and the finite and endpoint assertions are different. The later record dates do not resolve priority.",
+        "searches": [
+          "Resultary semantic lookup on Ewens covariance crossover",
+          "2026/11/2/SCOPE-a-universal-size-dependent-cycle-covariance-switch-in-ewens-dera--393ea8c68636",
+          "2026/10/26/SCOPE-boundary-layer-sign-reversal-of-ewens-cycle-count-covariance-und--7a0ec035875d"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the aggregate-tail sign classification, limit root and parameter endpoint laws. The marking identity and limit intensity use standard Ewens theory; their provenance is not the novelty claim. Near matches either change the conditioning, change the observable, or supply moments without analyzing the aggregate threshold.",
+      "residual_risks": [
+        "Earlier Ewens/Poisson–Dirichlet sources may include implicit coverage of the finite or limiting identity. The historical comparison is bounded, not a priority guarantee for the crossover and endpoint laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different conditioning",
+          "evidence": "Gaussian result under a maximum cycle length restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.08383",
+          "material_read": "Abstract p. 1 and §2 Theorem 1 p. 3",
+          "method": "Bounded primary PDF inspection",
+          "title": "The number of cycles in random permutations without long cycles is asymptotically Gaussian",
+          "trigger": "Long cycles and total count"
+        },
+        {
+          "assessment": "Prior coverage of uniform moment input, not the quantified classification",
+          "evidence": "Factorial moments of counts and interval-count results under uniform permutations.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.2909",
+          "material_read": "Proposition 1 p. 2; Theorem 3 p. 3",
+          "method": "Bounded primary PDF inspection",
+          "title": "The number of cycles of specified normalized length in permutations",
+          "trigger": "Mixed moments and macroscopic ranges"
+        },
+        {
+          "assessment": "Related asymptotics, not aggregate sign law in inspected passages",
+          "evidence": "Weighted cycle-process and total-cycle results.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.2315",
+          "material_read": "Abstract and Introduction; §3 Theorem 3.1 p. 10",
+          "method": "Bounded primary PDF inspection",
+          "title": "The generalized weighted probability measure on the symmetric group and the asymptotic behavior of the cycles",
+          "trigger": "Broader weighted permutation class"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "CLT for total cycles with generalized weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.4132",
+          "material_read": "Introduction p. 1 and Theorem 1.1 p. 2",
+          "method": "Bounded primary PDF inspection",
+          "title": "On the number of cycles in a random permutation",
+          "trigger": "Includes Ewens weights"
+        },
+        {
+          "assessment": "Related factorial moments under restriction",
+          "evidence": "Cycle-count factorial moments and means with fixed points forbidden.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.04840",
+          "material_read": "§2.1 Eqs. (6)–(7), p. 2",
+          "method": "Bounded primary PDF inspection",
+          "title": "Ewens derangements",
+          "trigger": "Closest indexed sign-switch theorem uses this model"
+        },
+        {
+          "assessment": "Pointwise covariance in different law",
+          "evidence": "Cov(C_r,K) has one switch, with limiting location 1−e^(−1/θ); it is not Cov(R_(n,m),K_n).",
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-size-dependent-cycle-covariance-switch-in-ewens-dera--393ea8c68636",
+          "material_read": "Finding and proof/profile passages",
+          "method": "Semantic retrieval and bounded local mirror inspection",
+          "title": "A universal size-dependent cycle covariance switch in Ewens derangements",
+          "trigger": "Closest indexed structural match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Primary and indexed comparisons above"
+      ],
+      "rationale": "The natural statistic compares total cycle count with the number of cycles above a cutoff. Its nonmonotone covariance could permit multiple crossings; the theorem rules them out for every finite n and θ, then locates the macroscopic transition and distinguishes its dilute and high-θ regimes. These are reusable sign and scale statements beyond recomputing a known moment.",
+      "residual_risks": [
+        "No uniform rate of convergence or monotonicity in θ is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

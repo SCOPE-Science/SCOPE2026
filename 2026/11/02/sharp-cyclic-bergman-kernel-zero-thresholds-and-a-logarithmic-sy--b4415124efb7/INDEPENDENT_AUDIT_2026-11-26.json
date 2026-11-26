@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:03:09.334470Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py (read, not executed)",
+        "Independent numerical check: python3 /workspace/audit_checks/check.py 3 (mpmath)"
+      ],
+      "rationale": "The monomial kernel projection gives the stated root-of-unity filter. The beta moment E[U^m]=(lambda)_m/(2)_m matches every coefficient of F with the rational endpoint Q_d( U^d x); the analytic expectation is valid absolutely on compact subdisks. The imaginary-part bracket is bounded below by (1-|v|)(d+1+(d-1)|v|), so zeros are real, and coefficient positivity excludes the nonnegative axis. The derivative of Q_d(-v) is strictly negative for 0<=v<=1, giving a strictly negative derivative in rho under the expectation and hence simplicity. Increasing likelihood ratios give strict stochastic order for the beta laws; the endpoint lambda=2 is a point mass at 1. The boundary value is continuous by the finite rotation sum and has endpoint values 1/2 and (2-d)/4. This gives the exact zero-free threshold, including equality and d=2, and exactly d simple nonzero t-roots above it, from a single x-root. For the scaling lambda=1+eta/log d, the first expectation tends to 1 by dominated convergence on u in (0,1): the changing beta densities are bounded by a constant times (1-u)^(-1/2). After y=d(1-u), the second integral is dominated by C exp(-y) max(1,y^(-1/2)), with limit e^eta/2. Bracketing the strictly monotone boundary function therefore gives log 2. An independent numerical bisection and beta quadrature reproduced the d=3 value and sampled d through 512; these are corroboration only.",
+      "residual_risks": [
+        "No quantitative error rate is established for the first-order asymptotic; the sign argument is used only in the stated exponent range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite-group kernel averaging yields the cyclic filter. The phase-ordering record establishes real-root properties for numerators of broader integer binomial residue families. Miña-Díaz treats Blaschke-factor weights, not this cyclic subsequence of a noninteger power kernel."
+        ],
+        "reasoning": "The general kernel representation covers the setup but does not estimate its zero set. The stronger integer residue-family result covers only the integer exponents of relevance here, not the varying noninteger threshold.",
+        "searches": [
+          "arXiv:2104.14162, Theorem 1.1",
+          "arXiv:2202.03184v3, Remark 3.8(1)",
+          "Resultary SCOPE-universal-half-step-phase-ordering-for-two-regular-weighted-berg--dee70b752615",
+          "arXiv:2212.08118v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records listed above",
+        "arXiv:2104.14162",
+        "arXiv:2202.03184v3",
+        "arXiv:2212.08118v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic specialization of the averaging formula gives exactly the root-of-unity sum. The even-kernel formula and integer residue numerator properties give isolated regimes, while the boundary threshold depends on comparative signs over the open interval between the two integer endpoints."
+        ],
+        "reasoning": "A finite average of nonzero kernels need not be nonzero; neither averaging nor integer endpoint values constrain all open-interval roots or the d-dependent threshold. The beta-mixture sign and scaling analyses are genuine additional steps.",
+        "searches": [
+          "arXiv:2104.14162, p. 3, (1.2)",
+          "arXiv:2202.03184v3, (3.8)",
+          "Resultary phase-ordering and degree-two records at their stated formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gamma multiplication formula writes F as a generalized hypergeometric dF(d-1) with numerator parameters (lambda+j)/d and denominators j/d for 1<=j<d. For integer p it is a binomial residue series. The degree-two record's even coefficient series is exactly F_(lambda,2) under lambda=alpha+2."
+        ],
+        "reasoning": "The theoretical objects are equivalent after the stated changes; the d=2 zero-free range is covered, but that single order is not the general d>=3 threshold. Merely recognizing a hypergeometric form does not give its claimed parameter transition.",
+        "searches": [
+          "Resultary semantic lookup for cyclic filtered power-kernel/weighted Bergman zeros",
+          "arXiv:2104.14162, Theorem 1.1 and (1.2)",
+          "Resultary SCOPE-a-sharp-degree-two-bergman-kernel-and-wandering-threshold--fe3b5433aca8",
+          "Targeted literature lookup by the binomial coefficient subsequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The degree-two record gives the exact even-sector zero set and the range alpha<=0. The meromorphic record gives a different punctured-disk one-root transition. No inspected indexed statement gives the d>=3 threshold family or scaled limit."
+        ],
+        "reasoning": "Credit the exact d=2 match, not the similarly described threshold for a different kernel; neither indexed result gives the continuous-exponent all-order theorem.",
+        "searches": [
+          "Resultary SCOPE-a-sharp-degree-two-bergman-kernel-and-wandering-threshold--fe3b5433aca8",
+          "Resultary SCOPE-sharp-fractional-boundary-zero-transition-for-meromorphic-weight--0b287c6cd1f3",
+          "Resultary semantic lookup for cyclic power-kernel threshold and logarithmic order law"
+        ]
+      },
+      "rationale": "Pass based on the distinct d>=3 noninteger-exponent threshold, exact scalar zero count in the all-order theorem and its logarithmic asymptotic. No novelty credit for the group projection, the exactly matching d=2 subcase, or the covered integer end of the filtered series. The same-day indexed records matter as mathematical overlaps; their dates do not establish precedence.",
+      "residual_risks": [
+        "No exhaustive historical priority claim for related generalized hypergeometric or filtered-series zero results; a search miss provides no such assurance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers group averaging, not the zero transition",
+          "evidence": "The kernel is a character-weighted group average; use the trivial character of the cyclic group.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.14162",
+          "material_read": "p. 3, Theorem 1.1, Eq. (1.2), near text offset 10060",
+          "method": "Public primary PDF, localized theorem passage",
+          "title": "The Weighted Bergman Spaces and Complex Reflection Groups",
+          "trigger": "General invariant Bergman kernel formula"
+        },
+        {
+          "assessment": "Known identification behind the projected kernel",
+          "evidence": "Relates projected-space and quotient-space reproducing kernels, without asserting these zeros.",
+          "identifier_or_url": "https://arxiv.org/html/2202.03184v3",
+          "material_read": "Remark 3.8(1), Eq. (3.8), near offset 50800",
+          "method": "Primary HTML, localized formula passage",
+          "title": "Toeplitz operators on the weighted Bergman spaces of quotient domains",
+          "trigger": "Kernel of the projected relative-invariant sector"
+        },
+        {
+          "assessment": "Exact coverage of d=2 subclaim, different main range",
+          "evidence": "Inverse even monomial norm is (alpha+2)_(2n)/(2n)!, so its zero-free range alpha<=0 gives the frozen d=2 result when lambda=alpha+2.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-degree-two-bergman-kernel-and-wandering-threshold--fe3b5433aca8",
+          "material_read": "RESULT.md finding and even-monomial norm formula, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp degree-two Bergman kernel and wandering threshold",
+          "trigger": "Exact same-order filtered kernel"
+        },
+        {
+          "assessment": "Integer subsequence overlap but not the continuous threshold",
+          "evidence": "The numerator of sum_j binom(p+k+dj-1,p-1) w^j has negative-real-root properties; k=0 is the frozen integer endpoint series.",
+          "identifier_or_url": "2026/11/2/SCOPE-universal-half-step-phase-ordering-for-two-regular-weighted-berg--dee70b752615",
+          "material_read": "RESULT.md statement and residue-numerator passages, offsets 0 and 4325",
+          "method": "Local mirror",
+          "title": "Universal half-step phase ordering for two regular weighted Bergman orbits",
+          "trigger": "Exact integer filtered-series aliases and their zero properties"
+        },
+        {
+          "assessment": "Related subject, not an equivalent kernel in the passage read",
+          "evidence": "The described weights involve products of Blaschke factors.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.08118",
+          "material_read": "v2 p. 1 abstract, near offset 839",
+          "method": "Public primary PDF scope passage",
+          "title": "A representation for the reproducing kernel of a weighted Bergman space",
+          "trigger": "Weighted Bergman kernel zeros"
+        },
+        {
+          "assessment": "Analogue on a different space",
+          "evidence": "The transition concerns a punctured-disk meromorphic kernel, rather than cyclic filtering of the analytic power kernel.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-fractional-boundary-zero-transition-for-meromorphic-weight--0b287c6cd1f3",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp fractional-boundary zero transition for meromorphic weighted Bergman kernels",
+          "trigger": "Nearby indexed one-root threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "arXiv:2104.14162, kernel formula",
+        "Indexed degree-two and integer-residue comparisons above"
+      ],
+      "rationale": "The result determines zero-freeness and the full zero geometry of a natural cyclic-invariant analytic kernel across a continuous exponent range. It also explains at what rate the zero-free range collapses toward the Hardy endpoint as the symmetry order increases. The transition and its constant are not consequences of merely projecting the kernel or checking integer endpoints.",
+      "residual_risks": [
+        "The scope is the trivial sector and exponents at most 2, not arbitrary isotypic projections or weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:56:05.261674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61 and VERIFICATION.md lines 19–32",
+        "Frozen certificates.json, src/verify_exact.py, src/max_clique.cpp, src/milp_crosscheck.py",
+        "Replay: python3 /workspace/branches/reproductions/record_4_dyck.py <frozen certificates.json path> > /tmp/opencode/dyck_graph.txt; python3 /workspace/branches/reproductions/record_4_no23.py /tmp/opencode/dyck_graph.txt 22; repeat with target 23."
+      ],
+      "rationale": "Complete radius-one binary Hamming balls intersect iff center distance is at most two. Distinct Dyck centers have equal weight and hence even distance, so disjoint-ball packings are exactly distance-at-least-four codes. Independently enumerated sources by the equivalent zero-based up-step position bounds p_i <= 2i, rebuilt all balls including unaltered outputs and non-Dyck outputs, checked the integer witnesses, and verified both sparse rational LP certificates by every primal and dual inequality. The (source count, integer witness size, matching primal/dual objective) triples were (1,1,1),(2,1,1),(5,2,2),(14,4,4),(42,10,10),(132,22,26). In the sixth case there were 726 outputs, with 68 nonzero primal weights and 51 nonzero dual weights. For the crucial separate integer upper bound, a fresh bitmask decision search on the graph formed by literal disjoint balls found a 22-clique after 8716 calls and excluded a 23-clique after 137602 calls. Each reverse traversal uses the proper coloring of its remaining prefix, so the prefix color count bounds a clique extension and the skipped branches cannot attain the target. For n <= 5 the LP upper bounds already match the integer witnesses. Thus the first gap is 26-22=4 and the ratio is 13/11. The frozen C++ prefix-color logic was also inspected; neither its recorded node count nor the optional MILP result was used as evidence of the upper bound.",
+      "residual_risks": [
+        "The finite six-instance proof says nothing about larger semilengths or the LP with a different received alphabet."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brouwer’s n=12,w=6 entry is the exact unrestricted A(12,4,6)=132. The admissible constant-weight layer is much larger than the 132 Dyck words; an unrestricted optimum neither supplies a Dyck feasible maximizer nor a tight bound of 22. The Dyck-based MU construction addresses a different code property."
+        ],
+        "reasoning": "Related supersets and constructions do not imply either optimized objective on the specified Dyck domain.",
+        "searches": [
+          "Brouwer, Bounds for constant weight codes, A(n,4,w) table",
+          "Yazdi–Kiah–Milenkovic arXiv:1601.08176, Dyck code construction",
+          "Local Resultary balanced-layer coding results"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary match 4b087f61007f (self) and distinct records 6a6d1499205f, 7abdf29f158b, c1dc18cb3082",
+        "Ardila, Cohen–Tetali–Yeliussizov, Yazdi–Kiah–Milenkovic and Brouwer, locators above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-date Dyck deletion theorem gives (24,3269/131) at n=6, with shorter received words. The same-date adjacent-swap theorem ends at n=5, with (9,19/2), and uses only adjacent unequal swaps. The balanced deletion result with ID c1dc18cb3082 has both a different source language and a different channel."
+        ],
+        "reasoning": "The different output shadows change both the feasible integer sets and fractional incidence constraints; those theorems do not imply the substitution optimum or cutoff.",
+        "searches": [
+          "Read the Finding sections of the Resultary Dyck deletion, Dyck adjacent-swap and balanced deletion records",
+          "Compare their output relations with full binary Hamming-ball incidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ardila Theorem 2.1 identifies the up-step sets with matroid bases. Exchange of one element is Hamming distance two, but the full-ball LP comes from received-word incidence rather than just graph edges. The lattice-path-matroid paper studies mixing and correlation, not these optima."
+        ],
+        "reasoning": "The equivalent integer graph formulation does not yield a known independence number here; even an integer graph result need not determine the stated fractional LP.",
+        "searches": [
+          "Ardila arXiv:math/0209354, Catalan-matroid bases and their basis-exchange graph",
+          "Cohen–Tetali–Yeliussizov arXiv:1505.06710, Dyck path matroid bases",
+          "Local Resultary semantic lookup of Dyck error-correcting packings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed substitution hit is the assigned record itself. Distinct Resultary IDs 6a6d1499205f and 7abdf29f158b give respectively Dyck deletion and adjacent-swap tables, not this substitution table. The published constant-weight table entry 132 optimizes a different source family."
+        ],
+        "reasoning": "None of the distinct exact tables checked gives (22,26) for this packing instance or the target first-gap profile.",
+        "searches": [
+          "Local Resultary Dyck substitution/deletion/swap profiles",
+          "Brouwer A(n,4,w) table, n=12,w=6"
+        ]
+      },
+      "rationale": "No distinct inspected result establishes or implies the exact constrained full-ball substitution profile. The known Catalan basis construction identifies the integer graph but does not compute this independence number or the full-ball packing LP. An indexed same-date result is not dismissed on its date: the deletion and adjacent-swap theorems are compared by their distinct channel assumptions and values. The pass applies to the exact finite profile and gap, not to the graph or LP framework, and is not a historical priority certification.",
+      "residual_risks": [
+        "The public literature query returned no scientifically useful matches; this is not negative evidence. Unindexed computations of Catalan-matroid independence or of the same full-output LP remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies the bases, not their exact distance-four packing or LP",
+          "evidence": "Up-step positions of Dyck paths form the bases of the Catalan matroid.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0209354",
+          "material_read": "Theorem 2.1, p. 3, text offset 5935",
+          "method": "OA paper passage",
+          "title": "The Catalan matroid",
+          "trigger": "Exact alias for the admissible subsets"
+        },
+        {
+          "assessment": "Different graph invariants studied in the inspected statement",
+          "evidence": "Path-basis random-walk mixing and negative correlation.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.06710",
+          "material_read": "Abstract p. 1",
+          "method": "OA paper passage",
+          "title": "Lattice Path Matroids: Negative Correlation and Fast Mixing",
+          "trigger": "Direct study of Dyck matroid graphs"
+        },
+        {
+          "assessment": "Different optimization and code property",
+          "evidence": "Uses Dyck paths to construct mutually uncorrelated codes; no implication of the full radius-one packing profile from that construction.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.08176",
+          "material_read": "Dyck construction passage p. 2, text offset 10233",
+          "method": "OA paper passage",
+          "title": "Weakly Mutually Uncorrelated Codes",
+          "trigger": "Dyck-constrained binary coding construction"
+        },
+        {
+          "assessment": "Exact on unrestricted constant-weight layer, not the Dyck layer",
+          "evidence": "A dot marks an optimum; the row for length 12 and weight 6 displays 132.",
+          "identifier_or_url": "https://aeb.win.tue.nl/codes/Andw.html",
+          "material_read": "Definition of A(n,d,w), text offset 73; Bounds on A(n,4,w), offset 12741",
+          "method": "Public table passage",
+          "title": "Bounds for constant weight codes",
+          "trigger": "Potential exact table coverage of the distance-four case"
+        },
+        {
+          "assessment": "Same source and length range, different error and packing constraints",
+          "evidence": "One-deletion output length 2n−1; integer profile 1,1,2,4,9,24 and final LP value 3269/131.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-short-block-one-deletion-codes-on-dyck-words-and-the-first--6a6d1499205f",
+          "material_read": "RESULT.md Finding and channel",
+          "method": "Local Resultary mirror",
+          "title": "Exact short-block one-deletion codes on Dyck words",
+          "trigger": "Strong same-date finite-profile overlap"
+        },
+        {
+          "assessment": "Different channel and range",
+          "evidence": "Through n=5 for one adjacent swap; terminal profile (9,19/2).",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-adjacent-swap-packings-of-short-dyck-words-and-the-first-f--7abdf29f158b",
+          "material_read": "RESULT.md Finding and channel",
+          "method": "Local Resultary mirror",
+          "title": "Exact adjacent-swap packings of short Dyck words",
+          "trigger": "Same-date full-output Dyck packing comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, channel, LP and proof",
+        "Independent exact packing, covering and clique checks"
+      ],
+      "rationale": "The complete ball-packing LP is the natural relaxation for unrestricted binary one-bit substitution on this structured balanced language. Determining the first instance where it overestimates the integer code size by four, including after rounding, gives a concrete limit on using that bound to certify optimality. The earlier exact equality range is part of that boundary claim rather than an arbitrary cutoff.",
+      "residual_risks": [
+        "This is a finite diagnostic for this relaxation; it establishes neither an asymptotic gap nor a general Dyck-code method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Mathematical review: an unbounded reversal gap
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns the two entire binary language families for all \(d\ge2,k\ge1\). An arch-count lemma translates subsequence universality to reaching \(k\) complete two-letter arches. The factor monitor distinguishes an arbitrary terminal zero run for forbidden \(0^d1\) from an arbitrary initial zero run for forbidden \(10^d\). The proof enumerates all reachable right-quotient candidates, coalesces exactly the hopeless configurations, and supplies explicit shortest-completion and forbidden-run distinguishing suffixes. This proves both state counts for every allowed parameter. The standard-library `verify.py` independently minimized 384 constructed automata and compared 196,584 direct finite word cases. These calculations corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The greedy arch terminals, followed by a symbol absent from the remainder, witness nonuniversality when the arch count is below k. The two factor monitors act differently: before saturation, a run of d zeros in the forward monitor makes every future completion impossible, whereas the reverse monitor allows all initial zeros, represented by one pending state. Away from the end levels the reachable nondead states have two empty remainder versions, one pending-one version, and d−1 pending-zero versions, realized by alternating prefixes and unary appends. The level-zero and saturated level sizes are respectively d+1 and d+1 forward, versus 3 and d reverse. With r arches still needed, shortest legal completions from empty, pending-zero and pending-one are (10)^r, 1(01)^(r−1) and 0(10)^(r−1), of lengths 2r and 2r−1 as applicable, including d=2. This separates levels and empty/pending classes, and the pending-zero witness also excludes pending one. Appending 0^(d−t)1(01)^(r−1) separates same-class nonsaturated monitor counts j<t (including t=1 for empty remainders); after saturation only the monitor witness is needed. Counting the one dead residual gives exactly the stated complete DFA sizes, also for k=1. Reversal preserves the all-length-k subsequence condition, reverses the forbidden factor, and hence preserves word counts despite the exact state gap d−1.
 
-Barker et al. (2020), *Scattered Factor-Universality of Words*, provides arch-based universality results but no exact automaton-state formula for these constrained languages. Adamson et al. (2023), *\(k\)-Universality of Regular Languages*, supplies general decision and counting methods for universal words intersected with regular languages, not a minimized-state equality classification of these two explicit regular intersections. An indexed result on Wheeler/prefix-sorted automata for the sole forbidden factor \(0^d1\) does not include the subsequence-universality condition, and an indexed run-cap result forbids an entire long run instead of the distinct pattern ending with a one. A general construction or algorithm is not itself a closed formula for the number of inequivalent residuals. No equivalent or stronger statement was identified in the checked material. The relevant indexed-record full text could not be inspected; unindexed equivalent literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem identifies an exact **unbounded directional memory gap** inside a canonical, two-parameter intersection of the subsequence-universality language with a one-pattern avoidance language. Reversal preserves every lengthwise count but changes the number of required deterministic states by \(d-1\). This is a motivated structural classification, not a single small numerical instance or an automatic consequence of a product-state bound.
+The inspectable prior work supplies arch factorization, regular intersection algorithms, and special cases of universality with factor/run restrictions, but not this pair of exact minimal complete DFA classifications. Neither the fixed language reversal nor the resulting additive gap follows from those statements without a specific quotient analysis.
 
-## Closest literature and limitations
+## value
 
-The two closely related primary papers are Barker et al., arXiv:2003.04629v1 (2020-03-10), and Adamson et al., arXiv:2311.10658v1 (2023-11-17). Factor avoidance and scattered-subsequence universality are different constraints; the formulas apply only to the exact languages defined in the result. Independence and formal certification are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The object combines two natural recognition problems, each of which has a simple monitor; bare avoidance even has the same d+2 complete states in both directions. The exact d−1 gap for their intersection holds at every universality level and isolates the directional effect of terminal versus initial runs. This provides a reusable exact benchmark for deterministic recognition and shows what reversal-invariant word counts and generic intersection bounds cannot determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:00:01.550041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired RESULT.md the exact formula, criterion, attainment and arithmetic complexity hold. On each linearity cell the projection is the mass-weighted block average. Slicing a segment and using continuity reduces to its largest block operator seminorm. Modulo constants, steps form the weighted l1 basis for variation, so testing each step gives the exact block seminorm. A step inside a block averages to (A_R-A_j)/(A_R-A_L) there; both adjacent weights then give exactly the displayed chord height. Each such block has a stable cell: strictly decreasing block data have strictly positive proper-prefix residuals relative to their weighted mean, and strictly separated singleton fits ensure the cell persists for a sufficiently small step perturbation. A cut between fitted blocks yields factor one, already attained on the identity cell; in particular n=2 poses no exception. The upper hull gives the maximum chord height at each node, and its stack construction plus sweep is linear in arithmetic operations. The frozen worked example omitted the first-cut contribution epsilon/2, so its displayed equality could fail for epsilon>2. The repaired example includes both ratios, verified from the two length-two blocks; the original asymptotic and theorem are unchanged. VERIFICATION.md records limited rational finite checks; CHECK.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 is broader in choice of seminorm but uses the unweighted isotonic projection and classifies contraction rather than computing an expansive constant.",
+          "The Guyader et al. introduction frames a bounded-variation estimation problem. Yeganova–Wilbur full text was not obtained; the available bibliographic evidence pertains to a Lipschitz constraint on the fit."
+        ],
+        "reasoning": "Neither breadth in seminorm choice nor a constraint on the fitted sequence is the sharp quantitative sensitivity of two unconstrained isotonic fits. The inspected earlier statements do not subsume that claim.",
+        "searches": [
+          "Yang–Barber, Theorem 1, pp. 3–4",
+          "Guyader–Jégou–Németh–Németh, arXiv:1211.3930, pp. 1–2",
+          "Yeganova–Wilbur, DOI 10.1007/s10957-008-9477-0"
+        ]
+      },
+      "checked_sources": [
+        "Yang–Barber, arXiv:1706.01852",
+        "Guyader et al., arXiv:1211.3930",
+        "Yeganova–Wilbur, DOI 10.1007/s10957-008-9477-0 (landing material only)",
+        "Three local Resultary entries above",
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py and repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-neighbor nonexpansivity is a sufficient and necessary criterion for the prior qualitative result, but gives no maximal violation factor for isotonic projection and no achieving block for arbitrary masses.",
+          "Classical PAV provides block averages. To obtain the factor one must compute the induced variation norm of all possible block pieces, identify the maximum with an upper hull and prove that a maximizing block and step occur in a stable region."
+        ],
+        "reasoning": "The all-mass factor and attaining pair are not a mechanical instance of the cited contraction theorem or classical description of the fit. The correction of the example introduces no separate originality claim.",
+        "searches": [
+          "Yang–Barber, arXiv:1706.01852, Theorem 1 and proof setup; comparison with repaired Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For equal masses, testing Yang–Barber's neighboring average on steps yields q_i >= (q_{i-1}+q_{i+1})/2 with q_0=q_n=0, the same qualitative criterion as in the repair.",
+          "The November 17 and November 22 Resultary statements identified below give the same LCM ratio for arbitrary masses, not just a similar qualitative assertion."
+        ],
+        "reasoning": "The equal-mass contraction criterion is already covered, and exact quantitative matches do exist in the later catalogue. Their dates do not show earlier priority over the frozen claim.",
+        "searches": [
+          "Yang–Barber, arXiv:1706.01852, Theorem 1 and NUNA condition",
+          "Resultary local search: sharp mass-aware isotonic variation stability and concave envelope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All three RESULT.md files give K(a,q)=max_j H(A_j)/q_j for positive masses and weights on the same finite total order. One includes the same O(n) computation; all give sharpness with attaining perturbations or pairs. The fcea9cd47ab7 record adds a smallest stabilizing enlargement.",
+          "Their catalogue entries are later than the assigned October 27 source; no exact earlier table or formula was identified in the bounded searches."
+        ],
+        "reasoning": "These are actual equivalent results. The finite tables or example values are not used to infer an equivalent all-parameter formula; the comparison is based on the stated parameter ranges and exact expressions.",
+        "searches": [
+          "Resultary 2026/11/17, c4a7412f8310; 2026/11/22, fcea9cd47ab7 and 77de1978bb36"
+        ]
+      },
+      "rationale": "The repaired claim retains the sharp all-positive-mass, all-positive-edge-weight quantitative two-input factor, with witness and algorithm. Yang–Barber covers the equal-mass qualitative criterion but not the amplification factor or the general mass envelope. Three inspected Resultary entries are mathematically equivalent but have later catalogue dates than the frozen result. They are material exact overlaps, not evidence of prior coverage on the evidence available. This is not a claim of historical priority over all sources.",
+      "residual_risks": [
+        "The broader literature search was bounded; equivalent earlier sensitivity results under other formulations may exist.",
+        "Yeganova–Wilbur full text was unavailable; the source was not cleared by inspecting its landing page.",
+        "The exact overlapping catalogue entries are later; their dates and statements do not resolve independent discovery or source relationships."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes equal-mass qualitative contraction, not the sharp factor",
+          "evidence": [
+            "Unweighted projection is contractive iff the seminorm is nonincreasing under equal neighbor averaging."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.01852.pdf",
+          "material_read": "pp. 3–4, definitions and Theorem 1, OA offsets 12030–16844",
+          "method": "Primary open-access PDF; applied the neighboring-average criterion to path steps",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Closest earlier contraction theorem for general seminorms on the same order"
+        },
+        {
+          "assessment": "Inspected material concerns bounded-variation regression estimation, not the stated two-input modulus",
+          "evidence": [
+            "The setup estimates a bounded-variation regression function by an iterative procedure using isotone fits and additive model methods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3930",
+          "material_read": "pp. 1–2, OA offsets 0–5489",
+          "method": "Primary open-access PDF, bounded comparison of problem and main setup",
+          "title": "A Geometrical Approach to Iterative Isotone Regression",
+          "trigger": "Isotone projection in a bounded-variation setting"
+        },
+        {
+          "assessment": "Not treated as evidence of noncoverage",
+          "evidence": [
+            "Cited title specifies a constraint on the regression; no primary theorem passage was obtained for comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10957-008-9477-0",
+          "material_read": "Bibliographic and landing-page material only",
+          "method": "Tried PMC permalink and lawful Europe PMC alternate; no full text obtained",
+          "title": "Isotonic Regression under Lipschitz Constraint",
+          "trigger": "Cited source for weighted PAV with a potentially similar stability term"
+        },
+        {
+          "assessment": "Equivalent exact quantitative result, later catalogue entry",
+          "evidence": [
+            "Gives the attained global modulus, cumulative-mass concavity criterion and linear-time hull computation."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-mass-aware-concavity-law-for-variation-stability-of-weight--c4a7412f8310",
+          "material_read": "RESULT.md offsets 343–3228",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp mass-aware concavity law for variation stability of weighted isotonic regression",
+          "trigger": "Exact catalogue match on mass-coordinate concavity"
+        },
+        {
+          "assessment": "Equivalent exact quantitative result with a further assertion, later catalogue entry",
+          "evidence": [
+            "Gives the same modulus, masses, assumptions and attainment, and also a coordinatewise smallest stabilizing enlargement."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-concave-envelope-law-for-sharp-weighted-variation-sensitivit--fcea9cd47ab7",
+          "material_read": "RESULT.md offsets 249–5627",
+          "method": "Local mirror statement comparison",
+          "title": "The concave-envelope law for sharp weighted variation sensitivity",
+          "trigger": "Exact catalogue match on the envelope formula"
+        },
+        {
+          "assessment": "Equivalent exact quantitative result, later catalogue entry",
+          "evidence": [
+            "Gives the same coefficient and concavity criterion with local attainment."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-weighted-variation-lipschitz-constant-of-finite-chain-isot--77de1978bb36",
+          "material_read": "RESULT.md offsets 238–2564",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp weighted variation Lipschitz constant of finite-chain isotonic regression",
+          "trigger": "Exact match from sensitivity terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise invariant measures perturbation amplification in a seminorm that detects changes between neighboring data, with observation masses and measurement weights serving different roles. A practitioner can decide exactly whether smoothing is nonexpansive and, if not, compute a sharp bound and a realizing input pair rather than relying on a one-input or qualitative estimate. The corrected three-point example makes both possible weight imbalances explicit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

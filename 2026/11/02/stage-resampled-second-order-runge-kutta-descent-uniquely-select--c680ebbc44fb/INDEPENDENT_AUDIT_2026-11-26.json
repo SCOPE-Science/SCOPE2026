@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:21:08.870141Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding lines 18–21 is not scale invariant if an orthogonal eigenbasis is taken literally without normalization: H=1, u=2, x_0=2 gives c=1 and already 4≠1 at n=0. The separate corrected RESULT.md uses an orthonormal basis and gives the squared-length factors for a general orthogonal basis. Reassessed the entire repaired result: with η_i=Y_i−1 the eigenmode multiplier has orthogonal L² terms proportional to 1, η_1, η_2, η_1η_2; their squared norms 1,a−1,a−1,(a−1)² give exactly Q_b and the stated quadratic excess over Heun. Iteration independence and Parseval give the corrected all-horizon law; positive integer powers preserve strict ordering for nonzero states when a>1. Q_b−1 is z/4 times a cubic whose derivative has global minimum 4C−16/3>0 and which starts at −8. The top eigenspace establishes necessity, equality and instability. The midpoint factorization and positive quadratic factor give 2/a, matching Euler. At the Heun endpoints the cubic gives −4+4/a and 24/a. With r=az_*, 2r−8+r(r²−4r+6)/a=0, positivity of the polynomial and its derivative gives monotonicity, and its value at 4 gives r=4−12/a+O(a^(−2)). Under reuse the squared factor grows as z⁴Y⁴/4; for the Pareto example the first two moments are 1 and 4/3 and the exact Heun factor is 355/576. Inspected the frozen checker and its recorded outputs, did not run it, and used analytic proof rather than its finite tests. No source evidence changed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mulayoff–Michaeli characterize linear mean-square stability for ordinary minibatch SGD. Stillfjord–Williamson use a common batch across internal stages. Saito studies a scalar Stratonovich SDE with Brownian noise."
+        ],
+        "reasoning": "The linear SGD result gives benchmark context; the common-batch and Brownian-increment models have different distributions of the update factors, so their broader analyses do not subsume the iid scalar-stage tableau comparison.",
+        "searches": [
+          "Mulayoff–Michaeli arXiv:2306.07850, Theorem 11",
+          "Stillfjord–Williamson arXiv:2201.12782v1 §4 and (4.1)",
+          "Saito DOI:10.11540/jsiamt.21.1_125 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index, records 86322a4599c2 and 921c6dd43e85",
+        "arXiv:2006.12131v1",
+        "arXiv:2306.07850",
+        "arXiv:2201.12782v1",
+        "DOI:10.11540/jsiamt.21.1_125"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There is a cubic characterization in the randomized-stage-time scheme but for different noise factors. Equation (4.1) in the reuse paper has the same ξ_k at each internal j; it does not assert the heavy-tail threshold. Fixed-Heun and optimized-dependence results do not vary the tableau weight."
+        ],
+        "reasoning": "Neither the prior cubic nor the fixed-weight formula implies the nonnegative quadratic gap in b, the gain relative to midpoint as a varies, or the distinction between second and fourth moments in this model.",
+        "searches": [
+          "Bochacik et al. arXiv:2006.12131v1 Theorem 3 (84)–(85)",
+          "Stillfjord–Williamson arXiv:2201.12782v1 p. 16 (4.1)",
+          "Resultary 86322a4599c2 and 921c6dd43e85 decisive result passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bochacik et al., (16) and (72)–(75), derive a scalar squared-amplification polynomial for iid randomized stage times. Resultary 86322a4599c2 analyzes stochastic Heun with two possible component gradients and varying within-update coupling."
+        ],
+        "reasoning": "The paired-stage Heun record includes the iid two-point case at a fixed b. Neither it nor stochastic stage-time randomization supplies the excess identity for variable b when random curvature multipliers act at both evaluations.",
+        "searches": [
+          "Resultary: iid noisy stages, multiplicative gradient noise, Heun and paired stages",
+          "Bochacik et al. arXiv:2006.12131v1 §§2, 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed records were 86322a4599c2 (two-component scalar Heun; independent baseline, optimized within-step coupling) and 921c6dd43e85 (independent vs optimized temporal coupling for random-stage-time RK)."
+        ],
+        "reasoning": "These offer exact amplification/stability results, but not the exact frontier in a and b for this oracle; optimizing dependence is a different parameter variation.",
+        "searches": [
+          "Resultary: independent-stage Runge–Kutta mean-square Heun optimizer, stability cubic, shared vs independent stages and heavy tails"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct claim in the repaired version is the exact distribution-free tableau comparison under independent scalar stage multipliers and the resulting exact Heun frontier and reuse contrast. The normalization correction to the norm law does not change the class of problems or the prior comparisons. Classical tableau order and the one-gradient stability benchmark are prior, and the fixed-Heun two-point case has direct catalogue overlap.",
+      "residual_risks": [
+        "Bounded search; neighboring literature may use different noisy-stage or stochastic-oracle terminology.",
+        "Indexed publication dates do not establish priority of the overlapping fixed-Heun case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different operation being randomized",
+          "evidence": [
+            "Uniform stage-time variable τ_j; scalar stability calculation and cubic for that model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.12131v1",
+          "material_read": "§2 (16), p. 5; §5.1 (72)–(75), p. 14; Theorem 3 (84)–(85), p. 15",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Randomized Runge–Kutta method—stability and convergence under inexact information",
+          "trigger": "Closest two-stage randomized mean-square polynomial and cubic boundary"
+        },
+        {
+          "assessment": "Exact partial overlap; no all-tableau optimizer",
+          "evidence": [
+            "Heun fixed, dependence between stage components optimized."
+          ],
+          "identifier_or_url": "Resultary 86322a4599c2",
+          "material_read": "Finding and coupling/amplification passages at offsets 0, 3248, 3868",
+          "method": "Local Resultary mirror",
+          "title": "Antithetic stage pairing can terminate two-stage stochastic Heun",
+          "trigger": "Identical independent Heun case for a two-point law"
+        },
+        {
+          "assessment": "Different stage randomization and optimization",
+          "evidence": [
+            "Uniform randomized-time RK with coupling across steps, not independent gradient draws with varying b."
+          ],
+          "identifier_or_url": "Resultary 921c6dd43e85",
+          "material_read": "Finding and comparison at offsets 0, 6679",
+          "method": "Local Resultary mirror",
+          "title": "Optimal paired-stage coupling extends randomized Runge–Kutta mean-square stability",
+          "trigger": "Closest indexed optimized stability ceiling"
+        },
+        {
+          "assessment": "Prior benchmark, not a two-stage result",
+          "evidence": [
+            "Threshold for linear SGD dynamics near regular minima."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07850",
+          "material_read": "Abstract p. 1, Theorem 11 p. 8",
+          "method": "OA primary PDF",
+          "title": "Exact Mean Square Linear Stability Analysis for SGD",
+          "trigger": "Sharp stability comparator for one gradient"
+        },
+        {
+          "assessment": "Shared batch rather than stage resampling",
+          "evidence": [
+            "The same batch of data is used in s consecutive internal steps; ξ_k is fixed in j."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12782v1",
+          "material_read": "Implementation §4, pp. 16–17, (4.1), offset 58120",
+          "method": "OA primary PDF",
+          "title": "SRKCD: A stabilized Runge–Kutta method for stochastic optimization",
+          "trigger": "Closest stochastic-gradient RK stage-sampling design"
+        },
+        {
+          "assessment": "Different SDE model, not stochastic-gradient descent",
+          "evidence": [
+            "Scalar Stratonovich SDE with multiplicative Brownian noise."
+          ],
+          "identifier_or_url": "https://doi.org/10.11540/jsiamt.21.1_125",
+          "material_read": "Abstract p. 1, offset 1558",
+          "method": "OA primary article passage",
+          "title": "Mean-square and Asymptotic Stability of the Stochastic Heun Method",
+          "trigger": "Direct title match for Heun mean-square stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result answers a concrete design question in a quadratic benchmark: with noise drawn independently at each call, the equal-weight choice optimizes every step and horizon, and the exact stability-range comparison quantifies a possible near-doubling versus midpoint. The reuse example separates models under finite variance with an infinite fourth moment. These are stronger and more useful than a normalization correction or a single-stepsize example. The gain is per iteration, not evidence of lower cost per gradient evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

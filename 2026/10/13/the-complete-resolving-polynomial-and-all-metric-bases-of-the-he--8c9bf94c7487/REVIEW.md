@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit Fano incidence construction proves that the 42 same-side vertex pairs have distinct equidistance sets, each of size eight; all opposite-side pairs have empty equidistance sets. The universal pairwise definition of metric resolution therefore becomes a complete finite forbidden-subset criterion. The proof independently characterizes every five-element resolving set via the Fano incidence classes and noncollinearity: 21 line pairs, four admissible point triples each, and 84 duals. The standalone code exhaustively enumerates all 16,384 subsets and checks the forbidden-set criterion against direct shortest-path distance signatures, then checks the 336 automorphisms and one base orbit. Counts are exact integers; no sampling or inferred infinite statement is used. Correctness depends on the program's transparent, fully included finite enumeration for polynomial coefficients.
+PASS
 
-## Originality — PASS, with residual priority risk
+For a same-type pair, five of its own part and three of the opposite part are equidistant; the 42 sets are distinct by the omitted pair and the sizes in each part. Bipartite parity handles opposite-type pairs, and the empty selection is also excluded by the same-type obstructions. With two chosen lines, the three two-point signature classes each require one chosen point. Three noncollinear points give distinct signatures for all lines; collinear points give three duplicate pairs, which two chosen lines cannot eliminate. Choosing a,b on the two lines away from their intersection leaves exactly one noncollinear choice of c outside their union. Thus the classification gives 84 bases and 84 duals. In the vector model, x,a,b are a vector basis and the eligible c is x+a+b, giving transitivity of GL(3,2) on the first type; polarity exchanges the two types. The connected bipartition shows that the 168 collineations and their 168 duals exhaust the automorphisms. A separate vector/kernel-line construction with BFS and distance-signature enumeration tested every one of the 16384 subsets. It gave 11588 resolving sets, precisely the stated rank counts, and 4796 nonresolving subsets, exactly the union of the 42 obstruction subcubes. The orbit and geometric classification also matched independently. Replay: /workspace/branches/753da2d3-ada6-41f4-998e-1b0133646dad/independent_check.py. No frozen script was executed.
 
-Héger--Takáts explicitly prove the minimum size five for the Fano plane in Remark 2.6 and provide general resolving-set decision criteria (Propositions 2.2--2.3), so neither the scalar metric dimension nor the existence of an abstract all-set characterization is claimed new. Their order-at-least-23 classification does not cover the Fano minimum-base multiplicity. Bailey's small-graph table likewise gives minimum size, not the polynomial or the exact 168-base single-orbit classification. published-finding corpus searches for exact Fano/Heawood ordinary metric-basis enumerations, resolving polynomials, and aliases found no equivalent record; related chain-graph resolving-polynomial work concerns different graphs. The finite geometric decomposition and exact all-size coefficient count require additional arguments beyond the scalar literature. Residual risk: an unindexed older census or a computational appendix may already give these counts.
+## originality
 
-## Value — PASS
+PASS
 
-Exact cardinality profiles and optimum symmetry types are natural, useful refinements of metric dimension: they count landmark configurations, quantify redundancy, and classify genuinely different optimal placements. The exceptional smallest projective plane is a motivated test case because its metric dimension is already distinguished in the source literature, while the explicit count and incidence-theoretic description were not supplied there. The structural 42-set obstruction also gives a reproducible route from geometry to the full polynomial. No extension to arbitrary projective planes or paper-sized downstream implication is asserted.
+Distinct contribution supported: the full cardinality polynomial for ordinary vertex resolving sets of the fixed Heawood graph, the corresponding equal-distance blocker census, and the complete base geometry and orbit in this setting. Neither the known metric dimension nor the general resolving-set criterion is new. A catalogue result with matching minimum geometric configurations resolves edges and does not give the vertex census. This is a bounded best-of-knowledge comparison.
 
-## Sources and limits
+## value
 
-Primary full text inspected: Héger--Takáts, *Resolving sets and semi-resolving sets in finite projective planes*, arXiv:1207.5469, Propositions 2.2--2.3, Remark 2.6, and section on order at least 23; Bailey, *The metric dimension of small distance-regular and strongly regular graphs*, arXiv:1312.4973, its Heawood entry and methods; Bailey, *On the metric dimension of imprimitive distance-regular graphs*, arXiv:1312.4971, the symmetric-design context. Computational enumeration is exhaustively finite; possible previously unindexed identical enumeration is an unresolved publication-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Fano incidence graph is the exceptional smallest projective-plane case of an established resolving-set problem. Its exact rank counts answer how many labelled sensor placements of each size work, rather than only giving the minimum size. The 42 equal-distance obstructions explain why every placement of size at least nine works, and the 84+84 geometric classification and single orbit give a concise description of the optimal placements. This is a complete natural finite invariant with a checkable structural interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

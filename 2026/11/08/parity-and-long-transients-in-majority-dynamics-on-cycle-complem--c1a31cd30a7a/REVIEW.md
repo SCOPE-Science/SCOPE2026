@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For odd \(N=2m+1\ge7\), neighbor-majority thresholds reduce the central layer to occurrences of \(000\) and \(010\); cyclic run decomposition gives the exact identity \(K'=m+1-a-b\). Its equality case is uniquely one doubled zero bond (or its complement), giving exactly \(2N+2\) fixed points. All other configurations reach unanimity by two updates. The block initial state establishes sharpness. For even \(N=2m\ge8\), reflection-complement symmetry maintains exact half occupation; strict majority on the cycle complement is then a local minority-of-three rule, with the stated block-expansion recurrence and strictly increasing equal-bond count until a genuine two-cycle. Proof does not extrapolate a finite search. Two independent executable checks from the embedded source files agreed with the analytic statements. No hidden sign or tie convention is used.
+PASS
 
-## Originality — PASS (qualified)
+For odd N=2m+1 each vote excludes the center and its two cycle neighbors, and the tie threshold is m−1. With K≤m−1 a 1 sees at most m−2 and a 0 at most m−1, so the next state is all zero, and the complemented statement holds at K≥m+2. At K=m the output ones are exactly the centers of 000 and 010. If there are r zero runs and r one runs, with a long one runs and b long zero runs, the count is (r−a)+(m+1−r−b)=m+1−a−b. A cyclic odd word must have a+b≥1; a+b=1 forces the only long run to be zero of length two (otherwise m+1 zero singletons would force too many one runs). Precisely those N words stay fixed; the remaining layer goes unanimous in two steps, symmetrically for K=m+1. The word 1^m0^(m+1) reaches an intermediate state of positive weight m−1, then unanimity, proving sharpness and excluding any earlier recurrence. For even N at K=m the rule becomes minority of the centered triple. In 1^a(01)^k0^a for a≥2, k≥1 both constant blocks switch, and every site of the alternating segment stays put, including its first 0 and last 1. Those two sites enlarge the new boundary blocks; complementation gives the other transition. Each resulting word is balanced. When k=0 the two blocks switch forever. The count of equal cyclic edges is 2(a−1), strictly increasing in the transient, including in comparison with the steady count at the terminal time; no earlier equality with the second iterate is possible. The complemented cycle has degree N−3, vertex transitivity from shifts, and a common neighbor for each missing edge, so its diameter is two.
 
-The general period-two restriction due to Goles–Olivos is not claimed. The May 11, 2014 Benjamini–Chan–O'Donnell–Tamuz–Tan arXiv text (intro/theorems and sections scanned) treats infinite and random-graph phenomena, not odd-cycle-complement fixed points or the explicit slow orbit. The complete accessible 2020 Fountoulakis–Kang–Makai article treats a high-probability outcome for random graphs, not a deterministic worst-case bound on a specified circulant family. Relevant searches did not find exact prior work on majority dynamics of \(\overline{C_N}\). A close prior local-CA result gives a general transient census for radius-one **majority** on cycles. On the even balanced slice the new system is *complemented* local majority, so this prior work partly explains block erosion; it does not supply the odd-order graph census or the global parity assertion without further analysis. This is a nontrivial overlap/routine-corollary risk, not a claim of guaranteed priority. The original 1980 three-page paper was not inspected in full; its general abstract and the 2014 primary citation were checked.
+## originality
 
-## Value — PASS
+PASS
 
-This is a structural counterexample to the idea that dense, diameter-two, vertex-transitive graphs must have bounded **worst-case** majority settling time, together with an exact opposite-parity theorem for the same canonical family. The balanced minority-wave mechanism explains the contrast and distinguishes deterministic exceptional configurations from random-graph convergence. The graph family is natural and infinite, and the finding is not an arbitrary parameter slice. No claim of a paper-sized contribution or matching even upper bound is needed.
+The even witness's local transient time is covered by the earlier exact cyclic-majority time law once the balanced cycle-complement embedding is made; the local shrinking mechanism is not independently new. General two-period behavior is also known. The supported distinct contribution is the odd cycle-complement all-state fixed-point census and sharp two-update result, together with the global-to-local embedding establishing the contrast in one dense deterministic graph family.
 
-## Scientific boundaries and risks
+## value
 
-The even assertion is a constructed lower bound, not a classification of all even-order orbits. The prior cyclic-majority transient census supplies related erosion facts; priority for the combined graph-complement assertion is not certified. An unindexed exact result could predate this derivation. The finite programs corroborate the proof but cannot certify it for infinitely many graph orders.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact odd all-state census on a natural vertex-transitive graph complements a constructed linear transient on its even counterpart. This is useful for understanding deterministic worst-case stabilization on almost-complete diameter-two graphs: high degree and vertex transitivity do not give an order-independent bound, even though one parity has a sharp constant bound and no nontrivial two-cycle. The value is the parity comparison and realization, not a rediscovery of one-dimensional local erosion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

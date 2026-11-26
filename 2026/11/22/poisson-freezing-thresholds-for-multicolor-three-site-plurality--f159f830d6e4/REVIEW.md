@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nonstandard local lemma is a five-site case split, not an inference from simulations. The triple-conjunction law gives the exact alternating-block criterion and all-size recurrence classification. The Poisson limit is justified by a boundary-trimmed, independent-block argument with a direct pair-overlap probability; the two concentration regimes use a union bound and second moment. The sharp odd/even clocks have explicit initial witnesses. `CHECKS.txt` reports completed finite checks for the actual embedded `verify.py`; these corroborate but do not replace the analytical proof.
+PASS
 
-## Originality — PASS (qualified)
+The center c flips only if both neighbors have the same different color b. Given that flip, each neighbor either stays b or copies the old center color c, with a copy exactly when its outer neighbor is c; the center can flip twice only if both copies occur. If the center stays c, a neighbor can only stay put or copy c, so updated agreement of both neighbors away from c would already have forced the center to flip. These exhaust the local possibilities, even when sites in the five-site notation coincide modulo n. Thus triple-AND erosion iterates to an alternating two-color word of length 2t+3. An infinite alternating cyclic word requires even n and produces a true two-cycle; counting ordered first colors gives q(q-1) states. A noncheckerboard odd ring allows at most n alternating letters, and a noncheckerboard even ring at most n-1. A full alternating linear word on an odd ring and a length n-1 alternating run with a third last color on an even ring attain the claimed bounds. For fixed L=2t+3, p=(q-1)/q^(L-1) and the joint event at offsets s=1,...,L-2 costs p q^(-s), because overlap of at least two letters fixes both colors; one-letter overlap gives independent indicators. Hence variance is at most lambda_n(1+O_L(1/q)). For bounded positive means the block argument loses o(1) expected hits at boundaries (including any last partial block), has probability o(1) of any multiple-hit block, and gives independent block-hit indicators of maximal probability o(1). This proves Poisson convergence, with the zero and diverging regimes following by Markov and the variance bound. At adjacent deadlines the expected counts differ by factors q^2, giving concentration on t and t+1, also at t=0 since T>=0. Frozen finite checks and output were inspected, not rerun; the stochastic and infinite-size assertions follow from the proof.
 
-Searches for multicolor plurality, incumbent-preserving ties, alternating-block erosion, growing palette sizes, and Poisson fixation limits were compared with published binary majority results, including the original articles by Lemoy–Mozeika–Seki, Kaaser–Mallmann-Trenn–Natale, and Nakar–Ron. The closest indexed published cyclic-ring results already address binary alternation and Poisson limits when *the required waiting time* varies with ring length, but not the new problem of a *growing color alphabet* at fixed time. Existing binary statements do not by themselves imply the multicolor probabilities or the palette-size phase hierarchy. The oldest supporting public item is the arXiv manuscript dated 18 November 2013. Historical priority remains qualified by possible unindexed multicolor equivalents and an inaccessible full text of a close indexed binary result.
+## originality
 
-## Value — PASS
+PASS
 
-The exact erosion identity exposes the defect mechanism of local plurality with genuine three-color ties. The critical scales \(q\asymp n^{1/(2t+1)}\) and limiting two-point fixation clock offer a non-obvious family of phase transitions, not merely a recalculation of binary transient lengths. The assumptions and probabilistic limits are narrow and explicit rather than overstated.
+Binary majority ring erosion, clocks and Poisson extremes already occur in the accessible indexed work. The supported distinct claim is the exact criterion for categorical incumbent-preserving plurality with three-way ties and its fixed-deadline, growing-palette Poisson transition. Neither the binary law nor the inspected ternary median and one-sided plurality statements contain this result. Unresolved access to adjacent literature limits priority claims but is not a scientific verdict.
 
-## Residual limits
+## value
 
-Only the specified synchronous update and uniform independent initial colors are treated. The Poisson limit requires the alphabet to grow, and no independent external verification or complete historical-priority check is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The update is a canonical plurality extension in which true three-way ties prevent simply reusing binary disagreement runs. An exact erosion description for the actual multicolor flippers yields sharp deterministic clocks, and the hierarchy of palette scales n^(1/(2t+1)) answers whether any defects persist through a specified deadline. The quantitative two-point fixation distribution gives information beyond a recurrence classification or the known binary growing-time laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The claim is a stationary law for an explicit globally reset family of independent, positive-damping Ornstein–Uhlenbeck modes. Exponential-age conditioning gives bounded Gaussian conditional variances; all connected fourth cumulants reduce to an exact covariance of exponentials. The stated Cauchy matrix, its determinant and inverse realization are proved for every finite number of modes and all positive real parameters. The exact-rational checker tests representative distinct-rate, repeated-rate and Fourier-spectrum examples but is not substituted for the proof. No assertion is made about nonlinear interfaces or correlated noises.
+## correctness
 
-## Originality
-The closest 2013 interface study gives a general configuration-renewal law and one-point height laws; hence forward moments are in principle obtainable from established theory. The present inverse feasibility condition, harmonic-mean diagnostic, Cauchy total positivity and rank-detection theorem are not reported in the examined material. The 2018 generator-spectral treatment is broader at the distributional level but does not state this inverse range; the 2022 quantum-spin correlation mechanism concerns different dynamics. Related calculations address shared-clock Brownian resetting without positive OU damping and unrelated fluctuating-diffusivity displacement kurtosis, so neither supplies the rate-resolved Cauchy theorem. There remains a literature-priority risk from general renewal and Gaussian-mixture methods; absence of matching search results is not treated as proof of novelty.
+PASS
 
-## Mathematical value
-Fourth cumulants reveal coordinated resets that are invisible to second-order cross-mode covariance. The result fully characterizes which normalized power-correlation matrices arise in the independent-damped-mode/common-clock mechanism, recovers all damping-to-reset-rate ratios, and detects relaxation degeneracies through exact rank. This is a model-level inverse feasibility and observability statement, not a numerical table or an arbitrary finite slice. Its diagnostic fails for local clocks in a mathematically sharp way.
+A common exponential stationary reset age gives conditionally independent centered Gaussian modes with bounded variances, hence zero ordinary cross covariance and finite moments. Coupling at the first subsequent common reset proves uniqueness. Independently, the stationary generator on x_i² gives M_i=2D_i/(r+2γ_i). Its equation on x_i²x_j², i≠j, gives (r+2γ_i+2γ_j)E[X_i²X_j²]=2D_iM_j+2D_jM_i; on x_i⁴ it gives (r+4γ_i)E[X_i⁴]=12D_iM_i. Subtracting the Gaussian baseline and using the factor three on the diagonal yields F_ij=r/(r+2γ_i+2γ_j) for all i,j. Then b_i=(F_ii^−1−1)/2 is positive exactly when 0<F_ii<1; the other entries are forced by the harmonic-mean relation. Conversely any fixed r>0, γ_i=rb_i/2 and D_i=M_i(r+2γ_i)/2 give a realization with every positive target M_i, so the absolute clock rate is unidentifiable from these statistics. Cauchy's minors have the claimed signs in increasing order; duplicate rows give the upper rank bound and one representative per rate gives the matching lower bound. Independent clocks keep the marginals but give zero off-diagonal power covariance. A real orthonormal nonzero Fourier basis on the circle gives precisely the required independent drivers and positive rates; the arbitrary inverse criterion is for OU modes, not for arbitrary spectra on a fixed circle. The finite archived checks were inspected but not run or used as the universal proof.
 
-## Relationship and limitations
-The central proof uses the known renewal representation, conditional Gaussian moments, and the classical Cauchy determinant. The inverse statement allows arbitrary diagonal positive damping but cannot be applied as an arbitrary-mode-spectrum realization for one fixed periodic EW interface. The conclusion is conditional on global Poisson resets to zero, independent modewise noises, and stationary statistics. Independent priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the explicit complete realization and rate-identification result for arbitrary finite lists of positive, independently driven OU modes, with a clock-coordination test within the stated models. The forward renewal law already contains the joint moments; the off-diagonal elimination, Cauchy minor signs and rank calculation are elementary consequences once the kernel is extracted, not separately new mathematical principles. The strongest explicit catalog match for the forward kernel and strict total positivity is later and restricted to periodic EW, so it is equivalent on a substantial subcase but does not establish earlier coverage of the full inverse result.
+
+## value
+
+PASS
+
+The utility is a complete feasible-data test, not an isolated forward moment calculation. Given measured second moments and normalized fourth-cumulant data, the criterion can reject this common-clock model, reconstruct all damping-to-reset ratios within it, and detect rate degeneracy. The independent-clock contrast isolates a measurable effect absent from one-mode laws and ordinary cross covariance. It does not identify global Poisson resetting uniquely among unrelated stochastic models or recover absolute rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

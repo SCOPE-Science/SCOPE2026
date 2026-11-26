@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:34:51.670731Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof, lines 29–71",
+        "Frozen check.py, lines 20–43; VERIFICATION.md, lines 19–21"
+      ],
+      "rationale": "For normalized time y and c=2 cosh(d), u=2 cosh(y), adding the two translates gives (cu+4)/(u+c)^2 and the central density adds 1/(u+2). An independent way to check the full derivative sign classification is to set w=(u+2)/(u+c), in [4/(c+2),1). After multiplying by (u+2)^2 the derivative with respect to u is Q(w)=w^2(c+4-2(c+2)w)-1. It is negative at both ends (at the left end this follows from H_c(2)=-(c+2)((c-6)^2+32)); the only possible interior maximum is w=(c+4)/(3(c+2)), which is in the interval precisely when c>8. Its height has the sign of (c+4)^3-27(c+2)^2=(c+1)(c^2-16c-44). Thus above c=8+6 sqrt(3) exactly two simple stationary radii occur, with derivative signs minus, plus, minus; at equality the double zero does not change sign. The center stays a strict maximum because the derivative in u is strictly negative at u=2. The monotone half-line changes of variables give the exact t-mode counts and d threshold. The analogous two-density sum omits 1/(u+2); at symmetric half-separation d/2 its derivative changes regime at 2 cosh(d/2)=4, verifying the stated pairwise contrast. The frozen SymPy checker was inspected, not executed; its finite examples are supplementary, not an all-parameter argument.",
+      "residual_risks": [
+        "No assertion about unequal weights or scales, interacting cohorts, or mode detection from noisy or truncated observations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Došlá gives the mixing-weight and separation criterion for two equal-scale logistic components, with necessary separation greater than 2 log(2+sqrt(3)).",
+          "Strong unimodality of the log-concave logistic kernel controls convolution with a unimodal input, not the mode count for the separated equal three-atom input."
+        ],
+        "reasoning": "Neither a two-component criterion nor a general unimodality or Gaussian scale-space principle gives the required exact three-component transition and critical shoulders.",
+        "searches": [
+          "Došlá (2009), Kybernetika 45, Proposition 3",
+          "Primary literature: common-scale logistic mixture modality and scale-space"
+        ]
+      },
+      "checked_sources": [
+        "Došlá 2009, Proposition 3",
+        "Resultary assigned record and three distinct Poisson/Cauchy comparisons specified above",
+        "IPMU 2024 PDF access checked but not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pairwise threshold is strictly smaller than the triple threshold; the adjacent equal-weight pair is already bimodal for a range in which the full triple has only one mode.",
+          "The Cauchy scale-space example uses masses 1,0.49,1 and has reentrant trimodality at selected heights."
+        ],
+        "reasoning": "The pair classification does not imply the triple classification, and a different kernel and masses give no formula for the sign of the logistic cubic.",
+        "searches": [
+          "Došlá (2009), Proposition 3",
+          "2026/11/22/SCOPE-a-positive-cauchy-scale-space-counterexample-with-reentrant-trim--1a7b86020311"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adoption-rate problem is exactly the modality of the logistic density convolved with three equal atoms, up to a time reparametrization and a positive multiplier.",
+          "The catalogue Poisson/Cauchy example uses equal atoms at -1,0,1 and has a shoulder at height 1/sqrt(2), not a logistic density or a logistic scale parameter."
+        ],
+        "reasoning": "The kernel is part of the theorem: an affine change of the input cannot turn a Cauchy tail into a logistic tail. A network Bass model does not supply this independent mixture identity.",
+        "searches": [
+          "Resultary: logistic-mixture modality, three-wave peak resolution and kernel scale-space formulations",
+          "arXiv:1605.06308v1",
+          "2026/11/1/SCOPE-exact-triple-poisson-peak-resolution-threshold-and-fold-contrast--5e3c72a92424"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned record itself.",
+          "The distinct circular Poisson example places unequal masses on the circle; its transition is not a tabulated value for this model."
+        ],
+        "reasoning": "This is an exact threshold search, rather than a search for a numerical data table. No independent exact threshold was verified in the inspected evidence; the identical record is not corroboration.",
+        "searches": [
+          "Resultary: three equally spaced logistic density peak threshold",
+          "2026/11/22/SCOPE-the-sharp-one-to-three-peak-resolution-threshold-for-three-equis--0fc663f386b0",
+          "2026/11/22/SCOPE-sharp-one-to-three-mode-transition-for-a-weighted-equiangular-po--0549644e9ef4"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the equal-weight, equal-scale, equispaced logistic triple and its exact stationary bifurcation only. The closest verified logistic result is pairwise. The closest catalogued direct triple transitions use different kernels and do not imply the logistic derivative classification.",
+      "residual_risks": [
+        "The broader logistic-mixture literature was searched only on a bounded basis; irrelevant primary search results do not establish absence.",
+        "The IPMU example was not accessible in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct pairwise comparison, not triple coverage",
+          "evidence": [
+            "Two common-scale logistic components can be bimodal only above a specified separation and with mixing weight in a specified interval."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "material_read": "Proposition 3, printed pp. 286–287, excerpt near OA offset 24448",
+          "method": "Lawful OA primary PDF text",
+          "title": "Conditions for bimodality and multimodality of a mixture of two unimodal densities",
+          "trigger": "Closest analytic logistic mixture mode criterion"
+        },
+        {
+          "assessment": "Closest triple analogue, different kernel",
+          "evidence": [
+            "Real-line Poisson smoothing of three equal masses gives critical height 1/sqrt(2)."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-exact-triple-poisson-peak-resolution-threshold-and-fold-contrast--5e3c72a92424",
+          "material_read": "RESULT.md finding and kernel model",
+          "method": "Resultary lookup and local-mirror statement comparison",
+          "title": "Exact triple Poisson peak resolution threshold and fold contrast",
+          "trigger": "Same equally spaced triple and mode/shoulder pattern"
+        },
+        {
+          "assessment": "Different kernel, geometry and weights",
+          "evidence": [
+            "Circular Poisson sum with a heavier central site."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-one-to-three-mode-transition-for-a-weighted-equiangular-po--0549644e9ef4",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "Sharp one-to-three mode transition for a weighted equiangular Poisson sum",
+          "trigger": "Catalogue overlap in mode transition"
+        },
+        {
+          "assessment": "Unresolved as independent evidence",
+          "evidence": [
+            "Official PDF retrieval failed; the frozen record describes an unequal-parameter numerical example, not an independently verified theorem comparison."
+          ],
+          "identifier_or_url": "https://ipmu2024.inesc-id.pt/files/paper_1001.pdf",
+          "material_read": "No full text obtained; frozen reference and description only",
+          "method": "Lawful OA retrieval attempts for the same paper",
+          "title": "On Improvement of the DE-MC_z Algorithm with Modes Identification",
+          "trigger": "Possible prior three-logistic example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and mode classification",
+        "Došlá (2009), Proposition 3"
+      ],
+      "rationale": "Equal-rate, equally spaced cohorts give a natural calibration problem. The exact onset of outer peaks and the nonextremal shoulders identify a resolution boundary not captured by the nearest-neighbor pair test. In particular there is a nonempty interval where each adjacent pair resolves but the aggregate does not. This is a useful idealized benchmark, not an empirical detection claim.",
+      "residual_risks": [
+        "The benchmark does not describe sampling power or robustness to unequal cohort parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

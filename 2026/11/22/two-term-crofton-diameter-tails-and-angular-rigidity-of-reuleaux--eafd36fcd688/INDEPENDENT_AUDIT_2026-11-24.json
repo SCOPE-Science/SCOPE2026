@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:24:22.848719Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, VERIFICATION.md, and verify_reuleaux.py (inspected, not executed)",
+        "An independently constructed irregular pentagon was used as a numerical cross-check only: take u=.27, v=−√(1−u²), h=v+√(1−(.5+u)²), and disk centres (0,0),(u,v),(−.5,h),(.5,h),(−u,v) in unit-distance star order. Intersect the five disk intervals for each tested line, solve the two width roots by Brent's method, and quadrature over the five sectors given by consecutive star-neighbour rays from each centre. Arc angles are approximately .5467861,.6054481,.6919552,.6919552,.6054481. At ε=10⁻⁴,10⁻⁵,10⁻⁶, the fitted unnormalized linear coefficients are −.358453,−.359853,−.360014 versus −.360040 predicted. Quadrature is noncertifying and emitted a roundoff warning at the requested tolerance; the proof does not rely on these values."
+      ],
+      "rationale": "Constant width gives opposite support contacts at distance one, with the segment directed along their normal; modulo π the smooth arc-to-centre pairs partition directions. On the full normal circle the antipodal map exchanges the alternating arc intervals and corner cones. It shifts their 2m boundaries by m, making m odd. Barbier gives total arc length π, and the endpoint-to-endpoint distance 2sin(ℓ/2)≤1 gives ℓ≤π/3. Width one also gives line measure π for normalization. For the load-bearing branch estimate take C=0, A=u_a and B=u_b at the sector endpoints, and positive transverse offset z. Among generating disks only A and B are active at C: any vertex at distance one from C is an opposite contact, on the closed arc centred at C, hence is A or B. Other constraints have uniform slack near C. At z=0 both near roots are zero; their slope difference uniformly is tan(θ−a)+tan(b−θ)≥b−a>0, so the A-root is active there for sufficiently small z. At the far endpoint the C-root is feasible whenever its polar angle θ+arcsin z has not passed b, because the corresponding point is on the arc. The two disks always bound the true chord from above, giving z=O(√ε); the exceptional strip can only be near b, where the A-root slope is bounded below, forcing z=O(ε) for model or true long chords. Its measure is O(ε²). Negative offsets are the reflected argument. This gives the asserted two-sign width integral for every fixed nondegenerate K. The model deficit is z tan x + (1+sec³x)z²/2+O(z³). Outside r=ε^(1/4) the integrated root error is O(ε²/r²); inside, the relative error in xz+z² is O(r²+√ε) and contributes o(ε) despite a logarithm. The scaled root has integral log R+1/2+o(1), yielding each half-sector's ε[log(1/ε)/2+log sinℓ+1/2]. Jensen and the Taylor expansion of log sin give the stated gap. Equal arc angles give equal corner-cone angles by antipodality; the normal-angle pattern then repeats under rotation by 2π/m, so the body is regular up to congruence. The positive chord length is strictly concave in the offset on its support (it is a sum of lower envelopes of strictly concave circular-root branches), so nontrivial levels have zero line measure.",
+      "residual_risks": [
+        "The branch slack and strip constants depend on the fixed polygon. No assertion applies uniformly to flattening corners, disappearing arcs, or increasing m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Gates abstract addresses endpoint densities for planar convex sets and contrasts polygonal and smooth boundaries, but gives no Reuleaux coefficient. The DOI, JSTOR page and PDF routes did not yield lawful readable full text (landing/challenge or unavailable).",
+          "Nearby exact regular polygon laws are for straight-sided polygons, not circle-arc constant-width bodies."
+        ],
+        "reasoning": "The Gates abstract alone neither entails nor excludes this mixed corner–arc case. Straight sides do not give the paired linear and quadratic deficits of the studied width-one geometry.",
+        "searches": [
+          "Primary literature: Gates (1987), Some properties of chord length distributions, range-endpoint densities",
+          "Exact random chord distributions of regular polygons"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bbcd3963fc69, c7dc1d087471, 5e3a10e10baf, c91a8132dd83 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Gates (1987), DOI 10.2307/3214211, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In bbcd3963fc69 the exact local two-circle model is used on a truncated interior; endpoint strips of width O(√ε) are only bounded to O(ε).",
+          "The prior independent-endpoint regular odd-gon law has arclength normalization and coefficient involving log(2tan(π/(2n))); it has no irregular-family comparison."
+        ],
+        "reasoning": "The first proof leaves the boundary layer exactly large enough to affect the new linear coefficient and does not handle arbitrary arc lengths. Recovering the present coefficient requires retaining the singular layer for one sign while proving true geometric clipping is o(ε) for the other. Neither inspected theorem implies the log-sine shape functional or its optimizer.",
+        "searches": [
+          "Read bbcd3963fc69 proof §§2–4 and c7dc1d087471 Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "bbcd3963fc69 uses the identical invariant-line measure and proves the triangle leading term.",
+          "c7dc1d087471 and 5e3a10e10baf use independent arclength-uniform endpoints."
+        ],
+        "reasoning": "The first is genuine partial coverage. The latter endpoint measure is not the pushforward of uniform line measure: changing variables would require angle-dependent weighting of the endpoint pair. The reported marginal tail and limiting marks are not such a weighted second-order law.",
+        "searches": [
+          "Resultary: terminal invariant-line chord law and near-diameter Crofton tail of a Reuleaux polygon",
+          "Resultary: boundary-point chord laws versus invariant lines"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-measure triangle record has remainder O(ε), leaving precisely the order where the disputed coefficient lies.",
+          "The exact finite-threshold triangle law in 5e3a10e10baf is in the independent-boundary-endpoints model. Same-day c91a8132dd83 is second and fourth moments in that model on regular odd-gons, not a tail table."
+        ],
+        "reasoning": "Neither changes the exact priority assessment for the arbitrary-shape invariant-line coefficient. The identical frozen match, where returned, is not independent prior evidence.",
+        "searches": [
+          "Resultary: explicit second coefficient for Reuleaux triangle and general odd m invariant-line tail",
+          "Primary search for exact Reuleaux invariant chord laws"
+        ]
+      },
+      "rationale": "Credit the previous same-measure triangle leading asymptotic and its two-circle model. The supported distinct claim evaluates the shape-dependent next coefficient over general possibly irregular polygons and gives its angular extremal characterization. No inspected statement supplies that theorem. The specialist Gates paper remains a specific historical-priority risk, not positive coverage or evidence of absence.",
+      "residual_risks": [
+        "Gates (1987) full text was unavailable; a corresponding result in it or in unindexed work is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the triangle leading term and the model on the interior, not its linear term or the general theorem",
+          "evidence": [
+            "Leading coefficient 3/π; O(ε) contribution of discarded angular strips;"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-logarithmic-terminal-chord-law-for-the-reuleaux-triangle--bbcd3963fc69/RESULT.md",
+          "material_read": "Finding/Assumptions offset 0–1742 and proof §§2–4 offset 2350–5864",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "A logarithmic terminal chord law for the Reuleaux triangle",
+          "trigger": "Same measure and a known exact special-case leading term"
+        },
+        {
+          "assessment": "Different measure and regular polygons only",
+          "evidence": [
+            "X,Y independent arclength-uniform, regular odd n≥5."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-two-term-diameter-tails-and-logarithmic-endpoint-marks-for-regul--c7dc1d087471",
+          "material_read": "Finding and Assumptions, offset 0–1700",
+          "method": "Local mirror",
+          "title": "Two-term diameter tails and logarithmic endpoint marks for regular Reuleaux odd-gons",
+          "trigger": "Same shapes and two-term tail"
+        },
+        {
+          "assessment": "Exact but in a distinct probability model",
+          "evidence": [
+            "Uses the distance between two independently sampled boundary points."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-two-term-boundary-chord-law-and-logarithmic-endpoint-marks-for--5e3a10e10baf",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A two-term boundary chord law and logarithmic endpoint marks for the Reuleaux triangle",
+          "trigger": "Exact triangle chord distribution"
+        },
+        {
+          "assessment": "Plausible unresolved overlap, not ruled out",
+          "evidence": [
+            "Abstract concerns chord length densities at range extremes and distinguishes polygonal and smooth boundaries; no explicit two-term Reuleaux law in the accessible summary."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3214211",
+          "material_read": "Available abstract only; no readable full-text passages",
+          "method": "Primary lookup; lawful alternate DOI, JSTOR and PDF retrieval attempts",
+          "title": "Some Properties of Chord Length Distributions",
+          "trigger": "Plausible terminal asymptotics for planar convex bodies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof §§2–4, and same-measure triangle comparison"
+      ],
+      "rationale": "The first shape-sensitive term distinguishes constant-width bodies with identical Crofton normalization and the same number of arcs. It yields an exact local ordering and quadratic angular gap for a natural chord measure, beyond the known triangle logarithm. This is not a claim about the entire chord distribution or a uniform extremal result at one fixed deficit for all shapes.",
+      "residual_risks": [
+        "Pointwise asymptotic comparisons do not give a uniform threshold over degenerating competitors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

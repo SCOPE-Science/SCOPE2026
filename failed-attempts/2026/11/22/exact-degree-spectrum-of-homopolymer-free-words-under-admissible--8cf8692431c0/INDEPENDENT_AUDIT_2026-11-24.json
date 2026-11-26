@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:25:15.150381Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(9), checker.py, VERIFICATION.md",
+        "python3 /workspace/branches/reproduce_5.py (q=3 through n=8, q=4 through n=7, q=5 through n=6, all starting at n=3)"
+      ],
+      "rationale": "A swap changes exactly its two coordinates, so legal swap locations count distinct neighbors. With L=n−2 and Y_i indicating unequal second neighbors, the two end swaps contribute Y₁+Y_L, and each internal swap contributes Y_iY_{i+1}. Each profile of weight w lifts to q(q−1)(q−2)^w proper words, so profile indicators are independent Bernoulli(p) under the uniform word law. Weighting the initial and terminal bits and adjacent products yields (1), and the 2×2 resolvent gives (2). One zero kills at least two terms even for L=1, while the profiles 1^j0^{L−j} give all degrees 0≤j≤L−1; all ones give L+1. Zero degree forces zero ends and an independent interior set, giving the stated path recurrence. The only nonzero covariances involve overlapping products and endpoint/product pairs; for L=1 the same Bernoulli variable is counted twice, and for L=2 both distinct ends covary with the single product. The mean and variance formulas and handshake edge formula follow. Independent direct swap enumeration using set membership confirmed finite distributions, support, mean and variance.",
+      "residual_risks": [
+        "Finite enumeration corroborates, but the all-length assertions require the profile argument. No multi-swap or cyclic model is evaluated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact-overlap record includes q≥2,n≥2 and additionally a fixed-q Gaussian limit. Fuchs et al. define the same proper-coloring swaps and study path reachability, not the full degree distribution. Gabrys et al. address binary deletion/transposition coding rather than this graph invariant."
+        ],
+        "reasoning": "The earlier reconfiguration theory explains the graph choice without deciding the invariant. The distinct exact-spectrum record actually covers the entire domain of the assigned claim and more.",
+        "searches": [
+          "Resultary 4d7ccc34519c finding, scope and proof",
+          "Coloring Reconfiguration under Color Swapping, arXiv:2511.06473",
+          "Gabrys et al. arXiv:2112.09971 §1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4d7ccc34519c, 6f89836efb99, 70adcf8157b1, b743472fbcd0",
+        "arXiv:2511.06473",
+        "arXiv:2112.09971",
+        "DOI 10.1093/bib/bbac484 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reference starts its length series with H_{q,2}(t)/[q(q−1)]=t; removing this term gives the submitted series. Its local formula and all-profile lift counts imply the support gap: a zero indicator erases two terms, and a prefix of j ones with a zero tail realizes degree j. Its mean gives the submitted edge count by the handshake identity."
+        ],
+        "reasoning": "No uncovered quantitative remainder survives. Both records are indexed on the same date, and this comparison establishes coverage without asserting which appeared first.",
+        "searches": [
+          "Resultary 4d7ccc34519c proof §§1–4 and all-length series"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4d7ccc34519c defines proper colorings on an ordered path, swapping neighbors subject to properness. Its degree formula is Y₁+Y_L+ΣY_iY_{i+1}. Its order-(1,0) transfer matrix [[at,1],[a,1]] is conjugate by interchange of the states to [[1,a],[1,at]], with matching boundary vectors."
+        ],
+        "reasoning": "Reading the colors left-to-right is a bijection of the two graphs, preserving the swapped pair and all legal-output constraints. This is an exact reparameterization, not just a shared method.",
+        "searches": [
+          "Resultary: constrained adjacent-swap degree distribution; second-neighbor indicators and proper colorings of a path",
+          "Fuchs et al. arXiv:2511.06473 §§2.1, 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 4d7ccc34519c gives a complete coefficient formula, the identical isolate recurrence and maximum multiplicity, and identical mean and variance. In contrast, the other catalogue hits respectively count permutation-burst outputs, four-mer codebook sizes, and geometry of bounded-run fixed-weight binary swap graphs."
+        ],
+        "reasoning": "The complete polynomial is an exact all-length table, and the match is coefficientwise. The other comparators do not involve the same restricted-output degree.",
+        "searches": [
+          "Resultary: swap-degree spectrum and frozen proper path colorings",
+          "Resultary 4d7ccc34519c, 6f89836efb99, 70adcf8157b1, b743472fbcd0"
+        ]
+      },
+      "rationale": "Exact coverage by a distinct indexed result is established, not priority or direction of derivation. Resultary 4d7ccc34519c gives the very same graph, degree identity and transfer polynomial in a broader parameter range. Subtracting the n=2 term in the length series and relabeling states yields the assigned generating function. Explicit wording of the support gap and edge total does not recover originality: both are immediate from the matching profile identity and polynomial/mean.",
+      "residual_risks": [
+        "The indexed date does not establish priority. Incomplete access to the constrained-code article does not affect the demonstrated exact overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage on a wider domain; no priority established.",
+          "evidence": "Same distance-two indicators, legal-swap degree identity, enumerator after a swap of transfer states, and identical special counts and moments.",
+          "identifier_or_url": "Resultary 2026/11/22/4d7ccc34519c",
+          "material_read": "RESULT.md finding, assumptions, transfer proof, frozen and maximal counts, and moment statements (mirror offsets 0–5247 and 5240–9165; decisive transfer passage at offsets 750–5247)",
+          "method": "Resultary and local mirror; exact statement and matrix comparison.",
+          "title": "Exact swap-degree spectrum and frozen proper colorings of a path",
+          "trigger": "Direct exact invariant hit under proper path-coloring terminology"
+        },
+        {
+          "assessment": "Exact graph/reachability precedent, not the full degree census.",
+          "evidence": "The theorem is a linear-time algorithm for reachability in proper three-colorings of a path.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.06473",
+          "material_read": "§2.1, pp. 4–5 around offset 15000; §4.1, Theorem 8, pp. 17–18 around offset 60850",
+          "method": "Primary open-access PDF passage inspection.",
+          "title": "Coloring Reconfiguration under Color Swapping",
+          "trigger": "Same move under its graph reconfiguration name"
+        },
+        {
+          "assessment": "Different objective and alphabet constraints.",
+          "evidence": "Binary deletion/transposition code results do not count proper-output neighbors.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.09971",
+          "material_read": "§1.3, p. 3, near offset 11500",
+          "method": "Open-access passage inspection.",
+          "title": "Beyond Single-Deletion Correcting Codes: Substitutions and Transpositions",
+          "trigger": "Primary adjacent-transposition coding comparison"
+        },
+        {
+          "assessment": "Not used as a finding of noncoverage.",
+          "evidence": "Construction setting concerns composition and run constraints; the precise full-text scope was not independently established.",
+          "identifier_or_url": "https://doi.org/10.1093/bib/bbac484",
+          "material_read": "Bibliographic and accessible summary only, not the full text",
+          "method": "Lawful DOI/publisher and PMC/EPMC retrieval attempts.",
+          "title": "Multiple errors correction for position-limited DNA sequences with GC balance and no homopolymer for DNA-based data storage",
+          "trigger": "Neighboring constrained-code construction"
+        },
+        {
+          "assessment": "Materially different operations, restrictions or invariants.",
+          "evidence": "Arbitrary permutation bursts lack the proper-output restriction; the four-mer count optimizes a codebook; medianity concerns a binary fixed-weight graph.",
+          "identifier_or_url": "Resultary 6f89836efb99, 70adcf8157b1, b743472fbcd0",
+          "material_read": "Each RESULT.md finding at local mirror offset 0",
+          "method": "Resultary and local mirror comparison.",
+          "title": "Sharp sphere volumes and extremizers for one permutation burst; Exact one-adjacent-swap capacity of GC-balanced reverse-complement DNA four-mers; Median swap graphs for binary words with bounded monochromatic runs",
+          "trigger": "Close swap-count, codebook and graph invariants"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 4d7ccc34519c exact enumerator and local degree formula",
+        "Frozen equations (1)–(7)"
+      ],
+      "rationale": "The legal-swap degree distribution is a natural invariant of a proper-coloring path, but this submission adds no substantive scientific information beyond the broader exact result. The stated support and edge count are direct consequences of the already evaluated same invariant, not a distinct classification or consequence needing new work.",
+      "residual_risks": [
+        "This is a coverage-based decision about the submitted contribution, not a judgment that the underlying invariant is uninteresting."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

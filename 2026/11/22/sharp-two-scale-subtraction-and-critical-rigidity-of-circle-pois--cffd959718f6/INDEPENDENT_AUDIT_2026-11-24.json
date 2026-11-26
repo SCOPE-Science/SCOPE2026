@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:26:08.339660Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the weighted Fourier Gram form and the converse by density: an orthogonal vector gives an absolutely convergent Fourier series vanishing at all angles. The band matrix is positive by a squared-norm factorization, bounded for s<=r and compact for s<r. For omitted diagonal rows the weights are (1+s²)(s/r)^(|n|-1)/(4r); omitted step-two bonds have midpoint absolute index at least N and weight at most (s/r)^N/4. The symmetric row-sum bound gives the claimed compression error. A nonnegative compact top vector and strictly increasing diagonal entries give strict monotonicity, including comparison with the endpoint. At s=0 the matrix has the stated rank one. Near zero the odd block is analytic in s² in operator norm and its isolated maximum has first correction s²/(4r); the even block has norm O_r(s). At equal scales the odd block is the constant Jacobi chain with one strengthened bond. The positive part of this bond perturbation has rank one, so at most one spectral direction lies above the free upper edge; the even block lies below that edge by its row sums. The displayed geometric odd eigenvector is normalized and has eigenvalue (r+r^-1)/2, yielding the stated gap. Its unweighted Fourier sequence is constant on odd indices, so summing the two even-index geometric series gives the Rayleigh deficit (r²-s²)/(r(1-s²)). Applied to this localized vector, the band difference is O_r(r-s) in norm by |1-(s/r)^m|<=m(1-s/r). Order W_(r,s)<=W_(r,r) preserves the complement gap, so eliminating the complement corrects the Rayleigh value by only O_r((r-s)²). Reciprocal expansion gives the claimed coefficient. For s<r, a critical zero Gram vector would force the bounded atomic Fourier sequence to decay by the displayed eigen-equation; Cesàro mean squares rule this out for nonzero coefficients at distinct sites. At equal scales, the simple eigendirection unweights to the coefficients of delta_0-delta_pi, and Fourier uniqueness gives exactly the stated nullspace. The supplementary Python script was read, not run; it does not certify floating-point eigenvalues or replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "969b187a914f concerns a harmonic mask on a positive Poisson mixture and reopening at its critical cutoff. 4e0d440866a1 treats two isotropic geodesic exponential scales on the two-sphere through diagonal Legendre coefficients. The frozen record cites nonradial Fourier/harmonic criteria as background."
+        ],
+        "reasoning": "Masking the same positive mixture in both terms does not compare an unmodulated scale to a separately modulated smaller one. The isotropic two-sphere comparison is diagonal in harmonic degree and does not compute the off-diagonal Jacobi norm. General positivity tests give a framework, not the spectral-gap and finite-site analysis.",
+        "searches": [
+          "Resultary: universal harmonic positivity cutoff and spectral reopening for positive Poisson scale mixtures, and exact two-scale exponential covariance domination on the two-sphere",
+          "Buhmann–Jäger arXiv:2105.02586; Jäger arXiv:2005.02798; Blake–Porcu–Hammerling DOI 10.1002/sta4.468"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 0f4219b7a6a9, 915cfd80bf34, 969b187a914f, 4e0d440866a1 and 2dc7842600c0 (indexed scientific statements)",
+        "arXiv:2105.02586, arXiv:2005.02798 and DOI 10.1002/sta4.468 (identified; targeted primary passage attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common-scale mask identity accounts for the overlapping model at s=r. The interior compact operator instead has geometric tails (s/r)^|n|; its critical nullspace test uses decay of an atomic Fourier sequence, and the approach law uses a localized equal-scale eigenvector with a positive gap."
+        ],
+        "reasoning": "A sharp value on the common-scale slice does not determine an inward derivative or rule out interior finite-site singularity. Similarly an exact universal mixture cutoff or a general Fourier positivity equivalence supplies neither assertion without the distinct-scale spectral argument. The elementary rank-one s=0 observation is not the basis for the originality pass.",
+        "searches": [
+          "0f4219b7a6a9 and 915cfd80bf34 scope compared with RESULT.md:41–81",
+          "969b187a914f scale-mixture critical spectral reopening compared with the signed subtraction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0f4219b7a6a9 gives P_r(x-y)[1+epsilon cos(k(x+y))], with |epsilon|<=2r^k/(1+r^(2k)) and regular 2k-gon boundary singular configurations. 915cfd80bf34 describes a common-scale covariance with both sum- and separation-angle cosine masks.",
+          "Product-to-sum gives a common-scale two-mask expression at s=r; for s<r the sum-angle term has profile P_s but the stationary term is P_r-(gamma/2)cos(x-y)P_s."
+        ],
+        "reasoning": "The equal-scale mixed mask is a genuine possible containment, excluded from the novelty claim. For s<r and nonzero gamma the stationary term cannot be a multiple of P_s, since its high separation frequencies decay at r rather than at s; thus factoring out one common Poisson profile cannot recast this as the single-scale harmonic-modulation theorem.",
+        "searches": [
+          "Resultary: sharp harmonic-modulation cutoff and polygonal singularities for circle Poisson covariances, mixed circular Poisson modulation cone, and two-scale axial cosine subtraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact neighboring published cutoff 0f4219b7a6a9 indexes the modulation harmonic k and a single scale. 915cfd80bf34 reports a cone for common-scale sum/separation masks, and 2dc7842600c0 addresses signed cosine masks and Fourier-knot tests."
+        ],
+        "reasoning": "These are concrete exact classifications, not mere title matches, but none of the inspected distinct entries specifies the two-scale (r,s) compression error, both endpoint laws and finite-site strictness for this boundary. No claim is made about unseen full-text tables.",
+        "searches": [
+          "Resultary: sharp cutoff for two-scale circle Poisson cos(x)cos(y) signed covariance subtraction; spectral reopening and signed periodic Poisson positivity cones"
+        ]
+      },
+      "rationale": "Limited to the distinct-scale frontier, its two certified limiting expansions and the critical strictness for s<r. Neither Fourier covariance criteria nor the equal-scale endpoint are claimed as original. The closest catalogued scalar modulations and positive scale-mixture results do not give the stated signed subtraction between different scales; the available statements were compared by their actual harmonic structure. Full-text formula-level overlap remains a named bibliographic risk, not evidence of absence.",
+      "residual_risks": [
+        "Exact equal-scale theorem containment in 915cfd80bf34 was not checked against its full text; that slice is not credited as distinct.",
+        "A more general two-scale covariance domination result in inaccessible or unindexed literature could imply the distinct-scale classification; the cited harmonic papers and 2022 nonstationary paper were not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant single-scale endpoint context, not the distinct-scale family",
+          "evidence": [
+            "Single P_r profile and sum-angle harmonic; cutoff 2r^k/(1+r^(2k)) and polygonal critical geometry."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9",
+          "material_read": "Indexed scientific summary and RESULT.md:87 comparison; targeted mirror retrieval did not supply full text",
+          "method": "Resultary and targeted local-mirror passage lookup",
+          "title": "Sharp harmonic-modulation cutoff and polygonal singularities for circle Poisson covariances",
+          "trigger": "Sharp same-circle Poisson cutoff and explicit critical singularity"
+        },
+        {
+          "assessment": "Potential exact containment of equal-scale slice; full theorem details unresolved, no priority inferred",
+          "evidence": [
+            "Exact common-scale three-parameter cone with two Jacobi spectral obstructions for separation- and sum-angle masks."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-two-obstruction-cone-for-mixed-circular-poisson-covariance-m--915cfd80bf34",
+          "material_read": "Indexed scientific summary; full catalog source not retrieved",
+          "method": "Resultary and mathematical reduction",
+          "title": "The two-obstruction cone for mixed circular Poisson covariance modulations",
+          "trigger": "Both modulations arise from product-to-sum at equal scales"
+        },
+        {
+          "assessment": "Related but different modulation of a positive mixture",
+          "evidence": [
+            "Positive Poisson mixtures with signed harmonic modulation and scale-mixture reopening at the critical cutoff."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-harmonic-positivity-cutoff-and-spectral-reopening-fo--969b187a914f",
+          "material_read": "Indexed scientific summary",
+          "method": "Resultary statement comparison",
+          "title": "A universal harmonic positivity cutoff and spectral reopening for Poisson scale mixtures",
+          "trigger": "Multiple scales and changes to critical spectral modes"
+        },
+        {
+          "assessment": "Background credited; no whole-document absence finding",
+          "evidence": [
+            "Frozen record differentiates Fourier and nonradial harmonic frameworks from its specific two-scale frontier and reports only abstract-level access to the 2022 paper."
+          ],
+          "identifier_or_url": "arXiv:2105.02586; arXiv:2005.02798; DOI 10.1002/sta4.468",
+          "material_read": "Frozen descriptions at RESULT.md:87,93–97; original passages not delivered by targeted lookups",
+          "method": "Targeted lawful OA identifier and accessible-copy attempts",
+          "title": "Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres; Strictly positive definite kernels on the 2-sphere: beyond radial symmetry; Parametric nonstationary covariance functions on spheres",
+          "trigger": "General Fourier positivity, axial harmonic blocks and nonstationary covariance construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a usable sharp signed-subtraction boundary with an analytic finite-section error bound, not just a necessary Gram test. The endpoint laws and the strictness change show why distinct scales behave differently despite approaching the same threshold. Those are naturally motivated covariance and spectral questions, independent of priority for the equal-scale endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

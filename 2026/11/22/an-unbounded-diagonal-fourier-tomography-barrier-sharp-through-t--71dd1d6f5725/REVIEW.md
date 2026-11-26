@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The lower bound follows for every \(n\ge4\) from an explicit \(\lfloor(n-2)/2\rfloor\)-dimensional cube of commuting triangulation flips; the alternating signed sum annihilates every lower-degree diagonal monomial. The two parity classes give actual positive probability distributions, not merely a formal linear dependence. The exact upper bounds for \(4\le n\le10\) are proved by explicit exhaustive finite matrices: two independent enumeration paths and two independently organized mod-two elimination routines give full row rank. Full rank modulo two certifies a nonzero integer determinant and therefore full rank over the reals. The Boolean monomial and Walsh evaluation spans agree over the reals. Both packaged Python verifiers were executed successfully. The all-size upper bound is not proved and not claimed.
+PASS
 
-## Originality
+The affine conversion x_e=(1-χ_e)/2 gives equality of the real degree filtrations. In the fan at 0, the diagonal (0,2j) separates the two triangles in the quadrilateral with cyclic vertices (0,2j-1,2j,2j+1); the r=floor((n-2)/2) such quadrilaterals have disjoint interiors. Simultaneous independent flips therefore give 2^r distinct valid triangulations, with each indicator depending on at most one flip bit. A monomial of degree <r omits a bit, so its alternating sum cancels by pairing that bit. The uniform parity measures differ on the event that all replacement diagonals occur, since exactly one bit pattern qualifies. For finite sharpness I independently generated size-(n−3) compatible subsets by the alternating-endpoint crossing test and retained all size-≤r compatible subsets as features; no use of the frozen recursion or flip traversal. Exact row elimination modulo 3 gave (rows,features,rank) for n=4,…,10 equal to (2,3,2), (5,6,5), (14,31,14), (42,71,42), (132,441,132), (429,1078,429), (1430,7351,1430). Replay: python3 -I independent_polygon_rank.py from the review workspace root; equivalently recursively take each next higher-ordered diagonal from those compatible with all previously taken, set the row entries for the subsets of that triangulation, and eliminate over F_3. The row counts agree with Catalan enumeration, and full rank over F_3 certifies a nonzero integral minor, hence full real row rank. This does not assert that intermediate modular ranks equal the real ones. Full rank gives unique measures. More generally a nonzero real left-kernel vector sums to zero since the empty monomial is present; normalizing its positive and negative parts gives two equal-data measures. The explicit parity vector specifically certifies degrees <r, not possible larger deficient degrees for n>10. No general equality for n≥11 is needed or established.
 
-**PASS under bounded comparison.** The most directly relevant prior full texts are Devadoss et al. (arXiv:0903.2848) for the associahedral structure, Dochtermann (arXiv:1503.06243) for its face ring and face enumerations, and de Loera et al. (DOI 10.4171/DM/4) for the affine span of a different triangulation-incidence embedding. Their inspected theorems do not state or imply the minimum degree needed to identify arbitrary probability distributions from *joint diagonal observations*: the face counts are not ranks of the face/facet incidence matrix, and affine-span results do not determine its higher interaction-degree saturation. Searches also considered equivalent phrases such as face–facet incidence rank and Boolean Fourier interpolation. The remaining risk is an unindexed historical description of the same higher-incidence ranks or a general theorem from which the finite cutoffs follow.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The first cases of a natural, nonparametric inverse problem are resolved, including a growing all-size information-theoretic lower bound and exact sharpness in dimensions reaching 1,430 triangulations. The obstruction is structurally motivated by independent local flips and provides explicit observationally identical probability measures. The upper bound requires a substantive full-rank verification, not just Catalan counting or one-feature discrimination. These values calibrate the number of simultaneous diagonal questions required for arbitrary-mixture recovery on associahedra; the open larger-polygon upper bound is a meaningful next question.
+The result concerns the saturation degree of the finite Boolean evaluation ring of triangulations in the labelled diagonal coordinates. Structural associahedron results, compatible-face counts, full Walsh transforms in the same coordinates, and filtered ranks in a different Catalan encoding do not cover the actual degree cutoff. The lower bound uses a specific independent-flip family, and the finite cutoffs are genuine exact ranks rather than face counts.
 
-## Limitations and comparison risk
+## value
 
-Only \(4\le n\le10\) have proved matching upper bounds; conditioning and all intermediate real ranks are not calculated. The closest full texts were compared by the actual mathematical objects and conclusions, but indexing and historical-priority searches cannot prove global uniqueness. No independent human or external mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum joint observation degree is a natural invariant for exact recovery of arbitrary mixtures on a standard combinatorial family. The independent-flip construction supplies explicit indistinguishable probability laws for a degree growing linearly with n; the exhaustive calculation settles the matching threshold through the nontrivial 1430-state case. It is not an enumeration of triangulations, a single-state identification algorithm, or a noise-conditioning claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

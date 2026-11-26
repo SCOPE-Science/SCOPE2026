@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric proof derives the two complement shapes from 3-line concurrency, proves every trace on a four-arc using secants/tangents/external lines, shatters collinear and noncollinear triples, excludes any four-set containing a collinear triple by the all-zero trace, and excludes five-sets using the maximum arc size. All 8192 supports and all 286 hypotheses were independently enumerated in coordinate and cyclic incidence models; outputs matched exact face and facet counts. The finite census corroborates, but does not replace, the combinatorial proof.
+PASS
 
-## Originality — PASS
+A concurrent triple of lines leaves the other three points of the fourth line through the concurrency point. A nonconcurrent triple leaves a four-arc: a collinear triple in the complement would force the three hypothesis lines to meet its carrier at the fourth point. Conversely, each collinear triple determines its three concurrent lines, and each arc has exactly 13−6−4=3 exterior lines whose union covers its entire nine-point complement. These complements are an antichain and every shattered set must be contained in one, by the empty trace. Each maximal candidate is itself shattered: for an arc, its secants and tangents realize traces by at most two lines and can be padded with distinct exterior lines; for a collinear triple, use separate off-carrier lines for proper nonempty traces and the carrier for the full trace, padding by unused lines through the fourth point. All noncollinear triples extend by choosing a point off their three secants; all smaller sets extend to triples. The 715 four-sets include exactly 13·(4·9+1)=481 nonarcs, counted uniquely by their carrier, hence 234 arcs. Independently built the plane from a 3×3 affine grid and its four ideal points, exhausted all 8192 supports for each of the exact-two and exact-three families, and verified the complement–facet bijection. Exact two has 702 shattered four-sets (every four-set except a whole line), and no larger ones. Here ‘noncollinear four-set’ means not wholly collinear, not no collinear triple. Frozen scripts and logs were inspected but not executed.
 
-A 2018 halfspace-union paper and a 2025 real-line-union primary text do not imply the exact-three-distinct-line ternary-projective trace classification. A particularly close existing order-three finite projective two-line classification has different concepts and explicitly leaves three or more lines outside its scope. Literal, alias, parameter, and implied-statement queries found no stronger triple-line coverage; prior literature may be unindexed or use different language. Known four-arc counts alone do not state the Boolean shattering characterization or complement-to-facet duality.
+## originality
 
-## Value — PASS
+PASS
 
-Determines the entire shattering complex of a canonical 13-point finite incidence geometry, including nonpure facet types and a bijection with complements of all 286 concepts. It exhibits a structural obstruction: a collinear triple is shattered but cannot be extended by any fourth point, while all noncollinear triples extend to four-arcs. All-degree exact counts and a sharp 702-to-234 reduction in shattered four-sets when comparing exact two versus three distinct-line hypotheses give substantive information beyond VC dimension.
+Pass for the exact-three-distinct-line support classification and nonpure complement–facet duality, not for the standard projective arc and collinear-triple counts. The 702 four-set number is shared with nearby older or same-day families and not the basis for originality.
 
-## Limitations and closest literature
+## value
 
-The closest result is a finite-plane two-projective-line shattering theorem; the concept family here requires exactly three distinct lines. Primary broad bounds (Csikós–Kupavskii–Mustafa, 2018) and exact real-line-union classifications (Eleftheriou–Papadopoulos–Westhead, 2025) are not equivalent. Finite-field historical priority is not exhaustive, especially for projective incidence code tables. The theorem does not address adaptive shattering.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact static shattering complex distinguishes two maximal support geometries in a canonical finite plane. The complement bijection is a useful explicit structural description of the concepts as well as of the traces, and the lost 468 four-faces demonstrate that exact distinct-line budgets can alter the support complex even without changing VC dimension. This is more than a recomputation of arc counts or a dimension bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

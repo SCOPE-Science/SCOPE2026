@@ -1,15 +1,21 @@
-# Review of root-branch imbalance moments
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is for every fixed positive integer order in the continuous-time root-clock embedding initialized immediately after the first doubling. The proof explicitly verifies the mass generator and a triangular positive moment hierarchy, conditions on the last rate-one Poisson root reset, decomposes each branch into independent Yule families, and bounds non-pairing moment partitions. Strict exponent inequalities justify neglect of all remainder terms, and dominated convergence gives the beta integral. Exact generator checks through order six provide a separate finite diagnostic, not an infinite proof. The initialization and clock rates matter; discrete-step asymptotics are not asserted.
+PASS
 
-## Originality: PASS under inspected evidence
+The process is nonexplosive: the root rings finitely often on each finite interval, and growth between rings is Yule. Polynomial moments and the generator identities are justified by localization using the bound G(1+S^k) ≤ const_k(1+S^k) in each order and a higher moment for uniform integrability. The total-mass generator has diagonal λ_r=r+2^r−1, strictly larger than every lower-order diagonal; its lower coefficients are nonnegative, giving a finite positive leading coefficient. At a root ring the common daughter size is S_{s−}+1. The frozen last-ring identity uses Poisson intensity at s and the independent future no-ring event; the pre-event size has the unconditioned law at deterministic s by the Poisson compensator, not by independence of total size from past rings. The centered Yule family expansion has pairing coefficient (2r−1)!![2e^u(e^u−1)]^r, with uniform error of order (1+N^(r−1))e^(2ru). The no-ring and error exponents are strictly smaller even at r=1. Substitution e^(−u) gives the displayed beta integral. As another check, in the generator grading w=a+m of S^a Δ^(2m), the band w=r for m≥1 has diagonal r+m−1 and coupling binom(2m,2) to m−1; all other terms have lower weight. The normalized leading coefficient is therefore the product of binom(2m,2)/(2^r−m) for m=1,…,r, agreeing with the beta formula. The low-order generator yields E[S]=3e^(2t)−1, E[S²]=12e^(5t)−9e^(2t)+1, C_3=264/5, and E[Δ²]=3e^(2t)−4e^t+1; these and the ratios give the other stated examples.
 
-The closest primary source is Björnberg and Mailler, *A random recursive tree model with doubling events* (arXiv:2501.18466, first public 2025-01-30). Its full accessible manuscript covers total-size moments at discrete times, degree and height statistics, and continuous-time Yule embedding, but not this root-daughter even-moment ratio. The accessible summary of *Exact Poisson-tilted leaf imbalance in a random tree with root doublings* treats global leaf imbalance, not daughter-subtree mass difference; the related root-doubling tree-size weak-limit records concern total mass alone. General Yule theory supplies a conditional distribution but does not itself supply the common-reset beta coefficient. Residual risk: a stronger general correlated-branch/reset-process moment theorem or unseen expanded text could subsume the claim. Lack of a match is not proof of novelty.
+## originality
 
-## Value: PASS
+PASS
 
-Root doublings enforce exact symmetry of the two daughter populations at each reset. The first-order total-size results do not quantify how that symmetry breaks between resets. The all-order ratio and explicit exponentially increasing moment exponents classify a natural fluctuation invariant of the original growth mechanism, including a non-Gaussian third-order change from the first two equal ratios. These facts aid analysis of large deviations and moment intermittency in coupled growth-and-duplication systems without asserting a distributional limit.
+The supported distinction is the fixed-order whole-daughter difference moment relative to total-mass moments, in continuous physical time. Neither the primary model paper's normalized total-size results nor the nearest indexed leaf-imbalance transform gives this ratio or its annealed daughter-moment exponent. No independent equivalent statement was identified in the bounded comparisons.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The whole-branch difference is a natural contrast erased exactly at each root duplication. Its growth despite those repeated equalizations distinguishes typical symmetry from annealed high-order behavior. The explicit ratio to total-size moments gives a useful benchmark beyond total-size growth and variance alone: the exponents are shared while the constants differ strongly across moment orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

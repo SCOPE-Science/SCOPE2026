@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:50:55.289241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the collision classification for exactly two deleted positions, quotienting by rotations only. Each represented deletion creates at most two shortcut edges, so two equal circular outputs aligned at any rotation have at least 2^n−4n+2 common untouched length-n windows for n≥4. Unique occurrence of any such source factor gives a common retained anchor. Cut immediately before this anchor: the two masks now embed the same linear output into the same linear source. Every embedding can be moved to the leftmost greedy embedding by replacing each matched position in order by its earliest available equal symbol, keeping the anchor. Any such position change crosses at most two gaps, because all intervening unmatched sites plus the replacement site were deleted and only two sites are deleted. At distance one, or distance two with all symbols equal, the run choice is unchanged. At distance two with different middle symbol, the middle position is a deleted singleton and the deleted endpoint changes between its adjacent opposite-color runs. This proves necessity of the local moves even with consecutive deletions or two disappearing runs; each move visibly preserves the output. Each color has m=N/4 runs and s=N/8 singleton runs from the counts of 01/10 and 010/101, respectively. Thus same-color choices give binom(m,2)+(m−s)=m²/2. The mixed-choice graph has m² vertices and precisely 2s edges, a proper subgraph of the cycle of adjacent opposite-color pairs (there is a non-singleton run), with nonadjacent choices isolated. It is a forest, so exactly m²−m mixed outputs. Different compositions cannot collide because their output weights differ. The independent boundary replay `python3 /workspace/branches/independent_necklace_boundary.py` enumerated all 256 literal length-eight words, found exactly the two necklace representatives 00010111 and 00011101 satisfying the order-three condition, and yielded (2,2,2) in both cases. The supplied verification source was read, not executed; its order-six census is only a sample. The proof does not extrapolate from any census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sloane–Rains Thm. 5.1 counts binom(r(u)+1,2)−δ descendants of a linear word, with δ given by weights of derived words; Def. 1.1 defines deletion of vector components.",
+          "The inspected deletion-channel multiple-traces paper arXiv:1905.08197 uses linear input and traces; a cyclic-code lead was inaccessible."
+        ],
+        "reasoning": "Arbitrary inputs are broader in the linear model, but the equivalence relation differs. The linear formula cannot detect rotations between different masks of a cyclic source. The accessible search evidence does not establish a stronger circular theorem.",
+        "searches": [
+          "arXiv:math/0207197v1 §1 and §5",
+          "Primary literature lookup for general circular deletion balls / necklace two-deletion descendant cardinality"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0207197v1",
+        "2026/10/26/SCOPE-exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8",
+        "arXiv:1905.08197 (abstract/introduction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every one-run in the elongated-run inputs is a singleton; a de Bruijn input has the unique length-n all-ones factor, hence a one-run of length n≥3.",
+          "The linear descendant count is a total, not a within-composition circular quotient, and does not supply a common source anchor."
+        ],
+        "reasoning": "Neither comparator can be specialized to derive the proposed composition law; the unique-factor synchronization and mixed-run collision count address what is missing.",
+        "searches": [
+          "arXiv:math/0207197v1 Thm. 5.1",
+          "2026/10/26/SCOPE-exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8, Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elongated-run RESULT.md, Finding and Assumptions and scope: two distinct deleted positions, rotation-only quotient, composition indexed by the number of deleted ones."
+        ],
+        "reasoning": "Deleted-ones indexing is equivalent to the ordered composition triple, so this is a genuine same-operation match, not merely a shared term; its allowed inputs, however, differ.",
+        "searches": [
+          "Resultary: binary de Bruijn necklace two-position deletions cyclic rotation composition-resolved shadow counts (rate-limited)",
+          "2026/10/26/SCOPE-exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved Finding has exact counts on W=0^a(10)^(k−1)1, e.g. T0=1+binom(k,2) and T2=binom(k−1,2)−1_{a=3} floor((k−3)/2), rather than the order-indexed de Bruijn spectrum."
+        ],
+        "reasoning": "This explicit indexed formula is the strongest exact-count match verified; it has no entries covering the required de Bruijn inputs. Rate limiting is not negative search evidence.",
+        "searches": [
+          "Resultary: general cyclic two-deletion necklace shadow theorem distinct deletion descendants (rate-limited)",
+          "2026/10/26/SCOPE-exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8/RESULT.md"
+        ]
+      },
+      "rationale": "The strongest retrieved same-operation comparator gives the complete composition-resolved invariant on a disjoint elongated-run family. The general linear Sloane–Rains theorem does not settle cyclic alignment or composition, and no inspected broader circular result implies this de Bruijn theorem. This is a best-of-knowledge assessment, not a global priority claim.",
+      "residual_risks": [
+        "The general Resultary lookup was incomplete; exact known-match comparison was made from the retrieved mirror record.",
+        "The inaccessible cyclic-code lead and unindexed general circular deletion enumerations could contain further relevant statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader linear domain; does not cover cyclic composition spectrum in inspected theorem",
+          "evidence": [
+            "Descendants are vectors with positions removed; the formula counts such distinct vectors, with no rotation quotient."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+          "material_read": "Definition 1.1 and §5 Theorem 5.1, HTML offsets around 1250 and 30000–31100",
+          "method": "Read primary passages and compared equivalence relations",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "General prior two-deletion exact descendant count"
+        },
+        {
+          "assessment": "Same output equivalence and refinement; disjoint specialized input family",
+          "evidence": [
+            "The source is 0^a(10)^(k−1)1 with a,k≥3 and all runs other than the distinguished zero-run are singletons; its output formulas depend on a and k."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Retrieved exact record from the local mirror and compared input run structures",
+          "title": "Exact two-deletion circular traces for a single elongated run",
+          "trigger": "Exact two-deletion circular formulas and identical composition parameter"
+        },
+        {
+          "assessment": "Unresolved; not used to exclude coverage",
+          "evidence": [
+            "No statement-level evidence recovered from this lead."
+          ],
+          "identifier_or_url": "Primary-literature lead by exact title",
+          "material_read": "Search identification only; full text not read",
+          "method": "Tried accessible lead, returned 403",
+          "title": "Correcting Deletions Using Linear and Cyclic Codes",
+          "trigger": "Possibly relevant cyclic deletion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cyclic de Bruijn sequences are a canonical complete-factor family, and the number of distinguishable two-deletion outputs is a natural circular-channel invariant. Its exact independence of the cycle, even after composition refinement, is informative: the collision count is not deducible just by knowing the number of deletion masks or the single-deletion spectrum. The common-factor anchor and local singleton-move forest explain why the invariant survives both local run coalescence and rotation ambiguities. No claim is made about deletion probabilities or more than two deletions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

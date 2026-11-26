@@ -1,19 +1,21 @@
-# Scientific review: exact odd area of seven disks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unit-disk centers match the three vertices and three edge-midpoints of the original side-\(1/2\) equilateral triangle, plus its centroid. Green's formula for the odd-multiplicity boundary is applied to all seven circles, with circle intersections ordered exactly and parity signs independently checked on the initial arcs. Three symmetry-class integrals give the claimed identity. A standard-library checker rigorously encloses all irrational quantities using integer-square-root bounds and alternating or positive Taylor series. It verifies a strict rational inequality \(\operatorname{OA}<\pi-67/2000\), and independent polar quadrature agrees. The perturbation inequality follows by bounding each disk's translation symmetric difference by four times its translation length. Finite quadrature is not substituted for proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For almost every point of a disk circumference the other disks have constant parity locally. Its arc is positively oriented for the odd region exactly when that parity is even. Green's theorem then gives the signed boundary formula. Independently computed all 84 ordered events and the exact coefficients by taking the vector cross product in the Green primitive, rather than expanding the individual trigonometric functions. In coordinates (X√3/24,Y/8), let D=(m√3/24,n/8) be the center displacement, s=m²+3n², and β=±1 indicate the two crossings. The angle is wπ/6−β asin(√(s/768)), with w chosen by the heading and the full-turn lift. At this event the cross-product contribution to the primitive is (Xn−Ym)√3/384+β(Xm+3Yn)√((768−s)s)/(384s). Initial coverage by the other disk is equivalent to m>0 and s²<768m². Summing the signed primitives reproduces the exact identity. An independent fixed-point interval check yields (-36834745203,-36834742557)/1099511627776 for OA−π, wholly inside the claimed rational bracket. Parallel slicing of disk translates gives symmetric difference at most 4||h||, even for large h, and XOR changes only on the union of the symmetric differences. Combined with the strict margin, this proves the stated aggregate displacement guarantee, with no dependence assumptions on the translations.
 
-Steinerberger (2026, arXiv:2606.08337) supplies the seven-center configuration and the numerical report \(\operatorname{OA}\sim3.108\); it explicitly says that an exact expression could presumably be computed, but does not display one. Neither the center-concyclic theorem of Carmel–Pinchasi (2023) nor the translate-of-two-squares result of Oren–Pak–Pinchasi (2016) entails this exact seven-disk evaluation. The related first-variation results of Pinchasi (2023) also do not, from the accessible statements, provide the formula. Searches for the exact decimal, radicals and canonical configuration produced no competing explicit expression; this is evidence of difference, not proof of historical uniqueness. The 2023 Pinchasi full article was not accessible and leaves a limited residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The seven-circle example is the first small explicit unit-disk obstruction to a previously prominent geometric inequality. An exact closed value and rigorous rational margin replace its approximate numerical benchmark, make the strict inequality independently reproducible without spatial sampling, and give a quantitative open neighborhood of counterexamples. This is a motivated exact geometric measurement, not a reproof of the already published existence claim, and is useful as a benchmark for odd-area computation and optimization. The result is deliberately local to that canonical configuration.
+The equilateral triangle construction and sub-π conclusion are due to Steinerberger. Pass only the explicit exact evaluation and its quantitative certificate and stability refinement, not the witness or qualitative continuity. The closest indexed exact match is the same record, not independent prior coverage.
 
-## Limitations
+## value
 
-No global optimality, minimal disk count, optimal translation radius or universal small-area asymptotic is established. A separate independent mathematical audit is required to assess historic priority and proof reliability beyond the recorded self-review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This pre-existing counterexample to a natural parity-area bound is a motivated nonarbitrary benchmark. Its exact value and rigorous gap quantify the example and give a usable guarantee against independent geometric perturbations. The explicit arrangement arithmetic is not supplied by a general Green theorem or by the approximate published value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

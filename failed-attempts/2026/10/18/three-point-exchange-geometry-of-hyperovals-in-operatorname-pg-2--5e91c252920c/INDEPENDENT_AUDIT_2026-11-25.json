@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:12:11.976031Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The states are six-subsets of the fixed plane, with no quotient by projective automorphisms. Testing every line is equivalent to testing absence of collinear triples. An independent implementation tested all 54,264 candidates, found exactly 168 states, and reproduced the certified SHA-256 02ec2a9578cdf81b7773f1feeda922c745a0e539c8dbce7a8f76e91cd61d3694. It exhausted all 14,028 pairs: overlaps 0 through 3 occurred 840, 6048, 3780 and 3360 times, with the respective common-neighbour counts 4,5,16,11, and overlaps 4 and 5 never occurred. Noncomplete 40-regularity and positive common-neighbour counts for every nonedge give eccentricity two for every vertex; three is the first feasible replacement size. The parity classes have size 56 and cross-degrees 20. The independent integer matrix check reproduced the annihilating polynomial and traces 168,0,6720,73920,3346560. Symmetry and the distinct roots make the multiplicities uniquely determined by the five traces; 3360*11/3 gives 12320 triangles. Replay: /workspace/branches/2cee3254-5d1e-4a11-8d8f-e49be98c7391/independent_check.py and independent_result.json. The frozen verification scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Witt S(5,8,24) construction with fixed three distinguished points realizes the three 56-block classes as hyperovals. Even overlap is the within-class relation.",
+          "Devillers identifies the 56-state PSL(3,4) orbit and within-orbit overlap subdegrees 10 and 45.",
+          "The M22 graph in §10.27 instead has 77 vertices, the blocks of S(3,6,22), and adjacency by disjointness."
+        ],
+        "reasoning": "The Witt construction gives an equivalent labelled incidence object; the well-known 77-vertex graph is not this exchange graph. Association-scheme intersection numbers for the correct relation could supply the needed triple counts, but the inspected primary passages do not state those numbers.",
+        "searches": [
+          "Brouwer–Van Maldeghem, Strongly Regular Graphs §§6.2 and 10.27",
+          "Devillers, DOI 10.2140/iig.2005.2.129, §3.10",
+          "Bruen–McQuillan, DOI 10.1006/ffta.2000.0294"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–39, VERIFICATION.md, verify_direct.py and verify_quadrangles.py",
+        "Resultary record 3d506c83b9c0",
+        "Brouwer–Van Maldeghem §§6.2 and 10.27",
+        "Devillers §3.10",
+        "Bruen–McQuillan DOI 10.1006/ffta.2000.0294 (abstract scope)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let P be the hyperoval-by-point incidence matrix, M=PP^t, E the same-class all-ones blocks, J the full all-ones matrix, and A the adjacency matrix. Table entries (including diagonal degree) give A^2+6A=6M-J+5E entry by entry.",
+          "Each class is invariant under PSL(3,4), which acts 2-transitively on points (map ordered independent representatives and adjust determinant on a third basis vector). Thus each class has point replication 16 and pair replication 4. In total P^tP=36I+12J. The right-hand side of the matrix identity has eigenspaces: constants (1840), class contrasts of dimension 2 (280), zero-sum point indicators of dimension 20 (216), and their orthogonal complement of dimension 145 (0).",
+          "A preserves these spaces. On the class quotient zero within-class entries, symmetry and equal row sums 40 force all cross entries 20, giving -20 on contrasts. On point indicators the possible roots are 12 and -18; tr(AM)=3*168*40=20160, of which 288*40 comes from constants, so the trace on the 20-dimensional space is 240. Every such eigenvalue must be 12. The remaining roots are 0 and -6, and tr(A)=0 forces multiplicities 105 and 40. The triangles are 3360*11/3."
+        ],
+        "reasoning": "This derives the nominal spectral remainder directly from the already supplied table and classical classes without a new graph enumeration or spectral calculation. The threshold/diameter and parity partition are covered directly, and the cross-degrees and triangle count do not survive as distinct claims.",
+        "searches": [
+          "Resultary 3d506c83b9c0 common-neighbour table",
+          "Brouwer–Van Maldeghem §6.2 and Devillers §3.10 parity classes",
+          "Frozen RESULT.md lines 26–34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed match uses six-point subsets of fixed labelled PG(2,4) points, not an orbit quotient, and defines adjacency for batch replacement of up to three points.",
+          "No distinct states there agree in four points, so its up-to-three rule and the frozen exactly-three rule give the identical graph.",
+          "The matched common-neighbour numbers at overlaps 0,1,2,3 are exactly 4,5,16,11."
+        ],
+        "reasoning": "The apparent rule difference disappears on the stated state space. Matching design parameters alone are not needed: the exact relation and the full common-neighbour table coincide.",
+        "searches": [
+          "Resultary: PG(2,4) hyperoval six-arc three-point exchange/common neighbours",
+          "Resultary 2026/11/2/SCOPE-sharp-three-point-exchange-connectivity-and-geodesic-multiplicit--3d506c83b9c0, offsets 665–4743"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published per-state static counts at overlaps 6,5,4,3,2,1,0 are 1,0,0,40,45,72,10; these imply the frozen pair census and regular degree.",
+          "The distinct indexed record adds the exact common-neighbour table, pair census, sharp threshold, and radius/diameter two in the same graph."
+        ],
+        "reasoning": "Classical static overlap counts do not by themselves determine products of adjacency entries. The indexed match supplies precisely those products, not only the same vertex count.",
+        "searches": [
+          "Brouwer–Van Maldeghem §6.2, pp. 159–160, offsets 531350 and 536826",
+          "Resultary 3d506c83b9c0, offsets 665–4743"
+        ]
+      },
+      "rationale": "A distinct indexed result covers the exact labelled exchange graph, the threshold and distances, and the entire common-neighbour table. Classical design data give the parity classes, and the spectrum, triangle count, and equitable cross-degrees follow from that table and those data by the incidence calculation below. The matched indexed entry is later-dated; this is a finding of substantive coverage in the audited corpus, not a claim of earlier publication or independent origin. Mere static overlap counts alone would not imply the common-neighbour table.",
+      "residual_risks": [
+        "The lineage and historical priority of the overlapping records are not established.",
+        "Additional association-scheme tables or the inaccessible Bruen–McQuillan article may give further classical coverage; no whole-literature absence is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same state space, adjacency, common neighbours and connectivity. Distinct later-dated catalogue entry, not an earlier-priority finding.",
+          "evidence": [
+            "Same common-neighbour numbers and overlap counts; unique completion of each of the 2520 four-arcs; identical degree and eccentricities."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-three-point-exchange-connectivity-and-geodesic-multiplicit--3d506c83b9c0/RESULT.md",
+          "material_read": "Finding, Assumptions and exact enumeration proof, mirror offsets 665–4743.",
+          "method": "Local mirror exact statement comparison.",
+          "title": "Sharp three-point exchange connectivity and geodesic multiplicities",
+          "trigger": "Exact labelled PG(2,4) exchange-graph candidate."
+        },
+        {
+          "assessment": "Covers the underlying static design data. The named M22 graph is different; no full exchange-graph claim is attributed to these passages.",
+          "evidence": [
+            "Prefixes 110,101,011 realize the three 56-state classes; even-overlap equivalence and all static subdegrees are stated.",
+            "The M22 graph uses 77 blocks of S(3,6,22) and disjointness adjacency."
+          ],
+          "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/srg/rk3/srgw.pdf",
+          "material_read": "§6.2, pp. 159–160 (offsets 531350 and 536826), and §10.27, p. 279 (offset 909788).",
+          "method": "Open primary PDF passage inspection.",
+          "title": "Strongly Regular Graphs",
+          "trigger": "Design realization, class and intersection table, and possible M22 graph identification."
+        },
+        {
+          "assessment": "Provides the orbit and within-orbit parameters used in the incidence derivation.",
+          "evidence": [
+            "All hyperovals are projectively equivalent; a PSL(3,4) orbit has size 56, with stabilizer suborbits of sizes 10 and 45 at overlaps zero and two."
+          ],
+          "identifier_or_url": "https://msp.org/iig/2005/2-1/iig-v2-n1-p08-s.pdf",
+          "material_read": "§3.10, PDF pp. 40–41, extracted offset 155950.",
+          "method": "Open primary PDF passage inspection.",
+          "title": "A classification of finite partial linear spaces with a primitive rank 3 automorphism group of almost simple type",
+          "trigger": "Orbit geometry potentially covering the partition and relation classes."
+        },
+        {
+          "assessment": "Unresolved additional literature risk; not the basis of the verdict.",
+          "evidence": [
+            "The available description concerns intersections of hyperconics; no exact filtered common-neighbour table was verified from it."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/ffta.2000.0294",
+          "material_read": "Landing-page/abstract scope only.",
+          "method": "DOI and identified lawful repository retrieval attempts; full text inaccessible.",
+          "title": "Intersections of Hyperconics in Projective Planes of Even Order",
+          "trigger": "Possible stronger source on hyperoval intersections."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete exact reconfiguration answer on this natural design would be useful if distinct. Here the table and threshold add no distinct finite information to the matched result, and the spectrum and triangle count are mechanical consequences of that table and the classical incidence data. The frozen proof recomputes those consequences by enumeration and exact matrix arithmetic without obtaining a separate structural or downstream result. Exact verification is valuable as corroboration but is not a new exact-invariant contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

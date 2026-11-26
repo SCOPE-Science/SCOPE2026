@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full exact exponential and its integral are evaluated using the rank-one idempotent mean projector. Rowwise maximization of the cubic scalar maps proves the iff invariant-cube test, while monotone diagonal/off-diagonal semigroup coefficients establish a unique sharp step bound and exclude later restoration. A direct derivative test establishes the unique intermediate-diffusion minimum. The explicit overshoot and asymptotics follow from elementary expansions. The separately embedded reproducibility checker passed 32,817 finite assertions, which do not substitute for the analytical proofs.
+## correctness
 
-## Originality — PASS, conditional on available evidence
-The motivating Du–Ju–Li–Qiao 2019 work establishes unconditional maximum-bound preservation for a differently split, **linearly stabilized** method. Its 2019 full text, the accessible general exponential-method bound-principle framework, targeted related literature, and prior comparative claims do not show the exact unshifted complete-graph threshold, nonmonotone mixing optimum or sharp overshoot-onset coefficient. Older Du–Zhu papers treat exponential methods and Allen–Cahn; the 2005 BIT full text was not accessible, leaving a genuine priority risk. Other unindexed or differently expressed specialized results remain possible. No claim of exhaustive uniqueness or independent publication-priority confirmation is made.
+PASS
 
-## Value — PASS
-The theorem solves a natural and experimentally testable invariant-region design question for a widely studied nonlinear exponential integrator. Its exact phase boundary reveals a nonmonotone cost of coupling, strictly more restrictive than the pure-reaction Euler bound at every finite positive mixing rate. An explicit worst-case input and onset law quantify the impact of violating the safe step, and the result clarifies why stabilization changes the numerical maximum-bound story. The contribution is restricted to the complete graph and exact arithmetic.
+The mean projector diagonalizes Q into the constant and mean-zero spaces, giving positive diagonal/off-diagonal semigroup coefficients p and their integrals k. In each row the independent input coordinates maximize odd cubics g(v)=pv+k(v-v^3). These have maximum p iff 2k<=p and otherwise attain the printed interior maximum. Since the p row sum is one, the two coefficient tests are both necessary and sufficient. The off-diagonal test holds strictly for h<=1/2 by increase of p_o(s); the diagonal test has a unique crossing below 1/2 since k_d grows and p_d decreases. Constant vectors rule out larger steps. With v=1-epsilon the excess is (2k-p)epsilon-3k epsilon^2+k epsilon^3; maximizing yields the claimed quadratic coefficient once k_d'=p_d is used. In the parameter y=gamma h_*, gamma(y) strictly increases from zero to infinity, and h'(y) has the sign of H_a(y). Its third derivative is positive, H_a'' starts negative and all three lower derivatives/functions ultimately grow with the positive exponential; thus there is one positive zero of H_a and one minimum in gamma. Expanding the threshold equation gives the two fixed-dimension endpoint expansions, and dividing by n-1 and using the strict scalar limiting root gives the large-dimension limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original ETD1 formula and the maximum-bound results for stabilized splits are not claimed as new. The supported distinct result solves the exact all-input cube optimization for the unshifted complete-graph cubic map and gives its sharp horizon, unique interior mixing minimum and overshoot onset. The relevant published comparison theorems use a different split; the unread 2005 paper remains a named risk, not evidence of noncoverage.
+
+## value
+
+PASS
+
+The exact Allen–Cahn flow preserves a canonical physical cube. A sharp all-input time-step bound for the standard unshifted method is useful even on the idealized complete graph. The unique intermediate mixing minimum and explicit maximizing witnesses show why stronger mixing need not monotonically aid cube preservation, and the quadratic onset quantifies the size of the worst violation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

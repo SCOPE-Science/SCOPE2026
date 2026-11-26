@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is finite and fully quantified: every classical forbidden three-permutation and each source length one through five, with unrestricted one-adjacent-swap outputs. Two independent enumerations establish both maximum clique sizes and all maximizing subsets. The checker verifies confusability against a separate Kendall inversion-count calculation. For each nontrivial fractional case, explicit exact nonnegative rational primal and dual solutions satisfy every incidence inequality with matching objectives. These are complete finite certificates, not extrapolation from small cases. All packaged checker inputs were replayed successfully.
+## correctness
 
-## Originality — PASS, qualified
-Dukes et al. (2007) construct complete Gray-code listings of every Catalan three-pattern avoiding class with small consecutive Hamming distances, not large pairwise Kendall-distance subcodes or sharp packing capacities; Lewis (2008) proves Catalan avoidance facts, not coding capacities. General Kendall-rank-modulation work treats unrestricted permutations; in particular, the published unrestricted \(S_5\), minimum-distance-three capacity \(20\) and 3192 maximizers do not determine the two induced Catalan-source capacities \(12\) and \(11\) or their equalities. A published distinction between the same two Wilf orbits concerns Littlestone dimension of label-comparison queries; those trees have neither the same channel nor a logical implication yielding adjacency-swap packing optima. The closest historical source type uses standardized one-deletion outputs; these do not imply one-swap capacities because the associated pairwise confusability relations are not nested. Searches for exact tables, equivalent formulations, and dominating bounds did not uncover coverage. Unindexed equivalent computations remain a real priority risk, so the result should not be described as definitively first in all literature.
+PASS
 
-## Mathematical value — PASS
-The sources have exactly the same Catalan cardinality, yet differ sharply in one-error rank-modulation capacity and in the number of optimal codes. This establishes a concrete boundary of Wilf equivalence as a predictor of coding behavior. The first nonmonotone integer-rounding failure of the standard fractional packing relaxation gives an independent structural benchmark. The finite cutoff is small but natural: all six minimal forbidden patterns of size three are classified at every size up to the first rounded packing failure. No general theorem is inferred beyond the checked cutoff.
+The actual channel permits no change or one adjacent position transposition, with every permutation admissible as a receiver. Its radius-one output balls intersect exactly at Kendall distance at most two (use a shortest path and its midpoint for the converse). Reversal and value complement are channel isometries and have exactly the two claimed orbits on classical length-three patterns. Independent exhaustive compatibility-clique enumeration over all six sources and n=1,…,5 reproduced both the maximum and the number of maximizing labeled subsets: common (1,1), (1,2), (2,2), then monotone (5,2), (12,40) versus nonmonotone (4,17), (11,96). Reading the frozen sparse JSON as data, independently reconstructed exact feasible primal packings and dual covers at n=3,4,5 for representatives 123 and 132, checking every inequality and matching objectives 2,5,12 and 2,23/5,227/18 respectively. Unobserved outputs have zero dual weight and vacuous primal constraints. The fractional optima at n=1,2 are 1 because respectively the unique output and a shared full ball impose total mass at most 1, attained by any singleton. Thus the first capacity difference is n=4 and the first integer-rounded fractional gap is n=5. Both explicit length-five code witnesses were checked.
 
-## Limitations and closest literature
-Primary literature: Dukes et al. (2007), arXiv:0704.2048; Lewis (2008), arXiv:0805.1964; Buzaglo et al. (2013), arXiv:1311.7113; Buzaglo and Etzion (2014), arXiv:1408.4963. Relevant unrestricted exact n=5 census: *Equality census for optimal S5 Kendall-tau codes at distance 3* (2026). Closest published comparison class: *Wilf-equivalent length-three avoidance classes separate in adaptive comparison dimension* (2026). Residual risk is unindexed historical coverage or a stronger special-case theorem not encountered in the accessible material. The exact table concerns ordinary one-position-adjacent swaps and unrestricted received permutations only, with \(n\le5\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact bounded table for single-classical-pattern avoiding permutation sources in the specified channel, notably the first separation and first rounded gap. Kendall packing and Catalan enumeration are not claimed as new. No equivalent or dominating result was found among the compared statements.
+
+## value
+
+PASS
+
+Classical Wilf equivalence equalizes source sizes, not the local-error packing invariant; finding the first separation is a natural finite-boundary question. Including n=5 identifies the first failure of rounding a concrete fractional bound, unlike the n=4 fractional gap that rounding erases. The exact optimizer counts and reproducible fractional witnesses make the table usable as a test case for any proposed generalization. The value is in these sharp small counterexamples, not the enumeration method or an extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

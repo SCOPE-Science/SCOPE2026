@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generator and Fickian flux-matching interface condition are explicit. The first and second moments follow from unique polynomial transmission boundary-value problems. The third moment and critical curvature follow from the same recurrence. The resetting renewal transform, strict sign reduction to a reciprocal quadratic, and local onset from the implicit-function theorem cover all stated parameters and boundary cases. Fifty-one independent symbolic/high-precision assertions support the algebra; finite tests do not prove the universal statements. Scope excludes claims about global optimality and asymmetric critical curvature.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The small-rate restart criterion and renewal identity are prior theorems, not original contributions. Existing heterogeneous-resetting work (Lenzi et al., 2022; Ray, 2020) uses spatially varying/power-law diffusivity and different target geometries. Layered diffusion literature (Carr, 2018; Bressloff, 2023) develops transmission/absorption methods without this exact Poisson-restart contrast classification. The distinct claim is the explicit sharp diffusivity-and-length domain, universal midpoint contrast \(3\pm2\sqrt2\), positive critical quadratic curvature, and local optimal onset. A broadly stated prior moment or renewal formula could still imply the parameterization implicitly; independent priority review remains necessary.
+PASS
 
-## Mathematical value — PASS
-The location of the reset is held fixed at a symmetric geometric midpoint, so the change from slowdown to speedup is caused solely by material contrast. This separates geometric and material contributions, identifies a sharp and dimensionless experimental-design threshold for ideal layered transport, and distinguishes a zero first derivative from a genuinely neutral intervention through the exact second-order term. The result is model-specific rather than a universal restart principle.
+Solving the killed backward Laplace equation with value 1 at each endpoint, the inward-coordinate flux at the interface from layer i is proportional to √(D_i r)[csch(x_i)−φ coth(x_i)], with x_i equal to the layer length times √(r/D_i). Matching the two fluxes with opposite signs gives the stated transform. Independent reset renewal yields M_r=(1/φ−1)/r. For a direct coefficient check let A=a²P and C=b²Q, and μ_j denote the j-th power moment of A,C under weights bQ/H,aP/H respectively. After canceling the 1/√r factors the reset mean is [weighted x_i tanh(x_i/2)]/[r weighted x_i csch(x_i)]. Its coefficients through r² are μ₁/2, (2μ₁²−μ₂)/24, and (10μ₁³−12μ₁μ₂+3μ₃)/720, by convergent Taylor expansions. Here μ₁=abPQ(a+b)/H and μ₂/μ₁²=(a²+b²+ab(z+1/z))/(a+b)². This verifies the stated c₁ and its reciprocal-root frontier, with vanishing first derivative at the endpoints of the delaying interval. For equal widths μ₁=2t₀, μ₂=(8+w)t₀², and at w=0, A+C=8t₀, AC=8t₀², μ₃=48t₀³. Hence the normalized linear coefficient in s=rt₀ is −w/24 and the critical quadratic coefficient is 2/45. Near both contrast roots w is an analytic local coordinate; critical curvature 4/45 in s gives a locally unique stationary minimum for w>0. Substitution gives s=15w/32+O(w²) and normalized improvement 5w²/512+O(w³).
 
-## Scope and reproducibility
-Parameters and interface conventions are specified in RESULT.md. The independent hyperbolic Laplace transform checks polynomial exit-time moments and exact renewal mean. Run `python checker.py`; dependencies are SymPy and mpmath. Numerical tests and symbolic simplifications support the proof but cannot certify priority against all literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of checked evidence for the explicit geometry/contrast criterion at a perfectly transmitting interface, the equal-width curvature and the sharp local onset. General reset renewal, CV>1 and transmission techniques are covered background. The homogeneous-interval calculation and the closest layered and resetting records do not cover the explicit heterogeneous frontier and its higher-order boundary behavior.
+
+## value
+
+PASS
+
+A restart decision at a material interface is not determined by interval symmetry or the mean alone. The exact frontier gives a design boundary across all width and material ratios. Even at the midpoint where homogeneous weak restart delays escape, sufficient contrast reverses the effect; on the threshold, where the general CV rule cannot decide the sign, the result quantifies both the positive curvature and emergence of a locally beneficial reset rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

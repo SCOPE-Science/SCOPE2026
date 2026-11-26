@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:45:47.469440Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact reproduction in evidence/3-quartic-census.js exhausts the 13 rational points and lines and finds no smaller nontrivial block, then 234 six-point blocks forming one orbit under the 5,616 projectivities, with stabilizer 24. It solves the six vanishings by meeting the two halves of the coefficient vector on their evaluation values rather than using the frozen row-reduction implementation, and finds a kernel of size 19,683, then 1,134 exact-locus vectors and 567 projective equations. Explicit substitutions partition the latter into 30 stabilizer orbits. Independent modular Buchberger tests on the three affine Jacobian ideals over F3 certify geometric, not merely rational, smoothness: a unit ideal excludes a common zero over the algebraic closure, and a proper ideal remains proper under field extension. The ten smooth representatives match all ten coefficient vectors in ORBIT_TABLE.json; their local sizes are nine 24s and one 6, and each excluded orbit has a rational singular point. Projectivities preserving two exact-B models must stabilize B, so the local classes are the global classes; multiplying the local sizes by 234 gives 51,948 projective equations. Adjunction supplies the canonical plane model of a smooth quartic, hence equivalence with F3-isomorphism classes. Only the stated field, degree and point-incidence condition are classified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inflection-spectrum record exhausts 1,557 ternary quartic projective orbits, 805 geometrically smooth, and publishes the representatives",
+          "Theorem 1.4 of arXiv:2208.13299v2 concerns q>=19; Example 7.2 of arXiv:2211.08523v2 concerns d>=5 over F3",
+          "The blocking-set classification abstract concerns point sets and their automorphism groups"
+        ],
+        "reasoning": "The indexed census covers the exact field and geometric-smoothness hypotheses without imposing the incidence restriction; its raw representative data cover the subset. Large-field or large-degree results cannot be specialized to this case, and abstract point-set classification does not identify its smooth curve realizations.",
+        "searches": [
+          "Resultary representative census 0cd27d77201d, RESULT.md and REPRODUCE.md",
+          "Asgarli–Ghioca–Yip arXiv:2208.13299v2 and arXiv:2211.08523v2",
+          "Coolsaet–Botteldoorn–Fack DOI 10.1002/jcd.21842"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, ORBIT_TABLE.json and verify_blocking_quartics.py",
+        "Resultary 0cd27d77201d, 3dfa7631fc9e, 72387a8e16d3 and 2ff15d411d81",
+        "Top and Asgarli–Ghioca–Yip papers cited above",
+        "Coolsaet–Botteldoorn–Fack abstract and LMFDB isogeny-class description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-date complete census is at the level of encoded quartic representatives; its documentation identifies the TSV as the complete projective census",
+          "The conic-union record is about reducible curves and the exchange-graph record is about the point sets alone"
+        ],
+        "reasoning": "The orbit representatives and smoothness tags mechanically imply the exact restricted census by the verified filter, even though the companion inflection document does not print the subset. Neither reducible models nor the underlying incidence geometry by itself directly implies the smooth realization count.",
+        "searches": [
+          "Resultary 0cd27d77201d, REPRODUCE.md, TSV and quartic_flex.cpp",
+          "Resultary blocking conic unions 72387a8e16d3 and exchange graph of minimum point sets 2ff15d411d81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each smooth plane quartic is a nonhyperelliptic canonical genus-three model, so F3-isomorphisms are exactly rational projectivities",
+          "Top's Proposition 1.2 gives the maximum N_3(3)=10, not the number of extremal blocking quartic classes"
+        ],
+        "reasoning": "Look for complete equation-level or model-level censuses, not just curves with some matching genus or point-count number. A full canonical-model census with encodings suffices to reconstruct the rational line incidence.",
+        "searches": [
+          "Resultary: smooth plane quartic F3 exact six-point blocking PGL orbits",
+          "Top arXiv:math/0301264v1",
+          "Rational inflection spectrum Resultary record 0cd27d77201d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Decoded all 1,557 TSV entries (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, 30,319 characters); 805 are smooth, 86 of those have six rational points, and 10 pass the line test",
+          "Matching encoding values: 79005, 79362, 85842, 197265, 199398, 201558, 203632, 552207, 611895, 612504; 79362 has size 1,404, all others size 5,616; total 51,948 (replay evidence/3-filter-flex-census.js)",
+          "The November 8 Weil-polynomial record explicitly states the same ten classes and 51,948 equations"
+        ],
+        "reasoning": "One tests each decoded form's zero mask against the thirteen line masks and sums preexisting orbit sizes, without any new smoothness computation or orbit enumeration. Orbit-stabilizer gives the claimed stabilizer orders. Abelian isogeny-class data alone would not encode the line incidence.",
+        "searches": [
+          "Resultary mirror 0cd27d77201d/data/flex_orbits.tsv and verify/quartic_flex.cpp encoding",
+          "Resultary mirror 3dfa7631fc9e Finding",
+          "LMFDB abelian varieties over finite fields"
+        ]
+      },
+      "rationale": "The distinct same-date rational-inflection record contains the complete projective quartic representative census with exact geometric smoothness and orbit sizes; this is not merely a table of aggregate inflection counts. I decoded its complete TSV and imposed the elementary rational-line incidence filter. It gives the ten classes and the precise orbit-size and stabilizer breakdown, hence also the equation count. This is verified available coverage, not a conjecture based on the title and not a priority inference from the common date. The separately indexed November 8 record explicitly restates the census with additional arithmetic information. The frozen calculation is independently correct but does not establish a distinct scientific result beyond the mechanically filterable data.",
+      "residual_risks": [
+        "The shared indexing date does not determine which project was first.",
+        "The full Coolsaet–Botteldoorn–Fack text was unavailable in this check, so additional comments in it were not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly filterable data fully cover the restricted census; priority not inferred",
+          "evidence": "Nine matching size-5,616 orbits and one size-1,404 orbit, summing to 51,948.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-rational-inflection-spectrum-of-smooth-plane-quartics-over-mathb--0cd27d77201d",
+          "material_read": "RESULT.md offsets 2789–5989; REPRODUCE.md; verify/quartic_flex.cpp offsets 0–3478 for monomial and packing conventions; complete data/flex_orbits.tsv processed as data",
+          "method": "Resultary local mirror plus independent exact decoding and 13-line filter",
+          "title": "Rational inflection spectrum of smooth plane quartics over F3",
+          "trigger": "Same field, same objects, complete encoded orbit data"
+        },
+        {
+          "assessment": "Later-dated exact restatement with stronger data, not evidence of earlier priority",
+          "evidence": "Explicitly states ten classes and 51,948 equations and adds pairwise distinct Weil polynomials.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-ten-distinct-weil-polynomials-for-minimal-smooth-blocking-quarti--3dfa7631fc9e",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Ten distinct Weil polynomials for minimal smooth blocking quartics",
+          "trigger": "Same incidence restriction and exact quartic numbers"
+        },
+        {
+          "assessment": "Point-number maxima, not blocking subset census",
+          "evidence": "The ten in N_3(3)=10 counts points on a maximizer, not orbits of six-point quartics.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0301264v1",
+          "material_read": "§1 Proposition 1.2 p. 2, PDF offset about 3300; high-point quartic scope",
+          "method": "Primary OA PDF",
+          "title": "Curves of genus 3 over small finite fields",
+          "trigger": "Possible complete small-field genus-three classification"
+        },
+        {
+          "assessment": "Relevant framework and different parameter ranges",
+          "evidence": "The first bound concerns smooth quartics over q>=19; the second computes a density for degree at least five over F3.",
+          "identifier_or_url": "arXiv:2208.13299v2 and arXiv:2211.08523v2",
+          "material_read": "Theorem 1.4, p. 2 (offset about 7900), and §7 Example 7.2, p. 19 (offset about 71350), respectively",
+          "method": "Primary OA PDFs",
+          "title": "Plane curves giving rise to blocking sets over finite fields; Most plane curves over finite fields are not blocking",
+          "trigger": "Primary blocking-curve theory"
+        },
+        {
+          "assessment": "Point-set catalogue from accessible material; no full-text negative conclusion",
+          "evidence": "The abstract describes tables of minimal blocking point sets and automorphism orders; cannot assess uninspected remarks about curves.",
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21842",
+          "material_read": "Rendered abstract; publisher/full-text OA attempt failed",
+          "method": "Abstract inspection and retrieval attempted",
+          "title": "Classification of minimal blocking sets in small Desarguesian projective planes",
+          "trigger": "Potential earlier exact tables on the incidence conditions"
+        },
+        {
+          "assessment": "Insufficient incidence data",
+          "evidence": "The objects are abelian isogeny classes, not plane models with rational line incidences.",
+          "identifier_or_url": "https://www.lmfdb.org/Variety/Abelian/Fq/",
+          "material_read": "Database description",
+          "method": "Public database page",
+          "title": "Isogeny classes of abelian varieties over finite fields",
+          "trigger": "Possible filterable small-field genus-three data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The minimum blocking configuration is a naturally motivated slice, but the frozen deliverable is precisely the result of an elementary incidence filter on a complete existing orbit dataset. Neither the count, representatives nor stabilizer orders require a new invariant or mathematical obstruction beyond that table. The independent enumeration is useful validation, not a distinct contribution here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

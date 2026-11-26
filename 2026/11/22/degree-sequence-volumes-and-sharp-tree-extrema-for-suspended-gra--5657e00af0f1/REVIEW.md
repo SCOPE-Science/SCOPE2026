@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A constructive Gram completion realizes all edge correlations satisfying the local triangle PSD inequalities in the cone over any tree. Thus Fubini yields the exact degree-beta product, strict Hölder plus tree-degree majorization yields unique path/star extremizers, and gamma asymptotics yield the sharp constant. A standalone verifier tested all labeled trees of orders 2–8 (280,392 Prüfer codes), 480 Gram constructions and independent integral identities; the all-order proof is analytic, not extrapolated from enumeration.
+## correctness
 
-**Originality — PASS, provisional priority.** The published triangular-book PSD-volume result gives the star specialization exactly, which is fully credited. Lee and Skipper (2017, arXiv:1703.02444) give sparse Boolean-quadric and cut-polytope volume formulas, rather than the positive-semidefinite elliptope degree product. Avis, Devroye and Deza (2026, arXiv:2604.16735) give PSD elliptope volumes for cycles and a product law for graphs sharing at most one vertex; these do not imply the general tree-cone factorization. published-finding corpus searches for all-tree degree formulas, beta products, equivalent normalizations and extremal coverage found no stronger covering result. A general chordal-volume statement outside the inspected literature remains a historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** PSD relaxation volume is a natural and studied invariant. The result classifies the entire infinite family of cone-over-tree graph elliptopes by degree products and resolves its sharp optimization over all tree shapes, including unique equality cases and exponential asymptotic separation. The already-known special book case is not claimed as a novel separate theorem.
+For prescribed hub correlations x_i, subtract the hub component and normalize the residual vectors. The edge residual correlations can be chosen independently in [−1,1]: root the tree and construct a new child residual using its parent and a fresh perpendicular vector. A zero residual at x_i=±1 simply forces incident edge correlations to x_i x_j; choose any auxiliary unit residual vector there. Each of the n−1 edge widths is 2 sqrt((1−x_i²)(1−x_j²)). Fubini groups the powers as d_i/2, and rescaling all 2n−1 coordinates multiplies by 2^{−(2n−1)}, leaving 2^{−n} times the J product. Strict Hölder gives strict convexity of log J_d. Nonnegative excess degrees sum to n−2; their sorted vector lies between the 0/1 vector with n−2 ones and the concentrated vector, in the majorization order. Strict equality yields only path or star. The sample n=4 and n=5 values and the constant in the ratio follow by J_1=π/2, J_2=4/3 and J_{n−1}~sqrt(2π/n). At n=2,3 the two trees coincide up to isomorphism.
 
-**Limitations.** The result does not extend to cyclic residual graphs, classify arbitrary chordal elliptopes, or prove the converse of degree-multiset invariance. The numerical checker supplies finite diagnostics rather than an independent mathematical proof. Full historical uniqueness is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known triangular-book formula is exactly the star specialization and is expressly credited. Inspected sources do not cover the evaluated coordinate volume for arbitrary suspended trees, the equality for repeated degree profiles, or the sharp tree extremal comparison. The decision is bounded to the evidence found.
+
+## value
+
+PASS
+
+The formula removes the need to integrate a high-dimensional PSD projection separately for each labeled tree and shows exactly how the degree multiset controls its volume. The uniqueness of the two extrema and the sharp exponential contrast quantify a structural difference among trees of identical order and ambient dimension. The novelty/value is not the familiar leaf completion or the book formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

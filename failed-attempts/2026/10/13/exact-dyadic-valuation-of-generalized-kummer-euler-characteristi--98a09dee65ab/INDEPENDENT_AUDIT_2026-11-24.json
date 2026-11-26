@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:50:17.569898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Debarre's K_{m-1} and Shen's K_m denote the length-m fiber as indexed in the finding. From chi=m^3 sigma(m), the 2-power factor gives 3a because sigma(2^a)=2^{a+1}-1 is odd. For an odd prime p the local sum is odd for even e. For e odd write e+1=2^s u with u odd. In p^{2^s u}-1 the odd geometric quotient over p^{2^s}-1 has valuation zero; the successive factors of p^{2^s}-1 after (p-1)(p+1) each have valuation one since an odd square is 1 mod 8. Thus after dividing by p-1 the value is v_2(p+1)+s-1. Each odd exponent gives a positive contribution, so zero valuation is exactly odd-square length. The first admissible length is 9, giving dimension 16 and 9477. Independent bounded replay `python /workspace/audit_checks_1_5.py 1` computed sigma by adding each divisor to its multiples and checked all lengths 2 through 20000; this is arithmetic regression, not a verification of the geometry or an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Debarre states n^3 sigma(n) for the length-n generalized Kummer variety. Shen also states the abelian-surface specialization of his generalized Kummer scheme formulas."
+        ],
+        "reasoning": "Both sources give the exact integer uniformly and directly on the scientific domain. There is no additional geometric reduction needed to evaluate its dyadic factor.",
+        "searches": [
+          "arXiv:alg-geom/9711035 (p. 1, Proposition 2.2, Theorem 3.4)",
+          "arXiv:1502.03973 (pp. 1–2)"
+        ]
+      },
+      "checked_sources": [
+        "Debarre, arXiv:alg-geom/9711035",
+        "Shen, arXiv:1502.03973",
+        "Resultary complete quadrics record 145cc141a4ad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apply v_2 to m^3 sigma(m); use multiplicativity and the standard quotient (p^{e+1}-1)/(p-1). LTE and odd summand counting evaluate all terms without any further assumption. Vanishing is a=0 and every e even."
+        ],
+        "reasoning": "The whole assertion, including the first admissible odd case and its integer value, follows by a routine valuation and substitution from the known exact theorem. No gap is left by the absence of explicit parity terminology in the cited geometry sources.",
+        "searches": [
+          "Debarre arXiv:alg-geom/9711035 p. 1",
+          "Shen arXiv:1502.03973 p. 2",
+          "Resultary: chi top K_m(A) valuation of 2 generalized Kummer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound length-m fiber is Debarre's K_{m-1}; the integer given on p. 1 is m^3 sigma(m). The valuation and odd-squares formulation refer to this same integer, not an invariant of a different normalization.",
+          "The public query had no relevant hit; that does not rule out explicit prior wording."
+        ],
+        "reasoning": "The index shift does not separate the finding from the same-object Euler-number theorem. Oddness is the zero-valuation case, not an independent theorem.",
+        "searches": [
+          "Web: \"generalized Kummer\" \"odd square\" Euler characteristic valuation parity",
+          "Resultary: generalized Kummer varieties Euler number prime factorization divisor sum valuation",
+          "Resultary: m^3 sigma(m) Kummer Euler characteristic 2-adic valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest thematic match concerns complete quadrics and a binary-digit-sum formula, with oddness only at n=1,2; it has neither these objects nor this divisor sum. No same-object dyadic table was identified."
+        ],
+        "reasoning": "An arithmetic analogy across two distinct varieties is not coverage. The published Kummer Euler formula, not a finite table or a search miss, decides coverage here.",
+        "searches": [
+          "Resultary: generalized Kummer Euler characteristic 2-adic valuation parity odd square",
+          "Resultary: odd values of generalized Kummer Euler characteristics odd square",
+          "Resultary local mirror: 2026/10/12/SCOPE-exact-dyadic-valuation-of-complete-quadrics-euler-characteristic--145cc141a4ad/RESULT.md"
+        ]
+      },
+      "rationale": "The exact finding is covered as a mechanical arithmetic corollary of the published Euler formula for precisely these varieties and the standard two-adic lifting-the-exponent identity. No earlier explicit generalized-Kummer wording was identified; the failure is implication, not a claim that the specialization was printed verbatim.",
+      "residual_risks": [
+        "An earlier explicit parity or valuation remark may be unindexed. Gulbrandsen's 2007 full text was not obtained through the attempted DOI route, and the Göttsche–Soergel text was not inspected. The already established implication does not depend on either access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong same-object coverage of the exact Euler number",
+          "evidence": "The introduction uses K_{n-1} for the length-n construction and gives n^3 sigma(n); Proposition 2.2 computes the number for the auxiliary J_d(A), with the deformation comparison in Theorem 3.4.",
+          "identifier_or_url": "https://arxiv.org/pdf/alg-geom/9711035",
+          "material_read": "p. 1 formula and indexing; Proposition 2.2 p. 4; Theorem 3.4 p. 6",
+          "method": "OA PDF bounded passages",
+          "title": "On the Euler Characteristic of Generalized Kummer Varieties",
+          "trigger": "Original exact Euler theorem on the same varieties"
+        },
+        {
+          "assessment": "Explicitly recovers the same older Euler theorem",
+          "evidence": "K_n is defined using Hilb^n and the p. 2 specialization is n^3 times the sum of divisors of n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.03973",
+          "material_read": "Definitions p. 1 and abelian-surface formula p. 2",
+          "method": "OA PDF bounded passages",
+          "title": "The Euler Characteristics of Generalized Kummer Schemes",
+          "trigger": "Broader exact characteristic formula and length convention"
+        },
+        {
+          "assessment": "Different variety and valuation formula",
+          "evidence": "Its valuation uses ceil(n/2) and binary digit sum and its oddness locus is n=1,2, not the odd-square length locus.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-dyadic-valuation-of-complete-quadrics-euler-characteristic--145cc141a4ad",
+          "material_read": "RESULT.md statement",
+          "method": "Local published-record mirror",
+          "title": "Exact dyadic valuation of complete quadrics Euler characteristic",
+          "trigger": "Closest thematic indexed dyadic-Euler result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Euler characteristic and oddness of this family are natural, and the formula is a useful arithmetic remark. But the precise datum is mechanically implied: no new geometric input, arithmetic obstruction, or independently unresolved step is needed beyond applying standard LTE to the known exact integer. The first example is then a substitution. No surviving distinct claim is present to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

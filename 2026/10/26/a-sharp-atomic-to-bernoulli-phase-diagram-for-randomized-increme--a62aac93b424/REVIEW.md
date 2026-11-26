@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim follows from the exact subgradient formula for the two proximal maps, strict synchronous-coupling contraction in Wasserstein distance, an attained finite-word clipping bound in the intermediate regime, an explicit infinite sequence of distinct positive-mass alternating-word images, and a maximal-atom argument in the unclipped regime. The boundary cases \(a=s\) and \(a=b\) are assigned by their actual map formulas. The support/attractor assertion for the standard Bernoulli convolution uses the elementary open-set-condition geometry. Verified code checks algebraic identities but does not stand in for infinitely quantified proof.
+## correctness
 
-## Originality — PASS (qualified by bibliographic uncertainty)
-The closest full-text sources concern general randomized proximal last-iterate bounds (Vaidyan–Friedlander–Alacaoglu, 2026), stochastic forward–backward invariant-measure convergence (Hermer–Luke–Sturm, 2023), and incremental proximal methods (Bertsekas). None of their inspected results states the complete three-type clipped proximal phase classification or the least uniform reset word. The affine Bernoulli-convolution support and dimension formulas are classical and explicitly excluded from novelty claims. Search overlap remains a risk because specialized clipped affine iterated-function systems may contain the classification under different terminology.
+PASS
 
-## Mathematical value — PASS
-For a natural Lipschitz component regularizer decomposition of a strongly convex nonsmooth objective, the theorem provides a sharp qualitative invariant-law phase diagram and a computable regeneration length. Stationary probability may be finitely atomic, countably atomic, or nonatomic under the same algorithmic template. Fixed-objective tuning across the explicit two-atom threshold is possible by stepsize alone; the infinite-atom regime represents a nontrivial renewal phenomenon invisible in expected objective rates.
+The sign-specific proximal optimality condition with input rx and threshold c gives the asserted clipped affine maps, preserving [−a,a]; synchronous coupling contracts W₁ with factor r<1 and yields a unique invariant law. At a≤s, including equality, T_+(−a)=a and T_−(a)=−a force the two maps to be constant, so one step produces fair endpoint atoms. For s<a<b, monotonicity makes the worst initial point for a plus block −a, with image min(a,b−r^n(b+a)); this gives the stated least uniform constant-sign length, inclusive of the threshold equality. In fact no shorter mixed word can reset either: a first collapsing step must clip its entire nondegenerate interval to an endpoint, and monotone all-plus/all-minus bounds prevent reaching that endpoint from the appropriate extreme before N. A qualifying word occurs almost surely at a finite past time (use disjoint iid length-N blocks). Backward iteration is then a finite image of an endpoint, giving full mass to a countable set, not a claim about countability of its closure. The endpoints have mass at least 2^(−N); successive images of a under T_+∘T_− are s+r^(2j)(a−s), pairwise distinct atoms since their specified words have positive probability. At a≥b both clips are inactive on the invariant interval (with possible affine equality at a=b), giving the classical absolutely convergent signed series. If a maximal atom existed, both inverse affine branches would have to attain its mass; iterating the plus inverse exits [−b,b] from every x<b, while the minus inverse exits at x=b. This proves nonatomicity even with overlaps. The two image intervals cover [−b,b] exactly when r≥1/2; otherwise their separation gives the Cantor dimension by the open-set condition. Independence gives the variance and the fixed-objective stepsize threshold follows by rearranging a≤2τλ/(2−τμ). Independent replay `python3 /workspace/independent_reproduction.py 5` enumerated all sign words through length five for r=2/3,c=1 at a=s, a=3/2, and a=b, found the predicted respective first lengths 1,3,and none through five, and reproduced the middle orbit 3/2,1,7/9,55/81,… by exact proximal arithmetic. Neither word enumeration nor coupling asserts almost-sure convergence of forward paths.
 
-## Limits and closest sources
-The classification is scalar, symmetric, iid and exact arithmetic, with deterministic initial states in \([-a,a]\). It is not a theorem for arbitrary proximal schemes or a novelty claim about Bernoulli convolutions. See the primary paper comparison and original references in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the full stationary-measure classification for the two clipped maps, particularly the intermediate infinitely atomic law and explicit least uniform reset length. The randomized incremental method, existence tools, and the whole affine Bernoulli-convolution branch are prior ingredients. Earlier and later catalogue hits directly overlap the affine branch and related reset reasoning, but the inspected statements do not supply the same middle clipping law or the two sharp surfaces.
+
+## value
+
+PASS
+
+A scalar quadratic with two shifted absolute penalties is a natural nonsmooth splitting with a fixed optimizer, not an arbitrary selected dynamical map. Its constant-step stationary law can change from endpoint-only to infinitely atomic to diffuse, behavior that expected objective rates do not describe. The sharp thresholds and least reset length characterize a distinct finite-word memory-loss mechanism and let practitioners distinguish genuine phase changes from finite simulation or rounding artifacts. This value is for the clipped proximal specialization, not for rediscovering the affine Cantor/interval dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:38:56.961115Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–41 and accompanying VERIFICATION.md and verify.py",
+        "/workspace/branches/interval_gap_check.py: independent gap-mask union enumeration through m=6 (maxima 1,2,4,8,13,19,26) and explicit positive-length path probes for m=2,…,50"
+      ],
+      "rationale": "The stated open-neighborhood shatter function is correct. Generic endpoints can be obtained by first slightly enlarging every host interval and then perturbing them, preserving all adjacencies. For a query with a left-endpoint prefix of length k, right-endpoint deletions give at most k nonempty nested sets. If the earliest-ending and latest-starting marks differ, short probes just outside them recover two diagonal-deleted traces as ordinary queries. If they coincide, that mark is contained in all the others; prefixes of length <m permit no right deletions, hence at most 2m query traces in all and at most 3m−1 total, enough for m≥3. Boolean ceilings handle m≤2. The prose in RESULT.md:36 reverses before/after relative to predecessor/successor; the given coordinates themselves work: [2a−3/4,2b−1/4] hits exactly the block a,…,b in I_i=[2i−2,2i+1]. Add an empty probe and the m−2 distinct self-deleted interior patterns {i−1,i+1}. This proves the numerical claim and the stated VC consequences.",
+      "residual_risks": [
+        "The bounded check corroborates the witness and small cases, not the all-size proof. Uploaded scripts were inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 5 RESULT.md:14–16, 26–53 adds equality classification and sharp minimum order while proving the exact maximum on all finite interval hosts."
+        ],
+        "reasoning": "Discarding the structural and order conclusions yields the entire nontrivial numerical finding under review. Nearby closed-neighborhood bounds or restricted unit-host maxima are not the decisive comparison.",
+        "searches": [
+          "Resultary: SCOPE-sharp-open-neighborhood-type-growth-and-path-rigidity-in-interva--9d6b84f296e4",
+          "Primary literature lookup: ordered path rigidity and minimum host order for interval-neighborhood traces"
+        ]
+      },
+      "checked_sources": [
+        "Both exact Resultary hits and local RESULT.md files; primary literature searches on exact expression, open traces and rigidity; arXiv:2607.10941 and arXiv:2501.08895 as access-limited adjacent references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 5 gives 8 at m=3 and 13 at m=4, and its explicit quadratic formula holds thereafter. Nearby closed-neighborhood searches concern N[v], whereas this comparison is for N(v)."
+        ],
+        "reasoning": "The distinct exact theorem implies VC dimension three by the shattering boundary and density two by quadratic growth. No assertion of implications from the unavailable general papers is needed.",
+        "searches": [
+          "Record 5 RESULT.md:5–16, 49–55",
+          "arXiv:2611.08143; arXiv:2607.10941; Parreau, Identifying Codes and VC-Dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 5 RESULT.md:5–16 counts exactly the same sets N_G(v)∩A, with the diagonal omitted at marked vertices. The nonempty-host convention cannot change the maximum at m≥1."
+        ],
+        "reasoning": "One-variable atomic adjacency types are exactly these open traces. For m≥3, 1+binom(m+1,2)+m−2=m(m+3)/2−1; both records give 2 and 4 at m=1,2. The fact at m=0 is automatic on a nonempty host.",
+        "searches": [
+          "Resultary: exact open-neighborhood trace growth in finite interval graphs and open-neighborhood adjacency types with path rigidity",
+          "Primary literature lookup: interval graph open neighborhood trace complexity and VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary IDs dated 2026-11-22; both matching local Findings inspected. The hit ending 99413cf9082e is the identical record, not outside support for coverage."
+        ],
+        "reasoning": "The distinct hit ending 9d6b84f296e4 supplies an exact formula, not a merely similar title or parameter regime. Dating does not resolve order.",
+        "searches": [
+          "Resultary exact expression and path-rigidity searches; hits 99413cf9082e and 9d6b84f296e4"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record (assigned record 5) already covers the same exact open trace maximum on the same class and additionally proves rigidity and minimum order. Coverage is demonstrable; historical priority between the two same-day records is not. The only extra boundary case is the tautology at m=0; VC dimension 3 and density 2 follow immediately from the common exact values. Fixing the witness sentence or providing a new verification would not produce a distinct finding.",
+      "residual_risks": [
+        "Primary full-text coverage was limited by access timeouts and priority is unresolved. Neither limitation weakens the verified equivalence within the indexed corpus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent numerical coverage with additional structural conclusions; priority unresolved",
+          "evidence": [
+            "Same open-trace definition and domain; exact maxima agree at every m≥1."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-open-neighborhood-type-growth-and-path-rigidity-in-interva--9d6b84f296e4",
+          "material_read": "Local RESULT.md:5–22, 26–55",
+          "method": "Resultary index and local original",
+          "title": "Sharp open-neighborhood type growth and path rigidity in interval graphs",
+          "trigger": "Distinct indexed exact match"
+        },
+        {
+          "assessment": "Access-limited; not used as negative evidence",
+          "evidence": [
+            "Frozen record cites slides 15 and 17 for the closed-neighborhood setting."
+          ],
+          "identifier_or_url": "https://perso.liris.cnrs.fr/aline.parreau/Research/Slides/seminaireCombgraph13.pdf",
+          "material_read": "Search descriptions and citation only; cited closed-neighborhood slides not retrieved",
+          "method": "Primary literature search and attempted OA retrieval",
+          "title": "Identifying Codes and VC-Dimension",
+          "trigger": "Interval graph VC dimension"
+        },
+        {
+          "assessment": "No definitive statement comparison from full text",
+          "evidence": [
+            "No exact interval formula was identified in the material available; this does not establish absence."
+          ],
+          "identifier_or_url": "arXiv:2611.08143",
+          "material_read": "Citation and accessible search description only",
+          "method": "Search and attempted OA retrieval",
+          "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+          "trigger": "Broader one-variable types theorem could specialize"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–38; record 5 counterpart"
+      ],
+      "rationale": "The mathematical question is substantive: exact classwide growth distinguishes ordinary query traces from the exceptional diagonal deletions and gives both a finite shattering boundary and a sharp quadratic invariant. This intrinsic value is not a claim that the duplicate submission adds to the corpus.",
+      "residual_risks": [
+        "No value is attributed to the automatic zero-parameter boundary or to a second certificate of an already covered result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

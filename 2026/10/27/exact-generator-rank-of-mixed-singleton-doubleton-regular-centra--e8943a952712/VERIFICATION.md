@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification of the mixed-block centralizer-rank theorem
 
-Use `python verify.py` with an ordinary Python 3 interpreter. The program separately constructs all full maps commuting with the prescribed idempotent (rather than using the normal-form proof), computes multiplication closures, and reports complete checks for \(b=1,2,3,4\). It also exhaustively tests the \(2628\) proposed three-element subsets with one unit for the degree-two mixed case.
+Run `python3 verify.py` in this directory. Closure starts with the actual generators and appends generators on the right to enumerate nonempty words. For \(b=1,2\), an independent target set is obtained by enumerating arbitrary full maps of the point set and testing commutation with the prescribed idempotent. This also checks all two-generator candidates for \(b=1\) and all 2,628 pairs of nonunits adjoined to the nonidentity unit for \(b=2\). For \(b=3,4\), the check verifies the generators commute and compares the closure size against the counting formula, rather than testing every full point map.
 
-Successful replay prints `VERIFY_OK_MIXED_REGULAR_CENTRALIZER_RANK`. The finite checks have no force as an infinite proof. The constructive argument in RESULT.md handles all \(b\ge1\). Historical uniqueness and independent audit have not been established.
+The predicted printed generator counts are 3, 4, 5, 5 and the corresponding closure sizes are 6, 75, 1,372, 32,805. These checks are finite; the normal form, explicit construction, and lower bound in `RESULT.md` establish the general theorem.

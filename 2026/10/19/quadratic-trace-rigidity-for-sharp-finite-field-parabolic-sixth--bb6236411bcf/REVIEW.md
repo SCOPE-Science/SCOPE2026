@@ -1,17 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The sharp norm and constant-modulus requirement are explicitly proved in González-Riquelme–Oliveira e Silva, Theorem 1.3. Equality forces every generic triple-fiber phase to be constant. The two repeated-point triples have exactly the same sum and square-sum, with genericity discriminant \(6h^2\neq0\). Their identity forces linewise quadratic phases on every prime-field line. A direct finite-difference polarization proves the phase is a prime-field quadratic form. The two-dimensional orthogonal-group invariant-form calculation then proves this must be the field-trace form. Character translations give the converse and trace-pairing nondegeneracy proves distinctness. Exact \(\mathbb F_{25}\) calculations reproduce generic-fiber rank 20 and sharp constant; they are not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, best-knowledge
+PASS
 
-The original 2024 full text proves the sharp inequality and constant-modulus necessity for all finite fields but gives no complete phases for this parabola. Two closest published mathematical findings identify the same phase family over prime fields only, a genuine covered special case. The present field-extension classification excludes additional prime-field-quadratic phases and is not implied by those prime-field statements. Searches considered trace-phase aliases, stronger all-field coverage, existing exact tables, and the implication of the primary source. Residual risk: an equivalent classification outside the inspected corpus may exist; linked prime-field full records were not retrievable beyond published summaries.
+Theorem 1.3 gives constant modulus and sharpness at constants with the stated measures. Orthogonality gives q^(-4) times the sum of squared ordered fiber sums. At constant modulus the triangle inequality bounds each summand by its value at a constant, so equality holds separately on every fiber, in particular the generic ones. The four-point resonance has defect 6h², nonzero for h≠0. Ratios of consecutive ratios on each prime-field line are two-periodic, hence constant on its odd cycle, giving p-th root phases and degree at most two on each line. In equation (3), equating coefficients gives x²yφ=(x²y²φ)/2 and xy²φ=−5(x²y²φ)/2; interchanging x,y forces the common term to vanish because 3 is invertible. The three-direction cube then gives vanishing mixed third differences, so polarization is prime-field bilinear. In the split rotation representation only opposite weights from the same Frobenius index can pair, since q−1>2p^(n−1). In the nonsplit case p^d≡−1 mod q+1 has only d=n modulo 2n: smaller d is excluded by size, larger d by inversion. In both cases the n-dimensional invariant space is exhausted by trace multiples of S, which are independent by polarization on a nonisotropic field line. In the split case invariance extends to isotropic vectors by the parallelogram identity, avoiding at most three values of each coordinate. Evaluation at (t,−t,0), then trace nondegeneracy, gives the asserted quadratic and linear terms. Modulation translates the output and polarization gives q² distinct classes. The frozen verify.py was inspected, not executed: its F_25 fiber sizes and rank-20 test are bounded corroboration, not needed for the uniform proof.
 
-## Mathematical value — PASS
+## originality
 
-This resolves the natural missing equality classification for a known sharp inequality at every nonprime finite-field extension, including the first proper extension \(\mathbb F_{25}\). The core rigidity step is genuinely field-sensitive: the prime-field additive vector space has many quadratic forms, but equality permits only the trace of a scalar multiple of the field square. This is a complete natural invariant, not a small numerical increment.
+PASS
 
-## Limits
+Credit the known sharp constant, constant-modulus necessity and the prime-field phase classification. The supported distinct claim is rigidity of the phases over proper extension fields: generic fibers force field-trace quadratics, not just arbitrary prime-field quadratics. None of the inspected prior statements supplies that step.
 
-Only characteristic at least five, the one-parameter parabola and the sixth moment are claimed. Full bibliographic certainty and independent auditing are not claimed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known sharp inequality left all phase information unresolved on extensions. Excluding the extra prime-field quadratics completes a natural equality classification and identifies precisely which modulations give all extremizers up to scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

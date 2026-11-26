@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_k33.py` from the directory containing this file. It needs Python 3 only (the standard-library `fractions` and `itertools` modules).
+## correctness
 
-The checker constructs the exact three centered balls for each of six vertices, enumerates all \(3^6=729\) row selections, and reduces them by within-class permutation and class interchange to exactly 55 canonical types. It independently verifies each of the 727 nonexceptional raw choices and all 54 nonexceptional representatives by exact rational Sylvester positive-definiteness tests on \(39I/25-A^{\mathsf T}A\). The two remaining raw choices are exchanged-class versions of one exceptional canonical representative.
+PASS
 
-The six smallest leading principal minors over the 54 strict types, in order of principal-submatrix size, are
+The only centered balls have sizes 1, 4 and 6. On nonnegative inputs the squared maximal quotient is the maximum of the squared row-selection quotients; nonnegative Gram matrices allow a nonnegative top eigenvector, so no row-activity restriction is needed for the upper bound. Independently enumerated all 729 assignments by graph distances in /workspace/checks/replay_k33.py. For A the selected averaging matrix, the independent integer Bareiss check of 5616 I − 25(12A)^T(12A) established positive leading minors for exactly 727 assignments. The exceptions are (0,0,0,1,1,1) and its exchange. The 55 canonical selections and the six listed minima on the 54 strict types were reproduced exactly. On the exceptional assignment the mean-zero directions have squared singular values 1 and 1/16, each twice, and the class-constant Gram block is [[1,3],[3,25]]/16. Its top eigenvalue is simple, exceeds 39/25, and has positive vector (sqrt(17)−4,1); direct comparison confirms radius one is strictly active on the smaller class and radius zero on the larger. Thus the value and both labeled rays, as well as coordinate sign freedom, follow. The decimal 1.25919907274557… is correct. For general r the class-constant two-by-two block proves the attained test quotient B_r; the positive optimizer has 0<a<b since the largest eigenvalue exceeds 1 (test a=0) and a≥b gives quotient ≤1. Increasing r strictly improves its lower-class average, and the limiting matrix has norm sqrt(2). This does not prove full-norm sharpness for r≥4. Inspected the uploaded verification and script; the reproduction used independent code, not that script.
 
-\[
-\left(\frac{1141}{3600},\frac{1631}{22500},\frac{2989}{93750},\frac{12691}{390625},\frac{357749}{9765625},\frac{7529536}{244140625}\right).
-\]
+## originality
 
-The exceptional two-class-constant action has Gram matrix \(\frac1{16}\begin{psmallmatrix}1&3\\3&25\end{psmallmatrix}\), with characteristic equation \(16z^2-26z+1=0\). Its top eigenvalue lies strictly above \(39/25\); its eigenspace is one-dimensional and has the positive ray \((\sqrt{17}-4,1)\) on the classes. A direct comparison of the three averages confirms that the row selections are active. The all-order lower law follows analytically from a two-by-two Rayleigh quotient and is not inferred from testing finitely many orders.
+PASS
 
-Successful exact execution prints `CERTIFICATE_OK canonical=55 strict=54 raw=729 winning_raw=2`, followed by the rational minima and exact squared norm. Floating-point eigenvalue comparisons are auxiliary only. No independent mathematical audit is represented by this verification.
+The elementary two-class test value/profile has close indexed precedent, notably the same radical and eigenvector on the cube and an explicit mention of the K3,3 lower bound there. The exact K3,3 exclusion of other choices and equality classification, and the all-order balanced lower law, remain distinct in the inspected evidence. The same-day exact C4 match is not taken as evidence of chronological priority, nor credited to this record.
+
+## value
+
+PASS
+
+The first cubic balanced biclique is a natural highly symmetric strong-norm test beyond the four-cycle and unlike stars or complete graphs. Rigidity shows exactly when the class-constant lower test captures the nonlinear operator despite the global ball, supplying a useful exact comparison with the cubic cube. The balanced family gives a monotone lower comparison approaching sqrt(2), without claiming an unsupported upper bound. The finite certificate decides a well-motivated exact invariant, not an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

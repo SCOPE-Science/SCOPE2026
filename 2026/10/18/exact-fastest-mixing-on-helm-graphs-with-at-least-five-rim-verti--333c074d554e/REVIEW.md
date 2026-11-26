@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The dihedral average is legitimate because SLEM equals the spectral norm of the centered kernel and is convex. Explicit Fourier and radial block decompositions yield the objective. A sharp first-Fourier lower bound reduces to a one-dimensional strictly convex problem with exact minimizer. Exact interval checks cover the five small-order cases needed by the auxiliary bound; explicit diagonal dominance and a quadratic radial certificate bound all remaining modes. Strict monotonicity proves uniqueness in the invariant subclass, not outside it. The attached checker passed the exact finite sign certificates and full-matrix numerical comparisons. These computations supplement, rather than replace, the all-order proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Boyd–Diaconis–Parrilo–Xiao (arXiv:0709.0955, 2007; SIAM J. Optimization 2009), section 5.4.3, solves the wheel, with no pendant vertices. Its scalar nonconstant-frequency modes are fundamentally different from the helm's coupled two-dimensional blocks. The prior claim on fastest mixing of the sunlet concerns a graph with no hub; it does not imply the helm formula. Semantic database searches for helm/corona/wheel mixing, including parameter and spectral variants, returned no dominating claim; negative search results are not novelty proofs. A hidden or unindexed equivalent treatment is still possible.
+PASS
 
-**Value — PASS.** This determines an exact nontrivial spectral optimization for an infinite natural graph family that joins the previously solved wheel and the pendant-enriched cycle. It identifies a unique invariant optimal design, an exact expression for its rate, saturated hub and rim constraints, and the sharp inverse-linear relaxation scale. It is not merely a graph renaming or an arbitrary finite sample.
+Use the operator norm off constants, counting a second stationary eigenvalue for disconnected kernels. Dihedral averaging is a feasible convex norm contraction. In the first Fourier block the Laplacian is q E11 plus c times the matrix with diagonal 1 and off-diagonal -1, with q=a+2sb. Feasibility gives q+sc≤a+s(1−a)≤A, strictly unless both a=1/n and a+2b+c=1 since 0<s<1. The Rayleigh test at (1,1+√s) gives a nonstationary transition eigenvalue at least 1−A/D. Equality requires that vector to be an eigenvector, whose second equation fixes c=A(1+√s)/(√s D), even when zero weights are allowed. At the proposed triple it is indeed the top eigenvector of that block because both its entries and c are positive. For n≥10, 8/n²≤s≤20/n², and uD/(1+u)=2u+u³/(1+u)≤(2+1/5)/√5<1≤A/(1/n), giving c>1/n; c≤A/(2u)≤1/(4√2)+√20/20<1/2. For n=5 through 9 independent directed rational estimates on the explicit weight gave c in [380,382], [359,361], [339,341], [321,323], [305,307], respectively, in units of 1/1000. Thus the nonzero edge weights and holding probabilities are feasible. With α=1/n, the first block's top eigenvalue is ≥1−α: for c>α the determinant test reduces to s(1−α−c)(c−α)/c≤α; its left side is bounded by s(1−2√(α(1−α)))≤α using 20(n−2√(n−1))≤n². The latter follows from x⁴−18x²+40x−19≥5 for x=√(n−1)≥2 by differentiation. Other nonzero Fourier blocks have no larger upper eigenvalue; adding (1−α)I to each yields diagonal entries ≥c and off-diagonal c, so their lower eigenvalues are ≥−(1−α). The nonzero radial Laplacian roots have sum 1+α+2c and polynomial R(x)=x²−(1+α+2c)x+(2+α)c. R(α)=c(2−α)−α>0 and R(2−α)≥1−7α/2+2α²>0; the mean of the roots lies strictly between the endpoints, placing both roots in [α,2−α]. This establishes attainment, global minimum, and invariant-only uniqueness. Expanding s=2π²/n²+O(n⁻⁴) verifies both stated limits.
 
-**Closest literature and limitations.** Boyd et al. 2009, sec. 5.4.3, gives the wheel weights; the 2004 Boyd–Diaconis–Xiao paper establishes the general SDP framework. Only the 2009 symmetry paper was inspected in substantive relevant full-text sections; the other source's public abstract and bibliographic record were checked. The claim does not settle all non-invariant optimal kernels or weighted/nonreversible variants. Database coverage cannot exclude every equivalent source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest inspected results share either the graph, objective, or an active weight constraint, but not their combination. No inspected result yields the coupled Fourier-block helm SLEM formula or the invariant allocation; symmetry reduction and saturated spokes on wheels are prior work.
+
+## value
+
+PASS
+
+This is a complete exact optimization on a natural family built from a wheel and individual leaves. It resolves whether the competing radial and high-frequency modes prevent saturating both the hub and rim while pendant weights stay positive. The exact value, asymptote, and invariant optimizer give a reusable benchmark beyond the separate wheel and sunlet cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

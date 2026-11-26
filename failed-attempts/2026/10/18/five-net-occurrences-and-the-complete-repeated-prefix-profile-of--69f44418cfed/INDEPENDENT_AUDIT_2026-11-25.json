@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:10:19.952421Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D_n=μ^n(0), n≥3, the block form XYXXXYXY with X=D_(n−3) and Y its last-bit flip supplies partners at offsets +4h,+h,−h,−4h,−6h on the five intervals. The first four matches end at a differing final block bit; in the fifth the remaining suffix repeats in full. Opposite-parity positions have LCP at most two since every even-start triple ends in zero while an odd-start triple beginning in zero must be 001 (the source word has no 11). Same-parity LCPs have upper bounds 2r_n(a)+1 and 2r_n(a) after morphing, with the actual suffix lengths giving the sharper fifth piece. The base profile at n=3 matches directly; the resulting upper bounds coincide with the explicit lower bounds for every order. A net occurrence must have length r_n(i)>0 and, away from the left boundary, r_n(i−1)<r_n(i)+1. Applying this criterion gives exactly the five claimed pairs, including the equality at 6h. Independently, direct all-pairs suffix comparisons and direct enumeration of repeated factors with unique extensions matched every case at orders 3 through 7. To replay the finite check, substitute 0→01 and 1→00, compare each suffix with all other suffixes, and tabulate every nonempty substring by its starting positions before checking its left and right extensions. The frozen check_period_net.py was inspected, not run; the frozen log reports orders 3 through 14. Neither finite check is used as the all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo–Kishi give three Fibonacci and nine Thue–Morse net occurrences with the same boundary convention.",
+          "Kishi et al. discuss minimal unique substrings and net occurrences for those families. Banbara et al. give the two smallest string attractors for period-doubling words."
+        ],
+        "reasoning": "Those other-family net-occurrence counts and the same-family attractor classification do not themselves imply this profile. The complete minimal-unique-substring theorem for the same finite words does.",
+        "searches": [
+          "Guo–Kishi arXiv:2505.02307, abstract and Definition 1",
+          "Kishi et al. arXiv:2605.18034, pp. 1–2",
+          "Banbara et al. arXiv:2602.16152, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_period_net.py and check_period_net.log",
+        "Resultary a64ede970c54 (Finding) and 0c35eb394ad7 (summary only)",
+        "Guo–Kishi 2505.02307",
+        "Kishi et al. 2605.18034",
+        "Banbara et al. 2602.16152"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the first four start intervals, the earliest admissible minimal unique substring ends respectively at 4h, 5h, 6h and 8h (exclusive), giving r_n(i)=end−i−1. For i≥6h no minimal unique substring starts within the suffix, so r_n(i)=8h−i."
+        ],
+        "reasoning": "This recovers the exact five-piece formula, not just lower bounds or counts. The nondecrease test on consecutive r_n entries and the i=0 boundary then give precisely all five net occurrences, with the same lengths. Different proof style does not create a new mathematical claim.",
+        "searches": [
+          "Indexed record a64ede970c54, Finding, compared with frozen RESULT.md:4–21 and 50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding gives all four minimal unique substrings, at 2h−1, 3h−1, 4h−1 and 6h−1, each of length 2h+1, for the same D_n and n≥3.",
+          "A substring of a finite word is unique if and only if it contains a minimal unique substring: choose a shortest unique subfactor for necessity and use uniqueness of the subfactor for sufficiency."
+        ],
+        "reasoning": "For a suffix starting at i, its shortest unique prefix ends at the first possible endpoint of a minimal unique substring whose start is ≥i. If there is none, the full suffix repeats. Conversely the position of every minimal unique substring is visible at a noninitial net start: whenever r(i)≥r(i−1), the unique factor beginning at i−1 of length r(i−1)+1 has its proper prefix and suffix repeated. Thus the minimal-unique-substring terminology identifies equivalent, not merely nearby, data here.",
+        "searches": [
+          "Resultary meaning search for period-doubling unique factors, net occurrences and repeated-prefix profile",
+          "Indexed record a64ede970c54, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete minimal unique substring list gives exclusive ends 4h, 5h, 6h, 8h and remains valid for all n≥3, not merely a computed prefix range.",
+          "The same-day BWT indexed summary refers to a run recurrence; its full mirror text timed out and is not relied on."
+        ],
+        "reasoning": "Those four endpoints are an exact compressed representation of the full uniqueness threshold table. The cyclic BWT summary alone does not establish the same table and does not affect the decisive comparison.",
+        "searches": [
+          "Resultary exact entry a64ede970c54, complete minimal unique substring list",
+          "Resultary entry 0c35eb394ad7 for the cyclic BWT of dyadic period-doubling words"
+        ]
+      },
+      "rationale": "A distinct indexed theorem gives the complete list of minimal unique substrings of exactly these finite period-doubling iterates for n≥3. This list determines the first unique prefix length of every suffix, not just the shortest unique factor length in the word. Its four stated starts and lengths mechanically give all five pieces and hence all five net pairs. This is demonstrable coverage, not a conclusion about chronological priority; the indexed dates alone do not determine priority.",
+      "residual_risks": [
+        "The indexed date difference does not resolve historical priority, provenance or authorship.",
+        "The same-day cyclic BWT text was unavailable and is not needed for the demonstrated minimal-unique-substring implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full profile and net pairs by deterministic conversion",
+          "evidence": "For n≥3 it gives exactly four minimal unique substrings of length N/4+1 at starts N/4−1, 3N/8−1, N/2−1 and 3N/4−1.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-four-minimal-unique-substrings-of-every-finite-period-doubli--a64ede970c54",
+          "material_read": "Local mirror RESULT.md Finding, offsets 196 onward",
+          "method": "Bounded local-mirror statement inspection",
+          "title": "All four minimal unique substrings of every finite period-doubling word",
+          "trigger": "Exact same finite iterate and complete unique-factor structure"
+        },
+        {
+          "assessment": "Directly comparable invariant on different words",
+          "evidence": "Counts three and nine respectively; out-of-bound extensions are unique.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.02307",
+          "material_read": "PDF p. 1 abstract and p. 3 Definition 1",
+          "method": "Bounded OA primary text inspection",
+          "title": "Net Occurrences in Fibonacci and Thue-Morse Words",
+          "trigger": "Same invariant and boundary convention"
+        },
+        {
+          "assessment": "Relevant techniques and other word families",
+          "evidence": "The inspected applications concern Fibonacci and Thue–Morse words.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.18034",
+          "material_read": "PDF pp. 1–2",
+          "method": "Bounded OA primary text inspection",
+          "title": "On Occurrence-Preserving Morphisms",
+          "trigger": "Morphism methods for minimal unique substrings and net occurrences"
+        },
+        {
+          "assessment": "Same words, different combinatorial invariant",
+          "evidence": "Reports exactly two smallest string attractors for order n≥2.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Bounded OA text inspection",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Exact classifications for the same finite period-doubling words"
+        },
+        {
+          "assessment": "Not relied on for coverage or noncoverage",
+          "evidence": "Summary addresses a cyclic transform recurrence and run count, not the linear boundary conventions used here.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-cyclic-burrows-wheeler-transform-of-dyadic-period-doubling--0c35eb394ad7",
+          "material_read": "Indexed summary only; decisive full-text mirror passage not retrieved",
+          "method": "Ranked search and attempted bounded mirror inspection",
+          "title": "Exact cyclic Burrows–Wheeler transform of dyadic period-doubling words",
+          "trigger": "Same words and lexicographic rotation ordering"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The profile is a useful way to express repeated-factor information, but as a distinct exact invariant here it supplies no additional classification beyond the complete minimal-unique-substring list for these same words. Taking first endpoints gives the whole profile and adjacent comparison gives every net occurrence. There is no independently established surviving mathematical contribution beyond that exact conversion in the stated finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

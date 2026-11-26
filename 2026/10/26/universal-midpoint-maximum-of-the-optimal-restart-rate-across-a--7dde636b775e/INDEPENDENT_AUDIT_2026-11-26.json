@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:00:03.390060Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the transform in interface-centered coordinates. For k=sqrt(s/D), boundedness on the right gives u'(b+)=-k u(b+), and continuity of flux and the backward jump law give u'(b-)=-k u(b+) and u(b-)=(1+Dk/kappa)u(b+). Propagating the left solution back to 0 gives 1=u(b+)[(1+Dk/kappa)cosh(kb)+sinh(kb)]. Propagating right to L and simplifying gives exactly the stated Laplace transform. Under global resets, each independent trial has success probability phi(r)>0 and mean duration (1-phi(r))/r, yielding the normalized F after renewal. For convexity, write the transparent term as integral_0^1 e^(u z)/z du; the second derivative of each e^(a z)/z is e^(a z)[(a z-1)^2+1]/z^3, positive for all real a. This also applies to the two resistance terms. Both endpoint limits are infinity, so the stationary root is unique and interior. Differentiation gives F_B=-2 eta exp((1-2B)z) and F_zB=(1-2B)F_B; implicit differentiation and the positive curvature give the exact signed slope, while the envelope derivative gives strict decrease of the minimized mean. The monotone rate conversion preserves the unique maximum exactly at B=1/2. The proof requires finite positive permeability and resets from both sides as claimed. The recorded finite sweep was not rerun and is not used to establish the universal quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ring records use unrestricted resets but optimize membrane permeability for stationary entropy production, or the rate for stationary current. The mirror-window result instead controls a spatial reset field with two absorbing endpoints. Kay–Giuggioli arXiv:2406.07142 counts Poisson crossings in boundary local time, not reset events in physical time."
+        ],
+        "reasoning": "None of these statements covers an absorbing-target half-line, a freely crossing reset jump, and optimizer sensitivity to membrane position together. Optimizing stationary current or entropy does not give the first-passage optimizer, even when both quantities use the same renewal protocol.",
+        "searches": [
+          "Kay Giuggioli permeable barrier stochastic resetting diffusion reset membrane 2024 2025",
+          "Diffusion through permeable interfaces stochastic resetting Kay Giuggioli",
+          "Resultary 3bb98581842f, 9bd1a590e00a, 493d7044dfb9 and 9917a8f5fc1c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "arXiv:2209.06023",
+        "arXiv:2211.12468",
+        "arXiv:2209.09176v1",
+        "arXiv:2406.07142",
+        "arXiv:2209.08330v1 abstract and conclusion at offset 89930",
+        "Resultary 3bb98581842f, 9bd1a590e00a, 493d7044dfb9 and 9917a8f5fc1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known transform and classical renewal mechanically supply the MFPT for the global reset model. The prior no-reset expression has no optimized restart rate; the screened paper optimizes a different function. The discrete resetting paper names a permeable interface as a potential extension."
+        ],
+        "reasoning": "The MFPT formula is not credited as distinct. The strict-convexity and mixed-partial argument yields a unique optimum and fixes its position derivative globally; the universal geometric rule does not follow by substituting parameters in any inspected prior optimization statement.",
+        "searches": [
+          "arXiv:2209.06023, Eq. (11)",
+          "arXiv:2211.12468, Secs. 1 and 3",
+          "arXiv:2209.08330v1, conclusion on permeable interfaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kay–Giuggioli Eq. (11) is the exact unreset first-passage transform. Bressloff arXiv:2211.12468 explicitly suppresses resets on the target side; arXiv:2209.09176 explicitly forbids membrane-crossing resets."
+        ],
+        "reasoning": "Side-conditional restarting is not an equivalent formulation: it cannot discard every excursion at the first clock ring. The signed optimizer slope here is for restarting the entire no-reset problem at every ring.",
+        "searches": [
+          "Resultary: universal midpoint maximum optimal Poisson resetting rate semipermeable interface global reset",
+          "Resultary: Brownian global resetting across permeable barrier optimal rate interface position target absorbing point",
+          "Bressloff: diffusion with stochastic resetting screened by a semipermeable interface reset across interface result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed optimizers are for stationary ring problems or a bounded spatial control. The first-passage membrane-reset paper's reported parameter trend concerns the screened model, not global resetting."
+        ],
+        "reasoning": "The searched symbolic statements are the relevant exact records; there is no finite rate table that establishes the all-position, all-permeability maximizer. No exact independent global midpoint claim was identified in this bounded search.",
+        "searches": [
+          "Resultary: Brownian global resetting across permeable barrier optimal rate interface position target absorbing point",
+          "Resultary 3bb98581842f, 493d7044dfb9 and 9917a8f5fc1c Findings"
+        ]
+      },
+      "rationale": "The unreset transform and Poisson renewal identity are prior ingredients. The distinct supported claim is the geometry of the globally reset MFPT optimizer: unique interior rate for each position, increasing then decreasing with its unique position maximum at the midpoint, notwithstanding a strictly decreasing optimized mean. The closest inspected first-passage optimization screens out target-side resets and therefore uses a different renewal problem; the closest inspected global reset catalogue results use stationary observables on a ring.",
+      "residual_risks": [
+        "Bounded retrieval is not a historical-priority determination. An equivalent analytic optimization may be indexed under other permeable-interface or general restart terminology; no such statement was established in the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the no-reset input transform, not the reset-rate geometry",
+          "evidence": "Eq. (11) gives the first-passage transform without resetting, and the barrier-position discussion concerns the unreset model.",
+          "identifier_or_url": "arXiv:2209.06023 / 10.1103/PhysRevResearch.4.L032039",
+          "material_read": "Abstract and Eq. (11), p. 3, text offset about 20100",
+          "method": "Bounded OA primary passage",
+          "title": "Diffusion through permeable interfaces: Fundamental equations and their application to first-passage and local time statistics",
+          "trigger": "Identical unreset membrane first-passage geometry"
+        },
+        {
+          "assessment": "Different protocol and therefore different position dependence",
+          "evidence": "The target-side compartment is reset-free; the paper's optimal-rate trend under moving the membrane is for this restriction.",
+          "identifier_or_url": "arXiv:2211.12468",
+          "material_read": "Secs. 1 and 3, pp. 3–4, offsets about 10600–14827",
+          "method": "Bounded OA primary passages",
+          "title": "Diffusion with stochastic resetting screened by a semipermeable interface",
+          "trigger": "Closest prior membrane MFPT reset-rate optimization"
+        },
+        {
+          "assessment": "Side-preserving reset construction",
+          "evidence": "The reset points are +xi or -xi according to the current side; events crossing the membrane are forbidden.",
+          "identifier_or_url": "arXiv:2209.09176v1",
+          "material_read": "Sec. 3, HTML offsets about 37500–41999",
+          "method": "Bounded OA primary passages",
+          "title": "A probabilistic model of diffusion through a semi-permeable barrier",
+          "trigger": "Same membrane formalism with resetting"
+        },
+        {
+          "assessment": "Poisson crossing statistics, not global resetting optimization",
+          "evidence": "The Poisson events are membrane crossings subordinated by boundary local time; resetting is an application mentioned in the introduction.",
+          "identifier_or_url": "arXiv:2406.07142",
+          "material_read": "Abstract and introduction, offsets 0 and about 7900",
+          "method": "Bounded OA primary passages",
+          "title": "Local Time Statistics and Permeable Barrier Crossing: from Poisson to Birth-Death Diffusion Equations",
+          "trigger": "Later work by the no-reset transform authors with a Poisson process"
+        },
+        {
+          "assessment": "Different objective, variable and geometry",
+          "evidence": "The optimizer is a permeability maximizing stationary membrane entropy production at fixed reset rate on a ring.",
+          "identifier_or_url": "2026/10/25/SCOPE-unique-optimal-membrane-permeability-and-sharp-universal-bounds--3bb98581842f",
+          "material_read": "Original Finding, local-mirror offset 0",
+          "method": "Resultary lookup and local-mirror original passage",
+          "title": "Unique optimal membrane permeability and sharp universal bounds for resetting diffusion on a ring",
+          "trigger": "Nearby catalogue optimization under freely crossing resets"
+        },
+        {
+          "assessment": "Stationary current, not absorbing-target MFPT",
+          "evidence": "The unique rate maximizes stationary current magnitude for fixed source and membrane geometry.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-throughput-optimal-reset-rate-and-a-sharp-membrane-cont--493d7044dfb9",
+          "material_read": "Original Finding, local-mirror offset 0",
+          "method": "Resultary lookup and local-mirror original passage",
+          "title": "A unique throughput-optimal reset rate and a sharp membrane-contact crossover on a Brownian ring",
+          "trigger": "Same optimized reset-rate parameter with global membrane-crossing resets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact midpoint is an invariant of a physically motivated optimization with a tunable geometric obstruction. The optimal rate's nonmonotonicity, despite strictly decreasing mean times at fixed and optimized rates, gives a concrete distinction a researcher comparing screenable and externally imposed resets can use. This is a structural prediction beyond merely computing a known transform or locating a numerical optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

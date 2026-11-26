@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns every integer \(n\ge4\), valid chord length, and every positive real relative price. The proof identifies the exact cycle Poisson solution, computes its centered squared norm, derives the correct Kirchhoff-index gradient normalization, and uses strict convexity to convert a one-sided marginal test into a necessary-and-sufficient global rule, including equality. A strictly feasible negative-direction perturbation covers the below-threshold case. The finite exact rational verification supports the identities; it does not purport to exhaust infinite parameters.
+PASS
 
-## Originality — PASS, with specific limits
+On the orthogonal complement of the constant vector, K=n·tr(L⁻¹) is strictly convex in L on the positive definite cone: its second derivative in direction H is 2n·||L^(-1/2)HL^(-1)||_F². Distinct simple edges make the conductance-to-Laplacian map injective, and the objective diverges as a connected feasible sequence approaches disconnection. The compact budget simplex thus has a unique connected minimizer. The unique chord-free face optimum is uniform by cycle symmetry. To check the key kernel independently, take s=d(n−d), h=s/n and solve the unit-cycle Poisson equation with the potential linear along the two arcs from 0 to h. Its mean is h/2. On an arc of length k, the sum of squares counted with half weight at the endpoints is h²(k/3+1/(6k)); summing both arcs and subtracting n(h/2)² gives D_n(d)=s(s+2)/(12n), and D_n(1)=(n²−1)/(12n). The actual uniform reference Laplacian is L₀/n, so the budget-constrained first variation is n³z[tD_n(1)−D_n(d)]. Nonnegative variation is sufficient by convexity, including zero variation at equality by strict convexity. Negative variation is realized along the feasible direction that takes z=ε and reduces each ring weight to (1−tε)/n. The ratio, strict increase in d on the allowed discrete domain, and the fixed-d and proportional-d limits follow from the polynomial. The ratio at (n,d)=(4,2) is 8/5 and at (8,3) is 85/21.
 
-The 2008 general conductance-allocation paper supplies strict convexity and first-order optimality but no cycle-plus-priced-chord closed classification. A 2026 chord-augmentation paper computes changes at fixed existing cycle weights, and a 2026 heterogeneous-budget paper optimizes additions while keeping base edges fixed. The new result instead optimizes existing and new edges from the same budget, proves the explicit exact \(n,d\) price boundary, and distinguishes mesoscopic from macroscopic cost scales. Combination of generic existing principles is a residual historical-overlap risk, and the reviewed sources do not establish that the statement was never previously observed.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant is an exact, all-size break-even link-price criterion for a natural network-coherence design objective. A ring designer can decide whether reassigning scarce conductance into a given shortcut ever helps, without solving a nonlinear semidefinite program. The sharp cost scale changes from bounded for local shortcuts to quadratic for macroscopically long ones; this is a structural geometry effect, not an arbitrary numerical example. The positive-chord optimizer itself is intentionally not claimed.
+The viable distinct claim is the exact all-size, distance-resolved cutoff for an already closed cycle whose ring edges and non-ring chord are jointly optimized under heterogeneous prices. The general convex KKT mechanism is known, and the previous path price theorem applies the same mechanism to a different base. Fixed-base chord updates yield the unevaluated cycle marginal, not the polynomial ratio without evaluating that kernel and comparing it with the active ring-edge marginal. No inspected prior statement supplies the resulting closed cycle screening formula or the equivalent evaluated all-distance kernel.
 
-## Sources and risk
+## value
 
-Primary comparison: Ghosh--Boyd--Saberi (2008), especially the convexity, derivative, optimality and symmetry sections; Deng--Chang--Yang (2026), especially fixed-base chord-update formulas and uniform-ring chord-selection results; Bhoite et al. (2026), fixed-base budgeted augmentation. The surviving uncertainty is possible equivalent specialized treatment in less discoverable historical electrical-network design literature. The research has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The price-distance threshold answers whether to buy a shortcut when ring resources must be surrendered, for a natural symmetric graph all of whose conductances may vary. The precise answer, including equality, eliminates a convex solve for that decision and distinguishes an O(1) threshold for fixed distance from an O(n²) threshold for macroscopic distance. This value is in the explicit all-distance boundary, not the generic stationarity criterion or merely observing that a free fixed-base edge improves resistance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

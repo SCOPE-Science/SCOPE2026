@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:59:05.391632Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–43,45–98",
+        "VERIFICATION.md:1–34",
+        "verify_tree_haar.py:34–140 (inspection only)",
+        "Independent replay for each counterexample row with selected probabilities (a,b): maximize 1, 2(1−b)+|2b−1|, 2(1−a)+2a(1−b)+|2ab−1|, and 2(1−a)+2(1−a)(1−b)+|1−2b(1−a)|. These correspond to the four ancestral sign choices."
+      ],
+      "rationale": "Fix an evaluation leaf. Multiplying the signed kernel by the current path mass gives state t; a normalized Haar product across the next two children is minus the inverse parent mass. Thus the omitted sibling contributes (1−p)|t−e| to the absolute row integral and the new state is pt+(1−p)e; the final leaf contributes |t_d|. Every state lies in [−1,1], and the finite operator norm is exactly the maximum absolute row integral. Changing a selected p to q≥p decreases the current term by (q−p)|t−e| while moving the next state by the same distance. With suffix signs fixed, its Lipschitz coefficients telescope to one, so the row cannot increase; maximizing over signs preserves this comparison. For r≤1/2, substitution into the suffix value A+B|t| reduces maximization to choosing the sign opposite to t since (1−r)−rB≥0 for 0≤B≤1. This gives the recurrence and the sharp upper envelope, attained on a consistent minority path of the homogeneous tree. Fair splits give B=1/3+(2/3)(−1/2)^k with k remaining splits, and summing yields F_d. A one-level defect shifts A and B at level j by (1+B_{j+1})δ; through the earlier fair levels the B shift gains successive factors −1/2 and the A increments are half of the incoming B shift. Summing gives precisely C_{d,j}δ. A path through the largest first bias can take all subsequent minority children; monotonicity compares it with the isolated defect. For a single biased node the other paths are fair or take its majority child and cannot exceed the defect value. This proves uniqueness of the fair minimum including depth one. The four two-step rows give 5/2, 5/2, 27/10, and 11/10, so the unique norming leaf is majority-first.",
+      "residual_risks": [
+        "The finite rational diagnostics are not universal certificates; the row comparison and finite-depth induction prove the stated real-probability claims. The upper envelope is attainable over the class, not necessarily for a given heterogeneous tree. The result uses full finite binary generations and real signs, including the constant coefficient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct catalog record is broader on tree shape (proper ragged trees), but restricts all splits to be fair. Osękowski's broader martingale class has weak-type maximal-transform bounds from L¹ input; the reported Choi constants concern Lᵖ."
+        ],
+        "reasoning": "Tree-shape generality does not include biased conditional measures, and weak-type tail bounds are not exact finite-tree L∞ operator norms.",
+        "searches": [
+          "Resultary b891474b0dac, Finding and assumptions",
+          "Osękowski (2016), §4, Theorems 4.1–4.2",
+          "Choi DOI 10.2307/2153920"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:6–30,62–98,103–113",
+        "Resultary 6f455a8c9d69 (self), b891474b0dac (distinct fair-tree overlap)",
+        "Osękowski 2013 Introduction and 2016 §4; Choi bibliographic citation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coefficient for a one-entry product perturbation is algebraically extractable from the known recurrence. The inspected fair or homogeneous statements provide no comparison of rows with different conditional path probabilities; the true maximizer can even take a majority branch at the root."
+        ],
+        "reasoning": "The extension of the product bound and its first-defect derivative to arbitrary nonhomogeneous trees depends on the separate coordinate monotonicity argument. Fair endpoint values and generic weak-type transform inequalities do not imply that argument or the sharp nodewise statement.",
+        "searches": [
+          "Resultary b891474b0dac, fair depth-only theorem",
+          "Frozen RESULT.md:62–96, product comparison and one-defect argument",
+          "Osękowski (2016), §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dyadic Haar sign operation is a martingale transform; the fair depth-only record has the identical F_d on full fair trees. Standard Haar and martingale-transform unconditionality coincide in the classical interior-Lᵖ framework cited in the Introduction."
+        ],
+        "reasoning": "Renaming the operators does not produce a different norm problem, but an interior-Lᵖ constant or a fair restriction cannot settle nodewise real-sign L∞ inequalities with arbitrary atom probabilities.",
+        "searches": [
+          "Resultary finite binary Haar / martingale-transform endpoint comparison; self 6f455a8c9d69 and distinct b891474b0dac",
+          "Osękowski DOI 10.1155/2013/646012, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day distinct record has the fair formula F_H, specializing exactly to F_d. No independent biased-product or one-bias coefficient table was found in the bounded results. The frozen record itself acknowledges earlier complete-generation product calculations without naming their source."
+        ],
+        "reasoning": "Credit the demonstrably covered fair value regardless of same-day ordering; do not credit product-priority from a search miss. Neither fact tabulates the sharp heterogeneous-tree comparison or its stability bound.",
+        "searches": [
+          "Resultary 6f455a8c9d69 (the assigned finding) and b891474b0dac (mirrored RESULT.md at offset 0)",
+          "RESULT.md:103–113, attribution of product and fair formulas"
+        ]
+      },
+      "rationale": "The fair constant overlaps exactly with a distinct same-day record, which even covers ragged fair trees. No priority or originality credit is assigned here to the fair constant or the product recurrence as standalone results. The material distinct claim is monotonic comparison for arbitrary nodewise splits and its sharp consequences: the level-minimum envelope, quantitative first-bias rigidity with equality, and failure of a norming-leaf greedy rule. The strongest inspected comparables do not cover that claim.",
+      "residual_risks": [
+        "The older product recurrence's precise source and priority remain unresolved. Choi's full text was inaccessible. An unindexed broader finite-endpoint comparison could exist; same-day dating was not used to infer priority or disregard coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fair formula is exactly covered, even on fair ragged trees; no biased nodewise bound in the inspected claim",
+          "evidence": "For fair proper binary trees of maximum leaf depth H the norm equals F_H, hence F_d in the complete case.",
+          "identifier_or_url": "2026/11/8/SCOPE-depth-only-endpoint-unconditionality-and-exact-dimension-spectru--b891474b0dac",
+          "material_read": "Mirrored RESULT.md, initial finding and scope at offset 0",
+          "method": "Resultary search and local mirror bounded read",
+          "title": "Depth-only endpoint unconditionality and exact dimension spectrum of adaptive Haar trees",
+          "trigger": "Exact same-day fair-tree endpoint constant"
+        },
+        {
+          "assessment": "Classical Haar/martingale background, not a finite-tree L∞ exact formula",
+          "evidence": "Identifies classical Lebesgue-dyadic Haar with martingale differences, discusses unconditionality for 1<p<∞ and a weak-L¹ analogue.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/646012",
+          "material_read": "PDF Introduction, pp. 1–3, text offset 0",
+          "method": "OA PDF bounded text inspection",
+          "title": "Sharp Inequalities for the Haar System and Fourier Multipliers",
+          "trigger": "Equivalent classical Haar and martingale-transform inequalities"
+        },
+        {
+          "assessment": "Different endpoint observable and domain norm",
+          "evidence": "Sharp weak-type maximal-transform inequalities control event probabilities using L¹ input size, not L∞→L∞ norm across fixed finite probability trees.",
+          "identifier_or_url": "https://www.math.uni.wroc.pl/~pms/files/36.1/Article/36.1.11.pdf",
+          "material_read": "§4, published pp. 158–160; text offset near 29800, Theorems 4.1–4.2",
+          "method": "OA PDF bounded text inspection",
+          "title": "Sharp inequalities for the Haar system and martingale transforms",
+          "trigger": "Broader endpoint results for real martingale transforms"
+        },
+        {
+          "assessment": "Direct contents unresolved; cited as an interior-Lᵖ result",
+          "evidence": "Osękowski attributes the exact Lᵖ constant to Choi. No negative full-document conclusion is made.",
+          "identifier_or_url": "https://doi.org/10.2307/2153920",
+          "material_read": "No Choi full text; bibliographic identification and secondary description in Osękowski (2013), Introduction",
+          "method": "Attempted publisher OA access, denied; inspected accessible primary source's citation",
+          "title": "A Sharp Inequality for Martingale Transforms and the Unconditional Basis Constant of a Monotone Basis in Lᵖ(0,1)",
+          "trigger": "Sharp martingale-transform basis constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:6–30,62–98 and 106–107",
+        "Fair overlap b891474b0dac, Finding"
+      ],
+      "rationale": "A sharp comparison usable with only the minimal child probabilities on each generation controls a natural endpoint norm without enumerating all signs or evaluating every leaf. The first-bias coefficient gives a quantitative, attained rigidity statement that the fair endpoint value alone cannot give. The small greedy counterexample clarifies what the comparison does not compute for an individual tree, rather than serving as an isolated curiosity.",
+      "residual_risks": [
+        "The result does not classify every heterogeneous norming leaf, suppressions, nonbinary or ragged biased trees, or arbitrary complex phases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

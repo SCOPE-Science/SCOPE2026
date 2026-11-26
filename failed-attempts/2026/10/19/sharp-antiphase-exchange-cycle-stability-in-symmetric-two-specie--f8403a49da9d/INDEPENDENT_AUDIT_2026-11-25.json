@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:17:29.859865Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 41–119; independently derived swap reduction, Schur conditions and boundary multipliers",
+        "Frozen VERIFICATION.md and verify.py lines 8–83 (read, not executed)"
+      ],
+      "rationale": "Adding and subtracting the two log-swap equations gives (1−a)(X−Y)=2z and (1+a)(X+Y)=2ρ, where z=log(X/Y)>0. The ratio (X−Y)/(X+Y)=tanh(z/2) yields ρ=(1+a)C(z)/(1−a), whose strict increase from 2(1+a)/(1−a) establishes exactly the existence and uniqueness domain. At the first phase, the symmetry-reduced Jacobian P·DF has trace −aS and determinant −D, with S=X+Y and D=1−S+(1−a²)XY. The two-step derivative is its square. The quadratic Schur conditions reduce to 1+D>0 and 1−aS−D>0; the third follows as aS>0. Since S/(XY)=(1−a)sinh(z)/z and J=Cz/sinh(z), the inequalities become exactly a<A(z) and C−(1+a)J<1−a. A and C increase strictly while J decreases, giving unique boundaries. At z₋ the latter left side is aC, so the window closes only where A=1/(1+C), an intersection of strictly opposed curves. At the lower endpoint the reduced root is −1 with the other in (−1,1); at the upper endpoint D=−1 and 0<aS<2 for each nonempty window, so the reduced roots are conjugate unit-modulus with nonzero real part and their squares are also a conjugate pair. At collision the reduced polynomial is (λ+1)². A bounded independent numeric evaluation using the equivalent collision equation cosh(z)−1=C(z) gives z≈1.953977972619354 and a≈0.277839040264087. The frozen witness satisfies the exact swap equations, and the positive-term log(4) series with its geometric tail bound validates its two strict Schur inequalities.",
+      "residual_risks": [
+        "The proof is local and exponential, not a statement about nonlinear boundary dynamics, global basins, or other two-cycle types. Numerical evaluations are corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 and 2025 studies analyze numerical antiphase modes in the same model family; these are substantial qualitative overlap but not the analytic ceiling in the inspected passages.",
+          "a8a2b34a409c concerns general existence without stability; ede5f0d0607f gives coexistence of several antiphase cycles without classifying the exchange window; 5261a9c6ad45 is about the synchronous diagonal.",
+          "The dedicated Resultary c3fcc7a39530 already gives the exact exchange result rather than merely a generic Jacobian test."
+        ],
+        "reasoning": "A broader collection of cycles or a numerical dynamical picture is not a substitute for a uniform spectral classification. The failure rests on the exact exchange statement, not on an assumption that the inaccessible generic literature covers it.",
+        "searches": [
+          "Kulakov–Neverova–Frisman DOI 10.3390/math10071076 §§4–4.1",
+          "Ryashko–Otman–Bashkirtseva DOI 10.3390/math13050857 Eq. (2) and pp. 4–6",
+          "Resultary a8a2b34a409c, ede5f0d0607f, and 5261a9c6ad45",
+          "Goldar et al. DOI 10.1155/ddns/7255117 (unavailable full text)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c3fcc7a39530, a8a2b34a409c, ede5f0d0607f and 5261a9c6ad45",
+        "DOI 10.3390/math10071076 and 10.3390/math13050857 inspected passages",
+        "DOI 10.1155/ddns/7255117 attempted retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator uses the same P·DF and its square. At the lower boundary its 1+T+D becomes zero, giving reduced multiplier −1 and period-two multiplier +1. At the upper boundary its reduced determinant is 1 and trace lies strictly between −2 and 0 in every nonempty window, giving the stated conjugate pair. The exact collision has both period-two multipliers +1."
+        ],
+        "reasoning": "The endpoints' spectral descriptions follow immediately from the comparator's same equations and inequalities; the rational witness checker does not leave a distinct scientific remainder. No valid narrowing to a separate valuable claim was established.",
+        "searches": [
+          "Resultary c3fcc7a39530 §§2–4 (symmetry reduction, Schur stability, collision and witness)",
+          "Kulakov et al. numerical stability analysis and comparison to the exact exchange theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set the comparator's multiplicative growth parameter to exp(ρ), its γ to a, and its relative amplitude to s=tanh(z/2). Its A(s)=artanh(s)/s becomes C(z)/2 and its q(s)=(1−s²)A(s) becomes z/sinh(z)=J(z)/C(z).",
+          "Its two boundary equations become a=A(z) in the frozen notation and C(z)−(1+a)J(z)=1−a. The collision condition γ=1/(1+2A(s)) is a=1/(1+C(z)); its root equation is exactly q(s)=s², obtained by imposing the same two boundaries."
+        ],
+        "reasoning": "The transformation is bijective on the positive exchange branch, preserves its parameter inequalities, and gives the same physical orbits. Neither the logarithmic parametrization nor the hyperbolic-function form is a new classification.",
+        "searches": [
+          "Resultary: sharp universal coupling cutoff, attracting swap/exchange two-cycles in symmetric Ricker competition",
+          "Resultary c3fcc7a39530 RESULT.md, Finding and proof, offsets 0–7992"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c3fcc7a39530 gives the identical number 0.277839040264087… from the equivalent root, and the same witness at γ=1/10, relative amplitude 3/5, abundances 160 log(2)/27 and 40 log(2)/27 and multiplicative growth 2^(110/27)."
+        ],
+        "reasoning": "This match is not based on digits or a coincident sample. The conversion z=log(4), ρ=55 log(4)/27 gives exactly the frozen witness and the same closed equations establish the full domain.",
+        "searches": [
+          "Resultary exact exchange branch cutoff 0.277839040264 and equivalent normalized amplitude",
+          "Resultary c3fcc7a39530 Finding and exact stable witness, offsets 0–7992"
+        ]
+      },
+      "rationale": "The distinct Resultary record c3fcc7a39530 covers the same existence, uniqueness, full attracting window, universal cutoff and spectral mechanism, under an invertible change of variables. It even gives the same exact attracting witness. This is demonstrated equivalent catalogue coverage, not identification with the frozen record itself or a claim about who proved it first. The comparator's indexed path is dated November 2, whereas the assigned source path is dated October 19; these labels do not establish historical priority or derivation.",
+      "residual_risks": [
+        "Historical priority and provenance between the two records are undetermined. Goldar et al. and the cited Gromova (1988) were not read in full; neither uncertainty changes the proved catalogue equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the entire main finding, independent of any priority conclusion",
+          "evidence": [
+            "Same existence criterion, orbit coordinates and attraction window in relative amplitude; same Schur matrix, collision and exact stable witness."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-universal-competition-cutoff-for-attracting-exchange-two--c3fcc7a39530",
+          "material_read": "RESULT.md Finding, assumptions and proof §§1–4, offsets 0–7992",
+          "method": "Resultary local mirror, direct formula comparison and change of variable",
+          "title": "A sharp universal competition cutoff for attracting exchange two-cycles in a symmetric Ricker map",
+          "trigger": "Exact exchange theorem and numerical cutoff in catalogue"
+        },
+        {
+          "assessment": "Antiphase dynamics and bifurcations described numerically, not the exact analytic window in inspected sections",
+          "evidence": [
+            "They solve for periodic points numerically and investigate stability from nearby trajectories; cite Gromova (1988) on antiphase cycles."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10071076",
+          "material_read": "OA PDF pp. 9–13, §§4–4.1 and equations (13)–(15); p. 22 ref. 62",
+          "method": "Read primary full-text passages; compare growth/coupling and stability definitions",
+          "title": "The Ricker Competition Model of Two Species: Dynamic Modes and Phase Multistability",
+          "trigger": "Closest earlier numerical phase diagram in same model"
+        },
+        {
+          "assessment": "Close same-model numerical coverage",
+          "evidence": [
+            "A non-diagonal cycle is reported near A₂=8.927 at coupling 0.03 and antiphase synchronization at A=10."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math13050857",
+          "material_read": "OA PDF pp. 3–6, Eq. (2) and diagrams/text for antiphase two-cycle B",
+          "method": "Read the model and reported parameter studies",
+          "title": "Multirhythmicity, Synchronization, and Noise-Induced Dynamic Diversity in a Discrete Population Model with Competition",
+          "trigger": "Same symmetric map and possible exact boundary comparison"
+        },
+        {
+          "assessment": "Unresolved general-conditions overlap, not evidence of absence",
+          "evidence": [
+            "Access attempts did not return readable primary text; descriptions indicate generic period-two Jacobian analysis but were not used to infer precise coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/ddns/7255117",
+          "material_read": "Bibliographic identity and secondary characterizations only; no primary full text obtained",
+          "method": "Lawful DOI/publisher and repository retrieval attempts",
+          "title": "Dynamics and Bifurcations in a Two-Species Ricker Competition Model With Nonmonotonic Growth",
+          "trigger": "Potential general period-two conditions encompassing exchange"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact witness; Resultary c3fcc7a39530 Finding and proof §§2–4"
+      ],
+      "rationale": "A sharp global-in-parameters classification of this local exchange mode is mathematically useful in itself. In the reviewed record it adds no independently useful exact result beyond the equivalent measured-amplitude classification already in the catalogue: the entire window, collision, boundary spectra and even the rational-logarithmic witness are there or follow immediately. The change of variables and an alternative certificate for the same witness are not enough for a distinct contribution.",
+      "residual_risks": [
+        "Nothing here rejects the mathematical usefulness of the theorem itself or adjudicates which record established it first."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

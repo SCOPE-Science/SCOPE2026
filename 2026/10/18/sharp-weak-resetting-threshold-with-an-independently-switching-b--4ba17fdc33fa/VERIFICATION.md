@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The exact derivative follows from two coupled backward boundary-value problems and their derivatives at zero resetting. The full computation and the strict endpoint-series comparison appear in RESULT.md.
+## correctness
 
-Run `python verify.py` using NumPy and SciPy. It independently builds the finite-state generator of a reflecting nearest-neighbor walk with a Markov-switched absorbing/reflecting left endpoint. Crucially, the jump-to-reset-location operator preserves the gate state. Two sparse resolvent solves yield the derivative at zero, extrapolated from two lattice meshes.
+PASS
 
-Executed result: `PASS 193 numerical checks; root thresholds in (0.422649730810,0.552786404500).`
+The backward reset perturbation is m_j(a)−m_j(y) in each gate state j. At zero reset there is a uniform positive probability of absorption in a fixed time block, by an open-gate interval and a reflected diffusion hitting zero; the bounded killed resolvent then permits differentiation at zero under the bounded reset operator. The stationary average solves a Poisson equation and the difference solves the shifted Helmholtz equation. In the differentiated system, the average derivative at zero position is B(a)−1/3, the closed-state Neumann condition fixes the remaining homogeneous coefficient of the difference, and the open-state Dirichlet condition fixes the average constant. Substitution gives the stated f and F_k, and scaling once for time and again for reset rate gives L⁴/D². In the series for 2 sinh(k)F_k the linear and cubic terms cancel. At the lower bracket the first nonzero coefficient is negative and the positive powers of 1±1/√3 grow strictly slower than the competing powers of 2; at the upper bracket the j=2 coefficient is 16/15 and every subsequent one is positive. At a=0 the coefficients after the cubic are strictly negative. H′ is strictly concave, vanishes at 1 and is positive immediately to its left; with H(0)<0 and the strict bracket signs this forces one crossing with H′(a*)>0. At that root F_k>0, giving strict decrease in c. The limits at fixed k as c decreases to zero and at k→∞ with c/k→∞ attain the two claimed bounds in the limit.
 
-These checks are finite-dimensional approximations and do not independently certify the all-parameter analytic theorem. The strict endpoint inequalities and unique-crossing argument are proved in RESULT.md. Independent external review has not been performed.
+## originality
+
+PASS
+
+The closest interval threshold result has a Markovian Robin boundary with the same two limiting constants, but not a retained Markov gate. Closely related gate papers change either the reset law or the geometry. Neither the shared constants nor the scalar zero-reset mean gives the gated first variation and its parameter-dependent unique zero.
+
+## value
+
+PASS
+
+For a natural bounded first-passage model with an unreset internal state, the theorem resolves the sign of the first variation for every positive parameter pair and proves sharp universal limits and strict parameter monotonicity. The gate-conditioned term matters even after matching the no-reset mean to a Robin model, so the gap is substantive rather than an alternative notation for a known threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -15,7 +15,7 @@ Set \(w_A=e^a/(e^a+e^b)\) and \(w_B=e^b/(e^a+e^b)\). The **joint law** of sink c
 \]
 Here the probabilities on the left belong to the corresponding finite graph. Thus the limiting marginal sink-count law is a mixture of zero-truncated Poisson laws with respective parameters \(a\) and \(b\), with mixing weights \(w_A\) and \(w_B\). For \(\rho\ne1\), the parameters are distinct and the marginal is **not** itself a zero-truncated Poisson law. The limiting probability that the sinks lie in the larger vertex class is greater than one-half. At \(\rho=1\), both parameters equal \(\log 2\), and the marginal generating function is \(2^z-1\), a previously established balanced-case result.
 
-The following exact finite-size exponential generating functions are also obtained, with \(z\) marking sink number and subscripts identifying sink class:
+For use in deriving the unequal-ratio limit, the exact finite-size exponential generating functions can be written in the following class-resolved form, with \(z\) marking sink number. These finite counts follow directly by separating the two designated-sink sums in the earlier balanced-limit record [7] and are not asserted as a new enumeration:
 \[
 F_A(x,y;z)=\frac{e^x(e^y-1)(e^{zx}-1)}{1-(e^x-1)(e^y-1)},\qquad
 F_B(x,y;z)=\frac{e^y(e^x-1)(e^{zy}-1)}{1-(e^x-1)(e^y-1)}.
@@ -37,6 +37,8 @@ The parameter pair is the positive critical point of \(1-(e^x-1)(e^y-1)=0\) in d
 Y+XY+YXY+XYXY+\cdots=\frac{Y(1+X)}{1-XY}=\frac{Ye^x}{1-XY}.
 \]
 Appending a nonempty final \(A\)-block, whose size is marked by \(z\), multiplies this by \(e^{zx}-1\). The symmetric calculation for a final \(B\)-block yields the stated exact \(F_A,F_B\). At \(z=1\), the sum differs from the standard complete orientation enumerator \(e^{x+y}/(1-XY)\) only by \(e^x+e^y-1\), which has no strictly positive mixed coefficient. Therefore the marked functions recover all actual orientations for \(m,n\ge1\).
+
+Equivalently, writing \(\mathcal B=e^{x+y}/(1-XY)\), the first-side designated-sink sum of [7] has EGF \(\mathcal B(e^{(z-1)x}-1)\). On strictly mixed sizes it counts \(z^S-1\) for orientations whose sinks are in \(A\) and zero for the others. Subtracting its value at \(z=0\) leaves the first-side marked count. Its EGF agrees with \(\mathcal B e^{-x}(e^{zx}-1)\), up to pure terms. In fact \(e^y=e^xY+(1-XY)\) so the latter differs from \(F_A\) only by \(e^{zx}-1\). Exchanging \(x\) and \(y\) proves the second identity. The total marked EGF of [7] is \(F_A+F_B+e^{zx}+e^{zy}-1\).
 
 **3. Fixed-multiplicity singular transfer.** For any fixed integer \(k\ge1\), extracting the coefficient of \(z^k\) gives
 \[
@@ -63,7 +65,7 @@ The included standard-library program `verify.py` independently enumerates all d
 
 ## Relationship to prior work
 
-Cameron, Glass, Rekvényi and Schumacher give the acyclic-orientation/lonesum-matrix bijection and the poly-Bernoulli total counts. Khera, Lundberg and Melczer prove the bivariate coefficient asymptotics, strict minimality and smooth saddle transfer used in Step 3. Their unmarked theorem is powerful enough to support this calculation but does not state the marked sink law or its unequal-class mixture. Hwang, Jung, Lee, Oh and Yu develop the general acyclic-orientation sink polynomial and its symmetric-function description, but do not specialize it to this unequal-bipartition limit. Ayyer, Hathcock and Tetali enumerate orientations having a **unique** sink; that is the \(k=1\) slice, not the joint limiting distribution over all \(k\). Khera and Lundberg study the **longest directed path**, not sink multiplicity. The previously published balanced sink-count limit is recovered at \(\rho=1\) and is explicitly not claimed as new. The contribution here is the exact class-marked finite generating function and, particularly, the genuinely two-component asymptotic law for unequal limiting part sizes.
+Cameron, Glass, Rekvényi and Schumacher give the acyclic-orientation/lonesum-matrix bijection and the poly-Bernoulli total counts. Khera, Lundberg and Melczer prove the bivariate coefficient asymptotics, strict minimality and smooth saddle transfer used in Step 3. Their unmarked theorem is powerful enough to support this calculation but does not state the marked sink law or its unequal-class mixture. Hwang, Jung, Lee, Oh and Yu develop the general acyclic-orientation sink polynomial and its symmetric-function description, but do not specialize it to this unequal-bipartition limit. Ayyer, Hathcock and Tetali enumerate orientations having a **unique** sink; that is the \(k=1\) slice, not the joint limiting distribution over all \(k\). Khera and Lundberg study the **longest directed path**, not sink multiplicity. The result in [7] gives the exact aggregate sink marking for all sizes (its designated-sink proof also yields the side counts, as explained above), and its asymptotic concerns the balanced diagonal. Neither the finite formulas nor the balanced law is claimed as new. The contribution is the joint side/count limit along unequal positive limiting ratios, identifying the bias toward the larger part and the distinct conditional Poisson parameters that produce the non-Poisson mixture.
 
 ## Limitations
 
@@ -77,3 +79,4 @@ The result is not an independence theorem: sink side and sink number have a nont
 4. J. Khera and E. Lundberg, *The distribution of the length of the longest path in random acyclic orientations of a complete bipartite graph*, first preprint 2024, https://arxiv.org/abs/2408.12716.
 5. B.-H. Hwang, W.-S. Jung, K.-J. Lee, J. Oh and S.-H. Yu, *Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions*, first preprint 2019, https://arxiv.org/abs/1910.10920.
 6. D. B. West, *Acyclic orientations of complete bipartite graphs*, Discrete Mathematics 138 (1995), 393–396, https://doi.org/10.1016/0012-365X(94)00222-5 (full text not inspected).
+7. *Zero-truncated Poisson sink law for uniform acyclic orientations of balanced complete bipartite graphs*, 2026-11-08, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-zero-truncated-poisson-sink-law-for-uniform-acyclic-orientations--71931ebc05c2 .

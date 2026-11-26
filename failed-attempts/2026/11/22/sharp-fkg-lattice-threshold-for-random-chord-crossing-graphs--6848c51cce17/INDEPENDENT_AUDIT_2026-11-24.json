@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:36:48.885067Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75",
+        "Frozen VERIFICATION.md and verify_chord_mtp2.py (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/1.py"
+      ],
+      "rationale": "The rank order of the iid atomless endpoints is uniform. Forgetting labels gives a uniformly random matching and replacing labels uniformly recovers the labelled edge states. For n=1,2 the lattice is a chain. At n=3 the masses by edge count are 1/3, 2/15, 1/15, 1/15 per state; the two elementary squares are strictly log-supermodular. Chain the elementary log-increments to obtain all Boolean lattice inequalities (or check all 64 pairs). At n=4 the exact labelled probabilities for empty, only 12, only 34 and only 12+34 are 2/15, 2/45, 2/45, 4/315, giving the defect ratio 6/7. The marginalization proof works even with zero masses: in its notation B≥C,D and AB≥CD imply A+B≥C+D by (B−C)(B−D)≥0 when B>0, with a separate trivial B=0 case. The induced first-four law is unchanged at larger n, so every larger law fails. Inserting positive edge activities multiplies both sides of each inequality by the same factors. Conditioning on the uniform endpoint gap of the common chord gives adjacent covariance E[(2L(1−L))²]−1/9=1/45; disjoint edges depend on independent endpoints. A fresh exact enumeration over permutations of individually distinguished endpoints, with one endpoint anchored and the opposite-arc test, checked all n=3 pairs, the n=4 witness and covariances, and n=5 projection.",
+      "residual_risks": [
+        "Negative lattice-square defect is not a counterexample to unconditional positive association. Covariances 1/45 and zero are for the original law, not a claim about covariances under general tilts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan derives forest-diagram counts by the multiplicities of connected-component sizes for general n; after fixing the size profile and small tree counts the required four states are determined exactly.",
+          "Touchard–Riordan counts by total crossings alone cannot separate the 2K2 state from a path with two crossing edges.",
+          "The same-day triad result uses Bernoulli shared attributes and the Dyck result uses simultaneous returns; both differ from the chord law."
+        ],
+        "reasoning": "The dominating source is the component-size refinement, not just generic prior literature on the model. The same-day analogues have no reduction to chord diagrams, whereas the older forest-count formula needs only direct specialization.",
+        "searches": [
+          "Acan 2013 §2.4 Theorem 2.4.3, proof Eq. (2.4.1), and §2.2 tree counts",
+          "Acan–Pittel arXiv:1406.2867 and Acan arXiv:1501.01489 introductions",
+          "Distinct same-day Resultary triad and Dyck-path FKG results"
+        ]
+      },
+      "checked_sources": [
+        "Acan thesis Eq. (2.4.1) and tree recurrence",
+        "Paguyo Lemma 2.2",
+        "Primary and Resultary comparisons listed above; identical assigned Resultary finding is a self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior forest data make the two elementary n=3 inequalities positive and the n=4 square for disjoint single edges negative, with ratio 6/7. For n>4, projection to four chords necessarily has that same law and MTP2 is closed under such projection.",
+          "The covariance is also algebraically recoverable: disjoint edge terms vanish and the total variance equals binom(n,2)*(2/9)+2*3*binom(n,3)*c, where c is the adjacent-indicator covariance. Inserting Paguyo's variance gives c=1/45.",
+          "For any source mass function the coordinate tilt is modular, so all square signs are unchanged."
+        ],
+        "reasoning": "These are finite substitutions and standard automatic operations on a product lattice, not an optimization over an unbounded family requiring a new structural argument. Together they give the entire iff, tilt behavior and pairwise comparison despite different terminology and no explicit older statement located.",
+        "searches": [
+          "Acan thesis Eq. (2.4.1), tree recurrence and uniform-model comparison",
+          "Paguyo Lemma 2.2",
+          "Karlin–Rinott MTP2 marginal-closure literature, checked here also by the frozen elementary proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform order of iid endpoint pairs gives the thesis's uniform matching model after forgetting chord labels. Uniform independent labels are then recovered by exchangeability.",
+          "The inspected Resultary induced-three-chord Finding gives pattern probabilities (1/3,2/5,1/5,1/15). Dividing by graph multiplicities gives precisely the frozen labelled three-chord law.",
+          "The marked-degree covariance record studies a different conditional statistic, not a lattice inequality."
+        ],
+        "reasoning": "A uniform random chord diagram with exchangeable pair labels is the same law as the labelled endpoint model for this observable; it is not a uniformly chosen circle graph. Thus the thesis diagram counts apply without approximation or a different sampling regime.",
+        "searches": [
+          "Resultary: random chord-crossing graphs, FKG/MTP2, induced three-chord pattern covariance and edge-conditioned degree covariance",
+          "Acan thesis §2.4 and Acan 2015 arXiv:1501.01489 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Acan's profile count is (2n)! times the product of t_i^s_i, divided by (2n+1−m)! times the product of s_i!, for m=sum s_i and n=sum i*s_i. His tree recurrence gives t1=t2=1 and t3=3. For n=4 the all-singleton profile, one pair plus two singletons, and two pairs give counts 14, 28 and 4, respectively. At denominator 105, the edge-state label divisors are 1, 6 and 3, respectively.",
+          "For n=3, the Catalan class gives 5 empty diagrams, the (2,1) profile gives 6 one-edge diagrams, and t3=3 gives 3 two-edge diagrams. Subtracting from 15 leaves 1 triangle. This recovers exactly the masses needed for the two square inequalities.",
+          "Paguyo's Lemma 2.2 gives total crossing-count variance n(n−1)(n+3)/45."
+        ],
+        "reasoning": "No literal labelled lattice table is required: these exact older tabular-equivalent counts give the necessary entries by elementary symmetry factors. Substitution gives (14*4/3)/(28/6)^2=6/7; the common 105 denominators cancel.",
+        "searches": [
+          "Acan 2013 Lemma 2.2.2, recurrence (2.2.1), and Theorem 2.4.3 proof, Eq. (2.4.1), printed pp. 8–11 and 17–18",
+          "Resultary exact induced three-chord motif covariance",
+          "Paguyo arXiv:2104.01134 §2.1 Lemma 2.2"
+        ]
+      },
+      "rationale": "The sharp chord-MTP2 classification is mechanically recoverable from exact older chord-diagram forest enumeration, elementary lattice squares and standard marginal closure; absence of the MTP2 terminology in that enumeration does not restore originality. In particular, Acan's 2013 proof, Eq. (2.4.1), gives the decisive 2K2 count, not just a total two-crossing count. The same source supplies every probability needed for the three-chord base case. Positive modular tilts do not change any lattice defect in any law, and the indicator covariances are also already implied by known crossing statistics. This is a concrete prior implication, not an inference from a search miss or an inaccessible paper.",
+      "residual_risks": [
+        "The analysis establishes mechanical prior implication rather than claiming an explicitly stated prior chord-MTP2 theorem or identifying first priority for that wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dominating count, including all three profiles required for the four-chord witness",
+          "evidence": "Proof Eq. (2.4.1) refines the forest count by noncrossing support-block multiplicities; the all-singleton case is Catalan. The (2,2) profile alone gives 4 and fixes the disconnected-two-edge entry.",
+          "identifier_or_url": "https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1373310487&disposition=inline",
+          "material_read": "§2.2 tree recurrence (2.2.1), printed pp. 8–11, extracted-text offsets 21600–28035; §2.4 Theorem 2.4.3 and its proof, printed pp. 16–19, offsets 43700–51185; decisive offset 45600–50685 inspected directly",
+          "method": "OA PDF passages through lawful alternate route",
+          "title": "An Enumerative-Probabilistic Study of Chord Diagrams",
+          "trigger": "Exact older chord-diagram forest enumeration underlying the three- and four-chord lattice squares"
+        },
+        {
+          "assessment": "Aggregate variance implies the exact covariance under the same law",
+          "evidence": "Total crossing count variance n(n−1)(n+3)/45; exchangeability and independence of disjoint cases complete the deduction.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "§2.1 Lemma 2.2, offsets 11270–14263",
+          "method": "OA HTML mirror passage",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Adjacent crossing-edge covariance versus existing crossing-count calculations"
+        },
+        {
+          "assessment": "Establishes model and total-crossings background, but total counts alone do not distinguish the witness",
+          "evidence": "Defines the uniformly random chord diagram and discusses counts by total crossings, degree, components and cores.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+          "material_read": "§1, offsets 0–6969",
+          "method": "OA HTML mirror passage",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same model and existing enumerations"
+        },
+        {
+          "assessment": "Related model but different conditioned component statements",
+          "evidence": "Studies giant components conditional on total crossings, rather than a Boolean edge lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.2867",
+          "material_read": "Abstract and Introduction, offsets 0–3299",
+          "method": "OA HTML mirror passage",
+          "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+          "trigger": "Same intersection graph and dependence questions"
+        },
+        {
+          "assessment": "Genuine coverage of base-case probabilities, not a stated MTP2 classification",
+          "evidence": "Motif means (1/3,2/5,1/5,1/15) are the probabilities of the four unlabelled states.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-induced-three-chord-motif-covariance-and-a-119-chord-sign--fb61f5632fb7",
+          "material_read": "Finding",
+          "method": "Resultary and local full-text mirror",
+          "title": "Exact induced three-chord motif covariance and a 119-chord sign change",
+          "trigger": "Exact same-model three-chord data"
+        },
+        {
+          "assessment": "Related dependence but different coordinate and conditioning event",
+          "evidence": "Covariances are for marked chord degrees, not the crossing-edge lattice square in this finding.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-edge-conditioned-degree-covariance-sign-reversal-in-ran--8929e5b70061",
+          "material_read": "Finding",
+          "method": "Resultary and local full-text mirror",
+          "title": "An exact edge-conditioned degree covariance sign reversal in random chord graphs",
+          "trigger": "Same-model conditioned dependence and sign reversal"
+        },
+        {
+          "assessment": "Strong structural analogy, not equivalent chord law",
+          "evidence": "Bernoulli attribute-intersection model, with a three-edge marginal witness.",
+          "identifier_or_url": "2026/11/22/SCOPE-conditional-sign-reversal-in-random-intersection-graph-triads--615dcbd5d685",
+          "material_read": "Finding and model assumptions",
+          "method": "Resultary and local full-text mirror",
+          "title": "Conditional sign reversal in random intersection graph triads",
+          "trigger": "Distinct same-day MTP2 failure with positive pairwise covariance and tilt stability"
+        },
+        {
+          "assessment": "Different random object and sign result",
+          "evidence": "The coordinates are simultaneous Dyck return times, not chords or crossing indicators.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-fkg-lattice-property-of-simultaneous-returns-in-two-uniform--c7bf52c42f88",
+          "material_read": "Finding and model assumptions",
+          "method": "Resultary and local full-text mirror",
+          "title": "The FKG lattice property of simultaneous returns in two uniform Dyck paths",
+          "trigger": "Distinct same-day FKG theorem with positive activities"
+        },
+        {
+          "assessment": "No whole-document inference; closure also checked from the elementary proof",
+          "evidence": "The conclusion about exact prior data does not depend on inaccessible source content.",
+          "identifier_or_url": "https://doi.org/10.1016/0047-259X(80)90065-2",
+          "material_read": "Bibliographic landing page only; no article text",
+          "method": "Bounded OA attempt",
+          "title": "Classes of orderings of measures and related correlation inequalities. I. Multivariate totally positive distributions",
+          "trigger": "Classical MTP2 background and closure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and limitations",
+        "Acan thesis Eq. (2.4.1)",
+        "Paguyo Lemma 2.2"
+      ],
+      "rationale": "The distinction between pairwise nonnegative dependence and the FKG lattice condition is a well-motivated question, and the example is useful pedagogically. As submitted, however, the claimed new cutoff and exact defect are a recombination of the already available small-state counts with elementary finite checks and standard closure. The tilt invariance adds no model-dependent information, and the covariance is likewise an already determined statistic. There is no surviving new dependence invariant or structural behavior beyond those mechanical deductions in this record.",
+      "residual_risks": [
+        "No judgment against the usefulness of a published expository corollary, and no inference about the unresolved weaker positive-association question from this lattice witness."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

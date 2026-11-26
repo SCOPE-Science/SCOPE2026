@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:06:36.669255Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50 and 54–125; frozen verification notes, requirements and Python inspected without executing",
+        "/workspace/repairs/5/RESULT.md and /workspace/repairs/5/SLOGAN.txt; analytical heavy-clock counterexample and independent renewal-reward second-moment calculation"
+      ],
+      "rationale": "Frozen line 35 is false as an unqualified strict inequality: take T1=2+U with P(U>t)=(1+t)^(−7/4) for t≥0, and T2=T1 plus an independent equiprobable sign. The clocks differ, are positive with the same finite mean, and form a convex-order pair by conditional Jensen, but both spatial variances are +infinity (both positional means exist here). For Pareto index at most 3/2, the symmetric position does not even have a Lebesgue mean. The complete repairs/5/RESULT.md and SLOGAN.txt consistently optimize the extended second moment, with strict convex-order inequality for distinct clocks only when the lower second moment is finite. This is proved by integrating the continuous, ordered call functions against g''(u)=2(1−e^(−μu))>0; distinct finite-mean laws have different call functions. Rechecking the unchanged tail: stochastic Fubini gives variance h(a)∼(2D/μ²)a, with h(a)≤2Da/μ². The reset-epoch affine series converges and has a moment of order q strictly between max{1,2(α−1)} and 2α, by geometric L^q summation. At stationary time the length bias of the current interval does not affect the preceding-epoch position Q, because the interval is fresh. Its damped tail is negligible by the q-moment; the age survival is the integrated clock survival divided by m, and multiplying h(A) by independent Z² gives the claimed Gamma-factor constant. Tail integration settles every moment, including the endpoint. Independently, E Q²=E h(T)/(1−E exp(−2μT)) is finite for every finite-mean clock, and renewal reward and conditional Gaussian centering give E X²=m⁻¹ E[h(T)/(2μ)+∫₀ᵀ h(a)da] as an extended expectation. The bracket is exactly D g(T)/μ², by differentiation from zero. This verifies the finite formula and the infinite case without assuming finite force covariance. Strict Jensen still gives the deterministic clock as the unique minimizer, and positive two-point clocks at fixed mean make the finite values unbounded.",
+      "residual_risks": [
+        "The second-moment statement covers positive iid finite-mean independent clocks only. Tail-equivalence uses the specified constant-amplitude survival, and is for equilibrium observation rather than reset-epoch values. Numerical consistency checks in the frozen record are not the proof or an independent rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-clock affine recursion is prior; retrieved stationary computations use deterministic and exponential clocks. Equilibrium age mixing is known for direct Brownian resetting."
+        ],
+        "reasoning": "The general recursion determines the embedded law implicitly, but the prior statements inspected do not classify full stationary continuum tails or supply the all-clock second-moment formula; age mixing of direct reset positions has no inherited position term.",
+        "searches": [
+          "arXiv:2306.09453 §§2–4: arbitrary iid recursion vs worked stationary cases",
+          "arXiv:2306.13621 Eqs. (2),(7): equilibrium renewal-age mixture"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.09453, arXiv:1512.02092, arXiv:2306.13621",
+        "Local Resultary exact and related records d0a2199c1680, 909fa6bb7163, 3baa3630f98c, 8c9e65d5e747"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct-reset density integrates to the same α- and Gamma-dependence for a hard-cutoff Pareto clock. Earlier alternating-renewal propulsion gives deterministic minimization for its own Laplace-transform variance. Kesten supplies (Q_next=e^(−μT) Q+V_T)."
+        ],
+        "reasoning": "Transfer of the direct-reset asymptotic needs an independent proof of negligible inherited position and a filtered variance asymptotic. The all-renewal quadratic functional has a different integrated covariance/innovation kernel from binary propulsion. The direct or periodic/Poisson results alone do not imply the audited identities.",
+        "searches": [
+          "arXiv:1512.02092 Eqs. (8)–(9)",
+          "arXiv:2306.09453 §§2,3.1,4",
+          "Resultary 3baa3630f98c and 909fa6bb7163 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kesten paper has the same force process and epoch recursion; direct reset has exactly the corresponding Gamma prefactor for a Pareto clock after diffusivity substitution, but resets X; the binary propulsion source applies convex order to a different kernel."
+        ],
+        "reasoning": "Harmonic filtering and position continuity leave a nontrivial preceding-epoch term and replace the Brownian variance t by h(t). Substituting D/μ² captures the eventual leading constant but does not establish its validity in the force-only model or provide the general stationary second moment.",
+        "searches": [
+          "Same-model Kesten/affine recursion: arXiv:2306.09453",
+          "Direct position renewal resets: arXiv:1512.02092 and 2306.13621",
+          "Resultary 3baa3630f98c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact d0a2199c1680 is the frozen record itself. 909fa6bb7163 tabulates phase tails for an exploration/first-hit-return model; 8c9e65d5e747 is same-force resetting but Poisson and studies extreme conditional layers."
+        ],
+        "reasoning": "Neither an overlapping exponent/constant in the exploration phase nor a distinct observable for a Poisson clock gives the all-renewal tail or quadratic formula in the audited process.",
+        "searches": [
+          "Resultary: Pareto harmonic forcing tail; Brownian force-only renewal clocks; stationary variance and deterministic clock optimization"
+        ]
+      },
+      "rationale": "The repaired distinct claim is the force-only model's full continuous-time tail (including retained earlier position) and its Brownian all-renewal second-moment identity and fixed-mean optimizer. The general Kesten recursion, deterministic/Poisson cases, direct-reset analogue of the Gamma amplitude, and an analogous convex-order principle for binary propulsion are prior content. The corrected strictness qualifications assert no new general convex-order principle. The compared sources do not cover this combination in the stated model.",
+      "residual_risks": [
+        "Unindexed general renewal-filter results could contain equivalent derivations; bounded comparison is not a historical priority guarantee. The direct-reset tail and binary-propulsion optimizer are substantive antecedents for the mechanisms, not novel components by themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and recursion are prior, as are worked periodic and Poisson cases",
+          "evidence": "General iid-interval recursion, but no inspected statement of the Pareto-clock continuum tail or all-renewal variance comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09453",
+          "material_read": "PDF §§2–4; pp. 4–5 offsets 11900–15445, §3.1 p. 7 offsets 20000–23748, §4 from p. 13 including offsets 48500 and 53000",
+          "method": "OA primary PDF passages",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Identical continuous-position Brownian-force model and possibly broader renewal theorem"
+        },
+        {
+          "assessment": "Substantial tail analogue, not equivalent dynamics",
+          "evidence": "Direct position reset, hard-cutoff Pareto intervals: absolute tail coefficient Γ(α−1/2)(4Dτ0)^(α−1)/(α√π). Force-only leading coefficient matches with D/μ² after controlling the extra term.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.02092",
+          "material_read": "PDF pp. 2–3, Eqs. (1), (8)–(9); offsets 7000 and 19500–24500",
+          "method": "OA primary PDF passages; integrated density asymptotic",
+          "title": "Diffusion with stochastic resetting at power-law times",
+          "trigger": "Same tail exponent and exact amplitude in a nearby model"
+        },
+        {
+          "assessment": "Shared age mechanism; direct-reset model",
+          "evidence": "Brownian/backward-age mixture and finite-mean equilibrium age; the indicated 1<α<2 case is omitted in the inspected discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.13621",
+          "material_read": "PDF p. 2, Eqs. (2),(7), offsets 13500–16500",
+          "method": "OA primary PDF passages",
+          "title": "Ergodic properties of Brownian motion under stochastic resetting",
+          "trigger": "Equilibrium age and broader renewal mixture"
+        },
+        {
+          "assessment": "Closely analogous phase-tail result, not force-only resetting",
+          "evidence": "Brownian exploration plus OU first-hit return, with phase-specific tail amplitudes and cutoffs.",
+          "identifier_or_url": "Resultary 909fa6bb7163",
+          "material_read": "RESULT.md Finding/Assumptions, mirror offset 0",
+          "method": "Local mirror",
+          "title": "Two exact spatial tail exponents for Pareto-driven harmonic first-hit returns",
+          "trigger": "Exact Pareto spatial coefficient under harmonic terminology"
+        },
+        {
+          "assessment": "Optimization principle overlaps in different forcing model",
+          "evidence": "Alternating ±v input with a different Laplace-transform variance functional, not continuous Brownian forcing within each cycle.",
+          "identifier_or_url": "Resultary 3baa3630f98c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror",
+          "title": "Sharp dwell-time noise bounds and trap-spectroscopic recovery for alternating-renewal propulsion",
+          "trigger": "Exact all-clock variance, deterministic optimizer and strict convex order"
+        },
+        {
+          "assessment": "Same-model special protocol and different observable",
+          "evidence": "Uses an exponential positional tail as premise to study extreme-position conditional layers, not Pareto clocks or all-clock spread.",
+          "identifier_or_url": "Resultary 8c9e65d5e747",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror",
+          "title": "Extreme-position velocity and reset-age boundary layers in a harmonic trap",
+          "trigger": "Same force-only process at Poisson renewals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof Sections 1–6",
+        "arXiv:2306.09453 §§2–4 and direct-reset comparison arXiv:1512.02092"
+      ],
+      "rationale": "Even with a positive trap, continuous position driven by renewed Brownian force can have a stationary law lacking finite spread, or even a first moment. The scientifically useful distinction is between observation within a long interval and observing at a reset: the full calibrated positional tail includes memory from all previous intervals and shows it is negligible only at the leading heavy-tail scale. The exact all-clock spread formula and sharp optimizer provide a separate protocol comparison on the same dynamics. Correcting strictness does not remove either conclusion.",
+      "residual_risks": [
+        "One-dimensional linear trap without an additional thermal term; no general nonlinear or finite-time estimation claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

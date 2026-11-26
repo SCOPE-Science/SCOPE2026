@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each finite \(p\), rowwise dual norms are evaluated exactly by Gaussian completion of squares and a verified matrix determinant identity. The unique outer maximizer is \(x=0\); Hölder equality determines all \(p>1\) extremizers, while a unique input point prevents \(p=1\) attainment. The covariance-normalized kernel is twice differentiable as an operator into \(L^\infty\), with a uniform Gaussian-integrability remainder; its linear term has an exact sharp norm from a standard normal moment and the top singular direction. The full proof establishes the quantifiers for all finite dimensions and times, beyond finite diagnostics.
+PASS
 
-## Originality — PASS with priority qualification
+Let Σ=Q∞, C=Σ⁻¹ and S=e^{tB}. In the dual row integral for 1<p<∞, r=p/(p−1), the input precision after factoring r is M=SᵀQ_t⁻¹S+C/p. Completion of squares (Schur complement) gives (Q_t+pSΣSᵀ)⁻¹ for the spatial precision, and Sylvester's determinant identity gives det M=p⁻ᵈ det(Q_t+pSΣSᵀ)/(det Q_t det Σ)=det(Σ−Q_t/r)/(det Q_t det Σ). This gives N_p and the asserted profile. The p=1 row supremum is joint Gaussian minimization with p=1 in the spatial precision; Q_t+SΣSᵀ=Σ, and the unique maximizing input point has measure zero. Concentration at x=u=0 yields sharpness at p=1. For all finite p the outputs admit continuous representatives (local dominated convergence) and vanish at spatial infinity by the uniform Gaussian row bound, so the essential supremum agrees with the pointwise maximum for a nonzero extremizing output. The strict row maximum at x=0 and dual equality give precisely the Gaussian extremizers for p>1 and no nonzero p=1 extremizer. Removing e^{t tr B}, expand the kernel with Q_t=Σ−SΣSᵀ in a fixed small ball in S. Keep the exact factor e^{−uᵀCu/2} in every derivative: derivatives through order two are bounded by a polynomial times a Gaussian in Su−x times this factor. For finite dual r its r-th power against μ leaves the strictly decaying e^{−(r−1)uᵀCu/2}, and for p=1 the joint supremum suffices. Taylor gives the stated quadratic operator remainder and the derivative xᵀCSu times the rank-one kernel. In y=Σ⁻¹/²x coordinates, its dual-row norm is C_p β_p/sqrt(r−1) times e^{−|y|²/2}|Aᵀy|, A=Σ⁻¹/² S Σ¹/². A top singular direction at |y|=1 yields e⁻¹/²||A||₂; at p=1 the additional whitened input maximum gives another e⁻¹/². Reverse triangle inequality proves the asymptotic, not a finite-time identity for the defect. The exact norm also gives the stated two time limits from Q_t∼tQ and Q_t→Σ. CHECK.py was inspected, not executed; its finite anisotropic determinant and one-dimensional quadrature checks are not universal proof evidence.
 
-The precise primary inverse-Gaussian Mehler kernel and a nonsharp \(L^p\)-to-\(L^\infty\) upper bound appear in Bruno–Casarino–Ciatti–Sjögren, arXiv:2611.06826v1, Proposition 5.2. Their constant is sharp for the different Lebesgue-domain problem. The current result sharpens that bound strictly for every finite \(p>1\), gives its complete Gaussian spatial envelope and equality cases, and proves an exact anisotropic first-order rank-one operator-norm law that the inspected primary source does not state. Other published inverse Gaussian maximal-operator work studies a different observable; the earlier Mehler kernel norm thesis was considered as a methodological and priority risk. Semantic searches found no result implying this complete theorem, but this is not a proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The main source asks for semigroup mapping properties on the infinite inverse Gaussian measure. Exact constants and extremizers improve its qualitative boundedness result, correct the long-time rate from the inherited nonsharp bound, and identify how nonnormal transient geometry controls the first spectral-scale correction. These are natural operator invariants for the full stable drift and positive diffusion class, not an arbitrary finite parameter slice.
+The same semigroup and an ultracontractive upper bound are prior, and the exact p=1 operator norm equals that bound. The distinct supported content is the sharper finite-p weighted norm for p>1, the spatial and extremizer information, and the leading anisotropic operator-norm defect after normalization. The comparison does not assert priority for Gaussian integration, for ultracontractivity itself, or for every special case of Mehler norm calculations.
 
-## Scientific limits
+## value
 
-No singular diffusions, marginal drift, infinite-dimensional extension or full essential spectrum is asserted. The broader Gaussian-integral norm literature may contain related equivalences. The rank-one correction is a first-order norm law, not an exact formula for the difference at finite time. Numerical checks do not independently verify the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp weighted norm and extremizers resolve a natural precision gap in the semigroup's mapping theory. The difference between the inherited upper-bound decay and the sharp decay for p>1 matters over long times. After scalar normalization, the first-order norm defect measures actual anisotropic slow directions, and can distinguish nonnormal or Jordan-block behavior not encoded by the trace or mere existence of a rank-one limit. These quantitative facts are useful without asserting full spectral classification or the p=∞ endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

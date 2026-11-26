@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:00:38.366766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The angular expansion of f0+bar(z)f1 exhausts the full space: one scalar sector at -1 and two dimensions per nonnegative mode. With x=n+1, the truncated beta law normalized by q^x is the law of qS for S~Beta(x,1). For the standardized degree-one polynomial, this gives compressed first moment −sqrt(x(x+2))(1−q) and compressed second moment q²+x(x+2)(1−q)² after division by q^x. In multiplying the two matrices the cross-terms linear in their diagonal differences cancel, leaving the signed (r−q) factor claimed. Each positive branch has two singular values, and coincident branch values add multiplicities; no simplicity across different modes is required. All these blocks are invertible for distinct cutoffs, so the scalar sector gives the complete kernel. Exponential decay proves fixed-cutoff Schatten membership. The exact formula on the u=epsilon(n+1) grid converges uniformly on interior compacta, with envelope ab|a−b|(u+epsilon)^3 exp(−(a+b)u); this controls both tails of power sums and maxima. The limiting maximum is at u=3/(a+b), and the rate optimization reduces to maximizing w(1−w²), with w=|a−b|/(a+b). Strong convergence of the compressions follows by dominated convergence on each vector and uniform contractivity. Independent 40-digit quadrature of the moments gave signed block entries .122213505, .0270662057 and .008350872055 at (n,q,r)=(0,.3,.7),(5,.42,.91),(19,.7,.93), matching the formula to within 3e−42 at working precision. For rates (1,3) and epsilon=.001, independently summed finite-mode ratios to the analytic limits were .999990920, .999999250 and .999999033 for powers 1/4, 1 and 2; the norm ratio was .999999694. These are corroboration only; the supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2009.14301v2 Theorem 7.9 and Proposition 8.5 supply the spatial identification and the general Jacobi matrix integral, directly covering the structural part. arXiv:2306.06231v1 Theorem 1.1 and Proposition 4.2 describe the algebra and the fixed-symbol high-mode scalar limit. The Shi et al. publisher abstract reports block-based quasihomogeneous commuting classifications in the same ambient space."
+        ],
+        "reasoning": "For a fixed q<1, the indicator is zero near the boundary, so Proposition 4.2 correctly gives zero as the high-mode limit. Its proof fixes the symbol before choosing an interior split point and supplies no uniform estimate along a discontinuity within O(epsilon) of 1. A qualitative noncommutation or compactness result does not supply the limiting mass, norm or optimizer.",
+        "searches": [
+          "arXiv:2009.14301v2 §§7–8",
+          "arXiv:2306.06231v1 §§1, 3–4",
+          "Web: Commuting Toeplitz Operators on the 2-analytic Bergman Space Shi Li Zhang Lu preprint radial symbols disk indicators"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.14301v2",
+        "arXiv:2306.06231v1",
+        "doi:10.1007/s10114-025-3195-5 (publisher abstract)",
+        "Resultary db55972da5c1, 02f663ae631f, 34e40aba9a0d and same-topic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-smooth-symbol boundary-jet theorem gives decay of order n^(−3) for nonzero jets. Both sharp symbols here are identically zero near 1 for each fixed epsilon, and their zero neighborhoods shrink. The exact disk commutator has order-one values on modes of order 1/epsilon even though each fixed mode tends to zero."
+        ],
+        "reasoning": "Putting the two sharp indicators into a zero-jet or fixed-symbol theorem does not produce the joint scaling. It requires isolating the cancellation between the two truncated moments, keeping the moving exponential factor, and controlling the rescaled spectrum uniformly enough at zero and infinity for every positive Schatten power.",
+        "searches": [
+          "Resultary db55972da5c1 Finding, Assumptions and Proof Steps 2–4",
+          "Resultary 02f663ae631f Finding and Gamma boundary layer proof",
+          "arXiv:2306.06231v1 Proposition 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two annulus-complement compressions I−T_q and I−T_r have exactly the same commutator. In the analytic disk a radial cutoff pair would commute; record 02f663ae631f instead commutes one radial diagonal with a nonradial coordinate shift and obtains vanishing operator norm. Record 34e40aba9a0d has the same angular multiplicity in Gaussian Fock space, but its exact branch has the factor exp(−x−y)(xy)^j/(j!)² rather than powers of qr times the beta prefactor."
+        ],
+        "reasoning": "The complement formulation is exactly equivalent, but the shift, the Gaussian radial law and a continuous half-plane representation are not just alternate parameters for this discrete disk spectrum. A local limiting model alone would also not establish the discrete Schatten normalization and tail control.",
+        "searches": [
+          "Resultary: universal boundary-jet law; Gamma boundary layer and Schatten phase transitions for Bergman disk-cutoff commutators; sharp noncommutativity constant for nested-disk concentration in the bianalytic Fock space",
+          "Web: polyanalytic Bergman half plane vertical Toeplitz Laguerre discontinuous step nested indicator commutator norm matrix spectrum asymptotic Bergman disk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Jacobi integrals imply the cutoff entries by putting weight exponent zero, degrees 0 and 1 and replacing the integration upper limit by the squared radius. The analytic cutoff and bianalytic Fock records contain exact tables/formulas for different operators. No tabulation of the simultaneous disk-pair boundary constants was found in inspected sources."
+        ],
+        "reasoning": "Treat the general integral and its basis as known. The profile, nonzero supremum and scaled spectral mass concern a joint limit and are not reads of a known block table.",
+        "searches": [
+          "Resultary exact topic and nearby records db55972da5c1, 02f663ae631f, 34e40aba9a0d",
+          "arXiv:2009.14301v2 Eq. (66) and Proposition 8.5; arXiv:2306.06231v1 Eqs. (19)–(22)"
+        ]
+      },
+      "rationale": "The general block representation is established prior work, and the finite-cutoff formula is an explicit low-degree evaluation of it, not a new diagonalization theorem. The surviving main contribution is the moving two-cutoff spectral profile with sharp norm and all-Schatten constants; no covering result was identified in inspected material. In particular, compactness for each pair does not decide whether the pairwise commutator retains order-one norm when both cutoffs move.",
+      "residual_risks": [
+        "The 2025 quasihomogeneous-symbol article could cover some finite-cutoff algebra or commutation implications; access did not permit a full-text comparison.",
+        "A broader step-symbol spectral theorem or an unindexed exact cutoff calculation may exist. This assessment assigns no priority to the known Jacobi matrix framework or simple fixed-cutoff consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supplies angular decomposition and integrals, which are not new; no joint boundary norm/Schatten law in the inspected result",
+          "evidence": [
+            "Theorem 7.9; Eqs. (66), (68); Propositions 8.5–8.6 (full versus true order)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.14301v2",
+          "material_read": "Primary text definitions, basis formulas and §§7–8, especially Proposition 8.5",
+          "method": "Matched indices and weight and specialized the matrix integral",
+          "title": "Radial operators on polyanalytic weighted Bergman spaces",
+          "trigger": "Exact broad theorem for the same full space and radial symbols"
+        },
+        {
+          "assessment": "Known qualitative compactness here; no moving-symbol estimate in the relevant proposition",
+          "evidence": [
+            "Theorem 1.1; Eqs. (19)–(22); Lemma 4.1 and Proposition 4.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.06231v1",
+          "material_read": "Primary text §§1, 3–4, block representation and scalar limit proof",
+          "method": "Checked scope of limit and applied it with fixed indicators",
+          "title": "C*-algebras generated by radial Toeplitz operators on polyanalytic weighted Bergman spaces",
+          "trigger": "Contains both cutoff symbols within its general setup"
+        },
+        {
+          "assessment": "Plausible overlap with qualitative commutation and finite block ingredients, with exact scope not established from abstract",
+          "evidence": [
+            "Abstract advertises block expressions and analytic or proportional-symbol alternatives in some cases"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10114-025-3195-5",
+          "material_read": "Publisher abstract, references and metadata; full-text request unsuccessful and no accessible author version identified",
+          "method": "Publisher and targeted named search; no full-text noncoverage assertion",
+          "title": "Commuting Toeplitz Operators on the 2-analytic Bergman Space",
+          "trigger": "Same order and space with possible radial degree-zero specialization"
+        },
+        {
+          "assessment": "Different fixed-symbol, smooth-jet asymptotic",
+          "evidence": [
+            "Assumes fixed C³ amplitudes and nonzero antisymmetric two-jet for the sharp j^(−3) singular law"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-universal-boundary-jet-law-for-noncommuting-radial-poly-bergma--db55972da5c1/RESULT.md",
+          "material_read": "Published Finding, Assumptions and Proof Steps 1–4",
+          "method": "Compared symbols, degree-one basis and order of limits",
+          "title": "A universal boundary-jet law for noncommuting radial poly-Bergman Toeplitz operators",
+          "trigger": "Same full order and cubic commutator effect"
+        },
+        {
+          "assessment": "Related boundary-layer method, not the two-radial-compression theorem",
+          "evidence": [
+            "C_epsilon=[P_epsilon,M_z] on analytic space; norm vanishes while trace norm tends to one"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gamma-boundary-layer-and-schatten-phase-transitions-for-bergman--02f663ae631f/RESULT.md",
+          "material_read": "Published Finding, Assumptions and exact weighted shift and edge-law proofs",
+          "method": "Compared operators and limiting orders",
+          "title": "Gamma boundary layer and Schatten phase transitions for Bergman disk-cutoff commutators",
+          "trigger": "Exact singular spectrum and Schatten limits as a disk cutoff moves"
+        },
+        {
+          "assessment": "Analogue, not a special or general case of the disk boundary limit",
+          "evidence": [
+            "Gaussian moments and factorial branches; optimized squared radii have gap of order sqrt(j), not a fixed ratio of disk boundary recession rates"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-noncommutativity-constant-for-nested-disk-concentration--34e40aba9a0d/RESULT.md",
+          "material_read": "Published Finding, Assumptions and Proof Steps 1–6",
+          "method": "Compared exact radial integrals, spectra and optimizing scales",
+          "title": "A sharp noncommutativity constant for nested-disk concentration in the bianalytic Fock space",
+          "trigger": "Nearly identical commutator formulation with a different Hilbert measure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full bianalytic space is the first radial Bergman setting with genuine matrix-valued fibers. Two increasing concentration regions provide a natural test of whether compressions becoming identities retain noncommutativity. The result locates the escaping order-one modes, quantifies their combined mass at all powers, and determines the sharp rate ratio rather than merely exhibiting two operators that fail to commute.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

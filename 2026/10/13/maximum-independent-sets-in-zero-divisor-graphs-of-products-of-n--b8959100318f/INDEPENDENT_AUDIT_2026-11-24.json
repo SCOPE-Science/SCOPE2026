@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:22:25.363069Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and lines 73–155",
+        "Frozen VERIFICATION.md lines 19–56 and verify.py lines 4–113 (inspected, not executed)"
+      ],
+      "rationale": "A nonzero zero-divisor has nonempty proper support. Products vanish exactly for disjoint supports, so support cells are independent and duplicating a selected vertex within its cell creates no edge. A maximum independent set therefore takes whole cells, and the admissible support families are pairwise intersecting. Each complement pair gives a separate upper bound by the larger cell weight. Independently of logarithms, put P=∏a_i. A heavier or tied cell has weight at least √P. If two such supports are disjoint, their weight product equals the weight of their union and is at most P; because every a_i>1, equality requires a full union and two ties. Thus the only conflicts among heavier or tied supports are the tied complementary pairs themselves. Selecting exactly the stated sides achieves the bound, with all choices at ties independent; positivity forces every equality case to have this form. Summing the two weights of each pair counts N, and passing from unordered to ordered supports yields the factor 1/4. At (3,4,7) the two strict-heavy cells contribute 12 and 18 and the one tied pair contributes 6, giving 36 and two maximizers.",
+      "residual_risks": [
+        "The replay enumerates only full choices from complement pairs and is not a proof that an optimum must make full choices; the upper-bound and attainment argument gives that implication. The independent-tie classification is not asserted when some a_i=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4(ii) gives a lower bound for arbitrary numbers of factors by one construction, not a matching upper bound. Exact results in the surrounding sections concern two through five factors. In the inspected product-measure survey, Theorem 10.4(i) requires non-leading probabilities at most 1/2 and (ii) requires all at most 1/3."
+        ],
+        "reasoning": "Neither an arbitrary-rank construction alone nor a theorem for smaller bias covers heterogeneous equality above 1/2. The low ranks are genuine partial overlap, not novel special cases.",
+        "searches": [
+          "arXiv:1301.1452, Theorem 4 and Theorems 5–7",
+          "Frankl–Tokushige, Invitation to intersection problems for finite sets, section 10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 193–213",
+        "arXiv:1301.1452",
+        "Frankl–Tokushige, section 10",
+        "DOI 10.1137/0607009 (access limited)",
+        "Resultary mirror 1c49c7324e77 and catalogue comparisons 8912ea23ba6a and 2e2bf7f80015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary-rank lower bounds do not guarantee every pairwise heavier side is simultaneously attainable. The exact rank-three case n_1n_2+n_1n_3+max(n_1,n_2n_3) is recovered from complementary pairing for n_1≥n_2≥n_3>1. The weak-difference proof uses cardinality above half and weights 1 in coatom classes, not the arbitrary heterogeneous product weights."
+        ],
+        "reasoning": "The central remaining argument is simultaneous compatibility even at ties with unequal coordinate weights, plus the equality analysis. Existing bounded-rank formulas and the related cardinality argument do not supply that general result, although the homogeneous selection pattern overlaps.",
+        "searches": [
+          "arXiv:1301.1452, Theorem 4(ii), Corollary 1 and Theorems 5–7",
+          "Resultary 1c49c7324e77, proof sections 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The displayed weights divided by ∏q_i are exact heterogeneous product-Bernoulli masses with p_i=(q_i−1)/q_i>1/2. On the full Boolean lattice one can append [r] to an intersecting family and omit the empty support; an exact maximizer theorem there would transfer by deleting the full cell. Frankl and Tokushige section 10, Example 10.3 and Theorem 10.4 give the product-measure formulation and cross-intersecting results in different parameter ranges."
+        ],
+        "reasoning": "This reduction identifies a genuine equivalent optimization and a route by which a broader weighted theorem could cover the claim. The cross-intersecting statements inspected do not allow all coordinates strictly above 1/2, and do not imply the target equality cases. The original Fishburn et al. full text could not be checked.",
+        "searches": [
+          "Support-cell weighted intersecting families, complements, heterogeneous p_i>1/2 product measure; Fishburn et al. DOI 10.1137/0607009",
+          "Alikhani and Mirvakili arXiv:1301.1452, support-cell notation and Theorems 4–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest mirror Finding, 1c49c7324e77, is for a weak-difference graph of homogeneous products: it takes just one vertex in each coatom cell and has different exact multiplicities. The same-day three-field annihilator record 8912ea23ba6a concerns zero-forcing and reconstruction; 2e2bf7f80015 treats clique numbers in the five-factor weak-difference graph."
+        ],
+        "reasoning": "The indexed analogues use related support combinatorics but do not tabulate maximum independent sets in the ordinary graph. The ranked search is not evidence that no equivalent table exists.",
+        "searches": [
+          "Resultary: zero-divisor graph independence, arbitrary finite-field products, maximum intersecting supports; records 1c49c7324e77, 8912ea23ba6a, and 2e2bf7f80015"
+        ]
+      },
+      "rationale": "Credit the support-cell setup and exact independence numbers in ranks two through five, and the known arbitrary-rank lower bound, to earlier work. The supported contribution is the closed sharp formula without a rank constraint for heterogeneous nonbinary products, together with the complete equality classification and exact tied-choice multiplicity. The closest inspected broader and indexed results did not cover that increment.",
+      "residual_risks": [
+        "A primary or unindexed weighted-intersection result applying throughout the all-above-half regime could cover the formula or its equality classification. The Fishburn et al. primary full text was unavailable; the verdict is based on positive comparisons, not on an unsuccessful lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rank-two through rank-five values and arbitrary-rank lower bound; no general equality theorem in these passages",
+          "evidence": "Theorem 4(ii) has ≥, and the exact three-field case explicitly uses the sizes of the multiplicative groups.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1452",
+          "material_read": "Corollary 1 (p. 4), support notation, Theorem 4 (pp. 6–7), Theorems 5–7 and Corollary 4 (pp. 6–11; relevant offsets 5000 and 8900–16600)",
+          "method": "Lawful OA PDF passages",
+          "title": "Independent sets of some graphs associated to commutative rings",
+          "trigger": "Same zero-divisor graph and exact independence numbers in low ranks"
+        },
+        {
+          "assessment": "Partial method overlap; different weights, graph and assumptions",
+          "evidence": "Distinct intersecting supports are completely joined in the weak-difference graph, but coatom cells are internally independent there and contribute only one vertex per chosen cell to a clique.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-clique-number-and-maximizers-for-weak-difference-graphs-of--1c49c7324e77/RESULT.md",
+          "material_read": "Finding, scope and proof sections 1–3, offsets 0–4753",
+          "method": "Resultary catalogue and local mirror passage reads",
+          "title": "Exact clique number and maximizers for weak difference graphs of homogeneous finite-field products",
+          "trigger": "Closest indexed overlap: complementary ties in an intersecting-support optimization"
+        },
+        {
+          "assessment": "Confirms exact equivalent framework; displayed bounds restrict most or all biases below the regime here",
+          "evidence": "Theorem 10.4(i) permits at most the leading coordinate above 1/2, not every coordinate.",
+          "identifier_or_url": "https://real.mtak.hu/44164/1/jcta50_survey_u.pdf",
+          "material_read": "Example 10.3 and Theorem 10.4, PDF p. 42, offset 141720 onward; reference 46",
+          "method": "Lawful institutional OA PDF passage",
+          "title": "Invitation to intersection problems for finite sets",
+          "trigger": "Potential broader product-biased intersection theorem"
+        },
+        {
+          "assessment": "Access limit, not evidence of noncoverage",
+          "evidence": "The survey explicitly attributes the product-measure intersection problem to this paper; its discussion does not establish whether the primary paper includes the all-above-half equality case.",
+          "identifier_or_url": "https://doi.org/10.1137/0607009",
+          "material_read": "Bibliographic identification and characterization in the Frankl–Tokushige survey; primary full text not obtained",
+          "method": "Bounded lawful OA and repository-copy attempt, plus inspection of the survey passage",
+          "title": "Probabilities for Intersecting Systems and Random Subsets of Finite Sets",
+          "trigger": "Foundational nonidentical product-measure problem; may cover this exact optimization in another language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:1301.1452, Theorems 4–7"
+      ],
+      "rationale": "Maximum independent sets in direct products of fields are natural ring-graph objects. The result gives an exact arbitrary-rank rule for both optimal size and nonuniqueness, and explains how multiplicative balance of field-unit counts governs nonuniqueness without separate rank-by-rank casework. Knowing exactly which cells persist or can switch is useful beyond the scalar independence number.",
+      "residual_risks": [
+        "The stated contribution excludes binary factors and does not settle more general product measures or other associated ring graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

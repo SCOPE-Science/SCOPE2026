@@ -1,12 +1,21 @@
-# Scientific review: sharp distortion of categorical clique squares
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge3\), shortest paths in the categorical graph product split into the two asserted nonzero distance classes. The proof uses the exact finite cut representation of a real \(\ell_1\) metric, and the sharp supporting inequality follows from an identity of two nonnegative sums of squares. The lower bound \(2(n-2)/(n-1)\) and matching noncontracting permutation-cut embedding are reconstructed with all normalization factors. Equality throughout the sum-of-squares identity forces row and column regularity of each positive cut. Equality in the three pair-class average bounds forces the complete optimal image-distance profile. The accompanying standard-library checker verified 8755 graph-distance pairs, 80088 exact cut certificates, and 1086 embedding-pair identities; the unrestricted result rests on the algebraic proof, not the enumeration.
+## correctness
 
-## Originality — PASS with stated priority limits
-Abraham–Filtser–Gupta–Neiman, arXiv:1708.04073, concern general upper bounds from shortest-path decompositions rather than an exact finite graph-product constant. Wang–Li–Wang, DOI 10.3389/fphy.2020.00146, prove preservation of isometric \(\ell_1\) embeddability under gate-sums, which neither implies sharp distortion for a nonisometric product nor the equality-cut rigidity. Related exact computations for small cubic-symmetric graphs concern a fixed, different list of graphs. The earlier Kneser two-subset and unit-edge complete-bipartite calculations use distinct vertex metrics and do not imply the present ordered-pair result. Older work on complementary \(\ell_1\)-graphs, particularly Shpectorov (1998), is a genuine residual priority concern because its complete text was not verified. No directly covering theorem or table was identified in the checked accessible material; failed search is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The classification determines the least real \(\ell_1\) distortion of a natural unbounded family of strongly regular graph metrics, including the exact isometric boundary at size three and the sharp limit two. The sum-of-squares witness also classifies **every** equality cut as a regular bipartite incidence pattern and forces the full metric profile of any optimal embedding. Those sharp rigidity statements are finer than a numerical inequality and give a usable cut-cone certificate. This does not settle unequal rectangular products, arbitrary edge weights, or minimal target dimension.
+For n≥3 the graph has distance 1 on transverse pairs and 2 on same-coordinate pairs; a common neighbor is obtained by avoiding both coordinate values. For a cut of size K, T=K(n²−K) is its total separated-pair count, U+V are those sharing a row or column, and W=T−U−V are transverse. The class populations give the factors used in the proof. Expansion of row and column variances gives exactly 2T−n(U+V)=n times the sum of their squared deviations from K/n. Thus the linear gap is nonnegative and vanishes precisely on cuts whose rows and columns all sum to K/n. Integrating threshold cuts coordinatewise gives the nonnegative cut decomposition (finitely many cut types on this finite space, also for countable ℓ1). With canonical noncontracting normalization, minimum stretch one, the row/column averages are each at least 2 and the transverse average at most the distortion. This yields D≥2(n−2)/(n−1). A uniform permutation cut separates same-coordinate pairs with probability 2/n and transverse pairs with probability 2/n−2/[n(n−1)]; multiplying by n realizes the bound, including the isometry at n=3. Equality forces all three averages to the relevant per-pair bounds, hence all individual image distances as claimed, and in every nonnegative decomposition every positively weighted cut must have zero gap. Discarding the trivial zero cuts gives the exact asserted regular incidence restriction. Independent direct pair enumeration tested 512 cut inequalities at n=3 and 156 matching-metric pairs at n=3,4, separate from the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Vallentin's prior Euclidean formula implies the exact numerical lower bound on ℓ1 distortion after taking the square root of the cut metric. The distinct content is that this bound is attained in the cut cone by permutation cuts at every size, and that its exposed optimal cut structure is precisely row/column regularity with a unique optimal normalized distance profile. Neither Euclidean tightness nor the closely related balanced-block or Kneser results supplies that cut-cone realization and classification for this graph.
+
+## value
+
+PASS
+
+The vertex metric on the square complement-rook family is a natural two-distance object for which a Euclidean spectral bound need not supply a cut-cone upper bound. Realizing that bound for every size and identifying every eligible positive cut through balanced row/column incidence provide both a sharp invariant and usable structure on its optimizers; the result is more than a scalar evaluation of an existing spectral formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

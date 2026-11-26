@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:50:07.790614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The versioned primary PDF verifies the three branch tests and Eq. (36); Algorithm 1 is recovered by choosing Option II in both optional branches of Algorithm 2. On every nonterminal step the gradient displacement is c times the nonzero iterate displacement, so the short BB quotient is 1/c and x^(k+1)=(1-a_k)x^k. The first index with a_j=1 therefore gives K=j+1. Independently, an a>=2 resets to (1/sqrt(2),t) with 0<t<=1/(2sqrt(2)); the following first-branch steps have a'=sqrt(1+t)/sqrt(2)<1 and a''=sqrt(1+t)*sqrt(1+sqrt(1+t))/sqrt(2) strictly between 1 and 2, so the reset reaches zero after exactly five updates including the original oversized step. For informed a<=1/sqrt(2), a_1=1/sqrt(2) and a_2^2=(1+1/(sqrt(2)a))/2, giving the exact reset boundary a=1/(7sqrt(2)) (included), the equality a_2=1 at 1/sqrt(2), and K=4 in between. For 1/sqrt(2)<a<1 the first adaptive step repeats a and the next is sqrt(2)a in (1,2), so K=4. Starting at 1 gives K=1, at 1<a<2 gives K=2, and at a>=2 gives K=5. For arbitrary theta_0>=0, consecutive first branches have multipliers at least sqrt(2) from the second such branch onward; the first crossing of 1 must occur, and all crossing cases terminate. For theta_0=0 the crossing multipliers q_j are below phi<2, so a strict crossing cannot invoke the oversized branch. The product equals phi^j times a positive convergent factor because sqrt(1+t) contracts with derivative at most 1/2 on t>=0. This proves the exact equality-versus-overshoot index and O(1) startup error in exact arithmetic. Decimal support was inspected, not used at irrational boundaries. No floating-point or anisotropic claim is supported.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AdaBB's Eq. (36) accompanies a stepsize lower bound; it does not force an exactly unit normalized step at a specified index. Huang et al. Theorem 1 inserts a special step (17) at k_0 and proves termination by k_0+3 for a different two-dimensional BB family."
+        ],
+        "reasoning": "Uniform positive steps are compatible with no exact hit of 1. An update with an inserted short monotone spectral step is not the same as running AdaBB unmodified. The unavailable focused lookup supplies no negative evidence.",
+        "searches": [
+          "arXiv:2401.08024v1, stepsize bounds around Eq. (36) and Table 1",
+          "10.1007/s10589-022-00349-z, Theorem 1",
+          "Focused primary search: AdaBB termination phases and golden-ratio startup (lookup unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection)",
+        "Zhou–Ma–Yang arXiv:2401.08024v1 PDF",
+        "Huang–Dai–Liu–Zhang Theorem 1",
+        "Resultary search and mirrored 0e04302e58f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The AdGD comparison with theta_0=0 already uses an iterated-radical product threshold for when a stepsize lower bound applies. Huang et al.'s exact-hit conclusion uses a distinct inserted step."
+        ],
+        "reasoning": "The radical growth and its fixed point are elementary consequences of that recurrence. The part not supplied by the comparison is exactly when AdaBB's crossing reaches zero, including equality, and its nonmonotone reset phase with the informed start. Neither follows just by changing constants in a lower-bound theorem.",
+        "searches": [
+          "arXiv:2401.08024v1, Table 1 caption pp. 17–18, offsets 67007–71325",
+          "Huang et al., Theorem 1, (17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 2 with both Option II branches gives Algorithm 1; lambda_k=1/c yields the three stated scalar branches and the specified theta_0."
+        ],
+        "reasoning": "The scalar recurrence is an equivalent formulation of the primary algorithm on this test family, not itself a new algorithm. The distinct content is the exact first hit and the two initialization-dependent classifications.",
+        "searches": [
+          "Resultary: original AdaBB one-spectrum phase thresholds and golden-ratio startup",
+          "arXiv:2401.08024v1 PDF, Algorithm 1, (11)–(12), (36)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected indexed spectral result 0e04302e58f6 alternates delayed BB1/BB2 for two eigenvalues, with one-step pure-eigenspace termination and a separate mixed-start decay result. Table 1 compares lower stepsize bounds; it does not tabulate first-zero phases for AdaBB."
+        ],
+        "reasoning": "One-step hits of the exact BB step, and a table of lower bounds for several adaptive methods, do not supply the safeguarded algorithm's explicit parameter partition or first-zero law. There is no discrete sequence census here beyond the analytic hitting-time function.",
+        "searches": [
+          "Resultary: AdaBB or alternating spectral steps, exact quadratic termination",
+          "arXiv:2401.08024v1, Table 1 and caption"
+        ]
+      },
+      "rationale": "The normalization and the informed start are direct specializations of the primary algorithm, and the nested-radical growth mechanism is not independently credited as new. The supported distinct result is the first exact zero index for the original safeguarded iteration: its informed switching phases and its precise crossing-to-termination law without initialization information. Inspected lower-step bounds and other BB finite termination theorems do not give that classification.",
+      "residual_risks": [
+        "The external search service did not return results; this decision rests on the actual primary passages and indexed comparison, not on a negative web search. Other exact equivalent claims may remain unlocated.",
+        "Unversioned HTML numbering differs from the versioned PDF; the equation citation here refers to v1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct source of model and initialization; distinct lower-bound objectives, no exact first-zero partition stated in inspected passages",
+          "evidence": [
+            "The three lambda/alpha branch comparisons give the claimed scalar maps.",
+            "Eq. (36) uses lambda_1 and alpha_0 and specializes exactly.",
+            "Table 1 credits a product threshold to the AdGD lower-bound analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.08024v1",
+          "material_read": "PDF pp. 5–6 (Algorithm 1 and Option II equivalence, offsets 18110 and 21600), p. 12 Eq. (36) around offset 45000, Table 1 pp. 17–18 offsets 67007–71325, experimental theta_1 override p. 26 around 103800",
+          "method": "Versioned OA PDF passages; compared update branches and theorem scope",
+          "title": "AdaBB: Adaptive Barzilai-Borwein Method for Convex Optimization",
+          "trigger": "Defines the exact algorithm, initial ratio and overlapping radical structure"
+        },
+        {
+          "assessment": "Different algorithm and termination bound",
+          "evidence": [
+            "Uses steps (8) except at k_0>=2 where Eq. (17) is inserted; exact termination by k_0+3."
+          ],
+          "identifier_or_url": "https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf",
+          "material_read": "Theorem 1, Eq. (17), PDF pp. 7–8, offsets 20790–23035",
+          "method": "Author-hosted OA PDF passage",
+          "title": "On the acceleration of the Barzilai–Borwein method",
+          "trigger": "Closest cited BB finite termination theorem"
+        },
+        {
+          "assessment": "Different alternating spectral steps and mixed-spectrum claim",
+          "evidence": [
+            "Pure eigenspace hits in one step; mixed starts have a doubly-exponential decay statement, not this AdaBB phase partition."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6",
+          "material_read": "Mirrored RESULT.md statement on pure-eigenspace and mixed starts",
+          "method": "Local Resultary search and indexed primary statement comparison",
+          "title": "Alternating long-short spectral steps eliminate the balanced two-eigenvalue obstruction",
+          "trigger": "Closest indexed exact BB/quadratic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural one-spectrum benchmark where an unsafeguarded exact short BB step is already optimal. The informed start still has a sharp jump from four to seven steps from invoking the oversized safeguard, while the admissible zero-memory start can have unbounded logarithmic delay. The exact boundaries and index law distinguish safeguards and initialization even on the simplest nondegenerate quadratic, beyond a check that the BB quotient equals 1/c.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

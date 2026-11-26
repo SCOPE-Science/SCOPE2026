@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:27:01.305344Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The migration weights and death factor 1/2 agree with the source model's Appendix B in the specified symmetric equal-rate case. Clearing the two stationary denominators gives P+Q=(x−y)[1−(1−m)(x+y)]. At the isolated equilibrium the Jacobian is diag(−1/6,−1/4); the implicit branch has X=1−2m+4m²+O(m³), Y=3m−3m²+O(m³), so it stays in the physical rectangle and has X≠Y. Thus F(m)=1/[2(1−m)] there. At m=0 the artificial faces of a sufficiently small rectangle are strictly inward, and this persists uniformly for small m. The physical faces remain weakly inward; the symmetric part of the Jacobian is uniformly negative in that same convex rectangle by continuity. The time-T map is then a contraction, giving one attracting T-periodic orbit there for each T>0. On the x=1 and y=0 faces the inward drift is bounded below by a positive constant times m in the rectangle. Each distance to its physical face therefore satisfies w′≥−Lw+c m(t); integration over any preceding period rules out boundary contact even at isolated times when m=0. The moving branch has bounded derivative and |m′|≤πq/T, so contraction gives a uniform O(q/T) tracking error on the periodic orbit. Averaging F(q cos²θ) and substituting tan θ on the half interval gives 1/(2√(1−q)). It is strictly between F(q/2) and F(q); Taylor expansion of the equal-mean excess yields q²/16. This is local and adiabatic, not an all-amplitude, all-finite-period or stochastic-fixation statement. The frozen checker was inspected, not executed; the algebra and limit were independently reconstructed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix B supplies the general model; equal unit deaths, common resident birth rate and symmetric migration give the exact two right-hand sides in the frozen proof. The title of Aubrée et al. identifies a mainland–island allele-fixation comparison; the publisher full text was unavailable on the attempted lawful route."
+        ],
+        "reasoning": "Model inclusion is direct. Merely knowing the general flow and that slow forcing can be tracked does not determine the branch sum or the sign of the equal-mean comparison. No conclusion about the unavailable paper beyond its identified scope is used to decide the axis.",
+        "searches": [
+          "Primary literature query for two-deme Moran flow and periodic migration",
+          "arXiv:2610.08160v1 Tables 1–2 and Appendix B",
+          "Aubrée et al., doi:10.1093/evolut/qpac067"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof, VERIFICATION.md and verify.py",
+        "Masoumi–Kaveh–Ejtehadi arXiv:2610.08160v1, §2.2, Tables 1–2 and Appendix B",
+        "Two nearby Resultary findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "§2.2 uses the period average and argues for an endpoint obtained by full-amplitude constant migration. The bound result derives X+Y=(1−m)⁻¹ for X≠Y and uniformly tracks that moving equilibrium, yielding the cycle average of a strictly convex nonlinear response."
+        ],
+        "reasoning": "Ordinary adiabatic estimates and Jensen's inequality are known methods, not original theorems here. The nontrivial input is the exact branch balance and proof that the frequency orbit follows that branch throughout the cycle; neither the baseline substitution nor the published slow-season interpretation implies the claimed equality and strict comparison.",
+        "searches": [
+          "arXiv:2610.08160v1 §2.2, p. 10, and Appendix B, pp. 24–25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source calls this in-phase schedule Scenario A and uses the same period-averaged mutant-frequency observable. Its §2.2 discusses a full-amplitude constant-migration interpretation for long seasons."
+        ],
+        "reasoning": "The two baselines are not alternative descriptions of the same limit: at fixed small nonzero q, F(q/2)<1/(2√(1−q))<F(q). The review compares the same averaging convention, not differently normalized observables.",
+        "searches": [
+          "Resultary: symmetric two-deme periodic migration, adiabatic mutant frequency and equal-mean migration",
+          "Masoumi–Kaveh–Ejtehadi arXiv:2610.08160v1, §2.2 and Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source tables classify the in-phase schedule and neutral-average fitness regime, not the exact slow-cycle value. Read nearby Resultary findings 2026/10/26/...--c0a5c849bd97 (three-patch two-season Floquet growth) and 2026/10/12/...--e82e1229b3ca (four-habitat Moran autocorrelation)."
+        ],
+        "reasoning": "These findings concern different state models and observables; neither is a tabulated or equivalent analytic value for this frequency branch. The focused query without material hits is not proof of absence.",
+        "searches": [
+          "Resultary: adiabatic migration bias in two demes",
+          "Resultary: exact mutant equilibrium balance under symmetric periodic migration",
+          "arXiv:2610.08160v1 Tables 1–2"
+        ]
+      },
+      "rationale": "The two-deme model, forcing schedule and average-frequency observable are established prior work. The supported distinct claim is the exact stationary balance on the small-migration separated-deme branch and its consequent slow-period value strictly between the equal-mean and peak baselines. In particular the source's full-amplitude interpretation does not state this answer; tracking the frozen equilibrium throughout the cycle gives a different limit in the proved regime.",
+      "residual_risks": [
+        "Publisher full text of Aubrée et al. was unavailable on the attempted route; identity and cited scope do not rule out further overlap.",
+        "Bounded primary and catalogue comparisons do not rule out earlier deterministic work in another parametrization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap of model and observable but a different slow-limit interpretation",
+          "evidence": [
+            "Scenario A uses equal μ₁₂=μ₂₁=α₀ cos²(πt/T); regime I uses neutral mean fitness.",
+            "Appendix B gives the death–birth probabilities with equal unit death rates and resident birth rate one.",
+            "The discussion identifies its slow-season endpoint with full-amplitude constant migration rather than averaging the moving equilibrium over the cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08160v1",
+          "material_read": "Tables 1–2 p. 9 (offset about 18100); §2.2 p. 10 (about 19006); Appendix B Eqs. (B1)–(B7) pp. 24–25 (about 69133–73466)",
+          "method": "OA primary PDF, relevant passages",
+          "title": "Effects of Periodic Migration on Selection in Subdivided Populations",
+          "trigger": "Same model, schedule and slow-season observable"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not used as negative evidence",
+          "evidence": [
+            "The cited title names a mainland–island allele fixation study, rather than the symmetric two-deme deterministic average in the frozen theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/evolut/qpac067",
+          "material_read": "Identified citation and title only; publisher full text unavailable",
+          "method": "Lawful OA publisher-page retrieval attempted; unavailable",
+          "title": "Migration pulsedness alters patterns of allele fixation and local adaptation in a mainland-island model",
+          "trigger": "Pulsed migration and selection comparison"
+        },
+        {
+          "assessment": "Different dynamical quantity and later record",
+          "evidence": [
+            "Three-patch two-season Floquet growth, not deterministic two-deme period-averaged frequency."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-season-nonmonotonic-growth-in-a-minimal-three-patch-me--c0a5c849bd97/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary and local published-record mirror",
+          "title": "Exact two-season nonmonotonic growth in a minimal three-patch model",
+          "trigger": "Seasonal migration and exact dynamics"
+        },
+        {
+          "assessment": "Different object and observable",
+          "evidence": [
+            "Four-habitat Moran autocorrelation does not give this two-deme equilibrium balance or forced average."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-four-habitat-nonmonotonicity-of-moran-autocorrelation-under-dispersal--e82e1229b3ca/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary and local published-record mirror",
+          "title": "Sharp four-habitat nonmonotonicity of Moran autocorrelation under dispersal",
+          "trigger": "Earlier nearby Moran/dispersal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact adiabatic invariant answers a specific comparison left ambiguous in the motivating model: matching the time-mean migration gives a strict increase, whereas matching its peak gives a strict decrease. The branch formula and uniform tracking establish this baseline dependence for a nonempty interval with a quantified leading excess, rather than drawing a conclusion from a few finite-period simulations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

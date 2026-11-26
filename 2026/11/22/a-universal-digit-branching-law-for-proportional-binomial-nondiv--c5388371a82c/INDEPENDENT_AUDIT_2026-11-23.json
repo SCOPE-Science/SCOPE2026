@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:59:18.322198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–6",
+        "Frozen VERIFICATION.md and verify.py (inspected)",
+        "Rowland, arXiv:1001.1783 §1, Lucas/Fine setup"
+      ],
+      "rationale": "There is an independent direct proof of the balancing step: put v_d=[(m−1)d+c]_p and e_d=[md+c]_p. The carry bit 1_{v_d+d≥p} equals (v_d+d−e_d)/p and is the indicator of e_d<d. Both v_d and e_d are permutations of the residues by the two hypotheses on m, so summing this bit over d gives (p−1)/2, for any integer carry c. Lucas's test then gives exactly (p+1)/2 possible next digits from each state. Prescribed lower digits are unaffected by an extension, hence an illegal suffix remains illegal. A finite word's high zero digits never violate Lucas even if its carry has not ended; this also treats the zero-length endpoints. The closure is exactly the infinite legal tree since every finite legal prefix extends by zeros. There are a_p^r occupied cylinders at level r, each of mass a_p⁻ʳ under the consistent uniform branch measure. Covering bounds, the mass distribution principle and a_p<p give the two dimensions, Ahlfors regularity and Haar-nullness. Bounding arbitrary X between consecutive powers of p proves the stated Θ bound uniformly in the eligible m. If p|m the first nonzero digit fails the test, while m=p+1 makes all p one-digit indices pass. The frozen finite verifier was inspected, not executed; it is not needed for any universal step.",
+      "residual_risks": [
+        "The branching is about support, not equality or equidistribution of nonzero binomial residues. No arbitrary-cutoff leading coefficient is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barat–Grabner count spatially over 0≤k≤n<N; Fine's formula in Rowland counts all lower entries of a fixed row",
+          "Abram–Lagarias give log_p of the spectral radius of a presented automaton adjacency matrix as the Hausdorff dimension"
+        ],
+        "reasoning": "Neither the triangular nor row-wise counts determine the count on each slope and each lower-digit class. The general dimension formula is applicable after constructing the slope's digit automaton, but it does not compute its row sums or give equal cylinder masses without the affine balance.",
+        "searches": [
+          "Barat–Grabner, Distribution of Binomial Coefficients and Digital Functions, opening and Theorems 1–2",
+          "Rowland, arXiv:1001.1783 §1",
+          "Abram–Lagarias, arXiv:1210.2478 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records above",
+        "Berend–Harmse, Acta Arith. 84 (1998), 31–41",
+        "Rowland arXiv:1001.1783v3",
+        "Barat–Grabner author PDF",
+        "Abram–Lagarias arXiv:1210.2478"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lucas tests digits but gives no universal state count until the admissible affine comparison is counted",
+          "In 2026/11/8/SCOPE-exact-two-adic-residue-image-of-the-proportional-binomial-sequen--3c8bca123502 the question is a two-adic value image, not index distribution",
+          "The exceptional case has a neighbor-digit inequality and thus different row sums"
+        ],
+        "reasoning": "Dimensional and growth consequences are routine once the actual state count is established. The remaining distinctive ingredient is that even when the admissible digit set changes from one state to the next, the affine maps make all states have equal branching on every eligible ray. No inspected broader result supplies this arithmetic ingredient.",
+        "searches": [
+          "Mathematical comparison to the Berend–Harmse central digit restriction, Fine/Lucas, and Abram–Lagarias Theorem 1.1",
+          "Local Resultary two-adic proportional-binomial record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d≤[md+c]_p is equivalent to no wrap when adding d to [(m−1)d+c]_p",
+          "Berend–Harmse's proof explicitly requires every central-binomial digit to be at most (p−1)/2 in the unit case"
+        ],
+        "reasoning": "At m=2 the latter independent digit criterion directly gives every central suffix count. For generic m the sets of allowed digits change with carry, but the number is controlled by two affine residue permutations; the m=2 statement alone does not do this.",
+        "searches": [
+          "Primary proportional-binomial ray nondivisibility, affine digit carries and suffix counts",
+          "Berend–Harmse, On some arithmetical properties of middle binomial coefficients, Theorem 1.1 and proof",
+          "Affine floor-sum form of the digit inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-the-full-odd-prime-p-adic-index-value-closure-of-central-binomia--c0f80e993a75 gives exact sets of central-binomial values on each prescribed suffix",
+          "2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60 and 2026/11/22/SCOPE-sharp-ternary-signed-residue-bias-of-four-ary-fuss-catalan-binom--e40402e704ea concern excluded m=p+1 slopes",
+          "2026/11/22/SCOPE-sharp-multiplicative-orbit-collapse-for-five-nondivisible-three--563001b55315 concerns the three-part multinomial, not binom(mn,n)"
+        ],
+        "reasoning": "At modulus p the central index–value theorem identifies exactly the admissible doubling suffixes; this is real special-case overlap. The generic eligible-slope theorem does not follow from it. The signed ternary case m=4,p=3 and the neighboring-digit exceptional-slope spectra do not lie in the claim's domain. The same-day records were compared by their mathematics, not presumed priority order.",
+        "searches": [
+          "Local Resultary for fixed proportional binomial nondivisibility, central suffixes, affine carry-state branching"
+        ]
+      },
+      "rationale": "The m=2 specialization is covered: the classical central-binomial digit restriction already mechanically gives those exact counts, and a catalogue index–value result covers the same admissible suffixes. The supported distinct content is the universal affine carry-state balance for every nonexceptional slope, and its resulting exact arbitrary-suffix law. General row/spatial counts and path-set dimension theory do not calculate these carry-state row sums. Known consequences of the branching mechanism, such as the dimensional formula once that mechanism is known, are not separate originality claims.",
+      "residual_risks": [
+        "A generic affine-ray counting theorem could be indexed under other terminology, e.g. a digital floor-sum or automaton result. The bounded primary search is not evidence of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact m=2 support/cylinder counts follow from the known central digit criterion; source does not give the generic proportional-slope law",
+          "evidence": "Theorem 1.1 concerns infinitely many central coefficient values per residue. Its proof explicitly uses the all-digits ≤(p−1)/2 condition; the paper's §4 describes the study as central coefficients modulo prime powers.",
+          "identifier_or_url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa84/aa8413.pdf",
+          "material_read": "Theorem 1.1, p. 31; unit-case proof, pp. 36–37 near offset 18532; §4, pp. 40–41 near offset 29250",
+          "method": "Open full-text Polish mathematical archive PDF found via the DML-PL issue record",
+          "title": "On some arithmetical properties of middle binomial coefficients",
+          "trigger": "Plausible historical precedence for the strongest nonexceptional special case"
+        },
+        {
+          "assessment": "Row-wise, not proportional-ray count",
+          "evidence": "Fine's product ∏_i(n_i+1) counts lower indices for fixed upper index n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1001.1783v3",
+          "material_read": "§1, beginning near offset 0",
+          "method": "Open-access PDF",
+          "title": "The number of nonzero binomial coefficients modulo p^α",
+          "trigger": "Broader nonzero-count result"
+        },
+        {
+          "assessment": "Two-dimensional triangle distributions do not give uniform suffix branching on affine rays",
+          "evidence": "The opening ranges over 0≤k≤n<N, and Theorems 1–2 are spatial statements on the triangle.",
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "PDF pp. 1–2, offsets 0 and 4300",
+          "method": "Author-hosted open-access preprint",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Potential spatial or line-counting precedence"
+        },
+        {
+          "assessment": "Dimension framework, not the asserted branching law",
+          "evidence": "The dimension is log_p σ(A(G)), which requires determining the actual adjacency matrix's spectral radius.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.2478",
+          "material_read": "Theorem 1.1, p. 3, offset 9240 onward",
+          "method": "Open-access PDF",
+          "title": "p-adic path set fractals and arithmetic",
+          "trigger": "General automata dimension coverage"
+        },
+        {
+          "assessment": "Genuine m=2 special-case overlap; stronger value statement only there",
+          "evidence": "On each suffix prescribed doubling carries give the permitted valuation floor for coefficient values; the modulus-p support criterion follows.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-full-odd-prime-p-adic-index-value-closure-of-central-binomia--c0f80e993a75",
+          "material_read": "RESULT.md, Finding at offset 0 and comparison near 6600",
+          "method": "Local Resultary mirror",
+          "title": "The full odd-prime p-adic index–value closure of central binomial coefficients",
+          "trigger": "Strongest catalogue overlap in prescribed suffixes"
+        },
+        {
+          "assessment": "Excluded slope",
+          "evidence": "For m=p+1 the digit condition is d_i+d_{i+1}≤p−1, yielding different growth.",
+          "identifier_or_url": "2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Prime-relative Fuss–Catalan nondivisibility: exact spectra and p-adic dimension",
+          "trigger": "Exact line branching on a nearby slope"
+        },
+        {
+          "assessment": "Excluded m=4 at p=3, and signed values rather than the claimed support theorem",
+          "evidence": "It treats unsigned support as already known and quantifies signed residue bias on that exceptional line.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-ternary-signed-residue-bias-of-four-ary-fuss-catalan-binom--e40402e704ea",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp ternary signed-residue bias of four-ary Fuss–Catalan binomial numerators",
+          "trigger": "Same-day proportional-binomial support and residue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Proof §§1–6",
+        "Berend–Harmse, central-binomial comparison",
+        "Local Resultary exceptional-slope spectrum"
+      ],
+      "rationale": "The index support of proportional binomial coefficients is a natural arithmetic set. Exact constant branching despite carry-dependent digit sets gives directly usable counts with an arbitrary prescribed low-digit suffix and a canonical regular measure, rather than only a density or dimensional bound. Its universality contrasts with the nearby exceptional slopes, and the proof exposes a structural balancing mechanism.",
+      "residual_risks": [
+        "The result does not give nonzero coefficient values, higher valuations, or all exceptional slope spectra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

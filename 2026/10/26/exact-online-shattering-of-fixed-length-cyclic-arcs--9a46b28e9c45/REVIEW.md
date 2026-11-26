@@ -1,15 +1,21 @@
-# Scientific review: exact online shattering of fixed-length cyclic arcs
+# Independent mathematical audit
 
-## Correctness
-PASS. The complement reduction fixes \(s=\min(k,n-k)\); every query has exactly \(s\) positive hypotheses, giving the sharp upper bound on a full binary mistake tree. Two disjoint center blocks of size \(2^{\lfloor\log_2s\rfloor}\) exist on either side of the first query, and subsequent cyclic queries realize all prefix cuts on each block. This supplies every branch of the required tree without probabilistic or computational inference. The VC bound uses the impossibility of including the two outside members of a triple without the middle member in arcs of size at most a half-cycle. Independent brute-force implementations of the finite recurrence, direct VC traces, and explicit leaf checking passed; their finite scope is stated.
+## correctness
 
-## Originality
-PASS under best-knowledge priority assessment, with residual risk. Published treatments of the Littlestone/stability interface (Malliaris–Moran 2021 and 2022) do not provide this exact parameter formula. Chase–Freitag–Reyzin 2023 study general query learning and use disjoint intervals in one example; that one-dimensional result does not imply the logarithmic cyclic-window calculation. Exact record-overlap checks identify a previous classification restricted to four-point translates (which covers the \(s=4\) special case only), and a recurrence for *all* intervals on a finite chain (a different hypothesis class). Neither gives the displayed all-length formula or its VC/Littlestone comparison. Direct searches for the same formula under cyclic-arc, sliding-window, circular-threshold, and stable-rank terminology did not establish stronger prior coverage. Index and priority incompleteness remains possible.
+PASS
 
-## Mathematical value
-PASS. The exact classification covers every \(n,k\), including small and complementary cases, and determines the optimal deterministic realizable mistake bound for a canonical family of translated geometric ranges. Its sharpness proof is constructive and identifies when the class attains the information-theoretic maximum \(\lfloor\log_2n\rfloor\). At the same time, VC dimension never exceeds two. Thus a geometrically elementary family exhibits an unbounded quantitative gap between static and adaptive shattering, with the arc's shorter length—not the number of hypotheses alone—setting the exact adaptive complexity. No broader paper-sized consequence is claimed.
+Complementation reduces to s≤n/2 without changing either dimension. Every root query has exactly s positive centers, so complete depth d requires 2^(d−1)≤s. On m≤s consecutive centers, query u+t−1 to split the first t from the rest: the two involved integer blocks fit in an interval of at most s+m≤n points, so cyclic reduction creates no extra positive centers. After the initial split both branches contain a block of 2^floor(log₂ s) centers, each bisected recursively; this also handles s=1 with depth-zero children. Adjacent points yield all four traces if s≥2, but a triple inside an s-arc cannot realize the two outer positives without its middle point, since the opposite circular path needs at least n−s+1 edges. For s=1 the singleton class shatters a point but not a pair. Taking s=floor(n/2) gives the claimed maximum with the stated attainment threshold. Independently validated every path of the supplied data-only n=128,k=64 witness: 128 leaves of depth seven, all distinct centers, each satisfying its entire path.
 
-## Sources and remaining limits
-See the source-to-claim comparisons, source material inspected and residual literature risks in `AUDIT.json`. Proof checks cover all integer parameters; finite scripts provide additional consistency evidence, not independent verification of infinite claims. The result does not treat randomized regret or general circular ranges.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete parameter-dependent formula is distinct from the earlier literature and the same-date four-point census inspected. The audit found and credits an exact full duplicate of these finite dimensions in a later-dated Resultary record; that is genuine equivalent coverage in the current catalogue, but not evidence of prior coverage against this frozen October 26 finding. No claim of unique discovery or exhaustive priority is made.
+
+## value
+
+PASS
+
+The exact width-dependent online dimension is a useful calibration for a natural translate class: despite VC dimension at most two, it ranges from one to the whole-class information bound. The theorem says exactly when that bound is attained and provides a constructive witness; its contribution is not just computing the largest certificate or exhibiting some VC/Littlestone separation already available from other classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a retraction missing the uniquely active point, the homomorphism equation forces constancy along every permutation cycle; idempotence forces no cycle to contribute two image points. Conversely, any nonempty partial transversal supplies all idempotent homomorphisms by assigning each omitted cycle and the active point independently to a selected image point. This proves the exact fiber size \(s^{r-s+1}\), the face polynomial, and the reconstruction by elementary symmetric functions. The supplied verifier tests every nonidentity cycle profile through five positive elements without assuming the normal form when enumerating maps.
+## correctness
 
-## Originality — PASS relative to checked published evidence
-Cazet, arXiv:2303.15815v3, Theorems 3.3–3.8 in Section 3, supplies the quandle family, permutation-conjugacy classification, ordinary quandle polynomial, and a special full-cycle Hom calculation. It does not state the passive-retraction image complex, its fiber formula, or the completeness of this retract invariant. The existing permutation-centralizer retraction polynomial counts maps commuting with a permutation, not maps constant on its cycles; the image constraints are different. The published semisimple Alexander-quandle theorem addresses a distinct affine quandle family. Dedicated searches for one-column quandle retractions, passive-image ranks, and partial-transversal descriptions found no covering statement. This is not an assertion of exhaustive historical priority; unindexed equivalent descriptions remain possible.
+PASS
 
-## Mathematical value — PASS
-The result classifies an intrinsic, non-arbitrary stratum of retractions: those avoiding the unique element acting nontrivially by right translation. It gives all embedded passive images, all map multiplicities, and a complete numerical reconstruction invariant despite the fact that the ordinary quandle polynomial loses all cycle-length information beyond fixed points. This closes a concrete quantitative gap adjacent to a published isomorphism classification, rather than merely recounting a known table.
+Extend the permutation by fixing 0. Every right translation is either the identity or this permutation; right translations preserve the flag of whether an input equals 0. This gives self-distributivity, as well as idempotence and bijectivity of each right translation. Nonidentity makes 0 intrinsic. A map into the positive elements has trivial target operation, so the homomorphism equations say exactly that it is constant on each positive permutation cycle, with f(0) freely chosen. Composition-idempotence says it fixes its entire image. For a nonempty proposed image T of size s, these requirements are compatible exactly when T is a partial transversal. Then s cycle values are prescribed, r-s cycle values and f(0) are independent choices in T, and there are s^(r-s+1) maps. The top degree of either polynomial is r, including when r=1. Dividing the weighted coefficients by the known factors recovers the elementary symmetric functions; the monic polynomial with those coefficients recovers all lengths, including repeated lengths and fixed points. A bijection fixing 0 is an isomorphism exactly when its positive restriction intertwines the permutations. For (4,4) and (2,6) the ordinary polynomial agrees and the rank-2 coefficients are 32 and 24. The finite verifier and recorded checks were inspected, not executed; the proof covers all sizes and counts maps onto each specified image, not just counts by rank.
 
-## Scope and risks
-No result is claimed for images containing the active point, or for arbitrary quandle families. Finite enumeration is a check, not an infinite proof. Some earlier unindexed equivalent formulations might exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cazet's conjugacy classification and ordinary polynomial are known; the closest Hom theorem also supplies the single-cycle case. The distinct claim is the prescribed-image census and the two complete passive invariants for arbitrary cycle profiles. The checked transformation-centralizer and Alexander constructions impose different homomorphism laws and their image classifications do not specialize to the stated family.
+
+## value
+
+PASS
+
+The passive stratum is intrinsic rather than an arbitrary choice of labelled subsets. Its complete embedded image description and per-image multiplicities give two readily computed complete invariants that separate actual collisions of the ordinary polynomial. This is more than a new proof of the known conjugacy classification: it shows how much the intrinsic retract data sees, with no enumeration of all self-maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

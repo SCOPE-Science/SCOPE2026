@@ -1,15 +1,21 @@
-# Review of the quadratic skew Schäffer profile
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-edge normalization uses exact norm isometries and the skew pair swap, leaving only two relative edge orbits. The same/opposite-edge orbit has squared objective at least \(1+\tau^2\). The remaining orbit is a two-variable nonnegative squared maximum of affine functions and therefore convex. Each phase has a feasible explicit minimizer with an exact zero subgradient; the subgradient weights satisfy the required unit-interval constraints on exactly its stated parameter regime. The branch point is the unique root of \(1-2\tau+\tau^2-\tau^3\). The first-branch trial pair shows the other edge orbit never wins. Reciprocal symmetry handles \(\tau>1\). The proof is analytic and does not depend on finite numerical sampling.
+## correctness
 
-## Originality — PASS with residual risks
-Xu--Liu's source (arXiv:2610.03050v1) introduced the invariant and proves universal bounds and model values on Hilbert and Lebesgue spaces. The most relevant previously indexed hexagon result determines the *outer exponent infinity*, not the finite exponent two; its full result was examined. The values differ already at \(\tau=1\). Related indexed skew James work is supremal rather than infimal, and the closest accessible historical claim studies a quartic power-mean remainder in \(L^4\), not this normed plane. Searches for algebraic thresholds, mean exponents, aliases and parameter transformations did not disclose coverage. It remains possible an unindexed exact formula exists; independent priority certification is not asserted.
+PASS
 
-## Mathematical value — PASS
-The theorem computes the complete sharp quadratic parameter profile on a canonical affine-regular hexagonal Banach plane. The phase transition from a kink of the first output norm to its single active facet occurs at an explicit nontrivial cubic root, and the small-skew variation is linear rather than cubic as for the published outer-infinity profile. This isolates how the outer power mean changes the geometry of minimizing pairs and provides a natural exact test case for a new functional-analytic invariant.
+The six-edge isometries and the pair operation (x,y)↦(y,−x) induce j↦−j and j↦3−j on relative edge indices. The two orbits are {0,3} and {1,2,4,5}; the first-coordinate test gives the lower bound A=1+τ² in the first orbit. In the second orbit take x=(1,a), y=(-1+b,-1). For x+τy the two nonnegative candidates 1−τ+τb and 1−a+τb dominate |a−τ|, and for τx−y the two nonnegative coordinates dominate their absolute difference. This gives precisely the two maxima in the frozen proof and a convex squared objective. At a=τ, b=τ(1−τ), choosing the second-norm branch weight θ=τ(1−τ) zeros the b component; the required first-norm weight κ=τ(1−θ)/(1−τ) zeros the a component iff κ≤1, exactly the sign test for 1−2τ+τ²−τ³. This polynomial is strictly decreasing and changes sign. Above its root, the candidate a=(A²−τ)/(A²+τ²), b=τ(1−a) has a<τ, satisfies AU=τV for the two transformed norms U,V, and the ridge weight θ=τ²/A gives zero gradient of the squared objective in the subgradient sense. The candidates coincide at the transition. The first trial family is admissible on [0,1] and its squared objective is ≤A, with the stated nonnegative factorization; this closes the comparison with the other orbit. At τ=1 the second candidate gives (U,V)=(4/5,8/5) and squared value 8/5, while at τ=0 all pairs give 1. Norm symmetry proves reciprocity and the Taylor coefficients are 1, −1/2, 9/8. The active-facet description concerns a representative optimizer; the pair symmetry can exchange the two norms.
 
-## Scope and limitations
-Only real dimension two with the specified hexagonal norm and power-mean exponent two is resolved. Sampled edge grids do not prove universal inequalities. Searches cannot rule out all differently expressed earlier claims. Independent audit and external validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general invariant and reciprocal identity are antecedents. The exact outer-quadratic profile on the stated real hexagon, including the active-set switch, is distinct from the inspected Hilbert and Lp formulas and from same-norm skew-James or skew-quartic supremum results. The cited outer-∞ record is the closest plausible overlap; its reported value at τ=1 is for a different objective, and its text could not be independently retrieved from the mirror. No priority is inferred from search misses.
+
+## value
+
+PASS
+
+The affine-regular hexagon is a natural test space for the published Banach invariant because it has finitely many support directions without being Hilbert. The complete quadratic profile gives an explicit non-Hilbert example in which the active facets change at a nontrivial parameter and the small-skew decrease is linear. A user needing this exact value or its change under the skew parameter cannot obtain it by importing the Hilbert or outer-∞ value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

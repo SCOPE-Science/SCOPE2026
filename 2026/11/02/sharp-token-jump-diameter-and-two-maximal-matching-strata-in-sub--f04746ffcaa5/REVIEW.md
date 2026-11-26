@@ -1,19 +1,21 @@
-# Scientific review: sharp token-jump diameter in subdivided cliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classification of maximal matching sizes follows from the original incidence-graph maximality predicate. The size-\(n\) stratum corresponds bijectively to maps without fixed or reciprocal pairs; an edge jump updates one coordinate. Computing allowed targets establishes degree \(n(n-3)\). The explicit routing algorithm resolves permitted direct updates and blocked inverse directed cycles, using at most one nonfinal move for each cycle of at least three coordinates. Reversed disjoint directed cycles require one nonfinal move per cycle, showing exact diameter \(n+\lfloor n/3\rfloor\). The proof checks \(n=3\) separately and does not conflate maximal and maximum. Original-graph predicate checks and exhaustive adjacency comparisons for orders \(3\) through \(6\), plus full all-pair routing at orders \(4,5\), confirm the nonstandard finite boundary cases; general quantifiers rely on proof.
+PASS
 
-## Originality — PASS, with priority uncertainty
+Reconstructed the matching-to-function bijection and the full sharp bound. Two unmatched original vertices would leave their shared subdivision vertex available. With only i unmatched, each edge from j to e_ij is forced; these matchings for different i are edge-disjoint, so their symmetric difference is 2(n−1)>2 (the weaker wording in RESULT.md line 29 is insufficient on its own). In the full tier, a jump changes exactly one coordinate and the legal choices at i are n−2−indeg(i), summing to n(n−3). If no wrong coordinate can be directly set, g permutes the wrong set in cycles of length at least three and the current map is g inverse there. On any such cycle some j has indegree at most n−3 since 3(n−2)>n; a legal temporary target cannot equal the blocked g(j) or the old target, the latter being j's predecessor. Thus the predecessor edit is legal after this temporary move, and each subsequent backward edit targets a vertex already corrected and cannot create a target 2-cycle. Each disjoint repaired cycle adds only one move beyond Hamming distance. In the inverse-cycle witness, no edit outside a cycle removes its initial obstruction, so each of floor(n/3) cycles forces one move besides the n last edits. For n=3 there are exactly two full-tier maps, both with degree zero. VERIFY.py independently constructs small incidence graphs, then uses BFS at n=4,5 and one source at n=6; these are finite diagnostics and the proof, not those runs, establishes the universal claims. The frozen checker was inspected, not executed.
 
-The initial 2019 paper of Baste et al. concerns minimum maximal matchings and approximation bounds; the 2018 paper of Bousquet et al. gives general token-jump matching-distance algorithms and connectivity criteria. The relevant full-text introductions, main results and matching-reconfiguration conclusions were inspected. Neither provides this exact family-specific diameter or the complete two-tier reconfiguration structure. The function count and inclusion–exclusion formula were explicitly located in OEIS A134362 and are not credited as new. Semantic record searches under matching, subdivision, functional-digraph, reverse-cycle and reconfiguration aliases and comparisons with accessible prior local claims did not identify a stronger covering result. There remains priority risk from unindexed literature or different functional-digraph terminology; a negative search alone does not certify uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-An exact exchange diameter measures the worst-case number of local moves needed to convert one optimal matching into another, a natural metric distinct from counting matchings or determining minimum matching size. Here the diameter exceeds the number of originally matched vertices by a sharp cycle-obstruction term and grows linearly, while the same configuration space is regular but coexists with completely frozen minimum maximal matchings. The constructive proof supplies explicit optimal-scale routes and worst-case witnesses, giving nontrivial reconfiguration structure beyond known counting formulas and generic algorithmic reachability.
+Pass applies to the exact diameter and matching-tier structure, not the known count or the token-jump model. The closest general matching results and related catalogue metrics do not state or supply the needed uniform one-detour cycle bound and sharp witness for this subdivision family.
 
-## Scope and limitations
+## value
 
-The result applies only to one-subdivisions of complete graphs and the token-jump rule defined in the mathematical statement. Independent mathematical audit and external validation have not been performed; arbitrary-order assertions rely on the supplied proof, not finite checks. OEIS A134362 predates this result. Equivalent unindexed work is a residual literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is the canonical incidence subdivision of a clique and the invariant measures worst-case reconfiguration cost, not just existence. The exact additive detour term, where inverse directed cycles require a temporary edit even when every coordinate must already move, identifies a structural obstruction that neither counting nor a connectivity test describes. The isolated smaller tier explains the separation between inclusion-maximal and maximum matchings under the prescribed jump.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

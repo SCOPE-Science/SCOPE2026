@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The definition fixes half-sides \(a\ge1\) and \(1\), the common center, relative rotation \([0,\pi/2]\), and ordinary intersection perimeter. The proof explicitly derives all retained top and right edge portions from the rotated half-plane constraints, handles the endpoint coincidences by continuity, and differentiates both exact branches. Both switching thresholds and every equality case follow algebraically; there is no numerical or limiting assertion being substituted for the proof. A separate standard-library clipping implementation passes 21,344 diagnostic comparisons and inequalities, independently of the symbolic edge integration.
+PASS
 
-## Originality
+Independent angular-bisector derivation: rotating the axes by θ/2, write α=cos(θ/2), β=sin(θ/2). In the first quadrant the intersection is αx+βy≤a and βx+αy≤1, with the other quadrants obtained by reflection. For 0<θ<π/2 the first inequality is redundant exactly when a≥α/β; the single perimeter segment in the quadrant then has length 1/(αβ). Otherwise the two segments meet at (x*,y*), and their lengths, measured from the axis-intercepts, sum to (x*+y*)/α=(a+1)/(α(α+β)). Multiplying by four and setting t=β/α gives the asserted profile, with agreement at the join and the direct endpoint perimeters 4(a+1) and 8. The sign of the first derivative is that of t²+2t−1; the second branch is strictly decreasing up to t=1. Thus the strict interior pair exists precisely at 1<a<1+sqrt(2), with the square case's maximum at the endpoint and coalescence yielding strict decrease, not a plateau. The sole competing minima when the diagonal candidate is attained are its value 8(sqrt(2)−1)(a+1) and 8, tying only at a=sqrt(2). Read the packaged VERIFICATION.md and scripts/check_rectangles.py: the recorded 21,344 comparisons include independent clipping checks but are finite; the analytic argument establishes equality and all real parameters. The script was not executed.
 
-**PASS under the recorded searches, with historical uncertainty.** Exact semantic comparisons considered convex rotational overlaps, clipping algorithms, rectangle-area overlap bounds, rotational bounding-rectangle perimeters, and rectangle-translation optimizers. Those are not implications of the claimed global perimeter classification: changing area to perimeter, bounding rectangles to intersections, or translation to relative rotation changes the measured quantity or feasible family. No exact matching record was located. The 2014 primary source's abstract concerns volume/radius bounds, but its full text was not accessible; this is retained as a concrete priority risk rather than treated as proof of absence. The 2012 and 2013 full discussions give algorithms or area questions, not the two explicit perimeter transition thresholds.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a natural complete solution to an orientation-dependent perimeter optimization problem for a classical two-parameter family of convex-body intersections. It is not merely an evaluation at a chosen angle: the full profile is classified, the minimizing angle jumps at \(\sqrt2\), and the metastable local minimizer disappears only at the distinct threshold \(1+\sqrt2\). These sharp structural facts distinguish perimeter from the widely examined overlap-area objective and supply an exact benchmark for polygonal intersection optimization.
+No distinct inspected statement covers the rectangular Euclidean perimeter profile or its two thresholds. The identical indexed record is not independent prior evidence. The strongest adjacent indexed angular-perimeter theorem is for ellipses, and classical equal-rectangle results concern area. Priority remains best-of-knowledge.
 
-## Closest literature and limitations
+## value
 
-Brazitikos–Stavrakakis (2014), Prasolov's reproduced 1986 equal-rectangle area problem, and two full online polygon-overlap discussions from 2012 and 2013 were compared. The full 2014 article remains uninspected. Exact priority is not independently established. General translations, unequal dimensions, and weighted perimeters lie outside the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The intersection perimeter is a natural geometric observable distinct from overlap area. The substantive result is the full landscape: a global optimizer jumps before the losing strict local minimum disappears. The sharp coexistence and distinct contact and local-extremum behavior go beyond a clipping recipe or computing a single rectangular configuration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

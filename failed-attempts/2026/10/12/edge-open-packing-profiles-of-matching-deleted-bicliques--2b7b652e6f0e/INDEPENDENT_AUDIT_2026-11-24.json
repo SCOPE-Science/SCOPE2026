@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:37:37.216284Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, and proof, lines 4–26",
+        "Frozen verify.py, lines 7–71 and 73–91, and VERIFICATION.md; inspected but not executed"
+      ],
+      "rationale": "For disjoint bipartite edges, conflict can come only from the two crossed edges; both are absent exactly when the pair transposes two deleted matching indices. Each edge has at most one such disjoint compatible partner. A third edge in a packing containing this pair would therefore have to meet both, but the only bipartite candidates are precisely the two deleted edges. In the remaining case the edges meet pairwise and have one common center: the alternative with three edges is a triangle. Each star subset of size ≥2 has a unique center; the four degree groups give the four binomial terms. The crossed pairs add exactly binom(t,2) at size two. The constant and linear terms are 1 and mn−t. At t=0 the exceptional term vanishes; H_{2,2,2} has only the compatible disjoint pair and enumerator 1+2x+x². The stated max(m,n) is a valid summation cutoff, not necessarily a nonzero top coefficient.",
+      "residual_risks": [
+        "The supplied bounded checks describe 144444 subsets over 32 small triples, another 1048576 subsets for H_{5,5,5}, and 5062 pair comparisons. Larger printed profiles are formula evaluations. The general proof is not contingent on replaying any of these runs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circle-wedge result covers all t on shores of sizes ≥3, with not only the full packing enumerator but also the inclusion-maximal enumerator and the packing-complex homotopy type. The earlier complete multipartite result is scalar at t=0; generic deletion bounds and scalar characterizations do not give this full profile."
+        ],
+        "reasoning": "Only the directly matched result gives all coefficients for the central family. Not all of its additional assertions, notably the maximal-star description at vertices of degree one, can be transferred to a shore of size two; the frozen all-set result, however, needs no such assertion.",
+        "searches": [
+          "Resultary and mirror: matching-deletion circle-wedge, …179ef9fc8450, Finding and Proof",
+          "doi:10.1051/ro/2022171, Proposition 2.3",
+          "arXiv:2403.00750v1, Theorem 4.2; arXiv:2508.01935, Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and the inspected local circle-wedge mirror",
+        "Numdam doi:10.1051/ro/2022171",
+        "arXiv:2403.00750v1",
+        "arXiv:2406.04020v2 and arXiv:2508.01935, bounded passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror's proof that reciprocal edges are the unique compatible disjoint pairs uses only bipartiteness and the form of the absent diagonal edges. Neither the proof of maximality for these pairs nor the unique-center star count uses m,n≥3."
+        ],
+        "reasoning": "The same counting proof gives the additional m=2 or n=2 cases merely by using degrees one or two where appropriate. No claim is made that the mirror explicitly states those thin cases or that its topology theorem extends unchanged to them.",
+        "searches": [
+          "Mirror …179ef9fc8450, Proof, Pair compatibility and Classification",
+          "Frozen RESULT.md, Proof lines 19–26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conflict graph joins original edges with a common third-edge witness, equivalently a common neighbor in the line graph. Edge-open packings are independent sets of that graph and possible individual injective edge-color classes. The entire injective chromatic index is a different statistic.",
+          "The matching-deletion circle-wedge record writes the star terms as A_d(z)=(1+z)^d−1−dz, exactly the binomial-tail expansion in the frozen claim."
+        ],
+        "reasoning": "The apparent notation difference vanishes by the binomial theorem, with the same labels and empty-set convention. The shared conflict-graph encoding alone would not imply the formula.",
+        "searches": [
+          "Resultary: matching-deleted biclique/crown graph edge-open packing, injective edge coloring and conflict-graph independence",
+          "arXiv:2403.00750v1, Introduction; doi:10.1051/ro/2022171, Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct mirror states the exact expression and reciprocal-pair classification on the shared domain. Other catalogue outcomes on undeleted multipartite coloring or on triangular and Heawood/Desargues graphs are not matches. B_1≅H_{2,2,0} and B_2≅H_{3,3,2} in the assigned book record agree on those isolated profiles."
+        ],
+        "reasoning": "This is a verified overlap of statement and proof mechanism on the shared domain, rather than a title match or equality of two scalar numbers. The wider clock chronology is not used to assign priority.",
+        "searches": [
+          "Resultary: edge-open packing polynomials under matching deletion, crown graphs and injective coloring",
+          "Mirror RESULT.md of …179ef9fc8450, offsets 0 and 3500",
+          "Frozen square-page book record, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed record directly states the same packing classification and full polynomial for every m,n≥3 and all allowed matching sizes, plus further results. The extra cases with a two-vertex shore follow from the same local proof without any new packing type; the frozen finding does not establish a materially distinct result. This is a present statement-coverage decision, not a finding about historical priority or copying.",
+      "residual_risks": [
+        "The relationship and historical priority of the two records are not resolved by dates or the snapshot. The coverage determination uses their actual statements and proofs. Inaccessible material on injective coloring is not the basis of failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for m,n≥3; proof of the common all-set statement also applies at the thin boundaries",
+          "evidence": [
+            "Defines A_d and gives identical P_{m,n,t}; proves only reciprocal disjoint pairs occur and no third edge fits. Adds maximal-set and homotopy results."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-edge-open-packing-polynomials-and-circle-wedge-topology-after-de--179ef9fc8450/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof subsections Pair compatibility and Classification, offsets 0–4645",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Edge-open packing polynomials and circle-wedge topology after deleting a matching from a biclique",
+          "trigger": "Same class of graphs and same all-cardinality invariant"
+        },
+        {
+          "assessment": "Baseline scalar coverage, not the deletion profile in the passages read",
+          "evidence": [
+            "Proposition 2.3 gives the largest shore size for the complete multipartite graph."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+          "material_read": "Definition 1.1 and injective-coloring correspondence, pp. 3765–66; Proposition 2.3, p. 3767",
+          "method": "Archived open primary PDF",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Original parameter and complete bipartite baseline"
+        },
+        {
+          "assessment": "Single-deletion bounds on the maximum, not an all-set enumerator",
+          "evidence": [
+            "Theorem 4.2 bounds the scalar packing number after deleting one edge."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.00750v1",
+          "material_read": "Introduction; Section 4, Theorem 4.2, OA offset 54500",
+          "method": "Open primary article",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Effect of deletion on edge-open packing"
+        },
+        {
+          "assessment": "Unresolved primary-text access; not used to determine the overlap",
+          "evidence": [
+            "The accessible 2022 definition and color-class correspondence suffice for the alias comparison."
+          ],
+          "identifier_or_url": "Filomat 33 (2019), 6411–6423, Cardoso–Cerdeira–Dominic–Cruz",
+          "material_read": "Independent full text not retrieved; propositions identified from the frozen references",
+          "method": "Bounded open access attempt; definition correspondence cross-checked in the 2022 primary text",
+          "title": "Injective Edge Coloring of Graphs",
+          "trigger": "Related induced-star-forest formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Matching-deletion circle-wedge mirror, Finding and first two Proof subsections"
+      ],
+      "rationale": "The crown interpolation and its all-set polynomial are natural, and the reciprocal-pair term is informative. The exact core fact is already available in the distinct inspected record. The only residual extension in this finding is the thin-shore boundary, where the same compatibility classification and degree count apply verbatim; no independently motivated new boundary phenomenon or quantitative invariant is established.",
+      "residual_risks": [
+        "This does not deny the intrinsic usefulness of the polynomial or decide historical priority; it assesses what independently useful new fact remains in the audited claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

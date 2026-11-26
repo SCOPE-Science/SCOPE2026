@@ -1,25 +1,21 @@
-# Review of the three-row cylindrical king domination polynomial
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is an identity for the complete ordinary domination polynomial of the explicitly defined strong product \(P_3\boxtimes C_n\) for each integer \(n\ge3\). The proof compresses all column selections into four exact row-coverage classes, proves that domination is a local condition on every three consecutive columns, and identifies the complete counting polynomial with the trace of a specified finite transfer matrix. The factored characteristic polynomial is an exact determinant identity over \(\mathbb Z[z,X]\), not inferred from numerical values, and gives the nine-root formula. Specialization at \(z=-1\) gives the stated four-periodic values by explicitly listing the roots. A separately implemented vertex-neighborhood enumerator agrees with every coefficient for \(n=3,4,5,6\). The statement makes no claims about cycles of order one or two.
+PASS
 
-## Originality
+The mathematical finding is unchanged. A middle singleton or any nonsingleton covers both extreme rows; sole extreme-row vertices cover just their own extreme. Hence a triple suffices exactly when its two extreme-coverage bits have union 3. The pair-state trace counts the labeled cyclic configurations with their multiplicative weights (including n=3 with three distinct columns). Recomputing the characteristic polynomial over Z[u,v,X] using destination-symbol weights gives X^7 A B. At z=-1 its nonzero factor is (X−1)^3(X+1)^2(X²+1)^2, which gives 9 on multiples of four and 1 otherwise. The repair removes the erroneous orientation argument in the frozen prior-work comparison. By commutativity of the strong product, the relevant Table 2 row is n=3 (path length), whose signed values conflict with independent direct enumeration under the specified graph definition; the revision states the discrepancy and includes an elementary circumference-three check.
 
-**PASS, subject to publication-priority risk.** Moore and Mertens [1] prove the free-boundary king-graph parity identity and explicitly describe changed behavior under cyclic boundary conditions; their paper does not give this complete all-\(n\) polynomial formula or its characteristic factorization. Mertens [2] develops algorithms for Cartesian grid/cylinder/torus products and rectangular, noncyclic king graphs; neither the graph family nor the proved closed-form conclusion subsumes the present result. Klobučar [3] concerns independent rather than all dominating sets. Searches for strong products, cylindrical king graphs, signed domination polynomials, algebraic transfer formulas and mathematical research records found no matching complete theorem. The finite cylinder table in [1] takes the first coordinate cyclic, \(C_m\boxtimes P_n\), rather than \(P_3\boxtimes C_n\); thus its displayed \(m=3\) entries are not counterexamples or covered specializations of the present theorem. Residual priority risk: unindexed or alternate-notation equivalent results.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A 2024 result explicitly highlights how cyclic king-board boundaries destroy the free-board alternating-sum rule. The theorem determines the *entire* ordinary domination polynomial for one natural infinite cylindrical family with a fixed-degree algebraic expression, not merely its minimum degree or a handful of specializations. The striking exact jump of the even-minus-odd count from \(1\) to \(9\) when the circumference is divisible by four is explained by the factorization of a reduced transfer operator. The four coverage types also isolate a structural mechanism useful for nearby constant-width cyclic domination problems. No statement is made for wider cylinders.
+The supported distinct content is the exact all-circumference ordinary domination polynomial and consequent infinite signed law under the stated closed-neighborhood convention. The strongest same-object source provides a small signed table, not an all-circumference law, and its entries conflict with exact independent computations. The revised comparison no longer uses coordinate orientation to exclude that source.
 
-## Sources and limitations
+## value
 
-[1] C. Moore and S. Mertens, *Domination by kings is oddly even*, arXiv:2407.19344v1 (July 27, 2024), Sections 2–3 and the cylinder discussion.
+PASS
 
-[2] S. Mertens, *Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph*, arXiv:2408.08053v1 (August 15, 2024), graph definitions, algorithm sections, and conclusion.
+The claim answers a natural exact question about ordinary domination when one replaces a free boundary by periodicity, giving all cardinality coefficients and a four-periodic signed count that is not valid on rectangular free boundaries. The low-degree factors work at every circumference, not only as interpolation or recomputation of a finite table. The literature correction makes the precise intended comparison and small-case conflict checkable.
 
-[3] A. Klobučar, *Independent sets and independent dominating sets in the strong product of paths and cycles*, Mathematical Communications 10 (2005), 23–30 (full text not obtained; publicly accessible abstract and journal metadata inspected).
-
-The independent audit remains outstanding. A symbolic determinant check and bounded exhaustive graph checks are available in `verify.py`; neither is represented as independent external certification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

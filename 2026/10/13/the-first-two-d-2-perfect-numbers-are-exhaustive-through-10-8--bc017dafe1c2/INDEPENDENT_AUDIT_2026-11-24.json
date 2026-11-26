@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:20:48.200418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Defant's Schemmel formula gives L₂(1)=1, L₂(n)=0 for even n and L₂(n)=∏p^(a−1)(p−2) for odd n. An even n>1 stops at zero and cannot be fixed; an odd n>1 maps to an odd strictly smaller integer, so with D₂(1)=0 the sum of iterates really is L₂(n)+D₂(L₂(n)). The frozen linear sieve assigns least primes by their unique generating pair (n/p,p), and the two odd recurrence branches correctly account for whether p already divides n/p. The intermediate products and accumulated sums fit the stated integer types (even the bound N(N−1)/2 fits int64). Independently implemented segmented odd factor stripping with trial primes up to √N: for each odd input k the array starts at k, applies the exact integer operation /p·(p−2) once per distinct processed prime, and uses the stripped residual (1 or one prime) for the last factor. In increasing order an independent array then accumulates D₂. The replay visited all 49,999,999 odd inputs 3≤k≤10⁸; the even inputs are excluded by the formula. It gave [37147, 53290831], π=5761455 and diagnostic maximum 284911615 at 97556803. Replay: python3 -B /workspace/audit-evidence/1_segmented_odd_sieve.py 100000000 (NumPy integer vectors); prefix and terminal outputs in /workspace/audit-evidence/1_replay.txt. This is finite, not a global uniqueness assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant asks about additional even-m perfect numbers in the concluding remarks rather than giving a global classification.",
+          "Resultary f979d413e5d6 excludes prime powers and f611bc4e0ee8 analyzes prime-power abundance, leaving general composites outside their conclusions."
+        ],
+        "reasoning": "A global or larger-cutoff all-integer classification would cover the finding. A result restricted to prime powers does not; no such all-integer classification was found in the inspected results.",
+        "searches": [
+          "arXiv:1506.05426, §3 and concluding remarks",
+          "Resultary: global Schemmel iterate-sum fixed points, interval exhaustion, prime-power classifications"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.05426",
+        "OEIS:A241667",
+        "Resultary:5ef4f7f3a8f8",
+        "Resultary:f979d413e5d6",
+        "Resultary:f611bc4e0ee8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper reports the only perfect number below 100000 for m∈{2,4,6} is 37147, with m=2. The OEIS comment reports an additional point but does not assert an interval of exclusion.",
+          "The known formula provides the recipe for evaluating each input, but the missing no-other-points statement requires an exhaustive computation or additional theorem."
+        ],
+        "reasoning": "Neither the shorter cutoff, the isolated far-out equality, nor the nature of the prime-power or stopping-time subcalculations excludes another fixed point between 100000 and 10⁸. The full cutoff was newly checked, not inferred from those statements.",
+        "searches": [
+          "arXiv:1506.05426, bounded Mathematica computation",
+          "OEIS:A241667, fixed-point comments and table range",
+          "Resultary 5ef4f7f3a8f8 and f979d413e5d6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant's D₂-perfect terminology and a(n)=n for OEIS A241667 describe the same equation, where A058026 is the second Schemmel totient.",
+          "The same-day first-ten-stopping-time-strata item concerns values of R₂, not the iterate sum D₂; a specified number of terms does not specify their sum."
+        ],
+        "reasoning": "The equivalent fixed-point formulation finds known point examples, but neither a stopping-time census nor those equalities supply completeness at the stated cutoff.",
+        "searches": [
+          "arXiv:1506.05426: D_m-perfect",
+          "OEIS:A241667 and A058026: fixed points of the sum of iterates",
+          "Resultary: second Schemmel totient D₂-perfect and stopping-time strata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A241667 explicitly records a(37147)=37147 and a(53290831)=53290831, the latter in its 2015-06-18 comment.",
+          "Its linked table is labelled n=1..40000 and the entry does not give fixed-point exhaustion through 10⁸."
+        ],
+        "reasoning": "The database preempts discovery of either point, not absence of other points in the enlarged interval.",
+        "searches": [
+          "OEIS:A241667, comments and linked table b241667",
+          "37147 and 53290831 as A241667 fixed points",
+          "Resultary: 10⁸ Schemmel fixed-point exhaustion"
+        ]
+      },
+      "rationale": "Both numbers are known. The independently substantiated claim is the inclusive exhaustion through 10⁸. The checked primary source reaches only n<100000; the database supplies point equalities, not the enlarged interval. Related Resultary stopping-time and prime-power records were compared and do not cover all odd composites on this interval.",
+      "residual_risks": [
+        "Ranked searches do not exclude an unindexed or unpublished census at least as large as 10⁸.",
+        "Neither this result nor the examined sources exclude additional fixed points beyond the claimed interval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies definition and a strictly smaller interval",
+          "evidence": "p. 13: only 37147 below 100000 for m∈{2,4,6}; p. 15: asks whether there are any others for even m.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.05426",
+          "material_read": "Schemmel formula and iterate-sum setup; §3 p. 13, prior Mathematica check; concluding remarks p. 15",
+          "method": "Lawful OA PDF, bounded definitions and concluding passages",
+          "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+          "trigger": "Definitions, previous cutoff and question about other fixed points"
+        },
+        {
+          "assessment": "Both individual equalities, not interval exhaustion",
+          "evidence": "Both equality comments are explicit, and the entry labels the linked values as n=1..40000.",
+          "identifier_or_url": "https://oeis.org/A241667",
+          "material_read": "Sequence definition, fixed-point comments and linked table description",
+          "method": "Lawful public entry text, offset near 608",
+          "title": "OEIS A241667",
+          "trigger": "Exact sequence and fixed-point comments"
+        },
+        {
+          "assessment": "Different invariant, irrespective of same-day order",
+          "evidence": "First ten R₂ stopping-time strata, not D₂ perfect points.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-first-ten-stopping-time-strata-of-the-second-schemmel-toti--5ef4f7f3a8f8",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact first ten stopping-time strata of the second Schemmel totient",
+          "trigger": "Closely matching object in same-day indexed record"
+        },
+        {
+          "assessment": "Exclusion only for prime powers",
+          "evidence": "No prime power is D₂-perfect; this leaves composite non-prime-powers to be classified.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-prime-power-classification-and-sharp-surplus-for-iterated-schemm--f979d413e5d6",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Prime-power classification and sharp surplus for iterated Schemmel totients",
+          "trigger": "Could a fixed-point exclusion theorem cover the interval?"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Defant explicitly asks about additional fixed points and comments on their scant data. The decimal cutoff 10⁸ is the first power of ten beyond the previously recorded second example, three decimal orders beyond the primary paper's 10⁵-scale search. An exact interval containing both and excluding any others is a useful reproducible baseline for further distribution or search work, not discovery of the two examples or evidence of global uniqueness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

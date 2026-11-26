@@ -1,19 +1,21 @@
-# Scientific review: one-edge collapse of cocktail-party general-position complexes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the defective graph, every nonedge is at distance two for \(n\geq3\). All forbidden triples therefore arise from a nonedge with a common neighbor. Their exact classification produces the path join plus matched edges and two exceptional triangles. Each exceptional triangle has its matched-pair edge as a free edge. After both elementary collapses, the remaining join core is contractible and exactly \(n-1\) one-cells are attached, proving the wedge-of-circles result integrally for every \(n\geq3\). Independent shortest-path and boundary checks pass for \(3\leq n\leq8\).
+PASS
 
-## Originality
+For n≥3 both graphs have diameter two, so the forbidden triples consist of a nonadjacent pair with a common neighbor. In the modified graph the only ≥3-vertex faces using a nonedge are the two triangles on p1,p2,q1 and p1,p2,q2. The clique part is the join of the path p1–q2–q1–p2 with n−2 zero-spheres. Each triangle collapses along its matched-pair edge, which has no other proper coface. The remaining complex is the contractible join with n−1 extra edges attached at their endpoints. Quotienting this contractible CW subcomplex gives the claimed bouquet by a homotopy equivalence. The intact complex is the cross-polytope boundary with n endpoint-attached intervals; since the boundary is path connected, these attachments give n circle summands. The identity on vertices does not give an inclusion either way: {p1,p2,p3} is lost and {p1,p2,q1} is gained. This proves the integral claims, including n=3. An independent Floyd–Warshall/exhaustive-triple check at n=3,4 reproduced the face descriptions and mod-two ranks; it is corroboration only.
 
-PASS with priority risk. Rather (arXiv:2603.06930v1, §3) treats complete multipartite general-position sets and their counting polynomial; the edge-deleted graph is no longer complete multipartite. Iršič–Klavžar–Rus–Tuite (2024, §3) provide a join counting identity, not this homotopy type or free-face collapse. An earlier complete-multipartite homotopy classification supplies the unmodified comparison, not the deleted-edge case. Searches for equivalent descriptions as a \(P_3\)-free induced-cluster complex, a join of a four-vertex path with doubleton parts, and cocktail-party deletion did not identify a stronger covering theorem. Nearby indexed results on deleted-matching graphs, higher-independence complexes, or Morse complexes concern different simplicial functors. An unindexed equivalence cannot be ruled out.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. One graph-edge deletion changes a family whose general-position complex carries an \((n-1)\)-dimensional fundamental sphere to a homotopy-one-dimensional complex, for arbitrarily large \(n\), and reduces the first Betti number by exactly one. This distinguishes geometric face dimension from actual homotopy dimension and gives a natural sharp edge-instability boundary for the 2026 complete-multipartite general-position theory. The explicit collapse mechanism is uniform, not a finite census.
+Credit the intact face characterization and the existing general join characterization and counting result. The distinct supported contribution is the all-n integral homotopy transition for a single deleted edge, not a new characterization or face counter for joins.
 
-## Limitations
+## value
 
-The exact theorem requires \(n\geq3\) and one deleted existing edge; multiple deletions, other multipartite sizes, and equivariant behavior are not classified. Finite computations corroborate but do not replace the symbolic argument. Independent validation is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural perturbation of a canonical graph family and an explicit witness of non-monotone metric-complex behavior. It exhibits an unbounded dimension in which a single edge change eliminates integral homology while also changing the free fundamental group. The actual wedge equivalence and the lack of a common inclusion convey more than a polynomial or small-instance Betti calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

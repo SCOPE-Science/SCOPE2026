@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:19:25.938097Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, model and derivation, lines 15–135",
+        "VERIFICATION.md and verify.py (inspected; archived symbolic and isotropic-cycle checks not rerun)"
+      ],
+      "rationale": "Independently checked with an angular-generator martingale. Write U=R(φ)b, g=b−U, and D_t=Σ_reset g(φ_−). The shared Stratonovich integral on a continuous excursion is g(φ_t), so X_t=M_th+D_t+g(φ_t), with the residual translation martingale driven independently. The angular generator A satisfies Ag=δb−(r+δ)g. With H=rg/(r+δ), D_t+H(φ_t)−H(φ_0)−vt is a martingale for v=rδb/(r+δ); its reset jumps are δg/(r+δ) and its continuous angular-noise coefficient is −√(2δ)rJU/(r+δ). The bounded end corrections do not affect the covariance rate. The stationary cosine moments are a_j=r/(r+jδ) for harmonics 1 and 2 at j=1 and 4, and sine moments vanish. The two angular bracket contributions to the contrast, divided by |b|², are 2δ[r/(r+δ)]²a_4 and r[δ/(r+δ)]²(−a_4−1+2a_1); their sum simplifies to the claimed cubic expression. Averaging 2ΘRCRᵀ over the same angle law yields the stated thermal term, with zero cross bracket. Equivalently, conditioning the centered cycle reward on its duration gives the isotropic term (1−a_4)|b|²/(2μ) and rank-one coefficient (a_4−a_2+z_L²)/μ in the frozen general identity. The straddling interval in the renewal proof has bounded second moment under the stated third-moment assumption (bound the renewal measure on unit intervals and sum the tails of E[L²;L>j]); its translation noise has conditional second moment bounded by a constant times its length. Thus boundary effects do not contaminate the covariance rate. Fixed-duration independent cycles give strictly positive excess contrast |b|²(e^(−2δτ)−e^(−4δτ))/τ. At the strictly unique positive root of the increasing cubic, the excess is scalar; the displayed axes are valid, but not uniquely selected there.",
+      "residual_risks": [
+        "With anisotropic C the total tensor need not have the stated eigenaxes. The universal threshold is the dimensionless ratio, not the dimensional reset rate, which scales with δ=Θc."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched SCOPE tensor applies to every positive-definite mobility and comes with a centered CLT. Cleuren–Eichhorn formulate the coupled Stratonovich model but compute the periodic mean, and Chaki–Olsen–Löwen use independent translational and angular noises for their Poisson tensor."
+        ],
+        "reasoning": "The broad SCOPE tensor already implies the full-mobility excess law even though it expressly describes the total-axis reversal in the isotropic-E subfamily. Neither of the two papers alone supplies the coupled Poisson contrast.",
+        "searches": [
+          "SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac, assumptions and full tensor",
+          "arXiv:2603.19430v1, Eqs. (7)–(8)",
+          "arXiv:2406.17550v2, Eqs. (1)–(3), (47)–(52), (64)"
+        ]
+      },
+      "checked_sources": [
+        "Published SCOPE records ending 2f5a16bb9aac and 5e7e897c019d",
+        "arXiv:2603.19430v1",
+        "arXiv:2406.17550v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-period tensor has dev Σ_τ=2Θh(δτ)[C_0−γ(δτ)H], where H=bbᵀ−|b|²I/2 and γ>0. The first contribution is precisely the thermal traceless part."
+        ],
+        "reasoning": "Removing the thermal term gives deterministic excess contrast 2Θhγ|b|²=|b|²(e^(−2δτ)−e^(−4δτ))/τ>0, not a contradiction with a crossover of the total deterministic tensor when C is anisotropic. Combining it with the exact Poisson contrast gives the headline protocol comparison without a new analytical step.",
+        "searches": [
+          "Poisson SCOPE Finding, f_parallel and f_perp",
+          "Fixed-period SCOPE Finding, dev Σ_τ and definitions of S_0 and H"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched record uses E=ΘC, D_r=δ, a=−b, ρ=k and D_eff=Σ/2. Its velocity −D_rρa/(1+ρ) equals the frozen v. Its f_perp=ρ/(ρ+4) and f_parallel=ρ(2ρ²+2ρ+3)/[(ρ+1)³(ρ+4)] give exactly the two excess half-rates after factor δ|b|²."
+        ],
+        "reasoning": "Subtract the same orientation-averaged E term from the matched tensor and multiply by two. The eigenvalue difference is 2δ|b|²(f_perp−f_parallel)=2r|b|²(k³+k²+k−2)/[(k+1)³(k+4)]. Changing the covariance convention and sign of the coordinate vector leaves the claim unchanged.",
+        "searches": [
+          "Resultary semantic search for the passive coupled-colloid Poisson orientation-reset covariance, excess contrast and cubic crossover",
+          "SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Poisson tensor and root: 2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac. Fixed-period covariance: 2026/10/26/SCOPE-a-unique-isotropic-reset-period-and-diffusion-axis-reversal-for--5e7e897c019d. The opaque cited UUID was not resolved."
+        ],
+        "reasoning": "The distinct Poisson record is an exact indexed match on model and result, not just on the root. The fixed-period result is a separate matching protocol; an unresolved UUID is not evidence for or against coverage.",
+        "searches": [
+          "Resultary searches for coupled colloid with Poisson or deterministic orientation-only reset, including the cited fixed-period UUID 5398fb95-45c2-4296-a3d5-00ccdae40c85"
+        ]
+      },
+      "rationale": "A distinct indexed SCOPE result gives the same full-mobility Poisson covariance tensor, drift, and cubic sign reversal; its isotropic-noise wording for the total axes does not limit the tensor it actually proves. The deterministic excess comparison likewise follows immediately from the fixed-period covariance in a second record. Their displayed dates are later than the frozen record's; this is verified mathematical coverage, not a conclusion about chronological priority or dependence. The generic conditioning identity in the frozen proof is a standard conversion of the one-cycle moments to a centered renewal covariance, not a separate surviving classification of renewal laws. No repair is warranted on the claims as written.",
+      "residual_risks": [
+        "The records' dates do not settle priority or lineage; no attribution of copying or prior authorship is made.",
+        "The cited opaque fixed-period item was not resolved; it is not needed for the two verified coverage comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Poisson coverage and stronger CLT/optimization statements; total-axis wording is limited to isotropic conditional translation but the full-mobility tensor is not.",
+          "evidence": "Explicit v, D_eff, f_parallel, f_perp, and root ρ³+ρ²+ρ−2=0.",
+          "identifier_or_url": "2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac",
+          "material_read": "RESULT.md Finding, assumptions and factorization, offsets 0–4851; relevant renewal comparison",
+          "method": "Published record via local mirror",
+          "title": "Poissonian orientation resets invert the diffusion axes of a thermally coupled colloid",
+          "trigger": "Exact model, tensor and cubic match"
+        },
+        {
+          "assessment": "Gives the deterministic excess contrast directly after subtracting the Schur thermal part.",
+          "evidence": "Exact deviator of covariance and nonzero coefficient −2Θhγ of the coupling-rank-one deviator.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-unique-isotropic-reset-period-and-diffusion-axis-reversal-for--5e7e897c019d",
+          "material_read": "RESULT.md Finding, assumptions, and start of cycle law, offsets 0–3901",
+          "method": "Published record via local mirror",
+          "title": "A unique isotropic reset period and diffusion-axis reversal for coupled Brownian colloids",
+          "trigger": "Deterministic contrast under the same coupled dynamics"
+        },
+        {
+          "assessment": "Same coupled Stratonovich motion and periodic protocol; inspected equations give transient mean and deterministic sorting current.",
+          "evidence": "Positive-definite mobility with nonzero cross block, angular resets, and periodic mean velocity.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.19430v1",
+          "material_read": "OA PDF pp. 3–4, passages around offsets 14739 and 19300, Eqs. (7)–(8)",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Sorting by Resetting",
+          "trigger": "Original coupled colloid and reset displacement"
+        },
+        {
+          "assessment": "Thermal baseline model only; does not give the nonzero-coupling excess.",
+          "evidence": "Independent body-frame translational and angular Gaussian noises, and effective orientation-reset diffusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.17550v2",
+          "material_read": "OA PDF pp. 2, 11, 14, offsets 9805, 43351, 55230, Eqs. (1)–(3), (47)–(52), (64)",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "Poisson orientation-only diffusion tensor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, contrast and deterministic comparator",
+        "Matched Poisson and fixed-period tensor findings"
+      ],
+      "rationale": "As a mathematical phenomenon, the crossover answers a concrete question about when random reset times reverse the ordering of coupling-induced transport fluctuations, and distinguishes timing variability from a matched mean period. The exact threshold is useful because the effect is not generally visible in the unadjusted total tensor. This value of the classification does not provide incremental originality in light of the equivalent explicit tensors.",
+      "residual_risks": [
+        "No inference about a crossover of measured total covariance without removing the thermal baseline or imposing isotropic C."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

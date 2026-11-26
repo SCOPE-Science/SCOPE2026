@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:33:10.972408Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Lemmas 1–5; VERIFICATION.md and verify.py inspected, not executed",
+        "Separately performed exhaustive comparison using BFS distances before and after edge deletion, n=3 through 9; e.g. C8 gave 8 minimal triples and 6 minimal four-sets"
+      ],
+      "rationale": "On a cycle a pair monitors precisely the edges of its unique shorter arc (none if antipodal). An arc between probes that crosses an edge of an unprobed gap must traverse the entire gap, so a gap of at least n/2 prevents monitoring. Conversely all shorter gaps are monitored by their own endpoints. The empty set and singletons cannot monitor, and the short-gap bound excludes pairs. Rooting a labeled subset at any of its m probes gives the factor n/m. Deleting a probe merges two adjacent gaps. Summing the lower bounds on those merged lengths gives m(h+1)≤2n, hence only triples for odd n and at most four probes for even n. Equality in the even four-probe case forces alternating gaps and hence the antipodal pairs. For a triple there cannot be two oversized gaps: 2(h+1)≥n and the third gap is positive. This corrects the harmless strict-inequality slip in Lemma 5 for even n. The claimed counts and the cases n=3,4 follow. An independent bounded edge-deletion distance check through n=9 matched both enumerations, but is not the proof.",
+      "residual_risks": [
+        "The review relies on the symbolic derivation, not on extending the independent finite check to the frozen verifier's full range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary theorem covers unicyclic graphs and explicitly specializes to the bare cycle. Dev et al. Theorem 3.4 gives the prior scalar minimum; the inspected Haslegrave and Foucaud passages concern product bounds and mandatory vertices respectively."
+        ],
+        "reasoning": "Taking the no-attachment case in the unicyclic result gives exactly this family, not an analogy. The primary literature passages support the context but are not the basis for the census overlap decision.",
+        "searches": [
+          "Resultary search for monitoring edge-geodetic polynomials of cycles and unicyclic graphs",
+          "arXiv:2210.03774 §3.2",
+          "arXiv:2210.08955 p. 2",
+          "arXiv:2403.09122 p. 10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches and the earlier bare-cycle specialization in the local mirror",
+        "Later exact overlap and same-day toroidal-grid comparison",
+        "arXiv:2210.03774, 2210.08955, 2403.09122, 2409.19067, passages specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the earlier gap criterion, single-deletion minimality is equivalent to all adjacent gaps summing to at least h+1. Sum to get m(h+1)≤2n. For n=2k and m=4 this is equality, so each adjacent pair sums to k, precisely the two-antipodal-pair condition."
+        ],
+        "reasoning": "The remaining classification is covered by a short direct deduction, giving binomial(k,2) choices. The odd case follows from the same bound and the earlier minimum-triple count. No surviving distinct valuable claim supports a repair.",
+        "searches": [
+          "2026/10/13/SCOPE-monitoring-edge-geodetic-polynomials-of-unicyclic-graphs--71b58b68ab31, bare-cycle gap proof and minimum-count passage",
+          "2026/11/2/SCOPE-complete-monitoring-edge-geodetic-set-enumerator-and-extremal-bo--42a17b82f2e1, proof §§1, 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior RESULT.md gives the bare-cycle criterion with exactly h=floor((n−1)/2). It states the same bounded-composition coefficient with n/k for labeled subsets."
+        ],
+        "reasoning": "The all-set formulas count the same subsets under the same definition. The alternating binomial expression is inclusion-exclusion on the same bounded positive compositions, not a distinct result.",
+        "searches": [
+          "Resultary search for labeled cycle gap criterion and cycle monitoring edge-geodetic polynomial",
+          "2026/10/13/SCOPE-monitoring-edge-geodetic-polynomials-of-unicyclic-graphs--71b58b68ab31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalog record gives the exact bare-cycle coefficient n/k times the positive bounded-composition count, the odd/even minimum-triple counts, and the C4 exception. The later catalog finding explicitly states both the all-set formula and the antipodal-pair minimal four-sets."
+        ],
+        "reasoning": "The earlier hit is exact for the central outputs; the later hit is material overlap but not evidence of earlier priority. A same-day hit on rectangular toroidal grids was compared and concerns a different object and the scalar minimum.",
+        "searches": [
+          "Resultary searches for cycle MEG-set enumerators, counts of minimum triples and inclusion-minimal sets",
+          "2026/10/13/SCOPE-monitoring-edge-geodetic-polynomials-of-unicyclic-graphs--71b58b68ab31",
+          "2026/11/2/SCOPE-complete-monitoring-edge-geodetic-set-enumerator-and-extremal-bo--42a17b82f2e1"
+        ]
+      },
+      "rationale": "The earlier unicyclic MEG-polynomial record explicitly contains the bare-cycle gap criterion, the identical labeled all-set polynomial and the same triple counts. The unmatched explicit claim, the inclusion-minimal four-set classification and count, is an immediate consequence of that earlier criterion; neither a new theorem nor a further classification ingredient is needed.",
+      "residual_risks": [
+        "No claim of exhaustive literature priority. The later overlap is not used to establish earlier priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage; remaining minimal classification follows",
+          "evidence": "Q_{n,∅}(z)=Σ_{k=3}^n (n/k)[t^n](t+⋯+t^h)^k z^k, with the same h, gap test and minimum counts.",
+          "identifier_or_url": "2026/10/13/SCOPE-monitoring-edge-geodetic-polynomials-of-unicyclic-graphs--71b58b68ab31",
+          "material_read": "Local-mirror RESULT.md offsets about 1050–2017 (specialization and minimum counts) and 5024 (gap proof), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded mirror passages",
+          "title": "Monitoring edge-geodetic polynomials of unicyclic graphs",
+          "trigger": "Direct earlier candidate for all-set and gap criterion coverage"
+        },
+        {
+          "assessment": "Direct overlap, later date only",
+          "evidence": "Gap criterion, all-set polynomial, and classification as triples and pairs of antipodal pairs.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-monitoring-edge-geodetic-set-enumerator-and-extremal-bo--42a17b82f2e1",
+          "material_read": "RESULT.md Finding and proof §§1, 3",
+          "method": "Resultary search and local mirror",
+          "title": "Complete monitoring edge-geodetic set enumerator and extremal bounds",
+          "trigger": "Exact catalog analogue including minimal four-sets"
+        },
+        {
+          "assessment": "Different object and invariant",
+          "evidence": "Minimum sensor counts on Cartesian products, not subset counts on a cycle.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-monitoring-edge-geodetic-number-of-all-rectangular-discret--3220f7d4762f",
+          "material_read": "Resultary finding on rectangular toroidal grids",
+          "method": "Resultary comparison",
+          "title": "Sharp monitoring edge-geodetic number of rectangular discrete tori",
+          "trigger": "Same-day MEG catalog comparison"
+        },
+        {
+          "assessment": "Prior scalar minimum, not a census in this passage",
+          "evidence": "meg(C_n)=3 for n=3 or n≥5; meg(C4)=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03774",
+          "material_read": "§3.2, Thm. 3.4, p. 4 (offset 14328)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Monitoring edge-geodetic sets in graphs",
+          "trigger": "Prior cycle theorem"
+        },
+        {
+          "assessment": "Inspected bounds do not supply a cycle census",
+          "evidence": "Bounds on Cartesian and strong graph products.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.08955",
+          "material_read": "p. 2, offset 8063",
+          "method": "Lawful OA passage inspection",
+          "title": "Monitoring edge-geodetic sets: Hardness and graph products",
+          "trigger": "Broader graph-product coverage"
+        },
+        {
+          "assessment": "Inspected structural result is about mandatory vertices",
+          "evidence": "A criterion for a vertex to occur in every MEG-set.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.09122",
+          "material_read": "p. 10, offset 27715",
+          "method": "Lawful OA passage inspection",
+          "title": "Bounds and extremal graphs for monitoring edge-geodetic sets in graphs",
+          "trigger": "General structural framework"
+        },
+        {
+          "assessment": "Known scalar result summarized",
+          "evidence": "Overview cites determination of the monitoring number for cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.19067",
+          "material_read": "p. 2, offset 5060",
+          "method": "Lawful OA passage inspection",
+          "title": "Algorithms and complexity for monitoring edge-geodetic sets in graphs",
+          "trigger": "Later literature overview of cycle MEG results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Earlier unicyclic record's bare-cycle specialization",
+        "Frozen RESULT.md, Lemmas 2–5"
+      ],
+      "rationale": "The complete labeled census is a natural object, but it was already explicitly obtained. The portion not explicitly stated in the earlier finding reduces to merging two gaps and attaining equality in their cyclic sum. In this submission that deduction does not fill a substantive remaining mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

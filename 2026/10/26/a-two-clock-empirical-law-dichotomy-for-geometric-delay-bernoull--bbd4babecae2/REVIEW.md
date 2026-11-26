@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric-delay recursion has exact plateau boundaries \(T_k=(b^k-1)/(b-1)\) and an exact endpoint formula. Its difference from a continuous backward discounted observable is at most \(b^{-k}\). Standard Bernoulli ergodicity establishes the endpoint empirical law; recurrence of every finite word yields the full self-similar endpoint accumulation set; long pure runs and vanishing Cesàro jumps force the whole interval at unthinned times. Independence determines the mean and variance, and the standard open-set-condition dimension theorem determines the self-similar Hausdorff dimensions. Exact-rational checker tests 108 plateau identities and 84 finite moment cases. The infinite results rely on the analytical proof, not on those tests.
+## correctness
 
-## Originality — PASS under accessible evidence
-The October 2026 motivating paper provides homogeneous proportional-delay plateaus and observes that time averages can differ, but not their full Bernoulli almost-sure sets or logarithmic-clock empirical law. A nearby earlier empirical-cluster classification concerns base orbits approaching periodic cycles, and its unrestricted-orbit statement instead uses critically weighted averages. Neither directly entails this unweighted Bernoulli theorem. General weighted ergodic theorems and classical Bernoulli convolution dimension formulas supply ingredients; their priority is not claimed. Only abstracts were available for some broad historical comparisons, so a general implication remains a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The finding quantifies a natural long-stasis question: two sampling schemes for the *same* delayed orbit give different limiting topologies. For \(b\ge3\), completed-plateau averages accumulate on a zero-Lebesgue-measure Cantor set with a precise empirical law, while ordinary time averages accumulate on every value in \([0,1]\). The exact measures, mean, variance, dimension, and binary unbiased Lebesgue boundary make the phenomenon testable and transferable to future analyses of delayed statistical sampling.
+The relation T_(j+1)=bT_j+1 sends each noninitial plateau back to the preceding plateau under the integer parent map; the plateau lengths b^j give the normalized backward digit sum at T_j. The normalization correction and the missing iid past are separately between 0 and b^(-j), so their difference has absolute value at most b^(-j). Birkhoff for a countable dense family of continuous tests gives simultaneous weak convergence to the weighted Bernoulli digit law. Every finite digit word occurs arbitrarily far out, giving exactly the compact coding set as the endpoint cluster set. Long constant runs give extremes 0 and 1, and jumps bounded by 1/(N+1) force every intermediate all-time cluster value. Summing squared weights gives the stated variance; the open-set condition includes the b=2 endpoint-touching case, giving H(p)/log b by the Bernoulli self-similar measure dimension theorem. Fair binary digits give Lebesgue measure; every other stated case has dimension less than one. The finite rational checker and its recorded output were inspected, not rerun or used for the infinite conclusions.
 
-## Scope and limitations
-The claim is about a two-sided Bernoulli symbolic shift with integer geometric delay and the coordinate-cylinder observable. It is not a proof of a parallel statement for the chaotic logistic-map state observable, general nonlinear delays, or arbitrary stationary processes. The self-similar dimension theorem is an established mathematical ingredient. Priority is limited to inspected evidence; independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the proportional-delay plateaus, qualitative failure of time-average agreement, and classical self-similar measures to prior work. The distinct claim supported by the inspected evidence is the almost-sure joint description for the same delayed Bernoulli observable: full physical-time cluster interval versus the endpoint coding set, together with the endpoint empirical distribution. Neither the closest tent-map statements nor the classical coding results state or establish this comparison for the digit observable.
+
+## value
+
+PASS
+
+This is a tractable exact test case for how the sampling clock changes an empirical observable. For b≥3 the endpoint cluster set actually has gaps that all-time sampling fills, and the endpoint frequency of visits is specified rather than merely shown not to converge to the undelayed mean. This supplies a useful model distinction, not a novelty claim for Bernoulli measures or Birkhoff's theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

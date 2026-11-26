@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:06:03.510514Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding overstates the classification by saying 'exact marker separation'. At n=10,s=3, the zero-based pairs (2,7) and (3,6) have separations 5 and 3 but both yield (G00,G01,G10,G11)=(19,4,4,1) and identical singleton counts. The complete corrected RESULT.md in repairs/2 replaces that assertion with the observed long/short indicator and explicitly exhibits the collision; the formulas, scope and threshold are unchanged. The corrected proof was re-audited: fixing length and weight makes (e,G01,G10) equivalent to the whole observation. With r=s-1,H=n-2s+1 the boundary layer j is G01+G10+2e-2H and the remaining coordinate is G01. Short central gaps 1 and 2 fill the parity ranges when r>=2; for r=1 only adjacent pairs occur. Positive-excess short pairs cannot cross the two boundaries for H>=r. For 1<=j<=r the left range is [0,r-j] and the reflected range starts at 2H-r+2j. For r<j<2r each side has one value and j=2r is impossible. Central long pairs reduce to sums of two integers 0<=x<=y'<=H-r-1 (all intermediate sums occur). For j=1,...,r the long-pair left/central, opposite-boundary and central/right runs have consecutive G01 ranges [r-j,H-1], [H,H+j-2], [H+j-1,2H+2j-r-2], with the middle empty for j=1. For j>r, only opposite boundaries work and their split gives 2r-j+1 values. The sums give both asserted linear branches. When H=r all counts just listed remain valid except central long pairs, now absent rather than the formal linear count -1; this proves the exact +1 correction. One representative per deck is a maximum distinguishable code. Independently ran `python3 /workspace/review_checks.py 2`: 35 parameter cases from s=2 through 8 and n=3s-2 through 3s+2, using literal position-pair enumeration, plus the exact separation collision. Neither this finite reproduction nor static inspection of the frozen checker substitutes for the interval argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Golm et al. define s-gapped subsequences and investigate short indistinguishable strings and equal-deck constructions.",
+          "The unrestricted-weight one-skip profile result is a Theta(n^4) growth result, not an exact fixed-weight-two count.",
+          "The indexed four-run work gives a composition-restricted formula within a run regime; a weight-two input can have five runs.",
+          "The indexed nonadjacent pair-deck capacity record treats weight three."
+        ],
+        "reasoning": "The unrestricted growth exponent cannot determine a layer count; the four-run restriction cannot simply count the entire weight-two image, since images of run classes may overlap. Weight-three capacity is a different composition and no reduction preserving the observation census was identified.",
+        "searches": [
+          "arXiv:2201.12671",
+          "Resultary:15ab34345405",
+          "Resultary:a38468baefb6",
+          "Resultary:a57834d7c0e3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12671, retrieved abstract",
+        "Rigo–Stipulanti–Whiteland ISIT 2023, search passage",
+        "Resultary:15ab34345405",
+        "Resultary:a38468baefb6",
+        "Resultary:80befdb8fc44",
+        "Resultary:a57834d7c0e3",
+        "Resultary:a872b80fc72c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of pairs of strings with equal decks does not count the total number of equivalence classes.",
+          "Even a one-skip equivalence test still needs a count of distinct observations with the two-marker and endpoint constraints. The arbitrary-gaps proof depends on separate intervals of G01 and the missing central long layer at H=r.",
+          "Exact four-run and finite-length formulas describe genuine overlap in the channel and domains, not a known specialization with matching quantifiers."
+        ],
+        "reasoning": "Credit the prior channel and one-skip equivalence and count work at its respective scope. The surviving result does not claim those ingredients as new. The relevant one-skip lemma and four-run code-size results are a residual risk for part of the theorem rather than evidence of the all-spacing classification.",
+        "searches": [
+          "arXiv:2201.12671 abstract p. 1",
+          "Rigo–Stipulanti–Whiteland ISIT 2023 Lemma 2.1 (retrieval attempted)",
+          "Resultary:a38468baefb6 and Resultary:80befdb8fc44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ISIT source's available passage counts factors from infinite sequences up to gapped equivalence. Frozen RESULT.md credits Lemma 2.1 with a binary one-skip equivalence criterion, but the complete lemma was not retrieved.",
+          "The indexed two-marker 3r-1 saturation law observes compositions of length-limited substrings, not ordered separated pairs; its similar threshold is insufficient for equivalence."
+        ],
+        "reasoning": "Equivalence classes of the specified full pair-deck channel correspond to maximum distinguishable codes by selecting one representative per class. The one-skip equivalence criterion may enable counting but covers neither the all-spacing quantifier nor the census itself on the available evidence.",
+        "searches": [
+          "Web and Resultary: fixed-composition gapped pair deck and nonadjacent pair-deck reconstruction, two markers",
+          "ISIT 2023: Gapped Binomial Complexities in Sequences",
+          "Resultary:a872b80fc72c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The short-length record's available statement is an exact s=2, length-seven census over all q-symbol words, rather than an arbitrary-spacing fixed-composition sequence.",
+          "The exact weight-three result has parity-dependent formulas at s=2, not either branch in the repaired finding."
+        ],
+        "reasoning": "Some entries could yield overlapping small instances, not a table or formula giving both linear regimes and the +1 boundary for every s. No such external table was identified.",
+        "searches": [
+          "Resultary: exact binary weight-two gapped pair-deck capacity at every spacing and short-length census",
+          "Resultary:80befdb8fc44",
+          "Resultary:a57834d7c0e3"
+        ]
+      },
+      "rationale": "The repaired claim is the exact fixed-weight-two output census for all gaps in the sharp length regime, not the definition of the gapped deck or identification of exact marker separation. Existing inspected statements cover the channel, other weights or limited lengths/run classes. One-skip equivalence and four-run formulas may cover portions of s=2, but neither available statement gives or directly implies the full census, especially at arbitrary gap and the first exceptional length.",
+      "residual_risks": [
+        "The full Rigo Lemma 2.1 and exact four-run record were not retrieved; stronger coverage of the s=2 branch cannot be excluded.",
+        "Search and accessible comparisons cannot exclude an equivalent earlier enumeration under another gapped-deck notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same minimum spacing, different stated target; not a negative full-document review.",
+          "evidence": [
+            "Positions at least s apart; shortest indistinguishable strings and constructions for equal 2-gapped k-decks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.12671",
+          "material_read": "Open PDF abstract, p. 1, lines 14–24 in extracted text.",
+          "method": "Compare extracted definitions and stated results to the fixed-weight output count.",
+          "title": "The Gapped k-Deck Problem",
+          "trigger": "Foundational paper for the exact observation family."
+        },
+        {
+          "assessment": "A relevant one-skip antecedent. The available statement does not compute the weight-two output census; possible implications of the full lemma for s=2 remain unresolved.",
+          "evidence": [
+            "Counts factors of infinite words up to equality of gapped decks, rather than images of all binary words with two ones."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+          "material_read": "Search-result passage on infinite-sequence factor complexity; Lemma 2.1 scope reported by frozen RESULT.md line 82. PDF retrieval did not produce that lemma.",
+          "method": "Passage and stated-parameter comparison, with full-text limitation.",
+          "title": "Gapped Binomial Complexities in Sequences",
+          "trigger": "Same one-skip binary pair case could contain a dominating equivalence theorem."
+        },
+        {
+          "assessment": "Substantive partial overlap, not an available full-weight-two all-gap theorem. The frozen reference fdba1299bc96 is a separate identifier and was not assumed identical.",
+          "evidence": [
+            "Exact divisor/product formulas for four-run fibers and a composition-restricted code-size statement."
+          ],
+          "identifier_or_url": "Resultary:a38468baefb6",
+          "material_read": "Catalogue summary; open full-text retrieval did not succeed.",
+          "method": "Compare invariant, run restriction and spacing, not title alone.",
+          "title": "Four-run ambiguity in binary gapped pair decks is governed by a multiplication table",
+          "trigger": "Exact same one-skip channel and composition-restricted code size in an overlapping class."
+        },
+        {
+          "assessment": "Finite public comparator; not prescient of the stated two-branch arbitrary-spacing law on the inspected evidence.",
+          "evidence": [
+            "Exact length-seven census over a full finite alphabet rather than all lengths at weight two."
+          ],
+          "identifier_or_url": "Resultary:80befdb8fc44",
+          "material_read": "Catalogue summary.",
+          "method": "Compare source composition, s and length ranges.",
+          "title": "Exact short-length 2-gapped pair-deck reconstruction across finite alphabets",
+          "trigger": "Exact census for the same gap and overlapping small lengths."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact image size measures a natural noiseless sparse reconstruction limit: quadratically many inputs collapse to linearly many distinguishable ones. The exact slopes, change at the first nontrivial gap and shared sharp onset across all spacings are not explained by order-of-growth reasoning. The result supplies a precise benchmark without claiming recovery of exact spacing or a noisy-channel guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

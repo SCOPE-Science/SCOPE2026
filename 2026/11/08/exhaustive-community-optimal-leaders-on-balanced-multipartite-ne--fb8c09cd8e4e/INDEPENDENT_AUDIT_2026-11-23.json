@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:22:37.033339Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing the grounded matrix as a block diagonal matrix with blocks d I+J_{f_i} minus the global all-ones matrix gives within-part zero-sum modes at d and the part-constant block diag(d+f_i)-uu^T, u_i=sqrt(f_i). Padding the empty parts by the eigenvalue d is exactly canceled by (F-r)/d. Each f_i/(d+f_i)<=1/r, with a strict inequality in at least one part, so the rank-one inversion denominator is positive. For a fixed pair sum s, set B=(d+x)(d+y), T=2d+s, U=4d+s, c=1+S_0. Then the pair reciprocals sum to T/B, its contribution to G is (UB-dT^2)/B^2, and 1-S=(dT-cB)/B. Combining gives the stated linear fraction and its derivative numerator G_0 dT+c(U-cT). Since U-cT=2d-S_0T>=2n, this is strictly positive also at admissible boundary counts. Every unequalizing transfer from y<=x changes xy by epsilon(y-x)-epsilon^2<0. Such transfers reach a bound and reduce the number of interior counts until the canonical profile is reached. This gives both directions of the optimizer classification; part permutation symmetry is the only freedom in counts. Standard pair transfers also give strict Schur-concavity on the fixed-sum slice. The t=0 padding and one-follower cases agree with substitution in the closed formula. An independent exact check of 289 allocations, including every budget for four parameter pairs, compared the trace with ratios of grounded determinants and principal cofactors and recovered exactly the specified minimizers. Replay: python3 /tmp/opencode/balanced_leader_audit.py. The analytical comparison, not these cases, proves the unrestricted theorem. The O(r) claim counts rational operations, not bit complexity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Fardad–Jovanović treat arbitrary graphs via performance bounds and relaxation. Patterson–Yi–Zhang specialize exact optimizers to cycles, paths and certain two-leader tree cases. Patterson–McGlohon–Dyagilev give algorithms for weighted paths and rings. Resultary's all-time heat ordering on the cocktail-party graph applies only to the n=2 subfamily and postdates this record."
+        ],
+        "reasoning": "Neither general bounds nor different geometries imply a strict concentration rule. Even an all-time ordering on equal parts of size two only treats that slice, not the claimed r,n range.",
+        "searches": [
+          "Resultary: balanced Turán complete multipartite network all-budget leaders noise-free inverse trace pair transfer Schur concavity heat trace",
+          "arXiv:1302.0450 §4",
+          "arXiv:1708.06873 §IV",
+          "arXiv:1412.6595"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.0450",
+        "arXiv:1407.1569",
+        "arXiv:1708.06873",
+        "arXiv:1412.6595 scope",
+        "Resultary semantic results under multipartite, Turán, grounded heat/trace and leader-allocation variants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-sum two-coordinate resolvent comparison requires a strict positive bound uniform in the other r-2 occupancy counts. Neither the exact objective identities nor the two-part comparison states that bound when the background counts vary."
+        ],
+        "reasoning": "Substitution into a general objective leads to an objective-evaluation formula, not a proof of the strict comparison or an optimizer over all count patterns; the claimed transfer argument supplies the missing step. The two-leader rule overlaps only where its budget restriction holds.",
+        "searches": [
+          "Fitch–Leonard joint-centrality result, arXiv:1407.1569 §IV; Patterson–Yi–Zhang contracted resistance, arXiv:1708.06873 §III-A; Resultary neighboring bipartite and two-leader statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same problem occurs as optimization of grounded-inverse trace, steady-state noise-free variance (one-half the unscaled trace), sum of effective resistances to the contracted leader set (again up to scale), and maximizing joint centrality. The balanced complete multipartite graph is the divisible-order balanced Turán graph."
+        ],
+        "reasoning": "These reformulations preserve the optimizer. Resistance or centrality evaluation by itself does not provide the all-budget comparison or determine equality cases.",
+        "searches": [
+          "websearch: noise free leader selection balanced complete multipartite Turan grounded inverse trace optimal all leaders same part majorization coherence (provider unavailable)",
+          "Resultary: noise-free optimal leader selection balanced complete multipartite grounded Laplacian trace concentration Turan graph",
+          "arXiv:1708.06873 §§II-A and III-A",
+          "arXiv:1407.1569 §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned neighboring results include exact bipartite allocation (3151e2186be2), two leaders on unequal complete multipartite graphs (6d40413d403f), and the cocktail-party heat case (584b3e9234a1)."
+        ],
+        "reasoning": "Two parts do not realize r>=3, and a two-leader result cannot classify arbitrary prescribed k. A table of a bounded number of those parameters would likewise not supply the claimed transfer law.",
+        "searches": [
+          "Resultary exact alias and all-budget searches above, excluding the frozen record itself"
+        ]
+      },
+      "rationale": "Best of knowledge: no inspected equivalent or stronger result gives the all-budget optimizer classification and strict transfer for arbitrary r>=3 equal-sized parts. General exact formulas specify the criterion, not this optimizer; the nearest graph-family results either use other graphs or give only two parts or two leaders. World priority is not established.",
+      "residual_risks": [
+        "General literature search was unavailable and this supplies no negative evidence. Differently named Green-function inequalities or unindexed prior work could cover the result. The near corpus matches are objectively narrower or have different hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion and bounds, not a multipartite optimizer theorem",
+          "evidence": "Section 4 develops an exact objective representation and convex lower bounds/greedy upper bounds for that criterion.",
+          "identifier_or_url": "https://arxiv.org/html/1302.0450",
+          "material_read": "Problem setup and §§4–4.4 objective, relaxation and bound approach",
+          "method": "arXiv HTML primary text",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "General noise-free grounded objective and optimization"
+        },
+        {
+          "assessment": "Equivalent general objective and other exact graph classes",
+          "evidence": "Optimal noise-free sets are characterized via a joint-centrality functional using inverse-Laplacian quantities; the stated explicit optimizer applications use cycle/path geometry.",
+          "identifier_or_url": "https://arxiv.org/html/1407.1569",
+          "material_read": "Abstract, §§III–IV and scope of cycle/path applications",
+          "method": "arXiv HTML primary text",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Equivalent joint-centrality formulation"
+        },
+        {
+          "assessment": "Gives objective equivalence but no all-budget classification on the claimed family",
+          "evidence": "The leader-set resistance is evaluated on the leader-contracted electrical graph; exact multi-leader cases in §IV concern paths, cycles and two-leader trees.",
+          "identifier_or_url": "https://arxiv.org/html/1708.06873",
+          "material_read": "Introduction and model; §§III-A and IV scope and statements",
+          "method": "arXiv HTML primary text",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "Equivalent effective-resistance formula and possible broader optimizer results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result classifies every optimal placement for all budgets on a standard infinite class of community graphs, rather than producing a bound or one candidate. It gives a counterpoint to spacing-based rules on paths and cycles: concentration in whole parts is strictly better than any noncanonical count vector. The all-size pair comparison, equality classification, and exact cost give a reusable benchmark for selection algorithms on this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:36:23.560952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the disjointness graph and reproduced the entire enumeration with block masks, not either supplied program. Distinct intersecting two-subsets have distance two via their common disjoint complement. For each nonempty block, precomputed the mask of the 105 unordered edge pairs distinguished using the minimum of endpoint distances. Recursion takes each block containing the least remaining vertex, giving exactly one path per unordered partition; all 105 bits must be covered. The replay counted 115975 partitions, with accepted counts (0,0,0,40,11965,14877,5045,720,45,1) for 1–10 blocks, totaling 32693. All four-block optima have sizes (1,3,3,3) and their set equals the 40 distinct images of the stated witness under all 120 ground permutations. Independently recovered the 105 and 15 three-block screen counts and checked that the latter partitions have two adjacent singleton blocks. Replay: python3 /workspace/reviews/petersen_replay.py. The frozen scripts and logs were inspected but not executed. This is an exhaustive finite verification for the Petersen graph only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuziak et al., p. 35, define the same all-pairs minimum-distance invariant; the paper develops general bounds and exact values for other graph types, including multipartite graphs."
+        ],
+        "reasoning": "The standard definition determines the search predicate but does not supply either the exact count or the one-orbit classification, and the inspected exact multipartite settings are not the Petersen graph.",
+        "searches": [
+          "Kuziak–Maritz–Vetrík–Yero DOI:10.47443/dml.2023.010, edge partition dimension; Petersen",
+          "Resultary: Petersen global edge partition dimension all edge-resolving vertex partitions census epd"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both included checkers and output files",
+        "Kuziak et al. (2023), DOI:10.47443/dml.2023.010",
+        "Ali et al. (2024), DOI:10.30538/psrp-odam2024.0105",
+        "Resultary Petersen vertex-partition and edge-landmark records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local resolution only compares adjacent edge pairs, unlike the frozen all-pairs criterion.",
+          "A resolving set of four landmarks does not give a four-block edge-partition witness: singleton blocks for all four landmarks leave a nonempty remainder, and merging vertices into landmark blocks can alter minima."
+        ],
+        "reasoning": "No inspected neighboring claim provides the lower bound of four for the same predicate or forces the 40 minimizing partitions and the remaining coefficients.",
+        "searches": [
+          "Resultary: Petersen global edge partition dimension all edge-resolving vertex partitions census epd",
+          "Kuziak et al., printed p. 35",
+          "Ali et al., printed pp. 61, 68–69",
+          "Resultary 162 joint edge-identification record, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 7,040 partition record uses d(v,B), not d(e,B), as the signature coordinates.",
+          "The independent same-day 162 joint edge-identification record concerns landmark sets, with singleton vertex coordinates, not partitions into arbitrary blocks."
+        ],
+        "reasoning": "Neither replacing the object to be resolved by a vertex nor replacing the blocks by individual landmarks preserves the feasible partitions or their census.",
+        "searches": [
+          "Resultary: Petersen graph edge partition dimension global edge-resolving partitions",
+          "Resultary: Petersen graph 7040 optimal resolving partitions vertex resolving partition",
+          "Resultary: Petersen four landmark edge resolving sets joint edge identification bases 162"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ali et al., p. 68, Theorem 16 states the edge partition dimension is 6. Table 10 on p. 69 labels 6 global and 5 local.",
+          "The search also located the identical frozen finding, not a separate source of the result."
+        ],
+        "reasoning": "The table concerns the same exact global dimension but its value is refuted by the verified witness. The inspected table is not prior coverage of the correct scalar or full enumeration.",
+        "searches": [
+          "Resultary: Petersen graph edge resolving partition dimension exact value 4 or 6",
+          "Ali–Ahmad–Jamil DOI:10.30538/psrp-odam2024.0105, Theorem 16; Table 10",
+          "Literature search: Petersen graph \"edge partition dimension\" \"Theorem 16\" Ali Ahmad Jamil Kuziak"
+        ]
+      },
+      "rationale": "The exact global edge-partition census and orbit classification are distinct from surveyed vertex-partition and edge-landmark results, and correct a conflicting printed global value. This is a bounded statement-level assessment, not a historical priority guarantee.",
+      "residual_risks": [
+        "An uncatalogued or unindexed earlier correct census may exist. Neither the targeted literature search nor a keyword miss is evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching definition and background; not an exact Petersen result in the material checked",
+          "evidence": "Minimum over block vertices; all pairs of distinct edges; exact results including multipartite graphs.",
+          "identifier_or_url": "https://www.dmlett.com/archive/v12/DML23_v12_pp34-39.pdf",
+          "material_read": "Abstract and p. 35 definition (text offset 7956)",
+          "method": "OA PDF text with literal locator",
+          "title": "The edge partition dimension of graphs",
+          "trigger": "Standard global invariant and possible general exact results"
+        },
+        {
+          "assessment": "Contrary global value, not merely a local/global terminology difference",
+          "evidence": "Local compares adjacent edges; Theorem 16 asserts global 6 and Table 10 separately gives local 5.",
+          "identifier_or_url": "https://pisrt.org/psrpress/j/odam/2024/3/The-novel-resolvability-parameter-local-edge-partition-dimension-of-graphs.pdf",
+          "material_read": "p. 61 definition; p. 68 Theorem 16 (offset 41939); p. 69 Table 10 (offset 44747)",
+          "method": "OA PDF text, theorem and table locators",
+          "title": "The novel resolvability parameter, local edge partition dimension of graphs",
+          "trigger": "Published exact scalar for the same graph"
+        },
+        {
+          "assessment": "Different resolved object",
+          "evidence": "The 7040 minima resolve ten vertices and have coordinates d(v,B).",
+          "identifier_or_url": "2026/11/8/SCOPE-the-7-040-optimal-resolving-partitions-of-the-petersen-graph-for--fa2b190525a1",
+          "material_read": "RESULT.md definition and findings",
+          "method": "Resultary search and local mirror",
+          "title": "The 7,040 optimal resolving partitions of the Petersen graph form a diameter-eight relocation network",
+          "trigger": "Closest partition census for the same graph"
+        },
+        {
+          "assessment": "Different feasible object; no equivalent global partition census shown",
+          "evidence": "Ordinary edge metric dimension and joint edge-identification use sets of landmarks.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-four-landmark-dichotomy-and-162-joint-edge-identificatio--7e626c0f635e",
+          "material_read": "Resultary record's scope and findings",
+          "method": "Resultary semantic lookup",
+          "title": "A sharp four-landmark dichotomy and 162 joint edge-identification sets",
+          "trigger": "Possible equivalent four-coordinate edge invariant, same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This corrects a specific published value for a standard invariant on a canonical graph, with a concrete short counterexample. The exhaustive finite census also settles the lower bound, identifies the unique symmetry orbit of optima and quantifies all block counts; it is useful as a benchmark for broader partition-resolvability work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

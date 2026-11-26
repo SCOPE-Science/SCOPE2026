@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:02.535881Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, verify_open_cubic.py and open_cubic_spectra.csv",
+        "Replay: python3 /workspace/branches/repro-4.py <frozen path>/open_cubic_spectra.csv",
+        "Corrected affected files: /workspace/repairs/4/RESULT.md, REVIEW.md, verify_open_cubic.py"
+      ],
+      "rationale": "The general zeta formula is sound. Normalization replaces singular-support points with their branches, and each line orbit of size d contributes the zeta of P^1 over F_{q^d}. Locally, actual minus virtual boundary traces are 1+flags-lines-pairs, taking values 1,-1,1 on the three permutation types. A closed orbit of degree d contributes d times its return sign raised to n/d at degrees d|n; changing from boundary to complement gives 1-epsilon T^d. This uses reduced points and branches and is independent of characteristic. The first-field coefficients follow because fixed flags count twice the individually fixed meeting pairs. The frozen small-q collision statement was false for full baselines: verify_open_cubic.py:163–165 substituted q rather than q^n at extension degree n. The delivered repair corrects that substitution and proves fixed-q separation: the nonzero difference of formal coefficient pairs recurs periodically, and ΔA q^n+ΔB cannot be zero throughout that infinite progression. The core formulas, packaged CSV, and geometry examples survive unchanged. An independent Schläfli-graph automorphism enumeration using ordered skew sixers, and Picard traces from the intersection-matrix image, matched all 25 CSV rows (including pair/flag spectra and determinant coefficients), 15 first-field polynomials, and 25 extension sequences. Cofactor conics and direct projective point enumeration gave 57 and 55 off-line points, and the sign formula then gives 1 and 3 rational Eckardt points. Independent actual q^n evaluations through degree 24 gave 25 signatures for each of q=2,3,4,5,7,8,17. No uploaded script was run.",
+      "residual_risks": [
+        "The exact enumeration verifies the Weyl representation and table, not realizability of each formal baseline at a prescribed q. Separation applies to baselines and does not assert separation after adding arbitrary actual Eckardt factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BFL gives the ambient trace count and all Weyl classes",
+          "0053074ac1a9 gives line and Eckardt spectra for ten binary classes, not the return permutation signs"
+        ],
+        "reasoning": "Ambient classification dominates the Weyl input only. Neither that input nor point orbit lengths alone can specify the boundary character correction. The older inaccessible full text is a residual risk, not negative evidence.",
+        "searches": [
+          "Banwait–Fité–Loughran arXiv:1606.00300, introduction and §7.2",
+          "Swinnerton-Dyer DOI 10.1017/S0305004100040895",
+          "Resultary mirror 0053074ac1a9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1606.00300 §§1,7 and Table 7.1",
+        "DOI 10.1017/S0305004100040895 (bibliographic only)",
+        "Resultary 18f91d76a1da, 9b45ce52c311, 3fc752675013, 0053074ac1a9, c7d5886403e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalization gives the generic bookkeeping but the target compares actual and virtual intersections equivariantly and evaluates the pair and flag data over all Weyl classes",
+          "Both split examples share identity Picard Frobenius, hence the same ambient zeta, but have different open counts"
+        ],
+        "reasoning": "Existing abstract normalization does not assert the evaluated Weyl classification or the exact arithmetic obstruction exhibited here. The corrected fixed-q separation uses the computed unequal formal pairs, not a new claim about abstract zeta functions.",
+        "searches": [
+          "BFL ambient point-count formula and class table; mirror 18f91d76a1da normalization computation; 0053074ac1a9 binary orbit data"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "18f91d76a1da states Z(D,t) using normalization and branch/node orbits, in the Eckardt-free S_6 case",
+          "Clebsch and binary Fermat records give complement zeta on single models; the Cayley result removes nine lines on a singular cubic"
+        ],
+        "reasoning": "The boundary and open formulations are equivalent after division into ambient zeta, so the S_6 result materially overlaps the baseline normalization. It does not treat coincident pair intersections or all Weyl actions; single-model and singular cases furnish no general correction. Dates do not decide mathematical equivalence.",
+        "searches": [
+          "Resultary: zeta of 27-line boundary / line-free cubic surface, Frobenius and Eckardt",
+          "Local mirror 18f91d76a1da, 9b45ce52c311, 3fc752675013, c7d5886403e1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "BFL lists class, Picard and line-orbit data, not the 135 meeting-pair/270 flag spectra or their distinct open signatures",
+          "18f91d76a1da tabulates eleven S_6 boundary types",
+          "The independent enumeration matched the exact packaged 25-row table"
+        ],
+        "reasoning": "Fixed-point on a line set does not specify the invariants of its intersecting pairs without the induced incidence action. The open classification is not a restatement of the published input table.",
+        "searches": [
+          "BFL Table 7.1, p. 22; Resultary 18f91d76a1da and 0053074ac1a9; frozen open_cubic_spectra.csv"
+        ]
+      },
+      "rationale": "The independently supported contribution is the full Weyl baseline classification for this specific open locus together with the closed-Eckardt return-sign correction and explicit same-Weyl examples. Neither the ambient zeta nor the unsigned table of line or Eckardt orbits contains the necessary data. The repaired specialization is a consequence of the new baseline separation, not standalone priority for a periodicity argument.",
+      "residual_risks": [
+        "Best-of-knowledge judgement; the Swinnerton-Dyer full text was not available via lawful OA retrieval, and equivalent equivariant normalization formulations in other work are not ruled out. No dated catalogue hit is treated as a priority adjudication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ambient input, not the evaluated open invariant",
+          "evidence": "The count is 1+a(S)q+q² with Picard trace a(S); table gives class, eigenvalues and line orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.00300",
+          "material_read": "OA PDF p. 1 offset 2402; Table 7.1 p. 22 offsets 70,500–75,437 and §7.2",
+          "method": "Primary text and table inspection",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "All 25 smooth cubic Weyl types and ambient zeta"
+        },
+        {
+          "assessment": "Full scope unresolved",
+          "evidence": "Bibliographic evidence only; no assertion that full paper lacks an equivalent boundary formula.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100040895",
+          "material_read": "Cambridge bibliographic record; no readable full text obtained",
+          "method": "Lawful OA source retrieval attempted",
+          "title": "The zeta function of a cubic surface over a finite field",
+          "trigger": "Classical cubic zeta, potentially related incidence formula"
+        },
+        {
+          "assessment": "Overlaps the Eckardt-free S_6 baseline, not the signed rule or all W(E_6)",
+          "evidence": "Boundary count (q^r+1)V_r+N_r-B_r for Eckardt-free six-point blow-ups, characteristic at least five.",
+          "identifier_or_url": "Resultary 18f91d76a1da",
+          "material_read": "Mirrored RESULT.md offsets 0 and 4800–8392",
+          "method": "Resultary local catalogue and mirror",
+          "title": "Eleven Frobenius zeta functions of the 27-line boundary on six-point blow-ups",
+          "trigger": "Equivalent boundary formulation and same incidence normalization"
+        },
+        {
+          "assessment": "One model in characteristic >5",
+          "evidence": "Full 27-line incidence and open zeta on a fixed Clebsch model.",
+          "identifier_or_url": "Resultary 9b45ce52c311",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Resultary local catalogue and mirror",
+          "title": "Arithmetic incidence and zeta function of the Clebsch cubic's line complement",
+          "trigger": "Same open locus and all-extension zeta"
+        },
+        {
+          "assessment": "One cubic, not a uniform return-sign theorem",
+          "evidence": "Exact zeta and 45 triple points for the binary Fermat model.",
+          "identifier_or_url": "Resultary 3fc752675013",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Resultary local catalogue and mirror",
+          "title": "The factorial complement of all 27 lines on the binary Fermat cubic",
+          "trigger": "Triple intersections and complement zeta in small characteristic"
+        },
+        {
+          "assessment": "Orbit lengths do not encode the return permutation sign",
+          "evidence": "Ten binary classes, line and Eckardt orbit spectra, not the open-zeta formula.",
+          "identifier_or_url": "Resultary 0053074ac1a9",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Resultary local catalogue and mirror",
+          "title": "Complete Frobenius spectra of Eckardt points and lines on binary cubic surfaces",
+          "trigger": "Potential Eckardt orbit data for the same boundary"
+        },
+        {
+          "assessment": "Different singular surface and nine-line locus",
+          "evidence": "Five open spectra of the four-nodal Cayley cubic.",
+          "identifier_or_url": "Resultary c7d5886403e1",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Resultary local catalogue and mirror",
+          "title": "Five arithmetic spectra for the line-free locus of the Cayley cubic",
+          "trigger": "Similar exact open-zeta classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, general formula, fixed-q argument and F17 examples; independent table comparison"
+      ],
+      "rationale": "The line-free locus is a canonical, arithmetically relevant open surface. The theorem determines exactly the additional local data needed beyond the Weyl action, separates all formal ambient-action baselines over any fixed field, and demonstrates actual failure of a Weyl-only prediction on concrete split surfaces. This is not merely the recomputation of class sizes or traces.",
+      "residual_risks": [
+        "The result does not classify realizable combinations of Weyl and Eckardt data over given fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

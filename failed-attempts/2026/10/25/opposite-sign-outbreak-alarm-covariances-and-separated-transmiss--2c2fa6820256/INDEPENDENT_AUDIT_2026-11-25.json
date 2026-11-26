@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:31:51.403804Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 33–94: conditional on the uniform vertex, single and joint component membership require precisely the edges in the union of the paths from that vertex. Summing gives the four stated moments, and subtracting the products of the marginals gives the two covariance factors. The hub–leaf polynomial is strictly increasing on the positive half-line. The leaf–leaf polynomial is strictly convex, starts negative with negative derivative, and is positive at 1 for m≥3; for m=2 it factors as (p−1)(p²+4p+1), so its root at 1 is not an interior zero. The concave quadratic (H_m−L_m)/p has positive values at both endpoints, proving strict covariance ordering and separation of the interior thresholds. Rescaling the two polynomials at fixed x gives x²+x−1 and x³−1; their signs at points bracketing the simple positive roots give both limits. Independent exact replay of the four-vertex case: iterate the 8 edge masks and 4 uniform seeds, mark the seed's component, and count hub, leaf, two-leaf and hub–leaf indicators respectively 20, 16, 7 and 12 times among 32 equal outcomes. The covariances are 1/16 and −1/32. The reviewed checker and certificate describe finite samples, not an all-size certification. The mathematical statement applies only to the specified independent-edge graph model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matching catalogue result also treats one-leaf stars and endpoint probabilities.",
+          "Kenah–Robins distinguish independent bonds from some epidemic models; Rodriguez et al. examine simultaneous infection status, and Leskovec et al. frame a sensor-placement objective."
+        ],
+        "reasoning": "Restricting the matching theorem to m≥2 and 0<p<1 covers this Finding. The other inspected passages are related but do not provide equivalent claims.",
+        "searches": [
+          "Resultary: 9fe5394f2c50",
+          "Kenah–Robins arXiv:q-bio/0610057",
+          "Rodriguez–Roldán-Correa–Valencia arXiv:1807.06909",
+          "Leskovec et al. CMU-ML-07-111"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (inspected only), certificate.json",
+        "Resultary 9fe5394f2c50",
+        "arXiv:q-bio/0610057",
+        "arXiv:1807.06909",
+        "CMU-ML-07-111",
+        "PubMed 8400584 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching proof gives the hub–leaf scale k⁻¹ with limit constant (√5−1)/2 and leaf–leaf scale k⁻²⁄³ with limit constant 1, and distinguishes the two-leaf boundary case."
+        ],
+        "reasoning": "All frozen structural claims follow by identifying k=m, with no additional limiting regime or sampling hypothesis.",
+        "searches": [
+          "Resultary: 9fe5394f2c50, RESULT.md proof/asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching RESULT.md Finding and proof use k for the number of leaves and indicators of membership in the component of one uniform vertex."
+        ],
+        "reasoning": "Replacing k by m identifies the random variables, both polynomials and both zeros, not merely the graph family or the sign of an example.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-a-two-scale-covariance-sign-diagram-for-random-source-epidemics--9fe5394f2c50"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary entry records the exact analytic quantities for every size. The supplied certificate records 42 finite parameter cases and the rational m=3, p=1/2 witness."
+        ],
+        "reasoning": "The broad database comparison gives an exact match; a finite numerical table cannot decide the two asymptotic laws. The finite witness is already a direct substitution into the matching formulas.",
+        "searches": [
+          "Resultary: 9fe5394f2c50",
+          "Frozen certificate.json"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives the same two covariance formulas, exact ordering and sign diagram, and the two threshold constants and exponents under the same uniform-single-vertex, independent equal-probability edge assumptions. This establishes material equivalent coverage of the complete frozen Finding, not historical priority or a claim about how the entries arose.",
+      "residual_risks": [
+        "Catalogue dates do not establish which formulation came first or any relationship between entries.",
+        "The full hypotheses of Donnelly (1993) and any earlier equivalent star result remain unverified; neither is needed to establish the indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage, with additional boundary cases",
+          "evidence": [
+            "Both exact covariance formulas, the common sign partition, and both leading threshold constants coincide."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-two-scale-covariance-sign-diagram-for-random-source-epidemics--9fe5394f2c50",
+          "material_read": "RESULT.md Finding at offset 0; proof and asymptotics at offset 3374",
+          "method": "Local indexed mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A two-scale covariance sign diagram for random-source epidemics",
+          "trigger": "Same model and two-scale sign diagram"
+        },
+        {
+          "assessment": "Related model distinction, not the claimed phase diagram in inspected material",
+          "evidence": [
+            "Undirected bond percolation need not reproduce the outbreak quantities with nondegenerate infectious-period distributions."
+          ],
+          "identifier_or_url": "arXiv:q-bio/0610057",
+          "material_read": "PDF p. 2, text offset 1750",
+          "method": "Lawfully accessible PDF text",
+          "title": "Second Look at the Spread of Epidemics on Networks",
+          "trigger": "Percolation model comparison"
+        },
+        {
+          "assessment": "Different observable and probability law",
+          "evidence": [
+            "Discusses time-specific nodal infection status in continuous-time Markovian SIR, not eventual component indicators."
+          ],
+          "identifier_or_url": "arXiv:1807.06909",
+          "material_read": "PDF pp. 1 and 3, offsets 0 and 18850",
+          "method": "Lawfully accessible PDF text",
+          "title": "Comment on Nodal infection in Markovian SIR and SIS epidemics on networks are non-negatively correlated",
+          "trigger": "Negative pair correlation example"
+        },
+        {
+          "assessment": "Different stated objective in inspected material",
+          "evidence": [
+            "Fast detection and related placement objectives are not a classification of pair covariance signs."
+          ],
+          "identifier_or_url": "CMU-ML-07-111",
+          "material_read": "PDF p. 3, text offset 1035",
+          "method": "Lawfully accessible PDF text",
+          "title": "Cost-effective Outbreak Detection in Networks",
+          "trigger": "Network alarm placement literature"
+        },
+        {
+          "assessment": "Hypotheses not independently compared",
+          "evidence": [],
+          "identifier_or_url": "PubMed 8400584",
+          "material_read": "No full text retrieved",
+          "method": "Lawful retrieval attempt returned HTTP 203",
+          "title": "The correlation structure of epidemic models",
+          "trigger": "Possible positive-association or overlapping epidemic results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the full sign classification is useful: it shows that the same one-source edge mixture can give opposite signs for different vertex roles, then quantifies the separation with two genuinely different size scales. It is more informative than a small negative covariance example. The established overlap means this record adds no distinct result, as reflected in originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

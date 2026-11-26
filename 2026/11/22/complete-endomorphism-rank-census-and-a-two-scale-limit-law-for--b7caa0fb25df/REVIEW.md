@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every endomorphism is determined by the two generating images; the explicit relation \(A(av_i-Au_i)=0\) for \(2\le i\le n-2\) is necessary and sufficient. Disjoint cases based on \(a=0\) and \(A=0\) give the complete rank count, and their totals agree with the closed expression. The full-rank automorphism count matches established theory. Seven full finite-field enumerations directly checked the defining bracket relations and rank table. The proof applies to all prime-power fields; enumeration is corroboration only. Residual correctness risk is limited to a possible overlooked defining relation, controlled by the explicit sufficiency argument and independent checks.
+## correctness
 
-## Originality — PASS, qualified
-The primary 2013 group-gradings paper analyzes automorphisms and grading data for this family, rather than noninvertible endomorphisms. Avetisyan's 2016 almost-Abelian article gives relevant general homomorphism structure, which is acknowledged as prior to the normal-form argument, but not an evaluated finite-field rank polynomial. Public adjacent records 48cdbeaf7d86, 5844778e738d and 165f62a620cd concern respectively adjoint ranks, fixed-point-free automorphisms and idempotent derivations, not all endomorphism ranks. Actual semantic and alias queries found no dominating formula. Historical priority is *not certified*: unpublished, unindexed or unexamined sources could already imply the closed census by a short specialized count.
+PASS
 
-## Value — PASS
-The model filiform family is a canonical unbounded nilpotent Lie-algebra family. Full endomorphism ranks refine the automorphism group and ideal structure into a natural homomorphism invariant. The mass-splitting theorem is particularly informative: positive probability persists at fixed rank two while a complementary geometric mass persists at bounded corank, revealing two simultaneous scaling regimes missed by automorphism-only or adjoint-only studies. This is neither an arbitrary finite slice nor a trivial normalization check.
+Reconstructed the compatibility and census over F_q, including characteristic two and n=4. Let H be the abelian codimension-one ideal and D its shift. When the coefficient A of e1 in the second generating image v is nonzero, replace u by h=u−(a/A)v within H. The middle bracket is −A Dh, and [v,[u,v]]=0 is equivalent to D²h=0. This suffices for all other relations because higher images then vanish. There are (q−1)q^n base choices of (v,a); h contributes ranks 1,2,3 with respective counts 1,q−1,q(q−1). For A=0 all pairs are permitted: if a≠0 the rank is one plus the shift-chain length of v, and if a=0 it is the ordinary pair rank in H. Adding gives every stated coefficient; raw counts for A=0 and A≠0 are q^(2n−1) and (q−1)q^(n+2), and full rank is exactly the longest shift-chain branch. Division by the leading total gives the rank-two and fixed-corank limits; the geometric series plus the rank-two atom exhausts mass, with no middle-scale residue. Checked the frozen verification code and tabulation for scope; the symbolic argument, not the prime-field cases, covers all q and n. See checks/analytic-notes.md.
 
-## Scope and independent status
-All assertions apply to every prime power \(q\) and \(n\ge4\) in the exact stated family; all finite checks are supplementary and do not prove universality. Originality remains a best-knowledge literature assessment, not a priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving contribution is the evaluated complete rank polynomial and its fixed-q limiting law. General almost-Abelian homomorphism theory and the existing full-rank count are prior. Inspected general and same-family results do not supply the singular-rank enumeration.
+
+## value
+
+PASS
+
+Standard filiform Lie algebras are a natural unbounded model family. Image dimension is an intrinsic endomorphism statistic and quantifies the formerly unrepresented singular portion of the monoid. The closed law explains two qualitatively different asymptotic populations at fixed field size, not merely an isolated count or the known automorphism order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

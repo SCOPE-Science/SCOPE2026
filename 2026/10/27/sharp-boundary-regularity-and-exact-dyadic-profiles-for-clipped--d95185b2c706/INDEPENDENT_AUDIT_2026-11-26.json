@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:10.019531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, exact identities and proof steps 1–5",
+        "VERIFICATION.md, lines 19–26",
+        "check.py, lines 9–47, inspected (not executed)"
+      ],
+      "rationale": "For the specified state-dependent transition law, iteration gives log2|z_n| = 2^n(t-R_n), with t=log2 r. At t=R the scaled remaining tail lies in [0,1], so there is no escape; every coding cylinder has mass at most (1-eps)^n and the at-most-two expansions of a point give no atoms. Hence endpoint threshold conventions do not affect either exact identity. On the upper and lower endpoint intervals of width 2^-n in t, the forced prefixes are respectively n ones and n zeros; subtract the prefix and rescale the tail. The two deterministic runs saturate after at most any N such that (1-alpha)^N(1-eps)<=eps, uniformly in p. Their masses then factor into the displayed positive prefactors times (1-eps)^n. Digit/state complementation identifies the two tails; for phases u in [1/2,1] the common profile is in [1-eps,1], yielding uniform sharp bounds, with the radial changes of variable having nonzero endpoint derivatives. At alpha=1/2, eps=1/4 the probability of the prefix 01 is 3/32, giving H(3/4)=27/32; (3/4)^log2(4/3) > sqrt(3)/2 > 27/32, giving distinct normalized subsequential limits. The finite-cylinder checker is supplementary, not a replacement for these arguments.",
+      "residual_risks": [
+        "The finite checker covers one parameter pair, three states, and finitely many dyadic phases; the uniform endpoint bounds and exact identities were checked analytically, not inferred from the reported finite tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The web query yielded no relevant stronger theorem; its unrelated random piecewise-contraction result supplies no comparison.",
+          "The inspected de Rham theorems concern fractional-linear systems and capacities/dimension, not the clipped run weights and common two-endpoint profile."
+        ],
+        "reasoning": "A generic dimension law would not supply a finite-saturation equality with initial-state prefactors or separate two phases. No inspected broader theorem was mapped to this full claim.",
+        "searches": [
+          "\"Polynomial Random Dynamical Systems with Complete Connections\" \"Example 4.2\" endpoint exponent local dimension dyadic profile Markov measure",
+          "arXiv:2607.07344v2, Theorems 1.2–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Endo arXiv:2603.20653",
+        "Arcozzi arXiv:2607.07344v2",
+        "Resultary exact geometric zero cylinders (559e8ce0b358)",
+        "Resultary dyadic cap survival (20727f8cfb50)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 4.2 obtains continuity and T_infinity(2)=1 using an upper bound (1-eps)^n on all-one prefixes.",
+          "The exact model supplies the ingredients but the inspected endpoint calculation does not factor the two prefix tails into a single profile or compare the phases 1 and 3/4."
+        ],
+        "reasoning": "The cylinder upper bound alone gives neither sharpness nor an oscillation witness. The frozen proof additionally identifies the radial threshold, uses saturation and reflection to relate exact rescaled tails, and tests a nontrivial phase. This is an elementary deduction in an existing model, not a restatement or a parameter specialization of the inspected continuity result.",
+        "searches": [
+          "arXiv:2603.20653, Example 4.2, pp. 22–23 (OA offsets 74498 and 76812)",
+          "arXiv:2603.20653, Example 4.1, p. 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Endo uses exactly the same two maps and clipped state law.",
+          "The Resultary zero-cylinder theorem uses a different stationary signed-digit process; its oscillation is at a bias-parameter edge."
+        ],
+        "reasoning": "In the radial-log encoding the frozen statement is about a paired local mass law for the clipped binary measure. Neither the different signed-digit cylinder theorem nor a qualitative statement about the same escape function gives that paired law.",
+        "searches": [
+          "Resultary model-specific clipped quadratic feedback / Endo Example 4.2 search",
+          "arXiv:2603.20653, Examples 4.1–4.2",
+          "2026/11/8/SCOPE-exact-eventual-geometric-zero-cylinders-and-a-bias-driven-logari--559e8ce0b358"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The model-specific returns produced no equivalent match; the closest dyadic hits concern stationary signed digits and normalized affine sphere maps."
+        ],
+        "reasoning": "The target is a continuum-parameter exact identity, not a finite catalog entry. The returned exact dyadic formulas are for different objects and do not determine this identity.",
+        "searches": [
+          "Resultary searches by clipped feedback model and by dyadic/local-dimension formulation",
+          "2026/11/8/SCOPE-dyadic-cap-survival-exponents-and-a-square-root-critical-window--20727f8cfb50"
+        ]
+      },
+      "rationale": "The clipped law, polynomials, continuity, and escape probability one at r=2 are prior, not contributions. In the evidence inspected the paired exact all-state endpoint profiles and the explicit non-power-law witness are not established by an existing endpoint theorem. They use a finite-saturation and complement argument in the exact prior model; proximity to that model considerably limits the novelty claim.",
+      "residual_risks": [
+        "Equivalent endpoint formulas may exist under symbolic local dimension or dyadic distribution terminology; the comparisons were bounded.",
+        "Endo already supplies the entire transition model and a key cylinder bound; the contribution is the exact endpoint refinement, not the dynamics or qualitative continuity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model overlap; qualitative conclusion and prefix bound, not equivalent endpoint-profile conclusion in the inspected passages",
+          "evidence": "Same maps, conditional probabilities p and 1-p, and symmetric clipping; the endpoint-one proof uses the all-one-prefix upper bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.20653",
+          "material_read": "Examples 4.1 (p. 18, offset 62454) and 4.2 (pp. 22–23, offsets 74498 and 76812)",
+          "method": "OA PDF passage reads",
+          "title": "Polynomial Random Dynamical Systems with Complete Connections and the Probability of Tending to Infinity",
+          "trigger": "Exact model and endpoint calculation"
+        },
+        {
+          "assessment": "Related but not shown to cover clipped feedback",
+          "evidence": "The stated results use fractional-linear de Rham structure and dyadic capacity/dimension.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.07344v2",
+          "material_read": "pp. 1–5 and Theorems 1.2–1.3, offsets 200, 12941, 17087",
+          "method": "OA PDF passage reads",
+          "title": "Dyadic potential theory and de Rham functions",
+          "trigger": "Potential general dyadic regularity theorem"
+        },
+        {
+          "assessment": "Different process and asymptotic variable",
+          "evidence": "Stationary signed-digit zero-cylinder tails from independent random symmetric doubling maps; the prefactor behavior is at a bias edge.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-eventual-geometric-zero-cylinders-and-a-bias-driven-logari--559e8ce0b358",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact eventual geometric zero cylinders and a bias-driven logarithmic correction",
+          "trigger": "Exact geometric cylinder behavior and log-periodicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, identities (1)–(4)",
+        "Endo arXiv:2603.20653, Example 4.2"
+      ],
+      "rationale": "The sharp modulus at both boundaries is a natural quantitative gap for a known escape function. The exact finite-level common profile gives state-uniform control while distinguishing a genuine discrete-scale oscillation from a pure power asymptotic; this is useful beyond either endpoint continuity or a local-dimension number. It does not claim arbitrary parameters oscillate or give interior regularity.",
+      "residual_risks": [
+        "Scope is endpoint regularity for this clipped family. The nonconstant profile is proved only at the stated parameter pair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

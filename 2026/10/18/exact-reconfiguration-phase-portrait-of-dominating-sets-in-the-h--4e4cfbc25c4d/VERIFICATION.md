@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of finite classification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10+ (requires `int.bit_count`) from the directory containing `verify.py`. The checker exhaustively tests all \(16384\) subsets by their fourteen closed-neighborhood intersections, reconstitutes all minimal dominating sets independently of the expected geometric constructions, asserts equality with the four constructions, tests every budget up to \(8\), checks the exact component/edge counts, and performs a breadth-first traversal from every state in the main component at budgets \(5\) through \(8\). The observed terminal line is `VERIFY_OK full exhaustive classification`.
+## correctness
 
-As an independent implementation, compile and run `g++ -std=c++17 -O2 verify_fast.cpp -o verify_fast && ./verify_fast`. This builds the Fano plane from nonzero three-bit vectors and uses an incremental bitwise union-of-closed-neighborhoods domination test. It runs all-source BFS over the same budgets and validates all expected aggregate numbers, finishing with `VERIFY_OK C++ independent graph and metrics`. The two checkers have no shared source file, dependency or state and require no external network access. Mathematical consistency checks include the \(21\) minimum dominating sets, the \(65\) inclusion-minimal sets and the \(K_{1,10}\) components at budget \(5\).
+PASS
 
-The finite cutoff is exact because the universe consists of all \(2^{14}\) bit masks and every adjacent reconfiguration mask is explicitly considered. These checks do not prove any untested infinite-family extension. The direct structural minimal-set overlap lemma in RESULT.md explains the component barriers without making numerical BFS certificates into claims about other graphs. Neither program performs an independent external literature audit, and no independent review has been represented as performed.
+The classification and TAR table survive unchanged in /workspace/repairs/5/RESULT.md. A separate bounded computation constructed the lines as additive triples in F₂³, tried every subset, tested closed-neighborhood union and one-deletion minimality, and built all four geometric families independently of the minimality filter. Equality yielded 21,14,28,2 minimal sets and the full domination polynomial coefficients. BFS expanded exact frontiers as bitsets of configurations, with each permissible move a single bit flip. It verified the specific isolated families for k=4,…,7, the 21 stars at k=5, and reproduced the five rows (V,E,largest radius,largest diameter): (21,0,0,0), (245,210,1,2), (1176,2226,10,12), (3138,9674,11,14), (5532,23408,12,14); component sizes also matched. The all-source histogram at k=8 was 42 at eccentricity 12, 2156 at 13 and 3334 at 14. Replay: python3 /workspace/reproductions/heawood.py. Supplied checkers were inspected, not executed. Monotone addition up to the union of two minimal sets and containment for every single move prove the overlap-graph correspondence; every state in any larger budget can delete down to a minimal set of size at most seven, so connectedness at eight persists. No higher-budget metric claim is inferred. The repair also checks the contrary literature assertion directly: with ℓ={1,2,3} and p=4 in XOR coordinates, the three selected lines are {1,4,5},{2,4,6},{3,4,7}. Points 5,6,7 are private neighbors for those lines; for each selected point, its line other than ℓ and the line through 4 is a private neighbor. The six-set dominates and is minimal but not neat.
+
+## originality
+
+PASS
+
+Pass for the surviving full minimal-set census, geometric six-set obstruction and metric/component portrait, with repaired attribution. The earlier projective-plane construction covers the minimum size and first-family construction, and Haas–Seyffarth accounts for the connectivity threshold conditional on the upper domination number. An earlier computer assertion on the same graph is actually false as stated; it does not provide a covering classification.
+
+## value
+
+PASS
+
+The smallest projective-plane incidence graph makes the budget range canonical, from minimum size four through the first connected budget eight. The exact radii, diameters and geometric identities of isolates separate information that a generic connectivity threshold and a domination polynomial lose. The explicit non-neat six-sets also correct a specific published-preprint assertion by a short witness, independently of the computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:45:05.019368Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–76",
+        "VERIFICATION.md and check.py (inspected; supplied numerical checker not executed)"
+      ],
+      "rationale": "After deleting a grid row uⱼ, the row Gram matrix consists of an (N−1)-dimensional identity block, a unit diagonal entry for the new row, and a coupling vector of norm √(1−|aⱼ|²), where aⱼ is the deleted basis coefficient of the new unit row. Restricting to the two coupled directions gives eigenvalues 1±√(1−|aⱼ|²), also valid for N=2; deleting the added row instead leaves the identity. Both the best worst-erasure lower squared singular value and the best worst-erasure condition number therefore reduce to maximizing minⱼ|aⱼ|. The geometric sum gives the stated common numerator; the largest denominator comes from the grid point nearest the antipode, with distances in grid units t for even N and 1/2−t for odd N on 0<t≤1/2. For even N the numerator increases and the denominator decreases on the half-gap. For odd N, in x=1/2−t, the log derivative of cos(πx)/cos(πx/N) is strictly negative since tan(πx)>(1/N)tan(πx/N). Reflection and grid rotations give exactly the midpoints and the stated parity constants. Non-grid coefficients are all nonzero; at a grid point a duplicate fails when a different row is lost. Expanding γₙ=1/N+O(N⁻³) gives B*=1/(2N²)+O(N⁻⁴) and the rationalized condition number κ*=(1+√(1−γₙ²))/γₙ=2N+O(N⁻¹). The uniform regrid comparison follows by subtracting a unit projector from (N+1)I/N.",
+      "residual_risks": [
+        "This concerns equally weighted, norm-one rows with consecutive frequencies and exactly one extra movable point. The reference to a full regrid is a comparison, not an audit claim of global optimality among all frames."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perturbation and oversampled NUDFT results give stability inequalities; separated Vandermonde results bound singular values under a separation condition. The indexed four-erasure result concerns the doubly redundant [I,F] frame, not near-critical fixed-grid sampling."
+        ],
+        "reasoning": "These bounds and other frame designs do not calculate the exact worst-erasure value for an added unit-circle sample, or its optimizer and parity correction. Restricting an unconstrained frame design by fixing all N grid rows is a substantive change.",
+        "searches": [
+          "Yu–Townsend arXiv:2202.04722v1, §§2 and 6",
+          "Kunis–Nagel–Strotmann arXiv:2103.08167, Theorem 3.5",
+          "Resultary: fixed orthonormal basis plus one redundant equal norm vector erasure robust frame lower bound maximize minimum deletion eigenvalue"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work section",
+        "arXiv:2202.04722v1, 1612.04018 and 2103.08167",
+        "Indexed Resultary cardinal/erasure/staggering comparisons listed above",
+        "Wang DOI 10.1007/s00041-016-9486-6 (not full-text inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-node quadrature record covers the per-replacement spectral step, not simultaneous assignment over the deleted index; the staggered grids and two-layer Fourier strip results have different sampling/frequency structures. Generic nonuniform DFT stability and frame erasure bounds do not yield these parity-sensitive exact constants."
+        ],
+        "reasoning": "Credit the shared algebra. Identifying the antipodal index, controlling the minimum over the grid, and optimizing its dependence on the added point are further steps, not consequences supplied by a stronger inspected theorem. The same-day overlap was assessed on content, not on asserted priority.",
+        "searches": [
+          "Resultary one-node Fourier quadrature primary RESULT.md §3, offset 4320",
+          "Resultary parity law and sharp staggering RESULT.md at offset 0",
+          "Resultary one-point deletion in finite two-layer Fourier strips RESULT.md at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact alternative objective is maximizing the smallest absolute Fourier cardinal coefficient at the extra point; the spectral map of that quantity is strictly increasing. Austin–Trefethen bound the Lebesgue constant, which instead involves a sum of absolute cardinal coefficients. The same-day indexed one-node quadrature result has the rank-two spectrum for replacing a row."
+        ],
+        "reasoning": "Neither a bound on a sum of cardinal magnitudes nor the treatment of one prescribed replacement evaluates the smallest magnitude over possible deleted rows and then optimizes the new point.",
+        "searches": [
+          "Resultary: one-erasure reconstruction coefficient for omitted Fourier sample equals Lagrange/cardinal function at extra point; maximize minimum coefficient on roots-of-unity grid",
+          "Resultary: cardinal interpolation basis at roots of unity extra off-grid Fourier sample worst deleted node",
+          "Primary-literature search: Fourier interpolation fixed roots of unity grid one additional off-grid sample worst single erasure optimal midpoint singular value erasure-robust frame"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match, indexed ID ending 935a130ea9b4, is the assigned frozen finding itself (RESULT.md offset 762). The indexed parity/half-step theorem ending a2fb2866e9f4 concerns two staggered regular grids with one frequency defect."
+        ],
+        "reasoning": "The identical index entry is not an independent precedent. The analogous parity law concerns a different feasible set and has no worst one-erasure location calculation for this design.",
+        "searches": [
+          "Resultary: fixed N-point Fourier/DFT grid plus one additional sample point, optimize location for worst single-erasure smallest singular value or condition number midpoint gap",
+          "Resultary: cardinal coefficient and roots-of-unity formulation"
+        ]
+      },
+      "rationale": "The rank-two replacement formula and Fourier cardinal functions have close precedents. The supported distinct claim is the exact all-N placement optimum when the entire critical grid stays and any one of its rows or the added row can be erased, including parity constants and the sharp penalty relative to regridding. The closest indexed results optimize different designs or do not take the worst erasure of this retained grid.",
+      "residual_risks": [
+        "An earlier exact cardinal-function min-coefficient calculation or a specialized constrained frame-erasure result could be equivalent. Full text of the cited Wang paper was not retrieved. The bounded literature comparison is not a statement of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad stability inequalities, not the present location extremum",
+          "evidence": "Perturbs the grid under a uniform displacement constraint and gives oversampled MZ/least-squares bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2202.04722v1",
+          "material_read": "§2 at offset 11980 and §6 around Eq. 26, at offset 57800",
+          "method": "Versioned open-access full-text passages",
+          "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+          "trigger": "Fourier-grid conditioning and oversampled NUDFT"
+        },
+        {
+          "assessment": "Covers interpolation convergence and Lebesgue constants, not the erased-row coefficient minimax",
+          "evidence": "Theorem 2.1 bounds the Lebesgue constant for perturbed points.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+          "material_read": "Theorem 1.1, p. 2, offset 8470; Theorem 2.1, p. 4, offset 13200",
+          "method": "Open-access PDF passages",
+          "title": "Trigonometric interpolation and quadrature in perturbed points",
+          "trigger": "Equivalent cardinal/interpolation formulation"
+        },
+        {
+          "assessment": "Separation-based bounds, not exact optimizer",
+          "evidence": "Theorem 3.5 is a lower singular-value bound under a quantitative separation hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.08167",
+          "material_read": "p. 2, offset 4160; Theorem 3.5, p. 6, offset 23050",
+          "method": "Open-access PDF passages",
+          "title": "Multivariate Vandermonde matrices with separated nodes on the unit circle are stable",
+          "trigger": "Potential stronger Vandermonde singular-value theorem"
+        },
+        {
+          "assessment": "Covers the replacement spectral calculation, not the all-erasure placement rule",
+          "evidence": "Replaces one row of a unitary DFT and studies positivity and conditioning of that replacement.",
+          "identifier_or_url": "2026/11/22/SCOPE-one-node-fourier-quadrature-a-sharp-positivity-frontier-and-coll--639f82704fb3",
+          "material_read": "RESULT.md §3, offset 4320",
+          "method": "Indexed local-mirror primary passage",
+          "title": "One-node Fourier quadrature: a sharp positivity frontier and collision conditioning",
+          "trigger": "Same rank-two Gram mechanism for one off-grid row"
+        },
+        {
+          "assessment": "Distinct two-grid, frequency-defect family",
+          "evidence": "Optimizes the stagger between two regular grids after replacing a frequency.",
+          "identifier_or_url": "2026/11/16/SCOPE-a-parity-law-and-sharp-staggering-for-one-defect-two-grid-fourie--a2fb2866e9f4",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Indexed local-mirror primary statement",
+          "title": "A parity law and sharp staggering for one-defect two-grid Fourier sampling",
+          "trigger": "Sharp staggering with parity-dependent offsets"
+        },
+        {
+          "assessment": "Different frame/redundancy and erasure budget",
+          "evidence": "Treats up to four deletions in the twice-redundant [Iₙ,Fₙ] frame.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-erasure-stability-and-the-first-arithmetic-transition--9f5afdaee415",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Indexed local-mirror primary statement",
+          "title": "Sharp four-erasure stability and the first arithmetic transition",
+          "trigger": "Closest indexed general frame-erasure objective"
+        },
+        {
+          "assessment": "A distinct finite-abelian two-layer design",
+          "evidence": "Studies one deletion in two-layer Fourier strips, not a continuous extra point over a fixed critical grid.",
+          "identifier_or_url": "2026/10/18/SCOPE-one-point-deletion-forces-linear-riesz-deterioration-in-finite-t--522e7ec0fbc6",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Indexed local-mirror primary statement",
+          "title": "One-point deletion forces linear Riesz deterioration in finite two-layer Fourier strips",
+          "trigger": "Fourier one-point deletion and linear conditioning"
+        },
+        {
+          "assessment": "Unresolved access, not evidence of noncoverage",
+          "evidence": "No full-text passage available in the attempted routes.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-016-9486-6",
+          "material_read": "Citation only; full mathematical statement not recovered",
+          "method": "DOI/article and PDF retrieval attempted",
+          "title": "Random Matrices and Erasure Robust Frames",
+          "trigger": "Cited general frame-erasure literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen placement theorem and normalized uniform regrid comparison",
+        "Closest indexed row-replacement and two-grid staggering statements"
+      ],
+      "rationale": "Retaining an existing sampling grid while adding one measurement is a natural design constraint. Exact recovery alone hides a loss of robustness: the sharp squared lower singular value scales as N⁻² rather than the N⁻¹ of an equally weighted regrid with the same row count. The optimizer, parity effect and loss quantify what cannot be avoided by moving the one available sample. The substantive contribution is this constrained optimum, not the elementary computation for a single known deletion.",
+      "residual_risks": [
+        "The conclusion does not select weights, move the existing grid, or establish bounds for two or more adversarial erasures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

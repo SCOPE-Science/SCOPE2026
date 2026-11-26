@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact multilinear expansion, rank-stratified dimension argument, irreducibility of the rank-one hypersurface, Segre degree and divisor cycle subtraction are all given in `RESULT.md` with explicit witnesses. The component has codimension three and degree eight; this is an infinite-family proof, not an inference from finite tests. The saved `verify.py` checks independent normalization identities with integer arithmetic.
+## correctness
 
-## Originality — PASS, with residual priority risks
-The motivating 2026 source proves eventual partition rank four and border rank at most three; it does not give the geometric rank or cycle degree. General geometric-rank references neither imply nor calculate the specific contraction locus. Four targeted research-record queries considered exact expressions, aliases, broader statements and tables, finding only unrelated hyperdeterminantal, 4-by-3-by-3 and orthostochastic works. The possibility of an unindexed equivalent construction or a classical reformulation remains. Not all general references were inspected in full on this occasion.
+PASS
 
-## Value — PASS
-An infinite family of explicit rank-jump tensors has a natural, previously unspecified contraction-zero geometry. The theorem identifies the unique largest component and computes its enumerative degree, a meaningful geometric refinement beyond abstract nonclosedness. Other components and a sharp threshold for actual partition rank four remain unknown.
+The coefficient vector of the fourth argument is exactly the two scalar q equations and the row determinants in the frozen proof. The first-two-row rank-one cone R has codimension 2 and projective degree 3. On its rank-one locus the remaining scalar equation is the irreducible F: the linear coefficient in gamma_(3,1) is primitive and irreducible, and the exhibited evaluation shows it does not divide the constant term. Removing the scaling parameter gives dimension 3n-3. With independent first rows all lower rows lie in their span and one nonzero additional equation forces codimension at least n-1>=4; with both first rows zero the codimension is 6. For the scheme multiplicity, on the alpha_1!=0 chart eliminate beta_1 by writing beta=(beta_1/alpha_1)alpha+u with u_1=0. The row determinants are linear in u_2,u_3 and two of them eliminate both exactly wherever alpha,gamma_3,gamma_4 are independent. This occurs on the rank-one divisor at alpha=e_1, beta=0, gamma_3=e_2, gamma_4=e_3, all later rows zero, with F=0. There the scalar equations reduce to one reduced divisor equation; hence generic multiplicity is one on the unique top component. The cubic alpha·q cuts R with cycle degree 9 and its only divisors are the top component and the hyperplane-row-zero linear space, each with multiplicity one (sF on the rank-one charts). Subtracting the linear component gives degree 8. The cited exact PR=4 remains eventual, not asserted at n=5.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The tensor, degeneration and eventual partition rank are already in Baily–Danelon. The supported distinct result is the classification and degree of the maximal contraction-zero component for this concrete family (and the resulting exact geometric rank in the stated range); neither the rank jump nor the cited paper's specialization is credited as new.
+
+## value
+
+PASS
+
+This examines a distinguished counterexample to closedness of bounded partition rank, not an arbitrary tensor. Exact top-component data for its contraction scheme distinguish its geometry from merely having a rank jump. The uniform degree and multiplicity determine a natural leading cycle, while the rank computation gives a concrete strict separation from actual partition rank in the eventual range. This is not just evaluating the source's rank-jump formula in finite coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

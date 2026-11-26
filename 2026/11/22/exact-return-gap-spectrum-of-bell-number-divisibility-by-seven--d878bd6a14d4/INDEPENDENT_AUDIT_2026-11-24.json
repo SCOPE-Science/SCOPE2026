@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:45:56.102712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–59; VERIFICATION.md; gap_histogram.csv; check_bell7.py (read, not executed)",
+        "/workspace/branches/a5dbcbb5-2563-4e7f-a359-98968e5cdb59/replay_bell7.py (separately written complete replay; all 50 entries compared)"
+      ],
+      "rationale": "Touchard's recurrence with the correctly reduced Bell seed determines every residue. The shift identity at P=137257 gives a period, also independently certified by exact return of the complete seven-term state. The frozen Step 2 checks least period of the full residues, not automatically that of their zero-indicator. The indicator assertion follows from the certified census itself: if its least period d properly divided P, P/d would divide the zero total 19608, impossible since 7·19608=P−1. The replay additionally checked indicator mismatches at n=9 for shift 29 and n=1 for shift 4733. It traversed every index of [0,P), compared all 50 CSV entries (which agree with the printed table) and counted the wrap gap of 12 once. Counts sum to 19608 and their weighted sum is P. The unique largest gap is 85736→85801, so the given 64-index interval is zero-free and 65 is the sharp universal window. Touchard implies that zeros seven apart force an intermediate zero at the next index, independently proving the exclusion of gap 7. Cyclic repetition gives each limiting frequency with denominator 19608.",
+      "residual_risks": [
+        "The exact finite certificate is for ordinary Bell numbers modulo 7 and nonnegative indices; it gives no uniform cutoff under variation of the prime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The least residue period Nₚ is proved in the inspected period paper for p<126.",
+          "The related all-spacing progression result gives Cₚ,ℓ(h)=(p^(p−ℓ)−1)/(p−1) for specified equally spaced zero constraints; at ℓ=1 it gives the known count 19608 for p=7 and at ℓ=2 it gives two-site incidence, not consecutiveness in the list of zeros."
+        ],
+        "reasoning": "Periodicity reduces the problem to a finite cycle but leaves the order of zeros to be resolved. The all-spacing result does not supply counts for arbitrary joint zero/nonzero constraints, so no numerical first-return conclusion follows by just specializing p=7 and h=d.",
+        "searches": [
+          "Montgomery–Nahm–Wagstaff (2010), Theorem 1.1",
+          "Local Resultary a94dfefa7c3c, Finding and proof Step 5",
+          "Gallardo–Rahavandrainy (2014), §5.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and prior-work discussion",
+        "Resultary d878bd6a14d4 and a94dfefa7c3c",
+        "Montgomery–Nahm–Wagstaff (2010), Gallardo–Rahavandrainy (2014), and OEIS A146097 and A054767"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "To count a gap d one must require zero at positions 0 and d relative to its start and nonzero simultaneously at all positions 1 through d−1.",
+          "Expanding those exclusions by inclusion–exclusion requires zero counts for general collections of intermediate offsets, not just arithmetic progressions. The trace description or a recurrence can compute these counts with further work, but a period or two-site incidence count does not give the exceptional 65 cutoff."
+        ],
+        "reasoning": "Credit the inherited count and period and the immediate structural gap-p exclusion. Computing the full arrangement, including the wrap and rare long-gap tail, is additional to those prior conclusions; it is not a numerical substitution in the progression formula.",
+        "searches": [
+          "Actual statements in Resultary a94dfefa7c3c and Montgomery–Nahm–Wagstaff Theorem 1.1; Gallardo–Rahavandrainy §5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Largest adjacent-zero return gap 65 is equivalently a longest consecutive string of 64 nonzero residues; the histogram is the exact distribution of such run lengths plus one, including length zero.",
+          "The retrieved 2014 summary concerns runs of consecutive zeros and their maximal length p−1, not runs of nonzeros."
+        ],
+        "reasoning": "Switching between zero spacing, zero-free strings and the sharp window does not change the invariant. Switching to a longest string of consecutive zeros does change it; that prior extremum gives no maximum nonzero run.",
+        "searches": [
+          "Local Resultary lookups for Bell mod 7 first returns, largest gaps and divisibility avoidance",
+          "Primary-literature comparison with Gallardo–Rahavandrainy §5.3 and its references on zero strings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A146097 records the period and supplies residues in a table for indices 0–10000, not a whole cycle; A054767 tabulates periods by modulus.",
+          "The exact Resultary hit d878bd6a14d4 is this assigned record, not distinct coverage; the nearby a94dfefa7c3c catalogue result has a different count statistic."
+        ],
+        "reasoning": "The available index table cannot certify the tail of the cyclic histogram or the gap starting at 85736. No identified distinct indexed table supplied a complete gap census or ordered zero set for the full period.",
+        "searches": [
+          "OEIS A146097 and A054767; local Resultary lookups for the 50-entry histogram and unique maximum"
+        ]
+      },
+      "rationale": "Best of available evidence, the supported distinct claim is the complete first-return distribution, especially its nonlocal tail and sharp 65-window, including the unique long gap's location. Do not credit the already known residue period, Touchard recurrence, or the trace-zero count as new. Available tables do not supply a full period, and the strongest nearby catalogue statement counts AP incidences without excluding intermediate zeros.",
+      "residual_risks": [
+        "No readable full text was obtained for Lunnon–Pleasants–Stephens (1979); the original Layman full text was not inspected, and its consecutive-zero result was checked through the 2014 treatment. Unindexed or inaccessible equivalent gap calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established residue period, not the gap census",
+          "evidence": "Nₚ=(p^p−1)/(p−1) is the least period for p<126.",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/ssw/mcom2340.pdf",
+          "material_read": "p. 1793, offset 0, Theorem 1.1",
+          "method": "Lawful original PDF passage",
+          "title": "The period of the Bell numbers modulo a prime",
+          "trigger": "Exact classical residue period at seven"
+        },
+        {
+          "assessment": "Consulted run statement is about zeros rather than zero avoidance",
+          "evidence": "Bound p−1 for consecutive zeros and the unique maximal string of zeros, citing Radoux and Layman.",
+          "identifier_or_url": "Electronic Journal of Combinatorics 21(4), 2014, Gallardo–Rahavandrainy",
+          "material_read": "§5.3, p. 27, offset 76422, and Layman reference on p. 28, offset 79601",
+          "method": "Lawful original PDF passages",
+          "title": "Bell numbers modulo a prime number, traces and trinomials",
+          "trigger": "Finite-field trace and discussion of runs near zeros"
+        },
+        {
+          "assessment": "Explicit progression incidence, not successive-zero gaps",
+          "evidence": "For every nonzero spacing h and each ℓ≤p, counts equally spaced zero terms under the full-period hypothesis; intermediate terms are not constrained.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-uniform-all-spacing-zero-progression-spectra-for-prime-period-be--a94dfefa7c3c/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; Step 5 and prior-work comparison from offset 4364",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform all-spacing zero progression spectra for prime-period Bell numbers",
+          "trigger": "Strongest distinct related catalogue result, covering p=7 and each nonzero spacing"
+        },
+        {
+          "assessment": "Known period plus partial data, not the complete cyclic first-return table",
+          "evidence": "A146097 lists residues and links n=0 through 10000, compared with P=137257; A054767 records periods.",
+          "identifier_or_url": "https://oeis.org/A146097 ; https://oeis.org/A054767",
+          "material_read": "A146097 offset 607; A054767 offset 0",
+          "method": "Original public database passages",
+          "title": "Bell numbers modulo 7 and periods of the Bell numbers modulo n",
+          "trigger": "Check for complete residue or gap tables"
+        },
+        {
+          "assessment": "No conclusion about full-paper coverage",
+          "evidence": "Access result only; possible implicit period or gap material remains a risk.",
+          "identifier_or_url": "https://doi.org/10.4064/aa-35-1-1-16 ; https://matwbn.icm.edu.pl/ksiazki/aa/aa35/aa3511.pdf",
+          "material_read": "Bibliographic reference only; substantive full text not read",
+          "method": "Lawful DOI/direct and alternate publisher and EUDML attempts; publisher scan had no extractable text, other routes did not yield readable text",
+          "title": "Arithmetic properties of Bell numbers to a composite modulus I",
+          "trigger": "Plausible earlier arithmetic or cycle coverage at the same prime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, full cyclic histogram and sharp window",
+        "Independent exact replay",
+        "Montgomery–Nahm–Wagstaff Theorem 1.1 and Resultary a94dfefa7c3c for the scope of known counts"
+      ],
+      "rationale": "The residue period and density do not show how long Bell divisibility can be avoided. Seven gives a natural first prime case with a six-digit Bell cycle (the full periods at 2, 3 and 5 are 3, 13 and 781). The complete census yields an exact worst-case spacing, the unique witness, and frequencies usable as a fixed-prime benchmark for trace-sequence run or divisibility-spacing analysis. Those require resolving the order of the zeros, not simply evaluating a known count or lookup table. The merit is that finite invariant, not a claim of a new period theorem or general gap law.",
+      "residual_risks": [
+        "This finite benchmark does not predict extreme gaps uniformly in p."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

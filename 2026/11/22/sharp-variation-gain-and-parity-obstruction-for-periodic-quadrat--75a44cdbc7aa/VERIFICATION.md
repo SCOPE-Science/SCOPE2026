@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the periodic quadratic-spline theorem
+# Independent mathematical audit
 
-The statement is proved analytically in RESULT.md. For a reproducible exact-arithmetic check, place `check_periodic_quadratic.py` beside this file and run:
+## correctness
 
-```sh
-python3 check_periodic_quadratic.py
-```
+PASS
 
-Observed on this package's source file:
+A unit-cell quadratic with secant Δ_i and left slope m_i has right slope 2Δ_i−m_i, so C¹ matching at every knot including the seam is (I+S)m=2Δ. For even n the nullspace and cokernel are both the alternating line; its pairing with Δ is −2 times its pairing with y. Slopes in the kernel generate the nonzero zero-data splines c(−1)^i t(1−t). For odd n the alternating finite series in S inverts the equation. On an atom Δ=e_p−e_q the slopes are 0, ±2. A nonflat-data cell is monotone and has variation 1; a flat-data cell goes out and back by |m_i|/4, for variation |m_i|/2≤1. Every zero-sum Δ is a nonnegative combination of these atoms with total mass ||Δ||₁/2, so linearity modulo constants proves the bound for every real datum. For the spike at 0, m_0=0 and m_i=2(−1)^i elsewhere, giving variation 1 on every cell, including the seam. Independent cell calculations for n=3 and 5 give ratios 3/2 and 5/2. The exact-arithmetic verifier was inspected, not executed; its reported finite checks are consistent with its loops but do not supply the universal proof.
 
-```
-EXACT_ODD_CYCLE_PAIR_TRANSPORT_AND_EXTREMIZERS_PASS 11900
-EXACT_RATIONAL_RANDOM_DATA_BV_BOUND_PASS 1800
-EVEN_CYCLE_COMPATIBILITY_AND_NULL_SPLINE_PASS
-ALL_PERIODIC_QUADRATIC_VARIATION_CERTIFICATES_PASS
-```
+## originality
 
-For odd n between three and 41 inclusive, all ordered elementary cyclic difference pairs are tested with exact rational integration of the absolute affine derivative on each cell. A further 1,800 deterministic rational-data examples test the predicted norm bound. For even n from four through 64, the compatibility obstruction, explicit nonzero zero-data spline and a compatible nonconstant datum are checked. The exact computations do not establish the universal quantifier, which instead follows from the cyclic-shift inverse, elementary two-edge bound and transport decomposition in the proof. A standalone verifier and all six descriptive files are included in the same record. No external independent audit has occurred.
+PASS
+
+Credit is for the sharp attained finite-circle TV norm, not for cyclic slope equations or a claim of new parity lore. The identical catalogue record is not independent priority evidence. The strongest distinct quadratic-periodic paper overlaps the interpolation/solvability setup, but the available evidence does not establish the n/2 norm. The inspected related catalogue statements concern different operators or domains. This is a best-of-evidence judgment, not an absolute priority claim.
+
+## value
+
+PASS
+
+For the ordinary exact periodic nodal interpolator, parity-based existence is not a stability result. The exact attained gain shows linear growth despite the existence and uniqueness of every odd mesh. A single-site datum produces order-one variation even on each flat-data cell, locating a real instability rather than an artifact of a loose operator bound. The invariant is directly useful when choosing or comparing periodic interpolation schemes in BV.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

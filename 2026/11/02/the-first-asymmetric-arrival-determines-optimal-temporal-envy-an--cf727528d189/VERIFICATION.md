@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and scope
+# Independent mathematical audit
 
-Running `python3 verify_binary.py` with ordinary Python 3 standard-library modules `itertools` and `fractions` enumerates all four binary valuation vectors in every ordered profile of length \(0\) through \(8\). This is \(1+4+16+64+256+1024+4096+16384+65536=87381\) input profiles. A dynamic program over signed own-minus-other utilities minimizes exact cumulative maximum envy without using the paper's parity construction. Its optimum agrees on every profile with both the closed formula and the explicit allocation's simulated cost. The script further checks the two oblivious-adversary valuation sequences for horizons \(2\) through \(30\), their offline costs, the wrong-first-choice costs, and the rational expected bound \((m+1)/2\).
+## correctness
 
-Expected final output: `VERIFY_OK exhaustive_binary_profiles=87381 horizon_family=2..30 worst_deterministic_ratio=m worst_randomized_minimax=(m+1)/2`.
+PASS
 
-The general theorem and competitive bounds are justified analytically in `RESULT.md`. Finite exhaustive experiments do not constitute a universal proof; the deterministic and randomized minimax equalities are deliberately restricted to two specified inputs. The external independent audit status is unperformed.
+Until the first private arrival the two agents value the same items, so the absolute difference of their common-good counts is a pointwise parity lower bound. Give each private good to its valuer. With private counts A and B, and with X the common-good count of agent 1 minus that of agent 2, zero envy is exactly the feasibility interval −A≤X≤B. Alternation can keep X in {−1,0} or {0,1} throughout: pick the side made feasible by the first private arrival. That interval only expands, so this single allocation realizes the parity bound before the arrival and zero thereafter. Neutrals change neither count; no private arrival leaves a parity-only stream, and an initially private good gives a zero optimum. The pointwise bound proves both the unweighted and nonnegatively weighted claims; choosing the alternation phase by a preliminary scan costs O(m) overall. In the displayed pair of streams, a wrong assignment of the first common good leaves the other agent envying by one for every round, irrespective of future choices. With a correct first choice, giving later goods to their valuers attains cost 1. The two indistinguishable first choices give the deterministic lower and upper bound m. For a randomized rule with first-choice probability p, the two fixed inputs have expected costs at least 1+(m−1)p and 1+(m−1)(1−p); a fair coin followed by assigning to valuers attains their smallest possible maximum. Both optima equal 1. This is expected minimax only on that input pair, for m≥2, with an oblivious adversary. The source DP code tests cumulative values on finitely many instances; the argument above, not those tests, establishes simultaneous pointwise optimality for all horizons. The frozen checker is documented in VERIFICATION.md; no replay of that source script was needed.
+
+## originality
+
+PASS
+
+The identical-binary parity behavior is already covered by pointwise greedy optimality. The supported distinct contribution is the heterogeneous binary extension (one allocation reaching the exact minimum at all prefixes, including after the first private arrival), together with the exact unknown-future two-input competitive gap for cumulative maximum envy. The strongest inspected primary and catalogue statements do not give this combination or imply either distinct conclusion. This is a best-of-knowledge comparison, not a priority certification.
+
+## value
+
+PASS
+
+The prefix criterion is stronger than minimizing the sum, and unlike a general dynamic program the theorem identifies exactly what future information matters: the first private good's valuer determines a single balancing phase that makes all subsequent envy vanish. This yields a linear-time exact allocation and robustness to arbitrary nonnegative prefix weights. The indistinguishable-stream construction shows that loss of this small piece of foresight can produce unbounded multiplicative cost even under an oblivious choice of input, separating tractability from online information requirements without overstating the exact unrestricted ratio.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

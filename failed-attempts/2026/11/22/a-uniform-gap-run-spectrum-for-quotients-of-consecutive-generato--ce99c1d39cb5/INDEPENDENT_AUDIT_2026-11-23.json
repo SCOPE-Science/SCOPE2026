@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:35:00.954836Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75; VERIFICATION.md; CHECK.py (inspected, not executed)",
+        "python3 /workspace/reproductions/gap_runs.py: exact two-denomination reachability through the original Frobenius bound for 2≤p≤40, 1≤k≤25"
+      ],
+      "rationale": "With exactly t copies of the two consecutive generators in total, all integers from (pk+1)t through (pk+2)t are represented. Selecting the multiples of p gives I_t=[kt+ceil(t/p),kt+floor(2t/p)] as integer intervals. Between t=0 and h=ceil(p/2) all other I_t are empty; I_h starts at hk+1 and I_t is nonempty thence by writing t=qp+r, 0≤r<p. Both endpoints strictly increase because k≥1. The gap after I_t has length max(0,k-q-[r≥h]), using ceil((t+1)/p)=floor(t/p)+1. For each j=1,...,k-1 this is k-j at exactly the p consecutive indices (j-1)p+h through jp+h-1; all later intervals meet or overlap without a gap. With the initial run of length hk this proves the exact run polynomial, including k=1. The last missing integer is one below the left endpoint of I_((k-1)p+h); this yields the claimed F both at k=1 and later. The genus is the sum of all lengths. Summing the polynomial in k gives uz^h/(1-uz^h) plus p u²z/((1-u)(1-uz)), by summing k≥ℓ+1 for each ℓ≥1. Independently reproduced all 975 finite comparisons and counted 246675 runs by marking representable original sums, not by the frozen modular criterion. This check is finite corroboration; the interval argument establishes the quantifiers.",
+      "residual_risks": [
+        "The proof and the checks concern only the two generators and quotient in the record. The negative disposition does not indicate a mathematical error."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.3 holds for all a≥2 and includes a=pk+1 without a parity restriction. The checked abstract passages of the two general quotient papers instead concern algorithms, generating functions and numerical invariants.",
+          "The same-day ordinary two-generator run theorem applies to p=2: in a representation of 2n the coefficient of the odd generator 2k+1 is even, hence Q_(2,k)=⟨k+1,2k+1⟩."
+        ],
+        "reasoning": "The generic quotient algorithms are not the decisive overlap. The explicit complete elementary description does cover the frozen family uniformly, and the ordinary two-generator theorem covers the p=2 slice independently. No same-day priority is inferred.",
+        "searches": [
+          "Liu arXiv:2607.23076v1, Proposition 2.3",
+          "Cabanillas arXiv:1904.08240v2 and Liu arXiv:2312.10889",
+          "Resultary 16981d7827be, ordinary two-generator gap-run spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially Claim and Relationship to prior work",
+        "Feihu Liu arXiv:2607.23076v1 §2",
+        "Resultary 8ccc824c548d, 0d9290baf24e, 16981d7827be",
+        "Cabanillas arXiv:1904.08240v2 and Liu arXiv:2312.10889 (abstract passages only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=pk+1 let q=pt+r, 0≤r<p. Since 0≤q≤pk−1, t=0,...,k−1. Taking the multiples of p in qa+[q+1,pk] and dividing by p gives exactly [at+kr+t+ceil((2r+1)/p), at+k(r+1)] (as integer intervals, empty if reversed). This comes from rounding the two endpoints, with no further semigroup result.",
+          "Put h=ceil(p/2). For r<h the ceiling is 1 and the length is k−t; for r≥h it is 2 and the length is k−t−1. Within each t the distance between the end of one r and the start of the next r is t plus the next ceiling; across adjacent t blocks the distance is at least t+3. The only joining of nonempty intervals is therefore r<h at t=0, giving [1,hk]. For each ℓ=1,...,k−1 the r<h row with t=k−ℓ and the r≥h row with t=k−ℓ−1 contribute h and p−h distinct maximal runs."
+        ],
+        "reasoning": "These direct endpoint calculations prove exactly z^(hk)+pΣ_(ℓ=1)^(k−1)z^ℓ from the published full gap description. Genus, final gap and the generating function over k then follow by summing lengths, reading the last endpoint, and summing a geometric series, respectively. Exact printing of the target run polynomial is unnecessary for coverage.",
+        "searches": [
+          "Liu arXiv:2607.23076v1, §2, Proposition 2.3; direct modular extraction with a=pk+1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quotient gap set is exactly the set of multiples of p in the original gap set, divided by p. Liu's original gap set for ⟨a,a+1⟩ is {qa+j: 0≤q≤a−2, q+1≤j≤a−1}.",
+          "Resultary 8ccc824c548d gives bijective parameters for the entire gap set of this same quotient at odd moduli, not just the resulting parity discrepancy."
+        ],
+        "reasoning": "The histogram is obtained by grouping maximal intervals in the rescaled original gap formula; on the odd-modulus family one can also group the existing quotient-specific parameters directly. This goes beyond matching genus and Frobenius number.",
+        "searches": [
+          "Resultary: consecutive-generator quotients, full gap runs, residue discrepancy, isolated gaps",
+          "Feihu Liu arXiv:2607.23076v1, §2 Lemma 2.2 and Proposition 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The modulus-three isolated-gap record gives full Apéry data W_j determining membership and all gaps, even though the Finding emphasizes isolated gaps.",
+          "The odd-modulus residue record derives a complete gap parameterization in its proof. The ordinary two-generator run record gives exact spectra but directly overlaps this quotient comparison only on the established p=2 slice."
+        ],
+        "reasoning": "A finite table would not adjudicate the two-parameter identity. These indexed exact formulas already establish real special-family overlap, but the all-p decision uses Liu's primary-source gap formula, not a lack of an exact polynomial hit.",
+        "searches": [
+          "Resultary exact gap-run, isolated-gap, Apéry and gap-residue records: 0d9290baf24e, 8ccc824c548d, 16981d7827be"
+        ]
+      },
+      "rationale": "The complete all-modulus run spectrum is a mechanical consequence of an earlier explicit description of all gaps for consecutive generators, Feihu Liu, arXiv:2607.23076v1, Proposition 2.3. This is not merely a general computability observation or a prior on aggregate invariants: imposing one congruence on the published two-index gap formula yields the entire run partition by a single division into residue blocks. The prior does not need to print the same polynomial. The frozen record credits odd and modulus-three overlap only in more limited ways and does not account for this all-modulus prior implication.",
+      "residual_risks": [
+        "No assertion that the earlier source printed the exact run polynomial or that this is the earliest source of the underlying explicit gap formula.",
+        "Ordering of same-day records does not enter the conclusion; the decisive Liu preprint predates them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical coverage of the complete all-modulus claim",
+          "evidence": "Membership for n=qa+j iff j≤q; Proposition 2.3 gives the full complement explicitly as 0≤q≤a−2 and q+1≤j≤a−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.23076v1",
+          "material_read": "§2, Lemma 2.2 and Proposition 2.3, PDF pp. 5–6, extracted offset 15200 onward",
+          "method": "Primary OA PDF passage and independent algebraic specialization",
+          "title": "On the Frobenius Number of Quotients of Numerical Semigroups",
+          "trigger": "Earlier exact membership and gap descriptions for the unquotiented consecutive pair"
+        },
+        {
+          "assessment": "Mechanical coverage of the odd-modulus specialization",
+          "evidence": "The proof parameterizes all gaps bijectively; grouping its parameters yields the runs even though the finding states residue counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-two-unit-gap-residue-discrepancy-law-for-odd-quotients-o--8ccc824c548d",
+          "material_read": "Mirrored Finding and Proof §1, Unique gap parameters",
+          "method": "Resultary search and local mirrored RESULT.md",
+          "title": "A sharp two-unit gap-residue discrepancy law for odd quotients of consecutive-generator numerical semigroups",
+          "trigger": "Same quotient for all odd moduli"
+        },
+        {
+          "assessment": "Exact coverage of the underlying p=3 gap set",
+          "evidence": "For each residue the full membership starting point W_j is supplied, rather than just the isolated gaps.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-isolated-gap-classification-for-a-threefold-quotient-of--0d9290baf24e",
+          "material_read": "Mirrored Finding and proof §2, Apéry representatives W_j, and separate k=1 case",
+          "method": "Resultary search and local mirrored RESULT.md",
+          "title": "Complete isolated-gap classification for a threefold quotient of consecutive-generator numerical semigroups",
+          "trigger": "Frozen record credits a modulus-three isolated-gap/Apéry result"
+        },
+        {
+          "assessment": "Coverage on the p=2 slice; same-day relative priority undetermined",
+          "evidence": "The exact ordinary run theorem applies with the coprime pair k+1 and 2k+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-affine-rigidity-of-the-complete-gap-run-spectrum-of-two-generato--16981d7827be",
+          "material_read": "Mirrored statement of the complete ordinary coprime two-generator run spectrum",
+          "method": "Resultary search and local mirrored RESULT.md",
+          "title": "Affine rigidity of the complete gap-run spectrum of two-generator numerical semigroups",
+          "trigger": "Same invariant under ordinary two-generator presentation"
+        },
+        {
+          "assessment": "Related general methods, not needed for the decisive implication",
+          "evidence": "The abstract describes algorithms for minimal generators and invariants of two-generator quotients, not an exact maximal-run formula.",
+          "identifier_or_url": "https://arxiv.org/html/1904.08240v2",
+          "material_read": "Abstract",
+          "method": "Primary OA text",
+          "title": "Quotients of numerical semigroups generated by two numbers",
+          "trigger": "Broader quotient theorem potentially subsuming the invariant"
+        },
+        {
+          "assessment": "Background generating functions, not the decisive comparison",
+          "evidence": "Studies quotient generating functions and generators; the frozen bivariate series enumerates maximal missing runs, not semigroup membership itself.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.10889",
+          "material_read": "Abstract",
+          "method": "Primary OA abstract",
+          "title": "Generating functions for the quotients of numerical semigroups",
+          "trigger": "Potential generating-function equivalence for the quotient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§ on exact run lengths and global invariants",
+        "Liu arXiv:2607.23076v1 §2 and the explicit extraction in claim_vs_prior_implication"
+      ],
+      "rationale": "The lengths of maximal gaps are a natural finer invariant than genus and Frobenius number, and the formula is a useful explicit restatement. As a contribution of the frozen scope, however, it is obtained from the earlier complete gap formula by taking one arithmetic progression, then grouping adjacent intervals and reading their lengths. The global invariants and rational generating function add routine sums to that same consequence. No distinct independently valuable theorem remains in the record after crediting the mechanical coverage.",
+      "residual_risks": [
+        "This judgment is about the submitted contribution, not about whether the run invariant could be useful in a genuinely new family. No repair was attempted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

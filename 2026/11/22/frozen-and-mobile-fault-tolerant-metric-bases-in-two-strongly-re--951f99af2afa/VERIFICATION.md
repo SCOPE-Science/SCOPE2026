@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Finite verification instructions and scope
+# Independent mathematical audit
 
-Run the accompanying independent standard-library Python 3 and C++17 files:
+## correctness
 
-```sh
-python3 verify_pair_masks.py
-c++ -std=c++17 -O2 -Wall -Wextra verify_direct.cpp -o verify_direct
-./verify_direct
-```
+PASS
 
-The supplied `VERIFY_PYTHON_OUTPUT.txt` and `VERIFY_DIRECT_OUTPUT.txt` record successful runs of the delivered source. The programs construct both 16-vertex graphs from coordinate adjacency rules, check degree six and two common neighbors for every pair, test all 4,368 five-subsets and 8,008 six-subsets, and establish the exhaustive minimum-base counts. They independently construct exchange edges: selected/unselected bit operations versus comparing all unordered accepted-set pairs. Both compute complete connected components, edge counts and all-source shortest-path histograms. The Python implementation additionally enumerates explicit automorphism actions and orbit sizes.
+Two distinct distance witnesses for every distinct pair are necessary and sufficient for one landmark erasure. Monotonicity excludes all smaller nonempty sets once each of the 4,368 five-sets fails. A fresh enumeration tested all 8,008 six-sets in each graph and got 448 and 1,600. It reproduced the exact exchange edges, singleton and connected component counts, all eccentricities and entire unordered-distance histograms by exhaustive shortest paths, as well as the orbit lists. Pair counts total 100,128 and 1,279,200 in the connected cases. The verified natural group orders are also full: in Shrikhande the stabilizer of 0 acts faithfully on its neighbor cycle C6, since the nine nonneighbors have distinct pairs of neighbors on that cycle. Thus its order is at most 12, and translations give the 192 bound. In rook the local graph is two disjoint triangles, whose automorphism group has order 72; an off-row/off-column vertex is uniquely determined by one neighbor in each triangle. This gives the 1,152 bound, attained by coordinate permutations and interchange. The exact two-replacement assertion is for Shrikhande; it contains all allowed positive moves of budget two there because one-exchange has no edges.
 
-The enumeration is a full finite proof for the two named graphs and the stated move relations. It does not prove statements about larger strongly regular graphs or an infinite family. A failed runtime check is not equivalent to a mathematical contradiction. Independent academic review and unindexed literature priority searches have not been performed.
+## originality
+
+PASS
+
+Two-witness resolution is known as the k=2 metric generator problem, and exchange geometry on this specific canonical pair has been studied for identifying codes. The prior admissible families and distances are demonstrably different; their enumerations do not imply this minimum two-witness census or its exact exchange threshold and metric distinction.
+
+## value
+
+PASS
+
+These are the canonical contrasting strongly regular graphs with identical (16,6,2,2) parameters and, here, the same optimum landmark count. The sharp contrast between total one-move arrest and full one-move mobility, followed by restoration of connectivity at budget two, shows that these shared parameters do not fix optimum-landmark reconfiguration. The complete distances and orbit data characterize this concrete benchmark without arbitrary graph or move cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

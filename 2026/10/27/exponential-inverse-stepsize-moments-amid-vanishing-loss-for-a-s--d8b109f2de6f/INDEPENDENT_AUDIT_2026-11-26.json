@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:16:28.813284Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The population mean and second moment of the component gradient are x and 1+x², so the pre-sample oracle step gives the maps T±(x)=x(1±x)/(1+x²). For x∈(0,1), T₋(x) is positive and below x while x<T₊(x)<1, using 1−T₊(x)=(1−x)/(1+x²). The conditional second moment is x²/(1+x²). Thus x_n² is a bounded nonnegative supermartingale and Jensen gives 1/E[x_(n+1)²]≥1/E[x_n²]+1. The expected objective gap is half the second moment; dominated convergence then identifies the almost-sure limit as zero. On n−1 plus draws then one minus, with probability 2^(−n), the plus orbit y_k has deficits δ_k=1−y_k with δ_(k+1)=δ_k/(1+y_k²)≤δ_k/(1+x_0²). Hence Σδ_k<∞, and the factors 2/(1+y_k²) differ from one by at most 2δ_k. This proves 2^kδ_k→D(x_0)∈(0,∞). The last minus map gives 2^n x_n=2^n y_(n−1)δ_(n−1)/(1+y_(n−1)²)→D on those varying words. Restricting E[(1+x_n^(−2))^(p/2)] to the word proves exactly the stated scaled liminf for every fixed p>1. This is a lower moment bound, not an upper rate or a pathwise assertion about the rare words. The supplied finite rational tests are corroborative; the infinite claim is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 gives an initial-phase-adjusted O(1/n) expected objective estimate; Algorithm 5 estimates, smooths and safeguards the step.",
+          "The heavy-tail paper assumes a step bounded away from zero and proves a power-tailed stationary iterate law under Markovian scheduling."
+        ],
+        "reasoning": "The expected-loss statement is a specialization of prior work. Neither a stationary iterate theorem for exogenous schedules nor the practical safeguarded algorithm covers the exact convergent recursion and lower tail of its gain.",
+        "searches": [
+          "arXiv:2311.16956 §3 Theorem 3.4 and §5 Algorithm 5",
+          "arXiv:2302.05516 §3 and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_oracle.py",
+        "arXiv:2311.16956v2",
+        "arXiv:2302.05516",
+        "Resultary 3ab515bf7bd8, 021cc30589a6, 1fa6e0d62694 and f3353a613be1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The objective bound controls a positive second moment, whereas the exponential lower bound comes from words of probability 2^(−n) reaching x of order 2^(−n). The prospective multiplier in f3353a613be1 belongs to a different two-curvature feedback model."
+        ],
+        "reasoning": "The objective estimate does not quantify shrinking-window lower-tail events needed for inverse moments. Obtaining the n-step exponential factor requires identifying the approach to the plus-map fixed point at one and its conversion to a near-zero iterate by the last minus update; it is not furnished by the prior convergence theorem.",
+        "searches": [
+          "arXiv:2311.16956 Eq. (3.2), Theorem 3.4 versus RESULT.md lines 56–81",
+          "Resultary f3353a613be1 prospective amplification comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (3.2) is exactly the frozen true-moment step.",
+          "The Resultary RMSprop staircase 3ab515bf7bd8 concerns inverse moments of an independent Gaussian squared-gradient accumulator, not the ratio containing the optimizer state."
+        ],
+        "reasoning": "The oracle definition is the same as Köhne et al., but the frozen inverse moment is the inverse of the state-dependent gain. It is not the inverse RMSprop denominator or a stationary iterate moment.",
+        "searches": [
+          "Resultary inverse-moment and online-ratio adaptive stepsize searches",
+          "arXiv:2311.16956 §3 Eq. (3.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The RMSprop record yields a finite-startup inverse-moment criterion; the curvature-stability record studies feedback targets such as E[A⁻¹]; the rare-error record studies stationary error; the online-gain record studies a prospective squared multiplier."
+        ],
+        "reasoning": "This is a continuum-in-x_0 and p, infinite-time assertion rather than a tabulated exact invariant. None of the examined exact indexed formulas is a specialization giving the positive liminf of the corrected inverse-step moment.",
+        "searches": [
+          "Resultary 3ab515bf7bd8, 021cc30589a6, 1fa6e0d62694, f3353a613be1 comparisons"
+        ]
+      },
+      "rationale": "The ideal rule and an O(1/n) expected objective bound are prior work; the supported distinct claim is the exponential inverse-moment lower bound coexisting with convergence in the specific true-moment oracle recursion. The closest inspected primary and indexed comparisons use different random variables or dynamics and do not imply that lower bound.",
+      "residual_risks": [
+        "This is a bounded comparison, not historical priority certification. Older work using other terminology for lower tails of adaptive gains was not exhaustively screened."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rule and expected convergence covered; inverse moment not established by these statements",
+          "evidence": "Eq. (3.2) uses the true energy; Theorem 3.4 controls expected loss, while Algorithm 5 introduces estimation and rejection.",
+          "identifier_or_url": "https://arxiv.org/html/2311.16956v2",
+          "material_read": "§3 Eq. (3.2), Theorem 3.4 (offsets 33300, 40950); §5.2, Algorithm 5 (62400, 89450)",
+          "method": "OA original arXiv HTML passages; PDF attempt unsuccessful",
+          "title": "Adaptive Step Sizes for Stochastic Gradient Descent in Hilbert Spaces",
+          "trigger": "Identical ideal oracle rule"
+        },
+        {
+          "assessment": "Different observable and hypotheses",
+          "evidence": "The step stays away from zero, and Theorem 2 is about a stationary iterate law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05516",
+          "material_read": "§3 p. 5 and Theorem 2 p. 6 (offsets 21200, 28600)",
+          "method": "OA original PDF passage inspection",
+          "title": "Cyclic and Randomized Stepsizes Invoke Heavier Tails in SGD than Constant Stepsize",
+          "trigger": "Heavy tails in SGD with varying stepsizes"
+        },
+        {
+          "assessment": "Related inverse moment, different dynamics",
+          "evidence": "The accumulator has independent Gaussian innovations; finite-startup finiteness at n>2p is not a history-wise rare event for the gain of a convergent optimizer.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-half-integer-inverse-moment-staircase-for-a-gaussian-rmsprop-v--3ab515bf7bd8",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A half-integer inverse-moment staircase for a Gaussian RMSprop variance accumulator",
+          "trigger": "Closest indexed inverse-moment formulation"
+        },
+        {
+          "assessment": "Conceptual analogue only",
+          "evidence": "Compares a stationary out-of-sample squared multiplier with actual almost-sure convergence, not reciprocal true-moment stepsizes.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-online-gain-phase-boundary-between-typical-convergence-a--f3353a613be1",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp online-gain phase boundary between typical convergence and prospective squared amplification",
+          "trigger": "Closest indexed separation of convergence from a gain statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example gives a motivated counterexample to treating expected-loss convergence as evidence of stable inverse ideal gains. It works without moment-estimation noise in two strongly convex quadratic samples and gives a quantitative rare-history mechanism and a range of divergent moments. It does not claim practical safeguarded SGD instability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

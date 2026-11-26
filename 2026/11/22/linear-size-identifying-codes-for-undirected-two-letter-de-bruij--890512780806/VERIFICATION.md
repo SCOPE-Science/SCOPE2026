@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,6 @@
 }
 ---
 
-The closed-neighborhood formula for every vertex is explicitly proved in `RESULT.md`. The three small block templates have complete nonzero, distinct bit-mask matrices in that proof; the block-composition argument extends them to every integer alphabet size at least three. The general lower bound is by contradiction using empty rows and columns of the selected ordered-pair matrix.
+The closed-neighborhood identity, explicit masks, and block-composition argument in `RESULT.md` prove the uniform construction. The lower bound uses the constraints imposed by empty rows and columns. No finite alphabet cutoff is used to deduce the uniform conclusion.
 
-Run `python3 check_bounds.py` and `python3 check_adjacency.py` in the same directory. The standard-library script exhaustively checks all \(84\), \(1820\) and \(53130\) size-\(q\) candidates for \(q=3,4,5\), respectively. It also checks the explicit block constructions for alphabet sizes \(3\) through \(100\). The finite tests are supplementary to the unrestricted mathematical proof and do not establish optimality for larger alphabet sizes.
-
-No independent audit has been performed. Literature coverage may be incomplete, and the present work does not assert an exact formula for the unrestricted optimum above alphabet size five.
-
-The second script independently builds the undirected graph adjacency and checks every vertex neighborhood for alphabets 3 through 100.
+The Python 3 programs `check_bounds.py` and `check_adjacency.py` use only the standard library. They check the construction for alphabets 3 through 100 by the signature and explicit adjacency formulations, respectively. The first also produces the masks and tests the 84, 1820 and 53130 size-q candidates at q = 3, 4 and 5. Those finite exclusions reproduce the minima in Horan–Adachi–Bak (arXiv:1504.08011v2, Figures 8–9) and are not separate results here.

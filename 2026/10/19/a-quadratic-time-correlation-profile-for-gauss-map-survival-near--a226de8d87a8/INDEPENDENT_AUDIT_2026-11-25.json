@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:07:07.640057Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For y in [0,1/k], exactly the inverse branches 1/(j+y), j≥k, stay in the observation interval, apart from null boundary points. Applying the Jacobians n−1 times and integrating also gives the exact n=1 normalization. Independently normalize the operator by p and write it as expectation over J with mass J^(−2)/p. Put d=q/p=E(1/J)≤1/k and test h(y)=1−2dy. Uniformly in y and J, (1+y/J)^(−2)=1−2y/J+O(k^(−4)) and 1−2d/(J+y)=1−2d/J+O(k^(−4)); the product of the two linear defects is also O(k^(−4)). Averaging gives Lh/p=1−2dy−2d²+O(k^(−4))=(1−2d²)h+O(k^(−4)). Both h and 1−2d² are bounded below by 1−2/k². Positivity iterates the relative O(k^(−4)) error, and endpoint integration and replacing h by 1 cost O(k^(−2)). This yields the asserted uniform relative error for n≤Ck². Since d=1/(2k)+O(k^(−2)), the log of the independent-digit-normalized rate is −1/(2k²)+O(k^(−3)); multiplying by n−1 gives the limit, including τ=0. The frozen checker was inspected, not executed: its rational-cylinder, digamma, sampled residual and zeta-tail checks are finite corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nisoli certifies an iterate expansion and a remainder for the unrestricted Gauss–Kuzmin–Wirsing operator on H²(D₁)."
+        ],
+        "reasoning": "That operator is not the k-dependent large-digit transfer operator; the full-map eigenvalues do not bound powers of this moving restriction.",
+        "searches": [
+          "Targeted web literature search for Gauss survivor/large-digit cylinder asymptotics",
+          "Nisoli arXiv:2602.19435v1, Theorem 1.1 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Liu–Liao arXiv:2610.14534v1",
+        "Nisoli arXiv:2602.19435v1",
+        "Resultary record 32814d432a29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pressure takes n→∞ at fixed cutoff, and the certified spectral expansion is for the unrestricted operator. The frozen theorem needs an O(k⁻⁴) relative one-step defect and control of an O(k⁻²) endpoint factor."
+        ],
+        "reasoning": "Neither inspected limiting statement supplies those estimates. A bounded distortion comparison or a pressure zero alone does not select the factor exp(−τ/2).",
+        "searches": [
+          "Liu–Liao Eq. (1.5) and Theorem 1.5",
+          "Nisoli Theorem 1.1",
+          "Resultary Lambert-W survivor record RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Away from null endpoints, the finite survival condition is exactly that the first n continued-fraction digits are at least k; Liu–Liao use words drawn from the all-time survivor and take the normalized log of weighted continuant sums."
+        ],
+        "reasoning": "The symbolic alphabet is shared, but a dimension pressure zero is not the relative Lebesgue mass of finite unions of cylinders at a growing horizon.",
+        "searches": [
+          "Resultary semantic searches for Gauss finite survival and equivalent restricted-digit pressure",
+          "Liu–Liao arXiv:2610.14534v1, Eq. (1.5), Theorem 1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed record gives an enclosure of width 2/(N² log N) and a Lambert-W expansion for dim_H E(1/N), not a finite-mass formula. Neither inspected primary theorem tabulates the relative mass or the quadratic-time profile."
+        ],
+        "reasoning": "The same threshold sequence does not make the dimension enclosure a database of the requested survival quantity; the indexed dimension result is also dated later.",
+        "searches": [
+          "Resultary semantic searches",
+          "2026/10/25/SCOPE-a-lambert-w-boundary-layer-and-lattice-correction-for-gauss-surv--32814d432a29"
+        ]
+      },
+      "rationale": "The inspected sources share the Gauss branches, the hole, or the transfer-operator method, but do not provide the claimed finite-horizon Lebesgue asymptotic or mechanically imply its uniform error and crossover coefficient. Pass is limited to that combined finite-time claim, not the symbolic cutoff, pressure construction, or transfer operator.",
+      "residual_risks": [
+        "The search is bounded: older large-digit continuant estimates or a uniform moving-cutoff perturbation theorem could give equivalent coverage. The cited statements were checked, not every work on Gauss-map spectral theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared model and all-time symbolic/pressure results; no finite-time conclusion in the inspected statements",
+          "evidence": "P(t,α) is a limit over word lengths, and Theorem 1.5 characterizes dim_H E(α) by its unique zero at rational α.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.14534v1",
+          "material_read": "PDF pp. 3–4, Eq. (1.5) and Theorems 1.4–1.5; HTML Theorem 1.1 excerpt",
+          "method": "OA literal location and bounded PDF offset 10830",
+          "title": "Survivor Set of Gauss Map with a Hole at 1",
+          "trigger": "Same hole and alphabet"
+        },
+        {
+          "assessment": "Unrestricted Gauss operator, not the moving cutoff",
+          "evidence": "The theorem encloses the first 50 nonzero eigenvalues and validates an H²(D₁) remainder for the Gauss–Kuzmin expansion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.19435v1",
+          "material_read": "PDF p. 3 Theorem 1.1; §4 operator excerpt",
+          "method": "OA literal location and bounded PDF offset 8900",
+          "title": "Certified spectral approximation of transfer operators and the Gauss map",
+          "trigger": "Potential spectral-perturbation coverage"
+        },
+        {
+          "assessment": "Different observable and later record",
+          "evidence": "Uses the same alphabet a_j≥N to estimate Hausdorff dimension, not finite Lebesgue survivor mass.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-lambert-w-boundary-layer-and-lattice-correction-for-gauss-surv--32814d432a29",
+          "material_read": "RESULT.md finding and dimension/pressure estimates",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A Lambert-W boundary layer and lattice correction for Gauss survival",
+          "trigger": "Strongest same-cutoff catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies when multiplication of the zero-endpoint branch Jacobians ceases to approximate the actual Lebesgue survival mass by a factor tending to one. At a natural diverging horizon O(k²), O(k⁻²) per-observation dependence accumulates into a nontrivial loss whose sign and coefficient are determined, while the corrected law retains a uniform relative error. A dimension or escape-rate-only result does not answer this finite-observation question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

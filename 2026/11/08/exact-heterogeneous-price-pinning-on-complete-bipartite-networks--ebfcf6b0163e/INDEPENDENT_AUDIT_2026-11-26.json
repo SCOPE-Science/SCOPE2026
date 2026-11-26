@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:33.231411Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the two diagonal blocks, PSD requires every shifted diagonal entry x_i,y_j>0 by a cross-shore 2×2 minor. On that domain the rank-one Schur complement is exactly (Σ1/x_i)(Σ1/y_j)≤1. The displayed iff in Proof 1 should be read with this positivity condition from its preceding sentence; the product alone on arbitrary signed diagonals is not sufficient. For the stated positive max formulas, A is nonincreasing and d=cA nondecreasing. Before any first-part activation, d is strictly increasing, so the second reciprocal sum strictly decreases once a second-part threshold is passed; after first-part activation A strictly decreases. Thus no level-one plateau is possible; the limit near c=0 exceeds one (is infinite if t≥min(p,q)), and the large-c limit is zero. At the root, the positive vector with components c/X_i and d/Y_j has shore sums d and c, so is a null vector of the shifted pinned matrix, which is PSD by the criterion. Its squared components are bounded by prices and equal them at positive gains. For any other feasible allocation, testing its shifted matrix on this vector bounds the cost difference below by a nonnegative quadratic form. Equal cost forces that vector into the new null space too; every component is positive, so the allocation is identical. Uniform extra gain h gives F(t+h)≤F(t)+h times the sum of prices, and a slight cost reduction from an allocation strictly above a lower target proves strict monotonicity. The constant-vector test gives divergence. As t tends to zero the c root tends to q times the square root of the minimum price (the end of the t=0 plateau), giving sole activation for a unique cheapest vertex. Full activation gives c=T_β and d=T_α and the exact affine law, valid also at a zero-gain boundary. For two shorewise prices α<β and second shore free, the quotient gives (q+a−t)(p−t)=pq and d=p√α; the second shore activates exactly at p−t=p√(α/β). This verifies the transition, both rates, and boundary agreement. The supplied verify_bipartite_pinning.py was inspected, not executed; its finite numerical or exact-rational cases are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou et al. gives the general numerical LMI in its gains-optimization section, with weights w_i^α and the analytic equal-price case.",
+          "Jafarizadeh DOI retrieval (direct and VPN) returned HTTP 202, with no repository copy located; the frozen RESULT.md lines 119 and 130 describe a prescribed-side equal-price specialization but this has not been confirmed from primary text."
+        ],
+        "reasoning": "A general formulation or numerical solver can pose/evaluate a target instance without implying an exact two-scalar reduction, uniqueness proof, or activation threshold. No indexed complete-multipartite vertex-gain theorem turned up in the bounded alternative query. The inaccessible paper is a residual risk, not a negative result.",
+        "searches": [
+          "Resultary: fixed-target Perron eigenvector obstacle KKT weighted diagonal loading Laplacian pinning complete multipartite price-constrained gains",
+          "Primary: complete bipartite pinning smallest eigenvalue budget heterogeneous gains optimal control prices",
+          "DOI 10.1109/TSMC.2022.3151222"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_bipartite_pinning.py",
+        "Resultary records d4f15457e35c, c15ed907d8eb, 0cbf04a51dbd",
+        "arXiv:1511.02012v1",
+        "DOI 10.1109/TSMC.2022.3151222 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The star solution has one hub term and one leaf sum; the complete-graph feasibility reduction has a single all-vertex sum. The K_{2,m} near hit optimizes edge conductance and λ₂(L)."
+        ],
+        "reasoning": "When p=1 the reciprocal product becomes (1/x)Σ1/y_j, recovering the star; the reverse extension is not substitution because a second independently priced shore adds separate gain thresholds and needs both coupled sums. Complete-graph edges within each shore alter its eigenvalue equation, and optimizing λ₂ over edge weights is not diagonal pinning. Same-day record dates do not decide priority; the theorem domains decide these comparisons.",
+        "searches": [
+          "2026/11/8/SCOPE-price-ordered-pinning-and-exact-rate-allocation-on-star-networks--c15ed907d8eb/RESULT.md",
+          "2026/11/8/SCOPE-price-sorted-activation-and-exact-spectral-rates-for-pinned-comp--d4f15457e35c/RESULT.md",
+          "2026/11/2/SCOPE-exact-price-induced-spectral-gap-transition-on-k-2-m--0cbf04a51dbd/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou et al., printed pp. 7–9, offsets 19050–24491, optimizes the largest eigenvalue of −(L+D) under a weighted budget.",
+          "Closest indexed star and complete-graph Findings (offsets 0–5343 and 0–5880) optimize the same pinned eigenvalue with vertex prices."
+        ],
+        "reasoning": "Negating the pinned matrix converts the smallest-eigenvalue objective to the cited largest-eigenvalue problem. At fixed target the positivity-constrained Schur product and the Perron-vector obstacle KKT conditions are equivalent certificates, using part sums c and d. The inspected equivalent-objective works use an LMI or a different topology; the targeted obstacle-formulation query returned no distinct exact theorem covering both shores.",
+        "searches": [
+          "Resultary: complete bipartite heterogeneous vertex prices pinned Laplacian smallest eigenvalue exact budget allocation",
+          "Resultary: fixed-target Perron eigenvector obstacle KKT weighted diagonal loading Laplacian pinning complete multipartite price-constrained gains"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact-ID RESULT.md reads for complete-graph d4f15457e35c (0–5880), star c15ed907d8eb (0–5343), and K_{2,m} edge design 0cbf04a51dbd (0–4498). The assigned record also appeared and is a self-match."
+        ],
+        "reasoning": "An exact indexed statement is the relevant lookup for continuous prices and budgets, not a finite table of numerical optima. The near hits are distinguished by graph or variables/objective at statement level.",
+        "searches": [
+          "Resultary: pinning smallest eigenvalue budget activation affine rate complete bipartite arbitrary price",
+          "Resultary: complete bipartite heterogeneous vertex prices pinned Laplacian smallest eigenvalue exact budget allocation"
+        ]
+      },
+      "rationale": "The supported distinction is the exact arbitrary independent-price solution on a non-star biclique, including the coupled target equations, exact terminal threshold, and two-shore price transition. Weighted spectral pinning, price sorting, scalar optimization ideas and affine tails are not new on their own. The closest actual complete-graph and star statements use the same objective but neither covers two shores of size at least two; earlier bipartite edge pricing uses a different decision variable and eigenvalue. No inspected source mechanically gives this full claim. The cited Jafarizadeh comparison remains bounded by access.",
+      "residual_risks": [
+        "Jafarizadeh's actual complete-bipartite theorem and possible overlap with specialist weighted diagonal-loading work were not resolved. The bounded primary search was noisy; it is not evidence that no other exact solution exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method/feature overlap, different graph",
+          "evidence": "Unit K_n with an all-vertex rank-one feasibility condition, not the biclique Schur product.",
+          "identifier_or_url": "2026/11/8/SCOPE-price-sorted-activation-and-exact-spectral-rates-for-pinned-comp--d4f15457e35c",
+          "material_read": "RESULT.md offsets 0–5880",
+          "method": "Bounded local-mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Price-sorted activation and exact spectral rates for pinned complete graphs",
+          "trigger": "Same objective, heterogeneous prices and affine tail"
+        },
+        {
+          "assessment": "Closest method analogue; one-shore-size-one specialization only",
+          "evidence": "Star hub Schur complement, separate prices, affine tail and hub–leaves threshold.",
+          "identifier_or_url": "2026/11/8/SCOPE-price-ordered-pinning-and-exact-rate-allocation-on-star-networks--c15ed907d8eb",
+          "material_read": "RESULT.md offsets 0–5343",
+          "method": "Bounded local-mirror read, same snapshot",
+          "title": "Price-ordered pinning and exact rate allocation on star networks",
+          "trigger": "Same objective, two nested roots and two-price transition"
+        },
+        {
+          "assessment": "Distinct optimization",
+          "evidence": "Edge conductances and λ₂, rather than diagonal gains and the bottom pinned eigenvalue.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-price-induced-spectral-gap-transition-on-k-2-m--0cbf04a51dbd",
+          "material_read": "RESULT.md offsets 0–4498",
+          "method": "Bounded local-mirror read, same snapshot",
+          "title": "Exact price-induced spectral-gap transition on K_{2,m}",
+          "trigger": "Priced complete-bipartite spectral transition near hit"
+        },
+        {
+          "assessment": "Prior problem formulation and numerical LMI; does not supply these exact formulas in the inspected passage",
+          "evidence": "Weighted sum d_i w_i^α, optimizing largest eigenvalue of −(L+D), analytic for α=0 and numerical for nonzero α.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.02012v1",
+          "material_read": "Restriction of control efficiency and solution of optimal feedback gains, printed pp. 7–9; offsets 19050–24491",
+          "method": "OA primary PDF, bounded methods passage",
+          "title": "Enhancing speed of pinning synchronizability: low-degree nodes with high feedback gains",
+          "trigger": "Cited general weighted spectral pinning and analytic uniform pricing"
+        },
+        {
+          "assessment": "Coverage unresolved; no assertion about the full contents",
+          "evidence": "HTTP 202; the frozen summary reports equal prices and one prescribed pinned shore, but that description is unverified here.",
+          "identifier_or_url": "https://doi.org/10.1109/TSMC.2022.3151222",
+          "material_read": "No primary theorem retrieved; only the frozen citation and summary",
+          "method": "Configured OA direct/VPN and repository lookup, no same-paper copy found",
+          "title": "Pinning Control of Dynamical Networks With Optimal Convergence Rate",
+          "trigger": "Cited complete-bipartite pinning result; strongest named access uncertainty"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a natural connected graph with heterogeneous costs, the result replaces repeated matrix optimization with two monotone scalar solves and gives the unique optimal actuator allocation. It identifies exactly when the affine regime begins and yields the nontrivial two-shore transition and closed optimal rate in the two-price model. A user deciding which vertices to pin at a given budget can use these as exact predictions, rather than just a numerical feasibility test or an example in the equal-price setting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

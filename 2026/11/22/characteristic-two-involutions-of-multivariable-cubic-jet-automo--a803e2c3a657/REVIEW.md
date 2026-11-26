@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normal form is an exact three-step local-algebra decomposition. Square-one substitutions reduce to a representation-theoretic intertwiner equation, the Jordan-block calculation determines the symmetric-square module explicitly, and the Grassmannian image/kernel count counts every linear involution once. Gaussian coefficient bounds prove the asymptotic concentration. Direct checks over two finite fields, plus independent truncated polynomial composition in the smallest nontrivial case, support the computation without being substituted for a general proof.
+## correctness
 
-## Originality
-PASS on the checked literature, with residual priority risk. The closest public anti-involution count concerns a noncommutative tensor algebra with flip-twisted action, rather than the commutative symmetric square; its count does not imply this one. The existing two-variable jet involution census is restricted to odd characteristic, where the cotangent involution is semisimple. The same cubic symmetric algebra appears in a separate derivation-idempotence result, but its equation and counted maps are different. The relevant archival sources on triangular automorphisms and modular actions do not supply the rank-stratified characteristic-two count or its high-generator limit. A general historical modular jet group census might still subsume the result and requires independent priority review.
+PASS
 
-## Value
-PASS. The exact dimension-uniform finite-field count classifies the population of modular involutions according to an intrinsic tangent Jordan invariant. The dominance of nonlinear involutions with identity tangent action identifies a structural phenomenon in local automorphism groups not visible from the underlying linear group; its proof isolates the symmetric-square module as the controlling object. This is a natural invariant of a standard family of local algebras, not an arbitrary small-parameter table.
+Images of the generators lie in the nilpotent maximal ideal. In the graded splitting, an automorphism is specified by an invertible L on V and any Q:V→Sym²V, and its square has linear part L² and quadratic part QL+(Sym²L)Q. In characteristic two L²=I iff (L−I)²=0; its rank-r square-zero part is counted by an image, a containing kernel, and an isomorphism from the quotient onto the image, including r=0. Independently, put L into a basis with r swapped pairs and s=d−2r fixed variables. The induced monomial permutation on Sym²V fixes exactly r+s(s+1)/2 degree-two monomials. The remaining two-orbits give rank (D−r−s(s+1)/2)/2=r(d−r) for Sym²L−I. On a swapped pair the image of one generator freely determines the other, while each fixed generator must map to the (D−r(d−r))-dimensional fixed space. Thus the fiber exponent is rD+s(D−r(d−r)), as claimed. For large d the ratio of each rank-r term to the r=0 term is bounded by c_q^(−2) q^[2r(d−r)−rD−(d−2r)r(d−r)], at most c_q^(−2) q^[−r d(d−3)/2]. Summing the resulting geometric bound verifies the fixed-q concentration. Composition adds Q in the identity-linear subgroup and all its nonzero elements have order two. Removing the identity changes only the order-exactly-two total by one. At d=1 the r=0 term alone gives q; substituting d=2,3 yields the stated three example totals.
 
-## Boundaries
-Only characteristic two, cubic truncation, and field-linear unital automorphisms are considered. Full conjugacy, invariant rings, higher jets, and independent validation remain outside the result. The direct finite checks do not replace the all-dimension proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact cotangent-rank census and its fixed-truncation, growing-dimension concentration for square-one automorphisms of the commutative cubic jet algebra in characteristic two. The normal form, classification of linear involutions, and elementary cyclic-module calculations are ingredients, not claims of new general theory. The most relevant distinct actual Findings change the multiplication, the characteristic, the truncation limit, or the map being counted.
+
+## value
+
+PASS
+
+This is the first commutative jet cutoff with a nontrivial quadratic lift space. Here the cotangent action of a square-one map does not determine its nonlinear possibilities, particularly when the characteristic divides two. The uniform stratum count measures that distinction for every dimension and finite field of characteristic two, and the resulting concentration distinguishes trivial cotangent action from actual triviality of the automorphism. The exact census is useful in its own right as a comparison with tensor-algebra and higher-order jet statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact domain is the \(120\)-vertex 600-cell in \(S^3\), with spherical-surface and vertex-counting probability measures. The addition-theorem kernel is normalized by \((n+1)U_n\). A standalone finite arithmetic certificate constructs the vertices over \(\mathbb Z[\varphi]\), exhaustively verifies all \(120^2\) distance-class products, checks the annihilating polynomials, computes multiplicities from integer traces, and confirms the inverse polynomial and constant eigenvector. The weighted-uniqueness argument is analytic: twirling any positive diagonal weight gives uniform weights, while equality forces the constant vector to be a minimum eigenvector, hence forces all weights to agree. Numerical experiments alone would not suffice; none are used for the finite polynomial claims.
+PASS
 
-## Originality
+The normalized S³ addition theorem gives the dense sample Gram kernel (1/120)Σ(n+1)U_n(x·y). I inspected the exact class-algebra certificate and independently reconstructed the matrices from the vertices using dense integer-pair arithmetic in Z[φ], without assuming class closure. The annihilators and trace moments give ranks 1,5,14,30,55,91,116,120; at L=7 the eigenvalues 0,1,7/4,7/3 have multiplicities 4,91,16,9, and at L=8 the eigenvalues 1,7/4,7/3,4 have multiplicities 55,16,45,4. These are cumulative cutoffs. The check also gives B1=1 and a constant top-eigenspace projector diagonal 1/30. Thus, if the positive weights have mean 1, the mean Rayleigh quotient in the top eigenspace of B^(1/2)WB^(1/2) is 4 and the quotient on the constant vector is 1. Equality of the condition number with 2 forces the constant vector to be a minimum eigenvector; invertibility of B^(1/2) forces W1=1. This proves rigidity, independently of the stated symmetry-averaging argument. The inverse polynomial agrees with the reciprocal at all four eigenvalues, and R*B^(-1) is the minimum-L²-norm right inverse.
 
-**PASS, with residual risk.** Published-record searches for 600-cell harmonic sampling, binary icosahedral Wigner bands, and the exact rational spectral levels returned no claim covering this normalized 120-node Gram spectrum or the globally unique optimal positive weighting. Comparable accessible published records include exact 24-cell sampling, but their different sample set, band and kernel do not imply the 600-cell result. The most plausible primary overlaps were examined in their accessible full-text HTML: Dowker (2009) constructs scalar/tensor polyhedral modes; Bannai–Okuda–Tagami (2013) treat harmonic-index design bounds; Hirao–Nozaki–Tasaka (2025) characterize harmonic-strength sets and uniqueness. None of the material checked provides the present sampling matrix's exact four-level spectrum and strict optimality among weights. A general finite-subgroup Peter–Weyl sampling theorem or unpublished explicit icosahedral table could imply part of the claim, so independence is not asserted.
+## originality
 
-## Value
+PASS
 
-**PASS.** The first interpolation cutoff, all singular values at that cutoff, the four-point deficiency immediately below it, and the optimal positive-weight stability constant answer a single natural sampling problem for a distinguished 120-node spherical 11-design. The nontrivial nine-class exact algebra and the uniqueness obstruction are not a rename of a generic harmonic-design identity: strength 11 only explains low-band isometry, not the split spectral values at cutoff eight. These exact quantities determine attainable data, minimum-norm recovery, and best conditioning for the first complete harmonic interpolation band.
+The supported distinct claim is the quantitative 600-cell interpolation theorem with rigidity of its optimal positive weighting at the first surjective cutoff. The spectral component alone is derivable from classical character convolution and the affine E8 tensoring rule; it is not credited as a new decomposition. Later exact-degree records directly imply the cumulative spectra but not the positive-weight equality characterization, and neither establishes earlier priority. The inspected earlier harmonic mode and design literature does not supply the combined theorem. The uniqueness step uses standard eigenvalue bounds but also requires the specific bottom-eigenvector geometry and an equality argument.
 
-## Closest literature and limits
+## value
 
-Dowker (arXiv:0909.3380v1, 2009) gives modes equivariant under binary polyhedral symmetries; Bannai–Okuda–Tagami (arXiv:1308.5101v1, 2013) supply harmonic-design context; Hirao–Nozaki–Tasaka (arXiv:2507.01358v1, 2025) determine the precise harmonic-strength profile of binary quaternionic unit groups. The primary comparison separates scalar design moments and equivariant-mode constructions from evaluation Gram eigenvalues and optimal weighted sampling. Full exhaustive literature coverage is not claimed. The mathematical statement is limited to the specified 600-cell and cutoffs through eight.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For this canonical spherical point set the first cutoff at which arbitrary data interpolate is a natural stability threshold. The weighted theorem excludes every positive diagonal reweighting as an improvement, even allowing equality only for constant weights. Together with the explicit right inverse and sharp norm it gives a concrete prescription at that threshold, not merely a recomputation of a character table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

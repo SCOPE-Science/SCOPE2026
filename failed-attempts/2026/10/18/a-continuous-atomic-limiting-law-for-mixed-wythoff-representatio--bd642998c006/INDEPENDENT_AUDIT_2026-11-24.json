@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:01:24.023013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 the admissible upper indices are exactly 1<=k<=floor(beta n). With t={n alpha}, s_k={k alpha}, the identities alpha^2=beta and v(k)=2k+floor(k alpha) give {v(k)alpha}=beta s_k. Lower Beatty membership is {t-beta s_k}>beta. For t<beta this is the wrap condition s_k>t/beta, for beta<t<2beta it is s_k<(t-beta)/beta, and for t>2beta it holds for all k. Neither breakpoint occurs by irrationality. On length-q Fibonacci convergent blocks a translated rational q-grid differs by less than one grid spacing; only O(1) points near interval endpoints can change membership. Decomposing any length into O(log n) such blocks proves the uniform interval discrepancy. Hence Y_n is within O(log n/n) of the piecewise-linear tent-with-plateau profile, and equals one exactly on the plateau. On each dyadic block and uniformly in y<1, indicator disagreement is confined to at most two nonplateau intervals of total length O(log n/n); discrepancy gives O(log n) possible indices there. Summation proves the uniform log-squared estimate. Taking y up to 1 from below at fixed X and using the same uniform error immediately gives the stated exact-saturation count, independently of the separate proof of that count. Weak convergence and convergence of the stated moments follow. A new check compared 1798 direct pair counts with interval-certified rotation counts (python3 /workspace/branches/recompute_frozen.py); it does not certify the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ashburn gives the classifications for r(n)=0,1,2; Shallit gives an exact rank-19 representation for evaluation of r(n). Neither inspected passage states the global normalized law.",
+          "The earlier baee5a907c94 gives, for the same r(n), the exact rotation-interval count and the pointwise r(n)=n Lambda({n alpha})+O(log n) profile, uniformly in n."
+        ],
+        "reasoning": "The low-count and exact-evaluation works do not settle the empirical law by themselves. The earlier rotation-profile result supplies specifically the exact formula and uniform control needed for the quantitative law; see the direct implication below.",
+        "searches": [
+          "Resultary searches for phase profiles, log-squared counting discrepancies and exact Wythoff saturation",
+          "Ashburn arXiv:2610.04842v1 §3",
+          "Shallit arXiv:2006.04177 §11.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary baee5a907c94 and f928d9ca214a",
+        "Ashburn arXiv:2610.04842v1 §3",
+        "Shallit arXiv:2006.04177 §11.2",
+        "OEIS A259598",
+        "Kawsumarng et al. DOI 10.1007/s10998-020-00343-0 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write t={n alpha}. In baee5a907c94 the exact count is the number of m in 1..n-1 with y={m alpha}>=beta and {t-y}<beta. When t>2 beta, every upper summand u=n-m has s={u alpha}<beta, so y={t-s}=t-s>beta. Thus the earlier exact rule gives r(n)=K(n) identically on the plateau.",
+          "Its uniform r(n)=n Lambda(t)+O(log n) gives |Y_n-Lambda(t)/beta|=O(log n/n). On a dyadic block of size at most 2^j, disagreement of a threshold y<1 with the profile can only occur off the exact plateau. There the profile has slopes of magnitude 1/beta, so the two affected intervals have combined length O((j+1)/2^j). The earlier translated-grid discrepancy gives O(j+1) possible indices in those intervals. Summing yields O(log^2(X+2)); the ideal threshold preimage has length 2 beta y, with O(log(X+2)) discrepancy.",
+          "For each fixed finite X, let y increase to 1 through values below 1 in that uniform estimate. The left count becomes the number with Y_n<1. Taking its complement proves the exact-saturation estimate with the same error."
+        ],
+        "reasoning": "Although the earlier text does not separately state the centered CDF error or exact-saturation rate, the two quantitative clauses follow directly from its explicit interval criterion, pointwise profile and discrepancy lemma. Weak convergence alone would not suffice at the atom, but the exact interval criterion removes that obstruction. No distinct surviving theorem in the frozen statement warrants a repair.",
+        "searches": [
+          "Resultary baee5a907c94 RESULT.md, Proof offsets 2000–6054 (exact circle-interval rule and Fibonacci interval discrepancy)",
+          "Resultary exact-saturation and uniform log-squared threshold searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier record baee5a907c94 defines exactly the same ordered positive lower-plus-upper count and gives the weak limit of r(n)/n: density 2 on [0,beta] and atom 1-2 beta at beta.",
+          "Since K(n)=beta n+O(1) and 0<=r(n)<=K(n), r(n)/K(n) differs from (r(n)/n)/beta by O(1/n). The weak limit and all fixed positive moments are therefore the same after rescaling."
+        ],
+        "reasoning": "The finite-n normalizations differ, but the limiting law and moments are equivalent, including the location and mass of the atom after scaling. The separate same-day record f928d9ca214a also overlaps in this law; same-day order is immaterial to the demonstrably earlier 10/13 coverage.",
+        "searches": [
+          "Resultary normalized mixed-Wythoff law and lower-plus-upper representation-count searches",
+          "Resultary baee5a907c94 Finding and scope (offsets 0–3377)",
+          "Resultary f928d9ca214a Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A259598 lists the same count and generating function and the special small-multiplicity classes; no global rate was found in the inspected entry.",
+          "The indexed 10/13 and distinct same-day 10/18 texts state the same pointwise profile and weak law after rescaling."
+        ],
+        "reasoning": "The exact database sequence identifies the object but an initial table cannot prove a quantitative limit. The decisive match is the earlier Resultary analytic statement and proof, not a numerical table or the frozen record indexed under its own identity.",
+        "searches": [
+          "OEIS A259598 exact count sequence and generating function",
+          "Resultary exact saturation and uniform CDF error searches",
+          "Resultary baee5a907c94 and f928d9ca214a"
+        ]
+      },
+      "rationale": "The 10/13 indexed Wythoff rotation-profile record baee5a907c94 already states the same weak limit after deterministic rescaling. Its proof supplies the exact circle-interval rule and uniform Fibonacci rotation discrepancy. Together these imply the exact plateau saturation and the uniform O(log^2 X) CDF and exact-saturation counting errors by a direct threshold estimate. This is established equivalent and implied coverage, not an inference from source titles, dates alone or inaccessible literature.",
+      "residual_risks": [
+        "The 2021 sumset paper's full text was not accessible and may supply still earlier coverage. The failure is established by the inspected 10/13 record regardless of that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier coverage: stated rescaled law and direct implication of both quantitative claims",
+          "evidence": "Gives the exact interval K_theta=[beta,1) intersected with the condition {theta-y}<beta, the uniform interval discrepancy by translated Fibonacci blocks, the three-piece Lambda and the weak limit with atom at beta.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-rotation-profile-and-limiting-law-for-lower-plus-upper-wythoff--baee5a907c94/RESULT.md",
+          "material_read": "Finding, assumptions and Proof, local-mirror offsets 0–6054",
+          "method": "Resultary local-mirror text",
+          "title": "A rotation profile and limiting law for lower-plus-upper Wythoff representations",
+          "trigger": "Earlier exact same representation count, phase law and limiting distribution"
+        },
+        {
+          "assessment": "Equivalent weak law and pointwise profile; same-day ordering not inferred",
+          "evidence": "Uses r(n)/n, a uniform O(log n) phase approximation and the same continuous–atomic law after rescaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-phase-law-and-an-atomic-limiting-distribution-for-mixed-wythof--f928d9ca214a/RESULT.md",
+          "material_read": "Finding (offset 0) and proof around offset 3500",
+          "method": "Resultary local-mirror text",
+          "title": "A phase law and an atomic limiting distribution for mixed Wythoff representations",
+          "trigger": "Distinct same-day matched normalized Wythoff law"
+        },
+        {
+          "assessment": "Classifies rare multiplicities, not the global limit",
+          "evidence": "Fibonacci and Lucas criteria for the cases r(n)=0,1,2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04842v1",
+          "material_read": "§3, Theorem 1, PDF pp. 2–3, offset around 8500",
+          "method": "OA PDF passage",
+          "title": "Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words",
+          "trigger": "Exact same multiplicity and prior classification"
+        },
+        {
+          "assessment": "Exact evaluation does not itself supply the distribution or saturation result",
+          "evidence": "A rank-19 linear representation evaluates the mixed count alongside counts for the same-sequence sums.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.04177",
+          "material_read": "§11.2 (PDF p. 11, offset around 25300) and introductory description of earlier sumset work",
+          "method": "OA PDF passages",
+          "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+          "trigger": "Exact evaluation of the same count"
+        },
+        {
+          "assessment": "Same pointwise coefficients, not the quantitative limit in the inspected entry",
+          "evidence": "Counts the ordered lower-plus-upper representations.",
+          "identifier_or_url": "https://oeis.org/A259598",
+          "material_read": "Entry description, generating function and related small-count lists",
+          "method": "Published HTML entry",
+          "title": "OEIS A259598",
+          "trigger": "Exact matching database sequence"
+        },
+        {
+          "assessment": "Full coverage unresolved; not used as negative evidence",
+          "evidence": "The accessible secondary description concerns representability in Wythoff sumsets.",
+          "identifier_or_url": "https://doi.org/10.1007/s10998-020-00343-0",
+          "material_read": "No article full text; subject description in Shallit's introduction/abstract",
+          "method": "DOI and publisher access attempts plus lawful OA recovery",
+          "title": "Sumsets associated with Wythoff sequences and Fibonacci numbers",
+          "trigger": "Plausibly broader result on Wythoff sumsets"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical question is substantive: it distinguishes a limiting atom from actual finite-count saturation and controls thresholds uniformly just below the jump for this natural representation count. That usefulness does not make the covered result a distinct contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

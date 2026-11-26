@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:27.617096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed α>−1/2 and c>0 the Bessel series gives a self-adjoint trace-norm sum of rank-one terms with coefficients c^(α+1/2+2j)(−1)^j/[2^(α+2j) j! Γ(j+α+1)]. For a fixed wedge degree m the trace norms are bounded by products of the individual trace norms, giving a summable bound after removing the leading c-power on 0<c≤1. The unique minimal sum of indices is 0+…+(m−1); the remaining scaled exterior-power sum vanishes in trace norm. Its leading operator norm gives the product of the largest m singular values without any assumption about the signs of Hankel eigenvalues; division by the preceding positive product isolates the n-th singular value. I independently evaluated the Gram determinant quotient by the Cauchy determinant with entries 1/[2(α+i+j+1)]: it is (n!)²/[2(α+2n+1) times the square of product_(j=1)^n(α+n+j)], agreeing with the monic shifted-Jacobi value including the Lebesgue factor 1/2. Q=cH² multiplies each squared singular value by c, giving exponent 4n+2α+2 and the claimed Gamma/binomial coefficient; the adjacent-mode ratio follows from strict positivity of both leading coefficients. Replay: python /workspace/checks/2.py (mpmath), an independent 16-node Gauss–Jacobi Nyström calculation evaluating the Bessel kernel directly, checks concentration-eigenvalue ratios at c=0.01 for n=0,…,3 and α=−0.49,0,0.5,1.75 (all ratios within 0.000013 of one). That computation is corroboration, not the proof. The frozen supporting notes and check.py were inspected, not executed. No uniformity in order, index or bandwidth is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2017 pp. 14–15 give eigenvalue index-decay estimates",
+          "2020 p. 11 Theorem 3 is a trace estimate for c≥1",
+          "2022 p. 10 Theorem 2 bounds large-index Sturm–Liouville eigenvalues rather than concentration eigenvalues"
+        ],
+        "reasoning": "Uniform or asymptotic control in a different parameter direction does not identify the coefficient for fixed n as c decreases to zero. The trace and differential-eigenvalue statements do not fix each concentration eigenvalue's leading constant.",
+        "searches": [
+          "arXiv:1701.04622v1 Corollary 1 and Proposition 3",
+          "arXiv:2002.00170v1 Theorem 3",
+          "arXiv:2206.04319v1 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support files",
+        "Slepian IV DOI and archival metadata; article text unresolved",
+        "arXiv:1701.04622v1, 2002.00170v1, 2206.04319v1",
+        "Resultary a4be5b8bafbf and 270fa6fe86f5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2017 and 2020 definitions supply the exact starting operator; the inspected eigenvalue estimates do not pin down its fixed-index leading coefficients",
+          "The exterior-power product limit isolates the individual leading eigenvalues, with a nontrivial Gram determinant quotient beyond the Bessel Taylor coefficients",
+          "The 1964 source could not be evaluated against the explicit exponent and coefficient after open-copy attempts"
+        ],
+        "reasoning": "Operator definitions and large-index estimates alone leave the constants open. In particular, the n-th rank-one Bessel coefficient is not itself an eigenvalue constant because the monomials are not orthogonal. No inspected stronger theorem yielded the full law by direct substitution; the historical risk is explicitly retained.",
+        "searches": [
+          "arXiv:1701.04622v1 pp. 1, 14–15",
+          "arXiv:2002.00170v1 abstract and Theorem 3",
+          "Slepian IV, JST/BSTJ archival and UC Davis-hosted copies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boulsane–Karoui p. 1 defines the same kernel on L²(0,1) and gives λ_n=c|μ_n|²",
+          "Boulsane 2020 abstract gives the same H and Q with real order α>−1/2",
+          "Slepian's radial-order conventions and formulas could not be read in an available article copy"
+        ],
+        "reasoning": "The relevant alternative is an exact fixed-index singular/eigenvalue asymptotic for H: squaring it and including the factor c would give the result for Q. The same operator and normalization are established for the modern papers, but their inspected estimates are not such an asymptotic. A Sturm–Liouville eigenvalue asymptotic or a different radial measure does not give the target without an actual normalization and operator comparison.",
+        "searches": [
+          "Circular prolate spheroidal functions, finite Hankel singular values and concentration eigenvalues at small bandwidth; Resultary",
+          "Boulsane–Karoui arXiv:1701.04622v1 p. 1 Eq. (1)",
+          "Slepian IV DOI:10.1002/j.1538-7305.1964.tb01037.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a4be5b8bafbf Finding concerns finite-aperture drift of a parity crossing of top prolate modes on two separated intervals with a sinc kernel",
+          "270fa6fe86f5 Finding gives explicit gamma-product constants for fixed eigenvalues of finite polynomial concentration matrices on shrinking windows"
+        ],
+        "reasoning": "The same-day parity-crossing result concerns a different operator and observable. The shrinking-window hierarchy is a strong methodological analogue, not a tabulation for the finite Hankel kernel at arbitrary fixed real order and index. The identical frozen record is not a separate prior source.",
+        "searches": [
+          "Local Resultary: exact fixed-index small-bandwidth circular-prolate concentration eigenvalue constants and shrinking-window hierarchies"
+        ]
+      },
+      "rationale": "On the inspected primary and indexed evidence, the supported distinct claim is the exact fixed-order, fixed-index small-bandwidth concentration coefficient in the stated normalization, not the classical finite Hankel operator, Jacobi identities, or general index-decay estimates. Slepian IV remains a material unresolved historical-priority comparison after reasonable open-copy attempts. This is a best-of-current-knowledge verdict, not clearance against that text or a proof of absence.",
+      "residual_risks": [
+        "Slepian IV or older specialized circular-prolate work may contain or directly imply the coefficient at some or all stated orders. That is a material priority risk; an inaccessible source and ranked search are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved comparison, not evidence of noncoverage",
+          "evidence": [
+            "Archive requests timed out; attempted university copy did not yield usable equation text; DOI/IEEE access blocked. Real-order range, normalization and formula not compared."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/j.1538-7305.1964.tb01037.x ; https://archive.org/details/bstj43-6-3009",
+          "material_read": "Public bibliographic/abstract evidence only; no usable primary equation or section text",
+          "method": "OA attempts at Archive PDF and OCR text, UC Davis-hosted copy, and DOI/IEEE access",
+          "title": "Prolate Spheroidal Wave Functions, Fourier Analysis and Uncertainty—IV: Extensions to Many Dimensions; Generalized Prolate Spheroidal Functions",
+          "trigger": "Foundational work on the same circular-prolate family might already give the small-c coefficient"
+        },
+        {
+          "assessment": "Same normalization; relevant estimates do not supply the fixed-n coefficient",
+          "evidence": [
+            "Exact kernel and λ_n=c|μ_n|²; index-decay bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.04622",
+          "material_read": "Abstract; p. 1 Eq. (1); pp. 14–15 Corollary 1 and Proposition 3",
+          "method": "OA primary PDF text",
+          "title": "The finite Hankel transform operator: Some explicit and local estimates of the eigenfunctions and eigenvalues decay rates",
+          "trigger": "Same operators and a plausible source of explicit eigenvalue estimates"
+        },
+        {
+          "assessment": "Same object; inspected result estimates trace at large bandwidth",
+          "evidence": [
+            "α>−1/2 and cH²; trace theorem assumes c≥1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.00170",
+          "material_read": "Abstract and p. 11 Theorem 3",
+          "method": "OA primary PDF text",
+          "title": "Non-asymptotic behavior and the distribution of the spectrum of the finite Hankel transform operator",
+          "trigger": "Same parameter range and concentration operator"
+        },
+        {
+          "assessment": "Different spectral quantity and regime in inspected theorem",
+          "evidence": [
+            "Large-n Sturm–Liouville eigenvalue estimates"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.04319",
+          "material_read": "Introduction and p. 10 Theorem 2",
+          "method": "OA primary PDF text",
+          "title": "Approximation in Hankel Sobolev Space by Circular prolate spheroidal series",
+          "trigger": "Circular-prolate eigenvalue analysis could give exact small-bandwidth data"
+        },
+        {
+          "assessment": "Different kernel and asymptotic observable",
+          "evidence": [
+            "Sinc operator on two separated intervals; parity crossing of top modes"
+          ],
+          "identifier_or_url": "Resultary a4be5b8bafbf",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Universal finite-aperture drift of bandpass-prolate parity crossings",
+          "trigger": "Same-day prolate concentration asymptotic"
+        },
+        {
+          "assessment": "Related mechanism; different operator",
+          "evidence": [
+            "Gamma products for finite polynomial concentration matrices"
+          ],
+          "identifier_or_url": "Resultary 270fa6fe86f5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Explicit shrinking-window eigenvalue hierarchy for Dunkl–Hermite and Gegenbauer concentration",
+          "trigger": "Potential subsumption by an explicit shrinking-window hierarchy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a classical concentration operator, the normalization-dependent leading coefficient for every fixed mode supplies precise relative suppression and conditioning information near zero bandwidth. The nth exponent and coefficient distinguish consecutive modes and quantify the low-bandwidth cost of retaining them. The all-fixed-index result requires controlling mode separation in a compact-operator limit, not just substituting a Bessel Taylor term or reporting a small numeric case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

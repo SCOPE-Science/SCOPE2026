@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:33:18.947149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–42 and 44–93",
+        "Frozen verify.py and VERIFICATION.md, inspected; not executed",
+        "arXiv:2611.25137v1, §5.3 Theorem 21, p. 20",
+        "Independent replay: python3 /tmp/opencode/frozen_math_rechecks.py; exhaustive legal-state search for 8 initial chips through depth 3: 5,574 states; all 10 target minima matched the recurrence, including mu(1,2)=3 and mu(2,1)=2."
+      ],
+      "rationale": "The binomial formula follows by solving the unfloored row generating functions (2-z)H_a=H_(a-1)+m with H_0=2m/(2-z). The error obeys the linear average recursion with local loss in {0,1/2}, so 0<=L-C<=a+1 by induction. Integer inputs in the row update allow all same-row floors to collapse into one floor. Its correction is the weighted sum 2^(-b) sum_(r=1)^b 2^(r-1)(L-C)(a-1,r). For r<=b-h, h=ceil(2 log_2 b), this is at most a 2^(-h); for the other h terms, substituting the unfloored lower row bounds the contribution by a constant times m h (b+1)^(a-1) 2^(-b), uniformly O(log b/b) on the stated m range. Continuity of floor away from the integers proves the staircase. At the threshold, 1/Lambda is a lower bound and ceil((1+B log b/b)/Lambda) is an upper bound for sufficiently large fixed B: first fix a uniform scaling range containing these candidates eventually, then choose B larger than its rounding-loss bound. This avoids a circular uniformity argument. The leading coefficient of Q gives the threshold and adjacent-row ratio; row zero is exactly floor(m/2^b). Theorem 21 of arXiv:2611.25137v1 verifies the stated reachability correspondence, with the same directions. It is the first positive value of the auxiliary array that gives physical reachability.",
+      "residual_risks": [
+        "The finite-state test checks only tiny depths and a fixed initial budget, not the unlimited-chip interpretation or the asymptotic. The proof neither asserts a general integer-limit staircase nor controls rows with a growing first coordinate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tree result describes landing intervals without mergers. The unlabeled lattice paper counts chips irrespective of labels. Theorem 5 of the ordered-directed-graph paper transfers reachability along an order-preserving homomorphism only in the forward direction."
+        ],
+        "reasoning": "Even unfolding the quadrant to a binary tree yields sufficient reachable labels, not the exact minimum or the scale of the rounding error after merged paths.",
+        "searches": [
+          "arXiv:2506.20656v1, Theorem 6.2",
+          "arXiv:2601.09125v1, §2.1",
+          "arXiv:2611.25137v1, §§3.1, 5.3–5.4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary",
+        "OEIS A397913",
+        "arXiv:2611.25137v1",
+        "arXiv:2506.20656v1",
+        "arXiv:2601.09125v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 21 validates the interpretation, with consecutive pairing and 2^(a+b) initial chips as a witness; Corollary 27 states mu(1,b)~2^(b+1)/b."
+        ],
+        "reasoning": "These results overlap exactly on the definition and the already-known boundary cases. The quantitative floor-loss localization, not continuous replacement alone, is needed to obtain the stronger staircase and higher-row bounds.",
+        "searches": [
+          "arXiv:2611.25137v1, Theorems 5 and 21 and Corollary 27",
+          "OEIS A397913"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct catalogue match is the assigned record itself (mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 771), not a distinct prior finding. Theorem 21 and OEIS express the same first-positive threshold; Corollary 27 gives the same leading formula for a=1."
+        ],
+        "reasoning": "Rewriting reachability as first positivity changes the formulation, not the claim. Neither this exact equivalence nor the a=1 case supplies the uniform rounded profile at arbitrary fixed a.",
+        "searches": [
+          "Local Resultary comparison of labeled-quadrant first-positive floor-averaging rows; SCOPE-fixed-row-threshold-and-staircase-laws-for-labeled-chip-firing-o--ed9e05671e58",
+          "arXiv:2611.25137v1 §§5.3–5.4",
+          "OEIS A397913"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A397913 lists the recurrence and finite values; Table 1 contains finite least-label thresholds. The direct Resultary match is the frozen finding."
+        ],
+        "reasoning": "The table and recurrence determine each finite value but do not contain the uniform error estimate or an evaluated all-fixed-row asymptotic.",
+        "searches": [
+          "OEIS A397913",
+          "arXiv:2611.25137v1, Table 1",
+          "Local Resultary exact-match comparison, ed9e05671e58"
+        ]
+      },
+      "rationale": "The recurrence, its interpretation, finite values, and the leading threshold laws for a=0,1 are prior. The contribution supported by the inspected sources is the quantitative fixed-row loss estimate, its noninteger staircase, and the threshold laws for every fixed higher row. Catalogue and primary-source comparisons support that distinction, not global priority.",
+      "residual_risks": [
+        "The comparison is bounded; unindexed analysis of the recurrence or of floor-averaging on fixed-width strips may contain overlapping quantitative bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers interpretation, finite values and leading boundary cases, not the full scaling claim in the inspected results.",
+          "evidence": [
+            "Theorem 21: mu(a,b)=min{m:C_m(a,b)>0}; Corollary 27 gives mu(1,b)~2^(b+1)/b."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.25137v1",
+          "material_read": "§3.1 Theorem 5; §5.3 Theorem 21 and Table 1 (PDF pp. 20–22); §5.4 Corollary 27 (p. 24)",
+          "method": "OA primary text, statemen­t-level comparison",
+          "title": "Labeled Chip-Firing on Ordered Directed Graphs",
+          "trigger": "Exact recurrence and potential prior asymptotics"
+        },
+        {
+          "assessment": "Exact recurrence and table overlap; no fixed-row staircase stated there.",
+          "evidence": [
+            "T(x,y)=min{m:C(m,x,y)>0}."
+          ],
+          "identifier_or_url": "https://oeis.org/A397913",
+          "material_read": "Entry recurrence and finite array values",
+          "method": "Direct public entry",
+          "title": "Smallest reachable chip in the directed quadrant lattice",
+          "trigger": "Exact database lookup"
+        },
+        {
+          "assessment": "Related tree invariant; graph mergers can change reachability.",
+          "evidence": [
+            "At the last level, the landing interval has endpoints given by products of the local child labels and their complements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.20656v1",
+          "material_read": "Theorem 6.2, PDF p. 13",
+          "method": "OA primary text",
+          "title": "Labeled Chip-Firing on Directed k-ary Trees and Where Chips Land",
+          "trigger": "Possible tree-cover reduction"
+        },
+        {
+          "assessment": "Unlabeled counts, not minimum reachable labels.",
+          "evidence": [
+            "The intermediate table concerns total chip flow."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.09125v1",
+          "material_read": "Model introduction and §2.1",
+          "method": "OA primary text",
+          "title": "Chip-firing on the Lattice of Nonnegative Integer Points",
+          "trigger": "Same quadrant potential broader coverage"
+        },
+        {
+          "assessment": "Identical assigned finding, not distinct coverage.",
+          "evidence": [
+            "Same fixed-row correction and noninteger staircase."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-fixed-row-threshold-and-staircase-laws-for-labeled-chip-firing-o--ed9e05671e58",
+          "material_read": "Mirrored RESULT.md Finding, offset 771",
+          "method": "Local catalogue and mirror",
+          "title": "Fixed-row threshold and staircase laws for labeled chip-firing on the quadrant lattice",
+          "trigger": "Strongest catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–42 and 73–103",
+        "arXiv:2611.25137v1, Corollary 27"
+      ],
+      "rationale": "The minimum chip crossing the two-coordinate boundary is a natural labeled dynamics invariant, not an arbitrary fitted slice. The exact hierarchy of polynomial factors with row, the adjacent-row ratio, and the full limiting response off integer thresholds answer questions not apparent from finite tables; the proof isolates how path mergers and floor errors affect near-threshold counts.",
+      "residual_risks": [
+        "No implication for growing-row or finite-budget regimes is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

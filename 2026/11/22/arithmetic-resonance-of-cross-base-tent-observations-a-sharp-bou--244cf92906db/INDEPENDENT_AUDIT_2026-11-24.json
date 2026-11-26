@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:57:30.809510Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered tent has Fourier cosine coefficient −2/(π²q²) at positive odd q and zero otherwise, by integrating its two linear pieces; the series is absolutely convergent. With A=ga, B=gb, orthogonality requires q=bℓ and q′=aℓ. This is compatible with both frequencies odd exactly when a and b are odd, in which case summing over odd ℓ with the cosine-product integral 1/2 gives 1/(48a²b²). In particular the variance is 1/48. For the cross-sum, the reduced denominator squared is exp(2∑_p |jv_p(m)−kv_p(n)| log p). For independent bases the real prime-exponent vectors cannot be proportional: integer vectors with nonzero proportionality would have rational proportionality and equal positive powers. Their weighted ℓ¹ separation has a strictly positive minimum on j+k=1, so the double series has geometrically small tails in either index; its nonnegative terms include the positive j=k=0 term. For dependent bases write m=t^r,n=t^s with coprime r,s by prime factorization. At d=rj−sk the weight is t^(−2|d|)/48, suppressed for even t unless d=0. Integer solution pairs for a fixed d extend by (s,r); intersecting their parameter intervals with the square gives N/max(r,s)+O_d(1), uniformly bounded above by N/max(r,s)+1. Summable weights justify passage to the limit; their sum is 1 or (t²+1)/(t²−1) depending on parity. As a separate check, at (m,n)=(2,3) only j=0 contributes, giving limit 3/128; at m=n=2 exactly N terms contribute, giving N/48. All claims use the same uniform seed. The supplied exact-integration checker and reproducibility notes were inspected, not executed; they test pair identities on a finite range, not the infinite dichotomy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tsuneda studies binary autocorrelation and alternating observation; the indexed collision record gives a multiplicative resonance for collision-count variance with independent seeds; the indexed Bernoulli result computes cell-word covariances in a toral skew product."
+        ],
+        "reasoning": "The seed assumptions and statistics differ from the product of triangular observations of two copies of the same X. None of these stated covariance or variance laws yields the claimed pair of cross-base asymptotics.",
+        "searches": [
+          "Tsuneda DOI 10.3390/dynamics4020016",
+          "Resultary b00fe889ce12 and bcef8a4314e3",
+          "arXiv:1412.7363v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and tent_cross_cov_check.py",
+        "Resultary 035090423d26, b00fe889ce12 and bcef8a4314e3",
+        "Ahn arXiv:2611.01955",
+        "Tsuneda DOI 10.3390/dynamics4020016",
+        "Beck–Chavez arXiv:1008.0038",
+        "Dağlı–Can arXiv:1412.7363v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known tent coefficients already make the two-frequency identity a direct orthogonality consequence. In the cross-sum, the independent case requires separation in the two prime-exponent directions, whereas the dependent case has O(N) solutions along each fixed rj−sk; the odd-mode restriction suppresses off-diagonals when the common base is even."
+        ],
+        "reasoning": "The new object is the complete transition and its constants, not another proof of the tent Fourier series. Prior results on independent-seed collisions and single-base weighted sums do not contain the joint lattice count or imply the parity-dependent slope of this shared-seed covariance.",
+        "searches": [
+          "Resultary 035090423d26, Finding and Proof 1",
+          "Resultary b00fe889ce12, Finding",
+          "arXiv:2611.01955, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the geodesic tent T_π, ψ(x)=1/4−T_π(2πx)/2. Also ψ(x)=−2 B₂({x})+B₂({2x})/2. The Bernoulli dilation product integral is gcd(A,B)^4/(180 A²B²) by Fourier orthogonality, recovering the pair law by four such integrals. Ahn uses dist(2^k x,Z) as the component of a weighted dyadic series."
+        ],
+        "reasoning": "These are exact observable or kernel reductions. The inspected positive-definite subtraction classification and Takagi identity do not count the mixed dilation terms in an unweighted sum over two exponent vectors, and the inspected Dedekind passages do not give that aggregation law.",
+        "searches": [
+          "Resultary 035090423d26",
+          "arXiv:1008.0038",
+          "arXiv:1412.7363v2, §4.1",
+          "arXiv:2611.01955, Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located exact formulas concern a PSD subtraction threshold for circular tents, coincidence-count variance or cell-word covariances; the Bernoulli–Dedekind source defines exact finite residue sums of Bernoulli products."
+        ],
+        "reasoning": "These exact formulas are for different invariants. No inspected exact entry gave the bounded positive versus linear cross-sum law or the odd/even common-base slopes; evidence on exact dilation kernels is weaker than on the finite-sum classification.",
+        "searches": [
+          "Local Resultary exact/related hits 035090423d26, b00fe889ce12, bcef8a4314e3",
+          "arXiv:1008.0038, p. 1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact long-time shared-seed cross-base covariance classification and its quantitative rates/slopes. The triangle observable and the single-pair Fourier calculation are standard ingredients, not separately credited as a new GCD integral technique. A same-day circular-tent record has the identical tent building block, whereas an earlier resonance record uses a different statistic and independent seeds; neither gives the claimed cross-covariance law.",
+      "residual_risks": [
+        "Historical lacunary covariance or Hardy–Berndt/periodic Bernoulli formulations could give further equivalent results. Statement-level evidence is bounded and does not establish priority. The individual pair law has a direct classical Fourier/Bernoulli reduction and should not carry a separate novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact building block, different PSD subtraction question; same-day indexing is not priority evidence",
+          "evidence": [
+            "Geodesic tents T_a have coefficient (1−cos(na))/(π a n²)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-arithmetic-rigidity-and-a-popcorn-law-for-subtracting-circular-t--035090423d26",
+          "material_read": "RESULT.md Finding and Proof 1, offset 0",
+          "method": "Local indexed search and mirror passage",
+          "title": "Arithmetic rigidity and a popcorn law for subtracting circular tents",
+          "trigger": "Same circular tent and arithmetic Fourier coefficients"
+        },
+        {
+          "assessment": "Collision-count variance with independent seeds, not shared-seed cross-covariance",
+          "evidence": [
+            "The statistic counts cross-collisions of orbits seeded by independent X,Y."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-resonance-dichotomy-and-logarithmic-correction-for-tw--b00fe889ce12",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed search and mirror statement",
+          "title": "Arithmetic resonance dichotomy and logarithmic correction for two-orbit collision fluctuations",
+          "trigger": "Exact same base-dependence dividing line"
+        },
+        {
+          "assessment": "Cell words in a toral skew product, not two integer-base tent sums",
+          "evidence": [
+            "A B₄ formula governs the indexed cell-word correlations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-bernoulli-threshold-and-persistent-word-correlations--bcef8a4314e3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed search and mirror statement",
+          "title": "Arithmetic Bernoulli threshold and persistent word correlations",
+          "trigger": "Exact Bernoulli-form arithmetic covariance"
+        },
+        {
+          "assessment": "Single weighted dyadic expansion, not a two-base covariance",
+          "evidence": [
+            "The unsigned error sum is the Takagi series ∑2^(−k)dist(2^k x,Z)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.01955",
+          "material_read": "Theorem 1.2, p. 3, offset 6950",
+          "method": "Bounded primary PDF passage",
+          "title": "The signed error-sum function of tent-map expansions",
+          "trigger": "Same Takagi building block"
+        },
+        {
+          "assessment": "Binary lag correlations and alternating observations",
+          "evidence": [
+            "Defines autocorrelation for a binary observable of one map, not triangular observations at two integer bases."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/dynamics4020016",
+          "material_read": "p. 2, offset 6100",
+          "method": "Bounded primary PDF passage",
+          "title": "Auto-Correlation Functions of Chaotic Binary Sequences Obtained by Alternating Two Binary Functions",
+          "trigger": "Expanding-map observable covariance"
+        },
+        {
+          "assessment": "Relevant residue-sum framework; no equivalence to the long cross-sum established from this passage",
+          "evidence": [
+            "Defines sums over residues involving products of periodized Bernoulli functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.0038",
+          "material_read": "p. 1, offset 0",
+          "method": "Bounded primary OA passage",
+          "title": "Bernoulli–Dedekind Sums",
+          "trigger": "Possible periodized Bernoulli reformulation"
+        },
+        {
+          "assessment": "Relevant integral framework; inspected passages do not give the two-base classification",
+          "evidence": [
+            "Treats Bernoulli-polynomial product integrals and relations to Dedekind-sum reciprocity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.7363",
+          "material_read": "Abstract and §4.1, offsets 0 and 35900",
+          "method": "Bounded primary OA passages",
+          "title": "Dağlı–Can, arXiv:1412.7363v2",
+          "trigger": "Bernoulli product-integral and reciprocity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact shared-seed cross-covariance detects multiplicative dependence even though every marginal is Lebesgue stationary; the even/odd common-base slopes distinguish exact diagonal-only resonance from summable off-diagonals. The classification answers a natural covariance question for expanding maps, with a positive finite independent-base limit rather than a mere upper bound. It does not establish process independence or a joint limit theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness (C): PASS.** On the unit two-sphere, the exact half-angle cotangent distribution has two-sided critical \(t^{-2}\) tails. Truncation at \(n(\log n)^{1/4}\) leaves the raw statistic unchanged up to an asymptotically negligible term with probability tending to one. The bounded-row-integral operator estimate controls the off-diagonal predictable quadratic variation, while fourth moments establish the martingale Lindeberg condition. Cramér–Wold gives the two independent Gaussian channels. The complete proof, rather than finite experiments, establishes the infinite theorem. A standalone checker verified 31 analytic/numerical identities and comparisons.
+## correctness
 
-**Originality (O): PASS, qualified.** The closest primary source is Fernández-de-Marcos and García-Portugués (2024), https://arxiv.org/abs/2405.13531. Its Theorem 1 assumes spherical dimension at least three; its Section 4 explicitly notes that the untruncated two-sphere kernel is not square integrable, and presents only fixed-frequency truncated limits. Those limits do not imply a raw logarithmically normalized Gaussian limit. The related projected-ecdf and Sobolev results of García-Portugués et al. (2020), https://arxiv.org/abs/2008.09897, use square-summable spectral kernels, and do not cover the present singular statistic. The general martingale central limit theorem is classical and not itself new. Earlier equivalent infinite-variance degenerate-statistic results remain a historical-priority risk; non-detection in a search does not prove uniqueness.
+PASS
 
-**Value (V): PASS.** A natural statistic explicitly excluded from the conventional finite-variance null analysis obtains a concrete Gaussian normalization, an exact covariance kernel for all fixed tuning choices, and an independence decomposition separating near-coincident from near-antipodal observations. These quantities can support large-sample null calibration without Gegenbauer truncation. The theorem does not give finite-sample critical-value error bounds or non-null powers.
+Reconstructed the Cramér–Wold proof for the centered, untruncated pair sums under iid area-uniform sampling on S². For Z=cot(Θ/2), the pair density 2z/(1+z²)² gives mean π/2 for Z and 1/Z, absolute-tail mass O(M^-2), first-tail moment O(M^-1), and a clipped second moment 2(b²+c²) log M+O(1) for W=bZ+c/Z, with no log from the mixed product. At M=n(log n)^(1/4), clipping changes no pair with probability 1-O((log n)^-1/2) and its deterministic centering shift is O((log n)^-1/4). Rotation invariance gives exact degeneracy and constant row second moment v. The predictable variance's diagonal coefficient is 2(n-1)v/n; its remaining pair terms are orthogonal, and the kernel of H² has L² norm squared at most ||H||op² v=O(log n) by the uniform absolute row-integral bound. The off-diagonal deterministic squared weights sum to O(1), so the predictable variance divided by log n converges in probability to 4(b²+c²). Conditioning on the new spherical point gives the independent summands for the fourth-moment bound; the unconditional sum O((log n)^(1/2)+(log n)²/n)=o((log n)²) implies conditional Lindeberg in probability. Slutsky and Cramér–Wold yield the two independent coordinates and the stated finite-list covariance. For fixed n, isolate one colliding pair (or an antipodal pair if b=0) in separated caps with all other terms bounded. Its square has a divergent radial integral, even for signed channels. No variance convergence or power claim is used. The frozen verification references a finite-constant diagnostic; it was inspected, not run, and is not the infinite-limit proof.
 
-**Limits of assessment.** The self-review is not independent validation. The central proof is self-contained up to the standard martingale central limit theorem and standard Hilbert–Schmidt operator identities; neither has been formally certified. No mathematical novelty can be inferred solely from unsuccessful searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same-statistic primary paper leaves the raw q=2 case out of its null theorem. The distinct same-day fixed-n two-ray result overlaps in tails and moment divergence but supplies no triangular-array limit. The supported distinct claim is the centered raw q=2 Gaussian null law, including its variance scale and independent channels, not the statistic, finite moment obstruction, or martingale technique.
+
+## value
+
+PASS
+
+Resolves the untruncated null scaling in the dimension where the original test paper's square-integrable theorem stops. The normalization and joint limit determine how different parameter choices co-vary, even though finite-n raw variances do not exist. This is a mathematically useful null law, not a finite-sample calibration or a claim of power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

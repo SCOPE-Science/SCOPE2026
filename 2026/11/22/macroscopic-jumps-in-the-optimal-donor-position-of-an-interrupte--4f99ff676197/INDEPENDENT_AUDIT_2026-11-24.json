@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:38:13.041628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The probability of reaching position i is q^{i−1}; multiplying by foreign-load transfer (1−r)r^{i−1} for i<j gives the female geometric sum. For male export conditional on reaching the donor, the backward recurrence is E=1−q+qr E_next with terminal value 1; multiplication by q^{j−1} gives the displayed score including mandatory terminal departure. Direct subtraction gives the adjacent sign factor: its first and last terms are positive exponentials in real j with nonzero rates, hence its second derivative is positive. The strict candidate reduction can be stated more precisely than the proof's informal local-maximum wording: if G(J)<0 and J<i<n, either F_i<F_J or there was a positive increment between J and i; in the latter case convexity and G(J)<0 force all increments from i to the end to be positive, so F_i<F_n. This proves F_i<max(F_J,F_n), including flat-adjacent cases. For fixed r,w, J_n=ceil(4 log(n)/|log r|) makes the r^{J−1} term O(n^{−4}); the other positive term at J is exponentially small and the squared departure rate is at least (log n)^2/(4n^2) throughout the window. Subtracting the common baseline w(1−r)/(1−qr), at q_- the J-score is asymptotic to 2 log(n)/((1−r)n) and the terminal score is at most O(n^{-2}); at q_+ the terminal score exceeds every nonterminal score by a uniform leading term asymptotic to (1−r)n^{-1/2}, dominating O(log n/n) and exponential errors. Continuity of the early maximum minus the terminal value supplies an interior tie that excludes all intervening positions. Only r,w are fixed as n grows; no uniqueness is inferred. An independent exact witness using the two backward recurrences is reproducible with `python3 /workspace/checks/donor_witness.py`; see its adjacent output log. The endpoint differences F_10−F_4 are about −1.97069×10^{−7} and +1.42956×10^{−6} and the minimum other-position lower-end gap is about 0.00356173, verified by rational comparisons. Coupling the nine continuation draws via common uniforms bounds each score's Lipschitz constant by 18 (reward in [0,2]), hence each gap can shrink by at most 36×10^{−6} across the bracket. The root approximation and tied score agree with the record. These finite checks do not replace the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brunet–Charlesworth compare stagewise fitness contributions under continuous allocations and include a relative outcross pollen-pool transfer matrix. The related staircase record assumes every flower is visited and optimizes placement of a block of high-receptivity flowers as a function of initial load."
+        ],
+        "reasoning": "Broader biological coverage of phenology, sexual allocation or directional transport is not a dominating theorem for the one-reset model. Even an explicit assignment optimum when all flowers are visited does not supply simultaneous early and terminal maxima at a persistence rate changing with n.",
+        "searches": [
+          "Brunet–Charlesworth, Evolution 49:70–79, pp. 70–72 Model and Fitness Expressions",
+          "Resultary f17d943905ce, exact ordering under geometric delivery"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not run)",
+        "Independent donor_witness.py and output",
+        "Brunet–Charlesworth 1995 primary university-hosted published copy, DOI 10.1111/j.1558-5646.1995.tb05959.x",
+        "Resultary 4f99ff676197 and f17d943905ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ESS paper already motivates between-position differences in sex allocation through flowering phenology and pollinator direction, but estimates fitness from ovules and outcross pollen pools. In the staircase result the changing optimizer is a receptive block as initial pollen load changes, without interruption or a donor reset."
+        ],
+        "reasoning": "Credit the biological positional-allocation motivation and known geometric transfer mechanisms. Neither inspected result gives the adjacent-difference shape for a single donor or forces the near-terminal vs logarithmically early crossover in the stated scaling regime.",
+        "searches": [
+          "Brunet–Charlesworth 1995 lawful university-hosted PDF, MODEL and Fitness Expressions; locate ‘directionality’",
+          "Resultary f17d943905ce Finding and proof opening, text offsets 0–4665"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact model is equivalently a sequence with a single reset, per-visit geometric attrition and independent stopping. The Brunet–Charlesworth model instead allocates resource fractions M_j and 1−M_j within stages at an ESS via pollen-pool transfer probabilities K_ij and male and female gain functions."
+        ],
+        "reasoning": "The reset/decay/stopping interpretation gives the same weighted receipt and export. A generic position-dependent transfer matrix and selection gradient do not specify compulsory departure at n, complete load replacement at one position, or the same maximization problem.",
+        "searches": [
+          "Resultary: one donor flower optimal position, geometric pollen carryover and terminal departure",
+          "primary literature: pollinator sequential flower visits pollen carryover geometric departure optimal one donor flower position flower sex allocation stochastic pollen export theoretical model",
+          "Brunet–Charlesworth 1995, Model section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match is the assigned record. The materially nearby staircase result tabulates/characterizes a different high-receptivity block optimization under complete visits rather than the ten-flower donor witness or the all-n tie."
+        ],
+        "reasoning": "No independent table for the same objective or bracketed ten-flower maximizers was identified in the bounded comparison. Exact endpoint agreement in a new computation corroborates the witness, not novelty.",
+        "searches": [
+          "Resultary: donor-position jump, exact ten-flower coexistence, geometric pollinator stopping",
+          "Resultary 4f99ff676197 and f17d943905ce, original Findings"
+        ]
+      },
+      "rationale": "The supported distinct result is a sharply nonlocal global tie in this particular interrupted, one-donor allocation model, with quantitative separation and a small exact witness. Sex allocation across flowers, directional pollination, pollen carryover and differential export are not new. The closest checked modern positional-allocation entry changes both the decision variable and visitation law; the closely related older ESS model was inspected in its primary published text and has different allocations, transfers and objective.",
+      "residual_risks": [
+        "The closest historical model was accessible via an alternate OA copy; comparison is to its materially relevant passages, not a comprehensive review of all flower-visit or sequential-allocation models.",
+        "The other cited empirical and broad-context papers were not independently relied on as full-text exclusions. An earlier exact stopped-path optimization under different terminology could remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real overlap in motivation and positional allocation, different objective, allocation space and transfer assumptions",
+          "evidence": [
+            "The primary model defines M_j as the fraction of resources for male function in stage j and F_j=1−M_j, computes their ESS, and describes K_ij as relative probabilities of pollen from stage j entering the pool for stage i. It does not specify the hard one-donor reset, independent geometric stopping, or the present objective in these model passages."
+          ],
+          "identifier_or_url": "https://thomson.eeb.utoronto.ca/wp-content/blogs.dir/73/files/sites/16/2024/05/Brunet-Charlesworth-1995-Floral-sex-allocation-in-sequentially-blooming-plants-Evolution.pdf",
+          "material_read": "Published pp. 70–72 (PDF pp. 2–4), Model and Fitness Expressions opening, text offsets 5500–13446; directionality passages located in the discussion",
+          "method": "Identified lawful University of Toronto-hosted copy of the same published paper after DOI/publisher access attempts; primary PDF passages read by offset",
+          "title": "Floral sex allocation in sequentially blooming plants",
+          "trigger": "Closest historical title, physically related flower-position optimization, full text previously uninspected"
+        },
+        {
+          "assessment": "Related motivation and changing optimizer, different decision variable and visit law",
+          "evidence": [
+            "All flowers are visited; a contiguous block of high-sensitivity receptive positions shifts with initial load. There is no per-transition stopping or single donor replacement."
+          ],
+          "identifier_or_url": "f17d943905ce",
+          "material_read": "Original Finding and proof opening, text offsets 0–4665",
+          "method": "Local Resultary mirror",
+          "title": "A geometric staircase of optimal high-receptivity visits under geometric pollen delivery",
+          "trigger": "Most similar distinct indexed positional optimization under geometric transport"
+        },
+        {
+          "assessment": "Identical assigned entry, not a distinct prior result",
+          "evidence": [
+            "Same q-window, earliest-block vs terminal winners, and ten-flower comparison."
+          ],
+          "identifier_or_url": "4f99ff676197",
+          "material_read": "Frozen Finding, assumptions, proof and verification",
+          "method": "Indexed identity and frozen original",
+          "title": "Macroscopic jumps in the optimal donor position of an interrupted flower sequence",
+          "trigger": "Exact ranked match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stated tradeoff naturally links directed visitation, foreign receipt before the donor, and loss of donor pollen after it. The result demonstrates that small changes in visitation persistence can move the optimal position by nearly the whole path, which cannot be inferred from comparing adjacent positions alone without the global candidate reduction. The small exact witness and uniform asymptotic scaling make this a useful theoretical benchmark for richer models. It is neither evidence of a universal biological rule nor a calibrated fitness or evolutionary-stability claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

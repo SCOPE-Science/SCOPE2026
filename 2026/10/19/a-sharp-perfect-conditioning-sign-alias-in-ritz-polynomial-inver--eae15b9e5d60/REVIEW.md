@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted spectral identity is an exact factorization of \(zq(z)^2-1\). Interpolation at two distinct nodes fixes the line uniquely; its cubic roots prove both the necessary-and-sufficient third-eigenvalue condition and the strict conditioning threshold. The one-step Arnoldi action follows directly from the eigenvector compression, not from an asymptotic approximation. For the full-support pilot, the actual Lanczos roots are reconstructed from four weighted moments; monotonicity and an exact quadratic isolate a unique sign transition. The condition-number expansion follows from differentiated spectral entries. The attached verifier independently checks these critical identities and numerical projections (169 checks).
+PASS
 
-## Originality — PASS, with qualification
+The affine interpolant takes the signed values 1/u, 1/v and -1/(u+v) at u², v² and (u+v)². These are all three roots of z q(z)^2-1, whose leading coefficient is their inverse product. Under the two spectral-anchor hypothesis, any SPD preconditioned matrix of condition 1 must be I, and its only additional distinct eigenvalue of A is thus (u+v)². The threshold ((u+v)/u)^2>4 is strict, with every larger value attained and dimension 3 minimal. Left Arnoldi on B=I returns q(A)b; it attains relative error 2 on the third mode, despite exact evaluation of the preconditioned action. For the full-support pilot, moment orthogonality gives the stated increasing Ritz trace s1 and determinant s0; s1+sqrt(s0) increases from 7 and crosses 9 once, with the sign restriction 9-s1>0 at the positive quadratic root. In fact q_t(1) and q_t(4) stay positive throughout. At the crossing B_t is singular and there is no Arnoldi initialization on b=e3. Away from the crossing the one-mode output is sign(q_t(9))e3/3. At t=0 the first derivatives of the three preconditioned eigenvalues are -400/27, 400/27 and -400/3, giving the claimed quotient expansion for small positive t. The pilot g_t and application b are separate as specified. Independent bounded symbolic and numerical reproduction (`python3 independent_check.py`) rechecked these identities and the leading slope; the original checker was inspected, not executed. Exact arithmetic and the scoped two-node interpolation class are essential.
 
-The 2024 polynomial-preconditioning paper already states that loss of the correct polynomial sign can select a different square-root branch; this general warning and both the interpolating-preconditioner and Arnoldi formulas are acknowledged as prior work. The narrow additional result is the algebraic rigidity \(\gamma=(\sqrt\alpha+\sqrt\beta)^2\) of **exactly identity** preconditioned SPD three-point spectra, the sharp threshold \(\kappa_2(A)>4\) in that anchored class, and the complete full-support two-step Lanczos visibility transition. Full HTML portions covering theoretical branch conditions, interpolation, and numerical examples were inspected. Matrix-function branch theory in Higham supplies broader conceptual coverage but not the specific spectral/pilot classification. Search and prior-claim comparisons did not identify a mathematical implication covering all of these additional statements. The remaining possibility that the same small algebraic classification occurs in unindexed literature is a genuine priority risk, not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Eigenvalue clustering of \(Aq(A)^2\) is commonly used to interpret whether matrix-function polynomial preconditioning will require a small Krylov space, but this test does not enforce the principal branch. The result identifies the strongest possible separation, with \(Aq(A)^2=I\), exact zero projected residual, and maximal relative action error; it determines the unique spectral configuration in the two-node affine setting. The full-support pilot and sharp transition quantify how a partly detected eigenmode can retain or eliminate that failure. These are reusable structural benchmarks for stopping tests and positivity safeguards rather than an arbitrary recomputation of known examples.
+The branch obstruction and the left-preconditioned method with Ritz interpolation (including a separate pilot) are prior. The distinct result established here is the exact identity-preconditioned three-mode classification and sharp original-condition frontier in the anchored class, plus the precise full-support Lanczos branch transition and near-identity conditioning slope. No inspected theorem or indexed result supplies those facts. The broader web lookup was unavailable, so no claim about exhaustive priority is made.
 
-## Closest literature and limitations
+## value
 
-A. Frommer, G. Ramirez-Hidalgo, M. Schweitzer, and M. Tsolakis, arXiv:2401.06684v1 (2024), Sections 3 and 5, establish the method and warn of sign-branch changes. N. J. Higham, *Functions of Matrices* (2008), develops principal and nonprincipal roots. The result applies only to the specified SPD, exact-arithmetic, affine two-node Ritz-interpolation setting. It does not claim generic failure under random pilots or despite a certified uniform positive polynomial approximation. Full-text priority verification outside the inspected materials and independent scientific audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It shows exactly when perfect squared preconditioning fails to certify the target branch in a basic interpolation model, and that even full-support two-step pilots do not remove the issue: the method can give 200% error with conditioning tending to one. The sharp boundary is useful for separating a condition-number certificate from a branch certificate. The pilot construction complements the exact identity example without purporting to measure generic error rates or the performance of globally positive polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

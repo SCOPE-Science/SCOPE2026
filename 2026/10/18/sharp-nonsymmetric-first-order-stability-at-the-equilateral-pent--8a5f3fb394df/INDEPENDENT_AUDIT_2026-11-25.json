@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:09.917059Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 21–112; verification notes and companion script inspected without execution.",
+        "Independent diagnostic: /workspace/branches/c6ea1ee1-36f4-41f2-92cd-ebcc89dba2a3/record5_directional_check.py; replay output in record5_directional_check.txt in the same directory. Across 11 rays the largest slope error approximately halved when the scale halved from 1e-4. Along alpha=delta the estimated loss coefficients were 3.654176 and 3.654438, tending to 3.654701. The diagnostic is not the proof of the remainder."
+      ],
+      "rationale": "At the specified marked trapezoid the closure Jacobian in the last two angles has determinant sin(pi/3), so the chart is smooth and locally covers all nearby shapes with the given marking. The chain remains simple near the reference, and the only turn whose sign can change is delta. Differentiating closure gives last-angle increments delta-alpha and alpha. The five varying diagonal distances have aggregate first variation h*delta, with h=sqrt(3)/2 and S(0)=9+2sqrt(3). An interior direction between edge normals cannot minimize the positive width, since the support pair is fixed and the width has second derivative minus itself. The two oblique edge-normal families have reference width 2h and drop out. For the other three, direct support projection gives width increments (delta+|delta-alpha|)/2, (delta+|alpha|)/2, and delta/2+max(0,-alpha,alpha-delta). Their minimum is max(delta,alpha,delta-alpha)/2 at first order, including chamber boundaries. Taylor errors remain uniformly quadratic under the finite minima and maxima. Division gives the claimed first variation; comparing the loss with delta+|alpha| in the three chambers gives equality of the linear bound only at alpha=delta>0. That ray stays in the strictly convex domain and proves sharpness. This proves a local result, not the unrestricted global inequality.",
+      "residual_risks": [
+        "The angular sharp coefficient depends on the specified coordinates. No claim is made about finite-distance or global stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The author-hosted Audet–Ninin paper, Abstract and §1.1, proves results on perimeter, diameter and area. Dumitrescu's abstract and §1 fix perimeter, not minimum width."
+        ],
+        "reasoning": "Optimal values for these other objectives do not control the first variation of S/w; a perimeter-bound on S alone likewise does not describe the directional denominator.",
+        "searches": [
+          "Audet–Ninin G-2010-37 author copy; DOI 10.1007/s10898-011-9780-4 and identified alternate texts",
+          "Dumitrescu, Metric inequalities for polygons"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0104867bb49f",
+        "Audet–Ninin G-2010-37",
+        "Audet–Ninin 2013 DOI 10.1007/s10898-011-9780-4 (primary §4 unavailable)",
+        "Dumitrescu, Metric inequalities for polygons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric proof uses a one-parameter reduction and explicitly excludes arbitrary equilateral pentagons. The other read sources use different objectives or normalizations."
+        ],
+        "reasoning": "A symmetric upper bound cannot control the competing edge-normal supports off its symmetry locus. Even a global upper bound with the same value would not by itself imply the sharp directional expansion.",
+        "searches": [
+          "Full proof in Resultary record 0104867bb49f",
+          "Audet–Ninin G-2010-37 Abstract and §1.1",
+          "Dumitrescu §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local-mirror text gives the same bound 4+6sqrt(3) on the reflection-symmetric subclass only; offsets 0–5855 and 5800–10868."
+        ],
+        "reasoning": "Rescaling from minimum width one to unit sides preserves S/w and does not turn a one-dimensional symmetry restriction into the full chart. At the reference the reflection-symmetric branch has tangent alpha=delta/2, whereas the sharp ray here has alpha=delta.",
+        "searches": [
+          "Resultary: asymmetric/local total vertex-distance divided by minimum width, equilateral pentagon trapezoid, directional stability formula, and reflective vertex-distance bound",
+          "Resultary 2026/10/11 record 0104867bb49f, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula-focused search returned a material symmetric bound. The reflective record reports numerical optimization for n=5,7,9 in the journal text; the primary numerical material was not accessible for confirmation."
+        ],
+        "reasoning": "Neither the matching limit geometry and value nor reported numerical optima amount to the two-angle expansion with a uniform second-order remainder or the optimal first-order coefficient.",
+        "searches": [
+          "Resultary: precise local formula, sharp angular loss, and Audet–Ninin conjecture",
+          "Audet–Ninin journal §4/Conjecture 9 as reported in record 0104867bb49f"
+        ]
+      },
+      "rationale": "The nearest verified result has the same objective, reference geometry and extremal value, but only on a reflection-symmetric family. The accepted contribution is the first-order law in both independent shape directions, including the switching of supporting widths, and the sharp coordinate-dependent local loss; neither the common value nor the trapezoidal candidate is credited as new. On the statements inspected, no covering result was established.",
+      "residual_risks": [
+        "The primary text of the 2013 journal §4 eluded lawful retrieval, including the identified alternate copies. The direct comparison with it remains limited; an unlocated equivalent asymmetric local result cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap but no extension beyond symmetry.",
+          "evidence": [
+            "The result is for the reflection-symmetric subclass, not for arbitrary equilateral pentagons."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-vertex-distance-bound-for-reflection-symmetric-equilateral--0104867bb49f",
+          "material_read": "RESULT.md finding, proof and prior-work passages, offsets 0–5855 and 5800–10868",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp vertex-distance bound for reflection-symmetric equilateral pentagons",
+          "trigger": "Closest Resultary hit, identical functional and trapezoid"
+        },
+        {
+          "assessment": "Related shape but different objectives.",
+          "evidence": [
+            "The paper answers the three distinct questions of maximizing the perimeter, diameter and area of equilateral unit-width convex polygons."
+          ],
+          "identifier_or_url": "https://www.gerad.ca/Charles.Audet/PUB/largeur_GERAD.pdf",
+          "material_read": "p. 1 Abstract and p. 3 §1.1, offsets 0–1758 and 5200–8178",
+          "method": "Author-hosted OA full-text excerpts",
+          "title": "Maximal perimeter, diameter and area of equilateral unit-width convex polygons (2010 working paper)",
+          "trigger": "Original extremal unit-width trapezoid context"
+        },
+        {
+          "assessment": "Access limitation, not negative evidence. The secondary account describes numerical tests and a conjecture, not a two-direction local result.",
+          "evidence": [
+            "The secondary account identifies §4 and Conjecture 9 and reports numerical work for n=5,7,9."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10898-011-9780-4",
+          "material_read": "No primary §4 text; secondary description in the reflective record's prior-work section, offsets 5800–10868",
+          "method": "Attempted published and identified lawful alternate copies; read the local-mirror secondary account",
+          "title": "Maximal perimeter, diameter and area of equilateral unit-width convex polygons (2013 journal version)",
+          "trigger": "Cited source of the vertex-distance conjecture and possible numerical coverage"
+        },
+        {
+          "assessment": "A different constrained extremal problem in the passages inspected.",
+          "evidence": [
+            "The suprema are defined under per(A_1...A_n)=1."
+          ],
+          "identifier_or_url": "https://jocg.org/index.php/jocg/article/download/2940/2634/7316",
+          "material_read": "pp. 1–2, abstract and §1, offsets 0–1750 and 3000–4779",
+          "method": "OA full-text excerpts",
+          "title": "Metric inequalities for polygons",
+          "trigger": "Potentially covering vertex-distance estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and proof steps 3–4",
+        "Resultary record 0104867bb49f"
+      ],
+      "rationale": "For the distance/width extremal problem, the symmetric calculation leaves open asymmetric directions of improvement at the proposed optimizer. The result rules out all such nearby directions, identifies the three competing support families and gives the worst local loss in the declared coordinates. That is useful local information about the conjecture without pretending to prove the global bound.",
+      "residual_risks": [
+        "Distant nonsymmetric configurations are outside the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is a uniform plane tree of \(n+1\) vertices conditional on root degree \(k\), bijective to a uniform ordered \(k\)-forest on \(n\) vertices. The generalized cycle lemma gives the factor \(k/n\), the degree-word generating function gives the complete mass function, the path-composition count identifies the maximum unary event, and the one-edge remainder rules out the next-lower count. The ratio is algebraically \((2n-k-1)/(k+1)\), strictly greater than one for \(k\le n-2\), and the two adjacent thresholds go in opposite directions. A separate boundary argument covers \(k=n-1\). The delivered Python verifier passed 26,310 exact checks, including independent tree enumeration. Finite checks are corroboration, not an infinite proof. No unproved nonstandard combinatorial assertion is needed beyond the classical cyclic lemma with its stated admissibility condition.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Removing the conditioned root gives k ordered nonempty trees on n vertices, preserving exactly the designated unary count. Independently, if H=x(1+wH+H^2/(1-H)) marks vertices by x and unary vertices by w, Lagrange inversion gives [x^n]H^k=(k/n)[z^(n-k)](1+wz+z^2/(1-z))^n. Taking [w^u] and normalizing at w=1 gives the asserted PMF. For e=n-k, only strings with e ones and all other entries zero attain e; e-1 unary vertices cannot use the remaining one edge. Thus the tail at e-1 equals binom(n,e)/binom(2n-k-1,e), and the next-root-degree tail there is binom(n,e-1)/binom(2n-k-2,e-1). Their ratio is (2n-k-1)/(k+1), strictly above one exactly for e>1; at e the inequality reverses. The e=1 and e=0 laws are point masses at 1 and 0, and n=3 is the first nonterminal comparison. An independent bounded enumeration by Dyck words confirmed the ratios and support gaps for n=2 through 8.
 
-The classical forest count and degree-profile coefficient are acknowledged and not claimed as new. The claim assessed for originality is the exact all-parameter stochastic incomparability, adjacent threshold witnesses and one deterministic exception. The 2011 random-forest reference and the 2013 degree-count reference contain general models and asymptotic conclusions; their inspected relevant passages did not provide this finite cross-root-degree comparison. The accessible abstract of the 1999 degree-distribution work addresses asymptotics, but its full text was not read. An earlier general degree-count formula might imply the result on specialization, and the literature search is not a proof of novelty; this remains a substantive priority risk. That risk should be checked independently before publication.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Unary nodes are precisely the degree-one subdivision vertices in a rooted tree, so they determine contraction of maximal chains. Root degree is the natural forest-component parameter. The theorem gives a complete distributional boundary: balancing the forest into more components increases the probability of a near-maximal unary count but eliminates the previous maximum. This structural conflict is not visible from mean-only analysis or the distributional ordering of leaves. It holds uniformly over all tree sizes and every adjacent root-degree pair, rather than being a single small counterexample.
+The underlying forest count and profile extraction are standard. The supported distinct claim is the complete adjacent-degree incomparability, with a universal two-threshold witness and the deterministic exception, not a new method to count degree profiles. No exact or stronger comparison was established in the sources inspected.
 
-## Scope and limitations
+## value
 
-Only adjacent root-degree comparisons and nonroot unary counts are classified. The accessible relevant primary sections were read and compared; a plausible 1999 full text remains unavailable, and implicit theorem coverage is not excluded. Self-review is not independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Increasing the root degree removes one available forest edge, so a decreasing unary count is a natural proposed stochastic comparison. The sharp reversal at the penultimate threshold shows that this support argument fails for every nonterminal adjacent pair, unlike the ordered leaf statistic in the same model. The result supplies a complete finite-size obstruction and specifies where a stochastic-dominance argument cannot be used; the standard coefficient extraction alone is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

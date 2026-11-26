@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary convolution decomposes the snapshot into a common beta-filtered telegraph signal and independent Gaussian thermal noise. The stationary joint law is obtained from the two-state forward equations (and is expressly credited to prior work). Gaussian sufficiency reduces the complete population to its mean; strict monotone likelihood ratios yield a unique decision threshold. The exact risk is the integral of the lesser joint density. The strictly positive limiting floor follows from conditioning on the filtered signal. A local Gaussian boundary-layer calculation gives the explicit positive \(N^{-1}\) coefficient. The complete symmetrical case was checked against a closed Gaussian-CDF expression. The packaged code evaluates the full likelihood threshold and quadratures, not only an asymptotic approximation. Finite tests do not prove universal validity.
+## correctness
 
-## Originality — PASS (with a documented broader-theorem risk)
-Bressloff (arXiv:2310.03418) studies global population densities and shared-environment correlations, not the evaluated one-snapshot Bayes-risk theorem. Herbach (arXiv:1804.05740), Proposition 4.4, establishes the beta/Dirichlet **joint mixing law** used here; that component is emphatically not claimed novel. Bäuerle, Gilitschenski and Hanebeck (arXiv:1411.0849) study time-series filtering of integrated hidden switching, not the complete stationary simultaneous-population classification risk and sharp population-size penalty. Targeted searches did not find that evaluated combined result. Broader known Gaussian-channel decision theory or a generic small-noise theorem may subsume the boundary-layer step; publication priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-A common switching environment creates correlations that make the instantaneous hidden state **not** recoverable from an unlimited number of simultaneous independent thermal probes. The exact positive Bayes floor gives a meaningful information limit; the sharp and parameter-explicit \(N^{-1}\) correction quantifies marginal returns from adding probes and the uniform-beta formula supplies a fully finite-population calibration. This is an observation/inference question not settled by particle correlations or mean density alone.
+For the corrected claim, the stationary convolution gives X_i=ell U+independent Gaussian noise. The centered residuals are independent of (U,S_0,sample mean), so the scaled mean is the whole inference channel, U+delta Z with delta^2=D/(gamma ell^2 N). Zero total stationary flux in the stationary transport equations gives p_1=u f and p_0=(1-u) f with beta density f; stationarity is unique by contraction for a coupled switching history. Thus the risk is the integral of the smaller joint likelihood, and the posterior mean of U has derivative Var(U|Y=y)/delta^2>0 and tends to 0 and 1 at the extremes, giving a unique threshold. The full-U Bayes risk is the stated beta-integral floor; it is strictly positive, and finite noise gives both threshold-crossing errors positive conditional probabilities. For the correction, the signed difference h=(2u-1)f(u) has h'(1/2)=2f(1/2)>0. Taylor expansion of its Gaussian convolution near 1/2 gives threshold 1/2+O(delta^2). Contributions at fixed distance from 1/2 are exponentially small even for singular beta endpoints, by integrability of f. In the remaining compact neighborhood rescale u-1/2=delta z; bounded f there and Gaussian decay give the limit 4f(1/2) times the integral of z Phi(-z) over z>0, which equals 1/4. At A=B=1 symmetry fixes the threshold and the finite integral with upper limit 1/(2delta) gives (5) by integration by parts. More generally integrating the derivative of [u(1-u)]^q gives the symmetric gamma-function floor, with the stated small- and large-q expansions by the digamma values and the gamma ratio asymptotic. The numerical verifier is corroborative only; the proof establishes the limiting coefficient at fixed positive parameters.
 
-## Limitations
-Only stationary snapshots, common two-state switching, harmonic drift, independent thermal Brownian noise and known parameters are considered. Exact finite-N risk generally requires a one-dimensional quadrature and scalar root. No time-series filter, unknown-parameter identifiability, interacting network, or publication-priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The stationary law and standard Bayes decision machinery are prior. The closest distinct record gives a positive single-snapshot floor for a random-variance radial statistic, not the finite beta–Gaussian mean-channel risk, sharp evaluated excess-risk coefficient, or uniform-beta all-N expression. No examined source covers that corrected combination of claims by a direct specialization.
+
+## value
+
+PASS
+
+The common environment limits inference even as independent thermal noise is averaged out. The exact positive floor and explicit rate and coefficient of its approach quantify the difference between learning the environment's past-weighted mean and identifying its instantaneous state. This is a natural observable of the model, useful for evaluating a snapshot-based sensor. The symmetric benchmark calibrates the result without being its primary contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

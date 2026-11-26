@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:43:46.889162Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83; VERIFICATION.md and verify_mode_crossing.py (inspected, not executed); arXiv:2401.16849 eqs. (22), (25), (36)–(38)"
+      ],
+      "rationale": "Reconstruct the discounted no-reset transforms using the backward equations: the diffusive transform f and the mean ballistic transform b satisfy Df″=(r+p)f−pb and v²b″=(r+q)²b−q(r+q)f off the target. Evenness, continuity of the ballistic transports through the blind target, and absorption only in diffusion give b′(0)=0 and f(0)=1. Bounded decaying solutions have the stated modes: writing H=(r+q)²/v², the characteristic polynomial is (z−(r+p)/D)(z−H)−pq(r+q)/(Dv²). Its value at H is negative, product of roots is positive, and both roots are positive with H between them. In each mode b/f=q(r+q)/(v²(H−z)); solving the two boundary equations recovers the stated transforms. Independent exponential reset attempts give success probability F_j>0 and mean attempt length (1−F_j)/r, hence the stated mean. The sign of F_B−F_D is that of c_-−c_+exp(−(λ_+−λ_-)x), with c_+>c_- and c_+>0. Since K<H, factoring P(K)=(λ_-²−K)(λ_+²−K) gives c_->0 precisely for v²>D(q+r). The sign expression is strictly increasing in distance, also excluding equality at finite distances on the parameter boundary. As r→0, λ_-²∼Cr for C=q(p+q)/(pv²+Dq²), λ_+→λ₀, and P(K) has positive linear leading term for v²>Dq. Thus c_- has order √r and c_+ has positive limit, yielding the first logarithmic coefficient. At r_c the roots are r_c/D and (r_c+p+q)/D, P(K) vanishes linearly in r_c−r and c_- does likewise. This yields the second coefficient with the stated positive root gap. Continuity and both divergences imply a finite attained interior minimum of x_*, giving strict reentrance for targets beyond it, without a claim of a unique minimizing rate.",
+      "residual_risks": [
+        "The argument uses complete independent resets to the respective initial phase law, with a fresh fair direction in ballistic initialization, and excludes zero parameter values as models. The endpoint limits do not classify rates with other reset protocols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eqs. (22), (25) and (36)–(38) give both transforms and the exact reset means; eq. (41) gives the far-distance ratio. The paper considers optimization of mean times, including expansions in r for those means."
+        ],
+        "reasoning": "The exact formulas give all individual mean values. The uniform strict-sign and uniqueness statement uses the two-exponential difference and the coefficient that vanishes on the threshold. Optimizing a mean time or expanding its small-r behavior is not the singular-limit analysis of the equality location of two means.",
+        "searches": [
+          "Flaquer-Galmés–Campos–Méndez arXiv:2401.16849, exact transforms, reset expressions and optimization discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.16849 / doi:10.1103/PhysRevE.109.034103; Resultary b18dc798ce49 and a1ab52a1b12f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Eq. (41) becomes q(r+q)/(v²φ_-λ_-); its comparison with 1 reduces to λ_-² versus K. The fixed-rate crossover record derives this sign too without studying r→0 or r→r_c."
+        ],
+        "reasoning": "The strict far-target threshold follows from the published leading term and the root sign, with the subleading term needed to handle equality at all finite distances. The two logarithmic coefficients require analyzing slow-coefficient vanishing of different orders and the limiting root gaps on the onset curve; they are not the large-distance comparison or the published small-reset mean expansion.",
+        "searches": [
+          "arXiv:2401.16849, p. 7, eqs. (41) and (45); b18dc798ce49, full theorem and Relationships/Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b18dc798ce49 gives the same threshold, strict one-distance crossing and exact x_* under α=p, β=q, with the same blind ballistic phase and the same reset law.",
+          "a1ab52a1b12f gives equality of stationary position laws at v²=D(β+ρ) and orders their lag covariances, not finite-target mean times."
+        ],
+        "reasoning": "The fixed-rate result in b18dc798ce49 is equivalent, not just a similar threshold. Equality of stationary positions is a different observable and does not determine stopping times. Neither indexed passage gives the two rates at which the crossover length diverges and their coefficients.",
+        "searches": [
+          "Resultary: initial phase, complete-reset search, strict speed threshold and unique first-arrival distance crossover; b18dc798ce49 and a1ab52a1b12f",
+          "Focused literature lookup for the Flaquer-Galmés–Campos–Méndez initial-mode crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b18dc798ce49 gives the exact same x_* formula and an individual numerical example but no endpoint limit; 2401.16849 reports a large-distance ratio and parameter studies rather than the two boundary coefficients."
+        ],
+        "reasoning": "There is explicit indexed formula-level coverage of the fixed-rate distance. No exact table is needed for this continuous-parameter theorem; the decisive unshared assertions concern an asymptotic curve, not an isolated computed value.",
+        "searches": [
+          "Resultary: sharp velocity–reset threshold, crossing distance, and its logarithmic reset endpoints; exact matched record b18dc798ce49"
+        ]
+      },
+      "rationale": "The published same-model first-arrival transforms and the far-target ratio are antecedents; the necessary far-field inequality is close algebraic coverage. The inspected primary work stops short of the global unique crossing and, in particular, of the two singular endpoint laws for its distance. An exact indexed overlap on the entire fixed-rate crossover, including its formula, exists in b18dc798ce49. It is catalogued later, cites the 2024 transforms, and contains neither endpoint law. The supported distinct contribution is the quantitative two-endpoint reset-rate reentrance together with its proof; priority for the overlap is not certified from catalog dates.",
+      "residual_risks": [
+        "A bounded search cannot exclude an earlier explicit or equivalent derivation of the two logarithmic laws. The full comparative behavior is derivable from known raw transforms; the scope of the pass is the proved global analysis, with the fixed-rate overlap explicitly recognized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the model, transforms, renewal and a far-distance ratio; not the two crossover-distance endpoint asymptotics in the passages inspected",
+          "evidence": [
+            "Eq. (41) is the asymptotic ratio of the diffusion-start to ballistic-start means, not a uniform-in-x classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.16849",
+          "material_read": "PDF p. 4 eqs. (22)–(25) at offset 30900; pp. 6–7 eqs. (36)–(38) at 49600; p. 7 eq. (41) and nearby expansion at 55900–57681",
+          "method": "Read primary PDF passages and translate rates 1/τ_D=p, 1/τ_v=q",
+          "title": "Intermittent random walks under stochastic resetting",
+          "trigger": "Identical model, exact transforms and possible prior threshold"
+        },
+        {
+          "assessment": "Equivalent fixed-rate comparison; no two-sided reset-rate endpoint laws",
+          "evidence": [
+            "Same polynomial up to Dv², roots and crossing formula, and full distance order. The catalog date is later, not a proof of priority."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-velocity-reset-threshold-for-which-initial-search-phase--b18dc798ce49/RESULT.md",
+          "material_read": "Finding, assumptions, proof, verification, prior-work and limitations, offsets 0–8128",
+          "method": "Read matched local-mirror statements and compare polynomial, root formula and reset law",
+          "title": "A sharp velocity–reset threshold for which initial search phase wins at a fixed target distance",
+          "trigger": "Exact same host and fixed-rate threshold"
+        },
+        {
+          "assessment": "Same balance surface, but no first-arrival crossover curve",
+          "evidence": [
+            "Equality of stationary spatial laws and strict lag-covariance separation."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, a1ab52a1b12f",
+          "material_read": "Mirrored finding and model assumptions",
+          "method": "Compare observables and the rate identifications",
+          "title": "Exact spatial aliasing and strict temporal separation in intermittent search",
+          "trigger": "Same velocity/reset boundary in a related theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–30 and 73–79; arXiv:2401.16849 eq. (41)"
+      ],
+      "rationale": "The sharp starting-mode rule answers a natural comparison holding parameters fixed, rather than optimizing separate experiments. The two endpoint scales quantify how large a target distance is needed to profit from ballistic initialization as the reset rate goes to zero or approaches its finite cutoff. This quantification gives a reentrant preference that a raw far-field ratio does not exhibit at fixed distance.",
+      "residual_risks": [
+        "The observed reentrance does not imply one connected advantage interval or a unique optimal rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

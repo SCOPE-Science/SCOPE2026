@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:23.384956Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–56; VERIFICATION.md and verify.py",
+        "Independent symbolic replay: python /workspace/replay_math.py 4"
+      ],
+      "rationale": "The independent ratio calculation gives dv/dt=v^2 G and dr/dt=rv B, with r=u/v, G(r,0)=beta*r-c and B(r,0)=c-alpha+(alpha/A-beta)r. In the subcritical case r_* lies strictly below A and c/beta; choose R between it and min(A,c/beta). At or above the threshold choose a small R with B(R,0)<0; for equality, B(0,v)<0 for v>0 and the strict derivative B_r(0,0)=-k extends negativity to the wedge. For sufficiently small delta the top v=delta and side r=R point inward, G<=-d_0, and u decreases since R<A. Smoothness and the per-capita form preserve positive solutions for all t; -c*v^2<=v'<=-d_0*v^2 gives both extinction and tau=integral v dt tending to infinity. Subcritically B is eventually uniformly positive for r<=r_*-epsilon and uniformly negative for r>=r_*+epsilon, so solutions enter the smaller band by comparison for log r and cannot leave; r tends to r_*. Integrating (1/v)' and multiplying by r gives the two stated coefficients. At equality r decreases to zero, tv tends to 1/c and tau is asymptotic to log(t)/c. In tau-time v decays exponentially and B=-kr+O(v). Multiplying r by exp(C*integral v d tau) and comparing to w'=-kw^2 gives r>=const/(1+tau), so (1/r)'=k+O(v/r) tends to k. This proves the critical coefficient for physical time. Above equality both r and v decay exponentially in tau. Direct cancellation makes the physical-time derivative of log(u/v^(alpha/c)) of order u+v^2, integrable because dt=d tau/v. Its integral converges to a finite real value, yielding a strictly positive limiting amplitude and the stated exponent. Independent exact symbolic checks verified the cancellation, subcritical constants and both equilibria in the coexistence witness (small equilibrium determinant -1/891; large equilibrium trace -11/100, determinant 3/625). Along the invariant prey-only axis every positive initial u<1 increases to 1, so the origin is not Lyapunov stable on the full quadrant.",
+      "residual_risks": [
+        "Only a small open positive sector is shown to become extinct. The accompanying script evaluates sample signs; despite the mention of finite integration in RESULT.md it contains no integration. The analytical proof, not numerical evidence, establishes the time limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact origin has zero Jacobian, whereas the source's stability threshold alpha_H concerns a positive equilibrium and its Hopf bifurcation. The source subsequently specializes eta=gamma and e=1 in its equilibrium analysis. The 2019 weak-Allee delay precursor was identified but its full result could not be read."
+        ],
+        "reasoning": "Positive-equilibrium spectral criteria, including the network Turing criteria, are not covering results for a nonlinear invariant wedge at a double-zero boundary point. The later discrete analogue is not a broader theorem for the same class of vector fields.",
+        "searches": [
+          "arXiv:2306.11818 §2.1 and §2.3",
+          "DOI 10.1155/2019/6282958; Resultary 4df0943587a9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.11818, equations and positive-equilibrium discussion",
+        "Resultary 4df0943587a9 RESULT.md",
+        "DOI 10.1155/2019/6282958 (bibliographic identification)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ye–Zhou specify the vector field but focus on positive-equilibrium stability and pattern formation; the examined text does not assert full-quadrant origin stability. The local invariant wedge, cancellation of the constant term in B at alpha=gamma/e, and integrable amplitude correction are not consequences stated by the matched stability or discrete results."
+        ],
+        "reasoning": "Specifying an ODE makes its dynamics determinate, but does not supply the missing nonlinear time-change and uniform trapping analysis. The frozen threshold changes rates, not existence of the wedge, and the axis instability corrects a possible inference rather than a located erroneous prior theorem.",
+        "searches": [
+          "arXiv:2306.11818 §§1, 2.1; Resultary 4df0943587a9 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spatially homogeneous reduction sets the Laplacian terms to zero and is exactly the frozen equation, also shown directly as Eq. (4). The catalogue analogue instead gives x_(n+1)=x_n(1-x_n-c*y_n) and y_(n+1)=y_n(1-y_n+d*x_n). It has the same three rate shapes but is a discrete map with a different quadratic prey self-interaction."
+        ],
+        "reasoning": "The reduction from the PDE/network system establishes identity of the reaction terms but not the extinction asymptotics. The map and the ODE share a blow-up/ratio mechanism; the map does not become this exact continuous vector field by identifying parameters or changing notation.",
+        "searches": [
+          "arXiv:2306.11818 §1 Eq. (2) and §2.1 Eq. (4)",
+          "Resultary: weak-Allee predator-prey origin extinction ratio, hyperbolic mortality and logarithmic critical trichotomy; 4df0943587a9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ye–Zhou list E_0=(0,0) as an equilibrium but the inspected threshold concerns the positive equilibrium. The catalogue record explicitly lists n^-1, 1/(n log n) and n^-c in a discrete recurrence, not the t-asymptotics for the Ye–Zhou model."
+        ],
+        "reasoning": "The corresponding rate table must match the exact local vector field, parameter cutoff, physical-time constants and wedge hypothesis; neither the equilibrium list nor the discrete rate table supplies them. No relevant same-ODE exact rate table was identified in this bounded comparison.",
+        "searches": [
+          "Resultary 4df0943587a9, exact Finding at offset 0",
+          "arXiv:2306.11818 §2.1, boundary equilibria and ODE thresholds"
+        ]
+      },
+      "rationale": "The same reaction law is prior work, but the supported distinct claim is its small positive extinction sector for all alpha>0 under beta*A>c and the sharp physical-time rate crossover at alpha=c. The source's positive-equilibrium Hopf/Turing analysis is not an origin stability or rate theorem. A closely matching discrete power/log trichotomy is a distinct system, not identified with this ODE.",
+      "residual_risks": [
+        "The 2019 precursor's full text was not available for source-level comparison. A general result about degenerate planar quadrants or a differently worded same-model theorem could furnish additional overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ODE, not the origin-rate theorem",
+          "evidence": [
+            "Both displayed reaction terms agree exactly. Eq. (4) is the nondiffusive system; the equilibrium calculation then assumes eta=gamma and e=1. Alpha_H describes positive-equilibrium stability, and E_0 is named as a boundary equilibrium."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.11818",
+          "material_read": "Abstract (~1264), §1 Eq. (2) (~6800), §2.1 Eq. (4), boundary and positive equilibria and Hopf discussion (~11000, 12532, 17834)",
+          "method": "Read relevant bounded primary HTML passages",
+          "title": "Pattern formation in a predator-prey model with Allee effect and hyperbolic mortality on networked and non-networked environments",
+          "trigger": "Exact reaction law and potential prior ODE stability threshold"
+        },
+        {
+          "assessment": "Strongly analogous mechanism; different dynamics and threshold",
+          "evidence": [
+            "The discrete coupled-logistic map has both populations of order 1/n below c=1 and prey rate 1/(n log n) or n^-c at or above it. The catalogue date is later than the assigned record."
+          ],
+          "identifier_or_url": "Resultary 4df0943587a9",
+          "material_read": "Finding at offset 0",
+          "method": "Read local mirror RESULT.md",
+          "title": "A sharp extinction-ratio trichotomy at the doubly-neutral coupled-logistic equilibrium",
+          "trigger": "Closest indexed structural analogue with the same three rate shapes"
+        },
+        {
+          "assessment": "Unresolved; not used as evidence of noncoverage",
+          "evidence": [
+            "Frozen comparison mentions its abstract and indexed conclusion only; no same-model rate theorem was independently verified from this article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2019/6282958",
+          "material_read": "Bibliographic identification only in this independent check; no full article read",
+          "method": "Lawful retrieval attempted; DOI and publisher PDF inaccessible",
+          "title": "Pattern Formation in a Reaction-Diffusion Predator-Prey Model with Weak Allee Effect and Delay",
+          "trigger": "Weak-Allee and delay precursor cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and exact coexistence witness; primary Ye–Zhou ODE model and stability scope"
+      ],
+      "rationale": "The result answers a natural question left by the original pattern-formation analysis: what very small populations in this model can do near the degenerate boundary equilibrium. It separates the existence of an extinction sector from the threshold for its decay law and identifies a sharp logarithmic law and an amplitude that remains nonzero above threshold. The exact example proves that sectorial extinction can coexist with a locally attracting positive state in the same unharvested model.",
+      "residual_risks": [
+        "No global extinction/persistence partition, diffusion theorem, or finite-population prediction follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

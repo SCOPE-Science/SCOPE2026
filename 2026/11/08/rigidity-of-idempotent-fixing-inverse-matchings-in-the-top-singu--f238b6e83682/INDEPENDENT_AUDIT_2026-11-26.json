@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:32.813724Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53",
+        "Frozen VERIFICATION.md lines 19–27, verify.py and verification_output.txt (read, not run)",
+        "Independent replay: python3 /workspace/branches/04f77dce-022b-4335-9bbb-ef058c81a344/independent_n4_matching_check.py (12 maps, 6 idempotents, 36 ordered inverse pairs, 1 perfect matching)"
+      ],
+      "rationale": "Each rank-(n−1) isotone map is determined by its unique consecutive double block and its one omitted image value. Idempotence is equivalent to omitting one member of the double block. For the inverse criterion use both cross-transversal conditions: a sandwich identity f g f=f forces g to be injective on im(f) and hence onto im(g) there, and f then maps im(g) bijectively onto im(f). In reverse, with both cross-transversals, the restrictions are increasing bijections between the two ordered images; their composites are identity because increasing bijections of a finite chain to itself are identity. This justifies the criterion without relying on one transversal alone. For x=(j,k) in R, a nonidempotent inverse (u,v) must lie in L since u≥k−1≥j+1≥v, and distinct nonidempotents have no loops. The proposed pairing is feasible, with ψ(u,v)=(v,u+1) its inverse labeling. Every allowed edge has ψ(u,v)≥(j,k) in both coordinates. A perfect matching preserves the sum of each coordinate of R, so every inequality is equality, proving uniqueness. Counting R gives binom(n−1,2), and conjugation by reflection preserves the conditions, hence commutes with the unique matching.",
+      "residual_risks": [
+        "The independent enumeration only covers n=4; the all-n claim rests on the coordinate-sum proof. A single cross-transversal is not sufficient by itself; the joint criterion is valid. Idempotent fixing is essential: swapping the two idempotents sharing a double block gives another inverse involution if it is dropped."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 preprint establishes permutation inverse matchings for every rank class of O_n; earlier results supply existence criteria or involutions on other semigroups."
+        ],
+        "reasoning": "Existence of a permutation matching at all ranks does not impose involutivity, fixing idempotents or uniqueness. Rank two is not rank n−1 for n≥4; the one coincidence at n=3 is outside the stated range.",
+        "searches": [
+          "Higgins arXiv:2610.01912v1, Theorems A/B and §3",
+          "Higgins 2014 Theorem 1.6 and 2024 Proposition 2.3",
+          "Higgins arXiv:1811.04472, chain versus cyclic order"
+        ]
+      },
+      "checked_sources": [
+        "Higgins 2014, 2019, 2024 and arXiv:2610.01912v1",
+        "Resultary 69983c3a6535, 52b52c0dc724, 3808605db638, 5cd29258f395 and 43cfad0b027d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Nov. 2 limitation makes a general caution about determination by the inverse relation, not a counterexample under the exact fixed-idempotent condition in the coatom class. The new implication uses the monotone relabeling ψ and preservation of both coordinate sums by every bijection."
+        ],
+        "reasoning": "The earlier inverse criterion is reusable input. Showing that no nonidentity edge selection can extend to a matching requires an additional rigidity argument, not merely specializing a general existence or witness theorem.",
+        "searches": [
+          "Compare the prior co-rank-one explicit construction and general matching criteria to frozen RESULT.md lines 36–53",
+          "Read the uniqueness limitations of 69983c3a6535 and 52b52c0dc724"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-(n−1) nonidempotent inverse graph is bipartite. Once idempotents are fixed, uniqueness is exactly uniqueness of a perfect matching on that graph. Higgins's Hall-type results are existence criteria, and the indexed co-rank-one constructions exhibit one such matching."
+        ],
+        "reasoning": "A literature formulation as unique perfect matching or a forced matching in the same inverse graph would cover the rigidity; a construction of one matching does not. A cyclic-order preserving monoid is not equivalent to the isotone chain monoid under restriction.",
+        "searches": [
+          "Literature query: order-preserving mappings, involution matchings, rank two and inverse matching semigroups",
+          "Resultary: co-rank-one and extremal-rank idempotent-fixing inverse involutions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All four older extremal or specific top-rank records already supply the co-rank-one formula. The closest, 69983c3a6535, expressly says its proof does not assert uniqueness. The same-day rank-two record 43cfad0b027d makes no uniqueness claim and treats a different rank."
+        ],
+        "reasoning": "This is exact existing coverage of the witness and not novelty evidence for it. The older index entries do not furnish the claimed number of idempotent-fixing involutions for arbitrary n at this rank.",
+        "searches": [
+          "Local Resultary exact co-rank-one formula and extremal rank checks (5cd29258f395, 3808605db638, 69983c3a6535, 52b52c0dc724)",
+          "Resultary rank-two record 43cfad0b027d"
+        ]
+      },
+      "rationale": "Pass for rigidity of the specified matching, not for discovering the formula, its existence, its counts, or the cross-transversal encoding. Several earlier Resultary records already give the same explicit top-rank matching. The inspected earlier works do not establish that fixing all idempotents forces it. This is a distinction within the frozen exactly-one theorem, not an alteration of the theorem.",
+      "residual_risks": [
+        "A prior uniqueness statement under a different inverse-graph or order-relation formulation could remain unindexed. No historical priority is credited for the already indexed explicit matching."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader existence, not rigidity",
+          "evidence": "Theorem B gives permutation matchings in all rank classes. It does not require an involution or that every idempotent be fixed.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01912v1",
+          "material_read": "Theorems A/B and §3 proof of Theorem B (HTML offsets 0 and 28400)",
+          "method": "Lawful primary OA HTML passages",
+          "title": "Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings",
+          "trigger": "General theorem on the same monoid and all ranks"
+        },
+        {
+          "assessment": "Existence criteria or a different transformation monoid",
+          "evidence": "Theorem 1.6 is an existence equivalence via principal factors and 0-rectangular bands; Theorem 2.12 concerns T_n.",
+          "identifier_or_url": "https://repository.essex.ac.uk/11534/1/Permutations%20by%20inverses%20final.pdf",
+          "material_read": "PDF p. 2 definitions, p. 7 Theorem 1.6 (offset 10850), p. 17 Theorem 2.12 (offset 34800)",
+          "method": "Lawful repository PDF passages",
+          "title": "Permutations of a semigroup that map to inverses",
+          "trigger": "General matching equivalences for regular semigroups"
+        },
+        {
+          "assessment": "Existence criteria do not settle top-rank uniqueness",
+          "evidence": "The text distinguishes permutation and involution matchings; Proposition 2.3 concerns involution existence for certain 0-rectangular bands.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-024-10430-0",
+          "material_read": "PDF pp. 143 and 145, including Proposition 2.3 (offsets 5650, 13200)",
+          "method": "Lawful publisher PDF passages",
+          "title": "Finite regular semigroups with permutations that map elements to inverses",
+          "trigger": "Existence of involution matchings and the isotone matching question"
+        },
+        {
+          "assessment": "Different monoid",
+          "evidence": "The construction concerns cycle orientation rather than chain order and distinguishes the corresponding isotone matching question.",
+          "identifier_or_url": "https://arxiv.org/html/1811.04472",
+          "material_read": "Abstract and §1.1 at HTML offset 0",
+          "method": "Lawful primary OA HTML",
+          "title": "Involution matchings, the semigroup of orientation-preserving and orientation-reversing mappings, and inverse covers of the full transformation semigroup",
+          "trigger": "Candidate restriction of a known involution"
+        },
+        {
+          "assessment": "Exact coverage of the construction, no rigidity theorem",
+          "evidence": "The first explicitly disclaims uniqueness; the second gives the same pairing and counts and cautions generally about determination by the inverse relation.",
+          "identifier_or_url": "Resultary 69983c3a6535 and 52b52c0dc724",
+          "material_read": "Mirrored Findings and Limitations; 69983c3a6535 offsets 4760–5330 and 52b52c0dc724 offsets 7460–8240 for the decisive limitations",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "An idempotent-fixing involution matching on the co-rank-one class; explicit inverse involutions on the two extreme nontrivial ranks",
+          "trigger": "Exact match of the formula, monoid and coatom rank"
+        },
+        {
+          "assessment": "Top-rank formula coverage or distinct rank",
+          "evidence": "The first two give top-rank explicit involutions without rigidity. The last concerns rank two, distinct at n≥4, without a uniqueness assertion.",
+          "identifier_or_url": "Resultary 3808605db638, 5cd29258f395 and 43cfad0b027d",
+          "material_read": "Mirrored rank and formula statements",
+          "method": "Local Resultary and mirrored RESULT.md comparisons",
+          "title": "Idempotent-fixing inverse involutions at extremal ranks; idempotent-fixing inverse involutions on the extreme Green strata; idempotent-fixing involution matchings on rank-two order-preserving maps",
+          "trigger": "Additional exact extremal constructions and candidate same-day rank-two overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–21, 45–53 and 59–65",
+        "Prior indexed existential co-rank-one construction and its explicit limitation"
+      ],
+      "rationale": "An inverse involution known by construction is now forced by a natural fixed-idempotent constraint across an entire canonical Green class, even where vertices have more than one possible inverse partner. That determines the combinatorial freedom in this class, explains equivariance intrinsically, and gives a structural distinction from unconstrained involutions. This value does not rely on the previously known formula being new.",
+      "residual_risks": [
+        "No implication for involutive matching of the entire monoid or rigidity of other ranks is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

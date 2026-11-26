@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:42:29.230462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write U=2x−1 on Y; the uniform-U dyadic label g has mass 2^(−g−1), and after the right step and B+g doublings the returned coordinate 2^g U is uniform on Y conditional on both labels. Return-time choices of B are fresh. In the iid-environment extension the induced branches can be labeled by g and the full environment word consumed on that excursion. Conditional on each label, the return sends the branch to the product of uniform Y and an independent environment tail. This partition generates, since the coordinate inverse branches contract and the number of environment entries consumed tends to infinity. Hence the induced probability is ergodic and conservative. The return tower projects to the stated measure: for n≥1 a visit to I_n occurs iff B+G≥n, at most once and uniformly within that shell conditional on the labels. Its mass is E[2^(min(n,B)−n)]; n=0 is just the normalized base. Summing first for B=β gives β+2, and Tonelli applies even at infinite mean. Every positive point enters Y in finite forward time, so an absolutely continuous stationary probability has positive base mass, induces an absolutely continuous invariant law for the same exact full-branch return map, and must induce normalized Lebesgue measure. Kac's formula then excludes finite mass at infinite mean, and the return occupation formula determines the probability uniquely at finite mean. For J_0=1 the renewal transform is 1/(1−R(z)); weighting by π(Y)=1/m and centering gives the stated covariance transform. For B=1 its coefficient is (2/9)(−1/2)^n. Null boundaries and the zero atom do not affect these arguments. Independent branch, occupation and renewal calculations support the full claim. The frozen VERIFICATION.md and verification.py report 512 exact-rational finite checks; the script was inspected, not executed, and these diagnostics are not the proof for unbounded laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue–Toyokawa supplies general existence and uniqueness up to scale and same-family shell order bounds, not exact normalized shell constants in the inspected propositions.",
+          "Kalle–Maggioni's strict average inverse-slope condition fails on Y, where that average is E[2^(B−1)]≥1.",
+          "4d8a9e67a365 gives the exact formulas for arbitrary laws, including infinite mean, and in addition characterizes attainable densities and recovers p from them."
+        ],
+        "reasoning": "The existence/asymptotic framework is broader but not by itself exact coverage. The distinct indexed result genuinely dominates the density portion without a finite-support assumption.",
+        "searches": [
+          "arXiv:2303.10873, Theorems 3.1–3.2, Remark 3.1(I) and Proposition 4.1",
+          "arXiv:1805.11430, condition (A2)",
+          "Resultary 4d8a9e67a365, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Resultary 4d8a9e67a365",
+        "arXiv:2303.10873",
+        "arXiv:1805.11430",
+        "DOI:10.1088/1361-6544/ab4c83 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed formula gives R(z) with m=E[B]+2 and π(Y)=1/m; conditioned on Y, the renewal mass is the sum of convolution powers of the return law, with pgf 1/(1−R(z)).",
+          "Inoue–Toyokawa's order comparisons do not have enough information for that covariance calculation on their own."
+        ],
+        "reasoning": "Multiplying the renewal mass by 1/m to get the joint moment and subtracting 1/m² determines all covariance coefficients. Setting B=1 and taking partial fractions gives the alternating example. No distinct nonroutine covariance theorem remains after this coverage comparison.",
+        "searches": [
+          "Resultary 4d8a9e67a365, iid first-return law and stationary return frequency",
+          "arXiv:2303.10873, Proposition 4.1 and inducing proof of Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inoue–Toyokawa Eq. (4.1) defines the identical family.",
+          "In 4d8a9e67a365 use c=2 to set ν(Y)=1; its J_m is I_m and the exact density and mass coincide. Its R=B+1+G is the same iid excursion duration with the same pgf and starting law."
+        ],
+        "reasoning": "The scale change and label names do not change the result. A pgf identity on real z in [0,1) determines the coefficients and hence the analytic pgf throughout the unit disk.",
+        "searches": [
+          "Resultary: low-slope random interval maps, exact stationary density, iid renewal clocks and covariance",
+          "Mirrored Resultary 4d8a9e67a365, Finding; arXiv:2303.10873, Eq. (4.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed same-model record contains exact closed formulas for all shell masses after normalization and for every return-probability coefficient through the pgf, rather than a table of selected cases.",
+          "It does not separately tabulate or state stationary return-indicator covariances."
+        ],
+        "reasoning": "All entries of the density and return law are covered by symbolic formulas in the index. Lack of a covariance table is not evidence of distinctness if the entries are immediate consequences.",
+        "searches": [
+          "Resultary exact same-model density/return law search; full mirrored RESULT.md for 4d8a9e67a365"
+        ]
+      },
+      "rationale": "A distinct indexed work states the core exact density, mass and iid return formulas for the identical model and parameter scope, and additionally gives density tomography. The covariance is not stated there, but it follows by the ordinary stationary renewal identity immediately from those exact inputs; the B=1 specialization is a partial fraction of the same identity. This is a finding of demonstrable current coverage and mechanical implication, not attribution of historical priority to the later-catalogued record or a claim that Inoue–Toyokawa gave the exact formulas.",
+      "residual_risks": [
+        "Historical priority is not established by catalogue dates.",
+        "The Inoue first-return paper was not accessible in full text; the bounded comparison cannot exclude another earlier statement of these formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact core overlap, with additional tomography; no separately stated covariance formula",
+          "evidence": [
+            "Exact density c E[2^(min(m,B))], mass c(E[B]+2)/2 and iid B+1+G with the identical geometric probabilities.",
+            "The catalogue date is later than the assigned record's date; no historical priority conclusion follows from this comparison."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/1/SCOPE-exact-stationary-density-tomography-and-renewal-clocks-for-low-s--4d8a9e67a365/RESULT.md",
+          "material_read": "Mirrored RESULT.md, opening Finding and scope; remaining proof and comparisons checked in offsets 0–8571",
+          "method": "Resultary search and lawful local-mirror passage reading",
+          "title": "Exact stationary-density tomography and renewal clocks for low-slope random interval maps",
+          "trigger": "Identical model and exact density and renewal formulas"
+        },
+        {
+          "assessment": "Prior inducing framework, existence, uniqueness up to scale and comparable shell masses",
+          "evidence": [
+            "Proposition 4.1 bounds, rather than gives equality for, the dyadic-shell masses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.10873",
+          "material_read": "Eq. (4.1), Proposition 4.1 (p. 16, offsets 68000–71794), Theorems 3.1–3.2 and Remark 3.1(I) (pp. 7–8), inducing proof (p. 13)",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Invariant measures for random piecewise convex maps",
+          "trigger": "Same family and known invariant-measure theorem"
+        },
+        {
+          "assessment": "Relevant exact method does not apply under its stated hypothesis",
+          "evidence": [
+            "Strict inverse-slope inequality is violated on Y."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.11430",
+          "material_read": "Section 2, condition (A2), p. 2, offset near 9500",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Invariant densities for random systems of the interval",
+          "trigger": "General exact invariant-density method"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not the reason for failure",
+          "evidence": [
+            "No full text inference was made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1361-6544/ab4c83",
+          "material_read": "Bibliographic/landing information only; full text not obtained",
+          "method": "DOI and lawful repository-copy lookup",
+          "title": "First return maps of random maps and invariant measures",
+          "trigger": "Cited general inducing framework and possible earlier calculation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact regenerative description of this model is useful and much stronger than shell orders. But the exact core is already available in the compared index, and the sole unstated observable result uses the ordinary renewal transform with no model-specific work beyond that core; its alternating example is a single substitution. There is no independently useful new exact invariant left to accept from this frozen finding on the audited evidence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

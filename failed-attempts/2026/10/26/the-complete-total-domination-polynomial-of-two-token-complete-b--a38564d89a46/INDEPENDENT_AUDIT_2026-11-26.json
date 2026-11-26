@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:22:54.611772Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and VERIFICATION.md (uploaded script inspected only)",
+        "Chinman et al., arXiv:2610.28936v1, Theorem 1.1 (HTML offset 3087)",
+        "Independent reproduction: OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 /workspace/review_check_3_4.py; open-neighborhood union over all subsets for (2,2), (2,3), (2,4), (3,3), (3,4), comparing every coefficient and the minimum formula."
+      ],
+      "rationale": "The bipartition is pure pairs versus mixed pairs. A selected pure set dominates all mixed pairs iff one host part is fully covered by selected pure edges; a selected mixed set dominates all pure pairs iff at most one row and at most one column is empty. These tests are independent, including for selected vertices because neighborhoods are open. Inclusion–exclusion gives U and V separately. A smallest pure choice uses a minimum edge cover on one qualifying side and no other pure edges: a matching for even size and one length-two path plus a matching for odd size. A smallest mixed choice occupies exactly s-1 long positions, once each, and uses either t-1 or t distinct short positions, giving the stated surjection count. The resulting total minimum minus Theorem 1.1 of Chinman et al. has precisely the two asserted exceptional cases.",
+      "residual_risks": [
+        "Exhaustive checks are for five small labeled graphs only; the bipartition and inclusion–exclusion proofs cover all m,n>=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 11/22 record gives the same full polynomial and also an inclusion-minimal total-domination polynomial and upper total-domination number.",
+          "Hu et al. give general vertex/edge reductions but no explicit factorization on this family in the checked passages."
+        ],
+        "reasoning": "General recurrences alone would not establish the specialized closed form; the 11/22 same-family result actually supplies it.",
+        "searches": [
+          "11/22 Resultary record, finding and proof",
+          "Hu et al., arXiv:1607.00400, general reduction formulas"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary semantic index and the two above mirrored texts",
+        "arXiv:2610.28936v1",
+        "arXiv:1607.00400",
+        "DOI:10.26713/jims.v6i2.256 (metadata/cited description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum in the indexed total-domination record equals s-1+ceil(t/2); subtracting the exact ordinary minimum in Theorem 1.1 yields the frozen 0/1 gap.",
+          "Closed-neighborhood ordinary domination does not on its own imply the total-domination polynomial."
+        ],
+        "reasoning": "The comparison corollary adds no unknown independent quantity once the two exact minima are given.",
+        "searches": [
+          "Chinman et al. arXiv:2610.28936v1, Theorem 1.1",
+          "11/22 Resultary record, full polynomial and minima",
+          "Hu et al., arXiv:1607.00400, open-neighborhood definition and reductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 11/22 record's X expands to frozen V and its Y is frozen U. Its mixed empty-line and pure edge-cover conditions are identical.",
+          "The 10/26 middle-graph result also uses edge covers, but does not give an identification of its M(G) with the token-graph family."
+        ],
+        "reasoning": "The strongest hit matches the object, open-neighborhood convention, labeled enumerator and both parameters; the middle-graph hit only shares a technique.",
+        "searches": [
+          "Resultary semantic search: total domination polynomial, two-token complete bipartite graphs and edge cover",
+          "2026/11/22/SCOPE-total-domination-spectra-of-two-token-complete-bipartite-graphs--4fa1b36deec0",
+          "2026/10/26/SCOPE-a-perfect-matching-sieve-from-total-domination-of-middle-graphs--4d429ac2b8f4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed biclique formulas supply coefficient-level coverage for every parameter rather than just a finite table. The Kneser index hit describes a distinct graph family and its mirror text was not retrieved."
+        ],
+        "reasoning": "The exact biclique formulas cover the underlying invariant directly; an indexed polynomial for a different family is not evidence of equivalence.",
+        "searches": [
+          "Resultary exact-polynomial and minimum-count hit for F2(K_r,t)",
+          "Resultary approximate hit 2026/10/12/SCOPE-total-domination-polynomial-and-unique-cover-band-of-kneser-graphs--25e19d001ea1 (index summary only)"
+        ]
+      },
+      "rationale": "A distinct indexed exact-spectrum result expressly gives the same two factors, the same minimum size and the same minimum-set count on the full family, and also treats inclusion-minimal sets. The residual ordinary-domination gap is subtraction from the cited ordinary-domination theorem, not an independent result. The strong coverage is at the level of scientific statements in the indexed corpus; the exact match is later-indexed, so this decision does not establish that the frozen finding had been anticipated on its date or say anything about authorship or derivation.",
+      "residual_risks": [
+        "The relation in provenance between the two matching records is unresolved; later indexing is not proof of anticipation, dependence or authorial priority.",
+        "The earlier Chaluvaraju–Chaitra full text was not retrieved, and the broad search was not informative. Neither access limitation is the basis of the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact distinct indexed overlap plus stronger additional claims; later index date",
+          "evidence": [
+            "X and Y reproduce V and U respectively; the finding gives the same optimum size and count."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-total-domination-spectra-of-two-token-complete-bipartite-graphs--4fa1b36deec0",
+          "material_read": "RESULT.md finding at offset 0 and proof at offset 3555",
+          "method": "Local mirrored primary text",
+          "title": "Total-domination spectra of two-token complete bipartite graphs",
+          "trigger": "Exact indexed match to object and invariant"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "The z=-1 identity and edge-cover expansion are for M(G)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-perfect-matching-sieve-from-total-domination-of-middle-graphs--4d429ac2b8f4",
+          "material_read": "RESULT.md opening finding at offset 0",
+          "method": "Local mirrored primary text",
+          "title": "A perfect-matching sieve from total domination of middle graphs",
+          "trigger": "Edge-cover reduction on a graph transformation"
+        },
+        {
+          "assessment": "Exact ordinary-domination comparison; different invariant",
+          "evidence": [
+            "For odd m, the two cases giving (m-1)/2+n-1 are m=3 and m=n-1>=5; otherwise the odd value is (m-1)/2+n. Even m gives m/2+n-1."
+          ],
+          "identifier_or_url": "arXiv:2610.28936v1",
+          "material_read": "Theorem 1.1, HTML offset 3087",
+          "method": "OA primary HTML passage",
+          "title": "The domination number of the k-token graph of the complete bipartite graph",
+          "trigger": "Same objects, ordinary-domination corollary cited in frozen record"
+        },
+        {
+          "assessment": "General recurrences, no checked explicit biclique formula",
+          "evidence": [
+            "Open-neighborhood polynomial and general vertex/edge reductions."
+          ],
+          "identifier_or_url": "arXiv:1607.00400",
+          "material_read": "Abstract, definition and reduction section around offsets 0, 7151 and Theorem 3 at 21420",
+          "method": "OA primary HTML passage",
+          "title": "Total domination polynomials of graphs",
+          "trigger": "Plausible general coverage through standard polynomial reductions"
+        },
+        {
+          "assessment": "Uninspected primary full text; access risk only",
+          "evidence": [
+            "Hu et al. describe basic properties and operations such as union/join, not the token-graph formula."
+          ],
+          "identifier_or_url": "10.26713/jims.v6i2.256",
+          "material_read": "Bibliography and Hu et al. description only; direct DOI returned 404",
+          "method": "OA retrieval attempt and cited description",
+          "title": "Total Domination Polynomial of A Graph",
+          "trigger": "Earlier general total-domination-polynomial paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, main theorem and optimizer proof",
+        "Chinman et al., Theorem 1.1",
+        "11/22 exact-overlap record"
+      ],
+      "rationale": "The mathematical content is a meaningful structural and size-resolved classification on a natural two-parameter token-graph family. The split shows why open-neighborhood domination admits separate edge-cover and matrix constraints, gives every cardinality rather than only an optimum, and counts optimal labeled sets. This merits interest as a theorem independently of the record's failure to distinguish its claim from existing indexed coverage.",
+      "residual_risks": [
+        "No claim of usefulness beyond two tokens on complete bipartite hosts, or of a new value-bearing remainder unique to this record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

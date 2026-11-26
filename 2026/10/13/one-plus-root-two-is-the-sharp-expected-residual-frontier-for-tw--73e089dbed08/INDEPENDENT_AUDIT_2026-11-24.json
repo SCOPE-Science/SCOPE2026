@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:05:15.114719Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–118 and 121–317; VERIFICATION.md and verify.py inspected, not executed",
+        "/workspace/review_checks.py, record3 (run via python3 /workspace/review_checks.py)"
+      ],
+      "rationale": "The two residual maps leave the lone components r_2-(c/a)r_1 and r_1-(c/b)r_2, respectively. For c=0 the mean is a diagonal contraction; changing sign of one coordinate reduces c<0 to c>0. With p=c/a, q=c/b the diagonals of I-M are q(1-p^2)/(p+q), p(1-q^2)/(p+q). Its determinant is pq[(1-pq)^2-(p+q)^2]/(p+q)^2, hence nonnegative exactly when p+q<=1-pq, since pq<1. That inequality also makes both diagonals nonnegative. Equivalently (a+b)|c|<=det A. Fix eigenvalues mu and kappa*mu; the trace and determinant are fixed and the largest possible |c| is half the eigenvalue gap, attained at equal diagonals. Substitution gives (kappa^2-1)/2<=kappa, precisely kappa<=1+sqrt(2) including equality. The incoming residual (1,-1) at the stated equal-diagonal witness yields the ratio 2*kappa^2/(kappa+1)^2 and in particular 9/8 at kappa=3; every residual is realizable because A is invertible. Independent exact checks built the residual maps directly for 1,032 rational SPD examples (610 unsafe, 8 exactly on the determinant boundary). The proof, not this finite check, controls all orientations and all residuals.",
+      "residual_risks": [
+        "Real dimension two, exact updates and arithmetic, one step, specific probabilities, and ordinary equation-residual norm only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard RGS analysis gives convergence in the least-squares residual norm; the 2023 search summary describes a multi-coordinate/block extension and was not inspected in full. The 2021 convergence paper's OA request was denied."
+        ],
+        "reasoning": "With A=X^T X and x_* the minimizer, ||X(x-x_*)||^2=r^T A^(-1) r. Bounds for that metric, or asymptotic convergence, do not assert one-step nonincrease in the Euclidean equation residual. Access failures are not evidence of noncoverage.",
+        "searches": [
+          "arXiv:1503.08235v1 §2.3 Eqs. (7)–(8)",
+          "arXiv:1507.05844 Eq. (4)",
+          "DOI:10.1007/s11075-023-01661-3",
+          "ScienceDirect PII S0024379520305115"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.08235v1 and arXiv:1507.05844",
+        "Resultary a5a5cf5b9878, aaf097f58d30, 21774554697b, 9ae0040f2dac",
+        "10.1007/s11075-023-01661-3 (summary only); S0024379520305115 (listing only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary RGS update equations identify the starting iteration but supply no necessary-and-sufficient Euclidean PSD condition. The kappa=3 witness strictly increases the Euclidean residual even though exact minimization decreases the weighted energy.",
+          "A fixed complete sweep involves a product of two residual operators, not the average of the squared norms after each separate operator."
+        ],
+        "reasoning": "Neither norm equivalence nor the complete-sweep result gives the single-update contraction inequality with constant one. The new restriction comes from the determinant condition and exact worst orientation.",
+        "searches": [
+          "arXiv:1503.08235v1 §2.3 Eqs. (7)–(8)",
+          "arXiv:1507.05844 Eq. (4)",
+          "Resultary aaf097f58d30 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited RGS update is the same exact coordinate descent update under the normal-equation reduction A=X^T X.",
+          "Same-day Resultary a5a5cf5b9878 studies the Euclidean gradient norm, which equals the equation-residual norm for this SPD quadratic up to a sign, but uses the greedy Gauss–Southwell–Lipschitz rule."
+        ],
+        "reasoning": "Even after identifying gradient and equation residual, a selected greedy coordinate has a different law from a diagonal-proportional draw. A frontier for the former is not this conditional-expectation frontier.",
+        "searches": [
+          "Web: randomized Gauss-Seidel expected Euclidean equation residual squared norm two-dimensional SPD diagonal-proportional sampling sharp condition number 1+sqrt(2)",
+          "Resultary: exact title and p+q+pq criterion",
+          "arXiv:1503.08235v1 §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately identical entry surfaced. Same-day a5a5cf5b9878 gives the GSL frontier near 2.06394; same-day aaf097f58d30 gives the prescribed full forward-sweep frontier near 5.360767.",
+          "Earlier 21774554697b concerns deterministic-sweep solution error; 9ae0040f2dac concerns uniform stale-read sampling and scaled error."
+        ],
+        "reasoning": "The same-day neighbors change the choice of coordinate or number of updates; the earlier ones change the metric or dynamics. None is the same experiment or theorem, and the dates say nothing about within-day order.",
+        "searches": [
+          "Resultary: exact frozen title, p+q+pq, Euclidean residual monotonicity and sharp Gauss–Seidel thresholds"
+        ]
+      },
+      "rationale": "The method and coordinate-proportional sampling are established; the distinct claim is the necessary-and-sufficient Euclidean equation-residual condition and its worst-orientation condition-number frontier. Neither the inspected convergence theorems nor the closest same-day records cover those quantifiers. The originality decision is limited to the available comparative evidence.",
+      "residual_risks": [
+        "An equivalent older relaxation result stated in terms of gradient norms or 2-by-2 oblique residual projections could have been missed.",
+        "Two related search leads could not be assessed in full; unavailability does not establish noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers iteration and sampling, not the Euclidean residual frontier",
+          "evidence": [
+            "Probability ||X_j||^2/||X||_F^2 and exact coordinate minimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.08235v1",
+          "material_read": "§2.3 Eqs. (7)–(8), OA offset 10800",
+          "method": "OA primary PDF passage",
+          "title": "Convergence Properties of the Randomized Extended Gauss–Seidel and Kaczmarz Methods",
+          "trigger": "Identical baseline RGS algorithm"
+        },
+        {
+          "assessment": "Different metric",
+          "evidence": [
+            "Contraction is for the data-space least-squares residual against the least-squares solution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.05844",
+          "material_read": "Eq. (4), OA offset 11000",
+          "method": "OA primary PDF passage",
+          "title": "Rows versus Columns: Randomized Kaczmarz or Gauss–Seidel for Ridge Regression",
+          "trigger": "RGS mean-square residual convergence"
+        },
+        {
+          "assessment": "Distinct greedy rule, sweep order, or metric",
+          "evidence": [
+            "Greedy single-step and prescribed complete-sweep sharp frontiers are especially close but not the specified randomized update."
+          ],
+          "identifier_or_url": "Resultary a5a5cf5b9878, aaf097f58d30, 21774554697b and 9ae0040f2dac",
+          "material_read": "Each RESULT.md Finding/Result/Statement at offset 0; Assumptions for same-day pair",
+          "method": "Local search and mirrored statements",
+          "title": "Resultary sharp coordinate-update and Gauss–Seidel frontiers",
+          "trigger": "Strongest matching local records"
+        },
+        {
+          "assessment": "Unresolved, not evidence of noncoverage",
+          "evidence": [
+            "Summary describes a two-dimensional/block extension of the algorithm, not the stated Euclidean frontier."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-023-01661-3",
+          "material_read": "Search summary only; full text not obtained after redirects and repository check",
+          "method": "Web search and attempted lawful OA retrieval",
+          "title": "A two-dimensional randomized extended Gauss–Seidel algorithm for solving least squares problems",
+          "trigger": "Plausible phrase match for the dimension restriction"
+        },
+        {
+          "assessment": "Unresolved; no article-level claim made",
+          "evidence": [
+            "Listing identifies the related convergence question, not the result inspected here."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379520305115",
+          "material_read": "Search listing only; article retrieval returned HTTP 403",
+          "method": "Web search and attempted OA retrieval",
+          "title": "On convergence rate of the randomized Gauss-Seidel method",
+          "trigger": "Related convergence guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md fixed-matrix cutoff and sharp witness; arXiv:1507.05844 Eq. (4) for contrast"
+      ],
+      "rationale": "The ordinary residual norm is a natural progress/stopping diagnostic, different from the energy that coordinate minimization controls. The exact per-matrix test and the sharp condition-number cutoff tell when one can trust that diagnostic in conditional expectation; even a modestly conditioned kappa=3 example separates the two metrics. This is a useful narrow boundary, not a competing general convergence theorem.",
+      "residual_risks": [
+        "No guarantee about pathwise increases, other laws, or higher dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:01:54.910992Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Radial orthogonality and angular Parseval give the monomial basis and exact diagonal squared entries M_n(a+ε)/M_n(a). Tilting by r² shifts mass to the right, so its covariance with the strictly decreasing ratio symbol is negative and the entries strictly decrease in n. For a rigorous independent check of the asymptotic input, let f_n(u)=−n^(−δ)log M_n(u) for n≥1, set v=1−r=n^(−1/(β+1))w, and bound the phase from below by n^δ(2w+u w^(−β)) using −log(1−v)≥v. The minimum is F(u)=(β+1)(2/β)^δ u^(1/(β+1)); a matching integral lower bound follows on a fixed small w-interval about its positive minimizer, where the scaled phase converges uniformly and the interval's prefactor is only polynomial in n. Thus f_n→F pointwise on u>0. Each f_n is concave (its second derivative is minus a nonnegative variance times n^(−δ)). Fixed neighboring secants squeeze its derivative to F' at each u, uniformly on compact subintervals because the derivatives are nonincreasing and F' is continuous. This verifies the uniform expectation lemma, including control of the singular observable at the boundary, without differentiating an unexplained error term. Equivalently the secant between a and a+ε lies between the secants over [a,a+h] and [a−h,a] for each fixed h>ε. These converge to the respective F-secants, giving F'(a)/2=2^(δ−1)(aβ)^(−δ), and also a positive lower bound uniform for n large and ε small. At each fixed ε>0, the pointwise leading log-moment difference is positive, proving compactness and all positive Schatten memberships. For the joint limit, integrate the step function with degree floor(t ε^(−1/δ)); its tail is bounded by exp(−K p(t/2)^δ) for t sufficiently large and ε sufficiently small. The finite initial terms contribute zero in the limit, and the gamma substitution gives the stated constant for all real p>0. At a=2, β=1, p=2, the limiting integral is ∫exp(−√t)dt=2. These checks are analytic; no uploaded code was used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In §8, with x_n=(αβ/(n+1))^(1/(β+1)), the prior work expresses its moments as a power prefactor times exp(−(n+1)x_n−α/x_n^β) with an asymptotically unit correction. This is stronger than logarithmic-order asymptotics for that model.",
+          "Zhang–Wang–Hu gives Carleson measure/embedding criteria and Toeplitz characterizations; Wang–Xia–Liu gives Toeplitz/Hankel membership criteria. These latter qualitative results are not the coverage argument."
+        ],
+        "reasoning": "Boundary-equivalent weight profiles have the same leading normalized log moment after the rate conversion, because the fixed interior is exponentially negligible in n. Thus the published all-rate sharp moment law supplies the decisive mathematical input even for the exact boundary distance of the frozen norm. Standard concavity then yields the needed local control, not just a result for a fixed weight difference.",
+        "searches": [
+          "arXiv:2102.01743 §8, moment expansion for all α,β>0",
+          "arXiv:2107.02481 §3, Carleson measures",
+          "Wang–Xia–Liu doi:10.1186/s13660-023-03031-y §§1,3–4"
+        ]
+      },
+      "checked_sources": [
+        "Bourass et al. arXiv:2102.01743 §8",
+        "Zhang–Wang–Hu arXiv:2107.02481",
+        "Wang–Xia–Liu doi:10.1186/s13660-023-03031-y",
+        "Resultary bb2b1a2550b8 index",
+        "Targeted primary-literature and Resultary queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write B_n(α) for the §8 moment with weight exp(−α/[log(1/r²)]^β). Since log(1/r²)/(2(1−r))→1, comparison on an outer annulus squeezes M_n(u) between B_n(2^βu(1+η)) and B_n(2^βu(1−η)) up to exponentially small core integrals, for any fixed 0<η<1. By the prior saddle action and η→0 this gives f_n(u)=−n^(−δ)log M_n(u)→F(u)=(β+1)(2/β)^δ u^(1/(β+1)).",
+          "Hölder implies concavity of f_n. For 0<ε<h<a, the slope from a to a+ε lies between (f_n(a+h)−f_n(a))/h and (f_n(a)−f_n(a−h))/h. Take n→∞ then h↓0: the limit is F'(a), and fixing a small h gives a positive uniform lower bound for all n≥N and ε<h."
+        ],
+        "reasoning": "These are direct inequalities applied to the known moment law. The identity −log s_(n+1)=n^δ(f_n(a+ε)−f_n(a))/2 now gives the whole crossover on taking n=floor(t ε^(−1/δ)). The same uniform positive lower slope gives an integrable stretched-exponential bound for the step-function Riemann sum, whose integral is the claimed gamma factor. Even the effective rank at threshold 0<q<1 is the inverse of that strictly decreasing profile. This supplies the exact formal bridge from published prior work to all material asymptotic claims without invoking the frozen uniform saddle estimate.",
+        "searches": [
+          "Bourass–El-Fallah–Marrhich–Naqos arXiv:2102.01743 §8, saddle substitution, Gaussian prefactor and exact moment asymptotic",
+          "Frozen RESULT.md equations (1) and (2), matched to prior moment action"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen identity singular values are square roots of radial moment ratios. The crossover is therefore the limit of the secant of the normalized negative log moment at a base point, in a Laplace parameter on which that logarithm is concave.",
+          "The comparable prior logarithmic boundary model in §8 has exact moment integrals ∫₀^∞exp(−(n+1)x−α/x^β)dx for all α,β>0."
+        ],
+        "reasoning": "The pertinent alias is a differentiated free-energy law for radial moments, not the comparison of final Hankel and embedding singular-value formulas. The same known leading moment function determines the frozen secant law by a squeeze; changing the operator in the headline does not avoid that implication.",
+        "searches": [
+          "Web: weighted Bergman spaces exponential flat radial weights identity inclusion approximation numbers singular values two weights coalescing Schatten asymptotic uniform parameter",
+          "Resultary: Bergman exponential weights near identity inclusion singular value crossover Schatten blowup",
+          "Bourass–El-Fallah–Marrhich–Naqos arXiv:2102.01743 §8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed fixed-weight Weyl-law record bb2b1a2550b8 has an explicit two-term spectral law and small-p zeta coefficients; the index entry does not provide its exact radial weight or constants, so exact equivalence is not inferred from that entry.",
+          "The inspected §8 displayed moment action already gives the exact limiting function determined by its saddle: (β+1)β^(−δ) α^(1/(β+1))."
+        ],
+        "reasoning": "There need not be a table of coalescent singular values: setting α=2^β u in the published action recovers F(u) exactly, and its derivative divided by two is the frozen profile constant. The gamma coefficient then comes from integration, not an independent new constant missing from a table.",
+        "searches": [
+          "Resultary: Sharp two-term logarithmic Weyl law for exponential-weight Bergman inclusions fixed exponential change weight exact coefficient moments ball",
+          "Web: Sharp two-term logarithmic Weyl law exponential-weight Bergman inclusions bb2b1a2550b8 radial weight (1-|z|)",
+          "arXiv:2102.01743 §8, displayed saddle and moment action"
+        ]
+      },
+      "rationale": "The continuous crossover is a direct consequence of the already published moment asymptotic in Bourass–El-Fallah–Marrhich–Naqos §8, by near-boundary comparison and concavity of the normalized negative log moment. This is coverage by implication, not an assertion that the old paper states the embedding theorem verbatim. In this radial setting it does not require a new uniform saddle or a new spectral asymptotic. The decision does not rely on the inaccessible body of a related indexed fixed-weight embedding record.",
+      "residual_risks": [
+        "The closest indexed fixed-weight Weyl record's body and exact priority relationship were not established; the separate, earlier primary-source implication suffices. This disposition does not claim the crossover was explicitly formulated previously."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen leading result by direct mathematical implication from its moment expansion, despite not studying the same final operator",
+          "evidence": [
+            "§8 uses weight exp(−α/(log(1/r²))^β), sets x_n=(αβ/(n+1))^(1/(β+1)), and obtains a polynomial prefactor times exp(−(n+1)x_n−α/x_n^β) and a factor tending to 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.01743",
+          "material_read": "Open primary PDF Theorem 1.3 context and §8 from the defining radial weight through the complete moment Laplace calculation and final example",
+          "method": "Read exact moment integral, saddle and asymptotic expansion, then compared moment actions by annular weight bounds and derived the secant implication",
+          "title": "On singular values of Hankel operators on Bergman spaces",
+          "trigger": "Plausibly sufficient sharp radial moment law for a boundary-equivalent family at every flatness and rate"
+        },
+        {
+          "assessment": "Relevant qualitative framework but not the decisive implication",
+          "evidence": [
+            "Section 3 characterizes Carleson embeddings via averaged densities; the abstract describes Schatten-class Toeplitz characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.02481",
+          "material_read": "Open primary PDF abstract and Section 3 Carleson measure criteria around its embedding characterization",
+          "method": "Compared target norms and qualitative membership versus scaling limits",
+          "title": "Toeplitz operators on Bergman spaces with exponential weights",
+          "trigger": "Embedding and Toeplitz results for the exponential weight setting"
+        },
+        {
+          "assessment": "Criteria for Toeplitz or Hankel membership do not supply the exact crossover; separate from the prior moment-law implication",
+          "evidence": [
+            "Theorem 3.1 relates positive Toeplitz membership to averaging and Berezin transforms; Section 4 is about Hankel ideals."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-023-03031-y",
+          "material_read": "Open publisher abstract and introduction, Theorem 3.1 and Section 4 scope",
+          "method": "Compared operator statements and invariants",
+          "title": "Schatten class operators on exponential weighted Bergman spaces",
+          "trigger": "Nearby Schatten criteria for exponential spaces"
+        },
+        {
+          "assessment": "Close indexed record; exact parameter and boundary-weight comparison not settled from the summary and not used to establish coverage",
+          "evidence": [
+            "The summary advertises a two-term fixed-weight logarithmic spectrum on a ball and two singular-zeta coefficients as the Schatten exponent tends to zero."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-two-term-logarithmic-weyl-law-for-exponential-weight-bergm--bb2b1a2550b8",
+          "material_read": "Configured index title and summary, not full text",
+          "method": "Compared only the advertised fixed-weight and small-Schatten-exponent scope",
+          "title": "Sharp two-term logarithmic Weyl law for exponential-weight Bergman inclusions",
+          "trigger": "Potentially same radial operator, fixed parameter difference with an exact Weyl law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The effective-rank question is natural and the formula is useful as an expository observation. As a standalone exact finding, however, the claimed quantitative advance is determined by an existing leading all-rate moment asymptotic and elementary monotone secant and summation arguments. The record does not claim a further independently useful invariant such as a second-order or rate estimate beyond that implication. No unproved extension is offered as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

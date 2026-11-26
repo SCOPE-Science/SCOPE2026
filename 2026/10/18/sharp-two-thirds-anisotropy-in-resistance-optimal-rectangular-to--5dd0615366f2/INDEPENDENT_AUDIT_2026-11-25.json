@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:30:34.459612Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the unrestricted optimization and fixed-width limit in RESULT.md lines 46–103. On the connected-support simplex, X=L+11ᵀ/(mn) is positive definite, and the trace-inverse second variation is the trace of a positive congruence of the square of X^(−1/2)HX^(−1/2), times two. It is strictly positive because distinct simple-graph edge coordinates appear in distinct off-diagonal entries. Boundary sequences tending to disconnected support have diverging inverse-gap cost. Existence, strict convexity and translation invariance thus give one optimizer with constant weights by direction, both positive by connectivity. Differentiating the exact Fourier trace at x=h/(1+τ) gives the stated Φ; strict convexity in y/h (not necessarily in τ) and the derivative signs at the two ends give uniqueness. Exchange symmetry at equal lengths gives τ=1. The cycle resolvent follows from periodizing the exponential line kernel. As an independent replay of the singular constants, for p=1,2 use g_p(t)=(4sin²(πt)+c)^(−p): its total variation is ≤2c^(−p), so the Fourier sum differs from m∫g_p by O(c^(−p)). The p=1 integral is 1/√(c(c+4)) by a tangent substitution; negative differentiation gives the p=2 integral (c+2)/(c(c+4))^(3/2). When c=τb_l and τ=z m^(−2/3), the relative errors are O(1/(m√c)), uniformly for z in compact positive intervals and fixed n. The exact zero-mode sum is (m²−1)/12 (also the constant term of the small-c cycle resolvent after the pole 1/c). The resulting scaled derivative tends to 1/12−S_n/(4z^(3/2)), bracketing the unique root, and the scaled trace correction is z_n/12+S_n/(2√z_n)=z_n/4. Equal design has hT=m²/6+O_n(m). Independent direct Fourier sums and bisection in y/h at n=3, m=98,304 gave scaled ratio 2.28840 and scaled correction 0.57261, near the analytic 2.28943 and 0.57236; this is illustrative, not the limit proof. Inspected VERIFICATION.md and verify.py without executing the supplied script; its recorded 1,296 finite checks are supplementary (the Green-loop checks values, not an independent derivative certificate). The two-term law is for hT with fixed n≥3, not jointly diverging widths. The variance interpretation uses mean-zero diffusion with identity noise covariance on the mean-zero subspace.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi establish general convexity, uniqueness and symmetry reductions for the linear budget problem. Tovar et al. formulate marginal conditions for more general costs.",
+          "Bamieh et al. analyze local-feedback coherence for regular tori with equal neighbor coefficients, not independent edge budgeting on a fixed-width rectangular strip."
+        ],
+        "reasoning": "The general design results cover the principles giving the finite optimizer and orientation reduction; the resulting scalar equation is a Fourier specialization. Neither general optimizer characterization nor equal-coupling coherence scaling supplies the singular optimized allocation or its two-term cost.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, Sections 1 and 4",
+          "arXiv:1112.4011v1, discrete torus and consensus model",
+          "arXiv:2610.03627v1, linear-cost marginal conditions"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/050645452",
+        "arXiv:1112.4011v1",
+        "arXiv:2610.03627v1",
+        "Resultary e691938335b4",
+        "Resultary 58e191d42f66",
+        "Resultary 8a4a15cc3c55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier ladder proof already supplies the one-band Green-kernel asymptotic and optimizes a scaled function linear in the ratio plus a single inverse-square-root term. This transfers as a proof ingredient, not as an optimized multi-band result.",
+          "The assigned optimum has one shared transverse conductance and must combine all contributions b_l^(−1/2) before optimizing; the power 2/3 is applied to their sum, not to independent optimized contributions."
+        ],
+        "reasoning": "This is a close structural extension via known ingredients, not an unrelated new asymptotic phenomenon. Its full transverse-spectrum prefactor and second-order optimal trace require controlling the fixed-width multi-band objective and its common minimizer, not quoting the one-band optimized statement.",
+        "searches": [
+          "e691938335b4 proof of compactness and scaled objective in equation (7), mirror offsets 3200–7312",
+          "Ghosh–Boyd–Saberi Sections 1 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier result covers C_M × K₂. Its t=1 constants match the formal width-two extension if C₂ is interpreted as two parallel transverse edges: S₂=1/2, aggregate rung/rim constant 2(3/2)^(2/3)=18^(1/3), with Kirchhoff index (2M) times the trace.",
+          "Actual n≥3 cycle products have n−1 positive transverse modes, not one, and exclude that boundary width."
+        ],
+        "reasoning": "This is substantive overlap in exponent, method and width-two constants, not another parameterization of the assigned width-n≥3 graphs. Multiplying trace by vertex count or changing the price does not turn the width-two theorem into the cycle-product theorem.",
+        "searches": [
+          "Resultary semantic comparison: resistance-optimal rectangular torus, fixed-width cycle products, prisms, two-thirds allocation",
+          "Resultary width-two priced-prism record e691938335b4, Finding and proof equations (6)–(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact prism formulas give a two-thirds balance between one zero transverse mode and one positive mode; the spectral-order record includes that prism balance at p=1."
+        ],
+        "reasoning": "These are exact family-specific comparisons, not a table for the S_n constants of fixed-width cycle products. No indexed exact counterpart for n≥3 was identified in the bounded comparison.",
+        "searches": [
+          "Resultary exact results: e691938335b4 (priced circular ladders), 58e191d42f66 (mesoscopic prism allocation), 8a4a15cc3c55 (inverse-Laplacian spectral order on prisms)"
+        ]
+      },
+      "rationale": "The generic convex optimization framework and the two-thirds mechanism for the width-two prism have prior coverage. The distinct content supported here is the sharp fixed-n≥3 cycle-product allocation and trace correction in terms of the entire transverse spectrum. The methods are closely related; this is a bounded comparison, not a priority determination.",
+      "residual_risks": [
+        "An equivalent fixed-width optimization may exist in differently indexed strip-network or anisotropic spectral-design work. The earlier width-two result is genuine prior coverage for the two-thirds mechanism, not an unverified possible match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general finite optimization framework, not the scaled rectangular-torus optimum",
+          "evidence": "Section 4 gives strict convexity and optimizer uniqueness and states the general optimality conditions.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Abstract p. 37, Section 1 p. 39, Section 4 pp. 51–52 (text offsets 0, 7900, 49700)",
+          "method": "Author-hosted OA primary PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same unrestricted linear-budget resistance objective"
+        },
+        {
+          "assessment": "Regular local-feedback model, not fixed-width conductance allocation",
+          "evidence": "Uses the equal-sided discrete torus and common neighbor coupling in the consensus example.",
+          "identifier_or_url": "https://arxiv.org/pdf/1112.4011",
+          "material_read": "Abstract, torus definition and Section II consensus equations, pp. 1–3, text offsets 0, 13600 and 20000",
+          "method": "OA primary PDF passages",
+          "title": "Coherence in Large-Scale Networks: Dimension-Dependent Limitations of Local Feedback",
+          "trigger": "Inverse Laplacian modes and torus coherence scaling"
+        },
+        {
+          "assessment": "General marginal conditions; no inspected fixed-width result",
+          "evidence": "Discusses the classical linear-cost case and the role of squared biharmonic distances in marginal values.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03627",
+          "material_read": "Abstract, introduction and Section III, pp. 1 and 3, offsets 0, 5200 and 16800",
+          "method": "OA primary PDF passages",
+          "title": "Cost convexity controls the architecture of resistance-optimal networks",
+          "trigger": "General conductance pricing and resistance-optimal designs"
+        },
+        {
+          "assessment": "Earlier one-band precedent and transferable method; not fixed n≥3",
+          "evidence": "Spectrum splits into a symmetric band and a single antisymmetric band; equation (7) optimizes their limiting balance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-an-anomalous-two-thirds-power-law-for-resistance-optimal-circula--e691938335b4/RESULT.md",
+          "material_read": "Finding and Proof Sections 2–4, offsets 0 and 3200–7312",
+          "method": "Local Resultary mirror full-text passages",
+          "title": "An anomalous two-thirds power law for resistance-optimal circular ladders",
+          "trigger": "Same exponent, two-term optimum and unrestricted design, on width two"
+        },
+        {
+          "assessment": "Prism scope",
+          "evidence": "Ring and rung prices enter a two-thirds law for two layers.",
+          "identifier_or_url": "Resultary 58e191d42f66",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Mesoscopic rung allocation in resistance-optimal prism networks",
+          "trigger": "Another exact allocation law under edge pricing"
+        },
+        {
+          "assessment": "Broader spectral exponent, but still a prism",
+          "evidence": "The p=1 endpoint recovers the prism case, not arbitrary fixed transverse cycle length.",
+          "identifier_or_url": "Resultary 8a4a15cc3c55",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "A half-order allocation transition for inverse-Laplacian spectra",
+          "trigger": "Broader exponent family with resistance as a special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For every fixed transverse cycle this determines how much conductance buys connectivity versus the dominant long-direction resistance, with an explicit transverse-spectrum prefactor and quantified leading departure from the zero-band cost. The leading factor-of-two saving over equal spending is interpretable, but the main value beyond the earlier prism is the shared conductance balance across all transverse modes and its sharp width-dependent correction, not the exponent in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

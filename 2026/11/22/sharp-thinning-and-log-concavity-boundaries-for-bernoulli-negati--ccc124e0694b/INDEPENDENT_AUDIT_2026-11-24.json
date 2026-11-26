@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:59:16.825719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Correctness of the repaired files in repairs/3: expanding the normalized quotient near retention a=1, its positive-degree coefficient of index k is (1-a)(b_k-b_(k+1))+O((1-a)^2), with b_k=nu theta^k+(-1)^(k-1)r^k. This analytic expansion near zero also covers r>theta irrespective of the numerator zero elsewhere. For odd k the differences are positive; on the even subsequence r>theta must fail eventually, while r<=theta makes k=2 the strongest comparison, including ties when r=theta. When the differences d_k are nonnegative, they sum to b_1 and log H_a is the integral from a to 1 of sum_k d_k[(1-s+sz)^k-1] ds/s. Nonnegative binomial coefficients and total intensity bounded by b_1 log(1/a) prove sufficiency for all retentions and all indices. The strict inclusion in the classical ID region and overdispersion 15/16 at (nu,theta,p)=(1,1/2,1/4) were verified exactly. The repaired standard-library script passed with python3 -I /workspace/repairs/3/verify.py, including equality and a late-index failure with d_2>0. The frozen checker was read, not executed. The removed log-concavity classification was not rejected as false: the NB ratio gives the leading second log difference (1-nu)/k² below one, and the Bernoulli correction is the log of a linear-over-linear factor with second difference O(k^-3). In the frozen asymptotic display the constant in log f_k is real, not necessarily positive; this immaterial adjective is absent from the repair.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "eb5c7d74b649 proves log-concavity for nu>=1 and strict log-convexity at every k>=2 for 0<nu<1, and adds first-step and hazard thresholds",
+          "Steutel–van Harn's generic criterion concerns nonincrease of every canonical coefficient; the Ben Salah abstract concerns real powers"
+        ],
+        "reasoning": "The entire mass-curvature claim must be removed; the stronger note implies it with no further estimates. The all-family canonical criterion instead leaves an infinite sequence to analyze, and the parity and geometric competition give the evaluated sharp parameter inequalities of the narrower result.",
+        "searches": [
+          "eb5c7d74b649 RESULT.md Finding, assumptions and proof start",
+          "Steutel–van Harn (1979) Theorem 2.2",
+          "Ben Salah DOI 10.1080/03610926.2021.1879863"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, REVIEW.md, AUDIT.json, METADATA.json and SLOGAN.txt; corrected files under repairs/3",
+        "Resultary eb5c7d74b649, 12cdb9820df2, 41c5de93e28d, and 669cf2e9718e",
+        "Ong et al. §2.6 and Letac et al. abstract",
+        "Steutel–van Harn Theorem 2.2 lead and Ben Salah abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ong et al. §2.6 does assert log-concavity without a shape restriction by incorrectly treating all NB laws as log-concave; the stronger distinct indexed result supplies the needed shape restriction",
+          "Letac et al. treats convolution powers; the repaired example is compound Poisson yet fails the k=2 thinning comparison"
+        ],
+        "reasoning": "Neither an existing correction of shape nor ordinary infinite divisibility implies the repaired theorem. The new content is the all-retention boundary including the distinction between a failed first even comparison and an eventual even obstruction when r>theta.",
+        "searches": [
+          "Ong et al. original PDF §2.6, pp. 947–948",
+          "Letac et al. AMS PDF p. 2107",
+          "eb5c7d74b649 Finding, statements 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shifted-NB mixture is exactly the convolution B+N with shift probability p; eb5c7d74b649 has the same generating function with q=theta",
+          "Letac et al. p. 2107 studies (1+u/c)^x(1-u)^(-y) with u=theta z, c=theta/r and x=s, y=nu s for power s"
+        ],
+        "reasoning": "The aliases are identical models, not merely similar counts. The real convolution powers of that pgf do not give the quotient by its affine composition required for thinning.",
+        "searches": [
+          "Resultary: Bernoulli plus negative-binomial convolution binomial thinning r=p/(1-p) canonical cutoff",
+          "Ong et al. DOI 10.3390/stats6030059",
+          "Letac–Malouche–Maurer DOI 10.1090/S0002-9939-02-05352-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ccc124e0694b is the identical frozen record; eb5c7d74b649 is the exact mass-curvature overlap; 12cdb9820df2 is Bernoulli–Poisson–Lindley; 41c5de93e28d is same-family three-cumulant feasibility"
+        ],
+        "reasoning": "The exact shape hit is counted as coverage. The other record with thinning compares canonical coefficients in a different family; the three-cumulant theorem does not evaluate the all-retention quotient or canonical differences. A finite table does not answer this continuum boundary question.",
+        "searches": [
+          "Resultary: Bernoulli plus negative binomial convolution r=p/(1-p) binomial thinning self-decomposability nu(1-theta) theta² first even canonical comparison",
+          "Resultary eb5c7d74b649, 12cdb9820df2, 41c5de93e28d"
+        ]
+      },
+      "rationale": "PASS applies only to the repaired sharp all-retention thinning boundary. The original separately claimed global log-concavity boundary is fully covered, and in fact sharpened, by distinct Resultary eb5c7d74b649 for the exact same pgf. The same-day date does not resolve priority; coverage is mathematical. Complete corrected files withdraw that theme, keep only thinning, and credit the additive ID condition as prior art. No inspected distinct statement gives the remaining evaluated thinning frontier. The general 1979 criterion is explicitly credited.",
+      "residual_risks": [
+        "Ben Salah's body was unavailable; abstract scope is not a body-level exclusion of thinning results.",
+        "No order is inferred between same-day hits, and an unlocated equivalent formulation could affect the remaining thinning claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly sharper coverage of the frozen log-concavity claim; not the repaired thinning condition",
+          "evidence": [
+            "Parts 1–2 give log-concavity for nu>=1 and strict log-convexity for every k>=2 below one; same normalized pgf."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-mass-curvature-and-hazard-transitions-for-bernoulli-negati--eb5c7d74b649/RESULT.md",
+          "material_read": "Finding, scope and proof start, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp mass-curvature and hazard transitions for Bernoulli–negative-binomial counts",
+          "trigger": "Exact shape-cutoff overlap"
+        },
+        {
+          "assessment": "Unconditional shape assertion confirmed; not crediting its correction as new here",
+          "evidence": [
+            "§2.6 asserts NB-shifted NB log-concavity because Bernoulli and NB are log-concave and convolution preserves that property."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/stats6030059",
+          "material_read": "Primary PDF first-page context and §2.6 at offset 28790, pp. 947–948",
+          "method": "Lawful publisher file at mdpi-res.com",
+          "title": "A Family of Finite Mixture Distributions for Modelling Dispersion in Count Data",
+          "trigger": "Same count model; cited unconditional shape assertion"
+        },
+        {
+          "assessment": "Direct antecedent to ordinary divisibility, not evidence of evaluated all-thinning region",
+          "evidence": [
+            "The abstract identifies coefficient nonnegativity of powers of the identical convolution as its problem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-02-05352-2",
+          "material_read": "p. 2107 abstract; compared directly with normalized pgf",
+          "method": "Lawful AMS PDF",
+          "title": "The Real Powers of the Convolution of a Negative Binomial Distribution and a Bernoulli Distribution",
+          "trigger": "Identical family and possible powers implication"
+        },
+        {
+          "assessment": "Possible earlier equivalent specialization not excluded at body level",
+          "evidence": [
+            "Abstract describes real powers of the sum of an infinitely divisible count and a Bernoulli variable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2021.1879863",
+          "material_read": "Published abstract; full text unavailable",
+          "method": "Publisher index and lawful OA attempts",
+          "title": "Generalized Convolution Product of an Infinitely Divisible Distribution and a Bernoulli Distribution",
+          "trigger": "Broader related Bernoulli plus infinitely divisible real-power result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural published count family used at many dispersion levels, the repaired claim provides a usable complete all-retention feasibility criterion that is strictly stronger than additive divisibility, including for overdispersed counts. It proves when an independent innovation exists, not just when a few coefficients pass; sufficiently late obstructions can arise when the odds exceed the NB parameter. The removed log-concavity result contributes no value to this revised claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

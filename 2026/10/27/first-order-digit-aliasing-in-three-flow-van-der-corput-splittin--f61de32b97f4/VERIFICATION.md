@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the three-flow digit-aliasing theorem
 
-The `check.py` program uses exact rational binary radical-inverse samples and exact rational upper-triangular matrix multiplication. It asserts the shuffle identities and the finite-step product identity for each integer \(1\le N\le128\), with no numerical tolerance, and reports larger-prefix diagnostics. Execute `python3 check.py` after extracting this package.
+# Independent mathematical audit
 
-A finite checker cannot establish the all-\(N\) digit count or the infinite limiting error. Those follow from the dyadic interval partition, the Taylor/commutator expansion, an Abel summation bound, and the exact witness formula in RESULT.md. The test does not characterize other shuffle conventions, generators, or unbounded operators.
+## correctness
+
+PASS
+
+The leading binary digit forces the second swap and restricts the first swap; the completed orders are (3,1,2) below the 1/3 tail threshold and (2,1,3) otherwise. A dyadic cylinder corresponds to one residue class, so a truncated binary decomposition of [0,1/3) gives a uniform O(1+log N) prefix discrepancy. The local h² coefficients are K/2 and −K/2, averaging to −K/6. Telescoping changes the left propagator to the exact one with total error O(Nh³); summation by parts for the centered coefficients uses O(h) adjacent propagator variation. The constant term is the stated Riemann integral up to O(h²). For the witness K=−E13, E13 commutes with the sum, and its spectral norm is one, giving Te^T/6. Independent exact word and matrix calculations can be replayed with python /workspace/review_evidence/reproduce_1234.py 2; they corroborate but do not prove the all-N asymptotic. The conclusion concerns the specified indexing and descending shuffle with bounded generators.
+
+## originality
+
+PASS
+
+The serial shuffle recipe is prior. The supported distinct contribution is the binary-digit aliasing analysis for its fully specified descending three-flow instance and the resulting sharp first-order transported commutator, not the algorithm, generic discrepancy facts or local product expansion.
+
+## value
+
+PASS
+
+This isolates a concrete implementation failure of an actual proposed quasi-random splitting recipe: low discrepancy of individual inputs does not balance the pair of shuffle draws. The arbitrary-generator leading error and exact nonzero witness say what fails and by how much, rather than merely showing that a permutation histogram is unbalanced. It is not a claim against all quasi-random methods or against the motivating PDE experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review: exact circular Cantor Abelian spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The unrestricted proof reconstructs the positions of ones, establishes an exact cyclic gap ruler, and proves a strict inequality forcing the minimum gap interval to contain the wrap gap. The two-sided span is optimized exactly by a realizable pattern of binary carries, not a heuristic numerical fit. Complementarity and the unit-step sliding-window property produce every attainable Parikh class. The closed global total follows from two explicit finite binary-digit sums. A separately replayed brute-force checker independently enumerated all cyclic lengths and shortest spans through rank seven; totals were 5, 23, 113, 599, 3353, 19391, and 114161. No infinite assertion relies exclusively on this finite replay. Critical boundary cases include rank one, one-symbol arcs, the full traversal, and all-ones thresholds.
+## correctness
 
-## Originality — PASS, with limitations
-Cassaigne et al. (arXiv:1402.5843) treat conjugacy classes of ordinary factors of infinite words, not Parikh vectors of finite circular factors. Chen, Lü and Wu (arXiv:1703.04063) study k-Abelian complexity and maximum counts in ordinary factors of the infinite Cantor sequence. Their prefix maximality does not classify the exceptional finite circular wrap gap. Lü et al. (DOI:10.1016/j.tcs.2015.12.022) examine permutation and factor complexity of infinite Cantor-like sequences; the accessible excerpts do not furnish the exact present statement, but the publisher full text was not available. Bulgakova et al. (arXiv:2012.15818) classify circular words with small bounded Abelian spectrum over a ternary alphabet, not these binary Cantor words. Seven targeted mathematical-record queries and five specific external-text searches found no equivalent exact formulas; this negative evidence does not establish universal uniqueness. The closest indexed prior results concern Abelian pattern Sturmian support, even-base Cantor spectral translations, and closed-rich binary factors, and do not imply the theorem.
+PASS
 
-## Mathematical value — PASS
-The result is a motivated complete classification of an intrinsic circular invariant of a classical substitution family. It supplies the spectrum for every length and a nontrivial closed total with exponential scale \(6^n\), including an explanation through a new boundary-gap and carry argument. It does not merely interpolate a table or restate a general algorithm.
+Writing the one positions as B(j), ordinary gaps are 1+3^ν₂(j) and the wrap gap is 1. The telescoping sum of divisibility indicators would give 3^(n−1) at residue zero in the adjusted gap h=g−1; subtracting it gives h_0=0. Equal-length residue blocks differ by at most one in the count of multiples at each scale, and the total possible excess 3^(n−1)−1 is less than this wrap correction. Therefore every minimum block of fewer than 2^n gaps uses the wrap gap. The resulting span is 2+min_{a+b=m−2}(B(a)+B(b)); for one one it is 1. Weighting the binary digit equations by 2·3^j shows that each carry into bit j subtracts 2·3^(j−1) from B(m−2). No carry is possible before the first zero or above the leading one; if the first zero is below the leading one, the pattern initiating there, propagating through all intermediate bits and stopping at the leading one is feasible and dominates all others. This gives the claimed R including s=0 and all-ones s. Sliding windows have unit steps and complements give the minimum including length 3^n. In the sum over lengths each threshold contributes (N−d+1)+(N−d). Grouping the carry gains by leading bit and first zero gives 6^h−2·3^h+2^h at leading bit h, unchanged by omitting the all-ones endpoint. The totals follow. Frozen VERIFICATION.md and checker.py were inspected, not executed. Independent ternary-position and direct window-count sets through rank six reproduced the thresholds and totals (python -I /workspace/branches/independent_checks.py 4); this does not prove arbitrary rank.
 
-## Scientific limitations and remaining risks
-The theorem is restricted to complete finite binary Cantor iterates and circular factors of at most one full traversal. The current work does not classify strings or multiplicities within Parikh classes. The 2016 publisher full text and unindexed priority literature may hide related results; independent mathematical verification and a complete priority audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported content is the exact finite-circle minimum span law, with its sharp wrap criterion and solved digit convolution, yielding the complete spectrum and length-tagged total. Prior linear prefix maximality and finite-circle range/transport methods account for individual ingredients, not the carry optimum for these circles. None of the strongest inspected matches gives an equivalent or mechanically covering formula. This is a scoped best-of-knowledge decision, not an inference from the absence of hits.
+
+## value
+
+PASS
+
+A complete spectrum of a canonical finite substitution family is a motivated finite-word invariant, distinct from infinite factor complexity. The exact threshold, stable across ranks and not requiring word construction or scanning over splits, together with the strict localization of minimizing arcs, gives usable extremal information. The closed total quantifies how the number of classes grows over all lengths. Sliding-window range alone would not be such a contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

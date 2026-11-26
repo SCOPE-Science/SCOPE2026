@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:54:09.069166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On simple C_n for n≥5, either set fails domination precisely when the opposite label has three successive occurrences. Two distinct vertices have at most one common neighbor; a repeated nonempty L-signature is therefore a singleton shared by the two zeros on either side of a one. Their two other neighbors must be zeros, exactly 00100, and the converse holds. The marked zero-run argument counts pairs of a labeled word and a distinguished run start: for k runs, the trace counts encodings with the distinguished run at position 0, and there are n positions for that start and k starts per word. This gives n/k even for periodic words. The run weights and exclusion of a single one between two length-two zero-runs give det(I−T)=1−uz²−u²(z³+z⁴+z⁵)−u³z⁶. The trace-log identity gives −z∂z log det(I−T); its terms below degree five are exactly 2uz²+3u²z³+6u²z⁴. After this subtraction the inhomogeneous numerator has degree at most ten, giving the stated recurrence. The displayed n=5–8 coefficients agree. The frozen output is finite corroboration only; inspected but did not run verify.py. The aside about an OEIS index shift is unnecessary under the listed indexing and does not affect the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "db04d4cd229b gives both one- and two-sided counts plus their asymptotic ratio. 12e5f9516f57 instead counts two-sided words only and requires the additional forbidden factor 11011. Theorem 6 in #P1.51 gives general existence, not the count."
+        ],
+        "reasoning": "The later source's one-sided part directly contains the full frozen result, whereas the earlier two-sided theorem restricts to a proper subset (for example, 0110110 is accepted only by the one-sided rule).",
+        "searches": [
+          "Resultary: locating-dominating partitions of cycles enumeration recurrence",
+          "db04d4cd229b and 12e5f9516f57, Finding",
+          "Chakraborty et al., EJC #P1.51, Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Resultary db04d4cd229b and 12e5f9516f57",
+        "EJC 33(1) #P1.51; arXiv:2506.12933v2 and arXiv:2602.18760; OEIS A001636"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed P_A(z,t) is exactly the frozen Q(z,u). Summing the indexed coefficient formula over n≥5 is exactly the frozen low-degree subtraction. Multiplying by P_A yields the frozen recurrence. The coalition definition requires each block not to be locating-dominating; the other partition study seeks two locating-dominating parts."
+        ],
+        "reasoning": "There is no residual coefficient regime or word condition beyond the indexed theorem. The differently defined literature problems are not used to infer equivalent coverage.",
+        "searches": [
+          "db04d4cd229b, Finding and Proof §§1–3",
+          "arXiv:2506.12933v2 abstract",
+          "arXiv:2602.18760 Definition 1.2 and cycle section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "db04d4cd229b defines A_n(t) on precisely the same typed labeled partitions. It gives the cyclic factors 000, 111, and 00100 for that class and uses t^{|L|}."
+        ],
+        "reasoning": "A_n(t)=P_n(u) under t=u, with no summation over symmetry or renormalization.",
+        "searches": [
+          "Resultary: dominating locating-dominating partitions cycles bivariate enumeration",
+          "Resultary: cycle locating-dominating partition forbidden cyclic words 00100"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001636 lists the univariate totals with offset 1,2: positions 5–8 are 10,17,21,38. db04d4cd229b gives coefficient extraction from the identical bivariate denominator for every n≥5."
+        ],
+        "reasoning": "The OEIS match has no size variable and cannot determine P_n(u); the exact indexed bivariate formula determines all sizes, not just the totals.",
+        "searches": [
+          "Resultary: Fielder sequence OEIS A001636 cycle partition size-refined enumeration",
+          "OEIS A001636",
+          "db04d4cd229b, Finding equation for A_n(t)"
+        ]
+      },
+      "rationale": "A distinct later-indexed record states the identical one-sided language and complete bivariate enumerator on the same labeled graph, with the same integer range and weight. Its larger comparison also counts two-sided partitions. This is demonstrated coverage of the entire frozen scientific claim, not a finding about historical priority. The older existence theorem, two-sided language, and univariate OEIS match alone would not establish this failure.",
+      "residual_risks": [
+        "The directly matching result is later indexed. Equivalent coverage is established; historical priority is not.",
+        "The bounded literature comparison is not an exhaustive search for earlier size refinements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage; also gives two-sided enumeration",
+          "evidence": "A_n(t) applies to the same D,L and n; P_A=Q, and the three forbidden factors are stated exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-bivariate-enumeration-and-exponential-scarcity-of-two-sided-loca--db04d4cd229b/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–3 opening, offsets 0–4609",
+          "method": "Bounded Resultary mirror text and exact denominator comparison",
+          "title": "Bivariate enumeration and exponential scarcity of two-sided locating-dominating cycle partitions",
+          "trigger": "Same labeled one-sided classes and size statistic"
+        },
+        {
+          "assessment": "Strictly different class",
+          "evidence": "Both parts locating-dominating; additional forbidden 11011.",
+          "identifier_or_url": "12e5f9516f57",
+          "material_read": "Finding and local factor condition",
+          "method": "Bounded Resultary mirror text",
+          "title": "Exact enumeration of two locating-dominating partitions of cycles",
+          "trigger": "Earlier indexed cycle census"
+        },
+        {
+          "assessment": "Existence, not a size-resolved census",
+          "evidence": "Every isolate-free graph has such a partition.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/",
+          "material_read": "Theorem 6, p. 5, OA offset 15200",
+          "method": "OA primary PDF passage",
+          "title": "A Note on Partitioning the Vertex Set of a Graph into a Dominating Set and a Locating Dominating Set",
+          "trigger": "Same typed partition definition"
+        },
+        {
+          "assessment": "Different two-sided requirement",
+          "evidence": "Both parts must be locating-dominating.",
+          "identifier_or_url": "arXiv:2506.12933v2",
+          "material_read": "Abstract, p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Locating-dominating partitions for some classes of graphs",
+          "trigger": "Similar partition terminology"
+        },
+        {
+          "assessment": "Different class",
+          "evidence": "No block is itself an LD-set; the compared cycle result concerns coalition numbers.",
+          "identifier_or_url": "arXiv:2602.18760",
+          "material_read": "Definition 1.2, p. 3, and cycle section, p. 7",
+          "method": "OA primary PDF passages",
+          "title": "Locating-dominating coalitions in graphs",
+          "trigger": "Cycle partition terminology and local LD restrictions"
+        },
+        {
+          "assessment": "Matches the unweighted specialization, not the bivariate claim",
+          "evidence": "Entries at indices 5–8 are 10,17,21,38.",
+          "identifier_or_url": "https://oeis.org/A001636",
+          "material_read": "Listed offset and initial terms, around OA offset 431",
+          "method": "Bounded OA entry text",
+          "title": "A Fielder sequence",
+          "trigger": "Exact total-count candidate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The size distribution is a motivated statistic and would add information beyond existence or the total count. As submitted, however, the record gives no independent exact invariant beyond the already indexed formula for that very statistic; the examples and recurrence are mechanical coefficient consequences. The complete recomputation adds no separate scientific result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

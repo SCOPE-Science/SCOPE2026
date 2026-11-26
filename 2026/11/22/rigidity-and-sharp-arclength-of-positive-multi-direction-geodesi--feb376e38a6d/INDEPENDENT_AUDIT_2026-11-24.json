@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:30:53.649934Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:10–45",
+        "VERIFICATION.md:19–22",
+        "CHECKER.py:7–64"
+      ],
+      "rationale": "With unit mass, complex polarization reduces energy exactness to vanishing of the nonzero Fourier moments in the full integer difference box [-2N,2N]^2. Integration over a complete primitive loop kills every character except multiples of its primitive perpendicular vector, so each off-diagonal Gram entry can come from only one unoriented direction. For a direction of mass W>0 and m=max(|p|,|q|), this gives the vanishing moments of orders 1 through T=floor(2N/m). The normalized moment Gram matrix of powers 0 through T is the identity; its rank gives L>=T+1 even with repeated offsets. In equality its square weighted Vandermonde matrix is unitary, giving equal internal weights and a translated root polygon by column orthogonality (for T=0 there is simply one arbitrary offset). The physical length is at least 2π(T+1)m>=2π(2N+1), and equality forces Euclidean length of the primitive vector to equal m, hence a coordinate direction, then exactly 2N+1 circles. Summing gives the asserted equality configurations for J=1 and J=2, with arbitrary positive total weights per coordinate family in the latter, and strictness for J>=3. The numerical checker was inspected but not run; its bounded corroboration is not used to prove the result.",
+      "residual_risks": [
+        "No extension to partial curves, signed weight schemes or travel between distinct components is verified or required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kunis allows additional nonnegative weight on a continuous piecewise-differentiable closed trajectory; his inspected length lower bound is a general one-curve bound. Ehler gives a sharp single closed curve result; in two dimensions the relevant Korobov length in the present normalization is 2π sqrt((2N+1)^2+1)."
+        ],
+        "reasoning": "A bound on a connected trajectory does not give a bound on disconnected component arclength that excludes travel or determine which slope contributes to each character. The different sharp length for single normalized-arclength curves is consistent with, and does not imply, the mixture equality theorem.",
+        "searches": [
+          "Kunis arXiv:2608.11915v1, §§2–3 and Theorem 3.9",
+          "Ehler arXiv:2611.03362v1, Definition 1.1 and Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1e546c6b5465, 9ae56ebdbb37, 7b4e3de78ee6",
+        "Kunis arXiv:2608.11915v1",
+        "Ehler arXiv:2611.03362v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-weight optimum is covered in its class. The checked single-curve results concern connected parametrizations, and equality classifications there remain in that class."
+        ],
+        "reasoning": "To obtain the frozen criterion one needs uniqueness of the slope for each nonzero Fourier difference and rank/equality for independent positive weights, neither a specialization of the checked connected-curve results nor a restriction of parallel equal-weight exactness.",
+        "searches": [
+          "Parallel geodesic record 1e546c6b5465, Finding and Assumptions",
+          "Kunis Theorem 3.9; Ehler Theorem 2.1; mirrored curve equality statements 9ae56ebdbb37 and 7b4e3de78ee6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Energy exactness is Fourier cubature on the difference box of width 2N. The parallel record averages distinct parallel loops with equal weight and explicitly excludes nonparallel and unequal-weight designs. Ehler's torus design exactness uses normalized arclength on a single closed curve."
+        ],
+        "reasoning": "The Fourier exactness formulations match on restricted overlapping examples, but the measured objects and interpretation of weights do not match for general mixtures.",
+        "searches": [
+          "Resultary local mirror: parallel geodesic Parseval trajectory frontier, 1e546c6b5465",
+          "Ehler arXiv:2611.03362v1, Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror contains a direct one-direction overlap and two additional same-day equality records for single closed normalized-arclength curves. None of these exact-result statements gives the positive multidirection direction-by-direction criterion."
+        ],
+        "reasoning": "The natural exact-results corpus contains a restricted match, not a matching multidirection classification. A table of computed examples is not the natural equivalent for an all-band, all-slope moment law.",
+        "searches": [
+          "Resultary: parallel geodesic Parseval trajectory frontier 1e546c6b5465; shortest box Fourier and tensor-product torus design curves 9ae56ebdbb37 and 7b4e3de78ee6"
+        ]
+      },
+      "rationale": "The strongest overlap is the same-day parallel equal-weight Parseval frontier, including the one-direction optimum, which the frozen claim expressly does not claim as new. No inspected source covers the directional decomposition with arbitrary positive weights and its sharp global equality theorem for mixtures. This judgment concerns that distinct content, not historical priority for the one-direction problem.",
+      "residual_risks": [
+        "Same-day records do not establish ordering. Relevant primary full-text passages were accessible, but the comparison was targeted, not an exhaustive literature review; equivalent formulations elsewhere remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct restricted overlap",
+          "evidence": [
+            "Distinct parallel equal-weight primitive geodesics only; gives the threshold and coordinate minimum, explicitly excludes nonparallel and unequal weights."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/1e546c6b5465",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The sharp parallel-geodesic Parseval trajectory frontier on the flat torus",
+          "trigger": "Same torus, band and primitive geodesics"
+        },
+        {
+          "assessment": "Related single-curve result, not covering the mixture classification in the inspected statements",
+          "evidence": [
+            "One continuous piecewise-differentiable closed path, with possible additional nonnegative weight; general lower bound under Theorem 3.9's hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11915",
+          "material_read": "pp. 2–3 and 10–11; offsets 7140–14135 and 32000–39981; Theorem 3.9",
+          "method": "OA full-text passages",
+          "title": "Positive quadrature and mobile sampling of multivariate trigonometric polynomials",
+          "trigger": "Weighted trigonometric exactness and length bounds"
+        },
+        {
+          "assessment": "Different admissible class",
+          "evidence": [
+            "Exactness in normalized arclength on a single closed rectifiable curve. Korobov attainment in dimension two, winding (1,2N+1) in the square-band comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03362",
+          "material_read": "Definition 1.1 and Theorem 2.1; pp. 1, 3–5; offsets 3517 and 8060–15025",
+          "method": "OA full-text passages",
+          "title": "Optimal bounds for design curves on the torus",
+          "trigger": "Sharp torus design curve length with the same Fourier degree"
+        },
+        {
+          "assessment": "Related but no weighted mixture coverage",
+          "evidence": [
+            "Equality of shortest single normalized-arclength closed curves; credits Ehler for the lower bound."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/9ae56ebdbb37",
+          "material_read": "RESULT.md offsets 0–4761",
+          "method": "Local Resultary mirror",
+          "title": "Rigidity of every shortest box-Fourier design curve on a torus",
+          "trigger": "Sharp length equality in the square Fourier box"
+        },
+        {
+          "assessment": "Related but no weighted mixture coverage",
+          "evidence": [
+            "Equality among shortest single closed design curves with normalized arclength."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/7b4e3de78ee6",
+          "material_read": "RESULT.md offsets 0–4918",
+          "method": "Local Resultary mirror",
+          "title": "Rigidity of every shortest tensor-product torus design curve",
+          "trigger": "Related torus design equality classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:17–45",
+        "Resultary 1e546c6b5465",
+        "Ehler arXiv:2611.03362v1, Theorem 2.1"
+      ],
+      "rationale": "A sharp cost within the class of complete straight periodic acquisition loops matters because combining slopes and choosing independent weights could otherwise enlarge the design space. The separate moment criterion rules out that tradeoff, gives an exact component count for each prescribed slope, and characterizes both attainment and strictness of the global length bound. This goes beyond the known parallel equal-weight optimum without asserting a bound for general connected sampling paths.",
+      "residual_risks": [
+        "Value is in exact cubature and trajectory length, not stability or connected-path cost."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

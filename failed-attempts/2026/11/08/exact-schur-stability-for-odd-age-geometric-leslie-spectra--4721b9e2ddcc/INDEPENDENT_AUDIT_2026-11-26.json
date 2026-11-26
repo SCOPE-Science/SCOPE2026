@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:34:50.796432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a=−c<0, cK<1 gives leading-term domination on the unit circle in Q itself. At cK=1, equality in the triangle inequality for a unit root forces all geometric monomials to have the same phase (in particular those of powers zero and one), hence z=1. This root is simple since Q'(1)≥1; continuity from the interior puts all others strictly inside. If cK>1, Q(1)<0 and Q(x)→+∞ for x→+∞, giving an unstable root. At a=0 all roots are zero. For a>0 use the exact identity (z−p)Q=z^{n+1}+(a−p)z^n−ap^n, whose extra root p is strictly inside. Unit-circle leading-term domination holds throughout the claimed open positive interval: for a≤p, p−a+ap^n<1, while for a≥p, a−p+ap^n<1 is exactly a<(1+p)/(1+p^n). At upper equality z=−1 is a root for odd n, and equality in |z+a−p|≥1−(a−p) forces that sole unit root. Differentiation of the trinomial at −1 gives z'(a_+)=−(1+p^n)/(1+n a_+p^n), since its z derivative is −1−n a_+p^n. The nonzero latter derivative proves simplicity. For a>a_+, Q(−1)>0 and odd monic Q(x)→−∞ as x→−∞. For the specified Leslie model equilibrium cancels F G(X*) to 1/K; the Jacobian first row is constant −a by log differentiation of G. The lower inequality then follows from X*>0 and the upper is exactly (1+gamma B)X*<B. This proves all linear assertions; in particular it does not decide nonlinear flip nondegeneracy or stability at criticality.",
+      "status": "PASS",
+      "verification": "python3 /workspace/reproducibility/frozen_checks.py 2 ran 128 exact rational Schur-recursion tests and 32 deflated-boundary tests including p=4/5 and 19/20, and checked the derivative via Q's coefficients in each boundary case. The frozen NumPy checker was inspected, not executed. The unit-circle argument above proves the arbitrary-degree statement, not the finite tests."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives k=s+t when v^(s+t)>|q|+|p|v^t for arbitrary complex trinomial coefficients (letters p,q used in that source). Theorem 3.2 gives the broader integer-interval count for triangle cases.",
+          "The published Leslie paper explicitly conjectures the general high-survival flip pattern and has a sufficient condition yielding the low-survival case; its stated population conclusion is not the older broader root-count theorem."
+        ],
+        "reasoning": "Taking v=1, t=n and s=1 gives the full positive-side stability region via Theorem 3.1 and the endpoint sign. No unproved property of the newer Schur-trinomial paper or of the population conjecture is needed.",
+        "searches": [
+          "arXiv:1411.6552v2, Theorems 3.1–3.2 and references to Bohl and Pellet",
+          "Wikan–Kristensen DOI 10.1007/s11071-023-09143-w, §7 and Eq. (39)–(42)",
+          "Barrera–Barrera–Navarrete DOI 10.1007/s10884-023-10331-w, identified access attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted searches and assigned self-hit 4721b9e2ddcc",
+        "Theobald–de Wolff arXiv:1411.6552v2 §3",
+        "Wikan–Kristensen DOI 10.1007/s11071-023-09143-w",
+        "identified access attempts for 10.1007/s10884-023-10331-w and historical Leslie citations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a≥p, Theorem 3.1 applies precisely when 1>a−p+ap^n, i.e. below the previously derived candidate a_+. At a≤p and a>0, the same inequality holds as p−a+ap^n≤p<1. Odd degree and Q(−1)>0 imply a real zero below −1 above the candidate.",
+          "For negative a, Rouché directly on Q gives stability for |a|K<1, and Q(1)≤0 detects the boundary and exterior. Equality in the same modulus tests identifies each boundary root. Direct differentiation and the known Leslie coefficient change give the remaining formulas."
+        ],
+        "reasoning": "What was not proved in the cited population paper follows from the older stronger polynomial result or elementary standard comparisons after geometric telescoping. The standard endpoint refinements do not rescue a separate original theorem. The nonlinear conjecture, to the extent it asserts a flip bifurcation rather than just the multiplier crossing, is not proved by the frozen claim.",
+        "searches": [
+          "arXiv:1411.6552v2, Section 3 first theorem (general root count)",
+          "Wikan–Kristensen DOI 10.1007/s11071-023-09143-w, Eq. (39), summary around pp. 2280–2281"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary result is the assigned 4721b9e2ddcc item, not an independent prior catalogue finding.",
+          "Multiplying Q by z−p preserves strict stability and gives the classical trinomial with (s,t)=(1,n). Both exponents and the exceptional binomial instances a=0,p are within the classical root comparison, the latter directly by taking the binomial roots."
+        ],
+        "reasoning": "The decisive equivalence is Schur stability of Q if and only if the transformed trinomial has n+1 roots of modulus less than one. This is mathematical equivalence, not merely parameter similarity.",
+        "searches": [
+          "Resultary: exact odd-age Leslie Schur interval, high survival and simple minus-one boundary",
+          "Schur stability trinomials with real coefficients, exponents n and n−1, exact Bohl criteria",
+          "Theobald–de Wolff, arXiv:1411.6552v2, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned self-hit supplies no independent priority evidence. The journal Leslie paper gives the n=3 case and the candidate boundary, but presents the general high-survival case as conjectural.",
+          "The classical theorem is an exact symbolic root count for any radius and trinomial coefficients. Its leading-dominant row already gives the inside-root count at the values in question."
+        ],
+        "reasoning": "No independent catalogue of the full model interval was needed to establish coverage: the stronger exact symbolic count applies, even if the particular normalized Leslie numbers are not tabulated.",
+        "searches": [
+          "Resultary: exact two-sided Schur boundary formulas and Wikan–Kristensen threshold",
+          "Theobald–de Wolff §3 Theorems 3.1–3.2, exact root-count cases and equations (3.1)–(3.2)",
+          "DOI 10.1007/s11071-023-09143-w, published Theorem 6 and general odd-degree candidate"
+        ]
+      },
+      "rationale": "There is a genuinely matching older mathematical criterion, even though the cited population paper did not itself give the all-p spectral proof. The classical trinomial root-count theorem of Bohl (1908), stated as Theorems 3.1–3.2 in Theobald–de Wolff, applies with exponents (s+t,t)=(n+1,n), coefficients (a−p,−ap^n), and radius one. In the decisive positive stable regime, Theorem 3.1 requires just 1>|a−p|+ap^n. This holds automatically for 0<a≤p and is exactly a<a_+ for a≥p. The threshold is sharp by the prior candidate Q(−1)=0 and the sign for larger a. The negative half is the classical coefficient-domination test on Q, sharpened immediately by evaluating Q(1). Thus the reported new stability interval is a direct specialization of existing root-location criteria plus real endpoint signs. Simplicity, slope and recruitment inequalities are immediate boundary/algebraic consequences, not independently surviving new results. This is not a rejection for inaccurate mathematics or inaccessible literature.",
+      "residual_risks": [
+        "The 2023 originating preprint and earlier 2012/2017 Leslie papers were not independently passage-checked; their precise historical coverage is unresolved.",
+        "The assessment distinguishes a substantive stronger mathematical implication from an assertion that the exact applied statement already appeared verbatim. No priority verdict relies on the inaccessible Barrera paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact criterion; leading-dominance case alone establishes the allegedly new positive interval with the prior real endpoint condition.",
+          "evidence": [
+            "Theorem 3.1 states k=s+t if v^(s+t)>|q|+|p|v^t for f=z^(s+t)+p z^t+q.",
+            "The text attributes this to Bohl, Zur Theorie der trinomischen Gleichungen, Math. Ann. 65 (1908) 556–566, and notes that the first theorem is a special case of Pellet; the 1908 original was not itself inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1411.6552v2 ; journal DOI 10.1007/s00208-015-1323-8",
+          "material_read": "Section 3, HTML anchors S3.Ex1 and S3.Ex2, exact statements of Theorems 3.1 and 3.2 and equations (3.1)–(3.2), attribution immediately before and after Theorem 3.1, bibliographic entry [5].",
+          "method": "OA pinpoint attempts timed out; read bounded theorem passages in the identified lawful author preprint HTML with math notation retained.",
+          "title": "Norms of Roots of Trinomials",
+          "trigger": "Broader exact root count for the trinomial equivalent to the Leslie polynomial after including the inside root p."
+        },
+        {
+          "assessment": "Same model and candidate, n=3 and general low-survival sufficiency covered. Does not itself provide the all-p proof; that does not remove the abstract prior implication.",
+          "evidence": [
+            "The published text calls the high-survival general odd-age flip a conjecture and presents numerical support.",
+            "Eq. (39) obtains the boundary conditional on the flip, and the discussion identifies the range in which its sufficient condition was proved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-023-09143-w",
+          "material_read": "Published PDF Theorem 6 (p. 2277, offset 53353); odd-degree Equation (39) (p. 2280, offset 66425); Eq. (41) sufficiency and Eq. (42) with summary/conjecture (pp. 2280–2281, offsets 72800–76782).",
+          "method": "Locate and read primary OA PDF passages.",
+          "title": "On bifurcations, resonances and dynamical behaviour in nonlinear iteroparous Leslie matrix models",
+          "trigger": "Exact source for the coefficient and candidate threshold; apparent published high-survival conjecture."
+        },
+        {
+          "assessment": "Unresolved access; not needed to establish prior implication and not used as evidence of it.",
+          "evidence": [
+            "No theorem statement from this source is invoked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10884-023-10331-w",
+          "material_read": "Identified bibliographic search results only; targeted OA article/PDF requests did not return a usable theorem passage.",
+          "method": "Publisher article and identified OA PDF access attempted.",
+          "title": "The Stability Region for Schur Stable Trinomials with General Complex Coefficients",
+          "trigger": "Potential even more direct modern Schur-stability criterion."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The application explains a meaningful stability boundary in the Leslie model, and the short derivation could be useful exposition. But the published model already supplies the candidate flip threshold, the mathematical classification is a trinomial root-location specialization, and the exact slope and recruitment division are routine differentiation and rearrangement of that boundary. There is no separate nonroutine residual scientific claim to repair, such as a nonlinear bifurcation theorem or a new classification outside the classical criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

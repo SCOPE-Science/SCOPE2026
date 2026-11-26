@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:59:47.766062Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 0/1 running-sum tests ending at one are equivalent to the alternating-sign rules. The support determines all signs, because each row alternates starting positive. Independently, for the unique negative at interior (i,j) in zero-based indices, choose one occupied cell above and below it in column j, and one to its left and right in row i. The two leftover rows and columns are joined by a bijection; this gives exactly 2(3+4+3)^2=200 labeled matrices, each with seven occupied cells. The separately written exact replay /workspace/branches/0aa39191-e263-48a4-a4e1-6f69c0af413a/independent.py and logs full.log, smoke.log and occupancy_check.log reproduce all 429 order-five matrices, the 200 supports, zeros 4194816, rank 29359616, gap 4 and maximum 200 over the full 2^25 characters. The direct low-weight census reproduced the listed twelve pairs, both dihedral orbit sizes 4 and 8, and the zero counts 0,12,200. The maximum is attained at the trivial character, so the ratio on the recoverable Hilbert range is 50. The integer transform of the nonzero-frequency mask gives absolute sum 2222212096, and Fourier inversion divides by 2^25, giving 2170129/32768. Entrywise absolute row and column sums of the translation-invariant projection give both endpoint norms. Averaging any projection onto the invariant range leaves its restriction to the range equal to the identity and its image within the range. The average commutes with translations and hence is diagonal on Walsh characters with the required 0/1 multipliers. This proves the optimality assertion over either scalar field, without assuming that other minimizers must be invariant. No general-order, full-ASM, or ternary-encoding assertion follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lalonde treats A_{n,1} in general through bijections and refined enumeration. The full order-five ternary result gives dimensions 425 and 429 for cubic and quartic observables, respectively; the full occupied-cell Walsh result is for all 42 order-four objects."
+        ],
+        "reasoning": "Larger families or higher-order cell marginals do not dominate this claim unless the exact signs after retaining the one-negative stratum can be recovered. The inspected statements do not supply those signed sums.",
+        "searches": [
+          "arXiv:math/0401339v1, pp. 1–2",
+          "Resultary 6b2d73d6c591 and bb35a5ff64ab, RESULT.md Findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_spectrum.cpp and verify_small.py",
+        "arXiv:math/0401339v1",
+        "Resultary 6b2d73d6c591, bb35a5ff64ab and 161b029ca871"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited mixed-configuration bijections and ordinary/refined counts supply generation tools, not exact binary occupancy parity at all 25-cell subsets. The earlier order-four method extracts its own exact constant, not the conditioned order-five one."
+        ],
+        "reasoning": "The generic theorem reducing both optimal norms to the cutoff-kernel norm applies here as elsewhere. It does not specify that kernel; the essentially new exact facts depend on the actual conditioned occupied-cell Walsh zeros and their positions.",
+        "searches": [
+          "arXiv:math/0401339v1, p. 1–2",
+          "Resultary bb35a5ff64ab, 6b2d73d6c591 and 161b029ca871, opening findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the target, the map from the signed matrix to its complete support is injective. The negative-site record 161b029ca871 retains only negative entry locations; the order-five tomography record 6b2d73d6c591 uses ternary marginals on all 429 matrices."
+        ],
+        "reasoning": "Characterizing ternary marginal injectivity is not equivalent to convolution by the binary occupied-cell indicator of the conditioned class. A negative-site indicator also loses all positive-cell incidences. Odd row and column occupancies put the supports in an affine coset of the 16-dimensional row/column parity kernel, but this only gives a smaller formulation of the same computation, not its signed census.",
+        "searches": [
+          "Resultary occupied-cell Walsh comparison: bb35a5ff64ab, 6b2d73d6c591 and 161b029ca871",
+          "arXiv:math/0401339v1 pp. 1–2, definition of A_{n,s}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked earlier full binary-support census gives 15360 zero modes, gap 2 and norm 199/32, but in the 16-cell cube of order four, not the target order-five stratum. Lalonde's inspected enumerative passages give no target signed spectrum."
+        ],
+        "reasoning": "An exact table of the target multipliers would settle nullity and gap; an aggregate multiplicity table alone would still not locate the twelve pairs or determine the cutoff-kernel absolute sum. No such target table was established.",
+        "searches": [
+          "Resultary order-four full Walsh spectrum and order-five tomography comparisons bb35a5ff64ab and 6b2d73d6c591",
+          "Primary web literature lookup on the one-negative occupied-cell Walsh spectrum (no additional usable match)"
+        ]
+      },
+      "rationale": "The closest earlier analogue is the full order-four occupied-cell spectrum, and the closest same-object work is Lalonde's one-negative enumeration. Neither supplies the signed occupied-cell spectrum for the 200 order-five matrices, its low-weight zero geometry or the optimal endpoint constant. The counting family, Walsh transform and projection averaging are not credited as new methods.",
+      "residual_risks": [
+        "The primary search was noisy and the OA and catalogue reading was bounded. An unindexed exact signed-occupancy calculation remains possible.",
+        "Comparison to the nearby same-day negative-site result distinguishes mathematics, not historical order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the family and refined enumeration, not the target spectral invariants in inspected passages",
+          "evidence": "Defines A_{n,s} by number of negatives and relates A_{n,1} to neutral ASMs with an integer and then mixed configurations.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0401339",
+          "material_read": "OA PDF pp. 1–2, offset 1800, definitions and bijection description",
+          "method": "Bounded OA PDF reading",
+          "title": "Alternating sign matrices with one −1 under vertical reflection",
+          "trigger": "Same family, arbitrary order"
+        },
+        {
+          "assessment": "Different observable and family",
+          "evidence": "For all 429 matrices, ternary cell-value marginals span dimensions 425 and 429 at degrees three and four.",
+          "identifier_or_url": "Resultary 6b2d73d6c591",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact cubic Fourier blind space and quartic recovery for order-five alternating-sign matrices",
+          "trigger": "Exact same-order Fourier tomography"
+        },
+        {
+          "assessment": "Same family of invariants, different order and no one-negative restriction",
+          "evidence": "For all 42 order-four ASMs, gives 15360 zeros, gap 2 and endpoint norm 199/32.",
+          "identifier_or_url": "Resultary bb35a5ff64ab",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact Walsh nullity and sharp endpoint projection norm for 4-by-4 alternating-sign matrices",
+          "trigger": "Closest full binary-support Walsh and endpoint result"
+        },
+        {
+          "assessment": "Different indicator and population; no inference of priority from date",
+          "evidence": "For all ASMs, the negative-site incidence law is invertible through order five and has 180 zeros at order six.",
+          "identifier_or_url": "Resultary 161b029ca871",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "First Walsh singularity of alternating-sign matrix negative-site indicators",
+          "trigger": "Same-day order-five Walsh result involving negative locations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-negative stratum is a natural first departure from permutation matrices, with its own established enumerative theory. The order-five result identifies precisely the leading failure of recovery from occupied-cell characters by two distinct geometric orbits, then quantifies the surviving recovery space and the unavoidable endpoint projection cost. These exact facts are useful for comparing support data with ternary or negative-site tomography of the same matrix order; they do not follow from the known stratum cardinality or the generic projection theorem. The claim is an exact finite invariant, not a claimed general ASM spectral law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

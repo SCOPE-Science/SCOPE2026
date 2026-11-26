@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The edge-codegree bound follows from a direct parallel-resistance subgraph and Rayleigh monotonicity; summing gives the curvature inequality. A simplicial closed neighbourhood is a clique, and strictness follows when an outside component joins two clique terminals of unequal voltage. The equality characterization and every-parameter sharpness construction follow. Foster's identity forces average curvature \(1/n\), yielding chordal rigidity via the simplicial-vertex theorem. Exact exhaustive spanning-tree enumerations independently check orders two through five and all equality cases there.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The full papers of Zhou–Wang–Bu (2016), Devriendt (2025), and Khan–Haidar (2026) were compared for the exact local edge-codegree and simplicial bounds, the equality classification, and the implication for all chordal graphs. The published two-connectivity, complement-connectivity, degree lower bounds, and existence of nonregular resistance-regular graphs do not imply the new quantified statements. Full text of two additional plausible works was not obtained; this limits historical-priority confidence. No assertion of exhaustive literature coverage or independent priority certification is made.
+PASS
 
-**Value — PASS.** The sharp inequality supplies a graph-local, triangle-based obstruction for equal-resistance-centrality networks, and the exact equality cases explain its extremal mechanism. It proves an infinite-family rigidity theorem for chordal graphs, including biconnected chordal examples not ruled out merely by no-cut-vertex requirements. This is a structural restriction and exact sharp classification, not a finite table or parameter renaming. The proof uses standard electrical identities in a new combination; the result does not purport to resolve the general regularity questions for nonchordal graphs.
+For each edge vu, the direct edge and its internally disjoint two-edge routes through common neighbors have conductance 1+t/2. The full graph has at least this conductance, yielding the local inequality with the correct half factor. At a simplicial vertex t=d−1 on every incident edge, giving p(v)≥1/(d+1). A one-attachment outside component can be extended at its attachment's constant potential, so adds zero Dirichlet energy for any terminals in the clique. If a component attaches to distinct neighbors a,b, use terminals v and a at 1 and 0. The clique energy has a unique minimum with b at 1/2. Equality of the full and clique minima would force this same clique potential and zero energy on the outside a-to-b path, which is impossible. This proves strictness of at least one incident resistance bound and the stated iff. The clique with a path attached to another clique vertex attains equality for each allowed (n,d), including the path of zero new vertices when n=d+1. For s=diag(L^+), resistance row sums are n s+tr(L^+)1 and p=1/n+(Ls)/2, using LL^+=I−J/n. Connectedness thus gives the stated regularity equivalence and average; a simplicial vertex with d≤n−2 has the positive claimed gap. A simplicial vertex of degree n−1 forces completeness, and every nonempty chordal graph has a simplicial vertex. The complete graph satisfies resistance regularity by symmetry. Inspected source checker and its exact spanning-tree enumeration method without executing it; the classification uses the unrestricted proof, not small graph enumeration.
 
-**Closest literature and limitations.** See the cited 2016 resistance-matrix characterization, 2025 resistance-curvature paper, and November 2026 nonregular resistance-regular constructions. Unit resistances are essential to the displayed denominators, and unresolved historical coverage remains a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct part is the sharp simplicial equality structure across all orders and degrees and its resistance-regular rigidity consequence. The proof uses classical resistance comparisons and curvature normalizations, which are not credited as new; the triangle-codegree inequality itself is an immediate parallel-path comparison. Neither the exact self-match nor the available distinct sources establishes prior coverage of the full sharp structure and rigidity.
+
+## value
+
+PASS
+
+The simple local lower estimate becomes useful by identifying precisely which external components destroy sharpness, constructing all feasible order/degree pairs at equality, and ruling out noncomplete resistance-regular graphs whenever they have a simplicial vertex. This supplies a structural classification for the natural chordal family, beyond routine computation of the effective resistance of the isolated clique.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

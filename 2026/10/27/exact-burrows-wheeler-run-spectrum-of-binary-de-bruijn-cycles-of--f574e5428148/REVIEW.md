@@ -1,19 +1,21 @@
-# Review of order-five de Bruijn BWT run spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every order-five de Bruijn word has exactly one prefix occurrence of each five-bit word. Splitting the sorted rotations into pairs sharing the first four bits forces each BWT pair to be `01` or `10`. The explicit inverse-permutation formula accounts for all 65,536 choices, with a one-cycle condition equivalent to one de Bruijn necklace. The 32-edge Euler-circuit recursion is a second, independent complete enumeration and produces precisely the same 2,048 canonical strings and run values. The run identity \(17+\sum_{i=0}^{14}[\epsilon_i=\epsilon_{i+1}]\) is checked algebraically and computationally. Smaller orders are exhausted separately, proving the first strict failure of the lower bound. The verifier and all dependencies are included.
+PASS
 
-## Originality — PASS, subject to a documented priority risk
+Distinct k-prefixes order the rotations. Rows u0 and u1 cannot have the same predecessor, or the k-factor bu would repeat; their last-column letters are complementary. The displayed LF formulas rank each predecessor extension bu exactly once. A transitive LF orbit thus reconstructs one cycle with each prefix, and a de Bruijn cycle gives one such orbit, with one representation per rotation class. The internal boundaries contribute m=2^(k−1); each across-block boundary contributes one exactly for equal adjacent orientations. The end orientations are both 1, since the predecessors of the unique all-zero and all-one factors are respectively 1 and 0. With m even at least one adjacency is equal, giving m+2; differing end letters also make the linear run count even and equal to the circular count. I independently enumerated Hamilton cycles of the directed shift graph on k-bit words: start at word 0, extend by unused overlapping k-words, and retain full paths with an arc back to 0. The BWT letter at each destination rank is the high bit of its predecessor. This confirmed the spectra (4:1), (6:2), (10:4,12:4,14:8) and (20:38,22:426,24:840,26:608,28:130,30:6) at orders 2–5 and all six lexicographically first witnesses in TABLE.csv. The unique 0^k root makes this exhaustive without identifying reversals or complements. Frozen replay: verify.py, with both LF orientation and rooted Euler routines, and TABLE.csv; the uploaded code was inspected, not run. The count is exact at these orders, not extrapolated.
 
-Higgins' 2012 work derives the transform's binary pair-block structure and inverse-cycle correspondence: this **does** cover the structural lemmas, which are not claimed new. Neither the inspected presentation nor the inspected primary texts of Kucherov–Tóthmérész–Vialette (2012) and Fici–Gabory (2025) supply this precise order-five run-frequency polynomial or first-bound-failure assertion. Searches for aliases such as *BWT run count*, *run-length encoding*, *cyclic BWT*, and *de Bruijn transform spectrum* did not reveal a dominating exact table; search absence is not proof of priority. Reproducing the six coefficients is therefore the specific claimed addition. An unpublished, unindexed, or indirectly encoded preexisting run table remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The number of runs is a natural compression statistic of the Burrows–Wheeler transform. De Bruijn cycles are maximally factor-diverse, making their BWT runs a direct measure of residual run-length compressibility. Order five is the first nontrivial obstruction to the elementary all-orders lower bound after orders two, three and four attain it. The complete six-value spectrum, exact multiplicities, and 38 extremizers are a finite, reproducible natural classification rather than a freely chosen numerical slice.
+Pass for the exact order-five run distribution and the first strict nonattainment, not for the block or feedback characterization or the all-orders lower bound, which were known. There is an exact distinct later catalogue duplicate and a later stronger forward/reverse joint table; both are direct coverage of the statistic in those records, not evidence that they preceded the frozen result. The available earlier feedback census concerns a different statistic and does not give the adjacent-transition distribution. A relationship note should credit the previously published run bound explicitly.
 
-## Scope and status
+## value
 
-The claim does not address larger orders, different alphabets, or whether another historical source already tabulated the result. Computational exhaustiveness follows from the mathematically justified finite representation, not from statistical sampling. The examination is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Run count measures residual BWT compressibility of a highly factor-diverse object. Order five is not an arbitrary cutoff: it is the first that misses the general lower bound, and the spectrum identifies both the true minimum and its exact multiplicity. The older bound and earlier different weighted count leave those quantities undetermined without a separate computation. This finite exact invariant is useful without claiming a formula or gap for all larger orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review: degree-twelve dual and tetrahedral singularities
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic-two gradient of the quartic \(P+Q^2\) is the four-coordinate cubic Cremona map. The primal singular set is finite because on every coordinate edge its equation is the square of a nonzero binary quadratic (both leading diagonal coefficients are nonzero), which proves the primal is geometrically integral and normal. The reciprocal Cremona identity \(G(C(x))=P(x)^8(P(x)+Q(x)^2)\) proves the dual equation on the dense torus. Its coordinate hyperplane restrictions exclude additional components and factors. The exact dual gradient \(\partial_iG=P^2C_i\), together with the boundary restriction, determines all reduced singular supports. Initial-form computations at a generic edge and at a coordinate vertex give local orders exactly four and eight. The exact universal polynomial script confirms these formulas independently; its exhaustive finite-field example is a check, not the infinite proof.
+PASS
 
-## Originality — PASS, subject to stated residual priority risks
+With the four diagonal coefficients nonzero, the primal gradient vanishes only on the coordinate lines, and the restriction to each line is the square of a nonzero binary quadric. Thus the singularities are isolated; reducibility or a repeated factor would force a positive-dimensional singular locus. On the projective torus, C(C(x))=P(x)^2 x and G(C(x))=P(x)^8(P(x)+Q(x)^2); these are scheme-level identities with unit factors on the torus. Every coordinate-plane restriction is a nonzero b_i^2 times the fourth power of the product of the three remaining coordinates, so no additional factors or multiplicities are lost in passing to the torus. The derivative P(u)^2 C_i(u) gives the inverse Gauss map on the torus and vanishes exactly on the boundary of V(G), which consists of the six lines. A generic line has a nonzero order-two initial form of Q(C) (the two squared transverse variables cannot cancel), while P^3 starts in order six. At a vertex the three distinct degree-four square monomials in Q(C) survive all cross terms, while P^3 starts in order nine. This proves orders four and eight and nonnormality in codimension one.
 
-Catanese–Schütt's June 2022 arXiv:2206.03295v1 Example 19 is the source for the family \(l_1l_2l_3l_4+q^2\), and its described output concerns twelve primal nodes, K3 surfaces and related Picard geometry. Catanese's arXiv:2106.09988, Section 3, Lemma 11, says a birational dual of a nodal quartic cannot be normal, but gives neither this specific dual equation nor its entire singular tetrahedron and exact multiplicities. Thus the original example and the general nonnormality lemma do not logically imply the complete result. Published mathematical-record searches for characteristic-two quartic duals, Gauss–Cremona maps, and six-line singularities yielded no full covering statement. Nonindexed equivalent calculations and broader duality theorems remain meaningful priority risks. The standard Cremona transformation and the general fact that duals can be nonnormal are not claimed as new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a structural determination of the dual geometry of a published, naturally defined normal quartic/K3 surface family: an irreducible degree-twelve dual, complete reduced codimension-one singular support, sharp generic and vertex orders, and exact coordinate-plane divisors, uniformly despite changes in the primal ADE basket. It makes dual nonnormality concrete rather than deducing only a generic degree or existence of a singular line. The theorem is a self-contained arithmetic-geometric classification with direct utility for investigating normalization, conductor and dual specialization.
+Credit the earlier explicit Cremona dual and degree on the primitive Heisenberg subfamily, including the same substitution and exclusion of boundary factors. The distinct result supported here is the uniform dual for independent allowed coefficients and, in particular, the exact reduced dual boundary and its multiplicities throughout that family, including primal coefficient walls. No inspected result covers that full claim.
 
-## Scope and limitations
+## value
 
-The reduced singular-locus support is not asserted to equal its full Jacobian scheme. The local multiplicities are those of an ambient hypersurface, not lengths of singular-scheme fibers; no claim is made about intermediate special points on the six lines, normalization, conductor, or arithmetic over imperfect base fields. The literature review and finite-field examples do not constitute independent certification.
+PASS
 
-## Most relevant literature
+This is the complete reduced dual-boundary geometry for an established characteristic-two quartic family. Identifying the six nonnormal lines, quantifying how local order rises at the vertices, and computing the nonreduced plane sections gives information for studying normalization and degeneration that neither the Gauss-map degree nor a count of primal nodes provides. The result applies unchanged on cross-coefficient walls, rather than being a calculation at an isolated sample.
 
-Catanese and Schütt, *Singularities of normal quartic surfaces III* (arXiv:2206.03295v1, especially Example 19 and Remarks 20–21); Catanese, *Singularities of normal quartic surfaces I* (arXiv:2106.09988, especially Section 3, Lemma 11). These were read in the relevant full-text sections and compared at the level of mathematical implication.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:17.905563Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The involution swapping partners splits the mean-zero Laplacian into eigenvalues N and b=N-2+2x^2. For a matched source the voltages are ±x/b on its endpoints, giving cut diagonal 2x^2/b and 2(N-2) off-diagonal contributions x/b. For an unmatched source the four voltages are ±(1/N+1/b)/2 and ±(1/N-1/b)/2, with the latter coefficient changing sign only at x=1. Counting the matching edges, links among these four vertices, and links to the other vertices gives the two cut branches. Each cycle sum equals the cut sum plus 1 minus twice the cut diagonal. The differences are negative below 1 and for x>=1 factor into x-1 times a decreasing linear factor for each projector; comparing their roots gives exactly the separate P and Q transitions and boundary ties. Differentiation gives the matching-branch maxima R_N at x=R_N and x=R_N-1 respectively. The nonmatching cut branches remain below R_8. With s=N-2 the two nonmatching cycle maxima are 1+(s-2+sqrt((s-2)^2+s/2))/s and 3-6/N+1/[2(1+sqrt(N/2))]. Direct comparison at N=8,10,12, and the strict bounds <3 on 14<=N<=18 and <7/2 on N>=20 establish all global optima, including only x=3 for the N=8 cycle value 29/12. The optimizer variable is the square root of the matching conductance. Symmetry gives equality of row and column endpoint norms. My exact replay inverted L+J rather than a grounded Laplacian and verified full columns in 21 configurations including both exact phase ties (python3 /workspace/review-checks.py, weighted section); the analytic argument covers unsampled x and N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilworth–Kutzarova–Ostrovskii evaluate an unweighted Hamming-cube norm; the indexed degree-bound result has an unweighted complete-graph equality, and the crown graph record deletes a matching from a bipartite graph."
+        ],
+        "reasoning": "Neither a universal bound nor an unweighted equality at x=1 determines the positive-weight interpolation. Deleting a matching from a biclique changes a different edge set and gives no conclusion on this family for x>0.",
+        "searches": [
+          "arXiv:2305.12582 abstract, §§2.1 and 2.7, Theorem 45; Resultary 74a36383513a and a18a2c603916"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.24130",
+        "arXiv:2305.12582",
+        "Resultary 100837ac2e20",
+        "Resultary 5704b55011f7",
+        "Resultary 945ba412fd4d",
+        "Resultary a18a2c603916",
+        "Resultary 74a36383513a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The clique/independent-set join record varies different conductance classes and derives reentrant phases; a weighted single-edge biclique and an unweighted biclique prism have different incidence structure and spectra."
+        ],
+        "reasoning": "There is no identified parameter specialization or reduction yielding the present full-support complete graph with N/2 reweighted edges. The spectral and general projection methods furnish tools, not the evaluated thresholds, coincident sharp heights at distinct weights, or exceptional global maximum.",
+        "searches": [
+          "Resultary 100837ac2e20, 5704b55011f7 and 945ba412fd4d, RESULT.md Findings",
+          "arXiv:2605.24130 Theorem 1.3 and arXiv:2305.12582 Theorem 45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted electrical-flow paper uses the same symmetrized transfer-current matrix; its theorem bounds the spectral norm of the entrywise absolute matrix."
+        ],
+        "reasoning": "Transfer-current terminology does not change the cut projection. The spectral bound does not evaluate the maximum absolute column sums by source edge or their optimizing categories.",
+        "searches": [
+          "Resultary: perfect-matching weighted K_N, transfer-current localization, two-orbit endpoint norms and split cut/cycle transition",
+          "arXiv:2605.24130 §1.1 and Theorem 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 100837ac2e20 yields distinct global optimizers for one weighted edge of K_{r,r}; 945ba412fd4d gives two switch curves in unweighted K_{p,q} Cartesian-product K_2 and a (3,3) cycle exception 73/30."
+        ],
+        "reasoning": "These are material analogues rather than an exact value or table for this network. The inspected records do not contain the two matching-weight roots or the N=8 value and optimizing weight under the stated assumptions.",
+        "searches": [
+          "Resultary: exact matching-weighted complete-graph column sums; distinct thresholds and N=8 optimum 29/12; one-edge conductance amplification",
+          "Focused open-web lookup for weighted K_N matching projection norms"
+        ]
+      },
+      "rationale": "The electrical matrix and symmetry methods are prior. Close exact studies of one-edge weighting, clique/independent joins, and unweighted biclique prisms supply analogues of the optimization and switches, but none of their examined hypotheses gives the two-conductance perfect matching in a complete graph or its full quantitative classification.",
+      "residual_risks": [
+        "An equivalent calculation in less-indexed electrical-network literature could predate the reviewed statement. The bounded literature and catalogue searches do not settle absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant operator, different norm and claim",
+          "evidence": "At most 2 log n for the spectral norm of the entrywise absolute symmetrized transfer-current operator; not its maximum column sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24130",
+          "material_read": "§1.1, Theorem 1.3, PDF pp. 1–2",
+          "method": "OA primary PDF text, offset 4800",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "Identical weighted symmetrized current operator and general theorem"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "Hamming-cube norm theorem, invariant methods and unweighted examples do not give matching-weighted K_N.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Abstract; §§2.1, 2.7 and Theorem 45",
+          "method": "OA primary PDF text around offsets 0, 25000 and 70000",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Canonical graph projection norm and invariant methodology"
+        },
+        {
+          "assessment": "Different weighting pattern and different underlying graph",
+          "evidence": "Sharp cut and cycle optima for K_{r,r} with a single reweighted edge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-one-edge-conductance-amplification-of-the-endpoint-hodge-n--100837ac2e20",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror starting at offset 0",
+          "title": "Sharp one-edge conductance amplification of the endpoint Hodge norms",
+          "trigger": "Closest distinct conductance optimizer result"
+        },
+        {
+          "assessment": "Distinct family, regardless of same catalogue date",
+          "evidence": "A clique joined to an independent set, not a positive matching perturbation of K_N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-reentrant-cut-cycle-phases-and-a-sharp-alignment-law-for-conduct--5704b55011f7",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror starting at offset 0",
+          "title": "Reentrant cut–cycle phases and a sharp alignment law",
+          "trigger": "Weighted-column orbit transitions"
+        },
+        {
+          "assessment": "Distinct graph and parameters",
+          "evidence": "Unweighted K_{p,q} Cartesian-product K_2, with cycle exception 73/30 at (3,3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-sharp-extremizer-phase-curves-for-endpoint-hodge-norms-of-bi--945ba412fd4d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror starting at offset 0",
+          "title": "Two sharp extremizer phase curves for endpoint Hodge norms of biclique prisms",
+          "trigger": "Most similar phase and exception pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perfect matching provides a natural symmetry-preserving perturbation of a dense network. The result gives a full orbit phase diagram and an exact interval of disagreement between complementary projection norms; the two equal sharp amplification heights at different weights and the exceptional order eight are useful quantitative benchmarks. It does not address arbitrary weights, nonorthogonal projection minima, or intermediate p norms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

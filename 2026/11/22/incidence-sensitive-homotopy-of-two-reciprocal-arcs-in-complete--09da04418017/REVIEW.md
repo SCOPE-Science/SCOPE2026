@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All quantifiers are \(n\ge2\) with two **distinct** reverse arcs of a fully specified one-way \(K_{2,n}\). The classification reduces the three incidence orbits to (i) a two-cone union along an explicitly described graph or (ii) dominated-vertex collapses to a six-vertex complex. The two-cone formula uses the correct simplicial intersection, and the graph has exactly \(2n-2\) vertices, \((n-1)(n-2)\) edges, two components at \(n=2,3\), and one at \(n\ge4\). The disjoint case's only directed cycles have lengths two and four, and the vertex domination tests preserve cycle-freeness. The four base triangles constitute the tetrahedral sphere boundary; the three extra edges attach a path, producing the circle. A standalone exhaustive face-enumerator checked 27 finite cases for \(2\le n\le10\); the infinite proof does not rely on extrapolation.
+## correctness
 
-## Originality — PASS against inspected evidence
-The 2022 multipath-complex paper's complete-bipartite calculation is for the alternating/one-way graph and provides only its Euler characteristic, not reverse-edge modifications or incidence-sensitive homotopy types. The foundational path-poset study, the oriented-matching study, and the bidirected-polygon study have distinct hypotheses and invariants. Published records on fully bidirected \(K_{2,n}\) cannot imply the partial two-reciprocal-arc cases merely by restriction; homotopy type is not inherited by arbitrary subcomplexes. Targeted comparisons with indexed scientific findings did not yield an equivalent or stronger statement. The remaining bibliographic risk is an unindexed equivalence or a stronger unpublished proof not accessible from search summaries.
+PASS
 
-## Value — PASS
-The result classifies **every** two-reverse-edge perturbation of the natural fixed two-source complete bipartite model, not a cherry-picked finite graph. It shows a structural bifurcation: disjoint feedback arcs force a stable mixed-dimensional wedge, while incident feedback arcs give a sharp circle-to-two-spheres transition and a quadratic growth law. The explicit simple-collapse proof shows why the additional columns are topologically irrelevant in exactly one orbit, while suspension of an incidence graph explains the other two. These distinctions are not obtained from the intact one-way or fully bidirected endpoints.
+Forward arcs alone form the chessboard graph with edge p_j q_k iff j differs from k. A single reverse arc forbids only its reciprocal forward vertex: degrees are compatible with a forward matching and any cycle using only one reverse would be a 2-cycle. With incident reverse arcs at most one can be used; the two cones cover because their excluded forward vertices never co-occur. Their cofibrant intersection gives the unreduced suspension. In the shared-source case its graph is a crown on n-1 vertices per shore. At n=2 or 3 it has two tree components, and for n>=4 every pair on the same shore has a common neighbor. With a shared target, the remaining p_j (j>=3) all see q_1 and q_2; the other q_j see a remaining p_k when n>=4. At n=2 there are two isolated q vertices and at n=3 a tree and an isolated q. The common cycle rank for n>=4 is (n-1)(n-2)-(2n-2)+1, hence the indicated integral suspension type. For disjoint reverse arcs, a face containing p_j for j>=3 lacks both p_1 and p_2, so inserting r_1 cannot complete either its reciprocal cycle or the only possible 4-cycle; the analogous q_j rule gives insertion of r_2. Each extra vertex can be deleted by pairing its faces missing the apex with those containing it, in decreasing face size; every such pair is then a free-face elementary collapse and the apex remains for other deletions. This gives the relative statement for each natural inclusion. The disjoint base has four triangles on p_2,q_1,r_1,r_2 forming a tetrahedral boundary, plus the path r_1,q_2,p_1,r_2 attached only at its endpoints, hence S^1 wedge S^2. The exact all-n argument, not mod-two evidence, determines the homotopy types.
 
-## Limitations and closest literature
-No classification is claimed for larger first shore or more than two reverse arcs. The two-cone suspension argument does not produce a simple-collapse certificate for the incident cases. Sources: arXiv:2208.04656, Theorem 3.7 (§3.2); arXiv:2110.11206, §6; arXiv:2203.03476, introductory statements on oriented matching complexes; arXiv:2601.05670, introduction and bidirected path/polygon statements. Related public fully bidirected biclique records were compared at the claim level; their detailed proofs were not read because they treat a different complete reciprocal graph. Unindexed equivalent literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The combination of cone intersection and column collapses applies to adding reciprocal arcs without deleting forward arcs. The strongest indexed replacement theorems specialize to S^2 in the disjoint K_{2,n} case, not S^1 wedge S^2, and have no shared-endpoint theorem. Credit their exact coverage of the closely related replacement model and do not infer date precedence.
+
+## value
+
+PASS
+
+This gives a complete integral classification for the first two-arc placements in a basic multipath family. The same number of new arcs yields materially different topology depending on their incidence, and the disjoint case gives explicit elementary collapse stability under the actual inclusions, not just coincident Betti numbers or an Euler-characteristic computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

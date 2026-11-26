@@ -1,132 +1,62 @@
 # A unique worst fractional-heat exponent on strongly regular graphs
 
 ## Finding
-Let \(G\) be a finite connected noncomplete unweighted strongly regular graph with \(N\) vertices and degree \(k\), and let \(0<a<b\) be the two distinct nonzero eigenvalues of its combinatorial Laplacian \(L\). Put \(d=N-k-1>0\). For every \(\alpha>0\) and \(t\geq0\) define
-\[
- S_\alpha(t)=\exp(-tL^\alpha)
-\]
-using the nonnegative spectral functional calculus. The exact positivity, transient amplification, and optimizing exponent are as follows.
 
-1. For \(0<\alpha\leq1\), \(S_\alpha(t)\) is entrywise strictly positive for every \(t>0\). For every \(\alpha>1\), there is a unique \(T_G(\alpha)>0\), characterized by
-\[
- b e^{-a^\alpha T_G(\alpha)}-a e^{-b^\alpha T_G(\alpha)}=b-a,
-\]
-for which entrywise-nonnegative times are exactly \(\{0\}\cup[T_G(\alpha),\infty)\). All \(d\) nonedge entries in every row are negative for \(0<t<T_G(\alpha)\), zero at that threshold, and positive afterwards. Every edge and diagonal entry is strictly positive at every positive time.
+Let \(G\) be a finite, undirected, simple, connected, noncomplete, unweighted strongly regular graph, and let \(L\) be its combinatorial Laplacian. Write \(0<a<b\) for the two distinct positive eigenvalues of \(L\). For each real \(\alpha>1\), let \(T_G(\alpha)>0\) be the sharp positive-time entrywise-nonnegativity threshold of \(\exp(-tL^\alpha)\): the nonnegative times are \(\{0\}\cup[T_G(\alpha),\infty)\).
 
-2. The positivity delay \(T_G(\alpha)\), over all real \(\alpha>1\), has **exactly one global maximizer** \(\alpha_G^*>1\). To calculate it, set
+**The threshold \(T_G(\alpha)\) has a unique global maximizer over \(\alpha>1\).** Set
 \[
- q=b/a>1,\qquad c=\log\frac{q}{q-1},\qquad
- \delta=\frac{\log a}{\log q}>0,\qquad
- h(z)=-\log(qe^{-z}-q+1),\quad 0<z<c.
+q=b/a,\qquad c=\log\frac{q}{q-1},\qquad
+\delta=\frac{\log a}{\log q}>0,\qquad
+h(z)=-\log(qe^{-z}-q+1)\quad(0<z<c).
 \]
-There is exactly one \(z_*\in(0,c)\) satisfying
+There is precisely one \(z_*\in(0,c)\) satisfying \(z_*h'(z_*)/h(z_*)=1+1/\delta\). The maximizing exponent and delay are
 \[
- \frac{z_*h'(z_*)}{h(z_*)}=1+\frac1\delta.
+\boxed{\alpha_G^*=\frac{\log(h(z_*)/z_*)}{\log q},\qquad
+T_G(\alpha_G^*)=\frac{z_*^{1+\delta}}{h(z_*)^\delta}.}
 \]
-The unique maximizing exponent and the maximum delay are
-\[
- \boxed{\alpha_G^*=\frac{\log(h(z_*)/z_*)}{\log q},\qquad
- \max_{\alpha>1}T_G(\alpha)=\frac{z_*^{1+\delta}}{h(z_*)^\delta}.}
-\]
+The delay is strictly increasing before \(\alpha_G^*\) and strictly decreasing afterwards. This optimization is over the unrescaled physical-time delays of the specified combinatorial Laplacian, not over delays after dividing out one decay rate.
 
-3. The sharp counting-measure \(\ell^1\)- and \(\ell^\infty\)-operator norms agree. For \(\alpha>1\),
-\[
- \|S_\alpha(t)\|_{1\to1}=\|S_\alpha(t)\|_{\infty\to\infty}
- =1+\frac{2d}{N(b-a)}\left[b e^{-a^\alpha t}-a e^{-b^\alpha t}-(b-a)\right]_+.
-\]
-Their unique positive-time maximum occurs at
-\[
- \boxed{\vartheta_G(\alpha)=\frac{(\alpha-1)\log(b/a)}{b^\alpha-a^\alpha}.}
-\]
-For \(0<\alpha\leq1\) both norms equal one for all times.
+## Setup and known threshold
 
-4. At the critical exponent, as \(\varepsilon\downarrow0\),
+Use spectral functional calculus with \(0^\alpha=0\) and entrywise order in the vertex basis. The graph is held fixed when varying \(\alpha\). The sharp positivity law, transient norm and its endpoint regimes on this graph class are given in [1]; they are background here. We recall the threshold argument to make the optimizer proof self-contained.
+
+Writing \(N\) for the vertex count and \(P_0=J/N\), the nonconstant projectors satisfy \(P_a+P_b=I-P_0\) and \(aP_a+bP_b=L\). Thus a nonedge entry equals
 \[
- \boxed{T_G(1+\varepsilon)=\frac{2\log(b/a)}{b-a}\varepsilon+O_G(\varepsilon^2),}
+K_0(t)=\frac1N\left[1-\frac{be^{-a^\alpha t}-ae^{-b^\alpha t}}{b-a}\right].
 \]
+An edge entry equals \((1-e^{-b^\alpha t})/N+ (N-b)(e^{-a^\alpha t}-e^{-b^\alpha t})/[N(b-a)]>0\) for \(t>0\), since \(NI-J-L\) is the positive-semidefinite complement Laplacian. Every diagonal is positive by the projector formula. The ratio \((1-e^{-b^\alpha t})/(1-e^{-a^\alpha t})\) decreases strictly from \(q^\alpha\) to 1, because its logarithmic derivative is \([y/(e^y-1)]_{y=b^\alpha t}/t-[y/(e^y-1)]_{y=a^\alpha t}/t<0\). Therefore the positive threshold is the unique time when the ratio is \(q\), and it exists precisely for \(\alpha>1\). For \(0<\alpha\le1\) all entries are positive at every positive time; at zero the matrix is the identity.
+
+The inequality \(a>1\) used below follows from the graph hypotheses. If \(k\) is the degree and \(\lambda,\mu\) the usual adjacent and nonadjacent common-neighbor counts, then \(\lambda\le k-2\) (otherwise adjacent vertices have identical closed neighborhoods, forcing completeness by connectivity), and \(1\le\mu\le k\). The nonprincipal adjacency eigenvalues are the roots \(r>s\) of \(f(u)=u^2-(\lambda-\mu)u-(k-\mu)\); the smaller root is nonpositive. Since \(k\ge2\) and \(f(k-1)\ge\mu k-1>0\), we have \(r<k-1\), hence \(a=k-r>1\).
+
+## Proof of the optimizer
+
+Set \(z=a^\alpha T_G(\alpha)\). The threshold equation reads \(e^{-q^\alpha z}=qe^{-z}-q+1\), forcing \(0<z<c\) and giving \(q^\alpha=h(z)/z\). The function \(h\) has \(h(0)=0\), \(h'(0)=q\), and strictly positive second derivative. It diverges at \(c\), so \(h(z)/z\) strictly increases from \(q\) to infinity. Consequently \(z\) parameterizes all of \(\alpha>1\) in increasing order, and \(a^\alpha=(h(z)/z)^\delta\) gives
 \[
- \boxed{\sup_{t\ge0}\|S_{1+\varepsilon}(t)\|_{\infty\to\infty}
- =1+\frac{dab(\log(b/a))^2}{N(b-a)^2}\varepsilon^2+O_G(\varepsilon^3).}
-\]
-At large exponent the delay shrinks, but maximal transient amplification remains nontrivial:
-\[
- \boxed{a^\alpha T_G(\alpha)\longrightarrow\log\frac b{b-a},\qquad
- \sup_{t\ge0}\|S_\alpha(t)\|_{\infty\to\infty}
- \longrightarrow1+\frac{2da}{N(b-a)}.}
+T_G(\alpha(z))=\frac{z^{1+\delta}}{h(z)^\delta}.
 \]
 
-For the Petersen graph \((N,k,a,b)=(10,3,2,5)\), the maximizing exponent is \(\alpha_G^*=1.636435234508\ldots\), with worst delay \(0.131791058820\ldots\).
-
-## Assumptions and scope
-The graph is undirected, simple, unweighted, connected, noncomplete, and strongly regular, with at least two distinct nonzero Laplacian eigenvalues. In this standard nontrivial case \(2\le k<N-1\), every nonedge has a common neighbor, and the spectral gap satisfies \(a>1\). The functional calculus has \(0^\alpha=0\). All inequalities are entrywise in the standard vertex basis, with ordinary counting \(\ell^p\) norms. The endpoint \(t=0\) is deliberately included: \(S_\alpha(0)=I\) is nonnegative. No finite-graph or exponent-uniform error is hidden in the exact identities; \(O_G\) constants may depend on the fixed graph.
-
-## Proof
-**Spectral reduction.** Write \(P_0=J/N\), and let \(P_a,P_b\) be the spectral projections corresponding to \(a,b\). Then
+Write \(f_1(z)=h'(z)=q/[q-(q-1)e^z]\). Its logarithmic derivative \((q-1)e^z/[q-(q-1)e^z]\) is positive and strictly increasing. For every fixed \(0\le u<1\), the logarithmic derivative (in \(z\)) of \(f_1(uz)/f_1(z)\) equals \(u(\log f_1)'(uz)-(\log f_1)'(z)<0\). Hence
 \[
- P_a+P_b=I-P_0,\qquad aP_a+bP_b=L,
- \qquad S_\alpha(t)=P_0+e^{-a^\alpha t}P_a+e^{-b^\alpha t}P_b.
+\frac{h(z)}{zh'(z)}=\int_0^1\frac{f_1(uz)}{f_1(z)}\,du
 \]
-For distinct nonadjacent vertices, \(L_{ij}=0\); hence \((P_a)_{ij}=-b/[N(b-a)]\) and \((P_b)_{ij}=a/[N(b-a)]\). Their common entry is
-\[
- K_0(t)=\frac1N\left[1-\frac{be^{-At}-ae^{-Bt}}{b-a}\right],
- \quad A=a^\alpha,\ B=b^\alpha.
-\]
-For adjacent vertices \(L_{ij}=-1\), the entry is
-\[
- K_1(t)=\frac1N\left[1-e^{-At}+\frac{N-a}{b-a}(e^{-At}-e^{-Bt})\right]>0
-\]
-for \(t>0\), since \(N\ge b>a\) (the complement Laplacian is \(NI-J-L\), which is positive semidefinite). Every diagonal entry is strictly positive because it is a positive sum of squared spectral-projection coordinates, including the contribution \(1/N\).
+strictly decreases. Its limits are 1 at zero and 0 at \(c\); the latter follows since the integrand, bounded by 1, tends to zero at each \(u<1\). Thus \(zh'(z)/h(z)\) is strictly increasing from 1 to infinity. The logarithmic derivative of the delay with respect to \(z\), multiplied by \(z\), is \(1+\delta-\delta zh'(z)/h(z)\); it changes sign from positive to negative exactly once. The delay tends to zero at both endpoints since it is asymptotic to \(q^{-\delta}z\) as \(z\downarrow 0\) and the denominator diverges as \(z\uparrow c\). This proves the formula, strict monotonicity on either side, and global uniqueness.
 
-For completeness, \(a>1\) in every graph under consideration. Writing \(r=k-a\) and \(s=k-b\), the two nonprincipal adjacency eigenvalues solve \(x^2-(\lambda-\mu)x-(k-\mu)=0\), where \(\lambda\le k-2\) is the number of common neighbors of an edge pair and \(1\le\mu\le k\) that of a nonedge pair. The polynomial at \(x=k-1\) is at least \(\mu k-1>0\). Its smaller root is nonpositive and its larger root \(r\) is therefore strictly smaller than \(k-1\). Thus \(a=k-r>1\).
+## Verification and background checks
 
-**Exact sign transitions.** For a nonedge the sign of \(K_0(t)\) equals the sign of
-\[
- q(1-e^{-At})-(1-e^{-Bt}),\qquad q=b/a>1.
-\]
-For \(B>A>0\), the function \((1-e^{-Bt})/(1-e^{-At})\) decreases strictly from \(B/A=q^\alpha\) at \(t\downarrow0\) to one as \(t\to\infty\). Indeed its logarithmic derivative equals
-\[
- \frac1t\left[\frac{Bt}{e^{Bt}-1}-\frac{At}{e^{At}-1}\right]<0
-\]
-because \(y/(e^y-1)\) is strictly decreasing. If \(\alpha\le1\), the ratio stays below \(q\), giving strict positivity. If \(\alpha>1\), it crosses \(q\) exactly once, from above, giving exactly the claimed negative-to-positive interval and its uniquely defined endpoint.
+For the Petersen graph, \(a=2,b=5\), yielding \(\alpha_G^*=1.636435234508\ldots\) and \(T_G(\alpha_G^*)=0.131791058820\ldots\). To reproduce directly, solve \(F(T,\alpha)=\partial_\alpha F(T,\alpha)=0\) near \((0.13,1.64)\), where \(F=b\operatorname{expm1}(-a^\alpha T)-a\operatorname{expm1}(-b^\alpha T)\), or bisect the strictly monotone scalar elasticity equation. The companion `checker.py` (Python 3, NumPy, SciPy and NetworkX) also checks this optimizer and finite parameter grids and matrix comparisons. The grid checks are not a proof of uniqueness.
 
-**Peak operator norm.** Since every row sums to one, and edge and diagonal entries are positive, its absolute row sum is exactly \(1+2d[-K_0(t)]_+\), proving the displayed sharp operator norms; symmetry gives the same column-sum norm. The derivative
-\[
- K_0'(t)=\frac{bA e^{-At}-aB e^{-Bt}}{N(b-a)}
-\]
-has exactly one positive zero when \(\alpha>1\), at \(\vartheta_G(\alpha)\). It changes from negative to positive there. The sharp norm therefore has its unique global peak at that time.
+For clarity about those checks, let \(d=N-k-1\). The earlier sharp counting-measure \(\ell^1\) and \(\ell^\infty\) norm is \(1+2d[-K_0(t)]_+\), since the row sum is one and only nonedge entries can be negative. The time of its peak for \(\alpha>1\) is \((\alpha-1)\log q/(b^\alpha-a^\alpha)\), from \(K_0'(t)=0\). Near \(\alpha=1+\varepsilon\), \(K_0(t)=-ab\log(q)\varepsilon t/[N(b-a)]+ab t^2/(2N)+O_G(\varepsilon^2t+\varepsilon t^2+t^3)\). This gives the positive threshold \(2\log(q)\varepsilon/(b-a)+O_G(\varepsilon^2)\) by dividing by \(t\) and solving near zero, and the peak norm \(1+dab(\log q)^2\varepsilon^2/[N(b-a)^2]+O_G(\varepsilon^3)\) by substitution of the peak time. As \(\alpha\to\infty\), \(a^\alpha T_G(\alpha)\to c\); at the peak the products of its time with \(a^\alpha\) and \(b^\alpha\) tend to zero and infinity, respectively, giving the known limiting peak norm \(1+2da/[N(b-a)]\). None of these per-exponent or limiting norm results is claimed here as a new contribution.
 
-**Unique exponent of maximal delay.** Let \(z=a^\alpha T_G(\alpha)\). The defining equation becomes
-\[
- q(1-e^{-z})=1-e^{-q^\alpha z}.
-\]
-The positive solution has \(0<z<c=\log(q/(q-1))\). Solving for the exponent gives \(q^\alpha=h(z)/z\) with \(h(z)=-\log(qe^{-z}-q+1)\). As \(z\) increases from zero to \(c\), \(h(z)/z\) increases strictly from \(q\) to infinity: this follows from strict convexity of \(h\) and \(h(0)=0\). Consequently \(z\) parameterizes all \(\alpha>1\) bijectively. Since \(a>1\), \(\delta=\log a/\log q>0\), and
-\[
- T_G=\frac{z^{1+\delta}}{h(z)^\delta}.
-\]
-Put \(f(z)=h'(z)=q/[q-(q-1)e^z]\). Its logarithmic derivative \((\log f)'=(q-1)e^z/[q-(q-1)e^z]\) is positive and strictly increasing. For each \(0\le\theta<1\), the ratio \(f(\theta z)/f(z)\) strictly decreases with \(z\), since its logarithmic derivative is \(\theta(\log f)'(\theta z)-(\log f)'(z)<0\). Therefore
-\[
- \frac{h(z)}{zf(z)}=\int_0^1\frac{f(\theta z)}{f(z)}\,d\theta
-\]
-is strictly decreasing from one to zero as \(z\uparrow c\); equivalently \(zh'(z)/h(z)\) increases strictly from one to infinity. Differentiating \(\log T_G\) with respect to \(\log z\) gives \((1+\delta)-\delta zh'/h\), which has precisely one zero and changes from positive to negative. Both endpoint delays vanish, because \(T_G\to0\) as \(z\downarrow0\), while as \(z\uparrow c\) the positive power of \(h\) diverges. Thus this critical point is the unique global maximum, giving the claimed formulas.
+## Relationship to prior work and limitations
 
-**Boundary regimes.** Put \(\varepsilon=\alpha-1\). Expanding the nonedge formula simultaneously for \(t=O(\varepsilon)\) gives
-\[
- K_0(t)=-\frac{ab\log(b/a)}{N(b-a)}\varepsilon t
- +\frac{ab}{2N}t^2+O_G(\varepsilon^2t+\varepsilon t^2+t^3).
-\]
-Its positive root is \(2\varepsilon\log(b/a)/(b-a)+O_G(\varepsilon^2)\); its minimum occurs at half that leading time, and has depth \(ab(\log(b/a))^2\varepsilon^2/[2N(b-a)^2]+O_G(\varepsilon^3)\). This yields the norm expansion. As \(\alpha\to\infty\), the equation \(h(z)/z=q^\alpha\) forces \(z\uparrow c\), which proves the delay limit. At the minimum time, \(a^\alpha\vartheta_G(\alpha)\to0\) and \(b^\alpha\vartheta_G(\alpha)\to\infty\), so \(K_0(\vartheta_G(\alpha))\to-a/[N(b-a)]\), proving the nonzero peak-norm limit.
+The all-strongly-regular threshold, norm, peak time, and asymptotic regimes have exact counterparts in [1]. The complete-multipartite analysis [2] already covers these kinds of quantities for a related class including the balanced imprimitive strongly regular cases. The distinct claim here is uniqueness of the worst exponent and its scalar characterization; the per-exponent equation alone does not give uniqueness without the monotonicity argument. Mixed heat [3] has a different objective: for a fixed mixed coupling, matching its two positive decay rates to fractional ones uses a coupling-dependent common time factor, so an optimizer does not transfer under the match. General eventual-positivity criteria [4] do not optimize fractional order.
 
-## Verification
-Run `python checker.py` with Python, NumPy, SciPy, and NetworkX installed. The script constructs eight named strongly regular examples (including primitive Petersen, pentagon, triangular and rook graphs and two imprimitive multipartite controls), computes the Laplacians independently from adjacency matrices, checks the two nonzero eigenvalues, and compares spectral-projector kernels with independently computed matrix exponentials. It checks predicted signs before/after the sharp threshold, strict edge/diagonal positivity, maximizing exponents, and the two asymptotic regimes. The included checker completed 568 matrix-time comparisons, 32 scale checks and 800 optimization-grid comparisons. Its finite numerical results corroborate the stated identities but do not replace the analytic proofs of exact thresholds or unique global optimality.
-
-## Relationship to prior work
-Riascos and Mateos (2014, openly accessible 2015 version) introduce spectral fractional network diffusion, emphasizing \(0<\alpha<1\) and explicit ring formulas; their Sections III–V do not establish the upper-order positivity frontier or a uniquely worst exponent for strongly regular networks. Daners, Glück and Kennedy (first available 2015; inspected later full-text revision) establish general qualitative eventual-positivity criteria; they do not optimize this fractional exponent or give the sharp finite family formula. A prior published published-finding corpus theorem proves sharp fractional-heat positivity and transient norm formulas for **complete multipartite** graphs. That covers the imprimitive equal-part subset of the present statement and is expressly not claimed as a new subcase; its full RESULT.md contains no unique-order optimizer. The distinct contribution here is the global uniqueness of the worst fractional exponent **for every connected noncomplete strongly regular graph**, including primitive families such as pentagons, Petersen, rook, and triangular graphs, together with an explicit optimizer equation and a nonvanishing large-order transient amplification limit. Related mixed quadratic graph-heat formulas concern a different generator family and do not imply this fractional-power optimizer.
-
-## Limitations
-This analysis is for the combinatorial Laplacian of finite unweighted connected noncomplete strongly regular graphs. It does not prove the corresponding statement for arbitrary graphs, weighted edges, directed or normalized Laplacians, or arbitrary spectral filters. For \(\alpha>1\) the operators are not positivity-preserving at small times; they are not Markov transition kernels then. The sharp times and optimizing exponents are generally specified by unique scalar roots, not elementary closed radicals. The numerical checks are finite. The inspected primary papers and recoverable published comparisons do not establish absolute priority; independent external mathematical review has not been performed.
+This theorem is for the unweighted combinatorial Laplacian on the stated fixed strongly regular graph class; it makes no claim for general graphs, normalized generators or arbitrary spectral filters. Numerical checks are illustrative. The comparison does not establish historical priority or within-day ordering of distinct records.
 
 ## References
-1. A. P. Riascos and J. L. Mateos, *Fractional dynamics on networks: Emergence of anomalous diffusion and Lévy flights*, Physical Review E 90, 032809, first publicly dated 17 September 2014, https://doi.org/10.1103/PhysRevE.90.032809 ; full openly accessible manuscript https://arxiv.org/abs/1506.06167 , especially Sections III–V.
-2. A. P. Riascos and J. L. Mateos, *Fractional diffusion on circulant networks: emergence of a dynamical small world*, Journal of Statistical Mechanics (2015) P07015, https://doi.org/10.1088/1742-5468/2015/07/P07015 , especially fractional transport and circulant return-probability calculations.
-3. D. Daners, J. Glück and J. B. Kennedy, *Eventually and asymptotically positive semigroups on Banach lattices*, first submitted 17 November 2015, https://arxiv.org/abs/1511.05294 , inspected full-text revised version https://arxiv.org/html/1511.05294v2 , especially introduction and eventual-positivity criteria.
-4. *A sharp positivity transition for fractional graph heat on complete multipartite networks*, published published-finding corpus finding (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1 ; compared full RESULT.md.
+
+1. *Sharp positivity recovery for fractional heat on all connected strongly regular graphs*, 2026-11-22, [RESULT.md](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-positivity-recovery-for-fractional-heat-on-all-connected-s--d37f7dd78e94/RESULT.md).
+2. *A sharp positivity transition for fractional graph heat on complete multipartite networks*, 2026-10-26, [RESULT.md](https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1/RESULT.md).
+3. *A unique worst positivity delay for mixed heat on every strongly regular graph*, 2026-11-22, [RESULT.md](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-worst-positivity-delay-for-mixed-heat-on-every-strongly--3c42bf2de9e9/RESULT.md).
+4. D. Daners, J. Glück, and J. B. Kennedy, *Eventually and asymptotically positive semigroups on Banach lattices*, [arXiv:1511.05294](https://arxiv.org/abs/1511.05294).

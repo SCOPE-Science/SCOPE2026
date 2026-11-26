@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Mathematical and reproducibility verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses integer arithmetic for all finite welfare scores, with negative infinity for disconnected induced coalitions. It enumerates all set partitions, evaluates all finite-coalition pair distances, and independently checks both the maximum welfare and the number of maximizing partitions. It tests each maximizing partition for every unilateral deviation to every existing other coalition and to a new singleton. Reported finite comparisons: 105880 direct welfare evaluations, 271 maximizing-partition stability checks, 140 parameter-profile maxima/count comparisons (\(2\le n\le8\), \(1\le p\le5\), \(1\le q\le4\)). The critical-regime recurrence and formula are also checked at integer critical ratios with \(L=2,\dots,6\) and \(n\le100\).
+## correctness
 
-To reproduce: `python3 verify.py`, requiring Python 3.10+ with only standard-library dependencies. Finite checks do not establish all-order correctness or literary novelty; the mathematical proof in `RESULT.md` establishes the universal conclusions. No external independent audit has been performed.
+PASS
+
+The singleton partition has finite welfare, so only compositions of contiguous intervals can maximize. Counting ordered adjacent and nonadjacent pairs gives w_l. Its strictly concave quadratic term gives a strict gain 2q(a-b-1) by balancing lengths a,b at fixed k, proving the complete census including ties between k. A negative endpoint could detach without disconnecting the source, doubling its personal gain in welfare; interior members have strictly larger utility than endpoints. An interior member cannot connect to another coalition, and a feasible boundary join leaves old within-block distances unchanged, so its welfare increment is exactly twice the deviator's utility gain. The decreasing sequence of density differences gives precisely the claimed consecutive ties, with L>=2 because d_2>d_1. Off criticality the residual-block construction bounds the total deficit uniformly, and the positive density gap then bounds the number of exceptional vertices, yielding polynomially many placements. At criticality n=Lh+r with h>=L-1>=r is representable by L and L+1; both lengths alone attain the optimal density. The composition generating function has a simple positive dominant pole and no other pole on its modulus because L,L+1 are coprime. The recurrence with a_0=1 is for those coefficient counts; they coincide with N_n on the stated representable range, not necessarily for every small n. An independent cut-mask replay checked 72 parameter profiles and every unilateral destination for 145 exact optimum partitions, without running uploaded code.
+
+## originality
+
+PASS
+
+The credited claim is the all-parameter census and its score-induced critical change in optimizer counts, with every such optimizer stable on a path. Standard pairwise welfare, concavity, and composition generating functions are tools, not claimed original. Strongest path analogues checked use different payoff normalizations and yield different optimal lengths; the open-score framework does not give the census or density phase transition.
+
+## value
+
+PASS
+
+The result gives more than an optimal welfare algorithm: it determines the full optimizer multiplicity, proves that no maximizer needs to be discarded for Nash instability, and shows that an exact tie in per-vertex welfare creates an exponential optimizer family whereas noncritical parameters allow only polynomial degeneracy. This is a structural distinction relevant to counting and selecting optimal coalitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

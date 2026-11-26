@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:27:15.897342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30; VERIFICATION.md lines 18–20; verify_heawood.py lines 11–122, inspected but not executed",
+        "Independent exact replay: /workspace/branches/3b831eeb-cb92-412d-a4a0-495f057ca286/independent_heawood_census.py; output in the same directory, independent_census_output.txt lines 1–4"
+      ],
+      "rationale": "Fano incidence gives BBᵀ=BᵀB=2I+J. The eigenvalues ±3 are simple with nonzero coordinates everywhere; each ±√2 eigenspace is parameterized by (x,±Bᵀx/√2), x perpendicular to 1. Vanishing on the detectors is exactly orthogonality to the columns of M(S). For H=A−iD with D nonnegative, an eigenvector with real eigenvalue obeys ⟨ψ,Dψ⟩=0 and is consequently an adjacency eigenvector killed by D. The dark sum of these adjacency subspaces reduces both A and D; on its complement all eigenvalues of −iH have strictly negative real part, so even with Jordan blocks that complement decays. This proves the loss-independent rank and capture fraction, not just a sampled-rate statement. Fewer than six coordinate constraints cannot kill a six-dimensional eigenspace; six point detectors suffice. Each nonzero zero-sum x and y=Bᵀx has support at least two. A two-point difference produces exactly four line coordinates; dually, a two-line difference produces exactly four point coordinates via x=By/2. The source's three-point line-count wording only gives 'at least three'; to exclude equality (3,3), there are in fact six nonzero line sums: for collinear support these are singleton lines; for noncollinear support there are three singleton and three pair lines, with every pair sum the negative of the remaining nonzero entry. Thus equality in the support bound occurs only for the two dipole types, with 21 distinct complements of each type, and any nine detectors suffice. The independent rational enumeration gives rank counts 21/1092/1890 for six, 336/3096 for seven, 42/2961 for eight and 2002 full-rank placements for nine, and directly recovers the eight-set dipoles. For each of the 21 rank-five flags, reducing modulo the three selected point columns leaves the constant column and the two disjoint two-point indicators partitioning the four remaining points; these have rank two, and the selected point-line itself restricts to zero. The exhaustive rank-five total therefore excludes other flags or forms.",
+      "residual_risks": [
+        "Only finite-dimensional coherent adjacency dynamics with fixed strictly positive detector losses and eventual norm capture; no finite-time or absorption-speed conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quantum-walk detection/dark-space arguments and a graph spectral/Krylov reduction preexist, including single-trap transport treatments. The indexed coherent-absorption census 2e582bde2af1 uses other fixed graphs (Shrikhande and rook), different size and different counts.",
+          "The survey cites Sotnikova's 2018 work for minimum support and characterizations in many cubic distance-regular graphs. Its full text was not recovered in this review."
+        ],
+        "reasoning": "The broad capture mechanism and rank-test method are established; neither a result on another graph nor a sharp bound on minimum support provides the full rank distribution of Heawood detector sets. Any earlier classification of Heawood optimal supports would cover the 42 eight-set exceptions, but still need not classify six-detector sets.",
+        "searches": [
+          "Varbanov–Krovi–Brun arXiv:0803.3446",
+          "Caruso et al. arXiv:0901.4454",
+          "Razzoli–Paris–Bordone arXiv:2011.13794",
+          "Resultary 2e582bde2af1; primary searches for Heawood quantum sinks and minimum-support cubic distance-regular graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–41",
+        "Resultary 27fa3b410670 (self), 2e582bde2af1, c643059055bf, 821f7bebe27a",
+        "arXiv:2102.11142 pp. 9–10 and reference [90]; arXiv:0803.3446, 0901.4454, 2011.13794 in the passages specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Heawood support bound implies that every five-site complement is safe and at least one six-site complement is unsafe, hence nine is sharp for all placements. The six-detector existence bound also follows readily from spectral multiplicities and choosing point coordinates.",
+          "A six-detector complement has eight sites; whether a dark direction survives depends on full incidence-column dependence, not just whether the graph admits some six-site-supported eigenfunction. The catalogue inspects ranks 5, 6 and 7 and distinguishes the labelled placements."
+        ],
+        "reasoning": "The thresholds alone and the general loss-independent spectral mechanism do not support an originality pass. The exact six-set classification supplies additional information not a parameter specialization of the inspected results. No distinctness of the minimum-support invariant is asserted; the eight-set extremal classification is subject to the unresolved 2018 source.",
+        "searches": [
+          "arXiv:2102.11142 pp. 9–10 and bibliography [90]",
+          "Resultary 2e582bde2af1 Finding; arXiv:2011.13794 pp. 17–18",
+          "Frozen RESULT.md lines 9–30"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimum support six for the Heawood nonprincipal eigenspaces is explicit in the survey; sign-flipping one bipartition transfers either ±√2 eigenspace to the other without changing supports.",
+          "Detector success is equivalently that coordinate evaluations span the dual of each nonprincipal eigenspace (a spectral observability/rank test). Its point-line dual has the same ranks. Heawood identifying-code statements concern distinguishing neighborhood signatures rather than this restricted eigenspace rank."
+        ],
+        "reasoning": "Taking complements translates eigenfunction minimum support precisely into the universal threshold; zero-forcing and identifying-code parameters are not equivalent to the fixed-adjacency spectral condition. A minimum-support number is not an enumeration of all deficient evaluation subsets.",
+        "searches": [
+          "Resultary: Heawood/Fano exact coherent absorption, both detector thresholds, identifying codes and omitted placement classes",
+          "Primary search: Heawood ±√2 eigenfunction minimum support and weight distribution",
+          "Sotnikova–Valyuzhenich arXiv:2102.11142 pp. 9–10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 27fa3b410670 is the frozen record, not independent coverage. Distinct code records c643059055bf and 821f7bebe27a concern erasure-robust/redundant identifying codes. The distinct rank-census record 2e582bde2af1 reports 3936 rook and 7200 Shrikhande successful nine-site configurations, not a Heawood row.",
+          "The survey's Heawood entry gives the exact minimum and shows an optimal eigenfunction (Fig. 4), not a table of ranks of six-site evaluation restrictions."
+        ],
+        "reasoning": "Neither graph name overlap nor a detector number of nine equates these datasets. The six-set rank census was independently computed, but that replay verifies the counts rather than their novelty.",
+        "searches": [
+          "Resultary: Heawood coherent absorption 1890 of 3003, 42 exceptions; Heawood placement catalogues",
+          "Targeted external searches: Heawood capture census and cubic distance-regular minimum eigenfunction supports"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the labelled Heawood detector rank census, especially the six-detector breakdown and exact arrangements, rather than the dark-space criterion, Fano spectrum, or placement-independent threshold alone. The placement-independent threshold is already a direct consequence of the established Heawood minimum eigenfunction support six: under positive site losses a placement is bad exactly when its complement contains an eigenfunction support. The known six-support result does not supply the exact catalogue of full-rank six-sets, whose complements leave room for more than minimal supports.",
+      "residual_risks": [
+        "Sotnikova 2018 full text was not recovered; precise priority for the 42 dipole complements is unresolved. The distinctness assessment rests on the exact six-site rank census and geometry, not on absence of a general support theorem.",
+        "The bounded search is not comprehensive historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual coverage of the sharp support number and hence of the all-placements threshold",
+          "evidence": "Heawood spectrum ±3 and ±√2 and refined support bound six; an optimal √2 eigenfunction is illustrated.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.11142",
+          "material_read": "pp. 9–10 with Fig. 4, offsets 25800–28359, and bibliography [90]",
+          "method": "OA PDF, literal locate then bounded text",
+          "title": "Minimum supports of eigenfunctions of graphs: a survey",
+          "trigger": "Exact Heawood minimum eigenfunction support, equivalent to the universal detector threshold"
+        },
+        {
+          "assessment": "Unresolved for exact optimal Heawood support classification; not treated as a negative finding",
+          "evidence": "Survey pp. 9–10 references [90] for minimum-support problems and characterization in ten cubic distance-regular graphs.",
+          "identifier_or_url": "E. V. Sotnikova, Siberian Electronic Mathematical Reports 15 (2018), 223–245, cited as [90] in arXiv:2102.11142",
+          "material_read": "Citation and scope as reported by the survey only; no primary pages recovered",
+          "method": "Targeted search and bounded OA retrieval attempts",
+          "title": "Eigenfunctions supports of minimum cardinality in cubical distance-regular graphs",
+          "trigger": "Potential full characterization of Heawood optimum supports and thus the eight-detector exceptions"
+        },
+        {
+          "assessment": "Related method, distinct graphs and exact counts",
+          "evidence": "Classifies nine-site success for two 16-vertex graphs, not the 14-vertex Fano incidence graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-nine-site-coherent-absorption-census-for-the-shrikhande-and-rook--2e582bde2af1",
+          "material_read": "Finding, mirrored RESULT.md at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Nine-site coherent absorption census for the Shrikhande and rook graphs",
+          "trigger": "Most closely related indexed detector-rank census"
+        },
+        {
+          "assessment": "Background spectral efficiency reduction, not a multi-placement Heawood census",
+          "evidence": "The inspected discussion treats a single trap and maximum-efficiency subspaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.13794",
+          "material_read": "p. 1 abstract; pp. 17–18 single-trap discussion, offsets 1794 and 79350",
+          "method": "OA primary PDF",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "trigger": "Spectral mechanism for capture efficiency"
+        },
+        {
+          "assessment": "Related measurement-based detection, distinct detailed model and no matching census in the inspected passage",
+          "evidence": "Discusses random-time target measurements and infinite hitting times.",
+          "identifier_or_url": "https://arxiv.org/pdf/0803.3446",
+          "material_read": "p. 1 abstract, pp. 2–3, offsets 10650–15663",
+          "method": "OA primary PDF",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "Earlier quantum-walk detection criterion"
+        },
+        {
+          "assessment": "Background for invariant dark spaces, not the Fano placement data",
+          "evidence": "An invariant subspace obstructs transfer to the sink.",
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4454",
+          "material_read": "p. 1 abstract; pp. 4–5 trapping-subspace example, offset 30850",
+          "method": "OA primary PDF",
+          "title": "Highly efficient energy excitation transfer in light-harvesting complexes: The fundamental role of noise-assisted transport",
+          "trigger": "Established dark-space obstruction to capture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–30",
+        "Independent exact rank replay output, lines 2–4",
+        "Sotnikova–Valyuzhenich arXiv:2102.11142 pp. 9–10"
+      ],
+      "rationale": "The Heawood graph is a canonical small incidence network with large eigenspace degeneracies. At the minimum viable detector budget, the exact 1890/3003 success fraction and the distribution of remaining dark dimensions quantify placement sensitivity, something an existential threshold or a minimum support cannot do. The rank-five Fano flags give a geometric explanation of the worst placements at that budget. This motivates the finite exact count independently of the already implied universal threshold.",
+      "residual_risks": [
+        "Graph-specific and asymptotic in time; no general enumeration across projective planes or bound on practical capture time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

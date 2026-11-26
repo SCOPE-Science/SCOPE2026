@@ -1,15 +1,21 @@
-# Mathematical review: genus-three Howe arithmetic spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The eight simple branch points are equivalent to nonvanishing of the three discriminant factors. The three genus-one quotient maps and three nontrivial Klein-four characters identify the entire genus-three cohomology, proving the Weil-polynomial product. A finite, truly exhaustive enumeration of all 121 coefficient pairs excludes exactly 30 singular models and computes traces for all 91 smooth ones. Independently counted points on all original curves over \(\mathbb F_{11}\) and twice over \(\mathbb F_{121}\) agree with the quotient trace predictions. A finite list alone is not a proof of the factorization across all extensions; that follows from the cohomological argument. Risks: convention/character calculations and computational implementation require reproducibility; the two field models and rational count provide substantial cross-checks.
+## correctness
 
-## Originality — PASS (qualified)
-The quotient decomposition and genus-three Howe model are known from Ohashi (arXiv:2112.11152). The closest finite arithmetic census over \(\mathbb F_9\) covers only separately rational reciprocal quartic factors there; the known characteristic-eleven dihedral computation is a one-dimensional Hasse-rank statement. Their results neither imply 28 Weil spectra for all smooth symmetric \(\mathbb F_{11}\) coefficient pairs nor the 20 nonsplit-only spectra and five maximizers. The exact numerical spectrum was checked against the identified published records and targeted mathematical literature; an unindexed table using a different normal form remains a residual priority risk. Novelty is claimed for the complete arithmetic tabulation and Galois-factorization comparison, not for the known splitting method or p-rank principles.
+PASS
 
-## Mathematical value — PASS
-The reciprocal octic is a canonical two-parameter genus-three family with a rational Klein-four action. Distinguishing models whose branch quartics are rational separately from their quadratic-conjugate forms is a natural arithmetic descent question: the latter supports 20 isogeny types absent from the former. A complete table of Weil polynomials supplies every extension-field point count and captures genuinely different isogeny types invisible to the smoothness or p-rank classification. Value is limited to this marked family, not a classification of all curves or a general new zeta algorithm.
+The octic is squarefree exactly when its two reciprocal quartics are distinct and neither coefficient a nor b is ±2; their unordered roots in the coefficient quadratic give 36 rational pairs and 55 conjugate pairs. Independently I found all the smooth rows by gcd with the octic derivative, and identified the split locus by constructing unordered pairs of distinct rational a,b not ±2. The quotient maps have degree two, yield the stated quartics (all squarefree on the open locus), and correspond to the three order-two subgroups of the Klein four action. The first cohomology invariants of each order-two subgroup have dimension two; their pairwise intersection is the trivial-character space. The total dimension six and the three nontrivial-character dimensions force trivial dimension zero once the full quotient is seen to have genus zero: the further quotient of E0 is given by x²+x^−2 and y/x², with relation v²=u²+Mu+N−2. This gives the factorization over F11 for all extensions. Without using those quotient point-count algorithms, I counted the original curves directly over degrees 1, 2 and 3; Newton identities and the Weil functional equation recover all seven coefficients of L for every row. All 91 products and both CSV tables agree, giving 28 spectra, 8 split, 23 nonsplit, 3 shared and 20 nonsplit-only. The point and p-rank histograms also agree; exactly three of the five maximizers are nonsplit. The table labels 'Split Δ' and 'Nonsplit Δ' must be read as the prose defines them, namely by the square class of δ, not that of the full smoothness discriminant.
 
-## Closest literature and limitations
-Ohashi 2021 (arXiv:2112.11152), Moriya–Kudo 2022 (arXiv:2209.02926), Borówka–Shatsila 2023 (arXiv:2308.07038); full relevant passages inspected for geometric model, splitting and prior arithmetic scope. Closest computational overlap: the published five-spectrum \(\mathbb F_9\) split-factor classification, and the \(M=0\) characteristic-eleven dihedral Hasse divisor. Claim is limited to marked coefficients; only self-review is available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported addition is the complete characteristic-eleven marked table and, especially, the 20 Weil polynomials absent from the rational-quartic-factor locus. The family and quotient decomposition are known. The checked earlier census over F9, characteristic-eleven one-parameter strata, and superspecial results do not give this two-parameter comparison. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The rational descent of the displayed reciprocal factors is an intrinsic question of the marked normal form, and confining arithmetic computation to separately rational factors would miss 20 of the 28 isogeny types that actually occur. The exact spectrum distinguishes ranks from full extension-field arithmetic and is useful for comparing presentations or sampling this standard family. This is a finite family invariant, not a general algorithmic or moduli classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the two-step length-three palindromic sphere theorem
+# Independent mathematical audit
 
-## How to reproduce
-Execute `python3 checker.py` under Python 3 without third-party dependencies. Its recorded output is `checker_output.txt`. The code directly forms every duplication history; it also computes modular-difference signatures independently of the formula in the proof and compares them to all displacement cases.
+## correctness
 
-## Checks actually performed
-The test exhaustively determines the exact-two sphere maximum among all \(29,511\) ternary words of lengths \(3\) through \(9\), checks the binary maxima at these lengths without claiming a binary theorem, and inspects exact history fibers on ternary periodic sources at \(47\) lengths up to \(128\). It makes \(14,190\) independent comparisons between direct signatures and the finite symbolic displacement table. The longest tested periodic source has \(8,628\) ordered histories and \(7,626\) different descendants, with all duplicate fibers of size two. Exact integer calculations are used.
+PASS
 
-## Mathematical proof boundary
-The uniform derivation does not rely on extrapolation. The general upper bound follows from disjoint commuting original blocks, and the ternary attainment proof follows from exhaustive *symbolic* cases for relative operation starts and injectivity of the resulting signatures except for commuting histories. Computer enumeration is a finite cross-check, not a complete computer proof over unbounded \(n\).
+The forced pairs (a,b+3) and (b,a), with b−a≥3, form a matching on the (n−2)(n+1) histories, so subtracting exactly one per pair gives a valid universal upper bound even when other collisions exist. I independently reconstructed the signature table: if the two differences within the second source triple are α,β and its outgoing difference is γ, the insertion replaces γ by (0,−β,−α,α+β+γ) mod 3. Applying this rule to the first defect 0--0 gives all six local signatures and the two generic gaps −d−1 and d−4 in RESULT.md:41–50. The finite output extends by an unchanged periodic tail, and the initial symbol is fixed, so signature equality is exactly word equality. Different histories have the same signature only across the generic families, at a common gap h≥2 and common first defect, giving exactly the commuting pair (a,b+3),(b,a) with b−a=h+1; within either family the history is uniquely determined. This handles legality, end insertions and n=3 (four outputs) as well as general n. The archived checker and output are supplementary, read but not rerun.
 
-## Validation boundary
-This is a self-reviewed result, not an independent mathematical or historical certification. The existing result for odd block lengths with \(q\ge n\) does not establish the fixed-three-letter theorem for \(n\ge4\); the prior universal upper bound is acknowledged. Other odd block lengths, binary inputs and optimal code sizes are not determined here.
+## originality
+
+PASS
+
+The numerical bound and its attainment over sufficiently large alphabets are prior. The supported distinct result is that the period-three source attains that bound with only three letters for arbitrary n, with exactly the commuting collisions. The strongest located prior requires distinct source symbols (q≥n) and the cited even-block construction does not furnish a PAL3 source.
+
+## value
+
+PASS
+
+The fixed-alphabet regime matters for palindromic-duplication channel sphere counts: an unbounded distinct-symbol source does not model arbitrarily long words over a small alphabet. The record gives an explicit extremizer and a complete history-fiber classification even when the second duplication uses newly inserted symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

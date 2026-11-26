@@ -1,15 +1,21 @@
-# Review of the universal rare-delivery Lévy-path quadrature staircase
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact conditional-mean identity for integrable Lévy bridges follows by exchangeability of finite stationary independent increments and passage from rational times in mean square. Their unconditional residual variances are the cubic-gap terms \(vd^3/12\) for observed bridges and \(vd^3/3\) for the unobserved terminal tail. Each conditional risk is convex, and the strictly convex all-delivered term has positive weight for every \(p>0\). The exact perfect-delivery design, rare-delivery localization and uniformly converging third-order risk expansion give the stated unique minimizers, spacing and advantage for every fixed sample budget. The included independent exact-rational polynomial implementation passed 102 tests for sample budgets one through six. Finite tests supplement, rather than establish, the universal theorem.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** Remote Wiener sensing with packet failures [Pan--Sun--Shroff, arXiv:2310.11037] optimizes causal and long-time estimation, not retrospective quadrature of the entire interval. Work on sampling with random delivery times [Peng--Chen--Gong, DOI:10.1049/cth2.12205] likewise concerns sequential sampling, while multipoint fractional-Brownian bridge interpolation [Friedrich et al., arXiv:2005.07591] does not optimize a fixed batch under erased exact observations. No equivalent all-\(n\) Lévy-universal rare-delivery staircase, free-terminal \(2/3\) center, or sharp \(1/486\) risk coefficient was identified. The known pinned-endpoint bridge problem changes the cubic risk at the final interval; its midpoint-centered optimal design cannot imply the free-terminal result. Earlier Poisson arrival-time estimation provides conditional means but not this optimal design. Non-indexed stochastic quadrature results may still cover an equivalent statement, and the full arrival-epochs paper was not available.
+PASS
 
-## Value
-**PASS.** Choosing a fixed batch of observation times before unreliable measurements is a natural finite-horizon sensing problem for cumulative jump and diffusion signals. The theorem determines a unique design for every fixed budget, a surprisingly process-independent asymptotic spacing, and the exact leading penalty for collocating all measurements. The result simultaneously handles non-Gaussian Poisson and compound-Poisson paths and Gaussian diffusion, without claiming finite-loss exact closed-form optimal times for general \(n\). Its scope is nonadaptive retrospective integral estimation with exact surviving readings and independent delivery.
+For an interval between successive delivered times, partition its Lévy increment into equal exchangeable pieces conditional on their total. Summing these conditional means and taking an L² limit gives the interpolating bridge mean. The other observed increments are independent of this segment. The centered integral has variance vd³/3 and covariance vd²/2 with the total of variance vd, giving bridge residual variance vd³/12; on the free terminal gap the independent residual has variance vd³/3. Zero gaps add nothing, and conditioning on the revealed independent delivery subset gives the stated exact mixture. For every p>0 the all-delivered term is strictly convex in the injective gap vector, proving global uniqueness. At p=1 its stationarity equations give standard gaps twice the final gap. At small p the singleton Hessian uniformly supplies curvature of order p, while the gradient at co-location is O(p²); the convexity inequality thus localizes the minimizer to O(p) despite co-location being on the ordered boundary. Expanding uniformly there gives the quadratic with linear coefficient −(2i−n−1)/9 in coordinate i: completing the square proves both the spacing and the n(n²−1)/486 gain. The ordered offsets are admissible, n=1 is exactly the singleton problem, and p=0 is excluded. A separate algebra replay gives p³/81+O(p⁴) improvement at 2/3±p/9 for n=2. Inspected RESULT.md lines 25–76, VERIFICATION.md, check.py and check_output.txt; 102 assertions are the recorded finite check, not a rerun or a proof. The expansion holds for fixed n only.
 
-## Remaining limitations
-Independent verification and historical-priority review have not been performed. The rare-delivery expansion fixes the sample budget before taking success probability to zero; no uniform growing-budget claim is made. More general path priors, dependent erasures, noisy measurements and adaptive sampling require separate analysis.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pinned Brownian-bridge erasure problem is the strongest verified structural overlap, including the very same singleton-curvature/pair-spread mechanism, but it does not cover the free terminal gap or the specified Lévy theorem. Pass is for the free-terminal all-Lévy formulation and its sharp rare-delivery design and gain, not for introducing bridge quadrature, erasure design, or the general staircase proof mechanism.
+
+## value
+
+PASS
+
+The free terminal gap is essential when the endpoint is not observed. The result quantitatively distinguishes redundant co-location from diversification for a natural loss: the first-order node offsets and the nonzero third-order risk gain for n≥2 are sharp, and one design works across the square-integrable Lévy class. This is useful even though the optimal-design method is close to the pinned analogue and the result is not a claim about adaptive channels or growing budgets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

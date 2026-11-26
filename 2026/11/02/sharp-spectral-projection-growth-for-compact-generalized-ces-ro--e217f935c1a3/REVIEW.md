@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is restricted to the compact operator on ordinary complex sequence spaces, with \(0\le t<1\), \(1\le p<\infty\), and the spectral projections at \(1/(m+1)\). The factorization through a compact diagonal, triangular eigenvalue argument, exact right/left eigenvector identities, semisimplicity from biorthogonality, and rank-one dual norm establish the exact formula. Both probability laws are normalized, and their Gaussian lattice norms give the stated coefficient, including both endpoint conventions. Analytic generating functions yield completeness; unbounded singleton coordinate projections preclude any Schauder ordering. The finite checks are corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, with bibliographic uncertainty
-Albanese–Bonet–Ricker (2023, §3 and Proposition 6.7) already establish the right/left binomial eigenvector formulas and compact spectrum. Those components are excluded from the claimed new contribution. Their accessible complete article and the 2017 complete article address point/fine spectra rather than the exact \(\ell^p\) Riesz-projection conditioning law and its sharp prefactor. The full 2020 Sawano–El-Shabrawy text could not be inspected and is a residual risk. Searches for eigenbasis and spectral-projection norm aliases did not produce an implication that covers the full quantitative and nonbasis conclusions; this is not a proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-A natural spectral question is whether a compact, positive triangular operator with simple complete eigenvectors has stable spectral decomposition. The precise exponential condition number, the sharp dependence on \(p\), and the complete-versus-Schauder separation answer this structural question, rather than merely restating an eigenvector formula. The distinction holds across the full classical \(\ell^p\) scale, with the exact stable boundary at \(t=0\).
+D(I−tS)⁻¹ is compact even on ℓ∞ since D is a norm limit of its finite sections; triangularity at the first nonzero coordinate identifies the nonzero eigenvalues and gives geometric simplicity. The right-vector equation follows by summing binomial coefficients, and the left-vector equation by the alternating partial-binomial sum after replacing binom(m,n)/(n+1) by binom(m+1,n+1)/(m+1). Their pairing is one, ruling out a Jordan chain and giving the claimed Riesz projection. The rank-one norm product holds at both endpoints too, since the left functional is finitely supported. At t=0 the projections are coordinate projections. For fixed 0<t<1 the normalized right and absolute left arrays are sums of m+1 independent geometric and m independent Bernoulli variables, respectively; the integer laws have span one and the stated variances. The uniform lattice local limit gives a Gaussian central Riemann sum and the peak estimate. For finite r≥1 the scaled r-power tail outside M standard deviations is bounded by a constant times the tail mass, using the uniform bound on standard deviation times maximum atom; Chebyshev then lets M tend to infinity. Multiplying the factors gives (2πmt)⁻¹ᐟ² p⁻¹ᐟ⁽²ᵖ⁾ q⁻¹ᐟ⁽²ᑫ⁾ times ((1+t)/(1−t))^(m+1/p), including the supremum limits. For p<∞ an annihilator is analytic via its coefficient generating series, and its derivatives all vanish at t, proving completeness. The coordinate functionals give minimality and any basis ordering would force uniform boundedness of the one-term projections, contrary to the growth law. No such completeness claim is made on ℓ∞. The script was inspected, not executed; exact finite sections and truncated numerical ratios cannot certify the infinite asymptotic.
 
-## Remaining limitations
-No independent audit. Prior endpoint literature is incompletely accessible, and nomenclature differences may conceal stronger old statements. Fixed-parameter asymptotics are not uniform near \(t=0\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published eigenvectors already imply the exact norm product by rank-one duality, and a separate indexed theorem explicitly gives the p=2 asymptotic and no-order conclusion, with refinements in that sector. Credit both overlaps. The supported distinct contribution is the sharp asymptotic across the full range of p, including endpoints and the exact p-dependent multiplier, not the norm product, basic spectral data, or the p=2 case alone. The inspected statements do not establish full coverage.
+
+## value
+
+PASS
+
+The known compact spectrum and complete eigenvectors alone do not quantify spectral conditioning. The exact exponential scale and polynomial prefactor, including their exponent dependence and both norm endpoints, give sharp conditioning estimates for isolated spectral components. The basis obstruction clarifies a consequence of that conditioning but is not the sole justification for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

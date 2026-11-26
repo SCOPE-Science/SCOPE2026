@@ -18,7 +18,7 @@ Equivalently, \((\cos2\theta_*,\sin2\theta_*)=\operatorname{sgn}(h)(\lambda,1)/\
 \[
 \boxed{\quad r_0^2\,\frac{2}{\lambda}\sin^2(\theta_0-\theta_*)<1.\quad}
 \]
-Equivalently, in the rotated Cartesian coordinate \(q=y\cos\theta_*-x\sin\theta_*\), the **entire forward-complete set is the infinite open Euclidean strip** \(\mathcal C=\{(x,y):|q|<c\}\), with \(c=\sqrt{\lambda/2}\). Its two boundary lines are invariant trajectories up to their finite-time escape. All other nonzero states blow up in finite positive *original physical time*. Every nonzero forward-complete trajectory is unbounded, with a sequence of peaks growing exactly exponentially: defining
+Equivalently, in the rotated Cartesian coordinate \(q=y\cos\theta_*-x\sin\theta_*\), the **entire forward-complete set is the infinite open Euclidean strip** \(\mathcal C=\{(x,y):|q|<c\}\), with \(c=\sqrt{\lambda/2}\). Its two boundary lines are invariant trajectories up to their finite-time escape. All other nonzero states blow up in finite positive *original physical time*. Every nonzero forward-complete trajectory is unbounded, with an exactly exponentially growing sequence of radii sampled at the phases \(\theta_*\bmod\pi\): defining
 \[
 \Delta=r_0^{-2}-\frac2\lambda\sin^2(\theta_0-\theta_*)>0,
 \]
@@ -48,7 +48,7 @@ The limiting radial survival distribution has Pareto tail \(\sqrt{2\lambda}/(\pi
 
 ## Assumptions and scope
 
-The vector field and solutions are real; \(\lambda>0\) is arbitrary and \(h=\pm h_{\mathrm c}\). Forward completeness means existence on every finite interval \([0,T]\) in physical time. The zero equilibrium is complete and excluded from the assertions about peaks and occupation fractions. \(|\cdot|\) applied to sets in the area formula means planar Lebesgue measure; applied to subsets of the time interval it means one-dimensional Lebesgue measure. The inequalities describing \(\mathcal C\) are strict; points on the nonzero basin boundary are not complete. This is a sharp critical-slice statement, not a full bifurcation diagram for all parameters.
+The vector field and solutions are real; \(\lambda>0\) is arbitrary and \(h=\pm h_{\mathrm c}\). Forward completeness means existence on every finite interval \([0,T]\) in physical time. The zero equilibrium is complete and excluded from the assertions about phase-sampled radii and occupation fractions. \(|\cdot|\) applied to sets in the area formula means planar Lebesgue measure; applied to subsets of the time interval it means one-dimensional Lebesgue measure. The inequalities describing \(\mathcal C\) are strict; points on the nonzero basin boundary are not complete. This is a sharp critical-slice statement, not a full bifurcation diagram for all parameters.
 
 ## Proof
 
@@ -68,7 +68,7 @@ so the unique solution satisfies the exact identity
 \[
 \boxed{u(t)=H_h(\theta_0+t)+\bigl[r_0^{-2}-H_h(\theta_0)\bigr]e^{-2\lambda t}.}\tag{1}
 \]
-At \(|h|=h_{\mathrm c}\), the amplitude of the oscillatory term equals \(1/\lambda\), and choosing \(\theta_*\) as above gives \(H_h(\theta)=(2/\lambda)\sin^2(\theta-\theta_*)\). Let \(\Delta=r_0^{-2}-H_h(\theta_0)\). If \(\Delta>0\), formula (1) stays strictly positive for every finite \(t\ge0\); therefore the radial solution is finite on every compact time interval, establishing forward completeness. If \(\Delta=0\), it first reaches zero at a finite positive time when \(\theta_0+t\equiv\theta_*\pmod\pi\) (unless \(r_0^{-2}=0\), impossible for finite nonzero initial radius). If \(\Delta<0\), evaluating (1) at the next strictly positive such phase gives a negative value, whereas \(u(0)=r_0^{-2}>0\); by continuity \(u\) first reaches zero earlier. When \(u\downarrow0\), \(r=u^{-1/2}\to\infty\), so continuation in the finite plane is impossible. This establishes the exact completeness criterion and the boundary convention. With \(\Delta>0\), (1) evaluated at each zero of \(H_h\) gives the exponential peak identity. Hence no nonzero complete solution is bounded.
+At \(|h|=h_{\mathrm c}\), the amplitude of the oscillatory term equals \(1/\lambda\), and choosing \(\theta_*\) as above gives \(H_h(\theta)=(2/\lambda)\sin^2(\theta-\theta_*)\). Let \(\Delta=r_0^{-2}-H_h(\theta_0)\). If \(\Delta>0\), formula (1) stays strictly positive for every finite \(t\ge0\); therefore the radial solution is finite on every compact time interval, establishing forward completeness. If \(\Delta=0\), it first reaches zero at a finite positive time when \(\theta_0+t\equiv\theta_*\pmod\pi\) (unless \(r_0^{-2}=0\), impossible for finite nonzero initial radius). If \(\Delta<0\), evaluating (1) at the next strictly positive such phase gives a negative value, whereas \(u(0)=r_0^{-2}>0\); by continuity \(u\) first reaches zero earlier. When \(u\downarrow0\), \(r=u^{-1/2}\to\infty\), so continuation in the finite plane is impossible. This establishes the exact completeness criterion and the boundary convention. With \(\Delta>0\), (1) evaluated at each zero of \(H_h\) gives the exact phase-sampled values. These are not times of local maxima: \(H_h'(\theta_*+k\pi)=0\) and \(u'(t_k)=-2\lambda u(t_k)\), giving \(r'(t_k)=\lambda r(t_k)>0\). The sampled values suffice to show that no nonzero complete solution is bounded.
 
 For the area formula, \(r_0^2\sin^2(\theta_0-\theta_*)=(y_0\cos\theta_*-x_0\sin\theta_*)^2=q_0^2\). Thus \(\Delta>0\) is exactly \(|q_0|<c\), proving that the complete region is an infinite straight strip, without exceptional boundary rays. To verify the invariant straight boundaries directly, put \(p=x\cos\theta_*+y\sin\theta_*\). At criticality \(h\cos2\theta_*=1\) and \(h\sin2\theta_*=1/\lambda\), so \(\lambda-(x^2+y^2)+h(x^2-y^2)=\lambda-2q^2-2pq/\lambda\) and consequently \(\dot q=(p+\lambda q)(1-2q^2/\lambda)\). Hence both lines \(q=\pm c\) are invariant for as long as their solutions exist, and the earlier sign argument shows their finite-time escape. Orthogonal coordinates \((q,w)\) preserve Euclidean area. Integrating horizontal chords of the radius-\(R\) disk gives, for \(R>c\),
 \[
@@ -88,7 +88,7 @@ For each fixed \(R>0\), the set of phases satisfying \(r_\infty(\theta)=R\) is f
 
 ## Verification
 
-`verify.py` is a standalone Python 3 checker using only the standard library. Run `python3 verify.py` from the same directory as this document. It checks the periodic particular-solution differential identity symbolically through coefficient comparison, evaluates the critical phase and exact peak identity for several parameter samples, and numerically compares the exact disk-area formula with independent deterministic quadrature for multiple disk radii. These finite checks are consistency tests; the statements for every parameter, every initial condition, and infinite time rest on the preceding analytic proof.
+`verify.py` is a standalone Python 3 checker using only the standard library. Run `python3 verify.py` from the same directory as this document. It checks the periodic particular-solution differential identity by exact rational coefficient comparison at several parameter samples, evaluates the critical-phase radius formula for representative parameters, and numerically compares the exact disk-area formula with independent deterministic quadrature for multiple disk radii. These finite checks are consistency tests; the statements for every parameter, every initial condition, and infinite time rest on the preceding analytic proof.
 
 ## Relationship to prior work
 
@@ -96,7 +96,7 @@ Llibre's 2024 preprint studies the same general class of homogeneous rigid polyn
 
 ## Limitations
 
-This is a theorem about the critical \(|h|=h_{\mathrm c}\) family only, not a claim that all large-data trajectories remain bounded at nearby subcritical parameters. The limiting occupation distribution is an empirical distribution along each complete trajectory, not a finite invariant probability measure on the full plane; indeed trajectories have exponentially high subsequence peaks. No independent mathematical audit is asserted. Although the most relevant original primary sources were examined for coverage, additional unindexed results could supersede the occupation or area conclusions.
+This is a theorem about the critical \(|h|=h_{\mathrm c}\) family only, not a claim that all large-data trajectories remain bounded at nearby subcritical parameters. The limiting radial occupation distribution is an empirical distribution along each complete nonzero trajectory; it does not assert convergence to an invariant probability on the full plane. Earlier general solution formulas imply the critical strip by specialization, but do not state its disk-area and original-time occupation laws in the inspected passages. Additional unindexed results could supersede these measure conclusions.
 
 ## References
 

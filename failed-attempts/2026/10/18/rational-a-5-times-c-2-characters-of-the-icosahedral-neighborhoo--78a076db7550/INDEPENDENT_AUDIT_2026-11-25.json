@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:44:25.379383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 21–92",
+        "Frozen VERIFICATION.md, lines 18–33",
+        "Both frozen verification scripts inspected without execution",
+        "Independent replay: /workspace/branches/2d47171c-6e73-4b07-9a6e-ac9f2656f33a/independent_check.py"
+      ],
+      "rationale": "An independent standard-library replay from the frozen edge list and displayed generators gave face counts (12,60,120,60,12), mod-two boundary ranks (11,49,48,12), and group closures of sizes 60 and 120. The augmentation rank is one. The mod-two ranks bound rational ranks below; the augmentation kernel, the preceding boundary kernel and the twelve top columns bound ranks above, including rank ∂3≤60−12. This forces rational homology only in degree 2, of dimension 23. The full group has at most 120 elements: an ordered triangle has only 120 possible images, and fixing its vertices forces the adjacent triangles across their edges and propagates through the connected dual graph. The proper subgroup is the geometric rotation subgroup (order 60, isomorphic to A_5), and the central antipode is outside it. Signed fixed-face enumeration, with the reduced augmentation, gives rotation traces (23,3,−1,3) and the matching antipodal-coset traces (−1,−5,−1,−1) over orders 1,2,3,5 of the rotation factor; both order-five classes agree. Taking half-sum and half-difference gives even (11,−1,−1,1) and odd (12,4,0,2). The A_5 character table gives V_6+V_5 and 2·1+2·V_5, respectively; the two complex threes are Galois conjugates and occur together with multiplicity one in the rational six-dimensional constituent. Barycentric subdivision removes simplex inversions. The quotient chain complex over Q identifies with coinvariants (hence invariants by averaging), and exactness of averaging gives quotient homology equal to homology invariants. This gives degree-two dimensions 2 and 0, with all other reduced degrees zero.",
+      "residual_risks": [
+        "The replay generated the groups from the supplied permutations and checked edge preservation; completeness uses the triangle flag bound, not a second automorphism search. Quotient chains were not built separately; the averaging proof applies to the geometric quotients and rational coefficients only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general equivariant Hom constructions inspected do not specialize to a stated icosahedral character. Shukla's stated graph classes exclude this five-regular graph.",
+          "The October 4 open-neighborhood wedge calculation and the October 11 integral homotopy classification give the ordinary wedge of twenty-three 2-spheres, not the action."
+        ],
+        "reasoning": "The nonequivariant topology fixes the dimension but not class traces. The earlier explicit character, rather than these broader or adjacent results, supplies full coverage.",
+        "searches": [
+          "Dochtermann–Schultz arXiv:0907.5079, Theorems 1.6–1.7",
+          "Shukla arXiv:1802.04526, Theorems 2.2–2.5",
+          "Resultary wedge records 07e6e60de0e7 and 137f948604a4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5d7e0af98d39, 07e6e60de0e7, 137f948604a4, 3830dae8300c",
+        "Matsushita arXiv:1710.05290",
+        "Dochtermann–Schultz arXiv:0907.5079",
+        "Shukla arXiv:1802.04526"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier representation already gives the dimensions of both invariant subspaces, while the prior wedge type alone does not.",
+          "Over Q, subdivision and coinvariants identify homology of each finite quotient with the corresponding invariants, so the frozen quotient dimensions are a direct consequence."
+        ],
+        "reasoning": "No independently new quotient invariant is left by passing from the already known fixed dimensions to rational quotient homology.",
+        "searches": [
+          "Finding and invariant dimensions in 5d7e0af98d39",
+          "Finite-group quotient-chain argument in frozen RESULT.md, lines 91–92"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matsushita relates the box and Hom complexes equivariantly for the source involution, and relates the neighborhood complex by ordinary homotopy equivalence. That involution does not represent central inversion of the target graph in the frozen action.",
+          "5d7e0af98d39 uses the identical target-automorphism action and calls the rational six-dimensional constituent W_6 rather than V_6."
+        ],
+        "reasoning": "Do not conflate source symmetry with target automorphisms. The strongest earlier hit needs no change of complex or action and is exact despite the change of notation.",
+        "searches": [
+          "Primary literature and local Resultary comparisons for the icosahedral neighborhood complex, Hom(K₂,I), box complexes and natural automorphism actions",
+          "Matsushita arXiv:1710.05290, Proposition 3.2 and Remark 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 11 record reports the same boundary ranks, exact class traces and full parity decomposition, plus the two odd rotation-fixed classes and no full-group fixed classes.",
+          "The distinct October 18 result instead computes a degree-five representation for the dodecahedral graph's independence complex."
+        ],
+        "reasoning": "This is an exact earlier character record for the given object, not a similarity by group order or polyhedron. The same-day result is excluded by the different complex and degree, not its date.",
+        "searches": [
+          "Local Resultary exact match 5d7e0af98d39, Finding, trace table and decomposition",
+          "Same-day near-topic comparison 3830dae8300c"
+        ]
+      },
+      "rationale": "The October 11 Resultary record 5d7e0af98d39 gives the identical rational representation on the same open neighborhood complex and the same rotation/full invariant dimensions. Its wording need not state the Betti numbers of geometric quotients: the standard characteristic-zero finite quotient argument immediately gives them from those dimensions. The October 4 wedge type by itself is not the reason for rejection.",
+      "residual_risks": [
+        "The search is not an assertion about first publication anywhere. The earlier exact indexed result establishes the material overlap without relying on an unsuccessful external search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full coverage of the rational homology action and fixed spaces",
+          "evidence": "Same V_5 and rational six-dimensional constituent in the even piece, same two trivials and two V_5 in the odd piece, and invariants 2 and 0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-rational-icosahedral-symmetry-on-the-neighborhood-complex--5d7e0af98d39/RESULT.md",
+          "material_read": "Finding and exact trace/decomposition passages, offsets 0–7485; companion script, source only",
+          "method": "Local published-record source mirror",
+          "title": "Rational icosahedral symmetry on the neighborhood complex",
+          "trigger": "Exact prior representation match"
+        },
+        {
+          "assessment": "Covers ordinary homotopy, not the action",
+          "evidence": "A wedge of twenty-three 2-spheres.",
+          "identifier_or_url": "Resultary 07e6e60de0e7",
+          "material_read": "Finding and discrete-Morse verification, offsets 0–4671",
+          "method": "Local published-record source mirror",
+          "title": "The icosahedral neighborhood complex is a wedge of twenty-three 2-spheres",
+          "trigger": "Earlier same-object nonequivariant classification"
+        },
+        {
+          "assessment": "Source-involution and ordinary homotopy results, not this target character",
+          "evidence": "The natural Z₂ equivalence is between box and Hom complexes; the stated neighborhood equivalence is ordinary.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.05290",
+          "material_read": "§3, Proposition 3.2 and Remark 3.4, PDF p. 4",
+          "method": "OA primary text",
+          "title": "Z₂-indices and Hedetniemi’s conjecture",
+          "trigger": "Candidate Hom and box formulation"
+        },
+        {
+          "assessment": "Inspected theorems give constructions, not the calculated icosahedral module",
+          "evidence": "General equivariant Hom-complex comparisons without numerical character data for I.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.5079",
+          "material_read": "Theorems 1.6–1.7, PDF p. 4",
+          "method": "OA primary text",
+          "title": "Topology of Hom complexes and test graphs for bounding chromatic number",
+          "trigger": "Possible general equivariant construction"
+        },
+        {
+          "assessment": "Outside the stated graph classes",
+          "evidence": "The icosahedral graph is 5-regular.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.04526",
+          "material_read": "Abstract and Theorems 2.2–2.5, PDF pp. 1–2",
+          "method": "OA primary text",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Possible neighborhood-complex classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 5d7e0af98d39",
+        "Frozen RESULT.md, Finding and quotient argument"
+      ],
+      "rationale": "The representation of this natural graph complex could be worth knowing, but it is already known with the exact class data. The only change is the routine identification of previously computed fixed dimensions with rational quotient homology. There is no remaining independently useful unknown exact invariant in the frozen claim; independent replay corroborates correctness but does not supply one.",
+      "residual_risks": [
+        "Integral quotient homology and equivariant homotopy types are distinct questions, not asserted here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

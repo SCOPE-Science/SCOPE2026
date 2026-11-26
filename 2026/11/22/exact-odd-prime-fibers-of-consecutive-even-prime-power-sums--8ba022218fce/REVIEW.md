@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The main statement has exact quantifiers: odd primes, positive exponents, all finite residue moduli and all targets. The binomial valuation inequality yields a normalized Lipschitz-isometry on each noncritical class, with the reflection involution and finite-field discriminant proving disjointness and multiplicity two. The critical class is reduced to a unit-scaled square by an odd-prime convergent analytic change of variable, which is itself a bijective isometry. Square-class counting then gives the finite image spectrum and Haar measure. The independent finite checker agrees with every target fiber for 30 pairs of parameter and modulus depth; the infinite result is proved algebraically, not asserted from those cases.
+PASS
 
-## Originality — PASS on inspected evidence
+For d=2p^s, v_p(binomial(d,j)) is at least s-v_p(j). On x=a+pu the linear term divided by p^(s+1) reduces to 2(2a+1)u; j-v_p(j)≥2 for every j≥2, including at p=3. For a≠−1/2 the normalized polynomial is a unit linear map plus p times an integral polynomial, hence a surjective isometry by contraction. Reflection x↦−1−x identifies the two branches in each regular pair, and the reduction 2(x+1/2)^2+1/2 separates all different pairs from each other and the critical class. In the central coordinate x=−1/2+pu, only even powers occur, the quadratic coefficient is exactly A p^(s+2), and the higher coefficients have an extra p after factoring that term. For U integral, the square root g of 1+pU congruent to 1 satisfies (g(u)−g(v))/p=(U(u)−U(v))/(g(u)+g(v)), so u↦ug(u) is identity plus p times a 1-Lipschitz map and is a bijective isometry. At k≤s+1 each pair of classes has 2p^(k−1) inputs and the central class p^(k−1); above that, regular outputs have 2p^s inputs and each central root modulo p^(k−s−2) lifts p^(s+1) times, including at k=s+2. Square-shell counts give Q_p and square-shell measure p/(2(p+1)); the regular and scaled-square measures add to the claimed p^(1−s)/(2(p+1)).
 
-Arias–Borja–Anaya (Journal of Integer Sequences, 2023, Sections 4–6) treat *unconstrained* sums of two powers, with two independent inputs, including the appropriate 3-adic sixth-power sum. The restricted consecutive-input image is a one-dimensional subset, and the two-variable image count and fibers do not determine its targetwise spectrum. Ding–Zieve (arXiv:2309.14979v1, Sections 1 and 3) treat finite-field power sums and value sets; the singular p-adic lift and its exact fibers at every level are absent from inspected passages. Closest mathematical-record hits are either dyadic, unconstrained-input or different polynomial targets. These comparisons support an original complete family-level classification, but neither a negative search nor the absence of a formula in a cited section establishes absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Local solvability of a sum of two high even powers changes substantially when the two inputs are forced to be consecutive. The exact geometric decomposition explains how a derivative divisible by an arbitrarily high power of the residue prime produces exceptionally thin output balls, with an additional square-critical branch. The answer supplies all target fibers and a closed local density uniformly in both prime and exponent depth, not merely a numerical table or easy substitution of prior unrestricted formulas.
+The inspected comparisons cover unrestricted sums, finite-field value questions, or different explicitly classified p-adic polynomials. The distinct supported content is the full branch and fiber classification for the consecutive line at the ramified exponents 2p^s, uniformly over every odd prime and depth. Hensel and square counting are standard, not credited as new. This is a best-of-current-evidence judgment, not a proof of priority.
 
-## Residual risks
+## value
 
-Some general p-adic Morse-lemma and isometry methods could imply the local structure once applied to this polynomial; priority against an unindexed fully equivalent family formula is not certified. Closely related indexed mathematical-record abstracts were compared at statement level, but their entire manuscripts were not all accessible. An independent audit of the symbolic argument has not yet been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Restricting a modular representation problem to consecutive inputs removes the usual independent-variable sumset structure. The exact two lifting depths identify which targets remain attainable, give their full multiplicities (not just image size modulo p), and quantify how the critical branch contributes to the measure. Uniformity in the ramified exponent and at p=3 makes the classification useful beyond a worked finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

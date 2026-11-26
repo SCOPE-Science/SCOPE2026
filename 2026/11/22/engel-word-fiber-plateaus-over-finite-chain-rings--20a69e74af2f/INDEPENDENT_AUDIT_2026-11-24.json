@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:30:12.430449Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–43",
+        "VERIFICATION.md, checks.txt, engelspectrum_check.py inspected; supplied checker not executed",
+        "/workspace/branches/1a0dbdff-7f02-4860-b9c4-1225b59b3dff/engel_repro.py and engel_repro_selected.txt: direct repeated brackets over Z/8 and F_2[t]/(t³), 4096 ordered pairs per ring/depth; target-valuation counts (256,384,768,1536) at depth 2 and (256,256,256,2304) at depth 4"
+      ],
+      "rationale": "Alternating R-bilinearity gives [X,Y]=(ad−bc)e even in characteristic two, and each further bracket with X multiplies by a. For fixed X the image is a^{m−1}(a,b)R, with valuation s=min(ell,(m−1)nu(a)+min(nu(a),nu(b))) for a≠0, while a=0 gives zero for m≥2. Counting first inputs gives M_s, and a target in that ideal has exactly q^{ell+s} preimages of the additive map. At each positive valuation below ell the increment is precisely M_s q^{ell+s} and is nonzero exactly on the stated union of integer intervals. Zero adds a strict final level since a=0 always contributes. For m≥ell+1 all nonunit a yield the zero operator, while for 2≤m≤ell the choice nu(a)=1, nu(b)=0 gives a proper nonzero image. This proves the cutoff and the stable formulas, including ell=1 when all stipulated depths are stable.",
+      "residual_risks": [
+        "Bounded enumeration is corroboration only; the valuation and kernel-size argument applies to all finite commutative chain rings. The claim excludes depth one and non-chain rings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sources address image coverage in simple Chevalley algebras over sufficiently large fields, word maps in Kac–Moody settings, almost-equidistribution in finite simple groups, and singularities on semisimple groups or algebras, respectively."
+        ],
+        "reasoning": "Image existence or asymptotic equidistribution on a different algebraic object does not give exact prescribed output counts in this solvable Lie ring over chain rings of any characteristic.",
+        "searches": [
+          "Bandman et al., Theorem 4.3",
+          "Klimenko et al., arXiv:1506.01422, p. 7",
+          "Bandman–Garion–Grunewald, Theorem C",
+          "Glazer–Hendel, arXiv:1912.12556, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE 20a69e74af2f, 04cb023485eb, d19c392a0c2b",
+        "arXiv:1012.4106, 1506.01422, 1008.1397, 1912.12556",
+        "The probability distribution of word maps on finite groups (full text inaccessible in attempted routes)",
+        "Lie rings satisfying the Engel condition (landing material only; no accessible linked original text found)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The group semidirect-product theorem has different coefficients and outputs. The matrix result is a commutator in T_3(R), not the distribution of iterated adjoints of the same arbitrary first input. The primary Engel theorems do not characterize image-ideal strata for this map."
+        ],
+        "reasoning": "None of the inspected statements yields the joint image multiplicities M_s, their truncated interval jump set, or the iff cutoff by a fixed-ring or parameter substitution.",
+        "searches": [
+          "Resultary/SCOPE 04cb023485eb and d19c392a0c2b, Findings",
+          "Bandman et al., Definition 4.2 and Theorem 4.3",
+          "Bandman–Garion–Grunewald, Theorem C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After fixing X this Lie word is the linear row (−a^{m−1}b,a^m), a one-row Smith/image-ideal statistic. The group match uses right Engel words in R^+⋊R^×; the Chevalley paper uses the alternate repeated-argument convention and a different algebra."
+        ],
+        "reasoning": "The Smith reduction accounts for each fixed-X kernel size, not the distribution of the image valuation over X. Swapping Lie arguments/conventions where applicable does not turn a group calculation with unit coefficients into the Lie-ring formula with all a∈R.",
+        "searches": [
+          "Resultary/SCOPE Engel fibers, finite chain rings, additive commutator, fixed target: 20a69e74af2f, 04cb023485eb, d19c392a0c2b",
+          "Bandman et al., arXiv:1012.4106, Definition 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue items are a triangular group Engel census and a T_3(R) additive-commutator census. The group entry's q=2 stabilization makes its word identically the identity, unlike the Lie count, which has positive nonzero fibers even at stable depths."
+        ],
+        "reasoning": "These tables cannot be substituted for the ordered fixed-target Lie fibers; the matching entry is the identical record, not independent coverage.",
+        "searches": [
+          "Resultary/SCOPE 20a69e74af2f self-hit and distinct 04cb023485eb and d19c392a0c2b, mirrored Findings"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the all-target, all-depth Lie-ring fiber law with exact valuation jumps and sharp nonzero stabilization. The one-row image ideal statistic is standard. Highly related same-day group Engel and matrix commutator counts are distinct maps, and the inspected primary Engel results do not imply this chain-ring Lie count.",
+      "residual_risks": [
+        "The two limited-access items were not judged absent or noncovering. A broader exact counting theorem for solvable Lie rings may have been missed. Same-day paths do not establish order or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different word and domain",
+          "evidence": "The theorem counts right Engel fibers and Engelizers of R^+⋊R^×, and for residue size two its map eventually has only the identity as an output.",
+          "identifier_or_url": "Resultary/SCOPE 04cb023485eb",
+          "material_read": "Mirrored RESULT.md offset 0, Finding around offset 306",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Valuation-universal Engel fibers and subgroup spectra in chain rings",
+          "trigger": "Strongest same-day match: exact valuation-dependent Engel fibers over the same rings"
+        },
+        {
+          "assessment": "Adjacent valuation-universal census with a different map",
+          "evidence": "The result concerns additive commutators in T_3(R), rather than repeated brackets in the rank-two solvable Lie ring.",
+          "identifier_or_url": "Resultary/SCOPE d19c392a0c2b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "Universal Fourier and fixed-target commutator spectra of triangular matrices",
+          "trigger": "Exact finite-chain-ring commutator fibers"
+        },
+        {
+          "assessment": "Image/dominance result on different algebras and fields",
+          "evidence": "Covers finite-field image behavior of Engel polynomials on simple Chevalley Lie algebras under field-size assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1012.4106",
+          "material_read": "PDF p. 14, offset 36966, Definition 4.2 and Theorem 4.3",
+          "method": "Original arXiv PDF, bounded passages",
+          "title": "Equations in simple Lie algebras",
+          "trigger": "Primary Lie Engel polynomial theorem"
+        },
+        {
+          "assessment": "Survey background, not exact coverage",
+          "evidence": "The surveyed field-to-ring extension was described as largely unexplored in its context.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.01422",
+          "material_read": "PDF p. 7, offset 22408",
+          "method": "Original arXiv PDF, bounded passage",
+          "title": "Word maps in Kac-Moody setting",
+          "trigger": "Plausible broader ring word-map coverage"
+        },
+        {
+          "assessment": "Group and asymptotic, not chain-ring Lie fibers",
+          "evidence": "The theorem gives asymptotic almost-equidistribution of Engel words on PSL(2,q) for odd q.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.1397",
+          "material_read": "PDF p. 4, offset 13718, Theorem C",
+          "method": "Original arXiv PDF, bounded passage",
+          "title": "On the surjectivity of Engel words on PSL(2,q)",
+          "trigger": "Exact or asymptotic Engel fiber results in finite groups"
+        },
+        {
+          "assessment": "Semisimple setting; no whole-paper coverage inference",
+          "evidence": "The abstract studies singularity properties for semisimple groups and Lie algebras, not explicitly this solvable finite-ring model.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.12556",
+          "material_read": "PDF p. 1, offset 0, abstract",
+          "method": "Original arXiv PDF, bounded abstract check only",
+          "title": "Glazer–Hendel, word maps and their singularities",
+          "trigger": "Possible broader finite-fiber implications of word-map singularity theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and examples",
+        "checks.txt",
+        "Resultary/SCOPE 04cb023485eb, Finding"
+      ],
+      "rationale": "This is an exact and interpretable distribution for a natural word on the basic nonabelian split solvable Lie algebra over chain rings. It explains why prescribed-target counts agree across different ramification and exhibits exactly where frequencies change, including the sharp transition to flat nonzero fibers. This is more than the routine observation that a fixed-X linear map has fibers of equal size on its image.",
+      "residual_risks": [
+        "No claim about general Lie rings, non-chain local rings, or group Engel words is supported by this calculation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

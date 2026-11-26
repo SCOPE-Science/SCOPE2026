@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:26:49.861792Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quotient has weight product_i (n_i)_(deg(i)) under uniform sampling of physical matchings. Contracting a prescribed index matching in the weighted Prüfer sum gives (sum_i x_i)^(k−r−2) times product_(i,j in F)(x_i+x_j); singleton factors cancel. The chosen endpoint indices are distinct, so the falling-factorial evaluation consumes one unit of capacity at each chosen endpoint and leaves (M−r)_(k−r−2) completions in the aggregate. The unrestricted evaluator is (M)_(k−2); the ratio yields the displayed probabilities, and subtraction gives the stated covariance. There are at least two contracted components, and M≥k−2≥r. Zero-weight pairs are impossible; covariance denominators are only used when k≥4. An independent derivation by contracting the physical graph is given below. The two finite test methods in the supplied script were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 counts all physical interconnection trees for arbitrary complete multipartite part sizes. The paper's §5 instead orders tree enumeration by additive edge costs.",
+          "The uniform complete-graph forest law in Vondrák's notes gives (2/k)^r and zero covariance for a disjoint matching; Resultary ae093623ed5f derives a uniform Cayley quotient under a different conditioning on an ordinary K_(n,n) spanning tree."
+        ],
+        "reasoning": "The arbitrary-profile physical count applies to the contracted instance, while uniform-Cayley or additive-cost models are not the target weighted probability law.",
+        "searches": [
+          "Demange–Strozecki Theorem 11 and §5",
+          "Vondrák Lecture 4, Lemmas 4.11–4.12",
+          "Resultary ae093623ed5f"
+        ]
+      },
+      "checked_sources": [
+        "Demange–Strozecki arXiv:2605.18125",
+        "Vondrák Math 233 Lecture 4",
+        "Resultary ae093623ed5f and b8aec21b6129",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each disjoint prescribed pair {i,j}, choose its actual edge in n_i n_j ways. Remove those endpoints (they cannot be reused) and merge the two residual parts into one of size w_ij=n_i+n_j−2. Between distinct merged components all surviving edges exist; within a component no edge is allowed in a completion because it would make a quotient cycle.",
+          "Completions correspond bijectively to physical interconnection trees in the residual complete multipartite graph: the edge sets are unchanged on the surviving labeled vertices, and contracting or restoring the forced forest takes quotient trees to quotient trees. There are k−r parts, total N−2r, and surplus M−r. A zero merged size makes completion impossible; with two residual parts the count is their size product, the same formula."
+        ],
+        "reasoning": "The prior theorem counts these completions by (M−r)_(k−r−2) times the product of the residual part sizes. Multiplying by the choices of forced edges cancels every original part-size factor in the denominator and leaves product w_ij divided by (M)_r. Covariance and the conditional formula result by one subtraction and one ratio respectively. The restricted polynomial is an alternative proof, not a needed extension of the old counting theorem.",
+        "searches": [
+          "Demange–Strozecki arXiv:2605.18125 Definition 3 and Theorem 11 proof",
+          "Frozen RESULT.md §Proof, fixed-quotient and restricted counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Demange–Strozecki's Definition 3 has the same physical matching and quotient-tree requirements; Theorem 11's proof assigns a fixed quotient tree S weight product_i (n_i)_(deg_S(i)).",
+          "Resultary b8aec21b6129 concerns cross-part leaf counts under a uniform ordinary multipartite spanning tree, not this physical matching law."
+        ],
+        "reasoning": "The measure is generally not uniform on quotient trees; ordinary multipartite spanning-tree covariances do not give the stated covariance. The interconnection-tree definition and the sampling weights in the cited counting paper do match exactly.",
+        "searches": [
+          "Resultary ranked searches for interconnection trees and projected disjoint matching inclusion",
+          "Demange–Strozecki arXiv:2605.18125 Definition 3 and Theorem 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact total is (M)_(k−2) product_i n_i, providing a lookup formula at every profile including the contracted ones; no exact event table was identified in the ranked results."
+        ],
+        "reasoning": "An all-profile counting formula is more decisive than a finite table, once the restriction is converted to a new profile. The frozen finite enumerations check examples and do not establish independent originality.",
+        "searches": [
+          "Resultary ranked search for exact interconnection-tree matching counts",
+          "Demange–Strozecki Theorem 11, exact enumeration"
+        ]
+      },
+      "rationale": "The cited prior exact counting theorem already yields this inclusion law as a direct corollary: after fixing the actual edges above the prescribed pairs, delete their used endpoints and merge the paired parts. The remaining problem is precisely another instance of the same complete multipartite interconnection-tree count, with no additional restrictions. The product, covariance and conditional law follow from that count by cancellation. This is an implication finding, not a claim that the probability display appears verbatim in the paper.",
+      "residual_risks": [
+        "The search was bounded; an earlier explicit statement of the event formula was not identified. The corollary comparison does not depend on finding such a statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact count directly implies the restricted probability via contraction; §5 is not the probability law",
+          "evidence": "Theorem 11 covers arbitrary positive sizes and gives the falling-factorial total; its proof gives the physical multiplicity at fixed quotient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.18125",
+          "material_read": "Definition 3 p. 4; Theorem 11 and proof p. 8; §5 pp. 14–15",
+          "method": "Open primary PDF, located passages and read bounded pages",
+          "title": "Complexity of Finding and Enumerating Interconnection Trees",
+          "trigger": "Same multipartite object and exact enumeration"
+        },
+        {
+          "assessment": "Relevant contrast, different sampling",
+          "evidence": "Disjoint links are independent in the uniform complete-graph spanning tree; the forest count is k^(c−2) times the product of component sizes.",
+          "identifier_or_url": "https://theory.stanford.edu/~jvondrak/MATH233-2016/Math233-lec04.pdf",
+          "material_read": "Lemmas 4.11–4.12, pp. 4–5",
+          "method": "Open PDF, bounded lemma passages",
+          "title": "Math 233, Lecture 4: The Lopsided Lovász Local Lemma",
+          "trigger": "Cayley forest extension and disjoint-link dependence"
+        },
+        {
+          "assessment": "Different object and measure",
+          "evidence": "The ordinary K_(n,n) spanning tree conditional on a perfect matching contracts to a uniform Cayley tree with fair lifts, not a physical interconnection tree.",
+          "identifier_or_url": "Resultary ae093623ed5f",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror full-text passage",
+          "title": "Conditional Cayley geometry and a three-halves distance dilation",
+          "trigger": "Conditioning on a matching followed by quotient contraction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Positive rather than zero covariance is a useful contrast between two sampling laws. As a distinct scientific contribution, however, the proposed exact matching invariant is mechanically implied by the pre-existing arbitrary-profile count: fixing and contracting the required edges stays in exactly that class, with explicit residual capacities. The conditional and covariance readouts need no further result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

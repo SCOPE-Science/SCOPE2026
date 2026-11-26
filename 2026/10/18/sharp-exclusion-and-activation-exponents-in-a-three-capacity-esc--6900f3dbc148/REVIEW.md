@@ -1,15 +1,21 @@
-# Scientific review: exact escort-capacity species activation
+# Independent mathematical audit
 
-## Correctness — PASS
-The central statement is about the global maximizer, not just a stationary point. The escort transformation is an exact closed-simplex bijection for positive order; it converts the apparently nonconvex capacity equation to a linear slice. Strict convexity for low order and strict concavity for high order establish existence and uniqueness. The KKT inequalities on the two adjacent boundary faces give the exact critical budgets, including equality at their endpoints. A separate expansion of the unique interior KKT root gives the order-dependent activation exponent and leading positive coefficient; all limiting operations hold with the diversity order fixed. The boundary cases, Shannon order, and exact order-one-half formulas are accounted for. The embedded standalone checker reproduces exact rational witnesses and finite-parameter consistency checks, not the infinite proof.
+## correctness
 
-## Originality — PASS with residual literature risk
-The underlying Hill diversity, escort constraint, reciprocal escort duality, and truncated power-law canonical distributions are established mathematics: see Eguchi (2026), Bercher (2011), and Eguchi (2024). This result does **not** claim those ingredients. The motivating work's published stationary power-law expression covers potential truncation in general but does not state or establish the unique three-level capacity cutoffs, strict inclusion/exclusion diagram for all orders, or the distinct activation exponents on either side of order one half. Bercher establishes the general escort correspondence and studies an explicit two-level system, not the first nontrivial three-level activation problem. Searches for equivalent three-level statements and prior accessible mathematical records yielded no covering theorem. The risk that these exact transitions follow an unlocated worked three-level example is acknowledged; search absence is not proof of independent priority.
+PASS
 
-## Mathematical value — PASS
-The first nontrivial nonbinary capacity benchmark gives a complete and sharp mathematical decision rule for when maximizing an escort-constrained biodiversity index assigns zero potential weight to an otherwise allowed species. The onset rate is nonanalytic and changes exponent at a second precise diversity-order boundary. This identifies a sensitivity property of the benchmark that its general power-law stationary formula alone does not quantify. The result is informative for benchmark calibration, but it is not evidence that real species disappear or that a conservation intervention will have these effects.
+On the closed simplex the escort map is bijective, with inverse p_i=y_i^(1/q)/Z, and D_q=Z^(q/(q-1)). The affine escort slice is compact; minimizing the strictly convex power sum for q<1 or maximizing the strictly concave one for q>1 gives uniqueness. For q>=1 a move toward a strictly positive feasible vector improves any boundary candidate at an interior budget, by the singular power or Shannon derivative at zero. For q<1, parameterize y=(1-b+t,b-2t,t) with max(0,b-1)<=t<=b/2. At the upper endpoint the derivative divided by 1/q is (1-b/2)^s+(b/2)^s>0, ruling out absence of the middle species. For b<=1 the sign at t=0 is that of (1-b)^s-2b^s, giving the exact threshold, including equality by strict convexity. Reflection covers b>=1; at b=1 the lower endpoint derivative is negative, and b=0,2 force singletons. Near the transition the unique minimizer has t->0. Subtracting the derivative at t=0 before Taylor expansion gives K delta(1+o(1))=t^s+(L+o(1))t, making each of the three balances rigorous. Inverting the escort gives the stated A_q and exponent; at q=1/2 the coefficient is 9/20, also obtained from the exact interior t=delta/2 and Z_0=5/9.
 
-## Scope and risk
-The theorem is exact for three equally spaced nonnegative capacities with an equality escort-mean budget. Unequal spacings, inequality budgets, random sampling, empirical model validation, and ecological dynamics are outside scope. Possible unindexed exact three-level solutions remain a literature risk. No independent scientific validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the quantitative onset in the finite three-capacity escort slice, in particular the exponent crossover and its leading coefficient in all three regimes. The escort reduction, generic global optimization ingredients and truncated stationary form are prior; the explicit support threshold is a short specialization of that form and is not the basis of the originality pass. The frozen citation points to Eguchi Section 5.2 for the stationary form; the relevant passage is Section 6.2, Eq. (21). This locator correction does not change the mathematical claim.
+
+## value
+
+PASS
+
+Three equally spaced capacities give the first nontrivial escort slice with an adjustable support. A generic truncated stationary form says an abundance may vanish but does not quantify its sensitivity to the budget. The exact onset and its crossover distinguish two different scaling mechanisms and give a sharp benchmark for users of this model. This is mathematical benchmark sensitivity, not a biological extinction prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

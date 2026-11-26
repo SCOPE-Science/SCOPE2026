@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The object is the type-A 0-Hecke **monoid** with its Demazure product, not the linear 0-Hecke algebra. A generator commutes with a basis element precisely when either both left/right descents hold or it fixes the corresponding adjacent values and positions. For two neighboring generators, the four disjoint patterns give two mixed terms, the fully fixed term, and the parabolic double-descent term. The latter is the number of three-point parabolic double cosets, counted by partial bijections of the complement. Every factorial boundary is specified, including the separate \(n=3\) case. Direct-product enumeration through \(n=9\) checks all strata, but the proof does not rely on finite experiments.
+PASS
 
-## Originality
+For one generator, two descents leave both products unchanged; exactly one descent forces unequal lengths. With no descents, equal products imply symmetric-group commutation, which preserves the adjacent pair as a set. Its swap would be a double descent, leaving only pointwise fixation. In the two-generator double-descent case with B the three consecutive labels and T its complement, fix the partial bijection T→T. If it leaves t rows and t columns unmatched in T, the unmatched T columns must appear among B rows in decreasing order, and their locations there are forced because every external label is less than all of B or greater than all of B. Inverse descents similarly force the unmatched T rows among B columns. Match the remaining B rows to the remaining B columns in reverse order. This is the unique double-descending completion, giving the sum of binomial squares times (m−t)! for t≤min(3,m). In either mixed case the two fixed positions and the two separately chosen outside matrix entries leave (n−4)! completions. The all-fixed case gives m!; in S_3 the mixed cases cannot occur, leaving identity and longest element. With a=i−1 the position term is a²+(m−a)², giving the stated size multiplicities and gap. The t=3 summand divided by n! tends to 1/36 with O(1/n) error, lower t contribute O(1/n), and the uniform mixed contribution is O(1/n²). In S_n the ordinary simultaneous centralizer fixes the triple pointwise and permutes its complement.
 
-**PASS, with residual literature risk.** The 0-Hecke multiplication rule, unique longest representatives of parabolic double cosets, and their partial-bijection interpretation are classical ingredients and not claimed new. The complete position-sensitive **two-generator common-centralizer count** and its size spectrum are not supplied by the inspected 2009–2010 0-Hecke primary literature. Related published work classifying commuting collections of **idempotents** does not count arbitrary monoid elements commuting with fixed neighboring generators; replacing an element by its idempotent power loses this information. A 2025 theorem concerning centralizers of invertible-parameter Hecke algebras treats a different object and excludes the needed zero-parameter specialization. Priority cannot be certified exhaustively; an unindexed formula may already exist.
+## originality
 
-## Value
+PASS
 
-**PASS.** A common centralizer of local generators is a natural invariant of a finitely presented monoid. Its complete spectrum here exhibits a precise positional effect invisible in the corresponding group: boundary pairs have the largest centralizers, midpoint pairs the smallest, with exact multiplicities and an all-dimensional \(1/36\) limit. The double-coset/mixed-stratum decomposition gives structural explanations rather than an isolated enumeration, and supplies baseline data for studying higher simultaneous centralizers and automorphisms of 0-Hecke monoids.
+The supported distinct claim is the complete position-sensitive count for an adjacent generator pair. Neither the standard longest-parabolic-representative count for the absorbing stratum nor the presentation and permutation indexing is new. The sources inspected do not supply the combined count, in particular the two mixed corrections responsible for its positional dependence.
 
-## Scope and risks
+## value
 
-The statement does not count nonadjacent-generator pairs or the linear centralizer in a Hecke algebra. The archival sources establish the input objects, not the new exact census. The 2025 Hecke-algebra comparison does not imply the present count. Independent literature and proof verification are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Adjacent generators are the smallest interacting parabolic block, and their monoid centralizer tests the effect of the noninvertible length-increasing action under a natural commutation constraint. The exact four-stratum count isolates the source of genuine position dependence even though all these blocks have the same S_3 type and ordinary group centralizer size. It gives the full positional spectrum and a uniform comparison to the group case, not just one sample number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

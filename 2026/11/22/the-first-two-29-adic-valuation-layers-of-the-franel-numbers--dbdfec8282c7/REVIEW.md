@@ -1,16 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The argument starts from the published Gessel–Lucas congruence for the Franel sporadic Apéry-like sequence, separately validates its applicability to the prime \(29\), and computes the complete digit-root and derivative tables by exact integer recurrence. The one-digit zero set is precisely \(\{12,14,16\}\); the normalized correction is \(c_d+m b_d\), with roots \(17,14,11\). For unique-zero-digit indices, the middle possibility forces a second zero digit and is excluded. Digit counting gives the claimed exact length law; `verify.py` independently reproduces the finite table and checks a finite index range. The unrestricted conclusion follows from the published congruence, not from the finite experiment.
+PASS
 
-## Originality
+I reconstructed the unrestricted congruence independently of the named theorem. For p=29 write the binomial arguments as pm+d and pq+s. Terms with s>d are zero after cubing modulo p^2 by Lucas. For s<=d, factor the factorials into p-multiples and p-free factors. Every complete unit block has the same product (p-1)! mod p^2 because the sum of inverses of 1,...,p-1 vanishes mod p; the numbers of blocks cancel. The partial blocks give binom(pm+d,pq+s) = binom(m,q)binom(d,s)[1+p(m H_d-q H_s-(m-q)H_(d-s))] mod p^2, where H_i=sum of 1/j for j=1,...,i. Cubing and using s↔d-s symmetry gives F_(pm+d) = F_m[F_d+pm·3 sum_s binom(d,s)^3(H_d-H_s)] mod p^2. This also treats m=0; cancellation did not assume binom(m,q) is a unit. Replay python3 /workspace/branches/reproduce_franel.py: direct binomial sums for every two-digit index, and independent harmonic coefficients, give Z={12,14,16}, (c,b)=(7,3),(2,4),(5,18), and normalized roots 17,14,11. Histogram for n<841 is (676,154,11). Mod p, iteration makes F_n a unit exactly when T=0. Peeling a non-Z digit preserves the mod-p^2 valuation class since its multiplying factor is a unit. At the first Z digit the higher factor is divisible if another Z digit occurs, forcing p^2. With a unique Z digit the higher factor is a unit; the root 14 at digit 14 would create a second Z digit. At the leading digit the neighbor is zero, not a root. The two remaining forbidden pairs are therefore exactly in least-to-more significant order as stated. Every allowed highest-position exception gives 3·26^(L-1) words; any other position gives (3·26−2)·26^(L−2), and complement counts the ≥2 class. This proves all index lengths, including the stated L=1 base, not the exact valuations in the ≥2 stratum.
 
-**PASS, with bibliographic risk.** The strongest prior result is Straub's 2023 general Gessel–Lucas theorem; it supplies the two-state congruence but does not state the specialized \(29\)-adic valuation language or frequencies. The 2014 Schulte–VanSchalkwyk–Yang report identifies prime \(29\) as type III by a single index and fully treats the first valuations for primes \(5,7,13\), not for \(29\). Published related recurrence and digit-language results, and semantically similar research records, were compared for logical coverage. An unindexed instance-specific classification might still exist; this is not a proof of universal priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The smallest odd type-III prime was identified in the motivating Franel valuation classification but lacked an explicit first-shell law there. The new result gives the complete infinite index language and exact finite-depth frequencies, including two surprising higher-neighbor obstructions that invalidate counting forbidden digits alone. This is a natural structurally motivated boundary of the earlier type-II digit-count pattern, not an arbitrary numerical slice; it makes no claim about the uncomputed higher valuation levels.
+The supported distinct contribution is the explicit 29-specific valuation-one language, including two genuine neighbor obstructions and the exact length enumerator. The general Gessel–Lucas congruence and the mod-p Lucas mechanism are prior work, and the selection of 29 as type III is already known. The new conclusion requires computing the local zero/derivative data, analyzing the roots under the single-exception condition and counting the resulting language.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
 
+PASS
+
+The prime is structurally motivated by the known type-III example. The exact first shell supplies a nontrivial neighbor test that simple counting of exceptional digits cannot give, and yields precise frequencies at every digit length without computing growing-index Franel integers. This is useful even without resolving higher valuation strata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

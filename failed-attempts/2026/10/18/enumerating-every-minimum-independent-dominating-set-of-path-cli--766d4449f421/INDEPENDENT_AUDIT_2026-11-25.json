@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:15:54.065270Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, adjacency, proof and boundary cases",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: /workspace/audit_checks.py, python3 audit_checks.py 4"
+      ],
+      "rationale": "The adjacency rule forces a fiber with two selected colors to have empty neighbors and therefore to be filled. Each singleton needs a matching adjacent singleton, and each empty fiber needs a full neighbor or two differently colored singleton neighbors. This yields runs of length at least two, full fibers of length one, a gap of one empty fiber between pieces (possibly two when both pieces are full), and a boundary empty fiber only next to a full one. If f is the number of full pieces, d the number of double gaps and b the number of boundary gaps, then 3w-2n is the total singleton-run excess plus (3q-4)f+2-2d-2b. For f>=2 this is at least (3q-6)f>=6; for f=1, b<=1 it is at least 3q-4>=5. The f=1, b=2 word must be empty/full/empty and ties only at q=3. Singleton-only minimizers have 3w-2n in {2,3,4}, including n=2, and the compositions of the length excess into r parts and the proper coloring of the run sequence count them without quotienting labels. For q=2 the parity/color classes give two disjoint paths. A minimum set on a path has k=ceil(n/3) vertices: a vertex covers at most three positions and the allowed gaps realize that lower bound. Each of the k+1 maximal gaps can be shortened once, giving the stated binomial coefficient, squared for two independently chosen components. A fresh dynamic program over actual fiber bit masks, including all partial occupancies, matched minimum sizes and counts for 77 products (2<=n<=12, 2<=q<=8).",
+      "residual_risks": [
+        "The proof counts labeled vertices in the direct product only; the fibers over path vertices are themselves independent, not cliques. The calculation is bounded corroboration of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct indexed theorem provides a rational matrix generating function for the complete independent-domination polynomial. Kuenzel–Rall give a general feasible partition encoding, and the well-covered paper concerns equality of all maximal independent set sizes."
+        ],
+        "reasoning": "The general partition framework by itself needs path-specific equality-case analysis to extract the claimed count. The indexed theorem already carries out that analysis and additionally evaluates the complete size distribution.",
+        "searches": [
+          "e8b2d0c2ff73/RESULT.md, Complete cardinality law",
+          "arXiv:2203.12397, Lemma 4, partition conditions and equation (1)",
+          "arXiv:1901.03218"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e8b2d0c2ff73",
+        "arXiv:2203.12397",
+        "arXiv:1901.03218 (abstract)",
+        "Clemson Dissertation 1640 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proposition gives i(P_n x K_q)=ceil((2n+2)/3) on the stated q,n>=3 range, and the feasibility conditions describe possible occupancies. The distinct full text explicitly excludes full layers at optimality apart from (3,3). The dissertation abstract mentions uniqueness in some direct products but does not identify coverage here."
+        ],
+        "reasoning": "The earlier cardinality result does not decide equality cases; the indexed theorem does. Two labeled copies of a path and the gap encoding mechanically settle the separate q=2 formula. No genuinely new part of the frozen structural classification remains.",
+        "searches": [
+          "arXiv:2203.12397, Proposition 6(d), Lemma 4 and conditions 1–4",
+          "e8b2d0c2ff73/RESULT.md, Section 4",
+          "Clemson dissertation record 1640"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem expressly gives N_(3k-1,q)=q(q-1)^(k-1), N_(3k,q)=kq(q-1)^(k-1)+1_{k=1,q=3}, and N_(3k+1,q)=binom(k+1,2)q(q-1)^(k-1). Section 4 identifies exactly the same singleton runs and the full-middle-fiber exception."
+        ],
+        "reasoning": "In each of these three cases the original has r=k and t=0,1,2 respectively, giving exactly the displayed coefficients and exception. The comparison covers the actual sets, not just the optimum cardinality.",
+        "searches": [
+          "Resultary: minimum independent dominating set count for path–clique direct/tensor/categorical products",
+          "SCOPE-independent-domination-polynomials-and-gaussian-size-laws-for-pa--e8b2d0c2ff73"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed count is an explicit all-parameter extremal-coefficient formula. Proposition 6 gives the minimum cardinality; Table 2 provides constructions but not a census of tied optima."
+        ],
+        "reasoning": "The exact census is covered by the indexed formula, not inferred from a few examples or from a table of minimum sizes.",
+        "searches": [
+          "Resultary: coefficient at minimum cardinality in the independent-domination polynomial of P_n x K_q",
+          "e8b2d0c2ff73, Multiplicity of optimum sets",
+          "arXiv:2203.12397, Proposition 6 and Table 2"
+        ]
+      },
+      "rationale": "A distinct indexed full-text theorem gives the same q>=3 extremal classification and the same count, and extends the count to independent dominating sets of every size. The q=2 case is the routine path gap enumeration after splitting into two components, not a surviving distinct contribution. The exact overlap establishes coverage in the compared corpus, not historical priority; the catalogue dates do not settle derivation or priority.",
+      "residual_risks": [
+        "The discovery order and possible relationship of the two equivalent enumerations remain unknown.",
+        "The dissertation's full text was not accessible; that uncertainty is independent of the demonstrated exact match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact q>=3 coverage, including the structure of each minimizer, and a stronger cardinality law",
+          "evidence": "Three residue-class optimum coefficients, singleton runs bounded by endpoints and separated by one empty fiber, and an additional full fiber only at (3,3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-independent-domination-polynomials-and-gaussian-size-laws-for-pa--e8b2d0c2ff73/RESULT.md",
+          "material_read": "Finding (offset 0), Section 4 (from offset 3639)",
+          "method": "Bounded full-text passages from the indexed local mirror",
+          "title": "Independent-domination polynomials and Gaussian size laws for path–clique tensor products",
+          "trigger": "Strongest exact indexed match and a broader all-size theorem"
+        },
+        {
+          "assessment": "Covers feasible layer encoding and minimum sizes, not an explicit census of all optima in those passages",
+          "evidence": "Allowed 0/1/q occupancies and sufficient weak partition conditions; Proposition 6(d) and Table 2 prove the optimum cardinality with constructions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.12397",
+          "material_read": "Pages 4–5, Lemma 4 and four partition conditions through Eq. (1); pp. 6–7, Proposition 6(d), its proof and Table 2",
+          "method": "Lawful OA PDF, decisive passages at offsets 8952–12888 and 14534–22458",
+          "title": "On independent domination in direct products",
+          "trigger": "Foundational paper on this product, with known minimum size and occupancy rules"
+        },
+        {
+          "assessment": "Motivates all-maximal-set size equality, not the minimum-count problem; not a whole-document exclusion",
+          "evidence": "The stated subject is well-coveredness, meaning equal cardinality for all maximal independent sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.03218",
+          "material_read": "First-page abstract",
+          "method": "Lawful OA PDF, opening passage",
+          "title": "On well-covered direct products",
+          "trigger": "Earlier article by the same authors on maximal independent sets in direct products"
+        },
+        {
+          "assessment": "Unresolved relevance; not relied on as evidence for or against coverage",
+          "evidence": "Abstract identifies the general topic but not whether it covers path–clique products.",
+          "identifier_or_url": "https://open.clemson.edu/all_dissertations/1640/",
+          "material_read": "Clemson abstract and bibliographic record only",
+          "method": "OA repository landing page; linked PDF direct and configured VPN retrieval returned 403",
+          "title": "Problems in Domination and Graph Products",
+          "trigger": "Dissertation on uniqueness of minimum independent dominating sets in some direct products"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Kuenzel–Rall Proposition 6",
+        "Resultary e8b2d0c2ff73, Complete cardinality law and Multiplicity of optimum sets"
+      ],
+      "rationale": "The q>=3 census answers a mathematically natural question not resolved by the older minimum-size theorem: it gives the exact multiplicity and rigidity of the optima and identifies the sole exceptional full fiber. That is a valuable structural enumeration as mathematics, but no separate contribution beyond the matched result is established by the frozen record.",
+      "residual_risks": [
+        "The value assessment does not treat q=2 alone or an alternative normalization of the count as a distinct research contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

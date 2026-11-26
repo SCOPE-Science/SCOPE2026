@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:15:01.754651Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt",
+        "Frozen verify.py (inspected only)",
+        "Emmons–Xiao, arXiv:2201.12453 and JIS PDF, Lemmas 18–20 and Theorem 21",
+        "/workspace/review_evidence/2/density_check.py (independent exact replay)"
+      ],
+      "rationale": "A positive target forces the source to be y=p^k t with k≥1 and p∤t. Its output is k p^(k−1)t. Writing k=p^b d, the target p^a m fixes k−1+b=a and d t=m. For fixed d the map b→d p^b+b is strictly increasing, so each listed divisor of m indexes exactly one preimage; k≤a+1 also proves finiteness. Divisor indicators are periodic modulo their coprime-to-p LCM L. CRT yields density (p−1)/(p^(a+1)L) for each admissible residue stratum; the omitted valuation mass is at most p^(−A). This proves convergence and the truncation estimate and, by nonnegative summation of the local distributions, unit mass. Inclusion–exclusion gives the stated image formula. For a<p−1 the admissible exponent is just a+1 with p-adic valuation zero, hence local image probability 1/(a+1); summing the comparison over all a gives the logarithm, with absolute discrepancy at most the common tail mass p^(1−p). Expansion of the logarithm gives the two inverse-prime terms. At a=p−1 no exponent works, giving positive mass for zero. For j≥1 the positive witnesses in the proof of Emmons–Xiao Theorem 21 each lift to a positive-density residue stratum. Independent code grouping the source exponents, aggregating divisibility coefficients and checking all fiber counts through 60000 for p=2,3,5 gives the frozen rounded image densities and image counts 39058, 48283, 53552.",
+      "residual_risks": [
+        "Finite calculations support the examples only. Exact rational interval endpoints are the certificate; decimal endpoints in the frozen log are nearest rounded and need outward rounding before use as interval bounds. This does not alter the stated approximate values or the analytic error estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Emmons–Xiao covers the pointwise inverse criterion, inverse counting and infinitely many occurrences; it does not give frequency. The indexed finding covers frequencies and adds the logarithmic mean and a multiplicity tail bound."
+        ],
+        "reasoning": "Infinite occurrence alone is not positive density, so the cited existence theorem is not the overlap that decides originality. The indexed generating law is the decisive stronger coverage with the same objects and cutoff guarantee.",
+        "searches": [
+          "Resultary 8dd2df9753b3, Finding and Proof §§1–4",
+          "Emmons–Xiao, arXiv:2201.12453, Lemma 14 and Theorems 17 and 21"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8dd2df9753b3 (decisive statement and proof)",
+        "Emmons–Xiao arXiv:2201.12453 and published JIS PDF",
+        "Bounded Resultary and primary-literature searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed law has P_{p,a}(z)=1+(z−1)/(a+1) for 0≤a≤p−2 since a+1 is the sole admissible exponent. It gives tail mass p^(1−p) after those strata and displays the exact mean −(p−1)log(1−1/p)."
+        ],
+        "reasoning": "The comparison sum with local probabilities 1/(a+1) has the same low strata, with tail between 0 and p^(1−p), as does the true image tail from the indexed law. Their difference has magnitude at most p^(1−p); the comparison sum is the logarithm by its power series. The large-prime expansion follows immediately. This leaves no distinct frozen quantitative theorem once the stronger law is credited.",
+        "searches": [
+          "Resultary 8dd2df9753b3, conditional generating polynomial, valuation tail, and closed mean",
+          "Emmons–Xiao, Theorem 21 proof and its positive parameter choices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8dd2df9753b3 indexes exponents k by k−1+nu_p(k)=a and uses weights d_k=k/p^nu_p(k). Its local generating polynomial P_{p,a} is the expectation of z raised to the number of these divisors of the prime-to-p unit."
+        ],
+        "reasoning": "The identification b=nu_p(k) gives d_k=(a+1−b)/p^b, and distinct k at fixed a give distinct d_k by monotonicity of d p^b+b for fixed d. Thus its polynomial is exactly the LCM-residue average of the frozen z^i. Extracting coefficients gives the frozen distribution; evaluating 1−P_{p,a}(0) gives its image formula. The scopes over positive integers and fixed primes coincide.",
+        "searches": [
+          "Resultary: arithmetic partial derivative fiber-count law natural density valuation LCM residue formula image density logarithmic error",
+          "Resultary: Emmons Xiao The Arithmetic Partial Derivative Theorem 21 positive integers antiderivatives inverse multiplicity criterion",
+          "Web: Emmons Xiao \"The Arithmetic Partial Derivative\" Theorem 21 antiderivatives inverse criterion Lemma 14 Theorem 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary arithmetic paper's inspected inverse results are not density tables. The indexed exact formula, for every prime, determines all the certified numerical examples via a truncation of the coefficient of z^0."
+        ],
+        "reasoning": "No tabulated decimals are needed to establish coverage: the identical exact invariant with a geometric error certificate dominates any isolated decimal examples. Keyword misses were not treated as evidence of absence.",
+        "searches": [
+          "Resultary: natural density of image of D_p(y)=y nu_p(y)/p image density logarithmic approximation uniform prime error p^(1-p)",
+          "Emmons–Xiao PDF literal queries: density; natural density; Table",
+          "Resultary 8dd2df9753b3, displayed exact coefficient law"
+        ]
+      },
+      "rationale": "A distinct published indexed finding, Resultary 8dd2df9753b3, gives the same complete valuation-stratified fiber law in generating-function form, including strict positivity, normalization and the same geometric error, and goes further with the closed mean and a large-fiber tail. Setting its local generating variable to zero gives exactly the image-density inclusion–exclusion formula. The frozen logarithmic estimate is not separately printed there, but follows from that same local law and its valuation truncation bound by the first p−1 singleton strata and the elementary logarithmic sum. This establishes equivalent or dominating statement-level coverage, not chronology or a claim about which record was first.",
+      "residual_risks": [
+        "The indexed companion has a later path date; no inference about actual public priority, provenance, or an identical submission is made from those dates. The equivalence and coverage comparison is mathematical and does not depend on date order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent density law with additional stronger statistics; the image bound is an immediate corollary of its conditional formula and truncation bound",
+          "evidence": [
+            "Same positive-integer object, exponent set relation, local generating polynomial, strictly positive masses, and exactly p^(−A) truncation error when V=A−1. Also states the exact mean and multiplicity-tail bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-natural-density-distribution-of-integer-anti-partial-derivative--8dd2df9753b3/RESULT.md",
+          "material_read": "RESULT.md, Finding, Assumptions, Proof §§1–4; bounded passage starting at offset 0",
+          "method": "Published record read through local mirror",
+          "title": "Natural-density distribution of integer anti-partial derivative multiplicities",
+          "trigger": "Direct match for the all-fiber density formula and effective error"
+        },
+        {
+          "assessment": "Covers pointwise inversion and occurrence, not the quantitative density law in the passages inspected",
+          "evidence": [
+            "Theorem 21 states infinitely many integer source witnesses for every positive multiplicity; its construction can select positive values. At any positive target the sign of a nonzero integral preimage must be positive."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.12453 ; https://cs.uwaterloo.ca/journals/JIS/VOL25/Xiao/xiao3.pdf",
+          "material_read": "arXiv pp. 9, 11 and 13, Lemma 14, Theorem 17 and Theorem 21 including its supporting construction; also checked JIS PDF",
+          "method": "OA text location and bounded passage inspection at offsets near 25800, 28400 and 36000",
+          "title": "The Arithmetic Partial Derivative",
+          "trigger": "Prior inverse criterion, inverse count, and indispensable positive witness theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Emmons–Xiao, Theorem 21",
+        "Resultary 8dd2df9753b3"
+      ],
+      "rationale": "The underlying frequency question is substantive: an inverse criterion and infinitely many witnesses do not say how often each multiplicity occurs. A normalized law with strict positivity and certified truncation is a meaningful exact invariant; the logarithmic comparison explains prime dependence. This assessment of the mathematical question and result is separate from originality: recomputing the decimals or isolating the weak comparison from the already-covered law would not constitute a new valuable repair.",
+      "residual_risks": [
+        "The law concerns one fixed prime on positive integers, not the all-primes arithmetic derivative or other rings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

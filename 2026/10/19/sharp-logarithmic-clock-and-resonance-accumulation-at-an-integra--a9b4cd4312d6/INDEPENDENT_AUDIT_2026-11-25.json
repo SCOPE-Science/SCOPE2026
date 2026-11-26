@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:34:42.439780Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact change q=(r/d)^γ and w=z−d gives qdot=γwq and qddot=c²(q−q^p) in the original time, with angular speed β. The potential minimum is at q=1 with the stated E_*, and its positive zero is Y. For E_*<E<0 there are exactly two positive simple turning points, hence a minimal radial period given by the two-way quadrature. To justify the delicate lower-end constant, set ν=2/γ, ε=2(−E)/(c²Y²), u=q/Y, and fix a sufficiently small cutoff a. On the lower piece use v=u√(1−u^ν), whose inverse derivative is 1+O(v^ν). The turning point is then exactly √ε and the main integral is arcosh(v(a)/√ε)=log(2a/√ε)+O(a^ν)+o_ε(1). The inverse-derivative error has absolute integral O(a^ν) uniformly for small ε: split at 2√ε and bound the rest by a multiple of v^(ν−1). For fixed a the upper piece tends to ∫_a^1 du/[u√(1−u^ν)], by the simple upper root and a uniform square-root bound after shifting to the moving endpoint. Its finite part after subtracting log(1/a) is 2log(2)/ν by v=u^ν. Together these give cT=log(2^(1+2γ)c²Y²/(−E))+o(1), including the factors from a full radial period and the energy normalization. Independently, with ξ=q−1, ω₀=d√(2γ) and signed potential coordinate s=sgn(ξ)√(2(V(q)−E_*))/ω₀, the inverse has expansion ξ=s−(p/6)s²+[p(p+3)/36]s³+O(s⁴). The even part of its derivative in the center-period integral yields the displayed linear energy coefficient and an O((E−E_*)²) remainder. The period is continuous between the two boundaries and bounded away from E=0. It therefore hits 2πn/|β| for every sufficiently large n, with every such selection tending to E=0; exponentiating the verified finite-part law gives the resonant energy prefactor. The geometric wording is in the stated energy sense: E=(γ²/2)(r/d)^(2γ)[w²+γr²/(γ+1)−d²], so approach to the ellipsoid follows at radii bounded away from zero. This is not uniform spatial convergence of entire cycles to the ellipsoid; the small-radius turning points approach the axis at z=d. The uploaded numerical checker was inspected, not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "With (α_a,μ_a,η_a,ε_a,δ_a,γ_a)=(−d,2γd,1,0,γ,γ), the hypotheses of the Axioms integrability propositions hold. Domingues's inspected theorem is a local zero-Hopf averaging/bifurcation result. The supplementary search found related separatrix-map work, but not a verified applicable general finite-part formula for the stated energy and arbitrary γ."
+        ],
+        "reasoning": "An exact first integral provides the oscillator ovals but does not evaluate the finite part of their physical-time integral. The averaged local bifurcation calculation does not address the return to the separatrix. A generic leading log estimate alone cannot determine the prefactor.",
+        "searches": [
+          "Vassilev–Nikolov Axioms 14(1):8 Propositions 1 and 2",
+          "Domingues arXiv:2609.18010v1 Theorem 2",
+          "General Hamiltonian separatrix time, exact logarithmic prefactor indexed literature"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary SCOPE-20260918-dd99a1c2003b and SCOPE-20261122-20f698c31c09",
+        "Axioms 14(1):8",
+        "arXiv:2609.18010v1",
+        "DLMF §19.12.1",
+        "DOIs 10.1016/j.cnsns.2020.105464 and 10.1142/S0218127423501535 (limited access)",
+        "Mappings Near Separatrix. Theory (retrieval attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The saddle slope yields the log coefficient, and phase matching maps any sufficiently sharp period law to the claimed energy law. The homoclinic oscillator tail is q_h∼2^γY exp(−c|t|), which encodes the finite part but needs matching to the nonzero-energy inner turning point. The general finite constant equals 2c² times the square of this tail amplitude."
+        ],
+        "reasoning": "Knowing the foliation, saddle slope or even divergence rate does not determine the inner/outer matching constant; deriving it requires controlling the turning-point integral. A result giving a directly applicable exact homoclinic-tail-to-period relation would narrow the novelty materially, but was not established from the inspected antecedents.",
+        "searches": [
+          "SCOPE-20260918-dd99a1c2003b amplitude theorem and proof",
+          "Axioms 14(1):8 Propositions 1–2",
+          "DLMF §19.12.1 and SCOPE-20261122-20f698c31c09 Exact period and monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier indexed exact-amplitude theorem provides the surface and foliation. The later cubic record gives P(h)=2log(4/h)+o(1); with γ=1, d=1/2 the frozen c=1/2, C_γ=4 and E=−h give precisely this period law."
+        ],
+        "reasoning": "This is an exact special-case overlap, not a regime differing only by nomenclature. The power exponent p=1+2/γ varies nontrivially, whereas the elliptic cubic derivation does not supply the all-p result.",
+        "searches": [
+          "Resultary critical Hopf–Langford exact amplitude first integral logarithmic period and resonance tail",
+          "SCOPE-20260918-dd99a1c2003b and SCOPE-20261122-20f698c31c09",
+          "Fowler/Delaunay power oscillator small-neck period finite part and generalized Duffing separatrix time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A checked symbolic indexed result and the standard elliptic asymptotic support the cubic special case. The frozen numerical checks at four γ values are internal spot checks, not an external table and not evidence of an all-parameter result."
+        ],
+        "reasoning": "The relevant exact lookup is a formula, not a finite list of period values. The exact cubic normalization is covered; values at isolated parameters without the arbitrary-γ finite-part formula do not cover the claimed analytic dependence.",
+        "searches": [
+          "Resultary general-γ Hopf–Langford period law and cubic resonance volume tail",
+          "DLMF §19.12.1 complete elliptic integral endpoint asymptotics"
+        ]
+      },
+      "rationale": "Integrability, the center family and separatrix geometry have prior coverage. The leading logarithmic divergence, the inversion to resonance energies, the local twist technique and the cubic elliptic special case are not distinct contributions on their own. The supported distinction is the evaluated finite logarithmic constant in physical time at normalized energy E for arbitrary real γ>0, equivalently the explicit sharp energy prefactor. Neither the available same-family integrability statements nor the exact later cubic clock covers that all-γ finite part. The access and general-normal-form risks are noted rather than treated as evidence for or against priority.",
+      "residual_risks": [
+        "The two earlier highly related integrability/ellipsoid papers could not be compared at full theorem level.",
+        "An exact finite-part return-time theorem in a different separatrix-map or power-oscillator formulation could make the constant a direct specialization; bounded relevant searches did not establish such coverage. No claim of historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers integrability and neutral amplitude foliation, not the evaluated physical period constant in the inspected finding",
+          "evidence": "D=0 surface, exact integral and closed amplitude levels.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-exact-amplitude-obstruction-hopf-langford-torus-bifurcation--dd99a1c2003b/RESULT.md",
+          "material_read": "Theorem and proof, offsets 1058–2297",
+          "method": "Read local mirrored statement and compare critical parameters and conclusions",
+          "title": "Exact amplitude obstruction to Hopf–Langford torus bifurcation",
+          "trigger": "Same critical Hopf–Langford geometry"
+        },
+        {
+          "assessment": "Exact cubic overlap; narrower than arbitrary γ and not evidence of earlier priority",
+          "evidence": "P(h)=2log(4/h)+o(1) with an exact elliptic period representation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-invariant-volume-resonance-tail-in-a-cubic-hopf-langford-f--20f698c31c09/RESULT.md",
+          "material_read": "Exact period and monotonicity, passage at offset 4560",
+          "method": "Local mirror and substitution γ=1, d=1/2, E=−h",
+          "title": "Sharp invariant-volume resonance tail in a cubic Hopf–Langford family",
+          "trigger": "Closest indexed sharp period and resonance asymptotics"
+        },
+        {
+          "assessment": "Prior integrability of the locus, not the sharp clock in the inspected results",
+          "evidence": "The mapped parameters satisfy Proposition 2 for γ≠1 and Proposition 1 for γ=1.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms14010008",
+          "material_read": "Primary OA PDF pp. 2–3, system and reduction; pp. 5–6, Propositions 1–2 and equations 24–29, offsets 20700–25888 for Proposition 2",
+          "method": "Notation mapping and hypothesis/conclusion comparison",
+          "title": "First and Second Integrals of Hopf–Langford-Type Systems",
+          "trigger": "Same integrable parameter locus and possible period implication"
+        },
+        {
+          "assessment": "Local averaging result does not give the finite-part period or the energy twist under review",
+          "evidence": "The inspected theorem concerns a local periodic orbit and averaged torus-bifurcation curve near a zero-Hopf equilibrium.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.18010v1",
+          "material_read": "Abstract p. 1, offset 677 and Theorem 2 p. 4, offset 9800",
+          "method": "Inspect primary OA statements and compare local versus separatrix regimes",
+          "title": "Torus Bifurcation in the Hopf-Langford type system through Averaging Theory",
+          "trigger": "Motivating Hopf–Langford period and bifurcation work"
+        },
+        {
+          "assessment": "Credits the familiar cubic finite part, not general powers",
+          "evidence": "Leading logarithm of K near its singular endpoint, with its known constant.",
+          "identifier_or_url": "https://dlmf.nist.gov/19.12.E1",
+          "material_read": "§19.12.1 displayed complete elliptic K asymptotic",
+          "method": "Compare with the cubic exact elliptic quadrature",
+          "title": "DLMF Chapter 19, Asymptotic Approximations",
+          "trigger": "Known exact logarithmic finite part in elliptic/cubic specialization"
+        },
+        {
+          "assessment": "Unresolved full-statement comparison, not negative evidence",
+          "evidence": "Titles and available previews identify closely related integrability and boundary geometry; neither can be adjudicated as a whole from retrieved material.",
+          "identifier_or_url": "10.1016/j.cnsns.2020.105464; 10.1142/S0218127423501535",
+          "material_read": "Bibliographic and landing-page material only; bounded lawful OA retrieval did not produce readable primary text",
+          "method": "Direct and open-copy retrieval attempts",
+          "title": "Completely integrable dynamical systems of Hopf–Langford type; Invariant Tori and Heteroclinic Invariant Ellipsoids of a Generalized Hopf–Langford System",
+          "trigger": "Plausible equivalent normal-form and heteroclinic reductions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural global boundary of a known integrable locus, not an arbitrary choice of parameters or a claim to rediscover its geometry. An unspecified log remainder would at best yield the exponential rate and would not fix the energy scale of one-radial-period phase locking. The evaluated constant supplies that missing scale for every real positive γ, including powers not treated by the cubic elliptic formula, and the center check identifies the local period variation. The meaningful increment is the normalized finite period part and its calibration of the resonance energies, not the routine inversion or local expansion alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

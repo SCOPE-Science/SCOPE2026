@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:59.477771Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating the covariance gives the stated point-integral covariance W and prior integral variance. Conditioning on the reported success set and averaging its four probabilities gives exactly the displayed weighted sum of single-observation squares and the two-observation Schur complement. At coincident sites both successes give only one value; the continuous limit agrees (the difference of the integral covariances is O(gap), while 1-r is of first order in gap). For fixed half-gap u and C=cosh(v), writing the two-success gain as the sum of (w_s+w_t)^2/[2(1+r)] and (w_s-w_t)^2/[2(1-r)] yields the two stated derivatives. The first is strictly negative by zC<=exp(-u) and cosh u-exp(-u)cosh(2u)=(exp(-u)-exp(-3u))/2>0 for u>0; the two-success derivative has sign ze^u C-1<0 for u<lambda/2. Coincidence maximizes at the midpoint and maximal gap forces the center. Therefore a global optimum must be centered for every p, including p=1. On centered pairs A=1-z cosh u is positive and strictly concave, B=1-p/2+(p/2)tanh u is positive and concave, and 2 log A+log B has strictly negative curvature. At zero its derivative is p/(2-p)>0; at the upper endpoint A'/A=-1 and B'/B<=1-tanh u so the derivative is negative. Hence exactly one interior gap maximizes the risk reduction, and rearranging its first-order equation gives the stated root without a spurious denominator zero. The p derivative of the log-slope is sech²(u)/(2B²)>0, giving strict monotonicity including the endpoint. The small-p expansion follows by smooth inversion at zero; for u=lambda d and lambda->0 the limiting ratio is 8d/(1+4d), and for u=lambda/6+c and lambda->infinity it is exp(3c)/2. In each case fixed test points bracketing the limiting crossing are sufficient, since the log-slope has the sign of p minus the right-hand side of the root equation. Independent Schur-complement risk and two-dimensional numerical comparisons agree; at (lambda,p)=(1,1/2), the sites are 0.397545436261487 and 0.602454563738513, with risks 0.263244357475696 and 0.271304517104358 for the optimum and duplicate midpoint respectively. At lambda=0.0001,p=1/2, u/lambda=0.0833351273 near 1/12. Replay: python /workspace/branches/reproduce_frozen.py (erasures section). The uploaded checker and verification notes were inspected, not executed. Proof is for equal, independent process-independent deliveries of two precommitted noiseless queries and fixed other parameter in each limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pronzato–Zhigljavsky treat the kernel-energy and quadrature-design framework; Kanagawa–Hennig study adaptive BQ convergence; Cai–Lam–Scarlett study average-case additive-noise query bounds.",
+          "The targeted search surfaced a broad BQ survey but no decisive primary passage on a Bernoulli-erasure OU optimum; a keyword miss in the survey is not a noncoverage result."
+        ],
+        "reasoning": "The framework gives posterior variances for success subsets, not centering for every gap, strict concavity of the erasure mixture, or the p- and lambda-dependent limiting laws. The inspected adaptive and noisy-statistical results do not entail the exact finite fixed design.",
+        "searches": [
+          "optimal Bayesian quadrature Gaussian process integral estimation Bernoulli observation failures erasures missing observations exponential covariance",
+          "arXiv:1808.10722v1",
+          "arXiv:1905.10271",
+          "arXiv:2202.10615v1",
+          "arXiv:2602.16218v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact OU noiseless theorem and related same-day erasure/additive-noise records above",
+        "Pronzato–Zhigljavsky arXiv:1808.10722v1",
+        "Kanagawa–Hennig arXiv:1905.10271v1",
+        "Cai–Lam–Scarlett arXiv:2202.10615v1",
+        "Mahsereci–Karvonen survey arXiv:2602.16218",
+        "Mukherjee dissertation (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p=1 gap equation and symmetry are already supplied by the known exact noiseless OU theorem for distinct points; the Dirichlet Green kernel supplies a structurally analogous erasure theorem with a different covariance.",
+          "The dissertation full text was not available through the attempted OA route."
+        ],
+        "reasoning": "The p=1 theorem fixes only the pure two-success objective; it does not give the added one-success terms or their tradeoff and cannot imply monotone movement and the p-dependent limits. The inspected Green specializations have different covariance geometry; no broader theorem covering this optimization has been established by the sources examined.",
+        "searches": [
+          "Prior exact-node OU RESULT, Finding and Assumptions",
+          "Dirichlet Green two-request erasure RESULT, Finding and Assumptions",
+          "https://docs.lib.purdue.edu/dissertations/AAI3043760/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local exact-node result gives equal terminal margins and a unique noiseless n-site optimum; its n=2 gap at h=2u/lambda is the p=1 specialization.",
+          "The two-site noisy OU result assumes always-delivered independently Gaussian-noisy observations, with an exact trisection at a stated noise level."
+        ],
+        "reasoning": "A single additive variance cannot reproduce binary reported delivery. In the difference channel at correlation r the erasure coefficient includes p²/[2(1-r)], whereas positive additive noise gives 1/[2(1+eta-r)], bounded as r rises to one. The same covariance and query count therefore do not identify the risks.",
+        "searches": [
+          "Resultary: exponential/Ornstein–Uhlenbeck exact quadrature nodes, Bernoulli delivery and additive-noise precision",
+          "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+          "2026/11/22/SCOPE-noise-universal-trisection-for-two-site-exponential-kernel-quadr--b27c43c7986c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed law is the same-day two-erasure Dirichlet Green design, with a unique symmetric pair and its own bandwidth and success dependence. The periodic Green theorem is on a circle with n sites. The earlier OU exact table/formula is for noiseless full delivery."
+        ],
+        "reasoning": "A Dirichlet Green covariance is pinned at endpoints, unlike stationary OU with endpoint variance one; even after constant scale renormalization the covariance and integral gains are different. The same-day date does not order priority. No distinct exact entry was found for the same stationary OU model with erasures.",
+        "searches": [
+          "Resultary meaning queries for two requests, independent erasure, OU and Green kernels",
+          "2026/11/22/SCOPE-bandwidth-driven-separation-in-two-request-green-kernel-quadratu--469b84c92627",
+          "2026/11/22/SCOPE-universal-cyclic-erasure-designs-for-periodic-green-kernel-quadr--b309a16a9d8b"
+        ]
+      },
+      "rationale": "The supported contribution is the complete stationary exponential covariance design for 0<p<1, including the all-design uniqueness, direction of movement and limiting laws. The prior p=1 solution is credited and does not count as novel. Gaussian conditioning, generic Bayesian quadrature, and structurally similar erasure problems with different kernels are established.",
+      "residual_risks": [
+        "The older Mukherjee dissertation full text was unavailable; other missing-observation design studies may be indexed under different terms.",
+        "The indexed Brownian-bridge comparison was summary-only. The closest Dirichlet Green result uses a genuinely different kernel but has no established same-day ordering relative to this work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at p=1 credited; no erasures in theorem",
+          "evidence": "Equally spaced distinct interior sites with equal margins reduce at n=2 to the same noiseless gap.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+          "material_read": "Local Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror and specialization of gap equation",
+          "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+          "trigger": "Earlier exact same-covariance design"
+        },
+        {
+          "assessment": "Close structural analogue; not the same covariance or law; priority unresolved",
+          "evidence": "Two independent reports of delivery and expected posterior integral variance, but Dirichlet Green kernel and its own parameter law.",
+          "identifier_or_url": "2026/11/22/SCOPE-bandwidth-driven-separation-in-two-request-green-kernel-quadratu--469b84c92627",
+          "material_read": "Local Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror statement comparison",
+          "title": "Bandwidth-driven separation in two-request Green-kernel quadrature",
+          "trigger": "Strongest same-day erasure objective match"
+        },
+        {
+          "assessment": "Additive Gaussian noise, not erasure",
+          "evidence": "Two always-observed noisy OU values and unique symmetric design with trisection at noise variance one.",
+          "identifier_or_url": "2026/11/22/SCOPE-noise-universal-trisection-for-two-site-exponential-kernel-quadr--b27c43c7986c",
+          "material_read": "Local RESULT opening, offset 0",
+          "method": "Local mirror",
+          "title": "Noise-universal trisection for two-site exponential-kernel quadrature",
+          "trigger": "Same covariance and two-site uncertain observations"
+        },
+        {
+          "assessment": "Different design variables and observation law",
+          "evidence": "Optimizes precision allocation and meshes for Gaussian-noise readings under a total budget.",
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-precision-budgets-and-observation-meshes-for-or--a7be6c7ddb05",
+          "material_read": "Local RESULT opening, offset 0",
+          "method": "Local mirror",
+          "title": "Globally optimal precision budgets and observation meshes for OU quadrature",
+          "trigger": "Same covariance under observation uncertainty"
+        },
+        {
+          "assessment": "Different domain and covariance",
+          "evidence": "Periodic Green kernel on the circle, n sites and cyclic geometry.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-cyclic-erasure-designs-for-periodic-green-kernel-quadr--b309a16a9d8b",
+          "material_read": "Local RESULT opening, offset 0",
+          "method": "Local mirror",
+          "title": "Universal cyclic erasure designs for periodic Green-kernel quadrature",
+          "trigger": "Erasure-design theorem under Green covariance"
+        },
+        {
+          "assessment": "Summary only, not a full overlap determination",
+          "evidence": "Indexed description concerns Brownian bridge and correlated delivery, not this stated stationary OU independent model.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-sensor-brownian-bridge-quadrature-under-correlated-obs--47f6c01bcecf",
+          "material_read": "Catalogue summary only; exact local RESULT unavailable",
+          "method": "Resultary search and local retrieval attempt",
+          "title": "Exact two-sensor Brownian-bridge quadrature under correlated observations",
+          "trigger": "Another related two-query stochastic delivery result"
+        },
+        {
+          "assessment": "General background in the passages read",
+          "evidence": "Design framework and kernel examples; inspected squared-exponential kernel is not the stationary absolute-distance exponential kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.10722v1",
+          "material_read": "PDF abstract and §3.1 example passage, p. 7",
+          "method": "OA preprint passage inspection",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "General kernel-energy and quadrature-design framework"
+        },
+        {
+          "assessment": "Different criterion and adaptive setting",
+          "evidence": "Consistency and rates for acquisition depending on prior collected values, not a fixed erasure-optimal pair.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.10271v1",
+          "material_read": "Abstract, PDF p. 1 offset 711",
+          "method": "OA primary passage inspection",
+          "title": "Convergence Guarantees for Adaptive Bayesian Quadrature Methods",
+          "trigger": "Potential general Bayesian quadrature design coverage"
+        },
+        {
+          "assessment": "Different observation law and type of conclusion",
+          "evidence": "Average-error and sample-complexity bounds for RKHS integration with additive Gaussian noise.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615v1",
+          "material_read": "Cited preprint abstract, p. 1",
+          "method": "OA primary passage inspection",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature under Noisy Evaluations",
+          "trigger": "Observation uncertainty in quadrature"
+        },
+        {
+          "assessment": "Potential priority risk not resolved by abstract",
+          "evidence": "No readable dissertation full text obtained.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Landing page/abstract notice only",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Older stochastic design dissertation mentions integral estimation"
+        },
+        {
+          "assessment": "Broad survey, no decisive direct comparison found; no noncoverage finding",
+          "evidence": "Treats BQ theory, generalizations and node selection; keyword lookup had no match.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16218",
+          "material_read": "Opening at offset 0 with chapter list; literal 'erasure' lookup",
+          "method": "OA passage inspection and keyword lookup",
+          "title": "Bayesian Quadrature: Gaussian Processes for Integration",
+          "trigger": "Relevant survey returned in focused external erasure query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "With two salvageable observations of a standard stationary Gaussian process, losing one favors high individual information at the midpoint while having both favors separation. The exact result decides whether to duplicate for reliability or separate for information: duplication is never optimal for any positive common delivery probability, yet the two nodes coalesce in the rare-success limit. The quantified movement and distinct covariance-length regimes make the result a useful reference design, not just the known no-erasure boundary or an isolated numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

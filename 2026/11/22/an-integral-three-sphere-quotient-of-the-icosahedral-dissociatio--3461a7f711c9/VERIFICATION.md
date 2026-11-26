@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the exact quotient calculation
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later. This checks the graph and forbidden triples on every mask, exactly enumerates the two fixed-vertex generators and all 120 graph automorphisms, checks the 55-generator simple-connectivity elimination of the original complex, constructs 9905 nonempty strict flags and 118 group-orbit cells, verifies both cellular boundary compositions, and performs integer-unimodular pivot reductions to 9, 26, and 23 unit factors with zero remainder.
+## correctness
 
-`verification_output.txt` contains the deterministic recorded successful output, reproduced by execution of the included script. The algorithm uses Python's standard library, no floating-point arithmetic, no external datasets and no third-party software. The argument from these finite certificates to the homotopy type also uses Armstrong's orbit-space fundamental-group theorem and standard Hurewicz and Whitehead theorems; the code does not attempt to replace those infinite-theory results.
+PASS
 
-The package records one self-review. No external independent audit or certification has taken place. Unindexed prior work may remain relevant to originality.
+The claim is about the ordinary orbit space for the full graph-automorphism group. The given adjacency is the two pentagonal belts with poles of an icosahedron: poles 6 and 7, belts (1,2,3,4,5) and (8,9,10,11,0), with the staggered cross edges. An independently written enumeration recovered all 120 automorphisms, face counts (12,66,140,105), and the elimination of all 55 edge generators of the complex's fundamental group in rounds of 35 and 20. The two vertex-fixing automorphisms generate the full group, so Armstrong's theorem kills the quotient fundamental group. Rank order forces any identification within a closed flag simplex to fix its support pointwise, and the cellular incidences are the alternating flag deletions. Independent exact Smith reductions on the 9,905 flags give orbit cell counts (10,35,49,24), zero successive compositions and boundary Smith ranks (9,26,23) with every nonzero factor a unit. A primitive image in the ambient chain group is also primitive in the kernel, so these ranks and unit factors give only H0 and H3, both Z. Hurewicz and homological Whitehead applied to a representative of a generator give the stated S^3 equivalence.
+
+## originality
+
+PASS
+
+The closest same-object Resultary theorem computes the rational homology of precisely the full orbit space, but explicitly does not settle its integral torsion. The exact integral orbit-cell homology together with the orbit-space fundamental-group argument upgrades this to a homotopy classification. This is not the existing wedge calculation for the original complex or a restatement of the rational invariant character. No inspected stronger source covers that upgrade.
+
+## value
+
+PASS
+
+The full-symmetry orbit space of a canonical highly symmetric graph complex is a motivated exact object: a prior calculation already isolates its rational sphere homology while leaving integral and homotopy information unresolved. A researcher using this quotient needs to know whether integral torsion or a nontrivial fundamental group survives stabilizers. The exact finite check and fixed-point argument resolve both, not by a mechanical rational-invariant deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

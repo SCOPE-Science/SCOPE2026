@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:23:47.351822Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–81 and VERIFICATION.md lines 19–23",
+        "Frozen CHECK.py lines 13–90, inspected only",
+        "Independent replay: python /tmp/opencode/frozen_math_replay.py 3"
+      ],
+      "rationale": "In Frobenius coordinates (H11,H22,sqrt(2) Re H12,sqrt(2) Im H12), the constant and the two nonconstant Fourier modes of the outer samples give the stated triangular block and two scalar singular directions. The triangular block has determinant sqrt(3)u exp(−u)>0. Its largest squared singular value exceeds 3u exp(−2u) everywhere; evaluating its characteristic polynomial at that number reduces the crossing to the strictly increasing h. I independently bounded exp(8/3) by rational Taylor sums (using geometric ratio at most 2/9 for the upper tail), which gives the bracket for h and the derivative bound on the pre-crossing trace-to-root-determinant quotient. Above the crossing the normalized block increases strictly in positive-definite order. At equality the determinant fixes the largest squared singular value to u, giving the threefold lower singular level and the sharp condition. Fourier inversion has the right conjugation sign; rank-at-most-one positive lifts give signal recovery up to phase, including the zero case. Independent high-precision bisection reproduced all stated digits.",
+      "residual_risks": [
+        "The optimization is strictly within this one-parameter equal-output-weight family; it is not an arbitrary-geometry or nonlinear noise-optimality claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existence of a uniformly separated phase-retrieving Fock set and discrete polynomial norming inequalities.",
+          "Normalized allocation and optimization of statistical covariance/Fisher information in tomography."
+        ],
+        "reasoning": "Neither result quantifies the specified four-node Euclidean condition-number branches or supplies the optimizer.",
+        "searches": [
+          "arXiv:2609.28341 Theorem 1.1 and Proposition 2.1",
+          "arXiv:0911.4310 statistical tomography, allocation and Fisher information"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.28341 and arXiv:0911.4310",
+        "Resultary records 12ae1d0f43de, df9aaaf372ae, 9e66f1ce5e56 and 413970b27bf4",
+        "Directed web literature lookup and direct normalized-ray overlap calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-circle normalized Nyquist-block angular conditioning is not full raw Hermitian-map conditioning for center and triangle.",
+          "Neither linear norm cubature nor statistical allocation includes the weighted Gram eigenvalue crossing (u−1)e^(2u)=3(u²−u+1)."
+        ],
+        "reasoning": "The exact condition and its uniqueness require the monotonic branches for this weight law, not a restriction of any located stronger theorem.",
+        "searches": [
+          "Resultary 12ae1d0f43de (two-circle exact conditioning)",
+          "Resultary df9aaaf372ae (tight Fock norming)",
+          "arXiv:0911.4310, Eqs. 19–21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing the sampling directions as normalized rank-one projectors produces outer coefficients (1+u)exp(−u), versus 1 at the center.",
+          "The normalized tetrahedral rays occur at u=2, not at u≈1.3077; the dihedral operator-frame optimum has condition sqrt(3) and a different design space."
+        ],
+        "reasoning": "The weighted projector formulation is exactly the same linear problem, but a theorem for equally normalized projectors or a different group orbit does not solve the Gaussian curve in projector-weight space.",
+        "searches": [
+          "Literature lookup for a four-node affine Fock phase-retrieval radius and Hermitian/qubit frame conditioning",
+          "Resultary dihedral Hermitian operator frames, 9e66f1ce5e56",
+          "Tetrahedral qubit orientation and normalized-overlap comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-circle four-affine-sample case uses two antipodal pairs and an angular criterion.",
+          "Center-plus-triangle degree-two linear Fock norming uses radius squared 2 and separately specified weights; the one-circle optimization also measures linear evaluation. No exact fixed-design conditioning table surfaced."
+        ],
+        "reasoning": "One match has the same signal dimension and budget, another the same node arrangement; neither has all of the new lift, weights and radius objective.",
+        "searches": [
+          "Resultary affine/four-node phase retrieval, 12ae1d0f43de",
+          "Resultary center/triangle tight Gaussian sampling df9aaaf372ae and circular radius optimization 413970b27bf4",
+          "Directed web literature lookup for the fixed Gaussian four-point design"
+        ]
+      },
+      "rationale": "Injective four-sample qubit/affine sensing and operator-frame isotropy have prior analogues. The distinct result supported here is the specific Gaussian-weighted extremal condition number, unique radius and coincident lower spectrum in the prescribed geometry, not general phase retrieval or tomography.",
+      "residual_risks": [
+        "The IBM full page on tetrahedral measurements could not be retrieved; normalized overlap is directly checkable from the rays. An earlier specialist raw-weight design calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different objectives",
+          "evidence": "Uniformly separated phase retrieval and a polynomial norming inequality do not specify this radius design.",
+          "identifier_or_url": "arXiv:2609.28341",
+          "material_read": "Theorem 1.1 p. 3 (offset 13100); Proposition 2.1 p. 4 (offset 16308)",
+          "method": "OA primary PDF text",
+          "title": "Phase retrieval from a uniformly discrete point set",
+          "trigger": "Fock phase retrieval and finite norming"
+        },
+        {
+          "assessment": "Not fixed raw-weight spectral conditioning",
+          "evidence": "Optimizes experiment allocations under a statistical covariance criterion.",
+          "identifier_or_url": "arXiv:0911.4310",
+          "material_read": "Bloch representation p. 2; allocation and Fisher criterion p. 3, equations 19–21",
+          "method": "OA primary PDF text",
+          "title": "Optimal experiment design revisited: fair, precise and minimal tomography",
+          "trigger": "Optimal qubit tomography"
+        },
+        {
+          "assessment": "Related exact result for different geometry and normalization",
+          "evidence": "Two rings of 2d points, angular criterion sin(d(θ₂−θ₁))≠0, and normalized Nyquist-subsystem conditioning.",
+          "identifier_or_url": "Resultary 2026/10/18, 12ae1d0f43de",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling",
+          "trigger": "Four affine phaseless measurements as a special case"
+        },
+        {
+          "assessment": "Different polynomial space, weights and objective",
+          "evidence": "Tight Fock norming through degree two uses squared radius 2 and weights 1/2 and 1/6.",
+          "identifier_or_url": "Resultary 2026/11/8, df9aaaf372ae",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Four nodes are necessary and sufficient for exact tight sampling",
+          "trigger": "Same center-plus-equilateral triangle arrangement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30, 33–78 and 83–87",
+        "Comparison with normalized tetrahedral design and linear Fock tight-norming result df9aaaf372ae"
+      ],
+      "rationale": "At the minimum of four real measurements for a full Hermitian inverse, the natural center-and-triangle geometry permits an exact design choice under prescribed Gaussian attenuation. The calculation identifies an actual competition between singular directions and a threefold lower singular level. It determines where better radial separation stops helping relative conditioning, a concrete design fact not supplied by injectivity or the normalized tetrahedral rule.",
+      "residual_risks": [
+        "No optimality claim for arbitrary node configurations, outside the lifted Frobenius metric, or under a separate statistical noise law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

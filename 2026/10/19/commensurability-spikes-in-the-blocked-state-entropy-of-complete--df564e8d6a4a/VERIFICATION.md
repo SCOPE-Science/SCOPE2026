@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Running `python3 verify_potts_bipartite.py` directly from the package succeeds using only the standard Python 3 library. The implementation independently evaluates the original pairwise edge energy for each labelled state and tests every allowed one-site and two-site recolouring. It compares those direct tests with the theorem's equipartition-or-proper criterion and exact labelled counts.
+# Independent mathematical audit
 
-The actual completed run checked 50 part-size/palette combinations, 25,300 labelled assignments, and the two-site status of 1,986 one-site blocked assignments. Every comparison passed. Additional integer count and asymptotic-ratio spot checks were run for palettes \(q=2,3,4,5,6,7\). The small \(q=2\) checks test an extension of the argument but are not part of the stated \(q\ge3\) novelty scope.
+## correctness
 
-The verification program is a finite cross-check, **not** a substitute for the unrestricted-size proof. The asymptotic statements use onto-map inclusion exclusion and Stirling's formula, which are proved in the accompanying main text. No independent scientific audit has been performed.
+PASS
+
+For a one-vertex recoloring on the first side, the energy change is the new color's multiplicity on the second side minus the old one's. At a blocked state each occupied color on either side must minimize the opposite multiplicity. A shared color then forces all colors onto the second side, hence equal first-side multiplicities, which in turn force equal second-side multiplicities. These states are blocked under the stipulated strictly downhill single-site rule; a cross-side exchange of two distinct colors lowers their energy by 2. Proper states are global minima. Counting a chosen exact left support by surjections and counting the balanced branch by two multinomials gives the two energy enumerators; for q=3 and a=b=3 the terms are 42 and 36u^3. On equal parts the proper term is controlled by the maximizers of s(q−s) with exponential error for fixed q, while the squared central multinomial is asymptotic to q^(2n+q)/(2πn)^(q−1). Comparing exponential rates yields both limits and the probability statements. The move rule permits ties in the local optimality test, not neutral steps in the dynamics.
+
+## originality
+
+PASS
+
+The prior stable-coloring condition and ordinary proper-coloring count are background. The inspected earlier sources do not provide the complete-bipartite positive-energy classification and its two-site and entropy consequences. A distinct later catalogue result has substantial mathematical overlap, including the exact unweighted classification and the cross-side escape; it is disclosed here, not counted as an earlier source or as evidence of priority.
+
+## value
+
+PASS
+
+This classifies all local minima and energies in a natural solvable antiferromagnet, quantifies precisely the exceptional metastable population, and shows that an apparently innocuous change of size can switch a combinatorial entropy between two distinct limits. The disappearance under a minimal enlargement of the move set is structurally informative. This is not a claim about equilibrium free energy or relaxation times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

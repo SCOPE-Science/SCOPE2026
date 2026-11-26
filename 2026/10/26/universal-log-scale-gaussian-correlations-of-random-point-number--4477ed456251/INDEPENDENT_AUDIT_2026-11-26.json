@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:38.651746Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, especially (6)–(12)",
+        "Frozen VERIFICATION.md and verify_multiscale.py (inspected, not executed)",
+        "Aistleitner–Hörmann–Manskova arXiv:2610.11687v1, KMT and scalar bridge sections"
+      ],
+      "rationale": "The exact pair expansion has deterministic diagonal Ns(1-s) and coefficient 2 per unordered pair. The centered overlap kernel has zero conditional expectation given either point, so only identical unordered pairs contribute to the covariance; their factor is 4*binom(N,2). Complementation gives reduced lengths 0<a<=b<=1/2, and the two overlap lobes give integral a^2*b-a^3/3; centering subtracts a^2*b^2. This gives (1), with bracket >=b/6. For the bridge, set a_s=1_(0,s]-s and let K_s be its circular autocorrelation. Then Khat_s(0)=0, Khat_s(k)=|ahat_s(k)|^2, and the common real white noise has independent complex modes at positive frequencies, with negative frequencies their conjugates. Parseval gives (9) with lambda_k=2*Khat_s(k), and summing their products gives (10) exactly as 2*integral(K_s*K_t), where the integrand denotes the pointwise product. The Isserlis shorthand in line 66 should be read with this Parseval identity: the mixed increment covariance is the cross-correlation of a_s and a_t, not K_s, and its squared L2 norm equals the integral of the product of the two autocorrelations by Parseval. Thus (9) and (10) are jointly valid with the same exponentials. For a fixed linear combination the maximal normalized coefficient is O(sqrt(epsilon_N)), squared coefficients converge in total to the prescribed variance, and absolute cubes vanish. One can truncate the infinite row with vanishing variance tail before Lyapunov; for zero limiting variance Chebyshev applies. A common periodic empirical-bridge approximation gives the two terms in (12) with the asserted rates; after division by s^(3/2) both vanish under (2) for each of the finitely many lengths. Cramér–Wold and Slutsky give the joint limit. The Fourier transform of the two exponentials gives (5); repeated log-lengths give identical coordinates without contradicting positive definiteness on distinct log-lengths.",
+      "residual_risks": [
+        "Numerical/reference checks are not an asymptotic proof. The stated bound is sufficient and the limit is only finite-dimensional. The exact finite-N covariance gives ratio-limit correlations even without a Gaussian convergence claim for arbitrary varying log-scales."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heinrich has a multiscale Gaussian limit proportional at every scale to a single Gaussian random variable.",
+          "Lang–Marcon derive exact cross-radius covariances and a multivariate limit for planar Poisson Ripley K-statistics in growing windows, with terms involving min(r_s^2,r_t^2)."
+        ],
+        "reasoning": "These are meaningful multiscale precedents, but the fixed-count torus, triangular kernel and shrinking observation lengths here are not specializations of their hypotheses/statistics. In particular the limiting matrices differ even after standardization.",
+        "searches": [
+          "Heinrich arXiv:1706.01074 Theorems 1 and 2",
+          "Lang–Marcon doi:10.1051/ps/2012027 Proposition 2.2 and Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Aistleitner–Hörmann–Manskova arXiv:2610.11687v1",
+        "Heinrich arXiv:1706.01074v1",
+        "Lang–Marcon doi:10.1051/ps/2012027",
+        "Resultary 751c20eb9d3e and c1542db37fe8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-scale Fourier weights and a common endpoint coupling are prior. The joint calculation identifies the common exponential variables across lengths, evaluates the mixed weight sum, and verifies a small maximal weight also for arbitrary fixed linear combinations.",
+          "The scalar Gaussian limit gives no cross-covariance, and a prior variance as a function of one length does not give the variance of a linear combination of different lengths."
+        ],
+        "reasoning": "Prior tools make the joint extension tractable, but the scalar assertions do not by substitution or polarization determine this specific covariance or joint limit; that requires the mixed overlap computation and multiscale linear-combination argument. Standard coupling and Gaussian limit methods are not credited as new.",
+        "searches": [
+          "Aistleitner–Hörmann–Manskova Theorem 1, KMT equations (4)–(9), Lemma 4 and (17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Integrated number variance is exactly a centered pair statistic with a triangular circular overlap kernel.",
+          "The closest scalar Gaussian-bridge and third-cumulant formulas agree with the diagonal, but are statements about a single window length."
+        ],
+        "reasoning": "This reformulates the target as covariance of two different kernels, not as the variance or third cumulant of a single one. The mixed kernel product is required for the cross-length law.",
+        "searches": [
+          "Circular number variance, multiscale covariance, degenerate pair statistics and log-scale Gaussian limit",
+          "Aistleitner–Hörmann–Manskova arXiv:2610.11687v1; Resultary 751c20eb9d3e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "751c20eb9d3e gives the exact single-window third cumulant and known diagonal variance.",
+          "c1542db37fe8 is a ratio-limit covariance result for squared-Gini statistics of linear spacings."
+        ],
+        "reasoning": "No finite database describes a universal continuum of window pairs. The closest indexed exact results cover a diagonal formula or a different statistic, neither the asserted exact off-diagonal identity.",
+        "searches": [
+          "Resultary 751c20eb9d3e same-statistic circular number variance; c1542db37fe8 cross-order correlation"
+        ]
+      },
+      "rationale": "The supported contribution is the exact off-diagonal covariance for two circular lengths and the explicit joint Gaussian log-scale kernel in the stated shrinking-window regime. The closest same-statistic primary source supplies the scalar result, diagonal covariance, common empirical-process coupling and scalar weights; none of the inspected scalar statements identify off-diagonal covariances or joint Gaussianity. Distinct multiscale point-process results concern a different statistic and sampling regime, with different limiting covariances. The closest same-statistic indexed record supplies a one-window higher cumulant, not the mixed-scale law.",
+      "residual_risks": [
+        "This is a bounded priority check; older integrated pair-statistic work or a broader theorem in different notation could contain relevant equivalents. A lack of an exact search match is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for scalar weights and diagonal variance with a coupling applicable to the extension; no mixed-scale theorem in the inspected statements.",
+          "evidence": "Scalar exponential weights 2*sin^2(pi*k*s)/(pi*k)^2 and exact variance 2N(N-1)(2s^3/3-s^4).",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11687v1",
+          "material_read": "Theorem 1 p. 5 at OA offset 15900; KMT and (4)–(9) pp. 6–8 at 23000; bridge decomposition and Lemma 4 pp. 9–10 at 29200–35327; (17) p. 17 at 56600",
+          "method": "OA primary PDF passages",
+          "title": "On the asymptotic behavior of the number variance of random points on the unit torus",
+          "trigger": "Closest same-statistic scalar theorem and exact variance"
+        },
+        {
+          "assessment": "Different expanding-window asymptotic, not the frozen degenerate-pair limit.",
+          "evidence": "The fixed-dimensional limit is of the form 2*lambda*|B|*r^d*G for one common Gaussian G.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.01074v1",
+          "material_read": "Theorem 1 p. 7 around offset 27000; Theorem 2 p. 9 around offset 34856",
+          "method": "OA primary PDF passages",
+          "title": "Asymptotic Goodness-of-Fit Tests for Point Processes Based on Scaled Empirical K-Functions",
+          "trigger": "Broader multiscale K-statistic limit"
+        },
+        {
+          "assessment": "A genuine multiscale precedent but for planar Poisson K-statistics, not torus iid number variance.",
+          "evidence": "Fixed-radius covariance for the known-intensity statistic includes 2*pi*min(r_s^2,r_t^2)/rho and 4*pi^2*r_s^2*r_t^2 in its limiting matrix.",
+          "identifier_or_url": "https://numdam.org/item/10.1051/ps/2012027.pdf",
+          "material_read": "§§2.1–2.3, especially Proposition 2.2 and Theorem 2.3, pp. 770–771 around offsets 10800–17725",
+          "method": "OA primary PDF passages",
+          "title": "Testing randomness of spatial point patterns with the Ripley statistic",
+          "trigger": "Exact mixed-radius covariance and Gaussian tests"
+        },
+        {
+          "assessment": "A one-length exact theorem and known variance, not a cross-scale extension.",
+          "evidence": "The claim is a single-window third cumulant and skewness crossover, and states the diagonal variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-third-cumulant-and-skewness-scale-crossover-of-circular-nu--751c20eb9d3e",
+          "material_read": "Original Finding at mirrored offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact third cumulant and skewness scale crossover of circular number variance",
+          "trigger": "Strongest distinct indexed same-statistic match"
+        },
+        {
+          "assessment": "Different statistic and order parameter; not equivalent coverage.",
+          "evidence": "Its ratio-limit correlation concerns orders of linear spacing statistics, not pairs of circular counting windows.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cross-order-null-covariance-and-a-universal-correlation-ke--c1542db37fe8",
+          "material_read": "Mirrored finding on squared-Gini statistics of linear uniform spacings",
+          "method": "Local Resultary mirror",
+          "title": "Exact cross-order null covariance and a universal correlation kernel",
+          "trigger": "Potential exact covariance/correlation kernel analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md (1)–(5), (7)–(12)",
+        "Primary scalar number-variance and distinct multiscale K-statistic comparisons"
+      ],
+      "rationale": "One-scale variances do not describe redundancy or dependence between choices of window length. The finite-N covariance quantifies it exactly across the entire circle-length range; the joint limit captures dependence between nearby shrinking lengths through a nontrivial stationary kernel with an explicit spectrum. This adds a useful multiscale invariant rather than another marginal approximation.",
+      "residual_risks": [
+        "No tightness, multiscale scan extremum or empirical confidence-band theorem follows from the stated finite-dimensional limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

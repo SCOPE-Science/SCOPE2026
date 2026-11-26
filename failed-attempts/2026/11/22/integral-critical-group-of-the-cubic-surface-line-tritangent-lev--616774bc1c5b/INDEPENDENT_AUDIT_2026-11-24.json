@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:01:34.250168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; tritangent_levi_verify.py (inspected, not executed)",
+        "Independent replay: cd /workspace && python independent_exact.py 3 (python-flint); output in /workspace/independent_exact_1_4.txt (Record 3)",
+        "Saniga et al., arXiv:0903.0715, p. 3, for the 27/45 generalized quadrangle and its dual"
+      ],
+      "rationale": "On the blow-up of six general points, the 27 line classes have plane degrees 0,1,2. Three distinct classes summing to −K have degree patterns (0,1,2) and (1,1,1). The exceptional coefficients in the two cases force, respectively, E_i+L_ij+Q_j for ordered i≠j, and three L_ab for a partition of the six indices into pairs. Each such effective anticanonical sum is the section by a plane. This gives the 45 tritangent triples, independent of the chosen smooth complex surface, including the possibility of concurrency of the lines in a triple. I built the incidence directly from the ordered indices and perfect matchings. On deleting a curve vertex and a plane vertex, independent FLINT integer Smith and determinant computations both gave 1^42,3^10,9^5,27^8,135^6 and 3^62·5^6. The determinant is nonzero, so the graph is connected; 135 edges and 72 vertices give cycle rank 64, and the exponent is 135. This is ordinary graph torsion, not torsion of a divisor group of the surface itself.",
+      "residual_risks": [
+        "Uses the classical smooth-complex cubic-surface class lists; no positive-characteristic, geometric Picard or descent claim is being verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 covers the even-unitary Hermitian point graphs of dimension at least four. At q=2,m=2,ℓ=3, the field is F4 and this is the cross-characteristic case ℓ | q+1, ℓ ∤ m and ℓ ∤ m−1.",
+          "Using the proof in §12.2.0.2, subcase 1(2), its variables are f=20, g=24, c=v3(q^(2m−1)+1)=2 and d=v3(q^(2m−3)+1)=1. The dimension relations in §§7 and 12.1 give dim V^r=f, dim(V^r/U)=(q^(2m)−1)/(q+1)=5, dim(U/U′)=1, so x=dim U′=14. The proof gives e_c=f−x−1=5, e_d=g−x=10, e_(c+d)=x=14, and e_0=x+1=15 on the 45-vertex full Laplacian, with one zero factor. The proof's variable assignments and dimension identities fix the interpretation rather than relying on the extracted summary table alone."
+        ],
+        "reasoning": "This supplies exactly the full 3-primary critical group of the dual point graph needed after Schur reduction, not merely a p-rank. Its valuation sum 10+2·5+3·14=62 agrees with the independent determinant.",
+        "searches": [
+          "Pantangi–Sin arXiv:1706.08175v3, §2, Theorem 5, Table 11 and §§7,12.1–12.2",
+          "Smith and critical groups of polar graphs unitary H(3,q^2) Pantangi Sin cross characteristic Hermitian"
+        ]
+      },
+      "checked_sources": [
+        "Pantangi–Sin arXiv:1706.08175v3 Theorem 5 and proof in §§7,12",
+        "Resultary 70136773ee2a and e8dccda941ed",
+        "Saniga et al. arXiv:0903.0715; Özçelebi DOI 10.6100/IR721532; Brouwer–Van Maldeghem, Strongly Regular Graphs p. 31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Over Z_(3), eliminate 5I_27; up to the unit 1/5 the remaining matrix is 15I_45−N^TN. Its diagonal is 12 and off-diagonals are minus adjacency precisely when planes share a line. Thus it is the ordinary Laplacian of H(3,4)'s point graph and has 3-primary factors 3^10,9^5,27^14 in multiplicity notation.",
+          "Over Z_(5) eliminate 3I_45 instead. The residual matrix up to a unit is 15I_27−NN^T=10I−A. The sum-zero lattice splits because 27 is a 5-unit. On it the eigenvalues 9 and 15 have respective multiplicities 20 and 6 and unit difference modulo 5, so the integral polynomial projectors give (Z/5)^6. No other primes occur by the tree determinant; pairing the last six order-27 factors with these six order-5 factors gives the original 135^6."
+        ],
+        "reasoning": "All the frozen Smith factors follow from an earlier general theorem and routine prime-local block elimination; no separate hard Smith calculation, additional geometric hypothesis or priority inference is required.",
+        "searches": [
+          "Frozen block Laplacian and Gram NN^T=5I+A; Pantangi–Sin §12.2.0.2 p. 30; Resultary 70136773ee2a exact identity entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the Levi graph of GQ(2,4), unchanged when written as the dual order-(4,2) Hermitian quadrangle H(3,4) with incidence parts exchanged. The 45-vertex point graph of this dual quadrangle is Γ_ue(2,2), the isotropic one-spaces in a four-dimensional Hermitian space over F4 joined by orthogonality.",
+          "The 27-vertex collinearity graph has parameters (27,10,1,5), while the dual collinearity graph has (45,12,3,3). Neither point graph is the same as the Levi graph; the precise prime-local reduction connects them."
+        ],
+        "reasoning": "The dual alias is isomorphic as an uncoloured incidence graph. The point-graph identities give a reduction, not a claim that any graph with the same SRG parameters has the same Smith form. As a bipartite graph with unequal degrees 5 and 3 it is not ordinary distance-regular.",
+        "searches": [
+          "Saniga et al., arXiv:0903.0715 p. 3; Özçelebi, Buildings and Kneser Graphs §1.5",
+          "Smith and critical groups of polar graphs unitary H(3,q^2) Pantangi Sin cross characteristic Hermitian",
+          "Brouwer–Van Maldeghem, Strongly Regular Graphs, p. 31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 70136773ee2a is distinct, classifying Weyl-type fixed groups; at the identity it gives exactly C3^10⊕C9^5⊕C27^8⊕C135^6 and calls the underlying critical group already known, not its new contribution.",
+          "Resultary e8dccda941ed instead uses 45 vertices of tritangent planes joined when they share a line. That graph is not the Levi graph, though its 3-primary part is relevant through the reduction."
+        ],
+        "reasoning": "The identity acts trivially on the same group, so the former indexed statement is equivalent coverage for this entry, irrespective of which same-day record came first. The 45-vertex record is a distinct object, not an isomorphic exact table hit.",
+        "searches": [
+          "Resultary: cubic surface line-tritangent Levi, GQ(2,4) critical group, tritangent Smith Laplacian",
+          "Resultary 70136773ee2a RESULT.md, Finding and Relationship to prior work"
+        ]
+      },
+      "rationale": "The full claimed group is a mechanical consequence of the Hermitian polar-graph critical-group result of Pantangi–Sin, arXiv:1706.08175v3 (2018), after a unit-block Schur reduction and an elementary 5-primary splitting. A separate same-day Resultary result also states the exact group as its identity-fixed case. The disposition is based on the earlier theorem and the demonstrated implication, not on assigning priority from the same-day index.",
+      "residual_risks": [
+        "Whether the Levi-graph form had been separately tabulated is not established. Earlier coverage through the polar-graph theorem is sufficient. The order of distinct same-day records is not inferred.",
+        "A 404 from an adjacent p-rank article does not bear on the verdict; the decisive full critical-group proof was accessible in arXiv."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior implication at 3 after specialization; the elementary 5-part separately follows from the opposite block",
+          "evidence": "Γ_ue(q,m) uses Hermitian isotropic 1-spaces; §12 has dim V^r=f, dim(V^r/U)=(q^(2m)−1)/(q+1), dim(U/U′)=1 and proves e_c=f−x−1, e_d=g−x, e_(c+d)=x in the decisive unequal-valuation case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.08175v3",
+          "material_read": "§2 p. 3 around offset 10617; Theorem 5 p. 7 around offset 27892; Table 11 p. 8 offsets 35000–38967; §7 p. 14 around offset 59404; §§12.1–12.2 pp. 28–30, offsets 111750–117452 and 118950–124656",
+          "method": "Lawful OA arXiv PDF passage inspection with proof-versus-table comparison",
+          "title": "Smith and Critical Groups of Polar Graphs",
+          "trigger": "Earlier full critical-group theorem for Hermitian collinearity graphs, relevant via the 3-local Schur complement"
+        },
+        {
+          "assessment": "Exact equivalent base case; no chronology inferred from catalogue dates",
+          "evidence": "Uses all 27 lines and 45 tritangent triples; for identity, the underlying group is C3^10⊕C9^5⊕C27^8⊕C135^6, which is not claimed as new in that record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-25-weyl-type-frobenius-fixed-graph-jacobians-of-cubic-surfac--70136773ee2a/RESULT.md",
+          "material_read": "RESULT.md Finding around offset 0; offsets 3500–5444 (identity and scope), 9500–11465 (prior work and limitations)",
+          "method": "Local Resultary mirror passage read",
+          "title": "All 25 Weyl-type Frobenius-fixed graph Jacobians of cubic surfaces",
+          "trigger": "Distinct indexed exact match, validate assumptions and direction of implication"
+        },
+        {
+          "assessment": "Classical incidence and duality, not an exact Smith statement in the passage",
+          "evidence": "GQ(2,4) has 27 points and 45 lines, with dual GQ(4,2) of 45 points and 27 lines.",
+          "identifier_or_url": "arXiv:0903.0715",
+          "material_read": "p. 3 around offset 11058",
+          "method": "Lawful OA passage inspection",
+          "title": "The Veldkamp Space of GQ(2,4)",
+          "trigger": "Check generalized-quadrangle duality and incidence parameters"
+        },
+        {
+          "assessment": "Covers dual geometric model; inspected graph passage concerns noncollinearity and cocliques",
+          "evidence": "H(3,q²) has order (q²,q); q=2 gives 45 points and 27 lines.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/3689733/721532.pdf",
+          "material_read": "§1.5 pp. 42–43, converted-text offsets 82499–85058; §4.3 printed p. 65 around offset 201486",
+          "method": "Lawful OA original PDF passages",
+          "title": "Buildings and Kneser Graphs",
+          "trigger": "Identify the dual model exactly as a Hermitian quadrangle"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen mathematical claim and scope",
+        "Pantangi–Sin Theorem 5 and the proof specialization documented above",
+        "Resultary 70136773ee2a for a distinct equivariant use of the underlying group"
+      ],
+      "rationale": "The Levi graph is natural, and the correct decomposition is useful as reference data for chip-firing or Weyl actions. However, the isolated frozen invariant is completely determined by applying an existing polar-graph theorem through prime-local degree-block elimination. The frozen record supplies no further nonroutine structural or equivariant theorem; the mere recomputation of an implied invariant does not meet the value criterion.",
+      "residual_risks": [
+        "Does not assess the value of classifying Weyl fixed groups, or of a genuinely more general theorem for Levi-graph Smith forms."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:36.148227Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An anchored length-n closed walk on pairs of p-bit time histories enforces the exactly-one rule at every site and time. It determines a unique initial row fixed by F_n^p and conversely is determined by that row. Anchor and orientation are retained, so the trace counts labelled configurations, not rotation/reflection classes. A fresh bitwise reconstruction and Kosaraju decomposition gave the stated cyclic SCCs. The only branching block has 60 vertices, with 12 vertices of outdegree two within the block; all paths to the next such vertex have length five. The nonbranching vertices induce an acyclic graph, so eliminating them by the Schur complement reduces det(I−zA) on that block to the determinant of I minus the weighted branch adjacency with weights z^5 per path. Enumerating all 324 collections of disjoint directed branch cycles (including the empty collection), with sign minus per cycle, gives 1−6z^10+9z^20−4z^30=(1−z^10)^2(1−4z^10). All other cyclic components are simple cycles of lengths [1,2] at heights 1 and 3, [1,2,4] at height 2 and [1,2,4,8,8,8] at height 6. This independently gives both determinant identities, also reconfirmed via exact Newton identities in a separate reconstruction. The formal log derivative extracts all trace differences; fixed-by-1 is contained in fixed-by-3 and the trace equality makes them equal. Thus only fixed-by-2 must be subtracted from fixed-by-6 to count exact period six. The coefficients are 24 on multiples of eight, and 10(4^(n/10)+2) on multiples of ten, with addition on multiples of forty. Dividing by six counts temporal orbits and the table agrees. Replay: node /workspace/rule22-replay.js. The two supplied scripts were read, not executed; their bounded direct enumeration alone is not the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Rule 22 records cba04b56228d and 34a570aa8e2a treat exact periods four and five respectively using space-time transfer.",
+          "The Rule 54 record 56553aecef74 has the same 4[8|n] numerical term for a different rule; the distinct same-day Rule 73 record e51f21e27dc6 obtains a different six-cycle zeta."
+        ],
+        "reasoning": "The earlier Rule 22 determinants are at different return heights and do not provide height-six dynamics; Rules 54 and 73 have different local constraints. The matched method or overlapping numerical term is not a stronger theorem implying this formula.",
+        "searches": [
+          "Resultary: all-length Rule 22 temporal cycle census and renewal zeta",
+          "Resultary: primitive temporal six orbits exact spatial zeta"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_transfer.py and verify_direct.py",
+        "McIntosh archival manuscript",
+        "arXiv:2005.01480",
+        "Resultary catalogue and local mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "McIntosh gives 10:6(0) and its length-20 repetition; known examples can be repeated to produce cycles on multiples of the original spatial length.",
+          "The Rule 22 period-four and period-five results compute only their own return determinants."
+        ],
+        "reasoning": "Repeating examples yields existence along progressions but neither the exclusion of every other length nor multiplicities such as the growing 4^(n/10) term. The exact labelled count needs a complete period-six computation, not just the already known construction.",
+        "searches": [
+          "McIntosh §4.6 and Fig.4.7, printed pp.54–55",
+          "Martínez et al. extended diagrams and Fig.14",
+          "Resultary period-four and period-five Rule 22 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martínez et al. develop Rule 22 de Bruijn diagrams and bound Figure 14's collection to ten generations and shifts up to ten cells.",
+          "McIntosh's finite census suppresses rotational/reflection duplicates and discusses unshifted period-six patterns on ten-site multiples."
+        ],
+        "reasoning": "Pattern generation uses related transfer constraints, but a list modulo spatial symmetries is not a labelled temporal census; symmetry factors are not uniform. Neither inspected passage computes this full determinant or its resulting coefficient series.",
+        "searches": [
+          "Rule 22 exactly-one, time-column transfer, extended de Bruijn diagrams, temporal period six",
+          "arXiv:2005.01480 pp.20,22–23",
+          "McIntosh Linear Cellular Automata §§3.6,4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McIntosh lists Rule 22 circumferences 1–34 and periods through 34, and comments 'none at all of period three' in that context.",
+          "The identical frozen finding in Resultary is the object under review; other close returns treat other periods or other rules."
+        ],
+        "reasoning": "A finite exact table, particularly with different spatial quotient conventions, cannot establish the all-length census or the exclusion beyond the listed range. The inspected passage does not give an all-length proof of the no-period-three observation.",
+        "searches": [
+          "McIntosh Linear Cellular Automata §3.6 and Appendix A.1 pp.135–137",
+          "Resultary: Rule 22 primitive temporal six all circumference census"
+        ]
+      },
+      "rationale": "Credit the historical finite tables, the known period-six patterns, and the extended de Bruijn method. The distinct claim is the complete labelled, oriented, all-circumference period-six census and its exact determinant factorization for Rule 22; the independent check also proves the all-length absence of primitive period three, which was reported in the historical finite-table context. No priority claim is made for the existence of the smallest examples or for the general method.",
+      "residual_risks": [
+        "The archival manuscript's precise public-release date and a complete comparison of its historical tables and all subsequent work are unresolved.",
+        "No global priority is inferred from a bounded search or from the date of a distinct catalogue result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial examples and finite census, not the stated all-length labelled identity",
+          "evidence": "Drops rotation/reflection duplicates, gives a 10-site six-return and 20-site repetition, and reports no period three around the table through circumference 34.",
+          "identifier_or_url": "https://delta.cs.cinvestav.mx/~mcintosh/cellularautomata/Papers_files/lcau.pdf",
+          "material_read": "§3.6 pp.38–39 (offset about 118611); §4.6 and Fig.4.7 pp.54–55 (165497–170893); Appendix A.1 pp.135–137 (385416–391284)",
+          "method": "Bounded archival primary PDF inspection",
+          "title": "Linear Cellular Automata",
+          "trigger": "Historical exact Rule 22 cycle tables and six-step patterns"
+        },
+        {
+          "assessment": "Transfer-method precedent, no exact all-length count located in these passages",
+          "evidence": "The figure collection covers ten generations and ten shifts. The specific eight/ten examples attributed by the frozen record were not independently decoded from the figure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.01480",
+          "material_read": "pp.20 and 22–23 (offsets 38993 and 43200–47153), including Figure 14 caption",
+          "method": "Bounded primary PDF text inspection",
+          "title": "On Patterns and Dynamics of Rule 22 Cellular Automaton",
+          "trigger": "Potential earlier extended-de-Bruijn or exact pattern classification"
+        },
+        {
+          "assessment": "Different proper problem, not height six",
+          "evidence": "Census and renewal factors are for period four.",
+          "identifier_or_url": "2026/11/17/SCOPE-fourth-period-reentrance-and-a-renewal-zeta-for-cyclic-rule-22--cba04b56228d",
+          "material_read": "RESULT.md statement and transfer comparison",
+          "method": "Local Resultary mirror",
+          "title": "Fourth-period reentrance and a renewal zeta for cyclic Rule 22",
+          "trigger": "Same rule and all-length transfer formula"
+        },
+        {
+          "assessment": "Does not compute height six",
+          "evidence": "Exact temporal period-five census and zeta, not the sixth-return determinant.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-54-site-gap-and-a-renewal-zeta-for-temporal-five-cycles--34a570aa8e2a",
+          "material_read": "RESULT.md statement and transfer comparison",
+          "method": "Local Resultary mirror",
+          "title": "A sharp 54-site gap and a renewal zeta for temporal five-cycles of Rule 22",
+          "trigger": "Same rule, different transfer height"
+        },
+        {
+          "assessment": "Different elementary rule",
+          "evidence": "Its matching 4[8|n] term is for Rule 54, not the complete Rule 22 census.",
+          "identifier_or_url": "2026/11/17/SCOPE-spatial-rigidity-of-primitive-temporal-six-cycles-in-elementary--56553aecef74",
+          "material_read": "Indexed finding statement",
+          "method": "Resultary semantic lookup",
+          "title": "Spatial rigidity of primitive temporal six-cycles in elementary Rule 54",
+          "trigger": "Exact matching 8-divisibility term for six cycles"
+        },
+        {
+          "assessment": "Different elementary rule and different census",
+          "evidence": "Rule 73 constraints do not yield the Rule 22 transfer factors.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-reentrant-six-cycle-gap-and-exact-spatial-zeta-for-rule-73--e51f21e27dc6",
+          "material_read": "Indexed finding statement",
+          "method": "Resultary semantic lookup",
+          "title": "A reentrant six-cycle gap and exact spatial zeta for Rule 73",
+          "trigger": "Distinct same-day all-length period-six zeta"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a complete exact temporal orbit census at a natural return time for a standard cellular automaton. It distinguishes a bounded population from an exponential one, accounts for their coexistence, and proves the omission of all other circumferences rather than extrapolating a finite cycle table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

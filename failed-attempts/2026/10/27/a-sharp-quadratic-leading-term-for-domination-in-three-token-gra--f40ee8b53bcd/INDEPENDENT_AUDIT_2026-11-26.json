@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:25:02.907307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every unselected all-B triple must be dominated by a selected layer-one vertex sharing a B-pair. Adding one pair per selected all-B triple therefore gives a pair cover of every triple at cost at most the original dominating-set size, including any selection in layer two. The complement is triangle-free, so Mantel gives the claimed lower bound. For the upper witness, an all-B triple contains a same-side pair of the balanced split, a layer-one vertex either has a B element outside W (use layer two) or both inside W (use W), and an unselected layer-two vertex has a same-side partner in B (each split part has size at least two). The three layer sizes add to t_n+n−2; dividing the bounds by n² gives 1/4. This is an exact all-n argument, not an extrapolation from the recorded tests. The verifier and recorded checks concern a finite range of witness sizes and Mantel examples, not exact domination numbers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue theorem gives q(n) ≤ γ(F_3(K_{m,n})) ≤ q(n)+(C(m−1,2)+1)n−2 for 2≤m≤n, n≥4, with q(n)=C(n,2)−floor(n²/4).",
+          "Chinman et al. Theorem 1.2 gives coefficients 1/(1+mn) and n/(m+n−k+1) multiplying C(m+n,k); at m=2,k=3 these give leading lower constant 1/12 and a cubic upper bound."
+        ],
+        "reasoning": "The catalogue's broader theorem covers every target parameter, whereas the inspected published general bounds alone do not give the target interval or limit.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-quadratic-domination-growth-in-three-token-complete-bipartite-gr--a6f5ffb90b62, Finding",
+          "arXiv:2610.28936, Theorem 1.2, Eq. (2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its verification notes",
+        "Resultary a6f5ffb90b62",
+        "arXiv:2610.28936",
+        "arXiv:2509.16448",
+        "arXiv:2610.31557"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=2 the broader upper coefficient C(m−1,2)+1 equals 1, and the extra construction terms reduce to the same choice of W and layer-two positions; the lower bounds are identical.",
+          "A preprint on two-token domination lists a work in progress on k-token domination and Turán numbers, but gives no three-token statement from that work."
+        ],
+        "reasoning": "Exact overlap is verified by substitution and by checking the construction. The work-in-progress citation signals unresolved historical priority, not another proved implication.",
+        "searches": [
+          "Resultary a6f5ffb90b62, Finding and Constructive upper bound",
+          "arXiv:2610.31557, p. 14 ref. [17]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary a6f5ffb90b62 uses the same uncovered-pair triangle obstruction and specializes to the same balanced-partition witness.",
+          "The Johnson-graph argument at arXiv:2509.16448 p. 10 permits three projected pairs per chosen triple. Its Mantel lower bound for F_3(K_n), with factor 1/3, is not an equivalent formulation of the domination problem on this bipartite host."
+        ],
+        "reasoning": "The pair-cover reduction is prior methodology in related graphs, and exact overlap comes from the distinct catalogue theorem on the actual host family, not merely from use of Mantel.",
+        "searches": [
+          "Local Resultary: three-token domination on complete bipartite graphs; Mantel/Turán pair covers",
+          "arXiv:2509.16448, p. 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen examples for n=4 through 8 and the verification records give bounds/witness sizes, not exact minima.",
+          "The matching catalogue gives the full bound functions, enough to cover the claim even in the absence of an exact γ table."
+        ],
+        "reasoning": "No exact domination-number table is necessary to establish overlap of this bounds-only claim.",
+        "searches": [
+          "Local Resultary matching F_3(K_{m,n}) exact bounds",
+          "Frozen RESULT.md, lines 52–56 and check_output.json"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary theorem gives the entire finite interval as its m=2 case, with the same balanced-split/three-set witness, and thus also the limit 1/4. There is no uncovered part of the finding on the stated graph family. This is a finding of substantive catalogue coverage, not a priority claim: the covering record is indexed later, and the comparison does not establish its independence or prove that the frozen record was known before its date.",
+      "residual_risks": [
+        "Catalogue coverage does not establish historical priority or separate discovery.",
+        "The cited work in progress was not available as a statement-level result; earlier overlap through it remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS by m=2 specialization; relative priority not assessed",
+          "evidence": "The displayed general lower and upper bounds and the witness specialize exactly, not only in leading order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-domination-growth-in-three-token-complete-bipartite-gr--a6f5ffb90b62/RESULT.md",
+          "material_read": "Finding and Constructive upper bound",
+          "method": "Local Resultary index and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Quadratic domination growth in three-token complete bipartite graphs",
+          "trigger": "Strongest exact-family match"
+        },
+        {
+          "assessment": "The inspected theorem gives weaker asymptotic bounds in the target setting",
+          "evidence": "Lower C(n+2,3)/(2n+1) and upper C(n+2,3) at m=2,k=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.28936",
+          "material_read": "p. 2, Theorem 1.2 and Eq. (2), offset 5320 onward",
+          "method": "OA primary PDF text",
+          "title": "The domination number of the k-token graph of the complete bipartite graph K_{m,n}",
+          "trigger": "Same graph, plausible stronger general theorem"
+        },
+        {
+          "assessment": "Related reduction, different host and bound",
+          "evidence": "Complement of a pair cover is triangle-free; the lower bound is (C(n,2)−floor(n²/4))/3 for F_3(K_n).",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.16448",
+          "material_read": "p. 10, three-token complete-graph bound",
+          "method": "OA primary PDF text",
+          "title": "Domination number of Token Graphs",
+          "trigger": "Same token count and Mantel methodology"
+        },
+        {
+          "assessment": "Unresolved lead only",
+          "evidence": "The reference lists work in progress without a theorem to compare; the preprint itself concerns two-token domination.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31557",
+          "material_read": "Title/abstract and p. 14 ref. [17], offset 44760",
+          "method": "OA primary PDF text",
+          "title": "Acosta Troncoso, Caldera Caldera and Rivera: two-token domination",
+          "trigger": "Possible older result through a reference on k-token domination and Turán numbers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The asymptotic question is natural for this sparse host and three-token layer structure. Getting a sharp quadratic leading coefficient with an explicit O(n) gap supplies materially more than the general published degree/order bounds inspected. This recognizes the mathematical content, not an incremental novelty claim against the exact catalogue overlap. It does not settle the exact minimum or the linear term.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

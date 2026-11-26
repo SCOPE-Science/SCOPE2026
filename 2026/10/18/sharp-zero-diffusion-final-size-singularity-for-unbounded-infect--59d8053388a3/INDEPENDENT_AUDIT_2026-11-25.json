@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:03:36.510607Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, transform, global solution, long-time contradiction and cap",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent normalized transform and finite-dimensional closure check"
+      ],
+      "rationale": "For prescribed continuous s, the transform with A′=ks satisfies the transport equation and initial condition. Dividing by the mass gives the exponential tilt of the initial probability convolved with a Gaussian of variance Dt and mean DJ, where J=∫₀ᵗ(A(t)−A(u))du; at D=0 the Gaussian factor is a point mass. This constructs a positive finite-time solution even for atomic data and justifies differentiation without assuming moment decay first. Append A′=ks and J′=kts to the compartment ODEs with m=K₀′(A)+DJ. The locally Lipschitz system preserves positive s and i by their exponential forms; A,J are nonnegative, so m≥0, and mass conservation and the bound J≤ks₀t²/2 give extension on every finite interval. This also gives finite-time continuity in D at zero. The exact derivative m′=ks(K₀″(A)+Dt) is nonnegative. The time integral of i is finite; monotonicity of s and r gives a limit for i, necessarily zero. For D>0 any positive s∞ forces quadratic growth in m and eventually a uniformly positive logarithmic growth of bounded i, a contradiction. With s∞=0, bounded m contradicts the susceptible exponential and integrability of i. At D=0, or under conservative bounded-support dynamics, m is bounded by the corresponding support cap and the survivor lower bound follows directly.",
+      "residual_risks": [
+        "This proof concerns the specified deterministic full-line positive-kernel solution and separately conservative capped dynamics. It does not establish minimal initial-data hypotheses. The submitted finite checks do not verify the nonlinear infinite-time conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Almeida's diffusive theorem assumes a bounded spatial domain and bounded contact kernel. Alfaro–Veruete prove mean escape for their uncoupled full-line replicator–mutator setting. Berestycki et al. analyze a reduced social-diffusion ODE with a zero restoring-drift case."
+        ],
+        "reasoning": "No inspected result combines the required full-line linear potential, feedback through s(t), coupled recovery accounting, and compact-measure quantifier.",
+        "searches": [
+          "Almeida et al. arXiv:2010.15410, assumptions (3)–(4) and Theorem 2.2",
+          "Alfaro–Veruete arXiv:1901.07848, Eq. (1.1), Theorem 2.3 and Corollary 2.4",
+          "Berestycki et al. DOI:10.1007/s00285-022-01861-w, §5 and Proposition 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4d87f0bc3ae7",
+        "arXiv:2603.18801",
+        "DOI:10.1007/s00285-022-01861-w",
+        "arXiv:2010.15410",
+        "arXiv:1901.07848"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reflecting prior proves a noncommuting limit for fixed smooth initial density; Proposition 4 proves S∞=0, R∞=1 and β(t)→∞ in the μ₀=0 case of another model. The full-line proof here establishes the conditional variance floor for the actual time-dependent feedback and for atomic initial data."
+        ],
+        "reasoning": "The same qualitative warning is not new. Reflection changes the trait transport and moment equations, and the reduced risk variable β is not the conditional infected-trait mean here. Thus those results do not already imply the supported full-line theorem.",
+        "searches": [
+          "4d87f0bc3ae7, Finding and Assumptions",
+          "Berestycki et al., reduced system (27) and Proposition 4",
+          "Lamata-Otín et al., Eq. (1), Eq. (S.4) and supplementary final-size passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lamata-Otín et al. give the same formal selection–diffusion PDE; Resultary 4d87f0bc3ae7 imposes reflection at zero with smooth compactly supported initial density."
+        ],
+        "reasoning": "Even extension of a reflecting nonnegative-trait solution to the line produces the |λ| selection potential, not the linear λ potential of the audited theorem. The formal local equation alone does not make the two evolutions equivalent.",
+        "searches": [
+          "Local Resultary search for final-size collapse, zero-diffusion singularity, and unbounded trait selection–diffusion",
+          "Lamata-Otín et al., arXiv:2603.18801, Eq. (1) and Eq. (S.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary entry gives the exact terminal triple for a reflecting half-line and a stronger implicit cap bound in the reflecting setting. The supplementary comparison defines final size and presents plots and resurgence discussion."
+        ],
+        "reasoning": "The exact limiting numbers already occur in a different boundary problem; plots or numbers without matching hypotheses do not certify the full-line quantifier.",
+        "searches": [
+          "Resultary 4d87f0bc3ae7 final-size domain dichotomy",
+          "Lamata-Otín et al., supplementary final-size results (p. 19, text offset 92500)"
+        ]
+      },
+      "rationale": "Credit existing coverage of the qualitative discontinuity in a reflecting half-line problem and of the bounded-support comparison. The distinct contribution supported here is the theorem for the full-line Cauchy problem with compactly supported initial measures, including atoms, using the exact cumulant identities to control the sign and divergence of its conditional mean. Neither the reflecting model nor the related reduced social-diffusion model supplies that conclusion for this Cauchy problem.",
+      "residual_risks": [
+        "The comparison is bounded, not proof of priority. The conceptual dichotomy and reflecting capped bound already have precedent; do not promote the result as their discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap, but a different unbounded-domain boundary problem",
+          "evidence": "States ‘reflecting mutation on the full nonnegative half-line’ with smooth compactly supported initial density and no-flux boundary. On a finite reflecting interval the survivor lower bound is the root of log(S₀/u)=kL(S₀+I₀−u)/μ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-unbounded-mutation-erases-the-final-susceptible-fraction-in-an-e--4d87f0bc3ae7/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Unbounded mutation erases the final susceptible fraction in an evolutionary SIR equation",
+          "trigger": "Earlier exact qualitative discontinuity in the same formal equation"
+        },
+        {
+          "assessment": "Same formal equation, not the universal asymptotic theorem in the passages read",
+          "evidence": "Equation gives the linear trait-dependent reaction and trait diffusion; the supplement defines final size and displays attack-rate plots and resurgence behavior. The source describes the trait as a transmission probability, not a biological endorsement of the full-line extension.",
+          "identifier_or_url": "arXiv:2603.18801",
+          "material_read": "Eq. (1) p. 2 offset 7300; Eq. (S.4) p. 9 offset 51000; final-size supplement p. 19 offset 92500",
+          "method": "Primary OA paper",
+          "title": "Interplay between evolutionary and epidemic time scales challenges the outcome of control policies",
+          "trigger": "Original formal model and final-size analysis"
+        },
+        {
+          "assessment": "Similar asymptotics in a different reduced model",
+          "evidence": "Proposition 4 concludes S∞=0, R∞=1, β(t)→∞ for μ₀=0, D>0; μ₀ is a restoring-drift parameter, not the recovery rate.",
+          "identifier_or_url": "DOI:10.1007/s00285-022-01861-w",
+          "material_read": "§5 reduced system (27), p. 33 offset 97000, and Proposition 4, p. 35 offset 102000",
+          "method": "Primary OA paper",
+          "title": "Epidemic modeling with heterogeneity and social diffusion",
+          "trigger": "Prior complete-removal and mean-divergence result"
+        },
+        {
+          "assessment": "The theorem's hypotheses exclude the audited unbounded full-line kernel",
+          "evidence": "Diffusion is on a smooth bounded domain and the contact kernel is bounded.",
+          "identifier_or_url": "arXiv:2010.15410",
+          "material_read": "Assumptions (3)–(4), pp. 3–4, offset 10000; Theorem 2.2, p. 4, offset 17202",
+          "method": "Primary OA paper",
+          "title": "Final size and convergence rate for an epidemic in heterogeneous population",
+          "trigger": "General diffusive final-size theorem"
+        },
+        {
+          "assessment": "Relevant transform and escape precedent, not a coupled final-size result",
+          "evidence": "Establishes mean escape for admissible data in a separate full-line trait equation, without the audited compartment feedback.",
+          "identifier_or_url": "arXiv:1901.07848",
+          "material_read": "Eq. (1.1) p. 2, offset 0; Theorem 2.3 and Corollary 2.4 pp. 5–6, offset 14500",
+          "method": "Primary OA paper",
+          "title": "Density-dependent replicator-mutator models in directed evolution",
+          "trigger": "Full-line replicator–mutator mean divergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings, Proof and Limitations",
+        "Resultary 4d87f0bc3ae7, reflecting boundary comparison"
+      ],
+      "rationale": "The full-line interpretation of the bare diffusion operator permits negative values, making monotonicity and the final-size contrast nontrivial even given the reflecting result. The exact transform explains why the sign of the mean is nevertheless controlled and why this specific unbounded approximation fails at the terminal limit even with atomic initial data. The mathematical value is identifying the consequence of the domain assumption, not extrapolating it to actual transmission.",
+      "residual_risks": [
+        "No finite-time forecast, real organism, intervention or biological design is addressed. The qualitative contrast itself has substantial prior precedent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

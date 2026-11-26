@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:47:26.911904Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 42–127; analytical replay in this assessment",
+        "Frozen VERIFICATION.md and VERIFY.py, inspected without executing; quadrature, FFT and density checks are finite examples only"
+      ],
+      "rationale": "Writing h(t)=P(H>t,R>t) and k(t)=P(H>t)f_R(t), direct substitution a²/(4Du) in the two parts of the first-hit integral gives the displayed p, and ∫k=1−p. The kernel has density O(t^(−α−1)), h(t) is regularly varying of index −α with the stated coefficient, and the reset-renewal density u has finite mass q/p. For b=(1+t)^(−α−δ) as in the record, splitting k*b at t/2 proves (k*b)/b→q; since k/b→0 and k vanishes before τ₀, comparison in τ₀-sized time intervals gives u=O(b). The part of u*h past t/2 is o(h) because ∫₀^{t/2}h is bounded, logarithmic, or O(t^(1−α)) according to α, including equality. The early part gives (q/p)h by bounded regular-variation ratios. Replacing u by k^{*n} and inserting 1_{s≥εt} gives respectively q^n h and o(h); hence count tightness and σ(t)/t→0. The absorbing heat kernel in scaled coordinates, divided by erf(a/√(4Dv)), converges pointwise to y exp(−y²/4)/2; since both densities normalize, this also gives convergence in total variation for the one-segment law. The age v=t−σ is asymptotic to t under each fixed count, independent clock censoring leaves the spatial conditional law unchanged, and mixing gives the stated joint limit. Layer-cake integration gives the strict moment boundaries, including logarithmic divergence at equality.",
+      "residual_risks": [
+        "The proof is for fixed positive parameters, not uniform over reset parameters. The supplied numerical checks do not establish conditional joint convergence or a finite-time crossover."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The probability tail of a light-tailed random sum of independent identically distributed subexponential variables is its expected count times the summand tail.",
+          "The wedge result proves geometric completed count and tight unscaled last epoch, with a fair eventual exit-edge mark independent of the limiting past. Its proof contains the same fixed-count early/late convolution split."
+        ],
+        "reasoning": "Use the geometric total of failed attempts, independently sampled reset-terminated durations, then one independent hit-terminated duration. Their tails are βc/(αq) and c/(2αp) times t^(−α), respectively, by integrating the corresponding marked densities. The random-sum result plus a two-tail convolution gives c/p. The scalar equivalent thus specializes standard theory. The wedge proof is a strong analogue for the count and last epoch, but the threshold is state-triggered; neither its geometry nor its future edge mark gives the Pareto-clock Rayleigh endpoint.",
+        "searches": [
+          "Denisov–Foss–Korshunov, arXiv:0808.3697, p. 2 Eq. (2)",
+          "Resultary: marked late-survivor threshold-reset Brownian wedge, 0e5f8bf8a7c7, Proof §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Nagar–Gupta Eqs. (10)–(11)",
+        "Godrèche–Luck §7",
+        "Denisov–Foss–Korshunov Eq. (2)",
+        "Resultary 0e5f8bf8a7c7 Finding and Proof §§1–3",
+        "Liu et al. indexed abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-large-attempt principle supplies scalar normalization; the wedge gives a reusable marked-renewal method, not the half-line killed heat kernel or a theorem identifying its joint spatial mark."
+        ],
+        "reasoning": "The additional conditioning step uses independence of the external clock and the absorbing Brownian kernel at the asymptotically full surviving age; it proves the joint count/endpoint claim rather than merely importing a geometric count and a marginal Rayleigh law.",
+        "searches": [
+          "Godrèche–Luck §7, Eq. (7.1) and surrounding count decomposition",
+          "Nagar–Gupta first-passage passage, p. 4",
+          "Resultary wedge record 0e5f8bf8a7c7, Finding and Proof §§2–3",
+          "Denisov–Foss–Korshunov Eq. (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translation/reflection of the free-target benchmark in Nagar–Gupta gives the same killed motion for the Pareto interval law; Eqs. (10)–(11) give renewal and mean first passage.",
+          "Godrèche–Luck §7 Eqs. (7.1)–(7.2) cover general restart and an unconditional geometric count."
+        ],
+        "reasoning": "A reset-count law up to eventual success is not a count at time t conditioned on no success yet. Equivalence of the underlying scalar model does not identify the joint endpoint observable.",
+        "searches": [
+          "Nagar–Gupta, arXiv:1512.02092, power-law reset-clock first passage",
+          "Godrèche–Luck, arXiv:2309.06997 §7",
+          "Liu et al., DOI 10.1002/cphc.202400313"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local-mirror RESULT.md, Finding and Proof §§1–3, gives a geometric count jointly with an unscaled epoch, a fair future edge mark and total reset count, for a planar wedge."
+        ],
+        "reasoning": "No finite exact table would certify a continuous four-parameter asymptotic; the relevant exact-record comparison is the nearby explicit joint theorem. Its time and count components overlap in mechanism but the model and spatial mark differ. Same-day dating does not determine priority.",
+        "searches": [
+          "Resultary search on Pareto resetting, Brownian first passage and late survivor selection: strongest indexed match 0e5f8bf8a7c7"
+        ]
+      },
+      "rationale": "The supported distinction is the full late-survivor law for the independent Pareto-clock benchmark, in particular independence of the completed-reset count and the Rayleigh endpoint at the common observation time. Credit the older same-model renewal and mean laws, the generic random-sum route to the survival equivalent, and the earlier/parallel indexed wedge result's transferable renewal localization and geometric mechanism. Neither the wedge exit-side mark nor an unconditional lifetime reset count is the Pareto half-line endpoint law. This is not a priority claim for the scalar heavy-tail or renewal mechanism by itself.",
+      "residual_risks": [
+        "Liu et al.'s exact benchmark passage was inaccessible from attempted lawful copies; the record's attribution about its apparent preasymptotic regime is unconfirmed here.",
+        "An uninspected general marked killed-renewal theorem could shorten or imply the joint convergence argument. No priority follows from the date of the wedge record or from a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model renewal and mean law; no joint observed-survivor law in passage read",
+          "evidence": "Renewal/mean formulas concern the scalar first-passage experiment.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.02092",
+          "material_read": "Front matter and first-passage passage p. 4 around offset 25600, Eqs. (10)–(11)",
+          "method": "OA PDF bounded passage",
+          "title": "Diffusion with stochastic resetting at power-law times",
+          "trigger": "Same reset clock and free Brownian target benchmark"
+        },
+        {
+          "assessment": "General first-passage recursion and unconditional geometric count are covered",
+          "evidence": "Failed attempts before success, not completed resets observed among survivors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.06997",
+          "material_read": "§7 pp. 38–39, offset about 233500, Eqs. (7.1)–(7.2)",
+          "method": "OA PDF bounded passage",
+          "title": "Replicating a renewal process at random times",
+          "trigger": "Potentially dominating restart theorem"
+        },
+        {
+          "assessment": "Scalar constant follows using the restart decomposition and marked tails",
+          "evidence": "Subexponential summands plus an independent light-tailed count satisfy the expected-count tail formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/0808.3697",
+          "material_read": "Introduction, p. 2, Eq. (2) and surrounding argument, offsets 5900–7630",
+          "method": "OA PDF literal locate and offset read",
+          "title": "Asymptotics of randomly stopped sums in the presence of heavy tails",
+          "trigger": "General constant including finite and infinite mean attempt lengths"
+        },
+        {
+          "assessment": "Strong structural overlap on normalization and past resets, no Pareto-clock endpoint law",
+          "evidence": "Spatial mark is the eventual exit edge for a wedge, with no independent reset clock.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-marked-late-survivor-law-for-threshold-reset-brownian-motion-in--0e5f8bf8a7c7/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–3, offsets 0–8752",
+          "method": "Local Resultary mirror",
+          "title": "Marked late-survivor law for threshold-reset Brownian motion in a wedge",
+          "trigger": "Closest indexed joint survivor theorem"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not counted as negative evidence",
+          "evidence": "Abstract concerns Pareto resetting in a ratchet potential; it does not establish what the free benchmark figure reports.",
+          "identifier_or_url": "https://doi.org/10.1002/cphc.202400313",
+          "material_read": "Indexed abstract only; §3/Fig. 2(a) not read",
+          "method": "Indexed lookup; OA DOI, publisher and identified university repository PDF returned HTTP 403",
+          "title": "Ratcheting by Stochastic Resetting With Fat-Tailed Time Distributions",
+          "trigger": "Frozen comparison to a reportedly matched free-Brownian passage, §3/Fig. 2(a)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope",
+        "Nagar–Gupta first-passage results",
+        "Resultary wedge Finding for comparison of what the survivor marks measure"
+      ],
+      "rationale": "For a standard first-passage benchmark, the evaluated tail and the joint survivor law address different practical questions: mean reset time does not diagnose the tail, and a geometric lifetime count does not tell whether long survivors have undergone many resets. The marked theorem answers the latter at a fixed observation time and predicts the diffusive endpoint independently of the past count. This is useful beyond restating the renewal equation or mean threshold.",
+      "residual_risks": [
+        "No quantitative crossover or claim for the separate ratchet-potential problem; asymptotic shape is not a finite-time estimate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

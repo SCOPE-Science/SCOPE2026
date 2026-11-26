@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:59:18.768682Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–35 and 37–82",
+        "VERIFICATION.md lines 19–23",
+        "check_primepower_cubic.py (inspected, not executed)",
+        "checker_output.txt (recorded numerical output only)",
+        "Independent exact reproduction: /tmp/opencode/frozen_review_reproduction.py cubic"
+      ],
+      "rationale": "For the stated translation convention, the exponent of the ambiguity summand is −a³−3at²+(3a²+b)t. Grouping residues modulo N/gcd(3a,N) removes the sum unless the same gcd divides B=3a²+b. In the reduced primitive sum, expanding the squared modulus and summing over the base residue restricts shifts h to 2uh=0 modulo the reduced modulus. In odd modulus only h=0 contributes. In a reduced dyadic modulus 2^r with r≥2, the other shift is 2^(r−1), whose quadratic phase is integral and whose linear phase has sign (−1)^(B/2^s). At reduced modulus two the contribution instead requires B/2^s odd. At p=3 with r=1 the quadratic term vanishes outright and B=b modulo N. Translation counts (p−1)p^(r−1), times the corresponding admissible b counts, give all multiplicities including the origin. Weyl conjugation multiplies each normalized W_(a,b) by a distinct character, and its analysis column is this character times A_g(a,b)/√N, so the squared norm is N|A_g|² on the exact stated label. This gives the Gram spectrum, kernel and rank and gives the restricted condition numbers by taking the square root of the extreme positive eigenvalue ratio. It handles p=2,3 at k=1 and checks the factor N for unweighted, unit-normalized measurements. Independently, I formed the squared exponential sums from the original cubic exponents as integer histograms and reduced them modulo Φ_(p^k) for all labels at N=2,4,8,16,32,3,9,27,5,25,7. The exact remainders, multiplicities and trace agreed with the claim. The unbounded proof is the character orthogonality and valuation analysis, not these examples.",
+      "residual_risks": [
+        "No finite-field analogue, arbitrary cubic coefficient, mixed-prime extension or globally invertible matrix analysis is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li's diagonalization applies to any window and expresses Gram eigenvalues as N times ambiguity moduli squared; the earlier frame criterion relates nonvanishing to projector span.",
+          "Li v1 Proposition 5.1 proves the necessary congruence for nonvanishing in the p≥5, k≥2, positive-valuation case.",
+          "The inspected radar/Alltop material concerns prime fields or finite fields."
+        ],
+        "reasoning": "The general formula does not evaluate the cubic ambiguity data. A finite-field result cannot simply be substituted at p^k for k>1: the additive group and valuation strata differ from the cyclic ring. Li's necessary congruence is covered as prior but leaves the exceptional primes and the exact surviving weights uncomputed.",
+        "searches": [
+          "Li arXiv:2609.09614v1 Proposition 5.1 and v2 Proposition 2.4",
+          "Bojarovska–Flinth arXiv:1503.05800 Theorem 2.3",
+          "Gong 2012 §4.1.3 and Price–Hall–Bartlett 2023 finite-field Alltop definitions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.09614v1 and v2",
+        "arXiv:1503.05800",
+        "Gong 2012 §4.1.3",
+        "Price–Hall–Bartlett 2023 p. 2",
+        "Resultary 7cbef39ff46a, f843127f5d67, a783058468ac and 30922f9c96fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectral map from ambiguity values is already explicit, and the Alltop zero strip plus some p≥5 modular vanishing tests were known.",
+          "None of those inspected statements gives the full surviving moduli and counts at p=2 or p=3, or the all-prime census."
+        ],
+        "reasoning": "The ranks and condition numbers are mechanical once the complete ambiguity table is known and are not separately credited. Producing that input requires resolving the reduced-modulus-two parity switch, the extra factor three and its linear endpoint, and the multiplicities over translation valuation strata. This is not a substitution into a previously evaluated ambiguity census in the inspected earlier sources.",
+        "searches": [
+          "arXiv:2609.09614v1 Proposition 5.1, v2 Proposition 2.4",
+          "arXiv:1503.05800 condition (2.11) and Example 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Later exact odd-prime-power and dyadic Resultary records together have the same ambiguity, rank and spectrum after normalization and sign relabeling.",
+          "The earlier Alltop example uses the same cubic family in prime dimensions to show the zero-translation ambiguity obstruction."
+        ],
+        "reasoning": "A nonunit chirp rescales analysis columns and the squared spectrum by the corresponding fourth power of the amplitude; changing time/frequency conventions relabels the surviving directions. Neither is mathematical novelty. Prior qualitative ambiguity zeros don't provide the characteristic-two and characteristic-three census.",
+        "searches": [
+          "Unmodified cubic chirp, Alltop ambiguity and cyclic prime-power projector spectrum",
+          "Resultary 7cbef39ff46a and f843127f5d67",
+          "Bojarovska–Flinth arXiv:1503.05800, Example 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The odd and dyadic matches both have catalogue date 2026-11-08, after the frozen record.",
+          "The earlier cubic-graph record is about orthogonal frequency spectra of (t,t³) at p², while the same-day impulse record uses a modified window at prime dimension."
+        ],
+        "reasoning": "The later entries are genuine exact coverage under equivalent conventions, but do not establish earlier priority. Neither the graph Fourier sum nor the modified-window spectrum is the unmodified full-projector census. The same-day date gives no relative order.",
+        "searches": [
+          "Resultary exact prime-power cubic chirp ambiguity and dyadic lifting spectrum, 7cbef39ff46a and f843127f5d67",
+          "Resultary cyclic cubic-graph spectra a783058468ac and positive-impulse repairs 30922f9c96fe"
+        ]
+      },
+      "rationale": "The ambiguity-to-spectrum identity, the qualitative Alltop zero obstruction and part of the p≥5 cyclic-power zero test are prior. The distinct claim credited here is the evaluated unmodified cyclic prime-power census, in particular the exact exceptional-prime survival and multiplicities together with all positive magnitudes. The closest exact catalogue results cover it in two pieces but are catalogued later. This determination is limited to available statement-level evidence.",
+      "residual_risks": [
+        "An equivalent prime-power census under radar/polyphase terminology could predate the inspected sources; Alltop's 1980 primary paper was not inspected directly.",
+        "Catalogue dates provide only the stated chronology of records, not worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial direct prior overlap; spectral identity known",
+          "evidence": "Proposition 5.1 gives vanishing for modulation outside −3a² modulo p^s for the stated p≥5 stratum. Proposition 2.4 gives eigenvalues N|A_g|²; §2.3 concerns perturbing a window.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09614",
+          "material_read": "v1 p. 18 Proposition 5.1 (offset 63635), §2.3 p. 4 (13057); v2 p. 5 Proposition 2.4 (15863)",
+          "method": "Versioned OA PDF passage inspection",
+          "title": "Explicit Full-Spark Gabor Windows with Quantitative Phase Retrieval",
+          "trigger": "Earlier same-window cyclic-power ambiguity and general spectrum"
+        },
+        {
+          "assessment": "Covers a general frame condition and familiar zero strip, not the cyclic-power census",
+          "evidence": "The Alltop example applies the zero-translation/nonzero-modulation obstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Theorem 2.3 p. 4 (offset 18918), condition (2.11) and following proposition p. 8 (37204), Example 2.3 p. 9 (39431)",
+          "method": "OA PDF passage inspection",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Alltop ambiguity and known Gabor lift facts"
+        },
+        {
+          "assessment": "Prime-field comparison, not an exact cyclic prime-power classification",
+          "evidence": "Discusses the F_p Alltop sequences and correlation bounds.",
+          "identifier_or_url": "Gong 2012, §4.1.3",
+          "material_read": "§4.1.3 pp. 13–14, offset 35747",
+          "method": "OA passage inspection",
+          "title": "Gong's survey of sequences with low correlation",
+          "trigger": "Possible exact Alltop ambiguity in radar or sequence terminology"
+        },
+        {
+          "assessment": "Different ring for powers above prime dimension",
+          "evidence": "The Alltop objects in the inspected definitions are over finite fields.",
+          "identifier_or_url": "Price–Hall–Bartlett (2023), PDF p. 2",
+          "material_read": "Definitions p. 2, offset 4254",
+          "method": "OA passage inspection",
+          "title": "Price–Hall–Bartlett on Alltop functions",
+          "trigger": "Stronger finite-field Alltop formulation"
+        },
+        {
+          "assessment": "Equivalent classifications, both later catalogue date",
+          "evidence": "The former includes p=3 and all odd primes, the latter gives the dyadic zeros, Weyl kernel and spectrum.",
+          "identifier_or_url": "Resultary 7cbef39ff46a and f843127f5d67",
+          "material_read": "Findings, window and transform conventions",
+          "method": "Local catalogue search and mirror passage inspection",
+          "title": "Exact prime-power cubic chirp ambiguity and Gabor lifting spectrum; exact lifted Gabor spectrum in dyadic cycles",
+          "trigger": "Exact match to all cases in two records"
+        },
+        {
+          "assessment": "Different quantities or windows",
+          "evidence": "Classifies orthogonal frequencies on a graph at p² or modifies a prime-length cubic window by an impulse.",
+          "identifier_or_url": "Resultary a783058468ac and 30922f9c96fe",
+          "material_read": "Findings and parameter scope",
+          "method": "Local catalogue search and mirror passage inspection",
+          "title": "All exponential spectra of the cubic graph; arithmetic resonance in positive-impulse repairs",
+          "trigger": "Nearby earlier and same-day cyclic cubic results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–35 and 37–79",
+        "Independent exact ambiguity census",
+        "Li arXiv:2609.09614 Proposition 2.4 and v1 Proposition 5.1"
+      ],
+      "rationale": "For a canonical time-frequency window the exact spectrum measures how many linear measurement directions are lost, which Weyl coordinates are missing, and how stable the remaining directions are. The distinction between asymptotic identifiable fractions 1/3, 1/4, and p/(p+1) is substantial; treating both exceptional primes as minor corrections to a prime-field result would miss it. The reusable contribution is the full evaluated arithmetic census, not the standard diagonalization or an isolated rank check.",
+      "residual_risks": [
+        "The condition numbers are for the identifiable subspace of complex matrix analysis and give no unconditional stability or invertibility theorem for nonlinear signal recovery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

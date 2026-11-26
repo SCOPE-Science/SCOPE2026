@@ -1,15 +1,21 @@
-# Scientific review: parity law for gear-graph dissociation complexes
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The objects and quantifiers are explicit: every integer \(n\ge3\) and the graph with rim subdivided once and a hub adjacent to each original rim vertex. Projection onto the hub and original rim is order preserving. The fiber analysis shows that, away from a chosen singleton of available subdivision vertices, only two alternating binary words and the all-selected word can survive. The first gives two extra critical facets precisely when \(n\) is even; every critical facet has size \(n\). The patchwork theorem makes the complete matching acyclic, so the reduced CW model is the stated integral sphere wedge. Independent enumerations through \(n=9\) check acyclicity, and through \(n=7\) check mod-two Betti numbers; the proof is not reliant on those finite tests.
+## correctness
 
-## Originality
-**PASS, with residual priority uncertainty.** Searches covered gear, Jahangir, bipartite wheel, cyclic simplex-graph, dissociation, three-path-free and higher-independence nomenclature. Sawant's 2026 paper establishes vertex decomposability for **trees**, not gear graphs, which contain a cycle. Deshpande–Singh's complete multipartite, fully whiskered, path, cycle and rooted-tree families neither contain these gear graphs nor imply the claimed higher-independence type. Wheel-Mycielskian **ordinary** independence complexes and crown-graph dissociation complexes are different objects. Targeted public research-record searches found no equivalent or stronger covering theorem, although an unindexed equivalent is possible.
+PASS
 
-## Mathematical value
-**PASS.** The gear (bipartite wheel, cycle-simplex graph) family is a canonical all-parameter graph construction, not an arbitrary subgraph slice. Its second-independence topology was not supplied by the nearby higher-independence classifications. The result gives a full integral homotopy classification in unbounded dimension and identifies a sharp **one-versus-three-sphere parity law**. The alternating-word mechanism explains the change structurally and provides a reusable fiber-matching pattern for subdivided hub-and-rim graphs. No unsupported downstream general theorem is claimed.
+The selected-degree≤1 condition exactly characterizes the faces. The projection onto hub and original rim vertices is monotone, and every matched incidence toggles one subdivision vertex and is an actual face-poset cover. In a hub fiber at most one original rim vertex is selected; at least n−2 subdivision vertices can be toggled freely. Without the hub, a subdivision vertex joining two selected rim vertices is forbidden. The only pair exclusions left come from the two subdivision neighbors of an isolated selected rim vertex, so the pairs are disjoint. If any allowed subdivision vertex lies in no pair, its toggle matches the whole fiber. Otherwise all rim vertices are selected, or the proper cyclic word has no 00 (which leaves an isolated allowed vertex) and no 11 (a boundary of that run leaves one). This forces exactly the two alternating words for even n, and none for odd n. In each alternating fiber choose one endpoint of each forbidden pair in an ordered list and apply sequential element matching. Equivalently, toggle the chosen endpoint of the first pair whose other endpoint is absent. Only the face containing every other endpoint survives, of size n. The all-selected rim fiber also contributes one size-n face. Patchwork gives acyclicity; restriction to the ordinary nonempty face poset makes the singleton formerly paired with the empty face critical and retains the other pairs. Thus the Morse CW complex has one vertex and one or three (n−1)-cells, attached to a point, proving the sphere wedge without any coefficient assumption. The frozen self-review uses ‘critical facets’ loosely: for n=4 a legitimate alternating unmatched face {u₀,u₂,w₂,w₃} can be extended by u₁. The primary proof correctly says critical faces and needs no facet claim.
 
-## Evidence, limitations and priority risk
-Primary sources: Sawant, arXiv:2605.25150, especially the introduction and Theorem 1.1; Deshpande and Singh, arXiv:2001.05448, especially Proposition 2.10, Theorem 2.11 and the list of covered families; Abdelmalek et al., arXiv:2106.10863, introduction. The graph convention is checked against MathWorld's gear-graph description. The exact-check program and expected output accompany the proof. Limitations: threshold two only, \(n\ge3\) only, no equivariant information or general Jahangir classification. The originality search cannot eliminate unpublished or unindexed exact duplicates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The discrete-Morse tools and graph construction are established. The identification of precisely two extra alternating fibers and the resulting full gear-graph homotopy formula are not supplied by the examined prior results. This assessment is bounded by the sources inspected.
+
+## value
+
+PASS
+
+This is the homotopy type of a natural cyclic hub-and-rim family at its first higher-independence threshold, in unbounded dimension. A complete family classification with parity changing the number of spheres from one to three is stronger than Euler data or field homology; the proof identifies the exact cyclic-word obstruction using a short uniform matching. It neither promises higher-threshold results nor depends on such promises for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:12:38.487786Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For λ>2 the Dirichlet path transfer has no poles, and its two endpoint-to-first-interior coefficients are U_(ℓ−2)/U_(ℓ−1) and 1/U_(ℓ−1), evaluated at λ/2. Inserting them at each degree-d junction gives the stated scalar map on the exact parent eigenspaces with equal multiplicities; an eigenvector vanishing on all junctions is zero. After λ=u+1/u, the transformed equation in RESULT.md lines 60–66 has derivative 2ρ+O_d(ℓρ^(−ℓ)) on |u−ρ|≤C_dρ^(−ℓ). The term −μ(u²−1)u^(−ℓ) is uniformly bounded for μ∈[−d,d], and choosing C_d sufficiently large brackets its perturbation of the simple root. Taylor expansion yields shift μ(d−2)ρ^(−ℓ)/(2ρ)+O_d(ℓρ^(−2ℓ)); multiplying by the derivative 1−ρ^(−2) gives the claimed c_d. Interlacing at the Dirichlet principal block gives at most n eigenvalues above 2, and the eigenspace extensions attain that count. Even for a non-spectral μ in the interval, the secular quotient λ−(dU_(ℓ−2)+μ)/U_(ℓ−1) is strictly increasing: the rational term is a nonnegative combination with weights (d±μ)/2 of the symmetric and antisymmetric endpoint resolvent forms, each nonincreasing above 2. This also rules out additional scalar roots for the continuum extension. The implicit μ derivative is positive, so the width is the difference of the two endpoint eigenvalues; μ_min=−d iff the connected parent is bipartite. All constants use only d and neither the maximum multiplicity nor parent order. The frozen verify.py, requirements and VERIFICATION.md document finite checks, inspected rather than executed. The proof is for the above-2 band, not the entire enlarged spectrum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar et al. allow arbitrary parents and local-degree junction limits; their subdivided-star recurrence is exact for that star. No parent-spectrum splitting or degree-only two-term error is stated in those inspected results.",
+          "An independently derived general pencil is λ U_(ℓ−1) I−U_(ℓ−2)D_G−A_G, with the known once-subdivided case λ²I−(D_G+A_G). It recovers the regular secular equation directly but is not a located prior source for its quantitative expansion."
+        ],
+        "reasoning": "A broader convergence theorem does not dominate the rate and coefficients here. An exact general pencil is a natural starting point rather than itself a quantitative root expansion uniform in the parent order.",
+        "searches": [
+          "arXiv:2303.10488v1 Theorem 3, Lemma 15, Propositions 18–Theorem 19",
+          "arXiv:2604.12759 §III–IV",
+          "general Schur determinant of the subdivided adjacency matrix"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, requirements.txt",
+        "arXiv:2303.10488v1",
+        "arXiv:2604.12759",
+        "Three distinct Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A count and a common limit leave both the splitting eigenvalues and the width coefficient unknown. The overlap estimate gives an exponential scale but not the factor c_d(d−μ_min). The exact secular equation is elementary once Dirichlet paths have been eliminated; a uniform simple-root perturbation then gives the error.",
+          "The iff bipartite maximum follows from the full splitting and the standard extremal −d eigenvalue characterization."
+        ],
+        "reasoning": "The width and bipartiteness consequences are not separately credited once the uniform splitting is known. The substantive increment is evaluation of the leading parent-spectrum correction, with root count and control over the entire μ interval, not the algebraic Schur identity itself.",
+        "searches": [
+          "arXiv:2303.10488v1 Theorem 3 and Proposition 18",
+          "arXiv:2604.12759 §III equations (6)–(7)",
+          "Frozen RESULT.md lines 36–87"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar et al. Thm. 3 gives the same limiting energies in the regular case, and Prop. 18 gives the fixed-parent outside-interval counting conclusion for sufficiently many subdivision vertices.",
+          "Berkovits §III gives the same junction magnitude d/√(d−1) in unit hopping and the overlap scale exp(−ℓ log(d−1)/2) with the path-length convention accounted for."
+        ],
+        "reasoning": "These are equivalent for the limiting energy and scale, not for the first-order matrix or spectrum on the junction subspace. The opposite Hamiltonian sign simply exchanges the energy orientation, not the width.",
+        "searches": [
+          "uniform edge subdivision, bond or edge inflation, adjacency spectral decimation and junction bandwidth",
+          "arXiv:2303.10488v1",
+          "arXiv:2604.12759"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct co-dated subdivision entry concerns cycle/cut projection norms. The exact clique-insertion entry concerns inertia of the line graph of a once-subdivided graph. The later non-backtracking entry includes a once-subdivided special tripartite graph as a subcase."
+        ],
+        "reasoning": "These are actual overlapping construction or spectral keywords, but the indexed statements are for different operators or a single length and model. None reports a regular-parent formula at unbounded ℓ in the inspected passage. The index check is bounded, not an absence proof.",
+        "searches": [
+          "2026/10/18/SCOPE-uniform-edge-subdivision-preserves-cycle-projection-norms-and-fo--cfa42af44df0",
+          "2026/10/18/SCOPE-exact-adjacency-inertia-of-all-clique-inserted-graphs-via-full-e--833ba73abbb3",
+          "2026/11/8/SCOPE-sharp-lower-edge-escape-among-minimum-real-spectrum-non-backtrac--32e03f23d8b1"
+        ]
+      },
+      "rationale": "Credit the known junction energy, outside-band count in the fixed-parent asymptotic regime, exponential scale and elementary subdivision reduction. The distinct claim supported by the bounded search is the degree-only uniform, parent-resolved first-order splitting of the full junction band, including the graph-dependent sharp width. Neither the closest primary subdivision theorem nor the inspected inflation formulas have this information. The residual risk is earlier exact decimation or asymptotic perturbation coverage that the search did not locate.",
+      "residual_risks": [
+        "A preexisting general subdivision spectral-decimation formula or effective junction perturbation treatment may encode more of the result; no exhaustive priority conclusion is warranted.",
+        "The bounded lookup does not establish absence. Credit to the two primary sources is based on the actual theorem and equation passages inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits limiting and fixed-graph counting results; no root-resolved first-order uniform estimate in those passages",
+          "evidence": [
+            "Thm. 3 gives ordered limits by junction degrees. Prop. 18 controls the number outside [−2,2]; Lemma 15 treats a subdivided star determinant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.10488",
+          "material_read": "Thm. 3 p. 2, Lemma 15 p. 10, Prop. 18–Thm. 19 pp. 11–13",
+          "method": "OA PDF bounded passage comparison",
+          "title": "Subdivision and Graph Eigenvalues",
+          "trigger": "Primary general uniform subdivision theorem with the same junction limit and count"
+        },
+        {
+          "assessment": "Junction energy, localization and exponential scale are prior; not the quantitative finite-parent splitting in the inspected passages",
+          "evidence": [
+            "Reports ±tk/√(k−1), decay length 2/log(k−1), and a bandwidth proportional to the long-chain overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.12759",
+          "material_read": "§III Eqs. (6)–(7), HTML offsets 9600–13549; §IV examples, offsets 19000–27556",
+          "method": "OA HTML bounded passage comparison",
+          "title": "Localization and Flat Bands in Bond-Inflated Lattices",
+          "trigger": "Exact same local energy and bandwidth mechanism"
+        },
+        {
+          "assessment": "Same operation, different invariant",
+          "evidence": [
+            "Studies ℓ1 norms of cycle and cut projections."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-uniform-edge-subdivision-preserves-cycle-projection-norms-and-fo--cfa42af44df0",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "Uniform edge subdivision preserves cycle projection norms",
+          "trigger": "Co-dated uniform edge subdivision result"
+        },
+        {
+          "assessment": "Line graph of one subdivision, not junction-band spectrum under long subdivision",
+          "evidence": [
+            "The exact invariant is adjacency inertia of L(S(G))."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-adjacency-inertia-of-all-clique-inserted-graphs-via-full-e--833ba73abbb3",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "Exact adjacency inertia of all clique-inserted graphs",
+          "trigger": "Co-dated exact subdivision-related adjacency theorem"
+        },
+        {
+          "assessment": "An exact spectrum in a fixed-length special case, different main operator",
+          "evidence": [
+            "The parent is K_(a,a,a), with one subdivision per edge in the compared construction."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-lower-edge-escape-among-minimum-real-spectrum-non-backtrac--32e03f23d8b1",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "Sharp lower edge escape among minimum real spectrum non-backtracking examples",
+          "trigger": "Exact levels in a subdivided parent graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common limiting junction energy loses all information about the parent spectrum. Resolving the first-order band with control independent of network order restores every parent eigenvalue at a specified resolution, and distinguishes bipartite and nonbipartite parents by the sharp degree-controlled bandwidth. Uniformity is useful when varying topology and size at fixed degree, beyond merely recalculating a junction energy or a single finite graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

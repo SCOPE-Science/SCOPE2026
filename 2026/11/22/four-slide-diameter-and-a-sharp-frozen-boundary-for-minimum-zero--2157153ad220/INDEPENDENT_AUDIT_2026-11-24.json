@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:09:27.233716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md, gap_certificate.tsv, generator and checker sources (inspected, not executed)",
+        "Independent literal profile and small-order replay: /workspace/branches/f4ad1925-6bb2-4541-854d-c16ef1a18f58/audit_replay.py and audit_replay.out in the same directory",
+        "Independent lower-bound enumeration: /workspace/branches/audit-replay/slide_lower_bound.py"
+      ],
+      "rationale": "With four or more whites no blue vertex has exactly one white neighbor. With three, a first force needs a cycle-distance-two pair of whites with a blue midpoint. With two whites their open cycle neighborhoods differ on a blue site: for adjacent whites use an external cycle neighbor; for nonadjacent whites the cycle neighborhoods are unequal and contain neither white. The last white has a blue neighbor. For n≥7 this gives exactly the stated predicate. Counting incidences of distance-two pairs gives n(n−3); n triples of the form {i−2,i,i+2} are counted twice and there are no triple incidences, giving n(n−4). Each slide has a unique retained pair. For cyclic distances 1,2,3,4,≥5 the eligible third-site counts are 2,n−3,4,3,4 for n≥9; the prohibited consecutive third-site pairs contribute n(n−4) from distance two, n from distance three and n from the gap of length five (at n=9 from long gaps of distance-four pairs; at n=10 twice per antipode). Subtracting n(n−2) from the unrestricted count gives the claimed edge formula. For lifting, a capped long gap of length seven retains the first two sites at each end, leaving a segment of length at least three between these neighborhoods. Every arc of length one or two among marked sites and any allowed auxiliary is consequently preserved under expansion, and no long segment becomes short. This suffices for the white-triple predicate and the complement adjacency of every swap. Independently regenerated all 23,659 profiles and all 10,713 eligible pairs and validated each of the provided paths by literal forcing and slide checks, including the auxiliary restriction. This certifies existence of short paths, not a description of all shortest paths. For the disjoint lower-bound witnesses, a three-move path would have to follow one of the 36 monotone insertion/removal schedules; none does at n=7 or n=8, and the marked cyclic distances one and two at the n=8 witness are unchanged thereafter. Separate literal enumeration gave 14 vertices, 18 edges and components 12,1,1 at n=6; (21,42,4) and (32,92,4) at n=7,8, and agreed with the formulas through n=18.",
+      "residual_risks": [
+        "The all-order upper bound uses the finite path certificate and the lifting lemma together, not extrapolation from small orders. The theorem is for ordinary forcing and slides along complement edges, not along cycle edges or between arbitrary minimum sets of other graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier results or catalogued claims cover scalar forcing in broader graph families and jump geometry on two-factor complements. The inspected sliding theorem differs in its bipartite base-graph hypothesis, and the paper studies PSD and skew forcing rather than the ordinary invariant in the assigned claim."
+        ],
+        "reasoning": "The prior scalar and configuration-count results include the cycle-complement input but do not constrain transitions as needed; the inspected sliding theorem's hypotheses do not cover the present theorem.",
+        "searches": [
+          "arXiv:1402.1962 Theorem 3.2; arXiv:2206.03932v2 §3",
+          "arXiv:2501.03642 Definition 2.3.2 and Theorem 2.3.4",
+          "Local Resultary ff0ed4bc8084, d563cd38a00e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.00220, 2206.03932v2, 1402.1962, 2501.03642",
+        "Local Resultary 6c7cf7fab756, 07fffeb0f7e1, d563cd38a00e, ff0ed4bc8084"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a single long cycle the jump count is the first term in the new edge formula. That supergraph has diameter 3, whereas the frozen certificate proves existence of short paths after deletion of edges."
+        ],
+        "reasoning": "Connectivity and an upper bound on distances in a supergraph do not pass to its spanning subgraph. The exact forbidden subcount, new upper bound and sharp lower bound require constraints not present in the earlier theorem.",
+        "searches": [
+          "Local Resultary d563cd38a00e retained exchange metric; arXiv:2009.00220 definition; arXiv:2501.03642 sliding distinction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geneson–Haas–Hogben define unrestricted exchange by symmetric difference of size two. The local ten-cycle signatures result uses the same jump rule. Bong et al. explicitly distinguish the edge-constrained sliding rule in Definition 2.3.2."
+        ],
+        "reasoning": "Taking white complements preserves the slide rule but does not turn it into jumping; the n(n−2) prohibited jumps change the edge count and diameter.",
+        "searches": [
+          "arXiv:2009.00220; arXiv:2501.03642, token sliding and jumping",
+          "Local Resultary d563cd38a00e, minimum zero-forcing exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The minimum-set coefficient n(n−4)+2·1_{n=6} and the white-triple classification appear in the zero-forcing polynomial findings. The jump catalogue gives N(N−4), N(C(N,2)−11), and diameter 3 under its long-cycle assumption."
+        ],
+        "reasoning": "These cover the slide vertex counts and the separate jump invariant; they do not tabulate or imply the constrained edge counts, diameter or frozen boundary. Same-day timing is not needed to distinguish ff0ed4bc8084's minimum-set count from a slide metric.",
+        "searches": [
+          "Local Resultary exact zero-forcing polynomial and exchange results 6c7cf7fab756, 07fffeb0f7e1, d563cd38a00e, ff0ed4bc8084"
+        ]
+      },
+      "rationale": "The verified distinct content is the constrained slide edge count, exact metric and disconnected boundary. The scalar zero-forcing number, configuration count and associated unrestricted jump geometry are prior results, not credited as original here.",
+      "residual_risks": [
+        "The 2026 Resultary statement comparisons are from the local published mirror; external journal publication was not authenticated. An older comparison referred to by d563cd38a00e could not be independently identified in external full text. No claim of exhaustive priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted replacement",
+          "evidence": "An edge changes one vertex (symmetric difference two) without any original edge required between sites.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "p.2, OA text offset 5786",
+          "method": "OA PDF text",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Original transition definition for ordinary minimum zero forcing"
+        },
+        {
+          "assessment": "Covers same state space and jump counts for n≥9; different transition invariant",
+          "evidence": "For arbitrary exchange it gives N(N−4), N(C(N,2)−11), and diameter three in a broader family including a single long cycle.",
+          "identifier_or_url": "2026/10/27/SCOPE-ten-cycle-signatures-in-minimum-zero-forcing-exchange-graphs-of--d563cd38a00e",
+          "material_read": "RESULT.md offsets about 500–1000 and relationship from offset 8500",
+          "method": "Local Resultary mirror",
+          "title": "Ten-cycle signatures in minimum zero-forcing exchange graphs of two-factor complements",
+          "trigger": "Direct prior single-cycle specialization with vertex, edge and metric formulas"
+        },
+        {
+          "assessment": "Covers minimum-set classification and count, not transition structure",
+          "evidence": "The minimum-set coefficient is n(n−4)+2·1_{n=6}, with minimum sets characterized by their three-white complements.",
+          "identifier_or_url": "2026/10/18/SCOPE-zero-forcing-polynomials-of-complements-of-paths-and-cycles--6c7cf7fab756",
+          "material_read": "RESULT.md offsets about 376–1300",
+          "method": "Local Resultary mirror",
+          "title": "Zero-forcing polynomials of complements of paths and cycles",
+          "trigger": "Exact count at all relevant orders and state characterization"
+        },
+        {
+          "assessment": "Overlap on state classification and count only; same-day chronology unresolved",
+          "evidence": "The base graphs with minimum degree at least two and girth at least five include cycles, but the inspected finding does not address slide transitions.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-cycle-recovery-from-minimum-zero-forcing-in-complements-of-h--ff0ed4bc8084",
+          "material_read": "RESULT.md offsets 0–1374",
+          "method": "Local Resultary mirror",
+          "title": "Six-cycle recovery from minimum zero forcing in complements of high-girth graphs",
+          "trigger": "Stronger minimum-set criterion including cycle complements"
+        },
+        {
+          "assessment": "Related variants and a sliding theorem for different graph hypotheses",
+          "evidence": "Definition uses slides along an edge; the nearby result concerns bipartite base graphs, and the advertised forcing variants are PSD and skew.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.03642",
+          "material_read": "pp.1–2 (OA offsets 2060 and 4888–7286); Definition 2.3.2 and Theorem 2.3.4 p.5 (offset 18988)",
+          "method": "OA PDF text",
+          "title": "Reconfiguration of Minimum PSD Forcing Sets and Minimum Skew Forcing Sets",
+          "trigger": "Same local rule in forcing reconfiguration"
+        },
+        {
+          "assessment": "Scalar results, not slide geometry",
+          "evidence": "Studies zero-forcing numbers for complements of unicyclic graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03932v2",
+          "material_read": "§3 Unicyclic Graphs, pp.4–7, OA offset 12800 onward",
+          "method": "OA PDF text",
+          "title": "On the zero forcing number of the complement of graphs with forbidden subgraphs",
+          "trigger": "Scalar value on cycle complements cited as background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; relative comparison to d563cd38a00e and arXiv:2009.00220"
+      ],
+      "rationale": "This asks whether natural locally constrained moves suffice between optimal forcing sets, where unrestricted exchange can hide unreachable configurations or extra moves. It gives a sharp obstruction at six and an order-uniform sharp transition budget above it, with an exact measure of how many jumps the local constraint removes. These are structural facts about the stricter reconfiguration graph, not a recomputation of its known state count.",
+      "residual_risks": [
+        "The theorem does not classify all pair distances or extend to complements of arbitrary unions of cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

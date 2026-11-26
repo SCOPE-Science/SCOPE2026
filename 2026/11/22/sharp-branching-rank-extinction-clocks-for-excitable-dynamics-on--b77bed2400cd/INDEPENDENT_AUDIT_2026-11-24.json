@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:47:45.882069Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–5",
+        "VERIFICATION.md",
+        "verify_exhaustive.py",
+        "verify_witness.py",
+        "verification_output.txt",
+        "python3 -B /workspace/review-evidence/independent_checks.py 1"
+      ],
+      "rationale": "An excitation at time t>0 requires theta distinct predecessor excitations at t-1. Immediate spatial reversal would force the same vertex to be excited two updates apart, impossible for kappa>=3. Each causal walk is therefore a simple path, and unique paths from the root in a forest force injectivity of the entire selected witness, not just of each branch. No excitation is possible past H; all last excitations clear kappa-1 updates later and initially refractory states cannot delay extinction beyond this. To attain the bound, excite only the deepest leaves of a maximum witness. Inductively the only new excitations are its next shallower level, which is still at rest; an outside component has at most one attachment to the witness, and a vertex in the witness other than a parent gets at most one active neighbor. The root is nonzero at H+kappa-2, so absorbing rest is first reached at H+kappa-1. The argument includes H=0, isolated vertices, and disconnected forests. Counting witness vertices yields the displayed floor logarithm; pendant padding realizes every n, including n=1. The directed recurrence selects the theta-th largest independent branch height by truncating taller branches. Inspected both frozen scripts and their recorded output; did not rerun uploaded code. A distinct bounded script passed 1356 labelled-forest/parameter checks, including disconnected forests through order five and all initial states therein. This enumeration only tests ranks zero and one; higher ranks are established by the proof, not by those cases.",
+      "residual_risks": [
+        "The causal argument relies on forest acyclicity and excitation separation, and the lower wave uses threshold at least two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Density-obstruction result covers arbitrary graphs satisfying rho(G)<q in the three-state model. Degree-bound result covers finite graphs with Delta/2<theta<Delta and gives a sharp asymptotic logarithmic clock in its own regime. Bello–Sivakoff gives a depth-based upper bound in the same multistate tree model."
+        ],
+        "reasoning": "The density bound covers extinction, not the rank or its exact attainable time. The degree-bound hypotheses omit arbitrary forest degrees, and its optimization is not shape-by-shape. Even optimizing rooting, the depth bound grows on long paths whereas the frozen rank at theta=2 is one.",
+        "searches": [
+          "Resultary 352367f51e91 and 661b1e5fd561",
+          "Bello–Sivakoff arXiv:2108.06404 Lemma 2.7(ii)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.06404 Lemma 2.7(ii)",
+        "Resultary 3dc35b7cd8aa, 352367f51e91, 661b1e5fd561 and 2a387c4efac2",
+        "arXiv:1610.07320 pp. 3–4",
+        "Doba (2018) pp. 101–102"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The depth-d bound gives all rest by d+kappa; the density result bounds the total excited vertex-time count and directly implies extinction on forests at kappa=3 since rho<1<=q; the degree-bound asymptotic includes a related log_theta n scale at Delta=theta+1."
+        ],
+        "reasoning": "None supplies the largest embedded complete-branching height as the global last-excitation time, or proves every admissible forest shape realizes that bound with its extra branches present. The nonbacktracking lemma in the complete-tree record is an overlapping ingredient, not credited as wholly new.",
+        "searches": [
+          "arXiv:2108.06404 PDF p. 10 Lemma 2.7(ii)",
+          "Resultary 352367f51e91 Finding and Proof; 661b1e5fd561 Finding; 3dc35b7cd8aa Finding and Proof 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3dc35b7cd8aa Finding and Proof 1 give h+2 and a nonbacktracking witness on the complete b-ary height-h tree for kappa=3 and threshold b."
+        ],
+        "reasoning": "This is a genuine exact specialization since H_b=h on that tree; its witness mechanism overlaps, but the stated result neither optimizes arbitrary forest shapes nor treats all kappa.",
+        "searches": [
+          "Resultary: exact terminal wave, complete theta-ary witness, branching rank/Strahler and forest extinction",
+          "Primary literature: threshold Greenberg–Hastings finite tree extinction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The title/formula match b77bed2400cd is the assigned record itself. Distinct 3dc35b7cd8aa covers complete trees in three states; the path match 2a387c4efac2 assumes one-neighbor activation."
+        ],
+        "reasoning": "An all-size, all-forest invariant rather than a finite tabulation is claimed; no independent catalogue hit supplied the same quantified formula. The path claim is not the theta>=2 specialization.",
+        "searches": [
+          "Resultary: branching-rank extinction clocks; exact complete-tree terminal clock; finite path extinction maxima"
+        ]
+      },
+      "rationale": "The same-day complete-tree witness and the earlier logarithmic degree-bound and density-budget results are material coverage of ideas or restricted conclusions. Credit these explicitly; the surviving claim is the exact all-forest shape invariant and attainment, across the stated thresholds and refractory lengths, with the sharp all-size integer law. Inspected statements do not supply that theorem. The same-day date does not settle order.",
+      "residual_risks": [
+        "An earlier unindexed witness argument or equivalent exact law is possible. Fisch–Gravner–Griffeath full text was unavailable. No order inferred for same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior upper bound, not sharp on forest shapes",
+          "evidence": [
+            "No excitation at t>=d+1; rest by d+kappa for depth d."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.06404",
+          "material_read": "PDF p. 10, Lemma 2.7(ii), offset near 29761",
+          "method": "Lawful primary PDF passage",
+          "title": "Cyclic Cellular Automata and Greenberg–Hastings Models on Regular Trees",
+          "trigger": "Same multistate contact threshold dynamics on trees"
+        },
+        {
+          "assessment": "Material exact special-case overlap and shared proof ingredient",
+          "evidence": [
+            "Three states, b-contact activation, complete b-ary tree extinction maximum h+2; also counts maximizing configurations."
+          ],
+          "identifier_or_url": "Resultary 3dc35b7cd8aa",
+          "material_read": "Finding and Proof 1",
+          "method": "Local mirror",
+          "title": "Exact terminal-wave rarity on complete branching trees",
+          "trigger": "Exact clock and causal witness for complete branching trees"
+        },
+        {
+          "assessment": "Direct qualitative overlap; quantitative event budget, not shape-clock identity",
+          "evidence": [
+            "The condition rho(G)<q suffices and gives total-excitation bound floor(q m/(q-rho(G)))."
+          ],
+          "identifier_or_url": "Resultary 352367f51e91",
+          "material_read": "Finding and Proof",
+          "method": "Local mirror",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "Finite-graph extinction theorem including forests"
+        },
+        {
+          "assessment": "Different graph restrictions and asymptotic comparison",
+          "evidence": [
+            "Uses theta e_(t+1)<=(Delta-theta)e_t in regime Delta/2<theta<Delta."
+          ],
+          "identifier_or_url": "Resultary 661b1e5fd561",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Sharp logarithmic extinction clocks above the half-degree excitation threshold",
+          "trigger": "Related logarithmic extinction law"
+        },
+        {
+          "assessment": "Single-contact model",
+          "evidence": [
+            "Excitation by some neighbor; arbitrary three-colorings synchronize on finite trees under that other rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "PDF pp. 3–4, model and Theorem 3/Corollary 4",
+          "method": "Primary PDF passage",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Finite-tree synchronization"
+        },
+        {
+          "assessment": "Single-contact hypothesis differs",
+          "evidence": [
+            "Quiescent site can excite from one excited neighbor; studied deterministic map uses p=1."
+          ],
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.27.2.101",
+          "material_read": "PDF pp. 101–102, activation rule",
+          "method": "Primary PDF passage",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Finite-graph GHM dynamics"
+        },
+        {
+          "assessment": "Unresolved historical-access limitation",
+          "evidence": [
+            "Attempted endpoint returned 404; model background corroborated in the inspected Gravner–Lyu–Sivakoff introduction, not a statement-level negative comparison for this source."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9304001",
+          "material_read": "No full-text passage accessed",
+          "method": "Bounded arXiv OA attempts",
+          "title": "Threshold-Range Scaling of Excitable Cellular Automata",
+          "trigger": "Historical threshold-model lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§1–5",
+        "Bello–Sivakoff Lemma 2.7(ii)",
+        "Resultary 661b1e5fd561 and 3dc35b7cd8aa"
+      ],
+      "rationale": "The theorem resolves the sharp feasible excitation time on each fixed forest, distinguishing shapes with the same order or even large depth. The embedded complete branch witness is necessary and sufficient for worst-case delay and yields a computable invariant, plus a sharp logarithmic maximum attained at each size without a maximum-degree assumption.",
+      "residual_risks": [
+        "No distribution or typical-case law, nor clock theorem on cyclic networks, is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

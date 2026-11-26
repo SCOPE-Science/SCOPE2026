@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:32:45.055319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim in RESULT.md lines 4–40 fixes the receiver y and counts distinct 11-avoiding binary parents, not masks, even for m=0 or d=0. Match each receiver symbol at its earliest available occurrence. The skipped prefix for that symbol consists exclusively of its opposite, so this greedy parsing counts each parent once. Before a matched 1 the skipped zeros are arbitrary except for a mandatory zero after a previous matched 1; together these factors are t^r/(1−t)^k. Before each matched 0, a skipped 1 is allowed precisely at the start or after a matched 0. The suffix contributes (1+t)/(1−t−t²) after a final 0 and 1/(1−t−t²) after a final 1; including the suffix yields a=m−2k+r+1 optional factors. For the empty receiver the unrestricted legal suffix gives the same series. The t^r shift gives the threshold, and the remaining series has constant term 1 and every positive-degree coefficient at least 2 because a+k≥1 and the Fibonacci factor has positive coefficients. Compositions of the k ones into k−r runs and allocation of the zeros give the stated multiplicities. Weighted last-bit transitions (only 1→1 has weight u apart from the z per bit) give G(z,u); the singleton layer is r=d, and summing layers gives G/(1−u). For j≥1 the coefficient of u^j is z^{j+1}(1−z)^{j−1}/(1−z−z²)^{j+1}. At α=1/φ, 1−α=α² and −αB′(α)=1+α², giving the recorded leading constant c_j, also valid at j=0 from (1+z)/B(z). The other pole has larger modulus. For fixed d≥1, only the ratio of the d−1 and d layers contributes at order 1/m; c_{d−1}/c_d=d(φ³+φ)=(3φ+1)d. A small direct check at m=3,d=1: 000 has five parents, 010 has four (0010,0100,0101,1010), 011 has the sole parent 0101, and 111 has none. The frozen VERIFICATION.md and verify.py were inspected, not executed; their finite distinct-parent and transfer tests support, but do not establish, the all-length bijection or the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest analogue gives all-radius distinct-parent spectra using a greedy embedding and a local feasibility statistic, for q≥3 sources forbidding all equal adjacencies. Takemoto–Nozaki construct single-edit correcting codes under maximum run length constraints."
+        ],
+        "reasoning": "Neither theorem covers the target's one-sided constraint that permits repeated 0s. Substituting q=2 in a prohibition of all equal adjacent symbols would produce only alternating sources, not a broader theorem on 11-avoiding parents. The shared proof strategy is not new.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-all-radius-inverse-list-spectra-for-homopolymer-free-q-ary--9af2d7e45a2a, Finding and Assumptions",
+          "Takemoto–Nozaki, arXiv:2012.13536, §II.B"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Resultary self-hit and distinct Resultary comparisons above",
+        "arXiv:1802.00703",
+        "arXiv:2012.13536",
+        "arXiv:2105.04617"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The capped-run record gives a one-deletion singleton criterion under a two-sided run cap. The Fibonacci-constrained two-burst record counts distinct outputs of known parents under adjacent-pair deletion. The universality spectrum counts words by which short subsequences they realize, not distinct parents of a fixed receiver."
+        ],
+        "reasoning": "A forward descendant count is a row sum of a channel relation and does not fix the inverse column sums, especially under a different deletion regime. The single-deletion bounded-run result does not imply the all-radius threshold or the fixed-radius output-layer asymptotic under the one-sided constraint.",
+        "searches": [
+          "2026/11/22/SCOPE-inverse-list-spectra-and-a-geometric-decoding-law-for-run-capped--2f75e34b1fac",
+          "2026/11/22/SCOPE-sharp-two-burst-deletion-diversity-in-fibonacci-constrained-bina--699e806f10ce",
+          "2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse deletion fiber is exactly a fixed-length insertion ball intersected with the binary language avoiding 11; no embedding is counted twice. Atashpendar et al. give the unrestricted length-conditioned supersequence count, independent of the particular receiver, and use singleton for one embedding mask within a parent."
+        ],
+        "reasoning": "The two singleton predicates differ even at the level of their quantification, and unrestricted insertion balls do not give their intersection with the golden-mean language.",
+        "searches": [
+          "Resultary: exact title/claim, 11-avoiding supersequences, constrained insertion balls, golden-mean inverse fibers",
+          "Atashpendar et al., arXiv:1802.00703, §III.e–f and §IV.E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned theorem is an indexed self-hit. Separate Results compare run-capped singleton or q-ary inverse spectra with other parent constraints. The primary run-length table/formulas count words by length, weight and runs, not parent counts indexed by receiver parameters and deletion radius."
+        ],
+        "reasoning": "The complete spectrum is a parameter-dependent coefficient law, not a single integer sequence. The ordinary counts of 11-avoiding words (the d=0 feasible layer) and basic run compositions are standard and are not grounds for originality of that layer. The inspected exact statements do not tabulate the list-size law for all (m,k,r,d).",
+        "searches": [
+          "Resultary exact-title and exact inverse-spectrum queries, cross-checked against the indexed one-deletion and all-radius analogues",
+          "Kovačević–Vukobratović, arXiv:2105.04617, §II equations (3)–(5)"
+        ]
+      },
+      "rationale": "The distinct content supported is the one-sided golden-mean constraint's exact distinct-parent distribution/all-radius generating function and resulting singleton law, not greedy subsequence matching, the Fibonacci source count, or binary run enumeration by themselves.",
+      "residual_risks": [
+        "Same-day analogue chronology is not inferred, and broader regular-language or constrained insertion-ball formulations may be indexed differently.",
+        "The focused literature search did not identify a further exact source; that miss is not negative evidence of coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted supersequence count and embedding singleton, not constrained distinct-parent singleton",
+          "evidence": "The unrestricted count is a binomial tail independent of the receiver; §IV.E uses a single deletion mask.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.00703",
+          "material_read": "PDF p. 4 §III.e–f, offset 21673; p. 11 §IV.E, offset 63149",
+          "method": "OA full-text targeted passages",
+          "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+          "trigger": "Older exact deletion/supersequence count and singleton terminology"
+        },
+        {
+          "assessment": "Single-edit code construction, not all-radius inverse-parent enumeration in the examined material",
+          "evidence": "Defines maximum-run-limited codes and addresses construction/decoding for one insertion or deletion.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.13536",
+          "material_read": "PDF p. 1 abstract and p. 2 §II.B, offset 9554",
+          "method": "OA full-text targeted passages",
+          "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+          "trigger": "Run-limited insertion/deletion alternative formulation"
+        },
+        {
+          "assessment": "Related enumeration of words by runs/weight, different quantity and constraint",
+          "evidence": "It applies a specified length set to runs of both symbols and counts those words, not parents for a given subsequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.04617",
+          "material_read": "PDF p. 2 §II equations (3)–(5), offset 10400",
+          "method": "OA full-text targeted passage",
+          "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+          "trigger": "Broader run/weight enumeration and possible exact table"
+        },
+        {
+          "assessment": "Strong conceptual overlap, but q≥3 and excludes all repeated neighbors",
+          "evidence": "Feasibility depends on equal adjacent receiver symbols and a greedy embedding is used; the allowed source transitions and spectrum formula differ.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-all-radius-inverse-list-spectra-for-homopolymer-free-q-ary--9af2d7e45a2a",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Exact all-radius inverse-list spectra for homopolymer-free q-ary parents",
+          "trigger": "Closest exact all-radius distinct-parent analogue"
+        },
+        {
+          "assessment": "Different source constraint and radius",
+          "evidence": "Counts distinct parents for one deletion under caps on both symbols' runs, with a receiver run of length 2h determining uniqueness.",
+          "identifier_or_url": "2026/11/22/SCOPE-inverse-list-spectra-and-a-geometric-decoding-law-for-run-capped--2f75e34b1fac",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Inverse-list spectra and a geometric decoding law for run-capped words",
+          "trigger": "Exact singleton/list analogue"
+        },
+        {
+          "assessment": "Forward adjacent-pair deletion problem",
+          "evidence": "Counts distinct receiver outputs of each source, not the inverse parent list.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-burst-deletion-diversity-in-fibonacci-constrained-bina--699e806f10ce",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Sharp two-burst deletion diversity in Fibonacci-constrained binary words",
+          "trigger": "Same 11-avoiding source language"
+        },
+        {
+          "assessment": "Distinct subsequence invariant",
+          "evidence": "Counts capped words by universality index instead of inverse channel fibers for a fixed target.",
+          "identifier_or_url": "2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Run-limited binary words: exact subsequence universality spectrum",
+          "trigger": "Run-limited scattered-subsequence statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest one-sided binary finite-type restriction produces nonconstant inverse deletion lists, unlike the unrestricted source. The law computes each list from readily measured receiver statistics and identifies exactly when decoding is unique even though deletion masks may be ambiguous. The fixed-radius proportion approaching one with an explicit first correction quantifies this effect for feasible receivers, not for the distribution produced by uniform parents or random masks. This is a useful exact benchmark without claiming a deletion-correcting code construction or a larger universality theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

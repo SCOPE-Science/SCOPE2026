@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The map and full closed-triangle scope are explicit. Every binary word of length four reduces, up to temporal rotation, to one of six necklaces. All six return determinants are nonzero for \(t\in[\tau,1]\), making the enumeration exhaustive even at fold points. Three necklaces reduce to fixed or two-period orbits. The remaining three have explicit affine seeds; exact factorizations reduce the admissibility of the two new cycles to the unique sign-changing polynomial \(4t^4-2t-1\). Their seeds agree at its unique root, giving one actual crease cycle there rather than two. Boundary, primitive-period, and multiplier assertions are separately checked. The standard-library rational checker passes 129 exact assertions. Any error in the univariate sign reductions would be critical; the proof displays factors that permit direct rechecking.
+PASS
 
-## Originality — PASS (provisional)
+Reconstructed the affine returns in temporal order over Q(t): see /workspace/tent_symbolic_replay.py (run with python -B; SymPy). It reproduced all six nonzero determinants, the closed-triangle margins and the four branch signs for each primitive word. Each product of n branches is (√2 t)^n times an orthogonal matrix, so no formal return matrix has eigenvalue 1 in this interval. The necklaces 0000, 0101, 1111 yield precisely the two fixed points and one 2-cycle from words 0, 1, 01; the latter has seed (2t/(2t²+1),2t/(2t²+1)) strictly left and its image strictly right. The 0001 word always passes, and 0011 and 0111 pass iff P=4t⁴−2t−1≥0: their time-one x−1 has, respectively, sign −P and +P, with all other signs strict. The seed lies in the triangle and then forward invariance applies to the admissible orbit, not to a wrong-branch formal iterate. The positive factors can be checked already for t>1/√2: 4t⁴−4t³+1≥37/64, 4t⁴−2t+1>0 by monotonicity from 1/√2, 4t⁴+4t³−1>0, and the nontrivial triangle margin has the strictly positive sum of squares (2t²−t)²+(t−1)². P increases strictly with P(τ)=√2−2τ<0 and P(1)=1. The stated rational bracket has opposite signs. Modulo P the two new seeds agree exactly, and their time-one point is on the fold; the two descriptions represent one orbit, which has x₀<1<x₂ and thus period four. Away from the root, strict labels distinguish the primitive necklaces and exclude periods one and two. This gives the 1/2/3 trichotomy and 8/12/16 fixed-iterate counts including endpoints. Off-fold four-step expansion is 4t⁴>1. The supplied rational checker was inspected, not run, and cannot by finite sampling establish the equality case.
 
-Actual semantic mathematical-record searches, accessible previous-census claims and several pertinent papers were compared by implication. The 2024 Alves–Etubi manuscript establishes invariant-density/entropy continuity and defines the present family, not low-period classification. The complete 2022 Marqués-Lobeiras et al. preprint addresses invariant polygons and reproduces the 2015 symbolic description at \(t=1\). That existing description already covers the maximal-endpoint four-period census, so the new contribution is the *interior parameter transition and exact critical orbit identification*, not the endpoint count or itinerary enumeration as a method. Searches identified no theorem determining the polynomial transition across \([\tau,1]\). The full 2015 original remained inaccessible; priority uncertainty is explicitly retained.
+## originality
 
-## Value — PASS
+PASS
 
-The interval \([\tau,1]\) is precisely the published strange-attractor/physical-measure regime, yet its short periodic-orbit content changes abruptly at an interior parameter. The complete degree-four census and sharp collision threshold give a natural exact finite-period invariant and exhibit a non-smooth combinatorial bifurcation alongside previously studied statistical regularity. This is a meaningful geometric classification, not a numerical parameter sample, a generic lower bound or a restatement of the full-shift endpoint.
+The established family, its eventual attractor and endpoint symbolic dynamics are not contributions here. The supported distinct result is the complete low-period census over the closed parameter interval, particularly the exact interior transition and geometric identification of the two words at equality. The closest same-family primary preprint was available; the final journal version remains an access risk, not affirmative contrary evidence.
 
-## Scientific scope and remaining uncertainty
+## value
 
-Only least periods one, two and four are counted; period three or periods exceeding four are not restricted. Repelling applies only away from the fold; the threshold collision receives no smooth multiplier. The 2015 paper's full text was not accessed, leaving an explicit priority limitation. Independent evaluation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The interval is the natural expanding-chaotic regime studied for a standard planar tent family, not an arbitrary numerical slice. The exact primitive count and polynomial threshold distinguish the actual periodic geometry from a count of admissible words: two new word types first give just one geometric orbit. This is a usable short-period benchmark and fold-boundary example, not a recensus of the already understood full-shift endpoint alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

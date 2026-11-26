@@ -1,15 +1,21 @@
-# Review of the two-disc discotope isotropic-constant classification
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact axis-parallel cross-sections of the orthogonal two-disc Minkowski sum give the volume and full diagonal uniform-interior covariance by elementary beta integrals. A general invertible linear transformation maps arbitrary distinct generator planes to that model and preserves the normalized determinant. Factoring yields the quartic balance law, while its strictly positive derivative on the entire parameter range proves all equality and endpoint claims. The included executable independently checked the symbolic identities and performed four numerical integrations and twelve affine-angle tests. Numerical integrations are corroboration, not an infinite proof.
+## correctness
 
-## Originality
-PASS, with explicit priority risk. The inspected Gesmundo–Meroni discotope work concerns algebraic boundaries; the Mathis–Meroni article concerns fiber convex bodies. Neither examined text states the uniform-interior isotropic constant or its sharp radius-balance law. Indexed findings on the same two-disk body report optimal enclosing/inscribed ellipsoids rather than uniform-interior covariance. The known descriptions of these earlier invariants do not imply the stated constant without independent moment computation. Some plausible indexed finding full texts were not accessible, and unindexed equivalent work is possible.
+PASS
 
-## Mathematical value
-PASS. The affine-invariant isotropic constant is a standard natural invariant of convex bodies, not an arbitrary numerical slice. The result exactly classifies this invariant for the full positive-radius, noncoplanar two-disc family; the angle cancellation and sharp balance deficit distinguish the symmetry-optimal geometry quantitatively. It yields explicit reference values for zonoids with nonsmooth boundary without claiming a broad dimension-free slicing theorem.
+Taking the common line and one perpendicular unit direction in each disk plane gives an invertible image of the orthogonal model for all positive smaller plane angles, including the right angle. Covariance and squared volume both acquire the squared determinant in their quotient. Orthogonal fibres are exactly [-f-g,f+g], where f=sqrt(a^2-y^2), g=sqrt(b^2-z^2). Symmetry centers the distribution and kills cross terms. Integrating gives V=2πab(a+b), raw x moment π(a^4 b+a b^4)/2+4π(a^3 b^2+a^2 b^3)/3, and raw y moment πa^4 b/2+2πa^3 b^2/3 (swap a,b for z). These follow respectively from (2/3)(f+g)^3 and 2y^2(f+g); division by V produces the recorded covariance. In the determinant quotient, (3a+4b)(4a+3b)/(a+b)^2=(49-u^2)/4 and (3a^2+5ab+3b^2)/(a+b)^2=(11+u^2)/4. Thus the numerator is 539+38u^2-u^4, strictly increasing in u^2 on [0,1). Precisely the equal-radius pairs minimize, with angle free; the supremum is reached only in the limit min(a,b)/max(a,b)→0. No coplanar isotropic value is asserted. This is an analytic check; packaged check.py was inspected, not run.
 
-## Closest literature and limitations
-F. Gesmundo and C. Meroni, *The Geometry of Discotopes*, arXiv:2111.01241 (2021-11-01); L. Mathis and C. Meroni, *Fiber Convex Bodies* (online 2022-11-19); indexed short accounts of exact John–Löwner ellipsoids of two perpendicular disks. Priority risk persists for unavailable full texts or equivalent unindexed elementary integrations. The family excludes coplanar disks, arbitrary ellipses and three-or-more disk sums.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact normalized uniform-interior determinant and its sharp radius-ratio law are distinct in the sources inspected. The affine equivalence reduction and standard integration inputs are not themselves claimed as novelty; bounded evidence does not certify historical priority.
+
+## value
+
+PASS
+
+This classifies a canonical affine invariant of a full elementary nonpolyhedral family, not an isolated integral. In particular it identifies the unique balance optimum, an exact stability deficit, and the sharp degeneration limit in one formula; neither the known volume nor containment radii give those quantitative statements. The result is a usable exact benchmark for discotope isotropic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

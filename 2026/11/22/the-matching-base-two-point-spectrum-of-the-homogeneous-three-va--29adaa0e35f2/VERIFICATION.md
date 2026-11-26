@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the metric pair-spectrum theorem
+# Independent mathematical audit
 
-The independent finite verifier is supplied as `artifacts/verify.py`; it runs with standard Python 3 without packages. Its recorded output is `artifacts/verification_output.txt`. Running `python3 artifacts/verify.py` should end with `ALL_CHECKS_PASS`.
+## correctness
 
-The verifier reconstructs the three four-class weight rows from the defining triangle inequalities and separately enumerates every admissible distance profile for \(m=0,1,2,3\), then every ordered pair of these profiles under each specified new-new distance. It checks the exact formulas, checks the channel inequalities through \(m=16\), and uses exact fractions for the limiting expressions. No probabilistic simulation or floating-point inference is involved.
+PASS
 
-**Proof boundary.** These finite computations confirm all local coefficients and small cases. The claimed formulas for every \(m\ge1\) require the mathematical argument that no new coordinate can have distance-one witnesses in two distinct old blocks, and that this is the only cross-block restriction. The proof of this step appears in `RESULT.md`. The asymptotic fractions follow algebraically from leading polynomial coefficients. No independent mathematical audit has been performed.
+Triangles characterize feasibility of the labelled finite diagram, and the disjoint finite-extension property realizes each diagram and arbitrarily many copies of each unary profile. For a unary profile the four states in {2,3}² and the three states (1,1),(1,2),(2,1) exhaust the allowed choices in an old pair. Cross-pair distance 3 prohibits two 1s in the same new profile from different pairs. On a block with just an x witness the three supported profiles admit 1,2,2 choices for the witness-free y profile at s=1 and four each at s=2,3. On a block with both witnesses there are nine assignments at s=1,2 and just the two ordered disjoint singleton-witness assignments at s=3. Thus the four weights (no witness, x only, y only, both) are (16,5,5,9), (16,12,12,9), (16,12,12,2), also independently replayed. The only global possibilities are zero supported blocks, one, or an ordered choice of two distinct blocks with disjoint singleton supports, proving every channel, including the m=1 boundary without a negative power. Subtraction gives strict ordering. Leading coefficients sum to 313, and the squared unary count has corresponding coefficient 144, yielding both the distance law and the mean feasible-distance count. The replay checks the local certificate; the triangular-constraint argument proves all m.
+
+## originality
+
+PASS
+
+The exact all-m spectrum and limiting distance law for a named 1-within, 3-between matching base are distinct on the inspected evidence. The m=1 triple is already covered by the equilateral distance-one calculation; neither priority nor novelty is assigned to that overlap.
+
+## value
+
+PASS
+
+A disjoint union of short pairs is a natural first non-equilateral case with dilution by long cross distances, not an arbitrary list of old vertices. The full compatibility spectrum exposes the dominance of separated witnesses, a strict finite channel ordering that becomes a tie of two channels in the limit, and a quantitative change from the equilateral distance-three law. These are useful exact benchmarks for how old geometry affects extension-type statistics; the unary enumeration alone would not reveal them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

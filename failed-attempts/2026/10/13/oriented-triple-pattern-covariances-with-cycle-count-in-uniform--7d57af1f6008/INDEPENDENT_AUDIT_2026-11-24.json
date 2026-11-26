@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:35:28.273242Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the three assigned images. Each of the three forced edges removes one vertex in total when deleting fully forced cycles and contracting open paths. The remaining out- and in-stubs correspond to the same n-3 blocks, whose completions are uniform permutations, adding H_{n-3} to the expected forced-cycle count G. This works even at n=3. With D=n(n-1)(n-2), D E[G]=3n(n-2)+2. Fixed-point counts at source s are binom(n-s,2), (s-1)(n-s), or binom(s-1,2) according to the assigned rank. The swaps of the first two, outer two, and last two positions respectively contribute n-a-1 to 213, n-a-2 to 231 and a-1 to 312, and a to 132; all other completions of those swaps have pattern 321. Only 231 and 312 have forced three-cycles. Thus 6D Cov=6(F+M+J)-3n(n-2)-2, giving the four affine numerators; conjugation by order reversal also pairs 132 with 213 and 231 with 312 at the reflected start n-a-1. At n=3 the numerators in the original order are 1,-5,1,-5, as follows also from the cycle counts of the six permutations. The denominators are positive, the affine signs and n^2-scaled limits follow, and summing the two rows of either orientation pair gives -4/(6D). The zeros of the affine functions need not be admissible integer starts. The frozen verification files were read, not executed; their finite tests supplement the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Féray gives the exact probability of any r prescribed injective mappings as theta^{G}/[(n+theta-1)...(n+theta-r)], including r=3. Hamaker–Rhoades give exact conditional expectations of partial-permutation indicators by cycle type, and K is constant on each type. Fulman–Kim–Lee treat aggregate peak statistics in conjugacy classes."
+        ],
+        "reasoning": "The specialized Ewens identity provides stronger direct coverage of the mixed moment than aggregate peak laws. The cycle-type expectation theorem can also compute it by summing over the injective image assignments and weighting each type by its number of cycles.",
+        "searches": [
+          "arXiv:1201.2157, Féray, partial permutations and Ewens joint moments, Lemma 2.1",
+          "arXiv:2503.17556v1, Hamaker–Rhoades, Theorem 1.1",
+          "arXiv:1902.00978v1, conjugacy-class peaks"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_ordinal_cycle.py",
+        "Féray arXiv:1201.2157 Lemma 2.1",
+        "Hamaker–Rhoades arXiv:2503.17556v1 Theorem 1.1",
+        "Fu–Li arXiv:1809.07465v1",
+        "Fulman–Kim–Lee arXiv:1902.00978v1",
+        "Gessel–Zhuang arXiv:2001.00654v2",
+        "Three indexed covariance and conditional-expectation results listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For Ewens parameter theta the log derivative of the normalized law at theta=1 is K-E_1[K]. Differentiating Féray's r=3 event probability at one therefore gives Cov_1(K,1_event)=(G-1/n-1/(n-1)-1/(n-2))/D. The pattern event is the disjoint union of D/6 such assignments. Summing gives exactly the frozen counting identity, since the sum of G over those assignments is the elementary fixed-point, swap and three-cycle count F+M+J. Also the stronger indexed table prints the four resulting closed forms."
+        ],
+        "reasoning": "The partial-permutation completion identity is already contained in the Ewens result. For triplets the only evaluations needed are choices of two values above/below a fixed value, choices of one value in intervals determined by a swap, and two possible oriented 3-cycles. The signs, limits and orientation cancellation then follow mechanically by subtraction, addition and scaling.",
+        "searches": [
+          "arXiv:1201.2157, Lemma 2.1 and preceding Ewens formula",
+          "Resultary positional sign-laws Finding and completion lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-two positional record gives the conditional excess of cycle count given each pattern. The probability of every pattern at a uniform-permutation site is exactly 1/6, so the four excesses give the frozen covariances upon division by six.",
+          "The coarser descent-based data in the inspected literature cannot distinguish 132 from 231, or 213 from 312, within their respective adjacent comparison signatures."
+        ],
+        "reasoning": "Conditional excess is exactly the same information up to a fixed multiplier. Aggregate peaks and descent-based data are not equivalent to the four-row site-specific kernel.",
+        "searches": [
+          "Resultary semantic lookup for positional cycle-count covariances for consecutive triple patterns",
+          "Resultary: SCOPE-a-rank-two-positional-dependence-law-for-permutation-cycles-and--600c70231432",
+          "arXiv:2001.00654v2, peak/descent and cycle type"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The positional sign-laws table lists identical numerators for 132, 231, 213 and 312 for every n>=3 and every valid start; 36 binom(n,3)=6n(n-1)(n-2). It explicitly includes the switch laws. The other indexed covariance record gives aggregate pattern counts, and Fu–Li give aggregate oriented peak statistics, not the frozen positional rows."
+        ],
+        "reasoning": "The exact table match is at identical normalizations and hypotheses, not a resemblance of titles. Its later date is not evidence of earlier priority. The aggregate-only sources by themselves do not recover the dependence on a.",
+        "searches": [
+          "Resultary: SCOPE-positional-sign-laws-for-cycles-and-consecutive-triple-patterns--b968e2801c74",
+          "Resultary: SCOPE-exact-cycle-count-covariance-with-all-six-consecutive-triple-pat--5a13f0bb8311",
+          "arXiv:1809.07465v1, oriented peak counts"
+        ]
+      },
+      "rationale": "The four stated rows are exactly covered by a distinct indexed result giving all six positional rows, and also by a distinct conditional-expectation formulation. Those exact matches are later-dated, so they do not show earlier availability or derivation. There is independently a genuine earlier implication: Féray's exact Ewens injection formula gives the frozen mixed-moment identity by differentiation and summation, leaving just elementary counts of forced cycles in a length-three window. The older aggregate peak/descent results alone would not decide the oriented claim.",
+      "residual_risks": [
+        "The exact matching indexed passages are later-dated and do not determine original provenance or historical priority of the printed affine expressions.",
+        "The 1993 Gessel–Reutenauer full text, DOI 10.1016/0097-3165(93)90095-P, was not accessible in the bounded OA attempt; only related descriptions of descent-set and cycle enumeration were available. This does not affect the verified equivalent and stronger statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier general formula mechanically yields the frozen counting identity",
+          "evidence": "Denominator is (n+theta-1)...(n+theta-r), numerator is theta to the number of closed cycles of the forced edges; r=3 and derivative at theta=1 give the stated per-injection covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.2157",
+          "material_read": "Lemma 2.1 and preceding partial-permutation discussion, p. 8, OA offsets 29400–32245",
+          "method": "Lawful OA PDF, literal partial-permutation search then bounded offset read",
+          "title": "Asymptotic behavior of some statistics in Ewens random permutations",
+          "trigger": "Exact Ewens probabilities of partial permutations; differentiating gives mixed moments with cycles"
+        },
+        {
+          "assessment": "Broader exact expectation framework, not a printed positional table",
+          "evidence": "The theorem applies to a partial permutation of specified cycle–path type. A site pattern is a disjoint sum of these indicators, and cycle count is determined by type.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.17556v1",
+          "material_read": "Section 1 and Theorem 1.1, OA offsets 0–5000",
+          "method": "Lawful OA HTML text",
+          "title": "Moments of permutation statistics by cycle type",
+          "trigger": "General fixed-cycle-type expectation for indicators of partial permutations"
+        },
+        {
+          "assessment": "Strict superset of the four frozen positional rows, indexed later",
+          "evidence": "All six rows, identical denominators and parameter ranges, explicit sign thresholds and the same asymptotic fractions.",
+          "identifier_or_url": "2026/10/26/SCOPE-positional-sign-laws-for-cycles-and-consecutive-triple-patterns--b968e2801c74",
+          "material_read": "Finding table, scope and completion lemma, mirror offsets 0–2729",
+          "method": "Indexed local source text",
+          "title": "Positional sign laws for cycles and consecutive triple patterns in uniform permutations",
+          "trigger": "Exact positional-table candidate"
+        },
+        {
+          "assessment": "Exact equivalent on the four rows after normalization; indexed later",
+          "evidence": "The conditional deviations are six times the covariances under the uniform law.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-rank-two-positional-dependence-law-for-permutation-cycles-and--600c70231432",
+          "material_read": "Finding, offsets 0–3165",
+          "method": "Indexed local source text",
+          "title": "A rank-two positional dependence law for permutation cycles and consecutive triples",
+          "trigger": "Possible equivalent conditional moment formulation"
+        },
+        {
+          "assessment": "Aggregate overlap only",
+          "evidence": "N_p is the sum of the pattern indicator at all positions; it loses the local slope and sign switch.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-cycle-count-covariance-with-all-six-consecutive-triple-pat--5a13f0bb8311",
+          "material_read": "Finding, definition of N_p and covariance claims",
+          "method": "Indexed local source text",
+          "title": "Exact cycle-count covariance with all six consecutive triple patterns",
+          "trigger": "Same pair of statistics in an indexed result"
+        },
+        {
+          "assessment": "Uses oriented peaks but not the frozen mixed moment",
+          "evidence": "The inspected statements concern aggregate pattern-132 and pattern-231 peak counts jointly with other statistics, not cycle count at a fixed site.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.07465v1",
+          "material_read": "Abstract, section 1 and the P_n definition",
+          "method": "Lawful OA HTML text",
+          "title": "Joint Distributions of Permutation Statistics and the Parabolic Cylinder Functions",
+          "trigger": "Enumerates the two oriented peak patterns"
+        },
+        {
+          "assessment": "Coarser descent/peak statistics in inspected results",
+          "evidence": "The compared patterns within each peak or valley pair agree on the two adjacent comparisons.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.00654v2",
+          "material_read": "Abstract and section 1, OA offsets 0–1697 and 5231–10157",
+          "method": "Lawful OA text",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "Peak/descent data jointly with cycle type"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The local orientation effect and the peak/valley cancellation are mathematically interpretable, but no distinct contribution survives the exact stronger positional table. Moreover the earlier Ewens identity specializes to the counting formula via a single derivative and the elementary triplet counts, with no new general method. The determination is about the frozen narrow invariant under documented coverage, not about the utility of positional covariance as a statistic.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

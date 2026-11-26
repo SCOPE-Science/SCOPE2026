@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Exact orthogonal-projection trace identities reduce the two-contact isotropic loss to a strictly convex line-graph quadratic; the unsigned-incidence factorization proves strict positive definiteness on all finite simple graphs. The tridiagonal path inverse is derived with both endpoint conditions, is positive for every path size and yields the unique simplex minimizer. The boundary-layer law follows from explicit geometric decay. The separate parabolic spectral-gap optimizer is certified by a universal Rayleigh quotient bound and a complete triangular polynomial eigenbasis. `verify.py` completed 297 exact-rational and numerical-consistency assertions; the infinite-domain proofs are algebraic, not inferred from those finite checks.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** Boyd–Ghosh–Prabhakar–Shah (2004/2006) derive the random edge projection mechanism and minimize a long-run second-eigenvalue objective. Their inspected Sections II–IV do not give the two-contact covariance-isotropic trace objective or its alternating path minimizer. Distinct published path Gini-sweep, synchronous-matching, and two-round strongly-regular-graph results have different operators and loss criteria. Targeted semantic and full-text queries found no source claiming or implying the same closed path law. This is best-evidence originality, not uniqueness proof; classical Markov-chain and optimal-design literature may contain equivalent formulations.
+PASS
 
-## Value
-**PASS.** The question is a natural communication-budget design: all edge distributions tie after one contact, yet after only two contacts a unique, strongly nonuniform all-size solution emerges. The alternating edge layer and its exact endpoint constant are structural and non-obvious, and its strict reversal of the classical long-run spectral-gap design establishes a concrete horizon-dependent choice rather than a mere finite example. No universal downstream performance claim is needed.
+With centered covariance C=I−11ᵀ/n, the conditional two-contact loss for ordered edges e,f is tr(CP_eP_fP_e)=tr(P_eP_f)−1=n−3+(v_eᵀv_f)². The squared inner products are 1, 1/4 and 0 for identical, incident and disjoint edges. Equivalently the loss is tr((I−L_p/2)²)−1=n−3+tr(L_p²)/4. The unsigned incidence Gram matrix gives B_G≽I/2; the simplex KKT signs and normalization are correct. On the path the tridiagonal recurrence with zero exterior coordinates yields the displayed product of factors 1−r^i and 1−r^(m+1−i), all strictly positive; summing shows S_m/m→2/3 and hence both boundary and bulk limits. Subtraction gives q_1−q_2 proportional by a positive factor to r^(m−1)−r>0 for m≥3. For the separate gap benchmark the centered ramp gives an upper Rayleigh bound; the parabolic law attains it because its weighted Laplacian is triangular on polynomial-degree flags, with eigenvalues c k(k+1). Equality forces the centered ramp eigenvector and recursively determines the weights. At m=1 the only law gives loss zero, and m=2 is reflection-symmetric. At m=3 direct substitution gives losses 23/16 and 13/9, difference 1/144, with center-edge masses 1/4 and 2/5 for the two objectives.
 
-## Closest literature and limits
-The main historical reference is the first public exact-day-verifiable 2005 online version of the 2004 IEEE conference paper, and its expanded 2006 journal account. The result applies to independent with-replacement equal averaging and isotropic initial covariance with common coordinate mean; it does not provide optimal adaptive policies, arbitrary-horizon designs or a full general-graph support classification. Independently unindexed equivalent prior work cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-contact isotropic path optimizer and its alternating boundary profile relative to the spectral-gap benchmark are the distinct supported finding. Neither independent averaging projections nor weighted spectral-gap design are new. The strongest indexed match explicitly treats a prior two-contact path calculation with this same objective and a path-specific optimum as a supplied input, and describes its own contributions as the broader support threshold and resolvent. The passage does not give the exact prior title, but the specified objective and path optimum, together with its exact P4 benchmark, point to the assigned result; there is no separate closed-form boundary classification in the matched finding. Same-day dates do not establish order. No verified independent anticipation of the path boundary finding was found in the bounded comparison.
+
+## value
+
+PASS
+
+The design distinction is structural, not the small numerical gain on P4: the unique finite-budget optimum reverses the first-two-edge ordering of the gap optimum on every path with at least three edges and has an explicit alternating, exponentially decaying boundary correction. That supplies a precise regime where standard spectral design uses the wrong spatial bias for the stated risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

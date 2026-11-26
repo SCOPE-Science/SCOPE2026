@@ -1,0 +1,197 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:46:41.472520Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 4–89",
+        "VERIFICATION.md: lines 18–20",
+        "verify.py: covariance_coefficients, moment_from_polynomial, logarithmic_moment and main",
+        "arXiv:2603.14134, Proposition 18 and radial mean body setting"
+      ],
+      "rationale": "A vector in a simplex factor has unique barycentric increments b_j summing to zero. Membership in t(Δ−Δ) is equivalent to Σ(b_j)_+≤t by taking the positive and negative parts and filling both with the same nonnegative mass. The overlap constraints are z_j≥max(0,b_j), Σz_j=1, hence the overlap volume fraction is (1−Σ(b_j)_+)^d (zero at tangency). The two signs of the translation give the same volume. Uniform product measure and convexity now give the directional survival product, or equivalently the minimum of independent scaled Beta(1,d_i) variables, omitting zero blocks. The difference-body gauge is the maximum factor gauge a, so after multiplying the exit time by a, at least one normalized gauge is 1. On 0<t<1 each survival factor is at least (1−t)^{d_i}; a maximal-gauge factor bounds the product above by (1−t)^δ. In each case non-equality gives strict inequality throughout that interval: the lower equality requires every normalized gauge to be 1; the upper equality requires one active factor of dimension δ. The polynomial survival on [0,1] has bounded density with no endpoint atoms, giving integrable logs and finite moments for p>−1. Strict stochastic order therefore gives strict power-mean order, including p<0 where the sign is reversed twice, and strict logarithmic-mean order at p=0. Beta integration and the derivative at zero give the stated constants. Both contact types exist for every fixed product. For the ratio, log(1+p/j)/p=∫_0^1 (j+pv)^(−1) dv, continuous at p=0 and strictly decreasing in p. At −1 the sum over j>δ telescopes to log(D/δ), and at positive infinity it tends to zero. With D=2N and δ=N the sum is a Riemann sum for (1/λ)∫_1^2 log(1+λ/t)dt if p_N/N→λ>0; the uniform expansion for p_N=o(N) and the bound (N/p_N)log(1+p_N/N) for p_N/N→∞ give the other limits, including p_N=0 or negative on the small-parameter side. This verifies the contact and limit claims with the intrinsic gauge, not Euclidean radii.",
+      "residual_risks": [
+        "Packaged code was inspected, not executed. Its reported 4,230 test cases check exact finite moment identities and finite numerical comparisons, not the universal sharpness or crossover.",
+        "Exact spot-check replay: at p=1 with dimensions (2,3) and normalized gauges (1,1/2), integrate (1−t)²(1−t/2)³ over [0,1], obtaining 37/160 strictly between 1/6 and 1/3. The polynomial overlap and stochastic comparison, not finite checks, establish the full result.",
+        "The distortion is relative to the displayed difference-body homotheties; neither optimal affine Banach–Mazur distortion nor p=−1 itself is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The MaRDI review reports the general inclusion K−K⊂C_{D,p}R_pK with C_{D,p}=1/c_{D,p}; its equality of entire bodies iff simplex is not pointwise contact information.",
+          "Same-day 312277a16a96 concerns Euclidean radial moments of determinant-one products of Euclidean balls, not radial mean bodies. Same-day d25547de8724 treats a p↓−1 entropy expansion and polar projection comparison, not the product envelope."
+        ],
+        "reasoning": "The general inclusion is stronger and covers the lower containment, but supplies neither the sharp upper factor indexed by minimum block dimension nor the two lists of attaining directions. The same-date hits optimize or compare different quantities regardless of priority.",
+        "searches": [
+          "Gardner–Zhang DOI 10.1353/ajm.1998.0021 and MaRDI indexed review",
+          "arXiv:2603.14134 pp. 18–19",
+          "Resultary 312277a16a96 and d25547de8724 same-date overlaps"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.14134 and arXiv:2601.20117",
+        "MaRDI Gardner–Zhang review and limited OA checks for DOI 10.1353/ajm.1998.0021 and DOI 10.1007/s11741-007-0108-z",
+        "Resultary fc444dfaf505, 9b3146060ea1, 312277a16a96, d25547de8724, 4609b4d88176"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-simplex overlap identity and Cartesian-product factorization give the product survival law directly. For segments the earlier survival law also mechanically yields both benchmarks and contacts.",
+          "For higher-dimensional blocks the factor exponents enter the strict stochastic comparison and the upper sharpness condition; the dimension/exponent profile then follows by a Riemann sum of the resulting exact ratio."
+        ],
+        "reasoning": "The covariogram identity and numerical lower benchmark are old or direct consequences. The substantive higher-dimensional result requires a comparison and attainment analysis not supplied by the general inequality or the cube law. Once calculated, the ratio mechanically gives the crossover; the checked prior sources do not supply that product ratio or crossover for Δ_N×Δ_N.",
+        "searches": [
+          "arXiv:2603.14134 Proposition 18, arXiv:2601.20117 Proposition 42, fc444dfaf505 proof §1, MaRDI review of Gardner–Zhang",
+          "Resultary balanced radial moment crossover 312277a16a96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 18 uses the radial-mean covariogram representation for general convex bodies with p>−1.",
+          "Square record 9b3146060ea1 classifies Euclidean longest and shortest directions; its exact profile yields the gauge-normalized segment-product case but its transition is a different statement.",
+          "Record 4609b4d88176 concerns the gauge of X−Y for independent uniform X,Y with Beta(d,d+1) comparison, not a one-point directional exit time."
+        ],
+        "reasoning": "Covariogram overlap and directional exit survival are equivalent here, but changing either the underlying random variable or replacing the intrinsic gauge by a Euclidean radius is not an equivalent reformulation.",
+        "searches": [
+          "Resultary radial mean body and difference-body gauge, parallelotope and square contacts",
+          "arXiv:2603.14134 Proposition 18",
+          "Resultary beta stochastic bounds for difference-body distances"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parallelotope Finding and proof explicitly give the survival product with exponent 1 in every factor and the independent uniform minimum. The Fourier mean body paper computes the exact cube covariogram and radial profile.",
+          "Ni–Xiong–Cheung full text was not recovered. No exact match for the two sharp bounds and equality sets on products with higher-dimensional factors was found in the passages inspected."
+        ],
+        "reasoning": "The cube and parallelotope cases are mathematically covered by explicit formulas, not merely by title similarity. The searched exact sources do not establish coverage of arbitrary simplex blocks; no inference about the inaccessible text is made from its title.",
+        "searches": [
+          "Resultary parallelotope radial means fc444dfaf505 and square profile 9b3146060ea1",
+          "arXiv:2601.20117 §7.1 Proposition 42, Eqs. (89)–(91) in inspected version",
+          "Ni–Xiong–Cheung DOI 10.1007/s11741-007-0108-z"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp two-sided, fixed-product comparison with all gauge contacts beyond parallelotopes and the balanced high-dimensional crossover. The general lower inclusion is covered by prior work and is not credited as new. The one-simplex computation and product factorization make the exit law a direct consequence, and the segment-product law and its envelope are covered. The checked results do not provide the mixed-dimensional sharp upper bound with the simultaneous equality classification and limiting profile. This is a best-of-knowledge assessment with unresolved older full-text access.",
+      "residual_risks": [
+        "A direct comparison with the full 2007 simplex paper remains unavailable; an earlier generalization using product factorization could affect priority. The general lower inclusion was compared using a mathematical review, not the full original Gardner–Zhang paper.",
+        "The tensor-product fact itself is elementary and the all-segment case is previously covered. No negative conclusion about unindexed work follows from the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General representation, not a sharp product classification",
+          "evidence": [
+            "Covariogram representation for convex K and p>−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.14134",
+          "material_read": "Proposition 18, pp. 18–19, PDF offsets 57600–62553",
+          "method": "OA primary-text passages",
+          "title": "Convexity of Radial Mean Bodies",
+          "trigger": "General representation including negative powers"
+        },
+        {
+          "assessment": "Exact cube case, not higher-dimensional simplex factors",
+          "evidence": [
+            "Factors the cube covariogram and computes the radial profile from it."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.20117",
+          "material_read": "§7.1, Proposition 42 and equations (89)–(91) in inspected version, p. 60, PDF offset 157569",
+          "method": "OA primary-text passage",
+          "title": "On The Fourier Mean Bodies of a Convex Body",
+          "trigger": "Earlier cube radial law and factorized overlap"
+        },
+        {
+          "assessment": "Credit general inner inclusion on the available mathematical evidence; not directional equality",
+          "evidence": [
+            "The reciprocal beta normalization C_{D,p} puts the displayed lower containment inside the reported general theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1353/ajm.1998.0021 ; https://portal.mardi4nfdi.de/wiki/Affine_inequalities_and_radial_mean_bodies",
+          "material_read": "MaRDI indexed review, offset 0; primary full text unavailable on the attempted OA route",
+          "method": "Indexed review and OA retrieval attempt",
+          "title": "Affine inequalities and radial mean bodies",
+          "trigger": "Universal inner envelope"
+        },
+        {
+          "assessment": "Scope unresolved, not negative evidence",
+          "evidence": [
+            "The paper may contain important one-simplex antecedents; its theorem cannot be inferred from its title."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11741-007-0108-z",
+          "material_read": "Bibliographic/abstract-level evidence only",
+          "method": "Identified DOI/publisher and institutional OA routes attempted; no full text recovered",
+          "title": "Radial mean bodies of simplices",
+          "trigger": "Closest early same-factor paper"
+        },
+        {
+          "assessment": "All-segment survival and implied benchmark/contact case covered",
+          "evidence": [
+            "Product of (1−a_i t) and minimum of independent scaled uniforms."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-differentiability-strata-of-radial-mean-bodies-of-parallel--fc444dfaf505",
+          "material_read": "Finding and proof §1",
+          "method": "Resultary and mirror primary passage",
+          "title": "Sharp differentiability strata of radial mean bodies of parallelotopes",
+          "trigger": "Exact overlap on products of segments"
+        },
+        {
+          "assessment": "Different stated metric; profile also covers the square slice after renormalizing",
+          "evidence": [
+            "The Euclidean extremal directions swap at p=2; the exact profile can also be divided by the square difference-body radial profile."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-a-four-to-four-contact-transition-in-radial-mean-bodies-of-the-s--9b3146060ea1",
+          "material_read": "Finding and proof §§1–4",
+          "method": "Resultary and mirror primary passage",
+          "title": "A four-to-four contact transition in radial mean bodies of the square",
+          "trigger": "Prior exact square profile and contacts"
+        },
+        {
+          "assessment": "Different functional and factors",
+          "evidence": [
+            "Euclidean radial moments of products of balls rather than comparison of radial means to K−K for products of simplices."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-radial-moment-phase-transition-for-volume-preserving-pro--312277a16a96",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and mirror primary passage",
+          "title": "A sharp radial moment phase transition for volume-preserving products",
+          "trigger": "Same-day product and dimension–exponent crossover"
+        },
+        {
+          "assessment": "Different comparison and limit",
+          "evidence": [
+            "Entropy as p approaches −1 and a polar projection comparison."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-uniform-second-order-chord-entropy-law-at-the-radial-mean-endpoi--d25547de8724",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and mirror primary passage",
+          "title": "Uniform second-order chord entropy law at the radial mean endpoint",
+          "trigger": "Same-day radial mean body and negative endpoint"
+        },
+        {
+          "assessment": "Different sample model and law",
+          "evidence": [
+            "Two-point gauge distance rather than one-point directional exit."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and mirror primary passage",
+          "title": "A sharp beta stochastic bound for difference-body distances",
+          "trigger": "Beta stochastic ordering in difference-body gauges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: lines 11–39 and 61–89",
+        "arXiv:2601.20117 §7.1",
+        "Resultary fc444dfaf505"
+      ],
+      "rationale": "This answers the geometric problem of how much the intrinsic radial-mean radius varies with direction for a fixed product rather than bounding it uniformly over an unrelated class. The worst and best directions behave differently: synchronization across every factor gives the inner contact, while complete concentration in a smallest-dimensional factor gives the outer contact. That sharp dichotomy and the complete crossover at p of order N show how dimension and exponent compete in anisotropy even when the shapes of the simplices vary. The value is in the joint sharp classification and asymptotic regime, not the already covered lower inclusion or factorization as a standalone formula.",
+      "residual_risks": [
+        "The asymptotic crossover is proved only for the balanced two-factor family; the theorem does not provide a universal outer bound for arbitrary bodies or optimize the comparison up to linear transformations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

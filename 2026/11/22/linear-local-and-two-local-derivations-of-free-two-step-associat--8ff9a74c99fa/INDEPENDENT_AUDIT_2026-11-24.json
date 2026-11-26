@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:31:04.459777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 40–125; VERIFICATION.md and CHECKER.py inspected but not executed.",
+        "Independent replay: python3 -B /workspace/branches/independent_arithmetic.py, section 5, checks that four scalar two-point obstruction constraints leave only zero in the two rank-two prime-field examples."
+      ],
+      "rationale": "The square ideal W=V tensor V is invariant under derivations by Leibniz on products, and annihilates the algebra. Therefore the V-to-V block A and arbitrary shear F determine the W action rho(A), and conversely these maps satisfy Leibniz. Injectivity of rho follows by applying it to e_i tensor e_i, reading off the off-diagonals and then dividing the diagonal coefficient by two. Locality keeps W invariant. For its W-block C, the tested image of u tensor v lies in V tensor v + u tensor V. Coefficients of e_i tensor (e_j+e_l) imply the first-factor off-diagonal coefficients are independent of the second index, and the transposed comparison does the same for the second factor. After subtracting these tensor-sum actions, the four-entry test on (e_i+e_h) tensor (e_j+e_l) forces additive diagonal coefficients d_ij=alpha_i+beta_j. Thus C=A_0 tensor I + I tensor B_0; flip symmetry on u tensor u forces (A_0-B_0)u proportional to u for every u, hence scalar by basis sums. Division by two gives the unique common parameter S. At nonzero v an arbitrary shear can prescribe its value at v and correct any difference on z, so A and S are truly independent for one-point locality. The two-point argument is valid because D^{-1}(T-S) is skew-symmetric when (T-S)D+D(T-S)^T=0, and e_i and e_i+e_j with diagonal signs 1 and -1 eliminate every mismatch entry over any field of characteristic not two. A shorter independent check of the same rigidity uses the pair v,v^2: the shared derivation enforces rho(S-A)(v tensor v)=0. Testing v=e_i forces (S-A)e_i=0 from the off-diagonal tensor coefficients and twice the diagonal coefficient. Counting free blocks gives the stated dimensions and defect. These arguments do not require an infinite field or a rank beyond the stated m>=2.",
+      "residual_risks": [
+        "The replay is not an arbitrary-field proof or a full reflexive-hull enumeration; those general quantifiers follow from the coefficient argument. Characteristic two, quotients and nonlinear two-local maps are not assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The null-filiform paper's Theorem 5.5 even treats nonlinear two-local derivations on its null-filiform algebra, but the generator count and multiplication differ. Its filiform and naturally graded quasi-filiform families have near-maximal nilpotency lengths, unlike an m+m^2 dimensional cube-zero algebra.",
+          "The broader nilpotent Lie/right Leibniz paper works with different products over the complex field."
+        ],
+        "reasoning": "Stronger two-local conclusions on a different class do not subsume this one. Passing to a Lie commutator probes the alternating sector and loses the symmetric square evaluations which enforce rigidity here.",
+        "searches": [
+          "arXiv:2305.15339 §§5.1, 5.2; arXiv:2610.40348v1 p. 1",
+          "Resultary ba6a85ab40e2, 9aecdcbb9415 and 227b7e969948"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-hit, e1791f7dab62, ba6a85ab40e2, 9aecdcbb9415, 227b7e969948, d02e38de972a, 5dce718db64e",
+        "arXiv:2305.15339v1 and arXiv:2610.40348v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known ordinary form fixes the set of maps to interpolate; it does not identify the linear hull of their pointwise images. The Lie counterpart uses exterior bivectors, with v wedge v=0; it supplies no analogue of the symmetric-square coupling used here."
+        ],
+        "reasoning": "The basis tangent comparison and symmetry restriction on ordered quadratic squares are additional arguments; a universal principle that two-local maps respect squares only supplies rigidity after the local W action has been classified. Neither the prior idempotence predicate nor the Lie and filiform families furnish the missing hull classification.",
+        "searches": [
+          "Resultary e1791f7dab62, ba6a85ab40e2 and 9aecdcbb9415, local-mirror mathematical statements",
+          "arXiv:2305.15339v1 Theorems 5.1 and 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct local catalogue match is the frozen result itself. The equivalent operator-hull formulation uses Ref(rho(End V)) on the full ordered tensor square, not the free exterior-square action.",
+          "Abdurasulov–Ayupov–Yusupov Theorem 2.2 gives null-filiform multiplication e_i e_j=e_{i+j}, not m independent degree-one generators and m^2 independent ordered products."
+        ],
+        "reasoning": "Pointwise evaluation on W is exactly the algebraic reflexive hull of rho, with the shear making all noncentral local constraints solvable. Naming a null-filiform algebra or a local Lie theorem is not an equivalent formulation of that hull.",
+        "searches": [
+          "Resultary: free 2-step, nonunital tensor square, nilpotency-three associative local and two-local derivation classification",
+          "arXiv:2305.15339 §§2 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-algebra record e1791f7dab62 classifies composition-idempotent ordinary derivations, not a table of local hulls. Free Lie item ba6a85ab40e2 has a numerical m^2 local defect in its specified range; item 9aecdcbb9415 has a nonzero one-dimensional linear two-local defect. Same-day d02e38de972a and 5dce718db64e concern characteristic-two Zinbiel algebras."
+        ],
+        "reasoning": "The dimensions of a local-derivation defect without the multiplication tensor are not an exact match. The zero linear two-local defect and the classification of the full tensor-square hull were not found independently in a table or catalogue result.",
+        "searches": [
+          "Resultary: exact local-derivation defects for free tensor/exterior-square algebras and null-filiform associative or Leibniz algebras",
+          "Resultary e1791f7dab62, ba6a85ab40e2, 9aecdcbb9415, d02e38de972a, 5dce718db64e"
+        ]
+      },
+      "rationale": "The distinctive result is the pointwise evaluation hull of the ordered tensor-square action and the corresponding exact local derivation classification. The ordinary normal form is prior, and the two-local collapse is a substantive contrast with the Lie case but follows efficiently once the local classification is known (the pair v,v^2 suffices). Neither a same-algebra idempotent census nor the associative filiform classification establishes the local hull for this multiplication.",
+      "residual_risks": [
+        "An unlocated older tensor-preserver or more general operator-reflexivity theorem could subsume the local calculation; the inspected sources do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior ordinary normal form; different classification predicate",
+          "evidence": [
+            "Classifies D composed with D equal to D on the same algebra over arbitrary fields, not pointwise or two-point interpolation."
+          ],
+          "identifier_or_url": "Resultary e1791f7dab62",
+          "material_read": "RESULT.md Finding, mirrored snapshot 36a7204, offset 0",
+          "method": "Local mirrored primary result, bounded statement",
+          "title": "Idempotent derivations and a sharp half-rank bound in free two-step associative algebras",
+          "trigger": "Identical underlying algebra and derivation normal form"
+        },
+        {
+          "assessment": "Genuine classification for different families, not coverage of the free tensor-square algebra",
+          "evidence": [
+            "The null-filiform algebra is one-generated with e_i e_j=e_{i+j}; it has triangular local maps and all its two-local maps are ordinary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.15339",
+          "material_read": "v1 Theorem 2.2, p. 2, offset 7988; Theorem 5.1, p. 23, offset 79000; Theorem 5.5, p. 28, offset 102351",
+          "method": "Lawful open primary PDF, targeted theorem passages",
+          "title": "Local and 2-local derivations on filiform associative algebras",
+          "trigger": "Closest primary associative classification with both predicates"
+        },
+        {
+          "assessment": "Exterior-square theorem, not tensor-square reflexivity",
+          "evidence": [
+            "V plus exterior square has an m^2 local defect with a different central action."
+          ],
+          "identifier_or_url": "Resultary ba6a85ab40e2",
+          "material_read": "RESULT.md Finding, mirrored snapshot 36a7204, offset 0",
+          "method": "Local mirrored primary result, bounded statement",
+          "title": "Local derivations of free two-step nilpotent Lie algebras",
+          "trigger": "Analogous local defect for a free two-step object"
+        },
+        {
+          "assessment": "Contrasting nonzero two-local defect for another multiplication",
+          "evidence": [
+            "Linear two-local derivations are Der(L) plus a one-dimensional defect, using exterior-square products."
+          ],
+          "identifier_or_url": "Resultary 9aecdcbb9415",
+          "material_read": "RESULT.md Finding, mirrored snapshot 36a7204, offset 0",
+          "method": "Local mirrored primary result, bounded statement",
+          "title": "A one-dimensional two-local derivation defect for free two-step nilpotent Lie algebras",
+          "trigger": "Analogous two-point classification"
+        },
+        {
+          "assessment": "Lie/right Leibniz local results; not a covering associative theorem",
+          "evidence": [
+            "Studies complex nilpotent Lie and right Leibniz algebras rather than the ordered tensor-square associative product."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.40348",
+          "material_read": "v1, p. 1, abstract and scope",
+          "method": "Lawful primary manuscript, bounded opening passage",
+          "title": "Local Derivations and Local Automorphisms of Arbitrary Finite-Dimensional Nilpotent Lie and Leibniz Algebras",
+          "trigger": "Broad nilpotent local-map theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–4; arXiv:2305.15339 §§2 and 5; Resultary 9aecdcbb9415"
+      ],
+      "rationale": "The cube-zero free associative algebra is a natural benchmark outside the commonly treated one-generated filiform families. The classification explains which parameters can vary independently under one-point interpolation and why that freedom disappears at two points. It gives a complete all-rank invariant, with a meaningful difference from the exterior-square Lie model, rather than a finite-field sample or an ordinary-derivation recount.",
+      "residual_risks": [
+        "The claimed classification is for linear maps over fields of characteristic not two and does not resolve nonlinear two-local maps or more general quadratic truncations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

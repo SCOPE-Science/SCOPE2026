@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The update is reconstructed directly from the stated convex quadratic subproblem. Differentiating the two-state map gives the explicit Jacobian and the identity \(P(1)=F''(x_*)/D\). The other two Schur tests hold strictly throughout \(\ell>a\) and \(0\le\beta<1\). The stationary multiplicity follows by a complete sign analysis of the degree-two polynomial in \(u^2\); every endpoint and exceptional curvature case is specified. Exact factorization, exact Hessian signs, and an elementary strict logarithmic comparison prove a non-global attracting witness. Replayed `verify.py`: `VERIFY_OK`. The checker supports rather than replaces the analytic proof.
+## correctness
 
-**Originality — PASS with residual search risk.** The closest source Kang (2026, DOI 10.3934/math.2026674) supplies the algorithm, log regularizer and critical-point convergence but no two-state Jacobian phase classification. The Cauchy proximal cubic and convexity cutoff are acknowledged as prior material from Karakus–Mayo–Achim (arXiv:2003.04798); they do not determine the spectrum of Kang's inertial update. Bai–Hu–Wang–Yang (arXiv:2401.09274) establish strict-saddle instability for distinct damped IRL schemes, not this two-state map under arbitrary allowed constant momentum and proximal metric. Semantic literature/search coverage cannot exclude every historical equivalence. The claimed contribution is the full inertia-independent *algorithmic* bistability classification and exact suboptimal basin example, not a newly discovered cubic.
+PASS
 
-**Value — PASS.** The source's practical log penalty is nonconvex and its convergence guarantee targets critical points only. The theorem gives a sharp natural dimensionless parameter window in which its scalar dynamics has **two open attraction basins** regardless of hyperparameters, and a fully explicit instance with one attractor demonstrably nonoptimal. This is directly relevant to sparse-recovery initialization and shows a structural obstruction that cannot be removed by choosing admissible fixed momentum. It is not a generic reparameterization or a numerical table; the result includes every branch and exceptional boundary.
+Kang's Algorithm 1 and §4.1 weight at x_k, linearize at the extrapolate, and use the stated proximal metric. The scalar subproblem derivative yields exactly D(x)Φ(x,y)=(ℓ−a)((1+β)x−βy)+ab, where D(x)=ℓ+2/(1+ρx²)>0. The proximal condition is ℓ>a; the gradient is co-coercive with respect to the scalar metric a in Kang's convention (1/a-cocoercive in the ordinary scalar convention). Fixed points give F′=0. The scaled stationarity map is odd and sign-preserving; its derivative has numerator a w²+(2a−2)w+a+2, w=ρx². Its two positive simple roots for 0<a<1/4 give the stated local maximum and minimum; at a=1/4 the derivative has isolated zeros at w=3 and the map remains strictly increasing, with cusp ordinate 3√3 in absolute value. At equilibrium the characteristic polynomial is λ²−[(1+β)c+s]λ+βc, with c=(ℓ−a)/D in (0,1), s=4ρx²/[D(1+ρx²)²]≥0. Thus 1−βc and P(−1) are positive, and P(1)=1−c−s=F″/D controls the strict Schur test. For F″<0 there is a real multiplier >1, and the other lies in [0,1); β=0 is included. At degeneracy one multiplier is 1 and no nonlinear conclusion is claimed. The witness stationary cubic factors as (x−1)(x²−8x+9); the outer roots have positive curvature. The objective gap 2+5√7/8−log(4(3+√7)) is positive since the first two terms sum to >7/2 and the logarithm is <5log 2<7/2. The local attracting neighborhood at (1,1) contains a nonempty open interval on the prescribed initialization diagonal. The symbolic checker was inspected, not executed; the universal proof is analytic.
 
-**Limitations and risks.** The result is scalar, local, constant-inertia and exact-subproblem. Degenerate equilibria are nonhyperbolic, and the attraction basin boundaries are not determined. Earlier Cauchy proximal analysis includes the same stationary cubic; the novelty assessment rests on the distinct 2026 dynamical map and all-admissible-hyperparameter stability theorem. Wider implicit coverage by generic majorization-minimization stability results remains a research-literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The update is already an immediate specialization of Kang's explicit formula, and the Cauchy stationarity cubic and related convexity thresholds are prior. The distinct supported claim is the all-admissible-parameter classification of the local dynamics of that specific update, coupled to its exact multiplicity regime and a robust suboptimal basin under actual diagonal initialization.
+
+## value
+
+PASS
+
+The exact two-state spectrum ties a practical failure mode to curvature rather than to the choice of inertia or proximal curvature. The stationary cubic by itself only supplies candidate equilibria; the classification shows both minimizing branches really attract and gives a constructive open set of allowed initializations that stays with the strictly worse branch. No global basin or degenerate stability assertion is needed for that conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

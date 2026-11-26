@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:56:15.934533Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–5",
+        "Frozen VERIFICATION.md and tools/verify.py, inspected but not executed"
+      ],
+      "rationale": "A word needs exactly one plus its number of weak rank descents in permutation blocks: each such transition forces a new block and each strict ascent can stay in the current block. In a palindrome each mirrored transition pair contributes one descent if unequal and two if equal; the even center contributes one more. This gives m+e(h)+1 in both parities. For a half of length r and e equal transitions, the count is q times binomial(r−1,e) times (q−1)^(r−1−e), with each word represented once. Summing the odd and even least-block contributions gives qzt(1+zt)/(1−zt²(q−1+z)); summing over every available block count multiplies by 1/(1−z). The specialized recurrence and examples follow. At the extremal odd length 2k−1, the half has no equal transitions; no even length is as large. For q≥3 equality at distances one and two is impossible in the host, excluding longer contiguous palindromes by their centers. The positive dominant pole at t=1 is simple, strictly smaller in modulus than the other poles and not canceled.",
+      "residual_risks": [
+        "The proof covers a consistently ordered repeated block and distinct words, not the number of embeddings or alternating block orders. The recorded bounded checks are corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahalingam–Pandoh give an extremal total in the regime q≥n/2; Müllner–Ryzhikov give longest-subsequence bounds. 85b73838625b actually permits a terminal partial cycle and includes the whole result at zero terminal length, but is dated 2026-11-02, after the frozen record."
+        ],
+        "reasoning": "The extremal regime reaches only k≤2 when n=qk, and longest-length bounds are not length spectra. The wider partial-cycle theorem is coverage as a statement, but not evidence of prior coverage given the available dates.",
+        "searches": [
+          "Mahalingam–Pandoh arXiv:2108.02729 Thm. 5.4",
+          "Müllner–Ryzhikov arXiv:1901.07502 Thm. 13",
+          "Resultary 85b73838625b"
+        ]
+      },
+      "checked_sources": [
+        "Pandoh seminar slide 13",
+        "arXiv:2108.02729",
+        "arXiv:1901.07502",
+        "Resultary 0908d82f9069, 42120300c87a and 85b73838625b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2, Prop. 4.8 specializes directly to the frozen length-three coefficient; at zero final-prefix length the later exact characterization reduces to m+e(h)<k, and its enumerator reduces to the frozen one."
+        ],
+        "reasoning": "Credit both genuine implications at their stated scopes and chronology. The earlier result neither characterizes membership for arbitrary k nor determines the rational length enumerator.",
+        "searches": [
+          "arXiv:2108.02729 Prop. 4.8 and Thm. 5.4",
+          "Resultary 85b73838625b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0908d82f9069 gives 2zt(1+zt)/((1−z)(1−zt²(1+z))) for even-length alternating prefixes, exactly the q=2 specialization. 42120300c87a also treats alternating prefixes."
+        ],
+        "reasoning": "Neither counts words with more than two symbols. Lifting a binary spectrum requires a membership argument showing that weak rank changes, rather than specific rank sizes, control the arbitrary alphabet case.",
+        "searches": [
+          "Resultary 0908d82f9069 and 42120300c87a",
+          "Primary search for distinct palindrome subsequence spectra of repeated alphabet permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact generating functions are the binary restriction and the later partial-cycle extension. The published two-copy example counts q(q−1) length-three words."
+        ],
+        "reasoning": "The indexed exact objects here are formulas rather than finite tables; neither the earlier binary formula nor the earlier length-three slice determines the exact unrestricted q≥3 coefficients across k.",
+        "searches": [
+          "Resultary 0908d82f9069 and 85b73838625b",
+          "Pandoh 2021 seminar slide 13",
+          "Mahalingam–Pandoh arXiv:2108.02729 Prop. 4.8"
+        ]
+      },
+      "rationale": "The exact two-copy length-three layer is earlier, and q=2 has the exact analogous enumerator. The whole q≥3, all-k spectrum is directly contained in a broader catalogue record dated after the frozen record, not established as earlier coverage. The prior results inspected do not supply the all-k named claim before the frozen record.",
+      "residual_risks": [
+        "The bounded primary search did not add a relevant source; it does not exclude less visible equivalent formulations.",
+        "The date comparison does not establish authorship or absolute priority relative to the broader indexed formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related extremal-total results",
+          "evidence": "Words with q≥n/2, not a fixed-q all-k spectrum.",
+          "identifier_or_url": "https://www.i2m.univ-amu.fr/wiki/Combinatorics-on-Words-seminar/_media/seminar2021%3A20210621pandoh.pdf",
+          "material_read": "Slide 13 (offset 7612)",
+          "method": "Open seminar PDF passage",
+          "title": "Counting scattered palindromes in a finite word (seminar)",
+          "trigger": "Early closely related work and tables"
+        },
+        {
+          "assessment": "Earlier exact layer only; separate extremal count",
+          "evidence": "Length-three count n(n−2)/4 for a twice-repeated ordered list of n/2 symbols; maximum-total theorem for q≥n/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "Prop. 4.8, pp. 7–8, and Thm. 5.4, p. 15",
+          "method": "Open primary PDF passages",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Exact two-copy overlap"
+        },
+        {
+          "assessment": "Length bounds, not enumeration",
+          "evidence": "Circular and block problems for the lengths of palindromic or strongly antipalindromic subsequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+          "material_read": "Abstract, Def. 9 p. 3, Thm. 13 p. 4",
+          "method": "Open primary PDF passages",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Possible broader block-word theorem"
+        },
+        {
+          "assessment": "Exact q=2, outside frozen alphabet range",
+          "evidence": "The complete-cycle even-prefix generating function equals the stated formula at q=2.",
+          "identifier_or_url": "0908d82f9069",
+          "material_read": "RESULT.md Finding and Limit law",
+          "method": "Local Resultary mirror",
+          "title": "Exact palindrome length enumerator and Gaussian law for alternating words",
+          "trigger": "Strongest earlier exact alternating-word analog"
+        },
+        {
+          "assessment": "Binary and later-dated",
+          "evidence": "Complete length-refined alternating-prefix spectrum.",
+          "identifier_or_url": "42120300c87a",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact Fibonacci spectra for scattered palindromes of alternating words",
+          "trigger": "Second indexed alternating-word spectrum"
+        },
+        {
+          "assessment": "Actual broader implication, but later catalogue date",
+          "evidence": "k cycles plus a final prefix, with an endpoint condition for the borderline m+e(h)=k; at zero prefix the condition is impossible and the whole-block generating function remains.",
+          "identifier_or_url": "85b73838625b",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact scattered-palindrome spectrum of partial cyclic-permutation powers",
+          "trigger": "Strongest broader and directly covering indexed statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§2–5; nearest exact binary and two-copy results"
+      ],
+      "rationale": "Fixed cyclic alphabet order gives a natural family for contrasting scattered and contiguous palindromes. The result identifies which individual palindromes first occur at each block count and gives a uniform exact length distribution for a general labeled alphabet, not just a maximum length or a finite set of new cases. The independence from the order of unequal letters in the halfword is the structural simplification enabling that count.",
+      "residual_risks": [
+        "This is a specific periodic family, not an extremal theorem for arbitrary words or a claim of applications beyond the count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

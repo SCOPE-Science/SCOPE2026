@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result applies to every real or complex signal on a three- or four-cycle. Reduction to nonnegative normalized data is justified by complex modulus contraction and translation/scale equivariance. The three-cycle algebra gives the exact deficit in the two necessary regions. The four-cycle certificate creates six and seven full-dimensional active regions, verifies each square has total exact area one, and minimizes the full quadratic deficit at all mathematically necessary candidates using exact rational and quadratic-number arithmetic. The nonbinary four-cycle witness attains the constant. The actual embedded Python certificate was executed and checked.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The motivating real-line theorem in arXiv:2610.39178v1 is not a finite cyclic theorem. A particularly close finite-graph article, arXiv:2603.12462v1, studies the four-cycle in its section 3.1, but its operator is centered graph-ball and its exact case is first variation. The 2022 finite-graph article also uses centered balls. The July 2026 discrete-uncentered paper treats the infinite integers and sharp characteristic-function bounds. Claim-focused published-record queries found only different operators or strong function norms. A matching unindexed or older result remains possible, and the July preprint's full text was not examined.
+PASS
 
-## Mathematical value — PASS
-The smallest nontrivial finite cycles test whether uncentered maximal averaging contracts Hilbert first differences. The exact algebraic value on the square, its change from the triangle, and a continuous-data (not binary-only) extremizer give meaningful structural boundary information in a live sharp-derivative problem. This is not claimed to settle longer cycles.
+Here V₂ is the ℓ² norm of first cyclic differences, not a second derivative. Replacing complex f by |f| only decreases the denominator and preserves the numerator; constant modulus gives zero numerator. For nonconstant modulus, subtracting its minimum within the nonnegative cone and rescaling are legitimate because all averages shift equally and the variation kills constants. At C₃ the maximal values at (u+v,v,0) reduce to the two cases in the proof; symbolic expansion verifies the energy identities, including equality for u≥v. At C₄ rotation and reflection place a maximum 1 at zero and a minimum 0 either adjacent or opposite, covering ties as well. An independent exact calculation generates averages from intervals in a doubled list, obtains the active cells by intersecting pairs of supporting lines and testing all constraints, and minimizes the quadratic deficit over vertices, all feasible vertex-to-vertex segments, and feasible positive-definite critical points. Only closures of full-dimensional cells are needed by continuity, since nonidentical affine ties lie on finitely many lines. An interior stationary point with an indefinite Hessian cannot be a minimum; if the Hessian is positive semidefinite but singular, a null line carries the same minimum value to the boundary. Linear or concave edge restrictions take a minimum at an endpoint. Thus the candidate list is exhaustive, not a grid scan. The replay gives six and seven cells with respective minima −1/12+5√13/156>0 and 0, and directly verifies the active witness averages and the squared ratio (7+√13)/36>1/4. Hence both constants are sharp in the stated domain.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The nearest distinct records share the graph or the seminorm, and the line results share first differences and uncentered averaging, but none of the compared theorems gives the sharp first-difference ℓ² ratio on the full family of uncentered cyclic arcs at these sizes. Credit is for those sharp constants and their strict transition, not for the general maximal-variation program.
+
+## value
+
+PASS
+
+The sharp cyclic first-difference ratio is a natural stability quantity for uncentered maximal averaging. The first nontriangle cycle changes the arrangement of contiguity and creates a provable strict increase, with a non-indicator optimizer that improves on all indicators. The globally sharp algebraic constant and realizing pattern distinguish a genuine cyclic and amplitude effect from the previously studied centered, vertex-norm or indicator results. This is an independently useful exact small-cycle benchmark, not a claim about arbitrary cycle sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

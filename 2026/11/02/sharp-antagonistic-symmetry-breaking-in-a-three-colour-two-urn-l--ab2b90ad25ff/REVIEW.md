@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The two-site reduction follows directly from the published logistic reinforcement formula and the identity \(2\varphi(t)-1=\tanh(t/2)\), with the coupling fixed at \(\alpha=-2a\). The uniqueness proof for \(a\le1\) is a strictly monotone inverse-hyperbolic argument. The two supercritical families are proved by monotonicity and strict concavity and individually substituted into all fixed equations. ODE stability is established from one exact transverse eigenvalue and an explicit two-dimensional trace/determinant computation, with strict positivity proved by elementary hyperbolic inequalities. The numerical checker separately checks representative cases but is not relied upon for infinite claims. No total-census or stochastic convergence conclusion is claimed.
+PASS
 
-## Originality (PASS, qualified)
+The Pires–Rosales logistic response becomes exactly tanh(t/2) after centering the first-urn proportions, so α=−2a gives the stated drift. Taking artanh reduces the fixed equations to artanh(z_i)−az_i=−aΣz_j for all i. For 0<a≤1 this scalar left side is strictly increasing, including at a=1 where its derivative vanishes only at 0. Equal coordinates then force zero. For a>1, artanh(r)/r is strictly increasing from 1 to infinity; its root gives the six polarized permutations. The repeated-coordinate branch function H_a has positive slope at zero, strictly negative second derivative on (0,1) and limit −∞ at 1, giving a unique positive root b and v>b. The three placements for each sign are distinct from each other and from the polarized points. At zero the eigenvalues are −1−2a and a−1 twice. The frozen Jacobian formula with row factor 1−z_i² is the Jacobian evaluated at an equilibrium; at arbitrary z the corresponding factor is sech²(aΣ_{j≠i}z_j). At (r,0,−r), the antisymmetric eigenvalue is as−1 for s=1−r²; the other block has trace −2−as and determinant 1+as−2a²s. With u=artanh(r), as=2u/sinh(2u)<1 and the determinant times sinh²u is sinh²u+u tanh u−2u²>0 by the strict bound sinh²u>u²+u⁴/3 and tanh u≥u−u³/3. Thus all six polarized points are strictly linearly stable for the ODE. Independent branch residuals and equivalent symmetric Jacobian principal-minor signs were checked at five u values; no finite run exhausts equilibria or interaction strengths.
 
-The motivating Pires–Rosales article arXiv:2212.09397 introduces the model, proves conditional stochastic convergence and gives a positive-interaction three-vertex/two-colour example. Its stated example and the small-coupling uniqueness corollary do not imply the all-strength negative-coupling two-vertex/three-colour bifurcation and six stable polarized states. General interacting-urn and Hopfield references were compared for mathematical implications rather than nomenclature. No equivalent result was identified in accessible research-record searches. General Hopfield-network fixed-point theory and literature not fully inspected remain historical-priority risks; this self-review is not independent certification.
+## originality
 
-## Value (PASS)
+PASS
 
-The model explicitly represents competition among three colours and is mathematically motivated by a published nonlinear stochastic approximation. The theorem identifies the exact disappearance of uniqueness at a natural interaction threshold and constructs six attracting ODE equilibrium patterns and six more equilibria uniformly for arbitrarily large antagonism. This is a structural phase-boundary and multiplicity result, not an arbitrary finite computation. It improves the scope of the source's small-coupling guarantee for this natural submodel, without claiming to settle the unresolved finiteness question.
+The underlying urn model, its conditional stochastic convergence theorem, a sufficient small-interaction uniqueness condition and its Hopfield interpretation are prior art. The supported distinct claim is the sharp antagonistic threshold for the specified logistic model, with explicit thirteen-point lower bound and six strictly stable polarized equilibria of its ODE for all a>1. An exact thirteen/six pattern in an earlier cubic K₃ model is a serious comparison but the response laws differ and the stable branches in the two inspected claims have different symmetry types.
 
-## Limits and closest literature
+## value
 
-The result concerns exactly two sites and three colours, uniform logistic response, and fixed-point/ODE dynamics. In particular, proving thirteen distinct equilibria is not proving that there are only thirteen, and linear ODE attraction does not by itself show which equilibria a stochastic process visits. Primary source: Pires–Rosales, arXiv:2212.09397 (full text inspected). Ancillary related preprints: arXiv:1211.1247 and arXiv:2006.02685. A comprehensive historical-priority assessment, including neural-network analogues, remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The transition resolves where a prior sufficient uniqueness range gives way to multistability in a specific urn drift. Explicit branches exhibit two different symmetry types, and the analytic strict stability certificate identifies six robust ODE attractors without a coupling cutoff. The result is useful for the fixed-point structure even without a full equilibrium census or stochastic selection theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

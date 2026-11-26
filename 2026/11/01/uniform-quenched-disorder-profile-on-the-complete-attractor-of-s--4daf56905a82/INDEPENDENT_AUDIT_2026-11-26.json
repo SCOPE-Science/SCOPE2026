@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:27:51.983584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially Proof (1)–(5)",
+        "Frozen VERIFICATION.md and check_chialvo.py, inspected, not executed"
+      ],
+      "rationale": "The voltage update gives x_i >= k_min after one step and at every bilateral time. The stable recovery recursion, iterated into the past on a bounded orbit, gives y_i <= Y=c/(1-a). Forward iteration first into y_i <= Y+delta, then into x_i <= X_delta, then into the stated lower recovery bound proves absorption of bounded sets. The displayed box is invariant, including when a=0. Compactness and continuity give complete prehistories through the nested-image intersection, and bounded complete orbits lie in it by uniform absorption of their bounded ranges. The two extrema for |(2x-x^2)e^(-x)| are attained at 2±sqrt(2); the ratio of the larger-x lobe to the smaller-x lobe is (1+sqrt(2))^2 exp(-2sqrt(2)) < 1. The y derivative is bounded by its x=2 value. Orthogonal centering cancels the mean-field term; subtracting F at the spatial means, the mean-value bound gives ||PF|| <= L_x||xi||+L_y||eta|| on the convex half-strip. The bounded past implies eta_t=-b sum_{j>=0} a^j xi_{t-1-j}. Thus S_x <= q||Pk||+qLS_x, and substituting the resulting S_x bound into the centered voltage equation and then into the recovery series gives both advertised remainders. All constants are independent of N and of the orbit. The q=0 and identical-input cases give zero deviation; for small q the norm bounds with relative error qL/(1-qL) give the variance result after squaring and dividing by N.",
+      "residual_risks": [
+        "qL<1 is sufficient, not sharp; the variance asymptotic is as q tends to zero. No uniform transient or sparse-network assertion follows. No formal certificate or new numerical replay is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Bollt–Nishikawa bound the forced part of a continuous-time transverse variational equation by a transition estimate requiring exponential stability.",
+          "Acharyya–Amritkar derive an approximate master-stability analysis for small mismatches."
+        ],
+        "reasoning": "Those assumptions and conclusions do not subsume a global nonlinear discrete-time estimate over complete trajectories with the given hypotheses and constants.",
+        "searches": [
+          "arXiv:0810.2775, §§II.1–II.4, equations (18)–(20)",
+          "arXiv:1111.5408, equations (2)–(7)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03344v1",
+        "arXiv:2511.03671v2",
+        "arXiv:0810.2775",
+        "arXiv:1111.5408",
+        "Resultary d42489a97746, 8b96b0ec53ba, 6a6ee7697ce5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest relevant general forced-response estimate controls a mismatch-sized deviation, conditional on a stable variational propagator. The exact-model source supplies the network, not a guaranteed global contraction or second-order expansion."
+        ],
+        "reasoning": "A generic near-synchronization bound does not imply the coefficient-one vector direction or the recovery coefficient. The new conclusion uses rank-one centering on a globally bounded region and a stable discrete past filter; it is not obtained simply by identifying parameters in the checked theorems.",
+        "searches": [
+          "arXiv:2610.03344v1, model and conclusions",
+          "arXiv:0810.2775, equations (18)–(20)",
+          "Resultary 6a6ee7697ce5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Velez-Rojas–Cosenza use exactly the same local functions and quenched heterogeneous bias; their mean-field weight epsilon corresponds to 1-q.",
+          "Lamb–Le treat two identical electrically and asymmetrically coupled neurons, without the rank-one heterogeneous mean-field identity."
+        ],
+        "reasoning": "Rewriting the model in centered coordinates preserves the known model but yields a different conclusion than the cited numerical clustering or basin results.",
+        "searches": [
+          "Resultary ranked comparison: heterogeneous globally coupled Chialvo maps and rank-one synchronization",
+          "arXiv:2610.03344v1, §II, equations (1)–(5)",
+          "arXiv:2511.03671v2, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d42489a97746 gives one zero-bias Chialvo map's compact recurrence and an invariant-measure identity; 8b96b0ec53ba counts inverse images of a cosine-memristive model; 6a6ee7697ce5 gives rank-one collapse and population bounds for a piecewise-affine Hopfield map."
+        ],
+        "reasoning": "None supplies the quenched network profile in question; the ranked catalogue comparison is bounded, not exhaustive.",
+        "searches": [
+          "Resultary: d42489a97746, 8b96b0ec53ba, 6a6ee7697ce5; corresponding mirrored RESULT.md files"
+        ]
+      },
+      "rationale": "The exact network model and generic mismatch-forcing mechanisms are known. The distinct content supported by the checked sources is the nonlinear all-bounded-complete-trajectories estimate, including its explicit first-order disorder profile, second-order error, and size-independent constants. The inspected precedents do not give this package under the stated hypotheses.",
+      "residual_risks": [
+        "Broader unindexed discrete-time mismatch bounds or unpublished equivalent estimates remain possible; no historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, not the profile in the inspected results",
+          "evidence": "Local Chialvo term with heterogeneous k(i), all-to-all mean and numerical clustering/Griffiths conclusions.",
+          "identifier_or_url": "https://arxiv.org/html/2610.03344v1",
+          "material_read": "Section II equations (1)–(5), OA offsets 7200–8897; conclusions, offsets 28700–32791",
+          "method": "Open full-text passage comparison",
+          "title": "Chaotic Griffiths phase in neuron map networks",
+          "trigger": "Exact network and bias model"
+        },
+        {
+          "assessment": "The stated model and result differ; not a whole-paper exclusion",
+          "evidence": "Two identical neurons, electrical asymmetric coupling and basin geometry.",
+          "identifier_or_url": "https://arxiv.org/html/2511.03671v2",
+          "material_read": "Abstract, OA offset 258 onward",
+          "method": "Open abstract scope comparison",
+          "title": "Final state sensitivity and fractal basin boundaries from coupled Chialvo neurons",
+          "trigger": "Possible same Chialvo coupling"
+        },
+        {
+          "assessment": "Related forced-response bound, not direct coverage",
+          "evidence": "Continuous-time variational forcing is bounded via assumed exponential stability, with separate attention to bubbling.",
+          "identifier_or_url": "https://arxiv.org/html/0810.2775",
+          "material_read": "Sections II.1–II.4, OA offsets 3900–18464, especially equations (18)–(20)",
+          "method": "Open full-text passage comparison",
+          "title": "Master stability functions for coupled nearly identical dynamical systems",
+          "trigger": "Strongest general mismatch-forcing candidate"
+        },
+        {
+          "assessment": "Approximate transverse analysis, not the full nonlinear profile",
+          "evidence": "Mismatch appears in an approximate master-stability calculation.",
+          "identifier_or_url": "https://arxiv.org/html/1111.5408",
+          "material_read": "Abstract and equations (2)–(7), OA offsets 0–1976 and 4700–15597",
+          "method": "Open full-text passage comparison",
+          "title": "Synchronization of coupled nonidentical dynamical systems",
+          "trigger": "General near-identical synchronization cited in frozen record"
+        },
+        {
+          "assessment": "Adjacent invariant for a different system",
+          "evidence": "Single zero-bias neuron and activation identity, no network.",
+          "identifier_or_url": "Resultary d42489a97746",
+          "material_read": "Mirrored RESULT.md, statement and assumptions",
+          "method": "Ranked catalogue and local mirror",
+          "title": "Global compact recurrence threshold and exact activation budget",
+          "trigger": "Same Chialvo activation and compact recurrence"
+        },
+        {
+          "assessment": "Different map and question",
+          "evidence": "Inverse-image counts rather than complete-trajectory deviations.",
+          "identifier_or_url": "Resultary 8b96b0ec53ba",
+          "material_read": "Mirrored RESULT.md, statement and assumptions",
+          "method": "Ranked catalogue and local mirror",
+          "title": "Singular zero-to-infinite inverse-valence transition in a cosine-memristive map",
+          "trigger": "Related Chialvo dynamics"
+        },
+        {
+          "assessment": "Conceptually related but not the stated quantitative profile",
+          "evidence": "Piecewise-affine Hopfield map and rank-one collapse/population sums.",
+          "identifier_or_url": "Resultary 6a6ee7697ce5",
+          "material_read": "Mirrored RESULT.md, statement and assumptions",
+          "method": "Ranked catalogue and local mirror",
+          "title": "Rank-controlled synchronization and bounded population sums",
+          "trigger": "Rank-one coupling and synchronization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "arXiv:2610.03344v1, model and clustering conclusions"
+      ],
+      "rationale": "Quantifies the spatial imprint of heterogeneous inputs in the exact network used to study coherence. Its fixed direction and leading variance, with error proportional to the disorder and uniform over population sizes and all complete trajectories, allow one to separate residual disorder from longitudinal dynamics without classifying periodic or chaotic attractors. The elementary projection estimate supports a useful structural conclusion rather than a threshold or simulation specific to one trajectory.",
+      "residual_risks": [
+        "Does not classify the longitudinal attractor or imply Griffiths-phase behavior; applicability outside the explicit strong-coupling regime is unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

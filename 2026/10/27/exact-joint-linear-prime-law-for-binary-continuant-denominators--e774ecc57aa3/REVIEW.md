@@ -1,22 +1,21 @@
-# Review of the joint linear-prime law for binary continuants
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recurrence for continuants at the evaluation points \(0\) and \(1\) yields nine nonzero product states. The explicitly listed first five state-count vectors satisfy \(v_4=v_3+2v_1+4v_0\). Multiplication by the fixed transition matrix transfers this identity to every degree, so the fourth-order recurrence and generating function hold without experimental extrapolation. A three-state marginal transfer establishes the marginal count. Inclusion–exclusion determines all four joint cells. Algebraic substitution yields the covariance identities; no probabilistic independence is assumed in their proof. Independent full-polynomial enumeration for all words through degree 14 and exact recurrence checks through degree 99 returned `VERIFY_OK`. The proof is finite-dimensional algebra valid for all degrees. Risk: arithmetic transcription of the displayed matrices and closed forms; the accompanying checker constructs all transitions directly and independently checks low-degree polynomials.
+PASS
 
-## Originality — PASS, subject to independent priority review
+At each root the consecutive pair starts at a=(1,0); the other possible states are b=(0,1), c=(1,1). Evaluation 0 swaps a and b and fixes c; evaluation 1 cycles a to c to b to a. Since the next two evaluations of a letter are complementary and both letters occur among the extensions, one can independently reconstruct the joint transfer on unordered pairs of states: aa and cc each go twice to bc, bb goes twice to aa, ab and bc each go once to ab and once to ac, and ac goes once to bb and once to cc. From aa the first successive count multisets are aa, 2bc, 2ab+2ac, 2ab+2ac+2bb+2cc, and 2ab+2ac+2bb+2cc+4aa+4bc. Thus v_4=v_3+2v_1+4v_0 on this quotient and the fixed linear transfer gives the recurrence for all degrees. Summing aa, ac and cc gives initial J_d of 1,0,2,4 and generating function 4/[9(1-2z)]+4/[9(1+z)]+(1-4z)/[9(1+2z^2)], which reproduces both parity formulas. At one root all extensions from b avoid the root and exactly one extension from either a or c avoids it, giving L_{d+1}=2^{d+1}-L_d and L_0=1. Inclusion-exclusion and J_d/2^d-(L_d/2^d)^2 reproduce the table, the independence limit and both covariance expressions, including zero at d=0 and alternating signs on each parity thereafter. The normalized oscillatory part has sharp magnitude proportional to 2^{-d/2}. Polynomial continued fractions with the prescribed degrees are in bijection with their ordered words by Euclidean division, and denominators are the monic continuants, so orthogonal multiplicity gives the word law, not the uniform monic law. In the uniform monic model d>=2, the independent linear and constant coefficients already give a uniform evaluation pair. The source's state order is the product order induced by the displayed list a,b,c, not numeric lexicographic order on binary tuples; the displayed vectors use the correct order.
 
-The September/October 2026 literature on orthogonal multiplicity supplies the foundational word–denominator correspondence and studies non-linear residue invariants and an unweighted positive-multiplicity count. It does not give the four-cell distribution by divisibility by \(T\) and \(T+1\), nor the sharp sign-changing finite-degree covariance. The 1998 study of odd orthogonal multiplicities treats a different classification; a 2020 survey of perfect linear complexity treats infinite-sequence equivalences. Published mathematical-record searches found no identical or stronger result that implies the exact two-linear-factor distribution. The 1999 work on prescribed sets of partial quotients is a plausible broader antecedent; its complete full text could not be compared through available lawful access routes. An indexed or unindexed stronger transfer theorem could subsume the calculation. This residual risk is not represented as proof of global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The measure \(\Pr(f)=m(f)/2^d\) is intrinsic to the exact word enumeration used in the 2026 orthogonal-multiplicity problem. Its special linear-prime factors contribute the two exceptional local places in that problem's proposed Euler product. The present exact joint calculation determines the local law unconditionally: each avoidance probability tends to \(2/3\), their joint probability tends to \(4/9\), and the finite-degree dependence oscillates at a sharp \(2^{-d/2}\) scale. This is not the obvious uniform-monic-polynomial law, whose corresponding joint probability is \(1/4\). It supplies an exact local input and a quantitative independence check, rather than a renamed general counting identity. Limitations: only the two degree-one factors are classified; no positive-orthogonal-multiplicity density asymptotic or independence for all prime factors follows.
+Credit the exact weighted two-linear-place table and finite-degree covariance. The inspected same-object primary paper supplies the word parametrization, an unweighted support-count formula and local results for nonlinear factors; none of those gives the exact joint linear-place law. The strongest same-alphabet antecedent and closest Resultary residue record have different counted objects or exclude the two places. This is a bounded assessment, not a priority guarantee.
 
-## Closest sources and comparison limits
+## value
 
-- D. Niedbala Giraudin (2026), arXiv:2610.02352v1, Sections 1–4 and references: word parametrization, unweighted counts, residue reciprocity and local non-linear results, not this degree-one joint distribution.
-- A. G. B. Lauder (1998), *Polynomials with odd orthogonal multiplicity*, Sections 2–4 inspected from author-hosted full text: odd-multiplicity classification, not this weighted two-linear-factor law.
-- J.-P. Allouche, G.-N. Han, H. Niederreiter (2020), arXiv:2008.12160v1, Sections 1–5: PLCP/apwenian equivalents and constructions, not this weighted joint count.
-- A. G. B. Lauder (1999), *Continued fractions of Laurent series with partial quotients from a given set*: bibliographic description available, but inaccessible complete text leaves a precise priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two linear factors exhaust the linear places of the binary field and are naturally coupled by the complementary evaluations of the two letters. Their joint law in the multiplicity measure is not the uniform-monic law or an independence assumption: it gives a sharp oscillating dependence correction, including its decay scale and sign, to the asymptotic 4/9 joint avoidance. This is useful exact local information for the natural word/multiplicity ensemble, without claiming to solve the unweighted denominator-count problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

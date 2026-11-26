@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:19:00.277064Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact past window gives the displayed innovation and coefficient recurrence, and the cited Hu–Xue Lemma 3.6 applies to the same indexing and normalization. For a<=0 the update is a convex combination; for a>0 the nonnegative differences have a unit source at k. Beyond j>bk for b>1/(1-c), the source has exited the lag window and the comparison profile k^(-gamma) j^(gamma-1) is a strict supersolution for all sufficiently large j. At gamma=1/2 the limiting comparison multiplier is 2a/(1+sqrt(1-c)), strictly below one in the asserted regime, so gamma can be moved strictly below 1/2. The resulting square-sum and maximum bounds justify the early-index cutoff and martingale Lindeberg condition. Azuma and Borel–Cantelli give vanishing recent-window bias, so the predictable variance tends to the deterministic Gram limit. For i>=j/2 the old indices have squared increment sum O((j-i)^2/j), and new indices contribute O(j-i); for i<j/2 use the individual square-sum bounds. This gives the fourth-moment tightness bound for grid points and, by the deterministic slope bound and splitting fractional steps, also for the interpolation. The Wiener kernel inherits the growth bound, which gives square integrability and permits differentiation and integration by parts. The DDE is interpreted in the standard fundamental-solution sense (locally absolutely continuous on nonnegative time, equation a.e. or with right derivatives; it can have a kink at L because prehistory jumps at zero). On (0,L), w=exp(av/c); global discrete comparison gives w<=1 or w>=1, making the variance comparison with one strict when a!=0. Self-similarity plus stationary increments would force covariance sigma^2 min(s,t), contradicting the nonzero right slope. At neutral memory the kernel is one. The bundled exact finite tests were inspected, not executed or used as path-limit evidence. No endpoint or critical-regime conclusion follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Model (1.2) of the first source fixes an integer k and Theorem 3.1 proves a functional limit; the second source uses drift proportional to the full past partial sum plus a time-dependent deterministic term."
+        ],
+        "reasoning": "Neither a fixed k nor a scalar times the cumulative sum gives the difference of partial sums at time fractions 1 and 1-c. The hypotheses and limiting operators differ.",
+        "searches": [
+          "Vázquez-Guevara–González-Navarrete arXiv:2506.12145v1",
+          "Tokumitsu arXiv:2507.01708"
+        ]
+      },
+      "checked_sources": [
+        "Hu–Xue arXiv:2611.17664v1",
+        "Vázquez-Guevara–González-Navarrete arXiv:2506.12145v1",
+        "Tokumitsu arXiv:2507.01708",
+        "Resultary semantic matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar theorem gives a variance at each single time after rescaling, while the compact coefficient lemma controls ratios on bounded logarithmic ranges."
+        ],
+        "reasoning": "Scalar marginals with variance linear in time do not determine cross-covariances. The compact lemma does not directly give uniform summed increment bounds or control the early-index tail; the envelope and tightness argument close these gaps. No inspected more general theorem provides the same claimed process directly.",
+        "searches": [
+          "Hu–Xue Theorem 1.2 and Lemma 3.6 versus joint Gram limits and uniform increment control",
+          "Tokumitsu Theorem 1.1 versus sliding-window drift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Hu–Xue model and logarithmic delay kernel are identical; Theorem 1.2 is a one-time limit."
+        ],
+        "reasoning": "The novelty does not lie in changing time coordinates in the known scalar theorem. Covariances between distinct scaled times and tightness of the interpolated laws are additional statements.",
+        "searches": [
+          "functional central limit theorem elephant random walk proportional growing recent memory sliding window Hu Xue delay gaussian covariance functional invariance principle",
+          "Hu–Xue arXiv:2611.17664v1, exact model and Lemmas 2.1, 3.6, 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the assigned result itself; the closest other indexed item concerns alternating reinforcement and reversal with a Brownian functional limit."
+        ],
+        "reasoning": "Alternation in reinforcement coefficients is not an earlier entry for the same proportional-window recurrence or its off-diagonal covariance.",
+        "searches": [
+          "Resultary: elephant random walk proportional recent memory functional invariance principle log delay covariance Hu Xue"
+        ]
+      },
+      "rationale": "The exact model, scalar variance and compact deterministic kernel approximation are prior inputs. The new claims are the process-level convergence, its off-diagonal covariance and the sign test for nonstationary increments. The inspected prior process limits do not cover the hard proportional window.",
+      "residual_risks": [
+        "An unindexed equivalent FCLT or a general deterministic-kernel process theorem paired with the exact coefficient bounds might diminish novelty; the amplitude of the diagonal covariance is already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the recurrence, coefficient convergence, threshold and one-time distribution, not the claimed FCLT",
+          "evidence": "Lemma 3.6 gives locally uniform q[floor(k exp(v)),k] convergence; Theorem 1.2 states distributions of scaled S_n.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17664v1",
+          "material_read": "Model, Lemmas 2.1, 3.6 and 3.8, and Theorem 1.2",
+          "method": "OA HTML primary text",
+          "title": "The elephant random walk with proportionally growing recent memory",
+          "trigger": "Exact same walk and asymptotic kernel premise"
+        },
+        {
+          "assessment": "Fixed-window comparison only",
+          "evidence": "Its window is S_(i-1)-S_(i-k-1) with fixed k, not k=floor(ci).",
+          "identifier_or_url": "https://arxiv.org/html/2506.12145v1",
+          "material_read": "Model (1.2) and Section 3 through Theorem 3.1",
+          "method": "OA HTML primary text",
+          "title": "Functional central limit theorem for dependent models with finite memory",
+          "trigger": "Functional theorem for recent memory"
+        },
+        {
+          "assessment": "Different memory mechanism",
+          "evidence": "The conditional drift uses S_n/n for the elephant component rather than a truncated sum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.01708",
+          "material_read": "Definitions, drift and Theorem 1.1",
+          "method": "OA PDF primary passages",
+          "title": "Functional central limit theorems for the dynamic elephant random walk",
+          "trigger": "Functional limits for a time-varying elephant model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result distinguishes Brownian scaling from Brownian dynamics in the exact model previously understood at one time. The full cross-time law supports path-dependent observables, and the elementary right-slope identity detects both the presence and sign of memory rather than merely giving a formal functional extension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

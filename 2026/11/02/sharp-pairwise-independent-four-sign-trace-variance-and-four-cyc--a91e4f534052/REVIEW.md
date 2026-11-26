@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a symmetric four-by-four matrix the quadratic estimator has precisely six off-diagonal Walsh characters. Fair pairwise independence annihilates products of distinct characters sharing a coordinate. The three disjoint-edge products all coincide with the full four-sign product, reducing every admissible variance to a single affine function of its expectation. The two extremal parity cosets are feasible, and Walsh inversion plus vanishing lower-degree moments proves their uniqueness at strict extrema. This yields the entire domain including the degenerate case \(S=0\), the exact zero-variance criterion, and the four-cycle defect law. An exact-rational standalone verifier checks 15,625 coefficient matrices, additional diagonals, and nonuniform cycle examples; these finite tests are not substituted for proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest primary motivation, Frommer–Rinelli–Schweitzer (arXiv:2308.07722, 2023), analyzes graph-coloring stochastic probing and independent Rademacher variance rather than pairwise-independent **dependent** sign couplings. Fitzsimons et al. (arXiv:1608.00117) optimize different mutually unbiased-basis probe ensembles; Wimmer–Wu–Zhang (arXiv:1405.7112) give worst-case trace-query bounds. The use of fourth-order sign moments is classical (Pass–Spektor, arXiv:1412.7859), and the broader Hadamard/probing perspective is prior mathematics. The specifically stated exact matrix-dependent four-sign minimization, uniqueness, and four-cycle defect variance are not implied by the inspected statements. Publication-priority risk remains for possibly equivalent classical design or restricted-matrix results; no exhaustive literature coverage is claimed.
+PASS
 
-## Mathematical value — PASS
-The natural information model \(\mathbb E ss^{\mathsf T}=I\), strengthened to fair pairwise-independent binary marginals, is enough for unbiased one-query trace estimation but leaves a nontrivial fourth-order design choice. The result completely resolves that small but nondegenerate class, identifies the minimal dimension where dependence matters, characterizes all zero-variance cases, and gives an exact robustness formula for numerical matrix-function traces on symmetric cycles. It is more than a numerical tuning exercise: pairwise moment equivalence can mask a change from positive variance to **zero** using one oracle call. The result is sharply limited to the stated four-sign model, with no claim of universal query improvement.
+Pairwise products give the trace mean. In the centered square, diagonal edge-pair terms contribute four times the sum of squared edge weights, intersecting distinct edges reduce to pairwise sign moments of zero, and disjoint edges give the three cross terms with coefficient eight times the common fourth moment. Both fourth-moment endpoints are realized by fair uniform parity laws. At a forced endpoint the first and second moments vanish and each triple moment equals the parity times the complementary singleton moment, so Walsh inversion uniquely determines the entire law. At S=0 all laws are optimal; completing squares proves the zero-variance criterion. For the nonnegative weighted cycle S=ac+bd; the odd parity formula follows, including weight-zero cases. For spectral functions of the unweighted cycle, cyclic symmetry pairs the opposite entries and gives exactness for an exact matrix-function action; independent block choices retain isotropy. The eigenvalues of I+A/4 lie in [1/2,3/2] and the iid variance is 1. Below four coordinates there are no disjoint edge pairs. The finite rational checks in verify.py complement the proof; the supplied script was inspected, not executed, and does not enumerate all feasible laws.
 
-## Residual risks and limits
-Specialized earlier work on orthogonal arrays, correlated sign probing or graph-specific exact quadrature might contain equivalent statements; current primary-text inspection did not resolve all possible priority claims. The zero-variance corollary assumes real symmetric matrix functions and exact actions. A universal claim for larger dimensions or arbitrary probes is neither proved nor asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact matrix-dependent optimum and complete equality-law classification over the entire fair pairwise-independent four-sign class, together with its weight-uniform cycle defect law. Fourth-moment methods, independent-sign variance and fixed structured probes are not new. The strongest inspected exact formulas cover specific probe designs or different couplings, rather than all feasible laws and their uniqueness in this problem.
+
+## value
+
+PASS
+
+This identifies when dependence is useful without changing any pairwise sign statistics, in the smallest dimension where it can make a difference. It distinguishes a matrix-dependent optimal law from a single law that works for all nonnegative four-cycle weights, and gives the exact degradation from imbalance of opposite weights. The full equality-law result is useful as a benchmark for small correlated-probe designs; neither the standard fourth-moment identity nor fixed-design evaluations alone answer that design question. It is not a general trace-oracle optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

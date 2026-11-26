@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs the half graph \(H_n\) for
-\[
-2\le n\le9.
-\]
+# Independent mathematical audit
 
-It computes all-pairs shortest-path distances and the edge-distance vector from every candidate landmark set to every graph edge. It separately checks the vertex-cover condition.
+## correctness
 
-All subsets of size \(n-1\) are tested and fail to cover the diagonal matching. Every subset of size \(n\) is then tested. The checker compares both the complete set of minimum vertex covers and the complete set of dominant edge metric bases with
-\[
-C_t=\{a_1,\ldots,a_t\}\cup\{b_{t+1},\ldots,b_n\},
-\qquad0\le t\le n.
-\]
+PASS
 
-Recorded output:
+The diagonal matching gives a lower bound n on vertex-cover and dominant-generator sizes. A size-n cover chooses exactly one endpoint of each diagonal edge. Choosing b_i and a_j at i<j would leave a_i b_j uncovered, so the choices must be an A-prefix and B-suffix. Conversely each such cut covers all edges. Independently, any vertex cover of a bipartite graph with pairwise distinct open neighborhoods within each part edge-resolves: equal signatures would have equal, nonempty zero-coordinate sets, so distinct edges would share exactly one selected endpoint and have unselected other endpoints x,y on the same side. A vertex in the symmetric difference of N(x),N(y) lies in the cover (as x,y are unselected) on the opposite side, differs from the shared endpoint, and has distance 1 to one edge but at least 2 to the other. In H_n the within-side neighborhoods are strictly nested, hence distinct. This proves resolution for all the cuts including the whole-side endpoints, with n+1 distinct optima. It agrees with the separate threshold decoding in the frozen proof.
 
-```text
-VERIFY_OK
-n=2: Ddim_e=2, minimum_vertex_covers=3, dominant_edge_metric_bases=3
-n=3: Ddim_e=3, minimum_vertex_covers=4, dominant_edge_metric_bases=4
-n=4: Ddim_e=4, minimum_vertex_covers=5, dominant_edge_metric_bases=5
-n=5: Ddim_e=5, minimum_vertex_covers=6, dominant_edge_metric_bases=6
-n=6: Ddim_e=6, minimum_vertex_covers=7, dominant_edge_metric_bases=7
-n=7: Ddim_e=7, minimum_vertex_covers=8, dominant_edge_metric_bases=8
-n=8: Ddim_e=8, minimum_vertex_covers=9, dominant_edge_metric_bases=9
-n=9: Ddim_e=9, minimum_vertex_covers=10, dominant_edge_metric_bases=10
-candidate_subsets_checked = 125472
-all size-n minimum vertex covers were exactly the n+1 canonical cuts
-every canonical cut edge-resolved the half graph
-```
+## originality
 
-The finite computation is corroborative only. The theorem for every \(n\ge2\) follows from the matching lower bound, the classification of maximum independent sets, and the explicit threshold form of the edge-distance vectors.
+PASS
+
+The strongest same-object result classifies ordinary edge bases in the half graph; its statement is strictly different and does not imply the dominant basis classification by taking supersets. The general dominant lower bound yields n but no matching upper bound or all-optima statement for this family. Neither the other indexed half-graph record nor the inspected Ferrers work gives the same combined cover-and-resolution classification. The frozen reference to a published ordinary classification is best read as the public catalogue finding; an external journal identification for that exact classification was not verified.
+
+## value
+
+PASS
+
+For a canonical infinite family of nested-neighborhood graphs, the result determines the effect of the cover requirement on both the optimum and the entire family of optima. In particular the interior cut bases cannot be constructed by simply augmenting the earlier ordinary minimum bases. The all-minimum-covers resolution property and exact optimum family are useful beyond merely exhibiting an n-vertex set or evaluating a lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

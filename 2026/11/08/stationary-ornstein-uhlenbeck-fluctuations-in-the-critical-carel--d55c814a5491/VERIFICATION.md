@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the stationary fluctuation theorem
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3 (standard library only). It prints `PASS 945 exact rational assertions` and checks, independently of the written derivation, transition row sums, finite-state stationarity, all fixed-subset inclusion moments, the first and second count moments, and four time-lag regressions for \(n=2,\ldots,8\) and \(p\in\{1/2,1/3,2/5\}\).
+## correctness
 
-The proof's non-finite checks are analytic: the conditional step variance is an explicit bounded Lipschitz function of current density, the fourth centered jump moments are bounded uniformly because one-step losses are dominated by \(\operatorname{Binomial}(n,c/n)\), stationarity gives uniformly bounded centered second moments, and the predictable quadratic variation converges in \(L^1\) uniformly on compact time intervals. Martingale functional convergence, tightness of the semimartingale decomposition, and uniqueness of the stationary Ornstein–Uhlenbeck martingale problem complete the infinite-dimensional argument. The exact time-lag covariance follows from affine conditional regression.
+PASS
 
-The limiting variance is \(c(c+2)/(2(1+c)^3)\). The result is restricted to fixed \(c>0\), stationary initialization, and bounded accelerated time intervals. Neither the checker nor the analytic result establishes a rare full-collection hitting-time law, a general nonuniform-coupon theorem, or independent mathematical certification.
+Reconstructed the conditional binomial transition after the Bernoulli new draw. The affine regression gives μ_n=q_n/(1−a_n), n(1−a_n)=1+c−c/n, and the exact lag multiplier a_n^h. An independent shortcut checks the fluctuation scale: stationary total variance gives (1−a_n²)Var(K)=E V_n(K), and V_n≤c+1/4. Thus Var(K)=O(n), K/n concentrates at x=1/(1+c), and the bounded continuous-density variance formula gives E V_n→H=cx+x(1−x). Therefore Var(K)/n→H/[2(1+c)], agreeing with the subset recursion. The losses' binomial domination bounds fourth centered moments uniformly (use factorial moments up to order four); the scaled jumps vanish and the conditional Lindeberg sum tends to zero in L¹. Uniform-in-time bracket convergence follows by summing the stationary mean absolute variance errors. The bounded bracket rate controls the martingale increments at stopping times by O(δ+1/n); Doob and the linear drift give the needed supremum bound. Passing the martingale problem to continuous limits yields OU, whose initial law must be invariant: equality of its marginal with time zero for any single positive time in a finite horizon can be iterated by the OU semigroup. Uniqueness then gives the stated Gaussian and independence of the Brownian innovation. The explicit finite covariance kernel also converges directly. Independently checked n=2,p=1/2 by expanding the transition and verifying the invariant vector (5/12,1/2,1/12), mean 2/3, variance 7/18 and lag-one covariance 7/72. Frozen checker.py inspected, not executed; its finite checks do not establish process convergence. Replay RESULT.md:27–110.
+
+## originality
+
+PASS
+
+For the frozen post-loss convention and p=c/n, the surviving contribution is the stationary path-space Gaussian limit with explicit parameters. The model, the density concentration, the stationary inclusion identities and algebraic consequences for the variance are not independent novelty; the general diffusion method is also prior. The closest inspected same-model results did not determine the stationary fluctuation process. This is a best-of-knowledge assessment against the passages below.
+
+## value
+
+PASS
+
+The typical equilibrium dynamics at the critical loss scale are a natural question not answered by rare completion or macroscopic density concentration. The path law quantifies persistence of fluctuations on the n-step time scale and gives a usable Gaussian limit for repeated equilibrium observations. Its explicit noise law distinguishes the model from the independent-coupon surrogate despite the same mean density. This value attaches to the process-level result, not to recomputing the known stationary factorial recursion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

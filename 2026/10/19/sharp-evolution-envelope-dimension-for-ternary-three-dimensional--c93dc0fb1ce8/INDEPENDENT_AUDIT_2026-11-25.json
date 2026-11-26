@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:16:54.805501Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 19–45; VERIFICATION.md and verify.py inspected, not executed.",
+        "Costoya–Fernández Ouaridi–Viruel, arXiv:2609.32784, Theorem 4.2 and Corollary 4.6.",
+        "Independent exact finite census by five-row minors, determinants and unit-fixing changes of basis; replay described in the rationale."
+      ],
+      "rationale": "The free product columns e₀²,e₀e₁,e₁² give exactly 3⁹ labeled tables. The odd-characteristic unital envelope rank is the least number of squares spanning the three coordinate quadrics: polarization recovers multiplication and the map of their linear forms is injective because a vector annihilated by all forms would multiply every vector, including 1, to zero. Conversely an ideal embedding in a natural basis gives a symmetric multiplication decomposition from every coordinate nonzero on the ideal. Six projective squares of coordinate forms and their pairwise sums span the full quadric space. I reproduced the census independently without the bundled conic-incidence test. Replay: normalize the 13 projective triples by their first nonzero coordinate and form their square rows (x²,xy,y²,xz,yz,z²), using half-cross-term coordinates. For each of the 1287 five-row subsets take the signed 5×5 deletion minors of the resulting matrix modulo 3; retain and normalize the nonzero vectors. This yields 78 distinct hyperplanes, and every span of at most five squares extends to one of them. For each normal (a,b,c,u,v,w) mark all tables whose output-coordinate triples (Aᵢ,Bᵢ,Cᵢ) satisfy aAᵢ+bBᵢ+cCᵢ=−u,−v,−w for i=0,1,2 respectively. Separately enumerate all 19683 tables and compute the three-by-three determinant of (xe₀,xe₁,x) for the 13 projective x. The complement of the marked tables is identical to the determinant-nonzero set, of size 288. Enumerating each ordered (p,q) with det(p,q,1)≠0, rewriting the three products in that basis, gives two disjoint 144-element sets from the displayed representatives, exhausting the 288. Basis-triple associators select exactly the second orbit, whose associative division law identifies F₂₇. As a separate lower-bound check, a symmetric decomposition of a division product into at most five terms would map x injectively into a ternary length-five linear code of dimension three and minimum distance at least three: each nonzero x must activate at least three rank-one terms. The disjoint radius-one balls would require 27·11>3⁵ code positions.",
+      "residual_risks": [
+        "Enumeration is exhaustive only for dimension three, over F₃, in a basis with designated unit. The orbit relation is unital isomorphism, not isotopy. No higher-dimensional or other-field extrapolation is supported."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The envelope paper supplies n(n+1)/2 and explicitly poses attainment. Randriambololona gives μ_sym≤d(d+1)/2 and scopes the subsequent results to associative commutative unital algebras."
+        ],
+        "reasoning": "The universal upper bounds and reductions precede this work; they neither count the attaining tables nor exclude attainment by a nondivision table.",
+        "searches": [
+          "arXiv:2609.32784, p. 7 sharpness question and pp. 8–10 unital case",
+          "arXiv:1107.0336, symmetric-rank bound and scope after Prop. 2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32784",
+        "arXiv:1107.0336",
+        "DOI:10.1080/00927872.2023.2275392 (full text unavailable)",
+        "DOI:10.1137/S0097539703438277 (full text unavailable)",
+        "Resultary 45faead11e59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Waring correspondence interprets a rank computation, not the criterion rank six iff division. The literature and catalogue field statements do not compare the ranks of the 19,395 nondivision cases and the nonassociative division case."
+        ],
+        "reasoning": "No inspected prior theorem yields the exact rank-six/division coincidence or the complete sharpness census just by specialization. The associative calculation is not credited as a distinct result.",
+        "searches": [
+          "Theorem 4.2 and Corollary 4.6 of arXiv:2609.32784",
+          "arXiv:1107.0336",
+          "Resultary cubic-field record 45faead11e59"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Envelope rank is simultaneous Waring rank of the square coordinates in the unital case; polarization identifies it with symmetric multiplication-tensor rank. Randriambololona defines the symmetric complexity and distinguishes it from ordinary bilinear complexity. An isotopy classification, unlike unital isomorphism, uses potentially different basis maps on the tensor factors."
+        ],
+        "reasoning": "A prior symmetric-rank classification of this multiplication-table universe could cover the claim. An ordinary-rank bound, an associative-field computation, or an isotopy classification alone does not give the stated sharp locus under unital isomorphism.",
+        "searches": [
+          "arXiv:2609.32784, Theorem 4.2 and Cor. 4.6",
+          "arXiv:1107.0336, pp. 6–7",
+          "Drápal DOI:10.1080/00927872.2023.2275392"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected catalogue entry states dimension six for cubic fields at q=2,3, and five for q≥4. Its q=3 result overlaps the associative representative only. No exact table establishing the whole rank locus was verified. The Drápal paper was not accessible as full text."
+        ],
+        "reasoning": "The catalogue field answer is not a census over arbitrary unital ternary products. Even a pre-existing table of order-27 division types and their multiplicities would need a rank-locus identification to give the full result.",
+        "searches": [
+          "Resultary sharp finite-field evolution-envelope comparison; local record 45faead11e59, RESULT.md offsets 0 and 3197",
+          "Drápal order-27 commutative semifield comparison, DOI:10.1080/00927872.2023.2275392"
+        ]
+      },
+      "rationale": "Credit the earlier rank reduction and uniform bound, and do not claim that the two division-algebra types or the associative example are themselves new. The distinct supported content is the exact sharp envelope locus among all fixed-unit ternary tables, its equivalence with division, and the resulting labeled and unital orbit census as a sharpness classification.",
+      "residual_risks": [
+        "A historical order-27 census may already give the underlying classes or labeled multiplicities; the inaccessible Drápal material leaves that comparison open. An unlocated symmetric tensor rank census could cover more. No global priority or originality of the semifield types is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound and reduction, not the ternary census",
+          "evidence": [
+            "Poses attainment of n(n+1)/2; identifies edim(A)=wr(H_A) for a unital algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.32784",
+          "material_read": "PDF p. 7 sharpness question and pp. 8–10 Theorem 4.2 and Cor. 4.6",
+          "method": "Lawful OA full-text passages",
+          "title": "Commutative algebras are ideals of evolution algebras",
+          "trigger": "Same invariant and possible stronger sharpness theorem"
+        },
+        {
+          "assessment": "Covers symmetric rank framework; subsequent results are associative and do not determine the sharp locus",
+          "evidence": [
+            "Defines symmetric bilinear complexity through symmetric product decompositions and gives μ_sym≤d(d+1)/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.0336",
+          "material_read": "PDF pp. 6–7, definitions, dimension bound and scope from Prop. 2.4 onward",
+          "method": "Lawful OA full-text passages",
+          "title": "Bilinear complexity of algebras and the Chudnovsky–Chudnovsky interpolation method",
+          "trigger": "Equivalent symmetric tensor formulation and field ranks"
+        },
+        {
+          "assessment": "No conclusion about its coverage of order 27 or the exact representative",
+          "evidence": [
+            "Full text inaccessible in the attempted routes. The frozen result does not claim new discovery of the underlying semifield types."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2023.2275392",
+          "material_read": "Citation and comparison in frozen RESULT.md lines 53 and 63; no full text obtained",
+          "method": "DOI/publisher and lawful OA repository lookup",
+          "title": "Commutative quasigroups and semifields from planar functions",
+          "trigger": "An order-27 commutative semifield classification could identify the underlying classes"
+        },
+        {
+          "assessment": "No theorem-level comparison claimed from the access attempt",
+          "evidence": [
+            "No accessible repository copy obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0097539703438277",
+          "material_read": "Reference identification only; full text unavailable",
+          "method": "DOI and lawful OA repository lookup",
+          "title": "A Complete Characterization of the Algebras of Minimal Bilinear Complexity",
+          "trigger": "Possible equivalent multiplication-rank theorem"
+        },
+        {
+          "assessment": "Distinct later catalogue record with partial associative overlap, not the whole sharpness locus",
+          "evidence": [
+            "States edim over F_q of F_(q³) equals six for q=2,3 and five for q≥4; the statement concerns cubic fields."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-field-threshold-for-cubic-fields-inside-evolution-a--45faead11e59",
+          "material_read": "Local RESULT.md Finding and proof context, offsets 0 and 3197",
+          "method": "Resultary search followed by local-mirror text inspection",
+          "title": "Sharp finite-field threshold for cubic fields inside evolution algebras",
+          "trigger": "Exact overlap at the associative F₂₇ representative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; the universal bound and sharpness question in arXiv:2609.32784."
+      ],
+      "rationale": "The count is tied to a motivated sharpness question for a concrete embedding dimension. It specifies all extremal ternary multiplication laws, and identifies division as the exact distinguishing condition, rather than finding an isolated high-rank field example or simply recounting known algebra types. The nonassociative witness and exclusion of nondivision tables give the census structural content.",
+      "residual_risks": [
+        "The fixed finite field and dimension yield no evidence of a general equivalence over other fields or in larger dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

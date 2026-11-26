@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:37:32.952689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–115",
+        "Frozen VERIFICATION.md and verification/check.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_dynamics.py, brownian section"
+      ],
+      "rationale": "The positive spring matrix contracts the homogeneous evolution exponentially; each reset is a nonexpanding projection. The stochastic convolution from the infinite past exists in second moment by this bound, is stationary, and synchronous coupling gives uniqueness and convergence of the quadratic expectations for finite-second-moment starts. With A=2a+r, the stationary equations give u=2(T_x-cv)/A, w=(T_y-cv)/b, and (a+b+r-2c²/A-c²/b)v=-c(2T_x/A+T_y/b). Multiplication by bA produces the stated strictly positive D. Stationary product balance for XY (Y has no jump and the independent noises have no mixed covariation) gives J_all=-2(cu+bv). The chord from (X,Y) to (0,Y) contributes XY, so Poisson compensation gives J_jump=rv and flow=all-jump. Independent symbolic elimination and expansion reproduce all three currents, the equal-bath ratio and the limits. For T_y<T_x the flow numerator has positive leading coefficient and negative constant, hence exactly one positive root, the reported r_f; for T_y≥T_x its linear coefficient is positive and constant nonnegative. The affine factor for the full rate starts negative and rises through zero only at T_x<T_y<2T_x, giving the claimed r_a. The equality endpoints and r>0 signs in all four sectors follow immediately; there is no assertion of a finite reversal at T_y=2T_x.",
+      "residual_risks": [
+        "Expected unnormalized signed twice-area rates for this specific reset map; no inference about polar winding, arbitrary reset maps, or large deviations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected resetting-gyrator paper treats resetting to a whole-plane fixed point or to a uniformly sampled circle point; its stated competition is thermal anisotropy versus spatial asymmetry of the reset position. The frozen comparison cites the standard unreset model and a scalar OU time-integral study."
+        ],
+        "reasoning": "Full renewal at resets does not account for the dynamically retained Y here. The standard generator method can derive the stationary balance but does not by itself state two area laws or their sign classification. The common unreset value is not a contribution.",
+        "searches": [
+          "arXiv:2611.06322v1 introduction and reset protocol passage",
+          "Frozen comparison with Meylahn–Sabhapandit–Touchette, arXiv:1510.02431, and unreset gyrator arXiv:0710.3735"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and the two indexed records above",
+        "arXiv:2611.06322v1 primary passages",
+        "Frozen RESULT.md, relationship-to-prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The point-reset paper's affine numerator depends on the fixed-point offset. The projected process instead loses the XY moment at each reset while leaving the Y² balance equation unchanged. The indexed torque record has a different quadratic functional and no explicit chord subtraction."
+        ],
+        "reasoning": "Even a θ=0 specialization of the torque model would not give the flow and jump-inclusive sign sectors from a torque-reversal statement. Nor do two reversals in a different reset map supply the two unique, mutually exclusive crossings of distinct observables here.",
+        "searches": [
+          "Resultary/2026: 1f4878a82d95 and 4adcd0d96ebe, RESULT.md at offset 0",
+          "arXiv:2611.06322v1 §3.7 Eq. (44)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§3.7 Eq. (41) uses x·dy−y·dx in time-rate form, i.e. precisely the unnormalized continuous area observable when evaluated via the diffusion current. Eq. (44) for resetting to a fixed point gives u[r(Y_0²−X_0²)+2(T_y−T_x)]/(2+r). §3.8 instead defines the radius-normalized angular velocity."
+        ],
+        "reasoning": "Recognizing angular momentum as continuous area is necessary, but the fixed-point model in Eq. (44) resets both coordinates to specified constants. It cannot be made into retaining the current Y by choosing a fixed Y_0. A normalized angular velocity or a conservative torque is not an equivalent rate.",
+        "searches": [
+          "Resultary search for the assigned title",
+          "arXiv:2611.06322v1 §§3.7–3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected Finding/assumptions of the one-coordinate torque record and of the point-reset stochastic-area phase diagram. The first treats (X,Y)→(θX,Y) with conservative torque; the second includes jump chords for full relocation to a fixed off-axis point."
+        ],
+        "reasoning": "The closest indexed phase diagrams neither list nor imply the two rates and thresholds under the frozen projection. No other exact table is expected for this continuous model; the indexed phase diagrams are the relevant exact lookup.",
+        "searches": [
+          "Resultary title and claim search: two competing rotation reversals under one-coordinate resetting",
+          "Resultary/2026 IDs 1f4878a82d95 and 4adcd0d96ebe"
+        ]
+      },
+      "rationale": "Pass is for the pair of separate signed-area laws and mutually exclusive reversal sectors for Poisson projection onto X=0, not for the Brownian gyrator, stochastic area, moment closure, or resetting-induced reversal generically. The closest inspected claims share either the reset geometry or the observable, not their combination; the later fixed-point paper overlaps specifically in the continuous area observable but with a different moment balance and reversal mechanism.",
+      "residual_risks": [
+        "A bounded, best-of-knowledge search; a publication on partial-state resetting using another name for the same area observables could contain equivalent formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact observable overlap in §3.7, distinct intervention and no implication of the paired result",
+          "evidence": [
+            "Eq. (44) is the continuous current for whole-state resetting to (X_0,Y_0). The resetting reversal competes with the fixed displacement Y_0²−X_0². The §3.8 observable divides by x²+y²."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.06322v1",
+          "material_read": "Introduction around offset 6850; reset protocol around 13771; §3.7 offsets 63267–66227, Eqs. (41)–(44); §3.8 Eqs. (48)–(49)",
+          "method": "Original HTML, located passages then bounded reads",
+          "title": "Brownian gyrator model with stochastic resetting",
+          "trigger": "Same harmonic Brownian gyrator and a stochastic-reset rotation reversal"
+        },
+        {
+          "assessment": "Close model, different observable and result",
+          "evidence": [
+            "The intervention is (X,Y)→(θX,Y) and the classified quantity is conservative potential torque."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Indexed Resultary record and original Markdown passage",
+          "title": "A unique resetting-induced torque reversal in a two-bath Brownian gyrator",
+          "trigger": "Same type of partial-coordinate Poisson intervention"
+        },
+        {
+          "assessment": "Close observable, different reset condition and sign theorem",
+          "evidence": [
+            "Whole-state resetting to an off-axis point; a two-reversal result for the full path area rather than separate flow and all rates under projection."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-two-reversal-phase-diagram-for-stochastic-area-in-a-point-reset--4adcd0d96ebe",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Indexed Resultary record and original Markdown passage",
+          "title": "Two-reversal phase diagram for stochastic area in a point-reset Brownian gyrator",
+          "trigger": "Same area observable including reset chords and a reversal diagram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen definitions, crossing regimes and limits; independent stationary current calculation"
+      ],
+      "rationale": "The choice of whether to include the actual reset movement in a signed-area measurement changes even the sign at equal temperatures and changes which temperature sector permits a reversal. The exact complete sign classification and cancellation of nonzero continuous transport by chords in the fast-reset limit quantify this observable dependence. This is a meaningful comparison for pathwise versus between-reset measurements, even though the moment technique is elementary.",
+      "residual_risks": [
+        "No experimental validation, statement about equilibrium, or claim of universality beyond the specified diffusion and reset map."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

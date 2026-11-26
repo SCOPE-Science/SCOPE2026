@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:14:52.630971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md lines 37–60, the centroidal core is exactly {λ_i≥t} in barycentric coordinates. On two different sides the side parameters are independent uniforms. For u≥v and t>0, feasibility requires u>t and λ∈[t/v,1−t/u]; the remaining coordinate is maximized at the upper endpoint. This gives lower v=tu/(u−t), upper v=min(u,(1−2t)u/(u−t)), and the switch at u=1−t, with u≥2t. Integrating twice the resulting widths yields all three logarithms with the stated coefficients. At r=0 the region has area zero; as r→1 the conditional probability tends to one, but same-side chords never hit for r<1 and all hit at r=1. Continuity of the distinct-side law excludes further atoms. The shape bounds follow from 1/3≤Σp_i²<1/2, attained on the first side exactly at equal lengths and approached on the second at (1/2,1/2,0). At r→0 the first integral is O(r²) and the derivative of the second is 2∫_(2/3)^1 u/(u−1/3)du=2(1+log 2)/3; the displayed expression also gives 1−2t+O(t²|log t|) at the other end. The checker and VERIFICATION.md were inspected; recorded Monte Carlo runs corroborate finite instances only and were not rerun or used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier penetration law is already for arbitrary nondegenerate triangles and all scales.",
+          "The same-day midpoint and three-endpoint centroid-containment records use different statistics/objects. The Álvarez Lobo passages inspected treat triangle-cut segment lengths with random slope, not least centroidal scale."
+        ],
+        "reasoning": "No enlargement beyond all triangle shapes and scales is needed to cover the main claim. The change from arclength to arbitrary side probabilities is a total-probability reweighting, not a new per-pair law.",
+        "searches": [
+          "Resultary: random chord triangle boundary points centroidal homothetic core hit probability logarithmic distribution distinct sides",
+          "Álvarez Lobo arXiv:1602.03005"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary bbcd7f035f12, f449038dd05f and ad00ec68dfd3",
+        "Álvarez Lobo arXiv:1602.03005 pp. 1–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior law has the same side-mixture factor, conditional curve and endpoint atom; the prior proof derives them for the same boundary-sampling experiment."
+        ],
+        "reasoning": "The shape extremizers are extrema of the same 1−Σp_i² factor, the endpoint rates are expansions of the same Q, and arbitrary side weights leave each ordered pair law unchanged. These do not give a surviving new finding.",
+        "searches": [
+          "SCOPE-a-universal-penetration-law-and-sharp-shape-order-for-boundary-c--bbcd7f035f12 RESULT.md Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/25/SCOPE-a-universal-penetration-law-and-sharp-shape-order-for-boundary-c--bbcd7f035f12 Finding gives Pr(T≤r)=(1−σ)Q(r) and Pr(T=1)=σ for the same least centroidal scale, with σ=Σp_i².",
+          "Its Q is 1−2t−3t²−2t² log((1−t)/t)+2t(1−2t) log((1−t)/(1−2t))."
+        ],
+        "reasoning": "The two log ratios yield coefficients 2t² on log t, 2t(2t−1) on log(1−2t), and 2t(1−3t) on log(1−t). The conditional CDFs, unconditional CDFs and endpoint atom coincide on the full parameter range.",
+        "searches": [
+          "Resultary: random chord triangle boundary points centroidal homothetic core hit probability logarithmic distribution distinct sides",
+          "Web: \"centroidal\" \"triangle\" random chord homothetic core interception probability distribution side-uniform endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen entry and a distinct October 25 entry are both returned; the latter's Finding and Proof match the law."
+        ],
+        "reasoning": "This is a symbolic statement match in an index, not a finite table or a hit on the assigned record counted as its own antecedent.",
+        "searches": [
+          "Resultary: random chord triangle boundary points centroidal homothetic core hit probability logarithmic distribution distinct sides"
+        ]
+      },
+      "rationale": "An earlier distinct indexed result states exactly the same all-scale CDF under the same law of endpoints and gives the same endpoint atom. Expanding its log ratios recovers the present expression term by term. The added arbitrary side weights follow directly by reweighting the already common ordered distinct-side conditional law; the sharp bounds and expansions follow from the earlier closed form and shape factor.",
+      "residual_risks": [
+        "Later pages of arXiv:1602.03005, Gates DOI 10.2307/3213843 and Bäsel arXiv:1312.5131 could not be inspected after bounded requests. No noncoverage is inferred for unread material.",
+        "The earlier exact indexed match suffices independently of these literature gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier statement overlap",
+          "evidence": "Same least-scale model, log-ratio formula, unconditional mixture and atom; exact equality by expanding logs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-universal-penetration-law-and-sharp-shape-order-for-boundary-c--bbcd7f035f12/RESULT.md",
+          "material_read": "Finding offsets ~0–1300, Proof offsets 2200–5918; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror statement/proof inspection following Resultary lookup",
+          "title": "A universal penetration law and sharp shape order for boundary chords",
+          "trigger": "Earlier index match on the same scale, sampling law and geometry"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Concerns the midpoint's distribution and its total variation from uniform area, not interception of a core by a segment.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-total-variation-barrier-for-random-chord-midpoints-of-tr--f449038dd05f",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local-mirror statement inspection",
+          "title": "A sharp total-variation barrier for random chord midpoints of triangles",
+          "trigger": "Same sampling and shape family"
+        },
+        {
+          "assessment": "Different experiment",
+          "evidence": "Asks whether the convex hull of three sampled points contains the centroid.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-centroid-containment-law-for-boundary-sampled-triangles--ad00ec68dfd3",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local-mirror statement inspection",
+          "title": "Sharp centroid containment law for boundary-sampled triangles",
+          "trigger": "Same centroid and boundary-sampling language"
+        },
+        {
+          "assessment": "Inspected passages use a different random experiment and statistic",
+          "evidence": "A random point and random slope generate a line in an isosceles triangle and the observable is whether the cut length exceeds a threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.03005",
+          "material_read": "PDF pp. 1–3, start and offset 6465; later pages not retrieved",
+          "method": "Bounded OA paper inspection",
+          "title": "A Geometric-Probabilistic problem about the lengths of the segments intersected in straights that randomly cut a triangle",
+          "trigger": "Closest named literature on random cuts of triangles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The core-hit law is meaningful as geometry, but as a contribution this record rederives the existing exact law and shape dependence. Endpoint Taylor expansions and mixing already known per-pair laws with new side-selection probabilities give no substantive additional invariant or classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

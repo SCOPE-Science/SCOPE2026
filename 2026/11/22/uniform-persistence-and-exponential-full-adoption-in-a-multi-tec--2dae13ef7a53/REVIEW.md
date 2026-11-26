@@ -1,15 +1,21 @@
-# Scientific review: Uniform persistence and exponential full adoption in a multi-technology opinion network
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise claim holds under the positive rates and network assumptions stated in `RESULT.md`. Step 1 gives the uniform opinion floor; step 2 lists four valid length-four local transition paths to every adopter state, including the difficult initially same-technology dissatisfied state; step 3 propagates a non-susceptible seed along a directed spanning reachability tree; step 4 converts the resulting uniform adopter mass to geometric susceptible depletion. Exact matrix products and a full coupled numerical example in `verify_mate_persistence.py` are corroboration, not substitutes for the analytical proof. The constants and time indices were individually reconstructed and checked.
+## correctness
 
-## Originality — PASS (bounded literature comparison)
-The 2026 MATE source's Appendix B.6 already contains a related *three-step local mixing lemma*, and Theorem 3.5 already obtains whole-state convergence under small feedback. Neither directly covers **global geometric depletion and simultaneous positive retention of every technology for all admissible feedback**, where full-state convergence or uniqueness can fail. The earlier two-technology paper gives equilibrium results. The Ipsen–Selee work supplies known matrix methodology and is not claimed new. Targeted published-claim searches and prior-research-claim comparisons did not reveal direct coverage; they cannot establish absolute priority. Historical coverage beyond inspected texts is a residual risk.
+PASS
 
-## Value — PASS
-This is a qualitative separation of two issues often conflated in competitive adoption: whether equilibrium shares converge and whether any community/option can remain excluded. The model can admit multiple coexisting adoption-diffused equilibria under strong feedback, yet every seeded trajectory provably eliminates susceptibles at a certified geometric rate and prevents extinction of every alternative at every community. A precise all-parameter structural conclusion and reproducible conservative bounds are directly useful for model interpretation, admissibility of simulated outcomes and future quantitative perturbation analyses, rather than a one-parameter computational slice.
+The complete repaired claim explicitly restricts innate opinions to (0,1], the cited model range, and proves invariance. The frozen positivity-only parameter list does not suffice: n=1, m=2, each p=100, beta=gamma=1/2, delta=1, and lambda=xi=0 make x(1)=100 and the printed c=50. In the repaired range the nonnegative population flows conserve total mass, x is a convex update, and x(t)≥x_* from t=1. The four path types have probabilities ≥q per edge (especially the D_k hold, ≥gamma_i^[k]), even with delta=1 or time-varying opinions. Their products lower-bound the adopter row without taking a matrix limit. Monotone b survives each hop at time 6ℓ because b+(1-b)L≥L for L∈[0,1], with edges oriented by the receiving row. This gives b_i≥B after 6(n−1), applies also at n=1, and gives the asserted adopter bound from T, the dissatisfied bound from T+1 and the geometric iteration from T. The all-dissatisfied seed and periodic physical contacts require no additional condition. The v1 theorem numbers and prior-work description were also corrected.
 
-## Boundaries and evidence
-The sufficient lower bound can be tiny, and the theorem does not assert convergence of the other state variables or a sharp rate. The all-times statement is only after the explicit transient and requires all strict positivity hypotheses. The complete analytical derivation is in `RESULT.md` and the computational cross-check is in `verify_mate_persistence.py`. Primary sources: https://arxiv.org/abs/2611.04407, https://arxiv.org/abs/2601.16719; general mixing reference https://doi.org/10.1137/090752948. Independent historical priority and mathematical confirmation remain outside the present evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the quantitative, trajectory-wide network consequence on the repaired physically admissible range. The local mixing is directly prior-implied, and eventual persistence and depletion on the weak-feedback regime follow from the prior convergence theorem. The distinct claim is graph-wide explicit bounds for all feedback in the admissible simplex, with no convergence premise, and an arbitrary positive non-susceptible seed.
+
+## value
+
+PASS
+
+The result separates a global persistence and saturation question from convergence of the full coupled state. It makes both conclusions quantitative when the convergence criterion cannot be invoked, for every community and technology and even when no active adopter is initially present. It is more than the local stochastic-matrix estimate or a positive-equilibrium existence result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

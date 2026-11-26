@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:14:38.986242Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ringel's orientable genus formula gives ceil(2*7/4)=4. A connected cellular embedding then has 17 faces and 72 total face sides. Bipartiteness forces even facial walk lengths; a length-two walk in this simple graph would immediately reverse the sole edge between its vertices, impossible under rotations at vertices of degrees 4 and 9. Thus the excess over 17 quadrangles is 4, split as 2+2 or 4. Both printed rotations were independently parsed and checked against the snapshot's witness data, then traced as permutations of all 72 darts. Each yielded 17 cycles and Euler characteristic -6. A gave 15 quadrangles and the two cyclic words (0,11,2,8,1,7), (1,12,2,9,3,11); B gave 16 quadrangles and the octagon (0,10,1,7,2,9,3,5). The rotation-system construction gives orientable cellular embeddings; there is no assumption that facial walks of arbitrary competing embeddings are simple cycles. Replay: python3 /workspace/replay/02-trace.py. The snapshot retains witness data, but its old verifier hardcodes scratch/witnesses.json and was not executed or treated as fresh verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grannell–Knor gives Ringel's genus formula and the h=2 alternatives for arbitrary m,n, but enumerates part sizes only up to 7, excluding (7,7).",
+          "The 2026-10-25 Resultary finding for odd n>=5 implies the two-hexagon realization at n=9, but states only existence of that profile.",
+          "Sun treats complete graphs K_n, not complete bipartite graphs."
+        ],
+        "reasoning": "Credit the broad necessary condition and the exact overlap for one profile separately; see the checked deletion argument and the combined implication below.",
+        "searches": [
+          "Grannell–Knor, minimum-genus orientable embeddings of complete bipartite graphs",
+          "Sun, arXiv:1708.02092",
+          "Resultary: two hexagonal faces in minimum-genus embeddings of K(4,n)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, printed rotations and surviving artifacts",
+        "Grannell–Knor §1",
+        "Sun arXiv:1708.02092, abstract and §1",
+        "Resultary SCOPE062, SCOPE063, and SCOPE-719bc5ce06f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For (4,9), h=4g-(m-2)(n-2)=2, so the prior excess theorem mechanically implies the exclusion half.",
+          "For (4,10), g=4 and excess zero. In a genus-4 cellular embedding all faces are quadrangles; a length-four walk cannot repeat a vertex without immediate reversal in this simple bipartite graph of minimum degree four. A degree-four vertex in the larger part is therefore incident to four distinct face walks. Deleting its four darts and their reverses from the rotation system splices the four face walks in cyclic order to one walk of length 4(4-2)=8, leaving all other face walks unchanged. This yields the octagonal profile on K(4,9), irrespective of the symmetry in SCOPE063.",
+          "Specializing the broader October 25 catalog finding at n=9 gives fifteen quadrangles and two hexagons. Its prior-work paragraph identifies the older finite census only through K(4,7) and does not ascribe a uniform extension to it."
+        ],
+        "reasoning": "The deletion argument alone cannot produce the two-hexagon profile. The October extension plus deletion and Euler's bound does imply the entire claim; this establishes current coverage, not anterior coverage of the September contribution. No inspected earlier result supplies the missing hexagonal realization.",
+        "searches": [
+          "Grannell–Knor, §1 h=2 alternatives",
+          "Resultary 2026-10-25 odd-K(4,n) finding and Relationship to prior work, text offset 3400",
+          "SCOPE063 K(4,10) quadrangulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "There are two equivalent ways to specify the realizations: a minimum-genus cellular face distribution and a cyclic-order system whose face permutation has the prescribed orbit lengths.",
+          "Grannell–Knor's h=2 description and the two exceptional-face types are precisely the two candidates, not an existence statement for each graph."
+        ],
+        "reasoning": "Neither the generalized excess description nor the catalog's one-profile construction establishes existence of the other profile.",
+        "searches": [
+          "Resultary catalog: K(4,9) minimum-genus orientable face-size multisets / two hexagons, one octagon",
+          "Grannell–Knor, §1: face profiles of excess h=2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/9/12/SCOPE062 is the same finding with the same witnesses, not a separate match.",
+          "Same-day SCOPE063 is a symmetric quadrangulation of K(4,10), a different graph and a different face distribution.",
+          "Neither the Grannell–Knor enumeration range nor the K(4,10) record contains a K(4,9) entry."
+        ],
+        "reasoning": "The exact mirror match identifies this record; the adjacent entry does not classify K(4,9).",
+        "searches": [
+          "Resultary: exact K(4,9) face multiset classification and adjacent complete-bipartite instances",
+          "Grannell–Knor enumeration bounds, §1"
+        ]
+      },
+      "rationale": "The excess exclusion is prior art and the octagonal profile also follows from a standard quadrangulation by deletion. The distinct step is a two-hexagon realization in this small case, which completes the classification. The October 25 catalog result supplies independent mathematical coverage of that step via a general extension argument; combined with the classical octagon deduction it covers the classification today. The available evidence does not show that extension or an equivalent K(4,9) realization available before the September finding. This is bounded best-of-knowledge credit for the September contribution, not a claim of priority or of present-day non-overlap.",
+      "residual_risks": [
+        "An unindexed catalogue of rotations or a broader construction prescribing exceptional face sizes could cover both realizations; the inspected excerpts do not.",
+        "The later catalog overlap is a mathematical implication for one profile, not evidence about priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the necessary alternatives, not both K(4,9) realizations",
+          "evidence": "For h=2 one octagon or two hexagons are the candidate profiles. Enumeration is restricted to part sizes <=7, except (7,7).",
+          "identifier_or_url": "https://grannell.net/Papers/kmn.pdf",
+          "material_read": "Section 1, printed pp. 1–2 (text offsets 0–3957)",
+          "method": "OA PDF text",
+          "title": "An enumeration of minimum genus orientable embeddings of some complete bipartite graphs",
+          "trigger": "Direct genus/distribution framework and plausible prior enumeration"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The distributions concern complete graphs K_n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02092",
+          "material_read": "Abstract and §1 (text offsets 0–3466)",
+          "method": "OA PDF text",
+          "title": "Face distributions of embeddings of complete graphs",
+          "trigger": "Related face-distribution theorem"
+        },
+        {
+          "assessment": "Same record",
+          "evidence": "Two profiles and both printed rotations agree with the assigned finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/12/SCOPE062/RESULT.md",
+          "material_read": "Claim and witnesses, mirror text offset 240 onward",
+          "method": "Local catalog mirror text",
+          "title": "Face-size multisets of minimum-genus orientable embeddings of K(4,9)",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Different graph and assertion",
+          "evidence": "Claims a quadrangulation with order-10 symmetry for K(4,10).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/12/SCOPE063/RESULT.md",
+          "material_read": "Finding, mirror text offset 50",
+          "method": "Local catalog mirror text",
+          "title": "Minimum-genus symmetric quadrangulation of K(4,10)",
+          "trigger": "Distinct same-day topological-embedding result"
+        },
+        {
+          "assessment": "One-profile overlap only",
+          "evidence": "Existence of a two-hexagon/all-other-quadrangles embedding for odd n>=5; no assertion that both excess profiles are attainable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-two-hexagonal-faces-in-minimum-genus-embeddings-of-k-4-n--719bc5ce06f2/RESULT.md",
+          "material_read": "Finding, mirror text offset 65",
+          "method": "Local catalog mirror text",
+          "title": "Two hexagonal faces in minimum-genus embeddings of K(4,n)",
+          "trigger": "Broader claim covering one target profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete-bipartite minimum-genus face census is an established problem. K(4,9) is the first n>7 in the fixed K(4,n) family with nonzero orientable minimum-genus excess, naturally just beyond the cited small-part census. The substantive witness realizes two hexagons and establishes that the excess can be spent in a different way from the octagon obtained by deleting a vertex of K(4,10). It closes the exact finite census question at that boundary; the Euler calculation or the deletion construction alone would not suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

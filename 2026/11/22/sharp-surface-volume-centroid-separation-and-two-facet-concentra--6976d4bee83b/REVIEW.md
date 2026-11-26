@@ -1,18 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The surface centroid identity (1) follows from facet centroids and normalized facet areas. Affine independence makes all 0–1 vertex assignment patterns realizable, proving the exact total-variation formula; outward-normal equilibrium gives the sharp weight cap. The two-heavy-facet extremal weight profile is approached by the explicit flattening simplex, and the inverse statement follows from a quantitative partition by how many weights exceed uniform. Direct sample checking confirmed 90 exact-input or radical-area cases. The proof, not the sampling, covers all real nondegenerate simplices and every dimension at least three.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The November 2026 broad convex-body theorem gives the general sharp \(D_d\) bound but does not determine the sharp simplex subclass constant or its facet-weight profile. The earlier planar sharp theorem uses a degenerating triangle, which is credited and excluded from the new-dimensional claim. Comparisons of published mathematical reports using centroid, surface, simplex, facet weights, total variation and width returned related squared-distance moments and an exact four-dimensional general constant, not a theorem implying this new per-simplex profile. The remaining risk is older simplex-specific geometry outside the searchable literature.
+PASS
 
-## Mathematical value — PASS
-The precise problem is natural within a newly settled general extremal theorem: identify the sharp and explicitly computable bound for the minimal polytope class of simplices. The result is not a mere substitution into the general bound: it replaces it by an exact shape-dependent formula, a strictly smaller class-wide sharp constant in every dimension at least three, a nonattainment classification and quantitative geometric rigidity of near-extremizers. The two-facet law describes why maximal discrepancy requires degeneration, and can be used to assess sensitivity of surface versus volume centroids in mesh simplices.
+Reconstructed RESULT.md (1)–(5) directly. The facet means give vertex coefficients (a−p_i)/d summing to zero. Affine independence realizes any prescribed vertex values; a 0/1 assignment across the signs gives the total-variation formula. If all weights are uniform, the ratio is zero in every direction. Outward-normal equilibrium and nonparallel facet normals imply 0<p_i<1/2. For h weights above a, dG=∑_{heavy}p_i−ha; h=1 gives dG<1/2−a, h≥2 gives dG<1−ha, and h=0 gives zero. This proves strictness. For the flattened coordinate simplex, the opposite-zero facet's Gram matrix is a rank-one update of a diagonal matrix, giving area sqrt(1+(d−1)t²)/(d−1)!; the other areas are t/(d−1)! or 1/(d−1)!. The weights tend to (1/2,0,…,0,1/2), proving sharpness. In d≥3 the deficit <a excludes h=0,1 and h≥3, so the remaining mass equals the deficit exactly. Normal equilibrium bounds the dominant weighted sum by η, and their two deficits from 1/2 sum to η, yielding 4η after the triangle inequality. The supplied finite checker was inspected, not run; the decisive steps are analytic.
 
-## Closest literature and limitations
-- Myroshnychenko–Ryabogin–Tatarko–Yaskin, arXiv:2611.11635v1: universal bound, different extremal class, not the subclass sharp value.
-- Nazarov–Ryabogin–Yaskin, arXiv:2305.15646v1: established planar case and thin-triangle sharpness; this result claims only dimensions three and higher.
-- Published mathematical reports on surface/interior squared-distance gap for simplices and on the dimension-four \(D_4\) constant: different observables or unrestricted-body constant, hence do not imply the formula.
-- No independent priority certification; nearby references under alternate centroid terminology remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact simplex profile and resulting sharp subclass limit and local inverse statement are distinct from the prior planar sharp result and a scalar upper bound sharp over all convex bodies. The close same-day indexed d=4 constant was checked at statement-summary level; its relationship to the unrestricted-body constant is also recorded in the frozen audit, but full independent confirmation was unavailable. No claim of priority follows from the date or search ranking.
+
+## value
+
+PASS
+
+This solves the motivated sharp convex-body centroid problem within the basic class of simplices and yields a computable shape-specific invariant, not just another bound. The precise deficit-to-area identity and nearly opposite normals explain the geometry of the sharp degeneration and are useful beyond the scalar constant. The elementary signed-weight representation alone would be routine; the exact sharp subclass and inverse conclusions are the substantive package.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

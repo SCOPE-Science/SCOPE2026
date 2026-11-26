@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:51.603082Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the frozen critical rate β=k=γ+μ, the population sum is preserved on the simplex; the equations point inward at each vanishing population component and at A=0,1. With I=I_a+I_u, exact summation gives I'=kS_a I_a−kI. Since 0≤S_a≤1−I and 0≤I_a≤I, −kI≤I'≤−kI²; this preserves I>0 for every finite time even with I_a(0)=0 and gives the stated upper bound. Stable forced equations with asymptotically zero inputs successively yield A,R,S_u→0, and then S_a→1. Direct differentiation of q=I_u/I gives q'=(1−q)(δ₁A−kS_aq)−δ₂(1−A)q, so eventually q'≤δ₁A−δ₂q/2 and q→0. Hence I'/I→0. Dividing each stable filter by I^p adds pI'/I to its damping without changing the limiting positive decay coefficient. For p=1 this yields A/I→ρ/ω, R/I→γ/μ and S_u/I→(μ+κ₁)ρ/[(μ+κ₂)ω]; for p=2 the forcing divided by I² is δ₁(A/I)(1−q), yielding I_u/I²→δ₁ρ/[ω(δ₂+k)]. Substituting (1−S_a)/I=1+S_u/I+R/I gives (1/I)'→Q, including exactly both behavioral terms and the no-awareness baseline k²/μ. Time averaging, the ratio limits and integration of the resulting 1/t asymptotic verify all listed constants and the logarithmic integral. The source CHECK.py was inspected, not executed: its all-unit example gives Q=20/3 and inaccessible coefficient 3/400 by substitution; trajectory sampling is not needed for the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "034d42e3e132 gives vaccinated SEIR limits; 4105e5caa4dc gives a reciprocal-infection expansion in four-state SIRCm; 96c9306c6507 gives adaptive multigroup SIS profiles; 5c71f0d70f09 is a two-stage discrete SISI system."
+        ],
+        "reasoning": "These establish related critical mechanisms in other state spaces, not a theorem covering this six-state system and the stable I_u equation forced at second order.",
+        "searches": [
+          "Resultary: awareness fatigue epidemic critical threshold algebraic clearance t I limit 1/Q",
+          "Resultary: inaccessible infected compartment t^2 I_u critical prevalence model"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:2607.18301 versions and journal DOI 10.55630/j.biomath.2026.10.234",
+        "Resultary hits 2a73082c7937, 034d42e3e132, 4105e5caa4dc, 1ab94f535c83, 96c9306c6507, 5c71f0d70f09, 019a903690b9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original v1 says the borderline R₀=1 case is not analyzed further. The latest paper excludes a positive equilibrium at the boundary but proves global disease-free convergence for strict subcriticality. The related quasi-static adaptive SIS study is local and has leading t^(-1/2) decay."
+        ],
+        "reasoning": "Continuity of parameters or absence of endemic equilibria does not prove global convergence at equality, and even that convergence would not give these componentwise amplitudes; the exact infected-total balance and stable-filter ratio argument are additional.",
+        "searches": [
+          "arXiv:2607.18301 latest Theorems 3.4, 3.6; v1 p. 8 borderline case",
+          "Resultary comparators 019a903690b9, 5c71f0d70f09, 96c9306c6507"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mapping κ₁(A),κ₂(A),δ₁(A),δ₂(A) to their linear rates reproduces the frozen model exactly. arXiv:2607.18301 Theorem 3.4 is strict R₀<1; Theorem 3.6 treats equilibrium exclusion, not trajectory coefficients. The only exact hit was the frozen record itself."
+        ],
+        "reasoning": "After identifying the equivalent notation and the critical parameter R₀=1, the endpoint asymptotics remain outside these prior statements.",
+        "searches": [
+          "Resultary: SIRA awareness fatigue model beta gamma mu critical exact global clearance at threshold",
+          "Resultary: Mohammed Alsammani SIRA equations critical threshold coefficient prior analysis",
+          "arXiv:2607.18301 latest PDF Eqs. (1)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficient hit is the assigned 2a73082c7937. 1ab94f535c83 gives μ/(βk) for continuous critical SIR, not the behavior-dependent pair of coefficients. The model paper's later burden decomposition concerns equilibrium above threshold."
+        ],
+        "reasoning": "No distinct inspected source tabulates or derives the frozen pair of normalized coefficients; neither a supercritical equilibrium formula nor the no-awareness amplitude supplies the two-scale relaxation.",
+        "searches": [
+          "Resultary: awareness fatigue epidemic critical threshold algebraic clearance t I limit 1/Q",
+          "Resultary: inaccessible infected compartment t^2 I_u critical prevalence model",
+          "arXiv:2607.18301 Theorems 3.4, 3.6 and supercritical equilibrium comparison"
+        ]
+      },
+      "rationale": "The exact unforced SIRA model and critical parameter are inherited. The independent comparisons support a distinct model-specific theorem: a global endpoint argument for all seeded feasible trajectories and the normalized first- and second-order compartment tails. Critical inverse-time decay as a general phenomenon is not new.",
+      "residual_risks": [
+        "Bounded primary search and ranked catalogue queries; earlier unindexed exact-model endpoint work cannot be ruled out. No priority is inferred from a same-day listing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model; no coverage of claimed critical asymptotics in inspected results",
+          "evidence": "Global stability requires R₀<1; R₀≤1 rules out endemic equilibrium. Earlier v1 explicitly sets aside the boundary.",
+          "identifier_or_url": "arXiv:2607.18301; doi:10.55630/j.biomath.2026.10.234",
+          "material_read": "Latest PDF pp. 5–6 Eqs. (1)–(6), p. 11 Thm. 3.4, p. 13 Thm. 3.6; v1 p. 8; journal model and strict-threshold comparison",
+          "method": "OA PDFs",
+          "title": "Long-term Coexistence of Epidemics and Risk Awareness: Impacts of Adaptive Human Response and Fatigue",
+          "trigger": "Exact same base model and threshold"
+        },
+        {
+          "assessment": "Related phenomenon, different system",
+          "evidence": "The exposed and infectious components have limits tE→1/K and tI→h/K; no analogous split of accessibility.",
+          "identifier_or_url": "034d42e3e132",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Closed critical threshold and sharp algebraic relaxation in a vaccinated SEIR model",
+          "trigger": "Exact global endpoint and tI asymptotic in a compartment model"
+        },
+        {
+          "assessment": "Separate mechanism and state space",
+          "evidence": "In SIRCm, 1/I(t)=Kt+(L/K)log t+H+o(1); it does not yield the SIRA constants.",
+          "identifier_or_url": "4105e5caa4dc",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Universal critical relaxation and a feedback-controlled logarithmic correction",
+          "trigger": "Sharp critical adaptive-feedback dynamics"
+        },
+        {
+          "assessment": "Discrete SISI analogue",
+          "evidence": "Stages have powers 1/2 and 1 in discrete time; this is not the continuous first-/second-order SIRA split.",
+          "identifier_or_url": "5c71f0d70f09",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Global critical extinction and separate infection-stage power laws",
+          "trigger": "Plausible prior two-scale clearance"
+        },
+        {
+          "assessment": "Multigroup SIS analogue",
+          "evidence": "Gives t y_i→r_i/κ and t(1−z_ij)→γ_ij/κ with adaptive links, not inaccessible infected dynamics.",
+          "identifier_or_url": "96c9306c6507",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp critical clearance with prevalence-responsive links",
+          "trigger": "Adaptive-contact critical amplitude"
+        },
+        {
+          "assessment": "Distinct model and decay regime",
+          "evidence": "Local pair-closure asymptotics with leading t^(-1/2), not the global SIRA simplex result.",
+          "identifier_or_url": "019a903690b9",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A universal second-order bias in quasi-static adaptive SIS clearance",
+          "trigger": "Related same-day adaptive clearance law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem supplies quantitative information at a boundary not covered by the original strict-subthreshold result. The all-initial-state coefficient decomposes the two distinct modeled feedback contributions, and the second-order compartment tail and divergent logarithmic integral distinguish different notions of deterministic clearance. The finding is appropriately scoped to this exact autonomous system, not to empirical or stochastic extinction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

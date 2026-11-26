@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:33:45.636138Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–37 and 39–79",
+        "Frozen VERIFICATION.md lines 19–25, verify.py lines 9–69, and verification_output.txt lines 1–7 (inspected, script not executed)"
+      ],
+      "rationale": "The exact translated trace is μ and determinant is ω²−cμ; dI/dμ=−ω²/(2cs) at the crossing. The scalar elimination reconstructs the recovery variable without time change. For rigorous amplitude expansions write x=r(cos τ+y) with y orthogonal to both first harmonics, divide the periodic equation by signed r, and use the implicit-function theorem near (y,μ,Ω)=(0,0,ω). The y derivative ω²(∂τ²+1) is invertible on the complementary modes; the μ and Ω derivatives span the two first harmonics because their sine and cosine pivots are ω and −2ω. The quadratic forcing has no first harmonic, so μ and Ω have no linear terms. Inverting on the other modes gives the stated X₂. Direct projection at the next order gives sine coefficient ω/4−cs²/(2ω)−mω and cosine coefficient s²/3+5c²s²/(6ω²)−c/4+cm. Vanishing sine fixes m; the remaining cosine is s²(1+c²/ω²)/3 and balances −2ων. This gives K=−ν/ω>0. The nonzero m and unit trace crossing give the unique local Hopf family on μ/m>0. Independently, the mean cycle divergence μ−2U⟨x⟩−⟨x²⟩ equals −mr²+O(r³), so the transverse multiplier gives the stated stability. For μ<0 small the linear squared frequency exceeds ω² by |μ|(c−|μ|/4)>0, yielding the opposite linear-period change.",
+      "residual_risks": [
+        "The symbolic and numeric support is corroboration. In the shooting code the displayed trial amplitude is set through the leading μ–amplitude law, not measured as an exact Fourier amplitude.",
+        "Local, fixed admissible parameters, away from m=0; no statement of global period monotonicity or of uniform bounds near degeneracy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kostova et al. give stable supercritical and unstable subcritical bifurcations via G₄. Rocşoreanu et al. study a specific parameterization with a restricted scale parameter and target Bautin topology; equations (36)–(37) explicitly change time.",
+          "The Bisquert full-text comparison was not established; lawful publisher and repository routes did not yield decisive passages."
+        ],
+        "reasoning": "No inspected stronger theorem supplies this full original-time sign. Topological equivalence or a real Lyapunov coefficient does not preserve or determine physical periods.",
+        "searches": [
+          "Kostova–Ravindran–Schonbek DOI 10.1142/S0218127404009685; Rocşoreanu et al. DOI 10.33993/jnaat291-659; Bisquert et al. DOI 10.1021/acs.jpclett.5c00288"
+        ]
+      },
+      "checked_sources": [
+        "Kostova et al. Appendix B; Rocşoreanu et al., equations (14), (31)–(38); Bisquert et al. (access attempt only)",
+        "Resultary aabe4353694d, eb28160f951f and 89e7a9ce3069"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign of G₄ gives radial criticality, not angular drift. The Bautin reduction records a time transformation and quotes the real cubic component. The cycle correction needs the angular component in physical time and −cμ/(2ω) from the contemporaneous linear frequency."
+        ],
+        "reasoning": "Neither real criticality alone nor a time-changed normal form mechanically gives the frozen conclusion. For subcritical μ, the parameter-induced linear contribution goes in the opposite direction to the total period shift, so it cannot substitute for the nonlinear calculation.",
+        "searches": [
+          "Kostova et al. Appendix B; Rocşoreanu et al. equations (31)–(38); frozen RESULT.md lines 51–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix B evaluates a real focal sign. The Bautin article introduces a differential time change and says it quotes only the real part of its computed coefficient c₁ in the displayed expression (32), though it discusses the complex normal form.",
+          "The closest catalog passages are a Selkov period-sign reversal, a Brusselator stable-branch slowing law, and opposite-stability cycles in another quadratic flow."
+        ],
+        "reasoning": "In the convention x=z+conjugate(z)+O(|z|²), the complex cubic has real part −2m and imaginary part b=4ν+2cm/ω; ν is not b/4 because the linear equilibrium frequency also changes along the branch. None of the inspected candidate matches states the equivalent time/amplitude-normalized FHN result.",
+        "searches": [
+          "Resultary: FitzHugh–Nagumo/FHN near-Hopf period softening, frequency shift and nonlinear drift; aabe4353694d, eb28160f951f and 89e7a9ce3069",
+          "Kostova–Ravindran–Schonbek Appendix B; Rocşoreanu–Giurgiţeanu–Georgescu equations (14), (31)–(37)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact catalog period values or coefficients refer to different equations. The Bautin paper's displayed evaluated c₁ component is Re c₁, not a table of the original-time voltage-period coefficient."
+        ],
+        "reasoning": "No matching exact entry was found in the inspected material. The claim is a parameter-wide sign and formula, not a numerical instance or a recomputation of a known Hopf threshold.",
+        "searches": [
+          "Resultary aabe4353694d, eb28160f951f and 89e7a9ce3069; Rocşoreanu et al. equations (31)–(38)"
+        ]
+      },
+      "rationale": "The Hopf bifurcation and criticality classification are not new. The supported distinct result is the same-normalization original-time period coefficient and its uniform strictly positive sign across both criticalities, including the subcritical contrast. Real focal coefficients and time-reparametrized Bautin forms do not give that sign or the requisite physical-time coefficient. The closest catalog records involve different polynomial oscillators or flows, not the same voltage equation and frequency normalization.",
+      "residual_risks": [
+        "Not an exhaustive priority finding. Earlier FHN work or an equivalent coordinate/time normalization might contain the angular coefficient; the Bisquert comparison remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant overlap in criticality, not the timed period in the inspected derivation",
+          "evidence": "Derivative G₄(x²+y²)²+o((x²+y²)²) along the flow and sign criterion for supercritical versus subcritical cycles.",
+          "identifier_or_url": "https://www.its.caltech.edu/~matilde/FHNLyapunov.pdf",
+          "material_read": "Appendix B, pp. 18–20, offsets 58000–62197",
+          "method": "Lawful open preprint bounded text inspection",
+          "title": "FitzHugh–Nagumo Revisited: Types of Bifurcations, Periodical Forcing and Stability Regions by a Lyapunov Functional",
+          "trigger": "Same oscillator and both Hopf criticalities"
+        },
+        {
+          "assessment": "Accessible, stronger for Bautin topology in its regime; no matched physical period statement in decisive passages",
+          "evidence": "Complex normal form and coefficient recursion, explicit differential time change in (36)–(37), and the text before (32) quotes only Re c₁ from the evaluated expressions. The file's original access limitation does not apply to this inspection.",
+          "identifier_or_url": "https://doi.org/10.33993/jnaat291-659",
+          "material_read": "Governing equations, offset 720; pp. 100–103, equations (14), (31)–(38), offsets 10950, 17720 and 21800",
+          "method": "Bounded open journal PDF text inspection",
+          "title": "Degenerated Hopf Bifurcation in the FitzHugh–Nagumo System. 2. Bautin Bifurcation",
+          "trigger": "Potential direct complex-cubic coverage in closely related FHN equations"
+        },
+        {
+          "assessment": "Unresolved, not counted as negative coverage evidence",
+          "evidence": "No inference from inaccessible full text.",
+          "identifier_or_url": "https://doi.org/10.1021/acs.jpclett.5c00288",
+          "material_read": "No decisive full-text passage retrieved",
+          "method": "Lawful OA and identified repository retrieval attempts; publisher 403 and alternate timeouts",
+          "title": "Bifurcation and Frequency Properties of S-Type Neuronic Oscillators",
+          "trigger": "Potentially close frequency calculation for FHN or related physical oscillators"
+        },
+        {
+          "assessment": "Conceptual precedents in different systems, not equation-level coverage",
+          "evidence": "Different sign behavior in Selkov; stable branch in Brusselator; distinct quadratic vector field for simultaneous drift across opposite stabilities.",
+          "identifier_or_url": "Resultary aabe4353694d, eb28160f951f, 89e7a9ce3069",
+          "material_read": "RESULT.md offsets 635–1137, 340–576 and 432–784 respectively",
+          "method": "Bounded local-mirror passage inspection",
+          "title": "Resultary comparisons: Selkov sign reversals, Brusselator slowing, opposite-stability period drift",
+          "trigger": "Alias search for positive near-Hopf period drift across stability types"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–37 and 69–79"
+      ],
+      "rationale": "Physical-time period drift is an observable quantity independent of how the Hopf criticality is classified. A uniform sign across both stability types is a model-specific result, and the subcritical branch makes a linear frequency estimate predict the opposite direction from the actual periodic orbit. The coefficient applies to a concrete measured harmonic rather than an arbitrary state-space radius.",
+      "residual_risks": [
+        "No claim about large-amplitude periods, generalized Hopf cycles, or applicability outside the specified planar oscillator."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

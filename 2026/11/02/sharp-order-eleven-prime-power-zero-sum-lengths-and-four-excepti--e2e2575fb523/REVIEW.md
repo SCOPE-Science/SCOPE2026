@@ -1,21 +1,21 @@
-# Scientific review: order-eleven prime-power zero-sum classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each proposed shorter sum the integer polynomial \(g\) has positive coefficient mass below eleven, so it is not divisible by the cyclotomic polynomial \(\Phi_{11}\). Its resultant is a nonzero integer of absolute value at most \(10^{10}\); a standard integral resultant identity forces divisibility by the candidate \(p^k\). Hence the proof excludes every prime above \(100000\) independently of computation. The standalone checker exhaustively lists all \(352715\) allowed exponent-multiplicity vectors for each of the \(945\) eligible smaller primes at square level and for all six needed higher levels, using exact arithmetic and direct order checks. Monotonicity and the length-eleven geometric sum then settle every larger exponent. Boundary conditions (exact order eleven, \(k\ge2\), repeated powers allowed) are explicit. No use is made of finite extrapolation.
+PASS
 
-## Originality — PASS within inspected literature
+The unique order-eleven subgroup of the unit group modulo p^k maps bijectively to the subgroup modulo p, since the kernel is a p-group. Thus q−1 is a unit, the full geometric sum gives length eleven, and the minimal lengths cannot decrease with depth. Any shorter sum gives a polynomial g with nonnegative integer coefficients of mass 1–10 and degree at most ten. Cyclotomic irreducibility excludes g being a multiple of Phi_11, whose own coefficient mass is eleven. The resultant is nonzero; over the ten complex embeddings its absolute value is at most 10^10. The integral resultant identity evaluated at q yields p^k divisibility, so for k≥2 only p≤100000 must be checked. A separately written exact replay (not execution of the uploaded C++) enumerated the 352715 multisets via nondecreasing exponent tuples, obtained exact order-eleven roots by powering then simple-root lifting, and evaluated dot products in signed 64-bit integer arithmetic (each sum is less than 10^11 in the tested range). All 945 eligible prime squares reproduced precisely 23:5, 67:8, 89:9, 683:9 and eleven elsewhere. The six deeper checks reproduced 9,9,11 at p=23 and k=3,4,5, and eleven at p=67,89,683 and k=3. The displayed witnesses are consistent with the modular tests. Monotonicity and the upper bound finish all remaining levels; the p=23,k=4 short sum makes the exponent five sharp. Private replay: run `python3 /workspace/branches/f4c8b734-5e9b-4264-a8a9-843992f64fac/order11_replay.py --full` with NumPy; output `replay_full.txt` in the same directory, final REPLAY_OK at line 38. The ancillary length-three/four determinant table was also replayed but is not needed for the classification. The replay is not formal proof-assistant verification.
 
-The 2022 motivating paper already establishes general finiteness and exhibits the prime-square exceptions at \(23,67,89\) and a few nonexceptions, so these instances are not independently presented as novel. The new contribution is the **complete** order-eleven classification including the missing square exception \(683\), with a uniform effective prime cutoff and a proven sharp global stabilization level. The 2019 foundational treatment and relevant mathematical records were inspected for stronger implications; none of the examined statements subsumes the full result. Other unindexed or implicitly equivalent prior work remains a residual risk, not an absolute novelty guarantee.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An explicitly studied minimum-length invariant is determined for a whole natural prime-power family at the first order left without a complete treatment after five and seven. The exact exceptional support, new prime \(683\), and smallest uniform stabilization exponent answer a concrete structural question, not a routine table slice. Although the proof invokes a finite census, the resultant theorem makes the search globally exhaustive, and the classification holds for infinitely many primes and arbitrarily high powers.
+The supported distinct contribution is the exhaustive prime-square classification, in particular the additional short-sum prime 683 and the proof that no other prime occurs. The general norm barrier and several specific minima are antecedents. A distinct same-date catalogue record gives the complete k≥3 theorem and the same sharp stabilization exponent; those components cannot be credited as exclusive, and the date alone gives no ordering. The literature and catalogue inspected do not supply the whole prime-square classification, on which this pass rests.
 
-## Closest literature, checks, and limitations
+## value
 
-- L. Jacob and B. Külshammer, arXiv:2204.09403v1, Propositions 10–15 and Example 16(i): foundational definitions, sharp selected rows and an open request for effective bounds; **does not give** this complete order-eleven table.
-- Breuer, Héthelyi, Horváth, Külshammer, arXiv:1912.03065v1: foundational minimum-length results, not the eleven-order exceptional-prime list.
-- All new finite identities are checkable from `verify.cpp`. An unindexed exact specialization remains the main priority uncertainty. The work is proof-backed but has no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cited literature specifically studies this least-length invariant, and the square-level classification closes a concrete gap left by its selected rows: it decides for every prime not only whether lifting leaves any short relation, but the exact minimum when one survives. The new exceptional prime 683 differs even from its known minimum three over the field. A researcher can use the resulting exhaustive exception list without running a fresh search or guessing from norm valuations. No value claim rests on recomputing the known cutoff or the same-date higher levels alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:01.309723Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82",
+        "Frozen VERIFICATION.md, verify_four_goods.cpp, check_examples.py and verification_output.txt (inspected, uploaded programs not executed)",
+        "/workspace/audit_work/ef1_reproduce.py and ef1_reproduce.out (independent exact exhaustive census and cardinal witness checks)"
+      ],
+      "rationale": "For a (2,1,1) allocation every comparison to another singleton is automatic after removal. A singleton agent facing the pair must value her own good at least as much as the lesser of the two paired goods. Thus actual EF1 depends only on strict orders when no ties occur, and any allocation surviving a strict tie refinement also satisfies the original weak inequalities. Relabeling the goods to fix the first order is unique and preserves the labeled allocation count; the other five orders run independently over all 24 possibilities. An independent exact program built the 36 candidate allocations by surjective assignments, used literal cardinal EF1 on utilities 4,3,2,1 in the respective orders, and accumulated the histogram by profile chunks. All 7,962,624 profiles and every reported cell matched, with minimum two, maximum eighteen, minimum proportion 1/1152, and first moment 64/9. The latter also follows by counting the four independent singleton-agent tests of probability 2/3 for each allocation. Direct cardinal checks gave exactly the two displayed balanced allocations for the sharpness witness, and zero among the 243 complete allocations of the prior five-good example. With at most three goods each occupied group can have a singleton. This proves four-good universal multiplicity and the smallest complete EF1 nonexistence size of five.",
+      "residual_risks": [
+        "Histogram and upper bound eighteen are for strict ranks; ties and zeros are included only in the universal lower-bound assertion.",
+        "Nonnegativity, additivity, fixed pairs and labeled complete allocations are essential to the checked reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known negative theorem and its generalization supply examples starting at five goods, not a positive multiplicity bound at four.",
+          "The NP-completeness reduction handles three fixed couples and variable goods with t+5 items; fixed-two-group and two-agent double-fairness theorems do not quantify over the stated three couples."
+        ],
+        "reasoning": "Neither a family of larger counterexamples nor an unrestricted input-count complexity result classifies the four-item cases. Changing the grouping or fairness definition also prevents specialization.",
+        "searches": [
+          "Gölz–Yaghoubizade §3.2 and Appendix B",
+          "Kyropoulou–Suksompong–Voudouris §1.1",
+          "Deligkas et al. Theorem 13",
+          "Bu et al. Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary lookups and record af8a1c8347a9",
+        "Gölz–Yaghoubizade, Kyropoulou–Suksompong–Voudouris, Deligkas et al., Bu et al. primary passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The EF1 failure at five is credited exactly to Theorem 3.3. The new four-good reduction and exhaustive sharp lower bound are needed for minimality.",
+          "The shared singleton-versus-pair test does not determine the profile counts: it must be intersected across both agents of every singleton couple and every allocation."
+        ],
+        "reasoning": "The known results do not mechanically imply universal four-good multiplicity two, its witness, or the exact distribution. Mere four-good existence would not imply these multiplicity claims either.",
+        "searches": [
+          "Gölz–Yaghoubizade Theorem 3.3 and Appendix B",
+          "Deligkas et al. Theorem 13",
+          "Resultary af8a1c8347a9 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For strict preferences the census is equivalently a count of singleton-versus-pair ordinal tests, quotienting only simultaneous good relabeling.",
+          "The four-good online individual-agent record shares that local EF1 test, but only one agent values each group's bundle, unlike the paired conjunction of six orders here."
+        ],
+        "reasoning": "The ordinal reduction identifies aliases for the exact problem without identifying distinct utility and allocation models. Two orders within each couple cannot in general be replaced by one strict order preserving all tests.",
+        "searches": [
+          "Configured Resultary lookup for four-good EF1, couples and exact allocation counts",
+          "Gölz–Yaghoubizade §3.2 and four-good example",
+          "Resultary af8a1c8347a9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching profile-count table was identified in those bounded checks. The close local result concerns online irrevocable allocations to three individuals given value-multiset predictions.",
+          "The closest fixed-three-couple primary theorem gives a five-good explicit witness; its separate four-good example is a fractional non-rounding result for two couples."
+        ],
+        "reasoning": "A table for this result must encode all six strict orders on four goods, label the groups, and count complete balanced EF1 allocations. The inspected close matches do not do that. Keyword misses and a nonresponsive external lookup provide no negative evidence.",
+        "searches": [
+          "Configured Resultary query for strict-profile EF1 census with four goods and three couples",
+          "Gölz–Yaghoubizade relevant paper portions and targeted histogram/24^5 text locators",
+          "Resultary af8a1c8347a9"
+        ]
+      },
+      "rationale": "The three-couple obstruction with five goods is prior work, not credited as new. The inspected same-model theorem supplies that obstruction but not sharp four-good positive multiplicity or the exact profile law. Known two-group, double-fairness, online single-agent and variable-size complexity results differ in the model or quantifiers. The best-of-knowledge pass concerns the sharp balanced four-good universal minimum and strict census, including the new positive side needed for the cutoff.",
+      "residual_risks": [
+        "The exact census could exist in another unindexed or separately named dataset; the targeted evidence does not establish priority exhaustively.",
+        "An external literature lookup was nonresponsive; no inference was made from its failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the five-good negative side, not the four-good positive census",
+          "evidence": "Theorem 3.3 exhibits three couples and five goods with no EF1 allocation. The four-good example instead has two couples and concerns non-roundability of a fractional allocation.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.13432v1",
+          "material_read": "Four-good example p. 4 offset 16175; Theorem 3.3 p. 6 offset 27112; Appendix B p. 15 offset 66157",
+          "method": "Targeted OA primary PDF inspection",
+          "title": "Fair Division Among Couples and Small Groups",
+          "trigger": "Same fixed couples, nearest exact item threshold"
+        },
+        {
+          "assessment": "Different fixed-group setup",
+          "evidence": "The fixed-group analysis mainly has two predetermined groups; the balance guarantee in the inspected comparison uses a group of one and a group of two.",
+          "identifier_or_url": "https://repository.essex.ac.uk/28254/1/group-EF.revision.pdf",
+          "material_read": "§1.1 p. 2, offset 6000",
+          "method": "Targeted OA primary PDF inspection",
+          "title": "Almost Envy-Freeness in Group Resource Allocation",
+          "trigger": "Fixed groups and balanced group fairness"
+        },
+        {
+          "assessment": "Variable-input complexity, not an exact small instance result",
+          "evidence": "The NP-completeness reduction has four special items, a star and t partition-input items; it contains no four-good classification by specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28213v1",
+          "material_read": "Theorem 13 p. 9, offset 74798 and reduction's item template",
+          "method": "Targeted OA primary PDF inspection",
+          "title": "Subjective Valuations Make It Hard to be Fair: The Complexity of Resource Allocation to Groups of Agents",
+          "trigger": "Same three fixed two-agent groups with goods"
+        },
+        {
+          "assessment": "Different fairness quantifiers and grouping",
+          "evidence": "Doubly-EF1 existence for two agents is not a theorem about three fixed couples.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.03475v2",
+          "material_read": "Theorem 4.5 p. 15, offset 68353",
+          "method": "Targeted OA primary PDF inspection",
+          "title": "Fair Division with Allocator's Preference",
+          "trigger": "Nearby double-fairness model cited in frozen paper"
+        },
+        {
+          "assessment": "Related ordinal test, different theorem",
+          "evidence": "Online irrevocable policy for three individual agents with exact value-multiset predictions, not a labeled balanced census of six agents in fixed couples.",
+          "identifier_or_url": "Resultary af8a1c8347a9, 2026/11/8",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary lookup and local mirror statement inspection",
+          "title": "Exact four-good EF1 with frequency predictions and early allocation",
+          "trigger": "Four goods and exact EF1 terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen multiplicity theorem and profile law",
+        "Independent exhaustive checker and exact mean identity",
+        "Gölz–Yaghoubizade Theorem 3.3"
+      ],
+      "rationale": "Four goods is the last open size immediately before the known five-good failure and the first size for which singleton-only allocation cannot solve EF1. The sharp positive multiplicity shows unavoidable choice among balanced labels even in the tight case, and the full strict census quantifies how often that case and all other multiplicities occur. This is a natural small-instance frontier, useful as an exact benchmark, not an arbitrarily sized enumeration.",
+      "residual_risks": [
+        "This does not imply efficient allocation for variable item counts or a probability law for valuations containing ties."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

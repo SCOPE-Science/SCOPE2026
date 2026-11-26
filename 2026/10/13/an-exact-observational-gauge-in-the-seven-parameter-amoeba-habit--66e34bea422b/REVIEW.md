@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The precise source equations are an affine forced two-pressure system with a pressure-difference output. Both transformed pressure differential equations reduce algebraically to \(c\) times the original equations, and the output factor cancels exactly because \(\widehat\gamma=\gamma/c\). The new parameter triple remains positive, the normalization \(g_{\rm r}=1\) is retained, and the initial unstimulated equilibrium maps to the new equilibrium. The exact six-combination normal form and symbolic checks rule out a merely numerical near-degeneracy. The exact rational paper-calibration example satisfies the stated bounds.
+## correctness
 
-## Originality
-PASS for the particular model and observation regime, not for the general theory of structural identifiability. The original paper and its supplementary model/parameter-calibration analysis were compared with Villaverde (2019), Massonis et al. (2023), source-specific searches, and indexed research findings. None of the checked sources give this explicit post-normalization affine equivalence or the six-parameter observable normal form. Similar identifiability results for different biological models have different parameters and do not imply these formulas. An inaccessible earlier preprint remains a modest residual uncertainty; the fully accessible final article and online resource provide the mathematical model needed for source-specific comparison.
+PASS
 
-## Value
-PASS. The original scientific task calibrates seven mechanistic rates to day-by-day movement measurements. An entire, exact within-bound continuum of numerically different parameters gives identical predictions for *all* stimulation designs, so individual-generation-rate interpretation and ordinary uncertainty estimates from a seven-parameter fit are fundamentally underdetermined. The explicit normal form supplies a practical six-combination reparameterization and identifies the necessary class of additional measurement (a pressure-sensitive output) that could remove this ambiguity.
+Subtract the rear equilibrium level 1/a from both pressures under g_r=1, then multiply by γ. The rear equation has no constant source in these coordinates, and the front equation has source (1−h)κ0+hκ1, where κ0=γ(g_f−1), κ1=γ(g_f^s−a_s/a); output is the difference of the two scaled pressures. Thus choosing γ/c and fixing κ0,κ1 yields the stated positive rates and pressure map p↦cp+(1−c)/a for all 0<c<1. The resulting scaled initial states agree. The unstimulated matrix is stable and invertible (negative trace and determinant a[a+(1+r)d]>0), so both published day-1 equilibrium initializations map exactly. Position equality by integration persists across input switches, pressure carryover, and the daily position-only reset, and gives identical defined threshold crossing times. A different measured absolute pressure or an independently fixed initialization not preserved by the map is outside the conclusion. Differentiating the constant-output curve gives the stated nonzero null vector (γ>0), hence a singular positive-weight sensitivity information matrix when the sampled observation map is differentiable. Reconstructing the alternative from the invariants with exact fractions (independent_checks.py 4) gives 1009009/10000000, 6760153/561000, 2891/450000 within Table S3 bounds, with more than a hundredfold change in g_f. This example uses the displayed rounded Table S4 seed-308 row, not undisclosed full-precision coefficients, nor a new empirical fit. There is no claim that all six surviving combinations are identifiable.
 
-## Closest literature and limitations
-General gauge/symmetry-based identifiability methods are known (Villaverde 2019; Massonis et al. 2023). A separate indexed identifiability result for a Klausmeier system studies a different population model, not this habituation pressure system. The finding addresses precisely motion-only observations for Nishi et al.'s two-pressure equations. It does not claim six-way identifiability, failure of forward predictions, uniqueness across other biological models, or identification under additional pressure assays.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general use of state/output symmetries is prior art. The distinct supported result is the exact positive within-bound affine equivalence that survives the published rear normalization in this particular motion-only calibration, with its explicit six-combination normal form.
+
+## value
+
+PASS
+
+The original seven rates are fitted and mechanistically interpreted using motion data. This interior positive ambiguity survives all admissible schedules and is large at a published fit, so more motion data alone will not resolve it. The explicit reduced coordinates can be used for fitting, and the gauge shows why a pressure-sensitive measurement may be needed to distinguish original rates. This is a structural inference result, not a claim that the model's forward predictions are wrong.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

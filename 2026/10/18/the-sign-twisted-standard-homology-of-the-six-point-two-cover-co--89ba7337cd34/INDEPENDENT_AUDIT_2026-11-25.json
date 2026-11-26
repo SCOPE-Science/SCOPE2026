@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:50.073826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently enumerated the 5142 augmented faces by cover containment and performed sparse exact rational elimination directly on simplicial boundaries, without relying on the packaged Morse rank calculation: ranks of d3,d4,d5 are 349,771,780, so H3 and H4 have dimensions 5 and 15. For each omitted ground point, I used one orientation of each of the 60 undirected Hamilton paths, whose signs are unaffected by reversal (both relevant reversals are even). Each chain is a cycle; adjoining them to im(d4) raises rank by five and their alternating deletion sum reduces to zero exactly modulo im(d4). The printed projected matrix matches the computational convention with rows T6,T5,…,T1 and critical cells in mask order; the four-subset projection determinant is -1. This row convention clarifies the presentation without changing the alternating relation. The path construction is covariant with the sign of the induced five-point ordering, yielding the exterior-fifth permutation module modulo the alternating deletion line. The sign-twist identification then gives precisely sgn ⊗ Std6 and its full trace formula. The calculation concerns rational homology at six points, not integral primitivity. Replay python3 -B /workspace/audit_math.py 2; the uploaded verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7.1, as reproduced in 2bcaeab621c6 at offset 1850, gives integral ranks binom(m-1,4) and binom(m,4) in degrees three and four. The original full text remained unavailable.",
+          "d06d65e27c16 proves the degree-four four-subset permutation module for the family and does not assert the H3 action."
+        ],
+        "reasoning": "The earlier rank theorem applies at six points but does not, as transcribed, carry representation information. The degree-four module occupies another degree and does not alone imply H3 without additional equivariant data.",
+        "searches": [
+          "Jonsson DOI 10.1137/S0895480104443680, Theorem 7.1; lawful DOI, PDF and ePDF attempts and repository search",
+          "Resultary d06d65e27c16 and 2bcaeab621c6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2609.32786v1",
+        "Jonsson DOI 10.1137/S0895480104443680 (primary full-text access attempted; rank theorem compared via transcription)",
+        "Resultary d06d65e27c16, 2bcaeab621c6 and a413c6a778e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-day transposition eigenspaces match the restricted sign-standard module; the earlier degree-four module and known Betti numbers likewise agree. The claimed full character is sgn(g)(Fix(g)-1), and the generators transform as the alternating deletion quotient."
+        ],
+        "reasoning": "Even a five-dimensional module 1⊕sgn^⊕4 has the same transposition eigenvalue counts but not the same character on a 3-cycle. The prior results do not mechanically imply the full module or its explicit geometric generators. No priority is inferred from same-day catalogue dates.",
+        "searches": [
+          "Resultary 2bcaeab621c6, proof offset 1850 and discussion offset 8700; d06d65e27c16, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biswas p. 2 (text offset 8050) identifies Cov_{m,2} with the two-subset Čech model for 4≤r<8 by a shared cover criterion.",
+          "The Alexander-dual model gives H^9 of the dual on the 15 edge labels with no extra ground permutation sign (a point transposition interchanges four pairs of edge labels). Resultary a413c6a778e4 concerns a different Čech construction on KG(6,2), with 64 2-spheres."
+        ],
+        "reasoning": "The two-subset Čech formulation is exactly the object, but the inspected result is nonequivariant. The duality changes the formulation, not the desired S6-module, and no inspected source supplies that dual action. A shared 15-label ground set does not identify the Kneser closed-ball Čech complex with it.",
+        "searches": [
+          "Resultary: two-cover, cover number two, Hamilton-path and sign-standard homology; Čech two-subset and Alexander-dual models",
+          "Biswas, arXiv:2609.32786v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six-point table at offset 33000 reports a wedge of five 3-spheres and fifteen 4-spheres.",
+          "The same-day 2bcaeab621c6 specializes to one plus and four minus eigenvectors in H3 for a transposition."
+        ],
+        "reasoning": "The first is an exact nonequivariant table; the second supplies a single conjugacy class of the full character. Neither is an exact S6 character table or a cycle basis description.",
+        "searches": [
+          "Biswas arXiv:2609.32786v1 computed table, p. 10",
+          "Resultary 2bcaeab621c6 transposition eigenspaces"
+        ]
+      },
+      "rationale": "The known ranks and degree-four permutation result do not identify the degree-three S6 action. The substantive same-day transposition calculation gives the restriction to one transposition subgroup, not the full module or the six Hamilton-path generators and their relation. The inspected equivalent Čech model covers homotopy ranks nonequivariantly. The pass is bounded by the named unresolved primary-source access risk, not a historical priority assertion.",
+      "residual_risks": [
+        "The original full Jonsson article remains unchecked and may contain more than the transcribed rank theorem.",
+        "The bounded search cannot exclude earlier unindexed equivariant statements or an equivalent dual-model result.",
+        "The transposition calculation is a genuine same-day component match; no authorship or priority determination follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known rank coverage; possible additional equivariant material not assessed",
+          "evidence": "The transcription gives integral Betti groups in degrees three and four and vanishing otherwise.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895480104443680",
+          "material_read": "Theorem 7.1 statement as transcribed in Resultary 2bcaeab621c6; original article not directly inspected in full",
+          "method": "Direct DOI/PDF/ePDF retrieval attempted (403); no lawful repository copy located; bounded local-mirror secondary transcription",
+          "title": "Simplicial Complexes of Graphs and Hypergraphs with a Bounded Covering Number",
+          "trigger": "Primary theorem for all two-cover homology ranks; possible equivariant treatment"
+        },
+        {
+          "assessment": "Same complex and nonequivariant six-point homotopy; no full action in those passages",
+          "evidence": "Explicit cover criterion, six-point wedge table, and general conditional statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.32786",
+          "material_read": "PDF p. 2 at offset 8050; p. 10 at 33000; pp. 10–11 at 35750–37887",
+          "method": "Bounded OA PDF extraction",
+          "title": "Čech complexes for finite sets",
+          "trigger": "Equivalent Čech model and explicit six-point example"
+        },
+        {
+          "assessment": "Degree four, not degree three",
+          "evidence": "H4 is the four-subset permutation representation, with sphere boundary generators.",
+          "identifier_or_url": "Resultary d06d65e27c16",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded local-mirror text",
+          "title": "Four-subset sphere cycles give the rational top-homology permutation character of covering complexes",
+          "trigger": "Closest earlier character on the same complex family"
+        },
+        {
+          "assessment": "Material partial overlap; not full S6 characterization",
+          "evidence": "For a transposition, H3 dimensions are binom(m-2,4) and binom(m-2,3), hence 1 and 4 here.",
+          "identifier_or_url": "Resultary 2bcaeab621c6 (2026-10-18)",
+          "material_read": "Rank and eigenspace proof offset 1850; prior-work comparison offset 8700",
+          "method": "Bounded local-mirror text",
+          "title": "Transposition eigenspaces and rational orbit homology of two-cover complexes",
+          "trigger": "Same-day equivariant calculation in the same degree"
+        },
+        {
+          "assessment": "Different complex and degree",
+          "evidence": "Kneser closed balls produce rank 64 in H2 rather than the audited cover-family complex.",
+          "identifier_or_url": "Resultary a413c6a778e4",
+          "material_read": "Finding and underlying closed-ball model",
+          "method": "Bounded local-mirror text",
+          "title": "The scale-two Čech complex of KG(6,2): 64 spheres and a multiplicity-free S6-character",
+          "trigger": "Potential equivalent six-label Čech result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural symmetric covering complex whose scalar rank is known, the first six-point full action distinguishes the signed-standard module from other five-dimensional possibilities and determines every group-element trace. The explicit path-cycle quotient also gives geometric representatives and their only relation, beyond tabulating Betti dimensions or a transposition restriction. This is useful finite equivariant information in the stated rational scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

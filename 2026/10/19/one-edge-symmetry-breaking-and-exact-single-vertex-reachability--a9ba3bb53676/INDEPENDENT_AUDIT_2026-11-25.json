@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:51:34.527652Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–55",
+        "Frozen VERIFICATION.md and verify_one_defect_cube.py, lines 20–114 (inspected only)",
+        "Independent replay: python3 -B /workspace/review_checks/independent_examples.py; complete 16-column Krylov calculation over F_1009 gave shell ranks [8,8,8,8] at c=2 and [8,7,8,8] for either reduction of the quadratic examples."
+      ],
+      "rationale": "Even/odd parity in the distinguished bit reduces the Laplacian to L(Q_m) and L(Q_m)+2I+2(c-1)e_0e_0^T. The first summand sees all m+1 distinct Walsh levels from any vertex by the nonzero squared spectral weights. The odd radial restriction has the stated off-diagonals from shell incidence and has cyclic endpoints. In each Walsh level exactly one direction is radial, so all odd nonradial levels are already counted. On the radial block a nonzero defect removes every unperturbed level: at an unperturbed root the perturbed characteristic determinant is the rank-one shift times a nonzero endpoint cofactor, since that endpoint sees every simple eigenvector. Positivity for c>0 also excludes zero, so the new radial levels are disjoint from the even levels. The shell spectral measure has resolvent diagonal det(zI-G)det(zI-F)/det(zI-J). A simple full eigenvalue with vanishing spectral weight has an eigenvector zero at the shell; recurrence forces both sides nonzero. Conversely common block eigenvalues give such an eigenvector by scaling their nonzero boundary coordinates to cancel at that row. This proves the gcd deficit, including no deficit at endpoints. The left block's characteristic polynomial and first-endpoint cofactor have no common root, so each right-block eigenvalue gives at most one conductance. At c=1 Walsh support on Q_d gives d+1 directly. For m=2 the lone interior collision is c=1; for m=3,j=1 the blocks have levels 3+2c and 5±sqrt(3), respectively. Hence the first nonunit rank drops are exactly as claimed in the exhibited shell.",
+      "residual_risks": [
+        "Modular checks do not prove the arbitrary-real assertion. The supplied checker uses only the first 2d Krylov columns and thus relies on the analytic ceiling to corroborate full reachable ranks; the proof above establishes that ceiling independently."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yuan et al. relate the minimum full-control input count to maximum eigenspace multiplicity. Two other pertinent cited papers could not be read in primary full text in the available copies."
+        ],
+        "reasoning": "General driver-count or spectral support criteria do not specify which simple modes vanish at individual vertex coordinates; a true product result also cannot presuppose the defect has the original product edge weight.",
+        "searches": [
+          "Yuan et al., DOI 10.1038/ncomms3447, Eqs. (3)–(4)",
+          "Chapman et al. DOI 10.1109/TAC.2014.2328757",
+          "Zhang, Cao and Camlibel DOI 10.1109/TAC.2013.2275666"
+        ]
+      },
+      "checked_sources": [
+        "Grid-product theorem and weighted PBH paper above",
+        "Exact local Resultary case comparisons above",
+        "Frozen RESULT.md, lines 61–75"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest formula-level comparison counts all spectral values; the closest same-model three-cube comparison counts actuator sets. Neither accounts for the absence of individual simple eigenvalues at an interior shell."
+        ],
+        "reasoning": "Even with a general PBH or rank-one framework, one must identify the invariant shell Jacobi block and test its nodal coincidences for each shell. Neither specializing the product results nor applying a full-control counting criterion produces that identification.",
+        "searches": [
+          "Notarstefano and Parlangeli, Theorem 3.6",
+          "Yuan et al., Eqs. (3)–(4)",
+          "Local Resultary cycle, cube shortcut and three-cube actuator records above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The related one-shortcut cube result gives a generic 2d count of distinct Laplacian eigenvalues, with a parity resonance, for adding a nonlocal edge. The product-grid theorem treats Cartesian products of paths."
+        ],
+        "reasoning": "The total spectral grade of a symmetric matrix is not its Krylov grade from a prescribed vertex. A changed existing edge is a different perturbation from that nonlocal shortcut; the latter formula cannot count lost shell modes here.",
+        "searches": [
+          "arXiv:1203.0129 Theorem 3.6",
+          "Resultary one-shortcut cube spectral grade record, 2026/11/22/SCOPE-one-shortcut-nearly-doubles-the-krylov-spectral-grade-of-a-boole--c1bf9e61b409"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cycle record's n=4 case gives full rank at the defective edge's specified endpoint in Q_2. The one-edge-detuned three-cube record treats minimal two-actuator sets. A fourth comparison record, 2026/10/18/SCOPE-exact-actuator-set-polynomials-for-a-single-link-defect-in-compl--30587e524e61, treats a complete bipartite graph."
+        ],
+        "reasoning": "The Q_2 endpoint is an exact overlap; the different graph and multi-input statements do not give the general single-prescribed-input ranks. No exact all-dimension resonance table was identified.",
+        "searches": [
+          "Local Resultary: one-edge cube reachability and exceptional conductances",
+          "2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4",
+          "2026/11/22/SCOPE-parity-rigid-two-actuator-control-of-a-three-cube-with-one-detun--64180d9dff2f"
+        ]
+      },
+      "rationale": "The distinct claim is the exact dependence on both the input vertex shell and the conductance, including the adjacent-block coincidence count. Coordinate-input spectral support, the uniform cube and at least the defect-edge endpoint case of Q_2 are not new. Close defect and cube results do not supply the claimed all-vertex formula.",
+      "residual_risks": [
+        "Searches were bounded; the web-search return did not provide meaningful negative evidence. The inaccessible control articles and unindexed rank-one cube literature may contain closer results. Catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Product-grid criterion; does not state one-edge-defect ranks.",
+          "evidence": [
+            "Its grids are products of paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.0129",
+          "material_read": "Theorem 3.6, PDF pp. 11–12, text offset 32784",
+          "method": "OA PDF passage",
+          "title": "Controllability and observability of grid graphs via reduction and symmetries",
+          "trigger": "Cartesian-product Laplacian from a single vertex"
+        },
+        {
+          "assessment": "Minimum full-control driver count rather than prescribed vertex reachability.",
+          "evidence": [
+            "Maximum eigenspace multiplicity supplies the relevant driver-count formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/ncomms3447",
+          "material_read": "p. 3, Eqs. (3)–(4), offset 13617",
+          "method": "OA primary passage",
+          "title": "Exact controllability of complex networks",
+          "trigger": "Weighted-network PBH and control rank"
+        },
+        {
+          "assessment": "Exact overlap for the specified Q_2 endpoint.",
+          "evidence": [
+            "Single-input Kalman determinant for the weighted cycle is nonzero at positive nonunit defect weight."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact reachability-volume factorization for a cycle with one weighted edge",
+          "trigger": "Exact defect-edge endpoint case when Q_2=C_4"
+        },
+        {
+          "assessment": "Close spectral analogue, not a prescribed vertex rank or existing-edge conductance classification.",
+          "evidence": [
+            "Adds a nonlocal edge and counts distinct eigenvalues, with a 2d-1 resonance in the even-distance case."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-one-shortcut-nearly-doubles-the-krylov-spectral-grade-of-a-boole--c1bf9e61b409",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "One shortcut nearly doubles the Krylov spectral grade of a Boolean cube",
+          "trigger": "Cube rank-one perturbation, 2d spectral count and resonance"
+        },
+        {
+          "assessment": "Different control objective on a matching special case; no arbitrary-dimension single-vertex rank formula.",
+          "evidence": [
+            "Classifies minimum pairs of actuators for full controllability."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-rigid-two-actuator-control-of-a-three-cube-with-one-detun--64180d9dff2f",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Parity-rigid two-actuator control of a three-cube with one detuned edge",
+          "trigger": "Identical one-edge-defective graph in dimension three"
+        },
+        {
+          "assessment": "Potential overlap left open, not ruled out by access failure.",
+          "evidence": [
+            "The frozen comparison identifies the cited works as product criteria and dimension bounds; no independent negative inference was drawn from that description."
+          ],
+          "identifier_or_url": "DOI 10.1109/TAC.2014.2328757; DOI 10.1109/TAC.2013.2275666",
+          "material_read": "No readable primary full-text passages retrieved",
+          "method": "OA attempts; unavailable or unreadable copies",
+          "title": "Controllability and observability of network-of-networks via Cartesian products; Upper and lower bounds for controllable subspaces of networks of diffusively coupled agents",
+          "trigger": "Product network criteria and equitable/distance partition bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–30 and 45–55",
+        "Product-grid, cycle, and shortcut comparisons above"
+      ],
+      "rationale": "One modified conductance is a minimal symmetry-breaking intervention on a canonical graph, for which the reachable dimension from a specified vertex is a natural exact control invariant. The equality identifies the sharp gain over the unperturbed cube and pinpoints isolated conductances that hide simple modes, showing exactly why a generic spectral count cannot replace the input-dependent theorem.",
+      "residual_risks": [
+        "This is an exact rank result, not a claim about control energy, numerical conditioning, optimal actuator counts, or arbitrary edge modifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

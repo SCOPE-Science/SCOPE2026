@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:47:59.113058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–38",
+        "VERIFICATION.md, lines 19–30",
+        "verify_incidence.py and verify_lcf.py, with their recorded .out files (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/444f1279-8111-4af8-8d27-ec8ef4f9ef1f/reproduce_pappus_mguard.py; full_run.out in the same directory"
+      ],
+      "rationale": "The bipartition cover inequalities exclude four guards and hence fewer by monotonicity. Two selected points in a five-set must share their vertical fiber, in which case the selected lines are the pencil through the omitted point; incidence duality gives the other five-sets. The displayed affine maps preserve edges; F and G generate an order-nine subgroup regular on each class, D interchanges classes and normalizes it, and DGD=G^-1 shows the extending group is nonabelian. Independent exhaustive enumeration using the affine adjacency and collision-free guard assignments found dominating-subset counts 0,18,423 for sizes 4,5,6, with 234 ordered legal five-state shifts and exactly one undefendable unoccupied vertex per five-set, all distinct. It reproduced 72,891 ordered six-state shifts and all 5,076 state/attack pairs, each with 25–81 distinct dominating destinations containing the attack target. Each source of a response can be reused indefinitely because the class of all dominating six-sets is closed under existence of a response to every attack. The 25–81 bounds are per source and attack, not per source alone. In the explicit five-set form the omitted point is fatal: a point-minority target containing it would need three entirely new lines but there are only two old point guards; a point-majority target would put its three points on a line through the attack, and both old point guards would be needed for the two new lines, leaving at most one other point of that target line reachable from the original pencil. Duality handles the other class.",
+      "residual_risks": [
+        "The certificate is exhaustive for the specified 18-vertex affine incidence graph and simultaneous one-edge model, not for any class of graphs or other movement rules. It counts unlabeled guards on labeled vertices, not distinct guard assignments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey explicitly reports that the old all-Cayley equality is false and that Braga et al. found 61 gaps of one in a computation on 7,871 nonabelian Cayley graphs.",
+          "The frozen relationship section identifies an earlier degree-six witness, but the 61-case survey summary is much broader than a single witness and does not identify the Pappus case or give its state-level counts."
+        ],
+        "reasoning": "Existence of a gap even in this pool is not new. A scalar calculation of gamma and gamma_m by graph would not in itself say every dominating six-set wins or give the per-attack counts.",
+        "searches": [
+          "Klostermeyer–Mynhardt arXiv:1407.5228, p. 12, offset 34888",
+          "Goddard–Hedetniemi–Hedetniemi (2005), cited PDF",
+          "Braga–de Souza–Lee (2016), cited article and PDF"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2312bedeb2f5 and f2f294ec85cf",
+        "Klostermeyer–Mynhardt, arXiv:1407.5228, p. 12",
+        "Publisher and PDF attempts for the 2005 and 2016 JCMCC papers",
+        "Focused eternal domination literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A minimum eternal guard number of 6 asserts the existence of at least one winning six-set, not that there is a legal defense from every six-set against every attack. The ordinary five-set census does not determine one-move reachability or a fatal attack at each minimum."
+        ],
+        "reasoning": "Even if the basic pair is an entry in the prior computation, the verified refinements require new configuration-level information and are not inferred from that pair or from vertex transitivity.",
+        "searches": [
+          "Source findings of 2312bedeb2f5 and f2f294ec85cf",
+          "Survey p. 12 and primary-source retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multiple-guard eternal security and m-eternal domination give the same simultaneous-step problem in this comparison.",
+          "The exact-graph Resultary secure guard spectra record instead uses secure domination and single-token relocation distances. The affine, LCF and Cayley realizations of Pappus do not change the graph or the parameters."
+        ],
+        "reasoning": "The movable-guard game has to be matched under relabeling and alternative terminology; the alone-moving secure-domination comparisons cannot substitute for it.",
+        "searches": [
+          "Local Resultary: Pappus graph, eternal m-security, minimum domination and guard transitions",
+          "Klostermeyer–Mynhardt arXiv:1407.5228, Cayley discussion p. 12",
+          "Braga–de Souza–Lee publisher article and PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Pappus match 2312bedeb2f5 says ordinary gamma=5 and 18 minimum sets. The distinct Resultary record f2f294ec85cf studies secure domination and relocation, not the six-set eternal census.",
+          "The 2016 PDF appeared to require visual reading; the extractable survey summarizes aggregate counts only. No exact Pappus row or exhaustive winning-state information was verified in the older paper."
+        ],
+        "reasoning": "Credit the exact ordinary invariant match independently of dating. Treat the older enumerated scope as unresolved for the scalar pair, not as evidence of absence or proof of duplicate coverage of the stronger claim.",
+        "searches": [
+          "Resultary 2312bedeb2f5 and f2f294ec85cf, Finding passages",
+          "Braga–de Souza–Lee JCMCC 96 (2016), pp. 13–22, PDF and official article route",
+          "Eternal domination Cayley/Pappus literature search"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact configuration-level classification in the multiple-guard eternal game on Pappus, in particular universal winning across all dominating six-sets and the per-attack response counts. Neither the general existence of nonabelian Cayley gaps nor the ordinary Pappus domination census can be credited as distinctive. Whether Pappus's basic scalar pair was already included in the earlier computational survey remains an explicit risk.",
+      "residual_risks": [
+        "The full 2016 graph census and exact table were not accessible in the routes tried; it may include the same scalar pair or further evidence. No first-Cayley-gap, first-Pappus-parameter, or order-minimality claim is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Historical universal equality is not a valid covering theorem",
+          "evidence": "The survey p. 12 explicitly describes the claim gamma_m=gamma for all Cayley graphs and its refutation.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20052/vol-052-paper%2015.pdf",
+          "material_read": "No full text read from the cited scanned PDF; the older claim is quoted in the independent survey passage",
+          "method": "Lawful OA PDF retrieval attempted",
+          "title": "Eternal security in graphs",
+          "trigger": "Original Cayley equality claim and guard conventions"
+        },
+        {
+          "assessment": "Material prior overlap in general phenomenon by survey evidence, unresolved exact coverage of Pappus",
+          "evidence": "The checked survey gives graph and counterexample counts, not per-configuration outcomes. The frozen record's single degree-six comparison is not a substitute for the primary text.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-096/a-note-on-the-paper-eternal-security-in-graphs/",
+          "material_read": "Official route and cited PDF attempted; OA extraction required visual reading, so no exact Pappus entry, table, group list or proof was inspected",
+          "method": "OA direct/VPN on official article and linked PDF; alternate PDF-text reader attempt",
+          "title": "A note on the paper ‘Eternal security in graphs’",
+          "trigger": "Closest earlier same-game, nonabelian Cayley computations; potentially includes Pappus"
+        },
+        {
+          "assessment": "Verifies a materially broader earlier computational comparison",
+          "evidence": "Reports 61 connected nonabelian Cayley graphs with gamma_m=gamma+1 among 7,871 examined; other connected graphs examined had equality.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.5228",
+          "material_read": "p. 12, paragraph after Theorem 5.1, offset 34888",
+          "method": "OA PDF locate Cayley, then read by offset",
+          "title": "Klostermeyer–Mynhardt survey of eternal domination",
+          "trigger": "Independently accessible description of earlier Cayley evidence"
+        },
+        {
+          "assessment": "Exact overlap in ordinary minimum parameters, recorded later",
+          "evidence": "The Pappus graph has gamma=5 and 18 ordinary minima; the finding concerns their incidence and shattering structure, not the eternal game.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-minimum-domination-reconstructs-the-pappus-graph-and-separates-s--2312bedeb2f5/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Minimum domination reconstructs the Pappus graph and separates small sets",
+          "trigger": "Exact graph and ordinary domination count"
+        },
+        {
+          "assessment": "Different parameters",
+          "evidence": "Secure domination and token-jump/slide reconfiguration, rather than the simultaneous multiple-guard transition graph studied here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-secure-guard-spectra-and-exact-relocation-distances-on-the-pappu--f2f294ec85cf/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Secure guard spectra and exact relocation distances on the Pappus graph",
+          "trigger": "Exact graph/guard terminology hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–44",
+        "Independent reproduction full_run.out",
+        "Prior Cayley-survey comparison, p. 12"
+      ],
+      "rationale": "The degree-three Cayley structure is a motivated boundary for the failed Cayley equality. Beyond computing two invariants, the exact winning-state and response classification distinguishes existence of a strategy from robustness to every minimum-size winning-class placement, with a sharp obstruction at the immediately lower size. These are independently useful features of a natural symmetric graph, not a tiny unmotivated sample.",
+      "residual_risks": [
+        "The value assessment is for the configuration-level result, not recomputing known ordinary domination or claiming that Pappus is a smallest counterexample."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

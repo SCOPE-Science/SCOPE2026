@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification of finite periodic Fourier interpolation
 
-The mathematical proof is in RESULT.md: a unitary polyphase decomposition followed by exact diagonalization of a symmetric \(3\times3\) Gram matrix, strict eigenvalue ordering, and a Taylor expansion at the three-node collision. The formula is valid for every integer \(m\ge1\) and every real \(0\le\varepsilon<1\); no computational enumeration is used as an infinite proof.
+The proof in RESULT.md uses the unitary length-\(m\) transform across cells, exact parity decomposition of a real \(3\times3\) Gram matrix, and an analytic sign test for the unique interior crossing. It applies for every \(m\ge1\), including the endpoint with repeated nodes. The collision calculation serves as a check against the already known leading law for a symmetric three-source cluster.
 
-Run `python checker.py` with Python 3 and NumPy. The checker constructs full Fourier matrices for eight sizes and compares the first three spectral power sums against the predicted bands at eleven perturbation values, then tests the quarter-step degeneracy and three near-collision scalings. The recorded run passed 88 full-matrix cases and the additional checks. Numerical floating-point tolerances and finite sample sizes are not certificates for all real parameters.
-
-The analytic collision rate is a limit with an explicit leading coefficient. The result concerns only consecutive integer frequencies, equal sampling weights and the specified three-periodic spatial pattern. Independent validation and historical completeness certification have not been performed.
+Run `python3 checker.py` with the Python standard library only. Its recorded run passed 88 full-matrix spectral moment comparisons and the supplementary transition and collision checks. These finite floating-point checks do not certify an infinite-domain assertion. The results concern the specified equal weights, consecutive frequencies, and three-periodic sampling pattern only.

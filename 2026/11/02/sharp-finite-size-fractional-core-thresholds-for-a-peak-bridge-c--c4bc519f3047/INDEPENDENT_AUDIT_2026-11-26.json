@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:00.040478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Utility-based JR tested on each voter's peak requires utility at least 1. Endpoint peaks are mandatory; a run of r omitted interior peaks forces r+1 different bridges, disjoint across runs, exceeding the seat budget. The all-peak committee satisfies JR because every demanded single-candidate utility is at most 1. For odd size the uniform bridge weights rho/(2v) and endpoint peaks rho/2 give budget k and every utility rho. For even size the alternating 1,z bridges (z=h/(h-1+2v)) and endpoint peaks vz do the same, including k=2. All weights satisfy the caps. For a coalition block of size s, alternating normalized voter weights give a bound aB in odd size and a[B+2v-1] in even size, B the incident mass; the one excess even edge has weight at most 1. In either case attaining more than rho_s requires B>s. The incident candidate sets of disconnected blocks are disjoint, so the sum of their B cannot exceed |S|. Both parity expressions equal 2v minus v(2v-1) divided by a denominator that increases strictly with size (also from s=1), hence a utility strictly above rho_k violates the budget. This proves sharpness over all coalitions and the inclusive threshold under strict blocking. The rational and LP checks in the source are finite corroboration, not used as proof or rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 10 gives incompatibility when alpha beta < 2 and uses the interior-coalition witness 2v(k-2)/(k-1).",
+          "Jin–Liu–Tao prove qualitative incompatibility by fractional Pareto domination in a different approval profile."
+        ],
+        "reasoning": "Neither general incompatibility result evaluates the optimum for a given (k,v), or supplies its two parity corrections.",
+        "searches": [
+          "arXiv:2610.28151v1, Theorem 10 and Appendix E",
+          "arXiv:2608.01830, §3, Theorem 1 and Corollary 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verification/check_path_frontier.py inspected, not run",
+        "arXiv:2610.28151v1",
+        "arXiv:2608.01830",
+        "Resultary:104774c4c4ec, e60d356cd0d3, 7f5b4dfc0244, 93699154001a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix E assigns every bridge (k-2)/(k-1) for the interior k-2 voters; it supplies a feasible utility, not an upper certificate."
+        ],
+        "reasoning": "For the prior witness's eligible k, the new optimum is strictly larger. A lower witness and the asymptotic factor 2 do not imply the blockwise upper bound or equality at finite size.",
+        "searches": [
+          "arXiv:2610.28151v1, Appendix E formal witness and §2 strict core convention"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited paper's JR condition agrees with the frozen singleton test; dividing by baseline utility 1 identifies the maximin utility with the improvement factor.",
+          "The closest path-style Resultary hit, 93699154001a, concerns JR/PJR/EJR and random committee counts for adjacent-pair approvals, not fractional maximin on weighted peaks and bridges."
+        ],
+        "reasoning": "The threshold can equivalently be expressed as a strict-blocking ratio or a maximin partial committee LP. Neither equivalence identifies it with a result for approval committee-word counts.",
+        "searches": [
+          "Resultary: peak–bridge fractional maximin / finite-size strict-core boundary",
+          "arXiv:2610.28151v1, utility-based JR and fractional core"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two entries classify core+ support for approval committees; the third gives an integral Hare-core separation threshold in a cyclic approval election; the fourth counts feasible committees on a path."
+        ],
+        "reasoning": "None of these entries evaluates the weighted path deviation LP or tabulates the frozen values. The baseline also varies over a continuum of v; sampled LP outputs are not a prior formula.",
+        "searches": [
+          "Resultary: fractional-core committee thresholds / path elections; catalogue IDs 104774c4c4ec, e60d356cd0d3, 7f5b4dfc0244, 93699154001a"
+        ]
+      },
+      "rationale": "The profile, uniqueness of JR and asymptotic obstruction are prior work. The distinct finding is the exact finite-size parity-dependent maximin over all eligible coalitions, attained by the grand coalition, and therefore the exact strict-core boundary for this profile.",
+      "residual_risks": [
+        "Bounded statement-level comparison; other parametric LP solutions for the same profile are not ruled out. No priority claim for the construction, JR uniqueness or asymptotic obstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction, JR result and asymptotic obstruction; not the finite optimum",
+          "evidence": "The formal witness uses the interior coalition, not the grand coalition, and attains 2v(k-2)/(k-1).",
+          "identifier_or_url": "https://arxiv.org/html/2610.28151v1",
+          "material_read": "§2 JR definition (HTML offset ~13454), §6 Theorem 10 (~40133), Appendix E (~103800–111758)",
+          "method": "Open primary full text, located and read relevant passages",
+          "title": "Best-of-Both Worlds Proportionality in Structured Committee Elections",
+          "trigger": "Same weighted profile and core convention"
+        },
+        {
+          "assessment": "Different set-system construction with approval utilities",
+          "evidence": "Fractional Pareto domination of integral JR committees; no peak–bridge optimization in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.01830",
+          "material_read": "§3, Theorem 1 and Corollary 2, PDF pp. 9–11",
+          "method": "Open primary PDF, focused theorem comparison",
+          "title": "Limitations of Best-of-Both-Worlds Solutions in Approval-Based Multiwinner Elections",
+          "trigger": "Potential stronger incompatibility theorem"
+        },
+        {
+          "assessment": "Different utilities and statistic",
+          "evidence": "Adjacent-pair approval and a committee counting and probability theorem, not a coalition maximin frontier.",
+          "identifier_or_url": "Resultary:93699154001a",
+          "material_read": "RESULT.md finding",
+          "method": "Semantic catalogue query and published record via local mirror",
+          "title": "A cubic-root Poisson threshold for fair and efficient interval committees",
+          "trigger": "Closest path and JR overlap in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact obstruction measures the best possible deviation in an already motivated impossibility profile. The upper bound controls disconnected coalitions as well as intervals, and the parity corrections and strict boundary are information not supplied by a large-k lower witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

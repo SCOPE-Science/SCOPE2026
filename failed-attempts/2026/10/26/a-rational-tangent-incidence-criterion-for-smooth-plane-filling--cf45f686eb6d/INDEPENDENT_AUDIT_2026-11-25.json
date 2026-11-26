@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:56:26.914142Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, crosscheck_sympy.py, orbit_table.tsv and expected_output.txt inspected as evidence",
+        "python /workspace/replay/2-quintics.py (independent exact enumeration and gradient ideals, SymPy)"
+      ],
+      "rationale": "A quintic with zero affine first jets at all seven points restricts to zero on each line (three double roots exceed degree five). All seven distinct lines would divide it, so it must be zero. Equal source and target dimensions give the jet isomorphism; Euler identifies its nonzero transverse gradients with the three incident tangents. A triple fiber forces a line component by the same degree bound; a reducible divisor or a repeated component is geometrically singular. Independently I enumerated all 16,384 coefficient masks vanishing at the seven points, by matching evaluation syndromes of two monomial blocks, and evaluated the homogeneous partial derivatives. Exactly 2,187 forms have seven nonzero gradients with distinct tangent maps. The incidence-preserving permutations of the Fano plane give 168 automorphisms; the 18 map orbits have the same sizes and profiles as claimed. Unit-ideal checks over F2 on the charts of representatives establish absence of gradient zeros over the algebraic closure, since Euler makes a gradient zero a point of the curve. There are 3, 6 and 1 qualifying orbits carrying 420, 924 and 168 assignments, respectively. The rejected assignments consist of 24 bijections, 84 concurrent triple-double maps and 567 maps with a triple fiber. The criterion excludes exactly these cases, whose singularities must be nonrational by construction.",
+      "residual_risks": [
+        "The finite theorem concerns embedded degree-five forms over F2 only; it is not a multi-field theorem or an abstract curve-isomorphism count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The genus-six census covers abstract isomorphism classes and uses an equation-level plane-quintic search before reduction. The paper and README do not present the tangent profile as a classification, nor by themselves show that the candidate-equation files retain every embedded equation. Asgarli–Ghioca concern a specified family and rational-point smoothness, and a separate even-field construction, not arbitrary incident assignments.",
+          "The projective classification of the smooth subset is in precisely the embedded category here, with stronger identifying information than profile counts."
+        ],
+        "reasoning": "Do not conflate an abstract class census with embedded-projective smooth membership. The closer indexed equation-level data, not the general genus-six result alone, give the operative stronger coverage.",
+        "searches": [
+          "Huang–Kedlaya–Lau arXiv:2402.00716, Theorem 1.1, §3.3, §3.7 and Table 1, plane_quintic README",
+          "Asgarli–Ghioca arXiv:2307.03072, introduction and Theorem 1.2",
+          "Resultary ...fcd56bf481b9, exact projective census proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary pencil record ...5ea55287ab22 including exact census_output.json, projective census ...fcd56bf481b9, Gauss-bijection ...973879863b67",
+        "Huang–Kedlaya–Lau arXiv:2402.00716 and plane_quintic README; Asgarli–Ghioca arXiv:2307.03072",
+        "Direct gradient/profile computation on the indexed pencil member masks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Enumerating the three incident choices at each of seven points gives exactly 420, 924 and 168 maps in the three claimed positive categories, with concurrence decided by testing for a common rational point. These exhaust the orbit expansion of the table and all table maps satisfy those categories."
+        ],
+        "reasoning": "The expanded smooth map set is a subset of the maps satisfying the criterion, and the sizes are equal. The equivalence and counts therefore follow by finite gradient evaluation, projective relabeling and an incidence tally alone. The formula is a convenient compression of a known exact census, but no independent new obstruction theorem or extension is supplied.",
+        "searches": [
+          "Pencil source rank-21 jet proof and exact table member masks, with direct Fano incidence tally",
+          "Compare frozen fiber partition and nonconcurrency alternatives to the earlier smooth member-form data"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pencil record's rank-21 value/derivative parametrization gives the same set of 2,187 locally smooth forms; the gradients supply precisely the tangent assignment used in the frozen claim. The earlier projective classification explicitly counts the same 1,512 equations and ten orbits. The Gauss-bijection record ...973879863b67 covers only the 24 bijective assignments and their nonsmoothness."
+        ],
+        "reasoning": "Via the rank-21 jet map, each pointwise nonzero derivative tuple gives a unique incident tangent assignment. Exact smooth membership of embedded equations is thus membership of maps up to the same projective action; the absence of the identical fiber-profile wording does not make the data different. Bijective maps alone give only a partial overlap.",
+        "searches": [
+          "Resultary: smooth plane-filling binary quintics, projective classification, rational Gauss map, first jets and rational bitangents",
+          "Pencil record ...5ea55287ab22, proof steps 1–2 and census_output.json; October 18 projective classification ...fcd56bf481b9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pencil table encodes 108 representative pencils with 197 distinct member masks. I evaluated their gradients at the seven binary points and expanded each tangent-map orbit under the 168 projectivities. The resulting union has 1,512 maps and ten orbits. Breakdown: three orbits of sizes 84,168,168 have profile (2,1,1,1,1,1); six of sizes 84,168,168,168,168,168 have (2,2,1,1,1); one size-168 orbit has (2,2,2,1) with nonconcurrent doubles. Thus the smooth membership is actually recoverable from an inspected table, not conjecturally stored somewhere."
+        ],
+        "reasoning": "Every pencil member in these data is geometrically smooth, orbit expansion preserves smoothness, and the 1,512 distinct maps already equal the census total. No extra smooth classes are assumed and no abstract-to-embedded lift is needed.",
+        "searches": [
+          "Pencil record ...5ea55287ab22, census_output.json, offsets from 0 through the 8,985-character table; fields monomial_order and orbit_representatives",
+          "October 18 projective classification ...fcd56bf481b9, §3 table and §4 confirmation"
+        ]
+      },
+      "rationale": "Although the inspected related findings do not state the concise fiber criterion, it is already a mechanical corollary of exact indexed data. A distinct same-date pencil record contains the full first-jet rank and a published table whose smooth member forms exhaust the ten smooth orbits. Computing seven gradients per listed form and tallying incident maps recovers the entire iff without any new geometric-smoothness test. This is checked coverage in the indexed corpus, not a determination of historical priority between same-date records.",
+      "residual_risks": [
+        "No order or provenance is inferred from the matching record having the same date; the verdict rests on mathematical coverage.",
+        "The exact reach of Huang–Kedlaya–Lau's pre-isomorphism files is not needed for the established implication from the indexed pencil data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the iff via complete smooth membership and jet correspondence; its stated subject is pencils, not a quoted incidence theorem",
+          "evidence": "Rank 21, 2,187 locally smooth forms and 1,512 smooth forms; representative member masks generate precisely the three positive classes, exhausting them.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-maximal-all-smooth-plane-filling-quintic-pencils-over-mathbf-f-2--5ea55287ab22",
+          "material_read": "RESULT.md proof steps 1–3 and verification (offsets near 1900 and 3500); census_output.json monomial_order and all 108 orbit_representatives parsed for comparison",
+          "method": "Local mirrored source passages plus direct evaluation and orbit expansion of the equation masks",
+          "title": "Maximal all-smooth plane-filling quintic pencils over F2",
+          "trigger": "Same local jet and geometric census, with explicit smooth pencil members"
+        },
+        {
+          "assessment": "Covers the embedded equation census and ten orbits; does not state the fiber rule; the mechanical implication check uses the independently specified pencil table",
+          "evidence": "Eight size-168 and two size-84 orbits, all geometrically smooth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-complete-projective-classification-of-smooth-plane-filling-qui--fcd56bf481b9/RESULT.md",
+          "material_read": "Finding and scope; §3 representative table and §4 smoothness, offsets 0–1984 and 2350–5463",
+          "method": "Local mirrored bounded statement and proof inspection",
+          "title": "A complete projective classification of smooth plane-filling quintics over the binary field",
+          "trigger": "Same smooth set and orbit sizes"
+        },
+        {
+          "assessment": "Partial coverage of one excluded case",
+          "evidence": "24 bijective quintic assignments; none smooth geometrically.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-rational-gauss-bijection-gap-between-binary-plane-quartics-a--973879863b67/RESULT.md",
+          "material_read": "Finding and the quintic bijection case",
+          "method": "Local mirrored statement-level comparison",
+          "title": "The rational Gauss bijection gap between binary plane quartics and quintics",
+          "trigger": "Same-date overlap on one fiber profile"
+        },
+        {
+          "assessment": "Describes candidate equation search and complete abstract-class data, not the embedded incidence table itself",
+          "evidence": "4,204 unweighted plane-quintic classes; README distinguishes the isomorphism list from its 61,129 pre-test candidates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.00716",
+          "material_read": "Abstract and Theorem 1.1 p. 1, §3.3 pp. 5–6, §3.7 p. 6, Table 1 p. 10 and corresponding plane_quintic README",
+          "method": "Primary PDF and repository documentation, bounded passages",
+          "title": "A census of genus 6 curves over F2",
+          "trigger": "Possible complete database coverage of plane quintics"
+        },
+        {
+          "assessment": "Selected family, different criterion and hypotheses; not all binary tangent assignments",
+          "evidence": "Discusses nonsingularity at rational points and a separate even-field construction with computational checks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.03072",
+          "material_read": "Introduction and Theorem 1.2, pp. 1–2; even-field discussion near offset 3638",
+          "method": "Primary OA PDF passages",
+          "title": "Plane-filling curves of small degree over finite fields",
+          "trigger": "Same degree q+3 at q=2 and a rational smoothness criterion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof steps 3–4; exact pencil table expansion and independent assignment tally"
+      ],
+      "rationale": "A local-data rule that avoids evaluating projective gradient ideals on a new input is a useful description. In this package, however, the precise rule is obtained by tallying the already available exact smooth census and matching its orbit profiles with incidence, not by discovering a separate mechanism for the concurrency obstruction or extending the theorem. That table recoding does not establish a distinct valuable remainder for repair under the review standard.",
+      "residual_risks": [
+        "A conceptual proof not dependent on the census, or an extension to other degrees/fields, is not assessed or claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

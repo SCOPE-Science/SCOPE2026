@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Each sampled cyclic gap has the joint Dirichlet(1,...,1) law. The inscribed-angle formula makes a vertex acute exactly when its two adjacent gap sum exceeds 1/2. Any two nonadjacent such events are impossible; hence the two-acute event has a unique neighboring pair. A unit-Jacobian transformation of the three relevant gaps leads to an explicit s-integral; evaluating it proves the density and pair mass 2^(2-n). The two triangular sections give a product density under maximum and ratio. Beta moments, covariance and beta-to-gamma limit follow by exact integration. The standalone Python standard-library checker passed 1,251 exact and sampled assertions for supporting finite cases; the analytic proof covers all n and the limit. Endpoints and right-angle ties have zero probability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finch derives finite-dimensional joint angle distributions for n=4 and n=5, not arbitrary n.",
+        "The Putnam derivation uses the simultaneous-acute pair probability integrated over the endpoint gap, but does not condition on two angular deficits."
+      ],
+      "reasoning": "General Dirichlet densities could permit independent derivation but are not a stronger explicit theorem covering the conditional geometry. Finch n=4 and n=5 are accounted for; a general-n domination comparison with a prior theorem was not found.",
+      "searches": [
+        "Dirichlet circular spacings adjacent sums exceeding one half two adjacent exceedances joint excess law beta uniform conditional, rare event limit bivariate exp(-2 max)",
+        "Random inscribed convex polygon exactly two acute vertices, limiting conditional distribution of acute angle pair, Beta(2,n-2), sample size n",
+        "https://arxiv.org/abs/1610.00510",
+        "https://www.sfu.ca/~lockhart/richard/Putnam2005Sol.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://www.sfu.ca/~lockhart/richard/Putnam2005Sol.pdf (A6 pages 3–4 full relevant section)",
+      "https://arxiv.org/abs/1610.00510 (Sections 2, 4 accessible full text)",
+      "Actual semantic research-record queries on acute-angle deficit pairs, Dirichlet adjacent exceedances, rare conditional polygon shape and beta-uniform factorization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Putnam A6 (2005): at most two acute, neighboring if two; scalar probability of one or more.",
+        "Finch (2016) Section 2: full adjacent-angle joint distribution at n=4, and Section 4: finite joint angle representation at n=5.",
+        "New claim: for every n>=4, conditional 2D joint density, exact factorization of maximum and ratio, bivariate gamma scaling and positive correlation profile."
+      ],
+      "reasoning": "n=4 (and finite n=5 angle-density expressions) can entail particular special cases through restriction/integration and are not claimed as new. Prior scalar probability does not imply conditional dependence, while results for fixed n do not imply the full infinite n-family or limiting shape law. A previously overlooked general Dirichlet joint-exceedance theorem remains a plausible residual risk.",
+      "searches": [
+        "Random cyclic polygons joint distribution of the only two acute angles right-angle deficits conditional two acute vertices",
+        "https://www.sfu.ca/~lockhart/richard/Putnam2005Sol.pdf",
+        "https://arxiv.org/abs/1610.00510"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acute-angle right-angle deficits equal consecutive two-gap excesses above 1/2 under Dirichlet(1,...,1) spacings.",
+        "Finch Section 2 gives n=4 adjacent-angle tent density; this includes the n=4 specialization, not the arbitrary-n factorization."
+      ],
+      "reasoning": "Exact equivalent formulations were checked in geometry (acute-angle deviations) and probability (conditional joint excesses of adjacent Dirichlet sums). The known four-vertex formula is a covered special case; neither it nor the 2005 scalar event count contains the all-sample-size conditional marked distribution as a stated theorem.",
+      "searches": [
+        "Conditional angle defect joint density given exactly two acute consecutive angles of random cyclic n-gon, n uniform random circumference points, order statistic ratio uniform independent beta maximal deficit",
+        "Dirichlet circular spacings adjacent sums exceeding one half two adjacent exceedances joint excess law beta uniform conditional, rare event limit bivariate exp(-2 max)",
+        "Random cyclic polygons joint distribution of the only two acute angles right-angle deficits conditional two acute vertices",
+        "https://arxiv.org/abs/1610.00510"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved 2005 Putnam solution provides event probabilities, not a two-dimensional density table.",
+        "Closest database search titles concern random polygon hull areas and unrelated maxima, without the two-angle conditional pair."
+      ],
+      "reasoning": "The exact count event is known and is expressly excluded from the novel contribution. No matching exact joint-density table or all-n catalog entry was found in checked sources; negative search alone is not proof of novelty.",
+      "searches": [
+        "Conditional angle defect joint density given exactly two acute consecutive angles of random cyclic n-gon, n uniform random circumference points, order statistic ratio uniform independent beta maximal deficit",
+        "Random inscribed convex polygon exactly two acute vertices, limiting conditional distribution of acute angle pair, Beta(2,n-2), sample size n",
+        "Random inscribed cyclic polygon exact distribution number of acute angles n uniform independent circle points, probability all obtuse = 1 - n(n-2)/2^(n-1), at most two acute vertices"
+      ]
+    },
+    "rationale": "The December 3, 2005 Putnam A6 solutions prove only the acute-count event and adjacent-pair geometry, without the conditional two-deficit law. Finch (arXiv:1610.00510, Sections 2 and 4) derives joint angle laws for n=4 and n=5, which are acknowledged as previously analyzed special sizes, but provides no formula for all n, the beta–uniform factorization or the joint rare-event asymptotic. Actual research-record queries about angle defects and adjacent exceedances did not return an all-n statement. The all-n family is not logically implied merely by the scalar count or finite-order angle densities; its three-gap integration is a separate calculation. Historical priority remains qualified by possible unknown general Dirichlet identities.",
+    "residual_risks": [
+      "An older all-n theorem may be phrased as a joint Dirichlet linear-combination distribution and contain the same result without using polygon-angle terminology.",
+      "Accessible Finch text lists earlier Dirichlet linear-combination references (1976, 2000) not fully inspected; these supply general tools and might contain directly usable transforms.",
+      "The novel contribution is the general rare-event conditional geometry and exact beta–uniform factorization; fixed n=4 (and possibly n=5) consequences are already implied by known angle distributions.",
+      "Same-model originality review only; absolute historical novelty is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COUNTS_AND_GEOMETRY_ONLY; does not provide the conditional ordered two-deficit law",
+        "evidence": [
+          "Page 3 first states at most two acute angles and their adjacency and defines the pair event.",
+          "Page 4 integrates a single pair-arc location to obtain total event probability n(n-2)2^(1-n)."
+        ],
+        "identifier_or_url": "https://www.sfu.ca/~lockhart/richard/Putnam2005Sol.pdf",
+        "material_read": "Full relevant A6 statement and solutions on pages 3-4 (zero-index pages 2-3): adjacent-pair geometry, marked-event probabilities, integrals and final scalar result.",
+        "method": "PDF full-text inspection and visual screenshot of page 4",
+        "title": "Putnam Competition 2005, problem A6 and Richard Lockhart solutions",
+        "trigger": "Same acute-angle event, possible direct coverage"
+      },
+      {
+        "assessment": "COVERS_THE_FOUR_VERTEX_SPECIAL_CASE; does not present a general-n conditional two-acute pair distribution",
+        "evidence": [
+          "Section 2 gives bivariate tent distribution for adjacent angles of n=4.",
+          "Section 4 analyzes 5-gon angles and conjectures a six-gon relation rather than proving a general finite-n conditional marked law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.00510",
+        "material_read": "Accessible article text, Sections 2 (joint adjacent-angle tent density for n=4) and 4 (joint n=5 angle formulation; conjectured n=6 covariance).",
+        "method": "Original accessible arXiv full-text rendering (paper PDF endpoint not accessible)",
+        "title": "Random Cyclic Quadrilaterals",
+        "trigger": "Relevant published adjacent-angle bivariate density and possible broader n-gon analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a93789b-3201-4d7e-9107-0abb9b01ac27",
+  "value": {
+    "rationale": "Rare two-acute configurations of cyclic polygons occur with exponentially small probability, so their conditional geometry is not explained by the classical event-count probability. An exact joint density gives the dependence and scale of the two rare extreme vertex-angle defects; the independent uniform deficit ratio, beta maximum, nontrivial positive limiting correlation 3/7 and universal gamma-shaped joint limit provide natural structural descriptors for rare polygon shapes. This is an all-n classification of a geometrically canonical marked configuration, not a recomputation of the known scalar event or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}

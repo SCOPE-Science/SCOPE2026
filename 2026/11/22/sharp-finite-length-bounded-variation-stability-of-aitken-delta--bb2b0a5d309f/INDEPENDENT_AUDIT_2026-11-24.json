@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:47:20.736819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–76 and frozen VERIFICATION.md",
+        "Frozen verify_aitken.py inspected, not executed",
+        "/workspace/repairs/3/RESULT.md",
+        "/workspace/branches/8c8f25ca-f398-4295-a938-0f4bc7a4ea50/independent_aitken_check.py"
+      ],
+      "rationale": "For the corrected finding, use the increment coordinates u, in which the input seminorm is the l1 norm. Put F(a,b)=a^2/(a-b). The adjacent output differences are u_j+F(u_{j+1},u_{j+2})-F(u_j,u_{j+1}). Their Jacobian has rows with three successive entries 1-H(t_j), H(t_{j+1})-U(t_j), U(t_{j+1}), where t_j=u_{j+1}/u_j, H(t)=(1-2t)/(1-t)^2 and U(t)=1/(1-t)^2. The signs are +,-,+, so each column sum of absolute values is maximized in the limit with all relevant ratios at q. The largest sums for n=4,5,>=6 are respectively max(U,U-H), 2U-H, and 2U+1-2H (U,H at q); n=3 has no adjacent output differences. Convexity of the linear increment inequalities bounds finite pairs by the integrated Jacobian, also with weak ratio caps and positive increments. A geometric increment vector with a common ratio t<q is interior; perturbing one maximizing increment and then taking t up to q proves sharpness. The nonzero leading numerators as q tends to one are 2,3,4 in the three positive cases. The separately authored exact-rational checker passed 5,500 derivative-step, 420 finite two-input and 16 near-sharp checks; these corroborate the proof, not replace it.",
+      "residual_risks": [
+        "Strict-cone sharpness is a supremum; no fixed finite perturbation is claimed to attain it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1989 abstract/indexed excerpt introduces contraction for sequence transformations and examines Aitken, but does not establish the two-input BV norm or the strict ratio cone.",
+          "Tiruneh pp. 1–3 discusses higher-order extrapolation and Gauss–Seidel acceleration."
+        ],
+        "reasoning": "No inspected general result gives the exact induced norm on the increment cone or the boundary column cases. The precise definitions in the 1989 paper remain unresolved; the abstract cannot rule out coverage.",
+        "searches": [
+          "Brezinski 1989 contraction properties, DOI 10.1007/BF01396362 (Springer and EUDML)",
+          "arXiv:1310.4288",
+          "10.1080/23311835.2017.1308622"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bb2b0a5d309f and 87e38a3327b5",
+        "Brezinski 1989 abstract/indexed excerpt",
+        "Brezinski–Redivo Zaglia 2007 pp. 171–172",
+        "Tiruneh 2013 pp. 1–3",
+        "Pomeranz 2017 citation and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact elimination of one geometric mode concerns the value at a geometric input. The finite-path modulus requires the response to heterogeneous increments, boundary columns for n=4,5, and a sharpness limit from interior inputs."
+        ],
+        "reasoning": "Neither geometric elimination nor an analysis of the convergence of an extrapolated sequence yields sensitivity to arbitrary second inputs within the cone. A derivative on one triple alone would not give the length-dependent constants.",
+        "searches": [
+          "Brezinski–Redivo Zaglia 2007 pp. 171–172, geometric kernel",
+          "Tiruneh arXiv:1310.4288 pp. 1–3",
+          "Resultary 87e38a3327b5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 87e38a3327b5 studies stochastic noise tails and moments of scalar Aitken extrapolation.",
+          "Brezinski and Redivo Zaglia pp. 171–172 describe the geometric-error kernel and acceleration generalizations."
+        ],
+        "reasoning": "A scalar acceleration error or stochastic tail estimate is not the same norm. Here a difference of two input sequences is measured on all adjacent pairs, and derivative column sums include cancellations between consecutive transformed triples.",
+        "searches": [
+          "Resultary: sliding Aitken Δ², deterministic finite-path adjacent total variation",
+          "10.1007/BF01396362",
+          "10.1590/S0101-82052007000200001"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22 record bb2b0a5d309f is the identical finding, including the length-six law and the four-sample transition; the distinct scalar stochastic record 87e38a3327b5 is not an exact table of these deterministic norms."
+        ],
+        "reasoning": "The identical record is not separate prior coverage. The relevant indexed outputs differ in both statistic and domain.",
+        "searches": [
+          "Local Resultary: sharp finite-length Aitken Δ² BV modulus, q=1/2"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp two-input adjacent-variation operator modulus for the full sliding transform, with the finite-length boundary regimes. Neither the geometric-error kernel nor scalar contraction/noise results in the inspected material give that modulus. The repair removes a boundary misstatement and makes no new priority claim.",
+      "residual_risks": [
+        "Brezinski's 1989 full text is the strongest unresolved risk; an equivalent contraction theorem has not been ruled out.",
+        "Pomeranz full text was not accessible; no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not distinct antecedent",
+          "evidence": "Same finite two-input variation modulus and transition at q=1/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-length-bounded-variation-stability-of-aitken-delta--bb2b0a5d309f",
+          "material_read": "Local indexed summary and frozen Finding, assumptions and proof",
+          "method": "Local Resultary and frozen source",
+          "title": "Sharp finite-length bounded-variation stability of Aitken Δ² extrapolation on geometric-ratio cones",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "The indexed claim concerns a different observable",
+          "evidence": "Stochastic scalar tails and moments, not adjacent variation for a pair of finite inputs.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-bounded-noise-moment-transition-for-scalar-aitken-extrapol--87e38a3327b5",
+          "material_read": "Indexed scientific summary",
+          "method": "Local Resultary",
+          "title": "Sharp bounded-noise moment transition for scalar Aitken extrapolation",
+          "trigger": "Related Aitken stability result"
+        },
+        {
+          "assessment": "Potential overlap unresolved, not evidence of noncoverage",
+          "evidence": "Introduces contraction for sequence transformations including Aitken; excerpt refers to a scalar Aitken expression under a positive-second-difference condition, without resolving the full norm and domain.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01396362",
+          "material_read": "Publisher abstract/indexed excerpt only",
+          "method": "Publisher and alternate PDF routes; EUDML; full text not obtained",
+          "title": "Contraction properties of sequence transformations",
+          "trigger": "Directly relevant Aitken contraction title"
+        },
+        {
+          "assessment": "Inspected passages concern acceleration/kernel, not the stated two-input sensitivity",
+          "evidence": "Geometric scalar kernel S_n=S+a lambda^n and extensions to vector or fixed-point methods.",
+          "identifier_or_url": "https://doi.org/10.1590/S0101-82052007000200001",
+          "material_read": "SciELO PDF pp. 171–172, abstract and introduction",
+          "method": "OA paper",
+          "title": "Generalizations of Aitken's process for accelerating the convergence of sequences",
+          "trigger": "Aitken kernel and numerical contraction background"
+        },
+        {
+          "assessment": "Different objective in the inspected passages",
+          "evidence": "Iterative linear convergence and higher-order eigenvalue deflation, not an induced finite-path BV norm.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.4288",
+          "material_read": "pp. 1–3",
+          "method": "OA paper",
+          "title": "Higher Order Aitken Extrapolation with Application to Converging and Diverging Gauss-Seidel Iterations",
+          "trigger": "Difference-ratio based Aitken analysis"
+        },
+        {
+          "assessment": "No statement-level conclusion about the full paper",
+          "evidence": "No exact-domain or norm comparison was possible.",
+          "identifier_or_url": "https://doi.org/10.1080/23311835.2017.1308622",
+          "material_read": "Citation only; accessible primary text not obtained",
+          "method": "Publisher/Cogent OA attempts returned 403",
+          "title": "Aitken's Δ² method extended",
+          "trigger": "Possible extension to related sign/ratio patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and proof, /workspace/repairs/3/RESULT.md"
+      ],
+      "rationale": "Exact geometric-error removal does not quantify perturbation amplification. The corrected theorem gives a sharp deterministic worst-case bound that is independent of increment size, detects when truncation at the ends changes the worst perturbation, and distinguishes the zero singleton case from the quadratic blowup of all nonzero moduli. These features inform use of the sliding transform on short traces.",
+      "residual_risks": [
+        "Does not imply reduced floating-point error, robustness outside the cone, or faster convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

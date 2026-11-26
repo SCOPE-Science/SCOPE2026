@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:16:07.992473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–46",
+        "Frozen VERIFICATION.md lines 19–23 and verify_rescue.py lines 14–80 (inspected, not executed)"
+      ],
+      "rationale": "An independent interval-feasibility proof avoids assuming the location of the quadratic extremum. Write w(z)=z(z−1). Tolerance M at z imposes θ ∈ [1/z−M/w(z), 1/z+M/w(z)]. These closed intervals have common intersection iff the lower bound at u is at most the upper bound at v for all u<v (the reverse order imposes no positive constraint). Thus the optimum is the maximum of (1/u−1/v)/(1/w(u)+1/w(v)). Both the positive numerator and the reciprocal of the denominator increase with v, so take v=y. With a=u−1 and b=y−1 the ratio is ab(b−a)/(a(a+1)+b(b+1)). Its derivative in a has the sign of b²−2ab−a², hence its maximum on [x−1,b] is at a=max{x−1,(√2−1)b}. The active pair pins θ uniquely at their coincident interval boundaries; equivalently θ=((u−1)+(y−1))/(w(u)+w(y)), which lies strictly between 1/y and 1/u≤1/x. Substitution gives both frozen formulas, the branch join, and θ<1/2. In the interior branch the inequality M≤1 is d²≤1+2d, equivalent to y≤4+2√2. At fixed width Δ the endpoint branch is eventually active and division by y² yields Δ/2. On [0,2] both factors have magnitude at most one; the spectral theorem then gives the stated Euclidean norm result.",
+      "residual_risks": [
+        "The cutoff applies only to the first branch, not to all bands. Interval-robust exact-arithmetic SPD result, not a nonnormal, finite-precision or finite-spectrum optimality guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "EJL's shifted Chebyshev polynomial is normalized at zero with a full-interval stability constraint; its inspected construction does not prescribe the high root and optimize the remaining factor.",
+          "The two Golub–Varga papers were not accessible in full text by the attempted routes."
+        ],
+        "reasoning": "A general minimax or alternation principle supplies a tool, not these two branches or the switch under the fixed-root and isolated-band constraints. Inaccessible material is a residual risk, not negative evidence.",
+        "searches": [
+          "arXiv:1205.2751 §3.1",
+          "Golub–Varga DOI 10.1007/BF01386013 and 10.1007/BF01386014 (DOI/Springer lawful access attempts)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1205.2751 §§2, 3.1",
+        "Resultary ...31fff666d705, ...2722e33f2ae6, ...c08f9b38b493, ...61fb8d7597ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "EJL's correction count m ≥ log(Kλ−1)/[−log|1−kλ|] is a scalar sufficient rule and implicitly gives single-frequency admissible bounds, not the minimizing one correction and value on an interval.",
+          "The stagewise-safe result requires each τ≤2/L, while Kα>2 already makes the fixed first factor expansive at every z in the stiff band."
+        ],
+        "reasoning": "These materially overlapping results establish mechanism and related constrained optimization, but neither subsumes the exact minimizer and stability boundary of this problem.",
+        "searches": [
+          "arXiv:1205.2751 §2, printed pp. 1143–44",
+          "Resultary local mirror ...31fff666d705, RESULT.md offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "EJL use the same Euler product (1-kλ)^m(1-Kλ) with a prescribed oversized K; for a single λ, m=1 permits zero amplification at k=1/λ. That does not give the minimax over all λ in a nondegenerate interval."
+        ],
+        "reasoning": "The Euler, Richardson and prescribed-root weighted approximation formulations were compared by freedom in both steps and by whether stability is at one frequency or uniformly on a band.",
+        "searches": [
+          "Resultary: fixed-first-step interval tuning and literal (1-z)(1-θ z)",
+          "arXiv:1205.2751 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/9/20 ...31fff666d705 optimizes two stagewise-safe Richardson steps; 2026/11/22 ...2722e33f2ae6 fixes their sum instead. Same-day ...c08f9b38b493 and ...61fb8d7597ac concern backward-Euler extrapolation positivity and Barzilai–Borwein coordinate positivity, respectively."
+        ],
+        "reasoning": "Inspected indexed findings do not tabulate or imply these continuous-band formulas under the same constraints; date alone was not used to exclude equivalence.",
+        "searches": [
+          "Resultary: fixed-first-step interval tuning, stagewise-safe Richardson, and same-day October 13 comparison"
+        ]
+      },
+      "rationale": "The distinct contribution is the explicit fixed-unstable-root minimax classification, not Euler stabilization by a correction packet, equioscillation as a general technique, or an all-band high-frequency cutoff. The strongest inspected published comparisons optimize a different quantity or have incompatible step constraints.",
+      "residual_risks": [
+        "An equivalent fixed-root degree-two result in less-indexed approximation or Richardson literature is not excluded. No historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanism known; distinct minimax problem",
+          "evidence": [
+            "Product with m small steps, sufficient scalar stability count, and slow/stiff group discussion; shifted Chebyshev damping on [0,Kλ_N]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.2751",
+          "material_read": "§2, printed pp. 1143–44, offset 6500; §3.1, printed p. 1145, offset 11800",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Explicit Time-Stepping for Stiff ODEs",
+          "trigger": "Same stabilization mechanism and Chebyshev alternative"
+        },
+        {
+          "assessment": "No whole-document conclusion",
+          "evidence": [
+            "No accessible repository copy obtained by these routes."
+          ],
+          "identifier_or_url": "DOI 10.1007/BF01386013; DOI 10.1007/BF01386014",
+          "material_read": "Access responses only; no theorem passages available",
+          "method": "Lawful DOI and Springer attempts",
+          "title": "Chebyshev semi-iterative methods, successive overrelaxation iterative methods, and second order Richardson iterative methods, I–II",
+          "trigger": "Plausible broader Richardson or polynomial coverage"
+        },
+        {
+          "assessment": "Incompatible constraints",
+          "evidence": [
+            "The two stagewise-safe steps are free; above condition number 1+√2, the optimal pair is {2/L,2/(L+2μ)}."
+          ],
+          "identifier_or_url": "Resultary 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+          "material_read": "RESULT.md offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror bounded passage",
+          "title": "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier",
+          "trigger": "Closest indexed two-step interval optimum"
+        },
+        {
+          "assessment": "Different constraint",
+          "evidence": [
+            "Fixed sum, both factors free over the full positive spectrum."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-spectral-budget-allocation-for-two-euler-richardson-steps--2722e33f2ae6",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local mirror bounded passage",
+          "title": "Sharp spectral-budget allocation for two Euler–Richardson steps",
+          "trigger": "Related exact two-step optimum"
+        },
+        {
+          "assessment": "Distinct quantities, not duplicates",
+          "evidence": [
+            "Entrywise positivity of a rational backward-Euler extrapolate; coordinatewise positivity after an exact-line-search warm start."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 ...c08f9b38b493 and ...61fb8d7597ac",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "Local mirror bounded passages",
+          "title": "Richardson extrapolation positivity on five-state pure-birth chains; Barzilai–Borwein interval positivity frontier",
+          "trigger": "Related same-day indexed findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–28",
+        "EJL arXiv:1205.2751 §2"
+      ],
+      "rationale": "Prescribing the large step models the already committed unstable update in explicit stabilization. The exact optimum replaces single-frequency sufficiency with robust tuning under band uncertainty, identifies the lower-edge-independent branch, and separates the sharp wide-band cutoff from narrow-band rescue at arbitrarily high frequencies. It gives a usable step and operator norm, not merely a numerical improvement.",
+      "residual_risks": [
+        "No floating-point stability, accuracy-versus-cost, or performance claim for nonlinear or nonnormal systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review of sharp trivariate copula admissibility
+# Independent mathematical audit
 
-**Correctness — PASS.** The mixed derivative factorizes as \(1-\lambda D_m(x,y)B_\theta(z)\). The proof calculates exact images of both factors for every positive integer \(m\) and all \(\theta\ge0\), including endpoint and parity cases. Positivity of the density is equivalent to three-increasingness because the prescribed function has the correct margins. A unique quadratic critical point handles the even-power negative extremum, and monotonicity of \(r_\theta\) proves the unique transition. The local checker passed 118 supporting assertions; its numerical optimizations do not replace the proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2024 primary paper proves a conservative sufficient bound for the exact same family, not a necessary-and-sufficient one. The exact odd/even dichotomy, the asymmetric negative boundary and the unique transition are not implied by that bound. The same article's second copula and the classical trivariate FGM construction have different polynomials. Search comparisons with relevant mathematical research records found related sharp-copula-domain work on other models, but no covering claim for this family. Unindexed sources remain possible.
+PASS
 
-**Value — PASS.** For a published three-dimensional dependence model, an exact parameter space determines when the proposed probability law actually exists. It materially enlarges the feasible negative-dependence region, with a rigorous example at \(m=2,\theta=1,\lambda=-2/5\). The parity transition gives a structural description across the entire natural exponent family rather than a selected numerical case.
+Grounding and uniform margins are immediate, and integration of the continuous mixed density over a box gives its volume increment. Thus a boundary violation also excludes the parameter, by an interior box with negative density. The density is 1−λD_m B_θ. The z factor has extrema −r_θ and 1, including B_0=2z−1. At fixed s=|x−y|, xy ranges over [0,1−s]. For m≥2 the positive term in the density's x,y factor on x≥y is at most m+1, and the subtracted term is at most m((m−2)/(m−1))^(m−2)≤m for m≥3, or 2 for m=2. At even m the negative extremum is obtained by setting xy=1−s and maximizing H_m; its derivative has the stated strictly decreasing quadratic factor for m≥4, and m=2 is maximized at s=0. At odd m the reversal of x and y supplies the opposite extremum, including m=1 by direct differentiation. Independence of factor arguments yields the stated closed intervals. The comparison H_m(1−2/m)/(m+1)>e^(−2) follows from the two logarithmic bounds in the proof; strict decrease of r_θ from 1 to e^(−2) then gives a unique even-exponent switch. The exact density bounds at m=2, θ=1 give [−1/2,1/3], and λ=−2/5 has minimum density 1/5. The independent bounded replay `python3 /workspace/reproduce_reviews.py` confirms endpoint and witness values and θ_2≈0.15352844952779. The analytical extrema, not finite optimization, establish the theorem.
 
-The model, the original Proposition 2.1 and Table 1, and the new exact domain should not be confused: the new contribution is the global optimization needed to turn an earlier sufficient condition into an exact classification. The theorem has not undergone independent mathematical review. It does not assert estimation guarantees or results for the distinct second trivariate family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported contribution: the exact interval of the first Chesneau family with its parity split and unique even-m switch, not the family, derivative, or density criterion. The strongest known same-family comparison is a sufficient-only parameter restriction. No competing statement available in this review supplies the two sharp extrema and switch. Priority is provisional, in particular because the primary comparison could not be freshly read in full.
+
+## value
+
+PASS
+
+The interval tells users of an existing parametric dependence model exactly which proposed laws are valid. It gives a quantitative strict extension on a concrete example and a nontrivial shape transition throughout the even-exponent family, not just a density computation. It does not imply estimation or tail-performance guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

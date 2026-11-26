@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:12:13.740950Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For interior x the deterministic zero equation is C=A/x+B/(1−x), whose minimum is the stated fold; the quadratic sign gives stability of r+. Integrating the factored quadratic to r+ gives Ψ(r+)/w=C r+²(r+−3r−)/6. The height is negative at the fold, rises strictly because ∂C D=x(1−x), and becomes positive as r+ tends to 1 and the C term dominates the integral. The root-ratio condition and Vieta give the larger stated solution for √C. At stationarity, q+(0)=μ and q−(N)=μ. In the interior write q+=x(1−x)σ(wD)[1+μ/(x σ(wD))] and similarly q− with 1−x and σ(−wD); summing the logarithmic corrections gives O(μ N log N). Telescoping the x(1−x) factors and the one-step logistic arguments gives π(k)/π(0) comparable uniformly to μ exp(N Ψ(k/N))/[x(1−x)], including the O(1) Riemann error for fixed parameters. The far endpoint has at most an extra O(N) relative to its nearest interior state and a strict exponential deficit against the maximum. At equal height a boundary layer next to zero contributes O(μ N), and the interior quadratic maximum contributes O(μ √N), both relative to π(0), with exponentially small remainder. These vanish for μ=N⁻² and prove boundary selection, not just the large-deviation tie. Away from the tie the unique potential maximum wins exponentially. The symmetric example follows by substitution. The limitations' wording about needing exactly N⁻² should be read as identifying the scale of the theorem, not as a necessity result: for example the same comparison at N⁻³ also selects zero. The frozen finite diagnostics were inspected, not run or treated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former uses mean-potential criteria for fixation; the latter gives general large-deviation methods, with §4.1 treating a globally attracting state and the multiple-attractor problem noted on p. 23. Resultary 476eb414e33f gives a finite-N stationary-law comparison without a uniform large-N selection theorem."
+        ],
+        "reasoning": "These methods or comparisons do not imply the subexponential tie-break for the specified irreducible chain.",
+        "searches": [
+          "Nałęcz-Jawecki and Miękisz arXiv:1801.08010, pp. 1, 3–4; Sandholm and Staudigl arXiv:1511.07897, §4.1 and p. 23",
+          "Resultary finite-hypergraph Fermi mutation equivalence 476eb414e33f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, VERIFY.py",
+        "Civilini et al. 2303.11475v1",
+        "Resultary 7053e63dac2d and 476eb414e33f",
+        "Nałęcz-Jawecki and Miękisz 1801.08010",
+        "Sandholm and Staudigl 1511.07897"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "7053e63dac2d gives equal-height condition b=3a and N⁻¹ᐟ² fixation at equality in an absorbing quadratic Fermi game. Civilini uses quasistationary outcomes on random hypergraphs."
+        ],
+        "reasoning": "The algebraic root-ratio condition is shared. But endpoints absorb in the fixation theorem, and the finite-N stationary problem with μ_N>0 instead has communicating endpoints and balances residence weights. The earlier fixation law, the hypergraph quasistationary peaks, and equality of limiting rate functions do not supply the required μ_N boundary/interior weight comparison.",
+        "searches": [
+          "Resultary 7053e63dac2d Finding/Assumptions; Civilini main text p. 3 and supplement Eqs. S12–S18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Substituting A=−S, B=T−1, C=cδ in Eq. S12 reproduces D exactly. Eq. S14 becomes C_fold, not C_sel. Resultary 7053e63dac2d has the shared stationary-point/endpoint equal-area algebra after reversing the sign of its quadratic but concerns absorbing-chain fixation, not stationary probabilities."
+        ],
+        "reasoning": "Payoff parameter renaming does not establish novelty; the irreducible-chain invariant measure and the mutation-dependent finite-weight comparison are the material differences.",
+        "searches": [
+          "Resultary: nonlinear higher-order Fermi closure, equal-potential stochastic selection/fixation, rare exploration",
+          "Civilini et al. arXiv:2303.11475v1 Eqs. S12–S18; Resultary 7053e63dac2d and 476eb414e33f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected model-specific exact threshold in Civilini is the deterministic fold. The explicit stochastic threshold in Resultary 7053e63dac2d is 1920/829 for a different one-parameter payoff and absorbing fixation experiment. No matching entry was located in the bounded lookup."
+        ],
+        "reasoning": "This is a continuous-payoff curve, not an entry in a finite game census. The exact comparisons that matter are with formulas and threshold examples, not with aggregate simulation plots. A query miss is not proof of absence.",
+        "searches": [
+          "Focused primary-literature search for the exact stationary threshold in the Civilini payoff model",
+          "Resultary searches for the closed threshold and N⁻² stationary selection; Civilini supplement Eq. S14"
+        ]
+      },
+      "rationale": "The payoff, deterministic onset and use of an integrated log-rate potential are prior. The supported distinct claim is the closed threshold for the separately defined irreducible stationary closure and its endpoint preference at exact equality with polynomially small exploration. The closest fixation theorem does not give that invariant law, even where the Maxwell algebra is the same. No direct earlier coverage was established in the bounded comparison.",
+      "residual_risks": [
+        "A broader exact stationary asymptotic for density-dependent birth–death models with vanishing boundary rates may exist outside inspected sources.",
+        "The quadratic equal-area algebra itself is not claimed new; the focus is the specified stationary-law comparison and its explicit threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact payoff and fold are prior; stochastic setting is different",
+          "evidence": "π_C−π_D=−cδρ²+(cδ−b−2S)ρ+S and δ_1^th=(b+√[−4S(b+S)])/c; stochastic discussion is hypergraph Fermi imitation with quasistationarity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.11475v1",
+          "material_read": "p. 3; supplement pp. 10–11 Eqs. S12–S18, offsets 61390–65052",
+          "method": "Primary PDF passages",
+          "title": "Explosive cooperation in social dilemmas on higher-order networks",
+          "trigger": "Source of payoff and possible stochastic threshold"
+        },
+        {
+          "assessment": "Shared potential crossing and tie asymmetry; different observable and mutation regime",
+          "evidence": "The polynomial is convex here and the formula is A b²(3a−b)/6; 0 and N are absorbing and h_N is fixation from ⌊Na⌋.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-logarithmically-shifted-stochastic-fixation-threshold-in-a-non--7053e63dac2d/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3373; relationship/limitations around offsets 8500–11100",
+          "method": "Exact locally mirrored source",
+          "title": "A logarithmically shifted stochastic fixation threshold in a nonlinear mixed-order public-goods game",
+          "trigger": "Closest exact Fermi selection and equal-height overlap"
+        },
+        {
+          "assessment": "Nonmatching finite-graph comparison",
+          "evidence": "A finite-N trajectory and stationary-law comparison is given without a uniform large-population or metastable selection classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-observation-scale-equivalence-of-curved-and-complementary--476eb414e33f/RESULT.md",
+          "material_read": "Finding and scope offsets 0–3440 and limitations offsets 12850–14517",
+          "method": "Exact locally mirrored source",
+          "title": "Sharp observation-scale equivalence of curved and complementary higher-order games",
+          "trigger": "Fermi mutation stationary comparison in the indexed literature"
+        },
+        {
+          "assessment": "Method precedent not the invariant measure here",
+          "evidence": "Mean exponential/mean potential criteria are stated in a two-absorbing-state fixation analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08010",
+          "material_read": "pp. 1, 3–4, including Eqs. 9–10",
+          "method": "Primary PDF passages",
+          "title": "Mean-potential law in evolutionary games",
+          "trigger": "General fixation-potential law might subsume threshold"
+        },
+        {
+          "assessment": "Large-deviation precedent, not the polynomial tie-break",
+          "evidence": "The inspected stationary application treats a globally attracting state; multiple stable equilibria are discussed as further work.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.07897",
+          "material_read": "§4.1 pp. 16–17 and p. 23",
+          "method": "Primary PDF passages",
+          "title": "Sample Path Large Deviations for Stochastic Evolutionary Game Dynamics",
+          "trigger": "Potential stronger general stationary theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two thresholds answer different natural questions in a payoff family already used to model explosive cooperation. Their exact separation gives a nonempty interval, when accessible, in which deterministic cooperative attraction fails to predict the large-population stationary outcome. Resolving equal heights by finite-weight asymptotics distinguishes this from a routine computation of the deterministic roots or a bare large-deviation maximizer. The conclusion is for the specified closure, not evidence for a hypergraph process it does not model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:52:12.301430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a singleton {s}, a successor v with false Δp must beat s and have outdegree at least two. At a failure root x, one has s≠x (the tournament has no opposite arcs) and x cannot beat s, since then Δp at x would force outdegree one. Thus s→x→v→s; the only cycles are j→i→k→j with i<k<j. For j<n, the later vertex j+1 supplies a successor with true Δp in each of the three cyclic roles. The distinct (s,x) pairs are (j,i), (i,k), (k,j), totaling 1+2(j−i−1) when the gap is at least two. For j=n, outdegree one at n rules out two roles, leaving (n,i), which fails exactly if x=i has both n−2 and n−1 as successors: the first beats n and n−1, the second beats only n. For all valuations the adjacent flips remain transitive, and in the terminal triangle each member has one successor while at earlier roots every successor's successor set is contained in the root's. This includes n=3 and gives n preserving labelled choices. The frozen VERIFICATION.md and check.py were inspected; a separate adjacency-set implementation agreed on all 119 reversals and 868 singleton assignments through n=9 and on validity over 11,256 Boolean assignments through n=8. That replay is bounded; the triangle proof covers arbitrary n. No Lean verification or specialist attestation is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proof Theory for Non-Contingency Logic, pp. 1 and 3, describes proof systems over general modal frame properties.",
+          "Quasi-Carousel Tournaments, pp. 1–2 and Theorem 3.1, studies locally transitive, balanced tournament limits and small-subtournament densities.",
+          "The outward-tree Finding forbids arcs between branching vertices, on acyclic rooted tree frames."
+        ],
+        "reasoning": "The modal proof systems do not evaluate the exact reversal orbit or count failures there. Local transitivity of a tournament is not this axiom (a dominating predecessor of a valid terminal triangle already has a cyclic out-neighborhood). The outward-tree result excludes the cyclic and complete orientations at issue.",
+        "searches": [
+          "arXiv:2609.38975",
+          "arXiv:1503.04124v2",
+          "Resultary 2026/11/2/SCOPE-noncontingency-introspection-on-finite-out-trees-forbidden-branc--abc4d74cf085"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:1312.0144v3",
+        "arXiv:2609.38975",
+        "arXiv:1503.04124v2",
+        "Resultary one-edge graph and out-tree findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adjacent reversals are transitive by a swap in the order, so their validity is already implied by 4Kw soundness on transitive frames.",
+          "The additional preserving frame contains a directed three-cycle; failure pairs at nonterminal flips number 2(j−i)−1 and do not match a count of undirected edits."
+        ],
+        "reasoning": "Known sufficiency accounts for n−1 of the preserving flips, not the nontransitive exception or necessity. Counting directed triangle roles and accounting for vertices of outdegree one supplies additional proof and the quantitative invariant.",
+        "searches": [
+          "arXiv:1312.0144v3, 4Kw on transitive frames",
+          "Resultary 2026/11/22/SCOPE-one-edge-robustness-and-labelled-census-of-non-contingency-intro--42f722087b8a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knowing Whether, pp. 3 and 11–12: Kw uses successor agreement and 4Kw is valid on transitive frames.",
+          "Resultary 2026/11/22/SCOPE-one-edge-robustness-and-labelled-census-of-non-contingency-intro--42f722087b8a: complete multipartite components and safe undirected deletions/insertions."
+        ],
+        "reasoning": "Translating Δ to Kw gives the same modal schema but not an equivalent perturbation result. Treating an arc as an undirected edge forgets both its reversal and every position-dependent witness.",
+        "searches": [
+          "arXiv:1312.0144v3 (Kw and 4Kw)",
+          "arXiv:2609.38975",
+          "Resultary: directed tournament, edge/arc reversal, non-contingency introspection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary target itself is a self-hit; the distinct edge-stability and outward-tree findings enumerate other frame families. Coregliano's tournament density invariants count subtournaments, not singleton valuation–world pairs."
+        ],
+        "reasoning": "Neither those catalogued counts nor data on unlabelled tournaments encode reversal position in a specified total order. No inspected entry or table supplied the exact count B for the assigned objects.",
+        "searches": [
+          "Resultary same-schema perturbation and witness-count search",
+          "arXiv:1503.04124v2 (carousel and tournament density results)"
+        ]
+      },
+      "rationale": "Credit the established semantics and transitive-frame 4Kw sufficiency. The supported contribution is the exact perturbation classification including the sole nontransitive preserving flip and the position-sensitive count of singleton valuation–world failures. The closest distinct edge-stability finding is for undirected edge edits, which do not model arc reversal: the undirected skeleton of every tournament in this family is unchanged. No equivalent or stronger coverage was established in the inspected statements.",
+      "residual_risks": [
+        "Bounded literature and catalogue inspection cannot exclude an unlocated general tournament correspondence or exact witness formula. Prior transitive-frame validity is expressly not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior sufficiency for the adjacent cases, not the cyclic cases or count",
+          "evidence": [
+            "Successor agreement semantics; Kw_i φ → Kw_i Kw_i φ valid on transitive frames."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.0144",
+          "material_read": "v3 pp. 3, 11–12, semantics and transitive 4Kw discussion",
+          "method": "OA preprint PDF passages",
+          "title": "Knowing Whether",
+          "trigger": "Same operator and positive introspection schema"
+        },
+        {
+          "assessment": "Background; inspected results concern proof systems, not quantitative perturbations",
+          "evidence": [
+            "Generalized frame proof systems and non-contingency truth clause. The author list is Borja Sierra Miranda, Yanjing Wang and Valentin Zenger; the frozen bibliography omits Sierra Miranda."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.38975",
+          "material_read": "pp. 1, 3 and closing transitivity paragraph on p. 15",
+          "method": "OA preprint PDF, abstract and transitivity passages",
+          "title": "Proof Theory for Non-Contingency Logic",
+          "trigger": "Broad frame-property treatments of the same logic"
+        },
+        {
+          "assessment": "Material analogue with a different frame class and different edits; no priority inferred from same-day dates",
+          "evidence": [
+            "Finite simple undirected graphs, complete multipartite components, counts of safe edge deletions and nonedge insertions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-one-edge-robustness-and-labelled-census-of-non-contingency-intro--42f722087b8a",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 300–4309",
+          "method": "Resultary and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "One-edge robustness and labelled census of non-contingency introspection",
+          "trigger": "Closest distinct catalogue hit: same schema and single-edge stability"
+        },
+        {
+          "assessment": "Different class, not a general tournament theorem",
+          "evidence": [
+            "Rooted outward trees; forbidden edges between branching vertices."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-noncontingency-introspection-on-finite-out-trees-forbidden-branc--abc4d74cf085",
+          "material_read": "RESULT.md Finding, offsets 0–3694",
+          "method": "Resultary and local mirror",
+          "title": "Non-contingency introspection on finite out-trees",
+          "trigger": "Exact structural classification of the same schema on directed finite frames"
+        },
+        {
+          "assessment": "Different invariant and asymptotic problem",
+          "evidence": [
+            "Local transitivity of in/out-neighborhoods, W4 and L4 avoidance, carousel limit characterizations by flag densities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.04124",
+          "material_read": "v2 pp. 1–2 and Theorem 3.1 p. 13",
+          "method": "OA arXiv PDF, abstract/definitions and theorem passage",
+          "title": "Quasi-Carousel Tournaments",
+          "trigger": "Cited tournament result with transitivity constraints; lawful alternate to publisher DOI 10.1002/jgt.22205"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single changed arc is the first natural stability layer of transitivity. The lone cyclic preservation case separates modal validity from transitivity in that layer, and the exact singleton witness-pair profile distinguishes interior and terminal disruptions quantitatively. This is a reusable exact benchmark for tournament frame perturbations, not a claim about all tournaments or all countervaluations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

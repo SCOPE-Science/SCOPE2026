@@ -5,23 +5,22 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification of the marked trigonal descent
 
-The standalone file `verify.py` uses only the Python 3 standard library. Execute `python3 verify.py` alongside this file. Its exact exhaustive outputs are:
+The invariant-field identification is proved algebraically in `RESULT.md`: from the ordered reciprocal roots, the two fourth powers are recovered by a three-term Fourier sum using a cube root of unity; adjoining one fourth root has degree exactly four. Conjugation followed by exchange fixes all three ordered reciprocal roots and the marked parameter. Branch inertia and genus are derived by local factorization and tame Riemann–Hurwitz, not by extrapolation from point counts.
 
-```
-F11 root patterns, G, C, Y: ({0: 4, 1: 5, 2: 2, 3: 0}, 12, 12, 12)
-F121 root patterns, G, C, Y: ({0: 48, 1: 0, 2: 12, 3: 61}, 408, 210, 232)
-GENUS13_S3_MAXIMAL_F121_VERIFIED
-```
-
-The F121 representation is valid because \(-1\) is a nonsquare in \(\mathbb F_{11}\). The finite test checks every \(t,u\) pair in each indicated field, not a sample. Its normal-closure fiber arithmetic assumes the mathematical proof of irreducibility, squarefree discriminant, and tame degree-six \(S_3\)-Galois structure in `RESULT.md`. It does not certify the general algebraic claims independently and is not an external audit.
+The finite-field certificate is the exhaustive loop in `RESULT.md`. Field elements are integers modulo 11 or all 121 pairs \((a,b)\) modulo 11 with multiplication \((a,b)(c,d)=(ac-bd,ad+bc)\). A nonzero pair has inverse \((a,-b)/(a^2+b^2)\), because \(-1\) is nonsquare in the base field. The two histograms are \((4,5,2,0)\) and \((48,0,12,61)\). This verifies the finite splitting table, not historical priority or the function-field argument. The original standalone verifier computes the same histograms by a direct root loop rather than the inverse-fiber loop.

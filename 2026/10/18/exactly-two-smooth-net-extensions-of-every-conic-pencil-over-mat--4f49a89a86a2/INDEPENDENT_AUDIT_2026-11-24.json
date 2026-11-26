@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:54:01.528772Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The requirement is that every F3-rational member of the pencil/net be geometrically smooth, not that every member after extension of the parameter space be smooth. The gradient matrix M(Q) is symmetric; Euler's identity in characteristic three identifies singular projective points with its nonzero kernel vectors. Rank does not change over the algebraic closure. The independent replay `python3 /workspace/conic_census.py` uses projective point sets, tests the kernel condition on the 13 projective coordinate points (sufficient by rank invariance), and constructs a pencil from every pair of distinct projective form points u,v as {u,v,[u+v],[u−v]}. It returned (364 projective forms, 234 smooth forms, 11011 total pencils, 1872 smooth pencils). For the displayed F,G, adjoining a projective form w outside the pencil gives the 13 points of the pencil, [w], and the eight [u±w] for u a normalized pencil point. Exhausting all w gave 40 distinct candidates, and exactly the two smooth extensions specified by H_1,H_2. Unlike the frozen generator-orbit scripts, the replay directly visits every ordered independent coordinate frame with normalized first column, exactly one representative per scalar coset (13·24·18=5616), acting by congruence. The orbit of the representative pencil equals the full enumerated set of 1872; the representative extensions have two disjoint 144-element orbits. Conjugating the two-extension result therefore covers all pencils; every smooth net contains at least one such pencil, so no net is missing. The number of pencils in a net is the number of hyperplanes in F3³, namely 13; degrees and incidence total follow. The packaged scripts and expected outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli–Ghioca give existence of all-smooth conic pencils over every finite field and F2 examples. The modern conic-net account credits Dickson with the odd-field pencil classification and describes Wilson's incomplete odd-field net classification."
+        ],
+        "reasoning": "Existence does not imply transitivity or smooth extension; even a complete pencil orbit theorem gives no net count. A complete odd-field net theorem including exterior planes and their stabilizers would be stronger, but the verified modern result is for nets with singular members. Wilson's corresponding case remains a named access risk, not evidence of noncoverage.",
+        "searches": [
+          "Asgarli–Ghioca arXiv:2203.07169, p. 2",
+          "Lavrauw–Popiel–Sheekey arXiv:2010.00177, p. 1, and its Dickson/Wilson references",
+          "Wilson 1914 exact title search for a lawful full text"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.00177 and 2203.07169",
+        "Dickson and Wilson citations and scope discussion in arXiv:2010.00177",
+        "Resultary c05b577efa4f, 2fceb3218a06, 4d1817200fb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional implication: if one transitive orbit of 1872 pencils and two exterior net orbits of 144 each are known, each net orbit yields 144·13=1872 incidences. Transitivity then forces exactly one extension of each type per pencil.",
+          "The inspected historical mentions do not establish that all of those orbit data were known. The exact F2 unique-extension result does not give them for the ternary field."
+        ],
+        "reasoning": "The incidence is not a further originality increment on top of a hypothetical complete orbit census. The supported joint claim is the exact F3 all-smooth extension and net classification; any known pencil transitivity, or count by orbit stabilizer, should be treated as background.",
+        "searches": [
+          "arXiv:2010.00177, historical classification scope; Wilson 1914 and Dickson 1908 citations",
+          "arXiv:2203.07169, actual all-smooth existence and examples",
+          "Resultary exact pencil and net orbit comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-smooth nets are exactly 3-spaces in Sym_3(F3) with no singular nonzero matrix, or projective planes disjoint from the cubic determinant locus over F3. A smooth pencil is an exterior line. The restricted determinant is an anisotropic ternary cubic over F3.",
+          "Lavrauw–Popiel–Sheekey classify 15 rank-one net orbits for odd q: those nets contain a repeated line. The same paper describes Wilson's wider older classification as incomplete, without resolving its rank-three-only subclass in the passages inspected."
+        ],
+        "reasoning": "Rank-one nets meet the singular locus and cannot be equivalent to these exterior planes. A classification of the restricted cubic polynomials or of division algebras up to a different equivalence need not classify their symmetric matrix realizations up to coordinate congruence. No matching such theorem was identified in the inspected sources.",
+        "searches": [
+          "Rank-three-only nets and planes exterior to the Veronese secant cubic; anisotropic ternary determinant cubics and symmetric invertible matrix subspaces",
+          "arXiv:2010.00177, introduction and main-result scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day c05b577efa4f counts 8 nets, 56 pencils and one extension per pencil for conics over F2. Same-day 2fceb3218a06 counts extension multiplicities 0–3 for plane cubic pencils over F2. Same-day 4d1817200fb2 concerns one orbit of 20160 conic pencils over F4 and skew-line witnesses, not F3 net extensions."
+        ],
+        "reasoning": "These are substantive comparators rather than duplicates. Neither changing the field nor changing the degree transports the rational nonvanishing condition, counts, or projective orbits here. The exact F2 and F4 counts are not tables for this F3 incidence problem.",
+        "searches": [
+          "Resultary: smooth conic pencil–net incidence; nonsingular symmetric matrices and exact net counts",
+          "Resultary c05b577efa4f, 2fceb3218a06 and 4d1817200fb2, Finding passages"
+        ]
+      },
+      "rationale": "The supported distinct result is the two smooth extensions of every F3 conic pencil and their partition into two different PGL net types, with an exact census and representatives. The comparable rank-one net classification excludes all-smooth nets, existence/classification of pencils alone is insufficient, and the strongest inspected Resultary incidence comparisons differ in field, degree or extension object. This is not a priority claim for odd-field pencil classification. A full prior all-smooth net orbit census, combined with pencil transitivity, would cover the essential incidence result by immediate double counting; that coverage was not established in the inspected evidence.",
+      "residual_risks": [
+        "Wilson's exact rank-three-only cases and computations were not available in inspected full text. Dickson's specific pencil case table was not obtained; no distinct priority is assigned to the pencil orbit alone.",
+        "A broader exterior-plane, symmetric matrix-space or semifield classification could imply the net orbit/stabilizer facts after checking the precise equivalence. Indexed negatives do not rule that out.",
+        "The theorem does not assert that its exact incidence extends to other fields or to geometric parameter points."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The completed classification is rank one, not rank-three-only. Its historical summary does not settle what Wilson established for exterior nets.",
+          "evidence": [
+            "The authors require a repeated-line member and obtain 15 such orbits for odd q. The introduction credits Dickson with odd-field pencils and calls Wilson's odd-field net classification incomplete."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.00177",
+          "material_read": "Introduction pp. 1–2 and bibliography; odd-field rank-one definition and main result scope.",
+          "method": "Located and inspected lawful PDF passages, including offsets 4526–5284, 7060 and historical references near 194500.",
+          "title": "Combinatorial invariants for nets of conics in PG(2,q)",
+          "trigger": "Direct finite-field net classification and its lineage."
+        },
+        {
+          "assessment": "Existence and F2 examples, not the F3 net orbits or regular extension incidence.",
+          "evidence": [
+            "Existence of all-smooth conic pencils over every finite field; all-smooth systems over F2 illustrated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07169",
+          "material_read": "PDF p. 2, offsets 4750–6400.",
+          "method": "Inspected OA result and example passages.",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "Identical all-smooth pencil notion and small-field examples."
+        },
+        {
+          "assessment": "Specific unresolved priority risk; not evidence of coverage or noncoverage.",
+          "evidence": [
+            "The modern account says incomplete with inaccuracies, but only analyses/corrects the rank-one part in the passages inspected."
+          ],
+          "identifier_or_url": "A. H. Wilson, Amer. J. Math. 36 (1914), 187–210; https://openlibrary.org/books/OL6567252M/",
+          "material_read": "Bibliographic identification and modern description in arXiv:2010.00177; Wilson full text not obtained.",
+          "method": "Checked the modern bibliography/scope; exact-title public search found a lawful Open Library edition listing, but OA retrieval of that route did not yield text.",
+          "title": "The canonical types of nets of modular conics",
+          "trigger": "Potential older classification of nets with no degenerate members."
+        },
+        {
+          "assessment": "Different field, counts and multiplicity; no priority inference from catalogue date.",
+          "evidence": [
+            "F2 has 8 smooth nets, 56 smooth pencils and one smooth extension per pencil."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-complete-eight-vertex-incidence-geometry-of-smooth-conic-net--c05b577efa4f/RESULT.md",
+          "material_read": "Finding, offset 0.",
+          "method": "Inspected the local Resultary mirror.",
+          "title": "The complete eight-vertex incidence geometry of smooth conic nets",
+          "trigger": "Closest exact conic extension theorem, same catalogue date."
+        },
+        {
+          "assessment": "Cubics over F2, not ternary quadratics over F3.",
+          "evidence": [
+            "Counts across 0–3 net extensions are 1680, 1848, 1848 and 168, with 37 projective orbits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-extension-incidence-and-projective-classes-of-smooth-plane-cubic--2fceb3218a06/RESULT.md",
+          "material_read": "Finding, offset 0.",
+          "method": "Inspected the local Resultary mirror.",
+          "title": "Extension incidence and projective classes of smooth plane cubic nets",
+          "trigger": "Exact pencil–net incidence and projective classes, same catalogue date."
+        },
+        {
+          "assessment": "F4 pencil orbits and skew-line triples, not F3 smooth-net extensions.",
+          "evidence": [
+            "20160 smooth F4 conic pencils form one orbit in that setting."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-108-optimal-skew-line-triples-of-every-smooth-conic-pencil-o--4d1817200fb2/RESULT.md",
+          "material_read": "Finding, offset 0.",
+          "method": "Inspected the local Resultary mirror.",
+          "title": "The 108 optimal skew-line triples of every smooth conic pencil",
+          "trigger": "Exact smooth conic pencil orbit count and geometric witnesses."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The incidence asks a natural extension question for all-smooth linear systems, motivated by existence and the unique-extension conic case over F2. Over F3 uniform degree two is not a count guessed from isolated examples; the two extensions are genuinely inequivalent as nets and the census is exact. This supplies a reusable finite-geometric invariant and representative systems, without asserting that the incidence graph is classified beyond the stated orbits and degrees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

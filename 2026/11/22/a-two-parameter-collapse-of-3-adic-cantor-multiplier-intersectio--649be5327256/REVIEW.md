@@ -1,22 +1,21 @@
-# Scientific review: two-parameter ternary multiplier collapse
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact quantified domain is \(2\le r\le k-2\), with integer multipliers \(L_r=(3^r-1)/2\) and \(M_{r,k}=3^{k-1}+L_{k-r}\). The proof establishes a first-collision lemma: a repunit constraint imposes gap \(r\), and the sparse top digit plus the lower consecutive block creates a digit-\(2\) collision at most \(r-1\) positions after any first forbidden short gap. The preceding digit coefficients are at most one; a later input digit cannot intervene before the collision. This eliminates a possible carry-cancellation objection. The opposite inclusion follows from disjoint multiplier blocks when gaps are at least \(k\). Exact Python enumeration verified 75,600 finite input words in 48 parameter/depth combinations, while the infinite conclusion follows only from the proof.
+PASS
 
-## Originality (O): PASS, with priority risk
+A first gap shorter than r between successive support positions gives exactly two terms, with no prior carry, when the translated length-r repunit blocks first intersect. Thus the first constraint gives r-spacing. If h is the first remaining gap shorter than k, then r≤h≤k−1 and all blocks from earlier 1s end strictly before the first of the two 1s bounding h. For B={0,…,k−r−1}∪{k−1}, the two B-translates intersect at the second 1 when h≤k−r−1, and otherwise no later than k−1−h positions after the second 1. In the latter case 0≤k−1−h≤min(r−1,k−r−1). At the first intersection, the next 1 has not yet started a block (r-spacing), so exactly two contributions occur and there is no incoming carry. This prohibits h even for an infinite support because the decisive digit is at a finite index. The converse follows by disjoint translates for all supports of span at most k−1, including that of L_k. A valid prefix extends by zeros; conditioning on its first digit gives the exact recurrence and initial conditions. The associated k-spacing graph has a zero loop and a k-step 1-return cycle, spectral radius satisfying β^k−β^(k−1)=1; the standard path-set dimension is log_3 β. The decisive uniform proof is at RESULT.md lines 28–44. The supporting finite checker and its 75,600 reported comparisons were inspected, not executed, and are not needed for the proof.
 
-The 2013 Abram–Lagarias paper establishes general intersection automata and the already known repunit gap/dimension family; its Theorem 4.8 includes related constraints from successive two-digit multipliers \(3^j+1\). The boundary \(r=k-1\), which would recover such a multiplier, is excluded from the novelty scope. The 2015 follow-up treats \(2\cdot3^j+1\) and \(3^{2j}-3^j+1\) rather than the interior multiplier \(3^{k-1}+L_{k-r}\). The present claim is a uniform *equality of languages* for a genuine two-parameter family, not a numerical evaluation of a finite automaton or a restatement of the previously known dimension formula. Published-record searches and accessible prior-claim checks yielded no stronger statement that entails this exact interior family. General automaton methods make an indirect earlier derivation possible; an independent priority determination remains open.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The motivating problem is the explicit structure of simultaneous multiplicative translates of a \(3\)-adic Cantor set, whose automata can grow rapidly and whose dimensions do not usually identify the actual sets. The theorem collapses two genuinely different digit constraints to one exact forbidden-gap shift for every interior parameter pair. This yields all finite-prefix counts, a simple recurrence and Hausdorff dimension without parameter-specific automata. It is a structural simplification of an infinite arithmetic family; these consequences are given only as consequences, not separate originality claims.
+The spacing language, prefix growth and dimension on the right are already known. The k=4,r=2 illustration is also implied by the older labeled automaton for multiplier 31 once the L_2 no-adjacent-ones constraint is applied. The contribution supported here is the uniform two-parameter equality with the interior sparse-block multiplier, including the first-carry argument that makes the difference-support observation decisive. Credit the earlier individual points, repunit-only collapses and related sparse-family comparisons separately.
 
-## Closest literature and limits
+## value
 
-- W. Abram and J. C. Lagarias, arXiv:1308.3133v1 (2013), Theorems 4.2, 4.7, 4.8, and general Algorithm A/B. Covers the repunit and boundary mechanisms but no stated interior mixed-multiplier identity.
-- W. C. Abram, A. Bolshakov and J. C. Lagarias, arXiv:1508.05967v1 (2015), sections on the families \(2\cdot3^j+1\) and \(3^{2j}-3^j+1\), and Appendices A–B. Related multiplier families and entropy comparisons, no stated equality for the present parameters.
+PASS
 
-An earlier implicit equivalent derived from general automata remains a residual originality risk. The checker covers finite inputs; correctness of the infinite statement is established by the written proof. Independent mathematical audit has not been performed.
+Replacing a simultaneous pair of multiplier constraints by a single canonical spacing constraint identifies the actual arithmetic set, not only its dimension, for an infinite interior parameter family. It gives a direct way to read membership and prefix extension without building multiplier-specific carry graphs, and isolates how one multiplier's imposed minimum spacing prevents problematic carry overlaps in the other.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exposure derivative reduces to a real exponential polynomial. Multiplying its first derivative by a positive exponential gives a linear plus a linear-times-exponential term with a second derivative vanishing at most once. Two Rolle arguments bound the number of positive critical points, including the zero at the origin, and the separate single-mode proof is complete. Four exact rational interval enclosures certify the required alternating signs for the positive two-mode witness. The theorem does not rely on finite experiments to establish the universal ceiling.
+## correctness
 
-**Originality — PASS on inspected evidence.** The 2014 full-text flare study's Section III.2, its Eq. (4), and methodology concern two-exponential *fitting* and flare energy, not the ratio of integrated signal to square-root exposure length or two different local optimizers of that ratio. The 2024 CHEOPS/TESS study's abstract motivates time resolution but its full text could not be read; it cannot be used for a whole-document exclusion claim. The monoexponential optimal-acquisition literature establishes a different lower-component case. Related mathematical results for D-optimal time points and delayed double-Bateman peaks concern different objectives. The generalized exponential-polynomial zero bound is known; the delimited mathematical content is the sharp realizable two-maximum phenomenon for this specific positive model and objective. Historical priority is provisional.
+PASS
 
-**Value — PASS.** A non-monotonic choice of finite exposure duration is operationally meaningful for a two-timescale transient under a specified noise model: one-dimensional local numerical optimization can find the inferior peak even while the measured flux falls monotonically. The complete upper bound and exact positive example establish the smallest number of exponential components at which this ambiguity arises. This is a theorem about idealized signal design, not an instrument prescription.
+For the precise background-limited objective, S'=N/(2T^(3/2)) with N=2TI−E. This N satisfies N(0)=0, is positive near zero, and tends to −a/λ−b/μ. Differentiation gives N'=a(1−2λT)e^(−λT)+b(1−2μT)e^(−μT). Multiplying by e^(λT) and differentiating twice leaves b d e^(−dT)(d+4μ−2μdT) with d=μ−λ>0, so Rolle bounds the distinct positive zeros of N' by three. The zero of N at zero then bounds its distinct positive zeros by three as well. Three strict maxima would force at least five critical points including the two interior minima, even when some critical points are degenerate. This is the decisive bound; four alternating sampled signs, as opposed to four sign changes, require only three intervening extrema, so the informal sentence at line 36 is unnecessary. An independent exact Fraction enclosure, using degrees 12 and 13 at x/32 before powering, bounds 10⁶ N at 1/20,1/8,1/3,1 in (28439,28440), (−30229,−30228), (27711,27712), (−63029,−63028). Three disjoint sign crossings exhaust the allowed zeros, giving strict max/min/max. Widths for the reported degree-16/17 method check separately. For one mode, N' changes from positive to negative exactly once while N starts at 0 and has a negative limit, proving the unique strict maximum. Replay: RESULT.md 17–48 and python3 /workspace/reproductions/exposure.py. The frozen checker was inspected, not run. No astrophysical fit is used in the proof.
 
-Source-access risk: full text of the 2024 motivating work was not retrieved. Other risks: unlocated antecedents applying general exponential-sum theory to precisely this objective, and instrument-specific noise terms excluded by hypothesis.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Passes for the sharp maximum count with a strictly positive two-mode witness for this specific noise-normalized integral; neither decay templates, the one-mode optimum, nor the standard analytic zero-count method is claimed new. The bounded searches and inspected statements found no independent matching two-maximum result.
+
+## value
+
+PASS
+
+The score for a monotone source can nevertheless offer multiple locally optimal durations, and two positive decay components are minimal for that behavior. A sharp bound and rigorous witness are useful when interpreting or testing a local exposure-time optimizer under the model. This is not a claim about typical observed flares, instrument-specific noise or overhead, or the number of global optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

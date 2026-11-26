@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-cell Markov partition and its exact PF matrix follow from the published map at a=0,c=b². Explicit matrix eigenvectors, normalized stationary density, and uniform-density decomposition hold symbolically for all 0<b<1; the third-cell deviation sign is controlled by a strictly smaller subdominant mode. Mass conservation then gives the exact all-n positive-part TV formula; the limiting sign of 1-b-b² gives its sharp golden-ratio prefactor. The package checker independently confirms identities and 68 exact-rational finite-time cases; the mathematical proof, not enumeration, covers all parameters and times.
+## correctness
 
-## Originality — PASS (within inspected evidence)
-The defining 2023 published paper was read at equation/section level and is primarily numerical with c=0; the exact a=0,c=b² transient-to-core three-state transfer and golden-ratio variation of leading total-variation amplitude were not reported there. Multiple actual published-finding corpus semantic searches found related but nonimplicative covariance, band-exchange and ordinal findings, rather than this density startup formula. Direct broader web searches found no equivalent statement. Standard finite-state transfer linear algebra is prior technique, not the claimed novelty. Residual priority risk explicitly includes inaccessible indexed full texts and unindexed broader Perron--Frobenius literature.
+PASS
 
-## Value — PASS
-The originating numerical statistical-tuning study motivates controlling not just stationary means but also transient sampling bias. The curve a=0,c=b² is the natural postcritical 3-cycle condition b→1→b²→b, with a genuine repelling transient interval, rather than an arbitrary numerical slice. The model-specific exact TV law gives an actionable sharp burn-in estimate, and the golden-ratio change in what region dominates the leading error is a structural parameter boundary, not a renamed general Markov theorem. It applies for the entire nontrivial continuum 0<b<1.
+The original asserts that the full three-cell graph is primitive, which is false: J₀ has no incoming edges from J₁ or J₂; the closed two-cell class is primitive. The repair proves uniqueness among all absolutely continuous invariant probabilities, not just cell-constant ones: refine by itineraries through k, so every positive-length atom maps affinely onto a full cell and the mesh is at most max(b,1/(1+b))^k. Conditional averaging on the atoms converges in L1. At time k the averaged density is cell-constant; the three distinct eigenvalues 1, b, −b/(1+b), together with mass preservation, force its future iterates to the normalized stationary vector. L1 contraction then gives convergence for any absolutely continuous probability and hence uniqueness. The inverse branches produce the stated matrix in density-value, not mass coordinates. The fixed vector and displayed two decaying eigenvectors and coefficients yield J₀ deviation b^n, J₂ strictly negative because the relative oscillatory correction is bounded by (1−b)/((1+2b)(1+b)), and the stated signed J₁ deviation. Half-L1 is exactly the sum of positive masses, including b^(n+2) on J₀; the 1-Lipschitz positive part gives the stated error even at γ. The difference of the two branches of C is b(1−b−b²)/(b+2), whose derivative at γ is strictly negative, proving the corner. I independently checked 60 exact rational inverse-branch iterations, not a formal or exhaustive proof; the frozen checker was inspected, not executed.
 
-## Closest literature and remaining limits
-The originating source https://doi.org/10.3390/sym15122138 defines the map; relevant published indexed comparisons include 2026/11/2/SCOPE-exact-covariance-resonance-and-fluctuation-optimal-tuning-in-a-m--898171b8464a and 2026/11/1/SCOPE-sharp-band-exchange-threshold-and-exact-alternating-correlations--71914a4764b2. Those linked full texts were unavailable, so priority assessment is conditional. Nothing here asserts a new general transfer-operator technique. The result applies to a single natural parameter curve and to full-interval Lebesgue initialization, not arbitrary densities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Only the parameter-specific exact whole-interval TV law and its sharp sign-driven prefactor transition are credited. The closest distinct relaxation theorem is exactly related by conjugacy on the closed class at b=γ, but neither includes the transient contribution from full-interval initial volume nor varies the parameter to give the corner. The repair defines the branches directly and removes the unconfirmed blanket statement about what the inaccessible origin paper does not derive.
+
+## value
+
+PASS
+
+The parameter curve comes from a natural critical-orbit closure b→1→b²→b. The exact total-variation error answers a quantitative startup convergence question and identifies which spatial regions determine it. Showing a nonsmooth prefactor when the decay eigenvalue itself is smooth is a meaningful structural feature of using the full Lebesgue initial law, rather than a spectral renaming or a numerical golden-ratio coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** A color identification cannot create a prohibited categorical-product edge; the induced normalized integer chain maps commute, and the orthogonal idempotents give exact integral splitting rather than a rational-only dimension argument. The essential nonstandard lemma is the extra vanishing at subset cardinality \(d+1\): an independent \(d\)-simplex using all the named nonbase colors has mutually independent underlying graph vertices, so appending a duplicate underlying vertex in base color 1 provides an explicit bounding simplex. No finite sample is extrapolated to an infinite statement. The standalone script checks 1,950 face instances, 87 top-cross-effect cones and computed low-degree examples; its complete output is bundled.
+## correctness
 
-**Originality: PASS against inspected evidence.** Church–Ellenberg–Farb's FI-sharp classification already proves a general decomposition of modules; this is expressly credited. Antolín Camarena–Carnero Bravo's original full paper gives stagewise cycle-product topology, including an open torsion question, but not a general integral degree-\(d\), \(d+1\)-color test for arbitrary finite graph \(G\). Earlier complete-graph-product calculations and indexed seven-/eight-cycle formulas are family-specific, not universally dominating. The contribution is the concrete simplicial all-color functor and the graph-specific cone vanishing that sharpens a naive simplicial support bound by one and yields degreewise integral torsion detection. Unindexed equivalent formulations and the general categorical algebra literature remain residual originality risks.
+PASS
 
-**Value: PASS.** The fixed-degree integral torsion problem for \(G\times K_n\), which would otherwise involve arbitrarily many color palettes, is reduced to a single finite palette \(d+1\), with all integral persistence maps split and ranks given by a nonnegative binomial polynomial at every palette size. This is relevant to the published torsion-freeness question for cycle products and produces testable structural information even when the actual groups are unknown. It is not an arbitrary finite table or merely a computational extrapolation. The scope is deliberately degreewise; no all-degree resolution is claimed.
+For a nonempty finite simple graph, all palette set maps act simplicially by contraposition of the product adjacency rule. The merger endomorphisms are commuting integral chain idempotents; the Boolean products of p_i and 1-p_i split the reduced chains and project homology onto the stated intersections of kernels. The empty color subset has image X_1, a simplex. More than d+1 nonbase colors cannot occur in a d-simplex. At exactly d+1 colors, they each occur once in any surviving d-face; its underlying vertices are mutually nonadjacent, so appending a base-color copy of one yields an independent simplex. Every other boundary face omits a required color and is killed by the projection, proving integral vanishing at s=d+1. Palette inclusion respects the projections and has a merger retraction. At d+1 colors each surviving cross-effect occurs; its group is read using a named projection. This proves the repaired consequence and leaves the unmarked torsion-free test intact, also for d=0 and n=1. The original consequence would be false if read as abstract groups alone: at d=3, two disjoint edges give rank (n−1)^2, since each edge product has the homotopy type of a wedge of n−1 circles and disjoint union gives the simplicial join. Three graph-joined copies of C_7 give degree-3 rank 3 binomial(n−1,2) and are torsion-free in that degree by the C_7 calculation. Graph join adds the degree-3 groups because the only extra faces are in monochromatic simplices attached along a pair of disjoint simplices, yielding relative homology only in degree 1. Thus both stage-4 groups are Z^9, but at stage 2 the groups have ranks 1 and 0.
 
-Closest publications: Church–Ellenberg–Farb (arXiv:1204.4533), Antolín Camarena–Carnero Bravo (arXiv:2307.12401), and Goyal–Shukla–Singh (arXiv:1905.06926). The general FI-sharp decomposition must not be misidentified as new. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical FI-sharp splitting and the stronger homotopy/symmetry information already proved in particular cycle families. The supported distinct content is the uniform graph-specific cone vanishing, hence the improved degreewise integral cutoff for all finite simple graphs.
+
+## value
+
+PASS
+
+The extra vanishing reduces an infinite torsion-detection problem to one explicitly bounded palette in each degree and yields all degrees' palette-wise Betti formulas with nonnegative binomial coefficients. The gain is integral and functorial for palette inclusions, not just a restatement of rational polynomiality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

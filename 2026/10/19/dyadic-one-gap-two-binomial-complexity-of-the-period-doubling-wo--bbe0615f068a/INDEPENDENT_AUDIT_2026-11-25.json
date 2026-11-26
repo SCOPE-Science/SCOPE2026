@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:30:28.734698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof; VERIFICATION.md; verify_pd_gap.py (read, not executed)",
+        "python3 -B /workspace/independent_checks.py 2: generated a length-16384 substitution prefix and counted permitted pairs directly via a suffix accumulator. For m=2 through 10 checked factor and class counts and the exact word-pairs associated with cyclic motifs; odd m=3,5,7,9 gave respectively 1,3,11,43 doubletons."
+      ],
+      "rationale": "At length 2^m a window contains exactly one multiple of 2^m. The other valuations are fixed by residue, and both exceptional bits are realized for each start residue by taking a suitable positive multiple. The resulting two cyclic words have different weights; one is doubled with weight equal to 2 modulo 4, forcing least cyclic period n/2, and the other has odd weight and least cyclic period n. With no adjacent cyclic ones, subtracting adjacent counts from all scattered counts reduces the profile exactly to (weight, T+first bit, first+last bit), T the unrestricted 01 count. Rotating d places changes T by nB-kd with B the weight crossed. For the doubled word this is always even, so equal T+first bit requires d a multiple of n/2. In the primitive orbit, 3k=n±1 forces distinct collision shifts to be ±3. Checking shift +3, even m would require 1 to 0 as initial bits and makes the endpoint sums different; odd m requires 0 to 1 and equal endpoint sums exactly at cyclic 10101. Pairs are disjoint since each start has a unique end, with different initial bits. Odd m centers have valuation odd and at least three (including cyclic center n), giving the geometric sum (n+4)/12. The n=4 and n=8 boundary cases are included.",
+      "residual_risks": [
+        "The analytic argument covers all dyadic lengths m>=2, not all lengths. The separate substitution-prefix computation only covers bounded m and corroborates the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary gapped paper motivates the complexity and treats other words; its general binary criterion does not count the exceptions in this particular language.",
+          "The Lie complexity record states exactly two length-2^k full conjugacy classes represented by substitution blocks. The higher-Abelian record counts contiguous factors at each profile order."
+        ],
+        "reasoning": "The Lie result overlaps the rotation structure, and the binary criterion can help detect an individual collision. Neither eliminates the work of finding and counting the actual collisions among the period-doubling rotations.",
+        "searches": [
+          "Gapped Binomial Complexities in Sequences, introduction and binary characterization",
+          "Resultary exact Lie complexity and higher-Abelian profiles for period doubling"
+        ]
+      },
+      "checked_sources": [
+        "ORBi:2268/302524",
+        "arXiv:2201.04603",
+        "Bounded Resultary search and four inspected nearby records above",
+        "Identity check of the frozen 2-Abelian citation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known ordinary injectivity rules out equal unrestricted counts for distinct dyadic factors; it does not rule out cancellation by the adjacent-count correction.",
+          "In the frozen result the exceptional pairs exchange their first and last bits and satisfy the compensating scattered-count constraint, realized exactly at cyclic 10101."
+        ],
+        "reasoning": "The known results can organize the proof, but do not establish that compensation is possible exactly at shifts ±3 or count the odd-scale exceptions. The valuation and modular-rotation arguments establish that additional content.",
+        "searches": [
+          "Gapped paper Eq. (7) and Lemma 2.1; ordinary dyadic injectivity; Resultary full cyclic-conjugacy orbits for period doubling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gapped paper p. 1 defines successive selected indices at distance >g, so its g=1 statistic is the frozen one. Page 2, Eq. (7) and Lemma 2.1 relate it to ordinary binomial and 2-Abelian counts but give conditions involving both, including an alternative with changed endpoints.",
+          "The ordinary paper p. 31 gives b_p^(2)(2^m)=p_p(2^m) for unrestricted scattered pairs.",
+          "Frozen bibliography arXiv:1404.3961 resolves to an unrelated astronomy article, not the cited 2-Abelian paper."
+        ],
+        "reasoning": "Subtracting adjacent pair counts can cause two ordinary profiles to coincide. Equality of contiguous two-factor counts is not equality of the gapped counts. Neither one of these different observation schemes is an equivalent restatement of the theorem.",
+        "searches": [
+          "Rigo–Stipulanti–Whiteland, Gapped Binomial Complexities in Sequences, ORBi:2268/302524",
+          "arXiv:2201.04603",
+          "Parreau–Rigo–Rowland–Vandomme by exact 2-abelian title and authors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-statistic indexed hit is 2026/10/18/SCOPE-dyadic-rigidity-of-one-gap-two-binomial-complexity-for-the-thue--347355487692; it states the constant 12 for Thue–Morse.",
+          "2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17 uses the same word and lengths but no gap condition."
+        ],
+        "reasoning": "No exact matching formula or law was found among the inspected results; the closest matches change either the word or the observable. This is bounded positive comparison evidence, not a claim of exhaustive novelty.",
+        "searches": [
+          "Resultary: period-doubling one-gap exact formula; parity-dependent (17n-4)/12; period-doubling rotations three apart"
+        ]
+      },
+      "rationale": "The observation statistic itself is known, the ordinary dyadic two-binomial injectivity is known, and the cyclic-orbit description has documented overlap. None of those results gives the exact coincidences after forbidding adjacent selections. The inspected same-statistic exact result uses Thue–Morse, and the inspected same-word Abelian collision result uses contiguous counts. The supported distinct contribution is the dyadic one-gap class count and explicit shift-three collision law for period doubling.",
+      "residual_risks": [
+        "The intended Parreau et al. work was not verified, because the frozen identifier is incorrect and the bounded exact-title lookup did not resolve the source. This is not evidence of noncoverage.",
+        "A disconnected or unindexed earlier one-gap period-doubling theorem remains possible; no claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED",
+          "evidence": "Distance >g definition and general binary pair criterion; adjacent-factor correction can alter unrestricted equivalence.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+          "material_read": "Definition on p. 1 around offsets 3809–6330; p. 2 Eq. (7), Lemma 2.1 and first proof portion around offsets 12500–19851",
+          "method": "Open primary PDF",
+          "title": "Gapped Binomial Complexities in Sequences",
+          "trigger": "Exact statistic and possible general binary characterization"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Reports the ordinary dyadic equality b_p^(2)(2^m)=p_p(2^m) and defines the underlying subwords without a gap requirement.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.04603",
+          "material_read": "Definition p. 3 around offset 9842 and p. 31 around offset 132547",
+          "method": "Open primary PDF",
+          "title": "Characterizations of families of morphisms and words via binomial complexities",
+          "trigger": "Same word and dyadic ordinary two-binomial claim; title differs from frozen bibliography"
+        },
+        {
+          "assessment": "UNRESOLVED CITATION",
+          "evidence": "The provided identifier is an astronomy paper about disk-galaxy orbits. It supplies no evidence for or against mathematical coverage by the intended paper.",
+          "identifier_or_url": "Frozen citation arXiv:1404.3961 (wrong identifier)",
+          "material_read": "Linked arXiv PDF p. 1 offset 0 (different title and subject); intended paper not inspected",
+          "method": "Open PDF identity check and bounded exact-title/author lookup",
+          "title": "A new approach to the 2-abelian complexity of 2-automatic sequences",
+          "trigger": "Could contain a closely related period-doubling endpoint/adjacent-factor classification"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "Two full length-2^k cyclic-conjugacy classes represented by the two substitution blocks, without gapped equivalence.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-lie-complexity-of-the-period-doubling-word--2678ea387347",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact Lie complexity of the period-doubling word",
+          "trigger": "Same dyadic rotations"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "One-gap complexity 12 at 2^m for m>=3 for a different fixed point.",
+          "identifier_or_url": "2026/10/18/SCOPE-dyadic-rigidity-of-one-gap-two-binomial-complexity-for-the-thue--347355487692",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Dyadic rigidity of one-gap two-binomial complexity for the Thue–Morse word",
+          "trigger": "Closest same-statistic indexed result"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Ordinary two-binomial profiles distinguish every dyadic factor; unrestricted pairs differ from permitted pairs in the frozen finding.",
+          "identifier_or_url": "2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Dyadic two-binomial rigidity of the period-doubling word",
+          "trigger": "Closest same-word same-length indexed result"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Profiles count contiguous factors up to a fixed order, not gapped scattered pairs.",
+          "identifier_or_url": "2026/11/22/SCOPE-dyadic-higher-abelian-profiles-and-an-exact-collision-law-for-pe--945680083ced",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Dyadic higher-Abelian profiles and an exact collision law for period-doubling factors",
+          "trigger": "Closest same-word indexed collision law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof, especially the exact shift and cyclic motif law",
+        "Comparisons with ordinary binomial and Lie complexity in originality"
+      ],
+      "rationale": "For a canonical automatic word the result measures exactly how excluding neighboring selections changes factor distinguishability at the substitution scales: no information loss at even exponents and an explicit infinite set of isolated two-way ambiguities at odd exponents. The shift and motif classification identifies the ambiguous factors rather than just giving a finite table or a count, and this is not implied by ordinary binomial injectivity or orbit enumeration.",
+      "residual_risks": [
+        "Only powers of two and the specified gap/pair order are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

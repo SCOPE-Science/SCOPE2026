@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every even dimension \(n\ge4\), the folded-hypercube adjacency eigenvalues are \(n-2k+(-1)^k\). The minimum is \(1-n\) precisely at character weights \(n\) and \(n-1\), so the spin-one Hamiltonian is bounded below by \((D-(n-1)J/2)K\), with equality characterized by a specific \((n+1)\)-dimensional Walsh eigenspace. Ternary-valued affine linear functions on independent signs contain at most two nonzero variable coefficients. Their exact classification yields the critical occupancy counts \(1,2n(n+1),2(n+1)\) and excludes hidden occupied phases. Summing over all critical states independently gives the stated covariance. No probabilistic or finite-sampling argument substitutes for these all-dimensional proof steps.
+PASS
 
-An independent exact-integer scan checks all \(43{,}046{,}721\) configurations of the sixteen-spin folded four-cube; a separate exact Walsh computation tests dimensions four, six and eight and their Hamming correlations. Both programs are bundled and executable. Finite checks support but do not prove the infinite family.
+Under the specified coordinate-plus-antipode convention the adjacency eigenvalue at Walsh weight k is n−2k+(−1)^k; for even n its minimum 1−n occurs exactly at n,n−1. The energy bound is (D−D*)K with D*=(n−1)J/2, with equality exactly on this eigenspace, including zero. Full and empty states attain the lower envelope on the two strict sides. Independently, after parity untwisting, a ternary minimizer at D* is an affine function b+Σd_i x_i on the Boolean cube, with b integer and every d_i an integer from a single-coordinate difference. Its range width is Σ|d_i|≤2. Width 0 gives the three constants; one nonzero increment of size 1 gives four half-occupied states per coordinate (two signs and two allowed baselines), one of size 2 gives two full states per coordinate, and two size-1 increments give four half states per pair. This proves that there are no other sectors and yields the displayed counts and ground energy for all even n≥4. In the original character basis the full states are signed single modes, the half states are signed half-sums of distinct modes. Summing over the signs eliminates mixed terms and gives coefficient 2+n for each diagonal character product. The diagonal character sum is (−1)^r(n+1−2r), giving the stated uniform threshold correlation after division by 1+2(n+1)^2. Independent exact enumeration of the bounded increment vectors at n=4,6 gives (empty, half, full)=(1,40,10),(1,84,14), and sums of spin products [30,−18,6,6,−18] and [56,−40,24,−8,−8,24,−40] over the respective state sets, matching the formula at all r. Replay: node /workspace/branches/independent_finite_checks.js (record 2 block).
 
-## Originality — PASS on examined evidence; historical priority provisional
+## originality
 
-Xu and Meng supply the folded-hypercube adjacency spectrum. A published binary-Ising folded-hypercube theorem supplies the fully occupied sector and its Walsh basis, but not zeros, crystal-field dependence, half-occupied ground states or critical correlation. Mosseri's Hadamard work concerns binary Ising spins. Pawłowski studies the antiferromagnetic Blume–Capel model on a square lattice. Existing ternary Hamming and spin-one wheel classifications concern other graph families; the four-vertex wheel special case is expressly excluded. Full scientific comparisons and actual source inspections appear in `AUDIT.json`. No examined primary result states or directly implies the full spin-one threshold classification and covariance for \(n\ge4\), but an unindexed equivalent remains possible.
+PASS
 
-## Mathematical value — PASS
+The spectrum, spectral bound and same-graph binary rigidity are established premises. The inspected distinct prior claims do not classify the ternary intersection of the minimum eigenspace or give the folded-cube vacancy coexistence ensemble. The spin-one threshold location is a direct spectral consequence and is not independently credited as new; the supported distinct contribution is the exact ternary classification, labeled count and critical spin-product law for this family.
 
-The question asks whether repulsive single-ion vacancy cost on a frustrated, non-bipartite folded hypercube creates an intermediate antiferromagnetic occupancy regime. The answer sharply separates a single coexistence point from a finite-width vacancy phase, classifies all competing configurations for infinitely many cluster sizes, and gives exact critical entropy and spatial correlations. The half-occupied state count grows quadratically in dimension rather than arising as an arbitrary finite-table statistic.
+## value
 
-## Scope and residual risks
+PASS
 
-The result is a classical, uniform-bond, zero-field, zero-temperature statement on even folded hypercubes of dimension at least four. It does not address finite temperature, nonuniform bonds, odd dimensions, or an infinite-volume phase transition. Historical-priority determination is provisional; independent mathematical validation has not occurred.
+The exact coexistence ensemble tests what ternary vacancies change in a frustrated, symmetric graph whose binary sector is already understood. An energy envelope alone would miss both the isolated half-density sector of quadratic cardinality and its effect on spin observables. This is a natural zero-temperature finite-cluster benchmark over an unbounded even-dimensional family, with a concrete Clebsch-graph check.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

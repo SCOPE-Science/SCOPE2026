@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:51:13.822471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–57 and supporting VERIFICATION.md; verify.py inspected, not run",
+        "Independent exact reconstruction: python3 /workspace/branches/507eade4-6d54-4a3e-bd98-c516e5faccbc/replay_k23.py (64 edge states per orbit; both moment differences, odds transform, exact root bracket)"
+      ],
+      "rationale": "The high-root PGF partitions edge states by existence of a low vertex with both edges retained, which is equivalent to connectivity of the two high vertices. The low-root PGF conditions on zero, one or two retained seed edges. Independent enumeration of the 64 states for each orbit at b=3 reconstructs both moment differences. The displayed odds-transform coefficients have one sign change; the positive constant and negative leading coefficient give existence and Descartes gives uniqueness. The mean factor is 1+p+p²+2p²(1−p)>0 for 0<p<1. For any fixed b≥3, exactly one retained incident edge yields the first-order variance deg(v)p, giving a difference (b−2)p+O(p²). With at most two failed edges, at least one of the b length-two paths between the high vertices survives, so the only possible disconnection is isolation of a low vertex. The high-root squared deficits contribute b; the low-root deficits contribute (b+1)²+(b−1). Their expectations squared are O(q⁴), so the variance difference is −b(b+2)q²+O(q³). Opposite signs and polynomial dependence force a sign-changing zero. The b=2 boundary is vertex-transitive.",
+      "residual_risks": [
+        "The replay certifies 0.25155<p*<0.25156 and uniqueness; the longer decimal is numerical. Uniqueness is not proved for b>3. The endpoint asymptotics are for fixed b, and the model does not assert a result for correlated transmission."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allard gives a general way to evaluate rooted finite-graph distributions. Moore–Newman treat small-world networks and the cluster size seen from a random site."
+        ],
+        "reasoning": "These cover framework or computation, not a sign theorem for a pair of orbits. A graph-averaged root distribution also mixes the two orbits rather than comparing their variances.",
+        "searches": [
+          "Allard et al., arXiv:1201.4369, rooted recurrences",
+          "Moore–Newman, arXiv:cond-mat/0001393, outbreak-size moments"
+        ]
+      },
+      "checked_sources": [
+        "Allard et al. arXiv:1201.4369",
+        "Moore–Newman arXiv:cond-mat/0001393",
+        "Resultary 9b54ed53af8f and the self-hit e3ee2dfe82d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general recurrences compute probabilities for any specified finite input. The family claim uses the geometry of surviving hub-to-hub paths, and the unique crossing uses a one-sign-change coefficient certificate."
+        ],
+        "reasoning": "The distributions and finite polynomials are recoverable from the general algorithm, but an instance evaluator supplies neither a uniform-in-family qualitative reversal nor uniqueness of a crossover. Credit goes to those comparisons, not the generic computation.",
+        "searches": [
+          "Compare Allard et al., PDF pp. 2–3, with the frozen all-b endpoint and positive-odds arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allard et al. define the size distribution reached from a prescribed type as Q_i(l|n). The closest separate Resultary result, 9b54ed53af8f, compares K_{3,3} and the triangular prism."
+        ],
+        "reasoning": "The size of the random cluster rooted at a prescribed seed is indeed the equivalent observable. The graph-to-graph comparison of vertex-transitive cubic graphs does not give either within-graph orbit of K_{2,b} or the endpoint argument.",
+        "searches": [
+          "Rooted bond-percolation component-size variance and K_{2,b} / biclique reliability",
+          "Resultary search on outbreak variance reversals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The lookup found the general finite-graph method, not a located exact rooted variance table supplying these signs. The only inspected equivalent indexed biclique result is e3ee2dfe82d8 itself."
+        ],
+        "reasoning": "The self-hit is not an independent precedent. A table for mean or network connectivity would not alone give two rooted variance functions; unlocated specialized tables remain possible.",
+        "searches": [
+          "Focused literature lookup for exact K_{2,b} rooted component-size or reliability tables",
+          "Local Resultary biclique and outbreak-variance search"
+        ]
+      },
+      "rationale": "The new content supported by this review is the structural sign reversal by seed orbit across a natural graph family and the unique transition in the smallest asymmetric biclique with both parts of size at least two. The underlying bond-percolation interpretation, rooted distribution and finite-state methods are prior work.",
+      "residual_risks": [
+        "The search is bounded; specialized reliability tables or unindexed small graph examples could overlap. No broad priority claim is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General computational predecessor; no orbitwise biclique sign theorem in the relevant passages",
+          "evidence": "Q_i(l|n) describes the component reached from a type-i node; the recurrences evaluate finite graphs, rather than comparing signs across seed types.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.4369",
+          "material_read": "PDF p. 2 at offset 4413 (definition of Q_i), p. 3 at offset 9190 (recurrence interpretation and reliability connection)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Exact solution of bond percolation on small arbitrary graphs",
+          "trigger": "General exact finite-graph distributions for a specified root type"
+        },
+        {
+          "assessment": "Same modeling framework; different graphs and source averaging",
+          "evidence": "The outbreak is the size of the cluster of a randomly selected site, not the size of an unrooted typical cluster; this does not compare fixed orbits of a finite biclique.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0001393",
+          "material_read": "PDF p. 3 at offset 4413, random-site cluster-size distinction",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Exact solution of site and bond percolation on small-world networks",
+          "trigger": "Percolation final size and outbreak moments"
+        },
+        {
+          "assessment": "Different statement, not a dominating special-case comparison",
+          "evidence": "The result compares K_{3,3} and the triangular prism, each vertex-transitive, not distinct seed types of K_{2,b}.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-stochastic-outbreak-dominance-with-a-unique-variance-reversal-be--9b54ed53af8f",
+          "material_read": "Indexed finding identifying the two comparison graphs",
+          "method": "Local Resultary comparison",
+          "title": "Stochastic outbreak dominance with a unique variance reversal",
+          "trigger": "Same variance-reversal terminology and includes a complete bipartite graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–21, 36–54",
+        "Independent exact K_{2,3} reconstruction"
+      ],
+      "rationale": "The reversal shows a concrete failure of seed-degree ranking for final-size variability in a basic family: around p=0 degree determines the first-order variance, whereas around p=1 rare isolation of the low-degree seed dominates squared loss. K_{2,3} is the first asymmetric case in the stated family and gives a sharp threshold while the mean always favors the high-degree seed in the open interval. This is a reusable counterexample and endpoint mechanism, not an arbitrary numerical comparison.",
+      "residual_risks": [
+        "No threshold classification for larger b or inference about real disease dynamics is warranted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

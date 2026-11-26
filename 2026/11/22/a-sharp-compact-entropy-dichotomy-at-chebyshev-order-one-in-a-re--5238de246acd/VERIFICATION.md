@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof is self-contained and requires no external computational certificate. The critical steps to check are: (i) \(P\circ F=P|\sin\Phi(x)\sin\Phi(y)|\) at \(\nu=1\); (ii) finiteness of the phase-extremum set on each compact subset avoiding \(0,1\); (iii) \(T_\nu(0)\ne0\) for all \(\nu\in[0,4]\setminus\{1,3\}\), and \(T_3(t)=4t^3-3t\); (iv) the number of full phase oscillations across \([\delta,2\delta]\) tends to infinity; (v) the eigenvalues of \(DF(t,t)\) are \(A\pm B\). The entropy conclusion uses the standard variational principle on a compact continuous restriction and the full-branch coding of contractions.
+## correctness
 
-Running `python3 verify_example.py` provides non-certifying numerical examples for five distinct Chebyshev orders and verifies the product inequality at three test states. These finite spot checks do not imply the universal theorem. No numerical, symbolic, or external audit is claimed beyond the checks actually described.
+PASS
+
+Re-audited /workspace/repairs/3/RESULT.md. The original branch paragraph asserted uniqueness within a half-wave; a full sign-matched lobe between two sine zeros can yield two crossing intervals. The corrected proof selects one zero-to-peak quarter-wave and uses the first 2δ crossing and last δ crossing before it. At order one, log|xy| is bounded on each compact invariant set in the specified interior; neither sine vanishes there, and the nonpositive increment of log|xy| has zero integral for every invariant probability. Its zero set on the compact coordinate projections is finite: the phases are bounded, and for each of the finitely many admissible sine-extremum phase values the equation in t is quadratic. Invariant probabilities on this finite support are mixtures of cycle measures; each periodic Jacobian is a signed permutation matrix, so both exponents vanish. The variational principle yields zero entropy and a diagonal sine-maximum fixed point makes the defining supremum nonempty. Off order one, near zero Tν either has a nonzero constant term or, at order three, has slope −3, so |Tν|>2δ on [δ,2δ]. The phase length is asymptotic to a/(2δ), furnishing any specified number of disjoint selected crossings. On those intervals |sin Φ|≤ρ<1, |Φ′|≥a/(8δ²), and |Tν′| is bounded. Thus |Tν cos Φ Φ′| dominates |Tν′ sin Φ|, with the first term of order at least δ^(−2) or δ^(−1) at order three. The scalar derivative is of constant sign with modulus >Λ on each selected interval, giving separated inverse contractions and a bijective full-shift coding by nested intervals. In the fixed diagonal and antidiagonal frame the same bound controls both planar eigenvalues; compactness and the ergodic theorem applied to their log moduli give the asserted strict almost-sure bounds for every invariant measure. This proves exactly the compact-restriction result, not entropy at a compactification or typical-orbit chaos. The quarter-wave construction is an analytic replay; the supplied diagnostic was inspected, not executed.
+
+## originality
+
+PASS
+
+The correction leaves the model-specific theorem intact: one exactly neutral order, with both ambient directions expanding on arbitrarily large full shifts for every other order. Finite-time chaos indicators, related singular sine maps and general full-branch coding do not supply that classification. The judgment is limited to inspected evidence.
+
+## value
+
+PASS
+
+The conclusion identifies a singular parameter boundary in a named map: all compactly supported invariant probabilities become finite periodic mixtures at one order, while arbitrarily close nonneutral orders admit arbitrarily large finite-symbol dynamics with verified transverse as well as tangential expansion. This distinction matters when finite-time indicators are used to interpret singular maps. It does not imply anything about physical attractors, positive-area basins, or applications outside the compact-invariant scope. The proof correction preserves this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

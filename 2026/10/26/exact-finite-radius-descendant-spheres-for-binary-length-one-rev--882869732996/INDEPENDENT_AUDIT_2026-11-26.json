@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:26:22.485893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen asymptotic proof (RESULT.md line 33) undercounts both leading powers by a factor of two; the displayed density itself is correct. The replacement proves the exact complementary tails: for m=n+t and t>=1 the two low sums are 2^(m-1) minus the upper-complement tail of degrees 0..n-2 and 2^(m-r-1) minus the tail of degrees 0..n-r-1. These polynomial tails give the stated limit, including n=r=1. Rechecked the complete argument: embed every position of the first run and right-justify matches in later runs; deleting the unmatched first letter of the rightmost unmatched run is legal, and a singleton second-run merger joins entirely matched positions forming an initial seed block. Greedy subsequence counting after a forced prefix gives both sums, with empty target allowed and t=0 handled separately; Pascal gives a strictly positive increment when r increases and t>=2. Independently checked the complementary-tail identity using exact integers at representative n,r and t up to 64. Inspected frozen VERIFICATION.md and verify.py; did not execute uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full expressiveness concerns arbitrary target substrings in an unbounded cone. The common-descendant theorem states existence iff first bits match. The new multiple-duplication paper's maximum exact-two formula is for even duplication length, not k=1."
+        ],
+        "reasoning": "A proof of expressiveness or intersection nonemptiness does not compute the number of words in one cone slice. Different duplication lengths and a worst-case two-step count do not dominate the arbitrary-radius per-seed statement.",
+        "searches": [
+          "arXiv:2112.11811v1 Theorem 4",
+          "arXiv:2312.00394v1 Lemma 2 and Corollary 3",
+          "arXiv:2609.00779v4 contribution 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.11811v1",
+        "arXiv:2312.00394v1",
+        "arXiv:2609.00779v4",
+        "Resultary cc80949ef109, 48668939e9cc, 58e555e1f0ef and a03a87770ec6",
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An ambiguous concatenation can overcount a slice if its generating functions are multiplied as though the factors were uniquely determined. The inverse-deletion argument isolates a simple prefix/subsequence predicate, letting one subtract exactly the forbidden prefix words. Knowing a finite set of low-radius cardinalities is not a recurrence for longer radii."
+        ],
+        "reasoning": "One could use prior language theory to enumerate slices algorithmically, but its inspected statement does not mechanically give the closed two-tail cardinality or the fact that only r enters.",
+        "searches": [
+          "Ben-Tolila–Schwartz Theorem 4 proof: per-letter unbounded construction",
+          "Yohananov–Schwartz Lemma 2",
+          "Resultary cc80949ef109 and 48668939e9cc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The per-letter product is an unbounded descendant-language characterization and can encode the same slices. Distinct words are not equal in number to concatenation factorizations. The standard binary supersequence count depends only on target length; the first-run restriction supplies the subtracted second tail."
+        ],
+        "reasoning": "Counting reachable words of length n+t and counting exact-t descendants are equivalent because each operation adds one bit. Neither the prior factorization nor the standard supersequence count itself states the two-tail distinct count.",
+        "searches": [
+          "Resultary: distinct single-symbol binary reverse-complement descendants, exact-radius and initial run",
+          "arXiv:2112.11811v1 Theorem 4 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cc80949ef109 gives t=3 as C(n+2,3)+r(n+2)-C(r,2), exactly the two-tail specialization. 48668939e9cc and 58e555e1f0ef give a two-step law specializing in binary to n(n+1)/2+r because the discount is n-r. a03a87770ec6 gives the matching t=2 maximum at k=1."
+        ],
+        "reasoning": "These are real exact overlaps for restricted radii, regardless of chronology, but do not provide the all-radius count. No conclusion about priority or lineage rests on catalogue dates.",
+        "searches": [
+          "Resultary: exact two- and three-step one-symbol reverse-complement sphere laws and extremal sizes"
+        ]
+      },
+      "rationale": "PASS for the all-radius exact distinct count and initial-run reduction, not for determining the unbounded reachable language. The strongest inspected exact indexed overlaps are for t=2 and t=3 or just extrema, not all t. The proof's power-of-two correction does not change this comparison.",
+      "residual_risks": [
+        "The bounded comparison cannot rule out an equivalent all-radius count under channel or supersequence terminology.",
+        "The compared exact low-radius records do not determine historical priority or provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural language coverage, not exact volumes",
+          "evidence": [
+            "Theorem 4 uses per-letter concatenation and proves full expressiveness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.11811v1",
+          "material_read": "Introduction, and Theorem 4 and proof pp. 5–6 (extracted offset 27561)",
+          "method": "Compared scope and factorization against distinct fixed-length counts",
+          "title": "On the Reverse-Complement String-Duplication System",
+          "trigger": "Exact length-one binary descendant model"
+        },
+        {
+          "assessment": "Unbounded intersection result",
+          "evidence": [
+            "Common descendants exist iff the first bits agree. Later versions have a different title."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.00394v1",
+          "material_read": "v1 p. 6, Lemma 2 and Corollary 3, offset 15000",
+          "method": "Compared common-cone criterion with one-cone fixed-radius count",
+          "title": "Optimal Reverse-Complement-Duplication Error-Correcting Codes",
+          "trigger": "Same model and descendant cones"
+        },
+        {
+          "assessment": "Not the binary all-radius k=1 law",
+          "evidence": [
+            "Maximum exact-two result assumes even duplication length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779v4",
+          "material_read": "p. 3, contribution 3, offset 9600",
+          "method": "Checked radius and duplication-length restriction",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Exact finite-sphere result in a nearby duplication problem"
+        },
+        {
+          "assessment": "Exact low-radius overlaps; no all-t statement",
+          "evidence": [
+            "The three-step binomial expression agrees exactly. The binary two-step discount n-r yields the same two-step law."
+          ],
+          "identifier_or_url": "cc80949ef109; 48668939e9cc; 58e555e1f0ef; a03a87770ec6",
+          "material_read": "Mirrored RESULT.md Findings, offset 0",
+          "method": "Substituted t=2,3 and k=1 and compared exact seed dependence and maximum",
+          "title": "Exact-three sphere spectrum and related exact-two Resultary laws",
+          "trigger": "Strongest exact indexed matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of distinct outputs of a natural insertion channel at a fixed radius is intrinsically useful and differs from the number of histories. This exact answer for every seed and radius gives a non-obvious one-run invariant, sharp extremizers, and a limiting density without enumeration. Its contribution is not an already-indexed fixed radius or a claim about optimal codes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite exhaustive proof is reconstructable from the bundled C++ verifier and independently programmed Python crosscheck, both using integer arithmetic. Good relabeling fixes the first agent's true ranking without loss; all 120 second rankings, all 14,400 reported ranking pairs, and all eight adjacent swaps at each state are considered. Each allocation-changing adjacent swap is verified to exchange exactly one good, which reduces profit to a single true-rank comparison independently of cardinal spacing. Every resulting improvement digraph is checked acyclic, the longest directed paths are calculated exactly, and all steps of the 18- and 6-move witness paths are verified from recomputed allocations. Sharpness follows from those paths with positive rank-consistent additive utilities. Finite enumeration establishes only the five-good statement, not an infinite extrapolation.
+PASS
 
-## Originality — PASS, with residual risks
+The displayed constants are maxima over the specified starts and preferences, not assertions that each profile attains both. Relabeling fixes the first truthful order and preserves adjacency, picking, and gains. An independent replay of all 14,400 report pairs and their eight directed adjacent changes per state found 88,800 unchanged allocations and 26,400 one-for-one exchanges. This proves independence of cardinal magnitudes because the deviator's strict gain is exactly the rank comparison of the two exchanged goods. Topological elimination exhausted all 14,400 states for each of the 120 remaining true orders; longest-path recursion counted arcs, giving 1,584,000 improving arcs in total, no cycles, and maxima 18 and 6. Both are attained: for true orders (01234,01234) one witness starts at (23410,43210), and for true orders (01234,31240) a six-move witness starts at that truthful pair. Each step was checked under the positive utility 5 minus zero-based rank. Exhaustion proves the bounds only for the stated five-good move rule; only maximal sequences terminate at a local equilibrium.
 
-The closest source, Lucet et al. (2026), explicitly proves the two-agent adjacent-swap convergence statement for four goods (Appendix A.3) and leaves arbitrary item counts conjectural. Its all-size item-preserving-swap convergence addresses a more restrictive, distinct move set. Aziz, Goldberg, and Walsh (2017), Theorem 1, show cycling for *unrestricted* report improvements and do not establish adjacent-swap convergence. Direct comparison of the objects, permitted deviations, initial states, and claimed implications confirms that neither theorem supplies the exact five-good improvement graph acyclicity or the sharp path-length constants 18 and 6. Searches for adjacent-transposition report dynamics, five-good convergence, exact improvement-path lengths, and associated public mathematical-result records found no equal or stronger covering statement. Residual risks are unindexed equivalents and other unpublished computations. Absence of search hits alone is not an originality proof.
+## originality
 
-## Value — PASS
+PASS
 
-The exact five-good frontier is the **first number of goods beyond the motivating work's proved adjacent-swap regime**. It is therefore a motivated finite cutoff, not an arbitrary parameter slice. The findings show a stronger finite improvement property—acyclicity from arbitrary reports—and give tight worst-case termination horizons under both arbitrary and truthful starts. The two sharp constants distinguish the effect of initialization and provide reproducible benchmarks for any proposed general potential function or bound addressing the open two-agent arbitrary-item conjecture. The value is finite and does not rest on any claim to solve that conjecture.
+The supported distinction is the exact five-good ordinal census of every strictly improving adjacent edge and the two sharp path bounds. The closest same-mechanism source proves a four-item convergence result and conjectures a continuation to at least five; it does not give the census or the two constants.
 
-## Closest literature and limitations
+## value
 
-- M. Lucet, H. Surugue, N. Benabbou, A. Beynier, N. Maudet, A. Novaro (2026), *On the Convergence of Iterated Round Robin*, arXiv:2610.23040v1, especially Section 3 and Appendix A.3.
-- H. Aziz, P. Goldberg, T. Walsh (2017), *Equilibria in Sequential Allocation*, arXiv:1705.09444v1, especially Section 3.
+PASS
 
-The claim applies only to two agents and five goods with strict, additive, positive true valuations, the specified alternating picking sequence, and strictly improving adjacent swaps of reports. Termination need not yield unrestricted Nash equilibrium; the six-step truthful-start lower bound is for improving moves, not necessarily cardinally optimal one-step replies. Independent scholarly review remains necessary before presenting the result as established literature.
+Five is the first number of goods beyond the published four-item positive boundary. Proving termination for every improving edge and measuring the exact cost in moves from arbitrary and truthful initialization give meaningful, different benchmarks for this local dynamics; the cardinal-independence check makes them robust across all admissible additive values.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

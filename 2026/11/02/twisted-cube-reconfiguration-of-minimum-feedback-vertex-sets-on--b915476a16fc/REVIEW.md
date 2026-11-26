@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives a necessary minimum base-column cover by the rim squares, uses a cubic edge count to force independence in the selected vertices, and constructs the complementary tree to establish sufficiency. Every legal token-jump is then classified through the unique adjacent pair of occupied columns, giving a precise conjugated bit-transfer graph. The monodromy identity yields connectivity and the parity map bipartiteness. A projection-and-matching argument enumerates all simple four-cycles, including the smallest case where there are none. Direct finite-prism and independent symbolic-transfer checkers agree with the exact theorem throughout their documented ranges. The theorem is proved for all stated parameters; finite computations are checks rather than the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The minimum FVS size was known from generalized Petersen decycling results; the connectedness of fixed-size FVS reconfiguration follows from the 2023 theorem for \(K_{3,3}\)-minor-free subcubic graphs. Both are excluded from the new contribution. The specified coordinate classification, \(n2^k\) solution count, twisted-cube state graph, uniform degree and square count are additional implications not established by those cited results. The closest accessible primary sources were compared by objects, hypotheses and mathematical consequences rather than only titles. The generalized-Petersen paper's full text remained inaccessible; this is an explicit risk because its proof might include a configuration census. No independent priority determination is implied.
+PASS
 
-## Value — PASS
-A minimum decycling number gives only the cardinality of an optimal set, while generic reconfigurability supplies only connectivity. The complete twisted-cube model determines all optimal solutions, all individual exchanges, the uniform local degree and the full four-cycle multiplicity across a natural infinite family of cubic graphs. The cyclic monodromy is a structural explanation rather than an ad hoc finite table; the square census quantifies the first nontrivial local redundancy of exchanges and can support subsequent metric or random-walk analyses. The result is a motivated, nonroutine structural refinement.
+Each adjacent two-column face must be hit, so the occupied columns cover the odd base cycle and number at least k+1. At equality the k empty columns have gaps of size two except for one of size three, so the occupied support has just one consecutive pair. A deletion of k+1 vertices leaves 3k+1 vertices and 3k plus the number of edges within the deleted set, forcing the deleted set to be independent for a forest. Conversely opposite levels on the consecutive pair give a connected complement: the unoccupied columns give a chain of retained rungs connected through intervening single retained vertices, with one end vertex attaching at each end. The complement is then a tree. For a changed support, removing one empty column merges two consecutive gaps: length four admits only the original placement and length five admits exactly one alternative. Thus only the two stated neighboring supports are possible. The unchanged bits and the new opposite level give the stated transfer and its inverse. Full base travel acts by T^(2k+1)=T, since T^k complements all bits; then one can change the first bit as well as freely flipping all other bits in a fiber. All moves change parity. Four crossings in a length-four walk in the base cycle must include consecutive reversal, which retraces the same lifted edge; with two crossings a simple square must have one internal flip on each side. Exactly k-2 flips carry to flips allowed on the other side in each direction. Together with the stationary-fiber squares this gives the stated incidences divided by four, including zero at k=2. Independent replay python3 -B /workspace/reproduce_frozen.py 3: exhaustive leaf stripping and direct symmetric differences agree with every labeled configuration and exchange for n=5,7,9,11; direct closed-walk counts give 0,42,252,1056 squares. The infinite conclusion is from the proof, not those finite checks.
 
-## Limits and references
-The classification is only for odd base lengths at least five and one-vertex replacement. Bau (arXiv:math/0703544v1), Chiang–Huang–Yeh (doi:10.1007/s10878-014-9790-5), Wei–Li (doi:10.12386/A2013sxxb0022), and Bousquet et al. (doi:10.1016/j.tcs.2023.114188) are the closest identified literature. The generalized-Petersen source was assessed from its abstract, not its inaccessible full paper. A more obscure equivalent under induced-tree enumeration is not ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Minimum cardinality and generic reachability are prior results. A distinct later-dated Resultary record exactly matches the complete odd-prism optimum classification and count, not just the optimum value. The supported distinction is the complete unrestricted exchange graph with explicit transfer and simple four-cycle formula; the catalogue record studies the narrower slide rule, and the located primary results do not give the unrestricted graph data.
+
+## value
+
+PASS
+
+The explicit unrestricted exchange graph determines much more than optimum size, number or reachability. Its transfer identifies every allowable move and exposes a cyclic bit action; the square census counts alternate two-step routes generated by those moves. This makes the natural odd-prism family a reusable exact model for minimum-FVS reconfiguration, including the boundary case with no squares.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

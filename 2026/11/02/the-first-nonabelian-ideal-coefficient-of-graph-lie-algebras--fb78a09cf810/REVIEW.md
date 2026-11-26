@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every three-dimensional class-two nilpotent quotient is abelian or Heisenberg, without excluding characteristic two. The count of abelian kernels is a Gaussian coefficient. Heisenberg epimorphisms are described by projective-line-constrained generator images, and dividing their number by the exact Heisenberg automorphism-group order counts kernels without multiplicity. The correction for empty vector support is explicit. A different ideal-closure enumeration independently checked 21 finite-field examples; the proof, rather than the experiments, covers all graphs and prime powers.
+PASS
 
-## Originality — PASS relative to inspected material
+For the distinct-edge construction, the derived subspace is exactly Z. Abelian quotient kernels contain Z and are counted by the Gaussian coefficient. For any other codimension-three ideal I, write T=I∩Z and U for its projection in X. In the quotient the image of Z is exactly the one-dimensional derived subspace of a three-dimensional Heisenberg algebra. Thus T has codimension one and dim U=n−2. A nonzero functional λ on Z with kernel T defines the nonzero alternating form B=λ∘[ , ] on X, and the ideal condition is U⊆rad B; this forces rank exactly two and U=rad B. Conversely there are q^(n−2) choices of the graph of a linear map U→Z/T for each projective such form. Each rank-two form is pulled back from the determinant on F_q², and each projective form has |GL_2(F_q)| spanning vector presentations. Nonedges require proportional nonzero vectors, hence constant projective lines on each component of the induced complement on the support. Subtracting constant assignments on nonempty supports and excluding the empty support gives exactly Q(q−1,q+1)−(q+1)q^n+q. This bracket counts vector presentations; its stated prefactor converts to ideal counts. The argument uses alternating forms and works in characteristic two. A fresh enumerator tested directly for rank two on normalized edge forms on all labeled simple graphs on 2–4 vertices over F2, F3, F4, and F5 (296 cases). It reproduced the component count and the four-cycle example (15 abelian plus 36 nonabelian over F2). Empty graphs give the Gaussian term only; the two-vertex edge gives exactly one ideal, as asserted.
 
-The 2023 graph-Lie paper proves existence of some induced-subgraph ideals, not this enumeration of all codimension-three ideals. A 2020 ideal-zeta paper gives a general algorithm and examples, not an explicit all-graph formula in the complement induced-component polynomial. The polynomial itself was defined in 2008. Previously obtained exact star-graph ideal counts cover that subclass, but not the general assertion. Related graph-group and normal-subgroup counting literature could contain an implicit equivalent; publication priority is not established conclusively.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Codimensions one and two admit only abelian nilpotent quotients, so codimension three is the first coefficient of the ideal enumerator reflecting nontrivial brackets. This result identifies that coefficient across all simple graphs by a meaningful classical graph polynomial, rather than providing an arbitrary restricted census. The formula distinguishes abelian and Heisenberg quotient types and allows graph-theoretic computation without enumerating Lie ideals.
+The component polynomial and graph-Lie construction are prior. The distinct supported result is the arbitrary-simple-graph identity for the exact codimension-three coefficient over every finite field. Complete bipartite graphs, hence stars, are already covered by stronger ideal-dimension censuses and are not independent contributions of this result. Related all-graph centralizer and class-counting formulas use the same or an adjacent model but not the fixed rank-two edge-form count required for this coefficient.
 
-## Boundaries
+## value
 
-No claim is made for all ideal dimensions, repeated-edge labels, characteristic-dependent exceptional Lie structures in higher quotient dimensions, or global publication priority. Finite checks are corroborative only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dimension three is the first possible nonabelian Lie quotient. The formula separates this entire stratum from the graph-independent abelian count and expresses it as an evaluation of a standard induced-subgraph invariant for an arbitrary graph. That is a uniform ideal-zeta coefficient with a structural explanation, not a numerical example or a recomputation of the already covered star and complete-bipartite coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

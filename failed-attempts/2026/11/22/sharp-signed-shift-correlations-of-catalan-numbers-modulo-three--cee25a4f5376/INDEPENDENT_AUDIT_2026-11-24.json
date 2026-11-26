@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:22:19.236025Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–53",
+        "VERIFICATION.md lines 3–13 and 19–23",
+        "check.py lines 7–70; inspected, not executed",
+        "Independent replay /tmp/opencode/frozen-digit-correlations.py"
+      ],
+      "rationale": "The signed digit rule can be recovered independently in F_3[[x]]: the central-binomial generating function B satisfies B^2=(1-x)^(-1), so B=(1-x)B(x^3). Its coefficients therefore have digit weights (1,-1,0). The Catalan generating function C satisfies x C=B^(-1)-1 modulo 3, with B^(-1)=(1-x)^2 B(x^3)=(1+x+x^2)B(x^3). Reading the coefficient at n+1 gives epsilon(n)=s(floor((n+1)/3)). Splitting the correlation of s by its low digit gives all three recurrences in the submission; each positive lag strictly descends, while the zero lag has normalized value one at every depth. Equivalently, alpha(v)=(-1/2)^d(v), where d counts the nonzero balanced ternary digits. For x=n+1, the classes of x mod 3 contribute (3-t) terms at lag q and t at lag q+1. Moving the x-window endpoint from 0 to 3^r flips each of the two signs for fixed h and sufficiently large r (and preserves zeros); hence the product does not change. This verifies exact stabilization on the ordinary, noncyclic blocks. For positive v, |alpha(v)|=1/2 precisely at the powers of three, with value -1/2. Two consecutive positive arguments cannot both be such powers. Finally q=0 gives R(1)=3/4 and R(2)=0, and t=0 gives R(3q)=(3/2)alpha(q), yielding exactly the proposed extremizers. The independent finite replay /tmp/opencode/frozen-digit-correlations.py used the exact integer Catalan ratio, not the digit rule, for the observed sequence; all 656 tested noncyclic correlations agreed with the balanced-ternary predictions. The proof supplies the universal argument.",
+      "residual_risks": [
+        "The exact stabilization proof fixes h first and does not claim uniformity over arbitrary moving shifts or windows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited foundational Catalan digit congruence is independently confirmed by the formal generating-function calculation. The frozen comparison identifies Burns with the one-point density and Rowland–Yassawi with general automatic-congruence methods. A lacunary Fourier source was identified, but its decisive passage was not acquired."
+        ],
+        "reasoning": "One-point density alone cannot determine the signed result, and neither general automaticity nor an inaccessible textbook was used to decide failure. Exact pair counts on the same set plus the known digit signs are materially stronger than the density comparison.",
+        "searches": [
+          "Deutsch–Sagan arXiv:math/0407326 Theorem 5.2",
+          "Burns arXiv:1611.03705 Section 3",
+          "Rowland–Yassawi arXiv:1310.8635",
+          "Grafakos, Classical Fourier Analysis, lacunary/Riesz product alternative"
+        ]
+      },
+      "checked_sources": [
+        "Frozen sign rule, block proof and prior-work section",
+        "Exact same-support two-sum Resultary summary and mod-seven Delannoy comparison",
+        "Primary digit-congruence, density and lacunary references subject to the access limits noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h=3q+t the class split uses shifts q and q+1, whose parity signs are opposite. The formula for alpha follows from the exact same-support representation counts as shown above. Equivalently in a finite core difference, every balanced digit 0 has two pair choices and each nonzero digit has one, hence normalized weight (-1/2)^d."
+        ],
+        "reasoning": "The full Catalan output is a fixed linear combination of the two extracted table values with the endpoint sign cancellation, so the signed change does not avoid coverage. The only maximal positive v values of the unsigned core coefficient arise from exactly one nonzero balanced digit, i.e. powers of three, which all have negative signed coefficient. This mechanically yields the submitted extremizers from the low-digit split; no additional bound or cancellation problem remains. The Delannoy record, by contrast, uses different digit weights and does not imply this result.",
+        "searches": [
+          "Exact support two-sum indexed statement 3d01efd560fb compared to RESULT.md lines 28–53",
+          "Deutsch–Sagan Theorem 5.2 and balanced-ternary coefficient formulation",
+          "Same-day mod-seven Delannoy comparison 7d22009b7b0a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct index 2026/11/22/SCOPE-exact-two-sum-representation-and-additive-energy-of-ternary-unit--3d01efd560fb explicitly reports an exact target-by-target modular two-sum representation formula at every power of three for the same nonzero Catalan indices. On the core support S of ternary 0/1 integers, s(m)=(-1)^m, since all powers of three are odd."
+        ],
+        "reasoning": "The arithmetic signs add no independent pair variable inside a fixed core lag: s(m)s(m+v)=(-1)^v wherever both factors are supported. In the Fourier alias, the normalized squared modulus of the core finite generating polynomial is the product of factors 1-(z^(3^j)+z^(-3^j))/2. Its coefficients are exactly the balanced-ternary weights, not a different invariant. The equivalence was derived, not assumed from a keyword hit.",
+        "searches": [
+          "Resultary: exact two-sum representation and additive energy of ternary unit-digit integers Catalan numbers modulo three 3d01efd560fb",
+          "Signed ternary Cantor autocorrelation / filter alias",
+          "Primary query: lacunary Riesz product powers of three balanced ternary digit nonzero Fourier coefficients (-1/2) Thue Morse Cantor Fourier autocorrelation explicit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed two-sum result states an explicit representation count for each target modulo every power of three, not just an energy moment. No printed signed-correlation table was established; the support-level table is sufficient by the reflection and parity transformation."
+        ],
+        "reasoning": "At depth r let U be the Catalan nonzero support mod 3^r, S the core 0/1-digit set of depth r-1, and L=(3^(r-1)-1)/2. U+1 consists of 3m+j for m in S and j=0,1,2, so U is invariant under u -> 3L-u modulo 3^r. If T_r is its indexed two-sum count, the unsigned cyclic lag count at 3v is T_r(3L-3v). The three low-digit classes coincide at that lag, giving exactly three times the core cyclic lag count. For fixed v at large r, core wraparound is impossible because m<=L on support and m+v<3^(r-1). Thus alpha(v) is eventually (-1)^v T_r(3L-3v)/(3*2^(r-1)). This is a fixed extraction from the table, not a new pair count.",
+        "searches": [
+          "Resultary exact signed Catalan lag correlations",
+          "Resultary exact same-support target-by-target two-sum counts: 2026/11/22/SCOPE-exact-two-sum-representation-and-additive-energy-of-ternary-unit--3d01efd560fb"
+        ]
+      },
+      "rationale": "The underlying signed invariant is mechanically recoverable from a distinct indexed exact table on the same Catalan support and the known digit signs, not merely analogous to a density calculation. The exact table is the target-by-target modular two-sum representation count for the nonzero Catalan indices at every ternary depth. Reflection converts its entries into cyclic unsigned lag counts, and taking lags divisible by three isolates the core 0/1 digit set. For its supported pairs the sign is determined by the parity of the core lag. The fixed-lag endpoint comparison converts these counts into the submitted noncyclic limit by a two-term formula. The extremizers are then the one-nonzero-balanced-digit case of the same elementary ternary product, plus the first two lags from the three residue classes. This is a mathematical implication judgment, not a claim that the signed theorem appears verbatim in the indexed record or that same-day publication establishes temporal priority.",
+      "residual_risks": [
+        "Full passage retrieval remained incomplete; the implication uses the exact all-depth, target-specific coverage explicitly stated in the index, not an uninspected general theorem. No chronological priority or verbatim duplication is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable table-to-claim implication, not a claim about wording elsewhere in the document or publication order",
+          "evidence": [
+            "The indexed modular pair counts are for indices whose Catalan numbers are not divisible by three, target by target and modulo every power of three."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-sum-representation-and-additive-energy-of-ternary-unit--3d01efd560fb",
+          "material_read": "Resultary's exact available statement of the object, all-depth modulus and target-by-target representation formula; original Finding passage not retrieved",
+          "method": "Targeted local Resultary query and local-mirror Finding request (timed out); mathematical reduction above uses only the indexed exact scope",
+          "title": "Exact two-sum representation and additive energy of ternary-unit Catalan indices",
+          "trigger": "Exact pair-count formula on the same underlying support"
+        },
+        {
+          "assessment": "Credit the signed digit rule; the calculation of signs does not require novelty credit",
+          "evidence": [
+            "epsilon(n)=s(floor((n+1)/3)); on core support s(m)=(-1)^m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0407326",
+          "material_read": "Frozen RESULT.md lines 29–33, 58–59 and citation to Theorem 5.2; primary passage could not be retrieved",
+          "method": "Targeted OA attempt; independent formal-series derivation verifies the rule used",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Known signed rule needed to convert unsigned counts"
+        },
+        {
+          "assessment": "Not used to infer exact coverage or non-coverage",
+          "evidence": [
+            "Known density and automaticity are distinct from the explicit same-support two-sum count."
+          ],
+          "identifier_or_url": "arXiv:1611.03705; arXiv:1310.8635",
+          "material_read": "Frozen comparison lines 58–62 and references; no decisive original passage retrieved",
+          "method": "OA passage requests and bounded primary comparison",
+          "title": "Asymptotic density of Catalan numbers modulo 3 and powers of 2; Automatic congruences for diagonals of rational functions",
+          "trigger": "Foundational density or broader automata coverage"
+        },
+        {
+          "assessment": "No external full-text claim made; the finite Riesz-product identity was proved directly",
+          "evidence": [
+            "The audit's balanced-ternary identity follows from expanding the finite product, independently of textbook attribution."
+          ],
+          "identifier_or_url": "https://www.math.stonybrook.edu/~bishop/classes/math638.F20/Grafakos_Classical_Fourier_Analysis.pdf",
+          "material_read": "Identified source and section in primary search; no decisive passage retrieved",
+          "method": "Targeted lawful OA passage attempt",
+          "title": "Classical Fourier Analysis, lacunary series section",
+          "trigger": "Fourier alias for balanced ternary coefficient weights"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–53",
+        "Exact modular two-sum index 3d01efd560fb",
+        "Reflection, parity and balanced-ternary comparison in originality assessment"
+      ],
+      "rationale": "The Catalan support and its sparse signed correlation are natural, and the formula is correct. The issue is specific to this result: its new-looking sign statistics are fixed parity transforms of exact same-support pair counts, and the extremal lags follow by counting a single nonzero balanced digit and splitting three residue classes. The fixed-shift boundary cancellation ensures that this transform applies to the stated blocks but leaves no separate uncaptured statistic. The frozen result therefore does not establish a distinct unknown exact invariant or nonroutine classification beyond the documented coverage. No scientifically distinct repaired claim was established.",
+      "residual_risks": [
+        "The decision is confined to the exact frozen claims, not to signed correlation questions in which the signs are not constant on supported pairs at fixed core lag."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

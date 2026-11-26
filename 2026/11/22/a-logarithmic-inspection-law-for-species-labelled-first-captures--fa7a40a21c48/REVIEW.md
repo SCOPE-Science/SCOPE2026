@@ -1,19 +1,21 @@
-# Scientific review: species-labelled single-catch retrieval time
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof establishes the categorical probabilities of a stationary, independent Poisson competing-capture process, explicitly separates total intensity from conditional species proportions, computes the full-rank Fisher determinant in the original per-species rate coordinates, and uses a strictly decreasing logarithmic derivative to prove one global positive-duration optimum for every integer \(k\ge3\). The stationary equation has exactly one root above two. The monotone dependence on \(k\), logarithmic expansion, and timestamp-coarsening ratio follow from exact equations and not extrapolated numerical experiments. The independent finite-difference checker passes 1,283 deterministic diagnostics in its current packaged form.
+PASS
 
-## Originality
+Independent reconstruction gives the reported determinant: with q=1-exp(-rt) and pi_i=lambda_i/r, the total-rate Bernoulli information is t^2 exp(-rt)/q; the species block is q times the multinomial information with determinant 1/product(pi_i); the squared change-of-coordinate determinant is r^(-2(k-1)). The score blocks are orthogonal by conditioning on capture, not in general independent as the proof's wording suggests. The time-resolved likelihood for elapsed time S=min(T,t), capture indicator D and label J has radial score D/r-S, so the radial information is E[D]/r^2=q/r^2 and the conditional categorical block is unchanged. This proves the determinant ratio, not a claim about the efficiency of each species estimator. The time-dependent log derivative is strictly decreasing from positive infinity to -1, is positive at x=2 for k>=3, and increases pointwise with k. The root identity exp(x_k)=1+(k-2)/(1-2/x_k) brackets the root between log(k) and log(k)+1 for large k and gives x_k=log(k)+2/log(k)+O(log(k)^(-2)). Thus k exp(-x_k) tends to one, q^(k-2) tends to exp(-1), and the same-horizon ratio is asymptotic to (log(k))^2/k, without the extra exp(-1) in the normalized optimal determinant. These statements concern a common duration at all stations, conditional on nominal r; they do not optimize mixed-duration designs, cost-normalized designs, or timestamped experiments over their own horizons. Read the supplied diagnostics without executing them.
 
-**PASS relative to the inspected evidence, with residual priority risk.** Wu–Huang (2014) give related competing-risk Fisher-information matrices and numerical, multi-interval D-optimal criteria, principally for two risks. Their Section VII suggests general risk counts, and is the strongest potential overlap; it does not explicitly prove the specific single-terminal-category global optimum, strict all-\(k\) monotonicity, its logarithmic asymptotics, or the universal coarsening ratio. Distiller–Borchers (2015) use first-capture times in spatially explicit trapping and do not optimize the reduced observation's retrieval time. Zhou et al. (2026) use general multinomial competing-risk information but select the number of pre-specified inspection periods and treatment allocation, rather than proving this free continuous all-species retrieval-time law. A published two-visit occupancy design result concerns a different state/observation process and does not imply the first-capture categorical objective. These statement-and-implication distinctions are substantive; numerical absence of a matching title alone would not establish novelty. General optimal-design treatises and less accessible cause-specific inspection papers remain historical-priority risks.
+## originality
 
-## Value
+PASS
 
-**PASS.** Species-labelled single-catch stations face a concrete tension: long exposure reveals categorical species identity with high probability but almost eliminates the empty-station observations needed to estimate the total encounter rate. This result resolves that tension sharply for all species counts. The increasing dimensionless optimum and its logarithmic growth, the asymptotic one-in-\(k\) empty fraction, and the exact time-coarsening determinant penalty are interpretable benchmarks for low-information ecological instruments. The fact is not merely a fitted numerical design, arbitrary parameter slice, or a reparameterized familiar bound. The model is stylized; it does not recommend real-world trap durations without cost, spatial and animal-behavior calibration.
+The category likelihood and generic information matrix are established competing-risks methods, including an equivalent one-shot reliability formulation. The narrower surviving contribution is the continuous common-time optimization for arbitrary species/cause count with its logarithmic expansion and exact coarsening comparison. The relevant broader sources that could be read materially do not give a dominating design theorem; the inaccessible reliability full texts leave a specific priority risk.
 
-## Scientific limitations
+## value
 
-The design is local in unknown rates, uses independent stationary Poisson encounters, correctly identified first-capture species, fixed station count, and no operation cost. Timestamp information, variable site intensities, species misclassification, finite observation caps, dependence among stations and recapture are outside the theorem. The contribution may have precursors in broader one-shot reliability or interval-censoring design literature. No independent expert validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One shared duration is a natural logistical constraint. The optimum balances the disappearing information in the empty category against the increasing information in species labels, with roughly one empty station in k at large k. The exact determinant loss at the same horizon is useful for judging when timestamps can matter in the idealized setup. The result is a benchmark, not a field recommendation or a robustness study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

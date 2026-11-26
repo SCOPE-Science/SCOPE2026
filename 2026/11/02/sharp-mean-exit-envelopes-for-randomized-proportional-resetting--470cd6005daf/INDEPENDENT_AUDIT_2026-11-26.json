@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:22:57.162712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(4), Proof §§1–6",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Independent bounded replay: python /workspace/review_evidence/replay.py (record 4; exact rational signed law, both boundary values and generator cancellation up to degree 10 of a degree-12 polynomial)"
+      ],
+      "rationale": "On blocks of a fixed length, no resets and a Brownian displacement exceeding 2L in magnitude force exit with probability bounded away from zero uniformly in the starting interior point. Thus the exit time is integrable, including for signed multipliers with endpoint atoms. Rather than assume analyticity of the mean, construct the candidate: the generator on x^{2n} gives 2Dn(2n−1)x^{2n−2}−r(1−m_n)x^{2n}. Inserting the factorial series cancels every positive degree and leaves −1. The series and its first two derivatives converge uniformly on the closed interval and its boundary values vanish. Stopped Dynkin's formula with the finite-exit bound identifies it with the mean. Jensen and U^j≤U for U=A² give q^j≤m_j≤q. At j=2, equality requires U=q a.s. or U∈{0,1} a.s., respectively, and any strictness enters with positive weight already at n=3 for r>0 and |x|<L. The on/off sum is cosh; for signed on/off factors flips are invisible for the symmetric exit statistic, not necessarily for the signed process itself. In a stationary construction on the whole line, integrate the past Brownian increments weighted by intervening reset-factor products. The squared product averaged at lookback u is exp(−r(1−q)u), making the integral square integrable with zero mean and variance 2D/[r(1−q)]. The n=3 coefficient difference is (1−q)Var(U)/720 at the center. At high rate the fixed-magnitude product coefficients tend to (q;q)_∞; in the cosh series, any fixed-degree initial part has vanishing relative weight. Comparing the two cosh scales yields the exact ratio, including the factor 1−q and the specified fixed-q regime.",
+      "residual_risks": [
+        "The polynomial test is not a convergence or uniqueness argument; those are analytic. The high-rate comparison is for fixed retention, not uniform as q approaches an endpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Méndez et al. draw location independently of the current state. Pierce gives proportional-reset stationary moments for a fixed factor. Resultary 7b0f19736f42 uses the same fixed-q stationary squared-position setting, and establishes convex-order extremizers with the same magnitudes."
+        ],
+        "reasoning": "Independent reset locations, fixed factors, and stationary one-time laws do not encompass the killed, random sample-path comparison. The same endpoint laws and the general moment inequality must not be claimed as novel in their own right.",
+        "searches": [
+          "arXiv:2401.01125v1 §II; arXiv:2204.07215v1 §III.A; Resultary 7b0f19736f42"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.08387v1, 1812.03009v2, 2401.01125v1, 2204.07215v1 (locators above)",
+        "Indexed Resultary records 638f1e8ee738, 06fe2a2cb477, 7b0f19736f42, e63f25cf8387",
+        "Targeted literature lookup for moment-product first exit and multiplier-law extremizers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-a even coefficients already contain ∏(1−a^{2j}), and that product gives the asymptotic amplitude for one target. The known zero-reset hyperbolic cosine solution specializes to the lower envelope. Fixed-q squared-factor ordering is shared with the stationary convex-order work."
+        ],
+        "reasoning": "The earlier ingredients explain the shapes of the endpoints but do not order the two-sided Dirichlet solution for all intermediate laws. The state-dependent random generator and its positive even-series weights provide the needed connection and the strictness and gap; no inspected stronger exit theorem supplies that connection.",
+        "searches": [
+          "Biroli et al. equations (23), (28)–(35), (44)–(47); Pal–Prasad equations (1)–(4); Resultary 7b0f19736f42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-sign reflected resolvents treat a single target; crossing without hitting can be distinguished there. For the on/off law, exact resets to 0 occur at thinned rate r(1−q), and the absolute-value process is not changed by the remaining flips."
+        ],
+        "reasoning": "Folding the interval problem gives a reflecting origin and an absorbing positive boundary, not a full-line single point target. Thinning transfers the on/off case but not the iid multiplier family.",
+        "searches": [
+          "Resultary random proportional resetting, first passage and mean-squared multiplier comparisons; records 638f1e8ee738, 06fe2a2cb477, 7b0f19736f42, e63f25cf8387",
+          "arXiv:2406.08387v1 and arXiv:1812.03009v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact tabulated or displayed symbolic matches concern fixed-factor products or one-target resolvents and stationary moments. The 06fe2a2cb477 and 7b0f19736f42 indexed records give distinct same-day statements."
+        ],
+        "reasoning": "The one-target series includes odd contributions not part of the symmetric killed problem; a stationary moment expression does not identify boundary-conditioned first passage. Date alone was not used to discard either overlap.",
+        "searches": [
+          "Resultary first-passage series and stationary convex-order records 638f1e8ee738, 06fe2a2cb477, 7b0f19736f42; Biroli et al. §III equations (28)–(47)"
+        ]
+      },
+      "rationale": "The lower-envelope expression is a familiar fixed-location reset special case. The even product and its high-rate limit have a close fixed-multiplier, one-target precedent. The stationary quadratic statistic is also not the novelty. The supported distinction is the signed iid multiplier, symmetric absorbing interval and optimization over all laws at given q, with a strict classification and a quantitative gap. In the inspected sources, stationary convex-order results share the two extremizing laws, but do not establish this ordering of exit means or its gap.",
+      "residual_risks": [
+        "A general killed-process monotonicity result under contraction-factor order could overlap; none was established by the bounded comparisons. Same-day partial overlap does not establish temporal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage, not the iid two-boundary ordering",
+          "evidence": "The one-target fixed-multiplier even coefficients have the same product under a²=q; its infinite version appears in the high-rate amplitude.",
+          "identifier_or_url": "https://arxiv.org/html/2406.08387v1",
+          "material_read": "§III equations (23), (28)–(35), (44)–(47), HTML offsets about 20500, 27000, 35200",
+          "method": "Bounded primary HTML text inspection",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Closest fixed-factor MFPT product and large-rate law"
+        },
+        {
+          "assessment": "Exact model for the lower special case after thinning, not law optimization",
+          "evidence": "The spatial reset destination is fixed at the designated initial point.",
+          "identifier_or_url": "https://arxiv.org/html/1812.03009v2",
+          "material_read": "§II equations (1)–(4), HTML offset about 7500",
+          "method": "Bounded primary HTML text inspection",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Absorbing interval and on/off limit"
+        },
+        {
+          "assessment": "Different dependence on pre-reset state",
+          "evidence": "Reset points are drawn from a spatial density, not a multiple of the position at the event.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "§II equations (1)–(6), PDF text near offset 8820",
+          "method": "Bounded primary PDF text inspection",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Random reset distributions in Brownian first passage"
+        },
+        {
+          "assessment": "Fixed multiplier and stationary moments, not mean exit envelopes",
+          "evidence": "The moment recurrence is for the unabsorbed process.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.07215",
+          "material_read": "§III.A equations (6)–(10), PDF p. 3, text near offset 18000",
+          "method": "Bounded primary PDF text inspection",
+          "title": "An advection-diffusion process with proportional resetting",
+          "trigger": "Proportional resetting, stationary moment recurrence"
+        },
+        {
+          "assessment": "Substantive overlap in moment ordering; distinct statistic",
+          "evidence": "Stationary squared-position convex-order bounds and uniqueness at the same two magnitude laws; no exit-time comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42/RESULT.md",
+          "material_read": "RESULT.md Finding and stationary squared-position comparison",
+          "method": "Indexed lookup and mirrored record inspection",
+          "title": "Sharp convex-order bounds for Brownian motion with randomized partial resetting",
+          "trigger": "Same-day same parameter and equality cases"
+        },
+        {
+          "assessment": "Different stopping event and fixed multiplier",
+          "evidence": "Single-target hitting for a fixed negative multiplier, rather than symmetric exit for arbitrary iid reset magnitudes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-certified-first-passage-series-for-brownian-reflection-rescaling--06fe2a2cb477/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed lookup and mirrored record inspection",
+          "title": "Certified first-passage series for Brownian reflection-rescaling",
+          "trigger": "Same-day first-passage series with negative resets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(4) and limitation to the mean",
+        "Resultary stationary squared-position comparison 7b0f19736f42; Biroli et al. fixed-factor first passage"
+      ],
+      "rationale": "A natural stationary measurement, the positional variance, leaves the mean escape time poorly identified. The result says exactly what can happen at that fixed measurement, for every interior start and every law, and quantifies the potentially exponentially large relative discrepancy at the center. Taking the same extremizers for first passage as for a stationary moment would not by itself justify that conclusion.",
+      "residual_risks": [
+        "No distributional exit order, asymmetric-target comparison, or application outside the stated model is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

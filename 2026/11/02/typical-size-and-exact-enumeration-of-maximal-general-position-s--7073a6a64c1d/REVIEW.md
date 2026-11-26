@@ -1,11 +1,21 @@
-# Review of the exact maximal-set enumerator and typical-size limit
+# Independent mathematical audit
 
-**Correctness: PASS.** The independent original-shortest-path verifier exhausts 33,856 subsets for \(n=4,5,6\). The argument classifies precisely which disjoint edge-stars and triangles are inclusion-maximal, applies the labeled exponential formula, and proves its typical deficit via a size-conditioned independent-Poisson representation. The conditional local limit is justified by Fourier inversion, explicit Gaussian variance, and uniform tail decay. The exceptional all-triangle partitions are exponentially negligible at logarithmic-combinatorial scale. Finite enumeration is a check, not the infinite proof.
+## correctness
 
-**Originality: PASS, subject to residual priority uncertainty.** The 2019 maximum general-position result and the 2023 lower general-position result cover different cardinality extremals; importantly, the 2023 paper *does* provide the star/triangle maximal-set classification that the present work uses. The 2024 general-position-polynomial paper concerns all feasible sets rather than maximal sets, and the graph treated there is primarily the complementary Kneser graph. The 2022 mobile general-position result uses a different dynamical invariant. No inspected primary paper or targeted mathematical-record hit gives this joint exact maximal-set polynomial and sharp \(n/\log n\) typical-deficit limit. Unindexed equivalent enumerations or general assembly limit statements remain a real risk; novelty is not proved by lack of matches.
+PASS
 
-**Value: PASS.** The first-order typical-size law resolves the typical-versus-extremal cardinality of a natural infinite graph family: uniformly sampled inclusion-maximal configurations have \(n-n/\log n\) vertices to first order, far above the known minimum near \(n/2\). The exact bivariate assembly polynomial makes the limit reproducible and supplies every finite coefficient. This is more than restating the earlier shape classification.
+The induced-P3 criterion in a diameter-two graph makes selected root edges form vertex-disjoint clique components in the line graph. Two-edge stars can be completed; an uncovered vertex is insertable at a star centre, and two uncovered vertices can be joined. Conversely a new edge joining blocks gives an induced P3, an extra edge inside a large star misses a third spoke, and an edge from an isolate to a triangle misses the opposite triangle edge. This proves the precisely labeled block model, including one star center per possible root on blocks of size at least four and the exceptional singleton. In the independent-Poisson model the means grow as E J ~ n/r, Var(J)=O(n/r), Var(N)~nr, with r~log n. For the conditioning estimate, the middle block sizes [r/2,2r] carry asymptotically all the variance and give Gaussian domination for |t|≤δ/r; outside it the exponential term gives a gap Ω(n/r²), dominating the O(r³) polynomial subtraction. The cubic moment bound O(nr²) is negligible at the central scale. Thus P(N=n)~(2πnr)^(-1/2), and conditioned Chebyshev costs only O(r^(3/2)/sqrt(n)). The log count of the exceptional class is smaller by order n log n, so the same limit holds for the uniform maximal-set distribution.
 
-**Limitations.** No independent review, no second-order fluctuation theorem, no claim of first discovery, and no exhaustive global literature guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the narrowed asymptotic claim. The known maximal block description, including the exceptional configurations and the deficit as the number of stars in the covered class, makes its labeled enumerator a direct exponential-formula consequence. An exactly equivalent later catalogued enumerator is noted. The inspected work does not give the uniform asymptotic deficit on this restricted assembly, and the standard general saddle theorems have analytic hypotheses requiring proof for it.
+
+## value
+
+PASS
+
+The asymptotic distinguishes what is typically sampled from both size extrema of a natural graph family: most maximal sets are short of n by asymptotically n/log n, although optimum size is within one of n and minimal maximal size is on a different linear scale. The normalization and leading constant answer that concrete distributional question; the routine EGF alone is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

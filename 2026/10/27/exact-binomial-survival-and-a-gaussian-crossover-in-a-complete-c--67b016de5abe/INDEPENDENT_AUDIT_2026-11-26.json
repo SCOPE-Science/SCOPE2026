@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:45.412857Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For initial two-count k, every two falls to one, and the sign at a one is the sign of T_n−k. If the ones die, the k survivors at one are already on the uniform two-cycle for k≥2; a singleton fixes at two on the next update. If the ones rise, the roles switch and the remaining extinction test at update two compares n−k to T_n. The second update either restores the initial state or leaves the retained sites uniformly at one. Endpoints k=0,n give full survival. At ties k=T_n or n−k=T_n, the full state becomes uniform at one by the corresponding update if no earlier extinction occurred. For all other initial counts the strict formula is unchanged, even if T_n is integral. The at-most-two binomial atoms have total mass O(n^{-1/2}). Complete survival away from these atoms and endpoints is the strict interval |(2k−n)/sqrt(n)|<2s for s>0, empty for s≤0. The CLT then gives the asserted atom at one, while on the complementary event the distance to 1/2 is bounded by |k/n−1/2| except on the negligible ties. Bounded convergence of the expectations follows from weak convergence on [0,1]. At fixed alpha=2/3 the threshold equals (n−1)/2, giving the critical limit; on either strict side the LLN gives the stated jump. Independent integer arithmetic verified two-step entry, occupancies and binomial multiplicities in 1,200 exchangeability classes at n=3..11, sampling every threshold chamber and boundary. The frozen replay path is verify.py, a rational finite test excluding ties; it was inspected, not executed. No finite test is evidence for the CLT by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix C proves eventual period at most two for symmetric interactions, without this entry bound or orbit census. Appendix F.2 uses high-degree BDCM equations and complete-graph simulations; Fig. 9 gives the K=2 threshold 2/3.",
+          "The Resultary cycle records give exact topology-dependent survival results for alpha>1. The nearly complete network record is about a continuous-time ODE and stable coexistence with a matching removed."
+        ],
+        "reasoning": "Symmetry and large degree subsume pieces of the claim but not the per-count finite-law restriction. Collapse of the finite orbit to two exchangeable initial groups uses the full complete-graph symmetry, absent in the cycle or matching-deleted inputs.",
+        "searches": [
+          "arXiv:2606.09494v1 Appendix C and Appendix F.2, Fig. 9",
+          "Resultary 46ff4ec363d2, 4c06292da6a2, 70a23705ca23"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.09494v1 §II, main-text full-occupancy analysis, Appendices C and F.2",
+        "Resultary 46ff4ec363d2",
+        "Resultary 4c06292da6a2",
+        "Resultary 70a23705ca23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source also models subdominant fully occupied attractors and their basin entropy past 2/3; for K=2 the atypical full-occupancy regime extends to approximately one in the large-degree analysis.",
+          "The cycle CLT concerns aggregate survivors in a different fixed-coupling spatial model, not a limit across the threshold."
+        ],
+        "reasoning": "The entropy observation is consistent with the two all-equal starts being the only complete-survival states in the strict regime 2/3<alpha<1, but does not imply their exact weight 2^(1−n) or the central binomial interval when alpha is detuned by order n^(−1/2). The mixture has a Gaussian weight, not a normally distributed occupied fraction.",
+        "searches": [
+          "Sergo et al. arXiv:2606.09494v1 offsets 44000–50458 and 178000–182988",
+          "Resultary 46ff4ec363d2 RESULT.md Finding and Scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sergo et al. use uniform coupling alpha/d on a d-regular graph, synchronous sign growth and uniform positive initial abundances; d=n−1 and K=2 are exactly the present model.",
+          "Sergo et al.'s alpha_ext concerns the onset of a positive vacant fraction, not disappearance of all sites."
+        ],
+        "reasoning": "The normalization and update match the antecedent under substitution, so no novelty attaches to the model. A vacancy-fraction threshold or full-support entropy is not the exact distribution of survivors conditioned on the initial two-count.",
+        "searches": [
+          "arXiv:2606.09494v1 §II and main-text subdominant fully occupied attractors",
+          "Published Resultary discrete competitive complete/fully connected sign map and occupancy law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source provides alpha_ext≈0.66 and alpha_atyp≈1.0 for K=2 at large degree and a threshold comparison in Fig. 9, not the finite binomial census.",
+          "Closest indexed exact survival counts are for cycles (46ff4ec363d2 and 4c06292da6a2); no matching complete-map formula was identified in those returned comparisons."
+        ],
+        "reasoning": "The natural exact database target here is an all-n formula in a named model rather than a fixed integer table. Neither a high-degree plot nor the indexed cycle counts is that formula.",
+        "searches": [
+          "Published Resultary complete-graph exact binomial survival and Gaussian finite-size crossover",
+          "arXiv:2606.09494v1 full-occupancy entropy and Appendix F.2 Figure 9"
+        ]
+      },
+      "rationale": "Pass for the exact finite complete-graph survival law and its critical-window mixture. The map, asymptotic vacancy threshold, atypical full occupancy beyond that threshold, and maximum eventual period have antecedents; they are not claimed new. The prior-work paragraph would be more complete if it mentioned the same paper's analysis of full-occupancy entropy and alpha_atyp. That overlap does not give the finite census or the crossover.",
+      "residual_risks": [
+        "A differently named complete-graph threshold map or an unlocated calculation may give an equivalent count. The inspected primary sections and ranked results do not certify priority.",
+        "The bounded broader ecology search was not decisive and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers update, period bound, threshold and atypical occupancy analysis; not the exact finite law in those passages",
+          "evidence": "Appendix F.2 compares fully connected simulations to BDCM; Figure 9 reports alpha_ext=2/3 at K=2. The full-support basin-entropy analysis is distinct from exact multiplicities.",
+          "identifier_or_url": "https://arxiv.org/html/2606.09494v1",
+          "material_read": "§II offsets 10300–15449, full occupancy discussion offsets 44000–50458, Appendix C offsets 87500–91685 and Appendix F.2 offsets 178000–182988",
+          "method": "OA primary HTML passages",
+          "title": "Percolation and clustering in ecological communities: A dynamical theory",
+          "trigger": "Same model, threshold and possible finite-size coverage"
+        },
+        {
+          "assessment": "Different source graph and coupling regime",
+          "evidence": "C_n, n≥5, alpha>1, with thresholds 1 and 2 and a survivor-count CLT.",
+          "identifier_or_url": "Resultary:46ff4ec363d2",
+          "material_read": "RESULT.md offsets 0–4887",
+          "method": "Published local mirror",
+          "title": "A two-threshold one-dimensional ecological fragmentation law",
+          "trigger": "Exact survival and Gaussian limit for the same type of sign update"
+        },
+        {
+          "assessment": "Cycle-graph calculation, not the complete-graph census",
+          "evidence": "Initial runs of high biomass classify survival on the cycle; expected occupied fractions are 3/8 and 1/8 in its two regimes above one.",
+          "identifier_or_url": "Resultary:4c06292da6a2",
+          "material_read": "RESULT.md offsets 0–4687",
+          "method": "Published local mirror",
+          "title": "Two sharp competition thresholds and exact surviving populations",
+          "trigger": "Exact basin classification in the same ecological model"
+        },
+        {
+          "assessment": "Different dynamics and stability question",
+          "evidence": "Continuous-time LV with a matching deleted from the graph, not synchronous finite-state updates from unbiased starts.",
+          "identifier_or_url": "Resultary:70a23705ca23",
+          "material_read": "RESULT.md offsets 0–3331",
+          "method": "Published local mirror",
+          "title": "A universal half-coupling transition for nearly complete competitive networks",
+          "trigger": "Apparent complete-network threshold overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite law quantifies how a canonical complete-mixing limit approaches a known discontinuity, and gives exact probabilities even for atypical full occupancy. The natural threshold window produces a one-sided Gaussian probability weight for a non-Gaussian limiting mixture, a more precise answer than either the bulk threshold or an eventual-period theorem. The elementary case split and CLT are methods; the exact finite count and window are the result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

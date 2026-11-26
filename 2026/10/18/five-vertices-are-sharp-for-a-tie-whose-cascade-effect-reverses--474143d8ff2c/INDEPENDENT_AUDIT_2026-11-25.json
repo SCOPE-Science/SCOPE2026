@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:56:26.381641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every inactive activation test at order n has denominator at most n−1, so the synchronous closure and response are constant on each cell (a,b] between consecutive positive critical values (starting with a=0). The right boundary uses inclusion at equality. An independent exact census /workspace/branches/replay_5.py uses least stable supersets rather than round-by-round updates: a set containing the fixed seed is stable when all outside active fractions are strictly less than the test threshold, and the actual closure lies in every such set and is one of them. It found connected counts 1,4,38,728 and reversal counts 0,0,0,420 at n=2,3,4,5. The complete relabeling orbits of the five reported representatives are disjoint, have sizes 60,120,60,120,60 in table order, and exhaust the 420 marked triples. Their common response at the six right endpoints (1/4,1/3,1/2,2/3,3/4,1) is (0,0,3,−1,−1,−1). For the all-order family, seed 1 first activates 2 (a leaf in the base), but base vertex 0 has only one active neighbor of three, so the base reaches all n by propagation only at phi≤1/3, otherwise it stops at two. After adding 02, vertex 2 activates iff phi≤1/2 at the first round, then 0 has two active neighbors of four, and the remaining branches of degree at most two adopt at these thresholds. Above 1/2 neither susceptible vertex activates, so only the seed remains. This verifies the unbounded family and both threshold boundaries analytically. The frozen verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "879616ed8476 gives a sharp worst loss and minimum harmful-addition order k+2 for k=floor(1/phi) at a fixed phi. af99c793984a gives beneficial/harmful/neutral changes in the counts of successful seed sets when bridging two cliques. 1ab5a16fb31f gives unbounded amplification on bounded-degree trees under random homophilic rewiring with two seeds and a strict threshold.",
+          "Waniek–Hidalgo p. 2 reports that some central bridges can impede similarity-dependent diffusion."
+        ],
+        "reasoning": "The stronger inhibition bound is for a different extremum and does not guarantee a beneficial threshold for its witness. A disconnected base graph, changes in seed-set success, or a deletion-plus-addition rewiring with multiple seeds do not subsume the fixed single-edge and single-seed setup.",
+        "searches": [
+          "Resultary 879616ed8476, af99c793984a and 1ab5a16fb31f",
+          "Waniek–Hidalgo DOI 10.1177/26339137221128542, complex contagion bridge optimization"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 879616ed8476",
+        "Resultary af99c793984a",
+        "Resultary 1ab5a16fb31f",
+        "DOI 10.1073/pnas.082090499",
+        "DOI 10.1038/srep02330",
+        "DOI 10.1177/26339137221128542"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-threshold result and bridge literature establish inhibition mechanisms, and the unbounded-rewiring case establishes amplification under a different operation. None compares two thresholds with the very same edge and seed while imposing both signs."
+        ],
+        "reasoning": "Separate beneficial and harmful witnesses cannot establish one joint witness. Nor does a worst loss at a fixed threshold imply the order-five orbit count or a threshold family with improvement n−2 and loss one. The exact finite search and the constructive tree argument make those claims independently checkable.",
+        "searches": [
+          "Resultary 879616ed8476 RESULT.md offsets 0 and 4723",
+          "Resultary 1ab5a16fb31f Finding",
+          "Watts model specification and Waniek–Hidalgo DOI 10.1177/26339137221128542 p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Watts p. 2 specifies adoption by active fraction, but the subject is random-network cascade vulnerability. Singh et al. p. 1 examine common-threshold cascades for multiple initiators and cascade size as initiator fraction changes. Resultary 879616ed8476 focuses on inhibition at a fixed threshold."
+        ],
+        "reasoning": "Diffusion and threshold activation can be equivalent dynamics, but averages over seed choices, changes to the number of seeds, or threshold-specific optimization of graph and edge do not give the marked fixed-triple comparison.",
+        "searches": [
+          "Resultary: fractional-threshold contagion adverse added edge, same-initiator threshold reversal; edge inhibition, complex contagion and seed-set conversion",
+          "Watts DOI 10.1073/pnas.082090499",
+          "Singh et al. DOI 10.1038/srep02330"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched Resultary records tabulate or characterize threshold-dependent extremal loss or seed-set counts in different settings; none of the inspected findings gives the five marked graph orbits or the common per-orbit response law."
+        ],
+        "reasoning": "A census of marked reversals identifies the same triple at all thresholds and quotients by simultaneous relabeling. A fixed-threshold optimum or a census of successful seed sets does not encode that information.",
+        "searches": [
+          "Resultary exact small-order fractional cascade one-edge and one-seed classifications; 879616ed8476 and af99c793984a Findings"
+        ]
+      },
+      "rationale": "The relevant distinction is a sign reversal for the same marked graph, added edge and seed over a varied threshold, with the exact minimum-order census and all-order law. Fractional-neighbor dilution and adverse links were known. The strongest inspected Resultary comparators cover fixed-threshold losses, a bridge joining disconnected components, or a rewiring intervention, none of which states or implies this joint reversal theorem under the same assumptions. The bounded primary and catalogue comparisons do not prove novelty worldwide.",
+      "residual_risks": [
+        "The focused catalogue and primary-source checks do not rule out a covering result in an unexamined network-game or complex-contagion paper.",
+        "Catalogue path dates were not used to establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related exact fixed-threshold extremum; not a sign-reversal classification",
+          "evidence": [
+            "Gives worst loss L(n,phi) and first harmful order floor(1/phi)+2 at fixed phi."
+          ],
+          "identifier_or_url": "Resultary 879616ed8476",
+          "material_read": "Finding at offset 0 and relationship text at offset 4723",
+          "method": "Local Resultary mirrored RESULT.md",
+          "title": "Sharp one-edge inhibition bounds for fractional-threshold social cascades",
+          "trigger": "Same edge intervention and homogeneous fractional dynamics"
+        },
+        {
+          "assessment": "Different base graph regime, initial-set comparison and output statistic",
+          "evidence": [
+            "Connects two cliques and counts seed sets attaining complete adoption."
+          ],
+          "identifier_or_url": "Resultary af99c793984a",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirrored RESULT.md",
+          "title": "A three-way bridge effect on two-community threshold cascades",
+          "trigger": "Positive, zero and negative changes after adding a bridge"
+        },
+        {
+          "assessment": "Rewiring with two seeds and strict thresholds, not a deterministic inclusive one-edge law",
+          "evidence": [
+            "The intervention is a random homophilic rewiring rather than a retained base graph plus one nonedge."
+          ],
+          "identifier_or_url": "Resultary 1ab5a16fb31f",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirrored RESULT.md",
+          "title": "A single homophilic rewiring gives an unbounded cascade on bounded-degree trees",
+          "trigger": "Comparable unbounded tree-family amplification"
+        },
+        {
+          "assessment": "Common underlying mechanism, not the marked added-edge theorem",
+          "evidence": [
+            "Specifies local fraction of adopting neighbors and analyzes random-network vulnerability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1073/pnas.082090499",
+          "material_read": "p. 2, Model Specification, at offset 9300",
+          "method": "Lawful OA primary PDF passage",
+          "title": "A simple model of global cascades on random networks",
+          "trigger": "Primary source for fractional-neighbor threshold cascades"
+        },
+        {
+          "assessment": "Varies the fraction of initiators and studies cascade size, not one marked seed and addition",
+          "evidence": [
+            "Multiple initiators are part of the studied setup."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/srep02330",
+          "material_read": "p. 1, offset 646",
+          "method": "Lawful OA primary passage",
+          "title": "Threshold-limited spreading in social networks with multiple initiators",
+          "trigger": "Closely related common-threshold cascade study"
+        },
+        {
+          "assessment": "Similarity-dependent bridge optimization, not the uniform-threshold complete census",
+          "evidence": [
+            "Reports that some central bridges can impede diffusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1177/26339137221128542",
+          "material_read": "OA submitted version p. 2, offset 2950",
+          "method": "Identified lawful repository copy of the same work; publisher page was unavailable",
+          "title": "Bridging the polarization gap: Maximizing diffusion among dissimilar communities",
+          "trigger": "Bridge placement can inhibit or enhance diffusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "With graph, intervention and initiator fixed, the sign of the intervention changes solely with the response threshold. The complete minimum-order classification makes this a structural benchmark rather than an arbitrary example, and the tree family separates a linear positive effect from a strict negative one. Neither the census nor the family predicts empirical adoption or gives a bound on negative effects for larger graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

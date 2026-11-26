@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:23:42.889775Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof, lines 5–66; VERIFICATION.md and reproduce.py inspected without executing supplied code",
+        "/workspace/branches/1a657226-8a5a-4edd-a10c-ef8bc786899f/independent_check.py, small_check.json and large_check.json"
+      ],
+      "rationale": "From zero the update length is |b_I|/R_I. Row selection gives the conditional ratio with numerator Σ|b_i|^qR_i^{2s−q} and denominator ΣR_i^{2s}. For s=0 Gaussian density near one row origin gives q<d. Otherwise concatenate the rows in dimension md and write a=rθ. The ratio is r^(−q) times an angular function whose denominator is bounded above and away from zero. The squared length of each angular block is beta(d/2,(m−1)d/2); its contribution is integrable exactly when q<d+2s for an active b_i. Near r=0 the noncentral Gaussian density is bounded above and away from zero, giving q<md. One active row small with other rows bounded away from zero witnesses angular divergence; angles with every row bounded away from zero witness radial divergence, including at equality. Gaussian decay controls the tails. At s=1,q=2 the ratio reduces to ||b||²/||a||²; the reciprocal noncentral chi-square Poisson mixture yields the stated series, with positive weight on the divergent central component if md≤2. The central gamma/beta formula follows by separating total squared length from independent row-length fractions, and finite averaging only rescales σ. The wording 'nonsingular noiseless design' in the divergent case is properly read as full column rank (m=2,d=1), not a square inverse, consistent with the stated assumptions. Independent checks found 1.0040434±0.0020231 (one SE) versus 1.0042743 analytically in the central benchmark, and reciprocal Poisson series versus independent Laplace quadrature agreeing to about 4.2×10^(−16) relative at md=4, λ=3, σ=0.8.",
+      "residual_risks": [
+        "The numerical checks cover selected formula values only; the threshold, including divergent moments, is established analytically. Nothing here is a multi-step guarantee for a reused noisy matrix."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "81db12815a13 covers all positive times and invariant-law moments under fresh Gaussian rows, even m=1 and arbitrary deterministic initial state. The primary-paper passages concern conditional errors and convergence for noisy systems."
+        ],
+        "reasoning": "Only the broader indexed result demonstrably contains the frozen theorem. Fixed-data convergence bounds do not resolve integration through near-zero Gaussian matrix or row norms.",
+        "searches": [
+          "81db12815a13 Finding and Assumptions; Gan–Wu arXiv:2608.22259v3; Bergou et al. arXiv:2308.16904"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81db12815a13",
+        "arXiv:2608.22259v3",
+        "arXiv:2603.29372",
+        "arXiv:2308.16904"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed result has the same conditional innovation ratio and Gaussian integrability cutoff. Noisy-RK papers already use the squared-norm rule, and Zhang et al. discuss measurement averaging. The separate noncentral series uses the standard reciprocal chi-square mixture."
+        ],
+        "reasoning": "Known sampling and averaging do not imply the sharp threshold by themselves. The indexed theorem does imply it directly; the noncentral formula adds a standard closed-form evaluation for a special moment, not an uncovered new mechanism.",
+        "searches": [
+          "81db12815a13 Proof §§1–2 and Relationship to prior work; arXiv:2603.29372 Eqs. (1.4)–(1.7); arXiv:2608.22259v3 Eq. (3.1); arXiv:2308.16904 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "81db12815a13 states q⋆=min(md,d+β), divergence at equality, and the centered β=2 one-step gamma expression."
+        ],
+        "reasoning": "Norm-power β=2s, step one from zero, and b_i=1 in the centered benchmark recover the threshold and formula. Different matrix reuse protocols after step one do not alter this equivalence.",
+        "searches": [
+          "Resultary: Gaussian noisy norm-weighted Kaczmarz, first-iterate or singular innovation moments; inspected 81db12815a13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index contains an exact parameter-wide formula rather than a census; the central benchmark is given for all nonzero b, not just all-ones b."
+        ],
+        "reasoning": "There is no finite table capable of establishing this real-parameter frontier. The analytically indexed gamma ratio simplifies to the exact frozen benchmark, not just agreement at sampled parameters.",
+        "searches": [
+          "Resultary exact analytic frontier and benchmark: 81db12815a13, RESULT.md Finding"
+        ]
+      },
+      "rationale": "The principal claim is covered in the current corpus by a distinct, stronger result, 81db12815a13. With k=1, x₀=0 and β=2s, its freshly drawn candidate rows and weighted projection have exactly the frozen first-step law for all frozen parameters. Its exact central formula also specializes by b_i=1 and Γ(z+1)=zΓ(z). The later catalogue date of the comparison is not evidence of anticipation or loss of historical priority; the decision is about verified mathematical coverage, not provenance or attribution. The explicit noncentral reciprocal-χ² series is not stated in the matching passages; it is an ancillary evaluation by direct cancellation and the standard Poisson-mixture identity, not a separate surviving valuable frontier to which to repair the finding.",
+      "residual_risks": [
+        "Comparison establishes equivalence at step one, not which result was discovered first or whether one derives historically from the other. Literature search and primary passage coverage are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified coverage of principal theorem and central benchmark; not a priority finding",
+          "evidence": "States every k≥1, q>0, exact cutoff min(md,d+β); fresh-row assumption leaves the first step identical. Gives the central all-q formula with Σ|b_i|^q. No explicit noncentral Poisson series in the matching statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md",
+          "material_read": "Finding, Assumptions, and beginning of Proof §§1–2 at offsets 0–4279; Relationship to prior work, Limitations, References at 10008–12834",
+          "method": "Local mirror text and direct specialization; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp moment thresholds for Gaussian-noisy, norm-weighted Kaczmarz projections",
+          "trigger": "Closest exact frontier and benchmark match"
+        },
+        {
+          "assessment": "Related convergence analysis; not the exact cutoff in the inspected statements",
+          "evidence": "The recurrence uses the observed matrix and conditional error expectations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22259",
+          "material_read": "v3 abstract p. 1; classical sampling p. 2; conditional calculation around Eq. (3.1), p. 7, offset about 29850",
+          "method": "Bounded OA passage comparison",
+          "title": "On Convergence Behavior of Randomized Kaczmarz-type Methods for Solving Doubly Noisy Linear Systems",
+          "trigger": "Potential unconditional Gaussian/noisy-Kaczmarz moment result"
+        },
+        {
+          "assessment": "Prior sampling and averaging; different conclusion",
+          "evidence": "Gives squared observed-row-norm probabilities, a noise-horizon convergence bound and signal averaging, not the unconditional q-integrability frontier.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.29372",
+          "material_read": "p. 2, Eqs. (1.4)–(1.7), offset 5200",
+          "method": "Bounded OA passage comparison",
+          "title": "Relaxed Greedy Randomized Kaczmarz with Signal Averaging for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Same observed row-norm rule and repeated measurement model"
+        },
+        {
+          "assessment": "Related fixed-observed-system result",
+          "evidence": "Bounds expected error with noise perturbations and specifies observed squared-row-norm sampling; does not state Gaussian coefficient-law integrability in these passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.16904",
+          "material_read": "Theorem 3.1 p. 6 offset about 23150, observed-row sampling discussion p. 7 offset about 28000",
+          "method": "Bounded OA passage comparison",
+          "title": "A Note on the Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Established noisy randomized Kaczmarz theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4; Resultary 81db12815a13 Finding"
+      ],
+      "rationale": "As mathematics, the sharp frontier distinguishes isolated small-row events from simultaneous small-matrix events and shows precisely which divergence can be removed by changing sampling weights or increasing the number of rows, even with a full-column-rank mean design and arbitrarily small coefficient noise. This separates finite conditional behaviour from potentially divergent unconditional moments. The mathematical value of the main phenomenon is separate from the demonstrated overlap; the explicit noncentral coefficient alone is a standard special-function calculation, not a substantive standalone repair.",
+      "residual_risks": [
+        "First-step moments do not imply mean-square convergence, stationary variance, or guarantees for repeated updates using a fixed noisy matrix."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

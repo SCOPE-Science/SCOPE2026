@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:47:29.575625Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, coefficient tables and asymptotic proof; VERIFICATION.md, support_certificate.py, direct_check.cpp and their recorded logs (inspection)",
+        "/workspace/reproductions/split.py and split.log (fresh finite exhaustion and symbolic identities)"
+      ],
+      "rationale": "The update preserves identical colors among vertices in the same initial class and color cohort. For clique clones the only exceptional adjacency is to vertices of the same current color, which cannot be a successor. Thus a trajectory on the induced graph of one representative per cohort lifts exactly, and equality of entire representative vectors is equivalent to equality of the actual labelled states. A fresh direct adjacency replay evolved all 225 nonempty palette pairs, found the first repeated full color vector, matched the stated activation criterion in every case and recovered all six coefficient matrices. Substitution of W_i(m)W_j(n) was checked as a formal polynomial identity in the powers of 2, 3 and 4, not only for sampled sizes; the total is 4^{m+n}. The four-cycle states have disjoint sets of four along each orbit and hence N_{0,4}/4 orbits. For n>=2 a singleton clique palette 0 with independent palette {1,2} takes exactly three steps, and clones give all larger admissible sizes. For n=1,m>=2 clique palette {0,1} and independent color 2 take two steps, and the coefficient table excludes third entry. A consecutive-color edge at m=n=1 takes one step and the table excludes more. Finally B_4/4^{m+n} tends at fixed m to [W_4(m)+4W_3(m)+2W_2(m)]/4^m. Both the fixed basin and N_{3,1} have leading term 4(2^m-1)4^n for fixed m, giving the conditional limit; a full clique palette has probability tending to one as m grows, irrespective of n.",
+      "residual_risks": [
+        "The finite check is exhaustive because of the cohort lifting argument, not a sample of large graphs. Neither the census nor the limits are asserted for other update rules or graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tripartite theorem allows arbitrary shore sizes but only three shores. The arbitrary-graph excitable-media paper's three-color theory does not extend by the same tournament expansion in §6.1, and the regular-tree paper studies infinite graphs with contact threshold at least two."
+        ],
+        "reasoning": "Arbitrary tripartite sizes do not include m>=3 (clique number at least four). The inspected general graph or tree treatments do not provide a dominating theorem at the frozen color count, threshold and graph domain.",
+        "searches": [
+          "Focused literature query: four-color threshold-one CCA first-entry distributions and basins on complete split or multipartite graphs",
+          "arXiv:1610.07320v1 §3 and §6.1; arXiv:2108.06404v1 §1; Resultary a56bc883e0df"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and prior-work comparison",
+        "Resultary a56bc883e0df, 6411c0882be0 and 86c3801557a2 original passages",
+        "arXiv:1610.07320v1 and arXiv:2108.06404v1 inspected sections",
+        "Fisch–Gravner–Griffeath, identified but not obtained in full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tripartite iterate identity gives a bound and periods on its domain, plus the recurrent spectrum, but its limitations distinguish entry basins. Its asymptotic is for balanced shores. The frozen theorem also follows labeled transients and takes n large with m fixed."
+        ],
+        "reasoning": "The iterate identity does not count the preimages entering in each of the first three steps. Neither a balanced-shore limit nor the equality of two recurrent dynamics supplies the conditional fixed-basin third-entry limit. There is no implication for the full family from the matched slice.",
+        "searches": [
+          "Resultary a56bc883e0df original F^7=F^3 theorem and balanced-shore limit",
+          "Resultary 6411c0882be0 recurrence comparison; arXiv:1610.07320v1 §6.1 and arXiv:2108.06404v1 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For threshold-one CCA, a56bc883e0df treats K_{a,b,c} and gives the same periods and bound for G_{2,n}=K_{1,1,n}, with sharpness on K_{1,1,2}. The Greenberg–Hastings tripartite record shows matching primitive four-cycle states and transitions but does not identify transients."
+        ],
+        "reasoning": "The graph can be rewritten as complete multipartite with m singleton shores and one shore of size n. This is a true equivalence on the tripartite slice. Matching recurrent states of two automata does not equate their time of first periodic entry or attraction basins.",
+        "searches": [
+          "Resultary: four-color CCA, complete split and complete multipartite graphs, three-step period collapse",
+          "Resultary a56bc883e0df and 6411c0882be0; arXiv:1610.07320v1 §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a56bc883e0df provides exact periodic-state/orbit counts on tripartite graphs, and explicitly distinguishes those from entry-time basin counts; it covers those recurrent counts for m=2. 86c3801557a2 provides a first-entry census on the same split graphs but for three-state Greenberg–Hastings excitation."
+        ],
+        "reasoning": "The output required here is the six labelled entry shells for four-color CCA. A periodic-state table counts only t=0, and the exact shell table for a different rule and number of colors is not a matching table.",
+        "searches": [
+          "Resultary a56bc883e0df, Finding, Proof and Limitations",
+          "Resultary 86c3801557a2, Finding; 6411c0882be0, Finding"
+        ]
+      },
+      "rationale": "Credit exact recurrent-state and period coverage on the m=2 tripartite slice, as well as known CCA dynamics. The closest same-day Resultary record does not cover arbitrary clique size or the all-size first-entry distribution, basin criterion and fixed-core limits. The frozen finding does not claim the m=2 coarse period phenomenon as separately new. The full content is not covered by the matching specialization or the primary sources that could be checked.",
+      "residual_risks": [
+        "Fisch–Gravner–Griffeath full text was unavailable despite bounded lawful attempts; no full-document exclusion is asserted.",
+        "Ranked index and literature searches are bounded; a differently phrased or unindexed census remains possible. The same-day tripartite overlap establishes mathematical coverage on its slice, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact overlap on the m=2 recurrent and period claims; no priority inferred from common date",
+          "evidence": "F^7=F^3 on K_{a,b,c}, exact recurrent counts, period four iff a shore has size at least two, sharp three-step example K_{1,1,2}; limitations distinguish first-entry basin counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-step-period-collapse-and-exact-orbit-counts-for-four--a56bc883e0df",
+          "material_read": "Finding and Proof from offset 0; prior work and limitations at offset 7600",
+          "method": "Resultary lookup and bounded local-mirror passages",
+          "title": "Sharp three-step period collapse and exact orbit counts for four-color CCA on complete tripartite graphs",
+          "trigger": "Same dynamics and sharp period bound on a family containing G_{2,n}"
+        },
+        {
+          "assessment": "Relevant recurrent-state overlap on the m=2 slice; not entry dynamics",
+          "evidence": "The four-state Greenberg–Hastings and CCA primitive four-cycle states and transitions coincide on tripartite graphs, with transients allowed to differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-four-state-excitation-on-tripartite-graphs-identical-four-cycle--6411c0882be0",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local mirror, bounded statement read",
+          "title": "Four-state excitation on tripartite graphs: identical four-cycles",
+          "trigger": "Related exact description of primitive four-cycle states on tripartite graphs"
+        },
+        {
+          "assessment": "Different number of colors and update model",
+          "evidence": "Exact distribution for three-state Greenberg–Hastings with period-three activity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-four-phase-entrance-statistics-for-three-state-excitation-on-com--86c3801557a2",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local mirror, bounded statement read",
+          "title": "Four-phase entrance statistics for three-state excitation on complete split graphs",
+          "trigger": "Exact first-entry statistic and same graph family"
+        },
+        {
+          "assessment": "Not a dominating four-color split-graph result in the inspected statements",
+          "evidence": "§6.1 notes the uncertainty of an analogous tournament expansion for at least four colors and addresses infinite-tree behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320v1",
+          "material_read": "§3 and §6.1, latter at HTML offsets 98424–101378",
+          "method": "Bounded original HTML passages",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Broader graph excitable-media analysis, discusses four colors"
+        },
+        {
+          "assessment": "Different graph domain and threshold",
+          "evidence": "Treats infinite regular trees with contact threshold at least two.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06404v1",
+          "material_read": "§1, HTML offsets 0–4991",
+          "method": "Bounded original HTML passage",
+          "title": "Cyclic Cellular Automata and Greenberg–Hastings Models on Regular Trees",
+          "trigger": "Primary results for related CCA and GHM models"
+        },
+        {
+          "assessment": "Unresolved whole-document comparison; not used as evidence against coverage",
+          "evidence": "The search description refers to color-wheel dynamics on a two-dimensional lattice. OA routes were unavailable or redirected without supplying the paper.",
+          "identifier_or_url": "doi:10.1007/BF01890834; arXiv:patt-sol/9304001",
+          "material_read": "Search description only, not an original full-text passage",
+          "method": "Focused search and lawful OA attempts at identified arXiv HTML/PDF and Springer PDF routes; original text not retrieved",
+          "title": "Threshold-Range Scaling of Excitable Cellular Automata",
+          "trigger": "Older excitable-media source cited by related tripartite record and returned by focused literature query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, activation criterion, first-entry distribution and limits",
+        "Resultary a56bc883e0df for the distinction from recurrent-state counts"
+      ],
+      "rationale": "The complete split family has a natural clique–independent asymmetry. Classifying activity by antipodal exposure and quantifying both recurrent and transient classes give more than a three-step bound or a periodic-orbit count. In particular the persistent activity probability depends on the core, while conditional on freezing almost every initial coloring takes the full three updates for large independent sets.",
+      "residual_risks": [
+        "The fixed-core activity probability can be zero at m=1; no uniform nonzero probability across all cores or robustness to perturbed graphs is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

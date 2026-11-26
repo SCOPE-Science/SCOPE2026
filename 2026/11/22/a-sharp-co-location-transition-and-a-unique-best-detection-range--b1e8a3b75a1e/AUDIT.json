@@ -1,150 +1,101 @@
 {
   "correctness": {
-    "rationale": "Exact 2D Gaussian integration of conditional two-camera union probability yields a difference of two exponentials. Its derivative has at most one positive zero in separation and gives the exact co-location threshold. Differentiating squared optimal separation in k=w²/r² yields equation L=T; the sign is controlled by a quartic whose coefficients have one sign change and hence one positive root. This proves a unique detection-width peak. The p→0 limit uses k0∼2/p and kpeak∼2e/p. Standalone checker passed 11,156 checks including 598 rational identities and nine independent spatial quadratures; finite tests support, not prove, universal claims.",
+    "rationale": "The exact fixed-width placement formula is a credited input. Its squared optimal half-spacing has derivative with sign opposite to J=L−T. The quartic controlling J′ has one positive root. J is negative at the cut-off, diverges positively and changes sign only once above the cut-off. The limits and small-p scaling follow from the same equation. The numerical example was independently checked; the archived verifier was not rerun.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The 2019 paper admits spatially heterogeneous density and arbitrary arrays, but its claims concern expected counts, recaptures and estimator precision, rather than a theorem determining optimal separation as detector range varies.",
-        "Sun et al. (2014), Methods and Discussion, compare large trap grids via capture-recapture estimator properties; neither objective nor design class is the symmetric pair in a Gaussian spatial habitat.",
-        "The 2008 Litvak report gives a sufficient no-overlap criterion with constant sensitivity within one-dimensional intervals, not a smooth-detection two-dimensional complete classification."
+        "The inspected Gaussian theorem treats fixed width in all dimensions; the inspected SCR abstract treats parameter estimation. The Efford–Boulanger full passage was inaccessible."
       ],
-      "reasoning": "The general spatial integral logically allows this model to be substituted but does not itself assert the later sharp optimization conclusions. In particular, strict uniqueness of the best detector width follows from a separate one-positive-root factorization. No stronger theorem found that would make these assertions an already stated special case. A broad facility-location theorem outside inspected literature is a residual priority risk.",
+      "reasoning": "The all-dimension placement theorem subsumes the fixed-width formula but does not characterize the change of optimal physical spacing with width. An expected-count integral gives an objective, not this optimum of the optimal-layout curve.",
       "searches": [
-        "fast: spatial capture recapture optimal two trap spacing expected number individuals detected Gaussian habitat",
-        "fast: stochastic coverage location problem two sensors Gaussian detection probabilities optimal placement",
-        "fast: optimal facility location multiple gaussian kernels detection probability 2 sensors Gaussian demand spatial",
-        "web: https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13239",
-        "web: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0088025"
+        "e434a32821fc, Finding and Relationship to prior work",
+        "Efford and Boulanger, DOI 10.1111/2041-210X.13239",
+        "Sun et al., DOI 10.1371/journal.pone.0088025"
       ]
     },
     "checked_sources": [
-      "Litvak et al. 2008, PDF Section 5.2.1, pp. 89–90",
-      "Rowcliffe et al. 2011, publisher full text",
-      "Sun et al. 2014, PLOS full text",
-      "Burton et al. 2015, publisher full text",
-      "Efford and Boulanger 2019, publisher full text",
-      "2026 published two-ecological-trap finite-path RESULT.md",
-      "Frasca et al. 2014 arXiv abstract, not claimed full text"
+      "e434a32821fc, 4b47353a8a35, ce1cdc3b4725 (Findings and relevant relationship passages)",
+      "Sun et al. 2014 and Frasca et al. arXiv:1404.7711 (abstracts)",
+      "Efford and Boulanger, DOI 10.1111/2041-210X.13239 (blocked; no full passage read)"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The discrete two-trap published-finding corpus theorem optimizes a uniform finite path with q^{distance} and proves thirds/quarters noncommuting limits, not a Gaussian-weighted plane with baseline p<1.",
-        "Litvak Lemma 5.2.1 gives a hard-interval no-overlap sufficient condition, not the exact smooth Gaussian response as r changes.",
-        "Efford and Boulanger provide an E(n) integral, which mathematically implies the coverage identity after Gaussian substitution but does not contain the stationary-point and unique detector-range arguments."
+        "Set d=2 in q_c=(1+2s)^(d/2)/(1+s)^(d/2+1) and set s=w²/r². This reproduces the frozen cut-off and optimizer under identical assumptions. The asymptotic of that source concerns its dimension-dependent obstruction as d increases."
       ],
-      "reasoning": "The new claim is neither a restatement of the geometric-path claim nor a fixed-number numerical example of the general E(n) identity. The assertion of a unique interior *maximum of the optimizer itself as the detector width varies* requires analyzing a log-rational derivative whose sign is controlled by a quartic with one positive root. The rare-detection coefficient is then forced by its unique root. No other published inspected statement directly proves these consequences.",
+      "reasoning": "The matched fixed-width claim is removed from the originality claim. The survivor requires proving global uniqueness of a new log-rational root and analyzing it at fixed dimension as p tends to zero.",
       "searches": [
-        "published-finding corpus: camera trap density Gaussian animal activity centres half normal detection two symmetric detectors expected distinct detections co-located separated phase transition optimal detector scale",
-        "published-finding corpus: optimal two Gaussian detection trap locations under Gaussian spatial density independent capture unique individuals a sharp threshold co-location versus symmetric separation",
-        "GitHub: 2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35/RESULT.md",
-        "web: Litvak et al. 2008 Section 5.2.1, PDF pp.89–90",
-        "web: Efford Boulanger 2019 Section 3.1"
+        "e434a32821fc, Finding and Assumptions (offset 0), high-dimension proof and Relationship (offset 4992)"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Efford and Boulanger (2019), Section 3.1, express expected detected distinct individuals as a spatial integral of detection probability; the presented Gaussian convolution is a special-case evaluation of such an integral.",
-        "Litvak et al. (2008), Section 5.2.1, maximize at-least-one detection with two partly overlapping hard-range sensors, but their formula is for intervals, not Gaussian-tailed detection.",
-        "The analytic derivative and unique width maximum use nontrivial information beyond the integral definition."
+        "The inspected all-dimension Gaussian theorem has the same fixed-width optimizer, expressed in detection-length units. The finite-path analogue 4b47353a8a35 uses a discrete uniform habitat and geometric decay."
       ],
-      "reasoning": "These are genuinely adjacent equivalent objectives (union coverage and distinct detections), not title-only matches. The 2019 general integral contains the objective structurally, so novelty cannot be claimed for its definition or inclusion–exclusion. Its inspected results do not provide the exact Gaussian co-location curve, the unique nonmonotonic physical-spacing maximum, or the rare-detection asymptotics. The 2008 hard-interval condition cannot be substituted for a smooth all-space Gaussian kernel.",
+      "reasoning": "Conversion to physical units and optimization over width at fixed habitat scale is a distinct operation. Its single peak and limiting peak gap do not occur in the inspected statements.",
       "searches": [
-        "camera trap density Gaussian animal activity centres half normal detection two symmetric detectors expected distinct detections co-located separated phase transition optimal detector scale",
-        "exact Gaussian habitat coverage two sensors optimal separation versus detection width number of unique animal detections",
-        "fast: \"two traps\" \"Gaussian\" \"optimal separation\" \"detection probability\" animal",
-        "fast: Gaussian facility location coverage two devices maximize union detection weighted Gaussian distribution optimum colocation"
+        "Resultary: symmetric Gaussian wildlife detector co-location and spacing",
+        "Primary-literature search for Gaussian sensor placement and width-dependent design"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The closest record 2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35 is for a discrete uniform finite path, geometric distance loss and certain detection on trap sites; its RESULT.md was materially read.",
-        "No returned published-finding corpus record or source table directly tabulates the co-location threshold k0(p), the unique k_peak(p), or their p→0 scalings for the stated 2D model."
+        "e434a32821fc is an exact formula match for fixed-width placement. No inspected record gives the width-peak equation and its rare-probability limit."
       ],
-      "reasoning": "An exact-table hit was not observed among the queried records. This is a bounded negative search, not proof of worldwide novelty or uniqueness. The current result is a continuous-parameter theorem rather than a finite benchmark lookup.",
+      "reasoning": "The revised claim is an analytic all-p statement, not reproduction of an example or a tabulated result.",
       "searches": [
-        "published-finding corpus: camera trap density Gaussian animal activity centres half normal detection two symmetric detectors expected distinct detections co-located separated phase transition optimal detector scale",
-        "published-finding corpus: exact Gaussian habitat coverage two sensors optimal separation versus detection width number of unique animal detections",
-        "published-finding corpus: optimal two Gaussian detection trap locations under Gaussian spatial density independent capture unique individuals a sharp threshold co-location versus symmetric separation",
-        "published-finding corpus: optimal spacing two camera detectors half-normal detection probability heterogeneous Gaussian habitat optimum detector radius nonmonotonic",
-        "fast: \"Gaussian\" \"two cameras\" \"optimal spacing\" \"detection\" unique animals",
-        "fast: \"two traps\" \"Gaussian\" \"optimal separation\" \"detection probability\" animal"
+        "Resultary bounded lookup for exact two-detector Gaussian, transect and finite-path thresholds"
       ]
     },
-    "rationale": "The directly relevant primary papers and the closest published mathematical theorem were compared by assumptions and logical implication. Prior E(n) integration covers the general objective, but no inspected theorem establishes the precise planar Gaussian co-location threshold, unique intermediate-width separation maximum or rare-detection asymptotics. The full 2008 hard-interval two-sensor theorem is different in dimension and response; the published finite-path result is different in density, kernel and limiting claims. Risk: facility-location literature not exhausted; historical priority remains provisional.",
+    "rationale": "The revised contribution is only the strict width unimodality, unique peak equation and rare-detection scaling. The fixed-width result overlaps exactly with the d=2 specialization of e434a32821fc and is not claimed as a contribution. No historical priority is inferred.",
     "residual_risks": [
-      "The 2019 general expectation formula contains this model as a substitution; analytic optimization novelty depends on strict cutoff, uniqueness and asymptotic results, not the expectation integral alone.",
-      "A prior continuous probabilistic-coverage paper not found by searches may contain an equivalent phase diagram.",
-      "The theorem covers symmetric two-device placement only, not unrestricted planar optimization.",
-      "Frasca et al. full text was not inspected and is compared only at the clearly different objective level described in its abstract."
+      "An uninspected generalized facility-location or detector-design result could cover the width optimization.",
+      "No chronology inferred from same-date catalogue entries."
     ],
     "source_inspections": [
       {
-        "assessment": "RELATED_BUT_NOT_COVERING_GAUSSIAN_CLAIM",
-        "evidence": "Two hard-range 1D intervals and no-overlap sufficient inequality; no Gaussian tails, no continuously varying width phase diagram.",
-        "identifier_or_url": "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
-        "material_read": "Section 5.1 and 5.2.1, pages 85–90; original PDF page images 89 and 90 inspected, including Lemma 5.2.1",
-        "method": "Full-text PDF section, browser page screenshots 4 and 5",
-        "title": "Increasing Detection Performance of Surveillance Sensor Networks",
-        "trigger": "Directly overlapping two-sensor at-least-one-detection problem"
+        "assessment": "Exactly covers credited input at d=2; does not state the narrowed width law",
+        "evidence": [
+          "All parameters except placement held fixed; the high-dimensional expansion concerns dimension, not p→0 at d=2."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-dimension-three-co-location-barrier-for-two-gaussian-wildlife--e434a32821fc/RESULT.md",
+        "material_read": "Finding, Assumptions and introductory proof (offset 0); high-dimensional proof and Relationship (offset 4992)",
+        "method": "Published catalogue, original text",
+        "title": "A dimension-three co-location barrier for two Gaussian wildlife detectors",
+        "trigger": "Exact Gaussian formulation in higher dimensions"
       },
       {
-        "assessment": "MOTIVATES_KERNEL_NOT_OPTIMIZATION",
-        "evidence": "Half-normal and hazard-rate detector sensitivity are fitted to detection-angle and distance data; not optimization of two detector locations.",
-        "identifier_or_url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00094.x",
-        "material_read": "Full HTML introduction, detection sensitivity model, fitting and interpretation, supporting information description",
-        "method": "Publisher full-text HTML",
-        "title": "Quantifying the sensitivity of camera traps: an adapted distance sampling approach",
-        "trigger": "Primary basis for half-normal detection functions for camera traps"
-      },
-      {
-        "assessment": "NOT_COVERING_NEW_OBJECTIVE_OR_CLASSIFICATION",
-        "evidence": "Studies estimation variance and spatial recapture on multi-trap grids using simulations; no analytic two-trap Gaussian-habitat co-location cutoff.",
-        "identifier_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0088025",
-        "material_read": "Full HTML abstract, introduction, model formulation, sampling layouts, results and discussion sections",
-        "method": "Full open-access article HTML",
-        "title": "Trap Configuration and Spacing Influences Parameter Estimates in Spatial Capture-Recapture Models",
-        "trigger": "Most directly relevant camera spacing and half-normal probability prior"
-      },
-      {
-        "assessment": "PRACTICAL_MOTIVATION",
-        "evidence": "Design placement and trap spacing often lack explicit ecological rationale; does not assert a Gaussian two-camera global optimization theorem.",
-        "identifier_or_url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2664.12432",
-        "material_read": "Full HTML summary, design and site placement treatment, synthesis",
-        "method": "Publisher full-text HTML",
-        "title": "Wildlife camera trapping: a review and recommendations for linking surveys to ecological processes",
-        "trigger": "Survey practice and practical significance of trap spacing"
-      },
-      {
-        "assessment": "GENERAL_COVERAGE_FORMULA_NOT_NEW_SHARP_CLASSIFICATION",
-        "evidence": "Gives a general integral for expected unique detections and recaptures and numerical layout guidance. The coverage identity is subsumed; the two sharp threshold/unique-width claims are not stated.",
-        "identifier_or_url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13239",
-        "material_read": "Full HTML Sections 2–6, especially 3.1 and optimum detector spacing discussion",
-        "method": "Publisher full-text HTML",
-        "title": "Fast evaluation of study designs for spatially explicit capture–recapture",
-        "trigger": "Potentially dominating general expected-unique-detections theorem"
-      },
-      {
-        "assessment": "NOT_COVERING_BY_OBJECT_AND_LIMIT_DIFFERENCE",
-        "evidence": "Uniform discrete path, geometric detection probability and certain on-site detection; derives finite path centering, thirds/quarters limits and seven-site transition rather than planar Gaussian p<1 co-location and unique optimal detection-width peak.",
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35",
-        "material_read": "Complete RESULT.md mathematical theorem, assumptions, proof and prior-work comparison",
-        "method": "Authorized public repository text fetch",
+        "assessment": "Different habitat and response",
+        "evidence": [
+          "Discrete uniform path, geometric distance decay, success certain at a trap site."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35/RESULT.md",
+        "material_read": "Finding, Assumptions, Relationship",
+        "method": "Published catalogue, original text",
         "title": "Noncommuting detection-range and landscape-size limits for two ecological traps",
-        "trigger": "Closest published two-trap geometric coverage theorem"
+        "trigger": "Closest path analogue"
+      },
+      {
+        "assessment": "Different objective",
+        "evidence": [
+          "Compares simulated estimator performance across layouts and spacings."
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0088025",
+        "material_read": "PLOS ONE abstract, printable p. 1",
+        "method": "Open original article",
+        "title": "Trap Configuration and Spacing Influences Parameter Estimates in Spatial Capture-Recapture Models",
+        "trigger": "Prior quantitative camera spacing design"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "b1e8a3b7-5a1e-49b4-ba34-32d8f4386e8d",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "Camera traps sample heterogeneous habitat, and both sensor overlap and missed detections affect the number of distinct individuals observed. The exact co-location boundary and nonmonotonic optimal physical separation reveal three operationally different sensitivity regimes; the unique intermediate optimum and rare-detection scaling are not just evaluating a trivial constant or changing notation. They provide a compact benchmark for deciding whether two symmetric cameras should overlap when detection width or sensitivity changes. The result is restricted and does not claim field calibration or estimator optimality.",
+    "rationale": "The genuine benchmark is a nonmonotone optimal layout as detector width changes, even though coverage itself rises with width. Strict unimodality and the limiting spacing-to-width ratio answer where coverage-optimal placements separate most, not how to choose a device for maximal coverage or estimator precision.",
     "status": "PASS"
   }
 }

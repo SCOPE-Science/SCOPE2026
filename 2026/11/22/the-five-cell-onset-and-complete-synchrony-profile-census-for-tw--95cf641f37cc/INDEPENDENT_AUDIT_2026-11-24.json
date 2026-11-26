@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:48.814395Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–86",
+        "verify_synchrony.py (inspected, not executed)",
+        "five_cell_representatives.json",
+        "four_cell_representatives.json",
+        "/workspace/reproduce_reviews.py, ordinal 4"
+      ],
+      "rationale": "The receiving-row adjacency convention gives 15 possible rows at five cells; all 15^5 labelled matrices are partitioned into simultaneous-relabelling orbits. Reality and simplicity force a fifth eigenvalue r real and distinct from 0 and 2. Trace gives r, and monic polynomial division by t(t-2)(t-r) gives integer c>0 in t²+c. The frozen Newton-sum filter is exact. I independently generated the orbits before filtering, with 6874 five-cell and 475 four-cell orbits in the full row-sum-two universe. I matched the first two nonleading characteristic coefficients by trace and 2x2 principal minors, and the remaining polynomial by exact determinant evaluations: at 0 and 1 for n=5 (also at 2 by row sums), and at 0 for n=4 (also at 2). This gives sufficient distinct roots for the difference of degree at most n-3. For four cells the candidate is t(t-2)(t²+c). A partition is robustly invariant iff input multiplicities agree blockwise: sufficiency uses identical own-state and identical unordered input values in each block, and necessity follows by taking input sum as the admissible function and varying the independent block coordinates. Enumerating all 52 or 15 partitions, using exact transitive closures, and comparing both full computed catalogues and their orbit metadata to the supplied JSON yields 191 weak classes (21960 labelled) and 56 strong, with histograms (2,12,59,40,59,4,15) and (2,6,22,16,8,1,1), respectively. The two canonical matrices agree with the Finding and have orbit size 120, are strongly connected, and have r=-1,c=1. At four cells all nine weak classes have b>0, and fewer than four cells cannot have four distinct required eigenvalues. Replay: python3 /workspace/reproduce_reviews.py 4.",
+      "residual_risks": [
+        "The result is about all admissible input-symmetric dynamics and specified polydiagonals; it does not classify individual equations, arbitrary invariant subspaces, or nonlinear zero-Hopf bifurcations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 19 and 20 give six plus three four-cell classes with the specified nonprimitive lattice types.",
+          "The repository abstract for Aldosray–Stewart describes homogeneous-network enumeration by size and valency but does not specify zero-Hopf synchrony profiles. Its full text was not available there."
+        ],
+        "reasoning": "A general enumeration of candidate networks would not alone give the independent invariant b(G). The examined lattice classification applies at four cells, not five. The inaccessible broader paper leaves a bounded risk, not a negative coverage claim.",
+        "searches": [
+          "arXiv:2611.15221v1 Theorems 10, 19 and 20, and Tables 1–3",
+          "Aldosray–Stewart Enumeration of homogeneous coupled cell networks, Warwick repository 34410"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15221v1",
+        "Resultary 32f261a3f323, 54578f6164a6, and identity check 95cf641f37cc",
+        "Warwick repository 34410",
+        "Independent census by b(G) and spectral stratum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even within the strongly connected stratum with (r,c)=(-1,1), the independent census found b=0,1,2,3,4,5,6 with counts 2,1,8,9,7,1,1. Thus sharing the precise primitive-example spectrum and connectivity does not decide primitivity.",
+          "The known four-cell exclusion is needed for the comparison but cannot give a five-cell witness or the five-cell count."
+        ],
+        "reasoning": "The five-cell claim requires computing and comparing actual block input patterns beyond the known summaries. It is not a relabelling of a spectral census or an immediate consequence of the four-cell theorem.",
+        "searches": [
+          "32f261a3f323 RESULT.md Finding and scope",
+          "arXiv:2611.15221v1 Theorem 10",
+          "Independent exact cross-check by spectrum and b(G)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 10 excludes lattice L1, equivalently no proper synchrony space, for four cells at valency two.",
+          "Separate record 54578f6164a6 finds three four-cell primitive classes at valency three, outside the claim's fixed input multiplicity."
+        ],
+        "reasoning": "Translating synchrony to balanced/equitable partitions or no proper quotient still leaves a new five-cell question. Changing valency changes both the admissible adjacency universe and the balancedness tests.",
+        "searches": [
+          "Resultary: five-cell valency-two zero-Hopf balanced partitions, synchrony lattices, primitive networks",
+          "Aguiar–Dias–Mokhtari arXiv:2611.15221v1 Theorem 10 and classification §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary spectral record gives 191 weak and 56 strong classes in seven spectral strata and explicitly disclaims classification of robust synchrony patterns (text near offset 7620).",
+          "The paper's Tables 1–3 concern nine four-cell classes; the identical five-cell target mirror is not evidence of a distinct existing census."
+        ],
+        "reasoning": "Spectral totals coincide as expected but their cells count networks by eigenvalues, not by b(G). Same-day directory dates supply no priority ordering.",
+        "searches": [
+          "Resultary 32f261a3f323 mirrored RESULT.md, spectral stratum table and scope",
+          "Resultary 95cf641f37cc target mirror",
+          "arXiv:2611.15221v1 Tables 1–3"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the five-cell synchrony distribution and the existence and classification of the two synchrony-primitive classes, hence the sharp onset within valency two. The established four-cell exclusion and the spectral five-cell totals are not new. The identical indexed target is not a separate result. Direct comparison found no source which supplies the five-cell b(G) data or makes them a consequence of the spectral totals.",
+      "residual_risks": [
+        "Accessible comparisons do not exclude an uncatalogued earlier exact synchrony enumeration. The Aldosray–Stewart full text was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the four-cell comparison; not the five-cell census",
+          "evidence": [
+            "L1 absent for four cells at valency two; six plus three distinct classes of the other listed lattices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15221v1",
+          "material_read": "OA HTML Theorem 10 near offset 35300, Theorems 19–20 near 57580 and 62750, and table discussion near 65700",
+          "method": "Compare exact valency, size and lattice conclusions",
+          "title": "Zero-Hopf networks",
+          "trigger": "Same spectral hypotheses and four-cell lattice classification"
+        },
+        {
+          "assessment": "Exact spectral-count overlap, not an exact synchrony table",
+          "evidence": [
+            "191 and 56 classes; explicit exclusion of robust synchrony classification from its scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-seven-spectral-strata-in-five-cell-valency-two-zero-hopf-network--32f261a3f323",
+          "material_read": "Mirrored RESULT.md Finding near offsets 101 and 984, scope limitation near 7620",
+          "method": "Compare table invariants and scope to the submitted profile",
+          "title": "Seven spectral strata in five-cell valency-two zero-Hopf networks",
+          "trigger": "Exact same five-cell finite base universe and matching totals"
+        },
+        {
+          "assessment": "Valency three, hence not a contradiction or subsumption",
+          "evidence": [
+            "Three synchrony-primitive four-cell classes with three inputs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-valency-three-classification-and-the-first-synchrony-pr--54578f6164a6",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Compare input valency and cell count",
+          "title": "Complete valency-three classification and the first synchrony-primitive zero-Hopf networks",
+          "trigger": "Apparent earlier cell-count witness under synchrony-primitive alias"
+        },
+        {
+          "assessment": "Historical implication unresolved; not evidence of a matching synchrony table",
+          "evidence": [
+            "Describes enumerating homogeneous networks by size and valency."
+          ],
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/34410/",
+          "material_read": "Repository abstract and availability notice near offset 400; no full text there",
+          "method": "Compare abstract's stated scope without inferring noncoverage of unread text",
+          "title": "Enumeration of homogeneous coupled cell networks",
+          "trigger": "Possible larger homogeneous-network enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2611.15221v1 Theorem 10",
+        "Frozen synchrony census and canonical primitive matrices",
+        "Independent profile computation"
+      ],
+      "rationale": "The exact first two classes without a robust synchrony reduction answer the natural next-size question after the four-cell obstruction. The complete profile measures how much quotient structure survives across the whole first eligible size and distinguishes graphs with identical spectra and connectivity. The result is not valued for rerunning the known 191-class spectral count.",
+      "residual_risks": [
+        "Motivation and contribution are network-structural, not a universal nonlinear-bifurcation statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

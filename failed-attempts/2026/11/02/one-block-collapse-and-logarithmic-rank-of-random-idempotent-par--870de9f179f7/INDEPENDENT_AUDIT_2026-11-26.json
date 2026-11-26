@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:45:27.516861Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 38–108",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing the uploaded script",
+        "Independent bounded enumeration of (r,m)=(3,2)"
+      ],
+      "rationale": "Idempotence is equivalent to fixing each image point; for a fixed idempotent block character e, independent choices of the nonempty fixed-point sets in its rooted blocks and of images of all other points give the exact product of H_c over basin sizes c. With L=log m and u=kL/m, the log-summand after subtracting cm(L−log L), divided by m, is c log u−u+o(1) uniformly on compact positive u intervals, using log binom(m,k)=o(m) on that scale. For u≤ε the upper bound is c log ε+o(1) by dropping −k log k and bounding the binomial entropy; for u≥M≥1, the upper bound c log u−u/2+log 2 applies for large m. These control both the normalized sum and concentration at the unique maximizer u=c since log m=o(m). For fixed r, the resulting fiber log-weight has the common rm(L−log L−1) term and second term m times the sum of c log c. Strict convexity first shifts mass from every smaller nonsingleton basin to the largest and then merges singleton basins until two remain. This leaves the unique maximizing nonconstant shape (r−1,1) and gives a strict exponential gap to the other shapes if any. There are r constant characters and M_r dominant nonconstant characters, including the single identity at r=2. The denominator is asymptotic to rH_r; the prefactor-level stated equivalent and the log-rate follow, as does conditional rank concentration by taking c=r, and then unconditional rank concentration. Independent finite check: enumerating all 6^6 maps for (r,m)=(3,2), imposing block preservation and f[f[i]]=f[i], gave counts 54,108,27 for character ranks 1,2,3 and point ranks 1,2 with counts 6,48 among rank-one characters, in agreement with the formulas.",
+      "residual_risks": [
+        "Fixed r is essential to the use of a finite uniform entropy gap. The finite run tests exact counts, not the limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b7606d033ebd states rates for each fixed character and every possible number of image-bearing blocks, including the nonconstant-event exponent. The earlier papers and thesis provide structural criteria and finite counting, not the same limiting theorem in the passages checked."
+        ],
+        "reasoning": "The hierarchy contains the exponential competition required for all nonconstant profiles; a rank of an idempotent-generated subsemigroup is not a stronger result about the image rank of a random map.",
+        "searches": [
+          "b7606d033ebd, Finding and entropy proof",
+          "arXiv:1407.3312, Propositions 3.1–3.2",
+          "arXiv:2310.19414, Proposition 3.9",
+          "Al-aadhami thesis, Theorem 4.3.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b7606d033ebd",
+        "arXiv:1407.3312",
+        "arXiv:2310.19414",
+        "arXiv:1504.02520",
+        "Al-aadhami thesis, White Rose 19494"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator gives the per-character rate Σ c log c−r log r and exact fiber weights ∏H_c. The total weight of constants is rH_r, and the M_r characters of dominant nonconstant shape each have exact weight H_{r−1}H_1."
+        ],
+        "reasoning": "Compare the probability of every other nonconstant character with one dominant character by subtracting their rates: each ratio is exponentially small, with only finitely many characters. This yields Pr(nonconstant)~M_r times the probability of one dominant character. Since the constants exhaust probability asymptotically, normalization is rH_r(1+o(1)), giving exactly the stated equivalent. No further asymptotic expansion or unproved lower-order estimate is needed.",
+        "searches": [
+          "b7606d033ebd, exact weight and entropy argument, offsets 2800 and 5632–7332",
+          "Web search: random idempotent transformation typical image rank n/log n uniform random idempotents; Dolinka East uniform partition endomorphism idempotent counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b7606d033ebd, Finding offsets 0–2900: same uniform idempotent measure on labeled uniform partitions, fixed block count, same exponentially dominant (r−1,1) profile, and same point-image rank normalization."
+        ],
+        "reasoning": "The comparator uses K_n for the number of image-bearing blocks, not point rank. At least two image-bearing blocks is exactly the event that the induced idempotent block map is not constant. Its R_n is the original's K_m. Conditioning a convergence-in-probability statement on an event of probability 1−o(1) preserves the limit.",
+        "searches": [
+          "Resultary: random idempotent uniform partition transformations block character collapse logarithmic image rank fixed block count growing block size rare character asymptotic",
+          "Resultary: uniformly random idempotent transformation full transformation monoid image rank asymptotic n/log n enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact weight is a product of the same H sums (denoted J in the comparator); comparator finite totals include 9028 for (3,3) and 2073 for (4,2), as in the frozen record. The evidence of coverage is the formula and asymptotic hierarchy, not the coincident finite totals."
+        ],
+        "reasoning": "Finite counts alone would not establish the rate or rank concentration. Here the database record gives the same exact fiber formula and the requisite all-fixed-r comparisons.",
+        "searches": [
+          "Resultary b7606d033ebd, Finding and exact fiber count around offset 2800, Verification near offset 5632",
+          "arXiv:1407.3312, Proposition 3.1 and subsequent enumeration"
+        ]
+      },
+      "rationale": "As an independently distinct finding the frozen claim is covered by Resultary b7606d033ebd: rename its fixed block count m to r, block size n to m, and its point-image rank R_n to K_m. The comparator gives the collapse probability rate, dominant rare shape, point-image rank limit and stronger full image-block entropy hierarchy. Its character-wise rates and exact weights imply the displayed H-sum equivalent directly; the equivalent is not a separate uncovered contribution. This is a finding of mathematical coverage, not a judgment of chronology, attribution, or who derived it first. The comparator's path is dated later than the frozen path, which does not settle priority or provenance.",
+      "residual_risks": [
+        "The comparison does not adjudicate first publication or attribution. Lack of an analogous theorem in the retrieved older passages is not a complete historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent or stronger coverage of every mathematical assertion, including the H-equivalent by direct implication",
+          "evidence": "Same measure after variable rename, exact fiber weights, same rate and dominating two-basin shape, same point-rank limit and full image-block-number rates.",
+          "identifier_or_url": "2026/11/22/SCOPE-block-image-condensation-and-a-sharp-entropy-hierarchy-for-parti--b7606d033ebd",
+          "material_read": "RESULT.md, Finding offsets 0–2900, character weights near offset 2800, entropy and rank argument offsets 5632–7332",
+          "method": "Local Resultary mirror inspection",
+          "title": "Block-image condensation and a sharp entropy hierarchy for partition transformations",
+          "trigger": "Direct match to the collapse, entropy and point-rank laws"
+        },
+        {
+          "assessment": "Covers finite enumeration, not the stated probability limits in the inspected comparison",
+          "evidence": "Sum over image blocks, basin sizes and within-block ranks; exact recurrence.",
+          "identifier_or_url": "arXiv:1407.3312",
+          "material_read": "PDF p. 7, Propositions 3.1 and 3.2",
+          "method": "Lawful open full-text inspection",
+          "title": "Idempotent generation in the endomorphism monoid of a uniform partition",
+          "trigger": "Established exact enumeration of the identical monoid"
+        },
+        {
+          "assessment": "Structural overlap",
+          "evidence": "Idempotent character and fixed-block restrictions with containment of nonfixed images.",
+          "identifier_or_url": "arXiv:2310.19414",
+          "material_read": "PDF p. 6, Proposition 3.9",
+          "method": "Lawful open full-text inspection",
+          "title": "Semigroups of transformations whose characters belong to a given semigroup",
+          "trigger": "General idempotent character criterion"
+        },
+        {
+          "assessment": "Different rank statistic",
+          "evidence": "Minimal generating sets of the idempotent-generated subsemigroup, not point-image ranks.",
+          "identifier_or_url": "arXiv:1504.02520",
+          "material_read": "PDF p. 1 abstract and rank definitions",
+          "method": "Lawful open full-text inspection",
+          "title": "Idempotent rank in the endomorphism monoid of a non-uniform partition",
+          "trigger": "Potential alternate rank formulation"
+        },
+        {
+          "assessment": "Rank-refined finite counts; no stated equivalent probabilistic conclusion in these passages",
+          "evidence": "binom(n,k)k^(n−k) for ordinary idempotent rank counts and exact counts for group/general finite-monoid wreath products.",
+          "identifier_or_url": "https://etheses.whiterose.ac.uk/id/eprint/19494/",
+          "material_read": "Corollary 3.2.4, Lemma 4.3.2 and Theorem 4.3.4, open thesis PDF",
+          "method": "Lawful open full-text inspection",
+          "title": "Combinatorial Questions for S wr_n T_n for a Semigroup",
+          "trigger": "Thesis on closely related finite counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–4",
+        "Resultary b7606d033ebd"
+      ],
+      "rationale": "As mathematics the claims answer a natural typical-structure question for an established monoid: an explicit exponential loss of nonconstant characters, a rare-profile law beyond mere concentration, and a separate point-rank scale within the image block. This assessment is of the content; it does not give it independent novelty against the exact overlapping catalogue theorem.",
+      "residual_risks": [
+        "No distinct valuable remainder in the frozen claim survives the coverage comparison; merely retaining the H-ratio equivalent would not constitute a repair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

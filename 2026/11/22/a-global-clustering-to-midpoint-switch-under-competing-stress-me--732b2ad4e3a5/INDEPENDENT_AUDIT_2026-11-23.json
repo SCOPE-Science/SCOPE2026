@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:53:39.072132Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (model, constrained interval, derivative proof and benchmarks)",
+        "Frozen VERIFICATION.md and verify_memory_pulses.py (static inspection)"
+      ],
+      "rationale": "With L=T/2 and u=|t-L|, the nonconstant part is 2a exp(-αL) cosh(αu) - 2b exp(-βL) cosh(βu). On u>0 the sign of its derivative is that of aα exp((β-α)L)/(bβ) - sinh(βu)/sinh(αu). The ratio increases strictly: its log derivative is β coth(βu)-α coth(αu)>0 since (x coth x)'=(sinh x cosh x-x)/sinh²x>0. Thus an interior stationary point can only be a strict maximum, and the tied endpoint values are strictly below all intervening values. Factoring the endpoint-minus-midpoint difference as a(1-exp(-βL))²(R²-r), where R=(1-exp(-αL))/(1-exp(-βL)), proves the comparison. Indeed R is the weighted mean of (α/β)exp((β-α)v) over 0≤v≤L with weight β exp(-βv), so R increases strictly from α/β to 1, with neither limit attained at a finite positive horizon. This checks equality at r=c² and r=1 and all the stated tie counts. In slope balance, r=c, the curvature changes sign at exp((β-α)L)=β/α; at equality the fourth derivative is 2aα² exp(-αL)(α²-β²)<0. The inward derivative at the left endpoint is aα(exp(-αT)-exp(-βT))>0. Hence above the local threshold there is exactly one intervening maximum per half, and at the local threshold the center is still strictly worse than the global minimum, proving strict ordering of the thresholds. The normalized case factors R=1/(1+exp(-T/2)) and sinh(2u)/sinh(u)=2cosh u, giving both elementary thresholds and the quoted maxima. Positive minimum separation just truncates the same derivative argument. The open-domain comment should be read as excluding endpoint schedules: if they are the only closed-interval minima the infimum is unattained, whereas at the three-way tie the midpoint still attains the infimum. The source checker was inspected, not run; its assertions are only finite diagnostics.",
+      "residual_risks": [
+        "The verifier's checked-in banner is 'PASS: ...', not the 'VERIFICATION_OK ...' wording reported in VERIFICATION.md. The announced diagnostic count is consistent with the counter in the code; no rerun or byte-for-byte historical log is claimed.",
+        "The theorem is for the stipulated objective, not for independently calibrated biological response or for uncontrolled exposure calendars."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bétermin treats energy per point at fixed lattice density and cites earlier periodic configurations with two and three points per period. Those are not three points in a finite pinned interval: the periodic interaction includes image pairs and weights at each exponential rate are changed by periodization.",
+          "Sreejan et al. simulate finite ODE stimuli using a single common interstimulus interval, including three equal square pulses, and compare concentration, peak or integrated response to a massed counterpart. Their Discussion explicitly distinguishes unequal intervals from the tested setting."
+        ],
+        "reasoning": "The lattice and ODE studies motivate alternatives but do not supply a general optimization theorem covering the free middle event at fixed endpoint times and both readouts of stability.",
+        "searches": [
+          "Bétermin arXiv:1901.08957v2, §1 and Theorem 1.1",
+          "Sreejan, Saxena and Gadgil, doi:10.1101/lm.054012.124, Results and Discussion"
+        ]
+      },
+      "checked_sources": [
+        "Sreejan–Saxena–Gadgil (2024), identified sections",
+        "Bétermin arXiv:1901.08957v2, identified sections",
+        "Resultary records 7593ad4b974e and b4aca565c57c (indexed claims)",
+        "Brown and Martell DOI records (access limits above)",
+        "Frozen AUDIT.json (provenance only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With three uniformly spaced events and compulsory endpoints 0 and T, there is no free middle choice: it is T/2 identically. A preferred common interval in the ODE paper therefore does not compare endpoint doublets to the midpoint at fixed T.",
+          "An additive finite pair cost with slow positive and fast negative signs and an arbitrary rate ratio is not determined by the Morse lattice minimization theorem or by studies of coral responses to previous exposures."
+        ],
+        "reasoning": "The nonstandard content assessed is the exact switch and the strict distinction between the local and global horizons in this finite two-rate model. Biological priority and physiological validation are not inferred. The two motivating coral references could not be fully compared independently here; the claim is mathematical and rests on the explicit objective, not on their data.",
+        "searches": [
+          "Sreejan et al., PMC11369633, common computational protocol and Discussion",
+          "Bétermin arXiv:1901.08957v2, definition of the energy and Theorem 1.1",
+          "Brown et al., doi:10.1002/ece3.10798; Martell, doi:10.1016/j.jembe.2022.151820"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bétermin's equation (1.1) has fast positive and slow negative exponentials with rate ratio 2, and sums over a lattice. The frozen kernel at β=2α is instead a negative multiple of a Morse potential for a matching shift; changing the sign reverses minimization.",
+          "The corpus's fast-injury/slow-protection record (7593ad4b974e) is similarly the opposite sign of the slow-injury kernel when amplitudes are interchanged. Its off-center optima correspond to maxima, not minima, of the frozen objective. The three-fraction repair comparator b4aca565c57c maximizes a different weighted contrast and advertises an asymmetric optimal regime."
+        ],
+        "reasoning": "Endpoint reflection or a positive rescaling preserves optima; reversing the sign does not. The same exponential identities can be used in opposite directions, but neither the opposite-sign optimizer statement nor the Morse lattice minimum implies the exact endpoint-vs-center level comparison here.",
+        "searches": [
+          "two exponential signed pairwise potential three particles fixed endpoints Morse global energy midpoint endpoint minimizer sinh ratio three pulses spacing optimal thermal priming damage",
+          "Morse anti Morse fixed length one dimensional particles endpoint doublet midpoint two exponential maximization Ventevogel Nijboer three particles periodic",
+          "Resultary: optimal scheduling three identical stress pulses competing signed bi-exponential damage priming kernel endpoints midpoint pairwise lag"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact joint phase diagram returned by the corpus is the frozen record itself. The neighboring opposite-sign and weighted repair results have different optima.",
+          "Bétermin's tabulated transitions are between lattice types as density varies, not a table of fixed-horizon three-pulse minimizers or their metastability."
+        ],
+        "reasoning": "Neither the inspected results nor a table of Morse energy optima substitutes for the two inequalities in the pinned problem. Search nonmatches do not establish priority.",
+        "searches": [
+          "Resultary: optimal scheduling three identical stress pulses competing signed bi-exponential damage priming kernel endpoints midpoint pairwise lag",
+          "Bétermin arXiv:1901.08957v2, §1 lattice-transition results and tables"
+        ]
+      },
+      "rationale": "Best of inspected evidence for the exact constrained optimization and the distinct earlier local threshold, not for the two-exponential ingredient or the biological idea of priming. Related timing objectives, the opposite-sign problem, and classical Morse lattice minimization do not furnish these minimizers or imply their thresholds under the stated quantifiers.",
+      "residual_risks": [
+        "An equivalent finite signed-kernel theorem under different biophysical or scheduling terminology may be unindexed. In particular, the original older periodic few-point literature cited by Bétermin was not directly inspected; the retrieved source describes ordinary Morse minimization, not the negative finite pair problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related biological timing problem, not this optimization",
+          "evidence": [
+            "Spacing is a common ISI for three, six, or nine square pulses; measured output is species concentration, peak concentration, or cumulative activity under ODEs.",
+            "The Discussion states that the analysis uses equally spaced square-wave inputs rather than optimizing uneven spacing."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11369633/",
+          "material_read": "Abstract, Results: common computational protocol and Figures 1–2, Discussion on uniform versus uneven spacing",
+          "method": "Read open PMC text and compare free variables and response measures",
+          "title": "Network motifs exhibiting a differential response to spaced and massed inputs",
+          "trigger": "Closest accessible primary pulse-spacing study cited in the record"
+        },
+        {
+          "assessment": "Prior kernel ingredient and related phase transitions, not a dominating pinned finite optimization result",
+          "evidence": [
+            "Eq. (1.1) is fast exponential minus slow exponential, and the theorem compares Bravais lattices at fixed covolume."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.08957v2",
+          "material_read": "Abstract and §1, signed potential, equation (1.1), Theorem 1.1, and note on earlier periodic small-cell configurations",
+          "method": "Read arXiv HTML and PDF text; compare coefficient signs, rate ratios, and admissible configurations",
+          "title": "Minimizing lattice structures for Morse potential energy in two and three dimensions",
+          "trigger": "Plausible equivalent two-exponential energy in an older mathematical literature"
+        },
+        {
+          "assessment": "Not independently assessed in full; no negative priority conclusion drawn from access failure",
+          "evidence": [
+            "The frozen record labels the study motivation, not an empirical fit of its additive kernel."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ece3.10798",
+          "material_read": "Bibliographic identification in the frozen package; independently requested publisher full text was unavailable",
+          "method": "Tried the cited lawful publisher link",
+          "title": "Marine heatwaves modulate the genotypic and physiological responses of reef-building corals to subsequent heat stress",
+          "trigger": "Motivating empirical paper in the frozen record"
+        },
+        {
+          "assessment": "Not independently assessed in full; no use as validation or negative priority evidence",
+          "evidence": [
+            "Title and publication record concern thermal priming and bleaching hormesis in a coral species."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jembe.2022.151820",
+          "material_read": "DOI bibliographic metadata only",
+          "method": "Checked the exact DOI response",
+          "title": "Thermal priming and bleaching hormesis in the staghorn coral, Acropora cervicornis",
+          "trigger": "Related priming and potential physiological trade-off"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md global and local classifications and assumptions",
+        "Sreejan et al. Discussion on unequal spacing"
+      ],
+      "rationale": "A pinned three-event schedule is the smallest nontrivial free-gap experiment for a pairwise memory cost. Giving the full optimizer set and proving a nonempty interval where a locally optimal midpoint remains globally worse is useful even without further model extensions: local optimization can return the wrong schedule. Exact coexistence of the local minima and exact global ties make the result a usable mathematical benchmark, not evidence of ecological efficacy.",
+      "residual_risks": [
+        "No recommendation about field interventions follows without a calibrated kernel and an admissible exposure model, particularly near coincident schedules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

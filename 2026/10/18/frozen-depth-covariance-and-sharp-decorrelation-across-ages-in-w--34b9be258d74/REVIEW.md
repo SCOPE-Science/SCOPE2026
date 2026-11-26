@@ -1,19 +1,21 @@
-# Review of fixed-label depth dependence in weighted recursive trees
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The result specifies positive deterministic weights, a fixed earlier label \(i\ge3\), independent parent choices and precisely which later labels and asymptotic regimes are covered. The marked generating-function recurrence gives an **exact joint-law** Bernoulli convolution, not merely matching first moments. The weighted-mean martingale difference expansion proves strictly positive, later-label-invariant covariance. Fourier inversion bounds the maximum of the convolution kernel, and the local central limit theorem for a sum of independent, nonidentical Bernoulli variables is justified by a characteristic-function expansion plus a uniform Gaussian bound. A bounded threshold test transfers nonzero covariance into a matching total-variation lower bound; an explicit shift coupling gives the upper bound. Summability of the Bernoulli probabilities implies convergence in total variation but not independence. These steps establish each regime analytically. The standalone Python test passed 120 exact-rational assertions for all applicable tagged-label pairs in four finite, heterogeneous seven-vertex models. Such finite checks support, but do not prove, the asymptotic theorem.
+PASS
 
-## Originality: PASS (qualified)
+Conditioning on the independent parent choice for m>i gives the weighted joint PGF recurrence with the old depth marker retained. Updating the weighted sum from m−1 to m multiplies the joint PGF for the next label by 1−p_m+p_m z, giving exactly the independent convolution in the younger coordinate, including the empty sum. The weighted depth mean increments by p_m(1+xi_m) and the innovations are orthogonal; common terms in the two centered depths give the displayed covariance. Parent depths 0 and 1 both have strictly positive conditional probabilities, proving strictness for i≥3. For the upper bound, Bernoulli convolution is log-concave and hence unimodal, so unit-shift TV is its maximum mass; shift telescoping and then averaging over the coupled fibers give the factor E|Y−Y'|. Fourier inversion with |phi(t)|≤exp(−2V sin²(t/2)) gives the stated constant. For the lower bound, the summed centered absolute third moments are at most V and the same Fourier bound dominates the rescaled inversion integral. This proves the central local limit for each bounded offset, giving a threshold-test discrepancy C_i/((i−1)sqrt(2πV)) in absolute value to first order. The [0,1] test is admissible for the specified TV convention. Power sums give V asymptotic to (alpha+1)log j or log log j. In the summable power case the Bernoulli tail probability gives TV convergence; finite second moments and positive limiting covariance force strictly positive limiting TV. No finite simulation is used for any infinite assertion.
 
-The motivating full text, Gałązka and Wdowicka, *Total Path Length in Power-Weight Recursive Trees* (arXiv:2610.00614v1), supplies the previously known one-vertex Bernoulli law and martingale innovations, and proves global path-length fluctuation results; it does not state the exact marked pair factorization, frozen *two-label* covariance or sharp total-variation rates. The full-text comparison with Lodewijks's joint vertex-depth study (arXiv:2204.09032) concerns a different regime of uniform recursive trees, particularly diverging marked labels, without the deterministic-weight fixed-old-label phase diagram. Relevant records about root degree versus leaves, root attachment versus total path length, and Cayley-tree endpoint degree versus distance concern different observables. None of the inspected statements directly dominates the present finding. The originality assessment remains qualified: antecedent ancestral-indicator representation and abstract smoothing results could make parts implicit in older work, and searches cannot prove uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The motivating gap is precisely the dependence between early and late insertion costs, which one-vertex depth laws and global path-length variance do not determine. The result identifies a strict nonzero covariance at all separations while giving matching upper and lower dependence rates in the stronger total-variation topology. The sharp \(\alpha=-1\) transition separates disappearing dependence from a positive dependence limit. Its exact bivariate convolution provides a reusable formula for probabilities and moments, but the contribution is not merely the routine one-vertex generating-function recurrence: it includes a process-specific covariance invariant, a distribution-level phase diagram and a local-limit lower bound establishing rate optimality.
+The repaired claim credits the martingale covariance and one-vertex variance regimes as prior consequences. Inspected earlier statements do not supply the exact fixed-label bivariate law and two-sided TV order to the product law or the persistent-dependence power regime. The rate transfers from standard smoothing estimates only after identifying this specific joint signal and giving a nonzero matching lower bound.
 
-## Remaining risks and boundaries
+## value
 
-This is a fixed-\(i\) theorem, not uniform in growing labels. The total-variation prefactor is bounded but not identified exactly. Arbitrary positive weight sequences with bounded Bernoulli variance are not exhaustively classified. An equivalent older formulation using weighted ancestors or generic Poisson-binomial smoothing remains possible; independent scholarly scrutiny is desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even with strictly persistent covariance, the repaired theorem shows sharp asymptotic independence in total variation whenever younger-label noise grows, and identifies when dependence instead persists in the natural power family. The lower bound makes the answer quantitative rather than qualitative, and the exact joint-law factorization explains why noise masks but does not erase the covariance. This is useful beyond reciting the known one-depth phase boundary or measuring correlation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

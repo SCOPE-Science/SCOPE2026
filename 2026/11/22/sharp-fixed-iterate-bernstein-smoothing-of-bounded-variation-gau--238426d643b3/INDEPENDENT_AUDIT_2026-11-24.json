@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:02:45.025510Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–130",
+        "VERIFICATION.md and checks/check.py (inspected, not executed)",
+        "/workspace/review-checks/analytic_sanity.py, record 3 spot checks"
+      ],
+      "rationale": "The derivative-measure representation and Minkowski identify the seminorm-to-norm constant with a single-step-function supremum; continuity in its jump position attains it for finite p, away from the two constant end steps. In the Durrmeyer beta mixture, conditional variance contributes another x(1−x)/n to the binomial variance; the gamma representation and the delta method have centered Gaussian limits along every interior sequence of starts. Conditioning characteristic functions for the fixed r successive increments adds their Gaussian variances, since the intervening states converge to the same interior limit and the conditional limits are uniform for starts converging to it. Chebyshev gives an integrable |z|⁻² majorant away from the center in the rescaled crossing profile. The endpoint crossing estimate integrates to O(sqrt(t(1−t)/n+n⁻²)+(1+log(n+1))/n); neither endpoint can compete at the n⁻¹/² scale of the pth power. The moving-center limit is therefore maximized uniquely at 1/2, and compactness gives the strict relative gap outside any fixed midpoint neighborhood. Minkowski then forces any near-optimal input to have vanishing relative variation outside that neighborhood. For L∞, continuity in the start gives an essential lower bound by the smoothed jump evaluated at zero (take x→0 with x<t); this tends to 1 as t↓0 by atomlessness. The matching upper bound is by positivity and constant reproduction. The two degree-two, two-iterate squared L² midpoint examples were independently checked by integrating affine residuals.",
+      "residual_risks": [
+        "Fixed p and r; no uniformity as either grows. The finite examples are not a proof of the asymptotic or of finite-degree maximizing locations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison credits sharp one-step L¹ work and distinguishes point-sampling L², variation seminorm results, nonsharp integrated bounds and pointwise jump estimates. Primary full passages for the closest old results were not obtained by the literature lookup and OA attempts."
+        ],
+        "reasoning": "A pointwise Gaussian at an interior jump, even if known, does not alone provide a norm sharp over all jump positions; this proof also requires integrated limits at moving positions and exclusion of boundary jumps. A variation-norm contraction alone does not identify that optimal residual constant.",
+        "searches": [
+          "Hoeffding DOI 10.1016/0021-9045(71)90001-3; Jones DOI 10.1016/0021-9045(76)90001-0",
+          "arXiv:1605.03976, 2212.00439 and 2410.19893; frozen lines 136–150"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 132–150 and VERIFICATION.md",
+        "Resultary d70327ec81c9, 480d74d44971, d33d314eaa59, 5c225d99bdea, 9f55314ca99c",
+        "Hoeffding and arXiv:1605.03976 retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known slice determines neither the Gaussian tail integral I_p for p>1 nor the variance accumulation for the residual at r>1. The uniform gap for all jumps away from the midpoint further implies concentration for near-optimal signed derivative measures, a different conclusion from exhibiting a maximizing jump."
+        ],
+        "reasoning": "No available compared statement mechanically supplies the broader norm and rigidity conclusions. Those require the iterate transition and moving-center supremum analysis.",
+        "searches": [
+          "Resultary d70327ec81c9, 480d74d44971, 5c225d99bdea, 9f55314ca99c; frozen RESULT.md lines 58–126"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The jump-error maximum is precisely the residual norm of I−T⁽ʳ⁾, not a norm of T⁽ʳ⁾ itself or an invariant-mean mixing error.",
+          "d70327ec81c9 and 480d74d44971 cover the classical one-step integrated L¹ norms; 5c225d99bdea and 9f55314ca99c address invariant-mean mixing and variation norms of the powers, respectively."
+        ],
+        "reasoning": "The two exact L¹ records overlap at (r,p)=(1,1), including their sharp leading constants, but the other two operators/objectives do not give this jump-crossing residual.",
+        "searches": [
+          "Resultary: integrated BV Bernstein–Kantorovich and Bernstein–Durrmeyer jump error, iterated operators",
+          "Frozen text lines 50–56 and 90–105: jump residual as a crossing probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d70327ec81c9 gives the K one-step L¹ asymptotic 1/sqrt(2π) after scaling; 480d74d44971 gives the D one-step L¹ asymptotic 1/sqrt(π). The indexed genuine-Bernstein entry d33d314eaa59 mentions an attainment threshold, but its precise operator and norm hypotheses were unavailable for checking.",
+          "No distinct all-p fixed-iterate statement was identified in the bounded lookup; that observation is not evidence of absence."
+        ],
+        "reasoning": "Same-date matches count as substantive overlap of the L¹ r=1 slice regardless of priority. The genuine-Bernstein summary does not establish a counterexample for the classical integral kernel in this record.",
+        "searches": [
+          "Resultary: sharp integrated BV error and jump locations for Kantorovich, exact Bernstein–Durrmeyer error, Bernstein iterates"
+        ]
+      },
+      "rationale": "Qualified pass for the broader sharp finite-p fixed-iteration asymptotic for both classical integral kernels and the concentration of all near-extremal variation. The one-step L¹ specializations are covered and are not credited as new. The finite jump reduction, Markov interpretation and L∞ boundary use standard arguments, not independent grounds for originality.",
+      "residual_risks": [
+        "Full primary historical texts and closest indexed packages were not independently available in the attempted copies. The Jones L² scope and a possible pre-existing broad iterated norm result remain priority risks.",
+        "The comparative scope of the genuine-Bernstein attainment entry is unresolved at statement level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers one-step L¹ slice",
+          "evidence": "Exact sharp one-step L¹ norm with parity-dependent maximizing locations and limit 1/sqrt(2π).",
+          "identifier_or_url": "d70327ec81c9",
+          "material_read": "indexed Resultary statement",
+          "method": "local semantic lookup; matching source retrieval timed out",
+          "title": "Sharp integrated BV error and parity-locked jump locations for Kantorovich",
+          "trigger": "same Kantorovich residual norm"
+        },
+        {
+          "assessment": "Covers one-step L¹ slice",
+          "evidence": "Sharp one-step L¹ norm with central jump and asymptotic 1/sqrt(πn).",
+          "identifier_or_url": "480d74d44971",
+          "material_read": "indexed Resultary statement",
+          "method": "local semantic lookup; matching source retrieval timed out",
+          "title": "Exact integrated bounded-variation error of Bernstein–Durrmeyer",
+          "trigger": "same Durrmeyer residual norm"
+        },
+        {
+          "assessment": "No demonstrated conflict for the bound classical kernel; hypotheses unresolved",
+          "evidence": "Title marks a genuine-Bernstein variant; summary states an attainment transition, not the exact classical formula of lines 7–12.",
+          "identifier_or_url": "d33d314eaa59",
+          "material_read": "indexed Resultary statement; no underlying kernel definition retrieved",
+          "method": "local semantic lookup",
+          "title": "Degree-four norm attainment transition for genuine Bernstein",
+          "trigger": "apparently conflicting low-degree attainment in indexed summaries"
+        },
+        {
+          "assessment": "Credit prior sharp one-step L¹, do not infer precise scope of whole paper",
+          "evidence": "Frozen record expressly excludes the prior one-step L¹ result from its novelty claim.",
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(71)90001-3",
+          "material_read": "frozen credit at lines 136–146; no independently retrieved primary passage",
+          "method": "OA DOI attempt timed out",
+          "title": "The L¹ norm of the approximation error for Bernstein-type polynomials",
+          "trigger": "classical sharp theorem in the same norm"
+        },
+        {
+          "assessment": "The result as described uses a different seminorm; exact scope not independently certified",
+          "evidence": "Frozen comparison describes variation diminution and variation convergence, not a sharp BV-to-Lᵖ residual norm.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.03976",
+          "material_read": "frozen comparison at lines 138 and 148; no independently retrieved primary passage",
+          "method": "OA PDF attempt timed out",
+          "title": "Convergence of the Bernstein–Durrmeyer operators in variation seminorm",
+          "trigger": "same operators and BV setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–46 and 90–142"
+      ],
+      "rationale": "The uniform worst-case comparison of two canonical approximants distinguishes their smoothing penalty by an exact factor 2^(1/(2p)) and calibrates repeated smoothing by r^(1/(2p)). The strict away-from-center gap describes where any nearly worst discontinuous datum must place its variation; this is useful beyond estimating a test jump. The L∞ obstruction separates uniform-norm approximation from finite-p decay.",
+      "residual_risks": [
+        "No exact optimizer geometry at every degree, growth regime in r or p, or robustness claim for other kernels is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

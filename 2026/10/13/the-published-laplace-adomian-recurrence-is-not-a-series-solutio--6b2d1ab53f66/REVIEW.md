@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's own fractional integral equation fixes the first Caputo-series coefficient as the vector field evaluated at the initial state. Equation (5.9) changes the symptomatic hospitalization term from \(\phi_sK_3\) to \(\phi_sK_4\) and the quarantined recovery inflow from \(\rho_hK_6\) to \(\rho_hK_5\). Equation (5.10) additionally reverses the two incidence pairings, uses exposed rather than susceptible natural mortality in the susceptible recurrence, and again applies the hospitalization loss to the asymptomatic series. Exact symbolic subtraction gives nonzero generic discrepancies and the bundled checker verifies an exact positive witness.
+PASS
 
-## Originality
+The Caputo integral equation and continuity at the initial state force y(t)=K+F(K)t^α/Γ(α+1)+o(t^α), including α=1. In the publisher PDF, Eq. (5.8) and its definitions of the zeroth products support the frozen comparison. Eq. (5.9) changes the symptomatic loss and recovery input, giving first-coefficient residuals φ_s(K₃−K₄) and ρ_h(K₅−K₆). Eq. (5.10) repeats the symptomatic loss error and uses the exposed instead of susceptible state in the natural mortality term of the susceptible equation; it also swaps the incidence pairings in both rows. The sign of the susceptible residual in the frozen proof is correct. These differences are nonzero as polynomial identities; the non-incidence differences alone suffice. Transfer balance requires consistent pairings but does not distinguish a simultaneous swap; the intended labels are established separately by Table 1 and (5.8). Section 6 explicitly attributes its approximations to (5.10), but this does not establish what the unavailable implementation computed. VERIFICATION.md and verify.py were inspected, not executed; the script checks the transcribed expressions, not their provenance or any trajectory. The analytic first-term comparison is decisive.
 
-PASS. Laplace–Adomian decomposition and the compartmental model family are prior work. The accepted result is the source-specific coefficient-level diagnosis of equations (5.9)–(5.10). Searches by DOI, title, equation number, recurrence terminology, compartment substitutions, correction terminology, and related published findings found no equivalent source-specific correction.
+## originality
 
-## Value
+PASS
 
-PASS. The paper explicitly states that its numerical figures are generated from equation (5.10), using three terms for Figures 2–8 and iterative terms for Figure 9. Because the printed recurrence is not a recurrence for the stated model, it cannot by itself reproduce those figures as certified model approximations. This affects the paper's computational interpretation rather than merely correcting notation.
+The distinct claim is the specific first-coefficient failure of Eqs. (5.9)–(5.10) in DOI 10.3934/math.2022877, not the Caputo first-term test or the compartmental model. No equivalent diagnosis was found in the inspected material.
 
-## Closest literature and limitations
+## value
 
-The predecessor COVID-19 model distinguishes symptomatic and asymptomatic transmission and supplies the intervention architecture, but it does not analyze the later fractional article's recurrence. General decomposition-method literature likewise does not imply the state substitutions identified here.
+PASS
 
-Unavailable code could have silently used corrected equations, so the finding is limited to the published derivation and reproducibility from the printed formulas. It does not re-audit existence or uniqueness results.
+A leading-order inconsistency in the recurrence explicitly cited as the basis of the numerical figures is a concrete reproducibility defect. It rules out correcting the discrepancy simply by taking more terms of the same formal series, without drawing conclusions about epidemiological predictions or unavailable code.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review: a directed arc toggle on Boolean cubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is an exact all-dimension classification over every finite field of characteristic two. The proof first establishes that the unedited cube adjacency shifted by dimension parity is square-zero with rank half the vertex count. The directed toggle is rank-one. The single scalar \(e_v^{\mathsf T}(A+\delta I)e_u\) equals one for adjacent distinct vertices and zero for nonadjacent vertices. Independent basis-vector arguments give the full power-rank and projection identities, forcing the four stated Jordan structures. The Fitting decomposition then yields all primitive-period populations, time-to-periodic-entry shells and basin sizes. Both standalone scripts ran without error from their actual files: 27 finite rank-filtration checks and 14 exhaustive dynamical cases, including the full \(\mathbb F_4\) state space for dimension three. These computations are corroboration, not an infinite-size proof.
+PASS
 
-## Originality — PASS, qualified
+Let δ=d mod 2 and H=A+δI. The commuting cube flips give H²=0, and the cube split H=[[D,I],[I,D]] with D²=I gives im H=ker H of dimension r. For E=e_u e_vᵀ, e_u is outside im H because He_u≠0, and e_vᵀ is nonzero on im H because Hᵀe_v≠0. Thus ker(H+E)=ker H ∩ ker e_vᵀ has dimension r−1. With K=H+E, a=He_u, b=Hᵀe_v and ε=e_vᵀHe_u, direct multiplication gives K²=a e_vᵀ+e_u bᵀ of rank two, K³=abᵀ+εE and K⁴=εK². The endpoint scalar ε is exactly adjacency. For ε=0, the power ranks r+1,2,1,0 select one size-four nilpotent block and r−2 size-two blocks. For ε=1, K² projects onto span(e_u,a) on which K swaps the basis, giving J2(1); on the complement K has square zero and half rank, giving only J2(0). The shift by δ swaps eigenvalues if d is odd without changing lengths. In the Fitting decomposition, entry by t requires the initial nilpotent component in ker F^t and imposes no constraint on the unipotent component. Counting its fixed spaces for powers 1,2,4 and taking differences gives the stated primitive state populations; each orbit of length ℓ has ℓ fibers of size q^(m−s). The largest nilpotent block or nonzero primitive-period count certifies the claimed sharp times and order. This handles d=2 (no spare blocks in the nonedge case) and every extension of the binary field. Independent exact replay: python3 /workspace/branches/frozen_exact_checks.py 2, covering all five binary dimension/distance cases at d=2 and 3; it matched the entry and period populations.
 
-The original XOR-network treatment of Ciandrini et al. (arXiv:0809.1526) supplies a general linear-dynamics framework, but not this explicit one-way hypercube defect theorem. Batal's (arXiv:2108.03059) edge-addition/removal theory concerns symmetric closed-neighborhood matrices and nullity, not ordered rank-one toggles or temporal orbit counts. The closely matching published hypercube missing-edge classification treats a *bidirectional* defect; its even-dimensional periodic three-/six-cycles and odd-dimensional four-cycles differ in both operator and conclusions. This result instead supplies a two-distance, two-parity classification of one-way interaction changes. The comparison includes actual indexed-result searches and accessible full primary text. Searches alone cannot exclude inaccessible, unindexed or differently worded equivalent work, including a general rank-one square-zero perturbation theorem possibly containing the classification as a corollary.
+## originality
 
-## Value — PASS
+PASS
 
-A single *directed* interaction change is a natural local intervention in a directed regulatory or parity network. The exact response on an infinite family of highly symmetric graphs is a complete four-phase classification rather than a renaming of the unperturbed dynamics. Near-neighbor deletion and far-neighbor insertion give opposite behaviors: reversible four-cycles versus complete four-step extinction in the two dimension parities, with sharp temporal-shell and individual basin laws. Unlike a rank-only calculation, the theorem determines the complete recurrent/transient decomposition and quantifies attraction to every orbit, making the precise invariant meaningful for fault/intervention sensitivity.
+The closest cube perturbation records toggle both orientations, producing genuinely different operators and invariant factors. General rank-one interlacing characterizes which invariant factors can occur when vectors vary but does not choose the actual form for this ordered endpoint pair. The endpoint-sensitive Jordan selection and the resulting all-dimension census are distinct on inspected evidence; the general Fitting census method is inherited linear algebra.
 
-## Literature and limitations
+## value
 
-- Ciandrini et al., *Feedback topology and XOR-dynamics in Boolean networks with varying input structure*, arXiv:0809.1526 (first posted 2008-09-09), https://arxiv.org/abs/0809.1526 . General linear framework, not this geometric one-arc classification.
-- A. Batal, *Effects of edge addition or removal on the nullity of a graph*, arXiv:2108.03059, https://arxiv.org/html/2108.03059v2 . Undirected symmetric matrices and static nullity, not directed or time-dependent.
-- *A missing-edge parity transition in hypercube XOR dynamics*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-missing-edge-parity-transition-in-hypercube-xor-dynamics--0ddebf65b6fe . Closest graph perturbation, but toggles both orientations and has different invariant factors.
+PASS
 
-Only one ordered arc is toggled; the theorem does not cover arbitrary graph defects, different fields or update schedules. The bibliographic review is not a priority certificate, and there has been no independent external validation.
+A one-way input defect is a natural minimal modification, different from removing or adding a bond. For an infinite symmetric family it produces only two adjacency classes and a parity switch, despite potentially large changes in exact return periods or extinction. The result resolves not only ranks or eigenvalues but the smallest extinction bound, entry-time distributions and individual basin sizes; these are useful for analyzing sensitivity to one-way input edits.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

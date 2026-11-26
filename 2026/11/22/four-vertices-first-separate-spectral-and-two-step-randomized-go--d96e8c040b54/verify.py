@@ -40,11 +40,13 @@ F=(5*b*b-7*b+10+s.sqrt(Q))/16
 assert s.simplify((A.trace()+s.sqrt((A[0,0]-A[1,1])**2+4*A[0,1]**2))/2-F)==0
 assert s.diff(F,b).subs(b,0)==-s.Rational(9,8)
 assert s.diff(F,b).subs(b,1)==s.Rational(9,16)
-assert s.diff(F,b).subs(b,s.Rational(39,100)).evalf(24)<0
-assert s.diff(F,b).subs(b,s.Rational(2,5)).evalf(24)>0
 assert s.simplify(F.subs(b,s.Rational(2,5))-s.Rational(1,2)-s.sqrt(754)/100)==0
 P6=116*b**6-1760*b**5+8175*b**4-18554*b**3+18203*b*b-6396*b+648
 assert s.simplify(4*s.diff(A.trace(),b)**2*((A[0,0]-A[1,1])**2+4*A[0,1]**2) - s.diff((A[0,0]-A[1,1])**2+4*A[0,1]**2,b)**2 + P6/256)==0
+lo, hi = s.Rational(39,100), s.Rational(2,5)
+assert 7 - 10*hi > 0 and -450*hi**2+562*lo-132 > 0
+assert s.expand(s.diff(Q,b)**2 - 4*(7-10*b)**2*Q - 16*P6) == 0
+assert P6.subs(b,lo) < 0 < P6.subs(b,hi)
 
 # The one-round extremal mode belongs to the antisymmetric sector.
 As1=s.simplify((T.T*M1.subs(d,0)*T)[:2,:2]); S1=s.simplify((T.T*M1.subs(d,0)*T)[2,2])
@@ -66,7 +68,7 @@ C3=s.simplify((N2+R3*N2*R3).subs(d,1)/2-N2.subs(d,0))
 assert s.simplify((N2+R3*N2*R3)/2-N2.subs(d,0)-d*d*C3)==s.zeros(3)
 assert C3.eigenvals()=={s.Rational(9,8):1,s.Rational(3,8):1,s.Integer(0):1}
 
-# Numerics are supplemental: compare exact two-draw 16-sequence mean with analytic factor.
+# Numerics are supplemental: compare the nine ordered two-draw outcomes with the analytic factor.
 import numpy as np
 from scipy.optimize import brentq
 Ws=[np.array(X,dtype=float) for X in W]

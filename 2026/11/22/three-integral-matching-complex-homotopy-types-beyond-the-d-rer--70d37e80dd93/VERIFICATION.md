@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact Python program `verification/verify.py` reconstructs the graphs, augmented face sets, every matching relation, complete Hasse-DAG acyclicity, and exact integer Morse differentials for both ascending and descending toggle orders. Integer reductions use only unimodular unit pivots and verify a zero remaining matrix. The ascending computations also derive direct independent mod-two simplicial homology; mod-two checks are corroborating and not a substitute for integral attaching maps.
+# Independent mathematical audit
 
-Run from the extracted project root:
-```
-python3 verification/verify.py
-```
-The expected complete standard output is in `verification/expected.txt`. The final line is `ALL EXACT CHECKS PASS`. The existing Dürer \(n=6\) output is a control; the new classifications concern only \(n=7,8,9\).
+## correctness
 
-There is no independent external audit. Mathematical proof uses discrete-Morse CW equivalence and classification of cellular \((d+1)\)-attaching maps into wedges of \(d\)-spheres by integer degree for \(d\ge3\). No higher-parameter extrapolation is verified.
+PASS
+
+Independently built lexicographic GP(n,2) edges and all matching faces by incremental edge inclusion. For ascending toggles the augmented face totals are 3418, 10990, 34880; directed Hasse relations total 14329, 52712, 187857, with a full topological order in every case. The critical cells after restriction to the nonempty face poset are a vertex plus counts (2,30), (11,25), (57,15) in degrees (3,4), (4,5), (5,6). Restriction drops the empty face and its matching arrow; its paired vertex becomes critical and the remaining oriented Hasse graph is a subgraph of the certified acyclic one. Recomputed each integer Morse column by topologically ordered sparse subtraction of the matched upper simplicial boundaries at matched-lower unit incidences, then discarding matched uppers of the target degree. Integral elimination has 2,9,15 unit pivots and zero residual matrices. Descending order independently yields the same wedge multiplicities. The CW skeleton below its upper cells is a wedge of d-spheres. Hurewicz identifies each attaching class with its degree vector, and the resulting map of wedges has the Morse CW type as its homotopy cofiber. Integral basis changes are realized by homotopy equivalences of the two wedges; unit diagonal summands have contractible cofiber and zero columns attach trivially. Hence these are integral homotopy types, not just homology ranks.
+
+## originality
+
+PASS
+
+No inspected distinct source establishes these three ordinary matching-complex types. The strongest same-parameter hits compute different complexes, and ordinary matching-complex results in the same family have different parameters. This concerns exact integral wedges, not only a generic applicable wedge theorem or graph-family enumeration.
+
+## value
+
+PASS
+
+These are the next three natural parameters after the two known named graphs in the same family. The exact integral calculation resolves attaching maps beyond mod-two Betti numbers and exhibits a mixed-dimensional wedge between two single-dimensional ones. It supplies precise benchmarks for proposed matching-complex recurrences, connectivity bounds, or periodic patterns, without claiming those generalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

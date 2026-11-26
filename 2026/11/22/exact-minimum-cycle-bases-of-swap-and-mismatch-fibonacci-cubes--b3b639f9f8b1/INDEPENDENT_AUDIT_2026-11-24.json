@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:59:08.471152Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–46",
+        "Frozen VERIFICATION.md and verify.py, particularly lines 40–70; inspected, not executed"
+      ],
+      "rationale": "Independently reconstructed the all-length proof over F_2. Bit changes toggle Hamming-weight parity; adjacent swaps toggle the parity of the sum of occupied positions and preserve weight. Hence a triangle has exactly one swap. Its endpoints differ in two adjacent bits, so the only valid common one-bit neighbor zeros both (the alternative creates 11). Thus the triangle vectors have private swap-edge coordinates. In the pure-replacement graph take a highest-weight incident vertex of any nonempty even edge set and cancel two downward edges with the square given by deleting both bits. In the potential summing endpoint weights over occupied edges, deleting these two edges and possibly adding the two lower ones decreases the potential by at least four. The squares therefore span, and eliminating swap edges by their triangles leaves a replacement cycle. Connectivity by deletion gives the claimed ranks. Every basis has T_n+B_n members and at most T_n triangles; the weight lower bound is sharp exactly if all triangles are used and every other cycle has length four. Recounting edges by the available positions produces the Fibonacci convolutions. For example, expanding the swap convolution by Binet gives 5 sum_{i=1}^{n-1} F_i F_{n-i}=(n+1)(2F_{n+1}-F_n)-2F_{n+1}; the replacement convolution is the same sum at n+1. Substituting in 3T_n+4B_n gives L_n. For n=1 both ranks and L_n are zero. No finite run is needed for the theorem.",
+      "residual_risks": [
+        "RESULT.md line 49's ancillary count of 1884 replacement squares at n=11 counts checker entries, not distinct squares. Lines 45–49 of verify.py admit both opposite pairs of each square. Each distinct square is identified by a valid top word and a pair of its ones, so there are sum_k binom(11-k+1,k) binom(k,2)=942 distinct squares. Duplicating incidence vectors does not affect either rank check, and the standalone square count is not part of the theorem.",
+        "The theorem does not classify which mixed four-cycles can occur in optimal bases or count the optimal bases themselves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 2023 paper includes ordinary Fibonacci-cube edge and vertex formulas, as well as the swap-augmented total-edge formula.",
+          "Square generation in a replacement cube is classical via median graph structure, but the swap-augmented graph has triangles and is not median in general. Full text of the two classical citations was not obtained in the bounded attempts."
+        ],
+        "reasoning": "Even granting square generation for ordinary cubes, it does not establish the one-triangle-per-swap fact or basis optimality in the augmented graph. A broader applicable cycle-basis augmentation result remains a priority risk, not established coverage.",
+        "searches": [
+          "arXiv:2303.09898, ordinary and tilde-cube statements",
+          "Hsu, DOI 10.1109/71.205649; Klavžar, DOI 10.1007/s10878-011-9433-z; bounded OA retrieval attempts for classical structure"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.09898",
+        "OASIcs.Grossi.5",
+        "Configured Resultary lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting known pure edge counts from known augmented edge counts yields T_n as a swap count; B_n is the ordinary connected cycle rank.",
+          "The proof needs private triangle pivots and saturation of the space by triangles and replacement squares to convert these counts into a minimum weight and an every-optimum assertion."
+        ],
+        "reasoning": "A graph's edge and vertex counts give its cycle rank, not how many triangles can be included independently, or whether that triangle family extends to a short basis. The implication to minimum weight and the compulsory cycles is not a parameter substitution into the prior counts.",
+        "searches": [
+          "arXiv:2303.09898, Proposition 3 and §5.1",
+          "DOI 10.4230/OASIcs.Grossi.5, §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source definitions identify the same graph: binary length-n words avoiding 11 and moves by swaps of adjacent unequal letters or single-bit replacement.",
+          "The relevant passages analyze graph edge counts and distances rather than a minimum binary basis."
+        ],
+        "reasoning": "Matching the graph under tilde-F notation does not make the candidate a new graph, but neither it nor metric isometry identifies short cycles spanning the binary cycle space.",
+        "searches": [
+          "Targeted literature search for minimum cycle bases of swap–mismatch / tilde-Fibonacci cubes",
+          "Anselmo et al., arXiv:2303.09898, definitions and §5.1",
+          "Anselmo et al., DOI 10.4230/OASIcs.Grossi.5, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed SCOPE-exact-minimum-cycle-bases-of-swap-and-mismatch-fibonacci-cubes--b3b639f9f8b1 is the assigned record itself.",
+          "The distinct result SCOPE-exact-one-error-sphere-spectrum-of-fibonacci-constrained-swap-an--189bd40b7833 has the same adjacency but catalogs local spheres according to its available summary. Its local full record could not be located."
+        ],
+        "reasoning": "Local sphere sizes encode degrees and their histogram, not the rank of short cycle vectors or minimum cycle-basis weight. The nonidentical indexed entry is not dismissed on grounds of its date, and unavailable full text limits the comparison.",
+        "searches": [
+          "Configured Resultary lookup on Fibonacci cubes, swap and mismatch, minimum cycle-basis weight and triangles"
+        ]
+      },
+      "rationale": "The graph, vertices and edge enumeration are prior, and the conjunction of those counts with the triangle correspondence yields the stipulated numerical triangle count. The supported distinct result is the exact minimum basis length and the obligatory length profile, together with an optimal construction using replacement squares. No checked source establishes that structure in the augmented graph.",
+      "residual_risks": [
+        "Historical priority is not established. The bounded external query was uninformative, and earlier work on composite graph cycle bases or on this graph under another name could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Graph and counts covered; no minimum cycle-basis theorem in the examined statements",
+          "evidence": "The tilde-Fibonacci cube forbids 11 and its total edge count is ((n+1)F_{n+3}+(n-2)F_{n+1})/5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.09898",
+          "material_read": "Definitions 1, 14, 19, 22; Proposition 3; §5.1, PDF pp. 3–4 and 8–10 (OA locators 10860, 13200, 25630, 28400, 29300)",
+          "method": "Targeted primary PDF passages",
+          "title": "Hypercubes and Isometric Words based on Swap and Mismatch Distance",
+          "trigger": "Exact graph, ordinary and augmented edge enumerations"
+        },
+        {
+          "assessment": "Supports prior coverage of graph and augmented edge enumeration",
+          "evidence": "The section gives the graph definition and total-edge recurrence and formula.",
+          "identifier_or_url": "https://doi.org/10.4230/OASIcs.Grossi.5",
+          "material_read": "§6, PDF pp. 10–11 (OA locator 34900)",
+          "method": "Targeted primary PDF passage",
+          "title": "Generalized Fibonacci Cubes Based on Swap and Mismatch Distance",
+          "trigger": "Follow-up on exactly the same graph"
+        },
+        {
+          "assessment": "The summary addresses a different invariant; only a summary-level comparison is possible",
+          "evidence": "It concerns cardinalities of one-error spheres and their histogram.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-one-error-sphere-spectrum-of-fibonacci-constrained-swap-an--189bd40b7833",
+          "material_read": "Resultary summary; local full record not located",
+          "method": "Configured local lookup and mirror attempt",
+          "title": "Exact one-error sphere spectrum of Fibonacci-constrained swap and mismatch graphs",
+          "trigger": "Strongest distinct same-object catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Exact graph and edge-count results in arXiv:2303.09898 and OASIcs.Grossi.5"
+      ],
+      "rationale": "Adding swap edges to a standard constrained-word cube naturally changes the short generators of its cycle space. The exact optimal cost and the necessity of every swap triangle decide how the two move types participate in an optimal basis for all lengths, rather than supplying a finite edge count or only a sampled solution. The constructive decomposition also gives a useful direct method of finding an optimum without searching longer cycles.",
+      "residual_risks": [
+        "Does not enumerate or structurally classify all permitted choices of four-cycles in an optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

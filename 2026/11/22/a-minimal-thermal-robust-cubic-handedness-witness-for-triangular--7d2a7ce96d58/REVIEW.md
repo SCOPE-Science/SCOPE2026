@@ -1,15 +1,21 @@
-# Review of the triangular heading-switching chirality theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the orientation of the three velocity vectors, the sense of switching, positive trap and speed, nonnegative individual rates with positive sum, and optional isotropic Brownian noise. The nonstandard calculation is the complex generator recurrence for stationary \(W_n=\mathbb E[(Z^{(0)})^n U^{-n}]\); multiplying its first three denominators gives the exact signed cubic formula. The symmetry direction is checked independently of numerical experiments. The full support triangle is established by convex filtering and controllable finite Poisson switching sequences; known general PDMP accessible-set results supply a broader framework. Gaussian convolution preserves the cubic moment and is injective for symmetry comparisons. Minimality is a geometric reflection argument for one and two heading velocities. The standalone exact and Monte Carlo checks passed; sampling is supporting evidence, not a proof.
+## correctness
 
-## Originality — PASS, qualified
-The central claim concerns a three-heading **cyclic** planar swimmer in a harmonic trap, not an iid heading-redraw process, not a free swimmer, and not the symmetric four-heading quarter-turn model. Guéneau–Majumdar–Schehr (arXiv:2602.08436, Sections II and VI) solve isotropic iid redraw dynamics, including discrete velocity laws. Smith–Le Doussal–Majumdar–Schehr (arXiv:2207.10445, Sections II–IV) solve the symmetric quarter-turn system. The preferred-reorientation paper (arXiv:2608.23519, model/observable sections) concerns free transport rather than the trapped three-state stationary cubic witness. The closely related indexed four-state chirality result detects handedness first at fourth order, without logically implying the three-heading third-order formula. General PDMP theorems cover support questions, which are expressly excluded from the novelty claim. Direct searches for triangle stationary skewness and third moments found no exact covering source. Residual risk: unindexed three-state planar active-matter calculations may independently imply the claimed formula; this is not an exhaustive priority certificate. One potentially relevant 2024 tumbling article was accessible only as a summary owing to a full-text access restriction.
+PASS
 
-## Value — PASS
-The model isolates the smallest planar heading alphabet capable of encoding handedness in stationary **position-only** data, even though both lower pure complex moments vanish. The strictly signed cubic signal is exact at every finite switching bias, unlike an illustrative example at one parameter value. Thermal invariance makes the invariant measurable without trajectory-level heading or turning observations; the complete iff statement and two-heading obstruction establish a natural sharp boundary. This supplies a structural minimality and observability result, not a cosmetic reformulation of a known variance computation.
+The frozen algebra is correct when the index rates are taken as defined, but its proof swaps the physical names of the two turns. This matters for a signed handedness witness. The complete replacement RESULT.md in repairs/2 fixes the convention: with Z=X+iY and positive angles anticlockwise, u advances the index and is anticlockwise, and d is clockwise. No checker or other supporting file needs a mathematical change. The stationary generator on z^n U^{-n} gives the three denominators kappa+3s/2+i sqrt(3) delta/2, 2kappa+3s/2-i sqrt(3) delta/2, and 3kappa; the product of the first two is A+iB with A>0 and B=sqrt(3) kappa delta/2. Thus the stated sign carries through also when exactly one rate vanishes. The radial second moment follows separately from the stationary |z|^2 balance and Re E[z U^{-1}]. Threefold invariance forces the first two pure moments to vanish, and circular independent noise contributes no positive-degree pure moments. In the repaired support proof a finite stationary history in a permitted cyclic order with two switches in open time windows can approximate any three positive weights, with old history uniformly negligible; this also covers one-way switching. The three triangle reflections all have form z->omega^k conjugate(z) and would force a real cubic. Isotropic Gaussian deconvolution preserves this obstruction for arbitrary reflection axes, including affine ones. The two-heading segment has an affine reflection, which survives convolution. The diagnostic script was inspected, not executed; the result is a population moment, not a finite-sample detection guarantee.
 
-## Boundaries and further checks
-The theorem does not identify individual switching rates from the cubic measurement alone and does not establish a quantitative statistical sample-complexity threshold. Inaccessible or unindexed sources remain publication-priority risks. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim the change is to the turn convention and supporting proof, not to the signed formula in index coordinates or to the model. The closest known fourth-order trapped witness uses four headings and the relevant independent-redraw and preferred-turn sources solve different dynamics. The contribution is the sharp reflection obstruction at the minimal heading count, not the use of generator moments or circular convolution.
+
+## value
+
+PASS
+
+The observable is motivated by the loss of handedness information in the first two pure spatial moments. The repaired statement shows when unobserved angular bias leaves no reflection whatsoever and gives a signed spatial-only witness which remains exact under arbitrary finite independent isotropic translational diffusion. Two headings cannot produce the phenomenon even with asymmetric jumps, so the triangle tests the natural minimal case, not an arbitrary cutoff. Thermal invariance of the expectation does not ensure practical precision at high noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

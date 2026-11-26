@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:52:38.121666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for repairs/4/RESULT.md and the corresponding verification notes, not the original stock-law wording. Independent atomless utilities need not give uniform orders. Independent U_j uniform on (2j,2j+1) are strictly ordered by index, so there is never a successful triple and T is infinite, contradicting the original Finding under its stated independence-and-atomlessness condition. The repaired Finding and scope require i.i.d. atomless utilities, which by symmetry give uniform prefix rankings and a coherent no-ties order almost surely. For any selected triple, envy-free assignments necessarily give its extremes to agents 1 and 2, so the third must prefer its middle to both. Giving the third her top choice on any triple and arranging the others as in the repaired proof leaves at most one ordered envy pair, simultaneously optimizing the three objectives if no envy-free triple exists. Absence of a middle-first triple is inherited after deleting a favorite endpoint and forces every deletion to be at an endpoint; conversely the middle cannot be the first deleted member of a triple. For the stated process the monotone no-success tail is 2^(m−1)/m! for m>=2 and 1 for m=0,1. Differencing gives the mass; using weights 1 and 2m+1 on the tail gives the two moments (e²+1)/2 and (5e²+1)/2, hence the stated variance. The linear-time witness uses the maximum (worst numeric rank) on each side, so it tests exactly the two strict comparisons. The unchanged checker was inspected, not executed; its exhaustive finite permutation cases do not imply sampling uniformity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 4.10 says any globally single-dipped profile has at most two envy-free agents under any complete allocation. Both fixed axis orders meet that hypothesis.",
+          "Gan–Suksompong–Voudouris consider all agents' independently uniform rankings in their large-market theorem; the indexed three-agent stock law 998f72393838 also randomizes all three agents."
+        ],
+        "reasoning": "The prior domain lemma supplies one implication and the general decision algorithm can solve any instance but does not establish the exact converse or one-envy optimum. A law averaging over the two axis agents' rankings cannot be conditioned on their being opposite from the reported unconditional tail alone.",
+        "searches": [
+          "arXiv:2511.07022v1 §4.2 Lemma 4.10 single-dipped complete allocations",
+          "arXiv:1905.00468v2 §2 Theorem 2.3",
+          "Resultary 998f72393838 first zero subsidy arrival"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py; repaired RESULT.md and VERIFICATION.md",
+        "arXiv:2511.07022v1 §4.2",
+        "arXiv:1905.00468v2 §2",
+        "OEIS A000079",
+        "Resultary cd09cb21e64f and 998f72393838",
+        "Simion–Schmidt Restricted Permutations abstract/metadata only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-dipped lemma rules out having three envy-free agents if the third is also single-dipped, but says nothing about what is achievable when she is not.",
+          "No inspected source with that implication gives the simultaneously minimizing one-envy construction or characterizes all third rankings in this polarized profile."
+        ],
+        "reasoning": "One direction is a known corollary. The distinct remainder is the converse obtained by examining the extremal assignments on an optimal triple, together with a common optimizing assignment for all three objectives even in the obstructed case. The stopping-time calculation depends only on coherent uniform prefixes and neither claims nor needs a novel permutation class.",
+        "searches": [
+          "Hosseini–Roy–Sethia arXiv:2511.07022v1 Lemma 4.10 at HTML offset 62294",
+          "Gan–Suksompong–Voudouris arXiv:1905.00468v2 §2, offsets 14000 and 16312",
+          "998f72393838 RESULT.md Finding and assumptions, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Index ranks by axis and use rank 1 for the best house: a middle-first triple occurs exactly as a 213 or 312 rank pattern.",
+          "Reversing the best-to-worst endpoint-deletion word gives a word with integer-interval initial segments, exactly the family enumerated at OEIS A000079."
+        ],
+        "reasoning": "These formulations identify the forbidden rankings and their already known count. They do not by themselves turn a failure of single-dippedness into an envy-free assignment for polarized agents or show that all three optima attain one on failure.",
+        "searches": [
+          "Simion Schmidt Restricted permutations permutations avoiding 213 312 2^(n-1) first occurrence random permutation minimum middle single dipped polarized three agent envy free house allocation",
+          "Resultary: polarized house allocation and first feasible house stock"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000079 at index m−1 equals 2^(m−1) and explicitly counts permutations on [m] whose every initial segment is an integer interval.",
+          "The exact indexed match cd09cb21e64f is the target itself, not independent coverage. The neighboring indexed exact stock formula is different: Pr(T=3)=2/9 there versus 1/3 here."
+        ],
+        "reasoning": "The database counts the same permutation class after reversing the deletion order, not merely a numerically matching sequence. The corrected theorem does not claim the count or the resulting factorial-tail summation is new on its own.",
+        "searches": [
+          "OEIS A000079 public page, offset 4280, Callan comment on integer-interval initial segments",
+          "Resultary cd09cb21e64f and 998f72393838"
+        ]
+      },
+      "rationale": "For the repaired claim, credit the known single-dipped obstruction and the exact count of endpoint orders. Neither that obstruction nor the known interval-prefix permutation count gives the full conditional allocation classification for arbitrary third rankings and the common optimum for the three envy objectives. That deterministic classification with a constructive bound is the supported distinct contribution. The uniform stock law is retained as a corollary of it and a known count, not as an independently novel pattern-enumeration result. The adjacent indexed stock law randomizes all three agents and is not the same conditional law.",
+      "residual_risks": [
+        "An equivalent polarized allocation theorem or conditional law could be unindexed. The original Simion–Schmidt full text was not obtained, so no specific negative claim is made about it. Known pattern enumeration is not part of the originality pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies only the obstruction side under the narrower hypothesis that all three agents are single-dipped",
+          "evidence": [
+            "When the preferences are single-dipped, at most two agents can be envy-free under any complete allocation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.07022v1",
+          "material_read": "Section 4.2 Lemma 4.10, HTML offset 62294",
+          "method": "OA HTML passage",
+          "title": "Fair Societies: Algorithms for House Allocations",
+          "trigger": "Exact known obstruction for single-dipped profiles"
+        },
+        {
+          "assessment": "Independent uniform permutations of all agents and an asymptotic large-market result, not this fixed-opposite-orders conditional law",
+          "evidence": [
+            "High-probability existence for m>=c n log n, c>e, with n growing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.00468v2",
+          "material_read": "Section 2, probability model and Theorem 2.3, PDF p. 4, offsets 14000 and 16312",
+          "method": "OA PDF passages",
+          "title": "Envy-Freeness in House Allocation Problems",
+          "trigger": "Potential coverage by general allocation and random-market results"
+        },
+        {
+          "assessment": "Exact count already known up to index shift; credited in the repaired result",
+          "evidence": [
+            "a(n) is the number of permutations on [n+1] such that every initial segment is an interval of integers."
+          ],
+          "identifier_or_url": "https://oeis.org/A000079",
+          "material_read": "David Callan comment of 25 July 2008, offset 4280–4945",
+          "method": "OA public page by bounded offset",
+          "title": "OEIS A000079, powers of 2",
+          "trigger": "Exact interval-prefix reformulation of endpoint-order count"
+        },
+        {
+          "assessment": "Substantial question overlap but different model and distribution",
+          "evidence": [
+            "All three agents receive i.i.d. draws from a common atomless law; its tail is product over r=3..m of (3r−2)/r²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-first-zero-subsidy-arrival-law-for-three-agents-under-inde--998f72393838/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Paged local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact first zero-subsidy arrival law for three agents under independent preferences",
+          "trigger": "Distinct published exact first-success law at same agent count"
+        },
+        {
+          "assessment": "No substantive noncoverage claim for its unseen text; the exact combinatorial enumeration was verified independently by the equivalent OEIS entry",
+          "evidence": [
+            "The abstract concerns counting permutations that avoid specified subsequences, but does not establish the exact pair from that abstract alone."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0195-6698(85)80052-4",
+          "material_read": "Search metadata and abstract only; direct landing page contained no usable article text, alternate results unavailable through attempted routes",
+          "method": "Search result and lawful primary/identified alternate OA attempts",
+          "title": "Restricted Permutations",
+          "trigger": "Primary source lead for length-three pattern-pair enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-opposite-orders input is a natural extreme of disagreement. The structural result replaces general allocation search by a direct witness test and determines three different ordinal envy objectives, including the existence of a common optimizer. The explicit stock distribution under coherent uniform prefixes interprets the criterion probabilistically, without pretending the known permutation count is itself a contribution. The repaired model excludes the concrete nonidentical-utility counterexample to the frozen wording.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

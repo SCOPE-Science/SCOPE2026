@@ -1,11 +1,21 @@
-# Scientific review: sharp signed-burning plurality on once-subdivided stars
+# Independent mathematical audit
 
-**Correctness: PASS.** The final statement is for all-negative signed trees with \(m\ge3\) arms of length two, using strict sign-adjusted majority and one ignition per round. The proof partitions double-yellow arms by whether their middle vertex was ignited or spread-colored; first burn times of the center force their yellow leaves to be ignited in only two consecutive rounds. Thus no more than two such arms occur, and an explicit legal four-round schedule achieves the resulting bound. Original labelled-state enumeration up to six arms and independent orbit-state enumeration up to sixty arms corroborate the proof. Finite checking alone does not establish the theorem.
+## correctness
 
-**Originality: PASS, provisional historical priority.** Fallat et al. (arXiv:2610.02506, 2026-10-01) introduce the plurality notion; their inspected Sections 2, 3, and 5 treat signed paths, general computational hardness, and future signed-tree work, but not the once-subdivided star formula. Targeted searches for signed burning on spiders and exact plurality of negative subdivided stars found no covering result. The nearest accessible research record about signed double Italian domination of the same tree family concerns a different labeling constraint and does not imply this dynamic theorem. Unindexed results could remain.
+PASS
 
-**Value: PASS.** This is an exact infinite nonpath signed-tree instance of a problem explicitly opened for tree families, with a sharp timing obstruction and a process-level construction. The plurality grows as approximately half the number of vertices, in contrast with the published all-negative path value of approximately two thirds. The central two-arm bottleneck is a reusable structural principle, not merely a numeric fit.
+A doubly-yellow arm's leaf has to be ignited yellow, no later than the round its intermediate burns; if they burn together the intermediate must spread before that leaf ignition. With a yellow center the intermediate would spread green immediately after a yellow leaf ignition, and cannot spread yellow simultaneously with the leaf. With a green center first burned in round T, a doubly-yellow arm with ignited intermediate needs the green center to keep it tied at the first spread after its leaf ignition. The center cannot predate that ignition, since otherwise it spreads yellow to the still-unburned intermediate before or during the leaf's ignition round. This forces leaf ignition in T. With a spread-burned yellow intermediate, its leaf must still be unburned at the start of the spread, and the green center would produce positive influence on the first spread after T. The intermediate therefore spreads in T+1 and its leaf must be ignited in T+1. One ignition per round bounds the two types by one each. Independent replay of RESULT.md line 30: each of a1, b2, b3, a2 is unburned at its ignition; the center and b1 are green after round 2, intermediates j>=3 are yellow after round 3, and leaves j>=4 turn green in round 4. The two center/leaf contributions to a2 cancel until its ignition. This gives exactly two double arms and m+2 yellow vertices for every m>=3. Color reversal gives the plurality bound. The cited path formula gives P3 and P5 values 2 and 3. Inspected verify.py's simultaneous labelled and orbit transitions without execution; the recorded finite checks are not the proof.
 
-**Limits.** No claim is made for unequal arm lengths, arbitrary signatures, arbitrary trees, optimal-sequence counts, or independent proof assessment. The primary manuscript was examined through a full extracted-text rendering and arXiv metadata, not through independently supplied typesetting files.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked earlier exact results cover paths and ordinary stars, not the two-edge arms of this all-negative signed tree, and the tree parameter match from domination theory is a different invariant. Pass is confined to the branching plurality formula and sharp two-arm obstruction.
+
+## value
+
+PASS
+
+An exact all-order terminal-color optimum for a natural first branching family answers a concrete part of the signed-tree problem. The center's two-slot timing obstruction is structural, and a uniform legal construction saturates it rather than extrapolating a census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

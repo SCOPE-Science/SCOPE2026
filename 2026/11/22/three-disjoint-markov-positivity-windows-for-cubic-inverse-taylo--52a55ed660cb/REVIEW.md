@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact coefficient-generating function of the transient rational inverse was derived from the Markov generator, rather than merely fitted to a numerical sample. The nine low-order sign expressions were reduced to nonnegative-coefficient rational functions, while the remaining three were reduced to explicit \(P\), \(U\), and \(V\) polynomials. Exact Sturm variation counts at zero and infinity are \((5,3)\), \((5,5)\), and \((7,5)\); their isolating rational brackets establish all possible changes in sign. The provided independent rational matrix inversions confirm the coefficient-to-entry reduction and conservation of mass. No computational timeout, finite root grid, or numerical simulation is used as proof of an infinite claim.
+PASS
 
-## Originality — PASS, with residual historical risk
+For column distributions 1ᵀQ=0, so the update preserves total mass; its inverse exists since the triangular denominator has diagonal values E(h)/6>0 and 1. The transient block is the evaluation of the scalar inverse D_h(z)^−1 on a nilpotent shift, and the absorbing row is given by column-sum remainders. I independently expanded the finite geometric inverse of D_h as a truncated series and recovered all coefficients and the three displayed P,U,V, with Sturm variations (5,3), (5,5), (7,5). The calculation also recovers square-freeness and exact opposite signs in all four ordered rational isolation intervals. U is strictly positive because it has no nonnegative zero and U(0)>0. For the low-order numerators, RESULT.md line 54 overstates 'strictly positive coefficients': c_4 and T_4 have internal zero coefficients after the positive monomial is extracted. The required fact, as actually tested by check.py, is nonnegative coefficients with at least one positive term, which I verified and which gives strict positivity for h>0. At n≤6 only c_0 through c_4 and tails through T_5 are needed. At n=7 the two remaining sign constraints are exactly P≥0 and V≥0, allowing their roots as endpoints and excluding the interiors of the two negative bands. At h=0 the update is the identity, including for n=1. This proves the unchanged finding; independent exact replay is markov() in /workspace/calculations/algebra_checks.py. The supplied script was inspected but not run. The classification is for this family and exact arithmetic only.
 
-The closest same-rational-map published statement treats unweighted undirected heat graphs, not the directed birth cascade or its entire positivity set. The complete positivity result for unshifted reciprocal cubic Padé coefficients is logically weaker for this purpose: shifted coefficients are actually negative within a nonempty timestep interval. Published inverse-Taylor order-two and Radau IIA cascade results have different stability functions. The relevant full texts that were available were inspected; a 2010 inverse-heat Padé article remains only partially accessible. The actual comparisons are recorded in `AUDIT.json`. Priority is not externally certified.
+## originality
 
-## Value — PASS
+PASS
 
-Markov-chain integrators must preserve the probability simplex to be usable as transition updates. The seven-state homogeneous cascade gives the first all-step failure in a natural dimension ladder for this classical third-order rational method, and the complete set of three disconnected safe intervals demonstrates that a single CFL-type positivity threshold can be misleading. Identifying two distinct active matrix entries and a narrow intermediate recovery provides a meaningful analytical benchmark for positivity tests and integrator selection, rather than an arbitrary numerical slice. The theorem is confined to the specified generator family.
+The classical rational map, unshifted expansion, and undirected six/seven cutoff are existing results. The supported distinct claim is the full all-step sign classification on a directed absorbing cascade, together with its two active entries and narrow middle recovery interval. Neither the undirected heat result nor positive Taylor coefficients at the origin establish it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The homogeneous cascade is a natural nested family for testing whether a classical step transports probability distributions. Exact positivity at every step through six states, followed by two different mechanisms and an exceptionally narrow recovery window at the first failing size, shows why a single positivity threshold or numerical step grid is insufficient. The classification provides a reproducible benchmark without extrapolating to other generators or claiming accuracy on those intervals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

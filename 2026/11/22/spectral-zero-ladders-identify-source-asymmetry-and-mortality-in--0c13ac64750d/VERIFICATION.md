@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is analytic. Its critical steps are: (i) solving the killed-diffusion backward boundary-value equation; (ii) deriving the stationary cluster covariance by conditional counting of distinct offspring pairs; (iii) establishing the exact Fourier orientation; (iv) rewriting the two hitting transforms with exponential corrections; (v) controlling those corrections, together with one derivative, uniformly at high frequency; and (vi) obtaining eventual simple roots and their two-term asymptotics by the inverse-function principle and a square-root expansion.
+## correctness
 
-A reproducible numerical consistency program is provided as `checks/spectral_two_wall.py` (NumPy and SciPy). Running it returned `PASS: 106 spectral, zero-ladder and independent heat-flux checks`. It tests a separate absorbing-heat-kernel eigenfunction representation at moderate frequencies, several noncentral positions, the zero-degradation boundary, root location, exact midpoint positivity, and complex-conjugation symmetry. These are finite diagnostic checks only, not certificates of global spectral signs.
+PASS
 
-Scientific limitations: observations of high-frequency roots would be exponentially noise-sensitive; the exact physical model excludes source motion, offspring dependence and partially absorbing walls. Classical point-process spectral theory is prior knowledge. Prior literature was searched, but an implicit general result may remain unrecognized. An independent audit was not performed.
+The backward Dirichlet equation with killing gives the two defective hitting transforms. Poisson cluster covariance counts ordered distinct offspring since one particle cannot hit both walls, hence is nonnegative at every lag and transforms with the stated conjugation to b·E[K(K−1)]·F_0(iω)overline(F_L(iω)). Strict midpoint positivity and the ladder are the nonzero-factor case E[K(K−1)]>0, as the Finding's final zero-spectrum exception and proof clarify. When that factor vanishes, Poisson marking and displacement yield independent Poisson streams. Independently, after multiplying by a positive real normalization, the off-center sign is exactly the sign of cos(dv)−[cosh(du)/cosh(Lu)]cos(Lv), where d=|L−2x|, u²=v²+μ/D and ω=2Duv. Since 0<d<L, both the correction and its v derivative are exponentially small. In disjoint fixed neighborhoods of the reference cosine zeros a nonzero-slope bound yields one simple zero, and outside there are none eventually. Expanding ω about the reference phase proves the O(n^−2) correction and the constant μ. If the exact zero list is supplied without phase labels, consecutive sorting differs by at most a fixed integer shift in the tail; the leading quadratic coefficient A comes from growth and the shift from the limit of sqrt(ω_k/A)−k−1/2, so it does not contaminate μ. Reflection and exact-data limitations are correctly stated.
+
+## originality
+
+PASS
+
+The supported distinct result is the two-endpoint cospectral symmetry classification and the indexed two-term ladder recovering mortality as well as source distance, not Poisson-cluster spectral calculus, killed hitting transforms, or stochastic burst synthesis.
+
+## value
+
+PASS
+
+The result explains how an everywhere nonnegative covariance can have a sign-alternating real cross-spectrum in a basic two-target diffusion model. It proves an exact identifiability statement for two independent parameters from different scales of one spectral observable, independent of burst intensity and nonzero factorial-moment scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

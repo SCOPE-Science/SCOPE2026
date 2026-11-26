@@ -1,19 +1,21 @@
-# Review of the rank-two quaternary distortion threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The projective-weight dictionary recovers the zero-column count and the five column multiplicities from the Hamming weights. The faithful actions \(\mathrm{PGL}_2(2)=S_3\), \(\mathrm{PGL}_2(3)=S_4\), and \(\mathrm{PGL}_2(4)=A_5\) prove both field and blocklength thresholds. Distinct nonnegative quaternary multiplicities require ten positions. For the constructed family, the identity and odd-permutation lower bound agree at \(\bigl((4t+10)/(4t+9)\bigr)^2\). Direct enumeration of all invertible two-by-two maps checks six parameter instances; the proof, not the enumeration, handles all parameters.
+PASS
 
-## Originality
+For a rank-two generator matrix with N nonzero columns, a projective message annihilates exactly one column direction P, and its weight is N−m(P). Each message direction supplies q−1 equal weights. Their sum is qN, so the enumerator recovers the multiset of multiplicities, and equal length recovers the zero count. Monomial equivalence is precisely the projective orbit of that profile (column representatives can be independently rescaled). The faithful group orders give all permutations for q=2,3. For q=4, translations, dilations and inversion generate the projective group and each is even, giving A5 by order. Any repeated multiplicity supplies an odd stabilizer, so only an all-distinct profile splits; its minimal total support length is 0+1+2+3+4=10, which leaves no zero columns at length ten and gives exactly two orbits. In the family the distinct weights are consecutive from 4t+6 to 4t+10, each with multiplicity three. Relative to ordered weights, every permitted isomorphism across the two monomial classes gives an odd permutation. Every such permutation produces at least one ratio above one and one below; the closest possible ratios to one are (4t+10)/(4t+9) and its reciprocal. Swapping those two alone attains the lower bound through the identity message map for the displayed bases. Independent exact replay classified all sorted rank-two nonzero-column profiles through length ten by projective orbit and minimized over all 180 invertible maps for seven test parameters (including 100/81 at t=0). The all-t claim follows from the ratio proof, not finite sampling.
 
-PASS with residual risk. Bennett--Fox--Morrell (2026, arXiv:2607.26261, DOI: 10.4230/LIPIcs.APPROX/RANDOM.2026.24) introduces distortion and universal algorithms but does not identify this projective parity threshold or compute the infinite family. Bouyukliev--Bouyuklieva--Kurz (2020) treats projective codes under a larger equivalence group *including field automorphisms*. Their convention identifies the two examples and cannot imply the strict monomial distortion value. Indexed mathematical records include examples of equal Hamming enumerators with inequivalent higher-dimensional codes, but not this quaternary first-threshold and exact distortion law. An unindexed projective-line computation remains a possible overlap.
+## originality
 
-## Value
+PASS
 
-PASS. Distortion is newly motivated as a quantitative refinement of linear code equivalence. The result gives the earliest failure of Hamming-spectrum completeness within all rank-two quaternary codes, proves the small-field rigidity boundary, and computes an exact near-unit metric gap for an unbounded family. The distinction between field-linear and semilinear equivalence matters: the same example has no gap under the latter convention. The theorem is a sharp structural metric result, not a routine table entry or a numerical improvement without context.
+Older primary work supplies the projective-multiset reduction, and the code-distortion paper supplies the metric. Neither inspected result evaluates the parity-constrained minimum for isospectral rank-two pairs. A distinct Resultary entry explicitly overlaps and generalizes the quaternary theorem, including the exact length-10 gap and all-t specialization. Its catalogue date is later; the evidence establishes overlap, but not anterior coverage or shared provenance. Relative to verified antecedents, the distinct content is the strict-linear isospectral parity threshold and the exact optimal near-unit distortion, not the projective dictionary.
 
-## Limits and closest prior literature
+## value
 
-The phenomenon is specific to dimension two and strict field-linearity. It supplies no hardness theorem, decoding guarantee, or higher-dimensional classification. Classical equivalence classifications often allow field automorphisms, so comparisons must preserve the same equivalence group. An independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The weight enumerator is a natural but coarse invariant and the metric measures how close inequivalent linear codes can be to isometric. This identifies their first separation in the rank-two setting and quantifies it, including an infinite family with exact nonunit gaps tending to one. The strict-linear versus semilinear distinction affects the result itself, rather than merely changing terminology. The exact optimization and intrinsic minimal threshold make the result more than re-enumeration of code classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

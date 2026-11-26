@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:10:10.154700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For full column rank A, the normal equations give r orthogonal to im(A), so H and Q are projectors of ranks n and n+1. Their k-minor sums are the respective binomial coefficients, by taking the coefficient of t^k in det(I+tH) and det(I+tQ). For each positive-probability S, H_SS is positive definite, the constraints are feasible, and minimizing the G-norm of x−x_* subject to A_S(x−x_*)=r_S adds exactly r_S^T H_SS^{-1} r_S to the squared residual. By the determinant lemma the per-set normalized loss is det Q_SS / det H_SS. In the average the denominator cancels only on the positive-probability support; adding and subtracting the remaining minors gives the exact formula and the upper equality criterion. The lower bound is pointwise. The Vandermonde and padded-identity constructions meet the two endpoints with nonzero residual for every allowed n,k. Independently checking the strict example gives x_*=(-3,15,1)/7, r=(10,3,13,13,-13)/7 and ||r||²=88/7. The only singular pair has H entries all 3/7 and u_1−u_2=1/||r||, so its augmented determinant is 3/88, giving ratio 175/88 and excess 87/7. This concerns loss inflation with access to every response, not mean parameter bias or a label-efficient regression procedure. CHECK.py and VERIFICATION.md were inspected, not executed; the argument above is an independent exact check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dereziński–Warmuth Theorem 8 treats exactly d samples in dimension d; its proof handles zero-probability sets as the source of a potential strict bound.",
+          "Fanuel et al. Theorem 5.8 is a risk bound for a projected Nyström estimator under a variable-size law; Theorem 4.1 is a semiparametric DPP expectation identity.",
+          "Sun et al. analyze iterative convergence on consistent systems and list the inconsistent setting as a direction for future work."
+        ],
+        "reasoning": "The prior full-dimension loss principle overlaps the boundary k=n, which is explicitly excluded here. General determinant and DPP tools are applicable, but the inspected risk statements do not supply the exact deficit or the frontier at k<n.",
+        "searches": [
+          "Dereziński–Warmuth, Theorems 7–8",
+          "Fanuel–Schreurs–Suykens, Theorems 4.1 and 5.8",
+          "Sun–Qi–Han–Xie, arXiv:2605.29304v1, conclusion"
+        ]
+      },
+      "checked_sources": [
+        "JMLR 17-781",
+        "arXiv:2510.02513v2",
+        "arXiv:2011.06964v2",
+        "arXiv:2605.29304v1",
+        "Local Resultary b4d8c12466a2, aca438504d6c, 94943c586d73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-dimension interpolation factor is d+1, whereas the present factor is (n+1)/(n-k+1), reflecting optimization with n-k unconstrained directions.",
+          "For two finite laws on the same k-sets, averaging their likelihood ratio against H is the elementary mass-on-support identity used here."
+        ],
+        "reasoning": "The mass identity is mechanically known and gets no novelty credit. The known regression bounds do not allow changing k below parameter dimension while leaving the same n-dimensional objective. The distinct subdimension application requires the G-metric constrained-optimum formula and its connection to exactly the two nested projectors, plus examples showing the upper and lower factors are sharp.",
+        "searches": [
+          "JMLR 17-781 pp. 13–14, 18–19",
+          "arXiv:2510.02513v2 Definition 3.1 and Theorems 3.2–3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio is binom(n+1,k)/binom(n,k) times the likelihood ratio of the Q and H fixed-size DPP laws on the support of H.",
+          "Epperly defines the appropriate fixed-size minor laws, but the active regression result there interpolates k samples in a k-parameter model."
+        ],
+        "reasoning": "The DPP formulation identifies the deficit as probability mass for Q outside the support of H. Generic DPP theory gives that interpretation once the optimizer-to-minor identity is proved; it does not identify the loss of this full-design optimizer. The active-regression objective in the inspected result is not a relabeling of the subdimension hard-constraint problem.",
+        "searches": [
+          "arXiv:2510.02513v2 §§3.1–3.2",
+          "JMLR 17-781, §§3.1 and proof of Theorem 8",
+          "Local Resultary: volume sampling and constrained least-squares loss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b4d8c12466a2 gives eigenvalue/condition-number bounds for a mean projector; aca438504d6c is a two-column amplification-tail problem; 94943c586d73 is about Gaussian variable sketches and pseudoinverse norms."
+        ],
+        "reasoning": "The closest indexed exact laws have different sampling objects or observables. A numeric table of examples cannot supply this universal finite-dimensional formula over real A and b.",
+        "searches": [
+          "Local Resultary: volume-sampled projection condition numbers, volume sampling amplification, exact least-squares inflation"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact full-data hard-constraint risk with less than n constrained equations, including the singular-support deficit and attained all-design bounds. The fixed-size DPP normalization and the generic support-restricted likelihood identity are not new. The step tying that ratio to a specific constrained optimizer and the exact subdimension risk is not covered in the closest inspected results. This decision is limited to the stated estimator and loss.",
+      "residual_risks": [
+        "The broad web query did not yield a relevant result and is not negative evidence. Other literature may formulate the same subdimension optimizer as a projector or augmentation identity.",
+        "The elementary minor probability and full-dimension regression ingredients are established, not original here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct analogue at full dimension, not at k<n",
+          "evidence": [
+            "Theorem 8 is equality at d samples in general position and otherwise an upper bound; the proof identifies zero-probability singular subsets."
+          ],
+          "identifier_or_url": "https://jmlr.org/papers/volume19/17-781/17-781.pdf",
+          "material_read": "Theorem 7 p. 11; Theorem 8 and §3.1 pp. 13–14; proof pp. 18–19",
+          "method": "Targeted OA PDF passages",
+          "title": "Reverse Iterative Volume Sampling for Linear Regression",
+          "trigger": "Closest expected full-loss theorem and singular sampling support"
+        },
+        {
+          "assessment": "Known sampling law; active regression uses a different model dimension",
+          "evidence": [
+            "Fixed-size DPP minor law and same-dimension sampled interpolation with factor k+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.02513v2",
+          "material_read": "Definition 3.1 and Theorems 3.2–3.3, §§3.1–3.2 pp. 3–5",
+          "method": "Targeted OA preprint passages",
+          "title": "Adaptive randomized pivoting and volume sampling",
+          "trigger": "Potential DPP/volume sampling loss reformulation"
+        },
+        {
+          "assessment": "Different estimator and risk law",
+          "evidence": [
+            "Determinant-lemma expectation for a semiparametric block system; noise-averaged projected Nyström risk bound for variable-size sampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.06964v2",
+          "material_read": "Theorems 4.1 and 5.8, pp. 10 and 17",
+          "method": "Targeted OA preprint passages",
+          "title": "Determinantal Point Processes Implicitly Regularize Semi-parametric Regression Problems",
+          "trigger": "Broader DPP subsampling risk candidate"
+        },
+        {
+          "assessment": "Consistent iterative problem rather than inconsistent exact loss",
+          "evidence": [
+            "The conclusion describes extension to inconsistent systems as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.29304v1",
+          "material_read": "Conclusion, OA text offset about 85700",
+          "method": "Lawful arXiv HTML",
+          "title": "On subspace-constrained preconditioning for randomized iterative methods",
+          "trigger": "Motivating hard-row constraints"
+        },
+        {
+          "assessment": "Different quantities and designs",
+          "evidence": [
+            "Mean-projector condition number; fixed two-column tails; Gaussian variable sketch pseudoinverse norms."
+          ],
+          "identifier_or_url": "Local Resultary b4d8c12466a2, aca438504d6c, 94943c586d73",
+          "material_read": "Mathematical findings and scope of the three matching records",
+          "method": "Local Resultary search and mirror read",
+          "title": "Indexed volume-sampling and exact least-squares comparators",
+          "trigger": "Strongest local catalogue matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact benchmark for the cost of retaining selected hard equations in an inconsistent least-squares system, when the full objective remains available. It answers for every design which upper-bound loss is lost to rank degeneracy, instead of silently treating zero-probability sets as zero augmented minors. The all-design endpoints and strict interior example make this distinction quantitative. This does not offer a convergence or label-efficiency guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

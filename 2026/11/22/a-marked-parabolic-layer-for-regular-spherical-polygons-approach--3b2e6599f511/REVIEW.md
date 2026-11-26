@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is conditional on area-uniform spherical sampling, with the precise finite polygon, its incircle and the longitude folding defined unambiguously. Gnomonic projection yields the exact side-edge radial boundary and identifies the rare layer. The two uniformly controlled rescaled boundaries and the spherical area Jacobian prove a sharp first-order rare-event rate and total-variation convergence. A separate Taylor expansion of the transformed fixed-side limit proves the \(n^{-2}\) many-side error and its normalized marginal laws. The exact limits are ordered; no unproved joint scaling is invoked. A standalone checker compares polar quadrature, conditional distributions and finite random-area samples. Risk: these are same-model analytic and finite numerical verifications, not independent certification.
+## correctness
 
-## Originality — PASS, provisional
-The closest primary material supports cyclic spherical polygons and general spherical cap intersection area calculations; the latter potentially covers finite-radius scalar radial CDFs, which are therefore not the originality claim. Direct inspection of pertinent published radial, farthest-point and cap-multiplicity results found different objects. The proposed statement is the joint marked rare-layer total-variation law with its sharp coefficient and a second, normalized parabolic universal limit. Neither plain finite area overlap nor general cap-area algorithms state those marked singular asymptotics. Risk: specialized pre-2026 literature may contain an equivalent marked conditional theorem, and database search is not proof of unique priority.
+PASS
 
-## Value — PASS
-The rare event is the natural area difference between a spherical polygon and its canonical incircle as both converge to the same hemisphere. Its location in a thin nonuniform layer is not captured by the scalar area alone; the conditional angular density vanishes at side midpoints and favors vertices. The successive many-sided limit identifies a simple universal parabolic configuration law, with a sharp and quantitative convergence mechanism. This provides a motivated geometric-probability classification of an intrinsic degeneration, rather than an arbitrary fixed-parameter numerical invariant.
+Use normalized uniform area on the polygon as stated in the scope, so the denominator tends to 2π rather than the whole sphere's 4π. In a folded sector the gnomonic side line is at planar distance tan(R)cos(α); a ray at offset φ meets it at tan(r_max)=tan(R)cos(α)/cos(φ). Its minimum over a sector gives the centered incircle. The spherical inward unit normals to the supporting great circles have equal polar coordinate, with their horizontal directions opposite the side midpoint meridians. For an interior point the smallest signed margin, and hence smallest supporting-circle distance, is to the side of closest midpoint longitude. A shortest segment to a minimizing circle ends in the polygon: the open ball with radius the minimum of the circle distances is contained in every supporting hemisphere. This verifies the use of actual side arcs and the vertex-meridian folds up to area-null ties. Write δ=π/2−ρ=arctan(tan(ε)sec(α)). An independent spherical-excess calculation on 2n right triangles gives polygon area 2π−2n arcsin(sin(α)sin(δ)); subtracting the incircle area gives layer area 2π sin(δ)−2n arcsin(sin(α)sin(δ)). Expanding yields 2n C_α ε+O_n(ε³) before normalization, hence the stated ε coefficient and O_n(ε²) probability remainder. For total variation, the uniform expansions of arctan(tan(ε) cos(φ)/cos(α))/ε and δ/ε give O_n(ε²) boundary shifts; the Jacobian ε cos(εx) has relative error O_n(ε²) on the bounded layer. The limiting band area is exactly 2C_α, so changes in support, density and normalization give the stated L¹ error; rotational symmetry makes the sector index exactly uniform and independent. Vertical and horizontal slices give the displayed first-limit marginals with the proper supports. For the second limit, the transformed lower boundary (cos(αu)−cos α)/(1−cos α) equals 1−u²+O(α²) uniformly; the upper boundary stays 1 and the transformed area is 2/3+O(α²). The second L¹ bound and the density 3/2 follow. Integrating slice lengths gives the quoted two marginals, radial CDF, and mean 7/10. Independent bounded numerical quadrature agreed with spherical excess within 8.6×10^−16 in the tested cases, and direct integrations checked the marked marginal formulas. The numerical check is not a proof of either TV rate.
 
-## Scientific limits
-The first conditional law is fixed-\(n\); the many-sided statement is a successive limit, not uniform joint convergence. The result does not extend to arbitrary spherical polygons, inaccurate incircle localization or noisy finite samples. Priority and proof require independent expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Provisional for the marked spherical conditional total-variation limits and accompanying sharp rarity, not for finite spherical polygon area, classical trigonometry, or a finite radial distribution. The local geometric calculation is elementary, but the compared work does not give the conditional joint law or its successive parabolic normalization under the same measure and geometry.
+
+## value
+
+PASS
+
+The polygon and its canonical incircle approach the same hemisphere, so the last piece of area between them is a natural singular geometric object. The joint law shows where that area actually sits: it avoids the side midpoint and concentrates toward vertices, a distinction inaccessible from the scalar rarity. The second scale gives a quantitative and explicit parabolic law as the sectors shrink. This provides interpretable geometry beyond recomputing the area of a fixed polygon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

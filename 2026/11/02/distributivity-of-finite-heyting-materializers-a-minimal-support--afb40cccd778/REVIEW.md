@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The downset implication formula yields a normal form for each materializer. Its ordered-pair model gives exact meets and intrinsic joins; an explicit three-element witness proves the necessity of union preservation, and finite minimal supports characterize that property. The four-point induced subposet and downset restriction argument establish the sharp nine-element boundary. The verification program checks the direct intrinsic distributivity law for all naturally labeled posets through five points and the equivalent structural criteria through six points. Computation corroborates but is not used to prove the all-size theorem.
+## correctness
 
-**Originality — PASS under accessible comparisons.** Bumpus–Kocsis (arXiv:2110.11515, §§3.13–3.15) introduced materializers and identified their meet closure and other properties, but did not classify intrinsic distributivity. The nearby earlier closure-system and closure-endomorphism literature treats different objects or generic bases, rather than a fixed antecedent's materializer lattice and its external minimal-support criterion. The closest accessible earlier finding showed that materializers can be intrinsically nondistributive and characterized ambient join closure, but it did not give the present intrinsic distributivity equivalence or sharp minimum. Priority under unexamined equivalent terminology remains a risk.
+PASS
 
-**Value — PASS.** The mathematical gap is qualitative: a subset of a distributive Heyting algebra can inherit a nondistributive *intrinsic* lattice structure. The theorem gives a full antecedent-by-antecedent characterization, distinguishes intrinsic from ambient join closure, yields a polynomial-time decision procedure, and locates the smallest algebra capable of exhibiting the obstruction. The result is not merely a new example or a finite census.
+On U, membership of a satisfying consequent J is determined by the test S_p ⊆ J∩I; on Q, J can be any ideal L containing the forced predecessors D(J∩I). Thus the coordinate meet is intersection and the join adds D(K₁∪K₂) to the second coordinate. Union preservation makes this a sublattice of the coordinate product. Conversely a newly forced q witnesses failure of the meet-over-join law by meeting with (∅,↓_Q q). For a given q the trigger is an OR over its support family. A minimal principal trigger in a union occurs in one summand; a nonprincipal minimal support splits into the ideal left after removing a maximal point and that point’s principal ideal, neither of which can trigger q alone. This also handles empty families and I or Q empty. A failed trigger supplies two incomparable points in I and a third point q incomparable to both, below a common p. Restriction onto this induced four-point poset is surjective on ideals, and any extra r makes restriction noninjective: ↓r and the downclosure of its restriction differ at r. Thus equality at nine ideals forces exactly that poset. Only the three two-minimum antecedents can fail there, and each gives the displayed seven-element witness. The separate three-point example has Q empty and a Boolean intrinsic lattice with nonambient join. Support comparisons and greatest-element tests are polynomial in the poset size. A separate finite check (python3 /workspace/review_checks.py, boundary) used direct implication and join tables through five poset points with at most nine ideals; it found only the three (4 points, 9 ideals, 7 materializers) antecedents. This is corroboration, not the all-size proof; the supplied verifier was inspected, not executed.
 
-**Scientific limitations.** All claims are finite. The poset proof is universal while the computer checks are bounded. Search and source access do not constitute exhaustive historical-priority verification; no external independent scientific audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact intrinsic-distributivity criterion and sharp minimum/equality classification, not for the materializer definition, the existence of intrinsic joins, or the four-point example in isolation. A distinct indexed record of the same date gives the identical witness and a closure representation but tests ambient joins; same-day dating does not resolve priority and that witness is not credited as distinct.
+
+## value
+
+PASS
+
+This decides a natural question about a named Heyting equality class without enumerating the ambient lattice when given its poset, and explains exactly which extra join obligations destroy distributivity. The nine-ideal boundary and equality classification are useful beyond exhibiting a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:11:13.589928Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–45; VERIFICATION.md, motzkin_product_checker.py and checker_output.txt inspected; frozen checker not run",
+        "Separate union-find reproduction through n=6: branches/3c947f40-eea4-4fb8-9aeb-4185c8643ad3/motzkin_pair_reproduction.py and motzkin_pair_reproduction_output.txt matched all strata for n=3,4,5,6"
+      ],
+      "rationale": "A side of a rank-(n−2) diagram has exactly two omitted vertices: they can be singletons for any pair, or a hook for an adjacent pair, because a hook enclosing a propagating vertex would violate planarity. The other vertices match in increasing order, so either outer side is free, with W_n choices each. For disjoint inner omitted sets all four omitted vertices carry a boundary connection, and any hook joins stubs on the same side, leaving rank n−4 and no floating component. The three ordered counts with zero, one, and two hooks are respectively C(n,2)C(n−2,2), 2(n−1)C(n−2,2), and (n−2)(n−3). With one common vertex the no-hook, one-hook, and two-hook cases give counts n(n−1)(n−2), 4(n−1)(n−2), and 2(n−2): the common vertex floats only without hooks, and two overlapping hooks give exactly one new opposite-boundary connection. With coinciding sets there are two isolated paths, one hooked path, or a two-edge loop, with counts C(n,2), 2(n−1), and n−1. This yields all seven coefficients after the free factor W_n². The disjoint case cannot occur at n=3, so omit its term. The loop event has exactly n−1 inner pairs out of W_n², consistent with the reported probability and total mass W_n⁴.",
+      "residual_risks": [
+        "The finite reproductions are comparisons, not the all-n proof. The loop convention retains the two parallel hook edges as a middle loop; isolated vertices are zero-length paths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources give general class counts, algebra twisting/cellularity, or normal forms, rather than an evaluated pair law. The inspected twisted-products passage notes the Motzkin loop-count twist."
+        ],
+        "reasoning": "The rank-class counts cover W_n² itself. Structural multiplication rules are input to the census, not aggregate coefficient formulas. A presentation alone does not count the inner hook interactions.",
+        "searches": [
+          "arXiv:1512.02279 Prop. 2.8 and §§5.2–5.3",
+          "East et al., Twisted products of monoids, abstract and p. 3",
+          "arXiv:1301.4518 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1512.02279, 1106.5277, 1301.4518 and 1507.04838; East et al. twisted products",
+        "Resultary b068f89f1b6f and 4866f1ecdc09"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The module action is zero when product rank drops below the module rank; it therefore does not report the lower-rank strata of the joint law. The Jones and Brauer cases do not allow the same isolated middle paths and Motzkin omitted-set choices."
+        ],
+        "reasoning": "The pointwise loop/path rule and class dimensions do not mechanically give the intersection census. One must count the alternating two-hook rescue and the no-hook, one-hook, and coincident cases. Parity or target-fiber formulas for other monoids cannot recover the missing path statistics by specialization.",
+        "searches": [
+          "Dolinka–East–Gray arXiv:1512.02279 §5.3 rank-filtered module action",
+          "Resultary b068f89f1b6f and 4866f1ecdc09"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial equals the sum of coefficients in the twisted square of the corank-two class sum after weighting each output basis diagram by its rank. The twist is known; the evaluated square in this rank class was not in the passages inspected.",
+          "The parallel Jones and Brauer results lack singleton paths and address target fibers or other rank distributions."
+        ],
+        "reasoning": "A weighted-algebra reformulation changes neither the census nor its scope, but the known individual-product rule does not give the summed coefficients by a parameter substitution.",
+        "searches": [
+          "Dolinka–East–Gray arXiv:1512.02279 §§5.2–5.3",
+          "Benkart–Halverson arXiv:1106.5277 §2.2",
+          "Resultary b068f89f1b6f and 4866f1ecdc09"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected enumeration tables concern idempotents, not arbitrary ordered pairs. The indexed Jones/Brauer results concern other monoids and invariants. No full text was obtained for the additional idempotent-statistics pointer."
+        ],
+        "reasoning": "Counting one-factor idempotents does not furnish a joint distribution of unrestricted products. The stated closed polynomial is not a recomputation of the inspected tables.",
+        "searches": [
+          "arXiv:1507.04838 abstract and introduction on enumeration and tables",
+          "Resultary b068f89f1b6f and 4866f1ecdc09 Findings",
+          "Idempotent Statistics of the Motzkin and Jones Monoids, exact-title access attempt"
+        ]
+      },
+      "rationale": "Pass the closed aggregate rank/path/loop distribution for arbitrary ordered corank-two Motzkin factors. The one-sided parametrization and individual-product weighting by middle components are prior. In particular Dolinka–East–Gray §5.2 defines the loop/path twist for partial Brauer diagrams and §5.3 explicitly restricts that same twist to the Motzkin subalgebra. Those formulas define terms in an aggregate but do not calculate the seven coefficients. Inspected nearby census results count other diagram classes or different fibers.",
+      "residual_risks": [
+        "The inaccessible idempotent-statistics item and any unindexed aggregate census remain possible overlap risks. Bounded literature comparison is not an exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers class counts and the individual path/loop twist, including Motzkin by restriction, not the aggregate convolution",
+          "evidence": [
+            "§5.2 defines τ(α,β)=x^{loops}y^{paths} and counts singletons as paths; §5.3 identifies the span of Motzkin diagrams as the twisted subalgebra and gives the rank-filtered module action."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.02279",
+          "material_read": "Prop. 2.8 p. 9, OA offset 36303; §§5.2–5.3 pp. 30–31, offsets 117452 and 122790",
+          "method": "OA PDF passage inspection",
+          "title": "Motzkin monoids and partial Brauer monoids",
+          "trigger": "Strongest direct overlap on rank parametrization and loop/path weighting"
+        },
+        {
+          "assessment": "Related multiplication definition; not an aggregate count",
+          "evidence": [
+            "The inspected text describes weights for loops and isolated vertices remaining in the middle row."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.5277",
+          "material_read": "§2.2 p. 5, OA offset 16000",
+          "method": "OA PDF passage inspection",
+          "title": "Motzkin Algebras",
+          "trigger": "Exact weighted Motzkin multiplication"
+        },
+        {
+          "assessment": "Presentations and decompositions, not the claimed census",
+          "evidence": [
+            "R TL L decomposition and generators/relations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.4518",
+          "material_read": "Abstract and §1 p. 1, OA offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Presentation of the Motzkin Monoid",
+          "trigger": "Possible broad product normal-form coverage"
+        },
+        {
+          "assessment": "Different enumeration domain",
+          "evidence": [
+            "Classification and enumeration of idempotents in Motzkin, Jones, and Kauffman monoids."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.04838",
+          "material_read": "Abstract and introduction pp. 1–2, OA offset 4433",
+          "method": "OA PDF passage inspection",
+          "title": "Enumeration of idempotents in planar diagram monoids",
+          "trigger": "Exact Motzkin enumeration tables"
+        },
+        {
+          "assessment": "Framework rather than an evaluated corank-two distribution",
+          "evidence": [
+            "Discusses cocycles and notes the loop-counting twist for Motzkin is loose."
+          ],
+          "identifier_or_url": "https://research-repository.st-andrews.ac.uk/bitstream/handle/10023/33119/East_2025_JoA_Twisted-products-of-monoids_CC.pdf?sequence=1",
+          "material_read": "Abstract and p. 3, OA offset 8298",
+          "method": "OA repository PDF passages",
+          "title": "Twisted products of monoids",
+          "trigger": "Structural extension of twist-counting methods"
+        },
+        {
+          "assessment": "Strong analogues, different diagram classes and measured counts; no same-day priority inference",
+          "evidence": [
+            "The Jones result counts prescribed-output fibers; the Brauer result counts factorization fibers and rank transitions. Both omit the Motzkin singleton paths."
+          ],
+          "identifier_or_url": "Resultary b068f89f1b6f; 4866f1ecdc09",
+          "material_read": "RESULT.md Findings and model assumptions",
+          "method": "Local mirror",
+          "title": "Seven multiplication fiber strata at the first singular Jones rank; Exact corank-two Brauer product fibers and parity-dependent absorption",
+          "trigger": "Same-day exact product strata and corank-two rank laws"
+        },
+        {
+          "assessment": "Detailed coverage unassessed",
+          "evidence": [
+            "The access failure and title were not used as evidence against overlap."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/280221339_Idempotent_Statistics_of_the_Motzkin_and_Jones_Monoids",
+          "material_read": "Catalogue title only; full text inaccessible",
+          "method": "Lawful OA attempts and bounded exact-title search",
+          "title": "Idempotent Statistics of the Motzkin and Jones Monoids",
+          "trigger": "Possible Motzkin exact statistics source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–42, especially the shared-vertex two-hook class; known twisted multiplication in arXiv:1512.02279 §§5.2–5.3"
+      ],
+      "rationale": "The first rank class allowing both singleton omissions and hooks gives a natural product census that distinguishes loss of rank from the creation of floating paths and loops. The exact joint law, including the rank-preserving overlap of distinct hooks, is useful for random product calculations and evaluating rank-refined class sums in weighted multiplication. Those outcomes are not available from diagram-class dimensions alone.",
+      "residual_risks": [
+        "This is not an individual output-fiber theorem, a count for other ranks, or a complete set of structure constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

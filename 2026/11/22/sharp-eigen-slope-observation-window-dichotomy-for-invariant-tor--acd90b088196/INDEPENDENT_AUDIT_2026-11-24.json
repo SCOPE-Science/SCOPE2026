@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:22:43.948246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47; VERIFICATION.md; verify.py (read, not run)",
+        "Independent replay: python3 /workspace/review_evidence/torus.py; output /workspace/review_evidence/torus.txt (2,186 nonzero words, multiple cyclic phases, 65-digit decimal arithmetic and integer frequency arithmetic)"
+      ],
+      "rationale": "The two eigenlines contain no nonzero lattice vector: a rational eigenline would give a rational integral eigenvalue dividing the determinant, contrary to hyperbolicity. The reciprocal absolute eigenvalues make L((M^T)^j k)=L(k)+2jχ, and primitive reduction preserves L. At width ≥2χ the closed window hits every progression, including any endpoint residue at equality, so invariance and the circle marginal Fourier tests kill all nonzero coefficients. At smaller width, a lattice direction lies strictly inside the complement of the closed residue arc by density. For even p, the two geometric sums bound each leading-coordinate factor between (β−2)/(β−1) and β/(β−1); the log-ratio error is at most log(β/(β−2)), and pχ(J₊+J₋) is zero modulo 2χ. The expansion differences with digits of magnitude ≤2 have a strictly dominant expanding-coordinate term for β>3, giving dissociation. Each coefficient of the finite probability products stabilizes; density of trigonometric polynomials and compactness give the claimed weak limit. Shifting indices gives M^p invariance, and cyclic averaging preserves the excluded residues. Under the limit product the cosine means are q and the mixed products for distinct indices have expectation q²; under Haar the means and mixed products vanish. Both variance bounds are summable along powers of two, yielding disjoint full-measure sets. Automorphic pushforwards preserve Haar null sets, so the finite cyclic average is singular. The bounded cat-map replay corroborates but does not replace the proof.",
+      "residual_risks": [
+        "The numerical cat-map check is not a uniform or exact-arithmetic proof of the analytic estimates; the proof uses the strict circular gap and the exact digit bounds.",
+        "No result for open windows at equality, Euclidean marginals, higher dimensions, or ergodic counterexamples is needed or established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Schmidt–Verbitskiy use Fourier support of compact-group Riesz products to infer Bohr chaoticity; Theorem 5.1 supplies a sufficient m-goodness condition.",
+          "The nearby Resultary finite carry-law result studies moments of one-dimensional lacunary products, not invariant torus projection fibers."
+        ],
+        "reasoning": "A general measure construction or chaoticity criterion does not itself select frequencies relative to this moving slope observation set or establish its exact coverage boundary.",
+        "searches": [
+          "Fan–Schmidt–Verbitskiy arXiv:2103.04767v1, Sections 3–5",
+          "Resultary: invariant toral Fourier uniqueness and lacunary Riesz products"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and mirrored comparison records",
+        "Han arXiv:2611.18817v1",
+        "Fan–Schmidt–Verbitskiy arXiv:2103.04767v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Han's Lemma A.2 proof already has the bound r₊/r₋ ∈ [(β−2)/β, β/(β−2)]; its stated avoidance conclusion is for (A.3), not a window.",
+          "Neither comparison states the orbit-covering criterion at width 2χ or treats a singular measure with Haar marginals for all integer directions in a narrower window."
+        ],
+        "reasoning": "The narrow-window part uses Han's proof technology with a new choice of a missing residue neighborhood and an even stride; the other direction is the independent orbit-covering argument. This is a sharp new observation question using a close adaptation, not a new Riesz-product technique.",
+        "searches": [
+          "Han arXiv:2611.18817v1, Lemmas A.1–A.2 and Appendix A.3",
+          "Fan–Schmidt–Verbitskiy arXiv:2103.04767v1 Theorems 3.1, 3.3 and 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observation constraints are Fourier vanishing on all multiples of primitive window directions, then on their integer M^T iterates.",
+          "Han Appendix A, equation (A.3) and Lemma A.2, gives vanishing on the iterates of the multiples of one coordinate vector."
+        ],
+        "reasoning": "A coordinate change can bring any one primitive direction to a coordinate direction but cannot make an entire interval of residue directions into a single frequency orbit. A closed residue arc and a singleton residue are different observation sets.",
+        "searches": [
+          "Resultary: eigen-slope observation windows for invariant toral measures",
+          "Han arXiv:2611.18817v1, Appendix A.1–A.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the frozen finding itself. Exact mirrored passages for the nearby eight Fourier moment inversion, heat commutator and Riesz product carry records concern different statements."
+        ],
+        "reasoning": "No separate exact-result entry was found. A finite numerical table cannot supply this theorem for every hyperbolic integral toral automorphism and every real closed interval.",
+        "searches": [
+          "Resultary index and local mirror: exact closed-window 2χ dichotomy and closest same-day results"
+        ]
+      },
+      "rationale": "Han already gives the same lacunary estimates, Riesz-product construction, averaging and singularity argument for a fixed coordinate marginal. The supported distinction is the entire infinite family of primitive directions in the slope window and its sharp closed-window threshold. Han's displayed slope estimate readily adapts, but his one-marginal theorem does not imply simultaneous vanishing on this family, nor assert the rigidity threshold. No inspected broader result gives this observation-set classification.",
+      "residual_risks": [
+        "A prior formulation for all residues avoiding a gap would be material; none was located in the bounded comparisons. No global priority determination is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close proof-method overlap; one prescribed coordinate marginal",
+          "evidence": "(A.3) identifies the forbidden orbit family; A.2 gives uniqueness and the slope-ratio bound; A.3 gives the periodic average and singularity.",
+          "identifier_or_url": "https://arxiv.org/html/2611.18817v1",
+          "material_read": "Appendix A, offsets 104626–124439, including Lemma A.2 around 114487",
+          "method": "Lawful OA original text",
+          "title": "Invariant measures with uniform projection on surfaces and billiards",
+          "trigger": "Direct predecessor for a singular torus measure with uniform projection"
+        },
+        {
+          "assessment": "General construction and a different dynamical property",
+          "evidence": "Dissociate sequences and their Fourier support; m-goodness suffices for Bohr chaoticity.",
+          "identifier_or_url": "https://arxiv.org/html/2103.04767v1",
+          "material_read": "Sections 3–5, offsets 20304, 28712–34517 and Theorem 5.1 at 39505",
+          "method": "Lawful OA original text",
+          "title": "Bohr chaoticity of principal algebraic actions and Riesz product measures",
+          "trigger": "Possible general algebraic-dynamics coverage"
+        },
+        {
+          "assessment": "Different inputs and outputs",
+          "evidence": "At most two atoms, eight specified coefficients; no invariant projection laws.",
+          "identifier_or_url": "2026/11/22/SCOPE-constructive-eight-moment-inversion-for-every-two-atom-measure-o--66a5dfb907bc",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Published-record local mirror",
+          "title": "Constructive eight-moment inversion for every two-atom measure",
+          "trigger": "Same-day Fourier-observation analogue"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Heat-commutator energies of automorphisms, not measures with prescribed uniform projection laws.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-lattice-sensitive-gaussian-heat-commutator-twins-among--9117e1426365",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Published-record local mirror",
+          "title": "The first lattice-sensitive Gaussian heat commutator twins",
+          "trigger": "Same-day hyperbolic toral analogue"
+        },
+        {
+          "assessment": "Different objects and threshold",
+          "evidence": "Finite-length moment laws in one dimension, not the length boundary for toral observation windows.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-state-carry-laws-at-the-first-two-dependence-thresholds-of-l--c21b5651cd7f",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Published-record local mirror",
+          "title": "Two-state carry laws at the first two dependence thresholds",
+          "trigger": "Same-day lacunary Riesz-product analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–11, 14–44, 49–53",
+        "Han Appendix A for the narrower prior observation problem"
+      ],
+      "rationale": "This is a reconstruction boundary for a natural partial observation of invariant measures. It gives a usable exact observation width, and below it shows that even agreement of the entire infinite family of specified laws does not rule out a mutually singular measure. The endpoint and singularity make the classification stronger than counting or missing frequency orbits alone.",
+      "residual_risks": [
+        "Value rests on the exact window problem, not a new construction principle or an assertion about general marginal geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

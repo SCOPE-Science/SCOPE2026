@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:26:49.137228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–31",
+        "Frozen VERIFICATION.md and universal_lex.py, especially Missing/restore and Frame cursor logic",
+        "/workspace/evidence/correctness-notes.md section 2"
+      ],
+      "rationale": "The greedy completing letters give an absent subsequence when there are too few arches. A prefix before the kth arch has exact completion deficit q(k-r)-s, so when slack is zero only missing symbols are feasible; with positive slack all are feasible. The ordered missing-symbol list and its LIFO undo preserve lexicographic child order without inspecting forbidden letters. Between complete outputs the DFS uses at most two monotone depth segments, with O(1) work per edge except at arch resets. Each reset can be charged to q letters on a path, and at most k<=n/q lists coexist; writing the word fits the O(n) bound. The k=0, q=1, n=0 and empty-family branches are consistent. The constant-time infeasibility test can compare k with floor(n/q) to avoid a large product.",
+      "residual_risks": [
+        "The O(n) through-last-output phrase is read within its zero/one-output context, not as total time for a family with many outputs. Bounds concern the stated word RAM and explicit materialization. The supplied large-case tests check membership, not independently the precise ranks of the first three words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universality regular-language dynamic programming has subset-of-alphabet index of width 2^q.",
+          "The general walk paper gives constant succinct delay after O(|E|) graph preprocessing and explicit materialization in linear walk length; its regular-language application uses prefix-closed automata."
+        ],
+        "reasoning": "Combining explicit rendering with walk delay does not bound graph size, enforce lex order, or give O(n+q) initialization and O(n) memory for variable q. Tracking all partial-arch subsets in the standard DFA does not meet the preprocessing bound.",
+        "searches": [
+          "Adamson et al. k-Universality of Regular Languages, arXiv:2311.10658v1 §§1,4; Adamson–Gawrychowski–Manea arXiv:2401.02163v2 Results 1–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.04583, 2311.10658v1, 2401.02163v2, 2407.18599v2",
+        "Resultary 2a5245b16b63, 8b750033b0cb (the latter synopsis only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform O(n) delay after polynomial preprocessing is explicitly posed as an open question in the closest paper.",
+          "The arch lemma is prior, but it alone does not give a reversible constant-time generator of feasible next letters or control resets in worst-case intervals."
+        ],
+        "reasoning": "The new step is exact slack-based prefix feasibility combined with ordered missing-list updates and root-to-leaf charging. Constant alphabet would hide the q factor, but the theorem is substantively stronger for growing q.",
+        "searches": [
+          "Adamson arXiv:2304.04583 p. 9, Cor. 3 and conclusion; statements of the regular-language and graph-walk generalizations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adamson arXiv:2304.04583 Cor. 3 and §6 enumerate exactly the host-word family, using delay O(n times alphabet size).",
+          "Adamson et al. arXiv:2407.18599v2 §5.1 enumerates length-k subsequences present in a supplied host word."
+        ],
+        "reasoning": "Same family in Adamson is credited. The latter task switches the object being emitted and cannot be substituted for host-word enumeration. The frozen reference description of [4] as enumerating missing rather than present subsequences is inaccurate, but does not change the mathematical comparison.",
+        "searches": [
+          "Subsequence universality / greedy arches / lexicographic enumeration of k-universal words / length-n universal word ranking; primary lookup and local Resultary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror Resultary 2a5245b16b63 gives a generating polynomial counting occurrences of 01 for a fixed near-minimal binary composition, not an output-delay bound.",
+          "The same-day synopsis for Resultary 8b750033b0cb concerns a circular binary distribution; its underlying local file was unavailable."
+        ],
+        "reasoning": "Neither a binary count polynomial nor a circular distribution states the ordered algorithm. No exact indexed match to these simultaneous complexity bounds was found; the synopsis is not treated as full-text exclusion.",
+        "searches": [
+          "Resultary subsequence-universal enumeration, arch universality, fixed-length lexicographic ranking and variable alphabets"
+        ]
+      },
+      "rationale": "The strongest directly comparable paper gives an O(nq)-delay enumerator after O(nkq) preprocessing for the same family and separately asks for O(n) delay. The frozen theorem supplies the requested explicit uniform bound, with inexpensive initialization and no rank table. The other inspected algorithms or distributions have different inputs or models and do not dominate this guarantee.",
+      "residual_risks": [
+        "Bounded source comparison does not establish historical priority. The unavailable circular-binary full text and unindexed uniform graph- or automaton-enumeration reductions remain residual risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest prior result, weaker uniform delay and preprocessing",
+          "evidence": [
+            "O(nq) delay, O(nkq) preprocessing, explicit open question of O(n) delay."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "p. 9 Cor. 3 and §6, OA PDF offsets 33700–35645",
+          "method": "OA primary PDF passage inspection",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Direct same-family enumeration and conjectured improvement"
+        },
+        {
+          "assessment": "Decision/counting/ranking tasks; no dominating uniform-delay bound",
+          "evidence": [
+            "Fixed-length DP uses an alphabet-subset index."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658v1",
+          "material_read": "pp. 1,3–4,14–15, abstract and §§1,4, offsets 0–3076,12900–17634,53000–59930",
+          "method": "OA primary PDF passage inspection",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Potential broader regular-language result"
+        },
+        {
+          "assessment": "Succinct walk outputs relative to graph size and its own order; does not imply all the frozen bounds",
+          "evidence": [
+            "O(1) succinct delay after O(|E|) preprocessing, materialization in linear length, application to prefix-closed automata."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.02163v2",
+          "material_read": "pp. 1,3–4 abstract and Results 1–3, offsets 0–2571,7350–12424",
+          "method": "OA primary PDF passage inspection",
+          "title": "Enumerating m-Length Walks in Directed Graphs with Constant Delay",
+          "trigger": "Potential more general enumeration theorem"
+        },
+        {
+          "assessment": "Different input and output objects",
+          "evidence": [
+            "The enumeration algorithm emits length-k subsequences contained in a given word, not universal words or absent subsequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.18599v2",
+          "material_read": "pp. 1,3,16–17, abstract and §5.1, offsets 0–3193 and 50300–58284",
+          "method": "OA primary PDF passage inspection",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Nearby subsequence enumeration bound cited in the frozen record"
+        },
+        {
+          "assessment": "Generating polynomial, not delay algorithm",
+          "evidence": [
+            "Counts 01 subsequences in the fixed composition (k+1,k)."
+          ],
+          "identifier_or_url": "Resultary 2a5245b16b63",
+          "material_read": "Finding",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp 01-subsequence enumerator for near-shortest binary universal words",
+          "trigger": "Universal words and ‘enumerator’ in an indexed adjacent problem"
+        },
+        {
+          "assessment": "Synopsis indicates circular binary distribution, not a matching enumeration theorem; no full-text conclusion",
+          "evidence": [
+            "Scope in synopsis is circular and binary."
+          ],
+          "identifier_or_url": "Resultary 8b750033b0cb",
+          "material_read": "Indexed synopsis only; mirror file unavailable",
+          "method": "Local Resultary search and attempted mirror retrieval",
+          "title": "Exact circular subsequence universality distribution of binary words",
+          "trigger": "Same-day exact word-universality result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and complexity proof",
+        "Adamson arXiv:2304.04583 Cor. 3 and §6"
+      ],
+      "rationale": "This resolves a stated enumeration-delay question, reaching the linear cost of materializing a word even over growing alphabets. The simultaneous linear initialization for feasible positive k and linear memory make the result useful in the intended streaming setting; it is not a fixed-q rephrasing or an amortized-only bound.",
+      "residual_risks": [
+        "The optimality claim depends on explicit output; it does not compare succinct encodings or ranking/unranking capabilities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

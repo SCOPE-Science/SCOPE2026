@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:22.532161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the entire reset schedule, different particle labels have independent Gaussian noises, even at two different times. Their squared-position means are 2D times their respective ages, giving 4D² times the age autocovariance. Rescaling from rate λ to one supplies λ⁻². At unit rate the stage events are Poisson with a uniform phase; conditioning on stage j leaves a Gamma(j+1,1) backward age. This gives the frozen initial G,F moments, and the age reset eliminates the incoming F term at j=0, including k=1. Summing the conditional second moments gives Var(A)=(k+1)(k+5)/12. Independently resolving the phase system yields the exact expression C_k(t)=k exp(−t)−∑_{z^k=1,z≠1} exp((z−1)t)/(z−1)². Indeed the G-mode with eigenvector (z^(−j)) has coefficient 1/[k(z−1)] and yields the F particular vector with entries (j+1) z^(−j−1)/[k(z−1)]. At t=0 the sum of these particular vectors is (j+1)G_{j+1 mod k}(0), which agrees with F_j(0) except at j=k−1, where the excess is k. That residual evolves solely as k exp(−t) in the last coordinate. Summing the mode entries gives the displayed root-of-unity expression. Substituting the roots for k=1,…,4 recovers the four frozen formulas and their strictly positive lower bounds for every finite lag, including the borderline pair of oscillatory modes with real part −1 at k=4. For k≥5 the unique leading conjugate pair has real part cos(2π/k)−1>−1 and a nonzero coefficient. The other terms are exponentially smaller, and at successively positive and negative extrema of the leading sinusoid the sign persists on disjoint open intervals by continuity. As a bounded corroboration this expression gives C_5(4.75)≈−0.0105949462353. The frozen verify.py and its reported generator and Monte Carlo evidence were inspected, not executed; those finite tests alone cannot certify a sign threshold at all lags.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Mauro et al. cover general renewal waiting laws but give the stationary equal-time observable via the age density h=Ψ/∫Ψ. Eule–Metzger cover Gamma waiting times for stationary one-time laws.",
+          "The two recurrence-time covariance titles are relevant leads; their accessible search text and titles concern forward and backward recurrence times. Full-text retrieval was unavailable, so broader coverage from those papers was not resolved."
+        ],
+        "reasoning": "More general waiting laws do not broaden an equal-time theorem to two-time ages. A true broader stationary age–age covariance result might imply the Erlang transform; the inspected collective-reset results do not do so. The inaccessible leads are not treated as non-covering on the strength of snippets.",
+        "searches": [
+          "arXiv:2509.06658v2 pp. 4, 6, 8",
+          "arXiv:1510.07876 p. 3",
+          "Primary search for stationary renewal-age autocovariance and Erlang phase-type formulas; DOI:10.1080/15326349.2019.1575752 and PII S0377042726004140"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2509.06658v2 and 1510.07876",
+        "Resultary dfa7ae68742e, 8f425ebe8d3d and 23381feacbe8",
+        "Indexed snippets for DOI:10.1080/15326349.2019.1575752 and PII S0377042726004140 (full texts unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The age-mixture formula does imply the equal-time value upon computing the Erlang age variance, and must be credited for that part. The lagged linear formula from dfa7ae68742e is nonnegative and instead comes from no intervening reset for the same particle.",
+          "For the present observable a same-phase renewal clock propagates G and F together. A sign classification needs a nonzero covariance projection onto the slow phase modes and a separate dominance bound at k=4 and below."
+        ],
+        "reasoning": "Neither equal-time variance nor clock eigenvalues alone determine the lag-sign assertion. The available prior statements do not supply the nonzero residue, its change in decay order, or the all-lag positivity at small shapes. No new claim is made for the general age-mixture reduction at a single epoch.",
+        "searches": [
+          "de Mauro et al. Eq. (33)",
+          "Resultary dfa7ae68742e Finding",
+          "Renewal-age covariance and stationary Erlang spectral-mode search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalence is distinct-particle squared-position covariance at two times = 4D² times stationary age autocovariance at those times. De Mauro et al. instead write Cov(x_i(t)²,x_j(t)²) at one observation time and a stationary variance-of-age limit.",
+          "The Resultary temporal-spectroscopy result dfa7ae68742e gives same-particle linear covariance in terms of residual survival and states zero distinct-particle linear cross-covariance."
+        ],
+        "reasoning": "A theorem for stationary backward recurrence at two times would count as direct overlap without Brownian language. Equal-time squared correlations and lagged linear single-particle correlations are not equivalent under this reduction; in the first case the two age times coincide, in the second the Brownian noise is shared across observations.",
+        "searches": [
+          "Local Resultary search for Brownian collective resetting, squared-position temporal covariance and renewal-age correlation",
+          "Renewal age autocovariance, backward recurrence time, stationary Erlang/Gamma, negative oscillations and age of information",
+          "de Mauro et al. arXiv:2509.06658v2, Eqs. (19)–(20) and (33)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue statements concern a lagged same-particle linear observable, a transient same-time partial-Poisson-reset crossover, and same-epoch age/residual powers, respectively.",
+          "No like-for-like sign table was established by the checks; the nearest recurrence-time full texts could not be retrieved."
+        ],
+        "reasoning": "These records classify different observables or reset protocols, so their tables or exact formulas do not give the tested integer split between 4 and 5. Lack of an exact match in the bounded searches is not exhaustive.",
+        "searches": [
+          "Local Resultary search for an Erlang shape cutoff and renewal age covariance",
+          "Resultary dfa7ae68742e, 8f425ebe8d3d and 23381feacbe8",
+          "Targeted primary search for exact Erlang lag covariance and a sign classification"
+        ]
+      },
+      "rationale": "The supported contribution is the sharp integer Erlang lag-sign threshold with its explicit leading mode for the stationary age autocovariance and hence for two distinct particles' squared positions. Collective renewal resetting, age mixtures and equal-time squared-position covariance are established; no originality is assigned to them here. The closest inspected temporal same-gas result uses a linear same-particle observable, while exact age/residual covariance concerns a different pair of variables. The targeted retrieval of related recurrence-time covariance papers left specific access risks, not contrary coverage evidence.",
+      "residual_risks": [
+        "An inaccessible or differently indexed renewal or phase-type theorem could give the same two-time backward-age autocovariance and imply some or all of the threshold. The retrieved excerpts are insufficient to settle those two recurrence-time papers' full scope. No historical priority, arbitrary noninteger Gamma classification, or quantitative observability at long lag is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equal-time overlap, not a lag-sign theorem",
+          "evidence": "The t in C₂(t) is the common observation time of both particles; the stationary limit is 4D² Var_h(age).",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658v2",
+          "material_read": "p. 4 reset protocol; p. 6 Eqs. (19)–(20); p. 8 Eq. (33)",
+          "method": "Open-access full-text passage inspection",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Identical collective renewal and squared-energy observable except for the lag"
+        },
+        {
+          "assessment": "One-time stationary statistics in inspected passages",
+          "evidence": "Gamma inter-reset laws enter the calculation of stationary one-time distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.07876",
+          "material_read": "p. 3 Gamma waiting-time passage (extraction offset 20674)",
+          "method": "Open-access full-text passage inspection",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "Gamma waiting times and stationary resetting"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "C(t)=D E[(W−t)_+²]/E[W] is a same-particle linear covariance; distinct-particle linear cross-covariance is zero.",
+          "identifier_or_url": "2026/10/27/SCOPE-temporal-spectroscopy-and-renewal-law-identifiability-in-a-synch--dfa7ae68742e",
+          "material_read": "Mirrored RESULT.md finding defining the covariance",
+          "method": "Local Resultary search and mirrored result inspection",
+          "title": "Temporal spectroscopy and renewal-law identifiability in a synchronously reset Brownian gas",
+          "trigger": "Lagged correlations for the same gas with general renewal protocols"
+        },
+        {
+          "assessment": "Different time arguments and clock/reset law",
+          "evidence": "Transient same-time covariance under partial Poisson resets, not the stationary two-time covariance after complete resets.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-critical-time-resolved-correlation-crossover-under-synchronize--8f425ebe8d3d",
+          "material_read": "Mirrored RESULT.md finding and reset assumptions",
+          "method": "Local Resultary search and mirrored result inspection",
+          "title": "A critical time-resolved correlation crossover under synchronized weak resetting",
+          "trigger": "Exact sign or crossover statement for synchronized squared-energy correlations"
+        },
+        {
+          "assessment": "Different pair of random variables",
+          "evidence": "Correlation of A^r and R^r at one stationary inspection epoch, not of the age at two epochs.",
+          "identifier_or_url": "2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8",
+          "material_read": "Mirrored RESULT.md finding defining its correlation",
+          "method": "Local Resultary search and mirrored result inspection",
+          "title": "Sharp power-correlation range for stationary renewal age and residual life",
+          "trigger": "Stationary renewal age covariance possibly under alternate notation"
+        },
+        {
+          "assessment": "Access risk; no verified implication",
+          "evidence": "Title identifies a backward/forward covariance question; searched excerpt mentions positivity and negativity conditions but does not state a two-time Erlang age theorem.",
+          "identifier_or_url": "https://doi.org/10.1080/15326349.2019.1575752",
+          "material_read": "Search title and abstract excerpt only; full text not read",
+          "method": "Targeted search; lawful direct and alternate access attempts on publisher and identified ResearchGate page returned HTTP 403; no repository copy recovered",
+          "title": "The covariance of the backward and forward recurrence times in a renewal process: the stationary case and asymptotics for the ordinary case",
+          "trigger": "Stationary recurrence-time covariance, possible general identity"
+        },
+        {
+          "assessment": "Access risk; no verified implication",
+          "evidence": "The available snippet refers to delayed renewal functions and forward/backward recurrence times, not an identifiable statement on two-time Erlang age autocovariance.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0377042726004140",
+          "material_read": "Search title and short snippet only; full text not read",
+          "method": "Targeted search and publisher open-access retrieval attempts returned HTTP 403; no identified open copy inspected",
+          "title": "The covariance of the forward and backward recurrence times … (indexed title truncated)",
+          "trigger": "Recurrence-time covariance in a modified renewal process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This distinguishes two physically different consequences of a common clock: shared ages force positive equal-time covariance, while sufficient clock regularity makes lagged energies anticorrelate. The exact boundary at five stages, including exclusion at all finite lags for four stages despite its oscillatory modes, is stronger than observing a negative value or computing a decay rate. The residue and decay ordering explain the mechanism and provide an exact benchmark for renewal reset models.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

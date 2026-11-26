@@ -1,16 +1,13 @@
-# Self-review
+# Scientific assessment
 
 ## Correctness
-**PASS.** The claim is reconstructed from the descendant-code definition. Failure of strong \(\overline{2}\)-separability is converted exactly into containment of a generated forbidden set; inclusion minimization yields \(891\) four-word obstructions. A complete normalized search proves maximum size \(10\) and finds exactly \(20\) maxima containing \(000\). Word transitivity expands these to \(54\) labeled maxima and independently gives the incidence check \(20\cdot27=54\cdot10\). Every maximum is then replayed directly against the original coalition-intersection definition, and the full order-\(1296\) Hamming-isometry orbit and profiles are recomputed.
 
-Risk: the extremal proof is finite and computational, but the complete standard-library verifier regenerates the obstruction system and the search from definitions rather than relying on a stored list or solver log.
+Strong separability can fail only on a pair, and its failure is equivalent to a same-descendant coalition inside the pair box omitting one of the two endpoints. Enumerating these finite obstructions makes the normalized enumeration exhaustive. Every maximum can be normalized to contain `000`, and undoing the normalizations recovers the labeled census. An independent finite check using endpoint support within pair boxes confirmed all counts, the unique isometry orbit, and its profiles. This is executable enumeration, not formal verification.
 
 ## Originality
-**PASS.** The foundational full text studies the same strongly \(\overline{2}\)-separable length-three objects and provides a construction that gives \(9\) words for \(q=3\), but it does not give a finite exact optimum or equality census. A later broader bound specializes to \(12\), and its main new length-three equivalence concerns coalition parameter \(3\). Exact-parameter and numerical-invariant searches found no implication-equivalent result for \(10\), \(54\), or the single-orbit classification.
 
-Risk: an obscure or unindexed historical small-parameter enumeration may remain undiscovered.
+[Resultary record fc51dbba75e2](https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-length-three-strongly-two-separable-code-size--fc51dbba75e2/RESULT.md) already gives the exact size-ten optimum, a witness, and the four-word obstruction system. These are used as known facts. The distinct contribution is the complete classification of equality: the 20 normalized and 54 labeled optima, the single orbit and its stabilizer, and the resulting universal profiles. The earlier record expressly does not classify all optima; unindexed overlap cannot be excluded.
 
 ## Value
-**PASS.** The result closes a natural \(9\)-to-\(12\) gap at the first ternary alphabet size in the length-three SSC problem emphasized by the original construction. The complete extremizer census shows that the optimum has a unique Hamming-isometry type, which is stronger and more reusable than a single improved construction.
 
-Self-review: passed. Independent audit: not yet performed.
+An optimal example does not decide whether all maximizers have the same geometry. The complete census settles this at the first ternary length-three parameter of the strong-separability problem and supplies a representative and isometry invariants for any optimum. It makes no assertion about larger parameters.

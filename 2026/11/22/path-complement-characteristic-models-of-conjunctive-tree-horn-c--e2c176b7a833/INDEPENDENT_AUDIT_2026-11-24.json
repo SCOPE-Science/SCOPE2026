@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:06:16.654002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55, VERIFICATION.md and verify.py (read only)",
+        "Corrected /workspace/repairs/4/RESULT.md"
+      ],
+      "rationale": "Reassessed /workspace/repairs/4/RESULT.md. The frozen coefficient statement needed to exclude the constant term: a_0=0 and a_1=L>0 even on the one-vertex tree. The repaired text states the tail formula and monotonicity for j>=1, with the separate constant term. Complements of closed sets are exactly omissions in which each omitted nonleaf has an omitted child. Starting at any omitted u produces a downward path to a leaf; conversely every such path is a minimal omission containing u, since its consecutive children are forced. Proper meet-irreducibles in a finite closure system are precisely maximal closed sets omitting a point: maximal omission implies irreducibility by intersection, and a proper irreducible has a unique cover whose added points occur in every strict superset. Thus distinct ancestor-leaf paths give all proper meet-irreducibles without duplicates. Each leaf supplies exactly one path of each positive size through depth+1; coefficient differences recover the depth histogram. Counting by starting vertex gives at least one path from every vertex, strictly more from any branching vertex. At fixed n and L every leaf depth is at most n-L, and simultaneous equality forces every internal vertex onto every root-to-leaf path, exactly a broom. Each feasible fixed-(n,L) broom exists; the integer quadratic L*(n-L+1) then gives the stated global maximum, including the constrained n=2 case. For n=1 the empty set is the only proper meet-irreducible. The frozen checker and record were read, not executed; they are finite corroboration and unnecessary for this proof.",
+      "residual_risks": [
+        "Only one conjunctive premise per internal vertex in a rooted tree is covered; neither extra rules nor general dependency DAGs have the same argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babin gives the general maximal-omitter characterization. Defrain et al. express attached irreducibles using transversals of the premises concluding the omitted vertex. Here the unique premise has singleton-child minimal transversals.",
+          "Nourine–Vilmin Theorem 5 is an exact acyclic-split recurrence. Deepest leaves form a Boolean factor; maximal lifts of a pruned-tree path complement either keep the omitted path or extend it by one missing child of a newly exposed leaf."
+        ],
+        "reasoning": "These are materially stronger statements for classification and enumeration. In particular the split recurrence supplies the path description, and path lengths immediately supply the deficit polynomial. Neither recurrence by itself compares model counts across all tree shapes and optimizes them at fixed total vertex number.",
+        "searches": [
+          "Defrain–Ohana–Vilmin arXiv:2506.24052, Lemma 5.1 and Theorems 5.2–5.3",
+          "Nourine–Vilmin arXiv:2202.05536, Definition 3 and Theorems 5–6",
+          "Babin arXiv:2607.18534, Lemmas 2.3–2.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e2c176b7a833 (self), 5321d37794e9 and bbe2a0cb8dd5",
+        "Defrain–Ohana–Vilmin arXiv:2506.24052",
+        "Nourine–Vilmin arXiv:2202.05536",
+        "Babin arXiv:2607.18534",
+        "Fischer DOI:10.1007/s00026-021-00539-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Peeling deepest leaves in the exact split theorem generates the classified paths and thereby the polynomial; that dependence is stated in the repair.",
+          "The necessary extremal ingredient is simultaneous saturation of depth<=n-L for all L leaves, then maximization over L. Fischer's proof may increase total vertex number at fixed leaf number and its remark excludes the unary extensions used by brooms."
+        ],
+        "reasoning": "The supported distinct claim is the uniform sharp extremum and all equality shapes under the stated total-size constraint, not a path classification claimed apart from its broader antecedents or a renamed Sackin result.",
+        "searches": [
+          "Nourine–Vilmin Theorem 5; Defrain–Ohana–Vilmin Lemma 5.1; Fischer §4.1 and Remark 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match e2c176b7a833 is the target. Same-day 5321d37794e9 gives omitted-size spectra for consecutive two-premise rules on a path or ring, and bbe2a0cb8dd5 recovers leaf depths in a rooted-tree poset spectrum rather than from Horn models.",
+          "The corrected count is L plus total external path length. Fischer Theorems 4–5 and Remark 6 explicitly use fixed leaf number and disallow nonroot degree-two vertices."
+        ],
+        "reasoning": "The poset and consecutive-rule spectra do not give this model-count extremum. The Sackin reformulation is exact for the sum, but the published optimization changes the admissible trees and fixed parameter; its caterpillar/star extremizers do not substitute for the fixed-total-vertex broom/path extremizers.",
+        "searches": [
+          "Resultary semantic comparison: path-complement characteristic models, Horn deficit spectrum and rooted-tree leaf depths",
+          "Primary literature search: rooted trees maximum sum of leaf depths, total number of vertices, broom, Sackin and unary vertices",
+          "Fischer DOI:10.1007/s00026-021-00539-2, §2 and §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching catalogue statement in the checked hits reports the fixed-n Horn model-count extremum. The closest consecutive-Horn hit has different premises; the closest depth reconstruction hit has a different spectrum.",
+          "Fischer gives exact extremizers for a different optimization, indexed by leaf number, with explicit degree restrictions."
+        ],
+        "reasoning": "This is a sharp parametric theorem, not a finite set of table entries. The identified exact spectra and extremal statements were compared at the level of their invariants and denominating size parameters, not just titles.",
+        "searches": [
+          "Resultary e2c176b7a833, 5321d37794e9 and bbe2a0cb8dd5",
+          "Fischer DOI:10.1007/s00026-021-00539-2, §4.1, Theorems 4–5"
+        ]
+      },
+      "rationale": "The repaired Finding is the sharp fixed-total-size (and fixed-leaf-count) model-count bound and its equality cases. The original structural emphasis did not give sufficient credit to concrete implications of earlier, broader Horn results. Acyclic splitting by deepest leaves yields the path complements by induction, and the deficit polynomial is then their length count. The repair explicitly treats both as structural input and corollaries, not the unsupported novelty claim. The checked Horn results do not optimize over rooted trees of a specified total size; Fischer's Sackin extremum fixes leaf count and excludes nonroot unary internal vertices. In the checked sources the extremal model-count remainder is not covered.",
+      "residual_risks": [
+        "The broader Horn coverage is established by specialization, independent of priority claims about the exact wording. The sharp fixed-vertex extremum is assessed on bounded evidence; an uninspected statement for unary-allowed trees with fixed total vertices could cover its tree-statistic formulation. No within-day ordering is inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior structural and algorithmic coverage, not the fixed-size extremum",
+          "evidence": [
+            "Representation by minimal premise transversals and attached irreducibles; the tree has exactly one premise ending at a nonleaf"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.24052",
+          "material_read": "Full arXiv version §5, Lemma 5.1 p. 19 and Theorems 5.2–5.3 p. 20; ISAAC version p. 3",
+          "method": "OA primary PDFs",
+          "title": "Enumerating the Irreducible Closed Sets of an Acyclic Implicational Base of Bounded Degree",
+          "trigger": "General representation and bounded-degree enumeration applying directly to the tree bases"
+        },
+        {
+          "assessment": "Yields the structural result and hence the deficit polynomial, not a maximization over fixed-size tree shapes",
+          "evidence": [
+            "Theorem 5 separates Boolean-factor irreducibles from maximal extensions in the pruned-tree factor; iterative lifts give paths"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.05536",
+          "material_read": "Definition 3 p. 17, §4.2 Theorem 5 p. 23, and Theorem 6 p. 27",
+          "method": "OA primary PDF",
+          "title": "Hierarchical decompositions of implicational bases for the enumeration of meet-irreducible elements",
+          "trigger": "Exact broader recurrence could imply path complements"
+        },
+        {
+          "assessment": "General foundational fact, not a tree extremal theorem",
+          "evidence": [
+            "Lemma 2.3 characterizes proper meet-irreducibles as maximal closed sets omitting a point"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.18534",
+          "material_read": "§2, Lemmas 2.3–2.4 p. 5",
+          "method": "OA primary PDF",
+          "title": "Completeness of Canonical Closure Representations Is coNP-Complete",
+          "trigger": "Prior maximal-omitter characterization"
+        },
+        {
+          "assessment": "Extremum for a different size constraint and admissible trees",
+          "evidence": [
+            "Fixed number of leaves; nonroot degree-two vertices excluded; maximum at a binary caterpillar and minimum at the star in the nonbinary setting"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00026-021-00539-2",
+          "material_read": "Tree definitions (offsets 9380–13229); §4.1, Theorems 4–5 and Remark 6 (offsets 49720–55355)",
+          "method": "Publisher OA PDF, locate then read exact definition and theorem passages",
+          "title": "Extremal Values of the Sackin Tree Balance Index",
+          "trigger": "Equivalent sum of leaf depths may already have an extremal theorem"
+        },
+        {
+          "assessment": "Material overlaps on method or output statistic, not the fixed-total-size model bound",
+          "evidence": [
+            "Consecutive two-element premises on path/ring rather than all immediate children",
+            "Leaf-depth recovery from graded one-point rooted-tree poset data, not this model-count problem"
+          ],
+          "identifier_or_url": "Resultary: 5321d37794e9 and bbe2a0cb8dd5",
+          "material_read": "Both local-mirror RESULT.md Findings",
+          "method": "Local Resultary mirror",
+          "title": "Characteristic-model spectra of consecutive Horn implications; Sharp seven-vertex ideal-rank collision and leaf-depth recovery",
+          "trigger": "Closest distinct same-day matches in model spectra and leaf-depth reconstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/4/RESULT.md, Finding and sharp-count proof",
+        "Nourine–Vilmin Theorem 5 and Defrain–Ohana–Vilmin Theorems 5.2–5.3",
+        "Fischer §4.1"
+      ],
+      "rationale": "The repaired extremum gives the exact worst-case cardinality of the characteristic representation for a canonical acyclic Horn family, including the shapes that blow up the number of models from linear to quadratic. Knowing that an enumeration algorithm is efficient does not give this output bound or identify the maximizing inputs. The fixed-leaf count bound identifies the structural cause of the output growth. The earlier structural specialization and spectrum are useful context but are not counted as additional novel contributions.",
+      "residual_risks": [
+        "The proof is short and tree-specific; no general bound on acyclic Horn output sizes follows from it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

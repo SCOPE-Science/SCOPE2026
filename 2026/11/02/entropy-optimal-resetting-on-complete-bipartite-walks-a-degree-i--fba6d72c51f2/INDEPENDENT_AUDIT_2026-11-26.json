@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:11:37.827150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim, aggregation at the reset destination and class masses 1/(2-r), (1-r)/(2-r) yield the observed-row formula and endpoint values. Revealing the Bernoulli indicator gives a pointwise upper envelope U, with conditional-entropy loss at most (1-r)/m times log(ea/b) before class weighting. At scale s=(m^3 n)^(-1/4) this loss is O(log m/m)=o(s), and the normalized envelope converges uniformly on compact sets to t(1-log t). U''<0 up to m^(-1/2); U'<0 thereafter by the 5/9 lower bound on the log m coefficient up to 1/2, then by its sign. Strict envelope barriers at (1±ε)s below the actual value at s localize every maximizer, and compact convergence gives the gain. In the original proportional regime the compact profile instead uses m(log m-g_m)→(1+t)log(1+t)-t and the same envelope excludes all r≥T/m for large fixed T. The proof, not the frozen script's reported finite assertions, supplies both infinite limits; no finite-size uniqueness or external attestation is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-fa1f991cbb3e: setting its α=1, β=ρ gives c(1+c)√ρ=1 and gain c−(1/2)log(1+c), exactly the frozen proportional law.",
+          "Riascos et al., p. 2, reset matrix with general underlying walk, does not optimize observed-state transition entropy.",
+          "Wang–Chen pp. 3–4 optimize the regular-network model; their separated reset/hop terms do not implement the collision aggregation in the frozen formula."
+        ],
+        "reasoning": "Positive limiting ratios exclude n fixed. General stationary resetting is not a global entropy optimization theorem.",
+        "searches": [
+          "Resultary: dense bipartite entropy optimal reset",
+          "arXiv:1910.13568",
+          "arXiv:2208.05665"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index and the two distinct matching records above",
+        "arXiv:2208.05665",
+        "arXiv:1910.13568"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dense theorem controls n/m→ρ>0, not convergence uniformly as ρ approaches zero with m.",
+          "The leaf theorem fixes n=1; no equivalence preserves the changing number n of alternate destinations."
+        ],
+        "reasoning": "A formal substitution ρ=n/m→0 into the dense limit is not an implication. A separate global envelope argument at the larger scale supplies the missing fixed-n theorem.",
+        "searches": [
+          "SCOPE-6fb1fef030da Proof §5",
+          "SCOPE-fa1f991cbb3e Proof §§4–5",
+          "arXiv:2208.05665 Eqs. 17,19,22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-6fb1fef030da, Finding and Proof §§1,5: a leaf-rooted m-leaf star is K_{m,1} and gives both m^(-3/4) limits with coefficient one.",
+          "SCOPE-fa1f991cbb3e, Finding and Proof §§1,4–5, gives the same transition-entropy formula under a=m,b=n and K_m=log m-g_m."
+        ],
+        "reasoning": "The star is exactly the excluded n=1 member, not a reformulation of K_{m,n} with n≥2. The common formula is credited, not asserted as a distinct result.",
+        "searches": [
+          "Resultary: fixed-part complete bipartite and hub/leaf reset entropy optimum",
+          "arXiv:2208.05665"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact asymptotic entries found in the catalogue are the star and positive limiting ratio regimes above.",
+          "The supplied finite tests for n=2,5,10 sample optimizers and gains but do not establish the asymptotic coefficients."
+        ],
+        "reasoning": "For this limiting-law theorem the exact indexed comparator is another theorem, not a finite optimizer table. Neither indexed statement has the repaired scope.",
+        "searches": [
+          "Resultary mathematical-record search: star and dense complete bipartite entropy resetting",
+          "frozen check_entropy.py diagnostics"
+        ]
+      },
+      "rationale": "For the narrowed finding only, no inspected exact source covers each fixed n≥2 with the coefficient n^(-1/4) for both the optimizer and its gain. A one-leaf-star specialization and a positive-ratio asymptotic cannot be substituted for that regime. No absolute priority is inferred.",
+      "residual_risks": [
+        "Additional primary-literature discovery lookup was unavailable; the two identified primary sources were inspected directly. Other terminology or sources may hide an earlier fixed-n result.",
+        "The two comparator records have later catalogue dates. The comparison establishes coverage, not priority or first-online chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at n=1 only",
+          "evidence": "m^(3/4) times the optimal rate and the entropy gain each tend to one for a leaf reset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-distinct-optimal-reset-exponents-at-the-hub-and-leaves-of-a-star--6fb1fef030da",
+          "material_read": "Finding and Proof §§1,5",
+          "method": "Local mirror statement and proof passages",
+          "title": "Distinct optimal reset exponents at the hub and leaves of a star",
+          "trigger": "Exact fixed-part specialization"
+        },
+        {
+          "assessment": "Equivalent formula and proportional theorem; excludes fixed part",
+          "evidence": "After scale normalization c(1+c)√ρ=1 and the gain is c−(1/2)log(1+c).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-golden-ratio-entropy-optimal-resetting-on-dense-complete-biparti--fa1f991cbb3e",
+          "material_read": "Finding and Proof §§1,4–5",
+          "method": "Local mirror statement and proof passages",
+          "title": "Golden-ratio entropy-optimal resetting on dense complete bipartite graphs",
+          "trigger": "Same graph and both asymptotic observables"
+        },
+        {
+          "assessment": "Regular-network optimum, not the fixed-opposite-part result",
+          "evidence": "The reset and ordinary-hop entropy terms in these passages are separate rather than merged on destination collision.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.05665",
+          "material_read": "PDF p. 1 and pp. 3–4, Eqs. 17,19,22; offsets 0, 20400, 24800",
+          "method": "Bounded OA PDF passages",
+          "title": "Entropy rate of random walks on complex networks under stochastic resetting",
+          "trigger": "Primary resetting-entropy literature"
+        },
+        {
+          "assessment": "Stationary and first-passage framework only in examined passages",
+          "evidence": "Π=(1−γ)W+γΘ defines resetting; no maximizer or gain formula appears in the relevant passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+          "material_read": "PDF pp. 1–2, offsets 1500 and 8500",
+          "method": "Bounded OA PDF passages",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "General resetting transition law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving result quantifies both the sharp global optimum and its positive gain for every fixed opposite part larger than a star, with an explicit dependence on that part's size. It distinguishes this boundary regime from dense scaling without treating a nonuniform limit as a proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

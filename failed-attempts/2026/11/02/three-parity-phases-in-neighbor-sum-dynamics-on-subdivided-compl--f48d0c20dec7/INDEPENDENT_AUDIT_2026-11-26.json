@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:28.286069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In characteristic two the incidence columns span the zero-total-sum space U by connectedness (a path's column sum gives the two endpoint vectors). The transpose kernel is the constant line. Thus rank B=n-1, rank B^t B=n-1 minus the indicator that n is even. For L=BB^t, write shore vectors (u,v) and sums S,T. In the two-even case L sends them to (T1,S1), with rank 2 and rank on U equal to 1; L^2=0 and LB is constant, giving F^4=0. In the two-odd case L sends them to (u+T1,v+S1), with kernel the constants, rank on U=n-2, and L^2+L the all-ones matrix killing B. Thus F^5=F^3. In mixed parity with the even shore first, L sends (u,v) to (u+T1,S1). Both rank L and rank on U are e (choose any first component, whose sum is S, and impose T=S when restricting to U). Here L^3=L and F^7=F^3. The successive doubled off-diagonal ranks and diagonal ranks give exactly the stated zero-primary lengths by rank subtraction. The kernels of L+I and L^2+I have dimensions (n-2,n-2) for two odd shores and (e-1,e) for mixed parity. B and its transpose intertwine the unit spaces of the two incidence products, giving the doubled fixed dimensions for F^2 and F^4. In mixed parity the e-1 unit blocks are all at least length 2 from the two-step dimension, and only two extra dimensions remain. A pair of length 3 would give the same first, second and fourth fixed dimensions as one length 4, so those dimensions alone do not force the advertised type (the sentence at RESULT.md line 81 omits this step). The missing distinction follows from rank of the shifted cube: L+I acts nontrivially on the unit space, since its fixed dimension there is e-1 of e. Hence (F+I)^2=F^2+I has two J_2(0) blocks on the unit space, which still permits either candidate. Directly, choose v supported on one old even-shore vertex and w=F^3v, which is periodic. Substitution gives (F+I)^3 w equal to the all-ones vector on the even shore and on all inserted vertices, and zero on the odd shore. Thus a length-4 block must occur and the others are length 2. The nilpotent kernels and unit return spaces then give the exact entry and orbit counts, including o=1 and a=b=1. The unsubdivided mixed case is nilpotent since its square has one all-ones block of even order. An independent dense binary elimination on 121 graphs (1<=a,b<=11) checked ranks of F^j and nullities of (F+I)^j for j=1 through 5 (1,210 comparisons); notably the shifted cube check distinguishes the mixed candidates. This corroborates the symbolic proof over characteristic two. Packaged replay: check.py and verification_output.txt, read and distinguished from the fresh dense elimination. The packaged first/second/fourth shifted-rank checks do not themselves resolve the two candidate mixed block profiles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Incidence identities and off-diagonal subdivision operators are established; ordinary spectra do not recover modular Jordan lengths.",
+          "Finite-field consensus and linear automata already relate kernel and nilpotent lengths to convergence.",
+          "The exact Resultary match includes orbit-basin and period-resolved entry populations absent from this Finding."
+        ],
+        "reasoning": "General methods do not provide the required family-specific ranks; the exact catalogue result does on its domain and also gives finer counts there.",
+        "searches": [
+          "Liu–Zhang arXiv:1212.0619v4 Section 2",
+          "Ogurisu Section 3.2 subdivision spectra",
+          "Pasqualetti–Borra–Bullo arXiv:1301.4587 Theorem 4.4",
+          "Zaidenberg arXiv:math-ph/0606070 and Moreno et al. arXiv:math/0604534"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b0064d47b819, acea41c73be7 and 88cbaceccac4",
+        "arXiv:1212.0619, arXiv:1301.4587, arXiv:math-ph/0606070 and arXiv:math/0604534",
+        "Ogurisu Section 3.2",
+        "Aledo et al. DOI 10.1155/2015/594294 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact result's connectedness, zero-sum image, explicit two-shore formulas for Q and L, and power-rank table extend without new rank arguments to shore size 1. Step 3's shifted cube witness, before its final count interpretation, is nonzero even for o=1.",
+          "The determinant identity used there may be read at t nonzero as a Schur complement when mn<m+n, or avoided: the displayed annihilating identities and power-rank stabilization already determine the unit dimension. The rank table then gives the boundary blocks automatically."
+        ],
+        "reasoning": "Both-odd shore-one cases and mixed o=1 follow from those same formulas with zero multiplicities or stabilized rank at the first power. In mixed o=1 the sole zero block has size 1, explaining the change in maximum entry without adding a new structural lemma. General ordinary-field incidence papers alone would not imply the classification.",
+        "searches": [
+          "Compare b0064d47b819 Proof Steps 1–4 with the shore-one boundary",
+          "Compare unsubdivided acea41c73be7 against mixed unsubdivided contrast"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later exact Resultary Finding uses (m,n)=(a,b), the same ordinary one-subdivision and the same open-neighbor field sum.",
+          "Its primitive state counts P_j equal the frozen R_1, R_2-R_1, and R_4-R_2, before division by j."
+        ],
+        "reasoning": "The variables and periodic-count conventions translate exactly; the records are distinct, not different parametrizations of absent coverage or the identical source item.",
+        "searches": [
+          "Resultary: characteristic-two subdivided biclique neighbor-sum Jordan blocks and period-four census",
+          "Resultary b0064d47b819 coordinates and incidence decomposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Jordan and entry tables match in every parity for m,n>=2.",
+          "The October complete-multipartite theorem covers unsubdivided graphs and gives extinction in at most three steps for the mixed biclique; the same-day subdivided-clique theorem overlaps only at K_{1,1}=K_2."
+        ],
+        "reasoning": "A genuine exact table establishes core coverage. The other two indexed statements are not substitutes for it, though the mixed unsubdivided comparison and the common P3 boundary are already covered in narrower settings.",
+        "searches": [
+          "Resultary b0064d47b819 November 22 exact subdivided-biclique trichotomy",
+          "Resultary acea41c73be7 complete multipartite parity, and 88cbaceccac4 subdivided complete graphs"
+        ]
+      },
+      "rationale": "A distinct exact catalogue result gives the same core theorem on both shore sizes at least two, including the three Jordan partitions and transient and primitive-period counts, and even individual orbit-basin sizes. Its path is dated November 22, later than the frozen November 2 path. The verdict is on demonstrable coverage in the currently inspected corpus, not historical priority, attribution, or an allegation of derivation from that record. The only domain left, one shore of size one, is mechanically included by the same rank and shifted-block calculation with the boundary multiplicities allowed to vanish.",
+      "residual_risks": [
+        "Aledo et al. full text was unavailable; no conclusion from that. Other priority antecedents may exist.",
+        "The later-dated exact record establishes available coverage, not priority over the frozen result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact on m,n>=2; later-dated path, no inference of priority",
+          "evidence": [
+            "Three identical Jordan profiles and exact entry exponents; primitive states P_j become orbits by division by j.",
+            "Step 3 distinguishes the mixed unit-block profiles by the shifted cube on F^3 of an even-shore basis vector."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-parity-regimes-for-neighbor-sum-dynamics-on-subdivided-bic--b0064d47b819/RESULT.md",
+          "material_read": "Finding and Assumptions at offsets 0–3585; proof including rank table and shifted cube at offsets 3450–9162",
+          "method": "Read local mirror and compare the partitions, domains and proof",
+          "title": "Three parity regimes for neighbor-sum dynamics on subdivided bicliques",
+          "trigger": "Exact local match under biclique/subdivision aliases"
+        },
+        {
+          "assessment": "Covers the unsubdivided comparison, not the inserted edge-state dynamics",
+          "evidence": [
+            "Mixed unsubdivided biclique only has zero recurrence, within at most three binary updates."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "material_read": "Finding, offset 0",
+          "method": "Read local mirror",
+          "title": "Sharp period-four census for complete multipartite parity automata",
+          "trigger": "Mixed biclique without subdivision"
+        },
+        {
+          "assessment": "Distinct domain; intersects only at K_{1,1}",
+          "evidence": [
+            "Base graphs are complete graphs, not arbitrary bicliques."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-three-step-extinction-rigidity-and-parity-swapped-cycles-on-subd--88cbaceccac4",
+          "material_read": "Finding and graph domain",
+          "method": "Read local mirror",
+          "title": "Three-step extinction rigidity and parity-swapped cycles on subdivided complete graphs",
+          "trigger": "Same-day subdivision dynamics hit"
+        },
+        {
+          "assessment": "Structural antecedent, not modular classification",
+          "evidence": [
+            "R^tR=A(line graph)+2I; RR^t=A+rI in regular case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1212.0619",
+          "material_read": "Abstract and Section 2 p. 3, offset 8200",
+          "method": "Read OA PDF passages",
+          "title": "Spectra of subdivision-vertex join and subdivision-edge join of two graphs",
+          "trigger": "Vertex-edge incidence and subdivision spectra"
+        },
+        {
+          "assessment": "Ordinary spectral tools, not modular Jordan/period census",
+          "evidence": [
+            "Bipartite off-diagonal decomposition relates subdivision spectra."
+          ],
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/~ito/MPHP/confs/rims03/proc/ogurisu.pdf",
+          "material_read": "Section 3.2, pp. 7–8, offset 11500",
+          "method": "Read OA report",
+          "title": "Supersymmetric analysis of discrete magnetic Schrödinger operators",
+          "trigger": "Bipartite off-diagonal subdivision methods"
+        },
+        {
+          "assessment": "Methodological coverage only",
+          "evidence": [
+            "Largest zero-eigenvalue Jordan block gives consensus time in its setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.4587",
+          "material_read": "Theorem 4.4, p. 8, offset 33900",
+          "method": "Read OA paper passage",
+          "title": "Consensus Networks over Finite Fields",
+          "trigger": "General finite-field Jordan methods"
+        },
+        {
+          "assessment": "No family-specific subdivision ranks supplied in inspected material",
+          "evidence": [
+            "Lattice convolution and general finite linear-automata settings."
+          ],
+          "identifier_or_url": "arXiv:math-ph/0606070 and arXiv:math/0604534",
+          "material_read": "Zaidenberg pp. 2–3; Moreno et al. abstract/introduction",
+          "method": "Read accessible primary passages",
+          "title": "Convolution equations on lattices and finite linear automata antecedents",
+          "trigger": "General modular dynamics under different terminology"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Could not inspect decisive scientific passages; cannot infer noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2015/594294",
+          "material_read": "Citation and retrieval evidence only; primary text unavailable",
+          "method": "DOI/PDF and lawful repository attempts",
+          "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+          "trigger": "Possible graph dynamical classification precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graph-operation recurrence contrast and all-parity classification are mathematically useful, but that substantive content is covered. The remaining shore-one endpoint is a direct degeneracy of the same incidence calculation, not a justified standalone new invariant or obstruction; no distinct valuable repair remains.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

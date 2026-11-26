@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:21:48.685501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid atomless observations, all strict rankings of the w+ℓ observations from index −1 through w+ℓ−2 are equally likely. For an upward start surviving ℓ observations, the greatest must be at w−1; this has probability 1/(w+ℓ). For a downward start surviving ℓ, the greatest must be at −1 and the second greatest must lie in the w−ℓ+1 surviving current-window positions. This has probability (w−ℓ+1)/[(w+ℓ)(w+ℓ−1)]. Both conditions are sufficient as well as necessary, since a unique observation cannot reappear after leaving a window. At ℓ=1 both start types have probability 1/(w+1), including w=1. Division, equal mixing, and Bayes' rule give the four tails/posterior. Tail summation gives the harmonic-number upward mean and the telescoping start mean (w+1)/2; the downward mean then follows from the mixture. For the deterministic-time residual, the maximum in the union of the ℓ+1 consecutive windows must be in their common intersection, giving (w−ℓ)/(w+ℓ) for 0≤ℓ≤w. The interior scaled survival functions converge to (1+x)⁻² at starts and (1−x)/(1+x) at a deterministic time. The first gives interior density 2/(1+x)^3 and mass 1/4 at one, also the limit of the exact terminal probability; the second has no endpoint atom and integrates to 2 log 2−1. Frozen replay path: verify_moving_max_plateaus.py, lines 27–74, for w=1 through 4, inspected and not executed. The 368,046 permutations and 56 comparisons are the source's reported finite verification, not the basis of the arbitrary-width proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal rank laws and the endpoint-atom transition for sliding order-statistic plateaus (84df51b07fe1) yields the aggregate start tail and quarter atom at rank one, and credits the assigned finding there; it does not report the directional split.",
+          "Bücher–Haufs analyze likelihood and asymptotic covariance for overlapping top-two block statistics."
+        ],
+        "reasoning": "An all-rank but direction-averaged theorem is stronger in rank, not stronger in conditioning, and the estimator asymptotics are not a finite-window directional law.",
+        "searches": [
+          "Resultary local: repeated maximum and sliding order-statistic plateau laws",
+          "Bücher–Haufs arXiv:2502.15036v3, §4.2 and Theorem 4.9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_moving_max_plateaus.py",
+        "Resultary 84df51b07fe1 and 14cb4a65704f",
+        "arXiv:2502.15036v3, 1402.1975, 2611.22599v1",
+        "Hall–Peng–Yao, LSE document 6084 (limited extraction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a stationary time, Pr(R>ℓ)=Pr(S) E[(L−ℓ)₊ | S], so first differences recover the aggregate start survival; the all-rank result therefore also gives the deterministic-time law at rank one.",
+          "The two types use different ranks and locations in the union: a fixed greatest position versus a fixed greatest position and a restricted second-greatest position."
+        ],
+        "reasoning": "Aggregate survival and the equal start-type frequencies identify only a sum, not its two terms. The exact directional law requires the additional rank-location distinction; none of the inspected broader theorem statements makes that distinction.",
+        "searches": [
+          "Resultary local: Palm/residual inversion and same-maximum laws",
+          "84df51b07fe1, Finding and relationship to prior work",
+          "Bücher–Haufs §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alon–Feldheim treat qualitative stretches in general sliding block factors, without the typed finite-width tails.",
+          "Baz–Pellerey use expanding-prefix rather than fixed-width moving maxima."
+        ],
+        "reasoning": "Plateaus record exact equality of fixed-width maxima, not fixed-threshold exceedance clusters or prefix-record lifetimes. A same-maximum probability on overlapping windows loses the sign of the change preceding the plateau.",
+        "searches": [
+          "Resultary local: up/down plateau lifetimes, repeated-maximum plateaus, joint argmax or same-maximum events",
+          "Alon–Feldheim arXiv:1402.1975, introduction and Theorem 1",
+          "Baz–Pellerey arXiv:2611.22599v1, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "84df51b07fe1 is an exact aggregate/rank formula; 14cb4a65704f covers the change-indicator mean 2/(w+1) in the cyclic window model."
+        ],
+        "reasoning": "The exact aggregate and start intensity are covered by these comparisons. Neither records an exact table or formula for the split; this is a symbolic all-width rank law, not a numerical constant census.",
+        "searches": [
+          "Resultary local: exact up/down lifetimes, repeated maxima, and joint argmax"
+        ]
+      },
+      "rationale": "The substantive distinction is the exact split by upward and downward plateau start, including its linear type posterior; none of the inspected prior statements supplies or implies that split from the aggregate law. The quarter atom and deterministic-time residual are not independent originality claims: the residual determines the aggregate start tail by stationary differencing. The strongest distinct same-day all-rank result demonstrably covers the aggregate maximum law and quarter atom, and explicitly credits the assigned result for rank one; no within-day priority is inferred from its date. Neither its stated law nor its rank-one specialization determines the two directional tails.",
+      "residual_risks": [
+        "Same-day corpus chronology was not independently resolved. Exact aggregate overlap is acknowledged, not excluded on date grounds.",
+        "Older moving-maximum and record/cluster literature was not exhaustively inspected; Hall–Peng–Yao body extraction was unreadable. No priority claim beyond the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact aggregate coverage; rank-one attribution to the assigned finding; does not cover the typed formulas",
+          "evidence": "p_{w,1}=2/(w+1) and S_{w,1}(ℓ)=(w−ℓ+1)/(w+ℓ−1) give the same rank-one start tail and terminal atom by differencing.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-rank-laws-and-the-endpoint-atom-transition-for-sliding--84df51b07fe1",
+          "material_read": "RESULT.md Finding and relationship passages, offsets 0 and 4949",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal rank laws and the endpoint-atom transition for sliding order-statistic plateaus",
+          "trigger": "Strongest exact aggregate overlap; all ranks"
+        },
+        {
+          "assessment": "Overlap on start rate, not duration law",
+          "evidence": "Mean change-indicator probability 2/(w+1).",
+          "identifier_or_url": "2026/11/22/SCOPE-a-negative-to-positive-lag-transition-for-cyclic-sliding-window--14cb4a65704f",
+          "material_read": "Indexed statement on change-indicator mean",
+          "method": "Local Resultary search comparison",
+          "title": "A negative-to-positive lag transition for cyclic sliding-window maxima",
+          "trigger": "Change-event statistic for the same window operation"
+        },
+        {
+          "assessment": "Read passages do not state a finite plateau-duration law",
+          "evidence": "Sliding block order-statistic construction and estimator asymptotics/covariance.",
+          "identifier_or_url": "https://arxiv.org/html/2502.15036v3",
+          "material_read": "§4.2 and Theorem 4.9, offsets 58833 and 62460",
+          "method": "OA primary text",
+          "title": "Extreme Value Analysis based on Blockwise Top-Two Order Statistics",
+          "trigger": "Sliding-window top-two order statistics"
+        },
+        {
+          "assessment": "Qualitative run result, not typed duration tails",
+          "evidence": "Positive-probability monotone or constant stretches in general block factors.",
+          "identifier_or_url": "https://arxiv.org/html/1402.1975",
+          "material_read": "Abstract/introduction and Theorem 1",
+          "method": "OA primary text",
+          "title": "A note on general sliding window processes",
+          "trigger": "Constant runs of sliding-window observables"
+        },
+        {
+          "assessment": "Different window geometry",
+          "evidence": "Uses M_n=max(X_1,…,X_n), an expanding prefix.",
+          "identifier_or_url": "https://arxiv.org/html/2611.22599v1",
+          "material_read": "Abstract/introduction",
+          "method": "OA primary text",
+          "title": "Dependence properties between marginals of discrete-time maximum processes",
+          "trigger": "Maximum process dependence might include equality runs"
+        },
+        {
+          "assessment": "Coverage undetermined",
+          "evidence": "No legible decisive body passage was available from the extraction.",
+          "identifier_or_url": "https://researchonline.lse.ac.uk/id/eprint/6084/1/Moving_maximum_models_for_extrema_of_time_series%28LSERO%29.pdf",
+          "material_read": "First-page metadata; body extraction garbled",
+          "method": "OA institutional copy",
+          "title": "Moving-maximum models for extrema of time series",
+          "trigger": "Cited moving-maximum literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Repeated equal block maxima are a genuine feature of strongly overlapping samples even for atomless data. The direction-conditioned laws answer a practical mathematical question not answered by the start intensity or untyped survival: an entering record is at the newest position, whereas the maximum revealed by a departure can immediately leave. In particular the maximal-duration mass tends to 1/2 for upward starts and zero for downward starts, explaining the aggregate atom and why sampling a stationary time gives a different tail. This is an exact diagnostic for sliding-block dependence, not a claim about improved inference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

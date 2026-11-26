@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:26:40.183104Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–92",
+        "Frozen VERIFICATION.md, lines 19–26",
+        "Frozen VERIFY.py, lines 9–103, inspected without execution"
+      ],
+      "rationale": "With normalized Fourier modes the generator entries are −mk a_{m−k}. The only positive exterior couplings are the pairs (K+1,K−1), (K+1,K), (K+2,K), with absolute entries γa_K/2, βb_K/2 and γc_K/2. The negative block is its conjugate and the input blocks are disjoint even at K=2. Symmetry gives leakage E_K*E_K, hence the squared largest singular value of one block. For y=γ²/s² its normalized Gram matrix has trace B+dy and determinant ACy² independently of phase; the larger root is simple also at y=0 and y=1. The factors (a+c)²−B and B−(c−a)² are positive for K≥2, so Δ>0. Differentiation gives λ'(0)=d>0 and λ'(1)=C(C−A−B)/(C−A). An interior stationary point must have y=2Bd/Δ and λ=4ACB/Δ; since Δ−2Bd=B²−(C−A)², its candidate lies inside exactly when K⁴−2K³−5K²+1>0. The polynomial is negative at 2 and 3, positive at 4 and increasing thereafter. Thus for 2,3 the root increases to C; for K≥4 the derivative sign change guarantees that the unique candidate is attained and maximal. Normalizing A,B,C,d by K⁴ and Δ by K⁸ gives limits 1 and 3 respectively, so y→2/3 and the gain over the stronger pure harmonic approaches 4/3. Positivity of the coefficient follows from β+γ≤√2s.",
+      "residual_risks": [
+        "The wording at RESULT.md line 57 should say the exterior map has the same norm as one block, or that its squared norm equals the block's squared norm; the next identity and all formulas use the correct square.",
+        "The bounded script checks and numeric phase/grid tests are not a verification for all cutoffs or phases. The factor 4/3 is asymptotic, not the asserted ratio at every finite K."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu proves a broader operator identity, with no optimal allocation among coefficient harmonics in the passages at issue.",
+          "Sierra-Ausín et al.'s abstract and Algorithm 1 address numerical solutions of time-periodic compressible flows. The spectral methods book and adaptive Galerkin candidate were not accessible in full text."
+        ],
+        "reasoning": "General spectral methods and the residual identity are relevant background, but the retrieved broader results do not order the competing allocations or fix the optimizing budget ratio. No whole-document exclusion is made for inaccessible material.",
+        "searches": [
+          "arXiv:2611.00793v1 Proposition 2.2",
+          "Hesthaven–Gottlieb–Gottlieb DOI 10.1017/CBO9780511618352, Chapter 3",
+          "Adaptive Fourier-Galerkin methods IRIS 11583/2506031",
+          "Sierra-Ausín et al., CMAME 393 (2022), 114736"
+        ]
+      },
+      "checked_sources": [
+        "Xu arXiv:2611.00793v1",
+        "Resultary d9635d2e61ff",
+        "CMAME 393 article 114736",
+        "IRIS 11583/2506031 and Cambridge DOI 10.1017/CBO9780511618352 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general identity reduces residual calculation to a singular value. A pure harmonic has no simultaneous β–γ coupling; its value does not determine the mixed derivative at y=1 or the interior optimizer."
+        ],
+        "reasoning": "The further two-by-two calculation and cutoff inequality are needed. Neither cited prior result implies the exact constrained maximizing split by simple parameter substitution or dominates it with a stronger extremum theorem.",
+        "searches": [
+          "Xu Proposition 2.2 and Example 4.5, pp. 6 and 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu's D_N is the same residual operator and its norm is the squared norm of the exterior coupling. Example 4.5 is exactly the γ=0 specialization.",
+          "The indexed v1 finding d9635d2e61ff contains the same two-harmonic theorem as the assigned source."
+        ],
+        "reasoning": "The operator is not new under the changed notation, and the exact identical record is not independent coverage. The first-harmonic specialization does not optimize a mixture.",
+        "searches": [
+          "arXiv:2611.00793v1, Proposition 2.2 and Example 4.5",
+          "Resultary SCOPE-sharp-cutoff-four-onset-and-sharp-4-3-amplification-of-fourier-g--d9635d2e61ff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published finding is confirmed by the mirror at offsets 0 and 4382; it is this same record.",
+          "Eq. (4.10) gives the exact first-harmonic value β²K²(K+1)²/4."
+        ],
+        "reasoning": "No distinct exact table or theorem giving the two-harmonic optimum was established. The single-harmonic entry gives one endpoint, not the optimum for K≥4.",
+        "searches": [
+          "Resultary SCOPE-sharp-cutoff-four-onset-and-sharp-4-3-amplification-of-fourier-g--d9635d2e61ff",
+          "Xu Example 4.5, Eq. (4.10)"
+        ]
+      },
+      "rationale": "The Galerkin residual identity and first-harmonic leakage are prior work. The supported distinct claim is the unique two-harmonic energy allocation, exact cutoff-4 onset and asymptotic 4/3 gain under that budget. The exact published catalogue hit is this very finding, not a separate antecedent. The assessment is bounded to the examined evidence.",
+      "residual_risks": [
+        "A similar optimization may be present under a different formulation in Fourier or small-matrix literature; bounded searches do not establish priority. The two limited-access sources were not used as negative proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of the identity and single-harmonic benchmark",
+          "evidence": "D_N=E_N*E_N in the symmetric case, and (4.10) evaluates a(x)=1+β cos x.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00793v1",
+          "material_read": "Proposition 2.2, p. 6; Example 4.5 and (4.10), p. 15",
+          "method": "Open preprint PDF passages",
+          "title": "A Second-Order Stochastic Dynamic Mode Decomposition by Richardson Extrapolation",
+          "trigger": "Direct predecessor for the identical residual and first harmonic"
+        },
+        {
+          "assessment": "Identical finding, not an independent prior",
+          "evidence": "Same budget, cutoff 4, optimal proportions, phase invariance and 4/3 limit.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cutoff-four-onset-and-sharp-4-3-amplification-of-fourier-g--d9635d2e61ff",
+          "material_read": "Finding and assumptions, offsets 0 and 4382",
+          "method": "Published index and bounded mirror passages",
+          "title": "Sharp cutoff-four onset and sharp 4/3 amplification of Fourier–Galerkin leakage",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Different operator and objective",
+          "evidence": "Time-periodic compressible Navier–Stokes numerical solver, not amplitude-constrained leakage.",
+          "identifier_or_url": "CMAME 393 (2022), article 114736",
+          "material_read": "Abstract and Algorithm 1, p. 9",
+          "method": "Open paper passages",
+          "title": "Efficient computation of time-periodic compressible flows with spectral techniques",
+          "trigger": "Fourier–Galerkin literature query"
+        },
+        {
+          "assessment": "No full-text conclusion",
+          "evidence": "Repository attempt returned HTTP 403.",
+          "identifier_or_url": "https://iris.polito.it/handle/11583/2506031",
+          "material_read": "Search metadata; repository full text not retrieved",
+          "method": "Literature query and OA attempt",
+          "title": "Adaptive Fourier-Galerkin methods",
+          "trigger": "Possible general Fourier–Galerkin coverage"
+        },
+        {
+          "assessment": "No full-text conclusion",
+          "evidence": "The alternate route returned 404; no claim about the chapter's exact coverage is inferred.",
+          "identifier_or_url": "https://doi.org/10.1017/CBO9780511618352",
+          "material_read": "Landing page; Chapter 3 not retrieved",
+          "method": "Public DOI page and attempted alternate copy",
+          "title": "Spectral Methods for Time-Dependent Problems",
+          "trigger": "Cited Chapter 3 for general spectral-method context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Xu Proposition 2.2 and Example 4.5"
+      ],
+      "rationale": "In the simplest family where two coefficient modes compete for the same spectral boundary, this gives a sharp benchmark for a motivated Galerkin projection defect. It shows that the stronger pure harmonic can be extremal at small cutoffs yet cease to be so exactly at K=4, and quantifies the persistent gain rather than just exhibiting one favorable mixture.",
+      "residual_risks": [
+        "No claim of an optimal arbitrary diffusivity, a practical instability, or a sharp time-discretization or finite-sample error bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:03:37.909180Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and assumptions",
+        "Frozen VERIFICATION.md and verify.py, lines 30–110 (read, not run)"
+      ],
+      "rationale": "In a finite local ring every nonzero nonunit is a vertex. The pairing descends over the residue field because multiplying by an element of m changes neither product in m² nor its scalar action. The inverse image of the radical is the socle, with q^(r+1) elements; its nonzero members have annihilator m. All other annihilators are preimages of hyperplanes in V and thus of equal cardinality q^d. Equality of those hyperplanes is equivalent to proportional nonzero images in V/U by nondegeneracy. Counting lifts gives c=q^(r+1)−1, b=(q−1)q^(r+1) and N=(q^t−1)/(q−1). At rank one there is one block; otherwise the c universal vertices and N components of order b are intrinsic. Then q=1+b/(c+1), followed by unique r,t from the two powers. The automorphism group and coloring follow from those intrinsic blocks. A diagonal form of rank t realizes each triple, since all triple products in the maximal ideal vanish. The two ternary forms have the same rank but only the hyperbolic ring has a nonsocle element squaring to zero. No splitting assumption was used in the graph proof.",
+      "residual_risks": [
+        "The script directly compares every adjacency for the split examples, but the mixed examples compare computed degree distributions only, and both lie at rank one. This is narrower than the prose suggesting all mixed edges are compared with the block rule. It does not limit the general proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source covers general commutative rings and proves the completeness chain criterion, but proposes clique and coloring questions in the cited conclusion.",
+          "4c304d68b8d2 reconstructs graded Gorenstein rings from the ordinary graph's degree multiset; 1e94f0c195f0 concerns a weak-minus-ordinary graph for products with a field."
+        ],
+        "reasoning": "The larger ring domain of the first paper does not supply the finer partition, and the other reconstructions use distinct graph inputs even on overlapping graded rings.",
+        "searches": [
+          "arXiv:2606.15498v1 definition, Theorem 4.4 and conclusion",
+          "Resultary 4c304d68b8d2 and 1e94f0c195f0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15498v1",
+        "arXiv:0801.0086v2",
+        "Resultary 4c304d68b8d2, 1e94f0c195f0, c6e7cc1901c7, 3dd8b506381f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.4 says the graph is complete iff the annihilator ideals form a chain. With equal-size hyperplanes this gives the t=1 boundary.",
+          "The compressed graph retains zero-product orthogonality rather than comparability of the annihilator hyperplanes."
+        ],
+        "reasoning": "The chain criterion does not distinguish the noncomplete graphs. The independent rank and lift counts, and inversion from the ordinary graph-theoretic universal vertices and components of this inclusion graph, are needed; the two ternary forms demonstrate that zero-product data are not an equivalent input.",
+        "searches": [
+          "arXiv:2606.15498v1 Theorem 4.4",
+          "arXiv:0801.0086v2 definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spiroff–Wickham use equivalence classes of annihilators as vertices and product-zero adjacency.",
+          "The inspected ordinary-graph formula 3dd8b506381f depends on the number of isotropic lines and contains bipartite components; c6e7cc1901c7 restricts to square-zero elements of a different ring and uses annihilation."
+        ],
+        "reasoning": "Even when the annihilator equivalence relation or a clique-join motif is shared, the actual vertex set and adjacency distinguish the objects. In the ordinary graph the two ternary forms need not give the same graph; in the inclusion graph they do.",
+        "searches": [
+          "Resultary annihilator inclusion, short local rings, projective clique and reconstruction comparisons: 4c304d68b8d2, 1e94f0c195f0, c6e7cc1901c7, 3dd8b506381f",
+          "arXiv:0801.0086v2 Definitions and Basic Results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual formulas in the two near records were compared; the latter includes a split by isotropic line type and the former uses a different ring and vertex condition. The path dates of both are later than the assigned record."
+        ],
+        "reasoning": "A universal structural and inverse formula, rather than a table entry for one finite ring, is at issue. The close indexed exact formulas do not tabulate the comparable-annihilator invariant here; path date alone was not used to reject equivalence.",
+        "searches": [
+          "Resultary projective clique and short-ring formula comparisons, especially c6e7cc1901c7 and 3dd8b506381f"
+        ]
+      },
+      "rationale": "The supported addition is the full noncomplete graph structure and its exact abstract-graph parameter recovery and non-rigidity. Credit the definition and general chain criterion to Safari–Shaveisi–Nikandish; completeness is not a separate novelty claim. The closest compared reconstruction and clique-join statements concern different adjacencies or domains.",
+      "residual_risks": [
+        "The bounded primary-literature query was deferred; the decision rests on the inspected primary and indexed sources, not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers graph definition and general completeness criterion; not the asserted noncomplete invariants",
+          "evidence": [
+            "Theorem 4.4 is the annihilator-chain criterion; conclusion proposes clique and chromatic numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15498",
+          "material_read": "v1 PDF pp. 1, 11 (Theorem 4.4), 13 (conclusion)",
+          "method": "Open-access PDF passages",
+          "title": "Inclusion graph of annihilators in a commutative ring",
+          "trigger": "Same graph, general commutative-ring domain"
+        },
+        {
+          "assessment": "Different adjacency and vertex set",
+          "evidence": [
+            "Classes under equality of annihilators are joined by zero product."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.0086",
+          "material_read": "v2 PDF pp. 1–2, Definitions and Basic Results",
+          "method": "Open-access PDF passages",
+          "title": "A Zero Divisor Graph Determined by Equivalence Classes of Zero Divisors",
+          "trigger": "Possible annihilator compression reformulation"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Ordinary zero-divisor degrees recover the similarity class in the graded Gorenstein class."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-degree-sequence-reconstruction-of-finite-graded-socle-degree-two--4c304d68b8d2",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local mirror",
+          "title": "Degree sequence reconstruction of finite graded socle-degree-two algebras",
+          "trigger": "Reconstruction for overlapping graded rings"
+        },
+        {
+          "assessment": "Different ring family and graph operation",
+          "evidence": [
+            "Weak-minus-ordinary edges for a product with a field."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-four-block-difference-graph-of-a-square-zero-local-ring-time--1e94f0c195f0",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local mirror",
+          "title": "The four-block difference graph of a square-zero local ring times a field",
+          "trigger": "Parallel graph reconstruction and non-rigidity"
+        },
+        {
+          "assessment": "Not equivalent; later path date",
+          "evidence": [
+            "Square-zero-element annihilation graph of F_q[x,y]/(x³,y³)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-characteristic-uniform-square-zero-annihilation-graph-for-the--c6e7cc1901c7",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local mirror",
+          "title": "A characteristic-uniform square-zero annihilation graph",
+          "trigger": "Matching clique-join motif"
+        },
+        {
+          "assessment": "Ordinary graph, different formula; later path date",
+          "evidence": [
+            "Gorenstein embedding dimension two; isotropic lines contribute cliques, other lines pair in complete bipartite components."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-ordinary-zero-divisor-graphs-of-short-finite-gorenstein--3dd8b506381f",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local mirror",
+          "title": "Complete ordinary zero-divisor graphs of short finite Gorenstein rings",
+          "trigger": "Closest domain and graph decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§2–4",
+        "arXiv:2606.15498v1 conclusion"
+      ],
+      "rationale": "The block structure answers the suggested clique and chromatic questions on a natural family and gives more than those invariants: it separates which residue and rank parameters can be read from the graph from which multiplication data are lost. The mixed-characteristic scope and exact example of lost form data make that distinction useful.",
+      "residual_risks": [
+        "There is no asserted classification beyond one-dimensional radical square or reconstruction across the complete-graph boundary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

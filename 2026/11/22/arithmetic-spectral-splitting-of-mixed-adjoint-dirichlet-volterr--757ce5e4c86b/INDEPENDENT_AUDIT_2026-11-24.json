@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:02:39.550893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integration gives V_c e_n=(log c/log(cn))e_{cn}, bounded with weights tending to zero. The adjoint removes the factor a only from indices divisible by a. Thus the terms of K are supported respectively on a|bn and a|n, with identical output e_{bn/a} when both are present. The former condition means n=a′m; the latter then means d|m. The output is injective, so K*K is diagonal with squared absolute coefficients. The one-term weights are inverse-square logs, and for n=ak the difference is −ABF(log k). The ratio (u+A)(u+B)/(u+A+B)² is below one and increases, so F is positive and strictly decreasing. The strict lattice threshold gives ceil(X)−ceil(X/d) even at integer X, with X=e^(√(AB/t))/(ba′). Expansion of the two fractions gives C=AB(A+B), D=−AB(2A²+5AB+2B²); taking the cube root in the reversed expansion gives U=(C/t)^(1/3)+D/(3C)+O(t^(1/3)). Cubic counting is ceil(e^U)−1 for small positive t. This checks both exact branch counts, the constant exponential prefactor, the scale comparison, and the separate signed populations when a=b. Logarithmic decay gives compact infinite rank but no summability to any finite power. The uploaded verify.py and VERIFICATION.md were inspected, not executed; finite column checks do not establish the asymptotic inversion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 7.2, 4 and 7.7 of the respective published works concern individual T_g, including weighted Hardy or Bergman variants.",
+          "The broader unweighted polynomial-symbol catalogue result gives inverse-log decay for individual T_g."
+        ],
+        "reasoning": "Schatten results for individual factors do not survive subtraction in general and do not enforce any spectrum of the products or of their difference. This theorem instead uses exact common coefficient-basis action.",
+        "searches": [
+          "arXiv:1602.04729, Hardy Dirichlet Volterra §7.1",
+          "arXiv:2004.04087v1 §6 and arXiv:2402.12524v1 §7.3",
+          "Resultary be7aeb0879b7, polynomial-symbol singular-value leading law"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Brevig–Perfekt–Seip arXiv:1602.04729, Bommier-Hato arXiv:2004.04087v1, Gómez-Cabello–Lefèvre–Queffélec arXiv:2402.12524v1",
+        "Resultary a9dd2157993b, 5ae441929571, be7aeb0879b7, 876937a001c2, 6193251eccee, 261a23df8985"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the star-free product the two orders have the same multiplier ab on every input, so there is no arithmetic loss of a whole term on a subset. For the mixed products the first term acts on a′ℕ and the second on aℕ.",
+          "General weighted partial-permutation theory gives singular values once weights and the map are known; it does not evaluate the cancellation or the counting constants."
+        ],
+        "reasoning": "The exact one-frequency input action permits a derivation but the asserted invariant is not an existing corollary of the individual singular-value law. The divisibility split and the two-term inverse-log expansion, including its second coefficient for the cubic counting prefactor, are the specific additional content.",
+        "searches": [
+          "Resultary a9dd2157993b, unstarred monomial calculation and equal-symbol case",
+          "Resultary 5ae441929571, exact one-frequency result",
+          "Brevig–Perfekt–Seip, Thm. 7.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unstarred commutator maps e_n to e_{abn}, has a cubic-log spectrum for unequal a,b and vanishes for a=b. The inspected mixed-adjoint result instead maps eligible e_n to e_{bn/a} and is nonzero even when a=b."
+        ],
+        "reasoning": "Taking adjoints or interchanging a and b cannot turn the unstarred identity into this mixed-adjoint one. Both are weighted partial permutations, but this shared proof method does not preserve the arithmetic eligibility or coefficient cancellation.",
+        "searches": [
+          "Resultary: Dirichlet–Volterra commutators, mixed adjoints, quadratic and cubic logarithmic laws",
+          "Resultary a9dd2157993b, RESULT.md §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5ae441929571 gives exact one-frequency singular values for a single operator; a9dd2157993b gives the unstarred law.",
+          "Distinct same-day hits concern integration powers on L²(0,1), Hardy disk weighted composition, and a disk-Hardy Volterra cubic power law, respectively. Those are different operators and scales."
+        ],
+        "reasoning": "An exact singular sequence for an individual factor is not a table for its adjoint-product differences. None of the inspected distinct matches gives the two signed or unsigned mixed-adjoint branches on the Dirichlet coefficient space. The comparison does not depend on same-day precedence.",
+        "searches": [
+          "Local Resultary for exact positive singular branches of mixed adjoint Dirichlet-series Volterra commutators",
+          "Resultary a9dd2157993b, 5ae441929571, be7aeb0879b7, 876937a001c2, 6193251eccee, 261a23df8985"
+        ]
+      },
+      "rationale": "The supported distinct result is exact mixed-adjoint monomial spectra with a gcd-dependent branch split, sharp counting at both scales, and opposite signed scales for the diagonal self-commutator. Known non-Schatten theorems for individual operators and the similar unstarred computation are credited, but neither determines these results.",
+      "residual_risks": [
+        "An earlier computation in weighted partial-permutation or self-commutator literature could contain an equivalent statement not found here.",
+        "No completeness or chronological priority is inferred from the bounded primary and catalogue comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological overlap, different output map and no mixed-adjoint coverage",
+          "evidence": "The unstarred action is e_n→e_{abn}; it vanishes at a=b and has cubic-log decay for distinct a,b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-singular-spectra-and-two-number-rigidity-for-dirichlet-volterra--a9dd2157993b/RESULT.md",
+          "material_read": "Mirrored RESULT.md §§1–2, action and spectrum",
+          "method": "Local Resultary search and original mirror passage inspection",
+          "title": "Singular spectra and two-number rigidity for Dirichlet–Volterra commutators",
+          "trigger": "Same monomial operators and exact singular spectra of commutators"
+        },
+        {
+          "assessment": "Non-Schatten theorem for individual operators",
+          "evidence": "A nonconstant symbol precludes finite Schatten membership of T_g itself; the theorem gives no mixed-adjoint branch spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.04729",
+          "material_read": "Opening definition and §7.1 Theorem 7.2, p. 34, offset about 146356",
+          "method": "Open-access original PDF passage inspection",
+          "title": "Volterra operators on Hardy spaces of Dirichlet series",
+          "trigger": "Exact ambient space and operator definition; potential ideal-theory coverage"
+        },
+        {
+          "assessment": "Different operator question",
+          "evidence": "The theorem studies non-Schatten membership of individual T_g on weighted coefficient spaces.",
+          "identifier_or_url": "https://arxiv.org/html/2004.04087v1",
+          "material_read": "§6 Theorem 4, offset about 83540",
+          "method": "Primary open-access HTML passage inspection",
+          "title": "Volterra operators and Hankel forms on Bergman spaces of Dirichlet series",
+          "trigger": "Weighted extension of Dirichlet Volterra ideal theory"
+        },
+        {
+          "assessment": "Different operator question",
+          "evidence": "The analogous non-Schatten conclusion is for an individual T_g on the Bergman space, not a two-operator difference.",
+          "identifier_or_url": "https://arxiv.org/html/2402.12524v1",
+          "material_read": "§7.3 Theorem 7.7, offset about 118463",
+          "method": "Primary open-access HTML passage inspection",
+          "title": "Volterra operator acting on Bergman spaces of Dirichlet series",
+          "trigger": "Potential stronger Dirichlet-space result"
+        },
+        {
+          "assessment": "Exact single-operator overlap only",
+          "evidence": "One-frequency symbol b_m m^(−s) gives individual s_N=|b_m| log m/log(mN), which does not determine relative placement of ranges.",
+          "identifier_or_url": "Resultary:5ae441929571",
+          "material_read": "Mirrored RESULT.md Finding, at offset 0",
+          "method": "Local Resultary search and original mirror passage inspection",
+          "title": "Sharp logarithmic singular-value law for Dirichlet-polynomial Volterra operators",
+          "trigger": "Exact one-symbol singular spectrum on the same Hilbert space"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Comparing two monomial Volterra operators with one adjoint tests natural relative nonnormality. The gcd decides whether the slower scale is present, while the finer scale can be recovered by exact subtraction or by a sign restriction in the self-commutator. These exact spectral and counting statements are more informative than routine compactness or ideal nonmembership, and their leading constants matter when comparing ranks at a fixed small tolerance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

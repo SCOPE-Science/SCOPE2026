@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:17:33.527073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The same-stream first-hit indices are finite with geometric-tail domination by disjoint blocks of three tosses, and distinct equal-length words cannot tie. The race matrix is transient. Its first-step recurrences give m=N1, s=N(1+2Qm)=(2N−I)m, w_a=Nr_a and h_a=Nw_a; the tail search starts at the longest retained proper prefix of the losing word. On the event of an a-win, T_a=τ, T_b=τ+additional time and the conditional mean of the future time depends only on the winning word, so the displayed mixed-moment equations follow. Independently derived all 28 rational covariances via a four-state last-two-letter chain after the first two tosses (branches/reproduction/covariance.py): the mixed moment obeys M=1+P_a E_a+P_b E_b+P_ab M, where each masked transition matrix drops just the designated hits. Averaging over the initial two tosses and subtracting the product of means reproduced the factored representative formulas and the supplied signs. Exact polynomial gcd and Sturm counts after excluding endpoint poles gave no nonsimple interior roots and classes 7,3,14,4. Complementation acts by p↦1−p and gives the stated 16 orbits. The highlighted cubic and approximate roots 0.307978528369904 and 0.643104132107791 reproduce. The frozen verification script was inspected, not replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 computes the joint PGF under time-homogeneous Markov dependence, stronger than iid for joint-law computation",
+          "Their fair-coin four-letter example explicitly evaluates covariance 384/7"
+        ],
+        "reasoning": "This prior covers the general ability to compute the covariance and the first-winner construction. It does not supply a uniform qualitative classification of how covariance changes with bias across all shortest nontrivial word pairs under review.",
+        "searches": [
+          "\"Joint Distributions of Waiting Time Random Variables for Patterns\" Aki Hirano 2008 full text theorem joint generating function",
+          "Aki–Hirano DOI 10.14490/jjss.38.97 Theorem 1 and fair-coin example"
+        ]
+      },
+      "checked_sources": [
+        "Aki–Hirano DOI 10.14490/jjss.38.97",
+        "Riis–Paterson arXiv:2601.16580v2",
+        "Resultary 3a676bebbf63, 09ebdb81d232 and 72a017004061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating the known joint PGF recovers each covariance, but neither its general identity nor the fixed-bias example gives an interior-root bound, multiplicities or the exact orbit census",
+          "The competing-pattern crossover result deals with zeroes of win-score advantages from a product-prefix chain, not with zeroes of the mixed moment minus the product of means"
+        ],
+        "reasoning": "Aki–Hirano give exact distributional machinery and individually computable moments; obtaining this phase diagram needs symbolic reduction for the word pairs, polynomial signs and real-root certification. This is not merely evaluation of a previously tabulated count or a one-parameter specialization of a prior sign theorem.",
+        "searches": [
+          "Aki–Hirano pp. 100 and 103–105",
+          "Riis–Paterson arXiv:2601.16580v2 pp. 8–9 and appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aki–Hirano explicitly condition on the first of two patterns on one sequence; their waiting-time variable convention permits the relevant joint moments",
+          "Riis–Paterson expressly distinguish their independent-stream setting from Penney's one-stream setting",
+          "Resultary 72a017004061 studies an exact sign threshold of motif counts, not stopping-index covariances"
+        ],
+        "reasoning": "Competition probability, overlapping count covariance and covariance of stopping indices are not interchangeable. Independent-stream waiting times themselves have zero covariance; the independent-stream win odds are a different statistic. Complementation of the alphabet is accounted for in the target classification.",
+        "searches": [
+          "first occurrence waiting time covariance two overlapping patterns iid sequence joint probability generating function moments",
+          "binary pattern waiting times covariance biased coin overlap joint moments two patterns sign classification table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Riis–Paterson tabulate algebraic preference-cycle windows for their independent-stream win odds, including small word lengths",
+          "The same-day 3a676bebbf63 gives a complete covariance spectrum for length-three permutation-pattern counts; 09ebdb81d232 studies count covariance nullspaces; 72a017004061 studies fixed-composition binary motif counts"
+        ],
+        "reasoning": "The strongest indexed and primary exact tables examined are for different observables. No inspected prior table lists the 16 representative polynomials or the 7/3/14/4 phase split for the specified iid shared-stream waiting times. Same-day dating was not used to dismiss potential equivalence.",
+        "searches": [
+          "three-letter binary patterns all pairs covariance first waiting times sign roots p classification",
+          "Riis–Paterson arXiv:2601.16580v2 appendix exact algebraic endpoint tables",
+          "Resultary comparisons 3a676bebbf63, 09ebdb81d232 and 72a017004061"
+        ]
+      },
+      "rationale": "The distinct claim is the complete bias-dependent qualitative sign and root classification of the same-stream first-hit covariance, not the joint generating function or a new method for joint waiting times. The strongest prior joint-PGF result covers the distributions and permits exact moment extraction; its theorem and examples do not classify these root patterns. Related exact crossover analyses and indexed covariance results use different observables or sampling laws.",
+      "residual_risks": [
+        "General joint-PGF theory makes the table derivable, and an equivalent specialized table or bias-sign computation could be unindexed. Bounded source comparison is not a historical-priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the joint-law machinery and computes example covariance, not the claimed qualitative phase diagram",
+          "evidence": "A joint PGF for two patterns in a Markov-dependent sequence; a 0101/1011 fair-coin example gives covariance 384/7.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/jjss/38/1/38_1_97/_pdf/-char/en",
+          "material_read": "Introduction p. 97 (offset 242), Theorem 1 p. 100 (offset 8259), four-letter example pp. 103–105 (offsets approximately 20000–24435)",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Joint Distributions of Waiting Time Random Variables for Patterns",
+          "trigger": "Direct prior same-stream joint law and covariance computation"
+        },
+        {
+          "assessment": "Different stream coupling and statistic",
+          "evidence": "Computes win-advantage crossover and cycle windows for independent sequences, using a product-prefix chain, not shared-stream covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.16580v2",
+          "material_read": "Abstract and p. 2 (offsets 0, 5511), pp. 8–9 (offset 30799), and p. 38 table passage (offset 142500)",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Coin flipping and waiting times paradoxes: Why fair coins are exceptional",
+          "trigger": "Exact bias-dependent pattern-race roots and tables"
+        },
+        {
+          "assessment": "Different random variables and models",
+          "evidence": "Permutation-count covariance spectrum, ordinal-count covariance nullspaces, and fixed-composition motif-count sign threshold respectively.",
+          "identifier_or_url": "Resultary 3a676bebbf63, 09ebdb81d232 and 72a017004061",
+          "material_read": "Matching RESULT.md statements and sampling assumptions for all three records",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Indexed length-three pattern covariance and binary motif threshold comparisons",
+          "trigger": "Closest indexed exact covariance and sign classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The eight words form a complete natural family within the first short length showing these double reversals, not an arbitrarily selected list of examples. The phase diagram answers a dependence question missed by both race-odds tables and fixed-bias covariances: even the sign need not vary monotonically with bias. Simple-root certification distinguishes genuine switches from zero contacts and makes the classification usable without generating or numerically scanning a separate covariance for each pair. No value is attributed to rediscovering the general finite-state method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

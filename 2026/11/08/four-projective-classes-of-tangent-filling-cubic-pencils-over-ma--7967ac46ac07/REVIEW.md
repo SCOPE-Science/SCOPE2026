@@ -1,15 +1,21 @@
-# Scientific review — tangent-filling cubic pencils
+# Independent mathematical audit
 
-## Correctness (C): PASS
-A full 29,524-form enumeration of ternary cubics over \(\mathbb F_3\) gives exactly 3,744 tangent-filling scalar classes. Their three projective orbits cover all cases; exact Gröbner bases in all affine charts verify geometric smoothness for the representatives and, independently, for the thirteen equations present in the four proposed pencil classes. Every eligible unordered pair and its other two span-members are checked. Because each projective line contains four points and has exactly six unordered pairs, deduplication is exhaustive and yields 22,464 lines, partitioned into four free projective orbits. Testing every outside tangent-filling form and all nine coset representatives for each of the four classes excludes nets. Two-cubic gradient minors yield unit ideals on each chart, proving that the degree-nine bases are geometrically reduced. All assertions are finite-field-exact or algebraic-closure exact by the zero-dimensional Jacobian criterion, not extrapolations from bounded extension fields.
+## correctness
 
-## Originality (O): PASS, with priority risk
-Asgarli–Ghioca introduced the curve-level tangent-filling condition (arxiv:2302.13420), and studied smooth pencils separately (arxiv:2203.07169). Asgarli–Ghioca–Yip investigated blocking-curve statistics (arxiv:2301.06019) under hypotheses that do not cover the 3/4-point rational base loci here. Individual F3 tangent-filling cubic classifications do not imply the incidence of their projective lines, orbit types, reduced bases or maximal dimension; the independent F2 pencil cases do not determine the F3 answer. Literature and mathematical-record searches for all-member tangent-filling pencils, equivalent terminologies, exact counts, and stronger pencil classifications produced no dominating statement. The potential existence of an unindexed historical table remains a real risk; failed search is not proof of novelty.
+PASS
 
-## Value (V): PASS
-The finding supplies a complete orbit classification for a natural compatibility problem between finite-field tangent-line coverage and smooth rational linear systems. The sharp no-net result, two inequivalent classes with the same member-point profile, and geometric reducedness of the common degree-nine base make the classification structurally informative, not just a count of individual curves.
+An independent exact replay (branches/replay_01.py, NumPy integer arithmetic and SymPy over F3) tested 29,524 normalized forms by evaluating all 13 incidences and their gradients, obtaining 3,744 tangent-filling forms. Enumerating 1,790,112 eligible reduced-row-echelon generator pairs counts each eligible two-space exactly once, giving 22,464 pencils. Elementary generator substitutions generate PGL3(F3) of order 5,616; the four computed orbits each have that size and match every generator row. The three profile/base-count combinations occur 11,232, 5,616 and 5,616 times as stated. Each representative has 3,740 tangent-filling candidate third generators, and at most six of their nine new projective points pass in any candidate; transport by the group rules out all nets and hence larger systems. Exact affine Jacobian unit ideals on the three charts prove geometric smoothness for all three form-orbit representatives and all thirteen displayed member codes; the separate four-pair rank test makes every base intersection transverse. Distinct smooth plane cubics share no component, so the base has geometric length nine. Scope is rational pencil members only. The frozen base_reduced.py had a nonportable absolute dependency and only printed booleans rather than failing on a nonunit ideal. The portable replacement in repairs/1 is self-contained apart from SymPy, fails on any of the twelve nonunit chart ideals, and was independently executed successfully. The complete corrected RESULT.md and VERIFICATION.md distinguish the homogeneous partials restricted to each chart from derivatives of a dehomogenized equation and give portable replay instructions. The repaired proof also justifies independence after chart restriction by Euler's identity. No scientific counts or claims of scope changed. The frozen source was not executed or changed.
 
-## Scientific limitations
-Only rational projective members of the pencils are constrained; no assertion concerns all geometric pencil members. Projective equivalence need not coincide with abstract curve isomorphism. Independent external validation and comprehensive historical-priority certification have not occurred. Code replay uses finite exhaustive arithmetic and exact symbolic Gröbner computations; it must complete before one treats the numerical census as a certified exhaustive result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The curve-level census is already covered and is explicitly credited to 91eb1857066d in the repaired result. The supported distinct claim is the complete pencil incidence, projective orbit, base and sharp no-net classification. The strongest distinct matches do not supply that classification. The exact matching indexed record is this same finding, not independent coverage.
+
+## value
+
+PASS
+
+A sharp bound on the dimension of systems satisfying a fixed geometric condition, a full and free orbit classification, and exact base-scheme information are useful for choosing pencil representatives and knowing which tangent-filling cubics coexist in one system. Group inequivalence despite the same rational count profile is structural information not provided by the curve-level census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

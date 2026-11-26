@@ -1,0 +1,81 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:29:54.556322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The simple-cycle hypothesis n >= 3 makes the two adjacent columns distinct. Each column has at most two selected vertices by independence on C5. An empty column forces both adjacent columns to contain every row; a singleton at row r forces both adjacent columns to contain the adjacent rows r+2 and r-2. Both are impossible. Write each independent pair uniquely as {t-1,t+1}; disjoint adjacent pairs have centers differing by +1 or -1 modulo 5. The unselected rows t+2 and t-2 each require a neighbor from the adjacent column with the corresponding center t+1 or t-1. Thus the two neighboring centers are opposite steps from t, and every consecutive increment is the same. Closure is equivalent to 5 dividing n. Conversely, this recurrence supplies the required outside neighbors, including two within the column at t; the first center and first step distinguish the ten labelled sets. The official 2016 paper uses matching graph and kernel definitions. An independent exact witness check, `python3 /workspace/branches/replay_2_3.py`, verifies the ten distinct C5 x C10 sets, each with 20 selected vertices of inside-degree zero and 30 outside vertices of inside-degree 2 or 4. The all-n conclusion is analytic, not extrapolated from this check. Inspected the two frozen checker sources without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 claims an iff for all cycle orders at least 3: both even or equal. No later correction or correct broader theorem yielding the ten-pattern classification was identified in the bounded search."
+        ],
+        "reasoning": "The broader printed claim cannot imply the retained result since n=10 is already a contradiction of its necessity. Its allowed equal-order case is not the new contribution.",
+        "searches": [
+          "DOI 10.17951/a.2016.70.2.1, Theorem 2.5",
+          "Literature searches for a correction or general classification for cycle products"
+        ]
+      },
+      "checked_sources": [
+        "Official Bednarz–Włoch PDF, DOI 10.17951/a.2016.70.2.1, pp. 1–2 and 4",
+        "Resultary ranked search results",
+        "Focused primary-literature search results for cycle products and possible corrections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both 5 and 10 satisfy the original theorem's order hypotheses; they are unequal and one is odd. The explicit set with increment +1 and initial center 0 satisfies the original predicate."
+        ],
+        "reasoning": "The retained claim's counterexample contradicts, rather than follows as a consequence of, the closest general statement. Existence in an admitted equal-order case does not imply all-multiple-of-five exhaustiveness with labelled counts.",
+        "searches": [
+          "Bednarz–Włoch DOI 10.17951/a.2016.70.2.1, product/kernel definitions and Theorem 2.5",
+          "Focused literature searches for independent two-domination on cycle products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bednarz–Włoch define their product as Cartesian on p. 1 and their (2-d)-kernel with the same independent-set and outside-vertex requirements on p. 2. Literature search also surfaced usual domination numbers of cycle products, a different parameter."
+        ],
+        "reasoning": "The matched kernel formulation is genuinely equivalent, so the counterexample is not a notational discrepancy. Ordinary domination bounds do not decide existence with both independence and two neighbors. No matching classification was found in the ranked catalogue results.",
+        "searches": [
+          "Resultary searches for the C5 Cartesian Cn kernel classification (20- and 50-result searches)",
+          "Focused literature searches for independent two-dominating sets and (2-d)-kernels on Cartesian products of cycles",
+          "DOI 10.17951/a.2016.70.2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked catalogue results furnished no matching entry. The printed criterion would give nonexistence for the unequal orders 5 and 10, not ten sets."
+        ],
+        "reasoning": "An exact count table for individual products could anticipate individual cases; none covering the retained unequal-order counts was identified. Individual counts alone also would not give the asserted arbitrary-n rigidity.",
+        "searches": [
+          "Resultary searches for the exact C5-factor classification and unequal-order counterexamples (20 and 50 ranked results)",
+          "DOI 10.17951/a.2016.70.2.1, Theorem 2.5"
+        ]
+      },
+      "rationale": "The unequal-order family and exact ten-pattern classification for the fixed first factor are distinct on the evidence inspected. The 2016 theorem purports to give broader coverage, but its claimed necessity actually excludes the verified new examples. The equal-order case is credited rather than treated as a new count.",
+      "residual_risks": [
+        "Bounded indexed searches cannot exclude an unindexed, unpublished, or differently formulated correction or classification.",
+        "The review does not assert priority for the equal-order case and does not audit other results in the 2016 paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the frozen comparison; does not cover the unequal-order classification and is refuted in its necessity direction.",
+          "evidence": "Theorem 2.5 asserts existence iff both cycle orders are even or the orders coincide. Product and kernel definitions agree.",
+          "identifier_or_url": "https://journals.umcs.pl/a/article/download/4513/3256",
+          "material_read": "Definitions on printed pp. 1–2 and Theorem 2.5 on p. 4 (extracted text around offset 7531).",
+          "method": "Located and read passages in the official open-access PDF.",
+          "title": "On (2-d)-kernels in the cartesian product of graphs",
+          "trigger": "Same graph product and domination predicate; direct target of the counterexample."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "C5 is the smallest odd cycle that permits nontrivial two-element independent columns; the local necessity proves an all-length rigidity statement, not merely a short-grid check. The explicit family overturns a printed general existence criterion while replacing it on this factor by an exact classification and count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

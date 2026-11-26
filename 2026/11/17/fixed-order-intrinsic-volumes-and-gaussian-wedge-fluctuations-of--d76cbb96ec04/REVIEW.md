@@ -1,24 +1,21 @@
-# Scientific review of the fixed-index White Whale intrinsic-volume law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The intrinsic-volume-to-random-wedge identity uses the established zonotope formula with correct Steiner normalization and exactly accounts for repeated and zero Boolean columns. The Bernoulli row Gram expectation is \((I+\mathbf1\mathbf1^{\mathsf T})/4\), with inverse \(4(I-\mathbf1\mathbf1^{\mathsf T}/(k+1))\). The binomial fourth moment yields \(\operatorname{Var}(U)=2k/(k+1)\), giving the Gaussian variance \(k/(2\cdot4^k)\) and relative expectation correction \(-k^3/[4(k+1)d]\). Concentration away from the singular determinant boundary makes Taylor expansion valid, and expectation of the third and fourth terms is \(O_k(d^{-2})\). The accompanying reproducibility checks establish fifteen finite exact-method comparisons and ten finite-order moment identities. Those finite checks do not replace the proof.
+PASS
 
-## Originality
+The Steiner-normalized wedge sum equals 2^(dk)/k! times the with-replacement mean, since zero and repeated columns contribute zero. Grouping the Boolean rows by pattern gives the exact multinomial formula, including singular cases. The population Gram matrix is M=(I+11^T)/4. For a row, put U=xi^T M^(-1)xi and let S be the sum of k independent signs. Then U-k=(2S-(S^2-k))/(k+1); E S^2=k, E S^3=0 and E S^4=3k^2-2k give Var(U)=2k/(k+1). For the whitened centered sample Gram matrix H, E(tr H)^2=Var(U)/d and E tr(H^2)=(E U^2-k)/d. The coefficients 1/8 and -1/4 of those terms in sqrt(det(I+H)) give relative correction -k^3/[4(k+1)d]; its linear term and the scalar CLT yield variance k/(2·4^k). A fixed positive-definite neighborhood has exponentially small exceptional probability by entrywise bounded-variable concentration; the Gram determinant is bounded outside it for fixed k. Taylor through degree three suffices: centering gives cubic expectation O_k(d^-2) and fourth absolute moment O_k(d^-2), proving the claimed remainder. Division by the k=1 expansion yields (4), including -5/(12d) at k=2. Independent exact determinant-multiplicity comparisons passed in 15 prespecified finite cases; finite binomial moment checks passed at k=1 through 10. These corroborate the arithmetic, not the limit proofs. Replay: python3 /workspace/branches/f04aeafb-7f50-468b-902d-3d0a846f7f74/finite_repro.py; see finite_repro_results.txt in that directory. The frozen verifier was read as evidence, not executed.
 
-PASS, with historical-priority uncertainty. The principal 2022 White Whale source addresses vertex and edge counts, not this fixed-order Euclidean metric asymptotic. Joós--Lángi and Breiding--Bürgisser--Lerario--Mathis prove the general wedge-based intrinsic-volume formula, which subsumes the starting exact reduction; that reduction is not claimed as original. The new claim is the joint all-fixed-order explicit Gaussian fluctuation and sharp relative \(1/d\) coefficient, including the limiting intrinsic-volume ratios. Semantic searches covering random Boolean Gram determinants, resonance zonotopes, aliases, broader coverage, and exact tables found no direct statement of those constants. Unindexed equivalent formulae and the routine general delta-method framework are remaining priority risks; the discrete moment evaluation and second-order coefficient are not stated in the inspected primary works.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The White Whale is a canonical zonotope with exponentially many generators and extremely large vertex counts, so exact fixed-order Euclidean intrinsic-volume behavior is a natural invariant independent of its hard vertex enumeration. The result gives every fixed-index coefficient a uniform-in-d asymptotic template, a sharp relative correction, a nondegenerate Gaussian law for the contributing parallelotope sizes, and an explicit nonorthogonality hierarchy \(\sqrt{k+1}/2^{k/2}\). The two-dimensional limit \(\sqrt3/2\) is a geometrically interpretable persistent angular correlation, not an arbitrary parameter slice or a restatement of the general sum formula. The theorem does not assert anything for growing index.
+Pass applies to the fixed-order Boolean-specific asymptotic coefficients and wedge fluctuation law, not to the established intrinsic-volume identity or its direct multinomial specialization. Compared sources do not give the same constants and law or a stronger result already determining them without the row-moment calculation. Historical priority remains provisional.
 
-## Closest prior literature and limits
+## value
 
-- Deza--Hao--Pournin (arXiv:2205.13309): same canonical object, different combinatorial invariants.
-- Joós--Lángi (arXiv:2206.03204): general zonotope Steiner formula, credited as inherited.
-- Breiding--Bürgisser--Lerario--Mathis (arXiv:2109.14996): general random-wedge/zonoid framework, without the specific second-order Boolean constants.
-- Previously published White Whale width and incenter claims: distinct invariants; no implication to the present asymptotic beyond general geometric background.
+PASS
 
-Fixed-order asymptotics only, finite checks not infinite proofs, and unindexed equivalent Bernoulli determinant calculations remain possible.
+The natural Boolean-generator zonotope has many highly nonorthogonal directions. The normalized intrinsic volumes quantify the surviving alignment (already sqrt(3)/2 at order two), and the explicit bias and fluctuation scale distinguish the fixed-order geometry from the established general wedge identity or a leading-order law of large numbers. These are reusable Euclidean invariants with a clear fixed-k scope.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:12:58.607778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof; frozen VERIFICATION.md and verify_stv_coombs_first_unique_disagreement.py (read, not run)",
+        "Independent exact multiset replay at /workspace/branches/52bde4da-ea0f-45f4-a482-61df5d028e63/reproduce_stv_coombs.py"
+      ],
+      "rationale": "A fresh exact multiset enumeration, with all tied eliminations and tied pairwise finals represented, gives anonymous disagreement counts (0,0,0,0,6), labeled disagreements (0,0,0,0,180), and labeled both-singleton counts (6,12,132,576,6516) through five voters. Replay: python3 /workspace/branches/52bde4da-ea0f-45f4-a482-61df5d028e63/reproduce_stv_coombs.py --max-n 5. The six profiles form one orbit, each with 5!/(1!2!2!)=30 labelings, and the stated vector is the lexicographic representative. The fractions reduce to 5/216, 5/181 and 1/42. Independently, a majority-first candidate survives some Coombs branch at n<=5 (at most floor((n-1)/2) last places, not enough for a unique last-place maximum) and wins every final it reaches; STV elects it. Without that majority, n=2 has first counts (1,1,0) and a final tie; n=3 has (1,1,1), and any sole STV winner must beat both others; n=4 gives (2,2,0) and a final tie, or (2,1,1) where the only possible sole STV winner must beat both others. In the latter Condorcet cases the winner can be last at most once, so cannot be the uniquely eliminated Coombs first-round candidate. At n=5 without a majority, first counts are (1,2,2). If eliminating A elects C, the sole A ballot is ACB. Coombs cannot have A among its eliminations if it uniquely elects someone else. C can have at most two last places and cannot be the sole elimination; B cannot be a sole winner from eliminating C if another tied elimination removes B or A. Thus the only different sole winner is A from eliminating B. Both B-first ballots must then be BAC to give A the runoff against C, which puts C last twice. To make B uniquely most-last, both C-first ballots must be CAB. This forces the stated orbit; its pairwise margins and the Condorcet description follow directly. Majority-stop preserves the disagreement layer, not the full winner correspondences or necessarily the conditional denominator under a changed convention.",
+      "residual_risks": [
+        "Exhaustion is for one through five voters, three candidates, strict complete ballots and the stated PUT conventions; this is not plurality-with-fixed-tiebreak, quota STV, or an analysis at larger electorate sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The axiomatic source applies to a broader family of scoring rules and candidate sets; its checked statements describe how to compute the winner correspondence, not a minimum electorate guaranteeing these different singleton outcomes.",
+          "Miller reports properties of a simulation-based comparison, not an exhaustive bounded PUT claim in the material accessible to this review."
+        ],
+        "reasoning": "Methods for computing an outcome and empirical Condorcet comparisons do not yield the minimal electorate size, all six profiles, or the two exact labeled denominators.",
+        "searches": [
+          "Freeman–Brill–Conitzer, On the Axiomatic Characterization of Runoff Voting Rules, p. 3",
+          "Miller, The Alternative Vote and Coombs Rule versus First-Past-the-Post, indexed abstract"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1609/aaai.v28i1.8827",
+        "JSTOR 24507606 (abstract only)",
+        "Indexed SCOPE records ending fa14717d1b6a and e8d0cf0a7ffc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-round plurality and veto loser sets, followed by survivor majorities, give an evaluation procedure. The opposed singleton constraints need a joint analysis: ties can exclude candidates from winning or preserve them in another branch. Neither the general evaluation rule nor counts for other winner correspondences establish these constraints or the 6516 both-singleton profiles."
+        ],
+        "reasoning": "The result resolves a specific structural and enumerative question left by the definitions. There is no checked stronger classification with an STV–Coombs specialization reproducing it.",
+        "searches": [
+          "Freeman et al. official PDF p. 3; Miller JSTOR 24507606 abstract; indexed Kemeny–Slater and Borda–Copeland RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freeman et al. identify STV and Coombs as plurality and veto runoff scoring and specify the union over elimination tie resolutions. Miller's accessible abstract studies Alternative Vote versus Coombs and other methods on simulated English election data, including Condorcet status."
+        ],
+        "reasoning": "Plurality versus veto runoff is an equivalent formulation; Alternative Vote is the single-winner STV alias. Neither the checked axiomatic statement nor Miller's accessible abstract supplies the PUT first-layer census or half of the joint uniqueness calculation.",
+        "searches": [
+          "Local Resultary/published SCOPE semantic lookup for STV/instant runoff/Alternative Vote/Hare versus Coombs under PUT, smallest unique-winner profile",
+          "Freeman–Brill–Conitzer, AAAI 2014 official PDF, p. 3; Miller, JSTOR 24507606"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kemeny–Slater also has 180 of 7776 profiles and one anonymous orbit, but the profile in its statement gives K={A,B}, S={A,B,C}; those are neither the same rules nor two distinct singletons.",
+          "Borda–Copeland has one anonymous class of unique-winner conflicts but 60 labeled cases, for a different profile and different winner criteria. No exact STV–Coombs output table was located."
+        ],
+        "reasoning": "Matching electorate sizes or even counts does not identify a joint winner correspondence. A list of ballot profiles alone would not encode the contested census.",
+        "searches": [
+          "Local Resultary/published SCOPE lookup for 180 of 7776, six anonymous profiles/one orbit and five-voter runoff profile census",
+          "Indexed records 2026/10/4/SCOPE-sharp-five-voter-divergence-boundary-for-kemeny-and-slater-with--fa14717d1b6a and 2026/10/12/SCOPE-sharp-five-voter-unique-winner-conflict-layer-for-borda-and-cope--e8d0cf0a7ffc"
+        ]
+      },
+      "rationale": "The checked sources establish the runoff definitions and earlier comparison questions, but not the first distinct-singleton layer, its conditional denominator or its orbit. The strongest indexed numerical and structural overlaps concern different rule pairs and do not give the result by substitution.",
+      "residual_risks": [
+        "Miller's cited full-text first-elimination passage was not accessible; an older exact enumeration, appendix or software corpus not found in the bounded searches could overlap. This is a best-of-knowledge comparison, not a priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports definitions, not the exact census in checked statements",
+          "evidence": [
+            "Identifies plurality-runoff STV and veto-runoff Coombs and defines PUT via a union over tied resolutions."
+          ],
+          "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/download/8827/8686",
+          "material_read": "PDF p. 3, extracted offset near 17150",
+          "method": "OA official PDF passage inspection",
+          "title": "On the Axiomatic Characterization of Runoff Voting Rules",
+          "trigger": "Primary scoring runoff rules and PUT definition"
+        },
+        {
+          "assessment": "Related simulations in available material; no whole-document exclusion",
+          "evidence": [
+            "The abstract describes analysis using simulated English-election data and criteria including plurality, antipurality and Condorcet status."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/24507606",
+          "material_read": "Accessible abstract/record only; no full-text passage verified",
+          "method": "Indexed abstract and lawful OA retrieval attempts",
+          "title": "The Alternative Vote and Coombs Rule versus First-Past-the-Post",
+          "trigger": "Direct three-rule comparison including the same runoff pair"
+        },
+        {
+          "assessment": "Same count, different event and rules",
+          "evidence": [
+            "The witness compares a two-member set with a three-member set, not distinct singleton winners."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-five-voter-divergence-boundary-for-kemeny-and-slater-with--fa14717d1b6a",
+          "material_read": "RESULT.md Finding from offset 350",
+          "method": "Local Resultary lookup and local mirror passage inspection",
+          "title": "Sharp five-voter divergence boundary for Kemeny and Slater",
+          "trigger": "Identical unconditional count and orbit count"
+        },
+        {
+          "assessment": "Different rule pair, count and orbit profile",
+          "evidence": [
+            "States 60 labeled conflicts for Borda and Copeland and one anonymous class."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-five-voter-unique-winner-conflict-layer-for-borda-and-cope--e8d0cf0a7ffc",
+          "material_read": "RESULT.md offsets 500 and 2750",
+          "method": "Local Resultary lookup and local mirror passage inspection",
+          "title": "Sharp five-voter unique-winner conflict layer for Borda and Copeland",
+          "trigger": "Same unique-winner first-layer question for nearby voting rules"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, skewed first-layer witness and Condorcet comparison",
+        "Freeman–Brill–Conitzer p. 3; independent census"
+      ],
+      "rationale": "These two close three-candidate runoff systems share a head-to-head final but select first-round losers by opposite types of ballot information. The first exact distinction stable under every admissible tie resolution is therefore a meaningful finite cutoff. The single orbit and the Condorcet winner's role explain the voting mechanism; the labeled and both-singleton counts serve different, explicit sampling questions rather than arbitrary data slices.",
+      "residual_risks": [
+        "This does not compare broader Condorcet efficiencies, the relative merits of the rules, or disagreements of non-singleton sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

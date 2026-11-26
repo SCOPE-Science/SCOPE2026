@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification boundaries
 
-The standalone `verify.py` program uses Python 3, SymPy and NumPy. Running `python verify.py` should reproduce symbolic checks for the local reaction expansions, modal trace and determinant, exact spatial averages, and the exact small path example; it also numerically checks graph eigenvalues and separated instability bands for path orders from \(2\) to \(40\). The general all-graph result is derived analytically in RESULT.md; finite tests are neither infinite proofs nor certificates of independent validation. The nonuniform local equilibria follow from the finite-dimensional simple-eigenvalue bifurcation theorem and an explicit transversality calculation. The equilibrium mean signs follow from the exact identity and a positive quadratic coefficient. The comparison with source literature is limited to the specifically cited inspected primary full text and other stated access constraints. Independent scientific assessment has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+In repairs/2/RESULT.md the two positive uniform equilibria are enumerated and all stability/bifurcation claims are explicitly scoped to (1,1). The negative trace and determinant 1-(r-3)z+rz² give all stability and zero-mode regimes, including double-root r=9 and overlapping endpoints. At an isolated r>9 threshold the right/left modal null vectors (1,h),(4,-h) give transversality -λh[2rz-(r-3)]≠0. The simple-eigenvalue theorem gives the branch in real states. Exact polynomial expansion and zero Laplacian column sums give the two linear equations for mean shifts; their inverse yields (5). Inserting the tangent yields deficits h(7-3h), h(8-3h) times σ²s² with positive coefficients. The simple path spectrum, z+/z-→1 and a strict gap-ratio bound give n-1 bands, with P₂ and the rational P₃ example consistent. The repaired record asserts neither patterned stability nor a global mean sign.
+
+## originality
+
+PASS
+
+The supported contribution is the model-specific exact two-species stationary mean balances and sign-definite local coefficients at every isolated simple threshold, coupled to separated bands on an explicit unweighted path family. Generic modal criteria, narrow-band arguments, and simple-eigenvalue bifurcation are not original. Inspected primary and indexed statements do not supply the joint claim or the specific paired mean law.
+
+## value
+
+PASS
+
+The exact spatial balances, robust paired local deficit signs and repeated crossings distinguish linear instability from the demographic direction of the resulting equilibrium branch. The arbitrary number of windows makes this more than a numerical small-network example. The kinetics are a tractable model, not an empirical or global pattern-stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

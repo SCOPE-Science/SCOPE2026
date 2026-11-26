@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:21.552967Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Walsh level k has adjacency eigenvalue d-2k; spectral projection gives the invariant span and the restriction matrix with entries (-1)^|S intersect T| for |T|=2 and |S|=k. On constant, vertex-additive zero-sum, and zero-row-sum pair arrays, the transpose maps are respectively ((d-2k)^2-d)/2, -2(d-2k) times a k-set sum of vertex coefficients, and four times a k-set sum of pair coefficients. The images are orthogonal: subset counts give zero mean on the last two sectors, and their mutual cross term counts whether a given vertex is or is not in a pair, reducing to zero pair row sums. Swapping one vertex between k-sets proves injectivity in the first-order sector except at k=0,d or d/2. In the pair sector, comparing T+i and T+j for all (k-1)-sets excluding i,j makes each row difference u_ia-u_ja constant in a, then zero; this uses 2<=k<=d-2. The pair image vanishes outside this range by the row-sum conditions. Thus the levelwise rank and its stated sum follow, including d=4 (rank 11). For imaginary spectrum, Hilbert–Schmidt dissipation forces each monitored-projector commutator to vanish. At nonzero frequency the diagonal at a monitor forces its scalar to zero, and the commutator equation propagates this vanishing on both sides along H^j of each monitor. At zero frequency H^2 has nonzero matrix elements between adjacent two-sets in the connected Johnson graph, forcing the monitor scalars to agree and hence the bright block to be scalar. Fixed positive rates give contraction, excluding imaginary-axis Jordan growth; all other modes decay. H and the projectors reduce to the bright and dark blocks, so conservation of bright trace sets the coefficient. At the zero corner the only candidate dark components are constant Walsh sums; precisely the two square-dimension zeros survive, each of squared norm a_d, giving the coherent amplitude 2a_d cos(s t) and a bright contribution (1-2a_d)^2/b_d. The parity of s and s^2 always agrees, and Stirling at deviation sqrt(d)/2 gives the stated peak scale 8/(pi e d); b_d is asymptotic to d^3/2. Analytic replay: frozen RESULT.md proof parts 1–4. Its sibling verify.py was inspected, not rerun; the frozen report describes bounded rank and radial checks and two finite-time dynamics checks, not a proof for all d. The error is at fixed dimension and rates; nonsquare dimensions can have dark states invisible to the initial corner.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baumgartner and Narnhofer describe general invariant blocks and undamped relative phases.",
+          "Filmus supplies Boolean-slice harmonic spaces underlying the rank decomposition.",
+          "Drezgich et al. use single-qubit projectors and product evolution; Alagic and Russell likewise choose a coordinate and measure it in the computational basis."
+        ],
+        "reasoning": "General semigroup structure does not supply the invariant span of this monitor set or its corner overlap. Slice harmonics supply the sectors but selecting weight-two Walsh coefficients and deciding their zeros is still necessary. Coordinate dephasing and site dephasing do not coincide: a coherence between the zero vertex and a weight-one vertex is dephased by coordinate measurement of their differing bit but is untouched by the weight-two-site dissipator.",
+        "searches": [
+          "arXiv:0806.3164, equations (5)–(7) and section 3.6",
+          "arXiv:1406.0142, section 2.1",
+          "arXiv:0811.4472, equations (13)–(17)",
+          "arXiv:quant-ph/0501169, projectors and equation (II.1)"
+        ]
+      },
+      "checked_sources": [
+        "7e1319aedf95",
+        "arXiv:1406.0142",
+        "arXiv:0806.3164",
+        "arXiv:quant-ph/0104137",
+        "arXiv:0811.4472",
+        "arXiv:quant-ph/0501169",
+        "5e7f1f10213d",
+        "4e0e911e9d37",
+        "1b3e79d7a59b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quadratic-band block methods share incidence sectors and could supply a route to the homogeneous rank; they do not assert the shell-specific Lindblad dynamics.",
+          "Moore and Russell prove instantaneous uniform mixing without dissipation. Alagic and Russell compare mixing regimes under repeated single-coordinate observation.",
+          "The general undamped phase mechanism gives persistent coherences only after model-specific peripheral operators and their overlaps have been identified."
+        ],
+        "reasoning": "The exact arithmetic return is not a parameter substitution into a mixing law or the general possibility of undamped phases. It uses connectedness inside the monitored shell to force one bright fixed block and proves that the particular initial corner couples to exactly two protected energies if and only if d is square. Even if a Walsh block formula directly yields the homogeneous ranks, that would not by itself yield these dynamics and overlaps.",
+        "searches": [
+          "7e1319aedf95 Proof sections 2–4 and Limitations",
+          "arXiv:0806.3164 section 3.6",
+          "arXiv:quant-ph/0104137 Theorem 2",
+          "arXiv:quant-ph/0501169 equation (II.1) and projector definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7e1319aedf95 Finding and Proof sections 2–4 give the rank and concentration spectrum of the full Walsh band of degrees 0, 1, and 2 on one interior shell. Its a0=a1 resonance is between positive eigenvalues at n=r^2+1 and |n-2k|=r±1.",
+          "The homogeneous weight-two restriction here uses only pairs, transposed as needed, and the radial zero condition is (d-2k)^2=d."
+        ],
+        "reasoning": "Transposition identifies the monitoring matrix with the homogeneous degree-two band restriction, not the full band. Adjoining degrees zero and one can restore missing rank. A positive-eigenvalue equality in the full band is inequivalent to a sector vanishing in the homogeneous restriction.",
+        "searches": [
+          "Resultary: square dimension Walsh quadratic Hamming shell Lindblad dephasing hypercube bright dark corner return distance-two monitoring",
+          "Resultary: 2026/10/18 Walsh hypercube shell rank resonance site monitoring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7e1319aedf95 gives exact sector multiplicities and concentration levels, but for the full quadratic band.",
+          "5e7f1f10213d gives exact odd-parameter arithmetic resonances for an added antipodal coupling and a single sink. 4e0e911e9d37 gives an exact universal-vertex return law with dephasing on every vertex.",
+          "1b3e79d7a59b computes dark ranks from evaluations at a sink and two dephasers."
+        ],
+        "reasoning": "These exact formulas tabulate different restrictions, Hamiltonians or monitoring laws. Odd coupling values in a modified Hamiltonian are not square cube dimensions; homogeneous all-vertex dephasing does not recover the fixed shell. No result for the exact shell and corner law surfaced in the bounded catalogue comparisons.",
+        "searches": [
+          "Resultary: square dimension Walsh quadratic Hamming shell Lindblad dephasing hypercube bright dark corner return distance-two monitoring",
+          "Resultary: hypercube dephasing dark subspace local detector Hamming shell Lindblad",
+          "Resultary: position dephasing universal vertex hub return 2026/10/18"
+        ]
+      },
+      "rationale": "Pass for the model-specific bright-space rank and asymptotic law together with the exact if-and-only-if square-dimension corner return. This does not claim priority for Walsh-slice harmonics, the general peripheral structure of finite-dimensional Lindblad semigroups, or arithmetic dark states under different dynamics. The strongest inspected Walsh antecedent treats a different band and a positive-eigenvalue collision, not the constant-sector zero or the Lindblad observable.",
+      "residual_risks": [
+        "The broader search wave supplied no usable lookup results; comparisons rest on the actual primary passages and indexed statements listed here.",
+        "The checked harmonic antecedents may encode the homogeneous ranks implicitly. No exclusive priority for that algebra is inferred, and the best-of-knowledge conclusion is not an exhaustive literature claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong rank-method antecedent, different band and resonance condition",
+          "evidence": "The interior-shell rank of the full band is binomial(n,2); the resonance is equality of two positive concentration levels. No shell-site Lindblad law is given in those passages.",
+          "identifier_or_url": "7e1319aedf95",
+          "material_read": "Finding, Proof sections 2–4, and Limitations, RESULT.md offsets 0–10979",
+          "method": "Local Resultary mirror",
+          "title": "Square-dimension spectral resonances for quadratic-band Walsh concentration on Hamming shells",
+          "trigger": "Earlier exact arithmetic resonance and pair-incidence sectors"
+        },
+        {
+          "assessment": "Established harmonic framework",
+          "evidence": "Slice harmonic spaces and their dimensions organize the calculation but do not state the corner law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.0142",
+          "material_read": "p. 1 and section 2.1, pp. 3–4",
+          "method": "OA PDF passage inspection",
+          "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Relevant harmonic decomposition and possible general rank implication"
+        },
+        {
+          "assessment": "General structure, not the shell calculation",
+          "evidence": "Invariant asymptotic blocks and persistent phase relations are allowed; their dimensions and corner coupling for this graph are not computed.",
+          "identifier_or_url": "https://arxiv.org/pdf/0806.3164",
+          "material_read": "p. 4, equations (5)–(7), and section 3.6, p. 17",
+          "method": "OA PDF passage inspection",
+          "title": "Analysis of quantum semigroups with GKS–Lindblad generators II: General",
+          "trigger": "General theorem on decoherence-free blocks and asymptotics"
+        },
+        {
+          "assessment": "Coherent background only",
+          "evidence": "Uniform probabilities at a selected coherent time do not imply the positive-dephasing long-time return.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0104137",
+          "material_read": "p. 3 model and p. 4 Theorem 2",
+          "method": "OA PDF passage inspection",
+          "title": "Quantum Walks on the Hypercube",
+          "trigger": "Same adjacency Hamiltonian and exact mixing result"
+        },
+        {
+          "assessment": "Inequivalent dissipator",
+          "evidence": "The projectors act on one tensor factor and evolution factorizes into single-qubit channels, unlike the shell-site generator.",
+          "identifier_or_url": "https://arxiv.org/pdf/0811.4472",
+          "material_read": "pp. 4–5, equations (13)–(17), and p. 2 comparison of decoherence models",
+          "method": "OA PDF passage inspection",
+          "title": "Complete Characterization of Mixing Time for the Continuous Quantum Walk on the Hypercube with Markovian Decoherence Model",
+          "trigger": "Closest plausible same-graph noisy mixing theorem"
+        },
+        {
+          "assessment": "Inequivalent noise and observable in the inspected model",
+          "evidence": "The paper chooses a coordinate uniformly at random and projects that qubit with Pi_0 or Pi_1; its resulting channel factors across coordinates. This is not dephasing at individual vertices of a fixed Hamming shell.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0501169",
+          "material_read": "Section II, equation (II.1) and following computational-basis projector definition, pp. 3–4, offset 18760",
+          "method": "Identified lawful arXiv copy of the same paper; OA PDF passage inspection",
+          "title": "Decoherence in quantum walks on the hypercube",
+          "trigger": "Original primary hypercube-decoherence paper; APS access did not provide the text"
+        },
+        {
+          "assessment": "Model and observable differ; no priority inference from the date",
+          "evidence": "An added antipodal coupling and one sink give odd-coupling absorption resonances for an antipodal initial state, not a return under weight-two site dephasing.",
+          "identifier_or_url": "5e7f1f10213d",
+          "material_read": "Finding, Assumptions and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic dark-state resonances and sharp near-resonance lifetimes",
+          "trigger": "Same day, same graph and arithmetic dark-state phenomenon"
+        },
+        {
+          "assessment": "Different graph class, monitoring set and late-time phenomenon",
+          "evidence": "A universal vertex under homogeneous dephasing on all sites is used for an integrated excess-return law.",
+          "identifier_or_url": "4e0e911e9d37",
+          "material_read": "Finding, Assumptions and Proof section 1",
+          "method": "Local Resultary mirror",
+          "title": "Exact integrated hub return resonance under position dephasing",
+          "trigger": "Same-day exact dephasing return law"
+        },
+        {
+          "assessment": "Methodological overlap only; later-dated, different experiment",
+          "evidence": "One sink plus two dephasers define three evaluation functionals per energy, and the observable is capture.",
+          "identifier_or_url": "1b3e79d7a59b",
+          "material_read": "Finding and Proof sections 1–2",
+          "method": "Local Resultary mirror",
+          "title": "Sharp antipodal obstruction to capture under two local dephasers",
+          "trigger": "Nearby eigenspace-rank and localized Lindblad theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural local noise configuration and a basic return observable exhibit an exact arithmetic split that cannot be inferred from global dark-state dimension. The theorem identifies the two accessible frequencies and separates a persistent peak of order d^-1 from a stationary return of order d^-3, with a full asymptotic law for arbitrary initial states and positive site-dependent rates. This model-specific effect and its observable size are substantive, independently of novelty of the standard spectral tools.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

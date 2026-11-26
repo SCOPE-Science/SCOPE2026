@@ -1,23 +1,21 @@
-# Scientific review: Four disconnected circles of largest four-simplices
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sharp numerical maximum, the vertex-simplex maximum pattern, and the containing nine-vertex polytope are independently supported by the inspected prior mathematics, while the *new* equality classification is reconstructed analytically. The essential argument is equality in a convex average of **signed** augmented determinants: any maximizing five-tuple has independent vertex supports only at already maximal signed vertex tuples. Because these have precisely two square and three pentagon vertices, mixed-plane supports are impossible. Unit-circle strict convexity forces the two square points to be adjacent original vertices. A five-triple incidence classification then proves that at most one pentagon point can move, and only along one of five exact edges. These five edges connect the five discrete maximal triangles in a single cycle. Four adjacent square-pair choices yield four disjoint cycles.
+PASS
 
-The exact standard-library checker verifies all 126 original vertex subsets, all 31 cubed nonempty pentagon-support combinations, the signed maximum and four-cycle enumeration. No finite sampling is used to claim the infinite result. Critical assumptions: Euclidean norm, vertices anywhere in the **fixed** filled polytope, unordered simplices, and full dimensionality.
+Write s=sin(2π/5) and t=sin(π/5). The absolute augmented determinant for a 2-square/3-pentagon vertex choice is the square-pair determinant (0 or 1) times the triangle double area (s+2t or 2s−t); the reverse split is at most 2s, and the other splits have rank too small. Because s+2t>2s, the same-sign endpoint condition in the convex expansion of the determinant enforces the 2/3 split in every positive-support tuple and forbids any mixed-plane support. The square determinant attains 1 only at an adjacent vertex pair, by strict convexity of the norm and equality in the area bound. In the pentagon each vertex belongs to three maximizing vertex triples. Supports of distinct triangle points must be disjoint (a repetition gives zero area), so two nonsingleton supports would give at least four distinct triples through a fixed vertex, impossible. For T_0={0,1,3}, the two maximal triples sharing two vertices are T_2={0,2,3} and T_3={1,3,4}; rotating gives the full five-cycle. The two alternative third vertices are adjacent and on the same side of the fixed chord, so the slide maintains signed area. The induced map from each finite glued cycle to unordered vertex sets is continuous and one-to-one: an interior point has exactly one nonvertex and uniquely determines the other two pentagon vertices. Compactness and the Hausdorff metric give a homeomorphism; the four fixed square pairs distinguish the four components. The sharp ratio follows also by the 20 four-simplices of determinant s in the product of the two central triangle fans, giving vol(P)=20s/24 and (s+2t)/(20s)=√5/20. No finite-to-infinite inference is needed.
 
-## Originality — PASS, provisional historical priority
+## originality
 
-Medgyes, arXiv:2611.10078v1, gives the unique extremal polytope and its own volume, not maximizing contained-simplex configurations. The published *five-level four-simplex spectrum* establishes the volume maximum and 20 vertex-supported maximizers but explicitly states it does not classify non-vertex-supported maximizers. The solution of regular-pentagon Problem E–45 (2017) notes sliding maximal triangles, an essential *known* ingredient, but supplies no complete four-dimensional moduli theorem. The existing ten-vertex double-pentagon equality classification concerns a distinct body and has connected trivalent rather than disconnected five-cycle optimizer structure. None of these **inspected statements**, singly, implies the new all-points exclusion of other possibilities and four-component equality topology; the proof supplies the missing equality-support analysis.
+PASS
 
-Uninspected older literature on the equality structure of maximal simplices in orthogonal polygon sums might already contain the result in a more general form. The derivation is short and uses known planar geometry, so mathematical priority deserves external attention.
+The distinct result is the entire arbitrary-point equality locus in this fixed free sum, not the ambient polytope, maximum volume, vertex-supported cases or planar sliding phenomenon. None of the compared sources covers the combination of plane rigidity, sole pentagon motion and four circle components.
 
-## Mathematical value — PASS
+## value
 
-The nine-vertex body is intrinsically selected as the unique four-dimensional maximal-volume unit-sphere polytope. Its natural largest-contained-simplex invariant had been determined, but the **entire optimizer set remained open**. The finite count of 20 optimal vertex quintuples conceals 20 continuous families, and their global arrangement is four **disconnected circles**; this is qualitatively different from the nearby ten-vertex body's connected equality graph. Complete classification matters when choosing or perturbing contained optimal simplices: it tells precisely which coordinates can move while preserving volume, forbids mixed and simultaneous motions, and determines the optimizer space's connectedness. This is a self-contained natural equality-case result, not a routine extra table entry, but no claim of a general polygon-order theorem, stability estimate, or new volume constant is made.
+PASS
 
-## Priority and limitations
+A known natural extremal polytope and its vertex volume spectrum leave open whether allowing arbitrary simplex vertices creates isolated points, separate families or additional motions. Resolving that question completely, with one sliding coordinate and exactly four components, determines geometry that neither the volume nor the vertex spectrum answers.
 
-Closest relevant sources: Medgyes (2026) and the already published five-level square–pentagon simplex spectrum; the 2017 maximal regular-pentagon triangle solution; a previously known connected ten-vertex equality-locus classification. The full comparison distinguishes what is already implied (the sharp value, 20 vertex cases, existence of planar sliding) from the new result (exhaustive four-dimensional equality topology). Searches are not proof of priority. The theorem does not characterize optimizers in other nine-vertex polytopes or arbitrary regular polygon orders. An independent human review could detect a hidden broader theorem or an argument flaw.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

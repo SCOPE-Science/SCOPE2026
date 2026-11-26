@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:24:43.816586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the input length classification against Hamoud's Theorem 2.15, Lemma 3.1 and Corollary 3.3; the first threshold is empty and uniquely removed. For each phase, the shifted threshold is a fixed linear functional of B^q(1,1), including phase r=1, so Cayley–Hamilton with the two specified initial values gives the exact formula. The forward-product convention in this record is the transpose of the one in the cited work (each M is symmetric). The period matrix is primitive, including the one-letter period. Consecutive true gaps, also across block and period boundaries, are positive standard lengths growing as positive constants times λ^q. Thus all dominant gaps and the wrap gap are strict. Since |μ|=1/λ, the stated nearest-integer cutoff is valid; differences from the ideal indicators happen at O(1) integers per phase per period and have finite total harmonic weight. The exact count subtracts one from qS+H; Z=F away from those exceptional cutoffs. For extrema one must use actual thresholds, not discard the exceptional subsequence: Z strictly decreases with N between actual consecutive thresholds, so extremes in each gap occur at its first or last integer. Their phases tend to the appropriate right or left endpoints from the exact spectral asymptotic; the resulting endpoint values also account for wraparound. For the laws, integer Riemann comparison on each exponentially growing annulus works for bounded piecewise continuous g∘F. In the harmonic integral one can shift x+2 to the integration coordinate, with an integrable O(x^(−2)) error in the weight, and each full logarithmic interval contributes the same phase law. The affine branches give the density and mean as written. Ordinary full annuli contribute λ^(−u)/(λ−1); the final partial annulus adds λ^(−u) up to phase u. The limiting densities at phases 1 from below and 0 match almost everywhere, so no missing family member occurs at wraparound. Every phase is approached by integer cutoffs because the spacing tends to zero; M′=(log λ)(F−M) off the finitely many breaks prevents a constant ordinary limiting mean. The normalization S/log λ and c_1 are unchanged under repeating a period, so the actual centered samples and harmonic limit are unchanged. Fibonacci has one branch; for d=2 the Perron coordinate ratio gives c_2/c_1=1+1/√2 and the two branch images overlap nontrivially. Reviewed all frozen support; finite illustrative tests and their logged output are not used as proof. The uploaded checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamoud's broader arbitrary-directive Proposition 4.1 gives bounds by partial sums and a first-order consequence under additional assumptions.",
+          "Fischler provides the underlying prefix enumeration and a limsup of consecutive length ratios; de Luca–Fici classify open/closed prefixes and the runs in their indicator sequence."
+        ],
+        "reasoning": "Neither first-order bounds for more directives nor the extremal adjacent-ratio invariant offers the finite phase table with two sampling measures. A general geometric-threshold theorem could simplify the latter step; no identified inspected source supplies the complete result for these phases and sampling schemes.",
+        "searches": [
+          "arXiv:2611.20221v1 §§3.1–4, including (14), Corollaries 3.3/3.5 and Proposition 4.1",
+          "Fischler 2006 §3.1",
+          "arXiv:1306.2254 open/closed-prefix work"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.20221v1",
+        "Fischler JCTA 113 (2006), open PDF",
+        "arXiv:1306.2254",
+        "PII S0195669818300751 (abstract only)",
+        "Resultary and primary-literature queries listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hamoud's equation (14) already uses both eigenvalues for ℓ_{qk}; the same recurrence propagates to shifted phases and produces integer rounding once the second term is below 1/2.",
+          "Hamoud's proof that the error is not o(1) uses jumps of size one; it does not calculate the relative log spacings or weight the error values by integer cutoffs.",
+          "Fischler's ratio quantity captures a largest relative gap, not all gaps, their placement or the pushforward weights."
+        ],
+        "reasoning": "Credit the known length formulas, spectral growth method and bounded oscillation. The displayed distributions require uniform phasewise strict gaps, control of misaligned integer thresholds, full and partial annulus weights, and a staircase pushforward. A direct rounding corollary of known spectral recurrence is not itself counted as the main original result.",
+        "searches": [
+          "arXiv:2611.20221v1 equation (14), Corollaries 3.3/3.5 and §§4–5",
+          "Fischler Section 3.1 equations (2)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The selected Resultary exact-equivalent hit is the assigned result; nearby hits on rich periodic words or bounded prefix defects concern different observables.",
+          "Fischler §3.1 expresses the same input prefixes as central words by deleting the last two letters from semistandard words; Hamoud uses the equivalent length indexing."
+        ],
+        "reasoning": "The measured quantity is the residual of an inverse threshold count, not the distribution of prefix lengths, adjacent ratios, or decimal leading digits. Uniform logarithmic phase is a standard mechanism; the specific pushforward requires the breakpoints and precise jump counts.",
+        "searches": [
+          "Resultary: periodic Sturmian palindromic prefix count logarithmic fluctuation semistandard words thresholds",
+          "Sturmian logarithmic count palindromic prefixes periodic directive Hamoud Fischler logarithmic distribution threshold Fibonacci Benford",
+          "palindromic prefix counts characteristic Sturmian periodic continued fraction fluctuation Fibonacci logarithmic density formula Binet counting central prefixes Hamoud Fischler"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical Fibonacci and semistandard palindromic length sequences and their thresholds are antecedents, not new exact entries.",
+          "Hamoud tabulates/compares leading logarithmic growth in some directives, not branch densities or ordinary cutoff-phase limits.",
+          "Search surfaced Sturmian Numeration Systems and Decompositions to Palindromes (article PII S0195669818300751); its abstract concerns Ostrowski representations and locating occurrences and the full-text endpoint was not independently available."
+        ],
+        "reasoning": "An integer sequence of lengths for an individual slope is not a table of the all-period exact probability laws; no matching law or exact extrema census was identified in material read.",
+        "searches": [
+          "Resultary Sturmian logarithmic fluctuation query",
+          "palindromic prefix counts characteristic Sturmian periodic continued fraction fluctuation Fibonacci logarithmic density formula Binet counting central prefixes Hamoud Fischler",
+          "Hamoud §4 Fibonacci and constant-directive examples"
+        ]
+      },
+      "rationale": "The strongest prior substantially overlaps it: Hamoud gives exact indexing, first-order asymptotics with a non-o(1) error, and the two-eigenvalue formula along complete periods for the standard-word lengths. Treat extending that matrix calculation to fixed linear functionals and eventual nearest-integer rounding as direct refinements, not stand-alone evidence of novelty or value. The contribution that survives comparison is the full centered-count distribution, the different ordinary phase family and quantitative extremal data for all positive periodic directives. These are not the earlier ratio invariant or a rewording of bounded oscillation. Priority remains qualified.",
+      "residual_risks": [
+        "A literature result on geometric/lattice threshold counts could cover the phase mechanism more generally or already compute the Sturmian specialization.",
+        "Known exact length and Perron formulas make the rounding observation elementary; historical priority of that observation separately is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong coverage of input and ingredients, not a centered-count probability law",
+          "evidence": [
+            "Theorem 2.15 removes exactly zero; Lemma 3.1 gives exact same successive gaps.",
+            "Equation (14) expands ℓ_{qk} in λ^q and μ^q; Corollary 3.5 gives O(1); §4 rules out o(1) via jumps."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.20221v1",
+          "material_read": "Abstract, Theorem 2.15, Lemma 3.1/Corollary 3.3 statements and indexing discussion, §3.2 spectral calculation and Corollary 3.5, §§4–5",
+          "method": "Compared exact shifts, matrix order, determinant/eigenvalues, first-order proof and discussion of irreducible fluctuations",
+          "title": "Lengths and Counting of Palindromic Prefixes of Standard Sturmian Words",
+          "trigger": "Identical convention, periodic-directive count and overlapping spectral proof"
+        },
+        {
+          "assessment": "Covers older input indexing in equivalent form, not the two cutoff-sampling laws",
+          "evidence": [
+            "Section 3.1 defines semistandard-word palindromes by deletion of the last two letters; π_i exhaust the palindromic prefixes.",
+            "δ(cα) is a limsup of consecutive prefix-length ratios."
+          ],
+          "identifier_or_url": "https://www.imo.universite-paris-saclay.fr/~stephane.fischler/palindromes.pdf",
+          "material_read": "Introduction and §3.1 through the equations indexing all prefixes and the consequent ratio invariant",
+          "method": "Matched the standard-word conventions and read the claim about all prefixes, not just ratio asymptotics",
+          "title": "Palindromic prefixes and episturmian words",
+          "trigger": "Earlier exact length sequence and growth invariants"
+        },
+        {
+          "assessment": "Distinct statistic; no covering fluctuation claim in passages read",
+          "evidence": [
+            "The indicator is closed when a proper border occurs only at the ends; the paper studies open/closed run structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1306.2254",
+          "material_read": "Abstract and introductory definitions/structure discussion",
+          "method": "Compared its prefix statistic with the inverse count of palindromic lengths",
+          "title": "Open and Closed Prefixes of Sturmian Words",
+          "trigger": "Potentially stronger combinatorial description of all prefix types"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivation is the prior, explicitly identified bounded but irreducibly oscillating error in logarithmic palindromic-prefix counts. A fully computable density, sharp envelope and ordinary-cutoff phase family resolve that error rather than only reproving nonconvergence. The laws separate genuinely different behavior (uniform Fibonacci versus nonuniform constant-two) and explain both the sampling sensitivity and the normalization. The spectral and logarithmic-phase ingredients are elementary; the meaningful output is the complete error description for arbitrary positive periodic directives, not rounding or a few finite examples by themselves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

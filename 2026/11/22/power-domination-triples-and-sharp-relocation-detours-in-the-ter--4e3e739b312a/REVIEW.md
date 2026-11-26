@@ -1,15 +1,21 @@
-# Self-review: ternary Hamming power-domination relocation
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact 27-vertex labeled graph, the described 1296-element automorphism action yields ten disjoint triple orbits covering all 2925 triples. Three orbits, with sizes 324, 648 and 324, succeed; independent finite algorithms check all smaller sets, every orbit, and all optimum relocations. Full all-pairs shortest-path computation and a separate orbit-reduced computation agree on the graph sizes, eccentricities, antipodal pairing and exact extra-slide penalty. This is an exhaustive finite certificate, not an inference about higher dimensions.
+## correctness
 
-## Originality — PASS (subject to residual search risk)
-Bjorkman et al., *Power Domination Reconfiguration* (arXiv:2201.01798, 2022-01-05), establish the general reconfiguration framework and construct Hamming graphs as reconfiguration graphs of *other* base graphs, not power-domination optima **on** H(3,3). Anderson, Kuenzel and Schuerger (arXiv:2209.03930, 2022-09-08) give Cartesian-product lower bounds rather than this exact classification. Relevant published-finding corpus searches of the graph, alternative formulations and the numerical counts returned no covering result. The closest historical own claim concerns connected domination on H(3,3), a different invariant. Undiscovered historical work is a residual priority risk, and not all potential dissertations or appendices were obtainable.
+PASS
 
-## Value — PASS
-The smallest nonbinary Hamming three-cube is a natural three-factor monitoring test case. The complete optimum classification and exact local-versus-global relocation metrics provide a nonroutine structural benchmark: the shortest-path eccentricities separate 3 versus 6, and the physical-movement restriction causes an extra three moves for exactly 41148 pairs. The finite theorem's scope is precise and does not claim extrapolation to general Hamming graphs.
+Independently reproduced the entire finite claim with python3 /workspace/branches/replay_4.py, without executing the frozen programs. Coordinate lines give the six neighbors of each word (81 edges). Synchronous white-set reduction gives the same closure as legal successive forces: a force enabled at a smaller observed set remains enabled at a larger one unless its target is already observed. All sets of size at most two fail; exhausting the 2925 triples finds three successful signatures with counts 324, 648, 324. Orbits were independently keyed by the coordinate equality partitions on the three rows, sorted over coordinate permutations and minimized over a common row permutation. Such a key is complete since any matching coordinate partitions can be sent to each other by independent symbol permutations. All ten orbit sizes and complete forcing-round histories agree with orbit_table.json. Joining the buckets of triples containing a common retained pair gives exactly the jump edges; keeping only exchanges along a coordinate line gives the slide edges. Bitset layer searches from all 1296 states reach every state and reproduce all six orbit-wise sphere lists. Jump eccentricities are 3,4,3 by signature, slide eccentricity is 6 throughout, and only type (2,2,3) has a unique distance-four partner. Symmetry of distance makes that partner relation an involution. Intersecting the two move-rule spheres for the same endpoints over all 839160 unordered distinct pairs reproduces both distance distributions and gap counts 103356, 370008, 324648, 41148. As a witness, {000,001,112} and {000,120,222} have jump distance 2 and slide distance 5. The conclusion concerns this labeled finite graph only.
 
-## Sources and limitations
-Primary checked sources: arXiv:2201.01798v1; arXiv:2209.03930v1; Koh and Soh, DOI 10.1016/j.akcej.2019.02.004. Two independently implemented Python 3 verification programs and ten orbit data records are included. The result is computer-assisted, there is remaining priority risk, and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported finding is the exact minimum power-dominating triple census on the ternary Hamming three-cube and its joint move-rule metric. The strongest checked Hamming realization theorem studies a different base graph, and the exact same-base near-match uses a different domination condition. Bounded searches found no covering classification; no historical priority or inference from same-day dates is asserted.
+
+## value
+
+PASS
+
+This natural nonbinary Cartesian monitoring graph gives a complete benchmark comparing the same feasible placements under local and unrestricted relocation. Neither the two diameters nor the marginal distance histograms determine the sharp three-move cost on matched endpoints; the exact attaining count and antipodal structure are independently useful. The value is the exhaustive, interpretable comparison at this specified cube, not an extrapolation to other Hamming graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

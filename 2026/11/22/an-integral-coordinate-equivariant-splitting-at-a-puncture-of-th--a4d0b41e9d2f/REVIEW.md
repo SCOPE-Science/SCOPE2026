@@ -1,11 +1,21 @@
-# Scientific review: An integral coordinate-equivariant splitting at a puncture of the scale-two hypercube Rips complex
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicitly determined link \(L_n\) has a contractible core and one integral two-cell for each coordinate triple; this gives a primitive basis of \(H_2(L_n;\mathbb Z)\). Oriented three-cube four-crosspolytope boundary cycles are honest integral cycles, each mapping by the pair boundary to one basis vector. Their signed coordinate-permutation action identifies an equivariant right inverse. The exact sequence, character and rational quotient conclusion follow for every \(n\ge3\). A pure-standard-library verifier checked all faces and these chain coefficients through \(n=6\), with finite-vs-infinite limits disclosed.
+## correctness
 
-**Originality — PASS, subject to recorded priority risk.** The 2021 complete-hypercube and initial-segment-deletion homotopy theorem already subsumes the *nonequivariant* puncture type; the 2024 crosspolytope theorem already gives independent cube cycles, and a 2026 published link classification provides the link wedge type. Those are explicitly not new. The new statement identifies the actual relative connecting map and supplies its **integral \(S_n\)-equivariant right inverse** and geometric quotient-homology consequence. The recent cohomological full text was inspected in relevant sections. The full representation preprint was unavailable and is a bounded priority risk.
+PASS
 
-**Value — PASS.** The vertex-puncture map is a natural morphism in metric simplicial topology; rank information and ambient rational representation theory do not determine its integral symmetry lattice or equivariant splitting. The theorem identifies exactly which three-dimensional coordinate cycles are removed, with unit coefficients and orientations, and proves that puncturing changes ordinary third homology but not the third rational homology of the symmetric quotient. This is a motivated structural refinement, not a re-tabulated Betti count.
+In the zero link, weight-two supports in a pairwise intersecting family of 2-sets form either a common-vertex star or the three edges of a triangle; adding weight-one vertices gives exactly the covered face types. The core built from the weight-one simplex, the bridge triangles and then the stars is contractible: each bridge attaches along one edge and each star intersects the previous union in a tree. Every triple triangle has its boundary in the core and its own interior; quotienting by the core gives one 2-sphere per triangle and the integral coefficient isomorphism on H₂. In particular the link H₃ vanishes. In the relative simplicial chains the faces containing zero are the suspended link chains (with the corresponding orientation convention). Each origin three-cube is an oriented crosspolytope boundary; its sixteen signed facets cancel on their common faces, and restricting to facets containing zero gives the octahedral link cycle with coefficient a unit on exactly its own triple triangle. Ordering its three nonzero-index antipodal pairs gives the sign of any coordinate permutation on the triple and no extra sign, yielding the integral equivariant right inverse. Hence the pair sequence gives the required injection and split surjection, including n=3. Multiplying the characteristic factors of the coordinate cycles gives binomial(f,3)−f c₂+c₃; every triple coefficient of an invariant is negated by an in-triple transposition. After equivariant barycentric subdivision the finite-group orbit cellular chains over Q are coinvariants, which agree with invariants by averaging, so the inclusion of orbit spaces induces the stated isomorphism. The supplied finite checker and EXPECTED.txt were inspected, not executed. In §2 the term ‘connecting homomorphism’ should read ‘natural map to relative homology followed by the link identification’; the arrow itself is correctly defined and used.
 
-**Known limits.** The statement concerns only Hamming scale two, one puncture, and the integral degree-three module. It does not compute an irreducible decomposition of the complementary lattice or establish an equivariant homotopy wedge. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nonequivariant vertex-link wedge, puncture type and ordinary splitting mechanism are existing mathematics; independent crosspolytope classes are also known. The supported distinct claim is the explicit integral coordinate-equivariant section of the inclusion-induced puncture sequence, with its identified exterior module and rational orbit-space consequence. The inspected unpunctured representation theorem is over characteristic zero and does not determine this map or its integral lattice.
+
+## value
+
+PASS
+
+For a natural geometric deletion, the result identifies the effect in the integral lattice together with all stabilizer symmetries, where even rational decomposition data of the full cube alone are insufficient. The explicit cycles compute a primitive quotient and explain why the entire coordinate orbit space does not lose rational third homology although the punctured complex itself does. This is substantive information beyond the known ranks and ambient independent classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

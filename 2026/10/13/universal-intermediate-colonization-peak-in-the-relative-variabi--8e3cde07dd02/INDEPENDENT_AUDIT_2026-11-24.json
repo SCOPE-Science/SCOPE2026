@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:41:59.743119Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the finite transient generator Q, the first two raw moments solve (-Q)m=1 and (-Q)s=2m; invertibility holds also at zero colonization. Differentiating the singleton equations with pair moments 3/(2 mu) and 7/(2 mu^2) gives m'=deg(v)/(2 mu^2), s'=5 deg(v)/(2 mu^3) and CV^2 slope deg(v)/(2 mu). For the high-rate check, from any proper nonempty set, each next event is a birth with probability at least lambda/(lambda+n mu); a block of at most n-1 births fills the graph. The jump count to full or empty is dominated by a fixed-size block times a geometric variable, and, conditional on the jump path, all holding rates are at least lambda. The entrance-time second moment is O(lambda^-2), and the probability of missing full occupancy is O(lambda^-1). With cycle length X and extinction mark Z of probability e, the recursions give mean E[X]/e and second moment E[X^2]/e+2 E[X] E[X;Z=0]/e^2. E[X] stays bounded below by the full-state holding mean; E[X^2] stays bounded, so the missing contribution E[X;Z=1] tends to zero. Decomposing the singleton extinction time at the first hit of full or empty transfers both normalized moments, not just a distributional limit. Continuity and a positive initial slope now imply finite interior attainment, not uniqueness. In the two-state chain in units mu=1, m1=1+r/2 and s1=2+5r/2+r^2/2 give the stated profile and unique maximum. Replay: RESULT.md lines 25–85; verify_extinction_cv.py lines 24–50 and 66–104 were inspected, not executed. Its finite exact checks do not certify the high-rate or all-graph statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cut-permutation record gives 1-CV^2=A_G lambda^-n+O_G(lambda^(-n-1)) from full occupancy at high rate.",
+          "Mountford et al. and Schapira–Valesin prove graph-order exponential extinction limits, not the fixed-graph slope at zero."
+        ],
+        "reasoning": "The sharper full-start expansion overlaps the endpoint and does not dominate the singleton-start theorem throughout the rate range.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-a-cut-permutation-law-for-the-first-non-exponential-sis-extincti--9facf36b623e",
+          "arXiv:1203.2972v1",
+          "arXiv:1509.04133v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_extinction_cv.py",
+        "Resultary cut-permutation and coextinction records",
+        "arXiv:1203.2972v1 pp. 1–2",
+        "arXiv:1509.04133v1 p. 1",
+        "PMC3797484 (limited access as recorded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A full-start high-rate limit transfers after bounding the singleton entrance failure and first two entrance moments.",
+          "Exponential convergence in distribution alone does not imply second-moment convergence; neither high-rate mechanism determines the singleton derivative at zero."
+        ],
+        "reasoning": "The high-rate contribution is related to known mechanisms and can be recovered from the full-start statement with entrance estimates. Pair-state perturbation supplies the sign not provided by those large-rate results, and the two endpoint arguments jointly give the general peak.",
+        "searches": [
+          "Cut-permutation RESULT.md, opening theorem",
+          "arXiv:1203.2972v1 pp. 1–2",
+          "arXiv:1509.04133v1 p. 1",
+          "Finite backward and renewal equations, RESULT.md lines 25–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coextinction catalogue record varies primary-extinction probability and observes a count, not a CTMC hitting time.",
+          "The contact-process papers normalize extinction times but use full-occupancy starts and graph-size limits."
+        ],
+        "reasoning": "The model is the contact process/SIS under per-edge rates, but neither replacing the observable with a count or abundance nor varying graph order instead of lambda preserves the theorem.",
+        "searches": [
+          "Resultary: finite SIS/contact-process extinction-time CV, singleton vs full occupancy",
+          "arXiv:1203.2972v1",
+          "arXiv:1509.04133v1",
+          "Resultary 2026/10/13/SCOPE-arbitrarily-many-coextinction-variance-peaks-in-connected-ecolog--50c3d8dc73d1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-site value 5/4 at lambda/mu=2 follows identically from the two-state moment system. The frozen seven-rate test is not an external database or a systematic priority check.",
+          "The compared catalogue hits give neither that exact singleton profile nor a table from which the general theorem is read off."
+        ],
+        "reasoning": "No fixed-instance lookup drives the all-graph claim. An older exact two-site calculation could duplicate the illustrative example without settling the general peak.",
+        "searches": [
+          "Resultary searches by finite-graph SIS/contact-process extinction CV and variance peaks; strongest hits listed in source_inspections",
+          "RESULT.md lines 79–95; verify_extinction_cv.py lines 66–104"
+        ]
+      },
+      "rationale": "Pass the combined fixed-graph singleton theorem: the exact initial slope and the resulting interior CV-squared maximum. Do not credit the high-rate exponential/renewal mechanism by itself as new. The closest catalogue result studies the same moment ratio at high rates from full occupancy; the matching two-patch computation is an elementary illustration and not the sole basis of the pass.",
+      "residual_risks": [
+        "Older finite-state/contact-process calculations may contain the two-site profile or an equivalent perturbation coefficient.",
+        "Precise Drake–Griffen metric not checked in that primary full text; comparison is limited as stated.",
+        "Catalogue date is not evidence of priority, and bounded search is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage at one endpoint; different start",
+          "evidence": "Full-occupancy CV correction of order lambda^-n; no singleton small-rate calculation in the compared statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-cut-permutation-law-for-the-first-non-exponential-sis-extincti--9facf36b623e",
+          "material_read": "Opening finding in mirrored RESULT.md, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A cut-permutation law for the first non-exponential SIS extinction-time correction",
+          "trigger": "Same finite-graph model and exact high-rate CV statistic"
+        },
+        {
+          "assessment": "Different random variable and varied parameter, irrespective of priority",
+          "evidence": "Secondary-extinction counts as primary-extinction probability varies.",
+          "identifier_or_url": "2026/10/13/SCOPE-arbitrarily-many-coextinction-variance-peaks-in-connected-ecolog--50c3d8dc73d1",
+          "material_read": "Indexed finding and observable",
+          "method": "Local Resultary comparison",
+          "title": "Arbitrarily many coextinction variance peaks in connected ecological networks",
+          "trigger": "Same-day ecological variance peaks"
+        },
+        {
+          "assessment": "Different asymptotic regime and start",
+          "evidence": "Mean-normalized distributional limit on growing bounded-degree trees from full occupancy.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.2972v1",
+          "material_read": "PDF pp. 1–2, opening theorem and definition of tau",
+          "method": "OA PDF passage comparison",
+          "title": "Exponential extinction time of the contact process on finite graphs",
+          "trigger": "Potential stronger exponential-time theorem"
+        },
+        {
+          "assessment": "Different asymptotic regime and start",
+          "evidence": "Full-occupancy extinction analysis as graph size grows.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.04133v1",
+          "material_read": "PDF p. 1, text offsets approximately 540–1400",
+          "method": "OA PDF passage comparison",
+          "title": "Extinction time for the contact process on general graphs",
+          "trigger": "Potential general-graph coverage"
+        },
+        {
+          "assessment": "Frozen source describes a different CV; no full-text noncoverage determination",
+          "evidence": "Frozen comparison describes variability of abundance over time, not CV across total extinction times.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3797484/",
+          "material_read": "Frozen RESULT.md lines 93–95 and bibliography; paper full text not retrieved in bounded OA check",
+          "method": "Lawful OA retrieval attempt and limited frozen citation comparison",
+          "title": "Experimental demonstration of accelerated extinction in source-sink metapopulations",
+          "trigger": "Ecological CV and extinction comparison cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural distinction between how long extinction takes on average and the relative dispersion of durations. The sign of the exact, degree-dependent weak-colonization response and the return to the exponential benchmark force an interior amplification on every connected finite landscape, without relying on a graph census or selected simulations. The two-site maximum is a usable normalization witness, not a claimed all-graph bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

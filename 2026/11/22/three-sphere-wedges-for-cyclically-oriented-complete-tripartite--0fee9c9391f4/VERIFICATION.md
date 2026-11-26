@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 without third-party dependencies. `verification_output.txt` records the successful output. The verifier constructs directed arcs from the definition, checks each arc subset for in/out degrees and directed cycles, independently reconstructs the crown-graph link decomposition, enumerates faces, and calculates mod-two homology using exact bit-vector Gaussian elimination.
+## correctness
 
-It checks \(3\le n\le10\), including the first six members of the theorem's infinite family. The rank vector in degrees zero through three is \((1,0,0,n^3-6n^2+8n-1)\) for all tested \(n\ge5\). For \(n=4\), it is \((1,0,2,1)\). Only an ordinary \(H_0\) rank is reported in that vector; reduced \(H_0\) vanishes. Finite checks cannot establish the infinite statement or integral torsion-freeness by themselves. Those follow from the documented exact combinatorial-topological proof, including the integral cycle-lattice generation and integral surjectivity at the fifth-column threshold.
+PASS
 
-No external independent mathematical validation or expert certification is claimed.
+Reconstructed RESULT.md Steps 1–5 over the integers. Degree constraints permit at most one incoming and one outgoing hub arc and a matching of at most two middle arcs. Any cycle uses the hub and is exactly a directed triangle, so the missing middle vertex in each cone base is exactly v_ij. The crown graph and each single-vertex deletion are connected (left-side pairs have a common neighbor, and every opposite vertex still has a neighbor). An induced cycle has at most three vertices per shore, since each left vertex has only one available nonneighbor; any induced hexagon uses three common labels and is tiled by three squares meeting at an extra left vertex off those labels. Chord splitting and these disks yield integral cycle generation and normal generation by squares. In each L_i every square is coned over an unused label on shore i, killing π₁. K₀ is the union of cones on a connected graph; attaching both u_i cones along connected bases keeps X simply connected. For H₂(K₀;ℤ), the boundary of the w_j-cone over z_j gives the separate ∂z_j constraints and the common sum constraint Σz_j=0. There are no 3-boundaries in either base. Generating by (e_j−e_k) times a square and routing a mixed-shore pair via an unused fifth label gives integral surjectivity from the sum of the two bases. Relative homology then gives H₂(X;ℤ)=0. Direct face counting gives reduced Euler characteristic −n³+6n²−8n+1; top homology is free as a subgroup of the dimension-three chains. Hurewicz in degrees two and three and the simply connected homological Whitehead theorem give the wedge. The recorded checker output was inspected without executing the uploaded code. Independent replay `python3 /workspace/branches/30dab567-ed4f-416a-a806-e53af33d78d6/independent_n4_boundary.py` checks all 2^14 arc subsets for n=4: f=(14,68,128,72), mod-two boundary ranks (13,55,71), and ordinary Betti vector (1,0,2,1). This proves the stated mod-two obstruction, not a smaller-n homotopy classification.
+
+## originality
+
+PASS
+
+The inspected multipath literature studies the same functor, and the catalogue contains close cyclic tripartite and bipartite wedge results. None of these statements covers the integral homotopy type for cyclic shores (1,2,n), its rank formula, or the n=4 boundary. The exact blow-up comparison uses path homology instead and is not equivalent. This is a best-of-knowledge comparison, not a priority claim.
+
+## value
+
+PASS
+
+This gives the integral homotopy type for a natural strongly cyclic infinite family under an established functor, and settles when the sphere-only pattern begins, rather than furnishing just ranks at several n. The fifth-label argument explains why the two independent cone attachments jointly kill the entire integral second homology and identifies a meaningful threshold. The mod-two boundary is a substantive contrast, not claimed to be a classification in its own right.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

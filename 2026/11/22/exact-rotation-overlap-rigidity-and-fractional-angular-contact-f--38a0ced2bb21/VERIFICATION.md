@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification of the rotated Lamé-region intersection theorem
+# Independent mathematical audit
 
-The mathematical proof is self-contained in `RESULT.md`. The standalone artifact `CHECK.py` runs with Python 3 and its standard library only:
+## correctness
 
-```sh
-python CHECK.py
-```
+PASS
 
-For the recorded calculation it printed:
+The squared radial function is strictly decreasing with circular distance to the nearest axis for every 0<p<2. On a period L=π/2 and for 0<d≤L/2, the two profiles cross at d/2 and (L+d)/2. Between these points the first is the minimum; reflection t↦d−t modulo L interchanges the profiles and the two complementary half-periods. Integrating therefore gives I=4∫[d/2,(L+d)/2] fₚ(t)dt, also at d=0 by continuity. This yields the exact formula and strictly negative interior derivative. At the minimum the centered sum is even analytic with quadratic coefficient −fₚ′(π/8)>0. Near the axis fₚ(t)=1−(2/p)tᵖ+O(t^{2p}+t²), and near the diagonal the first change is O(t²); integrating yields the displayed coefficient and little-o remainder for all fixed 0<p<2. The astroid substitution gives 3u²/(1+u²)³ and differentiation verifies its primitive; independent quadrature gives minimum 0.845064236407053630. At p=1 the first nonlinear term is the integer power d² (analytic on the folded branch); the signed-angle profile still has a linear absolute-value cusp. The formulas need no repair; the fractional/nonanalytic description of the nonlinear term is understood only for p≠1.
 
-```text
-PASS 163 diagnostics
-astroid right-angle-period overlap minimum 0.845064236407054
-astroid small-angle correction 2.267857889810772
-```
+## originality
 
-The script forms the two-dimensional polar-overlap integral directly as a midpoint sum and independently forms the crossing-split formula as a combination of one-dimensional midpoint integrals. It tests five exponents (including a nonconvex astroid exponent, the diamond, and two strictly convex noncircular cases), seven angles, the symmetries, strictly decreasing grids, and the elementary astroid antiderivative. It also checks small-angle ratios at moderate powers where finite-precision quadrature is well-conditioned. All tests are finite numerical diagnostics, not a substitute for the proof for every exponent and angle.
+PASS
 
-The crucial non-numerical checks are (a) radial squared function \(f_p\) and fourfold period, (b) exact crossings of cyclic symmetric decreases, (c) derivative sign for strictly decreasing \(f_p\), (d) integration of the cusp expansion to obtain the \(2^{2-p}/[p(p+1)]\) coefficient, and (e) the astroid substitution \(u=(\tan t)^{1/3}\). The theorem's \(O_p(\eta^4)\) remainder is local to a smooth interior angular point; the near-alignment remainder is only pointwise in \(p\). No external certification is asserted.
+The checked comparisons do not cover the complete Lamé area profile and its sharp pointwise-in-p correction. The radial-minimum identity, Lamé areas and the square specialization are not the basis for this conclusion.
+
+## value
+
+PASS
+
+The profile provides a strict inverse orientation law including nonconvex regions, and the first nonlinear power relates the overlap profile to the Lamé exponent. The exact constants distinguish the alignment cusp from the diagonal quadratic minimum; the astroid profile gives a practical closed-form reference. These claims are limited to equal-scale concentric copies and are not uniform in the exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

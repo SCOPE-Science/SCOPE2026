@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof, including the treatment of shortest-run boundaries, the converse for all run lengths and the bijective count of shift pairs, is in `RESULT.md`.
+## correctness
 
-Run `python verify.py` using Python 3 standard library. The script generates all 19,525 profiles with between two and six distinct run symbols and run lengths from one through five; it directly tests the defining pseudoperiod relation at every period position for all shift pairs strictly smaller than the period, and independently generates the predicted pairs. All set comparisons passed. The observed output was:
+PASS
 
-```
-PASS 19525 exhaustive run profiles (q=2..6, lengths=1..5)
-```
+For a shortest run, its letter occupies precisely one cyclic interval of length m≤p/2. At its first position only shifts 1,…,m−1 can match; at its last only shifts p−m+1,…,p−1 can match. These disjoint ranges force the sorted proper shifts to be u and p−d with 1≤u,d<m, and exclude all proper shifts immediately when m=1. On that run their return traces on offsets are respectively the prefix [0,m−1−u] and suffix [d,m−1]. The cover is exact iff u+d≤m. On any run of length L≥m the same two directions suffice: if t+u≥L, then t−d≥L−u−d≥0. The condition implies u<p−d, and summing m−u over u=1,…,m−1 gives m(m−1)/2. Periodicity gives the residue corollary; the first/last-position obstruction also excludes any equal nonzero residue and proves primitivity. The recorded 19,525-profile run is correctly described and direct from the script, but was not independently rerun and is not the unbounded proof.
 
-The executable code and reported finite check do not certify the theorem for arbitrary lengths. The unbounded claim instead follows from the fully quantified proof. The prior-work comparison is best-knowledge and cannot establish absolute priority; independent review remains unperformed.
+## originality
+
+PASS
+
+Known existential-shift pseudoperiodicity and the technique of testing run boundaries are prior. The bounded comparisons did not locate the full proper residue-pair classification and count for these periodic words.
+
+## value
+
+PASS
+
+This is a complete invariant of a natural family for the smallest nontrivial number of shifts. It identifies an unexpectedly sufficient statistic—the shortest run, not the whole period profile—and gives all admissible pairs, count and nonexistence threshold, rather than a yes/no test of individual words. This is useful as an exact baseline for more general periodic-word classifications, despite the short proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

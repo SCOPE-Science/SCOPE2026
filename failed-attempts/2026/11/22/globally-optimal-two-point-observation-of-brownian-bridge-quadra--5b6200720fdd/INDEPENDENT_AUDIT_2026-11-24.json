@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:16:27.307288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 22–96; VERIFICATION.md; verify.py and verification_output.txt (inspected, not executed)",
+        "python3 /workspace/frozen_math_crosschecks.py 5: integrated the conditional residual-kernel formula independently and obtained the exact optimum, midpoint and trisection risks and the centered stationary point"
+      ],
+      "rationale": "At fixed sites the orthogonal L² projection is the conditional mean. The pinned Markov decomposition is piecewise-linear interpolation plus independent zero-endpoint bridges, giving the stated conditional quadratic form. Wick's identity gives Var(Q)=1/45 and explained variance 2 tr((HΣ)^2), including the degenerate designs by the same interpolation with zero-length intervals. Writing r=(y−x)/2 and t=(x+y−1)/2, the centered polynomial has its unique maximum at r=(√41−1)/40 by the derivative sign. For r≤1/4 the polynomial is convex in t²; the extreme off-center candidate has only one effective site and strictly less explained variance. For 1/4≤r<1/2, the derivative in r increases with t² and its upper bound at t²=(1/2−r)² is strictly negative by the reported factorization. Decreasing r to 1/4 at fixed t is feasible and the maximum on that cross-section is strictly below the centered optimum. The pinned endpoint pair supplies no information. Thus the uniqueness claim and the three reported risks are correct.",
+      "residual_risks": [
+        "The symbolic computation corroborates risk identities; the full-triangle comparison comes from the checked analytic proof. No extension to noisy or adaptive observation is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "71ce7bada853 proves global uniqueness for all p in (0,1] and gives the full risk for every specified pair. 0050cb8e5db1 is asymptotic and does not establish exact finite-n optima. Foster et al. use integrated path observations with Brownian motion or increments."
+        ],
+        "reasoning": "The reliability theorem is stronger in a parameter of exactly this experiment; the asymptotic design and different observation operators are not covering on their own.",
+        "searches": [
+          "Resultary 71ce7bada853, Finding and proof",
+          "Resultary 0050cb8e5db1, large-n bridge-energy design",
+          "Foster, Lyons and Oberhauser arXiv:1904.06998, Theorems 1.2 and 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 71ce7bada853, 24c538a32a15, 0050cb8e5db1, 1c7b05ec88c4",
+        "Foster et al. arXiv:1904.06998; Mukherjee public abstract; Tang and Xiao DOI retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader result gives R_p=(1−p)^2R_0+p(1−p)(R_1(x)+R_1(y))+p²R_2(x,y), the exact three-cell formula for R_2, and the exact one-knot risk. It also explicitly disclaims novelty for its deterministic p=1 endpoint."
+        ],
+        "reasoning": "Setting p=1 and substituting its unique optimal sites produces the frozen radical risk; substituting trisection gives 16/3645 and maximizing the stated one-site information at the midpoint gives 1/120. No new optimization or risk identity is required. The disclaimer confirms direct scope but does not identify the historical antecedent.",
+        "searches": [
+          "Resultary 71ce7bada853, exact Bayes risk and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At p=1 both observations are delivered surely, so the erasure pattern is constant and contributes no information. Same centered pinned kernel, quadratic functional, information and unconditional loss, with the same ordered triangle including coincidences."
+        ],
+        "reasoning": "These are identical design problems at the no-erasure endpoint, not just analogous risks or matching locations.",
+        "searches": [
+          "Resultary: quadratic Brownian-bridge energy; deterministic two exact point samples; reliability or erasures",
+          "Resultary 71ce7bada853, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "71ce7bada853 prints the exact p=1 half-gap (√41−1)/40. The other distinct hits concern unpinned Brownian motion, large-n asymptotics, or linear randomized kernel quadrature."
+        ],
+        "reasoning": "The indexed exact formula for the natural deterministic instance is material; a numerical table is not needed to establish coverage.",
+        "searches": [
+          "Resultary: two-site optimal Brownian bridge quadratic energy and square-root-of-41 half-separation",
+          "Resultary 71ce7bada853, 24c538a32a15, 0050cb8e5db1, 1c7b05ec88c4"
+        ]
+      },
+      "rationale": "A distinct indexed result, 71ce7bada853, proves a stronger theorem for exactly this experiment with independent delivery of each exact reading with success probability p in (0,1]. It explicitly includes p=1, where the optimization problem, unique ordered pair and risk reduce to the frozen ones without additional assumptions. Its exact all-design risk gives the optimum and benchmarks by substitution. This establishes direct mathematical coverage even though the same-day catalog records do not establish historical order and the earlier deterministic antecedent mentioned by the stronger record is unnamed.",
+      "residual_risks": [
+        "The ordering of the same-day records and the identity of the earlier deterministic result mentioned by 71ce7bada853 are unresolved. The originality failure is based on verified scope inclusion, not priority claims or unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage by a stronger theorem; historical ordering not established",
+          "evidence": "The allowed interval includes p=1, the exact half-gap is printed at that endpoint, and the cell risk covers all pairs and coincidences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-reliability-dependent-design-for-quadratic-brownian-bridge--71ce7bada853/RESULT.md",
+          "material_read": "Mirrored RESULT.md, offset 0 through the risk formula; Relationship to prior work at offset 5990",
+          "method": "Bounded local mirror passage inspection and specialization at p=1",
+          "title": "Exact reliability-dependent design for quadratic Brownian-bridge energy",
+          "trigger": "Same quadratic functional and exact optimum as a reliability endpoint"
+        },
+        {
+          "assessment": "Related conditional-estimator identities with different data",
+          "evidence": "The observed terminal increment and integrated path information are not a free deterministic pair of pinned bridge values.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06998",
+          "material_read": "Theorem 1.2 (PDF p. 2, offset 6500) and Theorem 3.7 (p. 16, offset 59552)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "An optimal polynomial approximation of Brownian motion",
+          "trigger": "Conditional estimation of a Gaussian squared-path integral"
+        },
+        {
+          "assessment": "Unresolved scope; not used to determine the verdict",
+          "evidence": "The frozen description of the information class was not independently confirmed from the text.",
+          "identifier_or_url": "https://doi.org/10.1007/s10444-018-9638-0",
+          "material_read": "No primary passage; DOI route unavailable and identified Springer article/PDF routes redirected unsuccessfully",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Asymptotically optimal approximation of some stochastic integrals and its applications to the strong second-order methods",
+          "trigger": "Possible optimal quadratic stochastic-integral approximation"
+        },
+        {
+          "assessment": "Abstract indicates path/linear-integral criteria; fuller scope unverified",
+          "evidence": "BLUE via weighted integrated path error and separate mention of a linear integral, not a stated optimization for the quadratic bridge energy.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Public abstract at offset 276; no restricted text read",
+          "method": "Public abstract inspection",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Classical optimal designs for Gaussian paths and their integrals"
+        },
+        {
+          "assessment": "Different target, loss and information design",
+          "evidence": "Expected squared worst-case error for a linear integral and i.i.d. node locations.",
+          "identifier_or_url": "Resultary 2026/11/2, 1c7b05ec88c4",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+          "trigger": "Same prior and node count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Resultary 71ce7bada853, Finding and exact Bayes risk"
+      ],
+      "rationale": "The nonlinear sensing question is well motivated and the global comparison rules out a tempting but inferior trisection mesh. As a separate frozen contribution, however, the exact optimizer and risks add no independent design insight or unknown invariant beyond the reliability theorem: they are its explicitly included endpoint and direct evaluations of its risk formula. An alternate polynomial proof here does not supply a new reusable lemma or an additional experiment.",
+      "residual_risks": [
+        "This assesses the added value of the frozen theorem as a distinct finding, not the usefulness of the two-point quadratic-energy design itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

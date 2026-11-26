@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:30:42.865601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–124",
+        "VERIFICATION.md and proof_checker.py (inspected, not executed)",
+        "Satterthwaite publisher PDF pp. 170–173",
+        "/workspace/branches/reproduce_frozen_math.py, seed()"
+      ],
+      "rationale": "The source's sibling-bank two-year expression reduces to A(A+B)+BD+(1-A)C under h=s(1-r)/r and z=g+b(1-g); each of its four terms was matched. At t=1-g=0 the baseline is 1. With P=2h²+6h+4 and Q=h²+5h+5, the exact derivative there is h(bQ-P)/(1+h)^3, so b>P/Q makes a sufficiently small positive t advantageous. For t>0, A,B,C strictly increase with b, D is fixed, A>=C and 1-A>0; differentiating the expression therefore gives strict survival monotonicity. At b=P/Q the denominator is positive: K-t>0, U=Q+2(h+2)t>0 and V=Q(z+h)>0, where K=1+h. I independently formed the rational expression in SymPy, cancelled it exactly, and transformed the remaining bivariate polynomial to the degree-four Bernstein basis in t. All 65 coefficients agree with the displayed table, and the final row gives the strict positive contribution h^12. Thus at threshold E2<1 for t>0, including t=1; monotonicity implies strict failure below it. The independent calculation also checked the b=1 factorization, which proves failure for h>=(sqrt(5)-1)/2 and t>0. The threshold derivative with respect to h is 2(2h²+6h+5)/Q²>0, with limits 4/5 and 2. Every h>0 is realizable by taking any s in (0,1) and r=s/(s+h), so the universal floor is sharp. The rational example gives E2-1=19650205/6450554528. Replay: python3 /workspace/branches/reproduce_frozen_math.py 1 (Python 3 and SymPy).",
+      "residual_risks": [
+        "Exact within the model and its sibling-bank initialization only. No claim about an initially empty bank, multi-year dormancy, invasion exponent, parameter estimation, or field behavior. The symbolic check is not formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Appendix discusses transients and the use of a four-year-to-two-year growth ratio, not an exact elimination for the original E2. Record 6e28d9794f21 optimizes a speed from a two-channel exponential envelope; 1256ead9b498 optimizes seasonal age-two recurrence growth. Record e11da55e7695 allocates time between independent regeneration opportunities. None has the same site-lottery objective and parameters."
+        ],
+        "reasoning": "A threshold in another seed or dispersal model gives no implication without an objective-preserving reduction. No such reduction was found in the actual inspected statements. Related unavailable full texts are named residual risks.",
+        "searches": [
+          "Satterthwaite analytical results and pp. 181–182 Appendix",
+          "Resultary 6e28d9794f21, 1256ead9b498 and e11da55e7695",
+          "doi:10.1006/jtbi.1999.1027; doi:10.1086/285660; doi:10.1086/284610"
+        ]
+      },
+      "checked_sources": [
+        "Satterthwaite doi:10.1007/s11258-009-9696-y",
+        "Resultary 6e28d9794f21, 1256ead9b498 and e11da55e7695",
+        "Partial or bibliographic coverage for doi:10.1006/jtbi.1999.1027, doi:10.1086/285660 and doi:10.1086/284610"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pointwise formula gives the value at g=1 and the sign of its one-sided derivative by differentiation. A positive derivative supplies an existence witness near g=1; zero or negative derivative is not a global exclusion. The independent positivity check of the exact threshold residual and survival monotonicity yield the strict converse uniformly over partial strategies."
+        ],
+        "reasoning": "There is a substantive optimization step beyond evaluating or differentiating the known formula. No inspected prior article established this global comparison for the same objective and initialization.",
+        "searches": [
+          "Compare the source's analytical E2 and numerical discussion with the frozen derivative, monotonicity and threshold certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dividing the four source expressions by r gives A'=z/(z+h), B'=zh/(1+h), A''+B''=g/(g+h)+gh/(1+h), and C=bt/(1+h+bt). The source therefore computes the same E2; rewriting s,r as h does not make that formula new."
+        ],
+        "reasoning": "The equivalent formulation is exact for the provisioned home site. An extinction/spreading rate, a seasonal Floquet multiplier or an initially empty-bank initialization is not equivalent to the required short-horizon quantifier.",
+        "searches": [
+          "Satterthwaite publisher PDF analytic model and Appendix",
+          "Resultary: sibling-seed bank local retention safe site two-year E2, exact survival 4/5, (2h²+6h+4)/(h²+5h+5), golden-ratio competition boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary article describes failure below survival approximately 0.8 in a figure-based discussion, not an exact universal E2 inequality or a rational h-dependent boundary. The two-generation spreading analogue reports a different floor, approximately 0.8781, for a different objective; catalogue seed-bank analogues also use different constraints."
+        ],
+        "reasoning": "The numerical 0.8 observation is relevant anticipation and credited, not a proof of the exact floor, its sharpness, or the strict threshold classification. The bounded catalogue comparison did not reveal a same-model exact table or statement.",
+        "searches": [
+          "Resultary exact rational threshold, 0.8/4/5 survival floor and sqrt(5) feasibility cutoff",
+          "Satterthwaite p. 174 and Fig. 2 on p. 175"
+        ]
+      },
+      "rationale": "The pointwise site-lottery formula, the finite-horizon mechanism, and an approximate numerical 0.8 cutoff are known and credited. The distinct result is eliminating g globally for the exact finite-horizon expression, including strict threshold equality and the parameter-dependent physical exclusion. The inspected primary derivation and numerical results do not supply the necessary all-g inequality. Neither of the inspected related threshold families uses the same expression or objective. This is a bounded assessment, not a priority guarantee.",
+      "residual_risks": [
+        "The three related older citations were not independently checked at full text. An older or unindexed analytic optimization may imply the threshold; bounded searches and comparisons do not prove historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact pointwise formula and approximate anticipation; inspected text does not establish the global if-and-only-if",
+          "evidence": [
+            "The provisioned adult is accompanied by dormant siblings. The four expressions match after division by r, including C after loss of home site. The figure-based discussion reports approximately 0.8; the Appendix cautions against interpreting E2 as a general invasion-success measure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11258-009-9696-y",
+          "material_read": "Publisher PDF pp. 170–175, analytic initialization and first E2 derivation near offsets 15400, 21700 and 29100, discussion/Fig. 2 near 38200; Appendix pp. 181–182 near 70400",
+          "method": "Lawful open publisher PDF, bounded passage inspection",
+          "title": "Competition for space can drive the evolution of dormancy in a temporally invariant environment",
+          "trigger": "Exact source model and approximate survival cutoff"
+        },
+        {
+          "assessment": "Different model and objective",
+          "evidence": [
+            "Optimizes speed in a two-channel, two-generation dispersal model and has a different threshold near 0.8781."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-survival-floor-and-unique-optimal-mixing-of-immediate-an--6e28d9794f21/RESULT.md",
+          "material_read": "Finding and model definition",
+          "method": "Bounded local mirror inspection",
+          "title": "A sharp survival floor and unique optimal mixing of immediate and delayed dispersal",
+          "trigger": "Two-generation survival floor for mixed strategies"
+        },
+        {
+          "assessment": "Different seasonal recurrence and objective",
+          "evidence": [
+            "Its two-season result optimizes a Floquet multiplier with alternating fecundities, without the local safe-site and retention competition terms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-period-two-germination-rigidity-and-a-three-season-rescue-counte--1256ead9b498/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Bounded local mirror inspection",
+          "title": "Period-two germination rigidity and a three-season rescue counterexample in an age-two seed bank",
+          "trigger": "Exact germination threshold in a short seed-bank model"
+        },
+        {
+          "assessment": "Different objective and decision variable",
+          "evidence": [
+            "Maximizes the probability at least one independent opportunity succeeds by allocating its duration, rather than occupied descendants at year two by choosing germination."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-reentrant-equal-spacing-in-a-two-opportunity-seed-bank-rescue-mo--e11da55e7695/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "Reentrant equal spacing in a two-opportunity seed-bank rescue model",
+          "trigger": "Two-opportunity germination-related phase boundary"
+        },
+        {
+          "assessment": "Exact comparison of stronger possible results unresolved",
+          "evidence": [
+            "The inspected material is about sib competition and dormancy; the available abstract cannot rule out a relevant implication."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jtbi.1999.1027",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful open-text attempt; no full paper retrieved in this review",
+          "title": "Evolution of Seed Dormancy Due to Sib Competition: Effect of Dispersal and Inbreeding",
+          "trigger": "Plausible related sib-competition model"
+        },
+        {
+          "assessment": "Unresolved comparison; not evidence of noncoverage",
+          "evidence": [
+            "No original theorem or exact table was read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/285660",
+          "material_read": "Bibliographic identification only",
+          "method": "Publisher and open-repository attempts did not supply readable full text",
+          "title": "Delayed Germination of Seeds: A Look at the Effects of Adult Longevity, the Timing of Reproduction, and Population Age/Stage Structure",
+          "trigger": "Earlier timing and age-structured model"
+        },
+        {
+          "assessment": "Unresolved comparison; not evidence of noncoverage",
+          "evidence": [
+            "No original theorem or exact table was read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/284610",
+          "material_read": "Bibliographic identification only",
+          "method": "Publisher and open-repository attempts did not supply readable full text",
+          "title": "Neighborhood Models of Plant Population Dynamics. 2. Multi-Species Models of Annuals with Dormant Seeds",
+          "trigger": "Earlier spatial and dormant-seed models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and limitations",
+        "Satterthwaite analytic results, figure discussion and Appendix"
+      ],
+      "rationale": "The theorem resolves an optimization question motivated by the original ecology model and its approximate cutoff. It replaces a parameter scan and a local sufficient condition with the exact eligibility region for any partial-dormancy advantage, including exclusion at equality and a competition regime in which even perfect seed survival cannot help. A user of this exact finite-horizon proxy can decide feasibility without optimizing over germination.",
+      "residual_risks": [
+        "Scientific interpretation is as a finite-horizon model result only, not an adaptive, demographic, or empirical prescription."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

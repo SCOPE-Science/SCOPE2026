@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:26:41.491714Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Projection to the zero-sum space preserves Gaussian coordinate orders. The graphical arrangement classifies vertices by the signs on edges, so the clique order and independent-label gap assignment determine the orientation. Each such choice has exactly the product of the gap factorials as its number of compatible orders. The factorial convolution controls noncorners: the normalized interior sum is bounded inductively by a constant times the sum of reciprocal binomial coefficients to power t−1, which is O(1/s); the two endpoint terms are bounded by 2/s. This proves the fixed-r,t condensation and constant, rather than extrapolating from tests. For r=2 exactly the orientations with empty middle gap merge in pairs upon deletion of the clique edge, giving the displayed increment and the split-to-bipartite ratio 3/5. Independent exact enumeration (python3 /workspace/branches/03680095-73ed-4252-8d9e-71dec447a52a/independent_split_check.py) covered all ten split pairs with r,s≥2 and r+s≤7, moments t=2,3,4, and the deletion formula for 2≤s≤5. For (2,2) it gave C_2=1/16 and bipartite C_2=7/72. The frozen checker was inspected as evidence, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bipartite proof controls all patterns with at least two second-side blocks for arbitrary fixed r and integer t≥2. Graphical-fan and multipartite-orientation results supply the ambient setup, not this particular bound."
+        ],
+        "reasoning": "The chamber refinement preserves the number of nonempty second-side blocks. The earlier error estimate therefore bounds the entire split noncorner contribution by monotonicity of the t-power sum under splitting.",
+        "searches": [
+          "Resultary 8a0ea3a52932, RESULT.md proof §§3–5",
+          "arXiv:2111.12422 Proposition 1.3",
+          "arXiv:2303.09021 §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary 8a0ea3a52932",
+        "Resultary 22c11a50aaf3",
+        "Resultary d8c7504cb6f5",
+        "Resultary e37320d1532a",
+        "arXiv:2111.12422",
+        "arXiv:2303.09021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-block subdivision over each of the r+1 potential positions produces r! equally weighted cones; the known gap encoding gives the counts for uniform vertex sampling."
+        ],
+        "reasoning": "Summing the resulting equal-order counts gives the uniform weak-composition law and the multinomial law directly. At r=2 only an old first-side block of size 2 can subdivide, into two equal pieces. Its contribution changes by half at t=2, and the prior coefficient 10 and the corner count 6 give 3/5. The exact increment follows from the same two-piece rule for all bipartite block sizes.",
+        "searches": [
+          "Resultary 8a0ea3a52932, proof offsets 2200–5409 and 6750–9920",
+          "Resultary 22c11a50aaf3, finding and gap encoding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§2 classifies each K_{r,s} chamber by its labeled ordered monochromatic blocks and gives its number of linear extensions as the product of both sides’ block factorials."
+        ],
+        "reasoning": "Ordering the first-side blocks refines precisely to the split chambers. Their second-side blocks are the nonempty clique gaps; the equal subdivisions remove exactly the first-side factorials from the angle formula.",
+        "searches": [
+          "Resultary: Gaussian graphical-zonotope angular collisions and moment condensation",
+          "Resultary 8a0ea3a52932, RESULT.md proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "22c11a50aaf3 gives the identical labeled split gap encoding and r!(r+1)^s vertex count. The two October records cover complete-bipartite angular laws, including the coefficient 10 for K_{2,s} in 8a0ea3a52932. The leaf-corona record studies private, not shared, independent vertices."
+        ],
+        "reasoning": "No literal duplicate split angle table was needed for the verdict; the existing block-indexed table and estimate determine it. No priority inference is made from the date of the distinct leaf-corona record.",
+        "searches": [
+          "Resultary 22c11a50aaf3",
+          "Resultary d8c7504cb6f5",
+          "Resultary 8a0ea3a52932",
+          "Resultary e37320d1532a"
+        ]
+      },
+      "rationale": "The complete bipartite angles alone as an unlabeled spectrum would not give the split angles. The actual earlier Resultary proof gives the stronger labeled alternating-block classification, including each block’s factorial of compatible orders, and proves concentration on the very same independent-side one-block class. In a bipartite chamber, making the first side a clique just orders each of its first-side blocks independently: a block of size a gives a! equal pieces, with no other cuts because relative order across first-side blocks already follows from their positions around second-side labels. Thus the split moment weight is obtained directly by replacing each first-side factorial factor (a!)^(t−1) by 1 in the prior block sum. This generates precisely the frozen angle and moment laws. For t≥2 the new noncorner collision mass is at most the old noncorner mass (splitting reduces a power sum), already o(s^(−rt)); the subdivided one-block class has exactly (r+1)r! pieces with angle s!/(r+s)!, giving the sharp coefficient directly. Therefore this is coverage by a specific prior construction and bound, not an inference merely from related titles or an unavailable paper.",
+      "residual_risks": [
+        "The bibliography is not exhaustive. The disposition rests on the identified older block classification and its quantitative bound, not on comprehensive negative literature evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the pre-refinement labeled cones, exact power sums and noncorner bounds; these mechanically give the claimed split laws.",
+          "evidence": "Equations (6)–(9), labeled alternating runs, and one second-side block condensation in §5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-normal-cone-moment-condensation-for-complete-bipartite--8a0ea3a52932/RESULT.md",
+          "material_read": "Finding and proof, especially offsets 2200–5409 and 6750–9920",
+          "method": "Resultary search and local mirror full-text passages",
+          "title": "Gaussian normal-cone moment condensation for complete bipartite graphical zonotopes",
+          "trigger": "Same collision moment and concentration problem on the graph before the clique refinement"
+        },
+        {
+          "assessment": "Direct coverage of vertex count and labeling, not angular moments by itself.",
+          "evidence": "Clique orders and independent labels in r+1 gaps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-vertex-degree-distribution-and-connected-simple-stratum-of-compl--22c11a50aaf3",
+          "material_read": "RESULT.md finding and proof offsets 0–2354",
+          "method": "Local mirror full-text passage",
+          "title": "Vertex-degree distribution and connected simple stratum of complete split graphical zonotopes",
+          "trigger": "Same graph and vertex encoding"
+        },
+        {
+          "assessment": "Bipartite angle spectrum and exact two-direction generating function; the all-moment record is stronger for comparison.",
+          "evidence": "Complete bipartite graph, no within-side edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-angular-collision-laws-for-complete-bipartite-graphical-zonotope--d8c7504cb6f5",
+          "material_read": "RESULT.md finding and proof offsets 0–5956",
+          "method": "Local mirror full-text passage",
+          "title": "Angular collision laws for complete-bipartite graphical zonotopes",
+          "trigger": "Nearby exact two-direction law"
+        },
+        {
+          "assessment": "Different graph family, not an alternative statement of the split theorem.",
+          "evidence": "Private pendant leaves on each core vertex and a two-direction asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-universal-gaussian-angular-collisions-for-leaf-corona-graphical--e37320d1532a",
+          "material_read": "RESULT.md finding offsets 0–2423",
+          "method": "Local mirror full-text passage",
+          "title": "Universal Gaussian angular collisions for leaf-corona graphical zonotopes",
+          "trigger": "Same-day Gaussian collision claim"
+        },
+        {
+          "assessment": "Established structural background, not evaluated split collision moments in the inspected material.",
+          "evidence": "Graphical fan faces and acyclic-orientation chambers.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Proposition 1.3 and consequences, pp. 4–5",
+          "method": "OA passage inspection",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Graphical-zonotope normal fan and isotropic chamber interpretation"
+        },
+        {
+          "assessment": "Orientation count and encoding; no angular evaluation in the inspected result.",
+          "evidence": "Labeled acyclic orientations of complete multipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.09021",
+          "material_read": "Section 3 and Theorem 3.4, p. 15",
+          "method": "OA passage inspection",
+          "title": "Encoding and Enumerating Acyclic Orientations of Graphs",
+          "trigger": "Broader graph family includes the split graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The collision moments and the edge sensitivity are natural geometric questions, but the frozen contribution reduces to an equal subdivision of already classified cones with an already controlled noncorner tail. The sampling comparison and the ratio are direct consequences of that refinement and the known gap encoding; no independently valuable new exact invariant or nontrivial extension survives in the submitted scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:20:49.077817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A shattered support cannot have two distinct color tests at one position because the two yes answers are incompatible. For a larger-than-2m support, answering no to every A test and yes to all B/C tests forces more than 2m distinct non-A positions, an impossible trace. For the 2m distinct B/C tests split m and m, any trace is realized by putting the queried color at yes positions and A at no positions; this leaves nonnegative deficits of total 2m, exactly the number of free positions. The result's seed table uses a well-defined second test at each child of the root, and independent replay confirms all eight answer paths with distinct AABC witnesses. Depth four has 16 mutually incompatible paths, more than the 12 seed hypotheses. The m-fold construction concatenates the depth-three trees on disjoint four-position blocks, with exactly (2m,m,m) content across all blocks, so every depth-3m path is realized. This is a lower bound for the full class, not an equality beyond the seed. The independent replay /workspace/branches/2104168b-0132-418e-9e5e-b0da4746d807/seed_replay.py also enumerates all seed static supports and checks product paths for m=1,…,5; the product argument, not the finite check, gives the unbounded result. Supplied code was read, not executed: the online script checks the tree and seed-count obstruction, not a fresh computation of the VC number in its printed label.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chessboard capacities describe allowable placement sets for arbitrary row and column constraints; the fixed-composition lattice gives complete positive-partial-assignment feasibility and closure.",
+          "The onto-map result's theorem ranges over all surjective words (variable histogram). Leboeuf et al. apply categorical predicates as rules within trees defining a hypothesis on samples, not as labels of a hidden global exact-content word."
+        ],
+        "reasoning": "Both static-capacity work and nominal splitting rules are relevant inputs, not an online guarantee. A shattering lower bound on all surjections gives no lower bound on a fixed quota subclass. A prior analysis of an unrestricted tree hypothesis class also cannot be transferred by renaming tests.",
+        "searches": [
+          "arXiv:2003.04018 §3 generalized chessboard definitions",
+          "arXiv:2210.10781 nominal rules and §5.3",
+          "Resultary fixed-composition, onto-map, and proper-coloring comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.04018",
+        "arXiv:2210.10781",
+        "Resultary fixed-composition closure, finite onto maps, and size-prescribed two-block primary results as linked above",
+        "Related proper path/cycle coloring results retrieved by Resultary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known feasibility can be used in the static proof and tests can be evaluated from individual fixed-content words. The earlier two-block result even uses the same amplification pattern, with a size-(2,3) seed of unlabeled partitions on five points and separate pair queries.",
+          "The present depth-three certificate has binary answers at four named positions, including queries about two different colors at the same position on one path."
+        ],
+        "reasoning": "Static knowledge and the generic product argument are not the claimed advance. The needed class-specific online step is the existence of a complete depth-three tree under exact AABC content and these entry tests; without it neither the general capacity model nor the previous product proof supplies the 3m lower bound.",
+        "searches": [
+          "Resultary fixed-composition closure theorem, variable-quota onto theorem and two-block seed/product proof",
+          "Web categorical Littlestone/VC searches cited above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact-content words correspond to binary incidence matrices with exactly one 1 per row and prescribed column sums; the proposed mistake tree uses individual entry queries.",
+          "The fixed-composition closure record has exactly this class and query incidence but studies closures of positive assertions. The two-block gap record instead uses an equivalence relation and a pair query."
+        ],
+        "reasoning": "The incidence-matrix relabeling preserves the question, whereas relabeling the blocks of a partition or asking whether two positions agree does not preserve the entry tests. In particular a pointwise equality-to-color test does not amount to a position-pair equality test on this class.",
+        "searches": [
+          "Web: Littlestone dimension fixed composition ternary words fixed multiplicities adaptive shattering multislice position color VC dimension quota exact content",
+          "Web: Littlestone dimension fixed cardinality subsets multislice exact histogram online mistake bound color equality queries partition concepts",
+          "Resultary: fixed composition ternary words position color Littlestone adaptive shattering VC dimension gap AABC chessboard fixed quotas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved static quota formulas and adjacent gap records but no inspected independent table of exact Littlestone dimensions for this incidence class. The five-vertex profile table in the size-prescribed two-block record is for pair co-membership, not the twelve AABC words."
+        ],
+        "reasoning": "A count of placements or support feasibility is not a table of depths of complete binary adaptive trees. A depth-three entry for a different query family cannot certify the seed here. Index nonappearance is only limited evidence.",
+        "searches": [
+          "Resultary fixed-content/AABC query",
+          "Web multislice/fixed-multiplicity mistake dimension and exact histogram searches above"
+        ]
+      },
+      "rationale": "Credits earlier exact-quota feasibility and static structure and does not claim tree concatenation as a novel operation. The particular depth-three tree on the exact AABC class and the resulting all-m adaptive gap for the full fixed-content class are not covered by the inspected statements.",
+      "residual_risks": [
+        "An earlier equivalent online result may exist under the language of multiset permutations, incidence matrices, or constrained categorical learning.",
+        "The proof methods for static feasibility and product amplification are not new, and no priority is ascribed to them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior capacity geometry, not a fixed-quota adaptive rank result",
+          "evidence": "Definitions 3.1–3.2 specify conditions on the sets of row and column placements; the declared results concern complexes and connectivity, not mistake trees on full placements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04018",
+          "material_read": "Abstract and §3 definitions of generalized complexes and cardinality capacities",
+          "method": "Primary open PDF",
+          "title": "Generalized chessboard complexes and discrete Morse theory",
+          "trigger": "Equivalent row/column capacity representation"
+        },
+        {
+          "assessment": "Related predicates, different hypotheses and dimension question",
+          "evidence": "Nominal rules use x_i=C on samples; tree partition counts range over tree classifiers, rather than realized answer paths from quota-constrained hidden words.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.10781",
+          "material_read": "Rule set for nominal features and partition-function definition and scope",
+          "method": "Primary open PDF",
+          "title": "Generalization Properties of Decision Trees on Real-valued and Categorical Features",
+          "trigger": "Same nominal equality predicates and decision-tree language"
+        },
+        {
+          "assessment": "Prior static structure; not an adaptive lower-bound statement",
+          "evidence": "A feasible partial word obeys each individual position constraint and positive quota; the closure is given by remaining color capacities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-fixed-composition-concept-lattices-optimal-one-pass-bases-and-al--0007de354604/RESULT.md",
+          "material_read": "Finding (context, closure, implications, formula scope) and limitations",
+          "method": "Primary text via local mirror",
+          "title": "Fixed-composition concept lattices: optimal one-pass bases and all-interval Möbius values",
+          "trigger": "Identical underlying incidence class for arbitrary quotas"
+        },
+        {
+          "assessment": "Variable quotas and static, not covering",
+          "evidence": "The domain is all surjections; the limitations explicitly exclude both fixed capacities and Littlestone dimensions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattering-complexes-of-finite-onto-maps-a-duplicate-color-crite--372d7004c379/RESULT.md",
+          "material_read": "Main complete criterion and limitations",
+          "method": "Primary text via local mirror",
+          "title": "Shattering complexes of finite onto maps: a duplicate-color criterion and a matroid boundary",
+          "trigger": "Same graph-incidence tests and a stronger-looking support classification"
+        },
+        {
+          "assessment": "Prior method on a different class/test model",
+          "evidence": "The seed has 10 unlabeled two-block partitions of five vertices and pair same-block predicates; its Cartesian amplification keeps all groups separate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e/RESULT.md",
+          "material_read": "Finding, assumptions and local seed proof passages",
+          "method": "Primary text via local mirror",
+          "title": "First adaptive-shattering gap for size-prescribed two-block equivalence relations",
+          "trigger": "Exact-size adaptive gap with same amplification scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact multiplicity is a natural global constraint on a categorical assignment, distinct from proper coloring or surjectivity. The result gives a 50% or greater increase in shatterable depth over the exact static benchmark, uniformly for a natural full parametric class, not just an artificially juxtaposed finite example. It provides a reusable depth-three witness and a gap of at least m without overstating the unrestricted online dimension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:31:52.023184Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and scope",
+        "Frozen verify_stewart_symmetry.py and VERIFICATION.md (inspected, not run)",
+        "Independent nine-period pattern enumeration",
+        "Repaired RESULT.md short-language table and auxiliary symmetry proof"
+      ],
+      "rationale": "For each starting residue the first-level triple has the two fixed bits and a hole filled by either bit in the tail, giving exactly the six nonconstant triples and all four pairs. In a length-eight window the consecutive tail symbols therefore range over exactly the required pairs or triples. Independent enumeration via all two-level nine-period skeletons with both fills reproduced the complement intersections, including exactly the two given length-seven words and an empty length-eight intersection; taking prefixes rules out every larger length. Every finite factor can be shifted to a fully resolved window and thus repeats periodically. At each finite depth reflection about the remaining hole class interchanges the two non-hole digits at the first differing ternary digit, so the reflected window realizes its reverse-complement. Applying this symmetry sends complement membership to reversal membership. The proof handles cyclic variants of all six patterns, nonperiodic directives, and either exceptional-hole fill.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici–Shallit's common-factor theorem applies to all pairs of directives and gives the nonsharp upper bound 9 on common-factor length for complementary directives, whose first patterns have distance two.",
+          "Currie et al. give optimal existence results for complement-avoiding binary words with repetition restrictions, not a uniform calculation for the Stewart family."
+        ],
+        "reasoning": "The general common-factor classification controls unboundedness and gives an upper bound for this pair, but it does not reduce the bound to seven or give an overlap count at each length.",
+        "searches": [
+          "Fici–Shallit arXiv:2112.12125 Theorem 10",
+          "Currie et al. arXiv:2209.09598 Theorem 3",
+          "Noche, On Stewart’s Choral Sequence, Gibón 8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.12125",
+        "arXiv:2209.09598",
+        "Resultary cab291f93686",
+        "Gibón 8 citation and access attempt",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The directive formed by replacing each pattern with its reverse-complement has corresponding Hamming distances 0 or 3; reflecting each resolved skeleton in 3^r−1 and complementing shows its language is the original reverse-complement language. Uniform recurrence then turns the theorem's arbitrarily large common factors into equality of languages.",
+          "For complement alone the distance is 2 immediately, and the theorem only forbids lengths larger than 9."
+        ],
+        "reasoning": "This is genuine prior implication for closure and is explicitly credited in the repair. The exact overlap vector and length-eight exclusion still require additional same-language finite-window structure and are not read off from that implication.",
+        "searches": [
+          "arXiv:2112.12125 Theorem 10 exact distance criterion and finite bound; Theorem 3 finite prefix coverage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complement overlap is the common factor language of the word and the Stewart word obtained by complementing every directive pattern.",
+          "Resultary cab291f93686 gives counts and Parikh-vector spectra for abelian classes, not wordwise factor overlaps.",
+          "Currie et al. define exactly the co-occurrence notion, but their threshold results ask for existence under repetition constraints."
+        ],
+        "reasoning": "The different-directive common-language statement is the decisive equivalent test; the abelian counts and unconstrained-family existence questions do not determine its exact cardinalities for Stewart words.",
+        "searches": [
+          "Local Resultary: Stewart words reverse complement, Toeplitz antimorphism and factor overlap",
+          "arXiv:2112.12125 §§6, 10–11",
+          "arXiv:2209.09598 complement avoidance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 5 lists 0110110 and 1001001 and puts both in every length-81 pattern word, proving their universal occurrence. Theorem 9 gives total 2n. Neither tabulates which non-palindromic factors have their reverse or complement present."
+        ],
+        "reasoning": "The two witnesses and the total row counts are precovered. The new table measures a different intersection; for example absence of long palindromes alone does not exclude two distinct co-occurring reversed words.",
+        "searches": [
+          "Fici–Shallit §6 Theorem 5 exact palindrome list; §10 Theorem 9 factor complexity",
+          "Local Resultary Stewart factor and abelian spectra"
+        ]
+      },
+      "rationale": "The repaired novelty claim is the exact same-language overlap spectrum for the two constituent involutions and its sharp cutoff. The known witness words, total factor complexity, and reverse-complement closure are not claimed as new.",
+      "residual_risks": [
+        "The older choral-sequence article was unavailable in full text; priority beyond inspected sources is qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the witnesses, total complexity and, by direct implication, closure. Its bound for complement pairs is not sharp and it does not determine the overlap vector.",
+          "evidence": [
+            "Theorem 5's palindrome list and universality sentence.",
+            "Theorem 10 criterion X defined by Hamming distances 0 and 3 and bound 3^(j+2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.12125",
+          "material_read": "§3 definition; Theorem 3; §6 Theorem 5; §10 Theorem 9; §11 Theorem 10 with proof (OA offset 25628)",
+          "method": "Bounded OA PDF passages",
+          "title": "Properties of a Class of Toeplitz Words",
+          "trigger": "Identical family and complete common-factor theorem"
+        },
+        {
+          "assessment": "General existence and repetition thresholds, not exact Stewart overlap.",
+          "evidence": [
+            "Theorem 3 includes the parameter pair (8,5/2) in a repetition-constrained existence result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.09598",
+          "material_read": "Definition p. 1 and Theorem 3 p. 3",
+          "method": "Bounded OA primary text",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "Same notion of complementary factor avoidance"
+        },
+        {
+          "assessment": "Parikh-vector invariant rather than overlaps of words.",
+          "evidence": [
+            "The formula 1+H_3(n) counts distinct Parikh vectors."
+          ],
+          "identifier_or_url": "SCOPE-balanced-ternary-digit-weight-gives-the-exact-abelian-complexity--cab291f93686",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary search and mirror",
+          "title": "Balanced ternary digit weight gives the exact abelian complexity of Stewart words",
+          "trigger": "Same word family and exact factor-derived spectrum"
+        },
+        {
+          "assessment": "No full-text comparison possible; not treated as non-covering.",
+          "evidence": [
+            "Fici–Shallit §1 discusses earlier choral sequences, including constant directives."
+          ],
+          "identifier_or_url": "Gibón 8 (2008), 1–5",
+          "material_read": "Bibliographic and scope references only",
+          "method": "Primary-source lookup and attempted OA journal archive and alternate preview",
+          "title": "On Stewart’s Choral Sequence",
+          "trigger": "Older choral-sequence literature identified by Fici–Shallit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and short-language comparison",
+        "Fici–Shallit Theorems 5, 9 and 10"
+      ],
+      "rationale": "The exact spectrum measures a natural pair of symmetries of a classical word family for which total complexity, palindromes and unbounded common factors were known. It identifies where co-occurrence ceases and counts the exceptions, distinguishing closure under a composition from the exact failure of both constituent symmetries. The length-eight grammar makes this an all-directive sharp boundary rather than a finite sample or the restatement of the two palindromes.",
+      "residual_risks": [
+        "Does not classify fixed points of reverse-complement or general Toeplitz languages."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

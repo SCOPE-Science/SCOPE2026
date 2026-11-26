@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:16:01.016937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the four image-generated subgroup strata from equivariance under the images. A rotation-valued map has p individual rotation inputs and one common reflection input; a fixed reflection target subgroup has two fixed inputs and two families of opposite pairs. Full equivariance sends exactly all reflections to themselves if the image is to generate G, and leaves an arbitrary odd function on rotation exponents. For the reflection stratum normalize by Aut to <s>; the same cyclic multiplier permutes the two sets of pairs, giving four colors, with two independent singleton bits or one if pointed. For the rotation stratum a nonidentity multiplier of order d forces the 0 input and the common reflection output to be zero and leaves (p-1)/d free values on cycles. In the full stratum the coordinates f(j)/j descend to opposite pairs and are permuted regularly by the effective multiplier quotient. This proves all four formulas, including each deletion of the constant identity map and addition of the trivial stratum. Independently enumerated every 6^6 set map for p=3 by testing the identity on all pairs and computing affine automorphism orbits: (129,51,60,25). Also evaluated the formulas at p=5: (15965,3305,3969,824). The supplied artifacts/verify.py was inspected, not executed; it is a finite consistency replay and not the reason the proof holds at all odd primes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Das section sets up the definition and examples but does not give the census",
+          "The retrieved S3 census treats the subgroup strata of the single six-element group; other returned dihedral records concern different objects"
+        ],
+        "reasoning": "No broader compared result provides the census; the unavailable web lookup is not evidence of absence.",
+        "searches": [
+          "Resultary: dihedral Das averaging and general dihedral census",
+          "Focused primary-literature lookup on dihedral conjugation averaging census (unavailable)",
+          "arXiv:2403.06250 §2.1 examples"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3cc43f08406b",
+        "arXiv:2403.06250",
+        "arXiv:2412.11600"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "S3 proof uses the image-generated subgroup lemma and a C2 Burnside calculation",
+          "For general p the rotation multipliers have potentially several different orders d, and the two other strata have a cyclic action on (p-1)/2 opposite pairs"
+        ],
+        "reasoning": "The known lemma reduces the enumeration but does not compute these cyclic actions or their fixed counts. The all-prime orbit formulas are not a relabeling or a special case of the inspected sources.",
+        "searches": [
+          "Compare Resultary 3cc43f08406b proof and arXiv:2412.11600 Proposition 3.6 with the prime-dihedral Burnside calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das defines the conjugation identity and pointed condition",
+          "Zhang–Gao Definition 3.2 gives A(g)A(h)=A(A(g)h)=A(gA(h)); Proposition 3.6 goes from the pointed version to Das, not an equivalence"
+        ],
+        "reasoning": "The rack/conjugation definition, not the differently named stronger associative-style identity, governs the set being counted. The S3 census is genuinely equivalent only at p=3.",
+        "searches": [
+          "Resultary: conjugation averaging maps on S3/prime dihedral and automorphism orbit census",
+          "arXiv:2403.06250 §2.1",
+          "arXiv:2412.11600 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3cc43f08406b gives all four S3 counts in its Finding; the only retrieved exact all-prime result was the frozen b14b278f30b9 record itself"
+        ],
+        "reasoning": "The table match at p=3 is fully credited. It supplies none of the dependence on the arbitrary odd prime.",
+        "searches": [
+          "Resultary: 129 51 60 25 averaging maps, S3 and prime dihedral necklace formulas"
+        ]
+      },
+      "rationale": "Pass for the general odd-prime formulas only. The equivariance lemma and all four p=3 counts are credited existing results. The checked sources do not give the resulting necklace and totient-sum laws for varying p.",
+      "residual_risks": [
+        "Focused web search was unavailable, and a differently indexed general finite-group enumeration remains possible.",
+        "The frozen corpus citation has a malformed displayed URL; the exact source was identified independently by its catalogue ID."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at p=3 and in the general equivariance lemma",
+          "evidence": "Gives 129, 51, 60, 25 under the same action, but not all-odd-prime formulas.",
+          "identifier_or_url": "2026/10/12/SCOPE-the-symmetric-group-s-3-has-129-averaging-maps-and-51-pointed-on--3cc43f08406b",
+          "material_read": "RESULT.md Finding at offset 0; subgroup strata and Burnside proof at offsets 5200–7689",
+          "method": "Resultary and local mirror",
+          "title": "The symmetric group S_3 has 129 averaging maps and 51 pointed ones",
+          "trigger": "Same definition and four invariants at the first prime"
+        },
+        {
+          "assessment": "Source of the definition, not the census",
+          "evidence": "Uses conjugation and A(e)=e for pointedness.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.06250",
+          "material_read": "§2.1 pp. 4–5, definitions and examples",
+          "method": "OA PDF offsets 16000–19545",
+          "title": "Averaging operators on groups, racks and Leibniz algebras",
+          "trigger": "Original definition of the invariant"
+        },
+        {
+          "assessment": "Different class of operators",
+          "evidence": "Defines equalities involving A(A(g)h) and A(gA(h)); its pointed operators imply pointed Das operators, not the converse classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.11600",
+          "material_read": "§3.1 Definition 3.2, Remark 3.3, Proposition 3.6, pp. 7–8",
+          "method": "OA PDF offsets 24400–30577",
+          "title": "Averaging operators on groups and Hopf algebras",
+          "trigger": "Potential overlap under the same term averaging operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives exact symmetry-reduced as well as raw counts of a natural class of set maps across an infinite family. The two distinct cyclic necklace actions and the nontrivial multiplier stabilizers quantify the orbit collapse, which neither a raw count nor the single S3 example supplies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

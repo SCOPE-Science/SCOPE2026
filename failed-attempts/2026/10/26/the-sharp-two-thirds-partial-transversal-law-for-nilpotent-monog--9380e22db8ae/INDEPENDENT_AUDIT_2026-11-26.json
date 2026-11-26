@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:11:24.516991Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md assumptions and upper/lower proofs; VERIFICATION.md",
+        "verification/check_monogenic_transversals.py, inspected only",
+        "Independent coordinate translation to IMO 2009 Shortlist C2 as detailed below"
+      ],
+      "rationale": "There is at most one zero-product cell, and (0,0) always extends a nonzero-product matching. With t nonzero cells the two positive coordinate lists have combined sum at least t(t+1); the sum of the t distinct product exponents is at most tn−t(t+1)/2. For t>0 this gives 3(t+1)≤2n, and the stated floor bound is also valid when t=0. The odd rotation on 2k+1 entries gives the two offset parity progressions whose union is [k+2,3k+2]. For even t=2k multiplication by k modulo 2k+1 is invertible; substituting odd and even rows gives the two disjoint intervals [k+1,2k] and [2k+2,3k+1]. Their largest exponents are at most n−1 by the same bound on t. Thus the construction has all distinct rows, columns and products; n=2 is handled by (0,0) alone. This is a proof for all n, not an inference from the finite checker.",
+      "residual_risks": [
+        "The proof does not classify all optimizers, and adjoins no identity. The checker's product predicate is sufficient on its actual witnesses, which use (0,0) as their only zero-index cell; it is not a general checker for a cell with exactly one zero index."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regularity is necessary for a full semigroup transversal; the Latin-square result attributed to Koksma is a lower bound for Latin squares. Distinct cyclic sums and Ferrers-board rooks do not impose the finite no-repetition bound across three coordinates. In contrast C2 explicitly counts the required fixed-sum triple matchings."
+        ],
+        "reasoning": "No full transversal does not determine partial optimum, and group or two-direction rook conditions differ. The known triangular triple result supplies the exact effective generalization independently of semigroup terminology.",
+        "searches": [
+          "Araújo et al., arXiv:2608.25092 Theorem 2.1",
+          "Montgomery arXiv:2406.19873 §5",
+          "Fanaï DOI:10.12988/imf.2025.914511",
+          "Clark–Zeckner DOI:10.1007/s10801-012-0385-x",
+          "IMO 2009 Shortlist C2 and comment"
+        ]
+      },
+      "checked_sources": [
+        "Official 2009 IMO Shortlist C2, statement and complete solution",
+        "OEIS A004396 and A274616",
+        "Named primary and reference comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The official solution has floor(2m/3)+1, with constructions in the three residue classes. Its proof sums the three coordinate lower bounds t(t−1)/2; under the cell-to-triple map this is equivalent to the frozen row, column and top-output sum bound."
+        ],
+        "reasoning": "Translation to fixed-sum triples, +1 for the always-available zero cell, and the two smallest triangular boundaries give exactly the whole frozen claim. Even without prior semigroup phrasing this is direct prior coverage.",
+        "searches": [
+          "IMO 2009 Shortlist C2 solution, printed pp. 27–28, offset 49485",
+          "Frozen RESULT.md upper bound and modular construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C2 asks for the maximum number of fixed-sum nonnegative triples with all first, all second, and all third coordinates pairwise distinct. The comment describes the same problem geometrically as a triangular grid with three parallel-line families."
+        ],
+        "reasoning": "The complementary output n−1−i−j keeps the constant sum and is injective in the product exponent. This identifies the matching systems in both directions, not merely with looser triangular rook placements.",
+        "searches": [
+          "Primary search: triangular maximum nonattacking queens rooks three directions triangular chessboard OEIS rainbow partial transversal sum triangular lattice",
+          "IMO 2009 official Problem Shortlist C2",
+          "OEIS A004396 comments, MathWorld Triangular Honeycomb Queen Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A004396 credits the triangular-grid maximum with no common row, column or diagonal and gives floor((2L+1)/3) for side size L. A274616 instead treats standard queens on a right triangular board and has the exceptional L=4 due to its extra direction."
+        ],
+        "reasoning": "With L=n−2 the A004396 result equals the nonzero-cell optimum. The A274616 exception is not an exception to the frozen theorem: that different board rule also excludes the other diagonal.",
+        "searches": [
+          "Resultary: nilpotent monogenic partial transversals; distinct-sum triangular boards",
+          "OEIS A274616 and its cross-reference OEIS A004396",
+          "OEIS A004396 comments and formula offsets 410–1583 and 4242–4675"
+        ]
+      },
+      "rationale": "The exact nonzero-cell problem is the published 2009 IMO shortlist problem C2 by a bijection, not just a similar two-thirds estimate. Put m=n−3. Map a nonzero cell (a^i,a^j) to (i−1,j−1,n−1−i−j). These are nonnegative triples summing to m; conversely all such triples come from one nonzero cell. Coordinatewise distinctness of triples is precisely distinct row, column and product. Official C2 states and proves the exact optimum floor(2m/3)+1 for m≥2 by the same sum obstruction and explicit constructions. For m=0,1 the optimum is trivially one, and n=2 has no nonzero entries. Appending (0,0) to any nonzero optimum gives τ(N_n)=floor(2(n−3)/3)+2=floor(2n/3) for n≥3. OEIS A004396 independently records the same triangular-grid independence optimum after shifting side size to n−2. A different permutation for the even construction does not make the already-determined exact invariant new.",
+      "residual_risks": [
+        "The JSTOR landing page for Nivasch–Lev and an alternate copy did not yield full text; no verdict about that specific paper is required because the official C2 solution verifies the exact prior coverage. Still earlier priority for C2's extremum is not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage via bijection and appending an absorbing-zero cell",
+          "evidence": [
+            "Fixed sum m for all triples; unequal coordinates in each position",
+            "Exact maximum floor(2m/3)+1 with attainability"
+          ],
+          "identifier_or_url": "https://www.imo-official.org/assets/documents/problems/2009/IMO2009SL.pdf",
+          "material_read": "C2 statement (PDF p. 8); solution with upper bound, attaining tables and geometric comment (PDF pp. 29–30 / printed pp. 27–28)",
+          "method": "Official primary PDF, literal lookup then bounded passage at offset 49485",
+          "title": "50th International Mathematical Olympiad: Problem Shortlist with Solutions, C2",
+          "trigger": "Exact distinct-coordinate fixed-sum triples"
+        },
+        {
+          "assessment": "Exact same nonzero-cell optimum after re-indexing",
+          "evidence": [
+            "Grid edge length L−1 with no shared row, column or diagonal",
+            "a(L)=floor((2L+1)/3)"
+          ],
+          "identifier_or_url": "https://oeis.org/A004396",
+          "material_read": "R. K. Guy comment, triangular honeycomb comment, references, formula",
+          "method": "Public database page, offsets 410, 1430 and around 4462",
+          "title": "OEIS A004396",
+          "trigger": "Exact triangular-grid maximum cross-reference"
+        },
+        {
+          "assessment": "Additional chess diagonal; cross-reference led to exact A004396",
+          "evidence": [
+            "Gives round(2L/3) except at L=4 for right triangular boards"
+          ],
+          "identifier_or_url": "https://oeis.org/A274616",
+          "material_read": "Definition, references, formula and examples",
+          "method": "Public database page, offset 0",
+          "title": "OEIS A274616",
+          "trigger": "Plausible nearby triangular queen result"
+        },
+        {
+          "assessment": "Three attacking line families on a triangular board give coordinate equality edges",
+          "evidence": [
+            "Triangular honeycomb vertices connected along a line in one of the three board directions"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/TriangularHoneycombQueenGraph.html",
+          "material_read": "Definition and references",
+          "method": "Public reference page, offset 0",
+          "title": "Triangular Honeycomb Queen Graph",
+          "trigger": "Identify the geometry of the grid alias"
+        },
+        {
+          "assessment": "Prior qualitative full-transversal obstruction; not the partial count",
+          "evidence": [
+            "Complete mapping equivalent to a full transversal",
+            "Complete mapping requires regularity"
+          ],
+          "identifier_or_url": "arXiv:2608.25092",
+          "material_read": "Abstract p. 1 and Theorem 2.1 p. 6",
+          "method": "Primary PDF passages at offsets 1750 and 23292",
+          "title": "Complete Mappings of Semigroups",
+          "trigger": "Closest semigroup paper in original references"
+        },
+        {
+          "assessment": "Lower bound for a different class, not the relevant source of exactness",
+          "evidence": [
+            "Koksma's Latin-square partial transversal bound"
+          ],
+          "identifier_or_url": "arXiv:2406.19873",
+          "material_read": "§5, p. 12",
+          "method": "PDF passage offset 44700",
+          "title": "Transversals in Latin Squares",
+          "trigger": "Similar numerical two-thirds partial-transversal bound"
+        },
+        {
+          "assessment": "Ferrers rooks use just rows and columns",
+          "evidence": [
+            "No requirement of distinct sum-diagonals in the rook placements"
+          ],
+          "identifier_or_url": "DOI:10.1007/s10801-012-0385-x",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Primary PDF offset 0",
+          "title": "Simplicial complexes of triangular Ferrers boards",
+          "trigger": "Triangular nonattacking placements"
+        },
+        {
+          "assessment": "Group-table submatrices, not the triangle exact optimum",
+          "evidence": [
+            "Pairing gives distinct sums modulo an odd cyclic group order, with no truncation condition"
+          ],
+          "identifier_or_url": "DOI:10.12988/imf.2025.914511",
+          "material_read": "pp. 69–70",
+          "method": "Primary PDF passages",
+          "title": "Partial Transversals and Permanent",
+          "trigger": "Distinct-sum pairing under a group-table formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and construction",
+        "Official IMO C2 solution and its exact translation"
+      ],
+      "rationale": "Maximum partial transversals are a natural invariant, and the proof is sound. For this family the frozen contribution is an elementary re-expression of a solved extremal problem plus the freely addable zero cell. No new structural fact about semigroups, classification of attaining patterns, or useful stronger property of the different even witness is established. The exact coefficient is therefore not a distinct research contribution.",
+      "residual_risks": [
+        "No evaluation of further results on other nilpotent semigroups or enumeration of their optimizers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

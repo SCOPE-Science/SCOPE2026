@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:30:47.420725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unbiasedness is by exact cell integration. For fixed m the first summand is asymptotic to g(0)m^(α−1)u^(−α); all other terms are bounded as u tends to zero. Positivity gives the same divergent-moment lower bound for any coupling, with logarithmic divergence at qα=1. Below this threshold the sum is controlled by the two marginal moments. In the pure-power scaled error H_m, consecutive differences are O(m^(−1−α)) uniformly in the shift, so the remainder to the limit is O(m^(−α)) and H_α is square integrable for α<1/2. The g−g(0) component has integrable derivative and variation error O(m^−1). Direct cellwise Fourier integration gives the stated gamma coefficients and zero mean; Parseval gives C_α, and reflection takes real parts, multiplying that norm by sin²(πα/2). The strict countermonotone claim can be proved by integrating the intersection lower bound P(U<a,V<b)>=(a+b−1)_+ for superlevel sets of the decreasing profile (shift it by a constant if needed). Attainment forces equality at all interior a,b by continuity of the copula and strict continuous monotonicity; this determines the reflected coupling. This applies to Q_m when f is strictly decreasing, with variance finite. The difference in scaled second moments from replacing each marginal by the limiting profile tends to zero uniformly in the coupling by Cauchy–Schwarz, so coupling infima converge to the same optimum. It neither asserts uniqueness at infinite variance nor requires monotonicity for the limiting gain. Independent numerical integration of finite-grid squared errors (`python3 /workspace/branches/independent_replay.py 5`) gave reflected coefficient ratios within 0.0004 of one for α=0.18,0.33, g=1 or 1+2x² at m=1024. The uncorrected single-grid coefficients converge more slowly; an endpoint-corrected numerical check is only diagnostic, not the basis for the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lattice paper's §4.2 uses smooth periodic/symmetric error reduction. Example 12 splits off the right tail for f=g∘F^−1 and observes unbounded right-tailed error; it does not derive the pure-power shift-profile L² convergence or optimize over couplings.",
+          "SCOPE-2306aa685e20 concerns independent panels with within-panel antithetic sampling; SCOPE-0ac19ee5a36d uses independent cell uniforms on a power-graded mesh. They do not supply the covariance across cells induced by one global shift."
+        ],
+        "reasoning": "Agreement of endpoint variance thresholds in a different randomization does not control the global coefficient. The broad literature provides relevant methods and qualitative precedents, not researched evidence of the same all-coupling coefficient.",
+        "searches": [
+          "DOI 10.1214/10-EJS574 §4.2 (smooth symmetric transformation) and Example 12 (unbounded error)",
+          "Resultary global versus stratified antithetic pairing and graded-mesh singular quadrature"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–79, VERIFICATION.md and verify.py (read only); author version of DOI 10.1214/10-EJS574; DLMF 25.11.9; Resultary SCOPE-2306aa685e20 and SCOPE-0ac19ee5a36d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reflected estimator is already obtainable by the baker transform. Countermonotone minimization of a strictly monotone finite-variance profile is classical. Identifying the nonmonotone-multiplier estimator's leading error with a decreasing profile uniformly in the L² marginal, with a bound independent of the joint law, is the extra step that makes optimization at finite m commute with the limit.",
+          "Example 12 discusses right tails qualitatively; it is not an analysis of all positive two-shift couplings and does not supply a q-moment threshold with equality or the sharp small-singularity gain."
+        ],
+        "reasoning": "The theorem combines known ingredients, but the precise singular endpoint regime and optimal coefficient across general couplings are not a direct substitution into the inspected prior smooth bounds or table. Do not separately advertise the known antithetic scheme, Parseval identity, or finite-grid rearrangement principle as novel.",
+        "searches": [
+          "Compare L’Ecuyer–Munger–Tuffin §§4.2, 4.3 and Example 12, DLMF 25.11.9, and frozen proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The baker transform of an even one-dimensional lattice with 2m points applies x↦2x to the first half and x↦2(1−x) to the second. Applied to (i+U)/(2m), the two halves are exactly the m-point rules with U and 1−U, after reversing the second set.",
+          "DLMF 25.11.9 gives the classical cosine expansion with phase π(1−α)/2 for the pure limit, so the special-function identity underlying the real-part factor is not new."
+        ],
+        "reasoning": "Recognize exact equivalence of the estimator construction, not just a generic resemblance; distinguish that construction and the classical profile's Fourier identity from the sharp singular estimator-optimality theorem.",
+        "searches": [
+          "L’Ecuyer–Munger–Tuffin DOI 10.1214/10-EJS574 §4.2 and Example 12; author-copy query for the exact title",
+          "DLMF 25.11.9 for the Hurwitz limit-profile transformation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table coefficient together with Parseval yields both limiting-profile squared norms once the profile has been identified. It is not itself a table of shifted-grid estimator asymptotic variances over couplings.",
+          "The antithetic stratified comparison has a panel-series variance constant for independent panels; the power-graded comparison's transition depends on the mesh exponent. Neither enumerates the two-global-shift variance gain."
+        ],
+        "reasoning": "Credit the exact classical formula and its immediate Parseval consequences; the remaining estimator limit and its uniform-in-coupling interpretation are the parts not settled by those exact entries.",
+        "searches": [
+          "DLMF 25.11.9 Hurwitz-zeta series table",
+          "Resultary exact singularity thresholds and constants, SCOPE-2306aa685e20 and SCOPE-0ac19ee5a36d"
+        ]
+      },
+      "rationale": "The antithetic lattice construction, the rearrangement principle and the Hurwitz Fourier expansion are prior; the supported distinct result is the sharp endpoint-singular variance coefficient and reflection gain as an optimum over all prescribed-marginal couplings, stable for the stated multipliers. The closest shifted-lattice paper uses the equivalent pairing and gives an unbounded-tail warning, but the inspected passages do not establish that singular L² limit or the optimal coefficient.",
+      "residual_risks": [
+        "An exact singular shifted-Euler or antithetic variance asymptotic elsewhere in the quadrature literature could cover more; the evidence here supports a bounded best-of-knowledge comparison, not historical priority.",
+        "No uniformity in α near its boundary, other marginal laws, or signed weighting is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction under even lattice size; different analytic claims in the decisive passages",
+          "evidence": "The two linear branches of the baker fold induce the global shift complement, whereas Example 12 is a qualitative right-tail example and gives neither a limiting power-singularity coefficient nor a coupling optimum.",
+          "identifier_or_url": "https://www.iro.umontreal.ca/~lecuyer/myftp/papers/latlimit.pdf (DOI 10.1214/10-EJS574)",
+          "material_read": "Author PDF §4.2 and beginning of §4.3 (offset 42730–45497); Example 12 and §5 transition (52040–55622)",
+          "method": "Identified lawful author copy; bounded full-text reads",
+          "title": "On the distribution of integration error by randomly-shifted lattice rules",
+          "trigger": "Same shifted lattice rule, antithetic transform, and endpoint error"
+        },
+        {
+          "assessment": "Exact classical input",
+          "evidence": "For s=1−α the Fourier series has phase πs/2 and gamma scale Γ(s)/(2π)^s; the single and reflected squared profile norms follow by Parseval.",
+          "identifier_or_url": "https://dlmf.nist.gov/25.11.E9",
+          "material_read": "Formula 25.11.9 and its real-part domain, cosine phase, and reference to Apostol (1976)",
+          "method": "Public formula entry; direct coefficient comparison",
+          "title": "DLMF §25.11, Hurwitz zeta function",
+          "trigger": "Prior exact Fourier series for the leading profile"
+        },
+        {
+          "assessment": "Related threshold but distinct dependence and constant",
+          "evidence": "Antithetic within each panel, independent across panels; panelwise optimality and a panel-series coefficient.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-singularity-thresholds-and-constants-for-antithetic-strati--2306aa685e20",
+          "material_read": "Finding and sampling design",
+          "method": "Resultary meaning search and local mirror",
+          "title": "Sharp singularity thresholds and constants for antithetic stratified quadrature",
+          "trigger": "Indexed antithetic singularity threshold and coefficient"
+        },
+        {
+          "assessment": "Different randomization; date does not determine priority",
+          "evidence": "An independent sample per graded cell with regimes governed by p(1−α), rather than two global shifts.",
+          "identifier_or_url": "2026/11/2/SCOPE-gaussian-heavy-tail-transition-for-power-graded-randomized-quadr--0ac19ee5a36d",
+          "material_read": "Finding and sampling design",
+          "method": "Resultary meaning search and local mirror",
+          "title": "Gaussian–heavy-tail transition for power-graded randomized quadrature",
+          "trigger": "Same-day indexed singular shifted-endpoint variance behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At equal work for two global shifts, 2 sin²(πα/2) quantifies how much reflection gains and proves that no other coupling improves the leading coefficient for these multipliers. The complementary impossibility of curing infinite variance by dependence alone identifies when a different estimator, rather than a different pairing, is necessary. Both conclusions are practically interpretable for the singular shifted rule and not a trivial comparison of two simulations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

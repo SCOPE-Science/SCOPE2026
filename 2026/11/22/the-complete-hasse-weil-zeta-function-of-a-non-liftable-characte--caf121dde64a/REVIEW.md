@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scope is a canonical smooth proper quotient resolution over \(\mathbb F_5\), with explicit singular-fiber and fixed-curve models. The proof derives the twisted minimal-fiber vector \((11,9,8,16,7,25)\), the exceptional-cubic count \(51\), 25 fixed twisted nodes, two extra exceptional lines and the split final quadric count \(36\); together these give \(1416\). The finite exact arithmetic checker reproduces all field counts. The independently stated input of 43 even cohomology classes and no odd cohomology follows from Burek–Chmiel–Cynk–Oczko, Theorem 4.3, not experiment. Equivariant Hard Lefschetz turns the point count into the maximal possible trace \(43\cdot5\); purity forces the entire eigenvalue multiset. The Galois-equivariant blowup and tame quotient decompositions give the final 31-dimensional spectrum. The proof does **not** claim Frobenius semisimplicity or every birational model.
+PASS
 
-## Originality — PASS with historical qualifications
+The count concerns the canonical algebraic-space quotient resolution K, not a deduction of arithmetic equivalence with the projective X₅. In the compatible choice of small resolution in Lemma 5.1, take the first two III factors to be u−v and u+v, the strict diagonal and graph blowups of Lemma 4.1; the remaining split node has invariant ruling ideals since negation changes both u,v signs and fixes c,d. Blowing up the last small exceptional line gives B with its lifted involution (Theorem 4.3 proof). At infinity Frobenius and negation reverse the same cycle, so their product fixes all 25 node pairs; over each the exceptional line is a k-form of P¹ and has six points. Type IV's conjugate components become split under the twist, and type III has two rational components. Independent field enumeration gave the Weierstrass counts 6,3,4,6,5,7, smooth twists 9,8,7, cubic counts 31/51 and split quadric counts 36/36. Together the twisted minimal fibres give 1196; corrections are 50+25·5+2·5+35, yielding 1416. The invariant ample-class Lefschetz isomorphism makes the H⁴ trace five times the H² trace; with the established vanishings and b₂(B)=43 this gives 215=43·5. Purity saturates the triangle inequality, fixing every eigenvalue, without asserting diagonalizability. Equivariant blowup passes this to the twisted H² of the small model and ordinary Frobenius has the same eigenvalues on its negation invariants. The five horizontal components and two explicitly defined exceptional fixed lines in Lemma 5.2 are each defined over k, so their seven H⁰(-1) contributions give 5. Tame quotient/blowup cohomology and the geometric dimensions give 31 copies of 5; duality gives 31 copies of 25 and yields the all-extension formula.
 
-The accessible earlier computation of the same resolved self-product gives 24 positive and 18 negative Frobenius eigenvalues, and another computes both cubic counts 31 and 51. Neither determines the involution-invariant cohomology or the Kummer quotient zeta function; the global twisted trace is the new step. The nearest paper, arXiv:2611.15943v1, computes Betti numbers and original model's extension-field counts, but contains no zeta computation or twisted \(\mathbb F_5\) count. Its Lemmas 4.1, 5.1 and 5.2 are important precursors, not equivalent to the all-extension formula. The earlier arXiv:2112.03970 concerns an elliptic-threefold product quotient, with no coverage of this characteristic-five non-isotrivial self-fiber product. The abstract of arXiv:2609.12522 concerns crepant resolutions and Euler data, not the present Frobenius spectrum, but its full text was unavailable; publication priority therefore has residual uncertainty. Public mathematical-record and targeted web searches found no specific equivalent or stronger covering claim, without proving uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The concrete nonliftable smooth proper Calabi–Yau threefold is a newly important arithmetic geometry example. Its entire Hasse–Weil zeta function, exact counts for every finite extension, and purity-saturating involution-twist mechanism are intrinsic arithmetic invariants beyond known Betti and obstruction statements, not an arbitrary finite slice or a routine numerical restatement.
+The geometry, Betti numbers, and some extension-field counts are antecedents. The closest distinct catalogue result evaluates the arithmetic of the resolved self-product, not its Kummer resolution. The additional equivariant trace determines which eigenvalues persist on the invariant cohomology; the inspected sources do not give this trace or the claimed quotient spectrum directly or by a reported stronger result.
 
-## Scientific limits
+## value
 
-The result uses published primary preprint geometric inputs and does not provide an independent construction of all resolutions. The canonical algebraic-space Kummer model is specified; arbitrary birational projective models, independence from all possible preprints, and semisimplicity are not claimed. The computation supplies no separate external mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete zeta function is a natural arithmetic invariant of this specific Calabi–Yau quotient resolution. It separates the all-positive spectrum of K from the mixed-sign arithmetic of the parent, information not captured by their Betti dimensions. It gives all finite-extension counts, while the twisted trace explains the sign alignment rather than merely reporting one small-field count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

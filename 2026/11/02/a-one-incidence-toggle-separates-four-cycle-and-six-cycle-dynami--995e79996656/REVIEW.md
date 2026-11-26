@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces the adjacency update to a two-generator block matrix using orthogonality of the incidence matrix, rather than assuming experimental patterns extend to all sizes. For insertion, a four-dimensional invariant summand has a genuine order-six action and a complementary swap determines every fixed-space dimension. For deletion, a rank-two correction satisfies the crucial identities \(T^5=T\), \(\operatorname{rank}T=\operatorname{rank}T^2=2v-2\), giving one-step transient bounds and exact basin fibers. The same algebra works over any finite characteristic-two field. Two separate implementations checked all 137 incidence toggles across two model designs and exhaustive binary states for the smallest model. Risks: checking finite examples cannot rule out errors in symbolic identities; independence beyond different code implementations has not been established.
+PASS
 
-## Originality — PASS, qualified
+In characteristic two the design identity BB^T=(k-lambda)I+lambda J gives BB^T=I, so the unedited adjacency update squares to I. After conjugating the block state by B, the off-diagonal blocks are U=I+u a^T and V=I+a u^T, with u=e_i, a=Be_j, u^T u=a^T a=1 and independent u,a by k>=3. For insertion u^T a=0, so the nondegenerate span of u,a splits off and the complementary update is a swap. On the affected four coordinates the diagonal blocks of T^2 have characteristic polynomial x^2+x+1, annihilate under the third power minus identity, and have no fixed vector even when the polynomial splits. T^3 there is an off-diagonal involution, hence its fixed dimension is two. Adding the complement gives fixed dimensions v-2, 2v-4, v, 2v at powers 1,2,3,6. For deletion u^T a=1, U,V are rank-(v-1) idempotents with images ker(a^T), ker(u^T) and kernels spanned by u,a respectively. Each block maps the other's image isomorphically, so the image of T has dimension 2v-2 and is invariant with invertible restriction. On im U one has UV p=p+(u+a)(u^T p); on im V the symmetric transvection uses a^T. In either case the added map has rank one and square zero: u+a is nonzero, u and a give independent forms, and u+a is orthogonal to both. Thus the square of T restricts to a nonidentity involution with fixed dimension 2v-4 on the image, and T to an order-four map there: T^5=T, T^3!=T. A T-fixed vector is determined by p fixed by UV with z=Vp, giving dimension v-2. All periodic points are on the image and every point outside it enters in one step. Using q to the fixed dimensions and subtracting proper divisor periods gives exactly the stated positive primitive-period counts (v>=4, q>=2); the orbit counts divide by d. Every fiber over an image point is a coset of the two-dimensional kernel, so a d-cycle has basin d q^2.
 
-The closest inspected primary full text is Brown's biplane exposition, which provides a design example but does not formulate Boolean incidence-toggle dynamics. Kaski and Östergård's accessible abstract classifies other biplanes, not orbit populations; the full paper could not be compared. Ogihara and Uchizawa provide general XOR-network algorithmics, not the asserted universal insertion/deletion cycle dichotomy. Search variants included finite dynamical systems on design Levi graphs, orthogonal incidence updates, and rank-one toggle orbit formulas; no published implication establishing these exact period counts was identified. The algebraic framework is standard and an older implicit specialization may exist, so originality is not an exhaustive database guarantee.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies a structural and sharp change under the smallest possible modification of an incidence graph: a reversible order-two system becomes either reversible order-six or noninvertible with four-cycles and one-step transients. It holds for an unlimited class of symmetric designs and for all finite characteristic-two fields, independently of geometric realization, with complete primitive-period and basin counts. These are natural finite dynamical invariants and not an arbitrary finite slice.
+The design orthogonality identity and rank/fixed-space counting of linear finite maps are standard inputs. The checked works do not give the bit-dependent four-versus-six period classification with basin and exact-period populations for the stated design parity over finite characteristic-two fields. Closest directly comparable is the same-day projective-plane toggle result; its lambda=1 does not permit BB^T=I in characteristic two and its spectra are genuinely different.
 
-## Scope and remaining risks
+## value
 
-The result does not cover non-symmetric designs, multiple edge changes or other parity classes. The biplane-classification article was not accessible in full text, and no independent scholarly audit has been performed. Source dating for Brown's earlier example is month-only, while the metadata's February 22, 2007 date is independently verified day-level publication evidence for another directly relevant source.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single graph edit of an initially involutory update is a natural perturbation. The algebra identifies a structural split: insertion preserves invertibility but produces exact order six, while deletion collapses two dimensions yet creates genuine order four on a stable image and forces a uniform transient/fiber structure. The complete q-dependent period and basin census makes the distinction stronger than witnessing individual orbits, and is not a finite-design example or a catalogue of existing designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

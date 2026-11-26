@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analyzed step is the square-root LCD3 metric-projection update in the primary source, not the standard Polyak update. The curvature assumptions are satisfied because \(C\preceq I\preceq C+(1-\kappa^{-1})I\). In the eigenbasis of \(B=C^{-1}\), direct expansion gives the objective ratio \(1-2\alpha m_1+\alpha^2m_2\). The pointwise chord bound \(\lambda^2\le(\kappa+1)\lambda-\kappa\) yields an attainable upper envelope; maximizing the one-dimensional rational function gives the unique interior optimizer \(\varphi^{-1}\) and the claimed phase transition. A two-eigendirection witness attains the sharp bound for every \(\kappa\). The scalar algebra and numerical witnesses were separately cross-checked with the package's verifier. This proves the universal one-step statement; finite tests do not prove any infinite-time claim, and none is made.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+For f(x)=||x||²/2 and known f*=0 the LCD3 localization set is the C-ellipsoid centered at x−C⁻¹x with squared C-radius xᵀC⁻¹x−||x||². C-metric projection gives the frozen square-root step, also when the radius is zero. C≼I≼C+(1−1/κ)I establishes admissibility. If m and q are the first and second moments of B=C⁻¹ in the squared spectral weights of x, the exact ratio is 1−2αm+α²q. The chord bound q≤(κ+1)m−κ is sharp at every m in [1,κ] via a mixture of eigenvectors for 1 and κ, which are present for each allowed C. For u=√(1−1/m) substitution gives κu²(1−u)/(1+u); its derivative after division by κ is 2u(1−u−u²)/(1+u)². Hence the maximizing u is the stated clipped inverse golden ratio and the branch switches at κ=φ. For κ=1 the iterate is zero; at κ=φ the branches agree; above φ the envelope is κ(5√5−11)/2, attaining one exactly at (11+5√5)/2. Below φ the product κF(uκ) increases to a value less than one. The endpoint mixture with weight (φ−1)/(κ−1) on κ gives equality in the upper branch, including a strict witness at κ=12. The result concerns one step under the absolute eigenvalue normalization, not convergence or arbitrary scaling. The frozen verification notes and script were inspected, not executed; the sharp proof is analytic.
 
-Primary full-text inspection included the original LCD3 definition, its derivation, and the quadratic appendix in arXiv:2405.16574v1, and the corresponding sections and Appendix D.2 in the final 2025 proceedings version. The originals give a one-step Newton identity only when the curvature matrix equals the Hessian; they explicitly leave general LCD3 convergence untreated. That theorem does **not** cover anisotropic strict curvature lower bounds or the exact worst-direction function \(M(\kappa)\). Preconditioned stochastic Polyak [3] and published exact bounds for *scaled Polyak* iterations use a different update; neither supplies the nonlinear LCD3 square-root envelope. Searches included the original algorithm name and metric/ellipsoid aliases, spectral thresholds, and the golden-ratio value. No directly covering result was identified; searching cannot prove uniqueness. Remaining risk: an older ellipsoid-projection or normalized metric descent result equivalent to this one-step law.
+## originality
 
-## Value — PASS
+PASS
 
-The original LCD3 paper lacks a general convergence theorem; a sharp criterion for whether *one step increases the very objective being minimized* is a motivated boundary and not an arbitrary coordinate slice. The theorem is dimension-independent, quantifies exact worst amplification, supplies extremizers and a sharp universal threshold, and isolates a real algorithmic difference from LCD2's Euclidean metric. The object is deliberately simple so the observed energy increase cannot be blamed on a poorly conditioned objective: the objective Hessian is the identity. One-step overshoot is not mistaken for global divergence.
+The exact projection rule and the Hessian-matched Newton special case are known. The supported distinct result is the attainable all-direction envelope and the resulting monotonicity frontier for a separately chosen admissible lower matrix. The closest indexed sharp Polyak-step frontier has a different step law; no inspected source gives or entails the present envelope as a stated specialization. This is a scoped best-of-current-knowledge decision.
 
-## Limits and independent status
+## value
 
-Only the specified normalized constant-curvature, exact-arithmetic, isotropic quadratic setting is classified. Residual novelty risks require independent scrutiny, and universal convergence or nonconvergence is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The objective can increase even when the true Hessian is the identity and both quadratic support assumptions hold. The sharp frontier distinguishes when using the lower-curvature metric is and is not safe for one-step descent, gives explicit worst-case directions at every condition number, and quantifies unbounded one-step loss. It is stronger and more useful than an isolated counterexample or the known exact-Hessian Newton case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

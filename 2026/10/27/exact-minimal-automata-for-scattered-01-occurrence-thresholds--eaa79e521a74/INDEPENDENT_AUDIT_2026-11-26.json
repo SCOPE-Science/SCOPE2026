@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:32:58.084288Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a prefix with z zeros and p pairs and a suffix with t ones and h internal pairs, the total is p+zt+h by splitting pairs into the three possible locations. The classes p>=k, z=0, and p<k with z>=1 and p+z>=k have residuals all suffixes, the initial language, and suffixes containing a 1, respectively. Otherwise d=k-p-z is positive, 1<=z<=k-d, and acceptance becomes h+z(t-1)>=d. The prefix 01^(k-d-z)0^(z-1) reaches every admissible pair. At t=0 all these levels reject; t=1 tests h>=d; if z>=d all t>=2 are accepted. Distinct levels are separated by 0^d1 at the smaller level, which also separates that level from the initial language. At equal d, use 10^max(d-z_2,0)1 for z_1<z_2 with z_1<d. The empty suffix and the one-letter suffix 1 distinguish the exceptional classes where needed. Summing min(d,k-d) over 1<=d<k yields floor(k^2/4); at k=1 there are only the three reachable exceptions. Inspected RESULT.md, VERIFICATION.md and verify.py. The recorded finite refinement and short-word comparisons were not replayed; they supplement the universal argument. The reported raw-state and direct-test totals also agree with sum_{k=1}^{40}(k^2+2) and 12(2^10-1)(2^7-1), respectively.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mansour–Rastegar–Roitershtein construct finite equivalence classes encoding bounded occurrence data and an automaton.",
+          "The two Parikh-matrix papers encode or transform scattered-subword counts, without a minimal inclusive-threshold quotient in the inspected passages."
+        ],
+        "reasoning": "An automaton that tracks sufficient occurrence data implies regularity and upper bounds. It can retain distinctions collapsed by a single inclusive predicate; its existence does not furnish this Myhill–Nerode profile.",
+        "searches": [
+          "OA arXiv:1905.05646 §2.2, Lemma 2.1 and Definition 2.2",
+          "OA arXiv:1808.04102 and arXiv:2407.04462 introductory passages"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 57b8c72ae562 and 983ea3737952",
+        "Mansour–Rastegar–Roitershtein arXiv:1905.05646",
+        "Atanasiu et al. arXiv:1808.04102",
+        "Fazekas–Huang arXiv:2407.04462"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-equality proof isolates a one-one-only residual when 2z>k-p, and includes equality 2z=k-p on the multione side; it tests an exact number of leading zeros at t=1.",
+          "The inclusive quotient accepts a tail at t=1 and merges all z>=d including equality, because every suffix with t>=2 now passes there."
+        ],
+        "reasoning": "The exact-equality DFA cannot simply be relabeled or further merged: 0^(k+1) and 01^(k+1) have the same empty exact-k residual, but one allows acceptance only after a suffix containing a 1 in the inclusive language and the other already accepts. The exact-count proof suggests the same prefix statistics, but the inclusive rule needs its own reachability, coalescence and separating analysis. No stronger inspected statement supplies those new identifications.",
+        "searches": [
+          "Resultary 57b8c72ae562, proof sections 2–4, offset 1500 onward",
+          "Resultary 983ea3737952, Finding offset 0",
+          "OA arXiv:1905.05646 §2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 57b8c72ae562 and 983ea3737952 count states for exactly k, not at least k; their equal formulas exceed the threshold formula by ceil(k/2).",
+          "No materially relevant threshold result was recovered by the web lookup."
+        ],
+        "reasoning": "Complementing each bit maps the 01 statistic to ordinary 10 inversions by an alphabet relabeling, preserving DFA size. Fixed-composition relations to inversion counts do not give a fixed alternative threshold across all word lengths. Boolean complementation preserves the state count for <k, not for exactly k.",
+        "searches": [
+          "Resultary: minimal complete DFA scattered 01 occurrence threshold floor(k^2/4)+3 exact minimal state complexity",
+          "Resultary: binary inversion count threshold at least k minimal DFA state complexity",
+          "Resultary: binary coinversion threshold scattered zero before one pair count automaton",
+          "Web: \"floor(k^2/4)+3\" scattered 01 occurrence threshold minimal DFA inversion count binary words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogue counts from 57b8c72ae562 and 983ea3737952 are for exactly k, with distinct threshold increments and exceptional states; no threshold-indexed exact table for this invariant surfaced."
+        ],
+        "reasoning": "The integer expression alone can occur in unrelated sequences; a match must attach these counts to the same language and complete automaton convention. The catalogue results do not do so.",
+        "searches": [
+          "Resultary: scattered 01 pairs count >= k complete deterministic automaton states",
+          "Resultary: at least k scattered subsequence occurrences of 01 threshold language DFA",
+          "Resultary: minimum DFA state complexity thresholded pattern occurrence count subword"
+        ]
+      },
+      "rationale": "Best of current knowledge for the exact inclusive-threshold quotient only. The strongest catalogue matches give different exact-equality quotients whose dead class loses the distinction between overshooting k and being below k but unable to hit it exactly. General bounded-count and Parikh-matrix constructions are background, not a minimal threshold classification. The underlying residual variables and several test words are shared with earlier work; no novelty is credited for those in isolation.",
+      "residual_risks": [
+        "The searches are bounded, not a proof of publication priority. A generic minimization theorem with this as an unevaluated specialization or an unindexed inversion-threshold formula may exist; no such statement was established in the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest structural precedent, different predicate and quotient",
+          "evidence": [
+            "For exactly k, active residuals are 0^d10* or equality-constrained multione classes; total floor(k^2/4)+ceil(k/2)+3."
+          ],
+          "identifier_or_url": "57b8c72ae562",
+          "material_read": "Finding; proof sections 2–4 at offset 1500 onward",
+          "method": "Local Resultary mirror",
+          "title": "Exact state complexity and residual classification for a fixed scattered count",
+          "trigger": "Same statistic and sharp quotient count"
+        },
+        {
+          "assessment": "Exact-equality result, not inclusive",
+          "evidence": [
+            "Gives 3+floor((k+1)^2/4) for precisely k."
+          ],
+          "identifier_or_url": "983ea3737952",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp quotient complexity for a prescribed number of scattered 01 occurrences",
+          "trigger": "Exact formula for the same count statistic"
+        },
+        {
+          "assessment": "General finite automaton, not minimum quotient for this threshold",
+          "evidence": [
+            "Provides finite classes and updates for pattern-occurrence data."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.05646",
+          "material_read": "§2.2 pp. 6–7, offsets 20750–26263, Lemma 2.1 and Definition 2.2",
+          "method": "OA PDF bounded passages",
+          "title": "Finite Automata, Probabilistic Method, and Occurrence Enumeration of a Pattern in Words and Permutations",
+          "trigger": "General automata tracking bounded occurrences"
+        },
+        {
+          "assessment": "Statistic background only in inspected passage",
+          "evidence": [
+            "Parikh matrices encode occurrences of prescribed subwords."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.04102",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF bounded passage",
+          "title": "Parikh Matrices for Powers of Words",
+          "trigger": "Scattered count framework"
+        },
+        {
+          "assessment": "Encoding result, not a minimal threshold state count in inspected passages",
+          "evidence": [
+            "Generalized matrices track subsequence occurrence data."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.04462",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "OA PDF bounded passages",
+          "title": "Generalized Parikh Matrices For Tracking Subsequence Occurrences",
+          "trigger": "Broader encoding of subsequence statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A threshold on an elementary scattered-pair statistic is a natural regular constraint, and a user designing or studying a recognizer needs the exact quotient, not only regularity or an automaton for exact counts. The theorem gives both the optimal uniform state count and a residual classification with explicit witnesses; the inclusive collapse is different from the overshoot behavior of exact equality. Value is confined to this exact binary-pattern invariant, not broader algorithms or pattern families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

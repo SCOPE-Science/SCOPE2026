@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:28.637234Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–37 and 49–67; frozen VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: python3 /workspace/branches/de6904fe-6f92-48f2-adb1-1a77cca6b849/independent_check.py; output independent_check.out. Exhaustively enumerates labelled graphs with exact probability weights at n=3,4,6 in selected cases, including the counterexample and H=K3 versus non-induced F=P3 at n=4, p=1/3 (160/2187)."
+      ],
+      "rationale": "Conditioning on a fixed h-set being an H-component leaves the complement distributed as G(n−h,p) and rules out straddling copies because F is connected. Summing the conditional-mean differences over component indicators proves the general covariance identity, and the positive expectation factor and unimodality of p^e(1−p)^q give the general induced sign cases. But the P3 specialization in the Finding and Proof drops the complement term. Both conventions need B_n=3[binom(n,3)−binom(n−3,3)]=(9n²−45n+60)/2, not 3 binom(n,3). At n=6, p=1/2, direct exact enumeration yields induced covariance −735/8192, whereas the printed special formula gives −195/2048. The printed non-induced factor likewise has the wrong coefficient for n≥6. The induced root count (two iff n≥4) survives since B_3=3, B_4=12, B_n increases, and max p²(1−p)=4/27. The printed root scales do not survive: the correct scales are p_-∼(sqrt(2)/3)n^−1 and 1−p_+∼(2/9)n^−2, by B_np²(1−p)=1 and B_n∼(9/2)n². The n=4 example is unaffected.",
+      "residual_risks": [
+        "This is a decisive finite counterexample to the special formula, not a refutation of the general identity. The all-n correction follows by algebra from the general identity; it is not a separate validated repaired claim."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "836854b5c1ce also gives sharp path-versus-star covariance phase bounds for larger tree components and separates the non-induced/induced cases.",
+          "222577d07ced gives exact sign transitions for clique components versus embedded cliques, a strict specialization here.",
+          "Ráth gives a change-of-measure result for the size of a distinguished vertex's component; the inspected Sah–Sawhney passages address marginal count laws."
+        ],
+        "reasoning": "General component conditioning and marginal subgraph tools alone are not a matching statement. The distinct Palm-cancellation record, however, contains the exact common result and additional tree-shape bounds.",
+        "searches": [
+          "Resultary queries above; arXiv:1707.05169 Proposition 1.1 and Lemma 2.1; arXiv:2006.11369 introduction; DOI 10.1016/j.dam.2009.11.012"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 836854b5c1ce, 222577d07ced and 00c844d9af13",
+        "arXiv:1707.05169, arXiv:2006.11369, DOI 10.1016/j.dam.2009.11.012 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In (1), h=f=3, b_F=3, t_F(H)=1, and s=1 give the corrected cubic equation for induced P3; s=0 gives the corrected non-induced factor. The role of the vanishing complement term at n=3,4 and the location of the roots follow from the same formula.",
+          "The corrected root scales follow directly by expanding near 0 and 1 using Q_F(n,3)∼(9/2)n²."
+        ],
+        "reasoning": "The near-duplicate is not the frozen record itself. Its later catalogue path does not resolve precedence, but it verifies substantive mathematical overlap; correcting the specialization does not leave a distinct nontrivial theorem beyond it.",
+        "searches": [
+          "Resultary 836854b5c1ce equations (1)–(2) and complete sign classification; Resultary 222577d07ced Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 836854b5c1ce equations (1)–(2) use C_H, t_F(H), b_F, Q_F(n,h) and s for the same N_H, a_t, c_F, B and induced-nonedge exponent, respectively. Its result has the same connectedness and counting hypotheses and the same strict and tangential sign phases.",
+          "Resultary 00c844d9af13 instead correlates two component counts; that is a distinct statistic."
+        ],
+        "reasoning": "Conditional absence of cross-edges is the same characterization in the exact overlap. Relabeling the quantities gives equality of the two general formulas, not merely the same asymptotic behavior.",
+        "searches": [
+          "Resultary: exact covariance connected component count induced subgraph count G(n,p) sign classification",
+          "Resultary: component motif covariance connected component induced non-induced motif reentrance P3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed entry 836854b5c1ce supplies the full symbolic covariance and sign table, with the complement term, rather than a finite list of values."
+        ],
+        "reasoning": "The relevant exact comparison is a closed formula over arbitrary connected graph inputs; a numerical sequence database would not resolve equivalence or coverage for these inputs.",
+        "searches": [
+          "Resultary: component motif covariance connected component induced non-induced motif reentrance P3",
+          "Resultary: exact covariance connected component count induced subgraph count G(n,p) sign classification"
+        ]
+      },
+      "rationale": "A distinct indexed record states the same general finite covariance factor for the same two counting conventions and the complete same sign classification, including the induced nonclique two-root case. The surviving P3 specialization is an immediate substitution into that result; its corrected leading scales only use the resulting cubic and the leading term of its coefficient. This is statement-level coverage, not a conclusion about historical priority or copying. The frozen large-n scales do not provide a distinct correct result.",
+      "residual_risks": [
+        "Historical priority and dependency between the distinct catalogue records are not established. Older implicit graph-overlay coverage was not resolved and is not the basis for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent common core and additional tree-shape results; no inference of priority",
+          "evidence": "Cov(C_H,X_F)=E[C_H](t_F(H)−Q_F(n,h)p^e(1−p)^s) with Q_F=b_F[binom(n,f)−binom(n−h,f)], followed by identical induced/non-induced sign cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-connected-motif-palm-cancellation-and-sharp-tree-shape-covarianc--836854b5c1ce/RESULT.md",
+          "material_read": "Finding, equations (1)–(3), scope and opening proof, offsets 400–4357",
+          "method": "Resultary query and bounded local mirror read",
+          "title": "Connected-motif Palm cancellation and sharp tree-shape covariance phases",
+          "trigger": "Exact ranked match on both covariance conventions and phase classification"
+        },
+        {
+          "assessment": "Strict specialization, not equivalent to the general theorem",
+          "evidence": "K_r components against K_s copies are a single-switch clique case.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-sign-transitions-between-isolated-clique-components-and-em--222577d07ced",
+          "material_read": "Finding near offset 194",
+          "method": "Resultary query and local mirror read",
+          "title": "Exact sign transitions between isolated clique components and embedded cliques",
+          "trigger": "Same-date component/subgraph covariance hit"
+        },
+        {
+          "assessment": "Different pair of statistics",
+          "evidence": "Both counts are component counts, of distinct orders.",
+          "identifier_or_url": "2026/10/18/SCOPE-shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13",
+          "material_read": "Finding near offset 313",
+          "method": "Resultary query and local mirror read",
+          "title": "Shape-universal covariance sign reversals for random-graph component counts",
+          "trigger": "Same-date mixed covariance sign hit"
+        },
+        {
+          "assessment": "Related method, not the exact mixed-factor identity",
+          "evidence": "The distinguished-vertex component size has a change-of-measure relation across graph orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.05169",
+          "material_read": "PDF pp. 1 and 4, Proposition 1.1 and Lemma 2.1 (offsets 0 and 14246)",
+          "method": "Bounded primary OA PDF comparison",
+          "title": "A moment-generating formula for Erdős–Rényi component sizes",
+          "trigger": "Component conditioning and changing the graph order"
+        },
+        {
+          "assessment": "Inspected statements are marginal results",
+          "evidence": "Local limit results concern count distributions and graph factors, not the mixed expectation conditioned on a component.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.11369",
+          "material_read": "Abstract and introduction, pp. 1–2 (offsets 0 and 8111)",
+          "method": "Bounded primary OA PDF comparison",
+          "title": "Local limit theorems for subgraph counts",
+          "trigger": "Induced and non-induced connected motif counts"
+        },
+        {
+          "assessment": "Coverage not determined; no negative inference",
+          "evidence": "The accessible description concerns subgraph-count variance, and does not settle what broader identities appear in the full paper.",
+          "identifier_or_url": "10.1016/j.dam.2009.11.012",
+          "material_read": "Landing-page/abstract metadata only",
+          "method": "DOI lookup and repository recovery attempt; full text unavailable",
+          "title": "Variance of the subgraph count for sparse Erdős–Rényi graphs",
+          "trigger": "Overlay identities might supply a broader mixed-moment method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md general identity and sign classification; Resultary 836854b5c1ce complete sign classification and tree specialization"
+      ],
+      "rationale": "The covariance phase classification is a meaningful invariant of naturally coupled component and motif statistics. The exact finite-size threshold for a positive/negative/positive pattern distinguishes induced from non-induced counts. That scientific interest does not make the faulty asymptotic example correct, or rescue the proposal as a distinct result once the exact overlap is accounted for.",
+      "residual_risks": [
+        "No repair is submitted: deleting or correcting the erroneous P3 formulas leaves the covered general classification plus a direct specialization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

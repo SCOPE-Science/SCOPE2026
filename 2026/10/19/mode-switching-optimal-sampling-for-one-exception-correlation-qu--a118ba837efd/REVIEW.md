@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact one-step energy-decrement identity reduces the objective to the smallest eigenvalue of a probability-affine positive-definite matrix. A block eigenspace calculation and strict one-dimensional mode optimization produce both probability formulas and the precise crossover. Permutation averaging proves an unrestricted symmetric optimizer exists; a coupled eigenvector with no zero transformed coordinates forces every other optimizer to coincide with it. Positive definiteness, strict parameter boundaries, the transition equality, and the ratio normalizations are included. `VERIFY.py` passes 3727 finite tests, including rational energy identities and inverse-sign checks. The proof rather than testing establishes the infinite-dimensional-parameter family.
+## correctness
 
-**Originality: PASS, with residual risk.** Relevant general randomized coordinate-descent theories provide nonuniform sampling principles and semidefinite/spectral viewpoints but do not state this two-regime, equal-diagonal, one-exception design law. The closest published closed-form inverse-positive sampling result cannot cover the stated domain: an explicitly negative three-cycle of inverse off-diagonal entries cannot be removed by any diagonal sign change. Broad saturated E-optimal design theory remains a plausible route to an equivalent result; its original 1991 full text could not be inspected in this check. The conclusion is therefore a best-knowledge comparison, not a claim of exhaustive novelty.
+PASS
 
-**Value: PASS.** Equal diagonal entries make conventional coordinate-Lipschitz sampling uniform, yet the exact minimax sampler is generally nonuniform. A sharp eigenmode switch separates two *different* explicit sampling laws, for an infinite and natural covariance/Hessian family containing both regimes. The unique unrestricted sampler and rate can be computed without a generic semidefinite program. No improvement in implementation runtime is implied.
+Exact minimization in coordinate i subtracts (Ce)_i² from C-energy, so the sharp one-step mean decrease ratio is λ_min(C^(1/2)diag(p)C^(1/2)). The ordinary-coordinate contrast eigenvalue of C is β>0, and the remaining block determinant is δ=α−ms²=β+m(ρ−s²)>0. Concavity and permutation averaging reduce existence to symmetric p, and no boundary probability can be optimal. With r=q/v the transverse branch is β/(m+r); the coupled branch is ℓ/(m+r), where r=ℓ(α−ℓ)/(δ−ℓ) increases from 0 to ∞ on 0<ℓ<δ. The derivative of the coupled branch has sign (δ−(1+s)ℓ)(δ−(1−s)ℓ), hence a single peak at ℓ=δ/(1+s), r=(α+ms)/(1+s). The branch crossover occurs at ℓ=β, r=βρ/(ρ−s²). The unique symmetric optimum is at the lesser r; the order changes precisely when ms²+βs−mρ=0, with its positive root strictly inside the domain. Both formulas agree there. For any unrestricted optimum the probability sums by class equal those of the unique symmetric one. A coupled minimizing eigenvector z there gives the same Rayleigh value at the unrestricted optimum because C^(1/2)z is constant on each class. Both class entries are nonzero by the nonzero coupling. Equality forces z to be an eigenvector at both probabilities, and subtracting the equations forces equality of every probability, even at the tie. The negative inverse-sign triangle is also correct. The supplied checker was inspected, not executed; its stated assertion count agrees with a separate count of its loops, not a rerun of the checks.
 
-**Scientific limits.** Scope is exact single-coordinate iid sampling and sharp conditional one-step expected quadratic energy; it excludes multi-step optimality, adaptive sampling, minibatches, and runtime costs. The full Pukelsheim–Torsney text remained inaccessible, and equivalence with an unindexed E-optimal design specialization is a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact spectral objective and its general SDP are known. The supported distinct contribution is the analytic two-regime evaluation with unrestricted uniqueness in this family, not the objective or generic existence of optimal probabilities. There is a formula-level equivalent catalog result for a wider range in the Kaczmarz formulation, catalogued a week later; it is not evidence that the frozen statement was covered earlier. The earlier items inspected do not establish this transition and full optimizer.
+
+## value
+
+PASS
+
+With identical coordinate Lipschitz constants, a practitioner using only those constants cannot tell which coordinate to sample more often or when the active error modes change. The formulas give the sharp conditional rate and the unique attainable probability law without repeatedly solving a numerical design problem. The phase boundary identifies precisely when control of the transverse errors ceases to constrain that law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

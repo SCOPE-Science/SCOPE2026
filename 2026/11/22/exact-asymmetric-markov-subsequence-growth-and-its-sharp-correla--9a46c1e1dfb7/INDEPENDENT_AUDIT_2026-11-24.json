@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:26:04.474023Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof (lines 3–120)",
+        "Frozen VERIFICATION.md and verify_markov.py",
+        "Independent exact replay: /workspace/branches/c736b87b-43d3-4631-a9ab-6831845d2321/independent_markov_check.py"
+      ],
+      "rationale": "Appending b replaces the set of words ending in b by all old subsequence strings (including the empty one) with b appended, leaving the other ending class unchanged. Conditioning on the last bit gives the displayed recurrence with stationary forcing. Independently, a greedy first-match transfer gives the same scalar law: set A=1-(1-p)z and B=1-(1-q)z; the successive-match entries H01=pz/A and H10=qz/B, H00=(1-p)z+pqz²/B and H11=(1-q)z+pqz²/A encode first hitting times. The initial row is zL(q/B,p/A)/s; summing all nonempty target lengths and then all host lengths gives the numerator zL[s(1-z)L+2pqz] and the stated denominator. The characteristic factors leave exactly one eigenvalue above one, from the minus-square-root factor. Since p,q>0, the four-state matrix is irreducible even at p=q=1. Using a strictly positive left Perron vector, the forced geometric sum bounds the observed total above and below by constant multiples of the Perron sum; no primitivity or cancellation assumption is needed. Implicit differentiation at fixed frequency gives t²/[s(2t+s(1-c))]>0 for t=Lambda-1 and c=sqrt(theta(1-theta)); the admissible upper endpoint is where the minority cannot repeat. A separate exact enumeration matched the claimed series for (p,q)=(1/2,1/3) through n=7 and for the alternating endpoint through n=10. The package verifier was read, not run.",
+      "residual_risks": [
+        "Stationary binary hosts and nonempty distinct scattered strings only. The expectation growth rate is not a typical-host or almost-sure result; zero switch probabilities are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 is for iid sources. Section 3.2 is genuinely Markov but reports a recurrence; the written version divides by alpha and 1-beta and does not directly include both unit-switch boundaries. Section 4(c) identifies solving the Markov recurrences and the rates as questions."
+        ],
+        "reasoning": "The old recurrence covers the stationary asymmetric expectation as an algorithm. Neither the iid theorem nor an abstract finite-state formalism evaluates the asymmetric rate or proves the fixed-composition inequality.",
+        "searches": [
+          "Biers-Ariel–Godbole–Kelley, §3 introduction, Theorem 3.6, §3.2 and §4(c)",
+          "Markov hosts, automata, greedy subsequence waiting and distinct-word growth"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE ranked results",
+        "Biers-Ariel–Godbole–Kelley §3 and §4(c)",
+        "Symmetric Markov record --c9e7de297805",
+        "Frozen scalar reduction and comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matrix inversion of the prior recurrence mechanically yields a rational expression in resolvent form; it does not state the evaluated numerator or the special factorization into two quadratics.",
+          "The monotonicity proof uses sqrt(pq)=s sqrt(theta(1-theta)) and the resulting derivative sign over the entire admissible asymmetric family; a law on p=q or p+q=1 does not supply this comparison."
+        ],
+        "reasoning": "The non-generic simplification and its sharp ordering are the supported advance beyond the original recurrence and the known one-parameter specializations.",
+        "searches": [
+          "Primary §3.2 recurrence versus §4(c) open directions",
+          "Published symmetric length formula and frozen asymmetric Perron factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translate the prior recurrence parameters by alpha=1-q, beta=p, and stationary gamma=p/(p+q). Its four variables already determine the exact expected total algorithmically.",
+          "Counting scattered strings by greedy first hitting is an equivalent transfer formulation; the nearby catalogued first-occurrence law --36c13b698190 instead concerns one fixed contiguous word in an iid stream."
+        ],
+        "reasoning": "The sequence itself is not a new object and rationality follows from finite transfer. Credit the explicit scalar reduction and ordering, not the change in state coordinates or an unevaluated resolvent.",
+        "searches": [
+          "Local Resultary and primary literature: expected distinct scattered subsequences, binary Markov transfer and first-occurrence methods",
+          "Biers-Ariel–Godbole–Kelley, arXiv:1704.08661v3, §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked exact asymmetric result is the assigned item itself. The symmetric published record gives a more detailed length-marked law and total rate 1-r/2+sqrt(r(r+4))/2 for p=q=r, including the alternating boundary.",
+          "The symmetric rate agrees identically with the frozen formula on the symmetric line, but its scope explicitly excludes unequal switches."
+        ],
+        "reasoning": "The symmetric and periodic results are prior coverage, not independent discoveries. They do not determine the dependence on both asymmetric parameters.",
+        "searches": [
+          "Local Resultary: asymmetric binary Markov distinct-subsequence GF, exact length spectrum and growth rate",
+          "Published symmetric record --c9e7de297805"
+        ]
+      },
+      "rationale": "Credit the known stationary binary Markov recurrence and the already evaluated iid and symmetric cases. The distinct result is the evaluated asymmetric scalar law with a quadratic Perron root and its strict fixed-composition comparison. The strongest primary match specifically leaves solving the recurrence and computing growth rates as questions, and the strongest catalogue match requires symmetry.",
+      "residual_risks": [
+        "Bounded searches do not exclude a prior equivalent asymmetric reduction in specialized automata or pattern-matching literature; no historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definite recurrence prior art; closed Markov evaluation not supplied",
+          "evidence": "Gives four variables for the Markov recurrence and explicitly identifies solving those recurrences and computing their growth rates as remaining problems. Exact law in Theorem 3.6 uses iid assumptions.",
+          "identifier_or_url": "https://arxiv.org/html/1704.08661v3",
+          "material_read": "§3 introduction (text offset 22304), Theorem 3.6, §3.2 (29648) and §4(c) (37648)",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+          "trigger": "Exactly the same asymmetric stationary binary host statistic"
+        },
+        {
+          "assessment": "Exact overlap on p=q only, including alternation",
+          "evidence": "Its length-marked law and rate are for equal switch probabilities; the rate reduces to the same symmetric radical.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-length-spectrum-of-distinct-subsequences-in-a-symmetric-bi--c9e7de297805",
+          "material_read": "Mirrored Finding and stated scope",
+          "method": "Local published-result mirror",
+          "title": "Exact length spectrum of distinct subsequences in a symmetric binary Markov source",
+          "trigger": "Exact closed Markov GF and growth rate"
+        },
+        {
+          "assessment": "Different matching problem",
+          "evidence": "A fixed contiguous target in an iid stream via prefix matching, rather than total distinct scattered strings of a stationary Markov host.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-compound-poisson-law-for-the-excess-first-occurrence-time--36c13b698190",
+          "material_read": "Indexed statement describing object and assumptions",
+          "method": "Local Resultary search",
+          "title": "Exact compound-Poisson law for the excess first-occurrence time",
+          "trigger": "Possible automaton or waiting-time reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§3–4",
+        "Biers-Ariel–Godbole–Kelley §4(c)",
+        "Published symmetric baseline"
+      ],
+      "rationale": "The result evaluates a natural statistic previously left in four coupled Markov recurrences, giving a usable closed rate rather than a generic quartic. It separates serial dependence from letter composition and identifies the unique maximizing chain and the strict position of iid between persistence and antipersistence. Those comparisons are useful without treating known symmetric or iid formulas as new.",
+      "residual_risks": [
+        "Optimizes expected exponential growth, not finite-n monotonicity, variance, typical-host diversity, or a coding objective."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

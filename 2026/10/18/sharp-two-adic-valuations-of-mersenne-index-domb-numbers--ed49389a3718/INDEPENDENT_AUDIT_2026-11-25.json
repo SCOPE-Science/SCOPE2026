@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:47:40.866642Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rogers Theorem 3.1, Eq. (3.4), gives the transformed series for the defining Domb numbers. Its hypergeometric coefficients and extraction of [z^(n-2k)](1-4z)^(-3k-1) give the integer factors in (1). Applying v2(m!)=m-s2(m) gives summand valuation 2(n-2k)+4s2(k)+s2(n-2k)-s2(n+k). Set n=2^r-1 and k=2^(r-1)-1-j. For k>0, n+k=2^r+[(2^(r-1)-1)-(j+1)], whence s2(n+k)=r-s2(j+1) by bitwise complement. Equation (3) follows; j=0 gives 3r and j>=1 costs at least j-1+s2(j+1)>=1 more. At k=0 the valuation is 2^(r+1)-2>3r: the inequality holds at r=3 and its gap grows. Only the upper endpoint summand survives as an odd integer after division by 2^(3r). Direct computation gives D_1=4 and D_3=256, confirming the exceptional valuations. Replay: python3 /workspace/reproduction/frozen_checks.py 1, using the classical exact three-term recurrence checked against selected defining-sum terms, corroborated Mersenne valuations for r=1 through 12. This finite check is not a proof of the identity or of the valuation law. The frozen checker was read, not executed; its Python 3.8+ compatibility note is overly broad because int.bit_count needs Python 3.10+. This documentation mismatch does not affect the proof or the available reproducibility.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beluhov proves v2(D_n)>=2s2(n), with equality iff no adjacent ones occur in the binary expansion.",
+          "Malik–Straub's abstract gives Lucas congruences for sporadic Apéry-like families; the Domb keyword lookup did not give a matching theorem."
+        ],
+        "reasoning": "Beluhov implies v2(D_(2^r-1))>=2r+1 for r>=3, strictly weaker than 3r; Lucas congruences do not control these unbounded exact prime-power exponents. No useful matching result appeared in the targeted external search, which is not evidence of absence.",
+        "searches": [
+          "arXiv:2506.12789, Proposition 2",
+          "arXiv:1508.00297, Domb; Abstract",
+          "\"Domb\" \"2^r-1\" valuation 3r two-adic"
+        ]
+      },
+      "checked_sources": [
+        "Rogers arXiv:0704.2438",
+        "Beluhov arXiv:2506.12789",
+        "Malik–Straub arXiv:1508.00297 (limited passages)",
+        "OEIS A002895",
+        "Resultary published records d55c1da5b110, 43552c627a5d, e9a8995bbdf6 and b16bdcc10064",
+        "Frozen result and supporting materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rogers (with implicit earlier provenance noted there) supplies the alternative nonnegative expansion. Beluhov supplies a general lower bound and a criterion for its equality."
+        ],
+        "reasoning": "The sum identity by itself does not identify which term has smallest valuation or exclude cancellation at that valuation. The binary-complement summand calculation plus strict separation prove new quantitative information at the indices excluded from equality in the prior lower bound.",
+        "searches": [
+          "arXiv:0704.2438, Theorem 3.1, Eq. (3.4)",
+          "arXiv:2506.12789, Proposition 2",
+          "OEIS A002895, formula section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d55c1da5b110 is a shifted generalized Domb sum for p>=5; 43552c627a5d studies ordinary Domb character correlations modulo five.",
+          "e9a8995bbdf6 and b16bdcc10064 are dyadic valuations for Franel and central Delannoy sums, not Domb numbers."
+        ],
+        "reasoning": "Binary all-ones, Mersenne and the oddness of the rescaled Domb coefficient describe the same arithmetic assertion. Neither the shifted formulas nor the similarly named or notated sequences yield it.",
+        "searches": [
+          "Resultary: Sharp two-adic valuations of Mersenne-index Domb numbers",
+          "Resultary: Domb numbers exact 2-adic valuation Mersenne indices",
+          "Resultary: Domb number valuation at 2^r-1",
+          "Resultary: Domb Rogers transformed sum 2-adic valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A002895 gives the defining sequence, finite values and alternative formulas; the portions read did not state the sharp law. A364111 appearing in d55c1da5b110 is a different sequence."
+        ],
+        "reasoning": "Finite tabulated values can confirm the r=1,2 exceptions and examples, not the exact infinite family. A formula for the sequence leaves the minimum-valuation and noncancellation questions open.",
+        "searches": [
+          "OEIS A002895, main entry and formula section; Mersenne; 2-adic",
+          "Resultary: Domb number valuation at 2^r-1"
+        ]
+      },
+      "rationale": "The supported distinct result is the uniform sharp Mersenne valuation and its unique-minimal-summand proof, not the Domb sequence, transformed sum or general binary lower bound. No equivalent was found in the relevant statements inspected; priority is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "Ranked catalogue search and bounded paper/database passage reads may miss an equivalent theorem or stronger exact valuation study.",
+        "The transformed series is unambiguously prior art; the assessment concerns the exact 2-adic law and its proof only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms prior generating identity",
+          "evidence": "The transformed 3F2 expands to the binomial coefficients; Eq. (3.4) also has implicit earlier provenance in Chan, Chan and Liu.",
+          "identifier_or_url": "https://arxiv.org/abs/0704.2438",
+          "material_read": "PDF p. 11, text offsets 41425–45925, Theorem 3.1 and Eq. (3.4)",
+          "method": "Targeted OA paper passage read",
+          "title": "New 5F4 hypergeometric transformations, three-variable Mahler measures, and formulas for 1/pi",
+          "trigger": "Exact alternative Domb sum underlying proof and possible prior arithmetic coverage"
+        },
+        {
+          "assessment": "Strongest direct arithmetic comparison found; no implication of 3r",
+          "evidence": "Lower bound 2s2(n) and equality iff no adjacent binary ones.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.12789",
+          "material_read": "Proposition 2, PDF p. 9, text offsets 36501–39879",
+          "method": "Targeted OA paper passage read",
+          "title": "Powers of 2 in High-Dimensional Lattice Walks",
+          "trigger": "Same sequence and exact binary characterization of equality in a valuation bound"
+        },
+        {
+          "assessment": "The inspected material is congruence background; no whole-document exclusion",
+          "evidence": "Abstract concerns Lucas congruences; the Domb query surfaced a bibliography passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+          "material_read": "PDF abstract on p. 1 and Domb lookup passage",
+          "method": "Targeted OA PDF inspection",
+          "title": "Divisibility properties of sporadic Apéry-like numbers",
+          "trigger": "Domb congruences and divisibility"
+        },
+        {
+          "assessment": "Same sequence; no matching valuation in passages read",
+          "evidence": "Standard defining sum and additional formulas; finite values corroborate the boundary terms.",
+          "identifier_or_url": "https://oeis.org/A002895",
+          "material_read": "Main entry and formula passages, offsets 0 and 8689–12188",
+          "method": "Public-page text and literal searches",
+          "title": "Domb numbers, OEIS A002895",
+          "trigger": "Exact sequence database and alternative representations"
+        },
+        {
+          "assessment": "Different family and primes",
+          "evidence": "Shifted generalized Domb congruences for p>=5, including A364111, do not imply ordinary Domb valuations at p=2.",
+          "identifier_or_url": "2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary search and mirror read",
+          "title": "Sharp p-adic hierarchy for shifted generalized Domb sums",
+          "trigger": "Closest indexed p-adic Domb result"
+        },
+        {
+          "assessment": "Different modular statistic",
+          "evidence": "Quadratic-character signs and correlations modulo five cannot determine divisibility by powers of two.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-pair-sign-laws-and-sharp-autocorrelation-extremizers-for-d--43552c627a5d",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary search and mirror read",
+          "title": "Exact pair-sign laws and sharp autocorrelation extremizers for Domb numbers modulo five",
+          "trigger": "Same standard Domb numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-ones indices are a natural infinite family distinguished by the adjacent-one exceptions to the existing digit-sum bound. An exact unbounded divisibility threshold for a classical lattice-walk and Apéry-like sequence is useful arithmetic information beyond low-modulus congruences. Single-term domination explains the answer, without claiming a valuation classification at arbitrary indices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:10.304226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical finding is true. Summing over residues forces size h=m/2, and at nonzero characters the complement negates the indicator transform. At even frequencies the h-multiplied frequency is zero; at odd frequencies it is h. Hence either the parity coefficient vanishes or all odd coefficients vanish, the latter exactly equivalent to half-turn invariance. The first alternative and the half-turn pairing each force h even. For the labeled intersection, the half-turn pairs are parity homogeneous when h is even, and parity balance requires choosing m/8 pairs of each parity. For Burnside, a translation with gcd(s,m)=g fixes precisely the subsets lifted from residues modulo g; a size-h lift requires g even, and then parity balance requires g divisible by 4. Jointly imposing the half-turn replaces g by gcd(s,h), with twice the totient multiplicity. This recovers all three sums, including the identity and half-turn shifts and the small modulus edge cases. RESULT.md line 50 has a false redundant aside about even orbit lengths (e.g., s=2 modulo 8 has orbit length 4); the direct gcd reasoning there proves the claim without it. The finite evidence in VERIFICATION.md is recorded corroboration only; verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 7 applies to general integer weight tuples, with d_i=gcd(k_i,m). In the present instance d_i=1,1,h, and the number of relevant factors is even at orders dividing h. At orders not dividing h it forces vanishing of the indicator polynomial at the character or at -1.",
+          "When v_2(m)=1, no weight has valuation strictly between 0 and v_2(m), so the odd-length tuple fails Theorem 3."
+        ],
+        "reasoning": "The relevant nontrivial character orders not dividing h are exactly those of odd frequencies. Applying the criterion and inverting gives the two families; the separate existence statement is already covered directly.",
+        "searches": [
+          "Qu (2014), Theorem 3, Problem 4 and Lemma 7"
+        ]
+      },
+      "checked_sources": [
+        "Qu, DOI 10.37236/4089",
+        "Yang–Chen, arXiv:1208.4195",
+        "Local Resultary: two September 18 indexed asymptotic records above (summaries)",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After applying Lemma 7, the parity family is a fixed-content choice in the even and odd classes and the other family is a fixed-content choice on a quotient of size h. Their intersection is just the parity condition in that quotient.",
+          "For each family the fixed-shift count is the identical binomial count on a cyclic quotient of size gcd(s,m) or gcd(s,h); the totient divisor sums then follow directly from Burnside."
+        ],
+        "reasoning": "The two-family classification is mechanically implied, not merely similar. The count formulas are not asserted to have been stated by Qu, but using those families for fixed-content counts on the relevant cyclic quotients adds only a routine enumeration.",
+        "searches": [
+          "Qu (2014), Lemma 7 and Theorem 3; comparison to RESULT.md Proof, in particular lines 48–52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted Fourier condition here is Qu's polynomial condition evaluated at roots of unity. Vanishing on the odd frequencies is precisely invariance under translation by h.",
+          "Qu's Example 5 uses (2,1,...,1), not this general order-two tuple. Yang–Chen's theorem treats two weights."
+        ],
+        "reasoning": "The equivalent cyclotomic formulation covers this problem even though the prior example is not the same family. The two-weight antecedent does not itself give this classification.",
+        "searches": [
+          "Qu (2014), Lemma 7 and Example 5, DOI 10.37236/4089",
+          "Yang–Chen, arXiv:1208.4195, main theorem and Problem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed Resultary summaries: 2026/9/18/SCOPE-exact-asymptotic-weighted-representation-partitions--fb5b8dfd89f0 and 2026/9/18/SCOPE-exact-local-limit-weighted-representation-counts--4e870c1cf2eb; these concern asymptotic counts rather than the exact cyclic problem.",
+          "The inspected Qu passages do not tabulate the labeled counts or give translation-orbit sums for this tuple."
+        ],
+        "reasoning": "No exact table was identified in these bounded searches; absence of a table does not distinguish this finding from its stronger antecedent.",
+        "searches": [
+          "Local Resultary search for exact complementary weighted representations and translation orbits",
+          "Qu (2014), Example 5 and pp. 3–6"
+        ]
+      },
+      "rationale": "The complete classification is a direct instance of Qu's stronger cyclotomic criterion, and its existence assertion is covered by his explicit existence theorem. No literal copy of the numerical formulas was found, but the labeled sum is immediate binomial inclusion–exclusion, and the translation sum is the ordinary fixed-content cyclic orbit count on the two already-determined families and their intersection. The record does not establish a distinct mathematical contribution beyond those deductions.",
+      "residual_risks": [
+        "The searches were not exhaustive; later literature may explicitly print the same labeled or orbit counts. The rejection does not depend on finding a literal match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the classification by implication and existence directly, not the literal count formulas",
+          "evidence": [
+            "Theorem 3 is an existence criterion; Lemma 7 characterizes all solutions via character orders and indicator polynomial zeros."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i2p55/pdf/",
+          "material_read": "Page 1 definition; page 3 Theorem 3, Problem 4 and Example 5; page 4 Lemma 7; page 6 derivation of Example 5",
+          "method": "Primary open-access paper; bounded text passages and specialization to gcds (1,1,h)",
+          "title": "Partitions of Z_m with the Same Weighted Representation Functions",
+          "trigger": "Cited general theorem on the same ordered representation problem"
+        },
+        {
+          "assessment": "Two-weight predecessor; not independent coverage of the three-weight claim",
+          "evidence": [
+            "The characterization is for two weights; Problem 2 asks about three or more."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1208.4195",
+          "material_read": "Pages 1–2, definition, main result and Problem 2",
+          "method": "Primary open-access paper; statement comparison",
+          "title": "Weighted representation functions on Z_m",
+          "trigger": "Earlier same-object weighted partition result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The representation problem and translation action are natural, but the proposed invariant adds no distinct structural step to Qu's characterization in this specialization: the orbits are counted by reducing to fixed-content choices on cyclic quotients with a parity filter. The orbit count alone, although explicit, is a routine Burnside deduction here and does not support a stand-alone repaired claim under the scientific standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

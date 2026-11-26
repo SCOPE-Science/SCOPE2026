@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:23.793551Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each unmarked realization the two linear orders give prefix masks A,B of U; below/above sets are A∩B and U\\(A∪B). For marked rank pair (i,p_i), opposite cuts (i−1,p_i) and (i,p_i−1) make i incomparable, and every other parameter's two-cut change leaves its type unchanged since both ranks are distinct. Each edge is the unique one crossing its own first-coordinate threshold, so every edge is a bridge. Contracting these m equal-signature edges gives the upper bound (m+1)^2−m. For reverse ranks the possible nonempty below or above sets are intervals and cannot occur simultaneously; every interval is obtained with the indicated cuts, and (0,m) realizes the empty comparison. One rational point in each chosen open cut rectangle, with all coordinates distinct, realizes the entire witness in a single poset whose coordinate orders are linear. Adding the m equality types gives (m+1)^2, which is also a lower bound for the size of any witness by counting vertices. The empty marking is witnessed by one vertex. Replay: python3 /workspace/review_evidence.py, posets section, independently enumerates m=0 through 6 with bitmasks; it does not prove the arbitrary-m result. The frozen supporting review's phrase ‘all-arity’ is not the audited statement: the theorem has one free variable and unbounded parameter count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dreier–Mählmann–Toruńczyk abstract: a bound |U|^O(1) for fixed-length tuples and fixed quantifier rank in its general setting.",
+          "The orthant and linear-extension records count shattered supports or their dimension, rather than all joint predecessor/successor signatures."
+        ],
+        "reasoning": "A polynomial growth bound or a shattering statistic does not determine the sharp subtype count and witness. No inspected abstract or indexed theorem states a stronger result with the requisite reduct and exact count.",
+        "searches": [
+          "arXiv:2610.20937",
+          "arXiv:2611.08143",
+          "Resultary anchored orthant shattering 5eb83aecf933 and linear-extension comparison shattering aed8bda32d56"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source and supporting verification",
+        "Resultary 58f5310e00c3, ee696f008d98, 6dda30d48830, 5eb83aecf933, aed8bda32d56, fde0938143fa",
+        "arXiv:2610.20937 and arXiv:2611.08143 first-page extracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Simon finding gives 2(m+1)^2−1 complete 1-types in a Fraïssé limit with two named orders and an additional monotone relation.",
+          "The insertion-cut capacity supplies a naive bound but cannot yield the sharper reduct count without analyzing collisions and joint realization."
+        ],
+        "reasoning": "A bound attained in a richer language over a different homogeneous object does not determine its reduct, much less the extremum across finite dimension-two posets. The audited forest argument and simultaneous witness provide those missing steps.",
+        "searches": [
+          "Resultary exact quadratic complete types, Simon monotone two-order limit ee696f008d98",
+          "Resultary 58f5310e00c3 specialization q=2,s=0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The named-order capacity formula specializes to m+(m+1)^2 when q=2 and s=0.",
+          "The permutation-graph finding uses P_i symmetric-difference Q_j, with sharp m^2−1 neighborhood count for simple marked permutations."
+        ],
+        "reasoning": "The named-order structure distinguishes every pair of prefixes. The pure poset forgets which order gave each disagreement, but distinguishes both comparable directions. Binary open-neighborhood traces forget those directions and merge the corresponding data, so their bound does not transfer.",
+        "searches": [
+          "Resultary: two-order atomic one-point capacity; permutation insertion and sign patterns; pure order reduct",
+          "Resultary 58f5310e00c3 and 6dda30d48830"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1a8f728107da is the exact audited record, not independent coverage.",
+          "The random-poset antichain entry counts 2^(m+1)−1 complete nonalgebraic types."
+        ],
+        "reasoning": "Unrestricted generic-poset one-point extensions need not fit in a single dimension-two model; the two counts measure different structures.",
+        "searches": [
+          "Resultary exact pure-poset one-type count (m+1)^2 and m^2+m+1",
+          "Resultary finite-parameter random-poset type counts fde0938143fa"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the joint named predecessor/successor signature count in the pure finite poset reduct. The closest named-order and permutation-graph statements count different data, and the general type bounds do not supply the loss of exactly m at the optimum or its simultaneous antichain realization. No claim of historical priority is made.",
+      "residual_risks": [
+        "Primary full-text passages behind the permutation-graph numerical result and broader type bounds were not fully inspected.",
+        "Unindexed geometric or permutation-poset counting equivalents cannot be excluded; same-day catalog dates do not settle order of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Named-order expansion, not the poset intersection reduct.",
+          "evidence": [
+            "m+(m+1)^q+2sm; q=2,s=0 gives m+(m+1)^2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-atomic-one-point-capacity-and-saturation-threshold-for-fin--58f5310e00c3",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp atomic one-point capacity and saturation threshold",
+          "trigger": "Same insertion coordinates and exact type invariant"
+        },
+        {
+          "assessment": "Complete types in a fixed richer-language limit, not pure finite-poset atomic types.",
+          "evidence": [
+            "2(m+1)^2−1 over every marked base; extra monotone relation."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-quadratic-1-type-profile-of-simon-s-monotone-two-order-fra--ee696f008d98",
+          "material_read": "Finding and proof comparison",
+          "method": "Resultary and local mirror",
+          "title": "Exact quadratic 1-type profile of Simon’s monotone two-order Fraïssé limit",
+          "trigger": "Sharp type count with two orders"
+        },
+        {
+          "assessment": "Binary symmetric-difference signatures; underlying cited prior sources for that bound not recovered.",
+          "evidence": [
+            "X_ij=P_i symmetric-difference Q_j and m^2−1 sharp for simple marked permutations (m>=4)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-simple-permutation-rigidity-of-extremal-external-neighbourhood-p--6dda30d48830",
+          "material_read": "Finding and its attribution of the numerical bound",
+          "method": "Resultary and local mirror",
+          "title": "Simple-permutation rigidity of extremal external neighbourhood patterns",
+          "trigger": "One-point permutation insertion traces"
+        },
+        {
+          "assessment": "The inspected statement concerns finite satisfiability in an expanded signature, not this extremal count.",
+          "evidence": [
+            "FO² with named linear orders, successors and auxiliary predicates."
+          ],
+          "identifier_or_url": "arXiv:2610.20937",
+          "material_read": "Primary PDF p. 1 abstract",
+          "method": "Primary first-page extract; further OA passage retrieval unsuccessful",
+          "title": "Two Variables and Two-Dimensional Structures",
+          "trigger": "Two-order representation and finite structures"
+        },
+        {
+          "assessment": "The available type-growth theorem gives a general polynomial order, not the requested exact extremum.",
+          "evidence": [
+            "Fixed tuple length and quantifier rank with |U|^O(1) bound."
+          ],
+          "identifier_or_url": "arXiv:2611.08143",
+          "material_read": "Primary p. 1 abstract and contents locator §6 (p. 26)",
+          "method": "Primary first-page extract; full §6 not recovered",
+          "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+          "trigger": "Broader finite-parameter type bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact one-variable type-growth invariant for a standard finite order class, with a proof of the precise penalty from forgetting the named orders and a simultaneous minimum-size antichain realization. Neither the general growth order nor an arbitrary small-size census explains that penalty or witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

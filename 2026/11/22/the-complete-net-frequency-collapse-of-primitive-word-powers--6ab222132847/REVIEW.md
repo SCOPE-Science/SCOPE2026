@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The proof establishes distinct cyclic phase classes, excludes all factors shorter than a period by repeated one-letter extensions, and partitions longer occurrences into periodic phase classes. The only surviving phase class comprises the two endpoint occurrences of the maximal proper period power. The square example demonstrates sharpness. Two independently implemented brute-force/phase-based test programs pass all recorded parameter families. Finite results support but do not replace the all-length argument.
+## correctness
 
-**Originality (O): PASS on inspected evidence, with an explicit residual risk.** Closest comparisons: the Guo–Kishi 2025 Fibonacci/Thue–Morse net counts, the Kimura–I 2026 generic NSMR/net-frequency algorithms and less-than-\(2r\) bound, and the Faro–Pavone 2026 regular epistandard count dichotomy. None of the inspected full-text propositions or accessible 2026 abstract establishes this universal primitive-power net-frequency spectrum with the exact occurrence positions and sharp threshold. Semantically searched published-finding corpus for all central aliases; closest indexed findings were marked-square d-bonacci, Abelian factor spectrum of periodic powers, and scattered repetition lengths, not the same invariant. The full Faro–Pavone preprint was inaccessible, as was a university institutional retrieval route; its abstract is not treated as whole-document proof of noncoverage. Older NSMR/largest-maximal-repeat literature could contain an unindexed equivalent.
+PASS
 
-**Value (V): PASS.** A natural complete classification and sharp exponent threshold for a standard stringological repeat statistic, uniform across all finite alphabets and all primitive periods. The exact values for every possible factor and both positions are a structural result distinct from generic algorithmic enumeration. The primitive-square counterexample shows a genuine boundary and makes the rule reusable in periodic sequence analysis.
+Under the stated convention a repeated occurrence is net iff both available one-letter extensions are unique, treating missing boundary extensions as unique. If p is the primitive-root length, equality of two cyclic rotations would give a proper cyclic period dividing p. Hence long factors can occur at only one phase. All occurring strings of length at most p repeat at starts r and r+p for some r<p, within the first 3p positions; this excludes net occurrences of lengths below p. For length at least p an occurrence class at positive phase has at least two identical left extensions whenever repeated. At phase zero with at least three occurrences, all positive starts have repeated left extensions, and the zero start's right extension repeats at p. With just starts 0 and p, the positive start is the only possible source of its left extension. The zero start's right extension then occurs only once precisely when the second occurrence runs to the right boundary; otherwise both right extensions repeat. This gives exactly the two occurrences of v^(e-1), including p=1. Independently, /workspace/audit-replay/2.py used forward and reverse longest common prefixes of suffix pairs to derive net intervals from equal longest-repeat lengths on both sides. Output 2.txt records 9332 primitive-power cases at exponents 3,4,5,7 (binary roots through length 9, ternary through 6, four-symbol through 4) and the four asserted square intervals. The tests corroborate rather than replace the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass on the uniform primitive-power law specifying both the unique factor with positive net frequency and both exact positions, together with the exponent-two boundary. Generic net-frequency algorithms and results for restricted morphic families do not furnish that closed classification in the compared statements. External full-text access was limited, in particular for the most plausible adjacent epistandard work.
+
+## value
+
+PASS
+
+Periodic powers are a natural canonical test family for context-sensitive repeats. The result removes every other possible occurrence and gives factor and positions uniformly in the period, alphabet and exponent, which is stronger than a bound or a finite catalog. The square witness distinguishes a genuine sharp structural threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

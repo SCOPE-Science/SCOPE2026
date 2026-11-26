@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:26:04.888717Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; check_bounds.py and check_adjacency.py inspected, not executed",
+        "Final repairs/2/RESULT.md, SLOGAN.txt, VERIFICATION.md and REVIEW.md",
+        "Independent finite exclusion replay: node /workspace/branches/replay-2.js"
+      ],
+      "rationale": "The frozen numerical claims were true, but three were already tabulated. Re-audited repair: the two overlaps plus the vertex itself give R_b union K_a union own membership, even for diagonal words. With fewer than q sensors, two empty rows require at least one sensor for each of q disjoint paired vertices, and the column argument is symmetric. Thus there would be one empty row r and one empty column c, and singletons otherwise. Domination forces (c,r), so c differs from r. Another sensor (i,j) then gives identical singleton signatures at (j,r) and (c,i): their own membership is excluded by the occupied column r and row c respectively. This proves the lower bound; a separate incidence count using at most |C| singletons and at most 2q signatures per sensor also gives q by rounding. Direct recalculation gave all three published template masks and no collisions over 4895 vertices for q=3,...,24. The proof for all q is not an extrapolation: with two blocks, both nonempty supports recover the blocks, the ordered case is injective by disjoint rows/columns, and the reversed order would force row-column equality in a triple, impossible. Counting the pairs yields q+floor(q/3) in all residues; generating each pair in the chosen labeling is unit word work. A separate exact neighborhood/difference hitting-set enumeration found no size-q codes among 84, 1820 and 53130 codes respectively and found size-(q+1) codes in each case. This corroborates prior table entries, not new minima.",
+      "residual_risks": [
+        "The algorithmic bound counts operations on label words, not writing each bit of the labels. Finite checks do not determine an exact formula at larger q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horan proves identifiability for d>=3 and n>=2t, which includes the exact graph and radius, but poses efficient construction and minimum cardinality as further work. The directed paper gives a bound d^(n-1)(d-1) for directional signatures."
+        ],
+        "reasoning": "Existence in a broader regime does not give the code-size guarantee; a directed bound on a different neighborhood system cannot serve as the claimed undirected guarantee.",
+        "searches": [
+          "Horan arXiv:1508.00403v1, Theorem 2.1 and §4",
+          "Boutin–Horan Goliber–Pelto arXiv:1412.5842, §3 and Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Horan–Adachi–Bak arXiv:1504.08011v2",
+        "Horan arXiv:1508.00403v1",
+        "Boutin–Horan Goliber–Pelto arXiv:1412.5842",
+        "Resultary 699d5268ac70, 380a4a48c0b5 and 28d4aa60f087",
+        "Focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite optimal cardinalities for blocks do not imply that their union identifies cross-block vertices. One needs nonempty row/column supports, and a non-equality of row versus column support preventing reversal between blocks. The explicit triple and disjoint-support argument establish those additional properties."
+        ],
+        "reasoning": "A finite solver output or the general existence theorem does not supply the composition lemma. Once the constructive bound is established, the approximation factor itself follows routinely from the baseline.",
+        "searches": [
+          "Horan–Adachi–Bak arXiv:1504.08011v2, SMT method and Figure 9",
+          "Horan arXiv:1508.00403v1, §4",
+          "Resultary closest neighboring census and Kautz findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent formulation is a subset of ordered pairs hitting every closed ball and every symmetric difference of two closed balls; Horan–Adachi–Bak use precisely the same undirected closed balls. Directed balls keep only one overlap direction; locating-dominating separation, if restricted to vertices outside the selected set, is also weaker."
+        ],
+        "reasoning": "The prior computational table is for the identical parameter, not a nearby one. Directed de Bruijn and Kautz variants do not have the same neighborhoods or vertex set.",
+        "searches": [
+          "Resultary: undirected length-two de Bruijn closed-neighborhood identifying code and sensor minimum",
+          "Primary literature lookup for minimum identifying codes of undirected B(d,2)",
+          "Horan–Adachi–Bak arXiv:1504.08011v2, definition p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 9 reports unparenthesized minima 4,5,6,8,9 at q=3,...,7 for word length two; q=8 has a parenthesized size-ten witness and is not certified minimum. Resultary 699d5268ac70 is ternary length three (unrestricted minimum 9); 380a4a48c0b5 omits diagonal words (Kautz); 28d4aa60f087 is binary length five."
+        ],
+        "reasoning": "The table decisively covers the frozen small cases, and validates some benchmark values at larger q, but cannot establish the claimed construction or bound for all q. The other exact catalogue results use genuinely different graphs or parameters.",
+        "searches": [
+          "Horan–Adachi–Bak arXiv:1504.08011v2, Figures 8–9 and caveat about parentheses",
+          "Resultary exact identifying-code records 699d5268ac70, 380a4a48c0b5 and 28d4aa60f087"
+        ]
+      },
+      "rationale": "Frozen originality FAIL in part: the unsupported treatment of gamma(3)=4, gamma(4)=5, gamma(5)=6 as sharp new cases contradicts the original Horan–Adachi–Bak tables. The repaired claim removes these from the Finding and names them as prior benchmarks only. The counting lower bound is baseline, not a novelty claim. The surviving claim is the uniform family with a linear-time code of size q+floor(q/3) and its resulting explicit 4/3 guarantee. No inspected exact source states or mechanically implies this construction or guarantee.",
+      "residual_risks": [
+        "The exact coverage of the removed minima is established. Priority of the remaining uniform construction is a bounded judgment; an unindexed equivalent ordered-pair construction is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the small values; finite, not uniform construction",
+          "evidence": "Figure 9 gives unparenthesized 4,5,6,8,9 for B(3,2) through B(7,2), and parenthesized (10) at B(8,2).",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.08011v2",
+          "material_read": "Graph and closed-ball definitions p. 2 (offset 2900); Figures 8–9 and the SMT explanation of parentheses (offsets 43000, 48000, 50300)",
+          "method": "OA original PDF passages",
+          "title": "A Comparison of Approaches for Finding Minimum Identifying Codes on Graphs",
+          "trigger": "Same graph and likely exact minimum table"
+        },
+        {
+          "assessment": "Existence and open construction question, not the repaired bound",
+          "evidence": "Existence at d>=3, n>=2t; asks for minimum size and efficient constructions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.00403v1",
+          "material_read": "Theorem 2.1, beginning at offset 0; Future Work p. 16 near offset 38000",
+          "method": "OA original PDF passages",
+          "title": "On the Existence of t-Identifying Codes in Undirected De Bruijn Graphs",
+          "trigger": "Possibly stronger undirected theorem"
+        },
+        {
+          "assessment": "Different neighborhood system",
+          "evidence": "Uses directed-distance balls for its lower bound, not undirected closed balls.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.5842",
+          "material_read": "§3 directional signature definition and Theorem 3.5, near offset 14000",
+          "method": "OA original PDF passages",
+          "title": "Identifying Codes on Directed De Bruijn Graphs",
+          "trigger": "Similar family with exact bounds"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "The Kautz vertex set discards diagonal words; its exact minima are not bounds for the same identification problem.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-minimum-identifying-codes-of-the-undirected-length-two-kau--380a4a48c0b5",
+          "material_read": "Finding and graph definition",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimum identifying codes of the undirected length-two Kautz graphs",
+          "trigger": "Near match in word length and finite optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Final repairs/2/RESULT.md proof and discussion",
+        "Horan arXiv:1508.00403v1, §4 question on efficient construction",
+        "Horan–Adachi–Bak arXiv:1504.08011v2, finite-computation comparison"
+      ],
+      "rationale": "The repaired result supplies a scalable explicit design for the undirected problem that Horan identified, selecting O(q) vertices in a q^2-vertex graph with a guaranteed ratio to optimum. It is the cross-block separation enabling a simple code listing without a graph-size solver that adds value beyond computing familiar small optima. The known minima are only context and finite checks.",
+      "residual_risks": [
+        "No real-world fault model or exact optimum at arbitrary q is claimed; the approximation bound may be improvable."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

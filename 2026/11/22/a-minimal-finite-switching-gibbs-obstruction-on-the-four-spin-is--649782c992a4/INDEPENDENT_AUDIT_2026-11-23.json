@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:37:57.474013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt the spin-flip quotient by enumerating each of the 16 configurations per bath and checking agreement of total rates to each target orbit within each source orbit. The multiplicities are 2, 8, 4, 2 and the summed C equation is 2B-4C=0. Independently solved the normalized joint quotient using exact polynomial-domain elimination (multiply by u=e^(2 beta) to clear denominators, replace one row with normalization); both B and the mean-energy rational forms agree. Clearing D^2 gives exactly 4(gamma+2)(w^2-4)H for the defect, with all coefficients of D and H positive on the stated domain. As a replay point (u,gamma)=(2,1) gives (A,B,C,F)=(1828,3334,1667,514)/7343. The two Gibbs gap estimates differ by one quarter of log(1+Delta/B^2); the leading terms of H and D give Delta/B^2=2(w-2)/gamma+O(gamma^-2). The limiting averaged generator has up/down ratio 1/u at a +4 energy gap, hence inverse temperature beta/2. On C3, the total flux out of aligned configurations is strictly less than 3 A3 and the reverse flux is strictly greater than F3 because both cold-bath orbit masses are positive. Thus 3 A3>F3 and the positive per-state weight ratio defines the single Gibbs temperature. Applies only to simple cycles with the specified flip law and fixed beta for the expansion. The attached checker was inspected, not executed; the exact elimination above was independent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dutta et al. study dichotomous global temperature on a periodic square lattice and numerically assess a Boltzmann-like fast-switching stationary law. The parameter protocol is centered at a critical temperature rather than this exact finite hot-bath boundary.",
+          "A spatially assigned periodic bath model does not have the joint generator here."
+        ],
+        "reasoning": "A numerical or perturbative effective-temperature comparison, or a factorization result in a spatial-bath model, does not imply strict finite-rate curvature for a globally switching simple cycle.",
+        "searches": [
+          "Dutta, Sarkar and Basu, arXiv:2509.00494",
+          "Resultary hits: spatially periodic three-temperature Glauber chain; finite four-cycle switching-rate reversal"
+        ]
+      },
+      "checked_sources": [
+        "Prior exact four-spin plaquette RESULT.md and verify.py (Resultary)",
+        "Dutta–Sarkar–Basu, arXiv:2509.00494",
+        "Resultary indexed related spatial two-temperature and nonreciprocal kinetic Ising models (statement-level comparisons only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean energy fixes F-A, and C=B/2 fixes A+F=1-3B/2; B remains undetermined by the scalar energy.",
+          "The common generator supplies the linear system, but obtaining the additional orbit weight and a sign certificate over the entire open parameter rectangle, rather than evaluating the stationary vector at given parameters, is necessary."
+        ],
+        "reasoning": "With the same mean one can vary B within the symmetric orbit simplex, changing the defect. The quantity needed does not follow from the predecessor's scalar theorem or its finite diagnostics.",
+        "searches": [
+          "Compare the prior four-cycle denominator, mean-energy formula, orbit generator and energy-test code against the frozen 16AF-B^2 formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Given C=B/2, canonicality is equivalent to 16AF=B^2, i.e. zero discrete curvature of log per-configuration energy weights; unequal apparent inverse temperatures are the same obstruction.",
+          "The prior exact four-cycle RESULT gives the mean and analyzes its extrema in gamma, not this curvature or either individual gap estimator."
+        ],
+        "reasoning": "Looked for the same condition as noncanonical stationary level populations, effective-temperature disagreement, or nonzero adjacent-gap curvature. The closest record treats the first moment rather than the three populations.",
+        "searches": [
+          "Resultary: four spin Ising cycle globally switching temperature hot infinite temperature exact stationary Gibbs obstruction finite switching rate triangle",
+          "Primary literature: two-temperature randomly switching global bath temporal disorder four spin Ising ring Arrhenius exponential rate stationary distribution non Gibbs finite size Dichotomous temperature fluctuating exact Ising plaquette"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact predecessor energy formula and generator agree; its checker solves for stationarity at rational points and returns only the energy to its tests.",
+          "No symbolic all-parameter orbit-mass table or defect sign test appears in the inspected record or checker."
+        ],
+        "reasoning": "This is the closest exact same-model source; the new positive polynomial is not the earlier exact energy or derivative polynomial under a change of notation.",
+        "searches": [
+          "Resultary: Sharp switching-rate reversal on a four-spin Ising plaquette",
+          "That record's RESULT.md and verify.py in the local public mirror"
+        ]
+      },
+      "rationale": "Credit the global bath protocol, the exact four-cycle generator, and the mean-energy law to prior work. The distinct increment is the all-finite-rate strict obstruction for the full marginal, its sharp mismatch coefficient, and the triangle-versus-square boundary, not the existence of an effective fast-switching temperature or mean-energy nonmonotonicity.",
+      "residual_risks": [
+        "A general exact stationary law or sign theorem for independently switched Arrhenius spins outside inspected/open sources could subsume the increment.",
+        "The advance is narrow because the exact same finite model and its mean were known; priority for those is explicitly excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for M(t), Q, D and the mean, not for the all-positive-parameter Gibbs obstruction.",
+          "evidence": [
+            "quotient_energy returns -4 times the aligned mass plus 4 times the alternating mass; test tests this and the derivative.",
+            "The result classifies the maximum of mean energy, not the sign of 16AF-B^2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-switching-rate-reversal-on-a-four-spin-ising-plaquette--b8870460e67a",
+          "material_read": "RESULT Finding, orbit reduction, derivative thresholds, verification and limitations; verify.py quotient_energy, full_energy, formula and test",
+          "method": "Public local mirror, text and source inspection only",
+          "title": "Sharp switching-rate reversal on a four-spin Ising plaquette",
+          "trigger": "Identical Hamiltonian, quotient and exact mean; plausible prior stationary solution"
+        },
+        {
+          "assessment": "Related physical phenomenon and protocol, not an exact simple-cycle finite-switching probability inequality.",
+          "evidence": [
+            "Study uses a periodic N=L by L square lattice, temperatures Tc plus or minus delta, and constant switching rate gamma.",
+            "Its abstract describes Boltzmann-like behavior at large gamma and a persistent nonequilibrium energy current; those are distinguishable from Gibbs form of the spin marginal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.00494",
+          "material_read": "Abstract, introduction, model description, transition-rate formula and response discussion including the fast-switching prediction",
+          "method": "Open primary HTML",
+          "title": "Stochastic Two-temperature Nonequilibrium Ising model",
+          "trigger": "Original global telegraph-temperature protocol and effective temperature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first cycle with three energy levels supplies a minimal test of whether a single fitted temperature describes the whole stationary marginal. Persistent failure is not implied by nonequilibrium currents or nonmonotonic mean energy. The exact sign and 1/gamma discrepancy quantify both the failure and its approach to an equilibrium-looking limit in an appropriate benchmark. No infinite-volume non-Gibbs claim is warranted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

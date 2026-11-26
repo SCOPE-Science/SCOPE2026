@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns all even integers \(2n\ge26\) and squarefree supports with at most two noncolliding prime factors. Salazar's published Theorem 4.9 gives the two necessary inequalities for a vanishing support; for \(k\le2\) they imply \(c\le3\) and \(n\le924\). The enrichment argument justifies taking \(c\) to be the full number of prime divisors \(\ge5\) of \(n\), and the exact prime-cover equivalence reduces *every* allowed support to a pair of masks with primes at most \(2n\). The standalone verifier exhausts all 207 remaining inputs, independently recomputes the certificate, and directly checks the five witnesses. The infinite assertion is conditional only on the cited established lemma, not on numerical extrapolation. Risk: this review does not independently reprove the analytic cutoff in the primary paper.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The most relevant preceding text, Salazar (2026), defines \(J(k)\), proves lower/upper global estimates, and supplies the needed necessary restrictions, but does not report the exact \(k=2\) vanishing spectrum. The September 2026 predecessor gives exact CRT counts for fixed supports rather than this support-budget extremum. Searches for the five-element spectrum, the endpoint 46, and two-noncolliding-factor aliases did not find an exact equivalent in the available research index or literature. The unrelated two-prime residue-covering result concerns reduced residue products modulo a fixed modulus and does not imply the present symmetric-summand prime-cover statement. Risk: unindexed or unpublished exhaustive computations and overlooked implications of general sieve/covering results could precede this calculation.
+PASS
 
-## Value — PASS
-The exact value of \(J(2)\), a named invariant in the motivating manuscript, and the complete set of first small-support zero instances sharpen an asymptotic structural theorem at its smallest nontrivial parameter. Knowing only the published growth bounds does not determine the endpoint or the five finite exceptions. The certificate is bounded by a motivated theorem, uses the natural number of noncolliding factors rather than an arbitrary numeric cutoff, and separates genuine two-prime annihilation from the impossible one-prime cases.
+Salazar arXiv:2611.10059v1, PDF p. 11, Theorem 4.9, has the stated hypotheses and strict inequalities. For k≤2 they imply c≤3 and the four strict thresholds 58,155,387,925. Adding every prime divisor ≥5 of n preserves both zero and k, so these thresholds apply with c=ω of the enriched colliding support. The survivors are precisely the h with gcd(h(2n−h),6n)=1. Each remaining noncolliding prime removes exactly two residue classes and no prime ≥2n can remove a survivor; hence the finite set-union cover test is equivalent in both directions, including zero and one prime. An independent argument and exact replay also certify the spectrum without importing the cutoff: pad to two noncolliding primes, and take one admissible progression mod 6 of length L≥floor(n/6). CRT inclusion–exclusion on this progression gives a survivor count at least Lδ−(9·2^c−1), where δ is the product of 1−1/p over colliding primes and 1−2/p over the other two. Order the c+2 primes with p_i≥2i+3: the density is minimized by assigning the two larger exclusions to the two smallest primes, so δ≥D_c=(3/7) product_{i=3}^{c+2} (2i+2)/(2i+3). A zero has n<F_c=6((9·2^c−1)/D_c+1). For c=4, n≥5·7·9·11>F_4=184425/64; each extra colliding prime increases the product lower bound by at least 13, while F_c grows by a factor less than 6, ruling out all c≥4. For c≤3 the four cutoffs are 118,1095/4,4899/8,214173/160. Independent replay: python3 /workspace/audit_evidence/prime_cover.py /workspace/source/2026/11/22/*1694014ba029/small_support_certificate.csv. It scanned 13,192,162,21 candidates by c, verified all 207 certificate rows (minimum and validity of the stated minimizing pair), and found only 26,28,34,40,46. Their (base size, max one-prime coverage) pairs are (2,1) for the first four and (3,2) for the last. Direct gcd tests verify the five displayed squarefree products and exactly two noncolliding factors each. This proves J(0)=J(1)=0 and J(2)=46 in the n≥13 domain. The frozen verifier was read, not executed. The inspected source for the imported theorem is a public preprint; journal status was not asserted by this review.
 
-## Limits and closest literature
-The method provides no classification for support budget three or more, no count of every witnessing support, and relies on the cited published analytic cutoff. Independent audit has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact noncolliding-budget-two classification and the first nonzero sharp endpoint extend the inspected statements. The necessary global inequalities and the CRT counting framework are prior, not part of the supported distinct claim. Neither gives the exact endpoint and exceptional set without resolving the finite cover problem, and the inspected prior tables do not do so.
+
+## value
+
+PASS
+
+J(k) was an existing sharp extremal invariant with noncolliding support as the parameter. The theorem resolves its first budget at which a zero is possible, proves that one noncolliding prime can never suffice in the specified domain, and records all exceptions at budget two, not merely the largest or an isolated witness. An exact finite reduction and census are useful here because neither broad positivity criteria nor upper bounds can answer these sharp first-case questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

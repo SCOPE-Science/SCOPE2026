@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:43.430017Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The causal response solves R=1+F*R for uniform interarrival law F on [0,τ]. The two affine barriers are Volterra sub- and supersolutions; local factorial convergence justifies comparison, and R(0)=1 gives sharpness. Independently, Wald's identity gives R(t)=2(t+E[overshoot])/τ, and conditional on the gap before the crossing the crossing increment is uniform on the permitted terminal subinterval, so the conditional mean overshoot is no larger than τ/2. The nonarithmetic key renewal theorem applied to g(t)=E[(U−t)_+] gives mean overshoot limit ∫g/E[U]=τ/3, hence response offset 2/3. Itô covariance and the barrier give precisely 4Dst/τ+2Ds and the variance coefficients. Under Brownian scaling the shared-noise kernel difference is e(Tv)/T with 0≤e≤1; the isometry and dominated convergence give 2Dt/T² and the limiting coefficient 8Dt/9 at fixed τ. For tightness, the response equation and barrier already give |R′(t)|≤3/τ for t>τ, and R=e^{t/τ} before τ, so the scaled kernels are uniformly Lipschitz. Splitting the old and fresh noise gives variance increments O(|t−s|) and Gaussian fourth moments O(|t−s|²). The finite method-of-steps checker in checks/verify.py was located and inspected, not run. No path-supremum L² estimate or nonlinear result follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lototsky's renewal notes pp. 1–2 give the initial-renewal convention and the renewal law. Generic Lorden overshoot alone gives +4/3, whereas conditioning on the crossing uniform increment sharpens it to +1.",
+          "Lingala–Namachchivaya treat an oscillatory critical pair with small noise, not a double root at zero with exact additive-noise covariance. Mackey–Nechaeva full text was not available on the attempted lawful routes."
+        ],
+        "reasoning": "Uniform renewal explains the deterministic estimates; the oscillatory averaging result is not a dominating theorem for this kernel or these finite-time constants.",
+        "searches": [
+          "uniform renewal function excess 2/3 overshoot",
+          "arXiv:1311.4532v3",
+          "Mackey Nechaeva stochastic differential delay DOI 10.1103/PhysRevE.52.3366"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checks/verify.py",
+        "arXiv:2210.03182v1",
+        "arXiv:2408.03316v1",
+        "arXiv:1311.4532v3",
+        "Lototsky renewal notes",
+        "Resultary 8f425ebe8d3d",
+        "APS and Math.SE retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wald and the uniform crossing calculation already imply the response envelope including sharpness at zero; the known renewal offset fixes the subleading coefficient once the stochastic variance is evaluated.",
+          "The physically normalized two-time covariance error and coupling are obtained by analyzing the transient kernel product and rescaling the stochastic convolution; the path limit additionally needs process-level control, not just the variance coefficient."
+        ],
+        "reasoning": "The deterministic ingredient and routine isometry are not credited as new. No inspected general result gives both the transient comparison and the quantitative path scaling merely by matching parameters.",
+        "searches": [
+          "arXiv:2408.03316v1 §§III.1–III.1.1",
+          "Lototsky A Summary of Renewal Theory pp. 1–2",
+          "Math.SE question 4106814, uniform renewal excess"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kopp–Klapp Eqs./threshold discussion in arXiv:2210.03182v1 and Sec. III.1 of arXiv:2408.03316v1 identify the same linear feedback at the balance point; their reported nonlinear MSD and linear steady-state heat analysis are not the stated zero-history stochastic positional comparison."
+        ],
+        "reasoning": "Normalize the noise as √(2D) and set the feedback coefficient to the inverse delay. The target is position, not a heat observable, and the limit is not one for the nonlinear model.",
+        "searches": [
+          "critical linear Langevin delay response 2t/τ+1",
+          "exact covariance envelope integrated Brownian limit coupling",
+          "arXiv:2210.03182v1 and arXiv:2408.03316v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest adjacent Resultary record 8f425ebe8d3d concerns cross-particle squared-energy covariance under synchronized Poisson resetting, not delayed linear position or integrated-Brownian coupling."
+        ],
+        "reasoning": "The inspected same-day result differs by process and observable; the search did not establish an exact indexed match.",
+        "searches": [
+          "Resultary: critical linear Langevin delay response 2t/τ+1; exact covariance envelope integrated Brownian limit coupling; uniform renewal excess 2/3 overshoot; Mackey Nechaeva stochastic differential delay"
+        ]
+      },
+      "rationale": "Credit the critical linear model, renewal representation, exact slope, second-order offset, and classical renewal implication of the response barrier. The supported distinct statement is the all-lag positional covariance comparison together with the continuous-path integrated-Brownian limit and quantitative shared-noise error, including its exact leading constant, for the zero-history critical linear equation. The strongest examined prior statements do not already yield that joint stochastic comparison by specialization.",
+      "residual_risks": [
+        "Full text of the broad 1995 moment-stability paper was unavailable; differently formulated critical delay scaling or a general transient result remains a priority risk.",
+        "No scientific novelty is attributed to uniform renewal or to the deterministic slope, offset or barrier in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and threshold prior, not the claimed positional bounds",
+          "evidence": "Deterministic threshold and numerical full-model MSD are the focus of the compared passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03182v1",
+          "material_read": "Primary text abstract and threshold/small-displacement passage, HTML offsets 0 and 18372",
+          "method": "Lawful arXiv text",
+          "title": "Persistent motion of a Brownian particle subject to repulsive feedback with time delay",
+          "trigger": "Same nonlinear feedback and critical threshold"
+        },
+        {
+          "assessment": "Identifies marginality, not a quantitative zero-history position limit",
+          "evidence": "Critically balanced case is nonstationary; the compared derivation concerns heat.",
+          "identifier_or_url": "https://arxiv.org/html/2408.03316v1",
+          "material_read": "Sections III.1–III.1.1, offsets 17000 and 20800",
+          "method": "Lawful arXiv HTML",
+          "title": "Heat production in a stochastic system with nonlinear time-delayed feedback",
+          "trigger": "Same marginal linearized stochastic equation"
+        },
+        {
+          "assessment": "Same renewal identities and first-order scaling; those pages do not establish the cited second-order passage",
+          "evidence": "Initial-renewal convention and rate inverse to mean interarrival.",
+          "identifier_or_url": "https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2023/06/RenewalTheory-summary.pdf",
+          "material_read": "pp. 1–2",
+          "method": "Lawful primary notes PDF",
+          "title": "A Summary of Renewal Theory",
+          "trigger": "Potential general renewal implications"
+        },
+        {
+          "assessment": "Different spectral and scaling regime",
+          "evidence": "Critical nonzero imaginary pair rather than critical double zero.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.4532v3",
+          "material_read": "pp. 1–2, spectral assumptions and scope",
+          "method": "Lawful arXiv PDF",
+          "title": "Nonlinear and additive white noise perturbations of linear delay differential equations at the verge of instability",
+          "trigger": "Broader critical stochastic delay limit"
+        },
+        {
+          "assessment": "Full-text implications unresolved",
+          "evidence": "Full text not retrieved.",
+          "identifier_or_url": "10.1103/PhysRevE.52.3366",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful APS and alternate-copy attempt",
+          "title": "Solution moment stability in stochastic differential delay equations",
+          "trigger": "Possible general moment theorem"
+        },
+        {
+          "assessment": "No full-text priority inference; offset checked independently by the key renewal theorem",
+          "evidence": "No readable passage returned.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/4106814",
+          "material_read": "Identification only",
+          "method": "Lawful site and StackPrinter attempts",
+          "title": "First principles proof of the limit of the expected excess of the uniform renewal function",
+          "trigger": "Same deterministic offset cited in source"
+        },
+        {
+          "assessment": "Different model and observable",
+          "evidence": "Poisson resetting and squared-energy covariance rather than delayed positional response.",
+          "identifier_or_url": "Resultary 8f425ebe8d3d",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local published mirror",
+          "title": "A critical time-resolved correlation crossover under synchronized resetting",
+          "trigger": "Closest adjacent indexed stochastic covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the actual feedback threshold the ordinary diffusive scale is no longer informative. The joint bounds supply a usable benchmark at every lag and a precise continuous-path scaling with finite-scale error and a sharp constant for the specified coupling. This is a quantitative result about a natural critical process rather than significance attributed to rederiving a deterministic renewal formula or extrapolating the full nonlinear dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

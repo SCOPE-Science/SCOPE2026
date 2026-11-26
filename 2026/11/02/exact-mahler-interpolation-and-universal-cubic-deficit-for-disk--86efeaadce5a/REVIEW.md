@@ -1,15 +1,21 @@
-# Scientific review: disk-clipped regular-polygon Mahler interpolation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sector decomposition is derived directly from the polygon radial function and the polar identity \((A\cap B)^\circ=\operatorname{conv}(A^\circ\cup B^\circ)\) for convex bodies containing the origin. The area factors in the product cancel exactly. Differentiation gives a negative derivative across \(0<\beta<\pi/n\); the potentially positive \(\tan^2\beta-1\) term is controlled on \([\pi/4,\pi/3]\). Separate Taylor expansions establish both endpoint orders and the uniform cubic large-polygon limit. A standard-library checker passed 417 numerical comparisons of independently constructed areas and asymptotics. Principal risk: approximation in the numerical checker; not needed for the symbolic proof.
+PASS
 
-## Originality — PASS (self-review)
+Uniqueness and the nontrivial rotational symmetry place the Santaló point at the origin. On a facet half-sector [0,alpha], the radial function is min(sec(theta),r); integrating its square gives the stated primal area. Independently, the support function is r cos(beta-theta) for 0<=theta<=beta (maximizer the side/arc junction), and r for beta<=theta<=alpha (the radial disk point is feasible). The polar radial function is its reciprocal, giving polar area n cos^2(beta)[tan(beta)+alpha-beta], including the endpoint geometries. Multiplying proves the formula and endpoint values. Differentiating the dimensionless product yields sin^2(beta)[(alpha-beta)(tan^2(beta)-1)-tan(beta)]. The bracket is negative for 0<beta<=pi/4; above pi/4 it is at most pi/6-1<0 using alpha<=pi/3. At the disk end the leading loss is n^2 alpha beta^3/3 with error O_n(beta^5), and beta^2=2(r-1)+O((r-1)^2). At the polygon end the chain rule gives derivative -n^2 sin^2(alpha) cos(alpha), with a quadratic remainder by analyticity. With beta=t alpha, expanding sin(beta)cos(beta) and tan(beta) through degree five gives normalized product 1-(t^3/3)alpha^2+(4t^5/15-2t^6/9)alpha^4+O(alpha^6) after dividing by pi^2. The remainders are uniform because |t|<=1. Dividing the deficit by its t=1 value gives the claimed correction and uniform O(n^-4). Independent reciprocal-support quadrature (`python3 /workspace/audit-evidence/replay.py 2`) checked 25 area pairs, with primal and polar absolute errors below 5e-9 and 1.2e-9 respectively; the universal results rest on the analytical proof.
 
-The most relevant full-text source is Böröczky–Makai–Meyer–Reisner, arXiv:1507.01481, Theorem 3 and Corollary 4, which give a sharp lower bound for rotationally symmetric planar bodies. Those statements imply a lower bound and endpoint equality, but not the precise product, monotonic ordering of radii, or universal deficit profile. Meyer–Reisner's 2011 polygon-extremal result is not a formula for intersections with disks. Harrell–Henrot–Lamboley's local-minimizer and functional-concavity statements are not a universal monotonicity result for this particular nested family. The closest related earlier computation for outer parallel rounding of a regular polygon uses Minkowski addition, not intersection, and cannot be identified with this family by polarity. Targeted mathematical record searches found no equivalent formula. Residual risk: possible unindexed historical computation for disk-clipped polygons.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, non-arbitrary, all-\(n\) interpolation between the extremizers in two classical planar Mahler inequalities. It quantifies the actual change in the affine-invariant volume product along a canonical geometric deformation, not only the known bounds. The nonanalytic \((r-1)^{3/2}\) disk-side onset, linear polygon-side onset, and the universal cubic many-sided profile identify structurally different regimes. No extension to other nested deformations is claimed.
+The strongest inspected nearby exact results concern outer parallel bodies or intersections of rotated polygons of common inradius. The symmetry extremal inequality controls only the polygon endpoint; the classical upper bound controls only the disk endpoint. None of these states or mechanically implies the familywise clipped-body formula, strict decrease and quantitative deficit laws. This is a bounded best-of-knowledge result, not a priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural one-parameter path connects two classical rotational extremizers. The result determines the entire volume-product change and strict direction of interpolation, not merely two known bounds. The distinct sharp endpoint orders and the uniform normalized cubic profile with the first correction quantify the distribution of the deficit across the path; that information can be used as an exact benchmark for stability and rounding comparisons. It is not a finite numerical coincidence or a parameter substitution into an inspected result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

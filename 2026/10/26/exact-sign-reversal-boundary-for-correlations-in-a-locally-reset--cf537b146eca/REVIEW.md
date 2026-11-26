@@ -1,11 +1,21 @@
-# Scientific review: Exact sign-reversal boundary for correlations in a locally reset voter chain
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary graphical construction is valid on the infinite lattice at every positive reset rate. Generator equations and the diagonal spin-square condition reduce the stationary correlation to a convolution of two explicit random-walk resolvents. Absolute convergence, the exact rational evaluation, strict monotonicity proof, and both boundary template cases were checked. The symbolic companion recomputes all critical identities; the finite checks do not replace the proof.
+## correctness
 
-**Originality — PASS (self-review only).** Grange's *Voter model under stochastic resetting* (arxiv:2207.08590; first public 2022-07-18), inspected in full relevant sections, establishes the independent-reset dynamics, kinetic equations, and independent-template domain-wall law. These are not claimed new. The new evaluated result is the anticorrelated two-state Markov-template sign-reversal threshold, its uniqueness, lower envelope, and weak-anticorrelation scaling. Linear Glauber/noisy-voter literature provides a plausible general-method overlap risk but uses different noise mechanisms. Exact implication searches did not identify a covering published theorem; this is not conclusive worldwide novelty proof.
+PASS
 
-**Value — PASS.** A spatially anticorrelated frozen memory competes against the voter copying tendency to align neighbors. The exact inversion threshold supplies a universal lower resetting-rate bound within the natural Markov-memory family, giving a discriminating domain-wall benchmark not available from the independent-template result. The crossing is a local observable, not a thermodynamic phase transition.
+The local reset clock kills each backward voter lineage at rate r; a union bound on survival back to the start gives convergence for any finite spin set and uniqueness conditional on the template. For the mixed and two-spin functions the stationary generators give (r−Δ/2)H=rC and (2r−Δ)G=2rH off the origin, with G_0=1. I independently solved the mixed recurrence for c≠q in the basis c^n,q^n and applied the odd-reflection Green kernel on the positive half-line: G_1=q+(1−q)^2 sum_{n≥1} q^(n−1)H_n. The convergent limit extends to c=q. Symbolic reduction of this independent expression (/workspace/audit_replay_5.py) gives exactly the asserted rational function, both derivatives and all three specializations c=−1,0,1. For c<0 the q-derivative is positive by the displayed positive-coefficient grouping and 7q²−3q+1>0, and the endpoints are c and 1. The c-derivative is positive on the physical domain by bounding its numerator bracket separately for 3q²≥1 and 3q²<1. Since r decreases with q, this proves a single crossing and the asserted ordering. For c≥0 coalescence before either reset has positive probability and every template pair moment is nonnegative. The cubic root gives r*=1.446156936667017074…; the implicit equation near (q,c)=(0,0) gives q=−c/2+O(c²) and the claimed asymptotic. Uniqueness of the negative c boundary refers to admissible correlations in [−1,0), not to roots of the polynomial over all real c.
 
-**Limitations and closest literature.** The primary work's kinetic equations are key inputs; a general solved quenched-preference correlation theorem in other literature could subsume the new formula and requires independent inspection. The result is stationary, annealed, one-dimensional, nearest-neighbor, positive-rate, and limited to Markov initial templates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Grange's prior work uses the same local frozen-memory protocol and supplies the kinetic framework and the independent-template stationary result. The inspected exact pair solution assumes independent spins, not the full exponential covariance family, and neither its solution nor the related global resetting models imply the strict sign-crossing theorem. The original content supported here is the evaluated correlated-template law and its unique ordered thresholds, not the resetting protocol or Green-kernel machinery.
+
+## value
+
+PASS
+
+The sign reversal quantifies when local resetting overcomes voter alignment for a natural family of spatially anticorrelated memories. The strict ordered boundaries, their sharp lower envelope and its exact checkerboard witness provide a quantitative benchmark more informative than the known i.i.d. correlation. It is a local annealed effect, not a thermodynamic phase transition or a quenched sign theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

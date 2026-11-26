@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:31:37.433263Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For intersection sizes 3, 0, 2 and 1, the O_4 distances are 0, 1, 2 and 3: a common disjoint triple exists exactly when two distinct triples have intersection 2, and for intersection 1 a length-three path exists by relabeling the example {a,b,c}–{d,e,f}–{b,c,g}–{a,d,e}. Johnson distance is 3 minus intersection size. The two metrics separate the same vertex pairs relative to each landmark, hence induce identical basis families and identical single-exchange graphs, not identical underlying graphs. Independently enumerating unions of 595-pair separation masks on every 4- and 5-subset gave 0 of 52,360 and 149,184 of 324,632 resolving, so by upward closure the dimension is 5. I generated the exchange edges as cliques of bases with a common four-subset, which counts each distinct pair at most once, and got 6,331,500 edges. Applying all 5,040 permutations on ground symbols to one unseen basis at a time gave 48 orbits and the same full orbit-size histogram. Every representative's unweighted sparse graph traversal reached all bases; the weighted eccentricity counts were 146,160 at 5 and 3,024 at 6, coming at 6 from one size-504 and one size-2,520 orbit. This proves radius 5, diameter 6, and connectivity; both specified pairs were also independently at distance 6. Private exact replay: /workspace/branches/replay/odd.py and odd.txt. The frozen C++ and Python certificates were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bailey et al. compare graph families and give the seven-vertex Fano-plane resolving construction. The frozen attribution to Peng et al. is that the exact minimum is 5; no full text or relevant table was available for inspection. The local three-subset result concerns largest nonresolving sets (threshold 21 for resolving at n=7), not minimal resolving sets."
+        ],
+        "reasoning": "Existence and dimension do not enumerate all optimum bases or imply exchange connectivity. Counting extremal nonresolving families is not dual to counting these minimum resolving families; upward closure alone gives no such inference.",
+        "searches": [
+          "Bailey et al. arXiv:1203.2660, general Odd/Johnson comparison and O_4 example",
+          "Peng et al. DOI 10.1166/jctn.2016.4951",
+          "Resultary local three-subset Kneser resolving-set results"
+        ]
+      },
+      "checked_sources": [
+        "Bailey et al. arXiv:1203.2660, pp. 3–4 and 15",
+        "Peng et al. DOI 10.1166/jctn.2016.4951, bibliographic and frozen citation only",
+        "Local Resultary searches and the Findings of the three identified same-/related-graph records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known distance correspondence changes the underlying representation, and the known cardinality fixes which candidate layer to inspect. The older Fano-plane construction gives a resolving set, not a construction of all five-bases. None of these results provides the set of legal swaps or the distance calculation."
+        ],
+        "reasoning": "There is no direct specialization or parameter substitution deriving the labelled census or metric. Exhausting candidate subsets, grouping actual moves and measuring distances supplies new exact data, including distance 6 between disjoint bases where unconstrained replacement would take five moves.",
+        "searches": [
+          "Bailey et al. arXiv:1203.2660 pp. 3–4, 15",
+          "Peng et al. DOI 10.1166/jctn.2016.4951 (cited exact minimum)",
+          "Local Finding on largest nonresolving landmarks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bailey et al. give the Johnson distance 3 minus intersection size and the Odd-graph distance rule; a Johnson resolving set resolves the Odd graph. The distance rules give the reverse implication as well."
+        ],
+        "reasoning": "Identical resolving families imply identical exchange graphs, so a prior matching count or exchange analysis phrased solely for J(7,3) would cover it. No such matching claim was found in the inspected passages. The equivalence itself is not new.",
+        "searches": [
+          "Resultary local queries for KG(7,3), O_4, J(7,3), minimum resolving sets and exchange",
+          "Bailey et al. arXiv:1203.2660, printed pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-graph records concern a Rips homology computation, a census/exchange graph of 840 four-element power-dominating sets, and an extremal nonresolving family respectively. No exact metric-basis census table was established by the inspected sources."
+        ],
+        "reasoning": "Neither the Rips complex nor sensor relocation with the power-domination predicate on four-sets represents the five-set basis exchange graph. The min-dimension citation is a residual exact-table risk because its full text was inaccessible, not evidence of overlap.",
+        "searches": [
+          "Resultary local census and parameter searches for 149184 bases, 48 orbits and metric-basis exchange",
+          "2026/10/25/SCOPE-integral-two-torsion-at-radius-two-in-the-fourth-odd-graph--e230177b16c8",
+          "2026/11/22/SCOPE-fano-antiflags-and-optimal-sensor-relocation-in-kg-7-3--f6b4a7e2e817",
+          "2026/11/22/SCOPE-largest-nonresolving-landmark-sets-in-three-subset-kneser-graphs--b7e691bfae67",
+          "Focused literature search for The Metric Dimension of Some Kneser Graphs"
+        ]
+      },
+      "rationale": "Supported for the count and orbit census of minimum bases and the complete labelled exchange-graph geometry. The minimum cardinality and the Johnson/Odd equivalence are expressly prior facts or equivalent formulations, not additional discoveries.",
+      "residual_risks": [
+        "The Peng et al. paper's primary full text and any unpublished or differently indexed exact table remain uninspected. These limitations are not evidence of coverage or proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distance and resolving-set equivalence and earlier upper-bound construction, not this census or exchange metric in the inspected passages",
+          "evidence": [
+            "Johnson distance is the subset size minus intersection size, and the Odd distance is also an injective function of intersection size.",
+            "The Fano plane supplies a seven-element resolving set in O_4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2660",
+          "material_read": "Distance rules p. 3 (around offset 6500), resolving correspondence p. 4 (10850), Fano plane in O_4 p. 15 (43350)",
+          "method": "Lawful OA primary PDF",
+          "title": "Resolving sets for Johnson and Kneser graphs",
+          "trigger": "Equivalent Johnson formulation and possible prior optimum-basis data"
+        },
+        {
+          "assessment": "Exact minimum credited as stated in the frozen citation; any further contents unresolved",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1166/jctn.2016.4951",
+          "material_read": "Bibliographic identification and frozen attribution; no verified primary full-text passage or table",
+          "method": "Lawful OA DOI route and focused search for an alternate copy; no readable copy identified",
+          "title": "The Metric Dimension of Some Kneser Graphs",
+          "trigger": "Frozen citation for dimension five, plausible exact enumeration overlap"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "It classifies integral homology of a radius-two Vietoris–Rips complex."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-integral-two-torsion-at-radius-two-in-the-fourth-odd-graph--e230177b16c8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Integral two-torsion at radius two in the fourth Odd graph",
+          "trigger": "Exact same graph and metric language"
+        },
+        {
+          "assessment": "Different optimizing predicate, layer and move graph",
+          "evidence": [
+            "It classifies 840 four-vertex minimum power-dominating sets and their jump/slide graphs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-fano-antiflags-and-optimal-sensor-relocation-in-kg-7-3--f6b4a7e2e817",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Fano antiflags and optimal sensor relocation in KG(7,3)",
+          "trigger": "Same graph and exchange of optimum sensor sets"
+        },
+        {
+          "assessment": "Maximal cardinality of failure rather than minimum resolving sets",
+          "evidence": [
+            "The universal resolving threshold is 21 at n=7; the claim concerns largest nonresolving sets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-largest-nonresolving-landmark-sets-in-three-subset-kneser-graphs--b7e691bfae67",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Largest nonresolving landmark sets in three-subset Kneser graphs",
+          "trigger": "Same resolving predicate in a broader graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an established landmark-optimization problem on the fourth Odd graph and its equivalent Johnson representation, the metric dimension says nothing about the availability or mobility of optimal landmark choices. The exact census and six-step worst-case guarantee give that information for fixed labels; the disjoint distance-six witnesses show a genuine resolving-set constraint detour beyond the five direct replacements possible without the constraint. The small ground set permits a complete, replayable analysis, including the extent and symmetry types of the exceptional eccentricity-six bases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

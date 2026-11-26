@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a fixed-perimeter, closure-compatible curvature-radius Hessian of mean Euclidean distance. The proof establishes the normal-angle model, integrable second differentiation of chord lengths, explicit rotational diagonalization, an exactly evaluated odd-harmonic-sum coefficient, a uniform positivity inequality for every integer harmonic, and the sharp asymptotic frequency law. Rational polynomial integration and separately computed direct chord quadrature replay successfully in CHECK.py. The all-mode statement depends on analytic estimates, not finite experiments.
+## correctness
 
-## Originality — PASS (provisional)
-Tokmachev (2022) proved that the disk uniquely maximizes the normalized functional and used Fourier series to bound **squared** chords; his full-text comparison stops short of the exact unsquared second variation. Shen (2026) proves the complementary sharp lower bound and explicitly credits the circular upper bound. Searches for equivalent local curvature or support-function Hessians, broader stability implications, and exact coefficient tables found no coverage. Historical-priority risk remains because indexing may be incomplete; a null search is not uniqueness certification.
+PASS
 
-## Mathematical value — PASS
-The all-frequency Hessian is a natural quantitative completion of a known global disk extremum. Its explicit strictly positive weights and sharp inverse-square decay identify the curvature-frequency sensitivity and the precise high-harmonic softness; no downstream theorem or arbitrary parameter slice is needed for the structural content.
+Positivity of the radius and first-harmonic closure give a convex closed boundary, and the mean constraint fixes the length. On the shorter angular arc the perturbation chord is bounded by a constant times ||f||∞ times the unperturbed chord length, giving integrable derivatives and a continuous second variation. The chord double integral has normalization (2π)^−3, hence circular value 2/π². An independent calculation used arclength x=θ+ε sin(mθ)/m for f=cos(mθ). The inverse angle is x−ε sin(mx)/m+ε² sin(mx)cos(mx)/m+O(ε³). At arclength gap u, the mean second-order tangential contribution to the chord length is −sin(u/2)/(2m²), and the mean transverse-norm correction is (A+B)^2/[8m² sin(u/2)], with A,B as in the record. This gives Q_m=(2−J_+)/m², where J_+=1/4[I_{m+1}/(m+1)^2+I_{m−1}/(m−1)^2+2(I_m−2)/(m²−1)] and I_k=2Σ_{j≤k}1/(2j−1), by product-to-sum and telescoping. Exact algebra gives the same closed Q_m, including 44/135 and 4/21. The square bound gives J_+≤1/(m+1)+1/(m−1)≤4/3, so Q_m>0 for all m≥2; I_k=O(log k) gives the claimed error term. Rotations diagonalize the quadratic form with equal sine and cosine weights, and uniform Fourier approximation and continuity pass the result to the fixed C² inputs.
 
-## Limits and independent checks
-The conclusion is local near the circle, for each fixed smooth perturbation; it is not a general global stability inequality. Numerical and finite exact checks are corroborating only. No independent mathematical review has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact unsquared-distance second variation and its curvature-frequency scale are distinct from circle optimality, squared-chord bounds, first-order chord-profile variation, and asymptotics at flattened bodies. The global upper bound supplies a nonpositive Hessian if a Hessian exists, not strict modewise signs or the coefficients. Neither another coordinate choice nor the known maximum is credited as new.
+
+## value
+
+PASS
+
+The second variation quantifies a known geometric extremum in the intrinsic curvature radius, separating directional strictness from the absence of an L² spectral gap. The exact coefficient for every harmonic and its inverse-square law are the information needed to compare near-circle deficits or to choose an appropriate local stability norm; a qualitative global maximum gives neither.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

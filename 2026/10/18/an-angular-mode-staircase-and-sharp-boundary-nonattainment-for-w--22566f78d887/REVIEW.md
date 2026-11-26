@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Orthogonal angular expansion and two beta moment identities give all nonzero singular values exactly. The gamma asymptotic proves the boundedness, compactness and Schatten boundaries; the consecutive singular-value ratio is an exact identity. Strict AM–GM establishes increasing crossover thresholds for unequal radial weights and therefore complete one-/two-mode equality classification. The critical nonattainment and symmetric degeneracy follow directly from monotone singular values and orthogonal completeness. The packaged checker corroborates 18,023 finite formulas, but is not substituted for the analytical proof.
+## correctness
 
-## Originality
-PASS, qualified by historical-priority risk. The closest identifiable inspected primary theorem statements on the same operators study boundedness or weak/restricted weak-type mappings rather than explicit singular values and the angular cascade of sharp Hilbert norms. The accessible full-text PDF of Li (2007) was inspected at its definitions and Theorems 1–4 (pp. 1014–1015); the most recent Hu et al. preprint and Kures–Zhu and Zhao–Zhou sources could be checked only through bibliographic abstracts because full text was inaccessible. Accessible mathematical findings were searched with exact operator aliases, singular-spectrum terms and crossover parameters. No earlier covering statement was located; these searches cannot establish absolute priority.
+PASS
 
-## Value
-PASS. The classification answers a natural exact-norm and norm-attainment question left open by general boundedness criteria for a three-parameter integral-kernel family. Its infinitely many thresholds and inverse-distance law for the escaping norming angular degree exhibit a sharp structural bifurcation, while equal radial weights form a genuinely different critical spectral phase. The proof also yields the complete compactness and Schatten phase boundaries without extra hypotheses.
+For fixed |z|<1, the binomial series converges uniformly in w, and the weighted input is in L1 by Cauchy–Schwarz. Angular orthogonality and the normalized beta integral give the two orthogonal mode systems. Parseval at each radius and integration then give ||Tf||² as the sum of s_n² times the squared normalized input coefficients, with maximal L2 domain containing all finite mode sums and the orthogonal complement. The gamma ratio yields the power c-L and a positive leading constant, proving the boundedness, compactness and p-summability tests. The consecutive ratio has crossing exactly at h_n. Rationalizing gives L-h_n=(a-b)²/(n+L+sqrt((n+L)²-(a-b)²)); this is strictly decreasing to zero for unequal weights and gives the escape constant for either maximizing index at a tie. At c=L, unequal weights give an increasing sequence approaching its limit strictly from below, so the Parseval sum has strictly positive norm deficit on every nonzero input. For equal weights the boundary positive multiplier is constant and left and right systems agree, hence a scaled orthogonal projection. Below that boundary the singular sequence decreases because each ratio is less than one; the proof's phrase 'decreasing below criticality' refers to that sequence, not to the numerical ratios as a function of n.
 
-## Closest literature and limitations
-- Hu, Wang, Zhang, Zhou, arXiv:2609.14552: identical complex kernel but published scope \(p>q\) weak-type theory, not a \(p=q=2\) singular-value norm optimization. Only public abstract inspected; entire preprint not available through attempted access.
-- Kures–Zhu (2006) and Zhao–Zhou (2022): stated \(L^p\)-boundedness and \(L^p\to L^q\) conditions, not the claimed exact Hilbert singular spectrum; full text not accessible.
-- Li (2007), Theorems 1–4 in accessible full-text article: mixed-norm boundedness conditions, not the exact angular norm profile.
-- Remaining risk: specialized unindexed exact norms or an uninspected appendix may cover a form of the result. The theorem does not address absolute-value kernels or arbitrary Lebesgue exponents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact Hilbert modal spectrum, asymmetric selection staircase and critical nonattainment as of the frozen record. There is a confirmed full mathematical catalog overlap, including stronger consequences, in a distinct Resultary record bearing the later date 2026-11-02 UTC. This does not establish earlier coverage of the frozen 2026-10-18 record. Inspected earlier literature establishes related mapping theory; it is not evidence of the sharp optimizer/attainment statements. Boundedness or the symmetric projection alone is not credited as a new contribution.
+
+## value
+
+PASS
+
+The natural issue beyond mapping criteria is which input actually achieves the sharp Hilbert norm. The exact switching levels, quantitative optimizer escape and unequal-weight endpoint nonattainment answer it, while the equal-weight projection provides a sharp contrasting boundary. The claim is a reusable complete classification, not just the boundedness line or selected examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

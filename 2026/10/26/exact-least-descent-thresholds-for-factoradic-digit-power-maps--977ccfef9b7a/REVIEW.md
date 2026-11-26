@@ -1,9 +1,21 @@
-# Mathematical review: exact factoradic descent thresholds
+# Independent mathematical audit
 
-**Correctness — PASS.** The factoradic digit contribution \(d^r-i!d\) is convex. For each lower index \(i<j_r\), its exact maximum is \(i^r-i\,i!\); choosing maximal lower digits attains all maxima simultaneously. Every block's final integer therefore realizes the upper envelope. The final allowable block yields the explicit nondecreasing witness, and all following blocks are strictly decreasing. The previously proved high-range bound covers every input at least \((j_r+1)!\). The standalone exact-arithmetic checks independently recover the claimed cutoffs for all lower inputs when \(2\le r\le6\). This is an infinite proof supported by finite tests, not a numerical extrapolation.
+## correctness
 
-**Originality — PASS within inspected evidence.** Carlson–Goedhart–Harris (arXiv:1912.02044, Section 2, Theorem 3, Table 1) and Sánchez Garza–Treviño (JIS 24, 2021, Article 21.8.5, Theorem 1 and proof) provide a sufficient descent cutoff but not the exact minimal threshold for every exponent. The latter universal upper bound is an ingredient in this theorem, not its conclusion. The crossing-index table OEIS A230319 records only \(j_r\). Searches for equivalent least-cutoff formulations, factorial-block endpoints, and stronger general theorems did not identify an equivalent statement. Earlier unindexed work could still cover it; absence from searches is not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** Eventual one-step descent is used to reduce the study of factoradic happy maps to finite state sets. The exact smallest trapping frontier is therefore a natural numerical invariant, not an arbitrary restriction. The theorem determines that invariant for every exponent and proves sharpness by construction; it distinguishes exponents where the known bound is sharp from those where it is substantially loose. It does not settle cycle structure or densities.
+For i<j=j_r the maximal digit i makes i^r−i·i!≥0; convexity of the excess d^r−d·i! makes this endpoint a maximizer. Therefore every block with j-th digit a and no higher digits has maximum excess exactly P_r+a^r−a·j!, attained with all lower digits maximal, at (a+1)j!−1. The case a=0 ensures a_r exists, and only the largest a with nonnegative maximum is needed (no monotonicity in a is assumed). Thus C_r−1 is a witness and all later numbers below (j+1)! descend. When a_r=j that intermediate range is empty. I checked that Sánchez Garza–Treviño, Theorem 1, covers the entire range n≥(j+1)! with the same crossing index and digit convention; starting its crossing search at i=1 makes no difference. The arithmetic proof of the cited bound was also checked: the last integrality sentence of their Proposition 11 would not by itself imply a strict inequality, but their displayed bound has positive margin when r≥2168 and the finite range through 2167 was independently checked. Separately, an independent proof of the needed high-range bound is as follows. Since r−1<j and j≥3, for every i≥j the ratio i!/i^(r−1) grows by a factor greater than (i+1)/e each step. For i≥j+1 we have i^(r−1)/i!<e/(j+1), so the loss d·i!−d^r is, for positive d≤i, at least i!−1: by concavity minimize at d=1 or i, and at d=i the loss exceeds (j+1−e)i!>i!. Thus a single high nonzero digit suffices if P_r<(j+1)!−1. For j≥100, applying the integral lower bound for log((j−1)!) and minimality of j gives r−1≥(j−1)(1−1/log(j−1))>3j/4. Hence Σ_{i<j}i^r≤j^r Σ_{k≥1}exp(−3k/4)<j^r<j·j!, which bounds P_r as needed. For each 3≤j<100 my exact script checked P_r<(j+1)!−1 at the largest integer r allowed by j^(r−1)<j!; this bounds P_r for all smaller r with that same j. The script also reproduced all eight example cutoffs and exhaustively recovered the last failure below (j+1)! for r=2…6.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The covered result is a uniform sufficient upper threshold at (j_r+1)!, including the lower-digit sum used in the earlier inequality proving that bound. The distinct claim computes the least bound and supplies the actual last witness for every exponent, using an attained maximum conditional on the top digit rather than just an estimate above the sufficient threshold. The strongest available prior statements did not give that optimization.
+
+## value
+
+PASS
+
+Least universal one-step descent is a natural invariant of these maps: it gives the exact maximum range that must be retained when reducing large inputs by descent. The endpoint witness proves no smaller such range is valid; the loss from using the previous sufficient cutoff is real even at r=3 (120 versus 24). The formula applies to every integer exponent and reduces a search over inputs to finitely many top digits with exact maxima, rather than reporting a numerical table or a bounded experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

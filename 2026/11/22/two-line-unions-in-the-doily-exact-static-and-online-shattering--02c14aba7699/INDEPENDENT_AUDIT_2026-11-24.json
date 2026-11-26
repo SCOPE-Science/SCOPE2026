@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:48:20.087917Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each pair of lines can be recovered from its union, since any third line contains at most one point on each, and so is not contained in the union. My exact recreation using disjoint pair blocks in vertex permutations gives 60 six-point concepts and 45 five-point concepts. Direct set traces on every support of size ≤5 give [1,15,105,375,495,0], which excludes larger supports by heredity. Comparing every face with the next cardinality gives precisely the 15 line triangles and all 495 quadruples, no smaller facets. Adjacent-swap orbit generation matches the 3-, 4-, 5-support orbit/trace multisets in RESULT.md 34–46, in particular the three 4-facet orbits of size 45, 90 and 360. Boundary row reduction by symmetric difference gives ranks 14,91,269 and hence reduced Betti (0,0,15,226) over F₂. A separate depth feasibility search prunes only branches with fewer than 2^remaining-depth possible concepts; it accepts depth five and rejects depth six. Unpruned reachability yields 58598 nonempty states, and the frozen JSON tree (labeled in the symplectic model, not the matching order) has all 32 distinct, consistent leaves. Replay with python3 /workspace/reproductions/doily.py followed by the frozen depth5_tree.json path as argument. The original programs were inspected, not run. The classification is finite, with no integral homology claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The projective-plane calculation requires any two lines to meet and allows repetitions; the doily has 60 disjoint pairs and takes distinct lines.",
+          "The real-plane work classifies certain shattered five-sets and is not about this finite incidence relation; the finite-field incidence bound does not classify these unions."
+        ],
+        "reasoning": "None of those broader-looking settings supplies a specialization to these query/concept incidence masks.",
+        "searches": [
+          "Resultary: finite-order exceptions and the shattering polynomial of two-line unions in projective planes, 94f22e63c9c6",
+          "arXiv:2501.09847, Props. 5.2 and 7.1",
+          "arXiv:2303.00330, §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 94f22e63c9c6 and 6d369ad144f6",
+        "Bishnoi Example 3.3",
+        "arXiv:2501.09847",
+        "arXiv:2303.00330"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The OR characterization reduces traces to pairs of columns; it leaves the resulting incidence-specific census, facet and boundary-rank questions unanswered.",
+          "The point/line incidence realization is known, but does not give the reported values without the new exact finite computation."
+        ],
+        "reasoning": "A general characterization and the ambient design enable the proof but do not establish its numerical or structural conclusions by direct specialization of prior results.",
+        "searches": [
+          "Resultary: exact two-literal disjunctions through twelve coordinates, 6d369ad144f6",
+          "Resultary: finite-order exceptions and the shattering polynomial of two-line unions in projective planes, 94f22e63c9c6",
+          "arXiv:2501.09847, Props. 5.2 and 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dual language via edge coordinates of K6 gives queries on exactly the 15 one-factor vectors; symplectic point incidence gives the same design.",
+          "The exact-two-OR work allows the full Boolean query cube, not the selected matching vectors."
+        ],
+        "reasoning": "Viewing the concepts as ORs of two coordinates is prior background; the exact restricted support polynomial, facets and online query depth cannot be inferred from the unrestricted dimensions.",
+        "searches": [
+          "Resultary: exact two-literal disjunctions through twelve coordinates, 6d369ad144f6",
+          "Bishnoi, Finite Geometry and Ramsey Theory, Example 3.3",
+          "Resultary: doily GQ(2,2) union of two distinct lines and static/adaptive shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The projective order-2 entry is 1+7z+21z²+28z³, not the doily calculation; the unrestricted OR table reports 2≤n≤12."
+        ],
+        "reasoning": "Neither exact table presents the result here, even viewed as a 15-edge OR class; no independent matching row identified.",
+        "searches": [
+          "Resultary: 94f22e63c9c6, Finding",
+          "Resultary: exact-two-OR dimensions 6d369ad144f6, Finding"
+        ]
+      },
+      "rationale": "The restricted doily census and the topology and online depth are distinct from the strongest inspected OR and plane-union overlaps; retain residual risk for differently indexed finite calculations.",
+      "residual_risks": [
+        "An equivalent doily calculation under polar spaces, restricted group testing or other online-dimension terminology may not have been retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different incidence hypothesis and repetition convention",
+          "evidence": [
+            "Classifies unions in finite projective planes, where all line pairs intersect."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-finite-order-exceptions-and-the-shattering-polynomial-of-two-lin--94f22e63c9c6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Finite-order exceptions and the shattering polynomial of two-line unions in projective planes",
+          "trigger": "Same union-of-lines shattering polynomial question"
+        },
+        {
+          "assessment": "General trace criterion relevant but no restricted doily computation",
+          "evidence": [
+            "All Boolean vectors are eligible as queries and numerical dimensions are tabulated through 12 coordinates."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-static-and-adaptive-shattering-for-exact-two-literal-disjunction--6d369ad144f6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Static and adaptive shattering for exact two-literal disjunctions through twelve coordinates",
+          "trigger": "Direct OR encoding of the audited concepts"
+        },
+        {
+          "assessment": "Constructs the design, not the shattering classification",
+          "evidence": [
+            "Lines are edges of K6; points are its perfect matchings."
+          ],
+          "identifier_or_url": "https://anuragbishnoi.wordpress.com/wp-content/uploads/2021/01/minicourse.pdf",
+          "material_read": "Printed p. 26, Example 3.3, text offset 67513",
+          "method": "OA course PDF",
+          "title": "Finite Geometry and Ramsey Theory",
+          "trigger": "Canonical incidence representation"
+        },
+        {
+          "assessment": "A real-plane result, not a specialization covering the doily",
+          "evidence": [
+            "Five-point characterization and two real-plane shattered five-set isomorphism types."
+          ],
+          "identifier_or_url": "arXiv:2501.09847",
+          "material_read": "Propositions 5.2 and 7.1, offsets 32247 and 83954",
+          "method": "OA primary paper text",
+          "title": "Exact VC-Dimensions of Certain Geometric Set Systems",
+          "trigger": "Close geometric-union VC classification"
+        },
+        {
+          "assessment": "Inspected theorem concerns incidence bounds, not doubled-line queries",
+          "evidence": [
+            "Uses VC theory in finite-field incidence bounds."
+          ],
+          "identifier_or_url": "arXiv:2303.00330",
+          "material_read": "Section 1.1, offset 4140",
+          "method": "OA primary paper text",
+          "title": "An improved point-line incidence bound over arbitrary finite fields via the VC-dimension theory",
+          "trigger": "VC theory for finite point/line geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete classification for a canonical smallest thick generalized quadrangle, not a selected numerical slice. The Boolean trace and online-query thresholds differ, and the lower-dimensional facets recover exactly the original incidence lines. The two nonzero reduced mod-two ranks and the orbit census make a reproducible benchmark for learning on restricted incidence designs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

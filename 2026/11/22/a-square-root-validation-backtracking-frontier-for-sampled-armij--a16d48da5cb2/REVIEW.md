@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The source's one-row correction and exact rowwise step scaling yield the stated dyadic displacement grid. Expanding the independent-batch quadratic establishes the *two* Armijo conditions exactly, not merely their first-order approximation. A binomial tail counts acceptance; every accepted displacement raises the full quadratic at its unique minimizer. Central limit and Hoeffding arguments establish the sharp square-root window. A dyadic-envelope inequality yields positive upper and lower bounds on the normalized expected ascent. Exact-fraction finite replay corroborates the algebra without replacing the infinite proof.
+## correctness
 
-## Originality
-**PASS (qualified).** The 2026 motivating manuscript supplies the independent-batch projected Armijo algorithm and a sufficient-confidence-margin guarantee; its inspected algorithm, propositions, conclusion and numerical design do not establish the exact two-row false-acceptance law or joint backtracking/sample-size critical window. Earlier stochastic line-search theory already identifies erroneous uphill acceptance and gives probabilistic-oracle accuracy conditions; those mechanisms are prior work, not contributions claimed here. Searches for aliases, stationary false acceptance, critical binomial windows and independent validation were compared against accessible findings and literature. Residual risk: a general stochastic line-search theorem or textbook binomial calibration may imply a mathematically equivalent specialization without explicit formulation.
+PASS
 
-## Value
-**PASS (context-specific).** The investigated rule explicitly uses a *fixed independent validation batch* on all dyadically backtracked candidates. Its confidence can be undermined, at a true least-squares optimum, by increasing the backtracking depth at the same time as increasing validation sample size. The theorem supplies an exact one-step calibration frontier and distinguishes a persistent near-half false-acceptance probability from an expected cost that decreases as the reciprocal batch size. This guides whether to cap backtracking, increase validation size or introduce the source's explicit confidence margins; no general solver-performance guarantee is inferred.
+For the two-row scalar objective φ(x)=(x²+1)/2, the one-row correction, after the sampled line scale, gives signed unit displacement b. With independent fair with-replacement validation signs B_i and Y=b mean(B_i), a trial of magnitude α gives sampled change α²/2−αY and directional term −αY. Both tests hold exactly when Y≥α/[2(1−c)]>0, including equality at the Armijo threshold. Reuse of the validation batch makes these events nested across the grid: acceptance is precisely the tail at α=2^−J, which is zero if the threshold exceeds one. Every nonzero step increases φ by α²/2. An independent integer Pascal-row calculation at s=64 yielded the exact numerator 8307059966383480541 over 18446744073709551616, with binomial cutoff 33. Di supplies c=10^−4 and J=5; the 64-row choice is an evaluated example, not established as his implementation's batch size. The CLT and Hoeffding bound give the finite and infinite scaling limits, and solving the Gaussian tail gives the budget ratio. The largest eligible dyadic α satisfies q/2<α≤q for q=2(1−c)Y on acceptance (also under saturation, as q<2). Symmetry gives s times the positive-side second moment exactly 1/2, and discarding values between zero and the minimum acceptance threshold loses at most s t_J²→0 in the deep regime. This proves the two normalized damage bounds without asserting an exact constant. Frozen checker.py and VERIFICATION.md were inspected, not executed; the checker covers finite exact-rational scenarios and CLT spot checks, not all s or a multistep convergence claim.
 
-## Closest literature and scope
-Closest examined sources: Di, arXiv:2611.12667v1, especially Algorithm 3.1, Section 4.3, Proposition 4.8 and Equation (4.22); Paquette–Scheinberg, arXiv:1807.07994v1, especially its noisy line-search framework, oracle accuracy assumptions and discussion of false uphill acceptance. The broad 2024 Jin–Scheinberg–Xie step-search work was checked via accessible abstract only and remains a comparison-access limitation. The finding is restricted to two equal-norm scalar rows and the *uncorrected* validation test.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed distinct claim is the exact finite-grid false-acceptance and sample-to-depth frontier for a specific independently validated Armijo rule at its true minimizer, plus the damage order. The algorithm, the qualitative possibility of uphill false acceptance, and the binomial and Gaussian tools are prior. The compared stronger-looking oracle-complexity results do not give this validation statistic, finite-grid decision or coupling.
+
+## value
+
+PASS
+
+The minimal least-squares example isolates a flaw that independence alone does not fix in an actual uncorrected validation rule. The exact frontier quantifies how c, the finite grid depth and batch size interact, and separates the probability of a wrong decision from the O(1/s) expected size of its damage. This is a motivated calibration benchmark, not a general stochastic convergence or error-control result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

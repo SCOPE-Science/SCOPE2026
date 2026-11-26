@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:52:54.087675Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45 and 47–100 (analytic reconstruction)",
+        "Frozen VERIFICATION.md; check.py, lines 11–60 (inspection only: finite exact identities and diagnostic trajectories)",
+        "Al-Taani et al., DOI 10.3390/sym16111447, p. 5, Eq. (9)"
+      ],
+      "rationale": "For the displayed map and σ₁σ₂η ≠ 0, let H(y)=ηy|y|/2−y and Q=z−σ₂H(y). On a transition with both endpoints in a single closed half-line, H restricts to one quadratic and ΔQ is ∓σ₂η x²/2, including zero endpoints. Thus a one-sided string of N transitions wholly in the box has Σx² ≤ 4B_R/|σ₂η|. The derivative bound for the sigmoid gives |x_{j+1}−σ₁/2| ≤ L_R|x_j|, hence x_j²+x_{j+1}² ≥ σ₁²/[4(1+L_R²)]. Summing N−1 adjacent pairs gives N≤1+C_R; a floor(C_R)+3 time block has floor(C_R)+2 transitions, strictly more than this. This excludes each closed half-line and thus forces both strict signs. Continuity gives forward invariance of the support of a stationary law (preimages of neighborhoods of an image point have positive mass), and integration of the block indicator inequalities gives the two 1/M_R bounds. At σ₃=0, the x-iterates from time 1 have the sign of σ₁ and magnitude at most |σ₁|, and from time 2 magnitude at least δ. Summation gives the stated y bound; thereafter the z increments have eventual sign sgn(σ₂σ₁η) and magnitude bounded below by a positive linear function of time, yielding quadratic escape. Eq. (9) has θ=s−1+Υ, so at Υ=1 the current-state −x₁ cancels exactly in the first forward-difference step.",
+      "residual_risks": [
+        "No claim about genuinely fractional orders, the existence of bounded orbits, or the optimal return constant. Finite trajectory diagnostics were not used to establish recurrence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 article gives the three-coordinate model, no equilibria for σ₁≠0, and a numerical bifurcation framework.",
+          "The 2025 Eq. (11) is two-dimensional, with y₁ driving y₂ directly and no third, absolute-value memory increment.",
+          "Two-cell threshold record 8f9bdcdcb9f6 treats a different tanh map."
+        ],
+        "reasoning": "Larger fractional parameter scope and different escape theorems are not stronger theorems about one-sided orbit residence in the stated recurrence.",
+        "searches": [
+          "Source comparison: DOI 10.3390/sym16111447, Eqs. (9)–(11)",
+          "Source comparison: DOI 10.3390/sym17010143, Eqs. (11)–(12)",
+          "Resultary: two-cell sigmoid-spiking global threshold"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.3390/sym16111447 and 10.3390/sym17010143 (equation passages linked above)",
+        "Resultary Finding IDs 5cf8722968bd, bb71d5307a1a, 8f9bdcdcb9f6, 0d05b29a9914; self-match b19935c23490"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The second equation of (10) forces x₁*=0, inconsistent with nonzero σ₁ in the first equation. This only precludes equilibria.",
+          "The discrete same-half-line telescoping identity and disjoint-block mass argument require control of every orbit segment, not just fixed points or periodic loops."
+        ],
+        "reasoning": "Neither nonexistence of equilibria nor the Sprott E periodic crossing result yields the displayed block bound or escape rates. The zero-feedback estimates use an elementary sigmoid bound but are not supplied as bounds by the inspected comparators.",
+        "searches": [
+          "DOI 10.3390/sym16111447, p. 5, Eq. (10) and following paragraph",
+          "Resultary record 5cf8722968bd, original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott E record 5cf8722968bd: both z-signs have positive stationary mass for non-equilibrium compact measures in a continuous ODE; nonconstant periodic orbits cross z=0 at least twice per least period."
+        ],
+        "reasoning": "The flow result is related in concept but is neither the same dynamics nor a discrete, uniform finite-window statement; it gives no quantitative mass or zero-feedback bound here.",
+        "searches": [
+          "Resultary: one-sided stationary geometry, forced sign crossing, sigmoid-memory recurrence",
+          "Literature: \"Asymmetry and Symmetry in New Three-Dimensional Chaotic Map\" \"Equation (9)\" \"fixed points\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed hit b19935c23490 is the assigned record itself. Distinct entries bb71d5307a1a and 0d05b29a9914 give a scalar stationary autocorrelation law and two-cell inverse fibers, respectively."
+        ],
+        "reasoning": "Neither distinct indexed statement tabulates or otherwise gives the recurrence or escape bounds; the exact self-match is not independent prior coverage.",
+        "searches": [
+          "Resultary: uniform sign recurrence feedback-zero escape",
+          "Resultary: exact sign-memory and sigmoid-spiking inverse fibers"
+        ]
+      },
+      "rationale": "The source equation and its absence-of-equilibria observation are prior. The supported distinct contribution is the within-box strict-sign block bound and stationary masses, together with global zero-feedback escape rates for this map; the closest model and sign-crossing comparisons do not supply them.",
+      "residual_risks": [
+        "The literature comparison is bounded, not a priority certificate; an equivalent unindexed discrete result could remain. Article inspection was of decisive passages, not an exhaustive reading of each paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and no-equilibrium result are prior; inspected passages do not give the recurrence or zero-feedback bounds",
+          "evidence": "Eq. (9) has −x₁ and θ=s−1+Υ; after (10), σ₁≠0 is used to rule out equilibria; §3.1 begins a numerical study.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-16-01447/article_deploy/symmetry-16-01447.pdf",
+          "material_read": "pp. 5–6, Eqs. (9)–(11) and surrounding discussion",
+          "method": "Lawful publisher static OA PDF; inspected equation passages by offset",
+          "title": "Asymmetry and Symmetry in New Three-Dimensional Chaotic Map with Commensurate and Incommensurate Fractional Orders",
+          "trigger": "Originating model; possible coverage of the integer-order endpoint"
+        },
+        {
+          "assessment": "Different two-coordinate model, not a theorem for the stated three-coordinate map",
+          "evidence": "First increment couples y₁ to y₂²−1; second increment is y₁; no third memory variable.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-17-00143/article_deploy/symmetry-17-00143.pdf",
+          "material_read": "p. 5, Eqs. (11)–(12) and preceding text",
+          "method": "Lawful publisher static OA PDF; inspected equation passages by offset",
+          "title": "On Fractional Discrete Memristive Model with Incommensurate Orders: Symmetry, Asymmetry, Hidden Chaos and Control Approaches",
+          "trigger": "Later related sigmoid-memory model by the same authors"
+        },
+        {
+          "assessment": "Conceptual analogue, not equivalent coverage",
+          "evidence": "For the Sprott E system with ż=1−4x, the stationary assertion is positive mass on both z-signs, not a discrete quantified block result.",
+          "identifier_or_url": "2026/10/4/SCOPE-one-sided-stationary-geometry-and-forced-sign-crossing-in-the-sp--5cf8722968bd",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror, passage at offset 0",
+          "title": "One-sided stationary geometry and forced sign crossing in the Sprott E flow",
+          "trigger": "Closest stationary-sign analogue"
+        },
+        {
+          "assessment": "Different object and conclusion",
+          "evidence": "Scalar piecewise-affine four-branch map; stationary sign autocorrelation, not strict signs in every finite block.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-negative-sign-memory-at-a-neutral-outer-slope-boundary-of--bb71d5307a1a",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror, passage at offset 0",
+          "title": "Exact negative sign memory at a neutral outer-slope boundary",
+          "trigger": "Distinct indexed sign-memory statement"
+        },
+        {
+          "assessment": "Different tanh map and threshold claim",
+          "evidence": "The attractor/escape threshold is for a two-cell system without the stated phase coboundary.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-global-attractor-threshold-for-the-two-cell-sigmoid-spik--8f9bdcdcb9f6",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror, passage at offset 0",
+          "title": "A sharp global attractor threshold for the two-cell sigmoid spiking map",
+          "trigger": "Closely named sigmoid escape result"
+        },
+        {
+          "assessment": "Different property",
+          "evidence": "Finds inverse-fiber behavior, not recurrence or forward escape rates.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-reentrant-invertibility-and-open-triple-inverse-fibers-in--0d05b29a9914",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror, passage at offset 0",
+          "title": "Sharp reentrant invertibility and open triple inverse fibers",
+          "trigger": "Distinct same-day sigmoid-map entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–41, 49–100 and 114–116",
+        "Al-Taani et al. (2024), discussion following Eq. (10) and opening of §3"
+      ],
+      "rationale": "The exact signed coboundary links the absence of one-sided recurrence to a uniform quantitative constraint on any compact invariant law of the named model. This supplies an analytic diagnostic beyond numerical chaos evidence and absence of equilibria. The zero-feedback estimates identify a necessary coupling condition for boundedness and distinguish drift of the two memory coordinates.",
+      "residual_risks": [
+        "The constants may be conservative, and the result gives no guarantee that a compact recurrent set exists for any nonzero feedback."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:30:15.151107Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the zero-sum space the SRG adjacency quadratic gives (kI-A)((h+1)I+A)=D I. If lambda=k-1, adjacent vertices have identical closed neighborhoods and connectedness would make the graph complete, so k-lambda-1>=1 and h>=2. For b=e_x-e_y the potential levels in units 1/D are h,1,0,-1,-h. The cuts at the outer levels contribute 2k(h-1), and each inner-side cut has k(k-lambda)-2(k-lambda-1)-2 times the internal wing edge count with the last term understood as minus twice that count. Summing gives M-2w_e. The diagonal 2h/D is strictly between zero and one, since D-2h=(k-2)h+mu>0. Complementing the diagonal subtracts 4h/D and adds one to each absolute column sum; symmetry gives equality of both endpoint norms for each projector. Orientation changes are signed coordinate conjugations. For (16,6,2,2) the rook wings are triangles and Shrikhande wings are paths, giving w=6 and 4 respectively, and the four asserted norms. Independent rational L+ calculation checked all 120 unordered vertex pairs and all 48 columns per graph, along with symmetry, idempotence and tr(Q)=15. Replay: /workspace/branches/365269cd-1892-4542-a823-9db8b5dff4ed/independent_srg_projection_check.py and independent_pair_check.txt in the same directory. Frozen supporting material was inspected, not run; the finite check is not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 43 identifies the unique invariant Hamming cycle projection; Theorem 45 calculates the binary cube norm. The Hamming record extends the exact norms to nonbinary Hamming graphs and proves minimization for all p. Localization gives O(log v) bounds in arbitrary graphs."
+        ],
+        "reasoning": "The Hamming result dominates the rook calculation but its family does not contain Shrikhande or all SRGs. General bounds on localization do not evaluate the relevant exact columns even on the pair.",
+        "searches": [
+          "arXiv:2305.12582 §§2.6–2.7 Theorems 43 and 45",
+          "arXiv:2605.24130 Theorems 1.1–1.4",
+          "Resultary 05695b9bae19 Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/18/05695b9bae19",
+        "arXiv:2305.12582",
+        "arXiv:2605.24130"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hamming proof exploits H(d,q) as a Cartesian power of K_q. General equations specify Q and C as transfer-current operators, with bounds rather than local total variations."
+        ],
+        "reasoning": "The known operator and SRG zero-sum inverse determine the entries but do not themselves collect the absolute values into a single local statistic. The five-level coarea reduction exposes an extra independent wing count, and its difference on the cospectral pair establishes the exact failure of spectral determination.",
+        "searches": [
+          "Resultary 05695b9bae19 Finding and exact cut column",
+          "arXiv:2305.12582 Theorem 43",
+          "arXiv:2605.24130 Theorems 1.1–1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hamming record's Finding identifies the same canonical operators with its minimum-norm projections and gives exact endpoint laws. The localization paper studies the absolute transfer-current matrix, whose maximum column sum is the canonical cut endpoint norm."
+        ],
+        "reasoning": "Electrical currents, absolute transfer current, and orthogonal cut projection describe the same matrix up to edge orientation. This identifies real overlap on rook norms and relevant bounds on the general operator; neither statement is the wing-edge formula or gives the Shrikhande comparison.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-minimal-cut-and-cycle-projections-for-nonbinary-hamming-gr--05695b9bae19",
+          "arXiv:2605.24130 Theorems 1.1–1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Substitution gives 9/4 and 21/8 for the canonical projector pair of R; the paper's binary cube formula alone does not evaluate this case. The two example graphs share the same adjacency spectrum and SRG parameters."
+        ],
+        "reasoning": "The rook entries are exact covered values even if not separately tabulated; a table of eigenvalues or SRG parameters alone would assign the same input to both graphs and cannot compute the gap. No comparable exact Shrikhande entry appeared in the inspected results.",
+        "searches": [
+          "Resultary 05695b9bae19 exact Hamming formulas at d=2,q=4",
+          "arXiv:2305.12582 §2.7"
+        ]
+      },
+      "rationale": "The general SRG wing-edge law and the resulting canonical cospectral separation survive the comparisons. The rook-only canonical constants are exactly covered by a different same-day Hamming record and are credited here only as the known side of the witness. Neither priority between those records nor arbitrary minimum projection constants are asserted.",
+      "residual_risks": [
+        "An equivalent local total-variation formula in less accessible transfer-current or electrical-network literature was not ruled out. An unproductive literature query is not evidence of noncoverage.",
+        "The same-day record is evidence of rook coverage, not of chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of canonical rook constants with the stronger minimization statement; not the SRG law or the cospectral comparison",
+          "evidence": "The canonical orthogonal Q and I-Q are the minimizers in its Finding, with formulas (d+1)(q-1)/q and 1+(d+1)(q-1)/q-4(1-q^-d)/(d(q-1)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-exact-minimal-cut-and-cycle-projections-for-nonbinary-hamming-gr--05695b9bae19/RESULT.md",
+          "material_read": "Finding, Assumptions, proof of minimality and beginning of exact cut column, offset 0–3389",
+          "method": "Resultary search and local mirror",
+          "title": "Exact minimal cut and cycle projections for nonbinary Hamming graphs",
+          "trigger": "Same-day distinct record gives exact values for the rook graph H(2,4)"
+        },
+        {
+          "assessment": "Prior structural projection uniqueness and binary subclass norm, not the asserted SRG endpoint law",
+          "evidence": "Theorem 43 gives uniqueness of the invariant cycle projection on Hamming graphs; Theorem 45 evaluates the binary cube cut norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "PDF pp. 23–24 §§2.6–2.7, Theorems 43 and 45",
+          "method": "OA PDF passages",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Hamming graph projection norm literature"
+        },
+        {
+          "assessment": "General relevant bounds, not the wing identity or exact separation",
+          "evidence": "The bounds include average edge-current and absolute transfer-current localization on the order of log v.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24130",
+          "material_read": "PDF pp. 1–2 Theorems 1.1–1.4",
+          "method": "OA PDF passages",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "Same absolute transfer-current matrix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint norms measure worst total absolute current for a unit edge injection (and the complementary cycle load). On a class with a three-eigenvalue adjacency algebra, the law reduces that norm exactly to one local subgraph statistic; a standard matched pair demonstrates that no function of the SRG spectrum alone suffices. This is useful beyond re-evaluating the known rook constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

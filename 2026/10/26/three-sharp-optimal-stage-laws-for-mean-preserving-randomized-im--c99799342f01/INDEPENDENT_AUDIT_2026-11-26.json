@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:25.808134Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–81",
+        "CHECK.py lines 7–79 (inspected)",
+        "VERIFICATION.md lines 19–24",
+        "arXiv:2404.19059v3, Section 3.1, equation (11)"
+      ],
+      "rationale": "Equation (11) of the source scheme gives the multiplier 1+z/(1−zT), hence the stated R_s for z=−s. Independently, put x=1+sT, B=1+s and m=1+s/2. For f(x)=(1−s/x)^2, the endpoint chord error is s(x−1)(x−B)(s/x+s+s/B−2)/(xB). The last bracket decreases in x and at x=1 has sign 2s²+s−2, proving strict support in the interior up to c. The error from the tangent at y is s(x−y)²[s(2x+y)−2xy]/(x²y³). The tangent through B has y=2sB/(s+2), and y−1 and y−m change sign precisely at c and d. Its affine error bracket is positive below B and vanishes at B. For s>=d the tangent at m has nonnegative bracket throughout the interval, checked at x=1 and B; at s=d the additional contact B cannot carry mass at mean m. Equality in the integrated supports forces exactly the proposed contact laws and their unique masses, including at both thresholds. Exact symbolic evaluation in x gives the three stated optimal values. IID products give the stated squared iterate expectation, including s=2 and deterministic zero initial data.",
+      "residual_risks": [
+        "The one-step optimality does not require iid stages; the claimed product expectation does. The result controls scalar squared damping, not the error against the true flow, convergence order, or simultaneous damping over a spectrum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinelis gives general moment-set extreme-point and atomic-replacement results. The relevant constraints here are mass and first moment.",
+          "Winkler's publisher abstract identifies the general moment-set extreme-point and affine optimization problem; the technical text was unavailable in the bounded lawful attempt."
+        ],
+        "reasoning": "The general reduction provides at most two atoms for at least one optimizer or equivalently use of the lower convex envelope at the mean. It does not determine the envelope's contact set for this rational objective. The endpoint/tangent calculation, global sign inequalities and treatment of strict equality are not supplied by the support cardinality bound.",
+        "searches": [
+          "Winkler Extreme points of moment sets fixed moments probability measures support cardinality convex envelope one moment",
+          "arXiv:1204.0249v1, Theorem 1 and Corollaries 4–5",
+          "DOI:10.1287/moor.13.4.581"
+        ]
+      },
+      "checked_sources": [
+        "Primary and published-record passages above",
+        "Primary-literature queries on Bochacik–Przybyłowicz amplification and Winkler moment-set extreme points"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The A-stability theorem quantifies over the test half-plane, and its sharp two-point parameter concerns stability, not minimum expected squared amplification at an individual s.",
+          "The Gaussian stage theorem assumes uniform second and third moments in addition to mean one half; for example, the frozen optimum for small s has second moment 1/2, not the required 1/3."
+        ],
+        "reasoning": "Neither deciding stability nor answering the optimization on the tighter moment slice gives the other measures' comparative values. Even the availability of a two-point optimizer from a general theorem leaves open which contact laws win, whether they beat the midpoint, and at which exact stiffness they stop doing so.",
+        "searches": [
+          "arXiv:2404.19059v3, equations (11), (16), (19)",
+          "2026/10/12/SCOPE-sharp-mean-stage-obstruction-and-two-point-a-stability-frontier--3d7701908c6c, Finding and Proof",
+          "2026/11/22/SCOPE-sharp-moment-preserving-gaussian-stage-design-frontier-for-impli--9447b66be7eb, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bochacik–Przybyłowicz Section 3.1 equation (11) is the same multiplier after z=−s. Section 3.2 evaluates the uniform-stage expectation.",
+          "The October 25 Finding studies the same scalar multiplier under uniform sampling and optimizes stiffness for moment criteria."
+        ],
+        "reasoning": "The change of variables makes the amplification formulas identical, but selecting stiffness with a fixed uniform measure is not selecting a mean-half measure with stiffness fixed. A uniform-stage integral cannot certify optimal support or uniqueness under variation of the law.",
+        "searches": [
+          "Resultary: mean-half probability law minimum squared amplification randomized implicit Runge–Kutta Bochacik Przybyłowicz",
+          "arXiv:2404.19059v3, Sections 1.2 and 3",
+          "2026/10/25/SCOPE-all-moment-stability-frontiers-for-randomized-implicit-two-stage--3342f4e645f9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 Finding addresses an A-stability obstruction and two-point stability thresholds.",
+          "The November 22 Finding fixes the first three uniform moments and gives a Gaussian stage frontier."
+        ],
+        "reasoning": "The exact comparison is to a symbolic optimum and its equality cases, not a numerical table. Whole-half-plane stability boundaries are not scalar pointwise damping minimizers. Fixing three moments deletes admissible laws and changes phase boundaries, so the extra-moment result cannot be used as an exact catalogue match.",
+        "searches": [
+          "Resultary: randomized implicit stage law optimal measure mean half endpoint tangent midpoint threshold sqrt 17",
+          "2026/10/12/SCOPE-sharp-mean-stage-obstruction-and-two-point-a-stability-frontier--3d7701908c6c",
+          "2026/11/22/SCOPE-sharp-moment-preserving-gaussian-stage-design-frontier-for-impli--9447b66be7eb"
+        ]
+      },
+      "rationale": "The multiplier and general affine-support method are known, as is the uniform-stage analysis. What is distinct in the inspected literature is the global fixed-stiffness optimizer over all mean-half laws, its exact two transitions, unique support and masses, and sharp optimized value. The closest indexed records optimize different quantities or restrict the admissible laws.",
+      "residual_risks": [
+        "There may be an earlier equivalent optimization under optimal-design or moment-problem terminology. The bounded search and the restricted comparisons are not an exhaustive historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same multiplier and a uniform-law stability analysis, not the optimal-law classification",
+          "evidence": [
+            "The one-step factor is 1+z/(1−z*tau). The stage is uniform and the reported mean-square test integrates against that uniform law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.19059v3",
+          "material_read": "Section 1.2, pp. 2–3; Section 3.1 equation (11), p. 8; Section 3.2, equations (16), (19), pp. 8–11",
+          "method": "Open-access full paper passage inspection",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Defines the same schemes and studies mean-square amplification"
+        },
+        {
+          "assessment": "Supplies atomic support reduction but not objective-specific contacts",
+          "evidence": [
+            "Atomic replacement for finitely many generalized moment constraints reduces the support size; the result does not solve the rational tangent equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.0249v1",
+          "material_read": "Theorem 1, p. 2, extracted offset 5400; Corollaries 4–5, pp. 4–5, offset 11360",
+          "method": "Open-access full paper passage inspection",
+          "title": "On the extreme points of moments sets",
+          "trigger": "General optimization over all fixed-moment probability laws"
+        },
+        {
+          "assessment": "Classical method credited; no whole-document coverage decision from abstract",
+          "evidence": [
+            "Abstract discusses extreme-point characterization under finitely many generalized moments and optimizing affine functionals."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/moor.13.4.581",
+          "material_read": "Publisher-indexed abstract; no full technical text available in bounded lookup",
+          "method": "Lawful OA lookup",
+          "title": "Extreme Points of Moment Sets",
+          "trigger": "Classical moment-set optimization results"
+        },
+        {
+          "assessment": "Fixed uniform law and varying step or moment order",
+          "evidence": [
+            "Stability and step optimization use the uniform stage rather than the admissible class of all mean-half laws."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-all-moment-stability-frontiers-for-randomized-implicit-two-stage--3342f4e645f9",
+          "material_read": "RESULT.md Finding and Proof Section 1, offset 0",
+          "method": "Published record via local mirror",
+          "title": "All-moment stability frontiers for randomized implicit two-stage Runge–Kutta decay",
+          "trigger": "Same scalar multiplier and extremal stability question"
+        },
+        {
+          "assessment": "An A-stability frontier, not a fixed-s scalar minimization",
+          "evidence": [
+            "The criterion is uniform over a half-plane and yields restrictions or thresholds for A-stability."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-mean-stage-obstruction-and-two-point-a-stability-frontier--3d7701908c6c",
+          "material_read": "RESULT.md Finding and Proof Sections 1–2, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Sharp mean-stage obstruction and two-point A-stability frontier for randomized implicit RK2",
+          "trigger": "Same mean constraint and two-point laws"
+        },
+        {
+          "assessment": "Different moment constraints; does not cover the mean-only phase diagram",
+          "evidence": [
+            "The constrained class matches three uniform moments and the optimal Gaussian stage law holds above a distinct threshold."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-moment-preserving-gaussian-stage-design-frontier-for-impli--9447b66be7eb",
+          "material_read": "RESULT.md Finding at offset 0 and Relationship to prior work, offsets 5300–9500",
+          "method": "Published record via local mirror",
+          "title": "Sharp moment-preserving Gaussian stage-design frontier for implicit Runge–Kutta decay",
+          "trigger": "Same scalar objective with an explicit optimized stage law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–44 and 89–93",
+        "arXiv:2404.19059v3, Section 3"
+      ],
+      "rationale": "The full law optimization under one prescribed moment is a natural design question for the existing randomized stage. The exact asymmetric two-point regime shows a strict advantage over midpoint damping at s=1 (7/64 versus 1/9), while the upper threshold certifies when any nontrivial randomization strictly loses. The sharp classification and unique equality cases are useful even within the scalar model.",
+      "residual_risks": [
+        "The specified scalar damping objective is not a substitute for error, accuracy or stability analysis of general nonlinear or time-dependent equations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

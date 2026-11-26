@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:18:45.723655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exponential-time Brownian motion has characteristic function r/(r+D k^2), giving the printed Laplace law. Index j or higher occurs at displacement at least L(j-1+theta); the mirrored left threshold gives the opposite tail. Summing tails with weights 1 and 2j-1 gives m and b. For Z=LK-vT, E Z=0 at v=rLm. To justify variance convergence rather than just a CLT, stop the sum of the iid centered rewards at the first event after t. This is a stopping index of mean rt+1; the L2 martingale isometry gives second moment (rt+1) E Z^2. Removing the crossing cycle, adding the unfinished Brownian displacement and subtracting the residual drift changes the sum by a uniformly L2-bounded term: age is bounded in law by Exp(r), overshoot is independent Exp(r), and capture rounding changes free displacement by at most L. Thus the limiting centered variance is r E Z^2 per unit time. Differentiating the exponential mixture yields E(TK)=m/r-partial_r m; expansion gives b+z m partial_z m and the factor z^2/2. In a=z/2, w=|theta-1/2|z, the normalized w derivative is C/cosh(w)+w coth(2w)+1/2-h(a), with h(s)=s coth s. Since h'(s)<tanh(s), h(a)-h(w)<=C/cosh(w)-1. The remaining lower bound 1/2-w/sinh(2w) is strictly positive at w>0, including w=a. Endpoint substitution, symmetry and strictness give all equality cases; the small-z expansion is uniform on the compact gate interval and the positive interior gaps give the claimed exponential large-z decay. At directed endpoints m is constant and the large-z limit instead grows as z^2/4. The frozen checker was inspected, not executed; its recorded finite checks do not establish the continuous order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alston–Bertrand concern geometric nearest-site resets and spacing; the exact regular-array expression is the lower endpoint.",
+          "Ghosh et al. include a periodic force between reset events and report fitted MSD diffusivity. Roberts et al. analyze a switch-on potential with a finite return phase and derive currents."
+        ],
+        "reasoning": "Varying geometric site gaps or the strength of a force is not varying capture boundaries at fixed lattice positions; a current or even a diffusion fit for a different generator does not imply the centered variance order here. The tilted-potential paper was not accessible for an independent full-text comparison.",
+        "searches": [
+          "arXiv:2401.12772 Eq. (17) and supplement (S33)",
+          "arXiv:2307.06202v1 Eq. (3)",
+          "arXiv:2405.10698v2 §IV and Appendix A",
+          "DOI:10.1103/PhysRevE.65.031104"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.12772",
+        "arXiv:2307.06202v1",
+        "arXiv:2405.10698v2",
+        "Resultary 1be33cfa05c2",
+        "Resultary 8e14a5043c90",
+        "DOI:10.1103/PhysRevE.65.031104 (access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With alpha=z/2, the nearest-site expression alpha^2 csch(alpha) coth(alpha) is precisely the lower bound; it gives no order among biased gates.",
+          "The interior formula permits evaluation, and by continuity recovers endpoint values. The all-rate strict comparison still requires a sign proof for the derivative; weak-rate enhancement alone cannot do that."
+        ],
+        "reasoning": "Prior drift and the classical regenerative variance identity are inputs. The substantive excess is the uniform strict gate-order theorem, with exact extremizers at fixed rate and fixed sites, not a reparameterization of an established diffusion formula.",
+        "searches": [
+          "arXiv:2401.12772 p. 4 Eq. (17)",
+          "arXiv:2405.10698v2 §IV",
+          "Resultary 1be33cfa05c2, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moving the sawtooth threshold and changing the gate offset are equivalent in the free-diffusion, instantaneous projection limit, as shown explicitly by the same interval partition in 1be33cfa05c2.",
+          "That record's formula is the same in variables ell=z and delta=theta; its open interval excludes both extreme gates and its weak-rate coefficient comparison is not an all-rate strict order."
+        ],
+        "reasoning": "There is equivalent interior-formula coverage as a scientific statement, regardless of publication order. The complete sharp order asks more: every pair of gate offsets at fixed rate must be strictly ordered, including the directed endpoints.",
+        "searches": [
+          "instantaneous periodic resetting biased capture gates Brownian motion effective diffusivity renewal reward ratchet asymmetric basins strict envelope",
+          "Resultary 1be33cfa05c2, Finding and Assumptions",
+          "arXiv:2405.10698v2 §IV and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1be33cfa05c2 gives the same asymmetric instantaneous centered-diffusivity law, correction and weak-rate expansion on the open gate interval; 8e14a5043c90 treats nearest-site capture in nonuniform arrays.",
+          "The formula-only match is in a distinct later-dated record. No judgement of dependence or earlier availability follows from the indexed date."
+        ],
+        "reasoning": "The first match is exact on the interior formula and cannot be ignored; its scope does not recover the full ordering or equality conditions, and neither indexed study supplies an earlier covering envelope.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-drift-dependent-diffusivity-and-weak-reset-enhancement-in--1be33cfa05c2",
+          "Resultary 2026/11/2/SCOPE-exact-transport-in-nonuniform-arrays-of-nearest-site-resetting-p--8e14a5043c90"
+        ]
+      },
+      "rationale": "Qualified pass for the strict all-rate sharp order in the gate offset, including the two kinds of endpoints. The exact interior formula and covariance correction demonstrably overlap a later-dated indexed result; neither that overlap nor an already known drift or symmetric endpoint is credited as a separate new contribution in this verdict.",
+      "residual_risks": [
+        "No absolute priority is established. The exact interior formula overlaps the distinct later-dated Resultary result, but the relationship between the two results is unresolved.",
+        "Uninspected tilted-potential and differently phrased regenerative transport work could contain a covering comparison; unavailable full text was not used as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the symmetric lower equality, not the bias order",
+          "evidence": [
+            "For a regular array, D_eff/D=alpha^2 csch(alpha) coth(alpha)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.12772",
+          "material_read": "OA PDF pp. 2 and 4, offsets 5600–9118 and 27300–30727, Eq. (17); supplement (S33), offsets 77500–81425",
+          "method": "Compared cell rule and substituted the regular-array parameter",
+          "title": "Boosting macroscopic diffusion with local resetting",
+          "trigger": "Exact nearest-site Poisson diffusivity and a geometry optimization"
+        },
+        {
+          "assessment": "Relevant motivation, not covering the free-phase instantaneous envelope",
+          "evidence": [
+            "Potential force acts between events; diffusivity obtained by MSD fits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.06202",
+          "material_read": "v1 PDF pp. 1 and 3, offsets 1200–6319 and 20600–30127, including Eq. (3)",
+          "method": "Compared force, resetting rule and source of dispersion estimates",
+          "title": "Autonomous Ratcheting by Stochastic Resetting",
+          "trigger": "Asymmetric periodic resetting and measured dispersion"
+        },
+        {
+          "assessment": "Prior current, not evidence of an exact centered-diffusivity envelope",
+          "evidence": [
+            "At Poisson switch-on a potential governs the return phase until hitting a resetting point; §IV reports a stationary current."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.10698",
+          "material_read": "v2 PDF p. 2 model, §IV offsets 51500–55416 and Appendix A p. 15 offsets 96600–99096",
+          "method": "Compared return-time rule and inspected transport observable",
+          "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+          "trigger": "Exact current in a periodic free/return ratchet"
+        },
+        {
+          "assessment": "Same interior formula, but narrower gate domain and no strict all-rate order; later-dated catalogue overlap is not evidence of earlier priority",
+          "evidence": [
+            "Open gate interval; ell^2 S/2+ell^3 M partial_ell M/2; same weak-rate coefficient; only a weak-rate bias comparison."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-drift-dependent-diffusivity-and-weak-reset-enhancement-in--1be33cfa05c2",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions offsets 0–2319, Relationship and Limitations offsets 7806–9756",
+          "method": "Matched gate intervals and variables, compared covariance and claimed order",
+          "title": "Exact drift-dependent diffusivity and weak-reset enhancement in an asymmetric Brownian ratchet",
+          "trigger": "Indexed exact match to the central formula"
+        },
+        {
+          "assessment": "Not covering biased gates on a fixed regular lattice",
+          "evidence": [
+            "Nonuniform periodic array with nearest-site capture and small-rate comparison."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-transport-in-nonuniform-arrays-of-nearest-site-resetting-p--8e14a5043c90",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Compared the free process, site rule, and geometry varied",
+          "title": "Exact transport in nonuniform arrays of nearest-site resetting points",
+          "trigger": "Potentially broader geometry result"
+        },
+        {
+          "assessment": "Access unresolved; not negative evidence",
+          "evidence": [
+            "OA publisher attempts returned HTTP 403 and no available repository copy was found in the attempted route."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.65.031104",
+          "material_read": "No independent primary-text passage retrieved",
+          "method": "Lawful DOI/publisher and OA repository retrieval attempts",
+          "title": "Diffusion in tilted periodic potentials: Enhancement, universality, and scaling",
+          "trigger": "Potentially relevant generic ratchet diffusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed material and clock parameters, changing capture bias is a natural design variable that changes drift and spreading. The sharp strict order determines the full range and unique symmetry classes of the endpoints, including a singular distinction at rapid capture between the strictly interior gates and a directed endpoint. That control information does not follow from the known symmetric value, current, or weak-rate coefficient alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

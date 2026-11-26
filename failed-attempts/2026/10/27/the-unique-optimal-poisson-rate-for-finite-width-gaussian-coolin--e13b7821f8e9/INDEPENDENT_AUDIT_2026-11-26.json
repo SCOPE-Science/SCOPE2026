@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:52:40.385055Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified centered Gaussian redraw and independent Exp(r) intervals, the renewal reward per unit time is r E[Phi(T)], not merely reward per cycle. Write a=1-c, u=2 lambda and z=r/u; adding the Gaussian KLs cancels their logarithms and gives Phi(t)=c^2(1-exp(-ut))^2/[2a(1-c exp(-ut))]. The normalized rate F=2a J/(u c^2)=z^2 L[h_c](z) has h_c(t)=(1-exp(-t))^2/(1-c exp(-t)). Geometric expansion and integration give the stated series. The curvature polynomial P_c has P_c(0)<0<P_c(1), and its derivative decreases to 4(1-c)^2>0 on [0,1]; thus h_c'' switches once from positive to negative. Twice integrating by parts gives F'=−L[t h_c'']; for the respective positive and absolute negative masses, (log(A/B))' is the later tilted mean minus the earlier one, strictly positive. Hence at most one critical point. For existence, the objective is positive inside and tends to zero at both ends (h_c tends to one at late times and is t^2/a+O(t^3) near zero); this suffices without inferring derivative signs just from equivalent asymptotics. At c=0 the normalized profile F_0 has its nondegenerate maximum at s=sqrt(2); F_1=F_0 z/(z+3), F_0''(s)=−4s/(4+3s)^2. The first implicit variation is 3(4+3s)/[2(s+3)^2]=(24+27s)/98, and max J=u(3−2s)c^2+O(c^3). Analyticity near (s,0) follows from local uniform convergence with z-derivatives of the geometric series, and global uniqueness fixes the branch. The physical optimizer is r_*=u z_*. Exact endpoints c=0,1 are excluded; in particular at c=0 the unnormalized reward is identically zero. This reconstruction does not use the frozen finite quadrature as proof and does not equate the proxy with total entropy production.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier finite-width record treats both Poisson and periodic rates, proves the former by log-concavity, and examines the strong-cooling asymptotic, not the displayed weak-cooling coefficient.",
+          "Farago's later Appendix A gives the exact finite-width conditional endpoint integral; Mori et al. use the divergence after stationary-age mixing instead; the finite-duration work-optimization paper uses a different reward."
+        ],
+        "reasoning": "The earlier indexed Poisson result already includes all the stated contrasts. A stationary mixture divergence or a finite-duration thermodynamic protocol does not by itself imply this conditional endpoint result.",
+        "searches": [
+          "Resultary record 2ba8a9b03b55, Poisson and periodic resetting sections",
+          "Farago, arXiv:2605.28445v1 and later Appendix A",
+          "Mori–Olsen–Krishnamurthy arXiv:2211.15372v1, Eqs. (4), (14)",
+          "Olsen et al. DOI 10.1103/PhysRevResearch.6.033343"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof, numerical-check specification and source",
+        "Resultary 2ba8a9b03b55",
+        "arXiv:2605.28445v1 and later Appendix A",
+        "arXiv:2211.15372v1",
+        "arXiv:2310.11267 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After dividing by the rate-independent cooling prefactor, the earlier exact objective yields at order zero 2z/[(z+1)(z+2)] and at order one this expression times z/(z+3).",
+          "The leading stationary point sqrt(2) is nondegenerate, so the optimizer's derivative is the negative ratio of the first perturbation's first derivative to the leading second derivative; uniqueness identifies the branch globally."
+        ],
+        "reasoning": "The explicit weak-cooling number is an immediate stationary-point Taylor coefficient of a known analytic objective, not a new sharp inequality, singular scaling law or independent optimization theorem.",
+        "searches": [
+          "Resultary 2ba8a9b03b55, exact finite-width Poisson objective and uniqueness",
+          "Farago later Appendix A, Eqs. (A1), (A4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 2ba8a9b03b55 states uniqueness of the Poisson optimum for finite positive reset width and uses q^2 times the Laplace transform of the corresponding Jeffreys kernel.",
+          "Its contrast A=T/T_c−1 equals c/(1−c), with q=z. The variance ratio 1+A(1−exp(−x)) is (1−c exp(−x))/(1−c), and J differs from the dimensionless objective only by a positive factor independent of the rate."
+        ],
+        "reasoning": "The substitution preserves the domain and all maximizing rates; the overlap is exact for the Poisson theorem, not merely a resemblance of low- and high-rate behavior.",
+        "searches": [
+          "Resultary: finite-width Gaussian reset cycle KL peak Poisson optimum",
+          "Farago arXiv:2605.28445, finite-width harmonic reset expression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched object is a theorem, not a numerical optimizer table: 2026/10/18/SCOPE-a-unique-finite-width-reset-cycle-kl-peak-and-its-square-root-pr--2ba8a9b03b55, mirrored RESULT.md offsets 0–4929 and 4929–9922, states Poisson uniqueness and an exact integral."
+        ],
+        "reasoning": "This indexed continuum result is stronger evidence than finite tabulation. Its strong-cooling asymptotic cannot be treated as the same statement as the weak-cooling coefficient.",
+        "searches": [
+          "Resultary: unique finite-width reset-cycle KL peak and square-root profile"
+        ]
+      },
+      "rationale": "The strongest indexed match proves uniqueness for the same finite-width Gaussian Poisson cycle reward over the entire cooling range. Changing the parameter and giving an alternative proof does not make that theorem new. The displayed weak-cooling coefficient is not printed in the closest match, but is mechanically implied by its exact objective and uniqueness: expand its kernel to first order and differentiate the nondegenerate stationarity equation. The task does not establish a distinct optimizer phenomenon outside those results.",
+      "residual_risks": [
+        "A reliable primary passage on the general variation-diminishing method was not retrieved; no conclusion about prior coverage of that proof technique is based on the search failure.",
+        "The earliest appearance of the weak-contrast coefficient was not established; the finding of routine implication does not depend on its being printed verbatim elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the unique Poisson optimum; treats periodic and strong cooling in addition",
+          "evidence": [
+            "Unique optimum of G_A(q)=q^2 integral exp(−qx) f_A(x) dx; contrast A=c/(1−c)."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-finite-width-reset-cycle-kl-peak-and-its-square-root-pr--2ba8a9b03b55",
+          "material_read": "Mirrored RESULT.md offsets 0–4929 and 4929–9922, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalog and full result passages",
+          "title": "A unique finite-width reset-cycle KL peak and its square-root profile",
+          "trigger": "Same proxy and unique optimum at finite reset width"
+        },
+        {
+          "assessment": "v1 uses a delta initial condition; the later appendix states the exact finite-width integral and extreme-rate behavior; no assessed statement there of uniqueness or of its weak-cooling coefficient",
+          "evidence": [
+            "R(t)=[1−(1−alpha)exp(−2 alpha t/tau)]/alpha; entropy proxy equals k_B r^2 integral exp(−rt)[R+1/R−2] dt/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.28445",
+          "material_read": "v1 p. 2, text offset 15000; later PDF dated 2026-11-23, Appendix A Eqs. (A1), (A4), offsets about 48000–51400",
+          "method": "Targeted open-access primary text",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression; later Bounds on the Entropy Production in Stochastic Resetting with Harmonic Traps",
+          "trigger": "Named antecedent and finite-width objective"
+        },
+        {
+          "assessment": "Different functional because mixture precedes application of KL",
+          "evidence": [
+            "Stationary-age mixture p_st and r times symmetric divergence between p_st and the reset law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.15372v1",
+          "material_read": "Eq. (4), p. 3, and Eq. (14), p. 5 (text offsets 12000 and 18000)",
+          "method": "Targeted open-access primary text",
+          "title": "Entropy production of resetting processes",
+          "trigger": "Possible equivalent symmetric KL for random-position resets"
+        },
+        {
+          "assessment": "Identifies different reward and finite-duration protocol; not a whole-paper exclusion",
+          "evidence": [
+            "Work and fluctuations under finite-time reset protocols."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.6.033343",
+          "material_read": "arXiv:2310.11267 abstract, PDF p. 1, offset 1000",
+          "method": "Open-access abstract, for scope only",
+          "title": "Thermodynamic cost of finite-time stochastic resetting",
+          "trigger": "Possible general finite-time reset optimization antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Optimization of this endpoint proxy is motivated, but the qualitative optimizer theorem is already covered. At the nonsingular weak-cooling boundary the exact objective gives a regular, nondegenerate Taylor problem; the single coefficient is a routine deduction, with no stated new application, boundary phenomenon or independent mechanism requiring that particular coefficient. The alternate curvature proof proves the same theorem in the same regime, without a separately established new optimization result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

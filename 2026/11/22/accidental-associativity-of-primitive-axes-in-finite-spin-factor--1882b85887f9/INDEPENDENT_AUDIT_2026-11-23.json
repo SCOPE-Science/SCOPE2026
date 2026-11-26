@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:53:37.508787Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–64",
+        "VERIFICATION.md, verify_associator.py and verification_output.txt inspected; frozen script not executed",
+        "Independent exact F_3 enumeration of six configurations"
+      ],
+      "rationale": "The idempotent equations give only 0 and 1 with zero vector part and otherwise (1/2,u/2) with Q(u)=1. The Peirce 1-eigenvector equation forces the vector part x of (a,x) to equal a u, giving primitivity. Expanding the two Jordan products cancels the scalar part and gives the vector associator (B(u,v)w−B(v,w)u)/8. With v fixed, all 2S dependent outer pairs (w=±u) qualify; independent pairs qualify exactly when both outer vectors lie in v⊥. This hyperplane is nondegenerate with the same determinant square class as V since Q(v)=1; its T² ordered norm-one pairs include exactly 2T dependent pairs. Thus the total and accidental counts are S(2S+T²−2T) and ST(T−2), and division by S³ gives the uniform ordered-triple probability. In the diagonal Gauss-sum calculation the t=0 contribution is q^(n−1), and the nonzero t factors have sums −1 in even dimension and χ(−1)G in odd dimension. Using G²=χ(−1)q gives the stated S,T for both determinant classes and S>0. The accidental axes are distinct as the middle vector is orthogonal to both outers. Without any unital-generation assumption, (e_u,e_u,e_w) has nonzero vector associator (w−B(u,w)u)/8; alternatively, e_u+e_v−2(e_u∘e_v)=1/2 for these triples, so their generated subalgebra actually contains 1. In d=2 the hyperplane line gives T=0 or 2; in d=3, T=q−χ(−D) is two only in the stated case; higher-dimensional formulas give T>2 (already T≥q²−q for d=4). Independent enumeration using the two bracketings of the product over F_3, d=2,3,4 and both determinant classes confirmed both strata and that every independent-outer witness fails the repeated-axis equation. The general result follows from the calculation, not the enumerations.",
+      "residual_risks": [
+        "Counts concern the zero fiber of a specified ordered associator, not all ordered identities or the nonzero fibers. The uploaded code reports expected independent-outer counts; the reviewed proof and the separate F_3 test check that stratum explicitly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Jordan model and Peirce eigenspaces hold with form normalization b=2B in Hall–Rehren–Shpectorov. Hamhalter–Turilova treat real JBW spin factors and associative subalgebras. The indexed finite-tuple result has arbitrary input vectors and even dimension but requires a generated-associative subalgebra."
+        ],
+        "reasoning": "The broader structural model and norm counts give prerequisites. The broader tuple domain in 35aa39b14d50 does not dominate the predicate: imposing primitive axes on its inputs would eliminate rather than count the independent-outer accidentally associating triples. The real operator-algebraic result does not enumerate finite-field fibers.",
+        "searches": [
+          "Hall–Rehren–Shpectorov arXiv:1403.1898v1, §3.5",
+          "Hamhalter–Turilova arXiv:1111.7240v1, pp. 4, 6 and 9",
+          "Resultary 35aa39b14d50, arbitrary associatively generating tuples"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 35aa39b14d50, 9a702bd71277 and 1882b85887f9 (self-match)",
+        "arXiv:1403.1898v1, §3.5",
+        "arXiv:1111.7240v1, pp. 4, 6 and 9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An associative generated subalgebra in the finite-tuple result has imaginary span dimension at most one or totally isotropic; the primitive axes have nonisotropic imaginary vectors. The binary result uses norm counts in the hyperplane and gives its own dimension-four product-support threshold."
+        ],
+        "reasoning": "The prior span criterion can rule out associativity for the accidental triples but cannot count them among ternary bracket agreements. The present case split ties the bracket equation to an ordered pair of sphere points in the same middle-axis complement, with subtraction of dependent pairs. This gives the distinct discriminant-sensitive d=3 exception, not an application of the binary support threshold.",
+        "searches": [
+          "Resultary 35aa39b14d50: associate identity and span criterion",
+          "Resultary 9a702bd71277: perpendicular hyperplane norm counts and support threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "35aa39b14d50 has the same general associator identity but counts tuples generating associative unital subalgebras. 9a702bd71277 gives ordered primitive pair-product fibers and a product-support boundary."
+        ],
+        "reasoning": "One ternary zero constraint is weaker than all associators in a generated subalgebra. Even in the same algebra, independent outer axes from the present census violate (e_u,e_u,e_w). A fiber of the two-input product is not a fiber of the difference of two three-input bracketings.",
+        "searches": [
+          "Resultary: primitive spin-factor axes single associator or bracket-agreement count",
+          "Resultary 35aa39b14d50 and 9a702bd71277"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit 1882b85887f9 is the frozen finding itself. The closest indexed exact fiber data fix targets of the binary primitive-axis product; 35aa39b14d50 tabulates generated-associativity for another domain and predicate."
+        ],
+        "reasoning": "Neither exact count is a table of the ternary ordered zero fiber partition by dependence of outer axes. No independently indexed matching table was found.",
+        "searches": [
+          "Resultary exact-title and formula-family search for finite primitive-axis associator census",
+          "Resultary 9a702bd71277, exact primitive-product fibers"
+        ]
+      },
+      "rationale": "The general associator identity, primitive-axis model, and quadratic norm counts are existing ingredients. The closest indexed result counts all associators vanishing in a generated subalgebra on arbitrary tuples, and its own stronger predicate excludes the accidental stratum. The closest primitive-axis paper computes binary product fibers. The pass concerns the distinct single-ordered ternary zero-fiber census on axes and its sharp existence boundary, not the common ingredients or the generated-associativity criterion.",
+      "residual_risks": [
+        "The associator and sphere counts are classical; an older implicit census or equivalent finite polar-geometry result may be unindexed. The inspected comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on algebra and identity; stronger but different predicate",
+          "evidence": "Arbitrary ordered tuples in even dimension, generated-associativity iff imaginary span has dimension at most one or is totally isotropic.",
+          "identifier_or_url": "2026/10/18/SCOPE-associating-tuples-of-finite-spin-factors-recover-witt-type-at-t--35aa39b14d50",
+          "material_read": "RESULT.md, offset 0 and associator/span criterion, mirror commit 36a7204",
+          "method": "Local mirror passage",
+          "title": "Associating tuples of finite spin factors recover Witt type at two generators",
+          "trigger": "Closest finite Jordan associator result; same associator identity"
+        },
+        {
+          "assessment": "Binary product, not ternary associator; no inferred date ordering",
+          "evidence": "Ordered primitive pair-product fibers via norm counts in perpendicular hyperplanes, with a different support threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-primitive-idempotent-jordan-product-fibers-and-a-sharp-dim--9a702bd71277",
+          "material_read": "RESULT.md Finding, offset 0, mirror commit 36a7204",
+          "method": "Local mirror passage",
+          "title": "Exact primitive idempotent Jordan product fibers and a sharp dimension threshold",
+          "trigger": "Distinct same-day exact fibers on the same axes"
+        },
+        {
+          "assessment": "Same foundational axis model after normalization",
+          "evidence": "Spin-factor Jordan product with b=2B under the present normalization, nonidentity idempotents and their Peirce eigenspaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.1898v1",
+          "material_read": "§3.5, printed pp. 16–17, PDF offset 34400",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Primitive axial algebras of Jordan type",
+          "trigger": "Known Jordan spin-factor axes and Peirce spectrum"
+        },
+        {
+          "assessment": "Real JBW associative-subalgebra structure, not the finite ordered census",
+          "evidence": "Discusses spin factors, atomic nontrivial projections and their unital associative subalgebras.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7240v1",
+          "material_read": "pp. 4, 6 and 9, PDF offsets 9550, 15800 and 21500",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Structure of associative subalgebras of Jordan operator algebras",
+          "trigger": "Broader associativity structure around spin factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–39 and 49–64",
+        "Resultary 35aa39b14d50, contrasting stronger predicate"
+      ],
+      "rationale": "Primitive idempotents form a natural test domain for how much one reassociation says about the algebra generated by the inputs. The theorem not only produces counterexamples but distinguishes the dependence degeneracy from the independent-outer stratum, gives its probability over every odd finite field and both form types, and identifies a sharp small-field obstruction. Those exact rates and the absence boundary are useful for finite Jordan algebra tests; the work is not a re-tabulation of a norm-one sphere or a new name for the known generated-associativity condition.",
+      "residual_risks": [
+        "The value is the exact census and boundary for normalized axes; no extension to general inputs, characteristic two or nonzero defect fibers is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:52:14.648161Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Frozen VERIFICATION.md",
+        "Frozen check_area.py",
+        "Michaud arXiv:2611.06492v1, Lemmas 2 and 4 and Theorem 8"
+      ],
+      "rationale": "A uniform point selects each depth-n leaf with probability equal to its true area fraction. If all parent angles are at least c and its maximum is at least 2c, each child's angles are at least c and its maximum is at least c+alpha/2>=2c, giving the claimed invariant by induction. The child retaining beta has weight sin(gamma)/(sin(beta)+sin(gamma)); the complementary child has the other weight. Both are in [s,1-s] because beta,gamma are at most pi/2. Independently checking the projective step: for a sorted child triple (a,b,c') the factor exp(D) is max(a/2,b,c')/min(a/2,b,c'). Sorting (1/2,x,y+1/2) and (1/2,y,x+1/2) gives nonincrease, with equality for L exactly on y>=1/2 or x=y<=1/2, and for R exactly on x<=1/2 or x=y>=1/2. Away from p each equality step lands outside the other child's equality set: the new coordinates straddle 1/2, allowing equality in one coordinate only on the relevant boundary. This proves strict decrease for both mixed words; the all-chart compact minimum is positive off the fixed-point sublevel. Conditional on each previous block and its next first symbol, the second symbol differs with probability at least s. Coupling the block indicators by uniform thresholds yields binomial stochastic domination without an independence assumption on the shape path. If the final D is at least epsilon, every mixed pair decrements it by at least Delta_epsilon, so at most floor((D0-epsilon)/Delta_epsilon) such pairs occurred. The argument includes odd depths, epsilon=D0, and the fixed root; a fixed polynomial times (1-s)^N tends to zero exponentially. Replay: RESULT.md lines 35–56, the equality tests above, and Michaud's Lemmas 2 and 4 and Theorem 8. The analytic result does not rely on check_area.py. Static inspection shows that script reverses the two geometric child weights and does not actually test a binomial-tail comparison despite the description in VERIFICATION.md; its symmetric branch bounds and normalization checks do not detect the reversal.",
+      "residual_risks": [
+        "The supplied finite checker cannot certify the true area-weighted empirical distribution or its tail; the analytic proof supplies that step. No claim of a sharp value for the decrement or of applicability to adaptive or conforming trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Michaud's Lemma 2 gives the same c; Lemma 4 and Theorem 8 give nonincrease and strict mixed decrease.",
+          "The November 8 record gives H(mixed z)-1 <= (3/4)(H(z)-1) for H=exp(D), plus an equal-count bound with factor (7/8)^floor(n/2)."
+        ],
+        "reasoning": "The stronger deterministic inequality can replace the compact decrement and yields an explicit alternative cutoff once the new conditional switching estimate is established. It does not itself supply probabilities for area-weighted paths.",
+        "searches": [
+          "Michaud arXiv:2611.06492v1, §3.1 and Theorem 8",
+          "Resultary 2026/11/8/SCOPE-sharp-mixed-child-contraction-and-exponential-shape-concentratio--30fda51bbc9b, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Michaud arXiv:2611.06492v1",
+        "Resultary 30fda51bbc9b",
+        "Resultary exact-record check 9efe1128c03f (identity only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Infinitely many switches suffice deterministically but do not follow from interior initial angles under an arbitrary path law. A conditional bound is needed even to exclude an all-one-side law, and the binomial estimate further supplies finite-depth control."
+        ],
+        "reasoning": "The frozen conclusion uses the earlier deterministic inputs plus a separate geometric adapted-probability argument; it is not an equal-count theorem with relabelled weights. Novelty is credited only to that quantitative physical-area statement.",
+        "searches": [
+          "Michaud §4 and Theorem 8",
+          "November 8 Resultary RESULT.md, deterministic and stochastic conclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Michaud describes equal weighting of descendants and lists area- and error-weighted sampling as extensions.",
+          "Uniform selection of a physical point has conditional sine-ratio child probabilities, not independent fair-child choices."
+        ],
+        "reasoning": "Changing from descendant count to physical-area sampling is not an equivalent formulation of uniform or fixed Bernoulli selection. The geometric positivity estimate, followed by the adapted count comparison, supplies what the prior stochastic argument lacks.",
+        "searches": [
+          "Resultary: largest-angle bisection area-weighted sampling/shape concentration, and mixed-child exponential concentration",
+          "Michaud arXiv:2611.06492v1, §4, PDF p. 15",
+          "Focused primary search for area-weighted largest-angle bisection (no relevant additional source)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed area-weighted title is this same frozen record, 9efe1128c03f, not an independent duplicate. The strongest distinct indexed hit was 30fda51bbc9b, with the different weighting described above."
+        ],
+        "reasoning": "No exact covering distinct record was identified in the returned results. This is a lookup of quantitative statements, not a tabulated constant identity or an exhaustive catalogue search.",
+        "searches": [
+          "Resultary indexed LAB shape-concentration and area-weighted tail searches, compared with the frozen record and the earlier mixed-child record"
+        ]
+      },
+      "rationale": "The supported distinct claim is the area-weighted finite-depth tail for a complete tree. The known decrease theorems and equal-count rates are not credited as new. Michaud explicitly separates the equal-weight statistic from the area-weighted extension. The closer prior Resultary finding gives a stronger deterministic mixed-step inequality, but its statistical theorem does not control dependent physical-area sampling. The new ingredient is matching those paths with conditional switching uniformly from below, and controlling their finite-depth tail.",
+      "residual_risks": [
+        "Targeted primary search yielded no useful additional comparator; no exhaustive priority conclusion.",
+        "Prior deterministic inequality already supplies a useful explicit alternative when combined with the area-weighted switching argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deterministic angle and contraction inputs and equal weighting, not the area-weighted finite tail",
+          "evidence": [
+            "c=min(gamma0,alpha0/2)",
+            "D(RLz),D(LRz)<D(z) for z!=p",
+            "Area weighting identified as an extension"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.06492v1",
+          "material_read": "Original PDF §3.1 Lemma 2 (p. 7); Lemma 4; Theorem 8 (p. 12); statistical scope and discussion §4 (p. 15)",
+          "method": "Lawful original PDF passage inspection and comparison with the frozen hypotheses and conclusion",
+          "title": "Largest-Angle Bisection and Statistical Regularization of Triangle Shapes",
+          "trigger": "Same dynamics, projective distance, and statistical concentration"
+        },
+        {
+          "assessment": "Stronger mixed-step pathwise estimate; stochastic part is for independent child counting, not Euclidean area",
+          "evidence": [
+            "3/4 factor for exp(D)-1 at mixed pairs",
+            "7/8 factor per pair in the fair-child expectation"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-mixed-child-contraction-and-exponential-shape-concentratio--30fda51bbc9b/RESULT.md",
+          "material_read": "Indexed RESULT.md statement and scope of pathwise and stochastic estimates",
+          "method": "Configured local mirror inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp mixed-child contraction and exponential shape concentration for largest-angle bisection",
+          "trigger": "Closest distinct earlier exact quantitative bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Michaud §4",
+        "Resultary 30fda51bbc9b"
+      ],
+      "rationale": "Euclidean area sampling answers a different and explicitly motivated mesh question from counting leaves: it controls the fraction of the initial physical domain in badly shaped descendants. An all-depth bound valid despite dependence is useful in its own right. Credit is limited to complete unconstrained trees and does not include sharper deterministic contraction or an adaptive-mesh guarantee.",
+      "residual_risks": [
+        "The bound is not optimized and does not include conforming closure, pruning, or adaptive error weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

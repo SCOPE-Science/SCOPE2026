@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:51.246128Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the corrected files in /workspace/repairs/3. The frozen Step 3 assumes an exact 2r slice-width upper bound for oblique projected bands (false for a sloping band), gives no uniform control at or just outside planar support, and gives no argument that excludes multiple passages from one branch at the inclinations used in its tail estimate. The blanket component-count sentence in its scope is not needed and is omitted. The corrected signed-distance proof resolves these issues: along a line the material criterion is g(q)=f(q)^2+(h+m q)^2<=r^2. For m>=A sqrt(r), any two hits bound an interval of length <=2r/m; bounded signed-distance Hessian gives |f|<=r+O((r/m)^2) throughout and g''>0, excluding multiple passages. At offsets within O(r) of either support, hit q varies within O(sqrt(r)) of the support point; the multiple-hit inclination cutoff gives allowed orthogonal offset width O(r) and measure O(r^(5/2)), including exterior offsets. At support distance delta>D r, the two planar band intervals are separated by at least c sqrt(delta), |f'|>=c' sqrt(delta) on both, and g is strictly convex within each. Thus multiple hits have exactly two components outside the strips and require mu<=C r/sqrt(delta) and s-width O(r). These yield boundary loss O(sqrt(eta)+sqrt(r)) and inclination tail O(1/M)+O(sqrt(r)) after scaling by r^-2. On compact interior subsets the offset overlap is trapped between intersections of corresponding intervals with half-widths alpha r and alpha r+O(r^2); the centers are exactly rv ell apart. This proves the marked limit and its mass J(K), including negligible higher multiplicity. For all hits the projected convex-curve tube area divided by r is dominated uniformly by the planar parallel-area bound; averaging projected tangent lengths gives pi L/2. The ellipse law follows by completing the quadratic and integrating a beta density. The frozen script was read, not run; it samples radii 0.2 and 0.5 and does not reproduce the stated 0.05 numerical benchmark, so that extraneous benchmark was not carried into the repair.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Slepian's convex projection average can supply the first-hit normalization idea but no double-count limit for nonconvex tubes. Finch treats invariant random planes through a circular torus and a planar line/racetrack problem; the torus visibility theorem is an area/topology classification of the shadow."
+        ],
+        "reasoning": "A projected-area identity provides at most a denominator or a starting multiplicity identity, not control of exactly two passages, grazing offsets, and the scaled inclination marks. The slicing object and dimension are different.",
+        "searches": [
+          "arXiv:1109.0595 Cauchy and Kubota passage",
+          "arXiv:2611.15546 random sections and racetrack shadow",
+          "Resultary 128776cbdf5e, original Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0b58849cdd31 (self-match)",
+        "Resultary 03a5b1cbc2da",
+        "Resultary 128776cbdf5e",
+        "arXiv:1109.0595",
+        "arXiv:2611.15546",
+        "Egan, Average Shadows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The double-hit law resolves the overlap of the two offset intervals jointly before integrating azimuth and inclination. Unlike a central or projected-shadow law, it retains t and two actual passages; for ellipses it predicts an aspect-ratio-dependent angular bias."
+        ],
+        "reasoning": "Standard projection or ray multiplicity identities do not directly imply that overlap or its tightness and cannot recover the arbitrary-oval conditional distribution from circular/two-dimensional specialization.",
+        "searches": [
+          "Resultary 03a5b1cbc2da and 128776cbdf5e, original Findings",
+          "Egan four-crossing passage",
+          "Slepian PDF pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For transverse lines, exactly two material intervals is equivalent to four surface crossings; Egan observes this is possible in a torus and relates crossing multiplicity to the mean shadow, without the thin-radius marked line law. Endpoint-sampled planar chord results returned by the chord formulation use a different measure."
+        ],
+        "reasoning": "Counting four transverse crossings reformulates the event but does not supply the scale and joint measure; the shadow records reduce all positive hit multiplicities to a single hit.",
+        "searches": [
+          "Resultary: near-tangent, line-intercept/chord-density, multiple-passage and four-crossing formulations",
+          "Egan, Average Shadows, nonconvex solids section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0b58849cdd31 is the exact frozen finding's own catalogue entry. The distinct same-day 03a5b1cbc2da establishes a circular-tube conditional total-length law for Haar central lines through the origin. Earlier 128776cbdf5e gives shadow visibility and hole area, not an affine-line count table."
+        ],
+        "reasoning": "Central lines fix offsets rather than sample orthogonal offset area, so the central-line law does not give even the same conditional experiment. Same-day indexing supplies no inference about priority. No distinct exact marked-law hit was identified.",
+        "searches": [
+          "Resultary: reciprocal chord thin spatial tube double passages Crofton",
+          "Resultary: line-intercept and multiple-passage formulations, including central torus lines"
+        ]
+      },
+      "rationale": "Classical invariant projection formulas and a qualitative four-crossing observation are prior, as are circular central-line and torus-shadow results. No inspected prior passage established the general arbitrary-oval offset-dependent thin-limit coefficient or marked law for invariant affine lines, which are unchanged by the proof repair.",
+      "residual_risks": [
+        "Specialized stereology or historical integral geometry may contain a related equivalent coefficient; the inspected passages and ranked lookups are not exhaustive.",
+        "The broad web query returned irrelevant results; this was not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cauchy/Kubota background, no marked numerator in inspected statements",
+          "evidence": [
+            "The theorem averages projected area of convex solids; it does not track the number of components of intersections of affine lines with a nonconvex tube."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.0595",
+          "material_read": "PDF pp. 1–2, OA offsets 456 and 3126",
+          "method": "Original open-access PDF",
+          "title": "The Average Projected Area Theorem – Generalization to Higher Dimensions",
+          "trigger": "Average projected-area denominator and projection formulas"
+        },
+        {
+          "assessment": "Four crossings and a shadow identity, not the thin affine-line law in the statements examined",
+          "evidence": [
+            "A torus ray can cross the surface four times; multiplicity enters the average-shadow-area argument."
+          ],
+          "identifier_or_url": "https://www.gregegan.net/SCIENCE/AverageShadows/AverageShadows.html",
+          "material_read": "Nonconvex solids, torus passage, HTML offset 36000",
+          "method": "Original public webpage",
+          "title": "Average Shadows",
+          "trigger": "Equivalent four-surface-crossing event in a torus"
+        },
+        {
+          "assessment": "Random planes or a planar racetrack line problem, different from the claimed affine-line measure",
+          "evidence": [
+            "The torus slice is a plane section yielding a disk, annulus or two disks; the shadow example asks about a planar line intersecting one of two disks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15546",
+          "material_read": "v1 pp. 1, 4, 6, OA offsets 1931, 10978, 16671",
+          "method": "Original open-access PDF",
+          "title": "Slicing a Doughnut at Random",
+          "trigger": "Same torus and invariant slice language"
+        },
+        {
+          "assessment": "Related circular central-line result, not an affine-line offset theorem",
+          "evidence": [
+            "Line through the origin has two segments when hitting the circular tube; the statistic is total intersection length."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-dimension-three-rigidity-and-inverse-laws-for-central-line-inter--03a5b1cbc2da",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Dimension-three rigidity and inverse laws for central line intersections",
+          "trigger": "Distinct same-day circular-tube line intersection finding"
+        },
+        {
+          "assessment": "Shadow topology and area, not multiplicity and conditional marks",
+          "evidence": [
+            "Visibility intervals and a hole-area tail refer to the set-theoretic shadow, with overlapping rays counted once."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-two-visibility-transitions-and-a-critical-hole-area-tail-for-tor--128776cbdf5e",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two visibility transitions and a critical hole-area tail for torus shadows",
+          "trigger": "Orthographic projection of the same circular tube"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem quantifies a natural rare multiplicity event and identifies a geometrically nontrivial reciprocal-chord weighting, not a usual mean chord law. The joint law retains enough directional information to identify an ellipse's aspect ratio and axes, and the boundary estimates distinguish exactly two components from merely two candidate encounters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

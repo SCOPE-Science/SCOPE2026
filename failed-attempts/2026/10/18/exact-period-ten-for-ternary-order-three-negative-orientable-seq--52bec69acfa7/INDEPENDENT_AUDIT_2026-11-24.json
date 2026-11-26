@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:52:51.895355Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56",
+        "Frozen VERIFICATION.md, check.py and check.out",
+        "/workspace/branches/independent_replay.py"
+      ],
+      "rationale": "For J(a,b,c)=(−c,−b,−a), the three fixed triples are forbidden even against themselves. The other 24 form 12 pairs, bounding any period by 12. Selected windows are the edges of a closed trail, so degrees at fixed vertices and crossings of each invariant cut are even. Swapping an edge with its J partner preserves its incidence parity at (00,12,21) and its indicator for the cut {02,10}. Direct endpoint inspection gives all-pair parity 011 and five cut crossings. For 11 edges the unique omitted orbit that can correct 011 is represented by 121, which does not cross the cut. Hence both 12 and 11 are impossible. The displayed word has 10 distinct nonfixed orbits, and their uniqueness forces least period 10. Independent prefix search with exact two-window wrap closure found labeled counts 320, 0 and 0 at lengths 10, 11 and 12; this uses the actual word restriction, not the parity table. Replay: python3 /workspace/branches/independent_replay.py 4; output /workspace/branches/independent_replay.out. The frozen script and console artifact were read, not executed.",
+      "residual_risks": [
+        "The interpretation explicitly forbids self-negated reversals; the shorthand about sharing a class alone would not express that restriction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "v3 proves m≤(k³−3k+2)/2 for order 3 and odd alphabet size k>2, and p. 18 states matching constructions from [9, Lemma 3.9]. The earlier construction paper supplies a lower bound, not a matching upper bound. Alhakim et al. give the negated reversal definition."
+        ],
+        "reasoning": "Substitution k=3 gives m≤10 immediately; constructions also provide equality. This is a strict generalization of the audited maximum.",
+        "searches": [
+          "arXiv:2602.04433v3 Theorem 3.11(ii), §4",
+          "arXiv:2603.18646v1 §5.1",
+          "DOI 10.1007/s12095-024-00742-x Def. 6.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.04433v1–v3, 2409.00672v5 and 2603.18646v1",
+        "DOI 10.1007/s12095-024-00742-x",
+        "Resultary 8c9cf33f292b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact lower witness was printed in 2409.00672v5; Theorem 3.11(ii) gives the matching upper bound in 2602.04433v3 by excluding at least 3k−2 directed edges in the symmetrized subgraph for odd k."
+        ],
+        "reasoning": "These results imply the maximum even without Table 2. The frozen short parity proof is a local alternative proof of the same numerical conclusion, not a further stated classification or stronger bound.",
+        "searches": [
+          "arXiv:2409.00672v5 pp. 15, 27",
+          "arXiv:2602.04433v3 §3.5, §4; arXiv:2603.18646v1 §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The v3 abstract uses exclusion of a tuple or the negative of its reverse. The previously published S_{3,3}=[0100112111] uses this same definition. Resultary 8c9cf33f292b instead excludes coordinatewise negatives without reversal and reports a different maximum."
+        ],
+        "reasoning": "Identical symmetry, alphabet and window order apply in Mitchell–Wild; they are not the coordinatewise-negation-only problem from the catalogue hit. That hit is neither equivalent nor a counterexample.",
+        "searches": [
+          "Resultary: ternary order-three negative orientable and negative-avoiding cycles",
+          "arXiv:2602.04433v1, v2, v3",
+          "arXiv:2409.00672v5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "v1 and v2 Table 2 give 10 (11). v3 Table 2, p. 19, gives 10 (10) for n=k=3, with parentheses defined as the upper bound. The related Resultary census changes the involution."
+        ],
+        "reasoning": "The v3 entry is an explicit attained value and proved bound, not a best-known example alone. The v1–v2 entry leaves a gap and cannot support the sharper claim on its own.",
+        "searches": [
+          "Mitchell–Wild arXiv:2602.04433v1–v3 Table 2",
+          "Resultary ternary span-three negative avoiding/orientable exact census"
+        ]
+      },
+      "rationale": "The exact maximum is demonstrably covered by Mitchell–Wild arXiv:2602.04433v3, which extends the optimality statement to all odd alphabets at order three. Its February versions only gave 11 as upper bound for the audited instance; v3 is marked 22 October 2026 UTC, later than the frozen directory date. That distinction prevents attribution of the sharper bound to the February versions or a claim of earlier priority for v3, but does not make the current mathematical statements distinct.",
+      "residual_risks": [
+        "A frozen directory date alone does not establish first public disclosure, independence or priority. The overlap classification does not settle these historical questions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact and stronger mathematical coverage",
+          "evidence": "The odd-k upper bound (k³−3k+2)/2 is explicit, as are matching constructions and the 10 (10) entry.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.04433v3",
+          "material_read": "Header; §3.5 Theorem 3.11(ii) pp. 14–15, offset 33420; optimality p. 18 and Table 2 p. 19, offsets 43090 and 44750",
+          "method": "OA PDF locate plus bounded passage reads",
+          "title": "New upper bounds for the period of a negative orientable sequence",
+          "trigger": "Exact optimality and stronger same-definition result"
+        },
+        {
+          "assessment": "Earlier versions do not give the sharp bound",
+          "evidence": "Entry for n=3 and k=3 was 10 (11).",
+          "identifier_or_url": "https://arxiv.org/abs/2602.04433v1 and https://arxiv.org/abs/2602.04433v2",
+          "material_read": "v1 and v2 Table 2, p. 18, PDF offset 41500",
+          "method": "OA PDF bounded passages",
+          "title": "New upper bounds for the period of a negative orientable sequence (earlier versions)",
+          "trigger": "Check version-dependent claim and dates"
+        },
+        {
+          "assessment": "Exact witness but not the sharp upper bound",
+          "evidence": "Explicitly lists S_{3,3}=[0100112111] with period one less than the bound then stated.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.00672v5",
+          "material_read": "pp. 15, 27; offsets 35787 and 61710",
+          "method": "OA PDF passages",
+          "title": "Orientable and negative orientable sequences",
+          "trigger": "Attaining word attribution"
+        },
+        {
+          "assessment": "Construction and lower-bound evidence",
+          "evidence": "Period 10 is attainable for n=k=3; the indicated bounds are lower bounds for constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18646v1",
+          "material_read": "pp. 5, 9, 25, including §5.1; offsets 12417, 21086, 58932",
+          "method": "OA paper passage reads",
+          "title": "Constructing orientable and negative orientable sequences with asymptotically optimal period",
+          "trigger": "Possible matching sharp result"
+        },
+        {
+          "assessment": "Same involution, no sharp maximum in inspected material",
+          "evidence": "Definition excludes the negative of the reversed tuple.",
+          "identifier_or_url": "https://doi.org/10.1007/s12095-024-00742-x",
+          "material_read": "Def. 6.4, p. 9, offset 27685",
+          "method": "OA passage read",
+          "title": "Orientable sequences over non-binary alphabets",
+          "trigger": "Definition and related construction"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Uses coordinatewise negation without reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-census-of-maximal-ternary-span-three-negative-avoiding-cyc--8c9cf33f292b",
+          "material_read": "Finding and defining restriction",
+          "method": "Local mirror bounded passage reads",
+          "title": "Exact census of maximal ternary span-three negative-avoiding cycles",
+          "trigger": "Superficially matching parameters and different reported maximum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–66",
+        "Mitchell–Wild arXiv:2602.04433v3 Theorem 3.11(ii), Table 2"
+      ],
+      "rationale": "The sharp value would close a real question relative to the February 10–11 gap; it is no longer an unresolved exact instance in the comparison corpus. The local parity proof is useful exposition but this record asserts no further structural result, independent classification or broader improvement beyond the now-covered maximum.",
+      "residual_risks": [
+        "No assessment is made of possible extensions of the invariant-cut method beyond this instance."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

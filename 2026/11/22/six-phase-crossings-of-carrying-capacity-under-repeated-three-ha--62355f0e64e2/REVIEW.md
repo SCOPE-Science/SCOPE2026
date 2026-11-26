@@ -1,23 +1,21 @@
-# Scientific assessment: six-phase fast-dispersal biomass crossings
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns a unique equilibrium for each fixed migration-round count, not time cycles. The source's primitive-matrix Beverton–Holt theorem supplies a unique attracting positive equilibrium. An implicit-function calculation supplies the first finite-mixing term with denominator \(1-a^Tv=11/18>0\). Exact arithmetic establishes \(D^6=P+(I-P)/64\), the six nonzero scaled coefficients, and therefore the full asymptotic sign classification. The two-patch minimality statement follows from a single real subdominant eigenvalue and analyticity at the noncritical perfect-mixing fixed point. A self-contained checker reproduces the exact coefficients and 27 numerical positive-equilibrium examples. Numerical examples do not prove the infinite theorem; the perturbation proof does.
+PASS
 
-## Originality — PASS (subject to independent priority review)
+For every fixed k, small and large positive constant vectors are strict sub- and supersolutions, using double stochasticity, slopes (2,2,4) at zero and bounded recruitment. Monotone iteration and strict subhomogeneity (scaling one positive fixed point to first contact with another gives a strict inequality) give a unique positive equilibrium; primitivity makes every nonzero orbit positive after finitely many steps, and the two monotone iterations trap it. At perfect mixing the total 3 gives x0=(2/3,1,4/3), a=(2/9,1/2,4/9) and 1−a·v=11/18. The Jacobian I−diag(a)v1ᵀ is invertible, and the positive local IFT branch is the unique positive equilibrium for D^k near P. Differentiating and summing gives aᵀ(D^k−P)x0/(1−a·v) with error O(||D^k−P||²). On the zero-sum plane 2D=I+C satisfies (I+C)^3=−I, from C^3=I and I+C+C²=0 there. Exact iteration on b=x0−(1,1,1) gives the six scaled numerators 4,−1,−5,−4,1,5 divided by 33. Since the norm error is O(4^−k), signs are eventual and strict in each specified class. With two habitats D^k−P=λ^k(I−P), λ real, so an analytic noncritical response is either locally constant or has a first nonzero monomial, giving only constant or parity signs (λ=0 is exact mixing). Independent replay: python3 /workspace/independent_checks.py 1; 27 numerical signs are diagnostic, not the proof of an onset or of infinitely many switches.
 
-The most relevant prior theoretical article is Bravo de la Parra (2026, DOI 10.3390/math14193624), which defines \(G(D^kx)\), proves equilibrium existence, and gives the limiting scalar criterion but does not characterize the leading correction or the phase of its sign as the *integer* migration-round count increases. Segura, Marvá and Franco (2025/2026, DOI 10.1016/j.jtbi.2025.112331) explicitly report more complex, multiply crossing biomass-response scenarios in three-habitat models, an important prior result. Their control is a continuously varied migration rate, not the integer powers of one fixed directed conservative matrix, and their numerical response catalog does not imply an infinite six-residue eventual pattern. Grumbach et al. (2023, DOI 10.1007/s00285-023-01984-8) characterize two-habitat intensity effects. Closest open mathematical records involve periodic environmental linear growth, adaptive biomass upper bounds, or time-oscillatory density-dependent migration, none of which yields the claimed fixed-matrix powers result by straightforward implication.
+## originality
 
-Residual risks: independent historical-priority assessment has not occurred; general fast–slow dynamical systems theory can imply qualitative exponentially decaying corrections but the exact nonzero six-class biomass sign construction was not located in inspected primary works. The 2023 article's full text was not inspected due to access restrictions; its scope and title concern two patches. Separate continuous-time many-crossing results do not settle the discrete-power claim.
+PASS
 
-## Value — PASS
+The supported increment is the fixed-D, integer-k sign sequence at equality in the perfect-mixing benchmark, including its six nonzero coefficients and dimension obstruction. The closest same-model paper expressly leaves the finite-k direction at equality unresolved. Neither a varied rate in a different family nor a rank-one optimal-bound result settles this. This is not a priority claim for the Beverton–Holt model, the implicit function theorem, or multiple biomass crossings under varied intensities.
 
-The exact comparison with isolated carrying-capacity sum is a central, explicitly motivated ecological invariant in the cited 2026 and 2025 papers. Perfect-mixing convergence alone cannot determine whether adding more rapid migration rounds raises or lowers aggregate equilibrium abundance when its limiting value equals the benchmark. The explicit example proves infinitely many strict beneficial/harmful reversals, and the two-patch obstruction establishes a sharp minimum network dimension for this six-phase control sensitivity. The leading coefficients and exponential remainder make the result quantitatively reproducible. This is a deterministic structural theorem, not a claim that real ecosystems should exhibit these switches or that their sizes are large.
+## value
 
-## Sources and scientific limits
+PASS
 
-- R. Bravo de la Parra, *Mathematics* 14 (2026), 3624, https://doi.org/10.3390/math14193624 — primary model and perfect-mixing analysis, especially Sections 2–4.
-- J. Segura, M. Marvá and D. Franco, *J. Theor. Biol.* 619 (2026), 112331, https://doi.org/10.1016/j.jtbi.2025.112331 — multi-patch complexity under variation of dispersal intensity, especially Section 3.
-- C. Grumbach et al., *J. Math. Biol.* 87 (2023), 60, https://doi.org/10.1007/s00285-023-01984-8 — earlier two-patch dispersal-intensity response.
+The finite-k direction matters precisely where the established limiting comparator is indecisive. An exact network with infinitely many strict sign switches despite convergence, and a sharp dimension requirement for that particular sign pattern, show a qualitative limitation of inferring benefits from fast mixing. The switches compare distinct systems and their magnitude tends to zero; no ecological field effect or oscillating trajectory is inferred.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

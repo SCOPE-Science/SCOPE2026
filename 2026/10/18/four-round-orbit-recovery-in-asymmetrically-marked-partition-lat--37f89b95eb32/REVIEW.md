@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies one-nonsingleton-block partitions through strict-refinement Bell counts, distinguishes the two anchor sides through a nonzero \((t-1)(b-a)\) coarsening-count difference, recovers two-sided intersection sizes through two-element predecessor counts, and inverts all bivariate binomial moments to identify the complete block profile of an arbitrary partition. The exceptional one-nonsingleton-block partitions are already distinguished in round three. The symmetric-group action provides the converse orbital characterization. The proof handles \(a>b\ge1\) uniformly. Two independent finite verification scripts passed; these checks are corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS, subject to specialist priority review.** The close comparison is with the existing unmarked partition-lattice orbit classification: that result recovers just the multiset of block sizes, while the new statement recovers a full two-sided contingency-vector multiset after individualizing one asymmetric two-block partition. Gill (2000) analyzes partition-lattice symmetric-group representations, and Kiefer–Schweitzer–Selman (2015) give general counting-logic characterization results; neither inspected primary text supplies this explicit four-round anchored reconstruction. Actual research-database and literature searches did not identify an equivalent or logically dominating published statement. Specialist literature may still contain an antecedent.
+PASS
 
-**Value — PASS.** A single asymmetric two-block landmark makes the whole point-stabilizer orbit partition visible within four iterations, independently of the Bell-number-sized ambient lattice. The proof constructs a useful mechanism: elementary two-sided predecessor counts recover single-block profiles, after which full bivariate binomial moments recover the global block multiset. The exact vector-partition class census supplies a natural closed orbit invariant. This is stronger in kind than the unmarked block-size classification, though it is not a general identification theorem and the round bound is not asserted optimal.
+For the full directed strict refinement relation, the strict successor count is Bell(k)-1 and the strict predecessor count is the product of block Bell numbers minus one. Gluing two partitions at a shared point gives the injective and nonsurjective comparison Bell(p+q-1)>Bell(p)Bell(q) for p,q>=2, so repeated replacement of two nonsingleton sizes by (p+q-1,1) proves the unique maximizing one-nonsingleton size type. Round one identifies these witnesses, their sizes and their relation to the mark. For t<=b, the two pure witness families have round-two counts of one-step coarsenings strictly below the mark differing by (t-1)(b-a); these coarsenings have n-t>=3 blocks so none is accidentally the mark. For t>b the pure side is forced, and when b=1 the possible marked witness is already distinguished. In round three, pure two-point predecessor counts recover both positive mixed sizes using injectivity of binomial(s,2) on positive s; a mixed witness cannot equal a pure predecessor. For any nonwitness, all witnesses supported in a block count as strict predecessors. Their round-four counts give the binomial moments, whose missing low coefficients are k,a,b; translating variables recovers every block-profile multiplicity. The subgroup S_a times S_b is transitive on each profile and color invariance prohibits any further splitting or orbit fusion. Multiset enumeration and the labeled orbit count give the stated coefficient and class-size formulas. Independently generated all coarsenings directly for all 12 asymmetric pairs with a+b<=8, confirmed colors at round four and every class cardinality, including 57 and 97; no finite run is used to prove the round bound or its sharpness.
 
-Closest literature: R. Gill, Electronic Journal of Combinatorics 7 (2000), R23; S. Kiefer, P. Schweitzer and E. Selman, arXiv:1503.08792 (2015). Residual risk: unlocated specialized treatments of coloured partition lattices or coherent configurations may contain equivalent orbit-refinement formulas. No independent priority or correctness audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported increment is a uniform four-round upper bound for recovering the full ordered intersection profiles of an asymmetric named partition in the strict order. The closest published statements concern the unmarked relation or a different graph. Neither the standard profile counts nor the general logic-to-refinement correspondence is itself novel.
+
+## value
+
+PASS
+
+This is a uniform depth bound independent of the Bell-sized domain for seeing a stabilizer's genuinely finer orbits. The side-orientation and moment-recovery steps explain how the mark changes the observable invariant, not simply the count of a few finite cases. It gives an explicit stopping depth for this natural family even though optimality is open within the record.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:18:11.918957Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–46 and 50–104",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent analytical replay: shift recurrence, return invariants, Cayley transform and cubic Routh criterion, boundary factors"
+      ],
+      "rationale": "The shift forces the alternating coordinates. Subtracting the two recurrence equations gives (u-v)(u+v+Q)=0; the nonzero factor branch leaves h=(u-v)^2/4 and gives exactly one unordered orbit for h>0, with no exceptional division. Writing D=delta^2, the two-step derivative has trace 1+E-D-4h, principal-minor sum E and determinant D. Independent stability replay: map lambda=(1+s)/(1-s) and clear denominators. The ascending cubic coefficients are 4h, 2(1-E+2D+2h), 4(1-D-h), 2(1+E-2h); the Routh determinant (a2*a1-a3*a0)/8 is (1-D)(1-E+2D)-4Dh. The two upper bounds force h<1-D, because W_flip is at most 1-D for E<=1-2D and W_NS is at most 1-D for E>=1-2D. Positivity is therefore precisely the stated sink strip and width bounds. At the flip boundary division by lambda+1 gives lambda^2+(E+D)lambda-D, strictly Schur in the strict flip case (endpoint sums 1+E and 1-E-2D); at the other boundary the complementary factor to lambda-D is lambda^2-((E-1)/D)lambda+1, with strictly nonreal unit roots in the stated strip. At equality the pair coalesces at -1. The square completion E-1+2D=(sigma+delta)^2+(3delta-1)(1+delta) gives the exact dichotomy and puts both real interface roots inside the strip for 0<delta<1/3.",
+      "residual_risks": [
+        "Linear multiplier configurations only: no nonlinear critical normal form, basin, or post-exit attractor is established. Finite checks in the source are not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader quadratic family has fixed-point multiplier geometry and selected orbit observations at delta=.05 and .7. The anti-integrable paper examines symbolic states and selected continuation on a strongly contracting parameter slice."
+        ],
+        "reasoning": "Neither broader framework supplies a theorem quantifying the primitive real period-two census and its full return spectrum stability over arbitrary alpha and sigma at all contractions in (0,1).",
+        "searches": [
+          "arXiv:2206.07855v1, §§II and V",
+          "arXiv:2305.06302, eq. (1) and §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Hampton–Meiss arXiv:2206.07855v1 and arXiv:2305.06302",
+        "Zheng et al., DOI 10.1186/s13662-018-1622-y",
+        "Local Resultary record de1f76d39e95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously studied fixed-point flip locus captures orbit onset; numerical work reports flip and Neimark–Sacker losses for example slices; lagged-map instability theorem concerns another recurrence."
+        ],
+        "reasoning": "Onset and numerical exit type do not imply the stability domain for distinct two-cycle points. Determining the return trace and principal minors along the branch and requiring both inequalities exposes the exact changeover, which the known fixed-point criteria do not give.",
+        "searches": [
+          "arXiv:2206.07855v1 §§II–III and V; arXiv:2305.06302 §5.1; Zheng et al. Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hampton–Meiss quadratic map specializes exactly by tau=b=c=0 and a=1. Zheng et al. instead use a square of the preceding coordinate and treat negative parameter b, and their Theorem 4 addresses instability of emerging two-points near the fixed-point flip."
+        ],
+        "reasoning": "The first is an exact object match but numerically analyzes two-cycle stability; the second is a distinct delayed-square recurrence and a near-onset assertion, not an equivalent closed wedge.",
+        "searches": [
+          "Primary literature lookup: generalized three-dimensional Hénon exact period-two sink and flip/Neimark–Sacker boundaries",
+          "arXiv:2206.07855v1 §I, §V",
+          "Zheng et al., DOI 10.1186/s13662-018-1622-y, eq. (2) and Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored record classifies the distinct lagged-square map (a-y^2-bz,x,y) and finds no sink. The inspected original survey uses one initial condition and approximate periods up to 90 at selected contractions."
+        ],
+        "reasoning": "The catalogue record is a methodological neighbor, not the same map or invariants. Selected parameter-grid observations do not tabulate or imply the exact two-parameter widths or their switch.",
+        "searches": [
+          "Local Resultary search for exact primitive two-cycle sink/saddle classifications in generalized 3D Hénon maps",
+          "2026/11/2/SCOPE-exact-saddle-index-transition-of-the-unique-two-cycle-in-a-three--de1f76d39e95/RESULT.md",
+          "arXiv:2206.07855v1, §V parameter survey"
+        ]
+      },
+      "rationale": "The inspected same-family work establishes the fixed-point period-doubling origin and observes both motivating losses numerically, but not the all-parameter primitive-two return-spectrum wedge and exact interface. Do not credit the map, the fixed-point flip locus, or the qualitative numerical observations as new.",
+      "residual_risks": [
+        "Bounded literature assessment; an unindexed equivalent classification under another normalization is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct object overlap; selected numerical exits, not the exact complete stability claim",
+          "evidence": "L=(delta z+G(x,y),x,y); varying (alpha,sigma) at contractions .05 and .7 yields the two example scenarios.",
+          "identifier_or_url": "https://arxiv.org/html/2206.07855v1",
+          "material_read": "§I offset 0, §II offset 6008, §V offsets 25513 and 28732",
+          "method": "OA arXiv text and parameter/statement comparison",
+          "title": "Visualizing Attractors of the Three-Dimensional Generalized Hénon Map",
+          "trigger": "Same map specialization and observed bifurcation types"
+        },
+        {
+          "assessment": "Broader maps and selected continuation; not the stated all-domain classification",
+          "evidence": "Discusses 23 possible periodic symbol sequences through period six for a strongly contracting case and continues selected states.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.06302",
+          "material_read": "Eq. (1), p. 2 offset 3376; §5.1 pp. 15–16 offset 48789",
+          "method": "OA PDF passage comparison",
+          "title": "Connecting Anti-integrability to Attractors for Three-Dimensional, Quadratic Diffeomorphisms",
+          "trigger": "Possible stronger orbit-continuation result for the same family"
+        },
+        {
+          "assessment": "Explicit emerging two-cycle instability in a different map, not a sink classification for this map",
+          "evidence": "x_{n+1}=a-y_n^2+b z_n, with the near-flip instability result for b in (-1,0).",
+          "identifier_or_url": "https://doi.org/10.1186/s13662-018-1622-y",
+          "material_read": "Eq. (2) p. 2 offset 3907; Theorem 4 p. 7 offset 29919",
+          "method": "OA primary PDF passages",
+          "title": "Bifurcations and chaos in a three-dimensional generalized Hénon map",
+          "trigger": "Potentially equivalent three-dimensional period-doubling calculation"
+        },
+        {
+          "assessment": "Different recurrence and sink outcome, regardless of record date",
+          "evidence": "F=(a-y^2-bz,x,y), 0<b<1, with a unique primitive two-cycle when it exists and no sink.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-saddle-index-transition-of-the-unique-two-cycle-in-a-three--de1f76d39e95",
+          "material_read": "Finding offset 0 and prior-work passage offsets 5958–6449",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact saddle-index transition of the unique two-cycle in a three-dimensional Hénon-type map",
+          "trigger": "Strongest local catalogue overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §4 of Proof",
+        "Hampton–Meiss arXiv:2206.07855v1, §V"
+      ],
+      "rationale": "The natural family and two observed exit mechanisms predate the calculation. The result replaces single-orbit parameter surveys with an exhaustive existence and attraction criterion, locates an exact contraction cutoff between possible mechanism types, and identifies the exceptional double multiplier. A researcher studying higher-period origins or local boundaries needs the precise wedge rather than just the fixed-point flip locus.",
+      "residual_risks": [
+        "The precise boundary is local and spectral, not a global attractor diagram."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

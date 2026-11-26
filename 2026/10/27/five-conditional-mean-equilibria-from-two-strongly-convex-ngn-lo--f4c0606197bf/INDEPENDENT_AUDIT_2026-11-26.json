@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:45:27.059712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substitution into the positive-floor sampled NGN stepsize gives the asserted odd drift. Its strictly positive denominator leaves x times a quadratic P in x². Two distinct positive roots are equivalent to B<0, C>0, and Δ>0; B<0 and Δ>0 force 16A/(A−1)²<d<2A/(A+1), which is possible exactly above A=5+4√2. Above threshold, at the lower endpoint Δ=0 one has B<0 and C=B²/(4A)>0, so a small positive shift in d gives sufficiency. At equality the strict interval is empty. Independently evaluated the witness exactly via python /workspace/review_evidence/reproduce_1234.py 4: squared nonzero roots 1/15 and 1/5 and multipliers 1145/1156, 73/72, 19/20 at the origin, inner pair and outer pair respectively. The strict multipliers give the asserted local classifications and the outer excess is x²/2=1/10. The threshold is existential over d in this symmetric family. The deterministic conditional-mean iteration is not the stochastic mean across successive steps or a stochastic trajectory.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original stochastic algorithm and its convergence-neighborhood setting do not identify the zeros of this conditional drift by iterating it.",
+          "For scalar quadratics Proposition 4 of the SPS paper gives a step proportional to x−x_i* with factor 1/(2c_k), and mean-square convergence toward the arithmetic mean of component minimizers."
+        ],
+        "reasoning": "The SPS drift in that theorem is affine and has only one zero; its bias theorem does not cover NGN's positive-floor rational mean field. Stochastic moment guarantees are not a root census of the deterministic mean map.",
+        "searches": [
+          "arXiv:2407.04358v1 §2.1 and §4 stochastic guarantees",
+          "arXiv:2205.04583 Proposition 4, eqs. (50)–(51)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.04358v1",
+        "arXiv:2205.04583",
+        "Resultary 1deba921869e",
+        "Resultary 737f754c4cc5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rule in eq. (7) determines the map after substituting the two losses, but supplies neither the offset-existence argument from the three quadratic sign conditions nor drift multipliers at nonoptimal fixed points."
+        ],
+        "reasoning": "Using the original algorithm is only the start of the bifurcation calculation. Neither known nonoptimal dynamics for another map nor a generic convergence bound determines the five-root onset and strict attraction for this witness.",
+        "searches": [
+          "Orvieto–Xiao arXiv:2407.04358v1 eq. (7)",
+          "arXiv:2205.04583 Proposition 4",
+          "Resultary 1deba921869e and 737f754c4cc5 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (7) is exactly the sampled stepsize being averaged. NGN applied instead to the average loss has a positive stepsize and gradient x, hence only one fixed point.",
+          "Resultary 1deba921869e concerns an attracting nonzero antipodal period-two orbit of deterministic NGN on one positive-floor quadratic, not fixed points of a two-sample mean map."
+        ],
+        "reasoning": "Equivalent formulations must preserve the rational drift obtained by averaging the sample-dependent displacements. Averaging first or replacing fixed points by nonzero period-two points of a different map does not preserve that drift or stationary equation.",
+        "searches": [
+          "arXiv:2407.04358v1 §2.1 eq. (7)",
+          "Resultary records 1deba921869e and 737f754c4cc5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1deba921869e gives a flip and attracting two-cycle at λσ>2 for one deterministic positive-floor quadratic; 737f754c4cc5 gives deterministic one-step objective-factor and safety thresholds for zero-minimum SPD quadratics."
+        ],
+        "reasoning": "No inspected exact indexed result furnishes the five-fixed-point cutoff 4+4√2 for the two-loss conditional-mean family, or its witness. The related exact numbers refer to different invariants and update equations.",
+        "searches": [
+          "Resultary NGN comparisons: SCOPE-a-sharp-loss-floor-flip-and-an-attracting-two-cycle-for-nonnegat--1deba921869e and SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5"
+        ]
+      },
+      "rationale": "The optimizer and existence of noninterpolation bias are prior; the supported distinct result is the exact five-root existence frontier and the two-loss conditional-mean coexistence witness with classified multipliers.",
+      "residual_risks": [
+        "An unlocated analysis of the same odd rational drift or a stronger mean-field classification may exist. These comparisons do not certify priority and do not establish anything about stationary laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact sampled method, not the asserted mean-map classification",
+          "evidence": [
+            "The sampled displacement uses σ/[1+σ||∇f_i||²/(2f_i)]; the expectation averages these preconditioned gradients, not gradients before preconditioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.04358v1",
+          "material_read": "Primary PDF §2.1 eq. (7), near text offset 17000",
+          "method": "OA full-text passage and equation comparison",
+          "title": "An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes",
+          "trigger": "Original NGN update and same-method results"
+        },
+        {
+          "assessment": "Different stepsize, affine drift in its scalar quadratic result",
+          "evidence": [
+            "Canceling sampled curvature in the SPS update yields x←x−(x−x_i*)/(2c_k), with asymptotic mean-square convergence to the arithmetic mean of x_i* for c_k=(k+1)/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.04583",
+          "material_read": "p. 19 Proposition 4 and proof eqs. (50)–(51), text offset 93980–97645",
+          "method": "OA primary PDF passage inspection",
+          "title": "Dynamics of SGD with Stochastic Polyak Stepsizes",
+          "trigger": "Quadratic adaptive stochastic bias and mean behavior"
+        },
+        {
+          "assessment": "Noncovering deterministic one-loss two-cycle",
+          "evidence": [
+            "λσ>2 leads to a repelling minimizer and attracting antipodal nonzero period-two orbit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-loss-floor-flip-and-an-attracting-two-cycle-for-nonnegat--1deba921869e",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary and mirror passage comparison",
+          "title": "A sharp loss-floor flip and an attracting two-cycle for nonnegative Gauss–Newton",
+          "trigger": "Closest apparent exact bifurcation and nonoptimal attractor for NGN"
+        },
+        {
+          "assessment": "Noncovering one-step deterministic objective behavior",
+          "evidence": [
+            "Its envelope and threshold concern zero-minimum SPD deterministic quadratics, not mean equilibria."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary and mirror passage comparison",
+          "title": "Two sharp regularization transitions for nonnegative Gauss–Newton",
+          "trigger": "Sharp regularization thresholds for same optimizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural uniqueness question for conditional-mean dynamics has a negative answer even with equal curvature, positive losses and two equally weighted samples. The sharp onset and stable suboptimal pair show exactly how uniqueness and local attraction fail, beyond generic mean bias. This is a bounded dynamical statement, not a claim about long-run stochastic behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

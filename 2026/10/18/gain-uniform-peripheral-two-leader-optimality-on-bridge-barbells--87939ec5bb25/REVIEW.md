@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The grounded Laplacian is positive definite on the claimed domain. Five exhaustive leader-pair orbits are decomposed into equitable quotient and internal zero-sum modes. Symbolic rational inversion verifies the objective formula and four explicit strictly positive gap factors, while independent full-matrix exact inversions reproduce every orbit at representative sizes and gains. The proof covers all integers \(m\ge3\) and real \(\kappa>0\), not by extrapolation from the finite checks.
+## correctness
 
-## Originality
-PASS, subject to residual unindexed-literature risk. The main comparator in Lin–Fardad–Jovanović provides the general trace-inverse leader-selection objective and relaxations; Fitch–Leonard supplies two-leader centrality formulas and solves path/cycle placements. Direct inspection of their full texts did not reveal this balanced two-clique bridge family or the four exact global optimality gaps. Semantic mathematical-database searches returned a bridge-barbell zero-forcing result; it shares the graph but neither the objective nor an implication establishing this theorem. The present classification requires nontrivial orbit evaluation and strict all-parameter comparisons, beyond a statement of generic optimization machinery.
+PASS
 
-## Value
-PASS. Balanced bridge barbells model dense network communities connected by a single bottleneck edge. The theorem answers a natural exact control-design question across an infinite family, showing a gain-uniform and counterintuitive exclusion of the graph's structurally distinguished bridge endpoints, with every optimizer classified and the optimal objective given exactly. This is materially stronger than a finite example or an approximate placement heuristic.
+The five placement orbits exhaust the two-element sets, including at m=3. I reproduced the displayed minimum and all four gap identities symbolically, by a log-determinant calculation independent of the equitable quotient. For each clique with r pins let d_i=m+t+κ1_{i pinned}, P=∏d_i, f=1−Σ1/d_i and h=1/d_hub. The shifted clique determinant is Pf and its hub cofactor is Ph(f+h). The bridge is one rank-one update, so the full shifted determinant is the product of clique determinants plus the two products of one determinant and the other clique's hub cofactor. This polynomial identity handles an unpinned clique without dividing by its singular Laplacian at t=0. The derivative of the full log determinant at t=0 is the inverse trace. All four verified gaps are strictly positive for m≥3 and κ>0. The covariance normalization divides the trace by two and does not change the optimizer.
 
-## Closest literature and limits
-The specific objective is standard, and the five-orbit quotient method uses familiar graph symmetries. The claimed contribution is the universal strict placement law and rational optimal value, not new methods or an unrelated general optimality theorem. Unequal gains, weights and clique sizes are not covered. The mathematical database search cannot exclude unindexed work, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the strict optimizer classification and exact minimum at every finite positive gain for the balanced unit bridge barbell. Neither the general formulation nor the bridge-barbell results inspected establish the finite-gain inequalities. The perfect-pinning overlap is expressly excluded from the originality credit.
+
+## value
+
+PASS
+
+The bridge endpoints are natural candidate leaders on this dense bottleneck graph. The exact strict classification shows that both endpoints are inferior at every positive gain, not merely in a hard-pinning asymptotic or at selected parameters. The positive gaps and minimum give an explicit placement benchmark without minimizing a general formula case by case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

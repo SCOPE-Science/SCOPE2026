@@ -1,15 +1,21 @@
-# Review of common-axis disk-hull width laws
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies unit planar disks in orthogonal coordinate planes sharing one axis, a Haar-uniform direction and the Euclidean support width. The support formula follows directly from maximization over each disk. The three-dimensional CDF is independently checked against a conditional spherical integral; differentiation supplies the stated density and the squared second moment follows from rotational averaging. The general narrow-edge constant is obtained by integrating the precise Dirichlet density over a shrinking simplex at a boundary point; the wide edge is a finite union of beta-distributed coordinate-subspace tubes with a controlled pair-overlap remainder. The mixed high-dimensional Gumbel–chi-square law is proved using independent Gaussians and a denominator error that vanishes in probability. The included checker passed all stated test families from the package source; numerical checks support, but do not replace, the analytic proof.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Steven Finch's first-public 2012 paper treats precisely the centered two-disk hull but computes deterministic volume, area and mean width, not a directional-width probability law or all-dimensional common-axis family. The published three-orthogonal-hyperdisk width result is genuinely distinct: it is governed by a **minimum of all coordinate magnitudes** and has different sharp edge exponents and a different high-dimensional limiting law. The published separated-two-disk mean-width derivative law concerns an expectation under displaced disks, rather than a complete distribution. A 2015 MathOverflow discussion of the infinity norm of a random spherical vector concerns maximum coordinates only and does not include the distinguished shared-axis coordinate or these geometric endpoint constants. Actual searches are recorded in the accompanying structured review. An unindexed Dirichlet-order-statistic treatment could imply elements of this theorem; that remains the main historical-priority risk.
+PASS
 
-## Value — PASS
-The centered orthogonal two-disk hull is a classical and concrete three-dimensional convex solid. Its complete width distribution is a natural invariant beyond the known mean, with a sharp \(3/2\) narrow-edge singularity, a sharp square-root wide edge and an exact second moment. The higher-dimensional shared-axis family is structurally motivated by the same geometry, not by arbitrary truncation: its two boundary strata have different codimensions, producing nontrivial, explicit exponents and constants in every dimension. Its high-dimensional width limit is a convolution of a Gumbel and a half-chi-square variable rather than the usual pure Gaussian-maxima law. These establish quantitative benchmark formulas for geometric widths of singular disk-generated convex bodies.
+The original calculations are mathematically consistent; the substantive repair changes the contribution, not its coefficients. For the retained m>=3 case, support maximization and central symmetry give the range and formula. At the minimum set delta=w^2/4-1/m; for Y_0=a the simplex in the m-1 remaining independent transverse coordinates has volume [m delta-(m-1)a]^(m-1)/(m-1)!, with 0<=a<=m delta/(m-1). All transverse squares are 1/m+O_m(delta), strictly positive for small delta, so the product Dirichlet density is a^(-1/2) times a uniformly smooth factor. Integration with B(1/2,m) and delta=epsilon/sqrt(m)+epsilon^2/4 gives the repaired coefficient and relative O_m(epsilon) error. At the upper edge the single-circle neighborhoods each have a Beta((m-1)/2,1) lower tail, and overlap forces the sum of all m transverse squares below 2(1-w^2/4). The Beta(m/2,1/2) estimate controls the total overlap at the stated order. The original m=2 density follows by differentiating the CDF, and rotational symmetry gives the stated second moment using E|cos(2 Phi)|=2/pi; these are no longer contributions. The repaired comparison also derives the weak limit from the appropriate Dirichlet-maximum scaling and independent normalized transverse vector. The frozen numerical checks were inspected but not executed; the asymptotic assertions follow analytically.
 
-## Sources and limitations
-Finch (arXiv:1211.4514), Bäsel (arXiv:1604.07245), the published exact orthogonal three-disk width study (November 2026), the published two-disk mean-width separation study (October 2026), and a 2015 MathOverflow spherical maximum-norm discussion are compared. The complete elementary CDF is only for the two-disk solid. All-dimensional fixed-\(m\) edge laws and the separate \(m\to\infty\) weak limit are not claimed uniformly in a joint scaling. No generalization to different radii, oblique planes or displaced centers is proved. A full independent mathematical audit and definitive priority search remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen originality claim is not accepted as stated: its complete two-disk law is a direct specialization of a spherical cap-intersection formula, and its growing-dimensional law follows from a Dirichlet maximum theorem and the one-coordinate limit. The corrected claim in /workspace/repairs/3/RESULT.md and SLOGAN.txt is the pair of fixed-dimensional endpoint laws with exact leading constants for m>=3. The covered comparisons are no longer claimed as contributions. No inspected result states or mechanically supplies the retained common-axis endpoint coefficients together; obtaining them requires the local slack-simplex and overlapping-circle estimates for this statistic.
+
+## value
+
+PASS
+
+The corrected result compares extremal directional rarity on a natural all-dimensional convex body. Exact constants and error orders quantify an isolated lower-edge set with a singular density direction versus multiple intersecting upper-edge circles. This gives both endpoint probabilities for every m>=3 rather than treating the known two-disk CDF or the Dirichlet limit as novel or relying on a minor numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

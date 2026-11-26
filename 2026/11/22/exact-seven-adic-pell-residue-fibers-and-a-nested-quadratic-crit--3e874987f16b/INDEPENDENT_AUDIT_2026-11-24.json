@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:37:24.376703Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49",
+        "Frozen VERIFICATION.md and VERIFY.py (inspected)",
+        "python3 /workspace/branches/audit_arithmetic.py 3 (executed)"
+      ],
+      "rationale": "The initial state (0,1) has least period six mod 7, hence any period is a multiple of six. M^6=I+7A with off-diagonal A_12=10 a unit. The first coordinate of ((I+7A)^(7^j)-I)(0,1) has exact valuation j+1, and M^(6*7^(k-1)) is identity mod 7^k. This proves the least state period and hence the scalar least period. For general h in Z_7, h nonzero, the matrix power difference is 7hA mod 7^(v_7(h)+2), obtained first for integers using the binomial power at 7^v and then by continuity. Since (I+7A)^t is identity mod 7, each normalized difference quotient is its corresponding one-step slope mod 7. Recurrence gives P slopes (3,3,2,0,2,4); for Q on r=3 the slope is (1393-7)/7=198, a unit mod 7. Thus five normalized P branches and the critical Q/7 coordinate are isometric and bijective by unique digit lifting. On the critical branch the norm identity gives P=c sqrt(1+Q^2), choosing the root P=5 mod 7; c=5 mod 49. For w=Q/7, put V(w)=sqrt(2/(1+sqrt(1+49w^2))). The difference V(w)-V(w') is in 49(w-w')Z_7 by rationalizing the differences of the two roots (their sums and the denominators are units), and V=1 mod 7. Hence wV(w) is congruence-preserving with reduced difference quotient 1, an isometric bijection. It gives P=c+49(c/2)u^2. Counting u modulo 7^(k-1) gives seven preimages per square root modulo 7^(k-2), including k=2; the k=1 critical branch contributes one count at residue 5. Root multiplicities follow by the parity of target valuation and the two unit-root lifts; the center has 7^floor((k-2)/2) roots at depth k-2. Regular branches alone cover the four stated balls. Independent recurrence replay through k=6 verified exact first state return, every target count on each branch (generating the predicted critical histogram by direct squaring), and the count at the lifted center; at depth six it obtains 100842 indices, 67228 attained targets and center multiplicity 344. The all-depth proof is analytic, not extrapolated from replay.",
+      "residual_risks": [
+        "At depth one y=5 means the residue class modulo 7. The four balls describe the inverse limit or closure, not literally the countable set of integer-index values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lang–Lang's Lemma 4.4 and Proposition 5.1 imply Pell is not residue-complete modulo 7^k, not which targets occur.",
+          "Carlip–Somer Definition 2.9 and Theorem 2.10 give exact regular period lifting with global parameters; §4 Theorem 4.6 and Proposition 4.7 give exact partial orbit frequencies conditional on target reachability. §6 Theorem 6.1 addresses d divisible by p under a distinct block hypothesis.",
+          "Bragman–Rowland give image density for Fibonacci, including 41/56 at seven, not Pell fiber counts."
+        ],
+        "reasoning": "Theorem 2.10 recovers the period using the base period 6 and f=1 (failure of a six-step return mod 49), e=1 from v_7(P_6)=1. The general irregular orbit law does not identify the Pell center or characterize target membership by a square test. Theorem 6.1 on multiples of p is not the contribution at residues equal to five mod seven.",
+        "searches": [
+          "Lang–Lang arXiv:1307.7463v1 §§4.4–5",
+          "Carlip–Somer Math. Bohem. 132 (2007), §§2.5–2.7, 4, 5–6; title lookup resolved alternative DML-CZ primary copy",
+          "Bragman–Rowland arXiv:2202.00704v2 Theorem 1 and p=7 example"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-hit and distinct be34cdadeedf, f12ac19e6e2f, 28273bb8be35 plus same-day derangements",
+        "Lang–Lang arXiv:1307.7463v1",
+        "Carlip–Somer 2007 DML-CZ primary text",
+        "Bundschuh–Bundschuh 2011",
+        "Bragman–Rowland arXiv:2202.00704v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.7 assumes there exists l with w_(n+l h*)=d mod p^r and counts that class via the order of w_(n+h*)/w_n. Its proof identifies multiplicative progressions on the special subcolumns; neither this constant-multiplicity count per reached subcolumn nor its partition assertion supplies the evaluated target test.",
+          "At critical Pell indices n=3 mod 6 the output is 5 mod 7, so the conditional frequency theorem on p-singular outputs does not directly govern that exception."
+        ],
+        "reasoning": "Known non-completeness and period are mechanically available and should be credited. The partial-frequency calculus can be used as a counting framework, but to get the closed formula one must still resolve target support and combined orbits at every depth. The norm identity and unit-coordinate square normal form supply that nontrivial step. The inspected general statements do not dominate the resulting explicit Pell law.",
+        "searches": [
+          "Carlip–Somer pp.143,150–152,158,170–171: Theorems 2.10,4.6,6.1; Proposition 4.7",
+          "Lang–Lang Lemma 4.4 and Proposition 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pell here is u(2,-1) with u_0=0,u_1=1 and w_(n+2)=a w_(n+1)-b w_n. Its r=3 decimation is an irregular constant mod 7 sequence with characteristic trace 198 and determinant 1.",
+          "Distinct 7-adic Lucas archive  be34cdadeedf has period 16*7^(k-1) and exceptional neighborhoods centered near plus/minus 2 mod 49, unlike Pell."
+        ],
+        "reasoning": "The Lucas-sequence terminology is genuinely relevant to the Pell sequence as generalized recurrence u(2,-1), but the distinct catalogued Lucas numbers are a different recurrence. The decimated Pell branch must be checked against the general irregular machinery as well as against Pell-specific papers.",
+        "searches": [
+          "Resultary: seven-adic Pell residue fibers, exceptional branch and square-root counts",
+          "Carlip–Somer, 2007, §2.1: generalized Fibonacci/Lucas recurrence notation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the exact catalogue self-hit; distinct Pell-prime-13 f12ac19e6e2f has different multiplicities. Distinct same-day 28273bb8be35 gives square-root corrections for consecutive fourth-power sums; the same-day derangement finding gives constant fibers.",
+          "Bundschuh–Bundschuh give all-level frequency formulas for Fibonacci and Lucas numbers mod powers of 3."
+        ],
+        "reasoning": "These are meaningful exact-table and algorithmic analogues but neither a numerical match nor a dominating same-sequence, same-prime count law. No priority is inferred from same-day archive dates.",
+        "searches": [
+          "Resultary exact and nearby Pell, seven-adic Lucas and critical-fiber searches",
+          "Bundschuh–Bundschuh, The Fibonacci Quarterly 49 (2011), Theorems 1.1–1.2"
+        ]
+      },
+      "rationale": "Least-period lifting and non-completeness are covered by prior literature. The accessible general Carlip–Somer recurrence machinery also gives conditional exact partial counts for irregular subsequences, not merely asymptotic bounds. In the inspected statements it still needs target membership in the appropriate multiplicative orbits and their orders, and its main theorem on outputs divisible by p is not the critical Pell branch (which has unit values). Thus the closed target-by-target square-root law at the explicit center, plus the evaluated four-ball image, is the supported distinct content. Close same-prime Lucas and fourth-power examples do not have the Pell target map.",
+      "residual_risks": [
+        "General prior period theory was not credited fully in the frozen relationship section; the originality pass is for the evaluated Pell law, not the period.",
+        "Carlip–Somer cite their related 1999 regular-sequence frequency work. This comparison does not establish exhaustive coverage of all earlier recurrence-frequency methods or explicit specializations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant conditional orbit-count framework and dominating period theorem; does not supply the explicit exceptional Pell support and total counts in inspected statements",
+          "evidence": "Theorem 2.10 gives lambda(p^r)=p^(r-min(r,f))*lambda(p^min(r,f)); 4.7 first assumes a target is reached in the subcolumn and divides its length by its element-ratio order; 6.1 addresses p-divisible d with a p-block mismatch under e>1.",
+          "identifier_or_url": "https://www.dml.cz/bitstream/handle/10338.dmlcz/134189/MathBohem_132-2007-2_3.pdf",
+          "material_read": "Introduction and recurrence convention offset 0; exact period theorem and parameters offset 16100; Hypothesis 4.3 offset 27300; Theorem 4.6 offset 32780; Proposition 4.7 offset 35460; scope of §§5–6 offset 56100; Theorem 6.1 offset 82550",
+          "method": "DML-CZ open primary PDF accessed through configured OA route",
+          "title": "Bounds for frequencies of residues of second-order recurrences modulo p^r",
+          "trigger": "Highly relevant general frequency theorem; alternate lawful copy after initial Academia access failed"
+        },
+        {
+          "assessment": "Exact classification of complete moduli, not explicit incomplete images or frequencies",
+          "evidence": "Pell residue completeness exactly for moduli 2, powers of 3, or powers of 5; hence non-completeness at 7^k.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.7463v1",
+          "material_read": "§4.4 Lemma 4.4 and §5 Proposition 5.1, offset about 19100, printed p.5",
+          "method": "Open primary PDF",
+          "title": "Three term recurrence and residue completeness",
+          "trigger": "Cited same-sequence seven-power completeness classification"
+        },
+        {
+          "assessment": "Analogous regular and quadratic singular branches, different sequence",
+          "evidence": "Lucas period 16*7^(k-1), with exceptional square-root terms at centers near plus/minus 2 mod 49.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-seven-adic-lucas-residue-fibers-and-the-41-56-range-measur--be34cdadeedf/RESULT.md",
+          "material_read": "Mirrored Finding offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Exact seven-adic Lucas residue fibers and the 41/56 range measure",
+          "trigger": "Strongest structurally similar indexed exact seven-adic recurrence law"
+        },
+        {
+          "assessment": "Different prime, not equivalent or broader",
+          "evidence": "Pell mod 13^k has different period data and constant fiber counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-exact-13-adic-residue-spectrum-and-fiber-multiplicities-of-p--f12ac19e6e2f/RESULT.md",
+          "material_read": "Mirrored Finding offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "The exact 13-adic residue spectrum and fiber multiplicities of Pell numbers",
+          "trigger": "Exact same-sequence archive result"
+        },
+        {
+          "assessment": "Different polynomial map; dates give no ordering",
+          "evidence": "Regular fibers and seven times a square-root count on critical branches, not Pell sequence values.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-seven-adic-image-and-fibers-of-consecutive-fourth-power--28273bb8be35/RESULT.md",
+          "material_read": "Mirrored Finding offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Complete seven-adic image and fibers of consecutive fourth powers",
+          "trigger": "Distinct same-day same-prime quadratic fiber structure"
+        },
+        {
+          "assessment": "Different sequences and prime",
+          "evidence": "Exact target frequency in shortest periods of Fibonacci and Lucas sequences modulo 3^k.",
+          "identifier_or_url": "The Fibonacci Quarterly 49 (2011), pp. 201 ff.",
+          "material_read": "Theorems 1.1–1.2, opening page",
+          "method": "Open primary PDF",
+          "title": "Distribution of Fibonacci and Lucas numbers modulo 3^k",
+          "trigger": "Published exact frequency analogue"
+        },
+        {
+          "assessment": "Density for Fibonacci, not Pell or all-target counts",
+          "evidence": "Fibonacci limiting image density 41/56 at seven.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.00704v2",
+          "material_read": "Theorem 1 and p=7 example, pp.2–3 offset 5600",
+          "method": "Open primary PDF",
+          "title": "Limiting density of the Fibonacci sequence modulo powers of a prime",
+          "trigger": "Published seven-adic density analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and quadratic-branch proof",
+        "Lang–Lang Pell completeness classification",
+        "Carlip–Somer general orbit-frequency framework",
+        "Independent branchwise census"
+      ],
+      "rationale": "Pell is a standard second-order recurrence for which non-completeness at seven was already a concrete arithmetic issue. The result replaces that yes/no fact by a usable exact count at each target and each depth and explains why the image remains four full balls while one nested family has unbounded multiplicity. The coexistence of regular filling and a single quadratic critical branch is a structural distribution result, not just the recovery of the period or an image-density computation.",
+      "residual_risks": [
+        "Only classical Pell at seven is classified; neither a universality theorem across primes nor an integer-square claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

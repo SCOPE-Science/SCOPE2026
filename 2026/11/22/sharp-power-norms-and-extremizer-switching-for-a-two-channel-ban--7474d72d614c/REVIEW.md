@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-With \(H(a,b)=(a+b,a-b)\) the entire operator satisfies \((T^k x)_n=H(a_n,b_{n-k})\) and \(x_n=H(a_n,b_n)\). The sharp two-point complex Clarkson inequalities compare these two \(\ell^p\) sums, with strict equality conditions that force precisely the stated shifted-support arrangements. The one- and two-impulse constructions prove sharpness, including the endpoints. Bicontractivity and \(TR=S\) are checked by finite matrix products, and the Banach-space conclusions extend by summable nonnegative scalar defects. The standalone diagnostics returned `HAAR_SHIFT_CHECK_OK 5240`; they support but cannot replace these proofs.
+PASS
 
-## Originality — PASS, qualified
+P,Q are complementary projections of norm one: the triangle inequality and the two-coordinate power-mean inequality bound each, and a nonzero vector in its range attains one. Their products with each other vanish and they commute with S, giving TR=RT=S and T^k=P+S^k Q. The sign isometry diag(1,−1) conjugates T to R. For H(a,b)=(a+b,a−b), put u=|a|²+|b|² and v=2 Re(a conjugate(b)). The sum (u+v)^(p/2)+(u−v)^(p/2) is bounded above by 2u^(p/2) below p=2 by concavity (reverse above p=2); then u^(p/2)≤|a|^p+|b|^p (reverse above p=2), strictly unless ab=0 for p≠2. Applying that bound to H(a,b) and using H²=2I provides the opposite bound, with equality iff a=±b. This handles complex phases. The (a,b) sequences become (a,S^k b); the sum of their individual p-powers is invariant. Comparing the two sharp bounds supplies the desired upper power norm, with p=2 exact by Parseval and p=∞ bounded by the absolute row sums. A single impulse (1,0) attains the below-2 norm including p=1, and (1,−1) at zero plus (1,1) at k attains the above-2 norm including ∞. For finite non-Hilbert p the norm gaps are sums of nonnegative terms. Below 2, equality demands a_n=±b_n on the input and a_n b_(n−k)=0 on the output. Above 2 it demands a_n b_n=0 on the input and a_n=±b_(n−k) on the output with a_n=0 where the delayed b vanishes. These give the two exact support rules, including n<k. The supplementary spectrum follows by similarity to I⊕S: the shift has norm one, and the summable functional with coefficients λ^n witnesses every |λ|<1 in its spectrum for each p, including ∞.
 
-The motivating Banach Wold/BCL paper gives block-Toeplitz structural models, but does not assert this exact \(\ell^p\) all-lag norming classification. Maligranda–Sabourova give the scalar Clarkson constants that are used and credited here. The nontrivial comparison is with a possible older full mixed-norm or polyphase reformulation: no such explicit all-lag norming-support statement was located, but the complete older Clarkson article was not read and equivalent formulations remain a real bibliographic risk. Public research-record comparisons and the accessible deduplication ledger revealed no matching claim; neither search constitutes uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural two-channel bicontractive projection splitting leads to a sharp, exponent-dependent failure of contractivity for commuting Toeplitz factors, even though their product is a true shift. All power norms are quantified and all norming vectors are classified by a hard-core lag-separation condition, with a sharp switch between coordinate-pure and complementary-channel modes at \(p=2\). This is a precise model limitation relevant to non-Hilbert shift factorization, not an arbitrary fixed-number computation.
+The two-point matrix norm, its scalar equality cases, and the Hilbert-space isometric model are not distinct claims. The supported increment is their exact application to the delayed complementary channels, including complete sequence-level compatibility, attainment at every lag, and its change across p=2. The strongest distinct indexed geometry is an extremizer result for a real skew-min problem, with material overlap in the support dichotomy, but no verified implication of this delayed-operator law.
 
-## Closest literature and limitations
+## value
 
-- Jana–Pal–Roy (2026), arXiv:2611.11536v1: Banach Wold/BCL Toeplitz model under isometric-factor hypotheses; not this sharp non-isometric testing law.
-- Maligranda–Sabourova (2007), DOI 10.1002/mana.200610552: scalar Clarkson norms, already prior; full comparison of its mixed-norm examples remains open.
-- No classification for arbitrary projections, endpoints' entire norming sets, or near-extremizers is asserted. An older equivalent Haar filtering formulation could reduce the priority of this result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pair is the canonical two-channel equal-weight projection splitting, motivated by testing when a Hilbert shift factorization behaves isometrically in a Banach norm. The unit shift product conceals a real loss of contractivity. Exact uniform-in-power distortion and the complete changed support pattern go beyond a single finite witness or a scalar norm calculation: they identify all extremizing sequences for this motivating model without asserting a general factorization theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

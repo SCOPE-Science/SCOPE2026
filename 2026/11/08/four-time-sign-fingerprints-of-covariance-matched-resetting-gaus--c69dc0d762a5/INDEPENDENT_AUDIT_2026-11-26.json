@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:46:58.587387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent renewal/Wick reconstruction gives the claimed asymmetric earliest-gap term. Condition on the stationary Poisson reset history. The Brownian samples are then centered jointly Gaussian with conditional covariance Kij=2D Ai times the indicator of no reset from ti to tj for i≤j, where Ai is the backward age at ti. Its expectation is (2D/r)e^(−r(tj−ti)). Divide products of K by (2D/r)². For (12)(34), survival in the first and last gaps contributes e^(−r(u+w)); if the middle gap survives the age at t3 is A1+u+v, otherwise its truncated age has unnormalized mean [1−e^(−rv)(1+rv)]/r and is independent of A1. Using E[A1]=1/r and E[A1²]=2/r² gives the contribution e^(−r(u+w))[1+e^(−rv)(1+ru)]. Each other pairing requires survival across all gaps and contributes e^(−r(u+v+w))(2+ru). Subtracting the three products of unconditional covariances yields exactly the stated reset cumulant, whose bracket is ≥3. The OU cumulant is zero by Wick. The telegraph sign is Poisson at rate r/2, so its conditional mean decays at r and its square is 2D/r; its fourth moment is the uncrossed pairing alone and subtraction gives the stated two equal negative terms. These arguments include zero gaps; at full coincidence the reset and telegraph cumulants are 12D²/r² and −8D²/r². Stationarity gives a uniform fourth-moment bound so the L¹ filters exist in L⁴ and Hölder/Fubini justify integrating the cumulant. Sorting shifted times preserves the formula, and a positive-measure product support gives strict sign. This in fact only requires each nonnegative filter to be nonzero as an L¹ element. Identical filtering preserves the matching pair covariances, and an independent Gaussian vector adds no fourth cumulant. The source generator/matrix script and quadrature procedure were inspected, not run; their finite scope is not needed by the argument. In the prior-work paragraph the name attached to reference [2] should be Singh and Pal, as in the bibliography and paper, not Smith and Majumdar; this is a bibliographic error, not a mathematical change.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eule–Metzger develops general intermittent resetting and time-dependent moments. The Kesten recursions give stationary one-time probe moments and the later equations give two-time response/covariance. Singh–Pal treats first-passage path functionals."
+        ],
+        "reasoning": "Marginal moment recursions can supply special probe kurtoses but not the joint four-time kernel; second-order covariance/response does not determine a non-Gaussian fourth cumulant. A more general unequal-time renewal theorem could cover the reset kernel; the inspected passages do not establish one.",
+        "searches": [
+          "Eule–Metzger, DOI 10.1088/1367-2630/18/3/033006, time-dependent moments and stationary distributions",
+          "Guéneau–Majumdar–Schehr, §4.2, Eqs. (59)–(60) and Eqs. (84)–(85)",
+          "Singh–Pal, arXiv:2202.02715, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Guéneau–Majumdar–Schehr, arXiv:2306.09453, cited equation passages",
+        "Eule–Metzger, DOI 10.1088/1367-2630/18/3/033006, moment passage",
+        "Singh–Pal, arXiv:2202.02715, abstract",
+        "Resultary records 09e88e59f6d0, 9942883e9395, a0f2c9f0066f and 60c8bc7c3b67"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited formulas give covariance matching, one-time moments and two-time harmonic results. The earlier negative telegraph theorem is already fourth order in a positive linear-network regime; the harmonic energy record supplies an exact two-time-squared comparison.",
+          "A strict sign for the joint kernel implies its sign under nonnegative filters by multilinearity. The converse is not supplied by a single harmonic probe family or a single fourth-order slice."
+        ],
+        "reasoning": "Prior calculations and standard Wick/Markov tools are credited. The full reset coefficient 5+3ru−2e^(−rv), its strict sign at every ordered quadruple and the multi-probe trichotomy do not follow just from the inspected lower-order or specialized statements.",
+        "searches": [
+          "Guéneau–Majumdar–Schehr, Eqs. (37), (59)–(60), (84)–(85)",
+          "Resultary telegraph sign record 09e88e59f6d0, Finding",
+          "Resultary harmonic energy crossover record 9942883e9395, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RTP is the telegraph process with speed v₀ and flip rate γ/2, so γ=r and v₀=√(2D/r) give the claimed matching covariance. The indexed cooperative-network result concerns negative stationary fourth cumulants of nonnegative reachable linear displacement observables and comparison with matched Gaussian drive."
+        ],
+        "reasoning": "The aliases do produce precisely the same second-order comparison, and the indexed result overlaps the telegraph filtered sign. Neither supplies the positive resetting unequal-time connected component.",
+        "searches": [
+          "Guéneau–Majumdar–Schehr, arXiv:2306.09453, §2 and Eq. (37), Brownian reset noise, AOUP and RTP aliases",
+          "Resultary: 2026/10/18/SCOPE-strict-fourth-cumulant-signs-and-fast-flip-laws-in-cooperative-t--09e88e59f6d0, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The harmonic energy record gives Cov(X₀²,Xt²) and a crossover; the seed-shape record concerns positional excess kurtosis with symmetric random reset seeds; the later Gaussian-marginal clock concerns a two-time tensor for a different Poisson-refresh OU model and cites the assigned result."
+        ],
+        "reasoning": "This is a symbolic continuous-time formula rather than a finite table; the check compares exact nearby formulas and their parameter/time restrictions. Energy covariance is a repeated-time statistic and, for centered X, equals the repeated-time connected fourth cumulant plus 2 Cov(X₀,Xt)². Its positive sign alone does not give the sign of the connected kernel. Neither same-day date establishes priority; the actual scopes differ.",
+        "searches": [
+          "Resultary exact ordered fourth cumulant and sign comparisons; closest formula hits 9942883e9395, a0f2c9f0066f and 60c8bc7c3b67, Findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete ordered stationary reset-Brownian connected four-time kernel and its role in the strict three-bath sign distinction under arbitrary nonnegative L¹ filters. The covariance matching was already explicit; Gaussian vanishing is standard, and the earlier cooperative-network result covers part of the negative telegraph comparison. Known one-time harmonic moments and related filtered fourth-order slices are not a complete unequal-time kernel. This is a best-of-knowledge judgment about the combined result, not separate novelty for the comparison cases or settled priority.",
+      "residual_risks": [
+        "A broader stationary multipoint resetting formula in uninspected literature could cover the Brownian specialization. A follow-up attempt to locate an ordered formula in the indexed telegraph antecedent timed out; its available Finding establishes the narrower overlap, and a larger telegraph overlap is possible. No global priority claim is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior matching covariance and related harmonic moments, not a full unequal-time connected fourth-order statement in the located passages",
+          "evidence": [
+            "Eq. (37) explicitly compares the reset correlation with AOUP/RTP. Eqs. (59)–(60) are marginal moment recursions; (84)–(85) are covariance and response."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09453",
+          "material_read": "§2 RTP setup (OA offset 9450); Eq. (37), PDF p. 16; §4.2 Eqs. (59)–(60), PDF p. 20; Eqs. (84)–(85), PDF p. 27",
+          "method": "Lawful open full-text passages",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Same Brownian reset noise, matching Gaussian/telegraph covariance, and harmonic filtering"
+        },
+        {
+          "assessment": "General framework; the inspected passage does not give this four-time kernel",
+          "evidence": [
+            "Treatment of moments and stationary distributions under intermittent resets."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/18/3/033006",
+          "material_read": "Passage on time-dependent moments and stationary distributions, OA offset 13800",
+          "method": "Lawful open full-text passage",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "General intermittent-reset framework could subsume exact reset formulas"
+        },
+        {
+          "assessment": "Different observable; not a whole-paper exclusion",
+          "evidence": [
+            "The authors are P. Singh and A. Pal; the abstract treats Brownian functionals up to first passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02715",
+          "material_read": "Abstract, PDF p. 1 (OA offset 1297)",
+          "method": "Lawful open abstract passage",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "Original reference [2] and possible path-functional antecedent"
+        },
+        {
+          "assessment": "Material partial overlap with the negative telegraph component, not the reset kernel",
+          "evidence": [
+            "Negative stationary fourth cumulant for nonnegative reachable linear displacement observables in cooperative telegraph-driven networks with matched Gaussian covariances."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-strict-fourth-cumulant-signs-and-fast-flip-laws-in-cooperative-t--09e88e59f6d0",
+          "material_read": "Indexed RESULT.md, Finding",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Strict fourth cumulant signs and fast-flip laws in cooperative telegraph systems",
+          "trigger": "Closest earlier telegraph and matched-Gaussian sign comparison"
+        },
+        {
+          "assessment": "Special harmonic two-time-squared observable, not the arbitrary kernel or trichotomy",
+          "evidence": [
+            "Positive stationary energy covariance with a rate crossover."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-r-2-mu-energy-correlation-crossover-for-a-harmonically-tra--9942883e9395",
+          "material_read": "Indexed RESULT.md, Finding",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Sharp r=2μ energy correlation crossover for a harmonically trapped particle",
+          "trigger": "Same resetting bath and related filtered fourth-order statistic"
+        },
+        {
+          "assessment": "Equal-time probe statistic with a seed-shape parameter, not unrestricted four-time moments",
+          "evidence": [
+            "Stationary positional excess kurtosis and a zero-seed boundary case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-seed-shape-threshold-for-kurtosis-reversal-under-sto--a0f2c9f0066f",
+          "material_read": "Indexed RESULT.md, Finding",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "A universal seed-shape threshold for kurtosis reversal under stochastic resetting",
+          "trigger": "Possible equivalent fourth-order harmonic formula"
+        },
+        {
+          "assessment": "Later distinct refresh diffusion and observable",
+          "evidence": [
+            "Two-time tensor for multivariate OU refreshes with Gaussian marginals; references the assigned four-time-sign record."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-fourth-cumulant-clock-for-gaussian-marginal-reset-di--60c8bc7c3b67",
+          "material_read": "Finding and references, including mirror offset 10285",
+          "method": "Resultary lookup and local mirror passages",
+          "title": "A universal fourth-cumulant clock for Gaussian-marginal reset diffusions",
+          "trigger": "General-looking indexed fourth-cumulant reset statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Covariance matching makes every second-order comparison after the same linear probes inconclusive. A closed four-time kernel with uniform sign makes the fourth connected moment an exact discriminator among the three specified mechanisms at any probe times and under any nonzero nonnegative response filters, not just for one rate or at equal time. This is a useful structural result for reset-driven linear systems. It is not a claim of experimental detectability, statistical identification among all baths, or persistence for signed filters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim is restricted to positive two-state rates, positive step sizes and universal initial probability vectors. The exact projector identity \(Q=-(a+b)(I-\Pi)\) reduces the coupled Gauss stages to two rational scalars. The entrywise criterion \(-1/r\le g\le1\) is necessary and sufficient; its quadratic discriminant yields the sharp critical ratio, both interval boundaries, and the equality tangency. A strictly positive endpoint follows from the exact Padé scalar in \((0,1)\). The symbolic verifier checks the full stage recursion, not merely eigenvalues, and fifty independent block solves. Universal statements follow from inequalities in the proof, not from the finite checks.
+## correctness
 
-## Originality (O): PASS, with specialist precedence risk
-The adaptive-weight treatment of Nüßlein–Ranocha–Ketcheson (2020), in its equations (2.4)–(2.5) and section 5.1, acknowledges negative stage values but does not give the two-state Gauss ratio-dependent sharp stage classification in the inspected material. The graph-Laplacian methods of Blanes–Iserles–Macnamara (2021/2022), sections 3.1–3.5, use exponential, splitting, and Patankar methods; their use of Gauss points for Magnus quadrature is distinct from the classical implicit Gauss RK stage matrices. The closest prior mathematical findings concern endpoint Padé/Markov positivity or a different SSP-SDIRK tableau. Neither directly implies the internal-stage threshold and reentrant interval here. The tableau and scalar endpoint stability function are standard and are not claimed new. A specialist might obtain the threshold from known general contractivity/stage-monotonicity criteria; this remains an originality risk and no global uniqueness is asserted.
+PASS
 
-## Mathematical value (V): PASS
-Internal-stage probability admissibility matters when the numerical state feeds a positive-domain nonlinear rate law. On the minimal irreducible Markov model, there is a nontrivial full parameter-space answer: universal stage safety below a sharp rate contrast, a single exact tangency at equality, a bounded dangerous step window above it, and recovery for arbitrarily large steps even while the endpoint stays positive. This distinguishes internal-stage safety from endpoint positivity and yields a compact, reproducible stress test for high-order implicit integrator implementations. It is not claimed to extend to arbitrary Markov generators or nonlinear dynamics.
+For the row-vector generator, Q=−(a+b)(I−Π) with each row of Π equal to (b,a)/(a+b). On the stationary component the stages and endpoint are the identity; on the other component solve the two scalar stage equations. Their factors are (1±√3 z/6)/D, D=1+z/2+z²/12, and the endpoint factor is 1−z/D. A map with factor g has nonnegative entries exactly for −1/r≤g≤1, since off-diagonals are π_j(1−g) and the smaller diagonal is π_min+(1−π_min)g when g<1. The endpoint numerator ((z−3)²+3)/12 and both strict bounds for stage 1 settle those claims. Independently put y=z/(2√3): the stage-2 factor is (1−y)/(1+√3 y+y²), with derivative numerator y²−2y−(1+√3). Its unique minimum occurs at y*=1+√(2+√3) and is −1/(2y*+√3); this yields the stated r*. The factor is <1 for y>0 and returns to zero from below; the horizontal line −1/r gives one tangency at r*, two positive crossings for r>r*, and strict positivity outside the closed failure endpoints. At a crossing exactly one diagonal is zero since r*>1. With (a,b,h)=(9,1,1), the endpoint first row is (16,27)/43; the stage-2 first component at (99,1)/100 is (697−445√3)/4300<0. The packaged checker and recorded output were inspected but not executed. Its 50 block solves are exact comparisons for the first basis input; their sampled sign tests use numerical tolerances. The analytic check, not that sample, establishes all claims.
 
-## Relationship and limitations
-The major limitation is the two-state autonomous linear family and exact classical Gauss tableau. The principal risk is unindexed or older specialist literature on strong stability of internal Gauss stages. A separate independent mathematical review has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the standard Gauss tableau, rank-one stochastic-mode criterion, familiar Padé endpoint, and known possibility of negative internal stages. The surviving distinct claim is the sharp weighted two-state classification for the actual Gauss collocation stages, including the isolated zero and exact reentrant stage-2 failure while the endpoint remains positive. None of the statement-level comparisons supplies this stage boundary or covers it by a stronger result.
+
+## value
+
+PASS
+
+Two states are the smallest nontrivial Markov setting and a natural controlled test of whether a positivity-preserving update certifies admissible intermediate probabilities. It does not: the exact rate contrast and two scaled step boundaries identify when endpoint monitoring misses failure and when larger steps restore positivity. This is an actionable sharp stage classification and an exact interior-input witness for a standard high-order scheme, not novelty assigned to a projector identity or the usual stability function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

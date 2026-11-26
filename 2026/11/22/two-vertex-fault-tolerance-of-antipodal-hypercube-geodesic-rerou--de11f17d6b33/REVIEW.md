@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes antipodal endpoints, at most two nonterminal faults, and one-intermediate-vertex rerouting. Prefix-set encoding gives a precise equivalence with adjacent position swaps of permutations. The induction for dimensions at least five has two independently justified parts: connected, nonempty fibers by dimension reduction; and cross-fiber bridges via a union bound of at most \(2/(n-2)<1\) on suffix orders. The graph of viable first letters is connected after removal of at most two singleton/edge constraints. The dimension-four base is a finite complete classification by the ten \((|A|,|B|,|A\cap B|)\) coordinate orbits, checked by a complete numerical orbit verifier and a separate direct-path connectivity verifier. The dimension-three counterexample is explicit. No computational observation is used as an infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, qualified
-Asplund et al. (2017), Proposition 27, and Gajjar et al. (2021), Observation 2 and Theorem 5, describe the unfaulted permutation correspondence and shortest rerouting. They do not state the two-fault connectivity guarantee, and unfaulted connectivity cannot imply that robustness. Related published findings on single forbidden vertices, hypercube geodesic transversals, and other graph reconfiguration parameters do not cover arbitrary pairs of deleted internal cube vertices. No covering result appeared in targeted searches for permutations with two forbidden prefixes, two faulty cube vertices, or diamond exchanges in a Boolean lattice. Risk: unindexed literature or a stronger structural theorem could imply this result; absence from retrieved sources is not a proof of publication priority.
+PASS
 
-## Value — PASS
-This is an all-dimensional worst-case robustness theorem for optimal path-rerouting in a canonical interconnection network, with a sharp three-dimensional obstruction. It addresses fault-tolerant feasibility of continuous changes between *all* shortest routes, rather than merely the existence of a route or optimal reconfiguration in the undamaged cube. This structural threshold is useful when two intermediate network nodes may be unavailable simultaneously.
+A length-n antipodal path adds each coordinate once, and changing one internal vertex exchanges the two coordinates on either side of that vertex. The computational Q4 base was independently reproduced directly in cube-path coordinates for all 106 fault sets of size 0–2, including the ten tabulated pair types; every allowed graph is nonempty and connected. In the induction, any first letter not itself forbidden leaves nonempty proper suffix faults only from the original sets containing that letter; induction gives a nonempty connected fiber. A proposed bridge uses the same suffix after (s,t) and (t,s); its two singleton sets and common doubleton are allowed. Each further forbidden set can exclude at most a 1/(n-2) proportion of suffixes, since its residual size lies between 1 and n-3. Thus two faults cannot block the bridge for n>=5. The fiber graph has at least n-2 vertices and loses fewer edges than its minimum complete-graph cut, so the connected fibers join into one component. In Q3 the only two remaining paths after forbidding {0} and {1,2} differ in both internal vertices; the independent enumeration confirmed exactly this obstruction.
 
-## Limits and sources
-The theorem does not bound minimum rerouting sequence length, and the dimension-four base relies on exhaustive computation whose source is embedded. Relevant inspected sources: https://arxiv.org/abs/2112.07499 (full open-access 2024 text also inspected at https://link.springer.com/article/10.1007/s00453-024-01263-y); https://arxiv.org/pdf/1705.09385 (pages 2 and 13, including Proposition 27). A general 2024 parameterized reconfiguration paper was available at abstract level but did not settle the restricted two-fault cube problem. Scholarly coverage beyond these and search-index results remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known fault-free permutahedral representation and the one-fault result are not claimed as novel. The inspected sources do not cover connectivity after two arbitrary internal faults, for which the missing bridges must be controlled simultaneously and Q3 has a genuine counterexample.
+
+## value
+
+PASS
+
+The result guarantees that all currently feasible shortest antipodal routes can be transformed into one another without sacrificing optimal length or traversing either fault. This is stronger than existence of one survivor and is not inherited from fault-free sorting. A small counterexample identifies the exact minimum dimension for the guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

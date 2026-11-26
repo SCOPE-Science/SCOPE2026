@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:11:42.661614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In Kwon et al. arXiv v1 p.8, the paragraph following Eq. (5) explicitly prescribes T_w + eta I rather than T_w for stability; Eq. (5) alone is the unshifted definition. In Algorithm 1 at p.12 the p=2 perturbation and shifted outer gradient give the frozen expression on setting weight decay to zero and using one filter. At Rv, put b=rho(1+tau/R)/||Av||. Direct substitution gives x^+/R=v-alpha(A+b A^2)v. The inner product with v is m1+b m2 and the squared norm of the update direction is m2+2b m3+b^2 m4, where v^T A^j v=1-kappa^-2+kappa^(j-2). These give exactly the stated positive coefficients, strict contraction below 2A_{kappa,R}/B_{kappa,R}, equality at the boundary and expansion above it. At fixed positive rho, the large-radius coefficients have A tending to 1+rho sqrt(2) as kappa grows and B/kappa^2 tending to rho^2/2. The axes have multiplier 1-alpha lambda[1+rho(1+tau/R)]. Even a uniform-in-R reading of the large-R separation holds: the kappa expansions are uniform for s=1+tau/R in a fixed compact interval [1,1+tau/R0], and the limiting scaled mixed threshold 4(1+rho s sqrt(2))/(rho s)^2 decreases with s. The calculation excludes x=0, where the normalized gradient is undefined; it is neither an orbit-divergence result nor an optimality claim over all directions. Inspected frozen verify.py as a numerical guard, not as a proof. Independent exact rational replay: python3 /workspace/review_evidence/3_exact_witness.py, giving threshold 2597/25969, mixed squared ratio 3348049/3062500 > 1 at alpha=11/100, and pure norm ratios 81/125 and 19/25.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The convex-quadratic SAM paper analyzes eventual alternating states near a top eigendirection with a fixed perturbation radius. The local CS-SAM result has scalar M(x)=a+ell|f'(x)| and an exact global threshold 2/(1+rho) in its scaled step size."
+        ],
+        "reasoning": "The broader quadratic objective class does not cover the different state-dependent perturbation rule. A global-in-time scalar theorem of another algorithm likewise does not dominate this one-step two-dimensional result.",
+        "searches": [
+          "arXiv:2210.01513v1 convex-quadratic SAM analysis, Eq. (3), Theorems 1–2",
+          "Resultary record b52e2697411c Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Kwon et al. arXiv:2102.11600v1",
+        "Andriushchenko and Flammarion arXiv:2210.01513",
+        "Resultary b52e2697411c and ccfcc569ef82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard SAM has an additive perturbation of fixed magnitude; the ASAM perturbation here has magnitude rho(R+tau). The prior ASAM algorithm provides the update but not the balanced-gradient witness or the squared-condition-number conclusion."
+        ],
+        "reasoning": "At a single radius one could reproduce the same perturbed point by choosing a fixed SAM radius equal to rho(R+tau), but a fixed-radius theorem does not state this one-step conclusion, and fixed radius divided by R tends to zero rather than rho as R grows. Algebraic expansion is elementary once the witness is chosen; the witness and comparison are not a prior theorem's parameter substitution.",
+        "searches": [
+          "arXiv:2102.11600v1 Eq. (5) and Algorithm 1",
+          "arXiv:2210.01513v1 Eq. (3) and Theorems 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source prescribes the norm-based filter scale and stabilizer, and gives a two-dimensional example with loss |w1 ReLU(w2)-0.04|, not a positive quadratic contraction threshold.",
+          "The nearest local records study a scalar gradient-scaled CS-SAM global phase portrait and a scalar fixed-radius SAM momentum-cycle condition."
+        ],
+        "reasoning": "Neither a scalar phase portrait nor dynamics about an axis is an equivalent test of a two-coordinate initial direction whose small stiff coordinate produces an order-one share of the gradient.",
+        "searches": [
+          "Resultary: filter-wise ASAM quadratic mixed-mode step-size and norm expansion; closest records b52e2697411c and ccfcc569ef82",
+          "arXiv:2102.11600v1 Eq. (5), Algorithm 1 and §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source's toy example and empirical parameter sweeps do not report a quadratic Euclidean threshold as a function of condition number and radius. The exact thresholds retrieved in the index are for different update maps."
+        ],
+        "reasoning": "This is a symbolic continuum of state and parameter thresholds, not a fixed experimental number recoverable from the empirical settings or a scalar threshold table.",
+        "searches": [
+          "arXiv:2102.11600v1 §§6.1–6.2, Fig. 3 and parameter setup",
+          "Resultary b52e2697411c and ccfcc569ef82 exact threshold statements"
+        ]
+      },
+      "rationale": "The distinct claim supported here is the high-condition-number mixed-direction one-step Euclidean threshold and its explicit separation from both axes for one-filter p=2 ASAM. No inspected source gives it or a stronger result under the same hypotheses; the source algorithm itself is fully credited.",
+      "residual_risks": [
+        "Targeted web results did not supply another relevant paper; this is not evidence of absence. An unindexed equivalent ASAM calculation or different normalization terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algorithm premise, but different example and no threshold in inspected passages",
+          "evidence": "Filter-wise diagonal repeats ||f_i||_2; the paragraph expressly says 'we use Tw + ηIk rather than Tw ... for stability'. Algorithm 1 evaluates the loss gradient at the perturbed point. The toy example uses |w1 ReLU(w2)-0.04|.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.11600v1",
+          "material_read": "p.8 Eq. (5) and following paragraph (OA offset 18220); p.12 Algorithm 1 and §6.1 (offset 29570)",
+          "method": "Direct OA PDF targeted literal search and bounded passage",
+          "title": "ASAM: Adaptive Sharpness-Aware Minimization for Scale-Invariant Learning of Deep Neural Networks",
+          "trigger": "Exact source normalization, method and possible quadratic example overlap"
+        },
+        {
+          "assessment": "Distinct fixed-radius geometry and asymptotic question",
+          "evidence": "Alternating centers at ±eta rho lambda_1/(2-eta lambda_1)e_1 for standard SAM, not a one-filter ASAM mixed-direction step.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.01513",
+          "material_read": "Quadratic analysis, update Eq. (3), Theorems 1–2 and their alternating centers",
+          "method": "Targeted OA PDF inspection",
+          "title": "Towards Understanding Sharpness-Aware Minimization",
+          "trigger": "Closest published stability analysis on convex quadratics"
+        },
+        {
+          "assessment": "Different algorithm, dimension and conclusion",
+          "evidence": "Scalar gradient-dependent M, threshold gamma_c=2/(1+rho), supercritical two-cycle.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-global-step-size-phase-portrait-for-gradient-scaled-cs-sam--b52e2697411c",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Targeted local mirror inspection",
+          "title": "Sharp global step-size phase portrait for gradient-scaled CS-SAM",
+          "trigger": "Strongest indexed quadratic sharpness-aware threshold overlap"
+        },
+        {
+          "assessment": "Different perturbation, momentum and stability concept",
+          "evidence": "Scalar fixed-radius EMA cycle bound 0<alpha lambda(1-beta)<2(1+beta).",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82",
+          "material_read": "RESULT.md threshold statement",
+          "method": "Targeted local mirror inspection",
+          "title": "Exact cycle stability frontier for scalar SAM with EMA momentum",
+          "trigger": "Earlier indexed exact SAM stability frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The balanced-gradient state is motivated by the interaction of the inner normalized gradient and the outer Hessian; it is not an arbitrary parameter slice. Its exact threshold shows that testing both eigenvectors can miss an entire condition-number factor even under the published additive stabilizer at large radius. That is useful as a sharp counterexample to an axis-based one-step contraction heuristic, without claiming general convergence or practical learning-rate prescriptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:27:05.155583Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96 and supporting VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/repairs/5/RESULT.md, Finding and Proof",
+        "Independent symbolic verification of the stated polynomial identities"
+      ],
+      "rationale": "For the repaired statement, the swap equations for two distinct points give sum S=(mu+1)/mu by subtraction and product P=S/(mu-lambda) by addition. Conversely these sum and product equations imply both swap equations; solving the quadratic therefore introduces no extraneous roots. Its discriminant has the sign of H and its vertex lies in (0,1) with positive endpoint values, so a positive discriminant gives exactly one primitive pair in the interval and a double root gives none. At each root x, with other root y, differentiate (1+lambda x)F(x)=mu x(1-x) and use mu S=mu+1: the derivative numerator is mu(y-x)-(1+lambda y). Multiplication gives 1-mu(mu-lambda)(y-x)^2/[(1+lambda x)(1+lambda y)], which reduces to 1-R via the given P,S. With t=sqrt(1+lambda) the critical point is 1/(1+t), the stated invariance endpoint gives H=2 t^2(t+1), and R=4[1+1/(t+1)^2]>2 there. R rises strictly from zero with mu above mu_1 by its three positive factors. It falls strictly with lambda wherever H>0. Comparing a smaller-lambda threshold at the larger lambda either puts it below the latter's mu_1, or places it inside the latter admissible interval with R<2 because the upper invariance endpoint increases. This proves strict increase, including the endpoints. At lambda=1 the quartic divided by mu^2 reduces to s^2-4s-4 with s=mu-1/mu; the allowed root has s=2+2 sqrt(2), giving the corrected radical. The simple zero of H gives the square-root expansion and error by factoring out mu-mu_1 before expanding the positive analytic factor. An independent symbolic calculation confirmed the frozen factorization, discriminant, product derivative, invariance-endpoint identity, and quartic, all of which apply to the repaired theorem.",
+      "residual_risks": [
+        "The product -1 does not by itself classify nonlinear stability there or imply period-four birth. Neither is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conejero et al. Section 2 proves the exact fixed-point stability threshold; Section 7 uses smallest distance of maximum Lyapunov exponent to zero in a 10,000-element local grid to estimate transition parameters. Section 8 summarizes analytic and graphical results.",
+          "Kumar et al. study the rational endpoint and give numerical regimes."
+        ],
+        "reasoning": "Neither fixed-point multipliers nor these numerical Lyapunov computations determine the all-lambda two-cycle product, its unique -1 level, or monotonicity throughout a continuum. The earlier endpoint theorem is stronger only on its restricted parameter family.",
+        "searches": [
+          "Primary-literature discovery on logistic rational interpolation and exact period doubling",
+          "Conejero et al. DOI 10.3390/math13030518, Sections 2, 7, 8",
+          "Kumar et al. DOI 10.3934/mbe.2022115, pp. 5, 9"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/math13030518",
+        "DOI 10.3934/mbe.2022115",
+        "c832b5af1161",
+        "Frozen RESULT.md lines 98–110 and repaired Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conejero et al. p. 15 note increasing separation of the sample bifurcation points. They do not prove the strict continuum monotonicity of the secondary threshold in the inspected methodology and statements.",
+          "c832b5af1161 proves more about the lambda=1 secondary bifurcation, including a local attracting four-cycle, but fixes lambda throughout its statement."
+        ],
+        "reasoning": "The earlier H=0 stability threshold is needed background but does not imply the cycle discriminant calculation or the full sign and monotonicity properties of R. Combining the two endpoint theorems with numerical middle samples cannot establish the repaired uniform theorem.",
+        "searches": [
+          "Conejero et al. Section 2 and Section 7; c832b5af1161 Finding, mirrored offset 0; Kumar pp. 5, 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conejero–Lizama–Quijada use K(x)=mu x(1-x)/(1+lambda x) in Section 7 as in the repair. Their analytic calculation in Section 2 is for fixed points.",
+          "The identical lambda=1 member appears as K_mu(x)=mu x(1-x)/(1+x) in c832b5af1161; its radical value equals the frozen quartic root by s=mu-1/mu."
+        ],
+        "reasoning": "The shared rational endpoint is true equivalence, not a numerical match. Logistic lambda=0 is also known. Neither endpoint reduction produces an equivalence of all interior maps to the same fixed-lambda family in the inspected results.",
+        "searches": [
+          "Local Resultary: rational logistic interpolation, second flip, exact cycle multiplier",
+          "DOI 10.3390/math13030518, exact family and parameterization",
+          "c832b5af1161, RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-family secondary-transition estimates 3.45, 3.99, 4.53, 5.03 at lambda 0, 0.33, 0.67, 1.",
+          "c832b5af1161 gives exactly 1+sqrt(2)+sqrt(4+2sqrt(2)) at lambda=1, using the same cycle and multiplier."
+        ],
+        "reasoning": "There is exact prior coverage of the rational endpoint as well as the classical logistic endpoint. The numerical interior values do not tabulate or determine the exact function mu_2(lambda).",
+        "searches": [
+          "Resultary record c832b5af1161",
+          "Conejero et al. Section 7 pp. 13–15, PDF offsets 36000–40797"
+        ]
+      },
+      "rationale": "The repaired claim is a uniform exact period-two census and local stability strip for the interior of the known interpolation, with a rigorous strictly increasing secondary boundary on the closed parameter interval and an explicit opening coefficient. The endpoints are included for continuity and credited, not asserted as new. The closest primary paper treats the identical family and gives the exact first fixed-point threshold, but its Section 7 determines the secondary boundaries at four samples by numerical approximation. The strongest indexed prior gives the entire exact rational-endpoint census, multiplier and threshold and goes further for period four there; that specialization is covered and excluded from the supported distinct claim.",
+      "residual_risks": [
+        "The search is not an exhaustive priority proof; unlocated general rational-map results could cover the interior formulas. The originality verdict does not extend to either endpoint or to the first fixed-point boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first boundary already known; numerical estimates and qualitative observations for secondary boundary, not exact uniform two-cycle theorem in the inspected passages",
+          "evidence": [
+            "§2 gives the analytic upper bound for fixed-point attraction as [(lambda+3)+sqrt((lambda+1)(lambda+9))]/2.",
+            "§7 specifies numerical approximation via maximum Lyapunov exponents, and lists the approximate period-two to period-four transition for four values of lambda."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math13030518",
+          "material_read": "Direct OA PDF: abstract; §2 fixed-point theorem and proof, offsets 9850–14250; §7 numerical method and sample transitions, offsets 36000–40797, pp. 13–15; §8 conclusions at offset 40797",
+          "method": "Lawful direct publisher PDF, literal query and bounded offset reads",
+          "title": "Dynamical Properties for a Unified Class of One-Dimensional Discrete Maps",
+          "trigger": "Identical interpolation family, analytic and numerical stability results"
+        },
+        {
+          "assessment": "Numerical period-two behavior for an endpoint, not exact uniform classification",
+          "evidence": [
+            "p. 5 describes period two from 4.237 to 5.033; p. 9 reports 4.236<mu<5.02 and numerical cycle points at mu=5."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2022115",
+          "material_read": "pp. 5 and 9, PDF offsets 15941 and 22660",
+          "method": "Lawful publisher full text",
+          "title": "Dynamical properties of a novel one dimensional chaotic map",
+          "trigger": "Same map at lambda=1"
+        },
+        {
+          "assessment": "Exact equivalence for the lambda=1 census, multiplier and threshold; further local four-cycle result at that endpoint; no interior interpolation in this statement",
+          "evidence": [
+            "Known cycle onset 2+sqrt(5), product 1-(mu^2-1)(mu^2-4mu-1)/(2mu^2), and secondary threshold 1+sqrt(2)+sqrt(4+2sqrt(2))."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-second-flip-boundary-and-local-attracting-four-cycle-in-a--c832b5af1161",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions, at offset 0 through 2655",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Exact second-flip boundary and local attracting four-cycle in a rational unimodal map",
+          "trigger": "Earliest exact rational-endpoint match found in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact stability boundary for a specified two-parameter interpolation answers what sampled Lyapunov plots cannot: where the only primitive two-cycle is locally attracting, and whether increasing interpolation moves the crossing monotonically at every parameter. The closed-form multiplier and opening coefficient explain onset and loss of hyperbolicity, and the proof applies across the whole invariant strip. That uniform statement survives crediting the known endpoints and does not rely on rediscovering them or merely fitting tabulated values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

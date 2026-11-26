@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:05:19.651463Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting at (0,1), the two unimodular child maps give the consecutive Stern pair at every index, with leading zeros preserving (0,1). Nonzero pairs modulo seven project to eight states; vanishing numerator means precisely the start state. Constructing the transition matrix M in homogeneous coordinates independently, the (0,0) resolvent coefficient is the corresponding cofactor of I−zM divided by its determinant. Exact cancellation gave the stated rational function, gcd 1 and the partial fractions in RESULT.md lines 74–78. Expanding the denominator reproduces the recurrence; any eventual rational homogeneous recurrence would give a polynomial multiplier making the series polynomial, so must have degree at least six. In the reciprocal quartic, the two real linear coefficients of the displayed quadratics are distinct, have sum 1 and product −4. The sharper bound needed for their discriminants follows from 17<(4√2−1)^2 (equivalently √2<2), not from 17<49 alone as written. Thus all four reciprocal roots are distinct of modulus √2; coprimality leaves nonzero coefficients at each pole. The normalized mean square tends to the nonzero sum of squared coefficients since all cross-ratio geometric means vanish. This proves the limsup, not a pointwise lower bound. Independent replay: `cd /workspace && python checks/independent_replay.py 1` used exact SymPy determinants, rational gcd and partial fractions, and direct Stern counts through r=13 including r=0. The frozen verifier is corroboration; the proof handles every level.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick gives the general main term and error O(N^τ_d), density 1/I(d), and existence of finite recurrences in the dyadic setting.",
+          "Coons–Shallit give a binary-pattern expansion of s(n) itself."
+        ],
+        "reasoning": "The general recurrence guarantee does not determine the reduced observable denominator, pole cancellations or the sharp rate for seven. The termwise binary expansion would still require a separate modular distribution and spectral calculation.",
+        "searches": [
+          "Reznick, JIS 08.4.1, Eqs. (10)–(15) and end of Section 5",
+          "Coons–Shallit arXiv:1105.0086, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Reznick JIS 08.4.1 / arXiv:math/0610601",
+        "Reznick course notes (bibliographic trace only)",
+        "Coons–Shallit arXiv:1105.0086",
+        "Dilcher–Stolarsky DOI 10.4064/aa140-2-2 (retrieval attempted)",
+        "Resultary 67fcd3f4bd6d and cc102e6b5370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mod-three characteristic polynomial is (X−2)(X²+X+2); its two nonleading roots have modulus √2. The mod-eight work likewise obtains a sharp square-root scale for a different return problem."
+        ],
+        "reasoning": "The generic spectral analysis and neighboring explicit examples give strong precedent for the method but do not prove that the mod-seven zero observable has four noncancelled √2 modes after the two main terms. That certification, as well as degree-six minimality, needs the modulus-seven calculation.",
+        "searches": [
+          "Reznick Lemma 19, Theorem 20, Corollary 21 and Section 5",
+          "Resultary modulo-eight exact dyadic spectra, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reznick's Section 5 analyzes dyadic residue counts; Lemma 19 through Corollary 21 treat modulus three explicitly.",
+          "Resultary 67fcd3f4bd6d gives all eight dyadic residue series and sharp square-root discrepancy modulo eight; cc102e6b5370 gives a common order-twelve series for modulus 22 and modulus 27 zeros."
+        ],
+        "reasoning": "A zero-residue count can be encoded as either a modular distribution or a projective return count. Rewriting it that way does not convert a mod-3, mod-8, mod-22 or mod-27 calculation to mod 7; the congruences and the return operators differ. The mod-eight record is a genuine adjacent result regardless of its displayed date.",
+        "searches": [
+          "Reznick arXiv:math/0610601, dyadic zero counts and recurrences",
+          "Resultary: Stern diatomic dyadic divisibility, reduced generating functions and square-root discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper records exact coincidences for 4,5 and 6,9,11, the 22,27 conjecture, and an exact worked formula at 3. The inspected catalogue records resolve 22,27 and compute the mod-eight series."
+        ],
+        "reasoning": "These exact formulas and tabulations have different moduli. A mod-seven density or finite initial counts would not establish the exact reduced rational sequence and its minimality in any case. No matching complete entry was evidenced.",
+        "searches": [
+          "Reznick, JIS 08.4.1 p. 3 Eq. (15), pp. 13–15",
+          "Resultary 67fcd3f4bd6d",
+          "Resultary cc102e6b5370"
+        ]
+      },
+      "rationale": "Credit Reznick with the density 1/8 at modulus seven, the finite-state method and the eventual recurrence mechanism, as well as a sharp square-root result at modulus three. The supported distinct part is the explicit reduced modulus-seven series with its minimal recurrence and proof of sharp square-root error for that modulus. Statement-level checks found no coverage of that combination; historical priority is not certified.",
+      "residual_risks": [
+        "The Reznick course notes were not available for direct comparison and could contain a seven-specific computation.",
+        "The Dilcher–Stolarsky primary text was not retrieved; that limited comparison and unindexed Stern tables leave residual priority uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Density and general machinery covered; specific closest exact sharp formula is for modulus three",
+          "evidence": "At seven I(7)=8; the modulus-three nonleading roots lie on the √2 circle. No exact mod-seven formula is evidenced by the inspected passages.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+          "material_read": "p. 3 Eqs. (10)–(15); pp. 13–15 Lemma 19, Theorem 20, Corollary 21, end of Section 5 and reference [16]",
+          "method": "OA journal PDF, statement and parameter comparison",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals",
+          "trigger": "Same dyadic zero counts and general Stern distribution, including modulus seven"
+        },
+        {
+          "assessment": "Unresolved coverage risk",
+          "evidence": "No primary mathematical passage from the notes was available; no inference of noncoverage.",
+          "identifier_or_url": "Reznick course notes; Reznick (2008) reference [16]",
+          "material_read": "2008 bibliography p. 15 lists in preparation; frozen RESULT.md lines 105–114 reports 2012 notes citation",
+          "method": "Bibliographic trace; full notes unavailable",
+          "title": "A Stern Introduction to Combinatorial Number Theory",
+          "trigger": "Potential prior tabulation of a mod-seven worked example"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Gives a binary-pattern expansion for s(n), not an explicit modular return series.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.0086",
+          "material_read": "Theorem 1.1, HTML offset 3092",
+          "method": "OA statement inspection",
+          "title": "A Pattern Sequence Approach to Stern’s Sequence",
+          "trigger": "Equivalent exact Stern formulas in binary form"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "No mathematical passage was retrieved; no absence inferred.",
+          "identifier_or_url": "https://doi.org/10.4064/aa140-2-2",
+          "material_read": "Bibliographic link only; DOI and journal article route returned HTTP 502",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Stern Polynomials and Double-Limit Continued Fractions",
+          "trigger": "Potential alternate Stern formulation"
+        },
+        {
+          "assessment": "Same family of questions for modulus eight, not coverage of seven",
+          "evidence": "Eight reduced rational generating functions and a sharp square-root discrepancy for each residue mod eight.",
+          "identifier_or_url": "Resultary 67fcd3f4bd6d",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local catalogue search, then mirrored claim inspection",
+          "title": "Complete modulo-eight residue spectra of Stern’s diatomic sequence",
+          "trigger": "Strongest adjacent exact GF/discrepancy record"
+        },
+        {
+          "assessment": "Earlier exact results for distinct moduli",
+          "evidence": "Equality of the mod-22 and mod-27 dyadic zero counts with a shared order-twelve series.",
+          "identifier_or_url": "Resultary cc102e6b5370",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local catalogue search, then mirrored claim inspection",
+          "title": "Resolution of the Stern 22–27 dyadic divisibility conjecture",
+          "trigger": "Exact dyadic divisibility series with finite recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact dyadic modular distribution is a natural continuation of the worked modulus-three problem and the nearby small-modulus comparisons. The object is not an arbitrary initial segment: the smallest rational recurrence encodes every level, and the observed return-discrepancy exponent is resolved sharply, distinguishing the actual contributing modes from a general upper estimate. The reduced transfer and pole certificate is independently useful for this prime, beyond confirming the known density or generating sample counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

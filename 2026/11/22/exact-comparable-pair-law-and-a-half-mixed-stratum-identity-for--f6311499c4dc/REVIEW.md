@@ -1,15 +1,21 @@
-# Review of the signed-order comparable-pair theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The sign-stratum partition is exhaustive except for null hyperplanes; each cap has volume \(1/n\) and its conditional coordinate and depth laws follow from Fubini. All three independent pair types are integrated using exact one-dimensional beta identities, with explicitly accounted type probabilities and orientations. The formulas normalize to the stated total and conditional law. Exact rational tests for 79 dimensions, and independent ambient-rejection Monte Carlo on 240,000 point pairs in five dimensions, reproduce the derivation. The code is a verification aid rather than a substitute for the analytic proof.
+## correctness
 
-## Originality
-**PASS, provisional historical priority.** Beck–Hlavacek's signed order-polytope work provides the polyhedral definition but not the two-point probability. The closest located *Sharp Catalan and cube bounds for comparable random points of order polytopes* proves an opposite lower bound for ordinary unsigned order polytopes; its FKG hypotheses fail for the present signed-positive-pair polytope. Fried's simplex dominance results and Jacobovic–Zuk's cube Pareto/correlation results study different measures or comparisons. Searches for equivalent signed-poset, pairwise-comparison, orthant-restriction and positive-pair formulations found no dominating formula. An equivalent computation in older unindexed literature remains possible, so priority should be independently checked before publication.
+PASS
 
-## Mathematical value
-**PASS.** The exact calculation isolates a structural failure of a universal unsigned-order-polytope probability inequality under the natural signed-poset extension, in every dimension. Beyond the sign of that failure, the all-dimensional comparable-pair probability and dimension-independent one-half mixed-stratum phenomenon provide a useful quantitative description and exact sampler of this natural geometric family. This is a mathematically motivated boundary phenomenon, not a relabeling of the prior theorem.
+The complete positive-pair roots obey the signed-poset closure condition: a positive combination with at least two distinct summands has support of size at least three and is not a type-B root. Q_n has at most one negative coordinate and comprises the nonnegative unit cube and n caps of cross-section volume (1-t)^(n-1), hence volume 2. Independently compute the volume in the orientation X<=Y: Q_n is an upper set inside [-1,1]^n, so once X is in Q_n, the box [X,1] contains precisely the allowed Y. For X in the cube this gives volume 2^(-n) with N=0. For X in a cap at depth t, integrate both x_j and y_j in the positive coordinates to get [(1-t)^2/2]^(n-1), and split the y-coordinate at 0 into intervals of lengths 1 for N=1 and t for N=2. The two oriented volumes are therefore n·2^(1-n)/(2n-1) and 2^(-n)/(2n-1). Dividing each by Vol(Q_n)^2=4 and doubling for the disjoint reverse orientation almost surely gives the three unconditional masses. The mixed mass equals the sum of the other two, yielding the conditional half exactly. The total and the ratio to the cube law follow, including n=2 where the domain is a triangle. Inverting the cap depth CDF gives exactly the sampler T=1-U^(1/n).
 
-## Scientific scope and limitations
-The claim concerns ordinary Lebesgue sampling and coordinatewise product comparison on one specified family, not all signed order polytopes or arbitrary comparisons. Monte Carlo supports but does not prove any infinite-dimensional assertion. The leading signed-order reference's first public posting was 2023-11-08; the completed source comparison is not a guarantee of bibliographic uniqueness. The audit here is internal to the mathematical development, not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact two-point product-order law, including the half-mixed identity, for the full dimensional complete positive-pair family. The definition and ordinary cube benchmark are prior results, and the volume is elementary from the signed chamber structure. Neither is a standalone novelty claim.
+
+## value
+
+PASS
+
+This is a precise boundary of a known association result for a natural signed family, not a single small counterexample. The full-dimensional examples violate the ordinary lower bound at every n>=2 by an exact ratio and the sign-resolved law identifies which pairs account for the comparability mass. The dimension-independent half is a useful structural identity for checking this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

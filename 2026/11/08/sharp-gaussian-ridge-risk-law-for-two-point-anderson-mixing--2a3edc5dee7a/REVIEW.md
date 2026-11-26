@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The centered two-residual ridge objective has the unique minimizer \(\gamma_\lambda=-WT/(T^2+\lambda)\) for \(\lambda>0\), and produces the exact error representation in `RESULT.md`. Normal orthogonal contrasts are independent. The moment threshold is proved from the exact tail coefficient for \(E_0=\theta+dW/T\); the ridge singularity follows from a normal-density local integral with coefficient \(\pi d^2 p_\sigma(0)m_2/2\). A Gaussian Taylor expansion with exponentially small exceptional-set control yields the exact fourth-order polynomial \(Q(c)\). Its strictly positive quadratic coefficient proves uniqueness when \(\theta\ne0\). The standalone symbolic-numeric verifier passed 155 deterministic checks, including symbolic coefficient equalities and direct noisy-update comparisons. Computation supports, but does not substitute for, the infinite-domain proof.
+PASS
 
-## Originality — PASS (qualified)
+The frozen ratio formula and tail are correct, but their inclusion in the finding created demonstrated prior coverage. The complete replacement restricts its finding to positive-ridge risks. Reconstructing the ridge minimizer gives γ=-WT/(T²+λ), with W and T independent by Gaussian sum/difference orthogonality, yielding E=θ+Whλ(T) with hλ(t)=(dt-λ)/(t²+λ). The regularized moments are finite. For fixed σ, substituting T=√λ s gives the integrable kernel s²/(1+s²)² with integral π/2; splitting off the bounded part of hλ and using Cauchy–Schwarz bounds all mixed and linear terms by O(λ^(-1/4)). This gives the claimed positive inverse-square-root coefficient also at θ=0. For λ=cσ² the Gaussian mass away from the nonzero mean of T is exponentially small against the bound on hλ. Expanding the squared conditional bias and the conditional noise variance locally gives the replacement’s displayed derivative formula for Q, including the c² contribution solely from the deterministic ridge bias. A separate bounded SymPy expansion gave zero difference for both A and Q and, at r=1/2 and θ=d=1, yields A=10, c*=21, Q(c*)=-1140. Strict convexity gives uniqueness on the specified fixed-c domain only; compact-positive-c uniformity follows from the same remainder bound. The frozen script/output were inspected, not executed; the saved 155 assertions are not proof of either limit.
 
-Scieur, d'Aspremont and Bach (arxiv:1706.07270) already introduce regularized nonlinear acceleration; two-coefficient ridge weights themselves are not new. Toth et al. (2017, doi:10.1137/16M1080677) study inaccurate Anderson evaluations under different coefficient and local-control conditions. Wei, Bao and Liu (arxiv:2110.01543) study adaptively regularized stochastic mixing, and Pollock and Rebholz (arxiv:2211.12953) study conditioning filters. None of the inspected primary statements gives this exact fixed-site Gaussian one-step risk law or its fourth-order coefficient minimizer. Deterministic scalar Aitken-Steffensen robustness in the published mathematical record is distinct from this noisy distributional question. Ordinary Gaussian-ratio tails are known and are credited, not claimed new. Specialist precedents under alternative names remain possible; the full source and query comparisons are in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-Ridge selection in two-point stochastic extrapolation is a natural numerical question, because near cancellation of residual differences can induce huge random mixing weights. This result proves that the unregularized risk is mathematically infinite despite arbitrarily small Gaussian perturbations, determines the exact weak-ridge singularity, and specifies the sharp fixed-scale asymptotic tuning coefficient. Its usefulness is in calibration and cautionary stability benchmarking rather than a general solver guarantee.
+The original Finding fails originality in part: 30f28a658eb2 items 1–2 give exactly the unregularized tail coefficient and moment classification at ρ=0, independently of any priority inference from dates. The replacement removes these from the finding, describes them only as credited background, and keeps the exact positive-ridge blow-up and fourth-order fixed-scale risk calibration. Those surviving claims were compared separately; the inspected stronger unregularized coupling law and iterative regularization bounds do not give either coefficient.
 
-## Residual limitations
+## value
 
-Only scalar affine contractions and deterministic input sites are analyzed. Noise is independent, identically distributed Gaussian. The fourth-order ridge tuning applies to nonzero midpoint offsets and fixed positive \(c\) as \(\sigma\downarrow0\); global finite-\(\sigma\) optimality, nonlinear adaptive histories, and higher dimensions remain unproved. The closest algorithmic prior work introduces the method; this contribution is a new exact risk analysis under the stated model, conditional on unindexed-specialist precedence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The surviving claim quantifies two effects not captured by knowing the unregularized moment cutoff: exactly how regularization restores finite mean-square risk, and which fixed ridge/noise-variance ratio minimizes the first coefficient that distinguishes such choices. In a natural benchmark where the leading small-noise risk is common to all fixed c, the fourth-order coefficient gives meaningful information rather than a generic stability bound. The fixed-site and fixed-positive-scale restrictions are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:14:36.620075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact stages after setting U=(sqrt(r),0) by rotational equivariance. With t=h(a+br), q=br/(a+br), and s=t^2, the normalized second-stage frequency is B=1+qs/4 and the third-stage coordinates are (1-sB/2,-tB). Its normalized frequency is C=1+q[-sB+sB^2+s^2B^2/4]. Expanding X=1-sB(1+C)/4 and -Y/t=(1+2B+C(1-sB/2))/4 in X^2+Y^2 gives zero coefficients at s,s^2; the s^3,s^4,s^5 coefficients are (q+1)^2/64, -q(q+1)(2q+1)/128, q(9q+8)/1024. Evenness follows directly from X even and Y odd in t. Thus the generic r-increment is r(a+br)^4(a+2br)^2 h^6/64, and its unique nonstationary positive-radius cancellation q=-1 leaves r_star H^10/1024. Energy is r/2, so actual energy defects are half the radial increments; these are local errors of orders five and nine in the stated convention, not orders of the full state method. If a+br=0 all stages vanish. In the bounded layer r/r_star=1+H^2 y the three displayed polynomial coefficients contribute H^10 times y^2/16, y/64, 1/1024, respectively; omitted terms are uniformly O(H^12) since the denominator stays away from zero. Dividing by H^2 gives an Euler recurrence of step H^8 with O(H^10) residual. The exact Riccati solution is tau/(1024-8 tau); on every compact pre-pole interval the bounded Lipschitz Euler comparison accumulates O_T(H^2) and closes the bounded-layer bootstrap. Physical time scales as h^-7, with no claim of a discrete blow-up or accuracy at the pole. Inspected frozen verify.py and VERIFICATION.md but did not run the submitted code; the coefficient and uniform-error reasoning were checked analytically, not inferred from the floating-point demonstrations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Brio cancel energy terms through h^4 (the radial map is even here), leaving an O(h^6) defect rather than determining the terms at 6, 8, and 10 or a uniform recurrence.",
+          "Ketcheson Theorem 2 gives exact conservation with a state-dependent scalar modifying the RK step; this record leaves the step unmodified.",
+          "The closest indexed analogues derive exceptional height accuracy for STVDRK2 on a sphere and a long-step energy law for a large-stage implicit RK linear mode, respectively."
+        ],
+        "reasoning": "A broader nonlinear accuracy class does not specify the defect at the root of its leading coefficient. The relaxation theorem changes the algorithm, and the indexed analogues do not specialize to this method and invariant.",
+        "searches": [
+          "arXiv:2405.05448v2 §3.1 Eqs. (59)–(65)",
+          "arXiv:1905.09847 §2",
+          "2026/11/22/SCOPE-sharp-latitude-drift-contrast-between-spherical-trapezoidal-and--e7d5153ffb35",
+          "2026/11/22/SCOPE-a-sharp-large-stage-weak-damping-boundary-for-oscillations-under--4133b2680f33"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and VERIFICATION.md",
+        "arXiv:2405.05448v1",
+        "arXiv:2405.05448v2",
+        "arXiv:1905.09847",
+        "2026/11/22/SCOPE-sharp-latitude-drift-contrast-between-spherical-trapezoidal-and--e7d5153ffb35",
+        "2026/11/22/SCOPE-a-sharp-large-stage-weak-damping-boundary-for-oscillations-under--4133b2680f33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior nonlinear cancellation conditions constrain orders through four, and the prior example is away from resonance. The relaxation theorem gives a different update."
+        ],
+        "reasoning": "Even knowing an O(h^6) defect with the prior method does not determine whether the h^8 coefficient survives at the special amplitude or how detuning competes with the h^10 bias. The new limit needs the mixed detuning coefficients and a stability comparison across O(h^-8) steps. Neither the general energy estimate nor exact conservation under relaxation implies that result.",
+        "searches": [
+          "arXiv:2405.05448v2 §§3.1, 5.6",
+          "arXiv:1905.09847 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The v1 abstract specifies linear antisymmetric systems. In v2 §3.1, Eqs. (57)–(76), the nonlinear amplitude-dependent frequency and tableau match the frozen scheme.",
+          "V2 §5.6 Eq. (123) actually tests the cubic rotation itself at a=1,b=+1/2; the positive sign makes a+2br nonzero at every positive radius there."
+        ],
+        "reasoning": "The cubic model form and RK325 identification are credited to the prior version. Reversing the overall rotation does not change the relative sign of a and b, and positive scales of time and squared radius cannot convert the prior positive-slope example into the exceptional negative-slope amplitude.",
+        "searches": [
+          "Resultary: RK325 amplitude-specific energy cancellation and slow-time radial drift",
+          "arXiv:2405.05448v1",
+          "arXiv:2405.05448v2 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 16, pp. 26–27, tabulates the generic fifth-order energy convergence including RK325 on the positive cubic example, not order nine at the negative-cubic resonance.",
+          "The indexed analogues examine a different exceptional invariant and a different asymptotic step-count scaling, without this resonance or Riccati law."
+        ],
+        "reasoning": "The target is an analytic asymptotic law, not a tabulated numerical time series; the closest actual order table verifies prior generic performance and is not a determination of the nongeneric coefficients.",
+        "searches": [
+          "arXiv:2405.05448v2 §5.6, Eq. (123) and Table 16",
+          "Focused Resultary comparison of exceptional amplitudes and slow drift"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the unique nonstationary higher-order cancellation and the proved slow-time limit. The same tableau, general amplitude-dependent nonlinear setting, and generic fifth-order energy analysis were already in Liu–Brio v2, dated 2026-05-10 UTC by its arXiv version record; v1 dated 2024-05-08 UTC is linear. A specific cubic example in v2 is also prior; the residual claim goes beyond all of these, not merely to a new application of the same tableau.",
+      "residual_risks": [
+        "The literature is not exhaustive; an independently indexed high-order energy defect or modified-equation analysis for the specific negative-slope law could overlap. The broad external search yielded no relevant result, which does not rule one out.",
+        "The v2 nonlinear formulas and cubic illustration are material prior coverage and must not be credited to this record, even though its two additional claims survive comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear setting only",
+          "evidence": "Version date 2024-05-08 UTC; abstract specifies antisymmetric linear systems.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.05448v1",
+          "material_read": "Version header and abstract",
+          "method": "Open-access original version PDF",
+          "title": "Energy-superconvergent Runge-Kutta Time Discretizations",
+          "trigger": "Earliest posting of the cited method paper"
+        },
+        {
+          "assessment": "Actual prior method, generic analysis and cubic illustration; no frozen resonance or drift law in these passages",
+          "evidence": "Version date 2026-05-10 UTC; the expansion through h^4 proves the generic order, and the cubic example with coefficient +1/2 reports fifth-order performance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.05448v2",
+          "material_read": "§3.1 Eqs. (57)–(76), pp. 10–12; §5.6 Eq. (123), p. 25 and Table 16, pp. 26–27",
+          "method": "Open-access primary version PDF, bounded relevant passages",
+          "title": "Energy-Superconvergent Explicit Runge–Kutta Time Discretizations",
+          "trigger": "Same nonlinear method and oscillator example"
+        },
+        {
+          "assessment": "Not the unmodified update",
+          "evidence": "Exact conservation is achieved by a relaxation scalar multiplying the final increment.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.09847",
+          "material_read": "§2 Eqs. (9)–(12) and Theorem 2, p. 4",
+          "method": "Open-access primary PDF passages",
+          "title": "Relaxation Runge–Kutta Methods: Conservation and Stability for Inner-Product Norms",
+          "trigger": "Plausible stronger invariant-conservation theorem"
+        },
+        {
+          "assessment": "Different flow, scheme and observable",
+          "evidence": "Exceptional fifth-order height accuracy at c^2=1/2 for a spherical STVDRK2 method.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-latitude-drift-contrast-between-spherical-trapezoidal-and--e7d5153ffb35",
+          "material_read": "Local mirrored exceptional-latitude statement",
+          "method": "Configured published-result source mirror",
+          "title": "Sharp latitude drift contrast between spherical trapezoidal and STVDRK2 schemes",
+          "trigger": "Closest indexed amplitude-specific accuracy analogy"
+        },
+        {
+          "assessment": "Different parameter limit and linear integrator family",
+          "evidence": "O(s^2)-step modal-energy law for a large-stage implicit RK family on a scalar linear mode.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-large-stage-weak-damping-boundary-for-oscillations-under--4133b2680f33",
+          "material_read": "Local mirrored large-stage modal-energy-law statement",
+          "method": "Configured published-result source mirror",
+          "title": "A sharp large-stage weak-damping boundary for oscillations",
+          "trigger": "Closest indexed long-step scaling analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The radius is selected by an intrinsic zero of the generic drift, not an arbitrary convenient test amplitude. At that zero the order gain and its lifetime are different questions: the error drives the orbit off the exceptional amplitude, and the matched detuning law gives a quantitative duration and shape of that departure. This is a meaningful invariant-accuracy diagnostic for a known integrator and a natural oscillator, beyond recomputing a generic order coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

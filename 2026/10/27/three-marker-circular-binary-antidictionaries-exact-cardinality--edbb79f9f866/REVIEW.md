@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof counts minimal absent words through a fully derived binary periodic-factor complexity identity, then classifies bispecial factors according to the three cyclic zero-gap lengths. It handles empty gaps, repeated gaps, nonprimitive cycles, the all-ones boundary, the exact number of marker-containing factors, and the fixed-length extrema. The independent finite-factor-set program confirms the complete claimed bispecial sets and absent-word counts on all 1000 ordered zero-gap triples with components up to nine; this finite check supplements rather than proves the infinite theorem.
+## correctness
 
-**Originality: PASS (best-knowledge, residual risk).** The 2015 full arXiv article establishes the relevant periodic circular definition and algorithms, but does not state the fixed-weight-three count. The 2017/2018 full arXiv article provides a general circular upper bound and a circular Fibonacci classification, neither of which determines this gap-multiplicity formula or the explicit three-marker bispecial list. Direct searches on circular antidictionaries, sparse binary necklaces, and bispecial factors did not reveal equivalent coverage; published mathematical records returned unrelated subsequence and closed-factor invariants. Later reconstruction literature has distinct objectives, but its full PDF could not be inspected. These searches do not establish absolute priority.
+PASS
 
-**Value: PASS.** Three markers are the first cyclic sparse-word class with three potentially different inter-marker gaps. The theorem classifies a complete nontrivial infinite family, reveals that the exact antidictionary count ignores the shorter gap magnitudes except their equality pattern, and identifies all extrema for each length; it does not merely recompute isolated cases. The bispecial classification is an independently useful structural intermediary for circular string processing. It concerns the standard invariant used in alignment-free circular sequence comparison.
+For a word using both symbols, let C(k) be periodic factor complexity and B(k) the bispecial count. Counting missing two-sided extensions with both one-sided extensions present gives m(k+2)=2C(k+1)-C(k)-C(k+2)+B(k). At length at least the least period, the phase is determined up to equivalence, so the complexity difference vanishes. The total is 1+sum B(k). The maximal gap gives exactly M zero-only bispecials including the empty word. After dihedral reordering, the one-marker outer-gap contexts are (a,b),(b,c),(c,a) with a<=b<=c. In each coordinate an eligible context must meet the threshold and another must exceed it. This gives no one-marker bispecial with all gaps equal, just (a,a) with a repeated gap, and (a,a),(a,b),(b,a) with distinct gaps. An internal gap has two phases only if repeated (or all equal); in the two-phase case the outer contexts are swapped with distinct entries, forcing both thresholds to be the smaller entry. With three or more markers, two complete consecutive gaps fix the phase unless all gaps are equal, in which case every marker already fixes the least-period phase. Thus the bispecial totals are M, M+2 and M+3. For 111 the constant language has exactly the single-letter obstruction 0. Writing S=n-3, maximum equality in the repeated or distinct cases requires the smaller gaps to sum to 0 or 1 respectively, and balanced two-equal triples attain the lower bound when S is not divisible by 3. This proves the formula and extrema for unbounded gaps, including zero gaps and nonprimitive words.
 
-**Limitations.** The theorem does not treat four or more one-markers, nonbinary alphabets, truncated circular factor semantics, or weighted absent factors. Priority remains best-knowledge, not externally certified; no independent scientific validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the all-gap weight-three classification and its extremizers, not for novelty of the positive distinct-gap count in isolation. The strongest prior Resultary finding gives an even stronger antidictionary description on that subclass. It excludes zero gaps and repeated gaps, and therefore does not cover either maximizing family or the all-gap theorem. The published length bound is also prior; it does not identify the weight-three equality cases.
+
+## value
+
+PASS
+
+This gives the exact antidictionary size without enumerating factors for the entire natural three-marker class. It resolves when marker contexts coincide, including adjacency and reduced period, and supplies a sharp equality classification and minimum at fixed length. These uses go beyond the generic n bound and the already known positive-distinct count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

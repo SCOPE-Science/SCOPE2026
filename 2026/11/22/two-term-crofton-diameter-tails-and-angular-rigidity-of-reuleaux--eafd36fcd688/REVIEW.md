@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the radius-one Reuleaux arc/vertex duality, a finite partition into diameter-angle sectors, exact local two-circle chord equations, a uniform small-offset expansion, and matched inner/outer endpoint integrals. The universal local integral contributes \(\varepsilon[\tfrac12\log(1/\varepsilon)+\log\sin\ell+\tfrac12]+o(\varepsilon)\); finite-sector summation and invariant-line measure \(\pi\) yield the asserted two-term law. Jensen's strict concavity gives the unique regular extremizer. The independent exact disk-interval verifier passed 53 numerical assertions for regular 3-, 5-, 7-, and 9-gons; these finite tests corroborate but cannot establish the arbitrary case. Remaining proof sensitivity is the active-circle switch in shrinking angular boundary strips; the proof treats these strips geometrically and bounds their contribution by \(o(\varepsilon)\).
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest invariant-line Reuleaux-triangle result proves only the leading \((3/\pi)\varepsilon\log(1/\varepsilon)+O(\varepsilon)\) law. The previously published Reuleaux odd-gon two-term results instead sample two independent boundary points. Bäsel and Harutyunyan–Ohanyan concern straight-sided regular polygons, and Sallee and Craizer–Martini concern different Reuleaux geometric invariants. Actual published-finding corpus queries checked chord tails, arc-angle dependence, and possible general upper bounds. No stronger encompassing statement was found in materials inspected; Gates (1987) was available only by abstract, so historical priority is not independently established.
+PASS
 
-## Value — PASS
-The second coefficient is an intrinsic, shape-sensitive observable for a natural class of classical constant-width bodies. It yields strict asymptotic regularity extremality at fixed arc count, and the explicit near-regular Hessian quantifies its stability. This goes beyond the first logarithmic coefficient, which sees arc count but not their angular distribution.
+Constant width gives opposite support contacts at distance one, with the segment directed along their normal; modulo π the smooth arc-to-centre pairs partition directions. On the full normal circle the antipodal map exchanges the alternating arc intervals and corner cones. It shifts their 2m boundaries by m, making m odd. Barbier gives total arc length π, and the endpoint-to-endpoint distance 2sin(ℓ/2)≤1 gives ℓ≤π/3. Width one also gives line measure π for normalization. For the load-bearing branch estimate take C=0, A=u_a and B=u_b at the sector endpoints, and positive transverse offset z. Among generating disks only A and B are active at C: any vertex at distance one from C is an opposite contact, on the closed arc centred at C, hence is A or B. Other constraints have uniform slack near C. At z=0 both near roots are zero; their slope difference uniformly is tan(θ−a)+tan(b−θ)≥b−a>0, so the A-root is active there for sufficiently small z. At the far endpoint the C-root is feasible whenever its polar angle θ+arcsin z has not passed b, because the corresponding point is on the arc. The two disks always bound the true chord from above, giving z=O(√ε); the exceptional strip can only be near b, where the A-root slope is bounded below, forcing z=O(ε) for model or true long chords. Its measure is O(ε²). Negative offsets are the reflected argument. This gives the asserted two-sign width integral for every fixed nondegenerate K. The model deficit is z tan x + (1+sec³x)z²/2+O(z³). Outside r=ε^(1/4) the integrated root error is O(ε²/r²); inside, the relative error in xz+z² is O(r²+√ε) and contributes o(ε) despite a logarithm. The scaled root has integral log R+1/2+o(1), yielding each half-sector's ε[log(1/ε)/2+log sinℓ+1/2]. Jensen and the Taylor expansion of log sin give the stated gap. Equal arc angles give equal corner-cone angles by antipodality; the normal-angle pattern then repeats under rotation by 2π/m, so the body is regular up to congruence. The positive chord length is strictly concave in the offset on its support (it is a sum of lower envelopes of strictly concave circular-root branches), so nontrivial levels have zero line measure.
 
-## Limitations and closest literature
-Sallee (1970), *Maximal Areas of Reuleaux Polygons*; Craizer–Martini (2014), arXiv:1406.3205v1; Bäsel (2012), arXiv:1204.2707v1; the published Reuleaux triangle invariant-line leading-law result (2026-10-25), and regular odd-gon boundary-endpoint two-term result (2026-11-17) were compared in substance. The older Gates (1987) paper could not be read in full. No claim is made for the entire chord CDF or uniform limits over degenerate polygon families.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the previous same-measure triangle leading asymptotic and its two-circle model. The supported distinct claim evaluates the shape-dependent next coefficient over general possibly irregular polygons and gives its angular extremal characterization. No inspected statement supplies that theorem. The specialist Gates paper remains a specific historical-priority risk, not positive coverage or evidence of absence.
+
+## value
+
+PASS
+
+The first shape-sensitive term distinguishes constant-width bodies with identical Crofton normalization and the same number of arcs. It yields an exact local ordering and quadratic angular gap for a natural chord measure, beyond the known triangle logarithm. This is not a claim about the entire chord distribution or a uniform extremal result at one fixed deficit for all shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-site exchange-energy identity is exact for unequal adjacent colours. Each blocked cyclic word corresponds bijectively to a closed walk of the triple-state transfer graph; five equality patterns form an equitable quotient. Both complete triple graphs are primitive by explicit paths to and from uniform triples, so the Perron eigenvalue controls the trace with leading coefficient one. The symbolic quintic determinants factor as a zero root times the displayed quartics; the polynomial-difference identity and the strict Perron row-sum bound prove the all-\(q\) inequality. Independent exhaustive recomputation of the physical energy change and transfer traces, and a full \(q=3\) characteristic polynomial, corroborate the algebra. The finite tests do not substitute for the graph-theoretic all-size proof.
+## correctness
 
-**Originality — PASS within inspected sources, residual uncertainty.** De Smedt–Godrèche–Luck (arXiv:cond-mat/0202465) treat kinetically constrained Ising dynamics, with their Kawasaki chapter explicitly ferromagnetic. Gómez Albarracín–Rosales–Grynberg (arXiv:1601.04375) treat Ising chains with first- and second-neighbour couplings. Neither source's inspected full text establishes an arbitrary-\(q\) antiferromagnetic strict-exchange growth polynomial or its sharp all-alphabet comparison with the ferromagnetic polynomial. The closest already-known ferromagnetic Potts formula does not imply the antiferromagnetic enumeration: one inequality is reversed, and the blocked-word families are incomparable. Differently indexed prior work remains a residual risk; unsuccessful search is not proof of novelty.
+PASS
 
-**Value — PASS.** Fixed colour composition is preserved dynamically, but counting all blocked configurations yields a physically natural configurational complexity. A ferromagnet-to-antiferromagnet sign change does not merely rename this count; it changes permitted local patterns. The theorem gives complete algebraic entropy formulas, a strict all-alphabet ordering, and a direct local mechanism via the polynomial identity. It is an extensive comparison, not a small numerical improvement.
+The frozen decimal root prefixes were incorrect in the last displayed digits. The complete repaired RESULT.md corrects both prefixes to 2.359304085971776… and 2.573271963535193… and gives witnesses for incomparability at every allowed N. Exact rational evaluation gives opposite signs at each prefix and that prefix plus 10^-15; the q=3 cubic and comparator quartic are increasing beyond the respective brackets. The analytic result is unchanged. For N≥4 the middle-bond swap leaves all but the two exterior bonds unchanged; the signs of their net changes give the allowed triple-to-triple edges. An indexed closed walk counts a labelled word once, not a rotation class. Rebuilding the equality-pattern quotient by checking each already-used appended colour and one fresh colour with multiplicity q minus the number used gives both displayed quartics and independently reproduces the full q=3 antiferromagnetic characteristic factorization. In each full graph every triple reaches a uniform triple, all uniform triples communicate by the displayed appending paths, and coordinate reversal reverses directed paths. The resulting connected graphs have uniform self-loops and are primitive. The positive quotient eigenvector lifts, and a positive left Perron vector with a deficient row implies λ<q. At λ_A, p_F is strictly negative by the polynomial difference λ_A²(q−λ_A), so a larger positive root of p_F exists. Finally a proper cyclic colouring containing 010 has positive antiferromagnetic energy change at a window beginning with 010 and is AF-only; the two-run word with both runs of length at least two is F-only. Both witnesses exist for all N≥4.
 
-**Limitations.** Neutral swaps are forbidden, site colours are labelled, all compositions are summed, and the result is one-dimensional. No dynamical or equilibrium sampling assertion is made. The self-review does not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repair retains the substantive claim: the exact q≥3 sign-reversed nearest-neighbour comparison, including explicit quartics. The closest exact precedent is binary ferromagnetic Ising and the closest one-step transfer analogue uses an extra neighbour interaction. Neither covers the audited comparison.
+
+## value
+
+PASS
+
+The exact growth constants and strict sign comparison resolve a natural asymmetry that cannot be decided by simple inclusion of the blocked sets. The argument works uniformly in the alphabet and yields labelled finite-ring traces as well as exponential growth; it is more than a two-colour sign or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

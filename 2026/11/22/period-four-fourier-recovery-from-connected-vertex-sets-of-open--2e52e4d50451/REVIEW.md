@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers are over integer numbers of rungs \(n\ge1\) and full Boolean vertex frequencies. The contiguous-state characterization is bijective. The unsigned transfer proves \(C_n\equiv n(n+1)/2\pmod2\) because every allowed-word count is odd, so every Walsh eigenvalue is nonzero in two residue classes. The separately derived signed transfer exhibits the exact four-state cycle, yielding a zero in both complementary classes and magnitude \(1\) in all invertible classes. Zero frequency attains magnitude \(C_n\). The standalone checker compares independent graph search, Walsh transform, and signed recurrence for all frequencies through eight rungs and tests the closed certificate through 400 rungs; all 93,771 assertions passed. The infinite conclusion comes from the proof, not finite checking.
+PASS
 
-## Originality — PASS under bounded comparison
+A connected nonempty subset must occupy consecutive columns; a column is internally connected and the only adjacent occupied states without a rail connection are opposite singletons. For a fixed interval, the unsigned ending-state count p_m,p_m,q_m starts at (1,1,1) and q_{m+1}=2p_m+q_m stays odd. Thus the parity of the total C_n is the parity of the triangular number n(n+1)/2. All unnormalized Walsh multipliers have that same parity, proving nonvanishing in residues 1 and 2. For signed extension the new singleton sums are alpha(1+t+d), beta(1+b+d) and the new double sum is alpha beta(1+t+b+d); the constant terms start a new interval and their signed totals update z. Starting from zero, the three seed pairs give (1,-1,-1,-1), (1,-1,0,-1), (2,0,-1,0). On the repeated block the next states are (2,0,-2,0), (1,1,-1,1), (-1,1,-2,-1), (2,0,-1,0), closing the cycle. This exhibits zeros in residues 3 and 0 and absolute magnitude 1 in residues 1 and 2, including n=1,2 from the seed. Zero frequency attains C_n, the triangle-inequality upper bound. The Walsh basis is orthogonal, so the condition number in invertible cases is the ratio C_n/1. An independent bit-frontier connectivity enumeration and integer transform for all characters through n=8 reproduces C_n and the zero counts 0,0,9,66,0,0,870,7462, the attained minimum in invertible orders, and each stated certificate value.
 
-Tittmann–Averbouch–Makowsky (arXiv:0812.4147, 2008) develop the aggregate induced-subgraph component polynomial, not this labelled sign-by-vertex Fourier zero criterion. Vince (2017), Example 3, already provides the ladder word correspondence and unsigned Pell enumeration: that existing result must be credited, and together with the elementary parity observation it implies invertibility in half the orders. The substantive new comparison target is the *converse* proved by one periodic signed character, completing the exact all-size iff law, as well as the sharp minimum-magnitude certificate. Vince (2020) treats average connected-set size and generating functions, not the exact signed character zero locus. The nearest indexed ladder Fourier results concern *spanning-tree edge incidence* and *proper colouring* rather than connected induced vertex sets; neither implies this theorem. Residual risk: a less visible multivariate signed connected-subgraph treatment may already contain this specialization.
+## originality
 
-## Value — PASS
+PASS
 
-Connectivity-constrained vertex-set kernels are natural in network reliability and subset recovery. The all-size periodic invertibility boundary distinguishes two invertible orders from two singular orders in every four, with a concrete lost character rather than a merely even total count. In invertible orders the attained magnitude-one multiplier gives an exact inverse norm and conditioning. This improves the character-resolved understanding of a classical Pell-enumerated family; it is not a relabeling of the known unsigned count.
+The unsigned ladder count and rung-word description are existing work; the odd-parity implication follows from that count. The independently supported distinct content is the periodic signed certificate proving the converse in every even-total order and attaining the lower bound in every odd-total order, thus giving the full criterion and sharp conditioning.
 
-## Scope and limitations
+## value
 
-The result concerns open ladders and counting convolution. No singular-spectrum zero multiplicities, broader-width extension, or independent validation are claimed. Prior-work assessment is bounded by the accessible primary texts and targeted indexed searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The connected-vertex-set family is classical, but its signed indicator convolution has a meaningful information-loss and conditioning question absent from ordinary counts. An explicit lost character at every singular size and a character attaining the sharp norm of inversion at every invertible size are substantive exact results, not just the parity observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

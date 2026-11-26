@@ -1,19 +1,21 @@
-# Review: bivariate beautiful-cactus enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduction from the forbidden-induced-subgraph theorem to cactus blocks follows because cactus graphs contain no diamonds and all cycles are induced. An induced net around a triangle is equivalent to the absence of a degree-two vertex in that triangle block, by the cactus block-cut tree. The rooted attachment argument partitions graphs without duplication according to whether the global root alone certifies its unique incident triangle, yielding the exact term \(sx(T-x)^2/2\). All even cycles of length at least six contribute \(tT^5/[2(1-T^2)]\). The nonnegative reformulation (3) permits the standard aperiodic smooth implicit-function singularity transfer; the coefficient and derivative factors have been recomputed from the implicit equation. Exact formal-series arithmetic and independent finite graph enumeration test the directly defined forbidden subgraphs and yield `VERIFY_OK`. These tests corroborate, rather than replace, the general proof.
+PASS
 
-## Originality — PASS, qualified
+Wunderlich's Theorem 1.1 has the stated finite-graph scope and exact forbidden list. A cactus has no diamond, eliminating gem and watch; its cycles are induced. External neighbors of different vertices of a triangle must lie in disjoint branches and be mutually nonadjacent, since a path between two branches would produce a second cycle sharing a triangle edge. Thus an induced net exists at precisely a triangle with no degree-two corner. In a branch whose root already meets a parent block, a child triangle needs one of its nonroot corners bare, so its contribution is s(T^2-(T-x)^2)/2; rooted edges contribute T and each long even cycle contributes tT^{2k-1}/2 by reversal. SET of child blocks gives the implicit T equation. At a free root the only missed case is a lone triangle with both other corners nonbare, giving sx(T-x)^2/2. These cases are disjoint and cover the singleton too. For the singularity, the nonnegative equation in U=T-x is analytic when x+U<1 and has positive second U-derivative; rooted trees yield consecutive positive coefficients, giving aperiodicity. The critical ordinate y_c(x) solves y(1+x+B'(y))=1 for B=y^5/[2(1-y^2)]: the left side increases from 0 to infinity. On the interval up to the unique x=y_c(x), h(x)=log(x/y_c)+F(x,y_c) increases strictly since h'=1/x+y_c-x; h starts negative and ends positive. The smaller root T lies between x and y_c before this first contact. The smooth implicit-function theorem and transfer therefore apply. The rooted square-root coefficient is -(1+rho(tau-rho))kappa, and division by n yields n^-5/2 for the unrooted EGF coefficients. Independent numerical solving gave rho=0.27382690559655265, tau=0.5719059969810869, A=0.1629352693913701, rho0=0.23874014368511712 and A0=0.12014981250116957, hence base 0.8718651776201598 and prefactor 1.3561009043587482. As an exact check at n=6, the unrestricted triangle-and-bridge tally 3996 loses 120 labeled nets and gains 60 six-cycles, giving 3936. Symbolic decomposition, not this finite check or the reported verifier run, proves the infinite claim.
 
-Wunderlich's primary full text arXiv:2610.07924v1 (Theorem 1.1 and Sections 5–6) provides the structural forbidden-family characterization but neither the cactus-specific bivariate generating function nor its asymptotic density. Voblyi–Meleshko (2014) develops unrestricted block-cactus enumeration, a broader graph family whose basic block product cannot impose the local degree-two witness requirement. OEIS A091485 counts all triangular cacti, with a demonstrably different order-six count, and Mathar's unlabelled vertex-disjoint-cycle enumeration covers a different model. Mathematical-record searches for equivalent terminology, root-marked formulas, local triangle witnesses and exact counts produced no stronger covering theorem; close results on cactus B-coloring, homology, and chordal graph squares do not imply the new enumerator. Historical priority remains provisional, particularly for older formulas under net-free/cactus terminology.
+## originality
 
-## Value — PASS
+PASS
 
-The beautiful graph class was recently characterized by induced obstructions, creating a natural quantitative gap. The complete bivariate enumerator determines all labelled counts refined by two intrinsically distinguished cycle types, rather than isolated small orders. It exposes why block-wise filtering is insufficient, supplies concrete exact data, and proves that beautiful cacti are exponentially rare among all cacti. The rarity rate and correction term are natural structural outputs of the triangle-witness constraint, not arbitrary numerical slices.
+The protected triangle condition is an elementary specialization of a prior forbidden-subgraph characterization, and unrestricted cactus enumeration is not claimed as new. The supported distinct claims are the coupled two-marked labeled enumeration and the sharp density consequence. The nearest sources examined do not supply their constrained rooting decomposition or ratio. This is a bounded originality assessment, with the access limitation below.
 
-## Limitations and closest literature
+## value
 
-The classification is relative to Wunderlich's theorem and the asymptotics to standard analytic-combinatorics transfer. The numerical constants are approximate. Finite direct graph verification stops at six vertices; series verification at nine. No claim is made about all beautiful graphs or unlabelled cacti. Absolute historical priority and independent mathematical validation are not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact enumeration removes a genuine incidence obstruction that standard independent block products miss. The two marks separate triangles subject to that obstruction from allowed long even cycles. The asymptotic compares the hereditary class to a natural ambient labeled family and quantifies how restrictive the condition is, beyond merely listing small-order counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

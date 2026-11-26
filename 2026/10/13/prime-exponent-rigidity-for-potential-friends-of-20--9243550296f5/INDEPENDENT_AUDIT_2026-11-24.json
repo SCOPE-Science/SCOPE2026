@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:50:54.176515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cited structure is applicable: Chatterjee–Mandal–Mandal's Lemmas 17, 18 and 20 give ν₂(N)=1, even odd-prime exponents with ν₅(N)=2a≥2, and gcd(N,21)=1. Their definition N>20 is equivalent here: the frozen ratio forces 10|N, and the only positive multiple below 20 is 10, with index 9/5. Cancelling σ(2)=3 from 10σ(N)=21N gives equation (1) of RESULT.md, with right side prime to 3. For r≡1 mod 3 the corresponding divisor sum is ν_r(N)+1 modulo 3, so parity and nondivisibility by 3 give precisely the permitted residues 0,4 modulo 6. With ν₅(N)=2 the left side contains σ(25)=31, forcing 31|N. The only allowed positive exponent smaller than 6 is 4. Independently summing the five powers of 31 gives 954305=5·11·17351; trial division through ⌊√17351⌋ confirms 17351 is prime. Both 11 and 17351 must then divide N, to even powers at least 2. The product of their, and the other forced prime powers', geometric sums in reciprocal form reproduces I(d)=120128746647/56859400510 and positive excess 362002788/28429700255; multiplicativity and monotone prime-power abundancy give the contradiction. Independently, summing divisors by divisor pairs already gives I(2·25·31⁴·121)−21/10=20664/1638505>0, so the obstruction only needs 11. The bundled verify.py and VERIFY_OUTPUT.txt were inspected, not executed. The 9,165 recorded congruence checks are finite corroboration, not the all-prime argument. No existence assertion is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structural paper proves even odd-prime exponents and at least six distinct prime divisors, and its nonsquarefreeness corollary says F is not squarefree in N=2F². Its order-of-5 theorem gives an obstruction to a specified residue for some prime under other conditions.",
+          "The earlier 31-adic catalog result assumes I(N)=5/2 and 5|N and gives ν₂=4, ν₅=2, ν₃₁≥6 and an extra cutoff for the remaining primes."
+        ],
+        "reasoning": "Nonsquarefreeness does not specify which prime or force 31⁶, and an order-dependent obstruction for some prime is not a bound at 31 in this 21/10 layer. The 5/2 theorem describes a disjoint abundancy class, not a broader class containing this one.",
+        "searches": [
+          "arXiv:2409.04451v4 Theorem 1, Theorem 4 and Corollary 6",
+          "Resultary record 3dd3523cac9f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.04451v4",
+        "Resultary catalog and mirrored record 3dd3523cac9f",
+        "Haenel–Wood 2019 (access attempted; not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 5/2 proof uses a cutoff q≥149 derived from I(2⁴·5²·31²)=993/400 and the target 5/2. It rules out ν₃₁=4 through a denominator divisible by 11, which would violate that cutoff.",
+          "For 21/10 the structural input instead yields ν₂=1 and even odd-prime exponents. With ν₃₁=4, forcing 11 and using ν₁₁≥2 already drives the abundancy above 21/10; there is no premise q≥149 here."
+        ],
+        "reasoning": "The proofs share a real divisor-sum factor and an abundancy obstruction, but simply substituting the target ratio in the earlier theorem does not give its hypotheses or conclusion. The lower bound follows here from the new combination specific to 21/10, not from a restatement of nonsquarefreeness or the 5/2 cutoff.",
+        "searches": [
+          "arXiv:2409.04451v4 Theorem 4 and Corollary 6 proof",
+          "Resultary 3dd3523cac9f, proof offsets 1000–3304"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The study of friends with N>20 and the frozen ratio equation 10σ(N)=21N with positive N≠20 describe the same set because 10 is not a solution.",
+          "In the even odd-exponent structure, excluding 2 modulo 6 for r≡1 modulo 3 is equivalent to requiring 3∤σ(r^{ν_r(N)}). This reduction follows from the structure and the abundancy identity."
+        ],
+        "reasoning": "This checks alternate encodings of the same set and of the same local condition. Neither the allied terminology nor the elementary congruence alone accounts for the stronger 31-adic bound.",
+        "searches": [
+          "Resultary: friends of 20, modulo 6 exponents, minimum 31-adic layer",
+          "arXiv:2409.04451v4, definition and Lemmas 17–20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalog numeral 31⁶ occurs in a theorem for 5/2, not 21/10. The inspected catalog comparison discusses A141643 only as a list of known 5/2 examples, none divisible by 5.",
+          "The frozen claim concerns all hypothetical friends in a valuation layer, not a finite list of solutions or a table of σ(31^j)."
+        ],
+        "reasoning": "A numerical match in a different abundancy class cannot establish an exact table match. A table containing σ(31⁴) would cover only a calculation, not the implication about all possible N.",
+        "searches": [
+          "Resultary 3dd3523cac9f and targeted search for friends of 20 and 31⁶",
+          "OEIS A141643, as identified and discussed in record 3dd3523cac9f"
+        ]
+      },
+      "rationale": "The modulo-6 clause is an elementary application of the prior structural theorem and not a separate strong novelty claim. The supported distinct part is the specific forced divisor 31⁶ in the ν₅(N)=2 layer of the 21/10 abundancy class. The earlier nonsquarefreeness theorem does not pick out 31 or exclude its exponent 4. A prior result with the same 31⁶ conclusion uses the different ratio 5/2; comparison of its proof confirms that its quantitative premise does not transfer.",
+      "residual_risks": [
+        "The inaccessible Haenel–Wood paper and differently indexed work on 21/10 could contain more than the compared statements. The bounded search and proof comparison do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies structural assumptions; different exponent theorem",
+          "evidence": "The lemmas give 2∥N, even odd-prime exponents and gcd(N,21)=1. The earlier corollary concludes only that F in N=2F² is not squarefree.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.04451v4",
+          "material_read": "Definition and Theorems 1 and 4/Corollary 6, pp. 1–2; Lemmas 17, 18, 20 pp. 5–6, offsets 11200–16457; Corollary 6 proof p. 18, around offset 62954",
+          "method": "OA PDF theorem and lemma passage reading",
+          "title": "On Characterizing Potential Friends of 20",
+          "trigger": "Imported hypotheses and strongest same-object exponent theorems"
+        },
+        {
+          "assessment": "Analogous obstruction, no implication for the frozen ratio",
+          "evidence": "The ν₃₁=4 case forces 11 into the remaining cofactor, incompatible with a cutoff derived for 5/2 from the 2⁴·5²·31² core.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-forced-sixth-31-adic-layer-for-frac52-perfect-multiples-of-5--3dd3523cac9f",
+          "material_read": "Finding and proof including the ν₃₁=4 case, offsets 1000–3304",
+          "method": "Resultary search and published local mirror passage reading",
+          "title": "A forced sixth 31-adic layer for 5/2-perfect multiples of 5",
+          "trigger": "Earlier same bound on the same prime with ν₅=2 but a different abundancy"
+        },
+        {
+          "assessment": "Unresolved access, not negative coverage evidence",
+          "evidence": "The needed structural claims are supported independently by the inspected 2025 article. Exact content of the earlier §5 beyond the frozen description was not verified.",
+          "identifier_or_url": "Haenel–Wood, International Journal of Mathematics and Computer Science 14(4) (2019), 965–974, §5",
+          "material_read": "Bibliographic citation; no full-text passage verified",
+          "method": "Attempted OA access; cited PDF not retrieved",
+          "title": "Friends of Products of Two Primes and of Four Times an Odd Prime",
+          "trigger": "Earlier cited work on the identical friends-of-20 class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal positive 5-adic exponent is a natural first layer in the established shape of a hypothetical friend of 20. Forcing a particular large prime power rather than merely some repeated prime gives a usable divisor constraint for studying this layer. The value is the specific forcing beyond nonsquarefreeness, using the interaction of local residues with exact abundancy bounds, not the finite congruence grid or the elementary geometric sum alone. It supplies no existence or solitariness conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:34:38.146477Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The blow-up description and the W(E6) action on the line classes of a geometrically smooth cubic apply in all characteristics. The classes span the geometric Picard lattice (the six exceptional classes and H-E1-E2 already span), so the line-permutation representation is faithful. The anticanonical triples are exactly the plane sections supported on three distinct lines: an effective triple summing to the anticanonical class is a hyperplane section, and a plane section cannot contain a multiple line on a smooth cubic (intersecting the class of that line would give (-K).L=1 but 2L²+L.M<=-1). Descent counts fixed unordered triples, not fixed triples of descended lines. The supplied exact certificate and CSV were inspected, not executed. Independent replay `python3 /workspace/branches/f9e72d04-57ec-4c6c-a718-b3c316eb22bf/independent_e6.py` on the six simple-root reflections confirmed the 45 triples by both lattice and graph definitions, all 51840 elements, 25 conjugacy classes, and 20/24/25 cycle-spectrum counts and 19/23/25 successive profile counts. The degree-two collisions are exactly ((0,1),(0,3)) separating into (3,7) and (3,13) and ((0,3),(0,3)) separating into (15,15) and (27,45). Fixed counts of powers are the sums of lengths of cycles dividing the power; complete cycle decompositions determine the finite étale zeta functions by products of (1-z^d)^(-1), and Weyl conjugacy implies conjugacy on Picard. The geometric sharpness for actual surfaces holds over sufficiently large fields by the cited realization results, not asserted over every small field.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "70136773ee2a computes a fuller graph invariant and gives the two cycle columns for every abstract Weyl class; its geometric opening assumes characteristic at least five, but its abstract Weyl table has no characteristic parameter.",
+          "84e77c75d6b3 covers 11 stable-blowup types and e5d3a9ef1f69 covers base-field profile data over F2. The cited geometric literature gives the tritangent configuration or realization results, not the asserted comparison of six counts."
+        ],
+        "reasoning": "Neither the partial table nor one field dominates the theorem. The complete abstract table does: the characteristic restriction in its graph-Jacobian application does not restrict the permutation table, and standard all-characteristic geometric transfer supplies the claimed application in characteristics 2 and 3. Realization at large q adds no new restriction or argument.",
+        "searches": [
+          "Resultary 70136773ee2a, 84e77c75d6b3, e5d3a9ef1f69",
+          "arXiv:1811.06785 §1.1 Theorem 1.1",
+          "arXiv:2207.04493 Introduction and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 70136773ee2a (exact table), 84e77c75d6b3, c536c9326761, 55ac05d63848 and e5d3a9ef1f69 (opening findings)",
+        "arXiv:1606.00300, 1811.06785, 2101.08217, 2207.04493 (passages above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint table gives both sufficient separation and the two explicit collisions by the same elementary row operation: for n=1,2,3 keep the 1-cycles, add twice the number of 2-cycles at n=2, and add three times the number of 3-cycles at n=3.",
+          "Published realization results put every Weyl class on a smooth cubic over all sufficiently large finite fields."
+        ],
+        "reasoning": "All enumerative and sharpness statements survive the table projection without additional work beyond standard descent, the known geometric actions, and known realization. Expressing the implication as an inverse theorem or re-enumerating the action does not supply a distinct original mathematical finding.",
+        "searches": [
+          "Resultary 70136773ee2a opening Finding and 25-row table",
+          "arXiv:1606.00300 Thm. 1.7 / Cor. 1.8",
+          "arXiv:1811.06785 Thm. 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 70136773ee2a tabulates the joint splitting spectra class by class. Either zeta function is just another form of the corresponding cycle spectrum.",
+          "Resultary c536c9326761 and 55ac05d63848 instead use a Steiner-triplet scheme or the double-six scheme, respectively, and do not give equivalent observables to this six-count test."
+        ],
+        "reasoning": "The two spectrum columns of 70136773ee2a encode all the extension counts at once. Conversely, projecting only onto the six counts gives an injective map on the same 25 rows, reproducing the asserted reconstruction exactly. Picard characteristic data are another class invariant, not by themselves a second tritangent table.",
+        "searches": [
+          "Resultary semantic search for Frobenius class recovery from cubic-surface lines, tritangent planes and extension counts",
+          "arXiv:1606.00300 §7.2 and Table 7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 25 published catalogue rows at local-mirror offsets 650–3963 were read and the two columns projected by summing cycle lengths dividing n. This gives 20 and 24 distinct individual spectra, 25 different joint spectra, and 19, 23 and 25 joint profiles. Table rows 17/20 and 8/18 display precisely the two depth-two collisions.",
+          "Banwait–Fité–Loughran's Table 7.1 covers 25 classes with line orbit data and Picard eigenvalues but lacks a column for tritangent cycles. No full Frame text was inspected."
+        ],
+        "reasoning": "The full two-column table is a positive coverage witness, not a search hit or a conjectural character relation. The written cutoff need not appear in that record for it to be a mechanical consequence of the exact table.",
+        "searches": [
+          "Resultary 70136773ee2a exact 25-row table, 27-line and 45-plane columns",
+          "arXiv:1606.00300 Table 7.1",
+          "Frame (1951), The classes and representations of the groups of 27 lines and 28 bitangents (citation in arXiv:1606.00300)"
+        ]
+      },
+      "rationale": "A distinct same-day Resultary record supplies exact coverage of the decisive finite result, not just nearby parameters: its opening table already tabulates both permutation spectra for every abstract W(E6) conjugacy class. The six-count criterion, its sharpness, and the stated enumerative data then follow by the ordinary cycle-to-fixed-point formula and row comparisons, with no new incidence or arithmetic input. This is a statement-level coverage failure; the checked evidence does not establish which same-day record preceded the other.",
+      "residual_risks": [
+        "Priority between the two same-day records is unresolved. This does not change the demonstrated coverage.",
+        "The full Frame 1951 article was not retrieved; a published permutation-character implication could provide additional coverage. No verdict is based on its unavailability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive table coverage; no chronology established",
+          "evidence": "Both spectra for all 25 W(E6) conjugacy classes, rows 17/20 and 8/18 yield the cutoff obstructions.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-25-weyl-type-frobenius-fixed-graph-jacobians-of-cubic-surfac--70136773ee2a",
+          "material_read": "Opening Finding and all 25 rows, offsets 0 and 650–3963",
+          "method": "Local mirror RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; projected both cycle columns onto counts",
+          "title": "All 25 Weyl-type Frobenius-fixed graph Jacobians of cubic-surface lines and tritangents",
+          "trigger": "Strongest exact same-action table match"
+        },
+        {
+          "assessment": "Established realization and partial table with respect to these observables",
+          "evidence": "Positive density for each class, and line orbits and Picard eigenvalues for all 25 classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.00300",
+          "material_read": "p. 4 Theorem 1.7 / Corollary 1.8, near offset 13000; pp. 21–23 Table 7.1 and §7.2, offsets 65000–78479",
+          "method": "OA PDF passages",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "Prior exact class table and large-field realization"
+        },
+        {
+          "assessment": "Supports actual-surface sharpness, not a six-count theorem",
+          "evidence": "Realization over finite fields with specified small-field exceptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.06785",
+          "material_read": "§1.1 Theorem 1.1, pp. 2–3, offsets 3500–8216",
+          "method": "OA PDF passage",
+          "title": "Inverse Galois problem for del Pezzo surfaces over finite fields",
+          "trigger": "Uniform large-field realization including positive characteristic"
+        },
+        {
+          "assessment": "Line counts, not joint line/plane class recovery",
+          "evidence": "Possible rational-line counts over general fields.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.08217",
+          "material_read": "Abstract and §1 Theorems 1.1–1.2, p. 1, offsets 0–3446",
+          "method": "OA PDF passage",
+          "title": "Rational lines on smooth cubic surfaces",
+          "trigger": "Line-count arithmetic comparison"
+        },
+        {
+          "assessment": "Geometric enumeration and automorphism actions in characteristic zero, not all arithmetic Weyl classes",
+          "evidence": "Explicit 45 tritangents, with study of geometric stabilizers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.04493",
+          "material_read": "Introduction and Table 1, p. 4, near offset 12305",
+          "method": "OA PDF passages",
+          "title": "Construction of symmetric cubic surfaces",
+          "trigger": "Potential exact tritangent permutation coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp low-degree cutoff is a natural and useful question. In this submission, however, all distinguishing and obstruction data are immediate row projections of a complete existing abstract cycle table, not a previously undetermined invariant requiring new mathematics. The arithmetic addendum is established realization applied to those rows. The independent computation corroborates the data, but the scoped claim offers no separate substantive contribution beyond that covered deduction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

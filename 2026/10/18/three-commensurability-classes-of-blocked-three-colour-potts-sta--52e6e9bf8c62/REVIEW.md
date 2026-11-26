@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each occupied colour in a part, single-site stability requires that its outside neighbour count be minimal. This establishes the colour-incidence dichotomy. When \(3\nmid n\), a fully three-coloured part is impossible because all outside counts would equal \(2n/3\), which would not be integral. The remaining supports are rigorously exhausted by exclusive colours and the six-edge incidence cycle, giving the precise finite energy polynomial. For \(3\mid n\), the balanced three-colour family and the universal count bound squeeze entropy to \(\log3\). The independent raw-spin checker agrees with the occupation-matrix enumeration and the claimed exact polynomial at every tested size. No inference from finite experiments is used to prove an infinite statement.
+## correctness
 
-## Originality
-**PASS within inspected literature; residual uncertainty remains.** The 2012 Potts paper studies zero-temperature Gibbs ground states on planar quadrangulations, not one-spin metastable states on a dense tripartite substrate. The 2013 anti-coordination paper defines stable colourings and studies general existence and efficiency, not this exact three-residue law. A related bipartite case cannot imply the tripartite support classification: three mutually interacting parts and a palette of exactly three colours give a different count and eliminate almost all blocked states in coprime sizes. Searches for equivalent complete-tripartite Nash configurations and hidden stronger coverage did not reveal a decisive precursor, but indexing of older game-theoretic literature remains incomplete.
+PASS
 
-## Mathematical value
-**PASS.** The three equal interacting part classes give the minimal densely frustrated complete multipartite Potts geometry. The theorem classifies every non-three-divisible size including its exact metastable energy spectrum and shows that the normalized logarithmic count has three distinct, prescribed subsequential limits. The complete collapse to six states along coprime sizes contrasts with exponential multiplicity along two other arithmetic families, and offers a natural test for counting kinetic traps in dense spin systems.
+Changing an occupied colour c to d in part i changes H by the difference of exterior colour counts, so each used colour must minimize those counts, with ties allowed. An absent global colour would force all used colours to be exclusive, impossible across three nonempty parts with only two colours. A part using all three imposes three equal exterior counts summing to 2n, hence 3 divides n. For 3∤n an exclusive colour forces every colour in that part to be exclusive. Two exclusive colours in one part leave the same third colour on both other parts, where a switch to either exclusive colour would improve. The exclusive-colour part is therefore pure. On the other two parts, if either part is mixed, equality of the exterior counts of its colours forces the opposite part to split equally, which in turn forces the first part to split equally. These are blocked because the third colour has exterior count n to either split part. This gives six proper configurations and, for even n, 9 supports of weight binom(n,n/2)² and energy n²/2. Without exclusive colours the incidence matrix must have exactly two occupied cells in every row and column, so its absent cells are a permutation. The counts in each row are the exterior minima of the two other rows; the three row sums force every such minimum to be n/2. These are blocked since the absent colour has exterior count n. The six supports yield weight binom(n,n/2)³ and energy 3n²/4. For 3|n the all-balanced family gives the stated multinomial-cubed lower bound, and Stirling squeezes its normalized logarithm with the all-colourings upper bound to log 3. The exact nontriple formula yields the other two limits, 0 and log 2. Independent labelled enumeration, looping over 3^(3n) spin words and testing energy changes from the explicit cross-part neighbours, gave histograms {0:6}, {0:6,2:36,3:48}, and {0:6,9:216} for n=1,2,3. This is only corroboration; the proof treats all n.
 
-## Scope and remaining risks
-The energy landscape uses uniform positive antiferromagnetic coupling and three globally available colours, with single-site strict energy-decrease dynamics. The exact polynomial does not cover sizes divisible by three, for which only sharp exponential entropy bounds are proved. No assertion is made about equilibrium Gibbs phases, sampling probabilities or quench dynamics. Independent bibliographic confirmation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same stability predicate is established in the stable-colouring literature, but the inspected comparative results do not give the equal tripartite support exhaustion, energy-resolved multiplicities or three arithmetic entropy limits. The closest indexed records either change the stability rule or the graph and ground-state versus blocked-state question. This is a bounded statement-level judgment, not priority certification.
+
+## value
+
+PASS
+
+The balanced complete tripartite graph is a natural symmetric dense geometry in which the three colours compete across parts. The same normalization gives six traps along one infinite arithmetic family, a binomial-scale exponentially large population along a second, and a multinomial-scale rate along a third. This is a failure of the unrestricted kinetic entropy limit, not an equilibrium transition. The exact energy-resolved counts on 3∤n distinguish two trap geometries, so the finding adds a reusable census rather than just another existence argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

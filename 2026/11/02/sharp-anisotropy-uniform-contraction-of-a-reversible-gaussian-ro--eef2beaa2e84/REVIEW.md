@@ -1,19 +1,21 @@
-# Review: sharp anisotropy-uniform contraction of the exact Gaussian rotation--OU Strang sampler
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Exact Gaussian OU transitions and a symmetric random rotation each preserve the target and are reversible. Their symmetric composition retains those properties. The full squared-coupling covariance map reduces to a symmetric two-by-two matrix, with the quoted exact Perron factor. Positivity, contraction of both coordinate directions at the limiting anisotropic endpoint, and a small-step matrix expansion give the claimed all-step uniform bound and limits. The Python checker independently tests 466 numerical comparisons; the analytical proof, rather than the tests, establishes all parameter quantifiers.
+PASS
 
-## Originality: PASS
+Whitening maps the rotational noise to √2 JY and the target to N(0,I₂). Each OU half-step and the symmetric-angle rotation kernel is individually self-adjoint and target-preserving, as is the palindromic product. With shared noise the difference is multiplied by DRθD; its two diagonal moments evolve by the stated symmetric positive-entry matrix with determinant kpr and trace (1+k)(p+r)/2. Its strictly positive Perron eigenvector sees every nonzero squared-coordinate initial vector, so the larger root is the exact asymptotic factor. The cross moment has multiplier k√(pr) and does not feed the diagonal. The increasing entries in r give the worst endpoint at r=1. Both endpoint column sums are strictly below 1: the first basis vector is shortened by the first D, and the second is shortened by the last D for a set of angles of positive probability. The first-order endpoint matrix has coefficient [[−4,2],[2,−2]], whose largest eigenvalue is −3+√5; the large-h limit matrix is diag(0,1/2). The matrix operator norm gives the √2 factor via Cauchy–Schwarz conditional on the initial pair; averaging over an initial optimal coupling gives the W₂² bound. For uniqueness without a moment assumption, synchronous pair differences satisfy the deterministic bound ∥e_n∥≤e^(−λhn)∥e_0∥ for λ>0. Couple arbitrary invariant initial laws and apply dominated convergence to bounded Lipschitz test functions. The fresh bounded replay tested the rational determinant and integrated all three moment coordinates independently at h=log(4), λ=1/2 (maximum absolute discrepancy 4.3×10⁻¹⁶).
 
-Louis--Pavliotis--Vilmart (2026), Theorem 2, proves a continuous-time spectral-gap bound, and its Section 6.3 uses a related splitting template with RK4 evaluation of the perturbation. The present exact rotation scheme and exact discrete covariance contraction factor are additional. Abdulle--Pavliotis--Vilmart (2019) develops the continuous reversible Stratonovich construction; Duncan--Pavliotis--Zygalakis (2017) studies nonreversible deterministic drift splitting. None of the material inspected supplies this quantitative discrete Perron rate. General detailed-balance and splitting preservation facts are credited. An older equivalent specialized calculation remains possible, and the inspected older sources were not read exhaustively.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The result addresses a motivated numerical-sampler question: does the continuous target-preserving accelerated dynamics admit a stable, unbiased and quantitatively mixing discretization even for an ill-conditioned Gaussian target? The derived exact-subflow method answers this question in its two-dimensional quadratic regime and provides a sharp per-step rate useful for parameter benchmarking. No statement about the cost or bias of an approximate RK4 implementation, nonlinear targets, or higher dimensions is made.
+The continuous model, the exact rotational subflow as an immediate special case of the SDE, and the preservation and reversibility principle for symmetric products are not credited as new. The distinction supported by the inspected passages is the exact finite-step synchronous Perron law, including the sharp uniform curvature endpoint for this exact-subflow kernel. The closest paper's numerical split uses RK4 for its perturbation flow and its Gaussian rate is a continuous-time one. Earlier perturbation and deterministic nonreversible splitting results do not supply the discrete moment operator for this chain.
 
-## Limits and references
+## value
 
-The exact sharpness concerns synchronous squared-coupling asymptotic rate, not the optimal Wasserstein contraction constant. See arXiv:2610.03191v1, arXiv:1903.03024 and arXiv:1701.04247 for the continuous model, precursor and splitting context.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a concrete, exactly implementable split model the finite-step proof separates bias-free stationarity from sharp coupling decay and shows that anisotropy does not collapse the normalized squared-error rate. This makes the exact finite-step law, including both step-size boundaries, useful beyond the known continuous guarantee or general symmetry argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

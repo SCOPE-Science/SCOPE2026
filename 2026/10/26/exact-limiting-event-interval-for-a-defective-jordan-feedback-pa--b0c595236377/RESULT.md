@@ -1,88 +1,73 @@
 # Exact limiting event interval for a defective Jordan feedback pair
 
 ## Finding
-Fix \(a,\gamma>0\) and
+
+Fix \(a,\gamma>0\) and set
 \[
 J=\begin{pmatrix}-a&\gamma\\0&-a\end{pmatrix}.
 \]
-Consider the plant \(\dot x=u\) with static feedback \(u=J\hat x\), where \(\hat x(t)=x_k:=x(t_k)\) is held constant on \([t_k,t_{k+1})\). The next event is the first time \(s\ge T\) for which
+Consider the plant \(\dot x=u\) with feedback \(u=J\hat x\), where \(\hat x(t)=x_k:=x(t_k)\) is held constant on \([t_k,t_{k+1})\). The next event is the first time \(s\ge T\) for which
 \[
 \|x_k-x(t_k+s)\|_2\ge\sigma\|x(t_k+s)\|_2,
 \]
-with \(\sigma>0\) and minimum wait \(T\ge0\).
-
-Let \(L=\|J\|_2\) and \(m=\sigma_{\min}(J)>0\). Choose any \(\delta\) satisfying
+where \(\sigma>0\) and \(T\ge0\) is a minimum wait. Put \(L=\|J\|_2\) and \(m=\sigma_{\min}(J)>0\). Assume
 \[
-0<\delta<\min\{a^{-1},L^{-1}\},
-\]
-and choose parameters
-\[
+0<\delta<\min\{a^{-1},L^{-1}\},\qquad
 0<\sigma<\frac{\delta m}{1+\delta L},\qquad 0\le T<\delta.
 \]
-Then every nonzero initial state generates infinitely many events without Zeno accumulation, and its inter-event intervals satisfy the exact limit
+Then every nonzero initial state generates infinitely many events without Zeno accumulation, and
 \[
-\boxed{\lim_{k\to\infty}(t_{k+1}-t_k)=\max\left\{T,\frac{\sigma}{a(1+\sigma)}\right\}.}
+\lim_{k\to\infty}(t_{k+1}-t_k)=\max\left\{T,\frac{\sigma}{a(1+\sigma)}\right\}.
 \]
-The limit is independent of the Jordan shear \(\gamma\), although \(\gamma\) affects the transient. In particular, the exact unregularized limit is \(\sigma/[a(1+\sigma)]=\sigma/a-\sigma^2/a+O(\sigma^3)\), refining the leading-order estimate \(\sigma/a+O(\sigma^2)\).
+The limit is independent of the shear \(\gamma\). With \(T=0\), it equals \(\sigma/a-\sigma^2/a+O(\sigma^3)\) as \(\sigma\downarrow0\) for fixed \(a,\gamma\).
 
 ## Assumptions and scope
-All norms are Euclidean. The closed-loop matrix in the ideal continuous-feedback model is the defective Hurwitz Jordan matrix \(J\), with repeated eigenvalue \(-a\) and one-dimensional eigenspace. The plant, controller, and trigger are exactly those stated above; this is not a theorem for every plant whose closed-loop matrix has a defective eigenvalue. The zero initial state is excluded. The smallness assumptions are explicit and sufficient, not claimed necessary.
+
+All norms are Euclidean. The zero initial state is excluded. The hypotheses on the parameters are sufficient and are not asserted to be necessary. The plant and trigger are part of the hypotheses; assuming only that an ideal continuous-feedback matrix is a defective Hurwitz matrix does not specify the held-input flow.
 
 ## Proof
-For a held sample \(x\ne0\), the flow is \(x(s)=(I+sJ)x\), so the trigger function is
+
+**Uniform control of the threshold crossing.** For a held sample \(x\ne0\), the state at elapsed time \(s\) is \((I+sJ)x\). On \([0,\delta]\) it is nonzero since \(\|(I+sJ)x\|_2\ge (1-sL)\|x\|_2>0\). Write
 \[
 g_x(s)=\frac{s\|Jx\|_2}{\|(I+sJ)x\|_2}.
 \]
-For \(0\le s< L^{-1}\), the denominator is nonzero and differentiation gives
+This function starts at zero and is strictly increasing on that interval: its derivative is
 \[
-g_x'(s)=\frac{\|Jx\|_2\bigl(\|x\|_2^2+s x^\top Jx\bigr)}{\|(I+sJ)x\|_2^3}>0,
+g_x'(s)=\frac{\|Jx\|_2(\|x\|_2^2+s x^\top Jx)}{\|(I+sJ)x\|_2^3}>0,
 \]
-because \(x^\top Jx\ge-L\|x\|_2^2\) and \(sL<1\). Thus there is at most one threshold crossing before \(\delta\).
+using \(x^\top Jx\ge-L\|x\|_2^2\). Put
+\[
+c=\frac{\sigma}{L(1+\sigma)},\qquad s_+=\frac{\sigma}{m-\sigma L}.
+\]
+The hypotheses imply \(m-\sigma L>0\) and \(s_+<\delta\). For \(s<c\), the upper estimate \(g_x(s)\le sL/(1-sL)\) is strictly less than \(\sigma\); at \(s=s_+\), the lower estimate \(g_x(s_+)\ge s_+m/(1+s_+L)\) is \(\sigma\). It follows by continuity and strict increase that the unique crossing \(\rho_\sigma(x)\) in \([0,\delta]\) belongs to \([c,s_+]\). As \(T<\delta\), the first admissible event interval is \(\tau_k=\max\{T,\rho_\sigma(x_k)\}\). Therefore \(c\le\tau_k<\delta\).
 
-Write \(\rho_\sigma(x)\) for that crossing. The bounds
+**Sampled directions.** Put \(p_k=1-a\tau_k\), \(q_k=\gamma\tau_k\). The update is
 \[
-\frac{\sigma}{L(1+\sigma)}\le\rho_\sigma(x)\le\frac{\sigma}{m-\sigma L}<\delta
+x_{k+1,1}=p_k x_{k,1}+q_k x_{k,2},\qquad x_{k+1,2}=p_k x_{k,2}.
 \]
-hold uniformly in \(x\ne0\). For the lower bound, if \(s<\sigma/[L(1+\sigma)]\), then \(s\|Jx\|_2\le sL\|x\|_2<\sigma(1-sL)\|x\|_2\le\sigma\|(I+sJ)x\|_2\). For the upper bound, at \(s_+=\sigma/(m-\sigma L)\), one has \(s_+\|Jx\|_2\ge s_+m\|x\|_2=\sigma(1+s_+L)\|x\|_2\ge\sigma\|(I+s_+J)x\|_2\). The stated parameter restriction makes \(s_+<\delta\). Consequently the actual interval from sample \(x_k\) is \(\tau_k:=t_{k+1}-t_k=\max\{T,\rho_\sigma(x_k)\}\), and
+Since \(0<p_k<1\), the update is invertible and every nonzero sample yields another nonzero sample. If \(x_{0,2}=0\), the trajectory stays on the eigenline at all sample times. Otherwise \(x_{k,2}\ne0\) for every \(k\), so the reciprocal slope \(v_k=x_{k,1}/x_{k,2}\) is defined even at a vertical direction, and
 \[
-c:=\frac{\sigma}{L(1+\sigma)}\le\tau_k<\delta.
+v_{k+1}=v_k+\frac{q_k}{p_k}\ge v_k+\gamma c.
 \]
+Hence \(v_k\to+\infty\) and the directions converge projectively to the eigenline \(\mathbb R e_1\), where \(e_1=(1,0)^\top\). This also covers the case of a trajectory starting on that line, where the projective direction is constant.
 
-The sampled-state recurrence is \(x_{k+1}=(I+\tau_kJ)x_k\). Put \(p_k=1-a\tau_k\) and \(q_k=\gamma\tau_k\). The bounds imply \(0<p_k<1\) and \(q_k\ge\gamma c>0\), and the coordinates obey
-\[
-x_{k+1,1}=p_kx_{k,1}+q_kx_{k,2},\qquad x_{k+1,2}=p_kx_{k,2}.
-\]
-Also \(\det(I+\tau_kJ)=p_k^2>0\), so a nonzero sample never becomes zero.
+**Limit and completeness.** The crossing depends only on the projective direction, and it is continuous there. Indeed, for converging directions choose converging unit representatives up to sign. Every subsequential limit of the crossing times in the compact interval \([c,s_+]\) solves the limit-direction threshold equation by joint continuity of \(g_x(s)\); that equation has exactly one root on the interval. On the eigenline, \(g_{e_1}(s)=as/(1-as)\) on \([0,\delta]\), so the crossing is \(\sigma/[a(1+\sigma)]\). Taking the limit of \(\max\{T,\rho_\sigma(x_k)\}\) proves the formula, including equality of the two alternatives. There is an event from every nonzero sample and \(\tau_k\ge c>0\), so there are infinitely many events with no finite accumulation time.
 
-When \(x_{k,1}\ne0\), define the projective ratio \(r_k=x_{k,2}/x_{k,1}\). If \(r_k>0\), then
-\[
-r_{k+1}=\frac{p_kr_k}{p_k+q_kr_k}\in(0,r_k).
-\]
-If \(r_k<0\) and \(p_k+q_kr_k>0\), then \(r_{k+1}<0\) and
-\[
-|r_{k+1}|-|r_k|=\frac{q_k|r_k|^2}{p_k-q_k|r_k|}\ge\gamma c\,|r_k|^2.
-\]
-Hence the magnitude cannot remain negative and bounded indefinitely: while the denominator is positive, the magnitude increases by at least the fixed positive amount \(\gamma c|r_0|^2\). Eventually \(p_k+q_kr_k\le0\), which makes the next ratio positive, or makes the next first coordinate zero; in the latter case the following ratio is \(p_{k+1}/q_{k+1}>0\). If \(x_{k,1}=0\) initially, the next ratio is positive directly. Thus every nonzero initial state eventually has \(r_k>0\).
-
-Thereafter \(r_k\) decreases to a limit \(r_\infty\ge0\). If \(r_\infty>0\), then
-\[
-r_k-r_{k+1}=\frac{q_kr_k^2}{p_k+q_kr_k}
-\]
-is bounded below by a positive constant, since \(q_k\ge\gamma c\), \(r_k\ge r_\infty\), and \(p_k+q_kr_k\le1+\gamma\delta r_1\). This is impossible, so \(r_k\to0\). The sampled directions therefore converge projectively to the eigenline spanned by \(e_1=(1,0)^\top\).
-
-The crossing \(\rho_\sigma(x)\) depends continuously on the projective direction because \(g_x(s)\) is continuous and strictly increasing on \([0,\delta]\). At \(e_1\), \(Je_1=-ae_1\) and \(\|(I+sJ)e_1\|_2=1-as\); hence the threshold equation is \(as=\sigma(1-as)\), whose unique root is \(s=\sigma/[a(1+\sigma)]\). It follows that \(\rho_\sigma(x_k)\to\sigma/[a(1+\sigma)]\), and therefore \(\tau_k=\max\{T,\rho_\sigma(x_k)\}\) converges to the claimed limit.
-
-Finally, \(\tau_k\ge c>0\) rules out Zeno accumulation. Since \(p_k\le1-ac<1\), products of the upper-triangular update matrices have diagonal entries decaying geometrically and off-diagonal entries bounded by a constant times \(k(1-ac)^{k-1}\). Thus the sampled states, and the inter-event flow between them, decay exponentially under these parameter restrictions.
+Under these hypotheses the states also decay exponentially. In a product of \(k\) update matrices the diagonal entries are bounded by \((1-ac)^k\); because each strictly upper-triangular contribution can occur at most once in a nonzero product term, the upper off-diagonal entry is bounded by \(k\gamma\delta(1-ac)^{k-1}\). This is exponential in \(k\); the bound \(\tau_k<\delta\) and bounded between-event flow give exponential decay in continuous time as well.
 
 ## Verification
-The proof uses the exact held-input flow and the exact trigger equation; no finite experiment is used to infer an infinite-time limit. The key nonstandard step is the projective recurrence, which shows that the defective Jordan shear sends every nonzero initial direction to the eigendirection. At that direction the trigger equation is solved exactly. The uniform root bounds also prove a positive minimum interval and keep every interval below \(\delta\).
+
+The proof uses the exact held-input flow, uniform two-sided crossing bounds, and a two-case projective argument. On the eigenline the interval is already the claimed limit. Off the eigenline the reciprocal slope has a uniformly positive increment, including when the first coordinate passes through zero. No finite trajectory simulation is used to infer convergence.
 
 ## Relationship to prior work
-Postoyan, Sanfelice, and Heemels (2019) give the leading-order expansion \(\tau_\sigma(x)=\sigma\|x\|_2/\|Jx\|_2+O(\sigma^2)\) and treat a semisimple repeated eigenvalue, but explicitly leave the repeated eigenvalue with geometric multiplicity one untreated. Their 2023 time-regularized extension likewise states the defective case as a conjecture, suggesting convergence near \(\max\{T,\sigma/a\}\) on the basis of the general \(O(\sigma^2)\) estimate and simulations. The present result proves the convergence for the canonical realization \(\dot x=J\hat x\) and identifies its exact limit \(\max\{T,\sigma/[a(1+\sigma)]\}\). It does not claim to resolve the conjecture for arbitrary defective closed-loop systems.
+
+Postoyan, Sanfelice, and Heemels analyze periodicity and convergence of inter-transmission times in planar linear event-triggered systems. Their time-regularized analysis treats distinct real eigenvalues and a semisimple repeated real eigenvalue; it leaves the defective repeated-eigenvalue case as a conjecture with a limit near \(\max\{T,\sigma/a\}\) at small \(\sigma\). In the integrator realization above, the exact affine held-input map permits a direct proof of convergence and gives the exact crossing, including the correction to the leading term and the regularization crossover. This is not a resolution for arbitrary defective closed-loop systems.
 
 ## Limitations
-The result applies to the specified two-dimensional zero-order-hold realization and to the stated sufficient smallness conditions. It does not classify arbitrary plants \(\dot x=Ax+Bu\), general defective matrices \(A+BK\), nonlinear systems, measurement noise, or perturbed trigger rules. The exact formula is not claimed to be the only possible limit for other implementations. Independent validation has not been performed.
+
+The calculation does not classify other plant realizations, nonlinear plants, noisy measurements, or other trigger rules. In particular the factor \((1+\sigma)^{-1}\) is derived using the exact affine sample-and-hold flow and should not be transferred to other flows without proof.
 
 ## References
-1. R. Postoyan, R. G. Sanfelice, and W. P. M. H. Heemels, “Inter-event Times Analysis for Planar Linear Event-triggered Controlled Systems,” 2019 IEEE Conference on Decision and Control, pp. 1662–1667. DOI: 10.1109/CDC40024.2019.9028888. First public conference date: 2019-12-11.
-2. R. Postoyan, R. G. Sanfelice, and W. P. M. H. Heemels, “Explaining the ‘Mystery’ of Periodicity in Inter-Transmission Times in Two-Dimensional Event-Triggered Controlled Systems,” IEEE Transactions on Automatic Control 68(2), 912–927. DOI: 10.1109/TAC.2022.3147009. Published online 2022-01-31.
+
+1. R. Postoyan, R. G. Sanfelice, and W. P. M. H. Heemels, “Inter-event Times Analysis for Planar Linear Event-triggered Controlled Systems,” 2019 IEEE Conference on Decision and Control, pp. 1662–1667. DOI: 10.1109/CDC40024.2019.9028888.
+2. R. Postoyan, R. G. Sanfelice, and W. P. M. H. Heemels, “Explaining the ‘Mystery’ of Periodicity in Inter-Transmission Times in Two-Dimensional Event-Triggered Controlled Systems,” IEEE Transactions on Automatic Control 68(2), 912–927, 2023. DOI: 10.1109/TAC.2022.3147009.

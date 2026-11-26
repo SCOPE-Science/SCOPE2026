@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:21:26.965515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–41 and 43–120",
+        "Frozen VERIFICATION.md lines 3–20 and CHECK.py (inspected, not executed)",
+        "/workspace/audit_checks.py, bessel()"
+      ],
+      "rationale": "The standard half-order formulas cancel the common square-root factor. With F the integral, G the tilted hyperbolic denominator, direct differentiation gives D=G'/F', with F', F and G positive for x>0. Writing N=sinh(x)^2-x^2, L'=N/[x^2 sinh(x)^2] and -(L/x)'/L'=N'/(2N)-2/x. Expanding cosh(2x) to third order with integral remainder gives the stated positive symmetric Laplace transform of N/x^4; its tilted measure is not a point mass, so the log curvature is strictly positive. The resulting logarithmic slope divided by two runs from 0 to 1. Hence D' changes from negative to positive once. The stationary numerator FD-G starts at zero and its derivative is FD'; at infinity D-G/F=x^(-2)+o(x^(-2)) for each fixed tilt, so the stationary numerator crosses zero once. The reciprocal G/F then decreases and increases, giving the sharp maximum, strict endpoint comparisons, and the unique equality point. At zero tilt the analytic stationary equation has slope -1/20 in x and 1/2 in gamma; reflection of (x,gamma) makes the local optimizing branch odd and its value even. At critical tilt, the endpoint lower bound forces x to diverge and the exact quotient excludes bounded delta*x. With y=delta*x diverging, differentiating gives 2 exp(-y)(1+delta*x*(x-1))=2-delta+O(x^2 exp(-2x)), uniformly near delta=0. Taking logs yields y-2 log y=log(1/delta)+o(1), hence the second logarithm as stated. The quotient's 1/x denominator correction gives additive 1/y, while the numerator exponential contributes only O(y^(-2)). Replay: `cd /workspace && python audit_checks.py 2` verifies the log-derivative identity, small-tilt expansion and exact numerator of the critical-tilt score independently of the supplied checker.",
+      "residual_risks": [
+        "The fixed-tilt large-x expansion is used only for the fixed-tilt uniqueness proof; the joint critical limit requires the separate uniform error estimate.",
+        "No extension to arbitrary Bessel order or power is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 6.3 guarantees strict endpoint excess when q<(mu+1/2)(2-gamma), true here for all positive tilts below one; Proposition 6.4 retains all stationary points in its characterization.",
+          "Gaunt 2025 supplies the sufficient constant 3/[2(1-gamma)] for this order, not the per-tilt sharp supremum. Gaunt 2018 Theorem 2.6 uses a reciprocal-power weight."
+        ],
+        "reasoning": "Existence of an interior maximum and its value in terms of a stationary root are both covered, but not uniqueness, which needs the strict derivative-ratio turn.",
+        "searches": [
+          "arXiv:2605.20983 §6 Propositions 6.1, 6.2, 6.4 and Corollary 6.3",
+          "arXiv:2501.12197v1 Theorem 2.1",
+          "arXiv:1806.00524 Theorem 2.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.20983 §6",
+        "arXiv:2501.12197v1 Theorem 2.1",
+        "arXiv:1806.00524 Theorem 2.6",
+        "Resultary a45b0aa4512d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior expansions are in x at fixed tilt; prior stationary values are indexed by an unrestricted set of critical points.",
+          "Here the small-tilt matching concerns the selected global optimizing branch, and near critical tilt the term exp(-(1-gamma)x) must be retained against x^(-2)."
+        ],
+        "reasoning": "A fixed-tilt expansion does not control the optimizing joint limit, and a maximization over all stationary values does not identify a unique branch. The small-tilt coefficients are accessible from a local expansion, but identifying it as the unique global branch and proving the matched critical law supply extra conclusions.",
+        "searches": [
+          "arXiv:2605.20983 §6 eqs. (62)–(69), PDF pp. 19–21",
+          "Resultary a45b0aa4512d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang–Zhang use the same quotient at (mu,q)=(1/2,1), with t^(q-mu)=t^(1/2); simplifying the half orders yields the elementary sinh/cosh quotient. Gaunt's positive-power integral coincides when nu=1/2."
+        ],
+        "reasoning": "The elementary form is an equivalent expression, not a new problem. The prior bounds/characterization do not settle how many stationary solutions the elementary form has.",
+        "searches": [
+          "Resultary searches for tilted half-integer Bessel quotient and sharp hyperbolic integral optimizer",
+          "arXiv:2605.20983 §6 eqs. (57)–(61)",
+          "arXiv:2501.12197v1 §2 eq. (2.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-day indexed near match a45b0aa4512d instead optimizes quantities built from I_nu K_nu in a large-order regime, with uniqueness for sufficiently large nu."
+        ],
+        "reasoning": "The inspected exact optimization is for a different function and limit; no matching table or catalogue entry was located in the bounded returned hits.",
+        "searches": [
+          "Resultary searches for one-turn half-order tilted Bessel maximum, small- and critical-tilt laws",
+          "Resultary a45b0aa4512d Finding"
+        ]
+      },
+      "rationale": "The distinct contribution is global one-turn uniqueness, including the unique equality point, and the optimizer and sharp-value asymptotics in the two tilt limits. The sharp quotient, its endpoint limits, strict excess over both endpoints, and stationary-value representation all specialize from earlier general results and are not credited as new.",
+      "residual_risks": [
+        "An equivalent optimization in elementary hyperbolic-integral literature may be unindexed; the catalogue and passage comparisons are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers interior attainment and stationary-value characterization after specialization; does not establish one-turn or the two optimizing tilt laws in these results.",
+          "evidence": [
+            "Strict endpoint excess condition q<(mu+1/2)(2-gamma)",
+            "Sharp maximum over all stationary points and endpoints",
+            "Fixed-tilt x endpoint expansions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.20983",
+          "material_read": "§6 eqs. (57)–(69), Propositions 6.1, 6.2, 6.4, Corollary 6.3, PDF pp. 18–21 (offsets 38100–44800 and surrounding passages)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Weighted Uniform Endpoint Majorants for Integrals Involving Modified Bessel Functions",
+          "trigger": "Same general quotient, sharp supremum and endpoints"
+        },
+        {
+          "assessment": "Explicit sufficient upper coefficient, not this per-tilt optimizer classification.",
+          "evidence": [
+            "At nu=1/2 the bound has coefficient 3/[2(1-gamma)]."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.12197v1",
+          "material_read": "Abstract and §2 Theorem 2.1, eq. (2.7), around OA HTML offset 8386",
+          "method": "OA primary HTML bound comparison",
+          "title": "Inequalities for an integral involving the modified Bessel function of the first kind",
+          "trigger": "Same positive-power integral and endpoint factor"
+        },
+        {
+          "assessment": "Different weight family in the inspected theorem.",
+          "evidence": [
+            "Reciprocal-power integral bounds, rather than this positive half-power quotient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1806.00524",
+          "material_read": "Theorem 2.6, eqs. (2.19)–(2.25), PDF p. 7, around offset 29650",
+          "method": "OA primary PDF comparison",
+          "title": "Inequalities for some integrals involving modified Bessel functions",
+          "trigger": "Earlier related Bessel endpoint inequalities"
+        },
+        {
+          "assessment": "Distinct problem: large-order Bessel product, not fixed-order exponential tilt.",
+          "evidence": [
+            "I_nu K_nu structure and nu tending to infinity."
+          ],
+          "identifier_or_url": "Resultary a45b0aa4512d",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Second-order optimality gaps for the two sharp modified Bessel product bounds",
+          "trigger": "Indexed sharp Bessel optimization with uniqueness and asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–38 and 59–119",
+        "Yang–Zhang §6, especially Proposition 6.4"
+      ],
+      "rationale": "This is a natural special-function reduction of an established sharp-constant problem. It replaces an unconstrained search over stationary points with one uniquely characterized equality point, and resolves the singular strong-tilt displacement and additive gap where the leading endpoint bound alone is uninformative. The log-convexity argument explains the uniqueness rather than merely sampling optimizers.",
+      "residual_risks": [
+        "One fixed half-integer order and weight; the argument is not an arbitrary-order theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

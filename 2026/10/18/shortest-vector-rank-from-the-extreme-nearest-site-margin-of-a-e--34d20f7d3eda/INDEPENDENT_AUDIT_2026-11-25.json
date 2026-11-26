@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:41:35.225573Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–81; VERIFICATION.md and check_lattice_margin.py inspected, not executed",
+        "Independent shifted-facet and uniform section-squeeze argument; planar coefficient checks by strip area"
+      ],
+      "rationale": "For uniform volume on the origin Voronoi cell the squared gap is the minimum of ||v||²−2⟨x,v⟩ over nonzero sites. Ties at the cell boundary do not affect the probability. The ± shortest inequalities force the endpoint λ and at positive ε make the E-coordinate lie in εK. The event volume equals that of the closed shifted halfspace intersection, with denominator det Λ; for ε>0 near zero this intersection contains an open neighborhood of zero. For a nonrelevant v, the midpoint criterion gives a split v=a+b into strictly shorter nonzero vectors with ⟨a,b⟩≥0. The two shorter inequalities displaced by t=λ−ε imply the v inequality at the same t≥0, so length induction reduces to finitely many relevant vectors and retains all shortest ones. After x=εz+y, the bounded z lies in K and the finitely many other constraints on y differ from those of H by O(ε) uniformly in z. The positive nonshort offsets allow each section to be squeezed between (1−cε)H and (1+cε)H; H is bounded inside V and has a relative origin neighborhood. The Jacobian is ε^r, proving the coefficient and next-order bound, also when H is zero-dimensional. The finite prospective vertices depend affinely on ε; feasibility and active equalities stabilize on a sufficiently small positive interval. A fixed pulling triangulation gives the exact degree-≤d volume polynomial. In full shortest span the nonshort constraints are slack on εK, so that polynomial is a monomial. For the first planar example the only nonshort strip pair active at ε=0 is from ±(2/5,6/5); the local area is ε(3/5+ε)/(6/5), divided by covolume 6/5, giving both stated coefficients. For the second, the two unit vectors give a strip intersection of area 13/12 and covolume 12/13. The orthogonal product follows from the coordinate strip widths.",
+      "residual_risks": [
+        "The exact endpoint polynomial is local; symbolic calculations, not the finite checker, establish the claim for arbitrary full-rank lattices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koçak–Ratiu show ordinary Euclidean inner-tube volume is piecewise polynomial. McKilliam–Grant–Clarkson give the relevant-vector halfspaces. The gap shifts all unnormalized inequalities by the same amount; in Euclidean normal distance these are length-dependent rates."
+        ],
+        "reasoning": "Polynomial behavior for ordinary Euclidean offsets alone neither treats the gap erosion in general nor identifies the lowest power with a shortest-vector span and its coefficient. The known halfspace description and general polytope tools are ingredients.",
+        "searches": [
+          "Resultary: weighted inner parallel volume polytope moving facet speeds lattice gap",
+          "arXiv:1008.2040v1, Abstract and Introduction; arXiv:1405.7014v1, Voronoi relevant vectors"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f3e964a431ce, f0aaf2b23c8c, a6d70db3bcca",
+        "arXiv:1008.2040v1, math/0207147v1, 1405.7014v1, 1311.6306v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sloane–Beferull-Lozano analyze closest-site quantizers and Voronoi intersections; Baake–Scharlau–Zeiner define well-roundedness by the full span of shortest vectors and enumerate sublattices. Neither inspected result computes the decay order of a second-minus-first squared gap."
+        ],
+        "reasoning": "Known geometric input does not by itself give a population identification result from a scalar distribution; the essential comparison is the degeneration to H with ε-sized thickness exactly in the independent shortest directions.",
+        "searches": [
+          "arXiv:math/0207147v1, Introduction; arXiv:1311.6306v2, well-rounded definition",
+          "Resultary: lattice Voronoi nearest-site margin endpoint tail shortest vectors rank"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f3e964a431ce uses the squared geodesic runner-up gap on a Euclidean flat two-torus. Haar difference modulo the lattice gives the same statistic. Its general two-dimensional asymptotic is at zero, rather than at λ. For its area-one shears the exact CDF directly gives the upper tail as well, but only in that family."
+        ],
+        "reasoning": "The two geometric descriptions do not make distinct statistics. The actual distinction lies in endpoints and lattice scope, not the geodesic language. The shear record is later-dated and is not evidence of earlier priority.",
+        "searches": [
+          "Resultary: second-nearest lattice point squared distance gap distribution Voronoi cell",
+          "Resultary: flat torus nearest geodesic squared-length gap cut locus distribution",
+          "Primary: lattice Voronoi cell distribution of the squared distance gap between second-nearest and nearest lattice sites, endpoint tail, shortest vectors, and rank of shortest-vector span"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f0aaf2b23c8c gives exact Euclidean clearance laws for BCC/FCC cells. f3e964a431ce gives a complete exact CDF for sheared-square lattices. a6d70db3bcca gives a Beta law for gaps to the finite vertex set of regular polytopes."
+        ],
+        "reasoning": "The shear formula supplies special-case numbers, not the arbitrary-lattice formula. Euclidean clearance normalizes each facet slack by its own length, so it is not generally a constant multiple of the margin. The finite-vertex Beta law uses a different site set and sample space.",
+        "searches": [
+          "Resultary: lattice Voronoi cell second nearest squared distance margin endpoint tail shortest vector rank",
+          "Resultary: lattice Voronoi nearest-site margin endpoint tail shortest vectors rank"
+        ]
+      },
+      "rationale": "The supported increment is that this particular squared runner-up margin intrinsically recovers the real span dimension of the shortest vectors in every dimension, with a positive mixed-dimensional coefficient. Voronoi facet geometry, the definition of well-roundedness and generic inner-volume polynomiality are not claimed as new. The strongest same-statistic match gives a full special-family law and a general planar asymptotic at the opposite endpoint, not the arbitrary-dimensional upper-endpoint claim.",
+      "residual_risks": [
+        "The bounded search does not exclude an unindexed anisotropic inner-erosion theorem or a closer antecedent in the lattice-decoding literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-family coverage, not covering general upper-tail theorem",
+          "evidence": "Exact sheared-square CDF on [0,1] includes the upper endpoint for that family; all-lattice planar asymptotic is at the zero-gap endpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-near-cut-locus-gap-law-on-sheared-flat-tori-and-a-sharp-he--f3e964a431ce/RESULT.md",
+          "material_read": "Finding including exact shear CDF (offsets 180–1230) and general small-gap scope",
+          "method": "Resultary search and local-mirror bounded inspection",
+          "title": "Exact near-cut-locus gap law on sheared flat tori and a sharp hexagonal bound",
+          "trigger": "Same statistic via torus geodesics"
+        },
+        {
+          "assessment": "Different clearance statistic, with possible special equal-normal-length overlap",
+          "evidence": "Uses dist(X,∂V), the minimum of normalized facet slacks in specific BCC/FCC cells.",
+          "identifier_or_url": "Resultary f0aaf2b23c8c",
+          "material_read": "Finding and definitions, offsets 347 and 1858",
+          "method": "Resultary search and local mirror",
+          "title": "A unique boundary-clearance crossover between cubic lattice Voronoi cells",
+          "trigger": "Exact Voronoi probability laws"
+        },
+        {
+          "assessment": "Related but does not cover the lattice setting",
+          "evidence": "Beta law for finite regular-polytope vertices, with a different underlying uniform sampling cell.",
+          "identifier_or_url": "Resultary a6d70db3bcca",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Universal nearest-vertex squared-distance margin in regular polytopes",
+          "trigger": "Similar order-statistic gap"
+        },
+        {
+          "assessment": "Covers ordinary inner volume polynomiality, not shortest-span endpoint order",
+          "evidence": "Continuous piecewise polynomial of degree d for Euclidean inner neighborhoods.",
+          "identifier_or_url": "arXiv:1008.2040v1",
+          "material_read": "PDF pp.1–2 Abstract and Introduction, offsets 485 and 6128",
+          "method": "OA PDF inspection",
+          "title": "Inner tube formulas for polytopes",
+          "trigger": "Possible general moving-facet volume theorem"
+        },
+        {
+          "assessment": "Background ingredient",
+          "evidence": "Relevant vectors describe the cell and support closest-point computation, not a gap tail law.",
+          "identifier_or_url": "arXiv:1405.7014v1",
+          "material_read": "PDF p.2, offset 6311",
+          "method": "OA PDF inspection",
+          "title": "Finding a closest point in a lattice of Voronoi's first kind",
+          "trigger": "Voronoi-relevant vector reduction"
+        },
+        {
+          "assessment": "Closest-site geometry, no covering result in inspected passages",
+          "evidence": "Uses closest-site quantizers and Voronoi intersections, not the law of the squared runner-up gap.",
+          "identifier_or_url": "arXiv:math/0207147v1",
+          "material_read": "PDF pp.1–2, Introduction offset 3356",
+          "method": "OA PDF inspection",
+          "title": "Quantizing Using Lattice Intersections",
+          "trigger": "Lattice quantization probability setting"
+        },
+        {
+          "assessment": "Defines the invariant without a recovery theorem",
+          "evidence": "Well-rounded means that shortest nonzero vectors span the space.",
+          "identifier_or_url": "arXiv:1311.6306v2",
+          "material_read": "PDF p.1, offset 1771",
+          "method": "OA PDF inspection",
+          "title": "Well-rounded sublattices of planar lattices",
+          "trigger": "Shortest-vector span as a classical lattice invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact planar contrast, RESULT.md lines 73–81"
+      ],
+      "rationale": "For a natural population margin, the formula recovers the dimension of a geometric invariant without being given the shortest vectors, and tests well-roundedness in known dimension. It relates this recovery to an explicit coefficient depending on transverse geometry. The two nonorthogonal examples show the rank effect is not an artifact of Cartesian products.",
+      "residual_risks": [
+        "No guarantee of reliable finite-sample recovery or complete lattice identification is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

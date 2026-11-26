@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:09:00.971484Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The size-biased fixed-cycle count gives the stated beta-binomial law for the length of the cycle through label 1. Binomial parity projection followed by integration by parts gives the expectation: the endpoint evaluation is 1 and cancels the 1 outside the integral (the frozen wording that the boundary terms vanish is imprecise). Finite differentiation with respect to log θ gives the covariance. The kernel has one sign for even n; for odd n≥3 the L/R log derivative is strictly negative by the ordered supports, reflection and strict concavity give L(1)>R(1), and a fixed subinterval to the right of 1/2 bounds L/R by a decaying geometric factor as θ grows. For the moving root, rescale both endpoints by 2m, m=n−2. On θ∈[1,2], the left integrand after extracting log m/(2m)^(θ+1) is dominated by a constant times (x+x²)(1+|log x|)e^(−x) and converges uniformly in θ on fixed compact x-intervals away from zero. The right integrand after extracting (2m)^−2 is at most 2xe^(−x), using −log(1−u)≤2u for u≤1/2, and has limit xe^(−x). These give the required uniform relative o(1); an O(1/m) error for the full leading term on the left is not needed. The ratio asymptotic first confines the root to θ→1, then yields (θ_n−1)log n−log log n→0. At n=2 the sign is strict; at n=3 differentiating 6θ/((θ+1)(θ+2)) gives the stated sqrt(2) crossover. Independent exact enumeration (independent_check.py, check-log.txt) confirmed finite cycle-sum moments in 28 cases and both integrals in 14 cases; uploaded code was not executed. These checks do not prove uniqueness or the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lugo's all-even conditioned class concerns moments of K under a restriction on all cycles. Maples–Nikeghbali–Zeindler treat generalized cycle weights and total-count asymptotics.",
+          "The Resultary one-crossing theorem is for distinct fixed-color cycle-type counts; the adjacency results use different second observables and thresholds."
+        ],
+        "reasoning": "Neither conditioning on all lengths even, nor the marginal K limit, nor the colored fixed-type covariance supplies this mixed covariance across all θ; in particular, component covariances with their own thresholds do not imply a unique crossing of the weighted sum.",
+        "searches": [
+          "arXiv:0907.5351v1, Theorem 3.8",
+          "arXiv:1203.4132v1, §§1 and 3",
+          "Resultary colored-Ewens covariance and oriented-adjacency covariance findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "arXiv:0907.5351v1",
+        "arXiv:1203.4132v1",
+        "Resultary Findings 85dc8e10a9ea, d5e2f8948506 and 6376754255c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older exact counts recover the expectation and hence an unclassified covariance. The proof puts the log derivative on separated supports and uses two distinct endpoint scales to resolve the sign and the root."
+        ],
+        "reasoning": "The exact moment formula is a consequence of prior inputs; the global classification and the moving-root asymptotic are not supplied by those inputs as stated results.",
+        "searches": [
+          "Lugo, Proposition 2.4 and Theorem 3.8",
+          "Resultary d5e2f8948506, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By exchangeability E/n has expectation equal to the even-length probability for a tagged cycle; its parameter derivative times θn gives the covariance. Lugo's fixed-cycle expectations recover the tagged parity expectation by weighting by cycle size and summing even lengths.",
+          "Resultary 85dc8e10a9ea uses the same set of labels under uniform permutations but takes its Walsh spectrum, not the log-weight derivative of its mean mass."
+        ],
+        "reasoning": "The expected mass has a prior finite-sum representation. Neither the finite sum nor the uniform support transform states the strict sign of the Ewens derivative at varying θ.",
+        "searches": [
+          "Lugo, arXiv:0907.5351v1, Lemma 1.2 and Proposition 2.4",
+          "Resultary searches for Ewens total cycle count, tagged even-cycle support and a one-crossing mixed covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared Findings respectively concern a uniform XOR-convolution kernel, covariance of colored cycle counts with a balanced threshold of order n/8, and total count versus oriented adjacency counts."
+        ],
+        "reasoning": "The exact object pair, statement and parameter regime do not coincide. Ranking and dates do not establish priority or exhaustive absence.",
+        "searches": [
+          "Resultary ranked searches for Ewens even-cycle mass covariance and its odd-order crossover",
+          "2026/11/22/SCOPE-even-cycle-vertex-supports-exact-walsh-positivity-and-parity-sha--85dc8e10a9ea",
+          "2026/11/2/SCOPE-a-one-crossing-covariance-law-for-colored-ewens-cycles--d5e2f8948506",
+          "2026/11/8/SCOPE-opposite-cycle-count-covariance-signs-for-linear-and-circular-ew--6376754255c2"
+        ]
+      },
+      "rationale": "Credit the classical expected cycle counts and the exact moments recoverable from them. The supported distinct claim is the strict parity-dependent sign classification and the location and logarithmic asymptotic of the unique odd-order crossover for total cycle count versus even-cycle label mass. No inspected statement gives that classification or an applicable general result already yielding it.",
+      "residual_risks": [
+        "One focused literature query and bounded ranked catalogue comparisons cannot exclude an unindexed treatment of this covariance, its signed derivative, or its moving root.",
+        "No claim of historical priority or formal certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact-moment antecedent; the all-even conditioned result has a different law",
+          "evidence": "Eσ X_k=(σ/k)(n)_k/(n+σ−1)_k with falling products; Theorem 3.8 gives moments of the count in the all-even class.",
+          "identifier_or_url": "https://arxiv.org/html/0907.5351v1",
+          "material_read": "Lemma 1.2, Proposition 2.4, Theorem 3.8 (OA offsets 7869–11341, 18774–22250, 47171–50361)",
+          "method": "Bounded OA full-text passages",
+          "title": "Profiles of permutations",
+          "trigger": "Classical weighted cycle enumeration and even-cycle results"
+        },
+        {
+          "assessment": "Marginal count asymptotics, not mixed sign/crossover coverage",
+          "evidence": "Constant weights give the Ewens measure; the relevant limiting statistic is the number of cycles.",
+          "identifier_or_url": "https://arxiv.org/html/1203.4132v1",
+          "material_read": "§§1 and 3, OA offsets 1180–3716 and 17395–20319",
+          "method": "Bounded OA full-text passages",
+          "title": "On the number of cycles in a random permutation",
+          "trigger": "Generalized Ewens theorems that might cover mixed asymptotics"
+        },
+        {
+          "assessment": "Related observable, different theorem",
+          "evidence": "Walsh spectrum of the uniform unweighted XOR-convolution kernel.",
+          "identifier_or_url": "2026/11/22/SCOPE-even-cycle-vertex-supports-exact-walsh-positivity-and-parity-sha--85dc8e10a9ea",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Even-cycle vertex supports: exact Walsh positivity and parity sharpening",
+          "trigger": "Same underlying even-cycle label support"
+        },
+        {
+          "assessment": "No equivalent observable or threshold established",
+          "evidence": "Distinct fixed-color cycle-type counts; balanced specialization has threshold of order n/8.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-one-crossing-covariance-law-for-colored-ewens-cycles--d5e2f8948506",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A one-crossing covariance law for colored Ewens cycles",
+          "trigger": "One-crossing law in an Ewens family"
+        },
+        {
+          "assessment": "Different second statistics",
+          "evidence": "Linear and circular oriented adjacencies, not even-cycle mass.",
+          "identifier_or_url": "2026/11/8/SCOPE-opposite-cycle-count-covariance-signs-for-linear-and-circular-ew--6376754255c2",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Opposite cycle-count covariance signs for linear and circular Ewens observables",
+          "trigger": "Total cycle count against a second statistic with sign transitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statistic compares how fragmented a permutation is with how much mass lies in even cycles, not with a count of such cycles. The global even/odd split, uniqueness, and log-log displacement of the odd threshold resolve a structural question about a standard model. This goes beyond a mean calculation or a few computed roots.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

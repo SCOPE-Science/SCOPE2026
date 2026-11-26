@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:02:22.253055Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X=q−a and Y=1+dq, the characteristic polynomial is (lambda+X)(lambda+Y)^2+zeta. The first two nonleading coefficients are positive and the Routh–Hurwitz margin is 2Y(X+Y)^2−zeta>0. The constant term is −Y² ell_d(q); a negative value yields a positive real root and a zero value yields one simple neutral root with two strictly stable roots. Thus the equivalence uses absence of a growing mode, not strict exponential stability at a neutral length or diffusivity. Neumann inversion gives v=B_d^(-1)u and w=B_d^(-2)u. Testing the stationary equation against u gives sum_j ell_d(q_j)|u_j|²=∫u⁴, excluding every nonzero stationary state when all modal signs are nonpositive. Conversely the coercive quadratic-plus-quartic energy achieves its minimum by compact H¹ embedding into L² and L⁴, and a positive mode gives strictly negative energy at small amplitude; elliptic bootstrapping and odd symmetry yield the opposite pair of smooth patterns. For q≥a and q=0 no mode can be positive. For each 0<q<a solving for d gives the printed threshold function D(q), which diverges at both ends. Maximizing (a−q)(1+dq)^2 gives the unique continuum tangency. Implicit differentiation at the tangency gives D''(q*)=3d*²/[q*(1+d*q*)], where d*q* denotes the product of the starred quantities. A rounded mode first gives excess O(L^−2); strict nondegeneracy then forces every discrete minimizer to satisfy |q_j−q*|=O(L^−1). Expansion on this bounded set of offsets and comparison with the rounded mode give the stated squared distance with a uniform O(L^−3) error, even near half-integer ties. These checks can be replayed from RESULT.md, Proof §§1–5. The supplied NumPy checker and VERIFICATION.md were inspected, not run; the theorem is analytic. It concerns signed fields, identical inhibitor diffusivities, the prescribed cubic and parameter region, and stationary existence, not stability of the patterned states or exclusion of nonstationary attractors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haas–Goldstein cover linear thresholds and two equal diffusion rates in three-component systems.",
+          "Villar-Sepúlveda–Champneys cover linear Turing/wave instabilities and discretization on finite domains; the conclusion expressly leaves nonlinear analysis outside scope."
+        ],
+        "reasoning": "A linear condition can subsume the spectral half without deciding whether all nonzero finite-amplitude equilibria are absent when the spectrum is nonpositive. The latter follows here from the special stationary resolvent and cubic sign.",
+        "searches": [
+          "Haas–Goldstein, arXiv:2011.04614 p. 1",
+          "Villar-Sepúlveda–Champneys, DOI 10.1007/s00285-023-01870-3, abstract, §2 and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: entries ending 5a1b4944a368 and 0b3661a1bdac (the latter is the target)",
+        "Haas–Goldstein, arXiv:2011.04614",
+        "Villar-Sepúlveda–Champneys, DOI 10.1007/s00285-023-01870-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p. 2 literature discussion cites Hoang–Hwang on nonlinear bifurcation under technical hypotheses; it does not assert classification of all stationary solutions.",
+          "The distinct porous model has nonzero steady patterns at a double neutral mode and no open unstable band. The frozen cubic instead forces ∫u⁴≤0 whenever all modal signs are nonpositive."
+        ],
+        "reasoning": "Local bifurcation by itself—even if it applies to the positive-mode side—does not exclude disconnected finite-amplitude equilibria below threshold or derive a uniform commensurability coefficient. The inspected earlier evidence does not imply the combined theorem.",
+        "searches": [
+          "Villar-Sepúlveda–Champneys, pp. 2–3 and p. 32; comparison with the stationary energy and neutral identity",
+          "Resultary 2026/9/17/SCOPE-degenerate-porous-neumann-steady-patterns--5a1b4944a368, Result section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the exact matching entry ending 0b3661a1bdac. The distinct entry ending 5a1b4944a368 treats two-component porous diffusion with a nonconstant pattern in a neutral case.",
+          "Eliminating both steady inhibitors gives a scalar nonlocal equation with squared Neumann resolvent and strictly signed quartic test."
+        ],
+        "reasoning": "Relabeling species or reparameterizing the dispersion curve does not turn the porous two-component model or the random linear Jacobians into the same cubic resolvent problem. The porous neutral-pattern example is compatible with this model-specific conclusion.",
+        "searches": [
+          "Resultary: serial inhibitor, Neumann nonlinear stationary threshold and finite-length shift",
+          "arXiv:2011.04614 PDF p. 1; J. Math. Biol. 86:39 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest distinct inspected catalogue result is 5a1b4944a368, with different nonlinear diffusion and a different criterion.",
+          "The primary §2 passage describes discrete admissible modes and accumulation toward an infinite-domain threshold, not a table or formula for this L-dependent excess."
+        ],
+        "reasoning": "The result varies over positive real lengths and parameters; a discrete mode list is only an input. The exact threshold function and its expansion require the continuum minimum, curvature, and a uniform discrete minimization argument.",
+        "searches": [
+          "Resultary: Neumann threshold, stationary pattern existence and nearest-integer commensurability",
+          "Villar-Sepúlveda–Champneys, §2, finite-domain dispersion"
+        ]
+      },
+      "rationale": "The distinct supported result is the strict global stationary-state criterion including neutral exclusion for this serial-inhibitor cubic system, together with its explicit domain-length obstruction and quantitative commensurability shift. Generic linear-instability criteria, equality of two diffusivities in threshold problems, and discrete dispersion modes are prior; no novelty is claimed for those ingredients.",
+      "residual_risks": [
+        "Hoang–Hwang, Turing instability in a general system, Nonlinear Analysis 91 (2013), 93–113, was seen via the citing discussion, not in primary full text; possible coverage of a local onset component remains open.",
+        "Unindexed or implicit semilinear variational special cases may overlap; the bounded searches cannot certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear random Jacobian threshold; no same nonlinear steady-state theorem in the inspected passage",
+          "evidence": [
+            "The N=3 onset is described as having two equal diffusivities, for unspecified kinetics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04614",
+          "material_read": "PDF p. 1, offsets 3353–5641",
+          "method": "Lawful OA PDF, localized passage",
+          "title": "Turing’s diffusive threshold in random reaction-diffusion systems",
+          "trigger": "Three diffusers and equality of two rates at onset"
+        },
+        {
+          "assessment": "Covers general linear onset and generic mode quantization, not global stationary existence/neutral exclusion for the cascade or the sharp coefficient",
+          "evidence": [
+            "The finite-domain discussion discretizes the dispersion relation; the conclusion separates out nonlinear analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01870-3",
+          "material_read": "Abstract, PDF p. 1; p. 2 local-bifurcation discussion (offset 3578); §2 p. 3 (offset 7773); conclusion p. 32 (offset 95844)",
+          "method": "Lawful primary full text, localized passages",
+          "title": "General conditions for Turing and wave instabilities in reaction-diffusion systems",
+          "trigger": "Potential stronger general modal theorem and finite-domain quantization"
+        },
+        {
+          "assessment": "Different kinetics, diffusion and number of components; does not subsume the frozen result",
+          "evidence": [
+            "Positive nonconstant Neumann equilibria for L>pi despite a double neutral mode and no open unstable band."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-degenerate-porous-neumann-steady-patterns--5a1b4944a368/RESULT.md",
+          "material_read": "RESULT.md, Result section, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Degenerate porous Neumann steady patterns",
+          "trigger": "Closest distinct catalogue comparison on nonlinear Neumann patterns at neutral onset"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a diffusion-driven pattern model, a linear threshold ordinarily does not decide whether finite-amplitude stationary patterns already exist. The global exclusion identity answers precisely that question, including equality, for a nontrivial feedback cascade. The finite-length obstruction and the size and phase of the domain mismatch quantify when the continuum prediction applies. These conclusions need no claim about dynamical stabilization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

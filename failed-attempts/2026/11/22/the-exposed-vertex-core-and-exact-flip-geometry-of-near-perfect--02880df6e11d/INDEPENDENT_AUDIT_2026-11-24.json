@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:30:16.787843Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–34; VERIFICATION.md; verify.py",
+        "/workspace/reproductions/check.py (case 1) and 1.log"
+      ],
+      "rationale": "The statement holds for finite simple trees with one uncovered vertex, including the singleton. Two perfect matchings in a forest cannot differ because their symmetric difference would contain an alternating cycle, so there is exactly one near-perfect matching for each exposed vertex. For different exposed vertices u,v, the symmetric difference is the unique u–v path, an even alternating path. Exchanging successive pairs attains half of its length; each flip moves the exposed vertex by exactly two tree edges, giving the lower bound. The partial exchanges put every even-indexed path vertex in D and every odd-indexed one in A, so D is independent and the induced core is connected. Each a in A has at least two D-neighbors: expose one of them and flip toward a to expose its matched neighbor. Matching saturation gives |A|≥|D|−1, whereas the edge count of the core gives |A|≤|D|−1. At equality each a has exactly two core neighbors and is always matched into D; all fringe matchings are therefore forced internally. A fringe component attaches by exactly one edge because the host is a tree and the core is connected; no such edge meets D by the definition of A. The admissible flips are exactly the distance-two exposed pairs, so suppressing A yields the flip graph. Conversely, rooting any tree at the prescribed exposed vertex and matching each subdivision vertex to its farther endpoint gives the intended configurations, with any matched fringe forced by saturation. This proves the classification and the metric, including zero distance. I independently enumerated connected acyclic edge sets through odd order seven and all near-perfect edge subsets in them, checking the core, forced components, adjacency and all distances, plus a 13-vertex example with two matched fringe components at the same subdivision vertex. There were 1,3,120,14700 matched hosts at orders 1,3,5,7. Replay: python3 -B /workspace/reproductions/check.py 1; output /workspace/reproductions/1.log. The supplied checker was inspected, not run; the finite tests corroborate the arbitrary-tree proof.",
+      "residual_risks": [
+        "No claim for cyclic hosts, empty matching spaces, or other move rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general decomposition has Hall surplus one; after odd components are singletons it gives at least two D-neighbors for each a. With deficiency exactly one it gives |D|=|A|+1 and that every even component is matched perfectly within itself.",
+          "Even-hole-free line graphs admit no-detour shortest matching reconfigurations. Forest line graphs are chordal. The extremal theorem already characterizes once-subdivisions as the equality hosts for the (n+1)/2 count."
+        ],
+        "reasoning": "The partition theorem covers the features assumed to go beyond the extremal count. In a tree, connectedness and the deficit fix the entire shape; this is a direct specialization rather than a conjectural analogy.",
+        "searches": [
+          "arXiv:math/0011204, Gallai–Edmonds Structure Theorem (i)–(iii), definitions (a)–(c)",
+          "arXiv:1812.05419, p. 4, even-hole-free line graphs",
+          "arXiv:2209.03408v2, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target 02880df6e11d",
+        "arXiv:math/0011204 pp. 1–2",
+        "arXiv:2508.18457 pp. 3–5",
+        "arXiv:1812.05419 pp. 2–4",
+        "arXiv:2209.03408v2 Theorem 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The alternating path between distinct holes is the whole difference on a tree, and its two-edge flips expose all even vertices of that path. Hence the partition core is connected. By Gallai–Edmonds it has |D|+|A|−1=2|A| edges and each a has at least two D-neighbors; they all have degree two. Every perfectly matched residual component attaches at A by a single tree edge.",
+          "The prior shortest-reconfiguration machinery makes adjacency equivalent to tree distance two between holes, giving exactly suppression, not just a metric bound. Rooting an arbitrary once-subdivision at a desired hole gives its matching, and a matched fringe at A adds no configurations because of saturation."
+        ],
+        "reasoning": "This deduction obtains the full all-host embellished core and graph classification, including the converse and not just the distance/count. The only additional steps are connectedness from the standard alternating path and elementary tree counting and rooting.",
+        "searches": [
+          "Kotlov arXiv:math/0011204 pp. 1–2",
+          "Aichholzer et al. arXiv:2508.18457 pp. 4–5",
+          "Bousquet et al. arXiv:1812.05419 pp. 3–4",
+          "Cambie et al. arXiv:2209.03408v2 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kotlov, pp. 1–2, identifies the odd factor-critical components of T−A with the exposed set and describes saturation of A and the even components. Factor-critical forest components must be singletons: in a tree with an edge, deleting the neighbor of a leaf isolates that leaf.",
+          "An exchange of one matching edge in a near-perfect matching cannot insert a disjoint edge from it, as there was only one originally uncovered vertex. Thus token-jumping exchanges between distinct near-perfect matchings are precisely the stated flips."
+        ],
+        "reasoning": "These formulations compare the identical canonical partition and the identical move graph, not analogous terms. They transfer both decomposition and metric facts without modifying hypotheses.",
+        "searches": [
+          "Tree near-perfect matching exposure core or Gallai–Edmonds decomposition; odd matching flips and forest distance",
+          "arXiv:math/0011204; arXiv:2508.18457; arXiv:1812.05419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materially overlapping indexed hit was SCOPE-20261122-02880df6e11d, the assigned record itself, with the same canonical suppression, half-distance formula, fringe and realization."
+        ],
+        "reasoning": "Identity is not independent prior coverage. No distinct exact indexed hit was obtained in the bounded check; that does not negate the demonstrated primary-literature implications.",
+        "searches": [
+          "Resultary searches by exposed-vertex core, odd matching flip distance, once-subdivision and forced fringe"
+        ]
+      },
+      "rationale": "The complete statement is a direct tree, deficiency-one consequence of existing matching structure and alternating-path/no-detour results, not just the already credited metric or extremal count. Gallai–Edmonds supplies the exposed set, saturated neighbors, perfect fringe, and the surplus-one Hall condition. Its odd components must be singletons in a forest, and the core is connected by the published alternating-path argument. The tree edge count then forces each neighbor to have degree two in the core, making suppression the canonical flip graph. The converse is the elementary rooted construction on once-subdivisions with forced fringe. The classification need not have appeared verbatim for these implications to cover it.",
+      "residual_risks": [
+        "No exact combined prior wording was found in bounded search. The failure is for demonstrated implication, not a finding of verbatim duplication or an assertion of precise historical attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader matching structure",
+          "evidence": "Odd S-components are factor-critical; Hall surplus one; every maximum matching handles even components perfectly and matches S into distinct odd components; the odd components cover exactly D(G), and S is its neighborhood.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0011204",
+          "material_read": "Definitions (a)–(c) and theorem (i)–(iii), pp. 1–2, offsets through 6718",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "Short Proof of the Gallai-Edmonds Structure Theorem",
+          "trigger": "Likely broader theorem for the canonical partition and matching fringe"
+        },
+        {
+          "assessment": "Covers the move and alternating path; the canonical suppression follows with the tree decomposition",
+          "evidence": "Replace a matched edge by one incident to the formerly isolated vertex; distinct isolated vertices are joined by the alternating difference path, with additional cycle components possible only on cyclic hosts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.18457",
+          "material_read": "pp. 4–5 (offset 14500), move and symmetric-difference discussion; p. 3 summary",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "Flipping odd matchings in geometric and combinatorial settings",
+          "trigger": "Identical reconfiguration rule and alternating-path transport"
+        },
+        {
+          "assessment": "Covers the distance implication for forests",
+          "evidence": "Token jumping exchanges one matching edge; the paper states no detour is required when the host line graph is even-hole-free.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.05419",
+          "material_read": "pp. 2–4, token-jump definition and discussion at offset 8500",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "Shortest Reconfiguration of Matchings",
+          "trigger": "Stronger no-detour minimum-distance result"
+        },
+        {
+          "assessment": "Extremal part is prior; it alone would not cover the canonical decomposition",
+          "evidence": "At most (n+1)/2 almost-perfect matchings, equality exactly for once-subdivisions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03408v2",
+          "material_read": "Theorem 1, p. 1, offset 0",
+          "method": "Lawful OA PDF targeted passage",
+          "title": "Trees Maximizing the Number of Almost-Perfect Matchings",
+          "trigger": "Identical hosts and once-subdivision characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–34",
+        "Kotlov, Gallai–Edmonds Structure Theorem",
+        "Bousquet et al., even-hole-free no-detour formulation",
+        "Cambie et al., once-subdivision equality result"
+      ],
+      "rationale": "The host and classification are natural and the presentation is useful exposition. As an independent finding, however, the decorated core is forced by a standard maximum-matching partition with deficiency one, connectedness and one edge count. The isomorphism, metric and realization then follow by the known exchange rule and rooting. No independently substantive strengthening or new invariant beyond that direct deduction is supplied.",
+      "residual_risks": [
+        "This assessment does not dispute the classification’s correctness or pedagogical usefulness."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

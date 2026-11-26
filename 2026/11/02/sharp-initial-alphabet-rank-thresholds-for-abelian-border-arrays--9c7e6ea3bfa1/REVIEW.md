@@ -1,19 +1,7 @@
-# Scientific review
+# Scientific comparison
 
-## Correctness — PASS
+**Correctness.** Letter relabeling reduces the problem to all partitions of the positions. The census considers every such partition, calculates the longest proper Abelian border for each prefix, and minimizes the symbol count for each resulting array. The seven shortest rank-four and rank-five witnesses are listed in `RESULT.md`. Any extension of a rank-five witness using only its original alphabet has rank five by prefix restriction.
 
-Every finite word is canonically represented by one restricted-growth encoding of its equality partition; this changes neither Abelian border equality nor its number of distinct letters. The exhaustive finite proof enumerates all \(678570\) partitions at length \(11\) and each smaller Bell-number family, computes the entire longest-prefix-border array by two distinct C++ procedures, and keeps the smallest realizing alphabet for every distinct array. An independent Python implementation reproduces all eleven exact rank rows. Both verifier files and the full table are included. The inference to all larger lengths is only the valid prefix-persistence statement, not an extrapolated maximal-rank claim.
+**Scope of the contribution.** The binary count of Habib, Shamil and Rahman and the prior exact ternary censuses determine all rank-one through rank-three entries by differencing cumulative counts. This includes the first rank-three threshold; that part of the table provides context, not an originality claim. The added census concerns ranks four and five through length eleven and their sharp first appearances, with the prefix construction for rank-five examples at all greater lengths. A later or unindexed equivalent enumeration is not excluded by a bounded comparison.
 
-## Originality — PASS
-
-Habib, Shamil and Rahman, *Counting and Verifying Abelian Border Arrays of Binary Words* (arXiv:2111.00259), establish the binary formula and partition-based upper bounds for larger alphabets but no exact higher-alphabet first-appearance thresholds. Blanchet-Sadri, Chen and Hawes, *Dyck Words, Lattice Paths, and Abelian Borders* (arXiv:1708.06461), study border incidences in binary and partial words rather than minimum alphabet rank of the complete prefix-border array. Indexed comparisons of related Parikh and adjacent-pair invariants do not imply the rank table. Residual risk: an equivalent unindexed census may exist; the older binary article was only abstract-accessible.
-
-## Mathematical value — PASS
-
-Minimum alphabet rank is the direct alphabet-resource invariant for reconstructing a word from the array of longest Abelian borders of all prefixes. The computed sharp thresholds \(4,8,11\) identify where binary, ternary and quaternary realizations first become insufficient, determining the first three transition points not evaluated in the inspected primary general-alphabet work. The complete initial distribution and the persistence of genuine five-letter requirements at all greater lengths are structurally meaningful even though a general enumeration remains open.
-
-## Reproducibility and limitations
-
-The finite conclusion holds for every array of length at most \(11\) over any finite alphabet, because all actual letter-equality partitions are enumerated. Build and run `verify.cpp` with C++17 and run `verify_independent.py` with standard Python 3. The program outputs must end with `VERIFY_OK` and `INDEPENDENT_VERIFY_OK`. The maximal rank beyond length eleven, the general alphabet-dependence, and publication priority outside the inspected literature remain undetermined.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value and limitations.** The first rank-four and rank-five thresholds are the exact first failures of ternary and quaternary realizability, respectively. The full counts at these thresholds distinguish all first obstructions, rather than only exhibiting one example of each. The maximal rank beyond eleven and the general alphabet dependence remain undetermined.

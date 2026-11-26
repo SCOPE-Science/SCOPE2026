@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:13:05.842757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and formula; frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent bounded replay: /workspace/branches/92716637-9f57-41aa-9627-81c35002ac8f/independent_repro.py"
+      ],
+      "rationale": "The Plücker form is split of dimension six, with its zero locus consisting of zero and the rank-two (decomposable) alternating tensors. A nondegenerate orthogonal splitting exists because the two-dimensional kernel is anisotropic over an odd field. The signed discriminants multiply for this even-dimensional splitting: the split six-space has square signed discriminant, the anisotropic plane has nonsquare signed discriminant, so the complement is a minus-type four-space. Via β it defines a form on W that changes only by scalar when the volume form changes. The fiber t has orthogonal lift x and all lifts x+u; the equation is Q(u)=−Qβ(t). The anisotropic norm plane represents zero once and every nonzero scalar q+1 times. For t≠0 every isotropic lift is nonzero, and each wedge factorization set is an SL₂(F_q) torsor. For t=0, the q⁴ pairs with first vector zero and q(q⁴−1) remaining dependent pairs give q⁵+q⁴−q. In H⊥A, the zero count is (2q−1)+(q²−1)(q−1), proving both target multiplicities. The displayed nonsquare construction really is anisotropic and its perpendicular lift has f=−a, e=−δb, giving the stated target formula. Bilinearity gives the group law, the k-th power is (kv,kz), and commuting with every quotient vector forces v=0. Surjectivity of the word map on W gives the derived group W; two free central coordinates multiply each fiber by q⁸. Independent full quotient-pair and lift enumeration for q=3 and 5 matched every target and all multiplicities.",
+      "residual_risks": [
+        "The finite checks use one representative over each of two prime fields. They do not independently sample extension fields or arbitrary kernels; the norm and orthogonal-splitting proof is the uniform argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gow–Quinlan provide the decomposable-free kernel background. Levit–Shwartz give isotropic tuple counts and a full-contraction-rank case, whose rank hypothesis is not met here (each nonzero contraction has rank 3 into dimension 4).",
+          "Naik's Theorem 1.3 realizes any prescribed number of different nonidentity fiber sizes in a class-two family by other quotients. For two sizes his §3 construction is a one-dimensional kernel in the six-dimensional exterior square, not a two-dimensional kernel. Kaushik–Yadav Theorem A directly implies that all central targets occur for the prime-field groups here, since the only noncentral conjugacy-class size is p³, but it classifies support rather than sizes."
+        ],
+        "reasoning": "There is broader prior coverage of qualitative nonuniformity and of prime-field surjectivity. Neither determines which specified nonzero targets have small versus large fibers, or the sizes and multiplicities for this family.",
+        "searches": [
+          "Gow–Quinlan Theorems 2–3 and Corollary 8",
+          "Levit–Shwartz arXiv:2605.17171 §§7.3 and 7.5",
+          "Naik arXiv:1805.00091v2 Theorem 1.3, Lemma 2.4 and §3",
+          "Kaushik–Yadav arXiv:2005.13929v2 Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.00091v2",
+        "arXiv:2005.13929v2",
+        "arXiv:2605.17171",
+        "Gow–Quinlan author PDF",
+        "Cameron §8.3",
+        "Resultary cbf96911f4e2, 4dbf5e9f18ba, ba4d5eb87025, 56d7516ac07d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.4 determines the identity fiber from the conjugacy data and reduces other sizes to counts of quotient elements whose contraction image contains the target. The coset-sum method in §3 still requires sizes of K(G) intersected with separate cosets. Theorem A only gives membership in the support. In the frozen proof the quotient splitting identifies those intersections as fibers of an anisotropic norm at −Qβ(t), and locates the small-fiber locus in the canonical minus-type cone."
+        ],
+        "reasoning": "The remaining calculation is not a change of normalization or a substitution into the inspected conjugate-type formulas. Those leave an undetermined target-specific incidence number; the orthogonal projection evaluates and organizes it for the exact family. The underlying facts about finite-field quadrics and the coset-sum principle are standard.",
+        "searches": [
+          "Naik arXiv:1805.00091v2 Lemma 2.4, §3 equations (3.1) and subsequent coset calculation",
+          "Kaushik–Yadav arXiv:2005.13929v2 Theorem A",
+          "Cameron §8.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projectivization identifies a target line [t] with a plane through the external center line P(U); each isotropic point in that plane scales uniquely to β(x)=t. The point/conic distinction tests the quotient form. Cameron's Theorem 8.2 concerns polar sections for one off-quadric point and the associated symplectic geometry, rather than the two-dimensional quotient projection.",
+          "Naik uses Pr_g and divides by |G|², so his table terminology would be directly comparable after normalization."
+        ],
+        "reasoning": "The geometric formulation is genuinely equivalent, not a separate novelty. The inspected comparisons include projection/polar geometry and normalized word probabilities. None of the inspected statements supplies this specified-target classification; standard conic and norm counts are ingredients, not new theorems here.",
+        "searches": [
+          "Klein quadric projection from an external line onto PG(3,q), point/conic fibers and elliptic discriminant",
+          "Nath–Yadav / Naik conjugate-type class-two commutator probability distributions of order p⁸",
+          "Cameron, The Klein quadric and triality, §8.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day cbf96911f4e2 studies commuting tuple totals in the full exterior algebra; 4dbf5e9f18ba concerns a seven-dimensional Lie algebra and pair totals. Later ba4d5eb87025 gives targetwise counts on the unprojected Plücker cone, and 56d7516ac07d has target dimension two. Naik's uniform unprojected table likewise has a different target space."
+        ],
+        "reasoning": "The unprojected counts can be used as input to a coset sum; they do not give the required count of isotropic representatives in each quotient coset. A presentation or isomorphism census without word measures is not an exact table of this invariant.",
+        "searches": [
+          "Resultary cbf96911f4e2, 4dbf5e9f18ba, ba4d5eb87025 and 56d7516ac07d",
+          "arXiv:1805.00091v2, Lemmas 2.5–2.7 and §3 discussion of quotient cosets"
+        ]
+      },
+      "rationale": "The distinct finding is the per-target spectrum and exact elliptic-null-cone stratification for the anisotropic two-dimensional kernel, uniformly over odd prime powers. The existence and maximal kernel dimension, general coset-summing method for commutator fibers, occurrence of multiple nonzero fiber sizes in some constant-conjugate-type groups, and (for prime q) the support being all of G′ already have prior coverage. They are not credited as original here.",
+      "residual_risks": [
+        "A bounded comparison does not establish historical priority. An equivalent table under older quadric projection, word measure, or rank distribution terminology may exist. Classical plane-section counts and group classification themselves are not credited as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap and prior counting method, not the anisotropic plane table",
+          "evidence": "The case of two distinct nonidentity sizes in §3 uses the four-generator free class-two exponent-p group with a cyclic central quotient kernel, producing lift counts 1,2, unlike 1,p+1 here. General formula leaves the target incidence data undetermined.",
+          "identifier_or_url": "arXiv:1805.00091v2",
+          "material_read": "PDF pp. 1–5 and 6–8: Theorem 1.3, Lemmas 2.4–2.7 and §3, OA offsets 0, 7040, 13527, 21500, 22700",
+          "method": "OA primary PDF passages",
+          "title": "On the probability distribution associated to commutator word map in finite groups II",
+          "trigger": "Explicit fiber distributions in finite class-two groups with two conjugacy class sizes"
+        },
+        {
+          "assessment": "Covers the support assertion at q=p",
+          "evidence": "The two order-p⁸ obstructions to surjectivity both fail for conjugate type {1,p³}; the statement is about whether each element occurs, not how often.",
+          "identifier_or_url": "arXiv:2005.13929v2",
+          "material_read": "PDF pp. 1–2, Theorem A, offsets 0 and 3889",
+          "method": "OA arXiv copy after publisher access unavailable",
+          "title": "Commutators and commutator subgroups of finite p-groups",
+          "trigger": "Derived group of order p⁴; exact order-p⁸ and class-two cases"
+        },
+        {
+          "assessment": "Prior kernel and existence background",
+          "evidence": "Constructs decomposable-free kernels, gives the extremal codimension and discusses which central elements are decomposable commutators, not per-coset representative counts.",
+          "identifier_or_url": "10.1080/03081080500361264",
+          "material_read": "Author PDF Theorem 2 p. 3, Theorem 3 p. 4, Corollary 8 p. 11; OA offsets 6050, 8800, 29800",
+          "method": "OA author copy",
+          "title": "On the vanishing of subspaces of alternating bilinear forms",
+          "trigger": "Decomposable-free exterior-square kernels and groups"
+        },
+        {
+          "assessment": "Tuple totals and different rank hypothesis",
+          "evidence": "The commuting probabilities are aggregated counts; Proposition 7.18 is for full contraction rank.",
+          "identifier_or_url": "arXiv:2605.17171",
+          "material_read": "PDF pp. 29–30 and 36, Propositions 7.9–7.10 and 7.18; OA offsets 92800, 116300",
+          "method": "OA primary PDF passages",
+          "title": "Higher Commutativity in Finite Groups, Rigidity, Extremal Bounds, and Heisenberg-Type Families",
+          "trigger": "Contraction-rank formulas in class-two commutator geometry"
+        },
+        {
+          "assessment": "Classical polar geometry, different sections",
+          "evidence": "Theorems 8.2–8.4 describe one-point symplectic correspondence and generalized quadrangle dualities, not the external-line projection table.",
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/p.j.cameron/pps/pps8.pdf",
+          "material_read": "§8.3, PDF pp. 6–8, offsets 12985–18598",
+          "method": "OA chapter passage",
+          "title": "The Klein quadric and triality",
+          "trigger": "Equivalent quadric/polar formulation"
+        },
+        {
+          "assessment": "Unprojected special space, not the quotient",
+          "evidence": "Counts targets in the full exterior algebra; no anisotropic-plane quotient is taken.",
+          "identifier_or_url": "Resultary 2026/11/8/ba4d5eb87025",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "The Plücker-cone commutator fibers of the four-generator exterior algebra",
+          "trigger": "Closest catalogue per-target Plücker table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and scope",
+        "arXiv:1805.00091v2 Theorem 1.3 and Lemma 2.4",
+        "arXiv:2005.13929v2 Theorem A"
+      ],
+      "rationale": "The extremal four-dimensional quotient retaining dependence as the zero-commutator criterion is a natural test of how much conjugacy data control word measures. Constant contraction rank gives a single noncentral conjugacy size but not a single size of nonidentity word fibers. Supplying the exact canonical target locus, two sizes, and their populations for the whole odd-field family gives information a user of the word distribution cannot read from a group census, the identity fiber, or the support classification. This is more than producing a single instance of a previously known nonuniformity phenomenon.",
+      "residual_risks": [
+        "The value is the exact family-specific spectrum; it does not require or establish a classification of all class-two groups of this order or a result in characteristic two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

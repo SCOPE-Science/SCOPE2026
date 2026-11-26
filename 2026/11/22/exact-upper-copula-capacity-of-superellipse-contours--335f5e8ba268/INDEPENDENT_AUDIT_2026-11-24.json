@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:11.013117Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4",
+        "Frozen VERIFICATION.md and checks/verify.py (inspected, not executed)",
+        "/workspace/audit-replay.py, ordinal 3"
+      ],
+      "rationale": "Restrict any coupling to the equality contour and fold each coordinate. The supported folded graph is v=g(u), with endpoints having no marginal atoms. Its first marginal is dominated both by 2 du and by 2|g'(u)| du (pulling back the second marginal constraint through the interior graph bijection). These inequalities hold also for singular couplings. Taking the pointwise minimum saturates the mass bound. Independent fair signs split each folded density among two symmetric preimages and produce dominated unfurled marginals; the product of residual marginals divided by their common mass completes a copula, with no extra mass on the area-zero contour, or no residual needed at mass one. At any maximum the first folded contour submeasure must equal the pointwise minimum, since its difference is nonnegative with integral zero. For p≠1 the monotone absolute slope crosses one at u=a^q/(a^q+b^q)^(1/p), v=b^q/(a^q+b^q)^(1/p), with u+v=(a^q+b^q)^(1/q). For p>1 the integrated minimum is a+b-u-v; for p<1 it is u+v. With the factor two these are exactly the given branches. The p=1 constant slope gives 2 min(a,b), including the unequal-axis case. The strict comparison follows from the signed powers; substituting equal axes and differentiating gives the circle, diamond and one-sided slopes. An independent quadrature using the contour parameter t=(u/a)^p matches 18 cases: `python /workspace/audit-replay.py 3`.",
+      "residual_risks": [
+        "Quadrature is corroboration only. Uniqueness concerns the folded subprobability measure of the contour restriction, not the full copula or its sign assignments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Côté–Wang Proposition 6 covers arbitrary closed bivariate events via covers/projections; Theorem 2 evaluates the convex filled-set case. Trutschnig–Úbeda-Flores Theorem 4.11 gives staircase/chain bounds for the closed convex hull of associative copulas."
+        ],
+        "reasoning": "The general covering problem applies to the contour but remains an optimization. For p>1, the filled convex set and its boundary have the same projections yet strictly different capacities, so the filled-set theorem cannot be applied to the boundary. The associative family restriction and chain geometry in Theorem 4.11 are also different.",
+        "searches": [
+          "arXiv:2611.25237v1 Proposition 6 and Theorem 2",
+          "arXiv:2610.33646v1 Theorem 4.11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.25237v1",
+        "arXiv:2610.33646v1",
+        "Resultary:e7fa2648f14a",
+        "doi:10.3390/sym3030574 (no usable full-text passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary general theorem provides an infimum over covers, not the minimizing cover in this contour geometry; the fixed-distance proof uses an alternating combinatorial defect on each arithmetic chain."
+        ],
+        "reasoning": "Abstract duality can bound this event via covers, and common-part coupling explains the folded integral. Neither inspected result solves the threshold geometry. A distinct calculation identifies the unit-slope crossing and evaluates both regimes, and the contour submeasure argument supplies attainment and the optimizer restriction; these are not substitutions into the filled-set or fixed-distance formulas.",
+        "searches": [
+          "arXiv:2611.25237v1, pp. 7–8",
+          "Resultary:e7fa2648f14a, Finding and proof steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Folding replaces the equality relation by the bijective graph v=g(u), and the maximal successful folded mass is the common part of the two dominated radial measures after pushforward. The Perlman–Wellner circle/ellipse title was identified, but no usable primary passage comparing equality-contour optimization was recovered."
+        ],
+        "reasoning": "The radial common-part interpretation gives a one-dimensional overlap integral; it is not itself a geometry-specific evaluation. Circularly symmetric copulas, filled-region probabilities and optimization over all copulas on the exact boundary must not be identified on the basis of terminology. The circle full-text comparison remains limited.",
+        "searches": [
+          "Published literature search for uniform marginal contour capacities and exact circle/ellipse concentration",
+          "arXiv:2611.25237v1 Proposition 6",
+          "doi:10.3390/sym3030574"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact superellipse hit is the assigned record. Resultary e7fa2648f14a gives the parity-dependent probability for |U−V|=d, with an attaining involution on arithmetic chains."
+        ],
+        "reasoning": "The same-day distance result concerns two parallel diagonal segments and parity of chain lengths. It is not the bounded two-axis contour, including in the diamond case, nor does its formula give the curved-contour values. No ordering is inferred from the shared date.",
+        "searches": [
+          "Resultary: exact uniform marginal circle/ellipse/superellipse contour capacity",
+          "Resultary: Sharp parity cusps for exact-distance copula capacity e7fa2648 uniform marginals exact distance"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit arbitrary-axis all-exponent boundary evaluation, the strict diamond transition and the optimizer description for this contour family. The general capacity problem, closed-set duality and measure-overlap principle are not new. This is a bounded originality finding, not a historical-priority certification.",
+      "residual_risks": [
+        "Uninspected curve-coupling or circle-specific literature could contain a specialization. The folded overlap representation is an application of a standard common-submeasure principle; novelty is credited to evaluating this contour family, not to that principle."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closed-set variational characterization applies; explicit convex-filled evaluation does not cover the contour",
+          "evidence": "Proposition 6 uses closed-set covers; Theorem 2 evaluates the smaller coordinate-projection width for convex sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.25237v1",
+          "material_read": "PDF p. 7 Proposition 6 and p. 8 Theorem 2",
+          "method": "OA primary-text passage inspection",
+          "title": "The upper copula capacity",
+          "trigger": "Direct general problem with same admissible class"
+        },
+        {
+          "assessment": "Different coupling class and geometry",
+          "evidence": "Staircase bounds and off-diagonal chain nonconcentration concern the closed convex hull of associative copulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33646v1",
+          "material_read": "Theorem 4.11, HTML offset 42869",
+          "method": "OA primary-text passage inspection",
+          "title": "The closed convex hull of all associative copulas is a Z-set in the family of all bivariate Schur concave copulas, and related results",
+          "trigger": "Curve mass bounds"
+        },
+        {
+          "assessment": "Different equality geometry and mechanism",
+          "evidence": "The event is |U−V|=d on the ordinary interval. Parity of finite arithmetic chains determines the defect, and a Lebesgue-preserving involution attains the bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-parity-cusps-for-exact-distance-copula-capacity--e7fa2648f14a",
+          "material_read": "RESULT.md offsets 0–3058, Finding and proof steps 1–2",
+          "method": "Resultary query and local-mirror original text",
+          "title": "Sharp parity cusps for exact-distance copula capacity",
+          "trigger": "Same-day exact capacity with equality event and cusps"
+        },
+        {
+          "assessment": "Primary comparison unresolved; not counted as verified noncoverage",
+          "evidence": "Retrieval limits do not establish whether a boundary-optimization statement appears in the article.",
+          "identifier_or_url": "doi:10.3390/sym3030574 (PMC3369321)",
+          "material_read": "Bibliographic identification; no usable decisive full-text passage retrieved",
+          "method": "Bounded lawful PMC/MDPI retrieval attempts",
+          "title": "Squaring the Circle and Cubing the Sphere: Circular and Spherical Copulas",
+          "trigger": "Possible exact special-case circle or ellipse evaluation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2611.25237v1 Proposition 6 and Theorem 2"
+      ],
+      "rationale": "The optimal equality-event mass is not obtained by considering the projection lengths of the filled set. This explicit family shows exactly when that tempting bound succeeds, with a quantitative gap for every other exponent, and gives both an attaining construction and a forced distribution for its contour mass. That is a meaningful contour-specific dependence result, not just application of a numerical capacity test.",
+      "residual_risks": [
+        "Does not evaluate arbitrary contours or higher-dimensional events, and does not classify all maximizing couplings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

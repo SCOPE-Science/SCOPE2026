@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:07:23.604537Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, pp. of text lines 5–58; frozen VERIFICATION.md and verify.py inspected, not executed",
+        "/workspace/review_evidence/1.js (independent forward recurrence for replay)",
+        "/workspace/repairs/1/RESULT.md"
+      ],
+      "rationale": "For the corrected statement, the four-layer argument holds (the antipode reaches a sink in at most three steps and any layer-two vertex can use it in at most one extra step), and the listed witness forces four. Independently exhausted 4096 orientations using forward reach-set growth to depth seven; recovered 962 with no sink, 3134 with a sink, radius counts 258, 644, 1512, 720 and 2492 passing the all-sink test. Recomputed the denominator by inclusion–exclusion and checked the conditional ratios. The frozen text incorrectly equated independent continuous payoffs with fair orientations: independent disjoint action-dependent payoff supports can orient all edges upward almost surely. The repair requires iid atomless entries or fair independent comparisons for the probabilistic interpretation and preserves the deterministic theorem and counts.",
+      "residual_risks": [
+        "No conclusion about arbitrary activation schedules, larger cubes, or nonuniform orientation probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 4.6 gives weak acyclicity even under best response in the exact strict 2×2×2 sink-positive regime.",
+          "The directed subgraph abstract uses independent directed-edge retention and an asymptotic strong-connectivity threshold."
+        ],
+        "reasoning": "Qualitative reachability implies finite distance but neither a bound of four nor a frequency distribution. The directed-edge model does not fix exactly one direction per cube edge.",
+        "searches": [
+          "arXiv:1108.2092 Lemma 4.6",
+          "DOI:10.1007/BF02784059 directed cube"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search and local 2833bb8d55a9",
+        "arXiv:2309.10609v6",
+        "arXiv:1108.2092",
+        "DOI:10.1007/BF02784059 repository abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited results distinguish existence or universal sink reachability, not the length of a shortest path. The audit exhibits distinct radii even within the unique-sink connected class."
+        ],
+        "reasoning": "No stated earlier result inspected yields the sharp length or exact radius partition by parameter substitution or tabulation of given distances.",
+        "searches": [
+          "Fabrikant et al. Lemma 4.6",
+          "Johnston et al. definition and Appendix H",
+          "2833bb8d55a9 Finding and joint class table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnston et al. define the condition identically, and with two actions better and strict best responses coincide.",
+          "2833bb8d55a9 gives the identical oriented-cube probability space and all-nonsink-to-all-sink condition."
+        ],
+        "reasoning": "Relabeling games as orientations or using better rather than best responses does not distinguish the connectivity component. The repaired novelty focus is distance, not that equivalence.",
+        "searches": [
+          "Resultary: three-player binary games, strict best-response cube, exact connectivity census",
+          "arXiv:2309.10609v6, better-response connected"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2833bb8d55a9 states 4096, 3134, 2492 and additional qualitative class counts, but no nearest-sink radius table.",
+          "Figure 4 is based on 10,000 draws per parameter combination, not an exhaustive table."
+        ],
+        "reasoning": "The exact connectivity totals overlap and are not the distinct component; the radius entries were not located.",
+        "searches": [
+          "Resultary 2026/11/8 / 2833bb8d55a9",
+          "arXiv:2309.10609v6 Appendix H Figure 4"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp existential access bound and complete labeled nearest-sink radius distribution. Weak acyclicity and the connectivity definition are known; a distinct Resultary record gives the same exact sink-positive and connectivity totals, expressly credited in the repair. Its indexed date is later and is not used to assert absolute priority. Neither the known existence result nor that qualitative census specifies shortest distances.",
+      "residual_risks": [
+        "Full text of the 1993 article was unavailable; specialized oriented-cube tabulations not indexed by the searches cannot be excluded. No absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "overlap on 3134 and 2492; not on shortest-distance spectrum",
+          "evidence": "Same all-nonsink-to-all-sink definition; 4096 total, 3134 with an equilibrium, 2492 connected, additional qualitative classes.",
+          "identifier_or_url": "Resultary:2833bb8d55a9",
+          "material_read": "RESULT.md opening finding and table, offsets 0–about 1400; full result checked for shortest-distance claims",
+          "method": "local mirror and bounded passage comparison",
+          "title": "Five-class connectivity census of three-player binary games",
+          "trigger": "strongest exact catalogue match on counts"
+        },
+        {
+          "assessment": "same connectivity definition, sampling only in the decisive table comparison",
+          "evidence": "Figure 4 samples 10,000 games conditioned on a pure equilibrium per parameter combination.",
+          "identifier_or_url": "https://arxiv.org/html/2309.10609v6",
+          "material_read": "definition offset 25414; Appendix H Figure 4 offsets 343250–349731",
+          "method": "open primary HTML",
+          "title": "Game Connectivity and Adaptive Dynamics",
+          "trigger": "same graph model and published small-game data"
+        },
+        {
+          "assessment": "covers weak acyclicity, not quantitative result",
+          "evidence": "A strict 2×2×2 game with a pure Nash equilibrium is weakly acyclic even under best response.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.2092",
+          "material_read": "Lemma 4.6, p. 11, PDF text offset 31150",
+          "method": "open primary PDF",
+          "title": "On the Structure of Weakly Acyclic Games",
+          "trigger": "exact regime and known path existence"
+        },
+        {
+          "assessment": "abstract concerns a different model; full text unassessed",
+          "evidence": "Directed edges are selected independently with probability p; abstract addresses asymptotic strong connectivity.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02784059",
+          "material_read": "Memphis repository public abstract, offsets 446–744",
+          "method": "repository abstract; Springer PDF and lawful alternate full-text access attempted without success",
+          "title": "Connectivity and dynamics for random subgraphs of the directed cube",
+          "trigger": "possible specialized earlier finite cube results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected proof and exact census",
+        "arXiv:1108.2092 Lemma 4.6",
+        "arXiv:2309.10609v6 Appendix H",
+        "Resultary:2833bb8d55a9"
+      ],
+      "rationale": "This is a natural finite benchmark for random-game dynamics and refines the known existence theorem: the cutoff is schedule-independent in its existential sense, and the exact distribution measures how much length is needed at the worst starting state under best choice of updates. Unique-sink games already separate lengths three and four, showing why mere reachability counts do not supply it. The witness and census give reference cases for quantitative work on larger cubes.",
+      "residual_risks": [
+        "Exact finite result only; no stochastic hitting-time or asymptotic claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

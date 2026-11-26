@@ -2,80 +2,50 @@
 
 ## Finding
 
-Let \(G=K_{a_1,\ldots,a_r}\) be a complete multipartite graph with \(r\ge3\), positive integer parts \(a_i\), total order \(N=\sum_i a_i\), and let \(k\ge2\) be fixed. Independently assign each vertex one of \(k\) equally likely initial colors; provide a recoloring palette of size at least \(\max\{k,\Delta(G)+1\}\). Under uniform random sequential activation of currently conflicting vertices and recoloring into an unused neighbor color, let \(T\) be the number of recolorings and let \(S_c\) count vertices of initial color \(c\) which never recolor. Thus \(S=\sum_{c=1}^k S_c=N-T\).
-
-**Exact finite joint tails.** For any \(j_1,\ldots,j_k\in\mathbb Z_{\ge0}\), let \(J=\sum_c j_c\), \(C_c\) be the number of vertices initially of color \(c\), \(I=\{c:j_c>0\}\), and for \(\boldsymbol i=(i_c:c\in I)\in[r]^I\) set \(t_h(\boldsymbol i)=\sum_{c\in I:i_c=h}j_c\). Write \((a)_{\underline j}=a(a-1)\cdots(a-j+1)\), with \((a)_{\underline 0}=1\) and zero for \(j>a\). Then for \(J\le N\),
-
+Let \(G=K_{a_1,\ldots,a_r}\) have \(r\ge3\) nonempty parts and \(N=\sum_i a_i\) vertices. Assign the vertices independent uniform initial colors from \([k]\), \(k\ge2\). Use a palette of size at least \(\max\{k,\Delta(G)+1\}\). At every step select a conflicting vertex uniformly and recolor it with any color absent from its neighborhood. Let \(S_c\) be the number of vertices of initial color \(c\) never selected, and write \(p_i=a_i/N\). If \(\max_i p_i\le1-\varepsilon\), compare \(S=(S_1,\ldots,S_k)\) to a vector \(G_*=(G_1,\ldots,G_k)\) of independent variables with
 \[
-\Pr(S_c\ge j_c\ \forall c)=
-\Pr(C_c\ge j_c\ \forall c)\,
-\frac{\displaystyle\sum_{\boldsymbol i\in[r]^I}\prod_{h=1}^r (a_h)_{\underline{t_h(\boldsymbol i)}}}{(N)_{\underline J}},
+\Pr(G_c=j)=\sum_i p_i(1-p_i)p_i^{j-1},\qquad j=1,2,\ldots.
 \]
-
-where \((C_1,\ldots,C_k)\) is multinomial with parameters \(N\) and probabilities \(1/k\). The probability is zero for \(J>N\); when all \(j_c=0\) it is one. These joint tails determine the entire finite multivariate polynomial \(\mathbb E\prod_c z_c^{S_c}\) by finite differences, so in particular determine the complete distribution of \(T\).
-
-**Quantitative asymptotic law.** Put \(p_i=a_i/N\). If \(p_i\le1-\varepsilon\) for every \(i\), with \(\varepsilon>0\), let \(G_1,\ldots,G_k\) be independent positive integer variables with
-
+Then
 \[
-\Pr(G_c=j)=\sum_{i=1}^r p_i(1-p_i)p_i^{j-1}\quad(j\ge1).
+\frac{1-\sum_i p_i^2}{N-1}\ \le\ d_{\rm TV}(\mathcal L(S),\mathcal L(G_*))\ \le\ \min\!\left\{1,\frac{2k^3(1+\varepsilon^{-2})}{N}\right\}.
 \]
-
-Then, for all \(N\ge1\),
-
-\[
- d_{\mathrm{TV}}\bigl(\mathcal L(S_1,\ldots,S_k),\mathcal L(G_1,\ldots,G_k)\bigr)
- \le \min\left\{1,\frac{2k^3(1+\varepsilon^{-2})}{N}\right\}.
-\]
-
-In particular, for fixed \(r\) and \(k\), if \(a_i/N\to p_i\in(0,1)\) as \(N\to\infty\), the number \(N-T\) of unchanged vertices converges to a sum of \(k\) independent part-size mixtures of geometric variables. For balanced parts \(a_i=N/r\), the limiting probability generating function is
-
-\[
-\lim_{N\to\infty}\mathbb E[z^{N-T}]=\left(\frac{(r-1)z}{r-z}\right)^k,
-\]
-
-so for \(j\ge k\) the limiting probability is \(\binom{j-1}{k-1}((r-1)/r)^k r^{-(j-k)}\). The order \(N^{-1}\) is already sharp *within the multicolor domain*: for any named color \(c\), the event \(S_c\le1\) exceeds its geometric-mixture probability by at least \((1-\sum_i p_i^2)/(N-1)\). In particular balanced tripartite graphs have a total-variation distance of at least \(2/(3(N-1))\) for every \(k\ge2\).
+The lower bound is witnessed by \(S_c\le1\) versus \(G_c\le1\) for any named color \(c\). In particular, with fixed \(k\) and \(\varepsilon>0\), the inverse-size order is sharp uniformly in the admissible part profiles, since \(1-\sum_i p_i^2\ge\varepsilon\). For balanced tripartite graphs the lower bound is \(2/[3(N-1)]\).
 
 ## Assumptions and scope
 
-The graph is finite, simple, and complete multipartite, with all \(r\ge3\) parts nonempty. Initial vertex colors are independent uniform labels in a fixed \(k\)-color set, and are not required to be a proper coloring. The available recoloring palette has at least \(\max\{k,\Delta(G)+1\}\) colors, possibly more than \(k\); only the initial color equalities matter for \(T\). At each step, one enabled vertex is chosen uniformly. Any choice of a color absent from its neighborhood is allowed. The color-specific counts \(S_c\) refer to the *initial* colors of unchanged vertices. The quantitative bound compares to the geometric-mixture law using the actual finite proportions \(a_i/N\), and does not require these proportions to converge. The rate lower bound applies to the stated multicolor regime; the older monochrome case is acknowledged separately rather than claimed new.
+The graph is finite, simple, and complete multipartite with all parts nonempty. Recoloring choices may depend on past colors, provided the chosen color is absent from the activated vertex's neighborhood. The comparison uses the actual finite part proportions, not asymptotically prescribed proportions. For fixed \(k,r\) and \(p_i\to p_i^*\in(0,1)\), the comparison recovers the known weak limit of independent geometric mixtures, with weights and parameters determined by \(p_i^*\). The number of recolorings is \(N-\sum_c S_c\). For balanced parts, the limiting pgf of \(\sum_c S_c\) on \(|z|\le1\) is \(((r-1)z/(r-z))^k\). These limit statements are included to interpret the quantitative estimate.
 
 ## Proof
 
-1. **Reduction to independent random priorities.** The reduction lemma of de Panafieu–Mathieu–Gradinariu Potop-Butucaru–Tixeuil (arXiv:2611.17989v1, Lemma 1) identifies the unchanged vertices with those whose random priority is larger than the priorities of all adjacent vertices of their initial color. Every process recolors at most once. For a complete multipartite graph, the induced subgraph on any fixed initial color is itself complete multipartite, possibly with empty parts. Among its vertices ordered by decreasing priority, the unchanged vertices are *exactly* the initial consecutive run from the same part as the top vertex. Indeed every vertex of that run outranks all vertices in other parts; after the first different-part vertex, every remaining vertex has an earlier neighbor with higher priority. If the color class is empty, the run has length zero.
+**Priority model.** Recoloring a conflicting vertex creates no new conflict edge and erases its incident conflict edges. Thus each vertex is selected at most once, and the dynamics depend only on the initial conflict graph and the order of selections. Process an independent uniform vertex permutation, selecting a vertex only if it still has a conflict when reached. The next live vertex is uniform among the vertices still live because the unrevealed permutation is uniform and vertices already skipped cannot become live. A vertex survives exactly when its permutation label exceeds every neighbor's in its initial conflict graph: an earlier conflicting neighbor would have selected while the vertex was still unprocessed, whereas a later conflicting neighbor forces this vertex to select. Equivalently, read the order from highest label down. In each color the survivors are exactly the initial run of vertices from the part of the first vertex of that color. Indeed, all run members precede every opposite-part vertex of that color, and any vertex after the run has an earlier same-color neighbor. An absent color gives a run of length zero.
 
-2. **Exact joint tails.** Conditional on all initial-color class populations being at least the specified thresholds, the ordered lists of the first \(j_c\) priorities in distinct named color classes jointly form a uniformly random injection of \(J\) ordered positions into the \(N\) labelled vertices. This follows from exchangeability of the independent initial-color assignments and random priorities, even after the class populations have been fixed. To have \(S_c\ge j_c\), all \(j_c\) sampled vertices for color \(c\) must belong to one common graph part \(i_c\). If a graph part \(h\) receives a total of \(t_h\) such positions, there are \((a_h)_{\underline {t_h}}\) ways to fill them in order with distinct vertices. Summing over part choices and dividing by \((N)_{\underline J}\) gives the displayed exact formula. For any nonnegative integer variable \(X\), the identity \(z^X=1+(z-1)\sum_{j\ge1}z^{j-1}{\bf1}_{X\ge j}\) shows that all joint tails determine the multivariate generating polynomial.
+**Upper bound.** Couple a uniformly random permutation \(P_1,\ldots,P_N\) of the vertex identities to an infinite i.i.d. uniform sequence of identities \(U_t\). At step \(t\le N\) set \(P_t=U_t\) if \(U_t\) is unused in \(P\); otherwise draw uniformly from the unused entries. This is uniform over the remaining entries at each step. Independently put i.i.d. uniform color marks \(D_t\in[k]\) on the positions, using the same marks for the two streams. In the i.i.d. stream the part subsequences for different colors are independent i.i.d. samples of the finite proportions. To see the independence, condition on the entire mark sequence: those subsequences use pairwise disjoint coordinates and their laws do not depend on the mark sequence, almost surely. Their initial part-run lengths have the displayed law of \(G_*\).
 
-3. **Coupling and total-variation bound.** Represent a random priority order by a uniform permutation \(P_1,\ldots,P_N\) of the \(N\) vertex identities with independent uniform color marks \(D_t\in[k]\). On the same space generate independent uniform vertex identities \(U_1,U_2,\ldots\) *with replacement*, sharing the marks \(D_t\). Couple \(P_t=U_t\) whenever \(U_t\) has not been used as a value among \(P_1,\ldots,P_{t-1}\); otherwise choose \(P_t\) uniformly from the remaining unused vertices. At each step \(P_t\), conditional on the preceding permutation prefix, is uniform over unused vertices, so \(P\) is genuinely uniform.
+Let \(H_c\) be the first position where two vertices marked \(c\) have come from different parts in the i.i.d. stream, and \(H=\max_c H_c\). With no repeated identity at times \(1,\ldots,H\), we have \(H\le N\) and the two streams agree far enough to determine all initial runs. The event \(H\ge t\) is determined by the first \(t-1\) positions, and the conditional probability of drawing an earlier identity at time \(t\) is at most \((t-1)/N\). The chance of a repeat up through \(H\) is thus at most \(\mathbb E[H(H-1)]/(2N)\). The time to the first mark \(c\) is geometric with success probability \(1/k\); conditional on its part \(i\), the additional wait to a different part of color \(c\) is geometric with success probability \((1-p_i)/k\ge\varepsilon/k\). For a positive-support geometric variable with success probability \(u\), its second moment is \((2-u)/u^2\le2/u^2\). Applying \((x+y)^2\le2x^2+2y^2\) gives \(\mathbb E H_c^2\le4k^2(1+\varepsilon^{-2})\). Since \(H^2\le\sum_c H_c^2\), the coupling inequality gives the upper bound.
 
-In the with-replacement sequence, for each initial color \(c\), read only positions marked \(c\) and let \(G_c\) be the length of the first same-part run. The disjoint color subsequences are independent infinite i.i.d. samples of graph parts with probabilities \(p_i\). Their run lengths are therefore independent and satisfy \(\Pr(G_c=j)=\sum_i p_i(1-p_i)p_i^{j-1}\).
-
-Let \(H_c\) be the index in the full infinite marked sequence of the first point at which color \(c\) has appeared in at least two *different* graph parts, and let \(H=\max_c H_c\). This is a stopping time. If no vertex identity is repeated before or at time \(H\), the without-replacement and with-replacement streams agree far enough to determine every run length, so \((S_c)_c=(G_c)_c\). If \(H>N\), such a repetition necessarily occurs. Conditional on the preceding stream, the probability that \(U_t\) repeats an earlier identity is at most \((t-1)/N\); the event \(\{H\ge t\}\) depends only on preceding positions. Therefore
-
+**Lower bound.** If \(C_c\) is the population of initial color \(c\), the event \(S_c\ge2\) requires \(C_c\ge2\) and the first two vertices of that color in priority order to be from the same part. Conditioned on \(C_c\ge2\), the ordered pair is uniform among distinct vertex pairs by exchangeability. Thus
 \[
- \Pr\bigl(\exists t\le H:\ U_t\in\{U_1,\ldots,U_{t-1}\}\bigr)
- \le\frac{\mathbb E[H(H-1)]}{2N}.
+\Pr(S_c\ge2)=\Pr(C_c\ge2)\frac{\sum_i a_i(a_i-1)}{N(N-1)},
+\qquad \Pr(G_c\ge2)=\sum_i p_i^2.
 \]
+Omitting the prefactor at most one in the first expression gives a difference of at least \((1-\sum_i p_i^2)/(N-1)\) on the complementary event, as claimed.
 
-The first occurrence of mark \(c\) has a geometric waiting time with success probability \(1/k\). Conditional on its graph part, the following wait until another occurrence of mark \(c\) in a *different* part is geometric with success probability at least \(\varepsilon/k\). Since \(\mathbb E[\operatorname{Geom}(u)^2]\le2/u^2\) for the geometric law supported on positive integers, \(\mathbb E H_c^2\le4k^2(1+\varepsilon^{-2})\). As \(H^2\le\sum_c H_c^2\), the collision probability is bounded by \(2k^3(1+\varepsilon^{-2})/N\). The coupling inequality proves the claimed total-variation estimate.
+## Exact finite law used for comparison
 
-4. **Limits and rate boundary.** If \(p_i\to p_i^*\in(0,1)\), then the geometric mixtures converge in distribution; the total-variation bound transfers this to \((S_c)_c\). Equal proportions \(1/r\) give the usual geometric pgf \((r-1)z/(r-z)\), whose \(k\)-fold convolution is the stated negative-binomial law. For any named color \(c\), the finite tail formula with \(j_c=2\) and all other thresholds zero gives \(\Pr(S_c\ge2)=\Pr(C_c\ge2)\sum_i a_i(a_i-1)/(N(N-1))\). Since \(\Pr(C_c\ge2)\le1\), while \(\Pr(G_c\ge2)=\sum_i p_i^2\), subtracting shows \(\Pr(S_c\le1)-\Pr(G_c\le1)\ge(1-\sum_i p_i^2)/(N-1)\). This lower bounds the joint total-variation distance, and for balanced tripartite parts the numerator equals \(2/3\), proving sharp inverse-size order in the new \(k\ge2\) domain.
+An unconditional representation of the known conditional run law is useful for finite checks. For thresholds \(j_c\ge0\), set \(J=\sum_c j_c\), \(I=\{c:j_c>0\}\), and for \((i_c:c\in I)\in[r]^I\) put \(t_h=\sum_{c\in I:i_c=h}j_c\). If \(J\le N\), the joint tail is
+\[
+\Pr(S_c\ge j_c\text{ for all }c)=\Pr(C_c\ge j_c\text{ for all }c)\,
+\frac{\displaystyle\sum_{(i_c)\in[r]^I}\prod_{h=1}^r(a_h)_{\underline{t_h}}}{(N)_{\underline J}}.
+\]
+Here the counts \((C_c)_{c=1}^k\) are multinomial with uniform probabilities, and \((a)_{\underline j}\) is the falling factorial, taken as zero if \(j>a\). The tail is zero for \(J>N\) and one when \(J=0\). Given eligible color populations, the combined priority prefixes are uniform ordered injections into the \(N\) vertices by exchangeability, and the numerator counts those injections whose prefix for each active color lies in the specified part. This gives the displayed equivalent evaluation of the joint law without conditioning on all part-by-color counts.
+
+## Relationship to prior work and limitations
+
+De Panafieu, Mathieu, Gradinariu Potop-Butucaru and Tixeuil, *The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution*, [arXiv:2611.17989v1](https://arxiv.org/abs/2611.17989v1), give the random-priority reduction (Lemma 1) and the bipartite limit with independent colors in the limit (Proposition 9). Diaz-Lopez et al., [*Counting peaks on graphs*](https://arxiv.org/abs/1708.08493), treat monochrome peak-set enumeration. The [multipartite colored-priority run law](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-multipartite-random-priority-peaks-exact-colored-run-laws-and-a--cd7af7620aee/RESULT.md) gives the exact conditional product law of the runs given part-by-color counts. Averaging that law gives the same unconditional distribution, and that record also gives the fixed-palette geometric-mixture limit. The shared catalogue date does not establish which derivation came first. The [multipartite Cholesky first-run result](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-run-law-and-geometric-near-maximal-fill-for-complete-mul--2484223143f3/RESULT.md) concerns a different observable with the same unmarked ordering statistic.
+
+The contribution here is the explicit sharp-order joint total-variation estimate relative to the finite profiles, not a priority claim for the run law or the weak limit. The multiplicative constant is not optimized. The estimate with a fixed non-dominance margin does not describe profiles with one part exhausting the graph. No general growing-palette limit is asserted.
 
 ## Verification
 
-The standalone `verify.py` checks the joint-tail formula against direct enumeration of all initial named-color assignments and all priority permutations for nine independent part-size/color-count cases, including two and three initial colors. It checks 189 distinct joint-tail thresholds and verifies exact small-case rate identities. The separate `verify_dynamics.py` checks four small configurations of the actual sequential activation process against the random-priority reduction. Invoke `python verify.py` and `python verify_dynamics.py` under Python 3 with no dependencies beyond its standard library; expected final output includes `VERIFY_OK`. Exhaustive experiments confirm only the finite tested cases; the unrestricted assertions follow from the four proof steps above.
-
-## Relationship to prior work
-
-The initiating work, de Panafieu et al., *The Exact Stabilization Time of Self-Stabilizing Coloring* (arXiv:2611.17989v1, first public 2026-11-13), proves the random-ordering reduction, analyzes arbitrary-graph moments, and studies paths, cycles, random trees, Erdős–Rényi graphs, and bipartite Erdős–Rényi graphs. Its Proposition 9 includes a bipartite random-graph limit law and its sum over initial colors; in particular the bipartite complete-graph boundary is within that earlier coverage. The new claim concerns arbitrary \(r\ge3\) deterministic complete multipartite graphs, all their finite joint color-resolved tails, and a uniform explicit total-variation coupling bound.
-
-Diaz-Lopez et al., *Counting peaks on graphs*, *Australasian Journal of Combinatorics* 75(2) (2019), Sections 2–3, counts prescribed peak sets of randomly ordered vertices, including joins and complete bipartite graphs. These earlier monochrome counts are acknowledged. They do not address the initial-color-resolved joint stochastic law or its quantitative many-part limit. A related mathematical research record on complete multipartite Cholesky fill has a single-priority first-run description; it concerns a different observable without independent initial-color marks or their joint convergence bound. Its accessible summary was compared, but the full repository text was not retrievable.
-
-## Limitations
-
-The \(N^{-1}\) rate bound has a nonoptimized multiplicative constant and requires \(\max_i p_i\le1-\varepsilon\); it does not cover a dominant part whose complement vanishes in proportion. The limiting law holds with a fixed initial-color count \(k\); growing \(k\) requires a separate analysis. The rate obstruction is a multicolor event bound, not an originality claim about the earlier monochrome literature. No independence of \(S_c\) is claimed at finite \(N\). No independence from the published priority-reduction lemma is claimed. Earlier equivalent many-color quantitative results outside the searched literature cannot be excluded without broader historical review.
-
-## References
-
-1. É. de Panafieu, F. Mathieu, M. Gradinariu Potop-Butucaru, and S. Tixeuil, *The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution*, arXiv:2611.17989v1 (submitted 2026-11-13), https://arxiv.org/abs/2611.17989 ; especially Lemma 1 and Proposition 9 and its proof.
-2. A. Diaz-Lopez, L. Everham, P. E. Harris, E. Insko, V. Marcantonio, and M. Omar, *Counting peaks on graphs*, *Australasian Journal of Combinatorics* 75(2) (2019), 174–189; https://par.nsf.gov/servlets/purl/10130403 ; earlier arXiv:1708.08493.
-3. *A first-run law and geometric near-maximal fill for complete multipartite Cholesky*, published-finding corpus record 2026/11/2/2484223143f3, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-first-run-law-and-geometric-near-maximal-fill-for-complete-mul--2484223143f3 (summary accessible; full text unavailable for comparison).
+The frozen `verify.py` and `verify_dynamics.py` are bounded checks of the finite distribution and its representation by priorities. They do not certify the uniform total-variation upper bound, which follows from the stopping-time proof above. No finite check or literature comparison establishes global priority.

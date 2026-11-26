@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:19:36.519056Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations and proof steps 1–5; frozen VERIFICATION.md and verify.py inspected without execution",
+        "Repaired RESULT.md, complete finding and proof in /workspace/repairs/5/RESULT.md"
+      ],
+      "rationale": "The original formulas are correct; the repaired claim makes the exact Green equivalent the finding, states the relative O(1/log r) error already available from the tail argument, and derives exact stationary tail masses. Independently checked the physical-branch identification in the replacement proof: conditional survival and Tonelli give ∫κG≤1, yielding local integrability on compact sets. The distributional source equation follows by the Brownian product rule and heat-kernel domination of the terminal term. With z=log r and a=d+2, the substitution G=r^(−d)h gives h''−a h'−q h=0. Factoring g=z^(−β)(log z)^(−γ) cancels the two nonintegrable terms exactly; the residual is O(z^−2). The Volterra kernel is bounded by exp(−a(t−s)/2); its norm on the tail is O(1/z₀), and differentiation gives u'=O(z^−2) and recovers the ODE without differentiating the rate. Reduction of order has growing branch r²(log r)^β(log log r)^γ, since the logarithmic derivative of the reduction integrand tends to a. A positive coefficient of that branch would violate ∫κG≤1, and a negative one would violate positivity. This proves that the actual killed Green function has positive slow-branch amplitude. Testing the Green equation with expanding cutoffs proves ∫κG=1; the discarded Laplacian term is bounded by R^−2 times at most logarithmic powers on the cutoff annulus. The shell integral is exactly of z^(−β)(log z)^(−γ) type, including divergence when β=γ=1. Integration of the equivalent gives both displayed tail-mass constants. For stationarity, bounded resetting gives the killed variation-of-constants formula, and the uniform Gaussian bound makes the initial term vanish on compact tests for any invariant probability. Thus only the finite-mean regenerative normalization can be stationary and it is unique. The argument includes d=1 via the same density equation and sphere factor 2.",
+      "residual_risks": [
+        "The finite symbolic checker concerns derivative identities and not the infinite-domain proof. The claimed relative error is under the stated coefficient remainder, not under arbitrary little-o at the second logarithmic scale. The amplitude is not supplied in closed form."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keidar–Reuveni give the critical inverse-square power-law formula but not slow logarithmic perturbations of its critical exponent. Ishige–Kabeya–Ouhabaz impose a power-decay error in r²V and study radial harmonic functions; 1/log r does not meet that hypothesis. Pinsky's inverse-square theorem estimates the expected first hitting time, not the killed occupation-density equivalent. The broken-power Lorentz estimates use two-sided pure-power ground-state comparability and concern fractional kernels."
+        ],
+        "reasoning": "These approaches supply methods, neighboring regimes, or different observables. The inspected broader statements neither cover the logarithmically perturbed coefficients with the claimed equivalent nor identify the positive amplitude of the physical slow branch.",
+        "searches": [
+          "Keidar–Reuveni arXiv:2608.27090v1 equations (2)–(3) and (14)–(15)",
+          "Ishige–Kabeya–Ouhabaz arXiv:1602.04172 assumption (1.2) and Theorem 1.1",
+          "Pinsky arXiv:1805.00320 Theorem 3",
+          "arXiv:2607.11280 broken-power kernel estimates"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 06919c67c871 and 56391c757951",
+        "arXiv:2608.27090v1",
+        "arXiv:1602.04172",
+        "arXiv:1805.00320v4",
+        "arXiv:2607.11280",
+        "Repaired RESULT.md prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing s=(d+2)z/3 reduces the radial h-equation to one with first-derivative coefficient −3 and logarithmic coefficients 3b/(d+2), 3c/(d+2); the mass ∫h dz is preserved up to a factor. When b≠d+2 the first comparison only needs the leading 1/s term to dominate the errors, and when b=d+2 the rescaling error is O(1/[s(log s)^2]), covered by the earlier second-boundary hypothesis. Thus the all-d cutoff alone is not relied on as a substantive new remainder.",
+          "The previous barrier proof squeezes exponents rather than ratios. It does not control the residual relative to an exact profile, or select/normalize a positive asymptotic solution at the level of equivalents. The repaired proof obtains this through an integrable residual and excludes the growing component via the physical killing mass."
+        ],
+        "reasoning": "A dimensional substitution, integral test, or renewal normalization is insufficient novelty. The exact Green equivalent requires the additional asymptotic estimate for the solution actually selected by the process. The use of standard asymptotic-integration methods is not credited as new.",
+        "searches": [
+          "Resultary 06919c67c871, proof steps 2–5, compared with repaired radial conjugation",
+          "arXiv:2608.27090 inverse-square power-law tail equations",
+          "arXiv:1602.04172 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized stationary density, when it exists, is G/M; this is the same spatial equivalent up to a constant, not a separate novelty. The October 18 result instead gives limits of logarithms of scaled densities and tail masses. At d=1 its coefficients a,b correspond to b,c in the assigned notation."
+        ],
+        "reasoning": "A limit of log-scaled densities does not imply a positive finite limit of the density ratio, even after changing the length scale in the logarithms. The threshold portion overlaps directly and is not credited in the repaired claim.",
+        "searches": [
+          "Resultary query: exact positive amplitude ratio G(r), radial killed Green density and logarithmic critical localization",
+          "Websearch: Brownian adaptive resetting critical inverse-square logarithmic stationary density asymptotic; radial Schrödinger inverse-square logarithmic asymptotics",
+          "Resultary 06919c67c871 Finding and proof steps 2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact threshold entry 06919c67c871 has the full pair of one-dimensional threshold numbers and reports logarithmic density and tail-mass exponents. Same-day 56391c757951 concerns spatially variable diffusivity with constant resetting, and thresholds for modes and a reset-information functional."
+        ],
+        "reasoning": "The first entry is existing coverage of the threshold invariant, not an equivalent for the exact density amplitude. The second is a different model and invariant. The repaired claim gives an asymptotic for a continuous class of hazards, not another numerical table of threshold values.",
+        "searches": [
+          "Resultary 06919c67c871 and same-day 56391c757951; specific density-equivalent comparison"
+        ]
+      },
+      "rationale": "This pass is for the repaired exact positive-amplitude Green tail, not the original positioning of the two stationarity thresholds as previously unresolved. That central originality claim fails: the October 18 record states both one-dimensional thresholds and equality cases, and its one-dimensional comparisons transfer to the radial equation by rescaling logarithmic time. The repair explicitly credits that coverage and retains the substantive unmatched claim: an equivalent with nonzero finite amplitude and controlled relative error for the physical killed density, normalizable or not, and its exact stationary-tail-mass consequences. The inspected prior threshold proof bounds logarithmic exponents but does not supply that ratio limit.",
+      "residual_risks": [
+        "Bounded comparison, not a priority determination. Older asymptotic-integration results with slowly varying radial coefficients could supply another route or previously tabulated equivalents. The checked power-law and comparator results do not give this claim at the same precision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cutoff numbers and equality cases; does not give density ratio asymptotic",
+          "evidence": "First boundary a>3 and second boundary b>3 at a=3; both equality cases fail in their stated classes. Comparisons use nearby exponents and report logarithmic limits, not a positive limiting amplitude.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-nested-logarithmic-localization-thresholds-for-critically-adapti--06919c67c871/RESULT.md",
+          "material_read": "RESULT.md Finding and proof, offsets 0–9484, mirror snapshot 36a7204",
+          "method": "Resultary local mirror after semantic search",
+          "title": "Nested logarithmic localization thresholds for critically adaptive Brownian resetting",
+          "trigger": "Direct earlier match for the central nested thresholds"
+        },
+        {
+          "assessment": "Covers the leading boundary and radial power-law analysis",
+          "evidence": "Uses rates with power-law asymptotics and gives dimension-dependent power-law tails in the inverse-square case, without the two logarithmic factors.",
+          "identifier_or_url": "arXiv:2608.27090v1",
+          "material_read": "PDF pp. 2, 6, equations (2)–(3), (14)–(15); OA offsets 11738 and 27668",
+          "method": "OA primary PDF passages",
+          "title": "Localization–Delocalization Transition in Diffusion with Adaptive Resetting",
+          "trigger": "Same reset generator, leading critical coefficient"
+        },
+        {
+          "assessment": "Different coefficient-error regime",
+          "evidence": "Requires power-rate approach of r²V to its limiting coefficient; does not apply to nonzero 1/log r correction.",
+          "identifier_or_url": "arXiv:1602.04172",
+          "material_read": "PDF pp. 2–3, assumption (1.2) and Theorem 1.1; OA offset 7443",
+          "method": "OA primary PDF passage",
+          "title": "The heat kernel of a Schrödinger operator with inverse square potential",
+          "trigger": "Potential domination by a broader radial harmonic theorem"
+        },
+        {
+          "assessment": "Related inverse-square first-passage analysis, not the claimed density",
+          "evidence": "Theorem 3 bounds the mean time to reach a target from the origin using inverse-square rate comparisons.",
+          "identifier_or_url": "arXiv:1805.00320v4",
+          "material_read": "Abstract and PDF pp. 7–8, Theorem 3, OA offsets 0 and 20000",
+          "method": "OA primary PDF passages",
+          "title": "Diffusive Search with Spatially Dependent Resetting",
+          "trigger": "Same inverse-square resetting and positive-solution methods"
+        },
+        {
+          "assessment": "Different logarithmic effects",
+          "evidence": "Assumes broken-power comparability of the ground state; logarithmic losses occur at endpoint fractional kernel estimates rather than from two log terms in the resetting coefficient.",
+          "identifier_or_url": "arXiv:2607.11280",
+          "material_read": "PDF pp. 2–3, setup and kernel range, OA offset 5250",
+          "method": "OA primary PDF passage",
+          "title": "Sharp Broken-Power Lorentz Estimates for Fractional Powers of Asymptotically Inverse-Square Schrödinger Operators",
+          "trigger": "Broader inverse-square kernels with logarithms at a boundary"
+        },
+        {
+          "assessment": "Different generator, rate and observables",
+          "evidence": "Variable diffusivity |x|^(−α) with constant resetting; mode and reset-information thresholds rather than critical logarithmic Green asymptotics.",
+          "identifier_or_url": "Resultary 2026/11/2/56391c757951",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Dimension sluggishness transition for resetting diffusion",
+          "trigger": "Related same-day resetting transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md exact Green equivalent and invariant-tail consequences",
+        "Resultary 06919c67c871 logarithmic limit baseline",
+        "arXiv:2608.27090 leading-boundary baseline"
+      ],
+      "rationale": "The original threshold-only positioning would largely duplicate existing science. The surviving rate-to-density equivalent gives a materially finer invariant than threshold values or logarithmic slopes: it identifies the complete spatial scale and a nonvanishing amplitude of the actual occupation measure even at critical nonnormalizability and with a merely continuous perturbation. Where a stationary law exists it gives the leading multiplicative constant in the functional tail shape and the correct normalization relation, not just the slopes in a log–log plot. This is a natural marginal regime where the distinction between exponent bounds and a density equivalent matters; the proof gives a quantitative relative error and a direct check of which branch the process selects.",
+      "residual_risks": [
+        "The global amplitude remains model-dependent, and the finding does not add a new stationarity cutoff independently of the established one-dimensional comparisons or give any mixing theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:46:09.946208Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The only maximal proper unital F_q-subalgebras are the q+1 rational line stabilizers and the q(q−1)/2 conjugate quadratic fields. Indeed an irreducibly acting subalgebra acts faithfully on a simple module, so is simple, and the dimension-two module permits only the quadratic field or the full algebra. Quadratic fields are conjugate by identification of the natural space as the one-dimensional module over the field and their normalizer has size 2(q²−1). Distinct line stabilizers meet in a split diagonal algebra, at least three meet in scalars, and every field intersection with a different maximal subalgebra is also scalars. On full matrices, a line stabilizer, a split diagonal algebra, and a quadratic field the trace is surjective (on the field it is the separable field trace). Their prescribed-fiber sizes are q^(3m), q^(2m), q^m, q^m. Put b=q+1, e=q(q−1)/2 and let s count scalar tuples in the fiber: all scalar terms cancel with coefficient 1−b+binom(b,2)−e=0, regardless of s in characteristic two. This gives q^m(q^m−1)(q^m−q), zero exactly at m=1 in the stated domain. For the product, each surjective evaluation of the free unital algebra has a maximal two-sided kernel. Two evaluations have equal kernel precisely when an automorphism relates their tuples; distinct kernels are pairwise comaximal, so the Chinese remainder theorem gives surjectivity, while equal kernels force a graph relation. Distinct kernels, not abstract nonisomorphism of their quotient algebras, are the criterion in the proof. The PGL action is free, giving the stated falling-factor product and at m=2 the orbit count q^4(q−1). Independent exact checks at branches/a2e0ba22-fe4c-466a-9e5f-0c0f48d6d42e/ord1_independent_reproduction.py with repro_q2.txt and repro_q3.txt reproduced q=2,3 pair fibers (24 and 432 per trace) and 8640 generating pairs for q=2,k=2; these are bounded checks, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kravchenko–Mazur–Petrenko Theorem 6.3 gives the exact falling-factor product and threshold for all finite simple matrix algebras over finite base fields, including field extensions; its equation (9) gives the closed two-by-two aggregate count.",
+          "Quick–Ruškuc supplies broader subdirect structure and logarithmic growth but not the exact census in the inspected passages. Cantor–Jezernik–Zozaya study existence of generating pairs in the Lie algebra of traceless matrices, not the associative census."
+        ],
+        "reasoning": "Set the extension degree to one and the matrix size to two in Theorem 6.3, and insert its own paper's equation (9), q^(2m+1)(q^(m−1)−1)(q^m−1). This is the entire product formula; m=2 gives exactly q^4(q−1).",
+        "searches": [
+          "Resultary: Growth of generating sets for direct powers of classical algebraic structures Quick Ruskuc",
+          "DOI 10.1017/S1446788710001473 Lemma 4.4, Corollary 4.13",
+          "DOI 10.2140/ant.2012.6.243 Theorem 6.3, §7A and equation (9)",
+          "arXiv:2404.11240v3, abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.2140/ant.2012.6.243",
+        "arXiv:2510.06959",
+        "DOI 10.1017/S1446788710001473",
+        "arXiv:0809.3032",
+        "arXiv:2404.11240v3",
+        "Resultary e029ab0e2b2c",
+        "Resultary b218c9e63003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (4) starts with the set complement of maximal-subalgebra powers; (5) subtracts the scalar tuples from each intersected piece. §7A explicitly has the ambient term, e quadratic field terms, b line stabilizers, binom(b,2) diagonals, and no other nonscalar pieces. Its displayed expression has scalar coefficient −1+e+b−binom(b,2)=0 already.",
+          "Intersect the displayed pieces with the prescribed trace fiber before taking cardinalities. In the old display replace ambient q^(4m) by q^(3m), Borel q^(3m) by q^(2m), the field and split diagonal q^(2m) by q^m, and the subtracted scalar count q^m by s. The same numerical scalar coefficient is zero, so the count is q^(3m)−b q^(2m)+(binom(b,2)−e)q^m. Trace is plainly nonzero on diagonals and Borels, and on the quadratic field it is x+x^q, nonzero by separability (in characteristic two, nonzero on every x outside F_q)."
+        ],
+        "reasoning": "The aggregate theorem as a single integer could not imply uniformity. But the older published set formula, detailed intersection computation, and coefficient cancellation imply exactly the trace-fiber claim by applying the elementary linear functional to its pieces. There is no new characteristic-two obstruction argument, and no proof beyond slicing and the basic field trace property is necessary.",
+        "searches": [
+          "Kravchenko–Mazur–Petrenko DOI 10.2140/ant.2012.6.243, equations (4)–(5), §7A immediately before equation (9) (OA offsets 88600 and 99450)",
+          "arXiv:2510.06959 Lemma 3.1, Lemma 4.2, Example 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unital algebra generation is absolute irreducibility of the free-algebra representation in Reineke's terminology. Dividing each fiber by the free PGL action gives the corresponding trace-character count of absolutely irreducible representations.",
+          "Same-day record e029ab0e2b2c restricts every entry to a rank-one idempotent, so a known common trace is only part of a stricter constraint. Record b218c9e63003 counts Lie algebra generators of sl_2 and its powers; in characteristic two the Lie algebra is different from the associative generation problem."
+        ],
+        "reasoning": "Neither the restricted rank-one-idempotent census nor Lie generation is an equivalent fixed-trace count. Odd-characteristic trace fibers are already bijective by shifts X_i+λ_i I and hence follow from any verified aggregate count. For even characteristic see the direct trace-slicing implication below, not a scalar-shift assertion.",
+        "searches": [
+          "Resultary: Trace-uniform generation of two-by-two matrix algebras over finite fields",
+          "Resultary: fixed-trace M2 finite field generating tuples characteristic two trace vector",
+          "arXiv:2510.06959 Lemma 3.1 and Example 4.6",
+          "web: finite fields generating tuples 2 x 2 matrix algebra fixed trace characteristic two Kravchenko Mazur Petrenko traces number generators g_m matrix algebra 2x2 fixed trace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2012 exact formula is precisely the aggregate invariant; Reineke's table of polynomials independently gives the same result by evaluating the size-two polynomial at u=q^m and multiplying by |PGL_2|. Neither is a printed table of individual even-characteristic trace fibers.",
+          "The exact rank-one-idempotent count in record e029ab0e2b2c and Lie-algebra census in b218c9e63003 are for different domains."
+        ],
+        "reasoning": "There is an exact pre-existing formula for every aggregate and product parameter, not just a sampled coincidence. No same-domain table of trace fibers was found, but the case against a separate original trace contribution is the verified mathematical implication of the prior signed-set calculation, not a negative search.",
+        "searches": [
+          "Resultary: Counting generating spaces of matrices Reineke prescribed trace",
+          "Resultary: fixed-trace M2 finite field generating tuples characteristic two trace vector",
+          "DOI 10.2140/ant.2012.6.243 equation (9) and Theorem 6.3",
+          "arXiv:2510.06959 Example 4.6"
+        ]
+      },
+      "rationale": "The trace-fiber law is not read off the unconditioned cardinality alone in characteristic two. The stronger decisive evidence is the explicit signed maximal-subalgebra set count in Kravchenko–Mazur–Petrenko (2012), §7A, which already supplies every contributing subset, its coefficient and the cancellation of the scalar contribution. Restrict that calculation to a trace fiber and use the elementary surjectivity of trace on each remaining subspace; this mechanically yields the entire result, even in characteristic two. Their Theorem 6.3 and equation (9) also already give the complete direct-power census and cutoff. This is verified implication, not a claim that the precise trace-conditioned formula is explicitly printed. No independently non-implied remainder survives.",
+      "residual_risks": [
+        "An explicit earlier formulation of the characteristic-two trace law may exist; the decision does not rely on finding one.",
+        "The same-day restricted-idempotent record's date does not establish priority or coverage. Its actual domain is narrower."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_AGGREGATE_AND_PRODUCT; STRONGER_SET_CALCULATION_IMPLIES_TRACE_LAW",
+          "evidence": "Exact product and orbit threshold in finite simple algebras; size-two case lists the signed contributions with zero scalar coefficient and gives the closed aggregate count.",
+          "identifier_or_url": "https://msp.org/ant/2012/6-2/ant-v6-n2-p03-s.pdf",
+          "material_read": "Theorem 6.1, Proposition 6.2, Theorem 6.3 (printed p. 271); equations (4)–(5) and §7A through equation (9), OA offsets 83100, 88600, 99450",
+          "method": "Lawful publisher OA PDF",
+          "title": "On the smallest number of generators and the probability of generating an algebra",
+          "trigger": "Exact earlier generation counts, direct-power criterion and maximal-subalgebra intersections"
+        },
+        {
+          "assessment": "EXACT_AGGREGATE_NOT_SEPARATE_TRACE_CENSUS",
+          "evidence": "a_2(q,u)=u²(u−1)(u−q)/(q(q−1)(q+1)); absolute irreducibility and PGL give the same aggregate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.06959",
+          "material_read": "Lemma 3.1 and generating tuples on pp. 3–4, Lemma 4.2 and Example 4.6 on pp. 8–9",
+          "method": "OA primary PDF",
+          "title": "Counting generating spaces of matrices",
+          "trigger": "Aggregate count and representation-theoretic equivalents"
+        },
+        {
+          "assessment": "GENERAL_STRUCTURE_NOT_EXACT_CENSUS_IN_INSPECTED_PASSAGES",
+          "evidence": "Subdirect simple-quotient structure; logarithmic growth in the unital case.",
+          "identifier_or_url": "https://doi.org/10.1017/S1446788710001473",
+          "material_read": "Lemma 4.4, p. 114, and Corollary 4.13, p. 116",
+          "method": "OA paper passage",
+          "title": "Growth of generating sets for direct powers of classical algebraic structures",
+          "trigger": "Prior subdirect-product criteria and growth"
+        },
+        {
+          "assessment": "RELATED_TRACE_INVARIANTS_NOT_DECISIVE",
+          "evidence": "The stated invariant-map result excludes characteristic two; the inspected passage does not count generating tuples.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.3032",
+          "material_read": "Abstract and first-page scope of the invariant map",
+          "method": "OA primary PDF",
+          "title": "Simultaneous similarity and triangularization of sets of 2 by 2 matrices",
+          "trigger": "Trace invariant aliases and triangularizability"
+        },
+        {
+          "assessment": "LIE_GENERATION_EXISTENCE_NOT_ASSOCIATIVE_FIBER_COUNT",
+          "evidence": "Its stated theorem concerns which sl_n(F_q) are two-generated as Lie algebras.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.11240v3",
+          "material_read": "Abstract and Introduction, beginning at OA offset zero",
+          "method": "OA primary PDF",
+          "title": "Two-generation of traceless matrices over finite fields",
+          "trigger": "Same finite-field traceless generation keywords"
+        },
+        {
+          "assessment": "STRICTER_ELEMENT_RESTRICTION_NOT_EQUIVALENT",
+          "evidence": "Counts only rank-one idempotent entries; trace alone does not imply that condition.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-all-arity-generation-law-for-rank-one-idempotents-in-two-d--e029ab0e2b2c",
+          "material_read": "RESULT.md Finding and invariant-line criterion",
+          "method": "Local mirror of published finding",
+          "title": "Exact all-arity generation law for rank-one idempotents in two dimensions",
+          "trigger": "Same-day finite-field associative generation with a trace constraint"
+        },
+        {
+          "assessment": "ANALOGOUS_DIFFERENT_OPERATION",
+          "evidence": "Its odd-characteristic Lie count has the same polynomial as one associative trace fiber; its product cutoff and characteristic-two model differ.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-generator-tuple-counts-for-direct-powers-of-mathfrak-sl-2--b218c9e63003",
+          "material_read": "RESULT.md Finding and characteristic distinction",
+          "method": "Local mirror of published finding",
+          "title": "Exact generator-tuple counts for direct powers of sl_2",
+          "trigger": "Analogous exact count and product threshold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Equidistribution under a prescribed trace is a natural statistic, but here it reduces exactly to slicing the complete previously known signed count by a surjective linear map on every surviving piece. The even-characteristic nuance is a useful clarification of that argument, not an additional difficult-to-obtain invariant under the implication standard. The other displayed results are already exact prior formulas, leaving no distinct worthwhile claim to retain by narrowing.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

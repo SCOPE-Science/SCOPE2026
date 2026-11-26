@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:08:19.673964Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–90, including original symbol-tail bound at 69–83",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "repairs/4/RESULT.md and repairs/4/VERIFICATION.md",
+        "Independent domain, form, periodic unitary and two-mode calculations"
+      ],
+      "rationale": "The frozen estimate is valid: its truncation step must use r^{M+1}/(1−r) as a common upper bound for operator and symbol errors, not assert a pointwise symbol bound by the actual operator norm. The repaired proof instead gives a sharper quantitative claim by an exact form reduction. Unitary weight transfer gives A=D(I−rS)^{-1} with closed inverse B=(I−rS)J on dom J; B*B=(AA*)^{-1}. The form on the circle with p(θ)=1+r²−2r cos θ has entries jk p̂(j−k). Modes of opposite sign cannot couple via this bandwidth, and mode zero decouples. The positive-mode block is B*B; reflection gives the other copy, so the unweighted singular index matches precisely the nth pair of positive periodic eigenvalues. The Liouville variable and multiplier z=p^{1/4} give the periodic potential V=z″/z, whose mean is ∫(z′/z)²/L=μ_r>0. Min–max locates the eigenvalue pair within bounded distance of (n/κ)²; on its complement the free resolvent is O_q(n^{-1}). Within the pair the diagonal potential is μ_r and the other entries are Fourier coefficients O_q(n^{-1}). Thus the squared inverse singular value is (n/κ)²+μ_r+O_q(n^{-1}); inverse square roots prove the correction, and inversion gives a bounded counting remainder. This uses the infinite closed forms, not a finite-section inference.",
+      "residual_risks": [
+        "The frozen finite diagnostics do not test the new asymptotic or certify an infinite operator proof; no new numerical run or independent attestation is claimed.",
+        "All constants are for fixed q<1, not uniform at the noncompact endpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The D f(S) lemma for absolutely summable Taylor coefficients gives lim n s_n as the mean absolute symbol. The period-two Resultary theorem specializes at identical parity weights, but is again a leading limit.",
+          "The Zizler work addresses distribution for finite band Toeplitz matrices; exact hypotheses and rate could not be verified from primary full text. The earlier Rhaly record concerns power weights j^{−γ} with γ>1 and a different symbol."
+        ],
+        "reasoning": "The broader scalar and period-two leading laws cannot supply the first nonzero correction. General periodic spectral asymptotics can do so after the single-band separation of this infinite inverse form; they are not claims about this operator without that additional identification.",
+        "searches": [
+          "Resultary exterior-power record scalar D f(S) lemma; period-two geometric weights",
+          "Zizler–Zuidwijk–Taylor–Arimoto 10.1137/S089547989834915X; Rhaly lattice Weyl result"
+        ]
+      },
+      "checked_sources": [
+        "Albanese–Bonet–Ricker Prop. 4.1, Thm. 4.2, Cor. 4.3",
+        "Resultary 9192576eedcf, aa2e3f6295b0 and 7ef05af50a3c",
+        "Zizler et al. as cited (primary full text not read)",
+        "repairs/4/RESULT.md, exact periodic reduction and μ_r calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results give only n s_n→κ for the exact operator or wider families. This controls neither the original stated rate nor the repaired μ_r coefficient.",
+          "A finite Toeplitz count can support a block proof but does not identify the infinite diagonal-dressed operator with two periodic mode sectors. The mean of the smooth potential determines the displayed correction once that identification is proved."
+        ],
+        "reasoning": "The repaired statement does not rebrand a general leading Weyl law. Its first correction depends on a structural infinite equivalence and a nonzero explicit constant; finite eigenvalue grids and o(1/n) alone do not imply it.",
+        "searches": [
+          "Leading-law Resultary proofs and Albanese–Bonet–Ricker compactness/spectrum results",
+          "Zizler et al. finite band Toeplitz comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reindexing the Resultary C_t on ℕ₀ and using t=√q gives exactly the frozen operator; the scalar n s_n limit and its elliptic integral are identical.",
+          "Albanese–Bonet–Ricker Proposition 4.1 concerns ordinary eigenvalues {0,1,1/2,…}, not this singular spectrum. The focused periodic-operator search did not establish an earlier identification or coefficient."
+        ],
+        "reasoning": "Credit the exact equivalence for the leading term. Singular numbers cannot be inferred from ordinary eigenvalues of the nonnormal Cesàro matrix. The periodic positive spectrum counts inverse squared singular values twice, a stronger operator identification than the shared leading limit.",
+        "searches": [
+          "Resultary generalized C_t and geometric weighted Cesàro singular numbers",
+          "Primary literature search: geometric weighted Cesàro singular values and periodic Sturm–Liouville or Jacobi companion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct exact coefficient match 9192576eedcf; a second overlapping formula aa2e3f6295b0 gives precisely that coefficient at equal modulation. Their inspected statements are asymptotic leading limits, not formulae for the correction or a periodic positive spectrum.",
+          "The frozen finite checker samples Gram eigenvalues and the leading limit, not a table of the exact infinite spectrum."
+        ],
+        "reasoning": "The coefficient and neutral case are already indexed, independent of same-day ordering. Finite matrix data do not cover the infinite spectral identity or n³-scale limit.",
+        "searches": [
+          "Resultary exact elliptic Weyl coefficient and geometric Cesàro singular spectrum"
+        ]
+      },
+      "rationale": "The frozen leading scalar singular law and elliptic coefficient have exact distinct Resultary coverage, including as a period-two neutral specialization. They and their direct leading corollaries are explicitly credited, not passed as novel. The repaired finding is the exact periodic form identification and nonzero first asymptotic correction for the infinite geometric Cesàro singular values. Standard periodic perturbation theory is used after the reduction; neither the inspected leading statements nor finite Toeplitz results as described yield this operator-specific correction.",
+      "residual_risks": [
+        "No date ordering is assigned to distinct same-day matches. A specialized exact geometric Cesàro–periodic-Jacobi equivalence or stronger published remainder could exist; full text of the finite-band citation was not available. The verdict is confined to inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Compactness and ordinary spectrum covered, not the singular correction",
+          "evidence": "Ratio criterion includes w(n)=q^n; eigenvalues 1/m with zero in the spectrum.",
+          "identifier_or_url": "10.1017/S1446788715000221",
+          "material_read": "Author manuscript pp. 19–21, offsets 76000 and 80500; Prop. 4.1, Thm. 4.2, Cor. 4.3",
+          "method": "Accessible primary author manuscript PDF",
+          "title": "Spectrum and compactness of the Cesàro operator on weighted ℓ_p spaces",
+          "trigger": "Identical ordinary weighted Cesàro operator"
+        },
+        {
+          "assessment": "Exact leading-law coverage, no stated quantitative remainder",
+          "evidence": "t^{i−j}/(i+1) and lim n s_n=2K(2√t/(1+t))/(π(1+t)); leading lemma for D f(S).",
+          "identifier_or_url": "2026/11/22/SCOPE-exterior-power-ordering-and-an-elliptic-singular-value-law-for-c--9192576eedcf",
+          "material_read": "RESULT.md Finding, Assumptions, Proof §§2–3 and Relationship; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary local mirror primary text",
+          "title": "Exterior-power ordering and an elliptic singular-value law for Cesàro operators",
+          "trigger": "Identical scalar geometric singular-value coefficient"
+        },
+        {
+          "assessment": "Strictly broader leading-law coverage, not a correction term",
+          "evidence": "Period-two coefficient reduces at u=v to κ(√q); that neutral value is credited as known.",
+          "identifier_or_url": "2026/11/22/SCOPE-period-two-geometric-weights-singular-weyl-law-and-contrast-rigi--aa2e3f6295b0",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§2–4; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary local mirror primary text",
+          "title": "Period-two geometric weights: singular Weyl law and contrast rigidity",
+          "trigger": "Stronger weight class containing the present weight"
+        },
+        {
+          "assessment": "Finite-band relevance; precise rate coverage unresolved",
+          "evidence": "The frozen record identifies finite-section eigenvalue distribution as the topic, not a quantified singular law for the infinite diagonal product.",
+          "identifier_or_url": "10.1137/S089547989834915X",
+          "material_read": "Citation and description in frozen RESULT.md; no primary theorem passage retrieved",
+          "method": "Bounded lawful accessibility attempts for publisher and identified alternate copy unsuccessful",
+          "title": "A Finer Aspect of Eigenvalue Distribution of Selfadjoint Band Toeplitz Matrices",
+          "trigger": "Possible implication of a stronger finite or infinite rate"
+        },
+        {
+          "assessment": "Different operator and leading scale",
+          "evidence": "j^{−γ} times prefix sums with γ>1 and n^γ s_n limit involving (2 sin(θ/2))^{−1/γ}.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-lattice-weyl-constant-for-power-decaying-rhaly-matrices--7ef05af50a3c",
+          "material_read": "Local Resultary statement and hypotheses",
+          "method": "Local catalogue/mirror inspection",
+          "title": "A lattice Weyl constant for power-decaying Rhaly matrices",
+          "trigger": "Closest additional lattice singular Weyl law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/4/RESULT.md, Finding and proof",
+        "Resultary 9192576eedcf and aa2e3f6295b0 leading-law comparisons"
+      ],
+      "rationale": "The first nonvanishing correction for the singular rather than ordinary eigenvalues resolves the order and sign of the deviation from the already known leading law. The gain is structural, not just a smaller bound: the inverse form converts an infinite nonnormal averaging problem to half the positive spectrum of an explicit periodic differential operator and yields a constant-error count. The positive coefficient rules out a little-o of n^{-3} leading remainder at every fixed nonzero weight.",
+      "residual_risks": [
+        "No uniform near-q=1 crossover, general modulated-weight expansion, or optimal error after the cubic-order term is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a quantified all-integer congruence with a closed endpoint. For all degrees below \(d=p^r\), the normalized product at integer input \(-1\) has at most \(p-1\) valuation-one factors, implying the uniform lower bound \(2t-p+1\). Pascal finite differences propagate the congruence to every integer. For each exponent above the threshold a specified intermediate degree has exactly \(p-1\) valuation-one factors and a nonvanishing degree-\(j\) coefficient over \(\mathbb F_p\); all higher root-of-unity-filtered degrees have strictly larger valuation. Repeated finite differences show that this single failure rules out the original all-input condition. The exact checker confirms 72 finite-field coefficients and six full-product examples; it does not replace the proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-Miska's 2022 arXiv full text (Theorem 2.3, Proposition 3.7, Corollaries 3.9 and 3.11, and section 4) concerns the same condition. Its sufficient exponent bound specializes to \(2t-p+1\), whereas its generic failure bound begins strictly above \(2t-1\), leaving \(p-2\) or more potentially ambiguous layers. The special \(t=p^u\) result has disjoint parameters. The new precise failure construction identifies the exact endpoint in all cases of an infinite two-parameter band, not a relabeling of the known sufficient result. Searches of related mathematical records did not expose a covering theorem. A published final version was only accessible in abstract, leaving possible text changes and unindexed equivalents as residual risks; failed searches do not establish uniqueness.
+PASS
 
-## Value — PASS
-The problem is directly motivated by a published general classification with explicitly unresolved exceptional prime-power cases. Closing an entire natural near-prime band supplies a sharp existence threshold and a uniform arithmetic obstruction, without arbitrary slices or routine finite enumeration. The result distinguishes a sufficient bound from its sharp converse by a nontrivial finite-field coefficient identity.
+At n=-1 and m<d=p^r, the root-of-unity average filters the signed elementary symmetric terms of the factors d/i to degrees kt. There are at most p-1 factors of valuation one and all others have valuation at least two, so every term has valuation at least 2kt-(p-1). Congruences for all m at n=-1 therefore hold when r<=L=2t-p+1 and propagate to every integer by Pascal differences and induction on m. For r>L, write j=t-p+1 and c=[p(p-1)+q]p^(r-2) with q as in RESULT.md; t<=c<d. The factors attaining valuations one and two have the counts asserted in the proof. Minimal products in degree t use all p-1 of the former and exactly j of the latter. The normalized valuation-two product consists of p-1 complete blocks of nonzero residues followed by q extra factors. Its complete-block contribution is (1-X^(p-1))^(p-1)=1+X^(p-1) through degree p over F_p. Hence the required coefficient is 1/j! for 2<=j<=p-2, and 1 at both j=p-1 and j=p. The valuation-one normalization is a unit and all degrees >=2t have strictly larger valuation, giving exact valuation L at (n,m)=(-1,c). This is a finite difference of order d-1-c of the top-degree discrepancy, so at least one of the consecutive top-degree inputs from -1 to d-2-c fails. The degree-c valuation is not an asserted top-degree valuation.
 
-## Literature and limitations
-The primary source is P. Miska, *Binomial coefficients, roots of unity and powers of prime numbers*, arXiv:2203.03281v1 (2022-03-07), https://arxiv.org/pdf/2203.03281 ; the journal article is DOI 10.1007/s40840-022-01266-4. The theorem does not resolve remaining exceptional composite moduli or other ratio bands. The journal final full text and unindexed research may affect originality, and the present review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new part is failure throughout the p-2 exponents 2t-p+2 through 2t-1. Miska already gives the entire success range and failure beyond that gap; the witness settles the gap and turns the prior bounds into an exact cutoff.
+
+## value
+
+PASS
+
+This closes a gap in a published classification for an infinite, naturally distinguished band, using the first two nontrivial valuation layers and an explicit obstruction. It fixes the exact boundary wherever the existing sufficient bound in this band is used, rather than adding isolated finite tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

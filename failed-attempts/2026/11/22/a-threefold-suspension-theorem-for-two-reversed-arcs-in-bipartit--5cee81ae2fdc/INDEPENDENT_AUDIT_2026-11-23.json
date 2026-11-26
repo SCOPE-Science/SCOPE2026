@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:37:05.209624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–50",
+        "Frozen VERIFICATION.md, recorded checker output and verify_two_reversals.py (static inspection)",
+        "Jonsson, arXiv:1203.5644, p. 9, Theorem 3.1"
+      ],
+      "rationale": "Forward arcs use only outdegrees in A and indegrees in B, and the two disjoint reverse arcs use the opposite degree slots; adding a reverse arc therefore cannot create a degree conflict. The only possible cycle alternates the two reversed arcs with the two cross arcs. In the absence of either cross arc, adjoining r₁ to any face is valid, so the full complex is literally a cone. With both cross arcs, deletion Q of r₁ is a cone on r₂, and the link L of r₁ is exactly the subcomplex of Q avoiding the face σ={r₂,x,y}. A further arc sharing one of the distinguished vertices uses a forward slot already occupied by x or y. All remaining choices are precisely matchings on the induced residual graph, so lk_Q(σ)=K. For finite simplicial subcomplexes collapsing the attached cone on L identifies the homotopy type of X with Q/L, which is (Δ²*K)/(∂Δ²*K). This is the homotopy cofiber of a subcomplex in a contractible space, hence Σ(S¹*K)≃Σ³K. For K={∅} the actual quotient is Δ²/∂Δ²=S². The displayed integral shift applies in the cross-complete case, and Jonsson's K₅,₅ computation then gives degree-five Z/3 for K₇,₇. The argument proves homotopy equivalence after suspension, not recoverability of unsuspended homotopy information.",
+      "residual_risks": [
+        "The degree shift is conditional on having both cross edges; without that hypothesis only the cone conclusion holds.",
+        "The finite mod-2 diagnostics cannot certify integral torsion; that follows from the homotopy proof and the cited integral residual computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparison with matchings in arXiv:2401.01248 is for digraphs without oriented cycles; the cross-complete family has one.",
+          "arXiv:2208.04656 treats complete-bipartite Euler characteristics and other homotopy families. arXiv:2601.05670 uses a cone-union lemma and a particular oriented path gluing at a source or sink for one suspension, not these reversals with arbitrary incident arcs."
+        ],
+        "reasoning": "Those primary results give relevant methods or related hypotheses, not a checked general theorem subsuming both branches. The fail decision is based on the exact indexed match, not on assuming a topical paper covers the claim.",
+        "searches": [
+          "Public literature on two-arc cycle reduction and suspension in multipath/matching complexes",
+          "arXiv:2401.01248, opening summary; arXiv:2208.04656, p. 1; arXiv:2601.05670, Lemma 2.1 and Proposition 2.3 with following generalization"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 32883856792f and its local-mirror statement and proof",
+        "Caputi et al. arXiv:2208.04656, arXiv:2401.01248 and arXiv:2601.05670",
+        "Jonsson arXiv:1203.5644"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparison's proof removes the cofaces containing both cross edges from forward matchings, has residual link M(H), and takes a double suspension of that link followed by one more suspension.",
+          "It proves a simplicial cone in the complementary case and uses the very same chessboard torsion input."
+        ],
+        "reasoning": "The comparison implies every mathematically precise part of the revised-arc theorem and its application. Viewing the cofiber with a three-edge path instead of the two cross edges plus an outer suspension does not yield a new invariant or a broader result.",
+        "searches": [
+          "Mirror 32883856792f RESULT.md Finding and Proof, offsets 0–5540; Jonsson arXiv:1203.5644, Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "32883856792f states |X(D)|≃|M(H)*S⁰*S⁰*S⁰| for the two cross edges and a point otherwise, with identical residual induced graph.",
+          "Its proof states that when a cross edge is missing the entire complex is the simplicial cone ⟨r₁,r₂⟩*L; both formulations also give S² for an edgeless H."
+        ],
+        "reasoning": "Realization of join with the discrete two-point complex is unreduced suspension for nonempty complexes. With the empty face only as unit for the augmented join, three S⁰ factors give S². The relabeling U,W to A,B changes nothing, and the proof verifies the stronger literal cone claim as well.",
+        "searches": [
+          "Resultary: two disjoint reversed arcs in a one-way bipartite multipath complex, directed four-cycle and residual matching-complex suspension",
+          "Local mirror RESULT.md of 32883856792f, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finding, offsets 0–2320, covers the entire family and explicitly gives the identical K₇,₇ example and degree-five integral Z/3.",
+          "The hit is distinct from the audited 5cee81ae2fdc record."
+        ],
+        "reasoning": "This is a family-wide exact match, not an inference from the same single graph or a coincident numerical diagnostic. Same calendar-day dating does not determine priority.",
+        "searches": [
+          "Configured Resultary search; distinct hit 2026/11/22/SCOPE-two-reversed-arcs-transfer-matching-complex-topology-through-a-d--32883856792f; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "A distinct accessible Resultary record, 32883856792f, has the same quantified graph theorem, the same simplicial cone case, the same augmented boundary convention, and the same integral torsion application. Three simplicial joins with S⁰ are precisely the stated threefold unreduced suspension, including the adjunction convention for the empty matching complex. This is verified equivalent coverage, not a priority judgment between records bearing the same date. The frozen deletion/link proof does not create a distinct result: the comparison proof also gives the structural reason for the shift by identifying the residual link of the cross-pair and using simplicial cofibers. No distinct new claim survives for repair.",
+      "residual_risks": [
+        "Mirror evidence establishes the distinct record's equivalent claim, not which of the same-day versions was first or independently derived.",
+        "The primary literature search is bounded; further earlier coverage would not change the verified equivalent overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage; relative order not established",
+          "evidence": [
+            "Same arbitrary finite simple bipartite input, two disjoint reversals, cross-complete triple join with S⁰, residual induced graph, literal simplicial cone, augmented S² and K₇,₇ torsion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-reversed-arcs-transfer-matching-complex-topology-through-a-d--32883856792f/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof, offsets 0–5540 at mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary retrieval and bounded local-mirror text reads",
+          "title": "Two reversed arcs transfer matching-complex topology through a directed four-cycle",
+          "trigger": "Distinct exact-looking two-reversal theorem"
+        },
+        {
+          "assessment": "Different acyclicity hypothesis",
+          "evidence": [
+            "The matching comparison is for digraphs without oriented cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01248",
+          "material_read": "p. 1, arXiv PDF text offset 776",
+          "method": "Bounded OA primary-text inspection",
+          "title": "The weak categorical quiver minor theorem and its applications: matchings, multipaths, and magnitude cohomology",
+          "trigger": "Possible broader matching-complex comparison"
+        },
+        {
+          "assessment": "Related results, not the decisive equivalent source",
+          "evidence": [
+            "Complete-bipartite Euler characteristic and homotopy of other families in checked passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+          "material_read": "p. 1, text offset 3575",
+          "method": "Bounded OA primary-text inspection",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Foundational multipath results and complete-bipartite orientations"
+        },
+        {
+          "assessment": "Different digraph operation",
+          "evidence": [
+            "T-operation glues a specified oriented path at an edge incident to a source or sink; the proof suspends via two cones. This is not a graph operation undoing two arbitrary reversed bipartite arcs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05670",
+          "material_read": "pp. 4–6, Lemma 2.1, Proposition 2.3 and its generalization (offsets 16649 and 21400–26728)",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Possible suspension operation for multipath complexes"
+        },
+        {
+          "assessment": "Covers the residual torsion input, not by itself the transfer theorem",
+          "evidence": [
+            "Reduced H₂ of the 5-by-5 chessboard is Z/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.5644",
+          "material_read": "Theorem 3.1, p. 9, PDF text offset 21969",
+          "method": "Bounded OA primary PDF",
+          "title": "On the 3-Torsion Part of the Homology of the Chessboard Complex",
+          "trigger": "Precise integral torsion in the residual graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of the cone/suspension cases",
+        "Jonsson Theorem 3.1",
+        "Exact comparison at 32883856792f"
+      ],
+      "rationale": "As a mathematical statement the dichotomy is useful: the smallest number of reversals capable of producing a cycle in this model gives an all-input homotopy classification, with a sharp presence-of-cross-arcs criterion and a nontrivial torsion example. Its intrinsic interest does not establish a distinct contribution relative to the exact matching record; originality fails separately.",
+      "residual_risks": [
+        "No generalization to more reversals or recovery of unsuspended invariants is supported. The example is an application of the transfer theorem, not a new chessboard homology computation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

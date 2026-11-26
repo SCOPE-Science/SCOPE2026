@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the five-tip priority-switching theorem
 
-The full mathematical argument is in `RESULT.md`, especially the root-split classification and factorized global-winner comparison. The finite executable checks below are additional reproducibility evidence, not a proof of the universal quantifier over all positive edge lengths.
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file. It uses only Python's standard library and exact `fractions.Fraction` arithmetic, requiring no third-party packages or network access. It constructs a rooted eight-edge tree with tip set \(\{A,B,C,D,E\}\) and root-to-tip distance \(4\), with two-tip and three-tip crown stem lengths \(a=3\) and \(b=2\), and nested cherry stem endpoint \(t=3\). Its brute-force edge-set definition of rooted Faith PD is evaluated for each of the 16 possible sets of other survivors for each focal species. For five rational \(q\) values it compares these direct expectations with the independently implemented HED edge formula, including equality at \(q=1/2\) and strict winner reversals on either side.
+## correctness
 
-The script also checks the exact score expressions, the polynomial identities \(\Psi_C-\Psi_A=(1-q)(1-2q)\) and \(\Psi_C-\Psi_D=(1-q)\), and the general \(2+3\) factorization in additional rational length examples, including boundary regimes. A successful run prints a line starting `VERIFY_OK`.
+PASS
 
-**Mathematical limits:** Rational tests sample finitely many \(q\) values and parameter instances. The universal statements for all \(q\in(0,1)\) and positive ultrametric lengths are established by exact analytic algebra in `RESULT.md`; no computer census, approximate roots, or external theorem-proving certification is substituted for that argument. The original HED branch formula is credited to Steel, Mimoto and Mooers (2007), and independent audit has not been performed.
+With rooted Faith PD (zero on an empty survivor set), the change on an edge of length l subtending m tips on the protected path is l times the probability that all m initially go extinct, l q^m. Divide total gain by the common positive q. A singleton at the root has score H, strictly above a competitor with a positive nonpendant path edge. At n=2 both root children are singleton, so both tie: the uniqueness wording in Proof Step 2 needs this qualification, but the stated fixed-optimum assertion holds. For 2+2 the paired score difference is (b-a)(1-q); for 2+3 the triplet outgroup C strictly dominates D,E by (t-b)(1-q), and C minus either A or B is (1-q)(a-b(1+q)). This gives precisely the open switching region, its tie, and strict constant winners at a=b and a=2b since q=0,1 are excluded. These splits exhaust the binary possibilities through five tips. Independent exact replay /workspace/branches/replay_3.py enumerated actual before-and-after expected PD over all 32 outcomes for the positive ultrametric H=4 witness: at q=1/4,1/2,3/4 the optimizer sets were respectively C, ABC, AB. That replay verifies the witness, not the universal proof. The frozen verifier was inspected, not run.
+
+## originality
+
+PASS
+
+The novel claim assessed is the global-optimum boundary for a single change under independent identical risks and ultrametricity, not the HED score, the gain identity, or heterogeneous-risk rank sensitivity. The examined related records about unit edges or two switches do not establish this single-switch global classification. This is a best-of-knowledge comparison of inspected material, not a general priority determination.
+
+## value
+
+PASS
+
+This tests a natural expectation that equal risks and a molecular clock might fix the best conservation priority. The first possible switch, full sharp parameter interval and globally optimal tie sets supply a reusable exact benchmark, not just a crossing between two nonoptimal tips or a new name for HED. It gives no policy prescription for taxa with heterogeneous or dependent risks, uncertain phylogeny, or different intervention costs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

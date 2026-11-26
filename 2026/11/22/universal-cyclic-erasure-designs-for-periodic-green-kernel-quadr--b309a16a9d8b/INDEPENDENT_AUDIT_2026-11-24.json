@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:03:00.515925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fourier zero mode gives Var(J)=2s/κ and the full covariance is the inverse of (−∂²+κ²)/(2κs). The conditional energy is its restriction to the functions vanishing at the delivered sites; continuity of point evaluation for this H¹ energy form permits the restriction, which splits on the Dirichlet arcs. Solving the constant-forcing Dirichlet equation and integrating gives f, including the unit arc at one survivor. With no survivor use the zero mode instead. For ≥2 survivors, each ordered consecutive pair is counted once by its start and positive index jump; cyclic shift invariance of the fixed index law makes its probability q_k for every start. Since f″(ℓ)=2s tanh(κℓ/2) sech²(κℓ/2)>0, equality in Jensen for each supported jump means all of its running sums agree, equivalently g_(i+k)=g_i. The generated subgroup proves the exact gcd criterion, including the empty-support constant risk and the nonuniform four-site family. For Bernoulli delivery, q_k=p²(1−p)^(k−1), so q_1>0, and at fixed p<1 the empty/singleton terms vanish after n² scaling. The gap cost has leading cubic coefficient sκ/6 and a uniform cubic bound on [0,1]; the geometrically weighted cubic sum evaluates to (p²−6p+6)/p² after multiplication by p². This gives the stated ratio, including 13 at p=1/2; p=1 follows directly.",
+      "replay": "python3 /tmp/opencode/frozen_review_1_5.py (independent Schur-complement check on an n=6 dependent law: the orbit of jump 3 admits a nonuniform period-3 tie, while adding the orbit of jump 2 breaks it). The frozen verify_circular_ou.py was inspected, not executed; its recorded 687 are finite cases, not a universal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circular Matérn family supplies the α=1 Green covariance, and the general quadrature framework characterizes posterior variance. The Brownian bridge comparison 47f6c01bcecf has two sites and specified marginal and joint delivery probabilities."
+        ],
+        "reasoning": "The known kernel and posterior-risk framework describe inputs, not which arc constraints bind across arbitrary cyclic laws or how their supported jumps determine all minimizers. The two-site interval result does not subsume a general n-site periodic design.",
+        "searches": [
+          "arXiv:2201.12856v1 §2 Eq. (5)",
+          "arXiv:1808.10722v1 introduction and Eq. (2.13)",
+          "Resultary: two-sensor Brownian bridge under correlated observation erasures"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12856v1, 1808.10722v1, 1808.03444v1",
+        "Resultary b309a16a9d8b (same record), 469b84c92627, b74a94417317, 47f6c01bcecf, 971795799fba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest sources supply the Green operator and, in interval models, analogous gap-risk methods. Neither compared interval finding gives supported jump periodicity or the fixed-reliability cubic geometric spacing moment for the circle."
+        ],
+        "reasoning": "A decomposition for a particular delivered set does not itself establish that equality in all positive-weight Jensen constraints is equivalent to invariance under one subgroup, or give the sharp large-n penalty after averaging over random gaps. The originality judgment does not rest on the general conditioning or optimization tools.",
+        "searches": [
+          "Huang and Li, arXiv:2201.12856v1 §2",
+          "Resultary 469b84c92627 and 971795799fba, Findings and risk formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pronzato and Zhigljavsky identify Bayesian quadrature error with a kernel discrepancy for fixed nodes and weights; Sikolya and Baran optimize integrated pointwise prediction error or entropy for a complex OU process on an interval.",
+          "The structurally close two-request Green-kernel entry 469b84c92627 uses interval Dirichlet covariance and independent erasures."
+        ],
+        "reasoning": "Posterior variance of a scalar integral includes off-diagonal conditional covariance and is not integrated pointwise variance. Interval endpoint conditions are not removable by a parameter substitution to the circular problem with arbitrary cyclic dependence.",
+        "searches": [
+          "Resultary: cyclic erasures, periodic Green-kernel quadrature, OU integral risk",
+          "arXiv:1808.10722v1 Eq. (2.13)",
+          "arXiv:1808.03444v1 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same Resultary match b309a16a9d8b is the assigned record. Distinct same-day matches derive two-site interval designs, not a cyclic gcd classification or an n→∞ Bernoulli factor. The earlier OU stratification note has a 3/2 factor from random within-stratum node placement."
+        ],
+        "reasoning": "The jittered-node factor is for a different sampling distribution, not a table or special case of loss from erasing a prescribed periodic grid. The distinct same-day sources were compared on substance; their dates do not resolve relative priority.",
+        "searches": [
+          "Resultary: gcd of consecutive surviving jumps; fixed-p Bernoulli inflation; OU Bayesian quadrature stratification",
+          "Resultary 469b84c92627, b74a94417317, 47f6c01bcecf, 971795799fba"
+        ]
+      },
+      "rationale": "Partial coverage is substantial for the Green kernel, conditioning, erasure-averaged scalar posterior variance, and interval optimization problems. The supported distinct result is the full optimizer classification for arbitrary cyclically invariant delivery laws on a circle, together with the sharp fixed-p many-site erasure factor. No equivalent or dominating statement for these was identified in the inspected evidence.",
+      "residual_risks": [
+        "Bounded search does not rule out an older Gaussian–Markov sampling or more general convex expected-gap optimization theorem. The comparison supports substantive distinction, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlies the covariance, not the proposed delivery optimization in the compared passage.",
+          "evidence": "Circular Green covariance from the SPDE, including α=1.",
+          "identifier_or_url": "https://arxiv.org/html/2201.12856v1",
+          "material_read": "§2 equation (5), around text offset 11200",
+          "method": "OA primary HTML",
+          "title": "The Circular Matérn Covariance Function and its Link to Markov Random Fields on the Circle",
+          "trigger": "Same circular Green kernel"
+        },
+        {
+          "assessment": "General risk framework, not the periodic erasure formula in the inspected passages.",
+          "evidence": "Scalar integral posterior variance and kernel discrepancy.",
+          "identifier_or_url": "https://arxiv.org/html/1808.10722v1",
+          "material_read": "Introduction near offset 5400 and known-mean Eq. (2.13) near offset 24600",
+          "method": "OA primary HTML",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "General Bayesian quadrature possible coverage"
+        },
+        {
+          "assessment": "The stated objectives and model differ.",
+          "evidence": "Integrated pointwise prediction error and observation entropy on an interval.",
+          "identifier_or_url": "https://arxiv.org/html/1808.03444v1",
+          "material_read": "Abstract near offset 650",
+          "method": "OA abstract comparison",
+          "title": "On the optimal designs for the prediction of complex Ornstein–Uhlenbeck processes",
+          "trigger": "OU optimal design under alternative formulations"
+        },
+        {
+          "assessment": "Exact expected risk but for two requests on an interval, not a generic cyclic law.",
+          "evidence": "Dirichlet Green covariance, independent deliveries, reliability-dependent optimal pair.",
+          "identifier_or_url": "2026/11/22/SCOPE-bandwidth-driven-separation-in-two-request-green-kernel-quadratu--469b84c92627",
+          "material_read": "Finding in RESULT.md, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Bandwidth-driven separation in two-request Green-kernel quadrature with erased observations",
+          "trigger": "Strongest same-day bridge and erasure overlap"
+        },
+        {
+          "assessment": "Different boundary conditions and scope.",
+          "evidence": "Stationary exponential covariance on [0,1], two independently delivered sites.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-erasure-robust-two-node-quadrature-for-exponential-gaussi--b74a94417317",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "Unique erasure-robust two-node quadrature for exponential Gaussian processes",
+          "trigger": "Same-day exponential covariance erasure design"
+        },
+        {
+          "assessment": "Different prior, geometry, and number of sites.",
+          "evidence": "Two sites on an interval, with marginal and joint delivery probabilities.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-sensor-brownian-bridge-quadrature-under-correlated-obs--47f6c01bcecf",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-sensor Brownian-bridge quadrature under correlated observation erasures",
+          "trigger": "Correlated erasure analogue"
+        },
+        {
+          "assessment": "Interval quadrature with stratified jitter rather than deletion of fixed periodic sites.",
+          "evidence": "Noiseless stationary OU, terminal margins, and random stratification factor 3/2.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+          "trigger": "Earlier exact OU gap optimization and penalty"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform spacing alone would not distinguish laws with the same one-site reliabilities. The gcd rule explains precisely which correlated erasures create flat optimal directions and when the design is rigid, without independence. The exact 13-fold limit at one-half reliability is a useful design benchmark and separates optimal placement from the large cost of failures under that placement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

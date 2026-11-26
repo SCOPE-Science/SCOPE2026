@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem follows from a direct bijection between the deletion shadow of each syndrome class and the received simplex, a complete character-filter product over all group labels, and an exact Möbius formula for the order-character sums. The iff balance criterion is proved in both directions: group translations when multiplication by the blocklength is invertible, and a support-one coefficient obstruction otherwise. The prime specialization follows coefficientwise, and the transfer-edge count is a bijective neighbor argument. Explicit 100-parameter-setting integer enumeration and 15 transfer checks match all predicted coefficients; the proof, not the finite tests, covers arbitrary groups and lengths.
+## correctness
 
-**Originality — PASS with residual risk.** The January 2026 multiset-code paper proves the unweighted sum-modulo syndrome cardinalities and uses the unrestricted support counts for bounds. This finding specifies the conditional distribution within *each* syndrome and identifies an exact coefficientwise balance threshold. The March 2026 companion analyzes unconditioned metric-ball statistics and distinct polynomial-syndrome constructions, not the present one-sided profile. The 2016 foundational paper supplies a general support-stratified bound rather than a class profile. Searches of relevant mathematical records and accessible historical claims revealed no equivalent complete formula or stronger theorem implying it. An implicit character-enumerator identity in older algebraic combinatorics remains a residual priority risk.
+PASS
 
-**Value — PASS.** The motivating source explicitly uses support sizes as one-deletion shadow occupancy in finite-block packing bounds, so the exact distribution within natural decoding classes is a mathematically motivated refinement rather than an arbitrary parameter slice. The infinite-family profile distinguishes full-group label geometries of equal cardinality, proves a sharp all-or-nothing support-balance criterion, and determines the decoder branching distribution for each fixed syndrome. Neither optimal code size nor decoding speed is claimed.
+For any received y and target syndrome a the unique parent is y plus a copy of a−s(y), so distinct occupied labels give distinct outputs and the shadows tile the received simplex. In the character filter the factor for a coordinate is [1−(1−u)χ(g)z]/[1−χ(g)z]. An order-d character takes each dth root q/d times; multiplying the factors and taking the coefficient of z^n gives exactly the displayed Q, including the zero contribution if d does not divide n. Characters with order dividing e are the dual of G/eG, giving |G[e]| times the indicator a∈eG; divisor inversion gives the integer formula. Translation shifts the syndrome by nb; conversely support one tests membership in nG, and nG is proper when gcd(n,E)>1. For prime q the nontrivial term when q divides n is exactly 1−(1−u)^q. For distinct a,b each occupied g gives the unique allowed transfer g→g+b−a with that removed label; its signed coordinate vector determines g, so the degree is the support and the inter-class edge count is the shadow total. Independent enumeration of sorted words reproduced both order-four group examples, with zero-syndrome rows (4,2,4,0) and (4,6,0,1), respectively, and the prime-five example. Replay: RESULT.md lines 51–100; inspected support_spectrum_check.py and its frozen .out (100 group/length settings, 27,824 multisets and 15 transfer settings, not independently rerun). Scope is n≥1 and the entire finite abelian group alphabet, not general label maps or multiple deletions.
 
-**Scope and independent limits.** All results require a bijective labeling by every element of a finite abelian group and exactly one multiset deletion. Verification uses finite exhaustive instances as corroboration. A human audit and independent novelty review are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted finite-abelian character-order distribution and exact coefficientwise balance criterion survive comparison. The cyclic deletion construction, its implied occupancy, the unweighted or unconditional marginals, and a particular quinary row have prior coverage; the elementary transfer consequences are not the main originality basis.
+
+## value
+
+PASS
+
+Support is exactly the number of distinct possible received multisets per word, used in natural deletion-shadow packing bounds. Resolving its full distribution by checksum shows what equal total occupancy conceals: different class sizes and branching patterns, and different distributions for the same alphabet cardinality under different group structures. This is a motivated exact finite-length invariant, without an unsupported claim of optimal coding rate or improved decoder complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

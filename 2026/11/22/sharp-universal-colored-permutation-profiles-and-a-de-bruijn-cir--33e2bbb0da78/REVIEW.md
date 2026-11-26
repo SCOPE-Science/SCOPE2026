@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The point profile is exhaustively determined by either a visible exact permutation period of length at most \(d\), plus its cyclic color word, or a no-repeat window of \(d+1\) colors. Short cycle necklaces are necessary and pairwise non-substitutable. Every no-repeat word requires a separate long vertex, giving the stated lower bound. A de Bruijn cycle realizes all long profiles at equality. Equality at the bound forces exactly one copy of each short necklace and exactly one occurrence of every long window. The resulting arc labeling bijects all optimizers with short-cycle-free de Bruijn transition systems, and inclusion–exclusion correctly counts those systems: a short arc-permutation cycle cannot revisit a length-\(d\) de Bruijn state without repeating an arc word, hence it projects to a simple graph cycle. The automorphism count follows from independent rotations of forced short components and rigidity of the long component(s). The standalone finite verifier returned `VERIFY_OK 25`.
+PASS
 
-## Originality
+A rooted c-cycle with c≤d has equality pattern exactly congruence mod c and an arbitrary c-letter color word; all iterates are distinct when c>d. This gives T and forces one short cycle per necklace, even for imprimitive colorings, because visible cycle length and rooted word are independent data. Every long vertex realizes just one new type, so at least q^(d+1) long vertices are needed. The balanced de Bruijn graph is strongly connected (append the destination word), so an Euler circuit supplies exactly that budget and is longer than d. At equality, each long vertex is canonically labeled by its window, and the successor map in those labels is precisely a matching of incoming to outgoing arcs at every state. Conversely color an arc by its first letter: overlap recovers all d+1 letters, and excluding permutation cycles of length at most d ensures distinct iterates. On a forbidden arc cycle of length ℓ≤d, two coincident states would give the same length-ℓ rotations of the periodic word and hence identical arc labels, a contradiction. Thus all forbidden events are simple state cycles; distinct ones sharing an arc cannot simultaneously be cycles of a permutation, and arc-disjoint ones prescribe disjoint matching pairs. This gives the factorial weights. Unique window labels fix the long part pointwise, and each short necklace permits exactly c/π rotations; orbit–stabilizer proves the labeled census. An independent small calculation enumerated simple graph cycles by DFS from the least state in each cycle, giving 2,3,5,8 forbidden cycles at binary depths 1–4 and weighted totals 1,3,40,7749. For q=3,d=1, forbidding the one loop-to-itself pair leaves 3!−2!=4 choices at each of three states. The two cyclic color words 0001 and 0111 exhaust the eight binary triples exactly once between them, confirming the depth-two multi-cycle example.
 
-**PASS within inspected evidence.** The exact universal colored-permutation minimum and the all-optima circuit-partition census were not located in the inspected primary sources or targeted database searches. The strongest overlaps are the established unary forward-profile framework, de Bruijn Euler tours, and colored permutation necklace enumerations. These do not directly determine all minimum models: already at binary depth two there are three minimum models, but only two long one-cycle de Bruijn words. General inclusion–exclusion is acknowledged as a method; its specialization to the logical optimization problem and the resulting exact structural classification are the assessed contribution. Potential pre-existing special-case circuit-partition enumerations remain a historical-priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** This supplies the optimal *single-model witness budget* for all bounded-depth one-point types of a natural finite permutation language, rather than only counting individual types. The full extremal classification explains why constructions based solely on a single de Bruijn cycle miss valid optimum structures. The exact finite census and automorphism factor make the constrained resource invariant reproducible and distinguishable from classical cyclic-word counts.
+Forward profiles, de Bruijn Euler tours, circuit partitions and Burnside counting are prior ingredients. The distinct result is the forced short-cycle budget together with the characterization and exact exclusion census of all optimal long parts; the sources inspected do not give that result or a dominating case.
 
-## Boundaries and closest literature
+## value
 
-Kuželka (2026) treats all endofunctions and profile compatibility for model counting, not this exact saturation optimization. Sawada and Gabrić (2025) develop universal-cycle generation, not optimal multi-cycle colored-permutation realization. Earlier colored-cycle and circuit-partition theory can overlap with ingredients, so absence of a located identical theorem is not proof of global novelty. The result does not extend to transient orbits, deeper first-order quantifiers, or uncolored palette size one.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum-size universal test structure is a natural question once forward profiles are fixed. The count of profiles alone does not solve it, since short colored necklaces can consume multiple vertices for repeated rooted words. The forced partition, complete optimizer parametrization and effective isomorphism/labeled census add structural information that a single de Bruijn example cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

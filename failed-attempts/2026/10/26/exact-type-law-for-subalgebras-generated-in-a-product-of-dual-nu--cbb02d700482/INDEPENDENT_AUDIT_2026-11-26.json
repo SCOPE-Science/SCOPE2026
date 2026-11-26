@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:43:45.589525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding through proof; frozen VERIFICATION.md; verify.py",
+        "Independent Chinese-remainder argument and hand enumeration"
+      ],
+      "rationale": "Let P be the polynomial algebra on the sampled generators. Evaluation at a+εb on each residue class factors through P/m_a², by expansion to first order, with no division or characteristic restriction. The ideals m_a² are pairwise comaximal, so the Chinese remainder theorem allows the independent choice of a constant and first jet in every occupied residue class. In the block with residue a the first-jet map has the row span of its tangent matrix as image; products in the image radical vanish. The block is thus a local factor A_s, and the primitive idempotents distinguish the factors with dimensions s+1. For a labeled block of size m, choosing an s-dimensional column image and a surjection to it gives the stated count N. Each of the q^ℓ labels can be empty or contribute one nonempty rank-marked block. Multiplying exponential series allocates the r coordinate labels, with multiplier r! and normalization q^(2ℓr); subtraction of 1 excludes the empty input. At z_s=1 the block sum by rank gives e^(q^ℓ t)−1, so the full series is e^(q^(2ℓ)t)−1 as required. At q=2, ℓ=1, r=2 direct small enumeration and coefficient extraction give counts (2,0):2, (1,1):4, (0,2):2, (1,0):2, (0,1):6. This small check corroborates the proof only. The supplied script compares rank-derived counts in small prime fields rather than independently constructing arbitrary embedded subalgebras and was inspected, not executed.",
+      "residual_risks": [
+        "The finite check does not address extension fields, but the algebraic proof works for every prime power. The type law says nothing about embeddings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gabriel-quiver record gives full-generation probability in split basic algebras; here it gives (q^ℓ) falling factorial r divided by q^(ℓr), times (1−q^(−ℓ))^r. Its proof isolates the radical spans with idempotents when all residue labels are distinct. The inspected published results give generator thresholds, bounds, or the whole-algebra generation probability."
+        ],
+        "reasoning": "This broader material covers an exact event of the type law, C₁=r, or its residue-distinctness component. It is not a direct substitute for the joint law. The separate full block-size occupancy construction and single-block rank law are the decisive coverage.",
+        "searches": [
+          "Resultary 6414cb51e1f0, split basic algebra generation",
+          "First–Reichstein–Salazar arXiv:1709.06982 Theorem 1.1 and Corollary 3.4",
+          "Sercombe–Shalev arXiv:2009.01115 Theorem 1.10 and definition of P(A,ℓ)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 531dcf3be3b2, 697b7c781727 and 6414cb51e1f0",
+        "arXiv:1001.2873, 1709.06982 and 2009.01115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The occupancy proof multiplies one EGF factor per label, with coefficient 1/m! at positive size m for degree-one labels. The local proof says that the rank law conditional on residues is the rank law of iid uniform vectors, giving N_(ℓ,m,s)/q^(ℓm) in the untwisted degree-one specialization."
+        ],
+        "reasoning": "Retain the occupancy proof's size m per label. Independence of the tangent coordinates conditional on the complete residue assignment gives independent marks on disjoint blocks. Weight the label's t^m/m! by the sum over s of z_s times the exact tangent array count N_(ℓ,m,s); this is exactly the frozen factor. Unoccupied labels keep weight 1. Ordinary idempotent lifting or the Chinese remainder theorem identifies these marked blocks with the abstract factors. No new rank regime, occupancy law, or interaction among marks is required. The implication uses the actual block construction, not just the marginal distribution of the number of occupied labels.",
+        "searches": [
+          "531dcf3be3b2 Finding and Proof §§1–2; 697b7c781727 Finding and Proof §§2–3; 6414cb51e1f0 Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At extension degree one the finite-étale result's type is the number of occupied residue labels and its proof uses e^t−1 for each occupied label. In the local rank result with coefficient field F_q and radical F_q^m, the type depends exactly on the rank of ℓ iid uniform vectors. The two matrix count formulas agree by transposition. The published direct-power criteria concern full generation of powers of simple algebras, not proper nilpotent types."
+        ],
+        "reasoning": "The right equivalent formulation is a labeled occupancy model whose nonempty blocks carry independent rank marks conditional on their sizes. Neither the unmarked occupancy marginal nor the full-generation probability alone gives all marked types. The inspected block construction plus the exact local marks does.",
+        "searches": [
+          "Resultary: generated abstract type in products of dual numbers, occupancy and square-zero rank; 531dcf3be3b2 and 697b7c781727",
+          "arXiv:1001.2873, Theorem 6.1, Proposition 6.2 and Theorem 6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact joint-law entry was identified in the retrieved hits. The two closest records provide respectively the exact per-label occupancy series, retaining every block size in the proof, and the exact rank table for an occupied block of each size."
+        ],
+        "reasoning": "This check is about an exact symbolic law rather than a single finite coefficient table. The lack of a hit for the identical printed formula does not overcome the exact component coverage.",
+        "searches": [
+          "Resultary: dual-number subalgebra type law, finite-étale generation profiles, square-zero local rank profiles"
+        ]
+      },
+      "rationale": "The exact joint statistic is not stated verbatim in the compared records. Nevertheless the complete result is obtained by a mechanical rank marking of the exact labeled occupancy construction in Resultary 531dcf3be3b2 with the exact local rank law in Resultary 697b7c781727. The only algebraic assembly is the standard splitting across distinct residue maximal ideals, after which the marks are independent conditional on the residue labels. This is a demonstrated implication of the compared content, not a claim about the priority order of same-day records or proof that one source prints the entire formula.",
+      "residual_risks": [
+        "Same-day dates do not establish ordering or authors' dependence. The assessment is of mathematical coverage by the inspected exact constructions. Literature queries and passage comparisons were bounded and do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_COMPONENT",
+          "evidence": [
+            "At orbit length d the factor is 1+z_d(e^(dt)−1); for the degree-one field this is precisely the residue-label occupancy construction, with each positive size included."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-finite-tale-generation-profiles-and-an-arithmetic-compound-poiss--531dcf3be3b2/RESULT.md",
+          "material_read": "Finding and Proof §§1–2, offsets 0–6541; decisive block calculation in excerpt beginning 3970",
+          "method": "Local mirror",
+          "title": "Finite-étale generation profiles and an arithmetic compound-Poisson law",
+          "trigger": "Exact residue type EGF and per-label construction"
+        },
+        {
+          "assessment": "EXACT_COMPONENT",
+          "evidence": [
+            "Residue field F_q makes residue generation automatic and gives only the identity twist; the radical in the generated algebra is the span of ℓ uniform m-vectors, with the stated Gaussian rank law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-galois-twist-rank-law-for-random-generation-of-square-zero-loc--697b7c781727/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§2–3, offsets 0–6780; conditional rank excerpt beginning 5110",
+          "method": "Local mirror",
+          "title": "A Galois-twist rank law for random generation of square-zero local algebras",
+          "trigger": "Same local rank mark for any nonempty residue block"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "For dual-number products its full-generation event is precisely C₁=r. Its idempotent/rank argument for separated vertex labels handles that event rather than the full collision profile."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-gabriel-quiver-universality-and-a-birthday-threshold-for-random--6414cb51e1f0/RESULT.md",
+          "material_read": "Finding and Proof §§1–4, offsets 0–6996; relevant radical span excerpt beginning 5009",
+          "method": "Local mirror",
+          "title": "Gabriel-quiver universality and a birthday threshold for random generation",
+          "trigger": "Broader square-zero split-basic algebra generation"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Direct-power simple factors, orbit separation and counting whole generating tuples, not the full marked type law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.2873",
+          "material_read": "Theorem 6.1 and Proposition 6.2 pp. 32–33 offsets 83284–87261; Theorem 6.3 p. 34 offsets 87548–90461",
+          "method": "Original OA PDF text",
+          "title": "Direct-power generation results of Kravchenko, Mazur and Petrenko",
+          "trigger": "Direct-product generator separation criterion"
+        },
+        {
+          "assessment": "RELEVANT_CONTEXT",
+          "evidence": [
+            "Minimum generator counts, in particular the ceiling of log_q r for F_q^r."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.06982",
+          "material_read": "Theorem 1.1 p. 2 offsets 5243–8186; Corollary 3.4 p. 5 offsets 18055–20553",
+          "method": "Original OA PDF text",
+          "title": "On the number of generators of a separable algebra over a finite field",
+          "trigger": "Products of finite fields as the residue quotient"
+        },
+        {
+          "assessment": "RELEVANT_CONTEXT",
+          "evidence": [
+            "Bounds for generator counts and whole-algebra probabilities in inspected statements, not the type of the generated proper subalgebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.01115",
+          "material_read": "Theorem 1.10 p. 4 offsets 14960–18921; definition of P(A,ℓ) p. 21 offsets 76576–80064",
+          "method": "Original OA PDF text",
+          "title": "Random generation of associative algebras",
+          "trigger": "Random generation in finite algebras"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen formula and proof steps 1–4",
+        "Resultary 531dcf3be3b2 and 697b7c781727, exact occupancy and rank constructions"
+      ],
+      "rationale": "The abstract type is a natural statistic and the assembled formula may be useful. But the claimed exact invariant is a size-by-size marking of an available labeled block EGF by an available rank law, plus standard splitting and normalization. It is not an independent resolution of a new enumeration obstacle under the review standard. No additional asymptotic, interaction law, or case outside that assembly is established in this record.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

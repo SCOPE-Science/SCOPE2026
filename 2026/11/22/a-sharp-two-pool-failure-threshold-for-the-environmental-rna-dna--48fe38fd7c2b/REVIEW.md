@@ -1,19 +1,21 @@
-# Scientific review: two-pool RNA:DNA ratio threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final theorem is a closed first-order, coeval two-pool model with all six parameters positive. The transformation \(x=e^{-\Delta t}\) gives an exact logarithmic derivative; algebra yields a quartic \(P_q\) with strictly negative derivative for every \(0<x<1\). Endpoint signs prove its sole root, and the sign of \(F_q-s\) establishes a complete zero-, one-tangent-, or two-turning-point classification. The range of the three monotone branches implies exactly three age solutions at every level between the two extrema. The displayed counterexample has strict certified integer-power inequalities; the checker additionally passes 12,609 supplementary checks. There is no claim that finite numerical tests prove the theorem.
+PASS
 
-## Originality — PASS on accessible comparisons; priority provisional
+Removing Ae^(−bt) and setting x=e^(−Δt) gives Q=κ x^s(1+qx²)/(1+qx), with logarithmic time derivative Δ(F_q(x)−s). Independently, F_q′=q/(1+qx)^2−4qx/(1+qx²)^2, so its sign is that of 1+qx²−2√x(1+qx); with y=√x this is 1−2y−qy³(2−y), strictly decreasing on (0,1) from 1 to −1−q. The difference-of-squares numerator is precisely P_q(x), so the maximum is at the stated unique quartic root. Its value is positive by the sign of F_q just to the right of 0, and F_q(1)<0. Above the maximum the ratio decreases, and at equality an isolated derivative zero leaves strict decrease. Below it, the time-reversed order of the two simple x roots gives derivative signs −,+,−. Since every positive-time value is strictly below Q(0)=κ and the limit is zero, levels strictly between the extrema occur once on each of three disjoint branches. One pool cannot reverse. For q=1 and s=1/20, the level 4/5 signs at 0, ln 3, ln 16 and in the tail follow by raising the stated positive ratios to the twentieth power; the integer comparisons have the asserted directions. Read, but did not execute, the packaged finite supplement.
 
-Marshall et al. (2021), Jo et al. (2022), and Kagzi et al. (2023) establish physical motivation for differential degradation but do not state the parameter-specific theorem. Mixture reversals are an old phenomenon and are not asserted to be novel. Bar-Lev and Letac (2010) treat increasing mixture hazard under a different objective; classical exponential-polynomial theory already provides a generic three-level-root ceiling but not the parameter-specific criterion or matching-rate example. Scarsini and Spizzichino (1999) address Simpson-type ageing paradoxes at a broader level, but the available abstract does not decide priority for this exact special case; complete article access was not obtained. Thus historical priority requires further examination even though no decisive covering implication arose in the accessible comparison.
+## originality
 
-## Value — PASS
+PASS
 
-The measurement interpretation problem is concrete: estimating molecular age from a higher-or-lower eRNA:eDNA ratio is motivated by published experiments. The result identifies a counterintuitive nonmonotonicity despite faster RNA degradation *within each component*, supplies an explicit necessary-and-sufficient boundary using only pool weight and relative excess rate, and specifies how many compatible ages may result. The two-pool minimum and exact certified example show that the issue is structural, not merely a numerical fit. This is neither a field-calibrated statistical procedure nor a conclusion about measured samples.
+The supported exact contribution is the necessary-and-sufficient threshold as a function of q for the coupled molecular-decay family, and its attainment with exactly three ages despite faster matched RNA loss. Prior empirical age inference, generic mixture reversals, and the closest same-day ratio result were compared at the level of actual claims; none supplies this criterion in the inspected evidence. This is a bounded literature judgment, not certification of priority.
 
-## Principal scientific risks and limitations
+## value
 
-The precise inter-pool rate coupling and equal initial RNA:DNA proportions are essential. Measurements with noise, detection limits, replenishment, transport or additional pools are outside the theorem. The two extrema can be close; practical identifiability requires experiments. The broad survival-analysis literature may contain a mathematically equivalent specialized result not located by the available comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A condition on each pool separately (strictly faster RNA loss and the same starting ratio) might suggest injectivity of the pooled clock. The theorem gives exactly when that inference fails in a minimal two-component model and shows which level range becomes three-valued. It is a useful identifiability counterexample with a sharp regime boundary and exact witness, not just one plotted reversal. No field claim is needed for that mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

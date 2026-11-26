@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** In any accepting run, pumping a closed subwalk preserves acceptance and therefore forces its length to be divisible by the modulus. A transition-compatible two-coloring also forces even length. This yields at least the least common multiple of the modulus and two distinct states. Equality forces an oriented spanning cycle, and the cactus restriction prohibits undirected chords. Inserting any reverse arc would violate the congruence; completeness for all words forces every alphabet letter at every forward arc. The explicit cyclic automaton meets the bound. The proof covers every nonempty finite alphabet, every modulus at least two, and every target residue.
+## correctness
 
-**Originality — PASS within examined sources.** The full text of Grobler–Koziel–Siebertz, arXiv:2610.11717 (2026), introduces the epsilon-free bipartite-cactus model and explicitly leaves exact state blow-up open. Its construction does not yield the exact sharp modulus-dependent bound or the complete characterization of equality automata. Queries of the mathematical research-record index for the source, parity, cactus, modular languages and state costs, together with web literature searches and comparisons to accessible earlier mathematical claims, found no stronger covering theorem. The main residual risk is prior rediscovery in the older topology-of-automata literature under other terminology.
+PASS
 
-**Value — PASS.** This is a natural exact restricted-model state-complexity subproblem explicitly motivated by a recent representation theorem. The complete family of congruence languages exhibits a sharp parity dichotomy, including a factor-two necessary state penalty in odd moduli despite nondeterminism, and classifies all optimal machines up to isomorphism. The classification, not merely a straightforward parity observation, identifies an unavoidable optimal graph and all its labels and final states. No general-language worst-case claim is made.
+Inserting a positive closed subwalk at a state of an accepting run preserves acceptance and changes length by a multiple of m. Transition-compatible two-colouring also makes its length even. Hence the first h=lcm(m,2) states of a sufficiently long accepting run are distinct, and at equality the next state is necessarily the first. The resulting directed h-cycle is usable on an accepting run at every state. For any arc i→j, following it with the forward cycle path from j to i would give an insertable closed walk of length between 1 and h, so that length must be h and j must be i+1. This directly checks the rigidity step, even without using cactus to exclude chords. A word of sufficiently large accepted length can prescribe any letter at any phase, forcing all labels on each arc. With those transitions, acceptance forces exactly the residues stated. The construction is an even undirected cycle, or one simple edge at h=2. Dropping the even-length constraint gives the unrestricted m-state lower bound and matching modular DFA. The source's reference to an exception at m=4 in the reverse-arc argument is unnecessary: h≥4 always implies m≥3, and m=4 also does not divide 2. Frozen logged checks cover construction consistency, not arbitrary optimum NFAs; the uploaded script was inspected but not run.
 
-Closest literature: Grobler–Koziel–Siebertz, *Every Regular Language Has a Bipartite Cactus Automaton*, arXiv:2610.11717, full text Sections 2–4; Book–Chandra, *Inherently Nonplanar Automata* (1976), older context on graph restrictions (metadata/primary-paper citations checked, not full text). Independent verification of priority or of the complete proof has not occurred. Computation verifies only the constructive finite examples, not the infinite lower bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the combined exact optimum and all-minimizers classification, not for independent originality of the state-count formula or modular pumping. The thresholded unary result covers the minimum for the whole target via its unary specialization and restriction to one letter. It proves a cycle lower bound and constructs one optimum; the supported distinct conclusion is that every optimum is the fully labelled cycle with the specified start and final set. This is an equality analysis, not a new numeric case of the threshold formula. No historical priority is inferred from catalogue path dates.
+
+## value
+
+PASS
+
+The restricted state complexity is a natural family question left open by the general construction, and the full equality result says considerably more than that a small DFA exists: nondeterminism, deletion of letters and alternative accepting sets are all impossible at the optimum. The independent unrestricted count and arithmetic factor alone would not justify a separate value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

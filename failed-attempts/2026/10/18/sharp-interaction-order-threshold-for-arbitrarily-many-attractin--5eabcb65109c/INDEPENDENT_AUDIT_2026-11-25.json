@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:24.587526Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Assumptions and scope, Proof; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/branches/independent-replay.py, check3"
+      ],
+      "rationale": "The nonzero endemic polynomial has degree M. Every attracting interior root, including a degenerate one, has left-positive and right-negative field, so k attractors require at least 2k−1 distinct roots. The proposed quotient is polynomial since its numerator vanishes at 1. Each normalized coefficient is an alternating initial sum of elementary symmetric functions, strictly positive since the sum of the nonconstant elementary symmetric functions is bounded by the finite geometric sum of 2^−s. Multiplication recovers −yR(y)/R(1) for recovery 1 (and positive scaling supplies arbitrary recovery). The derivative at each root has the claimed alternating sign. The interval boundaries and exclusion of y=0 from the count are consistent. Rational refers to the formula in the roots, with rational coefficients for rational root data. The minimum largest group size is 2k. Independent exact replay `python3 /workspace/branches/independent-replay.py 3` checked 16 root prescriptions by exact polynomial division and reproduced the five-rate witness and normalization; the proof, not these sample cases, supplies the all-order conclusion.",
+      "residual_risks": [
+        "Only the scalar deterministic mean-field family is established; no stochastic or hydrodynamic extension is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "05e1cb0684bf gives the same capacity and a realization for sum r_j<1, containing the frozen sum r_j≤1/2 domain.",
+          "52adade0259d gives positive rates iff sum r_j<1 for prescribed maximal distinct endemic roots, with uniqueness when recovery is fixed."
+        ],
+        "reasoning": "The larger domain includes every frozen root configuration and the positive scaling covers fixed recovery; the broader construction therefore implies the claimed small-sum realization. Finite-order and two-population cases alone do not imply it.",
+        "searches": [
+          "Resultary 05e1cb0684bf and 52adade0259d, matching RESULT.md Findings",
+          "arXiv:2410.15330, abstract and §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "2309.12752v1",
+        "2410.15330v1",
+        "Resultary 05e1cb0684bf",
+        "Resultary 52adade0259d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p. 14 wording is 'we envision' arbitrary positive steady states. The successor's scalar cases are three-/four-body, whereas the matching catalogue theorem explicitly treats every M with strictly positive rates."
+        ],
+        "reasoning": "Those papers do not establish the all-order count or inverse equation by their inspected statements. The first published catalogue theorem does imply the whole headline claim; the second independently implies its inverse-design component.",
+        "searches": [
+          "2309.12752v1 p. 14; 2410.15330 abstract and §§3–4; Resultary 05e1cb0684bf and 52adade0259d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "05e1cb0684bf uses the same scalar complete-simplicial setting and counts locally attracting positive equilibria; the switch between largest infectious-neighbour order M and largest group size M+1 is a reindexing.",
+          "Kiss et al. express a prospect of arbitrarily many positive endemic states, not a sharp stable-state theorem."
+        ],
+        "reasoning": "After identifying the scalar model and excluding the disease-free equilibrium on both sides, the catalogue count and minimum group size coincide exactly. Merely anticipating arbitrary multiplicity is not the same theorem.",
+        "searches": [
+          "Resultary: sharp endemic attractor capacity and positive-rate higher-order scalar SIS",
+          "arXiv:2309.12752v1, conclusion p.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct catalogue entry gives the entire closed-form capacity, parity and group-size result, not merely a numeric witness; a second supplies the exact inverse feasibility criterion."
+        ],
+        "reasoning": "There is no need to locate an isolated five-rate table: the matching all-order statements cover the theorem and permit the rational example, which is an instantiation of the formula.",
+        "searches": [
+          "Resultary catalogue matches 05e1cb0684bf and 52adade0259d; local mirror RESULT.md passages"
+        ]
+      },
+      "rationale": "A distinct published catalogue record already supplies the same all-orders sharp stable count, the same alternating hyperbolic branch types and minimum group size, and positive-rate prescribed-root realization on the strictly larger domain sum r_j<1. This is demonstrable coverage, not a priority determination or an inference from catalogue dates. The separate exact-realizability result also dominates the inverse-design part. No distinct substantive remainder is established in the frozen finding.",
+      "residual_risks": [
+        "Coverage is established at statement level; catalogue dates are not independent evidence of priority or authorship. The search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected passage does not establish the frozen sharp result",
+          "evidence": "The conclusion anticipates arbitrarily many positive distinct endemic steady states; it does not state an all-orders stable count or positive-rate prescribed-root theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.12752",
+          "material_read": "v1 conclusion p. 14, decisive sentence near OA text offset 70064",
+          "method": "Bounded OA original passage",
+          "title": "Insights from exact social contagion dynamics on networks with higher-order structures",
+          "trigger": "Source of the scalar arbitrary-order model and nearest conjecture"
+        },
+        {
+          "assessment": "Does not supply arbitrary-order realization or capacity",
+          "evidence": "Scalar three-/four-body and coupled two-population cases, not the arbitrary-order scalar claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.15330",
+          "material_read": "Abstract p.1 and §§3–4 passages pp.9,13",
+          "method": "Bounded OA original passages",
+          "title": "Decoding how higher-order network interactions shape contagion dynamics",
+          "trigger": "Successor bifurcation analysis"
+        },
+        {
+          "assessment": "Covers and strengthens the frozen claim",
+          "evidence": "Exact ceil(M/2), same parity and minimum group size; prescribed-root condition sum r_j<1 strictly includes sum r_j≤1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-endemic-attractor-capacity-and-positive-rate-realization-f--05e1cb0684bf/RESULT.md",
+          "material_read": "RESULT.md Finding and prescribed-root theorem statement",
+          "method": "Local Resultary mirror",
+          "title": "Sharp endemic attractor capacity and positive-rate realization",
+          "trigger": "Strongest published catalogue match"
+        },
+        {
+          "assessment": "Covers inverse-design component",
+          "evidence": "Positive-rate realization of M prescribed roots iff the sum is less than one, with uniqueness at fixed recovery.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-inverse-design-of-maximal-endemic-multiplicity-in-higher-o--52adade0259d/RESULT.md",
+          "material_read": "RESULT.md Finding, exact necessary and sufficient criterion",
+          "method": "Local Resultary mirror",
+          "title": "Exact inverse design of maximal endemic multiplicity in higher-order SIS",
+          "trigger": "Stronger inverse-realizability match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and Limitations",
+        "Kiss et al. arXiv:2309.12752v1 conclusion p.14"
+      ],
+      "rationale": "Considered as a mathematical fact separately from credit for originality, an all-order exact stable-attractor capacity in a recognized mean-field model is useful. The degree count only supplies a ceiling; simultaneous strict coefficient positivity is a meaningful realization constraint. The extremal result gives an exact order requirement rather than a finite list of bifurcation cases.",
+      "residual_risks": [
+        "The result has deterministic model-level significance only; novelty of this record is assessed separately."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

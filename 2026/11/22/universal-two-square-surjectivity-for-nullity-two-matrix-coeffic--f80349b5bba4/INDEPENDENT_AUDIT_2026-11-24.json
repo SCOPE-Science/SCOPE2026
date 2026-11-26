@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:34:47.020513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Left multiplication by A1^-1 preserves the required surjectivity and the nullity of the second coefficient. A common similarity puts its image in the first s=n-2 coordinates. With D the resulting surjective top row map, every full-row-rank residual H factors as DT for invertible T by completing the two row frames, and T is a square by the finite binomial root on each nonzero Jordan block. For two independent prescribed bottom rows, the invertibility polynomial for the completion and a fixed residual-minor polynomial are individually nonzero; their product is not the zero polynomial and has a nonzero value over the infinite field. For zero bottom rows, scaling the top coordinate projection gives a residual minor with leading term (-t)^s. For rank one, write the row map as u times a covector. If the covector is nonzero on the image of the coefficient, a block upper-triangular basis change normalizes its restriction and cancels its quotient component through the off-diagonal block; otherwise the induced 2-by-2 rank-one endomorphism is semisimple or nilpotent. The three listed completions fit these types: a nonsingular 2-by-2 block plus scalars, a diagonal matrix, and a rank-one zero-square block embedded in three dimensions plus scalars. In the last block the proposed root sends e_n to e_1, e_1 to v=a e_1+e_(s+1), and v to zero; its square has exactly the required column. The indicated residual minor in the two cases using a has the leading term determined by the nonzero difference (C_0)_(1,j)-a and the other s-1 diagonal t entries. This includes s=1 with the empty product, so the proof indeed works for n>=3. The frozen checker supplies finite bottom-row/rank tests and explicit nilpotent multiplication, not generic full reconstruction. A separate exact n=7 sample constructed both squares for each of the five strata with a coordinate projection coefficient; see /workspace/branches/c1c96095-481f-4250-8f29-1c1f3fa8b7ac/independent_five_strata.py. The algebraic argument covers arbitrary allowed coefficients and fields, not the finite sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saini's small-order result covers dimensions 5 and 6 for squares at nullity two. Saini–Singh give all-order surjectivity at nullity at most one and a criterion in dimensions 3 and 4 which includes nullity two for squares.",
+          "Panja–Saini–Singh treat two nonzero coefficients on M_2 and discuss scalar-coefficient results in higher dimension."
+        ],
+        "reasoning": "A nullity-one theorem cannot be specialized to nullity two, and neither small-order classification nor all-order nonzero scalar coefficients cover an arbitrary rank-(n-2) coefficient at n>=7.",
+        "searches": [
+          "Saini arXiv:2611.19228v1 Theorem 1.1; Saini–Singh arXiv:2604.27592v1 Theorems 1.2–1.3",
+          "Panja–Saini–Singh arXiv:2312.13865 Theorem A and §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_square_coeff.py",
+        "Saini arXiv:2611.19228v1",
+        "Saini–Singh arXiv:2604.27592v1",
+        "Panja–Saini–Singh arXiv:2312.13865",
+        "Resultary f80349b5bba4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The named open question has this slice but is not a theorem granting it. The existing low-dimensional criteria do settle n=3 through 6. The arbitrary-order theorem inspected for nullity at most one leaves the rank-one nilpotent two-row quotient stratum outside its hypotheses."
+        ],
+        "reasoning": "Taking square roots of invertible matrices and lifting a full-rank row map explain the residual step only. The simultaneous prescribed-row square completion, including the defective rank-one quotient and avoidance of a residual minor zero, is the extra argument at nullity two.",
+        "searches": [
+          "Saini Question 6.1 and Theorem 1.1; Saini–Singh Theorems 1.2–1.3; Panja–Saini–Singh Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 6.1 asks whether X^k+B Y^k is surjective for n>=7, 2<=k<=n-2 and nullity(B)=2."
+        ],
+        "reasoning": "Left multiplying by A1^-1 makes B=A1^-1 A2 and identifies the frozen claim with the k=2 slice of the question, not a different matrix coefficient problem or a solution for k>2.",
+        "searches": [
+          "Saini arXiv:2611.19228v1 §6 Question 6.1; sum of powers with matrix coefficients, nullity two, k=2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact statement in catalogue f80349b5bba4 has the same frozen identity and assumptions, including n>=7, square exponent and every target. Its Finding and proof were compared in the local mirror."
+        ],
+        "reasoning": "The exact returned entry identifies the assigned source itself, not a distinct catalogue result supplying prior coverage. A finite exact example or rank table is not the claimed arbitrary-target surjectivity result.",
+        "searches": [
+          "Resultary universal two-square surjectivity nullity two matrix coefficient; catalogue f80349b5bba4"
+        ]
+      },
+      "rationale": "The supported increment is the entire exponent-two nullity-two case for n>=7. The normalization matches a published open question, and the strongest inspected neighboring theorems do not cover these orders with this nullity and exponent. The smaller orders and invertible-matrix root lemma are not original claims.",
+      "residual_risks": [
+        "Historical priority is not exhaustive; no assertion for exponents greater than two or for non-algebraically-closed fields follows from the reviewed theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Open k=2 slice at n>=7; no credit for covered n=5,6",
+          "evidence": "Question specifies n>=7, 2<=k<=n-2, nullity two and X^k+B Y^k; Theorem 1.1 yields surjectivity for squares at nullity two in orders five and six.",
+          "identifier_or_url": "https://arxiv.org/html/2611.19228v1",
+          "material_read": "§6 Question 6.1 (OA passage offset 40249, question starts at 40469); §1 Theorem 1.1 (offset 4900)",
+          "method": "Lawful primary HTML passage inspection",
+          "title": "Sum of Powers with Matrix Coefficients",
+          "trigger": "Exact normalized open question and adjacent solved ranges"
+        },
+        {
+          "assessment": "General theorem stops at nullity one; low orders already covered",
+          "evidence": "For n=3,4 the criterion is n>k(r_0-1); r_0=k=2 satisfies it. The unlimited-order sufficiency assumption is nullity at most one.",
+          "identifier_or_url": "https://arxiv.org/html/2604.27592v1",
+          "material_read": "§1 Theorems 1.2–1.3, OA offsets 6704 and 8200",
+          "method": "Lawful primary HTML passage inspection",
+          "title": "Polynomial Maps with Constants on Matrix Algebra",
+          "trigger": "Potential stronger surjectivity theorem for singular coefficients"
+        },
+        {
+          "assessment": "Does not cover the high-order nullity-two matrix coefficient",
+          "evidence": "Theorem A is for two nonzero matrix coefficients in M_2; the general scalar coefficient result discussed uses nonzero scalars.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13865",
+          "material_read": "Theorem A PDF p. 2, OA offset 6828; §2 p. 6, offset 17280",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Images of polynomial maps with constants",
+          "trigger": "Same two-term exponent problem in lower order and scalar formulation"
+        },
+        {
+          "assessment": "Identical frozen record, not independent coverage",
+          "evidence": "Same field, n>=7, invertible first coefficient, nullity two and square exponent.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-two-square-surjectivity-for-nullity-two-matrix-coeffic--f80349b5bba4/RESULT.md",
+          "material_read": "Finding and proof, OA offsets 0 and 4991",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal two-square surjectivity for nullity-two matrix coefficients",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square is the first nontrivial exponent in the published open question. The result resolves that entire infinite-order slice for every nullity-two Jordan type and every target, rather than a generic surjectivity claim or a finite census. The rank-two quotient analysis explains how a seemingly obstructive nilpotent quotient can be completed to a square by using one extra coordinate while preserving residual row surjectivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

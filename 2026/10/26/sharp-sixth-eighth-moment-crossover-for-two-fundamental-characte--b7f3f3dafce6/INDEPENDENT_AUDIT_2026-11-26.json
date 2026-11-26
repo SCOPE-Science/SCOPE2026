@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:09:37.225869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Findings, assumptions, and Proof §§1–3",
+        "Independent integer extraction: form u and v from their torus weights, convolve their powers with ∏α(2−z^α−z^(−α)), take zero exponent, and divide by 8",
+        "VERIFICATION.md, check.py, check_output.txt; supplied execution read as recorded evidence only"
+      ],
+      "rationale": "For ordinary irreducible traces under probability Haar, Schur orthogonality gives exactly |a|²+|b|² for the squared L² norm. The primitive exterior square has weights (±1,±1) and one zero weight after removing the invariant line. The four positive C₂ roots give kernel constant term 8; independent exact integer Laurent convolution yielded rows (3,0,2,0,3), (14,0,11,0,10,0,15), and (84,0,75,0,73,0,75,0,105) in degrees 4, 6, 8. Central parity kills odd indices; every retained mixed term in F^m times its conjugate has a positive moment. In interior magnitudes the (i,j)=(0,2) term and its conjugate force relative phase 0 or π at equality, and this suffices for all terms. Binomial expansion gives H₆=15+105p−90p²−16p³ and H₈=105+1680p−560p²−2240p³+1099p⁴. The first derivative H₆′ decreases strictly and is positive at 1/2; H₈′/28 decreases strictly by h′≤−9p−40 and has h(1/2)=−3/8. Both derivatives change sign from positive at 0 to negative at 1, proving unique interior maximizers and the strict change of dominant mass. The degree-four row gives 3+6p(1−p). Independent evaluation gives K₆≈43.019700544257631 and K₈≈593.699634602355104; the last printed digits in the source are approximate, and the exact definitions H₆(p₆), H₈(p₈) are confirmed.",
+      "residual_risks": [
+        "No claim of expert or formal verification; phase rigidity concerns relative phase only, with arbitrary common complex scalar."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee–Oh gives finite symplectic-character sums for averages of characteristic-polynomial products; those can encode the mixed coefficients.",
+          "Assiotis et al. treat growing-rank joint characteristic-polynomial and derivative moments at 1."
+        ],
+        "reasoning": "The moment-calculus theorem covers the type of raw data used here. It does not classify sharp norms or the optimizer as a function of exponent, and the growing-rank asymptotic is not the fixed-rank two-mode extremum.",
+        "searches": [
+          "Literature: USp(4) sixth eighth moments character optimizer sharp moment inequality exterior square",
+          "arXiv:2006.06116 Thm. 5.2, Eq. (5.7); arXiv:2508.09910 Thm. 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked lookups and mirrored 28eea919d94d, 8c892feebd1e",
+        "arXiv:2006.06116, 1910.00518, 2508.09910 and targeted literature queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The G₂ result gives r₄≈0.93628<1<r₆≈1.14507 for the 7- and 14-dimensional traces, a precedent for the idea of an optimizer reversal.",
+          "The symplectic product formula provides moment inputs but still requires phase reduction, proof of the global optimizer and evaluation of the derivative at balance for each exponent."
+        ],
+        "reasoning": "Neither measurable inputs nor the analogous reversal in a different group asserts or forces this specific sixth/eighth reversal; its quantitative sign, equality and orders are distinct.",
+        "searches": [
+          "28eea919d94d, Finding; 8c892feebd1e, Finding; arXiv:2006.06116 §5, Eq. (5.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Spin(5) alias exchanges the description for spin and vector traces; in genus-two coefficients the tested packet is (−c₁,c₂−1), not (−c₁,c₂).",
+          "Costa–Fité–Sutherland arXiv:1910.00518 p. 1 uses the uncentered exterior-square trace as a₂ and links selected moments to arithmetic ranks."
+        ],
+        "reasoning": "These descriptions identify the same observables after centering but do not supply the normalized optimization or phase classification. The alias searches did not provide a distinct equivalent claim.",
+        "searches": [
+          "Resultary: USp(4) Spin(5) sharp character packet moments defining representation exterior square",
+          "Literature: (USp(4) OR Spin(5)) sharp moments character pair sixth eighth exterior square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 8c892feebd1e covers every SU(2) packet of two distinct characters only at exponent four; 28eea919d94d compares fourth and sixth orders for compact G₂.",
+          "No distinct equivalent USp(4)/Spin(5) record was found in the bounded ranked lookups. The exact moment table in the frozen submission is not itself the originality claim."
+        ],
+        "reasoning": "The closest indexed cases do not give these sharp constants or optimizer cutoffs; a catalogue date alone gives no priority inference.",
+        "searches": [
+          "Resultary: USp(4) sharp sixth eighth moments defining character primitive exterior square crossover optimizer p6 p8",
+          "Resultary: 2026/10/26 USp4 character packet sixth eighth moment crossover"
+        ]
+      },
+      "rationale": "The best located analogue already shows a change of optimal mass in a different fundamental-character pair, and symplectic autocorrelations supply underlying moment data. The supported distinct result is the sharp sixth/eighth optimization and sign of the crossover for this particular compact symplectic pair, not the first crossover phenomenon or a new method for calculating mixed moments.",
+      "residual_risks": [
+        "Bounded searches cannot rule out an unindexed Spin(5) formulation or an older equivalent. The absence of a verified same-day matching USp(4) record is not proof of absence or of chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "material conceptual precedent; distinct packet and orders",
+          "evidence": "The 7- and 14-dimensional traces have r₄<1<r₆ and common-phase equality families.",
+          "identifier_or_url": "28eea919d94d",
+          "material_read": "Mirrored RESULT.md, Finding (offset 0)",
+          "method": "local mirror",
+          "title": "A fourth-to-sixth moment optimizer reversal for the two fundamental characters of compact G₂",
+          "trigger": "closest structural overlap"
+        },
+        {
+          "assessment": "not equivalent",
+          "evidence": "Sharp fourth moments and equality for SU(2), not USp(4) at sixth/eighth orders.",
+          "identifier_or_url": "8c892feebd1e",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "local mirror",
+          "title": "Sharp fourth moments for every two-character central Fourier packet",
+          "trigger": "same-date two-character indexed hit"
+        },
+        {
+          "assessment": "broad raw moment coverage, not sharp optimization",
+          "evidence": "Genus-two characteristic-polynomial product averages are finite sums in symplectic characters for arbitrary product length.",
+          "identifier_or_url": "arXiv:2006.06116",
+          "material_read": "Abstract p. 1; §5, Theorem 5.2, Eq. (5.7), pp. 13–14",
+          "method": "OA primary text",
+          "title": "Auto-correlation functions of Sato–Tate distributions and identities of symplectic characters",
+          "trigger": "same-group general moment theorem"
+        },
+        {
+          "assessment": "coefficient context, not optimization",
+          "evidence": "Defines a₁=Tr(V), a₂=Tr(∧²V), so a₂=1+v for the generic genus-two group.",
+          "identifier_or_url": "arXiv:1910.00518",
+          "material_read": "p. 1, definitions and arithmetic moment statements",
+          "method": "OA primary text",
+          "title": "Arithmetic invariants from Sato–Tate moments",
+          "trigger": "same coefficient statistics"
+        },
+        {
+          "assessment": "different variables and asymptotic regime",
+          "evidence": "Joint moments at spectral point 1 and derivatives in growing rank, not a sharp norm of this fixed pair.",
+          "identifier_or_url": "arXiv:2508.09910",
+          "material_read": "Introduction p. 2; Thm. 1.3 p. 5",
+          "method": "OA primary text",
+          "title": "Joint Moments of Characteristic Polynomials from the Orthogonal and Unitary Symplectic Groups",
+          "trigger": "same group family and joint moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings, assumptions and unique-maximizer proof",
+        "28eea919d94d for the need to distinguish the specific reversal from its general phenomenon"
+      ],
+      "rationale": "The span is the natural packet of the first two centered fundamental characteristic-polynomial coefficients. At fixed coefficient energy the optimal allocation is balanced at order four, favors one coefficient at six, and favors the other at eight. This gives an exact test of exponent-dependent extremizers and classifies all complex optimizers. The signs depend on mixed moments and are not a consequence of positivity, representation dimension, or the existence of a moment table.",
+      "residual_risks": [
+        "The result is fixed-rank and fixed-support, not an all-exponent phase diagram or a new genus-two moment-calculus theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

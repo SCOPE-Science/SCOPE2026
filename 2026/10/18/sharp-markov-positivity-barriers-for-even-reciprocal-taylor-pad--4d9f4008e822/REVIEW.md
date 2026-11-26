@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The formal Taylor-series calculation gives the first two coefficients beyond fourth or general even order. Directed shortest-path distance controls every off-diagonal entry. In the only borderline case with \(m+2\) states, the first term eliminated by the rational approximation is followed by a negative matrix-power entry, giving a positive next contribution. The \(m+3\)-state pure-birth chain realizes the first negative coefficient. The seven-state exact interval follows from explicitly verifiable rational-function identities, eleven coefficientwise positivity certificates, and a two-chart Descartes proof of uniqueness of the positive polynomial root. The package includes a standalone exact-arithmetic reproducer. The finite checks are not used to infer the general theorem.
+PASS
 
-## Originality
+Writing E=e^−z−Σ_(k≤m)(−z)^k/k!, the reciprocal is e^z+e^(2z)E+O(z^(2m+2)). For even m, the corrections through degree m+2 are −z^(m+1)/(m+1)! and [1/(m+2)!−2/(m+1)!]z^(m+2); adding the e^z terms cancels a_(m+1) and gives a_(m+2)=−2(m+1)/(m+2)!. In a reachable off-diagonal entry of shortest distance d, powers below d vanish and Q^d has a strictly positive entry. For d≤m this gives positivity. The remaining case d=m+1 on n=m+2 states requires a diagonal stay at power d+1: a walk with d+1 off-diagonal transitions repeats a vertex, and deleting a loop of length at least two contradicts minimal d. Exactly one diagonal stay occurs in any nonzero term at this power and one can insert it at the initial vertex of a shortest path, whose rate of exit is positive. Thus Q^(d+1) has a negative entry and the negative a_(d+1) makes the leading update coefficient positive. Unreachable entries are zero, diagonals approach one, and analyticity at zero and finiteness give a Q-dependent common interval. The m+3 birth chain has distance m+2 and Q^(m+2) entry one. At m=4, the transient denominator has diagonal D(h)/24>0 for all h≥0 and the terminal diagonal is one, so the inverse always exists for this chain. The independently written integer-polynomial recurrence in `/workspace/checks/exact_checks.py` checks the six transient numerators and five shorter absorption numerators, equality of the remaining numerator with h^6P, both Descartes sign transforms, and the strict rational bracket (τ≈0.326062780128963); replay with python3. Together with the nilpotent block expansion and conservation, these give exactly the positivity set stated, including the identity at zero. Terminology at RESULT.md line 22: the update has unit row sums whenever defined, not necessarily stochastic; standard stochasticity additionally requires nonnegativity. The row-sum identity, not that misnomer, is used in the proof, and the Finding explicitly states the negative-entry regime. Nothing here gives a universal step size or global positivity for arbitrary generators.
 
-**PASS under the inspected evidence, with residual risk.** Work on positive systems under diagonal Padé discretization, entrywise matrix exponential evaluation, and published fourth-order \([2/2]\) Markov positivity barriers gives genuine prior context, but the precise rational approximant \([0/m]\), arbitrary-even-order state threshold, and the fourth-order seven-state all-step classification were not covered by the material inspected. Previously reported \([0/2]\) path phenomena are excluded from the new even-order range. A plausible 1996 Padé matrix-exponential paper remained inaccessible in full; equivalent unindexed work is a residual risk. A failed keyword search is not a proof of novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The number of Markov states needed before a classical high-order rational exponential update can violate positivity is an intrinsic stability barrier; here it is determined sharply for all even orders at least four. The first fourth-order counterexample additionally has an exact, nonmonotone positivity domain, illustrating the practical danger of assuming that smaller steps always enforce a physical sign constraint. The classification is both structural and exactly checkable.
+The path-distance, Taylor-zero and diagonal-stay mechanism is known in the neighboring Padé records and generalizes once the relevant coefficients are known; do not count that mechanism as new. The reciprocal even-denominator family at m≥4 and, especially, the exact seven-state quartic all-step sign classification are distinct from the inspected results. The threshold and sign proof are not a reparameterization of the [2/2] or [0/2] witness. The assessment is bounded by the inspected sources, not a claim to publication priority.
 
-## Limits and prior literature
+## value
 
-The universal claim is local in timestep; only the designated seven-state example has a complete positive-step interval. The finite exact-arithmetic checks support a separately supplied proof rather than establishing the infinite statement. Principal comparisons: Zappavigna–Colaneri–Kirkland–Shorten (2010), Xue–Ye (matrix exponentials of essentially nonnegative matrices), Rossi–Colaneri–Shorten (2011), and the published eight-state \([2/2]\) result. Arioli–Codenotti–Fassino (1996) was not accessible for full comparison. Independent external validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dimensions at which an update can stop being a transition matrix are useful independently of formal integrator order. The first obstructed fourth-order birth chain is forced by the sharp dimension bound rather than arbitrarily selected. Its exact recovery, where smaller positive steps can lose positivity while all larger steps preserve it, adds information not supplied by the leading negative coefficient or the examples for other Padé families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact unit-index characterization is the published result of Deutsch and Sagan (2004, Theorem 5.2). Its disjoint offset decomposition gives \(A_r=3K_{r-1}+\{-1,0,1\}\), and no-carry ternary addition produces the full ordered two-sum law. A separate adjacent-digit identity gives \(P_m=(4\cdot6^m+1)/5\), and direct expansion proves the all-depth additive energy \(E_r=(127\cdot6^{r-1}+8)/5\). The singularity proof uses independent ternary digit frequencies and Haar measure, not finite-level extrapolation. An exact standalone checker independently validates the formulas on complete finite rings, including Catalan-value tests.
+## correctness
 
-## Originality — PASS, qualified
-Deutsch–Sagan (2004) proves the unit-index digit criterion but does not supply modular pair sums. Krattenthaler–Müller (2013) studies Catalan *values* modulo prime powers. Burns (2016) proves natural density zero for the unit-index set. The closest examined digital convolution research record concerns a different four-adic set; earlier Catalan valuation records and binary additive-energy records do not imply this exact result. Search and implication comparisons did not find the exact two-sum count, unique maximum, energy or induced singular measure. A general digit-convolution theorem might implicitly contain these conclusions; this is a residual historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The supported object is a classical prime-nondivisibility index set with a known sparse digital description but an unreported two-variable additive distribution. The new exact law determines every target multiplicity and the complete additive energy, and yields a full-support yet singular convolution law. These are natural additive representation invariants, not chosen arbitrary numerical slices. The proof is self-contained conditional on the explicitly cited classical digit criterion.
+The starting Deutsch–Sagan condition is on n+1 with its units digit unrestricted. Thus A_r is exactly the disjoint union of 3K_m+s, s=−1,0,1, with binary-digit ternary K_m, in the cyclic ring. The −1 residue at n=3^r−1 is included: n+1=3^r has one permitted leading 1. Binary-digit summands in K_m add without carries and with digit multiplicities 1,2,1, so w_m is the full ordered convolution. The offset sum has multiplicities 1,2,3,2,1 at −2,…,2, giving precisely the two successor terms in the indicated residue classes, including wraparound. Maximal w_m is unique at the all-ones word when m>0; adjacent weights can both be 1 only at the all-twos to all-zeros wrap. These arguments give the extrema and cover m=0 with all three counts equal. Squaring and summing gives 19H_m+8P_m with H_m=6^m and P_0=1; on low digits 0 and 1 the products contribute 2H_(m−1) each, while low digit 2 contributes P_(m−1) by carry. This proves E_r=(127·6^m+8)/5. The compatible law is S+3X with S uniform on −1,0,1 and X an independent fair binary-digit ternary integer. The digits of X_1+X_2 are i.i.d. with probabilities (1/4,1/2,1/4). Their strong-law typical frequency set for digit 1 is Haar-null, and finite affine images scaled by 3 are still Haar-null. Each conditional component is nonatomic and has full support on its corresponding coset, and the offsets cover the three cosets. Finally the cylinder collision sum is E_r/(3·2^m)^4 with rate 3/8 per digit, giving log_3(8/3). A fresh exact Catalan recurrence and ordered modular enumeration checked every target through r=7, not relying on the digit criterion for its input.
 
-## Limitations and sources
-The result does not determine first appearances of fixed ordinary integer sums, and priority is qualified by possible unstated specializations of general digital convolution theory. Finite computation is a checker, not an infinite proof. Source material inspected includes Deutsch–Sagan Theorem 5.2 (https://arxiv.org/pdf/math/0407326), Krattenthaler–Müller §12 Theorems 37–39 (https://arxiv.org/pdf/1308.2856), and Burns §3 Theorems 6–7 (https://arxiv.org/pdf/1611.03705).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution supported is the explicit successor-weight formula for ordered cyclic sums of Catalan unit indices at every depth and its exact energy, with the collision-dimension consequence. The digit characterization, product-measure singularity mechanism, and the use of carry states are not asserted to be original independent results.
+
+## value
+
+PASS
+
+The all-target finite law supplies exact extremal fibers and collision energy for a natural nondivisibility set, with an application to the cylinder dimension of its limiting convolution. These quantitative values distinguish arithmetic coverage from probabilistic uniformity and cannot be recovered from the given density or basis information alone. The weighted successor term is what makes this more than a restatement of the binary digit sum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

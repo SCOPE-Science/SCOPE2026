@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:46:52.973413Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Morshed's Eq. (18) gives the fixed-penalty primal/auxiliary recurrence on unit rows; Algorithm 2 as printed is the adaptive counterpart, not a constant-penalty specification. The record explicitly specializes to fixed penalty, so Eq. (18) suffices. Eliminating z, with y=x-bar(b) and q=1-p, gives y_{k+1}=2q y_k-q y_{k-1}+p xi_{i_k}; take y_{-1}=y_0+z_0. The companion matrix T=[[2q,-q],[1,0]] has roots q±i sqrt(pq) of modulus sqrt(q). Thus deterministic starts decay and stable covariance limits exist at both phases. In a separate symbolic reconstruction with unit noise variance, solve the three independent entries of X=A X A^T+B B^T with (A,B)=(T,(p,0)^T) for IID and (T^2,(T-I)(p,0)^T) for the epoch-boundary process driven by independent opposite-sign pairs. The mid-epoch covariance is T X T^T+(p,0)^T(p,0), as the fresh first signed observation is independent of the boundary state. Solving these equations in the companion coordinates reproduces all three risk numerators and both difference factors in RESULT.md. The quadratic in H is 5(p-4/5)^2+4/5; the boundary difference has positive numerator 4q(1-q^2+4q^3), and the mid-epoch difference changes sign only at p=3-sqrt(5). Evaluation at p down to zero gives both reshuffled slopes sigma^2/4 and IID limit sigma^2/2. The frozen verifier validates the displayed covariance substitutions and factorizations, not a claim about finite-time or sample-path ordering.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 5 explicitly randomizes the first reshuffle time to obtain a wide-sense stationary process; the resulting integral describes the time/phase average even when the unaveraged process has two distinct limiting risks.",
+          "The later scalar-SGD frontier compares endpoint risks; the earlier balanced order envelopes use scalar quadratic-gradient updates without the augmented/momentum state."
+        ],
+        "reasoning": "The broader framework can compute the average of the target two risks, not determine the individual risks or their signs against IID; the other models neither contain the target momentum nor cover the within-epoch comparison.",
+        "searches": [
+          "Domingo-Enrich arXiv:2206.00632v1 Section 5 Eqs. (26)–(29)",
+          "Resultary f9ad6695f6df and 0365743eee2e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2205.08085, arXiv:2206.00632v1 and arXiv:2209.11920",
+        "Resultary efb8ca5274f3, 9e0cabf84ca3, 0365743eee2e and f9ad6695f6df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two rows, the within-epoch covariance is -sigma^2; between independent epochs it is zero. Prior spectral averaging loses which adjacency was within an epoch, so it cannot recover the effects in separate phases. Keeping this information and solving the lifted covariance system produces the extra factor p^2-6p+4.",
+          "The earlier Kaczmarz thresholds use either three inconsistent equiangular rows or consistent two-row finite-epoch contraction, not this inconsistent fixed-penalty stationary phase comparison."
+        ],
+        "reasoning": "The prior input correlation mechanism is relevant, but its phase-averaged result does not imply the sign reversal. The other Kaczmarz results have different rows, updates, or objectives.",
+        "searches": [
+          "Domingo-Enrich Section 5, conditional correlations before Eq. (26) and Eqs. (26)–(29)",
+          "Resultary efb8ca5274f3 and 9e0cabf84ca3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same scalar process is heavy-ball on f_i(x)=(x-b_i)^2/2 with step p and momentum q=1-p; the forced recurrence is y_{k+1}=2q y_k-q y_{k-1}+p xi_{i_k}.",
+          "The white-noise theorem gives the IID formula directly: use a=q, b=-2q in its mode polynomial, so h=d=p, l=1+3q, and set its forcing variance to p^2 sigma^2."
+        ],
+        "reasoning": "The equivalent formulation credits exact prior IID coverage rather than novelty from the Kaczmarz name. The epoch-conditioned, nonwhite signed inputs are outside that result.",
+        "searches": [
+          "Morshed arXiv:2205.08085 Eq. (18)",
+          "Domingo-Enrich arXiv:2206.00632v1 SGDM update",
+          "Mohammadi–Razaviyayn–Jovanović arXiv:2209.11920 Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic searches surfaced related records efb8ca5274f3, 9e0cabf84ca3, 0365743eee2e and f9ad6695f6df, with different settings or quantities. No exact match was established among those returned.",
+          "The focused primary lookup returned irrelevant material and added no usable evidence."
+        ],
+        "reasoning": "Neither a retrieval miss nor unrelated results establish absence. Compare the actual scope of the retrieved nearby records and the cited primary theorems.",
+        "searches": [
+          "Four bounded semantic Resultary searches on two-row augmented Kaczmarz, inconsistent reshuffling, phase crossover and stationary risk",
+          "\"within-epoch\" phase-conditioned stationary risk random reshuffling heavy-ball IID with-replacement quadratic two components mean-square"
+        ]
+      },
+      "rationale": "The supported distinct claim is the fixed-phase reshuffled risks and their sharp within-epoch comparison for the two inconsistent identical rows, not the algorithm, the exact IID formula (already implied by a prior white-noise momentum theorem), or reshuffling variance as a general mechanism. The closest prior heavy-ball reshuffling theorem averages over a randomized epoch offset and does not give the conditional sign reversal. This is a bounded best-of-knowledge decision.",
+      "residual_risks": [
+        "An earlier treatment of phase-conditioned risk for an equivalent scalar autoregression or in cyclostationary momentum literature could cover the crossover.",
+        "The focused external lookup was ineffective; the decision rests on bounded local retrieval and actual primary-text comparisons, not on that miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior recurrence; not the inconsistent stationary comparison",
+          "evidence": "Eq. (18) gives the fixed-penalty update; Algorithm 2 explicitly multiplies penalty by c>1.",
+          "identifier_or_url": "arXiv:2205.08085",
+          "material_read": "Section 2.1 Eq. (18), p. 4 offset around 10800; Algorithm 2, p. 5 offset around 14850",
+          "method": "OA PDF",
+          "title": "Penalty & Augmented Kaczmarz Methods For Linear Systems & Linear Feasibility Problems",
+          "trigger": "Original algorithm and applicability"
+        },
+        {
+          "assessment": "Supplies the phase-averaged reshuffling variance mechanism",
+          "evidence": "States that it randomizes the first reshuffle iteration to make the process wide-sense stationary without altering average iterate variance in time; the spectral integral uses that averaged correlation.",
+          "identifier_or_url": "https://arxiv.org/html/2206.00632v1",
+          "material_read": "SGDM update near offset 2270; Section 5 Eqs. (26)–(29), offsets 38500–42832",
+          "method": "OA HTML",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "Same momentum model and random reshuffling; strongest potentially broader result"
+        },
+        {
+          "assessment": "Exact IID component implied, not phase-conditioned reshuffling",
+          "evidence": "The scalar variance is sigma_w^2/(2h) times (1/l+1/d); inserting the target coefficients yields sigma^2(2-p)/(4-3p).",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.11920",
+          "material_read": "Noise amplification Section II.C, p. 4 offset 23400; modal formula Theorem 5 following (30)–(31), offset 68000",
+          "method": "OA PDF",
+          "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+          "trigger": "Exact white-forcing covariance for the equivalent companion recurrence"
+        },
+        {
+          "assessment": "Different rows, update and phase question",
+          "evidence": "Three equiangular rows; no two-identical-row augmented mid-epoch reversal.",
+          "identifier_or_url": "Resultary 2026/10/12 efb8ca5274f3",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Two sharp sampling thresholds for inconsistent equiangular Kaczmarz",
+          "trigger": "Earlier inconsistent stationary IID-versus-reshuffling threshold"
+        },
+        {
+          "assessment": "Different performance question",
+          "evidence": "Consistent equations; worst-initial-error contraction over one epoch, not stationary risk by phase.",
+          "identifier_or_url": "Resultary 2026/10/13 9e0cabf84ca3",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp relaxation phase transition for two-row reshuffled Kaczmarz",
+          "trigger": "Earlier two-row reshuffled phase-transition result"
+        },
+        {
+          "assessment": "Order-process envelopes, not augmented two-phase risk",
+          "evidence": "Two scalar quadratic gradient components with stationary balanced order processes.",
+          "identifier_or_url": "Resultary 2026/10/12 0365743eee2e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp stationary-risk envelope and order-phase switches for two components",
+          "trigger": "Earlier scalar two-component order effects"
+        },
+        {
+          "assessment": "Later and endpoint only",
+          "evidence": "Scalar quadratic SGD with complete-epoch last iterates, not the target momentum or the mid-epoch phase.",
+          "identifier_or_url": "Resultary 2026/11/08 f9ad6695f6df",
+          "material_read": "Finding offset 0; Assumptions offset 2800",
+          "method": "Local mirror",
+          "title": "Sharp reentrant stationary-risk frontier for two-component random reshuffling",
+          "trigger": "Closest crossover analogue beyond Kaczmarz"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest inconsistent data set with fresh random epochs isolates a real distinction between evaluation at epoch boundaries and at intermediate updates. The exact parameter where an improvement becomes a penalty at the intermediate phase is useful when interpreting stationary comparisons that report only an endpoint or a time average. The example defeats inference of a per-phase ordering from a favorable epoch-boundary result, without claiming a general ordering, and contributes more than a recomputation of known IID variance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

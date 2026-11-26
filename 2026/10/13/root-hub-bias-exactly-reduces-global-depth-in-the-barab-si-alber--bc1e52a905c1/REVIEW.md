@@ -1,32 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the exact growth coupling. The deterministic identity
-\[
-\sum_v\deg(v)d(v)=2P_n-(n-1)
-\]
-converts degree-proportional attachment into an exact conditional mean for the chosen parent's depth. The root-selection indicator has zero product with that depth, because the root depth is zero. These facts give the covariance recurrence without approximation.
+PASS
 
-The mean root degree and mean total depth are solved independently from their one-step recurrences. Dividing the covariance recurrence by the root-degree mean makes it telescope. The resulting positive finite sum establishes the sign and a direct summation-by-parts calculation gives the harmonic closed form.
+In the one-edge BA tree, summing endpoint depths over edges gives 2P_n-(n-1). The parent-depth conditional mean is therefore P_n/(n-1)-1/2; multiplying parent depth by the root-attachment indicator gives zero. Iterating the expectation recurrences gives m_n=E R_n as the stated gamma ratio and E P_n=(n-1)(H_{n-1}+1)/2. The covariance recurrence is c_{n+1}=(1+3/[2(n-1)])c_n-m_n H_{n-1}/[4(n-1)]. Dividing by m_{n+1}(2n+1) telescopes to the strictly positive B_n sum with c_2=0. Its harmonic form follows by expanding H_{k-1} and telescoping the partial fractions; the harmonic difference tends to -log 2. Dividing covariance by m_n gives the shift exactly, with no stochastic-order claim. As another check, weighting histories by R_n/m_n changes each transition to degree weights with just one extra unit at the root, and denominator 2n-1; this follows by telescoping the degree ratio along the root attachments. The tilted mean then satisfies p*_{n+1}=((2n+1)p*_n+n)/(2n-1), consistent with p*_n=E P_n-B_n. Independent exact weighting of 5,913 histories through n=8 verified both means, both forms of B_n and covariance (at n=8, -169549/40960); /workspace/branches/7ba111e7-f280-4901-a6d6-ae31187eb286/replay_record2.py and replay_n8.txt. The uploaded script was inspected, not executed. Finite replay is supplementary.
 
-The standalone checker independently replays every weighted preferential-attachment parent history through \(n=9\) with rational probabilities and verifies the finite formulas exactly. It also checks the recurrence and the equivalence of the two closed forms through \(n=300\).
+## originality
 
-## Originality
+PASS
 
-PASS, with a residual bibliographic risk from the size of the older preferential-attachment literature. The strongest same-model full source inspected, Feng--Hu, explicitly motivates an inner connection between large degree and short path length but develops Zagreb and Randić indices rather than a root-degree/path-length covariance. Targeted full-text searches in that paper found no covariance occurrence and no root-degree mixed theorem.
+The supported distinct result is the mixed finite-size identity for the sum of distances from the first vertex under the specified zero-offset, edge-seeded attachment law, including the exact degree-size-biased shift. Bounded comparison with the same-model literature and neighboring catalogue statements did not establish equivalent prior coverage. This is a best-of-knowledge judgment, not a claim of bibliographic exhaustiveness.
 
-Móri's archive-era paper studies the maximum degree rather than a joint depth law. Katona studies degree distributions across levels rather than the exact covariance of the distinguished root degree with total root depth.
+## value
 
-The closest own-ledger preferential-attachment result concerns root degree against leaf count. That statement does not imply the present mixed law: total path length has different growth dynamics, and covariance cannot be transferred through a third statistic. The present proof instead depends on the degree-weighted-depth identity and on a new telescoping recurrence.
+PASS
 
-## Value
+Comparing the first hub with a natural global depth statistic is different from comparing its degree to the leaf count or observing short mean pairwise distances. The exact finite-size shift is a quantitative benchmark for selection proportional to hub degree: it has a strict sign at every nontrivial size and a linear leading cost with a specified coefficient. Neither the sign nor the coefficient follows from the marginal means, and the result does not overstate an ordering of the two laws.
 
-PASS. Root degree is the canonical early-hub statistic in the Barabási–Albert tree, while total root depth is a canonical global search-cost and profile functional. Their interaction directly quantifies the qualitative hub-versus-short-path mechanism emphasized in scale-free-tree literature.
-
-The result is structural rather than a routine marginal recombination: root-degree size bias reduces expected total depth by the explicit amount \(B_n\), asymptotic to \((1-\log2)n\), while the raw covariance has the nontrivial scale \(n^{3/2}\). This gives a finite-size and asymptotic bridge between hub formation and global depth.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK sizes=8 weighted_histories=46233 history_checks=8 finite_formula_checks=30 recurrence_checks=894 asymptotic_checks=3`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

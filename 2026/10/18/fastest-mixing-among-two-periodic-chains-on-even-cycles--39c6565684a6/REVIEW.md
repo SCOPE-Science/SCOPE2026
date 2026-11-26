@@ -1,19 +1,21 @@
-# Review of fastest two-periodic mixing on even cycles
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The class of stochastic matrices and all parameter bounds are explicit. A period-two Fourier decomposition gives exact eigenvalue pairs. The identity comparing the square of the radicand modulus with the square of the difference of its real components proves the needed lower bound on the positive-frequency eigenvalue. A second eigenvalue from the zero Fourier block determines the sharp minimax. Equality conditions are checked separately for orders four and at least six. The four-state Jordan claim follows from a nonzero square-zero two-by-two block. Independent exact computations of the four- and six-vertex characteristic polynomials support the derivation, and finite samples do not replace the universal proof.
+PASS
 
-## Originality
+Two-vertex Bloch cells give off-diagonal product Z=(c cos θ+2ir sin θ)^2+d^2 sin²θ at the first nonconstant mode, with c=a+b, d=a−b, θ=2π/N. For X=c² cos²θ and Y=(d²−4r²)sin²θ, |Z|²−(X−Y)²=4Xd²sin²θ, so the square root with nonnegative real part has real part at least c cos θ. The other spectral obstruction is the alternating eigenvector in the constant-cell block, with eigenvalue 1−2c. Their maximum bound has its unique minimum at c=2/(3−cos θ), and the homogeneous reversible spectrum attains it. For even N≥6, at this c the first bound is strict for d≠0 by the identity, and for d=0,r≠0 by the imaginary part. For N=4 the two nonconstant-cell eigenvalues are 1−c±√(d²−4r²), whose maximum modulus exceeds 1−c unless the discriminant is zero, whether it is real positive or negative. Balancing against |1−2c| yields exactly c=2/3 and d²=4r²; then |r|≤1/6. The example has nonconstant-cell block with diagonals 1/3 and off-diagonals 1/3,0, establishing geometric multiplicity one. The invariant mean-zero subspace counts extra eigenvalues 1 in reducible cases. The supplied SymPy identities and witness and 2275 finite grid iterations were inspected, not rerun; the grid does not prove an optimum on the continuous domain.
 
-PASS with historical uncertainty. Boyd–Diaconis–Xiao (2004) treats symmetric transition matrices, whereas the claim includes genuinely nonsymmetric matrices. Gerencsér–Hendrickx–Van Dooren (2015) globally compares either symmetric inhomogeneity or uniform directed circulation separately and supplies local results under both; those statements alone do not establish a global mixed-class inequality or its four-state defective equality family. Their full five-page paper was checked, including the statements, proofs, numerical discussion, conclusion and references. The published-index searches returned no equivalent two-periodic theorem; such searches are not a priority certificate. An equivalent Floquet or transfer-matrix treatment remains a residual historical risk.
+## originality
 
-## Value
+PASS
 
-PASS. The two-periodic class is the first natural nonconstant symmetry class of even-cycle Markov chains and permits nontrivial simultaneous heterogeneity and directed current. Its exact global design rule closes a motivated subproblem left outside the separate-perturbation results. The rigidity for six or more vertices and the exceptional defective four-vertex continuum distinguish asymptotic spectral design from finite-time nonnormal behavior. The claim does not purport to resolve arbitrary inhomogeneous cycles.
+The optimal value itself is the known homogeneous benchmark. The distinct comparison is the global bound when alternating symmetric rates and constant circulation are simultaneously allowed, with the resulting rigidity for N≥6 and the defective equality family for N=4. No unrestricted global cycle optimum is asserted.
 
-## Sources and limitations
+## value
 
-Primary comparisons: S. Boyd, P. Diaconis and L. Xiao, *Fastest Mixing Markov Chain on a Graph* (2004), DOI:10.1137/S0036144503423264; B. Gerencsér, J. Hendrickx and P. Van Dooren, *Spectral gap of Markov chains on a cycle* (2015), DOI:10.1109/ECC.2015.7330635. Restriction: even cycles, nearest-neighbor doubly stochastic matrices, two-periodic symmetric edge rates and a constant circulation. The optimized metric is the nonstationary eigenvalue modulus, not a fixed-time mixing bound. No independent audit or historical priority adjudication has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Period two is the simplest nonconstant periodic symmetric environment in which circulation can interact with inhomogeneity. The sharp bound gives a tractable global case beyond the separate-perturbation and local comparisons. Its four-cycle exception provides a whole explicit family showing that even attainment of the optimal spectral modulus need not imply reversibility or diagonalizability; this distinction matters for finite-time behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:44:14.052722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 35–78. The two normalized kernels have k''(0)=-1, and the derivative cross-covariance with the observations is (g,-g), g=-k'(h). Diagonalizing the observation covariance gives R=1-2g²/[c-k(2h)] with c=1+η. For z=h² (Gaussian) or z=h (Matérn), divide E'=d(1-R)/dz by the positive factors 2e^(-3z)/(c-e^(-2z))² and 4ze^(-4z)/(c-(1+2z)e^(-2z))², respectively: the remaining factor in both cases is c(1-z)e^(2z)-(1+z). It is negative at and past z=1; below 1 the log derivative of F=(1+z)e^(-2z)/(1-z) is 2z²/(1-z²), giving one global maximum t with F(t)=c. Substitution gives E_M=1-t and E_G=(1-t)e^t; the latter decreases strictly from 1 as t increases, so 0<R_G<R_M. The series log F=2t³/3+O(t⁵) gives the claimed low-noise powers, and (1-t)F(t)→2e^(-2) gives the high-noise endpoint. This proves the identity only for the stated symmetric, equally noisy sites and kernel normalization. VERIFICATION.md and the two scripts were inspected, not executed; their symbolic and finite numerical checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former uses conditional GP inference for differential-equation parameters; the latter uses derivative information in Bayesian optimization and Bayesian quadrature."
+        ],
+        "reasoning": "Generic GP inference provides the Schur complement but not the equal stationarity equations, their global sign changes, or risk values. Using derivative observations for acquisition or integration is not a stronger result about selecting noisy function-value sites for derivative inference. The comparison is limited to the material read.",
+        "searches": [
+          "arXiv:2011.10971, p. 1",
+          "arXiv:1704.00060, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit and distinct quadrature hits ca4d80c46fdc and 19a27b2e304d",
+        "arXiv:1905.01332",
+        "arXiv:2011.10971",
+        "arXiv:1704.00060"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A noisy derivative estimate under a smooth objective, a conditional derivative model, and an optimal two-site integration design respectively supply related methodology or a different objective, not the shared root F(t)=1+η."
+        ],
+        "reasoning": "Neither the usual noisily sampled finite-difference guarantees nor the GP design for an integral yields the claimed unique optimizing radii or two optimized posterior risks. The evaluated common scalar stationarity law is the genuinely distinct part.",
+        "searches": [
+          "arXiv:1905.01332, p. 3",
+          "arXiv:2011.10971, p. 1",
+          "Resultary ca4d80c46fdc, mirrored RESULT.md, opening statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1905.01332, p. 3: noisy gradient approximations, not a two-model posterior derivative design",
+          "Under inverse lengthscales a and b, the equivalent dimensionless law is a²h_G²=bh_M=t"
+        ],
+        "reasoning": "The comparison allows rescaling and formulation as variance reduction in the antisymmetric observation mode. The exact common stationary point and its risk substitutions were not identified in an independent statement.",
+        "searches": [
+          "Resultary: symmetric two-site Gaussian-process derivative design and squared-radius/optimal-risk identities",
+          "Primary-literature search: optimal Bayesian GP derivative pair spacing for the Gaussian and Matérn 3/2 kernels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit ending 8fa1bf0799f4 is this same frozen result, not separate evidence. Distinct hit ca4d80c46fdc treats Matérn 3/2 quadrature, and catalogue hit 19a27b2e304d treats Gaussian-kernel quadrature."
+        ],
+        "reasoning": "The available same-day comparison is statement-level, not date-based. Quadrature variance concerns an even linear functional under reflection, not the odd derivative observation mode in this claim. The exact target is a continuous family over all η>0, not a tabulated finite numerical optimum.",
+        "searches": [
+          "Resultary: two-site symmetric posterior variance and GP kernel design"
+        ]
+      },
+      "rationale": "The supported addition is the shared global design optimizer and resulting cross-kernel radii and risk laws, not Gaussian conditioning or noisy gradient sampling in general. No equivalent or dominating result was established by the inspected sources.",
+      "residual_risks": [
+        "An older specialist experimental-design result could give the same optimizer under another lengthscale convention; the search is not exhaustive.",
+        "The Gaussian-kernel quadrature catalogue match was not inspected in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related radius selection, different objective and assumptions",
+          "evidence": "Finite differences, interpolation and smoothing for estimating gradients of noisy objectives; the inspected material does not give these GP posterior optima.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.01332",
+          "material_read": "p. 3, PDF text offsets approximately 10480–12632",
+          "method": "OA PDF passage",
+          "title": "A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization",
+          "trigger": "Noisy function-value gradient estimation and radius selection"
+        },
+        {
+          "assessment": "Conditioning methodology, not the design theorem",
+          "evidence": "Conditional GP regression for unknown differential-equation parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.10971",
+          "material_read": "p. 1, PDF text offsets approximately 1850–4038",
+          "method": "OA PDF passage",
+          "title": "Inferring the unknown parameters in Differential Equation by Gaussian Process Regression with Constraint",
+          "trigger": "GP derivative regression"
+        },
+        {
+          "assessment": "Different target in the material read",
+          "evidence": "Uses gradient and Hessian information in Bayesian optimization and integration, not the two function-value site optimization in this record.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.00060",
+          "material_read": "p. 1, PDF text offsets approximately 2000–3715",
+          "method": "OA PDF passage",
+          "title": "Exploiting gradients and Hessians in Bayesian optimization and Bayesian quadrature",
+          "trigger": "Plausible broader derivative-aware Bayesian design"
+        },
+        {
+          "assessment": "Does not supply the frozen result",
+          "evidence": "Optimization of posterior integral variance on [0,1] with a separated-to-midpoint transition, not posterior derivative variance or a two-kernel relation.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-noise-collision-transition-for-symmetric-two-site-m--ca4d80c46fdc",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp finite-noise collision transition for symmetric two-site Matérn quadrature",
+          "trigger": "Closest distinct mirrored symmetric two-site Matérn result"
+        },
+        {
+          "assessment": "Catalogue indicates another target; not a full-text exclusion",
+          "evidence": "Gaussian quadrature with a fixed precision budget.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-replication-to-separation-transition-in-symmetric-gaussian-kernel-quadrature--19a27b2e304d",
+          "material_read": "Resultary summary only; mirrored text unavailable",
+          "method": "Local catalogue and mirror retrieval attempt",
+          "title": "Sharp replication-to-separation transition in symmetric Gaussian-kernel quadrature",
+          "trigger": "Gaussian two-site variance optimization catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimal radius is a design quantity one needs before collecting the two observations. The coincidence for all relative noise levels and the different low-noise exponents (1/3 versus 1/6 for spacing) are specific, nontrivial information about two standard priors; generic regression does not give it. Exact optimal risks quantify the consequence without suggesting estimator dominance on a common law or optimality among nonsymmetric designs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

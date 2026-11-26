@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:30:55.401444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit-sphere fourth moments give inner product (2/15) times Frobenius on trace-free symmetric tensors. Azimuthal averaging and the normalized polar weight dr/2 give exactly the three densities and integrated differences a(c), b(c). I independently constructed the rotation by Q -> R Q R^T and computed the commutator in the reflection-even and reflection-odd bases for the plane containing the axes; their dimensions are 3 and 2. The squared independent entries are exactly U,V,W in the even block and b(c)^2 b(d)^2 t(1-t) in the odd block. Real skew blocks have the asserted imaginary eigenvalues and norm. Since a,b are odd, the norm is unchanged by negating either threshold. For the strict block, the independent script /workspace/branches/independent_caps_certificate.py derives the angular polynomials from tensor matrices, substitutes each box afresh in the power basis (rather than replaying de Casteljau subdivision), and checks Bernstein coefficients with exact rationals. The nine boxes at depth at most four cover the cube and have minimum coefficient 223228347/7340032000000 > 1/40000. The proof uses the Bernstein partition of unity, not sample positivity. For the odd block, |b(c)| attains its unique positive maximum in |c| at 1/sqrt(5), and t(1-t) uniquely maximizes at t=1/2. This gives exactly 9/250 and all sign/axis equality cases. Collinear, perpendicular and zero-threshold cases are included in the block formulas. The result is on the exact-degree space only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simons–Dahlen–Wieczorek formulate the spatial concentration eigensystem for arbitrary regions, including polar/disconnected regions. Michel–Plattner–Seibert treat a single cap's commuting differential operator. Jaming–Speckbacher's cap-related estimates control concentration by a large sieve."
+        ],
+        "reasoning": "A general region kernel defines the pair of operators but does not provide sharp noncommutation over two independently oriented regions. Sending an operator to an exactly invariant low-degree subspace, where possible, also does not identify the maximum or strict sector separation in this problem.",
+        "searches": [
+          "Primary spherical harmonic cap concentration commutator literature",
+          "math/0408424 §§3-4; arXiv:2103.14650 §3.2; arXiv:2004.02474 §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKS.txt and verify_two_caps.py",
+        "Resultary 984cac538af7, 0f8681c6a2f5, 86433478cb67 and 34e40aba9a0d",
+        "arXiv:math/0408424, 2103.14650, 2004.02474"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A unitary rotation changes the cap axis while preserving its spectrum. At c=d=1/sqrt(2) the spectral diameter is 25/(64 sqrt(2)), so the generic diameter-product/2 estimate is 625/16384 > 9/250. The known commuting differential operator is not the second cap concentrator."
+        ],
+        "reasoning": "Even the exact spectra with the sharp unrestricted self-adjoint spectral-diameter estimate do not give the submitted constant. The strict sector comparison uses the restricted tensor rotation, not an immediate application of a cited inequality.",
+        "searches": [
+          "Compare the cap spectrum in Resultary 984cac538af7 with the exact relative rotation and strict 3D-sector maximum",
+          "Compare arXiv:2103.14650 §3.2's commuting pair with the submitted pair"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "984cac538af7 gives three pure-degree-two concentration branches for {x_d^2>=t}; for positive c and t=c^2 this compression is twice the single cap by evenness, and real/complex extensions have the same spectra.",
+          "0f8681c6a2f5 employs the same trace-free tensor model for two equal disjoint caps but optimizes the least eigenvalue of their sum."
+        ],
+        "reasoning": "Taking the antipodal pair recovers exact one-cap inputs but not the relative-rotation norm. The sum problem has a different operator, admissible parameters and optimization objective; a spectral minimum for sums is not a sharp bound for commutators.",
+        "searches": [
+          "Resultary: quadrupole Slepian caps, trace-free tensor cap compression, two-cap spectra",
+          "Resultary 984cac538af7 and 0f8681c6a2f5 full-text passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "86433478cb67 obtains sharp angular-indicator commutators in the two-mode Gaussian Fock subspace span{1,z}. 34e40aba9a0d gives the exact spectrum and sharp commutator for centered nested disks in an order-two polyanalytic Fock space. 984cac538af7 indexes matching one-cap data, not two-cap commutation."
+        ],
+        "reasoning": "The Fock results match the form of the invariant, not the representation or domains. Neither covers the coupled angular sectors on pure H_2(S^2) or supplies its constant.",
+        "searches": [
+          "Resultary: exact commutator norms for compressed masks, angular apertures and nested disks"
+        ]
+      },
+      "rationale": "The single-cap spectra and harmonic localization framework are covered, including in an equivalent indexed antipodal-cap formulation. The independently oriented two-cap sharp operator commutator, its strict competing sector and equality classification are distinct in the bounded literature and indexed comparisons.",
+      "residual_risks": [
+        "A bounded search cannot exclude an unpublished or differently formulated optimization for the restricted spin-two tensor rotations. This is not a claim of priority for the cap spectra, tensor model or one-cap concentration operators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers one-cap spectra, not the optimized two-axis commutator.",
+          "evidence": "The maximizing branch for paired antipodal caps switches with the threshold; each single-cap compression is half the paired compression.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-quadrupole-slepian-transition-for-antipodal-spherical-ca--984cac538af7/RESULT.md",
+          "material_read": "Finding and branch comparison, local mirror offsets 0 and 5500.",
+          "method": "Local-mirror full-text passages; specialize to three ambient dimensions and use parity.",
+          "title": "A sharp quadrupole Slepian transition for antipodal spherical caps",
+          "trigger": "Same exact degree and caps in an equivalent single-axis formulation"
+        },
+        {
+          "assessment": "Distinct invariant despite shared tensor model.",
+          "evidence": "Optimizes the least eigenvalue of the sum for equal disjoint caps, not the norm of their commutator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-separation-and-a-spectral-phase-transition-for-two-spher--0f8681c6a2f5/RESULT.md",
+          "material_read": "Finding and trace-free tensor passages, local mirror offsets 0 and 5700.",
+          "method": "Compare operator, threshold and geometric scope.",
+          "title": "Optimal separation and a spectral phase transition for two spherical caps",
+          "trigger": "Same two-cap degree-two geometry and explicit angular spectral calculation"
+        },
+        {
+          "assessment": "Conceptually related, different exact operator family.",
+          "evidence": "The two-dimensional Fock model optimizes over measurable angular masks and gives arc equality cases and an orientation transition with radius.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-angular-aperture-commutator-transition-in-the-two-mode-g--86433478cb67/RESULT.md",
+          "material_read": "Finding and continuation of proof, local mirror offsets 0 and 5600.",
+          "method": "Compare finite-dimensional spaces, masks, invariant and equality cases.",
+          "title": "A sharp angular-aperture commutator transition in the two-mode Gaussian Fock space",
+          "trigger": "Closest corresponding sharp compressed-mask commutator question"
+        },
+        {
+          "assessment": "Gives the region-compression setting, not the claim proved here.",
+          "evidence": "Allows disconnected regions, identifies polar caps and writes the concentration problem Dg=lambda g for a spatial region.",
+          "identifier_or_url": "arXiv:math/0408424",
+          "material_read": "OA PDF pp. 4-5, §3 (offset 13240); p. 9, §4 eq. (4.7) (offset 30454).",
+          "method": "Read general-region setup and concentration eigenproblem.",
+          "title": "Spatiospectral Concentration on a Sphere",
+          "trigger": "Foundational general spherical concentration and cap eigensystem"
+        },
+        {
+          "assessment": "Different commuting relation.",
+          "evidence": "The second operator is differential and commutes with the single polar-cap kernel, not a compression for a second cap axis.",
+          "identifier_or_url": "arXiv:2103.14650",
+          "material_read": "OA PDF §3.2, p. 15, offset 63975.",
+          "method": "Identify the two operators in the single-cap commuting relation.",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "Closest same-domain primary wording about a commuting operator"
+        },
+        {
+          "assessment": "Concentration estimates do not imply the two-axis commutator optimization.",
+          "evidence": "The large-sieve estimates concern single-region concentration of finite harmonic expansions.",
+          "identifier_or_url": "arXiv:2004.02474",
+          "material_read": "OA PDF introduction pp. 2-3, offset 524, and §4, offset 37627.",
+          "method": "Compare the quantities estimated with the commutator norm.",
+          "title": "Concentration Estimates for Finite Expansions of Spherical Harmonics on Two-Point Homogeneous Spaces via the Large Sieve Principle",
+          "trigger": "General harmonic concentration estimates involving caps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two cap compressions are canonical concentration operators, and their commutator measures the difference between applying them in the two possible orders. Pure degree two is the first harmonic degree with competing nontrivial reflection sectors in this geometry. An optimized constant is useful independently of the general concentration framework: neither scalar angular maximization nor a bound based only on spectral diameters excludes the other sector. Giving all aperture and angle equality cases identifies precisely how noncommutation is maximized. No reconstruction or higher-degree conclusion is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:10:05.406317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56 and 60–150",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/4ef0f0bc-bcd9-4ff1-bbc5-79e3ddecf78b/record3_independent_witness.py; exact output in record3_independent_witness.out in the same directory"
+      ],
+      "rationale": "For I>0 the stationary V and S equations solve uniquely with V/S=sigma/(epsilon I+eta+mu+alpha_2 g(qI)), q=varphi/omega. The return term in the susceptible denominator is strictly less than sigma, so that denominator is positive. All other coordinates reconstruct positively and only the exposed balance remains. With h=alpha^[-1/(n-1)] and I=hy, the apparent singularity alpha g(qI)/I cancels and the extended equation at h=0 is S_0 q^n y^(n-1)/kappa-K(1-R_c), strictly increasing at its positive root. With t=1/alpha and I away from zero the equation extends smoothly with limit Lambda/I-K, whose derivative at Lambda/K is nonzero. Both implicit-function arguments therefore give roots for every sufficiently large alpha; their limits separate them. As a separate check, adding the stationary S,E,V balances gives K I=Lambda-mu S-(p eta+mu)V, confirming the large-root limit is approached from below. At the disease-free state g'(0)=0. The infected (E,I) and uninfected (S,V) blocks have negative traces and positive determinants xi K(1-R_c) and mu(sigma+eta+mu)+p eta sigma; the other eigenvalues are -mu and -omega. The exact rational witness was independently reconstructed. Its Q has signs (-,+,+,-) at (1/20,1/10,1/3,1) and a positive denominator. The numerator Sturm variations are 3 at 0 and 1 at positive infinity, giving exactly two positive roots, one in each interval. It gives R_c=5/42, sqrt(37)/4 and 2/3 as stated.",
+      "residual_risks": [
+        "Exactly two positive roots is certified only for the rational witness. Neither generic endemic stability nor an exact bifurcation threshold follows. All rates other than alpha, including alpha_2, are fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 concerns the sign of a local bifurcation coefficient; Section 4 specializes multiplicity to n=2. The 2026 study has local DFE stability below threshold and persistence/endemic existence above threshold.",
+          "The 2024 abstract states that the authors attempted to estimate the number and stability of positive steady states for arbitrary n, but gives no general count or scales."
+        ],
+        "reasoning": "Local stability is inherited and should not be credited as novel. The inspected existence or bifurcation theorems cannot be specialized to the frozen fixed-subcritical, high-order, large-alpha regime.",
+        "searches": [
+          "arXiv:2307.12707v1 Theorem 3.1 and Section 4",
+          "arXiv:2603.28285v1 Theorem 2 and conclusion",
+          "Foryś–Pernitente September 2024 conference abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dbb1e88411f5, 6e8f848e6da8 and cd028e873839",
+        "arXiv:2307.12707v1, arXiv:2603.28285v1, and the September 2024 conference abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original local coefficient is never positive for n different from 2 in the stated generic test. The later persistence theorem assumes R_c>1; its conclusion identifies higher-order backward bifurcation as further work."
+        ],
+        "reasoning": "A local transcritical direction at the invasion threshold gives no global count at fixed R_c<1. The two roots here come from different rescalings in alpha, not from putting n>=3 into the n=2 branch argument or smoothly reparametrizing the supercritical existence theorem.",
+        "searches": [
+          "arXiv:2307.12707v1 p. 13 Theorem 3.1 and pp. 13–14 Section 4",
+          "arXiv:2603.28285v1 p. 18 Theorem 2 and p. 20 conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 paper's C^n/(C^n+kappa^n) is the same Hill parameterization after changing the denominator constant; its equilibrium theorem is for R_c>1.",
+          "The indexed saturated-treatment record dbb1e88411f5 obtains two subthreshold roots in a different vector–host model. Indexed 6e8f848e6da8 treats eight-state reinfection with recovered vaccination, not the fixed-baseline six-state environmental model."
+        ],
+        "reasoning": "A Hill denominator change is not an originality distinction, but a five-state saturated-treatment mechanism and an eight-state reinfection model are not parameter changes of the frozen environmental system. The same-model subthreshold branch result was not found in the inspected passages.",
+        "searches": [
+          "Resultary: arbitrary Hill order, environmental transmission, subthreshold endemic roots and large-alpha scaling",
+          "arXiv:2307.12707v1 and 2603.28285v1, same-model equations and threshold statements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original paper's inspected multiplicity cases are for n=2. No exact match for the frozen n=3 rational witness or scale constants occurred in the closest inspected indexed statements.",
+          "cd028e873839 gives r^(-1), r^(-1/2) and positive-floor asymptotics for a unique supercritical equilibrium in a four-state fear–awareness system."
+        ],
+        "reasoning": "The relevant lookup is for exact model-specific counts and symbolic scales, not a generic equilibrium table. Neither a multiplicity count in another model nor a matching power in a different regime establishes this theorem.",
+        "searches": [
+          "Resultary searches for exact subthreshold endemic multiplicity and Hill-model large-strength scales; dbb1e88411f5, 6e8f848e6da8 and cd028e873839",
+          "arXiv:2307.12707v1 Section 4 witness and equilibrium-count discussion"
+        ]
+      },
+      "rationale": "The supported distinct claim is the pair of subthreshold endemic branches, at the two explicit singular scales, in this six-compartment model with fixed baseline parameters, n>=3 and every sufficiently large alpha. The closest same-model papers establish local bifurcation direction or supercritical persistence, not that combination. Analogous indexed conclusions change the dynamical model or the threshold regime. A relevant abstract leaves a real but unresolved priority risk, not evidence of equivalent coverage.",
+      "residual_risks": [
+        "The abstract does not resolve what the authors obtained for arbitrary n; unpublished work may overlap. The unversioned and v1 original arXiv passages matched; no differing accessible arXiv version was located. Ranked searches do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers local direction and n=2 multiplicity, not the frozen result",
+          "evidence": [
+            "No positive generic backward bifurcation condition for n different from 2; Section 4 explicitly restricts to n=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.12707v1",
+          "material_read": "pp. 13–14, Theorem 3.1 and Section 4, OA offsets 46600–55007; unversioned passages compared",
+          "method": "Targeted OA PDF text",
+          "title": "Dynamics of a mathematical model of virus spreading incorporating the effect of a vaccine",
+          "trigger": "Original same-model bifurcation and multiplicity analysis"
+        },
+        {
+          "assessment": "Subthreshold local DFE stability overlaps; existence/persistence theorem assumes supercritical R_c",
+          "evidence": [
+            "Equivalent half-saturation law; at least one endemic equilibrium for R_c>1; higher-order bifurcation left for study."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.28285",
+          "material_read": "p. 1 abstract, pp. 4–5 model equation (1), p. 18 Theorem 2, p. 20 conclusion",
+          "method": "Targeted OA PDF text",
+          "title": "Global stability and uniform persistence in an epidemic model with saturating fomite-mediated transmission",
+          "trigger": "Closest follow-up on the same system and equilibrium threshold"
+        },
+        {
+          "assessment": "Unresolved priority risk, no disclosed covering result",
+          "evidence": [
+            "The authors report having attempted to estimate the number of positive steady states and their stability for arbitrary n, without giving count, regime or asymptotics."
+          ],
+          "identifier_or_url": "https://kkzmbm.mimuw.edu.pl/sprawozdania/spr29/Forys.pdf",
+          "material_read": "One-page abstract",
+          "method": "OA PDF text",
+          "title": "On the dynamics of a mathematical model of virus spreading incorporating the effect of a vaccine by Gökçe et al.",
+          "trigger": "Conference claim about arbitrary Hill order"
+        },
+        {
+          "assessment": "Different dynamical system",
+          "evidence": [
+            "Five-compartment vector–host saturated-treatment system, not the six-state Hill model."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-correct-endemic-equilibrium-multiplicity-for-a-saturated-treatme--dbb1e88411f5",
+          "material_read": "RESULT.md offsets 0–4194",
+          "method": "Targeted local mirror reading",
+          "title": "Correct endemic equilibrium multiplicity for a saturated-treatment model",
+          "trigger": "Indexed subthreshold two-root near match"
+        },
+        {
+          "assessment": "Different model and stability assertion",
+          "evidence": [
+            "Eight-compartment reinfection model with a stable endemic equilibrium and a saddle; no matching environmental-strength theorem."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-recovered-vaccination-threshold-for-subcritical-endemic--6e8f848e6da8",
+          "material_read": "RESULT.md offsets 0–4179",
+          "method": "Targeted local mirror reading",
+          "title": "A sharp recovered-vaccination threshold for subcritical endemic dynamics",
+          "trigger": "Indexed disease-free/endemic coexistence comparison"
+        },
+        {
+          "assessment": "Different growth parameter, model and threshold regime",
+          "evidence": [
+            "One supercritical equilibrium in a four-state fear–awareness model; no two subthreshold branches."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-high-media-growth-trichotomy-for-endemic-equilibria-in-a--cd028e873839",
+          "material_read": "RESULT.md offsets 0–4146",
+          "method": "Targeted local mirror reading",
+          "title": "A sharp high-media-growth trichotomy for endemic equilibria",
+          "trigger": "Indexed singular endemic-scale near match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings, Proof §§2–5 and Limitations",
+        "Gökçe–Gürbüz–Rendall, Theorem 3.1 and Section 4"
+      ],
+      "rationale": "This model-specific result identifies a concrete limitation of relying on the disease-free invasion threshold or the local transcritical direction to rule out other equilibria. It proves persistence of two separate equilibrium branches as a parameter varies, distinguishes their scales quantitatively, and supplies a certified finite witness. It is not a claim about two attracting endemic states, public-health forecasts, or feasibility of the high-strength regime.",
+      "residual_risks": [
+        "Endemic stability, basin structure, empirical parameter relevance and global trajectory behavior are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

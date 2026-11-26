@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Cayley-coordinate identity transforms the rational map into a positive, forced fifth-order linear recurrence in negative logarithms. The primitive companion matrix forces exponential growth of these logarithms; the forcing tends to a constant at a super-exponential rate, permitting exact five-projector asymptotics with absolutely convergent amplitudes even for the two eigenvalues inside the unit circle. Exact symbolic identities and numerical diagnostics were replayed from the package. The derivative at zero follows from a uniformly dominated series. The root isolation and spectral identity, not floating-point trajectory data, certify the infinite claim.
+PASS
 
-## Originality — PASS within inspected evidence
+The numerator minus denominator factors as the product of the three input differences from 1; their sum is the product of their sums with 1 plus 2b. This gives exactly the specified Cayley map, never creates a zero from an admissible history, and gives nonnegative forcing bounded by log(1+2b). Entrywise U_0 dominates a positive multiple of the Perron right eigenvector, so u_n is bounded below by that multiple of rho^n. Smoothness of the forcing on the resulting small Cayley inputs gives the stated super-exponential bound. The shift by c/2 and the left/right eigenprojectors give the exact finite variation-of-constants formula; in the omitted tail, the factor |t|^(-j-1) at k=n+j is dominated by the geometric decay obtained from rho^j >= 1+j(rho-1), even for the stable pair. Unshifted Perron projection gives the positive amplitude and its bounds; dominated convergence with epsilon_k(b)/b <= 2 gives the right derivative at fixed history and strict positivity. For the claimed possible growth, at b=0 choose a positive Perron initial vector plus a small real part of a lambda eigenvector. This is realizable by an admissible history and gives a nonzero growing oscillatory envelope (two successive cosines cannot both tend to zero). Conversion to log|z_n-1| adds log 2 plus a super-exponentially small correction. An exact initial zero propagates by the primitive lag graph, consistently outside the logarithmic statement.
 
-The closest and strongest prior work is Xi and Sun (2006), whose general rational family contains precisely this five-lag recurrence and gives global asymptotic stability. The directly named instance was studied by Zhang and Shen (2024) with sign semi-cycles and GAS. Neither examined full-text source derives the quantitative Perron-plus-growing-oscillatory logarithmic expansion or its all-mode amplitude series. Indexed mathematical findings and publicly accessible literature searches for the same object, Cayley transform, exact spectrum and equivalent rates did not identify covering results. This does not constitute a global proof of uniqueness; literature involving general analytic conjugacies or uncatalogued convergence-rate results is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The five-mode law resolves how the rate of super-exponential attraction is structured: despite the leading growth, the subdominant oscillatory logarithmic amplitude increases rather than decays, a distinction not visible from GAS or qualitative sign cycles. The positive forcing coefficient and its parameter derivative provide orbit-specific, reproducible quantitative invariants for the entire positive nonunit-history family. These are dynamical quantities of a concrete nonhyperbolic equilibrium, not a restatement of the known stability theorem or a finite numerical example.
+Credit the recurrence, global stability, superattracting linearization and sign structure as existing. The inspected theorem statements do not cover the quantitative five-mode logarithmic expansion with explicit convergent amplitudes, its unstable oscillatory correction, or the positive right derivative of the leading amplitude. PASS is limited to those quantitative results.
 
-## Limits
+## value
 
-The classification is for fixed \(b\ge0\) and strictly positive histories without entries equal to \(1\). No uniform parameter estimate or universal nonvanishing of non-Perron amplitudes is asserted. General analytic reduction theory is a possible broad-literature comparison risk. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separates five observable scales hidden by the zero linearization of a previously studied map. The growing subleading term on the logarithmic scale and the explicit parameter response answer meaningful questions that stability and signs alone cannot answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

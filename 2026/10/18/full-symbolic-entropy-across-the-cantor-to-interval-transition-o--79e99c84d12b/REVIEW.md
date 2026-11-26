@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The base sum-coordinate scales by \(\alpha\) and the angular coordinate follows doubling, giving all branch words through nondyadic rational initial states. Their shared initial fiber and shared prefix yield identical fibers immediately before the first differing branch; the two fiber branch maps then differ by at least \(\delta=\min(1-\lambda_1,1-\lambda_2)>0\) at the same input. This constructs \(2^{n-1}\) fixed-scale separated orbits. Branchwise max-norm contraction and \(2^n\) symbolic itineraries give an explicit matching upper bound. The finite exact-arithmetic checker corroborates but is not used to prove the infinite statement.
+## correctness
 
-**Originality — PASS, subject to historical-priority uncertainty.** Full text of arXiv:1108.1501v2, Example 5.1 and the complete discussion/proof of Proposition 5.3, identifies the identical family and supplies the lower bound \((\log2)/k_0\), not the exact entropy in its overlapping-fiber regime. The authors expressly explain why the symbolic semiconjugacy does not by itself transfer entropy on the noncompact forward-admissible domain. Kruglikov–Rypdal's earlier general multiplicity framework gives bounds for piecewise-affine dynamics rather than the present construction of \(2^{n-1}\) synchronized-fiber orbit witnesses. Independent searches for equivalent names, entropy formulations and stronger general bounds yielded no decisive covering result. This is not a proof of universal priority; an unindexed derivation is a remaining risk.
+PASS
 
-**Mathematical value — PASS.** The exact entropy fills an identifiable quantitative gap in a named original proposition. It proves that all symbolic complexity survives the Cantor-to-interval transition, where the originally published lower bound loses a factor \(k_0\ge2\). The explicit same-scale separated-set bound is stronger than a limit statement, and the argument exposes how pointwise differences of the fiber branch maps can preserve entropy even while their image intervals overlap.
+In coordinates (u,q)=(x+y,y/(x+y)) the radial coordinate multiplies by alpha and the interior angular coordinate follows doubling, giving every finite binary prefix on admissible nondyadic angles. The displayed q_k lies strictly inside its binary cylinder and retains a factor of seven in its denominator. At the first disagreement of two prefixes of length n−1, identical initial fibers and identical prior symbols give identical current fibers. The two next values differ by at least the smaller endpoint value of phi2−phi1, delta, so the difference is observed by time n−1 even if the images overlap. The branch linear parts have infinity-norm row-sum bound max(2alpha,lambda1,lambda2). Thus points in the same length-n cylinder and initial cube of diameter 1/(floor(1/epsilon)+1) cannot be separated by time n−1. The bounds squeeze the fixed-scale growth rate. At q=1 the update is q'=1, not 0 under the usual mod-1 convention; the interior coding construction excludes this endpoint and the upper bound uses Lipschitz estimates directly. The entropy is on the admissible domain, not the limiting fiber on the singular line.
 
-**Closest literature and limits.** E. Catsigeras et al., *On the Asymptotic Properties of Piecewise Contracting Maps* (arXiv:1108.1501v2), Sections 2 and 5, especially Example 5.1 and Proposition 5.3; B. Kruglikov and M. Rypdal, *Entropy via multiplicity* (arXiv:math/0505019v3); E. Catsigeras et al., *Complexity of injective piecewise contracting interval maps* (arXiv:1702.03599). The proof pertains only to the forward-admissible noncompact full system, not to the attractor restriction; historical priority remains subject to independent human literature assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact separated-set entropy for the specific Catsigeras et al. family in the touching and overlap regimes, not exact log 2 for contracting maps in general, the synchronous-fiber method, or the earlier disjoint-regime lower bound. Kruglikov–Rypdal's Example 2 already uses uniform separation of images of equal initial fiber values to turn maximal itinerary growth into metric entropy in a related model. The inspected statement and examples do not give the equality across this continuous affine fiber family's overlap transition.
+
+## value
+
+PASS
+
+For the published example the best stated lower bound can be much smaller than the exact entropy when fiber images overlap. Resolving that gap for the whole open parameter region, even at a fixed separation scale, shows that the connected attractor and branchwise contraction do not diminish information production of admissible trajectories. The interest is the qualitative transition test in a natural literature example and its quantitative answer, not the mere existence of another positive-entropy contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

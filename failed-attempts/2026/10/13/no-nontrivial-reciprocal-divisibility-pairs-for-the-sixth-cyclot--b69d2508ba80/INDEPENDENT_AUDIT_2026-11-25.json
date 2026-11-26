@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:59:46.075727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "F(t)≡1 modulo t and F(1)=1 handle equal and unit operands. In a minimal nontrivial pair 2≤a<b, c=F(a)/b is positive and smaller than a, and bc≡1 modulo a gives c²F(b)≡F(c) modulo a. Thus (c,a) is a smaller solution, impossible. This proves the graph claims as well. Gcd-class grouping gives nH(n)=Σ_{d|n}dφ(d), with local factor (p^(2α+1)+1)/(p+1). In the squarefree two-prime case H(pq)=F(p)F(q)/(pq), and p∤F(p), q∤F(q), so the two cross-divisibilities are precisely the integrality condition. For a single prime the self-divisibility is impossible. No claim on p² or longer cycles is needed. The supplied finite output and code were inspected, not executed; the argument is universal by descent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mills covers both divisibilities for a variable integer polynomial coefficient, explicitly including the target coefficient. De Koninck–Letendre bound the number of solutions restricted to distinct odd primes with bounded product, not by themselves the singleton theorem."
+        ],
+        "reasoning": "The earlier unrestricted classification dominates both the graph system and its prime-restricted instance. A recent weaker estimate for the odd-prime case does not restore novelty.",
+        "searches": [
+          "Mills 1953 general quadratic system and linear recurrence",
+          "De Koninck–Letendre arXiv:2610.10572v1 §5, Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Local published Resultary index and matching records",
+        "Mills, Pacific J. Math. 3 (1953), 209–220",
+        "arXiv:2610.10572v1",
+        "OEIS A317480"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=pq, integrality is precisely p|F(q), q|F(p) by the product formula and F(p)≡1 modulo p. Proposition 1 actually writes ap=F(q), bq=F(p) for distinct odd primes. Mills rules out all these pairs and those involving 2 as well."
+        ],
+        "reasoning": "The arithmetic corollary adds no independent obstructing lemma: the published reduction composed with exact Mills coverage suffices, and the one-prime case follows at once from F(p)≡1. The statement is mathematically valid but covered in substance.",
+        "searches": [
+          "Mills Theorem 3; De Koninck–Letendre §§1–2 and §5 Proposition 1; Resultary November 2 application"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mills equation (1) is x|y²+Ay+1, y|x²+Ax+1; Theorem 3 prints the same minus-sign pair and the unit singleton. The proof classifies the A=1 chains; under simultaneous sign reversal, the negative constant chain gives the unique positive solution at A=−1."
+        ],
+        "reasoning": "No change of scope is needed: A=−1 and positive operands are exact, even without primality. Mills's equivalent chain argument already uses the complementary factor step. The no-two-cycle formulation is the same predicate after excluding the unit vertex.",
+        "searches": [
+          "Reciprocal divisibility with x²−x+1; Vieta jumping and the quadratic Diophantine equation",
+          "Mills 1953 §§1–2 and §5 Theorem 3; local Resultary reciprocal cyclotomic divisibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2/SCOPE-reciprocal-cyclotomic-divisibility-and-a-semiprime-obstruction-f--85c9ab9d850e contains the same pair theorem and a stronger layer including prime squares; relation to the frozen record is unresolved and its later date cannot establish earlier priority. Resultary 2026/10/25/SCOPE-complete-coprime-two-cycles-for-the-first-positive-shift-of-a-re--20633c534fc3 treats t²−t+2 and credits Mills for t²−t+1. OEIS A317480 is an integral-value sequence, not a universal absence proof."
+        ],
+        "reasoning": "The overlapping catalogue claims help identify equivalences or references. The exact earlier coverage rests on the Mills primary theorem, not on the sequence or relative catalogue dates.",
+        "searches": [
+          "Local Resultary: unrestricted reciprocal cyclotomic divisibility, two-cycle exclusions, semiprime reciprocal-gcd integrality",
+          "OEIS A317480 arithmetic-function context"
+        ]
+      },
+      "rationale": "Mills (1953), Section 5, Theorem 3, p. 217, already states exactly the positive-integer minus-sign reciprocal system and its singleton solution. His general equation and chain classification also cover this as A=−1. The arithmetic consequence is immediate from that theorem and the already published gcd-sum product/reciprocal-prime reduction; the graph interpretation is equivalent. This is known coverage, not a failed search or a mathematical counterexample.",
+      "residual_risks": [
+        "The relation of the later matching catalogue result to the frozen record was not established; it is not needed for the known-coverage finding.",
+        "OCR of the last line of Mills Theorem 3 is imperfect; the preceding chain classification and its exact minus-sign statement resolve the mathematical reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier coverage",
+          "evidence": "Theorem 3's second clause is x|y²−y+1 and y|x²−x+1; the A=1 negative constant chain gives x=y=1 after reversal, and its other chains do not give adjacent positive entries for A=−1.",
+          "identifier_or_url": "https://msp.org/pjm/1953/3-1/pjm-v3-n1-p15-p.pdf",
+          "material_read": "§1 equation (1) p. 209; §2 chain formulation; §5 chain proof and Theorem 3 p. 217, extracted offsets about 15,100–19,352",
+          "method": "Publisher OA PDF; targeted passages, with chain proof used to resolve imperfect OCR in the theorem's last equality",
+          "title": "A System of Quadratic Diophantine Equations",
+          "trigger": "Exact polynomial pair system under a free linear coefficient"
+        },
+        {
+          "assessment": "Same reduction; weaker odd-prime upper bound, rather than the singleton theorem",
+          "evidence": "Proposition 1 assumes distinct odd primes and gives an upper bound of order z^(1/3)/(log z)² for the simultaneous equations.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+          "material_read": "§§1–2 and §5 Proposition 1 and proof, HTML offsets about 23,750–25,981 for the latter",
+          "method": "Author OA full text, bounded passage comparison",
+          "title": "The Integer Values of the reciprocal-gcd sum",
+          "trigger": "Same arithmetic function and exact two-prime equations"
+        },
+        {
+          "assessment": "Exact pair overlap and broader arithmetic conclusion; not earlier-priority evidence",
+          "evidence": "Same complementary quotient descent and exclusion for Ω(n)≤2, including p².",
+          "identifier_or_url": "2026/11/2/SCOPE-reciprocal-cyclotomic-divisibility-and-a-semiprime-obstruction-f--85c9ab9d850e",
+          "material_read": "Finding and descent argument",
+          "method": "Local Resultary mirror",
+          "title": "Reciprocal cyclotomic divisibility and a semiprime obstruction",
+          "trigger": "Exact catalogue match and stronger multiplicity layer"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Eliminating a two-prime dependency would be useful if unresolved. Here the main result is a repeat of a published classification, and the graph and arithmetic parts are direct restatements or routine substitution into the known reciprocal-product reduction. No independent new obstruction or genuinely distinct valuable remainder is delivered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

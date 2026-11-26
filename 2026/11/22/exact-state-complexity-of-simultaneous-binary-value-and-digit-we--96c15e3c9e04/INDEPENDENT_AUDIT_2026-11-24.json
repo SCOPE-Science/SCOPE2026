@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:32:26.334018Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd u>1, positions of exponents 0 and 1 modulo the order of 2 supply (1,1) and (2,1). Their difference gives (1,0), and subtracting that from (1,1) gives (0,1); finite additive orders let one reduce coefficients and realize all pairs at a common sufficiently large length. For u=1 use a sufficiently long fixed block that realizes each weight residue. Fixing the low t bits supplies the modulo-2^t target and leaves a solvable joint condition modulo u and k on the prefix. Thus all mk residue pairs are reachable at one common length, and at all greater lengths by leading zeros. Suffixes of length >=t forget all but (r mod u,p); fixed-length reachability and invertibility modulo u separate different such pairs. For each j<t the only possibly accepting suffix is exactly the j-bit encoding of a mod 2^j (empty for j=0). Its predecessor test fixes r modulo m/2^j and p modulo k. In descending j this test can split at most one block because all earlier tests use coarser numerical congruences and the same specified weight coordinate on that set. Adding m/2^(j+1) to an inside r changes the current test but not the older ones, giving exactly one split. Hence the explicit quotient has ku+t classes for all targets, with modulus one and t=0 included. The two odd-part/weight transitions are permutations; some common power of their average is entrywise positive by the fixed-length argument, so that finite chain converges exponentially to its uniform law. Prescribing the low t bits and applying CRT yields 1/(mk). Independent bounded replay `python3 /tmp/opencode/modular-review.py` checked reachability and minimized by backward pair distinguishability for all 780 targets at 1<=m<=12, 1<=k<=4; the frozen three check scripts and captured output were inspected, not executed. The full replacement leaves theorem and proof intact, but marks the density as a known consequence and credits exact covered state-complexity subcases; the known-consequence derivation was independently checked at X=2^n, with redundant moduli handled by summing. Scope remains MSD-first binary words, leading zeros and epsilon, one joint target, complete one-way DFA.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexeev gives a general-radix formula for ordinary divisibility. His binary formula specializes to u+t for modulus 2^t u.",
+          "Morgenbesser p.135 quotes Gelfond's joint digit-sum/value progression count X/(rk)+O(X^lambda) when gcd(k,q-1)=1, lambda<1, in base q. The opening of Geffert et al. concerns binary encoding of unary languages by two-way automata."
+        ],
+        "reasoning": "Alexeev covers k=1,a=0, where the digit-sum test is vacuous, but his divisibility formula has no second residue constraint. Gelfond is broader for counts but not for one-way right languages. Binary coding of unary inputs with two-way models does not yield this input-digit-weight intersection quotient.",
+        "searches": [
+          "Alexeev arXiv:cs/0309052 Theorem 1",
+          "Gelfond DOI 10.4064/aa-13-3-259-265; Morgenbesser 2010 Eq. (6.1)",
+          "Geffert–Hlaváč–Královič arXiv:2608.24238"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cs/0309052, 1008.1668, 1909.07676, 1910.08543, 2608.24238",
+        "Gelfond DOI 10.4064/aa-13-3-259-265 (access limited); precise restatement by Morgenbesser (2010) p.135",
+        "Resultary 96c15e3c9e04 (self), 92575a32bd39, 1cde0467bae7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For base 2, gcd(k,1)=1; evaluation on [0,2^n) and division by 2^n give exactly exponential density convergence. Modulus-one exceptions in the statement quoted by the thesis reduce to modulus two by summing. No priority is claimed for that conclusion.",
+          "The direct product upper bound from ordinary divisibility and weight tracking does not decide whether short suffixes create t or kt extra states."
+        ],
+        "reasoning": "A frequency law supplies neither the word-by-word equivalences nor a minimum-size quotient. Even combining the standard counter product and known separate-state counts does not imply the exact answer: the residue and weight conditions must simultaneously be reachable, and each short accepting suffix must create exactly one split across the product. These are the distinct proved ingredients.",
+        "searches": [
+          "arXiv:cs/0309052; arXiv:1910.08543; Morgenbesser p.135 Eq. (6.1)",
+          "Gelfond original article via publisher and Mathdoc DOI 10.4064/aa-13-3-259-265"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Thue–Morse affine-set theorem gives 2u+ceil(t/p) for representations of mT+a in radix 2^p, with T the integers of even binary digit sum and 0<=a<m.",
+          "For power-of-two m and k=2 this is exactly the current language when b is the parity of a; for odd parts u>1 it is not generally the current language (6 in 3Z intersect T but not 3T)."
+        ],
+        "reasoning": "Split accepted integers as m q+a. The affine-set theorem tests digit sum of q; the joint-congruence theorem tests digit sum of m q+a. Only a pure binary shift allows digit-sum parity to be transferred to q by subtracting the known low-bit parity. Thus exact covered subcases are credited without equating the general statements.",
+        "searches": [
+          "arXiv:1909.07676, Theorem 3",
+          "arXiv:1910.08543, Theorem 3",
+          "Value residue, simultaneous digital congruences and exact state complexity (targeted literature search)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact hit ending 96c15e3c9e04 is the assigned record itself. A distinct same-day exact automata/density result concerns modular mixed-letter subsequence counts and residue-periodic densities. The other neighbor studies prefix sums of the deterministic Thue–Morse word modulo q."
+        ],
+        "reasoning": "Neither indexed neighbor gives values for the joint input-value and input-weight DFA. The self-match is not a separate corroborating table, and the date does not determine priority. No independent exact full-target table was identified in the bounded search.",
+        "searches": [
+          "Local Resultary on simultaneous binary value and Hamming weight residue automata",
+          "2026/11/22/SCOPE-exact-minimal-automata-and-residue-periodic-densities-for-modula--92575a32bd39",
+          "2026/10/25/SCOPE-dyadic-obstruction-and-exact-minimal-component-classification-of--1cde0467bae7"
+        ]
+      },
+      "rationale": "Pass the distinct general joint-congruence minimal-state and quotient claim, not the standalone density theorem or covered divisibility and affine Thue–Morse subcases. Gelfond's classical theorem actually implies the entire exponential-density part; the repaired Finding and literature section explicitly credit it and present the direct Markov proof as complementary. The literature section also credits the nonzero-a translated Thue–Morse subcases and updates the two-way-automaton comparison. No inspected broader result implies the general one-way input-popcount/target quotient. This is a best-of-knowledge verdict, not priority certification.",
+      "residual_risks": [
+        "The original Gelfond paper was not recovered, although the bound needed here was checked in its explicit published-thesis restatement. An unindexed exact theorem for a general joint-counter automaton might cover more of the state quotient.",
+        "The same-day neighbor was compared by claim, not chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact k=1,a=0 subcase, not the joint congruence",
+          "evidence": "Limit term l(m,2^infinity)=u, and each of the t nonzero minimum terms is one.",
+          "identifier_or_url": "https://arxiv.org/pdf/cs/0309052",
+          "material_read": "Theorem 1 and remarks, PDF p.2 at text offset 5550",
+          "method": "Open primary PDF passage",
+          "title": "Minimal DFAs for testing divisibility",
+          "trigger": "Exact state complexity of single numerical congruences"
+        },
+        {
+          "assessment": "Genuine covered pure powers-of-two shift subcases; different weight restriction in general",
+          "evidence": "Counts 2u+ceil(t/p) for mT and mT+a in radix 2^p; weight is tested on the quotient, not the represented integer.",
+          "identifier_or_url": "arXiv:1909.07676 and arXiv:1910.08543",
+          "material_read": "First paper Theorem 3, printed p.37 around offset 16100; second paper Theorem 3 p.6 offset 20300 and proof p.27 offset 87800",
+          "method": "Open primary PDF excerpts",
+          "title": "State Complexity of the Multiples of the Thue-Morse Set and Minimal automaton for multiplying and translating the Thue-Morse set",
+          "trigger": "Identical numerical formula for parity and affine multiples, possible implication"
+        },
+        {
+          "assessment": "Precise secondary restatement establishes classical coverage of this corollary; no assertion of having read the original",
+          "evidence": "For q,k,r>1 with gcd(k,q-1)=1, count n<=X with n=l mod r and s_q(n)=a mod k equals X/(rk)+O(X^lambda), lambda<1.",
+          "identifier_or_url": "DOI 10.4064/aa-13-3-259-265 and https://repositum.tuwien.at/handle/20.500.12708/10276",
+          "material_read": "Original paper not recovered; thesis printed p.135 (PDF p.151), Eq. (6.1) and surrounding paragraph at offset 447790",
+          "method": "Bounded lawful publisher and Mathdoc lookup for the original; open thesis passage for the precise restatement",
+          "title": "Sur les nombres qui ont des propriétés additives et multiplicatives données; General Gelfond problems for numeration systems",
+          "trigger": "Possible established joint value/weight equidistribution with effective error"
+        },
+        {
+          "assessment": "Different model and scope in the inspected passage",
+          "evidence": "Binary encoding of unary languages and two-way automata.",
+          "identifier_or_url": "arXiv:2608.24238",
+          "material_read": "Opening pages of retrieved full text",
+          "method": "Open primary PDF excerpt",
+          "title": "Unary Versus Binary Two-Way Automata",
+          "trigger": "Same motif of binary numerical encoding and state complexity"
+        },
+        {
+          "assessment": "Different observables; same-day dates do not settle priority",
+          "evidence": "Mixed-letter subsequence counts with periodic densities; deterministic Thue–Morse prefix sums modulo q.",
+          "identifier_or_url": "Resultary 92575a32bd39 and 1cde0467bae7",
+          "material_read": "Local Findings; the latter also Proof section 4 around offset 5200",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimal automata and residue-periodic densities for modular subsequence counts; Dyadic obstruction and exact minimal component classification",
+          "trigger": "Adjacent exact automata and density results found by local search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two numerical tests form a natural common-input product for one-way binary recognition, but the quotient has ku+t states rather than the separate-minima product k(u+t) in general. The uniformity across every numerical and digit-weight target, and the one-new-class-per-short-suffix mechanism, explain where all but t of the low-bit distinctions disappear. This is a usable exact construction and lower bound for joint recognition, not a parameter substitution into a multiplication theorem. The density appears only as classical context with a direct alternative proof and is not used as the novelty or value basis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

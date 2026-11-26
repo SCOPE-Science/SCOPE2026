@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Legendre polynomial reduces to \(I-hL+h^2L^2/6\). Multiplication of the combinatorial Laplacian proves each entry formula. Vertex-diagonal discriminants give exact forbidden intervals. The sharp universal first-loss horizon uses strict monotonicity of \(h_-(d)\), the uniform edge bound \(h_E\ge3/\Delta\), and Gershgorin's \(\lambda_{\max}\le2\Delta\), so a nonnegative-to-negative diagonal transition occurs inside scalar stability. A star's three spectral levels and entry orbits give the exact reentry window. An exact-rational standalone checker passed 40,565 finite assertions; these are supporting tests, not infinite proofs.
+PASS
 
-## Originality — PASS, qualified
+Expanding (D-A)^2 gives d_v(d_v+1) on the diagonal, c_uv-d_u-d_v on an edge, and c_uv on a nonedge. Intersecting the associated nonnegative conditions gives the exact union-complement with closed edge cutoff. The diagonal discriminant is d(d-2)/3: degrees zero and one do not obstruct; degree two gives the double zero (1-h)^2. For d>=3 the first root decreases with d, and h_-(Delta)<3/(Delta+1)<3/Delta<=h_E. A direct stable negative witness on every branching graph is h=3/(Delta+1): the maximum-degree diagonal is -(Delta-2)/(2(Delta+1)), and h lambda_max<=6Delta/(Delta+1)<6. The norm claim follows since the multiplier P_2(1-y/3) has absolute value at most one exactly for y in [0,6] when y>=0. For stars lambda_max=m+1 and the spoke cutoff is 6/(m+1); only the hub may be negative, and h_+(m)<6/(m+1). The four-vertex witness, two smaller positive stars and the 1/sqrt(3) fraction follow. No graph of at most three vertices has a negative diagonal or reentry after an edge first fails. Row sums remain one, including isolated vertices. The independent python /workspace/reproduce_frozen.py checks 64 labeled four-vertex graphs at six rational steps and the exact maximum-degree witness formula. The frozen checker was inspected, not executed; its graph comparisons and computed star signs use rational arithmetic, but its star reference root comparisons at sampled steps contain floating square roots. These finite checks are supplemental to the exact proof and not evidence of continuum coverage by enumeration.
 
-The closest published technical work is *A triangle-count law for positive two-stage Euler supersteps on regular graphs*, which already gives the \(L^2\) entry identities for arbitrary graphs. Those identities are credited, not claimed new. Its principal theorem optimizes variable two-Euler-stage coefficients for **regular graphs**, whereas the assessed theorem fixes the distinct RKL1 polynomial and establishes an all-irregular-graph universal branching barrier plus sharp star recovery. *Reentrant endpoint positivity of three-stage RKL2 on a minimal Markov chain* uses a different stability polynomial and directed topology. Radau IIA star reentry uses a different rational map. The original 2026 RKL study proves maximum principles under specified one-dimensional spatial conditions, not a general branching theorem. Some older specialist RKL full text was inaccessible; earlier unindexed equivalences remain a priority risk. Database similarity and accessible history cannot prove priority.
+## originality
 
-## Value — PASS
+PASS
 
-Branching degree is a structurally motivated graph invariant. The new sharp initial cutoff depends **only on maximum degree**, despite arbitrary local triangles and topology, and produces a universal, smallest-possible branching counterexample separating scalar energy stability from data positivity. The exact star loss/recovery diagram and its asymptotic forbidden fraction offer a timestep interpretation rather than a merely numerical sign counterexample. No implication for nonlinear, weighted or higher-stage discretizations is claimed.
+Best of current knowledge, the supported distinct result is the exact unmodified RKL1 degree-only first endpoint barrier with stable negativity on every branching simple graph, and the smallest-star reentry and full star windows. The polynomial, graph entry algebra, and regular-graph specialization are credited, not treated as new.
 
-## Limits and status
+## value
 
-Exact arithmetic; completed heat update only; finite simple unweighted undirected graphs. Supporting enumeration cannot establish universal claims. Published overlap remains a priority risk. Independent evaluation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp maximum-degree rule usable without triangle or spectral data, a guaranteed spectral-versus-positivity gap for every branching graph, and explicit reentry at the smallest possible number of vertices answer natural endpoint maximum-principle questions for an existing integrator. The importance is in those exact obstructions and thresholds, not in expanding L² alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

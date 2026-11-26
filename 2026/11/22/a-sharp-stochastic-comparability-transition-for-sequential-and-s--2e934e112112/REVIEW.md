@@ -1,20 +1,21 @@
-# Review of a sharp wheel-parking stochastic-comparability theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated domain is every finite wheel \(K_1\vee C_n\) with integer \(n\ge3\). The exact first-priority mixture gives the greedy law; the hub-plus-rim maximal-independent-set decomposition gives the static law. The cyclic \(2\)-or-\(3\)-gap count proves the Perrin recurrence and the strict singleton CDF witness at \(n\ge8\). A first-choice recursion gives the exact path-mean generating function. Its factorial remainder is bounded for every \(n\ge20\). The cubic spectral representation of the static cycle polynomial provides a uniform upper bound \(\mathbb ET_n<0.42n\). Combining these proves a strict wheel mean advantage for \(n\ge44\). A reproducible Fraction-arithmetic checker covers every integer \(8\le n\le43\), and independently enumerates all vertex orders and maximal independent sets for small wheels. The exceptional finite cases were checked explicitly. The integer-indexed infinite conclusion is analytic, not extrapolation from experiments. Re-execution of `verify.py` yielded 455 passing exact assertions.
+## correctness
 
-## Originality — PASS under inspected evidence
-The closest 2026 primary study establishes first-order sequential domination on paths and cycles, counterexamples on other connected graphs, and a subcubic conjecture; it does not state a complete wheel-family comparison. The publicly indexed wheel result *Rare-hub variance inflation in random greedy adsorption on clique-joined cycles* already gives the exact greedy wheel mixture and its mean scaling; those ingredients are credited, and neither supplies the **static** wheel distribution or the all-integer strict mean comparison. The published indexed cycle results derive individual greedy-output probabilities and uniformity exceptions; they do not compare the wheel's two occupancy cardinality laws. Classical Perrin enumeration explains the static count, not the whole sharp comparison. A related prior local-graph parking family in an accessible research ledger uses clique bouquets, not wheel rims, and has a different stochastic-comparability phase diagram. Search results and these implication comparisons support novelty at the stated narrow scope, but cannot certify exhaustive historical uniqueness.
+PASS
 
-## Value — PASS
-The new comparison addresses the natural finite-size problem posed by the two standard jamming ensembles on a simple connected graph family. It identifies **exactly** where stochastic comparability changes, at eight rim vertices, and proves that every larger wheel has an unexpected two-sided risk profile: more catastrophic hub-only outcomes yet larger mean occupancy under sequential dynamics. The joint tail-versus-mean mechanism is useful whenever stochastic dominance is proposed as a measure of sequential adsorption performance, not merely as a numerical anomaly for one small graph.
+Conditioning on the first arrival gives the wheel's greedy mixture with hub weight 1/(n+1) and rim size 1+R_(n−3). Uniform maximal sets instead weight the hub by 1/(M_n+1), where M_n counts maximal rim sets. The cyclic gaps between selected vertices are 2 or 3, which proves the marked-gap enumeration and the transfer matrix A(z) with rows (0,1,0), (z,0,1), (z,0,0). The trace of A(z)^n counts weighted labeled configurations. At z=1 its recurrence M_n=M_(n−2)+M_(n−3) and startup counts 10,12,17 at n=8,9,10 give M_n>n thereafter, excluding greedy stochastic dominance at the singleton CDF. Conversely the greedy mean is strictly higher. For the infinite tail, the path first-arrival recurrence gives the generating function (1−exp(−2z))/(2(1−z)^2); its factorial remainder gives E S_n>0.43n for n≥20. For the static law the matrix trace is the sum of nth powers of the three roots of λ³−zλ−z. At z=1 their modulus ratios and the log derivative λ²/(3λ²−1) give E T_n<0.42n for n≥20. Thus the wheel mean gap is greater than 0.01n−0.43 for n≥44. I independently checked n=8,…,43 using exact fractions: iterate B=I,E=0 by (B,E)→(BA,EA+BA') at z=1 to get static wheel mean (1+tr E)/(1+tr B), and compute the sequential mean with P_0=0, P_m=1+(2/m)∑_(j=0)^(m−2)P_j and (1+n(1+P_(n−3)))/(n+1). All 36 gaps are positive; the minimum is 799/24570 at n=12. A higher mean excludes the reverse stochastic direction. Small wheel supports collapse as stated, with equality at n=3,5,7 and strict greedy dominance at n=4,6; for n=6 the two size-(1,2,3) vectors are (1/7,2/7,4/7) and (1/6,1/2,1/3). At n=8 the displayed CDF crossing follows from the exact rim size laws, with both directions strict. The uploaded verifier was inspected, not executed.
 
-## Closest literature and limitations
-- Higuita-Diaz, López and Roldán-Correa, *Stochastic Dominance in Discrete Parking Processes on Graphs*, arXiv:2611.14718v1, 10 November 2026, especially the model definitions, cycles, counterexamples and conjecture.
-- *Rare-hub variance inflation in random greedy adsorption on clique-joined cycles*, public research record dated 8 November 2026, with an exact greedy wheel mixture and fluctuation analysis.
-- *Exact uniformity and a local likelihood-ratio obstruction for greedy independent sets on cycles*, public research record dated 18 October 2026, which proves a pointwise cycle-output phenomenon, not this wheel stochastic comparison.
-- Bisdorff and Marichal (2008) for cycle MIS/Perrin enumeration, and Krapivsky (2020) for the one-dimensional adsorption law.
+## originality
 
-Only uniform priorities and simple unweighted wheels are covered. A hidden or unindexed equivalent result remains a historical-priority risk. No independent mathematical review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sequential and uniform-static parking, cycle dominance, the greedy wheel mixture and earlier connected incomparable examples are established. The supported distinct result is the complete first-order comparison on wheels, in particular the persistent incomparability threshold rather than the existence of incomparability on some graph.
+
+## value
+
+PASS
+
+The wheel is a natural way to test whether a universal vertex preserves a known rim order. The classification identifies where that order persists, where the occupancy laws coincide, and where the hub reverses only the low tail despite a larger mean. Persistence for every larger wheel is stronger than a lone counterexample. The result says nothing about the maximum-degree-three conjecture, since hub degree grows with n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

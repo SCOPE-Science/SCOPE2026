@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For positive model parameters, the log-ratio derivative has the exact factored expression given in RESULT.md. Differentiating the single rational term gives its unique positive maximum at \(x=\sqrt{ab}\), hence the sharp rate threshold and all possible monotonicity intervals. Strict derivative signs plus limits and continuity supply the if-and-only-if classification on \([0,\infty)\). The exact witness reduces crossings to a rational polynomial with three disjoint sign-changing brackets, while the analytic bound rules out further roots. The standalone code checks the claimed arithmetic and formula equivalences. It does not purport to prove the bound by sampling.
+PASS
 
-## Originality — PASS on inspected evidence
+The common logistic denominator cancels, giving R=K exp(-delta t)(x+a)/(x+b), x=q exp(kappa t). Its log-derivative is -delta+kappa g(x) with g=(b-a)x/((x+a)(x+b)). For b<=a it is strictly negative. For b>a, g increases then decreases with its unique maximum at sqrt(ab), of value (sqrt(b)-sqrt(a))/(sqrt(b)+sqrt(a)). At delta=delta_c the derivative vanishes only at an isolated point and R is still strictly decreasing. Below the boundary the quadratic for g=delta/kappa gives the two stated positive roots and the -,+,- derivative sequence on the full positive x-axis; both extrema are interior in age exactly when q<x_-. Strict monotonicity on the resulting intervals and R(infinity)=0 prove the four strict conditions, including exclusion of a root at t=0 and of extrema that only touch R=1. For attainability at every subcritical rate choose a multiplicative scale between the inverse local maximum and inverse local minimum of x^(-delta/kappa)(x+a)/(x+b), then choose q small using divergence as x decreases to zero. This scaling is realizable by positive fixed profiles. Independently at the rational witness points 1/10, 1/2, 1, 2, 4, the exact numerator signs were reproduced by the scaled integers -310039, 9, 2, -18, 32, proving three distinct interior sign changes together with the upper bound.
 
-Full HTML article methods, results and discussion were read for Morlock et al. (2023) and Sand et al. (2024), and relevant methods/results for Thorpe et al. (2022). Their results motivate source-provenance effects and preservation distortion, not the mathematical condition for *three* apparent marker-order switches with constant source profiles. Web searches targeted logarithmic ratio models, differential decay, and sedimentary bias. Public summaries of published mathematical findings on rarefaction ranking, source mixtures and ecological phases address different statements; none of the inspected accounts supplies this specific sharp threshold. **The classical four-exponential Chebyshev zero-count already implies the at-most-three part** and is explicitly acknowledged; the claimed additional result is the model-specific threshold and full attainability/observational classification. Unsearched older taphonomic models remain an uncertainty; no exhaustive global originality certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating empirical literature directly documents different apparent sediment-eDNA communities under changes in erosion regime even when ecological communities are unchanged. A second primary source identifies mineral- and persistence-induced inferential bias. A *sharp criterion* for three apparent taxon-dominance reversals, including an exact positive witness, exposes a qualitative failure mode of reading multiple apparent community turnovers as repeated colonization/extinction. It distinguishes a physically motivated model mechanism from the weaker standard mathematical zero-count theorem and provides concrete diagnostic boundaries. No downstream field-calibration result is inferred.
+Pass for the matched-rate, positive-parameter sharp rate and fixed-parameter fixed-level classification as one statement, not the prior general three-zero bound. The closest catalogue record has a material two-exponential-pool and three-age overlap; the equal-additive-excess reduction makes it a plausible dominating result, but its accessible statement does not specify the rate family or fixed-level/initial-time hypotheses. No earlier or otherwise dominating covering statement was verified for the surviving precise boundary. No same-day priority or novelty of the abstract decline–rebound–decline mechanism is claimed.
 
-## Closest literature and limitations
+## value
 
-- Morlock et al. (2023), DOI 10.1002/edn3.458: sediment provenance affects inferred community composition; no specified logistic-plus-selective-decay ratio law.
-- Sand et al. (2024), DOI 10.1002/edn3.519: DNA–mineral adsorption, recoverability, and preservation biases; no three-switch phase diagram.
-- Classical exponential Chebyshev systems: cover the coarse three-zero ceiling for a four-term exponential polynomial, but not the specialized necessary-and-sufficient \(\delta_c\) regime and physical constraints as stated.
+PASS
 
-Assumptions exclude genuine temporal ecological change, non-logistic source histories, type-specific molecular decay, measurement errors and stochastic sequencing. Historical priority is provisional.
+As a stylized confounding test, the exact boundary says when three observed rank reversals can and cannot be explained by changing contributions from two unchanged source profiles plus constant marker-dependent preservation. It is useful to know the exclusion conditions from contrasts and rates, not just that three zeros can occur. The exact witness and fixed-parameter criteria distinguish this from an arbitrary root count. This is a statement about unchanged source endmembers, not an unchanged deposited mixture or evidence of ecological constancy in a real core.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

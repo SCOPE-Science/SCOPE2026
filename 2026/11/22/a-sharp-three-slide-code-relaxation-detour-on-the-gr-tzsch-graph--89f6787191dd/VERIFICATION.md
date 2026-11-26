@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,36 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-This is a finite exact enumeration of the 11-vertex Mycielskian of the five-cycle, not an infinite theorem inferred from samples. Reproduction requires Python 3, with only standard-library packages.
+## correctness
 
-Run the two complete programs in the same directory:
+PASS
 
-```
-python3 verification_a.py
-python3 verification_b.py
-```
+Reconstructed the Mycielskian of C₅ with the five cycle, ten crossed clone, and five apex edges. LT requires open domination at every vertex and distinct open traces outside the set; IC instead uses nonempty distinct closed traces at every vertex. Enumeration by increasing size through five exhausts all 1024 candidates of size at most five. At the optimum a move exchanges exactly one removed and one inserted vertex, with an original edge required for slides. The independent Python reconstruction at /workspace/branches/31a8166b-9b0c-4ea7-b27e-3d0bef17ecd4/audit_mu_c5.py (recorded audit.log in the same directory) found minima five, sizes 110 and 191, inclusion of LT in IC, slide edge counts 190 and 555, connectivity, and all 5995 distance savings (4135,1440,360,60). Both frozen verifiers were inspected without execution. Their complementing exhaustive loops cover the ancillary jump metrics, full eccentricities, dihedral orbits and path checks: the mask verifier generates each single move directly and BFS gives the exact shortest distance; the tuple verifier builds all feasible exchange pairs, checks both histograms and enumerates maps i↦a±i. In the explicit witness the LT slides exchange u₀→v₄→v₃, v₀→u₄, u₄→w→u₀. The shorter path exchanges v₀→u₄→v₃; u₄ is open-undominated in its middle state. The tuple certificate checks legality and BFS establishes distances 5 and 2. Replays for the submitted jump, metric and orbit certificates are in VERIFICATION.md. This is an exact finite result on the specified graph, not a bound for other Mycielski graphs.
 
-The first constructs the 20 original edges using integer masks, tests every subset by size, constructs legal single-token moves and runs BFS on each finite state graph. It asserts exactly five required sensors for both code conditions; 110 minimum locating-total and 191 minimum identifying sets with strict inclusion; undirected edge counts of 520 and 1405 under jumps, 190 and 555 under slides; radii/diameters respectively (4,5),(4,5),(6,8),(5,6); and full pairwise improvement counts (5725,270) under jumps, (4135,1440,360,60) under slides.
+## originality
 
-The second reconstructs the graph independently with named tuples and Python sets, tests all cardinals and all five-sets, creates legal edges by pairwise intersection tests, and independently checks all 5995 locating-total endpoint pairs. It checks 13 dihedral locating-total orbits (9 ten-element, 4 five-element) and 24 identifying orbits (15 ten-element, 8 five-element, one singleton). It also checks each move in the explicit five-versus-two slide witness and verifies those two paths are shortest. Each program raises an assertion on any mismatch and prints PASS only after completing its tests.
+PASS
 
-Expected first-program terminal lines:
+The strongest examined same-graph literature gives upper bounds on the optimum sizes, not the state families, their inclusion, or a cross-predicate metric comparison. The exact finite detour and histogram were not found in an independently matching record. No priority beyond the checked evidence is inferred.
 
-```
-jump LT_edges 520 IC_edges 1405 LT_radius_diam 4 5 IC_radius_diam 4 5 unordered_distance_saving {0: 5725, 1: 270}
-slide LT_edges 190 IC_edges 555 LT_radius_diam 6 8 IC_radius_diam 5 6 unordered_distance_saving {0: 4135, 1: 1440, 2: 360, 3: 60}
-PASS exhaustive certificate: 5 selected vertices, 110 LT codes subset 191 identifying codes
-```
+## value
 
-Expected second-program terminal lines:
+PASS
 
-```
-jump difference counts {0: 5725, 1: 270}
-slide difference counts {0: 4135, 1: 1440, 2: 360, 3: 60}
-PASS independent tuple certificate
-PASS witness: five legal locating-total slides versus two identifying-code slides
-```
+The Grötzsch graph is a canonical small Mycielski example, and the fixed-cardinality distance test isolates the cost of retaining the stronger feasibility requirement during moves. The comparison gives useful information unavailable from either optimum cardinality: some endpoint pairs cross a genuine three-slide barrier, with 60 extremal pairs and only one slide of potential saving if jumps are permitted. The exact census therefore measures a specific structural difference rather than recomputing a standalone domination number.
 
-No untested graph orders, external services, precomputed datasets, or outside runtimes are necessary. Reproduction verifies all claimed finite arithmetic and algorithms, but this does not substitute for independent review or guarantee historical novelty.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

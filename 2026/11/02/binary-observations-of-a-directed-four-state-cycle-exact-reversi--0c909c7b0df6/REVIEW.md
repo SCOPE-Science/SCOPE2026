@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The stationary flux \(\pi_i r_i=J\) is directly normalized. The reversal sufficiency uses two explicit color-preserving involutions that conjugate the reversed microscopic process. Necessity reduces to two alternating four-frame words; each has precisely two minimum-three-jump microscopic paths, producing respectively \(J(bc+ad)\) and \(J(cd+ab)\) as cubic coefficients. Stationary binary word-flow identities reduce all four-frame antisymmetries to the alternating-word difference. The KL asymptotic separates the three-switch pair from lower-switch pairs, bounding every latter contribution by order \(h^4\). The proof covers all positive rates but only sufficiently fine observation intervals for the nonzero witness. Standalone checks passed 1036 deterministic assertions.
+## correctness
 
-## Originality
-The closest 2026 coarse-graining paper by Singh and Aghion establishes loss of entropy production in a two-state kinetic approximation, not the present four-microstate binary time-reversal criterion. Chen's 2011 three-state result already covers the lower-state comparison, which is explicitly credited. Barato, Hartich and Seifert examine four-state bipartite information-rate models; the inspected four-state section does not state the two opposite-rate reversible hypersurfaces or four-frame reverse-path KL coefficient. Blom and coauthors establish general coarse-memory thermodynamic inference methodology; Ellison and coauthors establish general information-symmetry methods. Neither located an exact theorem at this parameter and claim level. This is qualified best-knowledge originality, not a proof that broader hidden Markov theorems cannot imply the result. Residual risks are more general time-reversal criteria and inaccessible or unindexed specialised analyses.
+PASS
 
-## Value
-A two-output measurement of a motor-like cyclic kinetic network necessarily hides one-step direction, and even three equally spaced samples are information-theoretically direction-blind. The full four-rate classification identifies two distinct physical rate-matching mechanisms for completely hiding directed cycling; the sharp cubic coefficient quantifies the first recoverable signal from four samples. This supplies a natural complete diagnostic phase diagram rather than an arbitrary finite computation. It does not estimate a finite microscopic entropy-production rate for a strictly directed chain.
+Stationary flow is π_i r_i=J, so the reversed chain jumps counterclockwise out of i at the same rate r_i. Reflections i↦−i for b=d and i↦2−i for a=c conjugate the generators, preserve π and parity, and prove full reversibility on the two surfaces. In each alternating word three intervals change parity; only the one-jump paths contribute at order h³, giving JU and JV. Their difference is −J(a−c)(b−d), proving necessity. Stationary marginals of 00 and 11 force the only nonpalindromic length-three pairs to be equal. For length four I checked the prefix/suffix balance at 000, 111, 010, 101, 001 and 100: the five other signed differences are 0, 0, Δ, −Δ, Δ as ordered in RESULT.md. A word with m changes has probability Θ(h^m) because exactly the required jumps with all other intervals jump-free give a positive leading term. For nonalternating reversal pairs m≤2, so (p−q) log(p/q)=O(h^{6−m})=O(h⁴); the alternating pair gives the stated cubic coefficient with O(h⁴) remainder. Every word has positive probability at fixed h>0. The asymptotics are for fixed positive rates, and the minimality is only for equally spaced observations. The supplied script was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The explicit finite-block KL law is the distinct supported contribution. The general impossibility for fewer than four equally spaced binary frames is prior literature. The exact rate boundary and cubic four-frame probability asymmetry have demonstrably equivalent coverage in a distinct later-dated catalogue record, so I do not credit those as unmatched or resolve priority from catalogue dates. That overlap does not give the explicit all-word KL coefficient or its remainder.
+
+## value
+
+PASS
+
+The motivating question is how much directional information remains in the shortest usable uniformly spaced record after parity hides the microscopic cycle. The exact leading KL quantifies that question, identifying the uncommon alternating records that carry the leading information and the dependence on both opposite-rate contrasts. This is not a microscopic dissipation estimate (the microscopic reversed paths lack support), nor an entropy rate. It is a concrete finite-window observable near a sharp reversibility boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: Cantor-driven affine stationary regularity
+# Independent mathematical audit
 
-## Correctness — PASS
-The model is normalized using independent standard ternary Cantor inputs. Contraction yields the unique invariant probability and its random-series representation, while the interval-support claim follows from the largest-gap comparison \(2/9<1/3\). Diagonal regrouping of independent signs gives the multiplicity-\(m\) cosine product. On every geometric frequency annulus two adjacent factors give \((9/16)^m\), so Plancherel proves the positive \(L^2\) and fractional-Sobolev range. At the explicit lattice \(t_N=(\pi/2)3^{N+1}\), exactly \(N\) cosine levels have unit modulus and the remaining factors give \(BA^N\), with \(3A>1\) proved by a convergent-product estimate. A finite-variation derivative would force bounded \(|t\widehat\mu(t)|\), contrary to the exact resonance. Uniform lower bounds on fixed-width frequency bands establish the stated non-Sobolev range. Finite checker identities support, but are not substitutes for, these proofs.
+## correctness
 
-## Originality — PASS, subject to historical-priority limits
-Mantica (2010), Sections 6–8, already gives the general Fourier infinite-product identity and an \(L^2\) sufficiency criterion; those are explicitly attributed. The paper's explicit regularity examples involve other contraction values and its theorems do not imply bounded variation or its failure at the matching ternary ratio without additional harmonic analysis. Mantica (2011) analyzes Jacobi matrices and gives a different Cantor-driven parameter example; Mantica and Peirone (2015) classify attractor support as finite unions of intervals, not stationary-density BV. Neither inspected result supplies the exact resonant sequence and lower obstruction to variation. Searches for the same model, ternary resonance, Fourier products, aliases, and BV/absolute-continuity separation did not reveal equivalent published coverage. A possible unindexed calculation of this exact specialization remains a residual priority risk, so the originality finding is not a claim of exhaustive historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-For homogeneous affine random iteration, distinguishing absolutely continuous invariant measures from singular ones is a long-established question. The matching contraction of the standard ternary Cantor driver supplies a naturally defined boundary example: even with full interval support and an \(L^2\) stationary density, the density cannot be BV. This explicitly separates BV-based regularity from absolute continuity in a classic model and ties the obstruction to a reproducible arithmetic resonance. The result also provides positive and negative fractional-Sobolev ranges without presenting them as an exact threshold.
+The affine contraction gives the unique stationary series. Its support is the compact fixed point of the contracting support operator; adding [0,1/3] fills the gaps of the scaled Cantor set (maximal gap 2/9). Grouping the centred independent signs by n+k=m gives m copies with coefficient 2/3^(m+1). Choose m so the m-th angle is u in [π/3,π]; its product with the next cosine has absolute value at most 9/16 by the quadratic 4z²−3z, z=cos²(u/3), or the bound 1/2 on the lower half of the range. This gives Fourier decay with exponent log_3(16/9)>1/2 and Plancherel yields the stated strict lower Sobolev range. At the stated t_N all angles through m=N are integer multiples of π; the remaining factors are positive and give BA^N. The tail-deficit bound A≥(1−π²/144)/2>4/9 implies unbounded t_N|μ̂(t_N)|, incompatible with a finite derivative measure of the BV zero extension (finite one-sided traces). Fixed-width bands around t_N retain a uniform positive fraction of A^N: the early product has summable cosine deficits and the late log ratio is bounded by O((N+1)3^(−N)) away from zeros. Summing the band contributions diverges also at the stated endpoint. Independent finite products reproduced A, B, s_* and the sampled resonances; the analytic estimates, not samples, cover all N and stated Sobolev exponents.
 
-## Closest literature and remaining limitations
-Primary comparisons: G. Mantica, arXiv:1005.3395v1, Sections 6–8 and Theorems 3–4; G. Mantica, arXiv:1106.4945v1, Sections 4.4–5; G. Mantica and R. Peirone, arXiv:1506.08033v1, Theorem 1.1 and Section 8. The Fourier product and contraction framework are known; the present claim is the evaluated model-specific regularity obstruction. No exact Sobolev threshold, continuity classification, or neighboring-ratio phase diagram is asserted. Historical priority remains open to external examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the matched-scale regularity separation and quantitative resonance results, not for first introducing the model, invariant product, general L² technique, or interval topology. Mantica's product and known topological theorem give substantial ingredients. The exact weighted resonance and quantitative estimates, including lower bounds on whole Fourier bands, are not supplied by the compared statements. Neither the Cantor-measure Fourier ranking nor the finite-digit coherence invariant in Resultary is a result on the stationary affine series.
+
+## value
+
+PASS
+
+The matching-scale Cantor example separates an interval attractor and genuine L² regularization from BV regularization in a natural singular-noise affine model. The lacunary mechanism and fixed-band Sobolev obstruction give quantitative information beyond testing a sufficient smoothing criterion or finding one large Fourier value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

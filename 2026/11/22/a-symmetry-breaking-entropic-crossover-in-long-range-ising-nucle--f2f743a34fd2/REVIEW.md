@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-At zero interaction-decay exponent, the energy at fixed number of plus spins is exactly \(2Jk(N-k)-2hk\) relative to all-minus; for \(0<h<J\), the unique highest layer is \(m=\lfloor N/2\rfloor\), with a finite uniform energy gap to all other layers. The two basin graphs remain connected for all sufficiently small nonnegative exponents, and all central-layer neighbors are downhill. A one-dimensional within-group compression argument proves the two end blocks uniquely minimize any strictly decreasing positive distance cut, giving the strict logarithmic gap. The reversible Dirichlet principle then reduces the network to disjoint parallel stars of degree \(m\) and \(N-m\), with exact effective conductance \(m(N-m)/N^2\) times the Gibbs weight of each star. The exact mean/capacity identity supplies the prefactor, uniformly through the coalescing gate energies. A direct finite-state checker passed 2,049 consistency checks. The proof, not the finite examples, establishes the infinite-inverse-temperature limit.
+PASS
 
-## Originality — PASS, with stated priority risk
+At q=0 the increments of 2Jk(N−k)−2hk have strictly positive sign through k=m=floor(N/2) and negative sign thereafter for both parities under 0<h<J. Every mixed configuration is strictly above all minus. Finiteness gives both separations uniformly for small q, with the two off-gate regions connected to their respective endpoints. For a decreasing distance kernel, each ordered pair distance within a subset is bounded below by its rank separation; equality for all pairs forces that subset to be an interval (including a singleton). Apply this to both parts of the cut to get precisely the two minimizing end intervals, both for r^(−q) at q>0 and for log(N/r). On the e^(−βH_q(E))/Z capacity scale, internal basin conductances grow at least as e^(βδ)/N, each gate edge has conductance at most 1/N, and a basin-constant trial potential has bounded scaled capacity. A minimizing potential therefore differs from its endpoint value by O(e^(−βδ/2)) along each fixed internal path. Clamping basin potentials changes the scaled gate energy by o(1), uniformly; the two minimizing stars give a positive lower bound, so the error is relative. A gate state has m and N−m edges to the two basins, giving effective weight π(S)m(N−m)/N² per serial proposal. The singleton capacity identity has numerator π(all minus)(1+o(1)); all plus has zero potential. The Taylor remainder βO(q²) vanishes for finite βq, and at βq→∞ every positive shape gap still has exponent tending to +∞. At fixed small q>0 only the two end intervals survive. The N=4 log-cut products are 12, 4 and 3, each twice, yielding the stated three levels.
 
-The precise object is a finite open one-dimensional ferromagnet with couplings \(Jr^{-q}\), its one-attempt-per-step Metropolis mean transition time, and the simultaneous \(\beta\to\infty\), \(q\to0\), \(\beta q\to\lambda\) limit. Van Enter et al. (2019), Theorem 3.2, gives the logarithmic Arrhenius exponent and boundary droplet geometry but no explicit finite-temperature, weak-exponent gate multiplicity function. Jacquier's 2025 metastability review discusses sharp prefactors generally without deriving this function. The general graph prefactor work by Dommers et al. (2016) and random-graph long-range study by Jacquier (2025) concern either general methods or other graph structures, not the stated explicit weak-exponent crossover. Targeted literature comparisons did not identify an identical statement or a stronger covering implication. These comparisons are limited to the stated inspected material; an implicit reduction within broader potential-theoretic literature remains a residual publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural sharp symmetry-breaking question rather than an arbitrary parameter slice: homogeneous all-to-all couplings give exponentially many equal-energy saddle configurations, whereas any fixed small positive decay exponent selects only the two boundary gates. The theorem identifies the unique temperature-dependent crossover scale and all its intermediate coefficients, with an explicit four-spin example and a normalized exact rate prefactor. It supplies a benchmark for interpreting finite-temperature nucleation data near the mean-field boundary. It makes no thermodynamic-limit or noise-robustness claim.
+Credited ingredients include the established boundary droplet, the logarithmic Arrhenius law, and finite-network potential theory. No inspected comparator gives the uniform finite-chain reduction with the central-layer first-order gap weights or evaluates this joint-limit prefactor. The same-day distinct record was compared on substance, not date.
 
-## Closest literature and scientific limits
+## value
 
-The primary comparison is van Enter et al., *Nucleation for One-Dimensional Long-Range Ising Models* (2019), https://doi.org/10.1007/s10955-019-02238-y. The initiating literature is Jacquier, *Exploring Metastability in Ising Models* (first public version 10 January 2025), https://arxiv.org/abs/2501.06163. The independent broader graph-side comparison is Dommers et al., *Metastability for Glauber Dynamics on Random Graphs* (2016), https://arxiv.org/abs/1602.08900. The result fixes \(N\), requires \(0<h<J\), and uses a sufficiently small decay exponent. Potential undiscovered equivalent general-capacity specializations are the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the same exact Arrhenius normalization the mean passage time changes by a binomially large factor across a physically natural degeneracy-lifting scale, βq. The explicit cut-gap sum gives a usable quantitative answer on intermediate scales, beyond the boundary geometry, two separate endpoints, or a rescaling of time. The contribution is deliberately finite-chain and does not claim a macroscopic limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

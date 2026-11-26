@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every one of the 36 unordered edge pairs, exact multivariate integer-polynomial enumeration proves the factorization \(F_{10}F_{01}-F_{00}F_{11}=q^2(1-q)C_{ef}\), with a nonzero quotient whose every nonzero coefficient is a positive integer. Together with the exact multiaffine covariance identity and \(Z>0\), this proves the theorem for all \(0<q<1\), \(v,w>0\). The bundled certificate records every exponent/coefficient in the eight orbit polynomials, and the standard-library verifier reconstructs all 36 and runs 108 separate exact rational moment comparisons. It is finite symbolic verification of an identity valid at arbitrary real parameters, not finite sampling of a continuum.
+## correctness
 
-## Originality — PASS on examined evidence, priority provisional
-Wagner's 2006 Potts-Rayleigh theorem covers series–parallel matroids rather than the cycle matroid of \(K_{3,3}\). Zhao–Zhou's 2026 low-rank/corank statement does not apply: the ranks here are five and four. The closest complete-bipartite work, Cao–Fu (2026), covers uniform spanning forests and connected subgraph ensembles, not this entire random-cluster interval with an independent defect activity. Related weighted/Z-Rayleigh and recent high-degree work was compared by hypotheses and conclusion. Bounded published-search and exact-claim searches found no dominating statement; some relevant full texts remain inaccessible and priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The structural object is a low-degree, non-series–parallel bipartite graph where negative bond dependence at random-cluster weight below one is not automatic from known positive association or forest limits. The result resolves all edge-pair types for a nontrivial two-activity disorder family and gives fully explicit, positive-coefficient proof objects, a useful test case for broader Potts-Rayleigh conjectures. It does not claim unrestricted heterogeneous edge weights or arbitrarily large graph size.
+The graph has six vertices with isolated vertices counted in k(A). For each of the 36 distinct unordered pairs, stripping only the marked activities from the four occupation cells gives Cov=x_e x_f(F00 F11-F10 F01)/Z². The separately written integer replay (branches/2760e33c-5e6f-463f-a09b-d3e7f82e1958/k33_independent_replay.py) enumerated all 512 subsets, multiplied each quotient back by q²(1-q), and matched the frozen certificate coefficient by coefficient for every pair. The automorphisms fixing the defect produce eight actual pair orbits, with sizes 4,4,2,4,8,8,4,2. Their distinct quotients have 26,25,65,58,67,64,65,58 monomials, all with positive coefficients on the support. Thus each quotient is strictly positive for positive q,v,w, and the normalized covariance is strictly negative since additionally 1-q>0 and Z>0. This covers all independent choices of q,v,w in the stated domain, including w=v; it does not cover nine independent edge activities, general K_m,n, or negative association. The accompanying replay JSON and summary are in the same replay directory. Frozen verify.py was inspected, not executed.
 
-## Closest literature and limitations
-See the six named primary sources in `RESULT.md`, especially Wagner (2006), Cao–Fu (2026), Mani (2011), Zhao–Zhou (2026), and related contemporary random-cluster preprints. The verified conclusion is conditional only on the stated graph and activity restrictions. Independent audit and comprehensive historical priority checks are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge for the whole one-defect positive-activity K3,3 family at 0<q<1, not for negative correlation on this host under every measure. The graph falls outside the rank/corank and series–parallel results, and the known complete-bipartite uniform forest and uniform connected-spanning ensembles are different laws. The comparable one-defect K5 record is a different fixed host, not a stronger graph theorem. No historical priority guarantee.
+
+## value
+
+PASS
+
+K3,3 is a natural small non-series-parallel bipartite test case outside the rank/corank cutoff. A single weighted bond models the smallest nonhomogeneous perturbation while allowing arbitrarily strong disorder, not just perturbation of equal weights. All-pair, full-domain sign with integer certificates gives an exact benchmark for when negative dependence persists despite that disorder. The domain-wide conclusion does not follow from a small rational grid or an endpoint ensemble.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

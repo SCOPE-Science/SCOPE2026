@@ -1,11 +1,21 @@
-# Scientific review: periodic ternary short-square avoidance
+# Independent mathematical audit
 
-**Correctness: PASS.** The property and periodic-extension scope are defined at all circumferences, including \(n<6\). A uniquely labeled closed-walk correspondence with the explicit thirty-state graph proves \(c_n=\mathrm{tr}(A^n)\); full integer characteristic-polynomial calculations by Newton identities and Faddeev--LeVerrier agree with the four-factor determinant. Consequently the formal generating function and zero traces are all-length identities. Four actual common-vertex closed walks with lengths \(4,6,11,13\) cover all admissible lengths by concatenation; exact traces exclude precisely \(1,2,3,5,7,9\). Exhaustive word and necklace enumerations are supplementary checks, not substitutes for proof.
+## correctness
 
-**Originality: PASS, with residual risk.** Kovačević (arXiv:1911.06561, complete text) establishes the linear short-tandem-duplication irreducible language and coding rate; Jain et al. (arXiv:1606.00397, complete text) introduce the associated finite-state graph and entropy, so neither the avoidance criterion nor graph is claimed new. The new statement evaluates the complete cyclic characteristic polynomial, gives its exact dynamical zeta function, and proves a sharp periodic-length spectrum. Shur's fully square-free circular enumeration uses a strictly different property (the length-ten distinction is decisive). No equal or stronger published conclusion was found in targeted semantic records or inspected primary documents; equivalent unindexed periodic enumeration and computability from the previously known graph remain material priority risks.
+PASS
 
-**Mathematical value: PASS.** The sharp and exceptional period spectrum plus the exact all-length orbit-count formula identify which closed constrained strands exist and how many necklace orbits occur at each length, beyond linear asymptotic coding capacity. The determinant has nontrivial distinct factors and a repeated degree-eight factor; the result is not merely a renaming of a known one-step recurrence. The value is in the finite-width periodic classification and exact rational invariant, not a claim of broader applications or independent novelty certification.
+A labeled word determines exactly one indexed closed walk by taking its length-five window at each residue. Conversely, overlapping successive windows on a closed walk forces every window coordinate to be the corresponding leading letter at a shifted index, even when n<5; thus the six-letter tests cover every cyclic forbidden square, including across more than one boundary. Hence c_n=tr(A^n), without any extra rotation factor. Independently ran python3 /workspace/cyclic_short_square_check.py (Python with SymPy): generated all admissible six-letter blocks and their five-letter overlaps, checked the complete state set (30 states, 42 edges), computed and factored the exact characteristic polynomial, reproduced every coefficient of the proposed det(I−zA) and the first twenty traces, directly counted n=1..9 by modular indexing, and tested the four stated loops at the common state 01210. The formal trace-log identity establishes the rational zeta expression for all n. The traces exclude exactly the six listed small candidates once the loop argument is applied: lengths 4 and 6 generate all even n≥4 and bases 11 and 13 plus the same semigroup give all odd n≥11. A rotation by j fixes exactly the repeats from a labeled word of length gcd(n,j), which proves Burnside's formula. Divisor inversion on least periods counts the primitive words, each giving one orbit per n distinct rotations. The source checker was inspected, not run. The stated positive spectrum concerns allowable circumferences, not an asserted spectrum of least periods.
 
-**Principal scientific limits:** three distinguishable symbols only; three forbidden square block sizes only; the earlier graph model is acknowledged; no general alphabet theorem. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct exact result is the full periodic trace and zeta determination for this particular ternary constraint, including explicit witnesses for the circumference classification. The linear forbidden language, constrained graph method, growth root, general trace-log and orbit identities are not new. Neither the strongest matching indexed findings nor the inspected linear and fully square-free sources give the same periodic determinant or exact counts.
+
+## value
+
+PASS
+
+The forbidden lengths are motivated independently by short tandem-duplication irreducibility. Exact periodic counts are needed for rotation and least-period orbit counts, which cannot be recovered from a linear growth rate. The evaluated determinant, coefficients and explicit all-length witnesses provide reusable exact information beyond the generic transfer-matrix recipe or the known existence of many fully square-free circles; the gap pattern does not merely track the full circular square-free exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite proof is analytic. The key general implication is checked directly: if fewer than \(\eta(G)\) edges are bichromatic, every color class has size \(1\) or \(N-1\); three classes would force the union of two singleton classes to have at least \(\eta(G)\) bichromatic boundary edges. Thus every nonmonochromatic coloring in this range is exactly a singleton-versus-complement coloring.
+# Independent mathematical audit
 
-For crowns, the proof establishes \(\eta(\operatorname{Cr}_n)=2n-4\) by a direct lower bound on every nontrivial vertex cut and an adjacent-pair witness. This is valid for all \(n\ge4\).
+## correctness
 
-`verify.py` independently performs three finite checks: exhaustive nontrivial subset cuts for \(4\le n\le9\); exhaustive unlabeled color partitions for \(n=4,5\); and arithmetic identity checks through \(n=100\). Its replay output is:
+PASS
 
-`ALL CHECKS PASSED; restricted_cut_orders=4..9; subset_checks=349272; partition_orders=4,5; set_partitions=120115; symbolic_orders=4..100`
+For any union of color classes its cut consists entirely of bichromatic edges. With b<eta, every nonempty proper union must have singleton shore or singleton complement. A nonmonochromatic partition then has classes of sizes 1 or N−1; with at least three classes they would all be singletons and two of them would give a forbidden size-two shore, since N≥4. Hence exactly two classes are possible, splitting off a vertex v and giving b=d(v). Conversely that split realizes the claimed value, and one color gives exactly k=m. On a crown, replace a cut shore by its smaller complement as needed and put s=|S|, 2≤s≤n. The cut is (n−1)s−2e(S)≥(n−1)s−s²/2 since e(S)≤|S∩A||S∩B|. The concave lower bound is ≥2n−4 at both endpoints for n≥4. An adjacent pair attains equality and realizes the stated lower defect endpoint with two colors; n−1<eta verifies the interior singleton exception. RESULT.md supplies the full proof. VERIFICATION.md records finite corroboration and verify.py was inspected without execution; its partition-count total uses preset Bell numbers, not a separately incremented count, and no independent numerical replay is claimed.
 
-Finite enumeration is corroborative only. It is not used to infer the theorem for unbounded \(n\) or arbitrary graphs. The result does not determine lower \(k\)-defect values below the sharp crown threshold.
+## originality
+
+PASS
+
+The distinct finding is the graph-wide coloring classification from nontrivial cuts and its crown k-defect application. The crown cut parameter itself is a prior result under the K_2 × K_n alias, and the submitted bound even uses the same quadratic inequality; do not credit that parameter or proof as new. The prior all-shores cut theorem does not cover the color-partition conclusion or a theorem for general graphs.
+
+## value
+
+PASS
+
+The color-partition lemma turns a natural graph invariant into an exact threshold classification: below the nontrivial cut budget the only nonzero bichromatic counts are eligible vertex degrees, regardless of how many colors are allowed. This refines the ordinary connectivity exclusion and gives a sharp instance on an infinite family, with no need to enumerate its colorings. The standalone exact cut value is known and is not the source of the value judgment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

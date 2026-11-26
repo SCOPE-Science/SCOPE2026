@@ -1,11 +1,21 @@
-# Scientific review: exact asynchronous star consensus covariance
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph, activation rule and complete-confidence hypotheses are fixed and explicit. Direct hub/leaf updates give a two-dimensional conditional-moment closure, and the coefficients in the harmonic quadratic are verified symbolically. A bounded martingale supplies almost-sure consensus and the exact second moment. The included checker passed 872 independently evaluated exact-rational assertions, while the proof—not finite checking—covers all finite star sizes and arbitrary opinion dimension.
+## correctness
 
-**Originality — PASS, with residual priority uncertainty.** The exact model appears in Berenbrink et al. (arXiv:2201.12923), which addresses convergence bounds rather than exact consensus variance. Elboim–Peres–Peretz (arXiv:2209.05764) is the most important broader source: it applies general random-updating martingale theory and bounds consensus variance for arbitrary reversible networks, but its inspected Corollary 2.4 does not determine the present exact coefficients or the \(1/18\) limit. The *Distributed Averaging* NodeModel (arXiv:2211.17125) instead fixes a common self-weight and samples neighbors. An unexamined general exact covariance result remains a material priority risk; search cannot establish unique priority.
+PASS
 
-**Value — PASS.** The exact variance law answers how much randomness in activation order survives after agreement on a hub-dominated social network. The nonzero large-star limit is quantitatively informative even when adding arbitrarily many unanimous leaves. All initial star configurations are covered by a two-term covariance expression; this is a motivated structural question, not merely a small graph sample.
+With an inclusive confidence threshold, convex-hull invariance keeps every edge active. In a scalar projection put n=m+1, w=3m+1, E=sum d_i^2 and T=(sum d_i)^2. Updating the hub subtracts s/n from each d_i, so E changes by -(m+2)T/n^2 and T becomes T/n^2; a leaf update halves its d_i. The weighted mean increments s/w at the hub and -d_i/w at a leaf, giving zero drift and conditional squared increment (E+T)/(nw^2). The expectation of E contracts by at least 1-3/(4n); the pathwise nonincrease and bounded martingale convergence give consensus a.s. and L2 convergence by boundedness. Independent drift elimination for M^2+A E+B T gives 3A-B=4/w^2 and (m+2)A+(2n^2-1)B=n^2/w^2. The first coefficient is A=(9n^2-4)/(w^2(m-1+6n^2))=1/((2m+1)w), giving the stated B. Bounded convergence gives the exact variance, and testing projections gives the covariance. At m=1 it yields the midpoint-bisection limit variance d_1^2/12; for equal leaves the exact scalar factor tends to 1/18 and uniform boundedness rules out concentration at a constant. The frozen finite checker is corroboration, not needed for these all-size identities.
 
-**Limits.** Only fully active confidence edges, uniform asynchronous activation and equal self-plus-neighbor averaging are proved. The full limit law, arbitrary graphs, switching neighborhoods and independent publication-priority validation remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model, consensus mechanism and stationary weighted mean are established. The supported distinct claim is the explicit all-size limiting covariance for this star and the resulting nonzero 1/18 coefficient in the equal-leaf limit. The directly applicable general variance bounds do not determine either.
+
+## value
+
+PASS
+
+The exact covariance resolves how imbalances at a single high-degree hub persist despite consensus and a growing sample of leaves. Its rank-one part distinguishes aligned from balanced initial disagreements, and its 1/18 limit supplies a precise non-concentration benchmark not supplied by general convergence or variance bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

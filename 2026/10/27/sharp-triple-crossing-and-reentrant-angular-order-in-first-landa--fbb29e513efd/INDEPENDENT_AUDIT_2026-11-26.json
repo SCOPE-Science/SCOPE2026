@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:47:50.275416Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rotation-invariant indicator gives diagonal matrix elements because the given basis vectors have distinct angular frequencies. With t=|z|² the angular integral against π⁻¹dA cancels the radial Jacobian, yielding the stated density. For P=(t−k)(t−k−1), the derivative numerator (k−t)P+tP′ equals both Q_k and (k+1)(t−k)²−t(t−k−1)², proving the annular boundary identity with the correct sign. The zeros at 0,k,k+1 and positive decay at infinity imply one critical point in each proposed interval; the cubic permits no more and forces simplicity. For m=k+1≥4 and 1<y<m, the reflected ratio of the polynomial factors is (y+1)/(y−1), giving the quoted half-log ratio. The strict atanh lower bounds reduce it to a value strictly above [1−v+(m−1)v²/(3m)]/y, v=y²/m; the discriminant is (4−m)/(3m), so the conclusion is strict even at m=4. For k=1 the comparison uses max_{0<z<1}(z−z³)/2=1/(3√3) and the value at 4. For k=2 the displayed factorization and e^x≥1+x bound the inner hump by 1/6, while the value at 6 is larger (e<137/50 and (137/50)^6<432). Thus the outer maximum strictly dominates. For 0<a<u_k the later solutions are one on the falling inner branch and two on the outer hump; for u_k≤a<k only the latter two remain. At a=k the other zero k+1 is the sole finite future solution. For k<a<v_k there is one solution on the rising negative branch, while from v_k through k+1 there are none. For k+1<a<w_k the falling outer branch gives one, and at or after w_k none. No future intersection is critical, and the zero at k+1 from a=k is simple. The included checker and recorded output were read, not executed: the 182 checks are symbolic at finitely many k and numerical at sampled radii; they do not certify the all-index or endpoint count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 6.3 diagonalizes radial Toeplitz symbols in true-polyanalytic spaces with eigenvalues ∫a(t)(ℓ_{min(p,n−1)}^{(|p−n+1|)}(t))²dt, and Proposition 6.6 treats disks.",
+          "Hermite-window disk reproducing formulas likewise contain the Laguerre integrals. The Fulsche–Hagger annulus passage concerns a set of spectral synthesis."
+        ],
+        "reasoning": "The general radial formulas specialize directly to the assigned densities but stop before ordering the two positive extremal values of their adjacent antiderivative. The inspected disk and spectral-synthesis results do not furnish that ordering.",
+        "searches": [
+          "arXiv:1905.00978, Propositions 6.3 and 6.6",
+          "arXiv:1808.02258v1, §4.2 Proposition 7 and §5",
+          "arXiv:2308.11292v2, general Toeplitz framework and annulus passage"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and the checker/output files",
+        "Resultary indexed records 60f08a58beae, 57fcc645d909 and 77e5c39000ed",
+        "arXiv:1905.00978",
+        "arXiv:1808.02258v1",
+        "arXiv:2308.11292v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The disk factor gives the annular identity and the cubic derivative; the cubic and endpoint signs already give three critical points and an upper ceiling of three crossings.",
+          "For three crossings at every index, even as a approaches the inner maximum from below, the outer maximum must reach the inner level. To exclude tangencies there and retain the entire claimed count requires strict inequality of the two maxima."
+        ],
+        "reasoning": "The nontrivial step is the all-index height comparison, not subtracting two disk values or counting intersections once the height comparison is available. The disk formulas neither compare those heights nor give an applicable theorem that does so; the reflection inequality proved in the frozen text supplies the missing global order.",
+        "searches": [
+          "Indexed 60f08a58beae Finding and proof §2 (mirrored offsets 0–4703)",
+          "arXiv:1905.00978 Proposition 6.3; indexed 57fcc645d909 Finding and proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The disk record states λ_{k+1}(x)−λ_k(x)=−e^(−x)x^k(x−k)(x−k−1)/(k+1)! in the same true-polyanalytic layer.",
+          "The Gaussian-window annulus result instead uses e^(−t)t^n/n! and studies adjacent top-mode transitions at fixed width; the other annulus record treats top eigenvalues and shape cusps in analytic Bargmann–Fock space."
+        ],
+        "reasoning": "The disk difference is exactly −H_k and not merely a similar formula; linearity in the radial symbol gives the two-endpoint identity. The analytic annulus settings do not have the squared first-Landau Laguerre factor, and top-mode or fixed-width crossings do not equate to all future pairwise intersections for arbitrary inner radius here.",
+        "searches": [
+          "Resultary semantic searches for adjacent first-true-polyanalytic annulus eigenvalue crossings and the positive-hump comparison",
+          "Indexed 60f08a58beae, first-layer disk difference",
+          "Indexed 57fcc645d909 and 77e5c39000ed, Gaussian or analytic-Fock annular crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct count or height-order match appeared in the bounded search results. The strongest exact indexed formula is the single-radius disk difference, while the indexed annular laws are for analytic/Gaussian windows and different extremum questions."
+        ],
+        "reasoning": "This is a continuum classification at all k and a, not a numerical table. The exact indexed formulas are meaningful checks, but none lists or proves the stated seven regimes in this layer. Finite checker output has no priority significance.",
+        "searches": [
+          "Two ranked Resultary semantic searches for the complete annular count and strict outer maximum comparison",
+          "Closest exact disk and analytic-annulus indexed formulas 60f08a58beae, 57fcc645d909 and 77e5c39000ed"
+        ]
+      },
+      "rationale": "Radial diagonalization, Laguerre densities and the exact one-boundary disk difference for the same space are covered. That disk identity immediately gives the annulus difference by subtraction. The supported distinct result is the strict all-index comparison of positive maxima and its consequence, the complete annular crossing classification with sharp three reversals. Neither the same-space disk result nor the inspected analytic-Fock annulus results cover that comparison or its classification.",
+      "residual_risks": [
+        "Same-layer disks cover the entire boundary factor and do not support novelty of that identity.",
+        "The bounded searches and targeted passages do not exclude an unlocated Laguerre-extremum comparison or an equivalent result in Hermite-window conventions, and do not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact disk factor and hence the annular endpoint identity, not the strict hump ordering or classification",
+          "evidence": [
+            "The displayed disk adjacent difference is exactly −H_k(x)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-disk-concentration-and-spectral-gap-resonances-in-the-firs--60f08a58beae/RESULT.md",
+          "material_read": "Finding and proof §2, mirrored offsets 0–4703",
+          "method": "Local mirrored indexed statement and proof",
+          "title": "Sharp disk concentration and spectral-gap resonances in the first true-polyanalytic Fock space",
+          "trigger": "Exact same-space adjacent difference factor"
+        },
+        {
+          "assessment": "Analytic/Gaussian-window and fixed-width top-mode problem",
+          "evidence": [
+            "The annular density is e^(−u)u^n/n!, rather than the first true-polyanalytic Laguerre density."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909/RESULT.md",
+          "material_read": "Finding and proof §2, mirrored offsets 0–4969",
+          "method": "Local mirrored exact statements and assumptions",
+          "title": "Exact Gaussian annulus eigenmode crossings and a Bernoulli second-difference law",
+          "trigger": "Closest adjacent annular transitions by terminology"
+        },
+        {
+          "assessment": "Analytic Fock top-eigenvalue ties and shape cusps, not these adjacent first-layer crossings",
+          "evidence": [
+            "The statement concerns maximizers in the analytic Bargmann–Fock space."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-resonant-annular-fock-localization-an-exact-logarithmic-mean-pha--77e5c39000ed/RESULT.md",
+          "material_read": "Finding and assumptions/initial derivation, offsets 0–4946",
+          "method": "Local mirrored indexed passages",
+          "title": "Resonant annular Fock localization: an exact logarithmic-mean phase law",
+          "trigger": "Apparent exact annular eigenvalue resonances"
+        },
+        {
+          "assessment": "Supplies all radial eigenvalue integrals including this specialization, not the hump comparison",
+          "evidence": [
+            "The eigenvalues are the symbol integrated against a squared Laguerre function."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.00978",
+          "material_read": "Propositions 6.3 and 6.6, PDF pp. 21–22, OA offsets near 61000 and 65000",
+          "method": "Open-access PDF theorem passages",
+          "title": "Radial operators on polyanalytic Bargmann–Segal–Fock spaces",
+          "trigger": "Broader theorem for the identical radial operator class"
+        },
+        {
+          "assessment": "Hermite-waveform disk localization formulas; no stated first-Hermite annulus crossing law in these passages",
+          "evidence": [
+            "Proposition 7 concerns disks; the explicit concentration formula in §5 specializes to the Gaussian window."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.02258v1",
+          "material_read": "§4.2 Proposition 7 and §5, PDF pp. 11–12 and 16–17",
+          "method": "Open-access PDF mathematical passages",
+          "title": "Local reproducing formulas and concentration in the time-frequency plane",
+          "trigger": "Hermite-window translations of the same localization setting"
+        },
+        {
+          "assessment": "Framework background; the inspected annulus occurrence is not an eigenvalue crossing theorem",
+          "evidence": [
+            "The annulus is discussed as a set of spectral synthesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.11292v2",
+          "material_read": "Abstract and annulus passage, PDF pp. 1 and 36, OA offsets 0 and near 120900",
+          "method": "Open-access PDF focused passages",
+          "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+          "trigger": "Broad polyanalytic Toeplitz setting and annulus reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The metric is a natural spectral-order question for radial localization, and a pair that switches order three times at fixed inner radius is a substantive departure from disk ordering. The classification for all inner radii and all adjacent pairs in the first true-polyanalytic layer pinpoints the transition, including whether an apparent crossing can be tangential. Its key strict height comparison is not routine from the disk identity. The result is useful for testing annular order claims without asserting anything about all-mode maximizers or higher layers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

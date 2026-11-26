@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:49:58.345045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–6",
+        "Frozen examples/check_convolution.py, inspected but not executed; finite-group diagnostic only",
+        "Gutman–Huo–Tsukamoto, arXiv:2510.08706v1, §1.1 on Jaworski–Chen"
+      ],
+      "rationale": "The Haar-normalized tent functions concentrate at the identity. The correlation formula uses only right invariance to bound the Lipschitz seminorm. For the Fourier convention used here, convolution multiplies matrices in order, and the involution becomes adjoint. Each correlation has positive semidefinite blocks, and on any fixed irreducible block all sufficiently late tents have invertible transforms; their positively weighted sum is therefore strictly positive definite on that block. Peter–Weyl gives injectivity without a uniform inverse bound. The kernel is a Lipschitz probability density; rewriting the integral with k(xb^{-1}) gives the stated Lipschitz bound after subtracting constants. Left convolution commutes with right shifts. The Jaworski–Chen observable embedding, shrunk around 1/2 and composed with Q, stays in [0,1], is 1-Lipschitz, and is still equivariant and injective. Compactness and the uniform topology give a topological embedding. The shift-fixed functions are precisely the constants. Connectedness enters only through the continuous embedding theorem.",
+      "residual_risks": [
+        "No extension of the embedding criterion to disconnected groups or to noncompact non-Lie groups was checked or is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader locally compact theorem is an equivariant injective Borel representation; the Lie paper explicitly asks for the topological criterion under connectedness and reports a disconnected counterexample."
+        ],
+        "reasoning": "Borel injectivity does not yield continuity. Compatible metrics on compact groups are proper, so the claim answers exactly the compact connected branch of the stated problem.",
+        "searches": [
+          "arXiv:2505.14653v2, Theorem 1.2",
+          "arXiv:2610.13091v1, Problem 1.3 and Remark 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13091v1",
+        "arXiv:2510.08706v1",
+        "arXiv:2505.14653v2",
+        "Resultary cf9850093a62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Lie case uses Lie-group smoothing. The continuous embedding already exists, but the inspected prior inputs do not provide an injective equivariant Lipschitz upgrade for arbitrary compact metrizable groups and the prescribed metric."
+        ],
+        "reasoning": "The normalized correlation mixture supplies the missing step, in particular for infinite tori and solenoids. Classical Peter–Weyl and correlation identities are inputs, not claimed discoveries.",
+        "searches": [
+          "arXiv:2610.13091v1, Theorem 1.1 and Problem 1.3",
+          "arXiv:2510.08706v1, §1.1",
+          "Resultary cf9850093a62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Lie and Euclidean results use the same Lipschitz right-argument shift; the older Jaworski–Chen input uses the continuous shift."
+        ],
+        "reasoning": "The Lie and Euclidean cases do not cover compact connected non-Lie groups. The continuous shift imposes no Lipschitz bound, so its universality alone does not imply this claim.",
+        "searches": [
+          "arXiv:2610.13091v1, Theorem 1.1 and Problem 1.3",
+          "arXiv:2510.08706v1, §1.1 and Theorem 1.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected record gives sharp Lipschitz seminorm bounds for powered Fejér kernels on the circle, not a universal compact-group injective smoother or an embedding theorem."
+        ],
+        "reasoning": "The Resultary near-hit concerns a specific metric convolution estimate; it does not cover the dynamical result. No numerical table or classification database encodes this general implication.",
+        "searches": [
+          "Local Resultary semantic search for the compact connected Bebutov–Kakutani criterion and Lipschitz convolution",
+          "Resultary record cf9850093a62, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "Credit the existing connected Lie and Euclidean cases, the connected locally compact continuous-shift theorem, and the broader Borel embedding. The distinct claim is the continuous Lipschitz criterion on the compact connected non-Lie branch of Problem 1.3, for every compatible right-invariant metric. The convolution construction supports that claim without a priority assertion for every kernel ingredient.",
+      "residual_risks": [
+        "The Jaworski–Chen theorem was checked through its documented account in the modern sources, not its original publications.",
+        "An equivalent injective Lipschitz convolution lemma may exist in harmonic analysis; the comparison does not establish priority for that device.",
+        "Search coverage is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Lie subcase; poses the wider problem",
+          "evidence": "Theorem 1.1 assumes connected Lie; Problem 1.3 assumes connected second-countable locally compact with a proper compatible right-invariant metric.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13091v1",
+          "material_read": "§1, Theorem 1.1 (HTML offset 5267), Remark 1.2 and Problem 1.3 (offset 7957)",
+          "method": "Targeted open full-text reading",
+          "title": "A Lipschitz refinement of the Bebutov–Kakutani dynamical embedding theorem for connected Lie group actions",
+          "trigger": "Exact question and closest established theorem"
+        },
+        {
+          "assessment": "Euclidean special case and account of the continuous-shift input",
+          "evidence": "Theorem 1.7 states the criterion for Euclidean actions; the discussion credits Jaworski–Chen for connected locally compact continuous shifts.",
+          "identifier_or_url": "https://arxiv.org/html/2510.08706v1",
+          "material_read": "§1.1 at offsets 4480 and 6980; Theorem 1.7 and Problem 1.8 at offset 15350",
+          "method": "Targeted open full-text reading",
+          "title": "A Lipschitz Refinement of the Multidimensional Bebutov–Kakutani Dynamical Embedding Theorem",
+          "trigger": "Equivalent Lipschitz special case and classical embedding input"
+        },
+        {
+          "assessment": "Broader group scope with different conclusion",
+          "evidence": "The map supplied in Theorem 1.2 is injective, equivariant and Borel, not asserted continuous.",
+          "identifier_or_url": "https://arxiv.org/html/2505.14653v2",
+          "material_read": "Theorem 1.2 at offset 2512",
+          "method": "Targeted open full-text reading",
+          "title": "On the representation of measurable and continuous dynamical systems by Lipschitz functions",
+          "trigger": "Plausible broader topological coverage"
+        },
+        {
+          "assessment": "Different scope and theorem",
+          "evidence": "Sharp estimates for powered Fejér kernels on the circle do not state all-group injectivity or an action embedding criterion.",
+          "identifier_or_url": "Resultary cf9850093a62, mirrored commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "RESULT.md finding from offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Sharp rough-input Lipschitz norms of powered Fejér/Jackson kernels",
+          "trigger": "Closest distinct indexed smoothing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "arXiv:2610.13091v1, Problem 1.3"
+      ],
+      "rationale": "The theorem resolves a genuinely non-Lie part of an explicit embedding problem for all compact connected metrizable groups and for the specified metric rather than a smoothing-adapted replacement. The information-preserving convolution estimate also separates a reusable compact-group analytic step from the topological dynamics input.",
+      "residual_risks": [
+        "Value does not depend on solving the remaining noncompact part of the problem or on novelty of the classical Fourier ingredients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

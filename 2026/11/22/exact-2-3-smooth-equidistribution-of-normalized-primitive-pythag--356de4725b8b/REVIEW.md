@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Euclid's one-to-one parametrization is explicit; the dyadic difference factor is odd on the required parity branches, and the ternary gradient is a unit on every primitive residue class. These facts give exactly \(16Q\) finite parameter fibers modulo \(6Q\). Möbius inversion over divisors coprime to six, with the sector area \(\pi X/8\), yields the exact main constant and fixed-modulus square-root-logarithmic error. Four disjoint projective zero-lines supply the odd-prime obstruction. The program `check_area.py` independently verifies 41 families; the proof, not the experiment, covers all moduli and arbitrarily large cutoffs.
+## correctness
 
-**Originality — PASS, qualified.** Relevant prior-result searches for Pythagorean area residues, local prime-power fibers, and modular equidistribution found results addressing perfect-power perimeters, square legs, power-free odd legs, and square-inradii rather than normalized-area residue fibers. The relevant primary sources show: Romik's primitive-pair density and dynamical digit laws; Liu's unrestricted and short-interval counting estimates; Buckley's divisibility by six; Kontorovich–Oh's local odd-prime sieve obstruction. The last paper already supplies broad approximate four-component prime-divisibility behavior, so that fact alone is not asserted original. No inspected source implies the exact all-level 2/3 flatness and the maximal-equidistribution-modulus classification without additional local arguments. An implicit result in more general sieve or local-density literature remains possible.
+PASS
 
-**Value — PASS.** Area divided by its universal divisor six is a canonical arithmetic statistic of primitive right triangles. The answer identifies *all* moduli at which that statistic is asymptotically unbiased, with exact finite local certificates, an effective hypotenuse-cutoff formula, and an explicit obstruction for every excluded prime. The local 2/3 phenomenon is structurally explained by a dyadic polynomial isometry and the fact that all four primitive projective directions are zero-lines modulo three. This is more than a tabulation of small residues or a restatement of compulsory area divisibility.
+The Euclidean parametrization counts each unordered primitive positive triangle once and gives J=mn(m−n)(m+n)/6. In the odd-m branch, F(m,n)−F(m,n′) for even n,n′ is (n−n′) times a unit at 2; this bijects even inputs with even outputs at all levels. The swapped parity branch has the same count. At 3 every nonzero residue pair gives F≡0, and its gradient reduces to (−n³,m³), so exactly three of nine lifts hit each prescribed next digit. The local counts at moduli 2^{a+1} and 3^{b+1} give 16Q pairs per target mod 6Q for Q=2^a3^b, including Q=1. In the sector of area πX/8, Möbius inversion uses only d coprime to 6. For each d, the parameter classes for the rescaled variables are the inverse-scaled preimages of the target classes (F is degree four), preserving the number of classes rather than fixing each class. The absolutely convergent factor is 9/π² and the summed boundary errors are O_Q(√X log(2X)), yielding X/(2πQ). At p≥5 the same primitive lattice argument makes nonzero pairs equally weighted; four lines contribute 4(p−1) of p²−1 pairs. Hence uniformity modulo any multiple of p is impossible. Independent enumeration agreed on all fibers for 14 smooth moduli through Q=72 and on the zero counts for p=5,7,11,13,17,19.
 
-The asymptotic is for fixed modulus and counts triangles, not distinct area values. Nontrivial historical priority risk remains for implicit equivalent local-density theorems; no external audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is exact flatness of the normalized area on all dyadic and ternary depths and the consequent classification of all uniform fixed moduli in the full primitive triangle family. The normalized area, its factorization and the odd-prime zero-locus obstruction have substantial antecedents and are not independent grounds for novelty.
+
+## value
+
+PASS
+
+Normalization by the compulsory area factor gives a natural statistic. The exact all-target local law distinguishes full equidistribution from mere support and explains why precisely the primes removed by normalization permit uniformity at every depth. It yields a complete modulus classification and fixed-modulus counts rather than a list of congruences at a few small levels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

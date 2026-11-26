@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact arithmetic verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. The executable certificate computes outward rational bounds on \(\pi\) and the three off-diagonal Gram parameters from elementary series; partitions all \(126\) four-element subsets of nine frequencies into \(14\) translation classes; proves all \(13\) nonoptimal orbit representatives have squared spectral condition number larger than \(57/10\) by fixed integer Rayleigh witnesses; and brackets the optimal two-by-two block eigenvalues to prove its exact algebraic formula lies strictly below that barrier. The numerical value is displayed for orientation only and no floating-point comparison makes a proof decision.
+## correctness
 
-This is an exhaustive finite proof, not a claim about Fourier frames at all Cantor stages. The checker uses no network, no data files, and no software dependencies outside Python's standard library. Running the script returned exit code zero and the stated certification messages. Independent verification and independent audit were not performed.
+PASS
+
+Rephasing about the spatial midpoint gives real Gram correlations t_1,t_2,t_3,t_4 as stated. For the proposed optimizer the two simultaneous-swap sectors give the displayed 2-by-2 blocks. I independently isolated the three cosine roots of 8x^3−6x+1 with integer brackets, used their zero sum to enclose the Gram entries, and bounded the extremal eigenvalues by exact leading-minor tests on rational midpoint matrices plus row-sum perturbation bounds. This directly checks all 126 sets without the supplied Rayleigh vectors or translation representatives. The nine translates are strictly below 57/10 in squared condition and the other 117 strictly above it, with singular cases allowed as infinity. The block eigenvalue order is + lower, − lower, − upper, + upper (approximately .318010, .362820, 1.550356, 1.768814), proving the specific formula. The supplied certificate's interval and Rayleigh directions are sound.
+
+## originality
+
+PASS
+
+The prior sources overlap in the row pattern, Fourier frame setting, or exact finite optimizations, but do not establish the same optimal spectral ratio or minimizing orbit. Pass is limited to this finite conditioned-basis classification.
+
+## value
+
+PASS
+
+The first four-node ternary stage is a natural fixed-budget reconstruction problem on its intrinsic cyclic grid. Exact tightness is unavailable at this budget and neither full spark nor volume answers which frequencies minimize worst relative Euclidean amplification. The complete optimizer orbit, algebraic constant and certified gap provide a usable benchmark for choosing and comparing four-frequency designs, not just a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

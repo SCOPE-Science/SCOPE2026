@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof uses two inputs from the cited Kim--Won family: the exact weighted equation and quotient types, and the published intersection calculation for the curves through one quotient point. The second local calculation is obtained by the literal symmetry of the equation after interchanging the two weighted coordinates and their weights.
 
-The local fiber check is exact: at a simple root, write \(f=s u(s)\) with \(u(0)\ne0\); then \(zt+s u(s)=0\) is smooth and its central fiber is the transverse union \(zt=0\). No finite enumeration is used to infer the number or type of fibers.
+# Independent mathematical audit
 
-`verify.py` is an ancillary exact bookkeeping check. It verifies symbolically that \(d=a+b\), that the two sequences of elementary transformations change the section squares to \(+b,-b\) and \(+a,-a\), and that the blow-up formulas give \(\rho=d+2\) and \(K^2=8-d\). The global ruled-surface identification is established in the written proof, not delegated to the script.
+## correctness
 
-Limits: the result assumes square-free \(f\) and \(1\le n<m\). The case \(n=0\) and collisions among the roots of \(f\) are not verified or claimed.
+PASS
+
+On each standard base chart normalize a weight-one coordinate to 1 and write zt=−f(s). Away from the two coordinate points this surface is smooth (a simultaneous zero of z,t is over a simple root, where f' is nonzero). Near p_z the cover z=1 is smooth with coordinates x,y and scalar μ_a action. Blow up the origin on the cover and take the quotient; a chart uses s=y/x and U=x^a, giving U=1/z in the normalized x=1 coordinates and t=−f(s)U. The quotient chart is smooth, and its zero section has normal bundle O(−a). The same construction at p_t gives V=1/t and z=−f(s)V, with section normal O(−b). The two resolutions are minimal because a,b≥2. Together with the affine equation, the charts give the map to the base and identify both sections. To check the first blow-down directly, use t as fiber coordinate of O(b), adding its infinity section to get F_b. The affine chart zt=−f(s) and the chart t=−f(s)U, with U=1/z on the overlap, are precisely the charts of the blow-up of the ideal (t,f(s)). The p_t chart makes the map an isomorphism near infinity. Thus one blows up exactly the d distinct reduced centers on the positive zero section, off the negative infinity section. At each center the total transform of its fiber is the proper transform plus the exceptional curve, both of square −1, meeting once and transversely. The exceptional component meets the proper transform of the zero section E_z and is the one contracted to F_b. Interchanging z,t gives the other model; the section squares satisfy −a+d=b and −b+d=a. The standard smooth blow-up formulas give Picard rank 2+d and canonical square 8−d. This proof is geometric. The inspected but unexecuted frozen script tests arithmetic identities only, and no numerical check is needed to establish the blow-ups. Repeated roots and a=1 are excluded.
+
+## originality
+
+PASS
+
+Credit the published one-sided local input and the related abstract elementary-transformation symmetry. The supported distinct result identifies the full minimal resolution of this exact unequal-weight hypersurface as the marked section blow-up, with both exceptional sections and contractions geometrically specified. The intersection formulas once that identification is made are standard deductions and are not asserted to be original on their own.
+
+## value
+
+PASS
+
+The model identifies the actual centers and marked sections of a natural published family, so computations on its minimal resolution can be transferred explicitly to either smooth ruled surface. The placement and geometry of all reducible fibers and the dual models are more informative than just evaluating Picard rank and canonical square.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

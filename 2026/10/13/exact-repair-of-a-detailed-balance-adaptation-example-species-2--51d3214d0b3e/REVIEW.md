@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The printed reaction vectors give \(\mathcal M=\operatorname{span}\{(1,0,1)^\top\}\) exactly, so species 2 is the coordinate annihilated by every conservation law. The chemostatted two-dimensional equations give the unique constant-signal equilibrium \(N_2=1/(cr)=e^{-E_2}\) and \(N_3=rs\). A time-dependent relative-entropy identity supplies a direct convergence proof under the stated admissible-signal hypotheses, and the initial Taylor calculation gives \(n_2''(0)=K_1>0\). No finite experiment is used to infer asymptotic convergence.
+## correctness
 
-## Originality
-**PASS.** The motivating article contains the conflicting ingredients itself: its earlier computation gives conservation-law space \(\operatorname{span}\{(1,0,1)^\top\}\), whereas Example 3.8 later says coordinate 3 vanishes on every conservation law and names species 3 as the adapting product. Exact repository and literature searches for the example, its arXiv identifier, the conservation-law statement, and the corrected species returned no prior correction. Broader ACR literature does not imply the corrected coordinate plus the all-positive-parameter transient statement for this chemostatted reversible network. Residual risk remains for unindexed commentary or a later erratum.
+PASS
 
-## Value
-**PASS.** The finding repairs the constructive example used to illustrate the paper's adaptation mechanism, distinguishes the truly invariant output from a species that instead tracks the signal, and strengthens the repaired example from a generic response statement to an all-positive-parameter result. This is structurally relevant to interpreting the example, rather than a change of notation or an arbitrary parameter slice.
+The published reaction directions and rate constants give the two stated mass-action equations. Orthogonality to (-1,1,1) and (1,0,-1) gives m1=m3 and m2=0. For a fixed s>0, the first equation forces cXY=s, and the second then forces Y=rs and X=1/(cr)=e^(-E2). For the time-dependent proof take the ratios X=x/x_* and Y=y/(ru); differentiating each relative entropy gives the stated two nonnegative dissipations with a minus sign and the moving-reference term r u'(1-Y). The signal stays uniformly positive and bounded and q=|u'|/u is integrable. Entropy controls x,y from above, and Gronwall gives a bound up to any putative maximal positive existence time. The inward-pointing equations and displayed scalar comparison inequalities keep both concentrations positive, give global existence and bound both away from zero eventually. The perturbation is integrable, so the dissipations have finite integral; bounded x',y',u' on the eventual compact positive domain give uniform continuity, forcing each dissipation to vanish in the limit. Thus Y→1 and XY→1. At the detailed-balance initial state both first derivatives vanish, while u'(0)=1, so x''(0)=a for every a,b>0 and the quadratic transient follows. X3 can also have a transient, but its final value tracks the final signal and is not a signal-independent set point. The recorded algebraic checker was inspected, not run, and is not the convergence proof.
 
-## Closest literature and limitations
-The closest source is Franco and Velázquez (2026), DOI 10.1007/s00285-026-02344-y, which supplies the network and general adaptation framework but contains the coordinate inconsistency. Their 2025 detailed-balance framework supplies background but not this correction. Shinar–Feinberg ACR and later dynamic ACR work concern different network hypotheses. The present claim is limited to the printed two-reaction example and the source's admissible signal class.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general convergence conclusion is covered by the motivating paper; the distinct supported claim corrects its explicit coordinate assignment and proves a nonzero, exact second-order transient for that coordinate at every positive kinetic choice, rather than only a generic or perturbed choice. The printed network and constants, not a relabelled network, are essential to the comparison. No exact earlier result covering this correction and the all-rate coefficient was established in the bounded search.
+
+## value
+
+PASS
+
+This resolves a substantive error in a published example used to illustrate structural adaptation: it changes which species is predicted to reject changes in the final signal level. The exact transient coefficient establishes genuine adaptation, not merely a species with a constant equilibrium, for all rates in the motivating example. That is a useful precise correction even though the underlying general convergence theory remains unchanged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

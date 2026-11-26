@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:09:07.459340Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently factor K=L diag(I,-S)L^T, with L having lower-left block A and identity diagonal. Then B=L diag(I,Pi)L^{-1}; B is idempotent, with rank n+rank(Pi), so singular precisely for a nontrivial omission. On the image of the zero-start Krylov space every positive order fits only the line through B(b,0), giving t=E/(E+R²) and the stated squared residual. K is invertible, so ker(B)=ker(the inverse application) and the original-variable reconstruction is independent of any nonuniqueness in the transformed iterate. Applying the inverse application to t(b,0) gives x_G=t Pi x_*; Parseval gives the error identity. In an omitted Fourier mode the range line is (1,a_j), giving the stated floor. The two-mode rational witness gives 4/3 versus 4/5 and squared error 1/9+4/25=61/225. Strictness is possible, not universal; for example both floors vanish for R=0. Attenuation affects nonzero retained components when R>0. The result concerns mathematical Krylov minima, not iterates executable after breakdown. Replay: frozen RESULT.md §§Assumptions and scope, Proof and verify_pupil.py lines 6–85; checker inspected, not executed. Its seeded examples do not prove the universal claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed record also gives the attained physical mask-restricted floor with |a_j|² in place of a_j² and covers fixed-mask flexible sequences and positive leakage separately.",
+          "Drum et al. give the Type-II block factorization in Eqs. (10)–(11), FFT implementation and binary pupil truncation in Eqs. (14)–(15); the inspected optical model also includes effects outside the exact projector idealization.",
+          "Generic singular-GMRES breakdown and range symmetry in Sugihara–Hayami do not by themselves identify this physical mode law."
+        ],
+        "reasoning": "The flexible/complex result contains the real fixed-mask floor; invertibility of K identifies its image with the same geometric range used in the frozen proof. The original optical construction is a precursor, not the decisive equivalent theorem.",
+        "searches": [
+          "Resultary 2026/11/8/...f37fdb5a84bd, RESULT.md proof §§2–4",
+          "arXiv:2610.17275v1 §§2.2, 3.1.1, 4.2",
+          "arXiv:2310.16442 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_pupil.py",
+        "Resultary 2026/11/8 ...f37fdb5a84bd",
+        "arXiv:2610.17275v1",
+        "arXiv:2310.16442",
+        "doi:10.1137/S0895479894262339 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sections 1–2 identify T_0 c=(b,(I-Pi)A*b) and the unique scalar t fitting that vector; §3 proves the attained omitted-mode contribution |a_j|² |bhat_j|²/(1+|a_j|²)."
+        ],
+        "reasoning": "The known unique fitted vector tT_0 c equals K applied to the physical iterate. Applying K^{-1} and eliminating r gives Sx=t Pi A*b; hence x=t Pi x_* and Parseval gives the reconstruction error. Nonzero retained signal together with a nonzero omitted contribution gives shrinkage, and the frozen two-mode substitution witnesses strict separation. These are mechanical consequences even if the indexed finding does not print x=t Pi x_*.",
+        "searches": [
+          "Resultary 2026/11/8/...f37fdb5a84bd, RESULT.md proof §§1–3, offset 4000 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct indexed record's T_0 has lower-left block (I-Pi)A* and lower-right Pi, and its plateau is NE/(N+E), with N=||b||² and E=||(I-Pi)A*b||²."
+        ],
+        "reasoning": "Set A*=A, restrict to real data and a conjugate-symmetric mask, and relabel N and E as E and R² in the frozen notation. The operator, scalar and residual are identical.",
+        "searches": [
+          "Resultary: hard binary Fourier pupil, Type-II Schur inverse, idempotent GMRES plateau, Krylov-versus-range floor and retained reconstruction",
+          "Resultary 2026/11/8/...f37fdb5a84bd, RESULT.md §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact plateau and floor occur in the distinct indexed record; the two surfaced entries on the frozen record's displayed date concern unrelated resonances and cyclic Dirichlet Grams. The focused literature lookup yielded no additional usable source."
+        ],
+        "reasoning": "This all-data law is not a finite tabulated invariant; the relevant exact database check is for an equivalent formula in the research index. The positive hit, not any absence elsewhere, is decisive.",
+        "searches": [
+          "Resultary ranked hard-pupil/GMRES search, including 2026/10/27 and the distinct 2026/11/8 ...f37fdb5a84bd",
+          "Focused literature lookup for exact hard-pupil Type-II GMRES stagnation"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the same all-positive-order plateau and attained range floor in a broader complex circulant model. Its exact minimizing scalar and transformed image Bc also force the physical reconstruction and hence its retained-mode bias and error. This is established statement-level coverage; the records' displayed dates do not establish who first obtained it.",
+      "residual_risks": [
+        "The date ordering is not a determination of discovery or historical priority.",
+        "Brown–Walker full text was not retrieved; there may be further prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent and broader coverage",
+          "evidence": [
+            "Explicit T_0, fitted line, scalar and residual; exact attained mask-restricted floor, plus nonzero-leakage extension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-hard-fourier-pupils-create-a-one-step-gmres-plateau-and-a-zero-l--f37fdb5a84bd/RESULT.md",
+          "material_read": "Finding and proof §§1–4, especially offset 4000–7448",
+          "method": "Indexed lookup and mirrored result-text inspection",
+          "title": "Hard Fourier pupils create a one-step GMRES plateau and a zero-leakage transition",
+          "trigger": "Exact model and formula overlap"
+        },
+        {
+          "assessment": "Model precursor; no identical all-data law in inspected passages",
+          "evidence": [
+            "Type-II Schur factorization, FFT diagonalization, binary pupil and discarded frequencies, alongside nonideal optical effects."
+          ],
+          "identifier_or_url": "arXiv:2610.17275v1",
+          "material_read": "§2.2 Eqs. (10)–(11), §3.1.1 Eqs. (14)–(15), §4.2",
+          "method": "Open full-text passage inspection",
+          "title": "Optical Fourier Transform-Based Preconditioning for Large-Scale Inverse Problems",
+          "trigger": "Source of Type-II construction and binary pupil"
+        },
+        {
+          "assessment": "Context; no pupil-specific law in inspected passage",
+          "evidence": [
+            "Range symmetry and least-squares breakdown conditions."
+          ],
+          "identifier_or_url": "arXiv:2310.16442",
+          "material_read": "§1, around offset 6042",
+          "method": "Open full-text passage inspection",
+          "title": "Right preconditioned GMRES for arbitrary singular systems",
+          "trigger": "Generic singular-GMRES comparison"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; not needed to establish indexed coverage",
+          "evidence": [
+            "The DOI copy was inaccessible and a lawful repository copy was not recovered."
+          ],
+          "identifier_or_url": "doi:10.1137/S0895479894262339",
+          "material_read": "Bibliographic identification only; full text unavailable",
+          "method": "Open-copy retrieval attempted",
+          "title": "GMRES on (Nearly) Singular Systems",
+          "trigger": "Historical singular-GMRES theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A well-conditioned witness separating a physical range obstruction from a Krylov obstruction is a useful phenomenon. But that separation and its exact formulas are covered, and the only apparent extra claim (retained reconstruction) is a direct block solve with the already determined fitted vector. The frozen finding supplies no independent exact law beyond that covered mechanism.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

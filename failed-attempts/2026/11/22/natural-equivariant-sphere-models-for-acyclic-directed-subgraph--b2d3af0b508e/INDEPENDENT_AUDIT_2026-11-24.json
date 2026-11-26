@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:53:55.014164Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 11–24 and 30–52",
+        "VERIFICATION.md, fixed-orbit check scope",
+        "checks/verify.py lines 58–89"
+      ],
+      "rationale": "The dichotomy and its fixed-space and quotient consequences are sound, but the last sentence of the Finding at RESULT.md line 20 asserts rank-one top reduced homology under the sole stated condition dim W_G>0. Take arcs 1→2, 2→1, 2→3. The SCCs are {1,2} and {3}, so dim W_G=1. The arc 2→3 is a cone apex; the complex is the path of two edges with this common vertex, and its reduced homology is zero. The determinant calculation at lines 48–52 proves the claim only in the no-cross-arc case. For the core equivalence I checked that a lower sink fiber forbids all tails in S and admits the order contraction F ⊆ F∪A(S) ⊇ A(S) also on H-fixed fibers; an order complex has no inversion within a chain. The component join is equivariant even for component permutations: choose an equivariant inverse and homotopies for one representative per component isomorphism type and transport them along isomorphisms. On fixed vectors the component-sum map onto the SCC permutation module is split surjective, giving the difference of orbit counts. This proof handles empty realizations. The bundled checker was inspected at checks/verify.py lines 58–89: it uses zero reduced Euler characteristic in the cross-arc case, and is not evidence for the unqualified rank-one sentence or the general homotopy type. No frozen code was executed.",
+      "residual_risks": [
+        "The phrase may have intended to inherit the no-cross-arc condition. Even with that condition supplied, the originality and value assessments below do not pass."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-100416daf1e1, Finding and Proof §§1–3 at offsets 0 and 3350, gives contractibility or genuine equivalence to S(W_D) for the group including reversals with sign −1, and supplies actual geometric fixed spaces for every subgroup"
+        ],
+        "reasoning": "Aut(G) embeds by σ↦(σ,+1). Restricting the stronger equivalence and both homotopies gives the result for this subgroup with exactly the coordinate-permutation action. The generic equivariant poset criterion is a proof tool, not the prior instance.",
+        "searches": [
+          "SCOPE-100416daf1e1, signed equivariant sphere models",
+          "Björner–Welker DOI 10.1137/S0895480198338724",
+          "Thévenaz–Webb DOI 10.1016/0097-3165(91)90030-K"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-100416daf1e1 RESULT.md",
+        "Hultman 2004 Theorems 3.2–3.3",
+        "Thévenaz–Webb Theorem 1",
+        "Björner–Welker via Hultman's account"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signed proof uses U_(i→j)={x:x_j−x_i>0} and the incidence comparison; these commute with graph isomorphisms",
+          "Fixed-space restriction and descent to ordinary quotients are formal for genuine equivariant equivalences",
+          "R^V≅W⊕R^SCC as permutation representations modulo the augmentation summand; restriction to fixed vectors is exact over R"
+        ],
+        "reasoning": "The fixed-sphere dimension and orientation determinant follow from the permutation-module splitting, and the quotient model is automatic. The earlier construction already yields isomorphism-compatible comparisons (or equivariant inverses can be transported from isomorphism representatives). Correctly conditioning the homology statement leaves a corollary, not a surviving distinct finding.",
+        "searches": [
+          "SCOPE-100416daf1e1, Proof §§1–4 and Finding",
+          "Frozen RESULT.md lines 11–24 and 46–52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-100416daf1e1, Finding, local-mirror offset 0: same acyclic-arc nerve and SCC-zero-sum W",
+          "Hultman (2004), p. 3 Lemma 3.1 and pp. 3–4 Theorems 3.2–3.3: ordinary homotopy conclusions"
+        ],
+        "reasoning": "The classical ΔACY_G is the same complex but its printed nonequivariant classification does not determine fixed spaces. The signed record concerns the actual simplicial action and the same augmentation representation, not a Borel or homotopy-fixed-space formulation.",
+        "searches": [
+          "Resultary: acyclic directed subgraph complexes, equivariant SCC sphere",
+          "Resultary: ΔACY_G, geometric fixed spaces",
+          "Hultman, DOI 10.37236/1828"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The decisive indexed object is a uniform theorem, not a sample or census"
+        ],
+        "reasoning": "An exact finite-table comparison is inapplicable: the claim quantifies over arbitrary orders and subgroup actions; the checked exact index overlap is the general theorem itself.",
+        "searches": [
+          "Resultary: ΔACY_G, SCC representation spheres and fixed spaces",
+          "SCOPE-100416daf1e1 RESULT.md"
+        ]
+      },
+      "rationale": "The 2026-11-17 signed-equivariant record proves the same dichotomy for a larger symmetry group on exactly the same complex and representation. Restrict to positive signs to obtain the frozen theorem's main result. Its hemisphere cover is relabeling-compatible; the incidence comparisons yield a natural equivalence up to equivariant homotopy. The alternative sink-poset proof and the orbit-count/determinant restatements do not establish a distinct result.",
+      "residual_risks": [
+        "The original 1999 proof was not obtained. This does not affect the positive coverage by the inspected signed theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for the mathematically correct core",
+          "evidence": "Signed dichotomy for all loopless simple digraphs; invariant contractible simplex or equivariant hemisphere nerve and actual fixed spaces. Positive-sign restriction gives the frozen result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-signed-equivariant-sphere-models-for-acyclic-directed-subgraph-c--100416daf1e1/RESULT.md",
+          "material_read": "Finding and assumptions offset 0; proof §§1–4 from offset 3350, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and bounded local-mirror reads",
+          "title": "Signed equivariant sphere models for acyclic directed-subgraph complexes",
+          "trigger": "Direct Resultary match on the same complex and automorphism actions"
+        },
+        {
+          "assessment": "Covers the ordinary classification, not the genuine equivariant refinement by its printed statement/proof",
+          "evidence": "Transitive closure poset comparison, ordinary strongly-connected sphere, chosen cone edge, and SCC join.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r75/pdf",
+          "material_read": "Lemma 3.1 and Theorems 3.2–3.3 with proof, pp. 3–4",
+          "method": "Lawful OA full-text relevant passage comparison",
+          "title": "Directed Subgraph Complexes",
+          "trigger": "Classical same-object theorem"
+        },
+        {
+          "assessment": "General criterion; not the graph application",
+          "evidence": "Equivariant fiber criterion for poset maps.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~webb/Publications/posets.pdf",
+          "material_read": "Theorem 1, p. 1",
+          "method": "Lawful author PDF passage",
+          "title": "Homotopy equivalence of posets with a group action",
+          "trigger": "Cited proof tool"
+        },
+        {
+          "assessment": "Original scope beyond the secondary account unresolved; not used to infer non-coverage",
+          "evidence": "Hultman attributes the complete-digraph case and an extensible ordinary proof to this source.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895480198338724",
+          "material_read": "Scope of theorem as quoted by Hultman; original relevant proof not available",
+          "method": "Bounded original retrieval attempt and read of the cited Hultman passage",
+          "title": "Complexes of Directed Graphs",
+          "trigger": "Earlier complete-graph predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§2–4",
+        "SCOPE-100416daf1e1 Proof §§1–4"
+      ],
+      "rationale": "A genuine representation model for the whole complex is mathematically useful, but this record does not fill that gap: the established signed result gives more information. The alternate sink-fiber argument is a neat application of a standard criterion, but no new use of the sink map or materially stronger conclusion is established here. The ordinary orbit counts and sign formula are immediate linear algebra once the model is known. No correction of the homology hypothesis yields a distinct useful remainder at the scale claimed.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

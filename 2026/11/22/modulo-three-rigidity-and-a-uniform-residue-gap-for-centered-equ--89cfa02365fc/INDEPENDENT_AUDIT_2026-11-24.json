@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:57:07.289132Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, precise normalization and analytic proof, lines 5–95",
+        "Frozen VERIFICATION.md, lines 19–23; frozen verify.py inspected, not executed"
+      ],
+      "rationale": "The centroid and equal sides give each squared vertex norm s²/3. Each coordinate row is in the hexagon with vertices the six permutations of (1,−1,0); strict convexity gives row energy ≤2 with exactly those equality cases. Equal column energies at saturation force d/3 zeros per column; counting the zero-position blocks and two signs per row, then dividing by six, gives the claimed labelled-cube count and orbit. For a row (a,−b,−c), a=b+c with 0≤c≤b, rounding to (1,−1,0) costs at most the row deficit e by the convex endpoint test in b. The absolute squared-entry errors sum to e+2c²≤2e since e≥2c(1−c) and c≤1/2. For rounded integer energies totaling 2d, balancing minimizes the sum of absolute deviations from (2d−δ)/3. In residue 1 for δ<2 the minimum is (4+δ)/3, and in residue 2 for δ<1 it is (4−δ)/3; the complementary δ ranges are automatic. In residue 0 a nonbalanced triple has at least one energy ≤2m−1, hence total deviation ≥δ+2(1−δ/3), impossible if δ<6/5. The balanced rounding thus attains saturation in the same cube with cost ≤δ. Direct squaring of the three blocks gives column energies 8−4√3, 2, and 8−4√2 in dimensions 2, 3, and 4 respectively. Stacking adds the energies and preserves centering and equal column norms, proving the construction bounds and asymptotic.",
+      "residual_risks": [
+        "The proof verifies uniform deficit bounds in the nonsaturating residues, not sharpness or a classification of optimal triangles there."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ambrus–Gárgyán concern central hyperplane section volumes; Cantarella–Denne–McCleary concern pose families on embedded spheres. Wenzel's relevant cube-simplex preprint was located but its mathematical text was not extracted."
+        ],
+        "reasoning": "Neither inspected broader scope has a theorem about largest centered equilateral triangles contained in a cube. The inaccessible preprint is not negative evidence.",
+        "searches": [
+          "Local Resultary: centered cube-simplex/central-section geometry and residue bounds",
+          "arXiv:2307.03792 p. 1; arXiv:2106.12063 p. 1; TU Chemnitz Preprint 2002-11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work comparison and references, lines 101–116",
+        "Four focused local Resultary comparisons (strongest exact hit is 89cfa02365fc itself)",
+        "Primary sources and access limits specified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ionin solves the unconstrained problem with a coordinatewise cap and separate dimension residues. The centered result instead uses the planar hexagon and an integer imbalance estimate on rounded column norms."
+        ],
+        "reasoning": "An unrestricted optimum above the centered cap does not determine the restricted equality cases, deficit bounds, or the quantitative deformation to a balanced saturated triangle within the same cube.",
+        "searches": [
+          "Ionin, coordinate cap and equality pp. 178–179 and residue analysis pp. 180–181",
+          "Local Resultary: modular stability and same fixed cube vertex-rounding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit 89cfa02365fc is the assigned record itself. Rescaling Ionin's unit cube by two multiplies its unrestricted squared extremum by four; in dimensions divisible by three this gives 8d/3, not 2d."
+        ],
+        "reasoning": "Translation and rescaling do not impose the centroid at the center of the same containing cube. These are distinct extremal problems despite the same dimension residue.",
+        "searches": [
+          "Local Resultary: centered/centroid-fixed equilateral triangles in a hypercube; balanced (1,−1,0) saturation",
+          "Ionin solution to Problem 11693, pp. 178–181"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact count formula and stability statement found in the catalogue are in the subject record. The closely titled Stadler–Stong article was identified but no mathematical counting statement was obtained from the accessible pages."
+        ],
+        "reasoning": "Matching the name 'equilateral triangles in hypercubes' is not enough: the count here is a count of maximum centered triangles whose vertex coordinates can be zero, not an asserted count of corner triples or of unrestricted optima.",
+        "searches": [
+          "Local Resultary: enumerating maximum centered cube triangles and count 8/960",
+          "Counting Equilateral Triangles in Hypercubes, JSTOR 48798262"
+        ]
+      },
+      "rationale": "With centroid fixed to the cube center and vertices allowed anywhere in the cube, the sharp saturation and enumeration together with the dimension-uniform residue gaps and labelled stability are materially distinct from the unconstrained maximum and from the inspected cube-section and simplex-embedding results. The shared coordinatewise approach and residue-three organization with Ionin are credited. No distinct catalogue claim or accessible prior result was verified to cover this centered statement.",
+      "residual_risks": [
+        "Stadler–Stong's precise counting theorem and Wenzel's mathematical text were not accessible; overlap, especially with the count alone, remains possible.",
+        "Best-of-knowledge comparison does not exclude other prior centered containment results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine methodological overlap, materially different hypothesis and objective value",
+          "evidence": "Unit-cube optimization has no centroid restriction and the squared side is 2d/3 at 3|d, corresponding to 8d/3 at side two.",
+          "identifier_or_url": "https://lupucezar.wordpress.com/wp-content/uploads/2011/02/amer-math-monthly-122-02-175.pdf",
+          "material_read": "pp. 178–181, problem, coordinate cap, equality and residue cases; extracted offsets about 13650–27043",
+          "method": "Lawful full-text solution PDF passage inspection",
+          "title": "Inscribe an Equilateral Triangle in a Hypercube (solution to Problem 11693)",
+          "trigger": "Closest prior concrete extremal theorem on equilateral triangles in cubes"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Studies critical directions and volumes of central hyperplane sections rather than contained triangles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.03792",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "OA primary PDF statement inspection",
+          "title": "Non-diagonal critical central sections of the cube",
+          "trigger": "Related central cube geometry"
+        },
+        {
+          "assessment": "Not adjudicated from the title",
+          "evidence": "Frozen reference describes cube-vertex and binary-code structures; no independent comparison to a theorem there was possible.",
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2002/PREPRINT_11.pdf",
+          "material_read": "Bibliographic details only; decisive mathematical text not obtained",
+          "method": "Institutional PDF retrieval and extraction attempted through two routes; separate paper-text retrieval also failed",
+          "title": "Regular Simplices Inscribed into the Cube and Exhibiting a Group Structure",
+          "trigger": "Potential centered or balanced cube-simplex predecessor"
+        },
+        {
+          "assessment": "Different ambient geometry and question",
+          "evidence": "The stated problem concerns similar simplices on generic smoothly embedded spheres.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.12063",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "OA primary PDF statement inspection",
+          "title": "Families of similar simplices inscribed in most smoothly embedded spheres",
+          "trigger": "Inscribed-simplex scope comparison"
+        },
+        {
+          "assessment": "Unresolved count-specific overlap",
+          "evidence": "Title and venue identify a plausible comparison but not its hypotheses, class of triangles or count convention.",
+          "identifier_or_url": "https://www.jstor.org/stable/48798262",
+          "material_read": "Publication identification only, no theorem or usable count statement",
+          "method": "JSTOR landing and PDF attempted; later public-page read returned a client challenge",
+          "title": "Counting Equilateral Triangles in Hypercubes",
+          "trigger": "Potential direct overlap with the exact counting claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and steps 1–5",
+        "Ionin's unconstrained result as mathematical context"
+      ],
+      "rationale": "The prescribed centroid defines a natural constrained counterpart to the known inscribed equilateral-triangle problem. The work goes beyond a cap or three-dimensional example: it gives every saturation shape, a dimension-independent quantitative obstruction in the other residues, and a stability statement converting a near optimizer into a labelled saturation configuration. The finite block constructions make the remaining asymptotic gap genuinely bounded.",
+      "residual_risks": [
+        "No claim of exact nonsaturating optima or of sharp stability constants is supported or needed for the value verdict."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

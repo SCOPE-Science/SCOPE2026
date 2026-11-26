@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sixteen components of the reduced exceptional-curve boundary have precisely forty distinct transverse nodes: five \(E_i\)-\(Q\), twenty \(E_i\)-\(L_{ij}\), and fifteen disjoint-index \(L_{ij}\)-\(L_{kl}\) intersections. The cycle lattice \(H_1(\Gamma,\mathbb Z)\) therefore has rank 25 and is the integral character lattice of the connected Picard torus. A spanning-tree fundamental-cycle basis and signed orientation action produce integral Frobenius matrices; direct elementary reductions of \(uI-G\) over \(\mathbb Z[u]\), with no nonunit divisions, establish seven cyclic-group decompositions after substituting \(u=q\). The supplied verifier checks the exact polynomial reductions and independently computes integer Smith forms for five field sizes. The five-cycle formula agrees with the published torus isomorphism. The all-field conclusion relies on integral symbolic algebra, not finite extrapolation.
+PASS
 
-## Originality — PASS (provisional)
+Intersection theory for a plane blowup at five points in general position gives precisely the listed 40 intersections. All positive multiplicities for distinct curves are one, so these pairwise intersections are transverse. The graph is triangle-free, so distinct branches cannot form triple points. The 16 rational components and the connected graph give Picard torus rank 25, with character lattice the signed integral cycle kernel by normalization. I used a different spanning tree: all five Q–E_i edges together with the ten edges from each L_ij to its smaller indexed E_i. The reduced incidence minor is unimodular, with complement coordinates giving an integral cycle basis. Independent exact operations on uI−G give the stated seven diagonals. In particular, after constant unit elimination the (3,2) coupled block is [[−u(u+1),−(u²+u+1)],[u+1,u²+u+1]], which admits a unit by subtracting u times its first column from the second; it leaves (u+1)(u³−1) up to sign. For (4,1) the coupled entries −u and u+1 in one column produce a unit by row addition and leave (u+1)(u²+1) together with the other claimed factors. All transformations specialize integrally at every q. Frobenius fixed points are the prime-to-characteristic dual of the specialized cokernel: det(qI−G) is a unit modulo the characteristic since G is invertible over Z. This proves the abstract point-group table, not only orders. At odd q the two mixed rows have five and seven even factors respectively, versus six and eight for their rationally suggested split products. The conclusion is conditional on a permutation-model blowup, with no small-field realizability assumption or general signed-Weyl classification.
 
-The published five-cycle theorem explicitly covers the \((5)\) group, and this is excluded from the new claim. Batyrev–Popov, Hassett–Kresch–Tschinkel, and Geisser provide exceptional-curve geometry, Weyl-group actions, and general Picard-torus theory. A separate calculation of the Clebsch graph's Frobenius-fixed critical groups concerns \(K(\Gamma)^{F}\), not \(\operatorname{coker}(qI-G)\). In accessible mathematical records and searched primary sources no comparison yielded the six other integral rational-point groups. Eigenvalues, point counts of the complement, and torus orders do not supply the Smith factors. Unindexed or inaccessible older classifications remain a priority risk, so novelty is not asserted as independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The reduced union of all exceptional curves on a quartic del Pezzo surface is an intrinsically defined stable boundary of arithmetic genus 25. Six complete finite-field Picard-point-group formulas refine the known single five-cycle case and specify integral torsion not recoverable from the rational Frobenius characteristic polynomial. In cycle types \((3,2)\) and \((4,1)\), the exact factors \(C_{(q^3-1)(q+1)}\) and \(C_{(q^2+1)(q+1)}\) detect nontrivial two-primary gluing for odd \(q\). This distinction is relevant to arithmetic descent of generalized Jacobians, with no claim of a theorem for every signed Frobenius form.
+The five-cycle row is explicitly known. In the other six rows, no compared source provides the asserted exact q-dependent point groups; in particular none of the closest broader signed-Weyl computations results in the mixed-type integral Smith factors on the cycle lattice. This is a bounded conclusion about the six supported rows, not about all forms or historical priority.
 
-## Closest literature and limits
+## value
 
-The closest directly equivalent prior claim is the published five-cycle torus classification. No claim is made of an algebraic-torus product decomposition for the six new cases, universal realization over small finite fields, a Néron-component-group classification, or exhaustive priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordinary permutation forms are a natural full family of five-point blowups. The calculation determines their exact integral point-group invariants in every realization, and two mixed types supply concrete instances where rational Frobenius data fail to recover odd-field 2-primary structure. Those invariant factors are more informative than orders, a single table row, or an arbitrary field sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

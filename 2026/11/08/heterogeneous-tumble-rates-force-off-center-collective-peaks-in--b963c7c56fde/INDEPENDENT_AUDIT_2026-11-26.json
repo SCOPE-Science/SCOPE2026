@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:40:52.891608Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–58, especially line 48",
+        "Corrected /workspace/repairs/3/RESULT.md, Finding and Proof §§1–4",
+        "VERIFICATION.md, checker.py and CHECKER_OUTPUT.txt, inspected only"
+      ],
+      "rationale": "Assessed the corrected /workspace/repairs/3/RESULT.md. The frozen line 48 infers that f_a*f_b is C² merely from an integrable second weak derivative of f_b; when f_a is only L¹ that does not establish continuity or pointwise evaluation at overlapping singular endpoints. The replacement supplies the missing estimates: for 0<a<1 and b>2, choose conjugate finite P,Q with 1/P>1−a and 1/Q>max(0,3−b), possible exactly under the sufficient total-rate condition a+b>3 in the singular b<3 subcase. Hölder and continuity of translations in L^Q give continuous derivatives through order two. For both rates above one, the second derivative is f_a' * f_b' and the analogous endpoint exponents max(0,2−a), max(0,2−b) sum to less than one. At a=1, b>2 makes f_b continuously differentiable through its support endpoints and gives p''(0)=0. The stationary center calculation cancels the interaction exactly; the single filter's two stationary orientation fluxes vanish at the endpoints, giving the normalized beta law with no boundary atoms. The half-sum has density 2(f_a*f_b)(2z), so its curvature is 8 times the centered differentiated convolution. Pairing the two terms and using B(3/2,s−3)=B(1/2,s−2)/(2(s−3)) gives the claimed positive coefficient for the mixed sector. Positivity, the strict central minimum and zero edge values force an interior maximum on each side by compactness. For a,b>1 the odd-derivative pairing yields a strictly negative integral at every positive interior argument; the uniform case has an explicit strictly negative derivative. Substitution x=1−2εt on the convolution interval gives factors 4εt and 4ε(1−t) at leading order and an integrable beta weight, proving the endpoint coefficient independently for every positive a,b. This also settles the equal-rate comparison directly: a=b=2 gives coefficient 6 and exponent 3. Only RESULT.md is corrected; the independent argument establishes the continuum theorem, not the frozen finite output.",
+      "residual_risks": [
+        "No count or uniqueness of the off-center maxima is claimed. No classification of central smoothness or shape is asserted for a+b≤3. No model with thermal diffusion or coupled orientations is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The active Dyson paper supplies the force-cancelling center equation with common flip rate. Basu et al.'s three-state rates agree exactly with the equal-rate sum of headings when γ_B=2γ_1; unequal microscopic rates make the zero-sum block non-lumpable. Le Doussal et al. analyze the separation of an attractive pair."
+        ],
+        "reasoning": "The common-rate results give the stationary center law on the equal-rate diagonal, while the separation theorem applies to a different observable and interaction. They do not give the off-diagonal mixed-rate derivative or the smaller-rate threshold.",
+        "searches": [
+          "arXiv:2302.02937, Eq. (37) and model",
+          "arXiv:1910.10083, Eqs. (3), (7), (33) and (41)",
+          "arXiv:2105.11838, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Corrected /workspace/repairs/3/RESULT.md",
+        "Resultary 23039de2ab32 and the self-hit b963c7c56fde",
+        "arXiv:2302.02937, 1910.10083, 2105.11838, and abstract of 2608.21781"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Force cancellation and independent beta marginals give the convolution mechanically. Its endpoint scaling follows directly from the beta edge weights. The reported equal-rate exponent two in Eq. (41) for β>3 differs from the direct convolution result, for example exact power three at β=4. The 2026 abstract concerns thermal/athermal convolution for an individual confined particle."
+        ],
+        "reasoning": "Do not count a known single-filter law or equal-rate center model as new, and do not rely on Eq. (41) for the checked edge asymptotic. A quantitative mixed-rate sign result still requires valid overlap differentiation and the beta recurrence, and the strict shape change does not follow from the equal-rate comparison or thermal convolution abstract.",
+        "searches": [
+          "arXiv:2302.02937, Eq. (37)",
+          "arXiv:1910.10083, Eq. (3) and three-state Eqs. (7), (33), (41)",
+          "arXiv:2608.21781, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By an affine change of variable this is the law of the average of independent Beta(a,a) and Beta(b,b) variables; the trapped two-state filter law is already given in Eq. (3). The searches did not identify a primary shape theorem about the different-parameter symmetric-beta average; the returned institutional article was on fractional derivatives and did not match."
+        ],
+        "reasoning": "An exact beta-convolution formula is another representation of the law, not by itself a proof of the sign at the central overlap singularity. A preexisting symmetric-beta shape theorem would directly cover the claim, and the inconclusive lookup is not proof none exists.",
+        "searches": [
+          "Primary literature: convolution two symmetric beta distributions different shape parameters bimodal center minimum density sum beta symmetric modality Pham Gia",
+          "Primary literature: Pham-Gia Turkkan distribution linear combination two general beta variables convolution Appell exact article",
+          "arXiv:1910.10083, Eqs. (3) and (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact b963c7c56fde hit is the assigned finding. The distinct record ending 23039de2ab32 uses equal individual flip rates and studies two unequal edges of the repulsive pair's gap support."
+        ],
+        "reasoning": "The self-hit is not independent priority evidence. The gap edges do not give the center curvature or modality; the latter observable cancels the interaction while the former depends on it.",
+        "searches": [
+          "Resultary semantic search for unequal-rate run-and-tumble harmonic pair center-of-mass peaks and beta convolution; records b963c7c56fde and 23039de2ab32"
+        ]
+      },
+      "rationale": "Reassessed the repaired statement. Force cancellation, beta filter marginals, the immediate convolution representation and its routine endpoint scaling are not the basis of the pass. The distinct claim is the exact mixed-rate curvature and the resulting sharp central minimum versus unique maximum dichotomy for a+b>3. No inspected stronger result implies that threshold by merely reparameterizing. The proof repair justifies the relevant derivative without changing the mixed-rate prediction.",
+      "residual_risks": [
+        "A general symmetric-beta convolution shape theorem, or a differently indexed exact mixed-rate harmonic-trap analysis, could supply the same central classification; the bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior force cancellation, common rates",
+          "evidence": "Identical rate γ and mean-coordinate equation with propulsion equal to the average of headings.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.02937",
+          "material_read": "PDF p. 2 model, offset 6000; p. 12 Eq. (37), offset 90700",
+          "method": "OA PDF text, targeted primary passages",
+          "title": "Interacting, running and tumbling: the active Dyson Brownian motion",
+          "trigger": "Same logarithmically repulsive harmonically confined pair family"
+        },
+        {
+          "assessment": "Equal-rate process and standard beta marginal only for this comparison; inspected edge claim conflicts with explicitly checked parameter example",
+          "evidence": "Rate mapping γ_B=2γ_1 for equal individual rates. Eq. (41) reports a frozen edge exponent of two when β>3, but for a=b=2 the exact transformation to two independent filtered headings gives p(z)∼6(1−z)^3.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.10083",
+          "material_read": "PDF p. 2 Eq. (3), p. 5 Eq. (7), pp. 8–9 stationary law and p. 10 Eqs. (40–41); offsets including 6292, 11544, 25620–28052 and 35000–39345",
+          "method": "OA PDF text, targeted primary passages",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Exact equal-rate center process and possible competing edge power"
+        },
+        {
+          "assessment": "Attractive relative coordinate, not repulsive center shape",
+          "evidence": "Uses the interparticle distance as the solved observable.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.11838",
+          "material_read": "PDF p. 3, model and stationary distance, offset 9811",
+          "method": "OA PDF text, targeted primary passage",
+          "title": "Stationary nonequilibrium bound state of a pair of run and tumble particles",
+          "trigger": "Exact two-particle stationary shape result"
+        },
+        {
+          "assessment": "Different observable and common tumble rates",
+          "evidence": "The two unequal parameters are gap-support endpoints, not heterogeneous switching rates.",
+          "identifier_or_url": "2026/10/25/SCOPE-two-unequal-stationary-gap-edges-in-a-two-particle-active-dyson--23039de2ab32",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two unequal stationary gap edges in a two-particle active Dyson model",
+          "trigger": "Closest distinct Resultary hit on the same interaction"
+        },
+        {
+          "assessment": "Adjacent construction; full-text coverage not assessed",
+          "evidence": "The abstract describes thermal/athermal convolution for position statistics with an equilibrium thermal bath.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21781",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "OA PDF text, abstract-only comparison",
+          "title": "Harmonically confined RTP position statistics with thermal and athermal forcing (Sevilla and Meléndez Mora)",
+          "trigger": "Indexed exact convolution involving a trapped telegraph process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/3/RESULT.md Finding and Proof §§3–4; compared equal-rate shape framework"
+      ],
+      "rationale": "The repaired proof yields a quantitative phase boundary for an interaction-independent collective observable. An arbitrarily large total switching rate does not prevent loss of a central peak when one rate is sufficiently slow. The exact positive curvature certifies that change throughout a natural open parameter sector, rather than presenting a single numerical example or just the standard filtered-heading convolution.",
+      "residual_risks": [
+        "The mode transition is central and does not give a full off-center mode count or extend to all total rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

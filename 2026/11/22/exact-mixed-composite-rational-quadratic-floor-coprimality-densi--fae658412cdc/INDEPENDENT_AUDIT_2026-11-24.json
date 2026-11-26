@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:24:49.889195Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=bq+r the floor differs from arq+c_r by aqn, and multiplying the reduced second gcd argument by b gives ar n-t_r. When t_r>0 every shared prime divides t_r. For a prime dividing b, shared divisibility occurs exactly when the prime divides both r and c_r; otherwise a prime dividing t_r forbids just one q class. CRT gives weight w_r and a period bQ, not necessarily the least. When t_r=0, b divides n². Write n=gm, b=gh, g=gcd(n,b), so gcd(m,h)=1, h divides g, and g=hj. Then gcd(n,an²/b)=jm because h divides b and is coprime to am. It equals one exactly when j=m=1, i.e. n²=b. The r=0 fibers give no hits for b>=6. A putative period starting at or before d=sqrt(b) is a global period for H because it agrees with H on a tail and H is already periodic; it therefore cannot repeat the isolated spike. CRT yields the density, and the remainder of an incomplete period plus the spike yields the stated real-X error. For a'≡au² mod b match r≡ur' mod b: t=t', and c'−c=mr'²−2aukr'−abk² when a'=au²+bm, r=ur'+bk. This vanishes modulo each prime dividing both b and r, so admissibility and the weights match. Independent finite diagnostics (python3 /workspace/branches/independent-reproduction/arithmetic_review.py) made 207600 raw floor/gcd checks across ten mixed denominators including squares and numerators above b, and recovered 1/2 and 23/30 at b=6. They corroborate but do not replace the uniform argument. Frozen checker inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee's quadratic asymptotic assumes irrational coefficient. Holdridge's equidistribution theorem likewise needs an irrational nonconstant coefficient under its hypotheses.",
+          "The indexed positive rational all-denominator histogram is for floor(pn/q), not floor(pn²/q), and is numerator-independent."
+        ],
+        "reasoning": "The irrational general theorem cannot be specialized to a/b; the rational linear theorem does not determine the quadratic event.",
+        "searches": [
+          "A. Chatterjee arXiv:2611.04345v1, abstract and p. 1",
+          "P. Holdridge arXiv:2611.02223v1, abstract and Theorem 1.2",
+          "Resultary all-denominator rational floor gcd histogram, 86c702b63d42"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: b7932551eaf2, b8595dc8e09b, 86c702b63d42",
+        "arXiv:2611.04345v1 and 2611.02223v1",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime-square proof eqs. (1)–(2) replace the gcd by gcd(n,t_r) when p∤n and use an integer floor on n=pm.",
+          "For arbitrary b the local nonunit obstruction depends on c_r=floor(ar²/b), not on the independent floors with individual prime-power denominators. For a=1,b=6,r=3 the factor 3 divides r and b but not c_r; the fiber is admissible."
+        ],
+        "reasoning": "Separate prime-power indicator/density formulas cannot be glued as congruences for the whole-denominator floor. The mixed-fiber criterion and its transport under square-class change are the new content relative to the inspected statements.",
+        "searches": [
+          "Prime-square RESULT.md, proof steps 1–4, offsets 1950–5312",
+          "Prime-denominator RESULT.md, Finding; Resultary rational linear-floor record, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At b=p², the indexed k=2 formula has exactly the same single hit at n=p outside the model and the unit-residue totient weights. Its proof splits only p∤n and n=pm.",
+          "The mixed case may have nonunit r with nonzero remainder that contribute (e.g. a=1,b=6,r=2 has c=0 and is excluded; r=3 has c=1,t=3 and contributes)."
+        ],
+        "reasoning": "The periodic-plus-spike alias identifies a real special-family overlap, not an equivalence to the proof or density for all mixed denominators.",
+        "searches": [
+          "Resultary comparison for rational quadratic gcd(n,floor(an²/b)), local periodicity, square spike and square-class density",
+          "Prime-square RESULT.md, b8595dc8e09b, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prime record tabulates k=2 at p=5 with densities 3/5 and 7/15 for numerators 1 and 2; the prime-square record gives a spike at n=3 for b=9 and a=1.",
+          "At the mixed b=6 the independent replay gives 1/2 and 23/30; no inspected source table covers those mixed parameter classes."
+        ],
+        "reasoning": "Known exact input-type examples in adjacent regimes and the frozen record's own examples are not an exact external mixed-denominator table.",
+        "searches": [
+          "Resultary exact-period and density record for prime denominators, b7932551eaf2",
+          "Resultary indexed prime-square exact examples, b8595dc8e09b",
+          "Frozen RESULT.md lines 29–37; direct raw check of mixed examples"
+        ]
+      },
+      "rationale": "The supported distinct claim is the mixed-composite quadratic case, not rational-floor periodicity in general, known prime and prime-square classifications, or the spike by itself. The inspected same-day prime-square theorem has exact least periods in its own family and the identical quadratic p-square spike, but it does not allow mixed nonunit fibers with a nonzero remainder. CRT applied to that statement is not a reduction: the remainders modulo the whole denominator and the local obstructions from the whole-denominator floor quotient are required. The irrational and linear results have incompatible hypotheses. No equivalent mixed-composite result was established from the bounded evidence.",
+      "residual_risks": [
+        "General public search produced no usable material beyond identified sources; this is not evidence of absence.",
+        "An earlier unindexed or implicit mixed-composite generalization may exist; chronology between same-day records is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers prime squares including the quadratic spike, not the mixed regime; same-day ordering unknown",
+          "evidence": [
+            "b=p²; F=H+1 at n=p only for k=2; weights on p∤r. Proof separates n coprime to p from n=pm."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-eventual-periods-for-prime-square-rational-floor-monomials--b8595dc8e09b/RESULT.md",
+          "material_read": "Finding and scope offsets 0 and 850, proof offsets 1950–5312",
+          "method": "Bounded local-mirror passages; checked proof specialization",
+          "title": "Sharp eventual periods for prime-square rational-floor monomials",
+          "trigger": "Exact same phenomenon and function at prime-square denominator"
+        },
+        {
+          "assessment": "Prime-only; already gives the prime quadratic numerator square-class law",
+          "evidence": [
+            "Period pQ, totient-weight mean, and k-th-power numerator coset for denominator p."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-periods-and-a-prime-denominator-transition-law-for-rationa--b7932551eaf2/RESULT.md",
+          "material_read": "Finding and examples, mirror offset 0",
+          "method": "Statement comparison in local mirror",
+          "title": "Exact periods and a prime-denominator transition law for rational floor-polynomial coprimality",
+          "trigger": "Prior floor gcd classification, including k=2"
+        },
+        {
+          "assessment": "Linear degree, not covering",
+          "evidence": [
+            "Exact fixed-gcd weights depend only on q for floor(pn/q)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-numerator-independent-gcd-histograms-for-rational-floor-dilation--86c702b63d42/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Original local-mirror statement comparison",
+          "title": "Numerator-independent gcd histograms for rational floor dilations",
+          "trigger": "Broader denominators and exact rational floor gcd statistic"
+        },
+        {
+          "assessment": "Irrational coefficients only in inspected claim",
+          "evidence": [
+            "S for exponent 2 has asymptotic X/ζ(2) for irrational α."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.04345",
+          "material_read": "Abstract and p. 1, OA offset 681",
+          "method": "Original OA main claim comparison",
+          "title": "On integers n relatively prime to floor αn²",
+          "trigger": "Same quadratic-floor gcd for real coefficient"
+        },
+        {
+          "assessment": "Inspected equidistribution theorem does not cover the rational coefficient",
+          "evidence": [
+            "Density theorem assumes total-homogeneous equidistribution and an irrational nonconstant coefficient in its regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02223",
+          "material_read": "Abstract p. 1 and Theorem 1.2 p. 4, OA offset 9000",
+          "method": "Original OA hypotheses comparison",
+          "title": "On the probability that the integer parts of polynomials are coprime",
+          "trigger": "General polynomial floor gcd density"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A researcher studying fixed rational quadratic floor indicators needs the local exclusions even in fibers that are nonunits but not zero-remainder. The formula settles the entire mixed-denominator regime, with an explicit finite density and square-class symmetry despite genuine numerator dependence, and distinguishes one globally located spike from periodic obstructions. Its period is explicit, not claimed minimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

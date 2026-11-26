@@ -1,17 +1,21 @@
-# Scientific review: optimal expert delegation with exchangeable novice signals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The voting-success thresholds follow from the count of correct ballots when the expert is correct or incorrect. Coupling consecutive delegation counts leaves precisely two pivotal events, and exact beta integration yields their ratio as a finite product. The product strictly grows with the delegation count, establishing single crossing and finite optimum structure. Uniform harmonic-sum asymptotics establish the positive limiting delegation fraction. The integer example is an exact telescoping specialization. An exact-rational standalone checker confirms 418 finite identities and optimizer tests, without purporting to prove the infinite theorem.
+PASS
 
-## Originality — PASS, with residual risk
+Conditional binomial counting has thresholds k-r when the expert is right and k+1 when wrong, and beta integration gives the displayed tail. For the marginal from r to r+1, in the gain case the removed voter is wrong and the other novices have k-r-1 successes, while in the loss case the removed voter is right and the others have k successes. The binomial coefficients agree by complementation. Integration yields the two beta functions, and their ratio is the shifted gamma product from j=k-r-1 through k. Adding a factor (a+j)/(b+j)>1 at each step makes the bracket strictly decreasing, so at most two adjacent maximizers occur on [0,k]; r>=k is exactly the dictator plateau. If r/k tends to t<1, the log product is (a-b)log(1/(1-t))+o(1), by expansion at O(1/k) and summing reciprocal indices. At ratios just below and above rho the limiting brackets have opposite strict signs, so monotonicity traps every maximizer; eventually r<k and the plateau cannot be optimal. This gives rho/2 of the whole electorate and conditional pairwise correlation Var(Theta)/[E(Theta)(1-E(Theta))]=1/(a+b+1). The (3,2) product telescopes to (k+3)/(k-r+1), sign 4k-7r-2. For k>=2 its zero lies strictly before the last increment, so the ceiling optimizer, ties at k=4 mod 7 and absence of a dictator optimum follow. At k=1 the unique relevant increment in each model is positive. For fixed p=3/5 the marginal bracket q-(1-q)(3/2)^(r+2) is positive for r=0 and negative for r>=1. A separate finite exact-rational replay performed 136 tail-difference and example maximizing-set checks, the latter through k=29; these checks do not prove the universal limit. The frozen script was not executed.
 
-The 2022 motivating research explicitly treats a three-voter special correlated-signal extension, and its canonical baseline is conditionally independent. The 2023 single-expert Proposition 3 already establishes the bounded delegation optimum with independent signals; it is acknowledged, not repackaged as new. Examination of the relevant portions and proofs in these primary sources did not disclose the beta-binomial product formula or the arbitrary-electorate proportional optimizer. The 2025 dependent-competence analysis provides broader conceptual background but did not exhibit these precise consequences in examined sections. A 2026 related paper concerning binary common-signal correlation was available only in abstract, so stronger unpublished or unexamined implications remain a priority risk. Semantic research-record searches did not identify a covering claim; their absence alone is not treated as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The difference between bounded and macroscopic optimal delegation is a structural consequence of information dependence, not a small finite-size numerical gain. Both regimes are evaluated for the *same* novice marginal correctness \(3/5\) and expert correctness \(7/10\); the change is the novices' shared uncertainty. The exact integer optimizer, possible ties, and correlation-sensitive scaling quantify when delegation can systematically retain influence in large voting bodies, a natural mathematical response to the information-dilution concern in epistemic liquid democracy.
+The finite beta-integrated marginal product and proportional restricted optimizer are distinct from established expert-vote weighting, beta-binomial vote counts and common-signal models. The strongest indexed result shares the one-expert architecture and conditional pivotal formula, but its unimodality and bounded optimizer require all conditional novice accuracies above one half. A beta mixture with positive density below one half is not a specialization of that theorem. The independent-vote benchmark and small correlated-vote precedents are credited explicitly.
 
-The conclusions apply only to an ex-ante direct-delegation allocation, independent expert signal, beta exchangeability, two alternatives and sincere strict-majority voting. No equilibrium or unrestricted optimal-design result is claimed, and the inaccessible related full text remains a documented publication-priority risk.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Keeping positive marginal competence and expert precision fixed while changing the dependence model turns a bounded optimal delegation count into a genuinely macroscopic one. The exact pivotal product explains the switch and gives a useful finite selection rule, not merely a limiting heuristic or a restatement that correlation can matter. The explicitly calibrated rational comparison holds the marginal precisions fixed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

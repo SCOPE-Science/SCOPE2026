@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:46.953487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–84",
+        "Frozen VERIFICATION.md",
+        "Frozen checker.py and checks.txt"
+      ],
+      "rationale": "Reconstructed the real Hermitian normal operator by Fourier orthogonality. With gain sqrt(t) on derivative intensities, its blocks are 5uuᵀ+3twwᵀ, two copies of [[5,5],[5,5+12t]], and two scalars 5. The diagonal block has trace 15+51t, product 390t of its nonzero eigenvalues, and kernel span(diag(3,-4,1)); the 2-by-2 blocks have trace 10+12t and determinant 60t. The kernel generator has rank three, which excludes every nonzero projector difference. Independently, put r=sqrt(985), R=(33+r)/4, d(t)=(15+51t+sqrt(225-30t+2601t²))/2 and c(t)=5+6t-sqrt(25+36t²). The full squared condition number is at least d(t)/c(t). At 40/81 these are the actual extreme positive eigenvalues and d=Rc. Their derivatives there are (51+1371/r)/2 and 6-96/r, respectively, so d−Rc has zero derivative there. The top affine-block eigenvalue d is convex and −c is strictly convex (the second derivative of sqrt(25+36t²) is positive); hence d−Rc is strictly positive elsewhere. Substitution gives the listed squared spectrum and multiplicities. For rank at most two, compress Q to the range of H and apply Cauchy–Schwarz: the compression has squared Frobenius norm at most 4²+3²=25 (the two largest eigenvalues of Q²), giving squared distance to span Q at least ||H||²_F/26. This proves the stated f/26 stability bound with f the least positive squared singular value. Read the supplied checker and transcript as recorded evidence; did not execute uploaded code.",
+      "residual_risks": [
+        "No sharpness claimed on the projector-difference cone, nor beyond positive weights equal within each channel."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conca–Edidin–Hering–Vinzant give generic injectivity at N≥4M−4 and a rank-at-most-two kernel criterion. Jaming–Rathmair give a general-degree qualitative structured theorem."
+        ],
+        "reasoning": "Genericity is not an assertion about this fixed structured frame and gives no gain optimizer; the structured theorem implies injectivity here but provides no singular-value or stability constant.",
+        "searches": [
+          "arXiv:1312.0158, Theorem 1.1 and Proposition 3.1",
+          "arXiv:2205.08753, §3.1 Proposition 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.08753",
+        "arXiv:1312.0158",
+        "Resultary --0e882b9f0b96",
+        "Resultary --52ff35f3bc92",
+        "Resultary ranked parallel-lines record --018be4882975 (search result only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interpolation and the general rank criterion establish only identified qualitative overlap. The later eight-value-sample result varies an inter-orbit rotation and uses a different optimization objective."
+        ],
+        "reasoning": "Neither interpolation, the rank criterion, nor the different spectrum/determinant calculation supplies the required extreme-eigenvalue comparison as the derivative gain varies; that all-weight comparison adds a substantive exact claim.",
+        "searches": [
+          "arXiv:2205.08753 Proposition 3.2",
+          "arXiv:1312.0158 Proposition 3.1",
+          "Resultary 2026/11/8/…--52ff35f3bc92 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jaming–Rathmair prove injectivity from value and derivative magnitudes on a common grid of 2N−1 roots. For N=3 the three derivative squared magnitudes interpolate the degree-one trigonometric polynomial on the five-site grid.",
+          "2026/10/18/SCOPE-fourteen-ambiguity-planes-for-six-sample-cubic-fourier-phase-ret--0e882b9f0b96 instead uses cubics, six common roots and almost-everywhere rather than universal injectivity."
+        ],
+        "reasoning": "The grid conversion makes the qualitative quadratic statement a corollary; it does not preserve the Euclidean metric with a relative channel gain so as to yield the optimized normal-operator spectrum. The cubic result has different rank and sampling constraints.",
+        "searches": [
+          "Resultary semantic lookups for the exact title/formula and quadratic value/derivative sampling",
+          "arXiv:2205.08753, §3.1 Proposition 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two rotated square orbits record has an explicit spectrum and stability bound for eight value samples and optimizes a rotation by determinant. The parallel-lines record instead gives a criterion for eight value samples. The cubic common-grid record has no matching weighted quadratic table."
+        ],
+        "reasoning": "These are nearby finite frames but their measurements and design variables differ. None is a table for the 5+3 Hermite Fourier gain family or contains the listed spectrum.",
+        "searches": [
+          "Resultary semantic lookups for the exact title/formula and quadratic value/derivative sampling",
+          "Resultary 2026/11/8/…--52ff35f3bc92 and 2026/10/25/…--018be4882975"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact spectrum, unique relative gain and corresponding lifted condition number, with a concrete stability bound for this specific frame. Qualitative injectivity and the general rank-two test are prior coverage, explicitly not claimed as novel. No examined primary or indexed statement supplies or specializes to the quantitative optimization.",
+      "residual_risks": [
+        "An unindexed explicit conditioning calculation for this same frame is possible; the best-of-current-knowledge assessment is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative coverage by interpolation, not quantitative optimization",
+          "evidence": "The common 2N−1 root sites determine the function up to phase from the two moduli; at N=3 three derivative-intensity samples already determine the derivative intensity everywhere on the circle.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.08753",
+          "material_read": "Original PDF, §3.1 Proposition 3.2, p. 11, and surrounding argument",
+          "method": "OA PDF passage lookup and bounded offset reading",
+          "title": "Uniqueness of phase retrieval from three measurements",
+          "trigger": "Same structured value/derivative phase retrieval"
+        },
+        {
+          "assessment": "Generic qualitative classification and rank test, not frame weighting",
+          "evidence": "The theorem guarantees generic injectivity for N≥4M−4; the proposition tests whether the Hermitian kernel contains a nonzero matrix of rank at most two.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.0158",
+          "material_read": "Original PDF Theorem 1.1 (p. 1) and Proposition 3.1 (p. 3)",
+          "method": "OA PDF passage lookup and bounded offset reading",
+          "title": "An algebraic characterization of injectivity in phase retrieval",
+          "trigger": "Generic eight-vector threshold and Hermitian kernel reduction"
+        },
+        {
+          "assessment": "Different degree, grid and recovery conclusion",
+          "evidence": "Six common sites for a cubic give fourteen exceptional planes and almost-everywhere rather than universal identification.",
+          "identifier_or_url": "2026/10/18/SCOPE-fourteen-ambiguity-planes-for-six-sample-cubic-fourier-phase-ret--0e882b9f0b96",
+          "material_read": "Mirrored RESULT.md Finding, beginning at offset 0",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Fourteen ambiguity planes for six-sample cubic Fourier phase retrieval",
+          "trigger": "Closest earlier indexed Hermite Fourier record"
+        },
+        {
+          "assessment": "Quantitative neighbor, not same frame or optimizer",
+          "evidence": "Two rotated four-site value-only orbits, explicit spectrum and bound, with a determinant-optimal rotation rather than a condition-number-optimal derivative gain.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimal-quadratic-phase-retrieval-from-two-rotated-square-orbits--52ff35f3bc92",
+          "material_read": "Mirrored RESULT.md Finding, beginning at offset 0",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Minimal quadratic phase retrieval from two rotated square orbits",
+          "trigger": "Closest indexed exact spectrum and stability result for eight quadratic samples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and limitations",
+        "arXiv:2205.08753 Proposition 3.2",
+        "Independent extreme-eigenvalue check"
+      ],
+      "rationale": "The two natural root grids capture the full value and derivative intensity Fourier coefficients with eight readings. For users of that specific nonredundant structured acquisition, the exact gain balances the least observable and most amplified Hermitian directions, without numerical weight tuning. The exact spectrum also gives a certified global inverse-stability scale for projector differences. The meaningful addition is quantitative design, not another proof of qualitative injectivity or optimality among all frames.",
+      "residual_risks": [
+        "The full-lift condition number need not optimize the nonlinear projector-difference condition number; the stated stability constant is not asserted sharp."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each real \(t>0\), planar slices of the rectangular bipyramid yield \(\mathbb E x(X_t)^2=t^2/5\). The eight triangular facets have two exact area and moment classes, giving the closed boundary mean. A sign factorization proves the unique critical value \(\sqrt{161}\), while three antipodal vertex pairs prove global minimal six-vertex complexity within centrally symmetric 3-polytopes. Independent numerical substitutions at the boundary and on both sides agreed with exact algebra.
+## correctness
 
-**Originality — PASS with residual priority risk.** Closest direct source is Pasteczka's Jensen-type boundary/volume inequality; Tokmachev supplies recent planar and tangential positive theorems. Lotnikov has already proved the existence of centrally symmetric **mean-distance** counterexamples in dimension three, so mere existence is not claimed as new. The specific minimal six-vertex quadratic witness and its exact one-parameter threshold were not implied by inspected records. Lotnikov's later detailed geometric construction was not fully accessible, so a coincidence remains possible; later public articles may also have overlapping statements.
+PASS
 
-**Value — PASS.** The minimum possible vertex count makes the obstruction a natural extremal boundary, and the threshold supplies a complete exact classification for the fixed quadratic test within one explicit bipyramid family. This identifies an elementary sharp limitation of what the planar and insphere-centered convex-order results can be extended to. It is not presented as a universal classification of all convex functions or all polyhedra.
+Slice y=±ts gives a rectangle with area 4t(1−s)² and mean x²=t²(1−s)²/3, so the volume mean is t²/5. The eight triangular facets comprise four with area t√(t²+1) and barycentric mean t²/6, four with area t√2 and mean t²/2. Their area-weighted difference from the volume mean is t²(9√2−√(t²+1))/[30(√(t²+1)+√2)], proving the exact threshold, equality case and strict example at t=13. Central symmetry gives both centroids zero; exposed base corners and apices give six vertices, while antipodal pairs must span dimension three. Independently triangulated the boundary and coned its triangles to the origin for tetrahedral volume quadrature; the three tested values agree, including surface 33.67898021143849 versus interior 33.8 at t=13 (replay /workspace/branches/independent_checks.js). This is finite corroboration only. The prior-work adjective non-tangential concerns the obstruction regime: K₁ itself has equal facet distances; this does not affect the theorem.
 
-**Related work and limits.** Pasteczka, *Jensen-type geometric shapes* (2018); Tokmachev, arXiv:2607.08869 (2026); Shen, arXiv:2608.06470 (2026); Lotnikov, arXiv:2608.14848 (2026). Specific source-inspection scopes and risks are documented in the structured review. The final claim relies only on elementary slice and facet integrations, not any unproved assertion in those papers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier work already gives the qualitative existence of centrally symmetric examples with a quadratic reversal: Lotnikov's n=2 inequality implies a second-moment trace reversal. The surviving distinction is the fixed coordinate quadratic, a sharp crossing in the explicit rectangular bipyramid, and attainment with the minimum six vertices. The strongest prior spatial construction uses a square and two octagonal caps; the closest same-day result is a positive theorem about products of balls. Neither supplies the six-vertex threshold.
+
+## value
+
+PASS
+
+The construction reaches the smallest possible centrally symmetric spatial vertex count with a simple convex test and an exact sign crossing. Unlike merely proving that the comparison can fail, it tests sharp complexity and reproduces the obstruction with an integer-coordinate example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: joint Bernoulli-tree hitting-time limit
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement distinguishes tree randomness from random-walk path randomness, fixes the exact finite-tree model and both hitting-time directions, and uses the correct centering and normalization. Exact deterministic component-count and commute identities reduce the first-passage means to the inverse-renewal count and its integral, with a pathwise error controlled by the longest run of second-predecessor attachments. The tail bound for that longest run makes the error negligible on the \(N^{3/2}\) scale. Donsker inversion gives the claimed joint Brownian functional, and direct Brownian covariance calculations yield the matrix and its \(1/2\) off-diagonal correlation. The accompanying script checks all finite attachment histories through size twelve and independently solves rational hitting-time systems through size seven; its finite checks are not used as a substitute for the limit proof.
+PASS
 
-## Originality
+For a path edge, reroot at the target side and use first-step equations: the expected crossing time from the adjacent root-side endpoint equals one plus the sum over its off-target neighbors of one plus their mean return time. Induction on the root-side component size M gives 2M-1; summing gives the forward identity, and commute gives 2ND_N. Every label below b is on the root side of its path edge. The later descent indicators from b either become constantly one or, before that happens, alternate: two zeros are absorbing and cannot reach c_N=1. Each continuation of alternation needs a consecutive second-predecessor choice, so the excess M_b-b is at most L_N+1 (zero at b=N). A union bound on all starting positions and Borel–Cantelli give L_N=O(log N) almost surely, making H⁺−2A_N negligible at scale N^(3/2). Backwards exploration samples previously unseen iid attachment choices at distinct labels; at label 1 the forced final edge preserves all positive labels, so the same bounded-step renewal sequence gives jointly D_N=K_N and A_N=sum of K_x for x=1,…,N in law. A separate enumeration compared the full positive-path profile law and confirmed the deterministic bound for N=1–11 at p=1/2. For the unbounded proof, set K_0=0; the overshoot 0≤S_(K_x)-x≤1 composes the centered partial-sum Donsker process with K_floor(Nt)/N→t/μ uniformly and multiplies it by -1/μ. Brownian scaling then gives -sqrt(v)/μ^(3/2) times standard Brownian motion. Riemann summation and endpoint evaluation give the pair of Brownian functionals ∫B and B(1)−∫B (with common prefactor -2sqrt(v)/μ^(3/2)); their variances are 1/3 and their covariance is 1/6. For the almost-sure conclusion the overshoot yields uniform deviation of K from x/μ bounded by (1+max_(k≤N)|S_k−μk|)/μ. Hoeffding plus a union bound makes linear deviations summably unlikely. Applying this to the fixed-N joint tree laws and then Borel–Cantelli proves the result in the original environment, without a false common renewal coupling across N.
 
-**PASS, with historical-priority risk.** The exact Bernoulli predecessor tree is analyzed by Tang--Wang--Wu for ends and collisions, rather than the joint root-to-newest first-passage mean fluctuations. The general deterministic graph-hitting identities are known and expressly credited to classical theory and Georgakopoulos--Wagner. Standard renewal FCLTs likewise are known. The specific approximation of tree hitting means by the integral of the same backward ancestry renewal process, and the resulting joint covariance including universal half-correlation, were not found in the examined sources or mathematical-record comparisons. Oosthuizen--Wagner treats random-tree hitting-time laws for different tree ensembles and scales; only its abstract was available, leaving an explicit residual risk. No independence or definitive priority claim is made.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The source model's existing qualitative collision result does not quantify search latency. The joint first-passage limit establishes the sharp magnitude of conditional search costs and their random-geometry fluctuations, including how the two orientations cofluctuate. The same Gaussian variance in both directions and the nontrivial parameter-independent correlation are natural structural properties of this exact model, not an arbitrary choice of a small numerical slice.
+The supported distinct claim is the joint conditional-mean law, covariance and two almost-sure laws at the endpoints of the finite birth-label prefix. Tang–Wang–Wu construct the same tree and supply its infinite geometry, while the same-tree Resultary ray-index result has close regenerative ingredients but a different index and a single hitting direction. The matching sources are compared below rather than dismissed based on title or date.
 
-## Scope and unresolved limitations
+## value
 
-The theorem is specific to finite Bernoulli recursive trees, fixed interior attachment probability and tree-conditioned *means*. It makes no assertion about the random first-passage time distribution along an individual trajectory, nor about universality over other attachment rules. The cited tree-hitting formula and inverse-renewal invariance principle are established inputs. A full historical-priority check outside the inspected literature remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The deterministic commute identity controls only the sum. A joint area-and-endpoint representation resolves the fluctuation split and gives the exact universal half-correlation of the two conditional means at the same finite endpoints. That covariance is useful for joint prediction and directional asymmetry and is not determined by either a scalar ray limit or the commute law alone. The main mechanism is the uniform pathwise control of discarded branches combined with a common inverse-renewal profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

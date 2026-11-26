@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each private leaf forces every independent dominating set to contain exactly one vertex of its attached pair. In any coalition partition the two appearances of each attachment index produce a twice-covered support system with complementary coalitional supports. Its residual partition argument bounds the classes by four, and the induced two-by-two coalition graph has a perfect matching, forcing a complementary pair of independent dominating sets and hence bipartiteness. A base bipartition constructs an admissible four-class partition. Counting initial presentations and subtracting those with component-separated support proves the exact coefficient. The boundary case of a one-vertex base is stated separately. Standalone adjacency-level exhaustive checks for 82 labelled graphs corroborate every predicted partition size and multiplicity.
+## correctness
 
-## Originality
-**PASS, subject to residual literature access risk.** The 2023 independent-coalition existence paper poses the general characterization problem and its Proposition 4.8 already proves the general bipartite-necessity implication for four-class partitions in isolate-free graphs without a full vertex. That previously known implication is credited, not claimed as new; the new work proves every corona partition has four classes, sufficiency and complete enumeration. The 2026 counting manuscript covers special families including trees, which can already imply the connected-tree-base counting subcase; no novelty is claimed for that implication. The present statement concerns every finite base graph, including cyclic bipartite and nonbipartite bases, and adds the component-dependent correction for disconnected bases. Searches of relevant mathematical literature, aliases and a semantic mathematical-result database found no equivalent general corona theorem. The full PDF of a relevant 2025 article could not be inspected, so coverage risk remains.
+PASS
 
-## Mathematical value
-**PASS.** The result settles independent-coalition existence on the entire one-leaf-corona construction by a sharp bipartiteness test, proves complete four-class rigidity, and counts all partitions with an explicit multiplicity correction. It covers infinitely many connected cyclic families and disconnected combinations, and reduces both existence and counting to graph order, bipartiteness, and component count. This supplies a concrete structural answer to the class-existence question rather than a routine numerical observation.
+For n≥2 no vertex dominates alone. An independent dominating union must use exactly one endpoint of each private pair. The chosen coalition's two supports partition the base indices; the remaining blocks' nonempty supports partition the same indices a second time. If at least three residual blocks remain, none can partner another residual block, yet at most two can have supports complementary to the original two blocks. A sole residual block would have full support and no partner. Thus there are exactly four blocks with two copies of each complementary support, and their 2-by-2 coalition graph without isolates has a perfect matching. Its unions give a proper 2-coloring, and conversely splitting either side of such a coloring into two nonempty blocks gives coalitions. The 2^(c−1)(2^(n−1)−1)² unordered-coloring presentations double-count exactly the partitions for which switching the matching flips colors on a union of components: a crossing base edge would become monochromatic, while without such an edge the switch works. Each of the 2^(c−1)−1 component splits gives 2^(c−2) doubly presented partitions when c≥2; there is no correction when c=1. The K₂ singleton partition is the only n=1 case. The finite recorded checks are consistent with these arguments.
 
-## Closest literature and limitations
-The 2023 paper by Samadzadeh and Mojdeh (arXiv:2306.02079) introduces the invariant and its existence question. Alikhani et al. (DOI:10.7151/dmgt.2543) study independent coalition graphs and extremal classes; its accessible abstract was compared, but PDF inspection remained inaccessible. Asadzadeh and Alikhani's 2026 preprint studies counts and already covers a narrower tree situation. Literature indexing and inaccessible relevant full texts leave a priority risk. This is a self-review, not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the exact independent-partition enumerator on arbitrary bases, especially the disconnected presentation correction and coverage beyond trees. An ordinary-coalition upper bound, the broader four-block bipartiteness implication, and the reported connected-tree count are not credited as distinct contributions.
+
+## value
+
+PASS
+
+The partition polynomial distinguishes bipartite from nonbipartite arbitrary bases and reveals an exact edge-independent count within each bipartite (n,c) class, despite independence being edge-sensitive. The correction quantifies exactly when different proper colorings produce the same unlabelled partition; it is needed even for elementary disconnected examples and is not supplied by a maximum-size result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:20:35.200632Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the ordinary complex by nontrivial cuts in four-vertex sets. A separate set-based enumeration and depth-first acyclicity test reproduced (10,45,120,210,240,140), 3330 Hasse incidences, 369 disjoint pairs and exactly one critical vertex and 26 critical facets. Forman's theorem then gives the actual wedge, not just mod-two Betti numbers: the five-cells all attach to the sole zero-cell. Enumeration confirms the five stars are all independent 4-sets and there is no independent 5-set; intersecting stars recovers every vertex, so the label action is the full group. For a fixed face that is a union of k vertex cycles, oriented alternating trace has sign (-1)^(k-1). This independently gives top traces (26,6,-2,2,0,0,1). The characters of the standard, the two-subset permutation module minus the point permutation module, and the exterior square of the standard identify [41], [32], [311] and verify the stated multiplicities. Barycentric face flags have pointwise stabilizers when preserved setwise; quotient chains are the coinvariants, an exact functor over Q by averaging, yielding the stated top rank and no other reduced rational homology. Replay: python3 -B /workspace/branches/frozen_review_replay.py 5. The check concerns only this graph and does not assert integral results for the quotient. Frozen verifier inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 requires a complete (n-k-2)-skeleton and shellability for its wedge conclusion. Here there are 240 rather than 252 four-faces. Proposition 6.2's sufficient short-cycle exclusion fails at girth 5. Corollary 6.6 treats the two-cut case (six 6-spheres)."
+        ],
+        "reasoning": "These general criteria and the lower cut case do not give the frozen conclusion. The earlier catalogue entry does give it and extends the quotient calculation to A5.",
+        "searches": [
+          "arXiv:2304.13675, Theorem 6.1, Proposition 6.2, Theorem 6.4 and Corollary 6.6; focused primary literature lookup for Petersen four-cut"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_petersen_4cut.py",
+        "arXiv:2304.13675",
+        "Resultary 73b0af8749ae and 8ec1833eeaf3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier result directly states the wedge and rational module, and gives a discrete Morse certificate with 369 pairs and 1+26 critical cells. Its stated quotient already includes S5."
+        ],
+        "reasoning": "There is no new conclusion left from recomputing the certificate with another vertex order. Integral homology follows from the earlier wedge, and the quotient rank follows from the earlier module even without its explicit quotient statement.",
+        "searches": [
+          "Resultary 2026/10/25 RESULT.md offsets 0–1912 and 2950–4020; arXiv:2304.13675 PDF pp. 17–20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-25 record defines facets as complements of four-vertex sets inducing a disconnected Petersen subgraph, on KG(5,2) with the natural action on label pairs."
+        ],
+        "reasoning": "Same cut convention, action and coefficient fields; not total cut, not the triangular complement and not a different cut threshold. The frozen verification that the label action is full makes the actions identical.",
+        "searches": [
+          "Resultary local search on Petersen ordinary four-cut complex, 26 five-spheres and S5 homology",
+          "Resultary 2026/10/25 record 8ec1833eeaf3, RESULT.md offsets 0–1912"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 Finding identifies the same 26-sphere wedge and Specht decomposition. The October 25 Finding reproduces all seven character values and the rational S5 quotient rank in addition to the same wedge."
+        ],
+        "reasoning": "Exact database matches, independently of whether they also occur in journal tables; neither is merely the designated frozen record.",
+        "searches": [
+          "Resultary local catalogue, distinct records 73b0af8749ae and 8ec1833eeaf3"
+        ]
+      },
+      "rationale": "Demonstrable duplicate coverage: the distinct 2026-10-25 Resultary record gives the same ordinary complex, wedge, integral homology, rational Specht decomposition and S5 quotient ranks, plus the A5 quotient. The 2026-10-18 record independently duplicates the wedge and representation. This is statement-level coverage rather than a claim about authorship or priority.",
+      "residual_risks": [
+        "The comparison is not a complete literature or priority history; other prior instances could exist. The verified overlap already decides coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but non-covering for four-cut",
+          "evidence": "Complete skeleton and cycle conditions fail here; the named Petersen conclusion is for Delta_2.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Theorem 6.1, Proposition 6.2, Theorem 6.4 and Corollary 6.6, PDF pp. 17–20",
+          "method": "Open full-text term location and bounded theorem passages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Same construction and graph, possible family theorem"
+        },
+        {
+          "assessment": "Direct wedge and module overlap",
+          "evidence": "26 degree-five spheres, with the identical rational module.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-petersen-four-cut-complex-and-its-s-5-homology-character--73b0af8749ae",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement comparison",
+          "title": "The Petersen four-cut complex and its S5 homology character",
+          "trigger": "Exact graph, cut threshold and action in local result match"
+        },
+        {
+          "assessment": "Direct full coverage; same proof mechanism with a different order",
+          "evidence": "Same ordinary facets; wedge, module, S5 and A5 quotient ranks; verified acyclic vertex matching with the same critical dimensions and counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-petersen-four-cut-complex-26-five-spheres-and-its-full-symme--8ec1833eeaf3/RESULT.md",
+          "material_read": "Finding, assumptions and acyclic Morse matching, offsets 0–1912 and 2950–4020",
+          "method": "Local mirror bounded text comparison",
+          "title": "The Petersen four-cut complex: 26 five-spheres and its full symmetric-group character",
+          "trigger": "Same conclusion including quotient; possible different proof"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural small graph and equivariant invariant would be a meaningful exact benchmark absent prior coverage. Here the earlier record already provides this benchmark, including the same finite Morse strategy and a stronger quotient comparison. Swapping the matching order adds no demonstrated scientific use or distinct invariant. No surviving value-bearing repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

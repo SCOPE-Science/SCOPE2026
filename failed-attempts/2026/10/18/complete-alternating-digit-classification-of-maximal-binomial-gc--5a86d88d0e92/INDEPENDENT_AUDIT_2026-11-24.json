@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:55:06.262935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–34",
+        "Frozen VERIFICATION.md",
+        "Frozen verify.py"
+      ],
+      "rationale": "The admissible coefficients form a nonempty set, and the gcd valuation is the minimum of their valuations. Kummer's theorem identifies these with borrow counts. With both digit parities present, selecting two opposite-parity occupied positions gives a zero-borrow index unless it exhausts N. With just one parity present there must be at least two occupied positions, and selecting p^i+p^(j−1) for occupied i<j borrows exactly once from position j. For the two-unit row, no proper selected index fits digitwise. Exactly one carry would give two positive digit sums with total p+1, so each alternating digit sum for the two summands would have to vanish by divisibility by p+1; a lone carry changes their combined alternating sum by ±(p+1), a contradiction. The indicated witnesses produce exactly two borrows for both adjacent and nonadjacent occupied positions, including p=2. Excluding N=1+p makes p+p² the first admissible such row. The supplied checker was inspected but not executed; the decision rests on the symbolic argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier arXiv:2609.37754 theorem applies to m≥3, m|N, m<N and p≡−1 mod m; it gives exact valuations also off the equality locus.",
+          "The later extrema theorem identifies the universal maximum r_p(m), giving 2 at m=p+1, but does not itself classify these attaining rows. Wu's inspected theorem treats prime-power moduli."
+        ],
+        "reasoning": "Substitution of m=p+1 in the September theorem preserves all hypotheses for every prime, including p=2, and covers the full result.",
+        "searches": [
+          "arXiv:2609.37754v1, Theorem 1.1",
+          "arXiv:2610.01328v1, Theorem 4.3",
+          "Wu arXiv:2606.20940, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Fairfax-Ball arXiv:2609.37754v1, Theorem 1.1, decisive",
+        "Fairfax-Ball arXiv:2610.01328v1, Theorem 4.3",
+        "McTague arXiv:1510.06696, Theorem Q",
+        "Wu arXiv:2606.20940, Theorem 1",
+        "Resultary October 12 and October 13 comparisons and distinct October 18 gcd hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m=p+1 the earlier theorem permits valuation 2 exactly at (A,B)=(1,1) and gives 0 or 1 elsewhere."
+        ],
+        "reasoning": "The least row is immediately obtained from this locus: 1+p is excluded, p+p² is allowed, and the smallest candidate with lowest exponent zero and a larger odd gap is 1+p³>p+p². Not explicitly naming the least row does not leave it uncovered.",
+        "searches": [
+          "arXiv:2609.37754v1, Theorem 1.1, PDF p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fairfax-Ball uses A and B, the sums of the even-position and odd-position base-p digits. Under p=m−1, his valuation-2 condition is (A,B)=(1,1).",
+          "McTague's inspected theorem assumes p≡1 modulo the selection modulus rather than the p≡−1 family here."
+        ],
+        "reasoning": "Because base-p digits are nonnegative integers, (A,B)=(1,1) is exactly a single digit equal to one in each parity class, i.e. N=p^a+p^b with odd b−a. The minimum formulation and the gcd valuation coincide.",
+        "searches": [
+          "arXiv:2609.37754v1, Theorem 1.1",
+          "McTague arXiv:1510.06696, Theorem Q"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 result gives exact minima and minimizers on the already restricted two-digit family, including the case p=m−1; it does not exclude other rows.",
+          "The October 12 result explicitly states the least boundary row p(p+1). The same-day gcd records concern different families, not selection of interior multiples of p+1 in a fixed row."
+        ],
+        "reasoning": "The indexed results overlap directly on parts of the claim. The decisive full coverage is the primary theorem, not an inference from sequence values or same-day ordering.",
+        "searches": [
+          "Resultary lookup for exact restricted binomial valuations and least rows at p+1",
+          "Resultary 2026/10/13/SCOPE-exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb",
+          "Resultary 2026/10/12/SCOPE-the-omitted-a-1-boundary-t-p-p-1-p-p-1--1da8f5b9bad4",
+          "Same-day Resultary binomial gcd records concerning A080170 and D(n−1)"
+        ]
+      },
+      "rationale": "An earlier stronger theorem already gives the exact locus and more: Fairfax-Ball, Restricted Binomial GCDs at Primes Congruent to −1, arXiv:2609.37754v1 (29 September 2026), Theorem 1.1, specializes with m=p+1 to the entire finding. This is direct theorem-level coverage, not just overlap in the maximum or a finite instance.",
+      "residual_risks": [
+        "The search was bounded; deferred web queries give no negative evidence. Additional coverage would not alter the demonstrated direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct full coverage",
+          "evidence": "Valuation 2 iff (A,B)=(1,1) and p=m−1 under the stated congruence and row hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37754v1",
+          "material_read": "Theorem 1.1, PDF p. 2, text offset 4842",
+          "method": "Primary OA PDF text",
+          "title": "Restricted Binomial GCDs at Primes Congruent to −1",
+          "trigger": "Identical selection and prime congruence in a stronger theorem"
+        },
+        {
+          "assessment": "Maximum overlaps, not the source of the full locus",
+          "evidence": "The maximum r_p(m) gives 2 here; the stated p^a+1 least-row formula is for a≥2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01328v1",
+          "material_read": "Theorem 4.3, PDF p. 6, text offset 15396; relevant least-row scope",
+          "method": "Primary OA PDF text",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "Closest cited extrema theorem"
+        },
+        {
+          "assessment": "Different congruence condition",
+          "evidence": "Theorem Q uses p≡1 modulo the restriction modulus.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06696",
+          "material_read": "Theorem Q, PDF p. 1, text offset 2585",
+          "method": "Primary OA PDF text",
+          "title": "On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Restricted gcd under a congruence hypothesis"
+        },
+        {
+          "assessment": "Inspected theorem does not give full p+1 locus",
+          "evidence": "Theorem 1 treats prime-power moduli.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.20940",
+          "material_read": "Theorem 1, PDF p. 2, text offset 5510",
+          "method": "Primary OA PDF text",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Potential broader restricted gcd formula"
+        },
+        {
+          "assessment": "Covers this family's minimum and minimizers, not the converse",
+          "evidence": "The exceptional p=m−1 case has minimum 2 within the two-digit family.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb",
+          "material_read": "Statement on two-unit, opposite-parity rows",
+          "method": "Resultary and record comparison",
+          "title": "Exact minimum valuation multiplicities in restricted two-digit binomial rows",
+          "trigger": "Exact overlap on the extremal two-digit family"
+        },
+        {
+          "assessment": "Direct coverage of the least row",
+          "evidence": "States the least row p(p+1) at restriction p+1.",
+          "identifier_or_url": "2026/10/12/SCOPE-the-omitted-a-1-boundary-t-p-p-1-p-p-1--1da8f5b9bad4",
+          "material_read": "Statement of the least row",
+          "method": "Resultary and record comparison",
+          "title": "The omitted a=1 boundary",
+          "trigger": "Exact least-row overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:2609.37754v1, Theorem 1.1"
+      ],
+      "rationale": "The equality locus is a natural invariant, but as submitted it is the direct m=p+1 substitution into a known exact theorem, followed by a digit interpretation and immediate minimization. It supplies no surviving unknown invariant, generalization, or separate substantive proof-method claim.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

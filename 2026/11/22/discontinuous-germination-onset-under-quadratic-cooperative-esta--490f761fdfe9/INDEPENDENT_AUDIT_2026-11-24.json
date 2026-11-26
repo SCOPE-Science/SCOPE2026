@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:46:13.779229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–95; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/reproductions/01_03.py, record 2 output. Solved the tangency in w=e^t with high-precision arithmetic; at R=4 obtained p_c=0.5951834959335036, g_c=0.6685147200387991; limiting constants 1.9802913004322130 and 1.2426337563300259, with a bounded check at R=10^6."
+      ],
+      "rationale": "For 0<R≤1 and each 0<g<1, 1−g+Rg²<1 and 1−g<1, so the dormant policy strictly beats every positive g. For R>1, t=−log(1−g) rewrites excess log growth exactly as −t+p h_R(t). Since h_R'' has the sign of (1−2R)cosh(t)+2R, it changes from positive to negative once. H=t h_R'−h_R starts at zero, increases then decreases, and tends to −log R since h_R=t+log R+O(e^(−t)), h_R'=1+O(e^(−t)). Thus the first positive zero t_c is unique, and t/h_R has its unique minimum there. Its limits at zero and infinity are infinity and 1, respectively, with t/h_R<1 eventually, yielding 0<p_c<1. The sign of −t+p h_R gives the strict dormant optimum below p_c and exactly the stated tie at p_c. Above p_c, the derivative at t_c is p/p_c−1>0, and −1+p h_R' decreases strictly from there to p−1<0. This produces the unique positive global maximizer on the falling branch (any earlier derivative root is a local minimum); at zero the derivative is always −1. This root tends to t_c as p decreases to p_c, so the positive onset is a jump. The objective tends to −infinity as t→infinity for p<1, also excluding g=1. In x=√R t the optimized ratio h_R(x/√R)/x converges locally uniformly to log(1+x²)/x. Near zero it is O(x); when t is small and x is large it is bounded by log(1+C x²)/x; away from small t use h_R(t)≤t+log(1+R). These estimates confine maximizers to a compact positive x-interval. The limiting maximizer is unique because log u−2(1−1/u) decreases on (1,2), increases thereafter and changes from negative to positive after 2. This gives the two constants. For the linear payoff, strict concavity and the derivative at zero give the claimed reciprocal threshold and clipped interior optimizer.",
+      "residual_risks": [
+        "The arithmetic checks do not prove the asymptotic limit; the uniform tail bounds and uniqueness do. The payoff is fraction-based, the policy is constant, and p∈(0,1) is a prescribed limiting frequency. This is not a theorem about absolute population density, adaptive strategies, or persistence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Valleriani's indexed abstract describes a density-dependent bet-hedging ESS calculated by expanding around average seed-bank size. The institutional listing confirms the article, and no lawful full text was retrieved from the located routes.",
+          "Leverett–Shaw's indexed abstract describes a population growth model with facilitation among juveniles followed by competition among adults."
+        ],
+        "reasoning": "Absolute population-density dependence and ESS calculation are different hypotheses and objectives from optimizing a fixed geometric-growth multiplier depending on germination fraction alone. Neither accessible statement establishes a family that specializes to the exact two-season quadratic return and gives its global phase classification. Scope beyond the inspected evidence is unresolved.",
+        "searches": [
+          "Primary literature query for earlier exact quadratic cooperative constant-policy germination threshold and scaling",
+          "Valleriani DOI 10.1016/j.tpb.2005.01.006, PMID 15913689, and institutional bibliography",
+          "Leverett–Shaw DOI 10.1002/1438-390X.12021"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 490f761fdfe9 (assigned record) and e793a01a0e86",
+        "Valleriani DOI 10.1016/j.tpb.2005.01.006 (abstract excerpt and institutional listing)",
+        "Leverett–Shaw DOI 10.1002/1438-390X.12021 (indexed abstract)",
+        "Tidy Ecology linear model, offsets 0 and 5040"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest published leads describe density-dependent ESS and population-size effects of interacting facilitation and competition, respectively; available passages do not supply the stipulated multiplicative payoff and optimizer equation.",
+          "The retrieved smooth linear comparison agrees with the qualitative benchmark, not the discontinuous quadratic result."
+        ],
+        "reasoning": "General geometric-growth optimization or positive feedback does not fix the location or uniqueness of a global tie. The sign change of h_R'' and localization of the rescaled optimum use the specific quadratic return. Inaccessible full texts leave potential stronger coverage open; their unavailability is not positive originality evidence.",
+        "searches": [
+          "Valleriani DOI 10.1016/j.tpb.2005.01.006, primary literature excerpt and publisher/alternate access attempts",
+          "Leverett–Shaw DOI 10.1002/1438-390X.12021, indexed abstract and Wiley PDF access attempt",
+          "Tidy Ecology linear comparator, offset 5040"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the identical assigned record 490f761fdfe9, plus distinct four-yield record e793a01a0e86 on third-moment ordering and a partial-to-full germination threshold.",
+          "The linear comparator uses poor factor s(1−G) and good factor s(1−G)+G Y_good, with smooth monotone response to bad-year frequency."
+        ],
+        "reasoning": "Changing from bad-year to good-year frequency does not change the linear benchmark's continuity. Linear and quadratic good returns are not mere parameter changes: the quadratic benefit enters at second order and leaves zero a strict local maximum even when the optimizer is positive. The four-yield partial-to-full transition concerns a different model and endpoint.",
+        "searches": [
+          "Resultary semantic lookup for quadratic cooperative germination, optimizer jump and square-root scaling",
+          "Tidy Ecology, The optimal germination fraction, offsets 0 and 5040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold formula belongs to the assigned indexed record itself, not a distinct match. The distinct four-yield record's indexed result orders strategies by the third moment and identifies a partial-to-complete transition."
+        ],
+        "reasoning": "The claimed object is a continuum-in-R optimizer theorem rather than a germination table entry. The indexed threshold concerns a different endpoint and does not determine the quadratic onset constant from log u=2(1−1/u).",
+        "searches": [
+          "Resultary exact and related model lookup, 490f761fdfe9 and e793a01a0e86"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact global optimizer jump and its strong-cooperation constants for the specified quadratic good-season return. Log growth, seed banking, facilitation and the analogous smooth linear comparison are established or contextual ingredients and are not claimed as independent novel results. The available exact and abstract-level comparisons give no demonstrated prior implication for the quadratic threshold; the strongest inaccessible work is a priority risk.",
+      "residual_risks": [
+        "Valleriani and Leverett–Shaw full texts could not be independently checked on the located lawful routes. The Siegmund et al. bioRxiv version (DOI 10.1101/2022.09.15.508102), cited as empirical motivation, was also inaccessible via the attempted page. The available comparisons do not certify historical priority or rule out closer treatments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant ESS and density-dependence precursor, exact overlap unresolved beyond the excerpt",
+          "evidence": "The indexed abstract studies density-dependent bet hedging and expands around the average seed-bank size to compute an ESS. The institutional entry supplies bibliographic confirmation only.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2005.01.006",
+          "material_read": "Indexed abstract excerpt; author institutional bibliography entry at offset 4949. No article full text.",
+          "method": "Primary literature search and lawful publisher/DOI, PubMed (PMID 15913689), and institutional alternate checks",
+          "title": "Algebraic determination of the evolutionary stable germination fraction",
+          "trigger": "Strongest apparent published optimization/seed-bank overlap"
+        },
+        {
+          "assessment": "Overlapping qualitative mechanism, no exact quadratic optimizer comparison established from the abstract",
+          "evidence": "The population model examines juvenile facilitation and adult competition, rather than stating a scalar threshold for the two given per-season factors.",
+          "identifier_or_url": "https://doi.org/10.1002/1438-390X.12021",
+          "material_read": "Indexed abstract excerpt from Wiley and ADS listings; no article full text",
+          "method": "Primary literature lookup, lawful DOI and Wiley PDF routes attempted (HTTP 403)",
+          "title": "Facilitation and competition interact with seed dormancy to affect population dynamics in annual plants",
+          "trigger": "Closest cited facilitation/dormancy mechanism"
+        },
+        {
+          "assessment": "Supports the context of the linear benchmark, not the quadratic novelty",
+          "evidence": "Uses favorable return s(1−G)+G Y_good and describes smooth monotone variation of the optimum with bad-year frequency.",
+          "identifier_or_url": "https://tidyecology.com/posts/optimal-germination-fraction/",
+          "material_read": "Opening code, offset 0; smooth dependence discussion, offset 5040",
+          "method": "Lawfully retrieved public page, non-primary comparator",
+          "title": "The optimal germination fraction",
+          "trigger": "Direct qualitative comparison for the linear good-season baseline"
+        },
+        {
+          "assessment": "Distinct model and transition even without assuming same-day priority order",
+          "evidence": "Third-moment ordering and a threshold between partial and complete germination are not a switch between complete dormancy and a positive optimizer in two seasons.",
+          "identifier_or_url": "Resultary e793a01a0e86",
+          "material_read": "Available indexed statement; no claim about the whole document",
+          "method": "Resultary semantic lookup",
+          "title": "Four-yield skewness orders optimal germination and selects a moment threshold",
+          "trigger": "Closest distinct indexed germination optimizer hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, §§3–5 and model limitations",
+        "Tidy Ecology linear model and Leverett–Shaw indexed facilitation abstract, as context only"
+      ],
+      "rationale": "For the natural comparison between first-order and cooperative returns in this stylized seed-bank model, the exact optimizer analysis distinguishes a global policy jump with a persistent local dormant maximum from linear continuous onset. The inverse-square-root thresholds with identified constants quantify the change in regime beyond the observation that the payoff is nonlinear. This is useful as a mathematical benchmark for other fraction-based return models, without making an empirical claim.",
+      "residual_risks": [
+        "The quadratic payoff is phenomenological. No measured fitness, evolutionary stability, ecological intervention, or general claim about all facilitation mechanisms is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

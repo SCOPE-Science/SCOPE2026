@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:29:19.769306Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py"
+      ],
+      "rationale": "The constant term of P^n pairs words with equal Parikh vectors and gives the multinomial-square sequence. The correction polynomial (P^3−P(x^3,y^3))/3 is integral by the characteristic-three power identity. An independent exact coefficient replay confirmed all three projected supports Π(QP^d)=dS mod 3. Each coordinate of an exponent of P^d for d=0,1,2 lies between −2 and 2, so only its constant term can pair with a monomial in P(x^3,y^3)^m. Expanding modulo nine then gives A(3m+d)=A(m)A(d)+3md(A(m)−3A(m−1)) mod 9 for m≥1. Modulo three this yields Lucas factorization and hence 3|A(m) for m>0 by iteration from A(0)=1, A(1)=3, A(2)=15. That divisibility kills the correction modulo nine. The m=0 identities are immediate and the digit classification and window counts follow, including the separate zero index.",
+      "replay": "python3 /tmp/opencode/frozen_nov24_replay.py 1; verified the full finite projected identities via multinomial shifts, and checked the law against direct binomial sums at 90 indices through 1600, including large single-digit cases. The uploaded checker was inspected, not run.",
+      "residual_risks": [
+        "The sequence-value replay is finite; the all-index conclusion uses the polynomial projection and recursion. No statement for higher powers of three is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mellit–Vlasenko cover P via the Newton-polygon hypothesis. Delaygue explicitly lists A002893 in §1.6 among the type-I cases: the numerator vectors include two (1,1), giving 2-admissibility, with (2,0) the third, disjoint from the basis-vector denominators and with the same vector total (4,2). Amdeberhan–Tauraso's related §5 starts with a different box-truncated sum."
+        ],
+        "reasoning": "The general constant-term congruence at p=3,s=2 is valid here and supplies the scaling that Delaygue's valuation bound alone would not determine. The separate box-truncated sum is not needed for this conclusion.",
+        "searches": [
+          "arXiv:1306.5811 Theorem 1, equation (1); arXiv:1310.4131 §1.3, Theorem 1 and §1.6; arXiv:1607.02483 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1306.5811, arXiv:1310.4131, arXiv:0807.5028, arXiv:1508.00297, arXiv:1607.02483",
+        "OEIS A002893",
+        "Resultary c4fd043a3f0e self-hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coefficient X^{3m} for m≥3 in the prior series congruence is A(3m)−A(m) on the left and zero on the right modulo nine. Delaygue gives 9|A(n) at every index with at least two nonzero digits."
+        ],
+        "reasoning": "Scaling plus the valuation bound and the small seeds give every residue, including the previously disputed nonzero residue classes. The exact digit product, converse and block counts are immediate from those residues. The novel presentation of a Cartier calculation does not make this fact original.",
+        "searches": [
+          "Mellit–Vlasenko arXiv:1306.5811 Theorem 1, p. 1, offset 900; Delaygue arXiv:1310.4131 pp. 3–4 and §1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The multinomial-square sequence is A002893, Zagier's sporadic solution C, equivalently Σ_k binom(n,k)^2 binom(2k,k). Solution A is a different Franel sequence."
+        ],
+        "reasoning": "The three-letter counting, binomial-sum, and constant-term formulations concern the exact same sequence. Any prior theorem for its coefficients transfers to all these formulations.",
+        "searches": [
+          "Resultary: modulo-nine ternary digit law and Abelian-square counts",
+          "arXiv:1508.00297 Table 1",
+          "arXiv:0807.5028 three-letter formula",
+          "OEIS A002893"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entry identifies the exact sequence, seed data and counting interpretation; the exact local Resultary hit c4fd043a3f0e is the frozen item itself. Malik–Straub identify the same sequence as C."
+        ],
+        "reasoning": "The sequence table is useful for identity and seeds, not the basis of the all-index priority decision. No distinct inspected catalogue entry stated the full digit law verbatim; explicit wording is unnecessary because the broader sources imply it.",
+        "searches": [
+          "OEIS A002893",
+          "Resultary: exact modulus-nine ternary Abelian-square residues",
+          "Malik–Straub Table 1"
+        ]
+      },
+      "rationale": "The entire digit law is a direct prior implication, even though the exact statement was not found verbatim. Delaygue gives ν_3(A(n)) at least the number of nonzero ternary digits. Mellit–Vlasenko Theorem 1 gives F(X)/F(X^3) ≡ F_2(X)/F_1(X^3) mod 9, where F_s truncates F at degree 3^s−1. P's hexagonal Newton polygon has area 3 and six boundary lattice points, so Pick's formula gives only one interior lattice point, the origin. As F=1+3G, the left is 1+3(G(X)−G(X^3)) modulo nine. The right is supported through degree 8 modulo nine: its nonconstant terms are the numerator contribution through degree 8 minus the denominator contribution through degree 6, with product terms zero modulo nine. At X^{3m} for m≥3 this proves A(3m)≡A(m) mod 9. The remaining m=0,1,2 follow directly from A(0), A(1), A(2), A(3)=93 and A(6)=35169. Delaygue gives residue zero at every multiple-nonzero-digit index, and this scaling reduces each single-nonzero-digit index to 1 or 2. This recovers the complete claimed product, classification and counts, not just its zero residues.",
+      "residual_risks": [
+        "Not a claim about the earliest verbatim publication of this formula. The negative scientific finding rests on the explicit mathematical implication, not on an incomplete search or on self-matching catalogue text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive generalized congruence",
+          "evidence": "The ratio is F(X)/F(X^p), congruent modulo p^s to the ratio of truncations F_s(X)/F_{s−1}(X^p) when the origin is the only interior lattice point.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.5811",
+          "material_read": "Theorem 1 and equation (1), p. 1, extraction offset 900",
+          "method": "Open-access primary PDF passage, checked at the theorem",
+          "title": "Dwork's congruences for the constant terms of powers of a Laurent polynomial",
+          "trigger": "Possible prime-square coverage via the exact constant-term representation"
+        },
+        {
+          "assessment": "Exact support for the multiple-nonzero-digit zero residues",
+          "evidence": "For the listed type-I sequence A002893 the valuation is bounded below by the count of base-3 digits v with 3|A(v), precisely v=1,2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.4131",
+          "material_read": "Digit definition and admissibility, pp. 3–4 offsets 9510–12053; Theorem 1 around offset 11900; §1.6 sequence and operator table around offset 25300",
+          "method": "Open-access primary PDF passages",
+          "title": "Arithmetic properties of Apéry-like numbers",
+          "trigger": "Known valuation bound and its exact applicability to the three-letter sequence"
+        },
+        {
+          "assessment": "Same sequence and combinatorial interpretation",
+          "evidence": "Identifies the three-letter count f_3(n) with A002893.",
+          "identifier_or_url": "https://arxiv.org/pdf/0807.5028",
+          "material_read": "p. 2 around offset 3600",
+          "method": "Open-access primary PDF passage",
+          "title": "Counting Abelian Squares",
+          "trigger": "Identify the sequence and aliases"
+        },
+        {
+          "assessment": "Exact alias and ordinary Lucas coverage; not the direct modulo-nine source",
+          "evidence": "This is solution C; the general Lucas statement is modulo p, and prime-power lifts are not automatic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.00297",
+          "material_read": "Table 1 p. 4 offset 9500; Theorem 3.1 and Remark 3.2 p. 6 offset 18000",
+          "method": "Open-access primary PDF passages",
+          "title": "Divisibility properties of sporadic Apéry-like numbers",
+          "trigger": "Check sporadic-sequence alias and whether Lucas theorem directly lifts"
+        },
+        {
+          "assessment": "Exact sequence identity, not a standalone all-index priority proof",
+          "evidence": "Same binomial formula and interpreted as the three-letter Abelian-square counts.",
+          "identifier_or_url": "https://oeis.org/A002893",
+          "material_read": "Formula, values and combinatorial comment",
+          "method": "Public sequence entry",
+          "title": "OEIS A002893",
+          "trigger": "Exact sequence/table lookup"
+        },
+        {
+          "assessment": "Different truncation and not required for the decisive prior implication",
+          "evidence": "Three independently bounded multinomial indices, rather than the exact sequence of all fixed-total multinomial-square sums.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.02483",
+          "material_read": "§5, Theorem 3, pp. 10–11 around offset 39000",
+          "method": "Open-access primary PDF passage",
+          "title": "Two Triple binomial sum supercongruences",
+          "trigger": "Potential multinomial-square congruence antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and Limitations; the decisive prior congruences above"
+      ],
+      "rationale": "The residue classification is a natural question, and the self-contained projected-polynomial proof is pedagogically useful, but the frozen contribution is the exact invariant itself. That invariant and its counts follow mechanically from existing congruences with a small seed check; no new general use of the projection or further substantive invariant is established. The presentation alone does not leave a separately supported valuable research claim to repair.",
+      "residual_risks": [
+        "This decision does not assess possible new results at higher powers of three or for other Laurent polynomials."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

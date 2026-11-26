@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:51:38.417586Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–116; VERIFICATION.md; check_moments.py and checker_output.txt (inspected, no execution of uploaded code)",
+        "Independent check: integrate exp(−2π sinh(v)²/c²) on [0,log c,log c+8] and multiply by √2/c; the cut-off Gaussian tail is negligible for this finite-precision check."
+      ],
+      "rationale": "The symmetric cubic difference is 3τt²+τ³/4. With kernel exp(−2πiνt), the quadratic coefficient is 2π(1−i(3λ/(2π))τ), whose real part is positive. The complex Gaussian formula gives a nowhere-zero amplitude with modulus exp(−πτ²/2)(1+c²τ²)^(−1/4)exp(−πν²/[2(1+c²τ²)]). Doppler integration at fixed τ gives the correctly normalized moment integral; its Gaussian tail controls every finite c and p>0. The sign of (2−p)/4 proves strict monotonicity off p=2 and M₂=1. Setting s=c²τ² on the two half-lines gives the stated Tricomi parameters and Γ(1/2) prefactor. For p<4 the divided integrand is dominated by a Gaussian times (1+τ²)^((2−p)/4) when p≤2, or by the Gaussian times |τ|^(1−p/2) when 2<p<4. Its integral gives K_p. For p>4 the rescaled cτ integrand has integrable limiting power 1−p/2 and its beta integral gives D_p. At p=4 set cτ=sinh(v); the doubled half-line integral with cosh(2v) yields e^(π/c²) K₀(π/c²)/(√2 c). Expansion of K₀ with the exponential prefactor gives the displayed constant and O(log(c)/c³). Independent 40-decimal quadrature in the v-coordinate at c=30,300,3000 gave 0.136561316293361361, 0.0244638413705885238, 0.00353174899797265098 respectively, with deviations from the two-term expression approximately 4.76×10⁻⁴, 8.54×10⁻⁷, 1.23×10⁻⁹. The asymptotic proof is analytic and fixed-p, not an inference from these samples.",
+      "residual_risks": [
+        "No uniform estimate near p=4, time-limited chirp or cross-ambiguity claim is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jung reproduces the sharp general p>2 bound (2/p) times the product of the pth powers of the L² norms. The cited equality case identifies the Gaussian endpoint."
+        ],
+        "reasoning": "The bound gives an endpoint but no λ-dependence, limiting rates, critical exponent, or critical coefficient. The record's novelty is not the inequality.",
+        "searches": [
+          "Jung arXiv:cs/0601017 §II, Theorem 3 and Eq. (13)",
+          "Lieb DOI 10.1063/1.528894"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cs/0601017 and math/0606397",
+        "DOI 10.1007/s00034-020-01398-7 (bounded passages)",
+        "DOIs 10.1063/1.528894 and 10.1049/iet-rsn.2013.0083 (limited access)",
+        "Resultary records 30922f9c96fe, 7cbef39ff46a and 26ee2b47d69a (RESULT.md findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general bound or a moment-based zero-free region does not determine the delay-dependent Doppler scale. The discrete quartic fourth moment concerns a different phase and counting measure. The exact continuum reduction in this finding gives a limiting power 1−p/2, whose integrability changes at p=4."
+        ],
+        "reasoning": "The established standard integral formulas apply once this explicit chirp-dependent reduction and its dominating or logarithmic regime are identified; the inspected comparators do not furnish that reduction for the full moments.",
+        "searches": [
+          "Jung Theorem 3; Jaming Theorem 3.1; Sahay et al. abstract and outline; local RESULT.md findings for 30922f9c96fe and 26ee2b47d69a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jaming's theorem gives a zero-free convex hull from moment bounds. The inspected cubic-chirp literature material treats parameter estimation in a fractional ambiguity setting, not a change-of-convention statement of the continuous moment transition."
+        ],
+        "reasoning": "Changing Fourier convention rescales the parameters and the integral; it does not turn a finite region or a parameter-estimation construction into the stated fixed-p exact law and asymptotics.",
+        "searches": [
+          "Targeted primary-literature lookup for Gaussian cubic chirp, ambiguity moments and critical exponents",
+          "Jaming arXiv:math/0606397 Theorem 3.1",
+          "Sahay et al. DOI 10.1007/s00034-020-01398-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 30922f9c96fe (same day) treats prime-cyclic cubic chirps and an impulse repair; 7cbef39ff46a treats prime-power cyclic ambiguity and Gabor lifting; 26ee2b47d69a gives a finite-field quartic fourth ambiguity moment."
+        ],
+        "reasoning": "The nearest statements have discrete domains, different amplitudes and no continuous c→∞ limit with all fixed p. No exact continuous-table match was found in the bounded comparison.",
+        "searches": [
+          "Resultary local semantic comparisons of cubic chirp ambiguity zeros and fourth ambiguity moments"
+        ]
+      },
+      "rationale": "The supported distinction is the full fixed-exponent moment law of the continuous Gaussian-envelope cubic chirp together with the three-regime strong-chirp behavior and critical constant. Gaussian integration, Moyal normalization, Lieb's endpoint and the special-function identities are standard. Comparisons with previously treated zero sets, cubic-chirp parameter analysis and discrete moment formulas do not establish the same continuum law. This is a bounded evidence judgment, not a claim of absolute priority for zero-free examples or the pointwise Gaussian integral.",
+      "residual_risks": [
+        "The original Lieb and cited 2013 radar paper full texts were not inspected. Other unindexed implementations or older normalizations could give an equivalent moment result; the comparison is not an exhaustive priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already covers the Gaussian endpoint, not the explicit law",
+          "evidence": "General L^p bound on normalized ambiguity for p>2 is 2/p for the pth power of the norm.",
+          "identifier_or_url": "https://arxiv.org/abs/cs/0601017",
+          "material_read": "Open PDF p. 2, Section II, Theorem 3 and equation (13)",
+          "method": "Primary open PDF passages",
+          "title": "Weighted Norms of Ambiguity Functions and Wigner Distributions",
+          "trigger": "Sharp general bound or stronger p-moment theorem"
+        },
+        {
+          "assessment": "Zero-free neighborhoods rather than this explicit family and law",
+          "evidence": "The theorem constructs a convex hull from directional second-moment dispersions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0606397",
+          "material_read": "Open PDF p. 5, Theorem 3.1",
+          "method": "Primary open PDF passage",
+          "title": "Zero-free regions of radar ambiguity functions and moments",
+          "trigger": "Same function and zero/moment interactions"
+        },
+        {
+          "assessment": "Related parameter-estimation problem; matching moment theorem not established by inspected material",
+          "evidence": "Cubic-chirp use is described as parameter estimation using generalized fractional ambiguity/Wigner functions and numerical examples. Keyword misses do not prove whole-document noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1007/s00034-020-01398-7",
+          "material_read": "Abstract and section outline in the retrieved PDF (pp. 3, 6); bounded full-PDF term locations",
+          "method": "Accessible PDF passages; publisher DOI recheck did not retrieve full text",
+          "title": "Generalized Fractional Ambiguity Function and Its Applications",
+          "trigger": "Cubic-chirp ambiguity in prior literature"
+        },
+        {
+          "assessment": "Endpoint comparison supported; inaccessible contents not excluded",
+          "evidence": "The corroborated inequality is independent of the chirp strength.",
+          "identifier_or_url": "https://doi.org/10.1063/1.528894",
+          "material_read": "Relevant bound in Jung's full text; Lieb's full text not retrieved",
+          "method": "Lawful OA requests and repository recovery; comparison via Jung's primary passage",
+          "title": "Integral bounds for radar ambiguity functions and Wigner distributions",
+          "trigger": "Original source of the sharp Gaussian inequality"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "The bibliographic description concerns cubic chirps in parameter estimation and imaging; no conclusion about exact moments follows from the title.",
+          "identifier_or_url": "https://doi.org/10.1049/iet-rsn.2013.0083",
+          "material_read": "Bibliographic scope only; detailed text not retrieved in this review",
+          "method": "Lawful OA routes and repository recovery",
+          "title": "Inverse synthetic aperture radar imaging of ship targets with complex motion based on match Fourier transform for cubic chirps model",
+          "trigger": "Cited possible cubic-chirp antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–48 and 93–116",
+        "Jung Section II"
+      ],
+      "rationale": "The L^p moment is motivated by sharp ambiguity bounds, and a normalized Gaussian with cubic phase gives a natural one-parameter deformation. The complete fixed-order law captures a nontrivial integrability threshold and exact rates (including a critical logarithm) invisible to the universal bound, even though pointwise zero-freeness and the Moyal normalization persist. This is more than a sample quadrature or a re-expression of the endpoint inequality.",
+      "residual_risks": [
+        "The result is a specific analytic model; no general signal or application theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

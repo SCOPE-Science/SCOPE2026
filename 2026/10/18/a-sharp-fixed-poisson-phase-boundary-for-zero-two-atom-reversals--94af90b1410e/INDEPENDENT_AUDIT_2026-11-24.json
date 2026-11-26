@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:56.867405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At Bernoulli mean alpha<1, the normalized quadratic coefficient is lambda^2/2 + lambda sum(t_i) + sum_{i<j}t_i t_j, with t_i=p_i/(1-p_i). For x,y>0 and s=x+y, the odds increment under merging is t_x t_y(2-s)/(1-s), so the ratio increment has sign lambda+T-g(s), where T is the other odds sum. Since T>=alpha-s and g(s)-g(alpha)=(alpha-s)/((2-s)(2-alpha)), a merge is strictly increasing for lambda>=g(alpha) if s<alpha; for s=alpha its sign is that of lambda-g(alpha). This proves the uniform bound, all ties, and the two-coin failure below the line. At a_lambda the single-coin ratio equals one and g(a_lambda)=lambda/(1+2lambda-lambda^2/2)<lambda for 0<lambda<sqrt(2). Adding a coin strictly increases the ratio at lower mass up to a_lambda; masses >=1 are already too large to compete, and single coins just above a_lambda give sharpness. At sqrt(2) pure Poisson ties, and positive arbitrarily small coins give strict reversal; above it pure Poisson attains the infimum. Ratios were used only for positive zero mass. Read the frozen script and evidence without executing it. Fresh exact truncated-convolution checks for four rational masses around g(alpha) and four rates around their reversal thresholds passed (review reproduction: /tmp/opencode/frozen-review-replay.py, section 3). These are finite corroboration; the merge proof handles all finite profiles. The supplied counter labels cases as assertions even though it also increments on some cases with no assertion; it is not a formal proof or a literal assertion count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kleiner's symmetric multi-affine reduction can be applied to a difference f(2)-r f(0) with fixed Poisson factor, but only reduces the search to shifted binomial perturbations. His threshold theorem minimizes over unrestricted means/configurations and the extension allows any Poisson rate."
+        ],
+        "reasoning": "A binomial reduction does not decide which number of active coins is optimal at each prescribed (lambda,alpha), or identify all ties. An additional comparison uniform in the number of coins is needed; the merger monotonicity gives it.",
+        "searches": [
+          "arXiv:2610.10664v1, Thm. 1.1, Lemma 2.1, Remark 9.1",
+          "arXiv:2408.06477, §§6.2–7.2"
+        ]
+      },
+      "checked_sources": [
+        "Kleiner arXiv:2610.10664v1",
+        "Gnedin arXiv:2408.06477",
+        "Resultary abba6bd9648d, 7734bd902ab8 and 2fb2fc22f624"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kleiner yields T_{0,2}=1 with rate free in the Poisson extension and explicitly does not extend optimizer classification in Remark 9.1. The same-day envelope abba6bd9648d optimizes a signed difference locally, expressly excludes k=0, and does not constrain a Poisson rate."
+        ],
+        "reasoning": "A free-rate infimum gives at most the common lower bound for each fixed-rate subproblem, not the rate-dependent exact value; a positive-k local signed envelope does not imply the global zero–two normalized envelope.",
+        "searches": [
+          "Kleiner arXiv:2610.10664v1, Thm. 1.1 and Remark 9.1",
+          "Resultary: fixed-mean advantage envelope at distance two; Bernoulli heterogeneity near gap-two crossover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gnedin §6.2 uses the same odds and exponential generating factor. Section 7.1, eqs. (24), (26)–(27), gives fixed-sum two-coin coefficient variation but balances f(m)=f(m+1); §7.2 applies it to moving a Poisson mode."
+        ],
+        "reasoning": "This is a close methodological equivalent for varying a pair, not an equivalent optimization: it neither compares f(2) to f(0) at prescribed lambda and alpha nor controls the effect uniformly with any number of other coins.",
+        "searches": [
+          "Prescribed Poisson rate; two versus zero probability ratio; elementary symmetric functions of Bernoulli odds; one versus two Bernoulli perturbations (Resultary and literature)",
+          "arXiv:2408.06477, §§6.2, 7.1–7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary abba6bd9648d and 7734bd902ab8 (both 2026-10-18) concern positive lower atom k>=1 in finite Bernoulli families. Resultary 2fb2fc22f624 (2026-11-02) treats zero versus two under a cap on individual Bernoulli parameters, without a Poisson term."
+        ],
+        "reasoning": "None of the actual statements supplies the fixed-rate symbolic envelope or its tie line; the same-day matches were compared on hypotheses, not discounted by date. Ranked retrieval is bounded.",
+        "searches": [
+          "Resultary: fixed-Poisson zero–two phase boundary and sharp thresholds; fixed-mean concentration/splitting; exact zero–two capped Bernoulli threshold"
+        ]
+      },
+      "rationale": "The supported increment is the prescribed-rate, fixed-Bernoulli-mean phase line with strict optimizer/tie determination and the consequent sharp prescribed-rate threshold. Neither the found free-rate threshold nor the adjacent-mode optimization gives this inequality and equality set. Standard coefficient extraction and fixed-sum pair variation are prior ingredients, not the originality claim.",
+      "residual_risks": [
+        "A broader constrained extremum theorem for low-order coefficients with fixed exponential factor could provide another derivation; bounded literature and catalog comparisons are not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Free-rate threshold and general extremal reduction, not the prescribed-rate phase boundary.",
+          "evidence": "Thm. 1.1 pp. 1–2; pp. 3–4 use fixed-sum multi-affinity and binomial reductions; Remark 9.1 p. 9 extends thresholds by Poisson approximation with rate not prescribed.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10664",
+          "material_read": "PDF Thm. 1.1, Lemmas 2.1–2.2, §3 reduction, Remark 9.1.",
+          "method": "OA PDF passage comparison.",
+          "title": "Why Distance Two Is Exceptional for Poisson–Binomial Point Probabilities",
+          "trigger": "Identical two-atom question with a Poisson extension and potentially stronger extremal reduction."
+        },
+        {
+          "assessment": "Prior coefficient and two-coin method; adjacent modal comparison, not this envelope.",
+          "evidence": "Eqs. (22)–(23), (24)–(27); §7.2 shifts m to m+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.06477",
+          "material_read": "Abstract, §6.2 and §7 up through §7.2, pp. 26–30.",
+          "method": "OA PDF text via bounded passage reading.",
+          "title": "Cross Modality of the Extended Binomial Sums",
+          "trigger": "Same family and Poisson mode transport by one or two Bernoulli coins."
+        },
+        {
+          "assessment": "Different lower atom or a cap on the Bernoulli probabilities instead of fixed Poisson intensity.",
+          "evidence": "The two first findings require k>=1; the capped finding has no Poisson component.",
+          "identifier_or_url": "Resultary abba6bd9648d, 7734bd902ab8, 2fb2fc22f624 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "material_read": "Finding statements of the three records.",
+          "method": "Local Resultary retrieval and mirror text comparison.",
+          "title": "Fixed-mean distance-two envelope; gap-two heterogeneity cost; capped Bernoulli zero–two threshold",
+          "trigger": "Closest published finding matches."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed independent background intensity is a natural constraint and the free-rate threshold cannot predict how much Bernoulli mass is needed then. The phase line distinguishes exactly when concentrating the signal in a single coin is globally optimal, a tie regime, and when even an arbitrary two-way split improves it, uniformly over finite profiles. The result is useful beyond a numerical crossover or a standard Poisson coefficient calculation, but does not furnish a complete envelope below the line or for alpha>=1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

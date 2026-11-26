@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:39.574495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A coordinate vector has norm max(1,1/s), while its normalized Hadamard image has norm max(1/√n,√n/s); equality is impossible for s<1 and forces s=√n otherwise. At n=2 the eight vertices (±1,±(√2−1)) and their swaps are permuted by the standard Hadamard reflection and signed coordinate permutations. At n=4 the orthant polytopes have zero-one vertices of support at most two; zero and singleton supports are nonextreme in the full symmetric ball. Each two-support signed vector is extreme: the two saturated cube coordinates and the ℓ₁ constraint force any endpoints of a midpoint representation to be that vector. Any pair of Hadamard columns agree on exactly two rows and disagree on two, so the normalized transform permutes the 24 vertices. For three distinct columns h_i,h_j,h_k, orthogonality makes the rowwise pairs (h_i h_j,h_i h_k) uniformly distributed over the four sign patterns, since all three nonconstant sign characters sum to zero. Thus U(e_i+e_j+e_k) has absolute coordinate 3/√n on n/4 rows and 1/√n on the rest. At s=√n this gives output norm 3/2 and input norm max(1,3/√n), yielding exactly the claimed lower bounds on the operator norm. The same pattern proves the Hadamard order divisibility used to exclude intervening dimensions, without asserting existence. check.py was inspected, not executed; its Sylvester tests do not establish arbitrary-Hadamard quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deza et al. study the exact family and its face structure and volumes. Holbrook et al. study the Hilbert-space Schur-multiplier norm, not N-to-N distortion. The weighing-matrix comparison did not yield a reliable lawful full-text passage in the bounded lookup."
+        ],
+        "reasoning": "A combinatorial face description can give obstructions to ball automorphisms, but none of the inspected statements estimates the operator norm under the single normalized Hadamard transformation for this gauge.",
+        "searches": [
+          "arXiv:2011.05607 equations (2)–(3), combinatorics section and group locator",
+          "arXiv:2206.02863, Hadamard",
+          "Etzion Vardy Yaakobi Coding for the Lee and Manhattan Metrics With Weighing Matrices arxiv 6712 6723 Hadamard convex polytope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting VERIFICATION.md and check.py",
+        "Deza et al. arXiv:2011.05607",
+        "Resultary records 2824f0e13b41, 58401c64839a and 39e95a48cb56",
+        "Holbrook et al. arXiv:2206.02863",
+        "Brown 24-cell exposition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At s=√n the polar vertices are the signed coordinates and the cube sign vectors scaled by 1/√n. For n>4 each cube vertex has another vertex at distance 2/√n, but a coordinate vertex has no vertex that close: its nearest cube-vertex distance is √(2−2/√n). An orthogonal normalized Hadamard sends a coordinate vertex to a cube vertex, ruling out preservation."
+        ],
+        "reasoning": "This credits a short route from known geometry to the qualitative failure and does not count that alone as the distinct contribution. The explicit √2 or 3/2 lower bound evaluates a primal witness using the uniform three-column sign pattern; the qualitative polar-distance obstruction and the rounding optimum do not give those inequalities.",
+        "searches": [
+          "Deza–Hiriart-Urruty–Pournin arXiv:2011.05607, polar geometry",
+          "Resultary 2824f0e13b41, optimal √n rounding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (2)–(3) of Polytopal balls arising in optimization give the dual pair conv(B₁ⁿ ∪ s⁻¹B∞ⁿ) and B∞ⁿ ∩ sB₁ⁿ for 1≤s≤n. Orthogonality makes preservation of the polar equivalent to preservation of the original unit ball. The two positive cases are the regular octagon and 24-cell."
+        ],
+        "reasoning": "The primal and polar formulations are equivalent for isometry; known exceptional symmetries are not new. Neither an abstract description of the polytopes nor their self-duality gives the asserted quantitative dilation in larger dimensions.",
+        "searches": [
+          "Resultary: normalized real Hadamard preserves intersection cube cross-polytope 24-cell octagon",
+          "normalized Hadamard matrix symmetry regular 24-cell self-dual octagon cube cross-polytope intersection automorphism group literature",
+          "Deza–Hiriart-Urruty–Pournin arXiv:2011.05607, duals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 2824f0e13b41 gives the exact Euclidean Banach–Mazur comparison for the same balls, at the same optimal parameter √n, including the regular octagon. Record 58401c64839a gives a norming-functional diameter in the same family; record 39e95a48cb56 treats Hilbert distortion in a zero-sum subspace."
+        ],
+        "reasoning": "These are exact values of different invariants, not a table for the requested action. The Euclidean distance is an optimization over comparison maps and does not control the dilation of a specified Euclidean orthogonal transform in the original gauge.",
+        "searches": [
+          "Resultary: normalized real Hadamard preserves intersection cube cross-polytope 24-cell octagon",
+          "Resultary: sharp-euclidean-rounding-of-cube-cross-polytope-intersections--2824f0e13b41",
+          "Resultary: a-sharp-dimension-four-threshold-for-approximate-smoothness-in-c--58401c64839a"
+        ]
+      },
+      "rationale": "The interpolation bodies, exceptional small-dimensional symmetries and critical scale are established ingredients. The qualitative higher-dimensional obstruction can also be obtained from the earlier polar vertex description by distance comparison. Credit the distinct quantitative conclusion: an explicit uniform norm distortion bound for every existing real Hadamard order at the uniquely possible parameter, not an exact operator norm or a general automorphism classification. The inspected same-body geometry and Hadamard literature do not give that bound.",
+      "residual_risks": [
+        "No exhaustive priority conclusion; an earlier quantitative result in an equivalent operator-norm formulation would change the assessment.",
+        "The cited Etzion–Vardy–Yaakobi weighing-matrix paper was not compared at full-text level; the lookup did not identify a lawful primary copy. Its exact overlap remains unverified, not excluded by access failure.",
+        "The affine or full linear isometry group and the sharpness of the operator-norm bounds were not asserted or determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family; short qualitative implication, but not quantitative Hadamard operator bound",
+          "evidence": "Identifies the polar as the cube–cross-polytope intersection and describes the other ball as an explicit convex hull of the two vertex families.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.05607",
+          "material_read": "Equations (2)–(3), pp. 3–4, introduction to §2, extraction offset 5170",
+          "method": "Open-access original PDF, bounded passage and locator",
+          "title": "Polytopal balls arising in optimization",
+          "trigger": "Exact underlying polytope family in primal and dual form"
+        },
+        {
+          "assessment": "Covers optimal rounding parameter, a distinct property",
+          "evidence": "Computes Euclidean Banach–Mazur distance, uniquely optimized at √n; identifies the regular octagon in dimension two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-euclidean-rounding-of-cube-cross-polytope-intersections--2824f0e13b41/RESULT.md",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Sharp Euclidean rounding of cube–cross-polytope intersections",
+          "trigger": "Same exact family and critical parameter"
+        },
+        {
+          "assessment": "Different invariant on the same body",
+          "evidence": "Computes the diameter of norming functionals, not the Hadamard action.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-dimension-four-threshold-for-approximate-smoothness-in-c--58401c64839a/RESULT.md",
+          "material_read": "Finding and exceptional-case discussion at offsets 0 and 7160",
+          "method": "Configured Resultary search and local mirror",
+          "title": "A sharp dimension-four threshold for approximate smoothness in cube–cross-polytope intersections",
+          "trigger": "Same norm and low-dimensional threshold"
+        },
+        {
+          "assessment": "Distinct action and norm",
+          "evidence": "The extremizers are for a Hilbert-space Schur-multiplier norm, not multiplication by H/√n on the assigned interpolation ball.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.02863",
+          "material_read": "Abstract and norm setting at p. 1, offset 450",
+          "method": "Open-access primary PDF passage",
+          "title": "Real Schur norms and Hadamard matrices",
+          "trigger": "Potential stronger Hadamard extremizer theorem"
+        },
+        {
+          "assessment": "Known exceptional geometry",
+          "evidence": "The dual of the regular 24-cell is another 24-cell; the explicit vertex model in the frozen record then verifies the positive Hadamard action directly.",
+          "identifier_or_url": "https://www.math.brown.edu/tbanchof/Beyond3D.new/chapter5/s5_9.html",
+          "material_read": "Duality paragraph around offset 550",
+          "method": "Open exposition passage",
+          "title": "The 24-cell",
+          "trigger": "Standard exceptional-polytope comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known positive cases and forced parameter make the stability question natural: is failure outside these dimensions arbitrarily weak, or does a uniform witness separate every such transform from isometry? The three-column argument answers the latter with explicit constants independent of matrix equivalence or construction in higher orders. It adds quantitative information beyond the qualitative vertex obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

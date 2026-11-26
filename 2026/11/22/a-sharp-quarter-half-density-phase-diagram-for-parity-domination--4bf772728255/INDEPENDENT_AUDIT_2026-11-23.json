@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:52:59.719190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and explicit patterns",
+        "Frozen VERIFICATION.md, verify_linear.py and verify_bruteforce.cpp, inspected statically"
+      ],
+      "rationale": "All four neighbors are distinct for m,n≥3, so the indicator problem is exactly Ax=1 over F₂, with A=S+S⁻¹+T+T⁻¹. An independent short route to the decisive identity verifies the polynomial proof: U=ST and V=ST⁻¹ commute and (I+U)(I+V)=SA. If Ax=1, multiply the resulting (I+U)(I+V)x=1 by the two length-a geometric sums in U and V. Each sum fixes the constant-one vector because a is odd. Thus (I+Uᵃ)(I+Vᵃ)x=1. When m divides 2a, I+S²ᵃ cancels in this product, so Sᵃ(Tᵃ+T⁻ᵃ)x=1, or (I+T²ᵃ)x=1. This verifies the asserted shift and normalization for every feasible solution. If 4 divides neither dimension, the order of T²ᵃ is n/gcd(n,2a), odd; iteration is impossible. In the mixed case the shift pairs selected and unselected sites and gives exactly mn/2. The column-only 0011 series is feasible when 4 divides n; the two neighbors in the fixed coordinate agree, while those in the varying coordinate have opposite membership. When both lengths are fourfold, incidences give |D|≥mn/4. In the period-4 witness rows 0 and 2 contain complementary adjacent column pairs, rows 1 and 3 are empty, each vertex in an occupied row sees one horizontal selected neighbor, and each in an empty row sees one vertical selected neighbor. The pattern therefore attains equality, including length 4; swapping coordinates proves the other asymmetric case.",
+      "residual_risks": [
+        "The documented Gaussian elimination covers 196 size pairs, and exhaustive Gray-code support minimization covers eight small tori. Neither is used to extrapolate; uploaded code was not executed.",
+        "Uses binary parity in the simple four-neighbor Cartesian graph, not closed-neighborhood parity or degenerate length-two factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldwasser–Klostermeyer's available abstract describes odd/even open domination on m×n grids, while Yamagishi's abstract concerns periodic harmonic function dimensions.",
+          "Dejter's primary Corollary 6 and Kraner Šumenjak et al.'s Theorem 2.2 concern parallel exact-one codes on cycle products. The latter paper distinguishes the general EOD characterization as Conjecture 2.4.",
+          "Hu–Xu's toroidal total domination problem requires at least one selected neighbor rather than an odd number."
+        ],
+        "reasoning": "Finite path-grid boundaries cannot simply be replaced by toroidal ones. The exact-one results already imply the fourfold positive branch, and even a theorem excluding all exact-one codes in mixed tori would not imply parity feasibility or force the weights of all odd-open solutions. Ordinary total domination and homogeneous nullity are related but distinct problems.",
+        "searches": [
+          "Goldwasser–Klostermeyer, Ars Combinatoria 83, 229–247",
+          "Yamagishi, DOI:10.1016/j.laa.2015.03.004",
+          "Dejter, arXiv:0711.4343 and journal Corollary 6",
+          "arXiv:1508.04029v3 Theorem 2.2 and Conjecture 2.4",
+          "arXiv:1109.3928v1 §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4bf772728255 (self-match), c76e7045a74b, 9d5d63966d08, c74f62af476e",
+        "Dejter (2008) Corollary 6",
+        "arXiv:1508.04029v3",
+        "arXiv:1109.3928v1",
+        "Goldwasser–Klostermeyer (abstract)",
+        "DOI:10.1016/j.laa.2015.03.004 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact-one code is an odd-open solution with weight mn/4 by incidence, so the published fourfold existence theorem mechanically settles that minimum in the fourfold-by-fourfold regime.",
+          "Symmetry over F₂ gives solvability iff every homogeneous null vector has even coordinate sum, but nullity alone provides no such sum test. Temporal Jordan claims inspected concern restricted parameters, not the arbitrary odd-factor translation condition.",
+          "The audited antiperiodicity implies nonexistence of any efficient open set in mixed tori as a consequence, since every odd-open solution there is too large."
+        ],
+        "reasoning": "Credit known quarter density and standard linear-algebra reductions. The actual affine shift identity gives both the odd-order obstruction and the half-weight rigidity; neither follows from the inspected efficient-open existence theorem or from an abstract dimension computation.",
+        "searches": [
+          "Dejter, Perfect domination in regular grid graphs, Corollary 6",
+          "arXiv:1508.04029v3 Theorem 2.2 and Conjecture 2.4",
+          "DOI:10.1016/j.laa.2015.03.004 abstract",
+          "Resultary c76e7045a74b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is the all-ones syndrome of neighbor-only binary toggling on a cycle torus; the standard Lights Out candidate (Francis, Algebra in the Game Lights Out, search synopsis) also toggles the pressed cell and instead uses I+A.",
+          "Yamagishi's indexed statement describes dimensions of spaces of periodic harmonic functions, an Ax=0 problem."
+        ],
+        "reasoning": "An exact neighbor-only solution theorem would be equivalent to feasibility, and minimum presses would be equivalent to minimum support. Closed-neighborhood toggling is not equivalent. Knowing dim ker A determines image dimension but not whether the specific all-ones vector lies in it or the support of its inverse images.",
+        "searches": [
+          "Odd open domination and toroidal mesh parity lookup",
+          "Web literature: toroidal Lights Out neighbors only open neighborhood all lights on solvability torus four divisibility adjacency all ones sigma game Cartesian product cycles",
+          "DOI:10.1016/j.laa.2015.03.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact record 4bf772728255 is the assigned result itself. The closest distinct algebraic record c76e7045a74b is four-neighbor XOR dynamics on specified dyadic tori, with Jordan form and temporal orbits.",
+          "Semantic neighbors 9d5d63966d08 and c74f62af476e concern, respectively, closed parity on complete-factor rectangles and total domination on C_n×K_2."
+        ],
+        "reasoning": "The distinct catalogue statements do not tabulate the all-size affine support classification under the stated adjacency or give the universal complement shift. This is a bounded ranked-record comparison, not proof of absence.",
+        "searches": [
+          "Resultary: toroidal odd-open phase diagram, support minimum, four-neighbor parity, cycle-product domination"
+        ]
+      },
+      "rationale": "The full odd-open phase diagram and forced complementation are the distinct claims supported by the comparison. The both-fourfold quarter-density branch by itself is covered: prior existence of parallel total perfect codes gives equality in the four-regular incidence bound. No originality credit is assigned to that branch in isolation. Perfect open domination results do not settle the affine parity problem in the other regimes, where the number of selected neighbors may be three.",
+      "residual_risks": [
+        "The Goldwasser–Klostermeyer and Yamagishi full texts could not be inspected at their decisive theorem pages. The available material is not proof that they omit a toroidal affine theorem.",
+        "The later status of the unrestricted EOD conjecture was not established and may affect how much of the exact-one consequence is new, not by itself the odd-open phase diagram. Equivalent neighbor-only toggling or periodic binary lattice work beyond this bounded search remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of a sufficient exact-one code for the quarter-density branch",
+          "evidence": "Corollary 6 proves existence of a torus TPC with the specified parallel ladder type iff both lengths are multiples of four; incidence counting then gives the known quarter minimum.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/download/42/ajc_v42_p099.pdf",
+          "material_read": "§3, Theorem 4 and Corollary 6, journal pp. 103, 106; OA offsets 12300–15433 and 24500–28077",
+          "method": "Bounded primary journal PDF read",
+          "title": "Perfect domination in regular grid graphs",
+          "trigger": "Original primary source on total perfect codes in the exact torus family"
+        },
+        {
+          "assessment": "Confirms prior parallel EOD coverage and separates it from general EOD",
+          "evidence": "Theorem 2.2 credits Dejter for parallel EOD iff both cycle lengths are fourfold. The source states the unrestricted EOD-torus assertion as a conjecture.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.04029",
+          "material_read": "§2, p. 4, Theorem 2.2 and Conjecture 2.4, OA offsets 10097–14277",
+          "method": "Bounded primary OA PDF read",
+          "title": "Partitioning the vertex set of G to make G square H an efficient open domination graph",
+          "trigger": "Claims efficient-open domination in cycle products"
+        },
+        {
+          "assessment": "Established grid antecedent; detailed possible torus material remains unresolved",
+          "evidence": "Available abstract describes existence/enumeration on m×n grids, not an inspected affine classification on cycle products.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-083-ars-articles/odd-and-even-dominating-sets-with-open-neighborhoods/",
+          "material_read": "Indexed abstract only; publisher PDF text extraction did not yield theorem pages, alternative PDF returned HTTP 403",
+          "method": "Bibliographic and bounded OA attempts",
+          "title": "Odd and Even Dominating Sets with Open Neighborhoods",
+          "trigger": "Same affine domination condition on finite grids"
+        },
+        {
+          "assessment": "Homogeneous result in available material; detailed statement-level overlap beyond this unresolved",
+          "evidence": "Abstract concerns dimensions of periodic harmonic-function spaces using Chebyshev polynomials, rather than minimum support in the displayed affine system.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2015.03.004",
+          "material_read": "Indexed abstract and publisher landing page; PDF HTTP 403 and repository route unavailable",
+          "method": "Bibliographic and bounded OA attempts",
+          "title": "Periodic harmonic functions on lattices and Chebyshev polynomials",
+          "trigger": "Overlapping toroidal adjacency algebra over finite fields"
+        },
+        {
+          "assessment": "Ordinary total and paired domination, not an all-ones parity syndrome",
+          "evidence": "Requires a selected neighbor, rather than prescribing the count modulo two, and includes exact cases for one factor of length 3 or 4.",
+          "identifier_or_url": "https://arxiv.org/html/1109.3928v1",
+          "material_read": "Abstract and §1, HTML offsets 0–900 and 439–2286",
+          "method": "Bounded primary OA text",
+          "title": "Total and paired domination numbers of toroidal meshes",
+          "trigger": "Exact and partial domination numbers on the same graph family"
+        },
+        {
+          "assessment": "Different regime and output: homogeneous temporal dynamics",
+          "evidence": "Classifies Jordan form and orbits on specified dyadic tori, not the inhomogeneous all-ones syndrome, its minimum support or the asserted universal antiperiodicity.",
+          "identifier_or_url": "2026/11/2/SCOPE-cyclotomic-clocks-and-uniform-jordan-chains-in-four-neighbor-par--c76e7045a74b",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Configured local catalogue mirror",
+          "title": "Cyclotomic clocks and uniform Jordan chains in four-neighbor parity dynamics",
+          "trigger": "Closest distinct Resultary match on the same four-neighbor binary operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Dejter (2008), Corollary 6; arXiv:1508.04029v3, §2"
+      ],
+      "rationale": "Feasibility, exact support, and a constraint on every configuration on a standard periodic graph are useful beyond the known perfect-code case. The odd factor of a circumference forces a translation to exchange selected and unselected sites, explaining why the mixed regime cannot approach domination density one quarter and why the other regime is empty. This is a structural classification, not a re-computation of the fourfold code or a small finite census.",
+      "residual_risks": [
+        "No count or complete weight distribution is claimed outside the rigid half-density branch, and no application to other neighborhoods is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:41:30.422137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On connected supports K=N tr((L+J)^(-1))-N for J=11^T/N. The Hessian is strictly positive along a nonzero Laplacian direction and the graph is simple, so averaging over the cost-preserving automorphism group reduces the unique global solution to three orbits without imposing symmetry on competitors. In one clique the grounded matrix is uI-b11^T with u=a+mb; inverting it gives hub resistance (a+b)/(au) and leaf-pair resistance 2/u. Adding same-side and opposite-side sums with the bridge in series gives (m+1)^2/c+2(m+2)/a+4(m+1)(m-1)/u with unordered-pair normalization. For t<t_c the substituted budget wa+vu+c=B has positive coefficients; Cauchy–Schwarz gives the disclosed allocation and its u>a exactly when t<t_c. On the double star each spoke separates one vertex and each bridge side has m+1 vertices, yielding the stated S_0 allocation. An independent boundary check uses the marginal benefit N||L^+(e_i-e_j)||^2: for an active spoke it is (N-1)/a^2, and for an optional peripheral pair it is 2N/a^2 since the centered potentials are +1/a and -1/a on the two leaves only. The cost-normalized KKT inequality is therefore exactly t>=2N/(N-1), including equality and large t without assuming w>0. The proof's phrase 'forbidden b<0 side' should denote the Lagrangian derivative for increasing b from zero; the displayed sign and optimality argument are correct. The frozen finite exact and numerical sign checks are auxiliary; they do not establish all m and prices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For any priced tree plus optional chords, 17feee4e7fc8 gives the unique unrestricted optimizer, the exact iff price test for every chord to vanish, and its tree conductances and value.",
+          "For a same-side leaf pair the ordered cut sizes are 1,N-1 and both tree prices equal 1. The exact certificate gives 2+2/(N-1). The general design KKT theory also permits different linear costs and inactive links."
+        ],
+        "reasoning": "This is a special case of a stronger explicit theorem, not merely an instance solvable by a general numerical algorithm. The price test is identical, including equality.",
+        "searches": [
+          "Resultary 17feee4e7fc8, Finding and Proof",
+          "Tovar et al. arXiv:2610.03627 Eqs. (2)–(4), (6)–(7)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 17feee4e7fc8, 623da493ba70, eaa2b980f9e3",
+        "Ghosh–Boyd–Saberi 2006 and 2008; arXiv:2610.03627v1 and arXiv:1004.2285v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree theorem gives b_e=N-1 for each spoke and b_e=(m+1)^2 for the bridge, hence S=S_0, the exact conductances and K=S_0^2/B. Below the cutoff at least one chord is used; all are positive by uniqueness and transitivity on the peripheral edges.",
+          "For the dense branch the known barbell objective separates upon u=a+mb; the changed budget is exactly wa+vu+c=B and the minimizer sets the three inverse-square marginal returns proportional to w,v,1. This gives the entire reported radical vector and value by one Cauchy–Schwarz equality."
+        ],
+        "reasoning": "The positive-branch formula is not quoted from the tree theorem, but neither the support classification nor this straightforward weighted allocation is a genuinely distinct, nonmechanical remainder.",
+        "searches": [
+          "Resultary 17feee4e7fc8, tree design and chord test",
+          "Ghosh–Boyd–Saberi 2006 Section V and 2008 Eq. (39)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both older objectives are tr(L^+)=K/N at the same N=2(m+1); minimizers are unchanged. Set their clique size n=m+1 in Eq. (39), exchange its spoke and peripheral variable names to match this record, and multiply by 2n. Its reciprocal objective is exactly the disclosed A/c+C/a+D/(a+mb).",
+          "The tree-only design is exactly the set of allocations on the b=0 face; optional chords coincide with all peripheral pairs within each clique."
+        ],
+        "reasoning": "Neither objective normalization nor changed variable naming separates the scientific claims. The same exact spectral reduction holds before any choice of price vector.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, SIAM Review 2008 Eq. (39)",
+          "Resultary 17feee4e7fc8 tree-backbone criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier-indexed 17feee4e7fc8 provides the exact specialized answer. The pineapple and shared-hub-cliques records have the same numeric cutoff in their own different topologies. A bounded lookup did not identify a distinct same-day record."
+        ],
+        "reasoning": "The exact evidence is the applicable general theorem, not matching numbers in different graphs. The date-filtered misses neither disprove another overlap nor establish public timing.",
+        "searches": [
+          "Local Resultary barbell peripheral-price and all-chord threshold searches, including date-filtered 2026/10/19 results",
+          "Resultary 17feee4e7fc8, 623da493ba70, eaa2b980f9e3"
+        ]
+      },
+      "rationale": "The headline cutoff, simultaneous support transition, uniqueness, and full sparse branch are covered by direct specialization of an earlier-dated indexed all-chord theorem. The below-threshold radical formulas are not given in that theorem, but follow by a linear budget reparametrization and the three-term reciprocal allocation of the prior explicit barbell objective. This is verified mathematical implication, not rejection for a nearby title or for an unavailable source; catalogue dates are distinct from independently established public-release chronology.",
+      "residual_risks": [
+        "Public-availability timestamps for close catalogue findings were not independently established; the mathematical coverage does not depend on a same-day ordering inference.",
+        "Bounded lookup did not identify a distinct same-day record; an additional equivalent treatment may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the headline and sparse branch",
+          "evidence": "Any priced simple tree with optional chords; iff p_uv>=Theta_uv for all chords, tree allocation B sqrt(b_e/c_e)/S, and value S^2/(NB). The same-side path has cut sizes 1 and N-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-all-chord-price-certificates-for-resistance-optimal-tree-b--17feee4e7fc8/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof §§1–2, offset 0 and following",
+          "method": "Local mirror",
+          "title": "Exact all-chord price certificates for resistance-optimal tree backbones",
+          "trigger": "Strongest applicable support-price criterion"
+        },
+        {
+          "assessment": "Exact same objective and solved t=1 case",
+          "evidence": "Equation (39) gives the three reciprocal terms after writing alpha=(n-1)a+b, with a the peripheral and b the spoke weight in that source.",
+          "identifier_or_url": "doi:10.1137/050645452; https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "SIAM Review (2008) §5, Eq. (39), pp. 60–61, offset 79500",
+          "method": "OA PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Identical barbell and exact finite-dimensional objective"
+        },
+        {
+          "assessment": "Known equal-price barbell solution",
+          "evidence": "Analytic three-weight solution at equal unit price.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "MTNS 2006 §V, Eq. (33), p. 1193, offset 72400",
+          "method": "OA PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Earlier appearance of the same reduction"
+        },
+        {
+          "assessment": "Related numerical threshold, not the decisive implication",
+          "evidence": "Both use a topology different from two cliques joined by a bridge.",
+          "identifier_or_url": "Resultary 2026/10/18 623da493ba70 and 2026/10/12 eaa2b980f9e3",
+          "material_read": "Pineapple Finding and Assumptions offset 0; shared-hub record offsets 32, 1112, 2240",
+          "method": "Local mirror",
+          "title": "A universal chord-price cutoff for resistance-optimal pineapple networks; Universal internal-edge price threshold for resistance-optimal cliques sharing a hub",
+          "trigger": "Same threshold parameter and related deletion phenomena"
+        },
+        {
+          "assessment": "General allocation KKT theory",
+          "evidence": "Arbitrary linear edge-price coefficients; optimality compares marginal benefit per unit price, with possible sparse unique linear-cost optima.",
+          "identifier_or_url": "arXiv:2610.03627v1",
+          "material_read": "Eqs. (2)–(4) p. 2 and (6)–(7) p. 3, offsets 9000 and 16200",
+          "method": "OA PDF",
+          "title": "Cost convexity controls the architecture of resistance-optimal networks",
+          "trigger": "Variable prices and sparse optima"
+        },
+        {
+          "assessment": "Method and model overlap, no explicit cutoff there",
+          "evidence": "Expected power dissipation under linear conductance costs includes total resistance with identity flow covariance.",
+          "identifier_or_url": "arXiv:1004.2285v2",
+          "material_read": "Abstract p. 1 and model p. 3, offsets 0 and 21500",
+          "method": "OA PDF",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Earlier broader network design model with linear costs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The smallest price preserving a double-star backbone is a natural design question, but this exact cutoff and all sparse allocations are already furnished by the general tree certificate. The remaining result simply changes the budget coefficients of the solved three-weight barbell optimization and applies the same reciprocal allocation rule. No independently useful nonroutine threshold, phase, or sensitivity law remains once exact prior coverage and this direct calculation are separated; a narrower title alone would not repair the finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

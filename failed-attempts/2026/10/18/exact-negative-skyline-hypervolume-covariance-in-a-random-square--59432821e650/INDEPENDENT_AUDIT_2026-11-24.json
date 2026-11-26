@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:57.929976Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With first coordinates decreasing, area is the sum of independent first-coordinate spacings times prefix maxima of the second coordinates. For k >= i, the record indicator at i uses relative ranks independent of the maximum of the first k values. For k < i, conditioning on a record at i leaves the first i−1 values iid uniforms below that record value, whose conditional mean is i/(i+1). This gives Cov(I_i,Z_k)=−k/[i(i+1)(k+1)]. The spacing mean 1/(n+1) gives the asserted local formula. Reversing the sum telescopes 1/[i(i+1)] to 1/(k+1)−1/(n+1), proving the harmonic identity, strict negativity for n >= 2, and the n=1 boundary via the empty sum. The area mean and both limits follow from the mean prefix maxima and harmonic asymptotics. The marginal-CDF transform is valid for population content, not arbitrary Euclidean area. Bounded independent rational rank enumeration through n=7 confirmed local and total covariances and the mean, e.g. Cov(M_3,A_3)=−13/288; replay with Python 3 at /workspace/branches/249e8ce1-e08b-4598-be97-0bc58a87155c/reproduce_record_area.py. Supplied verifier and verification notes were inspected but not run; enumeration is corroboration, not an all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed record also computes Var(A_n) and the limiting Pearson correlation −1/sqrt(2).",
+          "The inspected arXiv passage is instead about k-dominant skyline counts."
+        ],
+        "reasoning": "The stronger indexed comparison is for the identical model and parameters; the product-population-content extension is an immediate probability-integral transform.",
+        "searches": [
+          "Resultary 37e5904090eb, Finding and proof §§3–4",
+          "Hwang–Tsai–Chen arXiv:1111.6224"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 37e5904090eb",
+        "Resultary db827d47108a",
+        "arXiv:1111.6224",
+        "10.1214/EJP.v6-76 (access attempt)",
+        "10.1239/aap/1011994025 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof gives E[A_n|rank permutation]=sum_s L_s/(n+1)^2 and Cov(I_t,L_s)=−s(n+1)/[t(s+1)(t+1)] when s<t and zero otherwise.",
+          "Its proof §3 also gives E[1−A_n]=H_{n+1}/(n+1)."
+        ],
+        "reasoning": "Summing the displayed kernel over s gives exactly −(t−H_t)/[(n+1)t(t+1)]; the ratio and logarithmic asymptote follow directly. The n=1 case is deterministic for the count and adds no surviving gap.",
+        "searches": [
+          "Resultary 37e5904090eb, proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same aggregate finite sum appears in the indexed proof §2; its H_n expression equals the assigned H_{n+1} expression on substituting H_{n+1}=H_n+1/(n+1) and the analogous square sum."
+        ],
+        "reasoning": "Record count in decreasing first-coordinate order and origin-anchored dominated area describe exactly the same sample statistics, not a related counting observable.",
+        "searches": [
+          "Resultary: skyline, hypervolume, planar Pareto maxima covariance",
+          "Resultary 37e5904090eb, proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "37e5904090eb states the equivalent aggregate expression in Finding. db827d47108a compares a skyline count with a threshold-quadrant count, not area."
+        ],
+        "reasoning": "The first distinct hit demonstrably covers the exact expression; the second is not evidence of equivalent coverage.",
+        "searches": [
+          "Resultary catalogue: 37e5904090eb and db827d47108a"
+        ]
+      },
+      "rationale": "A distinct indexed result demonstrably covers both exact covariances, and gives a stronger area variance and correlation limit. This is a scientific overlap decision, not a claim about historical priority: the matching catalogue path is dated later than the assigned path, and the failed access attempts do not establish earlier coverage or its absence.",
+      "residual_risks": [
+        "Classical planar records and maxima sources were only partially accessible; earlier bibliographic priority is unresolved. The positive evidence of current equivalent coverage does not depend on them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent aggregate and kernel implying all position terms; no historical priority inference",
+          "evidence": "Proof §§1–2 display the conditional area and the exact record–prefix-rank kernel; §3 computes the uncovered-area mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-skyline-hypervolume-anticorrelation-and-a-universal-correl--37e5904090eb/RESULT.md",
+          "material_read": "Finding and proof §§1–4, mirror offset 0–5892",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact skyline–hypervolume anticorrelation and a universal correlation limit",
+          "trigger": "Same model and covariance"
+        },
+        {
+          "assessment": "Different second observable",
+          "evidence": "Threshold-quadrant sample count versus Lebesgue area of a union.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-an-exact-negative-corner-count-covariance-for-planar-pareto-maxi--db827d47108a",
+          "material_read": "Finding, offset 0 onward",
+          "method": "Local mirror",
+          "title": "An exact negative corner-count covariance for planar Pareto maxima",
+          "trigger": "Same skyline count and sign"
+        },
+        {
+          "assessment": "Inspected passage relates to marginal count thresholds only",
+          "evidence": "Expected counts and high-dimensional thresholds, not paired area covariance in that passage.",
+          "identifier_or_url": "arXiv:1111.6224",
+          "material_read": "OA PDF p. 1, text near offset 1536",
+          "method": "OA PDF excerpt",
+          "title": "Threshold phenomena in k-dominant skylines of random samples",
+          "trigger": "Classical random skyline comparator"
+        },
+        {
+          "assessment": "Not settled by access attempts",
+          "evidence": "Access requests returned 403.",
+          "identifier_or_url": "10.1214/EJP.v6-76",
+          "material_read": "No usable full text retrieved",
+          "method": "DOI and identified lawful author copy attempts",
+          "title": "Limit Theorems for the Number of Maxima in Random Samples from Planar Regions",
+          "trigger": "Directly relevant classical planar model"
+        },
+        {
+          "assessment": "Not settled by access attempts",
+          "evidence": "No readable linked OA full text obtained.",
+          "identifier_or_url": "10.1239/aap/1011994025",
+          "material_read": "No usable full text retrieved",
+          "method": "DOI and OA link check",
+          "title": "The Number of Two-Dimensional Maxima",
+          "trigger": "Directly relevant classical planar model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The relationship between skyline cardinality and covered area is natural and the positionwise sign is informative. As a distinct contribution this package supplies no remaining precise gap: the same indexed record already has the covariance kernel, the aggregate formula and the mean, with stronger variance and standardized-dependence results. Neither the deterministic boundary nor the standard product-content transformation supplies a new scientific result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

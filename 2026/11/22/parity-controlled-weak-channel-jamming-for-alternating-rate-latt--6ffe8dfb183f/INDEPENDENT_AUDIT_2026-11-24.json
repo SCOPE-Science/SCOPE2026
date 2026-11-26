@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:38:22.532798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59; bound VERIFICATION.md and verify.py inspected as evidence, not executed.",
+        "Independent exhaustive periodic geometry replay: python /workspace/branches/6cca355a-4a0b-470c-a02a-255c4a776942/finite_geometry_check.py. For each k=4–7, all 40320 even-start orders on a 16-site ring were checked. At k=5 the sum of eligible-rod counts across these orders was 26880 and the conditional increments from enumerated slow outcomes agreed; the k=7 ring had no eligible slots, so its positive slow-stage check is vacuous."
+      ],
+      "rationale": "The first-arrival construction is exact because blocked footprints never become vacant again. In the start conflict graph of degree at most 2(k-1), an ancestor path of length l has at least ceil((l+1)/2) distinct starts of one parity, so its strictly decreasing order has probability at most the inverse factorial of that count. Multiplying by the exponential path count still gives a tail tending to zero uniformly in epsilon. A deterministic finite neighborhood therefore suffices up to small uniform error, including in the limiting even-before-odd priority order. On that neighborhood the common exponential coupling yields saturated evens and odd clocks cut off at s at time s/epsilon for fixed s>0. Terminal states follow by the same argument separately with no cutoff. Even-start compression gives length-r homogeneous RSA; in the empty-interval equation for l>=r-1 the trial probabilities solve the stated hierarchy. Bounded uniqueness is justified by variation of constants: for the difference of two bounded solutions the integral kernel for the diagonal term l-r+1>=0 is at most one, and iterating the remaining bound gives a factorial denominator and forces zero difference on compact time intervals. At fast jamming E_{r-1}=Q_r is the intensity of maximal gaps per compressed site. Their physical lengths are 2g for even k and 2g+1 for odd k, where g<=r-1. Thus no even-k slot survives, and the odd-k slots are precisely the g=r-1 gaps, each filled by at most one odd-start rod. Gap positions need not be independent; conditional on the fast packing the disjoint slots have independent clocks. Dividing the physical slot intensity Q_r/2 by the density 1/2 of each site parity, then multiplying by the rod's r-1 even and r odd sites and 1-exp(-s), gives the two increments. Terminal filling gives the jump independently of the finite-s limit; H_{r-1}=log(r-1)+gamma+O(1/r) gives the stated odd asymptotic and k=5 gives 5 exp(-3)/2.",
+      "residual_risks": [
+        "The finite replay does not check the infinite-line gap intensity or time-scale convergence. The proof is for fixed k and, at finite slow time, fixed s>0; it does not give uniform convergence at s=0 or as k grows with epsilon shrinking."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed APS abstract excerpt for de Oliveira–Tomé says it computes sublattice and total jamming coverages on a linear chain and square lattice as functions of adsorption probability per sublattice; the excerpt does not specify the full interaction footprint. No open full passage was recovered.",
+          "Inspected Resultary findings 177574474bc5 and 94eae3d992ab concern uniform different-length sequential stages and length asymptotics, not positive-rate competition of the same physical footprints."
+        ],
+        "reasoning": "No verified broader result in those sources establishes time-scale convergence for same-length arbitrary k with parity-resolved occupancy. The highly relevant 1994 result is unresolved, not judged non-covering from its abstract.",
+        "searches": [
+          "de Oliveira–Tomé DOI 10.1103/PhysRevE.50.4523 and identified USP repository record 000875268",
+          "Rodgers DOI 10.1103/PhysRevA.45.3432",
+          "Resultary: two-stage lattice rods and large-length ratio thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Pinsky arXiv:2608.04730v1; DOI 10.1103/PhysRevE.50.4523; DOI 10.1103/PhysRevA.45.3432",
+        "Resultary 6ffe8dfb183f (self), 62e8a2fea2b8, 8dc0ad127255, 177574474bc5, 94eae3d992ab, and homogeneous-gap record 3e254696f32a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinsky Theorem 1 becomes Theta_r by x=exp(-u), Theorem 2 gives the exact maximal-gap intensity, and Theorem 4 sums the expected shorter-rod coverage over terminal gap sizes. At k_1=r-1 only a single gap-size term survives. The trimer finding gives the same weak-time pattern at one odd length."
+        ],
+        "reasoning": "The compressed terminal count follows from the older staged-model theorem after the physical compression and gap correspondence. A staged expectation theorem however does not prove the local convergence of the original process at s/epsilon and at terminal time, nor does it furnish the even-k no-slot and odd-k physical sublattice reconstruction. Finite special cases do not imply those steps for all lengths.",
+        "searches": [
+          "Pinsky arXiv:2608.04730v1 Theorems 1, 2 and 4",
+          "Alternating-rate trimer record 8dc0ad127255, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For k=2r-1, a persistent odd-start slot maps to a vacant (r-1)-block on the compressed even sublattice, necessarily an entire maximal gap. Conditional on fast saturation, its second-stage terminal acceptance is equivalent to placing an (r-1)-rod in that gap. Pinsky's Model I directly studies r-rods followed by shorter rods on the residual gaps."
+        ],
+        "reasoning": "At parameters k_2=r, k_1=r-1 Pinsky's terminal coverage correction is (r-1)Q_r in compressed occupied sites, so the gap count Q_r is mechanically implied for that staged process. The physical parity contributions require the distinct reconstruction of which physical sites are covered, and the theorem does not identify the actual alternating-rate process with this staged limit.",
+        "searches": [
+          "Resultary: alternating-rate rods, weak-channel jamming, two-stage RSA and lattice gap intensities",
+          "Pinsky arXiv:2608.04730v1, Model I and Theorem 4, Eq. (1.11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 62e8a2fea2b8 records the exact dimer law and weak-rate expansion; 8dc0ad127255 records the trimer crossover and jump 3 exp(-2)/2. Pinsky Theorem 2 and its maximal-gap remark already give Q_r. The exact target 6ffe8dfb183f is a self-match."
+        ],
+        "reasoning": "The two smaller lengths exemplify the two parity branches and the trimer number agrees at r=2, but the inspected catalogue statements do not determine the arbitrary-k physical law. Neither the established gap formula nor the self-match is credited as a new result.",
+        "searches": [
+          "Resultary: exact alternating-start dimer and trimer laws, maximum homogeneous lattice gaps, and general alternating-clock parity limits"
+        ]
+      },
+      "rationale": "The supported distinct result is the weak-positive-rate limit of same-length rods with periodic start rates on the physical lattice, including infinite-volume convergence for both time regimes, the even/odd geometric distinction, and the parity-resolved slow profile. The ordinary coverage and largest-gap intensities are known. Moreover, the compressed terminal odd-stage count is exactly a specialization of Pinsky's two-stage model once the geometry of the reduction is understood; it is not credited as new in compressed variables. The earlier exact trimer crossover is a material special case, not an all-length result. The accessible evidence for de Oliveira–Tomé does not determine its footprint and does not settle priority.",
+      "residual_risks": [
+        "The full-text comparison of de Oliveira–Tomé in particular remains incomplete; exact coverage by an earlier inhomogeneous RSA result is not ruled out. The pass credits only the supported physical alternating-clock result, not priority for the staged gap count or the dimer and trimer cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers homogeneous quantities and the compressed terminal odd-stage count; does not cover the weak-clock convergence and physical-parity theorem",
+          "evidence": "Eq. (1.11) adds g_{k_2;l} times the expected occupancy from k_1-rods on a length-l row; at l=k_1=r-1 that occupancy equals r-1 exactly.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04730v1",
+          "material_read": "Theorem 1 (p. 2, offset 4650), Theorem 2/maximal-gap remark (pp. 4–5, offset 10800), Model I (pp. 7–8, offset 18000), Theorem 4 and proof (pp. 8–9, offsets 22500–25634)",
+          "method": "Open-access PDF passage reading",
+          "title": "A new look at some aspects of one-dimensional random sequential adsorption and its continuum limit",
+          "trigger": "Strongest exact formulas for the fast process and potentially equivalent staged terminal problem"
+        },
+        {
+          "assessment": "Covers dimers, not k>=4",
+          "evidence": "The dimer finding states a positive-rate formula and the weak-rate vacancy expansion for its fixed length.",
+          "identifier_or_url": "Resultary 62e8a2fea2b8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror passage reading",
+          "title": "Exact Bessel jamming law for alternating-rate dimers on the integer chain",
+          "trigger": "Exact earlier even-side special case"
+        },
+        {
+          "assessment": "Matches the odd formula for k=3 only",
+          "evidence": "Its parity-resolved slow-time law gives a mean jump of 3 exp(-2)/2, matching r=2 in the general expression.",
+          "identifier_or_url": "Resultary 8dc0ad127255",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror passage reading",
+          "title": "Parity-resolved trimer jamming with a singular slow-rate crossover",
+          "trigger": "Exact earlier odd-side crossover"
+        },
+        {
+          "assessment": "Material unresolved priority risk; no verdict about full-text coverage",
+          "evidence": "The accessible excerpt concerns exact sublattice coverages on the linear chain as functions of sublattice adsorption probability. Publisher access was unavailable, the harvest full text required access, and the repository record could not be retrieved.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.4523",
+          "material_read": "Indexed publisher abstract excerpt and bibliographic listings; full text not read",
+          "method": "Focused literature search; lawful publisher and harvest attempts and identified USP repository lookup",
+          "title": "Inhomogeneous random sequential adsorption on bipartite lattices",
+          "trigger": "Same bipartite rate symmetry and an exact chain jamming result"
+        },
+        {
+          "assessment": "Access-limited related literature; no inference of non-coverage",
+          "evidence": "The cited work is on different-sized k-mers; the decisive text and possible specializations could not be checked.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.45.3432",
+          "material_read": "Bibliographic identification only; full text not read",
+          "method": "Lawful publisher/DOI retrieval attempts",
+          "title": "Random sequential adsorption of different-sized k-mers on a line",
+          "trigger": "Potential implication from earlier k-mer mixtures"
+        },
+        {
+          "assessment": "Different length-ratio and continuum results",
+          "evidence": "They study uniform longer rods followed by shorter rods, computing integer-ratio derivative jumps or an inverse-length correction.",
+          "identifier_or_url": "Resultary 177574474bc5; 94eae3d992ab",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Bounded local-mirror passage reading",
+          "title": "Integer-ratio smoothness thresholds in two-stage random sequential adsorption; First-order approach to continuum coverage in two-stage lattice adsorption",
+          "trigger": "Closest other indexed staged models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–28 and 33–56",
+        "Pinsky arXiv:2608.04730v1, Theorem 4 (comparison with compressed terminal coverage)"
+      ],
+      "rationale": "For a natural two-rate kinetic model, the site-parity profiles identify a concrete mechanism for a discontinuity at zero rate: even rods have no slow slots, whereas odd rods leave exactly isolated one-rod slots. The explicit slow-time profile and separately justified jamming limit resolve a genuine noncommutation of limits for all odd lengths in scope, quantify the effect, and distinguish it from a formal substitution into a known homogeneous jamming formula.",
+      "residual_risks": [
+        "No arbitrary-positive-rate solution or long-length uniform rate estimate is attributed to the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

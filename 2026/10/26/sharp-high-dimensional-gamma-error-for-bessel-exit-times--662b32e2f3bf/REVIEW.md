@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact Bessel–exponential decomposition and matched-Gamma moments fix the laws and normalization. The candidate proof independently evaluates the third cumulants, establishes **both** a spectral upper bound on the largest standardized exponential weight and a lower bound for at least \(\lfloor a\rfloor\) of them, and uses these to control Fourier frequencies outside the Taylor region. The resulting \(du/|u|\)-integrable error is \(O(a^{-1})\), which rigorously transfers to a global CDF difference. The Hermite maximum and the sign were independently checked in symbolic and finite-parameter numerical tests; those finite checks supplement, rather than replace, the analytical argument.
+PASS
 
-## Originality (PASS, qualified)
+The first three coefficients of log 0F1(;a;s/2) give the stated Bessel cumulants under generator (1/2)Δ. In Gamma-minus-Bessel order, the standardized third cumulant difference divided by six is −a/[3(a+2)√(a+1)]. For the Bessel product, the lower bound on the inverse-square potential bounds every standardized exponential weight by O(a^−1/2); the Dirichlet test functions on [1/2,1] bound the first floor(a) weights below by a constant times a^−1/2. Their squares sum to one, so fourth powers sum to O(a^−1). The expansion on |u|≤a^(1/16) has integrated remainder O(a^−1) against du/|u|, by the Gaussian times the fourth- and sixth-power bounds. On a^(1/16)≤|u|≤a the squared weights and log(1+x)≥x/(1+x) yield a stretched-exponential bound; beyond a, the floor(a) lower-bounded weights give an integrable power tail. The Gamma characteristic function has the corresponding bounds directly from its shape. Signed inversion is legitimate since the difference divided by u is integrable. Integrating H3φ yields −H2φ, so the sign in the Finding is correct, including a negative Gamma-minus-Bessel CDF difference at the mean to leading order. The off-center absolute extrema have relative height 2e^(−3/2)<1; taking the uniform supremum proves the constant. The Bessel formulation is valid for real a, and the Brownian formulation applies when 2a is integral. Verification evidence is finite and was inspected, not used as an asymptotic proof or executed.
 
-The strongest comparison is Clark, arXiv:2610.19233v1. Its first-factor Gamma law and exact cumulants are **prior work**, and have not been claimed as new. Clark's quantitative convergence theorem takes the number of factors to infinity **at fixed Bessel index**, whereas the new result fixes one factor and proves an index-growing sharp Kolmogorov law and full signed CDF profile. Serafin's fixed-index Bessel exit-time density asymptotics and Deaconu–Herrmann's simulation scheme were also inspected in their full accessible primary texts. published-finding corpus searches including aliases, Gamma Satterthwaite approximation, high-dimensional hitting times and Edgeworth comparisons showed no directly covering statement. The closest generic Gamma result addresses transform gaps and smooth metrics, not this limit. A broad Edgeworth result might subsume the spectral inversion step if its array hypotheses are established; this remains a priority risk requiring independent literature assessment.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-A natural one-factor approximation is useful only with a quantified error when the process dimension varies. The exact nonzero leading constant and sign-changing standardized profile determine both the order and the region of maximal discrepancy. This is a motivated new regime of the cited Gamma-approximation model, not a routine restatement of its first two matching cumulants.
+The one-factor Gamma law, spectral representation and cumulant data are prior ingredients. The assessed distinct claim is the fixed-one-factor, large-real-index uniform signed CDF comparison with the sharp Kolmogorov constant. In the decisive source, the uniform bound takes the factor count, not the index, to infinity. No equivalent or dominating result was established in the inspected material.
 
-## Limitations
+## value
 
-No optimized explicit numerical constant in the uniform \(O(a^{-1})\) bound is supplied; no relative-tail theorem, other stopping domains or simultaneous growing-factor result is asserted. Novelty evidence is best-knowledge and independent priority evaluation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The large-index regime is a natural stress test of the existing simplest moment-optimal approximant. The signed profile tells where and in which direction that approximant errs, while the nonzero constant quantifies a leading-order obstruction that moment matching or a central limit theorem alone would miss. The uniform remainder justifies optimization over thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

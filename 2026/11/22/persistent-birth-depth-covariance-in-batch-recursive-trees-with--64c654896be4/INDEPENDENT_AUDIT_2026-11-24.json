@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:16.823512Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At step t the conditional mean of the recruiter depth is the current mean depth A_(t−1); a_t=1/(t−1+1/m) is the fraction of vertices just born. Updating the depth mean and second raw moment gives expected drift a_t and a_t(1+2A_(t−1)), respectively. Thus centered average depth is a martingale; the expected within-tree variance q_t yields V_t−V_(t−1)=a_t²q_t and q_(t+1)=(1−a_t²)q_t+a_t(1−a_t). Conditioning D_j on the whole tree at time i gives 1+A_i plus a deterministic sum, so Cov(D_i,D_j)=V_(i−1)+a_iq_i for every j>i. Substituting the recursions and a_(i+1)=a_i/(1+a_i) cancels the q_i coefficient, leaving a_i a_(i+1)(1−a_i). D_2 is deterministic. Summation gives the nonnegative finite law and its strictly positive increments, and partial fractions and a 1/r²+O(r^−3) tail give L_m and the coefficient 1 of 1/i. For c≤1/4 the integral form of g shows strict decrease in its argument because x(1−e^(−u/x)) increases; the exact lower bound at 5/4 gives f′(c)>0. This leaves only m=1..4. I reproduced the exact rational K=30 interval separation and derivative inequality, the reported decimal values to their stated precision, and all 75 off-diagonal covariances for m=1..5 and steps 2..7 by enumerating finite recruiter-vertex choices; replay python3 /workspace/branches/independent_checks.py 4. The supplied CHECK.py was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier m-ary tree paper computes an all-m asymptotic total path length variance, applying to the same model.",
+          "Desmarais's insertion-depth theorem is a one-point LLN/CLT in a general recursive metric setting.",
+          "Lodewijks treats asymptotic joint depths in the m=1 case, not the O(1) finite covariance asked here."
+        ],
+        "reasoning": "Neither a general one-point result nor a joint limit at depth-normalization scale determines this exact two-point observable. The total variance coefficient does match a separate aggregate statistic.",
+        "searches": [
+          "arXiv:2609.33636 Corollary 4.4, Corollary 7.1, Theorem 7.3 and Appendix A",
+          "arXiv:2210.03557 Theorem 1.3",
+          "arXiv:2204.09032 Theorem 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt and CHECK.py",
+        "arXiv:2609.33636",
+        "arXiv:2204.09032",
+        "arXiv:2210.03557",
+        "Dobrow–Fill 1999 (full text unavailable)",
+        "Resultary 375e4120fe33 and assigned record alias 64c654896be4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 4.4 writes total path length as m times the sum of birth depths, and the variance theorem gives the leading coefficient. Inserting the exact pair law, the diagonal is O(t log t) before normalization, and the off-diagonal coefficient is the weighted limit of 2∑_(i<t)(t−i)C_m(i)/t², equal to L_m.",
+          "Even exact successive aggregate variances, without an additional two-index argument, would yield row sums of covariances, not the separate entries; the inspected aggregate asymptotic does not give those finite row sums.",
+          "The K=30 rational bounds together with analytic monotonicity on c≤1/4 establish a global maximum not obtainable from the tabulated sample alone."
+        ],
+        "reasoning": "The pointwise conditional-expectation identity and cancellation are the bridge from marginal and aggregate information to the specified indexed observable; the exact aggregate coefficient alone is a known input that can be used to pursue the optimum, but does not state or settle the global comparison.",
+        "searches": [
+          "arXiv:2609.33636 Corollary 4.4, Corollary 7.1, Theorem 7.3, Appendix A",
+          "Dobrow–Fill 1999 Total Path Length for Random Recursive Trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhutani et al. use the identical uniform recruiter model and identify depths across a batch (§3). Their exact marginal Theorem 4.1 does not specify how different labeled depths are coupled.",
+          "Lodewijks's joint normalized limits concern ordinary recursive trees with diverging labels."
+        ],
+        "reasoning": "Batch sibling depth versus labeled vertex depth is an equivalent indexing within each batch; it does not equate a marginal law or a CLT to exact, unnormalized off-diagonal covariances.",
+        "searches": [
+          "Resultary: batch-recursive tree and two-point birth-label depth covariance",
+          "arXiv:2609.33636 §§1,3,4 and Corollary 7.1",
+          "arXiv:2204.09032 Theorem 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives 0.35507, 1.59412, 3.63963 and 6.44273 for m=1,2,3,4, agreeing with m²L_m to its printed precision. Dividing the columns by m² puts m=3 first among the ten displayed choices, not among all integers by a proof.",
+          "The direct Resultary hit 64c654896be4 is the assigned record itself. Distinct same-day record 375e4120fe33 uses limited-memory attachment and one last-born vertex."
+        ],
+        "reasoning": "Existing aggregate values are not independent new computations of L_m; their agreement does not resolve the finite (i,j) law, and finite m coverage does not imply the all-m optimum. Same-day dating does not resolve priority.",
+        "searches": [
+          "arXiv:2609.33636 Table 1",
+          "Resultary search for batch depth covariance including same-day neighbors"
+        ]
+      },
+      "rationale": "The distinct substantive result is the exact off-diagonal birth-index law, its independence of the later index, its 1/i correction and the globally proved integer optimum. The scalar function L_m is not new as an aggregate variance coefficient after normalization: the motivating paper effectively gives m²L_m. That prior result should be credited, not claimed as a newly computed total-path-length coefficient. The inspected prior results do not give the full indexed covariance or mechanically give the global optimum.",
+      "residual_risks": [
+        "Older ordinary recursive-tree papers, including the unavailable Dobrow–Fill full text, may refine m=1. This partial-parameter risk does not supply the general batch theorem.",
+        "Equivalent martingale or variance formulations in unindexed work may exist; the familiar aggregate coefficient is deliberately not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, marginal depth and aggregate coefficient; exact finite pointwise law not supplied by the compared results",
+          "evidence": "Marginal Bernoulli-sum theorem, P_n=m∑ D_i, and Var(P_n)∼σ_P²n² with exact coefficient and a ten-choice table.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33636",
+          "material_read": "§1 p. 2; §3 p. 4; Theorem 4.1 pp. 5–6 (PDF offsets 11453–12748); Corollary 4.4 p. 8 (17832); Corollary 7.1 p. 18 (42743); Theorem 7.3 and Table 1 pp. 27–28 (66519–67299); Appendix A p. 37 (88169)",
+          "method": "OA primary PDF passages",
+          "title": "Distances in m-ary recursive trees",
+          "trigger": "Exactly the same growth model; strongest aggregate prior"
+        },
+        {
+          "assessment": "One covered parameter for asymptotic normalized depth, not exact finite covariance",
+          "evidence": "Joint distributional limits at growing labels, after normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+          "material_read": "Introduction p. 2 (offsets 9038–9557), Theorem 2.6 pp. 5–6 (18050)",
+          "method": "OA primary PDF passages",
+          "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+          "trigger": "Joint label/depth asymptotics at m=1"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "One-point insertion-depth LLN and CLT.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03557",
+          "material_read": "Theorem 1.3 p. 4 (offset 13317)",
+          "method": "OA primary PDF passage",
+          "title": "Depths in random recursive metric spaces",
+          "trigger": "Potential general insertion-depth theorem"
+        },
+        {
+          "assessment": "Unresolved m=1 coverage, not evidence of absence",
+          "evidence": "Known topic is total path length in the ordinary random recursive tree; no exact individual comparison asserted without full text.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/total-path-length-for-random-recursive-trees/FDA48E70E384342C0D8ABC47B510BCF4",
+          "material_read": "Bibliographic and abstract information; not primary results/appendices",
+          "method": "Lawful full-text direct and alternate configured route attempted; timeouts",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "Older same model at m=1, possible additional covariance results"
+        },
+        {
+          "assessment": "Different model and observable",
+          "evidence": "Last-born single vertex with recruitment from a polynomial-size window; joint depths explicitly excluded.",
+          "identifier_or_url": "2026/11/22/SCOPE-gaussian-depth-fluctuations-in-mesoscopic-limited-memory-recursive-trees--375e4120fe33",
+          "material_read": "Mirrored RESULT.md, offsets 0–6044",
+          "method": "Resultary and local mirror",
+          "title": "Gaussian depth fluctuations in mesoscopic limited-memory recursive trees",
+          "trigger": "Distinct same-day depth result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact indexed covariance answers a natural dependence question not resolved by marginal depths or the total variance. Invariance under any increase of the later birth time and a persistent positive limit despite diverging single-batch depth variance describe the structure of shared history. Analytic optimization shows a genuine nonmonotonicity in the normalized two-point scale with a strict maximum at three, not just an observed best entry in a table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

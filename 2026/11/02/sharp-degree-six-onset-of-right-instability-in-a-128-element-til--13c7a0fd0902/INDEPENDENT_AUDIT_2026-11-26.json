@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:04:59.876350Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the 24 necessary constraints for right evaluation through degree five, including 2b_2=2b_3=0. The independently authored replay reviews/evidence/review1_certificate.py (Python 3 with SymPy) returned det=4096 and Smith diagonal consisting of twelve 1s and twelve 2s. Unimodular column transformations are invertible modulo four and preserve entrywise evenness, so the kernel modulo four of the necessary constraints has only even coordinates. For F=2G, the reduction of G may have arbitrary matrix coefficients, but test inputs and right multipliers reduce to lower triangular matrices. In each coefficient row (u,v), triangular evaluation imposes point vanishing of both scalar polynomials at 0 and 1 plus vanishing of the divided-difference sums for v. Multiplication by a lower triangular constant maps (u,v) to (alpha u+gamma v, delta v), preserving all these conditions (also when the diagonal entries of the test input coincide). Central powers preserve nullity by multiplying the evaluation on the right by the same input power. This handles every polynomial multiplier. The independent replay checked the displayed sextic at all 128 inputs and returned the nonzero value 2E21 for the right multiple at the displayed r. The lower bound is exhaustive by the constraint argument, not a search over a sample of polynomials. The supplied checker and its recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected radical criteria concern whether an entire null set is two-sided under ring hypotheses. Wu computes J^4=0 but J^3 nonzero for this S and uses it as a sharp counterexample to a sufficient condition; this concerns the ring's radical index and not the minimum polynomial degree.",
+          "The 2014 Werner article was identified but its full text was inaccessible."
+        ],
+        "reasoning": "A sufficient all-degree criterion outside this counterexample regime does not force parity of every low-degree coefficient or exclude a smaller witness in this ring.",
+        "searches": [
+          "arXiv:2609.01150, Theorem 4.1 and Proposition 5.2",
+          "arXiv:2608.25853, Example 1.1 and Theorem 1.2",
+          "DOI 10.1142/S0219498813501119"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic lookup",
+        "arXiv:2609.01150",
+        "arXiv:2608.13251",
+        "arXiv:2608.25853",
+        "DOI 10.1142/S0219498813501119 (reference only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the frozen notation F=E22 H+2E21(X^2+X^3) by expansion over Z/4. The correction is null and entrywise even: mod two its only nonzero scalar entry after halving evaluates on the upper-left diagonal as a^2+a^3=0. The sextic existence is thus not a distinct contribution."
+        ],
+        "reasoning": "The older existence proof cannot exclude degrees 0 through 5. The new decisive step is the mod-four coefficient obstruction backed by the evaluation certificate, combined with the all-degree stability argument. It is not a specialization of the inspected existence or radical criteria.",
+        "searches": [
+          "arXiv:2609.01150, Proposition 5.2, displayed H=(X^2+X)^3-E21(X^2+X)^2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu uses exactly the frozen ring, right-evaluation convention and test input r=2E12+E21, and exhibits a sextic H. Havlovec uses a different characteristic-two ring; equal ring order and witness degree do not identify the problem."
+        ],
+        "reasoning": "The proposed invariant minimizes the degree of the null polynomial, allowing a constant right factor. Non-two-sidedness with a sextic establishes only an upper bound and is not an equivalent statement. No matching distinct Resultary finding was identified in the returned lists.",
+        "searches": [
+          "Resultary semantic lookups for tiled-matrix null polynomials and degree-six right instability",
+          "arXiv:2609.01150, §5 Proposition 5.2",
+          "arXiv:2608.13251, Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact same-ring entry gives a specific sextic, not a table of smaller degrees, coefficient obstructions, or a sharp minimum."
+        ],
+        "reasoning": "This is a single ring-specific minimum, not an indexed integer sequence. The exact-record lookup addressed the plausible form of tabulated or catalogue coverage.",
+        "searches": [
+          "Resultary semantic lookup for the specified ring's exact instability degree",
+          "arXiv:2609.01150, Proposition 5.2"
+        ]
+      },
+      "rationale": "Credit the exact first instability degree, via a new coefficient-parity obstruction through degree five and stability for entrywise-even null polynomials in all degrees, not the same-ring construction or the sextic upper bound already given by Wu. No inspected source covers this lower-bound assertion.",
+      "residual_risks": [
+        "The 2014 framework paper could not be read in full text.",
+        "The bounded catalogue and literature searches do not settle absolute priority for the cutoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the upper bound, not the exact onset",
+          "evidence": "P=X^2+X, H=P^3-E21 P^2 and H E22 is nonnull at the same input; the radical calculation is not a lower-degree classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01150",
+          "material_read": "§5, Proposition 5.2 and following remarks, pp. 5–7, PDF offset 16981",
+          "method": "OA PDF passage and coefficient comparison",
+          "title": "Peirce Stability of Null Polynomials and a Sharp Radical Bound for Finite Rings",
+          "trigger": "Same characteristic-four, order-128 ring and sextic"
+        },
+        {
+          "assessment": "Different ring and no same-ring lower bound",
+          "evidence": "The repeated-diagonal block ring has characteristic two.",
+          "identifier_or_url": "arXiv:2608.13251",
+          "material_read": "Theorem 2.1 and proof, pp. 2–3, PDF offsets 3863–7308",
+          "method": "OA PDF passage inspection",
+          "title": "Null polynomials over a finite ring need not form a two-sided ideal",
+          "trigger": "Other order-128 degree-six example"
+        },
+        {
+          "assessment": "Radical criterion, not a polynomial degree cutoff",
+          "evidence": "The sufficient nilpotency bound is at most three; the example considered there is the distinct characteristic-two ring.",
+          "identifier_or_url": "arXiv:2608.25853",
+          "material_read": "Example 1.1 and Theorem 1.2, p. 2, PDF offsets 4474 and 5518",
+          "method": "OA PDF passage inspection",
+          "title": "Some results on null ideals of finite rings",
+          "trigger": "Potential general theorem covering the obstruction"
+        },
+        {
+          "assessment": "Coverage of the precise cutoff not assessed from full text",
+          "evidence": "Article 1350111 identified; access failure not used as negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1142/S0219498813501119",
+          "material_read": "Bibliographic identification in Wu's references, p. 7; no full text retrieved",
+          "method": "Reference inspection and attempted lawful OA (403)",
+          "title": "Polynomials that kill each element of a finite ring",
+          "trigger": "Earlier null-ideal framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ring is motivated by a known small counterexample distinguishing one-sided from two-sided behavior. Determining the earliest degree of that failure answers a natural exact sharpness question; the parity obstruction additionally explains why no smaller witness can work. This value does not depend on treating the sextic as new or extrapolating the cutoff to other rings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

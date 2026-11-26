@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:17:30.389455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–53",
+        "VERIFICATION.md and all four artifacts under artifacts/",
+        "Gravner–Lyu–Sivakoff Theorem 3",
+        "/workspace/branches/reproduce_frozen_math.py, rook()"
+      ],
+      "rationale": "For the stated synchronous three-color rule, let e(v) be the advance indicator. The new signed edge increment is the old one plus e(v)-e(u): it cannot leave [-1,1], since at old increment +1 the tail advances, and at -1 the head advances. Thus cycle sums persist. If they vanish, integrate to integer heights; updates take the maximum over the closed neighborhood and after two steps the diameter-two rook graph is constant. Minimum-zero heights are confined to {0,1,2}, and the three root phases give distinct colorings. Of these arrays, 2^(mn)-1 use no two. Otherwise the exact row and column supports of zeros determine a full-support binary rectangle (inclusion–exclusion E), and twos occupy an arbitrary nonempty subset of its complementary rectangle. For two rows E(1,u)=1; the binomial sum simplifies to the stated closed form. Inner sums of size O(ru) give O(m²n²) arithmetic, with binomial and power tables precomputed, not a bit bound. For m<=n, each fixed zero/two row typing permits at most 2^r+2^s-1 options per column. Apart from at most 2m extreme typings the bound is 2^(m-2)+3, by r+s<=m and convexity. For m>=6 the normalized contribution is at most 2n(33/64)^n+(57/64)^n; for m<=5 it is at most 3^5(3/4)^n. This proves the uniform asymptotic. An independent spanning-tree exact-lift count and direct binary support check gave 57, 261, 1065, 4149, 2289, 17757 for (2,2),(2,3),(2,4),(2,5),(3,3),(3,4). Replay: python3 /workspace/branches/reproduce_frozen_math.py 4.",
+      "residual_risks": [
+        "Finite reproduction corroborates only listed cases; the count and uniform limit use all-size arguments. Number of integer operations does not specify their bit cost."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives the irrotationality criterion and diameter time bound on arbitrary finite connected graphs. ec80747a5989 gives the exact weighted component sum and its unit-weight specialization. f3e4cef3af27 handles line graphs of trees and unicyclic graphs only."
+        ],
+        "reasoning": "The full graph criterion and exact generic expression are known; the latter has 2^(mn) vacancy sets and does not give the polynomial-arithmetic evaluation. The pseudotree theorem is inapplicable when (m-1)(n-1)>1, independently of same-day dates.",
+        "searches": [
+          "arXiv:1610.07320 Theorem 3",
+          "arXiv:1512.06398v2 Widom–Rowlinson homomorphism model",
+          "Resultary f3e4cef3af27 unicyclic formula; ec80747a5989 multivariate component formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.07320",
+        "arXiv:1512.06398v2",
+        "Resultary ec80747a5989",
+        "Resultary f3e4cef3af27",
+        "Resultary cae3512f5687 and 21af972dbcc9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero/two separation uses simultaneity of row and column constraints; disjoint supports and the resulting complementary rectangle are rook-specific. Controlling admissible column choices for each row typing proves a uniform leading term; neither the generic sum nor the pseudotree formula supplies that estimate."
+        ],
+        "reasoning": "Attribute the qualitative dynamics and generic hom count entirely to established inputs. The efficient specialized evaluation and quantitative rarity beyond individual graph sizes are the supported distinct claims.",
+        "searches": [
+          "Compare Rook RESULT.md exact support sum and uniform limit with the arbitrary-graph component sum and unicyclic specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_{m,n}=L(K_{m,n}). The minimum-zero condition removes exactly 2^(mn) homomorphisms to the looped three-vertex path, those using only heights 1 and 2. Multiplying the remaining count by three recovers the CCA basin.",
+          "In the vacancy/component identity, the induced rook graph on retained cells is the line graph of the bipartite subgraph made of retained edges. Components are its non-isolated edge components."
+        ],
+        "reasoning": "The generic statistical-mechanical and line-graph descriptions refer to the same object, not a different count. Neither yields the stated support-rectangle evaluation or strong uniform asymptotic without additional analysis.",
+        "searches": [
+          "Resultary: rook-graph / Hamming row-column three-color CCA counts; line graphs of complete bipartite graphs; Widom–Rowlinson formula",
+          "f3e4cef3af27",
+          "ec80747a5989",
+          "arXiv:1512.06398v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f3e4cef3af27 applied to K_{2,2}=C4 gives 3[z^0](1+z+z^-1)^4=57, matching the rook corner. The prism census gives 261 for the triangular prism, which is R_{2,3}; the signed-difference coboundary identifies the extinction and synchronization basins (see the comparison with 21af972dbcc9). No inspected table supplies the general formula."
+        ],
+        "reasoning": "The verified matches are actual finite special-case coverage, not independent novelty evidence. No negative inference is drawn from the unavailable literature query.",
+        "searches": [
+          "Resultary exact rook synchronization/support-formula searches",
+          "f3e4cef3af27 constant-term formula",
+          "cae3512f5687 triangular prism count",
+          "Focused web query on rook-graph Widom–Rowlinson enumeration (provider failure)"
+        ]
+      },
+      "rationale": "Credit the general synchronization theorem, the diameter-two homomorphism identity and its generic Widom–Rowlinson partition function, as well as covered tiny members. The distinct all-size result is the polynomial-arithmetic evaluation by zero row/column supports, the entire two-row formula, and the uniform leading term even when the short side stays bounded. No dominating result for those claims was established by the inspected evidence.",
+      "residual_risks": [
+        "Focused literature query was unavailable, so prior rook/Hamming or complete-bipartite Widom–Rowlinson specializations remain a real residual risk. The originality assessment is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applies to rook graphs; not the specialized count",
+          "evidence": [
+            "CCA initializes from signed color differences and synchronizes iff all cycle sums vanish, within the diameter in that case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Theorem 3, p. 4, offset 14600",
+          "method": "Bounded primary paper inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Exact dynamical equivalence and time bound"
+        },
+        {
+          "assessment": "Identifies the exact model, not the claimed rook specialization in the inspected passage",
+          "evidence": [
+            "At unit activity the partition function counts homomorphisms to the fully looped three-vertex path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.06398v2",
+          "material_read": "p. 1, offset 2900",
+          "method": "Bounded primary paper inspection",
+          "title": "On the Widom–Rowlinson occupancy fraction in regular graphs",
+          "trigger": "Equivalent graph-homomorphism model"
+        },
+        {
+          "assessment": "Generic exact coverage; does not yield polynomial-size rook sum by specialization alone",
+          "evidence": [
+            "At unit weights the sum of 2^c(G-Z) over vacancy sets Z equals hom(G,P3°)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989/RESULT.md",
+          "material_read": "Finding, offsets 1320–2540",
+          "method": "Bounded local mirror inspection",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Same generic partition function"
+        },
+        {
+          "assessment": "Covers (2,2) only; no date-based priority inference",
+          "evidence": [
+            "The source assumes cycle rank at most one and gives the single-cycle Laurent formula. K_{m,n} has rank (m-1)(n-1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-degree-factorized-synchronization-of-three-color-cyclic-dynamics--f3e4cef3af27/RESULT.md",
+          "material_read": "Finding, offsets 0–1550",
+          "method": "Bounded local mirror inspection",
+          "title": "Degree-factorized synchronization of three-color cyclic dynamics on line graphs of pseudotrees",
+          "trigger": "Line graph of a complete bipartite graph"
+        },
+        {
+          "assessment": "One covered member of the rook family",
+          "evidence": [
+            "Its n=3 count is 261 on the triangular prism; the prism is R_{2,3} and the two rules have identical zero-circulation basins."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-extinction-law-and-a-gaussian-winding-penalty-for-excitati--cae3512f5687/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; compared with the edge-form identity in 21af972dbcc9 Proof §1",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact extinction law and a Gaussian winding penalty for excitation on circular prisms",
+          "trigger": "Same graph at (2,3)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§3–4",
+        "Theorem 3 and generic Widom–Rowlinson comparison"
+      ],
+      "rationale": "Labelled rook graphs are a natural infinite diameter-two test family, and basin size is a natural dynamical invariant. The support evaluation gives an exact usable count rather than an exponential state or vacancy census, and shows that short graph distances and fast synchronization conditional on success coexist with an exponentially small basin. The leading constant holds even for arbitrarily thin families with the short dimension at least two.",
+      "residual_risks": [
+        "No basin decomposition for other attractors and no analogous result assumed for general diameter-two graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

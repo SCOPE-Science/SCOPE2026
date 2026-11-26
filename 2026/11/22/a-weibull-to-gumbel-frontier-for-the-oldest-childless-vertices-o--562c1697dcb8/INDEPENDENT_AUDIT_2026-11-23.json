@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:32.158920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each independent draw stream, order the forbidden labels and telescope its conditional avoidance factors. Independence of the k streams yields (1), including the deterministic last label and, separately, the excluded root. Each factor is bounded by its one-label counterpart, giving all-order domination and pairwise nonpositive covariance. At fixed k the power sums are Riemann sums at (n-1)^{k/(k+1)}, the weights vanish pointwise uniformly on compacts, and the joint-to-product ratio tends uniformly to one away from an initial window of arbitrarily small mass. For k/log n tending to positive finite c, power sums in (9) have relative discretization error O(k/b_n), the relevant labels are of order n, and the fixed-order ratio has error O(k/n). Thus the bounded factorial coefficients give the Laplace functional by dominated summation. The left log-tail has expected count asymptotic to e^{-M}, making the minimum a legitimate reversed-Gumbel limit; the location ratio follows from tightness. For the sublogarithmic regime, the mean diverges and variance is at most the mean. In the superlogarithmic proof the displayed bound using 1-epsilon has a harmless denominator slip: since the actual denominator is n-1, use n(1-epsilon/2)^{k_n} for all sufficiently large n, which suffices without any upper bound on k_n. The theorem is unchanged. Replay via RESULT.md (1), (7)–(9) and the corrected cutoff inequality. VERIFICATION.md and verify.py were inspected, not executed; the 497 is the script's bookkeeping total, not 497 literal assertions or evidence for the infinite-size theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected same-model Devroye–Janson introduction and circuit discussion concern shortest and longest paths.",
+          "The frozen references describe total-output limits for the two circuit papers, with distinct-parent sampling for the 2011 paper; their full texts were not independently retrieved."
+        ],
+        "reasoning": "Path depths are different statistics, and a limit for the total output count does not imply a rare ordered birth-label process. Inaccessible proofs could contain additional age-resolved statements; none is established by the material available here.",
+        "searches": [
+          "Devroye–Janson arXiv:0906.0152v1, pp. 1–2",
+          "Tsukiji–Mahmoud DOI 10.1007/s00453-001-0044-4",
+          "Javanian–Vahidi-Asl, Outputs in random f-ary recursive circuits, JPRM 7 (2011), 9–18"
+        ]
+      },
+      "checked_sources": [
+        "Devroye–Janson arXiv:0906.0152v1",
+        "Resultary mirror oldest-leaves record 0a1a1c4bbf35",
+        "Javanian–Vahidi-Asl (2011), attempted retrieval",
+        "Tsukiji–Mahmoud DOI 10.1007/s00453-001-0044-4, attempted retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The predecessor gives Rayleigh survival at square-root scale and the same one-stream finite factors. The DAG result gives intensity x^k dx at the fixed-k scale and e^y dy after logarithmic recentering when k/log n tends to c.",
+          "In the latter window the underlying labels have order n, so the predecessor's square-root local process does not describe it."
+        ],
+        "reasoning": "The exact input plus a new asymptotic analysis yields the claimed crossover. Simply intersecting the previously proved limiting tree processes or substituting parameters into their limit is not valid: the label windows and powers of the small marginal weights change, and the log-window escape bound has no one-stream counterpart.",
+        "searches": [
+          "Oldest-leaf mirrored RESULT.md, offsets 450–3121",
+          "arXiv:0906.0152v1, pp. 1–2",
+          "Circuit-output references above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under reversed edge orientation, childless is the output statistic. Devroye–Janson use the same with-replacement model but study root-path lengths.",
+          "Under the one-based relabeling of the older leaf record, its (i_a-a)/(n-a) becomes (i_a-a+1)/(n-a) here."
+        ],
+        "reasoning": "The frozen set law is exactly a k-fold independent intersection of one-parent leaf sets. The circuit vocabulary is an equivalent description only when the sampling rule also matches; distinct-parent sampling cannot be substituted in the exact law.",
+        "searches": [
+          "Devroye–Janson arXiv:0906.0152v1",
+          "Circuit-output references DOI 10.1007/s00453-001-0044-4 and Outputs in random f-ary recursive circuits",
+          "Resultary/mirror oldest-leaves record 0a1a1c4bbf35"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored (1) explicitly gives the full finite joint leaf table for one independent stream, and its proof derives product domination."
+        ],
+        "reasoning": "This exact prior table covers the finite probabilities after relabeling and taking kth powers; it is credited as a known input. Its published limiting theorem is for one stream, not the k-dependent Poisson and growing-fan-in regimes.",
+        "searches": [
+          "Resultary mirror: 2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35"
+        ]
+      },
+      "rationale": "The one-stream joint law is already explicit for recursive-tree leaves, and the exact k-stream law is its direct kth power, not a separate novelty. The supported distinct claims are the early-label Poisson law at fixed fan-in k≥2 and the log-fan-in Poisson/reversed-Gumbel window and macroscopic crossover. The exact one-stream antecedent also provides product domination, but its k=1 limiting statement does not establish those regimes; the new analysis requires different label scales and uniform control with varying k. The checked circuit literature does not establish such coverage; inaccessible papers remain priority risks rather than evidence of novelty.",
+      "residual_risks": [
+        "The initial catalogue query was rate-limited and the primary discovery query was not informative; the exact known predecessor was recovered through its configured mirror. Full texts of the older circuit-output papers were not obtained. Further same-model output-age or general independent-intersection results could affect priority; the access failures do not decide it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the one-stream table and fixed-k=1 frontier; no multi-stream or growing-fan-in limit in the inspected statements",
+          "evidence": "Exact ordered-label formula (1), its telescoping derivation and domination, and the fixed-rank/rayleigh laws.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35",
+          "material_read": "Mirrored RESULT.md offsets 450–3121, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded configured local-mirror read, using the indexed source identified in the recursive-tree comparison",
+          "title": "The oldest leaves of random recursive trees form a Poisson point process",
+          "trigger": "Exact one-parent version and strongest applicable finite-law precedent"
+        },
+        {
+          "assessment": "Matching parent-choice model; inspected statements concern path length",
+          "evidence": "Uniform with-replacement choices independent within and across times; root path length and circuit interpretation.",
+          "identifier_or_url": "https://arxiv.org/abs/0906.0152v1",
+          "material_read": "pp. 1–2, OA offsets 0 and 4000",
+          "method": "Targeted open-access text",
+          "title": "Long and short paths in uniform random recursive dags",
+          "trigger": "Exact same recursive DAG construction and circuit terminology"
+        },
+        {
+          "assessment": "Inaccessible, not excluded at whole-document level",
+          "evidence": "The frozen comparison reports a count-level theorem under distinct-parent selection; not independently confirmed from full text.",
+          "identifier_or_url": "https://www.researchgate.net/publication/266836497_Outputs_in_random_f-ary_recursive_circuits",
+          "material_read": "No primary text retrieved; only frozen bibliographic description",
+          "method": "Attempted lawful cited open copy; HTTP 403",
+          "title": "Outputs in random f-ary recursive circuits",
+          "trigger": "Directly related output statistic with fixed fan-in"
+        },
+        {
+          "assessment": "Inaccessible; priority risk remains",
+          "evidence": "A total-output limit is identified in the frozen comparison, not an established age-resolved result.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-001-0044-4",
+          "material_read": "No primary text retrieved; only frozen bibliographic description",
+          "method": "Lawful publisher landing attempts; timed out or could not be reached through redirects",
+          "title": "A limit law for outputs in random recursive circuits",
+          "trigger": "Potential exact same-statistic fixed binary-fan-in precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first circuit output by birth is not a total-output statistic. The theorem identifies a nontrivial fan-in scale where it first occupies a macroscopic portion of the sequence, and describes its extreme fluctuations and neighboring outputs there. The change from a polynomial-origin intensity to an exponential log-window intensity is a structural result worth retaining beyond the mechanically inherited finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

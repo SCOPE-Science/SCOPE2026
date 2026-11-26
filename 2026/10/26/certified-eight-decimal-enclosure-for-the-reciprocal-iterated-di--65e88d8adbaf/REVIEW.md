@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The new claim is the strict enclosure \(0.8367013214802<c_3<0.8367013318136\), where \(c_3\) is the source's leading coefficient. Campbell's powerful-part expansion matches an expectation over independent prime-adic valuations. Replacing high exponents at large primes by neutral factors can only increase the reciprocal-divisor observable. Elementary integral tests bound the total changed-event probability by \(1/10^8+1/(3\cdot1000^3)\). The executable code carries lower fixed-point atom masses, accounts for all unrepresented probability, and uses separate floors and ceilings for reciprocal observables. The exact displayed integer totals rigorously imply the endpoints. A second tiny-instance enumeration checks the dynamic-program algebra independently. The finite program does not purport to prove the source's asymptotic theorem.
+PASS
 
-## Originality
+For the powerful part beta of the independent valuation model its weight is zeta(2)^−1 beta^−1 ∏_{p|beta} p/(p+1): at p not dividing beta the event E_p≤1 has probability 1−p^−2, and at p|beta the fixed exponent contributes (1−1/p)p^−e. The odd part of tau(beta) equals V on this event, so the expectation equals Campbell's actual c3. The proxy divides V and can differ only for a middle prime with exponent ≥4 or an omitted prime with exponent ≥2. The integral bounds give a one-sided loss at most 1/(3·1000^3)+10^−8. The package's floor transitions preserve lower masses, and the upper sum must add the entire deficit and use ceiling reciprocal contributions; these inequalities are valid. Independently replayed with python3 /workspace/reproductions/divisor_enclosure.py (not the uploaded checker). For each small-prime state v=3^a w with 3∤w, integrate x^a ∏(1−u_p(1−x))/tau(w) over [0,1]. Pointwise Bonferroni orders 3 and 4 give lower and upper polynomials; the first three elementary symmetric coefficients come from bounded power sums, and e4≤(Σu_p)^4/24. A segmented sieve processed 5,761,287 middle primes, and 765 small-product states left less than 10^−15 probability unrepresented. Exact rational arithmetic with outward display gave [0.83670132148021748910, 0.83670133181355127258], strictly inside both announced endpoints. This verifies the valuation expectation enclosure, not the asymptotic theorem or a specific asymptotic error term.
 
-PASS subject to bibliographic uncertainty. The full inspected October 16 revision of arXiv:2605.00695 supplies the defining powerful-number series and only \(6/\pi^2\le c_3\le1\); it contains no eight-digit numerical interval or certified truncation algorithm. Searches for the arXiv identifier, leading constant, iterated divisor formula, aliases via prime-adic valuations, and exact numeric value identified no prior certificate. Closest returned research records compute different arithmetic density constants and do not imply the numerical result. Numerical priority cannot be proved from finite searches: relevant unpublished, unindexed, or independently computed tables remain a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The coefficient \(c_3\) governs a natural new asymptotic for reciprocal iterated divisor counts. Quantitatively locating it narrows a source interval of width about \(0.392\) to less than \(1.04\cdot10^{-8}\), giving a precise benchmark for independent numerical comparisons. Because \(\tau(V)\) couples prime-exponent contributions, its expectation is not a naive Euler product; the compressed distribution and rigorous deficit accounting are meaningful parts of the evaluation. This is a self-contained exact bound on a motivated natural constant, not a claim to a new general asymptotic theorem.
+The supported distinct claim is the narrow certified interval only. The asymptotic, powerful-part series, and identically weighted expectation are prior or equivalent. Campbell gives only broad bounds in the inspected passages; an earlier Resultary numerical partial sum has no comparable precision or infinite-tail certificate. This is a bounded best-of-knowledge assessment.
 
-## Closest literature and limitations
+## value
 
-The primary reference is Campbell, arXiv:2605.00695v2, Lemma 9 and Theorem 2. The new result uses that constant's existence and does not strengthen the asymptotic error estimate. No claim of an independent peer review or exhaustive global novelty proof is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the leading coefficient of a motivated reciprocal iterated-divisor asymptotic, not a parameter chosen after computation. The certificate shrinks the broad known interval of width about 0.392 to about 1.03×10^−8, which supplies a usable target for other analytic bounds and numerical evaluations. The divisor count couples equal odd prime factors across outcomes, so a product of scalar local means would not give this benchmark. Neither a new asymptotic nor a unique rounding to eight decimal places is needed for the stated interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

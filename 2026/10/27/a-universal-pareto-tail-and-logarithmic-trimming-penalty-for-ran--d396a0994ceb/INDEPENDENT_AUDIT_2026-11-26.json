@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:45:56.160753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed real invertible symmetric indefinite A, Gaussian radial cancellation gives the uniform spherical direction and the core norm v/|q|, where v=||Au||² and q=uᵀAu. Indefiniteness gives a nonempty zero set; invertibility makes its tangential gradient 2Au nonvanishing there. The zero set is compact and regular (counting measure when n=2), with a regular neighborhood by compactness. For h=q/v the absolute reciprocal tail is the mass of |h|<1/t; its smooth level density at zero is C(A)/2 because |grad h|=2/||Au|| there. Integrating on both sides and sandwiching the residual by the core norm plus or minus ||A|| gives the stated coefficient. Integrating the tail gives exactly 0<p<1; definite q is separated from zero. In the specified hard-rejection rule, weighted coarea for q gives F(0)=C(A)/2 and F(±s)=F(0)+O_A(s); integrating the accepted pole down to ε||A|| gives C(A) log(1/ε)+O_A(1), and the pointwise bounded residual/core difference preserves it. The two-dimensional trace and determinant give E=ab/|q|; the arcsine law and the two spherical latitudes give the displayed special cases. The analytical checks replay at RESULT.md lines 36–74; VERIFICATION.md and the inspected verify.py cover finite examples, not the universal theorem, and were not executed. No conclusion for singular A, higher sketch rank or other stabilization follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/11/8, 233b19e3e180, Finding: non-integrability at p≥1 for 1≤k<n, with a coarea tail coefficient and truncated residual mean for k=n−1.",
+          "arXiv:2608.20531 abstract describes a two-sided sketched least-squares method with oversampling."
+        ],
+        "reasoning": "The general non-integrability claim covers that subclaim here; the codimension-one coefficient only intersects general rank one when n=2. Truncating the residual via min(R,T) is a different operation from setting the approximant to zero below the normalized core cutoff.",
+        "searches": [
+          "Resultary: universal non-integrable Gaussian indefinite Nyström sketch error, 233b19e3e180",
+          "Chen–Nakatsukasa–Narendran–Park arXiv:2608.20531"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2212.01127v2",
+        "Resultary 233b19e3e180 and b0a00278ba10",
+        "arXiv:2608.20531 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary deterministic error amplification does not determine Gaussian probability mass near the pole.",
+          "The checked all-rank moment obstruction neither evaluates the general one-column density at zero nor controls the q-based retained mean with its O_A(1) remainder."
+        ],
+        "reasoning": "Standard smooth coarea is a proof method, not a prior specific result; the applications to q/v and the weighted q level sets link two different statistics by one matrix-dependent constant.",
+        "searches": [
+          "arXiv:2212.01127v2 p. 3 and truncated-core discussion",
+          "Resultary Findings 233b19e3e180 and b0a00278ba10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The leading pole is |(gᵀA²g)/(gᵀAg)|, not the residual of a two-sided approximation; the latter need not have this quotient.",
+          "Park–Nakatsukasa exhibit a small-core pole for a chosen sketch, not the coefficient of the Gaussian tail. Full texts of Smith and Hillier were not inspected."
+        ],
+        "reasoning": "A general ratio-of-forms density analysis may recast the tail as twice the density at zero of the inverse signed ratio. The coarea evaluation of that density and the q-based weighted hard cutoff are what must be compared, not just the existence of a pole.",
+        "searches": [
+          "Park–Nakatsukasa arXiv:2212.01127v2, equations (1.2)–(1.4)",
+          "Smith DOI 10.1016/0047-259X(89)90065-1",
+          "Hillier DOI 10.1017/S026646660117101X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b0a00278ba10 Finding gives a reciprocal tail in a two-dimensional SPD Schur-complement correction family and discusses fixed ridge-core regularization.",
+          "233b19e3e180 includes a two-level beta law and overlaps the 2/π arcsine example."
+        ],
+        "reasoning": "The catalogue gives substantial special cases, but no matching entry supplying the arbitrary-spectrum rank-one geometric coefficient and the specific normalized rejection mean. A fixed numerical table is not a substitute here: the invariant varies with the entire matrix. Catalogue dates alone do not establish priority.",
+        "searches": [
+          "Resultary: Gaussian indefinite Nyström failure probability and infinite-mean tails, b0a00278ba10; non-integrable Gaussian indefinite Nyström sketch error, 233b19e3e180"
+        ]
+      },
+      "rationale": "Known indefinite-core instability, the divergent-mean phenomenon, and special-case reciprocal-form laws are not credited as new. The supported distinction is the explicit geometric residual-tail coefficient for every fixed nonsingular indefinite real symmetric A with one isotropic probe and the matching risk law for normalized hard rejection of the scalar core. The strongest inspected overlapping statements do not give this combination or the general rank-one coefficient by specialization. This is a bounded literature finding, not a priority certification.",
+      "residual_risks": [
+        "The Gaussian quadratic-form-ratio and spherical quadratic-form density literatures may contain an equivalent coefficient; Smith and Hillier full texts were not verified.",
+        "Inspected catalogue entries do not establish precedence or rule out unknown specialized results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known mechanism; distinct deterministic input and stabilization, not the stated tail and trimming law",
+          "evidence": [
+            "Error 1/(2ε√(1−ε²)) for the selected 2×2 example; Gaussian experiments are not an asymptotic law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.01127",
+          "material_read": "v2 abstract and p. 3, equations (1.2)–(1.4) and following instability discussion (text offsets 10800–13404)",
+          "method": "Lawful OA PDF passages",
+          "title": "Randomized low-rank approximation for symmetric indefinite matrices",
+          "trigger": "Same indefinite Nyström instability and near-zero core"
+        },
+        {
+          "assessment": "Substantial partial overlap but coefficient result restricted to codimension one",
+          "evidence": [
+            "All sketch ranks: p≥1 diverges; k=n−1 reciprocal spherical form, coarea coefficient and logarithmic clipped mean."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 233b19e3e180",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirror read",
+          "title": "Universal non-integrable error of Gaussian indefinite Nyström sketches",
+          "trigger": "Closest tail and moment claims for the same sketch"
+        },
+        {
+          "assessment": "Different residual and limited family",
+          "evidence": [
+            "Two-dimensional SPD Schur-complement correction; fixed ridge-core failure, not hard rejection."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13, b0a00278ba10",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirror read",
+          "title": "Exact failure probability and infinite-mean tails for Gaussian indefinite Nyström",
+          "trigger": "One-column Pareto law and regularization"
+        },
+        {
+          "assessment": "The method described in the abstract is distinct; not a whole-paper exclusion",
+          "evidence": [
+            "Two-sided sketched least-squares construction with oversampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.20531",
+          "material_read": "p. 1 abstract only",
+          "method": "OA PDF excerpt",
+          "title": "Nyström method for symmetric indefinite matrices",
+          "trigger": "Same application and potential broader algorithm"
+        },
+        {
+          "assessment": "Unresolved historical overlap risk",
+          "evidence": [
+            "No lawful full text was obtained in the checked routes; this is not negative evidence."
+          ],
+          "identifier_or_url": "DOI 10.1016/0047-259X(89)90065-1; DOI 10.1017/S026646660117101X",
+          "material_read": "Bibliographic identifiers, not full text",
+          "method": "OA lookup; Smith publisher page inaccessible",
+          "title": "On the expectation of a ratio of quadratic forms in normal variables; The Density of a Quadratic Form in a Vector Uniformly Distributed on the n-Sphere",
+          "trigger": "Equivalent ratio and spherical density formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The instability is a practical issue for indefinite low-rank sketches. The geometric coefficient determines the rate of rare large residuals and quantifies the deterioration of expected error as the specific safeguard is removed, with the same scale in both observables. This goes beyond a tiny failure example or the fact of an infinite mean, without implying advice for other algorithms or sketch ranks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:55:47.524494Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md:25–46 the instance (a,0,a) forces f(0)≤f(a), since u⊕v≤u implies v∧¬u=0. The instance (a,0,b) for a≤b then forces f(a)≤f(b), using f(a)=(f(a)⊕f(0))∨f(0). Set u=a∨b; u⊕a≤b implies f(u)∧¬f(a)≤f(b) by monotonicity, and therefore f(u)=f(a)∨f(b). Conversely, join preservation applied to the common part x∧y and the two disjoint differences gives f(x)⊕f(y)≤f(x⊕y)≤f(z) for x⊕y≤z. These steps require neither atoms nor a normality assumption. A coordinate with bottom value 1 is constant; every other coordinate is the OR of a uniquely selected set of the n input bits (including the empty set). This gives (2^n+1)^n, 2^{n(n−c)} for prescribed bottom of size c, and 2^{n²} for empty bottom. In the source example, 5⊕1=4 but 7⊕1=6 is not below 4 in bitwise inclusion. Static inspection of checker.py:5–57 and VERIFICATION.md:19–25 confirms the stated finite scope: all maps for n≤2, only coordinate-form maps and the explicit bad example for n=3. The general proof, not that diagnostic, establishes the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fact 2.1 gives Q as sufficient for CEP, not the equivalence proved here. The 2024 article concerns variants of CEP. The October 12 catalogue hit directly covers the unrestricted Boolean-algebra statement."
+        ],
+        "reasoning": "CEP is a broader property, not an interchangeable hypothesis. The prior catalogue statement directly covers Q, without needing a theorem identifying all CEP operators.",
+        "searches": [
+          "arXiv:2603.17724v1 §2",
+          "arXiv:2402.07293",
+          "Resultary: CEP and Boolean-frame symmetric-difference conditions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-12, fc81d7d34f64",
+        "arXiv:2603.17724v1 §2",
+        "arXiv:2402.07293"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier finding proves the exact Q equivalence and exhibits the same violating triple for the same map. For given bottom C, exactly the coordinates outside C remain free and choose any subset of n inputs."
+        ],
+        "reasoning": "The central claim is explicitly covered and the finer count, including the normal case, follows immediately once Q is identified with the same previously classified operators. The paper that motivated the correction does not itself prove the correction.",
+        "searches": [
+          "SCOPE-the-symmetric-difference-cep-hypothesis-is-exactly-boolean-addit--fc81d7d34f64/RESULT.md",
+          "arXiv:2603.17724v1 Example 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 RESULT.md finding states the same Q if and only if preservation of binary joins on arbitrary Boolean algebras. Fact 2.1 displays precisely the same order implication."
+        ],
+        "reasoning": "The prior match preserves the precise antecedent and consequent and makes no stronger restriction of atomicity or bottom preservation. It is not merely a terminology match.",
+        "searches": [
+          "Resultary: symmetric-difference CEP hypothesis, Boolean additivity, binary join preservation",
+          "arXiv:2603.17724v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 12 RESULT.md gives the same exact count for labelled operations on an n-atom powerset and the same Example 2.2 witness."
+        ],
+        "reasoning": "The match covers the same carrier, labelling convention and operation class. The prescribed-bottom formula is the coordinate factorization of the already-covered class, not a distinct census of CEP.",
+        "searches": [
+          "Resultary: symmetric-difference CEP hypothesis and Boolean-additivity census (2^n+1)^n"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary finding, SCOPE-the-symmetric-difference-cep-hypothesis-is-exactly-boolean-addit--fc81d7d34f64 (2026-10-12), already has the same universal equivalence, the same labelled census, and the same counterexample to the motivating paper's assertion about Example 2.2. The fixed-bottom refinement is the immediate independent coordinate count obtained by forcing constant one on exactly C, with 2^n options at each remaining coordinate. No material distinct result survives. This establishes earlier catalogue coverage, not a claim about external publication priority.",
+      "residual_risks": [
+        "External historical publication priority was not determined. The earlier distinct catalogue statement is sufficient for the originality failure.",
+        "The explicit failure of Q is not a determination of whether the motivating algebra has CEP for another reason."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage",
+          "evidence": "Universal binary-join equivalence, labelled count (2^n+1)^n and the same Example 2.2 counterexample.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-symmetric-difference-cep-hypothesis-is-exactly-boolean-addit--fc81d7d34f64",
+          "material_read": "RESULT.md finding and relationship section, text offsets 0 and 4300, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirrored statement comparison",
+          "title": "The symmetric-difference CEP hypothesis is exactly Boolean additivity",
+          "trigger": "Strongest distinct Resultary match"
+        },
+        {
+          "assessment": "Motivating statement and example verified; claimed strict weakening is not correct for displayed Q",
+          "evidence": "Fact 2.1 displays Q; Example 2.2 changes only {1,3} to {1,2,3} and asserts that the changed operation satisfies Q.",
+          "identifier_or_url": "https://arxiv.org/html/2603.17724v1",
+          "material_read": "§2, Fact 2.1 and Example 2.2, OA text offsets 9000–11395",
+          "method": "Read bounded OA primary text",
+          "title": "More on modal logics and deduction",
+          "trigger": "Exact attribution of Q and disputed example"
+        },
+        {
+          "assessment": "Inspected material is context, not the exact equivalence and count",
+          "evidence": "The property studied in the inspected material is CEP in modal varieties, not the exact unary implication Q.",
+          "identifier_or_url": "arXiv:2402.07293",
+          "material_read": "Accessible passages on CEP and additivity terminology",
+          "method": "Bounded primary text comparison",
+          "title": "Varieties of modal algebras without the congruence extension property",
+          "trigger": "Related CEP and additivity background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical content is a useful structural correction, not just a small example: it eliminates an allegedly weaker sufficient condition as a route to nonadditive examples and clarifies what is being counted on finite Boolean frames. That utility is already available in the earlier finding and does not overcome the originality failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

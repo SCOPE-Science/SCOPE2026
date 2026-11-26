@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:35.491730Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof stated a false complex square-root equality in §3 (already false at q=0); its real-part version and the theorem are correct. The complete replacement RESULT.md under repairs/4 uses i/sqrt(−q+2i)=conj((q+2i)^(−1/2)) on the principal branch. Independent recheck: summing the two covariance lags yields the stated positive diagonal variance. The factorization by s=r/(v+W), with |s|<1 since Re(v conj W)>0 and (v+W)(v−W)=r², gives angular log-mean 2 log|v+W|. Differentiation at fixed epsilon gives the exact formula with rv'−v=−c−i/(2δ). The scaled radicands remain uniformly in a compact neighborhood in the upper half-plane for bounded lambda; analyticity of the inverse square root gives the asserted absolute remainder. The conjugation identity preserves the real-part profile. Its derivative in q=lambda² is proportional to −cos(3 arg(q+2i)/2), crossing from positive to negative at q=2/sqrt(3). Direct evaluation gives the correct height and endpoint/tail constants. The repaired theorem makes no finite-radius or global moving-parameter optimization claim. The unmodified finite checker is diagnostic and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noda–Shirai provide exact contour machinery and fixed-parameter asymptotics. Shirai expands the radial zero density for a fixed spectral measure and angle, with coefficients depending on local vanishing."
+        ],
+        "reasoning": "General formulas supply starting points, but fixed-parameter expansions with constants depending on the degenerating model do not provide a uniform limit when two zeros of the spectrum coalesce.",
+        "searches": [
+          "Noda–Shirai Theorem 1.1, formula (2.18), §3.3",
+          "Shirai arXiv:2501.02586v2, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof and prior work; VERIFICATION.md and check_crossover.py",
+        "Complete repaired RESULT.md under repairs/4",
+        "arXiv:2106.02860",
+        "arXiv:2501.02586v2",
+        "Resultary 83ff40e0e0f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two corrections from the fixed regimes are proportional to (1−r²)^(−3/4) at collision and to (1−r²)^(−1/2)/sin ε for separated zeros. The contour representation itself is an exact method, not a stated simultaneous expansion."
+        ],
+        "reasoning": "The degenerating separation term and radial regularization compete at ε~h^(1/4). Keeping both in a uniform rescaling and determining the interior maximum is a distinct analysis, not a substitution into either fixed-parameter asymptotic. No novelty is assigned to the exact finite-radius specialization.",
+        "searches": [
+          "arXiv:2106.02860, formula (2.18) and Theorem 1.1 asymptotic cases",
+          "arXiv:2501.02586v2, Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noda–Shirai use the same family with a=−2c/(1+2c²), b=1/(2(1+2c²)). Their quartic point is (−2/3,1/6) and their separated-double-zero result applies at every fixed ε>0 in scope."
+        ],
+        "reasoning": "This is the same process family, not a new stochastic model. The fixed-quartic coefficient reproduces F(0); the small-separation growth of the fixed-double-zero coefficient matches the far tail. Neither specifies the intermediate normalized profile.",
+        "searches": [
+          "Resultary and focused literature search: stationary Gaussian power series, coalescing double spectral zeros, joint zero-deficit crossover",
+          "arXiv:2106.02860, matching the MA(2) covariance parameters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 83ff40e0e0f9 treats strictly positive cusp densities and a finite limiting deficit, not a coalescence singularity."
+        ],
+        "reasoning": "The closest inspected indexed deficit transition addresses a different vanishing/regularity condition and does not supply the profile or maximizing separation. Bounded search is not a certificate of absence.",
+        "searches": [
+          "Resultary: Gaussian zero deficit, spectral cusp, merging double zeros and quartic collision"
+        ]
+      },
+      "rationale": "Credit the published exact integral machinery and both fixed-parameter regimes. The supported distinct claim is the uniform joint-merger profile including its strict nonzero-separation maximum. The repaired branch argument leaves this claim unchanged.",
+      "residual_risks": [
+        "The literature search was bounded; another joint asymptotic in different parameters or an earlier contour adaptation may exist.",
+        "No novelty is asserted for the finite-radius machinery or fixed-parameter limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed regimes and exact machinery, not the inspected coupled result",
+          "evidence": "The separated and quartic terms have different powers and the separated coefficient diverges as ε tends to zero. Collision formula converts to h^(−3/4)/4.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.02860",
+          "material_read": "Theorem 1.1 (p. 3), contour formula (2.18) (p. 6), §3.3 (p. 10)",
+          "method": "OA primary text and parameter matching",
+          "title": "Expected Number of Zeros of Random Power Series with Finitely Dependent Gaussian Coefficients",
+          "trigger": "Same two-dependent covariance, including exact and quartic cases"
+        },
+        {
+          "assessment": "Related fixed-measure result",
+          "evidence": "Its angle-wise coefficients reflect local vanishing and derivatives of the given density, not a spectral measure varying with radius.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.02586v2",
+          "material_read": "Theorem 2.1, pp. 2–3",
+          "method": "OA primary text",
+          "title": "The density of zeros of random power series with stationary complex Gaussian coefficients",
+          "trigger": "General radial asymptotics near spectral zeros"
+        },
+        {
+          "assessment": "Different mechanism and claim",
+          "evidence": "A strictly positive cusp yields rates of approach to a finite limiting deficit; the audited deficit instead diverges under a merging-zero scaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-half-h-lder-transition-in-the-zero-deficit-of-stationary-g--83ff40e0e0f9",
+          "material_read": "RESULT.md Finding and spectral assumptions",
+          "method": "Configured local index and mirrored source",
+          "title": "Sharp half-Hölder transition in the zero deficit of stationary Gaussian power series",
+          "trigger": "Closest indexed zero-deficit transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The competing length scales arise intrinsically from this degeneration, not from an arbitrary parameter slice. The profile, uniform error and exact positive optimizer quantify an unexpected effect: separating the double zeros on the critical scale can produce a stronger leading deficit than exact collision. The endpoint asymptotics alone do not answer it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The apex case uses explicit cycle substitution for excluded deletions and two-coloring of the surviving original path for the two infinite optimizer types. The apex-retained case forces colors via undeleted shadows and uses the remaining-original independent-set obstruction, yielding the five exceptional Grötzsch optimizers. A separate intersection analysis obtains every exchange edge and its distance enumerator; the degree-three deletion lower bound is proved. The independent traversal and parity-union-find implementations check every candidate of size at most three through odd order 25, and the exchange metrics have independent finite comparisons. The infinite result is established symbolically and is not extrapolated from these checks.
+PASS
 
-## Originality — PASS (qualified by residual risks)
+Every transversal must delete an original. If the apex is deleted, a missing original can be replaced by its shadow in the odd cycle, and two nonadjacent missing originals can both be replaced. These obstructions leave exactly A_i and B_i among triples deleting the apex. For either retained original path, any remaining shadow with two original neighbors has neighbors of the same alternating color, proving sufficiency. If the apex is retained, all surviving shadows have the same color, forcing any original with a surviving shadow neighbor to share the apex color. Two deleted shadows can make at most one original flexible; with one deleted original the remaining path has at least four vertices, so one flexible vertex cannot meet all original edges. With two or three deleted originals there is at most one deleted shadow and hence no flexible original: the retained originals must be independent. The cycle independence bound excludes two original deletions and permits three only at n=5, where the five complementary independent pairs give exactly R_i and the forced coloring works. With at most two total deletions, the same replaced cycle or forced-color obstruction persists. Exchanges follow by intersecting triples. For n=2k+1>=7 each A has two B partners at every distance 1..k and one at k+1; distinct B's at cyclic separation t have exchange distance t+1 via their incident A edges. Together with the A-cycle this gives the stated shells of unordered pairs and common eccentricity. At n=5 the A,R Petersen core contributes 15 pairs at distance one and 30 at distance two; each B contributes (2,2,1) to distances to A and (0,2,3) to R. The ten B-B pairs split equally at distances two and three. This yields (25,55,25) and every vertex has a distance-three partner. Independent replay (python3 -B /workspace/branches/independent_replay.py 5) exhaustively enumerated deletions through size three and all exchange distances for odd n=5..19, confirming those cases and the exact distance histogram. The frozen verifier prints but does not assert that histogram, and its out-of-scope n=3 check stops at size two; neither limits the deductive result.
 
-Jansen and Kratsch (2011, arXiv:1107.3658) give the general OCT algorithmic setting (abstract inspected; full text not inspected). Esperet and Stehlik (2015, arXiv:1509.07716) give broader results on projective quadrangulations (material full-text sections inspected), without determining the entire optimizer set and exchange geometry here. Dabrowski et al. (2018, DOI:10.4230/LIPIcs.MFCS.2018.63) study independent OCT in different graph classes and do not subsume this statement. Direct searches also covered the synonyms vertex bipartization and induced bipartite complements and were compared with published research-record abstracts and accessible prior claims. No covering exact formula was found, but this is not a global uniqueness proof. Unindexed earlier enumerations and uninspected sections of the general kernel paper are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The ordinary Mycielskian construction is a canonical source of triangle-free four-chromatic graphs. A complete family-wise description of every optimal three-vertex odd-cycle deletion set, the sharp Grötzsch exception, and its Petersen-versus-decorated-cycle exchange structure provides a motivated optimization classification and exact reconfiguration benchmarks beyond knowing the scalar deletion number.
+Pass for the complete family-wise minimum transversal classification and the exchange metrics, including the Petersen exception in the ordinary Mycielskian of C5. The construction, graph bipartization concept and related scalar OCT bounds are not credited as novel. Compared statements on the closest same-invariant and same-graph work do not establish the submitted classification or metric; the conclusion is bounded by inspected evidence.
 
-## Limitations and audit status
+## value
 
-The proof concerns ordinary Mycielskians of odd cycles of length at least five and one-for-one exchanges only. It does not assert results for arbitrary bases, iterated Mycielskians, weighted OCT, or alternate adjacency. The accompanying code checks a finite range but is not an infinite proof. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A scalar bipartization number does not tell how many minimum choices exist, whether one can move between them without increasing cost, or how far apart they can be. This classification answers those questions exactly for a standard family and identifies a real small-cycle change of shape: the larger odd cycles have an exchange cycle decorated by triangles, while C5 also admits apex-retaining minimizers forming a Petersen core with the A layer. The full distance distributions record that difference and provide concrete reconfiguration benchmarks, not just verification of a known count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

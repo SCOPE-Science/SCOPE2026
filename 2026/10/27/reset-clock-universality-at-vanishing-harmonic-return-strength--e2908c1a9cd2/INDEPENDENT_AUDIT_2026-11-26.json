@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:39:38.082182Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–114",
+        "Frozen VERIFICATION.md and verify_weak_return.py (inspection only)"
+      ],
+      "rationale": "Conditioning on the first cycle gives the exact renewal denominator q_s+E[h_k(B_R);R<τ_L], strictly positive since P(R>0)>0 and the Brownian target can be reached by any positive deterministic time. The scale function gives h_k(x)→x/L on (0,L), with h_k=0 on the negative side. For a>0 the integrating factor e^(−ka²/(2D)) in the half-line mean hitting-time equation fixes m'_k(−a) in the positive distance coordinate: ∂_a m_k(−a)=sqrt(π/(2Dk)) erfcx(sqrt(k/(2D)) a). This is the actual mean: stop the candidate on the interval (0,M); the upper-exit correction is the candidate value at M (at most linear in M) times the scale-function exit probability, which vanishes as M→∞. For the positive-side interval a uniform exit-time supersolution is w(x)=(Lx−x²/2)/D, since w'≥0, w≥0 at the ends, and (D∂²−kx∂)w≤−1. Thus after multiplication by sqrt(k), only negative starts contribute. The bound erfcx≤1 and E|B_R|≤sqrt(2D ER) justify dominated convergence, and Eσ≤ER disposes of the search duration. In the filtration enlarged by R at time zero, σ=R∧τ_L gives an L²-bounded stopped martingale; E[B_σ]=0 gives A=E[(-B_R)_+;R<τ_L]=Lq_s+E[(B_R)_+;R<τ_L]=Lq_0. This proves the stated amplitude, including clock laws with atoms and with mass at zero. For k=0 negative starts have positive probability by the killed Brownian density at any positive search time and infinite mean return duration. Fresh iid cycles and q_s>0 preclude infinite sequences of instantaneous cycles before absorption with positive probability.",
+      "residual_risks": [
+        "Numerical assertions in the source concern selected exponential/deterministic clocks and were not rerun. The analytic result is for each fixed iid integrable clock law and only for the leading mean, not a uniform approximation over laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas–Kundu–Pal Eq. (4) and supplement Eq. (S57) give general visible-return renewal with arbitrary reset distributions and both signs of start. Dubey–Pal Eqs. (5)–(8) give renewal and its Poisson specialization. The 2025 drift-diffusive paper was identified but its full text was not readable via the tried copies."
+        ],
+        "reasoning": "The framework is broader as to search and return physics, but it gives an input-dependent renewal quotient rather than the singular limit or the identity that fixes its clock-independent amplitude.",
+        "searches": [
+          "arXiv:2307.16294v3",
+          "arXiv:2610.18814v1",
+          "DOI:10.1103/PhysRevE.111.014142"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.14646v1",
+        "arXiv:2610.18814v1",
+        "arXiv:2307.16294v3",
+        "DOI:10.1103/PhysRevE.111.014142 (access attempt and bibliographic identification)",
+        "Resultary 498e0c3e1b07 and 92af90436b2d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General renewal produces a ratio of negative-excursion mass-weighted duration to a success probability that includes return absorption; the narrower three-term theorem imposes finite second moment."
+        ],
+        "reasoning": "Taking the half-line OU limit in the renewal quotient by itself leaves A/q_0, so the explicit universal coefficient does not follow by parameter substitution. The stopped-search martingale makes A=Lq_0 by balancing the negative return-start weight against the positive weight and search absorptions; boundedness and dominance must then accommodate the full clock class. The newer finite-second-moment expansion was not credited as coverage of laws of infinite second moment.",
+        "searches": [
+          "Biswas–Kundu–Pal arXiv:2307.16294v3, Eq. (4), Eq. (S57)",
+          "Frydel arXiv:2511.14646v1, Eqs. (46)–(52)",
+          "Resultary 92af90436b2d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The moment hierarchy has the same dimensionless n=1 limit for fixed-rate exponential search; the three-term law has the same leading term for visible return under a finite-second-moment restriction. Frydel Eqs. (46)–(52) give the target-visible renewal and splitting formula."
+        ],
+        "reasoning": "Rescaling the same mean does not distinguish the overlapping cases. Distributional clock scope, including clocks of infinite variance and clocks with atoms, is the distinction of the frozen claim; no automatic extension from these narrower asymptotic statements is established.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-universal-weak-return-trap-moment-hierarchy-for-brownian-search--498e0c3e1b07",
+          "Resultary 2026/11/8/SCOPE-a-universal-three-term-weak-return-trap-law-for-visible-brownian--92af90436b2d",
+          "arXiv:2511.14646v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed findings explicitly contain the equivalent coefficient in narrower regimes. Frydel's formulas are input-dependent."
+        ],
+        "reasoning": "An isolated numerical table is inapplicable: the object is a singular limit with a universal clock-law quantifier, and the exact coefficient was checked in explicit formulas and indexed theorem statements instead.",
+        "searches": [
+          "Resultary 498e0c3e1b07 and 92af90436b2d",
+          "arXiv:2511.14646v1 §III.4–III.4.1"
+        ]
+      },
+      "rationale": "Credit the earlier arbitrary-clock renewal reduction, visible-target splitting and OU hitting-time ingredients. The distinct supported claim is the exact common leading mean coefficient over the full fixed finite-positive-mean iid clock class. The general renewal equations still contain two law-dependent quantities at leading order, and neither the generic renewal framework nor the exponential specialization forces their cancellation without the stopped-Brownian identity identifying their ratio. The inspected indexed moment hierarchy agrees for exponential clocks and the three-term law agrees for finite-second-moment clocks (with stronger asymptotics in those domains); neither supplies the full integrable-clock quantifier. This is a bounded claim-level comparison, not a priority certification.",
+      "residual_risks": [
+        "The drift-diffusive 2025 paper remains a primary-text access risk. A targeted primary literature search returned no hits; that is not negative evidence. The indexed later records show genuine overlapping coverage of restricted classes, not priority or full coverage of all integrable clocks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Renewal and splitting antecedent; inspected derivation does not give the all-clock weak-stiffness law",
+          "evidence": [
+            "SR-B absorbs during return. Negative-start half-line asymptotics and the clock-law cancellation are not part of the displayed equations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.14646v1",
+          "material_read": "§III.4–III.4.1, Eqs. (46)–(52), offsets 44139–51768",
+          "method": "OA primary HTML passage comparison",
+          "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials",
+          "trigger": "Same harmonic visible-target protocol"
+        },
+        {
+          "assessment": "General formulation plus exponential specialization, not the all-clock amplitude",
+          "evidence": [
+            "The target is accessible in return; general and Poisson-specific equations precede the exponential switching-harmonic application."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.18814v1",
+          "material_read": "Model and Mean first passage time, Eqs. (5)–(8), offsets 11970–21966",
+          "method": "OA primary HTML passage comparison",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "General renewal and harmonic example"
+        },
+        {
+          "assessment": "Covers the renewal reduction including both signs, not the model-specific singular cancellation",
+          "evidence": [
+            "Arbitrary reset-time distribution and generic return motion; worked example uses a linear return potential, not the weak harmonic limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.16294",
+          "material_read": "Main-text Eq. (4), p. 2 at offset 16000; supplement Eq. (S57), p. S9 at offset 95000",
+          "method": "OA primary PDF and supplement passages",
+          "title": "Search with stochastic home returns can expedite classical first passage under resetting",
+          "trigger": "Strongest earlier arbitrary-clock formalism"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence against overlap",
+          "evidence": [
+            "DOI/APS full-text attempt returned 403 and the arXiv recovery was unreadable."
+          ],
+          "identifier_or_url": "10.1103/PhysRevE.111.014142",
+          "material_read": "Bibliographic citation in Dubey–Pal at offset 82125; no readable primary results",
+          "method": "Lawful OA attempts at DOI/APS and an identified arXiv route",
+          "title": "Drift-diffusive resetting search process with stochastic returns: speedup beyond optimal instantaneous return",
+          "trigger": "Potentially overlapping stochastic-return model"
+        },
+        {
+          "assessment": "Overlapping leading mean, stronger moments but narrower exponential clock assumption",
+          "evidence": [
+            "The moment index one reproduces the same mean amplitude for fixed exponential rate."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-universal-weak-return-trap-moment-hierarchy-for-brownian-search--498e0c3e1b07",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Universal weak-return trap moment hierarchy for Brownian search",
+          "trigger": "Matching leading mean in indexed theorem"
+        },
+        {
+          "assessment": "Same leading coefficient under a stronger moment hypothesis; more terms in that domain",
+          "evidence": [
+            "Finite second moment is required for the stated expansion; the frozen lead term assumes only finite first moment."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-three-term-weak-return-trap-law-for-visible-brownian--92af90436b2d",
+          "material_read": "Mirrored RESULT.md, offsets 0–4850",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A universal three-term weak-return trap law for visible Brownian search",
+          "trigger": "Strongest indexed asymptotic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Eqs. (1)–(6)",
+        "arXiv:2307.16294v3, general framework"
+      ],
+      "rationale": "The weak-return limit is a physically and mathematically natural singular endpoint of an established search model. The result gives the exact leading divergence of physical elapsed time and shows why clock choice cannot change it at this order when the target stays visible. The identity relates two different features of the search/return decomposition and applies to non-Poisson clocks without requiring a second moment. This is information beyond deciding finiteness or estimating a coefficient for one clock.",
+      "residual_risks": [
+        "No consequence claimed for blind returns, search drift, clocks depending on stiffness, nonintegrable clocks, or next-order optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

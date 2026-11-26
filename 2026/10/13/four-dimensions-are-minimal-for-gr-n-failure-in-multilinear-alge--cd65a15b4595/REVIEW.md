@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Wires's Proposition 2.10 and Corollary 2.11 reduce the term-condition commutator and center to binary absorbing polynomial values. In a bilinear algebra, a mixed-difference expansion shows that the commutator zero block is exactly \(A^2\) and \(Z_{\mathrm{TC}}(A)=\operatorname{Ann}(A)\). The displayed table has \(A^2=A\), annihilator \(kd\), and second center \(ka\oplus kd\). The lower bound follows because a strict second center makes \(A/\operatorname{Ann}(A)\) a perfect algebra with nonzero annihilator; such an algebra must have dimension at least \(3\), forcing \(\dim A\ge4\).
+## correctness
 
-## Originality
-PASS. The motivating 2026 paper explicitly includes multilinear algebras in its framework and asks which perfect semiassociative Mal'cev algebras satisfy an unconditional Grün lemma, but its inspected full text gives no multilinear counterexample or minimum dimension. Targeted searches for the same object, center formulation, dimension, and multiplication table found no covering theorem. The known skew-brace failure is in a different algebraic signature and does not imply the bilinear-algebra cutoff. A residual risk remains that an isomorphic small algebra occurs in an uncrawled classification without the same commutator interpretation.
+PASS
 
-## Value
-PASS. The finding gives a sharp boundary directly motivated by the source: unconditional Grün behavior fails already in the basic multilinear subclass, and dimension \(4\) is exactly the first possible failure over every field. The quotient-annihilator proof explains the cutoff structurally rather than merely producing another counterexample.
+Independently, testing the term condition on xy with first input 0 versus x and second input 0 versus y forces every xy into the total commutator zero block. Conversely A² is an ideal, and its quotient is a vector space with zero product, so all polynomial differences in one input block are independent of the other block and the term condition holds there. The same xy test forces a central element to annihilate, using also yx; if an input changes by a two-sided annihilator element, expansion by bilinearity kills every changed monomial involving a product at the first product node above that element. The remaining linear difference is independent of the other block, proving centrality. The second center is therefore the inverse image of the quotient annihilator. In the given table b², bc, cb, c² span, and right multiplication by b sends a,b,c to the independent d,a,c and d to 0. Modulo kd the same test kills b and c coefficients only; a,d annihilate the quotient on both sides. In the lower bound C=Ann(A) cannot be zero if the center grows. B=A/C remains perfect and has nonzero annihilator. Multiplication factors through (B/Ann(B))⊗(B/Ann(B)), so for dim B≤2 its image has dimension at most one (zero if dim B=1), contradicting B²=B. The basis tests and dimension argument work unchanged in characteristic two and every other characteristic.
 
-## Closest literature and limitations
-The closest source is Wires, arXiv:2609.35396v1, which supplies the framework and the open problem. Aichinger–Mudrinski supplies the underlying commutator machinery. Tsang gives skew-brace failures but not a one-product multilinear example. The theorem does not classify all minimum witnesses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known conditional commutator criterion and the perfect skew-brace counterexamples do not imply a witness or sharp minimum in the class of vector spaces with one bilinear product. The nearest distinct published algebra records differ in signature, unit assumptions or invariant. The supported extension is the sharp dimension in the specified class over every field, not the commutator machinery or general existence of some Grün failure.
+
+## value
+
+PASS
+
+This resolves a specific natural subclass of the stated unconditional Grün question by locating its first possible failure. The quotient dimension obstruction shows why small examples cannot work; the characteristic-independent product table is a minimal benchmark for testing stronger hypotheses, not just an isolated calculation of a center.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

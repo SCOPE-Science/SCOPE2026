@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:05:33.882517Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The survival ratio with S(-1)=1 gives log[(1-h(k+1))/(1-h(k))]=B_k-tD_k, including k=0. B_k>0 and concavity gives D_k<=0 when beta<=1. For beta>1, express D_k via the triangular second-difference kernel. The two adjacent kernels after multiplying by x^(beta-2) have likelihood ratio increasing from zero through (x-k-1)/(k+2-x) to infinity. Tilting by x^epsilon increases the adjacent D ratio strictly; the integrals near zero are finite because w(x)=x there. At beta=1+ the limiting d_k satisfies B_k/d_k=E[g(k+U)] with g(x)=x/(x+1)^2 and density for U proportional to w(u)/(k+u). For k>=1 this expectation strictly decreases as k increases: the density shifts stochastically right and g is decreasing on that range. This proves strict tail threshold descent. The independently computed rational comparisons d1/d0<2/5<B1/B0 and B2/d2<1/5<B0/d0, with d0=2 log 2 and d2=10 log 2-6 log 3, prove the initial inversion at beta=1+ and T2<T0 for all beta>1 by the ratio monotonicity. D1/D0 tends to infinity, so there is one crossing. T0 and T1 are the only possible coincident thresholds, giving exactly the stated length-three plateau. In the open two-turn region T0<t<T1 all indices k>=2 have positive increments. At t=T0<T1 the signs begin zero, negative, positive; at t=T1>T0 they begin positive, zero, positive. At beta=beta_c, T0=T1, so threshold descent from index zero is non-strict at that one pair. The exact comparison in RESULT.md governs all ties. The kernel asymptotics give T_k~1/[beta(beta-1)k^beta], and bracketing the first k with T_k<=t between neighboring thresholds yields the stated index limit for fixed beta>1. Independent replay: python3 /workspace/checks/hazard_endpoints.py exactly verifies the two logarithmic comparisons and reproduces the critical decimals (bisection is diagnostic, not the uniqueness proof). VERIFICATION.md and check_hazard.py were read, not executed; the script's static count is 238 as in VERIFICATION.md, not 227 as reported in RESULT.md. This documentation discrepancy does not affect the analytic result or the independent exact comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DGBH paper explicitly includes the DBH law as beta=1 and calls the DGBH hazards plotted in Figure 2 monotonically decreasing, upside down, monotonically increasing, upside down increasing, and upside down-constant-increasing. In §2 it contrasts the illustrations with the difficulty of analytical shape equations."
+        ],
+        "reasoning": "The beta=1 subcase gives the elementary decreasing regime only. The broader qualitative descriptions establish real overlap about possible shapes, but the inspected material does not prove a global restriction of sign sequences, force the trough to occur at count two, or supply the unique parameter crossing.",
+        "searches": [
+          "Yousof–Chesneau–Hamedani–Ibrahim, Statistica 81(2), pp. 136–140, §2, equations (2)–(3),(6), Figure 2",
+          "Discrete Burr–Hatke DOI 10.1109/ACCESS.2020.2988431; special-subfamily attribution on Statistica p. 136"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.6092/issn.1973-2201/11635, equations (2)–(3),(6), §2 and Figure 2",
+        "Resultary self ID d75bb3879263; inspected same-day related IDs 646ecb6220e4 and c56eaf093042",
+        "DOI 10.1109/ACCESS.2020.2988431 (beta=1 attribution in the DGBH source)",
+        "DOI 10.3390/math9182277 (full text unavailable in attempted retrieval)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking logs of successive complements of the published hazard immediately gives B_k-tD_k. The earlier paper's discussion of complicated analytical shape equations is followed by a mode calculation for the mass function, not the needed D_{k+1}/D_k comparison."
+        ],
+        "reasoning": "The elementary sign identity is an implication of the published formula and is not credited as a standalone novelty. It places no automatic ordering on thresholds without comparing the log and power second differences. The likelihood-ratio ordering, the limiting comparisons at beta=1, and inversion of the large-k asymptotics supply scientific content not furnished by the retrieved earlier material.",
+        "searches": [
+          "Statistica 81(2), equations (3) and (6); §2 shape discussion at p. 138",
+          "Related Resultary Findings 646ecb6220e4 and c56eaf093042"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The DGBH index hit is this same frozen record. The Rayleigh–Weibull Finding uses P(X>=n)=q^[(exp(t n^beta)-1)^2] and its thresholds decrease even from index zero, with no increasing-then-decreasing step. The Marshall–Olkin Finding uses a tilted length-biased exponential and thresholds C_n(t) given by an exponential divided by a cubic; its two-turn window follows a different boundary. The published DGBH equations (2)–(3) give the exact survival in the submission; the bound record distinguishes the exponentiated Burr–Hatke CDF from this survival construction."
+        ],
+        "reasoning": "The same-day non-self results share the sign-of-second-differences method and, for the Marshall–Olkin record, two-turn behavior. They neither study the same survival nor establish T0=T1 at the DGBH crossing; no priority inference follows from their dates. The logarithmic denominator and the power in the exponent together distinguish DGBH from the two inspected alternative survival constructions. The exponentiated Burr–Hatke comparison is limited by unavailable full text.",
+        "searches": [
+          "Resultary: discrete generalized Burr–Hatke exact hazard thresholds and two-turn plateau",
+          "2026/11/22/SCOPE-a-sharp-three-regime-hazard-phase-diagram-for-discrete-generaliz--d75bb3879263",
+          "2026/11/22/SCOPE-exact-hazard-reversal-thresholds-for-the-discrete-rayleigh-weibu--646ecb6220e4",
+          "2026/11/22/SCOPE-exact-hazard-turning-point-phase-diagram-for-discrete-marshall-o--c56eaf093042",
+          "Statistica DOI 10.6092/issn.1973-2201/11635 and Mathematics DOI 10.3390/math9182277"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-law numerical evidence located is the published hazard plots, not an exact parameter-region table. The inspected non-self catalogue records state exact boundaries of their different distributions."
+        ],
+        "reasoning": "The graphs cannot certify strict or equal adjacent values at a unique parameter point, or anything about all unplotted counts. A table of a different distribution's thresholds does not fix the ordering of these DGBH ratios. No separate exact table for this continuous-parameter law was identified.",
+        "searches": [
+          "Statistica 81(2), Figure 2 and the corresponding discussion on p. 138",
+          "Resultary: DGBH hazards, critical exponent, consecutive-equality threshold; index IDs d75bb3879263, 646ecb6220e4, c56eaf093042"
+        ]
+      },
+      "rationale": "The DGBH law, hazard formula and several qualitative plotted shapes are already published. The distinct result is the exact infinite-support classification with a unique early threshold crossing, an analytic nonempty region for the count-one peak and count-two trough, the isolated triple plateau, and the late-turn scale. This assessment credits the qualitative overlap and does not claim that complex DGBH hazard shapes themselves are new.",
+      "residual_risks": [
+        "This is a best-of-knowledge assessment, not global historical priority. The exponentiated Burr–Hatke full text was not retrieved, and unindexed exact analytical shape classifications are possible. Figure-based prior shape observations have been credited without assuming exact equalities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact distribution, formula and qualitative shape observations, not the exact boundaries in the inspected passages",
+          "evidence": "The p. 138 list includes upside down increasing and upside down-constant-increasing based on Figure 2; it does not state T2<T0, beta_c, or a theorem about the plateau length or turning scale.",
+          "identifier_or_url": "https://rivista-statistica.unibo.it/article/download/11635/13248/50629",
+          "material_read": "Printed pp. 136–140: equations (2)–(3) and (6), §2 discussion and Figure 2; text offsets 0–6953, 11380–12578, and Figure 2 material near 19112",
+          "method": "Open publisher PDF, targeted original passages",
+          "title": "A New Discrete Distribution: Properties, Characterizations, Modeling Real Count Data, Bayesian and Non-Bayesian Estimations",
+          "trigger": "Original same-law hazard definition and potentially anticipating shape classification"
+        },
+        {
+          "assessment": "Different survival and no up-down-up region",
+          "evidence": "The Finding orders t0>t1>... at beta<1/2 and excludes an increasing-then-decreasing step.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-hazard-reversal-thresholds-for-the-discrete-rayleigh-weibu--646ecb6220e4",
+          "material_read": "RESULT.md Finding, offsets 0–1503, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Open indexed mirror passages",
+          "title": "Exact hazard reversal thresholds for the discrete Rayleigh–Weibull lifetime law",
+          "trigger": "Nearby exact threshold-ordering claim"
+        },
+        {
+          "assessment": "Qualitative two-turn analogue, not DGBH",
+          "evidence": "The decreasing block and all-age boundary are controlled by a Marshall–Olkin tilt and a cubic, not B_k/D_k.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-hazard-turning-point-phase-diagram-for-discrete-marshall-o--c56eaf093042",
+          "material_read": "RESULT.md Finding, offsets 0–1650, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Open indexed mirror passages",
+          "title": "Exact hazard-turning-point phase diagram for discrete Marshall–Olkin length-biased exponential lifetimes",
+          "trigger": "Same-day indexed two-turn phase classification"
+        },
+        {
+          "assessment": "No claim of full-text exclusion",
+          "evidence": "The frozen record attributes CDF (1-p^(k+1)/(k+2))^gamma to this work, distinct from 1-pi^((k+1)^beta)/(k+2).",
+          "identifier_or_url": "https://doi.org/10.3390/math9182277",
+          "material_read": "Publication identification and attributed alternate CDF in the frozen record; no primary full-text comparison",
+          "method": "Open full-text retrieval attempted, landing page or HTTP 403 only",
+          "title": "The Exponentiated Burr–Hatke Distribution and Its Discrete Version",
+          "trigger": "Alternative Burr–Hatke extension with possible naming overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result replaces plots on finite count ranges by an all-count decision rule and establishes sharp structural facts not visible reliably in near-flat plots, especially the unique three-count equality and the exact peak and trough coordinates. The delayed-turn scale explains how a finite window can miss eventual increase. This is useful within the published DGBH model, independent of any claim about fitting data or competing lifetime laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

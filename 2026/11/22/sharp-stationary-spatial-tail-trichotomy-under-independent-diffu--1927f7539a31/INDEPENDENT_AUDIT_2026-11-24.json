@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:31:21.002327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The invariant positional sample is a centered Gaussian conditional on the integrated diffusivity during an independent exponential backward reset age. This needs no iid excursions: the position resets do not regenerate the joint process, but the stationary diffusivity history and reset age are independent, and a reset erases the initial position. Conditioning on the first refresh gives Φ_r(k)=rQ_r(k²)/(1−λQ_r(k²)), with Q_r(z)=∫W(d)/(a+dz) dd and a=r+λ. To justify the complete spectral resolution in RESULT.md lines 70–89, let M be multiplication by d on L²(W dd), let Π project onto the constant function 1, and put A=aI−λΠ. The rank-one inverse identity writes the transform as r⟨1,(A+zM)⁻¹1⟩=⟨1,(I+zA⁻¹/²MA⁻¹/²)⁻¹1⟩. A is strictly positive and M has zero kernel. The spectral theorem thus gives a positive Stieltjes measure (normalized by ∫s⁻¹ dmeasure=1), and interior C¹ regularity gives locally uniform cut boundary values. There W(a/s)>0 prevents denominator zeros; Stieltjes inversion gives exactly the continuous density in (2) and rules out a hidden singular measure on s>a. In the gap, Q_r(−s) increases from 1/a to H/a, giving the unique subcritical pole and the stated positive residue from the derivative. At s=a there is no atom: in the critical case Q_r(−a+δ)−H/a has order −δ^ν by edge scaling from the gap, so δF_r(−a+δ)→0; in the other cases F_r is bounded at the endpoint. Fourier inversion gives the exponential-mixture kernel with 1/(2√s). For the cut expansion set u=1−d and use the exact moving pole u₀=ε/(a+ε). Subtracting H/a leaves, to leading order, (C/a^(1+ν)) ε^ν times the scaled PV integral of v^(ν−1)/(v−1+i0), namely −π[cot(πν)+i]. Splitting below, near and above u₀ and subtracting the remainder's value at u₀ locally controls the PV error using the assumed derivative estimate; it is o(ε^ν). Thus the spectral edge is proportional to ε^ν for r>r_c and ε^(−ν) at criticality. With y=√s−√a, the continuum is e^(−√a x) times the Laplace integral of ρ_r((√a+y)²) in y, giving the exact gamma factors and the powers in lines 24–26. At positive distance from the edge the continuum is exponentially negligible, by the Stieltjes normalization. Below r_c the pole dominates. Finally the boundary moment can also be evaluated directly by the nonnegative series over refresh counts: rQ_r(−a) Σ_{j≥0}(λQ_r(−a))^j, with Q_r(−a)=H/a. This gives the asserted finite value and divergence regimes. For the beta law H=(ν+1)/ν, as claimed. Supplied verify_reset_edge.py was inspected, not executed; its numerical diagnostics are reported finite checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary discovery identifies the switching-diffusion dynamical-condensation/BBP and free-cumulant papers. Frozen RESULT.md lines 114–129 attributes the continuous-refresh renewal and BBP threshold to them for fixed observation times/large deviations; describes Bressloff's finite-state jointly reset diffusivity, Santra et al.'s different unbounded diffusivity with joint resetting, and Arutkin–Reuveni's changing reset rate."
+        ],
+        "reasoning": "Finite-state mixtures do not possess a continuous endpoint with the specified W asymptotics, and a fixed-time displacement large-deviation rate does not give a sharp stationary density asymptotic under exponential-age mixing. An exact prior resolvent including branch spectral information or a general stationary edge theorem would require a closer check; the available passages do not establish such coverage.",
+        "searches": [
+          "arXiv:2610.25072 §3 Eqs. (30)–(36), arXiv:2501.13754 and publication 10.1103/rqsn-bzr6 (Lawful full-text/passage requests and identified alternate lookup)",
+          "Bressloff DOI 10.1088/1751-8121/ab97e0; frozen comparisons to Santra–Basu–Sabhapandit and Arutkin–Reuveni"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–129 and supporting verification files",
+        "Resultary exact self-match 1927f7539a31 and indexed statements of ab029b4db720 and 788807473647",
+        "Discovery and available reference material for arXiv:2610.25072 and arXiv:2501.13754"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same fixed-time characteristic kernel h_k(t), independence makes the stationary transform r times its time Laplace transform at r. If the prior exact time transform is given for general W, this algebraically supplies Φ_r; it is not a distinct transform technique. A prior secular crossing establishes the pole/edge mechanism, not in itself the stationary branch jump or its inversion."
+        ],
+        "reasoning": "An exponential-age mixture of a fixed-time rate-function asymptotic cannot simply be inverted for all sharp stationary constants. The target requires resolving the branch spectral density, treating the critical edge with no atom, proving the opposite signed powers of the spectral edge in the two regimes and Laplace-inverting with the correct normalization. The moment then follows directly from the model's nonnegative renewal series; it is not an independent novelty claim in isolation. Further exact stationary or resolvent coverage in unavailable primary text has not been excluded.",
+        "searches": [
+          "arXiv:2610.25072 §3 Eqs. (30)–(36) and arXiv:2501.13754; fixed-time renewal transform versus stationary inversion",
+          "Resultary 788807473647 and ab029b4db720 indexed results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Resultary ab029b4db720 states a shared stationary position–diffusivity law for position-only and joint resets in its switching setting, with different squared-position memory. Resultary 788807473647 treats a stationary tail controlled by an isolated spectral mode when the reset intensity, rather than the diffusivity, is Poisson refreshed."
+        ],
+        "reasoning": "Protocol labels alone do not separate these claims. In this theorem, a joint reset that redraws diffusivity independently from W is indeed equivalent at one time: conditional on the reset age the post-reset diffusivity path starts from W in either model. Time correlations can differ. The accessible static-equivalence statement does not give the continuum-edge tails or constants. Modulating reset intensity instead changes the law of the age; it is not the independent exponential-age diffusivity mixture.",
+        "searches": [
+          "Resultary stationary spatial tail, independent position resetting, Poisson diffusivity refresh, isolated pole and position/diffusivity static equivalence",
+          "Primary search Guéneau Schorlepp Majumdar Schehr 2610.25072 switching diffusion Laplace resolvent stationary position resetting edge diffusivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed item 1927f7539a31 is the assigned record. Available summaries for distinct ab029b4db720 and 788807473647 do not state the all-W trichotomy, its amplitudes or the boundary exponential moment."
+        ],
+        "reasoning": "This is an analytic result over a class of densities, not a table of beta examples. Neither numerical beta illustrations nor a different model with a pole equation establishes the exact invariant reviewed here.",
+        "searches": [
+          "Resultary stationary pole-to-edge transitions, independent position-only resetting and bounded switching diffusivity",
+          "Targeted primary lookups combining the bounded diffusivity edge with a stationary reset marginal"
+        ]
+      },
+      "rationale": "Credit the previously established diffusivity-refresh dynamics, renewal transform and secular pole/edge mechanism. The distinct result on the available evidence is the exact stationary spatial-tail trichotomy for a regular bounded diffusivity edge, including critical and supercritical powers, evaluated amplitudes and the boundary-moment criterion. Position-only is the protocol in the theorem, not a claim that these stationary laws cannot occur under a joint reset. Cited fixed-time primary full-text coverage remains an access risk, not evidence for novelty.",
+      "residual_risks": [
+        "The cited fixed-time equations, appendices and the Bressloff full text were unavailable after lawful retrieval attempts. A prior transform or a stronger general edge theorem may supply some of the asserted stationary conclusions.",
+        "The distinct static-equivalence record was assessed from its indexed statement; possible continuous-edge extensions in its full text remain unverified. The stationary law itself does not distinguish position-only resetting from joint resetting with an independent redraw from W."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanism and model credited; exact general resolvent and any stronger implication remain unresolved",
+          "evidence": "Available record identifies a fixed-time large-deviation/BBP study, not a read sharp stationary-tail passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.25072",
+          "material_read": "Primary discovery citation and frozen account (lines 116, 124, citing §3 Eqs. 30–36); no retrieved primary equations",
+          "method": "Primary search and lawful OA PDF/HTML and identified alternate-copy passage lookups",
+          "title": "Large Deviations in Switching Diffusion: Dynamical Condensation and Diffusivity BBP Transition",
+          "trigger": "Same continuous-refresh motion and secular pole/edge threshold"
+        },
+        {
+          "assessment": "Antecedent on switching diffusion; no full-text conclusion about broader coverage",
+          "evidence": "Available discovery identifies the free-cumulant/dynamical-transition result, not stationary reset-tail constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.13754; https://doi.org/10.1103/rqsn-bzr6",
+          "material_read": "Primary discovery citation and frozen reference; requested transform passage unavailable",
+          "method": "OA lookup and alternate publication lookup",
+          "title": "Large Deviations in Switching Diffusion: From Free Cumulants to Dynamical Transitions",
+          "trigger": "Underlying fixed-time transform and edge mechanism"
+        },
+        {
+          "assessment": "Described finite-state jointly reset model lacks the assumed continuous edge; cannot exclude extensions from unavailable text",
+          "evidence": "The frozen comparison describes a finite sum of exponentials for finitely many internal states.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab97e0",
+          "material_read": "Frozen characterization at lines 116–120; no retrieved full-text passage",
+          "method": "OA lookup attempted",
+          "title": "Switching diffusions and stochastic resetting",
+          "trigger": "Closest cited resetting study with switching diffusivity"
+        },
+        {
+          "assessment": "Position-only versus joint equivalence matters, but no stated sharp continuous-edge classification in available summary; no priority inference from date",
+          "evidence": "Identical stationary position–diffusivity laws under the two studied reset protocols, with different squared-position memory.",
+          "identifier_or_url": "2026/11/22/SCOPE-static-indistinguishability-and-a-sharp-energy-memory-crossover--ab029b4db720",
+          "material_read": "Indexed statement/summary; full record not retrieved",
+          "method": "Local Resultary and mirror attempt",
+          "title": "Static indistinguishability and a sharp energy-memory crossover",
+          "trigger": "Distinct same-day related stationary-law equivalence"
+        },
+        {
+          "assessment": "Related pole mechanism for a different source of modulation; no exact continuum-edge coverage in the available statement",
+          "evidence": "Poisson-refreshed exponential reset intensity, isolated mode and root equation for the far tail.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-isolated-spectral-pole-determines-the-extreme-tail-of-poisson--788807473647",
+          "material_read": "Indexed statement/summary",
+          "method": "Local Resultary",
+          "title": "An isolated spectral pole determines the extreme tail of Poisson-refreshed resetting",
+          "trigger": "Exact stationary pole-tail analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves how the dominant stationary tail changes when an isolated point of the spectrum meets a continuous edge. The single rate √a cannot distinguish the critical and supercritical tails: the algebraic factors on the two sides of integrability differ, and only above threshold is the boundary exponential moment finite. The explicit amplitudes and threshold for a class of edge densities give more than a rate estimate or a rephrasing of the underlying fixed-time BBP mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: first unsolvable perfect-roommate Pareto separation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Takahashi's Definition 1 was checked against the full source text, including the equivalent two-condition formulation for domination. The four-person part reduces to the established complete two-orbit unsolvable classification and the elementary fact that each of its three perfect pairings has a different singleton blocking-pair set. Takahashi's Lemma 1 prohibits domination between those pairings. The six-person upper bound follows from a direct cross-pair parity argument, characterization of all nine Pareto optima, and exhaustive classification of possible blocking-neutral dominators after one adjacent preference reversal. These steps prove six is the first possible even order. The standalone script enumerates every one of \(1296\) four-person strict preference profiles and checks all fifteen perfect matchings in each specified six-person profile; all assertions passed. No random sample is used as an exhaustive proof.
+PASS
 
-## Originality — PASS with residual priority risk
+Under the stated strict complete preferences and feasibility consisting of all and only perfect pairings, blocking-neutral domination forces containment of blocking pair sets: each new blocker endpoint weakly improves and the pair therefore also blocks the old matching. Any Pareto improvement is a blocking-neutral improvement: each changed partnership consists of two strict improvers, hence forms an old blocking pair, and no agent loses. At two agents the pairing is stable (likewise the empty pairing if admitted). An independent exact census generated the fixed-point-free involutions and used per-agent rank differences for the two dominance relations: all 1,296 four-agent profiles were tested; the 48 without a stable matching have three distinct singleton blocking sets and all three matchings in both solution sets. At six, the unchanged directed cycle on 3,4,5 supplies a blocker in every pairing. The nine one-cross pairings and no others are Pareto optimal: keeping four internally matched agents internal forces their original pairs, whereas in an all-cross pairing four agents can move to internal partners. At baseline the nine blocker sets are distinct two-element sets. After agent 0 changes from 1 above 2 to 2 above 1, the three pairings with 02 have only the unchanged V-blocker; those with 12 cannot be dominated by the only candidate with a smaller blocker set because the cross-matched V-blocker would lose. Each pairing with 01 is dominated by the same-V-edge pairing with 02, in which the only loser (1) is no longer a blocker. The independent census tested all 15 pairings before and after, exactly reproducing the 9-to-6 transition and the excluded pairings {01,23,45}, {01,24,35}, {01,25,34}.
 
-Takahashi, *A Solution to the Roommate Problem* (arXiv:2608.11682v1, 2026), introduces blocking-neutrality, proves existence and its relation to stability and Pareto optimality, and gives separate three- and eight-person examples. Its inspected primary full text does not state this sharp six-person separation **conditional on nonexistence of a stable perfect matching**, the exact six-versus-nine count, or the one-adjacent-swap transition. The published four-person stable-roommates census determines the two unsolvable isomorphism classes and \(48\) labeled profiles, but makes no blocking-neutral claims. Searches of relevant published mathematical records and accessible research ledgers identified no exact equivalent. The general inclusion theorem and four-person stability census do not jointly imply the six-person witness. An unindexed treatment of this restriction remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The finding identifies the first population size at which a recently introduced stability fallback is *strictly more selective than Pareto efficiency* after stability fails, under natural compulsory perfect-pairing feasibility. The one-adjacent-swap example shows that the additional selection is substantively distinct from Pareto optimality: the Pareto set remains of size nine while the blocking-neutral set shrinks from nine to six. It is a sharp motivated boundary, not an arbitrary enumeration of unrelated parameter values. The claim is not extended to markets with singles, arbitrary feasibility constraints, or weak preferences.
+The distinct claim is the sharp minimum under the joint no-stable and perfect-only restrictions and the explicit adjacent reversal witness. Neither general BN inclusion nor the four-agent stability census is new; the most relevant general results and explicit examples do not give the restricted boundary or the 9-to-6 transition.
 
-## Closest literature and limitations
+## value
 
-The main mathematical prior source is Meina Takahashi (2026), https://pdfs.assets.alphaxiv.org/2608.11682v1.pdf (Definition 1, Lemma 1, Theorems 1–3 and Examples 1–3). The four-person classification is https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63. The independent four-person census and witness-specific six-person checks are replayable with `python3 verify_bn.py`. No general six-person population census or independent scientific audit is claimed. Remaining originality risk concerns unindexed computational notes or equivalent constrained-roommate examples.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Because the known inclusion behaves differently when a stable pairing exists, conditioning on unsolvability isolates the effect of the new solution concept in its intended regime. The sharp first population and the one-swap construction show that BN can materially contract at fixed PO and fixed unsolvability, not just disagree in a chosen feasible set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

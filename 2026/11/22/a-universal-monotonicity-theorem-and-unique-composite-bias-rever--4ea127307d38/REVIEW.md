@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (within stated model).** The equivalent retention is uniquely defined on the active branch and its implicit derivative has a strict sign. The central identity \(q_P(P,s)=\Phi_P(q(P,s))\) follows from explicit algebra and the strict concavity of the inverse of \(Pz^2/[\lambda+(1-\lambda)z]\); strict Jensen applies for every nonconstant spatial retention law. The endpoint limits, composite-retention Jensen inequality, and single crossing follow without unproved density or finite-support assumptions. Boundary \(P=\lambda s_-\) is excluded from strict monotonicity and admits zero runoff; all other parameters are quantified. The standalone numerical diagnostics passed, but are not a proof.
+## correctness
 
-**Originality — PASS, provisional, with material priority risk.** Soulis and Valiantzas (2012) already provide two-class runoff formulas, effective CN limits, and the qualitative size dependence; Grove et al. (1998) already analyze composite-versus-distributed bias; Her et al. (2016) already propose event-dependent exact averaging. None of those concepts is credited as new. The reviewed full open two-CN study and accessible associated descriptions do not present a theorem proving strict monotonicity for **every** compactly supported nonconstant distribution **or** uniqueness of the arithmetic-composite bias reversal. Bartlett et al. (2016) study a different stochastic runoff mechanism. The complete technical note of Her et al. was unavailable and could contain an implication or equivalent result; this is a stated historical-priority risk, not evidence of novelty by search failure.
+PASS
 
-**Value — PASS.** The theorem resolves the sign of an important model-aggregation bias for all storm sizes and all spatial soil distributions with a fixed abstraction rule, including a nontrivial reverse-bias regime at high rainfall. It supplies a model-independent monotone calibration direction, a single switch for flood-runoff estimate bias, and a reproducible numerical inversion method. This is a structural result about a widely used hydrology equation, not a statement of field validity or predictive confidence.
+The strict monotonicity and unique positive-runoff crossover hold under the stated fixed-lambda, uniform-rainfall law. For every active storm, the support contains retentions with two distinct runoff values: the low-retention end is active and the other value is strictly smaller, even if it is zero. The local law is C^1 across the activation threshold. With a=1-lambda and z=(P-lambda*s)/(P+a*s) on the active branch, q_s=-2*lambda*z-a*z^2<0 and q_P=2*z-z^2. At a fixed P the map H(z)=P*z^2/(lambda+a*z) is strictly convex increasing, so q_P as a function of q, including zero, is strictly concave. Implicit differentiation and strict Jensen therefore give s_eff'(P)>0 without excluding atoms at the respective local activation thresholds. At onset, s_-<=s_eff<P/lambda. At large P the uniform identity q=P-(1+lambda)*s+s^2/(P+a*s) gives the limit E[S] and the stated bias limit. The arithmetic-CN retention lies strictly between s_- and E[S] by strict Jensen for the reciprocal. Thus it is met exactly once, necessarily after aggregate and composite activation. The two-soil example was independently replayed by substituting s=(254,254/9) with composite retention 3302/37, and bisecting the direct runoff difference on [60,500]; it gives 228.09380830096 mm and biases +7.74932556 and -6.11611651 mm at 50 and 350 mm, respectively.
 
-**Closest literature and limits.** Soulis and Valiantzas (2012), Grove et al. (1998), Her et al. (2016), and Bartlett et al. (2016) are the closest checked comparisons. The arbitrary-distribution strict inequality uses the fixed initial-abstraction law; nonuniform rainfall, spatial interaction, and variable abstraction are outside the scope. Historical originality is provisional until unavailable full texts are assessed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior two-CN equivalent-response trend, low-storm behavior and storm-dependent averaging, not as distinct contributions here. The supported contribution is strict monotonicity for every admissible spatial law including partial activation, with an exact one-crossing classification relative specifically to the arithmetic composite CN. The strongest inspected primary passage gives the two-CN trend, not that joint conclusion; best-of-knowledge assessment, not an assertion of historical priority.
+
+## value
+
+PASS
+
+An operationally common choice—arithmetic averaging of curve numbers—gets a complete directional error classification, not merely examples. The strict response-speed comparison handles arbitrary heterogeneity and partial runoff activation and rules out additional reversals, a conclusion neither endpoint heuristics nor a single two-soil calibration provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

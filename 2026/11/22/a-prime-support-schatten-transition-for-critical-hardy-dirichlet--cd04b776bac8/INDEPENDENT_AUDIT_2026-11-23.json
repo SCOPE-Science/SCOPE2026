@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:33.814105Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prior norm convergence has the same amplitudes hθ_j and normalization 2h, for the coefficient-side product CC*. In its limiting matrix every (n,m) degree block is the outer product of the indicated multinomial vectors times the signed binomial entry. Normalizing one vector per degree and flipping degree signs gives DHD and a zero block. The moment formula gives H ≥ 0; independently the binomial series gives each row sum exactly 2, so the symmetric Schur bound is 2 without needing the Laguerre computation. After removing the common Fourier phase, the collision integral has one torus maximum. The Hessian in its log is −2Σ with det Σ=∏θ_j>0; the real even log has quartic error, giving a relative O(n^-1) Gaussian error by rescaling and an exponentially small exterior tail. Stirling then gives B_nn of order n^-r/2 and, for r=2, coefficient 1/(2π√(u(1−u))) times 1/n with summable error. Positive diagonal trace gives the exact trace claims; c_n→0 gives multiprime compactness. In the one-prime case the weakly null normalized block indicators have a uniformly positive quadratic form by the order N^-1/2 binomial estimate on order N^1/2 near-diagonal entries per row. For two primes the dyadic pieces of B^1/2 have bounded Hilbert–Schmidt norm and operator norm O(2^-j/4); the S_(2p) estimates are summable for p>1 and their sum is B^1/2. For p≤1 the S_1 obstruction suffices. An independent finite sum at n=25,50,100,200 checked the two- and three-weight constants (recorded in /workspace/branches/d1e44778-1767-4906-90da-b133a3544109/ordinal2_findings.md); at u=1/2 Vandermonde gives c_n²=H_nn, so B_nn~1/(πn), confirming the normalization exactly at the symmetric test weight. The uploaded numerical script was inspected, not run; it prints the two traces rather than asserting their agreement. Neither numerical check is needed for the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayart–Kouroupis treats Schatten membership of individual Dirichlet composition operators; the closer preprint proves norm convergence and qualitative boundary compactness.",
+          "The web query returned related operator literature but no identified theorem for this weighted matrix with the stated residue."
+        ],
+        "reasoning": "Operator-norm convergence, even of compact operators, does not transfer uniform control in stronger Schatten ideals. More generally the matrix can be written (C_ψ D)* (C_ψ D) on disk Hardy coefficients with ψ(z)=(1+z)/2 by Vandermonde, so weighted composition and embedding criteria are plausible routes to the threshold; no checked broader claim supplied the full threshold plus the multinomial trace coefficient in this normalization.",
+        "searches": [
+          "\"weighted binomial Hankel\" Schatten class collision probability critical Dirichlet composition operator",
+          "arXiv:2306.05733, Theorems 1.1–1.3",
+          "arXiv:2608.26041v1, Theorems 3.4 and 3.9 and Proposition 3.10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.26041v1, Theorems 3.4, 3.9 and Proposition 3.10",
+        "arXiv:2306.05733, Theorems 1.1–1.3",
+        "Resultary c52ca777e421, RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior collision formula and Stirling alone do not give a trace criterion from c_n→0. The local Gaussian calculation supplies the precise decay and the weight-dependent coefficient.",
+          "The dyadic square-root argument is needed to go from positivity and the trace obstruction to all p>1 for two weights."
+        ],
+        "reasoning": "Qualitative compactness does not imply any finite Schatten membership; the original-operator fixed-amplitude cusp also cannot be substituted in the critical two-amplitude scaling. The local Laplace method is standard, but its quantitative use with the dyadic argument is the actual new implication.",
+        "searches": [
+          "arXiv:2608.26041v1, Proposition 3.10 and its proof, HTML offset 75300",
+          "Resultary record c52ca777e421, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorems 3.4 and 3.9 identify the same critical limit and collision-weighted binomial compression, including the degree sign conjugation.",
+          "Proposition 3.10 uses Plancherel and dominated convergence for the collision integral, without a rate in that argument."
+        ],
+        "reasoning": "The weighted Hankel formulation and collision integral are not themselves new. In the equivalent formulation the increment is quantitative spectral-ideal information and a normalized trace asymptotic.",
+        "searches": [
+          "Resultary: critical finite-prime Hardy Dirichlet coefficient limit Schatten ideals prime support collision-weighted binomial Hankel two prime p>1 logarithmic trace residue three prime trace class",
+          "Resultary: positive weighted binomial Hankel operator DHD with diagonal squared multinomial collision probabilities Schatten p trace class asymptotics",
+          "arXiv:2608.26041v1, Theorems 3.4 and 3.9, Proposition 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved exact numerical law is the two-prime Schatten-four boundary cusp for fixed positive amplitudes and the original C_φ, not the critical DHD cutoff trace."
+        ],
+        "reasoning": "Both are exact boundary constants but for different scalings and observables. The fixed-amplitude law does not tabulate or give the constant for the total-degree cutoff of this limit.",
+        "searches": [
+          "Resultary: critical finite-prime Hardy Dirichlet coefficient limit Schatten ideals prime support collision-weighted binomial Hankel two prime p>1 logarithmic trace residue three prime trace class",
+          "Resultary record c52ca777e421, RESULT.md, Finding and Assumptions"
+        ]
+      },
+      "rationale": "The exact critical limit, its weighted binomial matrix, the multinomial Fourier integral and qualitative multiprime compactness are covered by the closest preprint. What survives the comparison is the sharp two-prime ideal threshold and exact cutoff-trace residue together with nuclearity at three or more active primes. This is a bounded assessment, not historical priority certification.",
+      "residual_risks": [
+        "Unindexed weighted-binomial, local-limit or weighted-composition results might cover a part of the classification. The search was bounded, not evidence of absence.",
+        "No best exponent below one for support size at least three is asserted; no conclusion on the original compositions at fixed h is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers norm convergence, one-variable reduction, Fourier representation and multiprime compactness. The inspected claims and argument do not give the claimed Schatten classification and residue.",
+          "evidence": [
+            "Theorem 3.9 compresses the limit to D_ρ H_(R_ρ/2) D_ρ.",
+            "Proposition 3.10 and the paragraph immediately following deduce c_N→0 and compactness by dominated convergence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.26041v1",
+          "material_read": "Matching symbol and Theorem 3.4 (from offset 51250), Theorem 3.9 (67400), Proposition 3.10 and proof (75300)",
+          "method": "Located and read relevant primary HTML passages by offset",
+          "title": "Critical Norm Profiles for Finite-Prime Composition Operators on the Hardy Space of Dirichlet Series",
+          "trigger": "Identical critical normalization, limiting matrix and collision coefficients"
+        },
+        {
+          "assessment": "The stated criteria treat C_φ itself; the critical coefficient limit is not that operator.",
+          "evidence": [
+            "Theorems give criteria for membership of composition operators in Schatten ideals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.05733",
+          "material_read": "Theorems 1.1–1.3 and surrounding definitions, HTML text from offset 4100",
+          "method": "Read relevant primary HTML text",
+          "title": "Schatten class composition operators on the Hardy space of Dirichlet series and a comparison-type principle",
+          "trigger": "Published broader ideal criteria for related operators"
+        },
+        {
+          "assessment": "Distinct operator and scaling, no direct implication of the reviewed trace or ideal theorem.",
+          "evidence": [
+            "Its φ_δ has fixed amplitudes a_j, while only the real boundary translation δ tends to zero; its observable is the fourth power of the original operator's Schatten-four norm."
+          ],
+          "identifier_or_url": "Resultary c52ca777e421, RESULT.md, mirror revision 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Finding, parameter conventions and proof in RESULT.md from offset 0",
+          "method": "Read the published record via local mirror",
+          "title": "A sharp two-prime Schatten-four boundary cusp for Dirichlet composition operators",
+          "trigger": "Plausible exact earlier law of the same two-prime ideal type"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Active-prime count is an intrinsic parameter of the critical family. Distinguishing mere compactness, compactness with a sharp norm-ideal endpoint, and nuclearity answers a natural quantitative question left by the known limit. The explicit residue in the canonical degree cutoff measures the two-prime obstruction and retains dependence on the weights, not just support count. The useful result is this quantitative operator boundary, not a new central limit theorem or a gain at an arbitrary single exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

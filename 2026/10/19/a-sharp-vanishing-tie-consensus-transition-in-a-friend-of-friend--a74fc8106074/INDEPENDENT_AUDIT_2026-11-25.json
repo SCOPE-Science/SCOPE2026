@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:36.896905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–75; VERIFICATION.md lines 18–27; verify_foaf_threshold.py lines 9–88 inspected, not executed"
+      ],
+      "rationale": "Symmetry, unit diagonal and [0,1] invariance are compatible with the weight field. Uniqueness preserves zero cross-block weights. Lower exponential comparison preserves any initially positive edge; the nonnegative source in the edge equation and an integrating factor then propagate positivity through paths at every positive time. In particular, an initially missing within-component pair is eligible for the critical and supercritical scalar lower comparisons. The two diagonal terms in (W²)_ij give 2w_ij; linearization of the exact edge field at zero has coefficient r=c(2+2/N)−1 with full-population N, not component size. The maximum tie sees at most (N−2)m² from off-diagonal intermediates, leaving strictly negative quadratic coefficient −4c/N at criticality. These scalar bounds give exponential decay below threshold, two-sided reciprocal bounds at the threshold, and a positive asymptotic lower bound above. Below threshold Q is integrable, giving a limit of the bounded stochastic fundamental matrix U; its determinant converges by Liouville to exp(∫tr Q)>0. Component blocks fix their constants, so an invertible block cannot map any nonconstant profile to a constant. At and above threshold one can check contraction directly: at max and min vertices of a nonsingleton component, the contribution of their mutual tie of weight at least ℓ(t), with k_i≤N, yields D⁺diam≤−2cℓ(t) diam/N. Using respectively ℓ(t)≳(1+t)⁻¹ and ℓ(t)≳1 gives polynomial and exponential decay, and the monotonic extrema give actual limits. Independently simplifying the critical maximum-edge field gives −z²[4+(N−2)z]/[2(N+1)]. Substitution of the stated two-agent w(t),d(t) gives d'=−(2/3)wd/(1+w) exactly; inverse-linear decay for the gap is nontrivial when the initial opinions differ (zero gap remains zero).",
+      "residual_risks": [
+        "Conclusions are only within initial connected components, with unit self-weights and constant symmetric response. At criticality the general opinion-decay exponent is not claimed optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nugent et al. Thm. 3.1 gives existence of limits and the disjunction of vanishing opinion gap or vanishing tie. Its FOAF discussion of growing ties for coalescing opinions uses φ→1; its specific 1/2-related condition is for logistic dynamics.",
+          "Hendrickx–Tsitsiklis Thm. 1 gives convergence and equal limits in each persistent component for cut-balanced systems; under boundedness it also gives generic distinctness across different persistent components. Martin–Girard give convergence to consensus under persistent connectivity and controlled reciprocal interaction ratios."
+        ],
+        "reasoning": "For this symmetric W the rates are pairwise comparable since 1≤k_i≤N. Generic theorems therefore already explain qualitative consensus once a connected set of time-integrated rates diverges, including possible vanishing rates. They do not establish where this happens for FOAF, the sharp tie orders, or the uniform subcritical all-nonconstant obstruction (as opposed to generic pairwise distinctness).",
+        "searches": [
+          "arXiv:2602.03738v1 Thm. 3.1 and Cor. 3.2; arXiv:1105.2755v4 Thm. 3; arXiv:1102.2361 Thm. 1; DOI:10.1109/CDC.2011.6160231"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.09483v1, 2602.03738v1, 1105.2755v4, 1102.2361; Warwick WRAP thesis 200396; Resultary 1e50f6fcf9a7, 599bd17e675a, 69472cf06473"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The thesis explicitly observes that FOAF cannot create ties across components, and its Fig. 3.4 already depicts successive closure. Its FOAF experiments compare other response functions with network parameters. From Eq. (14) the FOAF linear coefficient is easy to obtain using diagonal self-loops, but the comparison at a maximizing tie supplies nonlinear control even when the coefficient cancels.",
+          "At the threshold the rate integrals diverge because the ties have a lower reciprocal-time bound, while below it they are integrable and give an invertible limiting opinion map. The qualitative convergence theorem does not itself give either FOAF weight bound."
+        ],
+        "reasoning": "Support closure, the local sign change, and general consensus theorems do not by themselves imply the entire global classification. Distinct content rests on the two-sided critical and off-critical tie estimates and their exact consequences, not on a generic consensus proof or isolated cutoff calculation.",
+        "searches": [
+          "Web: Warwick WRAP Andrew James Nugent 2025 doctoral thesis opinion dynamics evolving social networks friend-of-friend Nugent Gomes Wolfram",
+          "Nugent thesis Chapter 3 Eqs. (3.22)–(3.24), Fig. 3.4 and FOAF discussion; arXiv:1102.2361 Thm. 1; RESULT.md lines 28–75"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper's fixed unit diagonal, opinion equation and Eq. (14) are the same FOAF system before taking φ≡c. The thesis uses the same N⁻¹(W²)_ij term and triadic closure example.",
+          "The 1/2 discussion in the thesis and original paper concerns their separate logistic equation, not the dual diagonal contribution of FOAF. The inspected FOAF thesis experiments vary bounded-confidence or exponential responses, not a homogeneous c through c_*(N)."
+        ],
+        "reasoning": "The defining system is equivalent but the threshold comparison involves different edge field and quantifiers than the constant cutoff for the separate logistic model. The claimed solution classification is not an equivalent restatement of the nonlinear field.",
+        "searches": [
+          "Resultary: Nugent Gomes Wolfram FOAF equation (W^2)ij/N consensus threshold",
+          "arXiv:2305.09483v1 Eqs. (8a), (12)–(14); Nugent thesis Eqs. (3.22)–(3.24)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest same-model record 1e50f6fcf9a7 has the same support closure and component separation, plus geodesic order of activation, for fully interacting φ=1, with within-component ties tending to one.",
+          "Indexed 599bd17e675a and 69472cf06473 capture latent-tie/update thresholds for synchronous adaptive-confidence models, not this continuous FOAF field."
+        ],
+        "reasoning": "The same-model overlap is genuine for the auxiliary support statement but φ=1 cannot settle the transition throughout 0<c<1. An exact table of finite cases would not cover the all-N constant-response threshold and asymptotic classification.",
+        "searches": [
+          "Resultary: friend-of-friend adaptive opinion network FOAF constant interaction sharp threshold ties consensus",
+          "Resultary: FOAF sharp critical interaction constant N/[2(N+1)] tie decay consensus subcritical nonconsensus",
+          "Resultary: constant response friend-of-friend model t^{-1} weights critical consensus invertible limiting opinion operator"
+        ]
+      },
+      "rationale": "Passes for the exact homogeneous FOAF trichotomy, in particular the critically vanishing inverse-time ties that still enforce consensus and the strict subcritical obstruction for all initially nonconstant component profiles. The original model, triadic closure, zero cross-component ties and generic persistent-connectivity consensus are credited inputs or overlaps. The close Warwick doctoral thesis was obtained and its model and FOAF case-study passages compared; no equivalent constant-response theorem was found in those inspected passages.",
+      "residual_risks": [
+        "Primary thesis inspection was targeted at the decisive model and FOAF analysis, not exhaustive across the dissertation or the field. The cited CDC text was not recovered; a related primary arXiv theorem supplies the cut-balance comparison instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same governing equation, separate logistic threshold; not the reviewed constant-response classification in inspected passages",
+          "evidence": "Equations (13)–(14) use full-population normalization and mutual-neighbor term; its numerical FOAF cases do not establish the constant-response trichotomy.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.09483v1",
+          "material_read": "PDF p. 6 Eq. (8a), p. 8 Eqs. (12)–(14), p. 9 FOAF case study",
+          "method": "Primary OA passages at offsets 23923, 34500, 39475",
+          "title": "On evolving network models and their influence on opinion formation",
+          "trigger": "Source of the exact FOAF dynamics"
+        },
+        {
+          "assessment": "Genuine earlier overlap for model, closure mechanism and component isolation; no equivalent trichotomy found in the compared FOAF passages",
+          "evidence": "Thesis illustrates successive triadic closure and explicitly says FOAF does not create intercomponent links. Its 1/2 comparison is for the logistic law in Eq. (3.22); FOAF Eq. (3.24) and its experiments are separate.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/200396/1/WRAP_Theses_Nugent_2025.pdf",
+          "material_read": "Ch. 3, thesis p. 66 (PDF p. 71), Eqs. (3.22)–(3.24) and Fig. 3.4; FOAF case-study passages on PDF pp. 75–78",
+          "method": "Primary institutional OA PDF; inspected offsets 210900–214779, 221400–223545 and targeted later FOAF passages",
+          "title": "Convergence, control and continuous ageing in opinion dynamics",
+          "trigger": "Same author's related doctoral thesis, unresolved in the frozen notes"
+        },
+        {
+          "assessment": "Qualitative clustering result and different explicit conditions, not the reviewed threshold",
+          "evidence": "Strongly connected setup; vanishing tie or equal opinion limit. The commentary for ties tending to one uses φ→1; logistic corollary does not apply to Eq. (14).",
+          "identifier_or_url": "https://arxiv.org/abs/2602.03738v1",
+          "material_read": "PDF p. 2 setup, p. 8 Thm. 3.1, p. 9 Cor. 3.2 and FOAF discussion",
+          "method": "Primary OA passages at offsets 10000, 29618, 34934, 37738",
+          "title": "Emergent structures in coupled opinion and network dynamics",
+          "trigger": "Most directly related later FOAF theory"
+        },
+        {
+          "assessment": "Conditional qualitative consensus, not a FOAF threshold or tie estimate",
+          "evidence": "Requires persistent connectivity and restrictions on divergence of ordered interaction rates.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.2755v4",
+          "material_read": "PDF pp. 3–4 assumptions 1–2 and Theorem 3; p. 7 related work",
+          "method": "Primary OA passages at offsets 11860, 14633, 25876",
+          "title": "Continuous-time consensus under persistent connectivity and slow divergence of reciprocal interaction weights",
+          "trigger": "Broader theorem for consensus with weak interactions"
+        },
+        {
+          "assessment": "Covers qualitative limit convergence and persistence implication, not model-specific criticality",
+          "evidence": "Part (b) gives same limit within each persistent component under cut balance; part (c) gives generic distinct limits across different persistent components with its boundedness hypothesis. This is the inspected arXiv paper, not verification of exact conference wording.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.2361",
+          "material_read": "PDF p. 3, Theorem 1(a)–(c)",
+          "method": "Primary OA PDF passage at offset 21353",
+          "title": "Convergence of type-symmetric and cut-balanced consensus seeking systems",
+          "trigger": "Lawfully accessible related primary cut-balance theorem; conference reference DOI 10.1109/CDC.2011.6160231 did not yield readable primary text"
+        },
+        {
+          "assessment": "Auxiliary overlap for support closure; different response and asymptotic question",
+          "evidence": "φ=1 with coalescing positive weights toward one within the component, not constant c<1 or critical inverse-linear extinction.",
+          "identifier_or_url": "Resultary 1e50f6fcf9a7",
+          "material_read": "Mirrored RESULT.md support and geodesic activation statement",
+          "method": "Indexed search and local mirror comparison",
+          "title": "Geodesic-order activation of missing ties in continuous friend-of-friend dynamics",
+          "trigger": "Strongest same-law published-record match"
+        },
+        {
+          "assessment": "Different update mechanisms",
+          "evidence": "Synchronous adaptive-confidence transitions rather than continuous FOAF sums and full-N normalization.",
+          "identifier_or_url": "Resultary 599bd17e675a and 69472cf06473",
+          "material_read": "Mirrored result statements",
+          "method": "Indexed search and local mirror comparison",
+          "title": "Synchronous adaptive-confidence tie-threshold comparisons",
+          "trigger": "Nearby critical consensus or latent-tie records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–24, 48–75; original FOAF case-study discussion; Nugent thesis Ch. 3"
+      ],
+      "rationale": "The exact cutoff resolves whether mere positive homogeneous interaction ensures consensus in this model. Its critical regime quantifies how ties can all disappear without destroying cumulative communication, while below it the total influence never collapses a nonconstant profile. The two regimes at vanishing weights are mathematically and interpretively distinct; the result covers sparse initial graphs componentwise, not only a symmetric complete-graph trajectory.",
+      "residual_risks": [
+        "Deterministic homogeneous-response restriction; not evidence for robustness to distance-dependent trust, modified normalization, or stochastic link dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

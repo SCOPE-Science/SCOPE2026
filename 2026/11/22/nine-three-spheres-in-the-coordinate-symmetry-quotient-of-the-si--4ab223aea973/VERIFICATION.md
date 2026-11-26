@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The file `verify.py`, executable with the Python 3 standard library, is a standalone verifier for the exact integral orbit-chain portion of the claim. Execute `python3 verify.py`; it must terminate with `PASS`.
+## correctness
 
-It independently reconstructs all type-B signed partitions at rank five, all strict chains of the proper part, all 120 coordinate-permutation actions, and all rank-ordered orbit cells. It forms the integral cellular boundary and checks each composition is zero. The reported initial orbit-chain ranks are `37,242,471,274`, unit-pivot cancellations are `36,206,265`, and the residual ranks are `1,0,0,9`, with zero differentials. Exact modular ranks at primes 2, 3, and 5 provide separate cross-checks but are not used as a replacement for integral cancellation.
+PASS
 
-The simple connectivity step is a mathematical application of the ordinary orbit-space fundamental-group theorem and explicit transposition-fixed vertices; it is not asserted from a finite test. The conclusion that the space is a wedge of nine three-spheres then follows from dimension, Hurewicz and homological Whitehead. The verifier does not certify literature priority or any extension to other ranks.
+The signed partitions are the intersection lattice of the type-B arrangement, so the geometric-lattice proper-part theorem makes its realization simply connected. A coordinate transposition fixes the proper rank-two partition with its two coordinates in the zero block. Armstrong's quotient formula applies to this simply connected finite complex with finite group action and kills every generating transposition. The rank-preserving action identifies no distinct points within any closed simplex: barycentric coefficients at each rank must agree. Thus orbit cells have the oriented face-deletion boundary stated in the record; this is not a claim that the quotient is an abstract simplicial complex. I rebuilt the lattice from joins of its 25 arrangement atoms, merging inconsistent signed components into the zero block; rebuilt all flags and their unsigned permutation orbits; and checked the chain compositions. Ordinary flag counts are 646,7910,20720,14400, and orbit cell counts are 37,242,471,274. Integral diagonalization of each boundary separately produced only unit nonzero factors, with ranks 36,206,265. Hence each image is saturated in the whole chain group and in the next kernel, and integral homology ranks are 1,0,0,9. Simple connectivity and Hurewicz give representatives for a basis of H3; the wedge map is a homology equivalence between simply connected CW complexes, hence a homotopy equivalence.
+
+## originality
+
+PASS
+
+The strongest inspected sources give homology of the unquotiented signed complex, rational character results for Dowling lattices, quotient homotopy results on ordinary partitions, or different Dowling posets. None of the compared statements gives the actual unsigned-permutation quotient's fundamental group, integral homology and homotopy type together. The exact indexed hit is this same record, not separate evidence of coverage.
+
+## value
+
+PASS
+
+The pure-coordinate subgroup is canonical and retains sign information; its nonfree action makes the actual quotient a different object from the labeled complex. The answer rules out lower integral torsion and nontrivial fundamental group as well as giving the exact sphere number. This is a useful concrete test case for extending partition-complex quotient results to signed posets; it is not just a rational invariant or a group-order calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

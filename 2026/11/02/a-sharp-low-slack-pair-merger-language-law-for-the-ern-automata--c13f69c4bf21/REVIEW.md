@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The distance rank \(D_n\) is an exact permutation of the unordered-pair set, as proved by cyclic chord-separation blocks. The six parity cases and the special wraparound pair exhaust all alphabet transitions and establish a unique rank-decreasing action, the minimal nontrivial jump \(\lfloor(n-1)/2\rfloor\), and exactly one transition attaining that jump. Word enumeration in the safe slack window follows by a bijection with weak compositions of idle letters plus unrestricted post-merge suffixes; sharpness follows by using the unique minimal upward jump. A separate standard-library checker confirms all pair states and low-slack counts for \(3\le n\le22\), with literal word enumeration for \(n\le5\). No infinite statement relies on sampling.
+PASS
 
-## Originality — PASS, qualified
+For each shorter circular separation r<n/2, the two branches of D_n give the disjoint consecutive ranges (r-1)n+1 through (r-1)n+r and (r-1)n+r+1 through rn. The even antipodes fill the final n/2 ranks. Substitution of the two images of {i,n-1}, with the singleton assigned rank zero, verifies the transition table, including the odd i=(n-1)/2 and even i=n/2-1 junctions where the unique minimum rise occurs. Away from n-1, a decreases rank by one and b is a loop. Thus the descending letter is forced for shortest words and the path visits precisely the ranks down to one. Telescoping rank up to the first merge shows that slack equals the number of idling letters plus the sum of 1+rise over upward jumps, plus the arbitrary suffix length. This proves the window, the loop generating factor and the factor 1/(1-2z) for the two suffix letters. At first excluded slack from the highest rank, only the unique smallest upward jump can occur and it exhausts slack, so it adds exactly one word; n=2 separately merges on the first b. The frozen verification files were inspected and not executed. Replay the separate exact checker with python3 /workspace/branches/d3d3be15-a159-46e6-a087-318aee507dd5/independent_pair_dp.py; the saved independent_pair_dp_sweep.txt records agreement for every pair and allowed slack at 3<=n<=10, including the first sharp correction. The proof, not this finite sweep, covers all n.
 
-The exact extreme pair-merging **distance** and a Hamiltonian traversal of the pair graph are closely anticipated by Montoya and Nolasco, §2.1 (2017). Those are expressly excluded from the priority claim. The new content is the exact counting law for *all words* in the growing slack interval, a state-specific exponent, and a sharp first correction, requiring a global analysis of all nondescending pair transitions. The 2013 shortest-reset algorithm paper addresses full-state words and computational complexity rather than pairwise near-optimal multiplicities. No decisive equivalent or stronger result emerged from the performed specific searches. Unindexed historical papers and uninspected source sections are residual risks, not ruled out by failed retrieval.
+## originality
 
-## Value — PASS
+PASS
 
-A controlled system may have two possible initial states instead of total uncertainty. The natural invariant is the number of short commands guaranteed to merge the two states. Here unique optimality coexists with a polynomially growing number of near-optimal commands, and the clean formula persists for a *linearly expanding* number of extra letters. The sharp first excursion proves a genuine stability threshold, not an arbitrary finite computation or a restatement of the known extreme pair distance.
+The distinct contribution is the state-dependent count of all near-shortest words merging a fixed pair, with the growing sharp slack window and its first exact defect. The shortest-word uniqueness and distance spectrum are materially covered by existing indexed findings and do not earn originality credit. No inspected result gives the count or makes it a direct specialization of an existing enumeration.
 
-## Limitations and closest prior results
+## value
 
-The theorem applies only to the canonical binary Černý family and pair synchronization, and to the low-slack range specified in the result. Montoya–Nolasco (2017, §2.1) is closest on the pair-graph geometry; Kisielewicz–Kowalski–Szykuła (2013 online, §5.2) is closest on shortest-reset algorithms. Independent historical-priority inspection has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coefficient describes the entire low-slack fixed-pair language of a canonical synchronizing automaton rather than one word or a tiny case. It quantifies when idling and post-merge extensions exhaust all near-optimal words, and locates exactly when and by how much a real detour first changes the count. The growing cutoff and its sharpness are structural information beyond the Hamiltonian shortest path.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

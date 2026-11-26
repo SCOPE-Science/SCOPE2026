@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full private-neighbor condition reduces to four disjoint structural cases according to which of the three clique layers are occupied. Checking the closed-neighborhood witness of each chosen vertex proves both necessity and sufficiency, including the exceptional equal-index pair when the middle layer is empty. Addition-maximality within those cases gives exactly the two cardinality levels and their stated counts. Directly enumerating all possible single-edge slides between maximum sets yields two rook-grid arms attached to a hub and an exact exponential collection of isolated vertices. Counting grid edges and bounding distances to diagonal vertices proves the diameter-four assertion. A standalone brute-force predicate and reconfiguration verifier exhaustively checked every vertex subset for \(n=4,5,6,7\) (2,396,160 subsets), with exact agreement. The universal result is proved structurally, not inferred from computation.
+PASS
 
-## Originality — PASS (conditional on examined sources)
+If the middle is empty, a multi-vertex outer occupancy forces every one of its vertices to use its matched middle vertex as witness; this requires disjoint indices across the outer layers. Singletons in both outer layers can share an index. If the middle is occupied, a second vertex in either outer layer is impossible because the whole middle clique is dominated by a selected middle vertex. With both outer singletons a middle vertex can only witness in the middle clique, so at most one middle vertex can be selected; any triple works by taking outer witness indices different from the middle index and a middle witness outside the two outer indices. A unique outer singleton can witness exactly when a proper subset of middle indices is selected, and middle vertices use the vacant outer layer. The middle-only selections always work. Counting the four disjoint cases yields I_n. Irredundance is hereditary, so the maximal configurations are exactly full complementary outer allocations (2^n), the full middle layer, the two families of singletons plus n−1 middle vertices (2n^2), and the three-layer triples (n^3). For n≥4, only size n is optimal. A slide within a singleton-plus-middle family changes one coordinate, yielding each rook graph. The hub slides to each family only at matched diagonal indices. A within-layer slide of a full outer allocation creates a repeated index, and a middle slide leaves n−1≥3 outer vertices, forbidden with a nonempty middle. No outer-to-outer slide can join the two families. Thus the maximum-set slide graph is exactly the stated union; an off-diagonal vertex is at distance two from the hub, so opposite off-diagonal vertices realize diameter four. Edge count and component counts follow.
 
-The 2018 arXiv preprint *Irredundance Graphs* defines and studies the slide reconfiguration of maximum irredundant sets, establishing broad realization results and structural constraints but not this three-layer clique-path classification. The 2023 work *A characterization of well-dominated Cartesian products* analyzes the same product family in a different invariant: it excludes \(K_n\square P_3\) for \(n\ge4\) from the well-dominated class but does not determine the present irredundance or reconfiguration structure. The published complete-multipartite irredundance result concerns a graph class that does not include these Cartesian products, and a 2018 enumeration algorithm for claw-free graphs does not directly apply because this family contains induced claws. Mathematical-record comparisons located no equivalent polynomial or slide-graph isomorphism. Priority remains conditional on the literature checked; unindexed or differently phrased stronger results could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The target is a standard reconfiguration graph of maximum feasible solutions. An exact source-graph classification is valuable here because it reveals a pronounced difference between feasibility and traversability: although the input graphs are connected, exactly \(2^n\) maximum solutions are frozen under legal slides, while all other maximum solutions occupy one component of constant diameter four. The all-set and inclusion-maximal polynomials also determine irredundance spectrum and multiplicities. The effect is exponential and structural rather than a numerical restatement of a known bound.
+The closest exact-host claim concerns a different set predicate; the same slide framework and related private-witness classifications do not classify this host family. This is a bounded best-of-knowledge decision.
 
-## Limitations
+## value
 
-The formula for the reconfiguration graph is restricted to \(n\ge4\); the smaller orders behave differently. Verification at finite orders is not certification of the infinite theorem. No independent mathematical audit or comprehensive external priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On a natural Cartesian-product family, the result resolves both the quantitative gap between minimal size of a maximal set and the optimum, and the reachability of every optimum under an established slide model. The coexistence of exponentially many frozen optima with a diameter-four nontrivial component is information neither a count of optima nor the known domination result determines. The nontrivial component has quadratic size, not size uniformly bounded in n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

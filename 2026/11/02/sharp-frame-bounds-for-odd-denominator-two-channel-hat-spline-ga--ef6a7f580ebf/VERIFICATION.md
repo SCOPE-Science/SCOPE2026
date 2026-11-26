@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 CHECK.py` with no external libraries. The check file performs 773 assertions in the final tested version. It computes exact rational finite-sum identities from the piecewise-linear hat for fifteen odd values of the denominator and checks the analytic derivative discriminant identity; it independently reconstructs four sample \(2\times q\) Zibulski–Zeevi Zak matrices and their Hermitian eigenvalues at selected fibers, including limiting extremizers.
+## correctness
 
-The theorem for infinitely many odd denominators is proved symbolically in `RESULT.md` using locally finite Walnut sums, a unitary two-periodic fiber decomposition, and a globally positive derivative discriminant. Finite checks alone would not establish the theorem, uniqueness of the extrema, or the universal uniform conditioning bound. No independent mathematical audit has been performed.
+PASS
+
+The frozen proof used the centered hat in the Walnut coefficients but evaluated the sums for the translated hat: at q=3, t=0 the actual centered D(t),D(t+1) are 11/9,8/9, not 8/9,11/9. Both coefficient pairs are interchanged; this leaves trace, squared diagonal difference and off-diagonal modulus invariant. The repair explicitly works with the unitary-equivalent translated hat, reconstructs the finite sums by branch counts, endpoint sums and quadratic coefficients, and derives the two-channel matrix with no normalization change. Nonnegative products optimize both spectral edges at phase zero. The derivative gap 24(q²−1)>0 makes both extreme-phase branches strictly increasing in w, and continuity gives the stated essential extrema and sharp bounds. Recomputed 1248 centered coefficient identities in integer arithmetic; the general proof is symbolic, not extrapolated from the samples.
+
+## originality
+
+PASS
+
+The inspected same-density and same-window work does not give the exact fixed-hat, b=1 spectral edges. The supported contribution is sharp bounds and conditioning, not qualitative frame membership or the general fiber representation.
+
+## value
+
+PASS
+
+The smallest genuinely two-channel reduced numerator is a natural exact spectral benchmark beyond integer oversampling. Both optimal edges, not just positivity, give usable noise/stability constants and exhibit a nontrivial universal conditioning limit of three. The thin but structured family is infinite, and the proof identifies distinct controlling base points for the two edges.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

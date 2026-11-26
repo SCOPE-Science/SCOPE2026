@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The integral difference lattice identifies the fan with the mixed-sign-vector fan. Saturated affine chart semigroups have a single primitive binomial relation; the Jacobian argument finds precisely the minimal balanced four-support singular cones. The quotient star fan at any common coface is the orthant product fan, proving the asserted smooth product intersections and the complete nerve. The five-cycle middle-levels incidence identification follows directly. The packaged finite checker returns `VERIFY_OK` for \(4\le n\le7\); it corroborates, but does not replace, the universal argument.
+## correctness
 
-**Originality: PASS, with a close antecedent.** Postnikov--Reiner--Williams provide the fan/poset dictionary and smoothness criteria. Hallam--Machacek study local Gorenstein properties. The deformed-graphical-zonotope literature describes graphical fan faces. A previous cycle-family local-chart result already covers the hypersurface equations and purity of codimension-three singular support; those are not separately new. The present theorem requires additional global gluing: a distinct indexing of irreducible closures, compatibility of *arbitrary collections* of components, exact smooth structures of all intersections, the nerve's maximal simplices/nonpurity, and the Desargues incidence configuration. None of the inspected relevant source results supplies that global incidence theorem. Risk: an unindexed account or a nontrivial but previously recognized corollary could cover it.
+PASS
 
-**Mathematical value: PASS.** Local analytic equations do not specify the global intersection pattern of singular components. The exact incidence complex, all products \((\mathbb P^1)^{n-|U|}\), and the 30-line Desargues configuration constitute a natural complete description of how singular strata assemble in this infinite projective toric family. The result does not claim a general smoothing or cohomology consequence.
+The frozen Finding and its five-cycle proof misname the Desargues graph as the point-line incidence graph. That graph in the usual incidence convention has 20 point-vertices and 30 line-vertices (and 60 incidences), not 20 vertices. The corrected RESULT.md under repairs/1 distinguishes this once-subdivided graph from the graph with junctions as vertices and lines as edges; the latter is Desargues. Re-audit of the corrected claim: cyclic summation gives the integral sum-zero difference lattice. Weak signed regions with both signs have dimension |E|−1, and setting some support coordinates to zero gives exactly the face order, since strict signs on every mixed support are feasible. In the support dual lattice, shifting an integral representative by the maximum negative-block coordinate puts it in the singleton-generated semigroup; the one primitive relation gives the squarefree binomial chart. The two partial-derivative blocks vanish precisely when at least two coordinates vanish in each, in all characteristics. The minimal nonsmooth supports are exactly two plus and two minus; their open orbits see a node times a torus, giving generic transverse multiplicity two. Compatible labels have a least common coface, their mixed union, and conflicts have none. Projection to unused coordinates is integrally surjective with saturated kernel, and permitted signs on the existing support allow any prescribed outside sum to be compensated. Hence each quotient star is the coordinate orthant fan and each nonempty reduced intersection is the stated product. A full assignment with two signs of each kind is recovered from all its balanced supports, so gives a maximal face, and every maximal face arises this way. The p=2 versus p=3 facet size difference is (n−3)(n−5). For n=5 a line leaves exactly one sign free, giving precisely the two endpoint positive sets A⊂B of sizes 2 and 3. Each inclusion recovers its unique line. This proves the corrected two-graph distinction. The existing verify.py and verification notes still apply: the enumeration represents lines as inclusion edges and does not claim that the incidence bipartite graph has only 20 vertices.
 
-**Limitations.** Only reduced intersections are classified, not scheme-theoretic intersection multiplicities or nongeneric completed local rings. Literature searches cannot certify uniqueness. Characteristic independence is established by integral fan/semigroup constructions and the monomial Jacobian equations. No independent audit or validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired statement the comparable local charts, codimension-three purity, and singular fixed-point counts are not new. The exact all-collection global gluing with its integral star-fan geometry, facet structure and concrete five-cycle graph identification survives those overlaps on the material inspected. The Desargues graph itself and subdivision operation are not novelty claims.
+
+## value
+
+PASS
+
+The closed gluing rule describes an entire singular locus in unbounded dimension, determining both the incidence of arbitrarily many components and the varieties appearing on every nonempty reduced intersection. Fixed-chart counts alone cannot be used in place of this global information. The corrected five-cycle figure is a concrete finite geometric specialization of that rule, not the sole basis for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the result for all real \(a\ge1\) and \(\theta\in[0,\pi/2]\), including the two threshold aspect ratios and endpoint conventions. The standalone `scripts/check_rectangles.py` script uses the Python standard library only and recomputes the intersection polygon using independent half-plane clipping rather than the retained-side proof.
+## correctness
 
-Run `python3 scripts/check_rectangles.py`. The run conducted before packaging printed `PASS: 21344 checks; independent polygon-half-plane clipping agrees`. Tested inputs included the angle boundaries, both sharp thresholds, 120 randomized shape parameters, dozens of random angles per parameter, and 11 dense grids checking the global lower bound. The checker is an error-detection aid, not an exhaustive enumeration of real angles and aspect ratios; the infinite-parameter theorem depends on the symbolic proof.
+PASS
 
-The comparison against accessible published sources is a same-model literature analysis, not an independent priority certification. The 2014 convex-body-rotation paper's full text was unavailable; its abstract was read. The first exact calendar date among selected supporting material is July 26, 2012; an older 1986 geometry-book attribution has year-only evidence, not a verified month/day.
+Independent angular-bisector derivation: rotating the axes by θ/2, write α=cos(θ/2), β=sin(θ/2). In the first quadrant the intersection is αx+βy≤a and βx+αy≤1, with the other quadrants obtained by reflection. For 0<θ<π/2 the first inequality is redundant exactly when a≥α/β; the single perimeter segment in the quadrant then has length 1/(αβ). Otherwise the two segments meet at (x*,y*), and their lengths, measured from the axis-intercepts, sum to (x*+y*)/α=(a+1)/(α(α+β)). Multiplying by four and setting t=β/α gives the asserted profile, with agreement at the join and the direct endpoint perimeters 4(a+1) and 8. The sign of the first derivative is that of t²+2t−1; the second branch is strictly decreasing up to t=1. Thus the strict interior pair exists precisely at 1<a<1+sqrt(2), with the square case's maximum at the endpoint and coalescence yielding strict decrease, not a plateau. The sole competing minima when the diagonal candidate is attained are its value 8(sqrt(2)−1)(a+1) and 8, tying only at a=sqrt(2). Read the packaged VERIFICATION.md and scripts/check_rectangles.py: the recorded 21,344 comparisons include independent clipping checks but are finite; the analytic argument establishes equality and all real parameters. The script was not executed.
+
+## originality
+
+PASS
+
+No distinct inspected statement covers the rectangular Euclidean perimeter profile or its two thresholds. The identical indexed record is not independent prior evidence. The strongest adjacent indexed angular-perimeter theorem is for ellipses, and classical equal-rectangle results concern area. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The intersection perimeter is a natural geometric observable distinct from overlap area. The substantive result is the full landscape: a global optimizer jumps before the losing strict local minimum disappears. The sharp coexistence and distinct contact and local-extremum behavior go beyond a clipping recipe or computing a single rectangular configuration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

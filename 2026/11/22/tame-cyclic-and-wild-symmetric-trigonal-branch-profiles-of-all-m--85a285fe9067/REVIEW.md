@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The 20-dimensional bidegree-\((4,3)\) section space has nine independent rational evaluation conditions. A complete enumeration of its \(2048\) filling sections, four affine-chart Gröbner Jacobian tests, and all \(36\) coordinate substitutions returns exactly \(66\) smooth curves in four orbits of sizes \(6,18,36,6\). The independently reconstructed half-discriminants have degree eight and are squarefree. Their exact gcd with the triple-fiber criterion gives two pure tame orbits and two pure wild orbits. Explicit order-three deck transformations, cubic monodromy, and Riemann–Hurwitz establish the full stated types, including different exponent two. The checks were run with the file embedded in this finding.
+## correctness
 
-**Originality: PASS, with residual priority risk.** Homma–Kim's original source establishes minimum bidegree and a smooth witness, not a branch classification. The two most relevant published exact censuses give four ambient orbits and Weil polynomials but not the branch polynomials, cubic ramification indices, geometric monodromy or splitting of the branch divisor. A different census for genus-four trigonal curves concerns rational totally ramified fibers of bidegree-\((3,3)\) curves; the cyclic genus-six septic calculations concern Cartier operators and different covers. The present implication needs the new exact half-discriminant and gcd calculations. A hidden branch census in specialist tables remains possible.
+PASS
 
-**Mathematical value: PASS.** This gives the full finite natural Hurwitz invariant of the minimal split-quadric filling family, separating tame cyclic and weakly wild symmetric degree-three maps and showing that the branch divisor does not have a uniform Frobenius type even when all curves are filling. It is a geometric and arithmetic refinement of the existing embedded orbit and zeta classifications, not an arbitrary coefficient slice.
+Independent enumeration imposed direct evaluations on the entire 20-bit coefficient space, obtained 2047 nonzero filling forms, and closed 99 ruling-preserving orbits using swaps and translations. Four-chart Jacobian ideals on orbit representatives gave exactly the stated 66 smooth sections in four orbits. Independent binary discriminant, factorization, triple-root and orbit-stabilizer computations gave all four listed rows, including the polynomials and deck orders. On a smooth positive-bidegree divisor, distinct components could be disjoint only if all belonged to one ruling, so the curves here are geometrically integral. The first projection is finite of odd degree three, hence separable. The binary cubic discriminant is the normalized resultant (divide the affine resultant by its leading coefficient); its square root has degree eight after homogenization and is nonzero at infinity. It is coprime to the leading cubic coefficient on the branch support. Thus ordinary cubic root multiplicities give the stated geometric indices, and a nontrivial order-three fiber automorphism gives a cyclic Galois map in the tame cases; index two excludes cyclic geometric monodromy in the wild cases. Genus six and Riemann–Hurwitz give 16 as the total different degree, forcing each of the eight local exponents to be two. For the geometric degree-two local extensions this means the second ramification group is trivial.
 
-The result applies only to the displayed finite field and bidegree. The complete \(S_3\) closure ramification filtration and abstract moduli of all degree-three pencils are not determined. No independent specialist review has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 66-count, four embedded classes and explicit forms were already given. The supported distinct claim is their full geometric branch profile and arithmetic splitting, not the orbit census, stabilizers, or Weil polynomials. The compared prior statements do not provide the discriminant factorization and repeated-fiber data, and a bounded search cannot establish absolute priority.
+
+## value
+
+PASS
+
+The branch data are an intrinsic invariant of the natural trigonal morphism on the entire minimal filling family. They separate two kinds of monodromy, determine where the local wild extensions are weakly ramified, and identify the exceptional (2,6) closed-point profile in the cyclic family. This distinguishes covers in a way not supplied by section counts or curve zeta data, and gives exact input for comparisons of characteristic-two trigonal covers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

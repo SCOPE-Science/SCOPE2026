@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cap probability is normalized to fraction \(\alpha\) of the original area and is computed in both triangular and trapezoidal regimes. A direct support-function calculation proves the hyperbolic body identity for all \(0<\alpha<1/2\), independently of relying on earlier small-cap descriptions. The inradius is a complete scalar minimization over all normal directions; the circumradius is a convex-quadratic endpoint maximum over the entire boundary arc; boundaries at \(\alpha_*=3/2-\sqrt2\) and \(1/8\) agree continuously. Dihedral symmetrization of ellipsoid shape matrices proves that the centered circular sandwich is globally affine-optimal; the three sign computations give a unique minimizer. A standalone checker independently tests cap normalization, support values, boundary maxima, and derivative implications. Numerical tests are not the proof.
+PASS
 
-## Originality — PASS with stated priority risk
+With a ≥ b ≥ 0 for the normal (a,b), integrating the uniform square cap gives the triangular cap fraction (a+b−q)^2/(8ab) up to b/a and thereafter the trapezoid fraction (a−q)/(2a) up to half the area. Maximizing the linear functional on the downwards first-quadrant hyperbola gives the same threshold, either at the axis endpoint or at the stated tangent point; reflection extends the support check to all directions. This candidate is convex (the first-quadrant graph is concave and decreases, and reflections yield a convex unconditional set). On the triangular branch the support is f(s)=s−2√α√(s²−1), s=a+b, strictly convex. Its critical point lies beyond the switch b/a=2α when α≤1/8: its sin(2θ)=4α/(1−4α) exceeds 4α/(1+4α²) at the switch. It reaches the diagonal at 1/8. After that f decreases up to the diagonal, including when α≥1/4 and the formal stationary point ceases to exist. The circumradius maximizes (x+y−1)^2+1−4α on the hyperbolic arc and hence occurs on axis or diagonal; their only tie in the open range is α*=3/2−√2, and strict convexity gives no additional contacts. To exclude translations, apply the inner and outer support inequalities to both u and −u; symmetry of the body yields a centered sandwich of the same shape and factor. Linear inner constraints on the positive-definite shape matrix and convex outer inverse-matrix constraints persist under averaging over the dihedral group. Convexity of xᵀM⁻¹x follows also by writing it as sup_y(2xᵀy−yᵀMy). The averaged matrix is scalar. The profile decreases up to α*, increases to 1/8, and above 1/8 factors exactly to √α+1/√2, strictly increasing. The exact minimum evaluated independently at high precision is 1.02216216905878774068. Affine equivariance follows because all cap areas and the original area scale by the same determinant. The frozen checker was inspected, not executed; the proof covers every allowed depth and affine sandwich, whereas the sampled checks cannot do so.
 
-The closest direct precursor is Gupta (2017), which explicitly contains the hyperbolic equation for square floating bodies; that equation is credited and is not claimed as new. Brandenburg--De Loera--Meroni (2026) gives general semialgebraicity and the centerpoint relation without the sharp affine-roundness parameter. Grundbacher--Kobos (2026) supplies a general Banach--Mazur optimality characterization, not the floating-square depth optimization. Mordhorst--Werner (2019) measures different floating--illumination duality quantities. Relevant research-database records involve the Ulam floating body, square separation bodies, or unrelated Banach--Mazur profiles. None of the inspected results reports the present unique sharp cap fraction, all-level distance profile, or two contact transitions. The already-known contour makes some intermediate formulas deductively accessible; the proposed new mathematical statement is their fully sharp global affine optimization. Historical priority remains contingent on further unindexed literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The optimization concerns a canonical scalar geometric parameter: how much volume to trim to get the most Euclidean, **up to any affine map**, robust central region of an arbitrary parallelogram. It has a unique non-obvious exact answer and separate inner/outer geometric phase boundaries, not a chosen numerical slice, generic computation, or routine gain in a bound. The affine equivalence yields a full natural class, and the exact profile distinguishes this optimum from fixed centerpoint depth and either untrimmed or extreme-depth limits.
+The credited square contour and general affine-optimality principles are not new. No verified earlier statement or stronger quantitative theorem in the inspected evidence determines the full disk-distance profile, optimizing cap fraction and ordered inner/outer transitions. This is a comparison of the retained optimization only, not historical-priority certification.
 
-## Limits and closest literature
+## value
 
-Gupta (2017), Proposition 3.3 proof, gives square floating-body hyperbolic contours. Brandenburg--De Loera--Meroni (2026), Section 5.2, is the recent motivating centerpoint/floating-body framework. General earlier shape or distance-ellipsoid criteria must not be mistaken for novel components. Extension to nonparallelogram polygons is not established; an older unstated exact roundness optimum cannot be ruled out solely by these searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least affinely distorted central region in a depth filtration is a natural and invariant question. This result gives the whole profile for the affine class of parallelograms, rather than just a numerical best depth, and identifies two separate changes of contact pattern. The sharper information distinguishes the optimal trimming level from the inradius transition and shows why optimizing in a fixed square normalization is nevertheless affine-sharp. It does not extend to general polygons by this argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

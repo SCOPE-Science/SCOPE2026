@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof enumerates the exact six unordered-pair connection probabilities. Fixed-budget outer-edge symmetrization is strict by AM--GM, leaving a one-variable objective; a strictly increasing rational function gives one interior maximum for every positive budget. The proof checks endpoint signs, establishes uniqueness and interior positivity, derives the sharp central-edge inequality and proves both asymptotic regimes. Direct enumeration and independent random-allocation checks in `checker.py` passed 40,071 supplementary assertions. The experiments are supplementary and not substituted for proof.
+PASS
 
-## Originality — PASS on investigated evidence
+For n=2 the allocation is forced; for n=3 the score at fixed product R of the two failure probabilities is 3+R minus twice their sum, so equality is uniquely optimal. For n=4, independent enumeration by component sizes gives the six-pair score. At fixed middle failure probability v and fixed product uw, the only variable term is -(3-2v)(u+w); the strict AM–GM comparison gives the equality of the two outer allocations even when an endpoint is feasible. At equal outer failures u, outer success p=1-u, the middle marginal with respect to investment is v(2-u)^2; each outer marginal is u[1+(1-v)(2-u)]. Their difference is 2v(2-u)-u(3-u). Along the symmetric budget line v=R/u², the sign of the objective derivative with respect to u is the sign of R-H(u), H=u³(3-u)/[2(2-u)]. H is strictly increasing; H(sqrt R)<R since 2(2-u)-u(3-u)=(1-u)(4-u)>0 there, and H(1)=1>R. This proves the unique interior global optimum. The premium equals log(2(2-u)/(3-u)), strictly decreasing in u while u strictly decreases with B. Endpoint limits give 0 and log(4/3); H'(1)=7/2 and H(u) ~ 3u³/4 at zero yield both budget asymptotics. The exact benchmark R=5/48, u=1/2 has v=5/12 and score 37/16. This is an all-budget proof for independent equally priced exponential links, not a random-search inference.
 
-The most directly relevant ecological connectivity work is Hamonic et al., arXiv:2109.06622 (2021-09-14), and journal DOI 10.1002/net.22131. Its full formulation and results cover a discrete subset-selection problem for upgrades, including the same family of pairwise connectivity indices, rather than continuously divisible exponential edge improvements on a four-patch path. Kettelle (DOI 10.1287/opre.10.2.249, continuous stage section read in full) proves a different objective for overall serial-system reliability; it does not entail the unique all-pairs connectivity allocation. The nearest published mathematical searches included four-habitat corridor allocation and path-connectivity budget variants; the identified results use colonization matrices, extinction times, effective resistances or discrete intervention choices rather than this objective. The 2006 reliability allocation paper (DOI 10.1137/S0036144503434493) could only be assessed from its abstract, leaving a residual historical-priority risk. Search failures were not taken as uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The contribution is a complete natural four-habitat reliability allocation, with an exact global optimizer, a strict central bottleneck premium at every budget, and an exact minimal architecture: the analogous equal-cost three-patch path always divides investment evenly. The premium increases but remains bounded, and the limiting budget shares are explicit. These are concrete calibration and sanity benchmarks for continuous habitat-corridor investment models; no empirical optimality is claimed.
+The connectivity index itself is established; the same or related reliability response appears in other allocation settings. No checked result furnishes the global all-budget optimizer or strict premium for this continuous all-pair path objective. The close unresolved general-allocation paper is an access risk, not negative evidence.
 
-## Scope and limits
+## value
 
-Only independent exponentially improvable links, unit-value persistent patches, continuous equal-cost investment, and expected connected-pair score are covered. The score is not species persistence or whole-network reliability. No broader arbitrary-network result or field recommendation follows. Priority and ecological calibration require further external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-pairs score is a naturally used connectivity objective. In its smallest homogeneous path where link positions are not interchangeable, it is not enough to note that the middle marginal is larger at equality: the sharp result gives the interior global optimum and strict ordering for every budget, with an increasing but bounded log-effort premium. The exact budget dependence and transition from the three-patch symmetry case are useful baselines for continuous path investment. This is a model-level statement, not a species persistence or real restoration prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

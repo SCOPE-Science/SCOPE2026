@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signature map is injective exactly when the query family identifies all vertices. The eight-query case contradicts the ball volume, and the nine-query case forces pairwise ball intersections of 29. The exact distance-dependent intersection table contains no 29.
+## correctness
 
-**Originality — PASS (best-knowledge).** The closest literature defines the same ball-search parameter and studies identifying/separating codes in binary Hamming spaces. The inspected 2015 source treats the Q7 radius-three construction and general estimates; the literature searches found related but different invariants rather than this Q8 lower bound. A related Hamming-space article was not read end-to-end, and that residual risk is retained.
+PASS
 
-**Value — PASS.** The bound strengthens the information-theoretic lower bound from eight to ten queries for a natural fixed-radius search problem. It is a precise boundary result useful for subsequent constructions; it does not purport to determine the exact optimum.
+Distinct answers require injective signatures. Seven or fewer bits cannot encode 256 vertices. At eight bits a bijection would require 128 ones in each column, but a closed radius-three ball contains 1+8+28+56=93 vertices. At nine bits the total weight is 837; the exactly 256 words of weight at most four have total weight 837 and form the unique minimizing set (the next available words have weight at least five). Thus all those signatures are forced, and any two columns have 1+7+21=29 simultaneous ones. For distinct centers c,d, translation by c⊕d pairs points of the intersection without fixed points, so it has even size; with identical centers the intersection has size 93, not 29. Independent direct XOR enumeration of all 32,640 pairs of distinct centers (`python -B /workspace/branches/replay_records_1_3_4_5.py`, section 3) confirms the frozen table 93,58,58,38,38,20,20,0,0 by increasing distance including the identical case. The proof is for nonadaptive, fixed closed radius-three balls and gives only a lower bound; it does not supply a ten-ball system or determine the exact optimum. The erroneous arXiv identifier in reference 2 is bibliographic, not an input to the proof.
 
-## Closest literature and limitations
+## originality
 
-- Y. Kim et al., *Identifying codes and searching with balls in graphs*, arXiv:1405.7508; DOI 10.1016/j.dam.2015.03.018.
-- *New identifying codes in the binary Hamming space*, arXiv:0804.3029; DOI 10.1016/j.ejc.2009.03.032.
+PASS
 
-The proof establishes only \(M(Q_8,3)\ge10\). No ten-query construction or exact value is established, and the second source was not inspected in full.
+In the checked evidence, the near-half-radius Q7 construction and general uniform-size separating bounds do not yield the two extra queries at Q8. Requiring both uniqueness and coverage changes the problem; no inspected same-parameter covered-code result implies this lower bound. The new step beyond the signature weight bound is an equality-case incompatibility with Hamming-ball intersections. This is a bounded best-of-knowledge decision, not a historical priority claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Dimension eight at the same radius is the immediate neighbor of the information-theoretically sharp seven-query Q7 example. The bound rules out even a one-query overhead over the eight-bit capacity threshold; equal ball sizes alone do not rule out nine via the first moment. Rigidity of the extremal signature set and its incompatibility with Hamming-ball pair intersections give a substantive, checkable obstruction, without claiming the optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

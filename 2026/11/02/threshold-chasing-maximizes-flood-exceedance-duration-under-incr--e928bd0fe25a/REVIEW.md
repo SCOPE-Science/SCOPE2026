@@ -1,19 +1,21 @@
-# Scientific review: threshold-triggered flood duration
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The scalar threshold-recession clock \(\Phi_h\) loses precisely one unit per unit time whenever discharge exceeds the threshold. Its jumps telescope exactly to the full exceedance duration, including schedules with separated exceedance events. Strictly decreasing reciprocal recession rate proves each later pulse contributes at most \(\Phi_h(h+P)\), with equality only when the pre-pulse level is exactly \(h\). The total fixed-order bound is attained with finite, positive gaps. The first-pulse advantage is the strictly increasing function \(-\int_P^{P+h}1/f\), proving the largest-first rule. All specified boundaries and quantifiers are explicit. Exact rational checks for two recession laws passed 36,006 assertions; this is verification evidence, not a replacement for proof.
+PASS
 
-## Originality
+For strictly increasing locally Lipschitz f with f(0)=0 and f>0 on (0,∞), each nonnegative recession segment exists forward and any positive post-event discharge decreases toward zero. If it starts above h, the time to h is the given finite integral. The clock Φ_h along a flow segment decreases at unit speed above h and is otherwise flat, apart from immaterial threshold instants. The initial and limiting clock values are zero, so the total occupation time telescopes to the sum of clock jumps, including for coincident pulses (successive jumps with no intervening flow). For P>h, the jump Φ_h(y+P)−Φ_h(y) increases strictly on 0≤y≤h and decreases strictly on y≥h, by strict increase of Φ_h above h in the former case and comparison of the translated integrals of 1/f in the latter. The first pre-pulse state is zero, and the pointwise optimum y=h is attainable at all later pulses simultaneously by the threshold-return recursion. The strict inequalities exclude every other subsequent pre-state and ensure strictly positive gaps, so simultaneous pulses cannot be optimal. The only lost increment is the positive penalty ∫_P^(P+h)1/f(u) du for the first pulse, strictly decreasing in P. Thus precisely a maximal occurrence may go first, with all later orders permitted and unique gaps for any fixed order. The logarithmic formula and the example with h=k=1 follow by integration, including log 60 versus log 10 for coincident pulses. As an additional exact check, with f(q)=q², h=1 and pulses (2,3,5), the optimal times conditional on first pulse 2, 3, or 5 are 25/12, 13/6, and 133/60, respectively, from Φ_1(z)=1−1/z above 1. The argument is an analytical sharp bound and proof of equality, not a grid search over calendars.
 
-**PASS under scoped best-knowledge comparison, with residual historical risk.** Targeted searches of related published mathematical findings and accessible hydrological literature found no statement covering the exact objective, arbitrary unequal individually threshold-crossing additive discharge impulses, all strictly increasing recession laws and equality classification. Harman et al. (2009) treat impulse and periodic-recharge recession shapes; Gnecco et al. (2018) optimize peak discharge under a different response; Lawson et al. (2025) characterize statistical threshold-event durations. The nearest related hydrological mathematical statement concerns periodic two-storm saturation-excess runoff *volume*, not maximum time above a threshold. General impulsive-control theory may imply the claim, and this is not a certified literature-exhaustive priority determination.
+## originality
 
-## Value
+PASS
 
-**PASS.** Duration above a flow threshold is a substantive hydrological risk metric distinct from peak discharge, as reflected in empirical duration-over-threshold modeling. The theorem provides a sharp, generally nonlinear, finite-multistorm adversarial bound and a complete extremal timing/ordering prescription without combinatorial schedule optimization. The largest-first rule for unequal event sizes and the threshold-triggering condition are both nontrivial structural predictions. The result is restricted to idealized additive discharge impulses and does not purport to forecast real storms or model finite-duration rainfall.
+The supported distinct statement is the sharp full-calendar characterization for arbitrary finitely many prescribed individually superthreshold additive impulses under a strictly increasing scalar autonomous recession law, not the notion of a recession clock, hydrograph duration or a particular test value. The strongest inspected indexed comparison shares the occupation objective but uses a two-reservoir impulse response and two equal pulses. The closest inspected primary optimization uses peak, not occupation time. A bounded comparison found no statement or transport of the full scalar calendar law; two plausible but inaccessible papers remain named access risks, not evidence of absence.
 
-## Closest literature and limitations
+## value
 
-Harman et al., *Water Resources Research* (2009), DOI 10.1029/2008WR007392; Gnecco et al., *Hydrology and Earth System Sciences* (2018), DOI 10.5194/hess-22-943-2018; Lawson et al., *Water Resources Research* (2025), DOI 10.1029/2023WR037022. The objective and assumption comparisons are documented in the structured audit. The unresolved risk is a stronger abstract rearrangement theorem in impulse control. The source papers do not validate the instantaneously additive nonlinear discharge-jump idealization for arbitrary catchments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a structural optimum for a naturally posed occupation problem with continuous time decisions, discrete order and arbitrary nonlinear monotone recession. The equality classification shows concretely why packing input for a high peak is not optimal for time above threshold, why no below-threshold delay is needed, and why only the largest first pulse matters for ordering after the others are fired on threshold returns. The clock bound makes this distinction without fitting any particular recession exponent or instance. Its role is a benchmark for an idealized model, not a rule for managing actual floods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

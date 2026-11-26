@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each perfect stem imposes one reflected matching of independently sampled positions, so its marginal probability is exactly \(q^{-m}\). For distinct centers, the two reflected matchings cannot form an alternating cycle because their product is a nonzero translation. Their constraint graph is a forest of \(2m\) edges, proving exact independence. Equal-center copies have exactly \(m-d\) shared constraints for shifts \(d<m\); binomial counting of the allowable shifts gives the stated finite-length variance. All quantifiers and boundaries are explicit. Finite exact checks independently corroborate the proof. No limit law beyond the displayed variance ratio is asserted.
+## correctness
 
-**Originality — PASS, with residual risk.** The inspected 2023 secondary-structure-avoidance papers construct constrained DNA codes and bound avoidance performance; they do not state a covariance matrix or an exact variance for the *number* of potential stems under the iid model. Searches of mathematical research records and more general literature for reverse-complementary stem covariance, reflection-center dependence and hairpin-count variance found no exact implication. The older Fitch 1983 paper is plausibly relevant to first moments and could not be read in full because the accessible publisher source failed; its abstract discusses expected frequency. An unindexed exact second-moment computation cannot be ruled out. This is scientific originality assessment, not independent validation.
+PASS
 
-**Mathematical value — PASS.** Counting potential hairpin stems is a natural statistic for the same constrained-string objects studied in DNA secondary-structure avoidance. Dependence is nontrivial: overlapping stems at different centers are independent, while nested same-center stems cause measurable variance inflation. The result determines the entire covariance support and the exact variance for every length, stem size, alphabet size, and minimum loop length, supplying a complete null-model baseline rather than a special numerical instance.
+The count is indexed by increasing start positions i<j, so each candidate is counted once. Substituting j'=j−(m+g−1) gives 1≤i<j'≤n−2m−g+2 and hence the stated binomial count, also zero when no pair fits. Each event imposes a matching of m complement constraints, so has probability q^(−m). At different endpoint sums c and c' the matchings have no common edge. A cycle would have to alternate colors; every two successive reflection steps would advance by the same nonzero translation c'−c (with a fixed choice of first color), which cannot close. Each edge of the resulting forest costs one factor q^(−1), by rooting each component, proving pairwise independence even with intersecting supports. At one endpoint sum the starts are (i,j) and (i+d,j−d); all constraints belong to one matching. The left intervals overlap in max(m−d,0) sites, which is exactly their number of shared edges, since all left endpoints lie strictly below the common geometric center. There are B(n−2m−g−2d+2) unordered pairs of this type at shift d, from the stricter inner-stem separation. Summation of the diagonal and twice these unordered-pair covariances gives the displayed variance including empty and m=1 cases. For fixed m,g each shifted binomial count is asymptotic to the first; the geometric sum then yields the successive limit (q+1)/(q−1). Substitution for q=4,m=2,g=0 gives (15B(n−2)+6B(n−4))/256 and ratio 21/16.
 
-**Closest literature and limits.** Nguyen et al. (arXiv:2302.13714v1) and Chu–Wang–Zhang (arXiv:2304.11403v1) concern avoidance-code construction; Fitch (DOI:10.1093/nar/11.13.4655) addresses expected potential-structure frequencies but full-text verification was unavailable; Burden et al. (DOI:10.1214/07-AAP452) concerns approximate matches between two sequences. Conclusions assume iid uniform fixed-point-free complements and exact stem matches, not folding energies or correlated bases. No independent scientific review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinction: exact covariance support and finite variance for disjoint reverse-complement factor pairs within one iid uniform word. The stem predicate, counting means, and covariance methods for random word matching are not credited as new in themselves. The older Fitch comparison is explicitly access-limited.
+
+## value
+
+PASS
+
+The reflection-center description gives an exact second-moment baseline for a natural random-word statistic. Position overlap alone could suggest widespread covariance; the proof identifies precisely why most such pairs are independent and gives a correction for the rest. The successive Fano ratio (q+1)/(q−1) remains above the independent-event limit even for long rare stems, so the correction is quantitatively relevant rather than a boundary-only effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The eight-state local energy bound was checked symbolically on every arc. Its equality subgraph has exactly two closed excursions of lengths four and five, both containing three occupied spins. This proves the all-size finite occupation polynomial and the sharp representable-length condition. A primitive weighted transfer graph and its analytic Perron eigenvalue establish the Gaussian limit and its coefficient. The independent standalone checks exhaust small systems and match all transfer traces through length 150. They are supplementary to the proof.
+## correctness
 
-## Originality — PASS (subject to independent historical review)
-The nearest-neighbor parity-constrained chain of Gastner (2015) uses different interactions; the third-neighbor zero-field study (Zarubin et al., 2020) does not supply field-selective occupation counts. Zarubin and Kassan-Ogly (2022) directly study this range-three field Hamiltonian and already determine the bulk coexistence boundary and residual entropy with a general transfer matrix. Their finite-volume transfer formula is relevant broader coverage and, in principle, encodes the counts. Its inspected discussion does not state the explicit all-ring occupation polynomial, exact 4–5 excursion classification, sharp small-size exclusions or occupied-count Gaussian limit. The formula is not obtained by simply substituting parameters in a displayed counting theorem: it requires the tight-edge classification, trace-combinatorial extraction and analytic limit. The possibility of earlier unindexed extraction remains a material priority risk.
+PASS
 
-## Mathematical value — PASS
-The exact finite-ring occupation distribution is a natural thermodynamic observable missing from a bulk phase diagram. It resolves the lengths at which coexistence energy is exactly realizable, gives all labeled degeneracies rather than a leading exponential rate, and determines the finite-size magnetic fluctuation scale through an exact positive variance coefficient. These are meaningful finite-size commensurability and susceptibility facts, not parameter renaming or a numerically selected special case.
+Re-audited the replacement for every labeled binary ring n≥7 at h=10J/3 and J>0. The local defect is 3∑1{b_s=b}−10b+3+p_a−p_j. All 16 entries are nonnegative and their cyclic sum is 3(E+nJ)/J. State 0 has no zero-defect predecessor; 2 has no zero-defect successor. The remaining graph forces all closed walks through triple 110 and allows only returns appending 1110 and 01110. Across a return boundary these are exactly runs of three ones with one or two zeros between; conversely after the first zero following each 111 run the next return is determined by the number of remaining zeros. This proves the unique cyclic run decomposition and both directions of the iff classification. Marking block starts gives n/(a+b) times the ordered multinomial count even for rotationally periodic words. The determinant follows from the two intersecting simple cycles; primitivity and the spectral gap verify the stated corollary CLT, with µ=3/L and v=9 Var(length)/L³=9p₄p₅/L³. Independent `python /workspace/independent_replay.py 3` exhausts 7≤n≤16 for energy/occupation counts and checks the symbolic characteristic polynomial; `python /workspace/independent_replay.py 3-language` separately checks 32,640 individual labeled words for the energy/run equivalence. No numerical or formal verification is used to infer the infinite quantifier.
 
-## Limitations
-The larger 2022 transfer-matrix solution can potentially provide an alternative derivation and constrains any novelty claim. The new result is restricted to the equal-coupling field \(h=10J/3\). The zero-field/finite-temperature phase diagram and residual entropy are prior results. Independent historical-priority review is needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired theorem only: the same-model prior trace and characteristic equation cover the aggregate counts and cumulants, and the prior phase diagram identifies the two pure periods, but neither result characterizes individual labeled periodic words by a necessary and sufficient run constraint with arbitrary mixing. The repaired claim isolates this structural part and credits the trace corollaries.
+
+## value
+
+PASS
+
+The constructive iff rule gives a minimal description of every labeled configuration attaining the coexistence energy: arbitrary mixtures are allowed but no other patterns are. This resolves what the phase and entropy data leave unspecified, gives direct membership and construction without transfer traces, and supplies an exact local defect certificate. It applies uniformly to every admissible ring length, not to an arbitrary small instance. The counts and asymptotics remain reproducible illustrations, not the basis for the value verdict.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

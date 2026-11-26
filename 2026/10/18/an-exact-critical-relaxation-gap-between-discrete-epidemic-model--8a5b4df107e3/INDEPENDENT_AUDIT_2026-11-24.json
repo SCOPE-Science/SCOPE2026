@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:44:17.565170Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–106; complete corrected /workspace/repairs/1/RESULT.md, in particular the spectral and endpoint paragraphs",
+        "Frozen VERIFICATION.md:18–22 and verify.py:9–60, inspected without execution",
+        "Independent replay: python3 -B /tmp/opencode/independent_critical_sis.py"
+      ],
+      "rationale": "Final repaired RESULT.md: both deterministic maps preserve the cube and lie below Bp by the union bound and the nonnegative reinfection losses. Using the positive left Perron vector, mass is nonincreasing and strictly drops in two steps from every nonzero state: a positive coordinate persists, an adjacent coordinate becomes positive, and then the corresponding p_i q_i loss is positive. Compactness excludes a nonzero limit of the mass. The non-Perron eigenvalues of B are 1-δ+βλ for non-Perron eigenvalues λ of A and lie strictly inside the unit disk even if λ=-ρ, since δ<1. With a=wᵀp and r=p-av, positivity bounds ||p|| by a constant times a. The projected linear recurrence for r/a is a strict contraction with forcing O(a) because a'/a→1, whence r/a→0. Expanding the product through degree two gives projected losses δ(1-δ)S+T and δS+T. Thus 1/a'-1/a→κ in each map, and Cesàro yields the exact per-vertex limits; the ratio for arbitrary separately evolved nonzero initial conditions follows and is strictly above one. The repair corrects the eigenvalue label in the original proof and the ancillary endpoint overstatement: at δ=β=1 on the two-vertex graph, symmetric WOR u'=u(1-u) gives t u_t→1 for 0<u_0<1 by reciprocal increments, but u_0=1 becomes zero in one step. The theorem itself excludes that endpoint and is unchanged. A bounded independent replay used an incremental union probability and confirmed the six finite diagnostics to relative error at most 0.000181; this is not the asymptotic proof.",
+      "residual_risks": [
+        "No formal proof certificate. The theorem is for the deterministic independence closures, not extinction or time profiles of the finite stochastic epidemic chain, and does not cover δ=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Granell et al. state that both models have the same first-order threshold and give strict sub-/super-threshold conclusions. Arenas et al. give WIR transcritical structure and second derivatives. Wang–Wang–Shen's accessible abstract concerns discrete SIS and the reproduction number; full text could not be inspected."
+        ],
+        "reasoning": "An identical linearization does not constrain the different quadratic drifts at equality. The transcritical stationary-state and strict-side conclusions do not establish the reviewed global critical-time comparison. The inaccessible source is a residual risk, not negative evidence.",
+        "searches": [
+          "Granell et al., Section 4.1.1 and Eqs. (40)–(41)",
+          "arXiv:2210.17156, Theorem A and quadratic derivative computation",
+          "DOI 10.1016/j.aml.2019.03.011"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact single-model duplicate identified above",
+        "Granell et al., Arenas et al. and Dung–Phuc OA passages; Wang–Wang–Shen abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H differs from F by subtracting δ p_i q_i, whose leading Perron projection at p=a v is δ²S a². The indexed statement treats the WIR recurrence; the strict-side literature and WIR curvature do not state arbitrary-start critical extinction and alignment for WOR."
+        ],
+        "reasoning": "Once global critical WOR dynamics are proved, the coefficient difference follows by short algebra. The WIR coefficient alone does not imply the WOR global trajectory law; the strict two-step mass argument and transverse alignment also have to hold for the second map. Similarity of methods is not a matching two-model statement. No priority is inferred from catalogue dates.",
+        "searches": [
+          "Indexed c0fb1830567e, RESULT.md offsets 0–5788",
+          "Arenas et al., Theorem A and pp. 6–7; Dung–Phuc Section 2.2; Granell et al. Section 4.1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dung–Phuc's product-hazard recurrence is WIR; Granell et al. use both WIR and WOR as in the finding.",
+          "Indexed 2026/11/8 c0fb1830567e gives the WIR global critical vector and coefficient δ[1-(δ/2)(1+1/ρ)]Σv_i³ for ||v||₂=1."
+        ],
+        "reasoning": "At that normalization, twice the weighted neighbor-pair sum is (ρ²-ρ)Σv_i³ by symmetry of A and Av=ρv. Hence the indexed WIR denominator is exactly κ_WIR in the finding. The direct comparison needs the other map, which is not related to WIR by Perron rescaling.",
+        "searches": [
+          "Resultary: critical discrete-time SIS decay / spectral collision coefficient / reinfection",
+          "arXiv:2607.14048, Eq. (2)",
+          "Granell et al., Eqs. (16)–(18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved indexed Finding gives the exact single-model WIR amplitude, not a separate WOR coefficient or the exact gap at equality. The closest checked published comparison gives matching thresholds, not paired critical amplitudes."
+        ],
+        "reasoning": "The relevant exact invariant is the asymptotic vector or ratio for the two closures, not just the known threshold tabulated by spectral radius. There is exact indexed partial coverage, not verified matching pairwise coverage.",
+        "searches": [
+          "Resultary local source 2026/11/8/SCOPE-universal-critical-decay-and-a-spectral-collision-coefficient-fo--c0fb1830567e",
+          "Focused literature comparison of discrete-time critical SIS amplitudes with and without same-step reinfection"
+        ]
+      },
+      "rationale": "Credit only the reviewed WOR equality-case amplitude and strict two-model critical relaxation comparison. The common WIR/WOR linear threshold and prior WIR bifurcation curvature were already known, and the strongest distinct indexed result gives the exact same single-model WIR law. The repaired literature paragraph explicitly credits this overlap. Neither the matching indexed WIR theorem nor the inspected primary sources establish the additional WOR critical amplitude and the pairwise comparison on all scoped graphs. This is a bounded statement-level assessment, not a claim of historical priority.",
+      "residual_risks": [
+        "The Wang–Wang–Shen full text and possible indirect earlier formulations remain unverified. No negative finding is inferred from lack of access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same WIR map and threshold setting; inspected strict-side statements are not an equality-time rate.",
+          "evidence": [
+            "Product recurrence WIR; spectral threshold and strict-side statements; Remark 1 discusses Wang et al.'s related formulation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.14048",
+          "material_read": "OA PDF pp. 3–4, Section 2.1 Eq. (2) and Remark 1 near offset 7950; Section 2.2",
+          "method": "OA preprint bounded passages",
+          "title": "An Epidemic Threshold Set for Networks",
+          "trigger": "Same WIR recursion and threshold equality boundary"
+        },
+        {
+          "assessment": "Both definitions and the common threshold are prior; the compared statements are for strict inequality, not critical amplitudes.",
+          "evidence": [
+            "Coincident first-order equations imply the same threshold with or without reinfection."
+          ],
+          "identifier_or_url": "https://zaguan.unizar.es/record/144921/files/texto_completo.pdf",
+          "material_read": "pp. 5–7, Eqs. (16)–(18) near offset 33200; Section 4.1.1 and Eqs. (40)–(41) near offset 48500",
+          "method": "Lawful institutional OA published PDF",
+          "title": "Probabilistic Discrete-Time Models for Spreading Processes in Complex Networks: A Review",
+          "trigger": "Closest published direct comparison of WOR and WIR"
+        },
+        {
+          "assessment": "Near-threshold WIR curvature plus strict-side global behavior; not the paired equality-case transient law.",
+          "evidence": [
+            "Transcritical result at μ/ρ(R) and explicit second derivatives."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.17156",
+          "material_read": "Theorem A, p. 4 around offset 12900; pp. 6–7 around offset 20400",
+          "method": "OA preprint bounded passages",
+          "title": "Bifurcation analysis of the Microscopic Markov Chain Approach to contact-based epidemic spreading in networks",
+          "trigger": "Prior discrete WIR second derivative and bidirectional threshold theorem"
+        },
+        {
+          "assessment": "Unresolved relation to the exact rate; not evidence for or against priority.",
+          "evidence": [
+            "Abstract addresses the discrete model and reproduction number; the later preprint describes a modification of the earlier formulation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aml.2019.03.011",
+          "material_read": "Accessible abstract; Dung–Phuc's Remark 1 comparing formulations. Full text was not retrieved.",
+          "method": "Bounded DOI/publisher and identified lawful alternate attempt; secondary OA comparison",
+          "title": "Dynamical analysis of a discrete-time SIS epidemic model on complex networks",
+          "trigger": "Plausible overlap in earlier global discrete-time SIS stability"
+        },
+        {
+          "assessment": "Exact WIR component is covered; WOR and the strict two-model amplitude gap are not in the checked statement.",
+          "evidence": [
+            "Same WIR product map, critical 1/t law, and denominator equivalent by the weighted neighbor-pair identity."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-critical-decay-and-a-spectral-collision-coefficient-fo--c0fb1830567e",
+          "material_read": "RESULT.md offsets 0–5788, exact map and Finding",
+          "method": "Local Resultary mirror",
+          "title": "Universal critical decay and a spectral collision coefficient for a discrete-time SIS model",
+          "trigger": "Strongest exact indexed match for a critical Perron coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md:3–43 and regular-graph and endpoint example",
+        "Granell et al. common-threshold comparison and exact WIR indexed counterpart"
+      ],
+      "rationale": "With an already shared linear threshold, the natural unresolved comparison is whether the two modeling conventions also agree at critical time. The reviewed result proves that their relaxation amplitudes differ by a strict, normalization-consistent amount for every connected graph in scope and every nonzero start; the effect can yield a divergent amplitude ratio at the two-vertex boundary. This quantitative distinction is not apparent from the common linearization and remains useful even though WIR by itself is already covered.",
+      "residual_risks": [
+        "The result does not determine subleading corrections or make empirical claims about real epidemics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

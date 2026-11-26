@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:28:34.243650Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–79",
+        "Frozen VERIFICATION.md and verify_tribonacci_fibers.py (inspected, not executed)",
+        "Independent tribonacci_check.py and check-k4-14.txt"
+      ],
+      "rationale": "The period is exact: M^8=I+4D, with D nonzero modulo two; squaring gives D_{s+1}=D_s+2^{s−2}D_s², so M^{2^{k+1}} is the identity modulo 2^k and M^{2^k} is not. The determinant of [v,Mv,M²v] is −1; any return of the state therefore forces a matrix return, and a scalar period returns all three entries of the state. For the nonsingular branches, D₃v≡(1,0,1) mod 2 and D₄v≡(1,2,3) mod 4 give the stated leading residues under eM^n. Factoring an odd power preserves them. Each even branch is an isometry after division by 4; the two branches in each of 0 and 1 modulo 4 therefore contribute two preimages. For r=1,3, split t into its two parities. Each normalized branch is an isometry after division by 16; t ranges modulo 2^{k−2}, so for each parity there are two lifts of each solution modulo 2^{k−4}. The r=1 targets are 1 mod 16 and the r=3 targets 2 mod 16. For r=5,7 the first five binomial coefficients and ν₂(c_j)≥2j−3 for j≥5 give an 8-divisible restricted remainder in the ordinary power basis (subtract at most ν₂(j!)≤j−1). H′/2 has odd affine coefficient and a 4-divisible integral Lipschitz perturbation, so it has a unique root. Taylor expansion there factors H−κ into (t−α)² times a unit U(t)≡1 mod 8, with ν₂(U(t)−U(w))≥3+ν₂(t−w). The unique square root B≡1 mod 4 satisfies ν₂(B(t)−B(w))≥2+ν₂(t−w) since B(t)+B(w) has valuation one. Thus (t−α)B(t) induces a bijective isometry at every finite level, and the square condition is modulo 2^{k−3}, leaving two lifts in the period. The root formula follows by separating the zero target, odd valuation, and even valuation 2h; odd squares have 1, 2, or 4 roots at the indicated levels, with the extra factor 2^h. In particular k=4 uses m=1 and the normalized r=1,3 modulus can be 1. Independent exact modular lifting and direct recurrence histograms verify both constants (1264 and 1791 modulo 2048) and all 32,752 targets at k=4,…,14. For the derivative calculation, a step h with high valuation gives (H(t+h)−H(t))/(2h)≡H′(t)/2 mod 2^{ν₂(h)−1}, by the restricted integral series; this explains the precision of the independent modular check. The bounded tests do not establish the infinite conjugacy or period.",
+      "replay": "Run python3 tribonacci_check.py --max-k 14 from the separate reproduction directory. check-k4.txt is the representative check; check-k4-14.txt records the full bounded comparison.",
+      "residual_risks": [
+        "The least-period calculation uses the standard starting state. The fiber law here is for that scalar sequence and k≥4, not arbitrary initial triples or odd primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The p-adic zero paper recalls the binary valuation law. arXiv:2611.04855v2 treats sparse power-of-two indices with a shifted initial convention. Resultary 1848a2571bf4 concerns zero-avoidance for arbitrary initial triples. Klaška's abstract addresses primitive periods."
+        ],
+        "reasoning": "More general indexing families, initial states, or periods do not by themselves evaluate nonzero-target frequencies. The inaccessible portion of the period work is not negative evidence.",
+        "searches": [
+          "arXiv:2210.16959v1 introduction",
+          "arXiv:2611.04855v2 §3",
+          "DOI:10.21136/MB.2008.140627 (full-text access attempted)",
+          "Resultary 1848a2571bf4, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a24da7d7968e and 1848a2571bf4",
+        "Marques–Lengyel JIS 14.10.1",
+        "arXiv:2210.16959v1 and 2611.04855v2",
+        "DOI:10.21136/MB.2008.140627 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even-index difference valuation in the prior proof directly determines the finite isometry counts. The prior r=3 calculation at s≥5 extends to s=4 by D₄≡D₅ mod 4 from the same lifting recurrence. The r=1 analysis adds a leading-residue check; the material additional step is r=7, where image containment gives no critical point, unit coefficient or controlled square map."
+        ],
+        "reasoning": "Refining a known image by explicit preimage sizes, including a new singular contribution within an already-filled component, does not follow just by enumerating the image or quoting the valuation at zero. Originality is confined to the evaluated combined law and the uncovered analysis, not to all constituent branches.",
+        "searches": [
+          "Resultary a24da7d7968e, Proof offsets 1650 and 2951, Limitations offset 7000",
+          "Marques–Lengyel Theorem 1 and Bilu et al. arXiv:2210.16959v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier image proof supplies H₅=κ+φ² with φ an isometry and κ≡1264 mod 2048; H₇ is only localized to 4ℤ₂. The equivalent full question is the histogram of T_n on a complete period, or the pushforward of uniform index residues mod 2^{k+1} to every target mod 2^k."
+        ],
+        "reasoning": "An earlier isometric normal form does imply finite fiber sizes for its own branch, so the r=5 contribution is credited. The previously omitted r=7 fibers are not recovered by knowing they land in 4ℤ₂.",
+        "searches": [
+          "Resultary and primary search: Tribonacci sequence dyadic residues image modulo powers of 2 fibers preimage multiplicity",
+          "Resultary a24da7d7968e, RESULT.md Finding and proof, offsets 0, 1650, 2951 and 7000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former enumerates distinct output residues by modulus and explicitly excludes individual residue multiplicities. The latter classifies binary valuations index by index, so it counts target zero and valuations of other terms, without distinguishing residues in the same valuation shell."
+        ],
+        "reasoning": "Even an exact support cardinality together with the period and zero-target counts leaves different possible assignments of multiplicities to nonzero residues. No exact all-target table was identified in the inspected sources; bounded search cannot rule one out.",
+        "searches": [
+          "Resultary a24da7d7968e, Finding and Limitations",
+          "Marques–Lengyel JIS Article 14.10.1 Theorem 1"
+        ]
+      },
+      "rationale": "The strongest prior record gives the full dyadic image, least period, and enough proof to recover the even-branch counts and the r=5 square-branch counts. The r=3 nonsingular contribution is also closely implied by its displayed valuation/lifting argument. These are not the supported distinct contribution. The r=7 branch was previously placed inside an already-covered ball; its new exact square-coordinate law and its contribution to the simultaneous all-target multiplicities are not supplied by that image proof or by the inspected zero-target and period literature.",
+      "residual_risks": [
+        "Unindexed distribution or inverse-image results may contain an equivalent count. Full-text comparison with the Klaška period paper was not possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers period, output support, the r=5 fibers via its stronger proof, and much nonsingular information; not the complete fiber law.",
+          "evidence": [
+            "The r=5 proof is an isometric square normal form; r=7 is placed in 4ℤ₂ but its fibers are not analyzed."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-complete-dyadic-value-image-and-seven-twelfths-density-of-tr--a24da7d7968e",
+          "material_read": "RESULT.md Finding, proof of matrix lifting and branches, and Limitations, offsets 0, 1650, 2951 and 7000",
+          "method": "Local published full-text passages",
+          "title": "The complete dyadic value image and seven-twelfths density of Tribonacci numbers",
+          "trigger": "Same sequence, prime, periods and one of the square branches"
+        },
+        {
+          "assessment": "Covers the valuation of T_n, including zero-target residue counts, not arbitrary target fibers.",
+          "evidence": [
+            "Theorem 1 specifies ν₂(T_n) by index classes."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Lengyel/lengyel21.pdf",
+          "material_read": "JIS Article 14.10.1 Theorem 1, PDF p. 2, extraction offset 3461",
+          "method": "Open-access primary full-text passage",
+          "title": "The 2-adic Order of the Tribonacci Numbers and the Equation T_n=m!",
+          "trigger": "Complete valuation classification of the same sequence"
+        },
+        {
+          "assessment": "The inspected statements concern zeros and valuations, not the multiplicities over all translated targets.",
+          "evidence": [
+            "The introduction recalls the binary valuation classification before developing the zero problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.16959v1",
+          "material_read": "Introduction and recalled binary law, offset 0",
+          "method": "Open-access article text",
+          "title": "On the p-adic zeros of the Tribonacci sequence",
+          "trigger": "Analytic interpolation of the same sequence and potential general fiber result"
+        },
+        {
+          "assessment": "Sparse indices and a shifted initial convention, not all-target multiplicities.",
+          "evidence": [
+            "The inspected scope gives T_{2^j} valuations for sufficiently large j and starts with (0,0,1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.04855v2",
+          "material_read": "Abstract PDF p. 1 and §3 offset 35400",
+          "method": "Open-access primary full-text passages",
+          "title": "Inverse Powers and 2-adic Properties of Binary 3×3 Matrices Associated with the Tribonacci Sequence",
+          "trigger": "Nearby exact binary valuation and lifting result"
+        },
+        {
+          "assessment": "The accessible description concerns primitive periods; whole-document coverage of fibers was not determined.",
+          "evidence": [
+            "Abstract describes primitive periods for recurrence triples modulo powers of two and eleven."
+          ],
+          "identifier_or_url": "https://doi.org/10.21136/MB.2008.140627",
+          "material_read": "Article identification and stated abstract scope; no full text retrieved",
+          "method": "Bounded lawful open-access attempt, with abstract-level comparison only",
+          "title": "Tribonacci modulo 2^t and 11^t",
+          "trigger": "Primitive periods of general initial triples at the same prime"
+        },
+        {
+          "assessment": "Zero-avoidance property of varying initial triples, not scalar fiber counts.",
+          "evidence": [
+            "The Finding decides zero-avoidance using modulus 16 for arbitrary initial triples."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-zero-avoidance-of-tribonacci-recurrences-is-decided-modulo-sixte--1848a2571bf4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published full-text passage",
+          "title": "Zero-avoidance of Tribonacci recurrences is decided modulo sixteen",
+          "trigger": "Potentially broader theorem for modulo-two-power Tribonacci outputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–3 of the proof",
+        "Resultary a24da7d7968e Finding and Limitations",
+        "Marques–Lengyel Theorem 1"
+      ],
+      "rationale": "A full-period residue histogram for a natural linear recurrence resolves exact collisions and multiplicities, information the output image and zero valuations cannot supply. In particular the second singularity produces large fibers inside a ball already known to be covered; its geometry is invisible to a support-only law. The explicit square-root expression enables computation for any allowed target and level without enumerating a period.",
+      "residual_risks": [
+        "The motivation is exact local multiplicity for the standard dyadic recurrence, not a new period theorem or a theorem for all initial conditions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:16.528576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the fixed-p strongly critical chain, C=A−I is strictly lower triangular. In (A^h)_{is} the degree in h is at most i−s, and the unique maximal-length path from 1 to i gives leading coefficient c_i/(i−1)!, including the constant at i=1. Orthogonal martingale innovations give the covariance sum, with E[M_{k,s}M_{k,t}]=Σ_{r≤min(s,t)}E[X_{k−1,r}]Γ_r(s,t)+Γ_imm(s,t), where Γ denotes within-vector covariance. Nonnegative offspring with zero mean in forbidden coordinates vanish almost surely. E[X_{k−1,r}]=O(k^r) and E[X_{k−1,1}]=b_1(k−1). Terms outside (s,t)=(1,1) are therefore O(n^(i+j+1−max(s,t)))=O(n^(i+j−1)). In the (1,1) term the innovation variance is vb_1(k−1)+σ_1²; the immigration component, lower kernel terms, and polynomial-sum errors all have degree at most i+j−1. The leading integral is B(2,i+j−1)=1/[(i+j−1)(i+j)]; for i=j=1 the exact sum is vb_1 n(n−1)/2+σ_1²n. All diagonal leading coefficients are positive by the scope assumptions, giving the Pearson limit with O(n⁻¹). The normalized matrix is the Gram matrix of scaled monomials with weight 1−x on [0,1], hence strictly positive definite. The shifted Jacobi polynomial P_r^(1,0)(2x−1) has leading coefficient binom(2r+1,r) and squared norm 1/(2r+2) for that weight; the monic norms and normalization by H_rr give the stated factorial product. The i/j aspect-ratio limit is valid for the constants only, not a growing-type limit of populations.",
+      "replay": "python3 /tmp/opencode/frozen_review_1_5.py (independent exact checks of all nine leading coefficients and degree bounds for a three-type system with negative within-vector offspring and immigration covariances). The frozen check.py was read, not executed. Its reported 417 rational checks use independent-Poisson finite examples and Gram matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foster and Ney's Eq. (9.1) gives asymptotics for scaled mixed population moments in the all-moment regime. Their Theorem 5 extends Theorem 4 to second moments for reproduction and a first moment for immigration. Barczy and Bezdány's functional limit has iterated-integral squared-Bessel coordinates in the adjacent-positive case and covers general fixed triangular systems; it identifies the older terminal result in Remark 3.4."
+        ],
+        "reasoning": "The older moment asymptotics already reach the degree-one and degree-two quantities forming the leading covariance under stronger integrability. Functional convergence gives more process-level information and the same terminal geometry but, without additional moment control, does not give finite-time covariance errors.",
+        "searches": [
+          "Foster and Ney §9, Theorems 3–5 and Eqs. (9.1), (9.9)–(9.10)",
+          "Barczy and Bezdány arXiv:2611.02069v1, Theorem 3.1, Remark 3.4 and Appendix B"
+        ]
+      },
+      "checked_sources": [
+        "Foster and Ney DOI 10.1007/BF00535685",
+        "arXiv:2611.02069v1, 2105.02508, 2406.09852",
+        "Quine DOI 10.2307/3211974 (landed but no full text)",
+        "Resultary 6452636583e4 (identical assigned record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior second-order framework gives the exact conditional variance polynomial in population counts, with unconditional moment recursions. The earlier all-moment computation supplies the universal limit geometry."
+        ],
+        "reasoning": "The conditional coordinate covariance follows by the same variance identity applied to a sum of coordinates or by polarization. Since A^h is a polynomial in h and the mean is its finite sum, every finite covariance is a polynomial in n of degree at most i+j. The innovation contribution from the first type supplies the sole highest-degree power sum, so the next lower order is a direct consequence of the known second-order method, not a separate convergence-rate phenomenon. The i/j law is direct algebra in the prior correlation formula; the determinant uses the standard Jacobi product. I did not locate the explicit O(n⁻¹) Pearson bound as an earlier stated theorem.",
+        "searches": [
+          "arXiv:2611.02069v1 Appendix B, Lemmas B.1–B.2",
+          "Foster and Ney §9, Theorem 3 and Correlation Eq. (9.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4(i) gives a terminal-vector distributional limit. Eq. (9.5) on printed p. 39 gives the limit-coordinate correlation 2√[ij(2i−1)(2j−1)]/[(i+j)(i+j−1)]. The positive single-type-per-class adjacent chain is an instance of the earlier setting."
+        ],
+        "reasoning": "The numerator equals √[(2i−1)(2i)(2j−1)(2j)]; the normalization, indices and entries are identical to the frozen R. This proves coverage of the matrix as a limiting-vector correlation, not by itself a rate for finite generations.",
+        "searches": [
+          "Resultary: critical decomposable immigration cross-type correlation, iterated-integral and normalized Gram matrix",
+          "Foster and Ney DOI 10.1007/BF00535685, Theorem 4(iii), Eq. (9.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact Resultary hit 6452636583e4 is the assigned record, not a separate source. The peer-reviewed Eq. (9.5) independently gives the exact entry formula; no explicit separate factorial determinant appeared in the inspected passages."
+        ],
+        "reasoning": "Positive definiteness and the determinant are exact facts about the known matrix, which is diagonally normalized from the elementary beta moment matrix H_rs=1/[(r+s+1)(r+s+2)]. The explicit product follows immediately from its standard Jacobi monic norms; no claim of an earlier identical display is needed.",
+        "searches": [
+          "Resultary: exact normalized correlation entries and beta-Hankel determinant for critical immigration",
+          "Foster and Ney Eq. (9.5), printed p. 39"
+        ]
+      },
+      "rationale": "The central universal correlation formula already appears exactly in Foster and Ney, Theorem 4(iii), Eq. (9.5), for the limiting vector of their decomposable immigration model, whose matching single-type-per-class chain includes the assigned setting. Their raw mixed-moment result also covers leading finite-generation moments under stronger moment assumptions. I did not find an explicit statement of the finite-second-moment covariance error rate or the normalized factorial determinant in the compared sources. Neither is a sufficiently distinct result here: the former is a direct degree bound in the known second-order recursion, and the latter is the standard Jacobi norm product for the already known matrix. This comparison does not use weak convergence alone to infer convergence of covariances.",
+      "residual_risks": [
+        "Quine's full text was not inspected, and exact prior presentations of the rate or determinant elsewhere were not ruled out. These are access and search limits, not the basis for the verified overlap or for the failure decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the correlation matrix; all-moment finite-generation leading raw moments; no matching error bound or normalized determinant displayed in the passages inspected.",
+          "evidence": "Eq. (9.5) gives identical R_ij; Theorem 4 extends to the lower moment assumption via Theorem 5. Eq. (9.1) gives leading mixed-moment asymptotics.",
+          "identifier_or_url": "https://doi.org/10.1007/BF00535685",
+          "material_read": "§9, Theorem 3 Eq. (9.1) (text offset 59000 onward), Theorem 4(i),(iii) and Eq. (9.5) (offsets 60850–65904, printed pp. 38–40), Theorem 5 statement",
+          "method": "Primary Springer PDF, bounded extracted passages with printed formula identification",
+          "title": "Limit Laws for Decomposable Critical Branching Processes",
+          "trigger": "Exact limiting correlation and prior mixed-moment computation"
+        },
+        {
+          "assessment": "Broader functional convergence and prior moment framework; the passages do not state the explicit all-pair covariance remainder.",
+          "evidence": "For positive adjacent transfers the theorem gives each later coordinate as an iterated time integral of the first squared-Bessel coordinate; Remark 3.4 credits Foster and Ney for the one-time limit.",
+          "identifier_or_url": "https://arxiv.org/html/2611.02069v1",
+          "material_read": "Theorem 3.1 and (3.3)–(3.5), offsets 34000–41982; Remark 3.4 near 48800; Appendix B lemmas B.1–B.2, offsets 121800–129168",
+          "method": "OA primary HTML passage comparison",
+          "title": "Asymptotic behavior of some strongly critical decomposable multi-type Galton–Watson processes with immigration",
+          "trigger": "Strongest modern general triangular process theorem and moment recursions"
+        },
+        {
+          "assessment": "Two-type weak-limit coverage, not an all-pairs finite-generation error-rate result in the material inspected.",
+          "evidence": "Critical decomposable two-type immigration scaling.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.02508",
+          "material_read": "Abstract/introduction, around text offset 1100",
+          "method": "OA passage comparison",
+          "title": "Asymptotic behaviour of critical decomposable 2-type Galton–Watson processes with immigration",
+          "trigger": "Earlier two-type instance"
+        },
+        {
+          "assessment": "Covers the three-type scaling, not the claimed all-type error rate in the passages inspected.",
+          "evidence": "Twofold time-integral coordinate for a full three-type chain.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.09852",
+          "material_read": "Theorem 3.5 and Remark 3.6, around text offset 54750",
+          "method": "OA primary passage comparison",
+          "title": "Asymptotic behavior of some strongly critical decomposable 3-type Galton–Watson processes with immigration",
+          "trigger": "Earlier three-type iterated-integral instance"
+        },
+        {
+          "assessment": "Possible further overlap unresolved; not used as negative search evidence or as the basis of failure.",
+          "evidence": "Indexed as general multitype immigration work; no decisive mathematical passage retrieved.",
+          "identifier_or_url": "https://doi.org/10.2307/3211974",
+          "material_read": "JSTOR landing material only; primary text not accessed",
+          "method": "Lawful OA attempt on cited paper",
+          "title": "The multi-type Galton–Watson process with immigration",
+          "trigger": "Early source for exact general second-order recursions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The object and motivation are natural, and the quantitative derivation is a useful exposition of the old limiting correlations. After crediting the earlier matrix, the remaining O(n⁻¹) bound records the first lower polynomial degree of the known second-moment calculation; it gives neither the first finite-size correction nor any uniform control in p or across offspring laws. The determinant and aspect-ratio limit are routine algebraic consequences of that same known matrix. The record does not leave a separately worthwhile new quantitative claim to repair to.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

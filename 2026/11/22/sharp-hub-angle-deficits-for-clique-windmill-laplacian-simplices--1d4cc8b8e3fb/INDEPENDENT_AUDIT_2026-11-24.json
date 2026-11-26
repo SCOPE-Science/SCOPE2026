@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:39:56.668187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–23, 25–92; VERIFICATION.md and verify.py inspected, not executed.",
+        "OPENBLAS_NUM_THREADS=1 python /workspace/checks/frozen_checks.py 5; output in /workspace/checks/frozen_checks.out, C5 lines. Covariance checked for r=1..4, m=2..5; star quadrature for m=2,8,128,2048."
+      ],
+      "rationale": "Independent proof check of RESULT.md lines 4–23 and 25–92. For Gaussian objectives the score differences between hub and periphery are n(G_0−mean G_periphery)−(Z_{b,j}−mean G_periphery), with d=rm, n=d+1, and Z_{b,j}=rG_{b,j}−sum_{k≠j}G_{b,k}. Projecting onto the zero-sum hyperplane does not change the scores. The first normal factor is independent of the entire centered peripheral array. Its variance before multiplication by n is 1+1/d. The centered maximum is almost surely positive since the centered array has zero sum and is not identically zero. This proves the strict finite bound and the exact conditional probability. The uncentered maximum has mean squeezed between the maximum of m iid normals of variance r²+r−1 (one per clique) and sqrt(2 log(rm)) times their standard deviation (exponential-moment bound on all coordinates). The usual Gaussian tail bound at (1−ε)sqrt(2 log m) gives the matching lower asymptotic; the negative part of the iid maximum has bounded mean. Centering does not change the expected maximum, and integrating the union bound for the maximum magnitude gives a third moment O_r((log m)^(3/2)). Taylor expansion of Φ at zero thus yields the coefficient, with error from linearization O_r((log m)^(3/2)/n³). Transitivity gives the exact peripheral probabilities. At equal order the two logs differ only by log 2, so the deficit ratio is sqrt(5), not the ratio of the angles. The alternate direct Gaussian gap covariance is (n²+d+2) times the all-ones matrix plus block diagonal Cov(Z); it yields an independent one-dimensional quadrature for the star, including agreement with the bivariate arcsine formula at m=2.",
+      "residual_risks": [
+        "Bounded checks corroborate algebra and small-case probabilities, not the infinite-family asymptotic. The proof is only for fixed integer clique size and the canonical Euclidean metric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record dd5f71a2ef23 indexes three interior dihedral classes and obtuse-ridge reconstruction on the same clique-windmill family. By contrast, the reviewed statistic is the Gaussian measure of an entire vertex normal cone.",
+          "Frozen RESULT.md line 100 describes the primary papers as treating lattice/Ehrhart and normalized-volume invariants; independent attempts at the corresponding theorem passages timed out."
+        ],
+        "reasoning": "Even knowledge of the facet-normal Gram data only specifies the cone to integrate; the reported dihedral classification does not evaluate that integral or its sharp varying-dimension limit. Volumes, Ehrhart data and lattice equivalence do not determine this Euclidean angular comparison. The inaccessible full passages are not used to assert whole-document noncoverage.",
+        "searches": [
+          "Resultary: Complete dihedral spectra and obtuse-ridge reconstruction for clique-windmill Laplacian simplices",
+          "Braun–Meyer arXiv:1706.07085 and Balletti–Hibi–Meyer–Tsuchiya arXiv:1710.00252, relevant construction and theorem passages sought via OA"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 3a5a32d6aa7c, a0ab7b813e9c, dd5f71a2ef23, e0cd2b472d23 and 75a331846ff7 (indexed claims); primary OA attempts arXiv:1706.07085 and 1710.00252; frozen RESULT.md lines 99–110 as attributed background only."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path record's summary gives the star-hub limit 1/2 as well as its unrelated sharper path-endpoint result. The signed rank-one summary gives the unanimous-sign limiting half-angle, not a dimension-dependent remainder in that case.",
+          "Even if the exact star exposure inequality in the earlier path note is as reported in frozen lines 102–103, the fixed-r coefficient requires evaluating the mean of a block Gaussian maximum and controlling linearization to first nonzero order."
+        ],
+        "reasoning": "The half-angle limit alone does not determine any nonzero correction. The exact star representation and standard maxima tools make the star specialization close to prior methods, but they do not evaluate the full clique-windmill comparison. No identified stronger statement supplies the asserted joint scale and coefficient.",
+        "searches": [
+          "Resultary and local full-text attempt: Cubic suppression of endpoint normal cones in path Laplacian simplices (3a5a32d6aa7c)",
+          "Resultary and OA full-text attempt: Signed rank-one cone angles (a0ab7b813e9c)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact overlap with a Gaussian positive orthant can be tested from Cov(gaps)=(n²+d+2)11ᵀ+blockdiag(Cov(Z_block)). In the star case the second term is I and the Gram matrix of a corresponding conic basis is proportional to I−(1−ε)uuᵀ, u=m^(−1/2)1, ε=1/[1+m(n²+m+2)].",
+          "The signed rank-one Resultary summary a0ab7b813e9c gives a half-angle limit for unanimous signs, and highlights a collapse rate and order-statistic spacing for mixed signs."
+        ],
+        "reasoning": "This is a real equivalent finite-dimensional star formulation, not a title mismatch. The available unanimous-sign statement does not give the deficit with m also tending to infinity. For r>1 the covariance has nontrivial blocks, not just identity and a rank-one perturbation. General affine or lattice equivalence alone would not preserve the angle.",
+        "searches": [
+          "Resultary: windmill normal-cone/angular deficit and Gaussian vertex exposure",
+          "Resultary: Signed rank-one cone angles sharp collapse rates Gaussian orthant extremely high correlation exact asymptotic as correlation tends to 1 dimension grows fixed equal signs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned Laplacian-angle record 3a5a32d6aa7c tabulates path-endpoint and interior asymptotics and a leading star limit, not an indexed deficit coefficient for windmills.",
+          "The power-weighted lecture-hall record e0cd2b472d23 concerns persistence at different vertex ranks in a different simplex; the split graphical zonotope angle record 75a331846ff7 concerns orderings of Gaussian coordinates for a different polytope, not Laplacian-column score gaps."
+        ],
+        "reasoning": "The available exact summaries were compared by cone, metric and asymptotic observable, not by generic angle terminology. No matching evaluated formula was located; this is limited to the records examined.",
+        "searches": [
+          "Resultary: Laplacian simplex path/star leading angles and clique windmill hub deficit",
+          "Resultary: highly correlated Gaussian cone angle asymptotics, including three angular phases of power-weighted lecture-hall simplices"
+        ]
+      },
+      "rationale": "Credit the already indexed leading star law and the standard Gaussian orthant representation; those are not the claimed contribution. The supported distinction is the explicit first deficit for the fixed-r windmill family and its equal-order matching sensitivity. The closest same-family dihedral results concern a different quantity, and the closest rank-one cone family can cover the finite star representation without an identified joint dimension/sharp-deficit asymptotic. No examined statement covered the fixed-r coefficient or the sqrt(5) ratio.",
+      "residual_risks": [
+        "The earlier star note and rank-one cone record were not independently read in full. An earlier evaluated star-only deficit or a uniform high-correlation Gaussian orthant result remains possible. The full literature was not exhaustively searched."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage of the leading star limit; insufficient evidence to exclude a sharper star result in the full text",
+          "evidence": [
+            "Star hub asymptotically carries half the angle; sharper n^(-3) log n result is reported for path endpoints."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 3a5a32d6aa7c",
+          "material_read": "Indexed statement; frozen record's characterization at lines 102–103 is secondary only",
+          "method": "Resultary and exact local-mirror OA attempt; full text did not load",
+          "title": "Cubic suppression of endpoint normal cones in path Laplacian simplices",
+          "trigger": "Closest prior star exposure claim"
+        },
+        {
+          "assessment": "Equivalent class for the star; available limit is weaker than the sharpened joint regime, and not an identity-plus-rank-one model for r>1",
+          "evidence": [
+            "The summary explicitly distinguishes the mixed-sign rate from the unanimous-sign half-angle limit."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, a0ab7b813e9c",
+          "material_read": "Indexed mathematical summary",
+          "method": "Resultary and exact RESULT.md OA attempt limited to unanimous signs; timed out",
+          "title": "Signed rank-one cone angles: sharp collapse rates and balanced sign extremizers",
+          "trigger": "Star hub cone has this rank-one generator Gram form"
+        },
+        {
+          "assessment": "Common family, different invariant; available dihedral classification does not itself give a normal angle asymptotic",
+          "evidence": [
+            "Three dihedral classes; reconstruction by obtuse ridge pairs."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17, dd5f71a2ef23",
+          "material_read": "Indexed result statement",
+          "method": "Resultary statement comparison",
+          "title": "Complete dihedral spectra and obtuse-ridge reconstruction for clique-windmill Laplacian simplices",
+          "trigger": "Same graph and Euclidean simplex"
+        },
+        {
+          "assessment": "Construction credited; no negative full-document finding inferred from access failure",
+          "evidence": [
+            "The frozen source identifies the cited topics as trees, cycles, complete graphs and lattice/Ehrhart properties."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.07085",
+          "material_read": "Citation and reported scope in frozen RESULT.md line 100; no retrieved independent full passage",
+          "method": "OA article and alternate PDF/theorem locator sought; timeout",
+          "title": "Laplacian Simplices",
+          "trigger": "Foundational construction and tree results"
+        },
+        {
+          "assessment": "Available scope concerns directed-graph simplex construction and normalized volume, not evidence of the evaluated deficit",
+          "evidence": [
+            "The two compared quantities are different under nonorthogonal coordinate transformations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.00252",
+          "material_read": "Citation and reported scope in frozen RESULT.md line 100; no retrieved independent full passage",
+          "method": "OA article and alternate PDF/theorem locator sought; timeout",
+          "title": "Laplacian Simplices Associated to Digraphs",
+          "trigger": "Broader graph-simplex construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–23 and 81–92; prior leading star limit in Resultary 3a5a32d6aa7c."
+      ],
+      "rationale": "The leading 1/2 mass is insensitive to the graph change. The first deficit supplies a useful Euclidean geometric test: adding a matching at fixed hub degree and vertex count changes the first correction by a sharp nontrivial factor. The family-level coefficient isolates within-clique structure and distinguishes measures that leading-angle or combinatorial information alone cannot distinguish.",
+      "residual_risks": [
+        "No uniform growing-clique, arbitrary-petal or noncanonical metric claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

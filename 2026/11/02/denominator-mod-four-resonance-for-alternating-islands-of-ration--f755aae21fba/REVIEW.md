@@ -1,25 +1,21 @@
-# Scientific review: denominator-mod-four resonance for alternating islands
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has fixed exact assumptions: even reduced denominator \(q\ge4\), coprime \(p\) strictly below \(q/2\), the specified half-plane tie convention, and the **strictly alternating** regular-set components only. The two-cycle equation is explicitly solved. A branchwise induction proves necessary and sufficient half-plane constraints at every iterate; no sampling assumption enters that characterization. The supporting normals form two cyclic cosets whose equality versus disjointness is decided exactly by the parity of \(q/2\). Their common distance to the center proves regularity and inradius, whence the exact area. The point-period assertion follows from the order of \(\lambda^2\) and disjointness of the two cells. Strict signs establish a neighborhood separated from all critical-line preimages. The independent finite sample checker does not substitute for these universal arguments.
+PASS
 
-## Originality — PASS within inspected evidence
+A prescribed two-symbol affine return has a unique fixed point since lambda^2 is not one; repeating a single branch cannot yield primitive period two. The two mixed itineraries give u=lambda/(1+lambda)=1/2+ih and -u, and their strict signs verify admissibility. At u+delta the entire positive-starting alternating itinerary is equivalent to h+Im((-lambda)^k delta)>0 at every k, by induction using the affine branches. These constraints repeat after q steps. Their intersection is open, convex and consists of points whose full orbits avoid the real axis; since the intersection is open, no point in it is in the closure of its preimages. On a regular component the sign of each iterate is locally constant, so no component containing this cell can extend beyond this complete itinerary class. The normals are the cyclic orbit of one normal under -lambda (up to inversion); its order is q/gcd(q,p+q/2). This gcd is 1 when 4 divides q and 2 when q=2 mod 4, because gcd(p,q/2)=1 and p is odd. All distinct normals are equally spaced, each at distance h, giving the stated regular polygons and areas. The two-step return is rotation by lambda^2 about the center; noncenters have least return period q/2, and a return under F must be even because F exchanges the cells. Thus the least period is q off the centers, and q=10 indeed gives pentagons.
 
-The originating work [1] proves that each rational regular-set component is a polygon with at most \(q\) sides for even \(q\), and derives a regular \(q\)-gon case only when its component period \(\ell\) is coprime to \(q\). Here \(\ell=2\), so that hypothesis fails for every even \(q\); the new formula gives **\(q/2\) rather than \(q\) sides** when \(q\equiv2\pmod4\). Goetz and Quas [2, Lemma 11] impose precisely the same coprimality restriction, so their general shape theorem likewise does not imply this statement. The low-angle square and triangle examples are already available in [3] and are expressly not claimed as new. The newly classified infinite family includes the \(q=10\) regular-pentagon case, all higher \(q\equiv2\pmod4\) cases, and exact area formulas. Searches for the explicit parity classification, for equivalent two-cycle polygon geometry, and for published or indexed dominating results did not reveal stronger coverage. A literature search cannot establish absolute priority, and equivalent unindexed geometric or recurrence formulations remain a real risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of sides is an intrinsic geometric invariant of the periodic component, and its exact dependence on \(q\bmod4\) resolves a specific natural gap in the published coprime-period shape theorems. The result provides a motivated infinite classification rather than a chosen numerical example. The side-count halving is a genuine resonance that appears **because** the orbit period shares a factor with the rotation denominator. The exact island area and period profile allow quantitative comparisons among rational parameters and give explicit test cases for the general geometry. No global classification, measure-theoretic density theorem, or new theorem for the already classified square/triangle examples is claimed.
+Credit the general regular-set polygon and period framework, and the known square and triangle examples. The distinct supported increment is the exact even-denominator law for the period-two components outside the coprime-period regularity theorem, including the normal coincidence for q=2 mod 4 and the resulting metric profile. A distinct, broader catalogue record explicitly covers the same law and is listed later; this is genuine statement-level overlap, not evidence that the assigned finding was already known before its listed record.
 
-## Closest sources and limits
+## value
 
-[1] Cima, Gasull, Mañosa, Mañosas, *On some rational piecewise linear rotations*, arXiv:2306.17543; author postprint of DOI:10.1080/10236198.2023.2260898, Theorems A and B and Sections 2–4. The boundedness, periodicity and general polygon geometry are their results.
+PASS
 
-[2] Goetz and Quas, *Global properties of a family of piecewise isometries*, DOI:10.1017/S0143385708080280, especially Lemma 11 and its explicit condition \(\gcd(\ell,q)=1\).
+The unique primitive two-cycle is a natural distinguished part of the established map. The calculation resolves its maximal cells precisely in a noncoprime regime missed by the general regularity theorem, with infinite families attaining the general side bound or having only half as many sides. This makes the pentagons at q=10 an exact geometric example of the resonance, not a numerical pattern or a special-angle restatement.
 
-[3] Cima, Gasull, Mañosa, Mañosas, *Pointwise periodic maps with quantized first integrals*, arXiv:2010.12901, for the specific rational angles and classical regular tiles.
-
-Limitations: the proof addresses only the two strictly alternating components, not all periodic islands, odd denominators, or boundary dynamics. Publication-priority risk persists for unindexed sources or dual-billiards descriptions. Independent scientific validation has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

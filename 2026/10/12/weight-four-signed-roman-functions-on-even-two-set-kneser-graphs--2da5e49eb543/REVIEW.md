@@ -1,12 +1,21 @@
-# Review: Weight-four signed Roman functions on even two-set Kneser graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(n=2a+2\) with \(a\ge4\), the base bipartition signing has weight \(1-a\). A spanning cycle in the smaller block and three disjoint edges in the larger block add precisely \(a+3\), yielding weight \(4\). Every smaller-block point has incident label sum \(-1\); larger-block points have sum \(1\) or \(2\). The exact Kneser closed-neighborhood identity \(W-s_i-s_j+2f(\{i,j\})\) then gives minimum closed sum \(1\). Every negative crossing pair has at least \(a-2\ge2\) disjoint two-labelled cycle defenders. For the restricted sharpness, weight at most \(3\) forces a maximum-degree inequality on the two internal label-two graphs. All degree cases fail by edge capacity except a two-regular larger-block graph; a nonedge between two degree-two vertices violates the closed-sum condition. Direct definition checks through \(n=30\) and independent incidence checks through \(n=100\) corroborate the algebra.
+## correctness
 
-## Originality — PASS
-The most relevant prior full text is Zec–Grbić, arXiv:2204.05664, published as DOI 10.46298/dmtcs.10506. Theorem 3 states the general upper bound \(5\) for even \(n\ge12\), and its Remark 3 lists the isolated exact value \(4\) at \(n=10\). The reviewed 2025 survey still restates the upper bound \(5\). Thus the contribution is not the preexisting numerical case at order ten, but a uniform construction for **all even orders at least ten** and sharpness within a natural bipartition-signing family. Focused literature and indexed-result searches under the invariant, Kneser aliases, even-order parity, and weight-four constructions found no stronger directly applicable statement. A differently indexed later construction remains a residual risk, and the 2025 survey was inspected at section rather than whole-document level.
+PASS
 
-## Value — PASS
-This addresses the explicit tighter-bounds direction at the end of the 2023 Kneser paper. It shows that its exceptional four-weight example does not disappear at larger even orders, improves the entire even-order range from an upper bound of five to four, and identifies a precise local degree-capacity mechanism explaining why four is the minimum in the motivating two-block class. The gain is one in numerical weight, but it is uniform on an infinite open family, closes the gap between a previously isolated example and general theory, and comes with a nontrivial structural sharpness proof. The unrestricted exact value is not claimed.
+With |A|=a and |B|=a+2 the all-crossing-negative baseline has weight 1−a; a cycle on A and three disjoint edges on B are available already at a=4 and add a+3. With s_i the incident label sum, the disjointness neighborhood contributes w−s_i−s_j+f(ij), and closing it adds f(ij) once more. In the construction s_i=−1 on A and s_j=1+ε_j on B, with ε_j in {0,1}; the crossing, A-internal and B-internal sums are at least 1, 8 and 2, respectively. A crossing pair avoids a−2 promoted cycle edges. For any signing in the stipulated class the number of promoted internal pairs is a−1+w, while the largest degrees p,q of the two promotion graphs satisfy p+q≤w−1 from the crossing inequalities. The handshake bound excludes w≤2, and at w=3 only (p,q)=(0,2) can supply a+2 edges, forcing a spanning 2-regular graph on B. An unpromoted B-pair then has closed sum 3−3−3+2=−1. This proves optimality only for the stipulated partition class. A fresh literal-neighborhood enumeration for a fixed 4+6 partition found no valid labels at weights −3 through 3 and 45 at weight 4.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published primary comparison covers weight 4 at n=10 and uses the same general partition strategy, but its even-order constructions have weight 5. The supported contribution is the uniform weight-four construction improving the published bound for even n≥12, together with optimality for fixed blocks of sizes a and a+2 with all crossing labels negative. Distinct later-dated catalogue entries materially reproduce or strengthen these statements; they establish non-uniqueness of the mathematical content across catalogue records, but the inspected evidence does not establish earlier coverage of this frozen finding by those entries. The search is not a priority certification.
+
+## value
+
+PASS
+
+Reducing the best inspected published general even bound from 5 to 4 is mathematically motivated: it reduces the possible exact values uniformly on a standard Kneser family, using one construction for both even congruence classes. The degree-capacity obstruction explains why the standard fixed-cut strategy cannot realize a still lower weight, so further unrestricted improvement would require another signing pattern. This is more than reproducing the n=10 table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

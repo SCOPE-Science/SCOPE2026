@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:58:08.798266Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–92; VERIFICATION.md; verify_2regular_types.py; verify_2regular_game.py; verification_output.txt",
+        "Independent replay: python3 -B /workspace/independent_checks.py 1"
+      ],
+      "rationale": "After two moves, equality, adjacency and the set of third-point incidence patterns are the exact one-round invariant. At order at least seven a distinct vertex adjacent to neither named vertex always exists. For adjacent distinct vertices, the remaining neighbors coincide precisely on a triangle; for nonadjacent ones the common-neighbor counts 0, 1 and 2 have distinct pattern sets, with count 2 precisely at opposite vertices of a square. Hence the set of pair types extending a vertex identifies triangle, square or longer cycle; each admits a far partner by another component or by distance at least three. Taking sets once more gives exactly the three cycle-presence bits, with no counting of multiplicities. A dominating pair separates all five small cases from the large orders. Triangle existence, a nonadjacent pair, nonadjacent twins, and a nonadjacent pair with no common neighbor provide the stated small-case distinctions. The minimum orders for the seven large signatures are attained by cycle partitions as listed; the full signature costs at least 3+4+5 vertices and has only one partition at that minimum. The square witness uses a universal third quantifier, but is indeed rank three. A fresh exact recurrence on adjacency/equality patterns reproduced 12 fingerprints across 572 partitions through order 24.",
+      "residual_risks": [
+        "Finite replay does not establish orders beyond 24; all orders are covered by the game recurrence argument. The empty graph and signatures with additional predicates are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2436d3278dd6 proves every union of at least two cycles each of length at least nine is rank-four equivalent to C11.",
+          "The cited Brown–Hoshino theorem is described in the frozen comparison as a connected-cycle result; the PDF could not be read. Kopczyński–Tan §1 concerns spectra in two-variable logic with counting."
+        ],
+        "reasoning": "Rank-four agreement implies rank-three agreement for those long-cycle instances but does not decide the C3/C4 presence bits, the C5+C5 effect, or the small-order exceptions. Counting spectra do not classify ordinary adjacency theories.",
+        "searches": [
+          "Resultary: rank three first order equivalence disjoint unions cycles finite graphs",
+          "Brown–Hoshino, Theorem 4.9, publisher PDF",
+          "Kopczyński–Tan, arXiv:1304.0829v4, §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary statements f00dc56a8e27, 6ffa74c2d1c0 and 2436d3278dd6",
+        "Kopczyński–Tan arXiv:1304.0829v4 §1",
+        "Frozen RESULT.md lines 94–108 and attempted Brown–Hoshino OA retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product theorem with one factor gives the C_n, n>=7 tail; the four-round long-union theorem yields some genuine disconnected three-round collapses; the exact width-k theorem discriminates multiplicities that rank three cannot detect."
+        ],
+        "reasoning": "No substitution of already-equivalent components proves C5+C5 equivalent to C7: C5 itself differs from C7 at rank three. Even the stronger long-union equivalence assumes length >=9, so it cannot settle this case or the complete mixed-component partition and bound.",
+        "searches": [
+          "Actual Findings of f00dc56a8e27, 6ffa74c2d1c0, and 2436d3278dd6",
+          "Frozen Brown–Hoshino comparison and attempted primary Theorem 4.9 retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6ffa74c2d1c0 treats the identical structures but unrestricted quantifier depth with at most k variables: equality of all cycle multiplicities truncated at k for k>=3.",
+          "f00dc56a8e27 includes C7 rank-three equivalent to certain higher-dimensional connected Cartesian tori; the C5+C5 example did not surface in the returned results."
+        ],
+        "reasoning": "Unrestricted width three refines the rank-three equivalence strictly (it distinguishes C5+C5 from C7), so its class criterion is not a reformulation or a converse implication. Cartesian products are not disjoint unions.",
+        "searches": [
+          "Resultary: finite simple 2-regular graphs quantifier rank three FO equivalence cycle components",
+          "Resultary: C7 equivalent C5 disjoint union C5 three-round Ehrenfeucht Fraisse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f00dc56a8e27 gives eight rank-three classes of connected Cartesian products and contains the connected-cycle tail. No distinct exact complete twelve-class table surfaced in the returned lists."
+        ],
+        "reasoning": "The eight product classes do not tabulate union signatures. The closest records' shared date establishes no priority; absence from bounded ranked returns is not proof of absence.",
+        "searches": [
+          "Resultary: Twelve three-round theories finite 2-regular graphs cycle-presence vector rank 3",
+          "Resultary: C7 equivalent C5 disjoint union C5 three-round Ehrenfeucht Fraisse"
+        ]
+      },
+      "rationale": "Credit the established connected-cycle tail and overlapping restricted long-cycle union equivalences. The inspected statements do not give the complete rank-three partition for arbitrary unions, the mixed short-cycle interactions, or the optimum twelve-vertex bound. Pass is for that complete disconnected classification, not the connected cases or the standard EF recurrence. Historical priority is provisional.",
+      "residual_risks": [
+        "No primary Theorem 4.9 passage was readable on the available routes; the older Brown–Woodrow technical report was not available for full-text comparison.",
+        "The independent general web queries were deferred, so they provide no negative literature evidence. The assessment rests on the concrete comparisons above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers connected-cycle tail, not arbitrary unions",
+          "evidence": "Its class V includes d=1 and cycle length at least seven; C7 represents the class.",
+          "identifier_or_url": "2026/11/2/SCOPE-eight-three-round-theories-of-cartesian-products-of-finite-cycle--f00dc56a8e27",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Eight three-round theories of Cartesian products of finite cycles",
+          "trigger": "Nearest exact rank and connected cycles"
+        },
+        {
+          "assessment": "Different, strictly finer logical equivalence",
+          "evidence": "For k>=3 it uses equality of each cycle multiplicity truncated at k.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-finite-variable-theories-of-finite-unions-of-undirected-cy--6ffa74c2d1c0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Exact finite-variable theories of finite unions of undirected cycles",
+          "trigger": "Identical graph family"
+        },
+        {
+          "assessment": "Genuinely covers a restricted portion, not the full theorem",
+          "evidence": "C9+C9 and every disjoint union of at least two cycles of lengths >=9 are rank-four equivalent to C11.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-eighteen-vertex-threshold-for-four-round-indistinguishabilit--2436d3278dd6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "The eighteen-vertex threshold for four-round indistinguishability",
+          "trigger": "Stronger-rank statement on cycle unions"
+        },
+        {
+          "assessment": "Credit connected overlap; cannot exclude additional material in unread primary source",
+          "evidence": "Retrieval yielded a PDF without extractable text, not a scientific countercomparison.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "No readable primary passage; Theorem 4.9 scope reported in frozen RESULT.md §Relationship to prior work",
+          "method": "Targeted lawful OA check on both available routes",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Cited connected-cycle theorem and plausible deeper overlap"
+        },
+        {
+          "assessment": "Different logic and question in inspected theorem",
+          "evidence": "The paper studies C^2, using two variables and allowing counting quantifiers, and spectra via regular/biregular models.",
+          "identifier_or_url": "https://arxiv.org/html/1304.0829v4",
+          "material_read": "§1, introductory statement",
+          "method": "Targeted OA text inspection",
+          "title": "Regular graphs and the spectra of two-variable logic with counting",
+          "trigger": "Potential regular-graph analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–5; comparisons to connected and long-cycle cases above"
+      ],
+      "rationale": "The result decides every comparison in a natural unbounded graph family. At rank three the small-order domination exception interacts with the cycle kinds, and a repeat of a cycle that is distinguishable from a long connected cycle can become indistinguishable from it. This is a precise benchmark for low-rank graph types and disjoint-union composition, with a tight representative bound rather than a census at an arbitrary cutoff.",
+      "residual_risks": [
+        "No inference about higher rank or non-degree-two graphs; value is in the exact low-rank description."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

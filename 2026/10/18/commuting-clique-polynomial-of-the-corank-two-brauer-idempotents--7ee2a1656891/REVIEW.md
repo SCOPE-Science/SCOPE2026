@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every rank-\(n-2\) Brauer diagram has unique upper and lower cups; the product through its middle matching yields a unique idempotent precisely for overlapping cup labels. Thus the idempotents are one projection per label pair and six triangles per label triple. Disjoint supports commute by diagram separation. Every overlapping pair uses at most five labels, so the complete exact \(B_5\) matching enumeration (2415 unordered distinct pairs, all noncommuting in the overlapping strata) proves the reverse implication for arbitrary \(n\). The disjoint-block bijection then proves the entire polynomial and its extremal coefficients. Python's union--find product uses all three graph rows, discards internal loops, and is cross-checked against the exhaustive candidate census. The finite check is an exact local certificate with a proven global reduction, not an extrapolation.
+## correctness
 
-**Originality: PASS, subject to genuine residual literature risk.** Dolinka and collaborators (2014, arXiv:1408.2021, Sections 1--4.2 and Theorem 18) classify and enumerate Brauer idempotents, so none of their individual counts is asserted as new. East--Gray (arXiv:1404.2359, introduction and ideal-generating-set discussion) classify generating sets via Graham--Houghton graphs rather than commuting cliques. A planar Jones corank-two classification does not imply the present nonplanar, six-colour triple-packing count. No equivalent all-\(n\) clique polynomial was identified in the checked mathematical results. A plausible 2006 Larsson thesis on Brauer idempotents was not readable in full and retains genuine residual risk, as do differently named semilattice classifications.
+PASS
 
-**Value: PASS.** Pairwise commutativity of idempotents is a natural semigroup-theoretic compatibility relation: such subsets generate commutative idempotent subsemigroups, although their products may leave the fixed rank stratum. The finding gives an exact compatibility criterion and counts every size of commuting family, including maximal-size families, uniformly for all degrees. The six decorations on a triple produce a nonplanar phenomenon invisible to the planar Jones analogue; the formula is not simply the known count of single idempotents.
+For a rank n−2 diagram with upper cup I and lower cap J, the middle matching in its square preserves rank exactly when I and J meet. In that case its bijection between residual label sets forces a unique transversal bijection for idempotence, giving the pair projections and the six triangle diagrams per triple. There is also a direct check of the commutation converse: for e with cup/cap I,J and f with K,L, ef has rank n−2 if J meets K and rank n−4 otherwise; fe has the same rule with L and I. If both products preserve rank and are equal, their unique external cups and caps force I=K and J=L, hence e=f. In the rank-drop case equality requires a common diagram containing both external cups I,K and both caps J,L. Here I cannot equal K and J cannot equal L, since either equality would contradict disjointness of the relevant middle pair. It follows that I and K are disjoint and J and L are disjoint, and the two middle disjointness conditions then give disjoint supports. Disjoint support is sufficient by verticality off support. The frozen exact five-label reduction is also sound and the fresh path-tracing certificate checks all 2415 pairs of the 70 candidates, with 75 commuting pairs and no intersecting exception (replay: /workspace/branches/31900e4c-c973-4fc0-bd38-d05bf151d45b/independent_b5_check.py). Labelled packings with one decoration per pair and six per triple give the factorial formula and EGF, with the unused labels counted as singletons. At size floor(n/2), only pairs occur for even n; odd n permits either one unused label or a single decorated triple. This yields both maximal-size counts, including n=2 and n=3; n=0,1 are only EGF conventions.
 
-**Verification limits.** Exact five-label reduction plus a standalone complete matching calculation are used in correctness; direct enumeration for larger degrees only cross-checks the resulting generating series. No conclusion about unrelated rank strata or literature uniqueness follows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The individual-idempotent stratum is antecedent. The supported distinct contribution is the full nonplanar pairwise commutation criterion and its decorated-packing enumeration. The strongest same-day match treats the planar Jones submonoid; neither its support rule nor its clique recurrence covers the extra nonplanar diagrams. No priority order within that day is inferred.
+
+## value
+
+PASS
+
+This is the complete compatibility graph of a natural next-to-unit rank stratum, not a new tally of a known list. The disjoint-support condition allows all-size and extremal enumeration without multiplying large families of diagrams and distinguishes the nonplanar model from the planar one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

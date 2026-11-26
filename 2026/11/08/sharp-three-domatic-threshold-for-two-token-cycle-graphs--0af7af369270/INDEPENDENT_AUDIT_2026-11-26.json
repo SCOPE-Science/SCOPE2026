@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:05:31.514859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–58; frozen boundary_certificate.tsv, verify.py and VERIFICATION.md inspected, not executed.",
+        "Independent replay: python3 /workspace/audit_evidence/small_exact_reproduction.py, domatic_checks()."
+      ],
+      "rationale": "An adjacent pair has degree two, yielding the upper bound of three. The unpatched sum-modulo-three colouring works for all pairs except possibly the two cut-adjacent pairs when n is not divisible by three: a nonadjacent pair has an interior token that can move in both directions, and adjacent pairs normally have opposite nonwrap moves. A changed colour affects only the closed neighbourhoods listed around its pair. Checking these moves shows that the affected pairs and all their neighbours use only indices 0,…,4 and n−4,…,n−1 in residue 1 from n=10, or 0,…,4 and n−5,…,n−1 in residue 2 from n=11. These blocks are separated; translating the right block by three preserves the wrap move, collisions, changed-pair membership and all residues in the affected closed neighbourhoods. An independent symmetric-difference construction verified all neighbourhoods at n=7,8,10,11 and recovered boundary counts 11,14,11,14, so the lifts cover the infinite tails. K_{2,4} rules out three colours at n=4 by forcing all four degree-two vertices to have the same colour. At n=5 the B_i colours must form a properly coloured five-cycle; up to cyclic relabelling and colour permutation its sequence is (0,1,0,1,2), forcing (1,2,2,2,0) on the A_i. The closed neighbourhood of B_1 then misses zero. Independent exhaustion of all 729 and 59,049 assignments agrees. A maximal independent set and its complement furnish two classes in both cases, and F₂(C₃)=K₃ has three classes.",
+      "residual_risks": [
+        "The representative computations certify the boundary bases only; the lift supplies the unbounded quantifier. No optimality claim about the number of recolourings is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shadravan–Borzooei's Theorem 2.6 treats C_n, not F₂(C_n); its Johnson graph setting corresponds to F₂(K_n). The checked token-domination papers fix F₂(P_n) or study stars and complete graphs, and minimize a single dominating set."
+        ],
+        "reasoning": "A minimum dominating-set size is not the maximum number of disjoint dominating classes, and results for paths or complete host graphs do not transfer by a direct specialization to cycles. The full double-vertex and rotationally symmetric texts were not retrieved; no whole-paper exclusion is asserted.",
+        "searches": [
+          "Ordinary domatic graph families: DOI 10.30495/JME.2023.2597 and DOI 10.1155/2023/3816772",
+          "Token and double-vertex domination: arXiv:2610.11265v1, arXiv:2509.16448v1 and DOI 10.26713/jims.v11i3-4.1308"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; local Resultary; the primary passages and limited-access sources detailed in source_inspections."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hartnell–Rall's alternating game is not a static closed-neighbourhood colouring. The ordinary cycle theorem gives the n=3 special case but even has a different answer for every n≥7 not divisible by three."
+        ],
+        "reasoning": "There is no direct specialization, substitution or graph identification yielding the asserted all-n threshold and fixed four-recolour repair from these prior results.",
+        "searches": [
+          "Hartnell–Rall DOI 10.61091/ars165-03 §2 and cycle cases; compare Shadravan–Borzooei Theorem 2.6 with frozen RESULT.md lines 17–55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 0af7af369270 is the assigned record. The symmetric-square construction is the same operation on unordered pairs; the accessible Audenaert et al. results address spectra.",
+          "For n=5, the degree-four B_i induce the complement of the i-cycle (edges j=i±2); each A_i is adjacent to B_{i−1},B_i. This is exactly C₅ with its edges subdivided and the former nonadjacent original vertices joined, i.e. the central graph of C₅."
+        ],
+        "reasoning": "Renaming the unordered-pair graph in the literature is necessary, but spectra and isolated isomorphisms do not yield the cycle-family formula. The central-graph connection makes an exact small-case overlap plausible, without implying a family-wide overlap.",
+        "searches": [
+          "Local Resultary on F₂(C_n), two-token/double-vertex/symmetric-square cycle graphs and ordinary domatic partitions",
+          "Audenaert–Godsil–Royle–Rudolph arXiv:math/0507251v1; Raza et al. DOI 10.1155/2023/3816772"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact-family table appeared in the returned catalogue hits. Rivera's directly matching host family is catalogued by independence numbers, not ordinary domatic numbers. The frozen 50-row certificate checks only the given construction, not prior coverage."
+        ],
+        "reasoning": "The claimed table is an infinite exact invariant plus a construction. Neither finite isolated values nor tables of other invariants establish it.",
+        "searches": [
+          "Local Resultary exact threshold and explicit sum-modulo-three repair search",
+          "Shadravan–Borzooei cycle and Johnson-graph results; Rivera arXiv:2611.22830v1"
+        ]
+      },
+      "rationale": "The bounded search did not establish coverage of the all-n ordinary domatic formula together with the uniform four-entry repair. The n=3 case is an ordinary cycle, n=4 is a standard complete bipartite case, and n=5 can also be identified with the central graph of C₅; do not credit novelty to these isolated cases. No inspected adjacent theorem supplies the family or the repair.",
+      "residual_risks": [
+        "The double-vertex and rotationally symmetric graph articles were not accessible in full. The central-graph isomorphism could account for the n=5 value in prior work. Historical priority of the family-wide threshold and explicit repair is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical self-hit",
+          "evidence": "The exact threshold and four changes are from the assigned finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-three-domatic-threshold-for-two-token-cycle-graphs--0af7af369270",
+          "material_read": "Local indexed summary and bound Finding",
+          "method": "Local Resultary and frozen text",
+          "title": "Sharp three-domatic threshold for two-token cycle graphs",
+          "trigger": "Exact indexed result"
+        },
+        {
+          "assessment": "Ordinary-cycle special case only in the decisive comparison",
+          "evidence": "Theorem 2.6 gives dom(C_n)=3 iff 3 divides n, rather than the token-cycle threshold; the Johnson host is complete.",
+          "identifier_or_url": "https://www.ijmex.com/index.php/ijmex/article/download/2597/1058",
+          "material_read": "p. 1 abstract, introduction p. 3, Theorem 2.6 p. 6, reference list p. 14",
+          "method": "OA journal PDF",
+          "title": "On domatic number of graphs",
+          "trigger": "Exact ordinary domatic numbers for cycles and graph families on pairs"
+        },
+        {
+          "assessment": "Possible exact small-case coverage; no inference about full text",
+          "evidence": "The description includes middle/central graphs; the small-case isomorphism is derived independently in this review.",
+          "identifier_or_url": "https://doi.org/10.1155/2023/3816772",
+          "material_read": "Accessible description and citation in the preceding paper; no primary mathematical passage retrieved",
+          "method": "Bounded lawful OA attempts returned 403 with no alternate repository copy",
+          "title": "On Domatic Number of Some Rotationally Symmetric Graphs",
+          "trigger": "Related cycle constructions; central C₅ equals F₂(C₅)"
+        },
+        {
+          "assessment": "Different host and invariant",
+          "evidence": "Minimizes one dominating set on F₂(P_n).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11265",
+          "material_read": "v1 p. 1, abstract and §1",
+          "method": "OA primary PDF",
+          "title": "The domination number of the 2-token graph of path graphs",
+          "trigger": "Exact domination result for the same token count"
+        },
+        {
+          "assessment": "Different invariant and studied hosts",
+          "evidence": "Token domination numbers of stars and complete graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.16448",
+          "material_read": "v1 p. 1 abstract and introduction",
+          "method": "OA primary PDF",
+          "title": "Domination number of Token Graphs",
+          "trigger": "Primary token-graph domination context"
+        },
+        {
+          "assessment": "Unresolved access limitation",
+          "evidence": "Definitive statement-level assessment was not possible.",
+          "identifier_or_url": "https://doi.org/10.26713/jims.v11i3-4.1308",
+          "material_read": "Bibliographic record only; primary text not retrieved",
+          "method": "Bounded direct and alternate OA attempts returned 404 with no repository copy",
+          "title": "Domination in Double Vertex Graphs",
+          "trigger": "Alias and general double-vertex domination results"
+        },
+        {
+          "assessment": "Different invariant and cycle graph",
+          "evidence": "Alternating-player game on C_n, not ordinary domatic number of F₂(C_n).",
+          "identifier_or_url": "https://doi.org/10.61091/ars165-03",
+          "material_read": "Abstract p. 1, §2 p. 2, cycle cases p. 8",
+          "method": "OA primary PDF",
+          "title": "The domatic number game played on graphs",
+          "trigger": "Potential confusion between similarly named cycle invariants"
+        },
+        {
+          "assessment": "Defines the same object; inspected statements concern spectra",
+          "evidence": "One-edge symmetric-difference adjacency on k-subsets.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0507251",
+          "material_read": "v1 abstract/intro p. 1",
+          "method": "OA primary PDF",
+          "title": "Symmetric Squares of Graphs",
+          "trigger": "Exact alias for graph construction"
+        },
+        {
+          "assessment": "Different invariant; later arXiv posting date",
+          "evidence": "Studies maximum independent sets, not a partition into dominating classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.22830",
+          "material_read": "v1 abstract and introduction p. 1",
+          "method": "OA primary PDF",
+          "title": "Independent Sets in the 2-Token Graph of a Cycle and Kings on the Torus",
+          "trigger": "Exact graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–23 and 25–55; Shadravan–Borzooei Theorem 2.6 for contrast."
+      ],
+      "rationale": "This is a natural exact invariant of the standard two-particle configuration graph of a cycle. The degree bound supplies a sharp target but not attainability. The result resolves every length, identifies the two obstructions, and supplies explicit partitions via a rule whose repair size is bounded independently of n. The uniform construction is useful when a partition is needed, not merely a numerical threshold.",
+      "residual_risks": [
+        "No minimum number of recolourings, general token-count theorem, or classification of partitions is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

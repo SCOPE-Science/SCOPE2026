@@ -1,15 +1,21 @@
-# Scientific review: third higher independence of quadrilateral books
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof treats **all** integers \(m\ge3\) and precisely the component cutoff three. The induced-component count gives the two links \(L_u,L_v\) correctly; for each pair of selected near-hub vertices, at least one unaffected opposite-layer vertex provides explicit free-face pairs. The links collapse to a join with a full simplex. The invariant cover by two contractible subcomplexes intersects in the one-dimensional complete bipartite complex \(K_{2,2m}\), giving the integral sphere-wedge homotopy type. Naturality of integral Mayer–Vietoris determines the complete automorphism lattice. The quotient statement follows over rationals only. The standalone program checks explicit face decompositions, free pairs, field-two ranks and all signed action traces for three nontrivial sizes; the general proof does not rely on finite extrapolation.
+## correctness
 
-## Originality — PASS against inspected published evidence
-The closest primary source is Deshpande–Singh, arXiv:2001.05448 (2020): its stated classifications cover complete multipartite graphs, fully whiskered graphs, paths, cycles and perfect rooted trees, not \(K_2\square K_{1,m}\) for \(m\ge3\). Deshpande–Shukla–Singh, arXiv:2001.06775 (2020), give connectivity inequalities and chordal-graph structure, but the target contains induced four-cycles and the bounds do not imply precise homotopy or representation. Abdelmalek et al., arXiv:2106.10863 (2021), prove shellability for trees and results for chordal graphs, not this cyclic family. Camarena–Carnero Bravo, arXiv:2307.12401 (2023), concern graph **categorical** products at ordinary cutoff one, rather than this Cartesian-product cutoff three. Searches for quadrilateral-book, common-edge square-book, third-independence and homology-lattice aliases did not yield a covering statement. A related published-record result on ordinary matching complexes of quadrilateral books concerns edge sets and not this vertex-set invariant. No comparison rests only on a title match; residual risks include unindexed equivalent results and unstated reductions in broader literature.
+PASS
 
-## Value — PASS
-The quadrilateral-book family is a standard, nonchordal Cartesian graph product with arbitrarily many shared four-cycles. Previously cited higher-independence theorems do not specify its topology. A uniform homotopy type, a canonical integral rather than merely rational symmetry lattice, and an explicit primitive invariant class provide meaningful information for an infinite natural family. The proof isolates a reusable structural mechanism: an induced matching peripheral simplex, two collapsible links, and a biclique intersection. This is not a parameter-only numerical increment or table recomputation.
+I verified the argument uniformly for m≥3. In the link on W of u the u-component has size 1+|T|+|T∩S|. For any specified two a-vertices choose an allowed b_k in a third page. Pair faces containing the two a-vertices by toggling b_k in decreasing face size; any larger competing coface has already been removed and different pairs cannot compete. The survivor is a cone. The other link is symmetric, so attaching both cones to Δ(W) along these contractible links gives contractible Y. Faces carrying both hubs have at most one W vertex; the remaining cover piece is the edge joined with discrete W. The two contractible subcomplexes have intersection K_{2,2m}, giving its suspension by the homotopy pushout of the cofibrations; the cycle rank is 2m−1. Integral Mayer–Vietoris is natural because both subcomplexes are invariant. Orient all intersection edges from U to W: an integral cycle has two opposite rows, each summing to zero, which directly identifies its lattice with I_U⊗I_W equivariantly. The layer swap acts by −1 on I_U and has no fixed W vertices even when combined with a page permutation; this gives the two stated traces. Page invariants in I_W are constant on the a- and b-shores with opposite constants, hence the stated primitive integral invariant. After barycentric subdivision the finite group action has no simplex inversions, so the rational quotient chains are the orbit (coinvariant) chains, with exact coinvariants by averaging. This gives exactly the stated rational quotient Betti number. The m=3,4,5 checks are recorded corroboration only; the uploaded program was inspected but not executed.
 
-## Limitations and closest evidence
-The result makes no equivariant homotopy-type claim, treats only cutoff three and \(m\ge3\), and is subject to bibliographic incompleteness. Independent verification is not claimed. Sources: arXiv:2001.05448, 2001.06775, 2106.10863, 2307.12401; the related quadrilateral-book matching-complex record covers a different functor.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact catalogue match is the assigned record itself. The strongest same-graph and same-module analogues concern different complexes. Primary general higher-independence results inspected do not imply the wedge multiplicity or action here: the book is nonchordal, and general connectivity/vanishing bounds do not compute the homology representation. The graph-specific topology and integral identification pass; standard Mayer–Vietoris and augmentation-module algebra are not claimed original.
+
+## value
+
+PASS
+
+A quadrilateral book is a natural nonchordal graph family, and cutoff three is the first that admits all three-vertex selections but forbids a selected page. The uniform wedge count is exact and the integral action adds content beyond Betti numbers and a rational character alone. The invariant lattice and quotient Betti number are concrete consequences, and the cover explains how a bipartite graph controls this topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

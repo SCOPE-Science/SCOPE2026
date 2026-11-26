@@ -1,19 +1,21 @@
-# Evidence-based assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all unordered seven-factor decompositions of the fixed-labeled \(K_8\), not six vertex-relabeling orbits. Canonical uncovered-edge recursion gives all 6240 configurations; team-zero-anchored coloring recursion independently gives the same set. All legal four-cycle moves are enumerated, with no inference from partial sampling. Both independent programs reconstruct identical full 17640-edge certificates and calculate the entire connected-component and eccentricity distributions. The certificate and source programs are packaged. The result concerns this finite order only.
+PASS
 
-## Originality — PASS, with residual risk
+A factorization is counted once under either first-uncovered-edge descent or anchoring each factor to the unique opponent of vertex 0; neither identifies vertex labels. In a pair of factors the union consists of even cycles of length at least four, so the only possibilities are an 8-cycle and two 4-cycles. Only the latter permits a changed unordered factorization. Choosing the other 4-cycle just interchanges the names of the two resulting factors. A separately written full census generated all 105 matchings, enumerated all disjoint anchored covers, tested all 21 factor pairs per cover by connected components, and deduplicated the constructed neighbor sets. Component traversal plus BFS from all 5280 nonisolated states independently reproduced 6240 vertices, 17640 edges, degree counts 0:960, 3:1680, 7:2520, 9:420, 13:630, 21:30, component sizes 1:960 and 5280:1, and nontrivial eccentricities 9:30, 10:3570, 11:1680. The degree-zero characterization follows exactly from having only Hamiltonian two-factor unions. The frozen verifier code, saved outputs and summary were inspected without executing the uploaded scripts. The frozen replay entry points are verify_matchings.py (exact covers) and verify_coloring.py (anchored covers); the independent implementation also uses the anchoring principle but constructs switches from cycle components.
 
-Kaski, de Souza Medeiros, Östergård, and Wanless (2014), DOI 10.37236/3606, was read in its primary full text (Sections 3, 6, and 8). It explicitly constructs the **quotient** graph on six isomorphism classes, not the present 6240 fixed-vertex-labeled configurations. In particular, quotient connectivity does not imply that two arbitrary label-preserving schedules are connected, and it does not imply the exact 11-move diameter or 9/10/11 eccentricity multiplicities. The 6240 count and perfect-factorization isolation are credited as prior knowledge. Actual targeted literature and mathematical-record queries uncovered no dominating labeled result. Residual risk: exact labeled results may exist in unindexed ancillary datasets or other publications; absence from a search is not a priority proof.
+## originality
 
-## Value — PASS
+PASS
 
-A one-factorization specifies a round-robin tournament on eight named participants. Permitting changes of team identities turns the natural state space into a six-state quotient, which loses actual transformations between schedules. The exact connectivity and distance census of all labeled schedules is a natural first nontrivial benchmark: it supplies both an obstruction (960 immobile schedules) and a sharp worst-case edit bound (11 moves) for the remaining 5280, plus a full degree and eccentricity profile. These are substantial structural data not already implied by the known quotient result, rather than a different spelling of the known count.
+Credit is limited to the exact fixed-vertex-label graph statistics: its edges and degree census, connectivity of the non-perfect states, and their full distance geometry. The factor-switch move, quotient graph, perfect-factorization isolation and 6240 labeled state count are known. The closest primary prior computes the quotient under vertex relabeling; the information in its reported quotient and loops is insufficient to recover the connectivity or distances of the labeled state graph. No inspected indexed result gives a dominating unquotiented census.
 
-## Limitations and closest source
+## value
 
-The full 2014 study is the closest paper and its six-class graph is related but distinct. No unverified broader-order generalization is asserted. Complete external independent scientific audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph is the natural smallest complete one-factorization setting with a nontrivial labeled component and perfect isolated states of this kind; K8 permits both types of two-factor union, unlike the smaller K4 and K6 cases where every two-factor union is one cycle. The meaningful invariant is the fixed-participant edit geometry, not a repeated count of states or isomorphism classes. In the active component, exact connectivity decides mutual convertibility without team renaming and diameter 11 gives the sharp worst-case number of legal round edits; eccentricities give the worst-case guarantee by starting schedule. Those precise invariants are useful independently of any extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every unit interval graph admits a real-coordinate representation in which adjacency between distinct vertices is unit distance or less. A sweep of the \(2m\) endpoints of the windows centered on marked intervals yields at most \(2m\) distinct full patterns, and the only possible open-pattern exceptions arise by self-deletion at the \(m\) marked vertices. For sharpness, the explicit arithmetic progression of spacing \(3/4\) produces \(2m\) distinct full patterns and, at \(m\ge4\), \(m\) pairwise different absent-from-full-pattern open traces. Smaller parameters are checked directly. Independent adjacency-matrix computation supports the statements on a quarter-unit grid, and exact rational witnesses were checked through \(m=40\). Experiments do not establish the all-size statements by themselves; the explicit proof does.
+## correctness
 
-## Originality
-PASS on currently inspected evidence, with priority risk. Relevant search phrases included `open neighborhood trace unit interval proper interval 3m`, `unit interval graph neighborhood complexity sharp linear`, `proper interval adjacency types VC dimension`, and wider one-variable and interval graph formulations. Dreier et al. (arXiv:2607.10941) prove almost-linear behavior in a far larger class; Beaudou et al. (arXiv:2501.08895) discuss profile complexity and known asymptotic bounds for unit intervals; Rutter et al. (2025) establish the proper/unit representation equivalence. Published general-interval profile bounds are not sufficiently specialized to imply the open-trace coefficient three. Exact historical coverage cannot be guaranteed, especially for older locating-code variants.
+PASS
 
-## Value
-PASS. Proper interval graphs form a canonical dense hereditary graph subclass and are equivalent to unit interval graphs. The result sharpens qualitative linear neighborhood complexity to its exact coefficient at every cardinality, identifies the minimum vertex budget for sharpness, and exhibits the strict VC-density distinction between proper and general interval graphs. The simultaneous open/closed result shows that the self-exclusion convention causes a real shift in VC dimension even though both growth rates are linear, making the precise coefficient and convention useful for one-variable type counts.
+In a unit representation the full pattern at x contains exactly the marked coordinates within distance one. Count the 2m entries/exits individually, entries before exits at a simultaneous event. Every actual closed-window pattern is visited, and both end states of the walk are empty, giving at most 2m patterns even with repeated coordinates. An unmarked open trace is a full pattern, and each mark adds at most its own diagonal-deleted pattern; together with the Boolean ceiling this proves the open bound. Spacing marks by 3/4 gives 2m distinct full patterns: all events differ, the windows have connected union, and the nonempty index blocks cannot repeat because their boundaries sweep monotonically. The marks form an induced path. Interior marks yield distinct noncontiguous pairs; endpoint marks yield singleton traces on interior indices, unavailable from full patterns because the query windows of the two neighbors cover that index's window. Thus for m≥4 all m deleted patterns are new, and the m marks plus 2m probes all have distinct open traces. At m=3 the endpoint traces coincide, so the six full and two extra traces shatter all three marks; at m=1,2 the full patterns exhaust the subsets; at m=0 a nonempty host has one trace. This also proves the two distinct VC dimension thresholds and both linear densities. One trace per vertex gives the claimed minimum order where asserted.
 
-## Literature and limits
-The nearest primary texts inspected were Dreier et al. (2026), Beaudou et al. (2025), and Rutter et al. (2025); the full 2026 arXiv text and the full 2025 HTML texts were read in relevant portions. The claim neither determines higher quantifier ranks nor asserts exclusive priority or a classification of all extremal representations. The exact earlier coefficient in the closed case follows from the standard monotone-neighborhood representation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the simultaneous sharp open-versus-closed comparison for unit/proper hosts, in particular the open formula and its minimum witnesses. The 2m closed bound is elementary from the standard representation; it serves as the comparison, not a separate priority claim. Both distinct general interval Resultary results were checked on their actual statements; they neither give the unit formula nor realize their full query witnesses with unit-length probes in general. No equivalent unit-host theorem was demonstrated by the bounded primary checks.
+
+## value
+
+PASS
+
+The exact unit-host maximum reveals a sharp fifty-percent increase in the eventual number of patterns when self-adjacency is omitted, and a shift of one in VC dimension without a density change. The diagonal deletion mechanism and hosts meeting the one-trace-per-vertex lower bound explain when that increase is fully realizable. This is a natural comparison, not just a restatement of linear growth or the usual closed sweep bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

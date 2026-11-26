@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:48:35.244561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–47",
+        "Frozen VERIFICATION.md and check.py (read, not executed)",
+        "Independent bounded beta Gram calculation through N=8"
+      ],
+      "rationale": "The pullback of the j-th block monomial has external character u^B v^(i+C) w^C, so distinct triples are orthogonal even with the multiplier weight |a|². Factoring (z−1)^i(z+1)^δ z^m leaves powers t^(m−j), where t=(2+z+z^(−1))/4; the normalized circular measure pushes to the arcsine density. This gives the stated beta weight and compressed multiplication by 1−t. Its characteristic polynomial is the degree-(m+1) orthogonal polynomial after the linear change of variable ζ=1−2t, which gives the stated Jacobi parameters and accounts for the whole multiset. On the larger space of all circle polynomials of degree at most N the squared multiplier form is the (N+1)-path tridiagonal with diagonal 1/2 and off-diagonal −1/4, giving the lower bound and a unique sine-coefficient minimizer. That polynomial has degree N, is nonzero at +1, and has order zero at −1 for even N and order one for odd N, from its finite sine-sum generating identity. Its reciprocity then places it in exactly the one even or two odd blocks claimed, since a degree-N component forces i+B+C=N. This also covers N=0 and guards against missing multiplicities. A separately rebuilt beta Gram/generalized-eigenvalue calculation through N=8 matched the block spectra (maximum discrepancy 1.39e−12), the minima, and the parity counts.",
+      "residual_risks": [
+        "The finite spectral calculation is numerical; the exact all-N conclusion uses the independent polynomial and path argument above.",
+        "The domain cutoff is mapped into the full Hardy space, not compressed in the range. No weighted-boundary generalization is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Su–Tomar fixes normalized Haar pushforward, weighted homogeneous decomposition, and purity of M_x3; Pal–Tomar gives an abstract Wold decomposition for hexablock isometries.",
+          "The ambient path least eigenvalue bounds all the block Rayleigh quotients but does not guarantee any block attains it."
+        ],
+        "reasoning": "The abstract Wold decomposition does not constrain the equality vector for M_a at a finite cutoff; a lower bound on a larger polynomial space is not a sharp bound on a subspace without membership.",
+        "searches": [
+          "arXiv:2611.17140v1 §§2–3, Lemma 5.2",
+          "arXiv:2507.14589 §4 Theorem 4.10",
+          "Classical path tridiagonal spectrum and Jacobi compression"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c6b99681e45 and cecc24667273",
+        "Pal–Su–Tomar arXiv:2611.17140v1",
+        "Pal–Tomar arXiv:2507.14589v1 or cited HTML source",
+        "Classical path- and Jacobi-matrix arguments reproduced algebraically"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Domain and range Gram matrices from the Wold data, with i shifted by one, give the M_a Gram pencil; ordinary Jacobi theory gives its nodes. The least ambient eigenvector instead needs a separate alignment argument, including exclusion of all blocks with i>0 or a mismatched order at −1."
+        ],
+        "reasoning": "Credit the block spectrum as mechanically recoverable. The global value with exact equality rigidity requires showing that the ambient bound is attained and resolving all admissible equality blocks; that assertion is not delivered by the prior Gram or Wold results.",
+        "searches": [
+          "Resultary cecc24667273, block Gram formula and wandering-basis finding",
+          "arXiv:2611.17140v1 §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record cecc24667273 gives ⟨p_s,p_t⟩=π^(−1)B(Q−s−t+1/2,j+1/2) for its character blocks (RESULT.md text offset 1399). Align (J,K,L) with (i+C,B,C) and reverse the polynomial index."
+        ],
+        "reasoning": "The block Gram descriptions really are equivalent. The wandering spaces and forward x_3 translates classified there do not classify the minimizers of the a-multiplier on an all-character weighted cutoff.",
+        "searches": [
+          "Resultary: exact sine minimum, first-coordinate finite Jacobi spectrum, Haar-pushforward/parity, canonical Jacobi-Wold basis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched the identical record 2c6b99681e45 and the distinct Wold-basis record cecc24667273. The latter gives exact beta entries, not a table/classification of the simultaneous weighted-cutoff extrema."
+        ],
+        "reasoning": "The identical entry is not an antecedent. Exact known path eigenvalues are credited; the multiplicities at issue count different constrained character sectors, not the simple path eigenvalue.",
+        "searches": [
+          "Resultary: sin²(π/(2(N+2))) with parity multiplicity; exact finite hexablock spectral formula"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp global cutoff minimum and exact equality multiplicity, not the Haar space, the path spectrum, or independent originality for the per-block Jacobi spectrum. Explicit prior Wold-block Gram data make the latter a classical compression consequence. Neither those data nor the standard path bound already identify which of the actual hexablock blocks contain a global equality vector; the cutoff and reciprocity/order classification are essential.",
+      "residual_risks": [
+        "No within-day chronology inferred for the two records.",
+        "An equivalent global finite-degree extremal statement in older Hardy-module or polynomial literature remains possible; this is not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material block-level coverage; not the weighted-cutoff global rigidity theorem; no within-day ordering inferred",
+          "evidence": "Gives an explicit basis of the M_x3 wandering space and its translates and the beta-block moments; the Gram pencil for M_a follows by shifting i.",
+          "identifier_or_url": "2026/11/22/SCOPE-jacobi-polynomial-wandering-basis-for-the-canonical-hexablock-ha--cecc24667273",
+          "material_read": "RESULT.md Finding and block Gram formula (text offset 1399)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Jacobi-polynomial wandering basis for the canonical hexablock Hardy shift",
+          "trigger": "Same Haar space and explicit Jacobi block measures"
+        },
+        {
+          "assessment": "Establishes the underlying normalization, space, and shift setting",
+          "evidence": "Haar pushforward map agrees after relabeling, homogeneous weights (1,1,1,2), purity of M_x3.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17140v1",
+          "material_read": "§2 around offset 47400; §3 offsets 57851–60799; Lemma 5.2 around 111900",
+          "method": "OA paper",
+          "title": "Hardy Spaces and Toeplitz operators on the Hexablock",
+          "trigger": "Canonical space and boundary parametrization"
+        },
+        {
+          "assessment": "General Wold decomposition, not a first-coordinate cutoff analysis",
+          "evidence": "Abstract decomposition for hexablock isometries rather than finite polynomial conditioning.",
+          "identifier_or_url": "https://arxiv.org/html/2507.14589",
+          "material_read": "§4, Theorem 4.10, around offset 92500",
+          "method": "OA paper",
+          "title": "Pal–Tomar hexablock operator theory",
+          "trigger": "Broader Wold theorem"
+        },
+        {
+          "assessment": "Identical finding, not separate coverage",
+          "evidence": "Same cutoff, minimum, parity multiplicities, and Jacobi block formula.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-degree-conditioning-of-the-hexablock-coordinate-mul--2c6b99681e45",
+          "material_read": "RESULT.md offsets 0–2353, 2550–5038 and prior-work passage 4700–6564",
+          "method": "Local Resultary mirror",
+          "title": "Sharp finite-degree conditioning of the hexablock coordinate multiplier",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions and equality classification"
+      ],
+      "rationale": "The natural homogeneous cutoff comes from the space, not from choosing ad hoc examples. Its exact least singular value quantifies how finite-degree inversion on the image loses conditioning with N, and the parity law identifies exactly the independent modes causing that loss. This provides a finite-dimensional stability invariant not supplied by an abstract shift decomposition.",
+      "residual_risks": [
+        "Does not determine the full untruncated spectrum or conditioning for a different measure or coordinate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:59.013015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The extension property and homogeneity make the ideal/filter pairs exactly the named nonalgebraic one-types. If both sets are nonempty, height two forces them onto opposite levels and accounts for B, giving t=2|J|-1+B. In the ideal transfer matrix T=[[1,1],[1,2]], holding x_0=0 and x_k=x_{k+1}=1 changes just the weight on the chorded edge from two to one, leaving two off-diagonal entries of powers of T. The even Lucas product identity makes that deficit strictly increase in the shorter arc coordinate, and the B correction is nonincreasing. The unique edge between the two degree-three endpoints identifies the chord up to its recovered cycle distances. With a_0 excluded for the two-chord pair, severing either pair of path weights leaves two free singletons and a path on n-3 variables; with a_0 included the contribution is (T^n)_{11}, using zero-based matrix labels. In both cases the first and second chords increase B by 8 and 12 respectively; the two degree-three maxima distinguish the structures by two versus one common lower neighbor even at n=5. The n=4 witnesses have respectively three versus two common upper neighbors of the two degree-three minima. At n=3 the two-element chord subsets are all in a single rotation orbit. Independent explicit transitivity testing gives the (empty/empty, empty/nonempty, nonempty/empty, nonempty/nonempty) counts (1,40,40,34) for both n=4 witnesses and (1,108,108,40) for both n=5 witnesses; replay with `python /workspace/replay_frozen_reviews.py 4`. The checks at finite n corroborate, but do not replace, the all-n argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical crown Whitney numbers supply the unperturbed ideal count. The general exact one-edge delta is the difference of two induced independent-set counts; it gives a route to the formula, but not its comparative behavior as chord locations vary."
+        ],
+        "reasoning": "Evaluating those subgraph counts, proving strict order and building two nonisomorphic families with matching counts are separate steps. The garland abstract is not evidence for or against coverage of the chorded families.",
+        "searches": [
+          "Conflitti, arXiv:math/0505636, Theorem 2.8",
+          "Munarini, Enumeration of Order Ideals of a Garland",
+          "Resultary 9c2af418ff79, Finding and Proof 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and checks.txt (read only)",
+        "Conflitti arXiv:math/0505636",
+        "Dolinka–Mašulović Lemma 4.3 pp. 648–649",
+        "Munarini, Ars Combinatoria 76 (2005) 185–192, abstract",
+        "Resultary 9c2af418ff79, e2121450dd04, 2ad40c58c047"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The response applies to both chord additions separately, but does not force identical path-component breakup or identical common-neighbor increments between the two distinct perturbations. The unchorded ideal formula has no chord-distance parameter."
+        ],
+        "reasoning": "Credit the general counting statements as prior; novelty rests on the strict recovery and its sharp failure, rather than computing any one individual case.",
+        "searches": [
+          "Resultary 9c2af418ff79 exact one-edge response versus strict chord-position recovery",
+          "Conflitti crown ideal formula versus two-chord families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-point extension data are known in lower/upper-set form. The height-two independent-set identity in 9c2af418ff79 is equivalent to the ideal-plus-biclique formulation in the frozen proof."
+        ],
+        "reasoning": "This dual formulation covers the counting framework, not determination of the chord distance by the total or the specific all-size collision.",
+        "searches": [
+          "Dolinka–Mašulović, Lemma 4.3",
+          "Resultary 9c2af418ff79: random-poset one-types and one-comparability sensitivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The eight-point bivariate fingerprint entry has an equal-total pair at 120; its separate finite-model-theoretic pair involving 115 has unequal totals 115 and 109 and eight, not ten, comparisons. The equivariant crown entry gives the unchorded total 2L_{2n}+4n-1."
+        ],
+        "reasoning": "The closest exact entries do not tabulate the specified 115/115 collision or the Q_n,R_n twins. This is bounded comparison, not proof of absence from every table.",
+        "searches": [
+          "Resultary one- and two-chord crown one-types; smallest eight-point collision",
+          "Resultary e2121450dd04",
+          "Resultary 2ad40c58c047"
+        ]
+      },
+      "rationale": "The general encoding, one-edge response and unperturbed ideal/crown counts are established. Best of current knowledge, the strict recovery along the full one-chord family, its failure for the specified nonisomorphic two-chord pair at every n>=5, and the exact first collision within these two-chord crowns are distinct. The existing general formulas compute a specified graph but do not select the twin construction or imply this classification by a parameter substitution.",
+      "residual_risks": [
+        "No exhaustive literature or database exclusion. In particular the full garland paper could contain related special-family ideal formulas.",
+        "Smallest means within the stated two-chord crown family, not among all finite posets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unperturbed ideal-count background",
+          "evidence": "Explicit crown ideal Whitney numbers; does not express a named-type recovery versus collision classification in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0505636",
+          "material_read": "pp. 2–3 definitions and pp. 7–8 Theorem 2.8, extraction near offset 16100",
+          "method": "OA paper passages",
+          "title": "On Whitney numbers of the Order Ideals of Generalized Fences and Crowns",
+          "trigger": "Classical ideal counts for possibly broader crown families"
+        },
+        {
+          "assessment": "Strongest generic precursor, not the comparative crown classification",
+          "evidence": "t(G)=2i(G)+i(complement G)-2^{|A|}-2^{|B|} and exact induced-subgraph expression for the one-edge delta.",
+          "identifier_or_url": "9c2af418ff79",
+          "material_read": "Finding and Proof 1–2, extraction offsets 0 and 4000",
+          "method": "Resultary and mirrored text",
+          "title": "Sharp one-comparability sensitivity and local counting hardness for random-poset one-types",
+          "trigger": "Same invariant and exactly one added comparison"
+        },
+        {
+          "assessment": "Related exact collision, different invariant/witness",
+          "evidence": "Equal bivariate fingerprint gives total 120; the cited 115/109 pair does not have equal totals and has fewer comparisons.",
+          "identifier_or_url": "e2121450dd04",
+          "material_read": "Finding and eight-point witness comparisons",
+          "method": "Resultary and mirrored text",
+          "title": "Sharp eight-point collisions of graded one-point types in the generic poset",
+          "trigger": "Potential direct match of eight-point witnesses"
+        },
+        {
+          "assessment": "Unchorded case, not an implication of perturbation results",
+          "evidence": "Unchorded t(C_n)=2L_{2n}+4n-1; the new calculation there concerns orbit counts.",
+          "identifier_or_url": "2ad40c58c047",
+          "material_read": "Named and equivariant crown count statements",
+          "method": "Resultary and mirrored text",
+          "title": "An equivariant Fibonacci–Lucas law for crown-poset one-point extensions",
+          "trigger": "Crown-plus-Fibonacci formula match"
+        },
+        {
+          "assessment": "Unresolved scope of its full ideal formulas",
+          "evidence": "Garlands generalize crowns and fences; no conclusion about chorded type-count math from the abstract alone.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-076-ars-articles/enumeration-of-order-ideals-of-a-garland/",
+          "material_read": "Publisher abstract; scan not reliably extractable and alternate routes unavailable",
+          "method": "Publisher and identified alternate access",
+          "title": "Enumeration of Order Ideals of a Garland",
+          "trigger": "More general families of crown-like ideal counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family tests how much structure a single elementary extension invariant detects after a minimal controlled perturbation. One extra edge preserves recovery despite fixed degree data, whereas two extra edges already allow matching both constituent counts at every size in an explicit uniform family. The exact eight-parameter cutoff is for precisely this perturbation model, not an arbitrary finite census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

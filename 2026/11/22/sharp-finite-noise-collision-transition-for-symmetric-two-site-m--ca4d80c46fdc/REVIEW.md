@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns only reflection-symmetric site pairs and positive independent Gaussian observation noise. Its Gaussian conditioning formula reduces the posterior integral variance to an explicit scalar ratio. Exact differentiation gives the decision function \(T\); its derivative is strictly negative by the stated uniform hyperbolic-function inequalities. The exact endpoint values prove uniqueness and all equality cases, while a one-sided expansion proves the linear collision law. Both numerical and symbolic checkers were executed against the packaged sources. Risks: the finding is not a classification of asymmetric two-site designs, and the numerical grid is not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+In the stated independent Gaussian observation-noise model, integration of the fixed Matérn kernel gives prior variance 8/e−2 and equal observation cross-covariances m(s). The observation covariance has eigenvalue 1+η+k(s) on the equal-coordinate direction and remains nonsingular at s=0 with two independent errors. Thus the removed variance is 2m(s)^2/(1+η+k(s)). With m'=−su and k'=−4s exp(−2s), its log derivative is 2su(T−η)/(m(1+η+k)), so sign is decided by one threshold function. Differentiation gives T'=2 exp(−2s)[s−(m/u)(2+u'/u)]. To validate the uniform bounds, the terms in the cosh tail starting with s^4/24 have ratio at most 1/120 on [0,1/2]; thus that tail is below s^4/20 for s>0. With sinh(s)/s>=1+s²/6 this gives u>=139 exp(−1/2)/160; the exact power series gives u<=exp(−1/2). Dropping the positive derivative term in u' gives u'>−2 exp(−1/2)sinh(1/2), with sinh(1/2)<0.522 by its series. This gives u'/u>−1.21. Also m>=2−3/e>0.89, so su/m<0.35 and T'<0. The endpoint values are T(0)=8√e−12>0 and T(1/2)=(1+2e−e²)/(e(e−2))<0. The objective strictly peaks at the unique threshold crossing or, at and above critical noise, at zero, without a tied positive separation. Since m and u are even near zero and k'(0)=0, the right derivative T'(0)=−4m(0)/u(0)=−(16√e−20) verifies the linear inversion. In the separately authored numerical calculation at η=0.1, s=0.234026645898 and posterior variances 0.047354068218 (optimum) and 0.051835871485 (collision) agreed with the finding; independent integration and the explicit matrix inverse corroborate the formulas.
 
-The relevant full-text inspections were Karvonen–Kanagawa–Särkkä (arXiv:1812.08509, particularly Sections 3.5 and 4.5) and Cai–Lam–Scarlett (arXiv:2202.10615, Sections 1–3 and problem setup). The first addresses quadrature weights and stability, including numerical Matérn examples, and the second establishes large-budget noisy kernel-quadrature rates; neither cited inspected result states or implies the specific two-site symmetric finite-noise threshold. Existing exact results for rougher exponential kernels imply no such collapse, because their covariance and scalar stationarity equation differ. Searches of published mathematical records found nearby quadrature topics but not the same statement; this is evidence of a gap, not a mathematical guarantee of novelty. Risks: older small-design Gaussian-process and optimal-experiment literature may contain an equivalent special case, while the broader Pronzato–Zhigljavsky paper was compared at abstract level only.
+## originality
 
-## Value — PASS
+PASS
 
-The natural smallest nontrivial noisy Matérn integration design exhibits a **sharp positive-noise transition from spatial coverage to replication**, and the collision is linear in the distance to critical noise, rather than the generic smooth pitchfork square-root picture. This addresses the concrete budget-versus-noise placement question with a complete scalar classification, unique minimizer and explicit posterior variance within the reflection-symmetric family. Its deliberate restriction prevents overstating global optimality; larger sample budgets and unrestricted pairs remain open for this result.
+The distinctive result is the exact finite-noise location switch and its linear onset for the stated Matérn-3/2 geometry, not the usual Bayesian-quadrature variance formula or the general existence of a replication phenomenon. The nearest different collision result uses a squared-exponential kernel, Gaussian integration measure, and a precision budget, with square-root rather than linear onset. The distinct exponential and bridge analogues have no finite noise collision.
 
-## Sources and scientific limits
+## value
 
-- Karvonen, Kanagawa and Särkkä, *On the positivity and magnitudes of Bayesian quadrature weights*, arXiv:1812.08509, https://arxiv.org/html/1812.08509v2.
-- Cai, Lam and Scarlett, *On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature*, arXiv:2202.10615, https://arxiv.org/html/2202.10615v2.
-- Pronzato and Zhigljavsky, *Bayesian Quadrature, Energy Minimization, and Space-Filling Design*, https://doi.org/10.1137/18M1210332 (abstract comparison, not a full-text exclusion).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The replication decision is meaningful for a natural regularized integral design: exactly two noisy evaluations can be spent either at distinct sites or as two independent midpoint observations. Knowing the exact noise boundary and proving a globally unique paired optimizer gives more than a local stability test. The linear collapse distinguishes the particular Matérn covariance from smoother analogues and gives a quantitative law near the switch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

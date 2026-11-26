@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-parameter theorem follows from the exact greedy embedding criterion: a descending adjacent pair across the reversed periods forces a new increasing period in the source, while the unique ascending pair within a reversed-period boundary does not. Counting the boundary edges over arbitrary substrings proves the exact length and phase formulas, including both one-period and end-of-word cases. Direct definition-based enumeration matched all length, cardinality and factor-set predictions in 567 parameter cells and separately checked 70,756 greedy-criterion cases. No extrapolation from finite tests is used in the proof.
+## correctness
 
-**Originality — PASS within checked sources.** Full primary texts of Li–Deka–Deka (2023) and Golan–Kraus–Porat–Shalom (2026), plus the closely related constrained algorithm paper (2023), give general computational algorithms and complexity results, but do not contain a formula or phase classification for two opposite repeated alphabet permutations. Relevant searches found no equivalent classification or stronger symbolic theorem. General algorithms compute individual instances; obtaining the displayed closed form and the exact set of all maximizing factors requires the new period-transition argument. Residual risk: an unindexed equivalent specialization may exist.
+PASS
 
-**Value — PASS.** Opposite cyclic orderings are a natural structured stress test of the newly investigated asymmetric hybrid LCSS objective. The theorem provides the complete optimal-factor set, not just a complexity bound or isolated numerical optimum; it also exhibits a family with a linear discrepancy between hybrid and ordinary subsequence matching on simple periodic data. This supplies exact benchmarks and a structural obstruction for comparison with general-purpose algorithms. It does not resolve complexity on unrestricted words.
+For a length-ell factor at phase r, the earliest subsequence embedding uses one copy of P plus one for each descent. There are ell-1-floor((r+ell-1)/q) descents. Thus r must be at least A=(q-1)ell-qm+1, and the actual factor starts give 0<=r<=min(q-1,qn-ell). With 1<=ell<=qn, nonemptiness requires just A<=q-1 and A<=qn-ell, respectively equivalent over the integers to ell<=m+ceil(m/(q-1)) and ell<=m+n-1. This proves the length and the entire phase interval directly, including ell=1, n=1 and q=2; different phases have different first letters. The equal-power simplification is valid for q>=3,m>=2, and the alternating two-letter subsequence proves the claimed linear lower bound on the gap. The transition-window proof has a harmless empty-window edge case at t=0 (there need not be a first increasing edge); the interval proof covers it directly. Independently, for q=3,m=n=2 the only optimal factors are 102 and 021. The 567 parameter cells and 70,756 per-factor checks are recorded supporting results, not an independent run or the basis of the theorem.
 
-Closest literature: R. Li, J. Deka and K. Deka, arXiv:2308.00925 (general exact algorithm); S. Golan, M. Kraus, E. Porat and B. Riva Shalom, DOI:10.4230/LIPIcs.CPM.2026.27 (fine-grained complexity, multiple strings and approximation); R. Li et al., arXiv:2308.01322 (constrained variant). Only the explicit specialization and phase classification are assessed here; no priority claim is made for the underlying problem or greedy subsequence testing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the symbolic LCSS length and exact phase classification for opposite periods with independent exponents. Ordinary-LCS information for the same words is not new; the gap is a consequence of the LCSS theorem, not a new ordinary-LCS theorem.
+
+## value
+
+PASS
+
+Opposite orders are a natural tractable stress test of the asymmetry between LCSS and LCS. The result solves the length, distinct witnesses and phase count for every pair of exponents, and provides a fixed-alphabet linear separation. It gives a reusable exact benchmark without claiming a general algorithmic improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

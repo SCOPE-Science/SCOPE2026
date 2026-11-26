@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem quantifies over every dimension and two distinct points, uses strictly positive-definite metrics, and includes shared boundaries in both cells. Direct expansion gives \(g(y)=y^\mathsf{T}(A-B)y+2(Bv)^\mathsf{T}y-v^\mathsf{T}Bv\). The positive-semidefinite direction is immediate convex sublevel-set geometry. Necessity is verified separately for the indefinite and nonzero negative-semidefinite spectral classes; both use the existence of remote points on *both* ends of every negative quadratic ray. The indefinite proof verifies that boundary null vectors span the full space, while the semidefinite proof uses the kernel and the strictly positive site separation. The companion-cell conclusion follows by swapping metrics. The exact-rational witness and two-root formula test the failure boundary. The result is global, and finite computations are not substituted for an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The initiating 2026 full text is conditional on site-star-convexity and does not provide the claimed necessary-and-sufficient Loewner test. The inspected foundational anisotropic Voronoi and orphan-free work supplies sufficient visibility/connectedness conditions for broader systems, not a two-site global star-convexity iff statement. Searches of related algebraic aliases and mathematical-result records, plus recovery of nearby previously published results, did not reveal a dominating exact equivalence. Generic quadratic-sublevel geometry could potentially encode an unindexed predecessor; no claim of exhaustive publication coverage is made.
+PASS
 
-## Value — PASS
-The theorem settles a natural complete classification for the smallest nontrivial case of a recently studied construction. It converts an essential structural assumption in geometric tensor formulas into an exact semidefinite test, distinguishes simultaneous site-star convexity from one-sided visibility, and exhibits why a non-star cell may reappear after a missing radial interval. The global-domain limitation is mathematically essential, not a cosmetic restriction.
+Translating the site p to zero gives g(y)=yᵀHy+2bᵀy−c, with H=A−B, b=B(q−p), c=(q−p)ᵀb>0, g(0)<0 and g(q−p)>0. A positive semidefinite H makes the closed sublevel set convex and hence site-star. Otherwise, on each negative quadratic direction both sufficiently remote signed endpoints lie in the cell, so site-star visibility would force the entire line into the cell. On any limit null direction its linear coefficient must vanish. For indefinite H the null directions span the space by pairing positive and negative eigenvectors (and including the kernel), forcing b=0 contrary to c>0. For nonzero negative semidefinite H every direction is a limit of negative directions, including q−p, so continuity would give g(q−p)≤0. This also covers dimension one. The witnesses produced by failure of site-star visibility have a positive gap on an eventual-inside ray, consistent with the stated quadratic roots. Interchanging the sites gives both cells site-star exactly when H and −H are both positive semidefinite, i.e. A=B.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the necessity of Loewner order for visibility from the generating site under the full-space two-site assumptions, and thus its equivalence with convexity. The earlier work inspected treats site-star-shapedness as a hypothesis or supplies restricted and sufficient conditions, not this exact test. Two later-catalogued Resultary records do give the exact result in their overlapping scopes; that is direct mathematical coverage, not evidence that the finding was already covered at the time of this frozen record or a determination of provenance.
+
+## value
+
+PASS
+
+The unrestricted two-site model is the smallest case in which heterogeneous site metrics can defeat visibility from a generating site. An exact matrix test distinguishes global visibility from potentially favorable clipped plots and distinguishes symmetric metric equality from one-sided dominance. Its useful content is the necessity direction and the resulting two-cell rigidity, not the routine sufficiency of convexity of a quadratic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

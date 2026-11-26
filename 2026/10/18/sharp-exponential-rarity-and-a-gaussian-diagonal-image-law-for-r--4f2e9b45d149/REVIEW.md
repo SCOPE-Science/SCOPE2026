@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under the explicitly fixed uniform binary-table model, the map from binary operations to flip-equivariant square transformations is a bijective monoid description. The existence of an equivariant inner inverse is proved equivalent to fixed outputs admitting fixed preimages. Conditioning on the independent diagonal image gives the exact occupancy law, agreeing with Baiduk–Kozerenko's known count. The new limit uses a correctly normalized zero-truncated-Poisson coefficient representation, uniform interior span-one local CLT, expansion of the off-diagonal factor through order one, a uniquely strictly concave saddle point, uniform endpoint coefficient upper bounds, and the discrete Laplace method. The leading constant retains the full \(\exp((1-x_*^2)/4)\) correction. The packaged finite verifier checks the exact count, directly checks the existence of monoid inner inverses at order two, and numerically checks both the sharp probability and conditional variance through \(n=640\). The infinite theorem relies on the proof, not these checks.
+PASS
 
-## Originality — PASS, with residual risks
+Equivariant regularity is equivalent to lifting fixed image points to fixed preimages: an equivariant section can be chosen independently on image orbits and extended off the image into the diagonal. Independent unordered off-diagonal pairs therefore give exactly the stated regularity factor given d diagonal labels. For d/n in an interior compact set, the truncated Poisson coefficient estimate is uniform: its centered characteristic function has a uniform quadratic term with variance bounded away from zero and bounded cubic remainder, and a uniform modulus gap away from zero by span one and compactness. Stirling normalization gives the local prefactor in (73). The n^0 term in the log regularity factor is (1-x)/2-(1-x)^2/4=(1-x^2)/4. The strictly concave F has the stated unique stationary point; the coefficient upper bound with the same saddle and the direct d=n term separate the tails exponentially. In an interior neighborhood, a quadratic envelope bounds the rescaled tails, and the lattice Riemann sum yields both the sharp prefactor and the normal law. As an independent numerical cross-check, the generating function for occupancy tilted by e^(d/2) is proportional to [z^n](1+e^(1/2)(e^z-1))^n. At its saddle the exponent simplifies to lambda_*-1; the saddle count has variance lambda_* and the indicator of a nonempty bin has covariance 1-x_* with the count. The resulting simplified expressions I=1-lambda_*, C=exp((1-x_*^2)/4)/sqrt(lambda_*) and kappa^(-1)=x_*(1-x_*)-(1-x_*)^2/lambda_* reproduce 0.171897973381, 1.256970100571 and 0.093950190004, respectively.
 
-The nearest direct source is Baiduk–Kozerenko, arXiv:2607.13746v1, Proposition 24 and Theorem 25: it supplies the regularity criterion and exact formula, so **neither is claimed as new**. Full-text inspection of its regularity/counting material identifies no sharp exponential equivalent or conditional Gaussian diagonal-image theorem. Rafieipour's thesis (regularity section) discusses structural questions and low orders; López-Permouth's 2026 full-text article treats idempotents rather than regular elements. Targeted published-web and published-finding corpus claim/alias searches found no formula matching the constants or conditional law; these negative search results are not a uniqueness guarantee. An unindexed saddle-point refinement or an implied result in a related equivariant-transformation literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The exact regularity enumeration counts an enormous finite monoid but leaves open its global random-element behavior. The theorem determines the exponential rarity *and leading coefficient*, and a nontrivial conditional Gaussian law; the conditioning pushes the typical diagonal-image fraction from \(1-e^{-1}\) to approximately \(0.680016\). This is a natural probabilistic algebra invariant with a structural interpretation, not a routine re-expression of the exact sum. The results resolve the dominant-diagonal-support mechanism quantitatively while explicitly preserving credit for earlier exact counts.
+Pass is for the sharp probability and conditional limit under regularity only. The finite enumeration and structural regularity criterion are published, as is the occupancy/Stirling saddle-point technique, including local coefficient asymptotics. The closest inspected formulas do not already give the regularity-weighted theorem: the regularity tilt changes the saddle by an order-one fraction, its subexponential factor changes the leading constant, and the conditional fluctuation law depends on the curvature at the new saddle. The use of standard asymptotic methods is not an originality claim.
 
-## Scope and residual limitations
+## value
 
-The proof holds for a uniform labeled magma monoid, not for random associative semigroups or nonuniform binary tables. The Gaussian law is conditional on regularity, and no independent validation or certification is claimed. Finite code is corroboration, not an infinite proof. Bibliographic uncertainty remains for unindexed or inaccessible equivalent results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural uniform operation-table law, the exact count alone does not explain exponential rarity, the non-typical diagonal occupancy of regular operations, or its fluctuations. The joint sharp probability and conditional fluctuation law quantify these together and include an order-one correction from off-diagonal pairs. This is more than recomputing the finite enumeration or giving an occupancy rate without the conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

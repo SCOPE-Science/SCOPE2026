@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:39:03.249924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting on the left of c with slope m=2+a, the next branch has slope -m and the subsequent inner-left iterations have slope m up to the first exit to z_k<=1/4. Solving that affine recurrence gives exactly the stated z_j and -m^j for 2<=j<=k. The exit condition is a^2 m^(k-1)>=1, with k=O(log(1/a)), so the tail beyond k is O(a^2). I independently obtained the needed signed normalization from the published density series: write W=sum_{j<=k}m^-j=1/(1+a)+O(a^2). Then S=W+O(a^2). The leading indicator lengths are 1/2+a/4 plus errors whose weighted sum is O(k a^2), since for j>=2 each location correction is a^2(m^(j-1)-1)/(4(1+a)); the full integral I of g is (1/2+a/4)W+O(k a^2). Consequently Z=(1-2S+2I)/(1-2S)=-3a/2+o(a). Fixed-index indicators then converge on the a scale to the two opposite half-lines of total weights 1/2 each. At the left edge the fixed j>=2 threshold is (m^(j-1)-1)/(4(1+a)), hence the indicators select the limiting tail with u<q_j, while the j=1 term remains. At the right edge only j=1 switches. The shared inverse-slope tail bound controls the exchange of limit and series even for parameter-dependent later orbits; it bounds a*h uniformly and gives local L1 convergence. For bounded r_a/a the moving endpoints are harmless by local L1 and boundedness; for r_a/a tending to infinity a fixed a-scale window gives the lower bound and closed fixed windows in the published weak limit give the upper bound. The canonical representative and excluded jump values are necessary for the pointwise formulation. The frozen rational-checker code and notes were read, not run; the proof of the asymptotics is analytic, not an extrapolation of the sampled enclosures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary same-map result already gives the exact step series and pre-exit orbit, plus envelope normalization B/a -> -3/2 and the weak-limit proof.",
+          "The broader W-family weak-limit theorem includes this example but states no two-scale profile."
+        ],
+        "reasoning": "The series is complete finite-parameter input and the normalized atom is a covered special case. Neither weak-limit theorem controls testing intervals or density evaluations on the shrinking edge scales.",
+        "searches": [
+          "Li et al. Lemmas 3.1–3.3 and §§3.3–3.5",
+          "Li arXiv:1109.5199 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Li et al. DOI 10.1017/S0143385711000836",
+        "Li arXiv:1109.5199",
+        "Resultary 101c84be4744 and 8e7090580157"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (3.13) captures mass 1/3 on the paper's one envelope interval J2. The orbit formula directly encodes each rescaled threshold after second-order expansion and the weights tend to a geometric series."
+        ],
+        "reasoning": "The contribution is a concise asymptotic analysis of known exact input, not a new invariant formula. Individual threshold locations follow immediately; an infinite locally L1 staircase and its failure on the opposite edge require controlled summation and normalization on the two distinct observation scales. The weak-limit statement and the single integrated mass do not establish those results; the wide shrinking-window case additionally uses positivity and weak convergence.",
+        "searches": [
+          "Li et al. Lemma 3.3 and §§3.4–3.5, especially (3.10) and (3.13)",
+          "Li arXiv:1109.5199 Thm. 1(II)",
+          "Resultary 101c84be4744 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li et al. treat exactly this four-branch family. The broader Li family also specializes to the exact map at s1=s2=2, p=q=1, r=1/4, yielding the same 2/3 absolutely continuous plus 1/3 atomic weak limit.",
+          "Catalogue entry 101c84be4744 describes asymmetric squared-parameter edge profiles for a different square-root-cusp map; 8e7090580157 treats two plateaus of a collapsing skew-tent map."
+        ],
+        "reasoning": "A weak atom gives no local width or profile. The catalogue's different maps and profiles do not have the present signed-orbit dyadic hierarchy, and changing left/right coordinates does not produce it.",
+        "searches": [
+          "Resultary semantic search for W-map blow-up, postcritical dyadic terraces and shrinking-window laws",
+          "Li et al. Eq. (2.1) and Thm. 2.1",
+          "Li arXiv:1109.5199 Eq. (1) and Thm. 1(II)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-family paper does supply all individual jumps and weights implicitly, indeed an exact series; the mirror analogue supplies explicit endpoint formulas for another map."
+        ],
+        "reasoning": "Credit prior exact data rather than claim a new critical orbit or a new normalization. Neither source supplies a table or already-rescaled law of left/right profiles: the fixed-index scaling and uniform summation must be carried out, and the macroscopic mass is not the fine-edge profile.",
+        "searches": [
+          "Resultary semantic search; strongest local-mirror endpoint analogue 101c84be4744",
+          "Li et al. Eqs. (3.1)–(3.3), Lemma 3.3 and §§3.4–3.5"
+        ]
+      },
+      "rationale": "The exact map, series, pre-exit iterates, normalization estimates and atom were already available and are not credited as new. The supported distinction is resolving their cancellation and scale separation into local profiles, in particular an infinite left-edge staircase and a single right-edge step, together with the resulting all-radii law. The cited paper already integrates a shrinking interval to obtain the atom; it does not give the two edge blow-ups or the arbitrary-window statement in the sections inspected.",
+      "residual_risks": [
+        "The original same-map series makes this a short derivation, and a prior same-map blow-up treatment outside the two full-text sources and bounded catalogue queries is not excluded. No additional broad primary-literature search was run for this item."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers map, exact data and atom; strong implicit input, not the resolved two-edge profiles",
+          "evidence": "Eq. (3.1) gives 1+2A sum chi_j/|beta_j|; Lemma 3.3 gives the orbit. At §3.4 B/a -> -3/2 is for the envelope; the asymptotic for the actual density follows by comparison or by integrating the series. §3.5 computes mass 1/3 in J2.",
+          "identifier_or_url": "https://warwick.ac.uk/fac/sci/maths/people/staff/eslami/wmaps2.pdf",
+          "material_read": "Eq. (2.1), Theorem 2.1, Lemmas 3.1–3.3, §§3.4–3.5 critical normalization and interval passages, PDF pp. 2–9",
+          "method": "OA author-hosted PDF and bounded equation/section inspection",
+          "title": "A Family of Piecewise Expanding Maps Having Singular Measure as a Limit of ACIMs",
+          "trigger": "Exact same map and primary source of the complete invariant-density series"
+        },
+        {
+          "assessment": "Specializes to the exact map and weak atom but not the scaled profiles",
+          "evidence": "s1=s2=2, p=q=1, r=1/4 reproduce both inner and outer slopes and breakpoints; the weights of the continuous part and atom are proportional to 8 and 4.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.5199",
+          "material_read": "Eq. (1), §2, p. 2 and Theorem 1(II), p. 3",
+          "method": "OA PDF/HTML passage inspection and parameter specialization",
+          "title": "W-like maps with various instabilities of ACIMs",
+          "trigger": "Broader family could cover the same-map asymptotics"
+        },
+        {
+          "assessment": "Related boundary-layer analysis for a different cusp family",
+          "evidence": "The two endpoint profiles include a diluted left profile, not the W-family dyadic step sequence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-distinct-universal-endpoint-layers-when-a-square-root-cusp-disap--101c84be4744",
+          "material_read": "Local mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and mirror passage inspection",
+          "title": "Distinct universal endpoint layers when a square-root cusp disappears",
+          "trigger": "Closest indexed squared-scale edge asymmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is the standard expanding-map instability with a known point mass but unresolved local geometry. The coarser flat layer, narrower one-sided infinite hierarchy, and complementary single right jump explain how the atom forms. The resulting quantitative mass law for mesoscopic centered windows is usable where weak convergence is not, and the edge asymmetry gives information beyond the elementary mass and normalization checks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:58:11.303061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonnegative symmetric rates with each undirected edge counted once, λ₂ is the minimum over unit vectors perpendicular to the constants of the linear weighted sum of edge squared differences. It is concave even on allocations with a disconnected positive-rate graph. Averaging over the base automorphism group extended to fix the hub leaves the objective no smaller, and gives exactly two rate classes. For their common rates s,t the hub/base constant contrast has eigenvalue (n+1)s and the base mean-zero eigenvectors, extended by a zero hub entry, have eigenvalues s+tλ_j(L_H). Consequently the gap is min{(n+1)s, βB/n+(1−β)s} on 0≤s≤B/n after eliminating t. If β<1 both lines increase and the invariant maximizer is the all-spoke endpoint. If β=1 the flat line is active from s=B/[n(n+1)] to B/n. If β>1 the lines cross in the interior at s=βB/[n(n+β)]; substitution gives the stated t and gap. In the strict low regime an arbitrary optimum must average to the all-spoke endpoint; it cannot have any positive base rate because the averaging preserves the total base rate. The cyclic and cube characters give g=4 sin²(π/n) and g=2 respectively, so the integer boundaries follow. The two-orbit assertion is for automorphisms fixing the designated hub, as used in the proof; for a clique base the full automorphism group has one edge orbit, but the stated unique invariant solution then has s=t and also obeys the full symmetry. No classification of every asymmetric optimizer at or above the threshold is needed. The frozen notes and cone_verify.py were inspected, not executed; global optimality follows from the analytic reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. allow a positive linear cost vector and general graph; Boyd describes the generic invariant optimizer reduction",
+          "The priced-wheel record covers all positive prices but assumes a cycle rim",
+          "eed5b428788a treats one private pendant leaf at each base vertex, not one common hub"
+        ],
+        "reasoning": "The problem class and averaging theorem are broader antecedents, not explicit cone-solutions. The wheel result generalizes cost, not base geometry; its use of cyclic Fourier modes does not state the spectral threshold for arbitrary transitive bases. The private-leaf corona has a different Laplacian and objective profile after symmetry reduction.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis §1.2 and wheel comparison",
+          "Boyd ICM 2006 author version pp. 5, 8",
+          "Resultary searches on cone rate-budget and hypercube support thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and prior work; VERIFICATION.md; cone_verify.py",
+        "Resultary 24216ca23b99, 500cb3da11e0, 901311831846, eed5b428788a",
+        "Sun et al. DOI 10.1137/S0036144504443821; Boyd ICM 2006; Boyd et al. DOI 10.1137/070689413"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Price 1 is below the prior wheel threshold 1/μ_n exactly when μ_n<1, equals it when μ_n=1, and exceeds it when μ_n>1; for cycles μ_n=β",
+          "Prior wheel proof uses Fourier-vector equality to force edgewise rate equality even at the critical price",
+          "General averaging only guarantees some invariant optimum"
+        ],
+        "reasoning": "All wheel cases n≥4, including forced rim loss, follow from the stronger priced theorem. Its n=3 omission is not a reason to claim the wheel threshold as new. The general threshold for H requires the separate contrast and base-eigenspace bounds and an optimal-support inference from preservation of total base weight. Neither the wheel proof's specific Fourier rigidity conclusion nor generic symmetry alone gives this claim for arbitrary H.",
+        "searches": [
+          "Resultary 24216ca23b99 Finding, steps 2–4",
+          "Boyd ICM 2006 symmetry reduction",
+          "Boyd–Diaconis–Parrilo–Xiao DOI 10.1137/070689413 §5.4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Boyd–Xiao–Diaconis §1.2 formulates the same total linear-rate-cost optimization",
+          "Resultary 24216ca23b99 Finding has spoke price t and rim price one",
+          "Boyd–Diaconis–Parrilo–Xiao §5.4.3 treats discrete-time SLEM on a wheel"
+        ],
+        "reasoning": "The one-cost problem is indeed absolute algebraic-connectivity maximization (up to the budget scaling), and the priced continuous-time wheel at t=1 matches the wheel corollary exactly. Discrete-time SLEM includes a second end of the spectrum and stochasticity constraints, so the published discrete-time wheel optimizer is not equivalent.",
+        "searches": [
+          "Resultary meaning searches for single-cone β threshold, hypercube, and conformal rigidity",
+          "Literature: graph joins cones absolute algebraic connectivity Fiedler total edge weight cone over edge transitive fastest mixing spectral gap graph join wheel conformally rigid join"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed wheel values and rates for n≥4, including the n=6 critical continuum, match after setting spoke price to 1 and multiplying unit-budget rates and gaps by B",
+          "Nearest other indexed support transitions (500cb3da11e0 and 901311831846) concern a pendant complete bipartite graph and two cliques linked by a biclique gateway"
+        ],
+        "reasoning": "The wheel overlap is actual theorem coverage rather than coincident numbers; other indexed threshold graphs have different orbits and spectra. No inspected exact entry supplies the arbitrary transitive base statement.",
+        "searches": [
+          "Resultary meaning searches for exact cone and wheel support transitions and hypercube k=4",
+          "2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99, Finding and steps 2–4"
+        ]
+      },
+      "rationale": "Credit the general connected, vertex- and edge-transitive base theorem: a single base-spectral criterion gives the exact gap, invariant optimizer regimes and forced loss of all base edges in every strict low-regime optimum. Do not credit the wheel specialization as new for rim size n≥4: the earlier priced-wheel record gives exactly that specialization at unit spoke price, with a stronger rigidity result. The general cone result and application beyond cycles are not covered by that wheel theorem or by the inspected general optimization machinery. This is a scoped best-of-current-knowledge decision.",
+      "residual_risks": [
+        "An unlocated general join result under absolute algebraic connectivity or maximum-variance embedding terminology could subsume the cone theorem; bounded comparisons do not exclude it.",
+        "The wheel transition for n≥4 is demonstrably covered, not merely a residual risk. No claim of priority for the optimization or group averaging framework."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equal-price wheel overlap for n≥4, with stronger all-optimizer classification; not a general cone result",
+          "evidence": "Threshold t=1/μ_n where μ_n=4 sin²(π/n); positive base rates above threshold and vanishing rim below. At t=1, n=6, all optima have 1/42≤a≤1/6 and b=1/6−a for B=1. Fourier-mode equality forces edgewise uniformity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md",
+          "material_read": "Finding and assumptions from offset 0; proof steps 2–4 and worked n=6 comparison around offset 4479",
+          "method": "Resultary discovery and local-mirror statement/proof passages",
+          "title": "Quadratic spoke-price frontier for fastest mixing on wheels",
+          "trigger": "Potential exact prior wheel overlap"
+        },
+        {
+          "assessment": "Same optimization framework, not the claimed cone threshold in inspected material",
+          "evidence": "Nonnegative edge rates, positive linear cost and maximization of the second Laplacian eigenvalue.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§1.2 pp. 682–683",
+          "method": "Original OA PDF bounded passages",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Primary continuous-time graph optimization and possible antecedent"
+        },
+        {
+          "assessment": "Averaging/optimization method is already known",
+          "evidence": "Fixed total edge-weight algebraic connectivity and equal weights on symmetry orbits can be used to find an invariant optimum.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Author version pp. 5 and 8",
+          "method": "Original OA PDF bounded passages",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "General fixed-budget and symmetry theorem"
+        },
+        {
+          "assessment": "Wheel spectral method anticipated; different feasible set and objective",
+          "evidence": "Fourier blocks for the wheel and a discrete-time SLEM optimum subject to stochasticity.",
+          "identifier_or_url": "https://doi.org/10.1137/070689413",
+          "material_read": "§5.4.3 pp. 813–814",
+          "method": "OA paper bounded passages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Published graph-specific wheel antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an entire natural class of augmented networks, the result tells when one should spend none of the rate budget on existing base edges, even if asymmetric allocations are allowed, and when including those edges improves the gap over the all-spoke design. A base-only scalar replaces an edge-dimensional optimization and gives the critical plateau and the optimum on either side. The value is in the cross-family support and allocation law, not in recalculating the known wheel case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

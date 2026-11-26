@@ -1,21 +1,21 @@
-# Review of the degree-sharp high-girth coalition theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof begins with a self-contained universal upper bound: two disjoint TOIDS cannot coexist, so the coalition graph of a partition has pairwise-intersecting edges and a universal hub. Each partner of the hub must meet one fixed neighborhood of size at most \(\Delta\), or one fixed two-vertex edge, giving at most \(\Delta\) partners. For the lower bound the chosen maximum-degree vertex \(v\) has independent \(N(v)\); the absence of triangles and four-cycles, together with minimum degree two, means only \(v\) is undominated by \(V\setminus N(v)\). Each singleton neighbor repairs exactly that deficiency, and its complement remains independent. These are unrestricted logical arguments, with no reliance on numerical extrapolation.
+PASS
 
-The standalone verifier checks every one of the \(72\) eligible labeled graphs on at most six vertices and several larger constructions against exact partition enumeration. The small girth-four boundary is checked on all \(203\) partitions of a six-vertex graph. Finite tests corroborate but are not substituted for the theorem's proof.
+The frozen high-girth theorem is correct, but the frozen local generalization fails for K₁: its two neighborhood conditions are vacuous, yet the displayed one-block partition has no partner. The repaired RESULT.md requires Δ≥1 for the local theorem. For Δ≥2 the intersecting coalition edges give a universal hub via the star/triangle dichotomy. A hub failing total domination requires a neighbor of a single witness in each distinct partner; otherwise all partners must meet a single outside edge, giving at most two. For Δ=1 any graph admitting a coalition partition must be a nonempty matching, and the only TOIDS is the full graph, so exactly two blocks are possible. In the repaired construction V∖N(v) leaves only v undominated, N(v) is independent, and there is at least one singleton neighbor to repair the failure. With δ≥2 and girth≥5, triangles exclude internal edges in N(v), and four-cycles exclude two neighbors there of a vertex outside N[v]. The repaired six-vertex argument gives the valid partition ({0,1,2},{3},{4,5}); four blocks would force a maximum-degree domination witness with one neighbor in each partner, leaving a same-shore degree-two vertex undominated by at least one hub-partner union. The corrected verification notes distinguish visiting all partitions from scoring all of them: line 91 of the unchanged verifier skips leaves no larger than the incumbent, which is sound for the maximum. Complete corrected scientific files are provided in repairs/1.
 
-## Originality — PASS, subject to priority risk
+## originality
 
-The closest inspected primary source is Buntina–Golmohammadi, arXiv:2607.23623 (first public 26 July 2026). Its maximum-degree result is one-sided, and its exact-family theorem covers complete graphs, complete bipartite graphs, paths, and cycles. The cycle special cases are subsumed and are explicitly excluded from the originality claim. The present finding supplies the missing lower bound for the whole high-girth minimum-degree-two class and a local sufficient condition; this does not follow from the source's degree upper bound without the new neighborhood argument. Specific searches for the invariant combined with girth, radius-two neighborhoods, and degree equality did not locate a covering theorem in the inspected scientific records. Relevant published mathematical-record summaries dealt with different domination parameters. Unindexed exact results under another name remain possible.
+PASS
 
-## Value — PASS
+The repaired theorem retains a sharp lower construction for the full high-girth class and a local positive-degree criterion. The maximum-degree ceiling and cycle subclass are covered by prior work and are not credited as new. The strongest inspected exact-invariant results do not establish the matching lower bound for the claimed general class.
 
-The source paper explicitly raises degree-based bounds as an open research direction. The result identifies an extensive, structurally motivated infinite class on which the general maximum-degree bound is always sharp, even for disconnected and nonregular graphs. An explicit partition makes the extremal value constructive. A small bipartite example at girth four verifies that the girth hypothesis has genuine force, while ordinary small-cycle examples are not presented as novel results.
+## value
 
-## Scope and residual risks
+PASS
 
-The theorem gives a sufficient condition and exact value, not an equality characterization for all graphs. The six-vertex boundary is an exhaustive finite result; source equivalence and bibliographic priority require external expert review. The code is a reproducibility check, not an independent formal verification.
+The corrected finding is still an exact extremal theorem for a natural unrestricted class: it identifies when a known degree ceiling is achieved in all graphs of minimum degree two and girth at least five, constructs an optimum partition, and exhibits a structural obstruction at girth four. Nonregular and disconnected cases are included. The value is in the sharp construction and broad class, not the minor Δ=1 scope repair or the known cyclic cases.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

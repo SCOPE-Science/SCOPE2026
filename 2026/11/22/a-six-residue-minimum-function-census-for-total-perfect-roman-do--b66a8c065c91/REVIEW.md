@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim holds for every labelled cubic prism \(C_n\square K_2\), \(n\ge3\), under the exact total-perfect-Roman constraints. The proof establishes the exact 81-state cyclic transfer, an integral nonnegative potential, and a parity obstruction for one-unit reduced-cost cycles. A rational trace identity bounds the degree of the certificate numerator, so checking 345 initial coefficients proves four explicit all-order coefficient laws. The attached C++17 certificate recomputes all transitions, zero-cost cycles, one-cost return residues, and relevant coefficients from their definitions. A separate brute-force program checks every ternary assignment directly on the small graphs through order seven.
+## correctness
 
-## Originality — PASS (provisional)
-The 2023 primary article defines the invariant and treats extremal orders, complexity and trees; no cyclic-prism formula is stated in its accessible complete text. The 2022 Cartesian-product article investigates ordinary perfect Roman domination, lacking totality. A closely related published calculation concerns open two-row ladders, not cyclic prisms, whose endpoint closure changes both exact defender uniqueness and positive-subgraph adjacency; the cyclic six-residue optimizer formula is not implied. Related circular-prism calculations of unique-response Roman and other domination invariants also use different local constraints. Searches of mathematical research records and accessible previous claims found no stronger equivalent or containing theorem; this is not an exhaustive proof of publication priority. Some related full texts were inaccessible.
+PASS
 
-## Mathematical value — PASS
-The result is a sharp infinite-family invariant and enumerates all minimum labelings on a classical family of cubic vertex-transitive graphs. Its nontrivial six-residue pattern includes a single congruence class in which the universal \(\lceil4n/3\rceil\) lower bound fails, and optimizer counts of polynomial degrees zero through four. The rational low-excess transfer proof explains the phenomenon, rather than merely fitting finite samples. The result is meaningful without a full enumeration of all nonoptimal labelings.
+The 81-state trace counts each labelled cyclic assignment once, checks every zero for exactly one 2-neighbor and every positive vertex for positive support, and accumulates each column weight once. Independently, let z,o,p count labels 0,1,2. The total number of zero-to-2 incidences is z, and each 2 has at most two zero neighbors. Thus 3w−4n=o+2(2p−z). I assigned a different nonnegative local transition cost: one per 1 in the middle column, plus twice (# positive neighbors − 1) for each 2 in that column. These costs sum to exactly the same excess on closed walks. The independently constructed graph has 468 arcs, 49 of this alternative cost zero, exactly two cyclic zero components (simple cycles of lengths 3 and 6), and six cost-one arcs admitting zero-cost returns, all of closed length 5 mod 6. Exact arbitrary-precision counting in the cost-lifted graph matched H_{n,d} for d=0,1,2,4 and every formal 1≤n≤333. This is an all-order certificate: det(I−tB(0))=(1−t^3)(1−t^6)=D, deg [q^j] det(I−tB(q))≤81, and a term with k factors of positive q-degree in the log expansion contributes to D^{d+1}Φ_d a numerator of degree at most 81k+9(d+1−k)≤81d+9 after −t times differentiation. For d=0 the numerator is −tD'. The proposed series have the same denominator divisibility and degree bound. Agreement through 333 suffices, including the formal corrections at n=1,2 (not simple-prism evaluations). Since d≡−n mod 3, the smallest allowed costs with positive counts are 0,2,4,0,2,1 in residue order; cost 1 is excluded at n≡2 mod 6. This gives both rows of the claimed minimum/multiplicity function. In particular n=8 has weight 12 and 936 minimizers. The result counts labelled functions, not orbits. The frozen verifier's unsigned __int128 is a compiler extension, so its portability claim should be read as requiring a compiler providing that type; the arbitrary-precision reproduction does not rely on it.
 
-## Limitations and closest literature
-The result is restricted to simple cyclic prisms with at least three columns, labelled configurations, and this exact three-value TPRDF definition. The full all-weight polynomial and geometric orbit classification are not asserted. Closest comparisons: Almulhim, *Total Perfect Roman Domination* (2023), DOI 10.3390/sym15091676; Almulhim–Akwu–Al Subaiei, *The Perfect Roman Domination Number of the Cartesian Product of Some Graphs* (2022), DOI 10.1155/2022/1957027; a published exact TPRDF enumeration for open two-row ladders. Independent expert validation and exhaustive priority clearance are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the exact six-residue cyclic-prism weight and optimum census, including the one-unit excess over the rounded cubic bound precisely at residue two. The closest verified exact enumerations change the graph, and the closest Cartesian-product paper changes the invariant. The underlying local transfer and cubic counting bound are not claimed as new.
+
+## value
+
+PASS
+
+An exact optimum and its multiplicity answer different natural questions about a standard domination invariant on a standard cubic family. The cubic incidence bound alone misses an infinite residue family, and counting the large low-cost degeneracies cannot be inferred from the optimum. The six-residue weights and degree-zero through degree-four counts are useful benchmarks for extremal structure and counting algorithms, independent of applications or a full optimizer classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is for labeled agents, equal endowments, five rounds, real-valued online allocations, and the original CF1–CF5. Every round of every constructed reported history has demand at least available supply. The credit identity follows directly from PE, CF1, CF2, and CF3. CF4 and CF5 then uniquely constrain truthful rounds 1, 2, and 5, while PE determines rounds 3 and 4. The two deviating histories share the first two report vectors at identical agent labels, fixing one common \(x\in[1,2]\) without relying on anonymity. Forcing the final-round allocations using CF5 proves exactly \(\Delta_A=x-1\) and \(\Delta_B=2-x\). Direct exact-rational checks replay all axioms on an illustrative 101-point grid, but analytical inequalities establish the universal claim. Risk: mechanism class assumes no information about future reports, as in the cited model; no extension to anticipating mechanisms is implied.
+PASS
 
-## Originality — PASS
+For each reported round total demand is at least three. If some demand is unmet, reported PE forces total capped utility to be three, so no allocation can exceed its report or leave unused supply; if all demands are met, the total constraint gives the same conclusion. CF2 sets the lower increment bound 1−a when a<1; CF1 gives it when a≥1, and CF3 forces equality since the bounds sum to zero. In truthful profile A, CF4 fixes the unit to agent 1 initially; their second-round quantity cannot exceed one without CF5 requiring two for agent 3. Two demand-saturated rounds leave credits (2,0,−2), so CF4–CF5 bound agent 2's final quantity to exactly one. Thus agent 1 has payoff four. Independently exchanging the labels in the forcing inequalities proves the analogous payoff in B, not symmetry of a mechanism. Both altered histories have the same fixed-label reports (0,3,0),(2,0,2) through round two, so the same x∈[1,2] is used for agent 1 by onlineness. In each altered branch the final credit of agent 2 is −1 and that of the relevant deviator at least 2. Any positive final quantity for 2 would force all three units to the deviator by CF5, a contradiction. The payoff gains are therefore x−1 and 2−x, with sum one including the endpoints. No assumption about anonymity or future truthful demands enters the mechanism's observed state. A separate exhaustive 1/16-quantity-grid history search (python3 /workspace/review_evidence/reproduce.py 1) found the two unique truthful histories, all 17 common splits and minimum maximum gain 1/2 on that grid; the real-valued proof is analytical.
 
-The most relevant source is Zahedi–Freeman (arXiv:2601.17944v1 and v2; IJCAI 2026). Its actual theorem assumes anonymity, and both full preprint versions rely on anonymity to fix the deviator's second-round quantity. Version 2 explicitly calls removing anonymity an open question. The v1 abstract uses broader informal wording, but the v1 theorem and proof still assume anonymity; it therefore does not imply the present unrestricted conclusion. The proof here instead compares two fixed-label truthful profiles with a common deviating prefix, causing gains whose sum is one. Published research-record searches about this precise axiom system and anonymity-free impossibility, along with indexed-literature searches, identified no source implying the theorem. Residual risk: unindexed work or later updates could contain an equivalent construction; independent literature review is not performed.
+## originality
 
-## Value — PASS
+PASS
 
-This removes an explicit mathematical hypothesis from a central incentive/fairness impossibility in a recent resource-allocation paper. The two-history coupling also yields an explicit worst-profile manipulation guarantee of one-half for this witness, and the proof is constructive and short. The quantitative bound is not asserted to be globally optimal.
+The published impossibility requires anonymity and explicitly asks whether that requirement can be removed. Removing it is a genuine change in quantifier; the original fixed-profile proof cannot force a half split for a biased mechanism, whereas the common altered prefix makes two opposite gains unavoidable. The frozen result's cited comparison is substantively correct. For precision the fixed-version PDFs label the prior result v1 Theorem 2, v2 Theorem 3, and conference Theorem 2; theorem numbers quoted in portions of the frozen self-audit are not the fixed-version PDF locators.
 
-## Closest literature and limits
+## value
 
-Zahedi and Freeman (2026), arXiv:2601.17944, section 4.2 and the theorem on anonymous impossibility, are the closest work; this result assumes their model and credit-fairness axioms and strengthens the quantifier over mechanisms. It does not address online-myopic strategyproofness, generalized demands/utilities, or uniqueness/optimality of the two-profile witness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves a stated open question about a natural allocation desideratum, removing a meaningful assumption without weakening PE, CF or the incentive requirement. The identical-report-history construction works even with fixed label preferences and gives a quantitative lower bound on manipulation for the two-profile witness. This is not a mere re-evaluation of the original symmetric split.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

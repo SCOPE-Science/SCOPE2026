@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each integer \(d\ge2\), tensor Walsh diagonalization gives the stated rational formula for the opposite-corner inverse entry. Its numerator has degree exactly \(d-1\), as the first nonzero term at large \(t\) is negative and proportional to \(t^{-2}\). A binomial finite difference of the logistic function has vanishing moments through degree \(d-2\), forcing at least \(d-1\) distinct sign changes on the real line. The degree bound makes all zeros simple and exhausts them. Reciprocal symmetry and the three-dimensional explicit example follow by direct algebra. The bundled standard-library exact-arithmetic checker returned `VERIFY_OK 261` for finite test dimensions; no infinite assertion rests on the checker.
+PASS
 
-## Originality — PASS, with residual risk
+The one-dimensional exact consistent mass divided by its row-sum lump is the symmetric matrix with diagonal 2/3 and off-diagonal 1/3. Its symmetric and antisymmetric eigenvalues are 1 and 1/3. Tensorization and the strictly positive physical scale give positive definite blends at both endpoints and throughout. The opposite-corner products of normalized tensor eigenvectors are (−1)^k/2^d for antisymmetric degree k. For t=(1−α)/α the resulting sum F(t) has d+1 linear factors in the denominator and cancels its t⁻¹ term; its t⁻² coefficient is −(1−1/3)^d, so the numerator degree is exactly d−1. Also F(t)=−S(log t)/t for S the d-th forward difference with the stated binomial sign of f(x)=1/(1+exp x). Its integral representation by f^(d) over the fixed box of side log 3 is exact. Integration by parts in each x-moment through degree d−2 leaves no boundary terms, since every derivative used there has order at least one and decays exponentially. A polynomial with roots at all sign changes would have nonzero integral against S after matching signs, contradicting those moments if the number of sign changes were at most d−2. The degree bound proves exactness and simplicity. Reflecting x to −x−d log 3 gives parity (−1)^(d+1), yielding the stated α involution and the even-dimensional fixed root. In d=3 the numerator in the given denominator is −8+192t−216t² (the constant and linear coefficients follow at t=0, the leading one from infinity); this independently gives the stated roots and the negative–positive–negative signs. The α=0 entry is trivially zero because the inverse is diagonal, not an extra interior zero. The supplied exact finite checker was read for scope; the review does not infer the all-d theorem from it.
 
-The eligible motivating paper (Krzysik, Southworth and Wimmer, arXiv:2607.12138) develops local mass inverse and additive Schwarz spectral estimates but not a complete, dimension-uniform count of blended inverse-entry sign reversals. A later exact hexahedral mixed-inverse paper (Hanukah, arXiv:2611.21820, publicly released after the eligibility anchor) already implies the specific \(d=3\) two-zero example, which is expressly **not** claimed as novel. Bernstein mass inversion (Allen and Kirby, arXiv:1907.05773) treats different mass families. The closest mathematical-record findings concern time-dependent FE heat propagation and do not imply zero counting as the mass-blend parameter changes. An unindexed equivalent finite-difference or rational-function theorem cannot be ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Signed inverse couplings of positive-definite blended mass matrices are a natural numerical-algebra question in element-local mass inversion and positivity-sensitive computation. An exact \(d-1\) count for every tensor dimension, with simple crossing and reciprocal pairing, clarifies how inverse-entry signs can oscillate arbitrarily many times without any loss of positive definiteness. The theorem is structural, not a claim of solver instability. It requires a pure tensor-product orthotope; ordinary physical elements are two- or three-dimensional, while larger dimensions are a natural mathematical benchmark.
+The d=3 case follows from Hanukah's exact formula and is not credited as distinct. The targeted comparison supports only the arbitrary-dimensional exact sign-count and pairing theorem as distinct; related local inverse and mode-switching results do not give that theorem. A separately published equivalent logistic finite-difference theorem remains a priority risk.
 
-## Limits
+## value
 
-No assembled-mesh, runtime, physical positivity, or error/stability statement is inferred. Historical priority depends on the literature available and is not independently certified. The precise \(d=3\) special case is already covered by a later accessible paper; novelty is assessed only for the all-dimensional zero-count and involution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This isolates how large the number of sign changes of an inverse coupling can be while positive definiteness persists for a canonical scalar element model. The exact dimension dependence, simplicity, and root pairing are the significant structural data. The familiar d=3 example is illustrative, not an independent contribution or evidence of numerical instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

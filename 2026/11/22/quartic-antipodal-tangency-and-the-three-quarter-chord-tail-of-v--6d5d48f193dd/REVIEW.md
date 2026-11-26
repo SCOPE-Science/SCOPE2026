@@ -1,11 +1,21 @@
-# Scientific review: quartic antipodal tangency and Viviani chord tails
+# Independent mathematical audit
 
-**Correctness (PASS).** The theorem is stated for a fixed compact regular immersed spherical curve, a unique unordered antipodal parameter pair, parallel unit tangents and a nonzero curvature-vector sum. The sphere identity reduces the exact near-diameter event to a small sum vector. The arclength Taylor normal form has orthogonal linear and quadratic components, yielding the quartic–quadratic tangent region, whose normalized beta-integral volume gives the constant. The two ordered neighborhoods account for the factor two. Viviani's unique antipodal points, curvature vectors, total elliptic length and scale factors are computed explicitly. A standalone standard-library checker passed 120 deterministic diagnostics, which supplement but do not replace proof.
+## correctness
 
-**Originality (PASS, with residual risks).** Direct prior comparisons were made against the full geometrical treatment of generalized Viviani intersections in Graefe–Korsch–Strzys (2013/2014), the full 2025 article of Deng et al. on the Frenet apparatus of Viviani-derived curves, and the classical MathWorld/Gray descriptions. Those sources provide the geometry and arclength, not the sharp endpoint-chord distribution or quartic conditional mark. Related research-index records on invariant chords of convex bodies and singular curvature concern different sampling spaces/parameter regimes and do not imply this result. Indexing incompleteness and inaccessible historical treatments prevent absolute priority certification.
+PASS
 
-**Mathematical value (PASS).** An immersed figure-eight on a sphere has a unique diametral pair with *parallel* rather than transverse tangents, causing a genuinely atypical three-quarter rare-event exponent. The exact coefficient is normalized by a classical elliptic integral; the general theorem explains which second-curvature combination controls it and gives a full conditional superellipse law. This is a natural extreme-distance invariant of a classical space curve, not an arbitrary numerical slice.
+The sphere identity turns the chord deficit into the sublevel set ||X+Y||²≤4Rε−ε² for small ε. Compactness and uniqueness as a parameter pair localize to precisely two ordered patches. The signed-arclength Taylor expansion gives Tw+As² plus o(|w|+s²); its orthogonal tangential and curvature terms give a uniform relative squared error and confine the scaled domain to a fixed bounded set. The scales are s=(4Rε)^(1/4)x/√a and w=(4Rε)^(1/2)y, with unit Jacobian from (s,t) to (s,w). Almost-everywhere indicator convergence and constant patch density L⁻² give the beta area, the factor two and the uniform marked law. The marginal x⁴ has density proportional to z^(−3/4)(1−z)^(1/2). For Viviani x≥0 restricts antipodality to the two parameters π and 3π; the lengths and curvatures give L=8rE(−1), R=2r and a=1/r. The speed expands at each pole as r(1+O(u²)), so s=ru+O(ru³) and t=−rv+O(rv³); the cubic errors vanish even at the narrower ε^(1/2) scale of w. The exact symbolic coefficient is correct. Independent 50-digit beta/elliptic evaluation gives 0.1424415734315505169…, an immaterial last-place drift from the printed diagnostic decimal (difference below 7×10⁻¹⁷). The packaged finite checker was read, not run.
 
-**Limitations.** No general non-spherical theory, zero-curvature-sum case, multi-contact classification, complete CDF or convergence rate is asserted. Historical priority requires independent verification. Finite numerical diagnostics are not proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the sharp fixed-curve arclength chord-tail coefficient and marked law under the stated isolated nondegenerate quartic contact, with the exact Viviani specialization. The classical geometry and the sublevel exponent mechanism alone are not original. The closely overlapping hippopede record expressly takes this result as prior input, not a separate priority claim for the same theorem.
+
+## value
+
+PASS
+
+The law identifies how diametral pairs concentrate at a degenerate contact, with two different localization scales and an exact coefficient for a classical immersed curve. An exponent or an unnormalized local estimate would miss the curvature dependence, both endpoint orderings and the joint distribution of near-maximal endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

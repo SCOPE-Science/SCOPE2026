@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The harmonic addition formula is normalized to probability surface measure, giving exact two-sector Gram eigenvalues. The nine complex coordinate overlaps are checked symbolically in \(\mathbb Z[\omega]\). A rational Jacobi recurrence exhausts the finite interval through index 899, while the analytic generating-function bound controls every larger index. These together prove the stated all-index rank dichotomy; the interpolation norm is the spectral pseudoinverse, not a heuristic.
+## correctness
 
-**Originality: PASS (qualified).** The holomorphic cubic Hesse pencil and the general complex-spherical addition kernel are prior facts, credited to Dang et al. and Roy–Suda. The exact all-index charge-three rank law, including the second mixed-degree harmonic-index resonance and the exclusion of all others, is a stronger statement requiring an additional analytic/finite arithmetic classification. Relevant primary full-text sections were inspected, and multiple targeted scientific-record searches did not identify an equivalent theorem. Unidentified prior work on complex projective harmonics or Jacobi identities remains a genuine publication-priority risk; lack of a search hit is not a proof of novelty.
+PASS
 
-**Mathematical value: PASS.** These are the canonical nine qutrit SIC points, with a classical holomorphic cubic pencil. The isolated recurrence of the same lost mean direction in the much larger 81-dimensional \((5,2)\) harmonic space is a substantive, geometrically motivated spectral phenomenon. The result settles all charge-three bidegrees and specifies complete interpolation, sharp norms and a precise permanent full-rank cutoff, rather than reporting an arbitrarily selected matrix or a numerical rank.
+For equal cyclic shifts an unnormalized off-diagonal overlap is 1+omega or 1+omega^2, a negative cube root of unity; for distinct shifts the supports meet at one coordinate and the overlap is a negative cube root of unity directly. Normalization divides the overlap by 2. The charge-three addition kernel then yields constant off-diagonal -a_q/8, unit diagonal, and the two orthogonal eigenspaces as stated. Harmonic dimension follows by subtracting the lower-bidegree trace dimension. I independently checked every q=0..899 by exact evaluation of the Jacobi binomial sum, not the uploaded recurrence, with /workspace/branches/audit_exact.py. For the infinite tail, writing R(e^{it})=e^{it/2} times a square root of (1+2 cos t) gives the two boundary inequalities by orthogonality on the indicated arcs. The algebraic partners give products z and -3z so there are no interior zeros of the two factors; at z=0 they are 2. The minimum modulus principle gives the interior bounds. Separation of the two branch points and Cauchy's inequality give |p_q|<30 sqrt(q+1)<q+1 for q>=900. For q=1, a_q=-5/4, neither eigenvalue vanishes. At q=0,2 the pseudoinverse gives the stated norm on the actual phased mean-zero image; rephasing changes that hyperplane by diagonal unitaries. No dependence on an uploaded executable.
 
-**Limitations and nearby mathematics.** Fixed charge three and the phased Hesse nine-set only; no universality among qutrit SIC families is asserted. The general kernel and cubic configuration are not new. Finite exact checks are supplemented by a genuine infinite bound. No independent review was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The charge-three all-index equality classification, not the general kernel, the Hesse overlap geometry, or the holomorphic cubic obstruction, is the distinct part. A same-day result reproduces the q=2 matrix but in a different harmonic sector using different Jacobi parameters; this is not coverage of the charged cutoff.
+
+## value
+
+PASS
+
+The same nine Hesse samples are used on a natural sequence of increasing-degree fixed-charge harmonic spaces. The result identifies exactly which spaces can interpolate arbitrary data and isolates a nonholomorphic rank defect, with conditioning and minimum-norm consequences. That exact boundary is not supplied by a positive semidefinite kernel formula or a few low-degree computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** With an unconstrained scalar myopic follower, the best response is unique. Direct substitution gives the exact finite-horizon quartic \(G_{A,\eta}\). The reflection identity at the cost ratio \(\eta=1\) produces two and only two global minimizers precisely when \(A>2\). For unequal cost ratios, the favored-half-line derivative has exactly one positive root, establishing global uniqueness. Sign comparisons at the Schur boundary and at the two symmetric minima give the complete stability classification. The envelope theorem and a cubic stationary equation establish, respectively, the derivative jump and critical cusp. The standalone standard-library program reproduces exact identities and tests representative cases. A finite numerical sweep has not been treated as an infinite proof.
+PASS
 
-## Originality
+Minimizing the follower's stage cost gives u=Θx/(2R). Substitution gives the factor 2Rx₀²/B² multiplying the quartic, with the two weights at states x₀ and ax₀. Reflection about zero excludes negative multipliers; the derivative at zero and the strictly positive derivative on [A,∞) give 0<a<A. At η=1 the exact identity G−A²=(a²−Aa+1)² gives the two distinct minima for A>2; the centered quartic y⁴+(2−A²/2)y² plus constant gives the unique minimum for A≤2. For η≠1, the linear term A(η−1)y and reflection about A/2 select one strict half-line. There the derivative in z=|y| starts negative, rises to infinity, and either is increasing throughout or first decreases and then increases. Thus its unique positive root is simple and globally minimizing. Evaluating G′/2 at a=1 for 1<A<2 gives η−(A−1)(3−A); for A>2 evaluation at a± gives (η−1)a± and locates each optimizer beyond the appropriate equal-depth branch. Compactness of the minimizers as η tends to 1 gives the stated one-sided limits. Differentiation along the simple roots yields the envelope gap a₊²−a₋²=A√(A²−4). At A=2 the stationary equation is 2y³+δy+δ=0, with y tending to zero, so y³/δ tends to −1/2. I recomputed the exact leader costs directly from the two stages at Θ=−4, −1 and −5/2, obtaining 25/2, 25/2 and 1681/128.
 
-**PASS, with residual priority risk.** The closest primary paper (Matt–Bolognani–Dörfler, arXiv:2604.27770) supplies the general scalar objective but treats explicit *optimal* incentive parameters in the long-horizon or large follower-cost limits. Its finite-horizon formula does not itself classify the multiplicity or dynamic stability of globally optimal two-stage incentive designs. Full HTML Sections II and III, including the finite-horizon objective and asymptotic propositions, were inspected. The accessible 2019 Wasa–Hirata–Uchida full-text article treats a different LEQG dynamic agency contract. Searches of mathematical publications and published-result summaries did not reveal the same sharp two-stage switching theorem. Earlier nonconvex dynamic-contract literature and standard quartic bifurcation theory could contain an equivalent presentation; novelty should be independently checked before asserting priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a natural complete classification at the shortest horizon where incentives affect future state costs. It demonstrates a non-robust global design decision: two equally optimal contracts can induce radically different long-run dynamics, and an arbitrarily small perturbation to the private follower-cost ratio selects opposite sides. The critical gain and exact cost derivative jump provide quantitative diagnostics not present in a statement that the scalar leader cost is merely nonconvex. The cubic-root boundary and full parameter-dependent stability phase diagram make the threshold mathematically precise. The finding is narrowly scoped and does not prescribe unstable operation.
+The model, myopic response, and general scalar finite-horizon cost are prior. Specializing Proposition 2 of Matt–Bolognani–Dörfler already gives this quartic, and depressed-quartic algebra is classical. The supported distinct contribution is the complete global selection and closed-loop stability diagram at two periods, with exact jump and critical cusp. The closest inspected source solves high-cost and long-horizon problems and describes stability of a given gain, rather than giving this two-period global phase classification. The indexed quartic and stability comparisons concern different objectives and dynamics.
 
-## Closest literature and limits
+## value
 
-Matt et al. (2026), arXiv:2604.27770, Proposition 2, is the main formula-level ancestor. Wasa et al. (2019), DOI:10.1049/iet-stg.2018.0256, is a related but structurally different contract. Feng et al. (2022), arXiv:2005.11872, was identified via its abstract; full-text priority overlap is unresolved but its BSDE and terminal-perturbation formulation differ from the current scalar fixed bilinear contract. The core claim applies only to the explicit two-period model without a stability constraint.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two is the shortest horizon at which the same incentive affects a later state cost. The result distinguishes three meaningful ways the optimal multiplier approaches or crosses the stability boundary: ordinary crossing, cubic-root singular crossing, and a jump with stable and unstable co-optima. It gives exact parameter thresholds and quantifies the jump in both the multiplier and the normalized value derivative, which an observation of nonconvexity or a numerical optimizer would not establish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

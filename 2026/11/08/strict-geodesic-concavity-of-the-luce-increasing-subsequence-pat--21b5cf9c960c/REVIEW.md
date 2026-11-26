@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit change of variables \(v=1-e^{-fu}\) changes the action density to \(\sqrt{v'+kH(v)}\), with \(k=-f'/f\ge0\) and \(H''=-1/(1-v)\le-1\). This supplies a nonlinear interpolation closed within the admissible path class and a quantitative Jensen inequality. Strictness follows from equality conditions for the square root and uniqueness of the scalar initial-value ODE on compact subintervals. Finiteness follows from the integrated transformed density. The finite numerical diagnostics passed 240 parameter configurations, but the proof, not the diagnostics, justifies the universal quantifiers.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Borga–Dubach (arXiv:2610.30382v2, Lemma 3.14 and Remark 3.15) derive this specific variational problem and expressly leave optimal-path uniqueness unsettled. The new result proves at-most-one optimal locally absolutely continuous path, not existence. Rolla–Teixeira (arXiv:0804.1810) prove a curvature-based uniqueness criterion for a different inhomogeneous lattice last-passage action; their stated theorem does not contain the displayed Luce transformation or directly imply it. Earlier Luce-permuton material and targeted scientific-claim searches found no explicit covering result. A general theorem implying this strict concavity under an unrecognized equivalence remains a residual priority risk.
+PASS
 
-**Value — PASS.** Establishing uniqueness conditional on existence is a substantive part of an explicitly motivated open path-optimization question. The quantitative Jensen curvature identity is useful for variational comparisons and for assessing approximation schemes. It covers all positive nonincreasing continuously differentiable weight profiles bounded away from zero, not an arbitrary numerical example.
+For k=-f'/f and v=1-exp(-fu), the chain rule yields q=fu'exp(-fu)=v'+kH(v), where H=-(1-v)log(1-v). The sign k≥0 and H''≤-1 give q at the mixed path at least the mixture of the two nonnegative densities plus the stated quadratic Jensen term. The inverse change of variable is locally absolutely continuous on each compact interval (v stays uniformly below 1 there), starts at zero, and has nonnegative derivative. Integrating q up to T<1 bounds its mass by 1+(1/e)∫k, uniformly as T tends to 1, so square-root integration is finite even for paths diverging at 1. Equality in the integral forces equality of the two densities almost everywhere by square-root strictness; the difference of the transformed paths has zero initial data and obeys the locally Lipschitz difference equation d'=-k(H(v0)-H(v1)), giving d=0 by Gronwall on each compact interval. This works even for constant f and intervals where k vanishes. The frozen numerical checker was inspected, not executed, and is not needed for the proof.
 
-**Closest literature and limitations.** Borga–Dubach (2026) supplies the functional; Rolla–Teixeira (2008) supplies an analogous but structurally different uniqueness methodology. Existence, smoothness, singular-path maxima, and profiles with \(f(1)=0\) remain unresolved by this finding. No independent mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Luce action and its use as a variational formula are prior. The inspected closest sources do not give or directly imply this exponential-mixture strict-concavity inequality, including the quantitative Jensen bound and the at-most-one consequence in the specified class. The attribution can be made more precise: Remark 3.15 discusses restricting to continuous paths based at zero; the open smooth optimizer statement is in the paragraph immediately following it.
+
+## value
+
+PASS
+
+The action is the same variational quantity governing a natural LIS scaling problem. The interpolation gives an explicit, quantitative comparison of arbitrary admissible competitors and rules out competing locally AC optimizers without relying on a stationary-path ansatz or existence. This is a substantive part of the optimizer question in a useful regime including exponential profiles, not a claim to resolve attainment or path concentration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

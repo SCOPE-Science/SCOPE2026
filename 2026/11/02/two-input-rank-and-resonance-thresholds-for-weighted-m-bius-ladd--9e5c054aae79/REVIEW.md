@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The exact Fourier diagonalization of the antipodal weighted-cycle Laplacian, monotonicity of the representative cosine eigenvalues within parity, and Fourier Vandermonde restriction to consecutive controls establish both the full two-input reachable rank and the global minimum driver count for every real positive chord weight. The argument counts distinct eigenvalue blocks, not just equal numerical roots, and treats \(n=2\) and \(n=3\) separately where needed. The initial-resonance proof minimizes all possible even/odd spectral gaps. Independently assembled finite checks cover 663 weighted graphs, including resonant rates; the analytic proof, not enumeration, establishes the infinite statement.
+## correctness
 
-## Originality
-**PASS on inspected evidence, with a specific material-access risk.** The general minimum-leader theorem for circulants is already known and is explicitly acknowledged rather than presented as new. The new claim has a different target: the exact rank loss for a fixed adjacent two-input placement over all antipodal chord weights, plus the simultaneous parity-selective resonance counts. The full open-access Yuan et al. article develops general eigenvalue multiplicity for controllability, not this family-specific rank formula. The full Monshizadeh–Zhang–Camlibel article develops graph-wide strong-structural zero-forcing results and cites earlier circulant minimum-actuation work, but does not establish the present two-input rank/cosine-threshold statement. The Nabi-Abdolyousefi–Mesbahi circulant paper is the closest specialized source; only the abstract was available, leaving a meaningful chance of overlapping specialized formulas that cannot be ruled out. Source comparisons are statements/implications, not title matching.
+PASS
 
-## Mathematical value
-**PASS.** In a canonical cubic circulant network, the weight on every long-range matching edge is a natural design variable. The theorem turns an open-ended Kalman-rank calculation into a complete exact real-parameter phase diagram and quantifies how the same first resonance creates either one or four unreachable directions according to parity. For every allowed weight it also identifies a minimum-cardinality explicit actuation pattern. The fixed-two-input rank law is more informative than the general spectral maximum-multiplicity rule, especially at simultaneous resonances.
+The antipodal matching contributes g(I−Sⁿ), not 2g(I−Sⁿ). Fourier diagonalization reduces λ_k to 2−2cos(πk/n)+g(1−(−1)^k). Representatives 0 and n are single, the others pair with 2n−k; monotonicity on k=0,…,n forbids within-parity collisions, and g>0 excludes the endpoint 0 and collision with an odd endpoint n. Thus C₄ and C₃ count distinct spectral blocks, even if their rates coincide. Spectral projections are polynomials of degree less than 2n in L, so the reachable space is the direct sum of their input projections. Consecutive coordinate restrictions are Vandermonde on distinct Fourier roots, rank min(q,m) for block dimension m, with no change after complexification. This proves both the fixed-pair deficit and multiplicity lower bound with attaining consecutive inputs; k=1 guarantees a double mode in the absence of collisions. For each allowed even e the least collision rate is attained uniquely at o=e−1, with rate 2sin((e−½)π/n)sin(π/2n). For even n, e=n is uniquely closest to an endpoint in this sine comparison, including n=2. For odd n the two extremal allowed indices e=2 and e=n−1 are equally close and give distinct fourfold blocks unless n=3 where they are the same. No non-neighbor odd representative can tie the overall minimum since its own adjacent rate is strictly smaller. The deficits at the first resonance are consequently 1, 2, 4 for even n, n=3, and odd n≥5 respectively. Replay: RESULT.md Fourier/PBH and extremal-sine proof; VERIFICATION.md and verify.py were inspected, not executed. The recorded checks use numerical tolerances except for three rational examples, and cannot settle equality for arbitrary real g.
 
-## Scope and risks
-The classification assumes unit ring edges and a common strictly positive antipodal conductance; it makes no claim about arbitrary edge weights, independent actuator energy or strong structural controllability. The 2013 specialist circulant paper could not be examined beyond its abstract, and a different specialized source might contain an equivalent formulation. No independent mathematical audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit existing maximum-multiplicity and weighted-circulant minimum-leader results. The supported distinct contribution is the explicit conductance-dependent loss for the fixed adjacent pair, and the first positive rate with the exact parity-dependent multiplicity of simultaneous losses. Comparing actual analogous ladder and wheel findings does not yield those thresholds for this antipodally matched cycle.
+
+## value
+
+PASS
+
+For one natural weighted graph family the result predicts every exact rank loss of a specified control placement. It distinguishes coincident losses at different eigenvalues from maximum multiplicity; the first conductance at which two controls fail can cost four dimensions although only four controls in total are necessary. The even/odd threshold and exceptional six-vertex case are structural, not fitted examples. It gives neither robustness near resonances nor bounds on control energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

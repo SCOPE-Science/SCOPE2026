@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Character orthogonality proves that the pure graph state's cut spectrum is flat, with rank equal to that of the cut-adjacency matrix over the prime field. The complete integer Smith-factor table follows from exhaustive exact minors on the stated twelve-vertex graph, checked with `verify_smith.py` using only integer arithmetic. A separately constructed graph and prime-field Gaussian elimination in `verify_modular.py` give the full entropy histograms. Hadamard's inequality supplies the rigorous upper bound \(216\) on any nonzero relevant minor and excludes further prime exceptions. Both programs passed the stated tests. No extrapolation from finite graph sizes is made.
+PASS
 
-## Originality
+Internal-side controlled phases are local unitaries. After removing them, summing characters on the other side gives the reduced matrix p^{-k} times the indicator that two strings differ by an element of ker(M_A^T). Its all-ones coset blocks yield p^r equal nonzero reduced eigenvalues p^{-r}. An independent exact census used the pole-and-pentagon graph and permutation-expansion determinants instead of the supplied golden-ratio graph and Bareiss determinants. It reproduced all Smith entries for all 2,510 subsets. For balanced subsets the absolute determinants have frequencies 0:392, 1:500, 4:20, 5:12. The exact divisors, not sampling primes, show that only 2 and 5 are exceptional, and reduction and summation give the three listed rank histograms. For the northern five neighbours plus the south pole, order the opposite pentagon and then the north pole on the other side. The cross matrix has upper-left I+P for a five-cycle shift P, an all-ones last column and row off the bottom-right zero, and determinant of magnitude 2*(5/2)=5 by the Schur complement over Q. In characteristic five the five-by-five block is invertible, so exactly one rank unit is lost. The independent census verified the entire determinant-five set equals the prescribed N(v) plus antipode sets. The twelve are labelled six-sets, i.e. six unordered cuts; counting both sides at k=6 is part of the hypothesis, and the table does not count 2,510 unordered cuts.
 
-**PASS on inspected evidence, provisional.** Hein, Eisert and Briegel establish the qubit rank formula; Looi and collaborators establish the qudit construction. Cabello and collaborators and the documented twelve-qubit rank-index database already cover the binary case in principle. Only the integral Smith distribution and the additional characteristic-five entanglement law are assessed as contributions. The full results on generalized Petersen qudit cuts and line-graph qudit cuts do not cover the icosahedron: the latter cannot specialize to it because its vertex neighborhood is a pentagon. Unindexed Smith or qudit tables remain a priority risk. The large binary database archive was not itself inspected.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A natural quantum entanglement statistic is resolved completely for all vertex cuts of a highly symmetric canonical network. The characteristic-five loss is not an arbitrary parameter slice; it is tied to the graph's fivefold neighbor pentagons, while a different two-primary phenomenon gives a distinct entropy distribution. The exact integer Smith table supports all prime dimensions simultaneously. It is a reproducible benchmark, not a claim of practical quantum advantage.
+Pass for the graph-specific integral census and characteristic-five rank loss with its geometric location, not for the general cut-rank mechanism or binary rank indices. The closest finite censuses and family formulas inspected do not evaluate these cut matrices over the integers or at characteristic five.
 
-## Limits and literature
+## value
 
-The conclusion is specific to a pure unit-weight graph state on the twelve-vertex icosahedral skeleton and prime-dimensional qudits. Known binary rank indices are credited, not claimed as original. Relevant primary sources are Hein–Eisert–Briegel (2003), Looi–Yu–Gheorghiu–Griffiths (2007), Cabello–Danielsen–López-Tarrida–Portillo (2010), the documented twelve-qubit rank-index database, and the published generalized Petersen and line-graph qudit results listed in `RESULT.md`. Residual priority uncertainty and absence of independent scientific audit are explicit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural Platonic graph is a concrete test of how cut entanglement depends on local prime dimension, even with identical unit weights. The table specifies the entire arithmetic cut law for this graph rather than a chosen small slice. It singles out characteristic five and locates every associated defect in a geometric antipodal family, giving a usable benchmark and explicit witnesses without claiming a general protocol or a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

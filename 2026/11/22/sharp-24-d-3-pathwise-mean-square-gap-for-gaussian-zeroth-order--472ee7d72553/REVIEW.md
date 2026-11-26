@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope fixes the exact central-difference quadratic identity and dimension-order quantifiers. Conditional rotational invariance proves the radial multipliers are i.i.d.; chi-square expectations give the exact mean-square factor. The critical second-moment polynomial identity is reconstructed from raw moments and checked in `verify.py`. Uniform high-moment and chi-square logarithmic-tail estimates justify Taylor expansion of the expected logarithm, giving coefficient \(2a-48\). Strict Jensen handles the exact mean-square edge. The sign criterion is the strong law, not an inference from finite simulation. The coefficient at equality and any global boundary uniqueness are explicitly unproved.
+## correctness
 
-## Originality — PASS, qualified
-The motivating 2026 source establishes the Gaussian mean-square stability operator, **not** the critical logarithmic exponent. The directly relevant published scalar probe-averaging result addresses growing probe count \(n\) in dimension one, so its \(8/n\) formula does not imply the ambient-dimension single-probe \(24/d^3\) law. The norm-normalized high-probability source studies a different update. Broader stochastic-subspace literature was searched and abstract compared; no dominating exact coefficient was located. These checks establish best-knowledge differentiation, not exhaustive priority.
+PASS
 
-## Value — PASS
-At the very stability edge used to tune zeroth-order optimizers, this theorem measures precisely how mean-square diagnostics can misclassify an almost-surely contracting algorithm. The sharp \(d^{-3}\) window is a natural, dimension-dependent reliability invariant for a canonical strongly convex test problem; unlike a mere Jensen inequality it identifies the exact first nonzero constant and an actual opposite-sign regime. The narrowness is an outcome of the mathematics, not an arbitrarily selected parameter slice.
+Rotational invariance gives the same conditional law of the squared radial multiplier given every past, hence independence and the fixed-dimension strong law. The square representation gives positivity and integrability of the log; the exact mean multiplier is 1-2η+(d+2)η². Independently, at c=2/(d+2), dividing E[(F-1)²] by 3c⁴ replaces U by a chi-square with five degrees of freedom (U² size bias), leaving W independent. Their sum then has d+4 degrees of freedom, so its squared deviation about d+2 has expectation 2(d+4)+4. Thus the leading second moment is 96/d³; the step displacement contributes 2a/d³ to the first moment. Centered W moments and fixed U moments give E|F-1|^p=O(d^(-3p/2)) for bounded a. On |F-1|≤1/2 the Taylor remainder is O(d^(-9/2)) in expectation, while the tail has arbitrarily small polynomial probability and its log is controlled by F and η²UW. This gives 2a−48 uniformly for bounded a. For a strict local crossing one can also differentiate under the expectation for large d: |F′/F|≤2η^(-1)(1+U/W)+2η^(-2)/W has L² norm O(d) uniformly for η near c, while F′ has bounded L² norm. On the good event the difference from E F′ is O(d^(-3/2)) and on the tail it is negligible; the derivative tends to 2. The signs for mean-square and pathwise growth follow with time tending to infinity first.
 
-## Closest sources and residual limits
-Song et al., *Zeroth-Order Optimization at the Edge of Stability* (2026), §4, Theorem 1, Appendix B.3; Ye (2026), §2–5; *Probe averaging can reverse almost-sure stability in Gaussian zeroth-order descent* (2026), main theorem and proof; Kozak et al. (2020/2021), abstract and search records. An unlocated general product-of-random-matrices theorem could imply the coefficient; no global novelty certification is asserted. Independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The mean-square boundary is explicitly prior. The supported distinct claim is the local ambient-dimension log-multiplier asymptotic and its leading pathwise–mean-square separation for one fresh unnormalized vector per step, not the mere existence of a difference between pathwise and moment growth.
+
+## value
+
+PASS
+
+The exact mean-square edge is a natural reference point for users of covariance stability. The dimension-dependent width and sign of the regime in which typical trajectories decay while expected squared norm grows are not quantified by Jensen or an example at a single dimension. Identifying the scale d⁻³ and the coefficient 24 distinguishes the single-vector high-dimensional mechanism from the scalar probe-count mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

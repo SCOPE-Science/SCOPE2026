@@ -1,15 +1,21 @@
-# Scientific review: exact four-tap Fourier-rank geometry on the ten-element dihedral group
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The convolution/Fourier rank normalization is fixed explicitly on the ten-element dihedral group. Its regular representation consists of two one-dimensional blocks and two distinct two-dimensional irreducible blocks of multiplicity two. For mixed supports, each singular two-dimensional block has rank exactly one; the proof includes a nonzero-entry argument eliminating rank-zero blocks. The normalized three-one and two-two cases reduce to determinant identities in \(\mathbb Q(\sqrt5)\), and all exclusion claims follow from elementary implications between their zero conditions. The prime Fourier-minor theorem handles the four-one-coset boundary, with explicit inverse-Fourier constructions. All nineteen displayed attainable cases have nonzero coefficients; exact symbolic checking confirms all mixed witnesses and cyclotomic arithmetic confirms the pure witnesses. Independently constructed ten-by-ten regular-convolution matrices numerically cross-check all 1040 transported instances on all 210 four-point supports. The proof of exhaustiveness is algebraic, not inferred from the finite tests.
+## correctness
 
-## Originality
-**PASS under bounded priority comparison.** The 2006 Alagic–Russell article defines the rank-weighted Fourier support and proves inequalities, not this attainable-rank table. The relevant 2013 Arezoomand–Taeri full-text Corollary 9 provides a cyclic-index-two matrix factorization, but no exact four-tap free-coefficient rank classification. The published three-tap dihedral result concerns only three coefficients; the balanced generalized-dihedral four-tap result fixes all four coefficients to one and does not classify three-one supports or unrestricted coefficients. The new four-support orbit census and parallel-versus-skew exclusion/attainment table are neither direct reformulations nor corollaries of those findings. Related group/Cayley searches did not locate an exact covering table. Absence from indexed sources does not prove absolute novelty; a specialized weighted Cayley/group-ring classification could have been overlooked.
+PASS
 
-## Value
-**PASS.** A complete attainable-rank diagram for exactly four nonzero coefficients on the first odd dihedral group beyond the six-element case is a natural next structural question in nonabelian sparse convolution. The distinction between parallel and skew differences inside the two rotation cosets changes which ranks can occur (five versus seven), despite identical support cardinality and coset occupancies. The result is useful in determining which sparse measurement/reconstruction losses can be engineered or excluded and illustrates why generic support-size uncertainty bounds leave meaningful geometric information unresolved. This does not claim an all-group generalization or stability bound.
+The regular block multiplicities are 1,1,2,2. In every mixed case the 2x2 blocks are nonzero even when singular: either a reflection monomial is nonzero at each root or the two rotation evaluations cannot both vanish at reciprocal roots. For 3+1, simultaneous nontrivial determinant zeros give q1=q2, and a zero at frequency zero would then give 5ac=0. In the parallel case, any two of the three distinct-slope equations imply X=Y-Z=0; in the skew case, two nontrivial zeros imply Z=-Y and X=Y, hence L0=5Y≠0. These implications and the possible number of scalar zeros exclude all unlisted mixed ranks. In the pure case the normal form is a cubic, so there are at most three distinct fifth-root zeros. Common dilation and independent shifts of the two coset origins, plus coset exchange, are induced by rank-preserving operations. An independently written script built the regular matrices from the group law and computed exact number-field ranks and nonzero taps for all 19 normal-form witnesses. It independently enumerated the four support classes and checked orbit exhaustiveness, obtaining 10,100,50,50 and precisely the listed rank sets.
 
-## Literature limitations and scope
-The general Fourier decomposition and prime-order Fourier-minor rigidity are acknowledged as prior work. The claim is limited to complex four-tap convolution on the order-ten dihedral group; numerical regular-matrix replay is supplementary, and historical literature coverage cannot be exhaustive. No independent specialist review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete fixed-support classification and in particular the free-coefficient parallel/skew rank diagrams, not a priority claim for each row. An exact same-day Resultary theorem already covers the entire three-one row by specialization; its relation in time to this record is not established. The pure row is elementary cyclic Fourier analysis. Neither that specialization, the fixed-unit balanced result, nor the general block or uncertainty results supplies the complete free-coefficient diagram or the two-two rank exclusions.
+
+## value
+
+PASS
+
+The natural invariant is the rank reachable with a prescribed sparse support, not a random coefficient census. The two balanced support shapes have identical tap count and coset split but different attainable ranks and different minimum ranks, so the classification gives exact attainable information loss that a support-size bound or fixed-unit spectrum cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

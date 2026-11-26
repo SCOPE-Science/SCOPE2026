@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify.py` from a directory containing the supplied standalone script. The script imports only Python standard-library modules and enumerates labelled permutations and the corresponding monotone paths in the Boolean cube.
+# Independent mathematical audit
 
-The checks reconstruct the admissible one-vertex rerouting graph for each of 28 parameter pairs with \(2\le n\le8\) and \(1\le k<n\). They verify vertex, edge and degree formulas, connectivity, the interior witness length and exact distance six, and Kendall versus graph-distance equality at the two extreme layers through \(n=6\). For all \(n\le6\), another construction independently derives the edges by comparing full cube vertex sequences and omitting exactly one interior vertex, confirming the adjacent-swap interpretation. In the checked instances, no assertion failed.
+## correctness
 
-The script does not enumerate all reconfiguration paths for arbitrary \(n\), does not search all literature, and is not an infinite proof. The result's infinite-parameter correctness rests on the explicit mathematical proof in `RESULT.md`. The separately stated historical-priority risks are not resolved by this computation.
+PASS
+
+A B-before-A geodesic exists, so puncturing the cube leaves distance n between endpoints. All shortest routes flip each label once and changing one intermediate vertex exchanges adjacent flips. A route is forbidden exactly when all A labels precede all B labels. Every valid ordering can bubble all B labels left without losing its cross inversion, then sort within blocks, proving connectivity. The k!(n−k)! forbidden permutations each have exactly one edge to a valid neighbor, by swapping across the block boundary; the neighbor uniquely recovers its forbidden predecessor. The degree and edge counts follow, including the single degree-zero vertex at n=2. For a singleton A, inserting the non-A first target label never places A first; the rest of adjacent insertion realizes Kendall distance. Reversal handles singleton B. In the interior four-label witness the two fixed A-before-B orders make the initial and final opposite cross inversions mutually exclusive. A four-swap path could change only discordant pairs and would have to lose one cross inversion before obtaining the other; all external labels retain their orders, so the intervening state is forbidden. Parity rules out length five, and the six displayed adjacent swaps retain at least one cross inversion at every step. Independent direct enumeration of cube vertex sequences corroborated counts, both extreme-layer isometries, and the existence of distance-4-versus-6 pairs through n=6; the proof establishes all n.
+
+## originality
+
+PASS
+
+The distinct supported claim is the single-vertex-deletion metric classification, with the explicit exact detour. The unrestricted permutation model and Kendall formula are credited to prior work; deleting a facet can change the induced metric. Indexed adjacent results help delimit the contribution but do not establish this classification. Primary theorem passages and some comparator bodies were not accessible; exact priority is not guaranteed.
+
+## value
+
+PASS
+
+The natural first fault in a standard shortest-path reconfiguration model can preserve the length and connectivity of routes while changing the metric between them. The exact extreme-versus-interior classification and smallest parity-allowed detour witness are structural information not supplied by the simple counts or unrestricted metric. They pinpoint the first dimension and layers where the distinction matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

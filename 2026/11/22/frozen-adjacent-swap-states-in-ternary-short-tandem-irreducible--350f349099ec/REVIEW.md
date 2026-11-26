@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's domain is indexed ternary words avoiding length-one and length-two tandem squares. Each word has a unique first-symbol-plus-sign representation. A direct modular computation proves the local adjacent-swap sign-flip lemma, including endpoints. The forbidden \(abab\) factor is exactly an alternating sign triple; exhaustive case reasoning on first, last and interior maximal runs proves the frozen characterization. Compositions with internal sizes two/four yield the Fibonacci count, including the zero-interior boundary case. The independently implemented checker directly tests all swaps against both restrictions through length nineteen via sign cases and length eleven via literal ternary words. These finite tests are corroboration, not infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+In Z/3, consecutive proper differences are ±1; abab is exactly an alternating triple of differences. An interior swap across difference b sends a,b,c to a+b,-b,b+c, nonzero precisely when a=b=c. The analogous endpoint test flips two equal signs. Endpoint runs of length 2 or 3 can be flipped in full, and length at least 4 leaves at least two unflipped signs after an endpoint flip. Interior runs of length 3 can be flipped in full and those of length at least 5 admit the first-three flip, leaving at least two signs. With singleton endpoint runs, a length-2 interior run has no candidate, and each length-4 candidate leaves a singleton between two opposite runs and produces abab. This covers one-run and shortest-length cases. Halving the even interior lengths gives ordered compositions into 1 and 2, with 3 initial symbols and 2 signs; the stated Fibonacci count and series follow. All lengths 3–17 matched a fresh direct literal-word and swap enumeration, not a substitute for the proof.
 
-The nearest related findings count unrestricted radius-two adjacent swaps (`4c63e213-834d-46b8-9cf4-6c2ec7a85ae4`), legal Hamming-one substitutions on the same irreducible language (`e1dd2f70-f4bd-485a-8d5a-d12c5312327a`), legal insertion outputs (`63d30c87-2f2e-47dc-b97d-16e4d15b1df7`), adjacent swaps on the larger proper-word language (`8cf86924-31c0-46ab-9f0a-34b750a1f563`), star swaps (`e8f1957b-eebe-4d4d-9432-2cf7b8664505`) and distance-two swaps (`a6393332-ba3a-4f2c-a3ae-dae835b001cd`). None determines exactly which adjacent swaps retain the \(abab\)-avoidance constraint. In particular, `0102101` is movable by a proper-only adjacent swap but frozen here. published-finding corpus searches of these concepts found unrelated constrained-swap and ternary-spectrum records, not a matching count. The relevant 2018 irreducible-word paper enumerates *words*, not adjacent-swap isolates; the full-text-relevant sections of the 2024 unconstrained swap paper omit this language; the 2025 path-color-swapping paper uses weaker properness and is compared explicitly. An earlier unknown equivalent source remains possible. The 2025 publication is supporting literature, not the 2018 guiding source.
+## originality
 
-## Value — PASS
+PASS
 
-A restricted adjacent-swap graph is a canonical reconfiguration/Gray-code object for a recognized tandem-irreducible language. The exact all-length isolated-state count provides a decisive Hamiltonian-generation obstruction at every odd length and shows a parity transition with zero isolates at even lengths; the contribution includes an explicit structural classification rather than an arbitrary numerical slice. The Fibonacci family is new to this restricted operation and is not inferred from the already-known total Fibonacci word count. No claims about optimal codebooks, physical mutation rates, or even-length connectivity are made.
+The same-day proper-path result is materially close and the published swap lemma supplies properness of a candidate, but neither tests whether the swapped word newly contains a length-four square. The known Fibonacci language count tests the states, not their swap neighbors. The parity-specific run classification of isolated vertices in the induced graph is not covered by these statements.
 
-## Evidence and remaining limitations
+## value
 
-Compared full-text material: Chee et al., arXiv:1801.02310, Sections I–II and named encoder/ranking contributions as available in the author-uploaded public full text; Adamson et al., arXiv:2307.01648, pages one, four and defining/motivating passages; Fuchs et al. (2025), Sections 4.1.1–4.1.2 of the open HTML article. Source-title searches included exact operation, forbidden motifs, and isolated-vertex aliases. No exact-match source was established. No independent audit performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimal duplicate-avoidance language and adjacent swap are independently natural. The all-length run criterion identifies exactly when local reconfiguration is impossible, including nontrivial new obstructions from forbidding abab. An exact isolated-state census and parity dichotomy are useful even without a connectivity theorem; the no-Hamiltonian observation alone would be weak since swaps also preserve content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

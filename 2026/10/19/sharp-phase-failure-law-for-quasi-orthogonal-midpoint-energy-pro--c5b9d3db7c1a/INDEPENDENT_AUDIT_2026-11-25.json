@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:34:15.986498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For h>0 the two stages span the plane, since Aq and q are independent by A^2=-kappa^2 I; the correction is along Qy. In energy coordinates the midpoint predictor is a scaled rotation with squared gain D=1+kappa^4 h^4/4. It is invertible and preserves uniform angular law. With r=kappa^2 and s the energy fraction on the second axis, completing the square on the prescribed line gives minimum energy relative to the target D(r-1)^2 s(1-s)/(1+(r^2-1)s). The parabola is strictly convex, so the criterion is inclusive. The phase factor is maximized at s=1/(r+1), giving the stated threshold and four double-root angles there. Independently, writing t=|tan(predictor angle)|, failure is r^2 t^4+(1+r^2-H)t^2+1<0. For H>(r+1)^2 the positive boundary values have product 1/r and difference sqrt(H-(r+1)^2)/r. Thus their angular width gives p_fail=(2/pi) arctan(sqrt(H-(r+1)^2)/(r+1)), equivalent to the stated arcsine law. Expansion at zero and infinity verifies both coefficients (H=D(r-1)^2). Axis directions remain solvable; isotropy makes every correction radial. The exact witness has minimum 9801/1945>2, and the frozen recorded output and script provide bounded corroboration, not proof for the continuum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general convex-invariant theorem is for sufficiently small h. Remark 4 identifies the full-stage-space case with ordinary orthogonal projection. The later two-invariant record is about order loss, not root existence."
+        ],
+        "reasoning": "Neither the method equivalence nor the local existence conclusion gives the global one-step cutoff or the angular measure of failure.",
+        "searches": [
+          "Najafian–Vermeire arXiv:2409.18328, Theorem 3 and Remark 4",
+          "Resultary 8aca49edd71e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2409.18328 and arXiv:1606.09365",
+        "Resultary 3016d962c708, 2b21777e5740 and 8aca49edd71e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The RK4 record studies symplecticity and modal transfer of a radial projection; the RF-SSPRK record studies root loss for a different correction and includes a multistep criterion. The Kantorovich theorem controls the extremal ratio, not the uniform-angle law."
+        ],
+        "reasoning": "Changing either the predictor or the correction changes the energy on the search line. No inspected prior theorem subsumes the claimed phase-resolved one-step formula.",
+        "searches": [
+          "Resultary 3016d962c708 and 2b21777e5740",
+          "arXiv:1606.09365, Theorems 1.2 and 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum along the Qy line is an exact-line-search energy ratio, with a classical Kantorovich worst-case bound.",
+          "The phase probability is equivalently an arctangent of sqrt(H-(r+1)^2)/(r+1) in the supercritical range."
+        ],
+        "reasoning": "The earlier all-directions bound explains the worst-phase factor but neither computes the distribution of the line-search ratio nor combines it with midpoint amplification.",
+        "searches": [
+          "Quasi-orthogonal midpoint energy projection; phase-failure law",
+          "arXiv:1606.09365, exact line search and Kantorovich"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct match was established among the returned top-ten local entries. The strongest earlier oscillator entry 3016d962c708 uses RK4 and a radial projection; the later finite-step root-loss entry 2b21777e5740 uses RF-SSPRK(2,2)."
+        ],
+        "reasoning": "These matches are relevant but do not record the same cutoff/distribution; ranked search is not exhaustive.",
+        "searches": [
+          "Resultary search by exact title, threshold formula, quasi-orthogonal midpoint energy projection and phase-failure law",
+          "Focused primary search for the anisotropic midpoint projection threshold and failure law"
+        ]
+      },
+      "rationale": "The original contribution supported here is the sharp one-step explicit-midpoint failure profile for the specified anisotropic oscillator: finite cutoff, partial-phase failure above it, and sharp distribution and limits. The correction method and the classical worst-phase inequality are prior mathematics; no priority is claimed for either. The strongest inspected neighbors do not establish this profile.",
+      "residual_risks": [
+        "An older equivalent two-eigenvalue random line-search distribution could exist.",
+        "The Calvo et al. full text was not obtained; search coverage is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method and small-step existence covered; not the large-step failure law",
+          "evidence": "Convex-invariant existence is conditional on sufficiently small step; full-stage-space correction reduces to ordinary orthogonal projection.",
+          "identifier_or_url": "https://arxiv.org/html/2409.18328",
+          "material_read": "Theorem 3 (offset 25907) and Remark 4 (offset 32651)",
+          "method": "OA HTML",
+          "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+          "trigger": "Exact projection method and potentially dominant theorem"
+        },
+        {
+          "assessment": "Prior worst-case bound",
+          "evidence": "Theorems give exact-line-search contraction and Kantorovich inequality, not the oscillator phase distribution.",
+          "identifier_or_url": "arXiv:1606.09365",
+          "material_read": "Theorem 1.2 p. 2, offset 5305; Theorem 4.1 p. 7, offset 30014",
+          "method": "OA PDF text",
+          "title": "On the worst-case complexity of the gradient method with exact line search for smooth strongly convex functions",
+          "trigger": "Exact-line-search/Kantorovich equivalence"
+        },
+        {
+          "assessment": "Different method and output",
+          "evidence": "RK4 on two oscillator modes with radial correction; symplecticity and transfer rather than nonexistence.",
+          "identifier_or_url": "Resultary 2026/10/18 3016d962c708",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "A unique symplectic timestep and sharp modal-energy reversal",
+          "trigger": "Closest earlier oscillator and quasi-orthogonal method"
+        },
+        {
+          "assessment": "Later and distinct",
+          "evidence": "RF-SSPRK(2,2) for multiple isotropic modes; includes multistep failure, not the anisotropic midpoint phase law.",
+          "identifier_or_url": "Resultary 2026/10/25 2b21777e5740",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Finite-step loss of an energy-conserving Runge–Kutta correction",
+          "trigger": "Real-root loss in a finite-step RK correction"
+        },
+        {
+          "assessment": "Later accuracy result",
+          "evidence": "Different three-stage scheme with two invariants; concerns order loss rather than real-root existence.",
+          "identifier_or_url": "Resultary 2026/10/26 8aca49edd71e",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp third-order loss under two-invariant quasi-orthogonal Runge–Kutta projection",
+          "trigger": "Quasi-orthogonal RK neighbor"
+        },
+        {
+          "assessment": "Detailed comparison unavailable",
+          "evidence": "No primary passage obtained; not used as negative evidence.",
+          "identifier_or_url": "doi:10.1137/04061979X",
+          "material_read": "Full text not obtained",
+          "method": "Bounded lawful OA attempt (HTTP 403; no repository copy located)",
+          "title": "On the Preservation of Invariants by Explicit Runge–Kutta Methods",
+          "trigger": "Earlier related invariant correction method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Convexity and even a full stage span may suggest that an energy correction is always available, but the prescribed line can miss the target ellipse. This natural test problem quantifies exactly where a solver needs a fallback or step restriction; it distinguishes universal safety from typical initial-phase failure and measures the onset and remaining successes. It is not just an arbitrary failed input or a recapitulation of local solvability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

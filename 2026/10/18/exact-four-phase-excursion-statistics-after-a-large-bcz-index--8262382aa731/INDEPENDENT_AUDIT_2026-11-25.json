@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:22:40.547844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The chart t=(1+a-kb)/b, s=(1-a)/b sends the k-cylinder to the unit square up to null boundaries, with b=2/(k+t+s), c=kb-a=1-bt and probability density 8/(k+t+s)^3. The first post-k digit is 1 because (1+b)/c is in [1,2) for k>=12. At time 2+j on the proposed run the pair is (c-jb,c-(j+1)b); the floor argument is at least 2 and strictly less than 3 exactly for j<R=(k+s-3t-6)/4. For j<=ceil(R) the smaller coordinate divided by b is at least (k+s+t-2)/4>0. Thus L=ceil(R), with strict inequality at the stopping boundary. Integrating the density over the square yields total mass 8/[k(k+1)(k+2)]. The three exceptional subregions are s<=3t-2 at r=0, s>3t at r=2, and s>3t-1 at r=3; r=1 has no internal cut. Integrating (k+t+s)^(-3) first in s and then by the reciprocal antiderivative in t gives exactly the three ratios k/[2(3k+2)], (k+2)/[2(3k+4)], and (k+2)(9k+5)/[2(3k+1)(3k+5)]. The bounded distance from k/4 and residue-specific limits follow directly. Read the frozen rational itinerary checker; independently checked the masses and tail ratios via exact polygon clipping in the original (a,b) coordinates for k=12..240 (independent_checks.py bcz). The finite replay corroborates the universal calculation, which does not assume independent digits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korolev Lemma 12 gives the forced k,1,2 prefix for k>=9; Lemma 13 guarantees index 2 at times 2..r when k>=4r+2 and cites Boca–Cobeli–Zaharescu (2003), Lemma 3.4. Its p.37 computes generic cylinder areas by a positive-part integral between the lower and upper polygon envelopes.",
+          "Li Lemma 2.4 treats the full excursion between deeper points, with leading length 3/(pi^2 ab); strong mixing for fixed sets is a different limiting conclusion."
+        ],
+        "reasoning": "The forced prefix gives part of the onset and leading run information. Generic polygon envelopes furnish a method; neither those forced-prefix statements nor a macroscopic excursion law resolve the fractional cylinder areas at each terminal digit phase.",
+        "searches": [
+          "BCZ large-digit itineraries and Farey spacing; Korolev arXiv:2502.19881v2 Lemmas 12–14 and p.37; Li arXiv:2403.15160v2 §2; Artiles–Best–Bordignon arXiv:2610.07347v1 §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 2dacb93a856f",
+        "arXiv:2502.19881v2, 2403.15160v2, 2610.07347v1",
+        "Hall–Shiu and Augustin et al. bibliographic/search descriptions only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The roof clock becomes the same ceiling when d=b and u=kb-a. Korolev's uniform prefix ends at the guaranteed part of the run; the general envelope integral allows one to calculate any desired cylinder from its itinerary."
+        ],
+        "reasoning": "The theorem is not novel as a pointwise orbit computation. Deriving the claim from these ingredients still requires computing the weighted geometry of the final moving slice and resolving how its intercept falls across all four k residue classes. Neither the exact pointwise clock under a different conditioning nor the generic area procedure supplies the evaluated phase probabilities by substitution alone.",
+        "searches": [
+          "2dacb93a856f exact branch exit, offsets 3097–4300; Korolev §3 Lemmas 12–14 and p.37 envelope method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the b<a corner the roof record takes u=c, d=b and j_0=2. Its ceiling minus one is ceil((2c-1-3b)/(2b)), exactly the frozen pointwise formula.",
+          "For each j>=0, the frozen tail Pr(L>j | k) is the area ratio |T(k,1,2 repeated j+1)|/|T(k)|."
+        ],
+        "reasoning": "The clock identity is covered even though the conditioning differs. The roof theorem averages over 1/(ab)>R, not over the specific strip k<= (1+a)/b <k+1; its Pareto law cannot recover the conditional digit weights.",
+        "searches": [
+          "Resultary: BCZ cusp/large digit, branch exit clock, exact initial run of 2s; 2dacb93a856f Finding and Proof §2",
+          "Korolev arXiv:2502.19881v2 §1 and §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Korolev Eq. (36) is the same single-cylinder area 4/[k(k+1)(k+2)] and Lemma 12 gives exact masses of some short prefixes. The inspected colored-gap calculations involve other restrictions and tuples.",
+          "The accessible Hall–Shiu and Augustin et al. search descriptions concern Farey-index value distribution and consecutive spacing/correlation measures, respectively; their full passages were not available."
+        ],
+        "reasoning": "One-cylinder denominators and forced short-prefix masses are not the phase-sensitive numerator areas. No exact matching table was found in the inspected material; inaccessible sources are not assessed as noncovering.",
+        "searches": [
+          "Resultary itinerary/cylinder/run-length records; Korolev arXiv:2502.19881v2 Eq. (36), Lemma 12 and sampled §4–5 polygon passages; Hall–Shiu DOI 10.1307/MMJ/1049832901; Augustin et al. DOI 10.1017/S0305004101005187"
+        ]
+      },
+      "rationale": "Pass for the evaluated digit-conditioned finite-k probabilities and four residue-specific laws, not for the existence of a long 2-run, its pointwise exit clock, or the use of itinerary polygons. The same-day roof-conditioned archive result gives the equivalent deterministic clock, and earlier literature covers a uniform forced run and general polygon machinery. The exact masses at the moving exit boundary distinguish the finding and were not established by those comparisons.",
+      "residual_risks": [
+        "The inspected polygon literature covers the same itinerary method and part of the result; uninspected parts or related Farey-cylinder papers may have equivalent evaluated masses. Hall–Shiu and Augustin et al. were not available in full. The cited original Boca–Cobeli–Zaharescu 2003 Lemma 3.4 was compared through Korolev's reproduced implications, not the original paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pointwise formula equivalent, different conditioned law; same date does not establish priority",
+          "evidence": [
+            "On b<a: j_0=2, (u,d)=(kb-a,b); L=max(0,ceil((u-(1+d)/2)/d)-1). The statistical law conditions on 1/(ab)>R and is Pareto after rescaling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-pareto-branch-exit-clock-and-macroscopic-relaxation-after-rare-b--2dacb93a856f/RESULT.md",
+          "material_read": "Finding and Proof §2, offsets 3097–4300 for exact escape",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Pareto branch-exit clock and macroscopic relaxation after rare BCZ roof excursions",
+          "trigger": "Exact same BCZ branch and rare-event clock"
+        },
+        {
+          "assessment": "Exact overlap for k-cylinder and short/guaranteed prefixes, plus generic area method; evaluated exit probabilities not established by inspected statements",
+          "evidence": [
+            "|T(k,1)|=|T(k)| at k>=5; |T(k,1,2)|=|T(k)| at k>=9; for k>=4r+2, T^j(T(k)) lies in T(2) when 2<=j<=r.",
+            "General cylinder area is the integral of max(0, G_r-F_r), the upper-minus-lower envelopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.19881v2",
+          "material_read": "Abstract, §1 itinerary definition; Eq. (36) p.17; Lemmas 12–14 pp.20–23; polygon envelope integral p.37, offsets 115000–116323",
+          "method": "OA PDF locate and bounded passage reads",
+          "title": "A distribution related to Farey sequences—I",
+          "trigger": "Same large-index BCZ itinerary cylinders; plausible exact area formulas"
+        },
+        {
+          "assessment": "Strong mixing, not the growing-digit conditional law",
+          "evidence": [
+            "The theorem gives strong mixing with fixed measurable test sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.07347v1",
+          "material_read": "§1 Theorem 1.1, offset 1657; §2.1, offset 6631",
+          "method": "OA article passage reads",
+          "title": "Mixing of the BCZ Map",
+          "trigger": "Same dynamical map and long-time statistics"
+        },
+        {
+          "assessment": "Different notion of excursion and no four-phase count",
+          "evidence": [
+            "Length between deeper endpoints is asymptotic to 3/(pi^2 ab) with the stated error; this does not isolate the initial uninterrupted 2-run."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.15160v2",
+          "material_read": "Abstract, Definition 2.2 and Lemma 2.4, offsets 0, 17119, 22125",
+          "method": "OA article passage reads",
+          "title": "Logarithm laws for the BCZ map",
+          "trigger": "Explicit BCZ excursion length theorem"
+        },
+        {
+          "assessment": "Bibliographic context only; full comparison unresolved",
+          "evidence": [
+            "Abstract describes moment and value distribution of the Farey index."
+          ],
+          "identifier_or_url": "https://doi.org/10.1307/MMJ/1049832901",
+          "material_read": "Search-result abstract only; no article passage readable",
+          "method": "Exact-title search and bounded OA retrieval of publisher and identified CORE PDF",
+          "title": "The index of a Farey sequence",
+          "trigger": "Value distribution for the conditioning index"
+        },
+        {
+          "assessment": "Bibliographic context only; full comparison unresolved",
+          "evidence": [
+            "Descriptions mention h-level consecutive spacing and multilevel correlations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0305004101005187",
+          "material_read": "Search descriptions only; no article passage readable",
+          "method": "Publisher page and PDF OA attempts",
+          "title": "The h-spacing distribution between Farey points",
+          "trigger": "Multi-step consecutive Farey pattern geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural rare event of a large BCZ digit, the growth-order law L~k/4 cannot distinguish deterministic, rare-extra-step, and nearly equiprobable behavior. The explicit probability at the final step answers this local dynamical question uniformly for all large digits and reveals a four-phase law that the standard forced-prefix and macroscopic excursion estimates miss. The distinct value is the finite conditional law, not the elementary coordinate change or the first-order scale.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:35:39.420075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82 and 88; VERIFICATION.md lines 3–25; verify.py inspected, not executed",
+        "Replay: python3 /workspace/reproduction/3.py"
+      ],
+      "rationale": "For r≥3, m≥2 and positive prices and budget, connected feasible points have a positive grounded determinant and disconnected points cannot maximize it. The grounded Laplacian is injective in the weights of this simple graph, so strict log-det concavity gives uniqueness, and orbit averaging/invariance reduces the optimizer to two weights without constraining the original optimization. The four nonzero eigenvalue blocks are (r−1)mx, m[x+(r−2)y], m[x+(r−1)y], and rmx with multiplicities m−1, (r−1)(m−1), r−2, and 1; their product divided by rm gives the claimed tree polynomial. With u=r−2, v=r−1 and N=rm−1, the derivative divided by u is v(m−1)/(1+ut)+v/(1+vt)−NQ/(2P+uQt). Clearing its positive denominator gives C+Lt−At² as stated. If C>0 there is one positive root. If C≤0 the linear term is strictly negative (already negative at equality and decreasing in Q), so t=0 is the unique optimizer. Independently, on the bipartite support the active resistance is (rm−1)/(m²(r−1)x) and the inactive-endpoint resistance is 2/(mx); their ratio gives the same KKT cutoff including equality. Near the critical price, a positive root satisfies t=C/(−L+At); using L=−2Pm(r−1)(r−2)/r+O(1) and C/P=2(r−1)/r−rγ+γ/m gives the positive-part limit, including t=O(m⁻²) at equality of the limiting prices. Independent exact spanning-tree enumeration on K_{2,2,2} gives determinants 32 and 4608 and equal marginal gain per price across individual edges at (x,y,Q/P)=(1,0,8/5) and (2,1,28/23).",
+      "residual_risks": [
+        "The computation is a finite cross-check, not the proof of general optimality or scaling. No result for unequal parts or differently priced edges is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first provides a general log-determinant graph-selection relaxation, not an exact specialized allocation; the second covers weighted multipartite tree enumeration."
+        ],
+        "reasoning": "These frameworks provide inputs and general optimality tests, not the explicit two-price optimizer in the stipulated unrestricted budget model.",
+        "searches": [
+          "arXiv:1604.01116 §4.4 Theorem 4.3; arXiv:1510.00033 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: 93a220470d32 and c30f76e2bede",
+        "arXiv:1510.00033; arXiv:math/0302213; arXiv:1604.01116; arXiv:2610.03627"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bipartite resistance formula and standard log-det KKT conditions already yield the boundary ratio once bipartite support is proposed. Known enumerators provide the tree product; the matching-price catalogue example has different orbit geometry and objective polynomial."
+        ],
+        "reasoning": "Do not credit the standard cutoff test or the enumeration alone. The two-orbit budget elimination, unique positive quadratic branch and matched critical scaling are not a specialization of any inspected allocation formula.",
+        "searches": [
+          "arXiv:1510.00033 Theorem 1.2; arXiv:math/0302213 §1; arXiv:1604.01116 §4.4; Resultary c30f76e2bede Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 93a220470d32 has the same two orbits at r=3 but minimizes Kirchhoff index; after relabeling its cutoff is 24m/(15m−7), not 4m/(3m−1).",
+          "Khosoussi et al. §4.4 concerns relaxed fractional selection in graph selection; Tovar et al. optimize reciprocal mean resistance."
+        ],
+        "reasoning": "Switching from mean effective resistance to determinant changes the optimizer and even the limiting threshold, so the two designs are not equivalent by reweighting labels or by expressing them both using electrical variables.",
+        "searches": [
+          "Local Resultary semantic comparison: two-price multipartite determinant-optimal conductances, orbit screening and 1/m window",
+          "arXiv:2610.03627; arXiv:1604.01116"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c30f76e2bede states an exact determinant screening and window law for a priced perfect matching in K_{m,m}; 93a220470d32 concerns the different tripartite objective."
+        ],
+        "reasoning": "Neither database record contains this parametric optimizer. Unpriced tree-count tables would not encode variable prices, individual-edge optimality, and critical scaling.",
+        "searches": [
+          "Local Resultary semantic comparison for exact screening and determinant-optimal price windows"
+        ]
+      },
+      "rationale": "The supported contribution is the full all-r price allocation (quadratic interior conductances and exact critical-window profile, together with the screening regime), not tree enumeration, log-det optimization, or the generic resistance test for edge deletion. No equivalent coverage of that full claim was found in the inspected comparisons.",
+      "residual_risks": [
+        "Bounded best-of-knowledge finding; an unindexed exact weighted design result under other terminology is not ruled out. No historical priority is inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known input",
+          "evidence": "The k=1 case includes weighted and unweighted counts for complete multipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.00033",
+          "material_read": "Theorem 1.2 and surrounding p. 3 text, OA offset 10243",
+          "method": "Lawful OA text",
+          "title": "Weighted cellular matrix-tree theorem (Aalipour et al.)",
+          "trigger": "Weighted multipartite enumeration"
+        },
+        {
+          "assessment": "Different enumerators; not price allocation",
+          "evidence": "Cartesian products of complete graphs, with degree and direction weights.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0302213",
+          "material_read": "Abstract and §1 p. 1, OA offset 0",
+          "method": "Lawful OA text",
+          "title": "Factorizations of some weighted spanning tree enumerators (Martin and Reiner)",
+          "trigger": "Weighted tree-product factorization"
+        },
+        {
+          "assessment": "Related optimization framework",
+          "evidence": "Relaxed selectors π_i and their expected tree-count interpretation; distinct from the explicit two-price unrestricted optimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "§4.4 Theorem 4.3 p. 11, OA offset 31476",
+          "method": "Lawful OA text",
+          "title": "Maximizing the Weighted Number of Spanning Trees (Khosoussi et al.)",
+          "trigger": "General determinant-optimal network design"
+        },
+        {
+          "assessment": "Scope comparison, not a whole-paper exclusion",
+          "evidence": "Reciprocal mean pairwise effective resistance and power-law cost; pricing-out appears at exponent one.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+          "material_read": "Abstract p. 1, OA offsets 1152–1680",
+          "method": "Lawful OA text",
+          "title": "Resistance-optimal allocation (Tovar et al.)",
+          "trigger": "Price-induced edge deletion"
+        },
+        {
+          "assessment": "Distinct objective and threshold",
+          "evidence": "Kirchhoff index cutoff 24m/(15m−7) tends to 8/5, unlike determinant cutoff 4m/(3m−1).",
+          "identifier_or_url": "Resultary 93a220470d32",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local catalogue mirror",
+          "title": "Priced complete-tripartite resistance design",
+          "trigger": "Closest topology and price classes"
+        },
+        {
+          "assessment": "Distinct graph and price orbit",
+          "evidence": "Prices a perfect matching in K_{m,m}, not all edges between ordinary parts.",
+          "identifier_or_url": "Resultary c30f76e2bede",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local catalogue mirror",
+          "title": "Sharp price surcharge transition for determinant-optimal bipartite networks",
+          "trigger": "Closest determinant transition and critical window"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and proof; nearby resistance and matching-orbit designs in Resultary"
+      ],
+      "rationale": "In a standard determinant criterion on a natural network family, the result tells a designer exactly when an entire price class can be removed without losing optimality, proves that no asymmetric individual allocation improves the design, and quantifies how much conductance is retained through the transition. The critical profile and closed interior solution give actionable information beyond existence or a tree-count formula.",
+      "residual_risks": [
+        "Value is for the stated two-price balanced family, not a general graph-selection method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

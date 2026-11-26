@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Execute `python3 verify.py`. The script uses only the Python standard library. It constructs finite vector spaces, independently enumerates all invertible matrices, and enumerates every projective-point permutation and every possible nonzero scalar factor for the listed small fields. It then tests the literal pair-interpolation property for each proposed map against all invertible linear maps, not merely the derived abstract count. Additivity is compared to the set of genuine global automorphisms.
+## correctness
 
-Verified configurations are \((q,n)=(2,1),(2,2),(3,2),(2,3)\). They produce respectively \(1,6,384,5040\) two-local maps and \(1,6,48,168\) ordinary maps. The terminal success marker is `VERIFY_OK`.
+PASS
 
-The code handles only prime fields and these small finite configurations, and does not exhaust arbitrary prime powers. The general theorem, including extension fields, is proved algebraically in `RESULT.md`; the executable is supporting finite evidence rather than an infinite certificate. Independent review has not been performed.
+Unital K-algebra automorphisms fix K and preserve the unique maximal ideal V. Square-zero multiplication makes every invertible K-linear map on V extend to an automorphism. Interpolating the pair (v,a1+v) forces the radical part of any two-local map to depend only on v. On V, the pair (v,cv) forces homogeneity with the same c, and independent pairs must stay independent. This permutes projective directions over the finite field; every such permutation with an independent nonzero scale on each direction is two-local by extending independent pairs to bases, or by homogeneity for dependent pairs. Composition gives the stated wreath product and order. The triple (v,w,v+w) forces additivity and hence, with homogeneity and injectivity, invertible K-linearity. When n=1 or (n,q)=(2,2) the two-local group is already GL. Else, scaling just one direction for q>2, or swapping x+y with z for three independent vectors when q=2, violates additivity. These arguments do not require the prime-field hypothesis of the frozen finite checker.
+
+## originality
+
+PASS
+
+The distinct supported content is the complete two-local group of unital split square-zero algebras over all finite fields, including the sharp equality cases and collapse to GL at three evaluations. The exact equivalent 2-closure formulation is a real priority risk; no earlier matching computation or theorem implying this full result was verified in the bounded search.
+
+## value
+
+PASS
+
+The square-zero family isolates how much local agreement can fail to enforce linearity over finite fields. It gives the full discrepancy group rather than just examples and pins down the small-field exception and exact two-to-three evaluation boundary. This is a useful classification for the natural first radical-square-zero test family, beyond the elementary identification of the ordinary automorphism group or computation of a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:46.444480Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–59",
+        "VERIFICATION.md lines 19–25",
+        "verify.py lines 16–74 (inspected, not run)",
+        "arXiv:2202.09582v1 pp. 3–4, Eqs. (7)–(10)",
+        "/workspace/branches/review_replay.py, cube()"
+      ],
+      "rationale": "The sink projection acts on all arcs originating at 0; it does not change the local d-dimensional coin before the sink is applied. The trapped states have symmetric edge amplitudes and zero vertex sums; amplitudes on sink edges vanish. Switching the sign of one bipartition turns this into signed-incidence conservation on the punctured cube. Duplicated arc amplitudes give the factor 1/2 for projection of one initial arc, and the complementary incidence projection has diagonal R_H(e). As an independent check of the infinite-time reduction, a nonzero limiting surviving trace in the complement would give a positive fixed operator there by Cesàro averaging. Trace equality makes each full-support unitary image sink-free; Hilbert–Schmidt strict convexity then makes the fixed operator invariant under every unitary. Its support is invariant under the empty-configuration coin and each single-edge swap. Any antisymmetric edge component would therefore give an antisymmetric edge basis vector in the support, and applying the coin propagates such components to adjacent edges and ultimately to a sink edge, a contradiction. In the symmetric sector the coin's +1 mode is globally constant and excluded by the sink; its −1 modes are exactly the zero-sum trapped states. Both coin/shift orders have the same dark subspace and asymptotic projection. For the electrical step, L_H is the Kron-reduced cube Laplacian minus the zero-sum neighbor projector P. Coordinate symmetry gives PL_K^+P=κP with κ=g(0)−g(2)=B_1+B_2=(1−2^{1−d})/(d−1)<1. The inverse update contributes ||PL_K^+b||²/(1−κ); taking the Green differences on the three classes of sink neighbors and subtracting their arithmetic mean, B_{k+1} by harmonicity at the sink, gives exactly the three displayed squares. At k=d−1 the last class is empty. The beta integral gives B_h∼(h−1)!d^{−h} with relative O_h(1/d), so for fixed k only the first square contributes at order d^{−2k}. All nine exact grounded-resistance comparisons for d=3,4,5 agreed, and a fresh Q3 channel check distinguished the finite-time step orders but gave the same t=600 survival 0.15 in both.",
+      "residual_risks": [
+        "The channel example corroborates asymptotic survival but does not prove a finite-time rate or order-independence at finite time. The expansion is for fixed depth only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mareš et al. give the sink-resistant projection on general finite connected simple graphs.",
+          "Dilworth et al. give projection results on the intact binary cube."
+        ],
+        "reasoning": "The general graph theorem is decisive coverage of the projection, not a closed evaluation of its diagonal for the vertex-deleted cube. Intact cube projection results do not retain information about the omitted vertex.",
+        "searches": [
+          "arXiv:2202.09582v1 Eqs. (7)–(10)",
+          "arXiv:2305.12582v1 §2.7, Theorem 45 and Corollary 60"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.09582",
+        "arXiv:1812.02519",
+        "arXiv:1606.02136",
+        "arXiv:2305.12582",
+        "Resultary 05695b9bae19",
+        "Resultary 24ab48d1f4b0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general projection formula requires the dark projection diagonal as input. The indexed edge-failure formula computes a rank-two Kirchhoff-index update. The public query yielded no useful matching source."
+        ],
+        "reasoning": "The antecedents offer methods, not mechanical substitution for the shell coefficients; the new evaluation uses the invariant (d−1)-dimensional neighbor block and three shell-dependent Green differences. Irrelevant web hits carry no negative evidentiary weight.",
+        "searches": [
+          "arXiv:2202.09582v1 pp. 3–4",
+          "Resultary 24ab48d1f4b0, Finding",
+          "Public web query: \"effective resistance\" edge \"punctured hypercube\" deleted vertex Green function Hamming distance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The localization result relates a different unpercolated walk to electric dissipation.",
+          "Indexed 24ab48d1f4b0 gives a full-cube Green update for deleting two edges and computing a change in Kirchhoff index."
+        ],
+        "reasoning": "Neither supplies the resistance for a specified surviving edge after all d edges at one vertex are removed, nor the depth-resolved correction obtained by the neighbor projection.",
+        "searches": [
+          "Resultary: punctured hypercube effective resistance edge Hamming distance deleted vertex",
+          "Resultary: hypercube Green function effective resistance punctured cube single vertex sink",
+          "arXiv:1606.02136v1 §IV.C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed Hamming result covers intact Hamming graphs and credits the binary specialization.",
+          "The prior quantum-walk example treats only Q3 and exhibits initial-state-dependent transport."
+        ],
+        "reasoning": "Credit previously calculable Q3 cases and the known intact baseline. Neither gives the all-dimensional two-parameter shell resistance or its fixed-depth asymptotic.",
+        "searches": [
+          "Resultary: Hamming shell d^{-2k} correction absorption hypercube resistance",
+          "Resultary 05695b9bae19",
+          "arXiv:1812.02519v1 §VI.C"
+        ]
+      },
+      "rationale": "Only the explicit shell-resolved single-vertex-deletion resistance and its fixed-depth absorption correction pass as distinct. The trapping theorem, full-cube resistance and electrical method are antecedents; the closest indexed comparisons address different graph objects or remove different elements and compute a different statistic.",
+      "residual_risks": [
+        "This is a bounded priority assessment; an unindexed or implicit single-vertex-deletion calculation may exist. The public search was not informative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the transport-to-projection reduction",
+          "evidence": "Repeated sink-origin projection; asymptotic transport 1−Tr(Π_Tρ_0); symmetric arcs and vertex-sum constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.09582",
+          "material_read": "v1 pp. 3–4, Eqs. (7)–(10)",
+          "method": "OA preprint passages",
+          "title": "Key graph properties affecting transport efficiency of flip-flop Grover percolated quantum walks",
+          "trigger": "Potentially fully covering general transport theorem"
+        },
+        {
+          "assessment": "Earlier Q3 case",
+          "evidence": "Constructs trapped states and evaluates initial-state-dependent transfer on the ordinary cube.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.02519",
+          "material_read": "v1 §VI.C, pp. 15–16",
+          "method": "OA preprint passages",
+          "title": "Percolated quantum walks with a general shift operator: From trapping to transport",
+          "trigger": "Earlier single-sink cube example"
+        },
+        {
+          "assessment": "Different quantum dynamics",
+          "evidence": "Effective resistance and power dissipation bound localization of single-edge states without percolated sink projection.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.02136",
+          "material_read": "v1 §IV.C, pp. 11–12",
+          "method": "OA preprint passages",
+          "title": "Oscillatory Localization of Quantum Walks Analyzed by Classical Electric Circuits",
+          "trigger": "Equivalent electrical method"
+        },
+        {
+          "assessment": "Intact binary cube",
+          "evidence": "Treats cut and cycle projections of the full cube, not vertex-deleted resistances.",
+          "identifier_or_url": "arXiv:2305.12582v1",
+          "material_read": "§2.7, Theorem 45 p. 23 and Corollary 60 p. 32",
+          "method": "OA preprint passages",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Known binary cube projection"
+        },
+        {
+          "assessment": "Known intact-cube baseline only",
+          "evidence": "Binary diagonal gives 2(1−2^{−d})/d; no single-vertex deletion or shell dependence.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minimal-cut-and-cycle-projections-for-nonbinary-hamming-gr--05695b9bae19",
+          "material_read": "Finding and relationship to prior work",
+          "method": "Local mirror text",
+          "title": "Exact minimal cut and cycle projections for nonbinary Hamming graphs",
+          "trigger": "Closest indexed graph/observable"
+        },
+        {
+          "assessment": "Different deletion problem and observable",
+          "evidence": "Two edge deletions and the total Kirchhoff index; neither puncture nor shell-specific edge resistance.",
+          "identifier_or_url": "2026/10/25/SCOPE-adjacent-links-uniquely-maximize-two-failure-kirchhoff-loss-in-b--24ab48d1f4b0",
+          "material_read": "Finding",
+          "method": "Local mirror text",
+          "title": "Adjacent links uniquely maximize two-failure Kirchhoff loss",
+          "trigger": "Related hypercube Green update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–27, 34–59",
+        "arXiv:2202.09582v1 Eqs. (7)–(10)"
+      ],
+      "rationale": "A vertex sink breaks edge transitivity. An exact closed law by Hamming depth both quantifies this symmetry breaking and predicts how far the sink-induced change penetrates: moving the initial arc one fixed shell outward raises the decay exponent by two powers of dimension. The general transport theorem alone does not distinguish these experimentally or mathematically natural initial arcs.",
+      "residual_risks": [
+        "No uniform depth-dependent bound for growing k or convergence-time estimate is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

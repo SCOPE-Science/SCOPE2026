@@ -1,140 +1,42 @@
 # Local fractional strong metric dimension collapses to local fractional metric dimension
+
 ## Finding
-For every finite connected simple graph \(G\) and every edge \(uv\),
-\[
-L_S(u,v)=L(u,v),
-\]
-where \(L_S(u,v)\) is the local strong resolving neighborhood and \(L(u,v)\) is the ordinary local resolving neighborhood.
 
-Therefore the two linear programs have exactly the same feasible functions. In particular,
-\[
-\operatorname{lsdim}_f(G)=\operatorname{ldim}_f(G),
-\]
-and the complete sets of minimum local strong resolving functions and minimum local resolving functions are identical.
-
-A direct consequence is
-\[
-\operatorname{lsdim}_f(G)=1
-\quad\Longleftrightarrow\quad
-G\text{ is bipartite}.
-\]
-Thus the previously stated path-only characterization for value one does not hold under the published definitions; the four-cycle \(C_4\) is an immediate counterexample.
-
-## Assumptions and scope
-All graphs are finite, simple, and connected.
-
-For an edge \(uv\), the local resolving neighborhood is
-\[
-L(u,v)=\{w\in V(G):d(w,u)\ne d(w,v)\}.
-\]
-
-The local strong resolving neighborhood is
-\[
-L_S(u,v)=
-\{w\in V(G):
-u\text{ lies on a }w\text{-}v\text{ geodesic, or }
-v\text{ lies on a }w\text{-}u\text{ geodesic}\}.
-\]
-
-A local resolving function is a map
-\[
-f:V(G)\to[0,1]
-\]
-such that
-\[
-\sum_{w\in L(u,v)}f(w)\ge1
-\]
-for every edge \(uv\). A local strong resolving function is defined by the same inequality with \(L_S(u,v)\) in place of \(L(u,v)\).
-
-The quantities \(\operatorname{ldim}_f(G)\) and \(\operatorname{lsdim}_f(G)\) are the minimum total weights of these two classes of functions.
-
-## Proof
-Fix an edge \(uv\) and a vertex \(w\).
-
-Because \(u\) and \(v\) are adjacent, the triangle inequality gives
-\[
-|d(w,u)-d(w,v)|\le1.
-\]
-The two distances are integers. Hence
-\[
-d(w,u)\ne d(w,v)
-\]
-if and only if
-\[
-|d(w,u)-d(w,v)|=1.
-\]
-
-Assume first that \(w\in L(u,v)\). After exchanging \(u\) and \(v\) if necessary,
-\[
-d(w,u)=d(w,v)+1.
-\]
-Take a shortest \(w\)-\(v\) path and append the edge \(vu\). The resulting \(w\)-\(u\) walk has length
-\[
-d(w,v)+1=d(w,u),
-\]
-so it is a geodesic and contains \(v\). Therefore \(w\) strongly resolves \(u\) and \(v\), and
-\[
-w\in L_S(u,v).
-\]
-
-Conversely, suppose \(w\in L_S(u,v)\). If \(v\) lies on a \(w\)-\(u\) geodesic, then, because \(uv\) is an edge,
-\[
-d(w,u)=d(w,v)+1.
-\]
-If \(u\) lies on a \(w\)-\(v\) geodesic, then
-\[
-d(w,v)=d(w,u)+1.
-\]
-In either case the two distances differ, so
-\[
-w\in L(u,v).
-\]
-
-Thus
-\[
-L_S(u,v)=L(u,v)
-\]
-for every edge \(uv\).
-
-Every local strong resolving constraint is therefore literally the corresponding local resolving constraint. The feasible polytopes coincide, so their minimum weights and all minimizers coincide:
+For every finite connected simple graph \(G\) and every edge \(uv\), the local strong resolving neighborhood \(L_S(u,v)\) equals the ordinary local resolving neighborhood \(L(u,v)\). Thus the fractional linear programs have the same feasible functions, the same optimum, and the same set of minimizers:
 \[
 \operatorname{lsdim}_f(G)=\operatorname{ldim}_f(G).
 \]
+For a connected graph with at least one edge, the common value is \(1\) if and only if the graph is bipartite. For \(K_1\), the common value is \(0\). In particular, \(C_4\) is a counterexample to the claim that only paths have local fractional strong metric dimension \(1\).
 
-The foundational local-fractional paper proves
+## Assumptions and scope
+
+Distances are ordinary unweighted graph distances. For an edge \(uv\), set
 \[
-\operatorname{ldim}_f(G)=1
+L(u,v)=\{w\in V(G):d(w,u)\ne d(w,v)\}.
 \]
-if and only if \(G\) is bipartite. Hence the same characterization holds for \(\operatorname{lsdim}_f\).
+The set \(L_S(u,v)\) consists of the vertices \(w\) for which \(u\) lies on a \(w\)-to-\(v\) geodesic or \(v\) lies on a \(w\)-to-\(u\) geodesic, allowing endpoints. A local resolving function is a function \(f:V(G)\to[0,1]\) with \(\sum_{w\in L(u,v)} f(w)\ge1\) for every edge. A local strong resolving function instead uses the sets \(L_S(u,v)\). The dimensions are the minima of \(\sum_{w\in V(G)} f(w)\) over the respective feasible sets.
 
-For the explicit counterexample \(C_4\), every vertex has unequal distances to the endpoints of every edge, so every local and local-strong resolving neighborhood is \(V(C_4)\). The constant function of weight \(1/4\) on each vertex is feasible and has total weight \(1\).
+## Proof
+
+For an edge \(uv\), \(|d(w,u)-d(w,v)|\le1\) by the triangle inequality. If the distances are unequal, exchange \(u,v\) if necessary so that \(d(w,u)=d(w,v)+1\). A shortest path from \(w\) to \(v\) followed by \(vu\) has length \(d(w,u)\), so it is a geodesic containing \(v\). Conversely, if \(v\) lies on such a geodesic, then \(d(w,u)=d(w,v)+d(v,u)=d(w,v)+1\); the other geodesic condition likewise gives a difference of one. Hence the two neighborhoods are equal for every edge, so the constraints, objective, and minimizers are identical.
+
+If \(G\) has at least one edge, each feasible function has total weight at least \(1\), because the constraint on any one edge requires weight at least \(1\) on a subset of vertices. If \(G\) is bipartite, distances from any \(w\) to adjacent vertices have opposite parity, so every neighborhood is \(V(G)\) and weight \(1\) concentrated at any vertex is feasible.
+
+Conversely, suppose the minimum is \(1\). It is attained, since the feasible region is a nonempty compact polytope. For an optimal function of total weight \(1\), each edge constraint forces all vertices of positive weight to be in that edge's neighborhood. Fix one such vertex \(w\). Across every edge the distances from \(w\) differ by exactly one. The parity of distance from \(w\) is therefore a bipartition of \(G\). In \(K_1\) there are no edge constraints and the zero function is optimal. In \(C_4\) the common value is \(1\) by the bipartite case, although \(C_4\) is not a path.
 
 ## Verification
-The included checker exhaustively enumerates every connected labeled graph on \(2\) through \(6\) vertices. For every edge and every vertex, it computes shortest-path distances and independently evaluates membership in the local resolving neighborhood and in the local strong resolving neighborhood.
 
-It also checks \(C_4\) explicitly and confirms that every local and local-strong resolving neighborhood is the whole vertex set.
+The shortest-path argument proves the neighborhood identities for every graph in scope. The included checker enumerates connected labeled simple graphs of orders \(2\) through \(6\), compares the two neighborhood predicates for every edge and vertex, and tests \(C_4\) explicitly. The checker is corroborative; the value for \(K_1\) follows directly from the unconstrained linear program.
 
 ## Relationship to prior work
-The fractional local metric dimension was introduced in a 2018 preprint and later journal publication. That work defines \(L(u,v)\) by unequal distances to adjacent endpoints, gives the associated fractional linear program, lists MSC \(05C12\), and proves that the parameter equals one exactly for bipartite graphs.
 
-A 2021 IEEE Access paper introduced local fractional strong metric dimension using strong resolution restricted to adjacent pairs. Its published definitions are exactly the two definitions compared above. That paper stated only
-\[
-\operatorname{ldim}_f(G)\le\operatorname{lsdim}_f(G)
-\]
-and subsequently asserted that \(\operatorname{lsdim}_f(G)=1\) exactly for paths.
-
-A 2023 continuation uses the same local-strong definition and computes additional graph families. In particular, its even-cycle value is one, which is consistent with the equality theorem above and already incompatible with a path-only value-one characterization.
-
-The equality of the two neighborhoods for adjacent vertices makes the distinction disappear at the definition level. Hence every theorem about local fractional metric dimension transfers immediately to local fractional strong metric dimension, and no separate optimization is required.
+Benish, Murtaza, and Javaid [1] define the ordinary local fractional program and state the value-one characterization for graphs of order at least two (Lemma 2.1 in the preprint). Jamil et al. [2] define local strong resolution on adjacent pairs using the geodesic condition. They state \(\operatorname{ldim}_f(G)\le\operatorname{lsdim}_f(G)\), and their Lemma 4 states a path-only characterization at value one for graphs of order at least two. The definitions imply equality edge by edge, which identifies the entire programs and corrects that characterization. The ordinary local fractional characterization is not claimed as a new result.
 
 ## Limitations
-The collapse uses adjacency essentially. For arbitrary nonadjacent vertex pairs, unequal distance and strong resolution are different conditions, so ordinary fractional metric dimension and fractional strong metric dimension do not collapse by this argument.
 
-The theorem concerns the published local-strong definition based on adjacent vertex pairs. A differently defined parameter using another locality condition would require a separate analysis.
-
-The computational verification is corroborative only; the equality for all connected graphs follows from the two-line distance argument in the proof.
+Adjacency is essential. The argument makes no identification of the ordinary and strong programs that constrain all pairs of vertices, or of versions using a different locality condition.
 
 ## References
-1. H. Benish, M. Murtaza, I. Javaid, “The Fractional Local Metric Dimension of Graphs,” arXiv:1810.02882v1, 5 October 2018; Contributions to Discrete Mathematics 19(3) (2024), 163–177, DOI 10.55016/ojs/cdm.v19i3.62807.
-2. F. Jamil, A. Kashif, S. Zafar, Z. Bassfar, A. M. Alanazi, “Local Fractional Strong Metric Dimension of Certain Rotationally Symmetric Planer Networks,” IEEE Access 9 (2021), 159326–159333, DOI 10.1109/ACCESS.2021.3131311.
-3. F. Jamil, A. Kashif, S. Zafar, M. O. Ojiema, M. Wang, “Local Fractional Strong Metric Dimension of Certain Complex Networks,” Complexity 2023, Article 3635342, DOI 10.1155/2023/3635342.
+
+1. H. Benish, M. Murtaza, and I. Javaid, “The Fractional Local Metric Dimension of Graphs,” arXiv:1810.02882v1 (2018); *Contributions to Discrete Mathematics* 19(3) (2024), 163–177, DOI 10.55016/ojs/cdm.v19i3.62807.
+2. F. Jamil, A. Kashif, S. Zafar, Z. Bassfar, and A. M. Alanazi, “Local Fractional Strong Metric Dimension of Certain Rotationally Symmetric Planer Networks,” *IEEE Access* 9 (2021), 159326–159333, DOI 10.1109/ACCESS.2021.3131311.

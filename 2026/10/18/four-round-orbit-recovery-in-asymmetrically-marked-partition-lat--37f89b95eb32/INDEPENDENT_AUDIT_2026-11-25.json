@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:47.448301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54; VERIFICATION.md; both supporting scripts inspected without execution",
+        "Replay: python /workspace/checks/marked_partitions.py"
+      ],
+      "rationale": "For the full directed strict refinement relation, the strict successor count is Bell(k)-1 and the strict predecessor count is the product of block Bell numbers minus one. Gluing two partitions at a shared point gives the injective and nonsurjective comparison Bell(p+q-1)>Bell(p)Bell(q) for p,q>=2, so repeated replacement of two nonsingleton sizes by (p+q-1,1) proves the unique maximizing one-nonsingleton size type. Round one identifies these witnesses, their sizes and their relation to the mark. For t<=b, the two pure witness families have round-two counts of one-step coarsenings strictly below the mark differing by (t-1)(b-a); these coarsenings have n-t>=3 blocks so none is accidentally the mark. For t>b the pure side is forced, and when b=1 the possible marked witness is already distinguished. In round three, pure two-point predecessor counts recover both positive mixed sizes using injectivity of binomial(s,2) on positive s; a mixed witness cannot equal a pure predecessor. For any nonwitness, all witnesses supported in a block count as strict predecessors. Their round-four counts give the binomial moments, whose missing low coefficients are k,a,b; translating variables recovers every block-profile multiplicity. The subgroup S_a times S_b is transitive on each profile and color invariance prohibits any further splitting or orbit fusion. Multiset enumeration and the labeled orbit count give the stated coefficient and class-size formulas. Independently generated all coarsenings directly for all 12 asymmetric pairs with a+b<=8, confirmed colors at round four and every class cardinality, including 57 and 97; no finite run is used to prove the round bound or its sharpness.",
+      "residual_risks": [
+        "No optimal round bound shown; equal-size marks, Hasse-only edges and identification among arbitrary structures are out of scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gill studies fixed subposets and homology characters; Kiefer–Schweitzer–Selman describe C²-identification and equitable partitions; Arvind et al. define and study refinable graph classes."
+        ],
+        "reasoning": "General group action and refinement frameworks do not assert that these individually marked directed lattices are covered, much less a uniform four-iteration bound.",
+        "searches": [
+          "Gill DOI 10.37236/1501",
+          "arXiv:1503.08792",
+          "arXiv:1502.01255"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f002b2043982, f3a7d531a56d, 5c33f5d07b6d, a45305621311",
+        "Gill 10.37236/1501; arXiv:1503.08792; arXiv:1502.01255"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unmarked recovery ensures block sizes can also be distinguished when the initial coloring is refined, but it gives no converse preventing fusion of different anchored profiles.",
+          "Generic refinability or C²-identification techniques do not supply the anchored witness counts or their depth."
+        ],
+        "reasoning": "Per-side orientation and bivariate moment inversion are additional arguments, not a specialization of the strongest inspected bound.",
+        "searches": [
+          "f002b2043982 Finding",
+          "arXiv:1503.08792 introduction and equitable-partition discussion",
+          "arXiv:1502.01255 refinability discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unmarked strict-order recovery reads block sizes within three rounds; unmarked Hasse recovery reads them in two.",
+          "The rank-three result concerns logical equivalence of lattices of different sizes; the one-anchor Kneser result reads intersection dimension in a disjointness graph."
+        ],
+        "reasoning": "Neither changing the formulation of the unmarked orbits nor identifying refinement with counting logic yields the ordered multiset of the two anchor intersections. Two same-size pure blocks on different anchor sides already witness the difference when b>=2. No priority inference rests on shared dates.",
+        "searches": [
+          "Local Resultary semantic lookup for individualized partition lattices, color refinement and point-stabilizer orbits",
+          "f002b2043982",
+          "f3a7d531a56d",
+          "5c33f5d07b6d",
+          "a45305621311"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact closest partition orbit records use uniform initial colors; the one-anchor record has subspaces as vertices."
+        ],
+        "reasoning": "The comparison excludes the identical record as corroborating prior coverage. Finite values 57 and 97 are evaluations of standard multiset enumeration once the structure theorem is known, not independent originality claims or tests for the universal bound.",
+        "searches": [
+          "Local Resultary indexed partition-lattice and individualized-orbit records: f002b2043982, f3a7d531a56d, 5c33f5d07b6d, a45305621311"
+        ]
+      },
+      "rationale": "The supported increment is a uniform four-round upper bound for recovering the full ordered intersection profiles of an asymmetric named partition in the strict order. The closest published statements concern the unmarked relation or a different graph. Neither the standard profile counts nor the general logic-to-refinement correspondence is itself novel.",
+      "residual_risks": [
+        "A specialized earlier result on individualizing a partition in the strict order may be unindexed; no global priority or sharpness claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close but unmarked",
+          "evidence": "Uniform initial color; block-size multiset only.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-round-orbit-recovery-for-finite-partition-lattices--f002b2043982",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed search and mirrored full-text passage",
+          "title": "Three-round orbit recovery for finite partition lattices",
+          "trigger": "Same vertices and relation"
+        },
+        {
+          "assessment": "Different relation and marking",
+          "evidence": "One-pair merges in the directed Hasse relation; no marked partition.",
+          "identifier_or_url": "2026/10/18/SCOPE-two-round-orbit-recovery-from-cover-counts-in-finite-partition-l--f3a7d531a56d",
+          "material_read": "Finding and prior-work comparison, offsets 0 and 8050",
+          "method": "Indexed search and mirrored full-text passages",
+          "title": "Two-round orbit recovery from cover counts in finite partition lattices",
+          "trigger": "Faster partition orbit bound"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "Rank-three first-order equivalence of unmarked lattices, not round-bounded orbit recovery.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-rank-three-stabilization-of-finite-set-partition-refinemen--5c33f5d07b6d",
+          "material_read": "Finding, offset 0",
+          "method": "Mirrored full-text passage",
+          "title": "Sharp rank-three stabilization of finite set-partition refinement lattices",
+          "trigger": "Nearby rank/round statement"
+        },
+        {
+          "assessment": "Analogous, not an implication",
+          "evidence": "The invariant is intersection dimension for a subspace disjointness graph.",
+          "identifier_or_url": "2026/10/18/SCOPE-one-anchor-two-round-orbit-recovery-in-balanced-subspace-kneser--a45305621311",
+          "material_read": "Finding, offset 0",
+          "method": "Mirrored full-text passage",
+          "title": "One-anchor, two-round orbit recovery in balanced subspace Kneser graphs",
+          "trigger": "Analogous one-anchor result"
+        },
+        {
+          "assessment": "Classical background",
+          "evidence": "The ordinary lattice is the m=0 case; the results examined concern Möbius functions, fixed posets and homology characters.",
+          "identifier_or_url": "https://doi.org/10.37236/1501",
+          "material_read": "PDF pages 1 and 3, abstract and semilattice setup",
+          "method": "OA PDF passages",
+          "title": "The Action of the Symmetric Group on a Generalized Partition Semilattice",
+          "trigger": "Partition lattice group action"
+        },
+        {
+          "assessment": "General framework, not an applicable depth bound",
+          "evidence": "The finer-coloring result assumes identification, and the equitable partition result gives no four-round bound for the marked lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.08792",
+          "material_read": "Abstract, WL introduction and p. 5 equitable-partition discussion",
+          "method": "OA PDF passages",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "Possible stronger counting-logic theorem"
+        },
+        {
+          "assessment": "General comparison only",
+          "evidence": "Refinability is equality with the orbit partition; the identified passage is not a marked partition-lattice classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "PDF p. 3, definitions and class discussion",
+          "method": "OA PDF passage",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Potential known broader orbit-recovery class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–25, 30–52; mirrored unmarked strict-order Finding f002b2043982"
+      ],
+      "rationale": "This is a uniform depth bound independent of the Bell-sized domain for seeing a stabilizer's genuinely finer orbits. The side-orientation and moment-recovery steps explain how the mark changes the observable invariant, not simply the count of a few finite cases. It gives an explicit stopping depth for this natural family even though optimality is open within the record.",
+      "residual_risks": [
+        "No demonstrated transfer to multiple or symmetric marks or to Hasse edges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

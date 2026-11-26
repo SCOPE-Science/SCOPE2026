@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:10:09.852595Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47",
+        "VERIFICATION.md lines 19–25",
+        "checker.py lines 10–79 (inspected)"
+      ],
+      "rationale": "Rearrangement forces the consecutive-value groups of every ordered-partition face; distinct generating entries make the coordinate differences span the sum-zero tangent space of each block. Every subset is realizable as one block with all other coordinates singleton. If T is a face's tangent space, inputs mapping to its relative interior have the form z+W⁻¹v with z in the face and v in the corresponding normal cone. Since T and W⁻¹T⊥ are complementary (positivity of W), face and cone relative interiors give a full open affine cell. The face-affine equality-constrained minimizer on a block B is y_i−a_i(∑_{j∈B}y_j−γ_B)/∑_{j∈B}a_j; the absolute row sum is 1+(|B|−2)a_i/∑_B a_j for |B|≥2 (zero for singleton blocks). The closed cells cover all inputs by the projection optimality condition, so summing affine bounds along segments yields the global upper bound. A short coordinate-sign perturbation in an open maximizing cell attains it exactly. For each fixed block size one can replace the maximizing row weight by a global maximum A and take the remaining smallest weights; ties do not affect the result. The full block gives the lower metric bound 2−2/n with equality requiring equal weights; the supremum n−1 is approached by divergence of one inverse weight, but all denominators strictly exceed A. For the proper-face example the candidates are 1+100/102, 303/103 and 503/203. Independently reconstructed two exact KKT witnesses and obtained 303/103: python3 /workspace/reproductions/check_frozen_math.py 5. No uploaded checker was executed.",
+      "residual_risks": [
+        "Strict generating vector and positive fixed diagonal W; proof does not claim this formula for repeated entries, a general SPD metric, or different input/output norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The public abstract of Moondra–Mortagy–Gupta describes faster repeated projections using combinatorial and continuous tools, as well as early termination. No exact anisotropic sensitivity passage was obtained.",
+          "Frozen RESULT.md lines 55 and 63–65 identifies uniformly separable Bregman algorithms and ordered-partition normal-fan geometry; these are source-package comparisons, not full-text noncoverage verdicts."
+        ],
+        "reasoning": "Projection over general base polytopes, or the ability to identify active faces, does not itself imply an exact infinity-norm constant. Uniform separability is weaker for this purpose than treating a different quadratic weight at every coordinate.",
+        "searches": [
+          "Moondra–Mortagy–Gupta arXiv:2106.11943 and NeurIPS version",
+          "Lim–Wright PMLR 51 (2016)",
+          "Padrol–Pilaud–Poullot DOI 10.1007/s00454-023-00586-x"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary e26fdc3cebd8 and 58773a9495f6",
+        "Moondra–Mortagy–Gupta public abstract",
+        "Frozen RESULT.md lines 53–65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An active face can have a larger induced norm than the full polytope's affine projector: the checked example gives 303/103 versus 503/203.",
+          "One must characterize all attainable block projectors, maximize their absolute row sums, and show that the maximizing local slope is attained by globally distinct inputs."
+        ],
+        "reasoning": "The general active-set principle or a full-affine sensitivity computation cannot supply the extremizer. No verified wider optimal-Lipschitz theorem was found that directly yields the sorted formula.",
+        "searches": [
+          "Moondra–Mortagy–Gupta arXiv:2106.11943",
+          "Lim–Wright PMLR 51",
+          "Resultary 58773a9495f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent block-operator problem is the maximum ∞-norm of I−a_B 1ᵀ/(∑_B a_i) over admissible blocks.",
+          "Conjugation by W^(1/2) turns the projection into Euclidean projection onto a rescaled polytope, but changes the coordinate norms as well; ordinary Euclidean nonexpansiveness gives no such sharp norm.",
+          "Resultary 58773a9495f6 describes a logarithm of a KL projection with a nonattained amplification, not this projection."
+        ],
+        "reasoning": "Search included diagonal quadratic projection and the base-polytope/row norm aliases. Rescaling and the KL analogy do not identify the covered map or exact constants.",
+        "searches": [
+          "weighted quadratic permutahedron projection exact infinity Lipschitz constant diagonal weighted submodular base polytopes l infinity Lipschitz sensitivity projection row sum",
+          "Resultary: diagonal metric strict permutahedral projection and coordinate sensitivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e26fdc3cebd8 is the assigned record, not a separate predecessor.",
+          "Resultary 58773a9495f6 is a distinct same-day method/domain match, restricted to the log-KL map on positive permutahedra; its catalogue says the worst amplification is approached but not finitely attained."
+        ],
+        "reasoning": "The self-hit is not evidence of prior coverage and the KL result is substantively different independently of posting order. No distinct indexed formula for the quadratic prefix maximum was found.",
+        "searches": [
+          "Resultary: sharp diagonal-metric coordinatewise sensitivity of strict permutahedral projection",
+          "Resultary: sharp coordinatewise sensitivity of logarithmic KL permutahedron projection"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact unweighted coordinate-input/output norm for anisotropic quadratic projection: the prefix maximum over possible active blocks, finite attainment, and proper-face distinction. Standard face geometry and projection algorithms supply ingredients, not the sharp maximization in available statements. Neither the self-hit nor the distinct log-KL record establishes prior coverage. Exact primary passages on some of the known methods were inaccessible, so this is a bounded assessment.",
+      "residual_risks": [
+        "A general anisotropic quadratic sensitivity result for generalized permutahedra or submodular base polytopes could imply the sharp constant; exact passages in relevant papers did not become available.",
+        "The same-day log-KL comparison is limited to the catalogue summary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "distinct projection map and attainment behavior; no priority inferred from same date",
+          "evidence": [
+            "The catalogue specifies the logarithm of a KL projection and nonattainment of its worst factor by distinct finite inputs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-coordinatewise-sensitivity-of-logarithmic-kl-permutahedron--58773a9495f6",
+          "material_read": "local catalogue statement; not exact full text",
+          "method": "Resultary and bounded mirror passage attempt",
+          "title": "Sharp coordinatewise sensitivity of logarithmic KL permutahedron projection",
+          "trigger": "same object and coordinate-sensitivity terminology"
+        },
+        {
+          "assessment": "algorithmic scope verified at abstract level only; broader exact perturbation coverage not ruled out by those materials",
+          "evidence": [
+            "Indexed abstract: tools to speed up projections using discrete and continuous structure and early termination; frozen RESULT.md line 55 describes Euclidean perturbations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.11943 ; https://proceedings.neurips.cc/paper/2021/file/d58f36f7679f85784d8b010ff248f898-Paper.pdf",
+          "material_read": "indexed algorithmic abstract and frozen characterization; exact relevant full-text passage not retrieved",
+          "method": "focused literature search and bounded OA attempts on arXiv and official proceedings copies",
+          "title": "Reusing Combinatorial Structure: Faster Iterative Projections over Submodular Base Polytopes",
+          "trigger": "plausible broader projection perturbation theorem"
+        },
+        {
+          "assessment": "uniformly separable setting as described in frozen text; primary scope not independently verified",
+          "evidence": [
+            "Frozen RESULT.md lines 55, 64."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v51/lim16.html",
+          "material_read": "frozen discussion/citation only; bounded passage reading failed",
+          "method": "OA attempt and original package comparison",
+          "title": "Efficient Bregman Projections onto the Permutahedron and Related Polytopes",
+          "trigger": "projection algorithms on the same polytope"
+        },
+        {
+          "assessment": "geometric ingredient, with exact publication passage not retrieved",
+          "evidence": [
+            "Frozen RESULT.md lines 55, 65."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-023-00586-x",
+          "material_read": "frozen comparison/citation only",
+          "method": "OA passage attempt and original package comparison",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "source for face/normal-fan structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–19, 37–47"
+      ],
+      "rationale": "The exact coordinate amplification is useful when diagonal losses give differently scaled coordinate penalties but the error budget is per-coordinate. A proper face can defeat the natural prediction from the full affine hull; the formula identifies which subset carries the worst error without enumerating all faces, and quantifies how much the weights matter.",
+      "residual_risks": [
+        "The constant describes worst-case finite input pairs, not their frequency or the behavior under arbitrary nonlinear projection penalties."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

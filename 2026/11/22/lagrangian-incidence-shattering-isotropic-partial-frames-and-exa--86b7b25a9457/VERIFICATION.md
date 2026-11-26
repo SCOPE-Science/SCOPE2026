@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The universal theorem is proved by isotropic extension and exact orthogonal-complement counts, not inferred from finite experiments. The rank-one case starts from the three isolated nonzero binary vectors. In binary rank two, the full family has 15 Lagrangians and the shattering complex has face counts \((1,15,45)\), augmented boundary ranks \((1,14)\), and reduced \(\widetilde\beta_1=31\). In binary rank three, 135 Lagrangians produce \((1,63,945,3780)\) faces, augmented boundary ranks \((1,62,883)\), and only \(\widetilde\beta_2=2897\). These ranks arise from actual binary Gaussian elimination of signed simplicial boundaries reduced modulo two.
+# Independent mathematical audit
 
-The first implementation independently enumerates binary Lagrangian spans, builds Boolean traces, and reduces boundary matrices; the C++17 implementation separately enumerates generating tuples and their spans, rederives traces, and computes ranks. They both check their face lists against the symplectic pairwise-orthogonality and linear-independence criterion rather than assuming it. A distinct odd-field implementation verifies the ternary rank-two instance of 40 Lagrangians, 80 shattered singleton supports and 960 pairs.
+## correctness
 
-Run from the directory containing this file:
+PASS
 
-```sh
-python3 checks/lagrangian_check.py
-python3 checks/lagrangian_q3.py
-c++ -std=c++17 -O2 checks/lagrangian_independent.cpp -o lagrangian_check
-./lagrangian_check
-```
+All-positive forces isotropy; a dependent circuit would require one vector to be excluded from a subspace containing the other circuit vectors that span it. Conversely, extend an isotropic independent support to the e-side of a symplectic basis, and in each coordinate select e_i for positive labels and f_i for negative labels. The generators are independent and orthogonal, including for the all-negative pattern and in characteristic two. If i vectors have span U, choices for a next vector lie in U⊥ outside U, giving q^{2n−i}−q^i and the unordered /k! factor. Extension to a Lagrangian gives purity and VC dimension n. At a first online query v the positive subfamily descends to the symplectic quotient v⊥/〈v〉, and constant or duplicate restricted queries add no depth, so induction gives Ldim≤n; using a shattered basis gives equality. Equivalently, on the all-positive path in any shattered tree of fixed-rank subspaces each subsequent query must escape the span of the earlier positives because its negative child is realizable. For n≥2 the singleton {f_1+f_2} cannot be augmented by either vertex of the larger face {e_1,e_2}, and e_1,e_2,e_1+e_2 form a clique but not a face. Independent face enumeration and binary boundary elimination reproduced face counts (1,3), (1,15,45), (1,63,945,3780), with augmented ranks (1), (1,14), (1,62,883), respectively; these give the claimed reduced Betti numbers with the other groups zero.
 
-The computational checks verify exactly the stated small cases, not the universal proof or claims about integral homology and higher-rank topology. The classification is internally reviewed but has not received independent mathematical validation.
+## originality
+
+PASS
+
+The isotropic partial-frame geometry itself is directly prior: over a field, the sequences of Mirzaii–van der Kallen's IU poset have precisely these sets as supports. Neither prior existence of the complex nor standard dimension bounds are credited as discoveries. The supported distinct claim is the identification of all Boolean traces of Lagrangian membership through the shattering criterion, which also gives the exact face polynomial and static/online dimension for this concept class. The small homology ranks are corroborating invariants of the identified complex, not the basis of the originality decision. No equivalent trace classification was found in the inspected sources.
+
+## value
+
+PASS
+
+This is a natural complete classification for the ordinary point-incidence family of a symplectic polar space, over every finite field and rank. It identifies which finite membership observations can vary independently, not only the largest size, and distinguishes the resulting pure complex from matroid and clique models. Exact VC and online dimensions give its learning parameters. The small mod-two examples make the complex concrete but are not independently needed to establish value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

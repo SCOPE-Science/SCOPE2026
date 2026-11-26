@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:19:13.743891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let N=n−2 and let the host have N+e zeros. Each target 0^a110^(N−a) needs two distinct host ones at zero levels in [a,a+e]; disjoint windows spaced e+1 apart give at least 2 ceil((N+1)/(e+1)) ones, and AM–GM gives the lower bound. For the proposed host with N+2g zeros, round the prefix and middle requirements up to multiples of g, forcing a positive multiple for the middle even when b=0. The second chosen zero level is at most a+b+2g=N+2g−c, so both the last available one and the required suffix are respected. g=ceil(sqrt(N/2)) gives the frozen upper inequality for every N≥1; the asymptotic follows. Independent exhaustive host enumeration for n=3 through 12 returned 5,7,9,10,12,14,15,17,18,20, and the construction was independently checked through n=160. Replay: /workspace/branches/db98b19d-ced7-4cc6-968e-98086309b072/independent_check.py and full_check.log in the same directory. The uploaded checker was inspected, not executed. The finite checks corroborate, not prove, the general bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8c74ff467567 proves a two-unit constructive envelope for all k≥2.",
+          "The closed-form universality record counts hosts for all binary targets, and the insertion-radius record starts with a prescribed word. Neither optimizes the restricted weight-two family."
+        ],
+        "reasoning": "The all-length two-unit envelope genuinely dominates. Changing universality or insertion objectives does not give a competing implication.",
+        "searches": [
+          "Resultary 8c74ff467567; e77c4e8d9f37; 967f04fec949",
+          "Ma 2025 Theorem 2.2; primary fixed-weight binary common-supersequence lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 8c74ff467567, e77c4e8d9f37, 967f04fec949",
+        "Ma, DOI 10.1186/s12859-025-06336-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct record gives k−3+s_k≤L_k≤k−1+s_k for s_k=ceil(2√(2k−2)), and explicitly constructs the host.",
+          "For k≥3, s_k≤2√(2k−2)+1, and 2√(2k−2)−2√(2k−4)≤4/(2+√2)<3."
+        ],
+        "reasoning": "The first inequality implies the frozen lower bound and the second gives L_k≤k+3+2√(2k−4), with a constructive witness. Squeezing also yields the identical leading constant. This establishes coverage independently of dating and without equating the proofs.",
+        "searches": [
+          "Resultary 8c74ff467567, Finding/Proof offset 0 and construction continuation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8c74ff467567, Finding and assumptions, states exactly the same triples a+b+c=k−2, labeled binary alphabet, scattered embeddings, and unrestricted host length.",
+          "Ma Theorem 2.2 concerns all balanced binary targets of length 2n, where weight grows with n."
+        ],
+        "reasoning": "L_k in the stronger record is precisely F_2(k); Ma's balanced target family is not equivalent by setting its weight to two.",
+        "searches": [
+          "Resultary: all binary words with exactly two ones, weight-two subsequence covers and shortest common supersequence overhead",
+          "Ma 2025, DOI 10.1186/s12859-025-06336-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reported optima at k=2 through 12 are 2,5,7,9,10,12,14,15,17,18,20, agreeing with independent exhaustion at k=3 through 12."
+        ],
+        "reasoning": "These tables cover the specific frozen finite benchmarks but are not the reason for all-length coverage; the stronger theorem is decisive.",
+        "searches": [
+          "Resultary 8c74ff467567, verification offset 5996"
+        ]
+      },
+      "rationale": "A distinct indexed finding gives a stronger constructive theorem for exactly the same target family and implies the entire stated length envelope and sharp coefficient. This is demonstrated coverage at review time, not evidence that the distinct later-dated path establishes historical priority over the frozen record. The simple single-lattice host is a different proof device, not a separate stronger claimed theorem.",
+      "residual_risks": [
+        "The distinct dominating entry is later-dated by its catalogue path; neither derivation nor earlier historical priority is inferred.",
+        "The primary search returned irrelevant hits; older exact coverage remains unadjudicated, not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrably stronger; distinct record, no priority inference",
+          "evidence": "Explicit all-k envelope with two-residue host and matching finite optima.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567/RESULT.md",
+          "material_read": "Finding, assumptions, proof and verification (offsets 0 and 5996)",
+          "method": "Local mirror statement and proof comparison",
+          "title": "A two-unit envelope and sharp square-root overhead for binary weight-two subsequence covers",
+          "trigger": "Same target parameters, matching minimization objective, sharper envelope"
+        },
+        {
+          "assessment": "Related but different target family",
+          "evidence": "cost_1(S)=4n−1 for all balanced targets of length 2n.",
+          "identifier_or_url": "https://doi.org/10.1186/s12859-025-06336-5",
+          "material_read": "Theorem 2.2, PDF p. 10, offset 43150",
+          "method": "Lawful OA PDF passage",
+          "title": "Batch optimization for balanced binary sequences and DNA sequences",
+          "trigger": "Fixed-content supersequence with single-batch optimum"
+        },
+        {
+          "assessment": "Different quantifiers and objective",
+          "evidence": "All binary targets respectively enumeration and insertion from a specified host, rather than shortest arbitrary host for weight two.",
+          "identifier_or_url": "Resultary e77c4e8d9f37; 967f04fec949",
+          "material_read": "Statements of both indexed findings",
+          "method": "Local mirror comparison",
+          "title": "Closed-form law for binary subsequence universality; Exact full-support insertion radius of subsequence universality",
+          "trigger": "Adjacent target-language and insertion formulations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural universal-host question seeks the optimal cost of encoding an entire sparse target layer, not just particular codeword tests. The sharp leading constant and an explicit host are mathematically substantive. This assessment does not confer originality on the covered theorem or treat the small table as a new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

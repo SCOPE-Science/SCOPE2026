@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:48.783921Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–6; VERIFICATION.md, REVIEW.md and artifacts/verify.py inspected",
+        "python3 /workspace/review_evidence/exact_checks.py: all 13 lags and exact extremal ratio by ordered pair-sums"
+      ],
+      "rationale": "The six autocorrelation representatives and their negatives exhaust the nonzero differences. Squaring and summing with Haar probability gives equation (1); each two-term modulus is majorized by its phase-aligned value. At S=1 the magnitude expression is 1+2[A(s+2q+2t)+q²+t²+xy+4qt]. Replacing q,t by their AM–GM upper bounds x/2,y/2 produces exactly twice the bracket with h,v, which is nonnegative including at zeros. Then xy=(s²−(x−y)²)/4 and completing the square yield coefficients 11/4 and 3/4 and the sharp ratio 27/11. Vanishing of the squares fixes s=8/11, x=y=4/11 and A=3/11; the bracket then forces four equal nonzero arm magnitudes. Phase saturation of the two center-arm sums says each pair product has the phase of the center squared, which also aligns both cross sums. This gives precisely the listed affine phases and attains the bound. S=0 is trivial. Distinct lags in [-2,2]² remain distinct at independent orders N,M≥5, so the same formula/equality holds there without discretizing coefficient phases.",
+      "residual_risks": [
+        "The independent finite check verifies the lag structure and attainment, not the global inequality by itself. The result does not classify aliased smaller grids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed-coordinate K=3(4d+1)/(4d+3) gives 27/11 at d=2 on the torus or square grids of order ≥5, with center energy 3S/11 and axis energies 4S/11, equal arms and matching pair phases.",
+          "The full two-axis record covers a larger support and has a different optimal concentration; it does not establish the five-point sharp ratio."
+        ],
+        "reasoning": "The first theorem specializes sharply with its actual optimizer; mere restriction of the full two-axis theorem would give only a loose bound. Different N,M≥5 do not change any one-coordinate moments in the first theorem's proof (only exponents up to absolute value 4 occur).",
+        "searches": [
+          "Mirrored signed-coordinate-cross RESULT.md: Finding, Proof equations (3)–(7), attainability",
+          "Mirrored full finite-abelian cross RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "The mirrored Resultary statements and primary mathematical passages listed above",
+        "Primary search hit arXiv:2509.05600v2, opening abstract on finite-field cones"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the (3)–(6) expansion use the frozen A,x,y,q,t and set w₁=2βγ, w₂=2δε. After stripping phases, the losses from (6)'s majorant are 4A(h+v) for the center, 2h(x/2+q)+2v(y/2+t) for the two local fourth moments, and 2(xy−4qt) for the cross interaction. Before stripping phases the remaining loss is exactly M(moduli)−M(coefficients)=Π.",
+          "At S=1 equation (7) is the sum of 2(A−3/11)² and (3/2)[(x−4/11)²+(y−4/11)²] above the sharp penalty. Using A=1−s rewrites it as (11/4)(s−8/11)²+(3/4)(x−y)²."
+        ],
+        "reasoning": "Keep the differences in the explicit exact identities (3), (5) and (7) rather than discard them in (6). That substitution recovers every term of the proposed exact identity with no additional estimate; the purported remainder is not distinct. The direct check is of mathematical implication, not time order.",
+        "searches": [
+          "Signed-coordinate-cross mirrored RESULT.md Proof, offset 2350, equations (3)–(7); Step 3 near offset 4200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed-coordinate support {0,±e_j} at d=2 is exactly the frozen support, with the same Haar probability and unrestricted complex coefficients.",
+          "The ternary split cone uses the same five residues but has fourth-order aliases and different sharp values and phases; the Ferrers aperture has different pair-sum classes."
+        ],
+        "reasoning": "The coordinate-cross equivalence preserves the entire quartic objective, not just the cardinality of the support. Reduction mod 3 does not preserve that objective.",
+        "searches": [
+          "Resultary five-point planar Fourier cross, Lee cross radius one, signed-coordinate Fourier crosses and defect identity",
+          "Primary Fourier extension comparison arXiv:2405.16647 and 1806.11387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact indexed statement: 2026/11/8/SCOPE-sharp-fourth-moments-and-a-torsion-threshold-for-signed-coordina--5bb2dcd28dff, distinct from the assigned record.",
+          "The 10/11 full-axis record reports the unit-coefficient 77/25 order-three example; the ternary exact optimum differs and the five-point Ferrers record has sharp constant 2.646915130955…. "
+        ],
+        "reasoning": "Exact coverage is obtained by substituting d=2 into the indexed closed formula, even though 27/11 need not be printed. Dates identify records, not verified historical priority.",
+        "searches": [
+          "Resultary coefficient-rigidity and exact-defect searches for the unaliased 27/11 cross and for finite abelian cross variants"
+        ]
+      },
+      "rationale": "A separate signed-coordinate-cross record in the current corpus covers the sharp norm and equality cases verbatim after specialization to d=2. Its exact fourth-moment expansion and exact square completion also imply the full five-point deficit, not just the lower bound stated there; the derivation is below. Unequal sufficiently large cyclic orders have exactly the same requisite character moments. This is demonstrable current-corpus coverage, not a claim that the covering record was discovered or appeared first.",
+      "residual_risks": [
+        "The exact specialization is verified; historical priority and any earlier unindexed equivalent remain unresolved. No surviving distinct claim was identified in this package."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sharp bound, equality and coefficient-deficit identity by direct substitution",
+          "evidence": "The sharp constant, affine phases, exact independent-coordinate expansion and completed squares specialize as recorded in claim_vs_prior_implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-fourth-moments-and-a-torsion-threshold-for-signed-coordina--5bb2dcd28dff/RESULT.md",
+          "material_read": "Mirrored Finding/Assumptions and Proof Steps 1–3, equations (3)–(7), offset 2350 onward",
+          "method": "Local mirror passage comparison and exact algebraic specialization",
+          "title": "Sharp fourth moments and a torsion threshold for signed-coordinate Fourier crosses",
+          "trigger": "Exact same support at d=2 and stronger dimensional statement"
+        },
+        {
+          "assessment": "Different support at orders ≥5",
+          "evidence": "Full 2n−1 axis union; at order three the five-point all-one ratio is 77/25, with aliasing.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-fourth-moment-extension-and-one-axis-rigidity-for-finite-a--5b31463115dc",
+          "material_read": "Mirrored Finding and Relationship to prior work, offsets 0–7511",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp fourth-moment extension and one-axis rigidity for finite abelian crosses",
+          "trigger": "Same planar cross family"
+        },
+        {
+          "assessment": "Aliased variant",
+          "evidence": "Over F₃² the sharp constant is (729+33 sqrt(33))/296 and the nonzero projective phase families are discrete.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-fourth-moment-extension-and-nine-phase-rigid-optimizers-on--d65b0e8eea36",
+          "material_read": "Mirrored Finding and phase/relationship sections, offsets 0–7384",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp fourth-moment extension and nine phase-rigid optimizers on the ternary split cone",
+          "trigger": "Same five residues at order three"
+        },
+        {
+          "assessment": "Not an affine copy of the support",
+          "evidence": "Different collision pattern; sharp constant about 2.64691513.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-fourth-moments-for-a-five-point-ferrers-fourier-spectrum--bb5fd3f72396",
+          "material_read": "Mirrored Finding and Relationship, offsets 0–7446",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp fourth moments for a five-point Ferrers Fourier spectrum",
+          "trigger": "Neighboring five-mode extremal problem"
+        },
+        {
+          "assessment": "Different surface family",
+          "evidence": "Sharp estimates on finite-field quadrics rather than the present five-mode nonaliased Laurent polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.16647",
+          "material_read": "Abstract p. 1 and Theorem 1.1 p. 2",
+          "method": "OA primary PDF",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Possible sharp convolution/extension theorem of broader scope"
+        },
+        {
+          "assessment": "Different finite-field object",
+          "evidence": "Zero-radius finite-field spheres rather than the fixed signed-coordinate support on the probability torus.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.11387",
+          "material_read": "Abstract p. 1 and sphere definition p. 4",
+          "method": "OA primary PDF",
+          "title": "On restriction estimates for the zero radius sphere over finite fields",
+          "trigger": "Quadratic-surface restriction comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; signed-coordinate-cross proof equations (3)–(7)"
+      ],
+      "rationale": "The five-site cross and its sharp coefficient certificate are useful in themselves, but the submitted narrow result is already recovered by specializing a broader exact invariant and retaining its explicit differences. An unequal rectangle of nonaliasing orders only repeats the same scalar moments. No new structural or quantitative result in the package survives the coverage check.",
+      "residual_risks": [
+        "This is an incremental-value judgment against current mathematical coverage, not a claim about who first found this result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

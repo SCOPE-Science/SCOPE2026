@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:00:27.012596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the labelled book and synchronous absolute threshold two, any page vertex excited at time one has degree two and forces both its neighbors to have been excited at time zero. Those neighbors are refractory, not resting, at time one. Thus a vertex that can become excited at time two cannot use any excited page vertex as a trigger; it has at most one remaining nonpage neighbor, so none can fire. Time-two refractory states clear at time three. The specified witness starts u at rest with v and a₁ excited, forcing u to pass through 1 and 2 before it clears at update three. All states in {0,2}^(2m+2), and only those, clear by update one. With time-two excitation ruled out, clearing by two is equivalent to no update-one excitations. I reconstructed the nine counts: nonresting hubs (2,2),(1,1),(1,2),(2,1) leave 9,7,8,8 choices per page by excluding the relevant page trigger states. For (0,1) the resting hub must have no excited a_i, which already precludes the page trigger due to the excited opposite hub, leaving six choices per page; the mirror has the same count. In (0,2), there are six page choices with a_i not excited and three with a_i excited, and at most one of the latter may occur; (2,0) is symmetric. For (0,0), each side independently allows none or one initially excited page vertex, for (2^m+m·2^(m−1))². Summation gives S_m; subtraction yields the four first hitting counts and 9^m uniquely controls the limiting law. I inspected the direct C++ and symbolic Python verifiers and their recorded outputs under code/ and evidence/. The replays are specified in VERIFICATION.md (C++17 direct m=1,…,6 and Python convolution m=1,…,30), not executed in this review. The all-m proof is independent of these finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The induced-density finding proves eventual extinction for max induced edge density ρ(G)<q and bounds excitation by an initial-state-dependent budget. Books are two-degenerate, so ρ(B_m)<2."
+        ],
+        "reasoning": "This covers eventual extinction in the present family; the budget is not a uniform three-update clock or a census. In particular, induced densities approach 2 as m grows and the number of initial excited sites need not be bounded in m. The unavailable classic source cannot be assessed from access errors.",
+        "searches": [
+          "Resultary induced density, excitation budget and threshold-two extinction; 352367f51e91",
+          "Durrett–Griffeath arXiv:patt-sol/9303002 and same-paper DOI route"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, code/verify_direct.cpp, code/verify_symbolic.py, evidence/direct_output.txt and evidence/symbolic_output.txt",
+        "Resultary records b0f24b2c9d17, b7d28b39fb97, 352367f51e91, 735009d19bc6, c52070ab17d6 and ccade4380bb4",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320v1 selected passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The density argument counts excitation budget and implies extinction. The exact book proof instead excludes firing at the second update via the degree-two pages, and evaluates nine hub assignments to get the labelled distribution. The one-contact synchronization criterion tracks initial circulation for its own update rule."
+        ],
+        "reasoning": "Neither eventual extinction nor synchronization under one contact implies nonexistence of time-two excitation under two contacts, sharpness at time three, or a per-initial-coloring count. The distinct content is the exact time and population law, not the rest state as the sole eventual outcome.",
+        "searches": [
+          "Resultary 352367f51e91 and b7d28b39fb97, Finding passages",
+          "Gravner–Lyu–Sivakoff Theorem 3 and Corollary 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier same-book record has threshold one and counts primitive cycles of lengths three and four and their basins. Gravner–Lyu–Sivakoff's three-color theorem likewise uses one excited neighbor."
+        ],
+        "reasoning": "The identical graph family does not make the two dynamics equivalent: changing the threshold changes even whether primitive cycles occur. Replacing labels by the Cartesian-product description does not change the current graph; the same topology was compared directly.",
+        "searches": [
+          "Resultary quadrilateral book / K_{1,m} Cartesian K₂, threshold-two excitation and first-rest census",
+          "Resultary 2026/11/2 quadrilateral-book record b7d28b39fb97",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320v1 §1 and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact row b0f24b2c9d17 is the frozen record itself. Distinct same-day censuses 735009d19bc6, c52070ab17d6 and ccade4380bb4 give different clocks or histograms on sunlets, Grötzsch–Chvátal, and the Petersen line graph, respectively."
+        ],
+        "reasoning": "The sunlet graph has leaves, unlike the book, and its large-size time-four law differs. The other two are exact enumerations on fixed different graphs and cannot specify the all-m book formula. Distinct same-day overlaps are acknowledged; dates do not establish relative priority.",
+        "searches": [
+          "Resultary exact-name, exact-census and formula-oriented searches (threshold-two quadrilateral books, three-update clock, first-hitting formula)"
+        ]
+      },
+      "rationale": "Eventual extinction is already implied by the density criterion and is not credited as original. The identified results do not cover the uniform sharp three-step clock together with the labelled first-hitting law on all quadrilateral books. The conclusion is limited to the compared sources, with the remaining literature-access risk noted.",
+      "residual_risks": [
+        "The cited Durrett–Griffeath full text could not be read via the tried lawful routes.",
+        "Bounded indexing and source comparisons cannot exclude an unindexed equivalent exact book law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same frozen identity, not another antecedent",
+          "evidence": "Threshold two, all m≥1, precise S_m and sharp maximum three.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-update-extinction-clock-and-exact-first-hitting-ce--b0f24b2c9d17",
+          "material_read": "Frozen Finding, assumptions and proof; matching indexed finding",
+          "method": "Frozen package and configured Resultary search",
+          "title": "A sharp three-update extinction clock and exact first-hitting census for two-contact excitation on quadrilateral books",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Different threshold",
+          "evidence": "Threshold one, primitive 3- and 4-cycles, basins and periodic-entry bound.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-three-and-four-phase-excitation-on-quadrilateral-books--b7d28b39fb97",
+          "material_read": "RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Resultary mirror",
+          "title": "Exact three- and four-phase excitation on quadrilateral books",
+          "trigger": "Same graph family"
+        },
+        {
+          "assessment": "Covers eventual extinction, not the exact clock or census",
+          "evidence": "ρ(G)<q implies extinction with a budget depending on initial excitation.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "Potential broader implication"
+        },
+        {
+          "assessment": "Different graph family and time law; priority not inferred",
+          "evidence": "For C_n∘K₁, sharp four for n≥4 and Pr(τ=4)→1.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-four-update-extinction-clock-and-exact-temporal-census-on-exci--735009d19bc6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "A four-update extinction clock and exact temporal census on excitable sunlets",
+          "trigger": "Distinct same-day threshold-two all-size census"
+        },
+        {
+          "assessment": "Different fixed graphs",
+          "evidence": "Grötzsch and Chvátal fixed-graph first-rest histograms with sharp times five and six.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-contact-extinction-on-the-two-canonical-triangle-free--c52070ab17d6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Sharp two-contact extinction on the two canonical triangle-free graphs",
+          "trigger": "Distinct same-day two-contact sharp histogram"
+        },
+        {
+          "assessment": "Different fixed graph",
+          "evidence": "Threshold-two sharp six-update time and exact entry counts for one 15-vertex graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-excitation-and-extinction-censuses-on-the-petersen-line--ccade4380bb4",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Complete excitation and extinction censuses on the Petersen line graph",
+          "trigger": "Distinct same-day temporal census"
+        },
+        {
+          "assessment": "One-contact synchronization, not two-contact clock",
+          "evidence": "The active transition from rest requires an excited neighbor; the theorem classifies synchronization through initial circulation.",
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "§1, HTML offset 600; Theorem 3/Corollary 4, offset 13450",
+          "method": "Lawful OA full-text passages",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Primary arbitrary-graph GHM theorem"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "No mathematical conclusion inferred from unsuccessful retrieval.",
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+          "material_read": "No decisive full-text passage retrieved",
+          "method": "Tried cited arXiv OA full text and identified DOI full text",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Foundational threshold-excitation literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural family already studied under one contact, the new question is how fast threshold two eliminates activity, not whether it eventually dies. A size-independent sharp bound and a complete labelled law resolve that question more strongly than a density budget. The exact count distinguishes the dominant time-three population from a nonvanishing time-two fraction, a feature not visible from the extremal bound or small simulations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

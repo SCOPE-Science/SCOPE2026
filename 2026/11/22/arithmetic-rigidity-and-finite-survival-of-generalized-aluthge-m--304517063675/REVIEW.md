@@ -1,15 +1,21 @@
-# Mathematical review: arithmetic rigidity of iterated Aluthge \(m\)-isometries
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification is proved for positive scalar weighted unilateral shifts with polynomial normalized moments. The iteration identity follows directly from the polar decomposition. Polynomiality of an iterated moment forces an identity of analytic germs at infinity; logarithmic derivatives then assign integer multiplicities to translated root orbits. The orbit first-moment equation forces rationality of the generalized parameter, and a downward modular induction forces its denominator raised to the iteration count to divide each original root multiplicity. The separate integer-sign argument is necessary for even denominators and is explicitly proved, rather than inferred from polynomial perfect powers. The converse computes a positive moment polynomial of the original degree, establishing the exact strict isometry order. Exact finite diagnostics reproduce 191 checks; no finite numerical observation substitutes for the universal argument.
+## correctness
 
-## Originality — PASS (historical-priority qualification)
-The directly motivating work of Chabbabi and Ostermann, arXiv:2203.15658v1 (29 March 2022), proves nonpreservation and the simultaneous **2-isometry** restriction for the ordinary Aluthge transform, and asks about general orders and generalized transforms. Its 2024 journal full text retains that restriction in Theorem 5.1 and Remark 5.1. It neither states the rational/irrational dichotomy nor the polynomial \(v^k\)-power criterion or exact survival lifetime. Abdullah and Le provide the polynomial-moment characterization but not its arithmetic interaction with Aluthge iteration. Buchała's 2024 operator-weighted generalization concerns polynomial models and completion/commutation rather than the present classification. Nearby published work on compact Aluthge shifts concerns a different, non-\(m\)-isometric setting and does not imply this result by its stated hypotheses. No directly covering theorem was found in the inspected primary material and searches. Historical equivalents that use different terminology or remain unindexed cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-This is a complete structural classification for a canonical infinite-dimensional operator family, not an isolated example. It resolves the scalar-shift higher-order/generalized-parameter branch of a published question: nontrivial simultaneous higher-order examples exist, yet only rational generalized parameters can preserve finite-order \(m\)-isometry, with a precise exponent divisibility rule and a finite maximum survival depth. The positivity-on-integers condition detects a genuine boundary overlooked by purely formal perfect-power reasoning. The sharp order divisibility restriction and explicit examples make the distinction testable and reusable.
+The polar formula gives the binomial average of logarithmic weights; telescoping gives (1). An m-isometric shift gives a polynomial of degree at most m−1 by forward differences, and conversely all starting-vector moments are translates divided by a positive constant. The candidate has degree deg P by its asymptotic at positive infinity. After setting x=1/z and removing z^(−deg P), each real power is a holomorphic germ chosen at a nonzero leading coefficient. The integer samples accumulate at z=0 and yield (2). In each root orbit the first moment of a_h−r_h is kλ times the positive integer orbit mass, forcing rational λ. With λ=u/v, reduction mod v^k at the last root and induction downward force every root multiplicity to be divisible by v^k because (v−u)^k is a unit. Conjugate pairs and normalization give a real root Q. For even v, the product of translates of Q with integer exponents is proportional to R with positive proportionality, as seen at large positive x. Its sign at the last exceptional integer would be negative because the exponent of Q(n) is odd. For odd v there is no sign ambiguity. This checks necessity as well as the explicit converse, the constant exception and strict order. The degree bound is attainable by powers of x+1. The frozen check_examples.py was inspected as supplementary finite evidence, not executed; the proof supplies all iterates and does not assume positivity between integers.
 
-## Limits
-The result does not extend by assertion to operator-weighted shifts, all bounded operators, or generalized mean transforms. Publicly indexed records do not establish absolute priority. Analytic proof steps, rather than the finite checks alone, carry the classification. The primary early source's arXiv posting is dated 29 March 2022, which is earlier than its later journal appearance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete all-iterate classification, including the integer-sign condition, is distinct to the best of current evidence. The best verified previous scalar examples and the simultaneous ordinary 2-isometry restriction overlap with consequences but do not give the iff, rational denominator power, or survival depth. This is not a priority certification.
+
+## value
+
+PASS
+
+This resolves the scalar positive weighted-shift version of the higher-order/generalized preservation problem with a sharp lifetime, not just a counterexample. Irrational obstruction, denominator depth, and the independently necessary sign test separate exact preservation from formal perfect powers. These distinctions classify a natural transform across all finite orders and all interior parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

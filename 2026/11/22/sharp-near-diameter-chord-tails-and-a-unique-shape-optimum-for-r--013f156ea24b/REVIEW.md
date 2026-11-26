@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The only diametral configurations are antipodal outer-equator pairs, a compact circle. Their three transverse displacement coordinates have a verified positive-definite quadratic distance deficit with no odd Taylor terms. Ellipsoid-volume integration against the exact surface-area density gives the stated coefficient and an analytic order-\(\varepsilon^{5/2}\) remainder. The derivative of the dimensionless coefficient has a single sign change at \(R/r=5/2\); the endpoint limits establish global sharpness and two-shape multiplicity. A standard-library numerical checker separately integrates the longitude marginal of the original distance formula, and passed 20 checks. The conditional limiting law follows from rescaling this nondegenerate quadratic normal form.
+## correctness
 
-**Originality — PASS, with historical uncertainty.** Semantic searches were performed against published mathematical records for ring-torus Euclidean distances, diameter tails and extremal aspect ratios. The closest inspected report, *Sharp two-moment ambiguity and three-moment reconstruction of ring-torus surfaces*, treats the exact same surface and sampling model but derives low-order moments, not upper-end tail asymptotics; no finite moment formula implies this tail. The analogous flat-torus result concerns **intrinsic** geodesic distance. The full public texts of Tu–Fischbach (spherical objects), Sidiropoulos (sphere-surface chords) and Bäsel (polygon chords) concern different objects. The checked literature did not establish an equivalent stronger theorem. Residual priority risk: unindexed toroidal distance distributions or generic Morse–Bott results specialized elsewhere; no independent priority determination was obtained.
+PASS
 
-**Value — PASS.** The new exact coefficient distinguishes ordinary Euclidean near-diameter sampling on a smooth nonconvex surface from other surface or intrinsic-distance laws, and the sharp fixed-diameter optimization has an unexpectedly nontrivial interior minimizer and precise two-shape inverse ambiguity. The coefficient and limiting endpoint configuration are self-contained, motivated natural geometric statistics; neither is a routine restatement of the published torus moment calculation.
+The frozen conditional statement used v1,v2 from the [0,2π) parameterization. Literally it is false in those representatives: under the tail event the signed first meridian angle is negative with probability 1/2 by simultaneous reversal, and on that half the original v1 is close to 2π. The nonnegative v2 then makes the scaled first component escape. The complete replacement RESULT.md explicitly wraps both meridian angles and the relative longitude and is correct. Equality in the ambient triangle bound localizes precisely at antipodal outer-equator pairs; direct expansion gives the three positive coefficients 2r(R+r), 2rR, (R+r)^2, and reversal removes cubic terms. The exact deficit threshold is 4(R+r)ε−ε²; ellipsoid sandwiching changes volume by O(ε^(5/2)). The local probability density is (R+r)^2/(8π³R²) and the ellipsoid volume is 16π ε^(3/2)/(3r√R), giving the stated coefficient. Scaling those same ellipsoids and the density proves the repaired conditional law, independently of the uniform initial longitude. The log derivative (2k−5)/(2k(k+1)) gives the minimum and multiplicity; at fixed diameter the two shapes have distinct surface area. An independently written exact-azimuth Gauss–Legendre integration at R=2.5,r=1 gave probability/leading-term ratios 0.9997484 and 0.9999827 (96-point rule, ε=0.02 and 0.005); this corroborates the coefficient only.
 
-**Limitations.** Embedded smooth ring tori only; independent uniform surface-area sampling, ambient Euclidean distance, fixed nondegenerate parameters. Numerical tests are corroboration, not proof; independent mathematical audit and definitive historical priority are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge judgment for the explicit fixed-ring-torus coefficient, its shape optimum and multiplicity, and the local signed-coordinate conditional law. No compared statement covers these conclusions. The current access limits below are not negative search evidence or a historical priority claim.
+
+## value
+
+PASS
+
+This is an explicit, comparable rare-event invariant of the standard surface-area chord law. At fixed diameter it distinguishes parameter regimes but provably fails to identify the shape on a quantified two-to-one range. The signed local limit supplies endpoint information not contained in the scalar tail. The classical quadratic localization is a tool, not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

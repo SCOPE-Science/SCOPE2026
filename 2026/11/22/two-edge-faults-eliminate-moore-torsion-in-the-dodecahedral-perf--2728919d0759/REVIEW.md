@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** All \(435\) unordered faults are partitioned by \(120\) explicitly enumerated automorphisms into eight fully covered orbits. The verifier generates each representative's complete face poset from all \(36\) perfect matchings, checks a directed-Hasse DAG for its full acyclic Morse pairing, and computes the exact signed Morse differential. Only dimensions two and three survive; the one nonzero integer matrix has a unit Smith factor, and all others vanish. Standard discrete Morse theory and Hurewicz theory therefore yield the precise integral homotopy types. Independent direct simplicial ranks over two prime fields agree for each orbit. Computational evidence is exhaustive for this finite graph; it is not a claim about infinite families.
+## correctness
 
-**Originality — PASS against checked sources.** The foundational honeycomb and polygonal-line-tiling perfect-matching-complex papers cover different graph structures. The published intact dodecahedral result gives a Moore space plus spheres and the earlier single-edge calculation concerns one deletion; neither implies the two-edge orbit spectrum. Semantic published-finding corpus and targeted web searches for double-edge deletions, perfect-matching extendibility, homotopy and torsion found no covering theorem. The previously known intact and one-edge results are credited; unindexed equivalent work remains possible.
+PASS
 
-**Value — PASS.** This is the complete sharp two-fault topological response of a natural cubic polyhedral graph whose intact and one-fault perfect-matching complexes have genuine integral two-torsion. It distinguishes all \(435\) two-edge patterns, including a contractible incident-fault class, three nontrivial free wedge types, and exact multiplicities. The disappearance of a Moore-space torsion class from the *homology groups* is not an implication of the earlier stagewise types. This is a substantive fault-threshold and symmetry-orbit classification, not merely a single Betti-number increment.
+The complex is the downward closure of surviving perfect matchings, not the ordinary matching complex. Independent code reenumerated 36 original perfect matchings, 120 automorphisms and all 435 distinct unordered double faults in eight orbits. The full Hasse graphs verified acyclicity; removing the empty-face pairing leaves one critical basepoint. The critical 2-/3-cell profiles in the listed orbit order are (0,0),(2,2),(1,1),(1,0),(1,0),(1,1),(1,1),(1,2). The signed degree matrix vanishes except for a single primitive nonzero column (1,−1) at (0,5). The CW two-skeleton is a wedge of 2-spheres, so Hurewicz identifies the entire attaching-map data with these degree matrices. Integral basis changes on source and target wedges leave the homotopy cofiber unchanged and cancel the unit entry. This proves the counts 60,120,240,15 for the four types and the disappearance of torsion. Intact and one-fault torsion are credited antecedent results, not new consequences of the census.
 
-**Risks and limits.** No independent external audit; finite exhaustive computer-assisted proof; no classification of three faults, larger graphs, or natural inclusion maps. Published indexed and inspected work may not exhaust all equivalents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact and single-edge homotopy types, elementary method, and graph are known. The strongest available matches give intact torsion or its preservation after one fault, not the signed double-fault census or the disappearance of torsion after every pair. The identical two-edge record was a self-match; the distinct same-day single-edge comparison was not excluded or treated as earlier merely by its date.
+
+## value
+
+PASS
+
+This is a natural fault threshold for a known torsion-bearing, symmetric extension complex. The complete homotopy-type census answers both sharp robustness (one fault is insufficient and every two distinct faults suffice) and what replaces the torsion, including the effect of incidence and disjoint-pair orbits. The invariant is not determined by a matching count or a homology calculation over one field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

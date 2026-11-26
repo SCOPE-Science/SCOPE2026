@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:11:59.361796Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–46; VERIFICATION.md, lines 19–22; verify.py, lines 18–119",
+        "Celano–Sieger–Spiro, arXiv:2309.07240, Proposition 2.1(c), Lemma 3.4 and Theorem 1.6"
+      ],
+      "rationale": "Walsh diagonalization gives the support count over the reals. Independent relative orders factor the multipliers over the selected forest. Celano–Sieger–Spiro's Theorem 1.6 gives nonzero factors for odd-order trees (the singleton factor is 1); component-wise order reversal cancels the even-order factors. The frozen citation to Theorem 1.4 and Lemma 4.3 abbreviates the additional recurrence in Lemma 4.1; Theorem 1.6 is the direct reference. Independently, orient the selected forest across its bipartition and generate the permutation by ranking independent continuous uniforms on [-1,1]. Conditional on their absolute-value ranks, each edge contributes the sign of the higher-magnitude vertex, negated if that vertex is the tail. Averaging the independent vertex signs gives the indicator that each vertex has an even number of lower-magnitude neighbours, since all edges at any vertex have the same direction relative to it. Such an order exists for an odd tree: direct each cut edge toward its even-size side and take a sink as the last vertex; all branches there are odd, their number is even, and recursion gives the required orders. An even component cannot have such an order since it has an odd number of edges. The two-state recurrence counts precisely the permissible edge subsets, giving A >= F_m and B >= F_(m-1) by Fibonacci addition. An endpoint-rooted path attains both state bounds. For n >= 5, leaf deletion at equality forces the smaller tree to be a path; attaching the leaf to an internal vertex makes its even-root state strictly exceed the Fibonacci bound by F_(p-1) F_q > 0, with p-1 and q the two arm lengths. The two n=4 shapes have counts 3 and 4. Only even edge subsets can survive; a star permits every even subset and a nonstar misses the subset of two disjoint edges.",
+      "residual_risks": [
+        "The frozen verify.py was inspected, not executed. Its replay command is python3 verify.py in the source directory; its coverage is 1,441 labelled trees of orders 2–6 and 2,142 exact signed sums of orders 2–5. The all-order proof does not rely on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 treats bipartite graphs, identifying absolute Eulerian evaluations with even-sequence counts. Theorem 1.6 bounds a single evaluation on trees of order 2m+1 by m! 2^m and (2m)!, with hairbrush and star extremizers."
+        ],
+        "reasoning": "This broader framework covers the constituent evaluations and determines their zero pattern on forests, but its magnitude bounds are not bounds on how many subforests contribute. Sharing the star maximizer does not imply the rank theorem.",
+        "searches": [
+          "arXiv:2309.07240, Theorems 1.4 and 1.6, Proposition 2.1(c) and Lemmas 3.4, 4.1, 4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–46 and 51–60",
+        "Local Resultary index and the distinct descent-pattern record",
+        "Celano–Sieger–Spiro arXiv:2309.07240",
+        "One bounded primary-literature web lookup with no directly relevant additional match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive multinomial factor times component Eulerian evaluations gives the exact Walsh factorization; factors vanish precisely for the even-order components.",
+          "The separate descent-pattern result gives F_n for paths, not sharp lower equality across all trees."
+        ],
+        "reasoning": "The prior implication covers the support criterion, as the frozen record acknowledges. Converting it to the sharp all-tree support-size interval with both equality classifications requires an additional parity-state extremal argument.",
+        "searches": [
+          "arXiv:2309.07240, Theorem 1.6, Proposition 2.1(c), Lemma 3.4",
+          "Resultary 2026/11/22/SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f, Finding and Proof: rank F_n, each selected run has even edge length",
+          "Forests with all component orders odd are precisely the surviving Walsh frequencies; on path graphs this is exactly the selected-run formulation."
+        ],
+        "reasoning": "The descent formulation is equivalent on paths but not a comparison of tree shapes. On general trees the odd-component-forest enumerator is the equivalent combinatorial formulation of the rank. No equivalent all-tree extremal theorem was established in the evidence checked.",
+        "searches": [
+          "Resultary comparison for tree permutation-edge Walsh rank and permutation descent-pattern rank",
+          "Primary literature comparison for odd-component forest counts and tree Eulerian evaluations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct indexed result 2026/11/22/SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f proves exact F_n on P_n; it does not give all-tree bounds or uniqueness."
+        ],
+        "reasoning": "Credit the exact path endpoint even though priority within the shared date is not established. No table of individual values could alone establish the full universal extremal comparison and equality classifications.",
+        "searches": [
+          "Local Resultary semantic index for tree Walsh rank, odd components, and Fibonacci descent-pattern rank"
+        ]
+      },
+      "rationale": "Pass for the sharp all-tree bounds and unique extremizers, not for the odd-component support rule or the path rank in isolation. One prior theorem implies the support rule and a distinct indexed result proves the path specialization; neither supplies the needed extremal comparison over all trees.",
+      "residual_risks": [
+        "An older equivalent extremal theorem for counts of odd-component spanning forests, under different terminology, may have been missed.",
+        "The inaccessible classical monograph could contain a related descent-correlation formulation; no absence is inferred from failed access. Priority of the overlapping path result is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the support rule by implication, not the rank bounds",
+          "evidence": [
+            "Component product with multinomial factor; odd edge count forces zero; odd-order trees have strictly positive absolute evaluation.",
+            "Theorem 1.6 extremizes magnitude, not support size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.07240",
+          "material_read": "Definition 1.3, Theorems 1.4 and 1.6 (pp. 3–5); Proposition 2.1(c) (p. 8); Lemma 3.4 (p. 13); Lemmas 4.1 and 4.3 (pp. 23–24)",
+          "method": "Primary open-access text, targeted passages",
+          "title": "Eulerian Polynomials for Digraphs",
+          "trigger": "Exact nonvanishing dependency and plausible tree extremal overlap"
+        },
+        {
+          "assessment": "Exact overlap on paths only; shared date does not decide priority",
+          "evidence": [
+            "Rank F_n, nonzero frequencies precisely masks with even-length maximal selected runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local indexed mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Fibonacci Fourier rank of permutation descent patterns",
+          "trigger": "Exact ranked match for path specialization"
+        },
+        {
+          "assessment": "Not assessed from full text",
+          "evidence": [],
+          "identifier_or_url": "https://arxiv.org/abs/math/0508232",
+          "material_read": "No primary passages recovered",
+          "method": "Two bounded lawful open-access retrieval attempts timed out",
+          "title": "Théorie géométrique des polynômes eulériens",
+          "trigger": "Cited classical descent enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and two-state and extremal proofs",
+        "Celano–Sieger–Spiro Theorem 1.6, for the distinct magnitude statistic"
+      ],
+      "rationale": "The rank is an exact statistic for loss of Fourier frequencies in permutation comparisons. Determining both sharp ends of its range and singling out the unique extremal shapes is useful beyond computing the known path case; the parity recursion also gives a simple linear-in-tree-size count in integer operations.",
+      "residual_risks": [
+        "The result gives neither spectral conditioning nor bounds for non-tree graphs or bit-complexity guarantees for arbitrary-precision arithmetic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

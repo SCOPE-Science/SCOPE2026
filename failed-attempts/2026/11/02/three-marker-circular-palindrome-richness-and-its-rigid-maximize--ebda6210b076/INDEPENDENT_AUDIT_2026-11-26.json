@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:59:30.822865Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The literal cyclic strings with 0, 1, 2, and 3 ones are disjoint. The first two groups give c and b+1. With two ones, each distinct internal gap g contributes one plus the smaller remaining gap (repeated choices of g give the same padding range), and the circumference never binds. With three ones the two internal gaps must agree and the outside gap bounds twice the padding. Summation gives the formula in every case, including zero gaps. For distinct gaps the count is 2n-2-c; distinctness bounds n-3<=3c-3 and the listed triples attain the smallest c. At fixed smallest c the deficits (c-a,c-b) are strictly decreasing positive integers summing to 3c-n+3, giving exactly the displayed one or two triples. In n=6t+d, 0<=d<6, the distinct-gap maximum minus the repeat-gap count is t-2 for d=1 and t-1 otherwise. This gives strict superiority for n>=14 and the small cases follow by direct comparison, including the tie at n=13. Rotation and reflection realize all permutations of three gaps. An independent bounded replay fixed one 1 at index 0, enumerated the two other positions, expanded odd and even cyclic centers to length n and deduplicated literal strings: 8,436 anchored words at lengths 3–38 passed the counts, maxima and (from 14) optimizer checks. The packaged verify_pal3.py takes the alternate factor-start/length route through 36; its 7,140 count is recorded in VERIFICATION.md, not a fresh execution. Only the argument covers arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 record also gives a generating function for the entire fixed-content necklace distribution.",
+          "Simpson's abstract gives the unrestricted <5n/3 bound and examples with 5n/3-2 when 3 divides n."
+        ],
+        "reasoning": "The prior distribution and exact pointwise formula contain more information than the extremal count. The alone-accessible Simpson material supplies overlapping numerical values but does not independently establish the marker condition or optimizer classification.",
+        "searches": [
+          "Simpson, Palindromes in circular words, DOI 10.1016/j.tcs.2014.07.012; publisher and repository routes",
+          "October 26 Resultary equations (1)–(3)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5a2ce1363ba6 and 12882b1330b6",
+        "Simpson DOI 10.1016/j.tcs.2014.07.012",
+        "OEIS A247000",
+        "Blondin Massé et al. 2011 open preprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (1) uses all nonnegative triples with exactly one circuit allowed, as here.",
+          "The three distinct-gap cases reduce to minimizing t; then t-s and t-r are distinct positive deficits whose sum is 3t-n+3."
+        ],
+        "reasoning": "This minimization and the comparison with one constant repeat-gap branch deliver the claimed maximum and every equality triple without an additional structural palindrome result. The word-equation paper is not the source of the implication.",
+        "searches": [
+          "October 26 Resultary equation (1) and Proof Step 1",
+          "Blondin Massé et al., Equations on palindromes and circular words"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 26 equation (1): all equal 3r+floor(r/2)+3; r=s<t gives t+3r+floor(t/2)+4; r<s=t gives r+3t+floor(r/2)+4; distinct gives t+2s+2r+4."
+        ],
+        "reasoning": "Under (r,s,t)=(a,b,c), both repeat branches equal n+floor((n-1)/2) and the other branches exactly match the frozen formula. The prior necklace/reversal convention affects multiplicities, not the per-word count, since reversal preserves palindrome strings.",
+        "searches": [
+          "Resultary: fixed three-marker cyclic palindrome count, sorted zero gaps and extremizers",
+          "2026/10/26/SCOPE-complete-palindromic-factor-distribution-for-binary-circles-with--5a2ce1363ba6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A247000 tabulates unrestricted circular maxima through length 30, with 4 at length 3 versus the fixed-three-one value 3.",
+          "October 26 record gives an all-length exact match; November 8 record 12882b1330b6 also explicitly gives the same rigidity statements but is dated later."
+        ],
+        "reasoning": "The OEIS table does not match the quantified domain. The earlier exact catalogue formula is decisive; the later direct match is not evidence of earlier coverage.",
+        "searches": [
+          "OEIS A247000",
+          "Resultary: three-marker circles and extremizers"
+        ]
+      },
+      "rationale": "An earlier dated, distinct Resultary record gives the same count for every three-marker circle, with the same conventions, as its equation (1). The frozen extremal conclusion is a direct integer optimization of that exact prior formula and does not leave a materially distinct contribution. This is established coverage, not a negative search or an assertion about Simpson's historical priority.",
+      "residual_risks": [
+        "Simpson's full paper was not readable; the exact scope of its constructions is unresolved. This does not affect the positive October 26 coverage.",
+        "The source comparison does not decide who first derived the formula historically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact per-gap coverage and direct implication of maxima",
+          "evidence": [
+            "Eq. (1), sorted gaps r<=s<=t, counts distinct palindromic circular factors of lengths 1 through n; Step 1 partitions by the number of ones.",
+            "Eq. (2) gives every fixed-content necklace count by palindrome inventory size."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-palindromic-factor-distribution-for-binary-circles-with--5a2ce1363ba6/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof Step 1 (local mirror offset 0 onward)",
+          "method": "Read local mirror; normalize formulas and compare quantifiers",
+          "title": "Complete palindromic-factor distribution for binary circles with three markers",
+          "trigger": "Exact three-gap alias in catalogue"
+        },
+        {
+          "assessment": "Direct match, later-dated",
+          "evidence": [
+            "Specifies the same n>=14 maximum and sorted equality triples."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-palindromic-complexity-and-extremizers-of-three-marker-cir--12882b1330b6",
+          "material_read": "Finding and Proof (mirror offsets 0–8338)",
+          "method": "Local mirror",
+          "title": "Exact palindromic complexity and extremizers of three-marker circles",
+          "trigger": "Direct extremizer hit"
+        },
+        {
+          "assessment": "Unrestricted bound and numerical overlap established, finer coverage unresolved",
+          "evidence": [
+            "Abstract states a strict 5n/3 upper bound and examples with 5n/3-2 at divisible-by-three lengths."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Publication abstract and metadata only",
+          "method": "Publisher, DOI, ACM and institutional lawful-access routes; no readable full text",
+          "title": "Palindromes in circular words",
+          "trigger": "Classical unrestricted extremal result"
+        },
+        {
+          "assessment": "Different domain, finite coverage",
+          "evidence": [
+            "a(3)=4 for aab, not 3 for 111."
+          ],
+          "identifier_or_url": "https://oeis.org/A247000",
+          "material_read": "Definition, terms and example",
+          "method": "Read sequence entry",
+          "title": "Maximal number of palindromes in a circular binary word of length n",
+          "trigger": "Exact numerical table"
+        },
+        {
+          "assessment": "Different questions in passages read",
+          "evidence": [
+            "Word equations, local periodicity, conjugacy and tiling."
+          ],
+          "identifier_or_url": "https://archipel.uqam.ca/8427/1/Blondin-Mass%C3%A9-2011a-preprint.pdf",
+          "material_read": "Preprint pp. 1–2, abstract and introduction",
+          "method": "Open PDF",
+          "title": "Equations on palindromes and circular words",
+          "trigger": "Circular palindrome alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-content family and its extremizers are worthwhile objects. But the frozen per-gap invariant is already known, and the rest is the direct largest-gap minimization and residue arithmetic of that identical formula; no independently useful unknown exact fact survives in this record. No repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

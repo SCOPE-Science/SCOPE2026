@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:58:18.809466Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof 1–4",
+        "VERIFICATION.md and verify.py (inspect only)",
+        "Independent rational integration of u'=sM and v'=2sK: four witnesses at 1/4, 2/5, 7/10, 4/5 are −11/82944, 18961/124416000, −496831/124416000, 1326209/124416000 for 2J"
+      ],
+      "rationale": "Integration by parts with continuous flux f'/s and the killed/reflecting boundary conditions makes the generator symmetric in m dx; the divergence coefficients are bounded and bounded away from zero. Integrating the first two killed moment equations gives u'=sM and, by reversing the integral for w'−2uu', v'=2sK for M=∫_x^1 m and K=∫_x^1 sM². At layer boundaries u,v and their scaled fluxes are continuous, not in general u',v'; the wording 'join continuously' in the proof should be understood for the matched moment functions/fluxes. The Green integral bounds the mean uniformly; the strong Markov property then gives a geometric tail on a sufficiently coarse time grid, justifying the Laplace expansion through order two. Renewal gives J=u²−w/2=(u²−v)/2. Exact rational integration independently recovered all three layer polynomials and the four alternating rational witnesses. In the first layer the cubic factor rises from a negative value to its sole in-layer maximum, then decreases to a positive value, so its one zero is simple. The middle polynomial is strictly decreasing; e.g. F''=4s²M²−2smu<0 there and F'(1/3+) is already −1/1536. The last derivative has one interior sign switch, from negative to positive, and the layer values are negative at 2/3 and positive at 1, so the one zero is simple. Neither interface is a zero, and 0 is excluded. Bounded positive L¹ smoothing gives uniform moment convergence; smoothings equal to the constants near the three simple zeros can be chosen, giving local derivative convergence there as well and preserving a simple crossing in each neighborhood. The claim of at least three smooth-model sign changes is therefore valid.",
+      "residual_risks": [
+        "This is a first-order statement and does not classify optimal positive reset rates.",
+        "The claim reviewed for smooth models is existence of at least three sign changes, not an upper bound across all smoothings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Menon–Anteneodo's operator with fixed calculus parameter A has, up to normalization of scale and speed, s=D^(A/2−1), m=D^(−A/2).",
+          "5a5a48a7a384, Finding: two absorbing boundaries and reset/start at the two-layer interface."
+        ],
+        "reasoning": "In the frozen model D changes from 1 to 32 with unchanged s; a fixed A power law would force A=2 and hence constant s in the third layer too, contradicting s=128. Neither a fixed-start interface criterion nor the mixed-start quantile result is a general absorbing–reflecting scale–speed crossing theorem.",
+        "searches": [
+          "arXiv:2408.04726v1, Eq. (8) and §III.2.2",
+          "Resultary: 5a5a48a7a384 and 04cdd5cb60a4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.04726v1",
+        "5a5a48a7a384",
+        "04cdd5cb60a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Menon–Anteneodo supplies the weak-rate method and sign phase diagrams, not a bound or an exact number of spatial zeros for the frozen three-layer profile. The exact count here uses the first-layer cubic, middle monotonicity, and last-layer minimum, in addition to the sign witnesses."
+        ],
+        "reasoning": "A general moment recursion identifies what to compute but does not imply exactly three simple crossings or robust crossings under smoothing. The asserted contribution is the single verified structural witness, not the perturbation identity or the general idea of phase diagrams.",
+        "searches": [
+          "arXiv:2408.04726v1, §§I and III.2.2",
+          "5a5a48a7a384 and 04cdd5cb60a4, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Menon–Anteneodo, §III.2.2 Eqs. (23), (25), (26): moment recursion and sign via weak-rate coefficient; equivalently the first-passage coefficient of variation crosses one.",
+          "04cdd5cb60a4, Finding: alternating reset response for completion-time quantiles of a mixture of Brownian starts."
+        ],
+        "reasoning": "The moment inequality is equivalent to the known coefficient-of-variation criterion for x>0. Sign changes across a quantile rank in a mixture are not sign changes across starting positions of the mean response in a single diffusion.",
+        "searches": [
+          "Resultary lookup for alternating weak resetting/restart signs in heterogeneous diffusions",
+          "External lookup for spatial resetting transitions in heterogeneous diffusions",
+          "arXiv:2408.04726v1, weak-rate sign criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 4 reports phase diagrams for cosine diffusivity profiles in specified stochastic-calculus conventions. The closest indexed exact restart frontier is for two layers at a fixed interface (5a5a48a7a384)."
+        ],
+        "reasoning": "The phase diagrams and the exact contrast threshold are the closest tabulated or exact comparators. Neither lists this independent scale/speed profile or enumerates its interior mean-response zeros.",
+        "searches": [
+          "arXiv:2408.04726v1, §III.2.2 Fig. 4 and its cosine profile formulas",
+          "Resultary search for exact three-layer weak-resetting sign patterns"
+        ]
+      },
+      "rationale": "Weak-rate expansion in terms of hitting-time moments and spatially heterogeneous sign diagrams are prior. The surviving distinct contribution is the fully explicit reversible absorbing–reflecting scale–speed construction with exactly three simple crossings of the mean-response derivative, and existence of its smoothly robust analogue. The strongest inspected analyses do not state or force this exact reversal count. This is a bounded assessment, not a claim of first historical discovery of nonmonotone resetting response.",
+      "residual_risks": [
+        "The external lookup did not identify another material match, which is not evidence of absence. Other heterogeneous model families may admit multiple reversals; no universal priority or minimality is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close method and different scope; no exact coverage found in the inspected passages",
+          "evidence": "A fixed stochastic-calculus parameter ties scale and speed to one profile; weak-rate expansions and cosine profile phase diagrams are prior.",
+          "identifier_or_url": "https://arxiv.org/html/2408.04726v1",
+          "material_read": "Introduction; backward Eq. (8); §III.2.2 Eqs. (23), (25), (26) and Fig. 4, HTML offsets about 18800–25185 for the latter material",
+          "method": "OA text and statement/operator comparison",
+          "title": "Random search with resetting in heterogeneous environments",
+          "trigger": "Same weak-resetting observable with absorbing target, reflecting endpoint and heterogeneous profiles"
+        },
+        {
+          "assessment": "Different boundary conditions and variable",
+          "evidence": "Two absorbing endpoints, reset/start fixed at the interface, contrast ratio varies.",
+          "identifier_or_url": "Resultary 2026/11/22, 5a5a48a7a384",
+          "material_read": "Finding, local-mirror offset 0 onward",
+          "method": "Resultary search and bounded local-mirror excerpt",
+          "title": "A sharp heterogeneity-induced restart frontier for two-layer Brownian diffusion",
+          "trigger": "Exact layered weak-resetting sign theorem"
+        },
+        {
+          "assessment": "Different response statistic and parameter",
+          "evidence": "At least 2K−1 changes across completion-time quantiles for a mixture on a half-line, not mean weak response as x varies in a fixed interval.",
+          "identifier_or_url": "Resultary 2026/11/8, 04cdd5cb60a4",
+          "material_read": "Finding, local-mirror offset 0 onward",
+          "method": "Resultary search and bounded local-mirror excerpt",
+          "title": "Arbitrarily many alternating rank bands under heterogeneous Brownian resetting",
+          "trigger": "Multiple sign changes in a heterogeneous Brownian resetting protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof 3–4",
+        "Menon–Anteneodo, §III.2.2 for the motivation of spatial reset-benefit diagrams"
+      ],
+      "rationale": "An exact multiple-reversal example distinguishes this problem from a single crossover in spatial reset benefit. It gives a simple, reproducible counterexample under uniform ellipticity and reversibility, with one threshold in each layer and two disconnected regions of infinitesimal benefit. Smooth robustness shows the phenomenon is not an artifact of jump interfaces in scale or speed.",
+      "residual_risks": [
+        "This is an existence witness, not a minimal design, a statistical prediction, or a universal bound on the number of phases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

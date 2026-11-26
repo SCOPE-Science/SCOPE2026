@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:36:14.515124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the intrinsic edge-sum hyperplane the incidence identity BBᵀ=(n−2)I+11ᵀ gives the two stated orthogonal components. Coordinate normals have projected energies 2/n and (n−3)/(n−1), and subset normals have U-energy ||Bv−mean(Bv)1||²/(n−2); subtracting from ||v−mean(v)1||² gives the W-energy. Subset slacks are (s−1)(n−s)/n. For the round candidate the squared distances to these hyperplanes are minimized at s=2 or n−1 because their logarithmic derivative strictly decreases; the co-singleton endpoint is the smaller of the two. Its distance exceeds the coordinate radius exactly for integers n≥6 in scope. For n=4,5 the co-singleton cap binds together with the coordinate bound; substituting gives precisely the listed tangencies. The coordinate and subset inequalities in the stated contact list are genuine facets: the coordinate face is the base polytope for K_n with an edge deleted, which has connected cycle matroid for n≥4; a tight subset face factors into base polytopes of the restriction to K_s and the contraction, which has s parallel spokes for each remaining vertex plus its edges to the other remaining vertices. Both factors are matroid-connected (including the one-element restriction), so their dimensions add to m−2. Centered coordinate normals have zero sum and frame operator I; co-singleton normals are the negatives of centered incidence rows, with zero sum and frame operator (n−2)Π_U. After the shape transform and slack normalization, the listed weights give moments 0 and I, including the n=4 certificate using a subset of all contacts; this proves global, not merely symmetric, optimality. Volume follows from the multiplicities, and the n=3 regular triangle has squared inradius 1/6. An independently written rational check (`python3 -B /workspace/branches/bounded_review_checks.py 3`) evaluated actual labeled subset inequalities and matrix moments for n=4 through 10. Neither that finite check nor the supplied, inspected but unexecuted verifier is the all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chaourar gives the facet framework on graphic / matroid base polytopes. Pineda-Villavicencio–Schröter treat reconstruction.",
+          "The cited matroid inradius comparator, as described in the package, concerns Euclidean balls; its full text was not independently retrieved."
+        ],
+        "reasoning": "A halfspace description or a reconstruction result does not compute the optimum determinant; a general largest-ball result is not a general maximum-volume ellipsoid classification. The purported assignment analogue even if verified concerns a different incidence body.",
+        "searches": [
+          "arXiv:1903.07292, abstract and Theorem 2.1",
+          "arXiv:2010.10227, abstract",
+          "Frozen AUDIT.json comparators: connected-matroid inradius and fixed-cardinality assignments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.07292",
+        "arXiv:2010.10227",
+        "arXiv:2212.11781",
+        "arXiv:2305.02113",
+        "Frozen RESULT.md and AUDIT.json (related-record descriptions, not independent retrieval of those records)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate inequalities and edge-sum slice form a regular simplex; wherever its own John ball fits the subset inequalities, round optimality follows. The claimed anisotropic cases cannot follow from that shortcut.",
+          "A previously studied asymmetry center, as described in the package, answers a different optimization problem and does not by itself supply axes or contacts."
+        ],
+        "reasoning": "Credit standard facets and John’s theorem, and distinguish the simple implication for feasible round orders from the explicit feasibility classification and exceptional anisotropic shapes. The inspected prior results do not provide the latter.",
+        "searches": [
+          "arXiv:1903.07292, Theorem 2.1",
+          "arXiv:2212.11781, pp. 1–2",
+          "Frozen RESULT.md §§3–5 and prior-work comparators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gartsman–Linial Theorem 1.3 solves a genuine John problem on the diameter-bounded metric polytope.",
+          "Ivanov–Naszódi give the general contact-pair framework."
+        ],
+        "reasoning": "Neither the pair-indexed metric body nor an abstract contact criterion yields the claimed squared semiaxes and tangent facets of the spanning-tree incidence body. Precise maximum-volume-inscribed and John terminology was compared, not a Löwner bounding ellipsoid.",
+        "searches": [
+          "Primary literature lookup on John / maximum-volume inscribed ellipsoids of complete-graph spanning-tree and matroid base polytopes",
+          "arXiv:2305.02113, abstract and Theorem 1.3",
+          "arXiv:2212.11781, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No equivalent exact table was established in the inspected material; the catalog search endpoint/mirror was not available in this environment, and the package’s related catalog entries were available as descriptions only.",
+          "The included script is finite supporting evidence for this finding, not a prior exact table."
+        ],
+        "reasoning": "An exact table could settle individual orders, but would need the same intrinsic metric and objective; finite entries would not establish the all-order transition and contact classification. Catalog access limitations are not negative search evidence.",
+        "searches": [
+          "Targeted primary literature lookup by body and John ellipsoid",
+          "Local assigned catalog and resource discovery for published-record mirror availability"
+        ]
+      },
+      "rationale": "Best of inspected evidence for the explicit complete-graph classification including both exceptional anisotropic spectra and the full contact data. The identified results concern facets, reconstruction, a universal optimality criterion, and the ellipsoid of a different body. A sharp inball theorem may help yield the round range via comparison with the containing coordinate simplex, but an inball alone does not determine the anisotropic spectra or their certificate. No specific prior statement covering the full classification was identified.",
+      "residual_risks": [
+        "No independent catalog text for the named matroid inradius, spanning-tree Minkowski center or fixed-cardinality assignment results; potential implicit coverage remains, especially of the round range.",
+        "Ekivalent older results could be indexed under graphic matroid, optimal design or permutation-invariant convex optimization terminology; the limited search is not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior facet framework, not the stated ellipsoid optimization",
+          "evidence": [
+            "Essential parallel/coparallel closures and locked subsets give facet inequalities, with the rank equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.07292",
+          "material_read": "Abstract and Theorem 2.1 (pp. 1,4)",
+          "method": "Bounded open-access PDF passages",
+          "title": "The facets of the spanning trees polytope",
+          "trigger": "Same polytope, broader graphic-matroid range"
+        },
+        {
+          "assessment": "Polyhedral context only in inspected material",
+          "evidence": [
+            "Reconstruction from graphs and dual graphs, including hypersimplices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.10227",
+          "material_read": "Abstract, p. 1",
+          "method": "Open-access PDF passage",
+          "title": "Reconstructibility of matroid polytopes",
+          "trigger": "Broader family of matroid polytopes"
+        },
+        {
+          "assessment": "The generic theorem supports the proof but lacks its application-specific data",
+          "evidence": [
+            "Summarizes maximum-volume inscribed ellipsoid and weighted contact conditions before the functional extension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.11781",
+          "material_read": "Introduction, pp. 1–2",
+          "method": "Bounded open-access PDF passages",
+          "title": "Functional John and Löwner conditions for pairs of log-concave functions",
+          "trigger": "General ellipsoid criterion"
+        },
+        {
+          "assessment": "Does not address the tree incidence polytope",
+          "evidence": [
+            "M_n consists of diameter-at-most-one metrics; Theorem 1.3 describes its largest-volume inscribed ellipsoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.02113",
+          "material_read": "Definition and Theorem 1.3, pp. 1–2",
+          "method": "Bounded open-access PDF passages",
+          "title": "On the Löwner-John Ellipsoids of the Metric Polytope",
+          "trigger": "Exact ellipsoids of a different complete-graph pair-indexed body"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise intrinsic John geometry of a canonical graphic matroid body is useful beyond a radius calculation. A sharp change occurs at order six, and the full-dimensional certificate explains why exponentially many other facet inequalities do not control the round optimum. For the exceptional orders it certifies unequal principal directions and their exact scales, information an inball cannot provide.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

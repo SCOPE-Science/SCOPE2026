@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:36:51.491590Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–56",
+        "Frozen VERIFICATION.md, two Python verifiers and both printed outputs, inspected without executing",
+        "Repaired RESULT.md and standalone link verifier"
+      ],
+      "rationale": "The independent reconstruction uses the induced maximal-degree-at-most-one test and checks the LCF labeling. For all 25 original complexes it independently checked the complete matched Hasse DAG and computed signed gradient-path matrices, rather than executing frozen column-cancellation code. The wedge table matches, and the frozen inclusion assertions follow from the deletion–link cofiber exact sequence (contractible link at 3, H₃(K)→H₂(link) surjective between copies of Z at 6 and 8). The repair gives an explicit link-only certificate; each link has one critical 0-cell, no 1-cells, and only possible 2- and 3-cells. Only links 2, 6 and 10 have nonzero differentials, each one row with a unit entry. Hurewicz and changes of bases of source and target wedges of S² turn the attaching maps into a unit summand plus zero maps. The last replay printed ALL_12_FRUCHT_LINK_WEDGES_OK. Replay: python3 /workspace/repairs/1/verify_link_wedges.py; original-scope cross-check: python3 /workspace/branches/audit-1.py.",
+      "residual_risks": [
+        "The general assertion that a matrix with a unit entry has rank one is false; the frozen classifier alone does not test rank in full generality. Direct signed path evidence verifies the single-row property in every nonzero link matrix and one-column property in the ambient/deletion cases with a differential. The repair states and verifies the single-row condition.",
+        "This is an exhaustive one-graph computation, not a family theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande–Singh's inspected abstract and introduction give graph-family results for complete multipartite graphs, fully whiskered graphs, cycles and perfect m-ary trees. Sawant's statement is for trees; the Frucht graph contains the induced four-cycle 2–3–9–8–2. The all-field Frucht persistence result recovers the ambient H₃ rank at r=2 but supplies no vertex-link homotopy statement."
+        ],
+        "reasoning": "The family hypotheses and graph filtrations actually inspected do not entail the repaired link statement. No broad new independence-complex theorem is claimed.",
+        "searches": [
+          "Frucht graph two-independence complex Ind_2 homotopy type, ordinary independence complex of Frucht graph, and r-independence complex Frucht graph published results",
+          "arXiv:2001.05448v2",
+          "arXiv:2605.25150v1",
+          "SCOPE-20261025-b46422194b4c"
+        ]
+      },
+      "checked_sources": [
+        "e5c3e3ae1e81, 92ef34432c00, 00a04cf70f3d, b46422194b4c, 8b7d9b2243c2 and 19f8bab045db in the Resultary local index",
+        "arXiv:2001.05448v2 and arXiv:2605.25150v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct October 25 record states zero H₃ map exactly at 0,6,8,9 and surjective map elsewhere. This implies the frozen zero maps at 6 and 8, and at 3 degree ±1 between two S³ types gives the homotopy equivalence. The other deletions are not equivalences by rank. The frozen record did not assert that 6 and 8 were the only zero maps.",
+          "The deletion and inclusion data determine each inclusion up to homotopy because maps from a wedge of S³ into S³ are determined by the degrees on the summands. They therefore determine the inclusion cofiber Σlk_K(v) and all reduced link homology. The actual critical link cells and integral signed attaching degrees give additional unsuspended information, including contractibility rather than acyclicity at vertex 3."
+        ],
+        "reasoning": "Suspension does not generally reflect homotopy equivalences, and neither the matching theorem nor its proof establishes the link-specific connectivity and CW data needed to desuspend here. The mathematical overlap is not erased by the different indexed dates; those dates alone do not attribute derivation or establish priority.",
+        "searches": [
+          "SCOPE-20261025-e5c3e3ae1e81, Finding and inclusion proof",
+          "Frozen RESULT.md lines 25 and 46–53; repaired RESULT.md, Proof and certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The induced-forest maximum-degree-one stage is exactly Ind₂(F), since graphs of maximal degree at most one are already forests. Both it and 92ef34432c00 give S³ for the whole complex. Their inspected findings do not give links.",
+          "The metric Čech hit 19f8bab045db instead concerns scale maps in metric nerves, not vertex links of Ind₂(F)."
+        ],
+        "reasoning": "Matching the ambient complex must be credited even under another filtration name, but the ambient homotopy type does not determine vertex-link homotopy types.",
+        "searches": [
+          "Resultary: Frucht graph 2-independence complex Ind_2 deletion link homotopy sphere",
+          "Frucht two-independence all twelve vertex links homotopy types inclusion H3",
+          "SCOPE-20261108-00a04cf70f3d",
+          "SCOPE-20261101-92ef34432c00"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed e5c3e3ae1e81 Finding gives the exact 12 deletion multiplicities (2,2,2,1,2,2,1,3,1,2,2,4) of the frozen record and the exact H₃ map for every deletion. Its computational certificate covers 13 complexes (ambient and deletions), not links.",
+          "The older 8b7d9b2243c2 catalogue gives a vertex-link table for ordinary independence, not two-independence."
+        ],
+        "reasoning": "The indexed exact classifications are the meaningful database comparison for this finite topological invariant. An ordinary independence face cannot contain an edge, whereas an Ind₂ face can. The matching deletion table is not a matching unsuspended link table.",
+        "searches": [
+          "Resultary: Frucht graph independence complex homotopy type",
+          "Frucht two-independence all twelve vertex links homotopy types inclusion H3",
+          "SCOPE-20261025-e5c3e3ae1e81",
+          "SCOPE-20261011-8b7d9b2243c2"
+        ]
+      },
+      "rationale": "Pass is for the repaired unsuspended link result only. The indexed October 25 deletion/inclusion record matches the ambient and every original deletion type and gives a strictly more complete H₃ inclusion map profile; those claims were removed. Neither that statement nor its proof gives a Morse model for a link. The induced-forest and two-independence same-complex results give the ambient sphere only. Compared with the strongest inspected claims, the all-link unsuspended homotopy classification is a distinct contribution, not a new naming of link homology or the inclusion cofiber.",
+      "residual_risks": [
+        "The identified ScienceDirect chordal-graph text timed out; its snippet was not used to rule out overlap. The Frucht graph itself is not chordal.",
+        "Unindexed equivalent unsuspended link results cannot be excluded. Coverage and attribution are different questions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially covers the frozen ambient/deletion/inclusion claims but does not classify unsuspended links",
+          "evidence": [
+            "All deletion multiplicities agree; it computes every H₃ map and describes exhaustive computation for only the full and deletion complexes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-integral-vertex-deletion-homotopy-and-inclusion-profile-of-the-f--e5c3e3ae1e81/RESULT.md",
+          "material_read": "Finding, deletion models, naturality of inclusions and verification passage",
+          "method": "Local mirror, offsets 0–5955 in bounded passages",
+          "title": "Integral vertex-deletion homotopy and inclusion profile of the Frucht two-independence complex",
+          "trigger": "Same labeled complex and integral deletion data"
+        },
+        {
+          "assessment": "Exact ambient overlap",
+          "evidence": [
+            "Same component-size condition and graph, and S³ home dimension up to homotopy."
+          ],
+          "identifier_or_url": "SCOPE-20261101-92ef34432c00",
+          "material_read": "Finding and graph specification",
+          "method": "Local mirror offsets 0–1654",
+          "title": "The two-independence complex of the Frucht graph is a three-sphere",
+          "trigger": "Identical complex and ambient homotopy type"
+        },
+        {
+          "assessment": "Covers equivalent ambient sphere, not link classification",
+          "evidence": [
+            "F₁ ≃ S³ with F₁ exactly Ind₂(F)."
+          ],
+          "identifier_or_url": "SCOPE-20261108-00a04cf70f3d",
+          "material_read": "Finding and filtration definition",
+          "method": "Local mirror offsets 0–2481",
+          "title": "Integral homotopy and persistence of the Frucht graph’s induced-forest filtration",
+          "trigger": "Equivalent degree-one stage"
+        },
+        {
+          "assessment": "Ambient homology overlap only in the inspected result",
+          "evidence": [
+            "Integral H₃(Ind₂(F)) has rank one."
+          ],
+          "identifier_or_url": "SCOPE-20261025-b46422194b4c",
+          "material_read": "Finding",
+          "method": "Local mirror offsets 0–1770",
+          "title": "Complete all-field higher-independence persistence of the Frucht graph",
+          "trigger": "Same filtration and exact ambient group"
+        },
+        {
+          "assessment": "Different face system",
+          "evidence": [
+            "Uses ordinary independence and gives the ambient wedge of three S², not Ind₂."
+          ],
+          "identifier_or_url": "SCOPE-20261011-8b7d9b2243c2",
+          "material_read": "Finding and labeled graph data",
+          "method": "Local mirror offsets 0–1800",
+          "title": "The Frucht graph independence complex and its complete vertex-deletion classification",
+          "trigger": "Same graph and a complete vertex-link table"
+        },
+        {
+          "assessment": "Inspected family hypotheses not applicable; not a whole-paper negative claim",
+          "evidence": [
+            "Graph families named in the inspected statements are complete multipartite, fully whiskered, cycles and perfect m-ary trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.05448v2",
+          "material_read": "Abstract and introduction",
+          "method": "Public PDF, extracted offsets 0–3422",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Potential graph-family theorem"
+        },
+        {
+          "assessment": "Tree assumption excludes this graph",
+          "evidence": [
+            "The conclusion is for trees, not a graph with the exhibited induced four-cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.25150v1",
+          "material_read": "Abstract and theorem scope",
+          "method": "Public PDF, extracted offsets 0–2954",
+          "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+          "trigger": "Higher-independence theorem from cited originating paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, scope, certificate and complete table",
+        "SCOPE-20261025-e5c3e3ae1e81 for the baseline"
+      ],
+      "rationale": "Natural vertex links on this canonical nonchordal cubic graph are local inputs to deletion–link arguments. Knowing that a specific link is contractible, not just acyclic, is useful when determining whether a deletion is a homotopy equivalence. The complete mixed-dimensional wedge profile supplies concrete local CW models that the already-known deletion degrees and link suspensions do not provide. The value lies in these exact unsuspended models, not in re-reporting the ambient sphere, homology ranks, or deletion multiplicities.",
+      "residual_risks": [
+        "No general cubic-graph link classification, collapse claim or stronger connectivity statement beyond these twelve homotopy types is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

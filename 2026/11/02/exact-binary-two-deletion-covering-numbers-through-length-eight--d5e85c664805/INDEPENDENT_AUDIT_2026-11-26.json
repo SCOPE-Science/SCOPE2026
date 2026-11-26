@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:38.636196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At length n the targets are precisely the 2^(n-2) binary words of length n-2, including the empty word at n=2. Incidence is ordinary subsequence containment: any length-n embedding of a target leaves exactly two positions unselected. I reconstructed this entire incidence relation independently via leftmost symbol matching, checked each cover printed in RESULT.md, expanded the weight prescriptions by canonical reversal/complement representative, and computed the exact total and per-source maximum. The pairs at lengths 6,7,8 are (8,3),(10,3),(74,12). For nonnegative weights, a cover must account for every target's weight at least once, so k members account for at most k times the cap, even if there are overlaps. The three ceilings are 3,4,7, matching the witnesses. At n=5 one word cannot contain both 000 and 111; at n=2..4 the nonempty-cover lower bound is sharp. The finite profile is (1,1,1,2,3,4,7). Replay: /workspace/review-work/small_checks.py deletion; output deletion_results.txt. No optimization tolerance, inference beyond the seven specified lengths, or classification of optimal covers is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al. give general lower and fixed-radius asymptotic upper bounds. Theorem 3 implies only an integer lower bound of 3 at (q,n,R)=(2,8,2). Its elementary equal-length product construction at length eight uses two length-four one-deletion covers. A direct check gives the length-four one-deletion optimum 3, so that product has size 9.",
+          "Xie et al. Theorem V.1 is asymptotic in the alphabet size at fixed n,R, and their Section VI is burst covering."
+        ],
+        "reasoning": "Neither this product bound nor these asymptotics close the fixed-binary length-eight gap. The inspected broader theorems do not imply a matching finite upper and lower bound.",
+        "searches": [
+          "arXiv:1911.09944 Theorems 3 and 14, and tensor product passage, p. 8",
+          "arXiv:2606.15379 Theorem V.1 and Section VI"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.09944",
+        "arXiv:2606.15379",
+        "Resultary 0351c26be9c6, d1017049c488 and 09950c1acd62",
+        "Focused web lookup for binary n=8, R=2 exact tables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The elementary volume bound at length eight is only ceil(64/28)=3; the stated Theorem 3 bound also rounds to 3. The frozen weights force ceil(74/12)=7, and a seven-word family gives the reverse inequality.",
+          "Resultary 09950c1acd62 concerns inclusion-maximal insertion covers that fail deletion covering at n=R+4, not minimum deletion covers; the ternary weighted certificates depend on that alphabet's incidence, not the binary incidence evaluated here."
+        ],
+        "reasoning": "None of the inspected bounds or neighboring exact classifications supplies a seven-word binary optimum or makes the seven-term profile a direct specialization. Trivial initial cells and the generic dual technique are not individual novelty claims.",
+        "searches": [
+          "arXiv:1911.09944 Theorem 3 and Section V",
+          "Resultary 0351c26be9c6, d1017049c488 and 09950c1acd62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen D_2(n) is K_D^2(n,2) in the Lenz et al. notation and D(2,n,2) in the Xie et al. notation.",
+          "An equivalent description is to choose length-n words that hit each insertion ball centered at an (n-2)-bit target; this does not choose length-(n-2) centers whose insertion balls cover the long words. Xie et al. explicitly separate insertion and deletion covering."
+        ],
+        "reasoning": "Changing which side is required to be covered changes the optimization. Radius-two burst deletions restrict positions and are not the same incidence relation as arbitrary two deletions.",
+        "searches": [
+          "arXiv:1911.09944 Definition 2, K_D^q(n,R)",
+          "arXiv:2606.15379 Definitions II.2–II.3 and Theorem III.2",
+          "Resultary: D(2,8,2) binary exact deletion covering numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0351c26be9c6 gives ternary values (2,5,9) at n=4..6, with similar weighted-shadow methods. Same-day d1017049c488 has the exact binary length-eight incidence but its answer 15 is for a list-two packing maximum.",
+          "The focused literature lookup returned the general Lenz et al. covering paper and neighboring deletion-correcting papers, not an identified exact covering table."
+        ],
+        "reasoning": "The ternary table has different target and source sets, and the packing result controls parent multiplicities rather than requiring full coverage. The bounded lookup is not proof of the absence of other exact binary tables.",
+        "searches": [
+          "Resultary: binary two-deletion covering number D_2(n) exact values length 8",
+          "Resultary: D(2,8,2) binary exact deletion covering numbers",
+          "Resultary: seven words to cover 64 six-bit targets by two deletions",
+          "binary two deletion covering codes exact optimum length 8 seven words deletion covering K_D binary radius 2 exact table Lenz Xie small lengths"
+        ]
+      },
+      "rationale": "The complete initial binary arbitrary-two-deletion covering profile, particularly exact length-eight optimality, is distinct on inspected evidence. Existing deletion-covering definitions, general bounds, packing results, and a ternary two-deletion profile do not certify this result. The problem, set-cover bound and similar certificate methods are prior art.",
+      "residual_risks": [
+        "An unindexed earlier set-cover calculation or finite table could precede this result. No absence or priority guarantee is inferred from the bounded comparison.",
+        "No conclusion is drawn for larger binary lengths or other deletion radii."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same optimization, general bounds and constructions but not a matching finite optimum in the passages checked",
+          "evidence": "General sphere-covering lower bound rounds to 3 for the terminal parameters; the radius-one tensor product at equal lengths is not a sharp substitute.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09944",
+          "material_read": "Definition 2 p. 4 offset 31030; Theorem 3 p. 5 offsets 35060–36534; Section V product, p. 8 offset 70700; Theorem 14 p. 10 offset 89628",
+          "method": "Lawful OA primary PDF",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "Earliest identified same-object definition, broad bounds and radius-two product construction"
+        },
+        {
+          "assessment": "Large-alphabet asymptotics, direction separation and a different deletion model in the burst section",
+          "evidence": "Theorem V.1 fixes n,R and lets q increase; Section VI uses contiguous bursts; Theorem III.2 separates insertion from deletion covering.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.15379",
+          "material_read": "Definition II.3 p. 4 offset 20213; Theorem III.2 p. 6 offset 25738; Theorem V.1 p. 9 offset 38901; Theorem VI.1 p. 11 offset 48521",
+          "method": "Lawful OA primary PDF",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Strong plausible coverage for radius two and alternate direction"
+        },
+        {
+          "assessment": "Prior related invariant and similar method, different alphabet and not the binary exact theorem",
+          "evidence": "Ternary n=4,5,6 optima 2,5,9 and a weighted-shadow certificate.",
+          "identifier_or_url": "Resultary 0351c26be9c6 (2026-11-01)",
+          "material_read": "RESULT.md offset 0, finding and certificate description",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact ternary two-deletion covering numbers through length six",
+          "trigger": "Exact short-length theorem for the same radius and optimization"
+        },
+        {
+          "assessment": "Same incidence, different optimization; no intra-day priority inferred",
+          "evidence": "At most two parents per received word; packing optimum 15, not a minimum full cover.",
+          "identifier_or_url": "Resultary d1017049c488 (2026-11-02)",
+          "material_read": "RESULT.md offset 0, finding",
+          "method": "Local Resultary mirror",
+          "title": "First integer rounding failure in binary two-list two-deletion packing",
+          "trigger": "Distinct same-day result in exact binary length-eight two-deletion parameters"
+        },
+        {
+          "assessment": "Classifies a separation regime, not minimum covers",
+          "evidence": "Inclusion-maximal insertion covers failing deletion covering at n=R+4.",
+          "identifier_or_url": "Resultary 09950c1acd62 (2026-10-25)",
+          "material_read": "RESULT.md offset 0, finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp onset and maximal binary insertion-deletion covering separation",
+          "trigger": "Equivalent-looking directed-covering claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum deletion covers are a standard directed covering invariant. The complete initial binary radius-two table includes a nontrivial 64-target optimum with a lower certificate stronger than generic volume bounds. The seven-word matching cover and small verifiable dual weights give an exact benchmark for finite deletion-cover constructions and bounds; the value does not rest on the trivial small lengths or on a claim to have invented the dual method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

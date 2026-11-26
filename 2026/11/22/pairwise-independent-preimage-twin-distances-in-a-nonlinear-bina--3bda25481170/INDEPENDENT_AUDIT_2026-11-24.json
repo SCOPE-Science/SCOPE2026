@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:40:57.655174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A trigger of K precludes triggers at each of its three guard sites; hence every old trigger persists after the simultaneous toggle. A new trigger would have a toggled guard site where an old, still present trigger precludes it. This proves involutivity even with repeated cyclic indices. Expansion gives DσK, with even-parity image and each fiber parameterized by u and its complement. Uniform u weights each fiber twice. Its distance indicators are w, whose zeros are exactly a=c≠b. For n≥7 the six directed differences of the three input offsets are distinct residues, so distinct windows share at most one bit; the probability of zero is 1/4 for either value of that bit. Three consecutive zero events would require the shared bits u_(i+1), u_(i+2), u_(i+3) to be pairwise unequal. Inclusion–exclusion therefore gives 1−3/4+3/16=7/16 for all ones. Means and variances follow. Closed walks with a specified initial step are in bijection with indexed cyclic words, for all n including n<3. An independent exact sparse-polynomial determinant expansion (/workspace/branches/6f5f3a6d-c8ab-4eac-ab99-1c807d3e5abd/charpoly_check.py) agrees coefficientwise with both quartics multiplied together. Direct fiber enumeration with /workspace/review_replay.py checks n=1–7 (n=7: 64 fibers, 28 triple successes). The CLT follows by independent length-floor(n^(1/3)) blocks separated by three indices: discarded variance is O(n^(2/3)), and at most three boundary summands change in passing to the ring. The frozen verifier evaluates the histogram/trace comparison at four z values, not coefficientwise as its verification prose might suggest; the all-length PGF identity is proved by the closed-walk argument, not those evaluations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 64-state weighted construction is broader as an implicit enumeration, but has no stated local single-bit balance or triple law.",
+          "A general m-dependent CLT applies once the specific variance and cyclic comparison are proved; neither is part of the general theorem."
+        ],
+        "reasoning": "The general methods are prior; the rule-specific reduction and exact dependence structure do not follow by merely substituting parameters into a general table or theorem of moments.",
+        "searches": [
+          "Resultary: transfer-matrix distribution and cyclic twin distances",
+          "arXiv:2610.33131v1",
+          "DOI:10.1215/S0012-7094-48-01568-3 (dependent-variable CLT cited by the frozen record)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.33131v1 Appendix B",
+        "Resultary 8e3c21dab42f, exact predecessor proof passages",
+        "Resultary b4fa1671dcc9, cyclic image obstructions indexed finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier text says closed walks encode ordered cyclic twins, with total weight equal to distance, even for rings of length 1–3; the graph has 64 vertices and 128 edges.",
+          "With edge weights z to the distance contribution and normalization 2^(-n), the prior graph directly gives an all-length PGF. The earlier twin involution also gives the input representation used here."
+        ],
+        "reasoning": "Credit the prior implicit full enumeration as covered, not just the earlier minimum. The eight-state reduction, its explicit factorization and the indicator-law proof with exact moments and Gaussian fluctuations are substantive additional content of the frozen claim.",
+        "searches": [
+          "Resultary: Sharp mod-three separation of cyclic preimage twins for a nonlinear five-neighbor automaton",
+          "2026/11/8/SCOPE-sharp-mod-three-separation-of-cyclic-preimage-twins-for-a-nonlin--8e3c21dab42f/RESULT.md, offset 1550–3761"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix B's second two-to-one rule becomes exactly this rule under x_j=x_(i+j−1). The entry identifies the rule, not the cyclic distance statistics.",
+          "The matched minimum-separation record uses the same cyclic ensemble but optimizes distance rather than analyzing the random twin pair."
+        ],
+        "reasoning": "Neither reindexing the rule nor replacing 'twins' by a two-point fiber generates novelty. The statistical law is not the prior extremal formula.",
+        "searches": [
+          "Resultary: exact CA preimage-twin distance, pairwise independence and 7/16 triple law",
+          "arXiv:2610.33131v1, Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix B tables the automaton, not its distance polynomial or statistics.",
+          "The matched cyclic image obstructions record is about rules one and three, not this second rule. The identical current record is not an independent match."
+        ],
+        "reasoning": "The exact rule is tabulated and already known; no independent table of the reduced law and exact statistics was identified.",
+        "searches": [
+          "Resultary: exact predecessor title and characteristic-distance law",
+          "arXiv:2610.33131v1, PDF p.31, Appendix B"
+        ]
+      },
+      "rationale": "Pass for the explicitly reduced eight-state distribution calculation and the exact dependence and fluctuation laws, not for discovery of the CA or two-point fibers, and not for existence of an implicit complete distance enumerator. The strongest identified predecessor actually implies a 64-state PGF on the same ring ensemble. It does not give the reduced formula or the joint indicator and limit laws. The best-of-knowledge judgment does not settle absolute priority.",
+      "residual_risks": [
+        "The older weighted graph already computes the complete distribution implicitly; the surviving contribution should not be presented as the first computable distribution.",
+        "Primary literature search beyond the exact rule source yielded no usable closer comparison; unindexed derivations or related work under other terminology remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rule is prior; appendix passage does not give the claimed distance law",
+          "evidence": [
+            "x_2+x_3+x_1(x_3+1)x_4+x_2(x_4+1)x_5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.33131v1",
+          "material_read": "Appendix B, PDF p.31, around text offset 95721",
+          "method": "Lawful open-access PDF text and symbol-by-symbol comparison",
+          "title": "Locally eventually onto cellular automata",
+          "trigger": "Exact rule and second example"
+        },
+        {
+          "assessment": "Prior twin representation and implicit PGF; distinct minimum objective and no verified explicit eight-state/statistical law",
+          "evidence": [
+            "J_N(x)=K_N(1+K_N(x)); closed walks correspond exactly to ordered cyclic twins and their total weight is Hamming distance"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-mod-three-separation-of-cyclic-preimage-twins-for-a-nonlin--8e3c21dab42f/RESULT.md",
+          "material_read": "Finding; factorization and exact twin multiplicity; finite weighted graph, offset 1550–3761",
+          "method": "Indexed record and exact local-mirror text",
+          "title": "Sharp mod-three separation of cyclic preimage twins for a nonlinear five-neighbor automaton",
+          "trigger": "Same automaton, Hamming distance and all cyclic lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distance observable is natural for the already studied fibers. The result replaces a minimum-distance answer by a tractable reduced exact law and identifies a concrete mechanism making all pairs behave independently while triples do not. The exact linear variance and scaled limiting law distinguish typical pairs from the extremizers; the contribution is not merely a small enumeration or a fresh execution of the old collision graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

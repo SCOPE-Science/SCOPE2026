@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the exact Haar response of a jump, reduces the \(BV\) operator norm to those responses by derivative-measure representation, and proves extremizer uniqueness via Hilbert strict convexity and Haar completeness. The \(s=0\) threshold follows from Parseval and exact dyadic test jumps. The global critical coefficient \(1/9\) follows from an explicit squared-tent coboundary identity, not from any finite search; weak convergence of the weighted orbit measures follows from a uniqueness argument for invariant measures supported on the period-two maximizing set. The embedded checker verifies 12,802 rational identities and finite cases, without claiming infinite certification.
+PASS
 
-## Originality — PASS, qualified
+For an interior unit jump, the only potentially nonzero coefficient at level k has magnitude 2^(−k/2) dist(2^k x,Z), giving the stated geometric weight r=2^(2s−1). For r<1 the Haar vector depends continuously on the jump location by the uniform geometric tail bound. Integrating jump vectors against Df proves the exact operator bound; equality requires a common signed direction of maximal vectors, and Haar completeness rules out distinct jumps on one line modulo constants. Parseval gives F_(1/2)=x(1−x), so the midpoint is uniquely optimal for r≤1/2. For r>1/2 the competitor 1/2−2^(−m) has a last positive contribution r^(m−1)/4, outgrowing the O(2^(−m)) first-term loss. On the left tent branch v−v∘T=3x²−x for v=x(1−x); direct expansion proves the square-defect identity, and reflection proves it on the right. Its discounted telescoping gives the 1/9 coefficient and +1/6 bound, while the 1/3 jump gives the lower bound or divergence for r≥1. The same defect bounds its occupation average by (1−r)/6; the discounted invariance relation on the circle makes every weak limit invariant and supported on the two exchanged points. This proves occupation selection, not convergence of initial locations. The additive bound is not claimed sharp.
 
-The 2003 Cohen–Dahmen–Daubechies–DeVore full text provides wavelet coefficient weak-type and interpolation statements. The 2016 Shchitov paper proves individual/fixed-level Haar coefficient bounds. The 2021 Galkin–Galkina–Tronov paper treats a Takagi-power family in which discount and exponent are tied together. None of these inspected claims implies this independent-discount squared-tent BV operator norm, its sharp midpoint transition, critical coefficient \(1/9\), or occupation-measure convergence. Published research-record searches and accessible own-claim comparisons found no dominating statement, but an unindexed historical equivalent remains possible; see the structured originality comparisons and residual risks in AUDIT.json.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise problem measures total quadratic Haar detail energy across infinitely many resolutions under a unit total-variation budget. In contrast to independently sharp levelwise coefficient estimates, one jump must serve all resolutions. The result identifies the exact smoothness exponent at which the best jump leaves the midpoint, the exact endpoint of boundedness, the critical blow-up constant, and concentration of resolution-phase distributions on a unique dyadic two-cycle. The sharp \(1/9\) versus levelwise \(1/4\) coefficient is a substantive multiscale incompatibility result.
+Credit only the distinct sharp free-geometric-weight Haar/BV classification and its midpoint threshold. The fixed Takagi member and Hilbert reduction are not independent novelty claims. More importantly, the same-day dyadic-residual finding has an algebraically equivalent squared-defect identity and substantially overlaps the critical residue and period-two selection. That overlap does not establish priority either way and does not give the free-geometric-weight transition; the all-scale norm classification retains distinct content.
 
-## Limitations
+## value
 
-No complete enumeration of jump maximizers is given inside the open interval \(0<s<1/2\); the theorem provides an exact convergent variational description there. The limiting occupation measure does not imply convergence of initial maximizing locations. Other wavelets and Fourier-defined Sobolev norms are not covered. An unindexed equivalent in dyadic ergodic optimization remains a historical priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geometric Haar scale weights are a natural smoothness parameter. The result locates two different sharp boundaries: immediate loss of the ordinary L² midpoint extremizer at positive smoothness, then failure of boundedness at s=1/2 with a sharp blow-up coefficient on approach. This gives concrete extremal information beyond a levelwise bound or a single critical orbit calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: accumulated propulsion under historical orientation copying
+# Independent mathematical audit
 
-**Correctness (PASS).** The stochastic drift of \(A_t\sigma_t\) accounts separately for independent tumbles and uniform-past sign copying; its memory term is exactly \(rB(t)/t\). The closed two-moment ODE, the regular boundary conditions, Kummer solution and critical limit were reconstructed independently. Positive-argument Kummer asymptotics give the three claimed exponents and amplitudes. Direct Poisson-event Monte Carlo and numerical ODE integration support, but do not substitute for, the derivation.
+## correctness
 
-**Originality (PASS under searched literature, with residual risk).** The motivating model's original paper computes one-time *reset position* distributions, not the variance of the nonreset accumulated signed propulsion; those observables have provably different long-time growth. The older elephant walk gives a similar three-regime shape, but is a discrete-time, equal-step historical-increment copying process, not the present continuous-time orientation process. The finite-time Kummer identity and rate threshold are not immediate specializations of those discrete results. Targeted exact-phrase, model, source-ID and equivalent-process searches did not return the same result. Less-indexed reinforced-telegraph publications remain a risk; no absolute novelty certification is asserted.
+PASS
 
-**Value (PASS).** Signed propulsion is the active displacement contribution before subtracting teleportation jumps. Its variance answers a natural pathwise question hidden by the observed position's \(\log t\) growth and reveals a sharp tunable diffusive-to-superdiffusive transition with exact coefficients. The critical \(t\log t\) law is particularly diagnostic. This is a structural distinction between motor-memory and spatial-reset statistics, not an arbitrary numerical slice.
+Put A=Y/v, B=E[A²] (sign symmetry gives E[A]=0), and K=E[Aσ]. Between events (Aσ)′=1, reversals contribute −2γK, and at a copy time the conditional mean of the new sign is A/t, giving drift r(B/t−K). A does not jump. Hence B′=2K and tB″+λtB′−2rB=2t. With B=tF, regularity and |A|≤t imply F(0)=0; the regular homogeneous branch is M(1−ν;2;−λt) and the constant particular solution is 2/(2γ−r). At r=2γ the integrating factor t²e^(λt) gives F′=2(λt−1+e^(−λt))/(λ²t²); differentiating the critical E₁ expression gives this derivative and its constant is fixed by F(0)=0. Kummer reflection then gives M(1−ν;2;−z)∼z^(ν−1)/Γ(1+ν), with the correct sign of the prefactor above threshold, and the critical logarithm has prefactor 1/(2γ). The initial expansion begins with t² as required. The supplied checker was read, not run. Its near-unit critical large-time ratio uses the subleading Euler-constant shift in the comparison denominator; it is not a nine-digit check against the leading logarithm alone.
 
-**Closest literature and limitations.** Boyer–Majumdar (arXiv:2312.13439) supplies the physical model and its one-time position distribution. Schütz–Trimper (arXiv:cond-mat/0406593) and Coletti–Gava–Schütz (arXiv:1608.01662) supply the discrete elephant-memory analogy. No limiting distribution or nonlinear biological implication is proved. Potential equivalent continuous-time reinforced-telegraph work is the remaining originality concern.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same joint-reset protocol occurs in prior work, but its published physical-position variance is not the variance of the integrated sign. Continuous-time occupation-time sampling and separate spontaneous flips distinguish the process from discrete elephant increments. The checked Resultary findings have different observables or a different reset rule. Best of current evidence supports the exact integrated-sign law and physical-rate coefficients as distinct, not the generic trichotomy by itself.
+
+## value
+
+PASS
+
+The integrated sign measures cumulative propulsion separately from jumps. In a fixed established model its variance changes from linear to superlinear through a sharp t log t boundary even though the reset coordinate spreads logarithmically. The exact law, the transition in physical rates and the leading constants give concrete benchmarks for path-dependent observables, beyond the generic elephant-walk analogy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

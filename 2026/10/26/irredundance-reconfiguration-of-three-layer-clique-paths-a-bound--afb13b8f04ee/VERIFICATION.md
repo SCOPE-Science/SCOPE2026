@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Executed checks and limits
+# Independent mathematical audit
 
-The self-contained script `verify.py` was executed using standard Python 3. It computes closed neighborhoods of \(K_n\square P_3\) directly, tests every subset against the original unique-private-witness predicate, compares the four structural cases and the all-set polynomial, tests inclusion-maximality by vertex additions, and independently derives slide edges and connected-component diameters of the maximum-set reconfiguration graph.
+## correctness
 
-Exhaustive results:
+PASS
 
-| \(n\) | Examined subsets | Maximal sets | Maximum sets | Reconfiguration edges | Isolated vertices | Nontrivial component diameter |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 4 | 4096 | 113 | 49 | 104 | 16 | 4 |
-| 5 | 32768 | 208 | 83 | 210 | 32 | 4 |
-| 6 | 262144 | 353 | 137 | 372 | 64 | 4 |
-| 7 | 2097152 | 570 | 227 | 602 | 128 | 4 |
+If the middle is empty, a multi-vertex outer occupancy forces every one of its vertices to use its matched middle vertex as witness; this requires disjoint indices across the outer layers. Singletons in both outer layers can share an index. If the middle is occupied, a second vertex in either outer layer is impossible because the whole middle clique is dominated by a selected middle vertex. With both outer singletons a middle vertex can only witness in the middle clique, so at most one middle vertex can be selected; any triple works by taking outer witness indices different from the middle index and a middle witness outside the two outer indices. A unique outer singleton can witness exactly when a proper subset of middle indices is selected, and middle vertices use the vacant outer layer. The middle-only selections always work. Counting the four disjoint cases yields I_n. Irredundance is hereditary, so the maximal configurations are exactly full complementary outer allocations (2^n), the full middle layer, the two families of singletons plus n−1 middle vertices (2n^2), and the three-layer triples (n^3). For n≥4, only size n is optimal. A slide within a singleton-plus-middle family changes one coordinate, yielding each rook graph. The hub slides to each family only at matched diagonal indices. A within-layer slide of a full outer allocation creates a repeated index, and a middle slide leaves n−1≥3 outer vertices, forbidden with a nonempty middle. No outer-to-outer slide can join the two families. Thus the maximum-set slide graph is exactly the stated union; an off-diagonal vertex is at distance two from the hub, so opposite off-diagonal vertices realize diameter four. Edge count and component counts follow.
 
-All 2,396,160 subset comparisons and every enumerated maximum-set slide edge agreed exactly with the proved classification. Computations were finite; the infinite-domain assertions are supported by the combinatorial proof in `RESULT.md`. No independent audit or external formal certification has been performed.
+## originality
 
-To reproduce, place this file next to `verify.py` and run `python verify.py` with standard Python 3. The verifier has no third-party dependencies.
+PASS
+
+The closest exact-host claim concerns a different set predicate; the same slide framework and related private-witness classifications do not classify this host family. This is a bounded best-of-knowledge decision.
+
+## value
+
+PASS
+
+On a natural Cartesian-product family, the result resolves both the quantitative gap between minimal size of a maximal set and the optimum, and the reachability of every optimum under an established slide model. The coexistence of exponentially many frozen optima with a diameter-four nontrivial component is information neither a count of optima nor the known domination result determines. The nontrivial component has quadratic size, not size uniformly bounded in n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** A completed proof treats all primes \(p\ge5\), all nonzero differences, both types of affine lines, and the normality condition. Quadratic norm character sums and a cyclic exponent criterion give both directions and exact counts. Exhaustive small-prime checks corroborate the proof but are not the reason the infinite theorem holds.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2026 Bagger–Fernando preprint and the 2022 Lemos–Neumann–Ribas preprint concern fixed-length sieve/existence bounds and certain shorter explicit classifications. Neither inspected principal theorem is equivalent to the sharp \(p-1\) cutoff and complete Fermat-prime count. Searches for subfield scalar cosets, quadratic norm obstructions and synonymous formulations yielded no covering result. The 2024 Sharma–Sarma–Laishram article was accessible only at abstract level; older implicit coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** Length \(p-1\) is the largest possible nonrepeating primitive progression in a quadratic prime-field extension, and the result determines precisely which primes attain it, with all extremal pairs counted. The Fermat-prime dichotomy connects multiplicative generator cosets and additive line geometry, offering a structural boundary not given by the fixed-length existence criteria.
+On a line avoiding zero, the norm is a nonzero scalar times an irreducible quadratic. Completing the square reduces its character sum to the sum for x^2-d with d nonzero: the equation y^2=x^2-d has exactly p−1 solutions by factoring (x−y)(x+y)=d. Thus even allowing the norm scalar to reverse signs, at most (p+1)/2<p−1 points have nonsquare norm, a necessary condition for primitivity. A long progression must therefore be on a line through zero; the missing index is −1, so a=b. If b has generator exponent k coprime to p²−1, the scalar coset has exponents k+(p+1)t with t covering p−1 residues. An odd prime divisor of p−1 divides some such exponent, whereas if p−1 is a power of two, all prime divisors of p²−1 divide p+1 and no exponent is disqualified. This proves the count and all-pair rigidity. The same line obstruction or the zero term rules out a full p-term progression. A nonnormal nonzero element satisfies z^p=±z and has order at most 2(p−1), so primitivity implies normality here. The finite enumerations reported in the frozen files are corroboration only; no uploaded code was executed or needed for the universal proof. No exact maximum is asserted for non-Fermat primes.
 
-**Scientific limitations.** No exact shorter maximum is claimed for non-Fermat primes; no generalization to higher extension degree or infinitude of Fermat primes follows. Small-prime computations are auxiliary. Earlier equivalent coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected statements do not cover the Fermat-prime condition for the growing length p−1 together with the classification and count of all ordered pairs in quadratic prime fields. Standard ingredients and fixed-length progression existence are not claimed new.
+
+## value
+
+PASS
+
+At the natural nonrepeating length bound, the theorem identifies an exact arithmetic obstruction and every extremal pair, rather than just producing examples or estimating a count. The link between the Fermat-prime condition and rigidity is useful independently of the unknown shorter maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

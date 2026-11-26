@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact independent-digit product identity establishes that every real Fourier zero comes from a finite mask factor. Three-vector geometry supplies the sharp weight threshold and its two simple roots in the strict region. The coset-intersection equivalence gives the exact first-signed-period truncation; disjoint lattice counting proves the coefficient and fixed-parameter error. The continuity argument uses finiteness of bounded-period torsion points, and the vanishing-order claim follows by multiplying nonzero analytic linear-leading terms. The three worked rational instances, boundary masks, and an irrational instance were checked with the bundled finite checker; they are corroboration, not proof of an infinite claim.
+PASS
 
-## Originality — PASS, with stated residual risks
+Pass for repairs/4/RESULT.md. The original leading coefficient, fixed-weight count and zero classification are correct, but the explicit assertion of nonuniformity in the original scope and limitations is false. In the strict phase domain, the closest integer point to (u,v) is (0,1), and u+1-v>1/2 implies a root-to-lattice distance >1/(2√2); the boundary roots are at least 1/2 from the lattice. Thus no scale above 2√2 R can contribute, uniformly over every weighting. Counting translated square lattices by centered square cells gives a uniform per-coset error O(R/2^k+1); summing through the uniform cutoff and restoring the omitted main terms costs O(R+1), including at large finite h and at the boundary. The compact-local product tail is nonvanishing; strict mask roots have opposite nonsingular Jacobians; the single boundary root is a fold with nonzero linear term and local degree zero. Matching two scale cosets is precisely the signed congruence; matching absorbs all of the sparser coset. Reduction by h gives the disjoint first h levels, while half-integer roots give disjoint levels of one sign. Odd torsion characterizes return, bounded periods give a finite set, and odd denominators approximate any oriented root. Products of nonzero leading Taylor polynomials give the vanishing-factor count for the order, and reflection pairs the nonresonant indices. An independent integer-grid calculation at radius 140 reproduced 30,790, 38,502 and 40,424 for signed periods 1, 2 and 3 and confirmed equality of the truncated full and first-return unions.
 
-Dutkay–Jorgensen's affine-IFS Fourier framework concerns canonical equal-weight invariant measures and Fourier bases; Chen–Ai's explicit zero-dilate formula uses uniform digit weights and addresses spectrality. The existing equal-weight Sierpiński zero-order census is a genuine special case at density \(1/2\), not an implication of the nonuniform formula or its dense discontinuity locus. Targeted published-record and literature searches found no statement of the full positive-weight zero-density function, odd-torsion phase criterion, or countably dense discontinuities. An unindexed nonuniform-mask result could cover portions of the theorem; negative searches are not a novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural two-parameter family of singular self-similar measures receives an exact all-parameter Fourier-zero counting classification, including a zero-free region, a critical boundary regime, a generic density, and infinitely many arithmetic density jumps. The fact that arbitrarily high zero multiplicities occur precisely on a countable dense parameter set gives a structural explanation of exceptional Fourier orthogonality behavior, not merely one more example of mask cancellation.
+For the corrected final claim, credit the known mask-product framework and exclude the equal-weight specialization as an originality claim. No inspected source proves the arbitrary-positive-weight dyadic real-frequency signed-return law, its discontinuity set and the repaired uniform estimate. Closely related indexed weighted density laws use different bases and/or dimensions, dependent weights, or lattice frequencies. The named equal-weight predecessor could not be verified independently, but even the full uniform-weight multiplicity and density law as described in the frozen record does not cover the weighted result.
 
-## Closest literature and limits
+## value
 
-Dutkay–Jorgensen, arXiv:math/0604547, provides the foundational IFS Fourier context. Chen–Ai, arXiv:2508.20809, supplies the later uniform-weight zero-dilation comparison. The earlier equal-weight note has identifier `1fa80c63-fc59-47bc-8e4d-2f95472a0f98`. The result leaves resonant phase indices, non-dyadic scalings, and independent priority review open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A standard Fourier zero-set representation does not tell how many distinct orthogonality frequencies are created by repeated scales. This natural family has an exact arithmetic correction to the density, with dense but individually quantifiable jumps, unbounded orders only in the resonant strict regime, and an isolated degree-zero boundary regime. The uniform counting error makes comparisons across weights meaningful without presuming uniform continuity of the limiting density. This is a complete density classification for a specified weighted family, not just a computation at equal weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

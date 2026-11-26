@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-step predecessor equation is solved as an additive quadratic map, not inferred from a finite experiment. The chain valuation dichotomy and disjoint-coset kernel proof verify all \(k\ge1\) and all finite \(q=2^f\), including \(s=0\) and overlapping degrees when \(q=2\). The derived multiplicities sum to the complete vertex count, and their degree-weighted total is exactly the edge count \(q^{2k}\). Direct forward-map enumeration for \(q=2,4,8\) in the finite ranges recorded in `VERIFICATION_OUTPUT.txt` corroborates the closed formula.
+## correctness
 
-## Originality — PASS, with priority limits
-Lipkovski (2012), Proposition 2.1 already gives the Vieta quadratic-root correspondence, and Lipkovski (2017) an upper bound for squarefree residue rings. Those are not new claims. Chernev and Chernev (2026) give connected-component and cycle-existence results; current-week periodic-point work is similarly distinct. Full relevant primary sources were read for implication comparisons. Mathematical-registry searches did not identify a preexisting exact all-length characteristic-two chain-ring distribution. Earlier source-focused papers are a residual priority risk, especially where full text could not be obtained.
+PASS
 
-## Mathematical value — PASS
-Beyond the elementary root correspondence, the finding resolves a natural distributional invariant, giving an all-ring parameter law and a sharp even/odd nilpotent-depth maximum. It distinguishes number of branches at individual vertices from counts of cycles and components. The result is not claimed as a broad period classification.
+A predecessor with sum s is uniquely parametrized by x; its product is x^2+sx in exact characteristic two. Additivity makes nonempty fibers equal-sized. For 2v<k, where v=nu(s), multiplication by pi^v times a unit annihilates exactly J^{k-v}; a putative root of x(x+s)=0 with nu(x)<v is impossible because its product has valuation 2nu(x)<k. If nu(x)>v the other factor has valuation v, and if nu(x)=v the root must be within J^{k-v} of s. This gives exactly the disjoint cosets J^{k-v} and s+J^{k-v}. For nu(s)>=h, both factors vanish multiplicatively whenever x is in J^h, and x outside that ideal has too low a valuation. Thus counting pressure from each fixed-s stratum gives the stated histogram, adding coincident degrees (e.g. q=2,k=2). The weighted counts give q^{2k} arrows independently by totaling the q^k domain choices of x for each s. At k=1 the formula is q repeated-root, q(q-1)/2 double-distinct-root, and q(q-1)/2 no-root targets; the parity maxima follow by comparing 2q^{h-1} to q^{floor(k/2)} and observing that both strata exist. The frozen verification script and stdout were inspected, not rerun; the valuation argument is not limited to the enumerated presentations.
 
-## Limits
-The result is confined to characteristic-two commutative chain rings; exhaustive examples are supporting checks and historical novelty is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported result is the complete ordered-multiplicity histogram for all lengths in exact characteristic two, including how nilpotence and degree collisions affect it. The quadratic-root equivalence and the field case are known or elementary and not credited. The closest indexed random-quadratic laws are in a different ring; the same-map graph studies inspect different invariants.
+
+## value
+
+PASS
+
+In-degree, including the number of sources, is a natural invariant of this longstanding finite-ring graph, with a second use as an exact distribution of roots of uniform monic quadratics. The full nilpotent chain family, rather than an isolated ring or number, gives a uniform description of multiplicities, parity-dependent maximum and small-field degree collisions. This fills a well-posed census not supplied by the basic root observation or short-cycle profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

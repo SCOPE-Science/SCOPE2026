@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:38:44.489248Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two independent rescalings of any nonzero parameter triple give a two-dimensional fiber, so the affine r-channel dimension is at most 145r. Independently rebuilt the derivative over F_29 by scattering the derivatives of d_k a_u b_v times the phase to row (k+u,k+v), directly from the stated coefficient map. Used the frozen 2352 integers, verified the primitive order of 7 modulo 29, and performed exact integer blocked modular elimination, with no floats, on the four selected-column matrices. All four attained 2320 pivots of 2320 for (0,0),(0,1),(1,1),(1,2). Replay: python3 replay/review_q7_rank.py <frozen-package>/parameters_q7.txt 16 0 1 2 3. In the lift to Z[zeta_7], the reduced nonzero full minor cannot come from a zero determinant in the coefficient ring; selecting only the columns of r channels likewise gives 145r independent columns in the complex r-channel Jacobian. The dimension equals the upper bound in characteristic zero. Scaling the first coordinate of every index and transposing (i,j) give the corresponding type scaling and input swap. The remaining triality can also be checked on the coefficient map: with B(x,y)=x_x y_y and q(x)=B(x,x), swap k and u=i-k, replace v by -v, and set i'=i,j'=i-j. The exponent differs from the (-s-t,t) exponent by s q(k')+(s+t)q(u')-(s+t)q(i')+t B(i',j'), a sum of separate input and output phase gauges, yielding a linear equivalence of the image cones. Enumerating the scaling/permutation orbits of (s,t,-s-t) gives sizes 1,18,18,12 covering all 49 pairs. The polynomial map is conical and summing a dense parametrized subset of each cone gives the affine cone over the projective secant on closure. Thus the projective dimension is 145r-1 and the order-16 codimension is 81. Neither this computation nor the original proof tests order 17.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete profiles in Theorem 8.3 concern q=2,3,4,5; the extension ranges of Corollary 9.5 do not include q=7. The invariant-cone theorem has an irreducible-module hypothesis and its sufficient r<=dim(L)/dim(X)-dim(X) bound is negative at 2401,145 even if applicable."
+        ],
+        "reasoning": "Neither broader hypothesis/range matches the audited all-type penultimate dimensions. The filling conjecture does not assert these lower-order ranks.",
+        "searches": [
+          "Nguyen–Nguyen Theorem 8.3, Corollary 9.5, Conjecture 11.1",
+          "Blomenhofer–Casarotti Theorem 1.1",
+          "Resultary q=7 width or all secant orders"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, two verifier sources and parameter witness",
+        "arXiv:2611.01104v1, arXiv:1711.08686 and arXiv:2312.12335",
+        "Resultary 1c265ae2b9bc and 2a3da4e1ef6d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later exact 17-channel certificate has rank 2401 and only uses the bound dim(sixteen-channel image)<=2320 to conclude generic width 17. Known one- and two-channel dimensions and type symmetries do not force independence of 16 tangent images."
+        ],
+        "reasoning": "Deleting a channel of rank at most 145 from the full 17-channel certificate guarantees at most the lower-bound inference 2401-145=2256, not 2320. Thus filling plus the dimension upper bound does not imply the audited equality; the new selected-column check resolves its different question.",
+        "searches": [
+          "1c265ae2b9bc Finding and 17-channel Jacobian certificate",
+          "Nguyen–Nguyen Conjecture 11.1 and Propositions 7.1–7.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original literature's basepoint coefficient matrix A^T diag(d)B matches the audited phase map. Its untwisted sector is the group-based tripod for F_7^2. Baños et al. Proposition 5.2 needs at least 2r+1 leaves: a tripod has only three. The same-day Heisenberg tomography result is about a sum of subgroup averages, not this parameterized bilinear image."
+        ],
+        "reasoning": "The untwisted change of coordinates is a genuine equivalence, but the inspected claw-tree theorem does not apply to this leaf count and order, and does not address all the twisted types.",
+        "searches": [
+          "Resultary order-seven Heisenberg bilinear channel secants, generic fusion width and q=7 Jacobian rank",
+          "Nguyen–Nguyen Sections 3–5 and Proposition 10.1",
+          "Baños et al. group-based tripod/claw-tree secants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior complete profile list omits q=7; no table supplying the exact 16-channel rank across the four types was identified. 2a3da4e1ef6d gives a numerical match to 145 for a different linear operator, not a matching rank table for the displayed Jacobian."
+        ],
+        "reasoning": "Numerical coincidence of 3p^2-2 in two different models does not establish the secant profile.",
+        "searches": [
+          "Resultary exact rank 2320, q=7 order-16 secants and generic width",
+          "Nguyen–Nguyen certified secant profiles"
+        ]
+      },
+      "rationale": "The motivating paper supplies the map, symmetries, one-channel dimension and second secants, not the q=7 nondefectivity through r=16. Inspected same-day work has a different invariant. A later result fills at 17 but gives only the 16-channel upper bound, not the exact subgeneric ranks. The pass is for the exact q=7 subgeneric dimensions beyond the known low orders, not for the parameterization, symmetry reductions, orders 1–2, or the generic width.",
+      "residual_risks": [
+        "The targeted web search did not supply another close primary source; lack of a hit is not proof of historical priority.",
+        "Specialized group-based mixture work or a later expanded explicit rank profile could overlap, particularly in the untwisted case. The inspected order-17 record is not such a profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BACKGROUND_AND_LOW_ORDERS",
+          "evidence": "Twisted shifts and basepoint map agree; all-type symmetries and one-channel dimension are present, but the certified full-profile regimes exclude q=7.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01104v1",
+          "material_read": "Equation (5)/Theorem 3.2 offset 13900; basepoint model offsets 18800–21200; Theorem 5.7 offset 27212; Propositions 7.1–7.2 offset 41000; Theorem 8.3 offset 53712; Corollary 9.5 offset 62020; Conjecture 11.1 offset 69791",
+          "method": "OA primary HTML passages",
+          "title": "Secant dimensions and bilinear decomposition widths for finite Heisenberg groups",
+          "trigger": "Same model and exact secant computations"
+        },
+        {
+          "assessment": "RELATED_ORDER_17_NOT_COVERING_ORDER_16_RANK",
+          "evidence": "States rank 2401 at order 17 for four representatives and deduces width 17; does not assert rank 2320 at order 16.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-generic-fusion-width-seventeen-for-the-order-seven-heisenb--1c265ae2b9bc/RESULT.md",
+          "material_read": "Finding offset 0 and proof of filling and lower bound on width",
+          "method": "Resultary search and original local mirror",
+          "title": "Sharp generic fusion width seventeen for the order-seven Heisenberg bilinear channel",
+          "trigger": "Same map, same group, all types, next secant order"
+        },
+        {
+          "assessment": "DIFFERENT_MAP",
+          "evidence": "Rank 3p^2-2 for a sum of three cyclic-subgroup averaging operators is not a secant Jacobian statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-line-heisenberg-tomography-a-complete-gauss-phase-spectrum--2a3da4e1ef6d",
+          "material_read": "Finding, normalized subgroup averaging rank",
+          "method": "Resultary and original local mirror",
+          "title": "Three-line Heisenberg tomography: a complete Gauss phase spectrum",
+          "trigger": "Distinct same-day Heisenberg rank result at the matching parameter"
+        },
+        {
+          "assessment": "LEAF_HYPOTHESIS_NOT_MET",
+          "evidence": "Expected r-th secant dimension is proved for an n-leaf claw when n>=2r+1; not applicable to a tripod at r=16.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.08686",
+          "material_read": "Proposition 5.2, p. 19, offset 65488",
+          "method": "OA PDF passage",
+          "title": "Dimensions of Group-based Phylogenetic Mixtures",
+          "trigger": "Untwisted model is a group-based tripod"
+        },
+        {
+          "assessment": "BOUND_DOES_NOT_COVER",
+          "evidence": "Sufficient bound dim(L)/N-N for an invariant N-dimensional irreducible cone in an irreducible module is nonpositive here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.12335",
+          "material_read": "Theorem 1.1, p. 2, offset 7375",
+          "method": "OA PDF passage",
+          "title": "Nondefectivity of invariant secant varieties",
+          "trigger": "Potential uniform secant theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "q=7 is the first prime case beyond the motivating paper's complete small-q profiles, and r=16 is the largest predicted subambient order. The full exact rank there certifies every lower order for all twists, including their dimension rather than only a generic-width cutoff. It gives a clear answer about dimension 2319 and codimension 81 at the meaningful boundary, complementary to, and not superseded by, filling at 17.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

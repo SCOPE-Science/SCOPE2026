@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every positive odd integer. Step 1 counts possible supports and drops the total-sum constraint to obtain a uniform upper bound. Step 2 constructs a disjoint, injectively parameterized family of exact partitions: parity makes the residual multiplicity of ones integral, and the prescribed ranges keep it nonnegative. With \(s\) respectively a fixed fraction of \(k\) and \(k-O(\log k)\), this gives the claimed matching exponents and error terms. Step 4 applies the established largest-part-overlined correspondence and concentration away from sparse supports. The argument does not extrapolate an infinite theorem from finite computation. The independent coefficient/recurrence comparison checked \(2048\) positive indices.
+PASS
 
-## Originality — PASS within inspected evidence
+Reconstructed the upper count by placing a support of size s at the s cheapest exponents, multiplying 1+floor(n/2^(j+1)) over those exponents, then allowing at most 2^(k+1) supports. This gives log_2 b_{<=t} <= tk-t^2/2+O(k) for admissible t. The matching lower bound fixes consecutive exponents 0 through s-1, draws the multiplicity parameters at j>=1 from independent boxes of total cost <=n/4, and completes the sum at j=0. Oddness of n and of the baseline 2^s-1 gives an integer nonnegative parameter at j=0, and different boxed choices give different partitions. The log volume is sk-s^2/2+O(k log(k+2)) with the error uniform in the allowed s; use s=t for fixed epsilon and s=k-O(log k) for the total. Subtraction yields exactly the two-sided tail exponent with its stated error. The support weight 2^(J-1) then gives the claimed upper bound 2^k and lower bound 2^t(1-o(1)) for the mean on odd indices only. Independently checked exact support histograms for 1<=n<=255 by direct odd-multiplicity recursion against H(2m)=H(m) and H(2m+1)=H(2m-1)+zH(m), with H(0)=1 and H(1)=z. The finite replay is python3 /tmp/opencode/frozen_independent_checks.py (line beginning 3:).
 
-The motivating Ballantine–Beck article introduces the semi-Pell overpartition model and poses asymptotic comparisons of its odd-index sequences as an interesting question; its stated theorems and concluding discussion do not derive the support large-deviation exponent or the \(n^{1+o(1)}\) ratio. Andrews proves the unweighted odd-binary partition interpretation and parity. Keith–Munagi studies semi-Pell composition bijections, generating functions and congruences rather than asymptotic support concentration. Individual OEIS sequences record recurrences and numerical tables; none supplies the cross-sequence separation theorem. Relevant nearby mathematical-record results treat different partition models (including weighted representation-balance partitions and unrestricted overpartition minima) and do not dominate this exact-support statement. Earlier unindexed or indirect coverage is a residual risk; novelty is not inferred solely from a failed search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives a sharp global asymptotic comparison explicitly raised in the source literature and a distributional explanation for why the weighted and unweighted counts diverge by an essentially full factor of \(n\). The nontrivial \(\varepsilon^2/2\) support large-deviation rate adds information beyond classical leading binary-partition growth. The result is a complete, natural logarithmic-rate statement, not an arbitrary finite cutoff or a restatement of the defining recursion.
+The supported distinct result is the matching lower and upper logarithmic rate for sparse support. The strongest indexed comparison gives the same ratio exponent and the same leading support upper bound, so neither is credited as independently distinct. The dates of the two records do not establish historical priority. The matching lower bound is a material additional conclusion and the main frozen claim is not covered by the compared statements.
 
-## Remaining scientific limitations
+## value
 
-The results are restricted to odd indices, are logarithmic-scale rather than exact multiplicative asymptotics, and leave comparisons with other self-similar sequences open. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-sided law measures how rarely a uniformly chosen odd-multiplicity partition uses a given small fraction of the available sizes. It goes beyond proving concentration near full logarithmic support, and reveals the statistic connecting two established self-similar sequences. This is a meaningful distributional result even after crediting the existing ratio and one-sided bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

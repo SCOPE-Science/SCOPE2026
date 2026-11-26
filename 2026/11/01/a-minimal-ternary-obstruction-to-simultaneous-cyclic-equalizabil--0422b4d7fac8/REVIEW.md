@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statement uses the simultaneous-insertion definition of [1,2], with no unstated alignment changes. Equal Parikh vectors force any two differing columns between rotations to be a transposition of one unordered symbol pair. For an indicator of one symbol in that pair, the discrepancy between the word and a distance-two rotation has a unique positive coordinate. A different distance-two exchange pair would produce another commuting rotation preserving the indicator and hence preserving the nonzero discrepancy, an impossibility for a nonidentity cyclic coordinate shift. The two explicit pairs in the displayed ternary triple exchange \(\{1,2\}\) and \(\{0,1\}\); identical inserted columns cannot affect either. The proof covers arbitrary insertion length, arbitrary cyclic offsets, and all word lengths; finite exhaustions are corroboration only.
+PASS
 
-## Originality: PASS, subject to priority risk
+Translate any distance-two pair of rotations so that one word is z. Equal Parikh vectors make its two mismatches a swap. If two shifts had different swap pairs, take a symbol e involved only in the first. For its indicator f, D=R_s f−f has a unique +1, while R_t f=f for the other nonzero shift. Commutation gives R_t D=D, impossible because a nonzero cyclic translation fixes no coordinate. This holds even when z is periodic. In 012,021,120 the successive pairs swap {1,2} and {0,1}; common insertions add identical columns and therefore preserve these two mismatch pairs, making a common orbit impossible at any insertion length. The same invariant gives every length at least three by common padding. Length zero, one and two are trivial within each Parikh class; the frozen two-word boundary is exactly the published theorem for arbitrary finite alphabets. No binary three-word conclusion is needed.
 
-The 2025 paper [1, Section 6] poses the multiple-word question, without a ternary counterexample. The 2026 full text [2, Section 7] explicitly states that equality of Parikh vectors may or may not suffice for three or more words; its sufficiency result [2, Theorem 3] applies to only two words and therefore does not imply or contradict this three-word obstruction. Searches for exact examples, equivalent orbit lemmas, and paraphrases identified no covering claim. The main risk is a possibly unindexed elementary obstruction or earlier unpublished resolution; this is not a claim of independent priority certification.
+## originality
 
-## Value: PASS
+PASS
 
-This short concrete counterexample settles one direction of an explicitly posed open problem: the two-word Parikh characterization fails for three ternary words. The accompanying all-length rotation-orbit rigidity lemma gives a reusable necessary obstruction, and the example has the shortest possible length over ternary alphabets. A complete classification is not needed for this boundary result to have value.
+Pass applies to the distinct equalizability finding: a minimum-size ternary obstruction to common-insertion equalization and its extension to all lengths. The rotation-rigidity lemma in isolation is not a new structural consequence: it follows from Gabrić's earlier Lemma 14. The work uses the exchange-pair invariant across unchanged mismatch columns to connect that structure to the separate open multiple-word insertion problem.
 
-## Closest literature and limitations
+## value
 
-[1] Shinagawa–Nuida, arXiv:2507.04916v1, Section 6 (multiple-word open question). [2] Thongjarast–Pasiphol–Ruangwises, arXiv:2604.19504v1, Theorem 3 (two words) and Section 7 (three-or-more open problem). No claim is made about the still-distinct binary three-word question or the general decision problem. An unindexed prior observation remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a sharp negative answer to a stated extension of the pair theorem: equal symbol counts cease to be sufficient already at family size three and ternary length three, no matter how large the permitted identical insertions are. The two aligned swaps give a usable structural obstruction beyond the single example. Novelty of the supporting orbit lemma is not needed for that contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

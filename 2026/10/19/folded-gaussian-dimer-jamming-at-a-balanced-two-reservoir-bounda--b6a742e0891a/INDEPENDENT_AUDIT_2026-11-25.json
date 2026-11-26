@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:37:12.635993Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–81 and VERIFICATION.md; uploaded verify.py inspected, not executed",
+        "Repaired /workspace/repairs/5/RESULT.md Finding and complete Proof",
+        "Independent bounded replay /workspace/branches/audit-checks.js, rational-probability and variance blocks"
+      ],
+      "rationale": "This is a pass for the repaired claim, not for the frozen formula interpreted literally. The frozen disjoint-union symbol deletes all A–B edges, contradicts its prose and rate AB/N, and for α>1/4 would leave at least 4m_N−N unmatched vertices deterministically, disproving the stated scaling under that reading. The complete corrected RESULT.md in /workspace/repairs/5/ replaces the disjoint union by the complete bipartite graph and preserves the adjacency actually used by the proof and verifier. It explicitly states the rescaled time, makes the stopping/localization argument precise, and describes the finite verifier as labeled-subset recursion rather than full permutation enumeration. On the corrected graph, exponential memorylessness gives the four rates, parity and maximality give U=|D_jam|, and A–B matching plus clique pairing gives a perfect matching. I substituted each jump into both scaled generator ratios and checked the deficits with AB≤L²/4 and C≤L, including C=0. The D² compensator bound uses the actual cross-to-clique count (at most C₀); stopping bounds imbalance exits by O(N^(−1/3)). The 2C/L estimate controls both the ratio exit and the tail integral of c, and the NC/L² supermartingale with its integrating factor gives C at L≈N^(2/3) of order O_P(N^(1/3)). The cutoff time bound follows from summing 9N/L² over remaining levels; a failed cutoff has vanishing probability. Hence later D changes are o_P(√N). The squared integrating factor is tight, and the tail of the unweighted bracket has expectation ≤E C_T/N, which vanishes in the successive limits. With the stated localization, the jumps vanish uniformly and the martingale CLT yields the claimed normal for D and folded normal for U. Evaluating the positive fluid bracket gives the displayed variance; E D_jam²≤C₀ gives uniform integrability for the mean. Independent bounded calculation agrees with the recorded three nontrivial exact probabilities and variance values.",
+      "residual_risks": [
+        "Positive fixed clique fraction and equal reservoir sizes are kept. No claim about critical initial imbalance, separate physical-time statistics, or convergence of second moments.",
+        "Finite exact counts and evaluation of the formula are corroborative; the terminal CLT uses the cutoff and bracket proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gamarnik–Goldberg's stated regular/girth and bounded-degree concentration results do not include this dense graph sequence or a terminal CLT. Their discussion of Dyer–Frieze is indirect context only.",
+          "Resultary 38fa8766b226 gives a terminal fluid/mean law in a complete tripartite model lacking the clique edges."
+        ],
+        "reasoning": "Macroscopic vacancy bounds or fluid laws cannot determine the scale or shape of terminal noise on this balance boundary. A fixed-time CLT also does not guarantee the terminal limit; the proof requires a model-specific tail estimate.",
+        "searches": [
+          "Gamarnik–Goldberg arXiv:0807.1277v1, Theorems 3 and 6",
+          "Dyer–Frieze DOI 10.1002/rsa.3240020104",
+          "Pippenger DOI 10.1137/0402034",
+          "Resultary dense multipartite fluid laws"
+        ]
+      },
+      "checked_sources": [
+        "Primary sources and local Resultary records listed above, evaluated for the corrected graph and terminal statistic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Degrees in the corrected graph grow linearly with N, so bounded-degree hypotheses fail. A rare independent third part forbids its internal dimers, whereas an extensive clique makes those dimers part of the leading fluid and bracket dynamics.",
+          "Extensive retained imbalance at the scale √N is not computable from a zero terminal density or a fluctuation theorem about a positive center."
+        ],
+        "reasoning": "These are model or hypothesis differences, not merely notational changes. No covering specialization or trivial reduction to the existing exact formulas was demonstrated.",
+        "searches": [
+          "arXiv:0807.1277v1 Theorems 3 and 6 versus corrected graph degrees",
+          "Resultary 3b9a8257a10c, e1c1b8b5cc81 and 38fa8766b226 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform priority and uniform choice among remaining admissible edges are the same count-chain distribution. The terminal vacancy observable is N−2 times the number of accepted dimers.",
+          "Resultary 3b9a8257a10c gives a Gaussian for the terminal greedy matching or vacancy fluctuation about a positive limiting vacancy density in a complete split graph."
+        ],
+        "reasoning": "Re-expressing the matching size as vacancies does not remove the split model's positive center, or create a second extensive independent class. The repaired graph is a clique joined to a complete bipartite graph.",
+        "searches": [
+          "Local Resultary searches for randomized edge-order greedy matching, terminal unmatched count, adsorption and folded normal",
+          "Gamarnik–Goldberg arXiv:0807.1277v1 §§1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e1c1b8b5cc81 supplies a total-variation approximation by a folded binomial for K_(n,n,k), k=o(n^(1/3)), and a √k folded-normal limit. This record is later.",
+          "The inspected exact indexed Gaussian for complete-split graphs, 3b9a8257a10c, has a different graph and positive center."
+        ],
+        "reasoning": "The nearby explicit laws are not the same at the level of edge sets, macroscopic composition, scale or limiting variance. No distinct record of the exact same theorem surfaced in bounded ranked retrieval; same-day ordering is not inferred.",
+        "searches": [
+          "Local Resultary search for exact variance and folded-normal terminal count in balanced double independent reservoirs with a universal clique"
+        ]
+      },
+      "rationale": "For the corrected graph, the credited result is the terminal centered √N fluctuation with the explicit variance and uniform-integrability conclusion under balanced, macroscopic reservoirs and a macroscopic clique. The greedy algorithm and density-dependent finite-time framework are known. The strongest earlier indexed split-graph result has the same scale for fluctuations but about positive density in a different graph. The closest folded-normal analogue concerns a rare independent third part and is later. No checked prior passage covers the corrected finding.",
+      "residual_risks": [
+        "Dyer–Frieze and Pippenger primary texts could not be inspected directly. An older exact dense-graph result is not categorically ruled out.",
+        "The indexed search is ranked and not an exhaustive proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant common process, no coverage of dense terminal folded CLT",
+          "evidence": "Regular and girth-based results and bounded-degree normalized matching-size concentration.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.1277v1",
+          "material_read": "PDF pp. 2–3 §§1.1–1.2 and pp. 6–7, Theorems 3 and 6, Eqs. (3)–(4), (9)–(10)",
+          "method": "OA primary PDF",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+          "trigger": "Same random greedy matching process, possible general fluctuation result"
+        },
+        {
+          "assessment": "Primary comparison unavailable",
+          "evidence": "Gamarnik–Goldberg discusses this work in the context of bounded-degree and girth assumptions; that does not determine all of the paper's contents.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "No readable primary theorem section; indirect context from Gamarnik–Goldberg PDF p. 3",
+          "method": "DOI/publisher and lawful repository retrieval attempts",
+          "title": "Randomized greedy matching",
+          "trigger": "Classical greedy matching paper with potentially overlapping special graphs"
+        },
+        {
+          "assessment": "Primary comparison unavailable",
+          "evidence": "Access failure establishes no theorem-level absence.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "No readable primary theorem section",
+          "method": "DOI/SIAM and lawful repository recovery attempts",
+          "title": "Random sequential adsorption on graphs",
+          "trigger": "Classical adsorption formulation of the same process"
+        },
+        {
+          "assessment": "Earlier scale/process overlap, not the same graph or limit",
+          "evidence": "One independent class, positive terminal vacancy density, ordinary centered Gaussian.",
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c",
+          "material_read": "Finding and assumptions, RESULT.md offsets 0–1798",
+          "method": "Local Resultary mirror",
+          "title": "Gaussian jamming fluctuations on complete split graphs",
+          "trigger": "Closest earlier indexed terminal CLT"
+        },
+        {
+          "assessment": "Later result and distinct rare independent part regime",
+          "evidence": "Folded binomial for K_(n,n,k) with k=o(n^(1/3)); limiting scale √k.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-binomial-obstruction-to-random-greedy-matching-under-a-rare-tr--e1c1b8b5cc81",
+          "material_read": "Finding and assumptions, RESULT.md offsets 0–2139",
+          "method": "Local Resultary mirror",
+          "title": "A binomial obstruction to random greedy matching under a rare third part",
+          "trigger": "Closest indexed folded-normal limit"
+        },
+        {
+          "assessment": "Later fluid/mean result, neither terminal CLT nor identical substrate",
+          "evidence": "Complete tripartite adjacency with a fluid/mean matching ratio, no edges inside any part.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-sharp-7-8-random-edge-matching-ratio-on-dense-complete-tripa--38fa8766b226",
+          "material_read": "Finding and assumptions, RESULT.md offsets 0–2272",
+          "method": "Local Resultary mirror",
+          "title": "The sharp 7/8 random-edge matching ratio on dense complete tripartite graphs",
+          "trigger": "Broader density regimes for an analogous dense process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/5/RESULT.md, exact edge model and Finding, cutoff and CLT proof"
+      ],
+      "rationale": "On the corrected dense graph, a perfect matching is immediate while irreversible uniform greedy matching leaves a diverging terminal defect despite its limiting fraction being zero. The explicit folded-normal law and mean identify the finite-size amount of jamming and its dependence on composition; a fixed-time or density approximation cannot supply that information. The terminal cutoff matters mathematically because the observable lives at absorption rather than at a fixed fluid time.",
+      "residual_risks": [
+        "No value inferred from the literal erroneous disjoint-union graph or the finite simulations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

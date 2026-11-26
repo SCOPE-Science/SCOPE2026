@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:11:08.612847Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–35",
+        "Frozen VERIFICATION.md, lines 19–21 and check_idempotent_derivations.py, lines 39–95 (read only)",
+        "Independent replay: python3 /tmp/opencode/toral_orbit_check.py"
+      ],
+      "rationale": "Every derivation is determined by f=D(t), with N t^(N−1)f=0. Outside characteristic two, the second Leibniz identity and idempotence force 2f²=0, so any nonzero f has valuation at least 2, in contradiction with ff'=f. In characteristic two, D² is a derivation; the same valuation estimate excludes f of valuation at least 2. A unit f forces f'=1, and for valuation 1 the annihilator is (t^(N−1)), which forces f'=1 because the derivative has degree at most N−2. This yields exactly the stated coefficient affine space in each parity. The same argument over residue fields of primes of the coefficient ring identifies the reduced locus, not only its k-points. The h images of the odd powers are independent by their distinct lowest degrees. With a=f(0) the coordinate s=f−a has linear coefficient 1 and D(s)=s+a; rescaling when a≠0 gives the second normal form. This second class can occur only at even length and is distinguished by failure to preserve the maximal ideal. Counting parameters gives the enumerator and orbit sizes. Independently enumerating all coordinate substitutions over F2 and F4 at N=3,4,5,6 confirmed the nonzero orbit sizes (for example, 16 and 48 over F4 at N=6).",
+      "residual_risks": [
+        "Finite reproduction checks conjugacy only in the specified small cases; the general and reduced-locus arguments are algebraic. Nothing is asserted about the nonreduced scheme."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Premet's truncation is by pth powers with p>2 and the relevant conclusions concern Cartan subalgebras",
+          "Qiu–Zheng–Dan p. 2 uses a weight parameter in Leibniz; Hoffmann–Kowalski p. 1 asks for Hasse–Schmidt integration"
+        ],
+        "reasoning": "None of these statements gives arbitrary N with the ordinary Leibniz law and composition idempotence. In particular, restricted pth-power identities for odd p are not the equation D²=D.",
+        "searches": [
+          "arXiv:1405.2426, restricted Witt derivation geometry",
+          "arXiv:1212.5788, integrating Hasse–Schmidt derivations",
+          "arXiv:2308.00602, quasi-idempotent differential algebras"
+        ]
+      },
+      "checked_sources": [
+        "Resultary findings 9ec1fa6dbd7e, 0a31c6fc6432, 6b81699a8630, 0ca161a05327, 8d4ed1fb4c6d",
+        "Premet arXiv:1405.2426; Qiu–Zheng–Dan arXiv:2308.00602 p. 2; Hoffmann–Kowalski arXiv:1212.5788 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Square-zero findings give rank loci and component geometry for D²=0; their statements do not give the D²=D locus",
+          "The new parity split depends on whether a nonzero D(t) can be a unit, i.e. exactly the case of even length in characteristic two"
+        ],
+        "reasoning": "The square-zero and nonzero idempotent classes cannot be identified by adding the identity operator, which is not a derivation. The inspected toral results do not mechanically give the length-parity criterion or the individual finite-field orbit counts.",
+        "searches": [
+          "Same-algebra square-zero records 0ca161a05327 and 8d4ed1fb4c6d; toral-coordinate comparison in arXiv:1405.2426"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Premet, pp. 1–2, has Cartan representatives using X_i∂_i and (1+X_i)∂_i in a characteristic-p power truncation, assuming p>2",
+          "Null-filiform record 9ec1fa6dbd7e has the same characteristic-two total but one nonzero orbit in a different algebra"
+        ],
+        "reasoning": "In characteristic two, idempotence as a derivation is equivalently a two-eigenspace Z/2 grading via the product rule, but the existence of this reformulation does not classify gradings of arbitrary-length k[t]/(t^N). The close Witt toral coordinates are precedent, not the same ambient ring, characteristic and equivalence problem.",
+        "searches": [
+          "Resultary: ordinary toral/idempotent derivations, finite one-variable Witt derivations and truncated polynomial algebras",
+          "Premet, Regular derivations of truncated polynomial rings, scope and toral normal forms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0a31c6fc6432 tabulates rational canonical forms for N=p≥3 and expressly not algebra-automorphism similarity classes",
+          "6b81699a8630 treats nilpotent skew derivations",
+          "9ec1fa6dbd7e counts right null-filiform Leibniz algebra derivations"
+        ],
+        "reasoning": "The same rank number in a different algebra is not an equivalent census. Linear similarity counts or skew-derivation power ranks do not determine these ordinary automorphism orbit sizes.",
+        "searches": [
+          "Resultary: rank enumerators and conjugacy for toral/idempotent derivations, one-variable Witt spectra",
+          "Distinct same-day findings 0a31c6fc6432 and 6b81699a8630"
+        ]
+      },
+      "rationale": "The inspected sources contain close toral normal forms and related enumerators, but do not establish the arbitrary-length, ordinary composition-idempotent classification with its parity-dependent automorphism orbits. Search evidence does not establish priority.",
+      "residual_risks": [
+        "The primary comparison is bounded to available cited passages; an uncatalogued classification of ordinary two-eigenspace gradings of arbitrary truncation length could cover these normal forms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close analogue, not dominating",
+          "evidence": "p>2, pth-power truncations and Cartan subalgebra conjugacy.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2426",
+          "material_read": "PDF pp. 1–2, offsets 0 and 3850",
+          "method": "Primary OA text",
+          "title": "Regular derivations of truncated polynomial rings",
+          "trigger": "Toral normal coordinates in a truncated polynomial ring"
+        },
+        {
+          "assessment": "Different algebra and orbit structure",
+          "evidence": "Right null-filiform Leibniz multiplication, with one nonzero conjugacy class at p=2.",
+          "identifier_or_url": "2026/11/8/SCOPE-toral-derivations-and-their-finite-field-orbits-in-null-filiform--9ec1fa6dbd7e",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Toral derivations and their finite-field orbits in null-filiform Leibniz algebras",
+          "trigger": "Matching characteristic-two count"
+        },
+        {
+          "assessment": "Different scope and equivalence",
+          "evidence": "For p≥3 and N=p, linear rather than algebra-automorphism conjugacy.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-rational-canonical-spectra-of-finite-one-variable-witt--0a31c6fc6432",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Complete rational canonical spectra of finite one-variable Witt derivations",
+          "trigger": "Same-day natural operator census"
+        },
+        {
+          "assessment": "Not ordinary idempotent derivations",
+          "evidence": "A twisted Leibniz law and D^m=0.",
+          "identifier_or_url": "2026/11/22/SCOPE-jordan-rank-rigidity-for-taft-compatible-skew-derivations-of-tru--6b81699a8630",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Jordan rank rigidity for Taft-compatible skew derivations of truncated polynomial algebras",
+          "trigger": "Same-day same truncated algebra and operator ranks"
+        },
+        {
+          "assessment": "Does not cover idempotence",
+          "evidence": "D²=0 is the defining equation.",
+          "identifier_or_url": "2026/10/25/SCOPE-parity-stable-rank-varieties-of-square-zero-derivations-of-trunc--0ca161a05327",
+          "material_read": "Finding, offsets 135 and 726",
+          "method": "Resultary mirror",
+          "title": "Parity-stable rank varieties of square-zero derivations of truncated polynomial algebras",
+          "trigger": "Same characteristic, algebra, rank and reduced-locus questions"
+        },
+        {
+          "assessment": "Different identity",
+          "evidence": "Components of the square-zero locus, not the nonzero idempotent locus.",
+          "identifier_or_url": "2026/11/2/SCOPE-linear-component-geometry-of-square-zero-derivations-on-truncate--8d4ed1fb4c6d",
+          "material_read": "Finding, offset 150",
+          "method": "Resultary mirror",
+          "title": "Linear component geometry of square-zero derivations on truncated polynomial algebras",
+          "trigger": "Same ambient algebra and component geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–16 and 19–35",
+        "Premet arXiv:1405.2426, pp. 1–2 for the related toral-coordinate setting"
+      ],
+      "rationale": "The composition-idempotent condition distinguishes the characteristic-two ordinary toral case from all other characteristics. The result classifies these operators as derivations of the algebra rather than just as projections on its underlying vector space. In particular the two even-length nonzero classes have the same rank but differ by how they act on the maximal ideal, a distinction invisible to the rank enumerator alone. This is a complete classification for the natural arbitrary-length family; no value is claimed for coefficient counting by itself.",
+      "residual_risks": [
+        "No claim about general restricted toral derivations in odd characteristic, multivariate rings, or the unreduced defining scheme."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The determinant is factored exactly, its two scalar factors are bounded by independent positive Schur-parameter inequalities uniform in \(0\le\alpha<1\), and the only equality cases follow from the strict factor bound and Schwarz's lemma. The supporting exact symbolic checker reproduces coefficient formulas, convexity and factor identities. The derivative normalization is fixed explicitly, and Banach transfer follows by scalar slice and the radial inverse derivative identity.
+## correctness
 
-**Originality — PASS with priority risks.** Panja–Majumder–Banerjee, arXiv:2610.15497v1, Theorem 2.3 and Remark 2.1, give the identical sharp third symmetric Toeplitz bound only for \(0\le\alpha\le2/3\). The present proof establishes the missing entire interval \(2/3<\alpha<1\). Giri's related work and Ali–Thomas–Vasudevarao's classical constant concern restricted subclasses or order zero. Comparable indexed sixth-order Janowski and exponential Toeplitz results concern different functionals and do not imply this bound. Unindexed stronger work and incompletely read historical sources remain residual risks, not a priority certificate.
+PASS
 
-**Value — PASS.** The extension completes a specific unsolved parameter gap in the recent sharp inequality while proving that the same extremal mechanism persists to the limiting order, with a complete scalar equality classification and Banach radial corollary. The result is more than changing notation, numerically checking a range, or giving a narrower subcase.
+For s=1-alpha the logarithmic derivative is 1+2s omega/(1-omega). Integrating the Taylor expansion of its positive-power part and exponentiating derives a2,a3,a4, and expansion of the determinant factors it as stated. Two Schur steps on omega/z yield y=(1-r^2)b and c=(1-r^2)(d-conj(x)b^2), r=|x|, |b|=t, |d|<=1-t^2 (at r=1, Schwarz's lemma gives y=c=0). The resulting triangle majorants have maxima at r=1: independently recomputed Taylor coefficients and nonnegative deficit factorizations on 0<=r,t<=1 and 0<s<=1 in /workspace/reproductions/3.py (Python 3/SymPy) give M1=2(4+3s+2s^2)/3 and M2=2(7+6s+8s^2)/3 for the two scaled factors. The M1 deficit is strictly positive for r<1. It follows that equality in the product forces omega=xz, |x|=1; maximizing |2x-(2/3+2s+4s^2/3)x^3| forces x^2=-1. Both choices give the claimed values in both factors and integration gives the claimed functions. Radial Banach maps restrict to h_v(zeta)=zeta*phi(zeta v); since DF(z)z=(phi+Dphi(z)z)z, the support-functional condition on the reciprocal of the radial inverse derivative is exactly Re(zeta h_v'/h_v)>alpha. The factorial-normalized derivatives give the scalar Taylor coefficients. For the extremal lift phi=(1-i ell(z))^(-2s), phi is nonzero and its radial derivative multiplier is nonzero by the half-plane condition, hence DF is invertible by the rank-one formula. Its one-dimensional restrictions are starlike and it is injective since nonzero equal images must lie on the same complex line. The matching v-slice yields sharpness in each nonzero space. This checks the symmetric, not Hermitian, determinant and excludes alpha=1.
 
-**Scope.** Non-Hermitian third symmetric Toeplitz determinant, radial maps only in Banach spaces; no statement for general mappings or other determinant orders. Exact symbolic identities supplement but do not replace the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported advance is the sharp third-order formula on the previously unproved interval 2/3<alpha<1 and the complete scalar extremal classification. The constant, radial transfer and a sharpness witness are prior in the lower interval and are not credited as independently new there.
+
+## value
+
+PASS
+
+The result completes the precise sharp parameter gap for a classical determinant under the same normalization, with no change of extremizer and an exact uniqueness analysis. The uniform proof explains why the same extremal behavior persists as alpha approaches 1; the Banach slice result transfers this improvement in each direction without claiming unrestricted Banach mapping sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

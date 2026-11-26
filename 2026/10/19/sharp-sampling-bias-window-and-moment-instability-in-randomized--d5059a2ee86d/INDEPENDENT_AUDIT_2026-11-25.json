@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:16.753709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 21–48 (analytic replay)",
+        "verify.py lines 19–121 and verification.log lines 1–4 (inspected, not executed)",
+        "VERIFICATION.md lines 1–25"
+      ],
+      "rationale": "Both row denominators are 1 and the relaxation cancels the row magnitude in B, giving x'=cx+ε|x|. The sign resets, and on each of the two disjoint parity subsequences of transition indices the switch indicators are iid with mean 2p(1-p), proving the log-rate. With a=1+c, b=1-c and L=log(a/b), the rate is (log(ab)+(2p-1)^2 L)/2. Taylor expansion gives the stated sqrt(c/2) width. At either boundary, a return cycle to + has geometric length of mean 1/p, with 0 switches on an immediate return and 2 otherwise. Its average reward is log(a)/p−2(1−p)L=0, and the rewards of length 1 and 2 are distinct, with positive probabilities. The iid finite-variance LIL gives both directions of log oscillation along return epochs (up to a finite initial offset). The positive two-state transfer matrix has trace a^s and determinant p(1-p)(a^(2s)−b^(2s)); its leading root gives the claimed asymptotic with a positive prefactor. The characteristic polynomial at 1 for s=1 is c(4p(1-p)−1); at p=1/2 the other eigenvalue is c<1. For s=2 the discriminant is increasing in (2p−1)^2, so its minimum is at fair sampling. For the frontier, Hölder gives convexity of f(s)=log ρ_s, and f(s)=s log(a)+log[(1+sqrt(D+(1−D)exp(−2Ls)))/2] with D=(2p−1)^2. Hence f'(0)=γ; the function is real analytic and not affine (f'(0)<log a, whereas f(s)/s→log a). A convex analytic nonaffine function is strictly convex since an equality chord would force an affine interval. Together with growth at large s, this proves the unique threshold exactly in the strict stability window, with s*≤1 and equality iff fair. The fair absolute-error martingale has constant positive mean but zero almost-sure limit, hence cannot be uniformly integrable.",
+      "residual_risks": [
+        "The source's 1,371 assertions are bounded corroboration; no independent execution, formal verification or finite-precision conclusion is needed for the analytic result.",
+        "The geometric-return proof uses the stipulated iid choices and both probabilities being strictly positive; it is not evidence for dependent sampling or arbitrary GAVE instances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 provides sufficient convergence/error bounds, not necessity or all moment orders. The bilinear record changes the dynamics; the BDF2 record concerns moment finiteness of a random startup amplification."
+        ],
+        "reasoning": "None is a stronger result on the same object that supplies the exact GAVE critical probabilities and conclusions. General Markov-additive tools are proof mechanisms, not credited contributions.",
+        "searches": [
+          "arXiv:2405.04091 Theorem 4.1 and §5.3",
+          "Local Resultary records d5d179aa191c and 10f874ba2223"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.04091",
+        "Published Resultary mirror: d5d179aa191c, 10f874ba2223, 31c71a26296d, f5af2b949bb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An example with a growing second moment does not determine the first-moment dividing line, the unique fractional-order crossover, or the two oscillatory endpoints. Finite-time extinction gives different almost-sure behavior from nonvanishing sign reset."
+        ],
+        "reasoning": "Specializing the GAVE algorithm gives the recurrence but not an exact stability theorem. Recovering the conclusions requires analyzing the switch frequencies, the nondegenerate return cycles and the tilted transition moments for this particular recurrence.",
+        "searches": [
+          "arXiv:2405.04091 Eq. (2), Theorem 4.1, Eq. (12)",
+          "Local Resultary f5af2b949bb8, d5d179aa191c, 31c71a26296d Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The update is equivalently a two-state iid-sign transition reward, with log multiplier log a−L times the switching indicator (i.e. log a−L·1{switch}). The general sketch law allows arbitrary bias but the row-norm RK specialization samples these equal-norm rows fairly.",
+          "d5d179aa191c uses Markov switching of a two-dimensional bilinear iteration, not bias in the iid sign-reset recurrence."
+        ],
+        "reasoning": "The algorithmic inclusion and analogy of transfer matrices are not a statement of this exact transition reward or its phase diagram. The inspected Markov-switching analogue does not yield the same parameters or critical boundary behavior.",
+        "searches": [
+          "Local Resultary semantic comparison: scalar sign-reset GAVE and biased-sign pathwise/positive-moment thresholds",
+          "arXiv:2405.04091, §2 Eq. (2) and §5.3 Eq. (12)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed formula records treat conformal bilinear dynamics, BDF2 startup, finite-time extinction in a two-lag recurrence, and a Bernoulli stale-gradient example. None tabulates or states the displayed continuous-in-(c,p,s) frontier for this recurrence."
+        ],
+        "reasoning": "No exact table/formula match was identified. A finite table of sample parameters would not in any event establish the classification over all three real parameters. A lookup miss is not negative proof.",
+        "searches": [
+          "Local Resultary semantic search for GAVE exact moment and probability thresholds; inspected d5d179aa191c, 10f874ba2223, 31c71a26296d, f5af2b949bb8",
+          "Primary literature lookup on GAVE sign reset/biased Bernoulli persistence (no relevant hit returned)"
+        ]
+      },
+      "rationale": "The prior algorithm, generic Perron/renewal machinery and the general possibility of pathwise stability with growing moments are not credited as new. The supported distinct result is their joint exact bias, boundary and all-order moment classification for the stated sign-reset GAVE instance. No equivalent or dominating classification was found in the inspected sources; the external search was bounded and did not settle historical priority.",
+      "residual_risks": [
+        "An equivalent analysis of the sign-reset map in the random-products or Bernoulli-persistence literature may be indexed under a different formulation.",
+        "This verdict does not establish priority for general pathwise-versus-moment instability or for the GAVE iteration itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic antecedent; exact classification not supplied by the inspected results",
+          "evidence": "General user-chosen sketch distribution, sufficient convergence theorem, norm-proportional RK specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.04091",
+          "material_read": "§2 Eq. (2) p. 2; Theorem 4.1 pp. 15–16; §5.3 Eq. (12) p. 17",
+          "method": "OA PDF passages",
+          "title": "Randomized iterative methods for generalized absolute value equations: Solvability and error bounds",
+          "trigger": "Identical nonsquare GAVE iteration"
+        },
+        {
+          "assessment": "Different dynamics and threshold",
+          "evidence": "Two-dimensional conformal bilinear matrix product, including instability under iid signs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-moment-stability-thresholds-for-markov-switching-bilinear--d5d179aa191c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "Exact moment-stability thresholds for Markov-switching bilinear Controlled-Minimax",
+          "trigger": "Closest exact all-order and almost-sure comparison"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Mesh-ratio-driven startup amplification and moment finiteness.",
+          "identifier_or_url": "10f874ba2223",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "Sharp Markov-persistence moment thresholds for variable-step BDF2",
+          "trigger": "Persistence and moment thresholds"
+        },
+        {
+          "assessment": "Different hypotheses and behavior",
+          "evidence": "Bernoulli dropped two-lag recurrence, integer moment thresholds, finite-time absorption.",
+          "identifier_or_url": "31c71a26296d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "All-order moment thresholds despite finite-time extinction",
+          "trigger": "Coexistence of moment growth with pathwise stability"
+        },
+        {
+          "assessment": "Analogue, not implication",
+          "evidence": "Stale-gradient delay example, not the sign-reset GAVE update or all-order classification.",
+          "identifier_or_url": "f5af2b949bb8",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "Sharp Bernoulli stale-gradient stability and a pathwise versus moment separation",
+          "trigger": "Bernoulli pathwise/second-moment separation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "arXiv:2405.04091 §§2, 4, 5.3"
+      ],
+      "rationale": "An exact diagnosis on an instance of a published randomized solver: sampling bias can preserve almost-sure convergence while destroying even first absolute-moment control, and neither zero-exponent boundary is stable. The exact bias scale and critical moment order specify which guarantees survive; the result is not a mere example of a known generic gap between modes of convergence.",
+      "residual_risks": [
+        "Motivation is for this instance and separation of convergence criteria, not a quantitative guarantee for higher-dimensional solvers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

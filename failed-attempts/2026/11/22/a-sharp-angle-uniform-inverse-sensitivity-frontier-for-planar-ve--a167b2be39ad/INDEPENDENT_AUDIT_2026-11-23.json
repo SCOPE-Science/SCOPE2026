@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:18:18.609882Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The statement is about the Euclidean derivative inverse of a single planar cell, not an end-to-end solver. AP has positive real eigenvalues by SPD similarity, so J=I+AP is invertible, and nonexpansivity is equivalent to JᵀJ−I⪰0. In r-aligned coordinates, u,v>0 imply positive trace for this symmetric test matrix, so its determinant is decisive. With d=ατ, S=α+τ, D=α−τ, z=cos 2θ, and K=(1−γ)²D²/4, direct expansion gives dγ[4+S(1+γ)+γd]−dγD(1−γ)z−K(1−z²). If D=0 this is positive. Otherwise completing the square gives the advertised vertex z₀=2dγ/[D(1−γ)] and minimum F=dγ[4+S(1+γ)]−K. If z₀≥1, then K≤dγD(1−γ)/2, which implies F>0 because S>D and γ>0. Thus every negative or zero unconstrained minimum is physically attained. F increases strictly in γ with F(0)<0<F(1), proving the threshold and all strict and equality cases. Independent fractional arithmetic gives det(JᵀJ−I)=−2853/2000 and det(sym J)=123591/40000 in the rational example, and direct bisection gives γ*=0.0542649822871. The checked example shows monotonicity is not a contraction test for the same pair. Frozen verify_inverse_frontier.py was inspected, not executed; finite samples do not establish the continuum result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cibicki et al. eq. (13) gives an exact angle-by-angle determinant for the symmetric part of the normalized single-cell Jacobian. Its trace is positive, making the determinant a complete sign test. Eq. (14) is a weaker condition obtained without the vacuum term and is not relied on here.",
+          "The classical Jordan-product papers by Strang and by Alikakos–Bates are plausible general alternate coverage, but only bibliographic/landing material was accessible; their exact theorems were not verified. Moll et al. §III-C addresses inversion in an energy-based hysteresis model, not a covering vector-play result."
+        ],
+        "reasoning": "The exact pointwise formula covers more than an all-angle threshold: it resolves the sign at any specified relative angle after the reciprocal reparameterization. No unverified general Jordan-product theorem is needed for the coverage decision.",
+        "searches": [
+          "Cibicki et al. arXiv:2611.00168v1 §§II-B, II-D–E, eqs. (9), (12)–(14)",
+          "G. Strang 1962 ‘Eigenvalues of Jordan Products’ exact lower bound eigenvalues XY+YX positive definite fixed extremal eigenvalues theorem",
+          "Alikakos and Bates, ‘Estimates for the eigenvalues of the Jordan product of Hermitian matrices’ exact lower bound extremal spectra",
+          "Moll et al. arXiv:2509.04115 §III-C"
+        ]
+      },
+      "checked_sources": [
+        "Cibicki–Roppert–Kaltenbacher arXiv:2611.00168v1 §§II-D–E",
+        "Moll et al. arXiv:2509.04115 §III-C",
+        "Resultary a167b2be39ad (assessed record)",
+        "Strang (1962) bibliographic identification only",
+        "Alikakos–Bates (1984) bibliographic identification only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (13), with A_c,P_c above, evaluates det(I+sym(A_cP_c)) as 1+tr(A_cP_c)+det(A_cP_c)−(1−γ)²(α_c−τ_c)²(1−z²)/16. Multiply by (dγ)² via the congruence. Substituting α_c+τ_c=2S/(dγ), α_c−τ_c=2D/(dγ) and α_cτ_c=4/(dγ²) gives exactly dγ[4+S(1+γ)+γd]−dγD(1−γ)z−(1−γ)²D²(1−z²)/4, the frozen angular polynomial.",
+          "Completing the square removes γ²d² and leaves F as the minimum. If that value is nonpositive, z₀ is inside (0,1); the commuting orientations have positive determinant. The strict parameter crossing follows by differentiation. The rational example applies the two known pointwise tests, at the original and reciprocal pair, and provides a witness but not a separate general result."
+        ],
+        "reasoning": "The exact prior determinant, congruence and elementary one-variable minimization recover the boundary, the equality angle and the strict alternatives without any additional constitutive lemma. Neither replacing a forward metric with this equivalent reciprocal criterion nor giving an illustrative rational specialization evades that implication.",
+        "searches": [
+          "Cibicki et al. arXiv:2611.00168v1 eqs. (9), (12)–(13), with reciprocal spectra",
+          "arXiv:2509.04115 §III-C (scope comparison)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For X=AP, JᵀJ−I=Xᵀ[I+X⁻¹+X⁻ᵀ]X. Thus the norm criterion, with either strictness or equality, is equivalent by congruence to I+2sym(A⁻¹P⁻¹)⪰0.",
+          "Put A_c=(2/γ)A⁻¹ and P_c=γP⁻¹. Then I+sym(A_c P_c)=I+2sym(A⁻¹P⁻¹). The spectra of A_c are 2/(γτ)≥2/(γα)>0 and those of P_c are 1,γ. In dimension two the preferred eigenvectors for both factors switch to their orthogonal directions; z=cos 2θ is unchanged when both are switched."
+        ],
+        "reasoning": "The same-pair distinction between monotonicity and inverse nonexpansivity is true but does not rule out exact reciprocal equivalence. The reciprocal pair is in the very same planar SPD family and ranges over the same orientations; no extra vector-play restriction blocks the substitution into eq. (13).",
+        "searches": [
+          "\"I + AB\" singular values positive definite matrices operator angle sharp threshold",
+          "Resultary hit a167b2be39ad (the assessed record)",
+          "Cibicki–Roppert–Kaltenbacher arXiv:2611.00168v1 §§II-D–E, eqs. (12)–(13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mirror hit a167b2be39ad (RESULT.md offsets 0–2976 and 2976–5732) is the assessed result, not earlier exact-table evidence. The retrieved literature includes numerical monotonicity examples but no independently checked table of the claimed inverse critical γ.",
+          "Cibicki et al.'s pointwise formula is exact prior mathematical evidence; the decision does not depend on tabulating or matching a particular value of γ."
+        ],
+        "reasoning": "There is no second exact index match established by the bounded lookup. Absence of a numerical table does not make an exact algebraic consequence original.",
+        "searches": [
+          "A sharp angle-uniform inverse-sensitivity frontier for planar vector play, Resultary indexed record a167b2be39ad",
+          "Cibicki et al. eq. (13), §II-E and numerical threshold discussion"
+        ]
+      },
+      "rationale": "The inverse test is exactly the published pointwise vector-play monotonicity test at a reciprocal, rescaled pair. The same prior angular determinant polynomial then gives the entire threshold and attaining orientation by routine completion of the square. This is positive coverage by implication, not an assertion that the paper states the inverse theorem verbatim, and not an inference from the unrelated unshifted monotonicity sufficient condition or positive eigenvalues.",
+      "residual_risks": [
+        "Exact theorems and attainment in the two classical Jordan-product sources were not retrieved and are not attributed here. Eq. (13) and the explicit reduction are sufficient for the positive coverage finding.",
+        "The generic singular-value keyword search returned no close primary source; that is not evidence of novelty or whole-literature noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen threshold by exact implication from the published pointwise determinant test, though it is presented as a forward-monotonicity calculation",
+          "evidence": [
+            "Eq. (12) develops the determinant/skew identities; eq. (13) is 1+tr(AP)+ατ[γ−ρ(α/τ)(1−γ)²sin²(2θ)] after normalization, with ρ(q)=(q−1)²/(16q). Its positive trace ensures PSD iff the determinant is nonnegative."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.00168v1",
+          "material_read": "Open article §§II-B, II-D–E, including the planar representation and eqs. (9), (11)–(14); HTML text offsets 15200–22300 for the decisive exact determinant and the weaker band approximation",
+          "method": "Read source equations and distinguished full pointwise determinant from the approximation; compared via congruence, reciprocal parameter mapping and exact polynomial expansion",
+          "title": "Loss of Monotonicity in the Vector Play Model and Consequences for Newton-Type Solvers",
+          "trigger": "Identical ordered product geometry; possible coverage through a reciprocal SPD transformation"
+        },
+        {
+          "assessment": "Motivation for inverse evaluation; inspected passage is not the same planar vector-play problem",
+          "evidence": [
+            "The inverse B-to-H evaluation is treated by fixed-point and Newton iterations for an energy-based model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.04115",
+          "material_read": "Open PDF §III-C, p. 3, text offsets 20450–23379",
+          "method": "Read inverse numerical evaluation passage; compare underlying material law and Jacobian claim",
+          "title": "A Dynamic Energy-Based Hysteresis Model for Pulsed-Operated Fast-Ramping Magnets",
+          "trigger": "Related inverse constitutive numerical setting"
+        },
+        {
+          "assessment": "Precise coverage unresolved, not relied on",
+          "evidence": [
+            "Author bibliography identifies the article, but does not supply the decisive fixed-spectrum theorem."
+          ],
+          "identifier_or_url": "Amer. Math. Monthly 69 (1962), 37–40; bibliography https://math.mit.edu/~gs/papers/papers.html",
+          "material_read": "Bibliographic identification only; theorem text unavailable",
+          "method": "Exact-title lookup and public retrieval attempts; no inference from blocked issue access",
+          "title": "Eigenvalues of Jordan Products",
+          "trigger": "A sharp lower bound for the Jordan product could independently subsume the reciprocal test"
+        },
+        {
+          "assessment": "Precise formula and attainment unresolved, not relied on",
+          "evidence": [
+            "The index confirms authors and topic, not the lower bound or its sharpness in this case."
+          ],
+          "identifier_or_url": "Linear Algebra and its Applications 57 (1984), 41–56; ScienceDirect PII 0024379584901757",
+          "material_read": "Bibliographic/short landing material only; no theorem passage",
+          "method": "Exact-title search and OA retrieval attempts; no inference from blocked publisher page",
+          "title": "Estimates for the eigenvalues of the Jordan product of Hermitian matrices",
+          "trigger": "Potential prior extremal-spectrum theorem including a sharp lower bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Inverse conditioning is well motivated in a local magnetic constitutive solve, and the rational witness is pedagogically useful. However, the frozen frontier is the elementary all-angle envelope of an existing exact pointwise formula at reciprocal parameters. The extra example is a routine specialization of those tests, not a distinct structural witness requiring a new argument. As a standalone finding it supplies no nonmechanical boundary or extra Newton/constitutive consequence; that limitation, not the narrow planar scope itself, drives this verdict.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

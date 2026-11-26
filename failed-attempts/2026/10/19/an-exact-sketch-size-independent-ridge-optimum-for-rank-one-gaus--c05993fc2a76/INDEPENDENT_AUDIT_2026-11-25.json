@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:50:17.327968Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, proof Eqs. (1)–(4), trace and isotropic tail",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "Condition on q and rotate the left Gaussian sketch into the orthonormal basis (q,q⊥). With row coefficients p=qᵀB, r=q⊥ᵀB the sketched response is Up+Vr with independent standard U,V. Conditional on U and q, the cross term has mean zero and UᵀV has variance W=||U||². The right Gaussian angle gives E q₁²=a/(a+b) (integrate via tan θ), so A=E||p||²=a²−ab+b² and D=E||r||²=ab. The conditional-on-U loss after averaging V and q is D+(Aλ²+DW)/(W+λ)². Its gap to the value at λ*=D/A is A W(λ−λ*)²/[(W+λ)²(W+λ*)], proving strict global optimality including the extended-risk endpoint λ=0. For zero ridge the squared loss is ||r||²(1+Z²/W) with independent normal Z and chi-square W; the density at zero yields the stated moment cutoff and E[1/W]=1/(s−2) when s>2. Positive ridge bounds √W/(W+λ), giving every positive error moment. For B=tI the mixed row term is traceless, so the trace shortfall is t(2−W/(W+λ)), strictly increasing from t. The isotropic beta tail follows from independent one- and s-degree chi-square terms.",
+      "residual_risks": [
+        "The optimizer is for a deterministic ridge applied after QR normalization; a ridge chosen after observing q has a different, generally q-dependent optimum. No integrator or finite-precision claim was verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dobriban–Wager cite the exact finite-sample Gaussian optimum γ_p/α² in their nλ ridge normalization, in addition to their high-dimensional theorem. For one feature and s samples with signal strength A/D, this gives sλ_D=D/A, exactly the frozen unscaled penalty.",
+          "Epperly–Webber's real-Gaussian unregularized conditional mean has the factor 1+1/(s−2) here. Nakatsukasa's generalized Nyström bound is for an unregularized estimator under its oversampling assumptions, and does not itself imply positive ridge tuning."
+        ],
+        "reasoning": "It is the exact finite-sample ridge identity, via equality of the conditional risk, that covers the positive optimum; neither an asymptotic ridge theorem nor an unregularized matrix error bound suffices by itself.",
+        "searches": [
+          "arXiv:1507.03003, PDF pp. 3 and 31 (finite sample Bayes-optimal tuning)",
+          "arXiv:2009.11392v1, §3.4 Thm. 3.2",
+          "arXiv:2605.19096v2, §2.1 Thm. 2.1",
+          "Hoerl–Kennard DOI 10.1080/00401706.1970.10488634"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:1507.03003",
+        "arXiv:2409.06384v1",
+        "arXiv:2605.19096v2",
+        "arXiv:2009.11392v1",
+        "Resultary 23a3fc6123ad, 9bb62c848ba0, 6a0180b3e23e and 298abd449b56"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-sample ridge objective for fixed W has bias Aλ²/(W+λ)² and variance DW/(W+λ)², so the same optimizer works pointwise in W; the chi-square law supplies only the averaging distribution. A and D require only the right projection energy, not additional sketch-size-dependent analysis.",
+          "For identity B=tI the unregularized approximation has trace t, and multiplying it by W/(W+λ) strictly worsens its discrepancy from 2t. The positive-ridge moment restoration follows by bounding the same scalar filter."
+        ],
+        "reasoning": "The new notation and precisely evaluated benchmark do not introduce a new mathematical step beyond projection, scalar ridge and the known unregularized distribution. The expected-value result is not obtained by averaging different conditional optimizers; it is obtained by the shared quadratic risk form after averaging the energies.",
+        "searches": [
+          "arXiv:1507.03003, p. 31, Optimality of λ* paragraph",
+          "Resultary 23a3fc6123ad, exact conditional reconstruction law",
+          "Frozen RESULT.md, Eqs. (1)–(4) and trace calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The QR-normalized pseudoinverse core is unregularized scalar-design sketch-and-solve for fixed q; replacement by (UᵀU+λ)⁻¹Uᵀ is exactly ordinary ridge.",
+          "After conditioning on U, selecting either response column with equal probability and multiplying its coefficient and noise by √2 turns vector-row risk into scalar coefficient risk. The resulting signal second moment is A and the noise covariance is D I, with zero signal–noise cross moment. Dividing response and coefficient by √D gives unit noise and signal second moment A/D."
+        ],
+        "reasoning": "Only the conditional second moments enter the squared coefficient risk of a linear ridge estimate. Independence between the actual signal and noise beyond the zero cross moment, or a Gaussian prior on p, is unnecessary: the Gaussian scalar surrogate gives the identical risk for every ridge. The full averaged problem is not the same as optimizing for each fixed q.",
+        "searches": [
+          "Lam–Ceruti–Kressner, arXiv:2409.06384v1, §2.3 Eqs. (8)–(9)",
+          "Epperly–Webber, arXiv:2605.19096v2, §2.1 Thm. 2.1",
+          "Dobriban–Wager, arXiv:1507.03003, ridge normalization and finite-sample Bayes tuning passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "23a3fc6123ad gives an exact conditional reconstruction law with beta-prime excess for a rank-one residual, including the same zero-ridge second-moment boundary. 9bb62c848ba0 and 6a0180b3e23e treat distinct unregularized PSD Nyström trace/moment problems. Later ridge record 298abd449b56 optimizes probability of improving a preconditioner's condition number, not Frobenius loss."
+        ],
+        "reasoning": "The exact indexed unregularized distribution reproduces the frozen zero-ridge conclusions including the scalar-identity specialization. No exact indexed positive-ridge match surfaced, but catalogue silence does not alter the independent reduction to the known ridge rule. A numeric table would not decide the symbolic all-s optimum.",
+        "searches": [
+          "Local Resultary search for Gaussian two-sided sketch error, one-column trace, moment thresholds and ridge; records 23a3fc6123ad, 9bb62c848ba0, 6a0180b3e23e, 298abd449b56"
+        ]
+      },
+      "rationale": "The deterministic ridge is an exact specialization of the classical one-regressor bias–variance rule, not a new sketch-count independence mechanism. Condition on the normalized design U; the response is additive centered noise with second-moment trace D per left row and the coefficient has mean squared norm A independent of U. The standard scalar ridge risk and optimizer therefore apply at every U before averaging over its length. The ratio D/A uses the elementary two-dimensional Gaussian projection baseline. The indexed unregularized Gaussian reconstruction law already gives the tail mechanism, and on the identity the ridged approximation is the unregularized approximation multiplied by W/(W+λ), making the trace comparison immediate. No claim is made that a prior source prints the entire averaged formula in this notation.",
+      "residual_risks": [
+        "No exhaustive priority claim and no assertion that an exact positive-ridge Nyström statement was found verbatim. The failing decision rests on the finite-sample risk equivalence and derivative-free minimizer identity, not inaccessible historical literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-sample Gaussian rule is a direct antecedent; the asymptotic predictive-risk theorem is not used to prove coverage",
+          "evidence": "The paper uses XᵀX+nλI and explicitly states finite-sample Bayes tuning γ_p α⁻² under Gaussian observations. For one feature, the loss on a fresh scalar design differs from coefficient risk by only a positive factor and a λ-independent constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.03003",
+          "material_read": "PDF p. 3, ridge model and normalization (offset 9170); p. 31, Optimality of λ* paragraph (offset 93360)",
+          "method": "Bounded OA PDF inspection and conditional second-moment reduction",
+          "title": "High-dimensional asymptotics of prediction: Ridge regression and classification",
+          "trigger": "Classical signal/noise optimum, with possible exact finite-sample coverage"
+        },
+        {
+          "assessment": "Model antecedent, not a positive ridge theorem",
+          "evidence": "Defines the QR-normalized pseudoinverse core and Gaussian oversampling error bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2409.06384v1",
+          "material_read": "§2.3, Eqs. (8)–(9), Thm. 2 (offsets 17210 and 17909)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Randomized low-rank Runge–Kutta methods",
+          "trigger": "Same QR-normalized unregularized core"
+        },
+        {
+          "assessment": "Exact unregularized expectation at fixed q",
+          "evidence": "The rank-one real-Gaussian inflation factor is 1+1/(s−2).",
+          "identifier_or_url": "https://arxiv.org/html/2605.19096v2",
+          "material_read": "§2.1, Thm. 2.1 (offset 8000)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+          "trigger": "Exact real-Gaussian risk for the unregularized regression"
+        },
+        {
+          "assessment": "Different unregularized bounds and oversampling regime",
+          "evidence": "The stated bound uses a rank-gap assumption, not this two-dimensional positive-ridge risk.",
+          "identifier_or_url": "https://arxiv.org/html/2009.11392v1",
+          "material_read": "§3.4, Thm. 3.2 (offset 50726)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Fast and stable randomized low-rank matrix approximation",
+          "trigger": "Broader generalized Nyström Frobenius bounds"
+        },
+        {
+          "assessment": "No whole-text claim made",
+          "evidence": "Publisher PDF was inaccessible; the coverage argument instead uses the inspected finite-sample passage in Dobriban–Wager and exact scalar risk reduction.",
+          "identifier_or_url": "10.1080/00401706.1970.10488634",
+          "material_read": "Bibliographic reference; no full text retrieved",
+          "method": "Bounded OA publisher and DOI recovery attempt",
+          "title": "Ridge Regression: Biased Estimation for Nonorthogonal Problems",
+          "trigger": "Classical exact bias–variance rule"
+        },
+        {
+          "assessment": "Exact overlap at zero ridge",
+          "evidence": "Beta-prime excess and second-moment cutoff give the conditional norm-error law when λ=0.",
+          "identifier_or_url": "Resultary 23a3fc6123ad",
+          "material_read": "Mirrored RESULT.md, Assumptions and Proof",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch error law",
+          "trigger": "Exact conditional Gaussian law with rank-one residual"
+        },
+        {
+          "assessment": "Different objectives or estimator variants",
+          "evidence": "Unregularized matrix-power trace and PSD low-eigenvalue moments are distinct, as is optimization of a regularized least-squares preconditioner's success probability.",
+          "identifier_or_url": "Resultary 9bb62c848ba0; 6a0180b3e23e; 298abd449b56",
+          "material_read": "Mirrored Findings and model assumptions",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Indexed trace, moment, and ridge comparisons",
+          "trigger": "Nearby exact Nyström and ridge results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof steps 2–5 and Limitations",
+        "arXiv:1507.03003, finite-sample tuning passage",
+        "Resultary 23a3fc6123ad"
+      ],
+      "rationale": "The benchmark clarifies that two losses need not agree and illustrates why QR normalization matters. In this rank-one isotropic-noise setting, however, the supposedly distinguishing exact penalty is the routine scalar ridge rule after inserting known or elementary projection energies, and the identity trace loss worsens by scalar shrinkage alone. The package does not establish a non-mechanical phenomenon beyond those textbook mechanisms.",
+      "residual_risks": [
+        "This is not a judgment about the scientific value of general low-rank stage regularization or nontrivial loss tradeoffs in larger problems."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

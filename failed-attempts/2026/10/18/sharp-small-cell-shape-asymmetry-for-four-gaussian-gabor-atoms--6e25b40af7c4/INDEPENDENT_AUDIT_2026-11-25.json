@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:51:38.515207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(8), Proof Steps 1–6",
+        "Frozen VERIFICATION.md and verify.py, inspected as evidence, not executed",
+        "Independent replay: python3 /workspace/branches/frozen_review_algebra.py (record 1 block, SymPy and mpmath)"
+      ],
+      "rationale": "The Weyl overlap produces the stated Hermitian matrix up to conjugation/rephasing. Symbolic expansion gives (1), and the hyperbolic form is strictly positive for positive sides because sinh A sinh B > AB >= sin²(sqrt(AB)). At fixed area the determinant tends to zero at both unbounded eccentricity ends, so a maximum is attained. For sorted sides at vanishing area, a subsequence with long side tending to zero gives zero normalized limit by (8), and one tending to infinity gives the bound π²/a⁴; a positive finite long-side limit gives π⁴F(πa²). A fixed-long-side test produces a positive limit and excludes the first two regimes for maximizing sequences. Q^(5) is strictly negative (e^(2y) >= 1+2y); Q and its first three derivatives start at zero and its fourth starts positive. Each of these functions tends to minus infinity and applying the single sign-change argument successively gives the unique positive root. This pins down every sorted maximizer. Square expansion gives π⁶h⁶/3. The independent symbolic and numerical check reproduces the determinant, derivatives, square coefficient and quoted decimal constants.",
+      "residual_risks": [
+        "No claim about arbitrary placements, other windows, frame bounds, least eigenvalues, or global area dependence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact match asserts errors O(u⁶) in the optimal value and O(u²) in πa² and exactly two maximizing ordered pairs for small u.",
+          "Faulhuber optimizes an infinite Gaussian Gabor frame bound at a density constraint; Gröchenig studies lower Riesz bounds of finite sections."
+        ],
+        "reasoning": "The matched result is stronger for the identical admissible class and determinant. Infinite-lattice or finite-section conditioning results use different objectives and are not the source of this implication.",
+        "searches": [
+          "Resultary 609eba19f1af",
+          "Faulhuber arXiv:1608.01168, introduction and Theorem 1.1",
+          "Gröchenig arXiv:1401.1353, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 609eba19f1af",
+        "arXiv:1608.01168",
+        "arXiv:2609.27774",
+        "arXiv:1401.1353",
+        "DOI 10.4213/sm9957e (access attempt)",
+        "DOI 10.1002/cpa.3160140303 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched theorem directly gives all of the frozen asymptotic claims; the frozen stationary equation follows from differentiating its same f.",
+          "Oussa proves dependence for a constructed non-Gaussian four-point system, not Gaussian determinant optimization. The standard coherent-kernel identity alone does not prove the all-eccentricity maximum."
+        ],
+        "reasoning": "The exact published match, not generic kernel algebra or the HRT precedent, resolves overlap. Unavailable older texts do not affect this comparison.",
+        "searches": [
+          "Resultary 609eba19f1af, proof of determinant and limiting maximizers",
+          "Oussa arXiv:2609.27774, Theorem 1.1",
+          "Bargmann DOI 10.1002/cpa.3160140303; Kiselev et al. DOI 10.4213/sm9957e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched record sets u=πab and x=πa². Its Δ_u(x) is the same Weyl four-corner determinant, and f(x) is exactly the frozen F(x)."
+        ],
+        "reasoning": "With u=πh the same optimum has coefficient π⁴f(x_*) in h and long-side limit sqrt(x_*/π); the square coefficient converts from u⁶/3 to π⁶h⁶/3.",
+        "searches": [
+          "Resultary: four-corner Gaussian Gabor determinant small-area rectangular optimum",
+          "Resultary 609eba19f1af, Finding and Proof Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record gives x_*=2.38266416673503469… and f(x_*)=0.05282488254575485… with exact definitions and same long-side limit 0.87087631712409…."
+        ],
+        "reasoning": "This is an exact theorem counterpart and not a numerical coincidence or a separate table of parameters.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-asymmetric-d-optimality-of-small-area-gaussian-gabor-rectangles--609eba19f1af, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record states the exact determinant, same unique scalar maximizer, stronger optimal asymptotic and optimizer rigidity, and same square comparison. This is complete mathematical coverage after u=πh. The shared date-coded day does not resolve priority or provenance. There is no distinct substantive remainder in the frozen finding.",
+      "residual_risks": [
+        "Date-coded paths alone do not establish priority or provenance.",
+        "The Bargmann and Kiselev full texts were not obtained; no negative priority claim depends on them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage, stronger asymptotic",
+          "evidence": "Same f, same unique long-side limit, same square comparison; scale u=πh.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-asymmetric-d-optimality-of-small-area-gaussian-gabor-rectangles--609eba19f1af/RESULT.md",
+          "material_read": "Finding, exact determinant, limiting maximizer and asymptotic proof, offsets 0 and 4785",
+          "method": "Resultary index and local mirror",
+          "title": "Asymmetric D-optimality of small-area Gaussian Gabor rectangles",
+          "trigger": "Exact geometry, objective and small-area limit"
+        },
+        {
+          "assessment": "Different objective and domain",
+          "evidence": "Upper frame bound of an infinite Gaussian lattice; hexagonal optimum at fixed even density and rectangular-lattice square context.",
+          "identifier_or_url": "arXiv:1608.01168",
+          "material_read": "Introduction p.1 and Theorem 1.1 p.2",
+          "method": "OA PDF passages",
+          "title": "Minimal Frame Operator Norms Via Minimal Theta Functions",
+          "trigger": "Gaussian rectangular optimization"
+        },
+        {
+          "assessment": "Different window and question",
+          "evidence": "Existence of finite dependence for a constructed window in the threshold class, not a Gaussian determinant.",
+          "identifier_or_url": "arXiv:2609.27774",
+          "material_read": "Theorem 1.1, p.2",
+          "method": "OA PDF passage",
+          "title": "A Minimal HRT Counterexample at the Sharp Gelfand–Shilov Threshold",
+          "trigger": "Four finite noncollinear Gabor points"
+        },
+        {
+          "assessment": "Context, not the same extremal problem",
+          "evidence": "Lower Riesz bounds of growing finite sections rather than a four-atom determinant.",
+          "identifier_or_url": "arXiv:1401.1353",
+          "material_read": "Abstract and introduction pp.1–2",
+          "method": "OA PDF passages",
+          "title": "Linear Independence of Time-Frequency Shifts?",
+          "trigger": "Finite Gabor Gram conditioning"
+        },
+        {
+          "assessment": "Access limitation; no coverage finding based on it",
+          "evidence": "OA found no accessible full text or repository copy at the attempted locations.",
+          "identifier_or_url": "DOI 10.4213/sm9957e",
+          "material_read": "No primary full text retrieved",
+          "method": "Lawful OA and identified MathNet lead",
+          "title": "Localization of the window functions of dual and tight Gabor frames generated by the Gaussian function",
+          "trigger": "Cited finite Gram eigenvalue lead"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary 609eba19f1af, Finding"
+      ],
+      "rationale": "As mathematics, the determinant is a natural squared-volume design objective for four finite atoms. It is structurally informative that the best rectangles retain a nonzero long side and achieve a two-power gain over the balanced cell. This is not a claim of incremental value beyond the overlapping indexed theorem.",
+      "residual_risks": [
+        "This value does not transfer to optimizing minimum singular values or infinite lattice frame bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

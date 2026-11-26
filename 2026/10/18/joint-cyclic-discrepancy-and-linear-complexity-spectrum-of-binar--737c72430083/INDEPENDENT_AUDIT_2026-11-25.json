@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:24.177591Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independently written exact census reproduced the complete 11-by-4 table, with 34 nonzero entries, an all-zero L=22 row, no other entries, and N(31,5)=92. For replay, python3 /tmp/opencode/independent_order5_census.py fixes the root 00000 edge first and varies the outgoing-edge visit order at the other 15 vertices. Every rooted Euler tour prescribes its own ordering and the ordering determines at most one completed tour; checking the 32 distinct five-bit factors verifies the accepted words. This gives 2048 distinct rotation classes. Discrepancy was evaluated by all length/start pairs, through prefix differences on the doubled period, including wrap and the full period. Over GF(2) a recurrence is a linear relation between consecutive cyclic shifts by the same coefficients at every coordinate. If the first dependency is at T^L w, the first L shifts are independent and span all shifts by iterating the dependency. Hence the cyclic shift matrix rank equals the minimal recurrence length. Exact row reduction of the 32 rotations is an independent alternative to the supplied polynomial division; a fresh rooted depth-first Euler census with Berlekamp–Massey also matched. Rotation does not change the rank or the windows, and no complement or reversal was used to identify the words. The minimum discrepancy is 5; L=31 is maximal; 92/224=23/56 differs from 1024/2048=1/2. Frozen Python files were inspected, not executed. Their stated Python 3.8 floor in VERIFICATION.md is too low for int.bit_count; use Python 3.10+ for that optional frozen replay. The result is an exact finite census at order five, not a general-order result or formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Álvarez et al. prove existence of a binary order-n sequence attaining discrepancy n.",
+          "Chang–Wang Theorem 3.11 gives a congruence for maximum-linear-complexity counts at n>=5, with no cyclic discrepancy condition.",
+          "The inspected Etzion–Lempel abstract addresses frequency by linear complexity, not joint order-five window imbalance."
+        ],
+        "reasoning": "Higher-order discrepancy optima and recurrence count congruences do not condition either statistic on the other. These overlaps must be credited but cannot supply the joint optimum.",
+        "searches": [
+          "arXiv:2407.17367 Theorem 1",
+          "arXiv:2408.01794 Theorem 3.11",
+          "Etzion–Lempel gamma(c,n) and Chan–Games–Key On the Complexities of de Bruijn Sequences"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6e926677b401, 2c8828a3eb45, 64bb4c490273",
+        "arXiv:2005.01638",
+        "arXiv:2407.17367",
+        "arXiv:2408.01794",
+        "Etzion–Lempel abstract, IEEE TIT 30(4), p. 611",
+        "debruijnsequence.org/db/home and /db/props"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At (L,sidelobe)=(31,8), the word 00000100011001010011101011011111 has D=8 but 00000100011001010110111010011111 has D=7. These values were checked by full cyclic windows, GF(2) shift rank and all periodic shifts t=1 through 31.",
+          "Separate counts of 224 minimum-discrepancy cycles and 1024 maximum-complexity cycles leave their intersection unspecified; the independent census gives 92."
+        ],
+        "reasoning": "The exact autocorrelation table cannot be converted by a coordinate relabeling even at fixed recurrence order. The extremum and marginal results alone impose no matching conditional distribution.",
+        "searches": [
+          "6e926677b401 RESULT.md offsets 0–2030",
+          "arXiv:2407.17367 Theorem 1",
+          "2c8828a3eb45 minimum layer and marginal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen window imbalance agrees with the circular substring discrepancy definition in arXiv:2005.01638, p. 2.",
+          "The L of 6e926677b401 is the same GF(2) periodic linear recurrence complexity as here; using a bi-infinite period cannot change the recurrence since every phase already occurs in the one-sided period.",
+          "The 92 in 64bb4c490273 classifies rooted LZ76 minimum/maximum complexity, not a GF(2) recurrence or window discrepancy."
+        ],
+        "reasoning": "Equivalent names for cyclic imbalance and recurrence order were compared. LZ parsing, periodic autocorrelation and linear recurrence are distinct; the invariant in any alleged matching row must be identified before comparing counts.",
+        "searches": [
+          "arXiv:2005.01638 circular discrepancy definition",
+          "Etzion–Lempel distribution gamma(c,n) of de Bruijn sequences of given complexity",
+          "Resultary 64bb4c490273 and 6e926677b401"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2c8828a3eb45 provides exact D totals 224,688,912,224.",
+          "6e926677b401 provides exactly the L totals, omitting 22, but its columns are maximum absolute nontrivial periodic autocorrelation values 4,8,12,16,20,24. Its joint optimum is eight at (L,sidelobe)=(31,4).",
+          "The inspected public properties table concerns construction examples and families, not a joint value for every rotation class."
+        ],
+        "reasoning": "Full marginal or other-joint-statistic tables cannot be read as cycle-level recurrence-plus-discrepancy metadata. No equivalent joint table is evidenced by these inspections.",
+        "searches": [
+          "Resultary complete discrepancy census 2c8828a3eb45",
+          "Resultary rotation-resolved Lempel–Ziv complexity 64bb4c490273",
+          "Resultary exact joint linear complexity and periodic sidelobe 6e926677b401",
+          "debruijnsequence.org/db/home and /db/props construction tables"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint recurrence-complexity/discrepancy table and hence the count 92 of simultaneous optima for these two specific metrics. The full D and L marginals are covered by other catalogue records, and the known general extremum results are not contributions of this record. No inspected source covers the joint table. In particular, the closest catalogue table sharing the L marginal uses periodic autocorrelation, not cyclic window discrepancy, and an explicit pair with equal L and sidelobe but unequal D rules out direct recovery via that statistic. The same number 92 in a rooted Lempel–Ziv bin is not evidence of the same claim. This is a bounded statement-level assessment, not historical priority certification.",
+      "residual_risks": [
+        "The Chan–Games–Key full text and the Etzion–Lempel full-text tables were not read; unindexed metadata or exact tables in older sources remain possible.",
+        "Not all pages linked from the constructions website were inspected; the decision does not assert absence from all catalogues or establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact L marginal but different joint statistic which does not determine D at fixed L",
+          "evidence": "The columns maximize absolute two-point periodic correlation; the explicit same-(L,sidelobe) witnesses have two different discrepancies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-linear-complexity-and-periodic-sidelobe-spectrum-of--6e926677b401/RESULT.md",
+          "material_read": "RESULT.md offsets 0–2030 at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Indexed search, local mirror finding inspection, and exact witness comparison",
+          "title": "Exact joint linear-complexity and periodic-sidelobe spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Same population, same L and complete exact joint table"
+        },
+        {
+          "assessment": "Exact D marginal and minimum-layer orbit counts, not conditioned on L",
+          "evidence": "It classifies discrepancy levels and reports 60 reversal/complement orbits of minimizers.",
+          "identifier_or_url": "Resultary 2c8828a3eb45",
+          "material_read": "RESULT.md Finding at offsets 440 and 800",
+          "method": "Indexed search and local mirror statement comparison",
+          "title": "Complete discrepancy census for binary order-five de Bruijn sequences",
+          "trigger": "Same population and exact discrepancy table"
+        },
+        {
+          "assessment": "Different measure; equal frequency is not claim equivalence",
+          "evidence": "92 cycles have LZ76 rotation min/max pair (9,11); neither the cyclic discrepancy nor the recurrence order defines that bin.",
+          "identifier_or_url": "Resultary 64bb4c490273",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Indexed search and local mirror finding comparison",
+          "title": "Rotation-resolved Lempel–Ziv complexity of order-five binary de Bruijn cycles",
+          "trigger": "Same order and population, same number 92 under a complexity statistic"
+        },
+        {
+          "assessment": "Same D and related constructions, not evidence of the joint exhaustive table",
+          "evidence": "The discrepancy is over circular substrings; the study treats selected constructions, including primitive-polynomial LFSR-based sequences.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.01638",
+          "material_read": "p. 1 abstract near offset 796 and p. 2 discrepancy definition near offset 4637; also v2 §7 p. 16",
+          "method": "Open-access original passage comparison",
+          "title": "Investigating the discrepancy property of de Bruijn sequences",
+          "trigger": "Cyclic discrepancy including LFSR-based constructions"
+        },
+        {
+          "assessment": "Gives minimum 5, not the pairing with maximal L",
+          "evidence": "For binary order n there is a cycle attaining discrepancy n.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.17367",
+          "material_read": "Theorem 1, p. 2 near offset 5000",
+          "method": "Open-access theorem comparison",
+          "title": "De Bruijn Sequences with Minimum Discrepancy",
+          "trigger": "Broader theorem implying minimum discrepancy at order five"
+        },
+        {
+          "assessment": "Concerns CR symmetry and maximum-complexity count congruence, not the joint spectrum",
+          "evidence": "The congruence modulo 16 is for maximum-linear-complexity populations and has no D parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.01794",
+          "material_read": "p. 13 Theorem 3.11, near offset 44390",
+          "method": "Open-access theorem comparison",
+          "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+          "trigger": "Exact counts and constraints for maximum recurrence complexity"
+        },
+        {
+          "assessment": "Abstract establishes relevance to the complexity marginal; full-text coverage was not determined",
+          "evidence": "The abstract investigates gamma(c,n), the number of order-n de Bruijn sequences at complexity c. The identified alternate returned HTTP 403; that is not negative scientific evidence.",
+          "identifier_or_url": "Etzion and Lempel, IEEE Transactions on Information Theory 30(4), p. 611; ResearchGate publication 3083934",
+          "material_read": "Abstract only; alternate full-text landing page unavailable",
+          "method": "Abstract comparison and lawful alternate full-text retrieval attempt",
+          "title": "On the Distribution of de Bruijn Sequences of Given Complexity",
+          "trigger": "Plausible historic complete complexity table or cycle-level metadata"
+        },
+        {
+          "assessment": "Unresolved full-text coverage, not a judgement of noncoverage",
+          "evidence": "ScienceDirect returned HTTP 403 and the focused alternate-copy lookup did not identify an accessible copy of the same paper.",
+          "identifier_or_url": "Chan, Games and Key (1982), ScienceDirect bibliographic record",
+          "material_read": "Bibliographic identification only, no full text",
+          "method": "Targeted source retrieval and alternate-copy lookup",
+          "title": "On the Complexities of de Bruijn Sequences",
+          "trigger": "Potential older recurrence-complexity data"
+        },
+        {
+          "assessment": "Inspected pages give construction properties rather than the exact requested table",
+          "evidence": "The homepage organizes construction methods and the properties page lists discrepancy columns by construction rather than cycle-level joint metadata.",
+          "identifier_or_url": "https://debruijnsequence.org/db/home and https://debruijnsequence.org/db/props",
+          "material_read": "Homepage opening and properties discrepancy construction table sections",
+          "method": "Public page inspection",
+          "title": "De Bruijn Sequence and Universal Cycle Constructions",
+          "trigger": "Potential exhaustive sequence and property catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Low cyclic discrepancy measures local balance, whereas high linear complexity measures resistance to short linear recurrences. These are motivated objectives independent of this enumeration. The classification gives exact simultaneous selection rates on a complete finite population: maximal L occurs in 23/56 of minimum-D cycles instead of 1/2 overall, so combining the two separate quality criteria is not independent. The full conditional distribution is a useful order-five benchmark not supplied by already known marginals, with no claim of a general-order tradeoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

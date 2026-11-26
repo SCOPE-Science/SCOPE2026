@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The full proof is in `RESULT.md`, and `verify.py` is self-contained apart from SymPy.
+## correctness
 
-1. Run `python verify.py` in the directory containing these two files. The expected success line is `FOLD_FLIP_COUPLED_CLOCK_VERIFY_OK` after four numerical diagnostics.
-2. The checker symbolically verifies the exact host fold identity and the relevant two-step Taylor coefficients. It also tests the asymptotic constants for \((A,\beta)=(1/3,1)\) and \((3/5,4/5)\), in both sign wedges.
-3. The infinite-time claim is established by the proof's trapping argument and squared-amplitude inequality; numerical tolerances are diagnostics only. In particular, the checker is not a certificate of asymptotic convergence or a substitute for checking the uniform remainder bounds.
-4. The original source formula and its fold/flip discussion were inspected at https://doi.org/10.3390/axioms12111031. General fold–flip analyses for different maps are not directly transferable to this one.
+PASS
 
-The theorem covers local open wedges above the host fold, not all initial points. The independent audit status remains unperformed.
+The exact host exponent is −δ²/(B+δ); for sufficiently small δ>0 the next δ is positive and smaller, with δ′=δ−δ²/C+O(δ³). Consequently the exact clock t=C/δ diverges with one-step increment 1+O(1/t), hence t/n→1. Analyticity gives d_n=p_n−p_(n+1)=O(t⁻²) and d_(n+1)−d_n=O(t⁻³). In v=x−2−p the map is h_p(v)+d_n with h_p(v)=(2+p+v)e^(−v)−2−p. The forcing residual over two steps is d_(n+1)−d_n plus O(t⁻²|v|+t⁻³), since ∂p h=O(v) and ∂v h=−1+O(p+|v|). Independent composition gives quadratic coefficient p²(1+p)/2, cubic −1/3+O(p), and quartic O(p); the remainder is uniform on a bounded t v² annulus. Thus w=t v² obeys w′′=w+2w(W*−w)/(3t)+O(t⁻²). Fixed strips near each endpoint have strict inward increments for large t, and the uniform O(1/t) increment cannot leave from the interior. Even-step signs persist and squared error contracts by 1−4w_min/(3t) up to O(t⁻²); divergent total contraction and summable error imply w→W*. Odd/even v ratio tends to −1, while p=O(1/n) is negligible. Both wedges are nonempty and have positive x for sufficiently small initial δ. This yields exactly the original-iteration constants and the two signed limits.
 
+## originality
+
+PASS
+
+The neutral multipliers and autonomous inverse-square-root rate are not credited as new. The assessed distinction is the signed original-time amplitude 3(1+2βC) on the two accessible phase sectors of the same positive commensalism fold–flip, combined with the exact host clock. No inspected theorem entails this pair of limits.
+
+## value
+
+PASS
+
+This resolves a precisely motivated local dynamical question in the originating model. At the codimension-two point a host mode decaying like 1/n changes the leading flip amplitude, despite the forcing itself being smaller than the observed oscillation. The original-time constants and both open phase sectors provide information not contained in the linear bifurcation classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

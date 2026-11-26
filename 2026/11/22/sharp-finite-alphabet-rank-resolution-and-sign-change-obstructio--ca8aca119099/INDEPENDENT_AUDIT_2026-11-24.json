@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:57:56.616241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The common observation tie label must be retained across comparisons. The transform z=a_j+p_j U sends each reference to an independent uniform point, so the conditional rank is Binomial(m,z). Bernstein polynomials span degrees 0 through m; equality of rank laws is exactly orthogonality of the density difference, constant on each alphabet interval, to those polynomials. For d<=min(K,m+1), the minor on the first d rows and any d ordered columns is an expectation of a strictly positive Vandermonde; hence rank=min(K,m+1), with the constant row imposing mass conservation. Positivity of p gives a relative neighborhood in the resulting affine space. For a nonzero null vector with at most m sign changes, put a simple root at each boundary separating opposite nonzero sign blocks; the polynomial can be signed to have a strictly positive integral against the density difference, a contradiction. Alternating cofactors on any m+2 columns give equality in the bound when 1<=m<=K-2. For equal masses the alternating binomial difference annihilates lower degrees and acts on j^(K-1) by (-1)^(K-1)(K-1)!. Multiplying by the Bernstein polynomial leading coefficient gives the displayed sign and amplitude, and squaring gives the Pearson expression by Vandermonde convolution. This includes K=2 (no positive reference count below the threshold), and the K=5 amplitude is 2/3125. The joint-sample indistinguishability inference uses independent observations as well as independently generated references/ties (the ordinary repeated-sampling model for p and q); equal rank marginals alone do not imply the same joint law for dependent observations. The theorem is not a finite-sample power guarantee. The frozen checker was inspected, not run; python3 /workspace/independent_checks.py 1 independently counts ranks by the multinomial numbers below/equal/above each symbol with uniform position among ties, and checks K=2..8 and an irregular K=4 example exactly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A.7 states a pair-dependent eventual threshold; the surrounding argument uses convergence of empirical distribution functions and finite exchangeability to propagate nonuniformity.",
+          "The integrated Vandermonde is a classical ordered sign-regular matrix construction and the cofactor and sign-variation tools are not new. The relevant columns here are averages over fixed adjacent intervals, not arbitrarily unknown mixing atoms."
+        ],
+        "reasoning": "Eventual identification is broader in support but weaker in the quantitative budget. General moment and sign-variation theory supplies key ingredients after translation; no inspected general result supplies the full specified cutoff, sharp extremizers and exact equal-mass first-visible law together.",
+        "searches": [
+          "arXiv:1902.10142, PDF p. 13, Theorem A.7 and Lemma A.8",
+          "Resultary: binomial-mixture moment matching and nonidentifiability",
+          "Karlin (1968), Total Positivity, bibliographic reference"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 89:1640–1649",
+        "arXiv:1902.10142",
+        "SCOPE-20261122-ca8aca119099 (self-match)",
+        "SCOPE-20261122-7bcc800b630d",
+        "SCOPE-20261122-a854baff1a18",
+        "SCOPE-20261013-a3b75adb8e9d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published eventual-detection result does not fix a common K-only budget. Its adapted-order result changes the prescribed ordering, whereas the frozen threshold is worst-case over alternatives at any fixed prescribed order."
+        ],
+        "reasoning": "The rank law is the direct starting point, but further strict minor positivity is needed for K-1 and the dimensions. The sign polynomial and alternating cofactors give the sharp obstruction, and a separate finite-difference evaluation gives the complete first signal. No novelty is assigned to general exact null calibration or eventual detection.",
+        "searches": [
+          "PMLR paper, pp. 4–5, Theorems 3.4 and 3.8",
+          "Extended arXiv text, p. 13, proof context for Theorem A.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior exact alternative rank law makes the mapping on q linear and is equivalent to the conditional binomial representation. The fixed-budget equality condition can be expressed as truncated moments of a density constant on the K ordered intervals, or as the kernel of a rank-probability matrix."
+        ],
+        "reasoning": "Credit equivalence for the observation model and rank law. Those formulas do not themselves assert the rank or describe its kernel, the support-order obstruction, or the exact cutoff uniformly in p.",
+        "searches": [
+          "PMLR 89:1640–1649, Theorems 3.4 and 3.8",
+          "arXiv:1902.10142, Theorem A.7 and preceding proof passage",
+          "Resultary: finite binomial mixtures, ordered moments, rank-test identifiability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ca8aca119099 is the assigned result itself and not independent evidence. Nearby distinct results concern three-moment nonidentifiability of PoiTG, binomial/beta-binomial dispersion, and dispersion of a bi-uniform binomial mixture."
+        ],
+        "reasoning": "Those exact entries do not tabulate or characterize the rank channel for ordered full-support discrete nulls; the reported finite rank values here are instances of a general statement, not a known table.",
+        "searches": [
+          "Resultary: finite-alphabet stochastic rank resolution and sign changes",
+          "Resultary 7bcc800b630d, a854baff1a18, a3b75adb8e9d, Findings"
+        ]
+      },
+      "rationale": "The prior exact rank law, eventual consistency, and the classical positivity and moment techniques are not new. The supported distinct claim is their finite fixed-order classification for every positive K-letter null, including the sharp obstruction and exact first-visible response. No inspected result gives that combination or a dominating theorem subsuming the claim. This is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "Broader truncated-binomial-mixture or Chebyshev-system literature could encode additional pieces after translating to ordered interval masses.",
+        "Karlin's full text was not inspected. Bounded literature/catalog comparisons do not resolve universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR RANK LAW AND EVENTUAL DETECTION; quantitative claims distinct",
+          "evidence": "The exact q-weighted rank kernels and eventual nonuniformity for p!=q do not supply the common sharp fixed-order cutoff.",
+          "identifier_or_url": "https://proceedings.mlr.press/v89/saad19a/saad19a.pdf",
+          "material_read": "PDF p. 4, Theorems 3.4 and 3.8 and adjacent comparison with adapted order",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A Family of Exact Goodness-of-Fit Tests for High-Dimensional Discrete Distributions",
+          "trigger": "Primary theorem on the same rank statistic"
+        },
+        {
+          "assessment": "PRIOR NONUNIFORMITY AND PROPAGATION; no universal cutoff in inspected proof material",
+          "evidence": "CDF limit and pair-dependent existential threshold; exchangeability propagates a nonuniform law from m to m+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.10142",
+          "material_read": "PDF p. 13, offset 89496, Theorem A.7 and proof context, including beginning of Lemma A.8",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A Family of Exact Goodness-of-Fit Tests for High-Dimensional Discrete Distributions (extended text)",
+          "trigger": "Possible precise finite-support threshold in the argument for eventual detection"
+        },
+        {
+          "assessment": "DIFFERENT FAMILY",
+          "evidence": "Moment nonidentifiability in a count family, not the rank channel on fixed ordered intervals.",
+          "identifier_or_url": "SCOPE-20261122-7bcc800b630d",
+          "material_read": "RESULT.md, Finding passage",
+          "method": "Local Resultary mirror",
+          "title": "Open three-moment nonidentifiability in the Poisson-transmuted geometric family",
+          "trigger": "Possible finite-moment invisibility overlap"
+        },
+        {
+          "assessment": "DIFFERENT STATISTIC",
+          "evidence": "Variance-ratio range and rare-count limit, not moment-kernel rank or sign-variation classification.",
+          "identifier_or_url": "SCOPE-20261122-a854baff1a18",
+          "material_read": "RESULT.md, Finding passage",
+          "method": "Local Resultary mirror",
+          "title": "Sharp binomial dispersion spectrum and rare-count Bernoulli transition",
+          "trigger": "Possible exact binomial mixture overlap"
+        },
+        {
+          "assessment": "DIFFERENT CONCLUSION",
+          "evidence": "Convex-order dispersion rather than sharp separation within the family of alternatives on a fixed alphabet.",
+          "identifier_or_url": "SCOPE-20261013-a3b75adb8e9d",
+          "material_read": "RESULT.md, Finding passage",
+          "method": "Local Resultary mirror",
+          "title": "Strict convex-order dispersion in the bi-uniform binomial mixture",
+          "trigger": "Ordered interval mixing alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The resampling budget is intrinsic to this goodness-of-fit procedure. Below K-1 some strictly positive alternatives are invisible even with arbitrarily many independent observations; at or above that budget this type of nonidentifiability disappears. The null-space dimension, sharp ordered sign obstruction, and explicit first-visible law quantify which alternatives can cause this failure and how weak the first signal can be, without claiming a power guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

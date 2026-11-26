@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:58:46.165522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md generator and Proof §§ (1)–(5)",
+        "VERIFICATION.md and verify_qfi.py (read only)",
+        "Independent polar-metric symbolic reconstruction: python3 reproductions/reproduce_other_reviews.py, record 3"
+      ],
+      "rationale": "The stationary transverse Bloch coordinate is the renewal transform r/(r+γ−iω), and the longitudinal component vanishes; the drift eigenvalues have negative real part and the Bloch radius is strictly below 1. Taking the local ω derivative at fixed γ and r in the polar full-rank SLD metric gives the stated rational QFI. Independent symbolic differentiation of that expression gives the stated sextic with positive derivative prefactor. For every t>=0 its ascending coefficient signs are ++++---. Descartes' rule and opposite signs at zero and infinity prove existence, simplicity and global maximality of the unique positive root. At t=0 the sextic factors as −(u−1)(u+1)^3(2u+1)^2, giving u*=1 and γ²F=1/16. Evaluating it at b=√(1+t) gives b^5(b−1)(b+1)^2, establishing strict separation above b for nonzero detuning. The derivative ratio at (1,0) gives the small-t coefficient 19/36. For v=√t tending to infinity and fixed c>0, v^(−8)P(cv,v²) tends to 1+2c²−2c⁴, with a unique simple positive root; bracketing on both sides and uniqueness give u*/v→√((1+√3)/2). Substitution into the scaled QFI gives 2√3/9. These are fixed-γ derivatives, not derivatives along the optimized reset schedule.",
+      "residual_risks": [
+        "The full-rank proof assumes γ>0 and finite r>0; it does not treat the rank-changing undamped resonant point. It uses the unconditioned single-copy stationary QFI and no reset history or resource-rate objective."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li, Tong and Bao's general blind-reset equation and stationary mixture include the frozen generator on inserting pure dephasing and the fixed state |+⟩; their inspected general comparison is a convexity bound, and the specific frequency example uses heralded amplitude loss/recycling.",
+          "Magoni et al. and Wald et al. cover quantum reset ensembles, but the inspected coherent or discrete unitary models do not solve the positive-dephasing scalar rate optimization.",
+          "The positive-dephasing quantum-neuron result uses partial resets and classical information rate in correlated projective records, not single-copy stationary SLD QFI."
+        ],
+        "reasoning": "Broader reset theory covers the dynamics and renewable state construction. The inspected bounds and examples do not determine the positive-rate maximum of this scalar stationary objective; they cannot force the derivative signs or optimizer location.",
+        "searches": [
+          "arXiv:2610.31249 original PDF Eqs. (1), (3), (4) and frequency example",
+          "Primary literature query: stationary qubit frequency quantum Fisher information pure dephasing Poisson resetting unique optimal reset rate",
+          "arXiv:2202.12655, 2410.11497, and 2609.35076 model passages"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 88458f744413 and 15941b8265f8",
+        "arXiv:2610.31249, 2202.12655, 2410.11497 and 2609.35076"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With D=(r+γ)²+ω², the common metric yields det Q=r⁴/[D³(D−r²)]. The ratio of Fω to det Q is (γ²+γr+ω²)(γ²+3γr+2r²+ω²)/r², which depends on the control rate.",
+          "The two optimizers already differ at resonance: rD(γ,0)>γ while rscalar(γ,0)=γ. They differ in the high-detuning limit as well.",
+          "In the discrete near-resonance comparison the weak-reset/short-tick limit maps p to rΔ and detuning to |ω|Δ; this reproduces the constants of the undamped scaling, not the finite-γ sextic."
+        ],
+        "reasoning": "The joint criterion is not a stronger optimizer theorem for every diagonal entry; the variable factor and explicit optimizers demonstrate nonimplication. The scalar diagonal is a direct corollary at the level of the expression alone. Global scalar optimization and the strict calibrated bound require separate sign analysis.",
+        "searches": [
+          "Same-day joint RESULT.md, characters 1330–5750: metric and determinant proof",
+          "Earlier discrete RESULT.md Finding and Proof, characters 0–4146",
+          "arXiv:2610.31249 blind-reset theorem passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The joint-sensing proof uses the identical renewal coherence and gives the full polar SLD metric; on the slice dγ=0 it directly produces the scalar Fω in the frozen record.",
+          "Adding a dephasing multiplier e^(−γΔ) to the Bernoulli gate model gives coherence p/[1−(1−p)e^{−(γ±iω)Δ}], whose p=rΔ+O(Δ²) limit is the present process. The actual discrete theorem has no such multiplier and its nonresonant roots have finite-grid phase dependence."
+        ],
+        "reasoning": "The state and scalar information are covered by the joint metric, but the dephased discrete extension is not a specialization of the cited unitary gate update. A different radius changes the SLD radial denominator, so a coherence rescaling is not an equivalence of optimization problems.",
+        "searches": [
+          "Resultary: stationary unconditioned single-qubit frequency quantum Fisher information pure dephasing Poisson resetting unique optimal reset rate sextic",
+          "Resultary 88458f744413 (joint metric) and 15941b8265f8 (discrete phase QFI)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For the identical stationary dynamics the joint D-criterion satisfies a cubic, with rD(γ,0)=(1+√7)γ/3 and rD/|ω|→√2, distinct from the scalar optimum γ and its limit √((1+√3)/2).",
+          "The discrete phase theorem supplies a quintic and has the same asymptotic constants in the near-resonance limit, but does not tabulate the finite positive-dephasing continuous optimum."
+        ],
+        "reasoning": "The meaningful exact-catalogue check for this continuum problem is the evaluated root condition and normalized limits, not a finite database. The inspected evaluated optima have either a different criterion or different dynamics; the numerical constants that do coincide are explicitly credited.",
+        "searches": [
+          "Resultary exact stationary reset optima and polynomial conditions, especially 88458f744413 and 15941b8265f8"
+        ]
+      },
+      "rationale": "The principal distinct result is the global known-γ scalar-QFI optimizer, its sextic, and its strict detuning-dependent bound and weak-detuning behavior. The stationary state and scalar information formula are already derivable from the same-day joint-sensing metric; the strong-detuning constants also occur in the earlier undamped discrete scaling. Neither is credited as a standalone new contribution. No ordering is inferred from the same-day date.",
+      "residual_risks": [
+        "Priority of the common metric relative to same-day results is not determined. An unlocated general continuous dissipative reset-optimization result could affect the optimizer claim; known dynamics, formula and scaling overlaps do not resolve worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual overlap in state and scalar metric by restriction, not in rate optimizer or its root/bounds.",
+          "evidence": "The polar line element is dm²/(1−m²)+m²dφ². Its determinant criterion has a cubic and at zero frequency is maximized at (1+√7)γ/3.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-joint-sensing-reset-optimum-for-a-dephased-qubit--88458f744413",
+          "material_read": "RESULT.md Finding, scope, and proof of the metric/determinant and rate optimum, passage through offset 5750",
+          "method": "Local Resultary and mirrored theorem/proof at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Unique joint-sensing reset optimum for a dephased qubit",
+          "trigger": "Identical stationary model and exact same-day reset optimization"
+        },
+        {
+          "assessment": "Covers the undamped discrete analogue and strong-scaling constants, not finite-γ continuous optimization.",
+          "evidence": "The update alternates a unitary phase gate and Bernoulli full reset, with no positive dephasing parameter; the exact condition is a quintic away from rank-changing resonance.",
+          "identifier_or_url": "2026/11/2/SCOPE-unique-optimal-reset-probability-for-stationary-qubit-phase-info--15941b8265f8",
+          "material_read": "RESULT.md Finding, assumptions and stationary coherence/derivative proof, characters 0–4146",
+          "method": "Local Resultary and mirrored theorem/proof at the same commit",
+          "title": "Unique optimal reset probability for stationary qubit phase information",
+          "trigger": "Earlier one-qubit stationary scalar-QFI reset optimum"
+        },
+        {
+          "assessment": "Blind-reset formalism does cover the dynamics; the inspected general bound and conditional frequency example do not give the scalar stationary optimizer here.",
+          "evidence": "An age mixture and blind-reset QFI convexity bound are stated. The frequency example instead concerns heralded recycling under amplitude loss. The frozen citation omits ‘Conditional’ from the PDF title.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31249",
+          "material_read": "Original Eqs. (1), (3), (4), text offsets about 9000 and 14500; frequency example PDF pp. 4–5",
+          "method": "Lawful OA original PDF passages",
+          "title": "Conditional Reset-Enhanced Dissipative Quantum Metrology",
+          "trigger": "More general dissipative reset metrology with frequency estimation"
+        },
+        {
+          "assessment": "Reset ensemble formalism, not this scalar pure-dephasing optimizer.",
+          "evidence": "The inspected model has coherent Hamiltonian dynamics interrupted by unconditional or conditional resets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12655",
+          "material_read": "Original PDF pp. 1–2, Hamiltonian Eq. (1) and reset protocols",
+          "method": "Lawful OA PDF passage retrieval",
+          "title": "Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+          "trigger": "Coherent stochastic-reset ensembles and sensing background"
+        },
+        {
+          "assessment": "Discrete unitary reset correlations, not this optimizer.",
+          "evidence": "The displayed gate update provides no independent per-step dephasing factor or scalar-QFI optimization theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.11497",
+          "material_read": "Original PDF pp. 1–3, especially Eq. (7)",
+          "method": "Lawful OA PDF passage retrieval",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "Discrete-time renewal alternative"
+        },
+        {
+          "assessment": "Different reset dynamics, observable and resource criterion.",
+          "evidence": "It uses partial resets and a classical Fisher-information rate associated with repeated projective readout, not unconditioned stationary frequency SLD QFI.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.35076",
+          "material_read": "Original abstract and PDF pp. 2–3; offsets 0 and about 12500",
+          "method": "Primary literature search then lawful OA original PDF passages",
+          "title": "Classical Bound on the Fisher Information Rate of a Dephasing-Enhanced Quantum Neuron",
+          "trigger": "Targeted primary-search hit combining dephasing, resetting and information optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md global scalar rate optimization",
+        "Same-day joint D-optimal criterion and discrete phase analogue"
+      ],
+      "rationale": "This solves a natural resource-setting problem for frequency estimation when dephasing is calibrated: a global, one-dimensional root test for all detunings, an informative strict threshold, and a clear contrast with joint estimation on identical dynamics. The new scalar optimizer is useful independently of the standard QFI calculation and known undamped scaling constants.",
+      "residual_risks": [
+        "No metrological advantage per elapsed time, reset overhead, adaptive information, or global estimation performance is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

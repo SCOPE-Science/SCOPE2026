@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,6 @@
 }
 ---
 
-# Computational verification
+# Reproduction and limits
 
-Run `python check.py` with NumPy and SciPy to reproduce **44 deterministic assertions**. The checker evaluates Gaussian Brownian step tails at fixed excursion durations, then independently integrates over exponential waiting times to recover step mean, step second moment, step-duration moment, drift and dispersion. It checks derivative sign changes at numerical roots of the optimal-current equation and the small/large-rate diffusion limits for representative parameter selections. The computations assume conventional floating-point quadrature and are not machine-verified proofs. The general proof, quantifiers, and sharp inequality arguments are given in `RESULT.md`.
-
-There has been no independent audit or validation.
+Run `python3 check.py` with Python 3 and no third-party dependencies. The checker evaluates the scaled logarithmic derivative without overflowing at large resetting rates and brackets a zero at eight representative asymmetries. It checks both sides of the critical point, the numerical ordering of those eight roots, and several scaled near-endpoint roots. These are numerical diagnostics, not a proof of global optimality, monotonicity, or asymptotic scaling. The analytic proof is in `RESULT.md`.

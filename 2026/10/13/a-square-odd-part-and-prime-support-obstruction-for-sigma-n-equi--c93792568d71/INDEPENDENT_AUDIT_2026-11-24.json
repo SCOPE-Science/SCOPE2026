@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:04:07.023437Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With n>5 the congruence is exactly remainder five; write sigma(n)=kn+5. A prime power must have prime p dividing 4; the remainder for a power of two greater than five is n−1, never five. With at least two prime divisors the proper divisors 1,p,q make k≥2. The strict divisor-ratio product excludes two odd primes. With support {2,p}, the ratio is less than 3 and parity forces an even exponent b of p, hence k=2 and (2^(a+1)−p)(1+p+...+p^(b−1))=6. The positive sum is at least 4, so it must be 6; the only possibility p=5,b=2 requires 2^(a+1)=6. For three odd primes the ratio is less than 3 and parity again gives all even exponents. The upper ratio bounds force 3,5 and a third prime below 16 (the comparison is exactly 2 at 16). For 7 or 13 the two non-5 primes have order 4 mod 5, so their odd-length geometric sums cannot vanish; for 11 the full divisor sum is 1 mod 3 instead of 2. Finally for any even n in scope, oddness of sigma(n) forces even exponents for every odd prime. The exact inequalities and modular constants independently checked by python3 -B /workspace/branches/frozen_math_replay.py (divisor section). Frozen verify.py was inspected, not executed; its bounded scan cannot imply the infinite claim. No existence or nonexistence conclusion for the remaining support classes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anavi–Pollack–Pomerance bound sporadic solutions by x^(1/2+o(1)) for the stated uniform range; their regular families cannot occur for a=5, as no divisor m of 5 has sigma(m)=5. Pomerance reports only 1 and 2 then known in S(5), and gives general sparsity and finiteness results. The catalogue near-3-perfect item assumes squarefreeness, multiplier 3, and a proper-divisor defect."
+        ],
+        "reasoning": "Sparsity does not imply absence on any whole support class. The catalogue hypotheses exclude the actual low-support candidates with even exponents and multiplier 2. Neither comparator dominates the frozen claim.",
+        "searches": [
+          "Pomerance 1975, §2 Theorems 1–2, §3 Theorem 3 and §4 Theorems 4–5",
+          "Anavi–Pollack–Pomerance 2013, Theorem 1 and regular solutions",
+          "Resultary db92a043fde9, squarefree near-3-perfect support bounds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Pomerance 1975 printed pp. 266–270",
+        "Anavi–Pollack–Pomerance 2013 pp. 1–2",
+        "OEIS A076495",
+        "Resultary local records db92a043fde9 and c7e355b44925"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4 gives at least two elements in S(a) for every a; the p. 270 wording is 'we know of no members of S(5) other than 1 and 2.' Theorem 5 gives finiteness of certain nonprimitive exceptions, not a no-exception statement. The full support exclusions use the separate geometric-sum identity and modular conditions at 3 and 5."
+        ],
+        "reasoning": "The prior sources' examples, counting statements and computational lower bounds do not rule out all solutions of specified support. The even square-odd-part implication alone is standard; the support-specific exclusions do not follow from it alone.",
+        "searches": [
+          "Pomerance §4 p. 269 Theorem 4 and p. 270 S(5) remark and Theorem 5",
+          "Anavi–Pollack–Pomerance Theorem 1",
+          "OEIS A076495 remainder-five comment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pomerance's S(5) uses an unrestricted congruence and includes 1 and 2; OEIS asks for an actual remainder, agreeing with the claim's n>5 restriction. In the proof, sigma(n)=2n+5 is a reduction for specific support classes. The cited near-perfect formulation requires its positive defect to divide n."
+        ],
+        "reasoning": "For n>5 the congruence and actual remainder 5 are equivalent, but k need not in general be 2. Thus neither a result for just k=2 without the support reduction nor a result for positive proper-divisor defects without 5 dividing n may be silently applied to the full claim.",
+        "searches": [
+          "Resultary local search for sigma(n)≡5 mod n and remainder-five support or near-perfect variants",
+          "Pomerance §4, S(5); OEIS A076495",
+          "Anavi–Pollack–Pomerance, definition of near-perfect, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A076495 uses 0 if no such least x exists; the 0 at 5 is explicitly conjectural, with a reported lower bound above 1.5×10^14 if defined. Closest catalogue records concern a near-3-perfect quotient or a different alternating divisor function."
+        ],
+        "reasoning": "The database entry is exact as a formulation of the question, not an exact solution to it. The finite bound does not exclude arbitrarily large exponents on the forbidden supports.",
+        "searches": [
+          "OEIS A076495 entry at remainder 5 and comments",
+          "Resultary local remainder-five and low-support lookup; SCOPE-db92a043fde9 and c7e355b44925"
+        ]
+      },
+      "rationale": "The standard parity fact about odd divisor sums is not credited as independently original. The substantive statement is the exclusion of every two-prime case and every odd three-prime case for the actual remainder five. The closest primary sources study exactly the general congruence, but give small known examples, regular-family criteria, sparsity or finiteness results, not these unrestricted local exclusions. The decision is limited to the structural bounds, not the conjectural absence of any remainder-five integer.",
+      "residual_risks": [
+        "Elementary congruence exclusions may occur unindexed or under fixed-defect terminology. The inspected literature does not certify priority or exhaust that literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the historical wording, not the support obstruction",
+          "evidence": "Theorem 4 on p. 269 proves at least two members of S(a); p. 270 explicitly says only 1 and 2 were known for S(5). Theorems 3 and 5 concern sparsity and finiteness.",
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/PDF/paper7.pdf",
+          "material_read": "Printed pp. 266–270, especially §4 Theorem 4, the S(5) remark and Theorem 5",
+          "method": "Visually inspected author-hosted scanned PDF sheets 2–4 after no extractable text was available",
+          "title": "On the congruences sigma(n)≡a (mod n) and n≡a (mod phi(n))",
+          "trigger": "Foundational primary paper with an exact S(5) remark and a theorem cited by the exact OEIS entry"
+        },
+        {
+          "assessment": "Uniform counting estimate for sporadic solutions, not a prime-support theorem",
+          "evidence": "Theorem gives a count of at most x^(1/2+o(1)) outside the regular families; near-perfect denotes sigma(n)=2n+d with d a proper divisor.",
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/sigmacongruence.pdf",
+          "material_read": "Abstract, pp. 1–2 definitions, and Theorem 1",
+          "method": "OA full-text bounded passages at offsets 0 and about 3800",
+          "title": "On congruences of the form sigma(n)≡a (mod n)",
+          "trigger": "General theorem for the very same congruence"
+        },
+        {
+          "assessment": "Conjectural absence and finite search, not structural exclusion",
+          "evidence": "Comment expressly qualifies 0 at 5 as conjectural and reports the finite lower bound.",
+          "identifier_or_url": "https://oeis.org/A076495",
+          "material_read": "Definition and remainder-five comment at entry offset 0",
+          "method": "Open entry text",
+          "title": "OEIS A076495: smallest x having a prescribed actual divisor-sum remainder",
+          "trigger": "Exact same remainder at index five"
+        },
+        {
+          "assessment": "Different divisor-sum multiplier and extra hypotheses",
+          "evidence": "The record assumes sigma(n)=3n+d with n squarefree and d a positive proper divisor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-prime-support-barriers-for-squarefree-near-3-perfect-integers--db92a043fde9",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Configured local mirror",
+          "title": "Prime-support barriers for squarefree near-3-perfect integers",
+          "trigger": "Closest indexed analogue with sigma and parity-separated prime-support bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The target remainder is a documented unresolved entry, not an arbitrary numerical test. The proof removes whole unbounded families rather than pushing a search limit: the least possible support must be even with exactly two distinct odd primes both to even powers, while the odd branch needs at least four primes. The useful part is the exclusion with arbitrary exponents and primes, not the textbook parity lemma or the scan.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

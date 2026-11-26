@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:30:03.839621Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The map from the four original phases to the initial phase and three consecutive differences is a unimodular torus change of variables, so the differences are independent Haar. The lag-two magnitude is the magnitude of the sum of the two outer difference phasors, 2X with X=|cos((delta_0-delta_2)/2)|; lag one adds the independent uniform middle phasor to this sum. Thus the angle relative to the outer sum is conditionally Haar (the zero sum is null), and V=1+4X^2+4X cos(Phi). Since X has density 2/(pi sqrt(1-x^2)), U=4X^2 has density 1/(pi sqrt(u(4-u))); conditional V is shifted arcsine with center 1+u and radius 2 sqrt(u). Their product is exactly the stated density on its open region. Lag three has modulus one, so it is not a third random density coordinate. In the threshold event X<=s/2, lag one automatically passes for X<=(s-1)/2; integration of its conditional probability in the rest gives the claimed CDF with the clipped arcsine function. At s=1, setting x=sin(t) leaves (2/pi^2) times the integral of pi/2-t from 0 to pi/6, which is 5/36. The support is all of [1,3]: the minimum occurs when the outer difference phasors cancel, the maximum when all three align, and the peak is continuous on the connected torus with Haar of full support. For s=1+epsilon the interval from 0 to a fixed large multiple of epsilon affects the difference by O(epsilon), as do the O(epsilon) motion of the upper cutoff and the integrand change bounded away from x=0. On the intermediate interval from C epsilon to a fixed small eta, both arcsine arguments stay away from clipping, and Taylor expansion with bounded second derivative gives epsilon/(pi^2 x(1-x^2)) plus O(epsilon^2/x^2). The latter integrates to O(epsilon); the former yields exactly the log term and its coefficient. This provides an analytic error estimate rather than a fit to simulations. The supplied numerical quadrature/simulation checker and output were inspected, not executed; neither is required to derive the law or remainder.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katz–van der Linden give deterministic Golay–Rudin–Shapiro peak bounds. Schmidt surveys deterministic small-correlation sequences. Katz–Ramirez compute autocorrelation demerit-factor moments under the uniform binary sequence law.",
+          "The catalogue fourth-moment findings ending 2ac4e1c327c6 and dcec63467712 give scalar Haar energy variance by length or support, not a Haar peak law."
+        ],
+        "reasoning": "Bounds for a deterministic sequence family do not define a Haar volume. Moments of a sum of squared sidelobes, particularly in a binary model, do not provide a joint threshold probability for this continuous four-chip model.",
+        "searches": [
+          "Katz–van der Linden, arXiv:2108.07318v3, abstract",
+          "Schmidt, arXiv:1602.03722, abstract",
+          "Katz–Ramirez, arXiv:2307.14281v4, abstract",
+          "Resultary: continuous Haar fourth-norm variance on general supports"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.07318v3, arXiv:1602.03722, arXiv:2307.14281v4",
+        "Borwein–Ferguson P178",
+        "Resultary 9c95f80668e4, 2ac4e1c327c6, dcec63467712, d6758fa24289, 7f7aa7e01e0e and afb1037d2af7",
+        "Friese–Zottmann and Manda–Kumar: identified DOI routes attempted; primary results not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior continuous-Haar energy representation yields the same local arcsine mechanism after expressing the separate lags, but its exact moment calculation uses character orthogonality rather than a peak cutoff or small-threshold expansion.",
+          "The Barker construction passages inspected do not compare the independent-phase volume at thresholds 1 and 1+epsilon; historical Friese–Zottmann and Manda–Kumar result passages were not accessible."
+        ],
+        "reasoning": "Computing the peak requires a simultaneous cutoff in both squared lags, not an energy threshold. In particular, a uniform first-order expansion under the integral fails near U=0; isolating the epsilon-scale cancellation region and integrating the resulting epsilon/x contribution leads to the new logarithmic law. This is not a parameter specialization of the prior energy results or deterministic optimization.",
+        "searches": [
+          "Prior four-term progression character proof at local-mirror RESULT.md offsets 4600–7071, against the claimed peak and boundary",
+          "Borwein–Ferguson abstract/Introduction, against Haar-volume and threshold claims",
+          "Manda–Kumar DOI 10.9734/bpi/aaer/v16/6194D and Friese–Zottmann DOI 10.1049/el:19941306"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior four-term progression result obtains the same four-chip model's centered L4 energy as 4 cos(p)+4 cos(q)+8 cos(p+q), where the two three-term progression phases p,q are independent Haar and the four-distinct phase is their sum.",
+          "In that representation the lag-two square is 2+2 cos(p+q) and the lag-one square is 3+2[cos(p)+cos(q)+cos(p+q)]. Given p+q mod 2pi, p is still Haar; the half-angle addition law yields the conditional arcsine kernel of the reviewed finding.",
+          "The focused general literature lookup returned unrelated results and contributes no negative evidence."
+        ],
+        "reasoning": "An abstract scalar energy distribution does not identify the lag pair, but the actual phase-character proof contains the parameters needed to recover the joint law with the elementary lag identities. The energy invariant is 18+2(U+V), not max(1,sqrt(U),sqrt(V)); its prior scalar law does not report the peak distribution or logarithmic threshold.",
+        "searches": [
+          "Resultary: random unimodular four-frequency supports, exact peak/aperiodic sidelobes, random Fourier fourth norm and Barker probability",
+          "2026/11/8/SCOPE-four-term-progressions-as-the-first-skewness-obstruction-for-ran--9c95f80668e4",
+          "Literature: random polyphase continuous uniform phase sequences exact peak aperiodic autocorrelation distribution length four Barker probability Friese Zottmann Haar sidelobe arcsine Barker threshold logarithmic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Borwein–Ferguson's inspected abstract and introduction use search for optimal or low-energy and low-peak polyphase sequences and report existence of Barker sequences to length 63.",
+          "The near catalogue hits ending d6758fa24289, 7f7aa7e01e0e and afb1037d2af7 count or optimize phase thresholds on a different support, a finite alphabet or length five. The exact catalogue hit ending 8004397e2ead is the frozen record itself.",
+          "Friese–Zottmann primary text was not retrieved."
+        ],
+        "reasoning": "A finite catalogue of good codes, minimum attainable sidelobes, or the alphabet size needed to attain a target is not the continuous measure of all qualifying codes. No independent table giving this atom, entire CDF or threshold coefficient was established in the inspected sources.",
+        "searches": [
+          "Resultary: exact peak-sidelobe phase thresholds and exact Barker optima",
+          "Borwein–Ferguson, Polyphase Sequences with Low Autocorrelation",
+          "Friese–Zottmann, DOI 10.1049/el:19941306"
+        ]
+      },
+      "rationale": "The distinct claim is the exact peak distribution in the four-chip continuous-Haar model, in particular the positive Barker atom and the sharp logarithmic boundary beyond it. A close same-ensemble prior result is stronger than a list of scalar moments: its phase-character representation makes the basic conditional arcsine law recoverable. That ingredient is credited, not treated as a separate novelty. The inspected prior results do not give the peak cutoff calculation or the singular boundary law; the latter requires a nonuniform analysis near cancellation of the outer sum. This is a bounded statement-level assessment, not priority certification.",
+      "residual_risks": [
+        "Historical Friese–Zottmann and Manda–Kumar primary result passages were unavailable. The exact overlap with older specialist sequence/radar literature cannot be excluded.",
+        "The closest available Haar paper is credited for its character representation and hence for the recoverable arcsine mechanism; a differently presented calculation of the peak volume or its logarithm remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong adjacent result; joint-law ingredient effectively recoverable, peak logarithmic asymptotic not supplied",
+          "evidence": "The two Haar characters and their product give an exact scalar energy representation; writing each lag in those characters recovers the conditional kernel.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-term-progressions-as-the-first-skewness-obstruction-for-ran--9c95f80668e4",
+          "material_read": "RESULT.md Finding, proof of progression case (local-mirror offsets 4600–7071), and relationship-to-prior-work passage",
+          "method": "Local publication mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-term progressions as the first skewness obstruction for random phases",
+          "trigger": "Same independent Haar phases and four consecutive frequencies; potential exact distribution implication"
+        },
+        {
+          "assessment": "Different deterministic family and type of result",
+          "evidence": "Exponential bounds for deterministic Golay–Rudin–Shapiro sequence families.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.07318v3",
+          "material_read": "PDF p. 1 abstract, OA offset 0",
+          "method": "Lawful OA PDF",
+          "title": "Peak Sidelobe Level and Peak Crosscorrelation of Golay–Rudin–Shapiro Sequences",
+          "trigger": "Same peak statistic"
+        },
+        {
+          "assessment": "Broad deterministic context, not evidence excluding a particular full-text theorem",
+          "evidence": "Survey of binary and unimodular low-correlation questions and constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.03722",
+          "material_read": "PDF p. 1 abstract, OA offset 0",
+          "method": "Lawful OA PDF",
+          "title": "Sequences with Small Correlation",
+          "trigger": "Survey of possible low-correlation, Barker and peak formulations"
+        },
+        {
+          "assessment": "Deterministic algorithmic search and optimization in the passages read",
+          "evidence": "Search for good polyphase sequences under energy or maximum sidelobe criteria, Barker sequences to length 63.",
+          "identifier_or_url": "https://www.cecm.sfu.ca/~pborwein/PAPERS/P178.pdf",
+          "material_read": "PDF p. 1 abstract and introduction, OA offsets 0–3558",
+          "method": "Lawful author-hosted PDF",
+          "title": "Polyphase Sequences with Low Autocorrelation",
+          "trigger": "Polyphase Barker conditions and low maximum autocorrelation"
+        },
+        {
+          "assessment": "Unresolved exact coverage",
+          "evidence": "Unavailable or forbidden access; title alone does not establish whole-text scope.",
+          "identifier_or_url": "https://doi.org/10.1049/el:19941306",
+          "material_read": "Citation/title; no primary theorem passage retrieved",
+          "method": "Bounded lawful OA and IET retrieval attempts",
+          "title": "Polyphase Barker Sequences up to Length 31",
+          "trigger": "Historical continuous-polyphase Barker comparison with possible length-four volume detail"
+        },
+        {
+          "assessment": "Unresolved exact coverage",
+          "evidence": "Access denied or unavailable, so no statement-level conclusion drawn from the article.",
+          "identifier_or_url": "https://doi.org/10.9734/bpi/aaer/v16/6194D",
+          "material_read": "Citation/title; no primary theorem passage retrieved",
+          "method": "Bounded lawful OA and BPI retrieval attempts",
+          "title": "Polyphase Sequences with Good Correlation Properties and Merit Factor Based on Cyclic Algorithm Approach",
+          "trigger": "Cited algorithmic low-correlation comparison"
+        },
+        {
+          "assessment": "Different ensemble and scalar statistic",
+          "evidence": "Uniform binary model, central moments of normalized demerit factor rather than the peak law.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.14281v4",
+          "material_read": "PDF p. 1 abstract, OA offset 0",
+          "method": "Lawful OA PDF",
+          "title": "Moments of Autocorrelation Demerit Factors of Binary Sequences",
+          "trigger": "Exact random-sequence autocorrelation statistics"
+        },
+        {
+          "assessment": "Scalar energy moment results, not joint threshold laws",
+          "evidence": "General-length or support-dependent variance; at length four the former gives mean 28 and variance 48 for the fourth norm statistic.",
+          "identifier_or_url": "2026/10/11 catalogue records ending 2ac4e1c327c6 and dcec63467712",
+          "material_read": "RESULT.md Findings from offset 0",
+          "method": "Local publication mirror",
+          "title": "Exact finite variance of the fourth moment of a random unimodular polynomial; Random-phase fourth-moment variance detects non-Sidon relations",
+          "trigger": "Potential broader exact continuous-Haar statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a continuous random polyphase code, the distribution at the lowest feasible peak is a natural comparison against designed Barker codes. Length four is the first length with two nonconstant aperiodic sidelobes (length three has only one); their dependence matters for that probability. The result gives a usable exact reference CDF, quantifies the positive measure of the optimum-peak region, and identifies its logarithmic growth immediately above the minimum, rather than merely recomputing a scalar energy moment or finding one optimal code.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

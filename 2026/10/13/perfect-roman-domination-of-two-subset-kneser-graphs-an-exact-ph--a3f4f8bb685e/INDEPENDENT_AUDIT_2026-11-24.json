@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:20:05.462139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixed support F of size r has a unique lightest extension, of weight N+r-U(F), because each eligible off-support pair can be zero independently. If F contains disjoint a,b, a pair disjoint from exactly one is an X-to-Y pair (X=a union b), excluding a,b themselves. Unique disjointness for the full support otherwise requires a cross pair between a and b (a pair disjoint from both can never work). A third support pair with 2, 1, or 0 points in X eliminates respectively 2(n-4), 3(n-5), or 4(n-6) of the X-to-Y candidates, offsetting the at most four cross pairs for n>=7. A pairwise intersecting family is a star or a full triangle: the U counts are 2(n-3) for a two-edge star, 3 for a three-edge star (outer leaf pairs), 0 for a larger star, and 3(n-3) for a triangle. All satisfy the bound 4(n-4). Consequently W>=N+2-4(n-4) for r>=2, with equality only for a two-edge matching (strict for two intersecting edges or r>2). Subtract the singleton weight 2n-2 to get (n-5)(n-8)/2; the empty support of weight N is never competitive. Counting singleton or unordered disjoint two-edge supports gives the claimed 105, 238 and binom(n,2) with no other extensions. My independent bitset recursion (branches/independent_kneser_supports.py 7 8 9) exhausts 27896, 1683218 and 40999516 supports at those orders and obtains 11/105, 14/238 and 16/36 (weight/count), with support-size distributions matching the frozen record. These cutoffs are exhaustive for minima at tested orders because the weight is at least 2r. The bundled crosscheck's description overstates its small supplemental loop: the code skips size 3 at n>8. The decisive bounded-support enumeration and infinite proof do not depend on that loop.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regular-graph primary DOI and PDF were not lawfully retrievable in the audit. The frozen reference identifies a general regular-graph upper bound, not a classification. The accessible same-object Kneser article explicitly names ordinary, total and signed Roman invariants."
+        ],
+        "reasoning": "A one-sided regular-graph upper bound is not a proof of the Kneser lower bound and equality supports. No exclusion of all other contents of the unread regular-graph paper is asserted.",
+        "searches": [
+          "Henning–Klostermeyer DOI 10.2298/AADM1801143H and cited direct PDF",
+          "Resultary: perfect Roman regular graphs, triangular graphs and Kneser support optimization"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0d0302466963, 66092f59608f",
+        "arXiv:2204.05664",
+        "arXiv:2309.07018",
+        "10.2298/AADM1801143H (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a support F of size r, outside F the counts on the two complementary graphs sum to r. With r=2 this preserves exactly-one, hence the same minimum extension for each such support. For r=1 or r>=3 it does not preserve that predicate in general."
+        ],
+        "reasoning": "This transfers the optimum within the size-two regime for n=7,8 and its matching assignments, not exclusion of all other Kneser supports. At n=8 the extra singleton branch and at n>=9 the global singleton rigidity do not follow. The specific comparison, not the date of an indexed record, determines coverage.",
+        "searches": [
+          "Compare local mirror 0d0302466963 Finding with frozen RESULT.md Steps 1–4, testing exact-one preservation under complementation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unique-response Roman adds that no positive vertex has a 2-neighbor. Ordinary Roman requires at least one 2-neighbor at zero vertices; the Kneser paper gives ordinary and total Roman values 6 for k=2,n>=6."
+        ],
+        "reasoning": "A pair selected among the unmatched ground points of a two-edge matching sees both 2-labels and must be labeled 1, which is allowed here but forbidden by unique response. A perfect-code-like requirement on all off-support vertices is also stronger than the studied label rule. The ordinary Roman exact value is not an exact value for the stricter perfect zero rule.",
+        "searches": [
+          "Resultary: perfect Roman domination on KG(n,2), complements of triangular graphs, unique response and support formulations",
+          "Fernau–Mann arXiv:2309.07018 §1.2, p. 2, OA offset 4650",
+          "Zec–Grbić arXiv:2204.05664, DMTCS 25(1), art. 14, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record 0d0302466963, RESULT.md offset 0, gives matching supports of size floor((2n+3)/8) on T_n=L(K_n), with weight N+r-2r(n-2r) and count n!/[2^r r!(n-2r)!]. Indexed record 66092f59608f concerns ordinary Roman domination on T_n with minimum n-1."
+        ],
+        "reasoning": "At n=7,8 the perfect triangular record gives matching sizes two and counts 105,210, the matching branch here. The ordinary triangular count 105 at n=7 is on three 2-labels and weight 6, not a transfer of the same functions. Neither record tabulates the full Kneser claim.",
+        "searches": [
+          "Resultary: matching rigidity of perfect Roman domination on triangular graphs; exact minimum functions on triangular and two-subset Kneser graphs"
+        ]
+      },
+      "rationale": "There is material indexed overlap for the two-edge support branch via complementation, but it does not supply the Kneser optimization across all support sizes. The supported distinct contribution is the full KG(n,2) exact optimum transition and optimizer census. The related ordinary Roman and unique-response findings use different requirements.",
+      "residual_risks": [
+        "The Henning–Klostermeyer primary text was not independently recovered. Wider public search was deferred, and a differently worded historical Kneser or dense-graph result could have been missed. The indexed comparison establishes partial overlap, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material matching-branch overlap but no transfer of all-size Kneser optimization",
+          "evidence": [
+            "T_n adjacency by intersection; matching size floor((2n+3)/8), explicit weight and multiplicity"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-matching-rigidity-of-perfect-roman-domination-on-triangular-grap--0d0302466963",
+          "material_read": "RESULT.md Finding at offset 0, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror passage and mathematical implication check",
+          "title": "Matching rigidity of perfect Roman domination on triangular graphs",
+          "trigger": "Perfect Roman classification on exactly the complementary graph"
+        },
+        {
+          "assessment": "Ordinary Roman domination in the complementary graph; coincident small count is not equivalence",
+          "evidence": [
+            "Minimum n-1; matching supports, size three at n=7"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Roman domination polynomial of triangular graphs with minimum functions",
+          "trigger": "Same pairs and matching-optimizer count under an adjacent invariant"
+        },
+        {
+          "assessment": "Ordinary, total and signed variants; exact ordinary/total weight 6 is not a perfect Roman formula",
+          "evidence": [
+            "The qualifying Roman rule is at least one, not exactly one"
+          ],
+          "identifier_or_url": "arXiv:2204.05664; DOI 10.46298/dmtcs.10506",
+          "material_read": "DMTCS p. 1 abstract and Roman definition in introduction; OA offsets around 850 and 2050",
+          "method": "Open primary passages",
+          "title": "Several Roman domination graph invariants on Kneser graphs",
+          "trigger": "Same Kneser graphs and neighboring invariants"
+        },
+        {
+          "assessment": "Unique response imposes an additional condition and does not cover the matching optima",
+          "evidence": [
+            "Positive-labeled vertices in the unique-response rule have no 2-neighbor"
+          ],
+          "identifier_or_url": "arXiv:2309.07018",
+          "material_read": "§1.2 p. 2, OA offset around 4650",
+          "method": "Open primary definition passage",
+          "title": "Perfect Roman Domination and Unique Response Roman Domination",
+          "trigger": "Potential equivalent terminology"
+        },
+        {
+          "assessment": "Residual coverage risk; no independent whole-paper exclusion",
+          "evidence": [
+            "Frozen record cites a general upper bound, not a Kneser census"
+          ],
+          "identifier_or_url": "10.2298/AADM1801143H",
+          "material_read": "Citation and frozen reference description only; no independent full-text passage",
+          "method": "Lawful DOI and cited PDF attempts did not recover text",
+          "title": "Perfect Roman Domination in Regular Graphs",
+          "trigger": "Same invariant on a superclass containing KG(n,2)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard Kneser family the exactly-one-neighbor constraint at zero vertices changes the optimizer class precisely at two adjacent boundary orders. The exact counts explain the tie at n=8 and the eventual rigidity. The all-support bound makes that structural distinction, beyond the matching branch already visible on the complement, available without solving an optimization at each order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

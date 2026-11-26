@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:17:03.085695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66; VERIFICATION.md and verify_retractions.py inspected without executing source code",
+        "/workspace/branches/19eedbd7-c2d2-4981-ae11-7bd7cf14cf6a/record3_bounded_check.py and record3_bounded_check_results.txt"
+      ],
+      "rationale": "The image is a local quotient with residue field k and a one-dimensional nilpotent ideal kz. This line cannot lie in the square of the ambient maximal ideal because the retraction kills that square and fixes z. In odd characteristic the degree-two part of z^2 forces a unique nonzero tangent coefficient. In the decomposition z=x_i u+b, the coefficient of x_i in the square gives 2ub=0, so b=0 since u is a unit. Normalize the pivot and use e(z)=z to get v_i=1. The substitution x_i to x_i u has an explicit inverse x_i to x_i u^(-1), fixing all other generators. Thus the nonlinear tail does not obstruct conjugacy. Every automorphism has monomial tangent action, under which the number s (not the labeled support) of off-pivot nonzero coefficients is invariant, and permutations and scalings realize every matching support size. Composition either agrees only for the identical map at the same pivot, or, at distinct pivots, vanishes on the maximal ideal in both orders precisely when the two cross coefficients vanish. Each allowed pivot contributes q^(B-1) neighbors, which gives the degree spectrum, diagonal-adjusted pair count and clique bound. Independent substitution checks at (d,q)=(2,3) and (3,3) give 18 and 729 vertices, and 36 and 40095 ordered commuting pairs, respectively.",
+      "residual_risks": [
+        "Independent replay is bounded and over the prime field only; the algebraic argument applies to every odd finite field.",
+        "At RESULT.md line 82, the example number should be 4.19 in the cited arXiv v1. Example 4.25 in the current version concerns the radical-square-zero quotient that also kills xy. This is a bibliographic correction, not a dependency of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Epstein–Nguyen Theorem 6.4 resolves the coordinate-type graded retract assertion for irreducible monomial ideals. d5a40e9576ac Finding gives all field-valued automorphisms of the exact ungraded algebra, with monomial tangent action outside characteristic two."
+        ],
+        "reasoning": "Knowing the isomorphism type of a graded retract image does not classify distinct non-graded splittings or their fibers and adjacency. The full group determines the available action, but its description does not identify which rank-two projections occur or what products of those projections are.",
+        "searches": [
+          "Resultary: monomial complete intersections automorphism tangent group characteristic p exponent p or p+1",
+          "Resultary: rank-two algebra retract square-zero variables graded Stanley-Reisner Epstein Nguyen",
+          "arXiv:1301.3967, Theorem 6.4"
+        ]
+      },
+      "checked_sources": [
+        "d5a40e9576ac",
+        "256249efd1a0",
+        "bac767308614",
+        "arXiv:2408.02197v1 and current version",
+        "arXiv:1301.3967",
+        "2a7a666dfd10",
+        "3fa42e3973ab (Finding: a different truncated node algebra)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Díaz et al. v1 Example 4.19 includes the automorphism group of k[x,y]/(x²,y²) in characteristic zero. The exact-algebra Resultary theorem already gives the monomial tangent structure over the odd fields in question."
+        ],
+        "reasoning": "Even after taking the latter group theorem as input, one must show that a rank-two image line has nonzero tangent, normalize its generator and determine all split maps, and compute commuting products of two distinct maps. The resulting mutual zero condition and degree-detects-orbit result do not come from the earlier automorphism count or the graded image theorem.",
+        "searches": [
+          "Primary: (\"square-zero variables\" OR \"square-zero monomial\") algebra retracts automorphism orbits finite field commuting endomorphisms rank two retracts",
+          "arXiv:2408.02197v1 Examples 4.19–4.20; Resultary d5a40e9576ac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "256249efd1a0 Finding: all finite-field retractions in characteristic two are conjugate to coordinate projections, with one orbit for each possible image rank. 2a7a666dfd10 Finding: pairwise-commuting retraction tuple orbits in total-degree truncated symmetric jet algebras."
+        ],
+        "reasoning": "The same image dimension two in characteristic two gives one orbit rather than d; the tangent automorphism group is different. Total-degree truncation preserves mixed products and does not impose the separate square-zero relations of the submitted algebra. Neither is an isomorphic restatement.",
+        "searches": [
+          "Resultary: odd characteristic square-zero algebra rank-two retract commuting graph degree automorphism conjugacy",
+          "Resultary: square-zero variable algebra retractions automorphism orbits characteristic two rank counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The characteristic-two rank/orbit census is an exact formula for a different characteristic. d5a40e9576ac counts automorphisms rather than retractions; its odd-field count d!(q-1)^d q^[d(2^(d-1)-1)] is for group elements, not degree or orbit multiplicities of the graph."
+        ],
+        "reasoning": "This is a labeled orbit and graph enumerator depending on both d and q; no matching symbolic entry was found in the relevant checked catalogue records, and a coincident number at one small pair of parameters would not identify the invariant. Independent finite replay is correctness evidence only.",
+        "searches": [
+          "Resultary: odd finite field dimension-two retract square-zero monomial complete intersection automorphism conjugacy commuting degree spectrum",
+          "Resultary: 256249efd1a0, d5a40e9576ac, 2a7a666dfd10 exact formulas"
+        ]
+      },
+      "rationale": "The exact-algebra automorphism description is previously covered; so are the general image-retract framework and the characteristic-two analogue. The distinct surviving finding is the classification of composition-idempotent maps with two-dimensional image over an odd finite field, with full conjugacy detected by ordinary graph degree and explicit orbit and degree enumerators. None of the inspected results classifies those maps together with this commutation criterion, and the known automorphism description does not alone give either.",
+      "residual_risks": [
+        "This is best-of-knowledge, not a priority proof; an equivalent odd-characteristic splitting classification under other terminology could have been missed.",
+        "A truncated-title degree-estimate search hit was not resolved through its CiteSeer PDF. No negative inference was drawn from the timeout."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of monomial tangent action, not rank-two projection or graph census",
+          "evidence": "In characteristic different from two every automorphism sends x_i to x_(sigma(i)) u_i with u_i a unit in the complementary variables.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-non-smooth-characteristic-two-symmetry-scheme-for-square-zero--d5a40e9576ac/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2493",
+          "method": "Local-mirror bounded text",
+          "title": "A non-smooth characteristic-two symmetry scheme for square-zero complete intersections",
+          "trigger": "Earlier exact-algebra theorem with possible tangent-action coverage"
+        },
+        {
+          "assessment": "Same type of question; genuinely different characteristic and orbit conclusion",
+          "evidence": "Every retraction is conjugate to one coordinate projection P_r; dimension two has one orbit.",
+          "identifier_or_url": "256249efd1a0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror bounded text",
+          "title": "Automorphism orbits and rank counts of characteristic-two square-zero-variable algebra retractions",
+          "trigger": "Same algebra and retraction classification at another characteristic"
+        },
+        {
+          "assessment": "Tangent-group precursor at different exponents",
+          "evidence": "Tangent image switches from GL_d at h=p^e to the monomial subgroup at h+1; this is not the odd-characteristic exponent-two retract problem.",
+          "identifier_or_url": "bac767308614",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror bounded text",
+          "title": "An exact prime-power symmetry jump for modular monomial complete intersections",
+          "trigger": "Potential general exponent theorem"
+        },
+        {
+          "assessment": "Prior characteristic-zero automorphisms; source example numbering needs correction",
+          "evidence": "Example 4.19 in v1 uses I=(x²,y²); the adjacent radical-square-zero example I=(x²,xy,y²) is 4.20 in v1 and 4.25 in the current text.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.02197v1",
+          "material_read": "Theorem 4.17, Examples 4.19–4.20 of v1, offsets 63500–66751, 66650–68820 and 70600–74414; also current-version Example 4.25 at offset 89233",
+          "method": "Version-specific OA PDF passage inspection",
+          "title": "The automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "Cited exact small algebra and potentially broader theorem"
+        },
+        {
+          "assessment": "Graded structural overlap, not splittings and composition spectrum",
+          "evidence": "The theorem treats the coordinate-type graded retract image when the monomial ideal is irreducible.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.3967",
+          "material_read": "Conjecture 6.1, Remark 6.2, Theorem 6.4, pp. 16–17, OA offsets 46958 and 48671",
+          "method": "OA PDF bounded passages",
+          "title": "Algebra retracts and Stanley–Reisner rings",
+          "trigger": "Potential general structural theorem on retracts"
+        },
+        {
+          "assessment": "Distinct algebra despite matching orbit theme",
+          "evidence": "The object is k[x_1,...,x_n]/(x_1,...,x_n)^(d+1), not a variablewise square-zero complete intersection.",
+          "identifier_or_url": "2a7a666dfd10",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror bounded text",
+          "title": "Boolean-weight orbit census of commuting retractions of finite symmetric jet algebras",
+          "trigger": "Same-day commuting-retraction orbit census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Characteristic-two comparison 256249efd1a0",
+        "Automorphism comparison d5a40e9576ac"
+      ],
+      "rationale": "Dimension two is the first nontrivial image dimension and need not be confused with tangent rank. A researcher gets the actual list of splittings and the class of any map from a directly observable graph statistic, without testing conjugacy in a large automorphism group. The change from a single characteristic-two class to a full support-size spectrum in odd characteristic and its exact graph multiplicities are useful for these natural finite algebras; the reworked automorphism ingredient alone would not qualify.",
+      "residual_risks": [
+        "No classification at larger image dimension is supplied or needed for this value judgment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

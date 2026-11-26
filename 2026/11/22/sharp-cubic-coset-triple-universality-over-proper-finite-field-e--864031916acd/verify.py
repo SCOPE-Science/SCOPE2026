@@ -143,7 +143,7 @@ def main():
         (25,10),(49,8),(121,0),(169,0),(289,0),(343,0),(361,0),(529,0),(625,0)]
     print(json.dumps({"analytic_cutoff":841,"finite_records":results},
                      separators=(',',':'),sort_keys=True))
-    print('VERIFY_OK 9 complete extension fields, 9 irreducible polynomials, '
-          'independent cubic-coset cross-check, 27 words per field')
+    print('VERIFY_OK 9 extension fields checked, 7 complete; 9 irreducible polynomials; '
+          'cubic-coset cross-check; 27 candidate words per field')
 
 if __name__=='__main__': main()

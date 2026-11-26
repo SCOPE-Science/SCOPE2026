@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,8 @@
 }
 ---
 
-# Direct reproducibility checks
+# Reproducibility
 
-Execute `python3 verify_units.py` with the Python 3 standard library. The checker performs the following direct finite computations rather than treating a log as a proof:
+The proof computes the full order of each principal-unit group and the cardinality of its image under the p-th power map, and proves that the p²-th power map is trivial. These three facts determine the abstract p-group. The top standard monomial determines the Loewy lengths. The argument does not depend on a finite experiment or on a general monomial unit-group theorem.
 
-- Complete direct polynomial-multiplication tests for all \(128\) principal units of \(\mathbb F_2[x,y]/(x^2,y^4)\), all \(32\) of \(\mathbb F_2[x,y]/(x^2,y^3)\), and all \(243\) of \(\mathbb F_3[x,y]/(x^2,y^3)\). Their predicted elementary-divisor multiplicities and cumulative order distributions agree.
-- Direct multiplication power tests on independent random coefficient samples of size \(80\) in each of the two characteristic-three collision rings.
-- Full enumeration of each of the two \(177147\)-element principal-unit groups over \(\mathbb F_3\) via independent coefficientwise Frobenius support, giving exact order histogram \(1,59048,118098\) for orders \(1,3,9\).
-- Checks of the collision formulas for primes \(3,5,7,11\) and extension-field degree \(2\), and an additional nonrectangular standard-monomial set.
-
-The script finishes with `PRINCIPAL_UNIT_COLLISION_VERIFIED`. Direct multiplication samples and full Frobenius-supported counts are finite corroboration only. The unlimited prime, extension-field and monomial-ideal assertions are deduced from the explicit algebraic proof in `RESULT.md`.
+The supporting Python 3 script `verify_units.py` includes finite illustrations for the pairs. In particular its coefficient-support check in characteristic three gives counts 1, 59048, 118098 for units of orders 1, 3, 9 respectively in each principal-unit group. These are examples only; the proof covers every odd prime and extension degree.

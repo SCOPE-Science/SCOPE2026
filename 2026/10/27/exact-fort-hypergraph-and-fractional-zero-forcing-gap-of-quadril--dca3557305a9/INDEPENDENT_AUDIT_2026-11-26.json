@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:49:50.026433Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: graph, fort and forcing definitions, full proof and boundary cases",
+        "Frozen VERIFICATION.md and artifacts/verify_book.py and artifacts/verification_output.txt: recorded exhaustive tests through r=7 and rational primal tests through r=30",
+        "Separate definition-level enumeration on the given edge list at r=2,3"
+      ],
+      "rationale": "With neither hub in a fort, internal pages are all-or-none, and an exterior hub excludes exactly one full page, so the minimal forts are pairs of full pages. With only u present, each b_i must be in the fort (otherwise either b_i or a_i has exactly one inside neighbor); {u,b_1,…,b_r} is itself a fort and minimal. The other hub is symmetric. With both hubs present, each page needs an internal vertex and one suffices. A uniform internal-side choice contains a one-hub fort; every mixed choice is minimal, since a subset retaining both hubs still needs every selected internal vertex, and subsets with fewer hubs cannot contain a one-hub or full-pair fort. This yields 2^r+binom(r,2). A forcing set must hit every fort; conversely if forcing stops early its nonempty white remainder is a fort. The two-page forts allow at most one empty page. A set smaller than r cannot then include a hub; if it hits r−1 pages with singletons, a uniform-side choice misses a one-hub fort and a mixed choice misses the opposite mixed fort. At size r, precisely the double-page plus omitted-page pattern without hubs and the one-hub pattern with at least one internal vertex on that hub's side can hit all forts. Their counts r(r−1)2^(r−2) and 2r(2^(r−1)−1) give the claimed sum. The disjoint one-hub forts give the fractional lower bound 2; summing all full-page-pair inequalities gives r/2. Internal weights 1/4 and hub weights max(0,1−r/4) attain both bounds in the appropriate regimes and meet every mixed constraint. The ratio is 1 at r=2, 3/2 at r=3, and 2 at r≥4. Internally disjoint length-three u–v paths with the edge uv give planarity and bipartiteness, and deletion of any one vertex leaves a connected graph. Separate direct enumeration at r=2,3 gave 5 and 11 minimal forts and 6 and 30 minimum forcing sets, matching also the claimed families.",
+      "residual_risks": [
+        "The separate enumeration did not solve the fractional LP; its optimum follows from the actual symbolic lower bounds and feasible weights.",
+        "All counts are for labeled vertices and for the square-page book with r≥2, not triangular books or r=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.25 gives Z(G square H)≥Z(G)+Z(H) when both have an edge; for the star and K₂ the right-hand side is (r−1)+1.",
+          "The inspected minimal-fort product passages give general constructions or lower bounds and other family enumerations; the ILP paper provides an optimization formulation."
+        ],
+        "reasoning": "These recover a component of the scalar result or supply a general framework, but do not characterize all mixed hub obstructions or the complete minimizing transversals and fractional optimum here.",
+        "searches": [
+          "arXiv:2310.17904 Proposition 4.25 and fort-transversal theory",
+          "arXiv:2404.05963 family enumerations and graph products",
+          "arXiv:2508.07293 Section 6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 7cd5e8a6684a, e6dc68677f09, 6179dfc83bcc and ranked related records",
+        "arXiv:2310.17904, arXiv:2404.05963, arXiv:2508.07293; one bounded external lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary scalar lower bound r combines with a simple explicit forcing set to give the equality, without the full obstruction analysis.",
+          "The new exact constraints depend on precisely the three fort types. In particular the complementary mixed transversal obstructs one-per-page ordinary selections, and the one-hub and full-page-pair families give different tight fractional regimes."
+        ],
+        "reasoning": "The full fort and optimizer census and tight fractional comparison are not just substitutions into the known product lower bound or the double-star fractional formula. Credit the inherited scalar argument and framework rather than treating them as new in isolation.",
+        "searches": [
+          "Cameron et al. arXiv:2310.17904 Proposition 4.25 and product methods",
+          "Becker et al. arXiv:2404.05963 graph-product discussion",
+          "Resultary 6179dfc83bcc double-star finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum fort transversal and ordinary zero forcing are equivalent, and the fractional quantity relaxes the same transversal constraints.",
+          "The same-host skew result allows skew color changes and characterizes minimum sets by bipartition hits, giving (r+1)^2. The paired-domination result requires domination with a matching, not the fort condition."
+        ],
+        "reasoning": "The graph aliases identify the same graph but do not convert the different set properties; neither same-host count is an ordinary-fort or ordinary minimum-forcing count.",
+        "searches": [
+          "Local Resultary: quadrilateral/square books K_{1,r} square K₂, minimal forts, and ordinary/fractional zero forcing",
+          "Resultary e6dc68677f09, 7cd5e8a6684a",
+          "arXiv:2310.17904, fort-transversal framework"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-host counts found are for paired domination and skew zero forcing. The exact fractional gap in the proper double-star record has ratio 2−4/(a+b), rather than an attained two, and the host is a tree."
+        ],
+        "reasoning": "The exact catalog matches for related graph invariants are not matching ordinary-book fort tables or formulas. Ranked retrieval is not exhaustive.",
+        "searches": [
+          "Local Resultary minimum ordinary forcing sets on K_{1,r} square K₂, exact fort classifications and fractional gaps",
+          "Resultary 7cd5e8a6684a, e6dc68677f09, 6179dfc83bcc"
+        ]
+      },
+      "rationale": "The inspected work already establishes the fort-transversal/fractional framework and an additive Cartesian-product lower bound for ordinary zero forcing, and the scalar Z(B_r)=r is not a separate novelty claim. The complete ordinary minimal-fort hypergraph, all labeled minimum ordinary forcing sets, and the exact fractional value with an attained factor two are distinct in the inspected evidence. Same-book paired domination and skew zero forcing use different constraints, and similar exact fort results on trees do not specialize to these books.",
+      "residual_risks": [
+        "The external lookup returned no results; this is not negative evidence. The indexed and primary comparisons are bounded, and uninspected equivalent statements remain possible.",
+        "The scalar ordinary zero-forcing number is obtainable independently from a general lower bound plus a simple construction; the originality assessment rests on the stronger structural and fractional results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact framework and ordinary product lower bound, not the census or exact fractional optimum",
+          "evidence": "For graphs with an edge each, Z(G square G′)≥Z(G)+Z(G′); this gives r for the book lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.17904",
+          "material_read": "Fort-transversal definitions and framework, PDF pp. 3–4 offsets 11920 and 14456; Proposition 4.25 and adjoining text p. 18 offset 63883",
+          "method": "Bounded OA PDF passages",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Closest primary framework and broader product bound"
+        },
+        {
+          "assessment": "Related product constructions and other families; no equivalent book classification in the passages inspected",
+          "evidence": "Enumerates examples including paths, cycles and spiders and discusses fort constructions for graph products.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.05963",
+          "material_read": "Family and product scope p. 2, offset 6093; product lower-bound discussion p. 5, offset 14488; graph products p. 13, offset 44262",
+          "method": "Bounded OA PDF passages",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Potential exact fort count or broad product theorem"
+        },
+        {
+          "assessment": "Generic model; not a specialized all-r result",
+          "evidence": "The minimal-fort ILP encodes a general optimization problem, not a formula for the book's optimum and full optimizer count.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.07293",
+          "material_read": "Section 6, PDF p. 17, at offset 72811",
+          "method": "Bounded OA PDF passage",
+          "title": "IP Models for Minimum Zero Forcing Sets, Forts, and Related Graph Parameters",
+          "trigger": "Generic route to minimum forts and forcing sets"
+        },
+        {
+          "assessment": "Different set notion",
+          "evidence": "The minimal paired dominating sets are counted as 2r+2, with a paired domination requirement, not the ordinary fort condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-paired-domination-polynomial-and-minimal-set-gap-of-quadrilatera--7cd5e8a6684a/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local mirror passage",
+          "title": "Paired domination polynomial and minimal-set gap of quadrilateral book graphs",
+          "trigger": "Same graph and minimal-set classification"
+        },
+        {
+          "assessment": "Skew rather than ordinary rule",
+          "evidence": "The skew criterion is to hit both bipartition classes, with (r+1)^2 minimum sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-skew-zero-forcing-sets-of-book-graphs--e6dc68677f09/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local mirror passage",
+          "title": "All skew zero-forcing sets of book graphs",
+          "trigger": "Same graph, zero-forcing term and full classification"
+        },
+        {
+          "assessment": "Same invariant but different host and result",
+          "evidence": "The proper double-star tree family has factor 2−4/(a+b), approaching but not attaining two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local mirror passage",
+          "title": "Fort hypergraph and fractional zero forcing of double stars",
+          "trigger": "Closest indexed fort and fractional integrality-gap motif"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and fort/optimizer/LP proofs",
+        "arXiv:2310.17904 fractional fort framework",
+        "Resultary 6179dfc83bcc for comparison with a tree-family gap"
+      ],
+      "rationale": "The complete obstruction hypergraph reveals why one-per-page ordinary choices fail without a hub, and directly yields a labeled optimum census and an exact LP comparison. In particular, the family attains a factor of two on explicit planar, bipartite, two-vertex-connected graphs, not merely approaching it on trees, while retaining a tractable full description of the obstructions.",
+      "residual_risks": [
+        "This is a witness and classification for one natural family; it does not bound the maximum possible ratio over all graphs or all planar graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

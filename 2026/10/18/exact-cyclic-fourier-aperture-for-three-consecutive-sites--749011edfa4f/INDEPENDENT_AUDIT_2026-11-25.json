@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:16:46.031156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md, proof steps 1–4. Translation/centering preserves the zero moments. In cosine coordinates E[u]=0 and E[u²]=1/2, hence the nonnegative quadratic certificate excludes all shorter arcs and forces precisely the three equal masses at equality (unit total mass). For existence, the two internal grid radii bracket arccos(−1/(2 cos R)); for odd D the stated tangent factorization follows by expanding (1+√3 y)(1−3y²)−(1+y²)² and using 0≤y≤2−√3. For the small nondivisible orders 5,7,8,10,11 an allowed internal q in [N/3,N/2] can be chosen as 2,3,4,5,4 respectively, giving an upper bracket ≤π/2; N=4 has four equal masses and 3-divisible orders use the center. For N≥12 the step 2π/N gives the same nonnegative-cosine upper bracket. The Lagrange formulas evaluate the degree-two moment functional with nonnegative masses (strictly positive at the endpoints); equal radii use the separately valid two-cosine rule. Reflection kills the sine moments, and affine pruning in R⁴ gives at most five bins. Dropping an endpoint would contradict the lower bound. More precisely the Parseval identity is the frame operator (equivalently the three-row Gram matrix), not the Gram matrix indexed by bins. The bundled mpmath pre-pruning test was inspected, not executed or relied upon.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan–Zhang imply D≥ceil(2N/3) and continuous equality rigidity; Kunis gives a general positive-quadrature covering radius bound."
+        ],
+        "reasoning": "A continuous optimum and covering estimates do not guarantee attainment after discretization with the first two moments exactly zero, especially if there is no equilateral triple on the grid.",
+        "searches": [
+          "arXiv:2609.07646v1, Lemma 2.1 and Corollary 2.3",
+          "arXiv:2608.11915v1, Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and verify.py",
+        "Resultary 2026/10/11/…--29fa16b8c55a; related later catalogue hits 2026/11/16/…--6a5a2c4b54f3 and 2026/11/22/…--34d52f2ee2dd",
+        "arXiv:2609.07646v1",
+        "arXiv:2608.11915v1",
+        "arXiv:1001.2451"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted three-bin rule agrees when 3 divides N. Cyclotomic divisibility imposes primitive-conjugate roots, and its minimum diameter theorem depends on the least prime divisor, not an arbitrary N with the two specified roots."
+        ],
+        "reasoning": "The lower bound, integer rounding of that bound, and divisible equality are covered. Neither an unrestricted minimum number of bins nor the cyclotomic theorem supplies the optimal consecutive-window existence statement for every nondivisible N.",
+        "searches": [
+          "Resultary 2026/10/11/…--29fa16b8c55a, Finding and proof §1",
+          "Tan–Zhang Theorem 1.1 versus Lemma 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peherstorfer's moment-matching equivalence gives exactly the first two complex constraints for Haar measure and weights summing to one."
+        ],
+        "reasoning": "The frame/positive degree-two quadrature translation is standard. The formulation adds an Nth-root grid and asks for an optimal consecutive arc, which the generic quadrature characterization does not determine.",
+        "searches": [
+          "Positive trigonometric quadrature and vanishing Fourier moment formulations",
+          "arXiv:1001.2451, Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest earlier Resultary table, 2026/10/11/SCOPE-sharp-positive-fourier-sampling-on-three-consecutive-cyclic-site--29fa16b8c55a, optimizes the count (3, 4 or 5), not the minimum interval length."
+        ],
+        "reasoning": "The catalogue table for the same equations has a genuinely different optimization variable; general vanishing-sum search results did not supply a fixed-grid aperture table.",
+        "searches": [
+          "Resultary: consecutive cyclic sites, positive Fourier sampling and moment-constrained gap/aperture",
+          "Primary literature: positive Fourier quadrature on a root grid and vanishing-sum arc diameter"
+        ]
+      },
+      "rationale": "The complete fixed-grid attainment result is distinct on the evidence inspected. The rounded lower bound already follows from Tan–Zhang's continuous positive-measure lemma, with the same dual quadratic in degree two; their equality case gives the divisible-order rule and uniqueness as well. Do not credit those as new. Generic support compression is standard. The distinct contribution is attainment of the rounded lower bound for nondivisible grids with a constructive small support inside the optimal interval. The older three-site cardinality result compares the same moment constraints but not this localization constraint.",
+      "residual_risks": [
+        "This bounded priority check does not rule out earlier equivalent grid-attainment results under other quadrature or polynomial formulations. The source's abstract-only discussion understates the established continuous coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lower bound and divisible rigidity but not general grid attainment",
+          "evidence": "Positive measures with moments 1 through r−1 zero need arc radius ≥π−π/r, with regular r-gon equality. At r=3 the proof certificate is proportional to (1−u)(u+1/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.07646v1",
+          "material_read": "Theorem 1.1, PDF pp. 1–2; Lemma 2.1 p. 2, Corollary 2.3 p. 3",
+          "method": "OA PDF, passages at offsets 0, 5986, 10962",
+          "title": "Sharp Diameter Bounds for Nonnegative Cyclotomic Multiples",
+          "trigger": "Same diameter/initial Fourier moments extremal mechanism"
+        },
+        {
+          "assessment": "Same constraints and cubic case; different optimization",
+          "evidence": "Minimum active-bin count is 3, 4 or 5. No consecutive-window restriction in the compared statement.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-positive-fourier-sampling-on-three-consecutive-cyclic-site--29fa16b8c55a",
+          "material_read": "RESULT.md Finding, scope and proof §1, offset 0",
+          "method": "Local catalogue search and mirror source read",
+          "title": "Sharp positive Fourier sampling on three consecutive cyclic sites",
+          "trigger": "Identical Parseval setting"
+        },
+        {
+          "assessment": "Broader geometric context, not discrete attainment",
+          "evidence": "A general covering radius upper bound (2^d−1)/(2n+1) for nodes exact on the stated trigonometric polynomial space.",
+          "identifier_or_url": "arXiv:2608.11915v1",
+          "material_read": "PDF p. 6, Theorem 3.3",
+          "method": "OA PDF at offset 16514",
+          "title": "Positive quadrature and mobile sampling of multivariate trigonometric polynomials",
+          "trigger": "Arc/gap bound via positive quadrature"
+        },
+        {
+          "assessment": "Covers standard moment equivalence, not grid aperture",
+          "evidence": "Exactness is matching moments to the specified trigonometric degree, without a root-grid shortest-span optimization.",
+          "identifier_or_url": "arXiv:1001.2451",
+          "material_read": "PDF p. 1, Eq. (2)",
+          "method": "OA PDF at offset 0",
+          "title": "Positive Trigonometric Quadrature Formulas and Quadrature on the Unit Circle",
+          "trigger": "Moment and node formulation equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact positive Parseval sampling in a minimal consecutive frequency window is meaningful separately from minimizing the number of measurements. Constructively closing the integer-grid gap for every N is a nontrivial localization result, with at most five adjustable bins and exact endpoint occupancy; no claim of minimum support within the window or higher-order scope is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

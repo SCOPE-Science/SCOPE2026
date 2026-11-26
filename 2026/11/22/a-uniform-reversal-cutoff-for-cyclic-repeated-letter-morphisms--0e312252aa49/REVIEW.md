@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statements fix the alphabet and reversal operator and handle lengths one, two, three through nine, and all higher lengths separately. Pair completeness is proved by the boundary map \((a,b)\mapsto(a+1,b)\). The complete length-nine factor language follows from the exact length-nine substitution block and all pairs occurring. The integer-potential congruence test is necessary and sufficient for every modulus; the exact symbolic enumeration gives only cycle discrepancies \(0,1,2\), and every universally soluble case yields one normalized pattern. The two programs replay correctly. A finite concrete-prefix check is explicitly not used as an infinite proof.
+## correctness
 
-**Originality — PASS against searched evidence.** The original 2019 Rowland–Yassawi article contains the ternary member but is about cellular automata and invariant measures, not reversal factor counts. The 2026 Allouche–Rampersad–Rigo–Shallit–Stipulanti paper raises adjacent morphic-complexity questions but addresses a different repeated-letter substitution and abelian complexity. A 2020 general theorem about finite palindromic languages supplies no specific spectra, and the closest published reversal barrier concerns the different substitution \(0\mapsto01,1\mapsto21,2\mapsto0\). Statement-level comparisons with indexed related findings and the accessible historical claims found no stronger covering statement. Residual risk: unindexed results for exactly the present cyclic substitution may exist.
+PASS
 
-**Value — PASS.** A complete all-length, all-alphabet sharp boundary for reversal occurrence is a natural structural question about an automatic family already used in the literature, not an arbitrary finite slice. The result separates a primitive substitution with a nonperiodic fixed point from reversal-rich morphic families; its finite palindrome language immediately supplies linear lower bounds on prefix palindromic length. Its exact residue-pattern classification is reusable for finer questions on reversal equivalence and palindromic defect.
+The increment-first-letter boundary rule gives all ordered pairs, so for n <= 9 the length-nine second-substitution blocks over those pairs supply the whole language. Independently, the adjacent differences in the two-block window are D, wildcard, D with D=(0,1,-1,0,1,0,0,1); the wildcard is arbitrary because both block letters range freely. Reversal negates and reverses the differences. Comparing templates for n=3,...,9 uses only the distinguishable constants -1,0,1 modulo q>=3; there are 54,27,15,7,3,1,0 matches respectively, every match fixes every difference, and their integrated normalized signatures reproduce the stated table. The distinct signatures remain distinct modulo every q>=3. Directly reversing them gives 2,1,1,1,1,1,0 palindromic types. Lengths 1 and 2 are elementary; above length 9 any reversible factor would give one at length 9, and the length-eight palindrome makes the barrier sharp. Replay paths: /workspace/branches/audit-2-differences.py (difference-template reconstruction, also independently evaluated) and the exact weighted-disjoint-set enumeration /workspace/branches/7d5b45f9-3fe3-47f9-81d0-ea2796f3c76d/audit_certificate.py (executed and independently corroborated at q=3,4,5). The frozen graph and direct-prefix scripts and captured outputs were inspected, not executed; finite-prefix sampling is not used to establish the universal claim. The result does not cover q=2.
 
-The mathematical work has only self-review, not external validation. Scientific caveats are recorded in `RESULT.md` and `VERIFICATION.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The q=3 substitution and its pair completeness are known, as are related substitution families and sharp barriers for other words. The evidence does not establish prior equivalent coverage of this family’s ordinary reversal/palindrome spectrum and sharp common cutoff. The distinct same-day same-family record concerns a different property and no priority is inferred from dates.
+
+## value
+
+PASS
+
+This fixed point is a recognized automatic construction. The exact transition from a sharp length-eight palindrome to absence of every reversible factor at length nine is a strong directional property, beyond just nonclosure under reversal or a finite experimental cutoff. The table distinguishes palindromes from reversible nonpalindromes and its modulus-independent certificate makes it useful across the whole family, not merely at a single small alphabet.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

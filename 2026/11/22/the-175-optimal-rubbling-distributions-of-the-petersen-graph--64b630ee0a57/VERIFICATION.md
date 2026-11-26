@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility record
+# Independent mathematical audit
 
-The Petersen graph is specified as the graph of all two-element subsets of a five-element ground set, with edges for disjoint pairs. A state is a ten-entry nonnegative integer vector. Each rubbling move consumes two pebbles from neighboring sources (possibly the same source) of the destination and creates one pebble at the destination. The initial vertex is also reachable by the empty sequence when occupied. Reachability is assessed for each target independently.
+## correctness
 
-Execute `python3 check_rubbling.py` to check all weak compositions of totals zero through four, the complete rubbling and pebbling-only census, the induced forest spectra and all natural label-permutation orbits. Execute `g++ -std=c++17 -O2 check_rubbling.cpp -o check_rubbling` and then `./check_rubbling` for an independent queue-based traversal over the legal state space. The code includes exact integer assertions of the recorded classification and has no third-party dependencies.
+PASS
 
-The expected totals are 286 states of weight smaller than four with zero fully reachable, 715 states of weight four, 175 rubbling-solvable, 10 pebbling-solvable, and 17 permutation orbits. The six four-singleton shapes have multiplicities 5, 60, 15, 10, 60, 60 in the order printed in `RESULT.md`, with precisely the first four solvable. `orbits.csv` is a redundant tabulation; the programs do not read it and can reconstruct it.
+The first-move recurrence is exact for target-by-target reachability: the starting support accounts for the empty sequence, all neighbor pairs with repetition give precisely the legal moves once multiplicities are checked, and each successor has one fewer pebble. To independently test the computation, I propagated target demands backwards, starting at a single pebble on each given target. A weight-w demand is obtained from a successful weight-(w-1) demand either by padding a pebble anywhere or by replacing one demanded occurrence of the destination by its two input pebbles. This is sound by executing the first move and then the successful suffix, and complete by taking the actual successor of a successful first move. In pebbling mode only equal input vertices are allowed. Exhausting all multisets of weight zero through four found no successful state of weight below four and respectively 10,0,45,30,90 rubbling successes by occupancy type at four. Only the ten stacks work by ordinary pebbling. The 30 double-plus-single successes are exactly the Kneser labels ab,ac,bc with the doubled edge ab; all 210 four-singleton supports agree with the six induced-forest counts and classifications. Ground-label permutations produce 17 orbits, eight successful, and all 17 rows of the frozen CSV match the independent sizes, reachability counts and shape labels. The search is exhaustive at the stated finite weights, not a generalization to other graphs.
 
-The verification establishes a finite claim for the specified graph, not a general theorem about all graphs. It does not independently certify literature priority.
+## originality
+
+PASS
+
+The equal minimum of four is antecedent, not a new result, and the known stacked construction already supplies ten successes. The supported distinct result is the complete labelled optimizer census and geometry, with exact ordinary-pebbling exclusivity and natural orbits. None of the compared statement-level evidence gives this classification.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical benchmark and both games already share the same minimum. Counting which placements work, not just the minimum resource budget, isolates exactly the change caused by strict moves: 165 previously infeasible distributions become feasible, 90 with every pebble separate. The support-geometry rule makes the exact census useful for comparing placement flexibility and testing move models; it is not merely a restatement of the optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

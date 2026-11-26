@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:17:58.035096Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–53",
+        "Frozen VERIFICATION.md, verify_rook_dissociation.py and verify_output.txt (inspected, not executed)"
+      ],
+      "rationale": "In L(K_{p,q}), the selected edge ij has d(i)+d(j)−2 selected neighbors, so every nonempty component in the base graph is K_2 or a two-edge star. Counting labeled components gives the stated factorial weights: each pair of tips contributes 2!, component permutations contribute a!b!c!, and unused labels contribute u!v!. A star admits no further incident edge. Two covered endpoints on a new edge would yield two distinct selected neighbors of that new edge. If a singleton edge exists it can be extended using any unused vertex; if none exists, the only possible extension joins two unused vertices. This proves both polynomials and the EGF. The bounds s≤2p and 3s=2(p+q−u−v)−c give the maximum upper bounds; in the narrow range put h=2p−q≥1, so h has residues 0,2,1 when p+q has residues 0,1,2 respectively. The claimed maximizing b then equals h/3, (h−2)/3, (h−1)/3, with the corresponding a nonnegative since 2q−p≥p; the wide case uses p left-centered stars. The maximality branches give s=p+a or s=q+b, with the former even, and the specified star or matching constructions attain all stated minima. Comparing the extrema leaves just (2,2) and (3,4). For q≥2p, a full-coverage configuration with a singleton would force c=2p−q−3b≤0; if only the right side is required to be covered, equality forces q=2p and a=p. Thus c=u=0 for maximal sets and the stated wide polynomial, support and top coefficient follow.",
+      "residual_risks": [
+        "Nonmaterial verification-count wording: the 735 arithmetic grid pairs include all 11 brute-force boards, so there are 724 distinct additional pairs, not 735. All 11, with 1,419,088 subsets, are correctly described as the brute-force set. The exact proof does not rely on the finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Orlovich et al. are credited for line-graph packing and a Hamiltonian-path maximum; this scope is reported in the later rook record and not verified in primary full text",
+          "Zhou et al. use P_p square P_q, and Tian–Tu's abstract reports path/cycle grid classes; Tu–Li–Du give extremal bounds by graph order"
+        ],
+        "reasoning": "A Hamiltonian-path maximum applies at least in the reported scope q=p,p+1 but yields neither the distribution of set sizes nor a lower extremum over maximal sets. General order bounds and path-factor enumerations do not produce the claimed labeled count.",
+        "searches": [
+          "10.1016/j.dam.2011.04.023",
+          "10.3934/math.2024721 Theorem 1.1",
+          "10.1016/j.amc.2024.128711",
+          "arXiv:2103.01402v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3a4eb8e0ebb5 and 86b89d24b06d",
+        "DOI 10.1016/j.dam.2011.04.023",
+        "DOI 10.3934/math.2024721",
+        "DOI 10.1016/j.amc.2024.128711",
+        "arXiv:2103.01402"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard line-graph reduction identifies allowable selected components but does not prescribe the maximality criterion in each host",
+          "Rook-board M in the later record implicitly contains min/max and thus the well-dissociated cases, but it does not state the full extremal classification; D is not thereby determined"
+        ],
+        "reasoning": "The minima and classification can be read from the later M in principle, with an additional uniform extremal argument. No earlier comparable exact classification or dominating formula was established. The reviewed family result depends on the bipartite extension test as well as the old packing correspondence.",
+        "searches": [
+          "Orlovich et al. 10.1016/j.dam.2011.04.023 abstract and reported theorem scope",
+          "Resultary 3a4eb8e0ebb5 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3a4eb8e0ebb5 uses two orientations of two-stars and singleton edges; its formula for maximality matches after switching component variables",
+          "86b89d24b06d uses the same reduction on K_n rather than K_{p,q}"
+        ],
+        "reasoning": "The later rook result is mathematically equivalent for M, not just related by title; the triangular-graph result cannot specialize to rectangular rook boards by changing the number of labels.",
+        "searches": [
+          "Resultary 3a4eb8e0ebb5, 86b89d24b06d",
+          "Dissociation in line graphs; Orlovich et al. DOI 10.1016/j.dam.2011.04.023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later rook record completely determines the same maximal count by size, including its wide-board specialization",
+          "The prior primary exact grid enumerator supplies a different adjacency relation"
+        ],
+        "reasoning": "This is full exact matching for the M table with the later indexed record, whose path postdates the frozen record; the joint D/M and rectangular extrema claims are not matched in it. Grid tables with path factors cannot serve as tables of rook counts.",
+        "searches": [
+          "Resultary exact maximal rookie-board polynomial, 3a4eb8e0ebb5",
+          "Zhou et al. 10.3934/math.2024721, Theorem 1.1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the combined labeled all-set and inclusion-maximal enumeration, the exact minimum maximal size and the resulting two-exception classification. The later-dated Resultary rook record has an exactly equivalent maximal enumerator and wide spectrum; those portions are not distinct from it, and independent priority between the records is not claimed. This exact match does not evidence earlier coverage of the frozen claim or include the full comparison of both enumerators and extrema. The classical line-graph packing reduction and scalar maxima in its applicable regimes are credited, not counted as original.",
+      "residual_risks": [
+        "The strongest exact maximal-polynomial overlap is later-dated; publication priority/provenance is not otherwise resolved. Orlovich and Tian–Tu primary full texts remained inaccessible. An earlier unindexed equivalent under packing terminology could be missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for M and wide regime; dated later in catalogue",
+          "evidence": "Uses (r=m and s=n) or (a=0 and (r=m or s=n)) with a singleton count; substitutes to the identical maximal polynomial and wide spectrum.",
+          "identifier_or_url": "2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–7453",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Maximal dissociation sets of rook graphs: an exact two-star packing formula",
+          "trigger": "Strongest identical-family hit"
+        },
+        {
+          "assessment": "Analogous result for a different base graph, dated later",
+          "evidence": "The base graph is K_n; covers edge and two-edge path packings there.",
+          "identifier_or_url": "2026/11/2/SCOPE-dissociation-and-maximal-dissociation-polynomials-of-triangular--86b89d24b06d",
+          "material_read": "RESULT.md Finding, offsets 0–6899",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Dissociation and maximal dissociation polynomials of triangular graphs",
+          "trigger": "Comparable exact line-graph enumerators"
+        },
+        {
+          "assessment": "Credit reported overlapping scalar maximum; full scope not verified",
+          "evidence": "A Hamiltonian path exists in the bipartite host when q=p or p+1; the reported maximum there matches floor(2(p+q)/3).",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+          "material_read": "Accessible abstract and later rook record's description of the Hamiltonian-path theorem; primary theorem text unavailable",
+          "method": "Publisher and lawful alternate retrieval attempted; no accessible primary theorem passage found",
+          "title": "The complexity of dissociation set problems in graphs",
+          "trigger": "Line-graph packing reduction and plausible maximum-size overlap"
+        },
+        {
+          "assessment": "Different host graphs in inspected theorem",
+          "evidence": "Defines P_m square P_n and uses recursive transfer matrices for its all-set polynomial.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2024721",
+          "material_read": "PDF pp. 14900–14901 and Theorem 1.1 near extracted offset 6818",
+          "method": "Lawful OA PDF passage",
+          "title": "Enumeration of dissociation sets in grid graphs",
+          "trigger": "Primary exact enumerator with possible grid/rook nomenclature alias"
+        },
+        {
+          "assessment": "Abstract concerns different grid classes; no whole-document verdict",
+          "evidence": "Describes state-matrix enumeration for grid, cyclical-grid and cylindrical-grid graphs.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.128711",
+          "material_read": "Publisher abstract, full paper unavailable",
+          "method": "Publisher lookup and lawful full-text retrieval attempt",
+          "title": "Enumerating maximal dissociation sets in three classes of grid graphs",
+          "trigger": "Plausible prior maximal-set enumerator"
+        },
+        {
+          "assessment": "Different invariant/granularity in compared statements",
+          "evidence": "Bounds total number of maximal sets for a graph of given order rather than enumerating their cardinality layers for each rook board.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01402",
+          "material_read": "PDF p. 2, definition of phi and extremal context",
+          "method": "Lawful OA PDF passage",
+          "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+          "trigger": "Broad exact and extremal maximal dissociation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–34 and 44–50",
+        "Resultary 3a4eb8e0ebb5 for exact overlap on the maximal spectra"
+      ],
+      "rationale": "Rook graphs are natural complete-factor Cartesian products. Counting all and especially inclusion-maximal packings distinguishes the size spectrum of locally unextendable configurations from the known-style maximum packing problem. The exact minimum and complete two-exception classification quantify when maximality forces optimality, while wide boards exhibit a full parity-restricted support, information not supplied by a maximum alone.",
+      "residual_risks": [
+        "No complexity claim or extension to arbitrary line graphs; the novelty case is not that every individual packing component or maximal coefficient is distinct from later work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

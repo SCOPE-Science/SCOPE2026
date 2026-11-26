@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:10:29.548903Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–49 and 53–55; check_three_sums.py lines 10–64; check_output.txt lines 1–9",
+        "Rankin, arXiv:0906.1780v1, Introduction",
+        "Zeng, Xue and Zeng, arXiv:2609.28059v1, Theorem E and §7.1"
+      ],
+      "rationale": "Contracting the c-antidiagonal matching gives the interval [0,c] with exactly the edges of lengths d=c-b and e=c-a. The contracted graph has the same cycle rank. Put N=c+1 and g=gcd(d,e)=gcd(b-a,d). At the Fine–Wilf threshold N0=d+e-g each residue modulo g is connected, and there are N0-g edges, so the threshold graph is a forest. Shorter intervals induce subgraphs of it; longer intervals have g components and (N-d)+(N-e) edges. This proves the rank max(0,N-d-e+g)=max(0,a+1-d+g) and the strict forest boundary a<d-g. In particular this includes the equality boundary, d=1, and g=d. Cycles persist under extension. Appending t=2m+1 after maximum sum m adds a matching all of whose edges have a fresh degree-one endpoint, hence preserves forestness. Every cycle is finite. Theorem E applies with the sparse symbol relabeled 1, using exactly the same zero-based incidence graph. An independent bounded DSU check also matched all 4,495 triples through c=30: initialize 2(c+1) vertices, union i with c+1+t-i for t=a,b,c and 0<=i<=t, and compare the number of unsuccessful unions with the formula. The frozen checker and output were inspected, not executed.",
+      "residual_risks": [
+        "The finite check is only supplemental; the infinite extension is justified by the forest characterization and the finite-cycle argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fine–Wilf controls all two-distance interval graphs at or above p+q-gcd(p,q), with no restriction arising from additive supports.",
+          "Theorem E characterizes all infinite Abelian pattern Sturmian supports by forestness after symbol exchange. The proof of Proposition 7.14 rules out any cycle whose maximal support sum is larger than twice every smaller sum in the cycle."
+        ],
+        "reasoning": "Fine–Wilf implies the exact component count for the whole required parameter range above threshold, and the edge count gives zero rank below it by nesting. The prior maximal-edge proof applies unchanged to any cycle involving one of the appended sums, so no restriction on the earlier gaps is needed once the prefix graph is a forest.",
+        "searches": [
+          "arXiv:0906.1780v1, Introduction",
+          "arXiv:2609.28059v1, Theorem E and Proposition 7.14"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0906.1780v1",
+        "arXiv:2609.28059v1",
+        "Resultary:71c60228ce20",
+        "Resultary:e3a97eafa17a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N≥N0=d+e-g the period graph has g components; E-V+g=N-d-e+g. At N0 this is zero, so all shorter induced interval graphs also have rank zero.",
+          "A cycle already present in the prefix cannot disappear. If a cycle involves an appended sum, take its largest sum t. The two adjacent lower-sum edges in that cycle have sums at most the previous maximum m, which would force both endpoint labels of the t-edge to be at most m, impossible since t>2m."
+        ],
+        "reasoning": "These direct calculations recover both boxed claims for all parameters from prior results, rather than simply matching a numerical case or the paper title.",
+        "searches": [
+          "arXiv:0906.1780v1, Introduction (Fine–Wilf theorem and graph)",
+          "arXiv:2609.28059v1, Theorem E and Proposition 7.14 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rankin, Introduction: finite sequences of length at least p+q-gcd(p,q) with periods p,q have period gcd(p,q); the period graph has interval vertices and edges at period distances.",
+          "The indexed November finding states max(0,a+b-c+g+1), the identical rank with d=c-b, and the same admissible-prefix condition."
+        ],
+        "reasoning": "Contracting the c-sum matching fixes the exact period distances d and c-a; connectivity of the residue classes is equivalent to the Fine–Wilf assertion by coloring components as sequence symbols. The November record is directly equivalent but is dated later; it does not establish earlier coverage.",
+        "searches": [
+          "arXiv:0906.1780v1, Fine–Wilf graph formulation",
+          "Resultary:2026/11/8/SCOPE-exact-cycle-rank-and-admissible-three-spike-prefixes-for-abelian--e3a97eafa17a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November record Finding and Proof give both the closed rank and infinite completion and use the two-distance interval graph route.",
+          "October 4 record Finding and Proof bound the sum of d+1 for support entries d≤N by 2N+1; at N=c this requires c≥a+b+2."
+        ],
+        "reasoning": "The first indexed match is exact but later. The earlier envelope agrees with the admissible boundary at gcd=1 but is weaker otherwise and supplies no Betti numbers. No exact numerical table is needed to establish the older theorem-level implication.",
+        "searches": [
+          "Resultary:2026/11/8/SCOPE-exact-cycle-rank-and-admissible-three-spike-prefixes-for-abelian--e3a97eafa17a",
+          "Resultary:2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20"
+        ]
+      },
+      "rationale": "The claimed quantitative formula is a direct specialization of the classical two-period Fine–Wilf theorem, not merely analogous to it: one matching contraction makes the graphs identical, and Euler's formula at and above the exact threshold gives the stated rank, with shorter intervals induced below it. The existence equivalence then follows from Theorem E and the maximal-edge argument in Proposition 7.14, applied only to cycles using at least one newly appended sum. The explicit support-prefix wording is useful but does not add a separate mathematical result not mechanically implied by this combination. The exact November match is noted separately and is not the basis of the earlier-coverage finding.",
+      "residual_risks": [
+        "The direct implication establishes prior mathematical coverage; it does not identify the first explicit writing of the arithmetic test in this vocabulary or the relationship between the dated records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central rank calculation by direct reduction and Euler's formula",
+          "evidence": "Threshold p+q-gcd(p,q) and graph edges precisely at the specified period distances.",
+          "identifier_or_url": "https://arxiv.org/html/0906.1780v1",
+          "material_read": "Introduction, including the classical two-period theorem and interval graph definition, OA offsets 0 and 6200",
+          "method": "Primary open full text, bounded passages",
+          "title": "Fine-Wilf graphs and the generalized Fine-Wilf theorem",
+          "trigger": "Equivalent two-distance graph after contraction"
+        },
+        {
+          "assessment": "Applicable with matching indexing; maximal-edge proof already supplies the completion step once the prefix is acyclic",
+          "evidence": "After relabeling, characteristic word of an infinite forest support iff Abelian pattern Sturmian; a cycle with largest sum more than twice its remaining sums is impossible.",
+          "identifier_or_url": "https://arxiv.org/html/2609.28059v1",
+          "material_read": "Theorem E; §7.1 incidence graph and support consequences; Proposition 7.14 and its proof, OA offsets near 15600 and 181300",
+          "method": "Primary open full text, bounded passages",
+          "title": "Abelian maximal pattern complexity and extremal words",
+          "trigger": "Primary external theorem used for realizability"
+        },
+        {
+          "assessment": "Weaker necessary bound",
+          "evidence": "Taking N=c in the sum bound gives c≥a+b+2, without gcd dependence.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20",
+          "material_read": "Finding and Proof",
+          "method": "Local indexed search and mirror",
+          "title": "Sharp logarithmic support envelope for Abelian pattern Sturmian words",
+          "trigger": "Prior indexed support bound"
+        },
+        {
+          "assessment": "Equivalent, later-dated; no inference about causal relationship",
+          "evidence": "Same closed rank, threshold, and completion, using a two-distance graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cycle-rank-and-admissible-three-spike-prefixes-for-abelian--e3a97eafa17a",
+          "material_read": "Finding, Proof, and Relationship to prior work",
+          "method": "Local indexed search and mirror",
+          "title": "Exact cycle rank and admissible three-spike prefixes for Abelian pattern Sturmian words",
+          "trigger": "Strongest exact indexed match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "arXiv:0906.1780v1, Introduction",
+        "arXiv:2609.28059v1, Theorem E and Proposition 7.14"
+      ],
+      "rationale": "The prefix question and exact cycle rank are natural and the formula is convenient, but the submitted contribution is a repackaging of the immediate two-period threshold and cycle count, combined with the earlier forest characterization and its doubling proof. It supplies no distinct previously undetermined invariant or obstruction beyond that deduction.",
+      "residual_risks": [
+        "This decision concerns the frozen three-position claim, not the value of classifying longer prefixes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

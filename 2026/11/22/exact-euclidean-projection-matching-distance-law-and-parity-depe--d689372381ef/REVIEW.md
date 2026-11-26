@@ -1,19 +1,21 @@
-# Review of Exact Euclidean projection, matching distance law, and parity-dependent deep holes of chainlink polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The construction of the active-edge set as a matching and the explicit coordinate bounds establish that the proposed orthogonal edge corrections remain feasible even when two nonadjacent active edges flank a third constraint. The residual is a nonnegative combination of active facet normals, giving a global quadratic minimizer certificate. The matched-edge count and equality conditions give exactly the even/odd deep-hole loci. For the random law, inclusive matching events factor over disjoint coordinate pairs and the elementary triangular-depth density gives the precise Laplace transform. The accompanying standalone verifier compared 960 pointwise projections against a general constrained quadratic optimizer; these finite tests supplement, not replace, the proof.
+PASS
 
-## Originality — PASS (provisional priority)
+In the unscaled coordinate norm for s>=3, ell>0 and a_i>=2ell, a positive defect requires x_i>a_i-ell>=ell and x_(i+1)<ell, so positive edges are a matching even when a_i=2ell. Correcting each by d_i/2 leaves its tail >=a_i-ell and its head <=ell, both in the box. If a neighboring correction raises the tail of an inactive link, that tail is <=ell<=a_j-ell; if it lowers the head, that head is >=ell and the tail is <=a_j. Either bound suffices even when the link is flanked by two active edges. The residual is a nonnegative combination of tight normals, proving the unique minimizer, and disjoint supports give squared norm sum(d_i^2)/2. Equality at the sharp bound requires a maximum matching with every matched pair at (a_i,0); the two perfect matchings for even s and the unique matching leaving each prescribed vertex unmatched for odd s prove the complete locus. The expansion over a matching uses inclusive joint violations, not independence conditional on the exact active set. The deficit density on a violated pair is 2(ell-u)/ell^2, giving the stated Laplace factor, first moment and zero atom. Independent rational feasibility/tightness checks use record5() in /workspace/branches/frozen_metric_replay.py; these sample four rational grids, not all inputs. The analytic argument supplies universality. Frozen numerical tests were read, not run.
 
-Kantarcı Oğuz, Özel and Ravichandran (arXiv:2211.08382v1, 2022) introduced the body and already proved its matching volume formula. That known matching geometry is credited. The metric projection normal-cone certificate, sharp odd/even box deep-hole classification and marked squared-distance Laplace law are not stated by that result, nor do they follow solely from its volume trace. Indexed records about chainlink section fluctuations and radial vertex shells do not imply the present metric claim. Related archive full-text access was incomplete and an unindexed equivalent remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is motivated by the precise metric repair needed to map an arbitrary box point to its nearest feasible chainlink point. A globally coupled constraint system unexpectedly separates into an orthogonal matching for each input. The exact projection gives a linear-time solver and the complete deep-hole geometry; its squared error has a closed transform and sharp expectation. The zero-distance volume formula is old, explicitly separated from the claimed new metric laws.
+The known chainlink corner exclusions and matching volume trace cover the zero-distance atom exactly, as credited. The box-to-body projection, associated parity-dependent maximizing locus and full squared-distance law are distinct from the inspected section and vertex-shell results. This is a bounded best-of-knowledge judgment.
 
-## Verification and limitations
+## value
 
-The claim requires \(s\ge3\), \(0<2\ell\le\min_i a_i\), standard coordinate Euclidean distance and points in the containing box. No assertion is made outside this parameter regime or about independent verification. The `verify.py` tests are finite reproducibility checks; the analytic argument establishes the universal statements.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nearest feasible point is useful in its own right: it turns a cyclic quadratic projection problem into a single coordinate pass. The sharp Hausdorff gap and isolated-versus-segment parity locus describe how the body departs from its generating box. The full error distribution refines the existing volume fraction, rather than merely restating it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:03:59.638746Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 28–67, including the sign, domains and counting constant. For a degree-l solid harmonic, Fischer decomposition of x_j H gives a degree-l+1 harmonic and r^2 times (2l+d-2)^(-1) partial_j H. Radial projection replaces r^2 in the latter summand by its beta-moment ratio (l+d/2-1)/(l+d/2+beta). The two raising steps commute since their composite is the top-degree Fischer harmonic part of x_i x_j H; the two lowering steps commute by symmetry of partial derivatives. The antisymmetric cross terms are J_12/(2l+d+2beta) and -(1+2/(2l+d-2))J_12/(2l+d+2beta+2), giving -q_l J_12 for all l>=1. Constants are killed. The Fischer character cancels the radial factor (1-t^2); the coefficient of rotation weight m is t^|m|/(1-t)^(d-2), recovering the exact signed multiplicities, infinite kernel and norm O(l^-2) per block. For c=(beta+1)/2 and grid step h=sqrt(t/c), set y=h l, x=h m. Off the coordinate and threshold boundaries the rescaled counting condition tends to 0<x<=y, x>y^3 and the scaled weight tends to (y-x)^(d-3)/(d-3)!, with bounded support and uniform polynomial bounds. This is a Riemann sum with a measure-zero boundary; x=u y gives 0<u<1, 0<y<sqrt(u), and integration in y divides by d-1, yielding the displayed beta integral. For d=3 the binomial weight is exactly one. For the degree-critical trace, u^((d-1)/2)(1-u)^(d-3) is Lipschitz on [0,1]; its degreewise Riemann error, combined with the 1/l expansion of q_l and the binomial weight, gives summable O(l^-2) corrections to (d-1)K/l. Inverting the counting asymptotic and integrating the positive singular-value distribution give the asserted sequence law, strict endpoint, Hilbert–Schmidt cases and K in d=3. The uploaded check.py was inspected but not run; its selected polynomial and dimension comparisons are bounded diagnostics, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hagger et al. give sufficient weak symbol-average conditions for boundedness and compactness of Toeplitz operators in the matching weighted real-ball setting.",
+          "Choe–Lee–Na §4 Theorem 4.2 gives compactness of Hankel operators with continuous symbols on smooth domains, relevant to compactness of the coordinate commutator in the unweighted case through the commutator being a difference of Hankel products.",
+          "Choe–Koo–Na's accessible abstract concerns finite-rank products of Toeplitz operators with harmonic symbols. The frozen object is a difference of two products and is compact of infinite rank."
+        ],
+        "reasoning": "General compactness mechanisms overlap the compactness conclusion, not the finite-degree eigenvalue formula, full multiplicities or leading Weyl coefficient. A finite-rank result about individual products cannot substitute for the difference studied here.",
+        "searches": [
+          "arXiv:2011.04699 Theorems 2.3–2.5",
+          "10.1017/S0027763000008837, Choe–Lee–Na §4",
+          "10.1216/RMJ-2011-41-1-45, finite-rank harmonic Bergman Toeplitz products"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e9750e90cf2b (assigned record)",
+        "Resultary 72e8da1b0b6d",
+        "Resultary 1294c93375a2 and ecce96fbe5bc (indexed descriptions)",
+        "arXiv:2011.04699",
+        "arXiv:2503.09112v2",
+        "Choe–Lee–Na 2004 (Cambridge PDF)",
+        "Choe–Koo–Na 2011 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The disk proof is a bilateral weighted shift on a single harmonic basis vector per signed angular frequency; its counting law is the d=2 threshold, with only the constant zero mode.",
+          "In d>=3 the projected coordinate products must account for both degree shifts and the differing radial moments; their principal difference decays at order l^-3 before multiplying the angular generator. The higher-dimensional rotational multiplicity is needed to turn that order into the stated sharp exponent and coefficient.",
+          "Existing harmonic Toeplitz compactness criteria and standard rotation characters do not identify this residual scalar or its counting constant by direct specialization."
+        ],
+        "reasoning": "The ingredients and some qualitative consequences are known. The exact higher-dimensional finite-degree spectral invariant and weighted singular counting conclusion require the volume commutator calculation and dimension-dependent summation not supplied by the compared results.",
+        "searches": [
+          "Resultary 72e8da1b0b6d RESULT.md Finding and Proof §1",
+          "arXiv:2011.04699 pp. 5–6 main theorems",
+          "Choe–Lee–Na 2004 Theorem 4.2",
+          "arXiv:2503.09112v2 pp. 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For z=x_1+i x_2 the same-space identity [T_1,T_2]=(-i/2)(T_z^*T_z-T_zT_z^*) holds. Resultary 72e8da1b0b6d treats harmonic functions on the disk and uses one-dimensional angular sectors there.",
+          "On the sphere boundary model the projection on harmonic traces fills L^2, and coordinate multiplication commutes. In the weighted volume model the lowering coefficient is different; beta=-1 is not an included volume case."
+        ],
+        "reasoning": "The disk identity is a true equivalence in real dimension two, not a higher-dimensional reduction. In d>=3 the angular weight multiplicity contains contributions from the other coordinates. The boundary Hardy model does not have the claimed volume commutator.",
+        "searches": [
+          "Resultary: harmonic Bergman real-ball coordinate Toeplitz commutator angular momentum and Schatten counting",
+          "Resultary 72e8da1b0b6d, weighted harmonic disk monomial self-commutator, m=1",
+          "arXiv:2503.09112v2, quasihomogeneous Toeplitz actions and commutativity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit e9750e90cf2b is the assigned record, not separate corroboration.",
+          "72e8da1b0b6d gives an exact list and counting consequences on the weighted disk. 1294c93375a2 concerns the orthogonal complement of the disk harmonic Bergman space; ecce96fbe5bc concerns ranks for disk commutators involving a pole symbol."
+        ],
+        "reasoning": "The direct exact disk comparison is outside the frozen dimension range. The other indexed descriptions use different subspaces or operators and supply no matched degree table for this one. The search is not a priority proof.",
+        "searches": [
+          "Resultary: exact q_l angular-momentum commutator spectrum and beta-integral Schatten constant",
+          "Resultary 72e8da1b0b6d, 1294c93375a2 and ecce96fbe5bc"
+        ]
+      },
+      "rationale": "The strongest direct catalogue analogue is the weighted harmonic disk monomial self-commutator at m=1. It gives exactly the real-coordinate pair in dimension two after multiplying by -i/2, but its one-dimensional signed Fourier sectors do not give the rotation-weight branching and all-degree coefficient in real dimensions d>=3. The inspected real-ball Toeplitz results supply boundedness, compactness and general setting or criteria, not the exact higher-dimensional compact spectrum and sharp counting coefficient. Priority remains best-of-knowledge, with limitations below.",
+      "residual_risks": [
+        "The cited Nishio–Tanaka 2017 radial-measure PDF was unavailable in the bounded retrieval. The Dong–Zhou quasihomogeneous disk-products paper and the 1999 Project Euclid commuting-operators paper were not accessible in full; no noncoverage inference from their access errors.",
+        "Older harmonic quantization or weighted real-ball coordinate formulas may have used different operator notation. No historical priority guarantee is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dimension-two analogue; does not cover d>=3",
+          "evidence": [
+            "Harmonic disk, basis indexed by signed angular modes, paired levels and Schatten threshold 1/2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-paired-self-commutator-spectra-of-monomial-toeplitz-operators-on--72e8da1b0b6d/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–2 opening, offsets 0–3758",
+          "method": "Bounded full-text mirror excerpt and algebraic conversion at m=1",
+          "title": "Paired self-commutator spectra of monomial Toeplitz operators on weighted harmonic Bergman spaces",
+          "trigger": "Exact self-commutator related by z=x+iy"
+        },
+        {
+          "assessment": "General boundedness and compactness setting; no implication of the sharp commutator spectrum from the inspected results",
+          "evidence": [
+            "Sufficiency via integrated symbol averages over spherical boxes"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04699",
+          "material_read": "Introduction and pp. 5–6 Theorems 2.3–2.5, offsets 14000–16799",
+          "method": "Bounded OA primary text; compared operator parameters and conclusions",
+          "title": "Toeplitz operators on the unit ball with locally integrable symbols",
+          "trigger": "Matching weighted harmonic Bergman model"
+        },
+        {
+          "assessment": "Hankel compactness for continuous symbols in unweighted spaces, not an exact nonzero spectral calculation for the coordinate pair",
+          "evidence": [
+            "Theorem 4.2 gives compactness of H_phi; §4 concerns essential spectrum"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0027763000008837",
+          "material_read": "p. 1 scope and §4 opening, journal pp. 181–182, PDF offsets 60000–62218, including Theorem 4.2",
+          "method": "Lawfully accessible Cambridge PDF, bounded original passages",
+          "title": "Toeplitz operators on harmonic Bergman spaces",
+          "trigger": "Earlier broad smooth-domain harmonic Toeplitz and Hankel criteria"
+        },
+        {
+          "assessment": "Relevant setting but abstract does not establish coverage of a difference of products",
+          "evidence": [
+            "Finite-rank products with harmonic symbols"
+          ],
+          "identifier_or_url": "https://doi.org/10.1216/RMJ-2011-41-1-45",
+          "material_read": "Institutional abstract",
+          "method": "Scoped abstract comparison only",
+          "title": "Finite rank products of Toeplitz operators on the harmonic Bergman space",
+          "trigger": "Products of harmonic-symbol Toeplitz operators on real balls"
+        },
+        {
+          "assessment": "Restricted disk commutativity comparison, not the real-ball d>=3 spectral statement",
+          "evidence": [
+            "Quasihomogeneous operator actions in disk setting"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.09112v2",
+          "material_read": "pp. 1–3 (offsets 0 and 6700 onward)",
+          "method": "Bounded OA primary text",
+          "title": "Commutativity comparison by Iqtaish, Louhichi and Yousef",
+          "trigger": "Harmonic Toeplitz products and commuting coordinates or quasihomogeneous symbols"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two real coordinate compressions are canonical Toeplitz operators, and their commutator quantifies a concrete failure of commuting multiplication to survive harmonic projection. The exact angular formula resolves the nonzero levels, degeneracies and kernel, and the explicit Weyl constant and critical logarithmic trace distinguish Hilbert–Schmidt behavior across dimensions. These data could be needed to compare other harmonic compressions or spectral estimates; they are not supplied by compactness alone or an arbitrary finite calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

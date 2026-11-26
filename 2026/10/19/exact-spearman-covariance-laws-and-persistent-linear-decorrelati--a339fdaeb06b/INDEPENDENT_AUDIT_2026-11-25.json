@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:17:05.003330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–91, especially Step 3",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/repairs/3/RESULT.md",
+        "Chen–Fang arXiv:1111.3159, Theorem 1.1 and eq. (1.5)"
+      ],
+      "rationale": "The repaired result holds. Generate uniform X0 by choosing an independent uniform branch J and uniform Y, and write X0=(J-1/2+epsilon_J(Y-1/2))/m; this gives the signed conditional mean S(Y-1/2)/m^2. In the cell representation Y-1/2=(a_I+U-1/2)/N and X1-1/2=(a_pi(I)+U-1/2)/N with I and U independent, giving the Spearman term plus the common within-cell variance. Every future observable is a function of Y, so S=0 suffices; identity shuffle at lag one proves necessity for the stated universal quantifiers. Uniform rank sampling gives Var(Q)=(sum a_i^2)^2/(N-1), and reversal negates Q, not the uncentered covariance. The variance-normalized array is centered in rows and columns and uniformly O(N^-1/2), so Chen–Fang (1.5) gives the asserted rate for S nonzero. The frozen proof's line 89 incorrectly says the reversal magnitude vanishes for N=2. For m=N=2 with both signs positive the exact identity and reversal covariances are 1/24 and -1/48. Replacing that aside with the exact magnitude ratio 1-2/N^2 preserves the extrema, their strict comparison, and every Finding statement. Replayed the affected claim by the affine formula and strict rearrangement, not the supplied finite checker.",
+      "residual_risks": [
+        "Stationary Lebesgue initialization; the CLT samples permutations, not time. Orthogonality tests the linear initial coordinate, not independence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The family-level mixing results and general combinatorial CLT cover a different invariant and the probabilistic fluctuation step, respectively."
+        ],
+        "reasoning": "Neither is a stronger reported result identifying the stationary covariance with shifted Spearman correlation or deciding balanced linear orthogonality uniformly over shuffles.",
+        "searches": [
+          "arXiv:1405.0481, §1, pp. 3–4, Theorems 1–2; arXiv:1111.3159, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Byott–Lin–Zhang arXiv:1405.0481",
+        "Byott–Holland–Zhang arXiv:1203.5145v3",
+        "Chen–Fang arXiv:1111.3159",
+        "Local Resultary record d2e55488afc7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once the affine reduction is obtained, the moments and CLT are direct standard consequences. The cousin transfer-operator results formulate mixing, rather than connecting inverse-branch barycenters to rank scores or using their vanishing for all future observables."
+        ],
+        "reasoning": "Credit the known probability and transfer machinery. The specific affine statistic and its within-cell correction require evaluating the observable and are not supplied by the inspected prior conclusions.",
+        "searches": [
+          "arXiv:1405.0481, pp. 3–4; arXiv:1111.3159, eq. (1.5); local Resultary excedance-covariance record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former is the same signed m-branch and equal-cell shuffle family; the latter uses the all-increasing stretch-and-fold map. The inspected results concern topological or spectral mixing, not the exact covariance law or rank reduction."
+        ],
+        "reasoning": "The same map with a different observable is not new as a map. A spectral decay classification is not the stated signed finite-permutation law.",
+        "searches": [
+          "Primary literature lookup: Byott–Lin–Zhang shuffled non-constant orientation maps, covariance and Spearman",
+          "arXiv:1405.0481, abstract and §1, Theorems 1–2; arXiv:1203.5145v3, abstract and Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest mirrored record studies permutation excedance and rank-score covariances and gives the same classical Spearman variance 1/(N-1). It contains no matching dynamical covariance or balance result."
+        ],
+        "reasoning": "An exact match for a shared probability ingredient is not an exact table or theorem for the dynamical observable.",
+        "searches": [
+          "Local Resultary search: exact shuffled full-branch covariance, Spearman and orientation balance",
+          "2026/10/13/SCOPE-exact-local-excedance-covariance-with-rank-scores-and-spearman-r--d2e55488afc7/RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact signed dynamical Spearman reduction and balanced universal orthogonality. The map family, classical rank-law ingredients and combinatorial CLT are existing work. The repair changes only a mistaken numerical aside in the proof and does not broaden the originality claim.",
+      "residual_risks": [
+        "The bounded review cannot rule out an unlocated rank-correlation treatment or a more explicit formulation of the same consequence of the transfer operator; keyword misses are not evidence of whole-document absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objects; reported main results address different claims",
+          "evidence": "Theorems 1–2 address topological mixing and worst mixing rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.0481",
+          "material_read": "p. 1 abstract and §1 pp. 3–4, offsets 6456–13427; literal Spearman/covariance searches",
+          "method": "OA PDF text and passage comparison",
+          "title": "Mixing properties of the zigzag map under composition with permutations, II: Maps of non-constant orientation",
+          "trigger": "Same signed branch and equal-cell permutation family"
+        },
+        {
+          "assessment": "Narrower family, different observable",
+          "evidence": "Stretch-and-fold f(x)=mx mod 1 and mixing-rate analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.5145v3",
+          "material_read": "pp. 1–2, abstract and Introduction, offsets 0–5931",
+          "method": "OA PDF text",
+          "title": "On the mixing properties of piecewise expanding maps under composition with permutations",
+          "trigger": "All-increasing predecessor"
+        },
+        {
+          "assessment": "Covers normal approximation once the permutation array is identified",
+          "evidence": "The bound is (451/N) times the sum of normalized cubed absolute entries.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.3159",
+          "material_read": "Theorem 1.1 and deterministic specialization (1.5), p. 3, offset 7824",
+          "method": "OA PDF text",
+          "title": "On the error bound in a combinatorial central limit theorem",
+          "trigger": "Exact probability implication"
+        },
+        {
+          "assessment": "Classical statistical overlap only",
+          "evidence": "Variance of Spearman statistic is 1/(N-1); the studied variables are permutation excedance indicators and rank scores, not interval dynamics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-local-excedance-covariance-with-rank-scores-and-spearman-r--d2e55488afc7",
+          "material_read": "RESULT.md offsets 0 and 4067",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact local excedance covariance with rank scores and Spearman rank correlation",
+          "trigger": "Closest catalogue hit by statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof Steps 1–4",
+        "Byott–Lin–Zhang arXiv:1405.0481, §1"
+      ],
+      "rationale": "On a natural established family that is generally analyzed via mixing, the result identifies a finite-size covariance offset that a ranks-only guess misses and supplies an exact test for persistent linear orthogonality uniformly across shuffles. Those are reusable diagnostic distinctions, beyond the routine moment/CLT corollaries.",
+      "residual_risks": [
+        "Does not classify accidental vanishing for an individual fixed shuffle or nonlinear temporal dependence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

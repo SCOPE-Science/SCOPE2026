@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:04:03.446697Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Square dihedral maps preserve the diagonal attack condition. In the barycentric subdivision each flag vertex has a distinct original-face size, and all eight symmetries preserve that size. If two points of a closed flag simplex are identified, their supports have the same sizes and use the same vertices within that flag, so their barycentric coordinates agree. Thus each cell closure embeds in the geometric orbit space, and deleting the i-th vertex contributes the sign (-1)^i; different deletions have different rank sets. This is not a naive face-orbit poset. A fresh coordinate enumeration independently found 728 nonempty faces, 158328 nonempty flags and quotient-cell counts (100,1210,4530,7260,5280,1440). The integral unreduced boundaries square to zero. A different valid free-face sequence removes 8963 pairs and leaves (70,479,877,468,0,0) cells; each upper cell was maximal and each removed facet had that sole remaining coface. Integral unit pivots split off isomorphism pairs in adjacent degrees, leaving chain ranks (1,0,2,3) and d3=[[-2,2,0],[2,-2,2]]. Its nonzero Smith factors are 2 and 2 from the entry gcd 2 and maximal-minor gcd 4. Hence reduced H2=(Z/2)^2 and H3=Z with all other reduced groups zero. Replay: python3 /workspace/branches/82c42184-13bc-411c-ae61-43f6fa62f47f/bishop4_independent.py --n 4; saved results in independent_run.txt in the same directory. The fresh computation does not replay the frozen collapse order or treat finite field ranks as a Smith certificate. For pi1, the two color classes have connected nonattacking-pair graphs (both with 8 reached vertices); attack preserves color, so their join is simply connected. Transpose fixes (0,0), and row reversal fixes the midpoint of the allowed edge {(0,0),(3,0)}. The two reflections generate D4, so the fixed-point normal subgroup in the finite-group orbit-space theorem is all of D4. The frozen verifier and recorded results were inspected but not executed. Nothing here computes the full homotopy type.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clark–Zeckner analyze nonattacking rooks on specified Ferrers boards, with nonequivariant homotopy and homology statements. Adamaszek's chordal-graph theorem does not apply: (0,1),(1,0),(2,1),(1,2) form an induced 4-cycle of bishop attacks. The exact stronger homotopy decomposition in f2689bf42680 is for the 4-by-7 rook complex with column D7 action."
+        ],
+        "reasoning": "Rook/Ferrers descriptions and stronger homotopy conclusions for a different chessboard quotient do not include the bishop action. The general fundamental-group theorem does imply the pi1 conclusion given the fixed-point and simple-connectivity checks, but does not give the integral torsion.",
+        "searches": [
+          "Clark–Zeckner arXiv:1008.4525 and Adamaszek arXiv:1508.02426, stated hypotheses",
+          "Resultary: dihedral chessboard Moore and torsion quotient results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verifier source, recorded output",
+        "Fresh independent reconstruction and exact reduction",
+        "Three distinct Resultary records and cited primary passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonequivariant wedge does not specify equivariant fixed points or cellular flag orbits. Armstrong's formula gives the fundamental group from the stabilizers after checking simple connectivity; the exact boundary computation is needed to see two integral order-two classes."
+        ],
+        "reasoning": "The invariant is not mechanically implied by a nonequivariant homotopy type or by the standard orbit fundamental-group tool. Torsion in a related quotient shows precedent for the phenomenon, not the exact result on this object.",
+        "searches": [
+          "Resultary 5a9e9824a08d and quotient analogues a146a15a96aa, f2689bf42680, Findings",
+          "Armstrong orbit-space theorem as cited in the frozen Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5a9e9824a08d treats the same original bishop complex and gives a wedge of nine 3-spheres. The same-day 4-by-4 geometric quotient in a146a15a96aa uses kings and gives one order-two class in degree two and no degree-three class."
+        ],
+        "reasoning": "Changing from bishop to king adjacency changes the independence complex; keeping bishops while omitting the action changes the object. Diagonal-incidence rook descriptions of separate bishop colors would need the same equivariant join action, not just nonequivariant homology of the colors.",
+        "searches": [
+          "Resultary: nonattacking 4-by-4 bishop geometric quotient, square dihedral, integral torsion; attack-graph independence complex and diagonal-incidence rook complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bishop predecessor gives an exact unquotiented type; the king and 4-by-7 rook records report different exact invariants on other spaces. The identical bishop quotient record hit is the assignment itself. Harris et al. was inaccessible in full text and was not used to exclude overlap."
+        ],
+        "reasoning": "Numbers of pieces or absolute homology entries cannot establish the exact Smith factors of an orbit complex. The known quotient entries also have different underlying incidence structures.",
+        "searches": [
+          "Resultary exact 4-by-4 bishop board 5a9e9824a08d; same-board D4 invariant a146a15a96aa; chessboard quotient f2689bf42680",
+          "Harris et al., Bishop Independence, DOI 10.9734/BJMCS/2013/5760"
+        ]
+      },
+      "rationale": "The exact new invariant under comparison is for the ordinary full-square D4 quotient of the four-by-four bishop complex, not for the unquotiented bishop complex or other pieces and actions. There is material indexed overlap in methods and the two-torsion phenomenon, but the strongest inspected exact analogues concern distinct attack rules or group actions. The identical record hit was not counted as prior independent evidence.",
+      "residual_risks": [
+        "An unindexed equivalent quotient computation may exist; the Harris article's full text was unavailable and was not used as proof of absence. No unconditional priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior absolute type, not the orbit invariant",
+          "evidence": "For the four-by-four board the unquotiented complex is a wedge of nine 3-spheres.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-mixed-dimensional-homotopy-transition-in-even-board-bishop-com--5a9e9824a08d",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A mixed-dimensional homotopy transition in even-board bishop complexes",
+          "trigger": "Same unquotiented complex at the exact board size"
+        },
+        {
+          "assessment": "Distinct exact invariant; no date-order inference",
+          "evidence": "King quotient has reduced H2=Z/2 and all other reduced groups zero; the attack complex is different.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-torsion-in-the-four-by-four-nonattacking-king-symmetry-quoti--a146a15a96aa",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two-torsion in the four-by-four nonattacking king symmetry quotient",
+          "trigger": "Same-day publication, same board and group, analogous torsion"
+        },
+        {
+          "assessment": "Stronger type for a different complex and action",
+          "evidence": "The four-by-seven rook complex has a quotient by column D7 with three degree-two Moore summands and fifteen 3-spheres.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-three-moore-summands-in-the-seven-column-dihedral-chessboard-quo--f2689bf42680",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Three Moore summands in the seven-column dihedral chessboard quotient",
+          "trigger": "Natural related quotient of a torsion-free placement complex"
+        },
+        {
+          "assessment": "Inspected scope does not cover the quotient",
+          "evidence": "Studies the simplicial complex of nonattacking rook placements on a subclass of Ferrers boards, including homotopy type and homology.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.4525",
+          "material_read": "Primary PDF p. 1, offset 601",
+          "method": "OA primary PDF",
+          "title": "Simplicial Complexes of Triangular Ferrers Boards",
+          "trigger": "Diagonal-incidence rook reformulation"
+        },
+        {
+          "assessment": "Hypothesis does not include this graph",
+          "evidence": "The theorem is for chordal graphs; the given four board squares witness nonchordality of the bishop attack graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.02426",
+          "material_read": "Primary PDF p. 1, around offset 1971",
+          "method": "OA primary PDF",
+          "title": "A note on independence complexes of chordal graphs and dismantling",
+          "trigger": "Broader independence-complex theorem"
+        },
+        {
+          "assessment": "Access limitation, not evidence of exclusion",
+          "evidence": "HTTP 403; no repository copy identified in the bounded lookup.",
+          "identifier_or_url": "https://doi.org/10.9734/BJMCS/2013/5760",
+          "material_read": "No primary full text; characterized as extremal placement counts in the published bishop predecessor",
+          "method": "Lawful DOI/publisher lookup and alternate-copy attempt",
+          "title": "Bishop Independence",
+          "trigger": "Direct prior bishop work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural standard four-by-four board has an established simple absolute homotopy type, motivating the effect of quotienting by all its board symmetries. The result identifies precisely the integral obstruction that the quotient introduces, two independent order-two classes alongside a top free class, and determines simple connectivity. This is an exact reusable orbit invariant, not a known absolute recount or an inferred complete homotopy classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

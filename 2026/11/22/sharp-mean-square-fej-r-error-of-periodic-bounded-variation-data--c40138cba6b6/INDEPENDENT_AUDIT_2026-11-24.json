@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:52:58.233558Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–70; especially lines 30–37 (norm and equality), 46–64 (global maximum), 66–70 (localization)",
+        "VERIFICATION.md lines 1–19; checker.py lines 11–33 and 45–69 (inspected, not executed)",
+        "Independent integer-interval certificate replay: scale by 10^8, round term bounds outwards, take 6 arctan terms at 1/5 and 2 at 1/239 including the next-term remainder, giving [314159224,314159316]/10^8 for π. For Si use j=0 through 6 with successive absolute-term ratio x²(2j−1)/[(2j)(2j+1)²] for term j≥1; round each repeated multiplication by l or u and each rational factor outwards, giving upper bound 185195688/10^8. Compare 1+l²/2−u(1.8521) to 11/100 and 11l²/100 to 1 by integer products."
+      ],
+      "rationale": "For V(f)=1, the positive and negative Jordan parts of Df have mass 1/2. Their product coupling represents the error as an average of residuals of half-height signed arc indicators. The Hilbert variance identity forces the residuals in an extremizing average to be identical almost surely, and the positive nonzero-frequency residual multiplier makes the operator injective modulo constants. This gives the full single-arc equality classification. Parseval with both signs of k and the normalized half-height at each jump gives the 1/(4π²) positive-frequency factor and the finite Bernoulli-sum formula; at N=1 it gives 1/16 for the squared norm. The scaling q=2πNd gives locally uniform Riemann sums (a bounded panel plus a uniformly integrable t^-2 tail). The sign of q cos q−sin q changes exactly once on (0,2π), and Phi'(0+)>0 while Phi'(2π)<0 by the alternating half-wave integral. Two integrations by parts give the stated O(q^-2) tail envelope. Verified the strict comparison independently: with l=3.14159, u=3.14160 (Machin alternating bounds), upper-bound Si(π) by its terms j=0 through 6, using u for positive terms and l for negative ones. It is <1.8521, yielding 4π²(Phi(π)−Phi_infty)>1+l²/2−u(1.8521)>0.11>l^-2. This excludes every q≥2π. For any finite optimizer, q_N→∞ along a subsequence would kill the weighted cosine sum by Abel summation (bound 1/[N sin(πd_N)]), producing the strictly smaller Phi_infty. A subsequence q_N→0 is excluded by compact Riemann-sum convergence. Thus all optimizing separations converge to the unique peak after rescaling. Independent bisection and sine-series evaluation gave q≈3.34431785947053, Phi(q)≈0.0537105342266452 and q/(2π)≈0.532264718605241.",
+      "residual_risks": [
+        "The finite formula specifies a maximum over arc separation; uniqueness of that finite maximizer is not asserted, except at N=1. Decimal displays are approximations, not formal certificates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 75–85 identifies pointwise filtered jump-error work, Fourier-reconstruction rates, and pointwise set-valued Fourier partial sums. It explicitly flags Andrienko as direct Fejér-approximation literature rather than ruling it out. Primary full-text attempts did not succeed."
+        ],
+        "reasoning": "The pointwise, order-only and set-valued results as described do not specify the sharp uniform squared L² coefficient, uniqueness of the limiting peak or its localization. The actual scope of Andrienko is unresolved, and the negative conclusion is not based on inaccessible text.",
+        "searches": [
+          "Andrienko, DOI 10.1007/BF02196649; Yun, DOI 10.1016/j.aml.2012.02.064; Adcock–Hansen, arXiv:1011.6625; Berdysheva et al., DOI 10.1007/s00041-021-09812-7"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 30–85",
+        "Resultary c40138cba6b6, c827300bde01, 7bee99d6a8aa (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An L¹ estimate does not determine an L² translation diameter. Heat and Fejér have different scaled weights; the Fejér weight is exactly w(t)=min(1,t^-2). The new exact peak property requires sign analysis plus separation from all later peaks and from the escape limit."
+        ],
+        "reasoning": "An existing general multiplier norm representation could cover the reduction without computing the Fejér maximum or showing every maximizing separation localizes. The analytic peak and escape arguments do not follow merely by inserting the Fejér label into the known comparisons.",
+        "searches": [
+          "Compare Resultary c827300bde01 (integrated Fejér) and 7bee99d6a8aa (heat); frozen RESULT.md lines 30–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is equivalently the normalized squared L² diameter of the translation orbit of the primitive of the residual multiplier kernel, via the difference of two point masses. A fixed positive arc length gives the coefficient 1/(2π²) by the Abel bound, strictly below the optimized coefficient in the record."
+        ],
+        "reasoning": "Neither fixed-input Fejér jump asymptotics nor taking a Fourier approximation rate yields the sharp N-dependent operator norm. A sharp kernel-diameter result for this multiplier would be equivalent, regardless of how its extremizing primitive is named. No such statement was secured.",
+        "searches": [
+          "Primary literature on sharp Fejér L²/BV mean-square approximation and jump profiles",
+          "Resultary searches for periodic Fejér BV approximation and microscopic two-jump extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c40138cba6b6 is this identical record. c827300bde01 instead indexes integrated L¹ Fejér error and half-circle extremizers; 7bee99d6a8aa indexes a BV-to-L² two-jump result for Gaussian heat smoothing."
+        ],
+        "reasoning": "The closest available claims change either the norm or the multiplier. A shared date or use of the same two-point reduction does not make their exact invariants equivalent. Underlying mirror texts were not retrieved.",
+        "searches": [
+          "Resultary exact Fejér mean-square match c40138cba6b6; related c827300bde01 and 7bee99d6a8aa"
+        ]
+      },
+      "rationale": "The distinct supported claim is the sharp ordinary Fejér squared L² error over real periodic BV with this variation and indexing, including its optimal arcs and the actual unique limiting separation. The elementary two-atom reduction and the use of Parseval are not by themselves claimed original. This decision is bounded by incomplete access to older direct Fejér literature.",
+      "residual_risks": [
+        "Andrienko 1968 full text and other older approximation literature remain possible sources of equivalent coverage.",
+        "Limited OA and mirror access; no unsuccessful lookup was taken as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual coverage unknown; material priority risk",
+          "evidence": [
+            "The title fits the same approximation process, but no norm, class, sharp coefficient or localization was independently extracted."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02196649",
+          "material_read": "Bibliographic identification only; theorem passages unavailable",
+          "method": "Bounded OA DOI/PDF retrieval attempts and primary literature lookup",
+          "title": "The approximation of functions by Fejér means",
+          "trigger": "Most directly relevant older primary source by topic"
+        },
+        {
+          "assessment": "Described material concerns pointwise or rate results, not a verified sharp Fejér L² norm",
+          "evidence": [
+            "The record's sharp coefficient differs even from its own fixed-arc limiting coefficient."
+          ],
+          "identifier_or_url": "DOI 10.1016/j.aml.2012.02.064; arXiv:1011.6625; DOI 10.1007/s00041-021-09812-7",
+          "material_read": "Frozen §Relationship to prior work, lines 75–85; primary passages unavailable",
+          "method": "Cited comparison and bounded OA retrieval attempts",
+          "title": "A weighted averaging method for treating discontinuous spectral data; Stable reconstructions in Hilbert spaces and the resolution of the Gibbs phenomenon; Metric Fourier Approximation of Set-Valued Functions of Bounded Variation",
+          "trigger": "Filtered jumps and related Fourier approximation"
+        },
+        {
+          "assessment": "Different norm or multiplier in the available statements",
+          "evidence": [
+            "L¹ and half-circle behavior versus L² and shrinking arcs; Gaussian heat multiplier versus ordinary Fejér multiplier."
+          ],
+          "identifier_or_url": "Resultary c827300bde01 and 7bee99d6a8aa",
+          "material_read": "Indexed mathematical statements; underlying mirror texts unavailable",
+          "method": "Local semantic retrieval and targeted mirror attempt",
+          "title": "Sharp integrated BV error of Fejér means; Microscopic two-jump extremizers for sharp periodic heat approximation",
+          "trigger": "Closest indexed results with the same filter or same extremal structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–25, 39–70"
+      ],
+      "rationale": "This determines a sharp approximation invariant for a classical filter. It shows why the optimal uniform BV estimate cannot be obtained by holding jump positions fixed: its two optimal jumps approach at an explicitly selected scale, with a strictly larger coefficient. This is substantive beyond the N^-1/2 rate and the usual single-jump profile.",
+      "residual_risks": [
+        "The result is for ordinary Fejér approximation in L² on the circle, not a universality claim over other filters or norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

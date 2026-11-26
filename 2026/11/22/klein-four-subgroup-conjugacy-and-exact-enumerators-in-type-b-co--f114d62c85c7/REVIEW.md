@@ -1,21 +1,21 @@
-# Scientific review: Klein-four subgroup census for type-\(B\) groups
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns all integers \(n\ge0\), and distinguishes conjugacy classes from actual embedded subgroups. The proof classifies a signed transitive \(C_2^2\)-set by its stabilizer and its stabilizer sign character, yielding four singleton types, six doublet types, and one quartet type. Burnside's lemma on the six automorphisms of \(C_2^2\) produces the three rational summands. Nonfaithful homomorphisms correspond to signed involutions with *positive*, not negative, signed two-cycles, so their contribution is precisely \(1/((1-z)^2(1-z^2))\). The total-subgroup EGF independently follows from labeled transitive orbits, Möbius inversion on the three rank-one kernels, and six injective labels per subgroup. Pole-order analysis proves the stated asymptotic. The standalone program compares both formulas against direct group and subgroup enumeration through four coordinates and expands the formulas through degree ten.
+PASS
 
-**Risk:** finite testing is not a universal proof; correctness depends on the completeness of the sign-character classification and proper separation of kernel ranks. Both points are explicitly proved in RESULT.md.
+The retained class-count proof is correct. A transitive signed K-action is determined up to monomial equivalence by a line stabilizer H and its sign character, with no further conjugacy identification when K is abelian. This gives four size-one types, six size-two types, and one size-four type. Passing from embeddings to images requires precomposition by Aut(K)=S₃ in addition to target conjugation. I verified that a transposition fixes two size-one types and swaps the others, and fixes two size-two types with two swaps; a three-cycle fixes the trivial size-one type and has one size-one triple and two size-two triples. Every nontrivial automorphism fixes the unique size-four type. In a fixed profile the multiplicities must agree around each type cycle, yielding the repaired P,T,C factors. The noninjective orbits are exactly the target classes of elements of order dividing two, giving the two size-one factors and one size-two factor of I. The order-eleven pole of P at 1 has principal coefficient 1/(2⁶·4)=1/256; other poles have smaller order, and the proper rational series has poles only at twelfth roots of unity. Partial fractions prove the exact quasipolynomial claim and leading coefficient. The removed labeled EGF was mathematically correct; the issue was prior implication, not a false formula. I reran the rewritten class-only checker and confirmed all coefficients through rank ten and the actual conjugacy classes through rank five.
 
-## Originality — PASS, conditional on accessible literature
+## originality
 
-Burns–Pfeiffer (DOI 10.1017/S0017089522000143, published online 2022-08-02) treat maximal-*order* abelian Coxeter subgroups, not the census of all conjugacy classes and embedded Klein-four subgroups. Tout (arXiv:2212.13241v1) and Klawuhn–Schmidt (arXiv:2409.20495v1) supply conjugacy and character contexts for wreath products, respectively, but their inspected statements concern individual elements, generalized characters, or transitive subsets rather than orbits of faithful homomorphisms from the fixed rank-two elementary abelian group. The signed-orbit enumeration, its two generating functions, and degree-ten quasipolynomial consequence are not covered by an inspected stronger result. Index searches for rank-two elementary abelian subgroup classes and equivalences to signed \(C_2^2\)-sets returned related but distinct group-theoretic statistics, not an implication of this theorem.
+PASS
 
-**Risk:** older Coxeter subgroup classification, wreath-product subgroup theory, or general character-labeled permutation module formulas might subsume the result in equivalent terminology. A complete literature priority search is not certified. No originality is claimed for Burnside's lemma, induction, species, or the generic signed-stabilizer method.
+The original two-enumerator claim fails originality in part: Tamanoi’s Theorem C (1-16) already implies exactly the labeled-subgroup EGF by parameter specialization and standard kernel-lattice subtraction. The corrected result removes that formula as a contribution and attributes the known signed-profile framework. What survives is the ordinary class series: the product for target conjugation alone is already known, but it gives only P. The repair explicitly accounts for source-generator changes by the cycle types of Aut(K) and for faithfulness, giving T, C and I. Neither the theorem inspected nor a distinct exact indexed or published result inspected gave that subgroup-class calculation. The pass is for the narrower finding, not the original combined claim.
 
-## Value — PASS
+## value
 
-Rank-two elementary abelian subgroup classes are a natural structural invariant in finite Coxeter groups. The exact all-degree count answers both classification and labeled-census questions and exposes a polynomial-versus-superexponential distinction between conjugacy classes and embedded copies. A sharp degree-ten quasipolynomial and the first nontrivial group examples supply usable data for further subgroup, normalizer, and representation investigations. The result is not predicated on a general theorem downstream: it is a complete motivated classification and natural exact invariant.
+PASS
 
-**Risk:** the method is elementary and a specialist may regard the final formulas as an application of familiar wreath-product species. Its value lies in the complete natural target and explicit exact forms, not a claim of new general machinery.
+The retained invariant is a natural all-rank conjugacy census in the signed permutation Weyl groups. It supplies class counts independent of chosen generators and avoids enumerating the factorial-sized target group, with an exact series and growth law. The three source cycle types and the faithfulness subtraction distinguish this from an already-known count of labeled embeddings or target-conjugacy classes of homomorphisms. The repair does not rely on the covered EGF or extra motivation to supply value.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:27:13.251456Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61 and VERIFICATION.md lines 19–25",
+        "Frozen verification/exhaustive_graph.py and verification/independent_trajectories.cpp and their recorded outputs (inspected, not executed)",
+        "Independent replay: /workspace/branches/ed1f75ba-abb6-4ccf-836b-ef6777752783/replay_herschel.py",
+        "Independent outputs: /workspace/branches/ed1f75ba-abb6-4ccf-836b-ef6777752783/complete_replay.out, histogram_comparison.out, graph_identity.out",
+        "Independent graph check: /workspace/branches/ed1f75ba-abb6-4ccf-836b-ef6777752783/check_herschel_identity.py",
+        "MathWorld Herschel Graph identification"
+      ],
+      "rationale": "Independently replayed the complete 177147-state domain using memoized paths and first-repeat dictionaries, not either frozen implementation. Each successor uses the displayed adjacency and the old configuration, with unconditional GHM 1->2->0 and contact-only CCA advances. On first repetition within a path the suffix beginning at the previous occurrence has the least period and zero entry depth; a reverse pass assigns the prefix, or assigns the entire path from a previously classified tail. Every input is covered. There are zero pointwise period mismatches and the common populations at periods 1,3,4 are 17397,23346,136404. Recurrent-state totals are CCA (3,3060,4752) and GHM (1,3060,1200); the replay checked recurrent containment, identical period-three sets and matching successors on every GHM recurrent state. The orbit counts follow by division by least period. Every one of the 21 CCA and 27 GHM depth-period histogram cells matches both frozen tables. The only deepest cells are CCA (8,3) with 108 starts and GHM (10,3) with 36. The displayed graph was also checked independently to be simple, 3-connected planar, non-Hamiltonian and of size (11,18), identifying it as Herschel by the uniqueness for those parameters.",
+      "residual_risks": [
+        "The exact label-to-edge transcription in the University of Washington drawing was not verified visually; its extracted text only exposes the title. The displayed graph was identified up to isomorphism independently, which suffices for these labelled-state census counts and pointwise assertions under common relabelling.",
+        "The scope is the stated rules and graph, not arbitrary thresholds, schedules or a graph family. Equal period basins are not equal individual orbit basins."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff gives a maximum-walk description and synchronization criterion, Doba gives GHM asymptotics and cycle-density results, and 6edafe27dc02 gives exact same-start excitation recovery and p_H dividing p_C."
+        ],
+        "reasoning": "These results govern synchronization, clock recovery or rates; the inspected statements do not enumerate Herschel periods or transients. GHM updates already obey the CCA contact conditions from time two: a color-one vertex has a former exciter now in state two, and a color-two vertex has one from two steps earlier now in state zero. Thus inclusion and shared transitions on the GHM recurrent set follow generally and are not counted as distinct Herschel contributions.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320 Lemma 1 and Theorem 3",
+          "Doba DOI 10.25088/ComplexSystems.27.2.101 finite-graph GHM",
+          "Resultary 6edafe27dc02 excitation-clock reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.07320",
+        "Doba DOI 10.25088/ComplexSystems.27.2.101",
+        "Resultary 6edafe27dc02, 85df9829d668, e74f89b4b1a2, 29320e9e89df, 187a997d25e7, 30d2612ab574",
+        "MathWorld Herschel Graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Petersen has 4800 matched starts with (p_C,p_H)=(8,4); Heawood has period-halving mismatch channels. For a genuine CCA period-three orbit on a connected graph, each vertex advances either all three times or not at all; a rotating neighbor would force a stationary vertex to advance, so connectivity makes every vertex advance, which also obeys GHM."
+        ],
+        "reasoning": "Divisibility plus common synchronization and the newly verified support {1,3,4} would entail pointwise equality on Herschel. They do not yield the support itself or its basin sizes, depth histograms, or period-four recurrent counts. The general period-three orbit argument likewise does not give the count of 3060 states.",
+        "searches": [
+          "Resultary 6edafe27dc02, 85df9829d668 (Petersen) and e74f89b4b1a2 (Heawood)",
+          "Compare known synchronization and divisibility with the verified period support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 29320e9e89df states matched periods with different transient clocks for complete bipartite graphs. Herschel is not complete bipartite; its displayed bipartition has 6 and 5 vertices and only 18 edges. Different graph-family results are not reductions to this one."
+        ],
+        "reasoning": "The finite-map invariant is least whole-configuration period from each matched start, together with exact first periodic entry. Neither equal synchronization nor identical recurrent transitions nor a general excitation rate determines it.",
+        "searches": [
+          "Resultary exact Herschel CCA GHM matched periods, recurrent populations and entry clocks",
+          "Primary literature lookup for a Herschel GHM/CCA period census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b113126832b9 is the self-hit. Distinct same-day records 187a997d25e7 (Chvátal, 12 vertices) and 30d2612ab574 (T(5), 10 vertices) use the same models but give different graph-specific period supports and counts. MathWorld and the drawing identify the graph, not its automaton basins."
+        ],
+        "reasoning": "This was an exact-table check, not a search just for general excitability. The tables from other graphs and the identical assigned record do not evidence prior exact Herschel coverage.",
+        "searches": [
+          "Resultary exact Herschel census",
+          "MathWorld Herschel Graph and University of Washington labelled drawing",
+          "Resultary companion single-graph exact classifications"
+        ]
+      },
+      "rationale": "The distinct content is the exact finite Herschel classification: the period support, pointwise basins and their sizes, refined recurrent populations and all first-entry clocks, especially the nonuniversal period-four census. Synchronization and period divisibility are credited; generic recurrent transition agreement and period-three coincidence are not independent graph-specific discoveries. No inspected stronger statement or table gives the numerical or pointwise Herschel classification.",
+      "residual_risks": [
+        "Bounded primary-literature search did not yield an additional usable Herschel source; that is not evidence of absence. The cited 1993 patt-sol/9303002 text was not retrieved and is not used to infer priority.",
+        "Dates alone do not order distinct same-day records. Unindexed Herschel computations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applies generally to same model family; synchrony and advances, not the Herschel census.",
+          "evidence": "Walk-weight representation and cycle-circulation criterion for synchronization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "p. 4 Lemma 1 and Theorem 3 (text offsets 12518 and 14637)",
+          "method": "OA full-text passages",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Most relevant all-graph prior theorem"
+        },
+        {
+          "assessment": "General GHM-only theory, not the matched-start two-rule census.",
+          "evidence": "Maximum cycle density and GHM qualitative asymptotic behavior.",
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.27.2.101",
+          "material_read": "pp. 102–104, 115–117, offsets 3970, 25882, 27993",
+          "method": "OA full-text passages",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Possible stronger graph-automaton asymptotic theorem"
+        },
+        {
+          "assessment": "The divisibility theorem strictly falls short of equality absent graph-specific information.",
+          "evidence": "p_H divides p_C in the general statement, with strict divisibility for matched states on Petersen and Heawood.",
+          "identifier_or_url": "Resultary 6edafe27dc02, 85df9829d668, e74f89b4b1a2",
+          "material_read": "6edafe27dc02 Finding and Assumptions at offset 0; Petersen offsets 830–1562; Heawood offsets 0–2477",
+          "method": "Catalogue search and bounded local-mirror text",
+          "title": "Exact excitation-clock reconstruction and period divisibility; Petersen-specific period doubling; two Heawood period-halving channels",
+          "trigger": "Possible broader implication of exact agreement, and strongest examples testing it"
+        },
+        {
+          "assessment": "Related behavior, different graph and parameters, with no reduction to Herschel found.",
+          "evidence": "The latter two families have respectively period sets {1,3,4,7,10,11} and {1,3}, not the 11-vertex Herschel data.",
+          "identifier_or_url": "Resultary 29320e9e89df, 187a997d25e7, 30d2612ab574",
+          "material_read": "Biclique Finding/Assumptions at offsets 96–2572; Chvátal and T(5) Findings",
+          "method": "Catalogue and local-mirror statements",
+          "title": "Matched eventual periods on bicliques; exact Chvátal agreement; complementary-Petersen dynamics",
+          "trigger": "Closest distinct equal-period exact classifications"
+        },
+        {
+          "assessment": "Uniqueness characterization checked; PDF labelling not inspected visually.",
+          "evidence": "MathWorld states uniqueness of the 11-vertex non-Hamiltonian polyhedral graph with 18 edges. Neither the visible catalogue material nor the drawing title is a dynamics census.",
+          "identifier_or_url": "https://mathworld.wolfram.com/HerschelGraph.html ; https://faculty.washington.edu/moishe/hanoi-2011/DO-2011/Week-8/Supplements/Herschel%20Graph.pdf",
+          "material_read": "MathWorld opening paragraphs at offset 0; labelled PDF title only",
+          "method": "OA website passage and PDF text attempt",
+          "title": "Herschel Graph (MathWorld and University of Washington)",
+          "trigger": "Graph identification and possible labelled data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations",
+        "Independent full replay and exact histogram comparison",
+        "Herschel identification and comparative Resultary graph cases"
+      ],
+      "rationale": "Herschel is a natural extremal irregular polyhedral graph for comparing two closely related excitable automata. The exact equality of period selection, alongside four-cycle population disparity and different maximal clocks, separates identical eventual periodicity from equality of the recurrent sets and transients. The census is a useful exact benchmark beside biclique agreement and period halving on other sparse graphs, not a claim that non-Hamiltonicity enforces equality.",
+      "residual_risks": [
+        "Graph-specific finite result; no causal explanation or extension to polyhedral graphs is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

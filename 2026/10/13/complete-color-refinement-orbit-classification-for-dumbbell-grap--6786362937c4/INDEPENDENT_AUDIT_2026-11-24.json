@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:09:58.851888Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use uniform round zero and the correspondence with rooted universal covers truncated at depth t. If p<q, the two cycle directions out of each attachment are indistinguishable to depth p: a branch at distance exactly p appears only as a boundary leaf. The connector direction is also indistinguishable through depth p, even if r<p: after traversing it, the first possible difference in the cycle directions is at distance r+p from the root, where r=k+1>=1. At depth p+1 the two short-cycle directions exhibit two degree-three branch vertices at distance p, whereas the long-cycle directions do not. The connector contribution at that distance is common to both roots (including r=p). Thus the first split is exactly round p+1. In the full rooted cover of an internal vertex, the unordered pair of distances and endpoint types of the first branch lifts in its two directions is an invariant. Distinct attachment types separate the three regions; reflections realize the equal-distance pairs on each cycle, and the unequal endpoint types fix every connector position. With equal cycle lengths the graph can swap attachments and reverse the connector, and the two possible thread lengths are distinguished by the sum of endpoint distances. When all lengths equal m, the cover is the uniform m-subdivision of the trivalent tree; its symmetries identify precisely the corresponding positions of all three threads, giving sizes six and three as stated, and cut-vertex status distinguishes internal connector vertices from internal cycle vertices in the graph itself. This also handles the single-edge connector with no internal vertex. The independent replay (branches/bd292d42-57d2-49ac-abe2-6059f953633c/independent_check.py and full_run.json) checked 13056 parameter triples, including 12240 unequal split times and 16 balanced partitions, against structural orbit labels; the finite replay corroborates and does not replace the proof. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cover correspondence applies to general finite graphs but leaves the required cover-type and distance calculation to this family. The general refinability hierarchy and tree case do not supply a cactus-wide classification in the relevant passage.",
+          "Indexed infinity and rose results concern cycles sharing a vertex, unlike the two disjoint cycles here connected by at least one edge."
+        ],
+        "reasoning": "Tree refinability does not transfer by attachment to a cyclic graph; the balanced failures are themselves cacti. Orbit recovery is also distinct from absolute graph identification, so a theorem for the latter does not by its statement give this partition criterion.",
+        "searches": [
+          "Resultary and targeted primary searches on cactus, handcuff and dumbbell refinability; arXiv:1407.3175, Lemmas 2.6–2.7; arXiv:1502.01255, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, METADATA.json, VERIFICATION.md and replay scripts",
+        "Independent replay script and JSON output",
+        "Resultary f9df20bb1fa3 and f99b32aaa7f9 actual statements, and indexed infinity/rose context",
+        "arXiv:1407.3175 and arXiv:1502.01255"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-cycle theorem directly entails the balanced exception and the entire p=q slice; it has no hypothesis covering p!=q.",
+          "The universal-cover theorem reduces the problem to local branch-thread signatures and does not furnish the timing bound on its own. The barbell proof distinguishes stable cover types; its stated criterion does not locate the first refinement round for the attachments."
+        ],
+        "reasoning": "After crediting existing coverage, the new unequal-length argument controls propagation through even a shorter connector and gives exact first visibility of the short-cycle branch, plus the separation of all three internal regions.",
+        "searches": [
+          "Krebs–Verbitsky arXiv:1407.3175, Lemmas 2.6–2.7; f9df20bb1fa3 equal-cycle theorem; f99b32aaa7f9 proof and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arvind et al. define the same orbit-versus-stable-color property, distinct from identification of a graph among all graphs.",
+          "For two disjoint cycles with a joining path, B(m,n,d) in the indexed November record is D_{p,k,q} under m=p, n=q, d=k+1; non-refinability iff m=n=d and its balanced class description are exactly the same as the frozen stable statement."
+        ],
+        "reasoning": "This is verified statement-level equivalence for the stable classification, not similarity of names or parameters. The exact unequal-attachment round is separate and is not stated in the inspected barbell material.",
+        "searches": [
+          "Resultary dumbbell, handcuff and cycle barbell; 1-WL refinability and automorphism-orbit recovery",
+          "Resultary f99b32aaa7f9, RESULT.md",
+          "arXiv:1502.01255, p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f9df20bb1fa3 covers stable orbit recovery exactly except connector length equal to cycle length, with merged balanced classes, on the equal-cycle slice only.",
+          "f99b32aaa7f9 is an exact stable-criterion match with later publication metadata; its prior-work section credits the small B(3,3,3) example (already known), not an earlier all-parameter theorem."
+        ],
+        "reasoning": "Credit the equal-cycle catalogue and known smallest example; acknowledge the exact later statement without converting it into evidence of earlier coverage. The sources inspected do not give an earlier unequal first-split table or formula.",
+        "searches": [
+          "Resultary exact cycle-barbell criterion and unequal split round; f9df20bb1fa3 and f99b32aaa7f9, RESULT.md; associated publication metadata for the exact overlap"
+        ]
+      },
+      "rationale": "Credit the earlier published equal-cycle slice in full. The distinct contribution relative to earlier evidence is the unequal-cycle classification, including the exact first split. The exact stable criterion and balanced classes are also stated in a distinct indexed November barbell record, not in the target itself. This substantive overlap is acknowledged: the available publication metadata place that record on 2026-11-08 and the frozen finding on 2026-10-13 (UTC dates), and the later record's prior-work passages do not attribute the all-family theorem to an earlier source. Its earlier first_public_date coincides with a cited source date and is not evidence that Krebs–Verbitsky stated the barbell classification. Publication metadata do not by themselves prove independent discovery or historical priority. No earlier source covering the unequal-cycle result was established, and the later barbell statement does not give the exact first split.",
+      "residual_risks": [
+        "Historical priority or relationship between the two equivalent stable classifications is not guaranteed by publication metadata; earlier dissemination or another exact source is possible.",
+        "An unlocated broader theorem could imply the criterion or the exact timing; the bounded search did not establish one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "direct prior for p=q",
+          "evidence": "Orbit recovery fails exactly when the connector length equals the common cycle length, with merged cycle and connector positions.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-color-refinement-depth-and-orbit-recovery-on-equal-cycle-d--f9df20bb1fa3",
+          "material_read": "RESULT.md offsets 0 and 2800",
+          "method": "local Resultary mirror",
+          "title": "Exact color-refinement depth and orbit recovery on equal-cycle dumbbells",
+          "trigger": "strongest earlier indexed subfamily overlap"
+        },
+        {
+          "assessment": "exact stable overlap; later recorded publication; no exact unequal first split in the checked passages",
+          "evidence": "Non-refinable iff m=n=d, with corresponding endpoint-distance mergers. Relationship section identifies general-cover tools and the small B(3,3,3) example rather than an older all-family classification.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-refinability-criterion-for-cycle-barbell-graphs--f99b32aaa7f9",
+          "material_read": "RESULT.md offsets 0, 4200, 7400 and 9250–11667; METADATA.json publication_date and source_ids",
+          "method": "local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp refinability criterion for cycle barbell graphs",
+          "trigger": "exact alias and materially matching all-parameter stable theorem"
+        },
+        {
+          "assessment": "same general framework, not the specific parameter calculation",
+          "evidence": "Round colors correspond to rooted cover truncations at that depth; stable equivalence corresponds to the full rooted-cover types.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.3175",
+          "material_read": "pp. 8–9, Lemmas 2.6–2.7",
+          "method": "lawful open PDF passage inspection",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "key general round and stable-color lemmas"
+        },
+        {
+          "assessment": "definition and broader context, no exact coverage established",
+          "evidence": "Refinability is stable colors equal to automorphism orbits, not uniqueness among all graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "p. 3 definition, hierarchy and tree discussion",
+          "method": "lawful open PDF passage inspection",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "potential broader refinability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural bicyclic family has a nontrivial boundary where local refinement confounds a cut vertex with a cycle vertex. Completing the unequal-cycle case also resolves parameter collisions between the connector and one cycle, and the exact first split quantifies how slowly local refinement can distinguish the two hubs. This is a structural and temporal result, not another finite check of the known balanced example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

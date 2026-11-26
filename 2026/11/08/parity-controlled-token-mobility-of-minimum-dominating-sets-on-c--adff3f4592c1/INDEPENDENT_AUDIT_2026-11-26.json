@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:21.769758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding, Assumptions and Proof §§1–2; frozen RESULT.md lines 38–62 for proof comparison",
+        "Frozen verification/verify_prism_direct.py and verification/direct_output.txt; verification/verify_prism_language.py and verification/language_output.txt; repaired VERIFICATION.md"
+      ],
+      "rationale": "Rechecked the repaired theorem for each n=2m−1≡1 mod 4, n≥5. Closed neighborhoods of size four force at least m tokens. A constructed word with one adjacent same-row pair and an even number m−1 of color-reversing empty columns attains m. Two tokens in one column spend all excess coverage at once and forbid further tokens in the next two columns on either side. To cover column 2 then requires two more tokens sharing a column, or an already forbidden column for n=5. Thus each occupied column has one token. Each empty column needs opposite row colors in its flanks; the m versus m−1 column counts force exactly one adjacent pair, whose members have the same color. For each of its n positions there are two complementary colorings and a same-support swap cannot connect them. Removing a singleton outside the pair creates two empty–empty edges; filling another column cannot fix both. Removing a pair member forces filling the neighboring empty column, in the row opposite to the departing token. Only these two moves are possible; other empty flanks are unchanged. The left move acts on pair position/color by (i,x)→(i−2, complement x), visiting every column in n steps and reversing the color on return because n is odd. Its inverse is the right move and the orbit has length 2n. Hence there are no slides, and the jump graph is C_(2n), with radius and diameter n. This proof is all-length; the unchanged finite support includes n=5 and 9 checked directly.",
+      "residual_risks": [
+        "The claim now excludes all other residues, larger sets and different move rules. The frozen finite diagnostics were inspected, not executed afresh."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suzuki–Mouawad–Nishimura use cardinality ≤k and add/delete a vertex at each step. Allagan's same-host counting theorem includes lengths excluded from the frozen record and §4.2 defines a numerical overlap index. Allagan v1 supplies the relevant forced word language for the surviving class; its claimed monochromatic pair at every odd length does not extend to n=7, where the word C A B C A C B dominates at minimum size and has a mixed pair."
+        ],
+        "reasoning": "The variable-capacity move theorem does not imply fixed-size exchanges. Knowing the count or overlap index does not establish adjacency and distance; even given the exact repaired state language, one must characterize support changes, force the destination row and establish the single orbit. The discrepancy at n=7 is a limitation of applying the inspected structural lemma outside the repaired class, not a refutation of the prior numerical count.",
+        "searches": [
+          "arXiv:1401.5714 p. 1, offset 0",
+          "arXiv:2601.03488v1 Theorem 3.1, Lemmas 3.5 and 3.7, Corollary 3.8, §4.2",
+          "Fricke et al. DOI 10.7151/dmgt.1562 and bounded OA recovery attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5713d863fdac and fb7f3ca1d29e; arXiv:2601.03488v1 and arXiv:1401.5714; Fricke et al. bounded retrieval attempt; repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known independent graph theorem gives exact transitions and metrics once the state families coincide, which they do in two removed regimes. In the remaining regime Allagan's minimum words serve as input, but the exact opposite-row replacements and pair-position/color rule have to be proved. This action explains why all 2n states are in a single jump cycle even with no slide edges."
+        ],
+        "reasoning": "The repaired claim is not the state count, a known independent graph with a changed name, or an immediate specialization of a variable-size connectivity theorem. It is the movement classification at a minimum size that excludes the independent state space; the prior word description does not itself describe the allowable updates or their orbit.",
+        "searches": [
+          "Resultary 5713d863fdac exact state and edge definitions, offset 0",
+          "Allagan arXiv:2601.03488v1 §3.3 and §4.2",
+          "Repaired RESULT.md Proof §2 and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For 4|n or n≡3 mod 4, n≥7, the ordinary minimum words are independent by the singleton-gap characterization, and the cited independent minimum size equals the ordinary minimum; ordinary and independent exchanges are identical. An exchange between independent dominating sets is along a host edge: the inserted vertex must have been dominated by the removed token, since it has no surviving selected neighbor. The earlier exact graphs therefore transfer in those regimes. In the repaired residue the ordinary size is (n+1)/2, the independent size 2 ceil(n/4) is one larger, and the ordinary pair is adjacent in the host."
+        ],
+        "reasoning": "Equivalence gives exact prior coverage for the removed regimes, not a mere numerical match. It fails for the repaired regime because both the state set and the reason forcing jumps to be slides cease to apply. The fixed-cardinality move graph is also distinct from addition/deletion adjacency.",
+        "searches": [
+          "Resultary minimum-dominating-set and minimum-independent-domination exchange searches for cyclic prisms/circular ladders",
+          "Resultary 5713d863fdac RESULT.md, Finding, Assumptions and Proof §1, offset 0",
+          "arXiv:2601.03488v1 pp. 2, 5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical ordinary-minimum catalogue hit is the assigned record. Prior 5713d863fdac states four isolates for 4|n and C_(2n) for n≡3 mod 4 in its independent model, with both move rules equal. The distinct same-date fb7f3ca1d29e result is about minimum zero-forcing sets: a different feasibility condition and 13n states, not the 2n minimum dominating sets."
+        ],
+        "reasoning": "The earlier exact match after restriction is credited and removed from the claim. The target self-hit is not independent coverage, and a qualitative absence of slides in a different reconfiguration problem does not identify its edges or distances with the repaired graph.",
+        "searches": [
+          "Resultary exact cyclic-prism ordinary minimum slides/jumps; independent domination and zero forcing on circular ladders",
+          "Original Resultary 5713d863fdac and fb7f3ca1d29e findings",
+          "Allagan Theorem 3.1 and §4.2"
+        ]
+      },
+      "rationale": "For the repaired residue n≡1 mod 4 the minimum ordinary state family is not independent, so the exact earlier independent exchange theorem does not transfer. Allagan already provides the count and a close state-word antecedent for this residue; no novelty is assigned to them. The additional exact move classification, exclusion of every slide and proof of a single jump orbit of linear diameter are not stated or supplied by an inspected exchange theorem for these states. The covered classes and the finite triangle case have been removed from the finding, not recast as new.",
+      "residual_risks": [
+        "A prior exact mobility theorem or later correction of the examined Allagan version may exist. The closely related γ-graphs article could not be independently retrieved in full. The inspected earlier word framework limits novelty to the exchange analysis; no global priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage of both removed infinite regimes; no equivalence for n≡1 mod 4",
+          "evidence": [
+            "i(P_n)=2 ceil(n/4); four isolates for 4|n, C_(2n) for n≡3 mod 4, and any independent exchange is a host-edge move."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-independent-domination-reconfiguration-on-circular-ladde--5713d863fdac/RESULT.md",
+          "material_read": "RESULT.md offset 0, Finding, Assumptions and Proof §1",
+          "method": "Original local mirror bounded reading",
+          "title": "Minimum independent-domination reconfiguration on circular ladders",
+          "trigger": "Exact same host and possible equivalence of state spaces"
+        },
+        {
+          "assessment": "Counts and relevant word language antecedents; not an exact repaired move-graph theorem",
+          "evidence": [
+            "Theorem 3.1 lists 9 at n=3 and 2n in the larger odd regime; Lemma 3.7 discusses the distinguished singleton pair; §4.2 defines a numerical reconfiguration resilience index rather than a transition graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.03488v1",
+          "material_read": "PDF pp. 2–3, offsets 4400–9700, minimum and count theorems; pp. 5–6, offsets 14300–18464, word lemmas; §4.2 p. 11 near offset 32200",
+          "method": "Original OA PDF bounded reading",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Same ordinary minima and possible derivation from a complete cyclic word census"
+        },
+        {
+          "assessment": "Different state space and invariant",
+          "evidence": [
+            "Minimum zero-forcing sets; 13n states in the stated regime, not ordinary minimum dominating sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-token-slide-rigidity-and-token-jump-connectivity-for-minimum-zer--fb7f3ca1d29e",
+          "material_read": "Mirrored RESULT.md finding and assumptions",
+          "method": "Original local mirror bounded reading",
+          "title": "Token-slide rigidity and token-jump connectivity for minimum zero-forcing sets on cyclic prisms",
+          "trigger": "Same host and apparently similar movement separation"
+        },
+        {
+          "assessment": "Different adjacency and allowed cardinalities",
+          "evidence": [
+            "Each edge adds or deletes one vertex; the admissible states have size at most k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+          "material_read": "PDF p. 1, offset 0, definition of D_k(G)",
+          "method": "Original OA PDF bounded reading",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "Potential general domination-reconfiguration coverage"
+        },
+        {
+          "assessment": "Scope comparison limited; no full-text noncoverage claimed",
+          "evidence": [
+            "The frozen record cites the sliding γ-graph construction as motivation; its identification with the slide model does not by itself classify this prism residue."
+          ],
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1562",
+          "material_read": "No primary body retrieved; frozen citation and scope in RESULT.md lines 68–81",
+          "method": "DOI and direct/VPN OA retrieval attempts, with no identified repository copy",
+          "title": "γ-Graphs of Graphs",
+          "trigger": "Potential same-model exact slide result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof §2; Resultary 5713d863fdac for the contrasting independent state space; Allagan §4.2 for the distinction between index and move graph"
+      ],
+      "rationale": "At minimum cardinality on a natural cubic family, every placement can be reached from every other with jumps, yet no minimum placement admits even one slide. The proof gives the exact movement cost and its dependence on the exceptional adjacent pair, not just a finite example, an optimum-state count, or a numerical flexibility proxy. This is a useful reconfiguration benchmark in the residue where independent domination does not apply.",
+      "residual_risks": [
+        "The gain is a specific infinite-family exact benchmark, not a general reconfiguration theorem or a claim on the excluded congruence classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

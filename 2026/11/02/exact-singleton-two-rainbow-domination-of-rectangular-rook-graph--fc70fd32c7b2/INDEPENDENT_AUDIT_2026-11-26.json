@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:38.485092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An empty row or column forces both colors on every perpendicular line, so weight below 2m implies every line is nonempty. Let (a,b,c) and (p,q,r) denote the numbers of lines with palette {1}, {2}, {1,2} among rows and columns, respectively. With a,p positive, the ap crossings must carry color 1, and they cover none of the both-color lines, so the number of 1s is at least ap+max(c,r). The always valid color-1 line-cover bound is max(a+c,p+r); use the symmetric bounds for 2. With both monochromatic crossing products positive, use ap>=a+p-1 and bq>=b+q-1 to get at least m+n-2+|c-r|. With only one positive product, the ordinary line-cover bound for the other color gives at least m+n-1 (depending on which monochromatic row/column count vanishes). With no positive product, either all lines in one direction are both-colored or all rows contain one color and all columns the other. This establishes the lower bound. Two colors per row attain 2m. For n=m or m+1 and m<=3, the two corner-adjacent arms work: their shared missing corner sees one color along each direction, as does the remaining empty subboard. For m>=4, the two disjoint cyclic diagonals in the (m-2)-square give both palettes there; the monochromatic-only row/column intersections of matching colors are exactly the other selected cells. Their weight plus the square weight is m+n-2. A separate mask-based exact search through the candidate minimum for nine dimension pairs, including (4,5), reproduced the predicted values. Scope: both dimensions at least two, colored vertices exempt, disjoint one-color classes, neither set-valued nor proper rainbow domination. The graph-isomorphism and support partition ensure the same minimum for dual-server domination; the finite replay is corroboration, not the lower-bound proof.",
+      "replay_paths": [
+        "/workspace/replay/02_rooks.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 of Rao et al. characterizes only full selection by Delta(G)+Delta(H)<=1. Lange covers the same color model and supplies general regular-graph bounds, with Theorem 7 at k=r and weight |V|/2. Gravner et al. determine the ordinary 2-domination square value n via triangular Young domination."
+        ],
+        "reasoning": "The degree sum m+n-2>=2 only excludes full selection. Lange's induced-degree complement bound for regular graphs with k=2 is a 2-domination bound, and the exact k=r case applies here only to the 2-by-2 board. The ordinary square lower bound is n rather than 2n-2 in the nontrivial sizes.",
+        "searches": [
+          "arXiv:2608.14690v1, Theorem 3.4 and graph-operation scope",
+          "arXiv:2610.06906v1, Corollary 2, Proposition 4, Theorem 7",
+          "arXiv:2501.03788, Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Scoped Resultary and one bounded primary web lookup under singleton, dual-server, rook/line-graph and Hamming rectangle language",
+        "Resultary records 4fccf64af7b1 and 8672439ad34e",
+        "arXiv:2608.14690v1",
+        "arXiv:2610.06906v1",
+        "arXiv:2501.03788",
+        "Chellali–Haynes–Hedetniemi and Jose–Sangeetha DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every feasible two-color support is an ordinary 2-dominating set. Thus gamma_2=min(n,2m) with a two-per-row placement gives exactness for n>=2m; for m=2 it matches min(4,n) everywhere, with the small placements attaining it. For m>=3 and m<=n<2m it gives n, strictly weaker than the claimed minimum.",
+          "The square classification is confined to n=m. The general product theorem does not pin down any precise smaller weight."
+        ],
+        "reasoning": "For example, on m-by-(m+1) boards with m>=3 the known scalar lower bound is m+1, whereas the required bound is 2m-1. The missing estimate uses the two different palettes and forced rectangles, so the remaining new branch is not a parameter substitution.",
+        "searches": [
+          "Resultary exact records 4fccf64af7b1 and 8672439ad34e, Finding and relation to prior work",
+          "arXiv:2608.14690v1 Theorem 3.4",
+          "arXiv:2610.06906v1 Proposition 4 and Theorem 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_m square K_n is the line graph of K_{m,n}; selecting edges red and blue so each unselected edge meets both color classes is exactly this rule. The definition in Rao et al. uses disjoint R and B and applies the neighbor requirement only outside their union.",
+          "Ordinary 2-domination does not require distinct colors; proper and set-valued formulations alter the constraints."
+        ],
+        "reasoning": "The dual-server alias is exact. A noncolored edge meets both hues via shared endpoints; requirements on selected cells, color adjacency, or two colors assigned at one cell change the admissible family.",
+        "searches": [
+          "Resultary: singleton two-color rainbow domination, dual-server domination, rook/Hamming rectangles, line graphs of complete bipartite graphs",
+          "arXiv:2608.14690v1, dual-server definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 4fccf64af7b1 states the exact square value 2n-2 and classifies/counts minimizers; its prior-work prose attributes the scalar to previously recorded rectangular rook work without uniquely identifying a separate record.",
+          "Earlier 8672439ad34e gives gamma_2=min(n,2m) for ordinary 2-domination in rectangles."
+        ],
+        "reasoning": "The square overlap is exact, but same-day dates and that internal attribution do not establish priority or give independent coverage of nonsquare dimensions. The exact ordinary parameter table gives only a lower bound for colored rectangles. No other directly covering indexed formula surfaced in the scoped search.",
+        "searches": [
+          "Resultary: exact rectangular dual-server domination; rook board minimum; minimizer classifications; ordinary 2-domination Hamming rectangles"
+        ]
+      },
+      "rationale": "The supported contribution is the full rectangular dual-server formula, particularly the sharp near-square and intermediate-width lower bounds not supplied by ordinary 2-domination. The square value is an exact same-day overlap, not an independent priority claim, and the wide branch n>=2m as well as the m=2 slice follow from the known ordinary 2-domination bound and elementary placements. Inspected prior general results do not supply the complete rectangular formula.",
+      "residual_risks": [
+        "Full text of the foundational dual-server paper and the proper-rainbow product paper was not retrieved. A line-graph or alternative resource-placement formulation may be unindexed.",
+        "The exact same-day square overlap is credited without claiming precedence for either record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact square overlap only; priority unresolved at day resolution",
+          "evidence": "States 2n-2 on K_n square K_n and counts/classifies minimizers; prior-work paragraph credits rectangular work without separate ID.",
+          "identifier_or_url": "2026/11/2/SCOPE-derangement-classification-of-minimum-dual-server-placements-on--4fccf64af7b1",
+          "material_read": "RESULT.md offset 0 (Finding), and offset 3520 (prior-work statement), mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Scoped local Resultary lookup and mirror read",
+          "title": "Derangement classification of minimum dual-server placements on square rook graphs",
+          "trigger": "Same-day exact result for this parameter on squares"
+        },
+        {
+          "assessment": "Covers part via lower bound, but not the two-color formula",
+          "evidence": "gamma_2(K_m square K_n)=min(n,2m); two selected neighbors needed, not two different colors.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-2-domination-and-minimizer-counts-on-hamming-rectangles--8672439ad34e",
+          "material_read": "RESULT.md Finding and scope from offset 0",
+          "method": "Scoped local Resultary lookup and mirror read",
+          "title": "Exact 2-domination and minimizer counts on Hamming rectangles",
+          "trigger": "Exact dominator bound on the same graph family"
+        },
+        {
+          "assessment": "Only the all-selected threshold; splitting-graph statements are not line-graph statements",
+          "evidence": "Cartesian product has gamma_ds=|V| iff the sum of degree maxima is at most one.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.14690",
+          "material_read": "v1 abstract, p. 1, and Theorem 3.4, p. 13 offset 32748",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The Dual-Server Domination Number of Some Graph Operations",
+          "trigger": "Exact equivalent parameter and product result"
+        },
+        {
+          "assessment": "Applies generally as bounds, no full rectangular determination in these statements",
+          "evidence": "Proposition 4: at least |V|-alpha_{r-k}; Theorem 7 addresses k=r and |V|/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06906",
+          "material_read": "v1 definition p. 3 offset 11600, Corollary 2 and Proposition 4 p. 4 offsets 14289 and 15260, Theorem 7 p. 5 offset 21100",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+          "trigger": "Identical singleton color model for regular graphs"
+        },
+        {
+          "assessment": "Ordinary 2-domination lower bound on squares only for this comparison",
+          "evidence": "T_a is ordinary a-domination, and on squares the even-a optimum is an/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.03788",
+          "material_read": "p. 3 offset 7994 and Theorem 1.3 p. 4 offset 10400",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Young domination on Hamming rectangles",
+          "trigger": "Related exact ordinary parameter on the same boards"
+        },
+        {
+          "assessment": "Relevant inaccessible full text; not evidence against or for full coverage",
+          "evidence": "No product theorem passage available for comparison.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.03.017",
+          "material_read": "Landing page/abstract only",
+          "method": "Lawful OA attempt; no repository full text recovered",
+          "title": "Dual-server domination in graphs",
+          "trigger": "Foundational paper on exactly the parameter"
+        },
+        {
+          "assessment": "Different labeled variant; full comparison unresolved",
+          "evidence": "No primary product formula retrieved.",
+          "identifier_or_url": "DOI:10.13140/RG.2.2.11704.80645",
+          "material_read": "Bibliographic identification only; product statement not independently reached",
+          "method": "Lawful DOI and ResearchGate retrieval returned 403",
+          "title": "Bounds on proper 2-rainbow domination in graphs",
+          "trigger": "Plausible rook-product comparator under rainbow terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula answers a natural placement problem on the canonical two-dimensional complete-graph product. Its meaningful exact content is the singleton-color penalty and sharp transition at width m+2, including widths below the range where ordinary 2-domination suffices. The palette obstruction distinguishes the two parameters and covers an infinite family, rather than tabulating small boards or repeating only the square scalar.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

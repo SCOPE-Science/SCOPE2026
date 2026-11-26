@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:40:40.239138Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For v=(x,y), J²=0 gives S(t)v=e^(−at)(x+bty,y), in the fixed complex Euclidean metric. If y=0 the integral has rank one. If y≠0, divide the frame operator by M₀|y|², where M₀=∫₀ᵀe^(−2at)dt. With z=x/y+bμ_T the resulting matrix has diagonal (|z|²+b²σ_T²,1) and off-diagonal z and its conjugate. As an independent moment check, the first negative and the second ordinary log derivatives of Z(u)=(1−e^(−uT))/u give μ_T and σ_T² at u=2a: μ_T=1/u−T/(e^(uT)−1) and σ_T²=1/u²−T²e^(uT)/(e^(uT)−1)². This variance is positive and gives exactly ρ_T=b²σ_T². The normalized matrix has fixed determinant ρ_T while the trace strictly increases with |z|². For positive eigenvalues the trace divided by the square root of the determinant is √κ+1/√κ, strictly ordered for κ≥1. Thus z=0 uniquely minimizes the ratio over all complex directions, and the diagonal at zero gives the claimed ratio and, multiplying back with |y|²=1/(1+b²μ_T²), both sharp unit-vector bounds. Since (s cosh(s)−sinh(s))′=s sinh(s)>0, s/sinh(s) is strictly decreasing from 1 to 0. This gives the finite crossing exactly for b>2a, the boundary case b=2a without a finite crossing, and the two monotonicity regimes, with small-time variance T²/12+O(T⁴). For each fixed v the operator still increases in PSD order with T; that does not order the two eigenvalues' ratio. The frozen numerical checker was inspected without execution; the argument is exact and uses Lebesgue time measure, not reweighted observations or a gain-constrained lower-bound objective.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bailey et al. Theorem 2.18 transfers frame bounds between half-line semigroup frames and cogenerator frames.",
+          "Aldroubi et al. study finite intervals of continuous powers of normal operators; the positive shear Jordan operator is nonnormal.",
+          "Assif et al. give the exact structural identity and tight-frame quality interpretation, not the attainable finite-window tightness locus for a defective block."
+        ],
+        "reasoning": "Normal, half-line and unconstrained tight-frame design statements do not specialize to a finite continuous Jordan orbit with only generator direction free. Centering is elementary weighted regression; varying the time design measure in regression is a different feasible set from varying a constant v at fixed Lebesgue measure.",
+        "searches": [
+          "arXiv:2611.13867v1 Theorem 2.18",
+          "arXiv:1801.10103v1 abstract and §1.3",
+          "arXiv:1902.04548 Proposition 6 and §5",
+          "Weighted two-regressor optimal-design/centering comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13867v1",
+        "arXiv:1801.10103v1",
+        "arXiv:1902.04548",
+        "Resultary 0ec975565ced, 4c44e6e23704, 8ad879b45d26, fd2b83b9ab32, 0ffcc7242b3f, 50b398f70222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the same-day half-line proof, M(w) has trace r²+1+|w|² and determinant r², so the proof template extends by replacing moments. The source explicitly assumes [0,∞) and states tightness precisely at r=1 on that interval.",
+          "Pinned Jordan timing's determinant transition at aT=1 is for placing a third sample and cannot produce the trajectory of the best bound ratio as T changes."
+        ],
+        "reasoning": "The meaningful finite-horizon addition is the nonconstant truncated variance and its strict range. Even though the optimization proof uses the same template, centering at the infinite mean does not optimize the truncated orbit; neither a fixed-Gramian moment identity nor the half-line tightness result yields the finite horizon and post-tightness deterioration without a new horizon calculation.",
+        "searches": [
+          "SCOPE 0ec975565ced centered Gramian proof",
+          "SCOPE 8ad879b45d26 pinned Jordan timing",
+          "arXiv:1902.04548 finite-time Gramian identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assif et al. identify the finite controllability Gramian ∫e^(tA)BB*e^(tA*)dt with a frame operator; taking B=v yields exactly the frozen operator, or the observability Gramian of its adjoint dual.",
+          "0ec975565ced explicitly integrates over [0,∞); its unique optimizer (−r,1), optimum max(r²,r⁻²), and centered matrix are the half-line limits with r=b/(2a)."
+        ],
+        "reasoning": "A change of name from frame operator to Gramian is no novelty, and the half-line optimized limit is exactly covered. But the finite-window criterion depends on the truncated exponential variance, and neither the identity nor the half-line limit determines whether or when that variance reaches 1/b² at finite T.",
+        "searches": [
+          "Resultary semantic lookup: Jordan continuous frame, exact sensor/actuator conditioning, finite tightness horizon",
+          "SCOPE 0ec975565ced full Finding, Assumptions and proof",
+          "arXiv:1902.04548 Proposition 6; finite controllability and adjoint observability Gramians"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ec975565ced records the same centered Jordan optimizer but only at infinite horizon. 4c44e6e23704 records a finite-window lower-bound maximizer for a diagonal semigroup, not a ratio for a Jordan semigroup.",
+          "8ad879b45d26 and fd2b83b9ab32 give exact determinant design with three discrete observations and pinned endpoints. The two-mode diagonal discrete Gramian and cyclic-shift comparators solve different operators."
+        ],
+        "reasoning": "The exact indexed overlaps do not supply the finite continuous ratio or the equation aT_*/sinh(aT_*)=√(1−4a²/b²); title overlap about a sharp horizon is not a table match.",
+        "searches": [
+          "Resultary: sharp Jordan observation/sensor condition and finite-window frame bounds",
+          "SCOPE 0ec975565ced, 4c44e6e23704, 8ad879b45d26, fd2b83b9ab32, 0ffcc7242b3f, 50b398f70222"
+        ]
+      },
+      "rationale": "Credit only the finite-window optimization and attainable-tightness classification. The closest same-day Jordan paper gives the exact half-line limit and uses the same centered trace–determinant argument. Weighted centering and two-by-two optimization are not distinct methodological contributions. The additional interval-length dependence, threshold b>2a and reversal beyond a finite T_* are not conclusions of the half-line result or the general frame/Gramian theory. The shared date does not prove publication order.",
+      "residual_risks": [
+        "No priority is inferred from catalogue dates. The exact half-line statement is covered regardless of relative priority.",
+        "An unindexed truncated-exponential regression or finite-time nonnormal actuator-design treatment could contain the finite specialization; historical coverage is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the half-line limit and overlap in method; no finite-horizon theorem. The source additionally studies an objective not assessed here, unit-sensor lower-bound maximization.",
+          "evidence": [
+            "Integrates from zero to infinity. Unique ratio minimizer (−r,1) with r=c/(2a); trace r²+1+|w|², determinant r². Tightness iff r=1 on the half-line."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-sensor-design-split-for-a-two-mode-jordan-continuous-frame--0ec975565ced/RESULT.md",
+          "material_read": "Finding, assumptions and proof, offsets 0–2401 and 2500–6347.",
+          "method": "Read bounded sections from the local mirror and compared formulas.",
+          "title": "Sharp sensor-design split for a two-mode Jordan continuous frame",
+          "trigger": "Exact same-day Jordan model, objective and weighted-centering method."
+        },
+        {
+          "assessment": "Cogenerator frame equivalence on [0,∞), not a finite-horizon spectral optimization.",
+          "evidence": [
+            "Theorem 2.18 gives the equivalence and correspondence of frame bounds for the half-line and the cogenerator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.13867v1",
+          "material_read": "Abstract, offsets 0–2980, and Theorem 2.18, offsets 34200–38199.",
+          "method": "Read bounded primary HTML text.",
+          "title": "Frames Associated with C₀-Semigroups",
+          "trigger": "General semigroup frame theory and tightness for the same setup on the half-line."
+        },
+        {
+          "assessment": "Finite interval but normal operator and different frame analysis.",
+          "evidence": [
+            "Systems of the form {A^t g: t∈[0,L]} for normal A; the frozen semigroup is nonnormal for b>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1801.10103v1",
+          "material_read": "Abstract, offsets 600–2784; §1.3, 16900–20897.",
+          "method": "Read bounded primary HTML text.",
+          "title": "Frames Induced by the Action of Continuous Powers of an Operator",
+          "trigger": "General continuous orbit frame results on finite intervals."
+        },
+        {
+          "assessment": "Directly covers the structural frame–Gramian identity, not the optimizer and attained tightness locus for the finite defective block.",
+          "evidence": [
+            "Defines G(A,B,τ)=∫₀^τ e^(tA)BB*e^(tA*)dt and identifies it with the frame operator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.04548",
+          "material_read": "Abstract; PDF p. 7, offsets 22696 and 24700–27689 (Proposition 6); §5, offsets 46400–49133.",
+          "method": "Read model, proposition and objective passages in the lawful primary PDF.",
+          "title": "Measure of quality of finite-dimensional linear systems: A frame-theoretic view",
+          "trigger": "Exact controllability–frame dual terminology and quality interpretation."
+        },
+        {
+          "assessment": "Self-adjoint diagonal semigroup and a lower-bound objective, not the ratio for a Jordan block.",
+          "evidence": [
+            "Maximizes the lower frame bound over normalized generators."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-finite-window-lower-frame-bounds-for-diagonal-contraction--4c44e6e23704/RESULT.md",
+          "material_read": "RESULT.md statement, offset 0.",
+          "method": "Local mirrored primary record comparison.",
+          "title": "Exact finite-window lower frame bounds for diagonal contraction semigroups",
+          "trigger": "Same-day exact finite-window frame design."
+        },
+        {
+          "assessment": "Discrete timing and determinant, not direction selection at fixed continuous observation measure.",
+          "evidence": [
+            "Three observation times include compulsory endpoints 0,T; transition for the free observation time at aT=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-horizon-bifurcation-for-pinned-damped-jordan-observation--8ad879b45d26/RESULT.md",
+          "material_read": "RESULT.md statement, offset 0.",
+          "method": "Local mirrored primary record comparison.",
+          "title": "A sharp horizon bifurcation for pinned damped-Jordan observation timing",
+          "trigger": "Same Jordan signal and exact horizon bifurcation."
+        },
+        {
+          "assessment": "Discrete information determinant with two diagonal exponential modes and pinned endpoints; no finite continuous orbit ratio.",
+          "evidence": [
+            "Three independent scalar observations, variable interior observation time."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-horizon-transition-for-pinned-observations-of-two-expone--fd2b83b9ab32/RESULT.md",
+          "material_read": "RESULT.md statement, offset 0.",
+          "method": "Local mirrored primary record comparison.",
+          "title": "A sharp horizon transition for pinned observations of two exponential modes",
+          "trigger": "Related exact optimal-design claim with exponential regressors."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weighted-centering calculation is elementary and is not by itself the value. The finite-window signature is complete: exactly when a tight design is possible, the required horizon and generating direction, and where additional time makes even the best attainable ratio worse despite PSD growth of each fixed frame operator. It supplies exact conditioning and gain-normalized sharp bounds for the simplest defective continuous semigroup, where infinite-horizon design misses a tight solution whenever b>2a. No lower-bound maximization or general high-dimensional design claim is credited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

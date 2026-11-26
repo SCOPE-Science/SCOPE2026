@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Final claim.** In the homogeneous equivalence relation with uniformly \(q\)-element classes, the first \(q-1\) injective fresh-tuple type counts over a finite pointwise-named base reconstruct the residual capacities of every partially named class, determine all higher type counts, and are a sharp universal cutoff even at a fixed base size. The complete EGF and pair of equal-size sharp witnesses are given in `RESULT.md`.
+## correctness
 
-## Correctness — PASS
-The complete orbit invariant consists of assignments to the distinct old partially named classes plus a partition of other coordinates into unrepresented classes. Infinite class availability and internal \(S_q\) actions give sufficiency; the exponential formula then follows. The first nontrivial coefficient of \(\log E_c(z)\) occurs at degree \(c+1\) and has coefficient \(-1/(c+1)!\), giving an exact triangular inverse. The explicit pair of bases of equal size \(2q\) makes the cutoff optimal. Independently enumerated signatures matched the series in 2,018 cases and 300 inverse computations matched the capacity profiles. No inference from finite experiments is used for universal quantifiers.
+PASS
 
-## Originality — PASS, subject to residual priority risk
-Cameron's 2000 treatment establishes underlying unmarked wreath-product orbit enumeration and point-stabilizer technology; these tools are explicitly credited. The 1983 imprimitive-group paper's official abstract was inspected, but its full text could not be assessed. Relevant mathematical-record searches found no statement covering the cardinality-free finite-arity inverse theorem and its same-cardinality optimality construction. The searched finite-equivalence and two-equivalence grid results have different domains and do not imply the theorem as stated. Historical completeness of the literature comparison is not guaranteed.
+Any finite partial isomorphism extends by permuting untouched classes and extending the partial bijections inside the q-element classes. Over pointwise-named A, each old class is distinguishable, and up to its residual capacity there is one orbit for each subset of coordinate labels sent there. The remaining labels form a set of interchangeable nonempty blocks of sizes at most q. This gives the product of the truncated-exponential factors times the exponential for new classes. Dividing out the new-class factor and taking formal logarithms gives linear term sum_c a_c=t_1-1. Since log E_c=z-z^(c+1)/(c+1)!+O(z^(c+2)), degree k>=2 sees only capacities 1,...,k-1, with last diagonal coefficient -1/k!, so the first q-1 counts recover a_1,...,a_(q-2) and then a_(q-1) by subtraction. For q=2, the linear term is the entire inverse. Full classes have factor 1 and their number is recovered only given n through the mass identity n=q a_0+sum (q-c)a_c. The bases made of q singly occupied classes plus a full class, versus q doubly occupied classes, have 2q named points each; their capacity factors first differ at degree q-1, by q/(q-1)!, giving exactly q more ordered types in the first base. E_0=1 makes that argument valid at q=2, and the empty base gives just the new-class factor. The frozen checker and recorded outputs were inspected but not executed. Independent bounded computation python3 /workspace/independent_checks.py 2 checks capped partition signatures from actual marked block sizes for q=2,...,6, obtaining for q=3 (1,4,17) versus (1,4,14). The all-arity and all-q statements follow from the exact arguments, not enumeration.
 
-## Mathematical value — PASS
-The numerical logical type spectrum is a natural invariant of the finite-base pointwise stabilizer. The theorem provides an exact and *uniformly optimal* observation threshold for recovering every capacity of a partially represented block, irrespective of base size, and gives an explicit obstruction below that threshold even when base cardinality is known. The invisible contribution of fully occupied classes is also characterized exactly. This supplies a structural reconstruction result, not merely a table of orbit counts.
+## originality
 
-## Remaining limitations
-The source structure has one equivalence relation and fixed finite class size; coordinates are fresh and distinct. Fully represented class counts require the base size, and the actual names and base labelling are not reconstructed. Finite checks are supplementary. The earlier imprimitive source was not read in full, so independent historical-priority assessment is still desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-base EGF is an application of classical labelled orbit, stabilizer and wreath-product methods. The distinct result is a sharp uniform cardinality-free inverse for residual capacities in exact finite blocks and a quantitative same-size witness. Inspected sources and same-day catalog comparators do not establish that inverse under these hypotheses. Their same date is not treated as priority evidence.
+
+## value
+
+PASS
+
+It is natural to ask what orbit counts of the pointwise stabilizer remember about partial occupancy in a standard homogeneous finite cover. There is an exact recovery cutoff independent of the size of the base and no need to know that size; equality of all counts and their blindness to full classes are thereby characterized. The equal-size pair proves that supplying base size cannot improve the universal prefix bound. This is an exact inverse and obstruction, beyond the routine type-series factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

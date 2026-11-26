@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:36:00.646138Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof, lines 2–113",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt, inspected not executed"
+      ],
+      "rationale": "If two deleted matched pairs were wholly omitted, their same-side vertices would have identical signatures. Hence at least n−1 pair indices are represented, and equality in size forces a one-hole transversal with omitted index h. If exactly one A vertex a_i is selected, its signature equals that of a_i b_h; if exactly two A vertices a_i,a_j are selected, it equals that of a_i b_j. Symmetrically any nonempty side must have size at least three. For a balanced transversal, covered indices of the oriented edge a_i b_j are decoded by its 0 or 2 entries (the shore determines the orientation), with a missing exceptional coordinate indicating h. This distinguishes all edges. Selected vertices have a zero and at least two twos on their own side, while an edge with that zero has at most one two on that side. Unselected vertices with a selected mate have a unique three, and the two omitted vertices have twos on opposite landmark sides, at least three twos each, unlike an edge. The same decoding for a one-sided transversal works when its sole side has at least three, since even an edge through h has a non-one entry; the omitted vertices are then all-ones and all-twos. Such a one-sided transversal cannot dominate its omitted vertex on the selected side. Balanced ones dominate, with a split possible iff n>=7. For n=3..6 a full side gives a size-n witness by the signature rules, including one distinct three per vertex on the opposite side. The stable count is n times the number of orientations of n−1 indices excluding assignments with 0, 1 or 2 on either side, giving n(2^(n−1)−n²+n−2).",
+      "residual_risks": [
+        "The recorded exhaustive comparison is bounded to n=3..9; proof, not finite output, supports the all-n claim. No complete transition-case basis enumeration is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.2 concerns complete bipartite graphs, not the graphs with a deleted matching; the indexed k-metric hierarchy is vertex-only. Neither alone covers the assigned result.",
+          "The introducing dominant-mixed paper was not retrievable as full text during the bounded attempts; no negative inference is based on its access status."
+        ],
+        "reasoning": "A complete-bipartite formula cannot be applied across matching deletion without a further theorem. The observed coverage is instead from the sharper crown statement for a different parameter plus the mathematical reduction.",
+        "searches": [
+          "Kelenc–Kuziak–Taranenko–Yero arXiv:1611.04292 §4 Proposition 4.2",
+          "Alfarisi et al. DOI 10.19139/soic-2310-5070-1925",
+          "Resultary 30e06175a718, crown k-metric hierarchy"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 8416a7acedbc, b5b3c45f23e8 and 30e06175a718",
+        "Kelenc et al. arXiv:1611.04292",
+        "Alfarisi et al. DOI 10.19139/soic-2310-5070-1925 (bounded access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mixed resolution implies vertex resolution and both signs for any adjacent pair (compare each endpoint with the edge). A same-side difference has at most two coordinates of either nonzero sign, so cannot be constant on a mixed set of at least three unless the pair is unresolved. A mixed set of size at most two cannot occur: n>=4 requires at least n−1 indices, and at n=3 the one-hole two-vertex candidates fail the endpoint-versus-edge test.",
+          "For a matched nonedge represented in S, its coordinate −3 or +3 is unique. If the pair is unrepresented, domination forces S to meet both shores, giving differences 1 and −1. Thus any mixed resolving dominating S is doubly resolving, which transfers the published lower bound and the necessity of its stable optimum structure.",
+          "Conversely every stable doubly resolving basis from 8416a7acedbc is a balanced one-hole transversal; these dominate, their edges resolve by b5b3c45f23e8 or the endpoint-index decoding, and the nonincident vertex-edge checks are immediate from the zero, unique-three, and at-least-three-twos criteria. Incident pairs already separate by the two-sign condition. A full shore dominates and mixed-resolves in the small sizes by direct signatures, attaining the prior lower bound."
+        ],
+        "reasoning": "The reduction transfers the entire finding, including the exact family and count (not merely the stable scalar). A distinction between the definitions remains for other sets, and transition-case MRD enumerations might differ from doubly resolving ones, but the frozen finding does not give such an enumeration.",
+        "searches": [
+          "Resultary 8416a7acedbc, mirrored proof starting at text offset 1909; ordinary edge-basis catalogue b5b3c45f23e8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown graphs delete all diagonal edges of K_(n,n), the identical graph in 8416a7acedbc. Doubly resolving means the difference of two vertex signatures is nonconstant.",
+          "For adjacent cross pairs that difference takes only −1 and +1; occurrence of both signs is exactly distinguishing each endpoint from its incident edge."
+        ],
+        "reasoning": "The parameters are not identical definitions, but the adjacent-pair condition is the same at the level of distance signatures. Cross matched nonedges and the unrepresented vertices are separately checked rather than equating the objectives by name.",
+        "searches": [
+          "Resultary: crown-graph dominant mixed and mixed resolving dominating bases",
+          "Resultary 8416a7acedbc, doubly resolving bases; compare difference signatures",
+          "Kelenc et al. arXiv:1611.04292, mixed metric dimension and crown or complete bipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8416a7acedbc proves size n for 3<=n<=6, n−1 for n>=7, with exactly one omitted pair and at least three vertices per shore in the stable case. Its count n(2^(n−1)−2(1+(n−1)+binom(n−1,2))) is algebraically identical.",
+          "b5b3c45f23e8 gives all one-hole transversals as ordinary edge metric bases, with no balance constraint."
+        ],
+        "reasoning": "An exact symbolic family, not a finite numerical table, is the decisive match. The same-day date is not used to infer publication order or dismiss equivalent coverage.",
+        "searches": [
+          "Local Resultary exact crown basis-family and count comparison: 8416a7acedbc, b5b3c45f23e8, 30e06175a718"
+        ]
+      },
+      "rationale": "A distinct published Resultary record, 8416a7acedbc, gives exactly the same optimum values and stable minimizing families for doubly resolving sets of the same crown graphs. This is verified coverage by implication, not just a numerical match or same-day priority assertion: every mixed resolving dominating set in a crown graph is doubly resolving, and all of that record's stable optimal doubly resolving bases are mixed resolving and dominating. For n=3..6 the full-shore witness supplies the upper bound matching the same record's lower bound. The related edge-only crown bases result supplies the edge separation directly, leaving only elementary vertex-edge signature checks to transfer the stable family.",
+      "residual_risks": [
+        "Priority order between the distinct same-day findings was not established. The positive coverage judgment rests on mathematical implication from the available statement, not on inferring that order.",
+        "Coverage of crown graphs or their n=3 cycle by the introducing paper remains unverified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the assigned claim by the stated implication; date does not establish priority",
+          "evidence": [
+            "Nonconstant distance difference; adjacent cross pairs have two levels; n−1 bases exactly the two-shore split with at least three each; identical excluded binomial layers"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-doubly-resolving-bases-of-crown-graphs--8416a7acedbc/RESULT.md",
+          "material_read": "Mirrored finding and proof, text offsets 1909–6474 for differences, transversal classification and small-order lower bound",
+          "method": "Local mirror; explicit same-side, matched-pair, adjacent-pair and edge-signature reduction",
+          "title": "Doubly resolving bases of crown graphs",
+          "trigger": "Exact same scalar transition, count and structural family for a potentially dominating parameter"
+        },
+        {
+          "assessment": "Covers edge resolution for all one-hole transversals, not mixed resolution or domination",
+          "evidence": [
+            "All one-hole transversals; n2^(n−1) ordinary edge bases"
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+          "material_read": "Indexed finding on ordinary edge bases",
+          "method": "Local index comparison and independent confirmation by edge-coordinate decoding",
+          "title": "Edge metric bases of crown graphs",
+          "trigger": "Same graph and the edge-only part of the mixed property"
+        },
+        {
+          "assessment": "Related vertex-only hierarchy, not a direct mixed or dominating result",
+          "evidence": [
+            "Pair-occupancy classifications for vertex-only separation multiplicities"
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718",
+          "material_read": "Indexed finding on vertex k-metric dimensions",
+          "method": "Local index comparison of predicates",
+          "title": "Complete k-metric hierarchy of crown graphs",
+          "trigger": "Same graph and pair-occupancy conditions"
+        },
+        {
+          "assessment": "Same mixed-distance definition and exact complete bipartite result, not a matching-deletion theorem in the inspected passage",
+          "evidence": [
+            "Mixed resolution on vertices and edges; Proposition 4.2 on K_(r,t)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04292",
+          "material_read": "Abstract p. 1 offset 1830 and §4 Proposition 4.2 p. 6 offset 21098",
+          "method": "Lawful OA PDF and comparison of graph assumptions",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "Primary mixed metric definition, possible containing family"
+        },
+        {
+          "assessment": "No full-text exclusion claimed; no inference from nonretrieval",
+          "evidence": [
+            "The frozen record cites this paper; its substantive scope was not independently established here"
+          ],
+          "identifier_or_url": "https://doi.org/10.19139/soic-2310-5070-1925",
+          "material_read": "Publisher route gave only landing/redirect; no copy recovered in the bounded OA attempt",
+          "method": "Lawful DOI/publisher recovery attempt",
+          "title": "Dominant Mixed Metric Dimension of Graph",
+          "trigger": "Introducing paper and plausible source for crown coverage or the C6 boundary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–28 and 42–113",
+        "Resultary 8416a7acedbc, finding and proof; b5b3c45f23e8, ordinary edge bases"
+      ],
+      "rationale": "The crown family and phase transition would be useful in isolation, but the frozen transition, stable optimum sets and count are mechanically recovered from the indexed doubly resolving result with the adjacent-pair reduction and the already classified edge-basis family. No independent new exact invariant or transition-case enumeration remains in the frozen claim. This does not dispute its mathematical correctness or the usefulness of studying the relation between the predicates more generally.",
+      "residual_risks": [
+        "An all-set or small-order comparison beyond the assigned statement would need its own claim and audits; it is not treated as a completed repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

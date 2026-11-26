@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The directed edge convention, simultaneous updates, and every bit group are explicit. Complementing a synchronous in-neighbor AND rule gives an in-neighbor OR rule, with hub sequence \(R(0)=r_0\), \(R(1)=u\), \(R(2)=r_0\vee v\), \(R(3)=r_0\vee u\), and \(R(t)=r_0\vee u\vee v\) for all \(t\ge4\). The other coordinates at time at least two are the previous two hub values. Seven nested exact Boolean tests then yield the cumulative populations and the full first-hit census, with one nonextinguishing state. The sixth shell is nonempty for every \(k\ge1\). The included direct synchronous enumerator checked 299,696 labelled initial states for 33 distinct parameter pairs and agrees with a separate directed-walk predecessor-set calculation on smaller graphs. These checks corroborate rather than prove the infinite theorem; the preceding symbolic derivation is the proof.
+PASS
 
-## Originality — PASS, qualified
+For the exact directed bouquet and positive m and k, complementing turns AND into OR. Write r for the initial hub bit, u for the OR of the m two-cycle and k last three-cycle bits, and v for the OR of the k first three-cycle bits (all in the complement). The hub bits at times 0 through 3 are r, u, r OR v, and r OR u; from time 4 onward they are r OR u OR v, by the lag-two/lag-three recurrence. From time 2 onward the full configuration is occupied iff the current hub bit and its two predecessors are one; time 1 additionally requires every individual first three-cycle bit to be one. This partitions the labelled states directly: r=u=1 contributes time 0 for the fully occupied initial state, time 1 for the other states with all first bits one, and time 2 for the remaining first-bit assignments. For r=0, u=v=1 the hit is at 3. For r=1, u=0 the hit is at 4 regardless of first bits; for r=0,u=1,v=0 it is at 5; and for r=u=0,v=1 at 6. The one case r=u=v=0 stays unoccupied. The independent block weights reproduce (1,P-1,P(Q-1),P(Q-1),Q,P,Q-1) and one never-hit state, where P=2^(m+k)-1 and Q=2^k. This also proves sharpness, excludes other fixed points and cycles, and gives each of times 2 and 3 mass (1-2^(-m-k))(1-2^(-k))/2, uniformly approaching 1/2 in m≥1. I inspected the verifier and the stored samples rather than executing uploaded code. Its 33 pairs are the tested subset given by m≤7, k≤5 and n≤16, with 299696 states; the finite replay is corroboration only. The partition above reproduces the all-parameter result.
 
-Jarrah–Laubenbacher–Veliz-Cuba (arXiv:0805.0275, first posted 2008-05-02) provides general AND/OR complement equivalence and global period/transient theory on directed dependency networks; the present precise seven-layer labelled first-extinction census is not a quoted consequence or statement there. Gao–Chen–Başar (arXiv:1603.04415) discusses recurrent necklaces and perturbation stability, and defines a *rose* using equal-length cycles, excluding the mixed directed two-/three-cycle model here. Hu–Yuan–Chen (Ars Combinatoria 82, 2007) discusses generalized exponents of certain primitive minimally strong digraphs: only its accessible article summary was available, so a related structural-exponent treatment and possible priority risk are acknowledged. Indexed research-record searches of AND, OR, NOR, directed bouquets, mixed petals, and convergence distributions, plus prior accessible ledger claim comparisons, revealed related but noncovering network rules. No assertion that an unindexed historical equivalent is impossible.
+## originality
 
-## Value — PASS
+PASS
 
-A mixed directed bouquet is a minimal strongly connected aperiodic core built from two different cycle lengths, in contrast to equal-length rose networks. Its uniform six-update convergence bound does not disclose which of its \(2^{1+m+2k}\) initial configurations first die at each update. The formula gives the entire exact first-hitting-time spectrum for every petal multiplicity, a structural classification of the rare sharp shell, and a limiting two-time concentration independent of the number of two-cycle petals. This supplies a natural finite-time invariant rather than another generic stabilization observation.
+The genuinely distinct claim is the complete labelled first-hit law for arbitrary positive multiplicities. The known exponent/period method accounts for the maximal delay and fixed points, and a distinct same-day Resultary record genuinely covers the last two shells in the single m=k=1 case. That overlap is credited; it does not imply the remaining shells or arbitrary multiplicities. No evidence establishes broader exact coverage, and the same-day date does not resolve priority on the overlap.
 
-## Closest literature and limits
+## value
 
-- Jarrah, Laubenbacher, Veliz-Cuba, *The Dynamics of Conjunctive and Disjunctive Boolean Networks* (2008), https://arxiv.org/abs/0805.0275 . General framework covers eventual behavior, not the explicit labelled mixed-petal histogram as stated.
-- Gao, Chen, Başar, *Stability Structures of Conjunctive Boolean Networks* (2016), https://arxiv.org/abs/1603.04415 . Recurrent-orbit and perturbation treatment, distinct from arbitrary initial-state first-hitting times on unequal-length cycles.
-- Hu, Yuan, Chen, *The Generalized Exponent Sets of Primitive, Minimally Strong Digraphs (I)* (2007), https://combinatorialpress.com/ars-articles/volume-082-ars-articles/the-generalized-exponent-sets-of-primitive-minimally-strong-digraphs-i/ . Accessible abstract only; possible related exponent information remains a historical-priority risk.
+PASS
 
-The finding applies only to the labelled, directed, in-neighbor AND model with both petal types. Independent mathematical and historical-priority validation have not occurred.
+The family is the mixed bouquet of the two smallest coprime directed cycle lengths; the parameter sweep keeps that dynamical mechanism while varying both multiplicities without bound. A full labelled transient-time distribution rather than an exponent is useful here: it identifies which initial patterns actually need the worst-case horizon and shows that typical starts instead concentrate on two early steps. These are distinct exact facts not supplied by fixed-point or primitive-exponent results. No broader digraph significance is needed or claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

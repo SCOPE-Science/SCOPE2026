@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:27:26.842497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen theorem is correct. The digitwise Apéry congruence selects {0,2,4}; independently one obtains the digit factorization from binomial Lucas by noting that the first carry in n+j makes (n+j)'s digit smaller than j's digit there, killing that summand. The nonzero summands factor over the carry-free choices. For the frozen counting argument, each even output digit forces the outgoing carry to equal the parity of shift digit plus incoming carry. Enumerating input 0,2,4 gives the displayed weights, including both neutral transitions. Odd shifts cannot match by parity. Even shifts return to carry 0, so all r-L later digits are free. In the repaired RESULT the independent balanced-digit proof gives the same count: no even-shift witness can overflow at r>=L because its leading digit would be 1. The distinct r-place words over {-2,-1,0,1,2} fill [-(5^r-1)/2,(5^r-1)/2] by reducing modulo 5 and counting. At fixed h/2, each digit difference delta has exactly 3-|delta| realizations as a difference of two digits in {0,1,2}. The normalized factor is therefore 1, 2/3 or 1/3. One absolute-one digit gives the maximum; two give the runner-up, whose leading sign is positive and whose lower sign is free, giving exactly the stated sum and difference families; an absolute-two digit or three absolute-one digits is strictly worse. This also checks the ordinary-digit rewrite and the zero-density distinction. Independently ran /workspace/branches/independent_checks.py: direct binomial sums for n=0..249 and every shift 0..124 at depth three agree. The frozen checker was read, not run; the bounded replay is not the all-shift proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pedersen–Phillips give one active state for sparse D, an explicit multiplicative recurrence, and for terminating t with nonempty full-cylinder part its cylinder multiplicity mu_t(k). D={0,2,4} is sparse.",
+          "Earlier Pedersen–Phillips §2.3.2 describes finite translations as unions of scaled copies and possible endpoint points. In this even-shift specialization no endpoint-only contacts occur at the final level.",
+          "Gessel's original PDF was not readable; Malik–Straub explicitly reproduces the Lucas theorem."
+        ],
+        "reasoning": "A count recurrence allowing arbitrary sparse digits covers the geometric count used by the frozen theorem. Its hypotheses or conclusions do not by themselves single out the two optimizing families for positive integer h; this requires the evaluated weight and displacement analysis retained in the repair.",
+        "searches": [
+          "arXiv:1203.4290 Proposition 1.1, multiplicative recurrence, Lemma 4.4, Corollary 5.7",
+          "arXiv:1105.3463 §2.3.2 and Remark 2.2",
+          "Malik–Straub arXiv:1508.00297 §1; Gessel doi:10.1016/0022-314X(82)90071-3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.4290, 1105.3463, 1205.4090, 1508.00297",
+        "doi:10.1186/2193-1801-2-654",
+        "doi:10.1016/0022-314X(82)90071-3 (abstract/access only)",
+        "Resultary: 5775cfe75cfb, e4d90213f805, 60b755902f8c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For an ordinary shift prefix P in most-significant-first order, the count state is a difference of P for P even or P+1 for P odd. Refinement by digit d changes that difference by d+s'-5s at the digit level, where s=P mod 2 and s'=(P+d) mod 2. The multiplicity is the number of pairs of D digits realizing this difference, which is exactly the frozen ten-weight table in reverse state order.",
+          "The prior count counts level words for a given translation. The repair ranks every positive displacement by the structure of its unique balanced word and proves the two inverse images explicitly."
+        ],
+        "reasoning": "An exact full count is covered even though the articles discuss real fractal intersections instead of Apéry numbers. The new retained result is an extremal classification over all displacements, whose two families and gap are proved, not inferred from a keyword miss.",
+        "searches": [
+          "Pedersen–Phillips arXiv:1203.4290 Corollary 5.7 and recurrence versus frozen ordinary-digit formula",
+          "Resultary 5775cfe75cfb, e4d90213f805, 60b755902f8c mirrored Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Apéry support is D={0,2,4}. For even h<5^r the integer pairs correspond exactly to coincident full level-r cylinders in the real deleted-digit translate with t=h/5^r.",
+          "In balanced quinary for h/2, the two runner-up families are twice a sum or positive difference of distinct powers of five; they reproduce the frozen ordinary-digit families exactly."
+        ],
+        "reasoning": "The real-cylinder alias shows genuine prior coverage of the count, not merely subject similarity. The repaired claim classifies the shifts optimizing that count, rather than claiming the Apéry interpretation creates a new counting theorem.",
+        "searches": [
+          "Pedersen Phillips intersections deleted digits Cantor sets sparse translation exact number level intervals product cardinality digit differences uniform base five digits 0 2 4",
+          "Adamczewski–Bell arXiv:1205.4090 §9; Kumar–Rani–Chugh Theorems 3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 1 is an exact one-point support automaton, not a ranking of shifts.",
+          "The inspected indexed Findings respectively count three-term Franel progressions, a mod-nine Apéry-like character correlation, and same-index joint residues."
+        ],
+        "reasoning": "The Apéry shift extremizer sets are not an entry in these exact one-point or different-invariant tables. The two distinct nearby shift-correlation records do not reproduce the positive integer equality families for this invariant.",
+        "searches": [
+          "Resultary Franel five-nondivisible AP overlap 5775cfe75cfb; Apéry character shifts e4d90213f805; Apéry–Domb residues 60b755902f8c",
+          "Adamczewski–Bell Figure 1"
+        ]
+      },
+      "rationale": "This is a fresh PASS for the narrowed extremizing-displacement claim in repairs/2/RESULT.md, not a PASS for originality of the frozen all-shift count as advertised. The normalized finite count specializes the earlier sparse deleted-digit intersection recurrence and terminating-translation results. The repair credits that fact, uses a self-contained balanced-digit derivation as background, and claims only the explicit two highest nonzero shift levels and their exact inverse classifications. Neither a one-point automaton nor the inspected general recurrence states those order statistics or which positive displacements attain them. The repair determines them by analyzing the factor levels, the possible support sizes and signs of all balanced words, and their integer translations; it is not a recomputation for selected shifts.",
+      "residual_risks": [
+        "Equivalent translated-intersection extremizers could occur in further sparse Cantor-set or additive-correlation work; only the strongest located applicable primary passages were inspected.",
+        "Gessel's full text and older Apéry arithmetic such as Luca–Shparlinski were not independently read in full. No priority ordering follows from the same-day catalogue hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the deleted-digit count and full-cylinder multiplicity at the terminating shift; no extremal integer displacement classification in the inspected passages.",
+          "evidence": [
+            "Corollary 5.7 gives the full scaled-copy count a=mu_t(k) in the sparse case. The recurrence counts those intervals by digit intersection factors in one of two states. The later proof fixes the potential interval as J with J minus one unit in the translated family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.4290",
+          "material_read": "Proposition 1.1 and following recurrence (offset 8500); potential-interval direction in proof of Theorem 3.1 (21600); Lemma 4.4 (34600); Corollary 5.7 and Example 6.1 (56800)",
+          "method": "OA primary PDF locate and bounded passage reads",
+          "title": "Intersections of Cantor sets: Hausdorff measure",
+          "trigger": "Strongest broader deleted-digit product and count"
+        },
+        {
+          "assessment": "Earlier general cylinder geometry; not the repaired extremal classification.",
+          "evidence": [
+            "Terminating intersections decompose into full copies of the deleted-digit set together with possible isolated neighbor contacts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1105.3463",
+          "material_read": "§2.3.2 and Remark 2.2, pp. 5–6, offset 18120",
+          "method": "OA primary PDF passages",
+          "title": "Intersections of certain deleted digits sets",
+          "trigger": "Earlier primary treatment of terminating translations"
+        },
+        {
+          "assessment": "Establishes the prerequisite one-point criterion.",
+          "evidence": [
+            "The Apéry automaton mod five vanishes exactly when a digit one or three occurs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.4090",
+          "material_read": "§9, preprint pp. 44–45, PDF offset 119850",
+          "method": "OA primary paper passage",
+          "title": "Diagonalization and Rationalization of algebraic Laurent series",
+          "trigger": "Exact Apéry support premise"
+        },
+        {
+          "assessment": "Establishes digit product premise, not the repaired displacement ranking.",
+          "evidence": [
+            "A(n) reduces modulo p to the product of the single-digit values."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+          "material_read": "§1, p. 1, OA offset 2700",
+          "method": "OA primary preprint passage; cites Gessel Theorem 1",
+          "title": "Divisibility properties of sporadic Apéry-like numbers",
+          "trigger": "Exact statement and attribution of Lucas congruence"
+        },
+        {
+          "assessment": "Same digit set, not exact displacement ranking.",
+          "evidence": [
+            "IFS uses 5x, 5x+2 and 5x+4."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/2193-1801-2-654",
+          "material_read": "Theorems 3.1–3.2, pp. 3–4, PDF offset 14300",
+          "method": "OA primary PDF passage",
+          "title": "New 5-adic Cantor sets and fractal string",
+          "trigger": "Identical five-adic support"
+        },
+        {
+          "assessment": "Lucas attribution corroborated in Malik–Straub, other full-text implications unresolved.",
+          "evidence": [
+            "ScienceDirect PDF unavailable via lawful attempt."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(82)90071-3",
+          "material_read": "DOI landing/abstract coverage; no original full text",
+          "method": "Publisher/DOI lookup and PDF access attempt",
+          "title": "Some congruences for Apéry numbers",
+          "trigger": "Original Lucas theorem and possible arithmetic corollaries"
+        },
+        {
+          "assessment": "Related techniques or sequence, not exact invariant and equality sets.",
+          "evidence": [
+            "Franel uses digits {0,1,3,4} and three terms; mod-nine uses a different character and base-three matrices; joint residues use a common unshifted index."
+          ],
+          "identifier_or_url": "Resultary 5775cfe75cfb, e4d90213f805, 60b755902f8c",
+          "material_read": "Each original mirrored RESULT.md Finding at offset 0",
+          "method": "Local catalogue and mirror statement comparison",
+          "title": "Indexed Franel progression overlap, Apéry-like mod-nine correlation, and Apéry–Domb joint residues",
+          "trigger": "Closest indexed overlap computations and same sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result answers which positive displacements retain the most eligible indices and which form the next level once the first family is excluded. Ordinary density loses all this separation. Both the precise equality sets and their separation from every other displacement are useful features of the sparse-scale invariant; no value is claimed for rebranding the already-covered general intersection count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

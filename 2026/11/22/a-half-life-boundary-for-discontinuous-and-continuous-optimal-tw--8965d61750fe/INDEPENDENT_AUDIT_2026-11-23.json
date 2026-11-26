@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:20:27.673474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two above-threshold lengths add on disjoint time intervals; their exponentiated sum is W(a)=min(max(a,1),1/q)max(1,d−ra), r=1−q, with the post-dose tail included and equality instants of zero measure. For d≤1 all allocations give W=1. For d>1 the two unsplit endpoints give W=d. If a≤1 then W≤d with equality only at a=0; if the second level d−ra≤1, W≤d with equality only possibly at a=d. Where both peaks exceed threshold before the first factor caps, W=a(d−ra), strictly concave. Past the cap 1/q the improving portion of W declines strictly. For q<1/2, the interior vertex is feasible at d=4r, has a=2 there and is the unique third tie; its value d²/(4r) exceeds d strictly thereafter until it reaches the cap at d=2r/q. At and above this second threshold the cap wins: its excess over d is r(qd−1)/q²>0. For q≥1/2 the quadratic increases up to the right feasible edge since d−2ra≥d(1−2r)≥0, strictly except possibly at an endpoint; no split wins before d>1/q, and beyond that the cap uniquely wins. At q=1/2 and d=2 there is no third optimizer. The two formulas agree at the transitions. In the stated reversal interval the equal first increment is inside the quadratic branch and W(d/2)=d²(1+q)/4<d, whereas the best split has W>d. The example gives 961/300>31/10>961/320. The strict reversal is claimed within q<1/2, not claimed to occur only there. Inspected the rational frozen checker without execution; the continuum claim rests on branch comparisons, not rational sampling.",
+      "replay": "Frozen RESULT.md, Steps 1–5; independent algebra and equality checks in the private evidence file independent_check.md. No clinical model or outcome is validated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bachmann et al. give a state-constrained numerical optimization framework; they explicitly add finite-observation duration limits in an application and use final bacterial count with AUC in another. The controlled variables are doses, and sometimes timing, but their method and these objectives do not furnish the analytic budget threshold here.",
+          "The PH/PK historical studies named in the frozen bibliography are relevant to exposure or comparative regimens, but direct OA retrieval of the specified older reports was unavailable in this review."
+        ],
+        "reasoning": "A general numerical formulation can encode threshold duration, but applicability is not a theorem implying this all-real-parameter closed optimizer and its equality cases. Older same-object comparisons are not ruled out by access failure.",
+        "searches": [
+          "Bachmann et al., DOI 10.1007/s10928-024-09940-9, abstract, dosing-interval optimization and applications",
+          "Corvaisier et al. DOI 10.1128/AAC.42.7.1731",
+          "Ibrahim et al. DOI 10.1128/AAC.48.11.4195-4199.2004"
+        ]
+      },
+      "checked_sources": [
+        "Bachmann et al. 2024 OA methods/application passages",
+        "Published oral-antiphase and delayed-Bateman results",
+        "Resultary two-bolus search",
+        "Historical citation access attempts for Corvaisier, Ibrahim, Jacobs and Plusquellec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The anti-phase theorem ranks timings at fixed dose amounts by integrated squared deviation. The delayed-Bateman criterion ranks a delay and relative depot-input size by the number of strict local maxima. Bachmann's result yields a numerical constrained-dose solution method. None supplies the comparison between the interior quadratic of W, a capped affine branch, and exactly tied unsplit endpoints."
+        ],
+        "reasoning": "There is no displayed specialization that yields the 4(1−q) budget tie or the half-life switch. Standard duration and superposition formulas are credited; the mathematical difference is the complete global comparison and equality cases.",
+        "searches": [
+          "Published exact anti-phase law, objective and optimizer",
+          "Published delayed-Bateman result, model and strict two-peak criterion",
+          "Bachmann et al. extended OptiDose objective examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The current objective is the unbounded superlevel-set duration of an exponential-decay path; taking exp(λT) gives an exact clipped-product formulation. Searching the exposure and concentration-curve formulations located an exact timing theorem that fixes the amounts and minimizes integrated squared concentration fluctuations under periodic oral absorption, and a delayed-input theorem classifying strict local maxima."
+        ],
+        "reasoning": "Neither variance nor peak count is equivalent to superlevel-set duration. Fixing pulse amounts and varying a periodic phase is not optimizing a first dose under a fixed interval and total.",
+        "searches": [
+          "pharmacokinetics optimize allocation two intravenous bolus fixed spacing fixed total dose maximum time above minimum inhibitory concentration half-life unequal split exact theorem time over threshold",
+          "Resultary: Two-bolus fixed interval exponential pharmacokinetics time above threshold optimal split half-life phase boundary",
+          "Published anti-phase fluctuation law and delayed unequal Bateman-input results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed comparison returned the target and materially distinct exact oral-fluctuation and delayed two-peak phase laws. Their exact results tabulate phase penalties or peak boundaries, not the optimizer over a fixed total dose for this objective. Bachmann's numerical examples report different penalty/endpoint outcomes."
+        ],
+        "reasoning": "This is a continuum phase diagram, not a single recommended interval or exposure value. No matching table or closed-form split was found in the inspected exact statements. The older bibliographic candidate remained inaccessible; this does not support a whole-paper noncoverage claim.",
+        "searches": [
+          "Resultary two-bolus fixed interval threshold duration / half-life query",
+          "Bachmann et al. Tables and finite application comparisons",
+          "Plusquellec et al., DOI 10.1016/S0939-6411(99)00017-X"
+        ]
+      },
+      "rationale": "Linear clearance, superposition and time over an exposure threshold are prior ingredients. The supported difference is the exact global dose-share diagram with all ties for two fixed administrations under a single budget and unbounded observation, together with distinct onset types and the strict equal-split reversal. The prior comparison is provisional, particularly for unavailable older PK sources.",
+      "residual_risks": [
+        "Primary topical search was unavailable; lack of search results is not evidence against overlap.",
+        "Older nonuniform-dosing and exposure studies could contain equivalent calculations; no premise of exhaustive historical priority or full-text noncoverage for inaccessible reports."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "Amounts are fixed, responses include oral absorption and periodic accumulation, and the theorem minimizes squared fluctuation over one period by varying phase.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-exact-anti-phase-fluctuation-law-for-two-oral-doses--5b25dde3d179/RESULT.md",
+          "material_read": "Finding, scope and objective, phase optimization and comparison to prior work",
+          "method": "Compared optimized variable, response profile, time horizon and objective",
+          "title": "The exact anti-phase fluctuation law for two oral doses",
+          "trigger": "An exact optimization using two doses and exponential response"
+        },
+        {
+          "assessment": "Different model and quantity",
+          "evidence": "The condition d>t_0 and m>Q(d) classifies the number of strict local maxima after two depot inputs; it does not optimize an above-threshold duration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9/RESULT.md",
+          "material_read": "Finding, criterion and assumptions",
+          "method": "Compared peak-count quantifiers with a duration optimum over dose shares",
+          "title": "A sharp reentrant two-peak window for delayed unequal Bateman inputs",
+          "trigger": "Related two-input unequal-amount phase diagram"
+        },
+        {
+          "assessment": "Relevant general numerical framework; not an implication of the analytic phase diagram from inspected statements",
+          "evidence": "A duration constraint limits time below a neutrophil threshold within a fixed observation interval; the antibiotic example minimizes AUC subject to an endpoint bacterial-count constraint.",
+          "identifier_or_url": "https://doi.org/10.1007/s10928-024-09940-9",
+          "material_read": "Abstract, introduction, duration-state-constraint and later applications passages",
+          "method": "Read OA article passages and matched objective, controls and strength of output",
+          "title": "Computing optimal drug dosing regarding efficacy and safety: the enhanced OptiDose method in NONMEM",
+          "trigger": "General dosing optimization, potentially covering threshold-duration constraints"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": "The title identifies periodic steady state, whereas the frozen theorem stops dosing after the second bolus and includes the infinite tail. The title is not enough to exclude a relevant subsidiary calculation.",
+          "identifier_or_url": "https://doi.org/10.1016/S0939-6411(99)00017-X",
+          "material_read": "Bibliographic information from the frozen references; no independent OA text retrieved",
+          "method": "Exact citation access attempts; comparison limited to stated steady-state setting",
+          "title": "Concentration at steady-state after periodic and non-uniform administration of drug",
+          "trigger": "Possible historical calculation for unequal administrations"
+        },
+        {
+          "assessment": "Context/source-access limitation only",
+          "evidence": "The frozen record describes a finite 24-hour simulation and killing comparison. This was not independently confirmed from full text and does not warrant a whole-paper noncoverage judgment.",
+          "identifier_or_url": "https://doi.org/10.1128/AAC.42.7.1731",
+          "material_read": "Frozen bibliography and reported comparison, no independent journal text obtained",
+          "method": "Attempted OA retrieval via DOI and cited journal route",
+          "title": "Comparisons between antimicrobial pharmacodynamic indices and bacterial killing as described by using the Zhi model",
+          "trigger": "Early direct time-above-MIC comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-interval fractionation and level-set duration give a natural minimal exposure benchmark. The exact switch between discontinuous interior-split onset and continuous emergence at the cap explains when a gap in coverage is optimal; the open reversal region disproves a natural equal-split heuristic. Its value is the exact structure and counterexample under the model, not practical prescribing or a biological efficacy result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

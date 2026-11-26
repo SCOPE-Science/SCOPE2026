@@ -11,13 +11,13 @@ Define the boundary derivative vector \(v=(h_1'(1),h_2'(1))\) and its second-jet
 \boxed{\lim_{n\to\infty}n\sigma_{n,+}=\sqrt{s}\,\|v\|_2,\qquad
 \lim_{n\to\infty}n^2\sigma_{n,-}=\frac{|\Delta|}{\|v\|_2}\sqrt{\frac{s(s+1)}2}.}
 \]
-More precisely both limits have relative error \(O(n^{-1})\) with constants depending on the fixed parameters and symbols. The row is compact and belongs to \(\mathcal S_p\) exactly for \(p>1\). The canonical lower-channel spectral part, obtained by retaining only \(\sigma_{n,-}\) in each nonnegative angular-frequency block, belongs to \(\mathcal S_p\) exactly for \(p>1/2\). At the two respective critical exponents the blockwise logarithmic masses are
+More precisely both limits have relative error \(O(n^{-1})\) with constants depending on the fixed parameters and symbols. The row is compact and belongs to \(\mathcal S_p\) exactly for \(p>1\). Define the lower-channel part by retaining the lower singular mode in each nonnegative angular-frequency block with \(\sigma_{n,-}<\sigma_{n,+}\), and setting it to zero at tied blocks and at frequency \(-1\). Ties can occur only at finitely many blocks. With this convention the lower-channel part belongs to \(\mathcal S_p\) exactly for \(p>1/2\). At the two respective critical exponents the blockwise logarithmic masses are
 \[
 \lim_{N\to\infty}\frac1{\log N}\sum_{n=1}^N\sigma_{n,+}=\sqrt{s}\,\|v\|_2,\qquad
 \lim_{N\to\infty}\frac1{\log N}\sum_{n=1}^N\sigma_{n,-}^{1/2}
 =\left(\frac{|\Delta|}{\|v\|_2}\sqrt{\frac{s(s+1)}2}\right)^{1/2}.
 \]
-The lower-channel operator is defined by its spectral projection in each Fourier block; it is not claimed to equal a fixed linear combination of the two original Hankel operators.
+On every untied nonnegative block the lower-channel operator is the row composed with the spectral projection of its domain Gram operator onto the lower eigenvalue. An equal pair has no distinguished rank-one spectral projection. The lower-channel operator is not claimed to equal a fixed linear combination of the two original Hankel operators.
 
 For a concrete nonpolynomial pair \(\phi_1(t)=1\), \(\phi_2(t)=e^{t-1}\), both boundary-jet hypotheses hold and the constants become
 \[
@@ -43,7 +43,7 @@ Therefore the squared-singular-value matrix at angular frequency \(n\) is exactl
  \left[\operatorname{Cov}_{\beta_n}(h_i,h_j)\right]_{i,j=1}^2,
  \quad \operatorname{Cov}(f,g)=\mathbb E(f\overline g)-\mathbb Ef\,\overline{\mathbb Eg}.
 \]
-The input degree zero gives a single finite-dimensional angular frequency \(-1\) block; it has no bearing on high-rank asymptotics. Distinct angular frequencies are orthogonal in both domain and target, so the block decomposition is exact. With \(\Delta\ne0\), \(h_1,h_2,1\) are linearly independent on an interval adjacent to \(1\); hence \(G_n\) is positive definite for every \(n\ge0\).
+The input degree zero gives a two-input block at angular frequency \(-1\). Its two output vectors are \(\overline z\phi_1(t)\) and \(\overline z\phi_2(t)\); the analytic projection is zero at this frequency. These vectors are linearly independent: a relation would give a linear dependence of the continuous \(\phi_i\) on \((0,1)\), and hence of the \(h_i\), contradicting \(\Delta\ne0\). This block has rank two and has no bearing on high-rank asymptotics. Distinct angular frequencies are orthogonal in both domain and target, so the block decomposition is exact. With \(\Delta\ne0\), \(h_1,h_2,1\) are linearly independent on an interval adjacent to \(1\); hence \(G_n\) is positive definite for every \(n\ge0\).
 
 **2. Gamma boundary layer and its quantitative control.** Set \(U=1-t\) and \(X_n=nU\) under \(\beta_n\). Then \(U\) has the beta law with parameters \(s=\alpha+1\) and \(n+1\), and for every fixed integer \(r\ge0\),
 \[
@@ -59,7 +59,7 @@ After centering and writing \(Y_n=X_n-\mathbb EX_n\), \(Z_n=X_n^2-\mathbb EX_n^2
 \]
 The remainder bound follows from \(\mathbb E U^6=O(n^{-6})\), not from finite numerical testing.
 
-**3. Larger eigenvalue and second exterior-power coefficient.** The squared norm of the two-vector operator \((a,b)\mapsto aF_{1,n}+bF_{2,n}\) has trace
+**3. Larger eigenvalue and second exterior-power coefficient.** The Gram matrix has trace
 \[
  \operatorname{tr}G_n=\frac{s(|v_1|^2+|v_2|^2)}{n^2}+O(n^{-3}).
 \]
@@ -85,7 +85,7 @@ If \(\lambda_{n,+}\ge\lambda_{n,-}\) are eigenvalues of \(G_n\), the trace and d
 \]
 Taking their positive square roots proves both stated branch limits and the relative \(O(n^{-1})\) bounds.
 
-**4. Schatten classification and endpoints.** From the exact orthogonal Fourier decomposition, the nonzero singular-value multiset consists of the two branches for \(n\ge0\), plus at most one singular value from frequency \(-1\). Their asymptotic orders are \(n^{-1}\) and \(n^{-2}\) with strictly positive constants. The complete row is compact and its \(p\)-power singular sum converges exactly when \(p>1\). The lower-branch part has its \(p\)-power sum finite exactly for \(p>1/2\). Harmonic-series summation, using the proved relative error bounds, gives the two logarithmic masses. The globally ordered singular values of the full row satisfy \(s_J(\mathcal R)\sim\sqrt{s}\|v\|_2/J\); those of the lower-channel part satisfy \(s_J\sim (|\Delta|/\|v\|_2)\sqrt{s(s+1)/2}/J^2\). Finite initial blocks do not affect either limit.
+**4. Schatten classification and endpoints.** From the exact orthogonal Fourier decomposition, the nonzero singular-value multiset consists of the two branches for \(n\ge0\), plus two singular values from frequency \(-1\). The branches have asymptotic orders \(n^{-1}\) and \(n^{-2}\) with strictly positive constants, so their gap is positive for all sufficiently large \(n\). Ties at finite frequencies are possible: for \(\alpha=0\), \(h_1(t)=t\) and \(h_2(t)=\sqrt{15}(t^2-t)\), one has \(\Delta=2\sqrt{15}\) and \(G_0=I_2/6\) by the uniform-beta moments. The complete row is compact and its \(p\)-power singular sum converges exactly when \(p>1\). The lower-channel part with the stated convention omits at most finitely many lower singular modes and has its \(p\)-power sum finite exactly for \(p>1/2\). Harmonic-series summation, using the proved relative error bounds, gives the two logarithmic masses. Counting the branches above a threshold \(u\downarrow0\), the upper branch contributes asymptotically \(\sqrt{s}\|v\|_2/u\), whereas the lower branch contributes only \(O(u^{-1/2})\). Consequently the globally ordered singular values of the full row satisfy \(s_J(\mathcal R)\sim\sqrt{s}\|v\|_2/J\); those of the lower-channel part satisfy \(s_J\sim (|\Delta|/\|v\|_2)\sqrt{s(s+1)/2}/J^2\). Finite initial blocks do not affect either limit.
 
 ## Verification
 

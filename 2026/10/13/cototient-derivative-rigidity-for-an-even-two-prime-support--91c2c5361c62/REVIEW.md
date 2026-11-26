@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The factorization \(n-\varphi(n)=2^{a-1}p^{b-1}(p+1)\) is exact for all positive exponents. Reduction modulo \(p\) for \(b\ge2\), the strict derivative-ratio bound, and parity give a contradiction for repeated odd prime factors. Integrality then leaves only the two valuations of \(p+1\), and parity/nonnegativity force \(a=2\). Converse substitution is explicit. The squarefreeness consequence follows from the prime-square divisibility of the arithmetic derivative. The finite checker corroborates but does not establish the unbounded theorem.
+## correctness
 
-**Originality — PASS, with an explicit literature risk.** OEIS A248817 defines the equation and lists examples but supplies no structural two-prime-support theorem. Primary pseudoperfect literature addresses the reciprocal sum, not the exponent-collapse result. The closest retrieved record studying an arithmetic-derivative cototient *gap* instead concerns \(D(n)-(n-\varphi(n))\), not the composition treated here. An earlier unindexed elementary classification remains possible; a relevant older paper's full text was not accessible, so its abstract alone cannot certify exclusion.
+PASS
 
-**Value — PASS.** This is not a small numerical census: infinitely many exponent pairs and odd primes are reduced to the rigid shape \(4p\), while the remaining Diophantine question is accurately identified as two prime-constrained reciprocal equations. It explains why the first examples have the same exact even prime exponent and isolates a natural outstanding number-theoretic obstruction. The auxiliary equations are not declared solved.
+The exact cototient is m=2^(a-1)p^(b-1)(p+1). If b>=2, divide D(m)=2^a p^b by p^(b-2); reducing modulo p forces p|(b-1), since p does not divide 2^(a-1)(p+1). The logarithmic derivative then bounds (a-1+t)/2+(b-1)/p+D(u)/u strictly below 2. It forces a=t=1 and b=p+1; the product rule would give D(2u)=p-1, contradicting the odd parity of u+2D(u). At b=1, cancelling 2^(a-2+t) gives (a-1+t)u+2D(u)=2^(2-t)p. Integrality excludes t>=3; the parity and nonnegativity constraints for each remaining t force a=2. Substitution gives each stated auxiliary equality in both directions, including u=1 at t=2. A squared prime divisor of u would divide D(u) and contradict cD(u)=u-1. The three examples and both bounded lists were reproduced independently; the valuation/parity proof, not the sieve, supplies the unrestricted quantifier.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The investigated prior sources cover the equation, examples and auxiliary equations, not the unrestricted two-prime exponent collapse and its prime-constrained iff. This is a bounded best-of-knowledge judgment.
+
+## value
+
+PASS
+
+For a pre-existing arithmetic-derivative equation, an exact natural-support result collapses two unbounded exponents to a single shape n=4p, gives an immediate mod-8 exclusion, and makes the remaining difficulty precise in terms of primary pseudoperfect numbers and an extra primality condition. This is a structural restriction and an iff, not a new numerical table or a claim to have exhausted the prime-constrained families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:41:59.796983Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the residual plane let v=Ar/‖Ar‖ and write r/‖r‖=cv+sw. For Gram diagonal entry a and off-diagonal d in this basis the normal equation leaves s(w−(d/a)v), after normalization. If s=0 the residual is eliminated. The embedding gives (a−1)²+d²≤ε², and (1−ε²)d²≤ε²a² since the difference in the relaxed scalar inequality is (a−(1−ε²))². Equality is feasible: the displayed M± has trace 2 and eigenvalues 1±ε, hence a real square root. The SPD moment bound ‖Ar‖²≤(L+μ)〈r,Ar〉−μL for unit r follows spectrally; minimizing the lower bound on c² gives c≥2√(μL)/(μ+L) with equality at the stated endpoint-eigenvector mixture. This proves sharpness over the admissible class (not for each fixed matrix or for d=1). Combining produces the exact factor, with one-step elimination when κ=1. For κ>1 the uniform strict condition is exactly ε<c_*=2√κ/(κ+1); at ε=c_* the negative extremal off-diagonal has d/a=−c_*/s, forcing t=0. The same sketch also meets all larger budgets; reusing it is admissible on the unchanged plane and stagnates. Below threshold the bound iterates for adaptive admissible sketches. The exact-rational support checker was inspected, not run; its bounded tests are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary passages respectively provide residual-projector angles, the sketched least-squares formulation, and restarted sketched harmonic Arnoldi in a matrix-function setting."
+        ],
+        "reasoning": "The inspected general results do not give this attained factor together with its converse; the exact indexed result gives stronger coverage of this particular quantity than those passages. The verdict does not require concluding what the inaccessible Nakatsukasa–Tropp passage contains.",
+        "searches": [
+          "arXiv:2311.14206v2, §4 Lemmas 2–3 and Corollary 4",
+          "arXiv:2111.00113v2, §1.2 and attempted §3.2",
+          "arXiv:2607.10354, Lemma 5.3 and Theorem 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–3 and verify.py",
+        "Resultary 032bb3e46f06 RESULT.md",
+        "arXiv:2311.14206v2",
+        "arXiv:2111.00113v2",
+        "arXiv:2607.10354"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof multiplies the sharp factors (κ−1)/(κ+1) and 1/√(1−ε²); it states nonexpansion iff ε≤2√κ/(κ+1) and strict growth is possible above.",
+          "The indexed extremal construction depends on the squared Gram off-diagonal, so reflection of its sign preserves the embedding and norm equality."
+        ],
+        "reasoning": "For ε=c_*, put s=(κ−1)/(κ+1) and choose the reflected Gram with a=1−c_*²=s² and d=−c_*s. Its spectrum is 1±c_*, and its normalized scalar update is c_*+sd/a=0. Reusing it leaves the residual and constraint plane unchanged. This directly gives the alleged additional boundary obstruction; the adaptive geometric estimate is iteration of the same one-step law.",
+        "searches": [
+          "Indexed 032bb3e46f06 RESULT.md, Finding, sharp angle/Gram proof, and boundary example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 032bb3e46f06 defines the same scalar sketched residual minimization with the residual-plane squared-norm constraint and states the identical sharp factor, attained in two coordinates.",
+          "The primary GMRES angle analysis uses sketched residual projectors, but its inspected estimates do not assert the joint sharp factor."
+        ],
+        "reasoning": "The exact indexed record concerns the unsketched residual, not merely the projected or sketch norm. Universal nonexpansion and uniform strict contraction refer to q≤1 and q<1 respectively, so the strict versus non-strict writing is not a mathematical distinction in coverage.",
+        "searches": [
+          "Local Resultary exact one-step SPD sketched GMRES true-residual frontier and contractivity lookup",
+          "Burke, Güttel and Soodhalter, arXiv:2311.14206v2, §4 residual projections and sketched angles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record explicitly gives q=(κ−1)/((κ+1)√(1−ε²)) and a dimension-two attaining construction. The web lookup did not supply a relevant hit."
+        ],
+        "reasoning": "The exact database match is a symbolic theorem with the same hypotheses, not a coincidental constant or a finite numerical row. An unsuccessful web query adds no negative evidence.",
+        "searches": [
+          "Resultary exact factor and one-step SPD sketched GMRES frontier, indexed 032bb3e46f06",
+          "Exact formula primary-literature web lookup"
+        ]
+      },
+      "rationale": "A distinct Resultary record gives the same exact attained one-step residual frontier under the same squared-norm embedding, including its universal nonexpansion threshold and strict growth above it. Strict contraction is q<1. The negative off-diagonal choice in the same sharp Gram construction forces zero update at the frontier; the earlier record's printed norm-equality example need not itself use that choice. The difference in presentation supplies no separate mathematical novelty.",
+      "residual_risks": [
+        "External historical priority is not settled; the indexed exact coverage suffices regardless.",
+        "The targeted §3.2 Nakatsukasa–Tropp passage was not recovered and is not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same factor and attainment; strict threshold and zero update follow directly",
+          "evidence": [
+            "Same sharp product, nonexpansion threshold with ≤, and dimension-two extremizer."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-true-residual-frontier-for-one-step-spd-sketched-gmres--032bb3e46f06/RESULT.md",
+          "material_read": "Finding, assumptions, sharp angle and Gram constructions and boundary example; mirrored offsets 0–7131",
+          "method": "Local mirrored Resultary record, statement and proof",
+          "title": "Sharp true-residual frontier for one-step SPD sketched GMRES",
+          "trigger": "Exact indexed overlap on factor and contraction regime"
+        },
+        {
+          "assessment": "Relevant identities and bounds; no exact joint frontier in these passages",
+          "evidence": [
+            "Residual projections, sketched angle identities and angle-based bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.14206v2",
+          "material_read": "§4 Lemmas 2–3 and Corollary 4, OA offsets 46336–52824",
+          "method": "Open-access mathematical passages",
+          "title": "GMRES with randomized sketching and deflated restarting",
+          "trigger": "Same sketched residual and projection/angle analysis"
+        },
+        {
+          "assessment": "Formulation verified; no conclusion about exact coverage in uninspected §3.2",
+          "evidence": [
+            "§1.2 sets up sketched residual least squares."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2111.00113v2",
+          "material_read": "§1.2, OA offsets 4507–7343; cited §3.2 not recovered",
+          "method": "Open-access formulation passage; attempted targeted §3.2 retrieval",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Original sketched GMRES formulation and cited generic quasi-optimality"
+        },
+        {
+          "assessment": "Different restarted harmonic Arnoldi/matrix-function target",
+          "evidence": [
+            "The inspected results are for sketched harmonic Arnoldi, not the exact true one-cycle residual frontier."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+          "material_read": "Lemma 5.3 and Theorem 5.4, PDF pp. 18–19, text near offset 61228",
+          "method": "Open-access PDF mathematical passages",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Related restarted sketched Krylov analysis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp true-residual frontier is a useful method benchmark in isolation, but the exact factor and boundary regime are already covered. The only apparent additional claim, zero-update stagnation rather than equality of norms, requires just the opposite sign of the same extremal off-diagonal. The remaining restart estimate is a direct iteration and does not supply an uncovered valuable exact result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

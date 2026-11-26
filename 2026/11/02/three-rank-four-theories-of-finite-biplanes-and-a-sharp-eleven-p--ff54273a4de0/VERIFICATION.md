@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The separately packaged `verify_rank3.cpp` and `verify_rank4.cpp` are standalone C++17 sources using only the standard library. Compile and run them individually, for example:
+## correctness
 
-```sh
-g++ -std=c++17 -O2 verify_rank3.cpp -o verify_rank3
-./verify_rank3
-g++ -std=c++17 -O2 verify_rank4.cpp -o verify_rank4
-./verify_rank4
-```
+PASS
 
-The source programs reconstruct four explicit biplanes from cyclic difference sets for \(2\)-\((4,3,2)\), \(2\)-\((7,4,2)\), and \(2\)-\((11,5,2)\), and from the row/column Kummer incidence construction for \(2\)-\((16,6,2)\). For each they independently assert all block/point degrees and exactly two common blocks or points for each corresponding pair.
+The square incidence matrix identity MM^T=(k-2)Id+2J and equal row and column sums give the dual pair counts. For k>=5, a distinct same-sort triple has all seven non-triple extension cells nonempty; the remaining cell is present iff its triple overlap t is 1. Each distinct same-sort pair permits both t values (choose inside one of its two common blocks but outside their intersection, or outside both); mixed triple cells stay nonempty after exclusions, and equalities are answered by the corresponding named object. Recursing on sets of extension types gives uniform rank-two pair types by atomic diagram, uniform rank-three singleton types by sort, and the common rank-four empty-tuple type. For rank three the four opposite-sort pair cells are all positive already at k>=4. The point outside a block pair separates k=3 at rank three; the rank-four formula asserting exactly one such point separates k=4, since u(k)=(k-2)(k-3)/2. The k=3 design is all 3-subsets of four points; at k=4 complementing blocks gives the unique Steiner triple system on seven points: label a noncollinear triple a,b,c and their pair completions d,e,f. For the seventh point g the remaining lines through a,b,c are respectively afg,beg,cdg, and the last line is def. For the Paley representative D={1,3,4,5,9} mod 11, the ten unordered pairs have circular distances 1 through 5 exactly twice each, giving the required directed difference multiplicities. Monotonicity of v(k) proves minimality within biplanes, not among arbitrary relational structures. Inspected both C++ sources and the recorded rank-three/rank-four transcripts; they compare four examples and were not executed or used as proof of the arbitrary-parameter conclusion.
 
-Each program computes *every* equality, sort, and directed incidence atomic type of an ordered tuple of length equal to the desired quantifier rank, then recursively forms the set of extension types for every shorter tuple. Type identifiers are interned globally across the four designs. Rank-three and rank-four root identities reproduce two and three classes respectively. Recorded stdout and stderr are in `output_rank3.txt` and `output_rank4.txt`.
+## originality
 
-This finite replay checks the implementations and four representative objects. The proof for every possible biplane uses the exact formulas and positivity bounds in `RESULT.md`. The programs do not exhaust all biplanes or all possible block sizes; no such exhaustive claim is made. Neither priority nor independent mathematical certification is established.
+PASS
+
+The rank-three collapse tail materially overlaps a same-day stronger three-variable result, and is not credited here as a distinct contribution in isolation. The supported distinct claim is the sharp rank-four classification in the specified biplane language and its eleven-per-sort representative bound. The strongest inspected comparisons do not give the four-move extension profiles or this cutoff.
+
+## value
+
+PASS
+
+For a standard design class the theorem pins down the first rank that sees the k=4 boundary, handles arbitrary quantifier alternation in the specified language, and yields a sharp constant-size representative within biplanes, including those at unknown parameters if they exist. This is more than recomputing the types of familiar small designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

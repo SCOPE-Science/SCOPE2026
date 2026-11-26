@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 -S verify_petersen_python.py`, `g++ -std=c++17 -O2 verify_petersen_cpp.cpp -o verify_cpp`, then `./verify_cpp`. Both were compiled/executed or invoked from the exact embedded sources and agree on all ten optimum sizes and counts. Each reconstructs all line-graph distances and 105 bisectors from the literal base Petersen edges and exhausts all 32768 vertex subsets. The Python program checks the 1365 eleven-subsets and equality of the six optimal complements with all six Petersen perfect matchings. Captured exact outputs are included for convenience; the proof does not depend on trusting output logs without code. The result is finite only and has not been externally independently audited.
+## correctness
+
+PASS
+
+Reconstructed the line graph on the stated GP(5,2) edges, not the vertex metric on the Petersen graph. An independent exhaustive calculation of distances and all 105 unordered pairs reproduced 105 distinct five-element bisectors. A set S guarantees |S| minus its maximum bisector intersection, so evaluating all 32768 masks certifies all ten dimension and count rows, with no k above ten feasible. Separately enumerating the perfect matchings on the ten original vertices gives exactly the six complements of optimal six-metric bases. Every 11-subset contains a bisector, so cannot be a 7-generator; every (k+5)-subset has at most five nondistinguishing landmarks. Deletion lowers the guaranteed multiplicity by at most one, so the lower bound at seven propagates to k=8,9,10 and all these claimed minimizers are exact. As a structural check on bisector cardinality, represent a Petersen edge by two disjoint pairs in [5]. The missing symbol groups its line-graph vertex into one of five triples; distance three is exactly the two other vertices of that triple. Within a triple the two disjoint four-neighbor sets leave four equidistant vertices outside plus the third member. Across triples each vertex has one neighbor in the other's triple, and there is exactly one common neighbor (the third edge at a shared endpoint for distance one; the unique bridging edge for distance two). Among the nine vertices outside both triples the two three-neighbor sets then have symmetric difference four, again leaving five equidistant vertices. This reasoning supports sizes; distinctness and the bases census were checked exhaustively.
+
+## originality
+
+PASS
+
+The supported contribution is the full labeled robustness census and the perfect-matching classification at k=6. Possible earlier knowledge of the ordinary metric dimension or its fault-tolerant variant is not credited as novel. The strongest identified statements on the same graph concern different landmark tests, or just the standard metric-dimension parameter.
+
+## value
+
+PASS
+
+The Petersen line graph is a canonical test for robustness under landmark loss. At the boundary k=6 the least-size sets are governed by a different invariant of the underlying graph (perfect matchings), while at k=7 the optimum size jumps by two and every set of that size works. The exact counts and uniform bisectors separate these regimes and give useful benchmark data beyond the ordinary dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

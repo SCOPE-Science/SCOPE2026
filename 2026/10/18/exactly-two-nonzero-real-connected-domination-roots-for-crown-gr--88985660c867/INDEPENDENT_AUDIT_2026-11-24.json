@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:45:14.569475Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3, a set on one shore alone is not dominating (in particular, a singleton does not dominate its own shore); a selected shore of size one with both shores represented leaves its deleted-match partner either isolated or undominated. With both shores of size at least two every vertex is dominated and every selected vertex has an induced neighbor. In a disconnected induced subgraph each component therefore meets both shores, and no vertex can have more than one opposite-shore vertex outside its component. This forces two components of one vertex per shore and identical paired index sets. Thus D_c=x⁴(R_n²−C_n), with C_n=binom(n,2) and R_n(0)=C_n>sqrt(C_n). In the integral for R_n, differentiating once for odd n gives an even exponent and a strictly positive integral; for even n both R_n and its second derivative are strictly positive. The leading degree and 0<R_n(−2)<sqrt(C_n)<R_n(−1) give exactly the two level crossings, with nonzero derivative even for n=3 or 4. On [1,2], R_n(−y)/n=1/y+O(1/n) uniformly, giving the right-root limit. For the left root, at any fixed y=2+δ the exponential term outgrows n, giving y_n→2 by the unique crossings; at y_n the exact equations for (y_n−1)^n/n have limits 2sqrt(2)−2 (even) and 2sqrt(2)+2 (odd). Taking logs first gives ε_n=O(log n/n), so replacing n log(1+ε_n) by nε_n incurs o(1). The proof is for all n≥3 and concerns only real roots. No numerical replay was needed to establish these conclusions; the frozen verifier's finite checks are supporting evidence only. Its int.bit_count would require Python 3.10+, notwithstanding the Python 3.8 note.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shao–Zhao prove clique substitution and a closure of real connected-domination roots over connected graphs, and analyze cycle roots.",
+          "Murthy et al. give the connected domination polynomial for complete bipartite graphs, without deleting a matching."
+        ],
+        "reasoning": "A global root closure gives no fixed-family census or asymptotics. Crowns are not nontrivial complete-clique blow-ups (they have no adjacent true twins); the complete bipartite case includes the missing matching edges. The special crown C6 is not an all-n result.",
+        "searches": [
+          "arXiv:2609.06569v5, Theorems 2.1 and 3.7 and §3.1",
+          "Murthy et al., Connected Domination Polynomial Of A Graph, Theorem 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ff1a0089415, d2b5937e8ed9, 5d6778d8bf31",
+        "arXiv:2609.06569v5 and arXiv:2507.03889",
+        "Murthy et al., Theorem 2.9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dividing the known polynomial by x⁴ reduces the problem to R_n=±sqrt(C_n). To turn this into an all-order result one needs the parity-specific global shape and transversality, then a different balance in each parity at y_n>2."
+        ],
+        "reasoning": "The new conclusions are deductions from a known polynomial, not new coefficients. The uniform root count, signs and explicit logarithmic shifts require further analysis not supplied by the compared results.",
+        "searches": [
+          "Prior Resultary crown polynomial, Finding and Limitations; Shao–Zhao §2–3; hard-core root record d2b5937e8ed9, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/10/12 crown enumerator is the identical connected polynomial on the same matching-deleted complete bipartite graph (also the bipartite double cover of K_n).",
+          "The 2026/11/22 hard-core comparator has a logarithmic left edge near −2 for odd n, but its crown polynomial is 2(1+z)^n−1+nz²; its odd constant is 2 and its parity root counts differ."
+        ],
+        "reasoning": "Removing x⁴ or changing the graph alias does not change the nonzero-root problem; changing the set statistic to independent sets or ordinary dominating sets does. The hard-core edge phenomenon does not give either connected-domination parity constant.",
+        "searches": [
+          "Web search: connected domination polynomial and crown-graph real roots",
+          "Resultary: crown domination and root asymptotics; enumerator versus matching-defect hard-core zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 0ff1a0089415 gives the full coefficient formula. Kumar–Pomeroy–Tran give γ_c=4. Record 5d6778d8bf31 concerns coefficient log-concavity for ordinary domination."
+        ],
+        "reasoning": "The exact enumerator contains the zero multiplicity, but neither it, the minimum cardinality, nor the other polynomial's coefficient cutoff supplies the nonzero root locations or limiting laws.",
+        "searches": [
+          "Resultary crown connected-domination exact coefficient/root comparison; records 0ff1a0089415 and 5d6778d8bf31",
+          "arXiv:2507.03889, §5.1 Lemma 5.1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-order nonzero real-root classification and the two asymptotics, including the parity-specific constants. The polynomial and zero multiplicity are already covered; they are background, not original results. No inspected comparator supplies or gives this full root theorem by a direct specialization.",
+      "residual_risks": [
+        "The independent check did not obtain full text of Mojdeh–Emadi (DOI:10.1515/fascmath-2018-0007) or Yoosuf–Kuttipulackal (DOI:10.1088/1742-6596/1850/1/012043); no full-text noncoverage claim is made for them.",
+        "Indexed searches do not rule out an earlier analysis of the crown polynomial or an equivalent truncated binomial level problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the enumerator, not the nonzero real-root theorem.",
+          "evidence": [
+            "Offsets 0–3439 give the classification and binomial formula; offsets 3200–6178 identify the contribution as enumeration and acknowledge the known minimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-connected-domination-polynomial-of-crown-graphs--0ff1a0089415/RESULT.md",
+          "material_read": "Finding and Relationship to prior work/Limitations.",
+          "method": "Read the named passages in the local Resultary mirror.",
+          "title": "Connected domination polynomial of crown graphs",
+          "trigger": "Same graph and exact polynomial."
+        },
+        {
+          "assessment": "No specialization giving the crown result in these passages.",
+          "evidence": [
+            "Offsets 10954, 23341, 31377: clique substitution, cycle roots, and global real-root closure (−∞,0], respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.06569v5",
+          "material_read": "Theorems 2.1 and 3.7; §3.1 cycle analysis.",
+          "method": "Located and read theorem passages in OA HTML.",
+          "title": "On the Roots of Connected Domination Polynomials",
+          "trigger": "General root and graph-substitution theory potentially covering crowns."
+        },
+        {
+          "assessment": "Covers minimum, not the root geometry.",
+          "evidence": [
+            "Page 14 (offset 43421): γ_c(C_{n,n})=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.03889",
+          "material_read": "§5.1 Lemma 5.1.",
+          "method": "Inspected OA PDF passage.",
+          "title": "Binomial Edge Ideals of Crown Graphs",
+          "trigger": "Same graph and connected domination."
+        },
+        {
+          "assessment": "Different graph family.",
+          "evidence": [
+            "Page 5 (offset 14636), K_{m,n} formula."
+          ],
+          "identifier_or_url": "https://ijma.info/index.php/ijma/article/download/2484/1508",
+          "material_read": "Theorem 2.9.",
+          "method": "Inspected OA PDF passage.",
+          "title": "Connected Domination Polynomial Of A Graph",
+          "trigger": "Complete-bipartite enumerator potentially conflated with the crown result."
+        },
+        {
+          "assessment": "Different polynomial, root count and edge constants.",
+          "evidence": [
+            "Offsets 0–3711: crown hard-core polynomial and odd edge displacement (log n+log 2)/n+o(1/n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-matching-defect-robustness-of-hard-core-zeros-and-parity-split-c--d2b5937e8ed9/RESULT.md",
+          "material_read": "Finding.",
+          "method": "Read local Resultary mirror.",
+          "title": "Matching-defect robustness of hard-core zeros and parity-split crown-edge scales",
+          "trigger": "Same graph, similar parity and logarithmic edge asymptotics."
+        },
+        {
+          "assessment": "Ordinary domination and coefficient shape, not connected-domination roots.",
+          "evidence": [
+            "Finding at offset 71 specifies ordinary domination and its log-concavity cutoff."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-log-concavity-cutoff-for-domination-polynomials-of-crown--5d6778d8bf31/RESULT.md",
+          "material_read": "Finding.",
+          "method": "Read local Resultary mirror.",
+          "title": "A sharp log-concavity cutoff for domination polynomials of crown graphs",
+          "trigger": "Same graph and domination polynomial terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crown is a standard graph family. For its known enumerator, an all-order exact count and separation of simple real zeros is useful root geometry, not an extra coefficient computation. The interior limit and parity-dependent boundary scale distinguish two mathematical mechanisms and give researchers quantitative benchmarks for this graph-polynomial family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

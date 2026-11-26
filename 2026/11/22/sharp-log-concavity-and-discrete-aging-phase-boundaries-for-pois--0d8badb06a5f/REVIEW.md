@@ -1,11 +1,21 @@
-# Review: Poisson–Loai sharp discrete aging and curvature boundaries
+# Independent mathematical audit
 
-**Correctness — PASS.** The count-law PMF, including normalization, is checked against the original full text and independently rederived by geometric sums. The full log-concavity condition reduces to the first adjacent determinant because its polynomial part strictly increases for all nonnegative indices. The full IFR condition similarly reduces to the first hazard step because the exact numerator is a strictly increasing polynomial. These calculations prove both quantifier-complete statements and every equality case. Positive roots of two concave quadratics give the exact nested phase regions; a positive-root formula gives the unique bathtub-hazard turning point. Exact rational examples lie on both sides of the thresholds. An executable symbolic checker recomputes all critical identities, but finite probes are not used as infinity proofs.
+## correctness
 
-**Originality — PASS (qualified).** The 2024 originating article (Sections 2–3, equations (2)–(4) and its hazard-plot discussion) provides the PMF and hazard formula but not a complete monotonicity phase classification, and does not classify discrete log-concavity. The 2022 binomial–natural discrete Lindley article proves log-concavity and IFR for a different mass function, so it cannot imply the two distinct Poisson–Loai thresholds. The closest related mathematical findings concern Poisson–generalized Lindley and other Poisson/negative-binomial mixtures, with different count laws and parameter dependence. Actual searches under the source title, aliases, hazard/aging, log-concavity and mixed-negative-binomial formulations did not disclose a dominating statement. This supports a best-knowledge novelty assessment but does not guarantee historical priority.
+PASS
 
-**Value — PASS.** This is a natural complete reliability classification for an applied count family, not an isolated numerical recomputation: it distinguishes IFR, strict loss of strong unimodality, and a true initial hazard decline; proves a whole nonempty region where IFR holds despite log-concavity failure; and specifies the unique hazard trough age. It resolves the gap between plots suggesting monotone hazards and the model's possible nonmonotone behavior, important when using counts as discrete lifetimes or selecting reliability models.
+For p_n=K q^n P(n), P(x)=Ax^2+Bx+C, direct geometric generating functions give a normalized positive PMF. Cancelling the geometric factor from its curvature leaves (2An+B)^2-2AP(n)-A^2, increasing strictly for n>=0 with value 4L at n=1. The survival generating function is (1-zG(z))/(1-z) for PMF generating function G. Extracting its coefficients gives the survivor at n as K q^n U(n)/(1-q), with U(n)=P(n)+(2An+B)/theta+A(theta+2)/theta^2. Clearing positive denominators in the adjacent hazard difference yields the sign of (theta/4)[P(n+1)U(n)-P(n)U(n+1)], which expands to the frozen F(n). Its quadratic and linear terms are strictly positive, so the first hazard step alone decides IFR. When H<0 there is exactly one positive real root, one change from negative to positive steps, and a flat step only if the root is integral. When H=0, the only flat step is the first. The limit is 1-q. H-L=alpha+2 alpha^2 theta>0; both are positive for alpha>=1/3 and each is a downward-opening quadratic with positive constant term for 0<alpha<1/3, giving the two stated positive roots in strict order. Both rational witnesses and their boundary signs check. This proves the infinite-index claims, independently of any finite probes.
 
-Scope is restricted to the published count family with positive parameters. Full priority checks against unavailable, unindexed literature cannot be guaranteed, and there has been no independent mathematical assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed increment is the exact pair of Poisson–Loai count phase boundaries and the one-turn non-IFR hazard shape. The 2024 source already gives the distribution and hazard expression; the reported examples and accessible statements do not cover this sharp classification. Related indexed work is on different PMFs or different properties. This limited positive conclusion does not certify priority.
+
+## value
+
+PASS
+
+The two exact boundaries resolve a genuine gap in interpreting the reliability behavior of a published count family: IFR can hold without log-concavity, and the hazard can truly be nonmonotone rather than merely failing an easy sufficiency test. The whole separation band and exact turning-age rule let a reader diagnose any admissible parameters instead of relying on selected plots or isolated counterexamples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

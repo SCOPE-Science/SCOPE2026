@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C)
-PASS. The reversed frame has directed triangles exactly on triples \(j\to i\to k\to j\) with \(i<k<j\). For singleton valuations, any failure must induce one of these triangles. Splitting the distinguished singleton into the three possible triangle positions gives the exhaustive exact count. For the two zero-count cases, transitivity or a terminal directed triangle with nested earlier successor sets proves full validity under arbitrary valuations, not merely singletons. Independent finite enumeration checked all reversal positions through size nine and every Boolean valuation through size eight. Limits: those calculations are tests, not an infinite proof.
+## correctness
 
-## Originality (O)
-PASS within the inspected evidence. The 2026 paper on proof systems for non-contingency and the 2013 foundational knowing-whether paper address general semantics, proof calculi and frame classes, not a position-resolved one-edge-reversal spectrum on transitive tournaments. A related published result on non-contingency introspection for out-trees concerns a distinct frame family. The known fact that a transitive tournament validates the axiom does not imply the exceptional terminal three-cycle or the exact singleton-failure numbers. Remaining risk: specialized results on tournament perturbations or frame correspondence could cover this calculation in alternate notation.
+PASS
 
-## Value (V)
-PASS. This gives a sharp first-order perturbation boundary of a non-normal modal introspection principle: exactly one nontransitive safe reversal in addition to the order-preserving adjacent swaps. More than just a validity test, the theorem measures the position-sensitive number of minimal-support refuting observations for *every* one-edge reversal, distinguishing long-range flips ending at the final vertex from all others. This is a meaningful complete local stability profile, not an arbitrary fixed-size enumeration.
+For a singleton {s}, a successor v with false Δp must beat s and have outdegree at least two. At a failure root x, one has s≠x (the tournament has no opposite arcs) and x cannot beat s, since then Δp at x would force outdegree one. Thus s→x→v→s; the only cycles are j→i→k→j with i<k<j. For j<n, the later vertex j+1 supplies a successor with true Δp in each of the three cyclic roles. The distinct (s,x) pairs are (j,i), (i,k), (k,j), totaling 1+2(j−i−1) when the gap is at least two. For j=n, outdegree one at n rules out two roles, leaving (n,i), which fails exactly if x=i has both n−2 and n−1 as successors: the first beats n and n−1, the second beats only n. For all valuations the adjacent flips remain transitive, and in the terminal triangle each member has one successor while at earlier roots every successor's successor set is contained in the root's. This includes n=3 and gives n preserving labelled choices. The frozen VERIFICATION.md and check.py were inspected; a separate adjacency-set implementation agreed on all 119 reversals and 868 singleton assignments through n=9 and on validity over 11,256 Boolean assignments through n=8. That replay is bounded; the triangle proof covers arbitrary n. No Lean verification or specialist attestation is inferred.
 
-## Scientific scope
-Only single-arc reversals from a fixed strict ranking and singleton-countervaluation counts are covered. The general tournament validity problem, multiedge changes, and full truth-assignment failure distributions are not resolved. Historical priority requires independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established semantics and transitive-frame 4Kw sufficiency. The supported contribution is the exact perturbation classification including the sole nontransitive preserving flip and the position-sensitive count of singleton valuation–world failures. The closest distinct edge-stability finding is for undirected edge edits, which do not model arc reversal: the undirected skeleton of every tournament in this family is unchanged. No equivalent or stronger coverage was established in the inspected statements.
+
+## value
+
+PASS
+
+A single changed arc is the first natural stability layer of transitivity. The lone cyclic preservation case separates modal validity from transitivity in that layer, and the exact singleton witness-pair profile distinguishes interior and terminal disruptions quantitatively. This is a reusable exact benchmark for tournament frame perturbations, not a claim about all tournaments or all countervaluations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

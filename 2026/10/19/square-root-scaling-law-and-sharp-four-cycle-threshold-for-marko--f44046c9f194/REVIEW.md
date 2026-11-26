@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Markov resolvent is a positive geometric series, so row conservation and sufficiently small-scaled-step positivity follow directly. Exact two- and three-state rational formulas establish their complete minimal budgets. On directed cycles of dimension at least four, the group inverse \(K\) of \(I-P_n\) has positive one-step coefficient \((n-3)/(2n)\), which forces the negative large-step entry for every fixed even dyadic power. Uniform Fourier expansions when the power grows prove matching upper and lower half-logarithmic bounds on the minimum budget. Four-mode Fourier inversion gives the displayed critical limiting transition and a unique boundary root; its derivative and positivity arguments cover every \(q>0\). The standalone exact rational verifier passed 112 supplemental assertions; it does not replace the proof.
+## correctness
 
-## Originality — PASS, conditional on available published comparisons
-The closest motivating source is Blanes, Kopylov and Seydaoğlu (arXiv:2404.12789v1), whose inspected exposition provides Padé scaling and squaring and backward-error analysis, but no sign classification on directed Markov cycles. Sherlock (2021, DOI:10.1007/s00180-021-01102-6) develops a nonnegative uniformization-based matrix exponential scheme for Markov jump processes; it does not supply the computed Padé-power frontier. Recent work on rational-map high-step signs treats a single unsquared rational map; its accessible abstract does not imply the critical dyadic repeated-power limit. Related exact one-factor positivity conditions, other Padé degrees, and positivity filters do not imply the coupled \(m^2/h\) scaling or its root equation. Targeted public and mathematical-record searches found no covering statement. Residual risk: an unavailable full text or unindexed specialized result might contain an equivalent formula.
+PASS
 
-## Value — PASS
-The directed-cycle generator is a minimal natural Markov benchmark with an exact strictly positive exponential, so negative numerical transition probabilities are immediately meaningful. The result identifies the sharp dimension at which *no fixed* number of Padé squarings guarantees probability positivity, quantifies how the minimum required budget grows, and yields an exact four-state phase boundary. These are qualitative numerical-reliability limits, not routine sign checks or arbitrary parameter slices.
+The cycle resolvent A=(I+a(I−P))⁻¹ is strictly positive and stochastic by the geometric series. Hence 2A−I preserves row sums and is positive when a<1. Direct cyclic convolution gives the stated diagonal cutoff for n=3 and all-positive square for every a>0; the n=2 rational entries are positive. For fixed n, the inverse of I−P on the zero-sum subspace has forward coefficient (n−3)/(2n). For even m, expanding the nontrivial multipliers via log(−ρ)=−2/[a(1−λ)]+Oₙ(a⁻²), then exponentiating, gives a forward coefficient −(n−3)q/n+Oₙ(q²+q/a), q=2m²/h. This holds uniformly over the dyadics with q bounded by a small constant as h grows (a then diverges uniformly), so it rules out every such dyadic, not just a fixed power or a subsequence. The unsquared large-step diagonal tends to 2/n−1. At the first dyadic above C√h, q stays in a fixed compact positive interval and the nonconstant multipliers have modulus e⁻ᑫ+o(1) uniformly. For sufficiently large C this makes each entry differ from 1/n by less than 1/n. At n=4, inversion using λ=i,−1,−i gives a minus sine for the forward entry, and the other three limiting entries are strictly positive for q>0. The forward sign is that of eᑫ−1−2 sin q, strictly convex on (0,π) with negative initial derivative and strictly positive for q≥π, proving the unique strictly positive threshold. Independent exact rational arithmetic reproduced all four witness numerators and their sum; Decimal bisection reproduced 0.9777603734668504137… .
 
-## Closest literature and limitations
-The Padé technique itself is established; so are general warnings that Crank–Nicolson is not positivity-preserving at large steps. The scope is the cyclic generator family, fixed degree-one Padé approximation, exact arithmetic, and a positivity-only budget. The asymptotic constant should not be read as a general finite-step threshold or accuracy-optimal algorithm. Primary literature may contain a not-yet-located specialized equivalent; independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact overlap in the one-factor result and the overlap in fixed-power classification. The supported distinct part is the uniform-in-budget half-logarithmic minimum for fixed n≥4 and the four-cycle limiting profile and critical constant. The inspected fixed-power laws and general matrix-exponential methods do not determine these coupled limits.
+
+## value
+
+PASS
+
+The calculation addresses a concrete structural failure: a stochastic row sum does not preserve the qualitative positivity of a Markov approximation. The budget law distinguishes the least necessary scaling order from an easy sufficient linear subdivision count, and the explicit four-state threshold makes the first nontrivial regime quantitatively testable. This is a positivity result, not an accuracy or cost-optimality guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

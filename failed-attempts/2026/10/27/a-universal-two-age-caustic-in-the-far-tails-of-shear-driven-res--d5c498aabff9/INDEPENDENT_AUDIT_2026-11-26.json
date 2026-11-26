@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:55:21.818013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson regeneration gives a unique stationary law with exponential age and the Gaussian mixture of RESULT.md, with Var(Y)=2t, Cov(X,Y)=t², Var(X)=2δt+2t³/3. The determinant 4δt²+t⁴/3 is positive even at δ=0. Conditional on Y=L, X has mean tL/2 and variance t³/6+2δt, so at t=Ls the exact exponent including resetting is L[s+1/(4s)+(c−s/2)²/(s³/3+4δs/L²)]. This is LF_c+O(L⁻¹) locally uniformly and the scaled Gaussian prefactor is √3/(2πLs²)(1+O(L⁻²)). At small ages the transverse exponent L²/(4t) and prefactor bound proportional to t⁻² give an exponentially negligible tail once ε is small enough; at large ages e^(−t) gives the other localization. F'_c=1−(s−3c)²/s⁴ gives the young minimum and, for c<1/12, the old minimum and a separating maximum. At 1/12 the merged old critical point does not minimize. Equality of branch costs and d=v−u=u²+v² imply d(1/(uv)−4)=2 with uv=(d−d²)/2, hence d=1/2. This gives c*=√3/24 and J(c*)=√3. The young cost diverges at zero, and it is lower near the old-branch fold; uniqueness of the equality fixes the ordering for all c>0. Evaluating ∂_cF at the two nondegenerate saddles gives the stated slopes. Laplace's formula gives the sharp density and, applied with bounded continuous age tests, the mixture; the Hessian and amplitude ratio is √(v/u)=√(2+√3). The density posterior uses the canonical Gaussian-mixture version. The argument is for finite δ≥0 and c>0 fixed, not a shrinking ray window. Replay: RESULT.md lines 31–62. VERIFICATION.md and checks/checker.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b065d0aa90c8 treats a thermally perturbed action with exact Gaussian-age integral, gives a unique limiting branch switch and then the coexistence shift q_η=q_c+O(η⁻²), with Hessian-derived weights for fixed sufficiently large η.",
+          "c202451627eb gives a joint age–velocity LDP, not the explicit crossover; 2c4d5a8bd4fb conditions only on extreme longitudinal displacement, giving a single typical age and Gaussian transverse/age fluctuations."
+        ],
+        "reasoning": "A fixed-η asymptotic alone would not justify a joint η→∞ limit. Here the exact integral and locally uniform expansion in the weak-shear record make that particular joint limit direct and preserve the two comparable saddles, as detailed in the implication check. The other two catalogue records by themselves do not supply the full claim.",
+        "searches": [
+          "b065d0aa90c8 RESULT.md Finding and Proof §§1–5 (local mirror)",
+          "c202451627eb and 2c4d5a8bd4fb RESULT.md Findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/checker.py",
+        "Resultary b065d0aa90c8, c202451627eb and 2c4d5a8bd4fb",
+        "Abdoli–Olsen–Löwen arXiv:2410.10333v1",
+        "Singh arXiv:2007.05576"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the exact kernel of b065d0aa90c8 set R=cL², q=c^(−1/2), η=√(R/δ) for fixed δ>0. Its physical coordinate formulas then give normalized (X,Y)=(cL²,L) and fixed γ/r=1/√δ. The age variable there is z=qs.",
+          "Its exact correction F_η−F∞=−9η⁻²(qz−2)²/[z³(z²+12η⁻²)] is locally uniformly O(η⁻²), so the full exponent difference after multiplying by √R is O(L⁻¹), even at coexistence. Its g_η(z)=1/[z√(1+η²z²/12)] gives g_η∼√12/(η z²); conversion of density and age variables gives the frozen prefactor. The same kernel with the normalized zero-thermal limit gives δ=0.",
+          "The limiting stationary factorization and unique crossing in §2 leave only the young minimum below the old-branch existence threshold in q. On the competing interval both ages, their Hessians and the envelope slopes follow from the explicit same branch functions; localization by marginal Gaussian and resetting gives the same Laplace sum."
+        ],
+        "reasoning": "No exchange of two merely pointwise asymptotic statements is needed. The exact representation and compact-uniform error imply the fixed-diffusivity law by one Laplace localization, with well-separated tails. At coexistence, the exponent discrepancy tends to zero, so both Hessian-derived weights survive; the particular radicals follow by substitution into the known root and the two branch formulas. The corner slopes are derivatives of those same known minima.",
+        "searches": [
+          "b065d0aa90c8 RESULT.md offsets 0–984, 980–4326, and 4326–7526; Proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For b065d0aa90c8 write q=c^(−1/2), z=qs. Its F∞(z,q)=z+q²/z−3q/z²+3/z³ satisfies F_c(s)=F∞(qs,q)/q. Its young and old ages divide by q to become the submitted ages, and its unique limiting equality q_c yields c*=q_c⁻².",
+          "For c202451627eb the joint age–velocity action satisfies √(3c/2) Ψ(s/√(3c/2),√(2/(3c)))=F_c(s). Singh Eq. (16) is the pure random-acceleration stationary mixture; Eq. (21) is a marginal position tail, not this fixed-velocity posterior.",
+          "Abdoli et al. Eqs. (2)–(3), (5) supply the same exact propagator and stationary renewal integral in physical coordinates."
+        ],
+        "reasoning": "Translate physical shear and dimensionless variables rather than compare names. The b065d0aa90c8 action equivalence preserves all global minimizers and exchanges the ordering of ray parameters through q=c^(−1/2); the branch switch itself is explicitly shared.",
+        "searches": [
+          "Resultary: fixed-ray shear resetting, conditional reset age, random acceleration; b065d0aa90c8 and c202451627eb",
+          "Abdoli–Olsen–Löwen arXiv:2410.10333v1; Singh arXiv:2007.05576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b065d0aa90c8 Finding gives q_c=3.722419436408398… as the unique exact root of the equality of its named branch actions, not just a numerical fit. Its associated age weights are expressed by the Gaussian amplitude and the Hessians."
+        ],
+        "reasoning": "The exact defining equality and uniqueness, not the decimal, identify the transition with the submitted c*=q_c⁻². Evaluating the same equality and prefactor in radicals does not give a new threshold or posterior law.",
+        "searches": [
+          "Resultary shear-driven two-age switch, weak-shear thermal shift b065d0aa90c8; locate 3.722419436 in RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed result, Resultary b065d0aa90c8, explicitly gives the same two-saddle limiting action, unique exchange and exact implicit threshold; its exact age kernel and uniform compact perturbation also imply the submitted fixed-diffusivity sharp asymptotic and mixture. This goes beyond a shared model, matching number, or possible overlap. Reparameterization and the elementary exact evaluation of its root, saddle derivatives and weights account for the remaining formulas. This is a coverage judgment relative to the inspected record, not a claim about historical precedence, copying, or chronology.",
+      "residual_risks": [
+        "The catalogue path dates do not settle priority, independence, or who first obtained this law; the decision concerns demonstrable coverage, not attribution.",
+        "No shrinking critical-window result is claimed or compared as a potential distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material mathematical coverage of the frozen leading law via its exact representation and limiting two-minimum analysis; finite-η thermal shift is a different additional result",
+          "evidence": [
+            "Exact joint density with F_η and g_η; exact uniform perturbation, explicit limiting actions and branches, unique crossing and weight formula."
+          ],
+          "identifier_or_url": "Resultary b065d0aa90c8",
+          "material_read": "RESULT.md Finding, definitions, Proof §§1–5, offsets 0–7526; relationship passage near 8623",
+          "method": "Local Resultary search and mirror reads of the decisive source passages",
+          "title": "A weak-shear thermal shift of two competing extreme-excursion reset ages",
+          "trigger": "Same mathematical age competition and posterior in alternative scaling"
+        },
+        {
+          "assessment": "Same kernel, not the specific two-saddle analysis in inspected passages",
+          "evidence": [
+            "Exact Gaussian propagator and stationary renewal integral; Eq. (6) is perturbative rather than a fixed-parabola asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.10333v1",
+          "material_read": "§II Eqs. (1)–(3) and §III Eqs. (5)–(6), offsets 8500–15997",
+          "method": "Lawful OA arXiv full-text passages",
+          "title": "Shear-Driven Diffusion with Stochastic Resetting",
+          "trigger": "Original exact model and possible joint far-tail theorem"
+        },
+        {
+          "assessment": "Same limiting kernel and a marginal tail, not the specific parabolic-ray age switch in inspected material",
+          "evidence": [
+            "Eq. (16) mixes the complete-reset propagator; Eq. (21) integrates away the velocity implicated in the coexistence ray."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2007.05576",
+          "material_read": "§2 Eqs. (9)–(10), §3.1 Eqs. (16), (21), offsets 10695–22562",
+          "method": "Lawful OA arXiv full-text passages",
+          "title": "Random acceleration process under stochastic resetting",
+          "trigger": "Equivalent δ=0 joint position–velocity model"
+        },
+        {
+          "assessment": "Exact action-level overlap in the former; distinct endpoint conditioning in the latter",
+          "evidence": [
+            "Fixed scaled-velocity restriction recovers F_c; longitudinal-only conditioning does not fix the transverse ray."
+          ],
+          "identifier_or_url": "Resultary c202451627eb; 2c4d5a8bd4fb",
+          "material_read": "RESULT.md Findings and age–velocity action comparison",
+          "method": "Local Resultary search and mirror reads",
+          "title": "Extreme displacement, velocity and reset-age laws for random acceleration; Universal age–transverse fluctuation correlation in extreme shear excursions",
+          "trigger": "Joint age–velocity LDP and sharp extreme-shear posterior"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Age coexistence is a meaningful rare-event phenomenon, but the inspected coverage already supplies the competition, threshold equation, exact kernel and saddle-weight law that give it scientific significance. The remaining additions are radical evaluations and the direct fixed-noise scaling of the same formulas; they do not establish an independent unknown invariant, new regime of competition, or quantitative critical-window result. No repaired finding is being submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

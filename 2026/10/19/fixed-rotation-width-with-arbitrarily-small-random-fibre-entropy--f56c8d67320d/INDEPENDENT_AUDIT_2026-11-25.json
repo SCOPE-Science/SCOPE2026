@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:35:13.837908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite Delta>0 and integer K>Delta/2, p lies strictly between 0 and 1. The number N_n of active symbols satisfies N_n/n -> p on a single full-measure set; the lift composition is exactly G_K^N_n. Every active displacement lies in [-K,K], while 1/4 and 3/4 are fixed modulo 1 with lift increments K and -K; integrality and G_K(x+1)=G_K(x)+1 make these increments persist. This proves the two extremal limiting velocities and bounds all possible velocities, and the applicable LLR Theorem 2.1 supplies the interval property. The uniform displacement bound verifies its integrability hypothesis. The random n-observation Bowen metric uses exactly the deterministic observation indices 0 through N_{n-1}; M_n=N_{n-1}+1 tends to infinity, eventually takes every integer, and M_n/n -> p. Thus the separated-set limsup at each scale is precisely p times the deterministic one, including the necessary subsequence direction. On [0,1/4] the lift strictly increases from 0 to K+1/4, so the inverse images of [j,j+1/4], 0 <= j <= K, are disjoint compact branches with a positive gap and all map onto [0,1/4] modulo 1. Nested inverse images yield (K+1)^n points separated at a fixed positive scale. Conversely arcs of length less than epsilon/(1+2*pi*K)^(n-1) give a separated-set upper bound of order (1+2*pi*K)^(n-1)/epsilon. These prove both entropy bounds, positive for each K, and even give asymptotic equivalence to Delta log(K)/(2K) as K tends to infinity. Read but did not execute the frozen finite consistency checker; it does not certify the infinite results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LLR gives the interval property and qualitative positivity. Its proof uses a block length N and a positive probability of a full-cover event to obtain a lower bound proportional to probability divided by N.",
+          "LLR §5 Question 2 discusses recurrence-dependent quantitative estimates, and expressly notes that the proof yields no width-only lower bound."
+        ],
+        "reasoning": "Qualitative positivity for each system does not bound the infimum over systems of a given width. The proof does not make its recurrence coefficient a function of width. No stronger prior degeneration theorem covering this fixed-width construction was identified.",
+        "searches": [
+          "arXiv:2606.16498v1 Theorems 2.1 and 2.3 and proof of Theorem 2.3",
+          "Focused literature search for Bernoulli identity-step entropy time change with fixed positive rotation width"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.16498v1",
+        "Mirrored Resultary findings 12bec35e4a8d and 6a4205c2907b",
+        "Focused indexed searches for earlier identity-step or fixed-width examples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "LLR gives a positive entropy for each nondegenerate system, and gives one width-one family of constant positive entropy.",
+          "The frozen construction retains exactly Delta while entropy tends to zero; its active deterministic width grows like K, active frequency decays like 1/K, and active entropy is O(log K)."
+        ],
+        "reasoning": "The conclusion is consistent with LLR but requires the simultaneous scaling of these three quantities; LLR's positivity and constant-entropy example do not imply it. This addresses the width-only question, not a general random symbolic-factor result nor a recurrence-dependent quantitative estimate.",
+        "searches": [
+          "arXiv:2606.16498v1 §5 Question 2, §§3–4 examples",
+          "Resultary records 12bec35e4a8d and 6a4205c2907b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LLR uses the same sample Bowen metrics (observations 0 <= j < n) and the same displacement-based interval, not entropy of the full skew product.",
+          "Resultary 12bec35e4a8d gives zero restricted entropy of each invariant singleton for maps with full fibre entropy log 3; it does not bound entropy of their full fibres from above."
+        ],
+        "reasoning": "Restricted invariant-graph entropy, annealed entropy and skew-product entropy are not equivalent to the asserted whole sample fibre entropy. Random dilution is an exact clock change here, not an application of a deterministic width-only bound to the Bernoulli system.",
+        "searches": [
+          "Resultary: random rotation diameter, Bernoulli circle maps, fibre entropy",
+          "Literature search for fixed-width entropy collapse and random time changes",
+          "arXiv:2606.16498v1 §2 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit LLR Bernoulli family has width 1 and exactly log 3 entropy for all p; both maps have three full branches.",
+          "The mirrored findings at 12bec35e4a8d and 6a4205c2907b use those same two generators, not an idle generator."
+        ],
+        "reasoning": "This is a universal obstruction witnessed by an unbounded parameter family, not a finite tabulation problem. The nearest explicit computations were checked instead: they do not have entropy tending to zero and their fixed values or rotation-level dimensions cannot certify the claimed degeneration.",
+        "searches": [
+          "LLR Examples 3.1 and 4.1, arXiv:2606.16498v1",
+          "Resultary 12bec35e4a8d and 6a4205c2907b"
+        ]
+      },
+      "rationale": "The retained obstruction is to a positive bound for the whole quenched fibre entropy at each fixed positive width. Neither the directly compared positivity theorem and fixed-width example nor the adjacent restricted-entropy and rotation-spectrum results establish it. The elementary identity-step clock is not claimed independently as a new general technique.",
+      "residual_risks": [
+        "An equivalent width-versus-recurrence example in unindexed material is not excluded.",
+        "The result imposes no common Lipschitz cap or positive lower bound on the activation probabilities across the family; such restricted settings are not compared as equivalent claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides applicability and compatibility, not the fixed-width small-entropy family.",
+          "evidence": "Window-recurrence proof gives positivity without a width-only estimate; the width-one example has log 3 entropy for every p.",
+          "identifier_or_url": "https://arxiv.org/html/2606.16498v1",
+          "material_read": "§2 lift and entropy definitions and Theorems 2.1 and 2.3 (OA offsets 9200, 11788, 20525, 26537 and 101000); Example 3.1 (83710 and 87109); proof of Theorem 2.3 (107156–119840), Example 4.1 (119765), and §5 Question 2 (131535).",
+          "method": "Located and read passages in the original open-access paper.",
+          "title": "Rotation Sets and Topological Entropy for Random Circle Endomorphisms",
+          "trigger": "Identical random rotation and entropy notions; strongest direct theorem and closest matching example."
+        },
+        {
+          "assessment": "No implication of entropy dilution on the full circle.",
+          "evidence": "Zero entropy is for restricted singleton dynamics only; both generators are the LLR piecewise-affine maps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-simultaneous-ordered-invariant-graphs-for-the-full-bernoulli-rot--12bec35e4a8d/RESULT.md",
+          "material_read": "Finding and Assumptions and scope through the displayed choice of sections, mirror offsets 0–2244.",
+          "method": "Read the actual locally mirrored record passage.",
+          "title": "Simultaneous ordered invariant graphs for the full Bernoulli rotation interval",
+          "trigger": "Fixed-width Bernoulli rotation interval and an apparent zero-entropy claim."
+        },
+        {
+          "assessment": "Studies dimensions of displacement level sets, not small whole-fibre entropy.",
+          "evidence": "The family again uses two three-branch affine generators and computes a Hausdorff-dimension spectrum, with no rare identity steps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-pathwise-multifractal-spectrum-of-rotation-displacement-for-two--6a4205c2907b/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and start of proof, mirror offsets 0–2246.",
+          "method": "Read the actual locally mirrored record passage.",
+          "title": "Pathwise multifractal spectrum of rotation displacement for two degree-one circle maps",
+          "trigger": "Bernoulli-width example with pathwise dependence on symbol frequency."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated quantitative boundary for a recent qualitative positivity theorem: even analytic iid generators with any prescribed positive width give arbitrarily small whole-fibre entropy. It identifies which apparently natural parameter is insufficient and why recurrence or uniform generator control may matter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

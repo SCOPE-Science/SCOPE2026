@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The point-process limit follows from independent rare Bernoulli reversals and direct harmonic-logarithm summation. Convergence of the ordered top atoms supplies asymptotic separation of the final two reversals. A deterministic count of steps opposing the terminal velocity then bounds the ballistic deficit and proves its exact asymptotic equivalence to twice the last reversal epoch. Exact finite-size survival products and independently generated paths corroborate the inequalities. No finite simulation is used to establish convergence.
+## correctness
 
-**Originality — PASS with a residual literature risk.** The nearest full primary sources are Pradhan–Ray–Roy's 2026 time-dependent reversal model and the 2019/2020 Engländer–Volkov–Wang critical-cooling scaling theorem. The former explicitly lists the logarithmically corrected inverse-time rate; the latter proves convergence to a random ballistic ray when the rate is smaller than inverse time. Neither inspected result states the logarithmic ballistic-front-deficit law or the full rescaled recent-reversal hierarchy. The result does not claim the previously established ray limit or classical Poisson approximation as new. Broad renewal/rare-event literature might imply the specialized observable without using its present terminology.
+PASS
 
-**Value — PASS.** The limit distinguishes weakly ballistic motion from its approach to the actual ballistic support edge. It resolves a natural physical finite-time question left invisible by a degenerate velocity-scaling limit: what fraction of walks lie within a power-law-thin layer of the ballistic front, and what random scale sets that layer? The power-law boundary profile and joint reversal-age cascade are explicit and parameter-dependent, not an arbitrary computational slice.
+On every compact log-coordinate interval [a,1] with a>0, the Bernoulli mean measures converge by the integral test to c du/u, and the summed quadratic error in the log Laplace functional is bounded by the maximum Bernoulli probability times the bounded sum. Thus the limiting Poisson process gives joint upper order statistics: first work on [a,1] and then send a to zero, using infinitely many atoms at zero's boundary and no ties. The mapping u=exp(-s/c) gives rate-one exponential arrival spacings. Since 0<U_2<U_1<1 almost surely, the previous reversal is o_P(T_N) and T_N is o_P(N). In the actual step convention the opposing block contains steps max(1,L) through T_N-1, and all opposing steps precede T_N. Therefore N-V_N X_N lies between 2(T_N-max(1,L)) and 2T_N, and equals B_N when T_N<N/2. The missing-reversal conventions have vanishing probability by independence and divergence of the reversal mean. This proves both the sharp ratio and the continuous Beta(c,1) threshold limit. Frozen verify_edge.py is a finite exact-product/simulation cross-check, not the proof or an independent replay. RESULT.md's 'six independent comparisons' does not match its four checkpoints at each of three c values (12 checks, with common samples within each c), as correctly tallied in VERIFICATION.md. That reporting discrepancy does not enter the theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the joint logarithmic reversal aging for the fixed sequence p_k~c/(k log k) as it determines the actual deficit B_N, especially B_N/(2T_N)→1 and the resulting edge law. The schedule, the coarse random ballistic-ray limit, and the ordered scale-invariant Poisson atom law itself are covered and do not count as new. Inspected primary and indexed results did not establish the walk-level sharp law for this regime. This is a bounded comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+The deficit is the natural distance from the endpoint of the finite walk's ballistic support, not an arbitrary rescaling of position. The result quantifies a front profile that the macroscopic ray cannot distinguish and identifies the single reversal that determines the deficit to relative accuracy. This gives threshold probabilities for all interior exponents and retains the full hierarchy of recent turns, despite logarithmically slow convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

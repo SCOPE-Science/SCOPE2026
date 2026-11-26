@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:29:59.992628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The competitor's first-coordinate exceedance contributes exp(-x); at shortfall d in [0,min(w,x)] the second-coordinate contribution has conditional probability w-d and density exp(-x+d). This yields the verified two-branch CDF. As exp(-X) is uniform, transform by z=1-F conditional on w. Its inverse density is constant 1/(exp(w)-w) until z0=1-w exp(-w) and strictly increasing thereafter. The Beta(1,n) coupling yields strict decrease; the positive error is supported where 1-z<=1/e. A compact interior rectangle with w approaching 1 and 1-z approaching 1/e from below gives the matching root lower bound. Jensen and the exponential series give L>=3/(e+1)>4/5. Independent Simpson checks for the corrected and frozen integrals give 0.843078886983059 and 0.732359299691928 at 1048576 subdivisions; replay files under /workspace/branches/e36104ac-0029-4247-973e-b3c4cfb85308/ are independent_quad_corrected.py and independent_quad_results.txt. The newly written replacement verifier also ran successfully. The original script was inspected, not executed; its diagnostics take the faulty CDF as given.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1–2 give convergence in a max-domain of attraction and the expected reciprocal of the maximum-of-ratios expectation.",
+          "Proposition 3 gives nonincrease and a polynomial bias equivalent for a max-stable input with limiting probability below one. The strip calculation has an exponential bias, rather than the two-site 1/n bias of a max-stable input."
+        ],
+        "reasoning": "The theorem for a max-domain of attraction covers L on inserting the spectral law; the finite-n Proposition 3 instead requires max-stability of the input, not merely attraction to a max-stable limit, and does not cover the strip's sharp rate or strict ordering.",
+        "searches": [
+          "Dombry, Ribatet and Stoev Theorems 1–2, eq. (10), and Proposition 3 (p. 11, PDF offsets 57458–59133)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Răducan et al. DOI 10.3390/math10101623 §5.2",
+        "Dombry et al. arXiv:1503.05748 Theorems 1–2",
+        "Resultary 996b67664456 and fa5861c29efc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pareto-tail representation verifies the max-domain hypothesis; the expected maximum of the ratios for mark v is v+exp(1-v)-1, so the corrected integral is mechanically implied by these general theorems.",
+          "The inverse-CDF density's increasing branch and the endpoint z0=1-w exp(-w) locate the positive error and give the sharp rate. Neither property is determined by the limiting spectral formula."
+        ],
+        "reasoning": "Credit prior coverage for the asymptotic formula; the added exact finite-sample conclusions require the true CDF including its non-Pareto lower branch.",
+        "searches": [
+          "Dombry et al. eq. (10) specialized to a Pareto scalar times (1,exp(V)/(e-1))",
+          "Răducan et al. §5.2 printed CDF and simulation passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The named leader is exactly the common sample maximizer, i.e. the two-coordinate sample hitting partition has one block.",
+          "Răducan et al. p. 15 gives the same law and says 'Computer simulations suggest that a ≥ 0.8.' It equates a correct density integral to an incorrect closed CDF.",
+          "Resultary 996b67664456 and fa5861c29efc assume independent-coordinate product laws."
+        ],
+        "reasoning": "Concurrence is the relevant equivalent formulation. Product-law calculations cannot transfer directly to a dependent strip; its conditional CDF must be corrected.",
+        "searches": [
+          "On the Probability of Finding Extremes in a Random Set 10.3390/math10101623 §5.2",
+          "Probabilities of concurrent extremes arXiv:1503.05748",
+          "Local Resultary dependent-strip leader and product-law leader searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source gives a lower bound e^(-1) and a simulation suggestion, not the corrected value or a finite-n table of this strip's geometric rate.",
+          "The nearest local exact formula 996b67664456 is for product laws and the same-day fa5861c29efc is a product-law classification."
+        ],
+        "reasoning": "No matching exact finite-n theorem or table was identified in the inspected entries. A positive lower bound and a simulation estimate are not the actual limit or rate.",
+        "searches": [
+          "Resultary searches for the dependent-strip law, leader limit and finite-n rate",
+          "Răducan et al. §5.2 exact same law"
+        ]
+      },
+      "rationale": "Pass the repaired strip-specific result: correct the primary source's CDF, prove finite-n strict decrease, and identify the sharp root rate 1/e. Do not claim a new general concurrence theorem or novelty solely from evaluating the corrected limiting integral.",
+      "residual_risks": [
+        "Bounded searches cannot exclude a prior finite-sample calculation or rate under alternate terminology. The novelty claim excludes the asymptotic formula already supplied by concurrence theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified source of the erroneous evaluated CDF, not a transcription error; the numerical suggestion is consistent with the actual model",
+          "evidence": "Displays both the correct integral of exp(-s)(min(y,s+1)-s) and the non-equivalent form subtracting (x+1-y)(exp(-(y-1)_+)-exp(-x)); reports the simulation suggestion a>=0.8.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-10-01623/article_deploy/mathematics-10-01623-v2.pdf",
+          "material_read": "§5.2, printed p. 15, PDF offsets 93600–97496",
+          "method": "Primary publisher OA PDF",
+          "title": "On the Probability of Finding Extremes in a Random Set",
+          "trigger": "Same strip and alleged numerical contradiction"
+        },
+        {
+          "assessment": "Implies the corrected limit, not the repaired finite-n ordering and rate",
+          "evidence": "Sample hitting partitions converge in the max-domain of attraction and the extremal concurrence probability is the expected reciprocal of an inner expected maximum of spectral ratios.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05748",
+          "material_read": "Theorem 1 p. 3 and Theorem 2/eq. (10) p. 4, offsets around 12871 and 15329–17656",
+          "method": "Primary OA PDF",
+          "title": "Probabilities of concurrent extremes",
+          "trigger": "Exact equivalent common-maximizer and general limit formula"
+        },
+        {
+          "assessment": "Different independence structure",
+          "evidence": "The exact finite-n result assumes an independent-coordinate product law.",
+          "identifier_or_url": "996b67664456",
+          "material_read": "Resultary finding and assumptions",
+          "method": "Local Resultary search and mirror text",
+          "title": "An exact maximum-tie criterion for leaders in two-dimensional product laws",
+          "trigger": "Strongest local exact finite-n leader match"
+        },
+        {
+          "assessment": "Different independence structure",
+          "evidence": "Classifies product laws of the form mu^(tensor d); it is not a finite-n dependent-strip comparison.",
+          "identifier_or_url": "fa5861c29efc",
+          "material_read": "Resultary finding",
+          "method": "Local mirror text",
+          "title": "A complete leader-property classification for identical product laws",
+          "trigger": "Same-day leader-property match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a specific published model inconsistency, with an analytic confirmation of the simulated threshold and a finite-sample ordering plus sharp rate showing how that threshold is approached. It is not just a numerical re-evaluation of a known integral.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

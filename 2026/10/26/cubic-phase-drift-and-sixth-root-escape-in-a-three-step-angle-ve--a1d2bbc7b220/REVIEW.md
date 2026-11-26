@@ -1,11 +1,21 @@
-# Scientific review: cubic return drift in an angle–velocity map
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive-root recurrence is reduced to an analytic squared-speed map. Its first nonzero return term is derived from the exact sum of three sine cubes, with a uniform first-derivative Taylor remainder. Exact cancellation at the six angular grid phases allows the remainder to be divided by the same vanishing factor without losing uniformity. Monotone iteration and a difference-of-cubes argument give the escape and first-passage constants. The included executable checks agree with the leading coefficient and inverse-branch cancellation. The computational sampling does not establish the theorem independently of its proof.
+## correctness
 
-**Originality — PASS (best-knowledge assessment).** Khandelwal and Mukherjee's arXiv:2412.15002v1 proves families of periodic points at half-step phases (Theorem 3.5), develops a one-step asymptotic expansion (Section 4), and reports nonperiodic off-grid drift numerically (Section 5.1). It does not give the high-energy *only-if* period-three result, the phase-uniform sign after a full three-step return, or the sixth-root escape/first-passage constants. The inspected original source and terminology/implication searches returned no prior theorem covering this combination. The full-source comparison is substantive, but priority outside the indexed and accessible literature is not certified.
+PASS
 
-**Value — PASS.** The authors' exact periodic-orbit phases and observed off-grid drift leave a natural dynamical boundary: is the angular grid exhaustive at high speed, and what ultimately happens to off-grid speed? The result settles both for the smallest admissible rational-rotation period, with an all-phase signed cubic obstruction and quantitative sixth-root escape or finite-time high-energy descent. The slow exponent arises only after cancellation of lower-order return contributions; it is not a routine one-step normalization.
+For forcing a=P sin θ, the positive near-identity ratio r solves r²−(1+a/y)r−a/y=0 with r(0)=1. The exact identity y'−y=4a+a(r−1)²/r, together with r=1+2a/y+O((a/y)²), gives the cubic term and no quadratic term. Intermediate squared speeds differ by O(|P|); the three sines sum to zero and their cubes give −3 sin(3θ)/4. After rescaling by the initial y, joint analyticity on a uniform neighborhood of P/y=0 gives a first angular derivative of the normalized remainder of order O((|P|/y)^4). At the grid phases the zero forcing is an identity and the other maps invert one another on the near-identity branch by swapping input and output in the implicit equation. The remainder thus vanishes on the grid, and distance to the grid is at most π|sin(3θ)|/6, proving relative control and sign. With c=−3P³sin(3θ), the return increments y³ by 3c+o(1). Monotonicity and continuity give increasing escape or finite descent past every fixed high cutoff; on descent, the steps from a fixed auxiliary level to the target are uniformly bounded, giving the stated hitting time. The angle has least period three. This verifies only the specified branch and high-energy domain.
 
-**Closest literature and limits.** The directly relevant source is Khandelwal and Mukherjee (2024), arXiv:2412.15002v1, especially equations (1)–(2), (11), Theorem 3.5, Sections 4 and 5.1. General discrete oscillator studies and published-finding corpus reports concerning different maps are not implications of the present recurrence. The theorem does not address arbitrary rotation denominators or low-speed orbits; equivalent treatments under reversible-integrator terminology cannot be conclusively excluded by finite searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the original map and the sufficiency of the six grid phases to Khandelwal–Mukherjee, and the stronger positive-branch phase rigidity to the distinct overlapping catalogue result. The supported distinction is the uniform cubic return with its quantitative escape and first-passage laws, not grid existence or phase rigidity in isolation.
+
+## value
+
+PASS
+
+The relative estimate controls the sign even arbitrarily close to the previously known exact-return grid and quantifies the measured off-grid drift. The escape and threshold-crossing constants distinguish this from a bare periodicity classification or a formal series with nonuniform error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

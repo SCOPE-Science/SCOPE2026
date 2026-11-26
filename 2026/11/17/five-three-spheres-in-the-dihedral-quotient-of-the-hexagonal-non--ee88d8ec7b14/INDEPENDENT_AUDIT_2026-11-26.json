@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:32.564616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ranks 1–4 distinguish the vertices of every strict chain, so stabilizers fix chain simplices pointwise and face deletion in rank order gives the ordinary quotient cellular differential. Independently ran /workspace/reviews/replay5.py (Python 3 + SymPy): generate noncrossing partitions via Dyck words, verify noncrossing and completeness against the Catalan count, generate all refinement chains by block containment, and enumerate orbits by the rotation and reflection generators. Labelled and quotient f-vectors are (130,1035,2160,1296) and (22,114,204,116). The integer matrices compose to zero; their Smith forms have 21, 93 and 111 nonzero invariant factors, all units. Consequently the images are primitive, the homology is torsion free, and its ranks are 1,0,0,5. Shellability and purity give a simply connected labeled complex; the reflections i→−i and i→1−i fix the vertices with sole nonsingleton blocks {1,5} and {0,1}, and their product gives a rotation generating the cyclic part. Armstrong therefore gives trivial quotient fundamental group. Hurewicz twice gives pi_2=0 and pi_3=Z^5; five sphere representatives give an integral homology isomorphism, hence a homotopy equivalence by the simply connected Whitehead theorem. This is not a homeomorphism, equivariant result, or statement about a quotient graph; the homology computation alone would not prove it. Supplied checker inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Targeted search surfaced Donau's work on quotients of partition lattices, not a verified statement for NC6 under D6. The frozen source uses the credited EL-shellability theorem on labeled noncrossing lattices and Armstrong's stabilizer theorem for pi_1 only."
+        ],
+        "reasoning": "Shellability of the labeled lattice does not give shellability of its ordinary quotient. Armstrong, even with both generating stabilizers, controls only pi_1. Results for a full partition lattice cannot be applied unchanged to an invariant subcomplex.",
+        "searches": [
+          "Primary literature query on noncrossing partition order-complex dihedral quotients and homotopy type",
+          "Athanasiadis–Brady–Watt arXiv:math/0503007",
+          "Armstrong DOI 10.1017/S0305004100038974"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_nc6.py",
+        "Resultary ee88d8ec7b14 and mirrored b115633d40e7 RESULT.md",
+        "Callan–Smiley, Athanasiadis–Brady–Watt, and Armstrong theorem/table formulations in the frozen record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even granting the table and general theorems, the integral differential and the absence of torsion in the quotient are not specified. Rotation-only quotient calculations or labeled homology character information address different data. The actual comparison source b115633d40e7 uses all set partitions."
+        ],
+        "reasoning": "Rational invariant homology or Euler data, even if they give the top rank, do not rule out lower-dimensional integral torsion. The full homotopy claim needs the orbit-chain integral calculation plus stabilizers and the Hurewicz–Whitehead argument; it is not a numerical substitution in the inspected statements.",
+        "searches": [
+          "Callan–Smiley table and scope via frozen RESULT.md lines 51–57 and AUDIT.json lines 73–96",
+          "Armstrong's theorem via frozen RESULT.md lines 43–45 and AUDIT.json lines 97–106",
+          "Local full-partition comparison b115633d40e7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed exact hit ee88d8ec7b14 is this same frozen item. The retrieved finding of b115633d40e7 asserts a wedge of 12 S^3 for the dihedral orbit of the proper full partition complex, counting 203 partitions and 201 interior vertices. Here there are 132 and 130."
+        ],
+        "reasoning": "Both use a six-label geometric quotient by the order-12 group, but the source lattices, chain orbits and resulting spaces differ. Restricting to the noncrossing subcomplex changes the object; the 12-sphere result neither contradicts nor implies the five-sphere calculation.",
+        "searches": [
+          "Resultary: ordinary geometric dihedral quotient of proper NC6 and wedge of five S^3",
+          "Resultary b115633d40e7, local mirror RESULT.md at offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited table gives 28 cyclic and 24 dihedral orbits, including the two bound partitions. Hence 26 and 22 on proper vertices are already covered. The independent quotient enumeration has additionally 114 edges, 204 triangles and 116 tetrahedra with their incidences."
+        ],
+        "reasoning": "The table's entries are zero-dimensional counts, not quotient simplex orbits with boundary maps, and do not determine the integral invariants. The catalogue's full-partition twelve-sphere result is not an exact match.",
+        "searches": [
+          "Callan–Smiley arXiv:math/0510447, six-label rotation/reflection table (located in the frozen references and source inspection)",
+          "Resultary ee88d8ec7b14 and b115633d40e7"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the integral homotopy type of the ordinary six-label noncrossing full-dihedral quotient. The labeled shellability, vertex orbit numbers and general fundamental-group theorem are prior. A near-exact catalogue match is about the full partition lattice, not its noncrossing sublattice.",
+      "residual_risks": [
+        "Fresh primary OA retrieval did not provide full texts; no absence claim follows from timeouts. The near match actually read in full treats a different lattice.",
+        "An older or unindexed exact result on geometric noncrossing quotients could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different labeled lattice, not covering or contradictory; its same date is not used to infer priority",
+          "evidence": [
+            "Proper part of the full lattice Pi_6; 203 partitions, 201 proper vertices; wedge of 12 three-spheres."
+          ],
+          "identifier_or_url": "Resultary b115633d40e7",
+          "material_read": "Mirrored RESULT.md from offset 0, including finding, assumptions and partition count",
+          "method": "Resultary and local mirror",
+          "title": "The six-point partition complex loses all torsion under full dihedral symmetry",
+          "trigger": "Near-exact geometry, group and dimension, but different sphere count"
+        },
+        {
+          "assessment": "Credit the zero-cell count; no assertion of whole-paper exclusion based on an unavailable copy",
+          "evidence": [
+            "Cyclic/dihedral counts 28/24 at n=6; both bound vertices have singleton orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0510447",
+          "material_read": "Six-label table result and scope as recorded in frozen RESULT.md and AUDIT.json; fresh OA retrieval timed out",
+          "method": "Frozen passages and attempted OA access",
+          "title": "Noncrossing partitions under rotation and reflection",
+          "trigger": "Same set objects and dihedral action, exact table"
+        },
+        {
+          "assessment": "Supplies connectivity of the labeled space, not a statement about integral boundary maps of the orbit space",
+          "evidence": [
+            "EL-shellability of noncrossing partition lattices for finite real reflection groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503007",
+          "material_read": "EL-shellability statement and scope as quoted/described in frozen proof and frozen source inspection; fresh OA retrieval timed out",
+          "method": "Frozen theorem attribution and attempted OA access",
+          "title": "Shellability of noncrossing partition lattices",
+          "trigger": "General labeled noncrossing-complex topology"
+        },
+        {
+          "assessment": "Covers pi_1 for the simply connected labeled polyhedron under the finite action, not homology in degrees 2 or 3",
+          "evidence": [
+            "pi_1 of the orbit is the acting group modulo the normal subgroup generated by elements with fixed points."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100038974",
+          "material_read": "Theorem in the formulation used in the frozen proof and described in its source inspection",
+          "method": "Frozen theorem attribution and independent hypothesis check",
+          "title": "On the fundamental group of an orbit space",
+          "trigger": "General theorem for the same kind of orbit space"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The hexagon is the first size at which cyclic and dihedral vertex orbit counts differ, motivating the quotient and the size before computing homology. Establishing the complete integral homotopy type goes beyond those counts, and distinguishes a wedge of five spheres from spaces with the same rational rank but torsion or nontrivial fundamental group. This is a natural small quotient whose precise topology is useful in comparing symmetry actions on partition complexes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

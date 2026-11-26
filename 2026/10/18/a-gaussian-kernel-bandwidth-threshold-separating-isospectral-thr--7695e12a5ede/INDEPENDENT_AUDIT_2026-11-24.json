@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:58:07.227201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–77 and 85–86",
+        "VERIFICATION.md and verify_gaussian.py inspected read-only; recorded formal/expert/audit channels not performed",
+        "Replay: python3 -I /workspace/reproductions/4.py; independent reflection-basis exact arithmetic at 999 rational t plus Decimal bisection giving t=0.8977115906087801087122…, h=0.1079064308527181048863…"
+      ],
+      "rationale": "Both kernels are Π plus half an orthogonal rank-one projection onto a unit zero-sum mode (adjacent difference u or endpoint difference w); positivity, uniform stationarity, spectrum, gap and half the maximum row ℓ¹ distance follow. The Gaussian Gram kernel is strictly positive definite (its Fourier density is everywhere positive and the trigonometric polynomial of a nonzero coefficient vector is not identically zero). Every zero-mass direction is realized by a sufficiently small probability perturbation of π, so the computed gain is sharp over probability laws. Independently, the zero-mass reflection basis w,(1,−2,1)/√6 yields diagonal metric entries λ₁=1−t⁴, λ₂=(1−t)²(t²+2t+3)/3. The endpoint projection is metric-orthogonal. The adjacent mode has squared basis coordinates 1/4 and 3/4; by Cauchy–Schwarz in the metric, its gain squared is ((λ₁+3λ₂)/4)((1/λ₁+3/λ₂)/4)/4, which simplifies to the claimed 1/[4(1−R)]. For A=t+t²+t³, R=A²/(3+2A), strictly increasing from 0 to 1. R=3/4 gives the polynomial and unique transition with the stated direction. From λ₁∼4h and λ₂∼2h² the sharp adjacent gain squared is asymptotic to 3/(32h). On two states the zero-mass subspace is one-dimensional, so kernel choice cannot change the ratio at fixed eigenvalue. h=0 is excluded and no indefinite trajectory growth is implied.",
+      "residual_risks": [
+        "The finite tests only corroborate the analytic all-h proof. The threshold decimal is an approximation, not its definition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 3.13 eqs. (121)–(123) bounds relaxation from a Hilbert-scale contraction assumption; Remark 3.14 expresses it via a conjugated norm",
+          "Demmel official/archived PDFs not extractable in the retrieval attempts"
+        ],
+        "reasoning": "The general norm framework provides a starting point, not the relative alignment of the projection modes and Gaussian Gram directions, nor a sign, unique root, or asymptotic for the specified pair.",
+        "searches": [
+          "Kachaiev et al., Section 3 Proposition 3.13, Remark 3.14, Example 3.18",
+          "Demmel, UCB/CSD-83-127 (official and archived PDF attempts)"
+        ]
+      },
+      "checked_sources": [
+        "Kachaiev et al. arXiv:2610.13916v1; configured Resultary/SCOPE comparisons above; Demmel retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 3.18 separates the rates ρ=e^(−2π²η²) and ρ_α=ℓ^(sα)ρ; the indexed finite three-state equality concerns Gini and oscillation norms"
+        ],
+        "reasoning": "Prior sources already show that a gap and one-step MMD contraction differ in general; that generic phenomenon is not new. The proposed pair isolates geometry under the same spectrum and TV behavior, and its exact separation and singular scaling require the Gaussian reflection eigenvalues and different projected modes. These are not implied by the competing coefficients or directly obtained as instances of the torus formula.",
+        "searches": [
+          "Kachaiev et al. Proposition 3.13, Remark 3.14 and Example 3.18, eqs. (138)–(142); finite-state SCOPE 1d3e22b7f004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kachaiev et al., arXiv:2610.13916v1, Remark 3.14 eq. (130) (operator-norm form) and Example 3.18 (torus/Sobolev example)",
+          "Resultary SCOPE ff055fe1e2d7 and 1d3e22b7f004 Findings"
+        ],
+        "reasoning": "The norm of a metric-conjugated zero-mass operator is an equivalent formulation of the gain, but the existing example uses a noisy expanding torus map and a centered Sobolev kernel. The indexed oscillation and Gini coefficients use different norms; even the finite three-state equality there is not equivalent to Gaussian MMD.",
+        "searches": [
+          "Configured Resultary: exact title, rational R(t) expression, finite-state/MMD contraction",
+          "Focused primary-literature search for finite-state MMD contraction and Gaussian bandwidth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day SCOPE ff055fe1e2d7 is about sharp Jacobi-weighted Bernstein–Durrmeyer oscillation contraction; SCOPE 1d3e22b7f004 is about finite Markov Gini and oscillation coefficients"
+        ],
+        "reasoning": "Neither indexed result supplies this geometry, threshold or an exact Gaussian-MMD table. A finite numeric table alone would not establish the all-bandwidth classification; a symbolic formula or the exact threshold for this pair would be material.",
+        "searches": [
+          "Configured Resultary exact-title, R(t) and Gaussian-MMD finite-chain comparisons"
+        ]
+      },
+      "rationale": "Bounded pass for the explicit isospectral three-state Gaussian-kernel comparison with its sharp bandwidth threshold and broad-kernel coefficient. Failure of contraction despite a spectral gap and the conjugated-operator-norm principle are known, not credited as original here.",
+      "residual_risks": [
+        "Specific earlier finite-Markov examples or Gaussian-kernel similarity analyses could remain unindexed or inaccessible; Demmel's report was not read in full. No global priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and expansion example precede the claim, but do not cover the explicit Gaussian three-state pair",
+          "evidence": "Eqs. (121)–(123) conditional relaxation; (130) conjugated norm; (138)–(142) centered Sobolev kernel and noisy torus expansion.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13916v1",
+          "material_read": "§3 Prop. 3.13, Remark 3.14, Example 3.18 (extraction offsets 74486, 77743, 85931)",
+          "method": "Lawful OA primary-text bounded reading",
+          "title": "Markov Chain Convergence in Kernel-Induced Geometry",
+          "trigger": "Closest primary operator-norm formulation and MMD expansion example"
+        },
+        {
+          "assessment": "Different operator, space and metric; same date establishes no priority",
+          "evidence": "TV/oscillation coefficient on [0,1] with a sharp asymptotic defect and L² comparison, not a Gaussian MMD gain.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-oscillation-contraction-of-jacobi-weighted-bernstein-durrm--ff055fe1e2d7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Sharp oscillation contraction of Jacobi-weighted Bernstein–Durrmeyer operators",
+          "trigger": "Strong same-day sharp Markov contraction hit"
+        },
+        {
+          "assessment": "Different sharp invariants; later-dated, no equivalence identified",
+          "evidence": "The n=3 equality relates complete-pair Gini and oscillation coefficients, not Gaussian kernel norms.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "A sharp two-sided Gini–Dobrushin comparison for finite Markov operators",
+          "trigger": "Closest exact finite-state coefficient and three-state special case"
+        },
+        {
+          "assessment": "Not relied on for a noncoverage finding",
+          "evidence": "Cited subject is conditioning of matrix similarities; no retrieved theorem establishes specifics for this pair.",
+          "identifier_or_url": "UCB/CSD-83-127; https://www2.eecs.berkeley.edu/Pubs/TechRpts/1983/CSD-83-127.pdf",
+          "material_read": "Bibliographic details only; primary passages inaccessible in retrieval attempts",
+          "method": "Official and archived lawful PDF extraction attempts",
+          "title": "The Condition Number of Similarities that Diagonalize Matrices",
+          "trigger": "Potential general matrix norm antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof (1)–(5); contrast with prior general expansion mechanism in Kachaiev et al. Example 3.18"
+      ],
+      "rationale": "A minimal-state sharp witness clarifies a practical distinction between TV and MMD one-step behavior: keep the eigenvalues, reversibility, positivity and TV behavior fixed while switching the active site difference relative to the kernel geometry. The exact threshold decides whether any probability law is amplified, and the singular constant quantifies the maximal effect rather than merely showing noncontractivity.",
+      "residual_risks": [
+        "Specific Gaussian geometry and projection pair, not a full finite-state contraction classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

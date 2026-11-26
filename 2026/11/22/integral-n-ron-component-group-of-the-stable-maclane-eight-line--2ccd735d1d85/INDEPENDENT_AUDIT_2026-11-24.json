@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:03:13.907567Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37",
+        "Frozen VERIFICATION.md, verify_maclane_boundary.py, and verification_output.txt",
+        "Independent replay: python3 /workspace/branches/independent_maclane.py (SymPy 1.14.0, integer Smith form, roots 0 and 15)",
+        "Amini–Baker–Brugallé–Rabinoff, Lifting harmonic morphisms I, Theorem 8.2, PDF p. 49"
+      ],
+      "rationale": "Blowing up an ordinary triple point separates its three strict transforms, each meeting the exceptional P¹ once. The other four nodes remain direct edges. A pair of points in F3² minus zero is either antipodal and joined directly, or lies on a unique affine triple avoiding zero and is joined through its exceptional vertex. Hence the graph is connected with 16 rational components and 28 nodes, and arithmetic genus 13. Its degrees 4 and 3 make the boundary stable. An independently written calculation enumerated distinct unordered triples with zero coordinate sum modulo 3 (exactly the affine collinear triples) and the four antipodal pairs. Integer Smith reduction of each of two rooted Laplacians gave nine units followed by 2,6,12,12,48,48. As a determinant cross-check, if P is the antipodal permutation, J is all ones, and N is the incidence block, then NNᵀ=2I+J−P. After eliminating the eight degree-three exceptional vertices the line block is (10I−2P−J)/3. The unscaled block has nonzero eigenvalues 8 with multiplicity 3 and 12 with multiplicity 4. A line-rooted cofactor therefore gives 3·8³·12⁴/8=3,981,312. Raynaud's theorem identifies the graph group with the Néron component group for the stated regular unit-thickness models; it does not identify the group of the original nonnodal line union.",
+      "residual_risks": [
+        "No frozen script was executed; the two exact reductions used a separately built graph and a different implementation. The geometric conclusion assumes precisely the regular split semistable smoothing in the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raynaud identifies the component group with the regularized graph Jacobian; with all edges of length one, the regular model is this graph.",
+          "The inspected arXiv:1406.5147 abstract and introduction concern sandpile groups and plane duality, not the factors of the MacLane graph."
+        ],
+        "reasoning": "The general theorem reduces the geometric problem to a graph calculation; it supplies neither a presentation already reduced to invariant factors nor a family table covering the augmented graph.",
+        "searches": [
+          "Amini et al., Lifting harmonic morphisms I, Theorem 8.2",
+          "Web search for MacLane/Möbius–Kantor augmented-graph sandpile group; arXiv:1406.5147"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matches named above",
+        "Artal et al. arXiv:math/0307296",
+        "Nazir–Yoshinaga Example 4.3",
+        "MathWorld Möbius–Kantor Graph",
+        "Amini et al. Theorem 8.2",
+        "arXiv:1406.5147"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The incidence and Raynaud give a concrete Laplacian cokernel, and both conjugate realizations have the same incidence.",
+          "Neither the presentation nor an order calculation determines the 2- and 3-primary invariant factors; the integer reduction distinguishes six nonunit invariant factors and exponent 48."
+        ],
+        "reasoning": "What survives is the reduction of this natural Laplacian to the exact finite group, not the automatic equality of the two realizations or the general Néron interpretation.",
+        "searches": [
+          "Artal et al. p. 2, Nazir–Yoshinaga Example 4.3, and Raynaud's theorem as stated by Amini et al.",
+          "Same-day MacLane Milnor algebra RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MacLane incidence is dual to the eight nonzero points of F3²; the four through-origin lines restrict to antipodal pairs.",
+          "The Möbius–Kantor graph G(8,3) is cubic on 16 vertices with 24 edges. The frozen graph adds four direct edges between its line vertices and has degree sequence 4^8,3^8."
+        ],
+        "reasoning": "The incidence-only graph is genuinely different despite the common 16 vertices and triple-incidence structure. A critical group of G(8,3) alone does not specify the augmented graph's Smith form.",
+        "searches": [
+          "MacLane blowup dual graph / Möbius–Kantor incidence graph with four antipodal matching edges / sandpile graph Jacobian",
+          "MacLane incidence in arXiv:math/0307296 and Nazir–Yoshinaga Example 4.3",
+          "MathWorld Möbius–Kantor Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-factor hit 2ccd735d1d85 is the assigned record itself. The MacLane hit 5075f62fd83f concerns a characteristic-three Milnor-algebra jump, not the graph group.",
+          "The (9_3) critical-group hit eac28edae5e2 concerns different configurations; the Möbius–Kantor hit 1c198fd64c4e concerns the independence complex."
+        ],
+        "reasoning": "These sources do not contain a second determination of the requested group. A table listed only under an unknown graph alias was not ruled out.",
+        "searches": [
+          "Resultary: MacLane boundary critical group, Möbius–Kantor, and Levi graph critical-group fingerprints"
+        ]
+      },
+      "rationale": "The MacLane realizations and incidence, and the general component-group theorem, are known. The strongest graph alias inspected is the cubic Möbius–Kantor Levi graph, which lacks the four direct double-point edges. No distinct inspected statement covers the exact group of this augmented graph. The pass is limited to that meaningful calculation and its application to the specified boundary, not a priority claim for the incidence or the general theorem.",
+      "residual_risks": [
+        "The broader graph-invariant search was bounded. A separate web result, On the Sandpile Group of Dual Graphs, did not yield readable full text; it was not classified from its snippet. An exact table under an unrecognized alias remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the incidence model underlying the computation",
+          "evidence": [
+            "MacLane combinatorics dual to F3² minus its origin"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0307296",
+          "material_read": "MacLane description, PDF p. 2, text near offset 7606",
+          "method": "Lawful OA full-text passage",
+          "title": "Topology and combinatorics of real line arrangements",
+          "trigger": "Exact MacLane incidence and potential graph overlap"
+        },
+        {
+          "assessment": "Gives the two conjugate realizations, not the stable boundary group",
+          "evidence": [
+            "MacLane eight-line example and conjugate complex realizations"
+          ],
+          "identifier_or_url": "https://archive.numdam.org/item/ASNSP_2012_5_11_4_921_0/",
+          "material_read": "Example 4.3, PDF p. 9, text near offset 20750",
+          "method": "Lawful OA full-text passage",
+          "title": "On the connectivity of the realization spaces of line arrangements",
+          "trigger": "Exact eight-line realizations"
+        },
+        {
+          "assessment": "Identifies the unaugmented incidence graph only",
+          "evidence": [
+            "Cubic 16-vertex Levi graph; generalized Petersen graph G(8,3)"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/Moebius-KantorGraph.html",
+          "material_read": "Graph definition and identifying properties near page beginning",
+          "method": "Lawful public-page text",
+          "title": "Möbius–Kantor Graph",
+          "trigger": "Strong graph alias"
+        },
+        {
+          "assessment": "Exact general bridge; no MacLane-specific Smith form",
+          "evidence": [
+            "Regular model has all edges of length one",
+            "Raynaud identifies the component group with the regularized graph Jacobian"
+          ],
+          "identifier_or_url": "https://www.math.ens.psl.eu/~amini/Publications/hmmcI.pdf",
+          "material_read": "PDF p. 49, Theorem 8.2 and the regularized graph Jacobian definition immediately before it",
+          "method": "Lawful author-hosted PDF, text offsets 222700–225722",
+          "title": "Lifting harmonic morphisms I",
+          "trigger": "General Néron component-group theorem"
+        },
+        {
+          "assessment": "General plane-duality scope; no graph-specific coverage established in the inspected passages",
+          "evidence": [
+            "Sandpile actions and duality rather than a table for MacLane boundaries"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.5147",
+          "material_read": "Abstract and p. 1 (text offsets 0–4500)",
+          "method": "Lawful OA full-text passages",
+          "title": "Sandpiles, Spanning Trees, and Plane Duality",
+          "trigger": "Graph-Jacobian literature hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–33",
+        "Amini et al. Raynaud theorem formulation",
+        "Independent Smith reduction"
+      ],
+      "rationale": "Blowing up exactly the ordinary triples is motivated by obtaining a reduced nodal stable genus-13 boundary while retaining the ordinary double intersections. For its degenerating Jacobians the component group is a natural finite invariant. The exact Smith factors, including the exponent and the multiple 2-primary levels, are information the determinant and genus do not give; they prevent substituting the more familiar cubic Levi graph for this degeneration.",
+      "residual_risks": [
+        "It is an exact invariant of the specified boundary, not a distinguishing invariant of the two conjugate realizations or a claim about different regularizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

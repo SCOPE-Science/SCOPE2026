@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:41:34.355196Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–46",
+        "Frozen VERIFICATION.md and dodeca_exact_output.txt",
+        "Frozen dodeca_exact.py and dodeca_law.py, read but not executed",
+        "Independent replay: python3 /tmp/opencode/dodeca_audit_replay.py"
+      ],
+      "rationale": "In a vertex-avoiding central plane every crossed dodecahedron edge contributes one section vertex, so the count is constant on each strict vertex-sign chamber. Independently I used twice the stated vertex coordinates in Z[sqrt(5)], checked the 120 triple determinants, and identified all 30 edges by the largest dot product between distinct vertices. Such a nearest pair is exposed by the sum of its two vertex vectors. For each of the 90 oriented intersection rays of pairs of circles, the other eight signs are fixed and each of the four signs of the active pair is locally realized. This produces all chambers because the sign regions are convex spherical polygons and ten great circles in general position have exactly 92 regions. Counting crossed edges and incident-angle cosines recovers exactly 20 hexagons with 6 section sides, 60 triangles with 8, and 12 pentagons with 10, with the stated angle multisets. Equal angle multisets alone would not prove congruence. A separate exact Gram-matrix check enumerates the 120 orthogonal vertex-set symmetries by the possible images of a basis of three vertices; each class of sign vectors is one orbit, proving congruence. The sum of angles minus (number of corners minus two) times pi gives each cell area; multiplying by orbit sizes and dividing by 4 pi gives all three formulas and the stated decimals. The excluded great circles are Haar-null.",
+      "residual_risks": [
+        "The frozen certificate records equal angles but does not directly test congruence; the independent symmetry-orbit check supplies that implication.",
+        "The conclusion is for central planes with Haar normal, not translated planes or exceptional normals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier joint chamber law c7ac37133282 gives the dodecahedral marginal explicitly and gives its 20/60/12 subdivision; 8e9a43a8e9f3 also lists the marginal and does not assert it as new"
+        ],
+        "reasoning": "Marginalizing the joint distribution gives the claimed orientation law without introducing a new sampling assumption.",
+        "searches": [
+          "Resultary c7ac37133282 and 8e9a43a8e9f3, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c2648acb8f6a, c7ac37133282, 2b0f6217921f, 3db14789bb66, e6442b3d3b70, 8e9a43a8e9f3",
+        "MathPages dodecahedron chamber discussion",
+        "Voss DOI availability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier exact hexagon, triangle and pentagon cell areas are 2π−3α−3β, 2α+β−π and 2π−5α; the 20,60,12 multiplicities give the frozen probabilities after division by 4π",
+          "MathPages explicitly gives the chamber census but not its section-side labeling and lists different cell areas",
+          "Full Voss article was not available from the checked access route"
+        ],
+        "reasoning": "The prior exact claims cover the law and its exact chamber calculation. The older census alone would not have sufficed to establish prior coverage of the law.",
+        "searches": [
+          "Compare c2648acb8f6a and 2b0f6217921f Findings with frozen RESULT.md lines 5–13 and 25–42",
+          "Compare MathPages dodecahedron arrangement description, offset 14699",
+          "K. Voss, DOI 10.1111/j.1365-2818.1982.tb00443.x, lawful access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3db14789bb66, Finding and polarity discussion at offset 5976, gives the same law for orthogonal icosahedral projections and explicitly transfers it to dodecahedral central sections"
+        ],
+        "reasoning": "Polarizing the centered section inside its plane gives the orthogonal projection of the polar body; polarity of a planar polygon exchanges vertices and edges and preserves side count. This is an exact equivalence, unlike comparing central sections of the two solids.",
+        "searches": [
+          "Resultary: dodecahedron central section Haar law and dual regular icosahedron shadows",
+          "Primary literature search on central dodecahedral section/shadow polygon laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c2648acb8f6a and 2b0f6217921f give the complete three probabilities, 92 chambers, side correspondence, and exact angle data",
+          "e6442b3d3b70 is another direct same-day overlap"
+        ],
+        "reasoning": "These are exact matches of the underlying object, uniform measure, all three probabilities, and the arrangements, not a coincident outcome set or numerical approximation.",
+        "searches": [
+          "Resultary c2648acb8f6a, 2b0f6217921f, and e6442b3d3b70, Findings"
+        ]
+      },
+      "rationale": "Demonstrated existing coverage, not an access failure: a distinct earlier indexed Resultary record c2648acb8f6a states the same complete Haar law, the 92-cell census, the map from cell type to section sides, and the same angle classes. The earlier joint law c7ac37133282 and other distinct catalogue entries also contain the law. The comparison does not require deciding priority among the related records or interpreting dates of same-day entries.",
+      "residual_risks": [
+        "Earliest historical priority is not determined; full Voss coverage and the reason for the MathPages area discrepancy remain unresolved. Neither uncertainty alters the demonstrated earlier exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claim",
+          "evidence": "Same three formulas, side-labeled chamber census 20/60/12, and angle-cosine classes.",
+          "identifier_or_url": "Resultary 2026/10/18, c2648acb8f6a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Exact Haar central-section polygon law for the regular dodecahedron",
+          "trigger": "Direct exact earlier match"
+        },
+        {
+          "assessment": "Covers the law by marginalization and gives the census",
+          "evidence": "The dodecahedral marginal agrees and is coupled to the other solid's section count.",
+          "identifier_or_url": "Resultary 2026/10/18, c7ac37133282",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Joint central-section law and a rigid icosahedral refinement",
+          "trigger": "Broader joint law"
+        },
+        {
+          "assessment": "Direct coverage",
+          "evidence": "Exact hexagon angles 3 copies each of π−α and π−β; triangle angles α, α, β; pentagon angles all π−α, with matching census and side correspondence.",
+          "identifier_or_url": "Resultary 2026/11/1, 2b0f6217921f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Exact Haar polygon-type law for central sections of the regular dodecahedron",
+          "trigger": "Matching angles and chamber labels"
+        },
+        {
+          "assessment": "Covers the law via a different subdivision",
+          "evidence": "Same shadow probabilities; section law explicitly transferred by polarity.",
+          "identifier_or_url": "Resultary 2026/11/1, 3db14789bb66",
+          "material_read": "RESULT.md offsets 0 and 5976",
+          "method": "Local publication mirror",
+          "title": "Exact hexagon–octagon–decagon law for icosahedral shadows and dual sections",
+          "trigger": "Polar formulation"
+        },
+        {
+          "assessment": "Direct coverage, priority not inferred from date",
+          "evidence": "Same probability formulas, cell census, and angles.",
+          "identifier_or_url": "Resultary 2026/11/2, e6442b3d3b70",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Exact Haar section-type probabilities of the regular dodecahedron",
+          "trigger": "Same-date exact equivalent"
+        },
+        {
+          "assessment": "Matching marginal, not a priority determination",
+          "evidence": "The 6/8/10 marginal and 92-cell arrangement are given; marginal laws are explicitly not asserted as new.",
+          "identifier_or_url": "Resultary 2026/11/2, 8e9a43a8e9f3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Exact joint shadow-section law of the regular icosahedron",
+          "trigger": "Broader dual marginal"
+        },
+        {
+          "assessment": "Exact chamber census only; other area figures differ",
+          "evidence": "Sixty triangles, twenty hexagons and twelve pentagons; no indicated correspondence with side counts of central sections.",
+          "identifier_or_url": "https://www.mathpages.com/home/kmath327/kmath327.htm",
+          "material_read": "Dodecahedral-axis discussion, offset 14699",
+          "method": "Public webpage",
+          "title": "N Points On Sphere all in One Hemisphere",
+          "trigger": "Same ten-circle arrangement"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "The abstract scope as reported is polyhedral section frequencies; the precise bodies and sampling normalization remain unconfirmed.",
+          "identifier_or_url": "10.1111/j.1365-2818.1982.tb00443.x",
+          "material_read": "Frozen record's account of the abstract; no primary full text inspected",
+          "method": "DOI access attempt denied; no lawful repository copy located",
+          "title": "Frequencies of n-polygons in planar sections of polyhedrons",
+          "trigger": "Older integral-geometric treatment of polygon frequencies"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and certificate scope",
+        "Resultary c2648acb8f6a and 2b0f6217921f Findings"
+      ],
+      "rationale": "The exact law is a natural, useful geometric invariant, but this finding recomputes an already available exact law and chamber census. The reproducible certificate corroborates those facts and does not supply a distinct invariant, a materially improved general method, or an independent new conclusion claimed by the record.",
+      "residual_risks": [
+        "This is a judgment about the claimed contribution of the frozen record, not about the intrinsic usefulness of the law."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

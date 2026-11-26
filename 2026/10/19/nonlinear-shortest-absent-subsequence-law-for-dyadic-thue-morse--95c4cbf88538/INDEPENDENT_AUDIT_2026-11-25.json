@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:01:04.200552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–72",
+        "VERIFICATION.md lines 18–28 and verify.py counting engines, inspected not executed",
+        "Independent reproduction: /workspace/branches/0a884be5-a74c-4583-b2be-5cb7b58b3b9a/independent_check.py and full_run.txt; use next-occurrence states for both symbol extensions and propagate counts, retaining an absorbing failure state"
+      ],
+      "rationale": "Each complementary block supplies one arbitrary bit; one extra zero cannot fit, so the shortest absent length is exactly the number of blocks plus one. In an embedding of that extra-length target, the block index minus the target index starts nonnegative, ends negative, and drops by at most one per step. At its first crossing, two adjacent letters occupy both positions of the block with the same index. Conversely that double match allows all remaining letters to be placed singly. This proves the exact local exclusion rule and the two shear matrices. Complementation conjugates by the swap J, so P_{j+1}=(P_j J)^2; trace s_j and determinant -1 of P_j J give d_{j+1}=s_j^2+2 and s_{j+1}=s_j d_j, for diagonal and off-diagonal sums d_j,s_j. Thus s_j=a_j, H_m=d_{m-1}+s_{m-1}, including the separate H_1=3. The logs b_j=log(a_j a_{j+1}) obey b_{j+1}=2 b_j+log(1+2/a_j^2); the normalized sums converge to L by a geometric bound. The normalized individual log obeys an affine contraction of slope -1/2 with limiting fixed point L/3. The diagonal sums have the same log limit, and the log of their sum differs from the maximum by at most log 2. Hence the rate and exponential-fraction assertion follow; L<=log 6 supplies a rigorous bound below 2. An independent greedy-state calculation reproduced counts through m=9 and a high-precision series evaluation confirmed the displayed digits of rho.",
+      "residual_risks": [
+        "The reproduction is finite and the decimal is approximate; the exact result is the convergent series with the analytic convergence proof. No assertion for arbitrary prefixes or minimal absent words of longer lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. Theorem 2 uses one greedy position per arch and the minimal-absence constraints. The Fibonacci record explicitly gives the same A_0,A_1 in the two-minimal-arch transfer and a sharp maximum over all orders. Adamson et al. state tight extremal bounds at a given universality index."
+        ],
+        "reasoning": "General algorithms and gluing can compute each fixed word and provide the setup. The extremal bounds concern maximizers across words, not the exact exponential law for the substitution order. Do not credit the local transfer or the mere bound of sub-binary growth as new.",
+        "searches": [
+          "Kosche–Koß–Manea–Siemer arXiv:2108.13968v1, arch factorization and SAS characterization",
+          "Adamson et al. arXiv:2407.18599, tight absent-subsequence bounds",
+          "Resultary 2026/10/4 Fibonacci extremals for shortest absent subsequences of binary words"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact recurrence, Fibonacci extremal and contiguous-factor records identified above",
+        "arXiv:2108.13968v1 and 2407.18599",
+        "Beck–Dilcher, Integers 22 (2022), A42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact quadratic counterpart determines every H_m, but deriving a limiting root requires control of the two alternating scales of the log recursion. Normalizing the log of the product of successive a_j produces a summable perturbation and a contractive equation for the individual normalized logs. The general Fibonacci bound only upper-bounds the limiting base by the golden ratio."
+        ],
+        "reasoning": "The new rate analysis is more than changing recurrence variables, making a numerical table, or applying the extremal ceiling. The equivalent indexed recurrence is explicitly credited; no stand-alone novelty of its reparametrization is asserted.",
+        "searches": [
+          "Compare actual recursion and limitations in 9824aedbf416 with RESULT.md lines 60–72",
+          "Compare transfer and extremal proof in 1a6556f14d28 with the dyadic matrix recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-quadratic-recurrence-for-shortest-absent-subsequences-of-thue-mo--9824aedbf416 has A_{j+1}=2+A_j D_j and D_{j+1}=D_j(A_j-D_j), with (A_0,D_0)=(3,1). Set A_j=d_j+s_j=H_{j+1} and D_j=s_j=a_j; then the two update laws are identical. The matched RESULT.md expressly excludes asymptotics.",
+          "Beck–Dilcher (2022), Theorem 1 and Corollary 7, link Stern and Thue–Morse by an infinite lower-triangular coefficient matrix, not these dyadic 2-by-2 products."
+        ],
+        "reasoning": "The recurrence overlap is exact and extends beyond matching initial terms, but does not establish precedence or supply the explicit log-rate analysis. The inspected Stern result has a different matrix and invariant.",
+        "searches": [
+          "Resultary: Thue–Morse shortest absent subsequences exact nonlinear recurrence dyadic exponential base complementary arches",
+          "Thue–Morse shear/Stern matrix products and trace recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored 9824aedbf416 record gives the identical first six H values and proves the all-index recurrence. Beck–Dilcher identify their signed index-doubling sequence as OEIS A342682, with a different antidiagonal-sum definition. The closest earlier contiguous Thue–Morse record, 2026/10/18/SCOPE-exact-antidictionary-size-and-length-spectrum-of-finite-thue-mor--1b68992899c3, reports minimal absent factors, not scattered words."
+        ],
+        "reasoning": "There is an exact recurrence hit; no compared table states the exponential rate. A shared word family, or an unrelated signed sequence, is not exact coverage.",
+        "searches": [
+          "Resultary: exact Thue–Morse count and growth constant",
+          "Beck–Dilcher Corollary 4, sequence lookup for the Stern/Thue–Morse signed antidiagonal sums"
+        ]
+      },
+      "rationale": "Arch structure, local transfer counting and the binary extremal bound are prior. A distinct indexed Thue–Morse record gives exactly the same integer recurrence in different variables, so the recurrence is not additional content relative to that record. Its listed date is later, which does not support priority for it; the assessment does not infer authorship or priority from catalogue metadata. The supported distinction even against that exact overlap is the explicit exponential base with a convergence formula for the fixed dyadic family. The earlier inspected methods do not determine that rate.",
+      "residual_risks": [
+        "An older trace-product or cocycle analysis might imply the same rate under a different parameterization. The focused search did not settle all such equivalences. Neither catalogue dates nor exact equivalence by themselves decide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact recurrence and method equivalence; no rate result there",
+          "evidence": [
+            "P_{j+1}=(P_j J)^2, with D_j the off-diagonal sum and A_j the total sum; Limitations expressly say it does not give an asymptotic expansion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-quadratic-recurrence-for-shortest-absent-subsequences-of-thue-mo--9824aedbf416",
+          "material_read": "Mirrored RESULT.md offsets 0 and 4039, finding/proof and scope/limitations",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Quadratic recurrence for shortest absent subsequences of Thue–Morse prefixes",
+          "trigger": "Exact same count and first values; stronger possibility of equivalent derivation"
+        },
+        {
+          "assessment": "Prior transfer rule and sharp extremum, not dyadic Thue–Morse product evaluation",
+          "evidence": [
+            "The two binary-arch boundary matrices are identical; alternating arches attain F_{m+3} at length 2m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "material_read": "Mirrored RESULT.md offset 0 through the transfer proof and even-length case",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Same transfer matrices and relevant extremal growth bound"
+        },
+        {
+          "assessment": "Prior structural and algorithmic description; no exact dyadic rate in the compared claims",
+          "evidence": [
+            "Theorem 2 characterizes SAS via one witness position in each arch; Proposition 1 treats a different repeated full-alphabet word."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968v1",
+          "material_read": "Definition 3, p. 4, around offset 12743; Theorem 2 around offset 20000, and first examples/proposition from offset 20800",
+          "method": "Primary OA PDF, located definitions and theorem passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General framework that might imply the specialization"
+        },
+        {
+          "assessment": "Extrema at fixed universality; no whole-document negative claim",
+          "evidence": [
+            "The abstract's maximizing/minimizing statements range over words of a given universality index, not a fixed substitution family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "Abstract p. 1, offsets 0 and 2100",
+          "method": "Primary OA abstract only",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Broader universal extremal bounds cited by the recurrence counterpart"
+        },
+        {
+          "assessment": "Related sequences and matrix terminology; no mathematical identification in these results",
+          "evidence": [
+            "Signs of entries of the inverse Stern coefficient matrix follow Thue–Morse signs; Corollary 4 is a signed recurrence for antidiagonal sums, not the bound a_j law."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/w42/w42.pdf",
+          "material_read": "Theorem 1 (offset 9497, printed pp. 4–5), Corollary 4 (offsets 45700–52392, p. 16), Corollary 7 (offset 74000, pp. 24–25)",
+          "method": "Bounded primary OA PDF passages",
+          "title": "A Matrix Related to Stern Polynomials and the Prouhet–Thue–Morse Sequence",
+          "trigger": "Plausible alternate Stern/Thue–Morse matrix formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 18–24 and 60–72",
+        "Fibonacci extremals and exact quadratically recurrent counterpart named above"
+      ],
+      "rationale": "Finite Thue–Morse prefixes are a natural nonperiodic substitution family and shortest absence is the onset of failure of scattered universality. The exact base, approximately 1.568665 per complementary block, quantifies that failure relative both to all binary targets and to the extremal binary growth ceiling. The iteration provides counts without constructing the exponentially long prefix, but the scientific value against the equivalent recurrence is the exact rate and its derivation, not a repackaging of the same fast count.",
+      "residual_risks": [
+        "The rate concerns finite dyadic one-sided prefixes and is not a generic exponent for all Thue–Morse factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

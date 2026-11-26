@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The claim has an all-dimension finite-field proof in `RESULT.md`. The files here give finite computational checks, not independent certification of that proof. The entire proof's claims about higher dimensions rest on algebraic arguments, not on extrapolating from these checks.
+## correctness
 
-Run using the standard Python library:
+PASS
 
-```sh
-python check_rank.py
-python check_dynamics.py
-```
+Let δ=d mod 2 and H=A+δI. The commuting cube flips give H²=0, and the cube split H=[[D,I],[I,D]] with D²=I gives im H=ker H of dimension r. For E=e_u e_vᵀ, e_u is outside im H because He_u≠0, and e_vᵀ is nonzero on im H because Hᵀe_v≠0. Thus ker(H+E)=ker H ∩ ker e_vᵀ has dimension r−1. With K=H+E, a=He_u, b=Hᵀe_v and ε=e_vᵀHe_u, direct multiplication gives K²=a e_vᵀ+e_u bᵀ of rank two, K³=abᵀ+εE and K⁴=εK². The endpoint scalar ε is exactly adjacency. For ε=0, the power ranks r+1,2,1,0 select one size-four nilpotent block and r−2 size-two blocks. For ε=1, K² projects onto span(e_u,a) on which K swaps the basis, giving J2(1); on the complement K has square zero and half rank, giving only J2(0). The shift by δ swaps eigenvalues if d is odd without changing lengths. In the Fitting decomposition, entry by t requires the initial nilpotent component in ker F^t and imposes no constraint on the unipotent component. Counting its fixed spaces for powers 1,2,4 and taking differences gives the stated primitive state populations; each orbit of length ℓ has ℓ fibers of size q^(m−s). The largest nilpotent block or nonzero primitive-period count certifies the claimed sharp times and order. This handles d=2 (no spare blocks in the nonedge case) and every extension of the binary field. Independent exact replay: python3 /workspace/branches/frozen_exact_checks.py 2, covering all five binary dimension/distance cases at d=2 and 3; it matched the entry and period populations.
 
-`check_rank.py` computes actual matrices and products over characteristic two without using a precomputed Jordan form. It checks all 27 parameter pairs with dimension \(2\le d\le7\) and endpoint Hamming distance \(1\le\rho\le d\), confirming power ranks and stabilization or extinction identities. Its captured exact output is `check_rank.stdout`.
+## originality
 
-`check_dynamics.py` directly enumerates all \(q^{2^d}\) states for every endpoint-distance class in dimensions two through four over \(\mathbb F_2\) and dimensions two through three over \(\mathbb F_4\). Each trajectory is iterated to its first repeat, at which point entry time and primitive period are known. It compares cumulative entry and primitive-period populations against the stated formulas, including 65,536 states per \(\mathbb F_4\) dimension-three case. Its captured exact output is `check_dynamics.stdout`.
+PASS
 
-The checks do not address arbitrary multiple-edge changes, non-characteristic-two fields, asynchronous updates, or possible historical equivalents. Independent auditing has not been performed.
+The closest cube perturbation records toggle both orientations, producing genuinely different operators and invariant factors. General rank-one interlacing characterizes which invariant factors can occur when vectors vary but does not choose the actual form for this ordered endpoint pair. The endpoint-sensitive Jordan selection and the resulting all-dimension census are distinct on inspected evidence; the general Fitting census method is inherited linear algebra.
+
+## value
+
+PASS
+
+A one-way input defect is a natural minimal modification, different from removing or adding a bond. For an infinite symmetric family it produces only two adjacency classes and a parity switch, despite potentially large changes in exact return periods or extinction. The result resolves not only ranks or eigenvalues but the smallest extinction bound, entry-time distributions and individual basin sizes; these are useful for analyzing sensitivity to one-way input edits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

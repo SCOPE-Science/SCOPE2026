@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The only potentially negative valuation is at \(p\), since the ordinary central multinomial coefficient is an integer and the remaining denominator is \(p^{rl}\). Legendre's formula yields exactly \(\nu_p(Q_l(p^r-1))=r-s_p((l+1)(p^r-1))/(p-1)\). A terminating cyclic-carry normalization proves the sharp minimal digit weight and its unique equality configuration. Independent digit selection then gives the product count; squeezing between adjacent digit-length cutoffs proves the polylogarithmic law. Boundary cases \(p=2\), \(r=1\), \(H=r\), and \(l=1\) are covered. Ten exhaustive finite test ranges passed. The proof is not dependent on the tests.
+PASS
 
-## Originality — PASS on inspected evidence
+With L=l+1 and K=(p^r-1)L, the denominator outside the multinomial is a power of p, and Legendre gives v_p=r-s_p(K)/(p-1). Folding K's digits preserves its residue mod p^r-1; a cyclic carry decreases their folded total by p-1, including when r=1. A positive vector cannot become zero in one carry. The terminal vector, now consisting of digits, encodes a positive multiple in [1,p^r-1], hence is all p-1. Equality occurs exactly with no carry. At H=qr+t, the t longer columns have q+1 positions and the others q; weak compositions of p-1 in each column already satisfy the digit caps. These strings are positive multiples and only L=1 is removed. For arbitrary X, bracket m(floor(X)+1) between consecutive powers of p, using a strict upper digit cutoff even at equality; H differs from log_p X by O_{p,r}(1). Both endpoint counts have the same leading term with error O_{p,r}(H^{r(p-1)-1}). Independently: python3 /workspace/independent_checks.py 3 compares exact factorial numerator/denominator divisibility and the p-unit conclusion throughout ten bounded ranges, including p=2, r=1, a cutoff with no eligible L, and nonzero t; counts were 7,19,26,23,15,35,26,24,27,0. These runs are corroboration; the general result follows from the digit proof.
 
-The 2023 introducing paper's Theorem 10 gives necessary conditions on the index for fixed color parameter and explicitly warns that its necessary condition is not sufficient. The new theorem reverses the quantifier, giving an exact all-color criterion at each prime-power-minus-one index and an exact enumeration. Indexed related results concern standard Fuss–Catalan valuations or lcm profiles of Gaussian multinomials and do not imply the formula. The method uses standard factorial valuations, whose use is credited. An unindexed equivalent digit-spectrum result is the main residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Integrality is the central arithmetic question posed for this family. The paper's necessary condition alone does not determine how frequently integrality survives as the color count increases. The new exact product counts and sharp positive polylogarithmic growth answer that natural complementary question simultaneously for every prime-power-minus-one index, beyond a single small case or a routine renaming of the fixed-color theorem.
+The supported distinct claim is the complete per-column condition for the prime-power-minus-one fixed index, together with the exact varying-color counts and growth. Neither the published fixed-color results nor general multinomial carry valuations provide this column condition and count by substitution alone. The count itself is elementary once the column condition is proved. This is a best-of-knowledge decision, not a priority certification.
 
-## Risks and limitations
+## value
 
-Only ordinary multinomial Catalan quotients with prime-power-minus-one indices are classified. Full mathematical independence from unindexed literature has not been established. This self-review is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixing a natural exceptional index from the published integrality theory asks the complementary question of which colors are integral. Exact column counts and their asymptotic distinguish an infinite but density-zero set, including its precise growth order and constant; neither a finite table nor a list of candidate exceptions supplies that information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:05:49.093546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–90, stationary support, exact measure and temporal identities independently checked analytically",
+        "Frozen VERIFICATION.md lines 19–25 and check.py lines 6–76, inspected and not executed"
+      ],
+      "rationale": "In each parity the deterministic bound is |X_(n+2m)|≤B+d^m(|X_n|−B); it gives deterministic eventual entry below h from any finite starting state and forces any invariant law to assign zero mass to |X|>B (apply the bound to stationary tail probabilities, with no integrability assumption). Below h the two original thresholds give iid fair signs; two-step affine maps contract by d, and substituting the scalar stationary law times its reflected scaled mixture verifies the planar invariant product. The nonempty scalar attractor has hull [A,B]. Its two interval images have a positive gap, meet, or overlap according as d is less than, equal to, or greater than 1/2. In the separated regime the planar support is a finite union of products of equal-ratio Cantor sets; separated product cylinders and their uniform mass give dimension 2 log(2)/log(1/d). At equality the scalar pieces transport uniform mass onto the two half intervals with the exact required densities. When d>1/2 the support is rectangular, not necessarily the law uniform: the variance of a uniform first marginal on [A,B] is μ²d²/[3(1−d)²], while the true variance is μ²d²/(1−d²). The scalar law is nonatomic since maximal atoms would form a finite set permuted by both contractions, which have different fixed points. The backward stationary series uses disjoint sign sets at opposite index parity. At lag 2j there are at most 2^j conditional output points given X_0; the joint support of full mass is a finite union of affine graphs of product measure zero, proving singularity, TV=1 in the stated convention and infinite mutual information. Conditional means are μ, and the centered conditional second moment has x² coefficient d^(2j) by the affine recursion; this gives the claimed quadratic covariance and the critical coefficient from the uniform fourth moment.",
+      "residual_risks": [
+        "The check.py comment about 2^k atoms for each prescribed x should say at most 2^k (branches coincide already for x=0 and k=1); the theorem and its proof correctly use an upper bound. The simulation only asserts mean and second moment, not the zero-lagged-covariance remark in its comment. These comments do not affect the analytic proof or the assertions actually executed by the supplied checker.",
+        "No density claim is validated for d>1/2; no claim is made about larger joint laws, mixing in total variation from a point, or other noise laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glendinning proves a small-forcing IFS-attractor result in the contracting setting. The displayed uniform threshold example has a state-dependent branch probability (x_n+ε)/(2ε) in its interior transition region",
+          "The focused interleaved-recursion lookup returned coding-theory results rather than a useful theorem on the two-time laws"
+        ],
+        "reasoning": "The wider model and attractor framework do not establish global trapping into state-independent fair switching for the given discrete noise, the exact stationary planar product, or temporal singularity. Generic IFS and finite-graph singularity mechanisms are standard ingredients, not credited separately.",
+        "searches": [
+          "Glendinning MIMS EPrint 2012.76, Theorem 5, Eqs. (19)–(20)",
+          "Literature lookup for alternate-parity or interleaved random recurrences"
+        ]
+      },
+      "checked_sources": [
+        "Glendinning MIMS 2012.76 / DOI 10.1137/130931643",
+        "arXiv:2507.21605",
+        "Resultary ec57811b8333, 492a1ae9dd56, c7317966467d, f48248c7d010, 98c2bc77d377, 2fa2912195db, 1c8338de5160"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal support and the critical uniform law follow from the scalar Bernoulli convolution representation",
+          "The closely matching moment and singular-collapse results involve different lag laws or different observables",
+          "The two independent parity subsequences and even-lag transition kernel with finite conditional support are statements about the frozen dynamical realization, not consequences of a marginal formula"
+        ],
+        "reasoning": "The distinct increment is the exact regime and extreme parity-dependent statistical law inside this original threshold model, including at the Lebesgue point. A zero covariance theorem would not imply odd independence or even singularity; an IFS support theorem would not determine either.",
+        "searches": [
+          "Glendinning Theorem 5 and Eqs. (19)–(20); classical Bernoulli convolution comparison; Resultary ec57811b8333, 492a1ae9dd56 and f48248c7d010 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unrolling the scalar stationary recursion gives μ+μ Σ_(j≥1) d^j η_j, where η_j are successive sign products and are iid by an invertible transformation on every finite prefix",
+          "arXiv:2507.21605 p. 2 notes the standard interval support for contraction at least 1/2",
+          "Resultary ec57811b8333 gives the scalar support and uniform transition in a different model"
+        ],
+        "reasoning": "The sign-product transform identifies the marginal with an affine translate/rescale of a classical Bernoulli convolution, not a novel scalar distribution. Nonzero temporal lags cannot be read from this marginal equivalence; the same sign variables reappear at even lags in the actual process.",
+        "searches": [
+          "Literature comparisons for affine Bernoulli convolutions and parity-interleaved random affine recurrences",
+          "Resultary comparisons for Cantor-to-interval stationary support and hidden parity dependence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ec57811b8333 is a pre-date scalar Bernoulli-convolution support and critical-uniformity overlap in random reshuffling",
+          "492a1ae9dd56 and c7317966467d give vanishing odd and Catalan-weighted even covariances for other maps; 98c2bc77d377 has nonzero covariances at both parities",
+          "f48248c7d010 concerns a singular delayed tent-map stationary law with zero linear covariance and selected quadratic memory; the same-day toral records address symbol-independence thresholds in a deterministic map"
+        ],
+        "reasoning": "These actual indexed claims distinguish moment patterns, one-time singular support, and symbol observations from the frozen all-lags law comparison with its independent product. No exact indexed same-family table or theorem was found in the returned matches; index rankings are not exhaustive.",
+        "searches": [
+          "Resultary indexed Findings ec57811b8333, 492a1ae9dd56, c7317966467d, f48248c7d010, 98c2bc77d377, 2fa2912195db, 1c8338de5160"
+        ]
+      },
+      "rationale": "The scalar support threshold and uniform critical scalar law are classical Bernoulli convolution facts and also have an indexed pre-date analogue. The named stochastic border-collision setting is published, but the exact globally fair stationary regime and, specifically, the full independent-versus-singular two-time classification at every lag with identically zero linear covariance form the supported distinct claim here. Checked parity and dependence records do not yield the exact joint-law dichotomy for this process. The search did not establish priority across all interleaved recurrences.",
+      "residual_risks": [
+        "Earlier interleaved finite-innovation recursions may exhibit the same general mechanism; the focused search did not resolve this literature comprehensively. No originality claim is made for Bernoulli convolution support, the IFS machinery, or finite-graph singularity in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and IFS framework already known; inspected statements do not cover the frozen exact regime and pair laws",
+          "evidence": [
+            "Theorem 5 is for sufficiently small forcing under contraction assumptions; the displayed uniform-noise example has state-dependent branch probabilities."
+          ],
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/1856/1/noisyswitch.pdf",
+          "material_read": "Sections 2–4, especially PDF p. 12 offset 25210, Theorem 5 and p. 13 offset 28472, Eqs. (19)–(20)",
+          "method": "OA PDF passages",
+          "title": "The border collision normal form with stochastic switching surface",
+          "trigger": "Same named stochastic threshold map"
+        },
+        {
+          "assessment": "Classical scalar overlap; no planar temporal implication credited",
+          "evidence": [
+            "For classical contraction λ≥1/2 the scalar support is an interval; the binary expansion gives critical uniformity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.21605",
+          "material_read": "PDF pp. 1–2, classical case support discussion around offset 6862",
+          "method": "OA PDF passages and direct sign-product reduction",
+          "title": "On the Fourier transform of random Bernoulli convolutions",
+          "trigger": "Equivalent stationary scalar Bernoulli convolution"
+        },
+        {
+          "assessment": "Material overlap in the scalar transition",
+          "evidence": [
+            "A scalar SGD epoch recursion is a symmetric affine Bernoulli convolution, with Cantor support, critical uniformity and interval support in the same contraction regimes."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/ec57811b8333",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Random reshuffling has a Cantor-to-interval stationary support transition",
+          "trigger": "Pre-date exact stationary scalar transition"
+        },
+        {
+          "assessment": "Moment result in different dynamics, not an equivalent pair-law result",
+          "evidence": [
+            "Odd covariances vanish; even covariances are Catalan weighted, unlike the frozen all-lags zero covariance and singularity dichotomy."
+          ],
+          "identifier_or_url": "Resultary 492a1ae9dd56",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Catalan digit memory law at the neutral threshold of random affine maps",
+          "trigger": "Nearest parity plus stochastic affine dynamics comparison"
+        },
+        {
+          "assessment": "Nearby witness but distinct one-time and lag statements",
+          "evidence": [
+            "The delayed deterministic tent system gives graph-supported stationary singularity and zero linear covariance, not odd independent/even singular observations of the present model."
+          ],
+          "identifier_or_url": "Resultary f48248c7d010",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Finite-time singular collapse and lag-filtered fluctuations",
+          "trigger": "Singularity and quadratic memory in a delayed map"
+        },
+        {
+          "assessment": "Different map, observable, or pair-law scope",
+          "evidence": [
+            "Two heterochaos records study mode covariances; the same-day toral records study bin/symbol independence in hyperbolic maps."
+          ],
+          "identifier_or_url": "Resultary c7317966467d, 98c2bc77d377, 2fa2912195db, 1c8338de5160",
+          "material_read": "Each RESULT.md Finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Parity, covariance and symbol-independence comparisons",
+          "trigger": "Potential equivalent descriptions by moments, parity amplitudes, or independence thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–36 and 48–90",
+        "Glendinning's stochastic switching comparison and prior scalar transition record ec57811b8333"
+      ],
+      "rationale": "The exact witness separates two kinds of temporal behavior that covariance cannot distinguish: all nonzero lags have the same vanishing covariance, but the distance to independence alternates between the minimum and maximum possible values. The phenomenon holds across a parameter family of a named random-switching model and persists at the full-dimensional exactly uniform stationary point, so it is not an artefact of fractal marginals. The quadratic statistic yields a simple finite-moment diagnostic. The value is in this exact joint-law boundary/example, not in redoing the classical scalar support calculation.",
+      "residual_risks": [
+        "Restricted to symmetric two-point high thresholds, equal zero traces and opposite determinants; no assertion of robustness to perturbing those conditions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

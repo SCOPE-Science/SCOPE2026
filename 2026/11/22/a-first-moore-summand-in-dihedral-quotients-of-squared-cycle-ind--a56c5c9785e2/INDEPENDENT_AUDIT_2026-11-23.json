@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:15:48.542537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the geometric quotient model: barycentric vertices are nonempty independent sets and flag cardinalities strictly increase. An orbit identification within a closed flag simplex preserves each barycentric coordinate indexed by cardinality, so the simplex embeds in the quotient and its different codimension-one faces have distinct omitted cardinalities. Thus orbit deletions with sign (−1)^i give the integral cellular differential with no stabilizer weight, and a flag facet with a unique current codimension-one coface gives a legal free-face collapse. An independently implemented exact enumeration, without executing supplied scripts, reproduced the complete range: n=6–11 and 13–15 collapse to a point; n=12 has dimension two and one free H₂; n=16 has dimension three and one free H₃; n=17–19 have dimension three and two free H₃ classes with no torsion. At n=20 it reproduced initial counts (74,926,3717,6267,4662,1260), ∂²=0, 7,194 legal collapses to counts (36,297,851,962,372,0), unit ranks (35,262,589,371) and one further ∂₄ Smith factor 2. In the independent pivot order the last ∂₄ column had 96 nonzero coefficients of absolute value 2; gcd reduction by unimodular row operations, not modular rank alone, makes this a single Smith entry. The kernel of ∂₃ is saturated in C₃, so the nonzero Smith data in C₃ and in ker ∂₃ coincide. This yields H₃=ℤ⊕ℤ/2, H₄=0 and no other reduced homology at twenty. The independent triangular presentations reduced to the trivial group in all required noncontractible cases (262 eliminated generators at twenty). There is also a direct check of simple connectivity: the quotient of the original one-skeleton is a star, since all vertices lie in one orbit and every independent edge {i,j} is flipped by x↦i+j−x. Passing through the original higher skeleta attaches, for each simplex orbit, a cone on its boundary modulo its setwise stabilizer (radial contraction to the barycenter); for dimension at least two that boundary quotient is connected, so the attachment creates no π₁. Hurewicz and simply connected homological Whitehead give the stated sphere cases. At twenty, the collapsed three-skeleton is 2-connected and equivalent to a wedge of S³; its four-cell attaching maps are specified by their integer degrees, since π₃≅H₃. Basis changes of the sphere wedges implement Smith reduction up to homotopy. The degree-one cells cancel, the degree-two cell gives M(ℤ/2,3), and one free S³ remains. The frozen replay entry point is code/verify.py, with ranges 6 15, 16 19, 20 20, and mod20. This is an exact finite audit, not proof-assistant verification or a conclusion past twenty.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Resultary 8ff019b4f221 computes the reduced Euler characteristic of this same geometric orbit for all n≥6; its scope excludes individual Betti groups, integral torsion and homotopy type.",
+          "Rinaldo–Romeo study reduced Euler characteristics of unquotiented circulant independence complexes. Adamaszek gives an all-length range of nonequivariant splittings, not a compatible quotient model."
+        ],
+        "reasoning": "Longer parameter coverage of a weaker invariant does not imply the classification. The rational Euler formula can check alternating ranks but cannot see whether a degree-two attachment is present.",
+        "searches": [
+          "arXiv:1106.6250, Theorem 1.1 and the r=2 specialization",
+          "arXiv:1706.00863v5, definition 1.2 and §2",
+          "Resultary: 8ff019b4f221 dihedral quotient Euler characteristics squared cycle independence complexes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1106.6250",
+        "arXiv:1706.00863v5",
+        "arXiv:2510.22574",
+        "Resultary 8ff019b4f221",
+        "Resultary d4720d00e89c, c6fb124adaa6 and c8dfdb9cbce9 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At twenty the orbit has ordinary χ=0 but reduced χ=−1, consistent with the prior reduced formula. The frozen comparison's reference to zero should be read as ordinary χ; a Moore summand has zero reduced rational homology in either convention and hence does not affect the Euler comparison.",
+          "Other indexed dihedral-character results cover rational characters of different cycle complexes or a cut complex; both the independent-set condition and the acting quotient must be matched."
+        ],
+        "reasoning": "The new result recovers the earlier Euler values over the finite range, not vice versa; S³ and S³∨M(ℤ/2,3) have identical rational Betti groups and Euler numbers. Neither the nonequivariant splitting nor complement-based cut classification yields the degree matrix on the reduced quotient skeleton.",
+        "searches": [
+          "Resultary 8ff019b4f221",
+          "arXiv:1106.6250",
+          "arXiv:2510.22574, §§1 and 3",
+          "Resultary c6fb124adaa6 and c8dfdb9cbce9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The object can be formulated as the clique complex of the distance-at-least-three graph, then taking the geometric full-dihedral orbit, or as the delta complex of full-dihedral barycentric flag orbits.",
+          "Adamaszek's Theorem 1.1 concerns Ind(C⁽ʳ⁾ₙ) before taking orbits. Shen et al. define total cut facets by complements of independent sets of a fixed cardinality; this is not Ind(C²ₙ), and their equivalences are not orbit-space equivalences."
+        ],
+        "reasoning": "A nonequivariant equivalence is not enough to descend to these orbit spaces; even rational quotient homology does not determine integral torsion. Complementation in the total cut complex changes the face condition, not just notation. The integral geometric quotient is also neither a Borel construction nor a simplicial vertex-orbit quotient.",
+        "searches": [
+          "Web: dihedral quotient independence complex square of cycle homotopy dihedral orbit spaces independence complexes powers cycles torsion Moore space Adamaszek",
+          "Web: independence complex dihedral quotient cycle orbit space torsion squared C20",
+          "Resultary: dihedral orbit quotient independence complex square cycle C_n^2 first Moore torsion n 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact corpus hit is the audited record. The all-length quotient Euler record is an exact scalar formula, not an integral homology/SNF table. d4720d00e89c involves cyclic torsion for a different circulant C₁₆(1,4,8) and a torsion-free dihedral homotopy sphere there. Rinaldo–Romeo Table 1 concerns unquotiented Euler-zero examples."
+        ],
+        "reasoning": "Neither an unquotiented table, a full quotient table for another underlying circulant, nor an Euler value supplies the integral attaching invariant for the audited family. No equivalent table came out of the material actually compared.",
+        "searches": [
+          "Resultary: 8ff019b4f221 dihedral quotient Euler characteristics squared cycle independence complexes",
+          "Resultary: dihedral orbit quotient independence complex square cycle C_n^2 first Moore torsion n 14",
+          "arXiv:1706.00863v5 §2 and Table 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the bounded full-dihedral integral homotopy classification and the first Moore summand. This is not a new claim about the unquotiented homotopy recurrence, the rational Euler invariant, or total cut complexes.",
+      "residual_risks": [
+        "An unindexed computation under distance-exclusion or flag-quotient terminology could contain the same finite range.",
+        "Several different-family corpus analogues were compared by statement, not independently read in full. No persistence or periodicity conclusion is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent on the covering complex, not a result about the geometric full-dihedral quotient",
+          "evidence": [
+            "Theorem 1.1 gives a wedge decomposition involving double and triple suspensions of smaller cycle and path independence complexes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.6250",
+          "material_read": "Open PDF introduction, Theorem 1.1, explicit r=2 formula and graph definitions",
+          "method": "Primary text inspection, compared hypotheses and target equivalences",
+          "title": "Splittings of independence complexes and the powers of cycles",
+          "trigger": "Exact same underlying graph and homotopy classification in broader range"
+        },
+        {
+          "assessment": "Same quotient but a strictly weaker invariant; no integral homotopy classification implied",
+          "evidence": [
+            "The prior claim is the reduced Euler scalar for all n≥6. The augmented character average at n=20 gives −1, corresponding to ordinary χ=0."
+          ],
+          "identifier_or_url": "Resultary 8ff019b4f221",
+          "material_read": "Indexed full claim and prior RESULT.md proof/scope through independent comparison, including augmented Lefschetz formula and quotient statement",
+          "method": "Configured Resultary lookup and comparison with the prior theorem and exact finite Euler values",
+          "title": "Dihedral quotient Euler characteristics of squared-cycle independence complexes",
+          "trigger": "Exact same family and geometric action"
+        },
+        {
+          "assessment": "No quotient and no integral attaching maps",
+          "evidence": [
+            "Equation (1.2) uses the ordinary independence polynomial evaluated at −1, not a dihedral flag-orbit differential."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1706.00863v5",
+          "material_read": "Open HTML abstract, §§1–2, Theorems 2.3 and 2.9 and Table 1",
+          "method": "Primary text inspection of relevant definitions and theorems",
+          "title": "On the reduced Euler characteristic of independence complexes of circulant graphs",
+          "trigger": "Euler calculations/tables for the encompassing unquotiented circulant family"
+        },
+        {
+          "assessment": "Distinct complexes and nonequivariant theorems",
+          "evidence": [
+            "Facets are complements of k-element independent sets, and the displayed homotopy types are not for a dihedral orbit space of Ind(Wₙ)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.22574",
+          "material_read": "Open PDF introduction, total-cut definition and Theorems 1.5, 1.6, 3.3",
+          "method": "Read primary text and compared simplices and action scope",
+          "title": "Homotopy Type of Total Cut Complexes of Squared Cycle Graphs",
+          "trigger": "Homotopy classification with identical squared-cycle parameters and closely related independent sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full polygon symmetry and distance-three exclusion define a natural orbit-space family. The cutoff at n=20 exhausts the nondegenerate sizes of independence-complex dimension at most five, since the maximum independent-set cardinality is floor(n/3) by cyclic spacing and an attaining spaced set. Locating and identifying the first integral torsion by a Moore attachment distinguishes spaces with the same rational invariants. The exhaustive earlier sphere and contractibility classifications make the precise finite boundary a useful benchmark for later equivariant computations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

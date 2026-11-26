@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:02:13.415924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:19–89; independent strip-containment and simplex derivations",
+        "VERIFICATION.md and verify.py:9–88, inspected without execution"
+      ],
+      "rationale": "The edge normal form follows by choosing positive scales for the three alternating rays to sum to zero and then imposing closure. Independently, the three supporting strips have coordinates X, Y, X+Y with widths a+c+t, b+c, a+b respectively. Their midpoints satisfy m_(X+Y)-m_X-m_Y=t/2. For asymmetry at most s, each center coordinate must deviate from its midpoint by at most the corresponding half-width times (s-1)/(s+1); compatibility holds exactly when the sum of those allowances is at least |t|/2. This recovers the credited containment formula and handles t=0. For t>0, the vertex shoelace area divided by t² is B=1/2+U+xy+xz+yz. The three opposite-pair edge lengths add when forming P-P; their cyclic central hexagon has area 4A(P)+t². The three opposite midpoint differences give absolute area t²/8. Hence R=4+1/B and W=1/(8B). At fixed U=(2-s)/(s-1)>0, the pair sum covers (0,U²/3] on the positive simplex, via a segment from its center towards a corner. The center is the unique maximum of B, and the half-variance identity follows by expanding that pair sum. Order-three affine symmetry permutes the three alternating edge rays and consequently their lengths (the only positive relation between the normalized rays has equal coefficients); it is equivalent to x=y=z, which also makes the intervening lengths equal. Sequences at the strict endpoint approach simplex corners up to cyclic relabeling. At (U,0,0) the limiting vertices reduce to (0,0),(U,0),(U,1),(-1,1), a nondegenerate trapezoid for U>0; the other corners are cyclic variants.",
+      "residual_risks": [
+        "The checker takes asymmetry from the parameter formula rather than independently solving containment; the strip argument supplies that independent check. The variance is in affine normal form, not Euclidean distance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal bounds give 4≤R<6 here, and mixed-area monotonicity with -(P-o)⊂s(P-o) gives R≤2(s+1). The frozen upper endpoint is strictly below 2(s+1) by 2(s-1)(2-s)/(3-s), and its lower endpoint is strictly above 4 for s>1.",
+          "The affine-reflection energy in Thm. 7.1 is not Minkowski asymmetry."
+        ],
+        "reasoning": "Neither containing a broader class nor bounding a different invariant supplies both of the conditional endpoints.",
+        "searches": [
+          "Konicer et al. Thm. 4.7",
+          "Giblin–Janeczko–Zwierzyński Thm. 7.1",
+          "Planar fixed-Minkowski-asymmetry difference-body bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.22612, 2609.27931 and 1210.2442 at listed passages",
+        "Resultary 4f2410956682, 2452a42433fb and dd6fcbc2a54c",
+        "10.1007/BF01899997 via quoted planar theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the known asymmetry parameter with Wigner/symmetral correspondence leaves the variation of the primal-area denominator at fixed s unresolved. Equiangular deficit and width estimates are not this joint parameterization."
+        ],
+        "reasoning": "The joint area expression and optimization identify all intermediate realizations and two different equality mechanisms; these do not follow from the inspected universal inequalities.",
+        "searches": [
+          "Prior exact asymmetry RESULT.md; Konicer et al. Eq. (4.8), Thm. 4.7; equiangular comparison records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two profiles are equivalent under R=4+8W, so they count as one spectral result. The indexed exact conditional profile was the assigned record itself.",
+          "The earlier exact-asymmetry finding gives the same coordinate s-formula and range, not the profile of either equivalent area invariant."
+        ],
+        "reasoning": "Equivalent area normalizations were included; an unconditional extremum or the range of s alone is not a conditional area spectrum.",
+        "searches": [
+          "Resultary fixed-asymmetry CPPOS hexagon difference area / Wigner caustic",
+          "Konicer et al. arXiv:2606.22612, Eq. (4.8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records 4f2410956682, 2452a42433fb and dd6fcbc2a54c concern asymmetry, an equiangular isoperimetric deficit and equiangular widths, respectively. No distinct exact conditional profile was located in the inspected records."
+        ],
+        "reasoning": "The target is a real-parameter spectrum for an affine shape class, not a finite enumeration; the indexed exact formulas are the relevant analogue of a table lookup.",
+        "searches": [
+          "Resultary exact CPPOS, fixed-s, Wigner variance and width results"
+        ]
+      },
+      "rationale": "The earlier exact asymmetry formula and Wigner/symmetral area relation are inputs. The closest neighboring results do not supply the complete fixed-s intervals or the endpoint rigidity and reciprocal-excess identity. The separate optimization uses a joint normal-form area computation and the fixed-asymmetry simplex, not just substitution into a universal bound.",
+      "residual_risks": [
+        "No full original 1957 text was read. The focused lookup did not settle the existence of stronger historical planar fixed-asymmetry inequalities; priority beyond checked statements is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the relation and unconditional bound, not the conditional profile",
+          "evidence": "Central-symmetral identity; |A*(E)|<A(P)/4 across CPPOS.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22612",
+          "material_read": "Eq. (4.8), p. 27 (text offset 71677); Thm. 4.7, p. 28 (74901)",
+          "method": "Bounded OA PDF passages",
+          "title": "Convex Polygons with Parallel Opposite Sides: Convergence, Reconstruction, and Isoperimetric Inequalities",
+          "trigger": "Wigner caustic area and central symmetral, same polygon family"
+        },
+        {
+          "assessment": "Different energy and no fixed-s result in this theorem",
+          "evidence": "ART energy bounded by [A(P-P)-2A(P)]/4≤A(P).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.27931",
+          "material_read": "Thm. 7.1, p. 20 (offset 70670)",
+          "method": "Bounded OA PDF passage",
+          "title": "Affine reflection transforms of convex polygons with parallel opposite sides",
+          "trigger": "Difference-body estimate and same family"
+        },
+        {
+          "assessment": "Covers the credited asymmetry input only",
+          "evidence": "Same formula max{(S+t)/S,S/(S+t)} with S=a+b+c, center and range [1,2).",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-minkowski-asymmetry-and-unique-critical-point-of-parallel--4f2410956682",
+          "material_read": "RESULT.md finding",
+          "method": "Published-record mirror",
+          "title": "Exact Minkowski asymmetry and unique critical point of parallel-opposite hexagons",
+          "trigger": "Same exact object and s parameter"
+        },
+        {
+          "assessment": "Different constraint and deficit",
+          "evidence": "Equiangular CPPOS, isoperimetric deficit rather than the area ratio at fixed s.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-fourier-stability-of-the-wigner-enhanced-polygonal-isoperi--2452a42433fb",
+          "material_read": "Finding",
+          "method": "Published-record mirror",
+          "title": "Exact Fourier stability of the Wigner-enhanced polygonal isoperimetric deficit",
+          "trigger": "Wigner-area stability in a related hexagon subclass"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Width-deviation inequality in equiangular class.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-pointwise-width-stability-for-equiangular-polygons-with-pa--dd6fcbc2a54c",
+          "material_read": "Finding",
+          "method": "Published-record mirror",
+          "title": "Sharp pointwise width stability for equiangular polygons with parallel opposite sides",
+          "trigger": "CPPOS Wigner-corrected stability"
+        },
+        {
+          "assessment": "Motivating constructions, no conditional spectrum in passages checked",
+          "evidence": "Introduces discrete area-evolute and central-symmetry-set constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.2442",
+          "material_read": "pp. 1–2",
+          "method": "Bounded OA PDF passages",
+          "title": "Polygons with Parallel Opposite Sides",
+          "trigger": "Earlier discrete caustic and area-evolute geometry"
+        },
+        {
+          "assessment": "Universal endpoint covered, not fixed-s endpoints",
+          "evidence": "A(K-K)≤6A(K), equality only for simplices.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01899997",
+          "material_read": "Planar theorem as quoted in the two CPPOS/ART papers; original full text not retrieved",
+          "method": "DOI attempt and attributed secondary statements",
+          "title": "The difference body of a convex body",
+          "trigger": "Classical broader difference-body theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–24, 66–89",
+        "Konicer et al. Thm. 4.7 and prior exact-asymmetry finding"
+      ],
+      "rationale": "Both asymmetry and difference-area excess are natural affine invariants. The theorem measures their exact tradeoff on the first noncentrally symmetric parallel-opposite polygon class, improving unconditional bounds and distinguishing an attained symmetric extremum from a nonattained quadrilateral limit. It quantifies how imbalance affects the area ratio at fixed asymmetry rather than reasserting the known Wigner identity.",
+      "residual_risks": [
+        "No extension to arbitrary hexagons, CPPOS with more edges, or Euclidean stability is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

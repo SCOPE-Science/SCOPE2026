@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:37:20.500198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–55",
+        "VERIFICATION.md lines 19–25",
+        "check_affine_heisenberg.py lines 39–137",
+        "verification_output.txt lines 1–3"
+      ],
+      "rationale": "Independently expanded the affine identity for P(u)=Ru+p: evaluation at (0,0) gives Rp=0; evaluation at (u,0) gives commutation with ad_p; evaluation at (0,v) then gives R²=R. The remaining bilinear terms give the weight-minus-one identity. This uses no restriction on characteristic. The projection identity is equivalent to its image and kernel being subalgebras, and the condition on p says that it is in the kernel and normalizes the image. A plane is a subalgebra exactly when it contains the center. In a rank-one splitting the two complementary directions modulo the center are independent, so the only permitted p is central and can be removed. In rank two p is arbitrary on the kernel line, a central affine translation does not change it, and the split stabilizer scales that line by every nonzero scalar. The quotient GL₂ and central shears move any ordered planar/line splitting of the given ranks to the displayed representative. Constants split by centrality and rank three gives only the identity. Counting q+1 central planes with q² complementary lines per plane gives all six orbit sizes and total 2q⁴+3q³+1. The proof explains both exhaustion and inequivalence.",
+      "residual_risks": [
+        "The supplied checker was inspected, not executed; the recorded F₂ and F₃ checks are finite corroboration, not evidence for the arbitrary-field quantifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.4 supplies the general canonical factorization criterion; Section 4.3 gives explicit low-dimensional classifications through dimension two.",
+          "Ji–Hua is reported as a linear Heisenberg classification; exact details of the paper were not available through the bounded access attempt."
+        ],
+        "reasoning": "A general parametrization by complementary subalgebras and a vector is not a general orbit-counting theorem. The lower-dimensional cases do not cover the Heisenberg geometry.",
+        "searches": [
+          "arXiv:2610.14838 Theorem 4.4 and Section 4.3",
+          "doi:10.11568/kjm.2018.26.1.53"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 5–55, 61–69",
+        "arXiv:2610.14838",
+        "arXiv:2610.33573",
+        "arXiv:2402.15428",
+        "doi:10.11568/kjm.2018.26.1.53 (access attempt/secondary)",
+        "Resultary c77f6ea4e079"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The antecedent formulas reduce the problem to ordered complementary Lie subalgebras and a normalizing p, modulo Lie automorphisms and central translations."
+        ],
+        "reasoning": "Deriving the exact six orbits still requires determining centrality of the planar factor, the normalizer restriction on p, the split stabilizer actions, and the finite-field multiplicities. These are not supplied by a stronger explicit orbit theorem or by changing the underlying bracket.",
+        "searches": [
+          "arXiv:2610.14838 Theorem 4.4 and Proposition 4.5",
+          "arXiv:2610.33573 Proposition 4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han et al. Proposition 4.5 gives p′=ψ(p)+(I−R′)q with central q for the canonical bracket.",
+          "Brzeziński Proposition 4.5 gauges a constant term away by an isomorphism that can change the bracket data.",
+          "Rathee classifies linear weight-one operators, not affine operators on this fixed bracket."
+        ],
+        "reasoning": "Gauging away translations by changing the bracket is not equivalence for this claim; in rank two the central translation term vanishes. The linear classification alone cannot identify the different affine shifts.",
+        "searches": [
+          "arXiv:2610.14838 Proposition 4.5",
+          "arXiv:2610.33573 Proposition 4.5",
+          "arXiv:2402.15428"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue record's Finding gives q⁶ (weight zero) and q⁶+q⁴ (nonzero weight) for linear operators; its assumptions say the counts are not modulo Lie automorphisms."
+        ],
+        "reasoning": "This is a direct same-algebra census check, but neither its operator family nor what is counted includes the requested affine orbit partition.",
+        "searches": [
+          "Resultary Heisenberg Rota–Baxter affine conjugacy and finite-field census comparison",
+          "2026/10/13/SCOPE-exact-finite-field-census-of-heisenberg-rota-baxter-operators--c77f6ea4e079"
+        ]
+      },
+      "rationale": "The verified distinct contribution is the fixed-canonical Heisenberg orbit partition and finite-field counts, not the general factorization or conjugacy criterion. The closest general theorem does not identify the Heisenberg subalgebra-pair orbits, which translations survive central conjugacy, or their multiplicities. The closest indexed census solves a different, linear weight-λ identity.",
+      "residual_risks": [
+        "Ji–Hua primary full text was not inspected; the secondary description does not rule out an uninspected related observation.",
+        "This is a best-of-knowledge comparison, not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers structural reduction and general equivalence, not explicit Heisenberg classification",
+          "evidence": "Ordered subalgebra factorization, normalizing translation, central conjugation law; explicit dimensions through two.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.14838",
+          "material_read": "Theorem 4.4, Proposition 4.5 (PDF pp. 25–26, text offsets 83233 and 86519) and scope of Section 4.3",
+          "method": "OA primary text, targeted passages",
+          "title": "Rota-Baxter operators and factorization of Lie affgebras",
+          "trigger": "General canonical-affgebra parametrization and conjugacy"
+        },
+        {
+          "assessment": "Different equivalence relation",
+          "evidence": "Constant part removed up to isomorphism with transformed structural data, not via automorphisms fixing the same canonical bracket.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33573",
+          "material_read": "Proposition 4.5 and following discussion, pp. 7–8 (text offset 18679)",
+          "method": "OA primary text, targeted passages",
+          "title": "A note on Rota-Baxter affgebras",
+          "trigger": "Whether translation is always removable"
+        },
+        {
+          "assessment": "Related linear classification",
+          "evidence": "Weight-one linear problem, with 2×2 Jordan-type classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.15428",
+          "material_read": "Abstract p. 1 and Lie-operator definition p. 4 (text offsets 496 and 11794)",
+          "method": "OA primary text, targeted passages",
+          "title": "Rota–Baxter operators and skew left brace structures over Heisenberg group",
+          "trigger": "Prior Heisenberg classification"
+        },
+        {
+          "assessment": "Residual access risk",
+          "evidence": "Secondary account describes linear weights zero and one over an algebraically closed field.",
+          "identifier_or_url": "https://doi.org/10.11568/kjm.2018.26.1.53",
+          "material_read": "Bibliographic citation and secondary summary in the indexed linear census; no primary full text inspected",
+          "method": "Bounded OA access attempt and local mirror comparison",
+          "title": "Rota-Baxter operators of 3-dimensional Heisenberg Lie algebra",
+          "trigger": "Earlier Heisenberg classification"
+        },
+        {
+          "assessment": "Different identity and counting problem",
+          "evidence": "Counts linear weight-λ operators, not modulo automorphisms.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-finite-field-census-of-heisenberg-rota-baxter-operators--c77f6ea4e079",
+          "material_read": "Finding, assumptions, and prior-work passage (text offset 4379)",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-field census of Heisenberg Rota–Baxter operators",
+          "trigger": "Strongest distinct same-algebra indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–24, 41–55",
+        "arXiv:2610.14838 Section 4.3",
+        "arXiv:2610.33573 Proposition 4.5"
+      ],
+      "rationale": "The Heisenberg algebra is the basic three-dimensional nonabelian nilpotent test case for turning canonical-affgebra factorization into a complete classification. In particular, the two rank-two orbits identify a translation invariant that gets lost when changing brackets is allowed. The all-field result, including characteristic two, and exact orbit sizes make this a usable benchmark for affine, rather than merely linear, classifications.",
+      "residual_risks": [
+        "No extension to noncanonical brackets or higher-dimensional Heisenberg algebras is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

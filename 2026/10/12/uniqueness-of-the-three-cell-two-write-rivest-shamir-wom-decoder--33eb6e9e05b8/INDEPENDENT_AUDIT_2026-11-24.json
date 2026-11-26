@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:35:43.337752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Passes the replacement files in repairs/5, not the frozen model/count combination. In the original model the same update is iterated without a generation input. The first state must have at least four states in its up-cone and hence weight at most one. All four low-weight states must carry distinct labels. The top vertex shares each unit-vector cone and cannot carry any unit-vector label; each weight-two vertex then must carry the label of its complementary unit vector. Conversely, a complementary-pair labeling has one representative of each label in every unit-vector cone. The initial update from zero is forced to return the low state for the requested message. The second-write inputs with state zero are identical to the initial inputs, because zero is itself a possible first state, and hence the second row at zero is already fixed. Thus one reachable common update table per decoder, not 16. If the second-write rule is allowed to be independent, four binary choices at zero give 16; this is separately identified as a different model. A new exhaustive check, now in repairs/5/verify.py, ran through 65536 functions and obtained 24 decoders, one shared table each, 16 separate second tables each, and the same decoder digest as originally reported. Two cells are impossible because four distinct first representatives would have to include the top state. Off-domain update values are not counted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general correctness definition iterates one update function from the all-zero state. The paper specifically mentions 000 occurring in the zeroth, first and second generations of the example."
+        ],
+        "reasoning": "This definition excludes 16 independent choices in the stated model and also excludes using synchronization as an extra hypothesis. The general definitions and existence claim do not characterize which decoders work; the full forced equalities come from the three tight cones.",
+        "searches": [
+          "Rivest–Shamir 1982 journal pp. 3–5 and preliminary STOC version, formal model and iteration",
+          "Resultary: unsynchronized WOM write-once memory w(4^2)=3 unique interpretation update function three-bit optimal cube two writes"
+        ]
+      },
+      "checked_sources": [
+        "Rivest–Shamir journal DOI 10.1016/S0019-9958(82)90344-8",
+        "Rivest–Shamir STOC DOI 10.1145/800070.802182",
+        "Two recorded Resultary query results",
+        "OA retrieval attempt DOI 10.1109/CIG.2010.5592680"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The journal lemma's proof prescribes a pattern r(x) and its second representation; it observes that this scheme decodes with one formula. It has no converse about all admissible decoders in that result.",
+          "A claimed modern reuse is noted in the frozen references; independent OA retrieval of that paper was unsuccessful, so it is not negative evidence."
+        ],
+        "reasoning": "The published construction yields a lower bound on the number of admissible labelings, not an upper bound or the necessity of complementary pairs. The repaired theorem supplies necessity from extremal cone constraints. The unique common update table then follows from those newly forced fibers and the published update definition.",
+        "searches": [
+          "Rivest–Shamir 1982 journal PDF, Lemma 1 and formal model (OA offsets 5730–9600 and the p. 5 iteration/unsynchronized example)",
+          "DOI 10.1109/CIG.2010.5592680, attempted lawful OA retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Surviving colorings of the upward-cone problem are exactly four-label bijections on the four antipodal pairs of the Boolean three-cube, equivalently message relabelings of the XOR decoder in Rivest–Shamir Lemma 1.",
+          "Neither focused Resultary query retrieved a pertinent competing classification."
+        ],
+        "reasoning": "An example of a cube coloring, or a claim of optimal storage length, does not state that every solution to the labeling problem has those same fibers. The decoder-count question remains distinct from counting unreachable values of the update.",
+        "searches": [
+          "Resultary: three cell write once memory WOM (4)^2/3 Rivest Shamir decoder uniqueness 24 complementary pairs generation independent 16 transitions binary Boolean cube",
+          "Resultary: unsynchronized WOM write-once memory w(4^2)=3 unique interpretation update function three-bit optimal cube two writes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Table 1/Figure 1 construction shows one decoder and representation scheme. The lemma states 'Only 3 wits are needed to write 2 bits twice' and gives the common XOR interpretation.",
+          "No exact count table for admissible decoders was retrieved in the checked Resultary queries."
+        ],
+        "reasoning": "The eight entries tabulated for one decoder do not enumerate the solutions among all 4^8 functions. The exact count here concerns all feasible decoder functions, not entries of a displayed code.",
+        "searches": [
+          "Rivest–Shamir 1982, Table 1, Figure 1, Lemma 1",
+          "Resultary: three cell write once memory WOM (4)^2/3 Rivest Shamir decoder uniqueness 24 complementary pairs generation independent 16 transitions binary Boolean cube"
+        ]
+      },
+      "rationale": "Pass the necessity/classification of all admissible decoders at the canonical minimum parameter, and its reachable-table rigidity under the correct model; do not count the original decoding formula, the known optimum, or the stated historical definition as new. No inspected result establishes the necessity direction; the independent-count distinction is a consequence of the classification, not an additional priority claim.",
+      "residual_risks": [
+        "An unindexed finite equality classification or a classification in the not independently accessible phase-change literature could overlap; no checked statement was found to imply the necessity theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONSTRUCTION_NOT_NECESSITY; COMMON_UPDATE_IS_REQUIRED",
+          "evidence": "One construction is proved and the old state and message are the only inputs to the update. The write function iterates it starting from zero. The example permits 000 in several generations.",
+          "identifier_or_url": "https://people.csail.mit.edu/rivest/pubs/RS82c.pdf",
+          "material_read": "Journal pp. 3–5, Lemma 1 and Table 1/Figure 1 discussion, interpretation/update definitions, iteration from zero and unsynchronized example",
+          "method": "Lawful author-hosted OA PDF",
+          "title": "How to Reuse a ‘Write-Once’ Memory",
+          "trigger": "Closest construction, possible converse, and exact common-update definition"
+        },
+        {
+          "assessment": "SAME_COMMON_UPDATE_DEFINITION",
+          "evidence": "The formal update function also takes the old state and desired value.",
+          "identifier_or_url": "https://people.csail.mit.edu/rivest/pubs/RS82a.pdf",
+          "material_read": "Formal definition of the interpretation and update functions",
+          "method": "Lawful author-hosted OA PDF",
+          "title": "How to Reuse a ‘Write-Once’ Memory (STOC preliminary paper)",
+          "trigger": "Check whether the original update model admits separately timed rules"
+        },
+        {
+          "assessment": "UNRESOLVED_SOURCE_ACCESS",
+          "evidence": "The frozen source reports an example reusing the decoder; this was not independently verified here and is not used to exclude broader coverage.",
+          "identifier_or_url": "https://doi.org/10.1109/CIG.2010.5592680",
+          "material_read": "No independent full-text passage retrieved",
+          "method": "OA retrieval checked; no lawful repository copy identified by DOI recovery",
+          "title": "Constrained Codes for Phase-Change Memories",
+          "trigger": "Plausible reuse or extension of the same small decoder"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The benchmark is the motivating minimum-size case of the original WOM problem. The full rigidity result answers whether the commonly reused terminal-pair coloring is a design choice and distinguishes the reachable rule in the original model from an update that knows the write number. This is an extremizer classification, not a count of repeated entries of a known table or a recomputation of the known minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:52:32.202717Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A unit vector in ker N satisfies all three bands strictly for every admissible t>0 in the singular case. Otherwise the transit event is S²∩tA[-1,1]³. Strict convexity of ||Az||² restricts all maximizers on the unit cube to vertices. It follows that there are no directions below t_c, only finitely many at equality, and a spherical neighborhood around a maximizing direction above t_c. The right-hand limit is admissible: H² is at least the average squared signed-corner norm ∑||A_i||², at least ∑h_i² since n_i·A_i=h_i, and thus strictly larger than max h_i². Compactness excludes patches other than the disjoint neighborhoods of maximizing corners. At each corner let y be its inward offsets, d_i=s_i u_s·A_i. Flipping the ith sign gives d_i≥||A_i||²/H>0. In the local equation write y_i=ρ θ_i/d_i with θ_i≥0 and ∑θ_i=1. The derivative in ρ of the squared-norm equation at (ρ,δ)=(0,0) is −2 independently of θ, and its δ derivative is 2H. Its unique local solution on this fixed compact simplex is ρ=Hδ+O(δ²) with one θ derivative. The leading physical area Jacobian in θ_1,θ_2 is δ² H²|det A|/(d_1 d_2 d_3), by the cross-product transform with (A diag(s))^T u_s=d. The simplex has coordinate area 1/2, and the Jacobian error is O(δ³); summing and dividing by 4π gives exactly the stated formula, including all ties. At A=I/√3 there are eight corners, d_i=1/3, and C=3√3/π. VERIFICATION.md and verify.py were inspected, not executed. The proof is for each fixed geometry and common scale, not a uniform error bound as geometry tends to singularity or a new tie.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CORBITS handles arbitrary sets of transit bands by small-circle boundary construction and Gauss–Bonnet; the inspected analytical topology classification is for two planets.",
+          "8ba56112c074 gives an ambient volume collapse of equal-ball intersections near a minimum enclosing ball. 9631069f9bd6 treats spherical-triangle maximal-clearance tails, including a quadratic regime."
+        ],
+        "reasoning": "Numerical evaluation for arbitrary band intersections is broader in input, not an analytic theorem for the near-contact coefficient. The ambient ball-volume observable and the spherical-triangle clearance constraints differ from the common-width triple-band area; the same exponent in one regime does not prove coverage.",
+        "searches": [
+          "CORBITS arXiv:1602.07014v1 §§3.1–3.3",
+          "Resultary 8ba56112c074 and 9631069f9bd6 contact-rank Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1006.3727v1",
+        "arXiv:1602.07014v1",
+        "Resultary 3703c557207f, 8ba56112c074, 9631069f9bd6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ragozzine–Holman approximate two-band overlap at high mutual inclination by a parallelogram near the line of nodes, explicitly dropping spherical geometry.",
+          "CORBITS supplies the area at given inputs, not the local positive-octant linearization or its coefficient. The symmetric-polytope erosion law supplies a different coefficient built from the polar of the farthest-vertex hull."
+        ],
+        "reasoning": "The threshold alone is elementary once written as a parallelotope radius. The onset instead requires fixed-simplex localization, strict positive inward slopes, and a two-dimensional Jacobian at each maximizing corner; the inspected earlier procedures and volume formulas do not give that derivative law by substitution.",
+        "searches": [
+          "Ragozzine–Holman arXiv:1006.3727v1 pp. 3–4",
+          "CORBITS arXiv:1602.07014v1 §§3.1–3.3",
+          "Resultary 3703c557207f Finding and missing-set derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent event is S²∩tQ with Q=A[-1,1]³. Resultary 3703c557207f uses the same farthest radius R of a symmetric polytope, but its observable is vol((B+λQ)\\(S+λQ)), equivalently the volume of translations x with x−λQ wholly inside the ball."
+        ],
+        "reasoning": "At Q=A[-1,1]³ both use 1/R, but the prior volume gap vanishes as λ increases to the critical scale from below and depends on the span of all extremal vertices. Here area grows from above and depends separately on the three incident edges at each vertex. This is not the same event or coefficient under the parallelotope substitution.",
+        "searches": [
+          "Local Resultary search for triple transit onset and sphere/parallelotope contact laws",
+          "Targeted literature search for the surface area of a sphere inside a dilated polytope or parallelotope near farthest-vertex contact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 lists all nonzero Solar System triple probabilities at the specified inputs, for example Mercury–Earth–Mars 2.10×10⁻⁴. It does not vary the common width scale or tabulate any onset coefficient.",
+          "The mirror search found same-day 8ba56112c074 for equal-ball intersection volume, not an exact triple-band match."
+        ],
+        "reasoning": "No exact corner sum or equivalent table was identified in bounded retrieval. The same-day result is distinct by observable, not excluded by an assumption about time order.",
+        "searches": [
+          "CORBITS arXiv:1602.07014v1 §4.1 and Table 1, p. 7",
+          "Local Resultary query for exact triple-transit critical scale and onset coefficient"
+        ]
+      },
+      "rationale": "The band model, general numerical spherical-area problem, and the elementary farthest-vertex criterion are not the substantive originality. The supported addition is the sharp analytic surface-area onset for arbitrary invertible triple geometry and relative widths, including all ties and an explicit positive coefficient. Neither the directly competing CORBITS method nor the closest polytope-contact results state or mechanically yield that coefficient for this event in the inspected passages.",
+      "residual_risks": [
+        "An unlocated sharp local sphere–polytope section theorem could subsume the coefficient; the bounded search is not exhaustive.",
+        "The novelty assessment applies to the analytic onset law, not numerical probability evaluation, the band model, or the elementary radius criterion by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precursor with a different, approximate two-band formula",
+          "evidence": [
+            "The estimate ignores spherical geometry and uses a parallelogram near the line of nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1006.3727v1",
+          "material_read": "pp. 3–4, two-planet high-inclination estimate, offset near 23100",
+          "method": "Bounded OA primary PDF text",
+          "title": "The Value of Systems with Multiple Transiting Planets",
+          "trigger": "Foundational joint transit geometry"
+        },
+        {
+          "assessment": "Computes arbitrary joint transit probabilities; no local triple onset law in the relevant passages",
+          "evidence": [
+            "Small-circle boundary intersections and Gauss–Bonnet give areas; Table 1 lists fixed Solar System probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.07014v1",
+          "material_read": "Abstract, §§3.1–3.3 pp. 3–4, and §4.1/Table 1 p. 7 near offset 46400",
+          "method": "Bounded OA primary PDF text",
+          "title": "Efficient Geometric Probabilities of Multi-Transiting Exoplanetary Systems from CORBITS",
+          "trigger": "Direct general calculation of the same joint transit probability"
+        },
+        {
+          "assessment": "Shared radius boundary but different event, direction of approach, and coefficient",
+          "evidence": [
+            "The measured set is a ball erosion; its exponent is (d+s)/2 and its coefficient involves the polar hull of all farthest vertices."
+          ],
+          "identifier_or_url": "Resultary 3703c557207f",
+          "material_read": "Finding and proof of the missing-set identity, offset 0 through 4289",
+          "method": "Local mirror inspection",
+          "title": "Contact-rank laws for the disappearing volume gap of spherical Minkowski sums",
+          "trigger": "Identical farthest-radius threshold for a related polytope contact law"
+        },
+        {
+          "assessment": "Related local asymptotics, different constraints and observables",
+          "evidence": [
+            "Equal-ball intersection volume is taken in Euclidean ambient dimension; triangle clearance concerns tails on a spherical triangle, not three simultaneous absolute bands with arbitrary prescribed relative widths."
+          ],
+          "identifier_or_url": "Resultary 8ba56112c074; 9631069f9bd6",
+          "material_read": "Exact Findings, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Contact-rank collapse laws and polar inertia of finite ball intersections; Contact-rank transition in maximal spherical triangle clearance",
+          "trigger": "Potential broader contact asymptotics and a quadratic spherical area law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural joint-selection model, knowing whether visibility is positive does not quantify how rapidly it first becomes detectable. An explicit, strictly positive coefficient gives the leading small probability directly, even when multiple contacts tie, without resolving tiny areas numerically. It is useful across all fixed nonsingular triple geometries and arbitrary relative widths, not just the orthogonal benchmark; it does not model survey completeness or eccentric-orbit effects.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

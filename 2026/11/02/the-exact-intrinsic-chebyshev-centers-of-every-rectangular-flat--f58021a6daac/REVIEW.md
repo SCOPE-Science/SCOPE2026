@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The quotient metric transforms each source eccentricity into the covering radius of the torus point pair \(\{p,-p\}\); translating a general pair to this form is valid because torus doubling is surjective. The lower bound treats both \(r<A/2\) and \(r\ge A/2\), using vertical fibers that are tangent to the first disk. The second disk must cover those fibers in full; horizontal circle-arc separation gives the exact sharp inequality. A three-vertex triangular tessellation has circumradius \((A^2+B^2)/(4A)\), and the barycentric variance identity proves complete upper coverage. Equality forces the horizontal half-period displacement; a shrinking-fiber argument forces the vertical half-period. This also works at the square boundary, where the horizontal arc degenerates. Four torus preimages yield exactly two inversion classes. Exact rational identities and finite grid diagnostics corroborate but do not replace the proof.
+## correctness
 
-## Originality: PASS, qualified by historical uncertainty
-The nearest accessible full-text sources distinguish packing from covering (Musin–Nikitenko) and define the inversion quotient without this metric minimax classification (Hedden–Herald–Kirk). Published two-disk theorems for regular Euclidean polygons optimize an unwrapped convex planar body and do not imply the optimal two-center covering of a periodic flat torus. Related torus partition work studies diameter, not this covering-radius/center locus. Published research-record searches for the pillowcase, rectangular torus and two-center problem did not identify an equivalent claim. Failure of retrieval is not proof of novelty; unindexed classical periodic covering theory remains a specific risk.
+PASS
 
-## Value: PASS
-The intrinsic Chebyshev center set is a natural global metric invariant of a canonical four-cone-point flat surface. Its exact sharp two-point locus, including rigidity at all aspect ratios and square degeneracy, is a complete classification rather than a one-off numerical evaluation. The covering equivalence supplies a useful two-center benchmark for rectangular periodic geometries, and the proof exhibits a general vertical-slice obstruction paired with a constructive triangle covering certificate.
+By the finite isometric quotient formula the eccentricity of [p] equals the torus covering radius of {p,-p}. Surjectivity of doubling lets any pair be translated to this form. When r<A/2, the first disk meets each fiber x=x1±r in just one point, so the closed second disk must cover each full fiber. This entails r>=B/2 and puts both fibers in the arc of half-width t=sqrt(r^2-B^2/4) centered horizontally at x2. Since 2t<2r, their shorter circular separation must be A-2r<=2t, which rearranges to r>=R=(A^2+B^2)/(4A); r>=A/2 also implies this. For attainment, the half-diagonal lifts lie in columns spaced A/2 with vertical offsets alternating by B/2. Triangulating each strip using vertical length-B bases and the opposite midpoint-height apex gives the congruent triangles used in RESULT.md; all have circumradius R. The barycentric variance identity covers every triangle by the disks at its vertices, even in the square limiting case. For equality with A>B, the full-fiber arc has its two endpoints forced by A-2R=2t<A/2, giving x2=x1+A/2; for A=B the single opposite fiber requires x2 there because t=0. At x=x1+R-epsilon the second disk misses its vertical antipode for all sufficiently small epsilon>0, while the first disk's arc shrinks to y1. This pins down y2-y1=B/2. The four solutions to 2p=(A/2,B/2) modulo the lattice are two inversion classes, not cone points; translation by (0,B/2) descends to an isometry interchanging them. The frozen script and verification notes were read, not run; their grid does not certify continuum optimality or rigidity. RESULT.md lines 31–115 are the analytic certificate.
 
-## Closest sources and limitations
-Musin–Nikitenko (arXiv:1212.0649v1) solves periodic *packing* subproblems, not this two-center covering problem. Hedden–Herald–Kirk (arXiv:1301.0164v1), section 3.1, supplies the quotient description but not its intrinsic eccentricity minimizers. The result covers positive orthogonal periods only. Absolute historical priority is not established; a general torus covering theorem not found in these searches might subsume the statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The square value and an attaining square pair are published and should be credited. The supported distinct claim is the formula across the nonsquare rectangular family with complete pair rigidity and the resulting two-point pillowcase center locus. The indexed well-rounded theorem overlaps the square case only. A separate catalogue result dated November 22 contains the equivalent torus-pair theorem and more; this overlap is real, but the inspected record is later than the frozen November 2 result and does not establish prior coverage. Absolute priority is not certified.
+
+## value
+
+PASS
+
+Covering radius is a natural intrinsic invariant of a standard singular flat metric, and this problem permits centers anywhere rather than only lattice points or cone points. The complete optimizer locus and uniform transition from the square to arbitrarily elongated rectangles make the result useful, beyond the previously known square radius and attaining pair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

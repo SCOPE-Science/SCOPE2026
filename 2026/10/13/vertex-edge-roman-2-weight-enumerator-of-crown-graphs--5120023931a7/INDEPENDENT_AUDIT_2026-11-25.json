@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:03:48.205421Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a zero-ended edge a_i b_j the only omitted vertices are a_j,b_i. A violation requires their two opposite-shore labels at distinct indices to carry all but at most one unit of the total weight, and their respective matched partners to be zero. Thus weights >=6 cannot fail. At weight 5 the omitted labels are 2,2 and the remaining 1 uses a third index. At weight 4 the omitted labels are 2,2 or 2,1, with a third index in the second case; keeping both orientations and accounting for the repeated opposite-shore 1 gives n(n-1)(3n-5). At weight 3 a 2 may serve alone or with an opposite 1; with only ones, two omitted opposite-shore labels and the one remaining label give the three-distinct-pair pattern. These give 4n(n-1)+n(n-1)(n-2). At weight 2 a singleton 2 or two ones on distinct indices admit a witness; when both ones are on the same shore, the existence of a spare index uses n>=3. Ones on a matched pair cannot be omitted by a zero-ended edge. At weights 0 and 1 there always exists a zero-ended edge. Counting yields the six subtractions as claimed. In K_n,n the neighborhood union of each edge is the entire vertex set; weights 0 and 1 also have a zero-ended edge, giving the claimed comparison. `python3 /workspace/reviews/reproduce.py 2` independently forms the open-neighborhood unions from adjacency and tests all 66339 labelings for n=3,4,5; the invalid coefficients and exact minima match. The frozen n=3..6 output was read and the checker inspected, not executed; its n<=30 pattern arithmetic is not an independent exhaustion of feasible labelings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Almulhim–Mondal p. 1 and p. 11, Theorem 6",
+          "2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e"
+        ],
+        "reasoning": "The bipartite theorem is decision NP-completeness, not a count. The multipartite enumerator concerns the vertexwise Italian predicate and does not include the graph: for n>=3 nonadjacency is not transitive in a crown.",
+        "searches": [
+          "Almulhim–Mondal founding paper, exact-family scope, bipartite graphs and crown graph",
+          "Resultary: Roman {2} weight enumerators on multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Almulhim–Mondal legal publisher PDF",
+        "Three Resultary statements identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-graph Roman polynomial has different minimum",
+          "The founding article's abstract describes paths, cycles, trees and the decision problem for bipartite graphs"
+        ],
+        "reasoning": "The complete-bipartite observation is an immediate consequence of the definition and is not a basis for novelty. The matching-deleted graph requires classifying and counting deficient zero-ended edges without double-counting, which the prior statements inspected do not perform or imply.",
+        "searches": [
+          "Almulhim–Mondal, exact-family results and Theorem 6",
+          "Resultary exact weight enumerators for ordinary Roman crowns and vertexwise Roman {2} on complete multipartite graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Almulhim–Mondal DOI 10.3390/math13132169, p. 1 definition",
+          "2026/10/12/SCOPE-roman-domination-polynomial-of-crown-graphs--070f66b8aef5"
+        ],
+        "reasoning": "The primary definition is precisely the frozen edge condition. The same-graph ordinary Roman polynomial requires a 2 adjacent to each zero and has minimum 4, whereas the edge rule allows two ones on a deleted matching pair. The conditions are not equivalent.",
+        "searches": [
+          "Resultary: vertex-edge Roman {2}, veR2DF, low-weight defect coefficients for crown graphs",
+          "Targeted literature lookup for the vertex–edge Roman {2} crown / matching-deleted biclique enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published crown record for the same weight-polynomial format is ordinary Roman",
+          "2026/10/13/SCOPE-minimum-total-roman-2-dominating-functions-of-crown-graphs--593cd8fa3b8d"
+        ],
+        "reasoning": "No inspected ranked hit gives the frozen polynomial under the same condition. The total Roman {2} hit solves a differently constrained vertexwise minimum (4, with binomial(n,2) minima), not these edge-based counts.",
+        "searches": [
+          "Resultary: crown graph and veR2DF, along with the six invalid-weight coefficients"
+        ]
+      },
+      "rationale": "The bounded comparison supports the stated edge-based crown weight enumerator as distinct. Prior statements on the same graph or with Roman {2} in their title use different conditions; the primary paper that uses the right predicate does not provide an applicable counting theorem in the decisive passages inspected.",
+      "residual_risks": [
+        "The targeted literature search was unavailable; the original paper and bounded Resultary comparisons leave a residual chance of a differently named or non-indexed all-function enumeration. The literal crown graph miss is only a locator result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant; no covering enumerator established",
+          "evidence": [
+            "Theorem 6 is NP-completeness for the decision problem on bipartite graphs, not an exact enumeration"
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-13-02169/article_deploy/mathematics-13-02169.pdf",
+          "material_read": "p. 1, offset 296 (abstract and definition); p. 11, offset 55125 (Theorem 6); literal crown graph locator",
+          "method": "Lawful publisher full PDF, bounded passages",
+          "title": "Vertex–Edge Roman {2}-Domination",
+          "trigger": "Exact predicate and theorem applying to bipartite graphs"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "Ordinary Roman minimum 4 with both endpoints of a matched pair set to 2"
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-roman-domination-polynomial-of-crown-graphs--070f66b8aef5",
+          "material_read": "RESULT.md, statement and definition",
+          "method": "Local Resultary mirror",
+          "title": "Roman domination polynomial of crown graphs",
+          "trigger": "Same graph and weight-polynomial format"
+        },
+        {
+          "assessment": "Different condition and graph class",
+          "evidence": [
+            "Vertexwise Roman {2} conditions; complete multipartite graphs"
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e",
+          "material_read": "RESULT.md, statement and graph scope",
+          "method": "Local Resultary mirror",
+          "title": "Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs",
+          "trigger": "Roman {2} enumerator on a dense graph class"
+        },
+        {
+          "assessment": "Different predicate and assertion",
+          "evidence": [
+            "Requires positive support without isolated vertices; minimum 4"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-minimum-total-roman-2-dominating-functions-of-crown-graphs--593cd8fa3b8d",
+          "material_read": "RESULT.md, minimum and scope",
+          "method": "Local Resultary mirror",
+          "title": "Minimum total Roman {2}-dominating functions of crown graphs",
+          "trigger": "Same graph and similar named parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A crown is a natural regular bipartite perturbation of a biclique. The full enumerator quantifies exactly where deletion changes feasible labelings, while the minimum is unchanged. The exhaustive symbolic obstruction counts give an all-orders result and a minimum-structure classification, not a small-instance calculation or a relabeling of a vertexwise result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

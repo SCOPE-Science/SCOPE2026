@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:20:48.265440Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen verify_cpp.cpp, verify_python.py and recorded outputs",
+        "Independent replay: python3 checks/binary_orbits.py, with checks/binary_census.tsv and checks/binary_run.txt"
+      ],
+      "rationale": "There are four fixed words and six two-word orbits, giving ten classes. To get unrestricted optimal length independently, I used shortest paths in the product of the last-three-bit automaton and the covered-class mask, starting at all length-three suffixes. Each append creates exactly one new four-window, and all covering words occur as paths; minimum over supersets gives L for each requested mask. The best greedy overlap is the maximum over all pairs, orientations and orders. Memoizing the maximum successor length on sorted representative states is sound by independent orientability and induction on component count. In the independent run, assertions on all maximizing transitions verify no containment in either direction or orientation. Exhausting all 1023 masks gives 4/3, precisely 131,159,183,215,407,663, with (6,8) at 131 and (9,12) at the other five; mask 1023 is (13,16). The full joint census matches the two frozen outputs. Mask 131 also has the direct length-six cover and two legal greedy overlaps 3 and 1 in the proof; at least six symbols are needed for three distinct four-window classes.",
+      "residual_risks": [
+        "This is a finite result for distinct binary length-four classes and worst legal tie handling; no wider bound follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamano–Shibuya treat general SCS-RC algorithms and hardness and approximation guarantees for other algorithms (MGREEDY-RC, TGREEDY-RC and a constrained Hamiltonian path approach). The all-length theorem varies read length but fixes the subset size at three."
+        ],
+        "reasoning": "Bounds for different algorithms do not give exact maxima for simple greedy. Varying length at size three does not bound arbitrary subset size at length four.",
+        "searches": [
+          "arXiv:2603.26176",
+          "arXiv:2611.16573v1",
+          "doi:10.4230/LIPIcs.CPM.2026.15",
+          "Resultary all-length three-read RC theorem"
+        ]
+      },
+      "checked_sources": [
+        "Same-day all-length three-read Resultary theorem",
+        "Same-day ordinary four-mer subset and full-set tables and ordinary three-mer census",
+        "Yamano–Shibuya, arXiv:2603.26176, arXiv:2611.16573, CPM 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=4 the three-read theorem gives { [0000], [0001], [1000] } and establishes 4/3 already for that subdomain; exactly this mask is 131. The five other equality instances contain six classes each."
+        ],
+        "reasoning": "The prior-comparison lower bound is real, but one cannot decompose a greedy run into independently admissible three-read instances: larger states introduce assembled strings of unequal lengths and constrain the next global overlap. The all-subsets upper bound and the remaining equality census are not supplied by it.",
+        "searches": [
+          "All-length three-read RC theorem, mirrored RESULT.md Finding and assumptions",
+          "Yamano–Shibuya approximation papers, inspected algorithm and bound passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-input theorem uses precisely the same orientation and worst-tie rules and yields 2k/(k+2). Ordinary SCS treats oriented strings as mandatory, not alternative representatives; its exact four-mer subset result instead has ratio 17/11."
+        ],
+        "reasoning": "Exactly-three RC inputs are a genuine subdomain, but identifying a class with a single forced string would change both the feasible hosts and the legal greedy successors.",
+        "searches": [
+          "Resultary (binary four-mer shortest common superstring, reverse complement, maximum-overlap greedy)",
+          "2026/11/22/SCOPE-a-sharp-all-length-greedy-reverse-complement-superstring-ratio-f--45faf26c05c8",
+          "2026/11/22/SCOPE-sharp-worst-case-greedy-ratio-for-distinct-binary-four-mers--c5782f9cc70b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full ordinary four-mer set has greedy lengths 19–27 and optimum 19; the complete ordinary subset census uses 65,535 oriented inputs and four extremizers. The three-mer table is also ordinary, not RC. The implicated universal-word paper's open primary text could not be obtained in the bounded attempts."
+        ],
+        "reasoning": "Full-universe optimal coverage, even when known, does not specify the longest legal assembly on arbitrary subsets. The inspected exact ordinary tables do not encode independent component reorientation.",
+        "searches": [
+          "2026/11/22/SCOPE-complete-greedy-superstring-length-spectrum-for-the-binary-four--570894b19121",
+          "2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5",
+          "2026/11/22/SCOPE-sharp-worst-case-greedy-ratio-for-distinct-binary-four-mers--c5782f9cc70b",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/"
+        ]
+      },
+      "rationale": "A distinct same-day all-length theorem already contains the value 4/3 and the exact mask-131 witness for three classes. The retained distinct claim is that no larger subset exceeds that ratio and that exactly five additional masks, all with six classes, meet it. No priority between same-day results is inferred. The ordinary finite censuses and general reverse-complement approximation theorems do not cover that remaining claim.",
+      "residual_risks": [
+        "Relative order of the same-day records is unresolved. An unindexed equivalent all-subsets census or finer relevant coverage in the inaccessible universal-words paper remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for three classes, not for the all-subsets bound and extremizers",
+          "evidence": [
+            "For k≥3 and exactly three distinct length-k classes, the ratio is 2k/(k+2), with witness { [0^k], [0^(k−1)1], [10^(k−1)] }."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-all-length-greedy-reverse-complement-superstring-ratio-f--45faf26c05c8/RESULT.md",
+          "material_read": "Finding, assumptions and opening of proof, text offsets 0–2650",
+          "method": "Resultary and local mirrored primary text",
+          "title": "A sharp all-length greedy reverse-complement superstring ratio for three binary reads",
+          "trigger": "Exact same ratio and witness within a subdomain"
+        },
+        {
+          "assessment": "Different algorithms and guarantee, not the finite simple-greedy table",
+          "evidence": [
+            "MGREEDY-RC and TGREEDY-RC and constrained Hamiltonian-path guarantees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16573",
+          "material_read": "pp. 1–2, offsets about 1850 and 6350",
+          "method": "Lawful OA primary text, targeted passages",
+          "title": "Tight Cycle-Cover Inequalities and Improved Approximation for Shortest Common Superstring with Reverse Complements",
+          "trigger": "General greedy approximation with reverse complements"
+        },
+        {
+          "assessment": "General approximation/hardness, not this finite worst-tie bound",
+          "evidence": [
+            "Inspected results concern broader classes and algorithms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.26176",
+          "material_read": "p. 2, approximation and hardness overview, offset about 5000",
+          "method": "Lawful OA primary text, targeted passage",
+          "title": "Improved Approximation Algorithms and Hardness Results for Shortest Common Superstring with Reverse Complements",
+          "trigger": "General algorithms for the same optimization objective"
+        },
+        {
+          "assessment": "Different alphabet action on components: no free reverse complementation",
+          "evidence": [
+            "17/11 with four equality sets among 65,535 ordinary inputs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-worst-case-greedy-ratio-for-distinct-binary-four-mers--c5782f9cc70b",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Resultary/local primary text",
+          "title": "Sharp worst-case greedy ratio for distinct binary four-mers",
+          "trigger": "Exact all-subsets binary four-mer table"
+        },
+        {
+          "assessment": "Fine scope remains unresolved; no claim of whole-text exclusion",
+          "evidence": [
+            "The frozen record describes a full-coverage construction, distinct in objective from a worst-greedy census; retrieval failures are not negative evidence."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+          "material_read": "No usable primary-text passage obtained",
+          "method": "Bounded lawful PMC, publisher and Europe PMC alternate retrieval attempts",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers",
+          "trigger": "Potential exact full-coverage overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and exact independent census",
+        "All-length three-read and ordinary four-mer comparators"
+      ],
+      "rationale": "Worst-tie behavior of the standard overlap rule is a natural exact benchmark. Length four is a small complete binary class universe that allows enough components to test whether the three-input obstruction actually controls all cardinalities. The absence of any worse larger instance, together with additional extremizers on six classes, is concrete information not available from a single example, full-set calculation or ordinary-SCS baseline.",
+      "residual_risks": [
+        "Limited to this complete binary four-letter benchmark; not an asymptotic or general approximation result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

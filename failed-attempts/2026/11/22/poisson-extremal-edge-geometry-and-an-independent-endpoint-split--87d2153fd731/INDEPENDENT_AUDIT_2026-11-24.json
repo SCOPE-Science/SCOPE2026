@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:18:12.388766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The contracted weighted Laplacian cofactor gives the forest inclusion probability n^(-k) times the product of component sizes, including the spanning-forest and empty-forest cases. In bounded opposite corners there are O(n) candidate edges and maximum candidate degree O(sqrt(n)). The number of ordered k-tuples with a shared endpoint is O_k(n^(k-1/2)); their inclusion probabilities are O_k(n^(-k)), or zero for cycles. Matchings have exact inclusion probability (2/n)^k, so Riemann counting and factorial moments give independent Poisson counts, with local first moments providing vague tightness. A limit minimizer exists and is unique almost surely, has density 2 exp(-(x+y)^2), and sum/ratio coordinates have Jacobian equal to the sum. Triangle truncation and the vanishing empty-triangle probability justify using the argmin, and D_n is the minimizing coordinate sum minus 1/sqrt(n); the tie-breaking and axis boundaries do not affect the limit. The frozen Prüfer code and 906 recorded assertions were inspected but not re-executed and are not needed for this analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9c51476f4360 bounds TV for the entire labelled induced graph by O(m^3/n^2) for the stated comparison, rather than just matching edge counts. The proof couples the exact count and then uniform conditional matchings.",
+          "Hackl–Panholzer–Wagner study prefix counts; Bóna–Burghart–Wagner study the intersection of two trees. Neither supplies the decisive projection, unlike the inspected full graph coupling."
+        ],
+        "reasoning": "Tree permutation invariance moves any deterministic set of m vertices to the prefix; the entire graph comparison therefore controls edges connecting two short endpoint sets as well.",
+        "searches": [
+          "Resultary 9c51476f4360, RESULT.md, Full graph coupling and marked edge-onset process",
+          "arXiv:2301.00664 §2 and Theorem 3",
+          "arXiv:2501.18570 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 87d2153fd731 (self) and 9c51476f4360 (distinct, stronger)",
+        "Kuba–Wagner, Deterministic Edge Weights in Increasing Tree Families",
+        "arXiv:1602.07940v2",
+        "arXiv:2301.00664",
+        "arXiv:2501.18570",
+        "arXiv:2210.09009v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Full graph coupling passage in 9c51476f4360 controls the entire labelled induced graph, and its marked edge-onset passage spells out the independent-Bernoulli Laplace/Riemann argument.",
+          "Esteban et al. study sum of lengths under arrangements, not an implication for the assigned maximum."
+        ],
+        "reasoning": "Fix R and take the union of the first and last ceil(R sqrt(n)) labels. By relabelling, the stronger theorem applies at m=2 ceil(R sqrt(n)) and its O_R(n^(-1/2)) TV error persists under projection onto cross edges. There every eligible lattice pair in the bounded corner is independently present with probability 2/n in the comparison graph. Its Laplace-product limit is exp(2 times the integral of exp(-f)-1), giving exactly the assigned PPP on every bounded square. Triangular void probabilities and the same sum/ratio transformation give all remaining stated limiting laws. No additional model-specific asymptotic estimate is required.",
+        "searches": [
+          "Resultary mirror 9c51476f4360, RESULT.md proof, offset 2765 onward",
+          "arXiv:1602.07940v2 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9c51476f4360 gives a same-end triangle PPP and a first-point law with density 2 exp(-v^2) for 0<u<v. Setting (x,y)=(u,v-u) gives exactly the assigned limiting density and split law.",
+          "Kuba–Wagner §6.2 and Theorem 7 use the same edge weight |i-j|, but for increasing-tree families."
+        ],
+        "reasoning": "Identical limiting density does not identify the finite observable: a first prefix edge and a maximum-span edge are different. The increasing-tree model likewise cannot be substituted for uniform labelled trees. The stronger joint graph approximation, not either analogy, settles coverage.",
+        "searches": [
+          "Resultary: Cayley extreme label differences, opposite endpoints, sqrt(n)-scale induced subgraph",
+          "uniform random Cayley tree maximum edge length fixed vertex ordering longest label difference extreme value limit Poisson point process endpoint locations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "87d2153fd731 is the assigned self-match. The distinct indexed match is 9c51476f4360.",
+          "Theorem 1 yields the exact forest count (product of component sizes) times n^(m-2) for m components."
+        ],
+        "reasoning": "The Prüfer enumeration is not exact prior coverage of an infinite limit. The exact forest count is already known; the catalogue supplies stronger asymptotic coverage separately.",
+        "searches": [
+          "Resultary local catalogue: Cayley longest span and induced-edge process",
+          "arXiv:2210.09009v1 Theorem 1"
+        ]
+      },
+      "rationale": "The distinct indexed result 9c51476f4360 proves a stronger full induced-subgraph total-variation comparison with G(m,2/n), valid in particular for m=O(sqrt(n)). The assigned opposite-corner PPP is a projection and independent-Bernoulli limit of that comparison, and its endpoint law is the usual minimizer of the projected limit. This is demonstrated stronger coverage, not a date-based claim about priority or a match inferred from the same limiting density.",
+      "residual_risks": [
+        "The order in which the two same-date catalogue records were produced is not established and is not used. Coverage follows from the explicit stronger claim.",
+        "The literature search does not establish historical priority for the general induced-graph result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger than the assigned convergence after projection; priority not inferred from date",
+          "evidence": "Passage explicitly controls the whole labelled graph, not merely the edge count; error for m proportional to sqrt(n) is O(n^(-1/2)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-erd-s-r-nyi-window-for-induced-cayley-tree-subgraphs--9c51476f4360/RESULT.md",
+          "material_read": "Finding and proof at offsets 2765–8143, particularly Full graph coupling and marked edge-onset process",
+          "method": "Resultary local search and mirrored file, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp Erdős–Rényi window for induced Cayley tree subgraphs",
+          "trigger": "Strongest distinct catalogue match, same model and comparable edge PPP"
+        },
+        {
+          "assessment": "Same statistic; different random tree laws",
+          "evidence": "The weights are |k-l| in generalized plane-oriented recursive and d-ary increasing tree families.",
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/incew2st.pdf",
+          "material_read": "Abstract, §1.2 and §6.2, Theorem 7 (PDF pp. 1 and 13; offsets 712–4910, 68179 and 68651)",
+          "method": "Author PDF passages",
+          "title": "Deterministic Edge Weights in Increasing Tree Families",
+          "trigger": "Identical numerical-label edge weight and maximum"
+        },
+        {
+          "assessment": "Different statistic and optimization",
+          "evidence": "The sum of lengths D is minimized over vertex orderings.",
+          "identifier_or_url": "https://arxiv.org/html/1602.07940v2",
+          "material_read": "Abstract and §1, offsets 4900–8696",
+          "method": "Open primary HTML passages",
+          "title": "The scaling of the minimum sum of edge lengths in uniformly random trees",
+          "trigger": "Uniform random trees and edge-length geometry"
+        },
+        {
+          "assessment": "Prefix-induced counts and continuous-process limit, not opposite-corner geometry",
+          "evidence": "Uncover sequence counts edges induced by the first j labels.",
+          "identifier_or_url": "https://arxiv.org/html/2301.00664",
+          "material_read": "§2 Definition 1, §2.1 and Theorem 3, offsets 6800–9299, 14700–17196 and 17500–22499",
+          "method": "Open primary HTML passages",
+          "title": "The Uncover Process for Random Labeled Trees",
+          "trigger": "Same uniform model, label-selected edge process"
+        },
+        {
+          "assessment": "Different random subset: common edges of two independent trees",
+          "evidence": "The complete-graph Poisson(2) law concerns a two-tree intersection count.",
+          "identifier_or_url": "https://arxiv.org/html/2501.18570",
+          "material_read": "Abstract and §2, offsets 711 and 5600–8185",
+          "method": "Open primary HTML passages",
+          "title": "On the Intersection of Pairs of Trees",
+          "trigger": "Poisson limit of mean 2 for uniform spanning trees"
+        },
+        {
+          "assessment": "Established exact input",
+          "evidence": "A prescribed forest with component sizes q_i has (product q_i)n^(m-2) extensions.",
+          "identifier_or_url": "https://arxiv.org/html/2210.09009v1",
+          "material_read": "Theorem 1, offsets 1100–3282",
+          "method": "Open primary HTML passage",
+          "title": "Counting spanning trees containing a forest: a short proof",
+          "trigger": "Exact forest extension identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The maximal span is a natural statistic, but this finding as a separate contribution is a straightforward application of the already indexed stronger graph approximation. Relabelling and edge restriction transfer all required process control, and the PPP minimizer uses only a triangle area and a change of variables. No distinct surviving claimed invariant or estimate requires repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

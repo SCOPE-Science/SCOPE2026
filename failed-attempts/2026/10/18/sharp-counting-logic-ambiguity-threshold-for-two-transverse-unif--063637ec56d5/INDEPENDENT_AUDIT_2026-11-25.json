@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:28.319352Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The simple incidence graph has r=n/k vertices on each of its two named sides and degree k. Conversely its edges give the elements and side incidences give E and F. Thus r≥k necessarily, and k distinct cyclic shifts of a matching realize every r≥k. With either free variable fixed, the four permissible complete atomic types have multiplicities 1,k−1,k−1,n−2k+1 independently of that variable. Boolean combinations are type-dependent; a counting quantifier binding either variable sums the relevant constant multiplicities. This induction handles variable reuse, one-free-variable formulas and sentences. Cardinalities differ by a counting sentence, so there are no earlier cross-size collisions. At r=k,k+1 the complements are respectively empty and a perfect matching; at r=k+2 they are disjoint unions of even cycles with half-length at least two. Side-preserving isomorphism is classified by the multiset of these half-lengths, yielding p(r)−p(r−1). Two distinct partitions (r) and (r−2,2) exist for all r≥5. Every component of the original incidence graph uses at least k vertices per side; 2k>r at this boundary. Two supplied 15-element witnesses were checked directly against all 14,400 pairs of side bijections and for the four type multiplicities, and the example census 2,4,4,7 was independently reproduced by partition dynamic programming; replay: python /workspace/branches/independent_checks.py. The universal argument does not depend on the finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiefer–Schweitzer–Selman give the counting-types/refinement relationship, the coarsest equitable C² partition, and an encoding for general relational structures.",
+          "James's publisher abstract establishes a rigidity threshold for side-preserving regular bipartite graphs, not a counting-logic fibre threshold; its body was not accessible."
+        ],
+        "reasoning": "For the labeled-pair refinement the uniform vector (1,k−1,k−1,n−2k+1) is already stable with a single class. Thus C² cannot refine this family at fixed size. Asymmetry existence is a different invariant, and it is not used as evidence that James prints the new wording.",
+        "searches": [
+          "arXiv:1503.08792 pp. 2, 5, C² and equitable partitions",
+          "10.1112/S0024609306018285 published abstract",
+          "10.1002/malq.201400102 lawful access attempt"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A002865",
+        "arXiv:1503.08792",
+        "Resultary f8a1b71171f2",
+        "DOI 10.1112/S0024609306018285 (abstract only)",
+        "DOI 10.1002/malq.201400102 (unavailable full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All structures with the stated local counts are C²-equivalent at each fixed cardinality. The first two admissible incidence orders have no isomorphism choice (all ones, or one zero per line). At the third, A002865(r)≥2 for r≥5, for example from (r) vs (r−2,2).",
+          "Connectedness follows at once from k>r/2, so it does not define a new census beyond the matrix table."
+        ],
+        "reasoning": "Combining the standard C² invariance with the exact known census after complement gives k(k+2) and its entire fibre, with only trivial boundary and connectivity checks. The FAIL rests on that implication, not on inaccessible related literature.",
+        "searches": [
+          "OEIS A002865 (2013 matrix-orbit interpretation)",
+          "arXiv:1503.08792 pp. 2 and 5",
+          "Resultary f8a1b71171f2, mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the incidence representation, an isomorphism is a pair of independent row and column permutations. Taking entrywise complement commutes with them, so the r=k+2 structures are bijective with the exact known two-ones matrix orbits, not merely counted by a coincident sequence.",
+          "The same-day two-matching result gives the whole k=2 even-cardinality fibre by partitions of n/2 into parts at least 2; under complement the boundary census is exactly its n=2r family."
+        ],
+        "reasoning": "The named sides and zero-or-one intersections are essential to the literal orbit equivalence and are respected. The two-matching record is corroborative mathematical overlap; same-day order is not assumed. The exact earlier table gives independent coverage irrespective of catalogue order.",
+        "searches": [
+          "OEIS A002865, COMMENTS (N. J. A. Sloane, Sep 16 2013)",
+          "Resultary: 2026/10/18/SCOPE-the-complete-two-matching-counting-logic-fibre-and-its-sharp-fir--f8a1b71171f2",
+          "James 2006, DOI 10.1112/S0024609306018285"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The heading is 'Number of partitions of n that do not contain 1 as a part.' The 2013 comment explicitly identifies 'equivalence classes of n X n binary matrices with exactly 2 1’s in each row and column, up to permutations of rows and columns'.",
+          "With offset 0, entries at r=5,6,7,8 are 2,4,4,7; substituting r=k+2 gives the frozen values verbatim. The 2009 comment also explains the even-cycle partition mechanism for alternating pairs."
+        ],
+        "reasoning": "This is exact census coverage for all r by a direct orbit-preserving operation, not extrapolation from sample numbers.",
+        "searches": [
+          "https://oeis.org/A002865, heading and COMMENTS, OA offsets 0 and 1100"
+        ]
+      },
+      "rationale": "Demonstrable coverage by exact equivalent enumeration and standard counting-logic invariance, not a failure to locate a paper. The purported new first-fibre census is exactly OEIS A002865's explicitly identified row/column-orbit census of square binary matrices with two ones per line, after entrywise complement and r=k+2. The logical reinterpretation identifies no smaller subset of orbits: every structure already has the same fixed-order C² type by its one-cell colored equitable partition. Uniqueness at the first two orders and nonuniqueness at the next are the immediate zero-, one-, and two-ones cases. This does not assert that an older source prints the identical composite sentence; the entire claimed boundary follows mechanically from covered ingredients.",
+      "residual_risks": [
+        "The exact composite logical phrasing may or may not have appeared previously; no priority claim about that phrasing is needed for the mechanical-implication verdict.",
+        "The bodies of James and Pratt-Hartmann were not independently compared in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact previously available equivalent census.",
+          "evidence": [
+            "2013 comment explicitly counts square binary matrices with two ones per row and column up to independent row and column permutations.",
+            "Entries at r=5 through 8 are 2,4,4,7."
+          ],
+          "identifier_or_url": "https://oeis.org/A002865",
+          "material_read": "Heading/value list and COMMENTS (OA offsets 0 and 1100), including the dated Sep 16 2013 binary-matrix statement",
+          "method": "Read the entry and checked row/column orbit equivariance of entrywise complement",
+          "title": "OEIS A002865: Number of partitions of n that do not contain 1 as a part",
+          "trigger": "Potential exact all-parameter table after complement"
+        },
+        {
+          "assessment": "The logical invariance mechanism is standard; not evidence of a separately printed threshold for this family.",
+          "evidence": [
+            "Refinement versus counting types; the coarsest equitable partition for C²; encoding of general relational structures retaining C² information."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.08792",
+          "material_read": "pp. 2 and 5 around OA offsets 3900 and 14800",
+          "method": "Read characterization and general relational encoding; compare to the two named pair types and the stable one-cell partition",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "Established general C² and equitable refinement equivalence"
+        },
+        {
+          "assessment": "Same-day overlap for the census, not evidence of earlier ordering; orbit failure is a different threshold.",
+          "evidence": [
+            "At k=2 all even n≥4 have one C² class and the same partition census indexed by n/2; the first nonisomorphic pair is at n=8."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-complete-two-matching-counting-logic-fibre-and-its-sharp-fir--f8a1b71171f2",
+          "material_read": "Mirrored RESULT.md offsets 100–2183 and 3000–4928; distinction from orbit failure around offset 7500",
+          "method": "Match partitions and side-preserving equivalence under bipartite complement",
+          "title": "The complete two-matching counting-logic fibre and its sharp first orbit failure",
+          "trigger": "Exact fibre and cycle classification on complementary degree-two objects"
+        },
+        {
+          "assessment": "Abstract concerns rigidity, not fibre multiplicity; potential additional body coverage not adjudicated.",
+          "evidence": [
+            "Existence of a side-preserving asymmetric k-regular bipartite graph iff k≥3 and r≥max{k+3,8}."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S0024609306018285",
+          "material_read": "Publisher abstract only; journal retrieval unsuccessful and no located lawful OA copy",
+          "method": "Compared exact target of the abstract's threshold and attempted authorized full-text retrieval",
+          "title": "Partition Actions of Symmetric Groups and Regular Bipartite Graphs",
+          "trigger": "Same regular bipartite structures and sharp threshold"
+        },
+        {
+          "assessment": "Specialized coverage unresolved, immaterial to the positive prior-implication evidence.",
+          "evidence": [
+            "Direct topic match; no independently confirmed text on this boundary."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/malq.201400102",
+          "material_read": "Citation and access outcome only; no independently readable full text",
+          "method": "Lawful published-text retrieval attempted; no verified passage relied on",
+          "title": "The Two-Variable Fragment with Counting and Equivalence",
+          "trigger": "Same logic and two-equivalence signature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The identification question is coherent, and the proof could serve as a useful illustration. But the proposed exact invariant is the already catalogued all-order orbit count under a commuting complement, with no extra logical filtering at all and only a one-line degree check for connectedness. The shift to k(k+2) and the small witnesses provide no distinct unknown invariant, boundary mechanism, or nonroutine extension meeting the scientific value requirement.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

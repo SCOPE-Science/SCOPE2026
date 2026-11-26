@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:29:30.565969Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–43 and 45–73",
+        "VERIFICATION.md lines 19–25",
+        "check.py lines 6–72 (inspected, not executed)",
+        "Independent high-precision evaluation of the example service and joint probabilities"
+      ],
+      "rationale": "Each one-hit service probability is 1−exp(−μ); independence is needed for the product J, not for summing expectations in S. Outside the crop interval both means strictly decrease as one moves farther out, so neither objective has an exterior maximizer. Inside, for t=kx≥0, the means are qe^t and qe^(−t). Comparing the two positive terms in S'(t) by their log ratio gives 2(t−q sinh t). The function t/sinh t decreases strictly from 1, since the numerator of its derivative has derivative −t sinh t and starts at zero. Thus at q=1 the derivative is negative for every t>0, at q=D/sinh D it is positive on (0,D) with zero endpoint derivative, and between the thresholds there is a unique interior sign change. Reflection gives all maximizers. For J, h(s)=log(1−exp(−e^s)) has derivative u/(e^u−1), u=e^s; this is strictly decreasing in u because e^u(1−u)−1<0. Jensen's inequality at the two log means gives J(x)<J(0) whenever x≠0 inside the crop interval, and exterior monotonicity handles the rest. Multiplying the q-bounds by e^D gives e^D and 2D/(1−e^(−2D)); the latter is strictly between 1 and e^D and increases from 1 to infinity by e^(2D)>1+2D. This gives the fixed-strength transition order. Expanding t/sinh t=1−t²/6+O(t⁴) yields the claimed continuous onset; substituting t=log 2 and D=log 4 confirms the stated optimizer and numerical coverage example.",
+      "residual_risks": [
+        "The result is analytic within the exact independent-Poisson model. Grid comparisons do not verify a continuum claim, and neither the proof nor the checker validates empirical assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Desaegher et al.'s accessible abstract describes a field-parameterized landscape model for positioning co-flowering plots and associated visitation competition/facilitation. It does not give a two-crop expected count and both-served probability classification; the methods needed to compare the exact kernel were not exposed in the read.",
+          "The cited Poisson one-hit transformation is standard; the Feldman et al. full text could not be read. No inspected broader theorem subsuming the two objective optima was found."
+        ],
+        "reasoning": "Sharing a response law or a motivation from landscape placement is not a theorem specializing to the symmetric fixed-product problem. Credit those ingredients but not unverified full-text implications.",
+        "searches": [
+          "Desaegher–Sheeren–Ouin DOI 10.1111/1365-2664.13949; alternate HAL-03278964",
+          "Feldman–Morris–Wilson DOI 10.1111/j.0030-1299.2004.12845.x",
+          "Resultary spatial exponential-detector and Poisson pollination searches"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md and VERIFICATION.md",
+        "Resultary d74952a96f76, ce1cdc3b4725, 9ebfe525ba28 and d6c7f813eac2",
+        "HAL-03278964 accessible abstract",
+        "Named DOI retrieval attempts described above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The detector comparator optimizes the positions of two detectors for one uniformly located animal, using the chance of at least one detection; its threshold separates co-location from a symmetric pair. It neither moves a single source relative to fixed crops nor optimizes both crops being served.",
+          "The Poisson confirmation theorem distributes a total survey budget and requires at least two encounters at a site to confirm at least one site. The single-visit pollination comparator instead uses success upon exactly one visit and a fixed sum of means.",
+          "The field-model abstract addresses visitation and landscape configurations rather than a global theorem in this Poisson model."
+        ],
+        "reasoning": "The specified hypotheses and objectives of these comparators do not imply either exact expected-count threshold or the universal midpoint joint-coverage conclusion. Their same-day dates establish neither priority nor equivalence.",
+        "searches": [
+          "Resultary ce1cdc3b4725 Finding and equations (1)–(4)",
+          "Resultary 9ebfe525ba28 Finding and Assumptions",
+          "Resultary d6c7f813eac2 Finding and Assumptions",
+          "Desaegher et al. HAL submitted abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Within the crop interval μ+μ−=q², with ratio constrained by e^(−2D)≤μ+/μ−≤e^(2D). Thus joint coverage is the product of independent one-hit probabilities at fixed product of intensities, and expected coverage is their sum, not an at-least-one probability.",
+          "The searches located the bound record but no independent result for this equivalent fixed-product formulation in the returned material."
+        ],
+        "reasoning": "Equalizing log means is a standard strict-concavity argument for the product, but optimizing the sum under the same feasible range requires the separate stationary relation. A fixed sum of intensities or exactly-one-hit service is not an equivalent problem.",
+        "searches": [
+          "Resultary exact/semantic two-crop independent Poisson placement and fixed-product Poisson coverage searches",
+          "External literature query for (1−e^(−x))(1−e^(−C/x)) at fixed C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title entry d74952a96f76 is the bound finding. Distinct entries give a detector threshold p≤exp(−ℓ/2), a two-site confirmation cutoff about 8.402063, or a crowding cutoff B=4. No separate exact table or regime record with both stated boundaries was identified."
+        ],
+        "reasoning": "The thresholds cannot be identified by similar phase language alone. They correspond to different hypotheses and are compared in the claim-implication check.",
+        "searches": [
+          "Resultary exact title and semantic q=1 and q=D/sinh D classification lookups",
+          "Resultary two-site Poisson and exponential detector threshold searches"
+        ]
+      },
+      "rationale": "The inspected same-day records have meaningful overlaps in exponential placement or two-site Poisson optimization, but use different decision sets, success rules, or objectives. None supplies the two sharp S thresholds together with universal midpoint J for the stated model. The one-hit Poisson response, exponential attenuation and log-concavity argument are not credited as novel on their own. Some named literature could not be fully inspected; this is a bounded assessment, not a historical-priority claim.",
+      "residual_risks": [
+        "An unindexed or differently expressed fixed-product Poisson optimization could cover a portion of the result. Bounded searches do not certify absence.",
+        "Feldman et al., Ganser et al. and Kortsch et al. could not be compared at full-text level; the accessible Desaegher abstract does not settle the methods-level comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different optimization variables, stochastic model and objective",
+          "evidence": "Two detectors for a uniform animal achieve midpoint co-location for p≤exp(−ℓ/2), otherwise a symmetric separated pair.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-co-location-threshold-for-two-distance-decaying-ecological--ce1cdc3b4725",
+          "material_read": "RESULT.md Finding, Assumptions, equations (1)–(4), offsets 0–6899",
+          "method": "Local repository mirror",
+          "title": "Sharp co-location threshold for two distance-decaying ecological detectors",
+          "trigger": "Closest exponential spatial-placement and symmetry-breaking analogue"
+        },
+        {
+          "assessment": "Fixed additive time budget, different success count and event",
+          "evidence": "Cutoff about 8.402063 for unequal optima in some parameters when optimizing at least one site with two encounters.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-universal-budget-for-unequal-two-site-poisson-confirma--9ebfe525ba28",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3461",
+          "method": "Local repository mirror",
+          "title": "The sharp universal budget for unequal two-site Poisson confirmation",
+          "trigger": "Two-site Poisson threshold comparator"
+        },
+        {
+          "assessment": "Fixed sum, exactly one visit rather than at least one, no exponential spatial kernel",
+          "evidence": "Equal allocation through B=4 and asymmetric optima beyond for the two-flower setting.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-crowding-transition-in-poisson-single-visit-pollination--d6c7f813eac2",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–4400",
+          "method": "Local repository mirror",
+          "title": "A unique crowding transition in Poisson single-visit pollination",
+          "trigger": "Closest joint Poisson/pollination setting"
+        },
+        {
+          "assessment": "Placement and visitation overlap; abstract does not establish exact response-kernel or theorem coverage",
+          "evidence": "Field-informed configuration study of sunflower visitation, facilitation/competition distances and patch aggregation.",
+          "identifier_or_url": "https://hal.inrae.fr/hal-03278964/document",
+          "material_read": "Submitted abstract, OA text offsets 2773–5373",
+          "method": "Lawful repository copy",
+          "title": "Optimising spatial distribution of mass-flowering patches at the landscape scale to increase crop pollination",
+          "trigger": "Most relevant named spatial-pollination model"
+        },
+        {
+          "assessment": "Source-specific use of the response remains unverified; no coverage inference from access failure",
+          "evidence": "Frozen bibliography credits the response law to this paper; attempted direct access returned 403.",
+          "identifier_or_url": "https://doi.org/10.1111/j.0030-1299.2004.12845.x",
+          "material_read": "Full text not recovered",
+          "method": "Publisher/DOI attempt and lawful repository recovery",
+          "title": "When can two plant species facilitate each other's pollination?",
+          "trigger": "Named potential antecedent of the Poisson one-hit response"
+        },
+        {
+          "assessment": "Not used to rule out exact coverage",
+          "evidence": "Repository retrieval timed out; this is a limitation rather than a finding about its contents.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.4631",
+          "material_read": "No readable primary passage recovered",
+          "method": "DOI and OA repository recovery",
+          "title": "Wildflower strips enhance pollination in adjacent strawberry crops at the small scale",
+          "trigger": "Named adjacent-crop placement context"
+        },
+        {
+          "assessment": "No full-text scope judgment made",
+          "evidence": "Access failure and incomplete repository recovery leave methods-level overlap unverified.",
+          "identifier_or_url": "https://doi.org/10.1111/1365-2435.14353",
+          "material_read": "Abstract-level recovery at most; full text not recovered",
+          "method": "Publisher and repository OA attempts",
+          "title": "Landscape composition and pollinator traits interact to influence pollination success in an individual-based model",
+          "trigger": "Named distinction between visitation and pollination success"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, example, and model scope",
+        "Material Poisson and spatial-placement comparators listed above"
+      ],
+      "rationale": "This exactly solvable spatial example distinguishes optimizing the expected served count from ensuring neither crop fails. The first objective has a nonempty phase with genuinely interior asymmetric maximizers between midpoint and crop-endpoint regimes; the second always strictly favors the midpoint. The sharp boundaries, equality cases and continuous onset give a meaningful benchmark beyond the standard Poisson success formula or an isolated parameter example.",
+      "residual_risks": [
+        "No field recommendation, empirical effect size, yield prediction, or generalization to dependent encounters or other kernels follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

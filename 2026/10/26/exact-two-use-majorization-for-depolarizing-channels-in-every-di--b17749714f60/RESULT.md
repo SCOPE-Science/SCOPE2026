@@ -1,120 +1,60 @@
-# Exact two-use majorization for depolarizing channels in every dimension
+# Exact two-use majorization for the negative depolarizing coefficient in dimension at least three
 
 ## Finding
 
-**Theorem.** For every integer \(d\ge 2\), every physical depolarizing parameter \(0\le p\le d^2/(d^2-1)\), and every density operator \(\rho\) on \(\mathbb C^d\otimes\mathbb C^d\), define
+Let \(d\ge3\) and \(1<p\le d^2/(d^2-1)\). For the depolarizing channel on \(d\)-dimensional matrices
 \[
-\mathcal D_{p,d}(X)=(1-p)X+\frac{p}{d}\operatorname{Tr}(X)I_d,
-\qquad \tau=\mathcal D_{p,d}(|0\rangle\langle0|).
+\mathcal D_{p,d}(X)=(1-p)X+(p/d)\operatorname{Tr}(X)I_d,
+\qquad \tau=\mathcal D_{p,d}(|0\rangle\langle0|),
 \]
-Then the decreasing eigenvalue vector of the two-use output is majorized by that of the pure-product output:
+and every density operator \(\rho\) on \(\mathbb C^d\otimes\mathbb C^d\),
 \[
-\boxed{\lambda^\downarrow\!\left[(\mathcal D_{p,d}\otimes\mathcal D_{p,d})(\rho)\right]
-\prec\lambda^\downarrow(\tau\otimes\tau).}
+\lambda^\downarrow\!\left((\mathcal D_{p,d}\otimes\mathcal D_{p,d})(\rho)\right)
+\prec \lambda^\downarrow(\tau\otimes\tau).
 \]
-In particular, **every** Ky Fan eigenvalue sum of the two-use output is bounded by the corresponding sum for \(\tau\otimes\tau\); the majorization defect is **exactly zero** at two uses, including the physical branch \(p>1\). This proves the \(n=2\) case of the arbitrary-copy majorization conjecture stated in [1], in every finite local dimension, without proving the conjecture for \(n\ge3\).
+Thus a pure product input simultaneously maximizes every Ky Fan output sum for two identical uses throughout the negative-coefficient physical branch in local dimension at least three, including its complete-positivity endpoint.
 
 ## Assumptions and scope
 
-A density operator is positive semidefinite with trace one. Majorization \(x\prec y\) means that the nonincreasing coordinates have \(\sum_{j=1}^k x_j\le\sum_{j=1}^k y_j\) for every \(1\le k<d^2\), with equality at \(k=d^2\). Write
-\[
-a=1-p,\qquad b=p/d,\qquad \alpha=a+b,\qquad\beta=b.
-\]
-Complete positivity is precisely \(-1/(d^2-1)\le a\le1\) [2,3]. The pure one-use output has eigenvalues \(\alpha\) once and \(b\) with multiplicity \(d-1\). For \(a\ge0\), the decreasing eigenvalues of \(\tau^{\otimes2}\) are
-\[
-\alpha^2\ (1),\quad\alpha b\ (2d-2),\quad b^2\ ((d-1)^2),
-\]
-where parentheses denote multiplicities. For \(a<0\) the order reverses: \(b^2\) (multiplicity \((d-1)^2\)), \(\alpha b\) (multiplicity \(2d-2\)), and \(\alpha^2\) (multiplicity one). No claim is made about three or more uses, unequal local channels, or infinite dimension.
+Here \(x\prec y\) means that all partial sums of the decreasing rearrangements of \(x,y\) satisfy the inequality in that order, with equal total sum. Let \(c=p-1\), \(b=p/d\), and \(\alpha=b-c\). The range is \(0<c\le 1/(d^2-1)\), so \(c/b\le1/d\) and \(0<\alpha<b\). The spectrum of \(\tau\otimes\tau\) in decreasing order consists of \((d-1)^2\) copies of \(b^2\), \(2d-2\) copies of \(\alpha b\), and one copy of \(\alpha^2\). The theorem compares two identical channels, not unequal channels or three or more uses.
 
 ## Proof
 
-**1. Reduction and exact block decomposition.** Ky Fan sums are convex, so it suffices to prove the inequality for a pure input; a spectral decomposition of a mixed input then gives the result by convexity. Covariance under all local unitaries reduces any pure input to Schmidt form
+First take a pure input. By local unitary covariance we may write its state vector as \(|\psi\rangle=\sum_i\sqrt{\lambda_i}|ii\rangle\), where \(\lambda_i\ge0\) and \(\sum_i\lambda_i=1\). Write \(v_i=\sqrt{\lambda_i}\), \(\Lambda=\operatorname{diag}(\lambda)\), and \(T=\Lambda\otimes I+I\otimes\Lambda\). The output is
 \[
-|\psi\rangle=\sum_{i=1}^d\sqrt{\lambda_i}|ii\rangle,
-\quad \lambda_i\ge0,\quad\sum_i\lambda_i=1.
+Z=b^2 I-bcT+c^2|\psi\rangle\langle\psi|.
 \]
-Put \(v=(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_d})^T\) and \(\Lambda=\operatorname{diag}(\lambda_i)\). The output \(Z\) satisfies the exact identity
-\[
-Z=b^2 I_{d^2}+ab(\Lambda\otimes I_d+I_d\otimes\Lambda)+a^2|\psi\rangle\langle\psi|.
-\tag{1}
-\]
-Consequently, on the \(d\)-dimensional diagonal subspace \(\operatorname{span}\{|ii\rangle\}\), it has matrix
-\[
-Z_{\rm diag}=b^2 I_d+2ab\Lambda+a^2 vv^*,
-\tag{2}
-\]
-while each \(|ij\rangle\), \(i\ne j\), is an eigenvector with eigenvalue
-\[
-z_{ij}=b^2+ab(\lambda_i+\lambda_j).
-\tag{3}
-\]
+On the subspace spanned by the vectors \(|ii\rangle\) it is \(b^2I-2bc\Lambda+c^2vv^*\). On each \(|ij\rangle\), \(i\ne j\), its eigenvalue is \(b^2-bc(\lambda_i+\lambda_j)\ge\alpha b\).
 
-**2. The rank-one Gram inequality.** For every probability vector \(\lambda\),
+The following Gram identity bounds the diagonal block from below:
 \[
-I_d+vv^*-2\Lambda
-=\sum_{1\le i<j\le d}(\sqrt{\lambda_j}e_i+\sqrt{\lambda_i}e_j)
+I+vv^*-2\Lambda
+=\sum_{i<j}(\sqrt{\lambda_j}e_i+\sqrt{\lambda_i}e_j)
 (\sqrt{\lambda_j}e_i+\sqrt{\lambda_i}e_j)^*\succeq0.
-\tag{4}
 \]
-Indeed the diagonal entry on the left is \(1-\lambda_i=\sum_{j\ne i}\lambda_j\), and the off-diagonal \((i,j)\) entry is \(\sqrt{\lambda_i\lambda_j}\), exactly as on the right. Thus \(2\Lambda-I_d\preceq vv^*\).
+Indeed its diagonal entries are \(1-\lambda_i\) and off-diagonal entries are \(\sqrt{\lambda_i\lambda_j}\). Hence the diagonal block is at least \(\alpha b I-c\alpha vv^*\) in Loewner order. The comparison matrix has eigenvalue \(\alpha^2\) along \(v\) and \(\alpha b\) on its orthogonal complement. The eigenvalue variational principle and the off-diagonal estimates imply that the smallest eigenvalue of \(Z\) is at least \(\alpha^2\) and all but possibly this smallest one are at least \(\alpha b\).
 
-**3. Nonnegative depolarizing coefficient \(a\ge0\).** Equations (2) and (4) imply
+For an upper bound, for any vector \(u=(u_{ij})\) Cauchy–Schwarz gives
 \[
-Z_{\rm diag}\preceq\alpha b I_d+a\alpha vv^*.
-\tag{5}
+|\langle\psi,u\rangle|^2\le d\sum_i\lambda_i|u_{ii}|^2\le (d/2)\langle u,Tu\rangle.
 \]
-The right side has one eigenvalue \(\alpha^2\) and the remaining \(d-1\) eigenvalues equal to \(\alpha b\). Equation (3) gives \(z_{ij}\le\alpha b\), since \(\lambda_i+\lambda_j\le1\). Equation (1) also gives \(Z\succeq b^2I_{d^2}\), because \(a,b\ge0\). Hence the largest eigenvalue of \(Z\) is at most \(\alpha^2\), every eigenvalue except possibly the largest is at most \(\alpha b\), and every eigenvalue is at least \(b^2\). For \(1\le k\le 2d-1\), the sum of the largest \(k\) eigenvalues is at most \(\alpha^2+(k-1)\alpha b\). For \(2d-1\le k\le d^2\), subtracting the \(d^2-k\) smallest eigenvalues gives an upper bound \(1-(d^2-k)b^2\). These are exactly the corresponding two pieces of the pure-product Lorenz curve.
+Thus \(Z-b^2I\preceq(-bc+dc^2/2)T\preceq0\), using \(T\succeq0\) and \(c/b\le1/d\). Consequently for \(1\le k\le(d-1)^2\) the largest \(k\) eigenvalues sum to at most \(kb^2\). For \((d-1)^2<k<d^2\), let \(m=d^2-k\). The smallest \(m\) eigenvalues sum to at least \(\alpha^2+(m-1)\alpha b\); subtract from the trace of one. These are exactly the bounds of the pure-product Lorenz curve. Equality of the total traces holds at \(k=d^2\).
 
-**4. Negative depolarizing coefficient \(a=-c<0\).** Physical complete positivity gives
-\[
-0<c\le\frac1{d^2-1},\qquad b=\frac{1+c}{d},
-\qquad\frac cb\le\frac1d,\qquad\alpha=b-c>0.
-\tag{6}
-\]
-On the diagonal subspace, (2) and (4) yield the **lower** rank-one bound
-\[
-Z_{\rm diag}\succeq\alpha b I_d-c\alpha vv^*.
-\tag{7}
-\]
-This has one eigenvalue \(\alpha^2\) and \(d-1\) eigenvalues \(\alpha b\). By (3), all off-diagonal eigenvalues obey \(z_{ij}\ge\alpha b\). Therefore \(Z\) has *at most one* eigenvalue below \(\alpha b\), and its smallest eigenvalue is at least \(\alpha^2\).
+Finally decompose a mixed input into pure states. The sum of the largest \(k\) eigenvalues is convex, by its variational formula as the maximum of \(\operatorname{Tr}(PZ)\) over rank-\(k\) orthogonal projections. Linearity of the channel then extends each inequality to the mixed input. A pure product attains the reference spectrum.
 
-To upper-bound the entire spectrum, set \(T=\Lambda\otimes I_d+I_d\otimes\Lambda\). If \(r\le d\) is the number of nonzero Schmidt coefficients, the Cauchy–Schwarz inequality gives, for every vector \(u\),
-\[
-|\langle\psi,u\rangle|^2=\left|\sum_{\lambda_i>0}\sqrt{\lambda_i}\,u_{ii}\right|^2
-\le r\sum_i\lambda_i|u_{ii}|^2\le\frac d2\langle u,Tu\rangle.
-\]
-Thus \(|\psi\rangle\langle\psi|\preceq(d/2)T\). In view of (6),
-\[
-Z-b^2I_{d^2}=-bcT+c^2|\psi\rangle\langle\psi|
-\preceq\left(-bc+\frac{dc^2}{2}\right)T\preceq0.
-\tag{8}
-\]
-So **every** eigenvalue is at most \(b^2\). For \(1\le k\le(d-1)^2\), the largest \(k\) sum to at most \(kb^2\). For \(k>(d-1)^2\), set \(m=d^2-k\le2d-2\); the smallest \(m\ge1\) eigenvalues sum to at least \(\alpha^2+(m-1)\alpha b\), by (7), while \(m=0\) is the trace equality. These bounds match the pure-product Lorenz curve. Hence majorization holds also for \(a<0\).
+## Reproducibility and limitations
 
-**5. Mixed inputs.** For a decomposition \(\rho=\sum_s q_s|\psi_s\rangle\langle\psi_s|\), the Ky Fan variational characterization gives
-\[
-\mathcal K_k((\mathcal D\otimes\mathcal D)(\rho))
-\le\sum_s q_s\mathcal K_k((\mathcal D\otimes\mathcal D)(|\psi_s\rangle\langle\psi_s|))
-\le\mathcal K_k(\tau^{\otimes2}).
-\]
-Traces equal one. This completes the proof for all stated \(d,p,\rho\).
-
-## Verification
-
-The derivation above is finite-dimensional and algebraic; no random enumeration or floating-point result is needed for the theorem. The standalone `verify.py` checks the exact Gram identity with rational Schmidt amplitudes and exercises all Ky Fan inequalities numerically for random pure inputs in dimensions \(2,3,4,5,7\), including \(p=0,1\) and the maximal physical \(p\). Run `python3 verify.py` with NumPy installed. This tests examples and endpoints, **not** the universally quantified assertion, which rests on steps (1)–(8).
+The argument uses only the exact block and Gram identities, elementary operator inequalities, and the Ky Fan variational formula. The accompanying numerical verifier also exercises a larger parameter range and checks exact rational Gram examples; only the negative-branch comparisons in dimensions at least three are part of this finding. Finite tests do not certify the all-input, all-dimension theorem. No statement is made beyond the completely positive interval or about historical priority outside the cited and inspected literature.
 
 ## Relationship to prior work
 
-Song, Wang, Tomamichel and Fang [1] formulate exactly this majorization ordering for arbitrary tensor power \(n\), prove a log-determinant ordering for every \(n\), and derive asymptotic approximate majorization; they do not give a two-use exact majorization theorem. King's earlier work [2] proves multiplicativity of output Schatten norms and capacity additivity for all copies, but those norm inequalities alone do not give the individual Ky Fan partial sums. Lami and Huber [3] exhibit the bipartite Schmidt-block form and classify positivity/entanglement-annihilation properties of a broad class of maps, but do not establish this Lorenz-curve ordering. The present proof uses a rank-one Gram inequality to control **both** the high and low ends of the two-use spectrum, including the \(a<0\) completely positive regime.
+Song, Wang, Tomamichel, and Fang [1] state the full majorization conjecture at arbitrary copy number and prove shifted log-determinant ordering and approximate majorization. Version 2 explicitly credits Fujiwara and Hashizumé [2] with the exact two-use order for \(0\le p\le1\). That positive-coefficient result is not claimed here; the exact boundaries of the available comparison to [2] are based on the attribution in [1], not direct inspection of the older full text. For qubits, changing the sign of the depolarizing coefficient also preserves each two-use output spectrum: with \(R(X)=\operatorname{Tr}(X)I_2-X=\sigma_y X^{\mathsf T}\sigma_y\), composing a qubit depolarizing map with \(R\) reverses its coefficient, and \(R\otimes R\) is full transpose conjugated by \(\sigma_y\otimes\sigma_y\). This argument likewise preserves the reference spectrum, so the physical negative qubit case follows from the credited nonnegative qubit case. This dimension-two reduction does not apply to the higher-dimensional claim above.
 
-## Limitations
-
-The result proves a two-use instance, not the full arbitrary-copy conjecture; it does not give a nonzero stability gap or a constructive mixed-unitary converter. The Schmidt decomposition and local unitary covariance require identical finite local dimensions and the same depolarizing channel on both sides. The result is exact for the entire physical parameter interval, but makes no assertion about positive non-completely-positive parameters or unequal channels. Priority is assessed against the sources actually inspected; a mathematically equivalent result in additional literature may exist.
+King [3] treats the full physical range for output norm and entropy optimization; these inequalities do not themselves order every Ky Fan sum. Lami and Huber [4] study positivity and entanglement annihilation for a wider family of bipartite maps. The contribution here is the exact order of *all* spectral partial sums on the negative branch for \(d\ge3\): the reference has its long plateau at the top of the spectrum, and the two-sided operator estimates above yield the required high and low spectral bounds in that ordering.
 
 ## References
 
-[1] Z. Song, X. Wang, M. Tomamichel, and K. Fang, *Approximate majorization and high-order capacity of quantum depolarizing channels*, arXiv:2609.37240v1 (first public 2026-09-29), https://arxiv.org/html/2609.37240v1 .
-
-[2] C. King, *The capacity of the quantum depolarizing channel*, arXiv:quant-ph/0204172v2 (2002), https://arxiv.org/html/quant-ph/0204172v2 .
-
-[3] L. Lami and M. Huber, *Bipartite depolarizing maps*, arXiv:1603.02158v1 (2016), https://arxiv.org/html/1603.02158v1 .
+1. Z. Song, X. Wang, M. Tomamichel and K. Fang, *Approximate majorization and high-order capacity of quantum depolarizing channels*, [arXiv:2609.37240v2](https://arxiv.org/abs/2609.37240v2), Introduction, Eq. (2) and discussion of the two-use case.
+2. A. Fujiwara and T. Hashizumé, *Additivity of the capacity of depolarizing channels*, Physics Letters A **299** (2002), 469–475.
+3. C. King, *The capacity of the quantum depolarizing channel*, [arXiv:quant-ph/0204172](https://arxiv.org/abs/quant-ph/0204172).
+4. L. Lami and M. Huber, *Bipartite depolarizing maps*, [arXiv:1603.02158](https://arxiv.org/abs/1603.02158).

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:01:41.091279Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The level indicator is half of 1+(-1)^{epsilon+Q}. Expanding its two translates and using the nonsingular polar form gives the stated four-term Walsh sum; the two Gauss terms cancel when b(a)=1. The real symmetric Weyl directions are exactly b(a)=0, with Frobenius norm sqrt(N); their intensity responses are distinct Walsh characters on the N² orbit indices, giving eigenvalues N|A(a,b)/K|². At nonzero shift each symmetric frequency set has N/2 elements, with two singled out. At m=1 and rho=-1 the seed is a point mass, so only the four diagonal directions survive; at rho=+1 the seed has size three, with overlap two at nonzero shift and nontrivial zero-shift Walsh modulus one, giving condition number three. For m≥2 the smallest ambiguity modulus is h. The sphere's projector normal operator is scalar on the traceless part with value 2N/(N+2); the two nontrivial symmetric sectors agree only when L=h, giving N=16 and K=6 and exactly the claimed fourth moment. The frozen checks/verify.py was located and inspected, not executed. A minor literature-comparison caveat is that the m=1 singleton has difference-set parameter zero; it is not ruled out by the numerical small-intersection threshold alone, though the cited cyclic theorem is about a different group and its indicator hypothesis is not an injectivity argument for the singleton.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4669c52075d8 specifies the singular-value table on all complex matrices and identifies the skew kernel. The cyclic nonvanishing criterion and nearby odd-field, quadratic-graph and first-Walsh-band results do not provide the relevant real table for this family."
+        ],
+        "reasoning": "Only the same-family table is needed for rejection. General cyclic and other-field analogues must not be confused with it; the matching record's complex domain actually implies the real restriction because its effect on the real symmetric Weyl basis is explicit.",
+        "searches": [
+          "Resultary 4669c52075d8",
+          "arXiv:1503.05800v1 section 2",
+          "Resultary 1651ef6ab8d7, b9e240edb677, f73b283fd6aa"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/verify.py",
+        "Local Resultary 4669c52075d8, 1651ef6ab8d7, b9e240edb677 and f73b283fd6aa",
+        "arXiv:1503.05800v1 and 1504.02827v1; DOI 10.37236/836",
+        "arXiv:2108.04200 and 2603.15550 abstract comparisons; Zauner full text attempted, not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For unit vectors the scalar direction has eigenvalue N for this orbit. The two traceless sector eigenvalues coincide iff L=h, equivalently 2^{m-1}+rho=1; since the trace of the lifted normal operator is N², the common traceless value is then 2N/(N+2).",
+          "At m=1 no new computation beyond point-mass and complementary three-point windows is required, and neither gives a design. Unitary or complex projective design results are different statements."
+        ],
+        "reasoning": "The design condition and sharp constant follow mechanically from the existing table (including its known identity eigenvector), even without explicit design terminology there. The small excluded case does not supply a substantive independent result.",
+        "searches": [
+          "Resultary 4669c52075d8 spectrum/diagonalization versus the projective design criterion",
+          "arXiv:2108.04200 and 2603.15550 abstract comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For p with Q(p)=epsilon, set Q_p(x)=Q(x+p)+Q(p)=Q(x)+B(x,p). Then {Q_p=0}=p+{Q=epsilon}. The polar form is unchanged and its Gauss sign is rho. Translating a seed just permutes its labelled intensity responses.",
+          "The matching record explicitly normalizes its unweighted singular values by 1/K on passing to unit windows."
+        ],
+        "reasoning": "The zero-level syntax does not restrict the range of windows up to translation. Restrict to real symmetric input, divide by K and square: the full three-level table becomes the frozen normal-operator table.",
+        "searches": [
+          "Local Resultary: real Gabor tomography for binary quadrics, Walsh symmetric lift, projective design",
+          "Resultary 4669c52075d8 Finding/assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4669c52075d8 gives sqrt(N) times K, L and h with multiplicities 1, 2(N-1) and (N-1)(N/2-1), plus the skew zeros. Bhattacharya–Smith tabulate (16,6,2) difference sets, not their Gabor spectra."
+        ],
+        "reasoning": "The relevant exact operator table already exists. The classical difference-set table alone would not determine arbitrary Walsh signs or projective moments.",
+        "searches": [
+          "Resultary 4669c52075d8 exact spectrum table",
+          "DOI 10.37236/836 section 4",
+          "arXiv:1504.02827v1"
+        ]
+      },
+      "rationale": "The strongest distinct indexed record supplies the identical positive spectrum for every nondegenerate Boolean quadric at its zero level, for both signs and all m≥2, with the stronger full complex-matrix kernel analysis. Every nonempty one level is a translate of a zero level of another such quadratic form, so the published hypotheses cover it up to orbit relabelling. The design resonance follows directly by equating the already tabulated nontrivial values, and the remaining dimension-four endpoints are immediate singleton or three-point windows. The matching record is indexed with a later date; the comparison establishes coverage, not priority or dependence.",
+      "residual_risks": [
+        "No finding of historical priority or direction of dependence follows from the catalog dates.",
+        "The inaccessible Zauner source leaves the wider historical design context unresolved; the verdict rests on the inspected matching table and its direct implications, not on this access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact covering table after translation and normalization for m≥2",
+          "evidence": "Both quadratic signs occur in its statement; it explicitly identifies the real symmetric restriction, normalization factor and skew kernel.",
+          "identifier_or_url": "Resultary 2026/11/8/4669c52075d8",
+          "material_read": "Finding and assumptions at text offsets 0–2849 and exact ambiguity/diagonalization at offsets 3000–5171",
+          "method": "Local Resultary search and local mirrored RESULT.md",
+          "title": "Real Gabor tomography from nondegenerate Boolean quadrics",
+          "trigger": "Same binary family and full lifting spectrum"
+        },
+        {
+          "assessment": "Relevant standard lifting background, not the binary symmetric table",
+          "evidence": "The hypotheses use nonvanishing on every cyclic time-frequency index and a strict small-overlap sufficient condition in the difference-set application.",
+          "identifier_or_url": "arXiv:1503.05800v1",
+          "material_read": "Section 2, Theorem 2.2 p. 4 and Proposition 2.2 p. 8",
+          "method": "Open primary theorem passages",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Cyclic Gabor lift and difference-set nonvanishing"
+        },
+        {
+          "assessment": "Difference-set antecedent only",
+          "evidence": "The (16,6,2) sets are listed, without the intensity-lift spectrum or real fourth-moment claim in the inspected passages.",
+          "identifier_or_url": "https://doi.org/10.37236/836",
+          "material_read": "Abstract and section 4, printed pp. 13–14",
+          "method": "Open primary passages",
+          "title": "Factoring (16,6,2) Hadamard Difference Sets",
+          "trigger": "Exact design-dimension combinatorial antecedent"
+        },
+        {
+          "assessment": "Structural background",
+          "evidence": "The monomial representation and Cayley graph statements are not about this rank-one projector orbit.",
+          "identifier_or_url": "arXiv:1504.02827v1",
+          "material_read": "p. 1 and Section 2, pp. 2–3",
+          "method": "Open primary passages",
+          "title": "Twin bent functions, strongly regular Cayley graphs, and Hurwitz–Radon theory",
+          "trigger": "Quadratic bent sets and real Clifford constructions"
+        },
+        {
+          "assessment": "Different geometric support and ambient dimension",
+          "evidence": "The graph z=x·y is in odd ambient dimension; the result is not the real symmetric level-set table here.",
+          "identifier_or_url": "Resultary 2026/10/18/1651ef6ab8d7",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local Resultary search and file reading",
+          "title": "Complete Gabor projector spectra of split quadratic graphs over finite fields",
+          "trigger": "Earlier even-field Gabor projector result"
+        },
+        {
+          "assessment": "Different characteristic and operator domain",
+          "evidence": "The result assumes odd q and concerns complex-matrix tomography.",
+          "identifier_or_url": "Resultary 2026/10/11/b9e240edb677",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirrored file reading",
+          "title": "Exact Gabor tomography rank for hyperbolic quadratic shells over odd finite fields",
+          "trigger": "Cited shell-tomography comparison"
+        },
+        {
+          "assessment": "Different restriction operator",
+          "evidence": "The statement concerns multiplication compressed to a fixed first-Walsh band.",
+          "identifier_or_url": "Resultary 2026/10/11/f73b283fd6aa",
+          "material_read": "Mirrored Finding and scope/relationship around offset 8500",
+          "method": "Local mirrored file reading",
+          "title": "Dual symplectic graphs govern first-Walsh-band sampling on binary quadrics",
+          "trigger": "Cited binary quadrics comparison"
+        },
+        {
+          "assessment": "Unresolved; not used in the verdict",
+          "evidence": "No text passage was obtained, so no coverage inference was made from this source.",
+          "identifier_or_url": "https://www.gerhardzauner.at/documents/gz-HAD22.pdf",
+          "material_read": "Title/identifier only; full text unavailable through the attempted lawful routes",
+          "method": "Open-paper retrieval via direct and configured alternate route",
+          "title": "The Finite Fourier Transform and Projective 2-Designs",
+          "trigger": "Potential direct historical orbit-design antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact binary spectrum is meaningful in phase retrieval, but is already supplied by the matching record for the substantive dimensions. Its two traceless levels give the design resonance by one equality, and the dimension-four extension amounts to the immediate point and complement cases. Neither the translated one-level restatement nor these deductions establish a distinct valuable remainder for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

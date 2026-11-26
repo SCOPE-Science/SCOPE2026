@@ -1,15 +1,21 @@
-# Review: spherical-slab shadow distribution
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(d\ge3\) and \(0<a<1\), the maximizing surface point for an arbitrary unit support direction gives the exact two-branch function \(H_a\). Projecting the slab axis onto a hyperplane converts all directional mean-support integrals into the explicit one-variable beta-weight quadrature. The plateau, strict monotonicity, and inverse CDF follow directly. Near first contact, Taylor expansion of the *squared* support deficit and a beta integral give exponent \((d+2)/2\) and the displayed gamma coefficient. At the opposite endpoint, the integrable derivative for \(d\ge4\) differs essentially from the logarithmically divergent derivative for \(d=3\); both coefficients follow from the stated formulas. The physical-radius inversion follows from strict monotonicity of the beta CDF. The proof states dimensions, normalizations, boundary behavior, and limits explicitly. The packaged standalone checker produced 198 passing finite diagnostic comparisons, including independently projected three-dimensional convex hulls; the analytic proof, not the finite checker, establishes the infinite claims.
+## correctness
 
-## Originality — PASS, with specified historical risk
-The directly inspected published same-object work on ball slabs proves Minkowski-asymmetry bounds, not any random orthographic projection law. The inspected related result on a ball cut by one plane optimizes a centrally symmetric internal core, not a shadow. Finch's archival projection paper develops polytope-shadow statistics, while classical spherical-segment references give area and volume of the original solid rather than its random-shadow distribution. A published-finding corpus record on spherical-slab simplex volumes is a different invariant and its full text could not be fetched. The closest published capsule paper concerns central *sections*, not orthographic *projections*. Neither the support-function formalism nor the classical Cauchy perimeter identity by itself supplies the new atom, coefficients, and dimension-sensitive endpoint without the specific contact calculation. These comparisons support originality but do not prove universal priority; specialized unindexed calculations could overlap.
+PASS
 
-## Value — PASS
-A truncated ball is among the simplest nonball convex solids. Its positive-probability **exactly spherical** shadow, followed by a nonintegral-order contact law, is a geometrically meaningful transition, not a parameter-renaming exercise. Distinct endpoint scales in three and higher dimensions expose a genuine geometric singularity in the support-measure transform. Recovering physical radius and slab thickness from a natural shadow statistic makes the exact probability law independently useful for idealized inverse geometry. The claim remains limited to this precise family and population-level distribution.
+The support maximizer for t=|u_d| is unconstrained when t≤a and is on the rim of the slab otherwise, giving H_a(t)=at+b√(1−t²) on that branch, with quadratic loss (t−a)²/(2b²) at contact. Projection preserves support on the unit sphere of E (the intended domain of the sphere integral). The in-plane axis length is s=sinθ, so support is averaged against the absolute coordinate distribution of that sphere. This gives the whole profile and strict decrease for s>a. The plateau is exactly the ball event and sin²θ has the stated beta law; pushing forward the acute-angle measure gives the continuous CDF and the unique jump. In the coordinate integral set sz=a+δv, δ=s−a. The resulting beta moment ∫v²(1−v)^(α−1)dv is B(3,α); δ∼bη gives the quoted contact constant. Differentiating the integral with the same substitution and H'_a(a+h)∼−h/b² gives a derivative of order η^(α+1) with coefficient (α+2)κ, justifying the density exponent, not merely the integrated mass. At s=1 the derivative majorant is (1−z)^((d−5)/2), integrable for d≥4. In d=3 the localized derivative integral has divergent part (2b/π)∫dφ/√(1−s²+φ²), with bounded error, giving (b/π)log(1/(1−s)). Integrating and using 1−s∼η²/2 gives the stated logarithmic gap and its inverted probability constant. Direct planar integration recovers the minimum, and the top support and atom invert R and a by scaling and the strictly increasing beta CDF.
 
-## Limits of inspection
-Archival geometry and all directly accessible closely related same-object source text were inspected. One closely related simplex-volume record returned a repository not-found response, and the 2001 projected-particle article was available only in extracts; no assertion about their complete unread texts is used. No independent review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the mixed mean-support law for a centered spherical slab, with the sharp contact coefficient and dimension-sensitive side-on endpoint. General support/projection identities and the occurrence of contact exponents or logarithms in other bodies are not credited as new.
+
+## value
+
+PASS
+
+At a positive fraction of views a nonspherical convex solid has an exactly round shadow; the continuous remainder starts at a computable fractional contact power and ends at a dimension-dependent geometric singularity. The resulting law distinguishes the two mechanisms and identifies both radius and thickness from population data, giving a motivated exact benchmark for inverse convex geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

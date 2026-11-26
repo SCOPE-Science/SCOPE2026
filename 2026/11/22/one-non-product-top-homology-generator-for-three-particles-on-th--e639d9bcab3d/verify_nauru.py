@@ -1,174 +1,167 @@
 #!/usr/bin/env python3
-"""Exact integral certificate for the third homology of three points on GP(12,5).
+"""Check the integral three-particle top-homology certificate for GP(12,5)."""
 
-Run: python3 verify_nauru.py NAURU_WITNESS.json
-Requires Python 3.10+; no external packages. Every rank and determinant is exact.
-"""
 import json
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from fractions import Fraction
-from itertools import combinations
+from itertools import combinations, product
+from pathlib import Path
 
-W = json.load(open(sys.argv[1] if len(sys.argv)>1 else 'NAURU_WITNESS.json',encoding='utf-8'))
-N=12
-edges=sorted({tuple(sorted((i,(i+1)%N))) for i in range(N)} |
-             {tuple(sorted((i,N+i))) for i in range(N)} |
-             {tuple(sorted((N+i,N+(i+5)%N))) for i in range(N)})
-assert len(edges)==36
-edge_number={e:i for i,e in enumerate(edges)}
-adj=[set() for _ in range(24)]
-for a,b in edges:adj[a].add(b);adj[b].add(a)
-assert all(len(a)==3 for a in adj)
-local={v:sorted(edge_number[tuple(sorted((v,w)))] for w in adj[v]) for v in range(24)}
 
-# All simple cycles up to length twelve, oriented canonically.
-cycles=set()
-def dfs(path):
- v=path[-1];start=path[0]
- if len(path)>=6 and start in adj[v] and start==min(path):
-  p=tuple(path);cycles.add(min(p,p[::-1]))
- if len(path)==12:return
- for w in sorted(adj[v]):
-  if w>start and w not in path:dfs(path+[w])
-for start in range(24):dfs([start])
-count=Counter(map(len,cycles))
-assert count=={6:24,8:108,10:216,12:492},count
-short=sorted([c for c in cycles if len(c)==6])+sorted([c for c in cycles if len(c)==8])
-assert [list(c) for c in short]==W['cycles_short']
-mask=lambda c:sum(1<<v for v in c)
-masks=[mask(c) for c in short]
-triples=[]
-for i,j,k in combinations(range(len(short)),3):
- if not (masks[i]&masks[j] or masks[i]&masks[k] or masks[j]&masks[k]):triples.append((i,j,k))
-assert len(triples)==1040
-pair_unions=[]
-for i,j in combinations(range(len(short)),2):
- if not (masks[i]&masks[j]):pair_unions.append(masks[i]|masks[j])
-assert all(all(mask(c)&u for u in pair_unions) for c in cycles if len(c)>=10), 'missed longer-cycle triple'
+def main(witness_path):
+    W = json.loads(Path(witness_path).read_text(encoding="utf-8"))
+    V = tuple(range(24))
+    neighbors = {}
+    for v in V:
+        layer, i = divmod(v, 12)
+        step = 1 if layer == 0 else 5
+        neighbors[v] = sorted([
+            12 * layer + (i + step) % 12,
+            12 * layer + (i - step) % 12,
+            (v + 12) % 24,
+        ])
+    assert all((v % 12 + v // 12 - u % 12 - u // 12) % 2
+               for v in V for u in neighbors[v])
 
-# The degree-three part of the reduced Swiatkowski chain complex.
-# A basis element is (three distinct vertices, two half-edge choices at each).
-cols=[]; col_number={}
-for vs in combinations(range(24),3):
- for bits in range(8):
-  ts=(1+(bits&1),1+((bits>>1)&1),1+((bits>>2)&1))
-  col_number[(vs,ts)]=len(cols);cols.append((vs,ts))
-assert len(cols)==16192
-row_number={}
-column_boundaries=[]
-for vs,ts in cols:
- b={}
- for j in range(3):
-  u=tuple(vs[i] for i in range(3) if i!=j)
-  t=tuple(ts[i] for i in range(3) if i!=j)
-  for side,e in enumerate((local[vs[j]][0],local[vs[j]][ts[j]])):
-   key=(u,t,e)
-   if key not in row_number:row_number[key]=len(row_number)
-   r=row_number[key]
-   b[r]=b.get(r,0)+(-1)**(j+side+1)
-   if b[r]==0:del b[r]
- column_boundaries.append(b)
-assert len(row_number)==39600
+    # Use the least vertex as start and the lesser of its two cycle neighbors
+    # as the second vertex. Enumerate even short cycles without assuming girth.
+    circles = []
 
-# Modular rank bounds the characteristic-zero rank from below.
-pivots={}
-for b in column_boundaries:
- x={r:v%3 for r,v in b.items() if v%3}
- while x:
-  k=max(x)
-  if k not in pivots:
-   inv=pow(x[k],-1,3)
-   pivots[k]={r:c*inv%3 for r,c in x.items()};break
-  a=x[k]
-  for r,c in pivots[k].items():
-   x[r]=(x.get(r,0)-a*c)%3
-   if not x[r]:del x[r]
-assert len(pivots)==16132,len(pivots)
+    def visit(path):
+        for u in neighbors[path[-1]]:
+            if u == path[0] and len(path) >= 3 and path[1] < path[-1]:
+                circles.append(path)
+            elif u > path[0] and u not in path and len(path) < 12:
+                visit(path + (u,))
 
-def zero_boundary(chain):
- result={}
- for idx,coeff in chain.items():
-  for r,c in column_boundaries[idx].items():
-   result[r]=result.get(r,0)+coeff*c
-   if not result[r]:del result[r]
- return not result
+    for v in V:
+        visit((v,))
+    circles.sort(key=lambda c: (len(c), c))
+    counts = Counter(map(len, circles))
+    assert counts == {6: 12, 8: 54, 10: 108, 12: 246}
+    masks = [sum(1 << v for v in c) for c in circles]
+    triples = set()
+    for i, a in enumerate(masks):
+        for j, b in enumerate(masks[:i]):
+            if a & b == 0:
+                for k in range(j):
+                    if masks[k] & (a | b) == 0:
+                        triples.add((k, j, i))
+    profiles = Counter(tuple(len(circles[i]) for i in t) for t in triples)
+    assert profiles == {(6, 6, 6): 16, (6, 6, 8): 72, (6, 8, 8): 36, (8, 8, 8): 6}
 
-def local_cycle(c):
- arr=[]
- for j,v in enumerate(c):
-  outgoing=edge_number[tuple(sorted((v,c[(j+1)%len(c)])))]
-  incoming=edge_number[tuple(sorted((v,c[(j-1)%len(c)])))]
-  for e,sgn in ((outgoing,1),(incoming,-1)):
-   if e!=local[v][0]:arr.append((v,local[v].index(e),sgn))
- return arr
+    # The witness indexes an older list with both orientations. Keep its
+    # numbering but use only unoriented triples to check the full span.
+    def canonical(c):
+        return min(c, c[:1] + c[:0:-1])
 
-def sort_sign(a,b,c):
- z=(a>b)+(a>c)+(b>c)
- return -1 if z%2 else 1
+    legacy = list(map(tuple, W['cycles_short']))
+    assert Counter(map(canonical, legacy)) == {c: 2 for c in circles if len(c) <= 8}
+    ids = {c: i for i, c in enumerate(circles)}
+    assert len(W['torus_triples']) == 59
+    assert all(tuple(sorted(ids[canonical(legacy[i])] for i in t)) in triples
+               for t in W['torus_triples'])
 
-def torus(i,j,k):
- out={}
- for v,t,a in local_cycle(short[i]):
-  for w,u,b in local_cycle(short[j]):
-   for x,z,c in local_cycle(short[k]):
-    ordered=sorted(((v,t),(w,u),(x,z)))
-    idx=col_number[(tuple(p for p,q in ordered),tuple(q for p,q in ordered))]
-    out[idx]=out.get(idx,0)+a*b*c*sort_sign(v,w,x)
-    if not out[idx]:del out[idx]
- return out
+    C = [tuple(zip(vertices, (bits >> j & 1 for j in range(3))))
+         for vertices in combinations(V, 3) for bits in range(8)]
+    assert len(C) == 16192
 
-# Exact characteristic-zero rank of all geometric simple-cycle product tori.
-torus_pivots={};chosen=[]
-for triple in triples:
- z=torus(*triple)
- assert zero_boundary(z)
- x=z.copy()
- while x:
-  k=max(x)
-  if k not in torus_pivots:
-   a=x[k];torus_pivots[k]={r:Fraction(v,a) for r,v in x.items()}
-   chosen.append(triple);break
-  a=x[k]
-  for r,c in torus_pivots[k].items():
-   x[r]=x.get(r,0)-a*c
-   if not x[r]:del x[r]
-assert len(torus_pivots)==59,len(torus_pivots)
+    def edge(v, u):
+        return tuple(sorted((v, u)))
 
-# A rank-sixty integral cycle basis with a unimodular coordinate minor.
-nonproduct={int(i):int(c) for i,c in W['nonproduct_cycle']}
-assert len(nonproduct)==5034 and max(map(abs,nonproduct.values()))==4
-assert zero_boundary(nonproduct)
-assert len(W['torus_triples'])==59
-assert all(tuple(t) in triples for t in W['torus_triples'])
-basis=[torus(*t) for t in W['torus_triples']]+[nonproduct]
-assert len(set(tuple(t) for t in W['torus_triples']))==59
-assert all(zero_boundary(x) for x in basis)
-minor_rows=W['minor_rows']
-assert len(minor_rows)==60 and len(set(minor_rows))==60
-matrix=[[z.get(r,0) for z in basis] for r in minor_rows]
+    def boundary(B):
+        for j, (v, i) in enumerate(B):
+            rest = B[:j] + B[j + 1:]
+            sign = (-1) ** j
+            yield (rest, edge(v, neighbors[v][0])), -sign
+            yield (rest, edge(v, neighbors[v][i + 1])), sign
 
-def determinant_bareiss(m):
- m=[row[:] for row in m];n=len(m);den=1;sgn=1
- for k in range(n-1):
-  if not m[k][k]:
-   swap=next((j for j in range(k+1,n) if m[j][k]),None)
-   if swap is None:return 0
-   m[k],m[swap]=m[swap],m[k];sgn=-sgn
-  pivot=m[k][k]
-  for i in range(k+1,n):
-   for j in range(k+1,n):
-    numerator=m[i][j]*pivot-m[i][k]*m[k][j]
-    assert numerator%den==0
-    m[i][j]=numerator//den
-   m[i][k]=0
-  den=pivot
- return sgn*m[n-1][n-1]
-minor=determinant_bareiss(matrix)
-assert abs(minor)==1,minor
-print('NAURU_THREE_PARTICLE_TOP_HOMOLOGY_OK')
-print('simple_cycles:',dict(sorted(count.items())))
-print('all_product_tori:',len(triples),'integral_rank:',len(torus_pivots))
-print('degree_three_generators:',len(cols),'boundary_mod3_rank:',len(pivots))
-print('integral_cycle_basis:',len(basis),'coordinate_minor_determinant:',minor)
-print('nonproduct_cycle_terms:',len(nonproduct))
+    # Rank in F3. The disjoint bitplanes X and Y store positions of 1 and 2.
+    row_bits, pivots = {}, {}
+    for B in C:
+        X = Y = 0
+        for row, sign in boundary(B):
+            if row not in row_bits:
+                row_bits[row] = 1 << len(row_bits)
+            if sign == 1:
+                X |= row_bits[row]
+            else:
+                Y |= row_bits[row]
+        while X or Y:
+            i = (X | Y).bit_length() - 1
+            if i not in pivots:
+                pivots[i] = (X, Y)
+                break
+            P, Q = pivots[i]
+            if (X >> i & 1) == (P >> i & 1):
+                P, Q = Q, P
+            # X,Y <- (X,Y) + (P,Q) mod 3.
+            X, Y = ((X & ~(P | Q)) | (Y & Q) | (P & ~(X | Y)),
+                    (Y & ~(P | Q)) | (X & P) | (Q & ~(X | Y)))
+    assert len(row_bits) == 39600 and len(pivots) == 16132
+
+    def torus(cycles):
+        factors = []
+        for c in cycles:
+            out = []
+            for j, v in enumerate(c):
+                for i, u in enumerate(neighbors[v][1:]):
+                    if u == c[(j + 1) % len(c)]:
+                        out.append(((v, i), 1))
+                    elif u == c[j - 1]:
+                        out.append(((v, i), -1))
+            factors.append(out)
+        return {tuple(sorted((a, b, c))): x * y * z * (-1) ** ((a > b) + (a > c) + (b > c))
+                for (a, x), (b, y), (c, z) in product(*factors)}
+
+    def check_cycle(chain):
+        out = defaultdict(int)
+        for B, n in chain.items():
+            for row, sign in boundary(B):
+                out[row] += n * sign
+        assert not any(out.values())
+
+    items = W['nonproduct_cycle']
+    assert len(items) == len({i for i, _ in items}) == 5034
+    assert all(0 <= i < len(C) and n != 0 for i, n in items)
+    basis = [torus(legacy[i] for i in t) for t in W['torus_triples']]
+    basis.append({C[i]: n for i, n in items})
+    for z in basis:
+        check_cycle(z)
+    rows = W['minor_rows']
+    assert len(rows) == len(set(rows)) == 60 and all(0 <= i < len(C) for i in rows)
+    # Gauss-Jordan on the transpose of the minor: get its determinant and the
+    # exact linear functional extracting the last coordinate in this basis.
+    A = [[Fraction(z.get(C[i], 0)) for i in rows] + [Fraction(j == 59)]
+         for j, z in enumerate(basis)]
+    det = Fraction(1)
+    for j in range(60):
+        k = next(k for k in range(j, 60) if A[k][j])
+        if k != j:
+            A[j], A[k] = A[k], A[j]
+            det = -det
+        a = A[j][j]
+        det *= a
+        A[j] = [u / a for u in A[j]]
+        for k in range(60):
+            if k != j and A[k][j]:
+                a = A[k][j]
+                A[k] = [u - a * v for u, v in zip(A[k], A[j])]
+    assert det == -1
+    terms = [(C[i], cell[-1]) for i, cell in zip(rows, A) if cell[-1]]
+    assert all(coeff.denominator == 1 for _, coeff in terms)
+    for t in sorted(triples):
+        z = torus(circles[i] for i in t)
+        check_cycle(z)
+        assert sum(int(coeff) * z.get(B, 0) for B, coeff in terms) == 0
+    print('NAURU_THREE_PARTICLE_TOP_HOMOLOGY_OK')
+    print('unoriented_simple_cycles:', dict(sorted(counts.items())))
+    print('geometric_product_tori:', len(triples), 'integral_rank:', 59)
+    print('degree_three_generators:', len(C), 'boundary_mod3_rank:', len(pivots))
+    print('integral_cycle_basis:', len(basis), 'coordinate_minor_determinant:', det)
+    print('nonproduct_cycle_terms:', len(items))
+
+
+if __name__ == '__main__':
+    main(sys.argv[1] if len(sys.argv) > 1 else 'NAURU_WITNESS.json')

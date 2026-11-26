@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:37:25.784228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let a_j=j−(n+1)/2 and S=∑a_j²=n(n²−1)/12. The squared-displacement definition is exactly ρ=(∑a_j a_(Π(j)))/S. Conditional on Π(i)=i, every other position has expected centered score −a_i/(n−1); since the remaining a's sum to −a_i, the conditional mean is n a_i²/((n−1)S). This equals the stated parabola. The mean of ρ is zero and P(Π(i)=i)=1/n, so division by n gives the coordinate covariance; summing gives 1/(n−1). A sample without replacement from the centered rank scores has variance S/n and distinct-coordinate covariance −S/[n(n−1)], giving Var(ρ)=1/(n−1). For i≠j, E[I_i I_j]=1/[n(n−1)], so E[F]=1 and Var(F)=1. These give the correlation, slope 1, and intercept 1. The endpoint and odd-middle values follow by substitution; n=2 is included, with positive variances and perfect correlation. The formula is for an affine linear projection, not for the conditional expectation of F given ρ. Inspected checker.py and CHECKER_OUTPUT.txt without executing them; a separate enumeration by integer centered-score sums reproduced the displayed moments over 5912 permutations in S_2 through S_7. The proof does not depend on enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Fang's equation (1.2) explicitly gives Var(S_C)=∑ C_ij²/(n−1) when the array is deterministic with zero row and column means. This is finite-n, n≥2, and is not an approximation or a limiting result."
+        ],
+        "reasoning": "Center any array by subtracting its row and column means and adding its grand mean; its assignment sum changes by a constant. Polarization at C+D and C−D gives Cov(S_C,S_D)=⟨C,D⟩_F/(n−1) for centered arrays. When C=A is already doubly centered, centering D does not change the pairing.",
+        "searches": [
+          "Hoeffding combinatorial central limit theorem exact variance for a centered assignment array",
+          "Chen–Fang arXiv:1111.3159, Theorem 1.1(1), equation (1.2)"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Fang arXiv:1111.3159, Theorem 1.1(1)",
+        "Diaconis–Evans–Graham arXiv:1308.5459v2, Theorem 1.1",
+        "Resultary d2e55488afc7, 258585918a40, 413aa6318ee6",
+        "Kendall–Kendall–Babington Smith and Olds access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairing A with E_ii gives a_i²/S, so Cov(I_i,ρ)=a_i²/[S(n−1)]; multiplication by n gives the conditional mean. Pairing A with Id gives tr(A)=1, and pairing A with itself gives squared norm 1, so both aggregate covariance and Var(ρ) are 1/(n−1). The centered identity Id−J/n has squared Frobenius norm n−1, giving Var(F)=1. The affine fit then has slope 1 and intercept 1, since E[F]=1 and E[ρ]=0."
+        ],
+        "reasoning": "The location, scale, aggregate, variances, correlation and projection all follow by direct substitution and elementary simplification. The central zero and endpoint maximum are immediate from the same square. No higher moment, joint law, or other surviving result is claimed.",
+        "searches": [
+          "Apply Chen–Fang (1.2) by polarization to A=a aᵗ/S, E_ii and Id; compare with the displayed profile, aggregate, and projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day d2e55488afc7 treats local excedance, not a fixed point. 258585918a40 treats cycle count, not F. More decisively, the fixed-point indicator is a one-cell assignment sum and ρ is the normalized centered-rank outer-product assignment sum."
+        ],
+        "reasoning": "Use S_C=∑_j C_(j,Π(j)). Then I_i=S_(E_ii), F=S_Id, and ρ=S_A for A=a aᵗ/S. This equivalent formulation puts the stated profile in the domain of a published exact identity.",
+        "searches": [
+          "Resultary: position-conditioned fixed point and Spearman ρ; aggregate F–ρ covariance; fixed points and squared-displacement joint law; general mixed moments",
+          "General combinatorial permutation moment formula for linear assignment statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d2e55488afc7 has an excedance profile; 413aa6318ee6 is footrule versus Spearman's rho; 258585918a40 is cycle count versus rho. Diaconis–Evans–Graham, Theorem 1.1, identifies the fixed-point set marginal, and historical displacement tables are not confirmed joint tables."
+        ],
+        "reasoning": "No exact numeric table was needed or found in the inspected catalogue statements; the exact general moment identity already covers the full functional claim. A marginal fixed-point or displacement table alone cannot determine the coupling.",
+        "searches": [
+          "Resultary: position-resolved fixed-point/Spearman profile; joint fixed-point count versus squared rank displacement; footrule versus ρ"
+        ]
+      },
+      "rationale": "The whole claimed second-moment profile is a direct specialization of the previously published exact variance identity for all permutation assignment sums in Chen and Fang, arXiv:1111.3159, Theorem 1.1(1), equation (1.2). Setting the array deterministic and polarizing gives the exact bilinear statistic here. This is verified prior implication, not an inference from unavailable historical literature, and it does not require that the older paper use the words Spearman or fixed point.",
+      "residual_risks": [
+        "The accessible historical material does not rule out even earlier explicit joint enumeration. This does not affect the decisive verified coverage in the general exact array identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage by deterministic specialization and polarization",
+          "evidence": "Var(W)=(1/n)∑σ_ij²+(1/(n−1))∑c_ij² for doubly centered means under uniform π, with n≥2; set σ_ij=0 and polarize.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.3159",
+          "material_read": "Theorem 1.1, p. 2, hypotheses (1.1), identity (1.2), and following deterministic specialization discussion, offsets 6600–8438",
+          "method": "OA PDF passage located at Theorem 1.1, then read by offset",
+          "title": "On the error bound in a combinatorial central limit theorem",
+          "trigger": "Exact arbitrary-array variance, potentially covering all claimed mixed moments"
+        },
+        {
+          "assessment": "Fixed-point marginal only in the inspected theorem",
+          "evidence": "Unseparated adjacent-value pair locations have the law of fixed-point locations restricted to [n−1]; that marginal theorem does not give the Spearman coupling.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5459v2",
+          "material_read": "§1, Theorem 1.1, p. 2, offsets 5476–8468",
+          "method": "OA PDF statement passage",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "The full fixed-point random set as potential joint cover"
+        },
+        {
+          "assessment": "Related local law for a different indicator; date alone does not establish priority",
+          "evidence": "Uses 1{Π(i)>i} rather than 1{Π(i)=i}.",
+          "identifier_or_url": "Resultary:2026/10/13/d2e55488afc7",
+          "material_read": "RESULT.md offsets 0–2996",
+          "method": "Local mirror",
+          "title": "Exact local excedance covariance with rank scores and Spearman rho",
+          "trigger": "Same-day positional Spearman covariance"
+        },
+        {
+          "assessment": "Different count compared with the rank statistic",
+          "evidence": "Covariance is for the number of cycles, not cycles of length one.",
+          "identifier_or_url": "Resultary:2026/10/12/258585918a40",
+          "material_read": "RESULT.md offsets 0–2979",
+          "method": "Local mirror",
+          "title": "A trace law for cycle count covariance and exact Cayley–Spearman correlation",
+          "trigger": "Aggregate count and rank-score covariance"
+        },
+        {
+          "assessment": "Different second statistic",
+          "evidence": "Footrule measures absolute displacement, not fixed-point indicators.",
+          "identifier_or_url": "Resultary:2026/10/13/413aa6318ee6",
+          "material_read": "RESULT.md offsets 0–2993",
+          "method": "Local mirror",
+          "title": "Exact permutation-null correlation of Spearman footrule and rho",
+          "trigger": "Same-day Spearman joint law"
+        },
+        {
+          "assessment": "No whole-document conclusion",
+          "evidence": "The access failure is not negative evidence and is not used for the verdict.",
+          "identifier_or_url": "10.1093/biomet/30.3-4.251",
+          "material_read": "Bibliographic landing information; full text unavailable",
+          "method": "Lawful OA and repository attempt",
+          "title": "The Distribution of Spearman's Coefficient of Rank Correlation in a Universe in Which All Rankings Occur an Equal Number of Times",
+          "trigger": "Historical Spearman-null enumeration could contain joint refinements"
+        },
+        {
+          "assessment": "No verified joint table; full-text possibility unresolved",
+          "evidence": "The accessible material identifies the displacement-table topic but does not justify excluding a joint refinement.",
+          "identifier_or_url": "10.1214/aoms/1177732332",
+          "material_read": "Landing page or abstract only",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Distributions of Sums of Squares of Rank Differences for Small Numbers of Individuals",
+          "trigger": "Historical squared-displacement tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The local comparison of two intuitive rank-agreement notions is well motivated and could be a useful example. But the positional and aggregate calibration are exactly routine one-cell and identity-matrix substitutions into the published second-moment formula, with no separate scientific result beyond those substitutions. There is no higher mixed moment, new boundary, or joint law to retain as a distinct valuable claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

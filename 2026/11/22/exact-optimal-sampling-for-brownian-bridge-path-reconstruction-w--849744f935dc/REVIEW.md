@@ -1,9 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** Under independent Bernoulli deliveries the retained-site conditional variances sum to squared-gap lengths divided by six. The exact quadratic identity, its strict convexity using the positive-probability all-retained event, and a geometric-series stationary-point calculation establish uniqueness for all integers \(n\ge1\) and \(p\in(0,1]\). The minimum is evaluated by a telescoping identity. Exact rational checks cover small cases, but the analytic proof supplies the arbitrary-parameter quantifiers. The degenerate no-delivery case is expressly excluded from uniqueness.
+## correctness
 
-**Originality — PASS (qualified).** Full text was compared for an independent-failure worst-distance coverage paper (Frasca et al., 2015), a multipoint fractional-bridge interpolation paper (Friedrich et al., 2020), and a causal random-delay Wiener sampling paper (Peng et al., 2021). Their objectives respectively optimize maximal coverage gap, interpolation roughness or timing policies, not expected integrated posterior squared path error over a predetermined erasure grid. Santin (2022) proves equal-spacing optimality for the Brownian-bridge kernel **maximum pointwise power function** in the absence of erasures; this coincides with our \(p=1\) geometry but cannot imply the \(0<p<1\) exact global optimizer and risk. The closest related integral-functional dropout work uses cubed rather than squared surviving gaps; it does not imply this all-budget path-loss optimum. Searches for erasure, packet-loss, Brownian path reconstruction and squared retained gaps found no equivalent theorem. The text of Cortés (2012) was not obtained; historical priority remains a residual risk.
+PASS
 
-**Value — PASS.** Integrated squared-error interpolation under missing exact samples is a natural full-path reconstruction problem, distinguishable from area quadrature and worst-point coverage. The theorem solves the global finite-budget design for every budget and every positive identical delivery probability, gives a closed-form exact risk, and identifies a failure-induced geometry transition from uniform spacing to midpoint clustering. Its large-budget constant is available without simulation. The result is limited to the pinned Brownian model and independent erasures; it is not a universal sensor placement theorem.
+Condition on the delivered indices. The conditional mean is the chord on each surviving gap of length L, and integrated conditional variance is L²/6. In the original-gap coordinates d_i=t_{i+1}−t_i (i=0,…,n), two gap pieces i,j belong to the same surviving interval iff all |i−j| intervening samples fail. Thus 6R=dᵀA d with A_ij=(1−p)^|i−j|. This also verifies the frozen ordered-site quadratic. The all-delivered term gives strict convexity. With q=1−p, the inverse of A is tridiagonal with end diagonals 1, interior diagonals 1+q² and neighboring entries −q, all divided by 1−q² (direct multiplication, also for n=1 and q=0). Consequently A⁻¹1 is proportional to (1,p,…,p,1), the normalized vector lies in the strict simplex interior, and 6R_min=1/(1ᵀA⁻¹1)=(2−p)/(2+(n−1)p). This yields the claimed times, uniqueness, endpoint and asymptotic statements. Repeated times add no bridge information conditional on the delivered values; zero gaps are allowed under the per-index model. Even interpreting duplicates as one common site-delivery indicator does not improve a coincident design: independent attempts at that site weakly increase the chance of acquiring its value, and even that per-index design is strictly worse than the distinct optimum. A fresh exact-rational mask check gave 56 risk and gradient assertions for n=1,…,7 and four probabilities; replay with python3 /workspace/branches/f20efe93-6320-4ae1-a122-3f47c3179813/independent_mask_check.py. The frozen checker was inspected, not executed. The finite checks are supplementary.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Within the sources inspected, the proved distinct claim is the full-path integrated posterior MSE optimum and sharp risk for a fixed, finite grid with homogeneous independent erasures. Neither Gaussian interpolation itself nor equal spacing without erasures is credited as new. The geometric matrix inverse is classical; the erasure-aware path loss and optimal design, not a new matrix identity, are the contribution.
+
+## value
+
+PASS
+
+Full-path posterior error under missing exact data is a natural distinct loss. The finite-budget optimum tells how far to hold samples from the known endpoints, how the adjacent gaps shrink relative to those margins as p decreases, and the exact residual risk. It supplies a useful analytical benchmark without claiming applicability to general kernels or deployment policies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

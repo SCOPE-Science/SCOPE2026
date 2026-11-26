@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,12 @@
 }
 ---
 
-# Verification of the minimal-support mixing theorem
+# Exact checks for sparsest primitive cube roots
 
-Run `python3 verify.py` with Python 3 and SymPy. Observed output:
+Run `python3 verify.py` with Python 3.9 or later; no third-party packages are needed. The expected output is:
 
-`VERIFY_OK support_graphs=9 primitive_conjugates=6 exact_jordan_powers=7 spectral_test_parameters=25`
+```
+PASS: 9 feasible supports, 6 primitive supports, 114 labeled sweeps
+```
 
-The script checks the symbolic characteristic polynomial, the exact nilpotent Jordan identity, all nine feasible support patterns with five nonzero cells, the six primitive support relabelings, and 25 rational spectral comparisons. These finite computations provide reproducible consistency evidence; the complete analytic proof covers every real parameter and all matrix powers. A full independent audit has not been performed.
+The script finds support unions of two permutation matrices, checks primitivity by exact powers of the support matrices, and checks the cube identity and uniqueness on 19 interior rational weights, including the singular case \(p=1/2\). For each weight it checks all six labeled sweep orders against all support relabelings and weights in the grid. The determinant identity and the trivial permutation stabilizer in `RESULT.md` prove uniqueness on the continuum and are not replaced by finite testing.

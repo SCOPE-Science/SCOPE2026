@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact frequency-domain Planck sum satisfies \(F_R'=f'(x)+f'(x/R)\); this exact cancellation, the unique positive Wien-frequency root, the signs of \(f''\) near zero and above five, and the exponentially dominated transition interval prove **exactly three**, not merely at least three, stationary points for all sufficiently large \(R\). All are nondegenerate by strict second-derivative signs. The Rayleigh--Jeans and Wien tails independently determine the notch balance \(x_2^2e^{-x_2}\sim2/R\), the two-logarithm location, and the peak/valley height scales. The included standard-library checker returns `VERIFY_OK checks=25` at five temperature ratios; the analytic interval decomposition is the proof for unbounded \(R\). The theorem does not specify the smallest critical temperature ratio.
+PASS
 
-## Originality — PASS on examined evidence
+The frequency-law normalization is correct: R^-2 x^3/(exp(x/R)-1) = R f(x/R), so the hot term contributes f'(x/R) to the derivative. The single-Planck sign change follows from strict concavity of 3(1-exp(-x))-x; f'' is negative near a, positive near zero, and positive on [5,infinity) by the explicit second-derivative formula. For fixed small delta and eta, these signs give strict decrease of F_R' on [a,a+delta], strict increase on [5,eta R], and strict decrease on [(a-delta)R,aR], with opposite endpoint signs in each case. On the intervening intervals signs are uniform by compactness or exponential decay, and outside (a,aR) there is no zero. This proves the quantified root count and nondegeneracy, not by numerical sampling. Uniform slope at the cold root first gives x1-a=O(1/R), justifying its Taylor remainder; on the hot interval the slope is bounded above by -c/R, so the shift from aR is O(R^4 exp(-aR)). For the notch, F_R' is eventually negative at any fixed X>=5 and positive at any fixed small t times R, so x2 diverges with x2/R tending to zero. The derivative balance gives x2-2 log x2 = log R-log 2+o(1); first x2/log R tends to one, then substitution gives the subleading terms. The hot Rayleigh–Jeans contribution x2^2/R dominates the cold term 2 x2/R at the notch. Taylor estimates at both maxima also give the stated heights.
 
-Khatri, Sunyaev and Chluba (arXiv:1205.2871, publicly posted 2012-05-13) analyze exact Planck mixing mainly via a small-temperature-contrast expansion and thermodynamic entropy. Their relevant sections and conclusions do not supply a large-contrast three-mode theorem, especially not the intermediate logarithmic-notch asymptotic. Hou et al. (arXiv:1808.03942) analyze a continuous power-law temperature-distribution model, rather than two discrete temperatures at the balanced area scaling. Conventional Wien-tail calculations do not control the complete exact Planck spectrum near its cold or hot peak. Published-record and prior-claim comparisons uncovered no statement implying this complete theorem; the absence of a match is not a proof of global novelty.
+## originality
 
-**Residual risk:** A specialized early study of very widely separated two-temperature Planck mixtures could contain overlapping critical-point or notch asymptotics; priority has not been independently established.
+PASS
 
-## Mathematical value — PASS
+The supported distinction is exact large-contrast critical-point multiplicity together with the notch's logarithmic location (including the second logarithm and constant) and algebraic height for the specified frequency-domain scaling. The examined primary and catalogue statements do not cover that combination or imply it by a specialization. Neither mixtures themselves nor the single-temperature Wien law are new here.
 
-The hot-to-cold area law \(R^{-2}\) is distinguished by cancellation of the temperature-scaling prefactors in the derivative, not a numerical special case. The theorem determines a complete mode-count classification in the high-contrast regime and resolves a physically interpretable spectral notch with a non-obvious double-logarithmic displacement and intensity scale. The result applies to an infinite family of exact radiative spectra, distinguishing them from perturbative or Wien-only models; no general phase diagram or sharp finite threshold is claimed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact sum is a motivated two-temperature radiative model: the weight keeps the hot low-frequency derivative small around the cold peak while allowing a dominant hot peak. Resolving the entire axis distinguishes true bimodality from simply locating two approximate peak scales. The notch location and height quantify how the exponential cold tail and algebraic hot tail meet; neither the Wien displacement relation nor a peak-sampling diagnostic yields this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

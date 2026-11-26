@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:23.539038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed n>=3 and Pareto type I at unit scale, checking the two largest smaller lengths for each possible largest stick reduces triangle-freedom exactly to nonnegative slacks (up to null ties). The inverse recursion has unit Jacobian and x_i=F_i+sum_{j<=i}b_ij u_j, with b_ii=1 and nonnegative coefficients. Changing to alpha u cancels alpha^n in the ordered density. The scaled integrand converges to exp(-sum c_j v_j) and is dominated for alpha>=2 by the integrable product of (1+v_i/(2F_i))^(-2), since (1+t/alpha)^alpha grows with alpha. Its limiting mass and Scheffé prove the probability equivalent and the full product-exponential TV law; the rates are strictly decreasing by comparing successive nonnegative Fibonacci columns and their extra diagonal term. The resulting unscaled lengths concentrate on the Fibonacci vector. At the other endpoint log lengths are exponential, and the ordered log spacings are independent with rates (n-i)alpha. Integrating the event z<h(y) against their density gives r_i r_(i+1) times pi²/12 with O_n(alpha³) error, since yh and h² are integrable. Overlaps are O_n(alpha³) at adjacent indices by bounding the third gap by log 2, and O_n(alpha⁴) otherwise by independence. Inclusion–exclusion and the sum of (n-i)(n-i-1) give the stated coefficient. Given a triangle, multiple adjacent violations have probability O_n(alpha); conditioning on a unique index instead of its single event changes its gap law by O_n(alpha) in TV. The single-event normalized density converges by Scheffé to the stated uniform density on the curved gap domain, independent of the limiting index. No growing-n uniformity is needed. The independent finite replay `python3 /workspace/reviews/check_1.py` gave the exact n=3,4 constants 4/3 and 108/65, verified the 3/4,1/4 mark weights for n=4, and quadrature gave 0.822467033424113 for the gap domain area. These are finite checks, not proofs of TV. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barczy–Lovas (3.5) supplies all-n, all-shape integrals and Remark 3.5 gives qualitative n=3 shape endpoints",
+          "Brennan et al. give a general finite integration method including unbounded densities",
+          "Sudbury et al. assume uniform sticks on [0,1]",
+          "The quadratic-decay record takes n to infinity at fixed alpha and explicitly excludes a varying shape"
+        ],
+        "reasoning": "Exact probabilities and general integration capture the event, and enable asymptotic calculations, but the passages do not give the large-shape boundary prefactor or the scaled conditional laws. Changing the sampling law or exchanging the fixed and divergent parameters does not preserve those conclusions.",
+        "searches": [
+          "Barczy–Lovas arXiv:2611.04436v1, Thm. 3.2, Cor. 3.3, Remark 3.5",
+          "Brennan–Callow–Lin arXiv:2604.27573v2, Lemma 3.2 and section 3.3",
+          "Sudbury et al. arXiv:2504.19911, Theorem 1",
+          "Related Resultary fixed-shape large-n and Poisson critical-window records"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Configured Resultary self-hit and both materially related primary records",
+        "Primary OA material arXiv:2611.04436v1, arXiv:2504.19911, arXiv:2604.27573v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poisson critical-window total variation error is O(n⁴alpha³+n⁵alpha⁴), with grid intensity (pi²/12)(n-i)(n-i-1)alpha²",
+          "At fixed n its count estimate gives Pr(A)=exp(-pi²n(n-1)(n-2)alpha²/36)+O_n(alpha³); its process estimate implies the normalized index weights by conditioning on a single point",
+          "Neither grid positions nor the fixed-shape large-n exponential rate give the continuous within-event gap law or joint scaled large-shape slacks"
+        ],
+        "reasoning": "This is a genuine implication for the small-shape coefficient and mark index, not simply a similarly titled theorem. Dividing the fixed-n O(alpha³) process error by the O(alpha²) conditioning probability gives vanishing conditional error. Taking the law of indicators loses the realized gaps; an additional density calculation is needed to recover the marked pair.",
+        "searches": [
+          "Poisson critical-window RESULT.md Finding and steps 2–4, mirror offsets 0–3455 and 3450–6079",
+          "Fixed-shape quadratic-decay RESULT.md Finding and scope, mirror offsets 0–3184 and 5050–7460"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Pareto adjacent-ratio tests are the same violations as Y_(i+1)<log(1+exp(-Y_i)); the same-day Poisson record explicitly uses their indicators",
+          "Barczy–Lovas equation (3.5) treats the same finite probability; equation (3.15) specializes to three sticks"
+        ],
+        "reasoning": "The ratio and gap formulations describe the same events, not different probability models. A probability integral or an indicator point process records whether and where the test failed, while the claimed conditional within-pair shape retains the two gap values. The large-shape statement also concerns the joint scaled law of the whole Fibonacci slack vector, not just event probability.",
+        "searches": [
+          "Configured Resultary search for Pareto triangle-free fixed-sample shape endpoints, Fibonacci slacks and rare violations",
+          "Literature: Pareto-distributed random stick triangle-free fixed sample size asymptotic shape parameter alpha to infinity Fibonacci prefactor conditional slacks and alpha to zero rare triangle conditional adjacent log gaps",
+          "Barczy–Lovas arXiv:2611.04436v1 Theorem 3.2 and Corollary 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact endpoint match to this whole theorem is the assigned self-hit; the closest other indexed result is SCOPE-a-poisson-critical-window-for-triangle-formation-in-pareto-stick--8428212a7daa",
+          "Equation (3.15) gives an exact n=3 probability function, from which the n=3 finite probabilities and scalar equivalents are calculable"
+        ],
+        "reasoning": "There is no single finite invariant to tabulate for this fixed-n family of shape limits, so exact formulae and indexed asymptotic laws are the relevant comparisons. The reviewed n=3 constant is not by itself evidence of originality, and the benchmark does not tabulate the all-n conditional laws.",
+        "searches": [
+          "Resultary indexed comparisons for fixed-n Pareto stick endpoint probabilities and conditional marks",
+          "Barczy–Lovas Corollary 3.3 / Remark 3.5 as the exact small-n benchmark"
+        ]
+      },
+      "rationale": "The exact finite-n Pareto probabilities, the same-day critical-window result's coverage of the small-shape coefficient and index weights, and earlier uniform-stick Fibonacci geometry are not credited as new. The supported distinct results are the fixed-n large-shape Fibonacci prefactor and conditional joint slack TV law, and the conditional within-pair logarithmic-gap TV law at small shape. The small-shape probability and index statements are established overlap regardless of unresolved ordering of the same-day records.",
+      "residual_risks": [
+        "The small-shape scalar coefficient and index weights are demonstrably covered by the same-day Poisson record; their relative priority is unresolved",
+        "Equivalent fixed-shape-endpoint calculations or conditional results beyond the inspected sources could exist; the literature keyword miss is not evidence of absence"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact finite probabilities and qualitative three-stick limits; no conditional TV law in inspected statements",
+          "evidence": [
+            "Exact all-n Pareto integral and n=3 specialization, with three-stick shape limits"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.04436v1",
+          "material_read": "Theorem 3.2 equation (3.5) near offset 47600; Corollary 3.3 equation (3.15) near 69000; Remark 3.5 equation (3.20) near 86200",
+          "method": "Primary OA HTML, bounded full-text passages",
+          "title": "Pick-up sticks problems for exponential and Pareto distributions",
+          "trigger": "Same Pareto event with exact n and shape dependence"
+        },
+        {
+          "assessment": "Covers the small-shape scalar and location limits; no date-based priority decision or within-pair mark equivalence",
+          "evidence": [
+            "Steps 2–3 give q_i expansion and a quantitative TV approximation of the violation point process by grid intensities"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-poisson-critical-window-for-triangle-formation-in-pareto-stick--8428212a7daa",
+          "material_read": "RESULT.md Finding and proof offsets 0–3455 and 3450–6079",
+          "method": "Configured Resultary and local-mirror primary record",
+          "title": "A Poisson critical window for triangle formation in Pareto stick samples",
+          "trigger": "Same violation events, small-shape coefficient and index marks"
+        },
+        {
+          "assessment": "Fixed-shape large-n regime does not imply fixed-n endpoint results",
+          "evidence": [
+            "Expressly excludes a varying tail index; gives logarithmic n-rate, not a shape-prefactor or conditional law"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-quadratic-decay-for-triangle-free-pareto-stick-samples--8d0ac1d44459",
+          "material_read": "RESULT.md Finding and scope, offsets 0–3184 and 5050–7460",
+          "method": "Configured Resultary and local-mirror primary record",
+          "title": "Sharp quadratic decay for triangle-free Pareto stick samples",
+          "trigger": "Earlier exact asymptotic for same event"
+        },
+        {
+          "assessment": "Fibonacci geometry overlap, different sampling law and no shape parameter",
+          "evidence": [
+            "Exact Fibonacci-product probability for independent uniform sticks"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.19911",
+          "material_read": "Theorem 1 near offset 6200",
+          "method": "Primary OA HTML, bounded passage",
+          "title": "Pick-up Sticks and the Fibonacci Factorial",
+          "trigger": "Fibonacci product for absence of triangles"
+        },
+        {
+          "assessment": "Finite-sample integration including unbounded support; no reviewed fixed-n shape law in the inspected passages",
+          "evidence": [
+            "General probability-integration method and extension to unbounded densities"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.27573v2",
+          "material_read": "Lemma 3.2 near offset 22750; section 3.3 offsets 51847–53254",
+          "method": "Primary OA HTML, bounded full-text passages",
+          "title": "Fibonacci numbers and the probability of polygon formation using random length sticks",
+          "trigger": "Possible more general integral formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint probability alone does not locate the rare configurations. At large shape the theorem identifies the constrained Fibonacci minimizer and exact joint fluctuations around it; at small shape it separates the likely violation index from the observable geometry of the two short log gaps. These are useful local descriptions of two different rare events and do not duplicate the moving-shape Poisson location law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

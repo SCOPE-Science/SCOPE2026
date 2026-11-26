@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical object is the joint expectation over one persistent uniform target phase and independent per-attempt uniform start phases. Conditioning on the target phase yields a product, but *not* the incorrect independent unconditional product. The translated-overlap trapezoid, its two plateaus, and two ramps reconstruct the exact probability for every admissible parameter and boundary. Explicit asymptotic isolation proves the positive floor, inverse-effort critical rate, geometric rate, and near-critical scaling. A separate Jensen argument proves the full-period-jitter optimum. A standalone standard-library checker verifies rational instances and independently integrates circular intersections; finite tests are explicitly only supplementary.
+PASS
 
-## Originality — PASS (on inspected evidence)
+Conditional on the shared phase, the m miss indicators are independent even if their recording intervals physically overlap. The linear convolution of the intervals of lengths W and ell (when their sum is at most P) gives the overlap trapezoid, of minimum plateau length P-W-ell, maximum plateau length |W-ell| and two ramps of length min(W,ell). For sum exceeding P apply the same computation to the complementary arcs and add W+ell-P to their overlap. This proves the pushforward law including both coincident breakpoints and W=P (constant overlap). The survival power integrated against its two atoms and density 2/P gives the exact formula. For a=0 the low endpoint is one; for a>0 the low-end ramp term is smaller than the positive low plateau by order 1/m at fixed W, and all high-end terms have a strictly smaller base unless W=P, covered separately. Setting W=P-ell+c/m gives low mass |c|/(mP), low base to power m converging to exp(-c_+/(P-ell)), and the low ramp contributes 2(P-ell)/mP times the same exponential. The worst phase attains the minimum overlap; at equality this can occur on a null set, so no worst-phase contradiction. Strict Jensen for m>=2 and nonconstant overlap for W<P give the uniqueness claim. An independent Fraction computation split the phase integral at {0,ell,W,(W+ell) mod P,P} and integrated the affine lift-overlap powers exactly in 2,860 cases (integer 2<=P<=12, 1<=ell<P, 1<=W<=P and m=1,2,3,5,10); all matched. The supplied checker was inspected, not executed. The analytic argument, not the finite diagnostic, certifies the parameter continuum.
 
-The 2024 blue-whale duty-cycle study compares fixed-period subsampling configurations and phases but does not introduce independently randomized bounded start phases or an exact floor/power/exponential phase transition. The 2019 acoustic-adaptive study models hourly vocal probabilities and updates day-to-day schedules rather than a persistent periodic call phase. Earlier random-circle coverage concerns independent full-circle arc placements and different full-coverage and gap statistics; its ordinary conditioning identities are acknowledged and not claimed as new. Searches for bounded jitter, phase aliasing, shared periodic calls, restricted uniform arc placements, and original-result aliases, including relevant mathematical indexes, found no directly covering statement. This is a best-knowledge scientific comparison, not an exhaustive global novelty certificate; full-text limitations and general coverage-literature priority risk remain.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem distinguishes a *permanent* undetectable fraction from slow but eventually complete detection and from geometrically reliable detection under identical physical listening widths and increasing numbers of cycles. It provides exact critical jitter coverage, worst-phase reliability, finite-effort miss probabilities and a near-boundary scaling useful to reason about acoustic duty-cycle aliasing; this is not just a change of variables or a trivial numerical optimization. The distinction between near-certain average detection and zero worst-case assurance at criticality is especially relevant to phase-locked vocal sequences.
+Best of checked evidence: the exact restricted-span finite miss law and matched floor/inverse-effort/geometric crossover for one shared phase are not covered by the identified empirical recording designs or the classical full-circle random coverage theorem. The interval convolution, conditional independence, and Jensen are standard and not original. The formula is elementary, but the comparison is of the complete model-specific phase-reliability law, not the convolution in isolation.
 
-## Limitations and closest prior literature
+## value
 
-The result assumes one perfectly periodic, persistent-phase point call per cycle. A real animal's calling may drift, be clustered, or go unrecognized; recording windows can overlap. Michel et al. (2024), Balantic and Donovan (2019), Rand et al. (2022), and Siegel and Holst (1982) are compared by mathematical model and implication. The random-arc paper's abstract was accessible, but not every historical chapter in general circular coverage or acoustic scheduling was exhaustively inspected. No field calibration or finite-sample estimation claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural design parameter has a complete, practically interpretable regime classification in the idealized model: at criticality an almost-every-phase assurance coexists with zero worst-phase assurance, and O(1/m) changes in allowed span alter the leading miss coefficient. The law quantifies the effect that a duty fraction alone misses. The value is this sharp model benchmark and finite-effort control, not Jensen in isolation or a field-data claim. No fixed-energy optimality, phase drift, imperfect recognition, or nonuniform design theorem follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

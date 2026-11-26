@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result assumes \(\ell\ge2\), \(a,b\ge2\) and uses the exact published edge-replacement definition. The pendant-deletion identity reduces comparisons to diagonal resolvent entries. Path continuants give an exact spine-vertex difference, whose sign is proved for every spine length using \(t>\sqrt{a}\). Generalized tree shifts handle candidate leaf attachments and all spine edges; endpoint comparisons provide explicit restoring exchanges in the sustainable cases. Complete legal edge-exchange enumeration in 75 small parameter triples independently agrees. The verification program cannot replace the infinite algebraic proof.
+PASS
 
-## Originality — PASS (best-knowledge, priority qualified)
+For each pendant-edge deletion the allowed changes are precisely reattachments of that leaf. The Schur complement gives the new spectral radius as the root t=R_w(t) above the core spectral radius, with R_w positive and decreasing. The path-continuant concatenation identity gives the stated spine difference. At the original spectral radius with a>=b+2 one has t>sqrt(a)>=2 by strict Perron monotonicity of the proper embedded K_(1,a); the bracket lower bound is strictly positive by t>2 and e-f>=1 even for f=1. The other center is also strictly worse by the endpoint difference. Every candidate pendant attachment is worse than attachment to its own center: for a core pendant w adjacent to c, R_w=1/t+R_c/t^2, and R_c>t/(t^2-1) by the walk expansion and the additional neighbors of c over the single edge cw. Every spine edge meets a degree-two vertex; reattaching the cut branch across that vertex's uncut incident edge does not lower the radius, by the degree-two shift lemma. The endpoint comparison works for sustainable smaller-side or equal-center leaf moves even if t<=2, since P_(ell-1)(t)>0 above the core radius. Unit imbalance gives an isomorphic restoration for a larger-center leaf, and degree-two centers give the remaining cases. For ell=1 and proper centers a,b>=3, the central-edge cut gives two stars. The joining-root condition is R_v R_w=1 above both component radii, and each star's center has strictly greater diagonal resolvent than any leaf there: with d>=2 leaves the center-to-leaf ratio is t^2/(t^2-d+1)>1. Thus any different cross-edge decreases the radius, as the thesis also shows. The all-parameter conclusions are analytic; the packaged 75-case floating-point script was inspected but not run and does not cover ell=1.
 
-The motivating full preprint contains the general degree-two edge lemma, high-degree non-sustainability, and the special sustainable family \(B(2,k,k-1)\), but not the all-length, all-degree double-broom criterion or exact exceptional edge locations. Full-text comparison distinguished these implications. Csikvári's shift theorem gives a tool, not this sharp spectral comparison. Semantic searches of mathematical literature and existing research records found no equivalent characterization. The related 2025 Utrecht thesis was not accessible in full; priority remains independently unverified.
+## originality
 
-## Value — PASS
+PASS
 
-The preprint explicitly identifies sustainable trees and non-sustainable leaf edges as central structural questions. This theorem completely resolves both decisions and exact edge localization in the natural three-parameter double-broom family, detects a sharp unit imbalance boundary, and distinguishes proper subdivided brooms from double stars. Its conclusion extends beyond the earlier maximum-degree threshold and is not an automatic instance of the general edge lemma.
+The supported distinct claim is the full ell>=2 center-degree balance criterion with exact localization and count of every failing leaf edge. The one-edge double-star obstruction is already proved in the publicly retrievable 2025 thesis and is not new. The degree-two edge lemma, a high-degree obstruction, and the subdivided balanced subfamily B(2,k,k-1) are also prior.
 
-## Scientific limitations
+## value
 
-No claim is made for all trees, no proof follows merely from finite computation, and independent historical-priority review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem gives an unbounded three-parameter classification for a motivated family and identifies precisely which edges force failure, even when the available high-maximum-degree test is silent. The sharp one-degree balance boundary is useful independently of the known proper double-star example and prior sustainable subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

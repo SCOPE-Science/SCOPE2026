@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:57.225205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A palindrome in this binary class crosses an even number of transitions and thus meets one, three, or five runs. The unary counts are the per-bit maxima. For three runs the entire middle run is forced, with the radius bounded by neighboring run lengths; the two possible families of each bit overlap exactly when their middle runs have equal lengths. The five-run family for a given outside bit then exists and restores exactly the positive-part deficit for that bit. Pairing max(x,z) with y gives x+y+z-max(x,y,z)-min(x,y)-min(y,z)=(min(x,z)-y)_+, verifying both formulas. With at most four runs the same counts use only max+min. Independently, in the six-run word every palindrome is in one of the two five-run windows, since it cannot touch both extreme runs of different letters. A palindrome in both inventories but not in their common central window would have to start with two different bits, so inclusion-exclusion and central richness also prove additivity. Only a longest palindromic suffix can be new on extending by one letter, so defect is monotone under extension at either end. Removing one letter at either end of a non-rich five-run word gives richness exactly for a=e=c+1 with b!=d; a non-rich six-run word already contains a non-rich five-run factor. Multiplying the geometric sum over c by the ordered unequal (b,d) series and by two for the initial bit yields the generating function. The seven-run witness has eight nonempty palindromic factors and its immediate proper factors are rich, giving sharpness. The uploaded checker's code and recorded evidence were read, not executed. The independent longest-suffix replay /workspace/branches/replay_frozen.py passed 19530 run profiles, obstruction counts for all binary words with at most six runs through length 12, and the explicit seven-run witness; the classification does not rely on finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 gives a sufficient run-length condition s_i<=s_(i+2) for richness; Proposition 6(i) records closure under factors. Example 9 gives the shortest length-eight non-rich example 11010011, and Proposition 12 gives a crossed palindromic-prefix/suffix condition. The indexed October 18 formula determines defect for exactly three ones."
+        ],
+        "reasoning": "The preprint and minimal-non-rich structural literature provide general Boolean mechanisms and some examples, not the exact six-run numerical law. The three-one defect formula covers slices of the run family, including the five-run case b+d=3, and does not extend to unrestricted counts of both symbols. The later journal text was unavailable beyond landing/abstract access, not interpreted as evidence of absence.",
+        "searches": [
+          "Guo–Shallit–Shur arXiv:1503.09112 p. 8, Theorem 5 and Proposition 6(i)",
+          "Guo–Shallit–Shur DOI 10.1016/j.ipl.2016.07.001",
+          "Pelantová–Starosta arXiv:1708.06911 Example 9 and Proposition 12",
+          "Resultary 0f3724d4b165 (three ones)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_pal_defect.py for record 4",
+        "Frozen record 5 and its indexed mirror",
+        "Resultary records 0f3724d4b165 and 3fd5f89449ca",
+        "Guo–Shallit–Shur preprint and journal OA attempt",
+        "Pelantová–Starosta, Example 9 and structural result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Endpoint trimming of the shared five-run formula does imply the five-run minimal family and its enumerator among exactly five runs. Extending completeness to all words through six runs uses the equality of whole-word defect and the sum for the two windows. Defect-one 010110010 has two rich six-run windows; the earlier explicit length-eight example is instead in the common five-run family."
+        ],
+        "reasoning": "The sibling's five-run law and general monotonicity do not give the needed reverse implication that rich overlapping five-run windows force a rich six-run word. That direction requires proving the distinct-palindrome set intersection equals the inventory of the central window; the first and last run symbols being different supplies this structural step. The seven-run example illustrates exactly where a naive extension to the next run count fails.",
+        "searches": [
+          "Frozen record 5 Finding and Proof compared with record 4 Proof Steps 1–5",
+          "arXiv:1708.06911 Example 9",
+          "Resultary search for six-run additivity and 010110010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact six-run hit fde03d745d08 is the current frozen record. The separate indexed five-run spectrum record has the identical five-run function. The minimum-factorization record's K(w)>2 criterion agrees with D(w)>0 in the five-run domain, but its nonzero K(w) values depend on c rather than the outer minimum that determines defect."
+        ],
+        "reasoning": "After complementing the final window, its five-run formula gives exactly the second summand. Knowing both summands alone does not identify the whole-word defect; additivity needs a separate fact about how the overlapping windows share palindromes. Changing from defect to minimum-factorization multiplicity does not identify the numerical defect.",
+        "searches": [
+          "Resultary: palindromic defect finite binary words unequal endpoints defect inclusion exclusion prefix suffix overlap six runs minimum non rich 010110010 exact additive defect",
+          "Resultary 0ea5ed9577a7 (five-run defect spectrum)",
+          "Resultary 3fd5f89449ca (five-run minimum-factorization multiplicity)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed generating functions enumerate words with three ones by total defect and five-run words by optimal-factorization multiplicity, respectively. Pelantová–Starosta's table lists the rich factors of the particular shortest obstruction, not the bounded-run obstruction counts."
+        ],
+        "reasoning": "Neither generating function tracks minimality and six-run scope across arbitrary bit counts; a word of defect one need not be minimal. The finite table is for one example and supplies no word-length enumerator of the requested class.",
+        "searches": [
+          "Resultary 0f3724d4b165 Finding, length-and-defect generating function",
+          "Resultary 3fd5f89449ca Finding, multiplicity generating function",
+          "arXiv:1708.06911 Example 9 and Table 1"
+        ]
+      },
+      "rationale": "The exact five-run formula is shared with the distinct indexed five-run spectrum record. PASS is for the surviving six-run numerical decomposition, complete minimal-obstruction enumeration through six runs, and sharp seven-run failure as a package, not for the shared five-run law, short obstruction example, or factoriality of richness. The inspected prior statements do not supply the six-run inventory interaction or the general bounded-run obstruction list and its sharp boundary.",
+      "residual_risks": [
+        "The 2016 journal version could contain stronger characterization beyond the inspected preprint. An unlocated exact unequal-endpoint defect identity or bounded-run classification may overlap. The same-day indexing gives no priority order for the shared five-run formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage; no six-run decomposition",
+          "evidence": [
+            "The same positive-part law and complete palindrome list for exactly five runs; the record does not specify the relation between the two inventories in a six-run word."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-palindromic-defect-and-sharp-defect-spectrum-of-binary-fiv--0ea5ed9577a7",
+          "material_read": "Assigned record 5 RESULT.md Finding and Proof, corresponding indexed mirror; supporting note and checker as text",
+          "method": "Frozen file and bounded Resultary mirror read",
+          "title": "Exact palindromic defect and sharp defect spectrum of binary five-run words",
+          "trigger": "Same exact five-run formula within the six-run result"
+        },
+        {
+          "assessment": "Equivalent positive-case locus, different quantitative invariant",
+          "evidence": [
+            "K(w)>2 iff b!=d and c<min(a,e); K counts cut sets, not distinct palindrome strings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-multiplicity-and-limit-law-of-minimum-palindromic-factorizations--3fd5f89449ca",
+          "material_read": "Finding and assumptions from offset 0",
+          "method": "Exact indexed local mirror passage",
+          "title": "Multiplicity and limit law of minimum palindromic factorizations in five-run binary words",
+          "trigger": "Identical five-run parameter regime"
+        },
+        {
+          "assessment": "Covers positive-defect slices but not unrestricted bit counts or minimality through six runs",
+          "evidence": [
+            "For three ones, one of the internal zero gaps is zero for a non-rich five-run word, and the other is its central zero run; the resulting formula agrees on that slice."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-palindromic-defect-law-and-exact-spectrum-for-binary-words-w--0f3724d4b165",
+          "material_read": "Finding, scope and start of proof, offset 0 onward",
+          "method": "Exact indexed local mirror passage",
+          "title": "The palindromic-defect law and exact spectrum for binary words with three ones",
+          "trigger": "Same numerical defect invariant in a partially overlapping family"
+        },
+        {
+          "assessment": "Sufficient richness condition and factoriality, not the numerical additive law",
+          "evidence": [
+            "Monotone same-bit run lengths suffice for richness; factors of rich words are rich."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.09112",
+          "material_read": "Theorem 5 and Proposition 6(i), p. 8, offset 23000",
+          "method": "Primary OA PDF bounded passage",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Run-length richness theory"
+        },
+        {
+          "assessment": "Partial example and structural coverage",
+          "evidence": [
+            "11010011 is an explicit shortest non-rich word, the bit complement of a member of the five-run family; the table concerns its proper factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06911",
+          "material_read": "Example 9 and Table 1, p. 5 from offset 17450; Proposition 12 region, pp. 6–7",
+          "method": "Primary OA PDF bounded passages",
+          "title": "On Words with the Zero Palindromic Defect",
+          "trigger": "Minimal non-rich words, same shortest examples"
+        },
+        {
+          "assessment": "Possible further coverage not resolved",
+          "evidence": [
+            "The frozen record identifies run-length characterization as a possible overlap; the available preprint does not establish the numerical defect decomposition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ipl.2016.07.001",
+          "material_read": "Landing/abstract-level material only; readable full journal text not obtained",
+          "method": "Lawful OA attempt; available related author preprint checked separately",
+          "title": "Palindromic Rich Words and Run-Length Encodings",
+          "trigger": "Plausibly stronger final run-length richness characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Beyond the shared five-run calculation, this gives a local-to-global numerical test for the first run count where two candidate defects can coexist. It makes a complete bounded-run forbidden-factor classification possible, and the seven-run witness pinpoints why testing overlapping shorter windows is insufficient without the run-count hypothesis. This is a useful structural boundary, not merely a length-eight example or rewording of the five-run formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

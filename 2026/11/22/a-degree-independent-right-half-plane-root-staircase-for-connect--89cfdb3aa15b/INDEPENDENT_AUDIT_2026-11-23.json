@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:48:24.328645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r≥3 a connected set missing the hub seeds at most one arm; even if it reaches the hub, at least two white arms cannot be entered. A connected set containing the hub must use arm prefixes and may omit at most one arm. Prefix forcing followed by the hub's one remaining force proves sufficiency. Counting the omitted long arm, the omitted short leaf with prefix length ℓ, and the full set of short leaves with prefix length ℓ gives z^r Q, including h=1. For real r>1, set F=(z−1)Q=z^h(z+r−1)−r. Its nonzero-it imaginary part is a nonzero multiple of t^(h+1) (h even), or of (r−1)t^h (h odd); and Q(0)=r. Monicity and coefficient continuity then give a locally constant right-half-plane count with multiplicity. Checked the frozen r→∞ expansion, including the +1/(hr) real correction for ±i. As a separate check, at r=1 the nontrivial (h+1)-st roots of unity are simple and implicit differentiation gives dz/dr=(ζ−1)/(h+1); any boundary roots ±i move left. The remaining positive-real-part roots occur in conjugate pairs indexed by integers 1≤k<(h+1)/4, giving exactly 2 floor(h/4) already near r=1. On z=−t the odd case has one increasing crossing beyond r−1. The even case has maximum h^h(r−1)^(h+1)/(h+1)^(h+1) on (0,r−1); its ratio to r is strictly increasing. Direct checks at h=2,4 and (r,t)=(3,3/2) for h≥6 recover the full table. The only possible nonzero multiple root of F is real at −h(r−1)/(h+1), which gives the double (r,h)=(4,2) case only. Q(1)>0 excludes the extra factor and positivity of coefficients excludes positive real roots. Reviewer-written `python /workspace/review_checks/5.py` corroborated coefficients for 20 small graphs and 120 exact negative-real counts including the double root. No numerical root computation is needed for the infinite result; frozen script inspected only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior tree theorem covers every arm-length vector in the starlike case and the whole coefficient formula. Later bounds are coefficientwise and do not classify Hurwitz stability or the negative roots."
+        ],
+        "reasoning": "Broader coverage in graph families for enumeration does not dominate a root-location theorem. The possible broader algebraic root-location antecedent, rather than the graph enumerator, is the residual priority risk.",
+        "searches": [
+          "arXiv:2611.10985v1 Lemma 3.3, Theorem 3.5, §4",
+          "arXiv:2611.11352v1 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.10985v1",
+        "arXiv:2611.11352v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal lower coefficients include both h=3 (zero open-right roots) and h=4 (two), even while the polynomials have the same basic coefficient shape. Corollary 3.8 sets up the algebra but does not do the noncrossing and imaginary-boundary analysis."
+        ],
+        "reasoning": "One can use the known enumerator as input, but an additional noncrossing argument and root count, plus real-axis tangency analysis, is needed. This is not a new graph polynomial or a new general root-location method.",
+        "searches": [
+          "arXiv:2611.10985v1 Corollary 3.8 and coefficient extremal results",
+          "arXiv:2611.11352v1 Corollary 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known one-long-arm starlike polynomial has monic nonzero factor Q, with exactly the equal lower coefficients; equivalently its zeros are the nonunit zeros of z^h(z+r−1)−r. Newton–Brimkov's join family establishes nonunimodality of coefficients, not the sign of real parts of roots."
+        ],
+        "reasoning": "The graph, sparse trinomial and geometric-sum formulations of the proposed root count were compared. Unimodality and the known enumerator do not state the root census.",
+        "searches": [
+          "arXiv:2611.10985v1 Corollary 3.8 and §§3–4",
+          "arXiv:2611.11352v1 Theorem 1 and Corollary 2",
+          "websearch: zeros geometric polynomial z^n+a(z^(n−1)+...+1) right half plane z^n(z+a)−b trinomial stability connected zero forcing spiders Mukherjee Ray Newton Brimkov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corollary 3.8 expressly tabulates the coefficients for the exact same parameter family: p x^p+⋯+p x^(n−1)+x^n, including all h=n−p. It supplies no right-half-plane or multiplicity table."
+        ],
+        "reasoning": "The exact matching parametric coefficient formula is covered and excluded from novelty; a finite root table would corroborate but not provide the all-h and all-r census. No negative inference is made from the failed search.",
+        "searches": [
+          "arXiv:2611.10985v1 Corollary 3.8",
+          "Resultary query: connected zero forcing starlike spiders roots right half plane z^h+r sum geometric stability trinomial staircase (transport unavailable)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the half-plane and negative-axis censuses, not for the enumerating polynomial. The directly matching published formula is credited. The comparison concerns counted complex zeros and multiplicities rather than coefficient inequalities or visual root locations.",
+      "residual_risks": [
+        "Primary literature search and ranked Resultary lookup did not complete. The assessment relies on actual primary statements and may miss older algebraic treatments of equal-coefficient polynomials, geometric-sum perturbations, and the corresponding trinomials. No claim of absolute priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers the complete enumerator, not the proposed zero census",
+          "evidence": [
+            "Corollary 3.8 states precisely the polynomial for one-long-arm spiders after p=r and n=r+h."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.10985v1",
+          "material_read": "Definitions, Lemma 3.3, Theorem 3.5, Corollary 3.8 and coefficientwise bounds; text checked for complex-root terminology",
+          "method": "ArXiv full-text HTML",
+          "title": "On the connected zero forcing polynomial of finite trees",
+          "trigger": "Identical graph family and broader tree enumeration"
+        },
+        {
+          "assessment": "Different graph family and coefficient property",
+          "evidence": [
+            "The join construction gives nonunimodality for connected and total forcing, not a zero distribution for starlike trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.11352v1",
+          "material_read": "Theorem 1, Corollaries 1–2 and conclusion",
+          "method": "ArXiv full-text HTML",
+          "title": "Zero forcing is not unimodal",
+          "trigger": "Prior connected forcing polynomial shape theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a sharp instability family for an actual connected-forcing polynomial, with the number of unstable pairs depending on arm length even when the hub degree is unbounded. The unique double-root event and parity phases complete the nonzero real-root picture; these are structural results, not finite root plots or recomputation of known coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:16:45.332235Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, steps 1–4 and Limitations",
+        "Frozen VERIFICATION.md and checker.py"
+      ],
+      "rationale": "On the zero-sum subspace the discrete distance kernel is −I, and the error of powering it is bounded in quadratic form by N_d(M_d^p−1)||c||², giving the claimed lower bound. The quotient characters have even weight, and summing over all cube vectors counts each quotient class twice. For weight four, orthogonality and the two removed endpoint terms give F_d(0)=−2, including at d=4. The coefficient duality follows by counting choices of overlaps, and the degree-four polynomial follows from the fourth elementary symmetric polynomial in d signs with sum d−2k (Newton's identities). After multiplication by d² the normalized polynomial converges to Z⁴−6Z²+3. The centered log term times √d converges on compact Z-sets to −|Z| and is bounded by 2|Z| for |Z_d|≤√d/2. The binomial subgaussian tails give uniform integrability of the degree-five product there; outside that event the product grows at most polynomially times log d, including the endpoints, against an exponentially small probability. The moments give −(8−12+3)√(2/π)=√(2/π). The absolute coefficient sum is at most 2^d, so at p=(√(2π)+η)d^(5/2)2^(−d) the Taylor remainder is o(1), and the nontrivial eigenvalue is positive for fixed η>0. Downward nesting in p and the all-d lower bound then give the log-rate. The folded exponent is only bounded above with this particular constant, not asymptotically evaluated with that constant. For the unfolded cube, Hamming distance is a sum of cut metrics, and a two-face with alternating coefficients rules out any p>1. Schoenberg gives the Hilbert-snowflake statement. The supplied finite checker was inspected, not run; mpmath is used unconditionally, and the label on the exact checks includes a tolerance-based comparison, so the proof rather than that label establishes the result.",
+      "residual_risks": [
+        "No finite replay establishes the limit or the sign mechanism for all sufficiently large d. Other character weights can give stronger upper bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weston has a stronger general lower-bound principle; Robertson gives optimal distortion on the unfolded Hamming cube. The collapse record 633217efef5a treats d=4m≥12 and gives a parity-character upper obstruction."
+        ],
+        "reasoning": "The generic lower bound cannot provide an upper obstruction. The indexed parity result dominates the numeric weight-four upper bound on its subsequence but does not cover the other dimensions or the asserted logarithmic Fourier coefficient limit.",
+        "searches": [
+          "Weston arXiv:0807.2705v1 Theorem 4.1; Robertson arXiv:2309.16070v1 §4.2",
+          "Resultary 633217efef5a, antipodal Boolean cube collapse"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.10814, 2309.16070v1, 1112.5657v1, 1108.0451v1 and 0807.2705v1",
+        "Resultary 6e986f39a793, 2406c3ef6347, 364a1fbb1c2e and 633217efef5a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "633217efef5a states β_{4m}^{1/(4m)}→1/2 and gives a parity upper bound asymptotic to √(π/8)d^(5/2)2^(−d) in the present normalization. This is smaller than the weight-four bound on d=4m."
+        ],
+        "reasoning": "The subsequence rate alone does not imply the full-sequence limit, and no dimension transfer in these statements supplies it. The weight-four log-kernel analysis produces the uniform-in-d obstruction. The frozen result does not claim a globally sharp exponent constant, so the stronger subsequence bound does not contradict it.",
+        "searches": [
+          "Resultary 633217efef5a, Finding and parity upper obstruction",
+          "Resultary 6e986f39a793, exact p=1 distance spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 9 gives min{|A⊕B|,k+1−|A⊕B|} on PC(k), exactly the metric at d=k+1. The 6e986f39a793 indexed theorem uses the same Walsh/Krawtchouk convention at p=1. Murugan and Sánchez give powered-distance criteria for the generalized-roundness threshold."
+        ],
+        "reasoning": "These results identify the metric and the spectral test. A value at p=1 does not determine the derivative of the powered kernel at p=0, where the frozen obstruction is obtained.",
+        "searches": [
+          "Projective/folded cube, antipodal quotient Cayley distance: Chen–Naserasr–Sarti arXiv:2406.10814",
+          "Generalized roundness and spectral critical exponents: Murugan arXiv:1112.5657v1; Sánchez arXiv:1108.0451v1",
+          "Resultary Walsh/Krawtchouk distance formulas, 6e986f39a793"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6e986f39a793 gives the exact ordinary-distance spectrum; 2406c3ef6347 gives Walsh tables and thresholds for d=6,7,8; 364a1fbb1c2e gives the d=9 exponent controlled by weight eight."
+        ],
+        "reasoning": "The finite threshold overlaps do not give the limit for the derivative at d→∞, nor assert that the smallest root is a weight-four root. Exact exponent tables at single dimensions are not substitutes for the asymptotic claim.",
+        "searches": [
+          "Resultary exact folded-cube distance and exponent records 6e986f39a793, 2406c3ef6347 and 364a1fbb1c2e"
+        ]
+      },
+      "rationale": "The distinct contributions are the weight-four derivative limit and the resulting obstruction for every sufficiently large dimension, including the all-dimension logarithmic collapse. The quotient geometry, finite negative-type machinery, unfolded baseline and generic lower bound are known. A distinct indexed claim obtains the same collapse rate on d divisible by four and a better constant there by a different character; it is credited as a substantive partial overlap. Neither it nor the p=1 and small-dimensional formulas gives the all-dimension weight-four derivative.",
+      "residual_risks": [
+        "Searches are not exhaustive; another all-dimension spectral analysis under the folded-cube terminology may exist. The partial asymptotic overlap documented here does not decide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same metric; prior geometry.",
+          "evidence": "Distance minimizes the symmetric-difference count and its complement relative to k+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.10814",
+          "material_read": "Section 2, Proposition 9, OA offset 19192",
+          "method": "Bounded OA passage",
+          "title": "Signed projective cubes, a homomorphism point of view",
+          "trigger": "Exact projective-cube equivalence"
+        },
+        {
+          "assessment": "Unfolded cube baseline.",
+          "evidence": "For the unfolded n-cube, d^(p/2) has optimal distortion n^((p−1)/2) for p≥1.",
+          "identifier_or_url": "https://arxiv.org/html/2309.16070v1",
+          "material_read": "Section 4.2, Theorem 4.7 and Corollary 4.8",
+          "method": "Bounded OA passage",
+          "title": "Negative Type and Bi-lipschitz Embeddings Into Hilbert Space",
+          "trigger": "Negative type and cube distortion"
+        },
+        {
+          "assessment": "General powered-distance criterion.",
+          "evidence": "For row-transitive finite metrics the first singular powered-distance matrix identifies generalized roundness.",
+          "identifier_or_url": "https://arxiv.org/html/1112.5657v1",
+          "material_read": "Theorem 3.1, OA offset 6427",
+          "method": "Bounded OA passage",
+          "title": "Generalized roundness of vertex transitive graphs",
+          "trigger": "Broader critical-exponent method"
+        },
+        {
+          "assessment": "Prior criterion, not the family calculation.",
+          "evidence": "Provides a distance-matrix characterization of the critical exponent.",
+          "identifier_or_url": "https://arxiv.org/html/1108.0451v1",
+          "material_read": "Section 2, Corollary 2.4",
+          "method": "Bounded OA passage",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Equivalent finite-metric formulation"
+        },
+        {
+          "assessment": "Generic lower-bound overlap, not an upper obstruction.",
+          "evidence": "Lower bound uses the gap at zero and the scaled diameter.",
+          "identifier_or_url": "https://arxiv.org/html/0807.2705v1",
+          "material_read": "Theorem 4.1",
+          "method": "Bounded OA passage",
+          "title": "Optimal lower bounds on the maximal p-negative type of finite metric spaces",
+          "trigger": "General lower bound dominates the elementary lower estimate"
+        },
+        {
+          "assessment": "Exact p=1 result only.",
+          "evidence": "States Λ_j=(1/2)Σ_k f(k)K_j(k) and evaluates it at ordinary distance for even weights.",
+          "identifier_or_url": "2026/11/1/SCOPE-the-complete-distance-spectrum-and-four-periodic-quadratic-embed--6e986f39a793",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "The complete distance spectrum and four-periodic quadratic embedding behavior",
+          "trigger": "Same quotient and Walsh spectrum"
+        },
+        {
+          "assessment": "Finite cases, not a dimension asymptotic.",
+          "evidence": "Exact thresholds for dimensions 6–8.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-generalized-roundness-cliff-and-critical-hilbert-rank-transiti--2406c3ef6347",
+          "material_read": "Finding and spectral table, offsets 0 and 3758",
+          "method": "Local Resultary full-text mirror",
+          "title": "A generalized roundness cliff and critical Hilbert rank transition",
+          "trigger": "Same finite exponents and Walsh coefficients"
+        },
+        {
+          "assessment": "Finite overlap for the family, not the log-Walsh limit.",
+          "evidence": "Dimension 9 exponent about 0.3232671, controlled by weight eight.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-negative-type-exponent-and-a-nine-dimensional-walsh-endpoi--364a1fbb1c2e",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Sharp negative-type exponent and a nine-dimensional Walsh endpoint",
+          "trigger": "Same invariant at one dimension"
+        },
+        {
+          "assessment": "Subsequence rate overlap and better bound there; different witness.",
+          "evidence": "Proves rate 1/2 after taking the dimension-th root for d=4m≥12, with an explicit parity-character bound.",
+          "identifier_or_url": "2026/11/8/SCOPE-exponential-negative-type-collapse-for-antipodal-boolean-cubes--633217efef5a",
+          "material_read": "Finding and upper obstruction, offsets 0 and 4632",
+          "method": "Local Resultary full-text mirror",
+          "title": "Exponential negative type collapse for antipodal Boolean cubes",
+          "trigger": "Same metric and exponential-rate claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and steps 2–4",
+        "Resultary 633217efef5a and 364a1fbb1c2e"
+      ],
+      "rationale": "This gives a quantitative example of how taking a natural metric quotient destroys the cube's negative type. It resolves the exponential scale across all dimensions rather than just an infinite subsequence and identifies a particular harmonic obstruction with its constant. It also delineates where a stronger analysis of the globally critical mode is still needed.",
+      "residual_risks": [
+        "The lower and upper bounds do not determine the polynomial factor or a sharp leading constant for the true critical exponent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

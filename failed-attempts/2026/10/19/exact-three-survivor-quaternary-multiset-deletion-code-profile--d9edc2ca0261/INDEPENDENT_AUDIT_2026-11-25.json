@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:25:43.391575Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–55",
+        "Frozen VERIFICATION.md, check.py and check_output.txt (inspected only)",
+        "Independent replay: python3 /tmp/opencode/multiset_survivors_audit.py; set packing of the 20 possible three-symbol outputs by exact dynamic programming over used-output unions; n=5 through 10 gave 6,5,5,5,4,4"
+      ],
+      "rationale": "Two equal-length multisets have a common three-symbol output exactly when the sum of their coordinatewise minima is at least three. Correcting exactly n−3 deletions and correcting up to that number are equivalent here, since any common longer output contains a common three-symbol submultiset. Disjoint heavy-coordinate sets bound the number of heavy codewords by four. Light words have sum at most eight, and any two light words have overlap at least 2n−8. At n=5 coexistence forces their coordinatewise maxima to be all twos, hence their two coordinates of multiplicity two must be complementary; no third light word can satisfy both compatibility constraints. The four pure vectors plus the listed light additions attain all the resulting upper bounds. In particular the stated n=9 threshold is sharp.",
+      "residual_risks": [
+        "The finite replay is corroboration; the heavy/light argument proves the infinite range.",
+        "No ordered-word channel or classification of all optimal codes is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For q=4 the v1 cap is 16(n−2)/(n−5), the v2 proposition gives 10, and the Kovačević–Tan bound is 4(2n−1)/(n−2); none is sharp here.",
+          "The later-indexed general exact theorem gives q+1 for q+2≤n≤2q and q for n≥2q+1; setting q=4 yields the two regimes beginning at n=6."
+        ],
+        "reasoning": "The primary-literature bounds inspected do not supply the exact result. The indexed general theorem does cover n≥6 but gives only a lower bound at n=q+1, so the separate quaternary statement is decisive for n=5.",
+        "searches": [
+          "Kreindel–Essayag–Zabokritskiy arXiv:2601.05636v1 §3.5 Theorem 9 and v2 §4.4 Proposition 12",
+          "Kovačević–Tan Theorem 17, Eq. (31)",
+          "Resultary arbitrary-alphabet exact record da6ffbe21ef7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 10c1013a7401, da6ffbe21ef7, d3a62a71c505 and 25c40b5490b2",
+        "arXiv:2601.05636 v1 and v2",
+        "arXiv:1612.08837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact quaternary record states the n=5 exception as well as both remaining regimes, and uses the same heavy-coordinate bound. Its light-vector proof at n=5 has a different presentation, but proves the identical invariant."
+        ],
+        "reasoning": "No mathematical assertion of this submission remains outside the exact comparison. The general theorem requires only parameter substitution for the n≥6 part. No priority inference is required to establish that there is no distinct finding here against the catalogue.",
+        "searches": [
+          "Comparison of the two exact indexed Findings and assumptions with frozen RESULT.md lines 3–55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact record 10c1013a7401 explicitly equates deletion of exactly n−3 and at most n−3 under the same min-coordinate intersection criterion."
+        ],
+        "reasoning": "The wording about how many symbols are deleted does not distinguish the two statements for equal-length unordered multisets.",
+        "searches": [
+          "Resultary: quaternary multiset codes, three survivors, n−3 deletions",
+          "Kovačević–Tan arXiv:1612.08837, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "10c1013a7401 Finding and assumptions give exactly the same values, domains, alphabet, and channel; not the frozen record itself.",
+          "The earlier ternary entry uses q=3; the length-four one-deletion entry has a different source length and does not give the assigned profile."
+        ],
+        "reasoning": "This is an exact statement-level match, not a title or keyword match; catalogue overlap and provenance priority are different questions.",
+        "searches": [
+          "Focused Resultary three-survivor and exact quaternary spectrum queries",
+          "Exact RESULT.md of 10c1013a7401",
+          "Related older indexed cases d3a62a71c505 and 25c40b5490b2"
+        ]
+      },
+      "rationale": "Verified independent catalogue coverage of the entire asserted theorem: the distinct exact quaternary entry 10c1013a7401 states the identical 6/5/4 spectrum on the same domain, with proofs and witnesses. The distinct general entry da6ffbe21ef7 additionally specializes to the two infinite-domain regimes beginning at n=6. This rejects distinctness of the submitted claim against the existing catalogue; it does not assert that the overlapping records predate this one, that the October 19 derivation was not independent, or that priority is known. The indexed overlaps carry October 25 and November 2 dates respectively.",
+      "residual_risks": [
+        "The exact indexed coverage is confirmed, but catalogue dates and current availability do not establish historical priority or dependency."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent on the full domain n≥5; date later than frozen source path",
+          "evidence": "The displayed optimum is 6 at n=5, 5 for n=6–8, 4 for n≥9, and its scope explicitly equates the two deletion formulations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-quaternary-three-survivor-multiset-deletion-spectrum--10c1013a7401/RESULT.md",
+          "material_read": "Finding, assumptions and proof passages; mirror offset 0 through 2427 for decisive statement",
+          "method": "Local indexed mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact quaternary three-survivor multiset deletion spectrum",
+          "trigger": "Direct independent indexed match"
+        },
+        {
+          "assessment": "Strictly broader, and covering q=4, n≥6 only for the exact optimum",
+          "evidence": "Exact branches are q+1 through 2q starting at q+2, and q from 2q+1; at q+1 it states an existence lower bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7/RESULT.md",
+          "material_read": "Finding and assumptions, mirror offset 0 through 2458",
+          "method": "Local indexed mirror",
+          "title": "Exact three-survivor multiset deletion codes over arbitrary alphabets",
+          "trigger": "Stronger indexed result with potentially dominating parameters"
+        },
+        {
+          "assessment": "Inspected bounds do not give this sharp quaternary spectrum",
+          "evidence": "The v2 three-survivor bound q+binom(q,2) at n≥q+2 is 10 for four symbols; n=5 is excluded.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+          "material_read": "v1 §3.5 Theorem 9 (pp. 13–14); v2 §4.1 and §4.4 Proposition 12 (pp. 21–22, 26)",
+          "method": "Lawful OA bounded statements in both versions",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results (v2; v1 title Bounds and Constructions)",
+          "trigger": "Primary treatment of the same model and deletion regime"
+        },
+        {
+          "assessment": "Equivalent distance model, not a sharp cap at these parameters",
+          "evidence": "The cap specializes to binom(2n,3)/binom(n,3); it does not give the required equality values.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+          "material_read": "Theorem 1 (pp. 3–4) and Theorem 17, Eq. (31) (p. 10)",
+          "method": "Lawful OA bounded full-text inspection",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels With Impairments",
+          "trigger": "General prior multiset geometry and upper bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and scope",
+        "Exact quaternary record 10c1013a7401 Finding and proof"
+      ],
+      "rationale": "The three-survivor transition is a natural problem and the theorem is mathematically useful as a reference. As a separate present finding, however, it gives no invariant, improved bound, or new structural conclusion beyond the existing exact quaternary catalogue statement. The short light-vector argument and finite replay re-establish the same known exact fact; this is not an independently distinct valuable remainder under the exact-invariant standard.",
+      "residual_risks": [
+        "This is not a negative assessment of the usefulness of the underlying theorem, and does not decide who established it first."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:15:31.284519Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The analytic argument establishes the quantifiers. The uploaded symbolic/sample script was inspected but not executed; it does not even require the finite mass closeness test for the r=7 samples. No classification of unequal parameters, boundary-axis dynamics, or attainability of the infimum is inferred. The boundary limit allowed in the theorem is (r,0), not the endpoint (0,r).",
+      "rationale": "For s=x+y and f=x/s one has s'=fr+(1−f)g(s), g(s)=s exp(r−s). After the first step x≤r and y≤exp(r−1). If s≤r/2 then s'>s; on the rest of that bounded interval both terms in the convex combination have positive minima, giving a positive lower bound for all subsequent masses. For Q=x/y^(1/r), direct substitution gives Δlog Q=s/r−1−log(s/r)≥0 with equality only at s=r. When Q has a finite positive limit, its log increments tend to zero, so s tends to r and the strictly increasing map x↦x/(s−x)^(1/r) gives convergence to a unique interior composition. If Q tends to infinity, bounded x forces y→0; the positive mass lower bound and the x update then force x→r, which is enough for the stated conclusion with y∞≥0. The continuous extension at (r,0) fixes it. A convergent orbit can recur to its initial point only if that point is fixed. Integration of the nonnegative log increment under a compactly supported invariant law gives zero and forces support on the fixed line. At an interior fixed point the normal multiplier in s−r is (1−f)(1−r). For nonlanding starts the mass-deviation quotient is defined at every step and tends to this multiplier; eventual growth when its absolute value exceeds one contradicts convergence. For sharpness, pick any f* strictly above the barrier and below 1. In a small strip about (r,f*) the exact mass factor is bounded in modulus by k<1 and log Q has quadratic drift at most C(s−r)^2. Starting at s=r+ε gives geometric mass contraction and total drift O(ε²)/(1−k²) through the first candidate exit. The smooth inverse from (s,log Q) is unique since log Q=(1−1/r)log s+log f−(1/r)log(1−f) is strictly increasing in f. It gives |f−f*|=O(|ε|+ε²/(1−k²)), a strict interior bound for small enough ε, closing the induction. The strip excludes all roots of g(s)=r except r, so ε≠0 cannot land; the limiting composition tends to f* as ε→0. Taking f* down to the barrier proves the infimum. Finally for r>2, unimodality and g(1)>r show that g(s)=r has roots u_r∈(0,1) and r only. At (fu_r,(1−f)u_r) the image is exactly (rf,r(1−f)). The endpoint (r,0) is not the image of a strictly positive state.",
+      "replay_paths": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 splits strict inequalities; Theorem 4.5 assumes strict r2>r1. Theorem 4.1's printed alternative (4) uses weak inequalities, but its displayed candidate has 0/0 at equality and its proof starts with strict r2>r1.",
+          "Kang's preimage paper studies this closely related topic, but publisher/OA recovery and an identified alternate yielded no full text."
+        ],
+        "reasoning": "The equality regime is singular for the strict-parameter analysis: the interior equilibrium set changes dimension, and the unequal-parameter period-two construction does not extend to it. Abstract-level scope cannot settle overlap for the exceptional line.",
+        "searches": [
+          "arXiv:1102.2286v1 Theorems 3.1, 4.1, 4.5",
+          "10.1080/10236198.2011.591390 and exact-title, DOI and author-copy/repository lookups"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1102.2286v1",
+        "10.1080/10236198.2011.591390 (abstract-level only)",
+        "Resultary 2a5a09a48e5b and 196d57cbc210"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known strict-parameter exclusion or persistence theorems do not give neutral convergence: at equality the monotone variable selects a point on a continuum rather than excluding an interior component.",
+          "The conceptually close neutral Ricker result preserves its composition coordinate and permits periodic dynamics; H_r's log composition increases strictly off the fixed line, precluding those dynamics."
+        ],
+        "reasoning": "The stable-strip summability argument is required for the optimal infimum, beyond just finding the fixed-line multiplier or specializing the known monomial identity. The elementary preimage computation is not relied on as a separate new theorem.",
+        "searches": [
+          "Kang–Smith arXiv:1102.2286v1 equations (3)–(4) and Theorems 3.1, 4.1, 4.5",
+          "Resultary 2a5a09a48e5b and 196d57cbc210 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kang–Smith uses the exact model with r1,r2, and its V=x^(−r1)y has V=Q^(−r) at equality. The one-step ratio specializes to the same identity."
+        ],
+        "reasoning": "The prior identity is genuinely equivalent after taking the negative reciprocal log and rescaling. Identity coverage is not itself coverage of the compactness, convergence and sharp boundary analysis.",
+        "searches": [
+          "Equal-parameter lottery–Ricker competition, neutral coexistence, global convergence and sharp transverse selection",
+          "arXiv:1102.2286v1 equations (3)–(4)",
+          "Configured Resultary searches by exact map and neutral composition selection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier neutral Ricker catalogue match uses two exponential update components and an exact invariant x/y^α, and treats leafwise flips. The later logarithmic-clock record studies the distinct symmetric Ricker system at a critical parameter."
+        ],
+        "reasoning": "Neither is an equivalent exact classification of the mixed lottery–Ricker map across all equal rates. No inspected catalogue table or record had the target normal-multiplier selection law for these states.",
+        "searches": [
+          "Configured Resultary exact map and semantic lookups on neutral Ricker composition and transverse selection",
+          "2026/10/12/SCOPE-composition-controlled-flip-criticality-on-a-neutral-ricker-comp--2a5a09a48e5b",
+          "2026/11/1/SCOPE-global-critical-relaxation-and-a-logarithmic-clock-in-symmetric--196d57cbc210"
+        ]
+      },
+      "rationale": "The supported distinct claim is the global pointwise equality-parameter classification combined with the sharp nonlanding composition infimum for r>2. The weighted monomial identity and model themselves are already in Kang–Smith, as the frozen record acknowledges. The elementary one-step preimage is part of the correct explanation of the exception, but priority for that fact by itself is not certified: the most relevant preimage paper could not be checked in full. The inspected closest catalogue statements change the map, and those changes affect the dynamics central to the theorem.",
+      "residual_risks": [
+        "No full-text comparison was possible for Kang's preimage paper. It is a material risk to standalone preimage priority and was not used as negative evidence.",
+        "The bounded comparison does not imply exhaustive historical priority for the neutral result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior identity, but no target equality classification in these results",
+          "evidence": "The weighted monomial ratio specializes exactly; the actual analyses use r1≠r2. In Theorem 4.1 the formula degenerates and the proof uses strict inequality even though one printed parameter line includes equality.",
+          "identifier_or_url": "https://arxiv.org/html/1102.2286v1",
+          "material_read": "Equations (3)–(4) near HTML offset 1500; Theorem 3.1 and proof near 17500; Theorem 4.1 near 26200; Theorem 4.5 near 40000",
+          "method": "Lawful OA full-text passages",
+          "title": "Global Dynamics of a Discrete Two-species Lottery-Ricker Competition Model",
+          "trigger": "Identical model before restricting to the equal parameters"
+        },
+        {
+          "assessment": "Potential preimage overlap unresolved; not counted as absence",
+          "evidence": "The accessible description concerns invariant-set preimages and critical curves for a singular competition map; it does not establish or exclude the positive neutral preimage line.",
+          "identifier_or_url": "10.1080/10236198.2011.591390",
+          "material_read": "Available abstract-level scope only",
+          "method": "Attempted lawful OA publisher, DOI/repository recovery and identified author-copy route",
+          "title": "Pre-images of invariant sets of a discrete-time two-species competition model",
+          "trigger": "Closest prior preimage problem in this model family"
+        },
+        {
+          "assessment": "Different map/invariant and asymptotic statement",
+          "evidence": "Both components have exponential updates, x/y^α is exactly preserved, and the analysis includes period-two orbits.",
+          "identifier_or_url": "2026/10/12/SCOPE-composition-controlled-flip-criticality-on-a-neutral-ricker-comp--2a5a09a48e5b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Composition-controlled flip criticality on a neutral Ricker competition model",
+          "trigger": "Closest earlier neutral-segment and transverse-repulsion catalogue analogue"
+        },
+        {
+          "assessment": "Different map and parameter scope",
+          "evidence": "The critical symmetric Ricker r=s=2 setting is not the full lottery–Ricker neutral family.",
+          "identifier_or_url": "2026/11/1/SCOPE-global-critical-relaxation-and-a-logarithmic-clock-in-symmetric--196d57cbc210",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Global critical relaxation and a logarithmic clock in symmetric Ricker competition",
+          "trigger": "Global convergence in a related Ricker model at critical equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equality locus separates the commonly analyzed exclusion and persistence regimes, making it a natural boundary rather than an arbitrary parameter slice. An all-start convergence result on a neutral continuum together with a sharp accessible-composition infimum and explicit finite-time exceptions describes which repelling equilibria can be selected and why. It is stronger than a local multiplier computation or the prior weighted identity by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

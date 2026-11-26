@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:12:11.071538Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49; VERIFICATION.md lines 19–23; verify.py lines 16–74 and 96–137 (inspected, not executed)",
+        "Independent replay: python3 /workspace/independent_tree_variance.py"
+      ],
+      "rationale": "For Z the sum of the isolation indicators, vertex v has isolation probability 2^(−d(v)). Nonadjacent indicators depend on disjoint edge sets. For an adjacent pair the joint probability is twice the product of the marginals, so twice its covariance equals that joint probability, giving exactly equation (1). The star and double-star formulas follow by summing over leaves and centers. Independently generated every rooted tree through order 11 as a multiset of smaller rooted trees and deduplicated unrooted trees by the least code over all choices of root. Evaluated exact first and second moments over all retained-edge subsets for each unrooted representative, independently of equation (1). The counts for n=3–11 were 1,2,3,6,11,23,47,106,235. The unique minimizers through 10 had star degrees; at 11 the unique minimizer has nine leaves and adjacent degree-5 and degree-6 centers, hence is D(5,6). Its variance is 10239/4096; the star value is 2632703/1048576 and the gap is 11519/1048576. For balanced a+b=n≥11, monotonicity of k/2^k bounds a/2^a+b/2^b by 1/4, with equality only at n=11. AM–GM gives 4^(−a)+4^(−b)≥2^(1−n), with equality only at a=b. The equalities cannot coincide; hence the double-star variance is strictly below (n−1)/4, which is strictly below the star variance. This proves the unbounded comparison analytically.",
+      "residual_risks": [
+        "No classification of the global minimizer at orders above 11 is implied, and the result fixes independent edge retention at exactly one half."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lanchier–La Salle bound E(S) and E(S²) for typical cluster size on finite regular graphs, using isolated-vertex events.",
+          "The Jevtić–Lanchier–La Salle institutional abstract targets exact first and second moments of the size of the cluster of a uniformly chosen vertex on rings, paths and stars, at general p.",
+          "Timonin develops cluster size-degree distributions on Bethe lattices and complete graphs, including single-site cluster density."
+        ],
+        "reasoning": "The cited scopes and statements do not encompass minimization of the variance of the unrooted singleton count over all finite trees of the same order. General probability p in a different model or for a different observable does not dominate the claim at p=1/2.",
+        "searches": [
+          "Lanchier–La Salle arXiv:2111.01982v1, Abstract and Theorem 2",
+          "Jevtić–Lanchier–La Salle DOI 10.1016/j.spl.2020.108714, author-institution publication abstract",
+          "Timonin arXiv:1704.07915 Abstract and p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records cf951f62ca90 (assigned) and c459fae012e1 (distinct); Lanchier–La Salle arXiv:2111.01982v1; Jevtić–Lanchier–La Salle DOI 10.1016/j.spl.2020.108714 and ASU institutional abstract; Timonin arXiv:1704.07915"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed site calculation makes the star a maximizer and a balanced double star a minimizer in the diameter-at-most-three class. The frozen bond calculation gives the star as unique minimizer before its finite reversal and requires optimization over unrestricted tree shapes.",
+          "The frozen variance identity follows directly from local covariances; the finite minimum does not follow merely from that identity or single-site moments."
+        ],
+        "reasoning": "Neither a change of threshold nor renaming reduces independent edge deletion to the site model for this statistic. Comparing the two explicit bond shapes supplies a better competitor at large n but does not establish uniqueness against every other shape at n=11 or the sharp boundary. These require genuinely additional exact analysis.",
+        "searches": [
+          "Resultary c459fae012e1, Finding, Assumptions and Limitations; frozen RESULT.md equations (1)–(5)",
+          "Lanchier–La Salle arXiv:2111.01982v1, proof of Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record cf951f62ca90 is the assigned record, not an independent source. The nearest distinct record c459fae012e1 studies singleton clusters after fair vertex retention: an isolated vertex must itself be retained and all its neighbors removed.",
+          "Lanchier–La Salle arXiv:2111.01982v1 explicitly study moments of the size of a rooted cluster S."
+        ],
+        "reasoning": "In the frozen bond model isolation means all incident edges are absent; no vertex-retention event occurs. Also, knowing the size distribution for a uniformly randomly chosen root might give the mean of the total singleton count, but its variance involves joint two-vertex isolation probabilities. Equality of terminology does not equate the quantities.",
+        "searches": [
+          "Resultary: isolated-cluster variance on trees under bond and site percolation, star and double star",
+          "Websearch: bond percolation on finite trees variance number of isolated vertices star double star extremal singleton components half retention Jevtic Lanchier La Salle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit for the eleven-vertex bond minimum is the assigned result itself. The distinct indexed site result contains a different diameter-three extremum. The literature hit describes rooted cluster-size moments, while Timonin p. 2 gives single-site density rather than variances indexed by finite tree shapes."
+        ],
+        "reasoning": "A table capable of covering the claim must concern the same count and compare all tree shapes through order eleven, not just rooted moments, densities, or stars and paths. No such table was identified in the comparisons made; that is a bounded observation, not a universal negative.",
+        "searches": [
+          "Resultary: order eleven exact isolated-vertex variance, balanced double star D(5,6)",
+          "Targeted tree bond-percolation variance literature query; comparison against the scope of the ASU publication record and Timonin p. 2"
+        ]
+      },
+      "rationale": "The supported contribution is the sharp eleven-vertex first reversal for the variance of the total number of isolated vertices over all unlabeled trees, including the unique minimizer there and the uniform larger-order comparison. The nearby indexed site-percolation result changes both the random variable construction and the class. The primary sources inspected concern rooted-cluster sizes or cluster distributions rather than this extremum. The standard covariance identity is not credited as new.",
+      "residual_risks": [
+        "The full Jevtić–Lanchier–La Salle paper was not recovered in lawful OA; incidental treatment outside its abstract remains unknown. The bounded search does not rule out unindexed work or establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related invariant but not the same model or domain",
+          "evidence": [
+            "Fair vertex retention on trees of diameter at most three gives a balanced double star as minimizer and the star as maximizer."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-isolated-cluster-variance-ordering-in-diameter-three-site--c459fae012e1",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions from offset 0; limitations from offset 4731",
+          "method": "Exact local-mirror statement and parameter comparison",
+          "title": "Sharp isolated-cluster variance ordering in diameter-three site percolation",
+          "trigger": "Strongest distinct indexed overlap on isolated-cluster variance and double stars"
+        },
+        {
+          "assessment": "Bounds rooted component size, not extremal total-singleton-count variance",
+          "evidence": [
+            "Theorem 2 treats E(S) and E(S²) for rooted S on regular graphs; isolation enters the proof as a bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2111.01982v1",
+          "material_read": "Abstract and Introduction offsets 0–2369; Theorem 2 and proof offsets 16799–20798",
+          "method": "OA full-text statement and proof inspection",
+          "title": "First and second moments of the size distribution of bond percolation clusters on regular graphs",
+          "trigger": "Cited prior bond-percolation second moments and isolated-vertex events"
+        },
+        {
+          "assessment": "Available abstract targets a different observable and a narrower set of graphs; no whole-document exclusion concluded",
+          "evidence": [
+            "The stated objective is the first and second moments of the number of vertices in the open cluster containing a uniformly chosen vertex on a ring, path or star."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2020.108714",
+          "material_read": "DOI landing material and ASU institutional abstract, offset 0–2188; no full text recovered",
+          "method": "OA recovery attempted, followed by identified author-institution publication record reached in targeted literature search",
+          "title": "First and second moments of the size distribution of bond percolation clusters on rings, paths and stars",
+          "trigger": "Same sampling mechanism and star family; potential close comparison"
+        },
+        {
+          "assessment": "Density/distribution treatment on other graph families, not the exact finite-tree extremum in the passages inspected",
+          "evidence": [
+            "Uses Bethe lattices and the complete graph and gives single-site cluster density in the regular case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.07915",
+          "material_read": "Abstract and single-site discussion on PDF p. 2, offsets 0 and 8255",
+          "method": "OA full-text passage comparison",
+          "title": "Clusters’ size-degree distribution for bond percolation",
+          "trigger": "Possible broader single-site cluster distribution result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 27–49 and 55–61; distinct site-percolation comparison c459fae012e1"
+      ],
+      "rationale": "The dispersion of failed connections measured by the total number of isolated vertices is a natural percolation invariant, distinct from a typical cluster size. Comparing the star with all other shapes asks exactly when concentrating dependencies at one hub ceases to be optimal. The sharp first reversal, the unique first alternative, and the proof that this is not a transient anomaly provide a useful exact extremal benchmark rather than an arbitrary finite slice or a numerical restatement of a standard identity.",
+      "residual_risks": [
+        "No claim of applied reliability impact or optimal design for larger orders or other retention probabilities is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

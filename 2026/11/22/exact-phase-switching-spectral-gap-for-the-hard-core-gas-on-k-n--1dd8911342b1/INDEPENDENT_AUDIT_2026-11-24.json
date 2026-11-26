@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:12:06.637245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–68; VERIFICATION.md lines 19–25; CHECK_EXACT.py lines 9–70; CHECK_DENSE.py lines 10–61"
+      ],
+      "rationale": "The two labeled product cubes share only the empty vertex. In the reversible Euclidean representation the odd shore-exchange sector has zero empty coordinate and is exactly the killed negative generator A. The even sector has a doubled reversible weight on every nonempty paired state, so after deletion of the empty coordinate its principal submatrix is again A (the extra √2 factors are only in couplings to the deleted vertex). Its first eigenvalue is zero and interlacing bounds its second below by the least eigenvalue of A; that least eigenvalue is realized in the odd sector. This argument covers the full state space, not only occupancy counts. The unglued cube return probability is (1+λ exp(−bt))^n/b^n, b=1+λ. Its resolvent cofactor therefore vanishes in (0,b) at exactly the stated secular root, since the diagonal resolvent is strictly increasing from −∞ to +∞; positive definiteness and interlacing identify the first Dirichlet eigenvalue. The sum at fixed a strictly increases with n by binomial coefficient comparison, which independently proves strict size descent. For n=1 the root is 1. For n=2 the two-state killed count matrix has trace 3+λ and determinant 2, giving the claimed smaller root; site-permutation symmetry of the unique positive ground state legitimizes this count calculation. For fixed p=λ/b, write m=np and u=1−p. Taylor expansion of E[1/X; X≥1] gives 1/m+u/m²+u(2−p)/m³+O_p(n⁻⁴): in the central window use the second and third centered moments m u and m u(1−2p), the fourth 3m²u²+O(n), signed fifth O(n²) and absolute sixth O(n³); the discarded window is exponentially small. Writing the root as g=1/S_n(g), g≤1/S_n(0)=O_λ(n b⁻ⁿ), and (S_n(g)−S_n(0))/S_n(0)=O_λ(g/n)=O_λ(b⁻ⁿ) by the inverse second moment bound. Inversion yields 1−1/(λn)−b/(λ² n²) times nλ/b^n with the claimed relative remainder. The frozen scripts and recorded checks were read, not executed; the structural proof and moment calculation establish the universal claims.",
+      "residual_risks": [
+        "Expansion fixes positive λ; it is not uniform in n-dependent activity. No claim of a total-variation mixing time, cutoff, or a formula for other graphs or rate conventions is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galvin–Tetali require N≥d² for their theorem; N=2n,d=n violates it for n>2. The complete bipartite example of den Hollander et al. gives an exact effective-resistance reduction and a large-activity crossing-time law, and its introduction specifies the asymmetric regime. The inspected Flegg–Pollett theorem covers general single-urn birth and death rates."
+        ],
+        "reasoning": "Neither an exponential mixing lower bound nor a mean crossing time gives the exact gap on the entire labeled generator. Fixed graph and high activity is not the same limit as fixed activity and growing n. The stronger killed-urn formula is explicitly credited where it does apply.",
+        "searches": [
+          "Resultary: complete bipartite graph hard-core dynamics metastability crossover time K_m,n effective resistance",
+          "Galvin–Tetali Theorem 1.1",
+          "den Hollander–Nardi–Taati Example 4.1 and introduction p. 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29 and 74–87",
+        "Flegg–Pollett Theorem 1 (equivalent exact killed-root polynomial)",
+        "Distinct indexed Ising result and open hard-core comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first killed-urn rate of Flegg–Pollett can be substituted after proving which sector supplies the full gap, but that equality needs both the odd Dirichlet identification and the even compression bound for the glued hard-core graph. The Ising comparison links two P₃ product sectors by a matching and reduces to killing at finite rate; it neither identifies the infinitely killed limit with this hard-core spectrum nor covers varying activity. Its fixed-model gap begins 2(2/3)^n(1−2/n+O(n⁻²)), different even at leading prefactor from the rate-matched glued model."
+        ],
+        "reasoning": "The exact root is mechanically implied for the single killed complex and not independently original there. The published comparisons do not supply the full-gap identification nor evaluate its fixed-activity corrections; the spectral reduction and inverse-binomial expansion address those separate claims.",
+        "searches": [
+          "Flegg–Pollett PDF pp. 2,5, offsets 3370 and 15100 (Theorem 1)",
+          "06bcaf11b321 RESULT.md Finding at offset 0 and arguments at offsets 2580–5025",
+          "den Hollander–Nardi–Taati, Example 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flegg–Pollett give all roots s_m∈(m−1,m) of Σ_{j=0}^K binom(K,j)(λ/μ)^j∏_{k≠j}(s−k)=0 for the biased urn killed at zero. Set K=n, μ=1 and a=(1+λ)s₁; dividing by ∏_{k=0}^n(s₁−k) gives exactly 1/a=Σ_{j=1}^n binom(n,j)λ^j/[j(1+λ)−a]. The positive killed ground vector is invariant under site permutations, so the first count-chain decay rate equals the labeled killed-cube rate."
+        ],
+        "reasoning": "This is exact, earlier and broader coverage of the killed secular formula, not just a first-passage paper with a similar model. Its theorem treats a single absorbing urn and does not compare the odd and even spectra of the hard-core biclique.",
+        "searches": [
+          "Web: Ehrenfest urn killed at zero smallest eigenvalue Dirichlet binomial secular equation resolvent Bingham biased birth death absorbing boundary exact spectrum Krawtchouk first hitting time",
+          "Resultary: absorbing Ehrenfest urn killed hypercube Dirichlet eigenvalue binomial resolvent cofactor equation",
+          "Flegg–Pollett, First passage time density for the Ehrenfest model, Theorem 1, PDF p. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact biclique hit 1dd8911342b1 is the identical frozen record. Distinct same-day 06bcaf11b321 proves a secular equation 1+2R_n(x)=0 with R_n(x)=Σ_{k=0}^n binom(n,k)(2/3)^(n−k)(1/3)^k/(3k−x), for two Ising sectors joined along a matching. At activity 1/2 and with rates rescaled by 2 the frozen product resolvent is that same R_n, but the frozen cofactor is R_n(x)=0."
+        ],
+        "reasoning": "This is an exact algebraic comparison of weights, poles and boundary conditions. The finite killing term changes the equation and its root; matching the binomial weights does not give the biclique spectrum. Same date alone neither resolves priority nor rules out overlap.",
+        "searches": [
+          "Resultary: exact spectral gap hard-core dynamics complete bipartite graph K_{n,n} cofactor secular equation",
+          "Resultary: fixed activity large n spectral gap hard-core complete bipartite n lambda (1+lambda)^-n correction",
+          "Resultary: zero-temperature antiferromagnetic Ising friendship network exact gap binomial secular equation two sectors denominator weights activities rates"
+        ]
+      },
+      "rationale": "Flegg and Pollett already give the very same killed-Ehrenfest secular root, and in fact all the corresponding killed count-chain decay parameters. No originality is credited to that polynomial, the equivalent binomial equation as a killed-process statement, or its unglued product resolvent. The distinct contribution of the frozen Finding is that this root is the exact gap of the full balanced hard-core chain, plus the all-size comparison and fixed-activity relaxation expansion through two relative corrections. The inspected hitting-time and distinct same-day point-killing results do not imply this full-chain identification or that expansion.",
+      "residual_risks": [
+        "No full-text assessment of Bingham (1991) or Nardi–Zocca–Borst. A prior glued-chain spectral result may exist outside the inspected literature; publication priority is not certified.",
+        "An accurate literature account should cite Flegg–Pollett for the exact killed-urn secular formula; the supported distinction is the full hard-core relaxation statement, not that kernel calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger coverage of killed count-chain roots; no full glued hard-core spectral claim in those passages",
+          "evidence": [
+            "K roots in intervals (m−1,m) of the stated product polynomial; its first root under μ=1 and rescaling gives the identical killed secular equation"
+          ],
+          "identifier_or_url": "https://people.smp.uq.edu.au/PhilipPollett/papers/Ehrenfest/Ehrenfest.pdf",
+          "material_read": "Continuous-time absorption setup §2 p. 2 (offset 3370); main result and polynomial in Theorem 1 p. 5 (offset 15100, theorem at 17015)",
+          "method": "Lawful university OA PDF; targeted literal locators and passage reads",
+          "title": "First passage time density for the Ehrenfest model",
+          "trigger": "Strong direct prior match on absorption at zero in the biased Ehrenfest chain"
+        },
+        {
+          "assessment": "Same product resolvent at a rescaled activity, different full model and boundary perturbation",
+          "evidence": [
+            "Antiferromagnetic Ising ground states on a friendship graph, two path-product sectors with a matching; finite point killing gives 1+2R_n=0 rather than R_n=0"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-entropic-spectral-gap-for-zero-temperature-ising-friendshi--06bcaf11b321/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; sector and secular proof at offsets 2580–5025",
+          "method": "Indexed local-mirror statement and proof read",
+          "title": "Exact entropic spectral gap for zero-temperature Ising friendship networks",
+          "trigger": "Strongest distinct same-day exact secular-gap match"
+        },
+        {
+          "assessment": "Different invariant and stronger size assumption limiting biclique applicability",
+          "evidence": [
+            "Exponential mixing lower bound under expansion and N≥d²"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.3165",
+          "material_read": "p. 5, Theorem 1.1",
+          "method": "Targeted open preprint passage",
+          "title": "Slow mixing of Glauber dynamics for the hard-core model on regular bipartite graphs",
+          "trigger": "Bipartite hard-core slow-mixing precedent"
+        },
+        {
+          "assessment": "Mean crossing time for a high-activity regime, not the exact symmetric fixed-activity gap",
+          "evidence": [
+            "Example treats K_{m,n}; introduction describes the asymmetric regime and references Nardi–Zocca–Borst for the symmetric case"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.10232",
+          "material_read": "Example 4.1 p. 18 offsets about 75400–81934; setup p. 6 offset about 25300; bibliography p. 56 offset about 242980",
+          "method": "Targeted open preprint passages",
+          "title": "Metastability of hard-core dynamics on bipartite graphs",
+          "trigger": "Exact resistance calculation for the same graph family"
+        },
+        {
+          "assessment": "No negative coverage claim",
+          "evidence": [
+            "Cited 1991 paper concerns Ehrenfest first passage; exact killed-root coverage independently established by Flegg–Pollett"
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1427624",
+          "material_read": "No readable full-text passage in this review",
+          "method": "DOI and JSTOR access attempted without usable text",
+          "title": "Fluctuation Theory for the Ehrenfest urn",
+          "trigger": "Possible older treatment of the now-credited killed-urn formula"
+        },
+        {
+          "assessment": "Limited-access comparison, no negative whole-document inference",
+          "evidence": [
+            "Accessible fragment concerns finite grid Metropolis hard-core hitting times"
+          ],
+          "identifier_or_url": "Nardi–Zocca–Borst, Journal of Statistical Physics 162(2), 522–576; den Hollander–Nardi–Taati reference [41]",
+          "material_read": "Springer abstract fragment and citing preprint p. 6; no theorem or exact biclique passage retrieved",
+          "method": "Publisher listing identified; lawful OA reader did not retrieve article body",
+          "title": "Hitting times asymptotics for hard-core interactions on grids",
+          "trigger": "Cited symmetric hard-core metastability precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25, 33–35 and 52–68",
+        "den Hollander–Nardi–Taati Example 4.1 for metastability context; Flegg–Pollett Theorem 1 to delimit the already known component"
+      ],
+      "rationale": "The biclique is a natural two-phase hard-core test with an exponential relaxation bottleneck. An exact full-chain relaxation rate is useful here specifically because a count-chain computation alone need not exclude slower labeled modes. The identified rate provides a benchmark across all sizes and activities, and the fixed-activity two-term relative correction quantifies how far the true relaxation rate is from its leading metastable prefactor. This is a different invariant from an expected transition time.",
+      "residual_risks": [
+        "No extrapolation to unbalanced hosts, asymmetric rates, or variable-activity scaling; no new value assigned to re-evaluating the killed-urn roots in isolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

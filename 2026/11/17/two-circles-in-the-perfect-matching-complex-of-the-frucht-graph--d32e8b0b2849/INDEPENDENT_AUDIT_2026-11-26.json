@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:29:33.950221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic edges and signed chord list give the cubic 12-vertex, 18-edge Frucht graph. Independent code reconstructed and enumerated it without running the frozen verifier: both least-unmatched-vertex branching and exhaustive cardinality-six subset filtering yield the facet masks 168481,150561,166026,140554,74290,35026,9554,84108. The face counts by cardinality, including zero, are (1,18,88,147,118,48,8); all facets have dimension five. The 117 ordinary disjoint pairs can also be counted as binom(18,2)−12 binom(3,2), while exactly 88 appear in the perfect-matching complex, leaving 29. Its eight full simplicial facets cover it, with each nonempty intersection a simplex, so the finite simplicial nerve theorem applies. Two independent constructions of the nerve give (1,8,25,22,7,1). The 26 proposed collapse pairs were transcribed, not rediscovered, and each was verified against the complete surviving face set as a codimension-one pair with a unique strict coface. The final connected graph has five vertices and six edges, and contracting a spanning tree gives the integral two-circle homotopy type. In particular nonzero reduced H1 contradicts the top-degree-only homology of a pure shellable complex of dimension five. Replay the independent check at /workspace/branches/2bc5ef84-6e19-421d-97b5-d9b794e7786f/frucht_independent_check.py; output is frucht_independent_check.txt beside it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al. investigate honeycomb graphs and state the face-by-extendibility definition; Agarwal and Basak classify the complexes of opposite-chord Möbius ladders with explicit parity conditions. Chbili's same-graph result is a Tutte-polynomial obstruction to 3-periodicity."
+        ],
+        "reasoning": "These family and graph invariant statements cannot be specialized to the requested topology. In particular a Möbius ladder has the nontrivial cycle translation symmetry, unlike the cubic identity graph here.",
+        "searches": [
+          "arXiv:2209.02803, abstract and §1.1 Definition 1",
+          "arXiv:2608.30601v1, abstract",
+          "arXiv:1103.6134, Application 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary eadb0e029224, b7b3bfccecd5, 95a3e6e9343e, d32e8b0b2849",
+        "arXiv:2209.02803, 2608.30601, 1103.6134",
+        "MathWorld Frucht Graph and House of Graphs 1090 (app shell only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary Frucht complex is a wedge of twenty 3-spheres, whereas its perfect extendibility subcomplex is not the whole complex. The Chvátal result for the matching extension construction has seventeen 2-spheres and one 3-sphere."
+        ],
+        "reasoning": "A homotopy model for ordinary matchings need not respect the extendibility subcomplex. General definitions and a standard nerve reduction give a method but not this exhaustively verified collapse, homotopy type or pair count. A different graph's collapse certificate cannot supply them.",
+        "searches": [
+          "Resultary mirror eadb0e029224, RESULT.md offset 222; b7b3bfccecd5, offsets 237 and 1262",
+          "Bayer et al. arXiv:2209.02803 §1.1",
+          "Resultary mirror 95a3e6e9343e, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph records eadb0e029224 and b7b3bfccecd5 define ordinary faces by pairwise disjointness, and the latter explicitly excludes perfect-matching complexes. Same-day record 95a3e6e9343e uses the same extendibility construction for the four-regular 24-edge Chvátal graph."
+        ],
+        "reasoning": "An inclusion of complexes on a common edge set is not an equivalence; the independent counts exhibit the differing two-element faces. Chvátal, despite the same vertex count, is a different graph and the computed homotopy type differs.",
+        "searches": [
+          "Resultary: Frucht graph perfect matching complex homotopy S1 wedge S1",
+          "Resultary: Frucht perfect-matching complex 29 of 117 disjoint pairs",
+          "Web: \"perfect matching complex\" \"Frucht graph\" homotopy matching extendibility cubic graphs classification perfect matchings simplicial complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld identifies the 12-vertex/18-edge cubic identity graph and lists LCF forms. The House of Graphs page retrieved only the application shell. The exact indexed d32e8b0b2849 is this record; exact same-graph neighboring results give the ordinary matching-complex 20-three-sphere wedge and an edge-deletion profile."
+        ],
+        "reasoning": "No independent exact-table entry for the perfect-matching-complex topology or nonextendibility count was located. Identifying or tabulating graph data is not tabulating the facet incidences or topology of its extendibility complex.",
+        "searches": [
+          "Resultary: Frucht perfect-matching complex 29 of 117 disjoint pairs",
+          "MathWorld Frucht Graph; House of Graphs entry 1090"
+        ]
+      },
+      "rationale": "The exact perfect-matching extendibility topology on this particular graph is the distinct claim. The inspected exact same-graph results are for the strictly larger ordinary matching complex, and the inspected same-construction classifications and computations do not cover this graph. Neither classification of the ordinary complex nor enumeration of perfect-matching counts alone implies the topology or even the incidence count of extendible pairs.",
+      "residual_risks": [
+        "The catalogue result lists and web search are bounded. An unindexed small-graph enumeration or alternate terminology could overlap; no comprehensive priority is claimed.",
+        "Graph-database fields requiring client rendering were not read; no negative inference rests on them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary matching complex, not extendibility",
+          "evidence": "Pairwise vertex-disjointness alone defines the faces, and the stated homotopy type is a wedge of twenty 3-spheres.",
+          "identifier_or_url": "Resultary eadb0e029224; b7b3bfccecd5",
+          "material_read": "First RESULT.md offset 222; second RESULT.md offsets 237 and 1262, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and mirror statements",
+          "title": "The Frucht graph matching complex and its complete edge-deletion profile; A perfect Morse model for the Frucht-graph matching complex",
+          "trigger": "Same graph and matching-complex terminology"
+        },
+        {
+          "assessment": "Same construction but a genuinely different graph and outcome",
+          "evidence": "Lists 24 edges of the four-regular Chvátal graph and claims a wedge of seventeen 2-spheres with one 3-sphere, not two circles.",
+          "identifier_or_url": "Resultary 95a3e6e9343e",
+          "material_read": "RESULT.md offset 0, Finding and assumptions, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and mirror statement reading",
+          "title": "A mixed-dimensional integral sphere wedge in the Chvátal perfect-matching complex",
+          "trigger": "Same-day exact perfect-matching-complex homotopy claim on a 12-vertex graph"
+        },
+        {
+          "assessment": "Establishes terminology and investigates other graphs",
+          "evidence": "A face is a subset of a perfect matching. The abstract states results for honeycomb graphs; §1.1 gives elementary complete, complete-bipartite and path cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.02803",
+          "material_read": "Abstract p. 1; §1.1 Definition 1, PDF offset 4200",
+          "method": "OA PDF locate and passage",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Prior perfect-matching-complex topology for structured graphs"
+        },
+        {
+          "assessment": "The classified opposite-chord family does not include the Frucht graph",
+          "evidence": "For even n the perfect-matching complex of M_(2n) is two spheres of dimension (n−2)/2; odd n has a separate classification.",
+          "identifier_or_url": "https://arxiv.org/html/2608.30601v1",
+          "material_read": "Abstract and beginning of introduction, HTML offset 0",
+          "method": "OA HTML passage",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complex of Möbius Ladder Graph",
+          "trigger": "Same construction for a family of cubic graphs"
+        },
+        {
+          "assessment": "Graph periodicity, not matching-complex homotopy",
+          "evidence": "The mod-3 Tutte polynomial is used to show that the Frucht graph is not 3-periodic.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.6134",
+          "material_read": "Application 1.5 p. 3, PDF offset 6160, with Fig. 2 caption",
+          "method": "OA PDF locate and passage",
+          "title": "The Tutte polynomial and the automorphism group of a graph",
+          "trigger": "Exact same graph in primary literature"
+        },
+        {
+          "assessment": "Graph identity and LCF context; no usable exact extendibility-complex table in the material read",
+          "evidence": "The Frucht graph is a Hamiltonian 12-vertex, 18-edge cubic identity graph with multiple order-one LCF notations.",
+          "identifier_or_url": "https://mathworld.wolfram.com/FruchtGraph.html; https://houseofgraphs.org/graphs/1090",
+          "material_read": "MathWorld entry offset 0; House of Graphs publicly retrieved app shell only",
+          "method": "OA website mode",
+          "title": "Frucht Graph",
+          "trigger": "Exact graph identification and database check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Frucht graph is a canonical small cubic graph with trivial automorphism group, in contrast to symmetry-driven families previously studied for perfect matching complexes. Its extendibility topology is demonstrably different from its known ordinary matching topology: enforcing global completion changes a wedge in degree three to a free rank-two fundamental group despite a pure five-dimensional complex. The full exact collapse and 29-pair obstruction make this a useful comparison example for extendibility and nonshellability, not simply an isolated count of matchings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

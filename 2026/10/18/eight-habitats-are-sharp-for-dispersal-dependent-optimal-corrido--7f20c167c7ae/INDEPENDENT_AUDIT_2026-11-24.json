@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:42:03.734533Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A separated unordered pair at distance d gains (1-p)p^(d-1) after its path edge is upgraded. Doubling and dividing by n gives the stated increment for uniform starting patch, with no gain for diagonal pairs. PC and ECA are monotone transforms here. I generated all shapes by leaf extension from the singleton, not by replaying the packaged Prüfer verifier: deleting a leaf shows inductive exhaustiveness, and minimizing sorted rooted codes over all roots identifies exactly the unrooted isomorphism classes. I rebuilt the polynomials from unique endpoint paths. The counts for n=2..8 are 1,1,2,3,6,11,23. After deleting strictly coefficientwise dominated vectors there is one two-vector frontier at n=7, with difference p(1-p), and four at n=8, with differences up to sign p(2-p), p(1-p²), p(2p-1), and p(p²+p-1). The first two never change sign in the open interval; the other two are the stated witnesses and each crosses once. All noncandidate edges in the witnesses have a coefficientwise dominating candidate with at least one strict coefficient; the equal vectors identify the stated tied edges. This is a continuum certificate, not a probability grid.",
+      "replay": "python3 /workspace/branches/independent-tree-reliability.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sections 1.1–1.4 and 2.1 formulate ECA and budgeted increases in edge probabilities with an MILP and preprocessing."
+        ],
+        "reasoning": "This subsumes the fixed-parameter instance, but the formulation and solver do not state or prove which tree order first eliminates every parameter-independent optimum.",
+        "searches": [
+          "Hamonic et al., DOI 10.1002/net.22131; HAL-03578088v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify_corridors.py (read, not executed)",
+        "Hamonic et al. HAL-03578088v2",
+        "Saura–Rubio DOI 10.1111/j.1600-0587.2009.05760.x (access limited)",
+        "Resultary cff3df95e777, 10f2436fe315, 914906a1f09d; frozen record 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The absent-edge witness has nine edges and three terminals at the golden-ratio root. The fragmentation witnesses at 1/2 are single-branch spiders with arms (3,3,1) and (4,2,1), neither the (5,1,1) witness nor the two-branch-point witness here."
+        ],
+        "reasoning": "The inspected stronger modeling framework and specific other-model results leave the family-wide upper-envelope analysis and two exact witness rankings to be proved.",
+        "searches": [
+          "Hamonic et al. §§1–2 and Figs. 3–5",
+          "Resultary cff3df95e777 and 10f2436fe315"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen proof's cut polynomial multiplies p for removal loss and 1-p for certain-upgrade gain, with identical rankings. In record 5, exactly the same two abstract tree shapes switch, but vertex-through-path polynomials rank sites, with roots of p²+p³=1 and 1/√2, rather than the edge winners at (√5−1)/2 and 1/2."
+        ],
+        "reasoning": "Rephrasing as best edge to remove is not novel. Vertex protection is not the same optimization; common witness shapes do not give the edge rankings or their completeness.",
+        "searches": [
+          "Saura–Rubio DOI 10.1111/j.1600-0587.2009.05760.x",
+          "frozen site-survival record 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed examples concern degree-matched fragmentation (10f2436fe315), adding an absent edge with three fixed terminals (cff3df95e777), or vertex protection for any surviving edge (914906a1f09d). Hamonic's inspected spiders illustrate greedy methods rather than these two witnesses."
+        ],
+        "reasoning": "Neither coincident cutoffs/roots in those different examples nor the inspected diagrams amount to an exact bond-upgrade table.",
+        "searches": [
+          "Resultary: small-tree dispersal/corridor reinforcement and switching",
+          "Hamonic et al., Figs. 3–5"
+        ]
+      },
+      "rationale": "The contribution supported here is the sharp and complete all-p bond-upgrade classification through eight tree vertices, not the objective, a fixed-p optimization algorithm, or the established ranking equivalence to edge removal. The closest inspected claims do not supply the classification.",
+      "residual_risks": [
+        "Saura–Rubio full text not independently accessible; a specialized edge-Hosoya or reliability table could still imply the cutoff. This pass is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the objective and fixed-p optimization, not the observed cutoff classification",
+          "evidence": "ECA/PC equivalence, general upgrade MILP, and greedy-example spiders",
+          "identifier_or_url": "https://hal.science/hal-03578088v2/document",
+          "material_read": "§§1.1, 1.2, 1.4 and 2.1, and Figs. 3–5, pp. 2–6 and 17–18",
+          "method": "Lawful HAL primary-text inspection",
+          "title": "Optimizing the ecological connectivity of landscapes",
+          "trigger": "Potential general coverage of corridor upgrades"
+        },
+        {
+          "assessment": "Access limited; credit the removal-ranking overlap from the model identity",
+          "evidence": "The tree identity makes gain and loss positive scalar multiples of the same F_e",
+          "identifier_or_url": "https://doi.org/10.1111/j.1600-0587.2009.05760.x",
+          "material_read": "Citation and access responses; no full text independently read",
+          "method": "Publisher/DOI and OA recovery attempted",
+          "title": "A common currency for the different ways in which patches and links can contribute to habitat availability and connectivity in the landscape",
+          "trigger": "Link-removal ranking alias"
+        },
+        {
+          "assessment": "Related models, not an equivalent classification",
+          "evidence": "Absent-edge addition on a graph with cycles, degree-matched fragmentation, and vertex protection for edge existence, respectively",
+          "identifier_or_url": "Resultary cff3df95e777; 10f2436fe315; 914906a1f09d",
+          "material_read": "Findings and assumptions at offset 0 of each mirrored RESULT.md",
+          "method": "Local semantic lookup and statement comparison",
+          "title": "Indexed habitat connectivity and fragmentation records",
+          "trigger": "Shared thresholds and small-order examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first obstruction to parameter-independent edge intervention is a natural extremal invariant. The complete frontier classification rules out smaller obstructions and explains both eight-vertex switch mechanisms and ties, rather than reporting selected evaluations or arbitrary small counts. Its use is as a tree reliability benchmark, not ecological field guidance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

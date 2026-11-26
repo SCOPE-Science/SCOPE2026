@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:34:52.708527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45, 54–85; checker.py lines 12–55 and verification_output.txt (recorded 294 assertions, not an all-d proof).",
+        "Independent exact coefficient reconstruction: /workspace/branches/independent_checks.py, cap_primitives()."
+      ],
+      "rationale": "For x=(t,y), condition on t and use uniform y/sqrt(1-t²) on S^{d-2}. Orthogonality to constants of the transverse traceless quadratics, parity, and isotropy give the five reducing spaces, with dimensions 1,d−1,1,d−1,(d−2)(d+1)/2 over C; complexification introduces no new eigenvalues. Normalizing by the whole-sphere second and fourth moments gives exactly the five integrands. The increasing density ratios A/D, D/B and D/E prove strict upper-tail comparisons. Independently differentiating c(1−c²)^((d−1)/2)(a+b c²) after dividing out the cap density gives the polynomial a+(3b−da)c²−(d+2)b c⁴. For C−D and C−A the coefficient pairs are (−d−2,d(d+2)) and (−d−2,d²) with the common factor k_d/(d−1); matching derivatives and the vanishing endpoint at c=1 proves the exact identities. This gives 0<c₁<c₂<1 in every d≥3, the stated runner-up tie at c₁ and the two-dimensional top at c₂. Projecting onto both axial lines at c₂ leaves A−D, not zero, as the sharp gap; the nearest distinct lower eigenspace attains the deficit bound. Taylor expansion in 1/d gives the stated pinching. The comparison is of eigenvalue types, not a multiplicity-counted ordering at the top tie.",
+      "residual_risks": [
+        "Only the stated band, equal antipodal caps, and interior cutoffs in integer d≥3 are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simons–Dahlen give the ordinary two-sphere double-cap kernel with the factor 1+(−1)^(ℓ+ℓ′) and a commuting tridiagonal matrix; Michel–Plattner–Seibert give explicit two-sphere cap matrix entries and a commuting operator."
+        ],
+        "reasoning": "These broader bandwidth constructions cover the matrix for d=3, not the dimension-uniform ordering on S^{d−1}. Their inclusion of more bandwidths or fields does not subsume the additional dimensions.",
+        "searches": [
+          "arXiv:math/0603271 §4.2, Eq. (67), §5.2 Eqs. (82)–(86)",
+          "arXiv:2103.14650 §3.2 Theorems 3.7–3.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 984cac538af7 exact Finding",
+        "arXiv:math/0603271",
+        "arXiv:2103.14650"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Antipodal parity gives a direct sum, but to order its spectra one must compare across summands: the proof uses A−D>0 and the cross-degree boundary polynomial d²c²−d−2 in C−A. The quadrupole gap determines neither sign."
+        ],
+        "reasoning": "The block reduction, the c₁ location, and the abstract spectral deficit argument are known or routine. The surviving exact information is the uniform inter-block ordering, c₂, and thereby the mixed-band sharp gap and maximizing space, not just an invocation of a general diagonalization method.",
+        "searches": [
+          "Combined implication of Resultary 984cac538af7's Z−M and M−E and Simons–Dahlen Eq. (67)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed quadrupole record has Z,M,E=C,D,E under t=c² and B_d=1/k_d; its exact Z−M formula agrees with C−D and already yields c₁ in the pure H₂ band. Its H₂ result holds over C by complexification."
+        ],
+        "reasoning": "Changing cutoff variable or field does not separate the H₂ block. That record excludes H₁: it has no A or B and no top A=C crossing at c₂. The same date does not establish priority.",
+        "searches": [
+          "Resultary semantic comparison: mean-zero dipole–quadrupole concentration on antipodal caps, squared cutoff, and quadrupole Slepian transition",
+          "Resultary record 984cac538af7, RESULT.md, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 70"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue effectively tabulates the all-d H₂ branches; the two-sphere exact matrix reduces to five diagonal entries when constants are omitted and only degrees 1 and 2 remain (e.g. A=1−c³ for d=3)."
+        ],
+        "reasoning": "The exact-source check recognizes equivalent integral tables. The identified ones give either the H₂ block all-d or the mixed matrix in d=3, not the full all-d mixed order and c₂.",
+        "searches": [
+          "Resultary 984cac538af7 Finding; Simons–Dahlen Eq. (67); Michel–Plattner–Seibert Theorem 3.7"
+        ]
+      },
+      "rationale": "The dimension-uniform mixed-band comparison, especially the crossing of the axial dipole and quadrupole and its consequences for the nearest-distinct gap, is supported as distinct. The pure-quadrupole transition and its entire three-branch spectrum are already in an indexed same-date record; the d=3 band matrix also follows from previous Slepian formulas. Neither is credited as an independent contribution here. The retrieved sources do not include a known all-d mixed-band ordering from which the two-threshold phase diagram follows by specialization.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison; additional hyperspherical low-degree tables or an unlocated mixed-band calculation could affect priority. The overlap with the indexed same-day quadrupole result is real regardless of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial overlap, scopes differ",
+          "evidence": "Three H₂ branches, both H₂ gap factorizations and the transition at t=1/d; excludes H₁.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-quadrupole-slepian-transition-for-antipodal-spherical-ca--984cac538af7/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 70–2253",
+          "method": "Resultary search; local-mirror exact passage",
+          "title": "A sharp quadrupole Slepian transition for antipodal spherical caps",
+          "trigger": "Same higher-dimensional cap region and exact low-degree transition"
+        },
+        {
+          "assessment": "Mechanically gives d=3 specialization, not all d",
+          "evidence": "Parity factor and associated Legendre double-cap integral on S².",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603271",
+          "material_read": "§4.2 Eq. (67), §5.2 Eqs. (82)–(86), offsets near 50700 and 56400",
+          "method": "OA PDF statement and matrix comparison",
+          "title": "Spherical Slepian functions and the polar gap in geodesy",
+          "trigger": "Classical exact antipodal double-cap spectral framework"
+        },
+        {
+          "assessment": "Framework on S²",
+          "evidence": "Wigner 3j / Legendre entries and commuting operator do not furnish the mixed all-dimensional ordering.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14650",
+          "material_read": "§3.2 Theorems 3.7–3.8 near offset 60300",
+          "method": "OA PDF theorem inspection",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "Exact cap formulas and possible broader matrix theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–45 and 68–85; pure-degree comparison 984cac538af7."
+      ],
+      "rationale": "The natural complete mean-zero band through degree two is the first one where distinct harmonic degrees can compete in antipodal concentration. Exact ordering between the degree blocks yields a dimension-uniform change of optimizer and a sharp gap through a double top eigenvalue, information not furnished by a pure-degree optimum. The explicit transition interval is useful independently of higher-band optimization.",
+      "residual_risks": [
+        "Value is for this mixed-band spectral problem, not a general Slepian method or a claim about higher bandwidths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

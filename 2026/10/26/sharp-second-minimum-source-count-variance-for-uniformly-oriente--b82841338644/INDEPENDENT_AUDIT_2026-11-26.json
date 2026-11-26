@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:09:36.544862Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under independent fair orientations, the source probability at v is a_v=2^−d_v. Nonneighbors' events depend on disjoint edges; adjacent sources are mutually exclusive. This yields Var(S)=Σ_v(a_v−a_v²)−2Σ_uv a_u a_v, equivalently the squared edge differences plus Σ_v b(d_v). On a path the two leaf edges and degree-two terms give n/16. In a nonpath the leaf arms are edge-disjoint and their count is L=2+Σ_{d≥3}(d−2). A leaf arm contributes at least 1/16+(1/4−2^−d)², strictly more if it has length one. Subtract n/16 and use g(d)≥1/64 and δ(d)≤(d−2)/64, strictly for each d≥3: δ(3)=0<1/64 (the proof's phrase ‘equality at d=3’ is a local wording error; the next step uses the correct strict difference); d=4,5 follow by substitution and d≥6 from b(d)>0. When a degree-three vertex exists the lower bound is 2/64 plus the branching penalties and is at least 3/64, with equality requiring only that one branch and three arms of length ≥2. If no branch has degree three, g(d)≥9/256 and L≥4 give at least (5L+8)/256>3/64. Arms 2,2,n−5 attain the gap for every n≥7 and none can do so at n=4,5,6. Global reversal gives the sinks statement. In independently written finite checks, enumerating connected (n−1)-edge sets and their actual orientations at n=4,…,7 gave second gaps 15/64, 11/64, 7/64, 3/64 and confirmed the equalizer condition on that range; replay python /workspace/branches/math_checks.py 5. The frozen verifier and recorded checks were inspected, not run; the analytical bound proves the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bienvenu's association concerns reachability from a fixed source set; Ralaivaosaona's source-count limit law uses a sparse random DAG with a random edge set.",
+          "The biased-orientation catalogue proof establishes strict path extremality of source–sink covariance by rewiring, not a quantitative covariance increment relative to the degree-profile term.",
+          "No readable full-text passage was retrieved for the orientation-enumeration article by Conte et al.; the access limitation is not noncoverage evidence."
+        ],
+        "reasoning": "A broader graph model or edge-bias range does not supply the extremum of the fixed-tree marginal statistic. Exact generative or reachability methods do not substitute for the needed degree inequality.",
+        "searches": [
+          "arXiv:1711.08815, §2.2 Theorem 2.2",
+          "doi:10.4230/LIPIcs.AofA.2022.17, Theorem 1",
+          "doi:10.1016/j.dam.2017.08.002",
+          "Resultary 6a486f2e7cb4, biased tree orientations proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2469f7d4f0dd",
+        "Resultary 6a486f2e7cb4",
+        "Resultary db5fdb9d6d6f",
+        "Resultary 916b3afa12fa",
+        "arXiv:1711.08815",
+        "doi:10.4230/LIPIcs.AofA.2022.17",
+        "doi:10.1016/j.dam.2017.08.002 (access attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With h(d)=2^−d−2·4^−d and L leaves, the variance excess equals the covariance deficit minus (L−2)/8 minus Σ_{d≥3}(1/8−h(d)).",
+          "For L=3 the correction is 10/64, so the covariance bound gives the exact 3/64 variance gap on that subclass. For L≥4 the covariance proof's lower estimate (L−2)/8 leaves a nonpositive lower bound after subtraction; its leaf-edge baseline lacks the extra arm and branch budget needed here.",
+          "The same-day covariance rewiring proof, as stated, does not bound the net gain after the degree correction."
+        ],
+        "reasoning": "The available stronger-for-one-subclass comparison does not mechanically establish the theorem on all nonpaths. In particular, bounding larger branching profiles away from the three-leaf equalizers is essential to the global second-minimum conclusion.",
+        "searches": [
+          "Resultary 2469f7d4f0dd, proof Steps 2–3, local mirror offset 2958",
+          "Resultary 6a486f2e7cb4, proof, local mirror offset 2519"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge reversal interchanges sources and sinks exactly. The related exact source–sink covariance gap is 13/64, with the same three-arm equality family.",
+          "Var(S)+Cov(S,K)=Σ_v(2^−d_v−2·4^−d_v), which is not constant across tree degree profiles."
+        ],
+        "reasoning": "A covariance extremum is equivalent to a variance extremum only after controlling the degree-profile correction. On three-leaf trees it is fixed, but not over the entire claim domain.",
+        "searches": [
+          "Resultary: exact second minimum for the variance of zero-indegree source or sink counts in uniformly oriented finite trees",
+          "\"randomly oriented trees\" \"variance of the number of sources\" path degree index",
+          "Resultary 2469f7d4f0dd, Finding and proof Steps 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2469f7d4f0dd has a sharp 13/64 covariance deficit with the same equalizers, not a table of marginal variances. db5fdb9d6d6f gives exact path–star bounds for source–sink covariance.",
+          "Same-day 6a486f2e7cb4 and 916b3afa12fa concern, respectively, covariance path extremality under bias and covariance change under subdivision."
+        ],
+        "reasoning": "The closest exact indexed records match the model or shapes but not the all-tree variance criterion, and none of the bounded returned comparisons gives the marginal second minimum over all degrees. The search does not certify the absence of further records.",
+        "searches": [
+          "Resultary: second-minimum source-count variance and exact sharp gap 3/64 in tree orientations",
+          "Resultary 2469f7d4f0dd, db5fdb9d6d6f, 6a486f2e7cb4 and 916b3afa12fa, Findings"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-tree sharp variance gap, with the branching inequality excluding every profile with four or more leaves. The elementary moment formula is not counted as new. The closest exact covariance result supplies the three-leaf slice and the same equality shapes, but not the all-tree variance bound after the degree-profile correction. The comparison is of statements and their proofs, not dates or terminology.",
+      "residual_risks": [
+        "Conte et al.'s full text was not retrieved. A prior extremum under a different degree-index formulation remains possible. The focused web search returned unrelated material and no priority inference is made from that outcome."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact covariance result implies the three-leaf slice only by the inspected bounds; no general marginal variance implication.",
+          "evidence": [
+            "Covariance deficit 13/64; the proof with L≥4 guarantees the baseline (L−2)/8, which does not cover the extra degree subtraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-path-extremality-and-a-universal-source-sink-covariance-ga--2469f7d4f0dd",
+          "material_read": "Finding, assumptions and proof Steps 2–3, local mirror offset 2958",
+          "method": "Local Resultary mirror and degree-profile reduction",
+          "title": "Sharp path extremality and a universal source–sink covariance gap",
+          "trigger": "Same tree model and same equality class"
+        },
+        {
+          "assessment": "Covariance path optimization is strict, not the marginal variance gap.",
+          "evidence": [
+            "The rewiring increases covariance without an aggregate lower estimate net of the varying vertex term."
+          ],
+          "identifier_or_url": "Resultary 6a486f2e7cb4",
+          "material_read": "RESULT.md Finding and proof beginning at local mirror offset 2519",
+          "method": "Local Resultary mirror",
+          "title": "Biased tree orientations: a strict path extremum and a four-vertex comparison",
+          "trigger": "Same-day broader orientation model and exact path extremum"
+        },
+        {
+          "assessment": "Different observable; not a source-count or extremal-variance theorem.",
+          "evidence": [
+            "Positive association of reachability from a fixed source set in a finite independently oriented graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.08815",
+          "material_read": "§2.2, Theorem 2.2, p. 4",
+          "method": "OA original PDF passage",
+          "title": "Positive association of the oriented percolation cluster in randomly oriented graphs",
+          "trigger": "Independent edge orientations and source-related events"
+        },
+        {
+          "assessment": "Asymptotic result for a random sparse DAG; not a fixed-tree variance comparison.",
+          "evidence": [
+            "Source-count asymptotics are for D_ac(n,λ/n), with random underlying edges."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2022.17",
+          "material_read": "Theorem 1, p. 2, including random DAG and scaling assumptions",
+          "method": "OA original proceedings PDF passage",
+          "title": "The Number of Sources and Isolated Vertices in Random Directed Acyclic Graphs",
+          "trigger": "Source-count variance under a related acyclic model"
+        },
+        {
+          "assessment": "Unresolved access, not used to rule out coverage.",
+          "evidence": [
+            "No original theorem passage was available to compare from this article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2017.08.002",
+          "material_read": "Bibliographic identification only; no accessible original passage retrieved",
+          "method": "DOI/publisher OA route and identified repository attempt; 403 and timeout on recovery",
+          "title": "Efficient enumeration of graph orientations with sources",
+          "trigger": "Possibly relevant enumeration of source counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The marginal source-count variance is a natural fluctuation statistic for independently oriented fixed trees. The all-size positive gap separates the minimum path from all branched shapes, and the proof explains which number of branches and which leaf attachments control the first excess. The remaining all-branch-degree component is useful even after recognizing the three-leaf consequence of the covariance result, because the exact second minimum and complete equality classification cannot be concluded from that slice alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

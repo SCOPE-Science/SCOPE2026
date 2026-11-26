@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The projective isotropic conic has exactly \(q+1\) points, every factor has a one-dimensional isotropic kernel and is regular nilpotent, and product ranks are nonincreasing. The two rank-one row classes are exhaustive because every nonzero cross-product row has negative-square quadratic norm; the Witt-index-one and split-polar-plane counts produce exactly the displayed four-state matrix. The recurrence, resolvent and expected hitting time are algebraic consequences. The independently implemented direct matrix-product enumeration checks ranks and norm types over four fields, including \(\mathbb F_9\). Infinite claims rest on proof rather than enumeration. The restriction to odd characteristic is indispensable to the geometric argument.
+PASS
 
-## Originality: PASS (qualified)
+The kernel of a rank-two prefix equals the last factor's conic line. A new factor drops rank iff its perpendicular plane contains that line, and the only conic point orthogonal to an isotropic point is itself. The resulting row is isotropic by S(v)^2=vv^T. For rank one, right multiplication acts on its row by cross product up to sign. The result vanishes only for parallel vectors and otherwise has norm -(w·v)^2. When the old norm is a negative square the perpendicular binary form has determinant in the negative-square class and is split, giving two distinct conic choices; the isotropic row case gives just the annihilating choice and q nonisotropic results. These counts are valid over odd extension fields as well. The transient I,R block resolvent has summed first-row numerator 1+hz and the displayed determinant; the waiting time to enter I has mean q+1 and the two hitting-time equations give (q+1)(q+2)/2 more steps. In O(q) steps the expected number of visits to I is bounded by 1+2h times the number of steps, giving vanishing absorption probability. At q^2 scale the entrance wait divided by q^2 tends to zero; starting from I the survival weights have principal coefficient (a−lambda_minus)/(lambda_plus−lambda_minus) tending to one, and (1−lambda_plus)(1−lambda_minus)=2h^2 gives the stated exponent. The indexing starts at k=1 throughout.
 
-Gow–Laffey's 1984 full text treats existence and elementary divisors for products of two arbitrary alternating matrices, not exact restricted-orbit all-length rank counts. Fulman–Goldstein's 2012 preprint treats the rank of one random skew matrix, not a product. Separate numerical rank-product results for uniform projective kernels cannot dominate the conic-supported kernel law here. The most similar mathematical records concern rank-one square-zero nilpotent products and unconstrained matrix products, neither equivalent in hypotheses or stronger in conclusion. Exact historical priority is not certified: unindexed prior computations and records not fully accessible could cover an equivalent formulation.
+## originality
 
-## Value: PASS
+PASS
 
-This is a natural rank process on the regular nilpotent orbit in the smallest nontrivial orthogonal Lie algebra. Its non-uniform conic kernels create a required hidden isotropy state, giving a precise geometric distinction from generic rank-only product laws. The exact two-scale \(q\)/\(q^2\) absorption and all-length enumerator reveal a phenomenon not conveyed by single-matrix rank frequencies or two-factor factorization support.
+The supported distinct claim is the exact conic-supported four-state chain and its q and q^2 rank/absorption laws. Prior conic incidence and standard Markov-chain methods are ingredients, not separate novelty claims.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For this natural three-dimensional nilpotent orbit, rank alone hides the mechanism of extinction. The exact row-class refinement gives a benchmark in which loss of rank and annihilation occur on genuinely different scales, and quantifies the constant 2 in the slow absorption limit. That is not a recomputation of single-matrix ranks or an arbitrary small-word slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

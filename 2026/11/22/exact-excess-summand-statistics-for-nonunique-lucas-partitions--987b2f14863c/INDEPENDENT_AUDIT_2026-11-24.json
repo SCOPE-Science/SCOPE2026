@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:22:51.933890Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof, Verification",
+        "Frozen CHECK.py lines 23–66 and VERIFICATION.md; supplied code inspected, not executed",
+        "Independent finite replay method: for m=3,...,12, enumerate masks from 0 to 2^(m+1)-1, reject adjacent bits, group by exact Lucas sum and record the size and presence of both bits 0 and 2 for each mask; assert each group has at most two masks and compare the full excess histogram among pairs. The frozen replication entry point is CHECK.py, for m=3,...,24."
+      ],
+      "rationale": "Canonical subsets partition into the disjoint intervals below and above L_m and give each integer in [0,L_(m+1)-1] once. Redundant subsets have distinct sums by highest-differing-index dominance on their tails beginning at index 4. A maximal initial even run ending at 2j+2 telescopes to L_1+L_(2j+3); the unchanged tail begins no earlier than 2j+5. This gives excess j, and the cutoff admits the partner exactly when m>=2j+3. At equality the empty tail contributes F_1; thereafter the path-independent-set count gives F_(m-2j-2). Summation gives the stated parity correction and reindexing gives the bivariate generating function. Binet estimates give geometric domination, so the limiting mean and variance follow by moment convergence, not just pointwise convergence of probabilities. Separate bounded enumeration matched the full histograms and representation multiplicity assertions for 3<=m<=12; for m=12 the histogram is (55,21,8,3,1).",
+      "residual_risks": [
+        "The independent enumeration is bounded and is not used to prove the theorem beyond its enumerated cutoffs. No formal proof certificate or expert attestation was verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown imposes a_0 a_2=0 to obtain uniqueness.",
+          "Chu–Luo–Miller allow L_0 and L_2 together and cover multiplicity at most two and the unweighted duplicated-value set."
+        ],
+        "reasoning": "The preceding global uniqueness/multiplicity results do cover parts of the finding, but do not give the signed difference of the sizes of both representations or its law.",
+        "searches": [
+          "Brown 1969 pp. 243–244",
+          "Chu–Luo–Miller arXiv:2004.08316 Theorem 1.3 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Brown (1969), pp. 243–244",
+        "Chu–Luo–Miller, arXiv:2004.08316, Theorem 1.3 and §5 Table 3",
+        "Shallit, arXiv:2305.02672, §5 Theorem 5.2",
+        "Local Resultary ranked comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior characterization counts or recognizes individual duplicated values. The frozen proof instead identifies the length change under the even-run replacement and the one-index cutoff shift."
+        ],
+        "reasoning": "The Fibonacci bins and the limiting law require tracking that replacement and the available tails; they are not a direct specialization of the identified unweighted statements.",
+        "searches": [
+          "Shallit arXiv:2305.02672 §5 Theorem 5.2",
+          "Chu–Luo–Miller arXiv:2004.08316 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary ID 987b2f14863c is the assigned record itself; no distinct materially close match surfaced in the ranked results.",
+          "Shallit §5 Theorem 5.2 recognizes the same unweighted set via a base-phi property."
+        ],
+        "reasoning": "Recognition of which values repeat is not a distribution of length differences at simultaneous index cutoffs; neither inspected recognition formulation states that distribution.",
+        "searches": [
+          "Local Resultary semantic comparison of Lucas double representations, index cutoff and paired summand excess",
+          "arXiv:2004.08316 and arXiv:2305.02672"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 concerns redundant representations and the parametrized set K of duplicated values (p. 6, OA text offset 20700); it is not a table of paired differences by cutoff.",
+          "The only exact catalogue hit identified was the assigned item itself."
+        ],
+        "reasoning": "The prior table fixes the unweighted objects being counted, not the two-variable statistic claimed here.",
+        "searches": [
+          "Chu–Luo–Miller §5 Table 3, arXiv:2004.08316",
+          "Local Resultary exact-claim comparison"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the excess in lengths of the two representations at a largest-index cutoff, including its weighted count and limit; canonical existence/uniqueness, at-most-two, and identification of the unweighted duplicated-value set are antecedents.",
+      "residual_risks": [
+        "Bounded comparison cannot exclude equivalent weighted refinements in unindexed work or other numeration-system formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers canonical uniqueness only for this comparison",
+          "evidence": "Nonadjacency and a_0 a_2=0 are required in the uniqueness theorem.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/7-3/brown.pdf",
+          "material_read": "pp. 243–244, OA text offset 1127",
+          "method": "Lawful OA PDF passage",
+          "title": "Unique Representations of Integers as Sums of Distinct Lucas Numbers",
+          "trigger": "Same canonical Lucas partitions"
+        },
+        {
+          "assessment": "Substantial antecedent, not the weighted cutoff claim",
+          "evidence": "At most two representations; §5 gives K={L_0+L_2+a(n)L_3+b(n)L_4:n>=0}.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.08316",
+          "material_read": "p. 2 Theorem 1.3 (offset 4976); §5 Table 3, p. 6 (offset 20700)",
+          "method": "Lawful OA PDF passages",
+          "title": "On Zeckendorf Related Partitions Using the Lucas Sequence",
+          "trigger": "Same nonunique representations"
+        },
+        {
+          "assessment": "Equivalent unweighted set, not the paired-length distribution",
+          "evidence": "The theorem characterizes duplicated values by a base-phi condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.02672",
+          "material_read": "§5, p. 18, Theorem 5.2, offset 48591",
+          "method": "Lawful OA PDF passage",
+          "title": "Proving Properties of phi-Representations with the Walnut Theorem-Prover",
+          "trigger": "Potential equivalent automata formulation"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": "Same ID, cutoff statistic and histogram.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-excess-summand-statistics-for-nonunique-lucas-partitions--987b2f14863c",
+          "material_read": "Resultary summary compared with frozen Finding and Proof",
+          "method": "Local Resultary and frozen record",
+          "title": "Exact excess summand statistics for nonunique Lucas partitions",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Relationship to prior work",
+        "Chu–Luo–Miller, §5; Shallit, §5"
+      ],
+      "rationale": "The number of summands is a natural statistic of recurrence representations; among the ambiguous values, the paired difference measures exactly how much canonicalization changes it. The even-run replacement explains the statistic structurally, and the exact cutoff law and limiting moments give reusable information missing from an unweighted list of duplicate values.",
+      "residual_risks": [
+        "The contribution is confined to these Lucas representations and this cutoff; no broader recurrence result was asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

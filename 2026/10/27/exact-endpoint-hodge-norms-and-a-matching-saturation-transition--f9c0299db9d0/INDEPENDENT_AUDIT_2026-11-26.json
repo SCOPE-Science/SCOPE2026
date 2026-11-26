@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:23:04.542885Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The disjoint pair difference vectors are orthogonal left-zero-sum eigenvectors of the unmodified biclique Laplacian with eigenvalue n; adding the matching changes just those eigenvalues to n+2. For an unmatched cross-edge source the added edges carry no current; the plain biclique cut sum is q0 and its diagonal is (m+n-1)/(mn), giving p0. A matched cross-edge source from a to w has a component on just its own pair difference, so the potential at a goes down by delta=1/[n(n+2)], its mate b goes up by delta, and other potentials are unchanged. Relative to the plain biclique the new internal edge contributes n*delta, and the cross currents change the absolute sum by -(2n-2)*delta before any sign flip. Only the b-to-other-right currents can flip, from -1/(mn) to delta-1/(mn), adding 2(n-1) max(0,delta-1/(mn)). This gives precisely d_Q and its continuity at m=n+2; the diagonal falls by delta, yielding d_P=d_Q+2*delta. A matching-edge source is supported on its pair and gives q_M=2(n+1)/(n+2), p_M=3n/(n+2). Both paired cross sums are nondecreasing in m (baseline plus nondecreasing hinge correction); their excesses over the matching-edge sums at m=4 are (n-1)/(2n) and 2(n-1)/[n(n+2)], both positive, excluding internal edges from either maximum. Thus the unmatched baseline column is available until saturation and absent after, with all cross column values unchanged as other pairs are added. Saturation changes the norms by min(0,d_Q), min(0,d_P); their critical sign boundaries for even m and n>=5 give the three claimed regimes. The even/odd and n=2 cases are included in the general norm formula. Verified 114 exact orbit columns across branch and saturation boundaries by grounded graph-Laplacian solves; replay: python3 /workspace/branches/frozen_math_recheck.py 3. The frozen checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ge–Dong study deleting a matching across the two parts, not adding an internal matching. Cheng–Chen–Yan is a plausible broader resistance comparison on augmented multipartite graphs, but full text was not recovered."
+        ],
+        "reasoning": "Matching deletion produces different graph Laplacian blocks and edge orbits. Even a general resistance statement for matching additions would not itself assert the endpoint norms: polarization, control of all signs and maximization over available columns are needed. Coverage by a stronger norm statement was not established.",
+        "searches": [
+          "arXiv:1904.07766v1 abstract, graph definition and §5",
+          "DOI 10.1016/j.dam.2022.06.011 lawful OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 06f1b4795168 Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:1904.07766v1",
+        "DOI 10.1016/j.dam.2021.09.008 and 10.1016/j.dam.2022.06.011 (metadata/retrieval limitations)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier single-edge law allows both matched and unmatched cross-edge types. The independent calculation uses pair difference eigenvectors for the entire inserted matching to show that further updates are invisible to every other pair's cross-source potential.",
+          "A complete pairwise resistance formula could encode all relevant transfer currents by polarization; comparison to the actual inaccessible full texts is unresolved."
+        ],
+        "reasoning": "A single-edge maximum alone cannot certify that multiple updates leave the orbit-column sums intact, nor predict the strict fall when the baseline orbit disappears. This requires the disjoint-update argument and a sign comparison of the two surviving candidate types.",
+        "searches": [
+          "06f1b4795168 single-edge exact law compared term by term to the all-t Finding",
+          "Ge DOI 10.1016/j.dam.2021.09.008; Cheng–Chen–Yan DOI 10.1016/j.dam.2022.06.011"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the join of an independent n-set with t disjoint pairs and m-2t isolated vertices. The indexed single-internal-edge Finding gives exactly the t=1 slice on m>=4, with its d=d_Q and h=d+2/[n(n+2)]=d_P. Ge's title identifies a possibly same-object electrical problem."
+        ],
+        "reasoning": "The slice t=1 is equivalent on its overlapping parameter range; there is no distinct claim for it. It has unmatched vertices and hence does not capture the disappearance of their columns in a perfect matching.",
+        "searches": [
+          "Resultary: exact endpoint cut/cycle norms on a biclique with an internal matching and matching-saturation plateau",
+          "Resultary 06f1b4795168 RESULT.md, Finding offset 0",
+          "Ge DOI 10.1016/j.dam.2021.09.008 exact-title lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "06f1b4795168 gives exact q0+max(0,d_Q) and p0+max(0,d_P) for a single insertion in the common range; no inspected exact entry gives the saturated values or all-t plateau. Ge–Dong's exact quantities are resistance/tree quantities for another graph."
+        ],
+        "reasoning": "The indexed values supply the base and first-insertion comparisons, not the paired-only maximum when unmatched sources cease to exist. A resistance table is not a table of these absolute column norms.",
+        "searches": [
+          "Resultary: exact matching-augmented biclique projection norms and perfect-matching endpoint drop",
+          "06f1b4795168 Finding"
+        ]
+      },
+      "rationale": "The exact single internal edge case is directly covered by indexed record 06f1b4795168 and is not original. The supported distinct result is the simultaneous invariance for any number of further disjoint pairs before saturation, with the sharp terminal saturation thresholds and strict drops. The existing electrical literature plausibly includes the same graph family but the inaccessible papers do not establish overlap with this norm result on current evidence.",
+      "residual_risks": [
+        "Unavailable full Ge and Cheng–Chen–Yan papers may provide same-family resistance data sufficient for a different derivation, or additional statements not visible in available material. No absence claim is made for their full texts.",
+        "Bounded literature and index searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for t=1; not the all-t or terminal law",
+          "evidence": [
+            "Internal edge within the same m-part; its corrections d and h coincide with d_Q and d_P for the common domain."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-five-zone-edge-insertion-law-for-endpoint-cut-cycle-projection--06f1b4795168",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror read",
+          "title": "A five-zone edge-insertion law for endpoint cut/cycle projection norms",
+          "trigger": "Closest indexed same-operator same-graph first-insertion result"
+        },
+        {
+          "assessment": "The edge operation and calculated invariants differ",
+          "evidence": [
+            "K_{m,n}-pK_2 is defined by deletion of a matching; §5 concerns resistances and spanning-tree/Kirchhoff applications."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.07766v1",
+          "material_read": "Abstract p. 1, graph definition p. 2 offset 6400, §5 p. 13 offset 42400",
+          "method": "OA primary PDF passages",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "Exact resistance formulas with a biclique and a matching operation"
+        },
+        {
+          "assessment": "Possible same-object data; no statement-level full-text noncoverage verdict",
+          "evidence": [
+            "The title names a biclique plus a matching and resistance and spanning-tree quantities."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2021.09.008",
+          "material_read": "Title and publication identifier only independently verified; frozen self-review reports an abstract-level comparison",
+          "method": "Exact-title search and lawful OA/publisher retrieval attempt; no readable full text (publisher HTTP 403)",
+          "title": "Effective resistances and spanning trees in the complete bipartite graph plus a matching",
+          "trigger": "Likely same graph family at resistance level"
+        },
+        {
+          "assessment": "Possible implicit electrical overlap; no full-text noncoverage verdict",
+          "evidence": [
+            "Frozen evidence identifies possible multipartite plus matching coverage; not independently established from full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2022.06.011",
+          "material_read": "Title and publication identifier only independently verified; frozen self-review reports an abstract-level comparison",
+          "method": "Lawful OA and publisher retrieval attempted; no readable full text (publisher HTTP 403)",
+          "title": "A type of generalized mesh-star transformation and applications in electrical networks",
+          "trigger": "Plausibly stronger electrical quantities on related multipartite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This complete classification isolates a concrete failure of edge-addition monotonicity for two complementary canonical projections, on a natural perturbation by disjoint edges rather than one example. The plateau and the terminal drop are explained by the survival and eventual disappearance of a source-edge orbit, with separate exact parameter thresholds for the two projections. These findings extend materially beyond the known first-insertion formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

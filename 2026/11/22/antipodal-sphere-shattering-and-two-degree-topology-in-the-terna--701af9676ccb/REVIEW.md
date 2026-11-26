@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact-distance-three relation, centers correspond bijectively to products of two-symbol coordinate subsets. A support of size at least three is shattered exactly when its coordinates use at most two symbols and every point possesses a private singleton coordinate. This gives an upper bound of three points, counts all 216 shattered triples, and proves all pairs are shattered. Every pair of Hamming distance two lies in four such triples, so the facet counts follow. Two standalone independent programs enumerate all supports through cardinality four and compute mod-two boundary rank 133 by exact bit elimination; this yields reduced Betti ranks 192 and 83. The programs were run successfully and the all-order hereditary argument excludes larger supports.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary Hamming-graph paper, Adler–Benediktsson–Macpherson (2020), was read in its Hamming-graph section (PDF pages 20–23), including Theorems 4.6–4.8: its edge relation is Hamming distance one, unlike the exact-distance-three relation here. Related published records on exact radius-one shattering, full antipodal polarity closures, the ternary cube Rips complex and three-cut complexes address different concept families or different complexes. Their accessible summaries do not assert the present fixed-antipodal-sphere face census, nonpure facet classification or binary homology. The full text of at least one strongly related record on antipodal closure was not accessible, so its detailed implications and historical priority are residual risks, not claimed to be decisively excluded by a snippet.
+PASS
 
-## Value — PASS
-This determines an entire, geometrically distinguished shattering complex of the smallest three-coordinate nonbinary Hamming space, not merely a VC dimension. The full one-skeleton coexists with exactly 216 selected parity triangles and 189 maximal edges, producing nonpure topology with two distinct reduced homology degrees. The private-coordinate proof exposes the reason for the combinatorial structure, and the exact binary ranks allow subsequent topological and equivariant comparisons with other canonical ternary-cube complexes. No downstream theorem or general homotopy classification is claimed.
+For a support of at least three points the full trace forces an unused symbol in every coordinate; omitting a single point forces that point to have a private coordinate. A binary-valued coordinate can be private for at most one point, and choosing the excluded points' private symbols in their distinct coordinates realizes every trace. Thus the largest possible supports have size three. In each of the 27 binary boxes the eight triangles are precisely the triples in the two parity tetrahedra, and each triple uses both symbols on every axis, fixing its box uniquely. Every pair is shattered; the 162 distance-two pairs each lie in four triangles and the other 189 are maximal. I independently enumerated traces through size four, generated the triangle set via box parity, and eliminated the sparse mod-2 equations on triangle coefficients. Counts were (1,27,351,216,0), with boundary rank 133. The connected complete one-skeleton has boundary rank 26, giving 351−26−133=192 and 216−133=83, with no other reduced homology.
 
-## Limitations and closest literature
-The 2020 distance-one Hamming neighborhood theorem does not imply exact-distance-three membership traces. A related 2026 antipodal incidence-closure record was only available by scientific summary and could hide additional statements not inspected. Full historical priority is unverified; mod-two homology does not determine integral homology or homotopy type. No human or independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The antipodal incidence relation, its box structure, and even the geometric set of 216 triples as distance-one shattered supports have antecedents. The distinct contribution evaluated here is the full shattering complex for fixed exact-distance-three spheres, in particular its different one-skeleton, nonpure facet census and binary homology, not the invention of that geometric triple family or a new generic box principle. No inspected stronger statement settles these claims for the exact-distance-three system.
+
+## value
+
+PASS
+
+This is a natural exact maximal-distance concept class on a basic nonbinary Hamming graph. The private-coordinate structure explains why all pairs but only selected parity triangles are faces. The Betti ranks give a topological comparison beyond equal VC dimension or the shared triangle pattern of a different relation, and the maximal-edge result exhibits nonpurity. These findings do not rely on treating the already known geometric triple pattern as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

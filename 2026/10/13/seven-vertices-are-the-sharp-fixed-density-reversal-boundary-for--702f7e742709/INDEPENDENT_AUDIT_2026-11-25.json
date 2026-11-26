@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:35:17.722495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 both statistics are means over the same unordered pairs; same-sign changes of L and E are precisely strict ranking reversals because lower L and higher E are preferred. Order one does not define these normalized metrics and poses no pairwise comparison. I inspected the proof, verification and checker and independently enumerated labeled edge sets by size, computed all-pairs distances with Floyd–Warshall, and compared integer distance sums and reciprocal sums scaled by lcm(1,...,n−1) within each (n,m). The connected counts for orders 2 through 6 were 1,4,38,728,26704; no strict reversal was found. Two distinct metric pairs split ties at six and none do earlier. At n=m=7 I reproduced the stated degree multiset and distance histograms (7,6,6,2) and (7,7,4,2,1), giving L(A)=15/7<L(B)=46/21 and E(A)=25/42<E(B)=188/315, with gaps 1/21 and 1/630. Replay: python3 -I /workspace/review_math.py 4. No seven-vertex all-pair classification is needed for sharpness or claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Latora–Marchiori discuss divergence for heterogeneous distances, without fixing size or giving the sharp onset.",
+          "Resultary 328723bc58da finds different unique leaders for closeness and harmonic centrality first at seven, comparing vertices within one graph.",
+          "Madaras–Paralič study realizability of harmonic center/periphery, not ordering pairs of graphs by their global sums."
+        ],
+        "reasoning": "An extremal vertex discrepancy does not establish a discrepancy of global graph-wide sums, and the general non-equivalence does not select the first order at equal edge count.",
+        "searches": [
+          "Resultary vertex/graph distance-normalization matches",
+          "Latora–Marchiori arXiv:cond-mat/0101396 and Madaras–Paralič arXiv:2609.31295 exact passages"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 328723bc58da and ranked searches",
+        "Latora–Marchiori arXiv:cond-mat/0101396",
+        "Madaras–Paralič arXiv:2609.31295",
+        "NetworkX Graph Atlas documentation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-edge constraint fixes the count at distance one. The two scores weight the remaining distance histogram by r and 1/r respectively.",
+          "Neither general divergence, nor Jensen's inequality linking the two scores within one graph, compares their signs across two different histograms; the degree-matched graphs also have distinct histograms."
+        ],
+        "reasoning": "The sharp reversal requires new exact histogram comparisons, not substitution in an earlier inequality, reading off the catalogue ordering, or translating the within-graph leader result.",
+        "searches": [
+          "Statement comparison with 328723bc58da, Latora–Marchiori metric definitions, and the atlas specification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unnormalized unordered-pair sums are the Wiener and Harary indices, so the graph-pair ordering question is identically a Wiener–Harary ordering question at common order.",
+          "Latora–Marchiori explicitly caution that reciprocal average distance is only an approximation to average reciprocal distance; Madaras–Paralič link sums of vertex harmonic scores to the Harary index."
+        ],
+        "reasoning": "Changing between indices and normalized averages preserves rankings at fixed n; swapping reciprocal-of-mean for mean-of-reciprocals does not. No exact fixed-size threshold surfaced using the equivalent index names.",
+        "searches": [
+          "Resultary fixed-(n,m) and distance-index terminology searches",
+          "Primary query: (Wiener index OR Harary index OR global efficiency) connected graphs fixed number of vertices edges distance distribution ranking reversal same degree sequence",
+          "Latora–Marchiori arXiv:cond-mat/0101396, p. 2; Madaras–Paralič arXiv:2609.31295, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The documentation describes a complete graph catalogue through seven vertices, ordered by number of vertices, edges, degree sequence, and number of automorphisms, with limited ordering exceptions. The documented data are graph objects, not a cross-ranking of their two distance indices.",
+          "No table of strict Wiener–Harary inversions by order and edge count was identified in the inspected sources."
+        ],
+        "reasoning": "An exhaustive source catalogue supplies inputs and makes the finite calculation feasible; it does not itself furnish the rankings or exclude reversals in every relevant size block.",
+        "searches": [
+          "Resultary fixed-edge exact distance-distribution comparison",
+          "NetworkX graph_atlas_g documentation and its reference to Read–Wilson, An Atlas of Graphs (1998)"
+        ]
+      },
+      "rationale": "The supported distinct result is the first strict divergence under fixed order and edge count, with an explicit same-degree witness. The graph metrics and their general non-equivalence are already established, and there is a known complete catalogue of graph structures through seven vertices. The checked sources do not already give the exact ordering comparison or threshold.",
+      "residual_risks": [
+        "The Xu–Das–Trinajstić Harary-index monograph was not inspected. An unindexed graph table, example, or farther-reaching small-order ordering theorem could overlap.",
+        "The literature query returned no results; it is not negative evidence. The Watts–Strogatz primary-text retrieval was unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known non-equivalence; does not decide a fixed-size minimal strict reversal.",
+          "evidence": [
+            "Global efficiency averages inverse shortest-path distances; 1/L approximates it when distances are sufficiently homogeneous."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0101396",
+          "material_read": "p. 2, OA offsets 9000 and 13200",
+          "method": "Primary OA PDF passages",
+          "title": "Efficient Behavior of Small-World Networks",
+          "trigger": "Primary comparison between definitions of path length and global efficiency"
+        },
+        {
+          "assessment": "Vertex center/periphery results, not the graph-pair sharp boundary.",
+          "evidence": [
+            "Connects harmonic centrality to the Harary index; results opening addresses harmonic-center realization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.31295",
+          "material_read": "Abstract, introduction pp. 1–2 and results opening p. 3, offsets 400, 3300–6153 and 6100",
+          "method": "Primary OA PDF passages and literal searches",
+          "title": "On harmonic centers of graphs",
+          "trigger": "Closest accessible modern paper using the equivalent Harary index context"
+        },
+        {
+          "assessment": "Different comparison objects and quantifiers.",
+          "evidence": [
+            "Unique leaders can first differ at seven; the compared profiles are those of vertices within a single graph."
+          ],
+          "identifier_or_url": "Resultary 328723bc58da",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror passage",
+          "title": "Seven vertices are the sharp unique-leader split for closeness and harmonic centrality",
+          "trigger": "Same size threshold with locally analogous distance metrics"
+        },
+        {
+          "assessment": "Tabulates topologies but the documented ordering is not based on these distance statistics.",
+          "evidence": [
+            "The documented atlas lists all graphs through seven vertices, including 156 on six and 1044 on seven."
+          ],
+          "identifier_or_url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html",
+          "material_read": "Function description, ordering, notes, and graph counts, offset 0",
+          "method": "OA documentation; not a claim to have read the full printed atlas",
+          "title": "NetworkX graph_atlas_g and Read–Wilson's graph catalogue",
+          "trigger": "Potential complete graph database containing the seven-vertex witnesses"
+        },
+        {
+          "assessment": "Not used as negative evidence.",
+          "evidence": [
+            "Redirect failures prevented inspection of the cited article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/30918",
+          "material_read": "No full-text passage retrieved",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Collective dynamics of small-world networks",
+          "trigger": "Frozen primary citation for mean distance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching order and edge count controls the contribution of adjacent pairs and is a natural constraint when comparing network structure. Matching degrees in the smallest witness additionally isolates arrangement from degree distribution. The precise strict boundary (as opposed to tie splitting a vertex earlier) yields a useful finite test for when the two widely used measures cannot be substituted as ranking criteria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

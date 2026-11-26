@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:45:43.636435Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–36; VERIFICATION.md and verify_records.py inspected, not executed",
+        "Independent conditional-prefix and ternary asymptotic derivation"
+      ],
+      "rationale": "With positive finite masses and strict upper records, conditioning on the last value at time r yields q_r=Σ_b p_b F_{b−1}^{r−1}. Conditioning on the two distinct record values a<b gives the joint formula: all observations before s are below a and all t−s−1 intervening observations are below b. In particular this includes adjacent times with a zero exponent. Independently, given the prefix maximum M_s=k, a record at s means the maximum occurs just once and at position s, giving p_k F_{k−1}^{s−1}/(F_k^s−F_{k−1}^s). Factoring the denominator shows this probability is increasing as F_k/F_{k−1} decreases (k≥1); the reverse hazard is 1−F_{k−1}/F_k. At k=0 the probability is zero. The conditional probability of a record at t uses only M_s and the independent suffix; increasing the maximum drops a strictly positive term from the admissible record-value sum. Thus the covariance is that of the nondecreasing and strictly decreasing conditional functions of M_s, and the usual independent-copy identity is strictly negative on the levels 0 and 1. Binary strict post-initial records are mutually exclusive and each has positive probability. For ternary masses (ε,ε,1−2ε), the sole possible two-record pair of values is (1,2); its probability is of order ε^(t−1) with positive coefficient, whereas the product of marginals is of order ε^(s+t−2). This proves the fixed-pair sign and exact minimum support size. For example at s=2,t=3 and ε=.01, q_2=.0197, q_3=.000393 and the joint is .000098, strictly above the product. Time 1 is deterministic and the proof does not claim negative association of the full vector.",
+      "residual_risks": [
+        "The theorem is for strict iid finite-alphabet records with positive masses; the verified ternary assertion is quantified for each fixed pair and does not depend on extrapolating the finite script."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cambridge paper identifies an asymptotic count CLT and scaling results for distributions with positive masses on all nonnegative integers. c2d274b9c3b5 gives an adjacent-indicator sign rule for certain continuous heterogeneous exponential prefixes and a finite-prefix independence classification."
+        ],
+        "reasoning": "Neither theorem statement implies signs for individual covariance summands in finite iid laws. The different treatment of ties and the all-pairs quantifier rule out transferring the exponential adjacent-pair result.",
+        "searches": [
+          "Resultary: prior negative dependence criterion records discrete iid covariance record indicators",
+          "Cambridge Central limit theorems for the number of records in discrete models, pp.1–2; arXiv:1206.4432, discrete-record citation trail"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 09ebdb81d232, 638a911adad4, c2d274b9c3b5",
+        "arXiv:1206.4432",
+        "Cambridge Central limit theorems for the number of records in discrete models",
+        "Prodinger/Oliver publisher identifiers and Records of Discrete Distributions, access-limited"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the closest inspected marginal paper the formula involves the rank of the current value against past observations, with no two-time sign conclusion in the passages read. The inspected exact catalogue results use other dependence models. The older Prodinger works and Records of Discrete Distributions chapter could not be inspected substantively."
+        ],
+        "reasoning": "The conditional-maxima factorization and the comparison of two rare-event exponents are not consequences of the named marginal, aggregate-count, or heterogeneous sign results. The unavailable literature remains a priority limitation, not negative evidence.",
+        "searches": [
+          "arXiv:1206.4432, strong record formula and references [17]–[21]",
+          "DOIs 10.1007/s13370-011-0027-9 and 10.1016/0012-365X(95)00141-I, accessible-copy checks",
+          "Resultary: prior negative dependence criterion records discrete iid covariance record indicators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wergen et al. arXiv:1206.4432 use strong records excluding ties, and Eq. (2) gives a one-time rate. Central limit theorems for the number of records in discrete models uses the exact strict-record rule, also known as left-to-right maxima, for iid integer observations."
+        ],
+        "reasoning": "Strong records and strict left-to-right maxima are equivalent in the settings with the same law, but a one-time rate or a record-count limit is not the sign of every two-time covariance. Distinguish the reversed hazard p_k/F_k from forward survival hazards used for count asymptotics.",
+        "searches": [
+          "Resultary: iid discrete strict upper records pairwise covariance reverse hazard negative covariance positive covariance three symbols",
+          "Primary: discrete iid records covariance negative dependence positive covariance time indices sign reversal record statistics ties",
+          "Primary: Prodinger 1996 left-to-right maxima Vervaat 1973 discrete record times positive negative covariance indicators upper records iid discrete reversed hazard Gouet Lopez Sanz full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 09ebdb81d232 supplies exact covariance ranks 0,3,10 for overlapping tie-aware ordinal-pattern count vectors by alphabet size, not the submitted scalar two-record sign pattern. 638a911adad4 supplies both covariance signs for I_2,I_3 for particular continuous nonidentical laws."
+        ],
+        "reasoning": "The exact tables or examples use different random variables or sampling laws. Even a finite sign example under the correct law would not establish positivity for each fixed pair, nor strict negativity for all binary pairs.",
+        "searches": [
+          "Resultary: three symbol finite alphabet strict record indicators positive covariance pair of times",
+          "Resultary: iid discrete strict upper records pairwise covariance reverse hazard negative covariance positive covariance three symbols"
+        ]
+      },
+      "rationale": "The inspected antecedents cover marginal record rates, count asymptotics, or changes of sign from nonidentical continuous laws. They do not give either the finite iid reverse-hazard criterion for arbitrary pairs or the arbitrary-fixed-pair ternary witness with exact support threshold. Some older titles remain unresolved; the pass is bounded to the evidenced comparisons.",
+      "residual_risks": [
+        "Older geometric record papers and discrete-record monograph chapters were not all accessible or inspected; in particular an older special case or differently worded broader result could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-time rates and count behavior, no covering theorem in inspected material",
+          "evidence": "Eq. (2) is a marginal strong-record rate, with a geometric marginal asymptotic comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.4432",
+          "material_read": "PDF p.1 offsets 780,5600; p.2 offset 9942, Eq. (2); p.5 references [17]–[21]",
+          "method": "OA PDF locators and bounded passages",
+          "title": "Rounding Effects in Record Statistics",
+          "trigger": "Same strict discrete records and citation trail"
+        },
+        {
+          "assessment": "Aggregate count limit, not a covering implication",
+          "evidence": "States the CLT for suitably normalized counts and defines full support of p_k on nonnegative integers.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/central-limit-theorems-for-the-number-of-records-in-discrete-models/C9AFD5A31B3FC5F7448F379CBD9E1B41",
+          "material_read": "PDF pp.1–2 abstract and introduction offsets 708–1777 and 4870–6265",
+          "method": "Primary query and Cambridge OA PDF bounded reading; covariance literal search did not locate a passage",
+          "title": "Central limit theorems for the number of records in discrete models",
+          "trigger": "Same strict record process, possible negative dependence input"
+        },
+        {
+          "assessment": "Distinct random variables",
+          "evidence": "Asymptotic covariance ranks of overlapping ordinal-pattern counts.",
+          "identifier_or_url": "Resultary 09ebdb81d232",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact covariance nullspaces of three-point generalized ordinal patterns",
+          "trigger": "Same-day finite-alphabet three-point covariance result"
+        },
+        {
+          "assessment": "Analogue with different assumptions and times",
+          "evidence": "Both signs at times 2 and 3 for independent nonidentical continuous observations.",
+          "identifier_or_url": "Resultary 638a911adad4",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Nonidentical record indicator independence counterexample",
+          "trigger": "Prior explicit sign reversal for two upper-record indicators"
+        },
+        {
+          "assessment": "Nonidentical continuous analogue",
+          "evidence": "Adjacent-indicator covariance under an equal-scale prefix, not pairwise strict discrete iid covariance.",
+          "identifier_or_url": "Resultary c2d274b9c3b5",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Finite-prefix independence classification for heterogeneous exponential records",
+          "trigger": "Prior sign criterion and exclusions for record dependence"
+        },
+        {
+          "assessment": "Possible geometric special-case overlap remains unresolved",
+          "evidence": "No substantive statement-level conclusion from the unavailable text.",
+          "identifier_or_url": "10.1016/0012-365X(95)00141-I",
+          "material_read": "Bibliographic identification, no primary full-text passage",
+          "method": "DOI direct and VPN OA attempts found landing material only; no lawful repository alternate found",
+          "title": "Combinatorics of geometrically distributed random variables: Left-to-right maxima",
+          "trigger": "Closest older geometric left-to-right maxima citation"
+        },
+        {
+          "assessment": "Unresolved comparison",
+          "evidence": "The frozen record identifies a different consecutive-value rule, but this was not independently verified from the full text.",
+          "identifier_or_url": "10.1007/s13370-011-0027-9",
+          "material_read": "Bibliographic identification, no primary full-text passage",
+          "method": "OA publisher and PDF attempts hit redirects; no open repository copy found",
+          "title": "Consecutive records in geometrically distributed words",
+          "trigger": "Older discrete geometric records citation"
+        },
+        {
+          "assessment": "Unresolved comparison",
+          "evidence": "No reliable basis for a conclusion about pairwise covariance from the returned title or snippet.",
+          "identifier_or_url": "https://link.springer.com/chapter/10.2991/978-94-6239-136-9_6",
+          "material_read": "Search bibliographic entry only",
+          "method": "Primary query then OA attempts; redirects blocked full text",
+          "title": "Records of Discrete Distributions",
+          "trigger": "Possible earlier general discrete records result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope; Wergen et al. marginal strong-record setting; 638a911adad4 continuous sign-reversal comparison"
+      ],
+      "rationale": "Ties remove the familiar iid continuous independence property. A distributional shape criterion guaranteeing a strict sign for every pair gives a usable replacement in one regime. A sharp finite-support boundary showing why the opposite sign becomes possible is meaningful, and the pairwise conditional-maxima mechanism explains the dependence rather than just furnishing a numerical counterexample.",
+      "residual_risks": [
+        "Not a characterization of all negative pairs, a theorem on full negative association, or a statement about general infinite support."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

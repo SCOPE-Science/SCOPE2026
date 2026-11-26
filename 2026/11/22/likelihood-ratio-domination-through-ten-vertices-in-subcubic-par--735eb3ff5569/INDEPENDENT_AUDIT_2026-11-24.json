@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:38:04.948633Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42",
+        "verify_census.py lines 17–108, verify_orders.py lines 6–39, their recorded outputs, and VERIFICATION.md",
+        "/workspace/branches/e1c4f22c-2be4-40a4-847f-f10e06b42e53f/replay_subcubic.py and replay_1_to_10.jsonl",
+        "Repaired RESULT.md, Proof and Verification"
+      ],
+      "rationale": "Deleting a spanning-tree leaf of any connected graph of order ≥2 leaves a connected induced graph; in the subcubic case reverse deletion attaches the new vertex to 1–3 distinct vertices of old degree ≤2. This proves completeness by induction even when using only one representative of each old class. The implementation's neighbor-degree profiles and color keys are preserved under isomorphism, and within a bucket the bijection search checks both edges and nonedges. On an available set A, the next vertex is uniform and the new set is A minus its closed neighborhood; conditional on that state the same rule applies, so the rational recurrence is exact. The static count is uniform over independent dominating sets, exactly the maximal independent sets. Every such set is reached by priorities putting all its members first, so both size laws have the same support. Exact adjacent ratio inequalities give all pairwise inequalities; since the nondecreasing ratio has mean one under the static law, its conditional means on lower tails are ≤1, which gives the first-order consequence. The original programs and outputs were inspected, not executed. In particular the separate priority check shares the graph generator and only cross-checks the laws through order six. A fresh, separately written complete bounded replay with its own isomorphism routine and exact fractions checked all 2,571 classes with zero violations and returned all order-by-order counts in the corrected table, including 1,687 unequal and 46 equal at order ten. Replay with python3 /workspace/branches/e1c4f22c-2be4-40a4-847f-f10e06b42e53f/replay_subcubic.py --max-order 10; actual rows are in replay_1_to_10.jsonl in that directory.",
+      "residual_risks": [
+        "Computer-assisted finite theorem only. Neither the replay nor the priority-permutation check tests larger orders or disconnected graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dated v2 article reports an exhaustive 27,525-class first-order dominance computation for all connected maximum-degree-three graphs through order twelve. The related likelihood-ratio record tests all graphs through order five and exhibits a failure on the join of a universal vertex with K₂ disjoint union K_(1,m) for m≥2."
+        ],
+        "reasoning": "The first-order result dominates the order range but not the conclusion. The unrestricted-degree likelihood-ratio result gives a broader graph class only at smaller orders; its negative family has universal degree m+3≥5. Dates alone do not decide priority between distinct catalogue records.",
+        "searches": [
+          "arXiv:2611.14718v2 §5.4 and Conjecture 5.2",
+          "Local Resultary 2fafc168a061"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14718v1 and v2",
+        "OEIS A243393 and A001349",
+        "Local Resultary 2fafc168a061 and identical 735eb3ff5569",
+        "Code cited in v2, unavailable for full inspection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior printed comparison is stated as N_stat≤_st N_seq. For ordered support of size three, (1/6,1/2,1/3) stochastically dominates (1/3,1/3,1/3) but its ratios are (1/2,3/2,1), not monotone. There is a concrete likelihood-ratio failure for the graph models without the degree cap."
+        ],
+        "reasoning": "Prior verification of cumulative inequalities does not fix the monotonicity of relative point masses. No examined stronger theorem yields all connected subcubic cases through ten. The original presentation needed repair precisely because the earlier evidence does cover the domain in first-order order even though it does not establish these ratios.",
+        "searches": [
+          "arXiv:2611.14718v2 §5.4, arXiv:2611.14718v1 §5.4",
+          "Related same-day Resultary record 2fafc168a061"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greedy with uniform random priorities has the same law, and the uniform static model is equivalently uniform over independent dominating sets. The search returned the identical assigned record and a distinct unrestricted-degree result with the same order relation through five and a failure at six."
+        ],
+        "reasoning": "Equivalence requires the ratio inequalities on size probabilities. Equality or inequality for probabilities of individual independent sets is not such a statement. The related unrestricted-degree small-order result overlaps with a strict subset and its failure lies outside the bounded-degree condition.",
+        "searches": [
+          "Local Resultary: sequential parking and uniform maximal-independent-set size likelihood-ratio dominance on subcubic graphs",
+          "arXiv:2611.14718v1/v2",
+          "Published record 2fafc168a061"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A243393 lists 1,1,2,6,10,29,64,194,531,1733 for orders 1–10, with a 2020 comment explicitly identifying the simple connected subcubic interpretation. A001349 instead counts graphs with no degree bound. v2 already reports the first-order census of this graph family through 12. The code/raw-file routes did not yield the underlying computation."
+        ],
+        "reasoning": "The class counts are previously known; regenerating them verifies the checked domain but is not an originality or value basis. Neither graph-count tables nor the prior report of first-order inequalities supplies the ratio comparisons or the equal/unequal counts of the laws. Exact prior raw-data coverage is unresolved.",
+        "searches": [
+          "OEIS A243393",
+          "OEIS A001349",
+          "Web: OEIS connected unlabeled subcubic graphs maximum degree at most 3 194 531 1733",
+          "arXiv:2611.14718v2 §5.4 and its code reference [22]"
+        ]
+      },
+      "rationale": "For the repaired claim only: prior first-order computation already covers the domain (and more), and the graph-class counts themselves are known. The positive exact result on point-mass likelihood ratios through order ten is a stronger property, not a mechanical consequence of the earlier first-order statement. A same-day distinct likelihood-ratio record overlaps at small orders but its six-vertex counterexample has maximum degree five and does not treat the larger subcubic domain. No exact prior coverage of the repaired likelihood-ratio claim was established in the examined material.",
+      "residual_risks": [
+        "The v2 code might archive exact laws or likelihood-ratio output not stated in the article. Earlier exact likelihood-ratio results could alter priority. No known/table contribution is certified as novel, and failed access is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms stronger domain coverage for the weaker first-order relation. Does not claim the likelihood-ratio theorem in that statement.",
+          "evidence": "The v2 PDF bears 18 November 2026. The pre-conjecture paragraph reports an exhaustive computation on every connected graph of maximum degree at most 3 through 12 vertices, 27,525 nonisomorphic graphs; the order is first-order stochastic dominance.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14718v2",
+          "material_read": "v2 PDF front page (offset 0); v2 HTML §5.4, offsets 65800–68894, the paragraph preceding Conjecture 5.2; reference [22] near offset 80933; v1 abstract and §5.4",
+          "method": "Lawful OA HTML and PDF passage inspection",
+          "title": "Random Sequential Adsorption versus the Uniform Ensemble of Jammed Configurations: Stochastic Dominance on Graphs",
+          "trigger": "Same models and finite subcubic computation; superseding version predates record"
+        },
+        {
+          "assessment": "Exact earlier class counts; not a result about size laws.",
+          "evidence": "Brendan McKay's comment, dated 11 March 2020, identifies the count of connected loopless simple graphs with maximum degree at most three; the sequence from n=1 contains all the exact census counts.",
+          "identifier_or_url": "https://oeis.org/A243393?fmt=text",
+          "material_read": "Sequence, offset, comments, source and author fields on the public entry",
+          "method": "Targeted public-data search followed by lawful OA website-mode inspection",
+          "title": "OEIS A243393, connected trivalent graphs with semi-edges",
+          "trigger": "Exact subcubic class counts, including 194,531,1733"
+        },
+        {
+          "assessment": "Not the subcubic count and no probability table.",
+          "evidence": "A001349 gives 11,117, 261,080 and 11,716,571 at orders eight through ten; it counts all simple connected classes.",
+          "identifier_or_url": "https://oeis.org/A001349?fmt=text",
+          "material_read": "Entry's counting definition and values at orders 8–10; arXiv:2611.14718v1 §5.3",
+          "method": "Public sequence entry and primary HTML passage",
+          "title": "OEIS A001349, Number of simple connected graphs on n unlabeled nodes",
+          "trigger": "Census referenced by the first-order paper for general connected graphs"
+        },
+        {
+          "assessment": "Material overlap at small orders; neither covers nor refutes the repaired theorem. Same-day date not used as a priority signal.",
+          "evidence": "For arbitrary degree the relation holds through order five and fails at order six, beginning in K₁ joined with K₂ disjoint union K_(1,m) with m≥2. The join vertex's degree is at least five.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-six-vertex-failure-of-likelihood-ratio-domination-in-graph--2fafc168a061",
+          "material_read": "RESULT.md Finding, bounds and obstruction family",
+          "method": "Local published-record mirror",
+          "title": "Sharp six-vertex failure of likelihood-ratio domination in graph parking",
+          "trigger": "Closest distinct catalogue hit, same order relation"
+        },
+        {
+          "assessment": "Exact underlying computation beyond printed first-order result remains unresolved, not ruled out.",
+          "evidence": "Section 5.4 explicitly cites this repository for the order-twelve computation. The stated comparison uses first-order dominance; this does not specify everything the code reports.",
+          "identifier_or_url": "https://github.com/lykoslopezrivera-blip/Stochastic_Dominance_DPP_Graphs",
+          "material_read": "Paper's reference [22] and §5.4 attribution; current primary code not obtained",
+          "method": "Public repository, API and raw-file routes attempted; no code retrieved",
+          "title": "Stochastic Dominance DPP Graphs",
+          "trigger": "Possibility of exact per-graph probability outputs or prior likelihood-ratio checks from v2 computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Relationship to prior work",
+        "arXiv:2611.14718v2 §5.4",
+        "Published record 2fafc168a061",
+        "Independent replay rows through order ten"
+      ],
+      "rationale": "The repaired claim establishes a stronger shape constraint on the size laws than first-order dominance. Subcubic graphs are singled out by the motivating conjecture; a nearby exact result shows likelihood-ratio failure for unrestricted degree already at six vertices, so complete success over the much richer sparse domain through ten is meaningful finite evidence for a different order relation, not a tabulated-count recomputation or another check of the published first-order conclusion. The exact count of equal laws distinguishes genuinely separated size laws from degenerate/equal cases. No claim of a new first-order cutoff or of extending prior first-order computations survives in the repaired files.",
+      "residual_risks": [
+        "No sharp boundary at ten, all-order characterization, or classification of individual maximal-independent-set probabilities is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

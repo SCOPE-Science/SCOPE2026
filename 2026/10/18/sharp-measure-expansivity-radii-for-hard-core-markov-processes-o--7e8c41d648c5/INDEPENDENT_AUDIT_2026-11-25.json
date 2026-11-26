@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:36:57.287158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT Steps 1–4. If the central site is occupied, the kth one on either side is at distance at least k(m+1), and the periodic orbit saturates both bounds. If it is vacant and both tails are occupied, the nearest distances a,b are positive integers with a+b≥m+1; convexity bounds 2^(−a)+2^(−b) by 1/2+2^(−m), strictly insufficient to beat the occupied maximum. The one-sided case is smaller as well. For a constant center the maximal distance is 3c+(1−2c)W_m up to c=1/2 and 3c thereafter. This gives radius 3/2 for m=1 and W_m for m≥2, with the entire support in the critical closed ball at c=1/2 and c=0, respectively. For an arbitrary ambient center x the maximum distance to the support is convex and 1-Lipschitz. Its average along forward translates is at least the value at their coordinatewise average, which is uniformly o(1) from a constant sequence (offset-j error ≤min(1,2|j|/N)). Thus below the threshold there are infinitely many separated times with positive slack. Truncating inside this slack produces admissible violating words. The m-zero prefixes reset every hidden state, so each word of length ell has conditional occurrence probability at least (1−p)^m min(p,1−p)^ell including its reset. Iterating the conditional avoidance bound gives zero mass in the ball. Irreducibility and the self-loop yield stationarity and mixing, the reset property yields full support, and bounded gaps between optional draws yield nonatomicity. The inspected verify.py is a finite exact-rational packing check, not a proof of the orbit or probability steps; its frozen output was not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A gives expansivity for product Lebesgue and certain other product laws on this ambient shift; general measure-expansivity definitions do not quantify the optimal radius for this metric and support."
+        ],
+        "reasoning": "Neither inspected general result gives an upper and lower sharp threshold for the specified dependent stationary process or identifies the critical full-mass ball.",
+        "searches": [
+          "Lacerda arXiv:2610.09482, Theorem A; Morales arXiv:2503.16757, introductory definitions and structural results"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE ranked searches",
+        "arXiv:2610.09482",
+        "arXiv:2503.16757",
+        "a21666c938a0 mirrored RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local criterion uses products of marginal box probabilities; under this hard-core law the two adjacent coordinates cannot both be 1 even though both marginal probabilities of 1 are positive."
+        ],
+        "reasoning": "The previously used factorization fails directly. A weighted packing calculation would settle the constant witness but not the all-centers null-mass claim, which needs the separate convex orbit argument and uniform conditional forcing.",
+        "searches": [
+          "Local record a21666c938a0, RESULT Finding and Proof §§1–2; Lacerda Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent packing-plus-constant-center form is min(3/2,W_m), but W_m alone does not imply the lower bound for nonconstant centers. Closest local hit a21666c938a0 treats independent coordinates."
+        ],
+        "reasoning": "Compared both occupied-weight and measure-expansivity formulations, including the critical closed-ball assertion. The inspected product criterion cannot be recast as this dependent word-forcing result merely by identifying marginal probabilities.",
+        "searches": [
+          "Resultary: hard-core renewal/spacing shift weighted packing and exact ambient expansivity radius; primary search for exact radius of a renewal spacing law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct hit a21666c938a0 was read in the mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; its exact criterion is for coordinate products, not finite-spacing dependent laws."
+        ],
+        "reasoning": "No exact radius table or covering indexed claim was identified in this ranked search. The inspected local match was evaluated by statement rather than title.",
+        "searches": [
+          "Local Resultary search by displayed threshold and by the renewal/spacing-packings formulation"
+        ]
+      },
+      "rationale": "The supported distinction is an exact metric-dependent radius, including the full critical closed ball, for this dependent binary hard-core law with all real-valued centers. It is not the introduction of measure expansivity or a new general Markov theorem. No covering statement was found in the inspected closest sources.",
+      "residual_risks": [
+        "The bounded search cannot rule out equivalent quantitative results in unindexed weighted symbolic packing or measure-expansivity literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related existence result, not the inspected exact dependent-law claim",
+          "evidence": "Product Lebesgue and other product laws satisfy expansivity; no hard-core critical radius is supplied in Theorem A.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09482",
+          "material_read": "PDF pp. 1–2, Theorem A; text offsets 835 and 5000",
+          "method": "Lawful OA PDF passages",
+          "title": "Typical expansive measures for infinite-dimensional maps",
+          "trigger": "Same bilateral Hilbert-cube shift"
+        },
+        {
+          "assessment": "Framework, not the specific metric calculation",
+          "evidence": "The inspected definitions and structural results do not give the weighted hard-core threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.16757",
+          "material_read": "PDF pp. 2–3, offset 6800",
+          "method": "Lawful OA PDF passages",
+          "title": "Measure-expansive systems",
+          "trigger": "General measure-expansivity framework"
+        },
+        {
+          "assessment": "Same dynamical setting; materially different hypotheses",
+          "evidence": "Independent possibly nonstationary coordinate laws and factorized cylinder boxes, not stationary hard-core renewal laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-concentration-criterion-and-baire-dichotomy-for-product-measur--a21666c938a0",
+          "material_read": "RESULT.md Finding, assumptions and §§1–2, offsets 0–4326",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A concentration criterion and Baire dichotomy for product measures on the Hilbert-cube shift",
+          "trigger": "Closest distinct local record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural exact invariant for a standard constrained process: this supplies the optimal detection scale for Bowen balls under a fixed compatible metric, distinguishing the half-valued ambient witness at the shortest gap from the zero witness at longer gaps. In particular the proof addresses arbitrary nonstationary real-valued centers, not only points in the symbolic support, and resolves the endpoint as full mass rather than just producing a positive admissible radius. This utility does not require metric or law universality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: two-time persistence with one common rate clock
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for two conditionally independent rate-one symmetric walks killed at zero, with a shared nonnegative rate resampled independently at deterministic intervals. The conditional survival factorization is exact. A reflection/spectral argument gives the single-walk asymptotic \(q_x(a)\sim x\sqrt{2/(\pi a)}\). Independence of rate intervals and their specified Laplace transform yield the joint stable limit at times \(t\) and \(ct\) with the exact clock normalization. Uniform negative moments justify taking expectations of the product rather than invoking weak convergence alone. Double Mellin inversion, a radial substitution and an angular substitution give the stated integral. Association of two strictly decreasing functions of the shared positive stable increment gives the strict common-clock enhancement. Independent stable increments give the large-time-ratio decoupling. The half-stable double-time integral is \(4/3\); a standalone executable numerical consistency check passed. No finite-time or uniform-in-\(c\) assertion is proved.
+PASS
 
-## Originality — PASS, qualified
+Conditioning on the common integrated rate gives the product of the two killed-walk survival curves. Reflection makes q_x(a) a sum of 2x unrestricted heat masses, giving q_x(a)∼x√(2/πa) at unit total rate. With b_t=τ^{1−1/α}t^{1/α}, the disjoint complete periods before and after t give the joint clock transform exp(−(u+v)^α−(c−1)v^α); at most two partial periods vanish in probability under this normalization. The negative p moment of the normalized complete sum, N=floor(t/τ)>p/α, is (t/τ)^{p/α} B(p/α,N−p/α)/(αΓ(p)), bounded and convergent by the gamma ratio. The uniform bound for p>1 controls the scaled product in L^p since A_ct≥A_t. This justifies the positive limiting mixed moment and separately the marginals. In the double Mellin integral use u+v=w and v/w=cos²θ; the radial integral is Γ(1/α)/α times the stated angular weight, and the angular Jacobian contributes the factor 2. The independent product is M_α(1/2)^2 c^{−1/(2α)}. Strict covariance follows from the independent-copy identity for two strictly decreasing functions of the nondegenerate S₁. For c≥2 couple S_c/c^{1/α}=c^{−1/α}S₁+((c−1)/c)^{1/α}S′ with S′ independent; the normalized mixed integrand is dominated by 2^{1/(2α)}(S₁ S′)^{−1/2}, integrable, and tends to the independent integrand. For α=1 the stable clock is deterministic. At α=1/2,c=2 the half-angle substitution reduces the angular integral to ∫₀¹(1+z²)dz=4/3 with prefactor one; equal time gives π/2. No claim of monotonicity in c is used.
 
-The primary full-text source (Levit and Reuveni, arXiv:2609.26925) gives **one-walker** asymptotic first-passage laws in the same rate environment. The earlier full-text model source (Arutkin and Reuveni, arXiv:2302.07041) establishes the doubly stochastic clock framework, not unequal-time two-walker survival. An already published **equal-time** shared-clock multiwalker enhancement includes \(R_{1/2}(1)=\pi/2\); that is excluded from the new contribution and cannot alone determine the function of the observation ratio \(c>1\). Searches for unequal-time first-passage, joint negative stable-clock moments, shared jump-rate random walks and two-observation persistence did not identify a theorem giving the exact two-time profile or the \(4/3\) constant. The integration method is classical; priority may be affected by a multitime stable-moment identity in specialist literature that was not comprehensively indexed.
+## originality
 
-## Value — PASS
+PASS
 
-The first observed survivor and the second survivor at a later specified instant provide a natural sequential-reliability and multiparticle-persistence statistic. The result describes *how long* a common random transport environment couples the two probabilities: strict enhancement for every fixed finite observation ratio and an explicit loss of enhancement as that ratio separates. The explicit half-stable ratio \(4/3\) at a double observation horizon is a calibrated exact case not inferred from the known equal-time \(\pi/2\) enhancement. The clock-dependent joint negative-moment kernel, not a routine substitution in a one-walker formula, underlies this genuine unequal-time observable.
+Credit the single-walker clock and survival results, standard stable Mellin tools and the acknowledged equal-time overlap. The supported distinct result is the unequal-observation-time two-walker joint asymptotic and dependent-clock enhancement curve, including the exact double-time ratio. The strongest inspected single-walker and stable-product statements do not imply this curve.
 
-## Closest literature and scientific limitations
+## value
 
-Levit and Reuveni (2026, arXiv:2609.26925); Arutkin and Reuveni (2023, arXiv:2302.07041); published equal-time multiseracher shared-clock result. The new asymptotic holds for fixed \(c\ge1\), fixed positive lattice starts and deterministic refresh interval, with independent conditional jump noises; it does not quantify finite-time errors, allow simultaneous \(c\)-and-\(t\) limits, or establish monotonicity of the enhancement. The reference integrals and one simulation-free numerical consistency program can be reproduced from the package; the program alone is not an infinite-proof certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identical one-walker marginals cannot tell whether rate histories are shared. The full unequal-time comparison provides an exact dependence signature with strict enhancement at every finite ratio for α<1, a clean double-time benchmark, and a proved decorrelation limit. This is more than a new evaluation at a selected point, and avoids promising finite-time or monotonic behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

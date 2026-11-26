@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:40:05.276890Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–125, VERIFICATION.md and checker.py (read only)",
+        "Huang–Wang–Zhao, arXiv:2610.09638v1, Theorems 2.1 and 3.1",
+        "Replay: python3 /workspace/reproduction.py 3"
+      ],
+      "rationale": "The factorization by z−α gives α^(n−1)(∑(z/α)^k−C_n); positivity and the triangle inequality put all remaining roots at radius ≥r_n|α|, with equality only for the positive-real quotient root. C_n>n; the lower equality gives a boundary root, and at and above t=1 the designated α is not interior. Reflecting the anti-analytic component (including the constant) gives the Bergman adjoint of multiplication by the conjugate-coefficient polynomial, with one-dimensional nullspace when the symbol-minus-λ has exactly one simple disk root. The Bergman monomial projection gives the analytic load z[a+h_n(z,α)], with zero constant because p_a(α)=λ; the coefficient sum is C_n. Evaluation at α cancels the sole interior pole and fixes the analytic component uniquely in zA². The essential curve and discreteness follow from the inspected spectral theorem. Independently, normalized harmonic monomial projection makes each analytic monomial shift differ from a bilateral shift power by weights tending to zero at both ends. This yields the same essential curve and index zero off it. In |λ|<|a|−1 the symbol-minus-λ has one simple disk root by Rouché; near any constructed nonzero λ the same analytic load criterion gives a finite list of possible eigenvalues, hence isolation. Both endpoint gaps are zero; the gap derivative changes sign exactly once between them, making the radial gap positive throughout. This also proves |a|>1 there. The boundary image at α/|α| attains the lower bound from the reverse triangle inequality, proving exact distance and the unique optimizer. For the lower asymptotic write r_n=1+x_n/n; bracketing x_n by c log n with fixed c below and above one and taking logs yield x_n=log n+log log n−log 6+o(1). The claimed scaled reciprocal threshold differs from x_n by o(1). The exact optimizer power tends to e^(−1), giving both other limits. Fresh rational n=4 check gave gap 187/2000 and verified projected anti-analytic rows and pole compatibility; large-degree computations were illustrative only.",
+      "residual_risks": [
+        "Geometric simplicity only. The gap is to the essential curve; no whole-plane count or optimality outside the stated branch."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 2.1 and 3.1 give the essential curve, index zero and an off-curve count bound (n−1)2^(n−1). The 2021 Weyl theorem as described in the 2026 paper treats degrees at most three; Guo–Zhao–Zheng treat a different Bergman space."
+        ],
+        "reasoning": "An upper bound and determinant criterion furnish infrastructure, not a root-location estimate or lower bound for this branch, and the analytic-space compression is not the same operator.",
+        "searches": [
+          "arXiv:2610.09638v1 §§2–3; DOI 10.1016/j.jmaa.2020.124770; arXiv:2007.07532"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09638v1, 2007.07532v1; DOI 10.1016/j.jmaa.2020.124770",
+        "Resultary a39b994b2d84, e6b835417cd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-root determinant gives the proposed eigenvalue formula conditionally. The quotient-root modulus minimum, radial nearest point, and lower-end log-log law are not statements of that criterion."
+        ],
+        "reasoning": "Credit conditional candidate and eigenspace mechanism as covered; the higher-degree uniform window, exact curve gap and two types of degree asymptotics require new arguments.",
+        "searches": [
+          "Huang–Wang–Zhao §3 equations (3.4)–(3.6); cubic and quadratic local findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The root determinant specializes to a+C_nα^(n−1)=0 when there is one disk root; disc rotations only change polygon orientation. The cubic Resultary record treats z³+az up to the same normalization."
+        ],
+        "reasoning": "Those are real equivalences for the candidate formula and the degree-three analogue, not equivalent statements of the all-degree root window, separation, and scaling.",
+        "searches": [
+          "Resultary: harmonic Bergman two-term analytic symbol and Toeplitz outlier window/gap; Huang–Wang–Zhao §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a39b994b2d84 gives the full odd-cubic spectrum with two outliers on an explicit interval; e6b835417cd5 gives a sharp quadratic one-outlier window and gap optimum."
+        ],
+        "reasoning": "These are exact records and material antecedents; their domains n=3 and n=2 do not give the n≥4 formulas or the degree asymptotics.",
+        "searches": [
+          "Resultary a39b994b2d84, e6b835417cd5 (two-term and optimized essential gap matches)"
+        ]
+      },
+      "rationale": "Supported for the quantitative all-degree outlier branch, including the sharp root window, exact optimal gap, and high-degree laws. The eigenvalue candidate equation is a direct specialization of a prior criterion, not an independently original spectral method. The closest cubic and quadratic records are substantive antecedents but do not establish the stated higher-degree quantitative results.",
+      "residual_risks": [
+        "Full text of the 2021 article was unavailable; its additional low-degree details were not audited. A prior higher-degree quantitative binomial analysis could remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Essential spectrum and isolation confirmed; conditional eigenvalue equation implied",
+          "evidence": "Essential curve with Fredholm index zero off it; finitely many off-curve points; determinant for p−λ evaluated at interior roots.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09638v1",
+          "material_read": "§1 around OA offset 8000; Theorems 2.1 and 3.1 around 8800 and 11200; §3 determinant equations (3.4)–(3.6), offsets 16800–22700",
+          "method": "OA HTML passages",
+          "title": "The spectral structure of Toeplitz operators with polynomial symbols on the harmonic Bergman space",
+          "trigger": "Exact cited theorem and plausible broader coverage"
+        },
+        {
+          "assessment": "Exact low-degree analogue, not higher-degree coverage",
+          "evidence": "Two simple outliers exactly for (14+2√13)/9<|a|<4 for z³+az.",
+          "identifier_or_url": "Resultary 2026/10/18, a39b994b2d84",
+          "material_read": "RESULT.md Finding and root-determinant specialization in proof",
+          "method": "Local mirror",
+          "title": "A sharp two-outlier window for odd cubic harmonic-Bergman Toeplitz operators",
+          "trigger": "Same two-term symbol and exact outlier window"
+        },
+        {
+          "assessment": "Related gap optimization in degree two",
+          "evidence": "Sharp one-outlier window with optimized essential-curve gap for quadratics.",
+          "identifier_or_url": "Resultary 2026/10/27, e6b835417cd5",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Local mirror",
+          "title": "Sharp separation and asymmetric boundary layers of quadratic harmonic-Bergman Toeplitz operators",
+          "trigger": "Earlier sharp essential gap and optimization"
+        },
+        {
+          "assessment": "Available evidence supports an at-most-cubic scope for the cited Weyl result; uninspected details remain open",
+          "evidence": "The later paper attributes the result through degree three to Wang–Zhao.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2020.124770",
+          "material_read": "Scope as reported by Huang–Wang–Zhao §1; direct full text unavailable",
+          "method": "Bounded OA attempt and inspection of the later primary citation",
+          "title": "Weyl's theorem for Toeplitz operators with polynomial symbols on the harmonic Bergman space",
+          "trigger": "Earlier same-operator Weyl theorem"
+        },
+        {
+          "assessment": "Different Toeplitz compression",
+          "evidence": "Uses the analytic Bergman space with a harmonic, not necessarily analytic, symbol.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.07532v1",
+          "material_read": "PDF pp. 1–3",
+          "method": "OA PDF passages",
+          "title": "The spectral picture of Bergman Toeplitz operators with harmonic polynomial symbols",
+          "trigger": "Possible projection/symbol equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47 and 95–125; Huang–Wang–Zhao Theorem 3.1"
+      ],
+      "rationale": "A natural two-term family realizes an unbounded explicit number of isolated points where the general theorem gives only an upper count bound. The gap extremum shows separation growing linearly with degree and resolves the distinct lower-edge scale; these are useful quantitative structural facts beyond the determinant specialization.",
+      "residual_risks": [
+        "No comparison with gap optima over all symbols or other outlier branches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:13:02.306685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48 and 50–92",
+        "Frozen VERIFICATION.md lines 19–35 and verify.py lines 8–126"
+      ],
+      "rationale": "The proof yields the full real characteristic polynomial for the exact graph in the Finding. Put n=q+1 and s=q−1. Each ordered kernel/image type contains s vertices; the incidence of types (i,j),(k,l) is j=k or l=i. Removing the self-loops gives H⊗J_s−D⊗I_s. The fiber sum-zero spaces give the displayed zero and −1 factors, while the type-constant operator is Bf_ij=s(r_j+c_i−f_ji)−1_{i=j}f_ii. Its skew differences a_i−a_j have eigenvalue −s(n−1); its skew row-null arrays have eigenvalue s. Its symmetric zero-diagonal row-null arrays have eigenvalue −s: the row-map transpose a↦(a_i+a_j)_{i<j} is injective for n≥3. The two remaining symmetric blocks use the constant diagonal/off-diagonal pair and the zero-sum diagonal/off-diagonal pair; substitution gives P_q and Q_q. The dimensions exhaust n². Both quadratics have negative constant term and neither vanishes at −1 (P_q(−1)=−(q−1)(2q²−q−2), Q_q(−1)=−q²(q−2)−1). The −s eigenspace vanishes at q=2, so rank, inertia and −1 multiplicity follow without exceptions; the energy follows from the positive square roots of the two discriminants and the remaining linear factors. The source script was inspected, not executed: its exact finite checks over F_2,F_3,F_4,F_5 corroborate the type criterion and quotient characteristic polynomial, and check the full polynomial at q=2,3. The proof, not the script, establishes the unbounded prime-power claim.",
+      "residual_risks": [
+        "The checks and proof do not address multiplication over nonfields, directed adjacency or graphs with loops. No formal certificate is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.16 handles M_n(F_q) using eigenvalues of a class quotient C_A; Proposition 3.6 gives spectral bounds for the diagonally corrected quotient T+A(H).",
+          "Mönius treats commutative rings, where adjacency is xy=0, not these matrix rings."
+        ],
+        "reasoning": "The general quotient theorem covers computing individual cases, not the uniform closed factorization. Its specialization still requires the spectral analysis of a family of growing quotient matrices.",
+        "searches": [
+          "arXiv:2106.15977, Theorem 3.16",
+          "arXiv:2312.09934, Proposition 3.6",
+          "Mönius, DOI 10.1007/s10801-020-00989-6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and the matched domination record",
+        "arXiv:2603.20947v1",
+        "arXiv:2312.09934",
+        "arXiv:2106.15977",
+        "DOI 10.1007/s10801-020-00989-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rather gives lower bounds for zero/−1 multiplicities and the top eigenvalue, not nonsingularity of the reduced quotient or its full polynomial. The other prior results leave the quotient eigenvalues unspecified or bounded."
+        ],
+        "reasoning": "The block splitting for all quotient dimensions is additional mathematics. The derived numerical invariants are consequences of that splitting, rather than independent novelty claims.",
+        "searches": [
+          "Rather, Theorem 4.1, Corollary 4.2 and Theorem 4.4",
+          "Masalkar et al., arXiv:2106.15977 Theorem 3.16 and arXiv:2312.09934 Proposition 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odd-prime Lipschitz quaternion rings in Rather's theorem are matrix rings over F_p; his graph reduction gives the same zero and −1 factors and leaves an order-(p+1)² quotient.",
+          "Resultary 2026/10/4/SCOPE-domination-of-the-underlying-zero-divisor-graph-of-m-2-mathbb-f--5269e95a539e, RESULT.md offset 0, establishes the same type incidence for the same graph."
+        ],
+        "reasoning": "The quaternion formulation is a genuine alias in odd prime order, but the displayed prior quotient has not been fully diagonalized there. The indexed record computes domination, not spectrum.",
+        "searches": [
+          "Resultary search on the spectrum of the M_2(F_q) zero-divisor graph and ordered image/kernel pairs",
+          "arXiv:2603.20947v1, Theorem 4.1 and Corollary 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No full-spectrum table matched in the ranked index results. The matching graph entry gives domination; Rather gives quotient factors and spectral radius, and Masalkar et al. diagonalize A(H) rather than the required corrected T+A(H)."
+        ],
+        "reasoning": "The closest exact entries provide partial factors, one eigenvalue, a different invariant, or a different operator, not the claimed complete polynomial. This is a bounded comparison, not an absence proof.",
+        "searches": [
+          "Local Resultary search for exact full matrix-ring graph spectrum, rank, inertia and energy",
+          "arXiv:2603.20947v1 Theorems 4.1 and 4.4; arXiv:2312.09934 pp. 18–19"
+        ]
+      },
+      "rationale": "The supported distinct result is the uniform explicit diagonalization of the entire quotient and the sharp spectral consequences. The ordered type structure, within-type eigenvalues and largest eigenvalue in the odd-prime case have prior coverage and are not credited as new here.",
+      "residual_risks": [
+        "An unexamined explicit diagonalization of the quotient or spectrum under another graph formulation could precede the finding. The verified novelty assessment is limited to the sources and search results inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage",
+          "evidence": [
+            "Factors out the within-type 0 and −1 eigenvalues; lower bounds for their multiplicities; top eigenvalue from two cells rather than full quotient spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20947v1",
+          "material_read": "Theorem 4.1, Corollary 4.2 and Theorem 4.4; OA offsets 34048 and 47031",
+          "method": "Bounded primary HTML passage inspection",
+          "title": "Block Structure and Spectrum of Zero-Divisor Graphs of Lipschitz Quaternion Rings Modulo n",
+          "trigger": "Isomorphic odd-prime graph and explicit spectrum in title"
+        },
+        {
+          "assessment": "Quotient and spectral bounds, not the complete loopless spectrum",
+          "evidence": [
+            "The paper finds the spectrum of A(H) but describes the spectrum of T+A(H) as difficult and applies Weyl bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.09934",
+          "material_read": "pp. 18–19, Proposition 3.6, OA offset 60351",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "On spectrum of the zero-divisor graph of matrix ring",
+          "trigger": "Same ring/object and spectral invariant"
+        },
+        {
+          "assessment": "Exact implicit reduction",
+          "evidence": [
+            "Uses eigenvalues of C_A rather than explicitly resolving the quotient for n=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.15977",
+          "material_read": "Theorem 3.16, pp. 19–20, OA offset 78184",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Spectra of the zero-divisor graph of finite rings",
+          "trigger": "Broader theorem including all finite-field matrix rings"
+        },
+        {
+          "assessment": "Different assumptions",
+          "evidence": [
+            "Requires a commutative ring."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-020-00989-6",
+          "material_read": "Abstract and introduction, p. 1, OA offset 148",
+          "method": "Bounded primary passage inspection",
+          "title": "Eigenvalues of zero-divisor graphs of finite commutative rings",
+          "trigger": "Nearby spectral invariant in another ring family"
+        },
+        {
+          "assessment": "Same incidence reduction; different theorem",
+          "evidence": [
+            "Identifies q−1 elements per ordered pair of projective lines and the zero-product criterion, to compute domination."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-domination-of-the-underlying-zero-divisor-graph-of-m-2-mathbb-f--5269e95a539e",
+          "material_read": "RESULT.md, offset 0, kernel/image incidence construction",
+          "method": "Local mirror statement inspection",
+          "title": "Domination of the underlying zero-divisor graph of M_2(F_q)",
+          "trigger": "Exact same graph in the published index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–41, 50–86, and 94–104",
+        "Rather, Corollary 4.2",
+        "Masalkar et al., arXiv:2312.09934, Proposition 3.6"
+      ],
+      "rationale": "This is a natural minimal noncommutative finite matrix family, not a single selected field or a tabulated graph. The full quotient splitting resolves an explicit gap in earlier spectral reductions: uniform exact multiplicities, rank, inertia and energy are usable without diagonalizing a separate growing matrix for each field order. In particular it shows the known lower bounds are sharp and treats even and extension fields with the same proof.",
+      "residual_risks": [
+        "The value claim is for this graph family; extension to higher matrix size is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

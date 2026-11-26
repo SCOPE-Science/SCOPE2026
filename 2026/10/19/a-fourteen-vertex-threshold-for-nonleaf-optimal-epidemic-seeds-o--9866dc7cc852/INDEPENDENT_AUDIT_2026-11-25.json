@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:06:36.212327Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; frozen VERIFICATION.md, verify.py and crosscheck.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/432afd0a-d2b5-4b40-9d95-3713b151974a/audit_independent.py --max-order 13",
+        "/workspace/branches/432afd0a-d2b5-4b40-9d95-3713b151974a/census.log, lines 1–6"
+      ],
+      "rationale": "At the end of a simple path in a tree the previous vertex is the only already visited neighbor. The continuation counts the current vertex once and divides the sum of forward continuations by the full degree, retaining the killing probability of the backward contact. The seed has no forbidden neighbor. The recurrence terminates on the proper oriented-edge components. Deleting a leaf produces a smaller tree, so growing all leaf attachments from one representative per class is exhaustive by induction. Center decomposition is invariant; sorted rooted shapes determine rooted isomorphism, and a sorted pair of rooted halves determines bicentered isomorphism. An independent exact run compared all vertex maxima against leaf maxima on 2287 classes of orders 2–13, with per-order counts including order 1 of 1,1,1,2,3,6,11,23,47,106,235,551,1301. Recurrence and exact path-prefix sums independently agreed on the order-14 witness, confirming the unique maximum at degree-two vertex 0 of 49/16, best leaves 10 and 13 at 1763/576, and gap 1/576. For order 2 both vertices are leaves. No assertion that every maximizer is a leaf below the cutoff is needed.",
+      "residual_risks": [
+        "This is an exhaustive certificate only for orders 2–13 and an explicit witness at order 14, not a classification at larger orders. The enumeration is exact code plus a completeness proof, not a formal machine proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary broom model is independent-edge percolation, and the two seven-vertex records concern pairwise stochastic comparability or ranking reversals under varied transmissibility. The other inspected epidemic papers concern SIR epidemic representations, a reinfection model, or expected-outbreak algorithms on dynamic contagion networks."
+        ],
+        "reasoning": "Independent edge retention can infect multiple branches from a vertex. Here at most one forward infection is made, and it competes with a failed contact back to the predecessor. Pairwise ranking or expected-size algorithms do not certify a global maximum on every tree through a sharp order.",
+        "searches": [
+          "Resultary records 5d05a9b4e6b1, 9f4eedfdcfd8 and 51f5bbdc1318",
+          "Kenah–Robins arXiv:q-bio/0610057",
+          "Gómez et al. arXiv:0907.1313",
+          "Enright–Kao DOI 10.1016/j.epidem.2016.05.002"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5d05a9b4e6b1, 9f4eedfdcfd8 and 51f5bbdc1318",
+        "arXiv:1606.01560 and 1609.08375",
+        "arXiv:q-bio/0610057, p. 2 abstract",
+        "arXiv:0907.1313, p. 2 model description",
+        "Enright–Kao DOI 10.1016/j.epidem.2016.05.002, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On any fixed tree the known stopping rule gives the continuation recursion but not an order or location of an extremum. Percolation record comparisons do not preserve that recursion or its seed maxima."
+        ],
+        "reasoning": "Finding a strict witness and excluding all smaller witnesses require distinct extremal evidence, not just evaluating an ensemble formula or substituting parameters into the percolation rankings.",
+        "searches": [
+          "arXiv:1606.01560, stopping rule and Table 1",
+          "Resultary broom source migration 5d05a9b4e6b1 and seven-vertex criteria 9f4eedfdcfd8, 51f5bbdc1318"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1606.01560 studies the walk from a random initial node stopped at the first previously visited vertex, exactly the frozen stopping rule, on an Erdős–Rényi ensemble. arXiv:1609.08375 instead excludes the previous vertex from the transition probabilities."
+        ],
+        "reasoning": "Counting distinct vertices before the first repeat is equivalent to the frozen score on a tree. A nonbacktracking walk with renormalized transition probabilities differs because it does not die with probability 1/deg(u) at interior vertices. Neither inspected paper gives the deterministic tree-seed extremum.",
+        "searches": [
+          "Tree leaf extremum for first-repetition killed simple random walk",
+          "Tishby–Biham–Katzav arXiv:1606.01560 and arXiv:1609.08375"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected killed-walk table contains ensemble tail, mean and termination summaries, not all-tree leaf-optimality or a boundary witness. The retrieved exact tree-source thresholds correspond to different questions."
+        ],
+        "reasoning": "An unlabeled-tree count or an ensemble mean table is not a table of seed maxima or of the first tree with all maximizing seeds internal.",
+        "searches": [
+          "Resultary targeted lookup for full-neighbor tree seed optimum and 14-vertex cutoff",
+          "arXiv:1606.01560, Table 1, PDF p. 20, OA offset 62250"
+        ]
+      },
+      "rationale": "The first-repetition killed-walk formulation is established and supplies the correct comparison, not a novelty claim. No checked source gives the combined all-tree lower bound and sharp first counterexample for this precise full-neighbor starting-vertex mean. Relevant Resultary tree-source records change the law or the extremal question. The accessible general walk results change the graph ensemble and starting-vertex quantifier.",
+      "residual_risks": [
+        "A differently indexed fixed-tree extremal result or exact table could exist; the bounded search was not exhaustive.",
+        "Enright–Kao full text was not inspected, without counting this as evidence of non-overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process, different graph/seed quantifiers and conclusion",
+          "evidence": "Random start on an Erdős–Rényi ensemble; tabulated path length and termination-mode formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.01560",
+          "material_read": "PDF p. 1 abstract (offset 700) and p. 20 Table 1 (offset 62250)",
+          "method": "OA primary passages and table",
+          "title": "The distribution of first hitting times of random walks on Erdős–Rényi networks",
+          "trigger": "Identical first-repetition stopping rule"
+        },
+        {
+          "assessment": "Different step law",
+          "evidence": "Backtracking is prohibited rather than offered as a killing contact.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.08375",
+          "material_read": "PDF p. 1 definition in abstract (offset 850)",
+          "method": "OA primary passage",
+          "title": "The distribution of first hitting times of non-backtracking random walks on Erdős–Rényi networks",
+          "trigger": "Potential equivalent nonbacktracking model"
+        },
+        {
+          "assessment": "Different process and restricted family, no first all-tree exception",
+          "evidence": "Independent-edge percolation maxima on brooms as the edge probability varies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-multi-stage-epidemic-source-migration-on-broom-contact-tre--5d05a9b4e6b1/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary lookup and local-mirror statement comparison",
+          "title": "Exact multi-stage epidemic-source migration on broom contact trees",
+          "trigger": "Tree expected-outbreak source maxima, including suboptimal leaves"
+        },
+        {
+          "assessment": "Independent-edge law and stochastic comparability, not mean leaf optimum",
+          "evidence": "Comparable pairwise distributions through six vertices and an incomparable pair at seven.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-seven-vertices-are-sharp-for-failure-of-epidemic-source-stochast--9f4eedfdcfd8/RESULT.md",
+          "material_read": "Finding, offsets 2 and 787",
+          "method": "Resultary lookup and local-mirror statement comparison",
+          "title": "Seven vertices are sharp for failure of epidemic-source stochastic comparability",
+          "trigger": "Sharp finite tree-source threshold"
+        },
+        {
+          "assessment": "Different transmission law and different extremal question",
+          "evidence": "Pairwise ranking reversals as p varies, without a claim that either source is globally optimal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-seven-vertices-are-sharp-for-transmissibility-dependent-epidemic--51f5bbdc1318/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local-mirror statement comparison",
+          "title": "Seven vertices are sharp for transmissibility-dependent epidemic-source rankings",
+          "trigger": "Sharp tree-source mean ranking threshold"
+        },
+        {
+          "assessment": "Limits full-text comparison; abstract describes a different target",
+          "evidence": "Dynamic contagion networks and expected-outbreak algorithms; no conclusion inferred about unavailable full text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.epidem.2016.05.002",
+          "material_read": "Landing page and abstract only; no lawful repository text was located",
+          "method": "OA access attempt",
+          "title": "A fast algorithm for calculating an expected outbreak size on dynamic contagion networks",
+          "trigger": "Exact outbreak-size computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "Independent exact census and witness replay"
+      ],
+      "rationale": "The starting-vertex optimization is natural for a killed walk on a tree, and the result answers whether a leaf can always be used as an optimal start. The strict interior optimum refutes that structural heuristic and the exhaustive lower bound makes the failure order sharp. The small gap matters for the strict extremal question, not as a claim about epidemic effect sizes.",
+      "residual_risks": [
+        "No larger-order structure or applicability to real contact networks is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

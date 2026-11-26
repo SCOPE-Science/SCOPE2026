@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:50:48.217865Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, especially lines 28–79",
+        "VERIFICATION.md and verify.py, inspected without executing the supplied code",
+        "Independent logarithmic evaluation: sum over j<q^2 of log1p(-(q^2+2j)/q^4) plus q^2 times (log1p(-q^-2)+log1p(-q^-4)); q=5,11,41,101"
+      ],
+      "rationale": "Write Q=q^f. High Q-Frobenius powers lift residues to the unique coefficient field, since the radical is nilpotent. Once that field is generated, subtract the field components: spanning the cotangent space is necessary and sufficient, since products of tangent lifts span the successive radical layers and the filtration terminates. Distinct full-degree Frobenius orbits give distinct maximal polynomial kernels; CRT supplies the residue indicators and high Frobenius powers lift them to the actual factor idempotents. Consequently generation is exactly absence of the three stated obstructions. Uniform sampling makes residues and tangent matrices independent, irrespective of the higher radical. The proper-subfield probability is asymptotic to Q^(-k/2) for even f and smaller order for odd f (zero for f=1); a unique maximal-size proper subfield supplies the even case. For d>0, the rank-defect probability is asymptotic to Q^(d-1-k), so r times this probability vanishes, tends to c, or diverges on the stated sides of d=k/2+1; for d=0 the obstruction is absent. Conditional on bounded U, the remaining coordinates are uniform in T/f orbit boxes. In the j-th collision factorial moment the disjoint pairs give (f c^2/2)^j; any connected component with v>=3 vertices contributes order (Q^k)^(1-v/2), uniformly for bounded U. Tightness of U and this conditional limit give independence, with V exactly independent already at finite q. For the positive regime use the probability of zero counts (e.g. intersection with the open half-integer cube, whose boundary carries no limiting mass). Above the threshold the rank obstruction suffices. I independently evaluated the finite product via logarithms for f=k=d=2 and c=1, reproducing the four displayed probabilities to eight decimals. The general conclusion is analytic, not a finite experiment.",
+      "residual_risks": [
+        "Fixed f,k,d and c, uniform generators and finite commutative local factors only; no quantitative convergence rate established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounds on random generation and generator-scheme representability cover related algebra families but do not give the critical joint obstruction limit.",
+          "The split quiver setting covers the f=1 square-zero exact-count projection; the sparse loopless window lacks even residue degrees and a critical local cotangent rank failure."
+        ],
+        "reasoning": "Broader algebraic families or representability do not by themselves give the relevant joint limit or imply all the parameter cases.",
+        "searches": [
+          "arXiv:2009.01115, Theorem 1.1 and field-power example",
+          "arXiv:2108.07185, Theorem 1.4",
+          "Resultary 6414cb51e1f0 and 7b971bcbfe04"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.6465",
+        "arXiv:1001.2873",
+        "arXiv:2009.01115",
+        "arXiv:2108.07185",
+        "Resultary:531dcf3be3b2",
+        "Resultary:6414cb51e1f0",
+        "Resultary:7b971bcbfe04",
+        "Resultary:697b7c781727"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The structural generation criterion plus finite-field enumeration gives the exact product; its logarithm yields the marginal success limit. This does not specify joint laws of failure counts.",
+          "The earlier residue-only conditioning treats part of the same sample-space mechanism; coupling it to the cotangent rank exponent and giving the joint law at its critical boundary is the supported additional statement."
+        ],
+        "reasoning": "Credit the routine finite counting and the existing residue/rank pieces. What remains is their sharp full balance and joint asymptotic classification for arbitrary local powers in the stated limit.",
+        "searches": [
+          "arXiv:1406.6465, Section 2",
+          "arXiv:1001.2873, Theorem 3.2",
+          "Resultary 531dcf3be3b2 and 697b7c781727, RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "531dcf3be3b2 uses Frobenius orbit occupancy with q fixed and tuple length increasing, including proper-subfield and collision Poisson contributions.",
+          "The product criterion of arXiv:1406.6465 identifies the same residue-kernel and local-surjectivity obstructions, but makes no joint probabilistic claim."
+        ],
+        "reasoning": "Replacing simple-quotient equivalence by Frobenius equality identifies real prior residue coverage, not an equivalent triple law. The cotangent count is absent in the étale model.",
+        "searches": [
+          "Resultary comparisons for finite étale generation profiles, Galois-twist rank laws, and quiver birthday thresholds",
+          "arXiv:1406.6465, Theorem 2.2 and Corollary 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact data in these sources are finite counts, a density product, the residue-only Poisson result and a single-factor rank law; the full triple-critical limit was not located."
+        ],
+        "reasoning": "The claim is an all-parameter asymptotic, not a finite table entry; exact general counting formulae and overlapping catalogue statements are the pertinent comparisons.",
+        "searches": [
+          "Resultary local index, closest result texts 531dcf3be3b2, 6414cb51e1f0, 7b971bcbfe04, 697b7c781727",
+          "arXiv:1001.2873, Theorem 3.2"
+        ]
+      },
+      "rationale": "Pass applies to the full q-growing phase diagram and the joint law of the three separately identified obstructions, not to the algebraic criterion, the matrix rank formula, or the classical birthday limit in isolation. There is substantive two-obstruction overlap with the finite étale profile result in a different limit and exact-count overlap for split radical-square-zero products. Neither carries the arbitrary local factors with even residue degree and the simultaneously critical cotangent obstruction.",
+      "residual_risks": [
+        "The checked prior coverage is substantial on the individual mechanisms. A more general marked occupancy theorem specialized to these algebraic obstructions could affect priority; no such coverage was established. No date-based precedence is inferred for the same-day record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural reduction",
+          "evidence": "Local surjectivity together with inequivalence of the images in the simple quotients; nilpotent ideals give a lifting criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6465",
+          "material_read": "Section 2, Theorem 2.2 and Corollary 2.6 (PDF pp. 3, 5)",
+          "method": "Lawfully available primary PDF passages",
+          "title": "Generators of maximal orders",
+          "trigger": "Product-generation and nilpotent lifting criterion"
+        },
+        {
+          "assessment": "Precedent for exact counts and densities",
+          "evidence": "Density of generators of a free algebra over the base ring expressed as a product of finite local probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.2873",
+          "material_read": "Introduction and Theorem 3.2 (PDF pp. 3, 14)",
+          "method": "Lawfully available primary PDF passages",
+          "title": "On the smallest number of generators and the probability of generating an algebra",
+          "trigger": "Exact generation density precedent"
+        },
+        {
+          "assessment": "No matching joint law in examined material",
+          "evidence": "General generation bounds and a field-power regime, without the three critical counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.01115",
+          "material_read": "Abstract and Theorem 1.1 with field-power example (PDF pp. 1–2)",
+          "method": "Lawfully available primary PDF passages",
+          "title": "Random generation of associative algebras",
+          "trigger": "Broader random-generation theorem"
+        },
+        {
+          "assessment": "Representability, not an occupancy limit",
+          "evidence": "Schemes of generators for finite locally free extensions.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.07185",
+          "material_read": "Theorem 1.4 (PDF pp. 2–3)",
+          "method": "Lawfully available primary PDF passage",
+          "title": "The Scheme of Monogenic Generators I: Representability",
+          "trigger": "Possible generating-tuple scheme precedent"
+        },
+        {
+          "assessment": "Material two-obstruction overlap",
+          "evidence": "Fixes q and increases tuple length; collision and proper-subfield terms agree in form with the present residue sector, but not a critical cotangent term.",
+          "identifier_or_url": "Resultary:531dcf3be3b2",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Finite étale generation profiles and an arithmetic compound Poisson law",
+          "trigger": "Closest probabilistic match"
+        },
+        {
+          "assessment": "Exact-count or one-obstruction overlap",
+          "evidence": "Split quiver vertex-collision and first-layer rank tests (including loops in the exact count), loopless sparse limit, and a single local factor rank law, respectively.",
+          "identifier_or_url": "Resultary:6414cb51e1f0; Resultary:7b971bcbfe04; Resultary:697b7c781727",
+          "material_read": "Each RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Gabriel-quiver universality and a birthday threshold for random generation; Random generation of radical-square-zero quiver algebras; A Galois-twist rank law for random generation of square-zero local algebras",
+          "trigger": "Possible matching exact laws or stronger sparse limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "arXiv:1406.6465 and Resultary:531dcf3be3b2 as motivation and baseline"
+      ],
+      "rationale": "Generation of an increasingly large product is a natural test beyond single-factor generator criteria. The simultaneous Poisson window identifies precisely when three algebraically different causes all survive and distinguishes their effects, rather than reporting only a zero-event probability. The complete threshold is uniform across arbitrary higher radical structure; it distinguishes a residue-field birthday effect from the onset of widespread local nongeneration. The individual probabilistic tools are standard but the exact balance and joint classification answer a motivated structural question.",
+      "residual_risks": [
+        "No asserted robustness for growing f or k, nonuniform sampling, or noncommutative factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

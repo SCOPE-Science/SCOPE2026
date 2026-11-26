@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:37:33.483056Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and corrected /workspace/repairs/1/RESULT.md",
+        "VERIFICATION.md and verify.py, inspected, not executed",
+        "arXiv:2609.39401 Eq. (4), Supplement II C, (S22),(S37),(S38),(S53)–(S58)",
+        "Independent finite reproduction in /workspace/review_checks.py, ordinal 1"
+      ],
+      "rationale": "Reassessed the corrected result. The main-text circuit uses U_F=U_odd U_even with even bonds (2j,2j+1) and odd bonds (2j−1,2j), the Heisenberg matrix unit at site 1, and cut 0|1; these conventions are now explicit. (S22),(S37),(S38) give the flat branch spectra and product-binomial squared masses for the normalized matrix. Supplement II C proves the Hermitian equality: M_H=(M+VM)/√2 with V†V=I and M†VM=0. Hilbert–Schmidt orthogonality of the row/column count blocks makes the low-difference mass exactly q_t(b); rank subadditivity bounds the rank of their sum by t(t+1)2^(b√t). Eckart–Young makes this a lower bound on the optimal retained mass at that budget. The complementary operator norm bound follows by summing block norms, and trace/nuclear norm duality gives the stated upper estimate. No joint Schmidt orthogonality is needed. The additionally credited (S55) gives F_t(r)≤q_t(b)+r2^(−b√t) and also implies the limiting upper profile. L−K has the law Bin(2t−1,1/2)−(t−1), so g(L−K)/√t converges to |N(0,1/2)|. Taking b above and below a/log 2 yields erf(a/log 2), with a=0 by letting the upper cutoff decrease to zero. The fixed squared-error quantile then follows from strict continuous monotonicity, for every fixed ε in (0,1). An independent exact staggered-packet check at t=1–4 verified all 40 count blocks by uniform disjoint rectangular components and checked that right indices remain ket/bra diagonal (`python3 /workspace/review_checks.py 1`); all-time flatness is sourced from the supplementary derivation, not these finite checks.",
+      "residual_risks": [
+        "Infinite-volume-first, one fixed cut and specified operators only; no uniform-in-accuracy asymptotics or all-cut optimal MPO theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Yang–Baxter record discusses multiple gate classes and a different seven-state example with exponential operator Schmidt rank.",
+          "The exact same-circuit Supplement V gives a necessary-rank bound. The indexed preliminary description concerns qualitative square-root growth and Rényi regimes."
+        ],
+        "reasoning": "Neither the inspected broader statements nor the known necessary-rank estimate implies achievability of this sharp exponent. The inaccessible preliminary text is an unresolved scope of comparison, not negative evidence.",
+        "searches": [
+          "arXiv:2609.05121, PDF p. 1",
+          "arXiv:2609.39401, Supplement V",
+          "Zenodo 22306151, indexed description and attempted OA PDF"
+        ]
+      },
+      "checked_sources": [
+        "Independent comparison with arXiv:2609.39401 and arXiv:2609.05121 passages above",
+        "Resultary exact-record match and 308ff33614b5",
+        "Zenodo 22306151 indexed description",
+        "Repaired scientific statements in /workspace/repairs/1/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "(S55) is F_t(r)≤E[min(1,r·2^(−G_t))]; splitting at b√t gives q_t(b)+r·2^(−b√t). Taking each fixed b>a/log 2 and then lowering b gives the sharp converse.",
+          "(S57) demonstrates that linear rank dependence by substitution explicitly. (S58) states an unspecified necessary exponent and no sufficient-rank result. The frozen lower-mass construction uses the sum of all blocks below the cutoff; its rank need not equal the sum of branch ranks, but is at most that sum."
+        ],
+        "reasoning": "This is substantial prior overlap, not merely a shared model: the upper half of the claimed limit was already a consequence. The previously unprovided lower half requires constructing a matrix at the retained-mass quantile and controlling its rank overhead. The repaired statement claims only the sharp equality with that matching achievability, not a new sharp converse or a new source block theorem.",
+        "searches": [
+          "arXiv:2609.39401, initial site, cut and local operator; Supplement (S22),(S37),(S38),(S53)–(S58)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Relative squared Hilbert–Schmidt approximation error is 1−F_t(r); exact fixed-error log rank is the inverse of the limiting mass curve.",
+          "Resultary 308ff33614b5 gives a logarithmic Rényi coefficient at fixed α>1, not the mass retained by an exponentially growing rank."
+        ],
+        "reasoning": "The inverse tradeoff is an equivalent form, not a second originality claim. A moment dominated by near-balanced sectors does not determine the typical-weight quantile.",
+        "searches": [
+          "Resultary: fixed-error Schmidt compression; e^(a√t) erf profile; exact stretched-exponential Schmidt rank",
+          "Web search: optimal operator Schmidt rank compression curve integrable brickwork circuit erf fixed accuracy",
+          "arXiv:2609.39401 Supplement (S53)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match is the same assigned record, 2026/11/22/SCOPE-sharp-fixed-accuracy-schmidt-rank-profile-of-an-integrable-brick--b3b71e0e9268.",
+          "The closest distinct same-model record is 2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5."
+        ],
+        "reasoning": "Self-match is not separate priority evidence. The separate record's moment coefficient is not a tabulation or determination of the compression profile.",
+        "searches": [
+          "Resultary: exact fixed-accuracy Schmidt rank, Gaussian retained-weight curve, integrable four-state brickwork"
+        ]
+      },
+      "rationale": "The frozen discussion materially understated the prior bound: direct inspection of (S55) and its use in (S57) confirms a linear factor r, not r². This gives the sharp upper retained-weight limit already. Corrected RESULT.md, REVIEW.md, AUDIT.json and SLOGAN.txt credit that implication and claim novelty only for matching sufficient rank and the resulting equality. The additional construction is a low-difference count-block approximation, not a substitution into (S55); it retains the requisite mass at matching scale despite the absence of a joint count-block Schmidt basis. No compared source supplies the matching profile. The original evidence is unchanged.",
+      "residual_risks": [
+        "The preliminary PDF was not readable and may contain an equivalent; other unindexed achievability arguments are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact model inputs and implies the sharp converse; no matching construction found in Supplement V",
+          "evidence": "S55 has linear r in min(1,r·2^(−G_t)); the S57 tail after splitting at 2c√t/log 2 is at most exp(−c√t). S58 states a one-sided necessary rank.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.39401",
+          "material_read": "Main text Eq. (4), period/cut and initial matrix unit; Supplement II C and (S22),(S37)–(S38); Supplement V, especially (S53)–(S58), PDF passages near offsets 84306, 88476, 101737, 118800–125089 and Supplement V ending",
+          "method": "Lawful open PDF passage inspection and check of the (S55)–(S57) substitution",
+          "title": "Square-root growth of operator entanglement in an integrable brickwork circuit",
+          "trigger": "Same circuit, operator, cut and compression objective"
+        },
+        {
+          "assessment": "Full-text priority comparison not established; not exclusion evidence",
+          "evidence": "Indexed description concerns qualitative square-root growth and broad Rényi regimes. Full PDF retrieval was unsuccessful.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.22306151",
+          "material_read": "Indexed public description only",
+          "method": "Targeted search and lawful direct and alternate attempts to retrieve the same PDF",
+          "title": "Square-root growth of operator entanglement in an integrable brickwork circuit (preliminary)",
+          "trigger": "Earlier public version of same work"
+        },
+        {
+          "assessment": "Same model with distinct spectral invariant",
+          "evidence": "For fixed α>1, S_α(t)=[(α−1/2)/(α−1)]log t+O_α(1), rather than a fixed-error quantile.",
+          "identifier_or_url": "2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "The exact high-index Rényi coefficient in an integrable brickwork circuit",
+          "trigger": "Exact asymptotics in the same normalized Schmidt spectrum"
+        },
+        {
+          "assessment": "Different gate-class conclusions in the inspected text",
+          "evidence": "Broader classes and a seven-state exponential operator-Schmidt-rank example, not a matching sufficient rank for the fixed-error four-state problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.05121",
+          "material_read": "PDF p. 1 abstract and opening passages around offsets 990 and 2523",
+          "method": "Lawful open PDF passages",
+          "title": "On the growth of operator entanglement in brickwork circuits with Yang–Baxter gates",
+          "trigger": "Broader integrable entanglement theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and Proof",
+        "arXiv:2609.39401, Supplement V"
+      ],
+      "rationale": "After crediting the known sharp necessary scale, attainability is the substantive issue: a lower rank bound alone cannot tell how much accuracy a given resource budget achieves. The low-difference construction proves the matching achievable exponent for every fixed squared error and the whole optimal mass curve in a concrete integrable model. This is a quantitative single-cut benchmark, not an improvement of the prior converse or a rephrasing of the entropy growth law.",
+      "residual_risks": [
+        "Does not establish an efficient implementation, global MPO optimality, or a simulation theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

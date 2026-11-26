@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:00:42.632660Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent algebra and direct finite reproduction"
+      ],
+      "rationale": "The append step partitions descendants into those retaining and omitting the new last symbol; the intersection consists of one-deletion descendants ending in that symbol. Counting those by whether the last run repeats, lengthens, or forms a return gives the increment of binom(R,2)+S-T. At n=2 the count is one. The transfer records a change, start of a long run, and return, using only whether the preceding edge changed. The count q(q-1)^k over each fixed edge pattern proves iid Bernoulli change indicators. At each successive double change, exactly one of q-1 equiprobable choices is a return, even after conditioning on the entire edge pattern and earlier returns. Centering in these independent edge indicators gives the linear coefficient p(m-1) and quadratic coefficients -1/(q-1) for adjacent indices and 1 otherwise. Orthogonality and conditional binomial variance yield the stated polynomial. For the mean, a fixed output of length n-2 is contained with the probability of at least n-2 successes in n Bernoulli(1/q) trials, by greedy matching (continue against dummy symbols after a full match). The linear Bernoulli CLT and lower-order residuals give the fixed-q Gaussian, without relying on finite experiments. Fresh literal deletion-set histograms, the transfer and both exact moments agreed for q=2,3,4,5 through lengths 9,7,6,5 respectively, including the stated q=3,n=5 histogram. Replay: python /tmp/opencode/frozen_review_reproduce.py deletion.",
+      "residual_risks": [
+        "Finite checks do not establish the limit; the proof assumes uniform independent letters and fixed q for the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Swart–Ferreira abstract describes binary double-deletion counts from run lengths; the precise attribution to Proposition 3.1 is reported in the indexed binary variance record. Li–Wang–Fu discuss nonbinary extremal subsequence counts and cite Mercier–Khabbazian–Bhargava for explicit per-word counts at t<=5. The two older full texts were not accessible on the identified lawful routes.",
+          "Pham–Goyal–Kiah and Wang–Li–Fu treat extremal intersections of balls, and Liron–Langberg treat run-dependent bounds; these are not a probability law for the single-center volume."
+        ],
+        "reasoning": "A per-word exact formula could overlap the deterministic identity without asserting any uniform-center fluctuation theorem. Bounds and extremal intersections do not give the ensemble quantities; decisive coverage instead comes from the exact indexed law and moments.",
+        "searches": [
+          "Primary: \"A note on double insertion/deletion correcting codes\" Swart Ferreira run count distinct descendants two deletions",
+          "arXiv:1202.1644; arXiv:2601.06493v2; DOI 10.1109/TIT.2008.924730; arXiv:2111.04255; arXiv:2609.16837"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8af4e5cf362e, 6c9fe70986cc, b1a2bd3da18e, 1cbd5a76d8bf, aa5a96812855",
+        "arXiv:1202.1644, 2601.06493v2, 2111.04255, 2609.16837",
+        "Swart–Ferreira abstract; DOI 10.1109/TIT.2008.924730 attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write B=binom(K+1,2)+S-T with both corrections bounded by n, and K binomial with parameters m,p for p=(q-1)/q. The inspected exact-variance records do not state the fixed-q CLT."
+        ],
+        "reasoning": "Variance asymptotics alone do not imply convergence in law, but the stronger indexed profile representation does: after centering, the correction is bounded by 2n, the centered quadratic in K-mp is O_P(n), and the remaining term (mp+1/2)(K-mp) gives the Gaussian by the binomial CLT. Its variance parameter is p^3(1-p). The transfer likewise follows directly from the local change/return weights already in the profile representation.",
+        "searches": [
+          "Resultary 8af4e5cf362e deterministic identity and random-change proof; b1a2bd3da18e conditional law and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8af4e5cf362e has the same deterministic identity with the number of changes, the number of zero runs of the edge word, and the ABA-return count. A maximal zero run corresponds exactly to one long constant-symbol run.",
+          "The run-composition distribution in that record groups changes into maximal blocks and chooses a return independently at each double change. The frozen transfer groups exactly these same events sequentially."
+        ],
+        "reasoning": "For k changes in b blocks there are k-b double changes and b changes that are first in a block. Multiplying q(q-1)^b by the appropriate return factors and summing over edge patterns gives the indexed run-composition polynomial after aggregating the frozen profile. The binary identity is also the usual internal-singleton-run correction. Neither formulation counts deletion locations.",
+        "searches": [
+          "Resultary: two deletion sphere size distribution q-ary random center exact mean variance central limit run count binary",
+          "Primary: \"two-deletion\" sphere size run count variance binary q-ary random deletion ball",
+          "Resultary 8af4e5cf362e, Finding and deterministic proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8af4e5cf362e gives the whole count polynomial and both moments for the same alphabets, source distribution and deletion convention. b1a2bd3da18e gives literally the same rational variance and the conditional binomial law. 1cbd5a76d8bf and aa5a96812855 also overlap the q-ary variance; 6c9fe70986cc is the binary specialization already disclaimed by the frozen record."
+        ],
+        "reasoning": "This matches all n and q, not merely the leading coefficient or a finite table. Later dates on the q-ary records do not establish historical precedence or show that they were derived from the frozen record.",
+        "searches": [
+          "Resultary: random word two deletion ball cardinality expected volume probabilistic deletion sphere run-count formula prior work",
+          "Resultary 8af4e5cf362e, b1a2bd3da18e, 1cbd5a76d8bf, aa5a96812855, 6c9fe70986cc"
+        ]
+      },
+      "rationale": "Distinct indexed statements give the exact same ensemble law, the deterministic profile identity, the conditional return distribution, and the exact variance. The two-state expression rewrites the same local profile count. The unstated Gaussian limit follows immediately from the indexed deterministic identity and the ordinary binomial CLT because all non-quadratic profile terms are bounded by O(n). This judgment is about mathematical coverage and routine implications; it does not infer chronology or dependence from indexed dates.",
+      "residual_risks": [
+        "The two older full-text access limitations matter for historical attribution but do not drive this decision.",
+        "Priority and provenance between the distinct indexed exact matches and the frozen result remain unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete law",
+          "evidence": "Run-composition count polynomial with identical coefficients by output count; greedy embedding yields same local identity.",
+          "identifier_or_url": "Resultary 8af4e5cf362e",
+          "material_read": "RESULT.md Finding and deterministic Proof §1, offset 0, and Relationship offset 7600",
+          "method": "Local published-record mirror",
+          "title": "Exact size distribution of two-deletion descendants over every finite alphabet",
+          "trigger": "Matching ensemble count law"
+        },
+        {
+          "assessment": "Exact moments and profile match",
+          "evidence": "Same variance, independent edge model and conditional return distribution. Does not assert a Gaussian from variance asymptotics alone.",
+          "identifier_or_url": "Resultary b1a2bd3da18e",
+          "material_read": "RESULT.md Finding, deterministic Proof §1, Relationship offset 7290",
+          "method": "Local published-record mirror",
+          "title": "Exact fluctuations of two-deletion output counts over finite alphabets",
+          "trigger": "Exact moments and profile distribution"
+        },
+        {
+          "assessment": "Exact variance overlap; different asymptotic regime",
+          "evidence": "Same q-ary variance; expressly excludes a fixed-alphabet CLT.",
+          "identifier_or_url": "Resultary 1cbd5a76d8bf",
+          "material_read": "RESULT.md Finding offset 0 and limitations near offset 7496",
+          "method": "Local published-record mirror",
+          "title": "Exact q-ary two-deletion variance and a two-scale Poisson ambiguity law",
+          "trigger": "Variance and alternative asymptotics"
+        },
+        {
+          "assessment": "Exact binary overlap already disclosed",
+          "evidence": "Variance (n-1)(n-2)(2n-3)/32 and binary mean.",
+          "identifier_or_url": "Resultary 6c9fe70986cc",
+          "material_read": "RESULT.md Finding offset 0, run-count attribution near offset 4200",
+          "method": "Local published-record mirror",
+          "title": "Exact variance of binary two-deletion sphere size",
+          "trigger": "Known binary specialization"
+        },
+        {
+          "assessment": "Plausible binary per-word overlap; precise paper scope unresolved from abstract alone",
+          "evidence": "Abstract describes run-length use in counting double-deletion subsequences; full-text routes did not supply the paper.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2002.806155",
+          "material_read": "University of Johannesburg repository abstract near offset 400; full text unavailable",
+          "method": "OA abstract and IEEE/alternate-copy attempts",
+          "title": "A note on double insertion/deletion correcting codes",
+          "trigger": "Cited binary run identity"
+        },
+        {
+          "assessment": "Extremal bounds and material citation lead",
+          "evidence": "Discusses q-ary extremal run counts and cites Mercier–Khabbazian–Bhargava for per-word formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.06493v2",
+          "material_read": "Introduction, offsets 900 and 5350",
+          "method": "OA arXiv text",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Nonbinary run enumeration and older explicit formulas"
+        },
+        {
+          "assessment": "Unresolved deterministic-formula comparison",
+          "evidence": "No accessible original copy identified; no conclusion about exact overlap on the basis of a citation alone.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+          "material_read": "Bibliographic citation and reported scope in arXiv:2601.06493v2; no primary full text",
+          "method": "OA lookup",
+          "title": "Mercier–Khabbazian–Bhargava, explicit deletion-descendant counts",
+          "trigger": "Possible earlier q-ary deterministic identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Indexed law and conditional fluctuation results; direct binomial reduction and transfer comparison"
+      ],
+      "rationale": "The random two-deletion volume is a natural statistic, but the precise histogram and variance are already covered. The remaining transfer notation is an immediate encoding of the same edge-profile model, and the leading normal limit needs only the binomial CLT and the deterministic linear-size error. Neither supplies an independently motivated remaining counting problem, refined limiting scale, or structural consequence outside that existing description.",
+      "residual_risks": [
+        "This is a judgment on the distinct mathematical remainder, not on the relevance of deletion-ball statistics in coding theory."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

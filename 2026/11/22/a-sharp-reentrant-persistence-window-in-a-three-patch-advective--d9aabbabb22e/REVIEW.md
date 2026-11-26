@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact cofactor/determinant calculation yields the critical upstream birth rate. Its derivative has one strictly positive root exactly when drift exceeds \(5/3\) of mortality. The nonlinear cooperative logistic flow has extinction for nonpositive Perron growth and one globally attracting positive equilibrium for positive Perron growth. The explicit \((a,q,r)=(1,2,25/8)\) witness has two distinct, exact diffusion crossings. Two-patch monotonicity is proved separately. The included checker passed polynomial identities and exact arithmetic tests; none of the finite checks is treated as proof of the all-parameter theorem.
+PASS
 
-## Originality
+Reconstructed RESULT.md Proof 1–4. The movement matrix is conservative and irreducible for d>0, so −M=dD+qQ−aI is Hurwitz Metzler and M^−1 is strictly positive. At r=1/(M^−1)₁₁ the vector M^−1e₁ is a strictly positive null vector, explicitly identifying the zero as the Perron root, rather than just some eigenvalue; Perron monotonicity then gives the exact sign for all r. Expanding the determinant and cofactor gives R=aN/H as displayed. The derivative has the sign of a²(a+q)+2(a+q)(2a−q)d+(5a−3q)d². For q≤5a/3 it is strictly positive on d>0, including equality in the ratio. Above that ratio its roots have opposite signs, giving a single strict maximum greater than both limiting values a+q and 3a. Exactly the birth rates strictly between their larger value and the maximum give two distinct positive thresholds. For λ=s(A)≤0, the positive weighted sum satisfies U′≤λU−cU², proving extinction even at the two neutral thresholds. When λ>0, small positive Perron multiples and a large constant vector give sub-/supersolutions; strict quadratic scaling and the Metzler off-diagonal sign give uniqueness. Multiples of the equilibrium scaled by lower/upper scalar logistic solutions squeeze every eventually positive trajectory to it. The analogous two-patch derivative a(a−q)/(a+d)² has fixed sign or is identically zero. The example (a,q,r)=(1,2,25/8) reduces to the exact quadratic −d²+5d−3 for the sign of R−r. Scope is fixed q, d>0 and the stated deterministic homogeneous mortality/crowding with upstream-only births, not changing the common multiplier of both movement terms. Inspected VERIFICATION.md and the finite identity checker, not executed.
 
-**PASS on inspected evidence.** Search compared source-only upstream reproduction with the three-patch river movement model in Chen, Liu and Wu (arXiv:2301.06640), varying-drift competition in arXiv:2301.06638, and spectral monotonicity in arXiv:1911.02232. Existing results about reduced mixing do not imply this theorem, since downstream advection remains a separate off-diagonal operator when diffusion changes. Related published records and accessible past claim summaries did not give the exact frontier. The 2021 Jiang–Lam–Lou three-patch full text was inaccessible; historical priority is provisional, not externally certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** This exact minimum-size counterexample and phase diagram clarify a mechanism for source–sink populations under competing upstream return migration and downstream flow. It shows that more diffusion can first destroy and then restore deterministic persistence; the sharp drift contrast and transition boundaries are not routine consequences of known symmetric-mixing monotonicity. It is a mechanistic benchmark, not a fitted biological recommendation.
+The conservative stream geometry and Perron-to-persistence method are prior. The supported distinction is the sharp reentrant window, with the exact drift-to-mortality boundary and minimal patch count, when diffusion alone varies and reproduction is confined upstream. Retrieved antecedents do not imply that classification.
 
-## Closest literature and limitations
+## value
 
-The source papers use related river movement matrices but different population and competition assumptions. Earlier dispersal papers establish general persistence and reduction principles; no general statement inspected here implies this two-crossing source-only classification. The nonlinear system has exactly three patches, uniformly quadratic self-crowding, single-source births, fixed rates, and no stochastic demographic extinctions. Inaccessible historical full text and broad spectral-theory priority are remaining risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Demonstrates with an explicit sharp threshold that varying symmetric migration at fixed downstream transport can change deterministic persistence twice without adding sites of reproduction, changing mortality, or opening the corridor. The rank-one structure gives an exact birth-rate range, not just an example where a simulated spectral curve is nonmonotone; the two-patch obstruction isolates the minimal geometry. This is a model mechanism and not an ecological management conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

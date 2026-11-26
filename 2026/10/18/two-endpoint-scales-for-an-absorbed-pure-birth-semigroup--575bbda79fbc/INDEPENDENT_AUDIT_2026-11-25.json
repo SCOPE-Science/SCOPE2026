@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:52:49.536411Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69, VERIFICATION.md and checker.py (read only)",
+        "Replay: python3 -B /workspace/reviews/reproduce_2_4.py (40 endpoint comparisons via an independently evaluated matrix exponential)"
+      ],
+      "rationale": "The derivative of a stopped-Poisson row has nonterminal entries p_(k-1)-p_k and terminal entry p_(n-i-1). The absolute row sum is twice the largest retained Poisson mass by unimodality and zero row sum; the nonterminal column sum is the variation of the truncated mass sequence starting at zero, and the terminal column sum is F_(n-1). This gives both formulas, including mode ties, n=1, and the real/complex counting norms. The piecewise time-weighted mode grows strictly to n and then decays. For the absorbing-column optimizer, F_(n-1)/(t p_(n-1)) is a strictly decreasing sum of inverse powers, so it crosses one exactly once. Stirling at t=n-c sqrt(n log n) gives t p_(n-1)~n^((1-c^2)/2)/sqrt(2 pi), while F tends to 1 (even Chebyshev gives an O(1/log n) upper tail there); derivative signs bracket the optimizer for c on either side of 1. At the optimizer p_n=F/n and the tail geometric bound loses only O(sqrt(n/log n)) in the time-weighted norm. The nonterminal branch is bounded by the infinity-mode expression, hence its supremum is O(sqrt n) and cannot compete for large n. The spectrum follows from triangularity.",
+      "residual_risks": [
+        "No claim of an all-n absorbing-column optimizer or interior-p law; the replay is finite, not the proof of the asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borichev–Tomilov concerns resolvent conditions for orbit decay; Chen–Saloff-Coste studies irreducible birth–death mixing and spectral gaps; the Ehrenfest finding concerns different state-dependent rates and only a lower bound for the ℓ1 scale."
+        ],
+        "reasoning": "Neither general orbit decay nor irreducible mixing supplies the exact transient maximizer or absorption-column correction for this nonnormal reducible generator.",
+        "searches": [
+          "arXiv:0910.0859v1",
+          "arXiv:1304.4346v1",
+          "Resultary record adbd0b0a91ef"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs 53414e7e29f7, adbd0b0a91ef, b7e8126b1b9e",
+        "arXiv:0910.0859v1, 1102.1620v3, 1304.4346v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Poissonization and Poisson unimodality yield the nonterminal variation and ℓ∞ mode formula with elementary work, but do not supply the maximization of the absorbing-column tail term."
+        ],
+        "reasoning": "The deciding new comparison is between the O(sqrt n) mode branch and the O(n) cumulative column, with separate moderate-deviation localization and tail loss at the latter's stationary point. No inspected result implies this paired law.",
+        "searches": [
+          "Resultary record 53414e7e29f7 Finding",
+          "arXiv:1304.4346v1 introduction",
+          "arXiv:1102.1620v3 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic shift has the same Poissonization idea, but its circulant rows and columns have identical norms and the optimum occurs on the n² time scale. The fractional linear birth–death source gives state probabilities, not the counting-norm sharp constants."
+        ],
+        "reasoning": "Identifying the generator as a rate-one shift minus identity is not equivalence: capping the shift introduces a terminal column whose derivative is the Poisson cumulative probability and has no periodic analogue.",
+        "searches": [
+          "Resultary local semantic search for Poissonized-shift endpoint derivative norms, including 53414e7e29f7 and adbd0b0a91ef",
+          "arXiv:1102.1620v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact constants are for periodic shifts and for the circular Poisson semigroup; the inspected finite-chain analogue uses an Ehrenfest generator."
+        ],
+        "reasoning": "An ordinary table of Poisson masses is a kernel ingredient, not a table of two exact time-weighted induced norms or their optimizers; no matching indexed endpoint law was found.",
+        "searches": [
+          "Resultary local semantic search for optimized endpoint derivative constants (53414e7e29f7, adbd0b0a91ef, b7e8126b1b9e)"
+        ]
+      },
+      "rationale": "The supported contribution is the exact paired endpoint optimization and in particular the absorption-induced linear ℓ1 scale and its negative sqrt(n log n) time shift, not the stopped-Poisson representation or mode estimate. The closest inspected shift- and finite-chain results have different boundary dynamics and do not yield this pair.",
+      "residual_risks": [
+        "Frozen RESULT.md line 81 mentions but does not identify an older absorption-process reference inaccessible to the original review; it could not be compared. Equivalent phase-type or triangular-semigroup optimization terminology may escape the searches; unrelated search results are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close analogue, not covering",
+          "evidence": "Periodic exact kernel; equal endpoint constants asymptotic to 0.149146485 n, with optimizer asymptotic to 0.050522054 n².",
+          "identifier_or_url": "Resultary 53414e7e29f7",
+          "material_read": "RESULT.md Finding, offsets 0–4423",
+          "method": "Local Resultary mirror",
+          "title": "Linear endpoint analyticity growth for Poissonized directed cycles",
+          "trigger": "Closest Poissonized-shift maximization"
+        },
+        {
+          "assessment": "Different chain and sharpness",
+          "evidence": "Symmetric Ehrenfest rates; ℓ∞ square-root law, ℓ1 lower bound on a square-root times log scale.",
+          "identifier_or_url": "Resultary adbd0b0a91ef",
+          "material_read": "Finding, offsets 0–2500",
+          "method": "Local Resultary mirror",
+          "title": "A logarithmic endpoint derivative gap for the Ehrenfest semigroup",
+          "trigger": "Two endpoint scales for a finite chain"
+        },
+        {
+          "assessment": "No absorption",
+          "evidence": "Classical circular Poisson semigroup; first-order supremum at limiting time zero.",
+          "identifier_or_url": "Resultary b7e8126b1b9e",
+          "material_read": "Finding, offsets 0–2379",
+          "method": "Local Resultary mirror",
+          "title": "Sharp endpoint derivatives of the circular Poisson semigroup",
+          "trigger": "Exact Poisson endpoint constants"
+        },
+        {
+          "assessment": "Different conclusion",
+          "evidence": "Resolvent characterization of polynomial orbit decay, including a Hilbert-space theorem.",
+          "identifier_or_url": "https://arxiv.org/html/0910.0859v1",
+          "material_read": "Abstract/introduction from offset 600",
+          "method": "OA full-text passages",
+          "title": "Optimal polynomial decay of functions and operator semigroups",
+          "trigger": "Potential broader semigroup implication"
+        },
+        {
+          "assessment": "Kernel background",
+          "evidence": "Fractional distribution and extinction probabilities, not induced endpoint derivative norms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.1620",
+          "material_read": "p. 1 from offset 500",
+          "method": "OA full-text passage",
+          "title": "On a fractional linear birth–death process",
+          "trigger": "Related process kernels"
+        },
+        {
+          "assessment": "Irreducible mixing, not transient absorption optimization",
+          "evidence": "Poissonized kernel, spectral gaps, mixing time and cutoff.",
+          "identifier_or_url": "https://arxiv.org/html/1304.4346v1",
+          "material_read": "Abstract/introduction from offset 280",
+          "method": "OA full-text passages",
+          "title": "On the mixing time and spectral gap for birth and death chains",
+          "trigger": "Poissonization and possible cutoff implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–40 and 50–69",
+        "Resultary Poissonized directed-cycle and Ehrenfest Findings"
+      ],
+      "rationale": "This gives a sharp absorption-driven mismatch between dual counting-norm endpoints despite the same two-point spectrum for every dimension. The quantitative time shift and the exact square-root endpoint calibration provide a useful test case for dimension-dependent semigroup estimates, not just a numerical norm calculation.",
+      "residual_risks": [
+        "The comparison does not establish universality across rates on the states, other boundary conditions, or weighted norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

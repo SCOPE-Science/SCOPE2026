@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:42:34.112695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-state Fourier resolvent has numerator q+2b−ikd/2 and denominator K(ζ₊−ik)(ζ₋+ik). Both real spatial roots are positive since their product is q(q+2b)/K and their sum is HΔ/K. Evaluating the numerator at ik=ζ₊ and ik=−ζ₋, and dividing by HΔ, gives the displayed A₊ and A₋, respectively. The joint subprobability density therefore gives the posterior transform by division at s=0, with a positive continuous version on each open ray. The Bessel transforms normalize the base law, including its zero atom. Differentiating the spatial root gives 1/c_σ plus H/(2K) times the transform of ηI₁(ηt); integrating in q gives the claimed nonnegative jump measure common to both signs. It is bounded near zero and exponentially integrable at infinity since a+b>η, and its total mass is H(a+b−Δ(a))/(2K). The finite positive jump rate and independent positive drift increment give the stated atom and strict stochastic order, and derivatives at zero give both affine moments. The formulas include u=v, do not require a convention at x=0, and apply to all strictly positive rates and speeds in the finding. The quadrature script was inspected, not executed; no assertion requires numerical extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ratanov allows opposite asymmetric velocities and distinct switching rates; the target takes γ₀=u, γ₁=−v, λ₀=λ₁=b. For outward start his outward-passage atom is e^(−br/c_σ) at r/c_σ and the continuous density for t>r/c_σ is b²r e^(−bt) I₁(2b√(ξ₀ξ₁))/(b√(ξ₀ξ₁)), with reflected parameters on the negative ray.",
+          "The same paper gives the two initial-state fixed-time position laws, including ballistic atoms and interior I₀ and I₁ terms, for these parameters."
+        ],
+        "reasoning": "These stronger laws give both components used in this posterior after ordinary exponential stopping and averaging over the initial state. An inaccessible general factorization is not needed for the finding of coverage.",
+        "searches": [
+          "Ratanov arXiv:2102.04905v1, (1.6)–(1.7), Theorem 2.1 and (2.4)–(2.8)",
+          "Orsingher–Marchione arXiv:2610.15094v1, §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–95; VERIFICATION.md; verify.py; requirements.txt",
+        "arXiv:2102.04905v1, (1.6)–(1.7) and (2.4)–(2.8)",
+        "arXiv:2610.15094v1, (1), (45)–(48)",
+        "Resultary 809b0f9b369d and ff4440eb15e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divide the cited outward-passage continuous density by r and send r↓0 for t>0. Since ξ₀ξ₁→K t²/H², the limit is (Hη/(2K))e^(−bt)I₁(ηt)/t. Tilting by e^(−at) gives exactly the proposed ν. The ballistic atom gives drift 1/c_σ. The tilted hitting laws form a convolution semigroup by strong Markov at each level; the first-order expansion in r therefore gives the full compound-Poisson exponent, not only a small-r approximation. The a>0 exponential factor dominates the Bessel growth for this limit.",
+          "Let the observed distance tend to zero along either ray in the prior fixed-time laws multiplied by ae^(−at). The no-switch component tends to a mass proportional to 1/(2c_σ) at zero, and the limiting interior density divided by a is e^(−(a+b)t)[Hη I₁(ηt)/(4K)+b I₀(ηt)/H]. Normalizing gives exactly U_σ. Combining this base with the identified increment gives the complete stated posterior; the moments, atom and ordering then follow directly."
+        ],
+        "reasoning": "There is no need to treat the restated posterior as a new law merely because the preceding article indexes its explicit laws by elapsed and first-passage time. The exact density, Lévy kernel and ballistic mass can be specialized from those laws using the Markov split, exponential tilt and one-sided limits; the posterior representation remains a useful interpretation.",
+        "searches": [
+          "Ratanov arXiv:2102.04905v1, opposite-speed passage laws (2.7)–(2.8), and fixed-time laws (1.6)–(1.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The termination time posterior itself is not a first-passage law. Its spatial increment, however, is exactly the normalized exponentially tilted first-passage law from the outward state.",
+          "For r₂>r₁>0, fix an intermediate distance δ<r₁. Every path ending in a neighborhood of σr₁ or σr₂ crosses σδ and arrives with outward velocity. The discounted terminal-position density on that half-line factors by the mixed-start hitting transform to δ. The remaining outward-start density at r₂−δ factors at the further distance r₂−r₁ by the outward-start hitting transform. Dividing the two discounted densities and normalizing at s=0 cancels the mixed-start factor. This proves exact equivalence for the spatial increment without assuming that terminal time is first passage.",
+          "The symmetric source gives the exact joint law and ballistic component; Poisson thinning identifies its parameters as a=λp and b=λ(1−p). It does not provide the asymmetric result."
+        ],
+        "reasoning": "The exact reduction identifies the prior first-passage component on the same parameters and is stronger evidence than resemblance to a spatial exponential or analogy with general fluctuation theory.",
+        "searches": [
+          "Asymmetric telegraph first passage, killed terminal time and Markov-additive spatial factorization",
+          "arXiv:2102.04905v1 §§1–2, (2.7)–(2.8)",
+          "arXiv:2610.15094v1 §3, (45)–(48)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "809b0f9b369d concerns reversal-pair counts given a successful symmetric telegraph crossing. ff4440eb15e5 concerns conditional exit delay in Brownian two-endpoint search. Neither is the specified posterior time law; both are later-dated."
+        ],
+        "reasoning": "No compared catalog record stated the entire exact target posterior. The fail rests instead on a demonstrated implication from explicit prior kernels.",
+        "searches": [
+          "Local Resultary search on telegraph posterior, spatial convolution and compound Poisson",
+          "Resultary 809b0f9b369d and ff4440eb15e5"
+        ]
+      },
+      "rationale": "The explicit posterior factorization is not printed as such in the inspected predecessors, but its claimed new spatial mechanism and explicit laws are direct corollaries of Ratanov's stronger asymmetric first-passage and fixed-time kernels together with the strong Markov property and exponential tilting. This is concrete prior implication, not a failure based on a possible unnamed Wiener–Hopf theorem or an unsuccessful search.",
+      "residual_risks": [
+        "The evidence establishes direct mathematical implication, not that Ratanov printed this posterior factorization or that either author asserted it in the same form.",
+        "The focused search does not establish the earliest source of an explicit posterior formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger prior kernels directly imply the claimed posterior construction",
+          "evidence": [
+            "Equations (2.7)–(2.8) give the ballistic atom and the r I₁ Bessel term for outward passage; (1.6)–(1.7) give the fixed-time propagator with its ballistic atom."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2102.04905v1",
+          "material_read": "§1 (1.6)–(1.7), offsets from 2200; §2 Theorem 2.1 and (2.4)–(2.8), offsets about 9700–15549",
+          "method": "OA HTML bounded primary passages; explicit parameter substitution and strong Markov comparison",
+          "title": "On telegraph processes, their first passage times and running extrema",
+          "trigger": "Exact asymmetric first-passage and fixed-time kernels"
+        },
+        {
+          "assessment": "Exact symmetric joint-law predecessor, without the asymmetric posterior representation printed",
+          "evidence": [
+            "Terminal position and termination time have an explicit joint law with singular ballistic component and interior density; the marginal Laplace rate agrees under thinning."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.15094v1",
+          "material_read": "Eq. (1) and §3 Eqs. (45)–(48), offsets about 67000–74997 for §3",
+          "method": "OA HTML bounded primary passages",
+          "title": "Killing random motions with finite velocity",
+          "trigger": "Same joint observable for symmetric speeds"
+        },
+        {
+          "assessment": "Related decompositions with distinct observables or processes",
+          "evidence": [
+            "One law is for reversal-pair counts, the other for Brownian exit delay, not the asymmetric killed-telegraph terminal posterior."
+          ],
+          "identifier_or_url": "Resultary:809b0f9b369d; Resultary:ff4440eb15e5",
+          "material_read": "Matching findings: successful symmetric telegraph crossing and Brownian two-endpoint conditional delay",
+          "method": "local Resultary comparison",
+          "title": "Compound-Poisson reversal-pair law for a successful telegraph crossing; An infinitely divisible conditional exit delay survives arbitrary…",
+          "trigger": "Closest local thematic matches"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As an inference formulation the result is useful: it gives the full ordering and an explicit coupling of posterior times at all distances on each ray, which a fixed-time density alone does not make transparent. The common jump kernel with different ballistic drifts cleanly separates kinematic asymmetry from uncertainty in elapsed time. This utility does not make an already implied law original.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

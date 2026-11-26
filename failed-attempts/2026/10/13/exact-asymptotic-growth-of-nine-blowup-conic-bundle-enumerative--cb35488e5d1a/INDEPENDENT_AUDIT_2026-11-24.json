@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:02:46.441588Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finashin–Kharlamov's Theorems 1.3.1–1.3.2 give the relevant invariance for fixed s=8 and nonempty real locus and W=M/4. In §§7.1–7.2 the first-degree theta sum F gives ΣG_n q^(n+1)=FP. Coordinate symmetry on a norm-s shell converts the root weight 2x_1² into s/4 times the unweighted shell count, so ΣW_n q^(n+1)=(DF)P/16 with D=q∂_q. For q=e^(−w) the Poisson and eta transformations give amplitudes w²/π² and w/(4π²) times exp(π²/w), respectively. Jacobi's identity gives F(−q)=−θ_2(q)^4 θ_4(q)^4, so the negative cusp is only polynomial even after differentiation. On the other arcs the log-product bound gives an exponential loss at least c t^(−2ε) outside the two windows t^(3/2−ε); the theta factors cost only powers of 1/t. At t=π/√(n+1) the linear term vanishes, the cubic remainder is uniformly o(1) for ε<1/6, and the Gaussian factor is t^(3/2)/(2π^(3/2)). The constants, powers, ratio and no-leading-parity conclusion follow. I inspected the finite coefficient checker without executing it; it is not the proof. Independent application of published coefficient estimates below also yields both constants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sussman for T uses η exponents (δ_1,δ_2)=(−8,4): n_0=0, c_1=2, c_3=6 on odd k and 0 on even k, and g(k)=1/4 or 1, respectively. The unique maximizing k is 1 with factor c_2(1)A_1(n)=1/4. Therefore Proposition 3.1 gives a(n)=π I_3(x)/(16 n^(3/2)) with exponentially small relative error, x=2π√n.",
+          "Chern extends the applicable eta-quotient regime to total weight zero. For B(z)=η(2σ)^12/(η(σ)^8η(4σ)^4), z=e^(2πiσ), his parameters are Δ_1=Δ_2=0, Δ_3(ℓ)=(3,−12,3,0) at ℓ=1,2,3,4, and Δ_4(1)=1/4. The condition (1.8) holds: for odd ℓ the minimum is 1/4≥3/24, and for even ℓ the right side is nonpositive. At coefficient 2n, the k=1 term is π I_1(x)/(8√n). Terms with k≥3 have Bessel argument at most x/3 and polynomial total weight, and the theorem's E(2n) is O(1)."
+        ],
+        "reasoning": "The estimates give full leading Bessel functions with exponentially smaller errors, not just first-order equivalents whose subtraction would be invalid. The eta quotients lie in the two stated domains, including Chern's weight-zero boundary.",
+        "searches": [
+          "Sussman arXiv:1710.03415v3, Theorem 1.1 and Proposition 3.1",
+          "Shane Chern, Asymptotics for the Fourier coefficients of eta-quotients, arXiv:1805.08759 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02445v1",
+        "arXiv:2609.39697v1",
+        "arXiv:1710.03415v3",
+        "arXiv:1805.08759",
+        "arXiv:2203.10503v2",
+        "SCOPE 849decf44190"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The logarithmic eta derivative gives ΣW_n q^n=(D+E_2(2τ))T=(2E_2(2τ)−E_2(τ))T−2DT.",
+          "Jacobi's four-square identity gives 2E_2(2τ)−E_2(τ)=(ϑ_3(τ)^4+ϑ_4(τ)^4)/2, using the modular-argument convention ϑ_3(τ)=Σ exp(πiτj²). Indeed the average has even coefficients r_4(2n)=24σ_1(odd part of n) in the variable z=e^(πiτ), agreeing with the Eisenstein expression in q=z². The Jacobi eta product for ϑ_3 then gives T(q)ϑ_3(τ)^4=B(z) with σ=τ/2, and ϑ_4(τ) comes from z↦−z. Thus W_n=[z^(2n)]B−2n a(n).",
+          "Substitution gives W_n=π(I_1(x)−I_3(x))/(8√n) up to an exponentially smaller error. Since I_1−I_3=4I_2/x and I_2(x)∼e^x/√(2πx), the signed coefficient is asymptotic to e^(2π√n)/(8π n^(5/4)). The quotient and the lack of a leading parity split follow as well."
+        ],
+        "reasoning": "These are direct eta identities, extraction of even coefficients, substitution into two prior estimates, and a standard recurrence. No new cusp estimate is required. The original contour argument is an alternative proof of the covered asymptotics.",
+        "searches": [
+          "Finashin–Kharlamov §§7.1–7.2; Sussman Proposition 3.1; Chern Theorem 1.1 and (1.5), (1.8)–(1.11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With q=e^(2πiτ), Jacobi and the eta products give F=16η(2τ)^16/η(τ)^8 and P=qη(2τ)^−12. Thus G_n=16a(n), with a(n)=[q^n]T and T=η(2τ)^4/η(τ)^8=∏((1+q^j)/(1−q^j))^4.",
+          "Theorem 1.7 with m=2 and r=s=4 applies to that exact product and gives a(n)∼exp(2π√n)/(32n^(7/4)). n+1 instead of n does not change the equivalence."
+        ],
+        "reasoning": "This is sequence equality, not just shared singular behavior. Resultary searches produced only unrelated matches (for example the four-conic singularity record 849decf44190), but the published overpartition asymptotic is direct coverage.",
+        "searches": [
+          "Resultary: nine-blowup conic-bundle GW growth, theta–Euler coefficients and four-coloured overpartitions",
+          "Anakha V and Chiran Jit Ray arXiv:2609.39697v1, (1.1) and Theorem 1.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finashin–Kharlamov give exact series in the prescribed bidegree; Sussman gives a stronger exact coefficient series for T under verified hypotheses. The signed coefficients can be recovered exactly as (n+1)a(n)−24 Σ_(1≤j≤n/2) σ_1(j)a(n−2j). No separate exact Resultary table of the geometric sequences surfaced."
+        ],
+        "reasoning": "The geometric series identify the sequences for every n. The finite convolution alone does not give the signed leading term; the additive coefficient comparison with controlled errors in the next check does.",
+        "searches": [
+          "Resultary: exact bidegree growth, overpartition or eta-product coefficient records",
+          "Finashin–Kharlamov §§7.1–7.2",
+          "Sussman Theorem 1.1"
+        ]
+      },
+      "rationale": "The complex row is exactly a four-coloured overpartition sequence. The signed row is a difference of two eta-quotient coefficient sequences (one multiplied by 2n), each covered with sufficiently precise published Bessel estimates. The standard Bessel recurrence evaluates the cancellation and gives the same signed asymptotic on all indices. The failure is explicit prior implication, not absence of an exact conic-bundle statement or inability to retrieve a paper.",
+      "residual_risks": [
+        "The comparison establishes mathematical implication, not the earliest printed occurrence of the two geometric asymptotic statements. The search for explicit enumerative statements was bounded. The decisive Chern passage was read in the lawful arXiv copy, so publisher access does not affect the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometric identities and scope",
+          "evidence": "Fixed-s nonempty-real-locus invariance, root-shell normalization and theta-product series; the nine-point blowup is a calculation model, not an additional hypothesis.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02445v1",
+          "material_read": "§1.3 Theorems 1.3.1–1.3.2; §7 opening; §§7.1–7.2 Theorems 7.1.5, 7.2.2 and Proposition 7.2.1, OA offsets 5200–8583 and 161800–173848 in relevant passages",
+          "method": "Primary HTML targeted passages",
+          "title": "On wall-crossing invariant combinations of Welschinger numbers for rational surfaces with a conic bundle",
+          "trigger": "Same invariants, geometry and normalization"
+        },
+        {
+          "assessment": "Directly covers G",
+          "evidence": "Theorem 1.7 with m=2, r=s=4 gives exp(2π√n)/(32 n^(7/4)) for a(n).",
+          "identifier_or_url": "https://arxiv.org/html/2609.39697v1",
+          "material_read": "§1 definition and (1.1), Theorem 1.7, and §5 proof; OA offsets 7850–11750, 17100–20294 and 45400–53095",
+          "method": "Primary HTML targeted passages",
+          "title": "Asymptotic and Arithmetic Aspects of Generalized Colored Overpartitions",
+          "trigger": "Exact identification of the complex row with four-coloured overpartitions"
+        },
+        {
+          "assessment": "Exact series and Bessel estimate for T",
+          "evidence": "c_1>0 and g≥0 for T; the unique dominant k=1 has nonzero lower-bounded amplitude and gives the I_3 expression with exponentially small relative error.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.03415v3",
+          "material_read": "Theorem 1.1 and definitions, pp. 3–4, and Proposition 3.1 with (83)–(84), pp. 12–13, OA offsets 11000–18950 and 70750–75147 in relevant passages",
+          "method": "Primary OA PDF targeted passages",
+          "title": "Rademacher Series for η-Quotients",
+          "trigger": "Strong coefficient precision for T before signed cancellation"
+        },
+        {
+          "assessment": "Applicable weight-zero Bessel expansion for B",
+          "evidence": "The theorem allows Δ_1=0 under (1.8), includes the dominant k=1 term for B, and bounds the additive error by O(1) in that regime.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.08759",
+          "material_read": "§1.2, (1.5) and Theorem 1.1 with (1.8)–(1.11), OA offsets 7360–12817 in relevant passages",
+          "method": "Primary arXiv PDF, lawful alternate after publisher access failure",
+          "title": "Asymptotics for the Fourier coefficients of eta-quotients",
+          "trigger": "Weight-zero eta quotient obtained from the signed series after removing the derivative"
+        },
+        {
+          "assessment": "Different growth regime",
+          "evidence": "Positive K² and change in the anticanonical degree, not fixed first degree at K²=0.",
+          "identifier_or_url": "https://arxiv.org/html/2203.10503v2",
+          "material_read": "Abstract and introduction",
+          "method": "Primary HTML targeted passage",
+          "title": "On wall-crossing invariance of certain sums of Welschinger numbers",
+          "trigger": "Related enumerative growth question"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-degree signed growth is well motivated and the contour proof is correct, but the exact signed constant, power, parity statement and growth ratio all follow from existing coefficient estimates once the published geometric series are rewritten. No distinct valuable asymptotic claim survives in the finding; there is no repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:19:31.937016Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md and verify.py; no frozen script executed.",
+        "Independent replay: python -B /workspace/branches/independent-reproductions.py 5; /workspace/branches/reproduction-5.out. Forty exact computations using weighted projective distances (including zero and fractional weights), plus a symbolic substitution for the five-row witness."
+      ],
+      "rationale": "With prescribed column sup norms, the objective is convex on the box of matrix entries and some box vertex maximizes it. Each vertex has the prescribed norms, including zero weights. A projective sign class with a represented row attains T²; an absent class differs from any row and its negative, so both agreement and disagreement have weight at least b, giving a bound (T−2b)². There are at most m represented classes. Flipping one coordinate of minimum weight pairs the classes without fixed points for n≥2; deleting one from each of r≤k/2 different pairs realizes the bound in every class. At fixed squared sum and minimum b the objective increases with T, so making the remaining n−1 norms equal is optimal by Cauchy–Schwarz. For d=n−1 the quotient then is (d²+dAq+q²)/(d+q²) with q∈[0,1]. The top eigenvector of the displayed symmetric matrix is feasible: for d>1 its q equals dA/[2(λ₊−1)]≤1; squaring if needed reduces the inequality to d(d−1)A(2−A)≥0. For d=1, q=1 suffices when A>0 and all ratios work at A=0. This gives both endpoints, including n=2,m=1 and m=k. The five-row witness has three absent classes paired by column 3 and q=√19−4; substitution gives 2+√19/4.",
+      "residual_risks": [
+        "The replay is a small-domain diagnostic; the uniform upper bound, pairing and Rayleigh argument establish the theorem for all stated integers. The formula is real and does not extend here to smaller m or the modified unit-sphere constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint gives the general sign operator and proves saturation at every m≥2^{n−1} via sign rows. The Rademacher lemma concerns p>2 in L_p/ℓ_p, not the fixed-norm optimum in the finite real cube. The 1998 repository item did not yield its full original text."
+        ],
+        "reasoning": "The saturated construction uses all classes. It does not imply sharp coverage when some classes must be absent. An inaccessible foundational paper creates an explicit residual risk, not evidence against the distinct result.",
+        "searches": [
+          "arXiv:1811.01652 Proposition 3, Corollary 4, Proposition 6(b), Lemma 11",
+          "10.18997/00002034 / Kyutech repository 2040"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.01652; Kyutech repository 2040; Resultary 425b85a56396, 798ce7784488, 44d920273418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-class argument already gives [3T²+(T−2b)²]/4 when n=m=3, and its optimization yields the same upper constant. The primary saturation proof covers r=0. For r>1 in general the prior all-row or one-deletion constructions do not establish simultaneous sharp coverage of all missing classes; the pairing along a minimum-weight coordinate does."
+        ],
+        "reasoning": "Neither the full-sign endpoint nor the earlier four-class case dominates the weighted formula for arbitrarily many deletions up to k/2. The shared sign-row structure alone is not a proof of the new optimum.",
+        "searches": [
+          "arXiv:1811.01652 Proposition 6(b) and proof",
+          "Resultary:425b85a56396 three-class derivation at offset 2679",
+          "Resultary:44d920273418 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same unrestricted real objective is the squared norm of the all-sign operator T_n divided by 2^{n−1}; it is also the squared Rademacher sign-average on the coordinate cube. This equivalence does not identify it with the modified objective at t_j=1, or with a geometric product of signed norms."
+        ],
+        "reasoning": "The operator/Rademacher representations bring the same object into scope. The modified or geometric objectives change the norm optimization or aggregation and are not equivalent.",
+        "searches": [
+          "Ciesielski–Płuciennik arXiv:1811.01652 definition and Corollary 4",
+          "Resultary:425b85a56396",
+          "Resultary:798ce7784488",
+          "Resultary:44d920273418"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "425b85a56396 already gives (3+√3)/2 for the upper constant and 7/3 for the modified one at n=m=3. 798ce7784488 gives modified constants on ℓ∞². 44d920273418 treats a geometric product at dimension 2^{n−1}−1, not the arithmetic mean of squares."
+        ],
+        "reasoning": "This is an indexed exact-invariant lookup, not a comparison of merely similar numeric values. The first match covers the precise n=m=3 object; the others change the objective.",
+        "searches": [
+          "Resultary lookup for exact n-th von Neumann–Jordan constants in finite ℓ∞, weighted sign covering and penultimate Walsh dimension; Resultary:425b85a56396; Resultary:798ce7784488; Resultary:44d920273418"
+        ]
+      },
+      "rationale": "The saturated value and its all-sign row construction, the n=m=3 specialization including its fixed-length calculation, and the general sign-averaging operator are already covered. The distinct result is the sharp weighted two-level coverage formula throughout the near-saturation interval and the resulting exact unrestricted constants beyond those cases. The inspected general sign-average representation and adjacent modified/geometric objectives do not mechanically imply it.",
+      "residual_risks": [
+        "1998 foundational full text was unavailable from the checked repository. No exhaustive literature priority claim. The saturation endpoint and n=m=3 exact specialization are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage at saturation; general operator representation but no inspected weighted near-saturation formula",
+          "evidence": [
+            "The unrestricted and modified constants are n for m≥2^{n−1}. The preprint numbers the saturation as Proposition 6(b); the frozen citation to journal Proposition 4(b) was not checked against journal numbering."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.01652; published DOI 10.1007/s43037-019-00033-1",
+          "material_read": "Preprint p.2 definitions; pp.6–7 Proposition 3 and Corollary 4; pp.8–9 Proposition 6(b) and proof; pp.12–13 Lemma 11",
+          "method": "Targeted OA PDF passages",
+          "title": "On some modifications of n-th von Neumann–Jordan constant for Banach spaces",
+          "trigger": "Exact saturation threshold and general all-sign reduction"
+        },
+        {
+          "assessment": "Exact special-case coverage, including the fixed-length argument",
+          "evidence": [
+            "Three represented classes out of four yields T²−b(T−b); the optimized unrestricted value is (3+√3)/2."
+          ],
+          "identifier_or_url": "Resultary:425b85a56396",
+          "material_read": "Local RESULT.md offsets 0, 2679, 4386, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local mirror passages",
+          "title": "Exact third von Neumann–Jordan gap in ℓ∞³",
+          "trigger": "Strongest exact lower-dimensional match"
+        },
+        {
+          "assessment": "Adjacent but different objectives",
+          "evidence": [
+            "The former uses the modified equal-norm objective; the latter uses geometric aggregation."
+          ],
+          "identifier_or_url": "Resultary:798ce7784488; Resultary:44d920273418",
+          "material_read": "Local RESULT.md Findings; 44d920273418 offset 0",
+          "method": "Resultary lookup and local mirror passages",
+          "title": "Exact low-dimensional modified n-th von Neumann–Jordan constants; Sharp penultimate Walsh-dimension geometric signed-product constant",
+          "trigger": "Related Rademacher representation and same-sign-class threshold"
+        },
+        {
+          "assessment": "Unresolved bibliographic access; no claim of noncoverage from this item",
+          "evidence": [
+            "Bibliographic record, no inspected theorem passage."
+          ],
+          "identifier_or_url": "https://kyutech.repo.nii.ac.jp/records/2040; DOI 10.18997/00002034",
+          "material_read": "Repository item only; complete original paper not readable from the accessed source",
+          "method": "Lawful OA repository lookup",
+          "title": "On n-th von Neumann–Jordan Constants for Banach Spaces",
+          "trigger": "Foundational general source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen fixed-length theorem and exact five-row example; independent exact reproduction; prior saturation and n=m=3 checks"
+      ],
+      "rationale": "The result supplies exact values of a standard Banach-space geometric invariant where the dimension alone no longer guarantees saturation. More strongly it determines worst-case behavior at arbitrary prescribed lengths by a sharp covering construction and identifies a genuinely intermediate value at n=4,m=5. The weighted construction explains why optimizing at unequal lengths can matter.",
+      "residual_risks": [
+        "Does not solve the more sparse code-covering regime, and makes no claim for complex scalars or the modified constant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:35.790378Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three partial derivatives cannot vanish together at a projective point, so the plane quartic is geometrically smooth and integral of genus 3. Independently reproduced the extension counts with `python3 /workspace/review_evidence/quartic_replay.py`, rather than executing verify_curve.py. The replay uses F9 with eta^2=−1 and builds its quadratic and cubic extensions by rootless monic polynomials. For a nonzero right-hand side a, cyclicity of the multiplicative group gives four roots precisely when a^((9^m−1)/4)=1; the zero value contributes one root. Across m=1,2,3 the affine counts are 1,105,892 and the [x:1:0] chart contributes 0,4,0; [1:0:0] is excluded. The Frobenius power sums are 9,−27,−162, hence initial coefficients −9,54,−189; reciprocity gives 486,−729,729. Multiplication yields the stated cube, with L(1)=7^3=343. The named elliptic curve has seven F3-points, trace −3, and trace 3 after the quadratic base change. The matching characteristic polynomials give the asserted finite-field isogeny, not an isomorphism of polarized Jacobians. The other root eta is a conjugate and gives the same counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 7941e85fe539 allows every prime p and f≥1 with s=p^f, and gives (1+sT)^(s²/p−s) times [sum over j=0 to p−1 of (−sT)^j]^(s²/p). Record 2398b9ff888b gives the same family numerator as [1−(−sT)^p]^(s²/p)/(1+sT)^s.",
+          "Homma–Kim supply the normal form and one base-field point but not the full numerator in the inspected theorem."
+        ],
+        "reasoning": "Both catalogue theorems include p=s=3, so an exact formula for the individual quartic is already a special case; the restricted genus-three twist table is not needed.",
+        "searches": [
+          "Resultary 7941e85fe539 and 2398b9ff888b; Homma–Kim arXiv:2610.09672 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7941e85fe539 and 2398b9ff888b",
+        "Homma–Kim Theorem 1.1",
+        "Meagher–Top Proposition 18",
+        "Frozen RESULT.md, VERIFICATION.md and verify_curve.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At s=p=3, the older formula has prefactor exponent 0 and exponent 3 on the three-term factor. The other formula becomes (1+27T³)^3/(1+3T)^3, the same cube.",
+          "The named curve has Frobenius trace −3 over F3, hence 3 over F9 and quadratic numerator 1−3T+9T²."
+        ],
+        "reasoning": "Evaluation at 1 yields the claimed Jacobian cardinality. Equality of Frobenius characteristic polynomials gives the named product isogeny by Tate. No additional isogeny map, kernel or polarization invariant is part of the frozen claim.",
+        "searches": [
+          "Resultary 2026-10-13 7941e85fe539 and 2026-10-18 2398b9ff888b, Findings; finite-field isogeny comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalogue 7941e85fe539 displays exactly X^(s+1)+eta Y^(s+1)+Y^s Z+YZ^s=0 for eta outside F_s and its exact zeta numerator.",
+          "Meagher–Top Proposition 18 has characteristic at least five and so does not give this characteristic-three row; the equations in the Resultary records match directly without an unidentified twist equivalence."
+        ],
+        "reasoning": "Putting s=3 recovers the identical projective model; eta^2=−1 forces eta outside F3. The Frobenius polynomial, all extension counts and the unpolarized isogeny class describe equivalent data here.",
+        "searches": [
+          "Resultary first-point Hermitian relatives, F9 quartic twists, exact zeta/Weil numerator and elliptic-cube Jacobian",
+          "Homma–Kim Theorem 1.1 normal form; Meagher–Top Dyck–Fermat twists"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formulas give (1−3T+9T²)^3 and equivalently counts 1,109,892 in degrees 1,2,3, regardless of whether the model was separately enumerated as a database row.",
+          "The characteristic restriction on Proposition 18 rules out that table as the source of this calculation."
+        ],
+        "reasoning": "An exact formula on a parameterized database family covers the same data as an exact-model row; no separate genus-three quartic census is needed to establish this overlap.",
+        "searches": [
+          "Resultary exact-family formula records 7941e85fe539 and 2398b9ff888b",
+          "Meagher–Top Proposition 18, genus-three twist tables"
+        ]
+      },
+      "rationale": "Two distinct indexed Resultary Findings give the exact general zeta numerator of this same family. The comparison does not depend on ordering within the date 2026-10-18: the distinct record catalogued 2026-10-13 already includes the model, with p=3, f=1, s=3, q=9 and eta outside F3. It gives the very same polynomial by substitution. L(1) and the unpolarized isogeny to the named elliptic cube follow deterministically from that polynomial. Neither a different verification route nor naming the elliptic representative establishes a distinct frozen result. This is a finding of equivalent coverage, not a claim about who first discovered it.",
+      "residual_risks": [
+        "Top (2003) could not be inspected through the attempted lawful access; no noncoverage finding is based on that failure. The comparison does not adjudicate first discovery or rule out still earlier exact formulas; neither uncertainty changes the demonstrated general-family coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier indexed coverage by p=3, f=1 substitution",
+          "evidence": [
+            "Same homogeneous equation; exponent s²/p=3, prefactor exponent s²/p−s=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-zeta-function-of-the-one-rational-point-hermitian-relative--7941e85fe539/RESULT.md",
+          "material_read": "Finding, assumptions and first descent step, offsets 0–2689",
+          "method": "Resultary semantic match and bounded read of local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact zeta function of the one-rational-point Hermitian relatives",
+          "trigger": "Exact general zeta formula for a matching curve family"
+        },
+        {
+          "assessment": "Equivalent claim by quotient formula; same-day path does not establish ordering",
+          "evidence": [
+            "[1−(−sT)^p]^(s²/p)/(1+sT)^s specializes to the claimed cube."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-complete-zeta-function-of-the-one-point-hermitian-relative-c--2398b9ff888b/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2397",
+          "method": "Local mirror exact passage read at the same snapshot",
+          "title": "The complete zeta function of the one-point Hermitian-relative curve",
+          "trigger": "Distinct same-day exact-family match"
+        },
+        {
+          "assessment": "Covers the model and one-point property, not the full Frobenius polynomial in this theorem",
+          "evidence": [
+            "Identifies the one-rational-point curves by the displayed normal form."
+          ],
+          "identifier_or_url": "https://wcc2026.inria.fr/assets/final_versions/WCC2026_paper_17.pdf",
+          "material_read": "Theorem 1.1, p. 2, text offset near 2688",
+          "method": "Proceedings primary PDF bounded theorem read",
+          "title": "Rational points and inflexions on Hermitian-relative curves",
+          "trigger": "Original family classification"
+        },
+        {
+          "assessment": "The specific table does not include characteristic three",
+          "evidence": [
+            "Proposition 18 is restricted to characteristic at least five."
+          ],
+          "identifier_or_url": "https://home.mathematik.uni-freiburg.de/arithgeom/TwistsGenThreeCurve.pdf",
+          "material_read": "Proposition 18, p. 21, text offset near 50296",
+          "method": "Primary PDF bounded proposition read",
+          "title": "Twists of genus three curves over finite fields",
+          "trigger": "Possible twist-table row for the genus-three curve"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The one-point quartic is naturally motivated and its isogeny class is a useful invariant. For this frozen claim, however, both the polynomial and the isogeny are immediate specializations or standard deductions from exact family formulas. The independent point-count replay is useful corroboration but the submission does not establish a genuinely new arithmetic invariant or stronger decomposition.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

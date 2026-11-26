@@ -1,19 +1,21 @@
-# Scientific review: sharp transverse damping of resonant coexistence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated assumptions make every equilibrium coordinate and the three environmental variances strictly interior, so all sign arguments are legitimate. The environmental equations determine the exact equilibrium segment; the five-dimensional Jacobian has one simple tangent zero and a quartic whose Hurwitz determinants factor explicitly. The decisive determinant is proportional to the strictly positive factors times \((x_*-y_*)^2\). At equality, direct quadratic factorization proves one imaginary pair and two decaying directions. The log-odds integral selects the exponentially approached point through normal hyperbolicity. The analytic proof establishes all parameter quantifiers; the exact symbolic/finite computational checks in `verification.py` corroborate, but cannot replace, it.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+The environmental interior equations force x=x_* and y=y_* and exactly the stated resonance; the two strategy equations then force n_1+n_12=n_2+n_12=kappa, with 0<kappa<2 and the stated endpoints. Direct differentiation gives the displayed Jacobian. Independently of the quartic Hurwitz test, eliminate the environmental coordinates at a nonzero eigenvalue and scale the strategy perturbations by diag(p,q)^(-1/2). The resulting pencil is lambda^2 I+lambda D+K, with e=(sqrt(p),sqrt(q)), D=alpha e e^T and K=beta diag(pu,qr)+beta t e e^T. K is positive definite. Taking the Hermitian product with a pencil eigenvector yields a scalar quadratic with positive mass and stiffness and nonnegative damping, hence Re lambda<=0; zero-real-part roots require Dv=0 and Kv=omega^2 v. The line orthogonal to e has both coordinates nonzero and is an eigenspace of K exactly when pu=qr, equivalently x_*=y_* because pu=w(1-x_*) and qr=w(1-y_*). In that case the two eigendirections give precisely the imaginary pair and the damped quadratic. The five-variable characteristic determinant is lambda times the pencil determinant by the block determinant formula, extending the equality to zero; det K>0 proves the tangent zero is simple. Expanding the pencil gives the stated quartic and its squared Hurwitz difference. Differentiating each environmental logit cancels all terms in H dot; on the equilibrium curve H is strictly increasing and ranges from minus to plus infinity. Locally H is a regular coordinate since its n_12 derivative is positive, and each level has a unique equilibrium obtained by inverting H(E_s). In coordinates subtracting this equilibrium on the level, the other four variables have a strictly Hurwitz linearization, yielding local exponential convergence by the stable-equilibrium estimate, uniformly near compact portions using an extension along the open curve. This does not require trapping the limit in any prechosen closed subsegment if the initial H lies outside its image.
 
-The closest direct source is Betz, Fu, and Masuda (2024), arXiv:2404.17082, whose five-dimensional and appendix discussion treats the source dynamics but does not state the sharp resonant full-interior transverse spectral test. A prior result on resonant conservation and equilibrium continua is acknowledged as background rather than counted as new. Wang, Zheng, and Fu (2019), arXiv:1906.07161, develop manifold attraction in a distinct low-dimensional public-goods feedback model, and Tilman et al. (2020) treat broader two-variable feedback behavior; neither provides the five-variable determinant-square criterion for the present model. Published related claims with equilibrium segments, two-community phenomena, and oscillations were compared by mathematical implication rather than by matching titles. No direct covering result was identified. Broader unpublished or overlooked spectral theory could still subsume the classification.
+## originality
 
-## Value — PASS
+PASS
 
-The result turns a numerical/general five-dimensional coexistence problem into an all-parameter classification of four transverse eigenvalues, with a sharp symmetry boundary: environmental response *heterogeneity* supplies strict damping while perfect equality leaves an undamped oscillatory mode. It identifies when balanced encounter mixing supports local convergence to a coexistence family and specifies the destination using an invariant. This is a structural, parameter-uniform ecological-game statement, not a recomputed stability sample or relabeling.
+The source model, equilibrium continuum, logit resonance and stability of some symmetric reduced directions are credited as background. The strongest inspected same-model results do not recover the omitted community-asymmetric modes in the full five-dimensional resonant linearization or establish the exact condition for strict transverse damping. The supported distinction is that all four transverse modes decay precisely away from equal responses, together with local limit selection in that regime.
 
-## Limits and closest literature
+## value
 
-Only a resonant, frequency-dependent affine-payoff and balanced-mixing slice is covered; no global basin, boundary-equilibrium classification, or nonlinear conclusion in the undamped case follows. The relevant first public source date is April 25, 2024. Closest literature: Betz, Fu and Masuda, arXiv:2404.17082; Wang, Zheng and Fu, arXiv:1906.07161; Tilman et al., Nature Communications 2020. Independent scientific and priority assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The symmetry-reduced attractor can obscure a full-system undamped pair. The resonance family and balanced mixing are meaningful precisely because the equilibria form a curve and strategy damping has rank one. Classifying when environmental response asymmetry transfers that damping to all transverse modes closes a specific stability gap in the full model, with an exact conserved quantity predicting the local limiting point rather than merely convergence to a set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

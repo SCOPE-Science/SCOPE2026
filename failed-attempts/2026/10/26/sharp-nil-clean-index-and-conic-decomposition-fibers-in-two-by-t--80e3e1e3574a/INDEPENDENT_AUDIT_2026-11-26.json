@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:37:35.298008Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–68; VERIFICATION.md and nil_clean_fibers_checker.py inspected as supplied evidence, not executed",
+        "Independent enumeration: /workspace/branches/fae474be-6ec0-4c53-b208-ae6625c23a3d/independent_nil_clean_check.py and independent_check_output.txt"
+      ],
+      "rationale": "Trace separates rank-zero and rank-two idempotents (giving disjoint translates of the nilpotent cone) from the rank-one case, also in characteristic two. In the latter case a scalar A is impossible, and for the companion matrix with determinant δ, setting both det E and det(A−E) to zero gives u=s−δ+δv and s²+sv+δv²−s−δv=0. The simplified determinant identity in the proof is on det E=0. At δ=0 the two affine lines intersect once; at δ≠0 the projective partial derivatives force s=−δv and w=v at a putative singular point, and the equation would then give δ²v²=0, impossible projectively. The conic has [0:0:1], so it has q+1 rational points, with r(A) at infinity by t=−s/v. The class sizes follow from centralizer orders (q−1)², q²−1 and q(q−1) for the split, irreducible and repeated cases. Unordered pairs of distinct roots summing to one give (q−1)/2 split determinants including zero in odd characteristic, and q/2 in characteristic two. These counts and the q² nilpotents give both polynomials and the maximum, including exponent collisions at q=2. A new exhaustive check over F₂, F₃ and F₄ agreed on every fiber, conic point count and histogram. The proof establishes all q, not the test.",
+      "residual_risks": [
+        "Independent enumeration is bounded to fields of sizes 2, 3 and 4; no formal verification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.4 gives the matching lower bound for n=2 and the exact index 3 at q=2. The nil-clean ring theorem classifies when every matrix decomposes, not the multiplicities. The weakly nil-clean example gives 5 at q=3 for the sign-inclusive count."
+        ],
+        "reasoning": "The published nil-clean lower bound does not prove the general upper bound; the weak variant allows A+E as well as A−E, and strong nil-cleanness requires commutation. Neither replaces the exact comparable count in the distinct catalogue record.",
+        "searches": [
+          "Basnet–Bhattacharyya, Nil Clean Index of Rings, Proposition 4.4",
+          "arXiv:1310.0416, Theorem 3",
+          "Cîmpean–Danchev, Weakly Nil-Clean Index, Example 2.26"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary record 5a7337677087",
+        "Basnet–Bhattacharyya, IEJA 15 (2014)",
+        "Cîmpean–Danchev, IEJA 21 (2017)",
+        "Breaz et al., arXiv:1310.0416"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The invariant-line formula yields h=2q−1 for a rank-one idempotent, and no branch exceeds this. The matched record does not state the affine conic equation or its smooth projective completion."
+        ],
+        "reasoning": "The index and histograms are already available without the conic calculation. That calculation is an alternative geometric explanation, not a new multiplicity theorem.",
+        "searches": [
+          "2026/10/13/SCOPE-exact-nil-clean-decomposition-multiplicities-in-2-times2-finite--5a7337677087",
+          "Basnet–Bhattacharyya Proposition 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched RESULT.md, Finding at offset 0, counts invariant projective lines e(A); for a nonscalar trace-one matrix these are exactly its distinct rational eigenspaces, so e(A)=r(A). For a trace-one scalar, e(A)=q+1 and the rank-one term vanishes."
+        ],
+        "reasoning": "The matched formula ν(A)=1_{A nilpotent}+1_{A−I nilpotent}+1_{tr A=1}(q+1−e(A)+q·1_{det A=0}) specializes to every branch of h_q(A), with nilpotency equivalent to square-zero in this dimension. At det A=0 and trace one there are two invariant lines.",
+        "searches": [
+          "Resultary: exact nil-clean decomposition multiplicities in 2×2 finite-field matrix rings",
+          "2026/10/13/SCOPE-exact-nil-clean-decomposition-multiplicities-in-2-times2-finite--5a7337677087"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched trace-one class table counts labeled matrices by polynomial type and gives their decomposition multiplicities."
+        ],
+        "reasoning": "Collect the class table rows at exponent h and add the two disjoint q² singleton branches; subtract the positive census from q⁴ for the constant term. This is the frozen generating polynomial for each parity.",
+        "searches": [
+          "2026/10/13/SCOPE-exact-nil-clean-decomposition-multiplicities-in-2-times2-finite--5a7337677087, RESULT.md class table"
+        ]
+      },
+      "rationale": "A distinct published record gives the full same elementwise multiplicity law and the class table yielding both parity histograms and the maximum. The affine conic coordinates and projective interpretation are not in that comparison, but do not make the frozen counting classification distinct. This is an equivalence finding, not a claim about authorship or derivation.",
+      "residual_risks": [
+        "The extent of historical publication of the conic interpretation is not determined. Coverage is established at the statement level, not by inferring derivation from record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers elementwise law, maximum and histogram; no conic presentation identified",
+          "evidence": "Formula in invariant projective lines; class table by characteristic polynomial type.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-nil-clean-decomposition-multiplicities-in-2-times2-finite--5a7337677087",
+          "material_read": "RESULT.md Finding (offset 0) and trace-one class table",
+          "method": "Local mirror (commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4), statement and table comparison",
+          "title": "Exact nil-clean decomposition multiplicities in 2×2 finite-field matrix rings",
+          "trigger": "Same object, all field sizes, and same invariant"
+        },
+        {
+          "assessment": "Matching lower bound and q=2 index; not the general exact fiber law",
+          "evidence": "Nin(M_n(S)) ≥ 2|S|^{n−1}−1 and the index-three characterization.",
+          "identifier_or_url": "https://ieja.net/files/papers/volume-15/12-V15-2014.pdf",
+          "material_read": "Definition, pp. 145–146, and Proposition 4.4, p. 155 (offset 28990)",
+          "method": "OA PDF passage inspection",
+          "title": "Nil Clean Index of Rings",
+          "trigger": "Original invariant and matching bound"
+        },
+        {
+          "assessment": "Different sign-inclusive invariant",
+          "evidence": "Allows A−E or A+E nilpotent; example reports wnc(M₂(Z₃))=5.",
+          "identifier_or_url": "https://ieja.net/files/papers/volume-21/12-V21-2017.pdf",
+          "material_read": "Definitions 2.1–2.3, pp. 181–182 (offset 3400), and Example 2.26, pp. 189–191 (offset 25788)",
+          "method": "OA PDF passage inspection",
+          "title": "Weakly Nil-Clean Index and Uniquely Weakly Nil-Clean Rings",
+          "trigger": "Close invariant and exact q=3 value"
+        },
+        {
+          "assessment": "Ring-wide existence rather than elementwise multiplicities",
+          "evidence": "The strong condition requires commuting summands; the ring classification asks whether all matrices admit a decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.0416",
+          "material_read": "Section 1 and Theorem 3, pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Nil-clean matrix rings",
+          "trigger": "Similar classification title"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Distinct Resultary record 5a7337677087, Finding and class table"
+      ],
+      "rationale": "The exact distribution of decomposition counts is a natural question, but the frozen quantitative classification is already available pointwise and by class. The conic provides a concise alternative proof, with its points at infinity encoding the already counted eigenspaces; no independently consequential new invariant or use of the geometric model beyond this classification is established in the record.",
+      "residual_risks": [
+        "A separate geometric result or application of the fibers would require its own scientific assessment."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

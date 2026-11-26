@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:58.788125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using a=2^p and b=3^p, the compressed powered-distance form on the real mean-zero space has n(t−1) internal leaf directions with eigenvalue −a, n−1 identical two-by-two blocks with first entry −1 and determinant t[b+a−a²−1+a/t], and the contrast (−t on cores, +1 on leaves) with form nt²H. Concavity gives H<0 and positive block determinants for 0≤p≤1, including the specified diagonal convention at p=0. H is increasing from −2/t to 2n−4/t on [1,2] and strictly increasing thereafter. For 1<p≤α, H≤0 gives det/t≥nF−(a−2)²>0: F≥(a−2)²/2 follows from strict concavity of a^(log_2 3)−a²/2−1 on [2,4]. Thus only the global contrast is null at α, giving centered Gram rank N−2, versus N−1 below. A distinct-point Euclidean realization gives strictly positive Gaussian kernels even at α; above α the first-order expansion on the global contrast produces a negative direction at small positive scales, and the unit diagonal gives a positive direction. H increases in either integer size at fixed p>1, and Taylor expansion at 1 with slope (n−1)c+2(1−1/t)log 2 and α−1≤2/[t(n−1)c] gives both asymptotic orders. Independent bisection gives the two stated numerical anchors (1.70951129135145 and 1.38018235538565); these are illustrative, not a proof. The original checker and its recorded replay were inspected, not re-executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ordinary distance-spectrum theorem allows a distance-regular core and a regular attached graph; K_n and the t-vertex edgeless graph fit that setting at p=1.",
+          "The finite-metric criterion is general, and the exact example in Sánchez Theorem 3.1 is complete bipartite.",
+          "The indexed weighted result has a broader range of lengths but fixes exactly one leaf per core."
+        ],
+        "reasoning": "The p=1 spectrum does not determine when the entrywise p-power form loses conditional negativity. The general criterion needs evaluation and proof that the global contrast is the first obstruction; complete bipartite graphs do not supply this metric.",
+        "searches": [
+          "Indulal–Stevanović, distance spectrum of graph coronas, Theorem 1",
+          "Sánchez, general finite-metric criteria for supremal p-negative type",
+          "Resultary: weighted complete-graph coronas cf77f16e4965"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; corona_negative_type_checker.py (static inspection)",
+        "Resultary cf77f16e4965",
+        "Sánchez arXiv:1108.0451",
+        "Indulal–Stevanović published PDF Theorem 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ℓ=1 the weighted one-leaf theorem has radial coefficient (n−1)F−2 and fluctuation determinant b−(a−1)². Averaging over t leaves per core adds (1−1/t)a to the leaf-aggregate diagonal in unnormalized total-leaf coordinates; it raises the radial form but lowers the determinant, and adds n(t−1) internal modes.",
+          "The weighted result controls its determinant by subadditivity for p<2. The multiplicity theorem controls the reduced determinant using H≤0 and the bound F≥(a−2)²/2, through the first root including the endpoint."
+        ],
+        "reasoning": "Neither an isometric one-leaf subspace nor its already negative fluctuation determinant proves that the extra multiplicity-dependent modes are strictly negative at the earlier root for the full graph. The large-pendant-length asymptotic of the weighted theorem approaches a star exponent >1, unlike increasing the number of unit leaves, which here yields an explicit 1/t approach to 1. The new multiplicity result is not an immediate substitution.",
+        "searches": [
+          "Weighted corona cf77f16e4965, radial coefficient and fluctuation determinant proof",
+          "Indulal–Stevanović, Theorem 1; Sánchez, Corollary 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored weighted complete-graph corona finding cf77f16e4965 states the sharp p-negative-type boundary for one private pendant per core of common length ℓ>0.",
+          "Sánchez, arXiv:1108.0451, Corollary 2.4 and Theorem 3.1; the finite Schoenberg equivalence identifies the negative-type, all-scale Gaussian and squared-Euclidean formulations."
+        ],
+        "reasoning": "Treat an exact CND threshold for this same metric as coverage of the Gaussian scale statement. Setting ℓ=1 in the weighted one-leaf theorem identifies exactly t=1 here, including endpoint equality/rank. Changing the common edge length with one leaf does not give the metric on nt leaves or its mean-zero compressed form when t≥2.",
+        "searches": [
+          "Resultary semantic search for clique-leaf coronas, supremal p-negative type, Gaussian distance-power positivity and embedding dimension",
+          "Primary-literature lookup for powered distance matrices and negative type of complete-graph coronas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror states the exact unit-length six-vertex exponent log 2/log(3/2), the t=1 equation at every n, and its fixed-multiplicity large-core expansion.",
+          "The frozen t=2 example at n=3 is 1.38018235538565 by fresh bisection of H; the checked exact indexed formula is for t=1 only."
+        ],
+        "reasoning": "The n=3,t=1 numerical example and the t=1 family are genuine indexed matches. A numerical match would not by itself cover t≥2, and independent bisection only verifies the displayed values, not originality.",
+        "searches": [
+          "Resultary indexed exact threshold for clique-leaf coronas and one-pendant weighted complete graphs, cf77f16e4965"
+        ]
+      },
+      "rationale": "Credit the full one-leaf unit-edge special case, including the endpoint and its large-core limit, to demonstrated coverage in a distinct same-day indexed result; no date-based priority inference is made. The supported distinct contribution is the multiplicity-dependent classification for t≥2, including the exact obstruction, absence of other vanishing modes, and the large-multiplicity regime. The strongest inspected sources do not derive that classification, and the weighted one-leaf tangent calculation does not control the new multiplicity term.",
+      "residual_risks": [
+        "The primary-literature query did not yield a material additional source; this is not negative evidence or a proof of publication priority.",
+        "Exact coverage at t=1 is established regardless of the unresolved order of the two same-day records; equivalent multiplicity results in other distance-kernel terminology have not been ruled out exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unit-length one-leaf coverage, not t≥2; same-day priority unresolved.",
+          "evidence": "One pendant vertex per core, formula F_(m,t) with t a length, radial null line, both embedding ranks, large-core law and unit six-vertex exact value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-logarithmic-collapse-law-for-negative-type-of-weighted-complet--cf77f16e4965/RESULT.md",
+          "material_read": "Finding, assumptions and proof through No earlier fluctuation obstruction, characters 0–4162",
+          "method": "Bounded full text from local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A logarithmic collapse law for negative type of weighted complete-graph coronas",
+          "trigger": "Strongest exact indexed match for a restricted family"
+        },
+        {
+          "assessment": "Provides a general criterion and exact complete-bipartite example, not the multiplicity-dependent result in the inspected passages.",
+          "evidence": "Finite-metric distance-matrix criterion and K_(n,m) threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+          "material_read": "Definitions p. 1; Corollary 2.4 pp. 2–3, text offset 11700; Theorem 3.1 p. 7, offset 25363",
+          "method": "Bounded OA full-text passages",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Primary reference for exact finite-metric thresholds"
+        },
+        {
+          "assessment": "Includes the ordinary distance spectrum for these graphs but not the threshold of compressed powered matrices.",
+          "evidence": "Theorem 1 assumes a distance-regular core and regular attachment in the ordinary distance-spectrum calculation.",
+          "identifier_or_url": "https://draganstevanovic.wordpress.com/wp-content/uploads/2016/10/published-version.pdf",
+          "material_read": "Definitions p. 1, around offset 1200; Theorem 1 p. 3, around offset 8224",
+          "method": "Bounded published-version OA PDF passages",
+          "title": "The distance spectrum of corona and cluster of two graphs",
+          "trigger": "Same graph construction and related matrix spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For t≥2 the exact exponent directly decides all-scale Gaussian-kernel validity for a natural family of graph metrics and specifies the minimum embedding dimension at the critical parameter. The proof identifies the global contrast as the only obstruction despite extra leaf modes, and the two size limits distinguish adding core vertices from adding leaves. The value rests on that full multiplicity-dependent threshold and endpoint structure, not on the already covered t=1 case or two numerical examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

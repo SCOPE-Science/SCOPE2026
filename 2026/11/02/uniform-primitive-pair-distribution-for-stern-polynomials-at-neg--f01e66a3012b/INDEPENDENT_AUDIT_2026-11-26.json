@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:55:07.421606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two binary transitions on (B_n(−2),B_{n+1}(−2)) have determinant −2, a unit at every odd m, so primitivity is invariant. Multiplying the displayed matrices verifies P^{-1}(AB^{-1})²P=E_{12}(−4) and P^{-1}A(AB^{-1})²A^{-1}P=E_{21}(−2). These yield all shears; local-ring elimination and CRT generate SL₂, including at repeated prime powers. A primitive pair extends to a determinant-one basis, so transitivity is on exactly the primitive pairs. The positive-word orbit equals the group orbit by finiteness. The two transitions are permutations and the accessible (0,1) has an A-self-loop; the walk thus mixes to uniform. The prefix-cylinder argument bounds discrepancies of cylinders of free length ≥L by their total size times the uniform mixing error and treats shorter cylinders by a total size <2^L, proving natural density at arbitrary endpoints. CRT counts the marginal fibers as stated. A fresh direct recurrence and BFS over m=3,9,25,27,45,75,125 through a prefix of 65,536 checked the exact orbit sizes 8,72,600,648,1728,4800,15000 and all marginal fiber sizes. Prefix frequencies were finite corroboration, not an exact density test; replay: branches/9b74cb2e-5a23-415a-abcb-70fa0f5af4a2/independent_check.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 gives natural density as the fraction of reachable states accepted by a finite automaton with invertible digits and a zero digit fixing the initial state. Ulas–Ulas show consecutive polynomial coprimality; Gawron analyzes other rational evaluations via finite automata."
+        ],
+        "reasoning": "The broader invertible-automaton theorem applies to the frozen transitions from (0,1), but requires as input the reachable states. Starting at (0,1) is legitimate since A fixes it and B sends it to (1,−2). Invertibility ensures preserved primitivity but does not imply transitivity; the specialization-specific group argument is necessary.",
+        "searches": [
+          "DOI:10.4064/bc118-3, Definition 2.1, Theorem 2.2 and Propositions 3.1–3.2",
+          "arXiv:1102.5109v1, Corollary 2.6; arXiv:1401.3553v1, §2 Lemma 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–64 and supporting verification package",
+        "DOI:10.4064/bc118-3",
+        "arXiv:1102.5109v1 and arXiv:1401.3553v1",
+        "Resultary 2842eb00d3ce, 9c2ceec9f9d1, f582a68737bf, 67fcd3f4bd6d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proposition’s generators are already elementary opposite shears. The −2 transitions are not, and their squares after taking a quotient and conjugating give two opposite elementary directions of unit magnitude at all odd moduli."
+        ],
+        "reasoning": "Given this orbit theorem, uniform density and the fiber formula are prior machinery and elementary counting. Neither the previously established ordinary orbit nor the general density mechanism supplies the new two-generator orbit; getting both directions over every odd prime-power factor is the substantive step.",
+        "searches": [
+          "Deshouillers–Schinzel, Definition 2.1 and Theorem 2.2 (printed pp. 39–40) and ordinary generators/Proposition 3.2 (pp. 41–42)",
+          "Frozen RESULT.md lines 26–52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deshouillers–Schinzel Theorem 1.1 and Corollary 1.3 give the same numerical joint and marginal law for ordinary s(n)=B_n(1). Proposition 3.1 uses (x,x+y),(x+y,y), both determinant one. The frozen transitions have determinant −2; they coincide at m=3 but are not a common conjugation of the ordinary digit maps over general odd m."
+        ],
+        "reasoning": "The same formula and related recurrence do not give the same object. In particular determinant is invariant under conjugation and −2≠1 modulo odd m other than 3. The odd family cannot be reduced to the ordinary result by this identification.",
+        "searches": [
+          "Focused literature search on modular Stern-polynomial pairs at t=−2",
+          "The modular distribution of Stern’s sequence, Deshouillers–Schinzel, DOI:10.4064/bc118-3",
+          "Resultary: negative-two Stern and primitive-pair modular laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2842eb00d3ce treats the same t=−2 sequence at powers of two, with a different pair-image condition. 9c2ceec9f9d1 and f582a68737bf treat ordinary Stern pairs or a coupled Stern/twisted pair. 67fcd3f4bd6d gives scalar ordinary Stern modulo-eight dyadic spectra."
+        ],
+        "reasoning": "The modulus range, pair, or averaging domain changes in each indexed formula. In particular, the two-adic constraint cannot establish the primitive orbit for odd m; there the transitions are permutations instead of having nonunit determinant.",
+        "searches": [
+          "Resultary 2842eb00d3ce, 9c2ceec9f9d1, f582a68737bf, and 67fcd3f4bd6d; actual Findings"
+        ]
+      },
+      "rationale": "Deshouillers–Schinzel already prove the density mechanism for invertible digit automata, and their Stern result at t=1 has exactly the same form. The supported distinct result is reachability of the full primitive orbit for the t=−2 generators at every odd modulus, via the opposite shears, and hence the law for that specialization. The inspected earlier primitive-orbit proof uses different generators and does not supply this input.",
+      "residual_risks": [
+        "A general theorem identifying the orbit for a larger family of Stern-polynomial specializations could cover −2; no such decisive statement was verified in the inspected sources.",
+        "The ordinary-Stern law already covers the identical recurrence modulo three, and automaton uniformity itself is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General density theorem applies after reachability; the proved orbit identification is for ordinary Stern",
+          "evidence": [
+            "Theorem 2.2 takes the number of reachable states as input. Eq. (6) and Proposition 3.1 specify the two ordinary unipotent generators to which Proposition 3.2 refers."
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/bc118-3; https://impan.pl/shop/en/publication/transaction/download/product/113097",
+          "material_read": "Theorem 1.1 and Corollary 1.3; Definition 2.1 and Theorem 2.2; Propositions 3.1–3.2, PDF text offsets 2960–5424, 6200–9034, 14300–17073",
+          "method": "Lawful publisher PDF from the direct article download; read the decisive passages",
+          "title": "The modular distribution of Stern’s sequence",
+          "trigger": "Closest primary result with the same formula and a stronger general density theorem"
+        },
+        {
+          "assessment": "Polynomial coprimality; not an orbit or density theorem",
+          "evidence": [
+            "The gcd of consecutive Stern polynomials is one as polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.5109v1",
+          "material_read": "Corollary 2.6, PDF p. 5, around offset 13800",
+          "method": "OA PDF",
+          "title": "On certain arithmetic properties of Stern polynomials",
+          "trigger": "Possible Stern-polynomial antecedent"
+        },
+        {
+          "assessment": "Different rational inputs and scalar zero-residue question",
+          "evidence": [
+            "The inspected automata concern −1/2 and −1/3 and primes p>3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.3553v1",
+          "material_read": "§2 Lemma 2.4, PDF p. 3, around offset 10700",
+          "method": "OA PDF",
+          "title": "A note on the arithmetic properties of Stern Polynomials",
+          "trigger": "Earlier negative-rational specializations and digit automata"
+        },
+        {
+          "assessment": "Exact same sequence on a disjoint modulus regime",
+          "evidence": [
+            "Pair images modulo 2^k are constrained by b−5a≡1 modulo 2^{min(k,3)}."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-two-adic-image-and-equidistribution-of-stern-polynomia--2842eb00d3ce/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "The exact two-adic image and equidistribution of Stern polynomials at negative two",
+          "trigger": "Strongest indexed same-sequence overlap"
+        },
+        {
+          "assessment": "Different sequence or pair and, in the modulo-eight record, different modulus and shell setting",
+          "evidence": [
+            "The ordinary pair and coupled Stern/twisted pair are not consecutive B_n(−2) values. The modulo-eight result is a scalar ordinary-Stern census on dyadic blocks."
+          ],
+          "identifier_or_url": "9c2ceec9f9d1; f582a68737bf; 67fcd3f4bd6d",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Binary-digit weight independence for Stern diatomic residues; Modular equidistribution for coupled Stern and twisted Stern matrices; Complete modulo-eight residue spectra of Stern’s diatomic sequence",
+          "trigger": "Indexed primitive-pair and same-day distribution analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The orbit calculation gives a complete exact modular law at a natural nonordinary specialization with invertible odd-modulus digits. It resolves all composite odd moduli, including repeated prime factors, and supplies exact scalar densities that are not all equal. The opposite-unit-shear argument explains why full primitive support holds uniformly rather than just displaying frequencies in small moduli.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

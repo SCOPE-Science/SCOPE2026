@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:23:46.734959Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:43–92",
+        "VERIFICATION.md",
+        "check.py and symbolic_check.py (inspected)",
+        "/workspace/branches/replay-5.py (independent rational replay)"
+      ],
+      "rationale": "The fourth-moment normalization and Laplace eigenvalue 2d give Dirichlet norm squared 4||A||_F^2/(d+2), while each intrinsic gradient is 2(I-uu^T)Au. A vanishing sampled gradient forces u to be an eigenvector of the complex symmetric A; nonzero pairwise bilinear products force a common eigenvalue. The real simplex span through k<=d vertices has positive definite Gram matrix, so its complexification splits orthogonally from the complementary symmetric block. The trace condition determines the common eigenvalue, giving exactly (d-k)(d-k+1)/2 free parameters, and the full simplex is injective by restriction. For one deletion, the full-frame rescaling and rank-(d-1) downdate have coefficient (d+2)/(2d). For the normalized symmetrized tensor at the deleted vertex, the squared norm of its full evaluation vector is 2(d+1)/d^3 by simplex isotropy; dividing by the low-sector evaluation Gram level (d^2-1)/d^2 gives overlap 2/[d(d-1)]. Polarizing yields orthogonal paired planes. The trace and determinant in the resulting two-by-two block produce both radical branches; the secular polynomial is negative at L_d, the upper root is strictly below H_d, and positivity follows from the kernel calculation. Unpaired dimensions are 1 and d(d-3)/2, so the d=3 condition number uses the upper paired root rather than H_d. The determinant divided by the upper root gives lower-root asymptotic 1/d. An independent rational ambient-hyperplane matrix construction confirmed every retained-cardinality rank and the full and erased characteristic polynomials for d=3,4,5,6; this is corroboration, not the all-dimensional proof.",
+      "residual_risks": [
+        "No assertion about nonuniform surviving weights, other degrees or scalar-value samples. The sample mean is defined only for nonempty surviving sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allasia et al. interpolate selected Taylor data at arbitrary manifold nodes, whereas Adcock–Sui use values plus derivatives on tensor-product domains.",
+          "The same-day first-jet rule uses mixed value and gradient observations at special mixing and isotropic second moment."
+        ],
+        "reasoning": "Neither general interpolation nor the mixed Parseval rule evaluates the pure tangent-gradient Gram spectrum after removing a regular-simplex vertex. Injectivity of a mixed form also does not imply injectivity of its derivative component.",
+        "searches": [
+          "arXiv:1705.01032v1 abstract and §2",
+          "arXiv:1712.06645v1 abstract and §1.1",
+          "Resultary: 2026/11/22 first-jet Parseval quadrupoles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local catalogue and the four SCOPE findings identified above",
+        "arXiv:1705.01032v1",
+        "arXiv:1712.06645v1",
+        "arXiv:2303.05365v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact prior sector sums are (d+1)||A||_F^2/d^2 and (d+1)||A||_F^2/d; multiplying by (d+2)/(d+1) recovers the comparison spectrum exactly.",
+          "The one-erasure spectrum additionally requires the overlap 2/[d(d-1)] of the low sector with the omitted measurement plane; the all-erasure result uses the common-eigenvalue constraint on the surviving span."
+        ],
+        "reasoning": "The aggregate intact spectrum by itself cannot locate a rank-(d-1) downdate relative to its eigenplanes. Neither the prior stated theorem nor its inspected proof supplies the needed individual overlap or establishes the erased claims.",
+        "searches": [
+          "2026/11/8 SCOPE Hessian RESULT.md Finding and quadratic-sector proof",
+          "2026/11/22 first-jet and gradient-concentration RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full Hessian proof uses h_i=(I-u_i u_i^T)Au_i, exactly half the sample gradient, and gives separate high and low sector energies summed over all vertices.",
+          "Xiao–Zhuang eqs. (2)–(3) differentiate a design objective in the point variables, not an erased harmonic gradient sampling operator."
+        ],
+        "reasoning": "The prior full Hessian and intact source frame share a quadratic-sector operator; equivalence at full sampling does not convert the aggregate energies into either the interaction with an omitted node or the subset nullity.",
+        "searches": [
+          "Resultary: quadratic harmonics, simplex Dirichlet gradient frame and Hessian",
+          "2026/11/8 SCOPE two-band Hessian result; arXiv:2303.05365v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22 orthant gradient concentration gives a four-level operator on the same source space but uses continuous orthant integration.",
+          "2026/11/16 icosahedral erasure spectra are for scalar P_2 values on a different node set."
+        ],
+        "reasoning": "These are substantive exact-spectrum matches in subject, including a same-day record, but the operator and/or sampling sets differ. The listed eigenvalues and ranks are not table entries for this erased simplex frame.",
+        "searches": [
+          "Resultary catalogue: quadratic harmonic gradient spectral levels and harmonic erasure spectra"
+        ]
+      },
+      "rationale": "The intact two-level spectrum is already implied by the cited full-configuration Hessian proof and receives no novelty credit. The additional projected overlap with the deleted tangent subspace, the complete downdated spectrum and the exact subset-nullity law were not supplied by the strongest inspected matches. The verdict concerns these erasure results only and is best-of-knowledge, not a priority certificate.",
+      "residual_risks": [
+        "Bounded statement-level comparison cannot exclude an unindexed or implicit equivalent in derivative sampling or frame downdates. Same-day catalogue matches were compared on content; no chronological ordering is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies intact spectrum only",
+          "evidence": "Full-configuration h_i tangent energies on V and W give the two intact levels with dimensions d and (d+1)(d-2)/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-band-hessian-and-isotropic-weighting-for-minimal-spher--3be0a5399420/RESULT.md",
+          "material_read": "Finding and quadratic-sector proof, offsets 0, 3000 and 4300",
+          "method": "Local catalogue mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-band Hessian and isotropic weighting for minimal spherical two-designs",
+          "trigger": "Closest exact shared simplex and quadratic tangent operator"
+        },
+        {
+          "assessment": "Distinct sampling operator",
+          "evidence": "The concentration form integrates over the orthant rather than summing tangent observations at surviving simplex vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-gradient-concentration-of-quadratic-spherical-harmonics-on-posit--91e02a89f650/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Gradient concentration of quadratic spherical harmonics on the positive orthant",
+          "trigger": "Same-day four-level spectrum and Dirichlet gradients"
+        },
+        {
+          "assessment": "Different observation form",
+          "evidence": "It mixes scalar and tangent information; d orthogonal nodes realize a minimal mixed Parseval rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-minimal-node-first-jet-parseval-rule-for-spherical-quadrupoles--370d41c98f7b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "A minimal-node first-jet Parseval rule for spherical quadrupoles",
+          "trigger": "Same-day finite quadratic-harmonic gradient sampling"
+        },
+        {
+          "assessment": "Different observation and node set",
+          "evidence": "Scalar values on P_2 at icosahedral vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-erasure-spectra-of-quadratic-harmonic-sampling-on-the-icos--f4265e782932/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Exact erasure spectra of quadratic harmonic sampling on the icosahedron",
+          "trigger": "Closest catalogue harmonic erasure spectrum"
+        },
+        {
+          "assessment": "No implication in inspected interpolation formulas",
+          "evidence": "Selected D^beta f data multiply cardinal basis functions in the interpolation construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.01032v1",
+          "material_read": "Abstract and §2, p. 3, offset 11300",
+          "method": "Bounded OA PDF inspection",
+          "title": "Hermite–Birkhoff interpolation on scattered data on the sphere and other manifolds",
+          "trigger": "General derivative interpolation on the sphere"
+        },
+        {
+          "assessment": "Different domain and observations",
+          "evidence": "Hermite data include both f and its gradient on the tensor-product domain.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.06645v1",
+          "material_read": "Abstract and §1.1, p. 2",
+          "method": "Bounded OA PDF inspection",
+          "title": "Compressive Hermite interpolation: sparse, high-dimensional approximation from gradient-augmented measurements",
+          "trigger": "Gradient-augmented approximation and conditioning"
+        },
+        {
+          "assessment": "Design-objective formulation, not an erased quadratic simplex evaluation",
+          "evidence": "A_{N,t} squares harmonic moments of a configuration and is minimized over point sets on S^2.",
+          "identifier_or_url": "https://arxiv.org/html/2303.05365v1",
+          "material_read": "Abstract and introduction eqs. (2)–(3)",
+          "method": "Bounded OA HTML inspection",
+          "title": "Spherical framelets from spherical designs",
+          "trigger": "Potential design Hessian dual formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:12–35, 55, 63–92",
+        "Exact two-band Hessian and isotropic weighting for minimal spherical two-designs (intact comparison)"
+      ],
+      "rationale": "Node loss is a natural stability question for a minimal spherical-design configuration. The exact nullity law separates injectivity after one loss from unavoidable information loss after two, and the sharp surviving constants distinguish injectivity from an inverse whose squared condition number grows like d. This is substantive additional information beyond the intact two-level spectrum, even without optimizing reweighting.",
+      "residual_risks": [
+        "The results do not establish optimality among alternative node sets or weights, or conditioning in other harmonic degrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:19:13.427823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With m=n−1 each support (i,j) uses the weight-one descendants at positions i and j−1, one output for adjacent ones and two otherwise. Any two consecutive adjacent starts collide after deleting a trailing zero from the first or leading zero from the second, when both inputs exist. Thus t+2e<=m and t<=ceil(m/2), giving the asserted upper bound. The construction uses odd singleton markers for the adjacent words and disjoint even marker pairs (4r+2,4r+4) for the nonadjacent words. After zero deletion the adjacent outputs still have gap one and disjoint start ranges {i−1,i}; the gap-three inputs yield only gaps two or three, with output first positions in disjoint ranges {4r+1,4r+2}. Unavailable boundary deletions only remove candidates. Its size ceil(m/2)+floor(m/4) equals the bound in all four residues; n=2 gives the unique input. Listing the support pairs takes O(n) word-position operations, without claiming O(n) time to print all expanded binary words. The supplied checker and its recorded finite output were inspected, not executed; the proof covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The modified-VT theorem computes the chromatic number, not the independence number of the layer. No treats unrestricted codes and considers a numerical slice by VT checksum, not fixed Hamming weight. The plausible thesis full text was not recovered."
+        ],
+        "reasoning": "These inspected generic results are not grounds for the failure by themselves. The exact indexed all-length statements are decisive regardless of the unresolved thesis.",
+        "searches": [
+          "Cullina–Kulkarni–Kiyavash arXiv:1211.4056, pp. 4 and 10, Theorem 5",
+          "No, DOI:10.3390/e21121202, pp. 2–5 and 13",
+          "Cullina, Constant composition deletion correcting codes, 2015"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_weight_two_deletion.py (inspected)",
+        "Resultary f07c464a7d1d, cc9ec0df2283, 1370efa22dd5 and 1c6dd93721d4",
+        "arXiv:1211.4056 and 1211.3128",
+        "DOI:10.3390/e21121202",
+        "IDEALS thesis 73103 (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier f07c464a7d1d already states and proves the identical capacity with the identical witnesses. The other earlier entry gives the same capacity and supports for n>=3 with a transversal argument; n=2 is separately trivial and covered by the all-length earlier entry."
+        ],
+        "reasoning": "No unproven relationship between coloring and independence is needed: the closest indexed theorems directly imply the capacity and reproduce the construction.",
+        "searches": [
+          "Resultary f07c464a7d1d, cc9ec0df2283 and 1370efa22dd5, Findings and constructions",
+          "arXiv:1211.4056 p. 4 distinction between coloring and maximum independent set"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier f07c464a7d1d uses zero-based supports (2j,2j+1) and (4j+1,4j+4); shifting both coordinates up by one gives precisely the audited construction. The same-date 1370efa22dd5 writes the optimum as n−1−floor((n+1)/4), equal to floor((3n−2)/4) at every n."
+        ],
+        "reasoning": "These are not just similar capacity slopes or similar code graphs. The layer, channel, formula, and support families agree exactly after reindexing.",
+        "searches": [
+          "Resultary: binary weight-two one-deletion optimum and exact floor((3n−2)/4)",
+          "Resultary f07c464a7d1d and 1370efa22dd5, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed f07c464a7d1d, 1370efa22dd5 and 1c6dd93721d4 each give the formula for all n>=2; cc9ec0df2283 gives it for n>=3. The published coding tables inspected provide unrestricted sizes, bounds or checksum thresholds, rather than weight-two optima."
+        ],
+        "reasoning": "The exact overlap is an all-length mathematical statement, including n=2, not an extrapolation from small-n values.",
+        "searches": [
+          "Resultary exact and equivalent capacity formulae, all blocklengths",
+          "arXiv:1211.3128 Table I",
+          "No, DOI:10.3390/e21121202 Tables on pp. 5 and 13"
+        ]
+      },
+      "rationale": "Distinct indexed findings explicitly cover this all-length optimum and the same attaining construction, including an earlier-dated all-length result. The disposition rests on the mathematical overlap, not inference of provenance or order from dates.",
+      "residual_risks": [
+        "Earlier or additional coverage in the 2015 thesis remains unassessed. The inspection was bounded and does not certify publication priority.",
+        "The dates do not resolve provenance or same-day order; the statement-level equivalence is established independently of that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-length overlap and same construction",
+          "evidence": "The same floor and zero-based adjacent and nonadjacent support families.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-binary-weight-two-deletion-codes-at-every-blocklength--f07c464a7d1d/RESULT.md",
+          "material_read": "Finding near offset 65, Proof and construction",
+          "method": "Local-mirror full-text passage inspection",
+          "title": "Sharp binary weight-two deletion codes at every blocklength",
+          "trigger": "Exact Resultary all-length hit"
+        },
+        {
+          "assessment": "Same claim for n>=3",
+          "evidence": "Explicitly gives the floor and the same family, with a two-output transversal for the bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-single-deletion-code-capacity-at-binary-hamming-weight-two--cc9ec0df2283/RESULT.md",
+          "material_read": "Finding near offset 71 and attaining family and transversal proof",
+          "method": "Local-mirror full-text passage inspection",
+          "title": "Exact single-deletion code capacity at binary Hamming weight two",
+          "trigger": "Exact Resultary overlap at n>=3"
+        },
+        {
+          "assessment": "Same theorem under an equivalent formula",
+          "evidence": "n−1−floor((n+1)/4) for n>=2 and the same supports after indexing conversion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-optimum-for-binary-weight-two-single-deletion-correcting-c--1370efa22dd5/RESULT.md",
+          "material_read": "Finding near offset 75 and attaining family",
+          "method": "Local-mirror full-text passage inspection",
+          "title": "Exact optimum for binary weight-two single-deletion-correcting codes",
+          "trigger": "Distinct same-date Resultary hit"
+        },
+        {
+          "assessment": "Further exact mathematical overlap, later indexed date",
+          "evidence": "Same all-length formula and loop/nonloop descriptions of the supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-optimal-single-deletion-codes-in-the-binary-weight-two-layer--1c6dd93721d4/RESULT.md",
+          "material_read": "Finding and construction",
+          "method": "Local-mirror full-text passage inspection",
+          "title": "Optimal single-deletion codes in the binary weight-two layer",
+          "trigger": "Same graph and formula in loop terminology"
+        },
+        {
+          "assessment": "Related invariant, not the independence number",
+          "evidence": "Computes chromatic number max(k,n−k)+1; distinguishes coloring from finding a maximum independent set.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+          "material_read": "p. 4 and p. 10 Theorem 5",
+          "method": "Bounded open-PDF inspection",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Fixed-weight deletion graph precedent"
+        },
+        {
+          "assessment": "Unrestricted code bounds rather than exact weight-two capacity",
+          "evidence": "The numerical threshold uses VT checksum, not Hamming weight.",
+          "identifier_or_url": "https://doi.org/10.3390/e21121202",
+          "material_read": "pp. 2–5 and p. 13, definition and numerical tables",
+          "method": "Bounded open-PDF inspection",
+          "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+          "trigger": "Prior graph optimization and numerical data"
+        },
+        {
+          "assessment": "Unrestricted binary code data",
+          "evidence": "Bound, fractional matching and best-known code sizes are not layer optima.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "Table I, pp. 14–15",
+          "method": "Bounded open-PDF table inspection",
+          "title": "On the Optimality of Deletion Correcting Codes",
+          "trigger": "Potential exact-code table overlap"
+        },
+        {
+          "assessment": "Precise coverage unassessed",
+          "evidence": "No full text recovered; not used as proof of overlap or of absence.",
+          "identifier_or_url": "https://www.ideals.illinois.edu/items/73103",
+          "material_read": "No primary passage recovered",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Constant composition deletion correcting codes",
+          "trigger": "Potential earlier constant-composition coverage identified through the indexed prior statement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The motivated exact weight-two optimum and its optimal packing would be useful if they filled a gap. Here the prior exact formula and support-pattern construction exhaust the claimed new content, and the counting proof does not deliver an additional distinct invariant or conclusion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

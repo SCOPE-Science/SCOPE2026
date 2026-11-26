@@ -1,19 +1,21 @@
-# Scientific review: binary connected EF1 spectra on friendship graphs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof explicitly covers every \(k\ge3\), binary assignment and permitted agent count. It checks the number and connectivity of bundles in all seven constructive cases and maintains the exact binary EF1 mark-balance invariant while refining. Both negative cases use all possible placements of the exceptional weights, including the center. Independent exact enumerations check all small instances, but the infinite assertion rests on the symbolic proof.
+PASS
 
-## Originality
+In a connected partition each nonhub bundle lies within a petal. The binary lower witness gives it at most one mark and forces the hub bundle to have at least k−n+2≥3. At k bundles, writing W=k+b+r₂−r₀ verifies all feasibility inequalities: W<k gives 0≤r₀−r₂−1≤r₀; otherwise r₂≥r₀−b. With k≤W<2k the source uses no splits when r₀=0, r₀−1 splits when b=1 and r₀>0, and gains the required r₀ extra nonhub bundles from two-mark petals when b=0 (including the half-petal at the hub if r₁=0). Each construction totals k connected nonempty bundles with balanced marks, and W=2k or 2k+1 gives all twos or a single three. For refinement that only three splits into a hub singleton and its petal; subsequently a tree edge on the path between the two marks in a two-mark bundle separates them, preserving values in {1,2} until all values are at most one. Further connected splits then preserve EF1. For the ternary assignment, keeping the two weight-two vertices together forces total value ≥2k+2>k+4. Separating the two leaves either the hub with one weight-two vertex and at least one ordinary unit petal vertex, or the hub without them but with at least two unit petal vertices. In both cases its one-deletion value is at least two and there is a nonhub ordinary bundle worth at most one (k−3≥1 in the last case). The proof covers exactly k≥4 for this ternary witness and ordinary EF1 with no connectivity requirement on the deletion. The supplied exhaustive checks for small k were inspected, not executed; the proof is the all-k evidence.
 
-PASS, subject to unresolved priority risk. The closest Chen–Zwicker 2024 primary text studies spectra, including general hub-cutset obstructions (which explain the lower negative interval) and high-agent existence (which subsumes some easier large-agent cases). It does not state the threshold \(n=k\) for identical binary valuations on all friendship graphs nor the failure under a three-level identical valuation at that same threshold. Igarashi–Zwicker 2021 and Bousquet et al. 2026 examine related connected division primarily through the stronger outer-item criterion or distinct universal settings. Literature and research-record search is not a mathematical proof of originality.
+## originality
 
-## Value
+PASS
 
-PASS. The sharp guaranteed-agent threshold on a natural infinite graph family and its immediate failure after upgrading the common valuation alphabet from two to three levels are a structural boundary in graph-constrained resource allocation. The theorem supplies an explicit construction rather than a single numeric instance and distinguishes a meaningful hypothesis that is hidden by general cutset-only analysis.
+The supported contribution is the sharp identical-binary threshold at n=k uniformly in k and the explicit three-level obstruction there. The low-agent obstruction is an exact specialization of Chen–Zwicker; their high-agent theorems already give part of the positive range. Neither gives the threshold phenomenon reviewed here.
 
-## Scope and risks
+## value
 
-The theorem does not cover heterogeneous valuations, universal identical-real-weight valuations, or guarantee outer-item EF1. Further specialist papers could already imply the binary threshold or exhibit this ternary obstruction; independent expert review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The threshold asks how many agents are needed to divide a graph built from paired resources around one hub. At the first universally feasible agent count for identical binary weights, allowing one additional weight level already destroys the guarantee. The constructive all-k threshold and the matched failure at that same boundary clarify the role of binary weights and the cutset, rather than merely testing a few small graphs or restating the known lower obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

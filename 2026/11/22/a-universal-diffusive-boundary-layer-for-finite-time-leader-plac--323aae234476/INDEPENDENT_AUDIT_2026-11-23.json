@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:54:41.514559Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "Frozen VERIFY.py and VERIFICATION.md (inspected)",
+        "Independent replay: python3 /workspace/evidence/2/root_bracket.py"
+      ],
+      "rationale": "Removing the leader gives two Neumann–Dirichlet blocks of lengths j,n−1−j. A cosine eigenvector with components cos((i+1/2)θ), i=0,…,ℓ−1, obeys the reflected left boundary and a zero at i=ℓ exactly for θ=(2r−1)π/(2ℓ+1). This fixes the e^(−tL) normalization. The small-time trace coefficient orders vertices by their original degree; the smallest mode of the longer block, strictly decreasing in that length, orders the eventual fixed-n optimum. For ℓ/√t tending to a positive finite x, 2−2 cos θ≥4θ²/π² gives Gaussian domination, and the scaled eigenvalues give the stated h(x); the same bound sends the block trace to zero when ℓ/√t→0. For ℓ≫√t, midpoint quadrature subtracts ℓc(t) with error O(√t/ℓ)+O(c(t))+O(e^(−3t)): the absolute derivative has one maximum (solve cos θ=2t sin²θ) of order √t, so its total variation is O(√t). The reflected long block obeys this uniformly. Poisson summation gives G(x) and negativity from the alternating series; the correction vanishes at both ends. Independently of the supplied curvature code, each differentiated spectral term contributes 2a x⁻⁶ exp(−a/x²)(2a−3x²)>0 to G″ for 0<x≤1, where a=π²(r+1/2)². For x≥1 the alternate representation of G′ is strictly positive: the first two positive magnitudes have ratio b₂/b₁≤7e⁻³<1, and the rest decrease. A separate exact-rational calculation in evidence/2/root_bracket.py certifies opposite derivative signs at 0.86518 and 0.86519 with absolute omitted-tail bound 144(3/8)^26. The resulting unique negative minimum beats every subsequence escaping to zero or infinity; any remaining subsequential limit of a minimizing distance must equal ξ. The supplied files were inspected, not executed.",
+      "residual_risks": [
+        "The proof certifies the displayed interval for ξ; the extra digits are numerical.",
+        "This conclusion is asymptotic in the isolated-path-boundary regime, not a finite-time placement rule or switch count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clark et al. use a convex-hull-distance convergence-error metric",
+          "Patterson et al. use total steady-state variance, proportional to tr(L_FF⁻¹), and separately a smallest-eigenvalue convergence rate"
+        ],
+        "reasoning": "An integral over time, a pre-convergence error bound and a single eigenmode do not order the heat trace at a selected time. The smallest eigenvalue explains the central fixed-size large-time optimum, not the asserted joint limit.",
+        "searches": [
+          "arXiv:1306.4949, abstract",
+          "arXiv:1412.6595 §II",
+          "arXiv:1604.07094 §II.B"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary self-match and both distinct related records above",
+        "arXiv:1306.4949",
+        "arXiv:1412.6595",
+        "arXiv:1604.07094"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coherence integrates the time trace; fast convergence controls its eventual exponent",
+          "The cycle theorem balances leader spacing at all times, whereas mixed boundary segments produce a nonmonotone bulk-subtracted correction"
+        ],
+        "reasoning": "None of these implications supplies the uniform block limit, prevents escape of minimizing positions, or proves the particular unique minimum in the mixed-boundary problem.",
+        "searches": [
+          "arXiv:1412.6595 §II",
+          "arXiv:1604.07094 §II.B",
+          "Catalogue cycle heat trace, RESULT.md offsets 0, 6800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After subtraction of the free bulk trace the limiting variational function is x[θ₄(0,e^(−x²))−1]/(2√π)",
+          "The primary leader-design results inspected use different objective functions"
+        ],
+        "reasoning": "The usual theta transformation gives two equivalent representations of the continuum correction but does not optimize it or give the discrete location limit. A rate normalization e^(−2tL) changes the scale relative to √t.",
+        "searches": [
+          "Path grounded-Laplacian finite-horizon heat trace, diffusive boundary-layer leader placement (primary literature)",
+          "Mixed Neumann–Dirichlet interval heat trace and θ₂/θ₄ forms (analytical comparison)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-universal-diffusive-boundary-layer-for-finite-time-leader-plac--323aae234476 is the assigned self-match",
+          "2026/11/22/SCOPE-all-time-schur-convexity-of-grounded-cycle-heat-traces-and-exact--20df106d32f1 and 2026/11/22/SCOPE-three-finite-horizon-optimal-leader-types-on-complete-bipartite--0e0758755828 are the closest distinct matches read"
+        ],
+        "reasoning": "A grounded cycle has Dirichlet–Dirichlet segments, not the path's mixed endpoint condition. The bipartite graph result classifies leader types for two leaders, not the position of a single leader in a path.",
+        "searches": [
+          "Local Resultary for one grounded leader, path heat trace and diffusive placement"
+        ]
+      },
+      "rationale": "The supported distinct claim is the asymptotic minimization of the finite-horizon ground heat trace on a path, including localization to a unique theta-function minimizer. Neither heat kernel identities alone, leader design for integrated variance or the lowest mode, nor the related catalogue results give this optimization and limit.",
+      "residual_risks": [
+        "Search coverage is bounded; an equivalent mixed-boundary spectral optimization under another name may exist. A low-yield search is not negative proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different objective on inspected statement",
+          "evidence": "Pre-convergence follower-state error uses distance to a convex hull rather than the grounded heat trace.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.4949",
+          "material_read": "Abstract, p. 1, offsets 0 and 1800",
+          "method": "Open-access PDF, bounded passages",
+          "title": "Minimizing Convergence Error in Multi-Agent Systems via Leader Selection",
+          "trigger": "Finite-time leader selection"
+        },
+        {
+          "assessment": "Integrated rather than fixed-time spectral quantity",
+          "evidence": "Coherence is total steady-state variance, proportional to tr(L_FF⁻¹).",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+          "material_read": "§II, p. 2, offsets 9700 and 12500",
+          "method": "Open-access PDF",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "One-dimensional optimal leader selection"
+        },
+        {
+          "assessment": "Slowest-mode objective distinct from the heat trace",
+          "evidence": "Fast convergence maximizes the grounded Laplacian's least eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.07094",
+          "material_read": "§II.B, p. 3, offset 25350",
+          "method": "Open-access PDF",
+          "title": "Optimal k-Leader Selection for Coherence and Convergence Rate in One-Dimensional Networks",
+          "trigger": "One-dimensional fast-convergence design"
+        },
+        {
+          "assessment": "Related but different boundaries and optimization",
+          "evidence": "The theorem balances grounded cycle spacings for arbitrary numbers of leaders.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-time-schur-convexity-of-grounded-cycle-heat-traces-and-exact--20df106d32f1",
+          "material_read": "RESULT.md, offsets 0 and 6800",
+          "method": "Local Resultary mirror",
+          "title": "All-time Schur-convexity of grounded cycle heat traces and exact balanced leader placement",
+          "trigger": "Same objective on a different one-dimensional graph"
+        },
+        {
+          "assessment": "Different graph, two leaders, no path limit",
+          "evidence": "Finite-horizon leader-type switches are for K_{2,q}.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-finite-horizon-optimal-leader-types-on-complete-bipartite--0e0758755828",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Three finite-horizon optimal leader types on complete bipartite graphs",
+          "trigger": "Exact finite-horizon placement transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "arXiv:1412.6595 §II",
+        "arXiv:1604.07094 §II.B"
+      ],
+      "rationale": "The whole-spectrum finite-horizon objective is natural for isotropic diffusion error. Establishing a universal nonzero diffusive distance for every minimizing placement resolves a regime in which the optimum is neither at a path endpoint nor near its centre. The normalization and exact limiting variational constant are reusable for comparison with nearby heat-based design problems.",
+      "residual_risks": [
+        "No weighted-path or multiple-leader claim, and no full finite-size transition classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

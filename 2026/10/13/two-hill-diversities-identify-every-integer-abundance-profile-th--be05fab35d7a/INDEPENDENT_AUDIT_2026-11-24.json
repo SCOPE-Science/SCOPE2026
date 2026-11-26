@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:43.870821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each fixed, known positive integer census N, unlabeled profiles with positive species counts are the integer partitions of N. Shannon entropy is log(N)-log(Q)/N for Q=product n_i^(n_i) and population Simpson concentration is M2/N^2 with M2=sum n_i^2. Thus their equality is exactly equality of Q and M2; the Hill-number transformations are injective. An independent enumeration chose multiplicities c_j in descending part size j, between zero and the remaining census divided by j; the multiplicity of 1 is the final remainder. Every admissible profile has exactly one such choice sequence. The distinct implementation keyed Q by all prime valuations sum_j j*c_j*v_p(j), equivalent by unique prime factorization, and optionally added S=sum_j c_j. It checked 28,628 profiles over N=1 through 30, with partition counts matching the external p(N) table. It found no pair collisions through 23; exactly two at 24: (1^6,3^2,4^3) versus (2^9,6), with Q=12230590464, M2=72 and richness 11/10, and (1^4,4^2,6^2) versus (2^2,3^4,8), with Q=142657607172096, M2=108 and richness 8/7. There were no triple collisions through 29 and exactly one at 30: (1,4,4,4,4,4,9) versus (2,2,3,3,6,6,8), with S=7, Q=2^40*3^18 and M2=162. Replay: /workspace/branches/a268cca5-88ac-449b-95af-14789a6aeba8/audit_hill_partition_enum.py; captured census in audit_hill_partition_enum.txt in the same directory. The bundled verifier was inspected but not executed. The result is exact injectivity for each fixed N, not across different totals (scaling all counts preserves the diversities), and not a statement about approximate or estimated values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moon–Rosenberg studies the cardinalities of the marginal value sets for all integer partitions and discusses bounds on Shannon given Gini–Simpson and the number of classes. The same-day record 2026/10/13/SCOPE-four-species-are-necessary-and-sufficient-for-two-hill-diversity--9291017e5d7d bounds the number of finite positive-order ties for equal richness s by s-2 and constructs two ranking reversals as order varies."
+        ],
+        "reasoning": "Marginal counts and bounds do not give the joint fibers; a bound on the number of possible ties as a function of richness gives neither simultaneous ties specifically at orders 1 and 2 nor exclusions up to a census-size threshold. It does not cover either collision layer here.",
+        "searches": [
+          "Moon–Rosenberg, Integer Sequences for Diversity Statistics, abstract and Section 2",
+          "Resultary: Hill-profile ties and ranking reversals; strongest applicable record 9291017e5d7d"
+        ]
+      },
+      "checked_sources": [
+        "Moon–Rosenberg, JIS 29 (2026), Article 26.1.5",
+        "Local Resultary records 41bc9e96a9b3, 9291017e5d7d, 65515a01f0ac and ff372ca961e0",
+        "Hill (1973) and Chao et al. (2020), bounded access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Later record 2026/11/22/SCOPE-seven-excess-individuals-first-permit-shannon-simpson-diversity--65515a01f0ac uses exactly Q and M2, but gives the first opposite strict rankings for fixed richness k>=3 at N=k+7, not equality of Q and M2. Later record 2026/10/18/SCOPE-fourteen-individuals-are-the-sharp-three-index-diversity-ranking--ff372ca961e0 gives a strict three-index ranking pattern at N=14 for orders 0, 2 and infinity, not equalities at orders 1 and 2."
+        ],
+        "reasoning": "Strict ranking inequalities cannot establish thresholds for simultaneous exact equality; the tabulated marginal supports do not determine the joint support or its fibers. None of these inspected statements therefore entails the complete fixed-total joint census.",
+        "searches": [
+          "Resultary: same exact product and sum-of-squares keys, and ranking reversal versus equality; records 65515a01f0ac and ff372ca961e0",
+          "Moon–Rosenberg, Section 2 and p. 6 table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same fixed-total problem can be stated with Shannon entropy, exponential Shannon diversity, or exact Q, and with Simpson concentration, reciprocal concentration, Gini–Simpson or exact M2. Moon–Rosenberg gives collisions in each individual statistic, not a joint-key criterion with the sharp cutoffs."
+        ],
+        "reasoning": "Marginal noninjectivity supplies no jointly colliding pair; equality of both exact invariants on one and the same pair is needed. Adding richness further requires the same number of parts.",
+        "searches": [
+          "Resultary: joint Shannon and Simpson equality at fixed integer census, Hill orders 0/1/2, and equal entropy power-product and sum of squares",
+          "Moon–Rosenberg, Integer Sequences for Diversity Statistics, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The p. 6 table gives p(30)=5604, the number of Gini–Simpson values as 284 and the number of Shannon values as 2980. It does not pair the values or classify profiles in joint fibers. Same-day Resultary record 2026/10/13/SCOPE-nine-individuals-are-the-sharp-simpson-rarefaction-identifiabili--41bc9e96a9b3 gives a first fixed-richness Simpson-only collision at N=9, split by third-draw rarefaction, not by a Shannon condition."
+        ],
+        "reasoning": "For fixed N>1 the finite-sample Simpson statistic of the latter record is an affine transform of the population form, so there is genuine overlap in one invariant. But its additional statistic is rarefaction, not Shannon, and it tabulates a marginal first collision under a fixed-richness comparison, not either of the assigned joint cutoffs. Same-day indexing does not decide priority.",
+        "searches": [
+          "Resultary: integer-abundance joint collisions and Simpson/rarefaction first collisions",
+          "Moon–Rosenberg, Table on p. 6 (PDF text offset 13600)"
+        ]
+      },
+      "rationale": "The closest published scholarly result counts marginal entropy and Gini–Simpson values on the same integer partitions; the closest indexed findings concern rarefaction with Simpson or ranking reversals. Their actual conclusions differ from the exact joint equalities, both sharp cutoffs, and the complete first collision layers. Counts and definitions for the individual statistics are established prior work; lack of a hit alone is not the originality basis.",
+      "residual_risks": [
+        "An unindexed exact enumeration, teaching example or integer-partition result could cover a joint collision; exhaustive historical priority is not certified.",
+        "The two classic cited diversity papers were not independently read in full; their unavailability is not used as an originality verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial same-object marginal counting result, not joint injectivity",
+          "evidence": [
+            "Examples of collisions in single statistics and counts of their possible values; e.g. 5604 partitions, 284 Gini–Simpson values and 2980 Shannon values at census 30."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL29/Rosenberg/rosen5.pdf",
+          "material_read": "Moon and Rosenberg, Journal of Integer Sequences 29 (2026), Article 26.1.5; abstract (p. 1), Section 2 (p. 2, offset 3920), count table (p. 6, offset 13600)",
+          "method": "Primary journal OA PDF with bounded passage and table reading",
+          "title": "Integer Sequences for Diversity Statistics",
+          "trigger": "Strongest same-object scholarly comparator: diversity values over integer partitions"
+        },
+        {
+          "assessment": "Different joint statistic and claim; its Simpson statistic is equivalent at fixed total",
+          "evidence": [
+            "At fixed N and S, first Simpson-only collision at 9: (1,4,4) versus (2,2,5), distinguished by rarefaction at three draws by 1/42."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-nine-individuals-are-the-sharp-simpson-rarefaction-identifiabili--41bc9e96a9b3",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror source inspection",
+          "title": "Nine individuals are the sharp Simpson–rarefaction identifiability boundary",
+          "trigger": "Same-day threshold for integer profiles and Simpson"
+        },
+        {
+          "assessment": "Variable-order ties and reversals, not fixed-order simultaneous collision thresholds",
+          "evidence": [
+            "For distinct profiles of common richness s, bounds finite positive-order ties by s-2 and shows two ranking reversals can occur with four species."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-four-species-are-necessary-and-sufficient-for-two-hill-diversity--9291017e5d7d",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror source inspection",
+          "title": "Four species are necessary and sufficient for two Hill-diversity profile reversals",
+          "trigger": "Same-day bound on equalities across Hill orders"
+        },
+        {
+          "assessment": "Same invariant pair but a later strict reversal theorem, not joint equality",
+          "evidence": [
+            "For fixed richness k>=3 first opposite rankings arise at N=k+7, in one unordered pair; the proof uses Q and M2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-seven-excess-individuals-first-permit-shannon-simpson-diversity--65515a01f0ac",
+          "material_read": "Mirrored RESULT.md, Finding and exact keys",
+          "method": "Local Resultary search and mirror source inspection",
+          "title": "Seven excess individuals first permit Shannon–Simpson diversity rank reversal",
+          "trigger": "Exact combined invariants and sharp census threshold"
+        },
+        {
+          "assessment": "Different orders and strict rankings; no covering equality statement",
+          "evidence": [
+            "The first specified D0, D2, D-infinity ranking pattern occurs at 14 in one pair."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-fourteen-individuals-are-the-sharp-three-index-diversity-ranking--ff372ca961e0",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror source inspection",
+          "title": "Fourteen individuals are the sharp three-index diversity-ranking reversal threshold",
+          "trigger": "Adjacent sharp finite census claim for several diversity orders"
+        },
+        {
+          "assessment": "Access limitation; no claimed full-text exclusion",
+          "evidence": [
+            "DOI route returned access denial and JSTOR required a client challenge; the independent mathematical comparison used explicit definitions and the accessible same-object joint/marginal comparators instead."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1934352",
+          "material_read": "Bibliographic citation only; full text not readable in the bounded access attempt",
+          "method": "Lawful DOI and JSTOR access attempts",
+          "title": "Diversity and Evenness: A Unifying Notation and Its Consequences",
+          "trigger": "Foundational Hill-diversity citation"
+        },
+        {
+          "assessment": "Access limitation; no claimed full-text exclusion",
+          "evidence": [
+            "Publisher route denied access and attempted repository copies were unreadable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1440-1703.12102",
+          "material_read": "Bibliographic citation only; full text not readable in the bounded access attempt",
+          "method": "Lawful DOI and repository access attempts",
+          "title": "Quantifying sample completeness and comparing diversities among assemblages",
+          "trigger": "Cited modern diversity-profile context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The domain and invariant are canonical: integer census partitions and Hill orders 1 and 2, with order 0 as the natural additional observable. The exact first loss of joint information, all first failures, and the amount by which adding richness delays that failure give a concrete benchmark separating summaries that are lossless at small fixed totals from ones that are not. The answer is not obtainable from the published marginal counts alone and is not a randomly chosen small slice. Its significance is exact finite identifiability, not ecological inference at nonzero measurement error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

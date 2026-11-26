@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:16:52.436214Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 39–104",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent quadratic quotient reduction and cubic sign check"
+      ],
+      "rationale": "On the hub/common-ordinary/exceptional quotient M the nonzero eigenvalues solve lambda^2-a lambda+b=0, with a=k+1+2x and b=(k+2)x; the ordinary-leaf differences have eigenvalue 1. Write Delta for the product of the two positive scalar denominators at the nonzero eigenvalues. On the quotient the rational update is I-12h[(12+6ha+h^2(a^2-b))M-(6h+ah^2)M^2]/Delta: the linear factor in the numerator comes from the denominator evaluated at the other nonzero eigenvalue. Taking entries and subtracting the scalar leaf-difference contribution reproduces p, r, the strictly positive ordinary-to-exceptional entry and the cubic q. The scalar numerator is (z-3)^2+3, so the diagonal entries are positive. The unique positive roots of p and r in their respective ranges give the stated radicals. The cubic's first three coefficients in ascending order are positive; a negative cubic coefficient occurs exactly for x<1/(k+4) and gives a unique positive zero. Reducing q at the positive root of p by h^2=(12+6xh)/(x(1-2x)) gives the stated strictly positive remainder, so the second zero is later. Alternatively the general resolvent sign specializes to a strictly decreasing scalar for the ordinary pair, recorded below. This verifies that the full positivity set includes h=0 and the finite cutoffs, and that there is no reentry.",
+      "residual_risks": [
+        "The observed 2886 scripted checks recorded in the package are not a new execution or a proof by finite samples.",
+        "The result concerns exact completed steps, not positivity of internal stages or numerical-roundoff guarantees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2f77824b8f6c covers arbitrary positive weights with no equal-spoke restriction.",
+          "690509e7de2b covers the unweighted star as a complete multipartite graph; 2f0ca4adbadc concerns three vertices, whereas the frozen theorem starts at four vertices.",
+          "The inspected Zappavigna et al. passages treat generic Padé positivity obstructions and sufficient conditions, not this weighted-star classification."
+        ],
+        "reasoning": "Unweighted and three-vertex cases do not imply the main result. The fully inspected arbitrary-weight star statements and entry identity do; another indexed hit with unavailable full text is not needed.",
+        "searches": [
+          "Local Resultary 2f77824b8f6c, 690509e7de2b, 2f0ca4adbadc and bb6aa05af76a",
+          "Zappavigna–Colaneri–Kirkland–Shorten primary Padé literature"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and references",
+        "Local Resultary 2f77824b8f6c, 690509e7de2b and 2f0ca4adbadc; summary only for bb6aa05af76a",
+        "Zappavigna et al. 2012 primary PDF passages and one targeted primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For distinct leaves the sign is the sign of Im(1/F_ij), with 1/F_ij=(s+w_i)(s+w_j) Omega(s)/(w_i w_j), Omega(s)=1+sum w_j/(s+w_j), s=(3+i sqrt(3))/h.",
+          "For the ordinary pair this is (s+1)^2+k(s+1)+x(s+1)^2/(s+x). Polynomial division gives Im(1/F_ij)/Im(s)=k+2+x+6/h-x(1-x)^2 h^2/d(xh)."
+        ],
+        "reasoning": "This scalar is strictly decreasing on h>0 since 6/h is and h^2/d(xh) is strictly increasing; it starts at +infinity and tends to k+4-1/x. It is positive at every finite h for a nonnegative limit, and has one root followed by negativity exactly for x<1/(k+4). The general theorem already makes every leaf pair strictly positive at the first horizon, placing this secondary root strictly later. Multiplying the scalar by h d(xh) reproduces q. Thus the subsidiary claim is an exact elementary implication of the same indexed source, not merely a speculative overlap.",
+        "searches": [
+          "2f77824b8f6c, in particular proof steps 1–4, offsets 2900–7465"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-weight theorem tests Phi_*=1-sum_j h^2 w_j(w_*-w_j)/d(hw_j), d(z)=z^2+6z+12, with a unique root in the finite-horizon case.",
+          "The criterion for unconditional positivity is w_* sum_j(1/w_j)<=m+1; precisely the maximum-spoke hub entries vanish at a finite threshold."
+        ],
+        "reasoning": "Take m=k+1, w=(1,...,1,x). For x<=1 the unconditional criterion becomes k+1/x<=k+2, and Phi_*=p(h)/d(xh). For x>=1 it becomes kx+1<=k+2, and Phi_*=r(h)/d(h). The closed interval and both radical horizons follow from those quadratics; the controlling entries are exactly the maximum spokes.",
+        "searches": [
+          "Local Resultary: weighted-star fourth-order Gauss positivity, [2/2] Padé diffusion, maximum spoke and exceptional spoke",
+          "2f77824b8f6c all-weight theorem and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2f77824b8f6c yields an exact all-weight criterion and an exact resolvent formula for every leaf pair, not a tabulated sample or a numerical boundary."
+        ],
+        "reasoning": "Substitution into the exact indexed expressions covers the stated invariant on the whole continuous parameter range; no numerical table is needed.",
+        "searches": [
+          "Local Resultary exact symbolic classification search for weighted-star Gauss step positivity and leaf signs"
+        ]
+      },
+      "rationale": "An indexed theorem on all positively weighted stars gives the entire nonnegative timestep set and first failing entries for this family. Its exact off-diagonal resolvent identity also reduces immediately to a monotone scalar whose limit is k+4-1/x, mechanically giving the secondary threshold and all signs on either side. Neither the radical expressions nor the apparently additional ordinary-pair transition survive the exact comparison. This establishes coverage, not derivational priority.",
+      "residual_risks": [
+        "The 2010 MTNS PDF was inaccessible in the attempt; the frozen record reports no full-text comparison of the 2013 chapter DOI 10.1002/9781118639856.ch1.",
+        "The indexed dates do not establish provenance, independence of derivations or historical priority. The decision uses exact mathematical implication and does not rely on inaccessible sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete mathematical coverage including an immediate consequence for the ordinary pair",
+          "evidence": "Maximum-spoke criterion and threshold; exact off-diagonal complex resolvent formula for all steps, not limited to the nonnegative interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-fourth-order-gauss-positivity-on-every-positively-weighted--2f77824b8f6c/RESULT.md",
+          "material_read": "Finding/assumptions and resolvent and classification proof, offsets 0–2898 and 2900–7465; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror bounded passages and exact specialization",
+          "title": "Sharp fourth-order Gauss positivity on every positively weighted star",
+          "trigger": "Same method and star geometry with arbitrary conductances"
+        },
+        {
+          "assessment": "Covers x=1 only for this family",
+          "evidence": "Unweighted complete multipartite Gauss endpoint is strictly positive at every positive step.",
+          "identifier_or_url": "690509e7de2b",
+          "material_read": "Local mirror Finding and Gauss specialization, offsets 0 and 997",
+          "method": "Local mirror statement comparison",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "Includes the unit star"
+        },
+        {
+          "assessment": "Adjacent but outside frozen size range",
+          "evidence": "Three-vertex networks can include two-leaf stars; the frozen family has at least three leaves.",
+          "identifier_or_url": "2f0ca4adbadc",
+          "material_read": "Local mirror Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "A sharp positivity dichotomy for the fourth-order Gauss step on three vertices",
+          "trigger": "Adjacent weighted-star dimension"
+        },
+        {
+          "assessment": "Not relied on for coverage",
+          "evidence": "Summary indicates closely related largest-spoke criterion; detailed comparison was not possible.",
+          "identifier_or_url": "bb6aa05af76a",
+          "material_read": "Local search summary only; exact mirror file unavailable",
+          "method": "Local search and attempted mirror read",
+          "title": "The largest spoke controls fourth-order Gauss positivity on every weighted star",
+          "trigger": "Another arbitrary-weight star result"
+        },
+        {
+          "assessment": "General background, not the exact weighted-star transition in the statements inspected",
+          "evidence": "Generic small-step nonpositivity examples and conditional co-positive Lyapunov result do not yield the weighted-star orbit signs.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "§1, PDF pp. 1–2, OA offset 0; Theorem 1, p. 10, offset 26745",
+          "method": "Targeted primary OA PDF passage inspection",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Primary Padé positivity reference in the frozen record"
+        },
+        {
+          "assessment": "Unresolved and not used as evidence of coverage or novelty",
+          "evidence": "No theorem extracted.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "Citation only; PDF retrieval timed out",
+          "method": "Attempted configured OA retrieval via direct and VPN",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Related primary reference given by the frozen record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and orbit analysis",
+        "2f77824b8f6c theorem and exact entry formulas"
+      ],
+      "rationale": "A single exceptional spoke is a natural symmetry-breaking test and the order of sign failures is useful. Here both the sharp horizon and the later leaf-pair sign follow directly from the exact all-star resolvent; the radical roots and the secondary cutoff only evaluate that formula for a special set of weights. No independent scientific remainder justifies a narrowed repair.",
+      "residual_risks": [
+        "The specialized formulas can be convenient for exposition, which is separate from scientific value as a distinct result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

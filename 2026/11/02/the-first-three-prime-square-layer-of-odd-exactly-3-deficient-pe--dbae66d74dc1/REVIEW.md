@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The odd-parity reduction forces even prime exponents. Exact rational inequalities exclude all prime choices except nine fixed smaller primes with a free third prime, plus one isolated triple. For the free prime, the equation reduces to a quadratic whose unique positive root is tested by an exhaustive 23400-signature exact-integer certificate, which identifies nine integral roots and four prime signature solutions. The exceptional 26-divisor case is also exhausted. `VERIFY.py` was executed from the newly assembled source, yielded the recorded `VERIFY_OK` line, and reconstructed the four witnesses. Finite tests alone do not prove the unlimited claim: the proved inequalities and quadratic equivalence make them exhaustive.
+## correctness
 
-## Originality — PASS within the evidence inspected
-Aursukaree--Pongsriiam, arXiv:2001.06953v1 (2020), is the nearest direct primary work: its exact three-deficient-divisor theorem concerns odd integers with **at most two** distinct prime factors, not three. Tang--Feng (2014) uses a single deficient divisor. A published three-prime **squarefree** classification is even and involves the different form \(2pq\); it does not imply the odd prime-square result. OEIS A331629 has example listings but does not establish the complete all-prime classification or the exact multiplicity of deficient-divisor triples. Exact-source, synonym, example-number and implication queries did not return a dominating result. Possible unindexed coverage remains a risk; no absolute priority or independent certification is claimed.
+PASS
 
-## Mathematical value — PASS
-For odd exactly \(3\)-deficient-perfect integers, parity forces a square, making \(p^2q^2r^2\) the first possible exponent configuration with three distinct primes. A complete classification of this entire infinite natural layer, plus every witness triple, extends the literature's two-prime focus and provides a precise base case for higher-exponent three-prime investigations. This is not an arbitrary numerical cutoff or a restatement of known individual examples.
+The three distinct proper positive divisors of an odd instance are odd, so sigma(n) is odd and every prime exponent is even. For n=p²q²r², bound the sum of d_i/n by taking the reciprocals of the three smallest distinct divisors greater than one. The ordered denominators are bounded below respectively by (7,11,13) when p≥7, by (5,7,13) when p=5 and r≥13, and by (3,9,37) when p=3 and q≥37. Exact rational substitution gives all three strict exclusions. The remaining q-list for p=3 is exhaustive and every signature selection gives a genuine polynomial identity A r²−B r−C=0 with B,C>0. An independent exact enumeration found the positive integral roots by checking the divisors of C, since r must divide C. It reproduced 23,400 selections, 22,620 positive leading coefficients, 57 square discriminants and all nine integral roots r>q; precisely four roots counted with signature multiplicity are prime. Trial-divisor enumeration also gives exactly the two triples for 27225 and one each for 38025 and 53361, and no triple of sum 61,439 for the sole residual case 148225. This is an all-prime classification because the reduction to finitely many polynomials did not bound r empirically. The multiplicity-six equivalent formulation is restricted to odd exactly 3-deficient-perfect integers with three distinct prime factors.
 
-## Closest literature and limits
-The most relevant arXiv source is fully identifiable and its abstract, definitions, parity lemma, main theorem, and relevant proof portions were read in HTML. The one-deficient-divisor paper and OEIS record were compared at the accessible abstract/entry level. A directly comparable modern indexed research record on \(2pq\) was available as a searchable summary, not independently read in full; the even squarefree restriction is decisive for non-implication. Literature indexing can miss prior work. The new conclusion is limited to the odd \(\omega(n)=3,\Omega(n)=6\) layer. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The parity lemma and the three numerical examples are not credited as distinct. The supported distinct result is the unconditional completeness in the odd p²q²r² layer, including every divisor triple, not the first listing of these integers.
+
+## value
+
+PASS
+
+The exponent layer is forced as the first eligible odd layer after the known two-prime result, not selected by an arbitrary numerical cutoff. The classification bounds an unbounded third-prime search and determines actual witness multiplicities, including a number with two distinct triples, useful when organizing the broader three-prime case. It does not resolve the larger even exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

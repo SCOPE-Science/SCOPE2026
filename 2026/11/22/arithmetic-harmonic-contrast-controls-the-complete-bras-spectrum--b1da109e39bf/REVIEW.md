@@ -1,15 +1,21 @@
-# Scientific assessment: BRAS spectral classification on metric stars
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated domain is a continuous one-element-per-arm \(P_1\) finite-element star with all hub and leaf degrees of freedom retained. Direct block assembly gives \(M\) and the exact original multiplicity-scaled BRAS inverse \(B\). Two independent \(1\)-eigenvectors, a \((k-2)\)-dimensional \(4/3\)-eigenspace for nonuniform arms, the trace identity, and continuity at equal lengths establish the complete spectrum for every \(k\ge3\). Jacobi diagonal scaling is a rank-two perturbation of identity. The final sharp contrast comparison follows from a proved scalar inequality and an attainable four-arm configuration. The packaged standard-library exact-rational checker passed 53 distinct assembled instances and three boundary/exemplar instances. The infinite-family statement is proved algebraically, not inferred from the diagnostic computations.
+## correctness
 
-## Originality — PASS, with documented residual risks
-The 2026 BRAS source establishes the method, general positive definiteness, and projector-based spectral inequalities. Its retrieved portions do not provide the complete arbitrary-star spectrum or the star-specific sharp Jacobi crossover. An existing separate periodic alternating-grid analysis treats only degree-two cyclic topology and two alternating lengths; neither its exact claims nor the broader BRAS projector theorem directly evaluates the star spectrum. Searches for metric-star BRAS, arithmetic/harmonic product formulas, reciprocal-length eigenvalues, and the exact contrast constant did not locate a prior matching statement. The primary source's directly inaccessible full text and the later seminar's uninspected slides remain genuine priority risks: absence in indexed extracts alone is not proof of absence throughout a paper.
+PASS
 
-## Value — PASS
-This is a natural complete spectral classification for a highly branched finite-element mass model at arbitrary star degree and arbitrary positive arm lengths. It converts a preconditioner comparison into a computable arithmetic–harmonic contrast statistic, gives a *sharp universal* length-ratio safeguard, and exhibits finite branch configurations where the original BRAS inverse loses to diagonal Jacobi. This informs interpretation of the method's favorable tested performance under mesh grading and is not just an isolated numeric counterexample. No claims about general domains, subdivided meshes, solver time, or subsequent algorithms are implied.
+The local inverse of the consistent P1 mass is (2/ℓ_i) times the 2-by-2 matrix with diagonal 2 and off-diagonal −1; its true multiplicity averaging inserts 1/k independently on each hub row and column. With S=Σℓ_i, T=Σ1/ℓ_i, h=(ℓ_i), a=(1/ℓ_i), this gives the displayed assembled matrices. Substitution into BM fixes (0,a) and (1,−2e+(2S/k)a); off the equal-length case the joint kernel of eᵀ,hᵀ on leaf coordinates has dimension k−2 and eigenvalue 4/3. The trace gives the last root μ=4ST/(3k²); equal lengths give the same characteristic polynomial by continuity and μ=4/3. Both mass and BRAS matrices are positive definite by assembly with full-column-rank injection. Hence BM is similar to the symmetric-preconditioned matrix, and μ≥4/3 by Cauchy–Schwarz gives the condition number, not a singular-value claim on BM. The Jacobi scaling is identity plus the rank-two off-diagonal unit-vector update with eigenvalues ±1/2. The inequalities ℓ_i+mM/ℓ_i≤m+M and AM–GM give μ≤(R+1)²/(3R), attained by two arms at each endpoint for k=4. Solving against the Jacobi value 3 gives the stated sharp all-star threshold and strict comparison on either side in the claimed senses. Positive lengths, free hub and leaves, and k≥3 are all respected. Checker inspected, not run.
 
-## Closest literature and limitations
-The BRAS paper (Krzysik–Southworth–Wimmer, arXiv:2607.12138, 2026-07-13) is the methodological source; Southworth's FEM@LLNL seminar (2026-09-15) advertises more general nonuniform-mesh theory, with only the abstract inspected. The classical Kantorovich inequality covers the scalar contrast bound but not the derived BRAS spectral identity. The previously documented alternating-ring result is neither an equivalent formulation nor a stronger star statement. Nonaccessible complete primary text and presentations, along with unpublished network-specific analyses, limit definitive claims of historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the original BRAS definition, general projector spectrum/rank mechanism and the classical Kantorovich inequality. The distinct claim is the star-specific evaluation of the full spectrum and the sharp Jacobi comparison over all branched one-element-per-arm stars. General rank and norm results require an additional star calculation to reveal the repeated 4/3 modes and the arithmetic–harmonic outlier. Known adjacent threshold records change the geometry or the weighting and do not specialize to this claim.
+
+## value
+
+PASS
+
+The exact evaluation isolates the one mode sensitive to arm-length imbalance and quantifies when the original approximate inverse reverses the comparison with diagonal scaling. A genuinely branched balanced endpoint construction proves sharpness, making this a useful stress test for graph mass preconditioners beyond a numerical example. No solver-time claim or extension to subdivided stars is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

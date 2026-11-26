@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact midpoint/half-separation reduction is valid on the entire nonantipodal state space because both transformed numerator components have strictly positive real part after factoring out the midpoint. The oriented-angle determinant gives the exact sign of every displacement; monotone one-dimensional dynamics consequently gives every basin, separator and boundary. Expansion of the arctangent map establishes the quadratic decrement \((t^+)^2-t^2=-2h^2+O(t^{-2})\), from which the sharp escape constant follows by comparison. The executable test corroborates the algebra but is not used as proof of infinite dynamics.
+## correctness
 
-**Originality — PASS on checked evidence, subject to residual risk.** Altafini (arXiv:2610.13518v1, §§II–III) assumes a symmetric value matrix with a real principal eigenvector; the present complex-eigenvalue value map is outside those assumptions. Tomihari–Karakida (arXiv:2505.19458v4, §5.2) treat local oscillatory Jacobians rather than this global basin classification. Gao–Yang–Chen (arXiv:2609.28448v1, §V.1) explain rotating value planes but leave nonlinear stability and basins unresolved. Targeted literature searches and semantic mathematical-record comparisons located no covering theorem. General projective or circle-map theory might imply some or all statements and is a genuine bibliographic risk; novelty has not been independently established.
+PASS
 
-**Mathematical value — PASS.** The parameter curve \(h^2=L(1-L)\) is a sharp border between robust antipodal attraction and genuine coexistence of rotating consensus and fixed antipodal states, with explicitly calculable basin-separating invariant circles. At \(L=1\), the sharp inverse-square escape law quantifies long-lived nearly antipodal transients, a dynamical feature missed by equilibrium and local Jacobian classification alone. This is a complete low-dimensional phase portrait for a natural nonsymmetric case, not a renamed computation at one arbitrary parameter.
+For L>0 and a nonantipodal pair the normalized arguments of L+i(h±t) belong to the same right-half-plane branch. The determinant of the old and new double-angle vectors has sign given by 2t[(L−K)+(1−L)t²], and for t>0 both arguments lie strictly between 0 and pi; hence the determinant gives the actual direction of motion. The separation update is odd and increasing, and all monotone bounded orbits must approach finite fixed points. The determinant lists exactly the finite separators and settles K=L as repelling at zero for 0<L<1. The antipodal pairs are fixed and the identity is exactly the L=1,h=0 boundary. The diagonal multiplier L/K and the antipodal half-angle multiplier L give geometric convergence in the applicable cases. The midpoint defects are even and O(t²) near consensus after subtraction of the rigid increment, and O(t^−2) near antipodality, so they are summable. At L=1,h≠0, expanding the positive-t antipodal distance gives epsilon^+=1/t+(h²−1/3)/t³+O(t^−5), so t^+²=t²−2h²+O(t^−2). Uniform upper/lower bounds on the square decrement above any sufficiently large cutoff, and bounded subsequent residence in any fixed compact positive interval before hitting T, prove the escape constant. The proof's final epsilon_0 t_0 should read epsilon_0 |t_0| for both signs; by oddness the stated squared limit is correct. The midpoint angle is taken modulo 2pi and is defined off exact antipodality, where the full state instead remains fixed. Independent direct complex iteration, without executing the uploaded checker, corroborated the regime directions and the limiting escape scale (for h=±0.8, normalized times 0.78809, 0.78320, 0.78186 at |t_0|=32,64,128, versus 0.78125).
 
-**Scientific limits.** Exactly two unit-circle agents, uniform state-independent attention, real-positive residual factor \(L>0\). The result does not cover general attention kernels or higher-dimensional interactions. All reported checks are non-independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the complete relative-basin portrait and sharp marginal escape law, not for the model class, planar reduction or the existence of rotating consensus in general. In particular a rotating frame puts the exact two-token update in a subfamily of Gao–Yang–Chen's earlier model. Their inspected results leave stability regions and attraction basins open, and the nearer indexed coexisting cycles concern different matrices and dynamics.
+
+## value
+
+PASS
+
+The low-dimensional family is motivated by a real limitation of alignment-based results for nonsymmetric normalized dynamics. The exact global bistability region, finite-separation separators and sharp parabolic time law distinguish what happens beyond a local Jacobian test and resolve a natural minimal planar case. No architecture-level performance claim follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review — single-arc stability geometry for randomized implicit RK2
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about the scalar multiplier \(1+z/(1-Uz)\) under fresh uniform sampling. The exact squared-modulus fraction is derived directly from that multiplier, not inferred from a plot. Its derivative in the squared imaginary frequency factors as \((1-2t+2xt(1-t))/((1+xt)^2+qt^2)^2\). Pairing \(t\) with \(1-t\) gives a strictly positive integral for negative real part. The one-positive-root assertion on the real axis follows from an explicit derivative, while the two boundary contact orders follow from exact local expansions. The source's zero-right-half-plane fact is also reproved by pairing reciprocal squared ratios. `check_stability.py` passed 19,832 algebraic, exact-rational and high-precision checks; these supplement, rather than replace, the infinite-domain proof.
+PASS
 
-## Originality — PASS with residual precedence risk
+For the stated multiplier and fresh independent stages, the second moment multiplies by E|R|² each step. With q=y² and D=(1+xt)²+qt², subtracting one from the integrand gives −D'/D+(x²+q)/D (prime in t); substitution t/(1+xt) integrates the latter and yields Φ. The q derivative has numerator 1−2t+2xt(1−t), over D². Pairing t with 1−t gives a nonnegative integral from the first term since D⁻² decreases; the second term is strictly positive for x>0, and at x=0, q>0 the first term is strict. The real-axis derivative (x²−2)/(1+x)² gives the unique positive cutoff X. Growth in y is uniform over x∈[0,X]: for y≥1+X the arctangent term is at least πy/4, dominating the logarithm. Pairing the squared multipliers at t and 1−t by AM–GM excludes Re z≥0; poles on the positive real axis have infinite second moment. Strict signs at every fixed y>0 over x=0 and x=X force B to tend to zero at each endpoint. Smoothness in the interior and the two disjoint upper/lower arcs joined at just the endpoints give the asserted bounded Jordan domain. At the origin Φ=−2x+q²/6+O(x²+xq+q³), giving B⁴∼12x. At X the ratio g'(X)/Φ_q(X,0)=3(X²−2)(1+X)/(X(3+2X)) gives C². The explicit defect is a quadratic in q with leading coefficient 1/3 and, for small x>0, negative constant term −2x+O(x²). Its unique positive root gives y⁴∼6x and the exact ratio 2^(1/4). The precise theorem in lines 23–27 is the one assessed: the interval is nonempty only for 0<x<X, not at every negative real part literally; line 82's two arcs are the upper and lower ones. The shipped numerical run is ancillary and was not rerun.
 
-The strongest direct comparator is Bochacik and Przybyłowicz, arXiv:2404.19059, Section 3.2. It **already states** the moment formula and an exact pointwise test, together with the real-axis cutoff, boundedness, openness and half-plane containment. The present claim explicitly excludes those as contributions. Facts 2–6 do not assert that every fixed-real-part slice is a single interval, that the boundary has only two joining endpoints, or the fourth-/second-order contact laws. The monotone-frequency proof is an additional global inequality; these geometric facts are not merely a reparameterization of a named prior theorem. The explicit comparison uses a different multiplier polynomial from arXiv:2006.12131. The randomized Taylor family of arXiv:2205.10908 and the later randomized SDIRK method of arXiv:2607.18928 do not dominate this exact stability-domain shape result. Similar deductions from the existing implicit moment formula might exist outside indexed sources; this remains the principal residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-A numerical solver must know whether a decay rate admits a connected interval of oscillation frequencies, and what happens when damping approaches either critical extreme. The global one-arc theorem replaces an implicitly plotted set with a complete structural classification; the fourth-root contact quantitatively measures near-imaginary-axis fragility and enables a sharp comparison with explicit randomization. No general numerical-ODE convergence or novel algorithm is asserted. The result is a natural complete classification of this particular established stability region, not an arbitrary parameter slice.
+The supported distinct contribution is the global strict frequency monotonicity and the resulting single Jordan boundary, including the negative-endpoint square-root law and the quantitative comparison derived from the two boundary widths. The multiplier, moment test, left-half-plane containment, boundedness and real-axis cutoff are prior. The explicit coefficient follows immediately from its published moment polynomial. The implicit quartic contact is also covered by a broader same-day result; no priority between same-day records is inferred and that local law is not credited as distinct.
 
-## Literature and limits
+## value
 
-Compared full primary relevant portions of arXiv:2404.19059 (scheme definition and Section 3.2), arXiv:2006.12131 (Section 5.1), the introduction and representative stability discussion of arXiv:2205.10908, and the abstract/introduction of arXiv:2607.18928. The exact pointwise formula in the first source creates a real risk that a specialist will regard the shape analysis as an immediate corollary; it is therefore central to the precedence assessment and not hidden. The theorem assumes iid uniform stages and a scalar complex linear test equation only. The code is finite supporting evidence, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global one-interval result converts a pointwise test or plot into a certified frequency limit at every damping value in the stable range, with no disconnected bands or additional components. The endpoint laws describe how that allowable band closes at both extremes, and the near-axis ratio quantifies exactly how much width is gained over the explicit method in a regime where both bands collapse. These are concrete stability questions for the original methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

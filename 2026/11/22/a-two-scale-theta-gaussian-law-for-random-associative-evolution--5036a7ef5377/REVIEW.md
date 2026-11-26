@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defining associativity polynomial identities reduce to \(a_{ij}a_{jk}=0\) for \(i\ne j\), every \(k\). Partitioning by nonzero rows gives exactly \(\binom ns\binom st((q-1)q^{n-s})^t(q^{n-s}-1)^{s-t}\). A direct construction of orthogonal idempotents and a cube-zero ideal proves the semisimple-dimension identification. Both parities' lattice limits follow from central binomial ratios and summable theta majorants; the conditional binomial central limit theorem and tightness prove joint convergence to the independent product law. Exhaustive small-field enumeration checks the joint coefficients independently of the counting formula. Finite checks are corroboration only, not infinite proofs.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest directly relevant paper is Fernández Ternero, Gómez Sousa and Núñez-Valdés (2023), Theorem 3.1 and Proposition 3.2. It explicitly classifies the associative *matrix form* and the semisimple-plus-nilpotent splitting; neither is claimed as new. We inspected its substantive full text, including the main classification and subsequent sections. It does not derive the labelled conditional joint probability law, two distinct parity theta limits, or the independent Gaussian scale. The October 2026 evolution-algebra survey covers general structure and poses broad random-algebra and counting questions but does not supply these conditioned limits. Exact-query and equivalence-oriented published research-record index searches found neighboring results about random nonassociative matrices, perfect evolution algebras, and unrelated annihilator spectra, but no encompassing two-scale law. This remains a best-knowledge originality assessment, not a proof of priority; the formula is elementary once the published normal form is available, and inaccessible or unindexed tables may anticipate parts.
+PASS
 
-## Mathematical value — PASS
-The annihilator and the semisimple quotient are intrinsic algebra invariants. The theorem determines their complete finite-field joint distribution, distinguishes unusually tight parity-dependent annihilator fluctuations from square-root-scale semisimple fluctuations, and proves their asymptotic independence in a natural *associativity-conditioned* random algebra model. This distributional separation is not an arbitrary slice or an isomorphism-table recomputation. The specific statistical phenomenon gives a useful quantitative structural picture beyond the prior qualitative normal form. No claim is made about isomorphism-class sampling.
+On basis triples the only nonautomatic associativity constraints are a_ij e_j^2=0 for i≠j. For the active row set S, the permitted columns of row i in S are exactly {i} union S^c, and row i must be nonzero; annihilation is tested by multiplying separately by each e_i. For a_i=a_ii≠0, e_i^2/a_i^2 is an idempotent with its own one-dimensional field ideal and e_i-a_i(e_i^2/a_i^2) is in the annihilator. The remaining active rows have square in the annihilator; together with the annihilator their span is a cube-zero ideal. This identifies T intrinsically as the dimension of the quotient by the nilpotent ideal. Among permitted rows there are (q-1)q^(n-s) with nonzero diagonal and q^(n-s)-1 nonzero rows with zero diagonal; row and support choices give the exact joint count, including s=n and the empty support. The exponent s(n-s+1) at s=m+j is m^2-j^2 in odd size and m(m+1)-j(j-1) in even size. Centered binomial ratios are at most one (m is a binomial mode for both parities), the nonzero-row corrections are at most one, and both factors tend to one for each fixed j. The lattice weights therefore give summable majorants after assigning zero to invalid j, which proves the total asymptotics and tightness. The conditional binomial parameter is p/(1-q^{-(n-s+1)}); for fixed j the conditional mean differs from pm by pj+o(1) and the variance divided by mp(1-p) tends to one. Applying the binomial CLT for each fixed j and then using tightness to truncate the sum of conditional laws gives precisely the independent joint weak limit.
 
-## Closest literature and limitations
-1. D. Fernández Ternero, V. M. Gómez Sousa, J. Núñez-Valdés, *A Characterization of Associative Evolution Algebras*, Contemporary Mathematics (2023), Theorem 3.1, Proposition 3.2, DOI: https://doi.org/10.37256/cm.4120232167 .
-2. I. Kaygorodov, C. Martín González, A. Viruel, *Evolution algebras: a survey of results and a list of open problems* (2026), arXiv:2610.22248, Sections 1.3.4, 1.4 and 2.2.3.
-3. Relevant but distinct published results on all evolution algebras over finite fields and random perfect structures may overlap numerically in special cases, but do not establish the conditional two-scale law.
+## originality
 
-Sampling is labelled, with fixed \(q\); historical priority and extensions to isomorphism-class or joint \(q,n\) limits remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normal form and cube-zero decomposition are credited to prior work; the exact labelled count is a short consequence of the support form and is not independent novelty evidence. The finding's distinct contribution is the parity-dependent annihilator law, independent Gaussian semisimple law and accompanying exact and asymptotic census for that precise ensemble. The closest checked analogues do not cover this joint limit.
+
+## value
+
+PASS
+
+The two parameters are intrinsic and track different algebraic structure: how many directions survive annihilation and how much of the algebra is semisimple. In a natural finite-field labelled ensemble, identifying one as parity-pinned on a lattice and the other as asymptotically independent at square-root scale gives substantially more distributional information than the standard classification, a total count, or a Gaussian approximation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: sharp cubic parity threshold
+# Independent mathematical audit
 
-## Correctness
-PASS. The signed generating product is factored by odd base and 2-adic exponent, yielding an exact distinct-weight subset-sum interpretation. The ten-weight finite coverage interval and the twenty-three zero indices are exhaustively checked by executable recurrence. Adding an allowed doubled cube then successive odd cubes proves the infinite contiguous extension with a strictly increasing overlap margin. Direct partition recurrence coefficients match the subset interpretation through degree 2048. Infinite claims are supported by a proof, not a finite numerical pattern.
+## correctness
 
-## Originality
-PASS within inspected evidence. Ciolan (arXiv:2002.05682, Sections 3 and 7) proves coefficientwise nonnegativity and eventual strictness, but gives no least cutoff for cube parts. OEIS A292560 contains finite coefficients to degree 20000 and therefore supplies computational data without implying strict positivity for all larger indices. OEIS A339368 and A339369 are equivalent parity-split formulations, not infinite cutoffs. Results for squares and fourth powers concern different weights, and thus do not imply the cubical statement. Focused searches on the exact cutoff, equality set, and equivalent generating function found no stronger theorem. An unindexed earlier proof remains possible.
+PASS
 
-## Mathematical value
-PASS. A natural sharp equality cutoff for exponent three completes the parity-bias strictness classification in this first odd-power case, including all exceptions. The constructive proof turns an ineffective eventual theorem into an explicit unconditional all-index result, without merely repeating the finite coefficient tables.
+The parity-adjusted signed unrestricted generating function is the product of (1+(-q)^(m^3))^(-1). On the factor family m=2^a u for a fixed positive odd u, the a=0 term is (1-z)^(-1) with z=q^(u^3), and the a>=1 terms divide out factors 1+z^(2^(3a)) from its binary product. Coefficientwise this cancellation is legal, and the surviving subset weights are distinct by their 2-adic valuations and odd cube roots. An independently written exact convolution of the signed multiplicity sums through degree 373 and a separate direct enumeration of the 1,024 subsets of the ten base weights (`python3 /workspace/branches/independent_checks.py 1`) produced all 23 listed zeros, no other zeros through 373, and verified every base sum from 124 through 373 (not 374 for those base weights). The certified interval adjoins its translate by 250, reaching 623, and overlaps its translate by the fresh weight 343, reaching 966. At that point 729<=966-123; each following overlap margin increases by 2v^3-(v+2)^3, positive for v>=9 since (1+2/v)^3<2. Each added odd cube is a fresh weight, and the accumulating right endpoints diverge. This gives every n>=124 without extrapolation. The empty partition is counted, and 123 is an actual zero, so the boundary is sharp.
 
-## Scope and risks
-Only partitions into positive cubes are classified; no all-exponent uniform cutoff is claimed. The general product/nonnegativity theory belongs to the cited prior work, and independent priority or validation is not asserted. The full coefficient table already covers the small cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the signed product, sign pattern with possible equality and eventual strictness to earlier work. The novelty supported by the comparison is the exact all-n cubic zero classification and optimal effective threshold. Ciolan's printed strict statements cannot be a correct all-n comparator in the presence of explicit cubic zeros and the paper's own equality caveat. A finite coefficient table supplies existing individual zeros where it lists them, not an infinite tail proof.
+
+## value
+
+PASS
+
+This is a sharp effective answer to a standard partition-parity question for a natural exponent, and it identifies the finite equalities that strict phrasing in the original literature misses. The value is not enumerating another table: the small interval is a succinct certificate that closes the infinite gap left by qualitative eventual positivity. The result gives the precise range in which strictness may be used without further caveats; it does not claim novelty for the known generating function or asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

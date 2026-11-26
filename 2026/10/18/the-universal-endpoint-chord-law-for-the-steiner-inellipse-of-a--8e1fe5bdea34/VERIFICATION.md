@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,6 @@
 }
 ---
 
-# Reproducibility and verification
+# Verification and reproducibility
 
-Run `python3 checker.py` with Python 3, NumPy, SciPy and SymPy. The checker verifies the conic/line criterion and the exact primitive symbolically, then compares the closed expression at nine scales against adaptive quadrature independently of the primitive. It also samples direct Euclidean segments and evaluates their geometric ellipse-hit condition for four nonsimilar triangles at five scales. The reported output was:
-
-```
-symbolic conic/incidence/primitive/endpoint checks: PASS
-independent quadrature and small-scale checks: PASS 9 scales
-direct physical ellipse/chord sampling: PASS 20 cases
-```
-
-All probabilistic geometry in the theorem is established by the analytic proof, not by finite simulation. The strict shape extremizers are consequences of the exact factorization and strict convexity of the sum of normalized squared side lengths. Extremely near scale one, use the integral expression or arbitrary precision because the closed form subtracts divergent intermediate terms. No independent audit has been performed.
+Run `python3 checker.py` with NumPy, SciPy and SymPy. It verifies the radical primitive, the conditional scale-one incidence factorization and the endpoint integral algebraically. Finite quadrature computes the accepted interval in the second endpoint by solving the incidence polynomial at fixed first endpoint; it does not use the closed-form primitive. A separate physical-segment test minimizes the ellipse quadratic along each segment, including same-side segments, for four triangles at five scales. Explicit straddling and nonstraddling chords check the full-scale side tangency. For the universal quantifiers, the analytic argument in `RESULT.md` gives the exact conditional law and accounts for the atom at scale one.

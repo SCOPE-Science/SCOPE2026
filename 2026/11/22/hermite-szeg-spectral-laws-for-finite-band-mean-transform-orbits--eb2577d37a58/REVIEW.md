@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polar part remains the bilateral unitary because \(I+A\) and every binomially averaged successor are strictly positive. Fourier inversion of each finite diagonal sequence, with moment cancellation at frequency zero, yields the stated Hermite density after scaling. A contour shift supplies a global exponential bound. Local block Toeplitz approximations establish the signed spectral distribution and \(\mathcal S_p\) laws for all \(p>0\), including quasi-norms. Smooth localization and wave packets give the operator norm constant. The exact three-site Hilbert–Schmidt formula was independently replayed by the embedded checker, not used as a substitute for the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Independently reconstructed the asymptotics in RESULT.md, lines 64–111. Strict positivity keeps the polar factor equal to U; the defect evolves by the binomial average of U^{-t}AU^t. On each column-indexed diagonal the Fourier multiplier is the finite sum of a_h(j) exp(-ijt). Its first surviving Taylor term is (-it)^r M_{r,h}/r!, giving (-1)^r times the Gaussian derivative at x=(n+kq)/sigma, hence the stated Hermite sign. Selfadjointness gives M_{r,-h}=conj(M_{r,h}) by a shift of origin that changes only vanishing lower moments. The contour shift is justified by entire periodicity: for shift iy with |y|=1/sigma, the binomial factor normalized at t=0 on the shifted line is a Bernoulli characteristic function with tilted parameter qe^{-y}/(1-q+qe^{-y}), uniformly interior. The zero-frequency mass and phase give exp(-(n+kq)y+O(1)), so integration with the order-r zero yields a summable exponential envelope. On a fixed rescaled window, cutting into growing o(sigma)-length blocks deletes O(sigma/block_length) rows near boundaries; freezing the coefficients changes each entry uniformly by o(1). Closed band walks give the normalized Toeplitz moments, and polynomial approximation on the bounded spectra gives all fixed-p absolute moments on the window. Outside it, summing diagonal p-powers and using the finite-band Schatten inequality gives a vanishing normalized tail for every p>0 (p-subadditivity for p<=1, the norm triangle inequality for p>=1). Signed tests follow from closed walks and polynomial approximation of F(t)/t^2 with the uniform normalized second-moment bound. A squared partition of unity gives an O(block_length^{-2}) band commutator error; the localized constant Laurent norm bounds the limsup, and an interior plane-wave packet gives the reverse bound. The resulting positive Schatten constants yield all three regimes at p=1/(r+1). Independently checked the exact example via sum p_k^2 = binom(2k,k)/4^k and sum p_k(j)p_k(j+1) = binom(2k,k-1)/4^k. These give the identity for all k, including k=0.
 
-The 2018 and 2020 mean-transform papers already provide the binomial-conjugation and weighted-mean iteration formulas. The general Hermitian GLT framework already provides tools for local spectral symbols. Neither inspected primary result itself supplies the explicit cancellation-order Hermite–Fourier spectral and all-Schatten constants for a finite-band mean-transform orbit. Establishing the precise moment symbol, noncommutative offdiagonal behavior, global Schatten tails and operator-norm coefficient is the assessed narrower contribution. General GLT/local-limit theory could simplify or subsume portions of the proof; independent historical verification is still needed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is structurally motivated by convergence and stability under iterated operator mean transforms. The complete critical \(\mathcal S_p\) exponent depends only on the first nonzero spatial moment of the perturbation, and its exact constants retain the noncommutative diagonal Fourier geometry. The model distinguishes operator-norm convergence from persistent trace-norm mass, identifies how signed cancellation restores trace-norm convergence, and supplies a spectral distribution rather than one isolated scalar estimate.
+The surviving contribution is the explicit moment-selected Hermite–Fourier law and its global fixed-p and sharp norm consequences in this operator orbit, not the iteration identity, general Szegő/GLT theory, or Gaussian inversion. No inspected distinct claim implied that full specialized result.
 
-## Scope and limitations
+## value
 
-The theorem is restricted to fixed finite-support selfadjoint defects and fixed interior averaging parameter. The signed spectral law is vague away from zero; it is not a uniform probability law over every finite-rank eigenvalue. Neither infinite-support extensions nor independent priority/validity confirmation are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp asymptotics distinguish operator-norm stability from decay in stronger ideals. One moment index predicts the exact critical Schatten exponent, while the band symbol retains off-diagonal geometry and eigenvalue signs that neither a norm bound nor a scalar shift example captures. These are useful invariants of a standard transform's perturbation orbit, not a numerical recount of the exact iteration formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

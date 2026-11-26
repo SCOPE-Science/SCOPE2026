@@ -1,19 +1,21 @@
-# Scientific review: three-site maximal-distance-minimizer phase portrait
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed object is the shortest connected compact planar network visiting three equal-radius closed disks centered at \((-1,0),(1,0),(0,h)\). The three-terminal Steiner-tree inequality reduces the unrestricted network problem to minimizing the convex sum of point-to-disk distances. Symmetry reduces it to a one-variable piecewise elementary function whose minimum occurs at the constrained Fermat height \(1/\sqrt3\). The supporting interval, all boundary cases, the enclosing-disk collapse radius, and the order in which branches disappear are derived explicitly in `RESULT.md`. The projection-segment construction realizes equality. The stdlib verification program passed 644 formula/projection tests and 20 independent two-dimensional grid comparisons; a separate global numerical optimizer passed 200 randomized cross-checks. The analytical argument, not the finite tests, justifies the universal quantifiers.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+For each admissible finite-length continuum choose a contact point in each disk. A finite-length planar continuum is rectifiably arcwise connected: take an arc from contact 1 to 2 and the part of an arc from contact 3 to 1 up to its first hit on the first arc. Splitting there gives three segments of arcs with disjoint interiors, each of length at least the distance from the junction to the corresponding disk (coincident contacts permit a zero arm). Conversely, three nearest-disk projections of a junction give a connected feasible star of length at most the sum. This proves the global distance-sum reduction, with attainment by coercivity. Convexity and reflection put a minimizer on the axis, and projection to [0,h] cannot increase distances. The single-point covering radius is obtained by balancing the increasing base distance sqrt(1+y²) and decreasing apex distance h−y, with the minimizer at y=0 when h≤1. Below R(h), if r≥h then r<1 and the objective is 2(sqrt(1+y²)−r), minimized at y=0; this handles the degenerate clamp interval separately. Otherwise a_r≤h−r (strict if r>1, since r+sqrt(r²−1)<h). Below a_r the apex term decreases alone, above h−r the base term increases alone, and on [a_r,h−r] the derivative has its sole zero at c=1/sqrt(3). Hence the clamp formula. The apex arm first vanishes at r=h−c if c<h<sqrt(3); the base arms first vanish at r=2/sqrt(3) if h>sqrt(3); at equality the thresholds coincide with collapse. If r reaches h below R(h), the two remaining spokes become horizontal. For h≤c there is no positive-radius tripod. These give all rows including h=c,h=1,h=sqrt(3) and their endpoint equalities.
 
-A 2026 open-problems collection gives the maximal-distance-minimizer definition and asks for explicit target sets, but does not state this isosceles two-parameter profile. The classical three-terminal Steiner solution and the existence of three-point tripod and segment examples are known; these are explicitly credited. The 2022 inverse-problem paper (Observation 2.11, Proposition 2.14) explicitly covers the finite-site Steiner reduction and the initial trimmed-tripod regime for sufficiently small tolerance; both are acknowledged as prior art. Its statements inspected do not imply the later large-radius phases or the displayed global \((h,r)\)-portrait. A related indexed four-site square result is a different geometric family and does not itself imply the three-site classification. Searches under maximal-distance minimizer, disk-transversal Steiner tree, neighborhood-network, and Fermat–Torricelli aliases revealed no direct covering theorem. Indexed-search failure is not proof of novelty; historically unindexed equal-disk network literature and the inaccessible full four-site record are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The target is the minimal noncollinear finite MDM configuration, and the tolerance radius changes a network's topology rather than merely its scale. An exact complete classification over two continuous geometric parameters identifies five canonical network types, their sharp boundaries, and the exceptional direct three-arm-to-point collapse at the natural shape threshold \(h=\sqrt3\). The result supplies a reusable exact test case for geometric network optimization and is not offered as a solution of the open circle, stadium, or arbitrary-compact-set problems. The qualitative three-point shapes alone would not be claimed as new; the complete simultaneous length/topology profile is the valued contribution.
+Credit prior work for finite-site MDM structure, the classical r=0 Steiner case, known tripod and segment examples, and the whole initial trimmed-tripod branch. The supported distinction is the exact all-radius, all-height length and phase law for the prescribed three isosceles sites.
 
-## Scope and limitations
+## value
 
-The theorem constructs canonical minimizers but does not classify every minimizer or prove uniqueness. It is restricted to three equally tolerant isosceles sites. Its proof assumes standard elementary facts about rectifiable connected continua and three-terminal Steiner trees, which are explained in the result. The secondary computational tests are finite sanity checks. A further independent literature review is warranted before any priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural three-site model retains an actual topology change, unlike a pure pointwise Steiner computation. The closed two-parameter formula and sharp exact thresholds distinguish whether the apex arm disappears, both base arms disappear, or all arms disappear together, and give benchmarks past the known short-radius regime. The shape examples alone would not be a distinct contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:30:39.476185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The compact-range Weyl coefficient, trace limits, bounded critical essential norm and unbounded regime are correct. Normalized monomial integration gives both squared norms in RESULT.md, and the shift by a is injective; the weighted orthogonal images give the displayed diagonal weights. The square-root factors from each coordinate converge uniformly after scaling (sqrt(x+l/n) converges uniformly to sqrt(x)); gamma ratios then give uniform degree control, including coordinate faces. Scaled lattice counts squeeze to the bounded radial region whose volume is the Dirichlet integral with simplex-coordinate Jacobian r^(d-1). For d=1 the angular region is a point; for d=2, alpha=0, a=(1,1) the formula reduces to 1/15. Counting-function inversion and uniform tail comparison with zeta(p/rho) prove the ordered law and the displayed real-axis residue; the latter is not itself a proof of meromorphic continuation. At alpha=1 the tail supremum of the weights yields the essential norm; at alpha>1 a fixed positive angular proportion on the support of a yields divergent weights. However, the unqualified complete singular-value multiset and nonincreasing-arrangement assertions (RESULT.md lines 8, 35, 43) fail at the noncompact endpoint under their stated convention. For d=1, alpha=1, b=z^2, the squared diagonal weights are 2(n+1)/(n+2), strictly increasing to 2 without a largest entry. They cannot be arranged in nonincreasing order, and if singular values are interpreted as approximation numbers, all are sqrt(2), since the essential norm and operator norm coincide. The formula is valid there as an unordered list of diagonal weights, not as the claimed ordered singular multiset, and for alpha>1 one should likewise speak of weights of the polynomial-defined operator rather than bounded-operator singular values. Replay: RESULT.md Steps 1–4 and this one-dimensional substitution; the frozen finite gamma checker was read, not run. No repaired finding is claimed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engliš–Zhang quote Boutet de Monvel–Guillemin's Theorem 13.1: for a positive self-adjoint order-one GTO with positive symbol, the counting coefficient is (2pi)^-d times symplectic volume of the symbol sublevel set. Their proof of Theorem 3 applies the elliptic complex-power calculus and gives the symplectic radial density.",
+          "For a Gram with angular zeros, add epsilon L^-2beta, giving positive elliptic symbol. Its inverse power of exponent 1/(2beta) is order one. The Weyl inequalities for a positive sum bound the effect of epsilon L^-2beta at a fixed fractional threshold by a constant times epsilon^(d/(2beta)); take epsilon to zero and then the relative threshold error to zero.",
+          "The same-object Theorem 1 of arXiv:1904.00359 treats boundedness and is not the exact spectral comparison. The Chen–Pau–Wang theorem texts and the 2016 El-Fallah et al. full text were not independently retrieved."
+        ],
+        "reasoning": "The hypotheses of the earlier elliptic theorem are met by the regularized operator, so absence of ellipticity of |b|^2 is not an obstacle. The comparison does not rely on uninspected Chen or El-Fallah results.",
+        "searches": [
+          "Web: Englis Zhang Hankel operators and the Dixmier trace strictly pseudoconvex PDF Weyl generalized Toeplitz Theorem eigenvalue asymptotics",
+          "https://ems.press/content/serial-article-files/26088, §2.1 (P1)–(P7), §3 Eq. (14)",
+          "arXiv:1904.00359, Theorem 1",
+          "doi:10.1007/s00025-021-01403-8; doi:10.1016/j.jfa.2016.01.005"
+        ]
+      },
+      "checked_sources": [
+        "Engliš–Zhang Doc. Math. 15 (2010), §§2–3",
+        "Boutet de Monvel–Guillemin (1981) Theorem 13.1 as stated in Engliš–Zhang Eq. (14)",
+        "arXiv:1904.00359",
+        "Chen–Pau–Wang and El-Fallah et al. (full-text limits above)",
+        "Resultary 464f0e778efe, 4c5eac89584f, 0a1689d14441, 9dc7f504b01b and the identical e4a42b089ada"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apply the preceding Weyl formula to the Gram and replace its eigenvalue threshold by t^2. The Dirichlet integral gives exactly W. Counting-function inversion, harmonic summation and the real zeta limit are direct consequences.",
+          "At beta=0, F(N)=C I modulo compacts, so the exact essential norm is C times the sup norm of M_b's boundary symbol. The upper bound is multiplication by a bounded function; the lower bound follows by applying the adjoint to normalized Hardy reproducing kernels tending weakly to zero at a maximizing boundary point. Maximizing the monomial there is weighted AM–GM, giving the stated product."
+        ],
+        "reasoning": "The essential norm, leading coefficient and stated traces reduce to earlier general spectral formulas; the residual degree-by-degree gamma weight formula is the immediate monomial shift normalization, not an independent unknown spectral theorem.",
+        "searches": [
+          "Engliš–Zhang §3 Eq. (14), proof of Theorem 3 and contact-volume argument; The spectral theory of Toeplitz operators, Theorem 13.1 as quoted there",
+          "Miihkinen–Pau–Perälä–Wang arXiv:1904.00359, operator and theorem comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let U map each normalized Bergman monomial to the corresponding normalized Hardy monomial, and N be Hardy homogeneous degree. Then J_b U^-1=M_b F(N), where F(n)=m/(n+m) times sqrt[Gamma(d) Gamma(d+alpha+1+n)/(Gamma(d+alpha+1) Gamma(d+n))].",
+          "Writing L=N+1, F(N)=C L^-beta plus a diagonal remainder of order -beta-1. The compact principal model has Gram C^2 L^-beta T_|b|^2 L^-beta on Hardy space.",
+          "The adjacent Resultary record 464f0e778efe instead has derivative on the input and a Bergman target; it does not supply this operator identity or itself dominate the finding."
+        ],
+        "reasoning": "On the sphere L is the compression of a positive elliptic first-order operator with constant principal symbol on the unit contact section: take sqrt(-Delta+(d-1)^2) adjusted by a constant, or sqrt(-Delta+1) for the leading model. Products and complex powers give the generalized Toeplitz Gram of order -2 beta with angular principal symbol C^2|b|^2. The lower-order radial remainder has singular values O(j^(-(beta+1)/d)) by degree multiplicities and is negligible at the Weyl scale.",
+        "searches": [
+          "Resultary: monomial Bergman-to-Hardy Volterra angular Weyl counting and logarithmic trace",
+          "Engliš–Zhang, Documenta Mathematica 15, §§2–3, Weyl Eq. (14) and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title index hit e4a42b089ada is the same frozen result. The full-rank and partially contracted Companions and the Fock Hankel hit give quantitative laws on different objects. The same-day 9dc7f504b01b concerns a power-map disk companion, not this sphere multiplier.",
+          "For the actual Gram, contact-volume integration gives coefficient C^rho/d! times the normalized surface average of |b|^rho; the radial normalization is fixed by the L eigenvalue count binomial(R+d,d) to leading order. The squared coordinate moduli of a uniform complex sphere point are Dirichlet with all parameters one, so the average is (d-1)! times the displayed gamma ratio."
+        ],
+        "reasoning": "A lookup of the exact gamma product is unnecessary: the general Weyl formula and a standard beta integral give exactly that number, not just two-sided comparisons.",
+        "searches": [
+          "Resultary: exact monomial Volterra singular values and angular gamma coefficient; closest entries 464f0e778efe, 4c5eac89584f, 0a1689d14441, 9dc7f504b01b",
+          "Engliš–Zhang Eq. (14) and radial contact-volume computation, pp. 609–610"
+        ]
+      },
+      "rationale": "Verified broader generalized Toeplitz Weyl theory gives the exact compact coefficient via a direct Hardy-space reduction, not merely a rate or ideal criterion. The log-trace and real zeta residue are immediate consequences of that law, and at the boundary the exact norm is the usual multiplication-operator essential norm modulo a compact radial factor. The known boundedness and Schatten criteria are not the basis of this rejection, and inaccessible near-source papers are not used as negative evidence.",
+      "residual_risks": [
+        "Coverage of the exact coefficient is by a verified stronger theorem and explicit reduction, not a claim the exact monomial gamma formula appears verbatim in that literature.",
+        "No historical exclusion is made from the inaccessible Chen–Pau–Wang or El-Fallah et al. papers. No meromorphic continuation is credited on the strength of the displayed real-axis limit alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies the precise earlier elliptic theorem statement used to derive the entire compact leading coefficient",
+          "evidence": [
+            "Order and symbols multiply; negative order is compact; ellipticity is nonvanishing symbol. Eq. (14) states N(lambda)=vol(Sigma_T) lambda^d/(2pi)^d+O(lambda^(d-1)) for positive order-one GTO, attributing it to Boutet de Monvel–Guillemin (1981) Theorem 13.1. Theorem 3 proof describes inverse complex powers and t^(d-1) radial symplectic density."
+          ],
+          "identifier_or_url": "https://ems.press/content/serial-article-files/26088",
+          "material_read": "Documenta Mathematica 15 (2010), pp. 605–606 §2.1 (P1)–(P7), pp. 609–610 §3 Eq. (14), Theorem 3 and proof, p. 621 reference [5]",
+          "method": "Bounded OA PDF passages at offsets 11380, 21700 and bibliography locator, followed by operator and symbol reduction",
+          "title": "Hankel operators and the Dixmier trace on strictly pseudoconvex domains",
+          "trigger": "Positive-order generalized Toeplitz Weyl law and exact angular coefficient"
+        },
+        {
+          "assessment": "Boundedness criterion, not the exact coefficient at the inspected locator",
+          "evidence": [
+            "Theorem 1 gives operator boundedness conditions for A^p_alpha to H^q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.00359",
+          "material_read": "Definition and Theorem 1, PDF pp. 2–3",
+          "method": "Bounded OA text passage",
+          "title": "Volterra type integration operators from Bergman spaces to Hardy spaces",
+          "trigger": "Same operator with generalized parameters"
+        },
+        {
+          "assessment": "Recorded attribution of known Schatten threshold not independently confirmed beyond available material; not used to exclude or establish exact coverage",
+          "evidence": [
+            "Frozen RESULT.md J_b comparison cites Theorems 1.3 and 5.4; no additional passage is claimed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01403-8",
+          "material_read": "Citation and theorem descriptions in frozen RESULT.md; no usable corresponding primary theorem text retrieved",
+          "method": "Lawful OA retrieval attempts at publisher and identified copies",
+          "title": "Essential Norms and Schatten(-Herz) Classes of Integration Operators from Bergman Spaces to Hardy Spaces",
+          "trigger": "Same operator and likely relevant endpoint or spectral statements"
+        },
+        {
+          "assessment": "No whole-paper conclusion; separate precise prior GTO theorem was verified",
+          "evidence": [
+            "The reachable abstract identifies the Toeplitz eigenvalue topic, not a theorem with checked hypotheses for this application."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2016.01.005",
+          "material_read": "Landing/abstract material only",
+          "method": "Lawful OA retrieval attempt; publisher full text not read",
+          "title": "Asymptotic behavior of eigenvalues of Toeplitz operators on the weighted analytic spaces",
+          "trigger": "Potential Toeplitz eigenvalue comparator"
+        },
+        {
+          "assessment": "Different operator; not the decisive prior coverage",
+          "evidence": [
+            "Generalized companion has input derivative and diagonal self-map, with Bergman rather than Hardy codomain."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-exact-singular-value-laws-for-full-rank-boundary-contact-volterr--464f0e778efe",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror statement comparison",
+          "title": "Exact singular-value laws for full-rank boundary-contact Volterra companions",
+          "trigger": "Closest earlier indexed coefficient and trace law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp angular Weyl coefficient is a natural invariant, but here it is a direct symbol-volume evaluation of an existing law; its log sums and real zeta residue do not supply a new invariant beyond that evaluation. The endpoint adds a standard multiplier norm and weighted AM–GM. The elementary explicit monomial weights provide an illustration, but no scientifically valuable unknown exact remainder is demonstrated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

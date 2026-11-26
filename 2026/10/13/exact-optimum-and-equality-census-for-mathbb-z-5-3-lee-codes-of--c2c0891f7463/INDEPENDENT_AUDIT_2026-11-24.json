@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:57.884771Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:2–44",
+        "Frozen VERIFICATION.md:18–26, artifacts/verify.py and artifacts/certificate.json",
+        "Independent replay: python3 /workspace/branches/private-checks/lee.py"
+      ],
+      "rationale": "I independently enumerated the five horizontal layers of the torus, without using the frozen clique search. Within a layer, disjoint radius-one balls of size five cap the size at five. The legal layer counts for sizes zero through five are 1,25,150,200,50,10. Between adjacent layers the horizontal Lee distance must be at least two (ban the occupied horizontal radius-one neighborhoods); between nonadjacent layers it must be at least one (ban identical horizontal positions). Exact recursive combination of compatible layers through 000 excludes size 16 and yields 24 size-15 codes. Translation takes every nonempty code to one through 000, and a larger code would have a 16-subcode. Full translation gave 200 labeled sets, exactly the orbit of one witness under all 6000 distinct signed coordinate permutations with translations. The stabilizer has order 30, and direct counts give every stated symbol multiplicity and pair-distance tally. For the linear contrast, a two-dimensional code has at least 25 points, excluded even by the radius-one packing bound 17; the span of (1,1,1) attains size five.",
+      "residual_risks": [
+        "The exact enumeration is only for these parameters; the orbit is under the stated natural group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polak's framework treats arbitrary Lee codes. The packing bound gives at most floor(125/7)=17, which does not exclude 16 or 17. Alderson–Huntemann's accessible listing describes Singleton-type bounds for general Lee codes, not an exact parameter entry."
+        ],
+        "reasoning": "General upper-bound frameworks and matching ambient scope do not by themselves evaluate the instance or classify equality. The full Alderson–Huntemann paper was unavailable, so no whole-document exclusion is asserted.",
+        "searches": [
+          "arXiv:1810.05066, introduction and Section 1.1",
+          "10.1155/2013/625912, official abstract/listing",
+          "Radius-one packing bound on the 125-point torus"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:2–24,46–59",
+        "DOIs 10.1186/s40064-016-1863-8 and 10.1155/2013/625912",
+        "arXiv:1810.05066",
+        "Resultary 832470051112 and Chebyshev permutation-array record 1a746c2dd2b9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linearity is a restriction, not an upper bound for arbitrary subsets. A general SDP method is not a published evaluation with an attained bound at these parameters. The differing pentagon relations do not even give code-family inclusion in either direction."
+        ],
+        "reasoning": "No inspected statement supplies the unrestricted optimum by substitution, or the equality census by isometry or direct specialization. The checked proof supplies both independently.",
+        "searches": [
+          "Polak's unrestricted A_q^L(n,d) definition and Table 1",
+          "Astola–Tabus linear dimension comparison",
+          "Resultary 832470051112 scope and census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Disjoint one-spheres on the Cartesian torus C5 square C5 square C5 are equivalent to minimum Lee distance at least three.",
+          "The pentagon census uses independence in the strong product, with nonconfusability iff some coordinate distance is two. Differences (1,1,1) and (2,0,0) separate the conditions in opposite directions."
+        ],
+        "reasoning": "The packing alias is exact, while a census on the same labeled vertex set and symmetry group with a Chebyshev-type rather than additive criterion is not equivalent.",
+        "searches": [
+          "Resultary: Lee radius-one packing in Z5^3 / 5-by-5-by-5 torus, nonlinear code of Lee distance at least 3",
+          "Resultary record 832470051112, pentagon three-use equality census",
+          "arXiv:1810.05066, Section 1.1, A_q^L(n,d)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Astola–Tabus list the tight linear dimension 1. Polak's table of new q=5 upper bounds starts at n=4. The same-alphabet Resultary equality census tabulates 10 and 391,600 for the different pentagon relation."
+        ],
+        "reasoning": "None of these exact entries settles the unrestricted parameter or its 200 equality cases. Polak's omission is not evidence that no other table exists.",
+        "searches": [
+          "Astola–Tabus DOI 10.1186/s40064-016-1863-8, Table 1 q=5, n=3,d=3",
+          "Polak arXiv:1810.05066 Table 1",
+          "Resultary Lee/torus parameter search and 832470051112"
+        ]
+      },
+      "rationale": "The checked exact table is for linear codes, not arbitrary subsets; the checked unrestricted table does not evaluate these parameters. The closest indexed same-alphabet equality census uses a different pair relation. The independently supported distinct finding is the unrestricted maximum together with the complete labeled census and orbit and profile information.",
+      "residual_risks": [
+        "The full Alderson–Huntemann paper could not be checked. Older or unindexed exact computations remain possible; the literature conclusion is not a proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the linear contrast only",
+          "evidence": [
+            "The table caption restricts to linear dimension k and the entry is 1*."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s40064-016-1863-8",
+          "material_read": "Table 1 and tightness note, pp. 10–11, offset 39309",
+          "method": "Primary OA PDF",
+          "title": "On the linear programming bound for linear Lee codes",
+          "trigger": "Exact q=5,n=3,d=3 table match"
+        },
+        {
+          "assessment": "Same model but no target entry or census in inspected material",
+          "evidence": [
+            "A_q^L(n,d) maximizes over arbitrary subsets with min distance at least d; the q=5 new-bound rows start with n=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.05066",
+          "material_read": "Table 1 p. 2 offset 6089; Section 1.1 p. 3 offset 11307",
+          "method": "Primary OA PDF",
+          "title": "Semidefinite programming bounds for Lee codes",
+          "trigger": "General unrestricted Lee-code parameter and exact tables"
+        },
+        {
+          "assessment": "Plausibly relevant; no conclusion about its full q=5 cases",
+          "evidence": [
+            "Listing describes Singleton-type bounds for general Lee codes; Wiley, Hindawi PDF and identified ResearchGate copy returned 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/625912",
+          "material_read": "Official listing/abstract only; no accessible full text through the attempted copies",
+          "method": "Publisher listing and lawful OA retrieval attempts, including the identified alternative copy",
+          "title": "On Maximum Lee Distance Codes",
+          "trigger": "Potentially relevant unrestricted q=5 results"
+        },
+        {
+          "assessment": "Different adjacency; not equivalent or dominating",
+          "evidence": [
+            "Strong-product independence, maximum 10 with 391600 labeled maxima in 85 orbits, rather than additive Lee separation."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-complete-equality-census-for-the-three-use-pentagon-zero-error--832470051112",
+          "material_read": "RESULT.md, Finding and assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A complete equality census for the three-use pentagon zero-error problem",
+          "trigger": "Strongest Resultary match, same 125 labels and natural symmetry group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:2–37,46–54",
+        "Astola–Tabus Table 1",
+        "Polak Section 1.1",
+        "Independent layer replay"
+      ],
+      "rationale": "Single-error packing in the small three-dimensional Lee torus is a natural unrestricted coding parameter with an independently motivated linear comparison. The exact optimum closes a gap left by the elementary packing bound, and the complete equality orbit with uniform balance and distance profile gives a concrete structural benchmark for nonlinear Lee-code bounds or searches. This is not just a rerun of the linear table or a witness without optimality.",
+      "residual_risks": [
+        "No implication for asymptotic packing or other parameters is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

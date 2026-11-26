@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reciprocal \(\ell_1\) curvature is the maximum of a positive-definite quadratic over the unit cube, hence over its sign vertices. Cubic regularity gives the rational inverse identity and the graph-cut value, while the deliberately small teleportation parameter separates adjacent cut cardinalities by more than any imbalance correction. The spectral and positivity bounds and the additive-error rounding inequality are explicit. Exact rational verifier results agree on four structurally distinct cubic graphs. The general hardness proof uses the published NP-hardness of cubic MAX CUT; the verifier does not prove that external complexity theorem.
+## correctness
 
-**Originality — PASS, qualified.** The published Gauss–Southwell work establishes the general \(\ell_1\) strong-convexity performance parameter, while earlier work establishes general hypercube quadratic NP-hardness and norm hardness. The claimed distinction is a fully explicit *strictly positive, symmetric, doubly stochastic, uniformly well-conditioned* Hessian family with a graph-cut/balance curvature identity, exact worst-case gradient signs and quantified additive-precision hardness. This is not merely a claim that general binary quadratic optimization is NP-hard. The 1990 norm-maximization article is highly plausible overlap literature, but its full argument was not accessible; if it contains the precise positive stochastic restriction, originality would need reconsideration before publication. Search results do not establish absence from all literature.
+PASS
 
-**Value — PASS.** Exact rate-parameter evaluation can remain computationally hard under unusually strong benign numerical conditioning and positivity, even though a greedy coordinate move itself is easy and the spectral bounds are elementary. The identity also exposes how maximum-cut frustration and balance control the sharp certificate. It gives a motivated numerical-optimization complexity boundary, not a graph-family recomputation selected merely for its numbers.
+On the constant direction W and K are the identity; on its orthogonal complement K=(1-theta)W, with W's eigenvalues in [3/5,1] by the cubic adjacency bound. Hence the condition bound holds even for disconnected G. The Neumann series and the positive rank-one term give entrywise positivity, and symmetry gives column as well as row stochasticity. With J the orthogonal projection onto constants, the same splitting gives K^{-1}=(I+L_G/9-theta J)/(1-theta). Writing y=Kx reduces the reciprocal dual ratio to the maximum of y^T K^{-1}y on the cube; strict convexity forces sign vertices. In the primal ratio use a sign s with s^Tx=||x||_1 and Cauchy–Schwarz in the K-metric, with equality only along K^{-1}s for maximizing s. The sign-adjusted numerator of each coordinate of K^{-1}s is at least 1-theta>0, giving the stated normalization and converse. Since s^T L_G s=4c(s) and s^T J s=b(s)^2/n, the total possible penalty is at most 1/100, below a one-edge gain of 4/9, which also proves the balance tie-break. The bound M=1/mu<1.7n makes the reciprocal error at most eta M^2/(1-eta M)<0.03 for eta=1/(100n^2), n>=4. After scaling by at most 9/4 and allowing the exact balance bias 9/400, the error in cut recovery is <0.1. Rational matrix construction has polynomial bit complexity, e.g. by minors of the integer matrix 12I-A and exact rational arithmetic. Thus the known cubic MAX CUT hardness gives a polynomial-time reduction to the advertised additive approximation of mu, not of an individual coordinate update. The support code was inspected as finite evidence, not executed.
 
-Sources inspected include the actual sections 3–4 of Nutini et al. (2015), the cubic MAX CUT hardness result of Alimonti–Kann (2000), and the published abstracts of Bodlaender et al. (1990) and Hendrickx–Olshevsky (2010). The 1990 full-text inspection was unavailable, which is a residual originality risk. No external mathematical validation was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit sharp l1 curvature and the incidence-matrix max-cut norm identity to prior work. What is supported as distinct is their conditioned positive stochastic realization with an exact secondary optimizer criterion and a recovery guarantee at inverse-quadratic additive precision for the curvature itself. Generic hypercube hardness alone is not a claim about this inverse-matrix class.
+
+## value
+
+PASS
+
+The construction answers a concrete optimization question: can the exact l1 certificate used to assess a Gauss–Southwell bound remain hard to evaluate on benign, uniformly well-conditioned Hessians? It shows that positivity, stochastic normalization and good spectral conditioning do not make sharp parameter evaluation easy, while identifying the worst gradient signs and preserving polynomially bounded input and requested precision. This is not a claim about the cost of a step or the observed trajectory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

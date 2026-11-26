@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:20.390351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The projector preserves means, and the minimum-norm lift of a difference vector u is D^T(DD^T)^(-1)u. Thus the induced problem is an H-metric projection onto the ℓ1 ball for H=(DD^T)^(-1). On a signed support J, fixing all other coordinates to zero and enforcing s^Tz_J=τ gives the stated affine derivative; strict off-support KKT slack makes the chosen face cell locally full-dimensional. The inverse principal Green matrix has the gap-conductance Laplacian form by eliminating the unselected nodes. Green-kernel linearity gives nonnegative interpolation columns of total mass at most one; the entries of Bs align with s, so ||Bs||_1=s^TBs. Dividing the rank-one correction by this positive denominator gives a column bound of two. Piecewise affinity and continuity extend the slope bound across cell boundaries. Scalar clipping and the two displayed 2×2 full-support cases, with zero singleton derivative, give the upper bound one for n=2,3. In n≥4 the full ascending face has correction supported on the two end edges, so shifting one interior input difference by ε yields output difference εe_k−(ε/2)(e_1+e_m); the residual multipliers 1 and 1+ε/2 certify the claimed projections. The two ratios are attained in the interior for low n and by this pair scaled to any τ>0 for high n. Radius zero yields zero modulus as stated. Replay: frozen RESULT.md §§1–6. The provided rational checker was inspected, not run; finite face enumeration is a supplement, not the all-dimensional proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fadili–Peyré formulates Euclidean TV-ball projection for images and gives algorithmic convergence. The cross-polytope result uses coordinate ℓp fidelity and ℓp stability. The same-date distinct cyclic result has thresholds 1, 3/2 and 2 for the stated cycle lengths."
+        ],
+        "reasoning": "The same-object algorithm paper is not a proof of the exact variation modulus; the cross-polytope result does not cover a nondiagonal Green objective measured in ℓ1, and cyclic edges change both constraint and seminorm. None of these distinctions rescues the exact overlap with the separate open-path theorem.",
+        "searches": [
+          "HAL-00380491 v3, §III.B equation (6) and Theorem 1",
+          "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+          "2026/11/22/SCOPE-a-sharp-three-stage-variation-threshold-for-euclidean-projection--2c7e82471d92"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, tv_ball_exact_check.py",
+        "Resultary mirror: exact open-path match 43b65933e518, weighted cross-polytope and cyclic variation findings",
+        "Fadili–Peyré HAL-00380491 v3, bounded original passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier face argument uses block averaging A and g=AD^Ts with derivative A−gg^T/||g||². On edge coordinates, A acts by the same interpolation; the boundary jumps of g are Bs and ||g||²=s^TBs. The rank-one subtraction, two small-dimensional matrices, and sharp interior-edge perturbation are already present in this earlier proof."
+        ],
+        "reasoning": "In the two presentations the same block lengths give reciprocal conductances, and averaging a step yields the same at-most-two-point column. The normalization of the witness and the coordinate representation differ, but the ingredients and implications coincide. There is no supported new extension or independent scientific lemma to repair.",
+        "searches": [
+          "43b65933e518/RESULT.md, Proof from the signed-face derivatives through attainment",
+          "Frozen RESULT.md §§2–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Finding defines V_n by the same sum of adjacent absolute differences and P_{n,R} by Euclidean nearest-point projection onto V_n≤R. It states sup_{V_n(x-y)>0} V_n(Px-Py)/V_n(x-y)=1 for n=2,3 and 2 for n≥4, with attainment for every R>0."
+        ],
+        "reasoning": "Rename R to τ. Multiplying the squared objective by 1/2 does not change its minimizer, and the quotient and ranges coincide without any reduction in generality. The formulations are identical as theorems.",
+        "searches": [
+          "Resultary: sharp bounded-variation and path-TV-ball projection stability",
+          "2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518/RESULT.md, Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed open-path record gives the closed formula for every n and every R>0 and describes finite exact face/witness checks. It is stronger evidence than a table of small cases."
+        ],
+        "reasoning": "No standalone sequence table is needed to decide novelty: an exact theorem is already indexed, not merely a numerically matching parameter or an identical copy of the assigned record.",
+        "searches": [
+          "Resultary exact open-path TV threshold and signed-face modulus; 43b65933e518 original Finding and Verification"
+        ]
+      },
+      "rationale": "The distinct indexed result 43b65933e518 already states the exact same theorem, with the same open path, real inputs, unweighted Euclidean projection, two-input seminorm, quantification over all positive radii, constants and attainment. Its original Finding and proof were inspected. This is demonstrable coverage, not a conclusion about who first derived it or about provenance. The Green-matrix presentation is the difference-coordinate form of the same face-tangent mechanism and is not a surviving new claim.",
+      "residual_risks": [
+        "The exact source match settles mathematical coverage without establishing first discovery or record provenance. Empty primary search returns are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent theorem and equivalent proof mechanism",
+          "evidence": "The Finding gives the identical 1/2 piecewise choice of modulus (one for n=2,3 and two for n≥4), attained by finite pairs at any positive radius. The proof uses block averaging, sign alignment of the normal and the same interior-edge increment.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518/RESULT.md",
+          "material_read": "Finding and assumptions; signed-face projection proof, both dimension regimes, and Verification, offsets 0–6336",
+          "method": "Published mirror original text, bounded original passages",
+          "title": "Sharp bounded-variation stability transition for projection onto a discrete total-variation ball",
+          "trigger": "Exact Resultary statement overlap"
+        },
+        {
+          "assessment": "The relevant inspected passages are algorithmic, not the exact two-input modulus",
+          "evidence": "Equation (6) defines the Euclidean TV projector; Theorem 1 is an O(1/k) algorithmic convergence claim. The full-text-access limitation in the frozen record is no longer applicable to this review.",
+          "identifier_or_url": "https://hal.science/hal-00380491/document",
+          "material_read": "HAL v3 PDF p. 1 front matter and abstract; p. 2 §III.B eq. (6) around offset 11200; p. 5 Theorem 1 around offset 30700",
+          "method": "Lawful OA same-paper PDF, targeted reading",
+          "title": "Total Variation Projection With First Order Schemes",
+          "trigger": "Highly relevant same projection object; the frozen report did not have full text"
+        },
+        {
+          "assessment": "Does not cover the required Green metric and seminorm pairing",
+          "evidence": "Weighted ℓ1-ball projection in the original coordinate ℓp metric, with ℓp sensitivity.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0/RESULT.md",
+          "material_read": "Finding and setting at offset 0",
+          "method": "Published mirror original text",
+          "title": "Exact Lipschitz Stability and Contractivity Threshold for Weighted Cross-Polytope Projections",
+          "trigger": "Plausible metric/ℓ1-ball alias"
+        },
+        {
+          "assessment": "Related cycle result, not equivalent to the open-path result",
+          "evidence": "Cyclic TV including the wrap edge; modulus 1 on 3- and 4-cycles, 3/2 on a 5-cycle, and 2 for lengths at least six. No priority conclusion from the date.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-stage-variation-threshold-for-euclidean-projection--2c7e82471d92/RESULT.md",
+          "material_read": "Finding and proof passages at offsets 0 and 3600",
+          "method": "Published mirror original text",
+          "title": "A sharp three-stage variation threshold for Euclidean projection",
+          "trigger": "Most relevant distinct same-date Resultary hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp instability transition is intrinsically a meaningful stability question, but this record adds no distinct useful theorem to the existing exact classification. The inverse-Green computation expresses the existing block-face calculation in edge coordinates and neither extends the geometry or metric nor identifies a new exact invariant. A different witness normalization and extra finite checks do not rescue a statement already proved. No repaired claim is asserted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:22:34.339131Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–65 and 73; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/repairs/1/RESULT.md and /workspace/repairs/1/VERIFICATION.md",
+        "/workspace/branches/audit_exact_124.py, record 1 exact run"
+      ],
+      "rationale": "Original proof gap (not a false entropy formula): at frozen RESULT.md line 59 the fixed limiting tilt does not in general give a Theta(N^(-1/2)) probability at the required integer V. For I=2, rho=2/3 and N=floor(2L/3+L^(3/4)), the target is a deviation of order L^(3/4) from the mean of Binomial(N,1/2); a Chernoff bound is exponentially smaller in sqrt(L). The replacement uses the actual mean V/N, monotonicity of the tilted mean by positive variance, and exact-sum multinomial counts rounded with entries 0 and 1 adjusting the two constraints. All probabilities remain uniformly positive and Stirling gives a subexponential lower bound; coefficient extraction proves the claimed limit for every specified sequence. The strict entropy gap follows from positive relative entropy against the unbounded geometric law with the same mean, not from assuming independent geometric finite-ring gaps. Other claims survive unchanged: neighboring transfers connect all compositions, and one circuit of a vacancy token returns the gaps and moves the mark by I, exhausting each gcd phase. Incoming and outgoing weights match in the cyclic donor sum, giving product balance, including on the marked cover. A one-unit removal in the donor sum gives the partition-function ratio; each jump crosses I physical bonds and stationarity gives equal signed flux on each bond. Frozen configurations correspond to the bounded compositions after dividing marked counts by N, including exactly I translations when L=IN. Independent occupancy-based replay (python3 /workspace/branches/audit_exact_124.py 1) checked 68 small rings, all tested class sizes and keys, exact balance, individual physical-bond currents and frozen counts. The repair corrects the scope note for the packaged script and retains strictly positive baselines as the assumed setting, not a necessary condition for irreducibility. The repaired RESULT.md and verification notes were reassessed; no change to the frozen evidence was made.",
+      "residual_risks": [
+        "The classification is on the marked cover; it is not a count of unmarked mobile sectors. The asymptotic statement is for fixed I and interior limiting density only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary model imposes finite-range potentials and J_k=0 for k<=I, but its finite canonical current overlaps on the same generator in that parameter range",
+          "Sun–Tan's one-way clearance moves already imply the static frozen criterion. The earlier 2006 article's full text could not be retrieved."
+        ],
+        "reasoning": "The same admissible-move rule already implies what it means to be frozen. Neither that criterion nor the primary unrestricted transport theorem classifies communicating classes and their separate conditional currents. A distinct claim to the generator or Gibbs law is excluded.",
+        "searches": [
+          "arXiv:2604.01796v2, §§II–III and theorem/current passages",
+          "Sun–Tan arXiv:2001.10017, §2.2 Eq. (10) and conclusion; Sopasakis–Katsoulakis DOI 10.1137/040617790"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.01796v2, arXiv:2409.05017v2, arXiv:2001.10017",
+        "Resultary d53436c26fea and a350c8980e18",
+        "DOI 10.1137/040617790 (full text unavailable)",
+        "Repaired RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary finite-ring expression is an expectation under the full Gibbs ensemble; §III.4 computes it by convolution over all headways summing to L",
+          "The basic bounded-gap condition follows immediately from either clearance rule. The exact marking factor and entropy are generic combinatorics applied to that condition, not new zero-range or asymptotic methods."
+        ],
+        "reasoning": "An ensemble current generally mixes multiple mobile and frozen classes (even at fixed L,N,I); it does not determine the ratio Z_a(K-1)/Z_a(K) in each dynamically accessible class. The use of known balance and counting tools does not itself give the exhaustive marked phase classification or the combined sector-transport conclusion.",
+        "searches": [
+          "arXiv:2604.01796v2 Eq. (10), Eq. (13), §III.4",
+          "arXiv:2001.10017 §2.2 Eq. (10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nhung–Ngoc–Thi use length-I jumps with the whole vacancy arc clear and headway-rate ratio e^(J_(g-I)-J_g), not a unit-hop model",
+          "The earlier Belitsky–Ngoc–Schütz zero-range representation uses nearest-neighbor hops; the reduction here retains a vacancy residue at each gap and a marked-root phase"
+        ],
+        "reasoning": "Passing from exclusion sites to gaps is a known equivalence. Projecting away the marked root does not determine whether gap-composition communication lifts to one or several ring classes: the circuit displacement and gcd obstruction are additional. Unit hops have no analogous nontrivial residues.",
+        "searches": [
+          "Resultary fixed-length jump exclusion, marked sectors and frozen two-hop configurations",
+          "ArXiv:2604.01796v2, §II.1 Eqs. (4)–(7) and Theorem II.1; arXiv:2409.05017v2 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d53436c26fea is the assigned record itself. Distinct related entry a350c8980e18 gives a degree spectrum on independent sets of cycles, including a known frozen degree-zero number 1+P_n."
+        ],
+        "reasoning": "The independent-set entries impose an extra no-adjacency constraint before and after each move. Their degree-zero spectrum is not a table for the simple exclusion canonical ensemble at fixed N, much less the class partition functions. No distinct exact matching entry was retrieved in the bounded comparison.",
+        "searches": [
+          "Resultary exact long-jump exclusion freezing census and related two-hop move enumerators",
+          "Primary search for fixed-hop exclusion Arrhenius stationary/current and frozen configurations"
+        ]
+      },
+      "rationale": "Credit the same fixed-hop Arrhenius generator, Gibbs invariance, zero-range methods, and even exact unrestricted finite-ring current as prior, as well as the elementary static frozen-gap criterion in earlier traffic dynamics. The supported distinct contribution is the exhaustive marked residue/root-phase decomposition and transport conditioned on a specific communicating class, with the frozen physical census and entropy. The repaired prior-work account gives the finite-current overlap explicitly. No global priority is asserted.",
+      "residual_risks": [
+        "The 2006 full text and unindexed fixed-hop studies could overlap with the simple frozen geometry or its census. The full-canonical formula is known and should not be counted as a new result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers generator in overlapping parameter range, Gibbs invariance, finite and infinite unrestricted current, not the inspected theorem of marked classes",
+          "evidence": "Finite convolution sums over all headways g_i summing to L; there is no constraint to one residue vector and root phase in the current formula.",
+          "identifier_or_url": "https://arxiv.org/html/2604.01796v2",
+          "material_read": "§II.1 Eqs. (4)–(7) and Theorem II.1 (offsets 4940–14410), Eqs. (10) and (13) (15300–20234), §III.4 (35000–39370)",
+          "method": "OA full-text passages",
+          "title": "Invariant measures of exclusion processes with a look-ahead rule",
+          "trigger": "Exact fixed-hop generator and strongest canonical-current overlap"
+        },
+        {
+          "assessment": "Method antecedent with different jump length",
+          "evidence": "Particles use nearest-neighbor jumps and headway-dependent rates.",
+          "identifier_or_url": "https://arxiv.org/html/2409.05017v2",
+          "material_read": "Introduction (offsets 0–4992)",
+          "method": "OA HTML passages",
+          "title": "Asymmetric exclusion process with long-range interactions",
+          "trigger": "Earlier Arrhenius, headway and canonical zero-range methods"
+        },
+        {
+          "assessment": "Same frozen-gap geometry, different rates and direction; no matching census in passages inspected",
+          "evidence": "A one-way J-site hop requires the next J sites to be empty.",
+          "identifier_or_url": "https://arxiv.org/html/2001.10017",
+          "material_read": "§2.2 Eq. (10) (offsets 14612–21112) and conclusion (64041–68474)",
+          "method": "OA HTML passages",
+          "title": "On a class of new nonlocal traffic flow models with look-ahead rules",
+          "trigger": "Same static no-jump condition via one-way multi-site clearance"
+        },
+        {
+          "assessment": "Unresolved full-text overlap",
+          "evidence": "No passage on frozen-state enumeration could be inspected.",
+          "identifier_or_url": "https://doi.org/10.1137/040617790",
+          "material_read": "Citation and primary-source characterization only; full text returned HTTP 403",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "Stochastic modeling and simulation of traffic flow: Asymmetric single exclusion process with Arrhenius look-ahead dynamics",
+          "trigger": "Earlier two-site look-ahead model cited by primary source"
+        },
+        {
+          "assessment": "Different state space and relocation criterion",
+          "evidence": "Counts degrees of independent sets under relocations preserving independence, rather than simple-exclusion fixed-hop classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-hop-mobility-spectrum-of-independent-sets-on-cycles--a350c8980e18/RESULT.md",
+          "material_read": "Finding and scope, local offset 0–6331",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-hop mobility spectrum of independent sets on cycles",
+          "trigger": "Distinct same-day related frozen census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, theorem, entropy and 12-site example"
+      ],
+      "rationale": "This resolves a real ergodicity issue for using Gibbs transport in a finite long-hop ring. At the same particle count one may have frozen states and an active steady current of 8/27 in the stated example, and the class formula says which current an initial preparation selects. The census and its entropy distinguish exponentially many traps from an exponentially small uniform probability of preparation in a trap. The repaired proof retains these scientific conclusions and does not claim new hydrodynamics or mixing rates.",
+      "residual_risks": [
+        "The exponential rarity is for uniform physical occupancies, not every Gibbs or dynamical initialization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

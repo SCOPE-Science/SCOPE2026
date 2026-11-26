@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-From this directory, run `python verify.py` using Python 3 with NumPy and SymPy installed. The checker forms the three unit rows at six correlations, computes the exact expected one-step matrix and the full nine-by-nine Kronecker superoperator for 8,466 numerical inequalities over probability grids, checks the two analytic optima, and verifies rational examples and the symbolic maximum. Its actual output on the packaged version is:
+# Independent mathematical audit
 
-`PASS: 8466 spectral inequalities checked; exact rational examples and maximum checked`
+## correctness
 
-The infinite parameter and iteration quantifiers are supported by the hand proof in `RESULT.md`: exact two-by-two eigenvalue identities, invariant-block decomposition of symmetric covariance matrices, positive leading-eigenmatrix trace, two strictly opposing affine-envelope minimizations, and a one-variable sharp loss maximum. The tests do not prove global uniqueness; the analytic equalities and strictness do. No external data, other records or network access are needed to reproduce the computations. This is not independent mathematical validation.
+PASS
+
+For q=p3, s=1-q and D=p1-p2, the smaller planar eigenvalue of the expected row projector is (s-sqrt(c²s²+(1-c²)D²))/2. The planar lifted top eigenvalue is q+(s+sqrt(c⁴s²+(1-c⁴)D²))/2: the weighted Gram matrix of the two planar rank-one complementary projectors has their Frobenius overlap c². The axial rate is s and the cross-block norm is at most s. The trace test for the annealed factor is valid, also on the boundary: the top plane eigenspace contains a positive combination of the active rank-one projectors (at s=0 the plane map is the identity), and the axial eigenmatrix is itself PSD. Thus the top eigenspace has nonzero projection of I, and the PSD matrices Phi^k(I) have spectral and Frobenius norms within a fixed factor. At each q with s>0 the planar terms are strictly optimized by D=0. For D=0 the lower envelopes are maxima of one strictly decreasing and one strictly increasing affine function; crossing gives the displayed unique laws. At the one-step optimum q is smaller than the annealed crossing, so the axial rate is exactly 2/(3-c). Differentiating the ratio gives sign(c²-6c+3); its unique maximum on (0,1) is at 3-sqrt(6), with value 6-2sqrt(6), and the rational example agrees. For minimal dimension, use planar doubled-angle unit vectors n_i of the complementary projectors: the one-step rate is (1+|E n|)/2 and the lift is half the 3-by-3 moment matrix of (1,n). If zero is in the convex hull, the lift minimum is 1/2 exactly at mean zero. Otherwise let rv be the nearest point of the hull to zero. All n_i·v>=r. The lift Rayleigh quotient at (1,rv) is at least (1+r²)/2, with equality possible only on the supporting chord; equal masses at its two ends attain it, and equality in the eigenvector condition forces zero tangent mean. This is precisely the one-step minimizing mean rv. Dimension one is immediate. The apparent malformed fraction token in the displayed comparison at line 26 does not change the unambiguous rates in the other displays and proof. The frozen numerical checker was inspected, not executed; strict analytic inequalities rather than its finite grid establish uniqueness.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the explicit, unrestricted annealed-versus-one-step separation and family-wise sharp penalty, not either general optimizer formulation or the one-step law alone. No inspected statement supplies this comparison; priority is qualified by unavailable close full texts.
+
+## value
+
+PASS
+
+The planar coincidence makes dimension three the first meaningful setting for an objective mismatch. A correlated pair plus an orthogonal row isolates why the two rates depend on c versus c² and proves that optimizing a standard one-step proxy can incur a sharply quantified loss (even exactly 10 percent at c=3/5). This is an exact guide to the choice of criterion, not a claim about all 3D row systems or about almost-sure rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

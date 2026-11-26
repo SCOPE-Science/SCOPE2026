@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:40:07.378272Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed x, a witnessing lax split supplies at most one chosen row and one chosen column; conversely assign edges on the row to the first atom and the remaining covered edges to the second. Choices in different fibers are independent. Thus a minimal failure has exactly one nonempty fiber, and containment here means edge-subgraph, not induced-subgraph, containment. A three-edge matching is a minimal failure; every nonmatching three-edge set can be covered using a repeated endpoint and an opposite-shore endpoint of the third edge. With no three-edge matching, König's theorem gives a vertex cover of size at most two. A non-cross-coverable graph then needs two same-shore cover vertices, each of degree at least two. Choosing two edges at each yields a failure because one opposite vertex can cover at most one edge at the unchosen center. The neighbor-pair intersections of size zero, one or two give precisely the two-star, path and cycle cases with named shores. Deleting one edge leaves one full center and one opposite endpoint that together cover everything. This also clarifies the abbreviated wording at RESULT.md:58: the chosen center alone misses both edges there; the full cross necessarily misses at least one. Direct labeling gives 3! for the matching bijection, 2 for assigning the ends of an oriented-shore path, and C(4,2)=6 for allocating leaves to two fixed labeled centers, with the cycle counted once. The example pairs (0,1), (6,45), (96,396) and vanishing terms for undersized shores follow. This is a general proof for finite nonempty alphabets, not a continuation of the finite checks in the support file.",
+      "replay": "Proof is reconstructible from RESULT.md:46–60 and the argument above. The supplied verifier was inspected, not executed; direct split enumeration is in verify.py:29–38 and 63–76 for at most 3 by 3. Its separate binary two-fiber test (lines 80–107) uses the per-fiber cross test, not a separate global split enumerator.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary abstracts confirm the two-atom coherence framework. The assigned record attributes exact four-coherence for this formula to Theorem 22 (RESULT.md:68,76). König supplies a vertex cover of size equal to the matching number, with no requirement on the distribution of cover vertices between shores."
+        ],
+        "reasoning": "Four-coherence bounds the witness size; it does not state which minimal witnesses occur. A usual size-two vertex cover can use two vertices on the same shore, so it is not already the cross-cover criterion. The structure at that boundary is the issue. The proof of Theorem 22 could be closer than its cited statement and was not inspectable.",
+        "searches": [
+          "Primary search: \"Disjunctions of Two Dependence Atoms\" \"Theorem 22\" \"coherent\" \"Proof\" Fröhlich Kolaitis Meier 2508.16146",
+          "arXiv:2605.31269, Aspects of Coherence in Dependence Logic",
+          "König's bipartite matching–cover theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting VERIFICATION.md and verify.py",
+        "arXiv:2508.16146v1 and CSL 2026 DOI 10.4230/LIPIcs.CSL.2026.10 (abstracts and proof retrieval attempts, not full proof)",
+        "Resultary e22bc6a91416, df44209fab27, 2a96c3a15333",
+        "arXiv:2605.31269 (cited comparison, not decisive passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof at frozen RESULT.md:54–60 distinguishes the three possible intersections of the neighborhood pairs and tests minimality. The cited cutoff restricts the check to at most four edges, while the earlier indexed polynomial distinguishes only team size."
+        ],
+        "reasoning": "This is a small refinement of the cutoff and cross test: the three- and four-edge cases still have to be classified and checked. At sizes three and four the aggregate coefficients should not be claimed independently from an available all-satisfying polynomial: in one fiber every failing triple is a matching, and minimal failing four-sets equal all failing four-sets minus those containing a triple matching. The latter can be counted by attaching one edge to each triple matching and correcting multiplicity for four independent edges and for one two-edge star plus two independent edges. This numerical transfer does not by itself identify the oriented path and star obstructions. Neither the accessible theorem description nor the indexed enumerator states or otherwise supplies the complete graph basis; the uninspected proofs remain material.",
+        "searches": [
+          "arXiv:2508.16146v1 and CSL 2026 DOI 10.4230/LIPIcs.CSL.2026.10, targeted Theorem 22 proof requests",
+          "Resultary 2026/10/18 e22bc6a91416, same-formula polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The row-or-column edge-cover test appears both in the indexed earlier exact size-enumerator record and in frozen RESULT.md:46–52. In this formulation the classification concerns minimal simple bipartite edge sets with no cover using at most one vertex from each named shore."
+        ],
+        "reasoning": "This is equivalent to minimal failure for the common determinant, not for disjoint determinants, a chain or an inverse pair. Isolated alphabet vertices are irrelevant, but swapping shores identifies different types and would give the wrong classification.",
+        "searches": [
+          "Resultary: same-determinant dependence split, minimal falsifiers and row/column crosses",
+          "Resultary 2026/10/18 e22bc6a91416",
+          "Fröhlich–Kolaitis–Meier, arXiv:2508.16146 and CSL 2026 Theorem 22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e22bc6a91416 indexes the polynomial of all satisfying teams for the shared determinant. df44209fab27 indexes 132 minimal failures for two disjoint Boolean dependence atoms; 2a96c3a15333 indexes the inverse-functional formula."
+        ],
+        "reasoning": "The same-formula polynomial gives counts by size, not an edge-subgraph obstruction basis. The other tabulations change which variable pairs are shared and do not give a named-shore table for this formula.",
+        "searches": [
+          "Resultary: exact size enumerator for a two-dependence-atom disjunction",
+          "Resultary: exact minimal obstruction spectrum disjoint Boolean dependence atoms, and inverse functional dependencies"
+        ]
+      },
+      "rationale": "The supported distinct result is the full named-shore minimal-obstruction basis. The coherence cutoff and cross criterion already have prior coverage; the binomial census is a direct count once the basis is proved, and even the aggregate coefficients potentially follow from the earlier satisfying-team enumerator with a matching correction. The exact obstruction types, not the mere cutoff or the coefficients alone, support the pass.",
+      "residual_risks": [
+        "Theorem 22's actual proof and the same-formula enumerator's complete mirror did not load at the decisive passages. They may contain an equivalent witness list or a proof already implying it. Neither search citations nor accessible abstracts establish its absence.",
+        "The pass does not treat coherence four, the cross decision rule, or the numerical coefficients in isolation as the distinct result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the reported cutoff; no whole-text exclusion or claim about the proof's normal forms",
+          "evidence": [
+            "Abstracts cover coherence of two-atom disjunctions; the preprint identifies v1 as 22 August 2025; assigned record specifically cites Theorem 22 for four-coherence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.16146 ; https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+          "material_read": "Abstracts in arXiv v1 PDF extraction lines 10–28 and CSL PDF extraction lines 10–33. Theorem 22 described at frozen RESULT.md:68,76; primary proof not obtained.",
+          "method": "Lawful preprint and publisher PDF previews, targeted OA passage retrieval and accessible HTML attempts",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Same formula and exact stated cutoff; proof might give its witness types"
+        },
+        {
+          "assessment": "Substantial overlap on cross model and exact counts by size of satisfying teams, not an inspected forbidden-pattern statement",
+          "evidence": [
+            "Counts every satisfying team by size; uses row/column cross"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416",
+          "material_read": "Resultary indexed summary and frozen qualification at RESULT.md:68,77; full mirror passage unavailable",
+          "method": "Local Resultary search and targeted local mirror inspection attempt",
+          "title": "Exact size enumerator for a two-dependence-atom disjunction",
+          "trigger": "Earlier same-formula exact enumeration and same cross criterion"
+        },
+        {
+          "assessment": "No affirmative coverage evidence beyond general coherence setting",
+          "evidence": [
+            "Coherence, first-order rewritability and complexity as reported in the frozen comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+          "material_read": "Scope as cited at frozen RESULT.md:68,78; no pertinent theorem passage independently read",
+          "method": "Reference comparison and targeted index screening",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "More general coherence work potentially covering the example"
+        },
+        {
+          "assessment": "Different formulas with different coordinate sharing",
+          "evidence": [
+            "dep(x,y) or dep(u,v), versus dep(x,y) or dep(y,x), neither of which is the audited dep(x,y) or dep(x,z)"
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 df44209fab27 and 2a96c3a15333",
+          "material_read": "Indexed statements",
+          "method": "Local Resultary searches",
+          "title": "Minimal obstruction spectra for disjoint and inverse dependence splits",
+          "trigger": "Earlier exact minimal-falsifier results for related atom patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a precise obstruction language for a canonical two-atom dependence split already studied for coherence. It identifies exactly which small witnesses are irredundant, including asymmetry of the two named shores, and enables recognition by one of six explicit subgraph types at any finite alphabet sizes. This structural certificate is useful beyond knowing a failing fragment has at most four assignments; the routine arithmetic alone would not justify value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

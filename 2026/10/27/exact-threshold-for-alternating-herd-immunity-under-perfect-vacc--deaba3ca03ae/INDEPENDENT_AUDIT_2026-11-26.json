@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:23:50.949296Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and proof parts 1–4",
+        "Papst–O'Keeffe–Strogatz, arXiv:2101.07926v1, §§3.1–3.5",
+        "Frozen VERIFICATION.md and check_cycles.py (inspected, not executed)",
+        "Independent bisection of the original final-size equation"
+      ],
+      "rationale": "At s=1 the cited annual map reduces to the stated G. Its high branch forces p_-=(1-r)v with v=p_+; the other equation is F(v)=0. F decreases strictly on [p_c,1], with F(1)<=r-r(2-r)<0. Thus F(p_c)>=0 is necessary and sufficient, equality means v=p_c, and at a zero the positive outbreak size forces p_-<p_c. Substituting z=r(R-1) gives RF(p_c)=z^2[1/(R-1)-B(z)]. For Z(y)=y/(1-exp(-y))-1, direct differentiation gives Z''>0: the sign numerator reduces to (y-2)exp(y)+y+2, zero with zero first derivative at zero and second derivative y exp(y)>0. The sign of -Z''' reduces to y(cosh y+2)-3 sinh y, with vanishing first three Taylor coefficients and third derivative y sinh y>0. Hence Y''<0<Y''' for the inverse Y, and the integral Taylor remainder B(z)=integral_0^1(1-t)(-Y''(tz))dt is positive and strictly decreasing. The small-z inverse gives B(0+)=2/3; Z(y)=y-1+o(1) gives B(infinity)=0. Since Z(y)<y, B(R-1)<1/(R-1); these strict inequalities give the unique cost threshold when R>5/2 and strict crossings for all positive r when R<=5/2. On the outbreak branch, 1<1/Z'(y)<2; the product of branch slopes is strictly between -(1-r^2) and -r(1-r), so it proves local attraction at strict crossings only. Independent bisection of the original final-size equation, after removing its zero root, gave critical costs 0.256505291445, 0.662371550941, 0.872866377069 for R=3,5,10 and multiplier -0.426408399415 at the stated R=3, r=1/2 cycle. At R=3, r=1/4, F(p_c)<0, and at R=5/2, r=1/10, F(p_c)>0. Replay equivalent bounded checks with node /workspace/review-evidence/4/crossing-check.mjs; these checks do not prove the all-parameter result.",
+      "residual_risks": [
+        "No local-stability conclusion is reached at the nonsmooth equality case. No global basin or other cycle type is classified.",
+        "The relationship-to-prior-work Figure 7 locator does not match arXiv v1; the positive-cost numerical regime and example trajectory are in its Figs. 2–3. This does not change the map or theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (3.7) covers imperfect and perfect efficacy at the level of the model, not an exact positive-cost classification. The Appendix's analytical criteria concern r=0 and fixed points.",
+          "Indexed 886c917e2800 concerns placement of vaccines on two-cycle contact networks."
+        ],
+        "reasoning": "A broader model is not a stronger proved orbit-classification theorem. Zero cost is excluded here and cannot mechanically imply the positive-cost theorem or its multiplier bound. Graph cycles and period-two orbits are different objects.",
+        "searches": [
+          "Papst et al. arXiv v1 §3.5, §4.1 and Appendix",
+          "Resultary: strict local attraction and multiplier for alternating herd immunity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.07926v1",
+        "Local Resultary/SCOPE results 0337dc4fc3b6, 93166b63810d, 886c917e2800",
+        "Bounded primary-literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SIR final-size law, Lambert-W representation, and Eq. (3.7) give the starting annual map and its herd boundary; they do not supply the required inverse-curvature inequality B'(z)<0 or global range of B.",
+          "The Appendix is explicitly about no cost, not this positive-cost bifurcation."
+        ],
+        "reasoning": "Substituting s=1 into the prior map is routine and credited to the source. Deriving the exact threshold from the reduction, controlling B on its full domain, and bounding the strict-crossing multiplier require further mathematics.",
+        "searches": [
+          "Papst et al. arXiv v1 Eqs. (3.3)–(3.5), (3.7) and Appendix (A1)–(A6)",
+          "Resultary: B(z) criterion, monotonicity and strict multiplier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Papst et al., arXiv:2101.07926v1 §4.1 describes period two crossing the herd threshold, but its positive-cost regime boundaries were computed by iteration.",
+          "Indexed 0337dc4fc3b6 concerns allocation of vaccination hazard across two transmission seasons, not a two-cycle of a behavioral map. The narrow literature query returned no results; that is not negative coverage evidence."
+        ],
+        "reasoning": "An alternating trajectory is the same qualitative phenomenon, but a numerical example or phase diagram does not determine the exact transition curve and R=5/2 divide. Periodic optimal forcing in an unrelated control problem does not give an orbit of G.",
+        "searches": [
+          "Resultary: Papst annual vaccination map threshold-crossing two-cycle, positive morbidity and perfect efficacy",
+          "Resultary: R=5/2 reproduction-number divide and positive cost",
+          "Bounded literature query for the Papst-map sharp threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold search surfaced two-season optimization record 0337dc4fc3b6 and graph-vaccination record 93166b63810d, neither tabulating this invariant.",
+          "The actual same-map phase diagram in §4.1 is numerical, not an exact table of r_c(R)."
+        ],
+        "reasoning": "The inspection targeted an exact boundary curve or table; numerical regime samples and exact thresholds in other vaccination models do not establish one for this map.",
+        "searches": [
+          "Resultary: R=5/2 transition and B(z) inverse threshold",
+          "Papst et al. arXiv v1 §4.1 and Figs. 2–3"
+        ]
+      },
+      "rationale": "The behavioral map, outbreak branch, and numerical observation of alternating immunity are prior. The supported distinct result is the exact if-and-only-if positive-cost crossing criterion in the perfect-efficacy slice, with the universal R=5/2 divide, uniqueness, boundary case, and strict-crossing multiplier bound. Neither the inspected source for the same map nor the closest indexed matches establish that result.",
+      "residual_risks": [
+        "The journal-version retrieval timed out; the cited arXiv v1 passages were available, but changes in the journal version were not checked.",
+        "An equivalent analysis under different terminology may exist; these comparisons do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and qualitative positive-cost crossings, not an exact positive-cost criterion in inspected passages",
+          "evidence": "The v1 text says the positive-cost regime boundaries were generated numerically; the Appendix restricts analytical criteria to r=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.07926v1",
+          "material_read": "PDF pp. 5–6 §§3.1–3.3, p. 8 §3.5 Eq. (3.7), pp. 9–10 §4.1, pp. 19–20 Appendix (A1)–(A6)",
+          "method": "Targeted OA PDF passages",
+          "title": "Modeling the interplay between seasonal flu outcomes and individual vaccination decisions",
+          "trigger": "Same map and observed alternating immunity; possible stronger classification"
+        },
+        {
+          "assessment": "Different mathematical question",
+          "evidence": "Optimizes periodic vaccination hazard in a two-season replenished-susceptibility model, deriving pulse and pulse-plus-continuous-control regimes; it does not classify period-two orbits of G.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-season-vaccination-thresholds-and-the-intermediate-pul--0337dc4fc3b6/RESULT.md",
+          "material_read": "Finding and model scope",
+          "method": "Configured local Resultary mirror",
+          "title": "Exact two-season vaccination thresholds and the intermediate pulse-mass law",
+          "trigger": "Closest indexed match for two seasons and exact thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Papst et al. arXiv:2101.07926v1, positive-cost regime discussion",
+        "Frozen RESULT.md, theorem and scope"
+      ],
+      "rationale": "An observed positive-cost oscillation of a published behavioral map raises a natural exact existence question. The result replaces numerical regimes with a reproducible decision criterion, separates unconditional crossing from a positive cost threshold, distinguishes contact with the nonsmooth boundary from strict crossing, and proves local attraction for the latter. This is useful mathematical information about the model, not a parameter substitution or a single simulated orbit.",
+      "residual_risks": [
+        "The result concerns the perfect-efficacy deterministic slice and is not a public-health prediction or a characterization of all attractors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:58:26.763450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof, lines 3–101; frozen VERIFICATION.md and CHECK.py inspected, not executed",
+        "Independent symbolic adjugate/Cayley–Hamilton simplification and exact witness determinant calculation"
+      ],
+      "rationale": "On the stated finite-variance domain, the positive stationary moment vector satisfies (2K−Q)m=2Dπ and the covariance is 1ᵀ exp(t(Q−K))m. The two decay rates are distinct and positive, and the slow coefficient is strictly positive by the positive Perron projection. Independently used Cayley–Hamilton, C″(0)=−tr(Q−K)D−det(Q−K)V, and the adjugate moment formula to verify exactly that VC″(0)−D² is a strictly negative prefactor times the displayed F. It also equals the weight product times the squared rate difference. If the fast weight is negative, sufficiently high signed derivatives at zero are negative; nonnegative weights suffice at every lag. The quadratic has F(L)>0 and, whenever k>h and β≤βc, vertex strictly above L. Its vertex discriminates zero, one, or two admissible zeros as claimed. For k≤h the vertex is at or below L. At cancellation V=2D/(α+β), so the surviving (slow) rate is (α+β)/2. At both exact witness points det(2K−Q)>0 and det(4K−Q)<0: the latter gives positive spectral abscissa for Q−4K, incompatible with a finite stationary fourth-moment vector satisfying (4K−Q)n=12Dm (test with the positive left Perron vector). Thus the witness does not depend on taking a numerical tail fit. The stated exact general moment cutoff also agrees with the identified prior result.",
+      "residual_risks": [
+        "The positive quantity called the Lyapunov exponent in the proof is the mean restoring coefficient; the homogeneous growth exponent has the opposite sign. The argument correctly uses contraction.",
+        "No formal verification or claims beyond stationary second-order covariance are implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al., §3.3, give a general finite-dimensional covariance propagator A(t)=exp(Rt)A(0).",
+          "de Saporta and Yao, Theorems 1–2, characterize the heavy-tail exponent of a Markov-switching linear diffusion."
+        ],
+        "reasoning": "The general formulas give the covariance machinery and tail criterion; no inspected general result gives the sharp admissible two-boundary sign classification. Merely specializing the propagator still leaves exact weight sign, variance-domain comparison, and the witness to establish.",
+        "searches": [
+          "Public literature: exact autocovariances and moment conditions for two-state confining/repelling harmonic traps",
+          "arXiv:1412.7952; arXiv:math/0503527"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 93bb1b2e24d1, 8f817ade8710, d57d3a9e09b2, 0b2306697c41",
+        "arXiv:1412.7952, math/0503527, 2104.00609, 2312.02570"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Formal continuation gives the candidate quadratic, and the known marginal cutoff immediately tests a specified parameter point.",
+          "The negative-stiffness model needs a distinct variance constraint α>L and the fast-weight sign rather than just the location of formal zeros; the discriminant and F(L) test give the bounded interval and its collapse."
+        ],
+        "reasoning": "This is a close, explicitly derivable extension of prior formulas but not an in-hypothesis corollary of the prior cancellation theorems. Credit only the full repulsive classification and its demonstrated covariance-versus-moment consequence.",
+        "searches": [
+          "Positive-stiffness cancellation polynomial and hypotheses in Resultary 8f817ade8710; Huang et al. covariance §3.3; stable–inverted Resultary 93bb1b2e24d1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8f817ade8710's polynomial becomes precisely F with k₁=k, k₂=−h and the switching labels reversed, but that theorem assumes two strictly positive stiffnesses.",
+          "Resultary d57d3a9e09b2 determines a fast-weight sign and one cancellation for zero and positive stiffnesses; it has no repulsive phase or fourth-moment singularity."
+        ],
+        "reasoning": "Same covariance cancellation mechanism; changing the sign is not a legal substitution in either theorem, and changes the admissible parameter region and the number of transitions. Stationary interparticle correlation and one-time variance are not the temporal covariance.",
+        "searches": [
+          "Resultary: equilibrium-covariance camouflage in a switching harmonic trap; spectral cancellation in two-rate intermittent harmonic traps",
+          "arXiv:2312.02570 and arXiv:2104.00609"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "93bb1b2e24d1 states the exact cutoff p<α/h−β/k for the same stable–inverted trap but excludes transient covariance and response.",
+          "0b2306697c41 gives exact OU covariance for a symmetric-rate, positive-stiffness trap; neither it nor the two closer indexed positive/on-off results states this band."
+        ],
+        "reasoning": "The cutoff and hence marginal moment evaluation alone are covered. No inspected indexed record has both the signed-stiffness phase diagram and the witness lying on both of its cancellation boundaries.",
+        "searches": [
+          "Resultary exact stable–inverted traps, OU-like covariance and spectral cancellation: 93bb1b2e24d1, 8f817ade8710, d57d3a9e09b2, 0b2306697c41"
+        ]
+      },
+      "rationale": "Qualified pass for the complete finite-variance phase diagram with a repulsive state and the two-boundary covariance/moment contrast. Neither the covariance propagator, the cancellation polynomial as algebra, nor the marginal tail cutoff is new. Close positive and on/off results do not include the repulsive admissibility domain or the reentrant band; finite-variance admissibility and the combination with divergent fourth moments are decisive.",
+      "residual_risks": [
+        "A directly equivalent signed-stiffness coefficient analysis could exist under random-coefficient or telegraph-noise terminology outside the inspected works.",
+        "The most material near-coverage risk is the exact continuation of the positive-stiffness polynomial; no novelty is credited to the polynomial itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers marginal cutoff, not covariance classification",
+          "evidence": "Two-component beta-prime Gaussian scale mixture; exact p<α/h−β/k cutoff; transient covariance and response outside scope.",
+          "identifier_or_url": "Resultary 93bb1b2e24d1",
+          "material_read": "RESULT.md opening Finding, local-mirror offset 0",
+          "method": "Bounded read in local mirror",
+          "title": "Exact beta-prime thermal variance and tail amplitude in a switching stable–inverted harmonic trap",
+          "trigger": "Identical signed trap and tail behavior"
+        },
+        {
+          "assessment": "Same algebraic cancellation condition under continuation, different hypotheses",
+          "evidence": "Strictly positive k₁,k₂; cancellation polynomial q²+2(βpos−αpos)(k₂−k₁)−4k₁k₂.",
+          "identifier_or_url": "Resultary 8f817ade8710",
+          "material_read": "RESULT.md Finding and Step 2",
+          "method": "Bounded read in local mirror",
+          "title": "A complete equilibrium-covariance camouflage manifold for a switching harmonic trap",
+          "trigger": "Exhaustive exact covariance cancellation theorem"
+        },
+        {
+          "assessment": "Mechanistic predecessor, not repulsive band",
+          "evidence": "On/off curvature, one threshold and one cancellation; all stationary moments exist.",
+          "identifier_or_url": "Resultary d57d3a9e09b2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded read in local mirror",
+          "title": "Exact spectral cancellation and Gaussian-covariance camouflage in a two-rate intermittent harmonic trap",
+          "trigger": "Sign and complete monotonicity as well as cancellation"
+        },
+        {
+          "assessment": "Different parameter domain",
+          "evidence": "Two unequal positive stiffnesses and specified symmetric switching rate.",
+          "identifier_or_url": "Resultary 0b2306697c41",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Bounded read in local mirror",
+          "title": "Exact equilibrium-like covariance with hidden dissipation in a two-state trap",
+          "trigger": "Indexed all-lag exponential covariance"
+        },
+        {
+          "assessment": "Supplies linear propagation, not the explicit sign/domain theorem",
+          "evidence": "A′(t)=RA(t), A(t)=exp(Rt)A(0) for the state-resolved covariance calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.7952",
+          "material_read": "§3.3, PDF p. 10, text offset 35900",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Markov-modulated Ornstein–Uhlenbeck processes",
+          "trigger": "General covariance theorem potentially covering this model"
+        },
+        {
+          "assessment": "Prior tail criterion, not temporal covariance result",
+          "evidence": "Spectral-radius condition determines the heavy-tail exponent.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503527",
+          "material_read": "Theorems 1–2, PDF pp. 2–3, text offset 6200",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Tail of a linear diffusion with Markov switching",
+          "trigger": "General heavy-tail result applicable to a repulsive state"
+        },
+        {
+          "assessment": "On/off and one-time moments; not the repulsive stationary covariance band",
+          "evidence": "State with trap switched off, and formulas for time-dependent variance and stationary law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.00609",
+          "material_read": "Eq. (2), p. 3; moment discussion pp. 4–6, offsets 9500 and 14400",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Exact switching-trap calculations"
+        },
+        {
+          "assessment": "Abstract's correlation claim concerns different observables and positive stiffnesses; no whole-paper exclusion inferred",
+          "evidence": "Stationary joint distributions and correlations between particles in the two-positive-stiffness model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02570",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Lawful OA primary PDF scope passage",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Closely named switching trap with exact correlation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exact witness; positive and on/off comparison claims above"
+      ],
+      "rationale": "Repulsion gives a natural change of stability and integrability rather than an arbitrary parameter slice. The exhaustive empty/singleton/bounded-band alternative answers when every covariance derivative has the equilibrium-mixture sign, even when the covariance stays positive outside. The two distinct all-lag OU matches with infinite fourth moments give a concrete limit on identification from even perfect second-order statistics, not just from a fitted decay rate.",
+      "residual_risks": [
+        "The contrast is about covariance and moments only; it establishes neither equal response nor statistical indistinguishability with other data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

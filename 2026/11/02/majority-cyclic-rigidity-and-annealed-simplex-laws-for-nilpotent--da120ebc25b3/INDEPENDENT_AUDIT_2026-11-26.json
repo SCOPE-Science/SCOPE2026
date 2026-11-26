@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:23:13.421829Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each ordered dimension profile the stabilizer is the product of the block general linear groups (including the trivial size-zero factors). Multiplying the orbit size by the number of blockwise nilpotents cancels all q-powers on division by the total nilpotent count, giving (1). The latter count can also be derived directly: partition all endomorphisms by the canonical nilpotent/invertible Fitting splitting and divide by |GL_n| to get 1/Q_n = sum_{d=0}^n (#nilpotents in dimension d)/|GL_d|; first differences give the required q^(n²−n). The error per profile in replacing the ratio by Q_infty^(1−k) is O(q^(−n)+sum_i q^(−r_i)), summing to O(n^(k−2)) at fixed q,k. This proves the mean and gives O(1/n) total variation on the discrete profile space after normalizing pair weights; the uniform lattice simplex converges weakly to Dirichlet(1,…,1). This is not a conditional-uniform splitting law under a uniform matrix. Indecomposability is exactly one Jordan block, so exactly those matrices attain the minimum k. Their orbit gives (3); strict majority follows for q≥2 and n≥3 by bounding the product below by (3/4)(7/8)(1−sum_{i≥4}2^(−i))=147/256; n=1,2 are immediate. In k=2 the invariant complementary spaces and commuting projections are bijective. Independent finite reproduction: python3 /workspace/branches/125cefa1-8276-4ce4-8c93-941c6f042ab1/independent_counts.py (output independent_counts.out in the same directory). Direct matrix/idempotent enumeration matched all k=2 ranks and k=3 profiles at (n,q)=(2,2),(3,2),(2,3), including 64 nilpotents, rank totals 64,112,112,64 and 42 regular nilpotents at (3,2). Those checks do not certify the limits or constitute formal verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulman–Guralnick count nilpotent–nilpotent commuting pairs and fixed-centralizer nilpotents; Bogdanić et al. study nilpotent Jordan orbits in a fixed nilpotent centralizer. Leinster provides the all-order nilpotent count."
+        ],
+        "reasoning": "The total nilpotent count is an input, not a theorem on splitting distributions. Nilpotent partners are different counting objects from commuting idempotents (the zero map is the only nilpotent idempotent); the inspected pair census does not give a dominating census for compatible splittings.",
+        "searches": [
+          "arXiv:1611.05499 Theorem 2.7 and Lemma 2.8",
+          "arXiv:2212.08425 one Jordan block",
+          "arXiv:1912.12562"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0a136f3e3ee7, 62a1fa4ec9b3 and 1981dffc7e02 (Finding passages)",
+        "Leinster arXiv:1912.12562",
+        "Fulman–Guralnick arXiv:1611.05499",
+        "Bogdanić et al. arXiv:2212.08425",
+        "Aggarwal–Ram arXiv:2012.08411",
+        "Prasad–Ram arXiv:2205.11076"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known regular probability immediately gives (3) and its median interpretation once indecomposability is identified with minimum splitting count. The known total count plus orbit–stabilizer gives the exact weight; the summable boundary error, normalization under pair sampling and simplex limit are the additional calculation."
+        ],
+        "reasoning": "Credit all direct prior consequences, including the regular probability specialized at A=0. The known inputs do not themselves describe the two-measure comparison or give a uniform-composition approximation for compatible pairs; those require identifying and analyzing the actual profile weights.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-regular-nilpotent-fibers-of-finite-field-nilpotent-centralizers--0a136f3e3ee7, A=0 case",
+          "arXiv:1912.12562 p. 1",
+          "arXiv:2212.08425 p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact profile weight equals the Gaussian multinomial at q^(-1); k=2 sums to the Rogers–Szegő evaluation H_n(1;q^(-1)).",
+          "Aggarwal–Ram p. 1 and Prasad–Ram p. 2 treat splitting subspaces defined using iterates, not individually invariant summands. The fixed-two-block Resultary finding counts image Jordan profiles of commuting idempotents and has parity-dependent theta limits."
+        ],
+        "reasoning": "Projection and ordered invariant complement are exact equivalents, so records counting such idempotents were compared; fixed Jordan type and image Jordan profile do not give the full annealed dimension law. A direct sum of iterates of one space is not a change of notation for this problem.",
+        "searches": [
+          "nilpotent matrices over finite fields commuting idempotents invariant direct-sum decompositions random nilpotent matrix Gaussian multinomial q-Rogers-Szego finite module decomposition Fine Herstein",
+          "arXiv:2012.08411",
+          "arXiv:2205.11076",
+          "Resultary 2026/10/26/SCOPE-independent-theta-coordinates-for-idempotents-centralizing-two-l--62a1fa4ec9b3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Regular nilpotent fibers, Finding offsets 440–1143: A=0 recovers exactly the product probability in (3). Fixed-two-block idempotents, Finding offsets 0–2324: different measure and statistic. Uniform splitting subspace, Finding and assumptions offsets 0–3233: fixed operator and iterate decomposition."
+        ],
+        "reasoning": "An exact catalogue match exists for the probability term. The closest others do not give the dimension-profile weights with this sampling, the continuum dimension law or the whole contrast. Same-day dating of a distinct record is not evidence of priority.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-regular-nilpotent-fibers-of-finite-field-nilpotent-centralizers--0a136f3e3ee7",
+          "Resultary 2026/10/26/SCOPE-independent-theta-coordinates-for-idempotents-centralizing-two-l--62a1fa4ec9b3",
+          "Resultary 2026/11/2/SCOPE-a-uniform-splitting-subspace-count-for-two-nilpotent-jordan-bloc--1981dffc7e02"
+        ]
+      },
+      "rationale": "Pass for the actual synthesis: the dimension-profile mean, quantitative approach to the uniform composition law under pair sampling, and the contrast between polynomial annealed mean and one-block rigidity under uniform matrix sampling. The product probability in (3) is exactly covered already and gets no originality credit, nor do the Gaussian multinomial, classical nilpotent count or one-block centralizer calculation in isolation. No inspected source states or supplies a dominating result for the combined splitting laws under the two stated measures.",
+      "residual_risks": [
+        "The original 1958 Fine–Herstein paper was not inspected; its classical count is not proposed as new.",
+        "Bounded literature search: Gaussian multinomial asymptotics, Hall-algebra formulations or ordered decompositions of random finite modules may contain equivalent splitting-law results not retrieved. No publication-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the probability in (3), not of the splitting laws",
+          "evidence": "Set A=0: the nilpotent fiber is the full set of nilpotents and the regular probability is the same product.",
+          "identifier_or_url": "2026/10/25/SCOPE-regular-nilpotent-fibers-of-finite-field-nilpotent-centralizers--0a136f3e3ee7",
+          "material_read": "RESULT.md Finding, offsets 440–1143",
+          "method": "Local Resultary mirror",
+          "title": "Regular nilpotent fibers of finite-field nilpotent centralizers",
+          "trigger": "Exact regular probability"
+        },
+        {
+          "assessment": "Different measure and limit",
+          "evidence": "Fixed nilpotent, image Jordan profile, parity-dependent theta limits.",
+          "identifier_or_url": "2026/10/26/SCOPE-independent-theta-coordinates-for-idempotents-centralizing-two-l--62a1fa4ec9b3",
+          "material_read": "RESULT.md Finding, offsets 0–2324",
+          "method": "Local Resultary mirror",
+          "title": "Independent theta coordinates for idempotents centralizing two-length nilpotents",
+          "trigger": "Same commuting idempotent interpretation"
+        },
+        {
+          "assessment": "Different splitting condition",
+          "evidence": "V is a direct sum of iterates of W for one fixed operator.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-uniform-splitting-subspace-count-for-two-nilpotent-jordan-bloc--1981dffc7e02",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–3233",
+          "method": "Local Resultary mirror",
+          "title": "A uniform splitting-subspace count for two nilpotent Jordan blocks",
+          "trigger": "Possible equivalent splitting count"
+        },
+        {
+          "assessment": "Classical ingredient only",
+          "evidence": "States q^(n(n−1)) nilpotent operators, crediting Fine–Herstein.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.12562",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA PDF text",
+          "title": "The probability that an operator is nilpotent",
+          "trigger": "Exact count input and its scope"
+        },
+        {
+          "assessment": "Nilpotent partners rather than invariant splittings",
+          "evidence": "Generating function for commuting nilpotent pairs; fixed-nilpotent centralizer count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.05499",
+          "material_read": "PDF pp. 6–7, offset 18765, Theorem 2.7 and Lemma 2.8",
+          "method": "OA PDF text",
+          "title": "Enumeration of Commuting Pairs in Lie Algebras over Finite Fields",
+          "trigger": "Potential more general commuting-pair counts"
+        },
+        {
+          "assessment": "Related ingredient and different main question",
+          "evidence": "One-block centralizer is polynomials in the block; main study concerns nilpotent Jordan orbits in a fixed centralizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.08425",
+          "material_read": "PDF p. 2, offset 5316",
+          "method": "OA PDF text",
+          "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+          "trigger": "Shared nilpotent centralizer and cyclic case"
+        },
+        {
+          "assessment": "Different mathematical object",
+          "evidence": "Uses W,TW,… rather than individually invariant complements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.08411",
+          "material_read": "PDF p. 1, offset 775, definition",
+          "method": "OA PDF text",
+          "title": "Splitting subspaces for linear operators over finite fields",
+          "trigger": "Alias T-splitting subspace"
+        },
+        {
+          "assessment": "Different splitting statistic and polynomial connection",
+          "evidence": "Relates splitting via iterates to Touchard–Riordan.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.11076",
+          "material_read": "PDF p. 2, offset 4829",
+          "method": "OA PDF text",
+          "title": "Prasad–Ram splitting-subspace and Touchard–Riordan comparison",
+          "trigger": "Possible correspondence with q-polynomial formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural statistic of nilpotent centralizers (idempotent ranks or several invariant direct summands) has sharply different behavior under two canonical measures. The exact jointly indexed mean explains the difference and supplies the lattice rate and the continuum profile law even when a strict majority of uniform matrices has no nontrivial split. The increment is this quantitative comparison, not the known regular probability or a renamed Gaussian coefficient alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

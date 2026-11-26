@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:21.753163Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, rank-n-1 classification and both bounds; VERIFICATION.md and check_idrank.py (inspected, not executed)",
+        "Carroll–East–Fresacher arXiv:2507.05497v1, Proposition 6.6",
+        "James East, Idempotent generators in finite partition monoids, §1, slide passage at text offsets 1300–3053"
+      ],
+      "rationale": "At rank n-1 the upper partition has one doubleton. The extra lower point either forms a singleton lower-only block, giving a transformation (idempotence fixes its image), or belongs to a transversal doubleton. In the latter case idempotence requires the two doubletons to match to avoid rank loss, and then the transversal permutation must be the identity. These yield exactly the three listed idempotents per pair. In a rank-preserving singular product each factor has rank n-1. Upper kernel is inherited from the first factor and lower equivalence from the last: joining two transversal blocks would reduce rank, and lower-only blocks of the last factor are untouched. Consequently every e_ij is forced. If neither transformation on a pair is present, a word with that first kernel must start with e_ij, which can only multiply rank-preservingly on the right by another generator with that kernel, namely itself. Such words cannot give either transformation on the pair. For the upper bound, Howie's strongly connected tournament theorem supplies all singular transformations. Given any singular full-domain diagram, map each upper block to one chosen lower representative of its transversal block; multiplying this singular transformation by the projection for the diagram's lower partition recovers the diagram, including lower-only blocks. This projection is a join-product of the e_ij or the identity, which does not have to be generated. For n=2 the sole upper block is transversal and the three nonempty choices of lower part give a right-zero semigroup as asserted.",
+      "residual_risks": [
+        "Howie's 1978 full text was not retrieved; the exact required tournament-generation form is stated explicitly in the inspected East lecture slides. The frozen finite enumeration is only corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The constant-rank indexed theorem constructs rank-preserving idempotent factorizations in all proper rank ideals but expressly does not give minimal generator counts. The full partition monoid formula in its maximal singular rank ideal is binom(n,2)+n."
+        ],
+        "reasoning": "Existence of factorization is not optimization over a common generating set. In the larger ambient monoid allowable generators differ; the exact ranks disagree for n>=4 and its theorem does not dominate the full-domain claim.",
+        "searches": [
+          "Carroll–East–Fresacher arXiv:2507.05497v1, Theorem 3.16 and Proposition 6.6",
+          "East–Gray arXiv:1404.2359, Theorem 7.5",
+          "Resultary 128e42d66c38, Finding and limitations"
+        ]
+      },
+      "checked_sources": [
+        "East–Gray arXiv:2011.00663v2 and arXiv:1404.2359",
+        "Carroll–East–Fresacher arXiv:2507.05497v1",
+        "Resultary 128e42d66c38",
+        "East slides, transformation-semigroup section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factorization Sing(P_n^fd)=Sing(T_n) E_n and the strong-tournament generators of Sing(T_n) give an upper bound of 2 binom(n,2) using the elementary projection join. The historical question asks for ideal ranks and idempotent ranks."
+        ],
+        "reasoning": "The construction component follows from these ingredients. They do not force the second generator for every pair in the full-domain monoid; that step uses the new obstruction against starting at e_ij and leaving it without a same-kernel transformation.",
+        "searches": [
+          "Carroll–East–Fresacher Theorem 3.16 and Proposition 6.6",
+          "Howie tournament theorem as stated in James East, Idempotent generators in finite partition monoids, §1",
+          "East–Gray arXiv:2011.00663v2, §4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full-domain and full-codomain submonoids are anti-isomorphic under row reflection, which reverses products and preserves ranks and idempotence. The full partition monoid instead allows nontransversal upper blocks."
+        ],
+        "reasoning": "An exact minimum for the singular full-codomain dual would transfer, but none was found in the inspected material. The larger full partition monoid is not a rephrasing, and the same numeric value at n=3 does not make its theorem equivalent.",
+        "searches": [
+          "Local Resultary, singular full-domain partition monoid/proper ideals/idempotent rank; related hit 128e42d66c38",
+          "East–Gray arXiv:2011.00663v2, §4, Proposition 4.23 and §4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed finding gives constant-rank factorization with no minimal-generator number. The strong-tournament counts in East's slides are for the singular transformation semigroup."
+        ],
+        "reasoning": "Neither an exact count of tournament sets nor an explicit generating superset is a table or theorem giving the minimum size in the reviewed ambient monoid.",
+        "searches": [
+          "Local Resultary exact idempotent rank for the singular full-domain ideal, with 128e42d66c38 as the closest indexed result",
+          "Primary literature query, full-domain partition monoid idempotent rank"
+        ]
+      },
+      "rationale": "The examined full-domain results give idempotent generation and factorization but not the exact optimum. Those inputs together with classical transformation-semigroup generation supply the proposed upper bound; the separate full-domain rank-preservation obstruction forcing two distinct generators per pair is needed for the matching lower bound. No covering exact minimum was found in the compared indexed or primary material.",
+      "residual_risks": [
+        "The comparison is bounded; a prior exact treatment under the anti-dual full-codomain convention or in unindexed sources remains possible.",
+        "The original 1978 full text was inaccessible, so no whole-document conclusion is drawn from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses the question; identifies distinct full-domain/full-codomain variants",
+          "evidence": [
+            "§4.5 asks about idempotent generation and ranks/idempotent ranks of proper ideals."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2011.00663v2",
+          "material_read": "§4, Proposition 4.23 and §4.5 (HTML text offsets 116000–124067)",
+          "method": "Open-access full-text passages",
+          "title": "Ehresmann theory and partition monoids",
+          "trigger": "Historical same-semigroup questions and comparison with the row-dual variant"
+        },
+        {
+          "assessment": "Proves generation and the factorization used for the upper bound",
+          "evidence": [
+            "Theorem 3.16 establishes idempotent generation. Proposition 6.6 identifies the singular ideal with singular transformations times equivalence projections."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.05497v1",
+          "material_read": "Theorem 3.16 and Proposition 6.6, text offsets 52000–56689 and 137300–143289",
+          "method": "Open-access full-text passages",
+          "title": "Presentations for semigroups of full-domain partitions",
+          "trigger": "Same ambient monoid and ideal"
+        },
+        {
+          "assessment": "Different ambient monoid",
+          "evidence": [
+            "The formula specialized to rank n-1 gives binom(n,2)+n, not n(n-1) for n>=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.2359",
+          "material_read": "Theorem 7.5, text offsets 94100–97097",
+          "method": "Open-access full-text passage",
+          "title": "Diagram monoids and Graham–Houghton graphs: idempotents and generating sets of ideals",
+          "trigger": "Exact-rank theorem for the closely related full partition monoid"
+        },
+        {
+          "assessment": "Broader factorization claim but no exact minimum",
+          "evidence": [
+            "Every rank-r element factors into rank-r idempotents; limitations exclude minimal numbers of generators."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-constant-rank-idempotent-factorization-in-full-domain-partition--128e42d66c38/RESULT.md",
+          "material_read": "Finding, scope, proof opening, and limitations; text offsets 0–3019 and 5500–7924",
+          "method": "Local mirrored full-text passages",
+          "title": "Constant-rank idempotent factorization in full-domain partition monoids",
+          "trigger": "Same-semigroup indexed result on all rank ideals"
+        },
+        {
+          "assessment": "Confirms the stated Howie theorem for transformations, not full-domain partitions",
+          "evidence": [
+            "A complete strongly connected digraph of defect-one idempotent transformations generates the singular transformation semigroup; minimum sets correspond to strongly connected tournaments."
+          ],
+          "identifier_or_url": "https://manchester-semigroups.github.io/NBSAN/slides/nbsan18_east.pdf",
+          "material_read": "§1, pp. 6–8 (PDF text offsets 1300–3053)",
+          "method": "Open-access lecture slides",
+          "title": "Idempotent generators in finite partition monoids",
+          "trigger": "Check the exact classical transformation-generation input"
+        },
+        {
+          "assessment": "No whole-paper coverage inference made; exact auxiliary statement confirmed in East's slides",
+          "evidence": [
+            "The accessible bibliography places the original theorem in the singular transformation semigroup context."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0308210500010647",
+          "material_read": "Bibliographic listing only; full text unavailable through open retrieval",
+          "method": "Publisher and lawful open-copy lookup",
+          "title": "Idempotent generators in finite full transformation semigroups",
+          "trigger": "Original citation for tournament generation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "East–Gray arXiv:2011.00663v2, §4.5",
+        "Frozen RESULT.md, both bounds and limitations"
+      ],
+      "rationale": "This determines the exact idempotent rank of the maximal proper ideal, a concrete part of the historical ideal-rank question. It explains why the available idempotent generating family can be reduced but also why no further reduction is possible, and gives explicit optimal sets for every n>=3. The pairwise obstruction is structural rather than a small-case census or a change of notation for the transformation result.",
+      "residual_risks": [
+        "Smaller rank ideals and classification of all minimum sets are not settled by this claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

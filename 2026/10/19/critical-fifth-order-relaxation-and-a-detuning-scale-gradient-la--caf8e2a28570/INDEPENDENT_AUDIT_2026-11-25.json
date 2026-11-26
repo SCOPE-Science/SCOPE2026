@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:20:05.598917Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With u=sin x the coefficients of u,u^3,u^5 in sqrt(pi) times the wave are 3cos(beta)+5sin(beta), -4cos(beta)-20sin(beta), and 16sin(beta). At the claimed angle these give a cubic coefficient c=-40/sqrt(34*pi) and a derivative with respect to shape of the linear coefficient of -sqrt(34/pi). At the critical shape the center graph h starts at order x^2; its invariance gives h(x)=mu*c*x^3/(1-mu)+O(x^5) since the position displacement is initially O(x^4), making h(x_next)-h(x)=O(x^5). Substituting gives the reduced map x_next=x-K*x^5+O(x^7), K=3*C*mu*c^2/(1-mu). Its reciprocal-fourth increments tend to 4K, giving the stated coefficient. Local center stability and exponential tracking apply to the smooth locally invertible map with transverse multiplier mu. The vertical invariant line is exactly the local strong-stable manifold; the position displacement is less than |x|/2 sufficiently near zero off that line. On detuning, the two quadratics in u^2 for a wave zero and an extremum have unique small positive roots only for negative detuning, with leading coefficients 17/20 and 17/60, respectively. The wave-zero Jacobian has determinant mu*(1+C*Psi'^2) and satisfies the strict Schur tests for sufficiently small nonzero detuning; the extrema have one multiplier mu and one greater than one since Psi*Psi''<0. Under x=sqrt(epsilon)*X and w=epsilon^(3/2)*W, the memory error from mu*A_sigma(X)/(1-mu) is bounded by mu^n times the initial error plus O(epsilon) on bounded X sets. The step size for X is epsilon^2; the cumulative consistency error is O(epsilon) on a finite slow interval plus a summable O(epsilon^2) transient. The confining squared wave polynomial bounds the limit ODE, and a stopped discrete Gronwall bound extends convergence throughout the interval. This also gives memory convergence away from slow time zero. The frozen verifier was read, not run; its recorded numerical diagnostics are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-oscillator Euler map has an exceptional exponential set and inverse-square generic decay with a log correction. The scalar preconditioned-gradient and scalar flip records exhibit fifth-order effects or the same n^(-1/4) exponent in different recurrences. Center-manifold tracking and Euler approximation are established general tools."
+        ],
+        "reasoning": "These results do not specialize to the walker: the contraction variable, critical shape and parameter path, and gradient limit are different. An exponent-level analogy does not supply the exact map's drift or its parameter-uniform trajectory law.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-critical-relaxation-and-an-exceptional-exponential-circle-in-a-d--2e5d3c4aa08c",
+          "Resultary 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+          "Resultary 2026/11/22/SCOPE-a-unique-quintic-flip-resonance-and-rational-non-attainment-in-f--a9e4664e5f86"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and walker_verifier.py",
+        "Gilet author-archived paper",
+        "arXiv:1507.08057",
+        "Resultary semantic index and named local mirror records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published stationary equations and the linearization can determine local stationary branches away from the degenerate angle. At that angle the linearized position multiplier is one and says nothing about attraction or the inverse-fourth coefficient. The detuned slow law also requires tracking the wave-memory error over order epsilon^(-2) steps, which a fixed-point theorem does not control."
+        ],
+        "reasoning": "The center-graph calculation and the transient-uniform scaling theorem establish dynamical content beyond the equivalent stationary phase portrait and known hyperbolic stability conditions.",
+        "searches": [
+          "Gilet Eqs. (9)–(20) and Fig. 2",
+          "arXiv:1507.08057 Sec. 3",
+          "Resultary square-root detuning and quintic relaxation comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gilet's recurrence has the same one-step wave-memory lag and the same 3x/5x harmonic family. His node/antinode equations become Psi*Psi'=0 after eliminating the stationary memory; his figure already exhibits changing branch configurations.",
+          "Rahman–Blackmore's Neimark–Sacker analysis concerns nonzero wave slopes, not the real multiplier +1 from the vanishing slope at this origin."
+        ],
+        "reasoning": "Elimination of stationary memory gives equivalent fixed-point descriptions but not detuned dynamics or the nonhyperbolic relaxation law.",
+        "searches": [
+          "Gilet, Generic.pdf, Eqs. (9)–(20), Fig. 2",
+          "arXiv:1507.08057 Secs. 2–3",
+          "Resultary searches for the walker square-root detuning limit and local stationary split"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved analogous records give critical powers for distinct maps, not the same coefficient. Gilet supplies the exact wave from which the special angle follows by linear cancellation and shows qualitative branch variation, but the inspected material gives no inverse-fourth slope for this shape."
+        ],
+        "reasoning": "No exact same-walker table was retrieved. An angle computable directly from the existing wave is not a new exact invariant; the dynamic constants and scaling theorem, rather than a root lookup, carry the distinction.",
+        "searches": [
+          "Resultary exact-shape search for pi-arctan(3/5)",
+          "Resultary coefficient search for 9600*C*mu/[17*pi*(1-mu)]",
+          "Gilet Fig. 2 and Eq. (20)"
+        ]
+      },
+      "rationale": "Credit the published map, test family, stability conditions and qualitative fixed-point branches, as well as generic quintic relaxation in other systems. The supported distinct content is the sharp exact-map critical relaxation off the identified strong-stable set together with the finite-time detuning-scale gradient limit and slaved-memory statement. Neither the critical angle nor the fixed-point count is relied on as a stand-alone novelty.",
+      "residual_risks": [
+        "Exact-parameter web search returned no result; that is not evidence of absence.",
+        "Bounded primary passages and ranked catalogue checks do not establish historical priority or exclude unindexed same-walker analyses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and qualitative stationary branches are prior",
+          "evidence": [
+            "Eq. (9) gives the memory-and-position recurrence; Eq. (20) gives the two-harmonic wave; Fig. 2 varies the shape parameter."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178755/1/Generic.pdf",
+          "material_read": "pp. 3–4, Eqs. (9)–(20), Fig. 2, OA offsets about 15250 and 26750",
+          "method": "OA author archive PDF passage inspection",
+          "title": "Dynamics and statistics of wave-particle interactions in a confined geometry",
+          "trigger": "Original map, harmonic family and phase portrait"
+        },
+        {
+          "assessment": "Same recurrence, different local bifurcation",
+          "evidence": [
+            "The analyzed Neimark–Sacker conditions use nonzero wave slopes."
+          ],
+          "identifier_or_url": "arXiv:1507.08057",
+          "material_read": "Secs. 2–3, OA offsets about 8500–12699 and following bifurcation passage",
+          "method": "OA HTML statement inspection",
+          "title": "Neimark–Sacker bifurcation and evidence of chaos in a discrete dynamical model of walkers",
+          "trigger": "Same-map bifurcation analysis"
+        },
+        {
+          "assessment": "Structural analogy, not equivalent",
+          "evidence": [
+            "Repulsive three-oscillator Euler dynamics, invariant circle, and inverse-square relaxation with logarithmic correction."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-critical-relaxation-and-an-exceptional-exponential-circle-in-a-d--2e5d3c4aa08c",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror statement comparison",
+          "title": "Critical relaxation and an exceptional exponential circle in a discrete oscillator map",
+          "trigger": "Critical attraction and exponential exceptional set"
+        },
+        {
+          "assessment": "Rate/mechanism analogue in a different scalar map",
+          "evidence": [
+            "Fifth-order behavior and n^(-1/4) relaxation at a scalar stability boundary."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror statement comparison",
+          "title": "A sharp flip frontier for the Polar Express surrogate on scalar modes",
+          "trigger": "Prior quintic critical relaxation"
+        },
+        {
+          "assessment": "Piecewise scalar flip does not cover the walker limit",
+          "evidence": [
+            "Inverse-fourth critical relaxation in a distinct map."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-unique-quintic-flip-resonance-and-rational-non-attainment-in-f--a9e4664e5f86",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror statement comparison",
+          "title": "A unique quintic flip resonance and rational non-attainment",
+          "trigger": "Further quintic-exponent overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the physically specified wave shape, the usual linear stability test is inconclusive. The exact coefficient gives a local relaxation benchmark and distinguishes exponentially decaying memory on the vertical line from generic algebraic position decay. The detuning limit explains the neighboring one- and three-sink configurations dynamically with an explicit slow timescale and controls actual trajectories, not just equilibrium locations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

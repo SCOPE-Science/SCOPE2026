@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:43:12.033269Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, VERIFICATION.md and check_legendre_airy.py (script inspected, not executed)",
+        "DLMF §§10.47, 10.51 and 10.21, Eqs. 10.47.3, 10.51.1, 10.21.32 and 10.21.40",
+        "S. P. Clark, arXiv:2608.12588v1, Proposition 1"
+      ],
+      "rationale": "Integrating the normalized shifted Legendre basis yields the coefficients c_k in the Finding's proof. Subtracting P_nJP_n removes the internal edges and the constant diagonal, but not the edge from n to n+1, so for n≥1 the nonzero block starts at index n. Diagonal phases identify the residual norm with the norm of the compact symmetric Jacobi tail A_n with off-diagonals c_k, k≥n; bipartite symmetry permits taking its top eigenvalue. Independently checked this eigenvalue using the spherical Bessel recurrence: u_k=√(2k+1) j_k^{sph}(z) satisfies the eigenvalue equation at 1/(2z), is square summable by the fixed-argument Bessel series, and satisfies the left boundary exactly when J_(n−1/2)(z)=0. Conversely at any positive eigenvalue set z to its reciprocal divided by two; the discrete Wronskian of the corresponding Bessel solution and the eigenvector is constant in the interior and tends to zero, so the solutions are proportional and the boundary forces the zero. Thus the norm is 1/(2 j_(n−1/2,1)). The fixed-first-zero expansion j_(ν,1)=ν+2^(−1/3)|a_1|ν^(1/3)+O(ν^(−1/3)) gives the claimed constant after inversion; the order shift by −1/2 is lower order at n^(−5/3). The frozen quadratic form is also consistent: v_(n,0)>1 forces the limiting trace to vanish under h=n^(−1/3), and v_(n,m)≳min(m/n,1) yields tight mass and a limiting potential 2x. For the rank comparison, the reversed-time kernel min(x,y) has the Dirichlet–Neumann boundary problem with s_j(J)=1/[π(j−1/2)], so the index n+2 and ratio π/2 are correct.",
+      "residual_risks": [
+        "The bundled finite tail calculation is numerical corroboration only; the norm check here uses the exact infinite recurrence and classical zero expansion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clark's proposition gives the spectral measure of the even Jacobi recurrence for ν>−1 and 0<β<2 j_(ν,1), including ν=n−1/2 and β=1/2. The same-day Volterra/Bessel result instead treats power-substituted integration; the polynomial-annihilator result applies a projector only to inputs and gives a leading-scale result."
+        ],
+        "reasoning": "Clark dominates the entire parameter slice and gives finite-n spectral information. The indicated β condition holds, for example from positivity of the alternating Bessel series up to z=1/4 for ν≥1/2. The other Volterra records are not used as grounds for rejection.",
+        "searches": [
+          "arXiv:2608.12588v1, pp. 12–13, Prop. 1",
+          "Resultary 2026/10/18/SCOPE-bessel-singular-spectra-and-rank-one-boundary-laws-for-power-sub--7f2244fe2f31",
+          "Resultary 2026/11/22/SCOPE-sharp-polynomial-annihilator-spectra-for-volterra-integration--ae9a2032d414"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.12588v1",
+        "DLMF §§10.21, 10.47, 10.51",
+        "Resultary 7f2244fe2f31, ae9a2032d414 and 08f37b7169c9",
+        "Classical Lommel PDF access attempts; Tuan–Gorenflo, Wan–Chen–Huang, and Shen–Wang full-text coverage unresolved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multiplication operator in the orthonormal polynomial basis has off-diagonals A_m and spectrum the support of the measure. After integrating Legendre basis elements and deleting internal entries of the principal block, A_n is exactly that matrix. The known norm is therefore β/j_(ν,1)=1/(2j_(n−1/2,1)); its asymptotic has the stated Airy correction."
+        ],
+        "reasoning": "Only coordinate recognition, parameter substitution and scalar expansion are required to get the frozen statement from available earlier results. A different variational proof of this particular corollary does not rescue originality of the Finding.",
+        "searches": [
+          "Clark, arXiv:2608.12588v1, Prop. 1 and Eq. (19)",
+          "DLMF Eq. (10.21.32) with its coefficient definitions and fixed-first-root specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing k=n+m−1, the residual off-diagonal c_k equals 1/[4√((ν+m)(ν+m+1))] with ν=n−1/2 and m≥1. This is exactly the square root of A_m²=β²/[4(ν+m)(ν+m+1)] from Clark for β=1/2, with vanishing diagonals by symmetry."
+        ],
+        "reasoning": "The exact alias is a scaled Lommel Jacobi matrix, not only a resemblance to a Bessel recurrence or to another continuum limit. The matrix entries and first index agree, including the uncancelled coupling from n to n+1.",
+        "searches": [
+          "Lommel polynomials orthogonality reciprocal zeros Bessel function recurrence Dickinson Pollak Wannier orthogonality measure h_n primary paper",
+          "arXiv:2608.12588v1, Prop. 1 and Eq. (19)",
+          "DLMF §10.51(i), Eq. 10.51.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Lommel measure has exact support {0}∪{±β/j_(ν,r):r≥1}, with zero carrying no mass. DLMF lists first-root correction 1.8557571… and gives it symbolically as 2^(−1/3)|a_1|. The Bergman-shift result has an Airy profile for a different operator and statistic."
+        ],
+        "reasoning": "The exact support serves as stronger all-parameter tabulation, not as mere numerical agreement. Its furthest point from zero is the residual norm. The listed Airy coefficient then applies to the same first zero, not to an analogous problem.",
+        "searches": [
+          "arXiv:2608.12588v1, Eq. (19) and spectral support in Prop. 1",
+          "DLMF §10.21(vii), Eqs. 10.21.25, 10.21.32 and 10.21.40",
+          "Resultary 2026/11/1/SCOPE-the-airy-boundary-layer-for-polynomial-compressions-of-the-weigh--08f37b7169c9"
+        ]
+      },
+      "rationale": "Demonstrable earlier stronger coverage: Clark's arXiv:2608.12588v1, 12 August 2026, Proposition 1 and Eq. (19), give the exact recurrence coefficients and support of a two-parameter Lommel measure. The prescribed compression residual is, after the textbook Legendre antiderivative and phases, precisely its Jacobi operator for (ν,β)=(n−1/2,1/2). This gives the full spectral support, in particular the exact norm at every positive integer n, not just a similar Airy limit for another operator. DLMF's classical expansion of the first positive Bessel zero then yields the frozen conclusion by elementary inversion.",
+      "residual_risks": [
+        "The earliest history of the Lommel operator or a printed, direct identification with this Volterra residual is not settled. The failure rests on inspected exact stronger coverage from before the frozen record, not on a failed retrieval, a conjectured attribution, or keyword matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_PRIOR_COVERAGE",
+          "evidence": "A_m²=β²/[4(ν+m)(ν+m+1)] and support {0}∪{±β/j_(ν,r)}. The matching parameter choice gives the top residual singular value exactly, and in fact determines the full positive spectrum of the symmetric tail.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.12588",
+          "material_read": "v1 cover/abstract (arXiv date 12 Aug 2026); pp. 12–13, Eqs. (15)–(20), Proposition 1 and opening proof, PDF text offsets 54300–59103",
+          "method": "Targeted lawful arXiv primary PDF retrieval, located by recurrence and read by offset",
+          "title": "Lommel polynomials and explicitly solvable prediction problems on the unit circle",
+          "trigger": "Exact same Jacobi entries and spectral support via classical Lommel orthogonality"
+        },
+        {
+          "assessment": "CLASSICAL_ASYMPTOTIC_COVERAGE",
+          "evidence": "The leading fractional-power correction to j_(ν,1) is −2^(−1/3)a_1 ν^(1/3), matching the scaled reciprocal constant. The entry attributes the expansions to Olver (1951).",
+          "identifier_or_url": "https://dlmf.nist.gov/10.21",
+          "material_read": "§10.21(vii), Eqs. 10.21.25 and 10.21.32, explanation of Airy coefficients and Eq. 10.21.40; offsets near 21215, 24069 and 28267–30975",
+          "method": "Targeted equation/section passage inspection",
+          "title": "NIST Digital Library of Mathematical Functions, §10.21, Zeros",
+          "trigger": "Exact classical first-zero Airy correction"
+        },
+        {
+          "assessment": "EXACT_REDUCTION",
+          "evidence": "j^(sph)_(k−1)+j^(sph)_(k+1)=(2k+1)j_k^(sph)/z; j_k^(sph) is √(π/(2z)) times J_(k+1/2). The boundary at k=n−1 gives the same Bessel order as the prior measure theorem.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.51",
+          "material_read": "§10.51(i), Eq. 10.51.1, and §10.47(ii), Eq. 10.47.3 at https://dlmf.nist.gov/10.47",
+          "method": "Targeted recurrence and definition passages",
+          "title": "NIST Digital Library of Mathematical Functions, Spherical Bessel Functions",
+          "trigger": "Independent normalization check of residual eigenproblem"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR",
+          "evidence": "Treats f↦∫_0^(x^α) f(t)dt, not subtraction of a two-sided Legendre compression; no priority conclusion based on the same-day label.",
+          "identifier_or_url": "2026/10/18/SCOPE-bessel-singular-spectra-and-rank-one-boundary-laws-for-power-sub--7f2244fe2f31",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Bessel singular spectra and rank-one boundary laws for power-substituted integration",
+          "trigger": "Same-day Volterra/Bessel result"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR_AND_ORDER",
+          "evidence": "Treats J(I−P_<m), proving a fixed-index leading singular-value law and a mass law, not the norm of the frozen residual at Airy order.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-polynomial-annihilator-spectra-for-volterra-integration--ae9a2032d414",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp polynomial-annihilator spectra for Volterra integration",
+          "trigger": "Similar operator, projector and leading norm"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR",
+          "evidence": "Different operator, numerical radius statistic and scaling; not the basis of the coverage verdict.",
+          "identifier_or_url": "2026/11/1/SCOPE-the-airy-boundary-layer-for-polynomial-compressions-of-the-weigh--08f37b7169c9",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The Airy boundary layer for polynomial compressions of the weighted Bergman shift",
+          "trigger": "Similar discrete Airy method and compression"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "The index descriptions suggest Lommel coverage; no exact claim is attributed to the inaccessible text. The later Clark proposition is the inspected, decisive prior source.",
+          "identifier_or_url": "10.1090/S0002-9939-1954-0086897-8; Project Euclid record euclid.pjm/1103044125",
+          "material_read": "Bibliographic and index descriptions only; full primary passages not retrieved",
+          "method": "Public AMS and Project Euclid PDF routes attempted",
+          "title": "On Lommel and Bessel Polynomials; On a Class of Polynomials Orthogonal over a Denumerable Set",
+          "trigger": "Early classical Lommel orthogonality formulations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, variational proof and discussion of scope",
+        "Clark, arXiv:2608.12588v1, Prop. 1",
+        "DLMF §10.21(vii)"
+      ],
+      "rationale": "The prescribed operator-norm error is a natural question, but the frozen contribution is a specific asymptotic coefficient already mechanically implied by an earlier exact spectral measure plus the classical zero expansion. No new parameter regime, edge estimate, or general limit principle survives in the stated finding. The specialized quadratic-form proof may have expository use, but is not asserted as a new general tool and does not supply an independently valuable new exact invariant here.",
+      "residual_risks": [
+        "The assessment does not rule out a genuinely new theorem for other compression residuals; no such result is proved here. The exact Bessel formula alone would not be a repair because it has the same prior coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

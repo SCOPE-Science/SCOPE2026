@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:28:45.695941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local element matrices assemble to M=(ell/6)(2D+A), K=(D-A)/ell; positive definiteness of M and semidefiniteness of K give invertibility, and K1=0 gives P1=1. With h=t/ell^2 the normalized step matrix has adjacency coefficient 1-6h. At h=1/6 the update is (2I+D^{-1}A)/3. For h>1/6 the step matrix is irreducible Stieltjes, giving a strictly positive inverse by the nonnegative Neumann walk series, hence strictly positive P. For 0<h<1/6, let b=1-6h and S=M+tK. The identity bP=I-3ell h S^{-1}D forces S^{-1} to have nonpositive off-diagonals if P has nonnegative off-diagonals. S^{-1} is positive definite and irreducible (a block split would also split S), so its inverse S would be strictly positive, contradicting a missing graph edge. For K_n, the constant and orthogonal subspaces give eigenvalues 1 and (2n-3)/(2n-3+6nh); this proves the remaining signs. At h=0 P=I. An independent exact check assembled local matrices and performed rational elimination at seven normalized steps for all 771 connected labelled graphs on 2–5 vertices: 5,397 checks agreed, including equality, strict signs and row sums (private replay: /workspace/branches/replay/euler.py and euler.txt). The finite checks do not replace the all-graph proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Huang give sufficient discrete maximum-principle conditions under mesh hypotheses. Jin et al. give sufficiently-small-step failure under normal-triangulation and nondiagonal-mass hypotheses and eventual positivity under their resolvent condition, not failure throughout the claimed interval or an exception characterized by completeness."
+        ],
+        "reasoning": "Broader PDE scope does not imply the exact one-step sign classification for this Kirchhoff–Neumann network setting.",
+        "searches": [
+          "Li–Huang arXiv:1209.5657, Theorem 3.1",
+          "Jin–Lazarov–Thomée–Zhou arXiv:1510.02825, Theorems 4.1–4.3",
+          "Focused literature query for exact metric-network heat FEM positivity"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE search and the bipartite and periodic-cycle Findings named above",
+        "arXiv:1209.5657, Theorem 3.1",
+        "arXiv:1510.02825, Theorems 4.1–4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jin et al.'s small-step result has no sharp extent covering the entire subthreshold interval; their sufficient resolvent threshold supplies the other direction only. The bipartite and cycle claims do not cover arbitrary connected noncomplete graphs or complete graphs beyond their special cases."
+        ],
+        "reasoning": "The reverse use of inverse positivity after converting update signs to signs of S^{-1}, together with the obstruction from an arbitrary missing edge, supplies the additional implication; no checked source supplied that implication for the claimed domain.",
+        "searches": [
+          "The two SCOPE Finding sections above",
+          "Jin et al. arXiv:1510.02825, Theorems 4.1–4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.3 uses a Stieltjes resolvent bound for a fully discrete consistent-mass update. In edge normalization the ratio |K_ij|/M_ij=6/ell^2 recovers the sufficient bound, not the reverse implication."
+        ],
+        "reasoning": "Entrywise positivity is the one-step nodal maximum-principle condition here (row sums are one), not positivity of the continuous Kirchhoff semigroup or a mass-lumped discretization. The closest resolvent reformulation overlaps on sufficiency only.",
+        "searches": [
+          "Resultary: consistent-mass backward Euler positivity on equilateral metric networks",
+          "Jin–Lazarov–Thomée–Zhou arXiv:1510.02825, Theorems 4.1–4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bipartite record at theta=1 covers K_{p,q} with max(p,q)>=2 and the same sharp threshold. The periodic-cycle record covers C_n for n>=4 and the unconditional C_3 exception."
+        ],
+        "reasoning": "These indexed results give exact family-level overlaps, not an all-connected-topology classification. The graph-atlas tests in the finding are corroboration, not an exact table from which the continuous step-size and all-order assertion follows.",
+        "searches": [
+          "Local Resultary/SCOPE catalog, consistent mass and positivity thresholds",
+          "2026/10/25/SCOPE-sharp-theta-step-positivity-on-complete-bipartite-metric-network--0eb4f2e30fa5",
+          "2026/10/26/SCOPE-exact-positivity-threshold-for-consistent-mass-backward-euler-on--741ac3b6248b"
+        ]
+      },
+      "rationale": "Supported for the full graph-topology dichotomy and the uniform necessity on every positive subthreshold step of every connected noncomplete graph. The numerical threshold as a sufficient bound, the inverse-positivity lemma, and sharp classifications in prior special families are not independently new.",
+      "residual_risks": [
+        "No full-text comparison with Chatzipantelidis–Horváth–Thomée (DOI 10.1515/cmam-2015-0018) or Thomée–Wahlbin (DOI 10.1090/S0025-5718-07-02021-2; reported abstract-only in frozen notes).",
+        "A differently indexed exact characterization could have been missed; the priority judgment is evidence-bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-family coverage",
+          "evidence": [
+            "theta=1 gives t=0 or t/ell^2>=1/6 when max(p,q)>=2; K_{1,1} is excluded there."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-theta-step-positivity-on-complete-bipartite-metric-network--0eb4f2e30fa5",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp theta-step positivity on complete bipartite metric networks",
+          "trigger": "Same physical and discretization setting, potentially exact threshold overlap"
+        },
+        {
+          "assessment": "Exact special-family coverage",
+          "evidence": [
+            "For n>=4, t=0 or t/ell^2>=1/6; C_3 is positive for positive steps."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-positivity-threshold-for-consistent-mass-backward-euler-on--741ac3b6248b",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact positivity threshold for consistent-mass backward Euler on periodic cycles",
+          "trigger": "Same threshold and exception on cycles"
+        },
+        {
+          "assessment": "Related sufficient conditions, not exact necessity",
+          "evidence": [
+            "The theorem assumes a mesh condition and supplies sufficient DMP conditions involving a time-step interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.5657",
+          "material_read": "Abstract and Theorem 3.1, printed p. 8, text offset about 31250",
+          "method": "Lawful open-access primary preprint",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Consistent-mass time-step restrictions"
+        },
+        {
+          "assessment": "Sufficiency overlap; asymptotic small-step obstruction under different assumptions",
+          "evidence": [
+            "Theorem 4.3 obtains nonnegativity via the Stieltjes matrix omega_0 M+S. Theorem 4.1 treats sufficiently small positive steps, not all steps below this bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.02825",
+          "material_read": "Abstract and Theorems 4.1–4.3, printed pp. 9–10, text offsets about 40750 and 43700",
+          "method": "Lawful open-access primary preprint",
+          "title": "On nonnegativity preservation in finite element methods for subdiffusion equations",
+          "trigger": "Strongest checked general fully discrete nonnegativity and resolvent results"
+        },
+        {
+          "assessment": "Access-limited, no whole-paper determination",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+          "material_read": "Bibliographic identification, no verified primary full text",
+          "method": "DOI and identified institutional route attempted; no readable lawful copy established",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Plausible sharper positivity overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural space-time discretization, a practitioner can decide exactly when nonnegative input data are preserved from connectivity and completeness alone, with the sharp physical length scaling. The missing-edge obstruction covers every subthreshold step rather than merely asymptotically small steps, and completes the topology classification beyond the bipartite/cycle cases and mesh-dependent sufficient bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

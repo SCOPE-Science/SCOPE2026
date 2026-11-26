@@ -1,15 +1,21 @@
-# Review of the complete \(\mathbb F_{11}\) Weil spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The smoothness test \(b\Delta\neq0\), the genus-four normalization, the exact point-count character sum including both rational infinity points, Newton identities and the genus-four functional equation together give a complete deduction from the certificate to the asserted \(69\) Weil types. `WEIL_TABLE.csv` supplies all \(101\) parameter rows; `verify.py` checks every extension-field point count using two distinct irreducible quotient presentations and tests the resulting \(11\)-rank and class counts. The exceptional factorization, supersingular Newton slopes and Cartier rank-two calculation are separately checked or reconstructed.
+## correctness
 
-## Originality — PASS, qualified
-Kudo–Nakagawa–Takagi supply the exact family and Cartier method but not the complete characteristic-eleven Weil table; Kudo–Harashita study superspecial genus-four curves but do not present this classification in the accessible abstract. The closest publicly indexed calculation of precisely the same family gives the \(101\) smooth parameters and complete *first Cartier* strata; its full RESULT explicitly excludes zeta-function calculations. Neither that record nor the inspected lead paper implies the new \(69\)-type census or identifies the two supersingular non-superspecial parameter pairs through their zeta functions. The full Kudo–Harashita text was not accessible, and an unindexed table remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The characteristic-eleven normalized order-six family is natural in the literature on superspecial genus-four curves. Precisely where superspecial curves are absent, the complete zeta classification exhibits two *supersingular yet not superspecial* marked members in one Jacobian isogeny class and determines the exact distribution of all smaller \(11\)-ranks and the number of distinct isogeny types. This is a complete, naturally motivated arithmetic classification, not an arbitrary coefficient slice.
+The cover branches at the ten simple finite roots precisely when bΔ≠0. For b≠0 a multiple cubic root must be rational: otherwise its conjugates would exceed degree three. A repeated root r forces a=−3r²−2r, b=r²(2r+1); there are nine distinct such pairs with b≠0 out of 110, hence 101 smooth genus-four models. The two infinite points are rational because the degree-ten polynomial is monic. Independent exact enumeration, using distinct field models, Rabin irreducibility and Euler-character tests instead of the supplied square tables, matched all 404 counts and all recorded coefficient prefixes and ranks. Newton identities and reciprocity complete all degree-eight polynomials: 69 types with multiplicities 49×1, 13×2, 5×3, 1×5, 1×6; ranks 0–4 occur (2,5,15,79,0) times. Only (3,7) and (8,3) have rank zero. For each, the displayed quadratic and quartic factors have Newton slope 1/2 for all reciprocal roots, and independent Cartier extraction gives rank two, hence a-number two. Tate's criterion gives precisely 69 isogeny types.
 
-## Limits
-Counts refer to the marked \(\mathbb F_{11}\) model family rather than isomorphism classes. The two models are not asserted to be nonisomorphic. Priority risk from inaccessible historical full texts or tables remains. The same arithmetic verifier is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the complete Weil spectrum and its exceptional non-superspecial supersingular class in this fixed marked family. Neither the family, the 101-pair smooth count, nor earlier Cartier strata are accepted as new. The strongest inspected comparisons establish overlap on the family or a different invariant but not the complete zeta classification.
+
+## value
+
+PASS
+
+The normalized order-six family in a small nonsplit characteristic is a natural finite locus, with a complete marked enumeration rather than scattered examples. This exact census quantifies how much the Weil types coalesce and isolates a genuine supersingular but non-superspecial class that a superspecial search would miss. Counting the 101 smooth pairs alone would not supply that value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

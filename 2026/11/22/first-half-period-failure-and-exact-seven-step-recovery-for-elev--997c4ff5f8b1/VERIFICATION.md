@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-## Exact reproducibility checks
-C++17 compilation and execution from the packaged source succeeded. `check_horizon.cpp` exhaustively generated 2, 24, 720 and 3,628,800 canonical cycles of lengths 3, 5, 7 and 11 respectively, finding the minimal observation horizons 1, 3, 4 and 7. It reproduced the six-step eleven-cycle histogram (fiber sizes 1: 3,470,400; 2: 77,760; 4: 720) and counted 82,080 ambiguous unordered pairs, then showed all seven-step keys distinct.
+# Independent mathematical audit
 
-The independently written phase-index implementation `check_phase.cpp` reproduced the eleven-cycle six-step histogram and seven-step uniqueness. The direct third implementation `check_witness.py` verified the given two distinct cycles match for the first six observations and differ at the seventh. See `CHECK_OUTPUT.txt` for the exact recorded outputs. All comparisons are integer-valued and exact; no floating-point heuristics are used.
+## correctness
 
-The finite domain was fully traversed, so the enumeration is an exact proof for the four specified lengths. The checks do not prove any statement for larger prime lengths, global interval maps, or robustness to incomplete/noisy ordinal observations. No independent mathematical audit was performed.
+PASS
+
+Independently enumerated precisely the (p-1)! cycles by anchoring their cyclic words at rank zero. For 0<t<p the two extreme rank comparisons are constant; each other comparison was assigned a separate bit, and all relevant prefixes were compared as exact unsigned integers. At p=5,7,11 respectively the h-1 prefix has 4,128,82080 colliding unordered pairs and h has none; at p=3 the first row separates the two cycles (the empty row cannot). Refinement gives the minimal horizons 1,3,4,7. At p=11 the six-step fibers of sizes 1,2,4 number 3470400,77760,720 and no other sizes occur; the seven-step partition has 3628800 singleton fibers. Also independently checked both displayed witness rows at the first divergence. The prime 11 threshold uses the four consecutive odd primes, not an inference about later primes. Replay: python3 /workspace/review-evidence/ordinal.py and the same command with large, using NumPy integer arrays; ordinal-small.log and ordinal-large.log record the output.
+
+## originality
+
+PASS
+
+The truncated fixed-rank horizon and ambiguity census are distinct from the strongest inspected complete-signature reconstruction results. No distinct record inspected establishes or implies those truncated claims. This is a bounded comparison, not a priority assertion.
+
+## value
+
+PASS
+
+This locates a genuine failure of recovery with a half-period budget even when all spatial ranks are observed, and quantifies exactly how badly that budget fails at its first odd-prime obstruction. The jump to guaranteed recovery at seven and the multiplicities separating typical from ambiguous observations are meaningful benchmarks for shorter ordinal inversion. This is not a claim of an asymptotic law or an efficient inverse for arbitrary prime lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:09:01.034263Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put a=i-1, b=n-i. Inserting a forced fixed point into a permutation of a+b labels introduces one inversion for each of the J large values on the left and the J small values on the right, so it tilts the reference Mallows weight by q^(2J); the normalization ratio is 1/[n]_q. (The actual deletion pushforward conditional on a fixed point is tilted, not plain Mallows; Step 1's reference weight must be read before the tilt, as in Step 2.) For cut count j, choosing the small and large labels on the left gives two Gaussian binomials for within-type inversions across the cut, j^2 large-left/small-right cross inversions, and two factorial weights for the internal orders. The sum of these weights over j is the total permutation weight, establishing normalization and the diagonal formula. For b>=a+2, the new/old mass ratio on j=0,...,a is a positive constant times [b-j]_q/[a+1-j]_q = 1+[b-a-1]_q q^t/[t]_q, t=a+1-j. Because [t+1]_q=1+q[t]_q, q^t/[t]_q strictly decreases in t. The ratio is increasing, with new positive mass at a+1, so the difference of the masses has a single negative-to-positive crossing and gives stochastic dominance with a strict upper tail, including when a=0. Applying q^(2j) reverses the comparison below q=1 and gives strict increase above it. At q=1 the function is constant and all marginals are 1/n. Double reversal preserves inversion count and exchanges mirrored positions, including the even central tie. At n=2 the strict comparison has empty range. The frozen exact finite verification is supportive; its source was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general rectangular law of H_(L,K) is an earlier finite evaluation. Earlier displacement bounds and permutation or cycle limits address other regimes and quantities.",
+          "Starr–Walters Lemma 8.1 gives a 2x2 cell-count probability via the uniform probability multiplied by a q-factorial ratio and q^(n12*n21)."
+        ],
+        "reasoning": "For the equal cut, the 2x2 counts are a-j,j,j,b-j. The Gaussian law follows by substitution; the Pochhammer form extends from 0<q<1 to q>0 after rewriting in finite Gaussian polynomials and positive normalizers. The dependence of one cut on its own parameters via this evaluation does not state an ordering across adjacent cuts.",
+        "searches": [
+          "Bufetov–Chen arXiv:2409.10415v1 Proposition 3.1",
+          "Starr–Walters arXiv:1502.03727 Lemma 8.1",
+          "Bhatnagar–Peled arXiv:1306.3674, Mukherjee arXiv:1509.04552, He–Müller–Verstraaten arXiv:2201.11610"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2409.10415v1",
+        "arXiv:1502.03727",
+        "arXiv:1306.3674",
+        "arXiv:1509.04552",
+        "arXiv:2201.11610",
+        "Resultary two-sided parity, geometric difference, and boundary dependence records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reference law in the tilted expectation is exactly the known equal-cut height complement. Removing the forced fixed point changes the exponent by 2J. The frozen argument compares new and old cut laws through [b-j]_q/[a+1-j]_q and uses the extra upper mass.",
+          "Mukherjee and He et al. give asymptotic one-site or fixed-point information; the stationary parity results have no varying position in a finite interval."
+        ],
+        "reasoning": "The exact finite evaluation is mathematically available from prior height formulas. The sign-reversal theorem needs the strict inter-cut ordering and the opposite monotonicities of the tilt on the two sides of q=1; evaluation, inversion symmetries, and stationary or asymptotic displacement inequalities alone do not provide this ordering as a special case. The assessment credits this comparison, not the earlier distributional ingredients.",
+        "searches": [
+          "Bufetov–Chen Proposition 3.1 and Starr–Walters Lemma 8.1 against the frozen balancing lemma; stationary parity and boundary-dependence Resultary Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bufetov–Chen use H_(L,K), the count of values <=K in the first L positions. For N=a+b and L=K=a, J=a-H_(a,a), so their finite weight matches the auxiliary law exactly.",
+          "The closest same-day Resultary result concerns stationary two-sided displacement parity."
+        ],
+        "reasoning": "A cut-crossing statistic under this variable change is the same finite height statistic, but the location-dependent finite fixed-point probabilities are not the stationary displacement law or the boundary covariance of indicators.",
+        "searches": [
+          "Mallows permutations exact finite n one point marginal fixed point probability diagonal center edge monotonicity q hypergeometric Bufetov Chen",
+          "Resultary: finite Mallows marginals and cut-crossing likelihood ratios"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact earlier formulas are more relevant than finite tables: the rectangle height function already determines expected increments, and hence point probabilities. The Resultary boundary item instead gives a covariance sign transition."
+        ],
+        "reasoning": "The four-cell finite difference of the expected-height formula gives Pr(Pi(i)=i); a family of numbers or an exact per-parameter evaluation does not itself compare their signs of adjacent differences. No inspected entry is an exact evaluation of that sign profile as a theorem.",
+        "searches": [
+          "Resultary title, diagonal formula, q-hypergeometric cut comparisons and boundary fixed-point findings",
+          "arXiv:2409.10415v1 Section 3.1"
+        ]
+      },
+      "rationale": "The Gaussian cut-crossing distribution is covered by earlier exact finite height/rectangle formulas. They also give access to individual point probabilities and are antecedents to the diagonal representation. The credited result is the strict balancing comparison of the cut laws combined with the finite-n reversal of the fixed-point profile, for every real q>0, not priority for the cut law or generic one-site enumeration. The closest available finite formulas do not state the balancing inequality or another inequality implying this reversal by direct specialization.",
+      "residual_risks": [
+        "Equivalent forms of finite q-hypergeometric comparisons may exist in older enumerative or dependence literature. No comprehensive historical-priority claim is made. The earlier exact height laws should be explicitly acknowledged when presenting the diagonal representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the auxiliary cut distribution as a specialization",
+          "evidence": [
+            "Set L=K=a, N=a+b, s=a-j. Formula (3.4) is q^(j^2) times (q;q)_a^2 (q;q)_b^2 divided by (q;q)_(a-j) (q;q)_j^2 (q;q)_(b-j) (q;q)_(a+b), exactly the frozen mass after rewriting."
+          ],
+          "identifier_or_url": "arXiv:2409.10415v1",
+          "material_read": "Section 3.1, definition (3.1) and Proposition 3.1 formula (3.4), PDF pp. 3–4, OA offsets 11100–14466",
+          "method": "OA PDF passage and formula comparison",
+          "title": "Local central limit theorem for Mallows measure",
+          "trigger": "Exact broader finite height law"
+        },
+        {
+          "assessment": "Broader rectangle-count law, not the positional reversal",
+          "evidence": [
+            "Cell mass tilt contains q^(n12*n21), which becomes q^(j^2) at the equal cut."
+          ],
+          "identifier_or_url": "arXiv:1502.03727; J. Math. Phys. 59:063301",
+          "material_read": "Lemma 8.1 and surrounding discussion, PDF p. 23, OA offsets 94580–97791",
+          "method": "OA PDF passage and formula comparison",
+          "title": "Phase Uniqueness for the Mallows Measure on Permutations",
+          "trigger": "Original source identified for finite height formula"
+        },
+        {
+          "assessment": "Finite tail bounds, not diagonal comparison",
+          "evidence": [
+            "For q<1, the absolute displacement tail is at most 2q^t."
+          ],
+          "identifier_or_url": "arXiv:1306.3674",
+          "material_read": "Theorem 1.1, p. 2, OA offset 9500",
+          "method": "OA PDF passage inspection",
+          "title": "Lengths of Monotone Subsequences in a Mallows Permutation",
+          "trigger": "Finite displacement estimates"
+        },
+        {
+          "assessment": "Asymptotic point-image formulas and cycle limits",
+          "evidence": [
+            "Permutation-limit and equicontinuity conditions replace the exact finite comparison asked here."
+          ],
+          "identifier_or_url": "arXiv:1509.04552",
+          "material_read": "Abstract p. 1; Theorem 1.1 p. 3, OA offset 10800",
+          "method": "OA PDF passage inspection",
+          "title": "Fixed points and cycle structure of random permutations",
+          "trigger": "Mallows one-site probabilities and fixed points"
+        },
+        {
+          "assessment": "Limiting or stationary information, not a positional theorem",
+          "evidence": [
+            "One-cycle limiting constant uses the stationary two-sided event Sigma(0)=0."
+          ],
+          "identifier_or_url": "arXiv:2201.11610",
+          "material_read": "Theorems 1.1 and 1.4, pp. 2–3, OA offsets 7600, 10545",
+          "method": "OA PDF passage inspection",
+          "title": "Cycles in Mallows random permutations",
+          "trigger": "Mallows fixed-point counts and one-point constant"
+        },
+        {
+          "assessment": "Different regime and comparison",
+          "evidence": [
+            "Even-odd gap for a stationary displacement and consequences for limiting fixed-point constants."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-positive-parity-bias-for-two-sided-mallows-displacement--3d480a5fd1cf",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Exact positive parity bias for two-sided Mallows displacement",
+          "trigger": "Same-day Mallows displacement and fixed points"
+        },
+        {
+          "assessment": "Infinite stationary model",
+          "evidence": [
+            "Stationary displacement is a difference of identically distributed variables; no finite-position parameter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-geometric-difference-law-and-strict-parity-monotonicity-for-stat--52b8f0e2ea08",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Geometric difference law and strict parity monotonicity for stationary Mallows displacement",
+          "trigger": "Exact one-point Mallows law and monotonicity"
+        },
+        {
+          "assessment": "Different statistic and threshold",
+          "evidence": [
+            "First-two-position covariance transition at a root of r^(n-1)=1+r; does not compare marginal probabilities."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-boundary-fixed-point-dependence-transition-in-mallows-pe--29a000aa659c",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "A sharp boundary fixed-point dependence transition in Mallows permutations",
+          "trigger": "Finite positional fixed points and an exact transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite diagonal of the mean permutation matrix is a natural location-sensitive observable. The exact strict reversal distinguishes edge and center effects that a mean fixed-point count, a stationary approximation, or symmetry cannot reveal. The ordered cut law is a structural explanation valid at all sizes and for every positive q, even when the fixed-point signal itself is flat at q=1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:27:25.345165Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each off-cycle rooted tree contributes at least one leaf, and branching contributes more, proving the graph identification. Initial connectedness and two white directions require a cycle interval of size at least two and permit a nonempty tail prefix only when it includes the hub in its cycle interval. If the hub is omitted, force along both sides of the unseeded arc and color the hub last on the cycle; otherwise use a nonhub cycle boundary. Finish the tail. There are q of the c proper q-intervals containing the hub. The convolution-difference calculation gives a positive difference k-b_(k-t) through k=c-2, and nonpositive -b_(k-t) thereafter. The c=3,4 and t=1 positive cases check directly; the first internal determinant 4-c is negative in the complementary region. Independent replay: python3 /workspace/review_checks.py 5; 55 graphs of order <=13, 147417 nonempty masks per pass, via hitting every minimal fort and testing induced connectivity; arithmetic checks on 840 cases with 3<=c<=30, 1<=t<=30. Proof, not finite enumeration, supplies unrestricted shape.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brimkov 2016: block minimum degree bound, excluded cycles segments, hub-containing minimum construction and unicyclic minimum theorem",
+          "Mukherjee–Ray ask for the unicyclic graph polynomial after solving trees",
+          "Newton–Brimkov construct nonunimodal graphs in general"
+        ],
+        "reasoning": "The minimum theory and segment arguments are relevant to the enumeration, not a theorem on adjacent coefficient inequalities. A general failure of unimodality elsewhere does not cover the one-leaf shape split.",
+        "searches": [
+          "arXiv:1607.00658v1 §5.1 and Proposition 3",
+          "arXiv:2611.10985v1 Problem 5.2",
+          "arXiv:2611.11352v1 abstract/intro"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1607.00658v1",
+        "arXiv:2611.10985v1",
+        "arXiv:2611.11352v1",
+        "Resultary b21a724a6666 and eb162260c6ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brimkov supplies necessity of at least two cycle vertices and the interval constraint. His Lemma 8 covers the hub-containing seed; Lemma 7 states |A(C)|>=2, and is not a classification of hub-excluding seeds in the one-leaf case.",
+          "The partially whiskered-cycle formula yields one slice, not the moving coefficient kernel for arbitrary tail lengths."
+        ],
+        "reasoning": "The repaired claim is the proof of a sign change in log-concavity with both structural parameters, while unimodality persists. The known scalar minimum, t=1 count, and analogous multiarm analytic statement do not imply it.",
+        "searches": [
+          "Brimkov arXiv:1607.00658v1 Proposition 3, Lemmas 3 and 7–8, minimum theorem",
+          "Resultary b21a724a6666 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target tail is a path on any t>=1 extra vertices joined to one cycle vertex",
+          "Resultary b21a724a6666 counts connected forcing sets for cycles with private leaves at arbitrary selected cycle vertices"
+        ],
+        "reasoning": "Taking the whiskered subset to be a singleton gives the exact t=1 polynomial, but those leaves are unsubdivided and do not give a varying tail length or the sharp change at t=2 for longer cycles.",
+        "searches": [
+          "\"connected zero forcing polynomial\" unicyclic graph \"Problem 5.2\" Mukherjee Ray arXiv 2611.10985",
+          "Resultary: one-leaf, cycle path (tadpole/lollipop), and partially whiskered cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "70cd56b3b772 is the bound record itself",
+          "b21a724a6666 gives the exact t=1 size enumeration by specialization",
+          "eb162260c6ac uses at least two arms at one hub and gives a root statement for one subdivided arm"
+        ],
+        "reasoning": "The locally indexed exact overlap is the one-edge tail subcase. The multiarm formula cannot take t=1 as used in its own arm count: the hub then need not be initially blue. Neither supplies the stated threshold in tail length.",
+        "searches": [
+          "Resultary: one-leaf unicyclic connected forcing polynomial; partially whiskered cycles; cycle spiders and root transition"
+        ]
+      },
+      "rationale": "For the repaired coefficient-shape claim only. Existing cycle constraints, the known minimum and the matching t=1 enumerator are explicitly credited. The inspected results do not give the uniform unimodality and precise log-concavity split for all pendant-path lengths in the one-path class. Priority is bounded by the inspected evidence.",
+      "residual_risks": [
+        "The bounded comparison cannot exclude unindexed earlier shape theorems.",
+        "The potentially relevant public issue/certificate could not be inspected beyond snippets.",
+        "Same-day Resultary dates do not establish order for the exact overlapping t=1 polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known cycle constraints and minima, not coefficient-shape theorem",
+          "evidence": "At least the block minimum degree; one omitted segment; one-articulation construction with a selected neighbor; minimum-cardinality theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.00658v1",
+          "material_read": "Proposition 3 pp. 8–9, Lemmas 3–5 pp. 11–13, Lemmas 7–8 and Theorem 4 pp. 15–18 (HTML Theorem 5.1)",
+          "method": "OA PDF and HTML passages",
+          "title": "Complexity and Computation of Connected Zero Forcing",
+          "trigger": "Prior unicyclic theory"
+        },
+        {
+          "assessment": "Not a formula on this family",
+          "evidence": "Problem 5.2 asks for the unicyclic polynomial.",
+          "identifier_or_url": "https://arxiv.org/html/2611.10985v1",
+          "material_read": "§5 Problem 5.2, offsets 89168–89936",
+          "method": "OA HTML primary text",
+          "title": "On the connected zero forcing polynomial of finite trees",
+          "trigger": "Same polynomial, unicyclic problem"
+        },
+        {
+          "assessment": "General nonunimodal examples, not this family",
+          "evidence": "Existence of nonunimodal connected-forcing polynomials.",
+          "identifier_or_url": "https://arxiv.org/html/2611.11352v1",
+          "material_read": "Abstract and Introduction",
+          "method": "OA HTML primary text",
+          "title": "Zero forcing is not unimodal",
+          "trigger": "Connected polynomial shape"
+        },
+        {
+          "assessment": "Exact overlap on singleton whisker, no longer paths",
+          "evidence": "Take the selected cycle subset A={0}.",
+          "identifier_or_url": "Resultary b21a724a6666",
+          "material_read": "Finding and proof, offsets 0 and 2366",
+          "method": "Local Resultary mirror",
+          "title": "Complete connected zero forcing polynomials of partially whiskered cycles",
+          "trigger": "Broader class on the t=1 boundary"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of coverage or noncoverage",
+          "evidence": "Visible snippet does not provide a mathematical formula.",
+          "identifier_or_url": "https://github.com/the-omega-institute/trureturing/issues/30379",
+          "material_read": "Search snippet only; no primary issue/certificate text obtained",
+          "method": "Bounded search followed by lawful OA retrieval attempts",
+          "title": "Unicyclic pre-registration search hit",
+          "trigger": "Search hit on Mukherjee–Ray Problem 5.2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete one-leaf unicyclic stratum. It gives a family of positive unimodal but non-log-concave count sequences with the first failure caused by the second tail vertex precisely for cycles of length >=5, along with an exact small-cycle boundary. The numerical adjacent-coefficient behavior is useful separately from the previously known minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

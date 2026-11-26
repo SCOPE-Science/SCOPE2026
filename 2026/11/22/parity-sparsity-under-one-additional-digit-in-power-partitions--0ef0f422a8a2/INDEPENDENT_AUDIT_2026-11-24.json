@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:26:37.481462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For b≥3, coefficients in residues 0 and 1 are p(u)+p(u−1), while other residues give p(u). For residue zero the previous index uses residue b−1 and quotient u−1, including the convention p(−1)=0. Thus the claimed adjacent-pair automaton, its leading-zero convention, and the absorbing 00 state check out. In the active-state counts, x−z=1 and x_(m+1)=A_m; summing the odd-output coordinates yields A_(m+2)=(b−2)A_(m+1)+4A_m−2 with 1,b initially. Its generating function and pole coefficient follow by summing the recurrence and using λ²=(b−2)λ+4. The positive root lies between 2 and b and exceeds the magnitude of the negative root; squeezing between consecutive powers proves the arbitrary-cutoff order and density zero. Independently for the smaller cap, the same state pair has transitions (v+w,w), (v,v+w), (v,v) for digits 0,1,others, respectively. The resulting affine recurrence has quadratic t²−(b−1)t−2. Evaluating the enlarged-cap quadratic at that positive root ρ gives ρ−2>0. Binary cap three splits each digit into independent bits at powers j and j+1, giving [(1−z)(1−z²)]^(−1) and odd residues 0,1 mod 4. An independent truncated GF(2) product using shifted bitsets agrees for bases 3–12, both caps, all levels through five, and binary cap three through level 12. Replay: python3 /workspace/reproductions/frozen_math_checks.py 4; output /workspace/reproductions/record-4.txt.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coons establishes growth, monotonicity/log-convexity results and general regularity for digit caps including the present one. Equation (6) counts representations with multiplicity, not odd support. Theorem 4 assumes b divides cap+1, which fails for cap b+1 and b≥3.",
+          "The distinct same-day record 5c4a6c339ac8 proves density-one divisibility for each fixed modulus at cap b and computes a sharp cubic spectrum modulo three at cap b."
+        ],
+        "reasoning": "Broader digit machinery supplies a route to building a modular automaton, but does not identify this automaton's explicit quotient spectrum. A broader range of moduli at a smaller cap does not dominate the digit-cap parameter.",
+        "searches": [
+          "Web: bounded digit parity b-ary partitions coefficient count odd partitions recurrence",
+          "Dated arXiv:2611.08109v1, §§1–2 and Theorems 1–4",
+          "Resultary: same-day November 22 2026 parity sparsity b-ary partition additional digit cap parity support exponent"
+        ]
+      },
+      "checked_sources": [
+        "Coons arXiv:2611.08109v1",
+        "Resultary bb0ad70479bb (smaller-cap parity)",
+        "Distinct Resultary 5c4a6c339ac8 (smaller-cap modular laws)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator's ρ is established prior knowledge. Increasing the cap adds a contribution to residue 1, changing the transitions and the exact level counts.",
+          "Integer regularity gives finite-dimensional coefficient representations; it does not specify the affine quadratic recurrence of the odd-state population at the new cap."
+        ],
+        "reasoning": "The transfer-matrix method is standard and shared with the cap-b work, but the prior cap-b transition and exponent cannot be reused for cap b+1. The invariant for the changed transition and its extracted spectrum are needed before the strict spectral comparison follows.",
+        "searches": [
+          "Earlier cap-b parity RESULT.md, Finding through state-transfer proof",
+          "Same-day cap-b all-moduli and ternary RESULT.md, Finding and proof",
+          "Coons arXiv:2611.08109v1, explicit integer digit representation and summatory asymptotic, offsets 12100–16400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The record's counts are those of the odd terms of Coons's b_{b+1,b}(n), or equivalently the support of the restricted product over GF(2).",
+          "Coons's regular-sequence matrix sum controls coefficient sums, not the number of coefficients whose parity output is 1."
+        ],
+        "reasoning": "Matching the pointwise function identifies a genuine overlap in objects, not an equivalent parity aggregate. Modulo-two state reachability and counting accepted digit words differ from summing integer coefficients or reducing their sum mod two.",
+        "searches": [
+          "Resultary: parity count bounded b-ary partitions digit cap b+1 recurrence A_b(m) additional digit",
+          "Resultary: exact parity recurrence digit capped power partitions generating function three state automaton",
+          "Coons arXiv:2611.08109v1, Sections 1–2 and the digit representation around equation (6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier Resultary parity enumerator bb0ad70479bb uses cap b and quadratic t²−(b−1)t−2; e.g. in base three it starts 1,3,7,19, not 1,3,5,15.",
+          "The Resultary match for the frozen cap-b+1 record itself is the same result and is not other priority evidence."
+        ],
+        "reasoning": "No distinct inspected exact enumerator covers both this cap and modulus. A nearby table with different level counts is positive evidence of the parameter distinction, not proof of universal absence.",
+        "searches": [
+          "Resultary: exact parity recurrence digit capped power partitions generating function three state automaton",
+          "Resultary: odd coefficient spectrum parity exponent hyper-ary partitions cap b roots rho lambda",
+          "Bounded primary literature lookup for odd coefficient counts"
+        ]
+      },
+      "rationale": "The distinct claim is the exact aggregate parity law at cap b+1 and its strict spectral comparison to cap b. The strongest exact source treats cap b, not b+1; the distinct same-day source is likewise cap b and gives a different modular counting theorem. Coons treats the same general representation function and establishes standard digit-regular machinery and coefficient asymptotics, but the inspected statements do not give the distribution of parity states for this cap or its exact spectrum. This is a bounded best-of-knowledge judgment, not a priority certificate.",
+      "residual_risks": [
+        "An unindexed general modular classification could include the cap-b+1 spectrum; bounded searches are not an absence proof.",
+        "Older general digit-sequence methods or an unpublished table may give equivalent derivations. No historical priority order is inferred from same-day labels."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad pointwise coefficient machinery, not this parity enumerator",
+          "evidence": [
+            "Equation (6) sums b_{k,ℓ}(n), not an odd indicator.",
+            "Theorem 4 requires ℓ dividing k+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08109v1",
+          "material_read": "Definitions, product/Mahler equation, main growth/monotonicity passages, and regular-sequence and Theorem 4 material; decisive offset 12100–16400",
+          "method": "Direct original arXiv HTML via OA retrieval",
+          "title": "The Calkin–Wilf problems on ℓ-ary partition functions",
+          "trigger": "Identical generalized bounded-digit representation functions"
+        },
+        {
+          "assessment": "Supplies the smaller-cap comparison root, not enlarged-cap parity counts",
+          "evidence": [
+            "Cap b and quadratic t²−(b−1)t−2; binary density 2/3 at cap two rather than 1/2 at cap three."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-parity-sparsity-transition-for-hyper-ary-partitions--bb0ad70479bb/RESULT.md",
+          "material_read": "Finding and proof (offsets 0–5233), relationship and limitations (5233–7988)",
+          "method": "Resultary search and original record via local mirror",
+          "title": "A parity-sparsity transition for hyper-ary partitions",
+          "trigger": "Exact same support question for neighboring digit cap"
+        },
+        {
+          "assessment": "All-moduli density and exact modulo-three spectrum concern cap b, not the present cap",
+          "evidence": [
+            "Density-one divisibility is stated for cap b, and the exact ternary level count uses a cubic root."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-profinite-concentration-and-sharp-ternary-sparsity-for-hyper-ary--5c4a6c339ac8/RESULT.md",
+          "material_read": "Finding, proof and relationship (offsets 0–4321 and 4321–8683)",
+          "method": "Resultary search and original record via local mirror",
+          "title": "Profinite concentration and sharp ternary sparsity for hyper-ary partitions",
+          "trigger": "Distinct same-day record on modular digit-state counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first larger cap is a natural test of whether increasing the representation set preserves parity-support size. The exact full-level counts and distinct spectral exponents show a uniform strict reversal across all b≥3 despite pointwise nondecreasing representation counts. This quantifies how much sparser the odd support becomes, and provides the precise enumerator for either analytic or computational comparison, not just finite examples or automaticity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

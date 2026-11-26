@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:43:54.926293Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md scope and Proof §§1–4; VERIFICATION.md and check_edge_influence.py (read, not run)",
+        "Independent replay: python3 /workspace/reproductions/geometry_and_dynamics.py cellular; 80 exhaustive right and 80 exhaustive left finite-cone comparisons"
+      ],
+      "rationale": "An influence from t at time 0 reaching 0 at time t has exactly one nearest-neighbor path, moving one step left each update. No other input to a path update can depend on the flipped bit. Thus the output indicator is the product of the local right differences δ at the successive unperturbed center bits. Left-edge permutivity of (F^s X)_i follows by induction: the left input to the last update uniquely contains X_(i−s), once and with XOR coefficient one, and the other inputs exclude it. The center at step s therefore has unique fresh pivot X_(t−1−2s), XORed with a function of bits strictly to its right. Conditional on all nonpivot initial bits used by the centers, the center-word map from pivots is triangular and bijective. Hence the centers are jointly fair, turning the product into 0, 2^(−t), or 1 exactly. Each ordered derivative pair leaves two independent table entries, yielding the 4/8/4 census. Rule 30 corresponds to h(b,c)=b OR c, so its right derivative is nonconstant; leftmost influence is always one. An independent direct iteration using Wolfram rule numbers and full finite cone truth tables checked both edges for all 16 rules at t=1..5.",
+      "residual_risks": [
+        "The finite replay does not prove unbounded time. The proof uses fairness and independence and makes no claim for biased inputs, correlated measures, or non-edge sites."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-step 256-rule dependence classification concerns output-process dependence. The odd-ring inverse Rule 45 record concerns a distinct inverse evolution and law. Theorem 3 is a fair output marginal."
+        ],
+        "reasoning": "An unconditioned output law does not determine the coupling under an initial flip. The ring-inverse theorem does not cover the forward iterate on the infinite line.",
+        "searches": [
+          "Resultary: elementary cellular automaton Bernoulli output dependence and inverse-rule single-site sensitivity; arXiv:2604.00165v1 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.00165v1 and v3, passages above",
+        "Local Resultary published-statement mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Targeted primary literature search unavailable; no inference from the lookup failure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked primary paper establishes balanced output and (v3) leftmost influence one; it measures right-side decay. The cited Wolfram note could not be inspected.",
+          "Permutivity only gives a single marginal directly; the proof additionally identifies a triangular family of center bits under the joint initial law."
+        ],
+        "reasoning": "The prior left-edge result is a tool for the right-edge argument, not itself a theorem on joint path survival; ruling out other mechanisms and proving joint fairness is the extra step.",
+        "searches": [
+          "arXiv:2604.00165v1 Theorem 3 and §8.2; arXiv:2604.00165v3 Proposition 4 and following page; Wolfram Rule 30 note (retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary work uses the same flip-probability observable. v1 gives Monte Carlo profiles for Rule 30 at t=5..20; v3 Proposition 4 gives exact influence for the opposite edge, with right-side decay still empirical in the following passage."
+        ],
+        "reasoning": "Boolean influence and flip-probability sensitivity are the same here, but an empirical profile is not an all-time exact right-edge formula. Reflection interchanges left and right permutivity as well as the edges and does not give unit right-edge influence for merely left-permutive rules.",
+        "searches": [
+          "Resultary: rightmost light-cone influence of left-permutive elementary cellular automata; arXiv:2604.00165v1 and v3 §8.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact derivative table and census hit is the bound record itself; the separate 256-rule table classifies one-step spatial dependence, not right-edge flip probabilities."
+        ],
+        "reasoning": "Neither a self-hit, different classification, nor a finite Monte Carlo profile supplies the claimed exhaustive classification over all integer times.",
+        "searches": [
+          "Resultary: all 16 left-permutive rules, counts 4/8/4, Rule 30 right-edge sensitivity"
+        ]
+      },
+      "rationale": "Same-observable Monte Carlo profiles and the exact left-edge influence are antecedents; the left edge is explicitly not credited. The inspected statements do not cover the exact rightmost product expectation for Rule 30 or the all-rule derivative census. Distinct Resultary analogues have different observables or dynamics. The decision concerns the exact right-edge claim, not historical priority for qualitative right-side decay.",
+      "residual_risks": [
+        "No universal historical-priority conclusion; an equivalent Boolean-derivative or Rule 30 edge calculation may appear in uninspected material.",
+        "The cited Wolfram note was inaccessible through both attempted routes; the wider permutivity literature is not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same observable and measured right asymmetry, no exact all-time edge result in these passages",
+          "evidence": "Fair output marginal and 5,000-trial sensitivity profiles at t=5..20.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.00165v1",
+          "material_read": "p. 7 Theorem 3 (offset 18494) and p. 8 §8.2 (offset 21250)",
+          "method": "OA PDF full-text passages",
+          "title": "Symmetric Nonlinear Cellular Automata as Algebraic References for Rule 30",
+          "trigger": "Identical Rule 30 observable and right-side decay"
+        },
+        {
+          "assessment": "Exact left edge; right-side measurements not matching coverage",
+          "evidence": "Proposition 4 proves influence one at the leftmost input; following text interprets right-side behavior from measurements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.00165v3",
+          "material_read": "§8.2 Proposition 4 p. 12 (offset 31400) and right-side discussion p. 13 (offset 34800)",
+          "method": "OA PDF full-text passages",
+          "title": "Symmetric Nonlinear Cellular Automata as Algebraic References for Rule 30",
+          "trigger": "Possible exact proposition in a later version"
+        },
+        {
+          "assessment": "Different observable and time range",
+          "evidence": "One-step output-process dependence; not flip influence over iterates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-dependence-phases-of-elementary-cellular-automaton-bernoulli--3b362554036a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact dependence phases of elementary cellular automaton Bernoulli outputs",
+          "trigger": "A broader census of the same rule class among 256 rules"
+        },
+        {
+          "assessment": "Inverse evolution on odd periodic rings",
+          "evidence": "Single-site sensitivity of the inverse under uniform outputs, not forward edge influence on the full shift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sparse-exact-inverse-and-geometric-sensitivity-of-odd-ring-rule--7595b4348934/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sparse exact inverse and geometric sensitivity of odd-ring Rule 45",
+          "trigger": "Exact single-site sensitivity for an elementary rule"
+        },
+        {
+          "assessment": "Inaccessible identified note; no negative inference",
+          "evidence": "Both routes returned HTTP 406.",
+          "identifier_or_url": "https://www.wolframscience.com/nks/notes-10-10--cryptographic-properties-of-rule-30/",
+          "material_read": "No full text inspected",
+          "method": "OA website with right-neighbor query, direct and VPN",
+          "title": "A New Kind of Science, Cryptographic Properties of Rule 30",
+          "trigger": "Cited earlier Rule 30 propagation discussion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and boundary proof",
+        "Primary same-observable sensitivity profiles and prior exact left-edge proposition"
+      ],
+      "rationale": "The extreme edge is a natural, observable boundary of the empirical Rule 30 sensitivity profile. Its exact all-time formula gives an analytic reference, distinguishes qualitative irrelevance from exponential survival and full transmission, and explains the distinction uniformly across the whole naturally defined left-permutive elementary class. The fresh-pivot argument matters: local marginal fairness on its own would not determine survival along the path.",
+      "residual_risks": [
+        "No inference about the bulk of the light cone, deterministic seeds or pseudorandomness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

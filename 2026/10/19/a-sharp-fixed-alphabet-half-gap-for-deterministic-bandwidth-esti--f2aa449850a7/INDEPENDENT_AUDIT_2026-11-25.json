@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:18:09.298873Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the stated estimators and reconstructed RESULT.md:22–69. A useful residual p may appear at multiple positions; choosing one witnessed prefix length j suffices for the whole ball, since a path of length t from p can be prepended by this prefix and extended at its useful target. Assigning a shortest path to each noncentral state gives the layer bound even when residuals repeat across positions. For 0≤i≤D each neighboring available layer is nonempty, h0=1, and D≥1, so h_i≤U; with layers zero-padded past D the pair bound h_i+h_(i+1)≤U+1 still holds. One-step determinism gives q. Even radii give (U+1)/2 before taking ceilings; odd radii 2m+1 (m≥1) give [m(U+1)+U]/(2m+1), bounded by (2U+1)/3, including the U=1 boundary. Integer rounding gives strict inequality when U>max(q,3). For fixed q and cutoff R, balls of radius <R are uniformly bounded by the number of positive-length words up to R−1, and radius ≥R averages are at most (U+1)/2+(U−1)/(2R). The one-unit ceiling error vanishes after division; take the upper-tail supremum and then R→∞. In the binary family, distinct first-copy prefixes have disjoint possible second copies, hence distinct residuals. The k=2^d singleton residuals across the T+1 plateau levels are all distinct (including across levels by length); after entering the second copy the number of distinct suffixes is 2^(d−s). Thus U=2k−1 and the initial radius d+T contains at least k(T+1) states besides the center. Taking T=d² gives a ratio lower bound tending to 1/2 with U unbounded; the same languages work over any larger fixed alphabet. Independent suffix-set and BFS replay for (d,T)=(1,1),(2,4),(3,9),(4,16),(5,25) gave (U,B)=(3,2),(7,4),(15,8),(31,15),(63,29); each satisfies the asserted lower witness and upper cap. The uploaded checker and recorded output were evidence only, not executed; the finite replay does not prove the limits. The result is about the two estimators, not their ratio to the exact minimum bandwidth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The deterministic paper gives a depth-dependent relation and explicitly asks about matching on a fixed alphabet in §6.",
+          "The NFA predecessor gives a bandwidth-2 realization for finite languages in the nondeterministic setting."
+        ],
+        "reasoning": "Depth control does not yield a uniform upper envelope at fixed alphabet as length and width both grow. A small nondeterministic realization does not provide an upper bound on the deterministic residual-ball estimator.",
+        "searches": [
+          "arXiv:2608.24246 §5.3 Theorem 6 and §6; arXiv:2606.00663 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and CHECK_OUTPUT.txt (inspection only)",
+        "arXiv:2608.24246",
+        "arXiv:2606.00663",
+        "Resultary 00e635271147 and 294ac7d4ffb0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known LB_ball≤bw_DFA≤U implies at most a unit ratio. Its equality construction varies q. The diagonal NFA analogy uses neither the same estimator nor the plateau parameters."
+        ],
+        "reasoning": "Ruling out equality when U grows at fixed q calls for the lifting bound and the short-radius counting bound, and sharpness additionally needs a witness with a plateau of appropriate length. These do not follow from the known bounds or examples. Infinite fixed-q equality families with U bounded are not excluded.",
+        "searches": [
+          "arXiv:2608.24246 §§5–6 exact estimator ordering, matching example and future-work question",
+          "Resultary 00e635271147 RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5 residual-ball lower bound and Theorem 6 position-unfolding upper bound identify the same estimator roles in the useful deterministic setting.",
+          "Resultary prefix sorting 294ac7d4ffb0 concerns co-lex width and Wheeler state complexity for a different language."
+        ],
+        "reasoning": "The bounds are not new under different names. The new comparison is between their actual numerical values, not a Weyler, co-lex, or nondeterministic-width result.",
+        "searches": [
+          "Resultary finite-language DFA bandwidth, residual-ball and position-unfolding estimator comparators",
+          "Cho–Fazekas–Wiedenhöft arXiv:2608.24246 §§5.2–5.3 Theorems 5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching example {a_j b_j:1≤j≤r} uses 2r distinct alphabet letters.",
+          "The diagonal-language record counts states of epsilon-free NFAs under graph restrictions; the binary zero-run record gives exact trim and Wheeler sizes, not deterministic bandwidth values."
+        ],
+        "reasoning": "The closest exact constructions do not supply a fixed-binary plateau with long strings of distinct singleton residuals or the required estimator-ratio asymptotics. The comparison is over an unbounded language class, not a finite table of small languages.",
+        "searches": [
+          "arXiv:2608.24246 matching example following its estimator development",
+          "Resultary diagonal-language 00e635271147 and prefix-sorting 294ac7d4ffb0"
+        ]
+      },
+      "rationale": "The primary paper gets credit for both estimators, their correctness as bounds, a depth-dependent comparison and an equality example at growing alphabet size. The distinct supported result is the quantitative fixed-alphabet separation for large U and the sharp asymptotic ratio 1/2, not a complete resolution of fixed-alphabet equality at bounded U.",
+      "residual_risks": [
+        "The comparison checks are limited to the actual retrieved passages and semantic neighbors; an equivalent automata-width formulation could be unindexed or missed.",
+        "No conclusion on the exact deterministic bandwidth or on fixed-alphabet estimator equality families with bounded U follows from this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes estimates, comparison through exact bandwidth and growing-alphabet equality; not the fixed-q separation/envelope",
+          "evidence": "Matching example uses 2r letters and §6 leaves fixed-alphabet matching open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.24246",
+          "material_read": "§5.2 Theorem 5, §5.3 Theorem 6, PDF pp. 9–10 (printed 98–99) around offset 28177; §6 PDF p. 12 around offset 35959",
+          "method": "Primary preprint passages inspected at exact locators",
+          "title": "Deterministic Bandwidth of Finite Languages",
+          "trigger": "Exact estimator definitions and fixed-alphabet question"
+        },
+        {
+          "assessment": "Nondeterministic predecessor, not the two residual estimators",
+          "evidence": "Finite languages have nondeterministic bandwidth-2 realizations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.00663",
+          "material_read": "Introduction, PDF pp. 1–2, around offset 2074",
+          "method": "Primary preprint passage inspection",
+          "title": "Bandwidth of Nondeterministic Finite Automata",
+          "trigger": "Predecessor finite-language bandwidth theorem"
+        },
+        {
+          "assessment": "Related family motif, distinct optimization problem",
+          "evidence": "D_n={a_i a_i} is used for state minimization in epsilon-free NFAs under planar, bipartite-cactus or tree restrictions.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-state-cost-and-matching-rigidity-for-diagonal-languages-in--00e635271147",
+          "material_read": "Mirrored RESULT.md Finding, offset 0 onward",
+          "method": "Resultary search and bounded mirror read",
+          "title": "Exact state cost and matching rigidity for diagonal languages",
+          "trigger": "Closest indexed diagonal-word family"
+        },
+        {
+          "assessment": "Different language and width notion",
+          "evidence": "The infinite language avoiding 0^r1 has stated trim partial DFA and Wheeler DFA state counts, not residual-ball and position-unfolding bandwidth estimators.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0",
+          "material_read": "Mirrored RESULT.md Finding, offset 0 onward",
+          "method": "Resultary search and bounded mirror read",
+          "title": "Exact prefix-sorting state cost for avoiding a binary zero run",
+          "trigger": "Indexed fixed-binary ordering and exact automata width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies a limitation of using two inexpensive estimators in place of exact deterministic bandwidth: at large width and fixed alphabet, the lower estimate can reach at most asymptotically half of the upper estimate, and that factor cannot be improved uniformly. This answers the growing-width part of the motivating equality question and supplies a sharp binary family, rather than a small normalization discrepancy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

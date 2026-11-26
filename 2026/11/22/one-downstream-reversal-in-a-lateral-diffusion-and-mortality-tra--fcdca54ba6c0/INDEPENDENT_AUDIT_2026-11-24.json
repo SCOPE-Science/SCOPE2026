@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:37:10.565230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At t=L/v_i the terminal lateral position has variance 2D_it, so its normal tail is erfc(β_i/√L)/2. Independence multiplies that tail by exp(−α_iL). Both factors are strictly decreasing in their own effective parameter for L>0, giving dominance, one-coordinate ties and an everywhere tie exactly as stated. In the strict conflict write J(L)=g(L)−δL with g=log(erfc(β₁/√L)/erfc(β₂/√L)). Comparing the Gaussian tail integral to the integral weighted by t/z proves the strict Mills bound; it gives (log Q)'=1/z−2z+2e^(−z²)/(√π erfc z)>0 for Q=z e^(−z²)/erfc z. Hence g'<0 and J'<−δ, so the unique crossing is transversal. g>0. At L→0, g=(β₂²−β₁²)/L+log(β₂/β₁)+O(L); at infinity g=2(β₂−β₁)/√(πL)+O(1/L). Thus g(L)/L decreases from ∞ to 0, and L*=inverse(g/L)(δ) tends to the correct ends. Multiplying δL*=g(L*) by √L* or L* gives respectively the weak- and strong-gap constants and both exponents for fixed β's. At the root, the partial derivatives in δ, β₁, β₂ have signs negative, negative, positive; J_L<0 gives the same signs for the sensitivities of L*. Swapping labels handles the other strictly conflicting case. Fresh 65-digit numerical check via mpmath bisection for β=(1,2) yields L*=3.2651971332625828 and shared success probability 0.04239078323849283 for α=(0.5,0.1); at δ=10⁻¹² and 10¹² the respective scaled quantities are 1.128562613218 and 3.0000012005652, close to 2/√π and 3. The β sensitivities were spot-checked. Replay cd /workspace && python3 review-evidence/reproduce.py 5; output review-evidence/5.txt. The bounded calculation is supplementary; frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer et al. use settling flux and heterogeneous mortality in a reaction–diffusion model and discuss an intermediate-diffusivity optimum.",
+          "The tracer result treats absorbing first passage, a single CDF crossing and a vanishing-drift scale v⁻². Farò–Wolter full text was blocked; ecological motivation only is described in the frozen record."
+        ],
+        "reasoning": "Broader biological realism or a more general hitting-time kernel does not make the published comparisons parameter-specializations that include the varying survival penalty and both distance scaling laws. The unresolved full text is not negative evidence.",
+        "searches": [
+          "Meyer et al., DOI 10.1007/s12080-021-00512-y, pp. 530–533",
+          "Farò–Wolter DOI 10.1029/2023WR036827 (lawful access attempts)",
+          "Resultary 620a5e737e4d, exact Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_crossing.py",
+        "Resultary 620a5e737e4d full relevant passages, fcdca54ba6c0 self-match, 4d124dc381af summary",
+        "Meyer et al. DOI 10.1007/s12080-021-00512-y; DLMF §7.12(i)",
+        "Attempted Farò–Wolter DOI 10.1029/2023WR036827 and Amos DOI 10.2307/2005632; portions not accessible as stated"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard Gaussian tail monotonicity yields the sign mechanism for g, and classical erfc expansions yield the input to the two different inverse scales. These are prerequisites, not newly established special-function facts.",
+          "The inspected tracer theorem varies a drift and time, not the gap of mortality per deterministic distance. Meyer et al. study a different settling observable."
+        ],
+        "reasoning": "The combined conclusion requires inversion of g(L)/L across both ends under fixed β's and the complete design comparison. No statable implication of the inspected transport theorems produces those constraints. An older function-inequality statement for the identical product remains possible.",
+        "searches": [
+          "DLMF Eq. 7.12.1",
+          "Amos DOI 10.2307/2005632, attempted JSTOR/DOI and lawful alternate publisher retrieval",
+          "Resultary 620a5e737e4d, offsets 0–7881; Meyer et al. DOI 10.1007/s12080-021-00512-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact comparison is e^(−δL) erfc(β₁/√L)/erfc(β₂/√L) versus 1.",
+          "For driftless lateral Brownian motion at a fixed deadline, reflection gives first hitting by the deadline with probability twice the terminal-side probability. Therefore the same ranking holds for independent survival required up to the deterministic deadline plus prior driftless passage, but not by mere substitution for survival only up to a random hit."
+        ],
+        "reasoning": "The factor of two does not distinguish a truly equivalent driftless-deadline comparison. The inspected tracer theorem instead compares positive-drift first-arrival distributions with no exponential survival factor and varying comparison time at fixed reach. Neither the reflected equivalent nor the erfc reformulation identifies an inspected theorem giving both δ regimes.",
+        "searches": [
+          "Web: ratio complementary error functions erfc(a/sqrt(t)) erfc(b/sqrt(t)) monotone unique crossing exponential survival diffusion two designs asymptotic crossing time",
+          "Resultary 620a5e737e4d, Finding, assumptions and proof",
+          "DLMF 7.12.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed matching item is the assigned record itself. The same-day fish-passage summary reports equal-mean exponential and Erlang completion times under common independent mortality and two reversals, not the Gaussian tail comparison. The DLMF tabulates erfc asymptotics."
+        ],
+        "reasoning": "The claim is not a tabulated erfc value, and the classical asymptotic entry is an ingredient. No separate equivalent two-design classification or crossover table was identified. The fish-passage comparison remains summary-only.",
+        "searches": [
+          "Resultary 620a5e737e4d, fcdca54ba6c0, and 4d124dc381af",
+          "DLMF §7.12(i), Eq. 7.12.1; targeted primary search of erfc ratio and survival crossover"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint classification and fixed-lateral-parameter two-regime scaling for survival through the deterministic gate multiplied by a terminal-side probability. Classical erfc, normal-tail ratios and reflection are not novel. Inspected ecology and transport results do not supply the joint exact claim.",
+      "residual_risks": [
+        "A general published inequality for survival-modified Gaussian tails might cover the same joint classification. The targeted search and statement comparisons are not a priority certificate.",
+        "Farò–Wolter, Amos and the same-day fish-passage full text were not independently read. No priority inferred from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Drifted absorbing first-arrival CDFs at fixed distance; no terminal-gate survival multiplier or δ scales.",
+          "evidence": [
+            "CDF crossing compares time distributions; includes a vanishing-drift v⁻² scale."
+          ],
+          "identifier_or_url": "Resultary 620a5e737e4d",
+          "material_read": "RESULT.md Finding, assumptions and proof, offsets 0–7881",
+          "method": "Local full-text mirror",
+          "title": "Sharp arrival-order crossover and vanishing-drift scaling for advective tracer passage",
+          "trigger": "Closest exact transport single-crossing/scaling result"
+        },
+        {
+          "assessment": "Spatially heterogeneous reaction–diffusion and settlement flux, not the deterministic gate ratio theorem.",
+          "evidence": [
+            "Discusses nonmonotone settling with diffusivity under heterogeneous mortality."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12080-021-00512-y",
+          "material_read": "Abstract and model/results near PDF offsets 34300 and 38800, pp. 530–533",
+          "method": "Open Springer PDF passages",
+          "title": "Spatial heterogeneity of mortality and diffusion rates determines larval delivery to adult habitats for coastal marine populations",
+          "trigger": "Joint mortality/diffusion larval-settlement model"
+        },
+        {
+          "assessment": "Unresolved primary access; no detailed negative finding.",
+          "evidence": [
+            "Frozen RESULT.md lines 97,105 characterize it as two-dimensional larval drift/connectivity modeling."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2023WR036827",
+          "material_read": "No primary full text read; only frozen citation and characterization",
+          "method": "Publisher and DOI lawful access attempts returned 403",
+          "title": "Integrating Habitat Suitability and Larval Drift Modeling for Spawning-To-Nursery Functional Habitat Connectivity Analysis in Rivers",
+          "trigger": "River drift and nursery connectivity cited as motivation"
+        },
+        {
+          "assessment": "Gives the erfc large-argument expansion, not a two-design crossover theorem.",
+          "evidence": [
+            "Leading term e^(−z²)/(√π z)."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/7.12#i",
+          "material_read": "§7.12(i), Eq. 7.12.1, HTML offset 0–4480",
+          "method": "Open HTML reference",
+          "title": "NIST DLMF, Asymptotic Expansions",
+          "trigger": "Classical tail asymptotics used for one of the scales"
+        },
+        {
+          "assessment": "Unresolved access; classical ratio tools credited separately, and no absence of the exact result inferred.",
+          "evidence": [
+            "Math. Comp. 27 (1973), 413–427, cited in frozen RESULT.md."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/2005632",
+          "material_read": "Bibliographic identification only; no decisive full-text passage retrieved",
+          "method": "Lawful JSTOR/DOI and publisher-copy attempts",
+          "title": "Bounds on Iterated Coerror Functions and Their Ratios",
+          "trigger": "Potential prior Gaussian-tail ratio inequalities"
+        },
+        {
+          "assessment": "Visible hypotheses differ; closer overlap cannot be judged from unavailable full text.",
+          "evidence": [
+            "Exponential vs two-stage Erlang completion under common mortality, with two reversals in a specified regime."
+          ],
+          "identifier_or_url": "Resultary 4d124dc381af",
+          "material_read": "Indexed summary only; exact source missing from mirror",
+          "method": "Resultary and local mirror attempt",
+          "title": "A sharp mortality threshold for two deadline reversals in fish-passage timing",
+          "trigger": "Same-day related mortality and deadline-reversal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The observable is a natural minimal benchmark for two opposing access and survival mechanisms. Fixing the designs while varying reach makes exactly one switch, rather than any number of switches, a useful constraint; the two distinct limiting scales quantify how the location responds to weakening or strengthening the disadvantage. This is not an empirical river model, a first-settlement criterion, or a prescription for interventions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

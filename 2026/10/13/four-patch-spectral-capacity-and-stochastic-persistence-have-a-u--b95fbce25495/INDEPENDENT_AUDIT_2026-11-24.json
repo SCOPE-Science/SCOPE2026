@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:37:11.253004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–139; VERIFICATION.md; verify_metapop_spectral_discordance.py generator, orbit, difference and census checks (not executed)",
+        "Own replay: python /workspace/review_evidence/patch_times_independent.py"
+      ],
+      "rationale": "In the full-occupancy finite chain, from each nonempty state there is a positive-probability path of only extinctions to the absorbing state, so each transient backward system is invertible at every positive rate. The independent replay builds the full 15-state backward matrix for each graph and solves it symbolically over the rate variable without orbit lumping. The four rational functions and both factored differences match. The cycle-minus-paw sign is the sign of F: the denominator is positive, F has exactly one descending coefficient sign change, and its constant and leading terms have opposite signs. Exact endpoint substitution verifies the bracket and exact evaluation at rate two gives 237101/648778. The two adjacency characteristic polynomials give strict paw superiority since x³−x²−3x+1 changes sign between 2 and 3. With three links, the star has larger spectral radius than the path, and the numerator of star-minus-path is a positive-coefficient polynomial times λ² over positive factors. At n≤3 each nonempty connected fixed-size stratum has one type. At n=4 the lower link stratum is the tree pair, and the four-link pair arises by removing two adjacent or two disjoint edges from the complete graph. This verifies both levels of minimality under the stated constraints.",
+      "residual_risks": [
+        "Only binary homogeneous links, independent unit-rate local extinctions, per-neighbor colonization and full initial occupancy are covered. The result does not order all survival distributions or other initial states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holme–Tupikina obtain exact results for all connected 3–8 vertex graphs and every initial configuration, including the four target instances. Frank's abstract reports landscape-persistence effects of introducing stochasticity. Van de Bovenkamp–Van Mieghem derive exact mean formulas for complete graphs and stars."
+        ],
+        "reasoning": "The older work covers qualitative disagreement, computation of small-graph lifetimes and some raw graph formulas, not a uniform sign certificate for the matched pair or exclusion of every smaller matched stratum.",
+        "searches": [
+          "Holme–Tupikina arXiv:1802.08849, PDF pp. 1–2, 4, 8",
+          "Frank DOI 10.1086/428293; Van de Bovenkamp–Van Mieghem DOI 10.1103/PhysRevE.92.032806"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused comparison and the three distinct records listed above",
+        "Holme–Tupikina arXiv:1802.08849",
+        "Frank DOI 10.1086/428293 (abstract)",
+        "Van de Bovenkamp–Van Mieghem DOI 10.1103/PhysRevE.92.032806 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier star/path record concerns one initially occupied patch and rankings by source site, not the full-occupancy ordering. All-small-graph exact solvability supplies the equations and topology universe but not the all-positive-rate signs. The two later comparisons taken together, with the elementary topology census and spectral comparison, would recover the sharp minimum, although neither states it."
+        ],
+        "reasoning": "An earlier computational framework is not an existing bound, formula table, or theorem establishing these all-rate inequalities. The genuine comparison beyond the old methods is the matched-budget minimum with an all-rate three-link obstruction; do not treat the exact crossing as unique across the present archive or infer historical priority from the later overlaps.",
+        "searches": [
+          "Resultary 2026/10/12 record 0173409a8132 versus full-occupancy star/path; 2026/11/08 records c4456a471a8f and eeb81026ff28",
+          "Holme–Tupikina pp. 1–2, 4, 8 for all-graph scope and rankings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Per-infected-neighbor transmission and unit recovery give the same generator as independent unit extinction and per-occupied-neighbor colonization on the corresponding binary graph. The 2026/11/08 corridor record c4456a471a8f uses C4 and a triangle with a pendant edge, exactly the two graphs here. It gives the same full-occupancy ordering and polynomial."
+        ],
+        "reasoning": "The ecological versus epidemic labels and corridor framing do not distinguish these exact finite Markov comparisons. Weighted spatial capacity and other initial sets, in contrast, change the invariant or the comparison hypotheses.",
+        "searches": [
+          "Resultary: four-patch habitat persistence, paw versus C4, contact-process/SIS mean extinction, full occupancy and unique crossing",
+          "Holme–Tupikina arXiv:1802.08849, model and equations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c4456a471a8f states the same rational formulas, rate-two values, polynomial and interval 1.079524<c*<1.079525. eeb81026ff28 states Tstar>Tpath at every positive rate for each uniform initial count, hence also full occupancy. Both are dated 2026/11/08; the frozen claim is in the 2026/10/13 archive. Holme–Tupikina's published analysis does not tabulate the two specific rational functions in the inspected material."
+        ],
+        "reasoning": "There is explicit catalogue coverage of the component comparisons, stronger than a related-graph or numerical match. Archived dates describe the records, not independently certified priority. Neither matched record states the sharp minimum across equal-(n,m) strata as its result.",
+        "searches": [
+          "Resultary exact paw–cycle crossover and rate bracket; records c4456a471a8f and eeb81026ff28",
+          "Holme–Tupikina, exact small-graph results and configurations"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp equal-order/equal-link minimal disagreement under full occupancy, with a global exclusion of the smaller link stratum. Older exact all-small-graph computations include the raw instances, but their compared statements do not give the all-rate ordering and exclusion. The later dated Resultary corridor record is an explicit equivalent of the paw–cycle crossing itself, and another later dated record explicitly gives the star–path mean inequality; the crossing and inequality are not distinct standalone claims across the catalogue. These overlaps are credited, but do not establish earlier coverage of the combined sharp minimum or settle priority/provenance.",
+      "residual_risks": [
+        "The body of Frank's article was not obtained; its detailed landscape comparisons remain an access risk.",
+        "The provenance and historical priority of the explicit later catalogue overlaps are unresolved; the dated records alone do not establish attribution. A prior exact small-graph table may provide component formulas; no global uniqueness is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent coverage of the crossover and spectral comparison; different scope, no across-stratum minimality statement",
+          "evidence": "Two possible extra links to a P4 yield the same C4 and paw; full-occupancy mean comparisons use the identical root and bracket.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-unique-corridor-placement-reversal-for-extinction-time-on-four--c4456a471a8f/RESULT.md",
+          "material_read": "Finding, assumptions and proof from offset 0; Relationship to prior work at offset 6328",
+          "method": "Local published mirror, bounded passages",
+          "title": "A unique corridor-placement reversal for extinction time on four patches",
+          "trigger": "Exact same pair and root bracket under corridor terminology"
+        },
+        {
+          "assessment": "Includes the full-occupancy mean ordering, not the matched-budget spectral minimum",
+          "evidence": "The star has larger mean extinction time for every positive rate for each uniform initial count, including four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-four-vertex-sis-extinction-tradeoff-between-a-hub-and-a-corr--eeb81026ff28/RESULT.md",
+          "material_read": "Finding and proof starting at offset 0",
+          "method": "Local published mirror",
+          "title": "The four-vertex SIS extinction tradeoff between a hub and a corridor",
+          "trigger": "Explicit neighboring tree-stratum comparison"
+        },
+        {
+          "assessment": "Different initial condition and comparison",
+          "evidence": "One initially occupied patch and a source-site dependence, not the full-occupancy star/path inequality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-a-unique-persistence-ranking-reversal-between-four-patch-star-an--0173409a8132",
+          "material_read": "Finding and initial-occupancy hypotheses",
+          "method": "Local published mirror",
+          "title": "A unique persistence ranking reversal between four-patch star and path",
+          "trigger": "Earlier same graphs as the lower-link stratum"
+        },
+        {
+          "assessment": "Covers raw instances and exact method, not the matched spectral comparison, uniqueness or minimality in the inspected passages",
+          "evidence": "Reports 12,110 connected graphs and 2,963,056 configurations, with exact times under the same rate convention; ranking analysis centers on configurations within graphs, with large-rate structure discussed separately.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.08849",
+          "material_read": "PDF pp. 1–2, 4 and 8; model, exact scope, configurations and structure discussion",
+          "method": "OA preprint PDF, bounded passage checks",
+          "title": "Epidemic extinction in networks: insights from the 12,110 smallest graphs",
+          "trigger": "Exact calculations in the equivalent model for all small graphs"
+        },
+        {
+          "assessment": "Broad effect credited; exact full-text scope unresolved",
+          "evidence": "Abstract describes deterministic/stochastic landscape comparison and effects of patch configuration, number and size distribution, without naming the pawn/cycle comparison or its rate crossing.",
+          "identifier_or_url": "https://doi.org/10.1086/428293",
+          "material_read": "Indexed abstract only; full body unavailable",
+          "method": "Indexed abstract and lawful publisher, repository, PubMed and JSTOR routes attempted",
+          "title": "Metapopulation persistence in heterogeneous landscapes: lessons about the effect of stochasticity",
+          "trigger": "Earlier ecological effect of stochasticity on landscape persistence"
+        },
+        {
+          "assessment": "Exact star and complete-graph background, not confirmation of same-pair coverage",
+          "evidence": "Abstract states exact mean survival-time expressions for complete and star graphs and notes difficulty of cross-topology comparisons.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.032806",
+          "material_read": "TU Delft repository PDF first-page abstract",
+          "method": "OA PDF passage",
+          "title": "Survival time of the susceptible-infected-susceptible infection process on a graph",
+          "trigger": "Exact star and other canonical graph formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, scope and sharp minimality proof; independent full-state symbolic replay; all-small-graph and later catalogue comparisons above"
+      ],
+      "rationale": "Equal order and size hold the patch and link budgets fixed for a motivated comparison of two inequivalent persistence measures. The minimality theorem isolates the first structural obstruction and excludes a reversal on either four-patch tree at any positive rate. The crossover certificate says precisely on what rate side the spectral ranking fails, not just that a counterexample can occur. Value is in the combined sharp boundary and comparison, not in recomputing all small-graph lifetimes or asserting a new general ecological phenomenon.",
+      "residual_risks": [
+        "Does not interpret the original spatially weighted metric as universally equivalent to this binary proxy or establish an empirical conservation rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

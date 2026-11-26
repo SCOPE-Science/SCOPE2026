@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Executed checks
+## correctness
 
-The standalone `VERIFY.py` was run with Python 3 without third-party dependencies. For \(d=0,1,2,3\), it generated the complete nonempty independence-face collections for the five-cycle substitution with \(H=(d+1)K_2\), canonicalized all faces under the ten-element dihedral group, and compared their orbits bijectively with the two-element stabilizer orbits of the chosen diagonal-pair join. Counts: \((30,5)\), \((360,44)\), \((3510,377)\), \((32400,3320)\) for (faces, orbits), respectively. It independently exercised the standard integral projective-cell-boundary formula through \(d=8\), including the degree-four \(\mathbb Z/2\) class for \(d=2\).
+PASS
 
-## Proof-level checks
+The five maximal independent supports of C5 are the five diagonals, so the corresponding joins cover the complex and form a transitive family. On a chosen pair, any group identification between two points of two-position support belongs to the pair stabilizer. On singleton support, it is either equality or the stabilizer swap since inner labels cannot change. Thus the map from the swap quotient of one join onto the full geometric orbit space is bijective as well as continuous, and compact–Hausdorff makes it a homeomorphism. This uses points with nonzero barycentric mass, including points on inverted faces, not only face or vertex orbits. For (d+1)K2 the fibre is the crosspolytope-boundary sphere; the sphere-join model is equivariant by using coordinates (sqrt(1-t)x,sqrt(t)y). Diagonal and antidiagonal coordinates conjugate the swap to a sign on the second sphere factor, and the resulting orbits are exactly the join with RP^d, including endpoints. The unreduced iterated suspension is homotopy equivalent to the based version for this based connected CW complex. The alternating 0,2 cellular differential of RP^d gives the stated integral groups after d+1 suspensions; in d=2 the degree-two attaching map suspends to the cofiber S^4 ∪_2 e^5, giving the Moore-space type, not just the same homology. For the unquotiented comparison one can also use the short exact cellular chain sequence from the five pairwise overlaps, the five joins and their union (each fibre occurs in exactly two joins, with no triple overlaps); the overlap-to-joins map induces zero in positive degrees for these sphere fibres, and its degree-zero map is the pentagon incidence matrix. This gives free reduced homology in degrees 1,d+1,2d+1. Independent /workspace/evidence/pentagon.py (pentagon.txt) recovers the bounded face-orbit counts by Burnside using the number of fibre faces, not by running the packaged script. Face counts alone do not establish a geometric quotient theorem.
 
-The unrestricted result follows from uniqueness of two-support outer independence sets, the exact treatment of single-support overlaps, a compact-Hausdorff quotient argument, an equivariant sphere model, and an orthogonal conjugacy between factor swap and a sign involution. The claimed homology shifts follow from integer cellular boundary coefficients \(0\) and \(2\), not from mod-two Betti numbers alone.
+## originality
 
-## Limits
+PASS
 
-Finite enumerations do not prove an arbitrary-graph or all-dimensions theorem; that scope rests on the written proof. The script does not construct a full chain equivalence of the orbit spaces, because the proof establishes an actual homeomorphism. Independent mathematical audit has not been performed.
+The supported distinct claim is the geometric stabilizer reduction for this entire pentagonal family, with the resulting integral quotient torsion. Neither the unequivariant substitution decomposition nor the projective-space computation for a swapped pair of sphere factors should be claimed as new. A separate same-day entry has material overlap for the outer action with circle fibres but does not identify the geometric quotient; ordering or priority is not inferred from the date.
+
+## value
+
+PASS
+
+There is a useful geometric quotient identification for arbitrary fibre, not just a torsion number. It gives an infinite and explicit family where ordinary dihedral quotients acquire integral 2-torsion although the original complex has free homology. The support-overlap argument also explains why naive vertex identification or nonfree rational transfer cannot by itself recover the integral orbit topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

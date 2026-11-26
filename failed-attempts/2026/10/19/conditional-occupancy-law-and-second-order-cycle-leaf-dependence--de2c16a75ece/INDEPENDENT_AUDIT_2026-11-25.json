@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:24.028680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–133",
+        "Frozen VERIFICATION.md and verify_unicyclic.py (inspected, not executed)",
+        "/workspace/frozen_math_replay.py"
+      ],
+      "rationale": "Cycle removal gives a uniform fixed-root forest. Deleting r prescribed nonroot leaves and independently restoring their parents gives the ratio (1−r/n)^(n−k−1) of compatible forests, which determines the joint indicators and the occupancy law; the all-cycle case has no leaves. Cycle counts give the conditioned Poisson law, and consecutive conditional means have strictly negative differences in k. On the √n cycle scale a Taylor expansion yields (1−x²)/(2e); the consecutive differences also give the global bound |mₙ,ₖ−n/e|≤C(1+k²/n). Poisson moment bounds then justify the mixed moment and covariance limit using E|Z|³=2E|Z|. For the conditional CLT, Fourier inversion in total Poisson count at its mean conditions the joint Gaussian limit: the marked-box outcomes (1,0) and (2,0) bound the integrand modulus by exp(−cn u²) uniformly in the other Fourier parameter near zero, allowing the scaled Gaussian integral. The Schur complement is e⁻¹−2e⁻². Uniformity for bounded k/√n and tightness give the independent joint limit. Vacancy indicators have nonpositive pair covariance, bounding the exact conditional variance by n/4 for the variance limit. Independent replay, python3 /workspace/frozen_math_replay.py 1, enumerates fixed-root parent maps for n=3,…,7 and checks the joint counts, including 68,295 graphs at n=7. The finite check does not establish the limit.",
+      "residual_risks": [
+        "The convergence is weak, not a local limit assertion about the graph statistics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moon gives the fixed-root count. Noy and Janson–Knuth–Łuczak–Pittel give unmarked rooted-tree constructions. Drmota et al. address more general graph classes, not conditioning on a unique cycle length. 3ee31f6dc5e8 gives a finer factorial-moment law resolving shallow versus deep leaves."
+        ],
+        "reasoning": "The classical literature supplies ingredients rather than the evaluated half-normal mixed covariance. The indexed shallow/deep refinement contains the total conditional leaf law upon summing the two counts but studies different mixed asymptotics.",
+        "searches": [
+          "Moon, Counting Labelled Trees §§3.5–3.6",
+          "Noy, Graph Enumeration §6.3",
+          "arXiv:math/9310236v1 §3",
+          "arXiv:1003.4699 §8.1",
+          "Resultary 3ee31f6dc5e8, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9f53c3cb582f, 007c2a04bfe9 and 3ee31f6dc5e8",
+        "Moon §§3.5–3.6",
+        "Noy, Graph Enumeration §6.3",
+        "arXiv:math/9310236v1 §3",
+        "arXiv:1003.4699 §8.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mapping proof is uniform over cyclic permutations at fixed root set and size; conditional occupancy is unchanged on restricting to one cycle. Its unconditional coefficient differs because the mapping core has a Rayleigh rather than half-normal limit. The exact unicyclic entry already supplies the distinct half-normal coefficient and joint normal/half-normal law."
+        ],
+        "reasoning": "One must not transfer the unconditional mapping covariance; the same-ensemble result settles that part independently. The independent-copy covariance identity extends any strictly decreasing conditional expectation to all nonconstant nondecreasing test functions. The PGF is a repackaging of the occupancy distribution, and the extra mean/variance statements are routine consequences of the same moment bounds and exact law.",
+        "searches": [
+          "007c2a04bfe9, Proof: Conditional rooted-forest law and Prescribed terminals",
+          "9f53c3cb582f, Finding and proof passage around offset 7617"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9f53c3cb582f gives the identical law in binomial moments, the same independent joint weak limit, and the same coefficient, −1/(e√(2π))=−√(2/π)/(2e).",
+          "007c2a04bfe9 gives the identical conditional factorial moments for each fixed cyclic set and permutation, including the all-cyclic boundary."
+        ],
+        "reasoning": "Multiplication by r! converts binomial moments to falling-factorial moments. A connected mapping with its sole directed cycle of length ≥3 gives an undirected unicyclic graph; conversely each such graph has exactly two orientations of its cycle and uniquely oriented trees toward it. Indegree zero in the mapping is precisely noncycle degree one in the graph.",
+        "searches": [
+          "Resultary semantic lookups for unicyclic cycle–leaf covariance, conditional occupancy, and random-mapping cyclic-core leaves",
+          "9f53c3cb582f and 007c2a04bfe9, RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9f53c3cb582f explicitly matches the normalization, finite law including k=n, decreasing mean, quadratic response, Gaussian variance and sharp covariance limit for the exact same graph ensemble."
+        ],
+        "reasoning": "This is not just a numerical match or a duplicate pointer to the assigned file: it is a distinct indexed statement with its own proof. Differences in catalogue dates are not a claim of priority.",
+        "searches": [
+          "Resultary ranked searches for uniform connected simple labeled unicyclic cycle length and leaf count, and for second-order covariance",
+          "9f53c3cb582f, local mirror RESULT.md, Finding"
+        ]
+      },
+      "rationale": "A distinct published indexed record, 9f53c3cb582f, covers the same ensemble, cycle law, exact occupancy law, strict conditional regression, independent Gaussian/half-normal limit, quadratic conditional mean shift and sharp raw covariance coefficient. Allowing nonconstant nondecreasing tests instead of strictly increasing ones follows immediately from the same strict regression and positive support. The generating function and unconditional mean and variance limits follow from the shared occupancy law and moment analysis; they do not supply a distinct substantial remainder. In addition, 007c2a04bfe9 already contains the actual fixed-root conditional occupancy calculation in mapping language, which transfers exactly to one directed cycle of length at least three and then by forgetting the cycle orientation. This is a finding of demonstrated coverage, not a finding about which version was first public: index dates alone do not establish chronology or derivation.",
+      "residual_risks": [
+        "The exact publication order of the separate versions and historical priority were not determined.",
+        "Other published marked generating functions could also encode the law; this is not needed for the coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the substantive theorem; release priority not adjudicated",
+          "evidence": "Exact empty-box and cycle laws, strict regression, independent limit, quadratic response and −1/(e√(2π)) coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cycle-leaf-dependence-in-uniform-connected-unicyclic-graphs--9f53c3cb582f/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; conditional fluctuation argument around offset 7617",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "Cycle–leaf dependence in uniform connected unicyclic graphs",
+          "trigger": "Direct matching model and sharp covariance"
+        },
+        {
+          "assessment": "Mechanically implies the conditional occupancy law after restricting to a single cycle and forgetting orientation, not the unconditional graph coefficient alone",
+          "evidence": "For a fixed permutation every rooted forest is equally likely; prescribed terminals give the exact same probabilities. The unrestricted mapping coefficient is −√(π/2)/(2e).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9/RESULT.md",
+          "material_read": "Finding, assumptions, and opening proof at offset 0",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Possible exact law after restricting cyclic permutations"
+        },
+        {
+          "assessment": "Finer finite law for two kinds of leaf; different asymptotic focus",
+          "evidence": "Mixed factorial moments partition leaves into cycle-adjacent and deeper classes.",
+          "identifier_or_url": "Resultary 3ee31f6dc5e8",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Shallow–deep leaf dependence around the cycle of a random unicyclic graph",
+          "trigger": "Potential stronger conditional classification"
+        },
+        {
+          "assessment": "Counting framework and related limits, not a direct matching evaluated theorem in the inspected passages",
+          "evidence": "Fixed-root formula k n^(n−k−1), unmarked unicyclic constructions, and degree limits for subcritical graph classes.",
+          "identifier_or_url": "Moon monograph §3.5; Noy §6.3; arXiv:math/9310236v1; arXiv:1003.4699",
+          "material_read": "Moon §§3.5–3.6, Theorems 3.3–3.4; Noy §6.3; Janson et al. §3 p. 8; Drmota et al. §8.1 pp. 26–27",
+          "method": "OA passage inspection",
+          "title": "Counting Labelled Trees; Graph Enumeration; The Birth of the Giant Component; Asymptotic Study of Subcritical Graph Classes",
+          "trigger": "Classical fixed-root counting and possible already evaluated leaf/cycle laws"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 27–50 and 90–129",
+        "Resultary 9f53c3cb582f"
+      ],
+      "rationale": "The substantive probability phenomenon is useful: two natural graph statistics are asymptotically independent at their first fluctuation scale while the conditional mean encodes a nontrivial residual response and a sharp smaller covariance. This evaluates scientific content, not distinctness; the covered formulas do not offer a separate viable repair.",
+      "residual_risks": [
+        "The conclusion is specific to connected simple labeled graphs of excess zero."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

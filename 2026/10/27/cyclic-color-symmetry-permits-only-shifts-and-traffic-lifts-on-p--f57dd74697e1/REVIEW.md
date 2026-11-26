@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Equivariance reduces local rules to four independent ternary offsets. The eight preservation inequalities are necessary and sufficient because all eight input sign triples occur in proper colorings. Exact exhaustive checking of all 81 offsets (and independent direct-color verification) gives 15 compatible maps. Identifying their induced binary traffic rules proves the nine invertible cases and, by explicit absent output words, the six nonsurjective cases. The full-symmetric specialization is checked locally. The standalone verifier reproduces these claims.
+## correctness
 
-**Originality — PASS under inspected evidence.** Salo and Törmä's general theory of permutation-centralizing cellular automata includes subshift extension theorems, but it does not determine this specific 15-map cyclic-symmetry centralizer. Fukś's Rule 184 paper studies the binary traffic map but not its forced occurrence in a complete three-coloring local-rule census. Published-literature index searches and comparisons with recoverable earlier findings did not identify a statement implying this exact classification. An unindexed equivalent result remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a complete and natural low-radius classification on the proper-three-coloring shift: cyclic color symmetry allows exactly two nonlinear mechanisms up to uniform color rotation, both recognizable traffic dynamics, while full color-permutation symmetry permits only the coordinate shifts. The rigidity/non-surjectivity distinction is more informative than a list of local rule codes.
+Verified symbolically, without executing the frozen verifier. Each of the four pairs of adjacent increments gives one free color-rotation orbit of proper triples, so the rule is center color plus g(u,v); every increment triple extends bilaterally. Thus v+g(v,w)−g(u,v) must never be zero mod 3. Normalize g(−,−)=0 and call the other entries b,c,d in order (−,+),(+,−),(+,+). The test reduces to b≠1, c≠2, c−b≠2, d−b≠2, d−c≠1. In (b,c) order (0,0),(2,0),(0,1),(2,1), the allowed d sets are {0},{0,2},{0,1},∅, respectively. This is exactly the five listed classes modulo constant offsets; all are distinct on admissible triples and each has three color translates. The increment rule for T+ on bits (a,b,c) is (a AND NOT b) OR (b AND c), hence 184, and T− gives its bit-complement conjugate, 226. For 184 reading 1100 from all predecessor pairs leaves successively {00,01,11}, {11}, {10}, and ∅; the complementary witness gives 0011 for 226. Every binary sequence has a proper coloring lift, so a missing edge cylinder implies nonsurjectivity of each lift; the remaining nine maps have explicit shift/rotation inverses. Reflection x↦−x conjugates T+ to T− and excludes both distinct traffic classes, and negates the constant rotations while preserving the spatial shifts. Together with cyclic symmetry this leaves exactly three maps. The frozen script's finite ring checks are supplementary; the local constraints and predecessor witnesses apply to bilateral configurations, only within the stated centered radius.
 
-**Scope and residual uncertainty.** No statement is made about arbitrary radii or other alphabets. Prior general automaton theorems, binary traffic dynamics and the historical-priority risk are explicitly separated from the newly classified cyclic-symmetry family. A separate independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the whole low-radius proper-coloring classification, including exactly which classical binary rules are induced and the consequent surjectivity and full-permutation subcounts. Neither the traffic update itself nor the general extension framework is credited as new. The primary extension result and the strongest indexed traffic-image match do not classify local rules that preserve this particular constrained shift.
+
+## value
+
+PASS
+
+This is a complete classification at the first nontrivial locality radius for a natural nearest-neighbor constraint and natural color symmetry. It shows a structural dichotomy between isomorphisms and a specific pair of traffic factors, and explains why enforcing all color permutations removes the noninvertible maps. That content is more informative than the bare count 15 or a small-ring census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

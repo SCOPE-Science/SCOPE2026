@@ -1,19 +1,21 @@
-# Scientific review: minimum maximal matchings of the Nauru graph
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The minimum size is at least eight: the 36 graph edges must be dominated by matching edges, each of which dominates at most five edges in a cubic graph. Two independent exhaustive constructions establish that there are exactly 90 feasible eight-edge maximal matchings. One enumerates all independent sets of eight omitted vertices and their complementary perfect matchings; the other branches directly on matched or unmatched vertices. The independently generated lists agree entry by entry. All 4,005 unordered pairs of states are compared under the exactly defined replacement metric, giving the stated exchange graphs. Independent certificate checking reconstructs the graph, maximality, transitions, components, shortest paths and induced dihedral symmetry actions. The methods are finite exhaustive proofs, not extrapolations from a sample.
+PASS
 
-## Originality — PASS (provisional literature judgment)
+An edge of the cubic host can dominate at most five edges, itself included; a maximal matching dominates all 36, so it needs at least eight. Independent increasing-edge recursion enumerated 293436 eight-edge matchings and tested maximality by exhaustion of all nonconflicting edges, including lower-numbered ones. Exactly 90 survive. Separate independent-set recursion gives 2964 possible omitted eight-sets, and the matching census has 90 distinct omissions with one completion each. All canonical states, all transitions, component lists, eccentricities and the two symmetry actions match the supplied certificate. Rotation acts as [1,2,0] and reflection as [0,2,1] on the three 30-state components, each four-regular and self-centered at five. The respective transition counts are 0,180,180,522. At four the graph is connected with degree profile 11:72,14:18 and eccentricity profile 3:18,4:72, proving the threshold and the stated radius and diameter.
 
-Brazil, da Fonseca, de Figueiredo and Sasaki (arXiv:1204.2727, 2012) already display an eight-edge maximal matching of the Nauru graph. That scalar value is not asserted as novel. Yannakakis and Gavril (1980) establish the edge-domination framework. Solomon and Solomon (2021) study matching reconfiguration with a permitted one-edge drop in cardinality, unlike the no-slack minimum-maximal constraint imposed here. Edge-dominating-set token sliding without the matching requirement is likewise a different state space. Direct inspections, targeted mathematical searches and comparisons with related finite graph findings did not identify prior coverage of the 90-state enumeration, the three 30-vertex components, or the sharp four-edge threshold. Remaining uncertainty includes unindexed tables, alternate terminology and supplementary computations; absence of a search hit is not proof of publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-A minimum maximal matching is an optimal independent edge-dominating set. This is a natural local-coverage optimization problem in its own right, and a small change budget can determine whether one optimum is maintainably transformed to another. For the Nauru graph, the elementary minimum cardinality had been known but not the geometry of **all** its optimal solutions. Here every optimum is frozen under one-edge substitutions, two-edge moves give three mutually isolated but internally connected regions, and precisely four simultaneous substitutions are needed for universal reachability. This sharp resource-versus-mobility boundary and the symmetry explanation are the motivating mathematical facts, not an arbitrary isolated count. No general theorem outside this graph is claimed or needed for the finite classification's value.
+The independent assessment credits the earlier eight-edge witness and the elementary lower bound, and accepts only the 90-state classification and exact replacement geometry, especially the sharp four-edge threshold with no slack. The strongest same-host indexed results use perfect matchings; the strongest same-state-class analogues use different hosts. Read comparison passages do not imply this exact Nauru claim.
 
-## Limits and closest literature
+## value
 
-This is an exact finite classification, not a general result for cubic graphs. It assumes two endpoint matchings both remain minimum maximal after each permitted simultaneous exchange; states below the optimum size or nonmaximal states are disallowed. The 2012 Nauru matching example and the later broader reconfiguration with cardinality slack are intentionally not recast as new work. Broader databases and inaccessible or unindexed supplementary materials remain a residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On a standard cubic symmetric graph, the least simultaneous update budget for traversing every optimal matching answers a natural no-slack reconfiguration question. The exact obstruction is stronger than one-move freezing: two exchanges give three symmetric components, a third does not add a single edge, and four restore connectivity and bound travel. The complete state and transition data form an independently useful finite benchmark for minimum edge domination with the matching restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

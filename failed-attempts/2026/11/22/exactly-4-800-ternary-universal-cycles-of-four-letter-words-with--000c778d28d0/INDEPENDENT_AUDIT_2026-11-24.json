@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:45:18.942492Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Frozen VERIFICATION.md, verify_cycles.py, and verify_prism.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/check_4_5.py"
+      ],
+      "rationale": "There are 36 windows, since one of three symbols is doubled and the locations and ordering can be chosen in 6 and 2 ways. Euler circuits in the overlap graph give exactly the cyclic words, since the 36 arcs are the distinct consecutive windows and fixing the unique 0120 normalizes rotation once. At an all-distinct state abc the three completions trace paths of lengths 1,2,3 to bca,cba,cab respectively; the intermediate vertices each have a unique predecessor and successor, and the paths exhaust the 36 arcs. The six states form the bidirected triangular prism, with 75 spanning trees from the product Laplacian, giving 75 in-arborescences at the root and 75·(2!)^6 by fixed-first-edge BEST. An independent direct search on the uncontracted arcs enumerated 4,800 such words and verified their windows. The stated representative is in that set and is the least lexicographic word when rooted at 0120. The frozen cycle script prints its first witness rather than explicitly asserting equality to the printed representative; the independent check verified membership directly.",
+      "residual_risks": [
+        "The count treats rotations only, with labeled symbols and distinct reversal unless it is already a rotation. No larger-order result follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The onto-functions and required-characters theorems cover existence for this exact language. The repeated-letter existence theorem concerns a different, broader window language. The distinct indexed record further classifies the exact same 4,800 cycles under alphabet relabeling and reversal."
+        ],
+        "reasoning": "Existence theorems alone do not cover the count, but the indexed full census covers it explicitly. The repeated-letter language is not interchangeable with the target.",
+        "searches": [
+          "arXiv:0805.1672, Theorem 4",
+          "arXiv:0808.1309, Theorem 4",
+          "arXiv:1008.2251, Theorem 11",
+          "arXiv:1303.3323, Theorem 5",
+          "Resultary 2e6d8e176d7d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary companion 2e6d8e176d7d and nearby ac5120e68159",
+        "arXiv:0805.1672",
+        "arXiv:0808.1309",
+        "arXiv:1008.2251",
+        "arXiv:1303.3323"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion explicitly gives the same 75 spanning trees of the same contracted prism, then 75(2!)^6; the broader existence sources already guarantee some example."
+        ],
+        "reasoning": "The count is covered as a full statement and repeats the key reduction, not just an incidental matching number. A single ordinary witness demonstrates existence but does not rescue a distinct exact claim. No publication order follows from the shared date.",
+        "searches": [
+          "Companion RESULT.md, overlap graph and BEST proof",
+          "arXiv:0805.1672, Theorem 4",
+          "arXiv:1008.2251, Theorem 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact companion Finding gives 4,800 modulo cyclic rotations of the labeled alphabet with all three symbols required.",
+          "A length-four word over three symbols uses exactly three symbols if and only if it is surjective onto those symbols."
+        ],
+        "reasoning": "The two enumerated sets and their equivalence relations coincide identically. The separate index entry for the reviewed record itself is not counted as overlap.",
+        "searches": [
+          "Resultary ternary four-letter exactly-three-symbol and surjection U-cycle lookup",
+          "Resultary 2e6d8e176d7d",
+          "arXiv:0805.1672, Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The companion lists 4,800 and independently specifies the full orbit histogram 20·6+390·12=4,800. The nearby repeated-letter census lists 36 cycles at q=3 for length-three, two-symbol windows."
+        ],
+        "reasoning": "The first figures cover the exact invariant; the second count has incompatible windows and is not evidence of coverage.",
+        "searches": [
+          "Resultary 2e6d8e176d7d, Finding and orbit census",
+          "Resultary ac5120e68159, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed record gives exactly the same 4,800 count for the same 36 labeled windows modulo rotation and derives it by the same triangular-prism and BEST reduction. This is verified equivalent coverage, not a claim about which same-day finding was first. The explicit example is valid but provides only an existence witness, not a new extremal, symmetry, or structural property.",
+      "residual_risks": [
+        "Available evidence does not establish priority between the two indexed companions and does not exclude further unindexed coverage. Neither qualification changes their mathematical equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the count and derivation; no priority finding",
+          "evidence": "Every symbol present, 4,800 labeled cycles modulo rotation, 75(2!)^6; also quotes the stricter symmetry census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exactly-4-800-ternary-surjection-universal-cycles-in-410-symmetr--2e6d8e176d7d",
+          "material_read": "RESULT.md, Finding, Assumptions, overlap graph, BEST and symmetry census",
+          "method": "Resultary local mirror and exact frozen companion text",
+          "title": "Exactly 4,800 ternary surjection universal cycles in 410 symmetry classes",
+          "trigger": "Exact potential duplicate under surjective-word formulation"
+        },
+        {
+          "assessment": "Different language",
+          "evidence": "Length-three words with two symbols; 36 cycles at q=3.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact enumeration of universal cycles with precisely one repeated letter",
+          "trigger": "Nearby exact ternary enumeration under different word parameters"
+        },
+        {
+          "assessment": "Existence for exact window set",
+          "evidence": "Onto-function U-cycles exist iff k>n.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.1672",
+          "material_read": "Theorem 4, p. 3 (offset 6697)",
+          "method": "OA PDF targeted passage",
+          "title": "Universal Cycles of Discrete Functions",
+          "trigger": "Surjective-word formulation"
+        },
+        {
+          "assessment": "Restates existence",
+          "evidence": "Gives and attributes the onto-function criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.1309",
+          "material_read": "Theorem 4, p. 3 (offset 5362)",
+          "method": "OA PDF targeted passage",
+          "title": "Universal Cycles of Restricted Classes of Words",
+          "trigger": "Surjective-word aliases"
+        },
+        {
+          "assessment": "General existence only in passage inspected",
+          "evidence": "Requires a prescribed set of characters, which may be the entire alphabet.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2251",
+          "material_read": "Theorem 11, p. 12 (offset 28029)",
+          "method": "OA PDF targeted passage",
+          "title": "On Universal Cycles for New Classes of Combinatorial Structures",
+          "trigger": "Required-character generalization"
+        },
+        {
+          "assessment": "Broader language, not the exact census",
+          "evidence": "Existence for length at least four with a repeated letter; the language includes windows using fewer than three symbols.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.3323",
+          "material_read": "Theorem 5, p. 3 (offset 9000)",
+          "method": "OA PDF targeted passage",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "Repeated-letter existence result cited in frozen source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Companion RESULT.md, Finding and proof",
+        "arXiv:0805.1672, Theorem 4"
+      ],
+      "rationale": "The exact rotation count is a natural finite invariant, but once its identical indexed census and derivation are credited the submission supplies only an ordinary member of the set. Its listing has no specified distinguished property and does not address a further scientific question; it is readily generated from the existing existence construction or census.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over every pair of real \(2\times2\) operators with a uniform accretivity gap \(\mu>0\) and uses one fixed maximum-entry norm. Its elementary polar formula is verified from the Frobenius rotation maximization and positivity of determinant. The independently attainable trace and skew variations give the exact Jacobian norm, not a loose triangle bound. The piecewise scalar derivative has one global maximizer, with the displayed radical verified by substitution. The domain is convex, allowing integration; explicit positive one-sided perturbations approach the bound at an admissible boundary matrix. No finite experiment is used as an infinite proof. The supplementary code checks the algebra and a wide range of examples. No missing boundary case was found.
+## correctness
 
-## Originality — PASS (with residual historical priority risk)
-Primary full-text comparison: Mbekhta's polar-operator representation/approximation results focus on one-operator limits, not sharp two-input entrywise sensitivity. Duong–Philipp's polar perturbation bounds use operator norms and gap/index hypotheses; Liu–Luo–Xu's theorems use multiplicative changes and unitarily invariant/Frobenius norms. The 1989 Frobenius and 1991 norm-condition results give broader ambient perturbation theory but no statement implying the *sharp entrywise coefficient on the accretive half-space*. Published research-result searches on precise polar, planar, skew-to-trace and sharp-entrywise aliases returned only different semidefinite-projection, polar-descent, and geometric problems. Compact positive-box vector-normalization estimates cannot imply the result on the unbounded accretive matrix domain. This does not exclude an equivalent older formula in an unindexed or uninspected reference, particularly for planar orthogonal Procrustes conditioning.
+PASS
 
-## Mathematical value — PASS
-A uniform positive symmetric part is a natural coercivity margin ensuring robust polar-orientation extraction in discrete numerical dynamics. The exact output-to-input maximum-entry modulus quantifies worst individual entry errors (which spectral or Frobenius formulas do not directly optimize), including an algebraic amplification strictly exceeding the naive \(1/\mu\) scale and a uniquely determined extremal nonnormal geometry. The invariant is a complete sharp coefficient on a natural, unbounded, convex operator class, with reusable perturbation witnesses and no arbitrary finite slice.
+On the stated real 2×2 domain, det A = det(sym A) + ((A21−A12)/2)^2 > 0, so the rotation maximizing the Frobenius pairing is the polar factor. Its two distinct entry functions are u/r and v/r with u=tr A, v=A21−A12 and r=hypot(u,v). Unit max-entry perturbations give the entire box (du,dv) ∈ [−2,2]^2, so the two absolute row sums yield exactly 2(u+|v|)max(u,|v|)/r³. The scalar envelope after u≥2μ has derivative sign 1−3t−2t² for 0≤t<1 and −(t−1)(t²+3t+1) for t>1. Substitution gives the stated radical and the unique nonnegative optimizer t*. The signed skew can have either sign. The domain is convex for the global integration step. At μ(I+t*J), the direction I−J realizes the largest derivative and points into the domain, giving an admissible sequence of distinct pairs and the sharp supremum. A separate finite-difference calculation at μ=1 reproduced convergence to approximately 1.1429850281; neither this check nor the frozen numerical script establishes the global claim.
 
-## Limitations and closest literature
-The result is two-dimensional and uses absolute-entry rather than induced-row or operator norms. The upper domain is unbounded; the exact equality is attained as a derivative limit. Closest references are Mbekhta (doi:10.3934/dcdss.2020463), Duong–Philipp (arXiv:1602.05304), Liu–Luo–Xu (arXiv:1807.03298), Chen–Sun (1989), and Kenney–Laub (1991). There is still residual priority uncertainty for specialized two-dimensional polar conditioning. Supplemental floating-point checks do not certify a universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical planar rotation formula and general polar-factor perturbation theory are background. The compared prior inequalities do not give the sharp maximum-entry modulus on the accretive half-domain; norm conversion loses the joint trace/skew constraints responsible for the optimizer. The accepted distinction is the exact modulus and its feasible sharp geometry, not a new polar decomposition formula. This is a best-of-knowledge comparison, not an assertion of historical priority.
+
+## value
+
+PASS
+
+Entrywise errors in a planar matrix and errors in the extracted rotation entries are naturally measured in the same maximum norm. The exact result decides that 1/μ is insufficient, identifies the anisotropic trace/skew geometry causing the gap, and provides an admissible boundary witness. These are useful worst-case statements not interchangeable with Frobenius or spectral perturbation estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

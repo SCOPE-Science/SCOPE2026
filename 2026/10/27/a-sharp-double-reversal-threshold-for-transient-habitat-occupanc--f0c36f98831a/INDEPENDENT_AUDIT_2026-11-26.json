@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:18.292916Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–70",
+        "Frozen VERIFICATION.md and verify_two_reversals.py (inspection only)",
+        "Independent analytic derivative and exact signs, with bounded bisection replay"
+      ],
+      "rationale": "Solving the two scalar ODEs gives A=d+u e^(−r_f t)−v e^(−r_s t), with positive initial and limiting differences. Equal rates give a monotone or constant difference and no crossing under those endpoint conditions. For unequal rates, multiply A' by e^(r_f t); its sign is that of −r_f u+r_s v e^((r_f−r_s)t). Except for the constant case it has at most one zero. A strict interior minimum requires u,v>0 and r_f u>r_s v, and its depth relative to d is exactly m by the stationary equation. Hence d<m gives two simple crossings and d=m a quadratic tangency. At the minimum A''=r_f r_s m, so for fixed amplitudes and rates, d=m−η gives displacements ±√(2η/(r_f r_s m))+O(η) and the claimed gap. For the supplied interior witness the exact signs at t=0, log 2 and ∞ are 1/20, −1/80 and 1/10. Independent bisection of 2+4x⁴−5x on either side of x=1/2 gives t≈0.127598992901 and 0.852234164747. Fixed-amplitude variation to the threshold is feasible in this example by holding q₂ fixed and increasing q₁ and p₁(0) by the same amount.",
+      "residual_risks": [
+        "The asymptotic is for a physically admissible family approaching a nondegenerate tangency with parameters fixed as stated; it does not model stochastic observation or habitat selection. Uploaded diagnostic code was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The USGS abstract describes a general theory and applications to avian invasions. The indexed overshoot theorem treats an interacting two-species model and a single transient maximum with a delay."
+        ],
+        "reasoning": "The abstract is insufficient to decide whether the main paper covers arbitrary starting occupancies and the exact threshold; the inspected indexed interacting theorem does not classify the two independent expected-occupancy trajectories. A general zero count could supply at most two zeros, but not the admissible sign pattern without evaluating the minimum.",
+        "searches": [
+          "Yackulic et al., Ecology 96, 16–23, DOI 10.1890/14-1361.1 and author abstract at USGS",
+          "Resultary 7f672c43ad11, transient overshoot in colonization dynamics"
+        ]
+      },
+      "checked_sources": [
+        "USGS 70140316 (abstract only)",
+        "Ecology DOI 10.1890/14-1361.1 (full text unavailable)",
+        "Resultary 62c94af69536, a5a7eaa51775, 7f672c43ad11 and 17227e340650"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible primary abstract establishes transient rate/association motivation; it states no crossing count there. The indexed tangency and fold results apply to different model responses."
+        ],
+        "reasoning": "A generic nondegenerate fold gives order √η, but its occurrence for admissible occupancies and its coefficient depend on the positive minimum time and the identity A''(t*)=r_f r_s m. The frozen RESULT.md describes initially unoccupied examples in Yackulic et al.; that characterization was not independently checked in the main paper, and the verdict does not rely on it as proof of exclusion.",
+        "searches": [
+          "Yackulic et al., USGS abstract; PDF via Wiley DOI and USDA Forest Service repository identifiers attempted",
+          "Resultary 62c94af69536 and a5a7eaa51775, phase and merger statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "62c94af69536 compares two-stage juvenile–adult trajectories starting with equal adult counts and eventual decay. 17227e340650 concerns stationary covariance as catastrophe rate is varied. The Yackulic et al. abstract expressly observes temporal variation in occupancy–environment associations despite time-invariant rate relationships."
+        ],
+        "reasoning": "A rank reversal is a sign change of a difference of occupancy expectations here, not stationarity of covariance or a ranking after a common initial census in a declining population model. The general statement about temporal variation does not specify the two-reversal region or its endpoint assumptions.",
+        "searches": [
+          "Resultary transient occupancy ranking and two-reversal matches; 62c94af69536 and 17227e340650",
+          "DOI 10.1890/14-1361.1; USGS publication 70140316 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The adult-census result gives a feasible reversal phase window and a tangency; the seasonal Ricker-map result a two-switch window and square-root opening; the other two exact results concern one colonization overshoot or two covariance signs under parameter variation."
+        ],
+        "reasoning": "These records exhibit close qualitative structures, not an indexed value of m or its matching admissibility constraints for the present process. The Ricker switch variable is abundance, not positive-time occupancy in a pair of linear ODEs.",
+        "searches": [
+          "Resultary exact two-switch/tangency records 62c94af69536, a5a7eaa51775, 7f672c43ad11 and 17227e340650"
+        ]
+      },
+      "rationale": "Transient occupancy–environment associations under time-invariant rates are already established motivation, and elementary zero counting and fold asymptotics are not new methods. The supported distinct result is the exact, admissible two-positive-time reversal threshold with strictly positive initial and limiting gaps and its model-specific interval coefficient. The closest inspected indexed theorems have different trajectories or vary a parameter rather than positive time. The most relevant ecological paper was independently confirmed at abstract level only; its unavailable main text is a live priority risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "Yackulic et al.'s full paper and supporting material might treat more general starting occupancies than can be confirmed from the abstract. A bounded search cannot exclude a later or unindexed exact antecedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows prior general phenomenon; cannot resolve exact main-text coverage",
+          "evidence": [
+            "The abstract states that time-invariant environmental relationships for local colonization and extinction can produce substantial temporal variation in occupancy–environment relationships."
+          ],
+          "identifier_or_url": "https://pubs.usgs.gov/publication/70140316 ; DOI 10.1890/14-1361.1",
+          "material_read": "Author abstract and publication details at USGS; no full text or supplements",
+          "method": "Public abstract; attempted lawful Wiley DOI/PDF and USDA Forest Service item 49806",
+          "title": "To predict the niche, model colonization and extinction",
+          "trigger": "Direct ecological antecedent for constant-rate transient associations"
+        },
+        {
+          "assessment": "Closest structural match, different endpoints and model",
+          "evidence": [
+            "Trajectories have a juvenile stage and a common initial count of one adult; populations eventually decline."
+          ],
+          "identifier_or_url": "Resultary 62c94af69536",
+          "material_read": "RESULT.md Finding and phase/tangency statements",
+          "method": "Local mirror",
+          "title": "Two adult-census ranking reversals in declining two-stage habitats",
+          "trigger": "Same number of strict reversals in habitat ranking"
+        },
+        {
+          "assessment": "Fold analogy only",
+          "evidence": [
+            "The switching variable is abundance in seasonal maps, not time in a two-habitat occupancy trajectory."
+          ],
+          "identifier_or_url": "Resultary a5a7eaa51775",
+          "material_read": "RESULT.md finding and switching conditions",
+          "method": "Local mirror",
+          "title": "Two-switch phase diagram and carrying-capacity rigidity for seasonal Ricker maps",
+          "trigger": "Two switches and explicit square-root opening"
+        },
+        {
+          "assessment": "One transient maximum in the first record; stationary covariance signs in the second",
+          "evidence": [
+            "Neither result compares separate constant-rate habitat expectations with both endpoint gaps positive."
+          ],
+          "identifier_or_url": "Resultary 7f672c43ad11 and 17227e340650",
+          "material_read": "RESULT.md scope and threshold findings for both IDs",
+          "method": "Local mirror",
+          "title": "Sharp transient overshoot threshold in a two-species colonization model; sharp catastrophe threshold for two-patch ecological occupancy covariance",
+          "trigger": "Closest indexed colonization transient and occupancy double-sign results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and witness",
+        "USGS 70140316 author abstract for ecological motivation"
+      ],
+      "rationale": "An observer can see a ranking opposite to both initial and equilibrium rankings even when the rates never change. The theorem specifies exactly when this false indication is possible, gives a robust feasible example rather than an unphysical exponential fit, and says how the duration vanishes at the boundary. The usefulness is in these model-specific conditions, not in presenting the generic square-root fold as new mathematics.",
+      "residual_risks": [
+        "No inference about how frequent double reversals are empirically, or claims concerning actual habitat preference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

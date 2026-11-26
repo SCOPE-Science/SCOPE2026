@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:57:27.741574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36 and 38–74 (analytic reconstruction)",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed; finite algebra and deterministic instances only)"
+      ],
+      "rationale": "The order-two decompositions have projections proportional by positive constants to centered A(x)=E|x−X| and B(x)=E(x−X)². Finite fourth moment controls the kernel second moments, so the O(n⁻²) degenerate terms do not affect the limiting correlation. B cannot be constant on the support because each level has at most two points. If A were constant there, atomlessness makes every support point an accumulation point and A′=2F−1 everywhere, which would force F=1/2 on the support, incompatible with the two tails. Equality in Cauchy–Schwarz extends A=cB+d continuously to the support. Taking derivatives along support sequences, including endpoints of gaps, gives F(x)=1/2+c(x−μ) there. Monotonicity gives c>0; the bounded range of F makes the support bounded. Any internal open gap has endpoints with equal F by atomlessness, contrary to strict slope c. Thus the support is an interval and F is uniform. The converse has identical centered pair projections for G_n and Q_n=2S_n² at unit length. For the finite formulas, the same-pair variances are 1/18, 7/180 and covariance 2/45; distinct pairs sharing one index give 1/180. For any one pair there are 2(n−2) other pairs sharing an index, so each covariance entry is 2/[n(n−1)] times its same-pair entry plus 2(n−2) times 1/180 inside the brackets. This gives all three stated moments and the contrast variance. For any deterministic unit-interval sample, the centered bridge is the average of the translated periodic functions 1/2−{t−U_i}, up to values at jumps. Parseval yields (2n)⁻¹Σ_{i,j}B₂(|U_i−U_j|); subtracting diagonal terms yields the exact contrast identity including ties/endpoints. Under iid uniformity the sine/cosine CLT gives independent variance-1/2 coordinates; the expected Parseval tail is bounded by (2π²)⁻¹Σ_{k>K}k⁻² uniformly in n. The contrast limit is the stated centered weighted chi-square sum, with variance π⁻⁴Σ k⁻⁴=1/90. Almost-sure summability follows from its finite nonnegative uncentered mean, and the squared coefficients are summable for L² convergence.",
+      "residual_risks": [
+        "The classification assumes atomlessness and finite fourth moment. The Watson null calibration uses a fixed known interval and does not cover fitting the endpoints to the sample."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General projection formulas reduce the correlation to two one-point functions, but do not classify equality.",
+          "Čiginas–Pumputis study finite-population sampling without replacement. Classical Watson theory gives the null statistic and its law independently of the contrast. Full Watson and Tung–Jammalamadaka texts were not retrieved."
+        ],
+        "reasoning": "The general Hoeffding and influence-function theory gives the equality criterion, not its distributional classification; that requires deriving the affine CDF on a possibly disconnected support and excluding all internal gaps.",
+        "searches": [
+          "Gerstenberger–Vogel §3, general-law influence functions",
+          "Čiginas–Pumputis arXiv:1406.2275, population and sampling assumptions",
+          "Watson (1961) original by DOI/publisher and identified JSTOR copy; Tung–Jammalamadaka (2013) DOI/publisher"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.5027; arXiv:1406.2275; Fortiana–Grané, JRSS B 65 (2003), specified passages",
+        "Resultary IDs 3bfb4b0a87a1, 4565dd2c2083, cd8665ffc3df; self-match 76bf42cb8b31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the Watson Bernoulli pair sum, B₂(t)=t²−t+1/6, so the literal Gini-minus-square relation follows by separating diagonal terms. The limit then follows from the known Watson null law. The general influence-function expression, in contrast, does not enforce connected support or affine F without an additional argument."
+        ],
+        "reasoning": "Credit the Watson specialization and its induced limit as direct consequences of a classical representation, even absent that precise wording. No inspected theorem implies the classification by a change of normalization or sampling law.",
+        "searches": [
+          "Gerstenberger–Vogel §3 and Table 5; Fortiana–Grané pp. 4–5; classical centered-bridge Watson representation",
+          "Original Resultary Findings 3bfb4b0a87a1, 4565dd2c2083, cd8665ffc3df"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For uniform data the prior centered Gini and scale influence functions are proportional to the same centered quadratic. Passing from positive standard deviation to variance preserves the first-order positive alignment.",
+          "Fortiana–Grané's uniform test is rescaled Gini via an order-statistic representation; it does not add the unbiased-variance term in the contrast."
+        ],
+        "reasoning": "Comparing fluctuations or influence functions, rather than requiring the word correlation, establishes prior coverage of the forward implication. Equal marginal efficiency alone would not prove it. The converse requires classifying laws on the support, not just evaluating the influence function at a uniform law.",
+        "searches": [
+          "Gerstenberger–Vogel, arXiv:1405.5027, general influence functions §3 and uniform Table 5",
+          "Fortiana–Grané, exact uniformity test via maximum correlations and Gini, pp. 1–5 and 8",
+          "Resultary: Gini–variance alignment, sample variance and Watson uniformity contrast"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 5 gives unit asymptotic relative efficiency at U(0,1), not finite paired moments. Resultary 3bfb4b0a87a1 gives the pair correlation for exponential samples, tending to 3√6/8; 4565dd2c2083 gives uniform Gini regression on one order statistic; cd8665ffc3df gives a rank-one Watson/Cramér–von Mises connection for another statistic. Exact hit 76bf42cb8b31 is the assigned record."
+        ],
+        "reasoning": "The actual constants and objects differ: a uniform marginal-efficiency table, an exponential covariance calculation, a Gini-only regression, and a different empirical-process statistic do not supply the uniform pair covariance or atomless classification.",
+        "searches": [
+          "Gerstenberger–Vogel Tables 2, 3 and 5",
+          "Resultary: exact finite Gini–variance correlation; uniform Gini exact rank computations; Watson/Cramér–von Mises decompositions"
+        ]
+      },
+      "rationale": "Prior influence functions already give the uniform direction, and the Watson law and Bernoulli/empirical-bridge representation are classical. The exact contrast is an algebraic identification with that statistic, not a new Watson theorem. The supported distinct claim is the converse, ruling out all other atomless laws, together with the paired finite-sample moment formulas and their interpretation as a Gini–variance contrast. The inspected prior statements do not establish that classification.",
+      "residual_risks": [
+        "Historical priority of the atomless converse is not certified. Older Watson or circular Gini literature not available in full may have stated the exact contrast explicitly; this uncertainty is not the basis for novelty of the converse."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Encodes prior uniform alignment; does not supply the atomless converse in the relevant passages",
+          "evidence": "Table 5 gives ARE 1 at U(0,1); §3 expresses the two influence functions, which are positive multiples of one another there.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5027",
+          "material_read": "Tables 2–3 and 5; §3, pp. 6–9 (offsets 23000, 27000, 33800 onward)",
+          "method": "OA full-text passage inspection",
+          "title": "On the efficiency of Gini’s mean difference",
+          "trigger": "Closest general asymptotic comparison of Gini and standard deviation"
+        },
+        {
+          "assessment": "Gini-based maximum-correlation statistic, not the Gini–variance Watson contrast",
+          "evidence": "Q_n reduces to a rescaled Gini statistic and the finite-null calculation is for that L-statistic.",
+          "identifier_or_url": "https://halweb.uc3m.es/esp/Personal/personas/agrane/ficheros_articulos/JRSSB2003.pdf",
+          "material_read": "Introduction and defining statistic pp. 1, 4; order-statistic and finite-null passages pp. 5, 8 (offsets 11500–12500, 16877 and 27433 among inspected passages)",
+          "method": "Author-hosted OA PDF, bounded passage inspection",
+          "title": "Goodness-of-fit tests based on maximum correlations and their orthogonal decompositions",
+          "trigger": "Older exact uniformity test using sample Gini and order statistics"
+        },
+        {
+          "assessment": "Finite-population comparison, not the stated iid classification",
+          "evidence": "The sample is drawn without replacement from a finite population.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2275",
+          "material_read": "p. 1, abstract",
+          "method": "OA PDF scope passage",
+          "title": "Gini’s mean difference and variance as measures of finite populations scales",
+          "trigger": "Same two scale statistics; determine sampling scope"
+        },
+        {
+          "assessment": "Classical statistic credited; exact wording of original paper not determined",
+          "evidence": "Full-text routes yielded access errors or landing pages, not evidence about contents.",
+          "identifier_or_url": "Biometrika 48 (1961), 109–114; DOI 10.1093/biomet/48.1-2.109",
+          "material_read": "Bibliographic record only, no decisive original passage accessible",
+          "method": "Bounded lawful publisher/DOI and JSTOR attempts",
+          "title": "Goodness-of-fit tests on a circle",
+          "trigger": "Original Watson statistic; possible earlier contrast representation"
+        },
+        {
+          "assessment": "Comparison unresolved, not treated as negative evidence",
+          "evidence": "Full text was unavailable through the attempted route.",
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2011.601947",
+          "material_read": "Bibliographic record only",
+          "method": "Bounded lawful DOI/publisher attempt",
+          "title": "On the Gini Mean Difference Test for Circular Data",
+          "trigger": "Potential circular goodness-of-fit/Gini precedent"
+        },
+        {
+          "assessment": "Different law",
+          "evidence": "Exponential-sampling formula has limit 3√6/8, not the unit uniform limit.",
+          "identifier_or_url": "2026/10/12/SCOPE-exponential-gini-mean-difference-and-sample-variance-have-an-exa--3bfb4b0a87a1",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Exponential Gini mean difference and sample variance have an exact correlation",
+          "trigger": "Exact paired sample correlation"
+        },
+        {
+          "assessment": "Different companion variable",
+          "evidence": "Conditional regression on one order statistic, not alignment with unbiased variance.",
+          "identifier_or_url": "2026/11/22/SCOPE-affine-quantile-regression-of-uniform-sample-gini-dispersion-and--4565dd2c2083",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Affine quantile regression of uniform sample Gini dispersion",
+          "trigger": "Same-day exact uniform Gini finding"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Watson/Cramér–von Mises relation for a different statistic, not this Gini–variance contrast.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rank-one-decomposition-of-a-uniformity-test-s-dependence-o--cd8665ffc3df",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact rank-one decomposition of a uniformity test’s dependence",
+          "trigger": "Same-day exact Watson-related identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36 and 38–74",
+        "Gerstenberger–Vogel §3 and Table 5; Fortiana–Grané pp. 1 and 4–5"
+      ],
+      "rationale": "Determining which laws cause two common dispersion estimators to lose a first-order contrast is a natural characterization problem. The support argument resolves it without assuming a density or absence of gaps, and the exact finite covariance and second-order contrast explain what replaces the lost first-order fluctuation under the uniform law. The value is in this characterization and scale-estimator connection, not in a new goodness-of-fit limit theorem.",
+      "residual_risks": [
+        "It does not give quantitative stability near perfect alignment or classify atomic laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

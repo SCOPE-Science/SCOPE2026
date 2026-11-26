@@ -1,19 +1,21 @@
-# Review of the joint rank–hafnian Jordan spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The algebra has the sixteen squarefree-monomial basis elements. The multiplication map by a homogeneous quadric shifts degree by two, so its rank is exactly \(2+\operatorname{rank}B(Q)\) for nonzero \(Q\), and the second-power rank is exactly \(\mathbf1_{H(Q)\ne0}\) in odd characteristic. The rank-two hollow symmetric matrices are classified by split hyperbolic factorization; the determinant and hafnian joint counts are obtained from a weighted ternary quadratic cone and its plane section. All seven multiplicities are disjoint, integral, positive, and sum to \(q^6\). The standalone code agrees over prime fields \(\mathbb F_3,\mathbb F_5,\mathbb F_7\), samples over \(\mathbb F_9\), and directly checks multiplication ranks.
+PASS
 
-## Originality
+Reconstructed RESULT.md:54–103: multiplication by a nonzero homogeneous quadric has rank one in each outer nonzero graded map by the complementary pairing, and middle map B has complementary coefficients. The square has rank 1 precisely when 2H is nonzero and the cube vanishes. If these ranks are R1,R2, the block counts are R2, R1-2R2 and 16-2R1+R2. For a nonzero rank-two hollow matrix, use the images of the four coordinate vectors in the nonsingular rank-two quotient form: they are zero or lie on one of its two isotropic lines, both of which must occur. This yields exactly the supported edges, stars and weighted K2,2 patterns; the latter has a rank-one cross block, three free nonzero entries and two equal nonzero matching products, so its hafnian is nonzero in odd characteristic. Rank one is impossible. In product coordinates X,Y,Z, the determinant is (X-Y-Z)^2-4YZ; the quadratic-character sum gives q^2 zeros, with 1 zero triple, 3(q-1) two-nonzero triples and (q-1)(q-2) all-nonzero triples. Each zero product has 2q-1 preimages, each other product q-1. The hyperplane H=0 cuts the cone into the binary equation X^2+XY+Y^2=0, giving exactly the stated number of rational lines using primitive cube roots or a double root in characteristic three. The independent H=0 count follows by a dot-product constraint. Subtracting yields all frequencies. Rank-three counts are positive by their factorizations. For rank four with H=0 take product triple (1,-1,0), with determinant 4; with H!=0 take (1,0,0), with determinant 1. These give positivity over every odd field, without relying on extension from a particular prime. The proof works for nonprime fields as stated. The phrase geometric branches is best read as rational branches over F_q; it is the number of rational lines that varies. Inspected VERIFICATION.md and verify.py: the listed prime-field exhaustive runs, weighted F_9 test and literal multiplication samples are finite corroboration only; the uploaded program was not executed.
 
-**PASS, subject to residual priority risk.** Lewis et al., *Matrices with restricted entries and \(q\)-analogues of permutations* (arXiv:1011.4539, Sections 3–4) counts symmetric zero-diagonal matrices by ordinary rank, a strictly coarser marginal than the simultaneous rank/hafnian stratification needed for the six nonzero Jordan types. Cook, *The Lefschetz properties of monomial complete intersections in positive characteristic* (arXiv:1111.4979, Sections 1–2) addresses linear Lefschetz multipliers, not this quadratic finite-field spectrum. Relevant Artinian Jordan-type research on other Hilbert functions and generators was also compared. No inspected source states these seven exact frequency formulas or their mod-three trichotomy, but an equivalent obscure prior treatment remains possible. These comparisons do not certify global novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result completely determines a natural invariant of homogeneous quadratic multiplication on the sixteen-dimensional cohomological squarefree algebra, instead of only the maximal-rank case. The arithmetic trichotomy is structural: it comes from the one-/two-/zero-line behavior of the binary cubic-root conic section and affects exact Jordan block frequencies. The claimed contribution is the motivated joint rank–hafnian distribution, not the previously known ordinary hollow-symmetric rank counts.
+The supported distinct result is the joint finite-field rank and hafnian-vanishing census for the odd-characteristic commutative squarefree algebra. Marginal hollow symmetric ranks, the closely related exterior-algebra census, characteristic-two ranks, and general rank-to-Jordan formulas are prior context, not this joint census or the mod-three split.
 
-## Limits
+## value
 
-The proof requires odd characteristic and a fixed four-variable square-zero monomial complete intersection. Arithmetic experiments in finitely many fields are independent consistency checks, not infinite proof. Literary priority is not exhaustively settled, and independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the complete Jordan-type frequency classification for the natural first squarefree dimension in which a quadratic multiplier can have a nonzero square. It separates a natural invariant invisible to ordinary rank enumeration, and the dependence on cube roots of unity shows why a single polynomial in q cannot describe the joint law. The exact refinement is useful independently of any extension to more variables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

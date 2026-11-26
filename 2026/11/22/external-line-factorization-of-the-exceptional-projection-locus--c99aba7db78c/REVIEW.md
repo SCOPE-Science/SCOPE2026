@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The configuration is explicitly defined over each finite field, and admissibility excludes all secants of the rational conic. The proof reduces the degree-\(Q\) complete-intersection condition to a single degree-\(Q-1\) interpolation obstruction using the restriction of the plane form to each projected Artin–Schreier orbit. The augmented-Vandermonde determinant is nonzero by specialization to any original conic direction. Every external line divides it, using the form \(h^{Q-1}\); the number of external lines equals its degree, proving equality without hidden factors. Classical conic incidence then identifies the admissible residual components and their extension-field point counts. Exact-arithmetic finite checks pass for \(Q=2,3,4,5,7,8\); they are corroboration, not the proof.
+PASS
 
-## Originality — PASS, with literature risk
+For an admissible center the quotient gives distinct supporting directions and on each line the Q points have monic equation sigma^Q−sigma+beta^Q−beta. A degree-Q equation of a reduced (Q,Q+1) complete intersection cannot contain a support line: the other equation would meet it in length Q+1 rather than Q. Its common leading coefficient at the vertex is nonzero, so its sigma coefficient gives precisely the degree-(Q−1) interpolation condition. Conversely degree-Q interpolation supplies the constants independently, and intersecting the resulting curve with the union of the support lines gives the desired reduced scheme. In a quotient basis normalized by the volume form det(u,−,−), Vandermonde cofactors give the stated homogeneous polynomial of degree Q(Q−1)/2; at u=v_i only the i-th cofactor survives. On an external rational line h(u)=0, h descends and h^(Q−1) interpolates all ones. Frobenius orbits of size two on the nonrational elements of F_(Q^2) give exactly Q(Q−1)/2 monic irreducible quadratics, exhausting the degree and proving reducedness. Counting tangent and secant incidences is valid in both characteristics: off the conic, odd Q has zero or two tangents, while even Q has one except at the nucleus, where all tangents meet. Every rational point of an external line is therefore on a secant; all intersections with rational secants or other external lines are rational. The good direction components are disjoint punctured projective lines, and a rational puncture chosen at infinity trivializes the affine-line fiber of centers. This gives the exact point count and zeta function. For Q=2 the independent calculation gives U+V+W as the only factor, with three rational points on that external line, consistent with the characteristic-two case.
 
-The primary Artin–Schreier geproci article proves a general nonexistence criterion for more than \(Q\) supporting lines, not this exact nongeneric exceptional-center divisor. Its interpolation determinant becomes, for this conic family, a product of every external rational line, a nontrivial full factorization not supplied in the inspected source. The Weddle-scheme paper concerns a more general incidence framework and does not give this explicit positive-characteristic conic computation in the inspected relevant sections. Ballico's generalized Weddle locus similarly supplies conceptual background without the exact factorization in the inspected material. Related finite-geometry results account for line incidence but not the interpolation-to-complete-intersection equivalence. Public-result search matches on other conic arrangements and finite incidence are not implication coverage. Unindexed or inaccessible equivalent computations remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by the precise boundary between generic failure and special success in the initiating paper's Artin–Schreier construction. The theorem determines every admissible special center and gives a reduced arrangement with explicit finite-field component and zeta data. This is a natural exact geometric classification, not an arbitrary finite slice or a mere isolated example.
+The supported distinct claim is the once-each external-line factorization of the equal-orbit rational-conic interpolation obstruction, with its exact admissible center locus. Neither generic failure nor the classical incidence classification is credited as new. The closest indexed overlap gives the same ten exterior lines at Q=5 from a different construction, not their identification with this projection obstruction. This is a best-of-knowledge determination from the statements inspected, not a priority finding.
 
-## Limitations
+## value
 
-The classification does not extend across excluded secant centers, assert properties of the full Weddle scheme, or provide an independent audit. Literature access does not prove global priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The generic dichotomy leaves open whether good exceptional centers exist and, if so, where they are defined. Here one gets an explicit reduced divisor and a complete description on its natural open set, including the absence of base-field centers despite existence over every proper finite extension. This is a structural computation of a motivated projection locus in positive characteristic, not just a finite conic-incidence count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

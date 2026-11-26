@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is anchored in the normalized radial beta moment identity and the exact Fourier coefficients of the squared quadratic. The sole sign-sensitive term is the three-frequency interference. A sharp AM–GM reduction leaves a strictly convex and coercive scalar optimization whose unique minimizer gives all equality cases. Strict monotonicity in the disk weight follows from explicit monotonic coefficients, and endpoint limits follow from uniform coercivity and convergence. `CHECK.py` passed 1,080 finite checks of formulas, signs, endpoint numbers and finite optimization diagnostics; none substitutes for the analytic global proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The relevant random Bergman papers are Cheng–Fang–Liu (online 9 April 2021; DOI `10.1093/imrn/rnab018`) and Wang (Filomat 2023; DOI `10.2298/FIL2316215W`). Inspected Wang sections address qualitative randomization and continuity, not the sharp three-sign fourth-power constant. The closest related published published-finding corpus claims concern quadratic weighted Bergman `L4/L2` extremizers, not the sign-related `L4/L4` quotient. The Fourier interference identity does not automatically yield the new uniquely optimized constant or weight monotonicity. The 2021 paper and closest full repository texts remained inaccessible, so historical priority is provisional rather than independently certified.
+PASS
 
-## Value — PASS
-This is a sharp, fully attained minimal-resonance unconditionality benchmark for a natural analytic-function Banach norm. It includes the exact finite-weight optimizer and all equality cases, a strict all-weight behavior law, and a nonzero Gaussian/Fock endpoint. It quantifies a distortion not seen on any two-monomial quadratic support and is relevant to finite-dimensional randomization stability.
+The radial beta integral gives m_j=j!/(beta)_j. Expanding the square of the quadratic leaves only one phase-sensitive term, 4m_2 Re(b^2 conjugate(ac)); independent signs average it out and a flip of exactly one of the outer modes reverses it. For fixed magnitudes, the maximal ratio uses maximal destructive interference in the input. With v=|b|^2, x=|ac|/v and t=|a|/|c|, minimizing H/(4m_2 v^2 x) in x is the strict equality case for m_2/x+x(t^2+4m_2+m_4/t^2). The balancing substitution for t then gives the displayed F_beta. The norm term in F_beta is convex by the vector-norm second derivative: its Cauchy–Schwarz residual is nonnegative and its vector dotted with its second derivative is positive. The cosh term gives strict convexity and uniform coercivity. A_beta-B_beta has sign beta-1, so the derivative at zero is positive and the unique minimizer is negative. Each of the three parameters increases strictly, which increases the minimum by comparison at the new minimizer. Uniform coercivity and local uniform convergence justify both limits of the minima; the scale change gives limiting moments j!. Sharp equality requires all three coefficients, the unique x,t, and the specified phase; constructive and destructive phases give opposite sides of the Rademacher comparison. An independent 65-digit decimal bisection in y=exp(s), /tmp/opencode/frozen-quadratic-endpoints.py, reproduced the illustrative endpoint and area-weight decimals. The proof, not the numerical check, gives the all-weight result.
 
-## Scope and limitations
-The theorem concerns only complex analytic degree-at-most-two polynomials, real sign multipliers, and power-weighted disk fourth norms. It does not solve the full Bergman monomial-basis unconditional constant or arbitrary unit-modulus multipliers. Full 2021 motivating-paper text and two relevant repository full texts were unavailable. Numeric tests are diagnostics only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier three-mode fourth-moment expansion and qualitative randomization framework. The distinct claim supported here is the sharp sign and Rademacher comparisons with a quartic phase-averaged or sign-transformed denominator, their equality conditions and strict dependence on the disk weight. The strongest inspected weighted-quadratic results optimize a different ratio and do not supply these conclusions.
+
+## value
+
+PASS
+
+Degree two is the first cutoff with colliding exponents in the square and therefore the first nontrivial fourth-norm sign distortion. The exact unconditional and randomized comparisons, all equality cases, and strict evolution from Hardy to Gaussian weights quantify that minimal resonance in a way the usual fourth-to-second moment constant does not. This gives a natural exact benchmark for higher-mode analyses without claiming the higher-degree problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

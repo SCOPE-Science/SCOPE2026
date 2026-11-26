@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(r=2^d\ge2\), the root and first children have the claimed orthogonal row directions. The local POD rank rule (identity Gram matrix, unit range, size-proportional positive NRMSE budget) forces retention of every nonzero singular direction at every relevant node. Substitution into the exact factor-storage formula gives a strictly loss-making first split. Below that split, every group-aligned nonleaf cut strictly lowers storage, and splitting a homogeneous group increases storage, proving that the fine cut is optimal in the prescribed tree. Its ratio to the greedy root diverges linearly. The algebra separately proves both outputs have exact zero reconstruction error and cost fewer entries than the raw matrix. Supplementary reproducibility: 3,550 integer/Fraction-based assertions using `verify.py`.
+PASS
 
-## Originality — PASS with disclosed access risk
+For any block the positive eigenvalues of its Gram matrix are twice the multiplicities of its pairwise orthogonal row types. This gives 4b at the root, 2b for every represented type below it at group-aligned nodes, and 2h for h identical rows. The corresponding squared tolerances are b/4, gb/(8r) and h/(8r), strictly below those eigenvalues; exact local ranks and zero reconstruction error follow. The root split adds r(n+1) storage, since both children contain all r types, so the specified one-step procedure stops. Within each child, splitting a g-group node into equal halves saves g²b/2, while cuts inside one homogeneous group only add overhead. Thus each child is optimally cut into single groups. The root can either be kept or replaced by the two independently optimal child cuts, and the latter saves r(2r³−2r²−2r−1)>0 for every r≥2. The exact costs are r(2r³+2r+1) and 2r(r+1)², the ratio is asymptotic to r, and even the larger cost is strictly below the raw 4r⁴ entries. These conclusions concern the prescribed hierarchy and factor-entry measure, not arbitrary partitions or a particular graph-partitioner run. The supplied finite verifier was inspected, not run; the uniform claim follows from the calculation above.
 
-The motivating arXiv manuscript [1] already states that its storage-decreasing greedy search is not globally optimal and that an unprofitable first split can hide valuable descendants. Neither that qualitative observation nor general nonoptimality of greedy selection is claimed to be new. The asserted advance is an explicit, infinitely parameterized, *unbounded* storage approximation ratio obeying all local NRMSE-rank conditions with positive tolerance, 1D connectivity, balanced partitions, and exact reconstruction. Compared to the related full-text clustering work [2], the objective, partition direction, ranks and selection rules are different. The abstract of the specialist hierarchical tensor article [3] did not settle this claim, but its complete text could not be obtained, so historical priority is not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The example establishes that a monotone-improvement stopping policy offers no dimension-independent guarantee even when its individual feasible reconstructions are exact and are already useful compressed representations. This strengthens the source's qualitative warning into a reproducible worst-case quantitative benchmark and motivates multilevel lookahead or dynamic programming on a fixed spatial hierarchy. It does not assume an arbitrarily weak numerical accuracy tolerance or artificial zero-rank approximations.
+The no-lookahead pitfall is recognized in the motivating POD paper and appears qualitatively in earlier hierarchical tensor compression. The supported distinct claim is an explicit admissible binary path-mesh family with a proved unbounded quantitative ratio between the greedy and optimal cuts, both reconstructing exactly under the stated positive tolerance rule and both compressing the data.
 
-## Closest sources and limitations
+## value
 
-[1] Nuca–Parsani–Dalcin, arXiv:2610.31375v1, particularly equations (25)–(26) and Section 4; [2] Shamrai, arXiv:2601.11626v2, clustering and algorithms; [3] Ehrlacher–Grigori–Lombardi–Song, DOI 10.1137/19M128689X, available abstract only. The result does not cover arbitrary partitioner trajectories, encode metadata costs, or certify exhaustive literature novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This supplies a worst-case obstruction to any dimension-independent factor-storage guarantee for the specified greedy rule, even on connected balanced path partitions and without any reconstruction tradeoff. It gives a concrete reason to compare against deeper lookahead or whole-hierarchy optimization. The approximation claim is useful within that scope without implying practical failure of a particular partitioner.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

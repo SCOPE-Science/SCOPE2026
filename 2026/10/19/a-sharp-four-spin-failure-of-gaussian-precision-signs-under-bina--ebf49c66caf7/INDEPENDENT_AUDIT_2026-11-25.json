@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:14:19.204550Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected RESULT.md:26–98, VERIFICATION.md and verify_ferromagnetic_precision.py. Full support gives strict variance in every nonzero direction. For d=2 the binary 2×2 determinant is the covariance, and for d=3 conditioning on the third coordinate preserves the nonnegative determinant. Because a binary conditioning variable spans all its functions together with the constant, the off-diagonal Schur complement is exactly the mean conditional covariance. The 2×2 inverse reverses its sign. In the four-spin model the log-mass has nonnegative pairwise mixed differences and no XY coupling. The conditional means depend only on k=Z+W; their nonlinear residuals after projection onto 1,Z,W are their discrete curvatures times the same residual of ZW. With q the positive four-cell marginal masses, the vector (1/q00,−1/q01,−1/q10,1/q11) spans the complement and has positive discrete mixed difference sum 1/q, giving the claimed residual variance. Independent expansion of the logistic second differences yields the strictly positive prefactor times (1−ar) or (1−bs); conditional independence kills the covariance of the conditional noises. The determinant of the residual covariance is positive, so the sign rule includes both exact zero hypersurfaces. Independent integer moment enumeration used weights 2^(3−3x+y+(x+y)(z+w)); sum 235, first moments 59,194,158,158, and XY moment 50. For C=235²Σ, det C=11393411432400000 and the minor deleting row 2 and column 1 is −795240000. Hence ΣXY=304/55225 and KXY=235/60966, as stated. Did not execute the source verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Loh–Wainwright use a separator product to achieve an appropriate zero in the augmented precision and note support recovery for singleton separators.",
+          "Fallat et al. show faithfulness under the graphoid hypothesis, for conditional independence."
+        ],
+        "reasoning": "These results cover the generic projection/augmentation obstruction and graph organization; they do not bound the signs for arbitrary three-bit MTP2 laws or give logistic-curvature signs in ordinary precision. A graph-zero result for a singleton separator does not handle dependent pairs with no singleton separator.",
+        "searches": [
+          "Loh–Wainwright, Structure estimation for discrete graphical models, arXiv:1212.0478 §2.3, Theorem 1 and §3.2",
+          "Fallat et al. arXiv:1510.01290 Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_ferromagnetic_precision.py (inspection only)",
+        "arXiv:1212.0478",
+        "arXiv:1510.01290",
+        "arXiv:1905.00516v1",
+        "Resultary 0b1672d7ae9e and 339216ab2e7c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Loh–Wainwright block inversion already explains how retaining or omitting a separator interaction changes graph structure. The crown record realizes misleading precision signs in a model lacking cube-wide support."
+        ],
+        "reasoning": "Block inversion supplies a product form in a codimension-one omission but does not fix the signs of the two coefficients. The frozen sign requires computing their opposite-curvature condition; mere nonzero precision or the crown sign does not imply this positive ferromagnetic witness. The dimension-three sign requires conditional association, not only graph structure.",
+        "searches": [
+          "Loh–Wainwright arXiv:1212.0478 equation (2.9), Corollaries 1–2",
+          "Resultary hard-core crown RESULT.md Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fallat et al., arXiv:1510.01290 §4.1: Gaussian MTP2 iff the concentration matrix is an M-matrix; §4.2: binary inequalities are local conditional odds inequalities.",
+          "Lauritzen–Uhler–Zwiernik arXiv:1905.00516v1 p. 2 distinguishes the Gaussian inverse covariance criterion from the binary canonical-parameter cone."
+        ],
+        "reasoning": "Full-order negative linear partial correlation is equivalent to a positive precision entry, not to negative conditional association on the cube or to a negative canonical coupling. Positive recoding from spins to indicators preserves the sign.",
+        "searches": [
+          "Resultary: four Bernoulli spins binary MTP2 ferromagnetic Ising inverse covariance positive precision conditional independence partial correlations sharp dimension",
+          "Primary search: MTP2 binary covariance inverse not M-matrix four dimensional Ising positive inverse covariance Karlin Rinott partial correlation counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 2(g) displays four-cycle nonedge precision entries −0.17, not positive; do not rely on the contradictory 'no nonzero entries' wording in the adjacent text.",
+          "Indexed hard-core crown formulas use forbidden states, and the indexed single-field result classifies marginal covariance, not inverse covariance."
+        ],
+        "reasoning": "The four-cycle is an overlapping exact topology and qualitative nonzero effect, but the reported sign cannot provide the frozen positive counterexample. The indexed formulas are not tables for full-support ferromagnetic four-spin ordinary precision.",
+        "searches": [
+          "Loh–Wainwright arXiv:1212.0478 Fig. 2(g), Example 1 and equation (2.8)",
+          "Resultary six-pair cutoff 0b1672d7ae9e and single-field reversals 339216ab2e7c"
+        ]
+      },
+      "rationale": "Credit the established Gaussian characterization, binary Ising MTP2 criterion, ordinary versus augmented covariance distinction, and even a previously published four-cycle with spurious ordinary precision entries. The latter has negative entries at the nonedges; the supported distinct claims are the sharp cutoff for a positive entry within full-support binary MTP2, and the exact field-dependent positive/zero/negative classification for the specified subfamily.",
+      "residual_risks": [
+        "Exact inverse-susceptibility calculations in the wider Ising literature or another recorded counterexample with unequal fields might subsume the sign mechanism; this check is not a priority guarantee.",
+        "The reviewed sign rule is for one named pair in the stated tied-coupling subfamily, not a classification of all MTP2 laws at dimension four."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap; misses positive entry and exact fields/cutoff",
+          "evidence": "Nonedge entries in the ordinary single-cycle example are −0.17; an augmented precision zeros the separated pair; graph structure with singleton separators concerns zero pattern.",
+          "identifier_or_url": "https://arxiv.org/pdf/1212.0478",
+          "material_read": "PDF pp. 7–9 Fig. 2(g), §2.3 Example 1, equations (2.8)–(2.9), offsets 17950–27480; pp. 11–12 Corollary 2 and discussion, offset 33490 onward",
+          "method": "Located exact primary example and read bounded passages, including displayed matrices",
+          "title": "Structure estimation for discrete graphical models: Generalized covariance matrices and their inverses",
+          "trigger": "Four-cycle Ising precision example and stronger separator theorem"
+        },
+        {
+          "assessment": "Covers Gaussian precision and binary association/faithfulness ingredients",
+          "evidence": "MTP2 is equivalent to an M-matrix inverse covariance specifically for Gaussian laws; binary criterion of §4.2 concerns conditional odds at fixed other spins.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.01290",
+          "material_read": "PDF pp. 8–11 §§4.1–4.2 and p. 19 Theorem 6.1",
+          "method": "Located M-matrix and theorem, read the binary section by offset",
+          "title": "Total positivity in Markov structures",
+          "trigger": "General MTP2 theory and analogue of Gaussian precision"
+        },
+        {
+          "assessment": "Canonical constraints, not the sign of inverse ordinary moments",
+          "evidence": "The MTP2 quadratic exponential-family set is cut out in canonical parameters; Gaussian and Ising are examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.00516v1",
+          "material_read": "PDF p. 2 offsets 4950–6550; §3 Theorem 3.1",
+          "method": "Lawful arXiv full-text passages after alternate public page was unavailable",
+          "title": "Total positivity in structured binary distributions",
+          "trigger": "Direct binary analogue of Gaussian MTP2 methodology"
+        },
+        {
+          "assessment": "Distinct family and criterion",
+          "evidence": "Deleted pairs in hard-core crown model, inverse covariance sign depends on order/fugacity, with negative marginal covariance.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-six-pair-precision-sign-cutoff-in-hard-core-crown-graphs--0b1672d7ae9e",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2300",
+          "method": "Resultary lookup and actual mirror file",
+          "title": "A six-pair precision-sign cutoff in hard-core crown graphs",
+          "trigger": "Indexed conditional-independence versus precision signs"
+        },
+        {
+          "assessment": "Marginal instead of linear partial dependence",
+          "evidence": "A varied local field of a third spin changes a marginal covariance via quadratic polynomial; neither fixed positive interaction throughout nor the four-spin precision rule follows.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-single-field-sign-reversal-bound-and-reentrant-pair-correl--339216ab2e7c",
+          "material_read": "RESULT.md Finding, offsets 0–2300",
+          "method": "Resultary lookup and actual mirror file",
+          "title": "Sharp single-field sign-reversal bound and reentrant pair correlations in binary Gibbs systems",
+          "trigger": "Indexed field-dependent binary sign transitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A known spurious nonzero precision entry is not enough to overturn the attractive Gaussian sign rule. This threshold and the sign-changing full-support model do: the marginal covariance is positive and the conditional pair independent, yet the linear partial correlation is negative. The field hypersurfaces and common omitted separator interaction identify when a practitioner can and cannot read the usual precision sign as attraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

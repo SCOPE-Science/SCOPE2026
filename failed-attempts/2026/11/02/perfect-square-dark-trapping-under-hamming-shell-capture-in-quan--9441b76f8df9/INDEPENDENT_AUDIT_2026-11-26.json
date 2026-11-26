@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:55:51.177420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scoped corner-start survival theorem is correct, but the frozen Finding makes a literally false size statement: the distance-two shell contains binom(d,2) vertices, not exponentially many. Its unqualified phrase 'removes every dark component' cannot hold outside the corner-accessible sector; in d=6 the tensor (|01⟩−|10⟩)⊗3 is supported entirely on shell three, and adjacency annihilates each pair factor, so it is an exact dark full-space eigenstate with both first and second shells monitored. The body correctly confines the two-shell proof to radial states. There the normalized Walsh sum at energy d−2k has corner weight binom(d,k)/2^d and shell overlap proportional to K_r(k;d). A real eigenvalue of the dissipative operator requires zero loss expectation, hence a dark adjacency eigenvector. Its span reduces the operator and every other radial spectral value has strictly negative imaginary part, which implies decay even with Jordan blocks. The quadratic identity gives square dimensions with integral k=(d±sqrt(d))/2 and the stated weights, including d=4,9,16; r=0,d have no zeros and γ>0 is necessary for the decay argument. Stirling at one standard deviation gives the stated prefactor. The failed disposition would stand on originality even if both scope and size wording were corrected.",
+      "replay": "OPENBLAS_NUM_THREADS=1 python3 /workspace/branches/frozen_replay.py 3 constructs full signed Walsh shell restrictions (not a radial tridiagonal diagonalization), numerically projects onto each energy-sector kernel for all radii and the pair (1,2), and compares to exact rational corner weights for d=2..9 (tolerance 1e−10). It also checks the d=6 nonradial witness by exact vertex sums. The frozen script was inspected but not executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "519ce4796df0 allows independently chosen strictly positive trap rates and computes the restriction in all harmonic sectors, not only i=0. Novo et al., p. 2 and p. 11 eq. (46), instead use the trap-overlap principle and a single hypercube target."
+        ],
+        "reasoning": "A single site theorem alone does not supply a full shell comparison, but the indexed more-general same-model restriction theorem does. Positivity makes the kernel depend only on the monitored set.",
+        "searches": [
+          "\"Hamming shell\" absorbers continuous-time quantum walk hypercube Krawtchouk dark states corner survival",
+          "Resultary: corner initial localized quantum walk on hypercube absorber entire Hamming sphere radius two exact Krawtchouk zeros square dimension survival probability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 519ce4796df0 and e101f1ca9cf7",
+        "Novo et al. (2015), pp. 2, 11",
+        "Yamasaki et al., arXiv:quant-ph/0205045, p. 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the i=0 block the normalized restriction vanishes exactly when K_r(k;d)=0. For a union of shells the restriction is the stacked single-shell evaluations; its kernel is their intersection."
+        ],
+        "reasoning": "For r=2 the scalar vanishes precisely when (d−2k)^2=d, which gives the two binomial coefficients at integer parity and their sum. For r=1, d−2k=0, and K_2 at that point is −d/2. Therefore no i=0 dark vector remains under both losses. Neither the all-d corner statement nor the asymptotic of its already determined square weights offers a distinct surviving theorem on this evidence.",
+        "searches": [
+          "Resultary: corner-start absorption hypercube two complete Hamming shells radius one and radius two no dark radial modes Krawtchouk",
+          "519ce4796df0, mirror Proof §§1–3, offsets 0–7837, especially the displayed exact restriction scalar"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 519ce4796df0, Finding and Proof §§1–3, gives the signed-incidence restriction from each Walsh energy sector to the complete sphere and a block diagonal scalar formula."
+        ],
+        "reasoning": "The corner is the i=0 vector on each frequency shell, since all Walsh characters equal one at the origin. The prior's K_(d,k)(r) in that block is dual to the manuscript's K_r(k;d) by binom(d,r)K_(d,k)(r)=binom(d,k)K_r(k;d). The normalized Walsh characters give each corner energy weight binom(d,k)/2^d directly. The full shell survival law is therefore covered.",
+        "searches": [
+          "Resultary: continuous-time quantum walk hypercube corner initial state uniform absorbers Hamming shell no-jump survival Krawtchouk zero perfect-square dimension",
+          "Resultary: quantum hypercube corner no-jump norm survival all vertices distance two imaginary potential K2 k dimension square k=(d±sqrt d)/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e101f1ca9cf7 gives the origin's exact capture for radius one: 1−binom(d,d/2)/2^d for even d and 1 for odd d. 519ce4796df0 gives exact scalar formula data for every radius and energy."
+        ],
+        "reasoning": "The radius-one formula directly overlaps a subcase. A standalone table of square-dimension weights is not needed to show overlap: the exact r=2 formula is a specialization of the checked block formula, not an independent numerical invariant.",
+        "searches": [
+          "Resultary: Hamming shell corner survival Krawtchouk zeros exact fractions by dimension",
+          "Resultary e101f1ca9cf7, radius-one formula in Finding",
+          "Resultary 519ce4796df0, exact all-radius formula in Finding"
+        ]
+      },
+      "rationale": "The distinct same-day indexed all-shell harmonic-restriction theorem covers the substantive results, even though it does not print the particular square-dimension fraction. It treats the same Hamiltonian with more general positive site losses and gives the entire shell restriction on each harmonic summand. Its i=0 block is precisely the corner-relevant block; both the r=2 classification and the shells-1-plus-2 statement are direct polynomial specializations. This is demonstrable coverage, not a claim of which record was first.",
+      "residual_risks": [
+        "No priority ordering can be inferred between distinct same-day records. The bounded search does not decide whether an even earlier source stated the square case; the verified stronger indexed comparison already decides coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger coverage; i=0 specialization suffices for the entire corner claim",
+          "evidence": "M_(r,w) I_(w,i)h=(−2)^i K_(d−2i,w−i)(r−i) I_(r,i)h, with orthogonal harmonic input summands and arbitrary positive loss on the shell.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-sharp-coherent-absorption-by-hamming-spheres-on-quantum-h--519ce4796df0/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–3 and opening central-shell cases, mirror offsets 0–7837",
+          "method": "Indexed local mirror, two bounded decisive passages",
+          "title": "Parity-sharp coherent absorption by Hamming spheres on quantum hypercubes",
+          "trigger": "Distinct same-day exact all-radius result on the same no-jump model"
+        },
+        {
+          "assessment": "Covers radius one directly, but not pair (1,2) by itself",
+          "evidence": "Gives sitewise capture for loss supported on the complete radius-one shell, including the parity-dependent origin result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-hamming-one-detector-shells-on-hypercubes-exact-capture-and-a-pa--e101f1ca9cf7",
+          "material_read": "RESULT.md Finding, mirror offsets 0–4394",
+          "method": "Indexed local mirror",
+          "title": "Hamming-one detector shells on hypercubes: exact capture and a parity obstruction",
+          "trigger": "Exact earlier radius-one corner capture model"
+        },
+        {
+          "assessment": "Shares method, not the multi-site shell formula",
+          "evidence": "Single-trap capture is controlled by energy projections; the hypercube example puts that trap at the origin and computes capture from another vertex.",
+          "identifier_or_url": "https://doi.org/10.1038/srep13304",
+          "material_read": "P. 2 trap overlap and p. 11 hypercube passage including eq. (46), offsets 11785–12184 and 67691–70795",
+          "method": "OA primary full text, bounded passages",
+          "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+          "trigger": "Primary continuous-time hypercube transport antecedent with radial reduction"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": "Discrete-time quantum walks and absorbing probability/time are studied, not a continuous-time no-jump shell loss operator.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0205045",
+          "material_read": "P. 2, offsets 5900–9359, and scope of the absorbing-vertex example",
+          "method": "OA primary PDF passage",
+          "title": "Analysis of Absorbing Times of Quantum Walks",
+          "trigger": "Published hypercube absorption analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact shell absorption on hypercubes is a worthwhile problem, but in the presence of the verified all-shell restriction the claimed contribution reduces to its trivial-harmonic summand, a quadratic zero calculation and the intersection of two scalar kernels. The exact fractions and the standard Stirling estimate do not provide a further independent contribution. The nonradial witness diagnoses a scope issue rather than rescuing the already-covered corner theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:05:08.856156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings, assumptions and Proof §§1–5",
+        "Frozen VERIFICATION.md lines 21–32 and artifacts/verify_mixed_multipartite.py"
+      ],
+      "rationale": "Projecting onto constants, zero-sum partwise constants and the within-part differences gives eigenvalues 0, N and N−s, respectively. The diagonal and cross-part signs are immediate; a pair within a part of fraction p has sign given by F_p(x)−kappa with x=N(1+N eta)t. The integrand g_p increases strictly from 0 to 1/p, so its running average crosses each kappa in (0,1) exactly once; it decreases strictly with p, making the largest part decisive. At t=0 the matrix is the identity. In x coordinates the optimized quantity NT has derivative 1−g_p(x); its one zero, x*=log((2−p)/(1−p)), lies in range since the running average is less than g_p(x*)=1. Substituting p+(1−p)e^(−x*)=1/(2−p) gives the stated value. Strict ordering persists after maximization by evaluating at the attained optimizer for the smaller p. The one-deleted-edge graph is one minimizer, not the only one: all noncomplete graphs with largest part two tie. The star is the unique maximizing shape up to isomorphism. The expansion g_p(x)=x+O(x²) and continuity at the inverse level 1 give the coupling limits; taking p→0 and p→1 verifies the shape ratio. Complete graphs stay nonnegative. The nested checker was inspected, not executed; the recorded numerical checks are corroboration only.",
+      "residual_risks": [
+        "Claims are for the unweighted counting-measure Laplacian; the proof does not transfer directly to normalized or conductance-weighted graphs.",
+        "The finite matrix checker is not a proof of the continuum statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3c42bf2de9e9, Finding and Assumptions: exact recovery and unique mixed optimizer on connected noncomplete strongly regular graphs; balanced complete multipartite graphs satisfy these hypotheses.",
+          "9cfe1fe8d12f gives the star threshold and optimizer at m=N−1."
+        ],
+        "reasoning": "Strong regularity requires regular degrees, hence equal part sizes for complete multipartite graphs. The strongly regular and star theorems together still leave general unequal multipartitions and their ordering uncovered. The same date does not establish priority.",
+        "searches": [
+          "Resultary: unique worst positivity delay for mixed heat on strongly regular graphs, 3c42bf2de9e9",
+          "Resultary: mixed heat on stars, 9cfe1fe8d12f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary findings e4f9c89a420f, 690509e7de2b, 9cfe1fe8d12f and 3c42bf2de9e9",
+        "Gregorio–Mugnolo arXiv:1712.07370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pure cutoff is the level F_p(x)=1, not the mixed family of levels kappa in (0,1). The general filter calculation supplies entries but not the monotone integral reduction and the unique finite optimizer. The balanced and star formulas give exact slices, not the unequal-part comparison across all sizes."
+        ],
+        "reasoning": "The new inference concerns the entire positive-time crossing as kappa varies, its sharp optimization and the comparison of different largest-part sizes, not merely replacing L² by a mixture in a known formula.",
+        "searches": [
+          "e4f9c89a420f, RESULT.md Finding",
+          "690509e7de2b, RESULT.md Finding and proof of entry formulas",
+          "3c42bf2de9e9 and 9cfe1fe8d12f, RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "690509e7de2b, Finding and All entry types: general f(hL) entry formulas and a criterion uniform in graphs and scales.",
+          "Gregorio–Mugnolo, Proposition 2.3: positivity for all times for the pure squared-Laplacian generator under its hypotheses."
+        ],
+        "reasoning": "The filter identity subsumes the initial matrix formulas. The cited filter criterion tests uniform positivity, not a fixed graph's time crossing and finite-strength maximum, and all-times positivity is not a recovery-time statement.",
+        "searches": [
+          "Resultary: complete multipartite mixed heat positivity and sharp recovery",
+          "Resultary: an exact positivity criterion on complete multipartite diffusion graphs, 690509e7de2b",
+          "arXiv:1712.07370"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact symbolic entries give the pure-biheat limit or mixed cutoffs and optimizers on restricted subfamilies. The frozen numerical table is finite verification, not earlier coverage."
+        ],
+        "reasoning": "A table of values at finitely many graph sizes or couplings would not imply the all-eta root and unique optimizer. The relevant symbolic entries were compared instead.",
+        "searches": [
+          "Resultary exact cutoff entries e4f9c89a420f, 9cfe1fe8d12f and 3c42bf2de9e9"
+        ]
+      },
+      "rationale": "The supported distinct content is the sharp finite-coupling recovery and unique optimizer on general, possibly unequal multipartitions, with strict largest-part ordering and its optimized shape comparison. Pure-generator, star and balanced multipartite overlaps are real but do not imply that content. The spectral decomposition and generic scalar-filter formulas are not counted as new.",
+      "residual_risks": [
+        "The bounded search does not certify history or exclude an unindexed equivalent mixed-exponential theorem.",
+        "No date-based priority inference is made for the overlapping star or strongly regular publications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact limiting overlap, no finite mixed optimization",
+          "evidence": "The pure e^(−tL²) root is recovered by kappa→1 after rescaling time.",
+          "identifier_or_url": "e4f9c89a420f",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Identical graph scope and exact positivity cutoff"
+        },
+        {
+          "assessment": "Supplies general entries, not the announced mixed threshold and optimization",
+          "evidence": "The necessary-and-sufficient scalar condition is uniform over graphs and scales.",
+          "identifier_or_url": "690509e7de2b",
+          "material_read": "RESULT.md Finding and Proof, All entry types",
+          "method": "Resultary and local mirror",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "General filtered Laplacian positivity"
+        },
+        {
+          "assessment": "Exact star restriction only; chronology unresolved",
+          "evidence": "Specializes to m=N−1 and has the same leaf-pair crossing and optimizer.",
+          "identifier_or_url": "9cfe1fe8d12f",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary local mirror and frozen-source comparison",
+          "title": "Unique worst positivity delay for Laplacian–bi-Laplacian heat on every star",
+          "trigger": "Exact same-generator optimizer on the upper extremal graph family"
+        },
+        {
+          "assessment": "Exact overlap in balanced multipartite graphs, not arbitrary part sizes; chronology unresolved",
+          "evidence": "Strong regularity imposes regular degree and the theorem treats connected noncomplete strongly regular graphs.",
+          "identifier_or_url": "3c42bf2de9e9",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary and local mirror",
+          "title": "A unique worst positivity delay for mixed heat on every strongly regular graph",
+          "trigger": "Broader-looking exact same-generator result"
+        },
+        {
+          "assessment": "All-times positivity for the pure bi-Laplacian, not mixed cutoff optimization",
+          "evidence": "The statement concerns e^(−tL²), without an adjustable mixture.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.07370",
+          "material_read": "PDF p. 8, Proposition 2.3",
+          "method": "OA primary text",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Primary graph biheat positivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Related exact pure and regular-family results e4f9c89a420f and 3c42bf2de9e9"
+      ],
+      "rationale": "The exact global sign boundary and unique worst strength answer a natural question not settled by eventual positivity. The reduction shows that the largest part alone governs the delay even among highly unequal shapes, resolves all extremal ties, and gives a quantitative limiting comparison of optimized delays.",
+      "residual_risks": [
+        "Value is claimed for this natural graph family, not for arbitrary networks or numerical integrators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
